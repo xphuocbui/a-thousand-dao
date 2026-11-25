@@ -1,0 +1,55 @@
+{
+ "sect": "thai_chi",
+ "_doc": "Thải Chi Cốc lineage (rules-proposals R5). Seat fits Wood, Water (unchanged). Outer gate: lingzhi-pickers-song (Yellow, Wood or Water). Inner gate and above: shang-mountain-lingzhi-canon (Earth, Wood first, Water). Secret arts: hundred-herbs-tasting (inner gate), grain-rain-canon (elders, Water + Wood). The hired alchemist guest elder runs an outside Fire method (R2 exception). Proposals are unpriced.",
+ "lineage": {
+  "outer": "lingzhi-pickers-song",
+  "main": "shang-mountain-lingzhi-canon",
+  "secret": [
+   {"id": "hundred-herbs-tasting", "rank": "noi_mon"},
+   {"id": "grain-rain-canon", "rank": "truong_lao"}
+  ],
+  "body": null,
+  "elements": ["moc", "thuy"],
+  "tree_route": [788, 5710, 5759],
+  "tree_route_note": "Forest Floor, Herb Seed, Wild Ginseng: the valley's herb terraces, the mistress's own opening; every child of the valley weeds before it fights."
+ },
+ "techniques": [
+  {
+   "id": "lingzhi-pickers-song",
+   "name": "Lingzhi Pickers' Song (Thải Chi Ca)",
+   "tier": 0, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The outer gate's method is a work song. The children sing the old song of the four hermits while they weed and water the herb terraces, and breathe in time with it, so that Wood qi comes in with the weeding and Water qi with the watering. A child of either root can begin. Most of the valley's outer disciples never cultivate past it, and grow very good herbs.",
+   "arts": ["seed-of-spring", {"new": "Weeding Hand (Sừ Thảo Thủ)", "concept": "Strips one buff from a foe and heals the holder a little for each buff stripped this fight."}],
+   "lore": "The founders sang it as they came into the valley in 480 (A071): the song of four old men who would not go down from their mountain to serve an emperor, and picked lingzhi instead.",
+   "status": "proposal"
+  },
+  {
+   "id": "shang-mountain-lingzhi-canon",
+   "name": "Shang Mountain Lingzhi Canon (Thương Sơn Chi Kinh)",
+   "tier": 2, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 12, "rank": "noi_mon",
+   "concept": "The valley's canon grows qi the way the valley grows herbs. The cultivator plants a seed of Wood qi in each meridian and waters it with Water qi, and a layer is a harvest. It is slow, deep and very hard to kill. In a fight its arts seed a foe with spores that ripen into Wood stacks, heal the holder from each harvest, and at the twelfth layer let her come back once from a killing blow, like a herb cut to the root that grows again.",
+   "arts": ["harvest-bloom", "second-spring", {"new": "Lingzhi Spores (Chi Bào)", "concept": "Seeds a foe with spores that ripen into Wood stacks over a few seconds; a ripe stack heals the holder when it bursts."}],
+   "lore": "Written in no book: the valley sings it. The founders said they had it from the four hermits' song; the pines say they had it from a Tùng Đào steward in 520, when the first spirit-herb fields were planted (A072). Both may be true.",
+   "status": "proposal"
+  },
+  {
+   "id": "hundred-herbs-tasting",
+   "name": "Hundred Herbs Tasting (Bách Thảo Thường Quyết)",
+   "tier": 1, "tech_kind": "secret", "names": ["moc"], "layers": 9, "rank": "noi_mon",
+   "concept": "The taster's method. An inner disciple tastes every herb of the valley, poisons first, and learns to take each into her meridians and break it there. At the ninth layer she can name any poison by its taste and hold three of them at once. In a fight it makes the holder hard to poison and lets her turn a poison on her back into a cure.",
+   "arts": [{"new": "Taste and Name (Thường Danh)", "concept": "Cleanses one poison or Wood debuff from the holder and gives her resistance to that debuff for the rest of the fight."}, {"new": "Bitter Medicine (Khổ Dược)", "concept": "A passive art. While you carry fewer than 10 Poison stacks, each Poison tick on you deals nothing and heals you for half the damage it would have dealt; at 10 stacks or more, Poison ticks on you deal damage as usual.", "effect": "bitter-medicine", "unlock_layer": 3, "authored": "d33"}],
+   "lore": "Every valley-mistress has tasted the hundred herbs. Nghiêm Linh Chi tasted them twice, the second time in 1000, the year she opened the fields to the orphans (A078), because she had to know which herbs a child could weed safely.",
+   "status": "proposal",
+   "authored": "d33"
+  },
+  {
+   "id": "grain-rain-canon",
+   "name": "Grain Rain Canon (Cốc Vũ Kinh)",
+   "tier": 2, "tech_kind": "secret", "names": ["thuy", "moc"], "layers": 12, "rank": "truong_lao",
+   "concept": "The elders' secret is named for the spring rain that falls on the sown fields. The holder calls a fine rain of Water qi over the ground she stands on, and everything rooted in it heals and grows, whether herb, ally or Wood stack. Its strongest form waters a dying field back to life, and the valley has used it twice on the river floods.",
+   "arts": [{"new": "Grain Rain (Cốc Vũ)", "concept": "A rain field for several seconds: allies in it heal over time, and foes in it have their Wood stacks grow by one each second."}],
+   "lore": "Made by the valley's second mistress after the great flood of 700 (A074), to bring the drowned fields of the river back. Taught to the mistress and the field-warden.",
+   "status": "proposal"
+  }
+ ]
+}

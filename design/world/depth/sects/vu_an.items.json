@@ -1,0 +1,160 @@
+{
+ "sect": "vu_an",
+ "_doc": "Vụ Ẩn Môn signature items (rules-proposals R7). Unpriced proposals; modifier sizes follow the wood and water catalogues' grade 3 items. Prefix va-. No set.",
+ "items": [
+  {
+   "id": "va-mist-lock-lantern",
+   "name": "Mist-Lock Lantern (Tỏa Vụ Đăng)",
+   "family": "wood",
+   "kind": "treasure",
+   "base": "dang",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "evade_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "cast_ward_duration_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "accuracy_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "the-mist-does-not-ask",
+     "name": "The Mist Does Not Ask (Vụ Bất Vấn)",
+     "rule": "While you stand inside your own mist field, your mist does not fade; if you leave it, it fades twice as fast."
+    }
+   ],
+   "lore": "A pole-lantern of horn panes and black pine, the first mist lantern, hung by Hàm Thủ Lộ at the Trà Viên crossroads in 1050 (N-vu_an-01). In 1146 it was found burning on the road by empty Đồng Sơn Trấn, and nothing else of him was (N-vu_an-03). Bàng Yên Tỏa carries it. Hàm Thanh Đăng, the founder's daughter, wants it.",
+   "build_use": "Holds the Mist-Lock field steady and keeps its keeper hard to hit.",
+   "holder": "bang_yen_toa",
+   "made_by": "ham_thu_lo",
+   "made_year": 1050,
+   "set": "va-road-mist",
+   "status": "proposal"
+  },
+  {
+   "id": "va-bobtail-axe",
+   "name": "Bobtail Axe (Đoản Vĩ Phủ)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "phu",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 18,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "out-of-the-mist",
+     "name": "Out of the Mist (Xuất Vụ)",
+     "rule": "Your first hit after leaving a mist field strikes 20 % harder. By the sect's rule it is never struck from inside the mist."
+    }
+   ],
+   "lore": "A woodsman's axe re-hafted in lynx-bone, carried by the robbers of Đoản Vĩ Cương (1043). Its owner brought it with him when the founder hid him from Thúy Vi's patrol in 1081 (N-vu_an-02). It has killed men on both sides of the law.",
+   "build_use": "The road captain's: hits hard coming out of the mist and stands in the road.",
+   "holder": "trieu_ngu_lang",
+   "made_by": "a smith of the cape",
+   "made_year": 1040,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "va-milestone-flag",
+   "name": "Milestone Flag (Lý Bia Kỳ)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "ky",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "evade_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A grey road-flag painted with the same mist seal as the milestones; set in the ground, it is one more pin of the array.",
+   "build_use": "Holding a mist field: evasion and linh lực.",
+   "holder": "bang_yen_toa",
+   "made_by": "bang_yen_toa",
+   "made_year": 1146,
+   "set": "va-road-mist",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "va-road-mist",
+   "name": "Road Mist (Lộ Vụ)",
+   "pieces": [
+    "va-mist-lock-lantern",
+    "va-milestone-flag"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "evade_pct",
+       "value": 3,
+       "scope": []
+      },
+      {
+       "key": "linh_luc_regen_inc_pct",
+       "value": 6,
+       "scope": []
+      }
+     ],
+     "effect": "Nobody Looked (Vô Nhân Cố): while your mist formation holds, the first art aimed at you every 8 s misses; when you leave the field, the mist holds 3 s longer."
+    }
+   ],
+   "story": "The lantern found burning on the road in 1146 and the flag he painted that night: the cape roads' mist in two things a carrier can hold."
+  }
+ ]
+}

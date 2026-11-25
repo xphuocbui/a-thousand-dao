@@ -1,0 +1,95 @@
+{
+ "sect": "tuan_tung",
+ "_doc": "Tuần Tùng Đường lineage (rules-proposals R5). NO-LEAN (R3): Wood, Metal -> leans []. A body school (thể tu) of road wardens: staff and bow cultivated through the body, on no element; it recruits by căn cốt and by who stood on the road. Outer gate: unbroken-flesh-canon (existing, Yellow body). Inner gate and above: pine-warden-staff-and-bow-canon (Profound, body-led main, no element). Secret arts: three-nights-on-the-road (inner gate), wolf-winter-arrow (the head's; elders). Proposals are unpriced.",
+ "lineage": {
+  "outer": "unbroken-flesh-canon",
+  "main": "pine-warden-staff-and-bow-canon",
+  "secret": [
+   {
+    "id": "three-nights-on-the-road",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "wolf-winter-arrow",
+    "rank": "truong_lao"
+   }
+  ],
+  "body": null,
+  "elements": [],
+  "tree_route": [6281, 6312],
+  "tree_route_note": "Strong Sapling and Climbing Vine: a warden's body and the health that comes back each breath on the third night. The lineage has no element; priced from Wood, the start of most of its A/B members (19; Metal 41)."
+ },
+ "techniques": [
+  {
+   "id": "pine-warden-staff-and-bow-canon",
+   "name": "Pine Warden's Staff and Bow Canon (Tuần Tùng Côn Cung Kinh)",
+   "tier": 1,
+   "tech_kind": "main",
+   "names": [],
+   "layers": 9,
+   "rank": "noi_mon",
+   "concept": "The wardens' method is cultivated on the road. Qi is drawn in with each pull of the bow and driven into the bone with each turn of the staff, so a warden cultivates by walking his road, shooting and fighting. It runs on no element: the strength is the body's. In a fight it is a guard's method, with long shots that pin a foe in place and a staff that turns a crowd away from the wagons behind it.",
+   "arts": [
+    "pinning-arrow",
+    "nocked-arrow",
+    {
+     "new": "Wolf Ring (Lang Hoàn)",
+     "concept": "A full turn of the staff that strikes the foe and Displaces it (heavy).",
+     "authored": "a1"
+    },
+    {"new": "Geese Line (Nhạn Hàng)", "concept": "A passive art. While you count two or more allies (you, companions, Pieces), you gain block for each ally beyond yourself.", "effect": "geese-line", "authored": "d17"}
+   ],
+   "lore": "Put together by Hứa Vãn Cung and the first wardens in the winter of 1191, from caravan guards' habits and the Coiled Root Hall's bow drill, the year after the wolves (A064, V043).",
+   "status": "proposal",
+   "passives": [
+    {"key": "khi_huyet_pct", "value": 6.6, "scope": []},
+    {"key": "can_cot", "value": 1.33, "scope": []},
+    {"key": "health_regen_inc_pct", "value": 13.3, "scope": []},
+    {"key": "attack_pct", "value": 6, "scope": ["bow"]},
+    {"key": "crit_damage_pct", "value": 20, "scope": ["bow"]}
+   ],
+   "authored": "b1, b10, a1, d17"
+  },
+  {
+   "id": "three-nights-on-the-road",
+   "name": "Three Nights on the Road (Tam Dạ Thủ Lộ Quyết)",
+   "tier": 1,
+   "tech_kind": "secret",
+   "names": [],
+   "layers": 9,
+   "rank": "noi_mon",
+   "concept": "The art of not sleeping. In the wolf winter Hứa Vãn Cung held the Tùng Hạ road for three nights without closing his eyes, and the wardens learned to keep a body going on breath alone. The holder grows harder the longer a fight lasts: health returns a little each second, and after the first minute their blows land heavier.",
+   "arts": [
+    {
+     "new": "Second Night (Đệ Nhị Dạ)",
+     "concept": "Once your glow clock (the fight's time plus 1 s per 2 % of health lost to blows this fight) passes 30 s, you regenerate health each second and your staff and bow arts deal more damage.",
+     "authored": "d3"
+    }
+   ],
+   "lore": "Taught to every inner warden on the anniversary of the third night of 1190.",
+   "status": "proposal",
+   "authored": "d3"
+  },
+  {
+   "id": "wolf-winter-arrow",
+   "name": "Wolf-Winter Arrow (Lang Đông Tiễn)",
+   "tier": 1,
+   "tech_kind": "secret",
+   "names": [],
+   "layers": 9,
+   "rank": "truong_lao",
+   "concept": "The head's art: one arrow at the pack's leader. The holder marks the strongest foe on the field; their arrows at the marked foe pierce wards, and when it falls the others hesitate. It is the shot that ended the wolf winter.",
+   "arts": [
+    {
+     "new": "The Leader First (Tiên Xạ Đầu Lang)",
+     "concept": "Marks the foe; arrows at it ignore part of its ward, and when it is Broken it gains two Slowed Time stacks.",
+     "authored": "a1, b10",
+     "tags": ["bow"]
+    }
+   ],
+   "lore": "On the third night of 1190 Hứa Vãn Cung shot the grey wolf that led the pack, and the rest went back into the pines (A064). He teaches it to his elders only.",
+   "status": "proposal",
+   "authored": "a1, b10"
+  }
+ ]
+}

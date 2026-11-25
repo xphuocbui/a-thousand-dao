@@ -1,0 +1,503 @@
+{
+ "sect": "da_quang",
+ "people": [
+  {
+   "key": "trac_hong_da",
+   "name_hv": "Trác Hồng Đà",
+   "name_han": "卓紅駝",
+   "gloss": "Red camel",
+   "sex": "M",
+   "born": 1070,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "da_quang",
+   "rank": "noi_mon",
+   "home": 16,
+   "birthplace": 1404,
+   "role": "Keeper of the horse lines; an old rider of the knee of 1121",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 52,
+     "tho": 44,
+     "kim": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Loyal",
+     "Pragmatic"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "He rode with Hạng Dạ Bôi (hang_da_boi) before 1121 and knelt beside him. He keeps the horse lines now, and tells the young blades that a debt you cannot collect is better carried than paid twice.",
+   "ties": [
+    {
+     "to": "hang_da_boi",
+     "kind": "master",
+     "note": "knelt beside him in 1121"
+    },
+    {
+     "to": "o_liet_phong",
+     "kind": "friend",
+     "note": "the other old rider"
+    },
+    {
+     "to": "cuu_lac_nhat",
+     "kind": "rival",
+     "note": "the young blade who calls the knee shame"
+    },
+    {
+     "to": "dan_muc_lang",
+     "kind": "disciple",
+     "note": "groom of the horse lines"
+    },
+    {
+     "to": "dieu_luu_ly",
+     "kind": "friend",
+     "note": "blows the glass cups of the poorer riders"
+    }
+   ],
+   "master": "hang_da_boi",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "night-glow-blood-sabre-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "debt-ledger-blade",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire, held long."
+    }
+   },
+   "changed": "fix pass A: gear + phi_kiem (a sabre-canon kiem_tu wears a blade); the sabre rides on a phi_kiem base until the item bases gain a sabre (Item DB open question)"
+  },
+  {
+   "key": "co_xich_nguyet",
+   "name_hv": "Cổ Xích Nguyệt",
+   "name_han": "古赤月",
+   "gloss": "Red moon",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "da_quang",
+   "rank": "noi_mon",
+   "home": 16,
+   "birthplace": 16,
+   "role": "Granddaughter of the first cup-bearer; pours for the young blades",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 56,
+     "kim": 36,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Brave",
+     "Vengeful"
+    ],
+    "calling": "Duelist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Granddaughter of Cổ Mạc Phong (co_mac_phong), she carries his jade cup and pours for Hạng Lưu Hỏa's (hang_luu_hoa) young blades. She left the first taunting cup at a caravan stop in 1194.",
+   "ties": [
+    {
+     "to": "co_mac_phong",
+     "kind": "grandparent",
+     "note": "the first cup-bearer"
+    },
+    {
+     "to": "do_xich_linh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "hang_luu_hoa",
+     "kind": "friend",
+     "note": "rides at her side"
+    }
+   ],
+   "master": "do_xich_linh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "night-glow-blood-sabre-canon",
+     "layer": 3
+    },
+    "aux": [
+     {
+      "tech": "debt-ledger-blade",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire and blood."
+    }
+   }
+  },
+  {
+   "key": "na_lac_linh",
+   "name_hv": "Na Lạc Linh",
+   "name_han": "那駱鈴",
+   "gloss": "Camel bell",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "da_quang",
+   "rank": "ngoai_mon",
+   "home": 1418,
+   "birthplace": 1418,
+   "role": "Escort rider on the Đà Linh road",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 38,
+     "tho": 36,
+     "moc": 18
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Honest",
+     "Content"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A camel-bell maker's daughter of Đà Linh Trấn, she rides behind Ô Liệt Phong (o_liet_phong) on the Hồi Lan road and waves each morning to Trấn Sa's watcher Nhiếp Cô Đăng (nhiep_co_dang), who rides one dune behind.",
+   "ties": [
+    {
+     "to": "o_liet_phong",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "o_liet_phong",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "red-sand-sabre-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire."
+    }
+   },
+   "changed": "fix pass A: gear thuan -> phi_kiem (a sabre-primer kiem_tu wears a blade); the sabre rides on a phi_kiem base until the item bases gain a sabre (Item DB open question)"
+  },
+  {
+   "key": "dan_muc_lang",
+   "name_hv": "Đan Mục Lang",
+   "name_han": "丹牧郎",
+   "gloss": "Herd boy",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "da_quang",
+   "rank": "ngoai_mon",
+   "home": 16,
+   "birthplace": 1421,
+   "role": "Groom of the horse lines",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 46,
+     "hoa": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Peaceable",
+     "Loyal"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A shepherd's son of Dương Bằng Thôn with more Earth than Fire, he knows he will be an escort for life and does not mind. Trác Hồng Đà (trac_hong_da) has given him the head's grey mare to keep.",
+   "ties": [
+    {
+     "to": "trac_hong_da",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "trac_hong_da",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "red-sand-sabre-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    }
+   },
+   "changed": "fix pass A: archetype tan_tu -> kiem_tu (a sect member on the sabre primer, not a loose cultivator); fix pass A: gear giap -> phi_kiem (the sabre school's primer); the sabre rides on a phi_kiem base until the item bases gain a sabre (Item DB open question)"
+  },
+  {
+   "key": "kieu_liet_ca",
+   "name_hv": "Kiều Liệt Ca",
+   "name_han": "喬烈歌",
+   "gloss": "Fierce song",
+   "sex": "M",
+   "born": 1175,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "da_quang",
+   "rank": "noi_mon",
+   "home": 16,
+   "birthplace": 1404,
+   "role": "Young blade; Cừu Lạc Nhật's disciple",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 50,
+     "tho": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Wrathful",
+     "Warlike",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Cừu Lạc Nhật (cuu_lac_nhat) taught him to feed the sabre before he could hold it steady. His cuts have begun to bleed black, and Đồ Xích Linh calls that progress.",
+   "ties": [
+    {
+     "to": "cuu_lac_nhat",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "man_xich_cau",
+     "kind": "rival",
+     "note": "the other young blade"
+    }
+   ],
+   "master": "cuu_lac_nhat",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "night-glow-blood-sabre-canon",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire fed on blood."
+    }
+   }
+  },
+  {
+   "key": "thoi_kim_doi",
+   "name_hv": "Thôi Kim Đới",
+   "name_han": "崔金帶",
+   "gloss": "Gold belt",
+   "sex": "F",
+   "born": 1177,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "da_quang",
+   "rank": "ngoai_mon",
+   "home": 16,
+   "birthplace": 35,
+   "role": "Trấn Sa guard's daughter who rode out to Dạ Quang in 1197",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 42,
+     "hoa": 32,
+     "thuy": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Paranoid",
+     "Brave"
+    ],
+    "calling": "Duelist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Raised at Trấn Sa's long table, she left in 1197 when Viên Cô Yên (vien_co_yen) refused her a sabre, and was welcomed loudly. Tất Dạ Lang (tat_da_lang) is the one deserter in the camp she does not trust.",
+   "ties": [
+    {
+     "to": "hang_luu_hoa",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tat_da_lang",
+     "kind": "rival",
+     "note": "she thinks his desertion is a lie"
+    }
+   ],
+   "master": "hang_luu_hoa",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "red-sand-sabre-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal, the guard blood."
+    }
+   }
+  },
+  {
+   "key": "dieu_luu_ly",
+   "name_hv": "Diêu Lưu Ly",
+   "name_han": "姚琉璃",
+   "gloss": "Glass",
+   "sex": "F",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "da_quang",
+   "rank": "ngoai_mon",
+   "home": 16,
+   "birthplace": 1404,
+   "role": "Blows the glass cups of the poorer riders",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 42,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Diligent",
+     "Pragmatic"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "She blows the glass cups the poorer riders drink from, and since 1194 has been asked for three times as many. She counts them, and has told Trác Hồng Đà (trac_hong_da) how many the young blades have left on the road.",
+   "ties": [
+    {
+     "to": "trac_hong_da",
+     "kind": "friend",
+     "note": "she tells him the cup count"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "red-sand-sabre-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire, the glass furnace."
+    }
+   },
+   "changed": "fix pass A: archetype tan_tu -> kiem_tu (a sect member on the sabre primer, not a loose cultivator); fix pass A: gear ho_lo -> phi_kiem (the sabre school's primer); the sabre rides on a phi_kiem base until the item bases gain a sabre (Item DB open question)"
+  }
+ ]
+}

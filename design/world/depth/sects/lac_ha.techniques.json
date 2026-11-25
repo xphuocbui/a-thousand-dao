@@ -1,0 +1,97 @@
+{
+ "sect": "lac_ha",
+ "_doc": "Lạc Hà Tông lineage (rules-proposals R5). Elements Earth first, then Wood: inner disciples and above hold Earth at 45 or more. Outer gate: evening-dust-primer (Earth or Wood; taught on the steppe at the old seat, place 4). Inner gate: mountain-heart-canon (Earth; existing). True disciples and elders: sunset-cloud-canon (the founder's method, Heaven tier; its upper layers need living Wood nearby, which is why the seat moved in 1185). Secret arts by rank: evening-song-of-the-boats (inner gate), ruin-ledger-scripture (inner gate, taught in the Counting House and the Hall of Scales; existing), long-sky-one-colour (elders; the war art), deep-vein-scripture (head; existing, found in the galleries under the new seat). Body: none (the sect hires Mục Vân Trang's riders and Nhạn Trận Môn's squads for hard bodies). Outside arts held by members (hundred-blades-canon, the head's purchase) are not taught. Proposals are unpriced.",
+ "lineage": {
+  "outer": "evening-dust-primer",
+  "inner": "mountain-heart-canon",
+  "main": "sunset-cloud-canon",
+  "secret": [
+   {"id": "evening-song-of-the-boats", "rank": "noi_mon"},
+   {"id": "ruin-ledger-scripture", "rank": "noi_mon", "note": "taught only to the Counting House and the Hall of Scales"},
+   {"id": "long-sky-one-colour", "rank": "truong_lao", "note": "also taught to the Geese Hall's true disciples"},
+   {"id": "deep-vein-scripture", "rank": "tong_chu", "note": "found in 1181 in the lowest silver gallery under Vân Kiều Trấn (N-lac_ha-04); the head alone reads it"}
+  ],
+  "body": null,
+  "elements": ["tho", "moc"],
+  "tree_route": [707, 3432, 3449],
+  "tree_route_note": "Solid Ground, Gate of Faith, Blessed Basin: a steady heart and a deep body for the long fight the Sunset Cloud canon wins after thirty seconds. Earth starts pay 19; the Maple Hall's and the singers' Wood starts pay 43 and the Water-start sailors 48, and take it all the same. Only a Luyện Khí Wood start (ta_quy_yen) cannot reach it."
+ },
+ "techniques": [
+  {
+   "id": "evening-dust-primer",
+   "name": "Evening Dust Primer (Mộ Trần Quyết)",
+   "tier": 0, "tech_kind": "main", "names": ["tho", "moc"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The outer gate's method, practised facing west on the steppe at the old seat for the hour the sun takes to set. The glow of a western evening is the plain's dust lit from below, and the primer teaches an Earth root to breathe that lit dust and a Wood root to breathe the grass as it turns gold. Either root carries a disciple through its six layers. The outer gate sits for it at dusk, an hour a day, by custom; the primer itself turns at any hour. The sixth layer, Dust Holds the Glow, leaves a faint red on the palms after sunset. If the disciple's Earth is strong enough to keep it until full dark, the inner gate opens.",
+   "arts": [
+    "millstone-palm",
+    {"new": "Dust in the Last Light (Tàn Chiếu Trần)", "concept": "A thrown handful of lit dust: a light Earth hit that lays one Earth stack and lowers the target's accuracy a little for 3 s. The outer gate's only fighting art."}
+   ],
+   "lore": "Nhan Cô Vụ taught it from his first year (290) to the herders who came to watch the old man sit in the grass at sunset. It was written down only in 600, when the outer gate grew past what one voice could teach. Since the seat moved in 1185 the outer gate has stayed on the steppe for it.",
+   "status": "proposal",
+   "passives": [
+    {"key": "dao_tam", "value": 0.66, "scope": []},
+    {"key": "khi_huyet_pct", "value": 3.3, "scope": []},
+    {"key": "breakthrough_chance", "value": 0.4, "scope": []},
+    {"key": "health_regen_inc_pct", "value": 6.6, "scope": []}
+   ],
+   "authored": "b1"
+  },
+  {
+   "id": "sunset-cloud-canon",
+   "name": "Drifting Sunset Cloud True Canon (Lạc Hà Chân Kinh)",
+   "tier": 3, "tech_kind": "main", "names": ["tho", "moc"], "layers": 15, "rank": "chan_truyen",
+   "concept": "The founder's method and the sect's name, from the line the west is proud of: the sunset clouds and the lone wild duck fly together, and the autumn water is one colour with the long sky. The practitioner lifts Earth qi off the ground as a glowing cloud and keeps it alive with Wood, the way grass holds dust in a dry wind. In a fight the cloud hangs over the field and grows heavier the longer the fight lasts: foes under it carry Earth stacks that thicken each breath, allies under it mend a little each breath, and the holder's strikes gain strength the longer the fight runs (the sect calls it the light going). It is slow to start and hard to outlast. Like every method it cultivates faster on land that matches it, and it matches Earth and Wood together: on dry Earth with thin Wood it is slow, and slowest where it is longest, in the upper layers. The founder wrote that warning down. For more than eight hundred years his maples grew round the hall, and no one needed it.",
+   "arts": [
+    "sinking-weight",
+    "second-spring",
+    {"new": "The Sunset Clouds Fly with the Lone Duck (Lạc Hà Cô Vụ Tề Phi)", "concept": "Raises a glowing cloud over the field for 10 s. Each second, foes under it gain an Earth stack and allies under it heal 1 % of their health. A foe at five Earth stacks under the cloud is slowed."},
+    {"new": "The Glow Deepens (Hà Thâm)", "concept": "A passive art. Your glow clock is the fight's time plus 1 s for every 2 % of your health lost to blows this fight; for every 6 s on it, your Earth arts deal 4 % more.", "authored": "d3"},
+    {"new": "Last Light on the Field (Tàn Chiếu Điền)", "concept": "Calls the cloud down on the foe. The hit is Earth damage multiplied by the foe's Earth stacks, which it consumes. It cannot fire before 10 s on your glow clock, unless the foe carries 10 or more Earth stacks.", "authored": "d3"}
+   ],
+   "lore": "Nhan Cô Vụ wrote it on the steppe in 290-330, when the founding hall stood among the maples he planted (A190). The first copy is written on hemp cloth from Tang Ma Thành and was carried up to the Cloud Bridge in 1185 in the head's own sleeve. Trầm Tịch Dương reached its fourteenth layer before the last seat maple died in 1131. No one has reached its eleventh on the old seat since.",
+   "status": "proposal",
+   "passives": [
+    {"key": "dao_tam", "value": 1.33, "scope": []},
+    {"key": "khi_huyet_pct", "value": 6.6, "scope": []},
+    {"key": "breakthrough_chance", "value": 0.8, "scope": []},
+    {"key": "health_regen_inc_pct", "value": 13.3, "scope": []}
+   ],
+   "authored": "b1, d3"
+  },
+  {
+   "id": "evening-song-of-the-boats",
+   "name": "Fishing Boats Sing at Dusk (Ngư Chu Xướng Vãn Khúc)",
+   "tier": 1, "tech_kind": "secret", "names": ["moc"], "layers": 9, "rank": "noi_mon",
+   "concept": "A song art, sung in the reed and maple voice of Wood qi. The river boats of Ngư Ca Xuyên were singing their song at dusk before the sect was founded. Nhan Cô Vụ heard it from the steppe in 290, set Wood qi into it, and gave each village back one verse of the art. Each village kept its verse, and only the inner gate knows all nine. In a fight it is a sustain song: allies who hear it recover linh lực and shake off fear, and foes lose a little speed. Since 803 the sect sings it one verse short. The ninth verse is sung only over the dead.",
+   "arts": [
+    {"new": "Coming Home at Dusk (Vãn Quy)", "concept": "A song held for as long as you pay 3 % of your maximum linh lực each second: allies nearby regain 2 % of their linh lực each second and their fear and slow effects run a third shorter.", "tags": ["song"], "authored": "b2"},
+    {"new": "Oars Together (Tề Trạo)", "concept": "A short verse: the next art each ally casts within 4 s is cast a little faster, and foes nearby cast a little slower for the same time.", "tags": ["song"], "authored": "b2"},
+    {"new": "The Ninth Verse (Đệ Cửu Khúc)", "concept": "Sung once, when you are first Wounded: for 10 s you take 10 % less damage, heal 1 % of your health each second and are Planted, and the foe's delays on your arts do not apply. Once per fight. The sect has not sung it in a battle since 803.", "tags": ["song"], "authored": "b2, d14, a1"}
+   ],
+   "lore": "The silence of the boats at dusk in 803 (A197, V091, V095, V103, V104) was the villages refusing to sing the sect's song after Chiết Kích Nguyên. In 805 Nhan Cô Vụ dropped the last verse from the inner gate's teaching, so that the sect would sing one verse fewer, like its villages.",
+   "status": "proposal",
+   "passives": [
+    {"key": "dao_tam", "value": 1.33, "scope": []},
+    {"key": "khi_huyet_pct", "value": 6.6, "scope": []},
+    {"key": "breakthrough_chance", "value": 0.8, "scope": []},
+    {"key": "health_regen_inc_pct", "value": 13.3, "scope": []}
+   ],
+   "authored": "b1, b2, d14, a1"
+  },
+  {
+   "id": "long-sky-one-colour",
+   "name": "Autumn Water and the Long Sky (Thu Thủy Trường Thiên Kinh)",
+   "tier": 2, "tech_kind": "secret", "names": ["tho", "moc"], "layers": 12, "rank": "truong_lao",
+   "concept": "The elders' war art, named for the second half of the founder's line: the autumn water is one colour with the long sky. The holder spreads Earth and Wood qi across a field until ground, grass and sky look one colour, so a foe inside cannot judge distance or tell which shapes are men. The holder sees clearly. Inside the field the holder's arts strike every foe in it at reduced weight, and foes lose accuracy and hidden things are revealed. It needs a rank: with fewer than three allies standing in the field it is weak, which is why the sect fights as a line and lost at Thiết Tỏa Quan.",
+   "arts": [
+    "quarry-offering",
+    {"new": "One Colour (Nhất Sắc)", "concept": "A field 12 s long: foes inside lose 15 % accuracy and cannot be hidden; your single-target Earth arts hit the foe again for 30 % of their damage while the field holds.", "authored": "a1"},
+    {"new": "Geese Startled by the Cold (Nhạn Trận Kinh Hàn)", "concept": "While your field is up and you count three or more allies (you, companions, Pieces), you take 8 % less damage and your Earth stacks on the foe last 2 s longer. If you fight Alone inside it, 40 % of each hit is held back and lands over the next 4 s instead, and healing pays it off first.", "authored": "d4, a1"},
+    {"new": "Geese Line (Nhạn Hàng)", "concept": "A passive art. While you count two or more allies (you, companions, Pieces), you gain block for each ally beyond yourself.", "effect": "geese-line", "authored": "d17"}
+   ],
+   "lore": "Nhan Tề Phi wrote it in 590-610 for the War of the Petal Shore, out of her father's line and the geese of Nhạn Thanh Thành. It won the bay in 620. It also lost the field at Chiết Kích Nguyên in 803, where Quý Trường Kích fought it from inside a ring of halberds. Cảnh Trường Thiên teaches it now, and adds the geese stance Nhạn Trận Môn drills with (V096).",
+   "status": "proposal",
+   "authored": "d4, a1, d17"
+  }
+ ]
+}

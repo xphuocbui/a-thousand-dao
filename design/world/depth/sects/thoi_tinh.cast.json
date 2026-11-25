@@ -1,0 +1,1197 @@
+{
+ "sect": "thoi_tinh",
+ "people": [
+  {
+   "key": "cat_luu_quang",
+   "name_hv": "Cát Lưu Quang",
+   "name_han": "葛流光",
+   "gloss": "A streak of starlight",
+   "sex": "M",
+   "born": 960,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "thoi_tinh",
+   "rank": "tong_chu",
+   "home": 23,
+   "birthplace": 250,
+   "role": "Head of Thối Tinh Môn since 1050, weapon forging from star iron; the only smith on the mountain who can hold the Rite of the Fallen Star",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 80,
+     "hoa": 62
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 72,
+    "than_hon": 64,
+    "khi_van": 58,
+    "dao_tam": 70,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Stubborn",
+     "Temperate"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "forge_scarred",
+     "fire_tempered"
+    ],
+    "lifestyle": "collector",
+    "health": "old_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A short, thick man with a burnt beard and forearms speckled white with old spark scars, who listens to every blade he picks up before he looks at it.",
+   "backstory": "Cát Lưu Quang was born among the sulphur gatherers at Xích Viêm Khẩu, the one fire vent in Ngọc Hành Sơn, and came up to the gate at twelve with a Fire root the mountain had not seen in a generation. The smiths' saying is that the mountain gives iron and the coal gives fire, and that a smith who is his own fire is born once a century. He was twenty when the gate bought the star that fell near Thanh Bách for three years of the city's taxes (A093). It lay unworked for seventy years, because no coal fire would soften it. In 1050 he became head and forged it in one winter by the Rite of the Fallen Star (A231), and named the blade for its price. He has two sons. The elder, Cát Đoán Nhạc (cat_doan_nhac), has no Fire. The younger, Cát Thối Phong (cat_thoi_phong), has it, and in 1170 Cát lent him to the Pivot as its armourer (N-thoi_tinh-02). In 1160 he broke the hammer of his best smith, Vưu Chước Kim (vuu_chuoc_kim), and sent him down the mountain for something Vưu said about the iron (N-thoi_tinh-01).",
+   "wants": "To pass the Rite to a Fire root before his hands fail, without breaking his first son.",
+   "secret": "Vưu was right. The sky seam of Thiên Ngoại Khoáng gave out in 790 (N-thoi_tinh-04), before he was born; the mine has given mountain iron since, and only the Thanh Bách star sings. The gate has sold the mountain iron to the Pivot as star iron, at star-iron prices, for four centuries, and he still does.",
+   "ties": [
+    {
+     "to": "cat_doan_nhac",
+     "kind": "child",
+     "note": "his first son and disciple, who has no Fire"
+    },
+    {
+     "to": "cat_thoi_phong",
+     "kind": "child",
+     "note": "his second son, lent to the Pivot's seat as armourer in 1170"
+    },
+    {
+     "to": "dinh_hoa_lan",
+     "kind": "disciple",
+     "note": "the Fire-born journeyman from the steppe he may choose for the Rite"
+    },
+    {
+     "to": "bang_lanh_toi",
+     "kind": "disciple",
+     "note": "his quench-keeper, who holds the founder's tongs"
+    },
+    {
+     "to": "hau_thiet_anh",
+     "kind": "disciple",
+     "note": "overseer of the star mine"
+    },
+    {
+     "to": "cat_thanh_diem",
+     "kind": "grandchild",
+     "note": "Đoán Nhạc's daughter, in whom Fire came back"
+    },
+    {
+     "to": "vuu_chuoc_kim",
+     "kind": "enemy",
+     "note": "the smith he threw out in 1160 over the singing iron, now Lạc Hà's guest elder"
+    },
+    {
+     "to": "tuong_bach_luyen",
+     "kind": "rival",
+     "note": "the assayer who has never been asked to test the star mine's ore, and whom Cát has never asked"
+    },
+    {
+     "to": "dieu_lac_tinh",
+     "kind": "ancestor",
+     "note": "the founder, whose rite he holds (lineage, not blood)"
+    },
+    {
+     "to": "cat_doan_nhac",
+     "kind": "disciple",
+     "note": "his first son and disciple, who has no Fire"
+    },
+    {
+     "to": "nghe_bach_doan",
+     "kind": "disciple",
+     "note": "second hammer of the anvil hall and the heir's sworn brother"
+    },
+    {
+     "to": "phan_lo_kien",
+     "kind": "disciple",
+     "note": "steward of the coal road from Thạch Thán Khoáng to the forge, under Hầu Thiết Anh"
+    },
+    {
+     "to": "cat_tinh_chuy",
+     "kind": "grandchild",
+     "note": "his grandson; inner disciple of the anvil hall, Cát Thối Phong's son, raised by his uncle"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "star-quench-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "fallen-star-forging-rite",
+      "layer": 8
+     },
+     {
+      "tech": "iron-hide-manual",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "tht-three-years-tax"
+     },
+     {
+      "named": "tht-star-brand"
+     },
+     {
+      "named": "tht-quench-robe"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 7
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal crits and pierce for the star blade, Fire behind it from the Rite: he heats his own sword and grows the edge he keeps.",
+     "targets": [
+      4085,
+      4193,
+      3879,
+      3973,
+      4427,
+      9012,
+      4463,
+      2765
+     ],
+     "targets_note": "The smiths' road (Bronze Spade, Ore Vein, Iron Shirt), Meteor Hammer and Spirit Furnace for the forge, Hundred Refinements so his tempered blades count as attack, Treasure Nurtured Within for the edge he keeps, and Forge Arm in the Fire land for the Rite's own fire."
+    },
+    "note": "The star-iron smith: a stubborn forger who fights with the blades he tempers."
+   },
+   "items": [
+    "tht-three-years-tax",
+    "metal-hundred-edge-flying-sword",
+    "tht-star-brand",
+    "tht-quench-robe"
+   ],
+   "changed": "build: main nine-temper-scripture (Yellow) -> star-quench-canon (the lineage's Profound main; the Yellow scripture is now the outer gate's method); aux adds fallen-star-forging-rite; gear giap -> his named star blade; tree targets -> intent; birthplace 250 added."
+  },
+  {
+   "key": "cat_doan_nhac",
+   "name_hv": "Cát Đoán Nhạc",
+   "name_han": "葛鍛岳",
+   "gloss": "Forges the mountain",
+   "sex": "M",
+   "born": 1070,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thoi_tinh",
+   "rank": "truong_lao",
+   "home": 23,
+   "birthplace": 23,
+   "role": "First son of the head and master of the anvil hall; the presumed heir, with no Fire",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 74,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 74,
+    "than_hon": 52,
+    "khi_van": 48,
+    "dao_tam": 66,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Arrogant",
+     "Loyal"
+    ],
+    "calling": "Refiner",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "forge_scarred"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": "obsessive_training",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "His father's frame without the scars, in a black felt apron that never comes off.",
+   "backstory": "Born at the gate and raised at the anvil by Cát Lưu Quang (cat_luu_quang), he is the best hammer on the mountain and he knows it. He forged the Plumb Line that the Pivot's head gave Công Tôn Duẫn (cong_ton_duan) in 1112, his finest work. He cannot hold the heat of the Rite of the Fallen Star, and every year his father looks longer at the Fire-born journeyman Đinh Hỏa Lân (dinh_hoa_lan).",
+   "ties": [
+    {
+     "to": "cat_luu_quang",
+     "kind": "master",
+     "note": "his father and master"
+    },
+    {
+     "to": "cat_thoi_phong",
+     "kind": "sibling",
+     "note": "his younger brother, who has the Fire and was sent away"
+    },
+    {
+     "to": "cat_thanh_diem",
+     "kind": "child",
+     "note": "his daughter and disciple"
+    },
+    {
+     "to": "dinh_hoa_lan",
+     "kind": "rival",
+     "note": "the steppe boy his father may give the Rite to"
+    },
+    {
+     "to": "cong_ton_duan",
+     "kind": "friend",
+     "note": "carries the Plumb Line he made; they write about the blade"
+    },
+    {
+     "to": "cat_luu_quang",
+     "kind": "parent",
+     "note": "his father and master"
+    },
+    {
+     "to": "cat_thanh_diem",
+     "kind": "disciple",
+     "note": "his daughter and disciple"
+    },
+    {
+     "to": "cat_tinh_chuy",
+     "kind": "disciple",
+     "note": "inner disciple of the anvil hall, Cát Thối Phong's son, raised by his uncle"
+    },
+    {
+     "to": "cat_tinh_chuy",
+     "kind": "niece_nephew",
+     "note": "his nephew; inner disciple of the anvil hall, Cát Thối Phong's son, raised by his uncle"
+    },
+    {
+     "to": "nghe_bach_doan",
+     "kind": "sworn_sibling",
+     "note": "his sworn brother; second hammer of the anvil hall and the heir's sworn brother"
+    }
+   ],
+   "master": "cat_luu_quang",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "star-quench-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "iron-hide-manual",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "tht-coal-black-apron"
+     },
+     {
+      "base": "phi_kiem",
+      "grade": 3,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 6
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal and health: the Ninth Blow, and a body that outlasts the foe at the anvil's pace.",
+     "targets": [
+      4085,
+      4193,
+      3879,
+      4148,
+      4490,
+      4484
+     ],
+     "targets_note": "Smiths' route, then Jade Carving for the Ninth Blow's crit damage and Vajra Bones and Iron Blood for a body that outlasts the foe at the anvil's pace."
+    },
+    "note": "The hammer without the fire."
+   },
+   "items": [
+    "tht-coal-black-apron"
+   ]
+  },
+  {
+   "key": "bang_lanh_toi",
+   "name_hv": "Bàng Lãnh Tôi",
+   "name_han": "龐冷淬",
+   "gloss": "The cold quench",
+   "sex": "M",
+   "born": 1040,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thoi_tinh",
+   "rank": "chap_su",
+   "home": 23,
+   "birthplace": 1483,
+   "role": "Quench-keeper of the snow-melt pool below the forge; holder of the founder's tongs",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 58,
+     "thuy": 36
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 62,
+    "than_hon": 60,
+    "khi_van": 44,
+    "dao_tam": 72,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Honest",
+     "Reclusive"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [
+     "long_seclusion"
+    ],
+    "lifestyle": "tea_master",
+    "health": "cold_toxin",
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A thin old man with blue-white hands who stands knee-deep in the pool from dawn and never seems to feel it.",
+   "backstory": "A coal-carrier's son from Thạch Thán Khoáng, with more Water in his root than a smith should have. Cát Lưu Quang (cat_luu_quang) gave him the founder's River Tongs, because by the founder's rule the one who strikes does not quench. He was standing in the pool in 1160 when Vưu Chước Kim (vuu_chuoc_kim) struck the ingots with lightning (N-thoi_tinh-01), and he is the one witness who has never said what he heard.",
+   "ties": [
+    {
+     "to": "cat_luu_quang",
+     "kind": "master",
+     "note": "his head; he holds his silence for him"
+    },
+    {
+     "to": "dam_kinh_nguyet",
+     "kind": "disciple",
+     "note": "the polisher girl from the calamine mine"
+    },
+    {
+     "to": "vuu_chuoc_kim",
+     "kind": "friend",
+     "note": "they drank tea in the pool-house for forty years"
+    },
+    {
+     "to": "doan_ma_kinh",
+     "kind": "disciple",
+     "note": "outer apprentice of the polishing house, from the calamine camp"
+    },
+    {
+     "to": "kha_o_lan",
+     "kind": "friend",
+     "note": "outer apprentice, a coal-carrier's daughter who wants the pool"
+    }
+   ],
+   "master": "cat_luu_quang",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "star-quench-canon",
+     "layer": 8
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "tht-river-tongs"
+     },
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 5
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Long Quench marks and a cold guard: he lets a foe's own blows make them brittle.",
+     "targets": [
+      4085,
+      4193,
+      3879,
+      4372,
+      3887,
+      3891
+     ],
+     "targets_note": "Smiths' route, then Cold Dawn and the Frost Moon pair (Frost Moon, Snow Blade) for the cold edge; long Quench marks unscaled (wish W2-metal-marks)."
+    },
+    "note": "The one who quenches, with a blade of his own tempering."
+   },
+   "items": [
+    "tht-river-tongs"
+   ]
+  },
+  {
+   "key": "hau_thiet_anh",
+   "name_hv": "Hầu Thiết Anh",
+   "name_han": "侯鐵英",
+   "gloss": "Iron flower",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thoi_tinh",
+   "rank": "chap_su",
+   "home": 173,
+   "birthplace": 173,
+   "role": "Overseer of Thiên Ngoại Khoáng, the mine of the iron from beyond the sky",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 66,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 60,
+    "than_hon": 56,
+    "khi_van": 50,
+    "dao_tam": 54,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Gregarious",
+     "Deceitful"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "gambler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A broad, laughing woman with iron dust in her hair, who carries the mine's tally sticks in her belt.",
+   "backstory": "A miner's daughter of Thiên Ngoại, she keeps the star mine and its two hundred diggers for Cát Lưu Quang (cat_luu_quang). She tells every buyer the ore fell with the stars (A222), and tells it well. She suspects what Vưu Chước Kim proved in 1160 and has decided it is not her business, as long as the Pivot's weighers at Song Kiều do not ask.",
+   "ties": [
+    {
+     "to": "cat_luu_quang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "man_hac_chau",
+     "kind": "disciple",
+     "note": "a black-iron miner's girl"
+    },
+    {
+     "to": "hong_chuan_binh",
+     "kind": "rival",
+     "note": "the Pivot's assayer at Song Kiều, who weighs her ingots every month"
+    },
+    {
+     "to": "au_duong_kien",
+     "kind": "friend",
+     "note": "the Phất Y steward; ore and gossip at the smiths' gate"
+    },
+    {
+     "to": "phung_xich_kim",
+     "kind": "friend",
+     "note": "the Chân Kim assayer she sends ingots"
+    },
+    {
+     "to": "sam_lac_thiet",
+     "kind": "rival",
+     "note": "the Củng Tinh steward she will not trade ingots with for a comparison"
+    },
+    {
+     "to": "tao_bach_sinh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "tat_kim_thanh",
+     "kind": "disciple",
+     "note": "inner disciple and seller at the gate of Thiên Ngoại Khoáng"
+    },
+    {
+     "to": "phan_lo_kien",
+     "kind": "rival",
+     "note": "steward of the coal road from Thạch Thán Khoáng to the forge, under Hầu Thiết Anh"
+    }
+   ],
+   "master": "cat_luu_quang",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "star-quench-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 3
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal and Earth: a miner's sturdy, heavy hitter.",
+     "targets": [
+      4085,
+      4193,
+      3879,
+      4236,
+      4144
+     ],
+     "targets_note": "Smiths' route, then Mine Gallery and Bone-Breaker: the miner's heavy, armour-breaking hit."
+    },
+    "note": "Sells the sky."
+   }
+  },
+  {
+   "key": "dinh_hoa_lan",
+   "name_hv": "Đinh Hỏa Lân",
+   "name_han": "丁火麟",
+   "gloss": "A fire unicorn (đinh is the fire of a lamp)",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thoi_tinh",
+   "rank": "chan_truyen",
+   "home": 23,
+   "birthplace": 640,
+   "role": "Journeyman smith from Phất Y Cốc's steppe; the gate's best Fire root after the head",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "hoa": 56,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 58,
+    "than_hon": 62,
+    "khi_van": 56,
+    "dao_tam": 50,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Impatient",
+     "Generous"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "fire_tempered"
+    ],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A lean, sun-dark man from the dry steppe who laughs at the snow and works the forge bare-chested in winter.",
+   "backstory": "Born in Thập Giáp Thôn on the hot steppe below Phất Y Cốc, where Fire runs in the soil, he walked up the mountain at twenty to learn a trade and found that Cát Lưu Quang (cat_luu_quang) had been waiting for a fire like his for a century. He is Metal enough to pass the gate and no more. Everyone at the forge knows he may get the Rite instead of Cát Đoán Nhạc (cat_doan_nhac); he is the only one who talks about it aloud.",
+   "ties": [
+    {
+     "to": "cat_luu_quang",
+     "kind": "master",
+     "note": "the head who chose him"
+    },
+    {
+     "to": "cat_doan_nhac",
+     "kind": "rival",
+     "note": "the heir he may displace"
+    },
+    {
+     "to": "kha_than_sinh",
+     "kind": "disciple",
+     "note": "the coal boy who fetches for him"
+    },
+    {
+     "to": "cat_thanh_diem",
+     "kind": "friend",
+     "note": "she wants the Rite too, and he teaches her the fire anyway"
+    },
+    {
+     "to": "hoac_ngo_lo",
+     "kind": "friend",
+     "note": "outer disciple from the hot steppe, one contract sealed"
+    },
+    {
+     "to": "nghe_bach_doan",
+     "kind": "rival",
+     "note": "second hammer of the anvil hall and the heir's sworn brother"
+    },
+    {
+     "to": "ong_thiet_xuyen",
+     "kind": "rival",
+     "note": "outer apprentice and third hammer of the anvil hall, a star-mine boy"
+    }
+   ],
+   "master": "cat_luu_quang",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "star-quench-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "lac_thiet",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 4
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire first, against the lineage's grain, so that he is ready for the Rite when it comes.",
+     "targets": [
+      2763,
+      2767,
+      4085,
+      4193,
+      3879
+     ],
+     "targets_note": "Fire first, as his intent says (route order changed on purpose): the Burning Blade idea (Heated Steel, Burning Blade) to heat his own sword, then the smiths' route for the Rite's Metal."
+    },
+    "note": "The fire the mountain does not give."
+   }
+  },
+  {
+   "key": "cat_thanh_diem",
+   "name_hv": "Cát Thanh Diệm",
+   "name_han": "葛青焰",
+   "gloss": "Blue flame",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "thoi_tinh",
+   "rank": "noi_mon",
+   "home": 23,
+   "birthplace": 23,
+   "role": "The head's granddaughter, in whom a little Fire came back",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "hoa": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Brave",
+     "Honest"
+    ],
+    "calling": "Refiner",
+    "upbringing": "clan_heir",
+    "path": []
+   },
+   "backstory": "Cát Đoán Nhạc's (cat_doan_nhac) daughter, she has her grandfather's Fire at half the strength and wants the Rite for her father's sake; Đinh Hỏa Lân teaches her the fire behind her father's back.",
+   "ties": [
+    {
+     "to": "cat_doan_nhac",
+     "kind": "master",
+     "note": "her father"
+    },
+    {
+     "to": "cat_doan_nhac",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "cat_luu_quang",
+     "kind": "grandparent",
+     "note": ""
+    },
+    {
+     "to": "cat_thoi_phong",
+     "kind": "aunt_uncle",
+     "note": "her uncle at the Pivot's forge"
+    },
+    {
+     "to": "dinh_hoa_lan",
+     "kind": "friend",
+     "note": "the true disciple who teaches her the fire though she wants the Rite too"
+    },
+    {
+     "to": "cat_tinh_chuy",
+     "kind": "cousin",
+     "note": "her cousin; inner disciple of the anvil hall, Cát Thối Phong's son, raised by his uncle"
+    }
+   ],
+   "master": "cat_doan_nhac",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "star-quench-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal, with a little Fire kept warm."
+    },
+    "note": "Half a fire."
+   }
+  },
+  {
+   "key": "kha_than_sinh",
+   "name_hv": "Kha Thán Sinh",
+   "name_han": "柯炭生",
+   "gloss": "Born to coal",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "thoi_tinh",
+   "rank": "ngoai_mon",
+   "home": 23,
+   "birthplace": 1483,
+   "role": "Outer apprentice, a coal-carrier's son",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 42,
+     "thuy": 24,
+     "tho": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Loyal",
+     "Lazy"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Carries coal up from Thạch Thán Khoáng in two baskets on a pole, as his father and grandfather did, and has been promised the hammer by Đinh Hỏa Lân (dinh_hoa_lan) every spring for two years.",
+   "ties": [
+    {
+     "to": "dinh_hoa_lan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "phan_lo_kien",
+     "kind": "aunt_uncle",
+     "note": "his uncle; steward of the coal road from Thạch Thán Khoáng to the forge, under Hầu Thiết Anh"
+    },
+    {
+     "to": "kha_o_lan",
+     "kind": "sibling",
+     "note": "his sister; outer apprentice, a coal-carrier's daughter who wants the pool"
+    }
+   ],
+   "master": "dinh_hoa_lan",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "Coal."
+   }
+  },
+  {
+   "key": "dam_kinh_nguyet",
+   "name_hv": "Đàm Kính Nguyệt",
+   "name_han": "譚鏡月",
+   "gloss": "Moon in a mirror",
+   "sex": "F",
+   "born": 1168,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "thoi_tinh",
+   "rank": "ngoai_mon",
+   "home": 23,
+   "birthplace": 657,
+   "role": "Outer apprentice of the polishing house",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 44,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Patient",
+     "Humble"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "lifestyle": "tea_master"
+   },
+   "backstory": "From the calamine mine of Lô Cam Khoáng; she polishes the finished blades until Bàng Lãnh Tôi (bang_lanh_toi) can see the moon in them, and pours his tea.",
+   "ties": [
+    {
+     "to": "bang_lanh_toi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "au_duong_tuyen",
+     "kind": "friend",
+     "note": "inner disciple at Can Tương Khoáng, who carries the ore to Thối Tinh Môn"
+    },
+    {
+     "to": "doan_ma_kinh",
+     "kind": "friend",
+     "note": "outer apprentice of the polishing house, from the calamine camp"
+    }
+   ],
+   "master": "bang_lanh_toi",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal precision."
+    },
+    "note": "Polish."
+   }
+  },
+  {
+   "key": "tao_bach_sinh",
+   "name_hv": "Tào Bách Sinh",
+   "name_han": "曹柏生",
+   "gloss": "Born among the cypresses",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "thoi_tinh",
+   "rank": "ngoai_mon",
+   "home": 23,
+   "birthplace": 65,
+   "role": "Outer apprentice from Thanh Bách Thành, the city that sold the star",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 36,
+     "moc": 32,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Ambitious",
+     "Fickle"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A tax clerk's grandson from Thanh Bách, where they still say the gate robbed the city of three years for one stone (A093); he came up the mountain to see the blade and stayed for the trade.",
+   "ties": [
+    {
+     "to": "hau_thiet_anh",
+     "kind": "master",
+     "note": "she is teaching him to sell ingots"
+    }
+   ],
+   "master": "hau_thiet_anh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal, a city boy's mixed root."
+    },
+    "note": "A city root."
+   }
+  },
+  {
+   "key": "man_hac_chau",
+   "name_hv": "Mẫn Hắc Châu",
+   "name_han": "閔黑珠",
+   "gloss": "Black pearl",
+   "sex": "F",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "thoi_tinh",
+   "rank": "noi_mon",
+   "home": 173,
+   "birthplace": 174,
+   "role": "Inner disciple at the star mine, born at the black-iron diggings",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 56,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Paranoid",
+     "Just"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "Raised at Huyền Thiết, where a cart carries one ingot (A220), she can tell black iron from star iron by weight in the hand, and has begun to wonder why Hầu Thiết Anh (hau_thiet_anh) never lets her weigh the star mine's ore.",
+   "ties": [
+    {
+     "to": "hau_thiet_anh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nguu_trong_dinh",
+     "kind": "friend",
+     "note": "the Pivot's overseer at Huyền Thiết, her father's old foreman"
+    },
+    {
+     "to": "tat_kim_thanh",
+     "kind": "rival",
+     "note": "inner disciple and seller at the gate of Thiên Ngoại Khoáng"
+    }
+   ],
+   "master": "hau_thiet_anh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "star-quench-canon",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Heavy Metal."
+    },
+    "note": "Weighs in the hand."
+   }
+  },
+  {
+   "key": "dieu_lac_tinh",
+   "name_hv": "Diêu Lạc Tinh",
+   "name_han": "姚落星",
+   "gloss": "A falling star",
+   "sex": "M",
+   "born": 260,
+   "died": 610,
+   "cause": "a qi deviation at the anvil at 350, striking the ninth blow of a blade he did not finish",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "thoi_tinh",
+   "rank": "founder",
+   "home": 23,
+   "birthplace": 173,
+   "role": "Founder of Thối Tinh Môn (330); the first to quench star iron in the mountain river",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Devout",
+     "Diligent"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "path": [
+     "forge_scarred"
+    ]
+   },
+   "backstory": "A miner of the high peaks who found iron that would not soften in a charcoal fire and believed it had fallen from the sky. He quenched it in the snow-melt river below the gate in 330 and founded the gate there (A221), then claimed the mine he called Thiên Ngoại (A222). He wrote the Star-Quench Canon and the rule that the one who strikes does not quench, and made the River Tongs for his quench-keeper.",
+   "ties": [
+    {
+     "to": "nhac_ba_chuy",
+     "kind": "disciple",
+     "note": "his last disciple"
+    },
+    {
+     "to": "cat_luu_quang",
+     "kind": "descendant",
+     "note": "a later head of his line (lineage, not blood)"
+    }
+   ]
+  },
+  {
+   "key": "nhac_ba_chuy",
+   "name_hv": "Nhạc Bá Chùy",
+   "name_han": "岳伯錘",
+   "gloss": "Elder hammer",
+   "sex": "M",
+   "born": 470,
+   "died": 806,
+   "cause": "stopped eating the winter he heard the halberd lay under the barrow, at 336",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "thoi_tinh",
+   "rank": "truong_lao",
+   "home": 23,
+   "birthplace": 23,
+   "role": "Elder smith who forged the halberd Trầm Sa Kích for Quý Trường Kích in 600",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Calm",
+     "Humble"
+    ],
+    "calling": "Refiner",
+    "upbringing": "sect_raised",
+    "path": [
+     "forge_scarred"
+    ]
+   },
+   "backstory": "The founder Diêu Lạc Tinh's (dieu_lac_tinh) last disciple. In 600 he forged the halberd Trầm Sa Kích from star iron for a young officer of the Pivot, Quý Trường Kích (quy_truong_kich) (C124), and visited him at the seat every decade to look at the edge. When the marshal fell on Chiết Kích Nguyên in 803 and was buried under the barrow with his halberd (C160), Nhạc asked to go and draw it, was refused, and stopped eating.",
+   "ties": [
+    {
+     "to": "dieu_lac_tinh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "quy_truong_kich",
+     "kind": "friend",
+     "note": "the man he forged for"
+    }
+   ],
+   "master": "dieu_lac_tinh"
+  }
+ ]
+}

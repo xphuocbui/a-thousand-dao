@@ -1,0 +1,338 @@
+{
+ "sect": "da_quang",
+ "_doc": "Dạ Quang Môn signature items (rules-proposals R7). Unpriced proposals; modifier sizes follow the fire and metal catalogues' grade 3 items. The head also wears the catalogue's fire-blood-kindling-ring (unchanged).",
+ "items": [
+  {
+   "id": "dq-night-glow-cup",
+   "name": "The First Night-Glow Cup (Dạ Quang Bôi)",
+   "family": "fire",
+   "kind": "treasure",
+   "base": "ho_lo",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "leech_health_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "attack_pct",
+     "value": 10,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "drink-after-the-raid",
+     "name": "Drink After the Raid (Hậu Kiếp Ẩm)",
+     "rule": "When the foe is Broken, the cup fills: your next three arts cost health instead of linh lực and heal you for 5 % of the damage they deal.",
+     "authored": "a1"
+    }
+   ],
+   "lore": "A thin jade cup that glows in the dark, taken from a merchant's chest on Hạng Dạ Bôi's first raid in 970. The raiders' custom of drinking from night-glow cups after every raid and leaving one behind (A121) began with it. He has never left this one.",
+   "build_use": "The blood sabre's sustain: leech and health while arts are paid in blood.",
+   "holder": "hang_da_boi",
+   "made_by": "unknown (a southern jade carver)",
+   "made_year": 900,
+   "set": "dq-night-raider",
+   "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "dq-night-sabre",
+   "name": "Night Sabre (Dạ Đao)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 18,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "crit_damage_pct",
+     "value": 30,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 20,
+     "scope": [
+      "kim",
+      "debuff"
+     ]
+    },
+    {
+     "key": "art_cost_health_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A black curved sabre quenched in its maker's blood nine times (the Nine-Temper way). Hạng Dạ Bôi forged it in 1000. It is the sabre that cut the horses out from under the Pavilion's riders at Huyết Đao Trại in 1121, before he knelt.",
+   "build_use": "A blood duelist's sabre: crit damage, bleed stacks, part of each art paid in health.",
+   "holder": "hang_da_boi",
+   "made_by": "hang_da_boi",
+   "made_year": 1000,
+   "set": "dq-night-raider",
+   "status": "proposal"
+  },
+  {
+   "id": "dq-red-feather-sabre",
+   "name": "Red Feather (Xích Linh Đao)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 16,
+     "scope": [
+      "hoa",
+      "debuff"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A light red sabre with a hawk's feather knotted to the pommel, which Đồ Xích Linh took from a Băng Tâm rider she killed in 1120. She wears the feather to remind the Pavilion's envoys every time they visit.",
+   "build_use": "Fast Fire cuts and burning stacks.",
+   "holder": "do_xich_linh",
+   "made_by": "bang_tam",
+   "made_year": 1080,
+   "set": "dq-red-band",
+   "status": "proposal"
+  },
+  {
+   "id": "dq-lost-silver-tally",
+   "name": "Tally of the Lost Silver (Thất Ngân Bài)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "leech_health_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [
+    "Blood Casting"
+   ],
+   "lore": "The Desert Pavilion's silver tally for the tax caravan lost in 968, taken from his hanged brother's belt. He has worn it on a cord since and has never paid it back.",
+   "build_use": "Blood sustain and the blood-paid arts: Blood Casting (as the catalogue's Ring of Blood Kindling, which Hạng now keeps unworn) lets his arts run on health once linh lực is gone; the leech pays it back.",
+   "holder": "hang_da_boi",
+   "made_by": "bang_tam",
+   "made_year": 968,
+   "set": "dq-night-raider",
+   "status": "proposal"
+  },
+  {
+   "id": "dq-felt-rider-coat",
+   "name": "Felt Rider's Coat (Chiên Kỵ Giáp)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Red-dyed felt from the tents of Chiên Trướng Thôn, layered over a Băng Tâm rider's mail she cut off its owner in 1120.",
+   "build_use": "A raider's coat: health to pay for blood-bought cuts.",
+   "holder": "do_xich_linh",
+   "made_by": "do_xich_linh",
+   "made_year": 1120,
+   "set": "dq-red-band",
+   "status": "proposal"
+  },
+  {
+   "id": "dq-gamblers-ember-ring",
+   "name": "Gambler's Ember Ring (Đổ Hỏa Giới)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "nhan",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 15,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 20,
+     "scope": [
+      "hoa",
+      "debuff"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "fire"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "Won at dice from a Trường Vân caravan master who did not know what he was betting; there is a live ember in the bezel.",
+   "build_use": "Fast Fire cuts and heavier Burn.",
+   "holder": "do_xich_linh",
+   "made_by": "do_xich_linh",
+   "made_year": 1105,
+   "set": "dq-red-band",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "dq-night-raider",
+   "name": "Night-Glow Raider (Dạ Quang Tặc)",
+   "pieces": [
+    "dq-night-sabre",
+    "dq-night-glow-cup",
+    "dq-lost-silver-tally"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "leech_health_pct",
+       "value": 10,
+       "scope": []
+      },
+      {
+       "key": "attack_pct",
+       "value": 6,
+       "scope": [
+        "physical"
+       ]
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Cut the Horse First (Tiên Trảm Mã): your arts paid in health deal 1 % more damage for each 1 % of health you are missing, and each crit they land heals you for 4 % of your health; healing from other sources is halved on you."
+    }
+   ],
+   "story": "The sabre and the cup from the first raid in 970, and the tally of the silver that started it. Hạng wears the three and carries the Blood Kindling ring besides; the set is the raid, and the knee he bent in 1121 is not in it."
+  },
+  {
+   "id": "dq-red-band",
+   "name": "Red Band (Xích Đội)",
+   "pieces": [
+    "dq-red-feather-sabre",
+    "dq-felt-rider-coat",
+    "dq-gamblers-ember-ring"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "art_speed_pct",
+       "value": 6,
+       "scope": [
+        "fire"
+       ]
+      },
+      {
+       "key": "stack_duration_pct",
+       "value": 10,
+       "scope": [
+        "hoa",
+        "debuff"
+       ]
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "First and Often (Tiên Thả Sổ): your first three Fire cuts each fight cost no health and each puts 2 Burn stacks; after that, every Fire cut that crits puts one more Burn stack."
+    }
+   ],
+   "story": "Everything here she took: a rider's sabre, his mail under her felt, a ring won at dice. Đồ wears them as the band's colours, and the band is hers, not her husband's."
+  }
+ ]
+}

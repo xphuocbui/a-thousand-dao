@@ -1,0 +1,1326 @@
+{
+"_doc": "Input slice for the depth writer of nhan_van (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "nhan_van",
+"name": "Nhàn Vân Quán",
+"name_han": "閑雲觀",
+"gloss": "Abbey of the Idle Clouds",
+"alignment": "trung lập",
+"leans": [
+"Water",
+"Wood"
+],
+"craft": "painting cultivation: living scrolls and mirror images",
+"lord": "lac_ha",
+"region": 10,
+"seat": 364,
+"founded": 905,
+"kind": "minor"
+},
+"start_state": {
+"key": "nhan_van",
+"name": "Nhàn Vân Quán",
+"name_han": "閑雲觀",
+"gloss": "Abbey of the Idle Clouds",
+"kind": "minor",
+"alignment": "trung",
+"leans": [
+"Water",
+"Wood"
+],
+"seat": 364,
+"levels": {
+"holdings": 2,
+"institutions": 4,
+"military": 2,
+"trade": 3
+},
+"treasury": 7000,
+"founded": 905,
+"specialty": "phap_tu",
+"lord": "lac_ha",
+"loyalty": 65,
+"craft": "painting cultivation: living scrolls and mirror images",
+"region": 10,
+"leader": "diep_to_quyen"
+},
+"lord": "lac_ha",
+"vassals": [],
+"seat": {
+"id": 364,
+"name": "Nhàn Vân Quán",
+"gloss": "Abbey of the Idle Clouds",
+"kind": "minor_seat",
+"region": 10,
+"biome": "steppe",
+"elev_km": 0.04,
+"qi": {
+"moc": 16,
+"hoa": 17,
+"tho": 23,
+"kim": 12,
+"thuy": 32
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+"seat_audit": "## OK  Nhàn Vân Quán (nhan_van; leans Water/Wood)\nSeat: Nhàn Vân Quán (id 364, minor_seat, region 10, steppe), density 0.80\nSeat qi: Water 32%, Wood 16%\n",
+"ground": [
+{
+"id": 18,
+"name": "Bình Thủy Môn",
+"gloss": "",
+"kind": "minor_seat",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 26,
+"hoa": 19,
+"tho": 22,
+"kim": 11,
+"thuy": 22
+},
+"variants": {},
+"density": 1.31,
+"note": ""
+},
+{
+"id": 453,
+"name": "Long Tu Lâm",
+"gloss": "Forest of the Dragon's Whiskers",
+"kind": "forest",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.27,
+"qi": {
+"moc": 50,
+"hoa": 21,
+"tho": 5,
+"kim": 7,
+"thuy": 17
+},
+"variants": {},
+"density": 1.2,
+"note": ""
+},
+{
+"id": 475,
+"name": "Vạn Can Lâm",
+"gloss": "Forest of Ten Thousand Canes",
+"kind": "forest",
+"region": 10,
+"biome": "bamboo forest",
+"elev_km": 0.11,
+"qi": {
+"moc": 48,
+"hoa": 13,
+"tho": 11,
+"kim": 17,
+"thuy": 11
+},
+"variants": {},
+"density": 1.17,
+"note": ""
+},
+{
+"id": 459,
+"name": "Phi Hồ Lâm",
+"gloss": "Flying Fox Wood",
+"kind": "beast_lair",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.02,
+"qi": {
+"moc": 33,
+"hoa": 18,
+"tho": 8,
+"kim": 7,
+"thuy": 34
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 241,
+"name": "Vụ Báo Lâm",
+"gloss": "Mist Leopard Forest",
+"kind": "beast_lair",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.11,
+"qi": {
+"moc": 34,
+"hoa": 19,
+"tho": 7,
+"kim": 7,
+"thuy": 33
+},
+"variants": {},
+"density": 1.16,
+"note": "Jungle of Cô Vụ Đảo, the lonely misty island, where leopards hunt in the mist."
+},
+{
+"id": 413,
+"name": "Ngạc Bối Chử",
+"gloss": "Shoal of the Crocodile Backs",
+"kind": "beast_lair",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.03,
+"qi": {
+"moc": 37,
+"hoa": 19,
+"tho": 11,
+"kim": 9,
+"thuy": 24
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 473,
+"name": "Bích Lân Lâm",
+"gloss": "Wood of the Jade Scales",
+"kind": "beast_lair",
+"region": 10,
+"biome": "bamboo forest",
+"elev_km": 0.09,
+"qi": {
+"moc": 45,
+"hoa": 13,
+"tho": 15,
+"kim": 18,
+"thuy": 9
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 461,
+"name": "Nịch Tùng Lâm",
+"gloss": "Wood of the Drowned Pines",
+"kind": "forest",
+"region": 10,
+"biome": "jungle",
+"elev_km": -0.03,
+"qi": {
+"moc": 39,
+"hoa": 20,
+"tho": 7,
+"kim": 6,
+"thuy": 28
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 455,
+"name": "Kỳ Nam Lâm",
+"gloss": "Forest of the Kỳ Nam Agarwood",
+"kind": "forest",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.12,
+"qi": {
+"moc": 37,
+"hoa": 19,
+"tho": 8,
+"kim": 8,
+"thuy": 29
+},
+"variants": {},
+"density": 1.14,
+"note": ""
+},
+{
+"id": 256,
+"name": "Tha Hương Tuyền",
+"gloss": "Spring of the Far-Off Home",
+"kind": "hot_spring",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 30,
+"hoa": 20,
+"tho": 24,
+"kim": 12,
+"thuy": 14
+},
+"variants": {},
+"density": 1.12,
+"note": ""
+},
+{
+"id": 226,
+"name": "Bích Không Cảng",
+"gloss": "Harbour of the Blue Sky",
+"kind": "ruin",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 23,
+"hoa": 16,
+"tho": 19,
+"kim": 12,
+"thuy": 30
+},
+"variants": {},
+"density": 1.05,
+"note": "Lý Bạch: the lone sail vanishes into the blue sky. Cô Phàm's harbour, emptied when the fleet was lost."
+},
+{
+"id": 464,
+"name": "Hải Khúc Trấn",
+"gloss": "Sea-Bend Town",
+"kind": "ruin",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.29,
+"qi": {
+"moc": 21,
+"hoa": 15,
+"tho": 18,
+"kim": 10,
+"thuy": 36
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 467,
+"name": "Hào Trư Lĩnh",
+"gloss": "Porcupine Ridge",
+"kind": "beast_lair",
+"region": 10,
+"biome": "temperate forest",
+"elev_km": 0.32,
+"qi": {
+"moc": 30,
+"hoa": 24,
+"tho": 29,
+"kim": 11,
+"thuy": 7
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 482,
+"name": "Phong Sào Thôn",
+"gloss": "Beehive Village",
+"kind": "village",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.04,
+"qi": {
+"moc": 46,
+"hoa": 23,
+"tho": 6,
+"kim": 5,
+"thuy": 20
+},
+"variants": {},
+"density": 1.02,
+"note": ""
+},
+{
+"id": 302,
+"name": "Cự Ngao Chử",
+"gloss": "Shoal of the Great Claws",
+"kind": "beast_lair",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 25,
+"hoa": 15,
+"tho": 17,
+"kim": 12,
+"thuy": 30
+},
+"variants": {},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 454,
+"name": "Thanh Đằng Thôn",
+"gloss": "Green Rattan Village",
+"kind": "village",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.07,
+"qi": {
+"moc": 47,
+"hoa": 20,
+"tho": 6,
+"kim": 9,
+"thuy": 18
+},
+"variants": {},
+"density": 1.0,
+"note": ""
+},
+{
+"id": 474,
+"name": "Lục Trúc Thôn",
+"gloss": "Green Bamboo Village",
+"kind": "village",
+"region": 10,
+"biome": "bamboo forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 44,
+"hoa": 14,
+"tho": 16,
+"kim": 18,
+"thuy": 9
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 123,
+"name": "Lãng Thạch Thôn",
+"gloss": "Wave Rock Village",
+"kind": "village",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 23,
+"hoa": 16,
+"tho": 18,
+"kim": 11,
+"thuy": 32
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 456,
+"name": "Trầm Hương Trấn",
+"gloss": "Agarwood Town",
+"kind": "town",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.01,
+"qi": {
+"moc": 29,
+"hoa": 16,
+"tho": 9,
+"kim": 8,
+"thuy": 38
+},
+"variants": {},
+"density": 0.96,
+"note": ""
+},
+{
+"id": 460,
+"name": "Hồng Thụ Thôn",
+"gloss": "Mangrove Village",
+"kind": "village",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.01,
+"qi": {
+"moc": 28,
+"hoa": 16,
+"tho": 8,
+"kim": 8,
+"thuy": 40
+},
+"variants": {},
+"density": 0.96,
+"note": ""
+},
+{
+"id": 462,
+"name": "Phương Lân Thôn",
+"gloss": "Village of Good Neighbours",
+"kind": "village",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.01,
+"qi": {
+"moc": 31,
+"hoa": 18,
+"tho": 9,
+"kim": 7,
+"thuy": 34
+},
+"variants": {},
+"density": 0.96,
+"note": ""
+},
+{
+"id": 463,
+"name": "Nam Minh Thôn",
+"gloss": "Village of the Southern Deep",
+"kind": "village",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.0,
+"qi": {
+"moc": 29,
+"hoa": 17,
+"tho": 8,
+"kim": 8,
+"thuy": 39
+},
+"variants": {},
+"density": 0.96,
+"note": ""
+},
+{
+"id": 476,
+"name": "Phù Can Thôn",
+"gloss": "Floating Canes Village",
+"kind": "village",
+"region": 10,
+"biome": "bamboo forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 37,
+"hoa": 13,
+"tho": 12,
+"kim": 14,
+"thuy": 23
+},
+"variants": {},
+"density": 0.96,
+"note": ""
+},
+{
+"id": 478,
+"name": "Lan Chu Trấn",
+"gloss": "Town of the Orchid Boats",
+"kind": "town",
+"region": 10,
+"biome": "bamboo forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 30,
+"hoa": 13,
+"tho": 14,
+"kim": 14,
+"thuy": 29
+},
+"variants": {},
+"density": 0.96,
+"note": ""
+},
+{
+"id": 411,
+"name": "Vọng Phàm Quán",
+"gloss": "Abbey of the Watch for Sails",
+"kind": "ruin",
+"region": 10,
+"biome": "steppe",
+"elev_km": 0.23,
+"qi": {
+"moc": 17,
+"hoa": 15,
+"tho": 17,
+"kim": 10,
+"thuy": 41
+},
+"variants": {},
+"density": 0.95,
+"note": ""
+},
+{
+"id": 303,
+"name": "Phục Mãng Cương",
+"gloss": "Ridge of the Lurking Pythons",
+"kind": "beast_lair",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 29,
+"hoa": 20,
+"tho": 24,
+"kim": 10,
+"thuy": 17
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 410,
+"name": "Sài Quần Nguyên",
+"gloss": "Plain of the Dhole Packs",
+"kind": "beast_lair",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.2,
+"qi": {
+"moc": 24,
+"hoa": 19,
+"tho": 22,
+"kim": 11,
+"thuy": 24
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 457,
+"name": "Ba Tiêu Lâm",
+"gloss": "Plantain Grove",
+"kind": "forest",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.09,
+"qi": {
+"moc": 30,
+"hoa": 18,
+"tho": 9,
+"kim": 7,
+"thuy": 35
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 477,
+"name": "Bạo Ngưu Nguyên",
+"gloss": "Plain of the Raging Buffalo",
+"kind": "beast_lair",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.07,
+"qi": {
+"moc": 40,
+"hoa": 13,
+"tho": 15,
+"kim": 17,
+"thuy": 15
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 479,
+"name": "Hải Quy Chử",
+"gloss": "Sea Turtle Shoal",
+"kind": "beast_lair",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.08,
+"qi": {
+"moc": 37,
+"hoa": 13,
+"tho": 15,
+"kim": 16,
+"thuy": 18
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 380,
+"name": "Phiêu Bồng Quán",
+"gloss": "Abbey of the Drifting Tumbleweed",
+"kind": "ruin",
+"region": 10,
+"biome": "steppe",
+"elev_km": 0.06,
+"qi": {
+"moc": 15,
+"hoa": 16,
+"tho": 19,
+"kim": 11,
+"thuy": 39
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 49,
+"name": "Tương Phùng Thị",
+"gloss": "Market of Chance Meetings",
+"kind": "market",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 17,
+"hoa": 17,
+"tho": 21,
+"kim": 11,
+"thuy": 33
+},
+"variants": {},
+"density": 0.91,
+"note": "Vương Bột: bình thủy tương phùng (duckweed and water meet by chance); beside Bình Thủy Môn"
+},
+{
+"id": 471,
+"name": "Tẩy Trần Tuyền",
+"gloss": "Spring that Washes off the Dust",
+"kind": "hot_spring",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.06,
+"qi": {
+"moc": 38,
+"hoa": 17,
+"tho": 20,
+"kim": 15,
+"thuy": 10
+},
+"variants": {},
+"density": 0.87,
+"note": ""
+},
+{
+"id": 481,
+"name": "Phong Vương Mạch",
+"gloss": "Vein of the Queen Bee",
+"kind": "spirit_vein",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.22,
+"qi": {
+"moc": 47,
+"hoa": 23,
+"tho": 6,
+"kim": 5,
+"thuy": 19
+},
+"variants": {},
+"density": 0.86,
+"note": ""
+},
+{
+"id": 301,
+"name": "Ôn Bối Trì",
+"gloss": "Warm Shell Pool",
+"kind": "hot_spring",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 20,
+"hoa": 19,
+"tho": 24,
+"kim": 11,
+"thuy": 25
+},
+"variants": {},
+"density": 0.86,
+"note": ""
+},
+{
+"id": 304,
+"name": "Vũ Tễ Tuyền",
+"gloss": "Spring of the Cleared Rain",
+"kind": "hot_spring",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.03,
+"qi": {
+"moc": 31,
+"hoa": 17,
+"tho": 20,
+"kim": 14,
+"thuy": 19
+},
+"variants": {},
+"density": 0.86,
+"note": ""
+},
+{
+"id": 469,
+"name": "Tham Tuyền",
+"gloss": "Spring of Greed",
+"kind": "hot_spring",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.29,
+"qi": {
+"moc": 36,
+"hoa": 20,
+"tho": 24,
+"kim": 12,
+"thuy": 8
+},
+"variants": {},
+"density": 0.86,
+"note": ""
+},
+{
+"id": 412,
+"name": "Lục Âm Mạch",
+"gloss": "Vein of the Green Shade",
+"kind": "spirit_vein",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.03,
+"qi": {
+"moc": 29,
+"hoa": 22,
+"tho": 25,
+"kim": 11,
+"thuy": 13
+},
+"variants": {},
+"density": 0.82,
+"note": ""
+},
+{
+"id": 72,
+"name": "Triều Âm Thành",
+"gloss": "Tide Song City",
+"kind": "city",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 32,
+"hoa": 14,
+"tho": 9,
+"kim": 8,
+"thuy": 37
+},
+"variants": {},
+"density": 0.82,
+"note": ""
+},
+{
+"id": 125,
+"name": "Tình Sa Thôn",
+"gloss": "Sunlit Sands Village",
+"kind": "village",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 31,
+"hoa": 13,
+"tho": 16,
+"kim": 11,
+"thuy": 28
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 37,
+"name": "Đàm Ảnh Thành",
+"gloss": "City of the Pool's Reflections",
+"kind": "city",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 29,
+"hoa": 14,
+"tho": 17,
+"kim": 11,
+"thuy": 29
+},
+"variants": {},
+"density": 0.8,
+"note": "Vương Bột, Đằng Vương Các: nhàn vân đàm ảnh nhật du du (idle clouds and their reflections in the pool, day after day)"
+},
+{
+"id": 364,
+"name": "Nhàn Vân Quán",
+"gloss": "Abbey of the Idle Clouds",
+"kind": "minor_seat",
+"region": 10,
+"biome": "steppe",
+"elev_km": 0.04,
+"qi": {
+"moc": 16,
+"hoa": 17,
+"tho": 23,
+"kim": 12,
+"thuy": 32
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 71,
+"name": "Hải Yến Trấn",
+"gloss": "Sea Swallow Town",
+"kind": "town",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 24,
+"hoa": 18,
+"tho": 21,
+"kim": 11,
+"thuy": 26
+},
+"variants": {},
+"density": 0.78,
+"note": ""
+},
+{
+"id": 70,
+"name": "Xích Ngạn Trấn",
+"gloss": "Red Shore Town",
+"kind": "town",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.12,
+"qi": {
+"moc": 21,
+"hoa": 17,
+"tho": 20,
+"kim": 10,
+"thuy": 32
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 122,
+"name": "Bối Sa Thôn",
+"gloss": "Shell Sands Village",
+"kind": "village",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.03,
+"qi": {
+"moc": 18,
+"hoa": 18,
+"tho": 22,
+"kim": 11,
+"thuy": 31
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 124,
+"name": "Dương Liễu Thôn",
+"gloss": "Willows Village",
+"kind": "village",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 25,
+"hoa": 18,
+"tho": 21,
+"kim": 10,
+"thuy": 27
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 126,
+"name": "Nguyệt Loan Thôn",
+"gloss": "Moon Cove Village",
+"kind": "village",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.04,
+"qi": {
+"moc": 27,
+"hoa": 15,
+"tho": 17,
+"kim": 11,
+"thuy": 30
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 458,
+"name": "Xướng Vãn Thôn",
+"gloss": "Evening Song Village",
+"kind": "village",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 26,
+"hoa": 16,
+"tho": 10,
+"kim": 8,
+"thuy": 39
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 468,
+"name": "Ngưu Đẩu Thôn",
+"gloss": "Ox and Dipper Village",
+"kind": "village",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.16,
+"qi": {
+"moc": 31,
+"hoa": 24,
+"tho": 29,
+"kim": 10,
+"thuy": 6
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 470,
+"name": "Mộ Sơn Thôn",
+"gloss": "Evening Hill Village",
+"kind": "village",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.11,
+"qi": {
+"moc": 33,
+"hoa": 22,
+"tho": 27,
+"kim": 11,
+"thuy": 6
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+}
+],
+"ground_place_count": 57,
+"events": [
+{
+"id": "A144",
+"tier": "annal",
+"year": 230,
+"kind": "trade",
+"people": [],
+"sects": [],
+"text_en": "Islanders gather shells on the white beach of Bối Sa to trade as coins on the mainland.",
+"place": 122,
+"region": 10
+},
+{
+"id": "A145",
+"tier": "annal",
+"year": 330,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The first mainland traders name the red cliffs of the island's east coast Xích Ngạn.",
+"place": 70,
+"region": 10
+},
+{
+"id": "C087",
+"tier": "landmark",
+"year": 410,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"co_pham"
+],
+"text_en": "Cô Phàm Các builds Đàm Ảnh Thành, and below it the harbour of Bích Không Cảng, from which its sails vanish into the blue.",
+"place": 37
+},
+{
+"id": "C089",
+"tier": "landmark",
+"year": 420,
+"kind": "item_made",
+"people": [
+"giang_bich_khong"
+],
+"sects": [
+"co_pham"
+],
+"text_en": "Giang Bích Không makes the Viễn Ảnh Châm, a needle that always points to the last ship to leave port.",
+"place": 226,
+"item": "vien_anh_cham"
+},
+{
+"id": "A147",
+"tier": "annal",
+"year": 520,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"binh_thuy",
+"lac_ha"
+],
+"text_en": "Strangers far from home, meeting on the island like duckweed on water, found Bình Thủy Môn.",
+"place": 18,
+"region": 10
+},
+{
+"id": "A148",
+"tier": "annal",
+"year": 525,
+"kind": "settlement",
+"people": [],
+"sects": [
+"binh_thuy"
+],
+"text_en": "A market of chance meetings grows beside Bình Thủy Môn; it is called Tương Phùng Thị.",
+"place": 49,
+"region": 10
+},
+{
+"id": "C113",
+"tier": "landmark",
+"year": 540,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà Tông founds Triều Âm Thành on the western shore of Cô Vụ Đảo.",
+"place": 72
+},
+{
+"id": "A149",
+"tier": "annal",
+"year": 600,
+"kind": "trade",
+"people": [],
+"sects": [],
+"text_en": "Sea swallows nest so thickly under the eaves of Hải Yến Trấn that its people sell the nests to alchemists.",
+"place": 71,
+"region": 10
+},
+{
+"id": "A150",
+"tier": "annal",
+"year": 706,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "A year after the fleet is lost, the widows of Bích Không Cảng leave the harbour; the empty quays face the blue.",
+"place": 226,
+"region": 10
+},
+{
+"id": "V089",
+"tier": "annal",
+"year": 708,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Three years after Cô Phàm's fleet was lost, the last watchers of Vọng Phàm Quán end their vigil and go down to Xích Ngạn.",
+"place": 411,
+"region": 10
+},
+{
+"id": "V090",
+"tier": "annal",
+"year": 748,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "Storm after storm has blown the beach sand into its wells and lanes, and the last families leave Hải Khúc Trấn.",
+"place": 464,
+"region": 10
+},
+{
+"id": "A151",
+"tier": "annal",
+"year": 750,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Willows planted on the dunes at Dương Liễu Thôn hold the island's sand against the storms.",
+"place": 124,
+"region": 10
+},
+{
+"id": "A152",
+"tier": "annal",
+"year": 800,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Đàm Ảnh Thành's still pool mirrors the clouds so clearly that painters come from the mainland to paint the sky upside down.",
+"place": 37,
+"region": 10
+},
+{
+"id": "V091",
+"tier": "annal",
+"year": 803,
+"kind": "festival",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "When the boats fall silent after Chiết Kích Nguyên, Xướng Vãn Thôn keeps silent for a year; it still sings one verse fewer than its neighbours.",
+"place": 458,
+"region": 10
+},
+{
+"id": "A153",
+"tier": "annal",
+"year": 870,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "The moon-shaped cove at Nguyệt Loan shelters the island's fishing fleet from the great storm of 870.",
+"place": 126,
+"region": 10
+},
+{
+"id": "V092",
+"tier": "annal",
+"year": 905,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"nhan_van",
+"lac_ha"
+],
+"text_en": "Painters drawn to the pool of Đàm Ảnh Thành found Nhàn Vân Quán under Lạc Hà Tông and learn to paint with qi in the ink.",
+"place": 364,
+"region": 10
+},
+{
+"id": "A154",
+"tier": "annal",
+"year": 960,
+"kind": "discovery",
+"people": [],
+"sects": [],
+"text_en": "Wave Rock at Lãng Thạch Thôn splits in a storm, and a sea cave full of old Cô Phàm charts is found inside.",
+"place": 123,
+"region": 10
+},
+{
+"id": "C180",
+"tier": "landmark",
+"year": 1060,
+"kind": "tribulation_death",
+"people": [
+"doan_thuong_hai"
+],
+"sects": [],
+"text_en": "A Hóa Thần tribulation over the island sea kills the master of Đoạn Thương Hải; he survives it, blind, holding the Thương Tang Kính.",
+"place": 37,
+"item": "thuong_tang_kinh"
+},
+{
+"id": "A155",
+"tier": "annal",
+"year": 1062,
+"kind": "tale",
+"people": [
+"doan_thuong_hai"
+],
+"sects": [],
+"text_en": "Blind after the tribulation, Đoạn Thương Hải settles in Đàm Ảnh Thành and listens to the pool instead of looking at it.",
+"place": 37,
+"region": 10
+},
+{
+"id": "V093",
+"tier": "annal",
+"year": 1102,
+"kind": "tale",
+"people": [],
+"sects": [
+"binh_thuy"
+],
+"text_en": "The last master of Phiêu Bồng Quán dies with no disciple willing to stay, and leaves its books to Bình Thủy Môn.",
+"place": 380,
+"region": 10
+},
+{
+"id": "A156",
+"tier": "annal",
+"year": 1110,
+"kind": "headship",
+"people": [
+"bui_phieu_binh"
+],
+"sects": [
+"binh_thuy"
+],
+"text_en": "Bùi Phiêu Bình becomes head of Bình Thủy Môn; under him the strait crossing runs every day of the year.",
+"place": 18,
+"region": 10
+},
+{
+"id": "A157",
+"tier": "annal",
+"year": 1190,
+"kind": "beast",
+"people": [],
+"sects": [],
+"text_en": "On the sunny sands of Tình Sa a stranded whale lives for three days; the island gives it back to the sea.",
+"place": 125,
+"region": 10
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "diep_to_quyen",
+"name": "Diệp Tố Quyên",
+"name_han": "葉素絹",
+"gloss": "Plain silk, the scroll before the painting",
+"sex": "F",
+"born": 860,
+"alive": true,
+"sect": "nhan_van",
+"rank": "tong_chu",
+"role": "A founder (905) and head of Nhàn Vân Quán, painting cultivation: living scrolls and mirror images",
+"realm": "ket_dan",
+"home": 364,
+"traits": {
+"personality": [
+"Content",
+"Reclusive",
+"Patient"
+],
+"calling": "Talisman maker",
+"fate_given": []
+},
+"vassal_of": "lac_ha"
+}
+],
+"legendary_items": []
+}

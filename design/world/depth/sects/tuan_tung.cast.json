@@ -1,0 +1,884 @@
+{
+ "sect": "tuan_tung",
+ "people": [
+  {
+   "key": "hua_van_cung",
+   "name_hv": "Hứa Vãn Cung",
+   "name_han": "許挽弓",
+   "gloss": "Draws the bow (Đỗ Phủ: vãn cung đương vãn cường)",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "tuan_tung",
+   "rank": "tong_chu",
+   "home": 376,
+   "birthplace": 32,
+   "role": "Founder and head of Tuần Tùng Đường (1191): road wardens and caravan guards of the pine sea, staff and bow",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 40
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 76,
+    "than_hon": 50,
+    "khi_van": 54,
+    "dao_tam": 64,
+    "mi_luc": 60
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Pragmatic",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "upbringing": "mortal_noble",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": "hunter",
+    "health": "old_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A broad, plain man with a broken nose and a staff worn smooth, who stands between people and the door without seeming to.",
+   "backstory": "Hứa Vãn Cung was born in 1150 in Tùng Gian Thành, the younger son of a timber magistrate, and was meant for the pines. He failed the inner gate's chant at fourteen, could not sit still for the listening, and left to guard caravans on the pine-sea roads instead. He did it for thirty years, as a loose cultivator with a staff and a bowyer's bow from Cung Tiễn Thôn. In the winter of 1190 wolves came out of the deep pines after the caravans (A064). He held the Tùng Hạ road for three nights with Trang Thiết Cước's (trang_thiet_cuoc) wagons behind him. His sworn brother Doanh Thủ Lộ (doanh_thu_lo) died on the second night. On the third Hứa shot the grey wolf that led the pack, and the rest went back into the trees. In 1191 the pines gave him the hill above the market, and he founded the hall there with the men who had stood on the road (V043). The Coiled Root Hall sends him Vu Hành Lâm (vu_hanh_lam) and its patrol captain Trần Bách Xuyên (tran_bach_xuyen) rides with him. Nine years old, his hall has no canon worth the name, no Golden Core and no money, and it has not lost a caravan.",
+   "wants": "A hall that outlives him: a real canon, a Kết Đan elder, and the road from Tùng Hạ to Cổ Độ never closed again.",
+   "secret": "The wolves of 1190 did not come out of the pines by chance. Doanh Thủ Lộ told him on the second night, dying, that a caravan in the column was carrying a wolf-king's cub sold out of Quần Lang Lâm, and Hứa burned the cage on the third morning without telling anyone whose wagon it was.",
+   "ties": [
+    {
+     "to": "doanh_thu_lo",
+     "kind": "sworn_sibling",
+     "note": "died on the second night of 1190"
+    },
+    {
+     "to": "diem_lac_nhan",
+     "kind": "friend",
+     "note": "the hunter who shot beside him on the third night"
+    },
+    {
+     "to": "ly_hanh_lo",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "tran_bach_xuyen",
+     "kind": "friend",
+     "note": "the pines' patrol captain of the pine-sea roads"
+    },
+    {
+     "to": "vu_hanh_lam",
+     "kind": "friend",
+     "note": "the Coiled Root Hall's man at the hall"
+    },
+    {
+     "to": "an_lanh_phong",
+     "kind": "rival",
+     "note": "the Ngạo Tuyết boy he beat with a staff in 1198"
+    },
+    {
+     "to": "bi_tu_nuong",
+     "kind": "friend",
+     "note": "the innkeeper at whose table he drank for thirty years; she drinks on his hill now"
+    },
+    {
+     "to": "lam_da_hac",
+     "kind": "friend",
+     "note": "stood on the road with him in 1190 and will not swear to his hall"
+    },
+    {
+     "to": "thu_phieu_binh",
+     "kind": "former_master",
+     "note": "his first road master: she took him on as her wagon boy in 1164, and she will not swear to his hall"
+    },
+    {
+     "to": "trang_thiet_cuoc",
+     "kind": "creditor",
+     "note": "the caravan master who paid for the hall; he owes Hứa his drivers' lives from 1190"
+    },
+    {
+     "to": "canh_da_tuan",
+     "kind": "friend",
+     "note": "stablemaster of the wardens' hall and its mule-doctor; a Pivot-born caravan driver"
+    },
+    {
+     "to": "hua_tich_van",
+     "kind": "niece_nephew",
+     "note": "his niece and disciple; inner warden; the timber magistrate's daughter, who ran from Tùng Gian to her uncle's hall"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "pine-warden-staff-and-bow-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "wolf-winter-arrow",
+      "layer": 6
+     },
+     {
+      "tech": "three-nights-on-the-road",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "ttg-wolf-winter-bow"
+     },
+     {
+      "named": "ttg-three-nights-coat"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Body and health first, then physical bow damage: he holds a road for a night and shoots the leader at dawn.",
+     "targets": [
+      6281,
+      6312,
+      5591,
+      5597,
+      4207,
+      4214
+     ],
+     "targets_note": "Warden route, then World Tree for a night on the road, then across to Metal's Drawn Bow for the arrow at dawn."
+    },
+    "note": "A road warden: a staff for the pack and an arrow for its leader. Bow on the cham base (no bow base yet: Item DB open question)."
+   },
+   "items": [
+    "ttg-wolf-winter-bow",
+    "ttg-three-nights-coat"
+   ],
+   "changed": "build, root, thiên phú and birthplace 32 added (the record had none); no-lean hall under R3."
+  },
+  {
+   "key": "trang_thiet_cuoc",
+   "name_hv": "Trang Thiết Cước",
+   "name_han": "莊鐵腳",
+   "gloss": "Iron feet",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "tuan_tung",
+   "rank": "truong_lao",
+   "home": 46,
+   "birthplace": 64,
+   "role": "Elder and treasurer; the Pivot caravan master who lost his wagons to the wolves and paid for the hall",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "tho": 40
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 62,
+    "than_hon": 48,
+    "khi_van": 56,
+    "dao_tam": 50,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Generous",
+     "Pragmatic",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "lifestyle": "gambler",
+    "fate_given": [],
+    "gained": [
+     "Life-debt"
+    ]
+   },
+   "appearance": "A stout, bow-legged trader in a Pivot coat, with a camel bell on his belt that he rings when he laughs.",
+   "backstory": "A caravan master of the Pivot's Bích Khê Trấn who had walked the pine-sea road for forty years when the wolves came in 1190 (A064). He rang his lead wagon's bell for three nights to keep the column together, while Hứa Vãn Cung (hua_van_cung) held the road. He lost every wagon and kept every driver. He put his silver into the hall the next spring and keeps its accounts at the market. His nephew Trang Tiểu Đà (trang_tieu_da) is its newest warden.",
+   "ties": [
+    {
+     "to": "hua_van_cung",
+     "kind": "debt",
+     "note": "his drivers' lives, 1190"
+    },
+    {
+     "to": "trang_tieu_da",
+     "kind": "niece_nephew",
+     "note": "and his disciple"
+    },
+    {
+     "to": "vu_hanh_lam",
+     "kind": "friend",
+     "note": "another Bích Khê man"
+    },
+    {
+     "to": "khau_toan_lo",
+     "kind": "disciple",
+     "note": "inner warden of the counting-house; counts caravan fees and walks the roads he counts"
+    },
+    {
+     "to": "canh_da_tuan",
+     "kind": "friend",
+     "note": "stablemaster of the wardens' hall and its mule-doctor; a Pivot-born caravan driver"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "pine-warden-staff-and-bow-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "three-nights-on-the-road",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "named": "ttg-caravan-bell"
+     },
+     {
+      "base": "loi_truong",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Defence and rallying; he keeps a column together.",
+     "targets": [
+      6281,
+      6312,
+      4299,
+      4307
+     ],
+     "targets_note": "Warden route from Metal, then Golden Bell's ward and block; rallying a column waits on wish targets-tl/geese-line."
+    },
+    "note": "A bell and a shield. Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
+   },
+   "items": [
+    "ttg-caravan-bell"
+   ]
+  },
+  {
+   "key": "diem_lac_nhan",
+   "name_hv": "Diêm Lạc Nhạn",
+   "name_han": "閻落雁",
+   "gloss": "Fells the wild goose",
+   "sex": "F",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "tuan_tung",
+   "rank": "truong_lao",
+   "home": 376,
+   "birthplace": 938,
+   "role": "Master of the bow; a hunter of the northern woods who shot beside the head on the third night",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "thuy": 22
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 66,
+    "than_hon": 58,
+    "khi_van": 46,
+    "dao_tam": 56,
+    "mi_luc": 42
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Patient",
+     "Cruel"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "wild_raised",
+    "path": [
+     "beast_bonded"
+    ],
+    "lifestyle": "hunter",
+    "fate_given": [],
+    "gained": [
+     "Battle-hardened"
+    ]
+   },
+   "appearance": "A small, weathered woman in wolfskin, with an eagle on her shoulder and three wolf ears on a cord at her belt.",
+   "backstory": "Raised in Liệp Hộ Thôn, the hunters' village of the northern forest, she followed the wolf pack south in the winter of 1190 to take its leader's pelt, and found Hứa Vãn Cung (hua_van_cung) holding a road against it. She shot beside him on the third night (A064). She teaches the wardens to shoot and has never forgiven him for letting the pack go back into the pines alive.",
+   "ties": [
+    {
+     "to": "hua_van_cung",
+     "kind": "friend",
+     "note": "she wanted every wolf dead"
+    },
+    {
+     "to": "vuong_tieu_nhi",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "lac_tung_lang",
+     "kind": "friend",
+     "note": "the other hunter of the hall"
+    },
+    {
+     "to": "quan_tuyet_tung",
+     "kind": "friend",
+     "note": "the boy next door in Liệp Hộ Thôn; they hunted together until she went south"
+    },
+    {
+     "to": "hoang_thiet_huyen",
+     "kind": "disciple",
+     "note": "outer warden in the shooting yard"
+    },
+    {
+     "to": "tu_tien_suong",
+     "kind": "friend",
+     "note": "tracker of the Bạch Lang road; reads wolf sign"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "pine-warden-staff-and-bow-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "wolf-winter-arrow",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Bow crits and accuracy, with an eagle to spot.",
+     "targets": [
+      6281,
+      6312,
+      6131,
+      6133,
+      6487
+     ],
+     "targets_note": "Warden route, then Bamboo Staff's accuracy and Bamboo Joint's crits, then Beast Pen for the eagle."
+    },
+    "note": "Needle-arrows and an eagle. Bow on the cham base (no bow base yet: Item DB open question)."
+   }
+  },
+  {
+   "key": "lac_tung_lang",
+   "name_hv": "Lạc Tùng Lang",
+   "name_han": "駱松狼",
+   "gloss": "Wolf of the pines",
+   "sex": "M",
+   "born": 1160,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "tuan_tung",
+   "rank": "noi_mon",
+   "home": 376,
+   "birthplace": 110,
+   "role": "Warden of the Bạch Lang road; wears his village's wolf-tooth charm",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 24
+    }
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Loyal",
+     "Wrathful"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Bạch Lang hunter with the wolf-tooth charm (A070) who broke his arm on a wolf in 1199 and had it set for nothing by a Thải Chi boy, Nghiêm Tục Đoạn (nghiem_tuc_doan), whose father died on the same road in 1190.",
+   "ties": [
+    {
+     "to": "diem_lac_nhan",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "nghiem_tuc_doan",
+     "kind": "friend",
+     "note": "set his arm"
+    },
+    {
+     "to": "lieu_khe_nhi",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "sam_thanh_tung",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "lam_tieu_tien",
+     "kind": "friend",
+     "note": "outer warden from Bạch Lang; a tracker in training"
+    },
+    {
+     "to": "tu_tien_suong",
+     "kind": "friend",
+     "note": "tracker of the Bạch Lang road; reads wolf sign"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "pine-warden-staff-and-bow-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "loi_truong",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "A warden's body."
+    },
+    "note": "Staff and hatchet. Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
+   }
+  },
+  {
+   "key": "ly_hanh_lo",
+   "name_hv": "Lý Hành Lộ",
+   "name_han": "李行路",
+   "gloss": "Walks the road",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "tuan_tung",
+   "rank": "noi_mon",
+   "home": 376,
+   "birthplace": 46,
+   "role": "The head's disciple; a market boy of Tùng Hạ Thị",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "kim": 30
+    }
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Diligent",
+     "Trusting"
+    ],
+    "calling": "Duelist",
+    "upbringing": "street_orphan"
+   },
+   "backstory": "A Tùng Hạ Thị street boy who carried water to the wardens on the three nights of 1190 (A064) and was the first child Hứa Vãn Cung (hua_van_cung) took.",
+   "ties": [
+    {
+     "to": "hua_van_cung",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ma_lang_nha",
+     "kind": "friend",
+     "note": "a pines' outer disciple who rides with the wardens"
+    }
+   ],
+   "master": "hua_van_cung",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "pine-warden-staff-and-bow-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "loi_truong",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Staff."
+    },
+    "note": "Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
+   }
+  },
+  {
+   "key": "vuong_tieu_nhi",
+   "name_hv": "Vương Tiều Nhi",
+   "name_han": "王樵兒",
+   "gloss": "Woodcutter's child",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "tuan_tung",
+   "rank": "ngoai_mon",
+   "home": 376,
+   "birthplace": 1165,
+   "role": "Outer warden from the woodcutters' village",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "tho": 26
+    }
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Stubborn",
+     "Content"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Phạt Mộc Thôn woodcutter's daughter who can split a log at sixty paces with an arrow; Diêm Lạc Nhạn (diem_lac_nhan) took her for the arrow, not the log.",
+   "ties": [
+    {
+     "to": "diem_lac_nhan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "doan_bat_mien",
+     "kind": "friend",
+     "note": "outer warden from Phạt Mộc; walks the night watch"
+    }
+   ],
+   "master": "diem_lac_nhan",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Bow."
+    },
+    "note": "Bow on the cham base (no bow base yet: Item DB open question)."
+   }
+  },
+  {
+   "key": "trang_tieu_da",
+   "name_hv": "Trang Tiểu Đà",
+   "name_han": "莊小駝",
+   "gloss": "Little camel",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "tuan_tung",
+   "rank": "ngoai_mon",
+   "home": 46,
+   "birthplace": 64,
+   "role": "Outer warden; the caravan master's nephew",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "tho": 38
+    }
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Lazy",
+     "Generous"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Trang Thiết Cước's (trang_thiet_cuoc) brother's son from the Pivot's Bích Khê Trấn, sent north to learn a trade and learning to shoot instead.",
+   "ties": [
+    {
+     "to": "trang_thiet_cuoc",
+     "kind": "aunt_uncle",
+     "note": "and his master"
+    },
+    {
+     "to": "khau_toan_lo",
+     "kind": "friend",
+     "note": "inner warden of the counting-house; counts caravan fees and walks the roads he counts"
+    }
+   ],
+   "master": "trang_thiet_cuoc",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "loi_truong",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Shield."
+    },
+    "note": "Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
+   }
+  },
+  {
+   "key": "lieu_khe_nhi",
+   "name_hv": "Liễu Khê Nhi",
+   "name_han": "柳溪兒",
+   "gloss": "Child of the willow brook",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "tuan_tung",
+   "rank": "noi_mon",
+   "home": 376,
+   "birthplace": 136,
+   "role": "Inner warden born across the Ngư Ca border in Lạc Hà's land",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "moc": 38
+    }
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Just",
+     "Diligent"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hoa Khê Thôn girl, like the pines' patrol captain Trần Bách Xuyên (tran_bach_xuyen), whose family crossed the border after the Ferry War; the Root Hall does not like a Lạc Hà-born warden on the river road, and Lạc Tùng Lang (lac_tung_lang) has told it to mind its own road.",
+   "ties": [
+    {
+     "to": "lac_tung_lang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tran_bach_xuyen",
+     "kind": "friend",
+     "note": "from the same village"
+    }
+   ],
+   "master": "lac_tung_lang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "pine-warden-staff-and-bow-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "loi_truong",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "A hard body."
+    },
+    "note": "Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
+   }
+  },
+  {
+   "key": "sam_thanh_tung",
+   "name_hv": "Sầm Thanh Tùng",
+   "name_han": "岑青松",
+   "gloss": "Green pine",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "tuan_tung",
+   "rank": "noi_mon",
+   "home": 376,
+   "birthplace": 106,
+   "role": "Inner warden from the village of the green pines",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 47,
+     "thuy": 30
+    }
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Brave",
+     "Patient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "His village plants a green pine for each of its dead since the beast tide of 734 (A058), and he joined the wardens so it would not have to plant more; he patrols the deep-pine road with Lạc Tùng Lang (lac_tung_lang).",
+   "ties": [
+    {
+     "to": "lac_tung_lang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "hoang_thiet_huyen",
+     "kind": "friend",
+     "note": "outer warden in the shooting yard"
+    }
+   ],
+   "master": "lac_tung_lang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "pine-warden-staff-and-bow-canon",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Staff."
+    },
+    "note": "Bow on the cham base (no bow base yet: Item DB open question)."
+   }
+  },
+  {
+   "key": "doanh_thu_lo",
+   "name_hv": "Doanh Thủ Lộ",
+   "name_han": "嬴守路",
+   "gloss": "Guards the road",
+   "sex": "M",
+   "born": 1140,
+   "died": 1190,
+   "cause": "killed by the wolves on the second night of the Tùng Hạ road, at 50 (A064)",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "tuan_tung",
+   "rank": "noi_mon",
+   "home": 46,
+   "birthplace": 110,
+   "role": "Caravan guard and Hứa Vãn Cung's sworn brother; the hall counts him as its first warden",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Loyal",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Bạch Lang guard who held the Tùng Hạ road with his sworn brother Hứa Vãn Cung (hua_van_cung) until the second night of 1190 (A064); his small son was sent up the river to Thải Chi Cốc and renamed Nghiêm Tục Đoạn.",
+   "ties": [
+    {
+     "to": "hua_van_cung",
+     "kind": "sworn_sibling",
+     "note": ""
+    },
+    {
+     "to": "nghiem_tuc_doan",
+     "kind": "child",
+     "note": "sent to the herb valley after 1190"
+    },
+    {
+     "to": "quan_tuyet_tung",
+     "kind": "creditor",
+     "note": "the hunter whose stolen cub brought the pack down his road in 1190; he never knew"
+    },
+    {
+     "to": "thu_phieu_binh",
+     "kind": "friend",
+     "note": "the caravan mistress he rode with for twenty years"
+    }
+   ]
+  }
+ ]
+}

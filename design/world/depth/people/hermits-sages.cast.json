@@ -1,0 +1,842 @@
+{
+ "group": "hermits-sages",
+ "sect": "",
+ "_doc": "Hermits and sages: the great solitary cultivators who belong to no sect (world-depth pass, schema.md; page: hermits-sages.md). Batch 1: the three living great ones, the four dead abode owners, and two dead masters. Batch 2 (hermits-sages.2.cast.json): their servants, disciples and seekers.",
+ "people": [
+  {
+   "key": "mac_quy_khu",
+   "name_hv": "Mạc Quy Khư",
+   "name_han": "莫歸墟",
+   "gloss": "Quy khư is the abyss at the sea's end where all waters return (Liệt Tử)",
+   "sex": "M",
+   "born": -240,
+   "alive": true,
+   "realm": "hoa_than",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 198,
+   "birthplace": 162,
+   "role": "The oldest living person (age 1,440): a hermit on Dục Nhật Đảo by the gate of Phù Tang Cảnh, who remembers the world before the sects and answers one question a year",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 62,
+     "moc": 64,
+     "thuy": 74,
+     "hoa": 66,
+     "tho": 60
+    },
+    "variants": {
+     "hon_don": 86,
+     "bang": 50,
+     "quang": 44
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 90,
+    "can_cot": 70,
+    "than_hon": 92,
+    "khi_van": 74,
+    "dao_tam": 94,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Patient",
+     "Humble"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 3
+     },
+     {
+      "id": "steady_heart",
+      "tier": 3
+     }
+    ],
+    "path": [
+     "tribulation_survivor",
+     "long_seclusion"
+    ],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": "buried_in_seclusion",
+    "fate_given": [
+     "Spirit-eyed"
+    ],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A small brown old man in a fisherman's coat, barefoot on the rocks, who looks no more than seventy until he turns his eyes on you; they hold five colours at once.",
+   "backstory": "Mạc Quy Khư was born in the Wild Age under the mulberries of what is now Tang Âm Thôn, with a muddy root of all five elements that no hermit of the coast would teach. Văn Nhân Chỉ Thủy (van_nhan_chi_thuy), a water master of the long northern lake, took him because he sat on the shore for a winter and asked for nothing. At 240, a Kết Đan, he walked through the gate of Phù Tang Cảnh on Dục Nhật Đảo at its first recorded opening, and the calendar counts its years from that day (C001). He came out with his root burned clear into Primordial Chaos and a clay vase in his arms. In the year 40 he watched his master walk over the lake into the moon (C025). At 500 he passed his Hóa Thần tribulation, and where the last bolts fell a realm of fire and snow tore open (C029). For four centuries every great loose cultivator came to ask him how. Cung Hỏa Vân (cung_hoa_van) went after his fire and died; Hoắc Hàn Quang (hoac_han_quang) took his advice and died (C014). In 700 he sat down by the gate and never left (A305). After Yến Tang Điền (yen_tang_dien) died over the island sea (C180) he spoke to no one for forty years. Since 1100 he answers one question a year (A311), and never that one.",
+   "wants": "To give the true answer to one person who will not use it, and to carry the vase back through the gate of Phù Tang Cảnh before he dies.",
+   "secret": "He did not survive his tribulation; the vase did. The Quy Khư Bình drank the bolts meant for him, and what it spilled became the realm of fire and snow. In 699 he told Hoắc Hàn Quang to meet heaven with empty hands, because the truth would have sent every Nguyên Anh alive after the vase. Hoắc left his sword in his cave, and the lightning killed him. Mạc has slept through most of the last three springs, and he does not know that the year's questions have still been answered.",
+   "ties": [
+    {
+     "to": "van_nhan_chi_thuy",
+     "kind": "master",
+     "note": "his master, who walked into the moon in the year 40 without a word of where; Mạc is the only one who still knows his name"
+    },
+    {
+     "to": "hoac_han_quang",
+     "kind": "friend",
+     "note": "the friend he lied to in 699; the reason he sat down by the gate"
+    },
+    {
+     "to": "cung_hoa_van",
+     "kind": "friend",
+     "note": "the young fire cultivator who went looking for the fire of his tribulation (C013)"
+    },
+    {
+     "to": "yen_tang_dien",
+     "kind": "friend",
+     "note": "refused in 1059, dead in 1060; the reason for the forty silent years"
+    },
+    {
+     "to": "thu_van_trieu",
+     "kind": "friend",
+     "note": "his ferryman for ninety years, who keeps the Book of Questions"
+    },
+    {
+     "to": "doan_thuong_hai",
+     "kind": "rival",
+     "note": "the disciple of the man he refused; they have never met, and Mạc suspects the blind man has guessed"
+    },
+    {
+     "to": "thoi_khinh_hong",
+     "kind": "friend",
+     "note": "the only other Hóa Thần alive; her father was one of the fishers who saw his master walk into the moon (A001)"
+    },
+    {
+     "to": "trau_vong_bang",
+     "kind": "friend",
+     "note": "the hermit whose question he answered in 1150"
+    },
+    {
+     "to": "cao_dan_ha",
+     "kind": "creditor",
+     "note": "she read his silence and owed him the pill she never made"
+    }
+   ],
+   "master": "van_nhan_chi_thuy",
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hundred-arts-sage-canon",
+     "layer": 12
+    },
+    "aux": [
+     {
+      "tech": "stilled-hour-sutra",
+      "layer": 15
+     },
+     {
+      "tech": "ashen-phoenix-canon",
+      "layer": 12
+     }
+    ],
+    "gear": [
+     {
+      "named": "force-chaos-primordial-mirror"
+     },
+     {
+      "named": "hs-quy-khu-vase"
+     },
+     {
+      "named": "hs-unmoving-hour-bead"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hon_don",
+     "intent": "The Chaos land first, toward stacks of every element at once, then the Ice and Light branches his fire and snow opened; time held still at the end.",
+     "targets": [
+      682,
+      8213,
+      8197,
+      9005,
+      9006,
+      8219,
+      8252,
+      7117,
+      5203
+     ],
+     "targets_note": "Five Talents, Two Forms and Before Heaven for every element at once, both poles (Utmost Yang, Utmost Yin) for his Yin and Yang, the twin-method and mutation capabilities, then Fusang Leaf on the Light side and Frost Bloom on the Ice side."
+    },
+    "note": "The oldest man alive: a Primordial Chaos root from before the sects, fire and snow, Yin and Yang, time held still, and a clay vase that takes the blow he cannot."
+   },
+   "items": [
+    "hs-quy-khu-vase",
+    "hs-unmoving-hour-bead",
+    "force-chaos-primordial-mirror"
+   ],
+   "changed": "birthplace added (162, an even land, which fits a five-element root); build aux long_tuong_cong (in no catalogue) -> ashen-phoenix-canon (the ten suns of Phù Tang that burned his root); gear ngoc_boi (Water) -> hs-quy-khu-vase (the legendary quy_khu_binh he already holds); tree targets -> intent (no node ids)"
+  },
+  {
+   "key": "tu_khong_hac_nien",
+   "name_hv": "Tư Không Hạc Niên",
+   "name_han": "司空鶴年",
+   "gloss": "A crane's long years",
+   "sex": "M",
+   "born": 700,
+   "alive": true,
+   "realm": "nguyen_anh",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 48,
+   "birthplace": 1457,
+   "role": "A wandering sword sage (age 500), bound to no sect; sits in the market of Tống Khách Thị and teaches no one",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 94
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 84,
+    "can_cot": 70,
+    "than_hon": 74,
+    "khi_van": 50,
+    "dao_tam": 88,
+    "mi_luc": 42
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Just",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     },
+     {
+      "id": "steady_heart",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "sword_heart",
+     "pure_root_devotee"
+    ],
+    "lifestyle": "go_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned",
+     "Oath-bound"
+    ]
+   },
+   "appearance": "A tall, stooped man in a grey travelling coat with a crane on the sword guard at his back, who sits at the same corner table every day with one cup and does not drink from it until dusk.",
+   "backstory": "Tư Không Hạc Niên was a miner's son at Không Thanh Khoáng, born in 700 with a root of Metal and nothing else. In 790 a Wind-rooted swordsman who had just walked out of his own valley came down the ore road, and the miner, ninety years old and still a Trúc Cơ who had never left the mine road, followed him for a hundred and ten years. That man was Quách Vô Tích (quach_vo_tich), founder of Phất Y Cốc, whom the valley believes was never seen again. In 900 Quách gave him the Wind sword Cô Hạc at dawn in Tống Khách Thị and walked away (A138). From 1085 to 1088 Tư Không let a village boy, Lăng Đạp Tuyết (lang_dap_tuyet), follow him for three winters, and tempered Metal into a root that had none. He saw what it cost the boy, and he has taught no one since. In 1130 he went to his master's valley and fought its head Thạch Tàng Danh (thach_tang_danh) on Cùng Mục Phong for three days (C186). On the third day he cut through the sleeve of his master's grey robe, lowered his sword and called it even. The same year Sài Mộ Kiếm (sai_mo_kiem) challenged him in Tống Khách Thị and lost in three passes. Tư Không handed the sword back and sat down in the market (A141). He has drunk the farewell cup there every year since.",
+   "wants": "To see Cô Hạc's wind woken once, in a Wind-rooted hand that deserves his master's sword, before he lays it down.",
+   "secret": "The traveller the market toasts (A138) was his master, the founder of Phất Y Cốc, who lived 110 years past the day his valley counts as his death. On Cùng Mục Phong Tư Không won, by cutting his own master's sleeve. He also knows what the Metal he put into Lăng Đạp Tuyết's root cost the boy in years, which Lăng has told no one.",
+   "ties": [
+    {
+     "to": "quach_vo_tich",
+     "kind": "former_master",
+     "note": "followed him from 790 to 900; the traveller of Tống Khách Thị"
+    },
+    {
+     "to": "lang_dap_tuyet",
+     "kind": "former_disciple",
+     "note": "three winters, 1085-1088; the last person he taught, and the reason he stopped"
+    },
+    {
+     "to": "thach_tang_danh",
+     "kind": "creditor",
+     "note": "the draw he gave away on Cùng Mục Phong (C186); Thạch wears the sleeve he cut"
+    },
+    {
+     "to": "sai_mo_kiem",
+     "kind": "rival",
+     "note": "beat him in three passes in 1130 and gave his sword back; Sài wants a second duel"
+    },
+    {
+     "to": "co_da_lan",
+     "kind": "rival",
+     "note": "the Tower's war elder, who has wanted to cross swords with him for two hundred years; he has always refused"
+    },
+    {
+     "to": "phan_co_dang",
+     "kind": "friend",
+     "note": "the ruin-digger, the only person in the market he plays go with"
+    },
+    {
+     "to": "dau_tien_xuan",
+     "kind": "friend",
+     "note": "the tavern-keeper who pours the farewell cup; the only one who knows he is waiting for someone"
+    },
+    {
+     "to": "boc_tuyet_nha",
+     "kind": "friend",
+     "note": "the girl from Hàn Mai with no Metal, whom he refuses every morning and buys breakfast"
+    }
+   ],
+   "master": "quach_vo_tich",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "thien_kim",
+     "layer": 12
+    },
+    "aux": [
+     {
+      "tech": "afterimage-sword-canon",
+      "layer": 12
+     }
+    ],
+    "gear": [
+     {
+      "named": "hs-lone-crane"
+     },
+     {
+      "named": "hs-crane-bone-pendant"
+     },
+     {
+      "named": "hs-threadbare-robe"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Straight down the Metal land to the sword keystones: edge, afterimages and crits, with nothing spent on defence.",
+     "targets": [
+      725,
+      1441,
+      4270,
+      4278,
+      3957,
+      4677,
+      9000,
+      4678
+     ],
+     "targets_note": "Pure sword: Edge of Autumn, Sword Spine, Sword Rainbow, Piercing the Willow and Crane Wing, then three keystones (Ten Thousand Swords Return, Keen Edge, Called Blow); nothing on defence."
+    },
+    "note": "The lone crane: a pure Metal sword sage with nothing but the sword, every point spent on the edge, carrying a Wind blade he cannot wake."
+   },
+   "items": [
+    "hs-lone-crane",
+    "hs-crane-bone-pendant",
+    "hs-threadbare-robe",
+    "blade-sword-intent-jade"
+   ],
+   "changed": "birthplace added (1457, a Metal mine of region 9: 46 % Metal, near the market he came home to); gear phi_kiem (Metal, grade 4) -> hs-lone-crane (the legendary co_hac he already holds); tree targets -> intent; new fact: his master is Phất Y's founder quach_vo_tich (far side added in the cross-sect pass)"
+  },
+  {
+   "key": "doan_thuong_hai",
+   "name_hv": "Đoạn Thương Hải",
+   "name_han": "段滄海",
+   "gloss": "Broken on the blue sea",
+   "sex": "M",
+   "born": 720,
+   "alive": true,
+   "realm": "nguyen_anh",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 37,
+   "birthplace": 70,
+   "role": "The only man to survive a Hóa Thần tribulation that killed his master (age 480); blind since, lives by the pool of Đàm Ảnh Thành",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 86,
+     "hoa": 44,
+     "kim": 48
+    },
+    "variants": {
+     "loi": 56
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 80,
+    "can_cot": 66,
+    "than_hon": 90,
+    "khi_van": 86,
+    "dao_tam": 86,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Patient",
+     "Reclusive"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 3
+     },
+     {
+      "id": "lucky",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "tribulation_survivor",
+     "thunder_struck"
+    ],
+    "lifestyle": "tea_master",
+    "health": "blind",
+    "coping": null,
+    "fate_given": [
+     "Heaven-favoured"
+    ],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A broad, still man with burn-white eyes and a lightning scar from crown to collarbone, who sits on the pool's stone lip with his head tilted as if someone were speaking very quietly.",
+   "backstory": "Đoạn Thương Hải was born in 720 at Xích Ngạn Trấn, a grandson of the last watchers who came down from Vọng Phàm Quán in 708 (V089). At sixteen he was taken by Yến Tang Điền (yen_tang_dien), the one disciple of Cô Phàm Các left ashore, who spent his life looking for the lost fleet (C015) in a mirror that shows a water as it was. His master named him so that their two names make one saying: the blue sea becomes mulberry fields. In 1059 Yến crossed to Dục Nhật Đảo to ask Mạc Quy Khư (mac_quy_khu) a question and came back with no answer. In 1060 he called down his Hóa Thần tribulation over the sea where the mirror last showed sails, sure that the lightning would open the way. It killed him. Đoạn, who stood beside him, woke blind on the shore holding the Thương Tang Kính, with Thunder in his root (C180). He settled by the pool at Đàm Ảnh Thành (A155), where the painters of Nhàn Vân Quán tell him what the water shows. In 1150 he heard lightning hit a boat in the strait and pulled a fisher girl, Kê Thính Đào (ke_thinh_dao), out alive. She is the only disciple he has taken. In 1199 he heard a sail in the pool.",
+   "wants": "To hear the sail again, and to learn whether his master was right about where the fleet went.",
+   "secret": "He knows how he lived: the mirror drank the strike meant for him, and he has guessed that something drank Mạc Quy Khư's. He has told no one, because every Nguyên Anh on the continent would come for the mirror. He also knows that Diệp Tố Quyên did paint the morning of 705 for him in 1062. He heard the paper burn, and he let her tell him it had failed.",
+   "ties": [
+    {
+     "to": "yen_tang_dien",
+     "kind": "master",
+     "note": "his master of 324 years, killed by his own tribulation beside him (C180)"
+    },
+    {
+     "to": "ke_thinh_dao",
+     "kind": "disciple",
+     "note": "the fisher girl he pulled out of the strait in 1150"
+    },
+    {
+     "to": "diep_to_quyen",
+     "kind": "friend",
+     "note": "paints the pool for him; he knows she burned the painting of 705"
+    },
+    {
+     "to": "tan_dao_anh",
+     "kind": "friend",
+     "note": "paints his days for him; he told her about the sail"
+    },
+    {
+     "to": "o_lao_nghien",
+     "kind": "friend",
+     "note": "tells him the colour of the clouds every evening"
+    },
+    {
+     "to": "lan_vien_pham",
+     "kind": "friend",
+     "note": "the island warden; they listen to the pool together for the fleet"
+    },
+    {
+     "to": "sa_kinh_nhi",
+     "kind": "friend",
+     "note": "the whale-child of Bình Thủy; he tells her the tongue she dreams in is older than Cô Phàm"
+    },
+    {
+     "to": "mac_quy_khu",
+     "kind": "rival",
+     "note": "the man who would not answer his master; Đoạn has guessed why"
+    }
+   ],
+   "master": "yen_tang_dien",
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 12
+    },
+    "aux": [
+     {
+      "tech": "hundred-echo-palm-scripture",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "hs-mirror-of-seas-and-fields"
+     },
+     {
+      "named": "hs-pool-bell"
+     },
+     {
+      "named": "hs-scorched-robe"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain and the tide stacks, then the Thunder branch the bolt gave him, for resistance more than damage.",
+     "targets": [
+      5269,
+      4940,
+      4947,
+      9003,
+      5508,
+      5000,
+      843
+     ],
+     "targets_note": "Water sustain and evasion: Sleeping Lotus, Reflected Moon and Mirror Lake (the reflection after each evade), Rising Tide and Still Water for the pool, Dao in Dreams, and Storm Heart in the Thunder land against lightning."
+    },
+    "note": "The blind survivor of a Hóa Thần tribulation: a still lake that hears every move and answers it, scarred against lightning, with a mirror that takes the bolt."
+   },
+   "items": [
+    "hs-mirror-of-seas-and-fields",
+    "hs-pool-bell",
+    "hs-scorched-robe"
+   ],
+   "changed": "birthplace added (70, Xích Ngạn: the watchers' town, 32 % Water); his Thunder is a root change from the bolt of 1060 (C180), not from his land; gear ngoc_boi (Metal, grade 3) -> hs-mirror-of-seas-and-fields (the legendary thuong_tang_kinh he already holds); tree targets -> intent"
+  },
+  {
+   "key": "hoac_han_quang",
+   "name_hv": "Hoắc Hàn Quang",
+   "name_han": "霍寒光",
+   "gloss": "Cold light",
+   "sex": "M",
+   "born": 150,
+   "alive": false,
+   "died": 700,
+   "cause": "died in a failed Hóa Thần breakthrough tribulation (age 550)",
+   "peak_realm": "nguyen_anh",
+   "sect": "",
+   "rank": "",
+   "home": 15,
+   "birthplace": 1348,
+   "abode_slot": "A-1",
+   "role": "A wandering ice swordsman; owner of the sealed cave abode in slot A-1, on the southern massif of Ngọc Hồ Sơn above the gate of Lê Hoa Am",
+   "tier": "A",
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Trusting",
+     "Brave"
+    ],
+    "calling": "Duelist",
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "sword_heart",
+     "frost_veined"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "backstory": "Hoắc Hàn Quang was born in 150 in a fur hunters' camp on the frost coast and went up into the mountains with a cold root and no teacher. He forged his own sword, Sóc Khí, in 300 from glacier ice and the iron of the southern massif, and for four hundred years he was the sword the north measured itself by. He took one disciple at a time, and the last was Kỷ Hoa Ảnh (ky_hoa_anh), whom he sent away before the end. In 699, at 549, he went looking for Mạc Quy Khư (mac_quy_khu), the only man then alive who had passed the Hóa Thần tribulation, and asked him how. Mạc told him to meet heaven with empty hands. Hoắc went back to his cave above the valley, laid Sóc Khí on the stone, and walked north to a glacier with nothing. The tribulation failed (C014). Where its last bolt struck, the lightning froze and has not melted (C039). In 702 Kỷ Hoa Ảnh sealed his empty cave with the sword inside and swore that no one who sought it would pass her gate.",
+   "ties": [
+    {
+     "to": "ky_hoa_anh",
+     "kind": "former_disciple",
+     "note": "his last disciple, sent away before the tribulation; she sealed his cave"
+    },
+    {
+     "to": "mac_quy_khu",
+     "kind": "friend",
+     "note": "whose advice he took in 699"
+    }
+   ],
+   "items": [
+    "hs-north-wind-breath"
+   ],
+   "changed": "added backstory, traits, ties; home 15 (the cave above the gate, slot A-1) and birthplace 1348; his sword Sóc Khí lies alone in the cave (Lê Hoa Am's account), not with his body"
+  },
+  {
+   "key": "cao_dan_ha",
+   "name_hv": "Cao Đan Hà",
+   "name_han": "高丹霞",
+   "gloss": "Red glow of the evening sky",
+   "sex": "F",
+   "born": 420,
+   "alive": false,
+   "died": 920,
+   "cause": "poisoned by her own pill (age 500)",
+   "peak_realm": "nguyen_anh",
+   "sect": "",
+   "rank": "",
+   "home": 767,
+   "birthplace": 759,
+   "abode_slot": "A-2",
+   "role": "The most famous alchemist of her age; owner of the cave abode in slot A-2, in the southern mountains",
+   "tier": "A",
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Ambitious",
+     "Generous"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 3
+     }
+    ],
+    "path": [
+     "pill_master_tongue",
+     "fire_tempered"
+    ],
+    "lifestyle": "collector",
+    "health": null,
+    "coping": "obsessive_training",
+    "fate_given": [],
+    "gained": [
+     "Renowned",
+     "Sworn sibling"
+    ]
+   },
+   "backstory": "Cao Đan Hà was a dyer's daughter of Đan Kiều Trấn who could tell a herb's age by its smell. She made the Purple Smoke Furnace in 500, and for four centuries hers were the pills Nguyên Anh elders sent disciples across the continent to buy. She belonged to no sect and refused four. Her sworn sister was the swordswoman Lương Lạc Mai (luong_lac_mai). After Lương died sealed in her abode in 860 (C020), Cao turned all her work to one pill: a pill to carry a Nguyên Anh through the Hóa Thần tribulation. She had asked Mạc Quy Khư (mac_quy_khu) how he survived, read his silence, and decided that he had lived by something, not by strength. Two apprentices kept her furnaces at the end, Úy Thanh Diễm (uy_thanh_diem) and the herb girl Khuyết Vãn Hà (khuyet_van_ha). In 920, at 500, she swallowed the first finished pill to test it on herself, and it killed her in her abode (C022). Úy found her and left without touching anything. Khuyết came back that winter and closed the door.",
+   "ties": [
+    {
+     "to": "luong_lac_mai",
+     "kind": "sworn_sibling",
+     "note": "sworn in a tavern; Lương's death set her on the last pill"
+    },
+    {
+     "to": "uy_thanh_diem",
+     "kind": "former_disciple",
+     "note": "kept her furnaces 900-920; found her dead"
+    },
+    {
+     "to": "khuyet_van_ha",
+     "kind": "disciple",
+     "note": "her herb girl, who sealed the abode"
+    },
+    {
+     "to": "mac_quy_khu",
+     "kind": "debt",
+     "note": "she read the answer in his silence, and owed him the pill she never finished"
+    },
+    {
+     "to": "gian_thu_dich",
+     "kind": "friend",
+     "note": "her sworn sister's disciple, whom she taught to read a pulse"
+    }
+   ],
+   "items": [
+    "hs-purple-smoke-furnace"
+   ],
+   "changed": "added backstory, traits, ties; home 767 (Hồng Bích Nhai, her house; the abode itself is slot A-2, wherever its draw falls) and birthplace 759"
+  },
+  {
+   "key": "cung_hoa_van",
+   "name_hv": "Cung Hỏa Vân",
+   "name_han": "宮火雲",
+   "gloss": "Clouds of fire",
+   "sex": "M",
+   "born": 300,
+   "alive": false,
+   "died": 640,
+   "cause": "vanished among the volcanic vents; his body was found years later (age 340)",
+   "peak_realm": "ket_dan",
+   "sect": "",
+   "rank": "",
+   "home": 1080,
+   "birthplace": 264,
+   "abode_slot": "A-4",
+   "role": "A fire cultivator; owner of the cave abode in slot A-4, among the vents of Tuyết Hỏa Giác",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Impatient",
+     "Ambitious",
+     "Brave"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "path": [
+     "fire_tempered"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": "obsessive_training",
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A miner's son of the cape's vents, born in 300 above what is now Kê Quan Khoáng, Cung Hỏa Vân made the Blazing Sun Fan in 450 and spent the rest of his life after one fire: the fire of Mạc Quy Khư's (mac_quy_khu) tribulation (C029), which he believed still burned in a realm of fire and snow that opens when the seasons turn. Mạc would not tell him where. In 640 he went into the vents and did not come out (C013). His body was found years later in his own abode, burned on one side and frozen on the other. Ten years after, Tiết Thừa Hỏa (tiet_thua_hoa) came to the cape looking for his fire.",
+   "ties": [
+    {
+     "to": "mac_quy_khu",
+     "kind": "rival",
+     "note": "the man whose fire he chased"
+    }
+   ],
+   "items": [
+    "hs-blazing-sun-fan"
+   ],
+   "changed": "added backstory, traits, ties; home 1080 (Lưu Hỏa Khẩu, the vent of Hồng Lô's hook) and birthplace 264"
+  },
+  {
+   "key": "luong_lac_mai",
+   "name_hv": "Lương Lạc Mai",
+   "name_han": "梁落梅",
+   "gloss": "Falling plum blossom",
+   "sex": "F",
+   "born": 400,
+   "alive": false,
+   "died": 860,
+   "cause": "found dead in her sealed abode, cause unknown (age 460)",
+   "peak_realm": "ket_dan",
+   "sect": "",
+   "rank": "",
+   "home": 386,
+   "birthplace": 84,
+   "abode_slot": "A-5",
+   "role": "A wandering swordswoman; owner of the cave abode in slot A-5, in the southern mountains",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Generous",
+     "Fickle",
+     "Brave"
+    ],
+    "calling": "Duelist",
+    "upbringing": "merchant_child",
+    "path": [
+     "sword_heart"
+    ],
+    "lifestyle": "poet",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Sworn sibling"
+    ]
+   },
+   "backstory": "A boatman's daughter from the river city of Thanh Khê, Lương Lạc Mai wandered the southern mountains for four centuries with Ngũ Nguyệt Mai, a jade flute that was also a blade, and played the old falling-plum tune before every duel. She and the alchemist Cao Đan Hà (cao_dan_ha) swore sisterhood in a tavern and kept it. In 850 she took a last disciple, the wind-rooted mine girl Giản Thu Địch (gian_thu_dich). In 860, at 460 and near the end of her years, she sealed herself in her abode to break through to Nguyên Anh with the flute. In spring Giản opened the door and found her dead (C020). No one learned why.",
+   "ties": [
+    {
+     "to": "cao_dan_ha",
+     "kind": "sworn_sibling",
+     "note": "sworn in a tavern"
+    },
+    {
+     "to": "gian_thu_dich",
+     "kind": "disciple",
+     "note": "her last disciple, who found her"
+    }
+   ],
+   "items": [
+    "hs-fifth-month-plum"
+   ],
+   "changed": "added backstory, traits, ties; home 386 (Minh Cầm Phong, where Giản lives now; the abode itself is slot A-5, wherever its draw falls in the southern mountains) and birthplace 84"
+  },
+  {
+   "key": "van_nhan_chi_thuy",
+   "name_hv": "Văn Nhân Chỉ Thủy",
+   "name_han": "聞人止水",
+   "gloss": "Still water (Trang Tử: no one mirrors himself in running water, only in still water)",
+   "sex": "M",
+   "born": -900,
+   "alive": false,
+   "died": 40,
+   "cause": "left the world: walked over the long lake into the moon (C025, A001); no body, and no word of where",
+   "peak_realm": "hoa_than",
+   "sect": "",
+   "rank": "",
+   "home": 190,
+   "birthplace": 190,
+   "role": "A Hóa Thần master of water from before the calendar, whose name only Mạc Quy Khư remembers; left the world from Hạo Nguyệt Hồ in the year 40",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Calm",
+     "Honest",
+     "Content"
+    ],
+    "calling": "Teacher",
+    "upbringing": "hermit_taught",
+    "path": [
+     "long_seclusion"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A water master of the Wild Age who lived alone on the long northern lake, Hạo Nguyệt Hồ, for centuries before anyone kept years. He took one disciple in his life, a boy from the mulberry coast with a muddy root, Mạc Quy Khư (mac_quy_khu), because the boy sat on his shore for a winter and asked for nothing. In the year 40 he walked over the lake into the moon while Mạc watched (C025). The fishers built a shrine on the shore and forgot his name (A001). His house and its cold, deep qi stayed behind as a blessed land.",
+   "ties": [
+    {
+     "to": "mac_quy_khu",
+     "kind": "disciple",
+     "note": "his only disciple"
+    }
+   ]
+  },
+  {
+   "key": "yen_tang_dien",
+   "name_hv": "Yến Tang Điền",
+   "name_han": "晏桑田",
+   "gloss": "Mulberry fields (the second half of thương hải tang điền)",
+   "sex": "M",
+   "born": 600,
+   "alive": false,
+   "died": 1060,
+   "cause": "killed by his own Hóa Thần tribulation over the island sea (C180), at 460",
+   "peak_realm": "nguyen_anh",
+   "sect": "",
+   "rank": "",
+   "home": 37,
+   "birthplace": 37,
+   "role": "The last disciple of Cô Phàm Các, left ashore in 705; searched the western sea for the lost fleet; Đoạn Thương Hải's master",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Loyal",
+     "Patient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "sect_raised",
+    "path": [
+     "long_seclusion"
+    ],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": "vengeance_vow",
+    "fate_given": [],
+    "gained": [
+     "Grieving",
+     "Oath-bound"
+    ]
+   },
+   "backstory": "Born in Đàm Ảnh Thành in 600 and raised in Cô Phàm Các, Yến Tang Điền was the head Mã Viễn Ảnh's (ma_vien_anh) youngest disciple, left ashore with a fever the morning the fleet sailed in 705 (C015). He spent the next 355 years on the western sea with the Thương Tang Kính, a mirror from the sect's sea hall that shows a water as it once was, and logged every sail it showed him. He took one disciple, Đoạn Thương Hải (doan_thuong_hai), and named him to finish his own name. In 1059 he asked Mạc Quy Khư (mac_quy_khu) how a tribulation could be survived and got no answer. In 1060 he called his own down over the sea where the mirror last showed sails (C180).",
+   "ties": [
+    {
+     "to": "ma_vien_anh",
+     "kind": "former_master",
+     "note": "his master, lost with the fleet in 705"
+    },
+    {
+     "to": "doan_thuong_hai",
+     "kind": "disciple",
+     "note": "his one disciple, who lived"
+    },
+    {
+     "to": "mac_quy_khu",
+     "kind": "rival",
+     "note": "refused him in 1059"
+    }
+   ],
+   "master": "ma_vien_anh"
+  }
+ ]
+}

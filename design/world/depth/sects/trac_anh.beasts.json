@@ -1,0 +1,90 @@
+{
+ "sect": "trac_anh",
+ "_doc": "Trạc Anh Đài: named spirit beasts (linh thú). Proposal, unpriced (review/RANKED.md A7, 2026-11-25; form of sects/cuu_cao.beasts.json). An owned beast is a people record with is_beast and owner_id, and its owner lists it in `beasts` (src/gameplay/character/beast_keeper.gd, assets/data/creatures_linh_thu.json). Capacity is 1 + floor(effective thần hồn / 40). In a fight it is a companion: it adds power_share (0.5) of its chiến lực to its owner's offense, strikes every basic_cooldown, cannot be targeted and never leaves the fight (Combat rule 19). `combat` and `bond` are depth fields; `bond.rider` marks a mount, `bond.keeper` a beast that is not ridden. The owners' cast records do not list these beasts yet.",
+ "beasts": [
+  {
+   "key": "lang_nhi",
+   "name_hv": "Lãng Nhi",
+   "name_han": "浪兒",
+   "gloss": "Wave Child",
+   "is_beast": true,
+   "species": "spirit fur seal",
+   "sex": "M",
+   "born": 1160,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 3,
+   "root": {
+    "elements": {
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "owner_id": "doan_to_ba",
+   "loyalty": 90,
+   "home": 17,
+   "location_id": 17,
+   "tags": [
+    "seal",
+    "companion"
+   ],
+   "appearance": "A sleek grey fur seal with a torn flipper, who brings her the first fish of every dive.",
+   "combat": {
+    "strikes": "thuy",
+    "power_share": 0.5,
+    "note": "Her companion in the surf; her build takes no companion node."
+   },
+   "bond": {
+    "keeper": "doan_to_ba",
+    "since": 1162,
+    "event": null,
+    "rule": "Raised from a pup on the terrace."
+   },
+   "backstory": "The first of the two fur seals Đoàn Tố Ba tamed. It fishes for her and follows her deeper than any diver goes.",
+   "status": "proposal",
+   "authored": "review-A7"
+  },
+  {
+   "key": "tiem_nhi",
+   "name_hv": "Tiềm Nhi",
+   "name_han": "潛兒",
+   "gloss": "Diving Child",
+   "is_beast": true,
+   "species": "spirit fur seal",
+   "sex": "F",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "root": {
+    "elements": {
+     "thuy": 36
+    },
+    "variants": {}
+   },
+   "owner_id": "doan_to_ba",
+   "loyalty": 90,
+   "home": 17,
+   "location_id": 17,
+   "tags": [
+    "seal",
+    "companion"
+   ],
+   "appearance": "A small dark fur seal that barks at the Old Ivory and at no one else.",
+   "combat": {
+    "strikes": "thuy",
+    "power_share": 0.5,
+    "note": "Her second seal."
+   },
+   "bond": {
+    "keeper": "doan_to_ba",
+    "since": 1173,
+    "event": null,
+    "rule": "Raised from a pup on the terrace."
+   },
+   "backstory": "The younger seal. It will not go near the boats of Ngạc Hải Tiêu's crew.",
+   "status": "proposal",
+   "authored": "review-A7"
+  }
+ ]
+}

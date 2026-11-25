@@ -1,0 +1,1098 @@
+{
+ "sect": "cuu_cao",
+ "people": [
+  {
+   "key": "ung_hac_minh",
+   "name_hv": "Ung Hạc Minh",
+   "name_han": "雍鶴鳴",
+   "gloss": "The crane cries (Kinh Thi)",
+   "sex": "F",
+   "born": 1010,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "cuu_cao",
+   "rank": "tong_chu",
+   "home": 14,
+   "birthplace": 112,
+   "role": "Head of Cửu Cao Phái since 1095, crane riders and beast tamers; rider of the crane king Thanh Điền",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 60
+    },
+    "variants": {
+     "phong": 76
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 60,
+    "than_hon": 70,
+    "khi_van": 66,
+    "dao_tam": 62,
+    "mi_luc": 78
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Gregarious",
+     "Brave"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "beast_bonded"
+    ],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [
+     "Heaven-favoured"
+    ],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A wiry, weathered woman with a laugh that carries across the marsh, crane down caught in her braid and a small bronze bell at her belt.",
+   "backstory": "Ung Hạc Minh was born in Hạc Quy Thôn, the village where the cranes come down on the same day every spring, and that year they stayed a month longer (A094). There is no wind in the marsh, and she was born with more Wind than any rider since the founder. Tần Minh Cao (tan_minh_cao) took her up at six and gave her the school when he died in 1095. She has run it the way she runs a flock: loudly, kindly, and from the air. Her riders carry the Pivot's letters to its seven vassals and its envoy to the north, and since Băng Tâm's petition in 1188 her cranes have circled Tinh Tủy Mạch day and night (A096). She flies the night circuit herself once a month with the warden Hình Thủ Tinh (hinh_thu_tinh). In 1197 she tamed the crane king Thanh Điền, which lets no one else on its back and has thrown the Pivot's envoy Vi Thừa Phong (vi_thua_phong) twice (A097). In 1189, to plan the circuit, she opened the school's flight ledger for the years of the vein's first watch.",
+   "wants": "To bring the old cranes home from the vein circuit before it kills them, without failing the Pivot.",
+   "secret": "The founder's flight ledger for 803-806 records Tinh Tủy Mạch flown over every week and found empty: no guard, no fire, no tents. She knows the Pivot's watch was not kept, and she has not told Hình Thủ Tinh, who believes it has never been withdrawn.",
+   "ties": [
+    {
+     "to": "tan_minh_cao",
+     "kind": "master",
+     "note": "the founder, who took her up at six"
+    },
+    {
+     "to": "cu_van_ly",
+     "kind": "disciple",
+     "note": "her first rider, master of the winter terrace"
+    },
+    {
+     "to": "mai_lo_tuyet",
+     "kind": "disciple",
+     "note": "master of the grooms, who has no Wind"
+    },
+    {
+     "to": "tong_phi_thu",
+     "kind": "disciple",
+     "note": "the letter rider"
+    },
+    {
+     "to": "hinh_thu_tinh",
+     "kind": "friend",
+     "note": "they fly the night circuit over the vein together; she keeps the ledger from him"
+    },
+    {
+     "to": "vi_thua_phong",
+     "kind": "friend",
+     "note": "the Pivot's envoy, who rides her borrowed cranes and falls off the king"
+    },
+    {
+     "to": "thach_tang_danh",
+     "kind": "rival",
+     "note": "Phất Y's head, who wants the same Wind children"
+    },
+    {
+     "to": "ky_ngan_chuc",
+     "kind": "friend",
+     "note": "the talisman mistress 34 tiles west; the school's riders carry her hall's talismans"
+    },
+    {
+     "to": "khong_tuong_vu",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "banh_da_hang",
+     "kind": "disciple",
+     "note": "leader of the night riders over Tinh Tủy Mạch, born at the plateau mine"
+    },
+    {
+     "to": "ha_vi_lang",
+     "kind": "disciple",
+     "note": "groom of the breeding reeds at Hạc Quy Thôn"
+    },
+    {
+     "to": "su_man_thanh",
+     "kind": "disciple",
+     "note": "groom who copies the flight ledger in the marsh hall"
+    }
+   ],
+   "master": "tan_minh_cao",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "gale-courier-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "crane-bond-rite",
+      "layer": 9
+     },
+     {
+      "tech": "slow-hour-scripture",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "cc-green-field-bell"
+     },
+     {
+      "named": "cc-crane-down-robe"
+     },
+     {
+      "named": "wind-heron-fan"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "phong",
+     "intent": "Wind speed and evade first, Wood sustain behind it: she stays in the air and lets the crane king do the striking.",
+     "targets": [
+      808,
+      6475,
+      6505,
+      6145,
+      6557,
+      6559,
+      6666,
+      6619
+     ],
+     "targets_note": "Riders' route, then Swaying Bamboo's evasion, one side of the Beast-Soul Totem idea (Spirit Lantern, Totem Pole) for the crane king, Reed Shoot, and Sun and Rain for the Wood sustain behind her (her old targets were lost with her start change; written fresh)."
+    },
+    "note": "The crane rider: fast on the wind, kind to every beast, and the one crane king that lets no one else ride it fights beside her."
+   },
+   "items": [
+    "wind-heron-fan",
+    "cc-green-field-bell",
+    "cc-crane-down-robe"
+   ],
+   "beasts": [
+    "thanh_dien"
+   ],
+   "changed": "build: main phong_hanh_quyet (not a catalogue id or stand-in) -> gale-courier-scripture (the catalogue's Profound Wind main, the lineage main); aux adds crane-bond-rite and slow-hour-scripture; gear nhan -> the crane king's bell; tree start moc -> phong and targets -> intent; birthplace 112 added.",
+   "authored": "d32"
+  },
+  {
+   "key": "cu_van_ly",
+   "name_hv": "Cừ Vân Lý",
+   "name_han": "渠雲里",
+   "gloss": "Within the clouds",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "cuu_cao",
+   "rank": "truong_lao",
+   "home": 236,
+   "birthplace": 603,
+   "role": "First rider and master of the winter terrace on Thương Ưng Đài, who finds the plateau's Wind children",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 44,
+     "kim": 26
+    },
+    "variants": {
+     "phong": 48
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 62,
+    "than_hon": 56,
+    "khi_van": 50,
+    "dao_tam": 60,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Reclusive",
+     "Stubborn"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "beast_bonded"
+    ],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A silent man in a cloak of crane down who smells of wind and felt, and squints even indoors.",
+   "backstory": "A miner's son from Tập Trận Khoáng, where the wind never stops. Ung Hạc Minh (ung_hac_minh) found him on her first winter on the plateau and he has kept the flock's winter terrace on Thương Ưng Đài ever since. Every winter he walks the hawk-catchers' camps and the mine for Wind-born children. In 1195 he came a week too late for Lộ Khinh Trần (lo_khinh_tran), whom Phất Y's head had already taken.",
+   "ties": [
+    {
+     "to": "ung_hac_minh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ninh_van_tuoc",
+     "kind": "disciple",
+     "note": "the skylark girl he found at the hawk camps"
+    },
+    {
+     "to": "lo_khinh_tran",
+     "kind": "rival",
+     "note": "the Wind boy he lost to Phất Y"
+    },
+    {
+     "to": "thach_tang_danh",
+     "kind": "enemy",
+     "note": "takes the plateau's Wind children for a sleeve art no one learns"
+    },
+    {
+     "to": "mo_cao_yen",
+     "kind": "disciple",
+     "note": "rider found on the hawk-catchers' terrace in 1196"
+    }
+   ],
+   "master": "ung_hac_minh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "gale-courier-scripture",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "crane-bond-rite",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "cc-winter-terrace-cloak"
+     },
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "phong",
+     "intent": "Wind evade and a crane's strike; Earth to stand on the terrace in a gale.",
+     "targets": [
+      808,
+      6475,
+      6505,
+      801,
+      3724
+     ],
+     "targets_note": "Riders' route, then Wind Edge for the crane's strike and the long road to Earthen Gate for footing on the winter terrace."
+    },
+    "note": "The winter terrace."
+   },
+   "items": [
+    "cc-winter-terrace-cloak"
+   ]
+  },
+  {
+   "key": "mai_lo_tuyet",
+   "name_hv": "Mai Lô Tuyết",
+   "name_han": "梅蘆雪",
+   "gloss": "Snow on the reeds",
+   "sex": "F",
+   "born": 1090,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "cuu_cao",
+   "rank": "ngoai_mon",
+   "home": 14,
+   "birthplace": 1296,
+   "role": "Master of the grooms and the marsh; the strongest cultivator in the school who cannot ride",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 62,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 58,
+    "than_hon": 64,
+    "khi_van": 42,
+    "dao_tam": 70,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Compassionate",
+     "Humble"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A slow, broad woman always wet to the knee, with reed cuts on her hands and a crane chick under her arm.",
+   "backstory": "From the carp village of Lý Ngư Thôn, she has bred and fed every crane in the school for eighty years and has never been off the ground, because she has no Wind. She outranks every rider in realm and wears the outer gate's grey. Ung Hạc Minh (ung_hac_minh) calls her the school's mother. She is counting the old cranes the vein circuit has worn out.",
+   "ties": [
+    {
+     "to": "ung_hac_minh",
+     "kind": "master",
+     "note": "and friend of eighty years"
+    },
+    {
+     "to": "lu_thuy_dien",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "dong_duoc_huong",
+     "kind": "disciple",
+     "note": "the crane doctor"
+    },
+    {
+     "to": "ha_tri_han",
+     "kind": "disciple",
+     "note": "a quiet boy from Cự Môn"
+    },
+    {
+     "to": "pham_thanh_lo",
+     "kind": "disciple",
+     "note": "the newest groom"
+    },
+    {
+     "to": "nguy_ha_lo",
+     "kind": "disciple",
+     "note": "groom who digs the reed graves for the cranes"
+    },
+    {
+     "to": "ha_vi_lang",
+     "kind": "friend",
+     "note": "groom of the breeding reeds at Hạc Quy Thôn"
+    }
+   ],
+   "master": "ung_hac_minh",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "marsh-reed-breath",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 6
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood sustain and binding: the marsh holds the foe while she walks away.",
+     "targets": [
+      6505,
+      6666,
+      5780,
+      6085
+     ],
+     "targets_note": "Only Beast Den of the riders' route (her root has no Wind), then Reed Shoot, Creeping Vine for the marsh's binding, Willow Dance to walk away."
+    },
+    "note": "The mother of the flock."
+   }
+  },
+  {
+   "key": "tong_phi_thu",
+   "name_hv": "Tống Phi Thư",
+   "name_han": "宋飛書",
+   "gloss": "Flying letter",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "cuu_cao",
+   "rank": "noi_mon",
+   "home": 14,
+   "birthplace": 236,
+   "role": "The letter rider: flies the Pivot's post to its vassals and the north",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "hoa": 30
+    },
+    "variants": {
+     "phong": 48
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 54,
+    "than_hon": 52,
+    "khi_van": 60,
+    "dao_tam": 50,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Indulgent",
+     "Trusting"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [
+     "beast_bonded"
+    ],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A cheerful rider with a satchel of sealed jade tallies across his back and wine on his breath.",
+   "backstory": "A hawk-catcher's son from the windy terrace, he has carried the Pivot's sealed letters since 1170, the same road the riders flew over Phá Quân's fort in 872 (A091). He flies with the Pivot's envoy Vi Thừa Phong (vi_thua_phong) and drinks with him at every vassal's gate. He talks too much and has never once opened a letter.",
+   "ties": [
+    {
+     "to": "ung_hac_minh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "vi_thua_phong",
+     "kind": "friend",
+     "note": "the Pivot's envoy to the vassals; they share a road and a flask"
+    },
+    {
+     "to": "khong_tuong_vu",
+     "kind": "lover",
+     "note": "the roc-tamer"
+    },
+    {
+     "to": "banh_da_hang",
+     "kind": "friend",
+     "note": "leader of the night riders over Tinh Tủy Mạch, born at the plateau mine"
+    }
+   ],
+   "master": "ung_hac_minh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "gale-courier-scripture",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "crane-bond-rite",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "phong",
+     "intent": "Speed above all: a courier who outruns what he cannot fight.",
+     "targets": [
+      808,
+      6475,
+      6505,
+      803,
+      6451,
+      6455
+     ],
+     "targets_note": "Riders' route, then Open Sky Breath and the Riding the Wind idea (Cloud Step, Riding the Wind): speed above all."
+    },
+    "note": "The post."
+   },
+   "changed": "Fix pass A (2026-11-25): Wind raised from 36 to 48; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b)."
+  },
+  {
+   "key": "khong_tuong_vu",
+   "name_hv": "Khổng Tường Vũ",
+   "name_han": "孔翔羽",
+   "gloss": "Soaring feathers",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "cuu_cao",
+   "rank": "noi_mon",
+   "home": 234,
+   "birthplace": 603,
+   "role": "Beast tamer camped below the roc's cliff, who means to ride it",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 38,
+     "kim": 30
+    },
+    "variants": {
+     "phong": 45
+    }
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Brave",
+     "Impatient"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "path": [
+     "beast_bonded"
+    ]
+   },
+   "backstory": "Another child of the windy mine, she has camped under Bằng Sào Nhai for six years feeding the roc goats and waiting for it to let her near; Ung Hạc Minh (ung_hac_minh) thinks it will eat her, and has not forbidden it.",
+   "ties": [
+    {
+     "to": "ung_hac_minh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tong_phi_thu",
+     "kind": "lover",
+     "note": ""
+    },
+    {
+     "to": "lo_phi_suong",
+     "kind": "disciple",
+     "note": "rider from Tập Trận Khoáng, Lộ Khinh Trần's cousin, at the roc camp"
+    }
+   ],
+   "master": "ung_hac_minh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "gale-courier-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "phong",
+     "intent": "Wind and a beast's strength."
+    },
+    "note": "Wants the roc."
+   },
+   "changed": "Fix pass A (2026-11-25): Wind raised from 30 to 45; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b)."
+  },
+  {
+   "key": "ninh_van_tuoc",
+   "name_hv": "Ninh Vân Tước",
+   "name_han": "寧雲雀",
+   "gloss": "Skylark",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "cuu_cao",
+   "rank": "noi_mon",
+   "home": 236,
+   "birthplace": 236,
+   "role": "Young rider from the hawk-catchers' camps",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 42,
+     "hoa": 24
+    },
+    "variants": {
+     "phong": 47
+    }
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Brave",
+     "Fickle"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "wild_raised"
+   },
+   "backstory": "Cừ Vân Lý (cu_van_ly) found her on the windy terrace catching hawk chicks barehanded; she rode her first crane north to the marsh at twelve and cried the whole way, from joy.",
+   "ties": [
+    {
+     "to": "cu_van_ly",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "mo_cao_yen",
+     "kind": "friend",
+     "note": "rider found on the hawk-catchers' terrace in 1196"
+    }
+   ],
+   "master": "cu_van_ly",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "gale-courier-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "phong",
+     "intent": "Wind."
+    },
+    "note": "Skylark."
+   },
+   "changed": "Fix pass A (2026-11-25): Wind raised from 26 to 47; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b)."
+  },
+  {
+   "key": "lu_thuy_dien",
+   "name_hv": "Lư Thủy Điền",
+   "name_han": "盧水田",
+   "gloss": "Flooded field",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "cuu_cao",
+   "rank": "ngoai_mon",
+   "home": 14,
+   "birthplace": 112,
+   "role": "Groom from the crane village",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Patient",
+     "Loyal"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Born in Hạc Quy like the head, without her Wind; Mai Lô Tuyết (mai_lo_tuyet) has made him the best groom of his year, and he has stopped asking to ride.",
+   "ties": [
+    {
+     "to": "mai_lo_tuyet",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dau_quang_lang",
+     "kind": "friend",
+     "note": "groom from Ba Quang Thôn, who rows the feed boats"
+    }
+   ],
+   "master": "mai_lo_tuyet",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "marsh-reed-breath",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "Groom."
+   }
+  },
+  {
+   "key": "ha_tri_han",
+   "name_hv": "Hạ Tri Hàn",
+   "name_han": "夏知寒",
+   "gloss": "Knows the cold",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "cuu_cao",
+   "rank": "ngoai_mon",
+   "home": 14,
+   "birthplace": 1340,
+   "role": "Groom from Cự Môn Trấn, of a family that fled Hắc Thạch Trấn in 874",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 34,
+     "moc": 30,
+     "kim": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Vengeful",
+     "Cautious"
+    ],
+    "calling": "Strategist",
+    "upbringing": "war_orphan"
+   },
+   "backstory": "His great-grandmother fled Phá Quân's mining town to Cự Môn when the rebel gate fell (V058) and kept a spearhead and a name she made him promise to hide: Hạ, the Wolf Star's own (ha_lang_tinh).",
+   "ties": [
+    {
+     "to": "mai_lo_tuyet",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ha_lang_tinh",
+     "kind": "ancestor",
+     "note": "the rebel founder of Phá Quân Môn, by family tale"
+    }
+   ],
+   "master": "mai_lo_tuyet",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "marsh-reed-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water and Wood."
+    },
+    "note": "A hidden name."
+   }
+  },
+  {
+   "key": "pham_thanh_lo",
+   "name_hv": "Phạm Thanh Lô",
+   "name_han": "范青蘆",
+   "gloss": "Green reed",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "cuu_cao",
+   "rank": "ngoai_mon",
+   "home": 14,
+   "birthplace": 1318,
+   "role": "The newest groom, from the raft village",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Diligent",
+     "Trusting"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A log-rafter's daughter from Mộc Phiệt Thôn who came for the cranes and was handed a bucket by Đồng Dược Hương (dong_duoc_huong) on her first morning.",
+   "ties": [
+    {
+     "to": "mai_lo_tuyet",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dong_duoc_huong",
+     "kind": "friend",
+     "note": "who handed her the bucket"
+    },
+    {
+     "to": "su_man_thanh",
+     "kind": "friend",
+     "note": "groom who copies the flight ledger in the marsh hall"
+    }
+   ],
+   "master": "mai_lo_tuyet",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "marsh-reed-breath",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "Bucket."
+   }
+  },
+  {
+   "key": "dong_duoc_huong",
+   "name_hv": "Đồng Dược Hương",
+   "name_han": "童藥香",
+   "gloss": "Scent of herbs",
+   "sex": "F",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "cuu_cao",
+   "rank": "ngoai_mon",
+   "home": 14,
+   "birthplace": 1296,
+   "role": "Crane doctor of the marsh",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "tho": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Wrathful",
+     "Just"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "lifestyle": "gardener"
+   },
+   "backstory": "She sets the cranes' broken wings and has buried eleven old birds worn out by the vein circuit since 1189; she blames the Pivot, loudly, and Mai Lô Tuyết (mai_lo_tuyet) lets her.",
+   "ties": [
+    {
+     "to": "mai_lo_tuyet",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "pham_thanh_lo",
+     "kind": "friend",
+     "note": "the younger girl she handed the bucket to"
+    },
+    {
+     "to": "nguy_ha_lo",
+     "kind": "friend",
+     "note": "groom who digs the reed graves for the cranes"
+    },
+    {
+     "to": "banh_da_hang",
+     "kind": "rival",
+     "note": "leader of the night riders over Tinh Tủy Mạch, born at the plateau mine"
+    }
+   ],
+   "master": "mai_lo_tuyet",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "marsh-reed-breath",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3,
+     "dan_dao": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing."
+    },
+    "note": "Crane doctor."
+   }
+  },
+  {
+   "key": "tan_minh_cao",
+   "name_hv": "Tần Minh Cao",
+   "name_han": "秦鳴皋",
+   "gloss": "Cries in the marsh",
+   "sex": "M",
+   "born": 650,
+   "died": 1095,
+   "cause": "a spear wound from the flight over Phá Quân's fort in 872 reopened at 445; he died of it on the day the cranes came back",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "cuu_cao",
+   "rank": "founder",
+   "home": 14,
+   "birthplace": 236,
+   "role": "Founder of Cửu Cao Phái (700); the first to share breath with a crane of the nine marshes",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Calm",
+     "Devout",
+     "Compassionate"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "wild_raised",
+    "path": [
+     "beast_bonded"
+    ]
+   },
+   "backstory": "A Wind-born hawk-catcher of the plateau who followed the cranes north one spring and found where they landed. In 700 he and the first riders shared breath with the cranes of the nine marshes and founded the school (C140, A089). He flew the Pivot's messages over Phá Quân's fort in 872 (A091), kept the school's flight ledger in his own hand for four hundred years, and gave the school to Ung Hạc Minh (ung_hac_minh).",
+   "ties": [
+    {
+     "to": "ung_hac_minh",
+     "kind": "disciple",
+     "note": "his successor"
+    },
+    {
+     "to": "nhan_tuyet_linh",
+     "kind": "disciple",
+     "note": "the rider lost in 872"
+    }
+   ]
+  },
+  {
+   "key": "nhan_tuyet_linh",
+   "name_hv": "Nhan Tuyết Linh",
+   "name_han": "顏雪翎",
+   "gloss": "Snow feather",
+   "sex": "F",
+   "born": 790,
+   "died": 872,
+   "cause": "brought down by Phá Quân's spears over the rebel fort, carrying the Pivot's message",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "cuu_cao",
+   "rank": "noi_mon",
+   "home": 14,
+   "birthplace": 603,
+   "role": "Rider who fell over Phá Quân Môn in 872 with the Pivot's letter",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Loyal",
+     "Honest"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born",
+    "path": [
+     "beast_bonded"
+    ]
+   },
+   "backstory": "One of the riders who carried the Pivot's messages over Phá Quân's fort in the rebellion (A091). On the third crossing the rebels' spears brought her crane down inside the walls. The letter was found sealed on her body when the fort fell in 874 (C163), and Đỗ Tinh Hà (do_tinh_ha) had it delivered unopened. Her crane never took another rider.",
+   "ties": [
+    {
+     "to": "tan_minh_cao",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ha_lang_tinh",
+     "kind": "enemy",
+     "note": "his spears brought her down"
+    }
+   ],
+   "master": "tan_minh_cao"
+  }
+ ]
+}

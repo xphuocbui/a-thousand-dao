@@ -1,0 +1,1120 @@
+{
+ "sect": "vong_trieu",
+ "people": [
+  {
+   "key": "on_thu_dang",
+   "name_hv": "Ôn Thủ Đăng",
+   "name_han": "溫守燈",
+   "gloss": "Keeps the lamp burning",
+   "sex": "M",
+   "born": 860,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "vong_trieu",
+   "rank": "tong_chu",
+   "home": 337,
+   "birthplace": 149,
+   "role": "Head of Vọng Triều Đường; keeper of the lamp chain and the sea-wards of the gulf coast",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "tho": 50
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 60,
+    "than_hon": 72,
+    "khi_van": 46,
+    "dao_tam": 74,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Diligent",
+     "Stubborn"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "formation_mind"
+    ],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": "obsessive_training",
+    "fate_given": [],
+    "gained": [
+     "Oath-bound"
+    ]
+   },
+   "appearance": "A tall, salt-greyed man who never sits with his back to the sea and carries a lit bronze storm lamp even at noon.",
+   "backstory": "Ôn Thủ Đăng was born in 860 at Âu Lộ Thôn, where the pearl divers of burned Châu Lệ Cảng settled and never dived again (A259). The hall's founder Cơ Châu Lệ (co_chau_le) took him at twelve. He has kept its lamps for three hundred years: a chain of towers along the gulf coast, lit every night so that any sail is seen and passed from tower to tower to the palace fleet at Thạch Cơ Thành. No pirate has come since the Purge (C153). He has watched an empty sea for four centuries and will not let a lamp go out. He drinks with the palace admiral Phàn Vọng Hải (phan_vong_hai), who comes from the same pearl-diver stock, and calls his diving for the lost sabre a waste of good summers. In 914 he wrote the Last Lamp Vigil and has never said why that winter. In 1190 the palace asked the hall to ward the Thạch Cơ jetty against storms; he said the hall watches for sails.",
+   "wants": "Every tower in the chain lit again: three have been dark for want of keepers.",
+   "secret": "In 913 he was keeper of the Kim Sa lamp. On the festival night he asked his sworn brother Dịch Thủy Thanh (dich_thuy_thanh) to keep it while he went to a girl in Lam Điện. The storm tide came that night, Kim Sa Trấn drowned (V171), and Dịch drowned at the lamp. Ôn has kept every lamp lit since then because of that one night, and he refuses storm wards because a storm took Dịch.",
+   "ties": [
+    {
+     "to": "co_chau_le",
+     "kind": "master",
+     "note": "the founder, who took him at twelve"
+    },
+    {
+     "to": "dich_thuy_thanh",
+     "kind": "sworn_sibling",
+     "note": "drowned keeping Ôn's lamp at Kim Sa in 913"
+    },
+    {
+     "to": "phan_vong_hai",
+     "kind": "friend",
+     "note": "the palace admiral; pearl-diver stock, both"
+    },
+    {
+     "to": "chan_dinh_lan",
+     "kind": "rival",
+     "note": "his storm elder, who wants the lamps traded for sea-walls"
+    },
+    {
+     "to": "kien_muc_hai",
+     "kind": "disciple",
+     "note": "keeper of the northern lamp"
+    },
+    {
+     "to": "ve_lu_sinh",
+     "kind": "disciple",
+     "note": "keeper of the southern lamp at Lô Châu"
+    },
+    {
+     "to": "van_lao_du",
+     "kind": "friend",
+     "note": "the servant who keeps his house"
+    },
+    {
+     "to": "chan_dinh_lan",
+     "kind": "former_disciple",
+     "note": "his storm elder, who wants the lamps traded for sea-walls"
+    },
+    {
+     "to": "dich_tan_chieu",
+     "kind": "disciple",
+     "note": "keeper of the tide lamp at Nhật Xuất Thôn"
+    },
+    {
+     "to": "bang_tran_lang",
+     "kind": "rival",
+     "note": "draws breakwater arrays for the storm wards"
+    }
+   ],
+   "master": "co_chau_le",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "lamp-ward-seal-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "last-lamp-vigil",
+      "layer": 9
+     },
+     {
+      "tech": "tide-reading-gaze",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "named": "vtd-unsleeping-lamp"
+     },
+     {
+      "named": "vtd-kim-sa-seal"
+     },
+     {
+      "named": "vtd-pearl-diver-robe"
+     }
+    ],
+    "skills": {
+     "tran_phap": 8
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Wards and soul over any element: he holds a line of seals through a whole night and sees what comes before it arrives.",
+     "targets": [
+      5456,
+      4943,
+      4947,
+      4806,
+      5544,
+      5536,
+      5509
+     ],
+     "targets_note": "Lineage watch, Water Film for the ward, Lunar Mansion and Pole Star to see what comes, Still Water Heart for the night (wishlist: lamp-ward)."
+    },
+    "note": "The lamp-keeper: a ring of ward seals that do not go out while he stands."
+   },
+   "items": [
+    "vtd-unsleeping-lamp",
+    "vtd-kim-sa-seal",
+    "vtd-pearl-diver-robe"
+   ],
+   "changed": "new record fields for an existing person (tier A): root, build, birthplace 149, ties. The hall becomes no-lean (R3), so his root needs no lineage element."
+  },
+  {
+   "key": "chan_dinh_lan",
+   "name_hv": "Chân Định Lan",
+   "name_han": "甄定瀾",
+   "gloss": "Calms the waves",
+   "sex": "F",
+   "born": 1050,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "vong_trieu",
+   "rank": "truong_lao",
+   "home": 337,
+   "birthplace": 791,
+   "role": "Elder of the storm wards; wants the hall to stop watching for pirates and wall the coast against the sea",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "tho": 60,
+     "thuy": 48
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 56,
+    "than_hon": 62,
+    "khi_van": 50,
+    "dao_tam": 54,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Just",
+     "Ambitious"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "formation_mind"
+    ],
+    "lifestyle": "go_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Humbled"
+    ]
+   },
+   "appearance": "A square-shouldered woman in a salt-stiff coat, who measures every wall she passes with her eyes.",
+   "backstory": "Chân Định Lan grew up in Hải Mục Thôn, where the sea pastures flood in the autumn storms, and joined the hall because it was the only sect on the coast that knew wards. She learned them from Ôn Thủ Đăng (on_thu_dang) and has argued with him for a century. No pirate has come in four hundred years. Storm tides drowned Kim Sa Trấn (V171) and cracked the palace's jetty at Thạch Cơ Thành (A312). She wants the lamp oil spent on breakwater arrays. In 1190, when Ôn refused the palace's request to ward the jetty, she went to Thạch Cơ alone at night and laid what she could. The storm cracked it anyway. The palace rebuilt it with Xích Thành stone, and she has not forgiven herself.",
+   "wants": "A breakwater array along the gulf, paid for with the lamps' oil, before the next storm tide.",
+   "secret": "She has written to the palace admiral Phàn Vọng Hải (phan_vong_hai), asking him to persuade the palace to order the hall to the sea-walls over Ôn's head.",
+   "ties": [
+    {
+     "to": "on_thu_dang",
+     "kind": "former_master",
+     "note": "taught her the wards; her head and her opponent"
+    },
+    {
+     "to": "phan_vong_hai",
+     "kind": "friend",
+     "note": "she wrote to him behind Ôn's back"
+    },
+    {
+     "to": "le_bach_diem",
+     "kind": "disciple",
+     "note": "the steward, who agrees with her"
+    },
+    {
+     "to": "tram_chau_nhi",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "ky_lam_sa",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "bang_tran_lang",
+     "kind": "disciple",
+     "note": "draws breakwater arrays for the storm wards"
+    }
+   ],
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "lamp-ward-seal-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 6
+     },
+     {
+      "tech": "last-lamp-vigil",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "named": "vtd-breakwater-seal"
+     },
+     {
+      "named": "vtd-sea-wall-shield"
+     },
+     {
+      "named": "vtd-jetty-stone"
+     }
+    ],
+    "skills": {
+     "tran_phap": 7
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Walls: stronger seals and a body that stands in surf.",
+     "targets": [
+      3487,
+      3051,
+      3250,
+      3258,
+      3105,
+      8999
+     ],
+     "targets_note": "From Earth: Battlements, Five Peaks, the Bulwark's body shield, Array Keeper, then Layered Earth: the breakwater."
+    },
+    "note": "The breakwater."
+   },
+   "items": [
+    "vtd-breakwater-seal",
+    "vtd-sea-wall-shield",
+    "vtd-jetty-stone"
+   ]
+  },
+  {
+   "key": "kien_muc_hai",
+   "name_hv": "Kiển Mục Hải",
+   "name_han": "蹇牧海",
+   "gloss": "Shepherd of the sea",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "vong_trieu",
+   "rank": "noi_mon",
+   "home": 795,
+   "birthplace": 788,
+   "role": "Keeper of the northern lamp in the crumbling fort of Liệu Phàm Bảo",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "kim": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 54,
+    "can_cot": 58,
+    "than_hon": 70,
+    "khi_van": 42,
+    "dao_tam": 60,
+    "mi_luc": 36
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Patient",
+     "Paranoid"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "chronicler",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A gaunt man in a seal-skin coat whose eyes have gone pale from staring at the dark sea.",
+   "backstory": "A Sunrise Village fisher's son who has kept the lamp in Liệu Phàm Bảo alone since 1150. The palace withdrew the fort's garrison in 790 (V140), the year the hall was founded, and the hall has kept a lamp in its tower ever since. Twice last winter he saw sails pass south at night with no lamp lit. He wrote to Ôn Thủ Đăng (on_thu_dang), and no one has answered.",
+   "ties": [
+    {
+     "to": "on_thu_dang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dinh_vong_tinh",
+     "kind": "disciple",
+     "note": "his one companion on the tower"
+    },
+    {
+     "to": "bien_am_pham",
+     "kind": "rival",
+     "note": "the smuggler who steers by his lamp; he has seen her sails twice"
+    },
+    {
+     "to": "ngu_da_pham",
+     "kind": "disciple",
+     "note": "carries oil up to the northern lamp"
+    }
+   ],
+   "master": "on_thu_dang",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "lamp-ward-seal-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "tide-reading-gaze",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "kinh",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Far sight and seals.",
+     "targets": [
+      5456,
+      4943,
+      4947,
+      5536,
+      5544
+     ],
+     "targets_note": "Lineage watch, Pole Star and Lunar Mansion for far sight (wishlist: lamp-ward)."
+    },
+    "note": "The northern lamp."
+   }
+  },
+  {
+   "key": "le_bach_diem",
+   "name_hv": "Lê Bạch Diêm",
+   "name_han": "黎白鹽",
+   "gloss": "White salt",
+   "sex": "F",
+   "born": 1115,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "vong_trieu",
+   "rank": "chap_su",
+   "home": 337,
+   "birthplace": 779,
+   "role": "Steward of the hall: lamp oil, salt and laver, and the accounts",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "tho": 38
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 48,
+    "than_hon": 52,
+    "khi_van": 56,
+    "dao_tam": 50,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Honest",
+     "Temperate"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "tea_master",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A brisk woman with salt-cracked hands and an abacus at her belt.",
+   "backstory": "Her people at Hàm Trạch are the grandchildren of Hải Diêm Trấn's salt makers, burned out by Thôn Hải in 764 (V139). She keeps the hall's money, which is salt, laver and a small palace stipend, and spends most of it on lamp oil. She has shown Chân Định Lan (chan_dinh_lan) that the oil for one year would build a furlong of breakwater.",
+   "ties": [
+    {
+     "to": "chan_dinh_lan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "cao_tieu_pham",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "dang_ham_sa",
+     "kind": "disciple",
+     "note": "salt boiler and oil clerk"
+    },
+    {
+     "to": "bang_tran_lang",
+     "kind": "friend",
+     "note": "draws breakwater arrays for the storm wards"
+    }
+   ],
+   "master": "chan_dinh_lan",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "lamp-ward-seal-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Seals and patience.",
+     "targets": [
+      5456,
+      4943,
+      4947,
+      4806
+     ],
+     "targets_note": "Lineage watch, Water Film: seals and patience (wishlist: lamp-ward)."
+    },
+    "note": "The oil ledger."
+   }
+  },
+  {
+   "key": "tram_chau_nhi",
+   "name_hv": "Trạm Châu Nhi",
+   "name_han": "湛珠兒",
+   "gloss": "Pearl child",
+   "sex": "F",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "vong_trieu",
+   "rank": "noi_mon",
+   "home": 228,
+   "birthplace": 149,
+   "role": "Keeper of the lamp at the burned piers of Châu Lệ Cảng; dives for pearls against her family's vow",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Fickle",
+     "Indulgent"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "An Âu Lộ pearl diver's great-granddaughter who broke the family vow never to dive again (A259); she dives at Châu Lệ by day and keeps its lamp by night, and sometimes dives with the palace's Ô Trầm Châu (o_tram_chau) for the lost sabre.",
+   "ties": [
+    {
+     "to": "chan_dinh_lan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "o_tram_chau",
+     "kind": "friend",
+     "note": "the palace fleet's diver"
+    },
+    {
+     "to": "bien_am_pham",
+     "kind": "friend",
+     "note": "the smuggler who buys the pearls she should not dive for"
+    },
+    {
+     "to": "yen_thuy_hoa",
+     "kind": "friend",
+     "note": "the girl she taught to dive"
+    },
+    {
+     "to": "man_hai_muoi",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "tram_tham_chau",
+     "kind": "cousin",
+     "note": "her cousin; learns to dive at the burned piers"
+    },
+    {
+     "to": "tram_tham_chau",
+     "kind": "disciple",
+     "note": "learns to dive at the burned piers"
+    }
+   ],
+   "master": "chan_dinh_lan",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "lamp-ward-seal-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "tran_phap": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "A diver's breath and a lamp."
+    },
+    "note": "The pier lamp."
+   }
+  },
+  {
+   "key": "ve_lu_sinh",
+   "name_hv": "Vệ Lư Sinh",
+   "name_han": "衛蘆生",
+   "gloss": "Born of the reeds",
+   "sex": "M",
+   "born": 1125,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "vong_trieu",
+   "rank": "noi_mon",
+   "home": 164,
+   "birthplace": 164,
+   "role": "Keeper of the southern lamp at Lô Châu Thôn; the hall's best ward-layer",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Loyal",
+     "Humble"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born"
+   },
+   "backstory": "Born in the reed village that Thôn Hải carried off whole in 765 and the freed captives rebuilt reed by reed (A306, A307); Ôn Thủ Đăng (on_thu_dang) taught him the wards, and he keeps the last tower on the southern coast.",
+   "ties": [
+    {
+     "to": "on_thu_dang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "bien_vi_dang",
+     "kind": "disciple",
+     "note": "wick-cutter at the southern lamp"
+    }
+   ],
+   "master": "on_thu_dang",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "lamp-ward-seal-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "tran_phap": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Seals."
+    },
+    "note": "The southern lamp."
+   }
+  },
+  {
+   "key": "cao_tieu_pham",
+   "name_hv": "Cao Tiểu Phàm",
+   "name_han": "高小帆",
+   "gloss": "Little sail",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "vong_trieu",
+   "rank": "ngoai_mon",
+   "home": 337,
+   "birthplace": 791,
+   "role": "Outer watchman",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 42,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Impatient",
+     "Brave",
+     "Gregarious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hải Mục herder's son who joined to see a pirate and has seen only gulls; Lê Bạch Diêm (le_bach_diem) has him carrying oil.",
+   "ties": [
+    {
+     "to": "le_bach_diem",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "le_bach_diem",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "A hard body."
+    },
+    "note": "Oil carrier."
+   }
+  },
+  {
+   "key": "man_hai_muoi",
+   "name_hv": "Mãn Hải Muội",
+   "name_han": "滿海妹",
+   "gloss": "Little sister of the sea",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "vong_trieu",
+   "rank": "ngoai_mon",
+   "home": 228,
+   "birthplace": 149,
+   "role": "Outer watchwoman at the burned piers",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "hoa": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Trusting",
+     "Diligent",
+     "Compassionate"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "An Âu Lộ girl who swore the oath for an aunt drowned in a storm, not a raid, and follows Trạm Châu Nhi (tram_chau_nhi) into the water.",
+   "ties": [
+    {
+     "to": "tram_chau_nhi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "thach_hai_the",
+     "kind": "friend",
+     "note": "newly sworn keeper at the tide lamp"
+    }
+   ],
+   "master": "tram_chau_nhi",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "A diver's body."
+    },
+    "note": "Learning to dive."
+   }
+  },
+  {
+   "key": "dinh_vong_tinh",
+   "name_hv": "Đinh Vọng Tinh",
+   "name_han": "丁望星",
+   "gloss": "Watches the stars",
+   "sex": "M",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "vong_trieu",
+   "rank": "noi_mon",
+   "home": 795,
+   "birthplace": 788,
+   "role": "Lamp-lighter at Liệu Phàm Bảo",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "hoa": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Cautious",
+     "Reclusive"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born"
+   },
+   "backstory": "Kiển Mục Hải's (kien_muc_hai) only companion in the crumbling fort; he saw the unlit sails too and has counted them.",
+   "ties": [
+    {
+     "to": "kien_muc_hai",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "kien_muc_hai",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "lamp-ward-seal-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "tran_phap": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Seals."
+    },
+    "note": "The fort tower."
+   }
+  },
+  {
+   "key": "ky_lam_sa",
+   "name_hv": "Kỳ Lam Sa",
+   "name_han": "祁藍紗",
+   "gloss": "Blue gauze",
+   "sex": "F",
+   "born": 1174,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "vong_trieu",
+   "rank": "noi_mon",
+   "home": 337,
+   "birthplace": 777,
+   "role": "Inner disciple of the storm wards",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 46,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Just",
+     "Stubborn"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born"
+   },
+   "backstory": "A laver gatherer's daughter from Tử Thái Thôn who sides with Chân Định Lan (chan_dinh_lan) on the sea-walls and says so to the head.",
+   "ties": [
+    {
+     "to": "chan_dinh_lan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dang_ham_sa",
+     "kind": "friend",
+     "note": "salt boiler and oil clerk"
+    }
+   ],
+   "master": "chan_dinh_lan",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "lamp-ward-seal-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 2
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Walls."
+    },
+    "note": "Sea-wall faction."
+   }
+  },
+  {
+   "key": "van_lao_du",
+   "name_hv": "Vạn Lão Du",
+   "name_han": "萬老油",
+   "gloss": "Old oil",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "vong_trieu",
+   "rank": "tap_dich",
+   "home": 337,
+   "birthplace": 793,
+   "role": "Servant who boils the lamp oil",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 48,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Lazy",
+     "Loyal"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "A Deep Well villager who renders fish oil for every lamp on the coast and tells Ôn Thủ Đăng (on_thu_dang) each year that the oil costs more.",
+   "ties": [
+    {
+     "to": "on_thu_dang",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "A strong back."
+    },
+    "note": "Servant; the hall's outer method."
+   }
+  },
+  {
+   "key": "co_chau_le",
+   "name_hv": "Cơ Châu Lệ",
+   "name_han": "姬珠淚",
+   "gloss": "Pearl tears, after the harbour",
+   "sex": "F",
+   "born": 740,
+   "died": 1060,
+   "cause": "died at 320 on the tower above the burned piers",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "vong_trieu",
+   "rank": "founder",
+   "home": 337,
+   "birthplace": 228,
+   "role": "Founder of Vọng Triều Đường (790); a pearl diver who watched Châu Lệ Cảng burn",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Diligent",
+     "Stubborn"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born"
+   },
+   "backstory": "A pearl diver of Châu Lệ Cảng who was twenty-two when Thôn Hải burned the harbour in 762 (C151) and changed her name to its name. After the Purge she gathered the survivors of the pirate years by the burned piers and swore them to an oath: no harbour on this coast will burn again (V141). She wrote the Lamp-Ward Seal Canon and taught Ôn Thủ Đăng (on_thu_dang).",
+   "ties": [
+    {
+     "to": "on_thu_dang",
+     "kind": "disciple",
+     "note": "her heir"
+    },
+    {
+     "to": "dich_thuy_thanh",
+     "kind": "former_disciple",
+     "note": "her former disciple"
+    }
+   ]
+  },
+  {
+   "key": "dich_thuy_thanh",
+   "name_hv": "Dịch Thủy Thanh",
+   "name_han": "易水清",
+   "gloss": "Clear water",
+   "sex": "M",
+   "born": 870,
+   "died": 913,
+   "cause": "drowned at the Kim Sa lamp in the storm tide (V171)",
+   "alive": false,
+   "peak_realm": "luyen_khi",
+   "sect": "vong_trieu",
+   "rank": "noi_mon",
+   "home": 1019,
+   "birthplace": 149,
+   "role": "Ôn Thủ Đăng's sworn brother; drowned keeping the Kim Sa lamp",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Gregarious",
+     "Trusting"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "An Âu Lộ boy who swore brotherhood with Ôn Thủ Đăng (on_thu_dang) on the founder's tower. On the festival night of 913 he kept Ôn's lamp at Kim Sa Trấn so that Ôn could go to a girl in Lam Điện. The storm tide came that night and drowned the town (V171), and he drowned at the lamp with it still lit.",
+   "ties": [
+    {
+     "to": "on_thu_dang",
+     "kind": "sworn_sibling",
+     "note": ""
+    },
+    {
+     "to": "co_chau_le",
+     "kind": "former_master",
+     "note": ""
+    },
+    {
+     "to": "dich_tan_chieu",
+     "kind": "niece_nephew",
+     "note": "his niece; keeper of the tide lamp at Nhật Xuất Thôn"
+    }
+   ]
+  }
+ ]
+}

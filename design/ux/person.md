@@ -219,7 +219,7 @@ Verbs button".)
 | P3 Character | Ties | Rows with glyphs | The player's ties to them first, then up to 3 other notable ties, each with its glyph, the **kind named in Vietnamese and English**, and its band | The partner's name opens their window |
 | P3 Character | Favours and feuds | Block | Owed favours with state, loans, inherited feuds with cause | Tooltips |
 | P3 Verbs | Verb groups | Four lists | Social, favour, conflict, bond; each verb with will / won't accept, cost and time, and the missing requirement when greyed | Yes: select to use; Q for the score breakdown |
-| P3 More | Where, family, talents, gear, origin, history | Rows | Location now and last seen, home, master and parent, thiên phú, equipped gear and wards, background, their last few events | Names and places are links |
+| P3 More | Where, family, talents, gear, origin, history | Rows | Location now and last seen, home, master and parent, thiên phú (each talent's grade from its effective value, with the base beside it when they differ, e.g. "Upper (base Middle, Genius +20)"; Character Stats rule 5, amended 2026-11-25, NPC Traits Open Question 16), equipped gear and wards, background, their last few events | Names and places are links |
 | P4 | Reply strip | Text | The line, then effect lines | Dismiss |
 | P5 | Verbs / Pin / Relations | Buttons | Jump to verbs; pin to the outliner; the relationships page filtered to this person | Yes |
 

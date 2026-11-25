@@ -1,0 +1,39 @@
+{
+ "sect": "hoa_tinh",
+ "_doc": "Họa Tinh Đường signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow the wood, water and general catalogues' grade 3-4 items. Prefix ht-.",
+ "items": [
+  {
+   "id": "ht-silver-candle", "name": "The Silver Candle (Ngân Chúc Đăng)", "family": "wood", "kind": "treasure", "base": "dang", "grade": 4,
+   "modifiers": [{"key": "attack_pct", "value": 20, "scope": ["talisman"]}, {"key": "art_speed_pct", "value": 14, "scope": ["talisman"]}, {"key": "than_thuc_pct", "value": 8, "scope": []}, {"key": "stack_effect_pct", "value": 20, "scope": ["moc", "debuff"]}, {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}],
+   "effects": [{"new": true, "id": "autumn-light-on-the-screen", "name": "Autumn Light on the Screen (Thu Quang Họa Bình)", "rule": "While the candle is lit, the first talisman you throw at each foe is painted twice: it strikes again a moment later at half strength. Talismans you paint by its light keep a grade higher."}],
+   "lore": "A tall candlestick of silver with a white pine-wax candle that is never allowed to burn down, after the line of Đỗ Mục's that the head is named for: a silver candle, autumn light, a cold painted screen. Every Dipper talisman the Pivot has bought since 912 was painted by its light.",
+   "build_use": "The head's lamp: talisman damage and speed, and a second stroke.",
+   "holder": "ky_ngan_chuc", "made_by": "ky_thu_tich", "made_year": 912, "set": "ht-lamp-ink-brush", "status": "proposal"
+  },
+  {
+   "id": "ht-dipper-talisman-seal", "name": "Dipper Talisman Seal (Bắc Đẩu Phù Ấn)", "family": "general", "kind": "artifact", "base": "an", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 12, "scope": ["talisman"]}, {"key": "art_speed_pct", "value": 15, "scope": ["talisman"]}, {"key": "linh_luc_pct", "value": 8, "scope": []}, {"key": "khi_van", "value": 1, "scope": []}],
+   "effects": [],
+   "lore": "The seal stamped in the corner of every talisman the Hall sells, seven dots and a handle cut in boxwood. Whoever holds it is the Hall's chief painter. Kỷ Ngân Chúc gave it to Lạc Tố Bình in 1170.",
+   "build_use": "The chief painter's seal: faster talismans.",
+   "holder": "lac_to_binh", "made_by": "ky_thu_tich", "made_year": 910, "set": null, "status": "proposal"
+  },
+  {
+   "id": "ht-rainfast-ink-gourd", "name": "Gourd of Rainfast Ink (Bất Tẩy Mặc Hồ)", "family": "water", "kind": "artifact", "base": "ho_lo", "grade": 3,
+   "modifiers": [{"key": "stack_duration_pct", "value": 30, "scope": ["moc", "debuff"]}, {"key": "status_duration_pct", "value": 14, "scope": []}, {"key": "linh_luc_pct", "value": 10, "scope": []}, {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}],
+   "effects": [],
+   "lore": "The Hall's rain-fast ink, Mặc Yên soot made fast by the Hall's own writ, kept in a black gourd; once dry, it does not run in rain or blood.",
+   "build_use": "Marks that last: Water behind the Wood talismans.",
+   "holder": "ky_ngan_chuc", "made_by": "ky_ngan_chuc", "made_year": 1150, "set": "ht-lamp-ink-brush", "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "ht-lamp-ink-brush", "name": "Candle and Ink (Chúc Mặc Song Bảo)", "pieces": ["ht-silver-candle", "ht-rainfast-ink-gourd"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "art_speed_pct", "value": 6, "scope": ["talisman"]}, {"key": "stack_effect_pct", "value": 10, "scope": ["moc", "debuff"]}], "effect": "Seven Stars in One Stroke (Nhất Bút Thất Tinh): every seventh talisman you throw at one foe closes the Dipper: it strikes once more for each of your Wood stacks on that foe and spends them, and your marks on that foe cannot be cleansed for 8 s."}
+   ],
+   "story": "The founder's candle and the ink gourd Kỷ Ngân Chúc made when she took the hall in 1150. The candle stays in the hall; she carries it out only to fight, and the hall does not like it. She wears them beside the Talisman-Bearer's Ring."
+  }
+ ]
+}

@@ -308,6 +308,13 @@ gate, the `one_life` set and `death_reloaded`; `design/quick-specs/phu-luc-linh-
 `design/quick-specs/progression-and-edges.md`); Event Engine (the past-life pool); NPC Traits (an heir's traits);
 Living World Tick (the estate and the rebirth ticks); World Generation (stable ids and candidate sites).
 
+**Back-link written 2026-11-25** (world-depth rulings, `design/world/depth/DECISIONS-2026-11-25.md` group 12): World
+Generation rule 3a adds a chronicle kind **`hidden`** (4 events today, such as N-lang_dao-03), kept out of the public
+chronicle and annals until the player uncovers it "by event or Codex". A Codex entry for a `hidden` event that the
+player uncovered in a past life uncovers it in the new game too (it then shows in the annals; World Generation Open
+Question 15). The Codex stores only the event's stable id, which is the same every game (World Generation rule 2).
+The entry kind that records an uncovered event is owed here.
+
 ## Visual/Audio Requirements
 
 The Codex is a book (thiên thư) in the art bible's ink-wash style (§7): one page per entry, a seen entry drawn in faint

@@ -1,0 +1,1119 @@
+{
+ "sect": "trac_anh",
+ "people": [
+  {
+   "key": "doan_thanh_lang",
+   "name_hv": "Đoàn Thanh Lãng",
+   "name_han": "段清浪",
+   "gloss": "Clear waves (Khuất Nguyên: when the water is clear, wash your hat strings)",
+   "sex": "M",
+   "born": 990,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "trac_anh",
+   "rank": "tong_chu",
+   "home": 17,
+   "birthplace": 36,
+   "role": "Head of Trạc Anh Đài since 1080; sea hunter of the frost coast; sworn brother of Băng Tâm's Thẩm Hàn Giang",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 72,
+     "kim": 56
+    },
+    "variants": {
+     "bang": 42
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 74,
+    "than_hon": 60,
+    "khi_van": 60,
+    "dao_tam": 70,
+    "mi_luc": 56
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Peaceable",
+     "Humble"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": "hunter",
+    "health": "old_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Sworn sibling",
+     "Oath-bound"
+    ]
+   },
+   "appearance": "A thick, quiet man with a seal hunter's squint and a white hide coat, who stands in freezing surf as if it were a warm bath.",
+   "backstory": "Đoàn Thanh Lãng was born in Liên Giang Thành during a cold rain that joined the river by night (A139), the son of seal-oil boilers. At sixteen he went through the river ice and Thẩm Hàn Giang (tham_han_giang), already a Pavilion man, pulled him out; they swore brotherhood on the ice that winter. He walked the coast to Trạc Anh Đài, where the founder Khuất Thanh Anh (khuat_thanh_anh) taught him to dive in winter and throw the iron. In 1080 the white whale the coast calls the Old Ivory took Khuất under off the terrace. Đoàn held the line until it burned through his palms, and he has led the terrace since. He is a peaceable man who hunts for a living. He keeps the sect neutral, pays the Pavilion its seal oil, and stays out of its quarrels. In 1170 an old woman of Liên Giang told him who her grandson Liễu Ngư Ca (lieu_ngu_ca) really was, and made him swear to stand by the boy if the coast ever rose. Now his sworn brother wants the Vessel, and the boy is that brother's disciple.",
+   "wants": "To kill the Old Ivory before he dies, and to keep the terrace out of the Pavilion's succession.",
+   "secret": "He knows Liễu Ngư Ca is Hàn Giang's heir and has sworn to fight for him. Thẩm does not know he knows.",
+   "ties": [
+    {
+     "to": "tham_han_giang",
+     "kind": "sworn_sibling",
+     "note": "pulled him out of the river ice; sworn that winter"
+    },
+    {
+     "to": "khuat_thanh_anh",
+     "kind": "master",
+     "note": "the founder, taken by the Old Ivory in 1080"
+    },
+    {
+     "to": "doan_to_ba",
+     "kind": "child",
+     "note": "his daughter and heir"
+    },
+    {
+     "to": "ngac_hai_tieu",
+     "kind": "disciple",
+     "note": "his harpoon captain, who wants the terrace"
+    },
+    {
+     "to": "lieu_ngu_ca",
+     "kind": "debt",
+     "note": "an oath to the boy's grandmother"
+    },
+    {
+     "to": "lu_doc_dieu",
+     "kind": "friend",
+     "note": "Lãnh Giang's head; they share the ice-fish boats' escort"
+    },
+    {
+     "to": "bao_thiet_thu",
+     "kind": "friend",
+     "note": "the steward who held the line beside him in 1080"
+    },
+    {
+     "to": "phi_nhan_tam",
+     "kind": "friend",
+     "note": "the elder whose monks he gave a roof"
+    },
+    {
+     "to": "boc_kinh_thang",
+     "kind": "disciple",
+     "note": "captain of the third whaleboat; the loudest voice for hunting the Old Ivory"
+    }
+   ],
+   "master": "khuat_thanh_anh",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "canglang-body-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "whale-line-harpoon",
+      "layer": 7
+     },
+     {
+      "tech": "undertow-litany",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "ta-canglang-harpoon"
+     },
+     {
+      "named": "ta-white-whale-coat"
+     },
+     {
+      "named": "ta-sworn-ice-ring"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water for health and sustain under the body canon, Metal second for the harpoon's pierce: he outlasts and drags.",
+     "targets": [
+      5403,
+      4384,
+      4974,
+      7692,
+      7716,
+      9004
+     ],
+     "targets_note": "The lineage's Ice Pupil and Spear Thrust, Whale Drinks for linh lực leech on the harpoon, Plate Ice and Ice-Jade Skin for a body hardened by cold water, and Ebb Tide for the second wind: he outlasts and drags."
+    },
+    "note": "The frost-coast sea hunter: a harpoon that pins and drags, and a body hardened by cold water."
+   },
+   "items": [
+    "ta-canglang-harpoon",
+    "ta-white-whale-coat",
+    "ta-sworn-ice-ring"
+   ],
+   "changed": "build: main hunters-reach-canon -> canglang-body-canon (Trạc Anh is re-founded as a no-lean body sect, R3); aux kim_cang_the (no such catalogue technique) -> whale-line-harpoon; spear and armour -> his named harpoon and coat; tree targets -> intent; birthplace 36 added (A139)."
+  },
+  {
+   "key": "phi_nhan_tam",
+   "name_hv": "Phí Nhạn Tâm",
+   "name_han": "費雁心",
+   "gloss": "A goose's heart (that always flies home)",
+   "sex": "M",
+   "born": 1000,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "trac_anh",
+   "rank": "truong_lao",
+   "home": 17,
+   "birthplace": 1476,
+   "role": "Elder of the terrace; the last monk of Tê Nhạn Quán and keeper of its palm",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "moc": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 62,
+    "than_hon": 68,
+    "khi_van": 48,
+    "dao_tam": 76,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Reclusive",
+     "Forgiving"
+    ],
+    "calling": "Teacher",
+    "upbringing": "temple_raised",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "buddhist_path"
+    ],
+    "lifestyle": "tea_master",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A bald, bony monk in a fisher's oilskin, who fingers goose-bone beads while gutting fish.",
+   "backstory": "Raised in Tê Nhạn Quán on the marsh, he came to the terrace at ninety-five with his master Chung Quy Nhạn (chung_quy_nhan), the last abbot, when the abbey's disciples were too few to keep it (V086). The fishers took the monks in, and the monks gave them the Hundred Echo Palm. He is the abbey's last monk, and he sits on the terrace each dawn facing the marsh where the geese still roost in the empty halls.",
+   "ties": [
+    {
+     "to": "chung_quy_nhan",
+     "kind": "master",
+     "note": "the last abbot"
+    },
+    {
+     "to": "doan_thanh_lang",
+     "kind": "friend",
+     "note": "the head who gave the monks a roof"
+    },
+    {
+     "to": "lo_chau_nuong",
+     "kind": "disciple",
+     "note": "the pearl diver, his only disciple"
+    },
+    {
+     "to": "dau_thuy_lang",
+     "kind": "disciple",
+     "note": "diver of the seal inlet; learns the palm from Phí Nhạn Tâm"
+    },
+    {
+     "to": "lam_nhan_thanh",
+     "kind": "disciple",
+     "note": "novice of the palm hall, raised at the ruin of Tê Nhạn Quán"
+    }
+   ],
+   "master": "chung_quy_nhan",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hundred-echo-palm-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "canglang-body-canon",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "ta-goose-bone-beads"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "thuy"
+     },
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain for a palm that strikes a hundred times.",
+     "targets": [
+      5403,
+      4384,
+      5312,
+      5304,
+      5374
+     ],
+     "targets_note": "Whirling Palm leech, Mill Race speed, Nourishing Rain: Water sustain for the hundred strikes; palm modifiers wished (wish bt-08)."
+    },
+    "note": "The abbey's echo."
+   },
+   "items": [
+    "ta-goose-bone-beads"
+   ]
+  },
+  {
+   "key": "doan_to_ba",
+   "name_hv": "Đoàn Tố Ba",
+   "name_han": "段素波",
+   "gloss": "White wave",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "trac_anh",
+   "rank": "chan_truyen",
+   "home": 17,
+   "birthplace": 17,
+   "role": "The head's daughter and heir; best diver on the terrace",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "kim": 44,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 72,
+    "than_hon": 54,
+    "khi_van": 58,
+    "dao_tam": 60,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Honest",
+     "Impatient"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Long-armed and sea-browned, with salt-white hair she has had since she was twenty.",
+   "backstory": "Born on the terrace, the daughter of Đoàn Thanh Lãng (doan_thanh_lang) and a seal-hunter's widow who drowned in 1130. She dives deeper than any man on the coast and has tamed two fur seals that fish for her. She wants her father to let the Old Ivory go. Ngạc Hải Tiêu (ngac_hai_tieu) wants to kill it and take the terrace after.",
+   "ties": [
+    {
+     "to": "doan_thanh_lang",
+     "kind": "parent",
+     "note": "her father"
+    },
+    {
+     "to": "ngac_hai_tieu",
+     "kind": "rival",
+     "note": "for the terrace"
+    },
+    {
+     "to": "vu_bich_trieu",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "tan_bach_au",
+     "kind": "friend",
+     "note": "the outer girl she dives with"
+    },
+    {
+     "to": "dau_thuy_lang",
+     "kind": "friend",
+     "note": "diver of the seal inlet; learns the palm from Phí Nhạn Tâm"
+    },
+    {
+     "to": "kim_hai_yen",
+     "kind": "friend",
+     "note": "seal-oil boiler's daughter of the Sóc Phương families"
+    }
+   ],
+   "master": "doan_thanh_lang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "canglang-body-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "whale-line-harpoon",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water health and Metal pierce, like her father.",
+     "targets": [
+      5403,
+      4384,
+      4974,
+      5374,
+      5379,
+      4379
+     ],
+     "targets_note": "Her father's Whale Drinks, the Rain on Bamboo idea's regeneration, Long Spear pierce."
+    },
+    "note": "The heir in the surf."
+   }
+  },
+  {
+   "key": "ngac_hai_tieu",
+   "name_hv": "Ngạc Hải Tiêu",
+   "name_han": "鄂海標",
+   "gloss": "Sea harpoon",
+   "sex": "M",
+   "born": 1080,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "trac_anh",
+   "rank": "noi_mon",
+   "home": 17,
+   "birthplace": 1477,
+   "role": "Harpoon captain of the terrace's whaleboats",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "kim": 40,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 54,
+    "can_cot": 76,
+    "than_hon": 50,
+    "khi_van": 52,
+    "dao_tam": 50,
+    "mi_luc": 60
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Wrathful",
+     "Brave"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "duel_seeker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Scarred"
+    ]
+   },
+   "appearance": "A big whaler from the Whale Bone Village with a harpoon scar from cheek to collarbone.",
+   "backstory": "He was born in Kình Cốt Thôn the year the Old Ivory took the founder (N-trac_anh-02), and he has believed all his life that the whale is the terrace's shame. He captains its six whaleboats and is the best iron on the coast after Đoàn Thanh Lãng (doan_thanh_lang). He thinks the head grew soft when he swore off war, and that Đoàn Tố Ba (doan_to_ba) would make the terrace a ferry service.",
+   "ties": [
+    {
+     "to": "doan_thanh_lang",
+     "kind": "master",
+     "note": "taught him the iron"
+    },
+    {
+     "to": "doan_to_ba",
+     "kind": "rival",
+     "note": ""
+    },
+    {
+     "to": "nghe_tieu_lang",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "quan_tieu_kinh",
+     "kind": "niece_nephew",
+     "note": "his sister's son"
+    },
+    {
+     "to": "su_pha_bang",
+     "kind": "friend",
+     "note": "his drinking companion on the escort"
+    },
+    {
+     "to": "ho_tam_ky",
+     "kind": "rival",
+     "note": "the Thiên Bảo harpooner who wants the Old Ivory's tusk as much as he does"
+    },
+    {
+     "to": "co_lang_hoa",
+     "kind": "disciple",
+     "note": "harpooner in Ngạc's boat; wants the bow seat for the whale"
+    },
+    {
+     "to": "boc_kinh_thang",
+     "kind": "friend",
+     "note": "captain of the third whaleboat; the loudest voice for hunting the Old Ivory"
+    }
+   ],
+   "master": "doan_thanh_lang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "canglang-body-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "whale-line-harpoon",
+      "layer": 7
+     }
+    ],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal crit and pierce on the thrown iron.",
+     "targets": [
+      5403,
+      4384,
+      727,
+      4207,
+      4214,
+      4144
+     ],
+     "targets_note": "Fine Steel crit, the Drawn Bow idea's accuracy and Metal damage for the thrown iron, Bone-Breaker pierce."
+    },
+    "note": "The whale's enemy."
+   }
+  },
+  {
+   "key": "lo_chau_nuong",
+   "name_hv": "Lỗ Châu Nương",
+   "name_han": "魯珠娘",
+   "gloss": "Pearl girl",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "trac_anh",
+   "rank": "noi_mon",
+   "home": 17,
+   "birthplace": 1431,
+   "role": "Pearl diver; the monk's disciple",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Greedy",
+     "Calm"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born",
+    "lifestyle": "collector"
+   },
+   "backstory": "A diver from the silver-fish village who sells ice-pearls in Mộc Lan Thành and learns the palm from Phí Nhạn Tâm (phi_nhan_tam) because it lets her hold her breath for an hour.",
+   "ties": [
+    {
+     "to": "phi_nhan_tam",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dong_vong",
+     "kind": "friend",
+     "note": "an outer boy she keeps an eye on"
+    },
+    {
+     "to": "lam_nhan_thanh",
+     "kind": "friend",
+     "note": "novice of the palm hall, raised at the ruin of Tê Nhạn Quán"
+    }
+   ],
+   "master": "phi_nhan_tam",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "canglang-body-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain."
+    },
+    "note": "Holds her breath."
+   }
+  },
+  {
+   "key": "bao_thiet_thu",
+   "name_hv": "Bào Thiết Thủ",
+   "name_han": "鮑鐵手",
+   "gloss": "Iron hand",
+   "sex": "M",
+   "born": 1060,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "trac_anh",
+   "rank": "chap_su",
+   "home": 17,
+   "birthplace": 1438,
+   "role": "Boat-master of the terrace; lost a hand to the Old Ivory",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Content",
+     "Stubborn"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "health": "maimed"
+   },
+   "backstory": "He was in the boat in 1080 when the whale took the founder, and the line took his left hand; he wears an iron one now, mends every boat on the terrace, and backs Đoàn Thanh Lãng (doan_thanh_lang) in everything.",
+   "ties": [
+    {
+     "to": "doan_thanh_lang",
+     "kind": "friend",
+     "note": "held the line beside him in 1080"
+    },
+    {
+     "to": "dong_thoa",
+     "kind": "disciple",
+     "note": "Đổng Võng's sister; mends the whaleboats' lines"
+    },
+    {
+     "to": "boc_hai_dong",
+     "kind": "friend",
+     "note": "Bốc Kình Thăng's son; bails the third boat"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "canglang-body-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal guard."
+    },
+    "note": "An iron hand."
+   }
+  },
+  {
+   "key": "nghe_tieu_lang",
+   "name_hv": "Nghê Tiểu Lãng",
+   "name_han": "倪小浪",
+   "gloss": "Little wave",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "trac_anh",
+   "rank": "noi_mon",
+   "home": 17,
+   "birthplace": 1450,
+   "role": "Harpooner in Ngạc's boat",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Warlike",
+     "Loyal",
+     "Impatient"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A tide-village boy who would follow Ngạc Hải Tiêu (ngac_hai_tieu) into the Old Ivory's mouth.",
+   "ties": [
+    {
+     "to": "ngac_hai_tieu",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "co_lang_hoa",
+     "kind": "rival",
+     "note": "harpooner in Ngạc's boat; wants the bow seat for the whale"
+    }
+   ],
+   "master": "ngac_hai_tieu",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "canglang-body-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "A young iron."
+   }
+  },
+  {
+   "key": "tan_bach_au",
+   "name_hv": "Tân Bạch Âu",
+   "name_han": "辛白鷗",
+   "gloss": "White gull",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "trac_anh",
+   "rank": "ngoai_mon",
+   "home": 17,
+   "birthplace": 1435,
+   "role": "Outer disciple descended from the White Gull hall",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Diligent",
+     "Honest"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Her family fled Bạch Âu Đường when Thôn Hải's pirates burned it (V081); she keeps its gull banner in a chest and wants to raise the hall again.",
+   "ties": [
+    {
+     "to": "doan_to_ba",
+     "kind": "friend",
+     "note": "dives with her"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "A banner in a chest."
+   }
+  },
+  {
+   "key": "dong_vong",
+   "name_hv": "Đổng Võng",
+   "name_han": "董網",
+   "gloss": "Net",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "trac_anh",
+   "rank": "ngoai_mon",
+   "home": 17,
+   "birthplace": 1452,
+   "role": "Net-maker's son in the outer gate",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 42,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Lazy",
+     "Gregarious",
+     "Content"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born"
+   },
+   "backstory": "He came for the free meals and stayed for Lỗ Châu Nương's (lo_chau_nuong) pearl stories.",
+   "ties": [
+    {
+     "to": "lo_chau_nuong",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "dong_thoa",
+     "kind": "sibling",
+     "note": "his sister; Đổng Võng's sister; mends the whaleboats' lines"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood health."
+    },
+    "note": "Mends nets."
+   }
+  },
+  {
+   "key": "quan_tieu_kinh",
+   "name_hv": "Quản Tiểu Kình",
+   "name_han": "管小鯨",
+   "gloss": "Little whale",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "trac_anh",
+   "rank": "ngoai_mon",
+   "home": 17,
+   "birthplace": 1477,
+   "role": "Ngạc's nephew in the outer gate",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "kim": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Humble",
+     "Peaceable"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Ngạc Hải Tiêu's (ngac_hai_tieu) nephew, who is afraid of deep water and has not told his uncle.",
+   "ties": [
+    {
+     "to": "ngac_hai_tieu",
+     "kind": "aunt_uncle",
+     "note": "his uncle"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Afraid of the deep."
+   }
+  },
+  {
+   "key": "vu_bich_trieu",
+   "name_hv": "Vu Bích Triều",
+   "name_han": "于碧潮",
+   "gloss": "Blue tide",
+   "sex": "F",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "trac_anh",
+   "rank": "noi_mon",
+   "home": 17,
+   "birthplace": 1443,
+   "role": "Diver; Đoàn Tố Ba's disciple",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Trusting",
+     "Diligent"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "From the sail-watchers' village; she follows Đoàn Tố Ba (doan_to_ba) into the surf and feeds the tame seals.",
+   "ties": [
+    {
+     "to": "doan_to_ba",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "kim_hai_yen",
+     "kind": "friend",
+     "note": "seal-oil boiler's daughter of the Sóc Phương families"
+    }
+   ],
+   "master": "doan_to_ba",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "canglang-body-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Feeds the seals."
+   }
+  },
+  {
+   "key": "khuat_thanh_anh",
+   "name_hv": "Khuất Thanh Anh",
+   "name_han": "屈清纓",
+   "gloss": "Clear hat strings",
+   "sex": "M",
+   "born": 790,
+   "died": 1080,
+   "cause": "dragged under by the white whale Old Ivory off the terrace, at 290",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "trac_anh",
+   "rank": "founder",
+   "home": 17,
+   "birthplace": 1445,
+   "role": "Founder of Trạc Anh Đài (830)",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Content",
+     "Brave",
+     "Generous"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "path": [
+     "body_tempered"
+    ]
+   },
+   "backstory": "A seal hunter descended from the oil-boilers Băng Tâm moved out of Sóc Phương Thành (V078). In 830 he gathered the coast's hunters on a terrace of clear water and founded Trạc Anh Đài (A137), teaching that a hunter takes what the sea gives, clear or muddy. He took the coast's first whale, made the harpoon line from its sinew, and was taken in 1080 by the Old Ivory, the one whale he never let go of.",
+   "ties": [
+    {
+     "to": "doan_thanh_lang",
+     "kind": "disciple",
+     "note": "held his line"
+    }
+   ]
+  },
+  {
+   "key": "chung_quy_nhan",
+   "name_hv": "Chung Quy Nhạn",
+   "name_han": "鍾歸雁",
+   "gloss": "Returning goose",
+   "sex": "M",
+   "born": 820,
+   "died": 1160,
+   "cause": "end of his years, sitting on the terrace facing the marsh, at 340",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "trac_anh",
+   "rank": "truong_lao",
+   "home": 17,
+   "birthplace": 1476,
+   "role": "Last abbot of Tê Nhạn Quán; elder of the terrace (1095-1160)",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Humble",
+     "Patient",
+     "Compassionate"
+    ],
+    "calling": "Teacher",
+    "upbringing": "temple_raised"
+   },
+   "backstory": "The last abbot of the marsh abbey, who brought his disciples and the Hundred Echo Palm to the terrace in 1095 (V086) and taught it to Phí Nhạn Tâm (phi_nhan_tam).",
+   "ties": [
+    {
+     "to": "phi_nhan_tam",
+     "kind": "disciple",
+     "note": ""
+    }
+   ]
+  }
+ ]
+}

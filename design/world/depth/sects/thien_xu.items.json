@@ -1,0 +1,386 @@
+{
+ "sect": "thien_xu",
+ "_doc": "Thiên Xu Tông signature items and sets (rules-proposals R7; design/items record). Unpriced proposals: modifier sizes follow the metal and earth catalogues' grade 3-4 items; Effects are hand-written rules, unpriced. design/items/bases.json has no spear, halberd or tally base: tx-pha-quan-spear and tx-iron-horse-tally carry base null until the item pass adds one (reported). The Thiết Mã pair is Darkness, and the catalogue has no Darkness family: family 'general', with the element noted.",
+ "items": [
+  {
+   "id": "tx-bac-than-an", "name": "North Star Seal (Bắc Thần Ấn)", "family": "earth", "kind": "treasure", "base": "an", "grade": 4,
+   "modifiers": [{"key": "attack_pct", "value": 20, "scope": ["tho"]}, {"key": "stack_effect_pct", "value": 34, "scope": ["tho", "debuff"]}, {"key": "stack_duration_pct", "value": 36, "scope": ["tho", "debuff"]}, {"key": "status_duration_pct", "value": 16, "scope": []}, {"key": "than_thuc_pct", "value": 5, "scope": []}],
+   "effects": [{"new": true, "id": "sealed-writ", "name": "Sealed Writ (Ấn Hịch)", "rule": "The first foe you strike with a seal art each fight is Sealed for 4 s: they cannot gain new buffs, and their wards hold half their value."}],
+   "lore": "A square seal of grey river stone from under Thạch Kiều's first bridge, cut with the seven stars and the pole. Chung Hoài Cực stamped the North Star Compact with it in 510 (C107), and every writ of war since bears its mark. Legendary item bac_than_an.",
+   "build_use": "The head's array-and-seal build: heavier, longer Earth stacks, and the foe's buffs shut out.",
+   "holder": "doan_ngoc_hanh", "made_by": "chung_hoai_cuc", "made_year": 510, "set": "tx-pivot-regalia", "legendary_key": "bac_than_an", "status": "proposal"
+  },
+  {
+   "id": "tx-seven-star-flag", "name": "Seven-Star Array Flag (Thất Tinh Trận Kỳ)", "family": "earth", "kind": "artifact", "base": "ky", "grade": 4,
+   "modifiers": [{"key": "stack_effect_pct", "value": 28, "scope": ["tho", "buff"]}, {"key": "stack_duration_pct", "value": 34, "scope": ["tho", "buff"]}, {"key": "attack_pct", "value": 12, "scope": ["kim"]}, {"key": "than_thuc_pct", "value": 5, "scope": []}, {"key": "khi_huyet_pct", "value": 8, "scope": []}],
+   "effects": [{"new": true, "id": "seven-lamps", "name": "Seven Lamps Turn (Thất Đăng Chuyển)", "rule": "Each formation art you cast lights one of seven star-lamps around you. At the seventh, your next ward is doubled and every foe within the lamps gains two Earth stacks; then the lamps go out."}],
+   "lore": "Black silk on an iron staff, sewn with seven silver stars that move a little through the year. The founder planted it on the day the seat was raised (C002), and the seat's Seven-Star Array is still keyed to it.",
+   "build_use": "Array keeper's anchor: Earth buffs held longer, wards doubled on the turn.",
+   "holder": "doan_ngoc_hanh", "made_by": "chung_hoai_cuc", "made_year": 120, "set": "tx-pivot-regalia", "status": "proposal"
+  },
+  {
+   "id": "tx-heavenly-weight", "name": "Weight of the Heavenly Balance (Thiên Quyền Thạch)", "family": "earth", "kind": "treasure", "base": "an", "grade": 4,
+   "modifiers": [{"key": "attack_pct", "value": 18, "scope": ["tho"]}, {"key": "stack_effect_pct", "value": 30, "scope": ["tho", "debuff"]}, {"key": "status_duration_pct", "value": 18, "scope": ["curse"]}, {"key": "soul_res_pct", "value": 10, "scope": []}, {"key": "than_thuc_pct", "value": 4, "scope": []}, {"key": "art_speed_pct", "value": 10, "scope": ["seal"]}],
+   "effects": [{"new": true, "id": "weighed", "name": "Weighed (Quyền Hành)", "rule": "A foe hit by your seal art carries a Weight for 6 s; while they carry it, their arts cost 20 % more linh lực, and a lie told to you in dialogue while they carry it is known for one."}],
+   "lore": "The first standard weight of Thiên Quyền Thị's scales (A207), a black stone the size of a fist that weighs the same in every season. Chung Hoài Cực gave it to the first Chief Judge, Hề Văn Ước, with one rule: the one who seals does not weigh. The Chief Judge holds it.",
+   "build_use": "The judge's seal build: curses and Earth stacks that last, and costly arts for the weighed.",
+   "holder": "phuong_truc_ngon", "made_by": "chung_hoai_cuc", "made_year": 200, "set": "tx-pivot-regalia", "status": "proposal",
+   "authored": "b8"
+  },
+  {
+   "id": "tx-bridge-court-robe", "name": "Robe of the Bridge Court (Kiều Đình Bào)", "family": "earth", "kind": "artifact", "base": "dao_bao", "grade": 3,
+   "modifiers": [{"key": "soul_res_pct", "value": 12, "scope": []}, {"key": "status_resist_pct", "value": 10, "scope": []}, {"key": "defense_pct", "value": 8, "scope": []}, {"key": "than_thuc_pct", "value": 4, "scope": []}, {"key": "resist_pct", "value": 100, "scope": ["physical"]}],
+   "effects": [],
+   "lore": "Grey, unembroidered, with the bridge's seven arches woven into the hem in the same grey. Every Chief Judge has worn it since 510; the cuffs are darker where two judges' wrists have rested on the bench for seven centuries.",
+   "build_use": "A judge's guard against soul arts and statuses.",
+   "holder": "phuong_truc_ngon", "made_by": "thien_xu", "made_year": 510, "set": "tx-bridge-court-pair", "status": "proposal"
+  },
+  {
+   "id": "tx-pha-quan-spear", "name": "Army-Breaker Spear (Phá Quân Thương)", "family": "metal", "kind": "artifact", "base": "phi_kiem", "grade": 4,
+   "modifiers": [{"key": "attack_pct", "value": 22, "scope": ["physical"]}, {"key": "crit_damage_pct", "value": 40, "scope": ["physical"]}, {"key": "pierce_pct", "value": 10, "scope": []}, {"key": "art_speed_pct", "value": 10, "scope": ["kim"]}, {"key": "stack_effect_pct", "value": 20, "scope": ["kim", "debuff"]}],
+   "effects": [{"new": true, "id": "the-called-blow", "name": "The Called Blow (Hô Danh Nhất Kích)", "rule": "After 3 s in which you strike nothing (your companions', blades' and formation's hits do not count), your next spear art is a certain crit and ignores block; if its hit breaks a ward of the foe, the wait for the next is halved.", "authored": "d21, a1"}],
+   "lore": "Hạ Lang Tinh's spear, forged in 760 for the founder of Phá Quân Môn and taken from his hand when the rebel gate fell in 874 (C163). Đỗ Tinh Hà has carried it ever since and has never had the rebel's star filed off the blade.",
+   "note": "Legendary item pha_quan_thuong. A spear on the phi_kiem base: no spear base exists yet (Item DB open question).",
+   "build_use": "The patient spearman: one called blow that crits and pierces.",
+   "holder": "do_tinh_ha", "made_by": "pha_quan", "made_year": 760, "set": "tx-breaker-harness", "legendary_key": "pha_quan_thuong", "status": "proposal",
+   "authored": "d21, a1"
+  },
+  {
+   "id": "tx-seventh-star-drum", "name": "War Drum of the Seventh Star (Dao Quang Chiến Cổ)", "family": "metal", "kind": "artifact", "base": "co", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 15, "scope": ["companion"]}, {"key": "art_speed_pct", "value": 10, "scope": ["artifact"]}, {"key": "khi_huyet_pct", "value": 10, "scope": []}, {"key": "stack_grant", "value": 1, "scope": ["kim", "debuff"]}],
+   "effects": [{"new": true, "id": "beat-to-quarters", "name": "Beat to Quarters (Kích Cổ Tề Binh)", "rule": "When you summon a warden or plant a formation, every ally and summon you command strikes once at once; this can happen once each 10 s."}],
+   "lore": "An iron-hooped drum skinned with the hide of a mountain ox from Mao Ngưu Thôn. The Dao Quang Hall beat it to muster in the Pirate Purge and at Cố Lũy; it has not been struck in earnest since 805, and Ngũ Trấn Bắc has it tuned every spring.",
+   "build_use": "A war-array build: summoned wardens and formation links that hit together.",
+   "holder": "ngu_tran_bac", "made_by": "thien_xu", "made_year": 776, "set": "tx-dao-quang-kit", "status": "proposal"
+  },
+  {
+   "id": "tx-envoy-jade-tally", "name": "Envoy's Jade Tally (Sứ Tiết Ngọc Phù)", "family": "metal", "kind": "artifact", "base": "ngoc_boi", "grade": 3,
+   "modifiers": [{"key": "evade_pct", "value": 6, "scope": ["escape"]}, {"key": "than_thuc_pct", "value": 6, "scope": []}, {"key": "soul_res_pct", "value": 10, "scope": []}, {"key": "linh_luc_pct", "value": 8, "scope": []}],
+   "effects": [{"new": true, "id": "envoys-are-not-struck", "name": "Envoys Are Not Struck (Sứ Bất Khả Kích)", "rule": "The first hit on you each fight from a foe you have not struck is halved, and you may leave that fight at once if you have struck no one."}, {"new": true, "id": "know-the-way-out", "name": "Know the Way Out (Thức Lộ)", "rule": "Each escape you fail this fight makes your next escape 10 % likelier; a success clears it.", "authored": "d2"}],
+   "lore": "A white jade half-tally; the other half is kept in Tàng Ước Các. The Pivot cut its envoys' tallies in jade, not iron, after its envoy Trình Bạch Tiết was killed at Phá Quân Môn in 870 (N-thien_xu-06): an envoy of the Pivot carries nothing that can be mistaken for a weapon.",
+   "build_use": "An envoy's guard: soul resistance, a softened first blow, a way out.",
+   "holder": "mau_tri_vien", "made_by": "thien_xu", "made_year": 871, "set": "tx-envoy-credentials", "status": "proposal",
+   "authored": "d2"
+  },
+  {
+   "id": "tx-compact-inkstone", "name": "Inkstone of the Compact (Bắc Thần Nghiễn)", "family": "soul-song-seal", "kind": "artifact", "base": "an", "grade": 3,
+   "modifiers": [{"key": "than_thuc_pct", "value": 6, "scope": []}, {"key": "status_duration_pct", "value": 16, "scope": ["curse"]}, {"key": "attack_pct", "value": 12, "scope": ["seal"]}, {"key": "linh_luc_regen_inc_pct", "value": 12, "scope": []}],
+   "effects": [{"new": true, "id": "ink-remembers", "name": "The Ink Remembers (Mặc Tri)", "rule": "Each seal art you cast writes the target's name in the stone; a foe whose name is written three times in one fight takes your seal arts' curses for twice as long."}],
+   "lore": "The inkstone the Compact's text was ground on in 510, a slab of black Chấp Bút Phong slate worn into a hollow. Every keeper of Tàng Ước Các has ground the ink for the archive's copies on it. Sử Ngưng Mặc says the hollow is two fingers deeper than when she was given it.",
+   "build_use": "An archivist's seal build: long curses, steady linh lực.",
+   "holder": "su_ngung_mac", "made_by": "he_van_uoc", "made_year": 510, "set": "tx-archive-desk", "status": "proposal"
+  },
+  {
+   "id": "tx-plumb-line-sword", "name": "Plumb Line (Chuẩn Thằng Kiếm)", "family": "metal", "kind": "artifact", "base": "phi_kiem", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 18, "scope": ["sword"]}, {"key": "art_speed_pct", "value": 10, "scope": ["sword"]}, {"key": "accuracy_pct", "value": 10, "scope": []}, {"key": "stack_duration_pct", "value": 20, "scope": ["kim", "debuff"]}, {"key": "crit_chance_pct", "value": 4, "scope": ["physical"]}],
+   "effects": [],
+   "lore": "A narrow, perfectly straight blade that hangs point-down when it is not flying, like a mason's plumb. The head gave it to his chief disciple at his Kết Đan in 1112 with the words: a straight line needs no witness.",
+   "build_use": "Dipper Handle swordwork: accurate, quick Metal hits that keep their stacks.",
+   "holder": "cong_ton_duan", "made_by": "thoi_tinh", "made_year": 1112, "set": "tx-steward-rule", "status": "proposal"
+  },
+  {
+   "id": "tx-dawn-charioteer", "name": "Dawn Charioteer (Hi Hòa Kiếm)", "family": "metal", "kind": "artifact", "base": "phi_kiem", "grade": 2,
+   "modifiers": [{"key": "attack_pct", "value": 14, "scope": ["kim"]}, {"key": "art_speed_pct", "value": 8, "scope": ["kim"]}, {"key": "crit_chance_pct", "value": 4, "scope": ["physical"]}],
+   "effects": [],
+   "lore": "A short gold-tinted flying sword that catches the first light. Doãn Ngọc Hành had Chân Kim Các refine it from Bạch Ngân silver and Thiên Ngoại star iron for her Trúc Cơ in 1168; she named it herself.",
+   "build_use": "A young sword-and-array build's first good blade.",
+   "holder": "doan_hi_hoa", "made_by": "chan_kim", "made_year": 1168, "set": "tx-dawn-pair", "status": "proposal"
+  },
+  {
+   "id": "tx-touchstone", "name": "Assayer's Touchstone (Thí Kim Thạch)", "family": "metal", "kind": "artifact", "base": "ngoc_boi", "grade": 3,
+   "modifiers": [{"key": "than_thuc_pct", "value": 6, "scope": []}, {"key": "linh_luc_pct", "value": 8, "scope": []}, {"key": "stack_effect_pct", "value": 16, "scope": ["kim", "buff"]}, {"key": "khi_van", "value": 1, "scope": []}],
+   "effects": [{"new": true, "id": "true-gold", "name": "True Gold Shows (Chân Kim Hiện)", "rule": "You know the grade of any item you hold or are offered, and whether it is a forgery."}],
+   "lore": "A black jasper pendant scored with a thousand streaks of gold and silver: every coin struck at Bạch Ngân since 450 (A224) has been rubbed on it once. The Ngọc Hành Hall's master wears it at the throat.",
+   "build_use": "A steward's piece: thần thức, linh lực, and an eye no merchant can cheat.",
+   "holder": "dang_quan_binh", "made_by": "thien_xu", "made_year": 450, "set": null, "status": "proposal"
+  },
+  {
+   "id": "tx-square-and-compass", "name": "Square-and-Compass Flag (Quy Củ Kỳ)", "family": "earth", "kind": "artifact", "base": "ky", "grade": 3,
+   "modifiers": [{"key": "stack_effect_pct", "value": 22, "scope": ["tho", "buff"]}, {"key": "stack_duration_pct", "value": 28, "scope": ["tho", "buff"]}, {"key": "than_thuc_pct", "value": 4, "scope": []}, {"key": "defense_pct", "value": 6, "scope": []}],
+   "effects": [{"new": true, "id": "true-to-the-line", "name": "True to the Line (Trúng Thằng)", "rule": "Your stele and anchor Pieces are not worn by foe hits, and last 3 s longer.", "authored": "a1"}],
+   "lore": "A small square flag on a staff made from a carpenter's square and a compass bound together. The Thiên Cơ Hall's master plants it first whenever a stele is set; it was made for the stele walk of 515.",
+   "build_use": "A stele-array build: anchors that hold and Earth wards that last.",
+   "holder": "thien_thua_cu", "made_by": "thien_xu", "made_year": 515, "set": null, "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "tx-copyist-seal", "name": "Copyist's Seal (Sao Lục Ấn)", "family": "soul-song-seal", "kind": "artifact", "base": "an", "grade": 2,
+   "modifiers": [{"key": "than_thuc_pct", "value": 4, "scope": []}, {"key": "linh_luc_regen_inc_pct", "value": 8, "scope": []}, {"key": "attack_pct", "value": 8, "scope": ["seal"]}],
+   "effects": [],
+   "lore": "The small soapstone seal every copyist of Tàng Ước Các presses at the foot of a copy, so that any page can be traced to its hand. Thích Minh Thư's is cut with a pine-soot sprig for her village. She did not press it on the copy she gave away, and the archive will know her hand without it.",
+   "build_use": "A copyist's first seal: thần thức and steady linh lực.",
+   "holder": "thich_minh_thu", "made_by": "thien_xu", "made_year": 1172, "set": "tx-copyist-pair", "status": "proposal"
+  },
+  {
+   "id": "tx-iron-horse-banner", "name": "Armoured Horse Banner (Thiết Mã Kỳ)", "family": "general", "kind": "treasure", "base": "ky", "grade": 4,
+   "modifiers": [{"key": "attack_pct", "value": 16, "scope": ["companion"]}, {"key": "attack_pct", "value": 14, "scope": ["am"]}, {"key": "khi_huyet_pct", "value": 12, "scope": []}, {"key": "than_thuc_pct", "value": 5, "scope": []}, {"key": "stack_effect_pct", "value": 20, "scope": ["tho", "buff"]}],
+   "effects": [{"new": true, "id": "banner-of-the-waiting-army", "name": "The Banner Is Raised (Kỳ Khởi)", "rule": "While the banner is planted, your summons take a quarter less damage and gain a Darkness stack on each foe they strike."}],
+   "lore": "The marshal's banner, black silk woven with black iron thread from Huyền Thiết, which drinks light and is why the pair is Darkness. Đỗ Tinh Hà gave it to Quý Trường Kích in 785 (C154). Lôi Vô Danh carried it off the plain of Chiết Kích in 803 and hid it with himself in the cave abode of slot A-3 on Thiên Tuyền Nguyên, where he died in 950. Element Darkness (am). Legendary item thiet_ma_ky.",
+   "build_use": "A summoner's war standard; whole only with its tally.",
+   "holder": null, "where": "cave abode A-3, Thiên Tuyền Nguyên (lost)", "made_by": "thien_xu", "made_year": 785, "set": "tx-iron-horse", "legendary_key": "thiet_ma_ky", "status": "proposal"
+  },
+  {
+   "id": "tx-iron-horse-tally", "name": "Armoured Horse Tally (Thiết Mã Phù)", "family": "general", "kind": "treasure", "base": null, "grade": 4,
+   "modifiers": [{"key": "attack_pct", "value": 14, "scope": ["companion"]}, {"key": "art_speed_pct", "value": 12, "scope": ["companion"]}, {"key": "than_thuc_pct", "value": 6, "scope": []}, {"key": "linh_luc_pct", "value": 8, "scope": []}],
+   "effects": [],
+   "lore": "A black iron tally in the shape of a horse, split down the spine; the halves fit only each other. Whoever holds it commands the army that waits in the realm of Thiết Mã Cảnh. It was lost the day Quý Trường Kích fell (C017): the half he carried is in the realm, and the half kept at the seat went missing from Tàng Ước Các the same year. Element Darkness (am). Legendary item thiet_ma_phu. No tally base exists in design/items; base null until one does.",
+   "build_use": "The command half of the Thiết Mã pair.",
+   "holder": null, "where": "Thiết Mã Cảnh (lost)", "made_by": "thien_xu", "made_year": 785, "set": "tx-iron-horse", "legendary_key": "thiet_ma_phu", "status": "proposal"
+  },
+  {
+   "id": "tx-breaker-scale-coat", "name": "Scale Coat of the Broken Army (Phá Quân Lân Giáp)", "family": "metal", "kind": "artifact", "base": "giap", "grade": 4,
+   "modifiers": [{"key": "khi_huyet_pct", "value": 16, "scope": []}, {"key": "defense_pct", "value": 10, "scope": []}, {"key": "block_rating", "value": 15, "scope": []}, {"key": "resist_pct", "value": 150, "scope": ["physical"]}],
+   "effects": [],
+   "lore": "Hạ Lang Tinh's own scale coat, taken with his spear when Phá Quân Môn fell in 874 and re-laced by Thối Tinh Môn for the man who took the gate.",
+   "build_use": "Đỗ Tinh Hà's stance: health and block while he waits for the one thrust.",
+   "holder": "do_tinh_ha", "made_by": "thoi_tinh", "made_year": 880, "set": "tx-breaker-harness", "status": "proposal"
+  },
+  {
+   "id": "tx-waiting-stone", "name": "Waiting Stone (Đãi Thạch Bội)", "family": "earth", "kind": "artifact", "base": "ngoc_boi", "grade": 4,
+   "modifiers": [{"key": "than_thuc_pct", "value": 6, "scope": []}, {"key": "stack_effect_pct", "value": 26, "scope": ["tho", "debuff"]}, {"key": "stack_duration_pct", "value": 30, "scope": ["tho", "debuff"]}, {"key": "crit_damage_pct", "value": 30, "scope": ["physical"]}],
+   "effects": [],
+   "lore": "A grey pebble from the yard of Phá Quân Môn, worn smooth by three hundred years of a thumb rubbing it while he waits.",
+   "build_use": "Weights that hold and a heavier called blow.",
+   "holder": "do_tinh_ha", "made_by": "do_tinh_ha", "made_year": 874, "set": "tx-breaker-harness", "status": "proposal"
+  },
+  {
+   "id": "tx-bridge-court-jade", "name": "Jade of the Bridge Court (Kiều Đình Ngọc Bội)", "family": "earth", "kind": "artifact", "base": "ngoc_boi", "grade": 3,
+   "modifiers": [{"key": "than_thuc_pct", "value": 6, "scope": []}, {"key": "status_duration_pct", "value": 16, "scope": ["curse"]}, {"key": "soul_res_pct", "value": 12, "scope": []}, {"key": "linh_luc_pct", "value": 8, "scope": []}],
+   "effects": [],
+   "lore": "The judge's pendant, cut from one of the old bridge stones kept in the Pivot's hall; it is cold when someone lies near it.",
+   "build_use": "Curses that last and soul guard for the Chief Judge.",
+   "holder": "phuong_truc_ngon", "made_by": "thien_xu", "made_year": 1050, "set": "tx-bridge-court-pair", "status": "proposal"
+  },
+  {
+   "id": "tx-dao-quang-war-flag", "name": "War Flag of the Dao Quang Hall (Dao Quang Chiến Kỳ)", "family": "metal", "kind": "artifact", "base": "ky", "grade": 4,
+   "modifiers": [{"key": "attack_pct", "value": 18, "scope": ["companion"]}, {"key": "stack_effect_pct", "value": 24, "scope": ["tho", "buff"]}, {"key": "than_thuc_pct", "value": 5, "scope": []}, {"key": "khi_huyet_pct", "value": 10, "scope": []}],
+   "effects": [],
+   "lore": "The war-writ office's own flag, black with seven white studs. It has not flown over a field since 803, and Ngũ Trấn Bắc keeps it furled, waiting.",
+   "build_use": "Formation and summon damage for the war array.",
+   "holder": "ngu_tran_bac", "made_by": "thien_xu", "made_year": 1000, "set": "tx-dao-quang-kit", "status": "proposal"
+  },
+  {
+   "id": "tx-marshal-spear", "name": "Spear of the Seventh File (Đệ Thất Hàng Thương)", "family": "metal", "kind": "artifact", "base": "phi_kiem", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 16, "scope": ["physical"]}, {"key": "pierce_pct", "value": 10, "scope": []}, {"key": "crit_chance_pct", "value": 6, "scope": ["physical"]}, {"key": "art_speed_pct", "value": 8, "scope": ["kim"]}],
+   "effects": [],
+   "lore": "A plain marshal's spear with seven notches on the shaft, one for each file he has broken.", "note": "A spear on the phi_kiem base: no spear base exists yet (Item DB open question).",
+   "build_use": "The spear that goes through the weakest file.",
+   "holder": "ngu_tran_bac", "made_by": "thoi_tinh", "made_year": 1100, "set": "tx-dao-quang-kit", "status": "proposal"
+  },
+  {
+   "id": "tx-envoy-robe", "name": "Robe of the Envoy (Sứ Thần Bào)", "family": "metal", "kind": "artifact", "base": "dao_bao", "grade": 3,
+   "modifiers": [{"key": "evade_pct", "value": 6, "scope": []}, {"key": "soul_res_pct", "value": 12, "scope": []}, {"key": "defense_pct", "value": 8, "scope": []}, {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}],
+   "effects": [],
+   "lore": "Grey court silk with the Pivot's seven stars on the inner hem, where only the man who wears it sees them.",
+   "build_use": "Evasion and soul guard for an envoy who fights only to leave.",
+   "holder": "mau_tri_vien", "made_by": "thien_xu", "made_year": 1150, "set": "tx-envoy-credentials", "status": "proposal"
+  },
+  {
+   "id": "tx-needle-fan", "name": "Fan of Seven Needles (Thất Châm Phiến)", "family": "metal", "kind": "artifact", "base": "phien", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 14, "scope": ["kim"]}, {"key": "art_speed_pct", "value": 12, "scope": ["kim"]}, {"key": "accuracy_pct", "value": 10, "scope": []}, {"key": "crit_chance_pct", "value": 5, "scope": ["physical"]}],
+   "effects": [],
+   "lore": "An iron fan whose ribs are flying needles; closed, it is a fan a scholar might carry into any hall.",
+   "build_use": "The fan of flying needles the envoy throws when he must.",
+   "holder": "mau_tri_vien", "made_by": "thoi_tinh", "made_year": 1150, "set": "tx-envoy-credentials", "status": "proposal"
+  },
+  {
+   "id": "tx-archive-robe", "name": "Robe of the Archive Keeper (Tàng Ước Bào)", "family": "earth", "kind": "artifact", "base": "dao_bao", "grade": 3,
+   "modifiers": [{"key": "defense_pct", "value": 10, "scope": []}, {"key": "soul_res_pct", "value": 12, "scope": []}, {"key": "linh_luc_regen_inc_pct", "value": 12, "scope": []}, {"key": "khi_huyet_pct", "value": 10, "scope": []}],
+   "effects": [],
+   "lore": "Dust-grey and patched at the elbows from three centuries of leaning on the Compact's shelves.",
+   "build_use": "Linh lực regeneration and guard for a keeper who holds a door.",
+   "holder": "su_ngung_mac", "made_by": "su_ngung_mac", "made_year": 900, "set": "tx-archive-desk", "status": "proposal"
+  },
+  {
+   "id": "tx-archive-key", "name": "Key of Tàng Ước Các (Tàng Ước Thược)", "family": "metal", "kind": "artifact", "base": "ngoc_boi", "grade": 3,
+   "modifiers": [{"key": "than_thuc_pct", "value": 6, "scope": []}, {"key": "attack_pct", "value": 12, "scope": ["seal"]}, {"key": "linh_luc_pct", "value": 10, "scope": []}, {"key": "status_duration_pct", "value": 12, "scope": ["curse"]}],
+   "effects": [],
+   "lore": "A bronze key on a jade cord; there is one lock it opens, and the lock opens nothing without the inkstone.",
+   "build_use": "Seal damage and linh lực.",
+   "holder": "su_ngung_mac", "made_by": "chung_hoai_cuc", "made_year": 510, "set": "tx-archive-desk", "status": "proposal"
+  },
+  {
+   "id": "tx-level-of-the-seat", "name": "Level of the Seat (Chuẩn Bình Bội)", "family": "earth", "kind": "artifact", "base": "ngoc_boi", "grade": 3,
+   "modifiers": [{"key": "defense_pct", "value": 8, "scope": []}, {"key": "than_thuc_pct", "value": 5, "scope": []}, {"key": "stack_effect_pct", "value": 20, "scope": ["kim", "debuff"]}, {"key": "khi_huyet_pct", "value": 10, "scope": []}],
+   "effects": [],
+   "lore": "A water level in a jade case, used to set the seat's floors true; the steward has worn it since his master gave it in 1150.",
+   "build_use": "Metal stacks that keep, and the guard behind the sword.",
+   "holder": "cong_ton_duan", "made_by": "doan_ngoc_hanh", "made_year": 1150, "set": "tx-steward-rule", "status": "proposal"
+  },
+  {
+   "id": "tx-steward-armour", "name": "Steward's Plate (Quản Sự Giáp)", "family": "metal", "kind": "artifact", "base": "giap", "grade": 3,
+   "modifiers": [{"key": "khi_huyet_pct", "value": 14, "scope": []}, {"key": "defense_pct", "value": 10, "scope": []}, {"key": "block_rating", "value": 12, "scope": []}, {"key": "health_regen_inc_pct", "value": 16, "scope": []}],
+   "effects": [],
+   "lore": "Plain iron plate with a steward's tassel; it has been dented and never pierced.",
+   "build_use": "The guard of a steward who does not lose.",
+   "holder": "cong_ton_duan", "made_by": "thoi_tinh", "made_year": 1110, "set": "tx-steward-rule", "status": "proposal"
+  },
+  {
+   "id": "tx-dawn-flag", "name": "Flag of First Light (Hi Quang Kỳ)", "family": "earth", "kind": "artifact", "base": "ky", "grade": 2,
+   "modifiers": [{"key": "stack_effect_pct", "value": 16, "scope": ["tho", "buff"]}, {"key": "defense_pct", "value": 6, "scope": []}, {"key": "than_thuc_pct", "value": 3, "scope": []}],
+   "effects": [],
+   "lore": "Her master's gift in 1180, with a note: 'Plant it first.' She plants it second.",
+   "build_use": "Earth wards she has not learned to lean on.",
+   "holder": "doan_hi_hoa", "made_by": "doan_ngoc_hanh", "made_year": 1180, "set": "tx-dawn-pair", "status": "proposal"
+  },
+  {
+   "id": "tx-copyist-robe", "name": "Copyist's Sleeve Robe (Sao Lục Tụ Bào)", "family": "metal", "kind": "artifact", "base": "dao_bao", "grade": 2,
+   "modifiers": [{"key": "soul_res_pct", "value": 15, "scope": []}, {"key": "linh_luc_pct", "value": 6, "scope": []}, {"key": "linh_luc_regen_inc_pct", "value": 8, "scope": []}],
+   "effects": [],
+   "lore": "Long sleeves stained with archive ink and Mặc Yên soot.",
+   "build_use": "Soul guard and linh lực for a copyist, not a fighter.",
+   "holder": "thich_minh_thu", "made_by": "thien_xu", "made_year": 1175, "set": "tx-copyist-pair", "status": "proposal"
+  },
+  {
+   "id": "tx-hidden-string-zither",
+   "name": "Zither of the Hidden Strings (Tàng Huyền Cầm)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "cam",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "song"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "song"
+     ]
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 15,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A plain seven-string zither with steel strings. The Pivot forbids songs that work on the mind; Bạch Vọng Ngôn plays only the string that cuts.",
+   "build_use": "Force song damage from String Cut, hidden among the flying blades.",
+   "holder": "bach_vong_ngon",
+   "made_by": null,
+   "made_year": null,
+   "set": null,
+   "status": "proposal",
+   "authored": "b2"
+  },
+  {
+   "id": "tx-miasma-root-charm",
+   "name": "Miasma-Root Charm (Chướng Căn Bội)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "status_resist_pct",
+     "value": 30,
+     "scope": [
+      "poison"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A knot of the miasma root she grows at the barrow watch, dried and bound in jade wire. She has worn one since the first year the plain's air did not kill her.",
+   "build_use": "Poison resistance and health for the barrow watch, and her root fields.",
+   "holder": "quy_thu_luy",
+   "made_by": "quy_thu_luy",
+   "made_year": null,
+   "set": null,
+   "status": "proposal",
+   "authored": "b5"
+  }
+ ],
+ "sets": [
+  {
+   "id": "tx-pivot-regalia", "name": "Regalia of the Pivot (Thiên Xu Tam Bảo)", "pieces": ["tx-bac-than-an", "tx-seven-star-flag", "tx-heavenly-weight"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "than_thuc_pct", "value": 6, "scope": []}, {"key": "stack_effect_pct", "value": 12, "scope": ["tho", "debuff"]}]},
+    {"pieces": 3, "effect": "Seal and Weight in One Hand (Ấn Quyền Đồng Thủ): once each fight, a foe below half health who carries five Earth stacks is judged: stunned for 2 s, their strongest buff removed and their wards broken. While you hold all three, your own wards hold half their value: one who judges alone stands alone."}
+   ],
+   "story": "The founder's rule since 510: the one who seals does not weigh. The head holds the Seal and the Flag; the Chief Judge holds the Weight. The set has been whole twice: in Chung Hoài Cực's hands before he gave the Weight away, and for one day in 1188, when Doãn Ngọc Hành asked Phương Trực Ngôn for the Weight and judged Băng Tâm's petition himself (N-thien_xu-09). He returned it the next morning. She has not forgiven it."
+  },
+  {
+   "id": "tx-iron-horse", "name": "The Armoured Horse (Thiết Mã Song Bảo)", "pieces": ["tx-iron-horse-banner", "tx-iron-horse-tally"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "attack_pct", "value": 10, "scope": ["companion"]}, {"key": "khi_huyet_pct", "value": 8, "scope": []}], "effect": "The Army That Waits (Phục Binh Tại Cảnh): with banner and tally both, you may open Thiết Mã Cảnh. In a fight, once, the riders join you as a companion for 10 s; their first hit Displaces the foe (heavy). Outside a fight, the pair commands the army in the realm, which is a world event, not a stat."}
+   ],
+   "story": "Made in 785 for the war marshal (C154), parted at Chiết Kích in 803: the banner went into hiding with Lôi Vô Danh, the tally's halves into the realm and out of the archive. Đỗ Tinh Hà has looked for both for four hundred years. Ngũ Trấn Bắc wants them found; Doãn Ngọc Hành would prefer they were not.",
+   "authored": "a1"
+  },
+  {
+   "id": "tx-breaker-harness", "name": "Army-Breaker's Harness (Phá Quân Tam Kiện)", "pieces": ["tx-pha-quan-spear", "tx-breaker-scale-coat", "tx-waiting-stone"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "crit_damage_pct", "value": 20, "scope": ["physical"]}, {"key": "khi_huyet_pct", "value": 8, "scope": []}]},
+    {"pieces": 3, "effect": "The Called Thrust (Điểm Thương): each full second in which you strike nothing lays one Earth stack on the foe you face; the Army-Breaker's waited thrust spends them all, and if it spends 5 or more it breaks the foe's ward entirely before it strikes."}
+   ],
+   "story": "Spear, coat and stone are what Đỗ Tinh Hà brought back from Phá Quân Môn in 874: the rebel's weapon, the rebel's armour, and the pebble he held while he waited at the gate. They have never been apart; the set dies with him or passes whole."
+  },
+  {
+   "id": "tx-bridge-court-pair", "name": "Bridge Court Pair (Kiều Đình Song Bảo)", "pieces": ["tx-bridge-court-robe", "tx-bridge-court-jade"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "status_duration_pct", "value": 10, "scope": ["curse"]}, {"key": "soul_res_pct", "value": 8, "scope": []}], "effect": "Sentence Stands (Án Định): a curse you lay on a foe who carries your Weight cannot be cleansed and lasts 2 s longer."}
+   ],
+   "story": "The court's own robe and jade, which go with the bench and not the person. She wears them beside the Weight, so the judge stands whole even when the Regalia is not."
+  },
+  {
+   "id": "tx-dao-quang-kit", "name": "Drum, Flag and Spear (Cổ Kỳ Thương)", "pieces": ["tx-seventh-star-drum", "tx-dao-quang-war-flag", "tx-marshal-spear"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "attack_pct", "value": 10, "scope": ["companion"]}, {"key": "pierce_pct", "value": 5, "scope": []}]},
+    {"pieces": 3, "effect": "The Weakest File (Nhược Hàng): each time the drum strikes, the foe with the least health is marked as the weak file for 6 s; your spear arts and every summon's strikes against it pierce a fifth of its resistances, and when it dies the drum strikes again at once."}
+   ],
+   "story": "The Dao Quang Hall's war kit, made piece by piece for its masters over four centuries. Ngũ Trấn Bắc holds all three, and wants the Armoured Horse to go with them."
+  },
+  {
+   "id": "tx-envoy-credentials", "name": "Envoy's Credentials (Sứ Tiết Tam Bảo)", "pieces": ["tx-envoy-jade-tally", "tx-envoy-robe", "tx-needle-fan"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "evade_pct", "value": 4, "scope": []}, {"key": "than_thuc_pct", "value": 4, "scope": []}]},
+    {"pieces": 3, "effect": "Words Before Needles (Tiên Ngôn Hậu Châm): each attack you evade loads one needle into the fan, and each second in which you strike, one needle falls out. Your next fan art throws them all as extra needles; if you had struck no one before it, you may then leave the fight at once."}
+   ],
+   "story": "Tally, robe and fan are issued to the master of the Khai Dương Hall and handed back when he leaves the post. Mâu Tri Viễn has held them since 1150."
+  },
+  {
+   "id": "tx-archive-desk", "name": "Keeper's Desk (Tàng Ước Tam Bảo)", "pieces": ["tx-compact-inkstone", "tx-archive-robe", "tx-archive-key"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "linh_luc_regen_inc_pct", "value": 8, "scope": []}, {"key": "attack_pct", "value": 6, "scope": ["seal"]}]},
+    {"pieces": 3, "effect": "The Door Stays Shut (Môn Bất Khai): while you are Still, each seal art you cast lays a seal-ward on you worth 4 % of your linh lực, and each seal-ward loses a tenth of its value each second; a foe whose name the inkstone has written three times holds its arts: those that come ready in the next 2 s wait until the 2 s end."}
+   ],
+   "story": "The founder's key, the Compact's inkstone and the keeper's own robe. The key and stone pass with the archive; the robe is hers, and the Pivot will have to make another.",
+   "authored": "a1"
+  },
+  {
+   "id": "tx-steward-rule", "name": "Plumb and Level (Chuẩn Thằng Quy Củ)", "pieces": ["tx-plumb-line-sword", "tx-level-of-the-seat", "tx-steward-armour"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "accuracy_pct", "value": 6, "scope": []}, {"key": "defense_pct", "value": 4, "scope": []}]},
+    {"pieces": 3, "effect": "True Line (Chân Tuyến): your sword arts cannot miss a foe carrying your Metal stacks, and every fifth sword hit in a row sends one of the Hundred Swords down the same line at no cost."}
+   ],
+   "story": "His master's tools of the seat: the sword that sets a line, the level that sets a floor, and the plate the steward wears. Given one at a time as he earned them; the elders read the third as a promise."
+  },
+  {
+   "id": "tx-dawn-pair", "name": "Dawn Pair (Hi Hòa Song Bảo)", "pieces": ["tx-dawn-charioteer", "tx-dawn-flag"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "crit_chance_pct", "value": 3, "scope": ["physical"]}, {"key": "stack_effect_pct", "value": 8, "scope": ["tho", "buff"]}], "effect": "Before the Sun (Tiên Nhật): your first sword art each fight is a certain crit; if its hit does not make the foe Broken, your next ward is doubled. (Her master's lesson, half learned.)"}
+   ],
+   "story": "Doãn Ngọc Hành had Chân Kim Các refine the sword for her Trúc Cơ in 1168 and gave her the flag twelve years later, so that she would carry the ward as well as the edge.",
+   "authored": "a1"
+  },
+  {
+   "id": "tx-copyist-pair", "name": "Copyist's Pair (Sao Lục Song Bảo)", "pieces": ["tx-copyist-seal", "tx-copyist-robe"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "soul_res_pct", "value": 6, "scope": []}, {"key": "linh_luc_regen_inc_pct", "value": 6, "scope": []}, {"key": "attack_pct", "value": 6, "scope": ["seal"]}], "effect": "A Fair Copy (Chính Bản): once a fight, the first soul or curse art cast on you is copied instead of taken; your next seal art carries it back to its caster."}
+   ],
+   "story": "The archive's issue to its copyists, returned when they leave the second door. The ink of a copy no one should have made is still in the left sleeve of Thích Minh Thư's.",
+   "authored": "b8"
+  }
+ ]
+}

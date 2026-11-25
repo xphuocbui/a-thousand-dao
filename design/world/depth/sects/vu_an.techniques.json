@@ -1,0 +1,58 @@
+{
+ "sect": "vu_an",
+ "_doc": "Vụ Ẩn Môn lineage (rules-proposals R5). Leans Wood/Water, unchanged (the seat passes R4: Wood 46 %, Water 17 %). Elements Wood first, then Water: inner disciples and above hold Wood at 45 or more; the outer gate takes Wood or Water at 30. Outer gate: road-mist-primer (proposal, Yellow). Inner gate and above: mist-lock-array-canon (proposal, Profound; the founder's). Secret arts: haze-walk (Thúy Vi's proposal, reused by id: the art Tất Hành Vụ taught the founder in 1048, N-thuy_vi-07), hidden-gate-array (proposal, Profound; the head's). Unpriced.",
+ "lineage": {
+  "outer": "road-mist-primer",
+  "main": "mist-lock-array-canon",
+  "secret": [
+   {"id": "haze-walk", "rank": "noi_mon", "note": "Thúy Vi's art; taught here since 1050, its ninth layer never (only Tất Hành Vụ reads it)"},
+   {"id": "hidden-gate-array", "rank": "tong_chu"}
+  ],
+  "body": null,
+  "elements": ["moc", "thuy"],
+  "tree_route": [6085, 6362],
+  "tree_route_note": "Willow Dance (Liễu Vũ) and Hidden Glade (U Cốc): the mist-walker's evasion, before any array."
+ },
+ "techniques": [
+  {
+   "id": "road-mist-primer",
+   "name": "Road Mist Primer (Lộ Vụ Quyết)",
+   "tier": 0, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "A guard's method for walking a road at dawn. A Wood root breathes the damp off the forest edge and a Water root the mist off the river, and either learns to let a breath of it out again, enough to cover one traveller's back. It is mostly walking, watching and breathing. The sixth layer is the first lantern: the guard hangs a mist lantern at a crossroads and keeps it lit until a stranger passes under it unseen.",
+   "arts": [
+    {"new": "A Breath of Road Mist (Lộ Vụ Nhất Tức)", "concept": "Breathes out mist over yourself and one ally for 4 s: the next art aimed at either of you has a high chance to miss."},
+    {"new": "The Wind Lifts the Mist (Phong Khởi Vụ Tán)", "concept": "A passive art. When the foe fires an art with the `wind` element tag, it lifts one mist of yours: your newest Field tagged `mist` ends, or your mist self-state (A Breath of Road Mist) if you have no mist Field. If a Lantern-Stone holds that field, the stone is spent instead and the field stands. The lift comes before that art's hit, so the mist it lifts cannot make it miss.", "effect": "the-wind-lifts-the-mist", "unlock_layer": 1, "authored": "d49"}
+   ],
+   "lore": "Hàm Thủ Lộ (ham_thu_lo) made it for the carriers and tea-pickers he hired in 1050, men who could not have learned the Haze Walk. They needed a first step toward it.",
+   "status": "proposal",
+   "authored": "d49"
+  },
+  {
+   "id": "mist-lock-array-canon",
+   "name": "Mist-Lock Array Canon (Tỏa Vụ Trận Kinh)",
+   "tier": 1, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 9, "rank": "noi_mon",
+   "concept": "The founder's method: the Haze Walk turned outward. The walker thins one body into haze. The array-layer lays haze on a stretch of road and locks it there with lantern-stones, so everyone inside is hidden while it holds. It cultivates by laying and holding the lock day after day on the cape's roads. In a fight it makes a hidden ground. Allies inside are hard to see and hard to hit. Foes inside lose their way and their aim, and an ally leaving the mist strikes first. By the sect's rule it never strikes from the mist itself.",
+   "arts": [
+    {"new": "Lock the Road (Tỏa Lộ)", "concept": "Lays a mist field for 8 s: you gain evasion, the foe loses accuracy for each second of the field, and the foe's first art inside it misses (an avoid).", "authored": "a1"},
+    {"new": "Lantern-Stone (Đăng Thạch)", "concept": "Plants a lantern-stone Piece: while it stands and you are Still, your mist field does not fade; it is worn by the foe's hits, and when it is gone the field ends.", "authored": "a1"},
+    "deep-lake-stance",
+    {"new": "Lost on the Road (Mê Lộ)", "concept": "A passive art. Each foe art that misses you, evaded or avoided, while your mist field is up adds one Lost; at five, your escape art comes ready at once and cannot fail, and the Lost are spent.", "effect": "lost-on-the-road", "authored": "d2"},
+    {"new": "The Wind Lifts the Mist (Phong Khởi Vụ Tán)", "concept": "A passive art. When the foe fires an art with the `wind` element tag, it lifts one mist of yours: your newest Field tagged `mist` ends, or your mist self-state (A Breath of Road Mist) if you have no mist Field. If a Lantern-Stone holds that field, the stone is spent instead and the field stands. The lift comes before that art's hit, so the mist it lifts cannot make it miss.", "effect": "the-wind-lifts-the-mist", "unlock_layer": 1, "authored": "d49"}
+   ],
+   "lore": "Hàm Thủ Lộ worked it out on the cape's roads between 1048 and 1050, after his sworn brother Tất Hành Vụ (tat_hanh_vu) taught him the Haze Walk (N-thuy_vi-07, V015). Tất reads it and says it is better than the walk. Thúy Vi's elders read it and say that is what theft looks like.",
+   "status": "proposal",
+   "authored": "a1, d2, d49"
+  },
+  {
+   "id": "hidden-gate-array",
+   "name": "Gate Hidden in Mist (Vụ Ẩn Môn Trận)",
+   "tier": 1, "tech_kind": "secret", "names": ["moc"], "layers": 9, "rank": "tong_chu",
+   "concept": "The array the sect is named for, which hides its own seat. A traveller who does not know the way walks past the gate in the black pines and never sees it. The head keeps it and lays it new each spring. In a fight the holder can step into a fold of mist and come out somewhere else nearby, and a foe who follows is turned back toward where they started.",
+   "arts": [
+    {"new": "The Gate Is Not There (Môn Bất Tại)", "concept": "Steps into a fold of mist and out up to a short distance away; foes who had you targeted lose the target and their next art toward you is slowed."}
+   ],
+   "lore": "Laid in 1050 over the founder's hut and relaid every spring since. Bàng Yên Tỏa (bang_yen_toa) has laid it fifty-four times, and he has added one thing to it that the founder never knew he needed: it now also hides a grave under the gate.",
+   "status": "proposal"
+  }
+ ]
+}

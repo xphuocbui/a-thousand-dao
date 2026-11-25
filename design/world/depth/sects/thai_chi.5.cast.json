@@ -1,0 +1,522 @@
+{
+ "sect": "thai_chi",
+ "people": [
+  {
+   "key": "nghiem_hoang_ky",
+   "name_hv": "Nghiêm Hoàng Kỳ",
+   "name_han": "嚴黃耆",
+   "gloss": "Astragalus",
+   "sex": "M",
+   "born": 1105,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thai_chi",
+   "rank": "chap_su",
+   "home": 12,
+   "birthplace": 1233,
+   "role": "Keeper of the sick-houses below the terraces, where anyone carried to the gate is treated",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "thuy": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Stubborn",
+     "Honest"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "A dike-village child carried up the river and given the valley's name, he has kept the sick-houses for forty years and treats whoever is carried to the gate, as the valley's rule says; Ông Khổ Sâm (ong_kho_sam) sends him the bill for the pills every season, and he sends it back.",
+   "ties": [
+    {
+     "to": "nghiem_linh_chi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ong_kho_sam",
+     "kind": "rival",
+     "note": "the bill for the pills"
+    },
+    {
+     "to": "nghiem_hoac_huong",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "nghiem_linh_chi",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "shang-mountain-lingzhi-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "hundred-herbs-tasting",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "dan_dao": 4,
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing that keeps a dying man alive."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "nghiem_bach_truat",
+   "name_hv": "Nghiêm Bạch Truật",
+   "name_han": "嚴白朮",
+   "gloss": "White atractylodes",
+   "sex": "F",
+   "born": 1138,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thai_chi",
+   "rank": "noi_mon",
+   "home": 12,
+   "birthplace": 1235,
+   "role": "Keeper of the lingzhi beds on the Bối Dược terraces",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Content",
+     "Reclusive"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "sect_raised",
+    "lifestyle": "gardener"
+   },
+   "backstory": "She took the valley's name at nine and has hardly left the Bối Dược terraces in forty years; Mai Thủ Điền (mai_thu_dien) says she is the only one who can tell a lingzhi's age by touch.",
+   "ties": [
+    {
+     "to": "nghiem_linh_chi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "mai_thu_dien",
+     "kind": "friend",
+     "note": "the field-warden she works under"
+    },
+    {
+     "to": "nghiem_tu_to",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "nghiem_linh_chi",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "shang-mountain-lingzhi-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood growth and spores."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "nghiem_tu_to",
+   "name_hv": "Nghiêm Tử Tô",
+   "name_han": "嚴紫蘇",
+   "gloss": "Perilla",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "thai_chi",
+   "rank": "ngoai_mon",
+   "home": 12,
+   "birthplace": 1277,
+   "role": "Outer disciple; weeds the lingzhi terraces",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Fickle",
+     "Generous"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "street_orphan"
+   },
+   "backstory": "A Bạch Thạch girl whose mother drowned at a crossing; Đậu Sa Nhi (dau_sa_nhi), the one outer child with a living mother, reads her the letters from Đào Sa, and she talks to the lingzhi, which Nghiêm Bạch Truật (nghiem_bach_truat) allows.",
+   "ties": [
+    {
+     "to": "nghiem_bach_truat",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dau_sa_nhi",
+     "kind": "friend",
+     "note": "reads her the Đào Sa letters"
+    }
+   ],
+   "master": "nghiem_bach_truat",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "lingzhi-pickers-song",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water for the beds."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "nghiem_hoac_huong",
+   "name_hv": "Nghiêm Hoắc Hương",
+   "name_han": "嚴藿香",
+   "gloss": "Patchouli",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "thai_chi",
+   "rank": "noi_mon",
+   "home": 12,
+   "birthplace": 62,
+   "role": "Inner disciple of the sick-houses; Nghiêm Đương Quy's twin",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 47,
+     "thuy": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Cautious",
+     "Calm"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "street_orphan"
+   },
+   "backstory": "He and his twin Nghiêm Đương Quy (nghiem_duong_quy) were found in one reed basket at Hà Bạn; she went to the long houses and he to the sick-houses, where Nghiêm Hoàng Kỳ (nghiem_hoang_ky) has him wash wounds and not ask questions.",
+   "ties": [
+    {
+     "to": "nghiem_duong_quy",
+     "kind": "sibling",
+     "note": "his twin"
+    },
+    {
+     "to": "nghiem_hoang_ky",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "nghiem_hoang_ky",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "shang-mountain-lingzhi-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "nghiem_xuyen_khung",
+   "name_hv": "Nghiêm Xuyên Khung",
+   "name_han": "嚴川芎",
+   "gloss": "Lovage root",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "thai_chi",
+   "rank": "ngoai_mon",
+   "home": 33,
+   "birthplace": 1253,
+   "role": "Outer disciple of the trade office at Đào Thanh Thành",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "tho": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Gregarious",
+     "Pragmatic"
+    ],
+    "calling": "Merchant",
+    "upbringing": "street_orphan"
+   },
+   "backstory": "Ông Khổ Sâm (ong_kho_sam) took him to the trade office for his quick sums; he has learned what a valley pill fetches in the River Hall's market and cannot understand why the mistress gives them away.",
+   "ties": [
+    {
+     "to": "ong_kho_sam",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nghiem_cam_thao",
+     "kind": "friend",
+     "note": "they carry the pills downriver together"
+    }
+   ],
+   "master": "ong_kho_sam",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "lingzhi-pickers-song",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood sustain."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "ung_lo_nhi",
+   "name_hv": "Ung Lộ Nhi",
+   "name_han": "雍露兒",
+   "gloss": "Dew",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "thai_chi",
+   "rank": "noi_mon",
+   "home": 12,
+   "birthplace": 1221,
+   "role": "Inner disciple of the long houses; kept her own name",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 33
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Honest",
+     "Patient"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A fisher's daughter of Điếu Đài whose father still lives, so she kept her name; she says aloud what the long houses think, that Lữ Niệm Hà (lu_niem_ha) should be heir, and Lữ sends her to weed for it.",
+   "ties": [
+    {
+     "to": "lu_niem_ha",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nghiem_tuc_doan",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "lu_niem_ha",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "shang-mountain-lingzhi-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and Water healing."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "nghiem_ich_mau",
+   "name_hv": "Nghiêm Ích Mẫu",
+   "name_han": "嚴益母",
+   "gloss": "Motherwort",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "thai_chi",
+   "rank": "ngoai_mon",
+   "home": 12,
+   "birthplace": 110,
+   "role": "Outer disciple of the fields; a Bạch Lang orphan",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 36,
+     "thuy": 31
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Vengeful",
+     "Diligent"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Wolves took her mother on the Bạch Lang road in the wolf winter of 1190; she weeds beside Nghiêm Phục Linh (nghiem_phuc_linh) and asks every road warden who comes for pills whether the packs are back.",
+   "ties": [
+    {
+     "to": "mai_thu_dien",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nghiem_phuc_linh",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "mai_thu_dien",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "lingzhi-pickers-song",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood growth."
+    },
+    "note": ""
+   }
+  }
+ ]
+}

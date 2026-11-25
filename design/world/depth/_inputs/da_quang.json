@@ -1,0 +1,1395 @@
+{
+"_doc": "Input slice for the depth writer of da_quang (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "da_quang",
+"name": "Dạ Quang Môn",
+"name_han": "夜光門",
+"gloss": "Gate of the Night-Glowing Cup",
+"alignment": "ma đạo",
+"leans": [
+"Fire",
+"Metal"
+],
+"craft": "blood sabres and caravan raiding in the desert",
+"lord": "bang_tam",
+"region": 8,
+"seat": 16,
+"kind": "minor"
+},
+"start_state": {
+"key": "da_quang",
+"name": "Dạ Quang Môn",
+"name_han": "夜光門",
+"gloss": "Gate of the Night-Glowing Cup",
+"kind": "minor",
+"alignment": "ma",
+"leans": [
+"Fire",
+"Metal"
+],
+"seat": 16,
+"levels": {
+"holdings": 2,
+"institutions": 2,
+"military": 4,
+"trade": 3
+},
+"treasury": 7000,
+"founded": 970,
+"specialty": "kiem_tu",
+"lord": "bang_tam",
+"loyalty": 40,
+"craft": "blood sabres and caravan raiding in the desert",
+"region": 8,
+"leader": "hang_da_boi"
+},
+"lord": "bang_tam",
+"vassals": [],
+"seat": {
+"id": 16,
+"name": "Dạ Quang Môn",
+"gloss": "",
+"kind": "minor_seat",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.01,
+"qi": {
+"moc": 12,
+"hoa": 32,
+"tho": 34,
+"kim": 16,
+"thuy": 6
+},
+"variants": {},
+"density": 1.21,
+"note": ""
+},
+"seat_audit": "## OK  Dạ Quang Môn (da_quang; leans Fire/Metal)\nSeat: Dạ Quang Môn (id 16, minor_seat, region 8, steppe), density 1.21\nSeat qi: Fire 32%, Metal 16%\n",
+"ground": [
+{
+"id": 3,
+"name": "Băng Tâm Các",
+"gloss": "",
+"kind": "great_seat",
+"region": 8,
+"biome": "badlands",
+"elev_km": 0.91,
+"qi": {
+"moc": 18,
+"hoa": 20,
+"tho": 32,
+"kim": 20,
+"thuy": 10
+},
+"variants": {},
+"density": 1.63,
+"note": ""
+},
+{
+"id": 255,
+"name": "Tẩy Kiếm Tuyền",
+"gloss": "Sword-Washing Spring",
+"kind": "spirit_vein",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 0.7,
+"qi": {
+"moc": 9,
+"hoa": 24,
+"tho": 37,
+"kim": 23,
+"thuy": 7
+},
+"variants": {},
+"density": 1.57,
+"note": ""
+},
+{
+"id": 1423,
+"name": "Ngưng Băng Bảo",
+"gloss": "Fort of Set Ice",
+"kind": "ruin",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 1.24,
+"qi": {
+"moc": 5,
+"hoa": 12,
+"tho": 30,
+"kim": 41,
+"thuy": 12
+},
+"variants": {
+"quang": 2.2
+},
+"density": 1.47,
+"note": ""
+},
+{
+"id": 1409,
+"name": "Huyết Đao Trại",
+"gloss": "Blood Sabre Stockade",
+"kind": "ruin",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 0.42,
+"qi": {
+"moc": 9,
+"hoa": 11,
+"tho": 29,
+"kim": 40,
+"thuy": 11
+},
+"variants": {},
+"density": 1.43,
+"note": ""
+},
+{
+"id": 1425,
+"name": "Mai Sa Bảo",
+"gloss": "Sand-Buried Fort",
+"kind": "ruin",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 0.72,
+"qi": {
+"moc": 6,
+"hoa": 19,
+"tho": 32,
+"kim": 35,
+"thuy": 9
+},
+"variants": {},
+"density": 1.36,
+"note": ""
+},
+{
+"id": 1416,
+"name": "Tuyết Tôn Phong",
+"gloss": "Snow Lord Peak",
+"kind": "peak",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 4.6,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 29,
+"kim": 42,
+"thuy": 13
+},
+"variants": {
+"quang": 10.6,
+"bang": 10.0
+},
+"density": 1.29,
+"note": ""
+},
+{
+"id": 294,
+"name": "Lục Ba Đàm",
+"gloss": "Green Ripple Pool",
+"kind": "lake",
+"region": 8,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 22,
+"hoa": 22,
+"tho": 28,
+"kim": 12,
+"thuy": 16
+},
+"variants": {},
+"density": 1.25,
+"note": ""
+},
+{
+"id": 1407,
+"name": "Tùng Thạch Khoáng",
+"gloss": "Turquoise Mine",
+"kind": "mine",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 0.89,
+"qi": {
+"moc": 6,
+"hoa": 11,
+"tho": 29,
+"kim": 42,
+"thuy": 12
+},
+"variants": {},
+"density": 1.25,
+"note": ""
+},
+{
+"id": 203,
+"name": "Viên Đề Hạp",
+"gloss": "Gorge of the Crying Gibbons",
+"kind": "gorge",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 0.21,
+"qi": {
+"moc": 10,
+"hoa": 10,
+"tho": 26,
+"kim": 35,
+"thuy": 18
+},
+"variants": {},
+"density": 1.22,
+"note": "Lý Bạch: lưỡng ngạn viên thanh đề bất trú (on both banks the gibbons cry without end)"
+},
+{
+"id": 16,
+"name": "Dạ Quang Môn",
+"gloss": "",
+"kind": "minor_seat",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.01,
+"qi": {
+"moc": 12,
+"hoa": 32,
+"tho": 34,
+"kim": 16,
+"thuy": 6
+},
+"variants": {},
+"density": 1.21,
+"note": ""
+},
+{
+"id": 227,
+"name": "Cô Thành",
+"gloss": "The Lone Fortress",
+"kind": "ruin",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.01,
+"qi": {
+"moc": 17,
+"hoa": 22,
+"tho": 30,
+"kim": 14,
+"thuy": 17
+},
+"variants": {},
+"density": 1.2,
+"note": "Vương Xương Linh, the poet of Băng Tâm: the lone fortress looks far toward the jade gate. Destroyed in the Desert Road War."
+},
+{
+"id": 1422,
+"name": "Băng Quan Phong",
+"gloss": "Ice Crown Peak",
+"kind": "peak",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 3.46,
+"qi": {
+"moc": 5,
+"hoa": 11,
+"tho": 29,
+"kim": 43,
+"thuy": 12
+},
+"variants": {
+"quang": 14.3,
+"bang": 3.5
+},
+"density": 1.18,
+"note": ""
+},
+{
+"id": 1412,
+"name": "Lãnh Hương Các",
+"gloss": "Pavilion of Cold Fragrance",
+"kind": "ruin",
+"region": 8,
+"biome": "temperate forest",
+"elev_km": 0.14,
+"qi": {
+"moc": 20,
+"hoa": 16,
+"tho": 27,
+"kim": 26,
+"thuy": 11
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 1415,
+"name": "Dương Chi Khoáng",
+"gloss": "Mutton-Fat Jade Mine",
+"kind": "mine",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 1.76,
+"qi": {
+"moc": 5,
+"hoa": 13,
+"tho": 30,
+"kim": 41,
+"thuy": 11
+},
+"variants": {},
+"density": 1.1,
+"note": ""
+},
+{
+"id": 1411,
+"name": "Hạc Lập Phong",
+"gloss": "Standing Crane Peak",
+"kind": "peak",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 0.78,
+"qi": {
+"moc": 18,
+"hoa": 11,
+"tho": 26,
+"kim": 33,
+"thuy": 12
+},
+"variants": {},
+"density": 1.1,
+"note": ""
+},
+{
+"id": 1413,
+"name": "Ngân Hồ Lâm",
+"gloss": "Silver Fox Wood",
+"kind": "beast_lair",
+"region": 8,
+"biome": "temperate forest",
+"elev_km": 0.21,
+"qi": {
+"moc": 32,
+"hoa": 16,
+"tho": 24,
+"kim": 15,
+"thuy": 13
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 1408,
+"name": "Thạch Kiếm Phong",
+"gloss": "Stone Sword Peak",
+"kind": "peak",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 0.9,
+"qi": {
+"moc": 13,
+"hoa": 12,
+"tho": 28,
+"kim": 37,
+"thuy": 11
+},
+"variants": {},
+"density": 1.03,
+"note": ""
+},
+{
+"id": 1424,
+"name": "Hồng Thạch Phong",
+"gloss": "Red Stone Peak",
+"kind": "peak",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 1.09,
+"qi": {
+"moc": 5,
+"hoa": 17,
+"tho": 31,
+"kim": 37,
+"thuy": 10
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 1410,
+"name": "Hắc Môi Khoáng",
+"gloss": "Black Coal Mine",
+"kind": "mine",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 0.22,
+"qi": {
+"moc": 15,
+"hoa": 15,
+"tho": 28,
+"kim": 32,
+"thuy": 11
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 1414,
+"name": "Mộc Kiều Thôn",
+"gloss": "Timber Bridge Village",
+"kind": "village",
+"region": 8,
+"biome": "temperate forest",
+"elev_km": 0.05,
+"qi": {
+"moc": 28,
+"hoa": 17,
+"tho": 23,
+"kim": 13,
+"thuy": 18
+},
+"variants": {},
+"density": 0.91,
+"note": ""
+},
+{
+"id": 359,
+"name": "Trấn Sa Đường",
+"gloss": "Hall That Holds the Sand",
+"kind": "minor_seat",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.38,
+"qi": {
+"moc": 4,
+"hoa": 33,
+"tho": 38,
+"kim": 21,
+"thuy": 4
+},
+"variants": {},
+"density": 0.9,
+"note": ""
+},
+{
+"id": 117,
+"name": "Liên Đường Thôn",
+"gloss": "Lotus Pond Village",
+"kind": "village",
+"region": 8,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 24,
+"hoa": 22,
+"tho": 30,
+"kim": 12,
+"thuy": 12
+},
+"variants": {},
+"density": 0.86,
+"note": ""
+},
+{
+"id": 35,
+"name": "Trường Vân Thành",
+"gloss": "City of the Long Clouds",
+"kind": "city",
+"region": 8,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 18,
+"hoa": 17,
+"tho": 25,
+"kim": 12,
+"thuy": 28
+},
+"variants": {},
+"density": 0.81,
+"note": "Vương Xương Linh, Tòng Quân Hành: Thanh Hải trường vân ám tuyết sơn (long clouds darken the snow mountains); the same poet as Băng Tâm"
+},
+{
+"id": 407,
+"name": "Ôn Thạch Thang",
+"gloss": "Warm Stone Bath",
+"kind": "hot_spring",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.17,
+"qi": {
+"moc": 10,
+"hoa": 21,
+"tho": 33,
+"kim": 16,
+"thuy": 20
+},
+"variants": {},
+"density": 0.77,
+"note": ""
+},
+{
+"id": 1405,
+"name": "Khổ Thủy Trì",
+"gloss": "Bitter Water Pool",
+"kind": "hot_spring",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.15,
+"qi": {
+"moc": 7,
+"hoa": 23,
+"tho": 38,
+"kim": 17,
+"thuy": 16
+},
+"variants": {},
+"density": 0.77,
+"note": ""
+},
+{
+"id": 67,
+"name": "Hồi Lan Thành",
+"gloss": "Turning Waves City",
+"kind": "city",
+"region": 8,
+"biome": "grassland",
+"elev_km": 0.03,
+"qi": {
+"moc": 11,
+"hoa": 18,
+"tho": 25,
+"kim": 14,
+"thuy": 32
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 116,
+"name": "Ngư Đàm Thôn",
+"gloss": "Fish Pool Village",
+"kind": "village",
+"region": 8,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 8,
+"hoa": 18,
+"tho": 28,
+"kim": 14,
+"thuy": 32
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 118,
+"name": "Mã Minh Thôn",
+"gloss": "Neighing Horses Village",
+"kind": "village",
+"region": 8,
+"biome": "grassland",
+"elev_km": 0.03,
+"qi": {
+"moc": 28,
+"hoa": 24,
+"tho": 30,
+"kim": 11,
+"thuy": 6
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 1400,
+"name": "Kim Hạt Cương",
+"gloss": "Golden Scorpion Dunes",
+"kind": "beast_lair",
+"region": 8,
+"biome": "desert",
+"elev_km": 0.2,
+"qi": {
+"moc": 4,
+"hoa": 36,
+"tho": 37,
+"kim": 19,
+"thuy": 4
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 1402,
+"name": "Dã Đà Nguyên",
+"gloss": "Wild Camel Plain",
+"kind": "beast_lair",
+"region": 8,
+"biome": "desert",
+"elev_km": 0.03,
+"qi": {
+"moc": 3,
+"hoa": 44,
+"tho": 32,
+"kim": 18,
+"thuy": 3
+},
+"variants": {},
+"density": 0.74,
+"note": ""
+},
+{
+"id": 259,
+"name": "Xích Sa Mạch",
+"gloss": "Red Sand Vein",
+"kind": "spirit_vein",
+"region": 8,
+"biome": "desert",
+"elev_km": 0.03,
+"qi": {
+"moc": 8,
+"hoa": 35,
+"tho": 35,
+"kim": 17,
+"thuy": 5
+},
+"variants": {},
+"density": 0.74,
+"note": ""
+},
+{
+"id": 1418,
+"name": "Đà Linh Trấn",
+"gloss": "Camel Bell Town",
+"kind": "town",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.03,
+"qi": {
+"moc": 18,
+"hoa": 23,
+"tho": 26,
+"kim": 15,
+"thuy": 18
+},
+"variants": {},
+"density": 0.71,
+"note": ""
+},
+{
+"id": 1421,
+"name": "Dương Bằng Thôn",
+"gloss": "Sheep-Shed Village",
+"kind": "village",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.15,
+"qi": {
+"moc": 6,
+"hoa": 29,
+"tho": 41,
+"kim": 19,
+"thuy": 5
+},
+"variants": {},
+"density": 0.68,
+"note": ""
+},
+{
+"id": 1404,
+"name": "Chiên Trướng Thôn",
+"gloss": "Felt Tent Village",
+"kind": "village",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.14,
+"qi": {
+"moc": 5,
+"hoa": 30,
+"tho": 43,
+"kim": 18,
+"thuy": 4
+},
+"variants": {},
+"density": 0.67,
+"note": ""
+},
+{
+"id": 1406,
+"name": "Chử Diêm Thôn",
+"gloss": "Salt-Boiling Village",
+"kind": "village",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.0,
+"qi": {
+"moc": 9,
+"hoa": 18,
+"tho": 28,
+"kim": 14,
+"thuy": 31
+},
+"variants": {},
+"density": 0.67,
+"note": ""
+},
+{
+"id": 1401,
+"name": "Phí Sa Thang",
+"gloss": "Boiling Sand Spring",
+"kind": "hot_spring",
+"region": 8,
+"biome": "desert",
+"elev_km": 0.15,
+"qi": {
+"moc": 3,
+"hoa": 40,
+"tho": 31,
+"kim": 22,
+"thuy": 4
+},
+"variants": {},
+"density": 0.66,
+"note": ""
+},
+{
+"id": 360,
+"name": "Quy Vân Mạch",
+"gloss": "Vein of the Returning Clouds",
+"kind": "spirit_vein",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.09,
+"qi": {
+"moc": 8,
+"hoa": 26,
+"tho": 39,
+"kim": 17,
+"thuy": 10
+},
+"variants": {},
+"density": 0.53,
+"note": ""
+},
+{
+"id": 293,
+"name": "Hoàng Thổ Mạch",
+"gloss": "Yellow Earth Vein",
+"kind": "spirit_vein",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.07,
+"qi": {
+"moc": 7,
+"hoa": 23,
+"tho": 37,
+"kim": 17,
+"thuy": 16
+},
+"variants": {},
+"density": 0.53,
+"note": ""
+},
+{
+"id": 1420,
+"name": "Thạch Tháp Mạch",
+"gloss": "Stone Couch Vein",
+"kind": "spirit_vein",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.34,
+"qi": {
+"moc": 7,
+"hoa": 27,
+"tho": 40,
+"kim": 20,
+"thuy": 6
+},
+"variants": {},
+"density": 0.53,
+"note": ""
+},
+{
+"id": 295,
+"name": "Mục Thảo Mạch",
+"gloss": "Pasture Vein",
+"kind": "spirit_vein",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.05,
+"qi": {
+"moc": 23,
+"hoa": 27,
+"tho": 33,
+"kim": 13,
+"thuy": 5
+},
+"variants": {},
+"density": 0.52,
+"note": ""
+},
+{
+"id": 1419,
+"name": "Viên Nhật Huyệt",
+"gloss": "Hollow of the Round Sun",
+"kind": "spirit_vein",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.26,
+"qi": {
+"moc": 6,
+"hoa": 35,
+"tho": 36,
+"kim": 19,
+"thuy": 5
+},
+"variants": {},
+"density": 0.52,
+"note": ""
+},
+{
+"id": 1403,
+"name": "Liệt Dương Huyệt",
+"gloss": "Hollow of the Fierce Sun",
+"kind": "spirit_vein",
+"region": 8,
+"biome": "desert",
+"elev_km": 0.41,
+"qi": {
+"moc": 4,
+"hoa": 32,
+"tho": 41,
+"kim": 18,
+"thuy": 4
+},
+"variants": {},
+"density": 0.43,
+"note": ""
+},
+{
+"id": 1417,
+"name": "Phong Sa Nhãn",
+"gloss": "Eye of the Sandstorm",
+"kind": "spirit_vein",
+"region": 8,
+"biome": "desert",
+"elev_km": 0.15,
+"qi": {
+"moc": 10,
+"hoa": 28,
+"tho": 33,
+"kim": 22,
+"thuy": 7
+},
+"variants": {},
+"density": 0.42,
+"note": ""
+}
+],
+"ground_place_count": 43,
+"events": [
+{
+"id": "A112",
+"tier": "annal",
+"year": 100,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Nomad herders drive their horses across the steppe behind the range; their camping ground becomes Mã Minh Thôn.",
+"place": 118,
+"region": 8
+},
+{
+"id": "C007",
+"tier": "landmark",
+"year": 440,
+"kind": "sect_founded",
+"people": [
+"tan_ngung_suong"
+],
+"sects": [
+"bang_tam"
+],
+"text_en": "Tần Ngưng Sương founds Băng Tâm Các in the cold north-east, among the ice fields, a pavilion for the ice heart.",
+"place": 3
+},
+{
+"id": "A114",
+"tier": "annal",
+"year": 445,
+"kind": "tale",
+"people": [
+"tan_ngung_suong"
+],
+"sects": [
+"bang_tam"
+],
+"text_en": "Tần Ngưng Sương makes the well water of the desert seat cold enough to keep ice all summer.",
+"place": 3,
+"region": 8
+},
+{
+"id": "C096",
+"tier": "landmark",
+"year": 470,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Băng Tâm Các founds Trường Vân Thành at the edge of the desert, under the long clouds over the snow mountains.",
+"place": 35
+},
+{
+"id": "A115",
+"tier": "annal",
+"year": 500,
+"kind": "settlement",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Fish ponds dug in an oasis give Ngư Đàm Thôn its name and Băng Tâm's desert its only fish.",
+"place": 116,
+"region": 8
+},
+{
+"id": "C111",
+"tier": "landmark",
+"year": 520,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Băng Tâm Các raises Cô Thành, a lone fortress on a desert lake, to guard the caravan road.",
+"place": 227
+},
+{
+"id": "A116",
+"tier": "annal",
+"year": 560,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Lotus ponds bloom at Liên Đường in the middle of the steppe; caravans stop just to look.",
+"place": 117,
+"region": 8
+},
+{
+"id": "A117",
+"tier": "annal",
+"year": 600,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The gibbons of Viên Đề Hạp cry on both banks without end; caravan drivers stop their ears with wax.",
+"place": 203,
+"region": 8
+},
+{
+"id": "A118",
+"tier": "annal",
+"year": 724,
+"kind": "siege",
+"people": [],
+"sects": [
+"bang_tam",
+"phuong_minh"
+],
+"text_en": "Cô Thành's garrison holds out for two years against Phượng Minh's fire, drinking the desert lake down to salt.",
+"place": 227,
+"region": 8
+},
+{
+"id": "V071",
+"tier": "annal",
+"year": 724,
+"kind": "siege",
+"people": [],
+"sects": [],
+"text_en": "All the plum-blossom swordsmen of Lãnh Hương Các ride out to break the siege of Cô Thành, and none come back.",
+"place": 1412,
+"region": 8
+},
+{
+"id": "C143",
+"tier": "landmark",
+"year": 726,
+"kind": "city_ruined",
+"people": [],
+"sects": [
+"phuong_minh",
+"bang_tam"
+],
+"text_en": "Phượng Minh's fire breaks Cô Thành; the lone fortress falls and the desert lake turns to salt.",
+"place": 227,
+"war": "desert_road"
+},
+{
+"id": "C150",
+"tier": "landmark",
+"year": 760,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Băng Tâm Các founds Hồi Lan Thành on the desert coast, after the Desert Road War.",
+"place": 67
+},
+{
+"id": "A119",
+"tier": "annal",
+"year": 770,
+"kind": "trade",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Hồi Lan Thành's harbour fills with ships from the south once the caravan road is safe.",
+"place": 67,
+"region": 8
+},
+{
+"id": "A120",
+"tier": "annal",
+"year": 870,
+"kind": "birth",
+"people": [
+"hang_da_boi"
+],
+"sects": [],
+"text_en": "Hạng Dạ Bôi is born to a caravan guard's family in Trường Vân Thành.",
+"place": 35,
+"region": 8
+},
+{
+"id": "C172",
+"tier": "landmark",
+"year": 970,
+"kind": "sect_founded",
+"people": [
+"hang_da_boi"
+],
+"sects": [
+"da_quang"
+],
+"text_en": "Hạng Dạ Bôi gathers the desert raiders and founds Dạ Quang Môn, bound to no lord.",
+"place": 16
+},
+{
+"id": "A121",
+"tier": "annal",
+"year": 975,
+"kind": "raid",
+"people": [],
+"sects": [
+"da_quang"
+],
+"text_en": "Dạ Quang Môn's raiders drink grape wine from night-glowing cups after every raid, and leave one cup behind as their mark.",
+"region": 8
+},
+{
+"id": "C175",
+"tier": "landmark",
+"year": 1010,
+"kind": "headship",
+"people": [
+"tan_ngung_suong",
+"so_ngoc_ho"
+],
+"sects": [
+"bang_tam"
+],
+"text_en": "Tần Ngưng Sương dies at 710; Sở Ngọc Hồ becomes head of Băng Tâm Các and keeper of the Jade Vessel.",
+"place": 3,
+"item": "bang_tam_ngoc_ho"
+},
+{
+"id": "V072",
+"tier": "annal",
+"year": 1010,
+"kind": "tale",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Tần Ngưng Sương dies, and no one renews the ice of Ngưng Băng Bảo, the fort her first disciples built of ice blocks; its walls begin to slump.",
+"place": 1423,
+"region": 8
+},
+{
+"id": "A122",
+"tier": "annal",
+"year": 1050,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "A sandstorm buries the wells of Mã Minh Thôn; the village moves three li east, horses and all.",
+"place": 118,
+"region": 8
+},
+{
+"id": "V073",
+"tier": "annal",
+"year": 1050,
+"kind": "disaster",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "The sandstorm that buries Mã Minh's wells buries the caravan fort of Mai Sa Bảo too, and it is not dug out.",
+"place": 1425,
+"region": 8
+},
+{
+"id": "C184",
+"tier": "landmark",
+"year": 1119,
+"kind": "war_start",
+"people": [
+"so_ngoc_ho",
+"hang_da_boi"
+],
+"sects": [
+"bang_tam",
+"da_quang"
+],
+"text_en": "Băng Tâm Các marches on the desert raiders of Dạ Quang Môn.",
+"place": 16,
+"war": "da_quang"
+},
+{
+"id": "A123",
+"tier": "annal",
+"year": 1121,
+"kind": "tale",
+"people": [],
+"sects": [
+"da_quang",
+"bang_tam"
+],
+"text_en": "Dạ Quang Môn's raiders are made to guard the very caravans they used to rob.",
+"place": 16,
+"region": 8
+},
+{
+"id": "C185",
+"tier": "landmark",
+"year": 1121,
+"kind": "war_end",
+"people": [
+"so_ngoc_ho",
+"hang_da_boi"
+],
+"sects": [
+"bang_tam",
+"da_quang"
+],
+"text_en": "Hạng Dạ Bôi kneels to Sở Ngọc Hồ; Dạ Quang Môn becomes a vassal of Băng Tâm, and does not forget.",
+"place": 16,
+"war": "da_quang"
+},
+{
+"id": "V074",
+"tier": "annal",
+"year": 1121,
+"kind": "siege",
+"people": [],
+"sects": [
+"bang_tam",
+"da_quang"
+],
+"text_en": "At the end of its campaign Băng Tâm burns Huyết Đao Trại, where Dạ Quang's raiders hid their loot; Hạng Dạ Bôi kneels soon after.",
+"place": 1409,
+"region": 8
+},
+{
+"id": "V075",
+"tier": "annal",
+"year": 1125,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"tran_sa",
+"bang_tam"
+],
+"text_en": "The caravan guard families of Trường Vân found Trấn Sa Đường, and watch Dạ Quang's new escorts more closely than the road.",
+"place": 359,
+"region": 8
+},
+{
+"id": "A124",
+"tier": "annal",
+"year": 1160,
+"kind": "trade",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "A merchant of Hồi Lan Thành brings the first southern rice through the desert since the Desert Road War; Băng Tâm taxes it at half.",
+"place": 67,
+"region": 8
+},
+{
+"id": "A125",
+"tier": "annal",
+"year": 1188,
+"kind": "tale",
+"people": [
+"so_ngoc_ho"
+],
+"sects": [
+"bang_tam"
+],
+"text_en": "Sở Ngọc Hồ returns from the Pivot's court without a word and shuts herself in the seat's ice hall for a year.",
+"place": 3,
+"region": 8
+},
+{
+"id": "A126",
+"tier": "annal",
+"year": 1194,
+"kind": "tale",
+"people": [],
+"sects": [
+"da_quang",
+"bang_tam"
+],
+"text_en": "Dạ Quang's young blades drink from the night-glowing cups again; Băng Tâm's elders pretend not to see.",
+"place": 16,
+"region": 8
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [
+{
+"key": "da_quang",
+"years": [
+1119,
+1121
+],
+"name": "Taming of Dạ Quang",
+"name_hv": "Hàng Dạ Quang",
+"sides": [
+[
+"bang_tam"
+],
+[
+"da_quang"
+]
+],
+"outcome": "The independent desert raiders of Dạ Quang Môn are beaten and made a vassal of Băng Tâm; hence their low loyalty."
+}
+],
+"vassal_lord_changes": [
+{
+"sect": "da_quang",
+"year": 1121,
+"from": null,
+"to": "bang_tam",
+"how": "beaten in the Taming of Dạ Quang"
+}
+],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "hang_da_boi",
+"name": "Hạng Dạ Bôi",
+"name_han": "項夜杯",
+"gloss": "The night-glowing cup (Vương Hàn)",
+"sex": "M",
+"born": 870,
+"alive": true,
+"sect": "da_quang",
+"rank": "tong_chu",
+"role": "Head of Dạ Quang Môn, blood sabres and caravan raiding in the desert (ma đạo)",
+"realm": "ket_dan",
+"home": 16,
+"traits": {
+"personality": [
+"Warlike",
+"Wrathful",
+"Arrogant"
+],
+"calling": "Duelist",
+"fate_given": []
+},
+"vassal_of": "bang_tam",
+"build": {
+"root": {
+"elements": {
+"kim": 74,
+"hoa": 72
+},
+"variants": {
+"huyet": 60
+}
+},
+"thien_phu": {
+"ngo_tinh": 58,
+"can_cot": 78,
+"than_hon": 56,
+"khi_van": 58,
+"dao_tam": 44,
+"mi_luc": 50
+},
+"archetype": "kiem_tu",
+"stage": 1,
+"main": {
+"tech": "nine-temper-scripture",
+"layer": 6
+},
+"aux": [
+{
+"tech": "debt-ledger-blade",
+"layer": 6
+},
+{
+"tech": "tearing-force-rites",
+"layer": 6
+}
+],
+"gear": [
+{
+"named": "fire-blood-kindling-ring"
+},
+{
+"base": "phi_kiem",
+"grade": 3,
+"element": "kim"
+},
+{
+"base": "giap",
+"grade": 3,
+"element": "hoa"
+}
+],
+"tree": {
+"start": "kim",
+"targets": [
+3909,
+3913,
+4671,
+4484,
+4535,
+4520
+]
+},
+"skills": {},
+"note": "The desert raider who knelt and did not forget: blood sabres that cut the horse first, wrathful offence paid in his own blood"
+}
+}
+],
+"legendary_items": []
+}

@@ -1,0 +1,2705 @@
+{
+"_doc": "Input slice for the depth writer of phuong_minh (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "phuong_minh",
+"name": "Phượng Minh Cung",
+"name_han": "鳳鳴宮",
+"gloss": "Palace of the Phoenix's Call",
+"tier": 2,
+"leans": [
+"Fire",
+"Wood"
+],
+"regions": [
+16,
+17,
+20
+],
+"seat_region": 16,
+"seat": 6,
+"kind": "great"
+},
+"start_state": {
+"key": "phuong_minh",
+"name": "Phượng Minh Cung",
+"name_han": "鳳鳴宮",
+"gloss": "Palace of the Phoenix's Call",
+"kind": "great",
+"alignment": "chinh",
+"leans": [
+"Fire",
+"Wood"
+],
+"seat": 6,
+"levels": {
+"holdings": 9,
+"institutions": 6,
+"military": 9,
+"trade": 9
+},
+"treasury": 30000,
+"founded": 480,
+"specialty": "phap_tu",
+"tier": 2,
+"regions": [
+16,
+17,
+20
+],
+"leader": "hoa_trieu_duong"
+},
+"lord": "",
+"vassals": [
+"truc_thuc",
+"le_tuyen",
+"phan_vu",
+"bach_vu",
+"vong_trieu",
+"chuc_ha"
+],
+"seat": {
+"id": 6,
+"name": "Phượng Minh Cung",
+"gloss": "",
+"kind": "great_seat",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.68,
+"qi": {
+"moc": 13,
+"hoa": 10,
+"tho": 26,
+"kim": 41,
+"thuy": 10
+},
+"variants": {},
+"density": 2.11,
+"note": ""
+},
+"seat_audit": "## MOVE Phượng Minh Cung (phuong_minh; leans Fire/Wood)\nSeat: Phượng Minh Cung (id 6, great_seat, region 16, high mountain), density 2.11\nSeat qi: Fire 10%, Wood 13%\nCandidates:\n- Hỏa Ti Trấn (id 449, ruin, region 20, high mountain, elev 0.28 km): Fire 47%, Wood 18%; density 1.60\n- Chúc Dung Khẩu (id 253, lava_vent, region 20, volcano, elev 0.55 km): Fire 57%, Wood 15%; density 1.18\n- Hòa Miêu Mạch (id 333, spirit_vein, region 17, steppe, elev 0.08 km): Fire 28%, Wood 16%; density 0.55\n",
+"ground": [
+{
+"id": 6,
+"name": "Phượng Minh Cung",
+"gloss": "",
+"kind": "great_seat",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.68,
+"qi": {
+"moc": 13,
+"hoa": 10,
+"tho": 26,
+"kim": 41,
+"thuy": 10
+},
+"variants": {},
+"density": 2.11,
+"note": ""
+},
+{
+"id": 452,
+"name": "Minh Cổ Bảo",
+"gloss": "Fort of the Sounding Drum",
+"kind": "ruin",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.96,
+"qi": {
+"moc": 12,
+"hoa": 10,
+"tho": 27,
+"kim": 41,
+"thuy": 10
+},
+"variants": {},
+"density": 2.03,
+"note": ""
+},
+{
+"id": 768,
+"name": "Tiêu Sơn Thị",
+"gloss": "Flute Mountain Market",
+"kind": "ruin",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.05,
+"qi": {
+"moc": 23,
+"hoa": 11,
+"tho": 21,
+"kim": 34,
+"thuy": 11
+},
+"variants": {},
+"density": 1.97,
+"note": ""
+},
+{
+"id": 451,
+"name": "Triều Phượng Đỉnh",
+"gloss": "Summit Where the Birds Pay Homage to the Phoenix",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.93,
+"qi": {
+"moc": 13,
+"hoa": 10,
+"tho": 26,
+"kim": 40,
+"thuy": 11
+},
+"variants": {},
+"density": 1.88,
+"note": ""
+},
+{
+"id": 762,
+"name": "Thanh Minh Lĩnh",
+"gloss": "Ridge of the Clear Cry",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.93,
+"qi": {
+"moc": 25,
+"hoa": 12,
+"tho": 22,
+"kim": 30,
+"thuy": 11
+},
+"variants": {},
+"density": 1.88,
+"note": ""
+},
+{
+"id": 765,
+"name": "Xích Ngọc Khoáng",
+"gloss": "Red Jade Mine",
+"kind": "mine",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.13,
+"qi": {
+"moc": 14,
+"hoa": 10,
+"tho": 26,
+"kim": 40,
+"thuy": 11
+},
+"variants": {},
+"density": 1.84,
+"note": ""
+},
+{
+"id": 724,
+"name": "Kích Khánh Đường",
+"gloss": "Hall of the Struck Chime",
+"kind": "ruin",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.78,
+"qi": {
+"moc": 17,
+"hoa": 10,
+"tho": 24,
+"kim": 38,
+"thuy": 10
+},
+"variants": {},
+"density": 1.79,
+"note": ""
+},
+{
+"id": 979,
+"name": "Tạc Thạch Trấn",
+"gloss": "Stonecutters' Town",
+"kind": "ruin",
+"region": 20,
+"biome": "high mountain",
+"elev_km": 0.2,
+"qi": {
+"moc": 12,
+"hoa": 20,
+"tho": 11,
+"kim": 34,
+"thuy": 24
+},
+"variants": {},
+"density": 1.7,
+"note": ""
+},
+{
+"id": 735,
+"name": "Quy Vũ Lĩnh",
+"gloss": "Ridge of the Returning Feathers",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.05,
+"qi": {
+"moc": 10,
+"hoa": 12,
+"tho": 23,
+"kim": 45,
+"thuy": 9
+},
+"variants": {},
+"density": 1.66,
+"note": ""
+},
+{
+"id": 211,
+"name": "Đan Sơn Mạch",
+"gloss": "Vein of the Cinnabar Mountain",
+"kind": "spirit_vein",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.34,
+"qi": {
+"moc": 12,
+"hoa": 13,
+"tho": 25,
+"kim": 31,
+"thuy": 19
+},
+"variants": {},
+"density": 1.65,
+"note": "Sơn Hải Kinh's cinnabar mountain is where the phoenix is born. 3 tiles from Thiên Xu's border."
+},
+{
+"id": 449,
+"name": "Hỏa Ti Trấn",
+"gloss": "Fire-Silk Town",
+"kind": "ruin",
+"region": 20,
+"biome": "high mountain",
+"elev_km": 0.28,
+"qi": {
+"moc": 18,
+"hoa": 47,
+"tho": 18,
+"kim": 9,
+"thuy": 9
+},
+"variants": {},
+"density": 1.6,
+"note": ""
+},
+{
+"id": 766,
+"name": "Lạc Vũ Phong",
+"gloss": "Peak of the Fallen Feather",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.92,
+"qi": {
+"moc": 14,
+"hoa": 10,
+"tho": 26,
+"kim": 39,
+"thuy": 11
+},
+"variants": {},
+"density": 1.57,
+"note": ""
+},
+{
+"id": 772,
+"name": "Đan Sa Quật",
+"gloss": "Cinnabar Grotto",
+"kind": "mine",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.87,
+"qi": {
+"moc": 11,
+"hoa": 13,
+"tho": 26,
+"kim": 32,
+"thuy": 17
+},
+"variants": {},
+"density": 1.44,
+"note": ""
+},
+{
+"id": 767,
+"name": "Hồng Bích Nhai",
+"gloss": "Red Wall Cliff",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.05,
+"qi": {
+"moc": 19,
+"hoa": 11,
+"tho": 22,
+"kim": 37,
+"thuy": 11
+},
+"variants": {},
+"density": 1.41,
+"note": ""
+},
+{
+"id": 718,
+"name": "Phượng Dực Phong",
+"gloss": "Phoenix Wing Peak",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.39,
+"qi": {
+"moc": 15,
+"hoa": 10,
+"tho": 24,
+"kim": 40,
+"thuy": 11
+},
+"variants": {},
+"density": 1.41,
+"note": ""
+},
+{
+"id": 212,
+"name": "Cao Cương Phong",
+"gloss": "Peak of the High Ridge",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 2.56,
+"qi": {
+"moc": 11,
+"hoa": 12,
+"tho": 24,
+"kim": 35,
+"thuy": 19
+},
+"variants": {
+"loi": 40.0,
+"quang": 40.0
+},
+"density": 1.39,
+"note": "Kinh Thi: phượng hoàng minh hĩ, vu bỉ cao cương, the phoenix sings on that high ridge. A sacred summit (Light)."
+},
+{
+"id": 248,
+"name": "Chu Sa Tuyền",
+"gloss": "Cinnabar Spring",
+"kind": "hot_spring",
+"region": 20,
+"biome": "jungle",
+"elev_km": 0.03,
+"qi": {
+"moc": 11,
+"hoa": 35,
+"tho": 6,
+"kim": 6,
+"thuy": 42
+},
+"variants": {},
+"density": 1.39,
+"note": "A red hot spring in the jungle of Đan Huyệt Châu, the phoenix's cinnabar land."
+},
+{
+"id": 434,
+"name": "Thạch Ma Trấn",
+"gloss": "Millstone Town",
+"kind": "ruin",
+"region": 17,
+"biome": "high mountain",
+"elev_km": 0.41,
+"qi": {
+"moc": 15,
+"hoa": 12,
+"tho": 25,
+"kim": 28,
+"thuy": 20
+},
+"variants": {},
+"density": 1.36,
+"note": ""
+},
+{
+"id": 764,
+"name": "Huyền Tiêu Phong",
+"gloss": "Peak of the Hanging Flute",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.57,
+"qi": {
+"moc": 15,
+"hoa": 10,
+"tho": 26,
+"kim": 39,
+"thuy": 11
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 29,
+"name": "Phần Vũ Đường",
+"gloss": "",
+"kind": "minor_seat",
+"region": 20,
+"biome": "grassland",
+"elev_km": 0.04,
+"qi": {
+"moc": 23,
+"hoa": 24,
+"tho": 23,
+"kim": 13,
+"thuy": 17
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 1008,
+"name": "Lưu Hỏa Các",
+"gloss": "Pavilion of Flowing Fire",
+"kind": "ruin",
+"region": 20,
+"biome": "jungle",
+"elev_km": 0.46,
+"qi": {
+"moc": 13,
+"hoa": 17,
+"tho": 10,
+"kim": 9,
+"thuy": 51
+},
+"variants": {},
+"density": 1.34,
+"note": ""
+},
+{
+"id": 26,
+"name": "Lễ Tuyền Phái",
+"gloss": "",
+"kind": "minor_seat",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 22,
+"hoa": 19,
+"tho": 29,
+"kim": 12,
+"thuy": 17
+},
+"variants": {},
+"density": 1.33,
+"note": ""
+},
+{
+"id": 220,
+"name": "Vân Môn Thành",
+"gloss": "City of the Cloud Gate",
+"kind": "ruin",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 19,
+"hoa": 19,
+"tho": 30,
+"kim": 12,
+"thuy": 19
+},
+"variants": {},
+"density": 1.32,
+"note": "Cửu Thiều's city, named for the ancient Vân Môn music, twin of the Thiều; abandoned after the War of the Nine Shao."
+},
+{
+"id": 331,
+"name": "Tử Trúc Lâm",
+"gloss": "Purple Bamboo Forest",
+"kind": "forest",
+"region": 16,
+"biome": "bamboo forest",
+"elev_km": 0.1,
+"qi": {
+"moc": 42,
+"hoa": 10,
+"tho": 11,
+"kim": 18,
+"thuy": 19
+},
+"variants": {},
+"density": 1.31,
+"note": ""
+},
+{
+"id": 795,
+"name": "Liệu Phàm Bảo",
+"gloss": "Fort Watching for Sails",
+"kind": "ruin",
+"region": 17,
+"biome": "high mountain",
+"elev_km": 0.6,
+"qi": {
+"moc": 11,
+"hoa": 11,
+"tho": 20,
+"kim": 26,
+"thuy": 32
+},
+"variants": {},
+"density": 1.31,
+"note": ""
+},
+{
+"id": 25,
+"name": "Trúc Thực Viên",
+"gloss": "",
+"kind": "minor_seat",
+"region": 16,
+"biome": "grassland",
+"elev_km": 0.03,
+"qi": {
+"moc": 33,
+"hoa": 11,
+"tho": 13,
+"kim": 16,
+"thuy": 28
+},
+"variants": {},
+"density": 1.31,
+"note": ""
+},
+{
+"id": 1488,
+"name": "Trúc Thử Nguyên",
+"gloss": "Plain of the Bamboo Rats",
+"kind": "beast_lair",
+"region": 16,
+"biome": "grassland",
+"elev_km": 0.14,
+"qi": {
+"moc": 31,
+"hoa": 11,
+"tho": 13,
+"kim": 17,
+"thuy": 28
+},
+"variants": {},
+"density": 1.3,
+"note": ""
+},
+{
+"id": 180,
+"name": "Đan Thạch Khoáng",
+"gloss": "Red Stone Mine",
+"kind": "mine",
+"region": 20,
+"biome": "high mountain",
+"elev_km": 0.58,
+"qi": {
+"moc": 11,
+"hoa": 17,
+"tho": 10,
+"kim": 35,
+"thuy": 27
+},
+"variants": {},
+"density": 1.3,
+"note": "Red stone from the phoenix's cinnabar land, Đan Huyệt Châu."
+},
+{
+"id": 332,
+"name": "Trúc Địch Viện",
+"gloss": "Academy of the Bamboo Flute",
+"kind": "ruin",
+"region": 16,
+"biome": "bamboo forest",
+"elev_km": 0.02,
+"qi": {
+"moc": 41,
+"hoa": 8,
+"tho": 11,
+"kim": 21,
+"thuy": 20
+},
+"variants": {},
+"density": 1.29,
+"note": ""
+},
+{
+"id": 197,
+"name": "Tương Phi Đảo",
+"gloss": "Isle of the Xiang Consorts",
+"kind": "island",
+"region": 16,
+"biome": "bamboo forest",
+"elev_km": 0.18,
+"qi": {
+"moc": 12,
+"hoa": 10,
+"tho": 12,
+"kim": 14,
+"thuy": 52
+},
+"variants": {},
+"density": 1.29,
+"note": "Its spotted bamboo, stained by the tears of the two consorts of Thuấn"
+},
+{
+"id": 1009,
+"name": "Thanh Da Lâm",
+"gloss": "Green Palm Forest",
+"kind": "forest",
+"region": 20,
+"biome": "jungle",
+"elev_km": 0.18,
+"qi": {
+"moc": 12,
+"hoa": 17,
+"tho": 8,
+"kim": 8,
+"thuy": 55
+},
+"variants": {},
+"density": 1.27,
+"note": ""
+},
+{
+"id": 746,
+"name": "Ẩn Phàm Trại",
+"gloss": "Stockade of the Hidden Sails",
+"kind": "ruin",
+"region": 16,
+"biome": "jungle",
+"elev_km": 0.14,
+"qi": {
+"moc": 29,
+"hoa": 18,
+"tho": 15,
+"kim": 16,
+"thuy": 22
+},
+"variants": {},
+"density": 1.27,
+"note": ""
+},
+{
+"id": 386,
+"name": "Minh Cầm Phong",
+"gloss": "Peak of the Sounding Zither",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.91,
+"qi": {
+"moc": 14,
+"hoa": 9,
+"tho": 25,
+"kim": 41,
+"thuy": 10
+},
+"variants": {},
+"density": 1.26,
+"note": ""
+},
+{
+"id": 719,
+"name": "Vân Trúc Lâm",
+"gloss": "Cloud Bamboo Forest",
+"kind": "forest",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.21,
+"qi": {
+"moc": 28,
+"hoa": 11,
+"tho": 20,
+"kim": 31,
+"thuy": 10
+},
+"variants": {},
+"density": 1.26,
+"note": ""
+},
+{
+"id": 430,
+"name": "Cựu Khê Trấn",
+"gloss": "Old Brook Town",
+"kind": "ruin",
+"region": 16,
+"biome": "bamboo forest",
+"elev_km": 0.24,
+"qi": {
+"moc": 30,
+"hoa": 12,
+"tho": 18,
+"kim": 29,
+"thuy": 11
+},
+"variants": {},
+"density": 1.26,
+"note": ""
+},
+{
+"id": 994,
+"name": "Hương Phàm Trấn",
+"gloss": "Spice Sail Town",
+"kind": "ruin",
+"region": 20,
+"biome": "jungle",
+"elev_km": 0.14,
+"qi": {
+"moc": 15,
+"hoa": 11,
+"tho": 10,
+"kim": 9,
+"thuy": 55
+},
+"variants": {},
+"density": 1.25,
+"note": ""
+},
+{
+"id": 703,
+"name": "Lưu Kim Khoáng",
+"gloss": "Flowing Gold Mine",
+"kind": "mine",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.17,
+"qi": {
+"moc": 9,
+"hoa": 9,
+"tho": 27,
+"kim": 45,
+"thuy": 10
+},
+"variants": {
+"loi": 15.2
+},
+"density": 1.25,
+"note": ""
+},
+{
+"id": 53,
+"name": "Thiều Âm Thị",
+"gloss": "Market of the Shao Music",
+"kind": "market",
+"region": 16,
+"biome": "bamboo forest",
+"elev_km": 0.14,
+"qi": {
+"moc": 20,
+"hoa": 8,
+"tho": 20,
+"kim": 33,
+"thuy": 19
+},
+"variants": {},
+"density": 1.23,
+"note": "The music that brings the phoenix; below Phượng Minh Cung's seat"
+},
+{
+"id": 147,
+"name": "Bích Lãng Thôn",
+"gloss": "Jade Waves Village",
+"kind": "village",
+"region": 16,
+"biome": "bamboo forest",
+"elev_km": -0.04,
+"qi": {
+"moc": 37,
+"hoa": 9,
+"tho": 9,
+"kim": 14,
+"thuy": 31
+},
+"variants": {},
+"density": 1.23,
+"note": ""
+},
+{
+"id": 721,
+"name": "Nguyệt Ngân Khoáng",
+"gloss": "Moon Silver Mine",
+"kind": "mine",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.6,
+"qi": {
+"moc": 21,
+"hoa": 10,
+"tho": 22,
+"kim": 37,
+"thuy": 10
+},
+"variants": {},
+"density": 1.22,
+"note": ""
+},
+{
+"id": 269,
+"name": "Cam Lộ Thang",
+"gloss": "Sweet Dew Bath",
+"kind": "hot_spring",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.09,
+"qi": {
+"moc": 21,
+"hoa": 23,
+"tho": 34,
+"kim": 13,
+"thuy": 10
+},
+"variants": {},
+"density": 1.22,
+"note": ""
+},
+{
+"id": 193,
+"name": "Triêu Hà Hồ",
+"gloss": "Lake of the Dawn Clouds",
+"kind": "lake",
+"region": 17,
+"biome": "lake",
+"elev_km": -0.04,
+"qi": {
+"moc": 25,
+"hoa": 14,
+"tho": 22,
+"kim": 15,
+"thuy": 25
+},
+"variants": {},
+"density": 1.22,
+"note": "The east's dawn clouds answer Lạc Hà's sunset clouds in the west; beside Lễ Tuyền Phái"
+},
+{
+"id": 433,
+"name": "Bạc Hà Đàm",
+"gloss": "Mint Pool",
+"kind": "lake",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 21,
+"hoa": 16,
+"tho": 26,
+"kim": 17,
+"thuy": 19
+},
+"variants": {},
+"density": 1.21,
+"note": ""
+},
+{
+"id": 232,
+"name": "Vạn Xà Lâm",
+"gloss": "Forest of Ten Thousand Snakes",
+"kind": "beast_lair",
+"region": 20,
+"biome": "jungle",
+"elev_km": 0.26,
+"qi": {
+"moc": 10,
+"hoa": 36,
+"tho": 8,
+"kim": 7,
+"thuy": 39
+},
+"variants": {},
+"density": 1.19,
+"note": "Deep jungle at the far end of Đan Huyệt Châu, the farthest lair from any town."
+},
+{
+"id": 736,
+"name": "Kiều Mạch Thôn",
+"gloss": "Buckwheat Village",
+"kind": "village",
+"region": 16,
+"biome": "grassland",
+"elev_km": 0.12,
+"qi": {
+"moc": 13,
+"hoa": 15,
+"tho": 24,
+"kim": 43,
+"thuy": 5
+},
+"variants": {},
+"density": 1.18,
+"note": ""
+},
+{
+"id": 253,
+"name": "Chúc Dung Khẩu",
+"gloss": "Zhurong's Mouth",
+"kind": "lava_vent",
+"region": 20,
+"biome": "volcano",
+"elev_km": 0.55,
+"qi": {
+"moc": 15,
+"hoa": 57,
+"tho": 13,
+"kim": 8,
+"thuy": 8
+},
+"variants": {},
+"density": 1.18,
+"note": "Named for the fire god; a vent on the east coast of Đan Huyệt Châu."
+},
+{
+"id": 1023,
+"name": "Phi Hồ Cốc",
+"gloss": "Valley of the Flying Foxes",
+"kind": "beast_lair",
+"region": 20,
+"biome": "jungle",
+"elev_km": 0.04,
+"qi": {
+"moc": 42,
+"hoa": 21,
+"tho": 11,
+"kim": 9,
+"thuy": 17
+},
+"variants": {},
+"density": 1.17,
+"note": ""
+},
+{
+"id": 983,
+"name": "Đại Mãng Cốc",
+"gloss": "Valley of the Great Python",
+"kind": "beast_lair",
+"region": 20,
+"biome": "jungle",
+"elev_km": 0.05,
+"qi": {
+"moc": 34,
+"hoa": 19,
+"tho": 8,
+"kim": 7,
+"thuy": 31
+},
+"variants": {},
+"density": 1.17,
+"note": ""
+},
+{
+"id": 744,
+"name": "Long Não Lâm",
+"gloss": "Camphor Forest",
+"kind": "forest",
+"region": 16,
+"biome": "jungle",
+"elev_km": 0.02,
+"qi": {
+"moc": 32,
+"hoa": 20,
+"tho": 11,
+"kim": 7,
+"thuy": 29
+},
+"variants": {},
+"density": 1.17,
+"note": ""
+},
+{
+"id": 987,
+"name": "Cổ Dung Lâm",
+"gloss": "Old Banyan Forest",
+"kind": "forest",
+"region": 20,
+"biome": "jungle",
+"elev_km": 0.06,
+"qi": {
+"moc": 36,
+"hoa": 20,
+"tho": 9,
+"kim": 7,
+"thuy": 29
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+}
+],
+"ground_place_count": 208,
+"events": [
+{
+"id": "C001",
+"tier": "landmark",
+"year": 0,
+"kind": "realm_opened",
+"people": [
+"mac_quy_khu"
+],
+"sects": [],
+"text_en": "Mạc Quy Khư, a Kết Đan cultivator of 240, enters the gate of Phù Tang Cảnh on Dục Nhật Đảo at its first recorded opening; the Thiên Nguyên calendar counts its years from that day.",
+"place": 198,
+"famous": "Phù Tang Cảnh"
+},
+{
+"id": "A298",
+"tier": "annal",
+"year": 5,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The first fishers of the gulf see the sun rise out of the sea at Dục Nhật Đảo, and believe it bathes there every night.",
+"place": 198,
+"region": 20
+},
+{
+"id": "C050",
+"tier": "landmark",
+"year": 130,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"cuu_thieu"
+],
+"text_en": "Cửu Thiều builds Vân Môn Thành on the plain, named for the Vân Môn music, the Thiều's twin; the stone chime Vân Môn Khánh hangs in its hall.",
+"place": 220,
+"item": "van_mon_khanh"
+},
+{
+"id": "A249",
+"tier": "annal",
+"year": 140,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Rice is first planted in the flooded fields of the plain; Thủy Điền's paddies are older than every sect but two.",
+"place": 148,
+"region": 17
+},
+{
+"id": "A250",
+"tier": "annal",
+"year": 200,
+"kind": "tale",
+"people": [],
+"sects": [
+"cuu_thieu"
+],
+"text_en": "Vân Môn's musicians play to the morning sun over the lake, and the dawn clouds take the colour of the music.",
+"place": 193,
+"region": 17
+},
+{
+"id": "A300",
+"tier": "annal",
+"year": 200,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Mulberry fields planted in the red soil at Tang Điền feed the silkworms of the south.",
+"place": 94,
+"region": 20
+},
+{
+"id": "C065",
+"tier": "landmark",
+"year": 250,
+"kind": "sect_founded",
+"people": [
+"ton_ha_khoi"
+],
+"sects": [
+"xich_thanh"
+],
+"text_en": "Tôn Hà Khởi founds Xích Thành Môn among the red cliffs and vents of Đan Huyệt Châu, where the rock rises like a rosy cloud.",
+"place": 215
+},
+{
+"id": "C068",
+"tier": "landmark",
+"year": 260,
+"kind": "item_made",
+"people": [],
+"sects": [
+"xich_thanh"
+],
+"text_en": "Xích Thành Môn weaves its war banner, the Xích Hà Kỳ, from fire-silk spun in the vents.",
+"place": 215,
+"item": "xich_ha_ky"
+},
+{
+"id": "A301",
+"tier": "annal",
+"year": 280,
+"kind": "mine",
+"people": [],
+"sects": [
+"xich_thanh"
+],
+"text_en": "Red stone from Đan Thạch is cut for Xích Thành's walls.",
+"place": 180,
+"region": 20
+},
+{
+"id": "C075",
+"tier": "landmark",
+"year": 300,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"xich_thanh"
+],
+"text_en": "Xích Thành Môn builds Ngũ Thải Thành on the coast of Đan Huyệt Châu.",
+"place": 44
+},
+{
+"id": "V131",
+"tier": "annal",
+"year": 340,
+"kind": "siege",
+"people": [],
+"sects": [],
+"text_en": "The students of Trúc Địch Viện, Cửu Thiều Cung's flute school, go up to the palace's last stand and do not come back.",
+"place": 332,
+"region": 16
+},
+{
+"id": "V132",
+"tier": "annal",
+"year": 340,
+"kind": "siege",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "In the War of the Nine Shao, Cửu Thiều Cung's drum fort Minh Cổ Bảo falls; Phượng Minh leaves it as it fell.",
+"place": 452,
+"region": 16
+},
+{
+"id": "V133",
+"tier": "annal",
+"year": 340,
+"kind": "siege",
+"people": [],
+"sects": [],
+"text_en": "The hall of Cửu Thiều Cung's chime makers, Kích Khánh Đường, is smashed in the war; its broken chimes still ring when stepped on.",
+"place": 724,
+"region": 16
+},
+{
+"id": "A251",
+"tier": "annal",
+"year": 341,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "Vân Môn Thành empties within a year; its people take the music with them and scatter to the four coasts.",
+"place": 220,
+"region": 17
+},
+{
+"id": "V134",
+"tier": "annal",
+"year": 341,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "A year after Cửu Thiều Cung falls, the flute sellers of Tiêu Sơn Thị have all gone, and the market is never resettled.",
+"place": 768,
+"region": 16
+},
+{
+"id": "V138",
+"tier": "annal",
+"year": 341,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "With Cửu Thiều Cung fallen, the jade-pipe makers of Ngọc Quản Trấn leave, and the oak woods take the town.",
+"place": 335,
+"region": 17
+},
+{
+"id": "A302",
+"tier": "annal",
+"year": 350,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The great Bằng is said to rest on Đồ Nam Đảo before its flight to the south.",
+"place": 199,
+"region": 20
+},
+{
+"id": "A237",
+"tier": "annal",
+"year": 400,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Wild peach trees grow over the empty palace grounds; the brook below is named Đào Khê.",
+"place": 145,
+"region": 16
+},
+{
+"id": "A252",
+"tier": "annal",
+"year": 400,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Yellow oxen run wild on the empty plain; the village that tames them is called Hoàng Ngưu.",
+"place": 152,
+"region": 17
+},
+{
+"id": "A253",
+"tier": "annal",
+"year": 470,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Gulls and herons crowd the shore at Âu Lộ; fishers say the birds were there before the sects and will be after.",
+"place": 149,
+"region": 17
+},
+{
+"id": "C009",
+"tier": "landmark",
+"year": 480,
+"kind": "sect_founded",
+"people": [
+"ngo_the_dong"
+],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Ngô Thê Đồng founds Phượng Minh Cung on the lands left empty since the fall of Cửu Thiều Cung, 140 years before.",
+"place": 6
+},
+{
+"id": "A238",
+"tier": "annal",
+"year": 485,
+"kind": "settlement",
+"people": [
+"ngo_the_dong"
+],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh's founder clears the ridges and opens a market of the Shao music at the foot of the new palace: Thiều Âm Thị.",
+"place": 53,
+"region": 16
+},
+{
+"id": "C097",
+"tier": "landmark",
+"year": 485,
+"kind": "item_found",
+"people": [
+"ngo_the_dong"
+],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Ngô Thê Đồng finds the Tiêu Thiều Quản in the ruins of Cửu Thiều's palace, and tells no one.",
+"region": 16,
+"item": "tieu_thieu_quan",
+"secret": true
+},
+{
+"id": "A239",
+"tier": "annal",
+"year": 500,
+"kind": "tale",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "The spotted bamboo on Tương Phi Đảo is said to be stained by the tears of two consorts; Phượng Minh forbids cutting it.",
+"place": 197,
+"region": 16
+},
+{
+"id": "C107",
+"tier": "landmark",
+"year": 510,
+"kind": "compact",
+"people": [
+"chung_hoai_cuc"
+],
+"sects": [
+"thien_xu",
+"tung_dao",
+"lac_ha",
+"thinh_vu",
+"bang_tam",
+"phuong_minh",
+"thuy_vi"
+],
+"text_en": "In Thạch Kiều Thành, Chung Hoài Cực sets the North Star Compact before the seven sects and stamps it with the Bắc Thần Ấn: land changes hands only by a fall, a gift, an oath or a war the Pivot licenses by writ, and Thiên Xu Tông will enforce it.",
+"place": 81,
+"item": "bac_than_an"
+},
+{
+"id": "A254",
+"tier": "annal",
+"year": 520,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The Vương family, rivals of the Tạ in another land, settle among the rice of Đạo Hương and plant a field each generation.",
+"place": 86,
+"region": 17
+},
+{
+"id": "C108",
+"tier": "landmark",
+"year": 520,
+"kind": "claim",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh Cung takes the rice plain of Triêu Dương Nguyên, empty since Cửu Thiều fell.",
+"region": 17
+},
+{
+"id": "A240",
+"tier": "annal",
+"year": 530,
+"kind": "settlement",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Wheat fields at Mạch Điền feed the new palace; the town grows around its granary.",
+"place": 83,
+"region": 16
+},
+{
+"id": "C112",
+"tier": "landmark",
+"year": 530,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh Cung founds Lai Nghi Thành on the plain, where the phoenix comes when the music is played nine times.",
+"place": 41
+},
+{
+"id": "A255",
+"tier": "annal",
+"year": 560,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Plum blossom at Lý Hoa Thôn is so white that snow geese land among it by mistake.",
+"place": 151,
+"region": 17
+},
+{
+"id": "C116",
+"tier": "landmark",
+"year": 560,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh Cung founds Thanh Khê Thành, its port on the gulf.",
+"place": 84
+},
+{
+"id": "C117",
+"tier": "landmark",
+"year": 560,
+"kind": "headship",
+"people": [
+"ton_ha_khoi",
+"chu_liet_nhat"
+],
+"sects": [
+"xich_thanh"
+],
+"text_en": "Tôn Hà Khởi dies; his heir Chu Liệt Nhật turns Xích Thành Môn to burning villages to feed its fire arts.",
+"place": 215
+},
+{
+"id": "C118",
+"tier": "landmark",
+"year": 584,
+"kind": "war_start",
+"people": [
+"ngo_the_dong",
+"chung_hoai_cuc",
+"chu_liet_nhat"
+],
+"sects": [
+"phuong_minh",
+"thien_xu",
+"xich_thanh"
+],
+"text_en": "Phượng Minh Cung asks the Pivot for a writ against Xích Thành Môn, which has burned eleven villages; the first writ of the Compact is granted.",
+"region": 20,
+"war": "vermilion_caves",
+"writ": true
+},
+{
+"id": "A303",
+"tier": "annal",
+"year": 586,
+"kind": "tale",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "In the War of the Vermilion Caves, the villagers of Cúc Viên hide Phượng Minh's scouts among the chrysanthemums.",
+"place": 161,
+"region": 20
+},
+{
+"id": "V164",
+"tier": "annal",
+"year": 588,
+"kind": "siege",
+"people": [],
+"sects": [],
+"text_en": "In the War of the Vermilion Caves, Xích Thành Môn's men fire their quarry town of Tạc Thạch Trấn rather than leave it; the quarrymen who stay build Thạch Tượng below.",
+"place": 979,
+"region": 20
+},
+{
+"id": "C119",
+"tier": "landmark",
+"year": 590,
+"kind": "war_end",
+"people": [
+"ngo_the_dong",
+"chu_liet_nhat"
+],
+"sects": [
+"phuong_minh",
+"xich_thanh"
+],
+"text_en": "Phượng Minh destroys Xích Thành Môn with Chu Liệt Nhật; Đan Huyệt Châu and Ngũ Thải Thành pass to Phượng Minh, and the Xích Hà Kỳ hangs in its hall.",
+"place": 215,
+"item": "xich_ha_ky",
+"war": "vermilion_caves"
+},
+{
+"id": "V165",
+"tier": "annal",
+"year": 590,
+"kind": "siege",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Hỏa Ti Trấn, where the fire-silk was reeled from the vents, burns in the fighting as Phượng Minh destroys Xích Thành Môn; no one spins fire-silk there again.",
+"place": 449,
+"region": 20
+},
+{
+"id": "V166",
+"tier": "annal",
+"year": 590,
+"kind": "tale",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "With Xích Thành Môn fallen, its sea hall Viêm Hải Quán is abandoned, and Phượng Minh never reopens it.",
+"place": 989,
+"region": 20
+},
+{
+"id": "V167",
+"tier": "annal",
+"year": 590,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Lưu Hỏa Các, Xích Thành Môn's fire hall on the volcanic isle, is abandoned when the gate falls.",
+"place": 1008,
+"region": 20
+},
+{
+"id": "A241",
+"tier": "annal",
+"year": 600,
+"kind": "tale",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh's disciples climb Cao Cương Phong at dawn and say the phoenix sang there, on that high ridge.",
+"place": 212,
+"region": 16
+},
+{
+"id": "A304",
+"tier": "annal",
+"year": 600,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The mulberry shade at Tang Âm becomes the resting place of the silk caravans.",
+"place": 162,
+"region": 20
+},
+{
+"id": "C121",
+"tier": "landmark",
+"year": 600,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh Cung founds Hoàng Vân Thành, the granary of the rice plain.",
+"place": 85
+},
+{
+"id": "C123",
+"tier": "landmark",
+"year": 600,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh Cung builds the pearl harbour Châu Lệ Cảng on its eastern coast.",
+"place": 228
+},
+{
+"id": "C132",
+"tier": "landmark",
+"year": 640,
+"kind": "sect_founded",
+"people": [
+"o_kinh_hai"
+],
+"sects": [
+"thon_hai"
+],
+"text_en": "Ô Kình Hải gathers pirates on an islet of the southern gulf and founds Thôn Hải Môn, the Gate That Swallows the Sea.",
+"place": 217
+},
+{
+"id": "C134",
+"tier": "landmark",
+"year": 649,
+"kind": "tale",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Hoàng Vân Thành's granaries feed the south through a seven-year drought; Phượng Minh's rice becomes its strength.",
+"place": 85
+},
+{
+"id": "A256",
+"tier": "annal",
+"year": 660,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"le_tuyen",
+"phuong_minh"
+],
+"text_en": "Healers who brew wine from the sweet spring the phoenix drinks found Lễ Tuyền Phái.",
+"place": 26,
+"region": 17
+},
+{
+"id": "A257",
+"tier": "annal",
+"year": 662,
+"kind": "settlement",
+"people": [],
+"sects": [
+"le_tuyen",
+"phuong_minh"
+],
+"text_en": "The green meadows of Lục Dã are given to Lễ Tuyền Phái for its herb gardens.",
+"place": 87,
+"region": 17
+},
+{
+"id": "A242",
+"tier": "annal",
+"year": 700,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "The river bend at Hà Loan floods every autumn; its people build their houses on stilts.",
+"place": 146,
+"region": 16
+},
+{
+"id": "A258",
+"tier": "annal",
+"year": 700,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "A ginkgo at Ngân Hạnh Thôn turns gold in a single night every autumn; it is older than the village.",
+"place": 150,
+"region": 17
+},
+{
+"id": "A305",
+"tier": "annal",
+"year": 700,
+"kind": "tale",
+"people": [
+"mac_quy_khu"
+],
+"sects": [],
+"text_en": "Mạc Quy Khư comes to live on Dục Nhật Đảo by the gate of Phù Tang Cảnh, and never leaves it again.",
+"place": 198,
+"region": 20
+},
+{
+"id": "C142",
+"tier": "landmark",
+"year": 722,
+"kind": "war_start",
+"people": [
+"tan_ngung_suong",
+"ngo_the_dong"
+],
+"sects": [
+"bang_tam",
+"phuong_minh"
+],
+"text_en": "Băng Tâm Các and Phượng Minh Cung go to war over the caravan road between the desert and the rice plain.",
+"region": 8,
+"war": "desert_road"
+},
+{
+"id": "A118",
+"tier": "annal",
+"year": 724,
+"kind": "siege",
+"people": [],
+"sects": [
+"bang_tam",
+"phuong_minh"
+],
+"text_en": "Cô Thành's garrison holds out for two years against Phượng Minh's fire, drinking the desert lake down to salt.",
+"place": 227,
+"region": 8
+},
+{
+"id": "C143",
+"tier": "landmark",
+"year": 726,
+"kind": "city_ruined",
+"people": [],
+"sects": [
+"phuong_minh",
+"bang_tam"
+],
+"text_en": "Phượng Minh's fire breaks Cô Thành; the lone fortress falls and the desert lake turns to salt.",
+"place": 227,
+"war": "desert_road"
+},
+{
+"id": "V064",
+"tier": "annal",
+"year": 726,
+"kind": "siege",
+"people": [],
+"sects": [
+"phuong_minh",
+"bang_tam"
+],
+"text_en": "In the year Cô Thành falls, Phượng Minh's fire breaks Băng Tâm's beacon fort of Lang Yên Bảo on the caravan road.",
+"place": 1390,
+"region": 7
+},
+{
+"id": "C144",
+"tier": "landmark",
+"year": 728,
+"kind": "war_end",
+"people": [
+"do_tinh_ha",
+"chung_hoai_cuc"
+],
+"sects": [
+"thien_xu",
+"bang_tam",
+"phuong_minh"
+],
+"text_en": "The Pivot imposes a truce on the Desert Road; the caravans pass again, and the border stays where it was.",
+"region": 8,
+"war": "desert_road"
+},
+{
+"id": "A243",
+"tier": "annal",
+"year": 760,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"truc_thuc",
+"phuong_minh"
+],
+"text_en": "Spirit farmers found Trúc Thực Viên to grow the bamboo seed the phoenix eats.",
+"place": 25,
+"region": 16
+},
+{
+"id": "C151",
+"tier": "landmark",
+"year": 762,
+"kind": "city_ruined",
+"people": [],
+"sects": [
+"thon_hai",
+"phuong_minh"
+],
+"text_en": "Thôn Hải's pirates burn Châu Lệ Cảng; the pearl harbour's divers flee, and the pearls in the moonlit sea are said to weep.",
+"place": 228
+},
+{
+"id": "A259",
+"tier": "annal",
+"year": 763,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The pearl divers of burned Châu Lệ Cảng settle inland at Âu Lộ and never dive again.",
+"place": 149,
+"region": 17
+},
+{
+"id": "V139",
+"tier": "annal",
+"year": 764,
+"kind": "raid",
+"people": [],
+"sects": [],
+"text_en": "Thôn Hải's pirates burn the salt town of Hải Diêm Trấn, two years after Châu Lệ Cảng; its salt makers never come back.",
+"place": 776,
+"region": 17
+},
+{
+"id": "A306",
+"tier": "annal",
+"year": 765,
+"kind": "raid",
+"people": [],
+"sects": [
+"thon_hai"
+],
+"text_en": "Thôn Hải's raiders carry off the whole village of Lô Châu; only the reed cutters hidden in the marsh escape.",
+"place": 164,
+"region": 20
+},
+{
+"id": "V168",
+"tier": "annal",
+"year": 767,
+"kind": "raid",
+"people": [],
+"sects": [],
+"text_en": "Thôn Hải's raiders burn the mangrove town of Bàn Căn Trấn, and the mangroves take it back.",
+"place": 1024,
+"region": 20
+},
+{
+"id": "V169",
+"tier": "annal",
+"year": 771,
+"kind": "raid",
+"people": [],
+"sects": [],
+"text_en": "Thôn Hải's pirates burn the spice port of Hương Phàm Trấn; the Purge comes ten years too late for it, and its trade moves to Hương Liệu.",
+"place": 994,
+"region": 20
+},
+{
+"id": "C152",
+"tier": "landmark",
+"year": 776,
+"kind": "war_start",
+"people": [
+"do_tinh_ha",
+"ngo_the_dong",
+"nhan_co_vu",
+"o_kinh_hai"
+],
+"sects": [
+"thien_xu",
+"phuong_minh",
+"lac_ha",
+"thon_hai"
+],
+"text_en": "Đỗ Tinh Hà calls the Pirate Purge; Phượng Minh's and Lạc Hà's fleets sail under the Pivot's writ, and Thạch Cơ Thành rises around their stone jetty.",
+"place": 93,
+"war": "pirate_purge",
+"writ": true
+},
+{
+"id": "V135",
+"tier": "annal",
+"year": 780,
+"kind": "raid",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh's fleet burns Ẩn Phàm Trại, the shore camp where Thôn Hải Môn hid its boats, a year before the Purge.",
+"place": 746,
+"region": 16
+},
+{
+"id": "C153",
+"tier": "landmark",
+"year": 781,
+"kind": "war_end",
+"people": [
+"o_kinh_hai"
+],
+"sects": [
+"thien_xu",
+"phuong_minh",
+"lac_ha",
+"thon_hai"
+],
+"text_en": "The Purge ends at Thôn Hải Môn: Ô Kình Hải dies on his islet and his sabre Kình Nha is lost in the burning hold.",
+"place": 217,
+"item": "kinh_nha",
+"war": "pirate_purge"
+},
+{
+"id": "A307",
+"tier": "annal",
+"year": 782,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Captives freed from Thôn Hải's hold return to Lô Châu and rebuild it reed by reed.",
+"place": 164,
+"region": 20
+},
+{
+"id": "V140",
+"tier": "annal",
+"year": 790,
+"kind": "tale",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "After the Purge, Phượng Minh withdraws the garrison of Liệu Phàm Bảo, and the empty fort begins to crumble into the gulf.",
+"place": 795,
+"region": 17
+},
+{
+"id": "V141",
+"tier": "annal",
+"year": 790,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"vong_trieu",
+"phuong_minh"
+],
+"text_en": "Survivors of the pirate years found Vọng Triều Đường by the burned piers of Châu Lệ, swearing no harbour on this coast will burn again.",
+"place": 337,
+"region": 17
+},
+{
+"id": "A244",
+"tier": "annal",
+"year": 800,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Jade-green waves at Bích Lãng carry the fishing boats home from the gulf.",
+"place": 147,
+"region": 16
+},
+{
+"id": "V136",
+"tier": "annal",
+"year": 812,
+"kind": "disaster",
+"people": [],
+"sects": [
+"le_tuyen"
+],
+"text_en": "A fever kills half of Cựu Khê Trấn before Lễ Tuyền's healers come; the survivors move down to Thanh Khê and never go back up.",
+"place": 430,
+"region": 16
+},
+{
+"id": "V170",
+"tier": "annal",
+"year": 845,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "Lava from the vent above runs over the lower courts of the empty Lưu Hỏa Các, and only its roofs still show.",
+"place": 1008,
+"region": 20
+},
+{
+"id": "A260",
+"tier": "annal",
+"year": 850,
+"kind": "birth",
+"people": [
+"mai_le_tuyen"
+],
+"sects": [],
+"text_en": "Mai Lễ Tuyền is born in Lục Dã Trấn; they say her first cry made the spring flow sweeter.",
+"place": 87,
+"region": 17
+},
+{
+"id": "A245",
+"tier": "annal",
+"year": 900,
+"kind": "discovery",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh finds the Cinnabar Mountain vein near its border with the heart and names it Đan Sơn Mạch.",
+"place": 211,
+"region": 16
+},
+{
+"id": "A308",
+"tier": "annal",
+"year": 900,
+"kind": "tale",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "The lake at Hồ Tâm rises and falls with the tide, though it touches no sea; Phượng Minh's scholars cannot say why.",
+"place": 163,
+"region": 20
+},
+{
+"id": "V171",
+"tier": "annal",
+"year": 913,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "A great storm tide drowns Kim Sa Trấn on the golden beach; its people move inland, and their grandchildren become the dyers of Lam Điện.",
+"place": 1019,
+"region": 20
+},
+{
+"id": "A261",
+"tier": "annal",
+"year": 950,
+"kind": "birth",
+"people": [
+"hoa_trieu_duong"
+],
+"sects": [],
+"text_en": "Hoa Triêu Dương is born at dawn on the shore of Triêu Hà Hồ as the clouds turn red.",
+"place": 193,
+"region": 17
+},
+{
+"id": "A309",
+"tier": "annal",
+"year": 980,
+"kind": "birth",
+"people": [
+"hung_phan_vu"
+],
+"sects": [],
+"text_en": "Hùng Phần Vũ is born in Ngũ Thải Thành; a red feather falls on his cradle.",
+"place": 44,
+"region": 20
+},
+{
+"id": "C177",
+"tier": "landmark",
+"year": 1020,
+"kind": "sect_founded",
+"people": [
+"hung_phan_vu"
+],
+"sects": [
+"phan_vu",
+"phuong_minh"
+],
+"text_en": "The young Hùng Phần Vũ founds Phần Vũ Đường in the vents where Xích Thành once stood; Phượng Minh lends it the Xích Hà Kỳ.",
+"place": 29,
+"item": "xich_ha_ky"
+},
+{
+"id": "A310",
+"tier": "annal",
+"year": 1025,
+"kind": "tale",
+"people": [],
+"sects": [
+"phan_vu"
+],
+"text_en": "Phần Vũ Đường's disciples sit in the vents until their feathers burn and walk out reborn; the first of them dies trying.",
+"place": 29,
+"region": 20
+},
+{
+"id": "C178",
+"tier": "landmark",
+"year": 1040,
+"kind": "war_start",
+"people": [
+"ngo_the_dong",
+"manh_da_vu"
+],
+"sects": [
+"phuong_minh",
+"thinh_vu"
+],
+"text_en": "Phượng Minh Cung goes to war with Thính Vũ Lâu for the Kinh Lôi vein.",
+"place": 208,
+"war": "thunder_vein"
+},
+{
+"id": "V161",
+"tier": "annal",
+"year": 1042,
+"kind": "siege",
+"people": [],
+"sects": [
+"phuong_minh",
+"thinh_vu"
+],
+"text_en": "In the Thunder Vein War Phượng Minh's disciples take and burn Thủ Lôi Bảo; when the vein is kept, the Tower builds its new guard higher on the ridge.",
+"place": 875,
+"region": 19
+},
+{
+"id": "A295",
+"tier": "annal",
+"year": 1045,
+"kind": "raid",
+"people": [],
+"sects": [
+"phuong_minh",
+"thien_xu"
+],
+"text_en": "In the Thunder Vein War, Phượng Minh's raiders reach the upper ferry at Thượng Độ before the Pivot's envoys stop them.",
+"place": 159,
+"region": 19
+},
+{
+"id": "C179",
+"tier": "landmark",
+"year": 1046,
+"kind": "war_end",
+"people": [
+"do_tinh_ha",
+"ngo_the_dong",
+"manh_da_vu"
+],
+"sects": [
+"thien_xu",
+"phuong_minh",
+"thinh_vu"
+],
+"text_en": "The Pivot ends the Thunder Vein War: Thính Vũ keeps the vein, and the south remembers.",
+"place": 208,
+"war": "thunder_vein",
+"judgement": true
+},
+{
+"id": "A246",
+"tier": "annal",
+"year": 1050,
+"kind": "headship",
+"people": [
+"ninh_truc_thuc"
+],
+"sects": [
+"truc_thuc"
+],
+"text_en": "Ninh Trúc Thực becomes head of Trúc Thực Viên and breeds a bamboo that seeds every year instead of once in sixty.",
+"place": 25,
+"region": 16
+},
+{
+"id": "A262",
+"tier": "annal",
+"year": 1060,
+"kind": "trade",
+"people": [],
+"sects": [
+"phuong_minh",
+"bang_tam"
+],
+"text_en": "Hoàng Vân Thành's granaries are opened to Băng Tâm's desert in a famine year, and the old Desert Road quarrel is quietly forgotten.",
+"place": 85,
+"region": 17
+},
+{
+"id": "V142",
+"tier": "annal",
+"year": 1062,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "In the great rains the hillside slides and buries the millstone town of Thạch Ma Trấn in a night; the survivors go down to Lục Dã.",
+"place": 434,
+"region": 17
+},
+{
+"id": "A311",
+"tier": "annal",
+"year": 1100,
+"kind": "tale",
+"people": [
+"mac_quy_khu"
+],
+"sects": [],
+"text_en": "Pilgrims come by boat to Dục Nhật Đảo to ask the hermit Mạc Quy Khư about the world before the sects; he answers one question a year.",
+"place": 198,
+"region": 20
+},
+{
+"id": "C181",
+"tier": "landmark",
+"year": 1100,
+"kind": "headship",
+"people": [
+"ngo_the_dong",
+"hoa_trieu_duong"
+],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Ngô Thê Đồng dies at 770; Hoa Triêu Dương becomes head of Phượng Minh Cung.",
+"place": 6
+},
+{
+"id": "C182",
+"tier": "landmark",
+"year": 1100,
+"kind": "item_passed",
+"people": [
+"ngo_the_dong",
+"hoa_trieu_duong"
+],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Dying, Ngô Thê Đồng gives Hoa Triêu Dương the Tiêu Thiều Quản and tells her never to play it in full.",
+"place": 6,
+"item": "tieu_thieu_quan",
+"secret": true
+},
+{
+"id": "V137",
+"tier": "annal",
+"year": 1110,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"bach_vu",
+"phuong_minh"
+],
+"text_en": "Bird catchers who say all birds bow to the phoenix found Bách Vũ Các to raise messenger birds for Phượng Minh's palace.",
+"place": 330,
+"region": 16
+},
+{
+"id": "A263",
+"tier": "annal",
+"year": 1140,
+"kind": "trade",
+"people": [],
+"sects": [
+"le_tuyen",
+"thien_xu"
+],
+"text_en": "Lễ Tuyền Phái's spirit wine is served at the Pivot's table for the first time; Thiên Xu orders a hundred jars a year.",
+"place": 26,
+"region": 17
+},
+{
+"id": "C188",
+"tier": "landmark",
+"year": 1150,
+"kind": "war_start",
+"people": [
+"manh_da_vu",
+"hoa_trieu_duong"
+],
+"sects": [
+"thinh_vu",
+"phuong_minh"
+],
+"text_en": "Thính Vũ Lâu attacks Đan Sơn Mạch, Phượng Minh's cinnabar vein near the heart.",
+"place": 211,
+"war": "cinnabar_vein"
+},
+{
+"id": "V172",
+"tier": "annal",
+"year": 1150,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"chuc_ha",
+"phuong_minh"
+],
+"text_en": "Weavers sworn to Phượng Minh found Chức Hà Các and weave fire-silk from Tang Điền's worms without the vents; the palace has not yet decided if that pleases it.",
+"place": 1013,
+"region": 20
+},
+{
+"id": "C189",
+"tier": "landmark",
+"year": 1154,
+"kind": "intervention",
+"people": [
+"doan_ngoc_hanh"
+],
+"sects": [
+"thien_xu",
+"phuong_minh",
+"thinh_vu"
+],
+"text_en": "Doãn Ngọc Hành brings Thiên Xu Tông into the war on Phượng Minh's side, to enforce the Compact.",
+"place": 211,
+"war": "cinnabar_vein"
+},
+{
+"id": "A247",
+"tier": "annal",
+"year": 1157,
+"kind": "tale",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "In the Cinnabar Vein War, Thanh Khê Thành's harbour shelters Phượng Minh's wounded; the city's lanterns burn all year.",
+"place": 84,
+"region": 16
+},
+{
+"id": "C190",
+"tier": "landmark",
+"year": 1158,
+"kind": "war_end",
+"people": [
+"manh_da_vu",
+"doan_ngoc_hanh",
+"hoa_trieu_duong"
+],
+"sects": [
+"thinh_vu",
+"thien_xu",
+"phuong_minh"
+],
+"text_en": "Thính Vũ Lâu is beaten at Đan Sơn Mạch and withdraws; Mạnh Dạ Vũ swears the Pivot will answer for it.",
+"place": 211,
+"war": "cinnabar_vein"
+},
+{
+"id": "A278",
+"tier": "annal",
+"year": 1185,
+"kind": "tale",
+"people": [
+"quan_vu_thanh"
+],
+"sects": [
+"thinh_vu",
+"phuong_minh"
+],
+"text_en": "Quan Vũ Thanh, first elder of Thính Vũ, travels to Phượng Minh in secret to talk of peace, and comes back without an answer.",
+"place": 7,
+"region": 18
+},
+{
+"id": "A312",
+"tier": "annal",
+"year": 1190,
+"kind": "disaster",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Thạch Cơ Thành's stone jetty cracks in a storm; Phượng Minh rebuilds it with stone from the ruins of Xích Thành.",
+"place": 93,
+"region": 20
+},
+{
+"id": "A248",
+"tier": "annal",
+"year": 1195,
+"kind": "tale",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "A musician in Thiều Âm Thị plays a tune no one taught him, and every bird on the ridge falls silent; Phượng Minh's elders pay his passage far away.",
+"place": 53,
+"region": 16
+},
+{
+"id": "A264",
+"tier": "annal",
+"year": 1199,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The Vương clan of Đạo Hương sends a letter of betrothal to the Tạ of Phong Lâm; the reply has not yet come.",
+"place": 86,
+"region": 17
+}
+],
+"territory": {
+"land_changes": [
+{
+"year": 480,
+"land": 16,
+"from": null,
+"to": "phuong_minh",
+"how": "founding",
+"chronicle_event": "C009"
+},
+{
+"year": 520,
+"land": 17,
+"from": null,
+"to": "phuong_minh",
+"how": "claim",
+"chronicle_event": "C108"
+},
+{
+"year": 590,
+"land": 20,
+"from": "xich_thanh",
+"to": "phuong_minh",
+"how": "conquest by writ",
+"war": "vermilion_caves",
+"chronicle_event": "C119"
+}
+],
+"wars": [
+{
+"key": "vermilion_caves",
+"years": [
+584,
+590
+],
+"name": "War of the Vermilion Caves",
+"name_hv": "Đan Huyệt Chi Chiến",
+"sides": [
+[
+"phuong_minh"
+],
+[
+"xich_thanh"
+]
+],
+"outcome": "Xích Thành Môn had turned to burning villages; Phượng Minh fights it under Thiên Xu's writ and takes Đan Huyệt Châu."
+},
+{
+"key": "desert_road",
+"years": [
+722,
+728
+],
+"name": "Desert Road War",
+"name_hv": "Sa Lộ Chi Chiến",
+"sides": [
+[
+"bang_tam"
+],
+[
+"phuong_minh"
+]
+],
+"outcome": "Over the caravan road between Cô Yên Mạc and Triêu Dương Nguyên. Thiên Xu imposes a truce; no land changes."
+},
+{
+"key": "pirate_purge",
+"years": [
+776,
+781
+],
+"name": "The Pirate Purge",
+"name_hv": "Thanh Hải Chi Dịch",
+"sides": [
+[
+"thien_xu",
+"phuong_minh",
+"lac_ha"
+],
+[
+"thon_hai"
+]
+],
+"outcome": "Called and led by Thiên Xu with Phượng Minh's and Lạc Hà's fleets; the ma đạo pirates of Thôn Hải Môn are destroyed."
+},
+{
+"key": "thunder_vein",
+"years": [
+1040,
+1046
+],
+"name": "Thunder Vein War",
+"name_hv": "Kinh Lôi Chi Chiến",
+"sides": [
+[
+"phuong_minh"
+],
+[
+"thinh_vu"
+]
+],
+"outcome": "Phượng Minh tries to take Kinh Lôi Mạch; the Pivot ends the war and Thính Vũ keeps the vein."
+},
+{
+"key": "cinnabar_vein",
+"years": [
+1150,
+1158
+],
+"name": "Cinnabar Vein War",
+"name_hv": "Đan Sơn Chi Chiến",
+"sides": [
+[
+"thinh_vu"
+],
+[
+"phuong_minh",
+"thien_xu"
+]
+],
+"outcome": "Thính Vũ attacks Phượng Minh's Đan Sơn Mạch; Thiên Xu steps in on Phượng Minh's side and Thính Vũ is beaten."
+}
+],
+"vassal_lord_changes": [],
+"grudges": [
+{
+"pair": [
+"phuong_minh",
+"thinh_vu"
+],
+"g": -15,
+"from": [
+"thunder_vein",
+"cinnabar_vein"
+]
+}
+],
+"other_events": []
+},
+"cast": [
+{
+"key": "hoa_trieu_duong",
+"name": "Hoa Triêu Dương",
+"name_han": "華朝陽",
+"gloss": "The phoenix sings to the morning sun (Thi Kinh)",
+"sex": "F",
+"born": 950,
+"alive": true,
+"sect": "phuong_minh",
+"rank": "tong_chu",
+"role": "Head of Phượng Minh Cung",
+"realm": "nguyen_anh",
+"home": 6,
+"traits": {
+"personality": [
+"Ambitious",
+"Brave",
+"Forgiving"
+],
+"calling": "Diplomat",
+"fate_given": []
+},
+"build": {
+"root": {
+"elements": {
+"hoa": 88,
+"moc": 62
+}
+},
+"thien_phu": {
+"ngo_tinh": 78,
+"can_cot": 66,
+"than_hon": 72,
+"khi_van": 70,
+"dao_tam": 74,
+"mi_luc": 84
+},
+"archetype": "phap_tu",
+"stage": 0,
+"main": {
+"tech": "thien_hoa",
+"layer": 10
+},
+"aux": [
+{
+"tech": "ashen-phoenix-canon",
+"layer": 10
+}
+],
+"gear": [
+{
+"named": "fire-undying-ember-lantern"
+},
+{
+"base": "phien",
+"grade": 4,
+"element": "hoa"
+},
+{
+"base": "dao_bao",
+"grade": 3,
+"element": "hoa"
+}
+],
+"tree": {
+"start": "hoa",
+"targets": [
+2493,
+2463,
+2922,
+2954,
+9007
+]
+},
+"skills": {},
+"note": "The brave, ambitious Phoenix head: a phoenix that burns and is reborn, the panpipes she must never play in full"
+}
+},
+{
+"key": "ngo_the_dong",
+"name": "Ngô Thê Đồng",
+"name_han": "吳棲桐",
+"gloss": "The phoenix perches on the parasol tree",
+"sex": "M",
+"born": 330,
+"alive": false,
+"sect": "phuong_minh",
+"rank": "founder",
+"role": "Founder of Phượng Minh Cung (year 480, at 150)",
+"peak_realm": "nguyen_anh",
+"died": 1100,
+"cause": "old age at 770",
+"record": true
+},
+{
+"key": "vu_ngo_dong",
+"name": "Vu Ngô Đồng",
+"name_han": "于梧桐",
+"gloss": "The parasol tree where the phoenix perches",
+"sex": "M",
+"born": 880,
+"alive": true,
+"sect": "phuong_minh",
+"rank": "truong_lao",
+"role": "First elder of Phượng Minh Cung (age 320)",
+"realm": "ket_dan",
+"home": 6,
+"traits": {
+"personality": [
+"Gregarious",
+"Generous",
+"Impatient"
+],
+"calling": "Beast tamer",
+"fate_given": []
+},
+"build": {
+"root": {
+"elements": {
+"hoa": 74,
+"moc": 64
+}
+},
+"thien_phu": {
+"ngo_tinh": 64,
+"can_cot": 62,
+"than_hon": 66,
+"khi_van": 60,
+"dao_tam": 58,
+"mi_luc": 76
+},
+"archetype": "phap_tu",
+"stage": 2,
+"main": {
+"tech": "thien_hoa",
+"layer": 7
+},
+"aux": [],
+"gear": [
+{
+"named": "fire-ashen-phoenix-fan"
+},
+{
+"base": "nhan",
+"grade": 3,
+"element": "moc"
+},
+{
+"base": "dao_bao",
+"grade": 3,
+"element": "hoa"
+}
+],
+"tree": {
+"start": "moc",
+"targets": [
+6487,
+6491,
+6580,
+6542
+]
+},
+"skills": {},
+"note": "The wutong where the phoenixes roost: a generous, impatient beast tamer whose spirit birds fight for him"
+}
+}
+],
+"legendary_items": [
+{
+"key": "tieu_thieu_quan",
+"kind": "panpipes",
+"role": "treasure",
+"made_by": "cuu_thieu",
+"made_year": 80,
+"story": "Cửu Thiều's mind-bending instrument, the cause of the Nine Shao judgement. Phượng Minh found it on the empty land; Thiên Xu does not know.",
+"status": "held",
+"name": "Tiêu Thiều Quản",
+"name_han": "簫韶管",
+"gloss": "Panpipes of the Shao",
+"element": "Light",
+"holder": "hoa_trieu_duong",
+"secret": "Thiên Xu destroyed a sect over it"
+}
+]
+}

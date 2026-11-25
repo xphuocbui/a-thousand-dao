@@ -1,0 +1,183 @@
+{"group": "loose-south", "_doc": "Signature items of the loose cultivators of regions 10-20 (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow the earth, water, metal and thunder catalogues' grade 2-3 items. Effects are hand-written rules, unpriced. Prefix ls-.",
+ "items": [
+  {
+   "id": "ls-thu-am-goat-bell", "name": "Thụ Âm Goat Bell (Thụ Âm Dương Linh)", "family": "earth", "kind": "artifact", "base": "chuong", "grade": 3,
+   "modifiers": [{"key": "dan_doc_resist_pct", "value": 20, "scope": []}, {"key": "status_resist_pct", "value": 10, "scope": []},
+                 {"key": "ward_efficiency_pct", "value": 10, "scope": []}, {"key": "khi_huyet_pct", "value": 8, "scope": []}],
+   "effects": [{"new": true, "id": "the-goat-knows", "name": "The Goat Knows (Dương Tri)", "rule": "The bell rings once before the holder steps onto ground that would poison them; in a fight, the first poison or curse stack applied to the holder each fight is refused."}, {"new": true, "id": "know-the-way-out", "name": "Know the Way Out (Thức Lộ)", "rule": "Each escape you fail this fight makes your next escape 10 % likelier; a success clears it.", "authored": "d2"}],
+   "lore": "The copper bell from the goat Khâu Bạch Thủ followed into the miasma in 900 (A214). The goat did not come out. The bell did, on his wrist, and it has rung before every bad step since.",
+   "build_use": "A digger's ward: poison resistance and a refused first stack, so the wearer survives what kills treasure seekers.",
+   "holder": "khau_bach_thu", "made_by": null, "made_year": 900, "set": "ls-miasma-walker", "status": "proposal",
+   "authored": "d2"
+  },
+  {
+   "id": "ls-black-wind-hook", "name": "Black Wind Hook (Hắc Phong Câu)", "family": "thunder", "kind": "artifact", "base": "phi_kiem", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 18, "scope": ["sword"]}, {"key": "crit_chance_pct", "value": 8, "scope": ["sword"]},
+                 {"key": "stack_effect_pct", "value": 20, "scope": ["loi", "debuff"]}, {"key": "leech_health_pct", "value": 10, "scope": []}],
+   "effects": [],
+   "lore": "One of the two hooked blades the chief of Hắc Phong Trại carried until 940. His daughter took this one over the wall; the other was taken from his hand at the gate, and the Pivot gave it to the boy it spared.",
+   "build_use": "A thunder bandit's blade: sword crit, heavier Thunder stacks, health back on every cut.",
+   "holder": "do_liet_co", "made_by": "do_thiet_hong", "made_year": 880, "set": "ls-hac-phong-hooks", "status": "proposal"
+  },
+  {
+   "id": "ls-white-wind-hook", "name": "White Wind Hook (Bạch Phong Câu)", "family": "thunder", "kind": "artifact", "base": "phi_kiem", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 16, "scope": ["sword"]}, {"key": "art_speed_pct", "value": 12, "scope": ["sword"]},
+                 {"key": "accuracy_pct", "value": 10, "scope": []}, {"key": "status_duration_pct", "value": 12, "scope": ["curse"]}],
+   "effects": [],
+   "lore": "The twin of the Black Wind Hook, taken from Đồ Thiết Hống's hand at the gate of Hắc Phong in 940. Đỗ Tinh Hà gave it to the boy he spared. The cross-sect pass gives it to Đồ Vô Cữu (do_vo_cuu): it is in his gear.",
+   "build_use": "A hunter's blade: fast, accurate, and curses that last.",
+   "holder": "do_vo_cuu", "made_by": "do_thiet_hong", "made_year": 880, "set": "ls-hac-phong-hooks", "status": "proposal"
+  },
+  {
+   "id": "ls-thuy-khau-stern-lamp", "name": "Stern Lamp of Thủy Khẩu (Thủy Khẩu Vĩ Đăng)", "family": "water", "kind": "artifact", "base": "dang", "grade": 2,
+   "modifiers": [{"key": "healing_pct", "value": 8, "scope": []}, {"key": "health_regen_inc_pct", "value": 20, "scope": []},
+                 {"key": "soul_res_pct", "value": 8, "scope": []}],
+   "effects": [{"new": true, "id": "no-fare", "name": "No Fare (Bất Thu)", "rule": "While you have a companion, you regain 1 % of your health each second.", "authored": "a1"}],
+   "lore": "A Vãn Đăng fisher's stern lamp. Yến Hồi Độ lit it the night of 1174 and has not let it go out since; it burns in daylight on the free ferry.",
+   "build_use": "A ferryman's sustain lantern.",
+   "holder": "yen_hoi_do", "made_by": "yen_hoi_do", "made_year": 1150, "set": "ls-free-crossing", "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "ls-false-cloud-seal", "name": "False Cloud Seal (Ngụy Vân Ấn)", "family": "wood", "kind": "artifact", "base": "an", "grade": 2,
+   "modifiers": [{"key": "attack_pct", "value": 12, "scope": ["seal"]}, {"key": "status_duration_pct", "value": 14, "scope": ["curse"]},
+                 {"key": "than_thuc_pct", "value": 4, "scope": []}],
+   "effects": [{"new": true, "id": "stamp-of-trust", "name": "Stamp of Trust (Tín Ấn)", "rule": "A paper or map stamped with this seal passes for Nam Phố's work to anyone who does not hold the true Southern Shore Cloud Seal; to the one who does, it reads as a forgery at a glance."}],
+   "lore": "A pear-wood copy of Nam Phố Đường's cloud stamp that Giản Vạn Lộ carved from memory the winter he was turned out, 1168. It is very nearly right.",
+   "build_use": "A forger's seal and a curse focus.",
+   "holder": "gian_van_lo", "made_by": "gian_van_lo", "made_year": 1168, "set": "ls-night-rain-stall", "status": "proposal"
+  },
+  {
+   "id": "ls-unlit-sail", "name": "Unlit Sail (Vô Đăng Phàm)", "family": "water", "kind": "artifact", "base": "ky", "grade": 2,
+   "modifiers": [{"key": "evade_pct", "value": 8, "scope": []}, {"key": "ward_efficiency_pct", "value": 10, "scope": []},
+                 {"key": "stack_effect_pct", "value": 14, "scope": ["thuy", "debuff"]}],
+   "effects": [{"new": true, "id": "dark-on-dark-water", "name": "Dark on Dark Water (Ám Thủy)", "rule": "Out of combat the holder and her boat cannot be seen past a bowshot on the water; in a fight, the first art aimed at her from range misses."}, {"new": true, "id": "know-the-way-out", "name": "Know the Way Out (Thức Lộ)", "rule": "Each escape you fail this fight makes your next escape 10 % likelier; a success clears it.", "authored": "d2"}],
+   "lore": "A square of sailcloth dyed in mangrove bark and stitched to the way Thôn Hải's captives remembered it in 782. Biện Ám Phàm flies it as a pennant; the rest of the sail is plain black.",
+   "build_use": "A smuggler's evasion flag.",
+   "holder": "bien_am_pham", "made_by": "bien_am_pham", "made_year": 1170, "set": null, "status": "proposal",
+   "authored": "d2"
+  },
+  {
+   "id": "ls-miasma-veil-robe", "name": "Robe of the Miasma Veil (Chướng Sa Bào)", "family": "earth", "kind": "artifact", "base": "dao_bao", "grade": 3,
+   "modifiers": [{"key": "dan_doc_resist_pct", "value": 10, "scope": []}, {
+    "key": "status_resist_pct",
+    "value": 30,
+    "scope": [
+     "poison"
+    ]
+   }, {"key": "khi_huyet_pct", "value": 12, "scope": []}, {"key": "defense_pct", "value": 8, "scope": []}],
+   "effects": [],
+   "lore": "Hemp soaked in clay from the edge of Chiết Kích Nguyên, sewn new every decade; nothing in the miasma has rotted it.",
+   "build_use": "Resistance to what is in the air.",
+   "holder": "khau_bach_thu", "made_by": "khau_bach_thu", "made_year": 1100, "set": "ls-miasma-walker", "status": "proposal",
+   "authored": "b5"
+  },
+  {
+   "id": "ls-door-shield", "name": "Shield of the Ruin Door (Phế Môn Thuẫn)", "family": "earth", "kind": "artifact", "base": "thuan", "grade": 3,
+   "modifiers": [{"key": "block_rating", "value": 16, "scope": []}, {"key": "khi_huyet_pct", "value": 12, "scope": []}, {"key": "health_regen_inc_pct", "value": 16, "scope": []}, {"key": "resist_pct", "value": 100, "scope": ["physical"]}],
+   "effects": [],
+   "lore": "A bronze door-leaf from a burned cellar of Vô Định, the same cellar that held the Ruin Ledger; he carries it on his back like a tortoise.",
+   "build_use": "Earth wards and health: he outlasts whatever comes.",
+   "holder": "khau_bach_thu", "made_by": "khau_bach_thu", "made_year": 1030, "set": "ls-miasma-walker", "status": "proposal"
+  },
+  {
+   "id": "ls-arrow-scarred-armour", "name": "Arrow-Scarred Armour (Tiễn Ngân Giáp)", "family": "metal", "kind": "artifact", "base": "giap", "grade": 3,
+   "modifiers": [{"key": "khi_huyet_pct", "value": 16, "scope": []}, {"key": "defense_pct", "value": 10, "scope": []}, {"key": "resist_pct", "value": 120, "scope": ["physical"]}, {"key": "health_regen_inc_pct", "value": 12, "scope": []}],
+   "effects": [],
+   "lore": "Hắc Phong mail she has worn since 940; she has never let the arrowheads be pulled out of it.",
+   "build_use": "A body that takes a stockade's worth of arrows.",
+   "holder": "do_liet_co", "made_by": "the smiths of Hắc Phong", "made_year": 935, "set": "ls-stockade-pair", "status": "proposal"
+  },
+  {
+   "id": "ls-thunder-pendant", "name": "Ridge-Thunder Pendant (Lĩnh Lôi Bội)", "family": "thunder", "kind": "artifact", "base": "ngoc_boi", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 14, "scope": ["lightning"]}, {"key": "crit_chance_pct", "value": 6, "scope": ["lightning"]}, {"key": "stack_effect_pct", "value": 16, "scope": ["loi", "buff"]}],
+   "effects": [],
+   "lore": "A lump of fused sand from the Hắc Phong ridge where lightning struck the night she escaped.",
+   "build_use": "Thunder strikes off the hook.",
+   "holder": "do_liet_co", "made_by": "do_liet_co", "made_year": 940, "set": "ls-stockade-pair", "status": "proposal"
+  },
+  {
+   "id": "ls-ferry-anchor", "name": "Ferry Stone (Độ Thạch Mao)", "family": "water", "kind": "artifact", "base": "mao", "grade": 2,
+   "modifiers": [{"key": "block_rating", "value": 12, "scope": []}, {"key": "health_regen_inc_pct", "value": 16, "scope": []}, {"key": "linh_luc_regen_inc_pct", "value": 8, "scope": []}],
+   "effects": [],
+   "lore": "The stone anchor of the free crossing, older than the ferry; he says the river would take the boat without it.",
+   "build_use": "A boat that does not sink.",
+   "holder": "yen_hoi_do", "made_by": "the first ferryman of Thủy Khẩu", "made_year": 900, "set": "ls-free-crossing", "status": "proposal"
+  },
+  {
+   "id": "ls-folded-map-robe", "name": "Robe of Folded Maps (Điệp Đồ Bào)", "family": "wood", "kind": "artifact", "base": "dao_bao", "grade": 2,
+   "modifiers": [{"key": "evade_pct", "value": 4, "scope": []}, {"key": "status_duration_pct", "value": 10, "scope": ["curse"]}, {"key": "defense_pct", "value": 4, "scope": []}],
+   "effects": [],
+   "lore": "A robe lined with forty maps, each a little wrong; he can tear any one out and burn it as a talisman.",
+   "build_use": "Paper talismans and a way to leave while they burn.",
+   "holder": "gian_van_lo", "made_by": "gian_van_lo", "made_year": 1172, "set": "ls-night-rain-stall", "status": "proposal"
+  },
+  {
+   "id": "ls-snare-wire-coins",
+   "name": "Snare-Wire Coins (Liệp Sách Tiền)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "tien_tieu",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "accuracy_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "attack_pct",
+     "value": 10,
+     "scope": [
+      "kim"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "Her husband's snare coins: bronze discs strung on hunting wire, which she learned to throw after he did not come back.",
+   "build_use": "Metal curses and slows from range that bite harder and do not miss.",
+   "holder": "sam_van_nuong",
+   "made_by": null,
+   "made_year": null,
+   "set": null,
+   "status": "proposal",
+   "authored": "b12"
+  }
+ ],
+ "sets": [
+  {"id": "ls-hac-phong-hooks", "name": "Hắc Phong Twin Hooks (Hắc Phong Song Câu)", "pieces": ["ls-black-wind-hook", "ls-white-wind-hook"],
+   "bonuses": [{"pieces": 2, "modifiers": [{"key": "crit_damage_pct", "value": 20, "scope": ["sword"]}, {"key": "linh_luc_on_crit_pct", "value": 0.6, "scope": []}]}],
+   "story": "The chief of Hắc Phong carried both. Since 940 one has been in the south with the daughter who got away and one in the Pivot's service with the son who was taken. The pair is whole only if the two meet, and one of them gives up a blade."},
+  {
+   "id": "ls-miasma-walker", "name": "Miasma Walker (Chướng Hành Tam Vật)", "pieces": ["ls-thu-am-goat-bell", "ls-miasma-veil-robe", "ls-door-shield"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "status_resist_pct", "value": 6, "scope": []}, {"key": "khi_huyet_pct", "value": 6, "scope": []}]},
+    {"pieces": 3, "effect": "Walked Out of Chiết Kích (Xuất Chiết Kích): each poison or curse stack that lands on you thickens your ward by 2 % of your health instead of its harm, and the ward loses a twentieth of itself each second; while that ward holds, your escape channel is a third shorter."}
+   ],
+   "story": "A goat's bell he came out of the miasma with, and the clay-soaked robe and cellar door he has carried back in since. Quý Thủ Lũy has asked twice what he would leave them to.",
+   "authored": "a1"
+  },
+  {
+   "id": "ls-stockade-pair", "name": "Stockade Mistress (Thạch Môn Song Bảo)", "pieces": ["ls-arrow-scarred-armour", "ls-thunder-pendant"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "khi_huyet_pct", "value": 6, "scope": []}, {"key": "attack_pct", "value": 6, "scope": ["lightning"]}], "effect": "Tempered by Arrows (Tiễn Luyện): each hit you take from range gives you one Thunder buff stack, and the stacks fall away one every 2 s; your next hook strike spends them, striking once more with Thunder for each."}
+   ],
+   "story": "What she took from the ridge besides the Black Wind Hook: her mail and the lightning sand. She wears them beside the hook, whose twin is with her brother."
+  },
+  {
+   "id": "ls-free-crossing", "name": "The Free Crossing (Nghĩa Độ Song Vật)", "pieces": ["ls-thuy-khau-stern-lamp", "ls-ferry-anchor"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "health_regen_inc_pct", "value": 8, "scope": []}, {"key": "block_rating", "value": 6, "scope": []}], "effect": "No One Drowns (Vô Nhân Nịch): while you have a companion or are Still, your ward regains 2 % each second; the first time each fight you would fall below a quarter of your health, the lamp heals you 15 %."}
+   ],
+   "story": "His stern lamp, lit since 1174, and the crossing's stone anchor, older than any ferryman there. They will pass with the boat.",
+   "authored": "a1"
+  },
+  {
+   "id": "ls-night-rain-stall", "name": "Night Rain Stall (Dạ Vũ Song Vật)", "pieces": ["ls-false-cloud-seal", "ls-folded-map-robe"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "status_duration_pct", "value": 6, "scope": ["curse"]}, {"key": "evade_pct", "value": 2, "scope": []}], "effect": "Leave While It Burns (Phần Thời Tẩu): when a curse you laid is cleansed or one of your talismans burns out, you cannot be targeted for 1 s (once every 6 s)."}
+   ],
+   "story": "The false seal he carved the winter he was turned out of Nam Phố, and the robe of wrong maps he lined at Thu Trì."
+  }
+ ]
+}

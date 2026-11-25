@@ -1,0 +1,119 @@
+{
+ "group": "clans",
+ "_doc": "Clan methods (proposals, unpriced). The Hỗ house has none. Builds name generated stand-ins because depth_check.py does not read people/*.techniques.json.",
+ "techniques": [
+  {
+   "id": "locust-shade-breathing",
+   "name": "Locust Shade Breathing (Hòe Âm Tức Pháp)",
+   "tier": 1,
+   "tech_kind": "main",
+   "names": [
+    "thuy",
+    "moc"
+   ],
+   "layers": 9,
+   "rank": "Tiêu clan members",
+   "concept": "Sat at noon in the shade of a living locust. The leaves cool the air and the breath, and the root learns to draw Water qi down through Wood the way a tree draws water up. Slow and steady; it builds linh lực sustain and Wood regrowth, and it is useless while the holder burns: a Fire stack on her stops the regrowth until it clears.",
+   "arts": [
+    {
+     "new": "Falling Locust Flowers (Hòe Hoa Lạc)",
+     "concept": "A spray of yellow flower-darts that heal the caster a little for each that lands."
+    },
+    {
+     "new": "Shade of the Road (Lộ Âm)",
+     "concept": "A cool ward that thickens while the caster stands still."
+    }
+   ],
+   "lore": "Tiêu Chủng Hòe's, from the hunter's habit of resting under trees; written down in 700. The clan has never taught it outside the family.",
+   "clan": "tieu",
+   "status": "proposal"
+  },
+  {
+   "id": "twin-span-pillar-method",
+   "name": "Twin Span Pillar Method (Song Kiều Trụ Pháp)",
+   "tier": 0,
+   "tech_kind": "main",
+   "names": [
+    "tho",
+    "moc"
+   ],
+   "layers": 6,
+   "rank": "Ôn clan members",
+   "concept": "A mason's method: the cultivator stands waist-deep in moving water and sinks their qi into the riverbed like a pillar, so the current breaks around them. It trains health, block and the body's weight more than art power.",
+   "arts": [
+    {
+     "new": "Pillar in the Current (Trụ Lập Lưu)",
+     "concept": "A stance that turns the next three hits taken into blocks and pushes the attacker back."
+    }
+   ],
+   "lore": "Ôn Giá Hồng's, from forty years of sinking pillars before the bridges of 900.",
+   "clan": "on",
+   "status": "proposal"
+  },
+  {
+   "id": "returning-swallow-breath",
+   "name": "Returning Swallow Breath (Quy Yến Tức)",
+   "tier": 1,
+   "tech_kind": "main",
+   "names": [
+    "moc",
+    "thuy"
+   ],
+   "layers": 9,
+   "rank": "Tạ clan members",
+   "concept": "The breath goes out and comes back as swallows leave and return: each cycle sends qi out to the limbs and draws it home with a little more. Its arts echo, striking once and again. The manual stops at the ninth layer, and the clan believes a second half stayed in the old hall.",
+   "arts": [
+    {
+     "new": "Swallow's Return (Yến Hồi)",
+     "concept": "A Wood dart that comes back to hit the same foe a second time at half power."
+    }
+   ],
+   "lore": "The one method the Tạ carried out of their old hall in 470 (A193); its script is older than anything in Phong Lâm.",
+   "clan": "ta",
+   "status": "proposal"
+  },
+  {
+   "id": "seed-store-method",
+   "name": "Seed Store Method (Tàng Chủng Pháp)",
+   "tier": 0,
+   "tech_kind": "main",
+   "names": [
+    "moc"
+   ],
+   "layers": 6,
+   "rank": "Lục family members",
+   "concept": "Qi is put away like seed grain over winter: gathered in the autumn sittings, sealed, and drawn on only when needed. Slow to build, nothing wasted; it gives health and linh lực pools and a late surge.",
+   "arts": [
+    {
+     "new": "Opened Granary (Khai Thương)",
+     "concept": "Release the stored qi at once: a large heal and a short burst of art speed, once a fight."
+    }
+   ],
+   "lore": "Lục Đa Cốc's farmer's method, after the harvest of 600. Every Lục child learns it before letters.",
+   "clan": "luc",
+   "status": "proposal"
+  },
+  {
+   "id": "reeling-thread-breath",
+   "name": "Reeling Thread Breath (Trừu Ti Tức)",
+   "tier": 0,
+   "tech_kind": "main",
+   "names": [
+    "hoa",
+    "tho"
+   ],
+   "layers": 6,
+   "rank": "the Đới silk house",
+   "concept": "A breath drawn as fine and unbroken as a thread reeled from a cocoon in hot water: Fire heat, Earth patience. It builds long debuffs rather than hard hits. Sung, not read: the layers are verses of the Hỏa Ti reeling songs.",
+   "arts": [
+    {
+     "new": "Unbroken Thread (Bất Đoạn Ti)",
+     "concept": "A Fire thread that binds a foe, lowering evade for as long as the caster keeps it drawn."
+    }
+   ],
+   "lore": "Nhan Dư Ti's songs from Hỏa Ti (N-chuc_ha-01), written down by her grandson about 680.",
+   "clan": "doi",
+   "status": "proposal"
+  }
+ ]
+}

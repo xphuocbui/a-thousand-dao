@@ -1,0 +1,1170 @@
+{
+ "sect": "phan_vu",
+ "people": [
+  {
+   "key": "hung_phan_vu",
+   "name_hv": "Hùng Phần Vũ",
+   "name_han": "熊焚羽",
+   "gloss": "Burns the feathers to be reborn",
+   "sex": "M",
+   "born": 980,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "phan_vu",
+   "rank": "tong_chu",
+   "home": 29,
+   "birthplace": 44,
+   "role": "Founder (1020) and head of Phần Vũ Đường; keeper of the Xích Hà Kỳ; a body cultivator of the vents",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "hoa": 76,
+     "tho": 70
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 84,
+    "than_hon": 56,
+    "khi_van": 58,
+    "dao_tam": 60,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Forgiving"
+    ],
+    "calling": "Duelist",
+    "upbringing": "street_orphan",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 3
+     }
+    ],
+    "path": [
+     "body_tempered",
+     "fire_tempered"
+    ],
+    "lifestyle": "duel_seeker",
+    "health": "old_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Scarred",
+     "Grieving"
+    ]
+   },
+   "appearance": "A bull-necked man with arms burned to a glossy red to the shoulder, who sits on the floor in his own hall because chairs break.",
+   "backstory": "Hùng Phần Vũ was born in Ngũ Thải Thành in 980, and the dockside tells that a red feather fell on his cradle (A309). He grew up fighting on the wharves, learned the Mountain Heart Canon from a caravan guard, and at thirty walked inland to the vents of Chúc Dung Khẩu to see how long he could stand in them. In 1020 the palace founder Ngô Thê Đồng (ngo_the_dong) came down to the Fire Court, watched him stand in moving fire for an hour, and lent him the Xích Hà Kỳ (C177). Hùng founded the hall in the vent village five tiles from the court. In 1025 his first disciple Kê Thủ Liệt (ke_thu_liet) died at the first sitting (A310), and he wrote the outer method so that no one would sit without a way to stop. In 1162 the palace head moved her court to Hỏa Ti (N-phuong_minh-12) and asked for his daughter Hùng Diễm Nhi (hung_diem_nhi) as surety. He sent her. That autumn his Dao partner Tuân Hà Y (tuan_ha_y) went into the vent's mouth for the Red Wall Rebirth and did not come out (N-phan_vu-04). He forgives quickly and has forgiven everyone for 1162 except himself.",
+   "wants": "His daughter home, and a hall that is his own and not a guardhouse for the palace's door.",
+   "secret": "He did not read the Burning Feather Body off the red-stone walls. The founder gave it to him in 1020 with the banner, out of the Hall of Spoils: it is Xích Thành Môn's body canon. The one condition was that Phần Vũ never call itself Xích Thành's heir. The palace wanted the vents held by someone who owed it, and Xích Thành's arts kept where its own disciples would not be seen learning them.",
+   "ties": [
+    {
+     "to": "hung_diem_nhi",
+     "kind": "child",
+     "note": "his daughter, the palace's ward since 1162"
+    },
+    {
+     "to": "tuan_ha_y",
+     "kind": "dao_partner",
+     "note": "died in the vent in 1162"
+    },
+    {
+     "to": "tao_tan_kien",
+     "kind": "former_disciple",
+     "note": "his first elder"
+    },
+    {
+     "to": "ke_thu_liet",
+     "kind": "former_disciple",
+     "note": "died at the first sitting, 1025"
+    },
+    {
+     "to": "ngo_the_dong",
+     "kind": "debt",
+     "note": "the banner and the canon, given in 1020"
+    },
+    {
+     "to": "vuu_cam_thu",
+     "kind": "debt",
+     "note": "the palace treasurer has asked for the banner back three times"
+    },
+    {
+     "to": "thich_hong_linh",
+     "kind": "friend",
+     "note": "ran the vents with his first disciples as a girl; now argues the palace should take his hall in"
+    },
+    {
+     "to": "dan_tan_lao",
+     "kind": "debt",
+     "note": "the stone-carver he still owes for the wall-stone"
+    },
+    {
+     "to": "bao_viem_nuong",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "doi_liet_cuong",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "nguy_hong_tao",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "ngac_tri_hoa",
+     "kind": "disciple",
+     "note": "levy captain on the palace road, Tang Điền to the Fire Court"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "burning-feather-body-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "mountain-heart-canon",
+      "layer": 7
+     },
+     {
+      "tech": "red-wall-rebirth",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "named": "pvd-moving-fire-hide"
+     },
+     {
+      "named": "pvd-xich-ha-ky"
+     },
+     {
+      "named": "pvd-cradle-feather"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Earth for a body that does not fall, Fire for the heat it gives back: he stands in the lava, burns, and gets back up.",
+     "targets": [
+      2511,
+      2513,
+      2515,
+      2465,
+      1463,
+      3360,
+      3366,
+      9007
+     ],
+     "targets_note": "The hall's vent route (Cinder Petals, Cool Ash, Ash Lotus), Warm Ash, then across Fire and Earth into Fired Clay and Kiln Hill, to Nirvana: he burns and gets back up."
+    },
+    "note": "The vent-tempered body: a brave, impatient brawler who stands in the lava, burns, and gets back up."
+   },
+   "items": [
+    "body-vajra-hide-armour",
+    "pvd-xich-ha-ky",
+    "pvd-moving-fire-hide",
+    "pvd-cradle-feather"
+   ],
+   "changed": "build: main mountain-heart-canon -> burning-feather-body-canon (the lineage's main, R5); mountain-heart-canon kept as aux; aux long_tuong_cong (not a known technique) -> red-wall-rebirth; gear thuan -> the Xích Hà Kỳ he holds (legendary, item record pvd-xich-ha-ky); tree targets -> intent; birthplace 44 added (A309).; tree start tho -> hoa (Fire 76 is his top element, and the hall's vent route starts on Fire; fix pass A, 2026-11-25)"
+  },
+  {
+   "key": "tao_tan_kien",
+   "name_hv": "Tào Tẫn Kiên",
+   "name_han": "曹燼堅",
+   "gloss": "Hard as embers",
+   "sex": "M",
+   "born": 1038,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "phan_vu",
+   "rank": "truong_lao",
+   "home": 29,
+   "birthplace": 29,
+   "role": "First elder of Phần Vũ Đường; master of the sittings; the man who would be head",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "hoa": 64,
+     "tho": 52
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 76,
+    "than_hon": 58,
+    "khi_van": 52,
+    "dao_tam": 56,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Patient",
+     "Pragmatic"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": "go_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Battle-hardened"
+    ]
+   },
+   "appearance": "A compact, grey-cropped man with a burned-smooth face, who listens with his head tilted as if hearing the vent.",
+   "backstory": "Tào Tẫn Kiên was born in the vent village in 1038 and, as a boy, ran the hot rock with a girl called Thích Hồng Linh (thich_hong_linh), who is now the palace's fan master. She went up to the Fire Court; he went to Hùng Phần Vũ (hung_phan_vu), and he has sat every sitting the canon allows except the last. He runs the sittings now and has brought more disciples out of the vent than anyone. He plays weiqi with the palace's clerks on the Fire Court's steps and is liked there. In 1162 he was the one who told Hùng to send his daughter as the palace asked, so the hall would not be taken in. Thích still argues that it should be, and they have not spoken kindly since.",
+   "wants": "To be head after Hùng, and to keep the hall a hall.",
+   "secret": "In 1162 the palace treasurer Vưu Cẩm Thư (vuu_cam_thu) promised him, privately, that the palace would back his succession over the girl if he saw her sent. He did. He tells himself it kept the hall free.",
+   "ties": [
+    {
+     "to": "hung_phan_vu",
+     "kind": "former_master",
+     "note": "trained him from 1050; now his head and an equal in realm"
+    },
+    {
+     "to": "thich_hong_linh",
+     "kind": "rival",
+     "note": "childhood sweetheart, now the palace's voice for taking the hall in"
+    },
+    {
+     "to": "vuu_cam_thu",
+     "kind": "creditor",
+     "note": "she owes him the succession she promised in 1162"
+    },
+    {
+     "to": "hung_diem_nhi",
+     "kind": "rival",
+     "note": "the heir he helped send away"
+    },
+    {
+     "to": "trang_hoi_y",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "hac_dan_thach",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "sai_tinh_lan",
+     "kind": "disciple",
+     "note": "keeps the sitting rolls at the Lower Mouth"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "burning-feather-body-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "scorch-fist-primer",
+      "layer": 6
+     },
+     {
+      "tech": "red-wall-rebirth",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "named": "pvd-cinder-knuckle-ring"
+     },
+     {
+      "named": "pvd-sitting-stone-mail"
+     },
+     {
+      "named": "pvd-weiqi-board-shield"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire for the heat store and the fist, Earth for the shield: a patient brawler who lets you burn yourself out on him.",
+     "targets": [
+      2511,
+      2513,
+      2515,
+      2465,
+      2933,
+      1463,
+      3360
+     ],
+     "targets_note": "Lineage sitting, Warm Ash and Crimson Tail for the heat store, Fire and Earth and Fired Clay for the shield."
+    },
+    "note": "The sitting master."
+   },
+   "items": [
+    "pvd-cinder-knuckle-ring",
+    "pvd-sitting-stone-mail",
+    "pvd-weiqi-board-shield"
+   ]
+  },
+  {
+   "key": "trang_hoi_y",
+   "name_hv": "Trang Hôi Y",
+   "name_han": "莊灰衣",
+   "gloss": "Ash-grey robe",
+   "sex": "F",
+   "born": 1095,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "phan_vu",
+   "rank": "noi_mon",
+   "home": 253,
+   "birthplace": 29,
+   "role": "Keeper of the Lower Mouth, the hall's sitting places on the vent's flank below the palace's Nest",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "hoa": 58,
+     "tho": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 54,
+    "can_cot": 66,
+    "than_hon": 60,
+    "khi_van": 46,
+    "dao_tam": 64,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Devout",
+     "Just"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "health": "fire_poison",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A grey-dusted woman who smells of sulphur and keeps a knotted cord with one knot for every disciple now in the vent.",
+   "backstory": "Trang Hôi Y counts who goes into the vent and who comes out, and ties and unties a knot for each. In 1162 she untied none for Tuân Hà Y (tuan_ha_y) and carried out what was left. She keeps the hall's sitting places on the lower flank of Chúc Dung Khẩu, a hundred paces below the palace's Nest, and settles the line between them every season with the Ash Seat's attendant Vi Tịch Hôi (vi_tich_hoi).",
+   "ties": [
+    {
+     "to": "tao_tan_kien",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "vi_tich_hoi",
+     "kind": "friend",
+     "note": "the palace's attendant at the Ash Seat; they share the vent"
+    },
+    {
+     "to": "thuong_quy_vu",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "nhiep_hoi_sinh",
+     "kind": "disciple",
+     "note": "ash-born boy who left the palace's outer gate for the hall"
+    },
+    {
+     "to": "sai_tinh_lan",
+     "kind": "friend",
+     "note": "keeps the sitting rolls at the Lower Mouth"
+    }
+   ],
+   "master": "tao_tan_kien",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "burning-feather-body-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire resistance and a mending body; she brings people out.",
+     "targets": [
+      2511,
+      2513,
+      2515,
+      2465,
+      2467
+     ],
+     "targets_note": "Lineage, Warm Ash and Rekindled: a mending body that brings people out."
+    },
+    "note": "The knotted cord."
+   }
+  },
+  {
+   "key": "doi_liet_cuong",
+   "name_hv": "Đới Liệt Cương",
+   "name_han": "戴烈剛",
+   "gloss": "Fierce and hard",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "phan_vu",
+   "rank": "noi_mon",
+   "home": 29,
+   "birthplace": 94,
+   "role": "Captain of the hall's levy; guards the road between Tang Điền and the Fire Court",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "hoa": 52,
+     "tho": 48,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 44,
+    "can_cot": 72,
+    "than_hon": 46,
+    "khi_van": 50,
+    "dao_tam": 48,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Wrathful",
+     "Warlike",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "fire_tempered"
+    ],
+    "fate_given": [],
+    "gained": [
+     "Battle-hardened"
+    ]
+   },
+   "appearance": "A loud silk-trader's son with a broken nose who wears the hall's red sash over a merchant's coat.",
+   "backstory": "A silk trader's son from Tang Điền who came to the vents to stop being a silk trader's son, Đới Liệt Cương leads the hall's levy, the strongest of any vassal of the palace. Since 1162 its work has been guarding the road to the Fire Court, and he hates it. He hates the palace's envoy Bình Viễn Khách (binh_vien_khach) more, because she counts the levy as tribute. Hùng Phần Vũ (hung_phan_vu) trained him and keeps him away from the Fire Court's gate.",
+   "ties": [
+    {
+     "to": "hung_phan_vu",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "binh_vien_khach",
+     "kind": "enemy",
+     "note": "the palace envoy who counts his levy"
+    },
+    {
+     "to": "long_chuoc_sinh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "doi_so_cuong",
+     "kind": "child",
+     "note": "his son; he does not look when he rides past"
+    },
+    {
+     "to": "doi_hong_kien",
+     "kind": "grandchild",
+     "note": "his granddaughter, who visits him in secret"
+    },
+    {
+     "to": "doi_hau_cam",
+     "kind": "niece_nephew",
+     "note": "his nephew in the silk house"
+    },
+    {
+     "to": "doi_hoa_tam",
+     "kind": "niece_nephew",
+     "note": "his great-nephew, who wants to ride like him"
+    },
+    {
+     "to": "doi_van_ti",
+     "kind": "parent",
+     "note": "his father, the silk house's old head"
+    },
+    {
+     "to": "doi_tam_nuong",
+     "kind": "sibling",
+     "note": "his elder sister; he guards the palace's road through her fields"
+    },
+    {
+     "to": "do_lang_quyen",
+     "kind": "disciple",
+     "note": "wharf brawler in the road levy"
+    },
+    {
+     "to": "ngac_tri_hoa",
+     "kind": "friend",
+     "note": "levy captain on the palace road, Tang Điền to the Fire Court"
+    }
+   ],
+   "master": "hung_phan_vu",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "burning-feather-body-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "scorch-fist-primer",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire fists and an axe; he would rather hit first.",
+     "targets": [
+      2511,
+      2513,
+      2515,
+      2494,
+      3371
+     ],
+     "targets_note": "Lineage, Sun Crow's Wing to hit first, his master's Kiln Mouth for Fire and Earth fists."
+    },
+    "note": "The levy."
+   }
+  },
+  {
+   "key": "hac_dan_thach",
+   "name_hv": "Hác Đan Thạch",
+   "name_han": "郝丹石",
+   "gloss": "Red stone",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "phan_vu",
+   "rank": "chap_su",
+   "home": 29,
+   "birthplace": 980,
+   "role": "Steward of the hall: red stone and charcoal for the Fire Court, and the tribute ledger",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 50,
+     "hoa": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Greedy",
+     "Diligent"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born"
+   },
+   "backstory": "A stonemason's son from Thạch Tượng who sells the Fire Court its red Đan Thạch stone and its charcoal, and keeps a second ledger of what the palace's envoy Bình Viễn Khách (binh_vien_khach) counts as tribute that he counts as sales.",
+   "ties": [
+    {
+     "to": "tao_tan_kien",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "binh_vien_khach",
+     "kind": "rival",
+     "note": "they count the same carts"
+    },
+    {
+     "to": "boc_than",
+     "kind": "friend",
+     "note": "the servant he employs"
+    },
+    {
+     "to": "khanh_mac_thach",
+     "kind": "disciple",
+     "note": "weighs the stone sent to the Fire Court"
+    }
+   ],
+   "master": "tao_tan_kien",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "burning-feather-body-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "The ledger."
+   }
+  },
+  {
+   "key": "bao_viem_nuong",
+   "name_hv": "Bao Viêm Nương",
+   "name_han": "包炎娘",
+   "gloss": "Flame girl",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "phan_vu",
+   "rank": "noi_mon",
+   "home": 29,
+   "birthplace": 29,
+   "role": "Hùng Diễm Nhi's milk sister; rides her to the vents at the dark of the moon",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 54,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Brave",
+     "Deceitful"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Nursed at the same breast as Hùng Diễm Nhi (hung_diem_nhi) in 1150, she waits below the Fire Court's wall on moonless nights and rides her friend the night's road down to the Lower Mouth to temper with the hall.",
+   "ties": [
+    {
+     "to": "hung_diem_nhi",
+     "kind": "friend",
+     "note": "milk sister"
+    },
+    {
+     "to": "hung_phan_vu",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "cat_xich_van",
+     "kind": "disciple",
+     "note": "keeps watch at the Lower Mouth on moonless nights"
+    }
+   ],
+   "master": "hung_phan_vu",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "burning-feather-body-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire, and quick feet."
+    },
+    "note": "The night path."
+   }
+  },
+  {
+   "key": "long_chuoc_sinh",
+   "name_hv": "Long Chước Sinh",
+   "name_han": "龍灼生",
+   "gloss": "Born scorched",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phan_vu",
+   "rank": "noi_mon",
+   "home": 29,
+   "birthplace": 94,
+   "role": "Inner disciple of the levy",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 48,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Arrogant",
+     "Impatient"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A mulberry picker's son from Tang Điền who has sat five sittings and wants Đới Liệt Cương (doi_liet_cuong) to let him fight a palace fan duelist on the Fire Court's stair.",
+   "ties": [
+    {
+     "to": "doi_liet_cuong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "long_tang_chi",
+     "kind": "aunt_uncle",
+     "note": "his great-aunt, of the Long at home"
+    },
+    {
+     "to": "kinh_tieu_hoa",
+     "kind": "friend",
+     "note": "an outer-gate friend"
+    },
+    {
+     "to": "lanh_nham_nuong",
+     "kind": "friend",
+     "note": "keeps the cooled lava where the hall's dead stand"
+    }
+   ],
+   "master": "doi_liet_cuong",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "burning-feather-body-canon",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire fists."
+    },
+    "note": "Wants a duel."
+   }
+  },
+  {
+   "key": "kinh_tieu_hoa",
+   "name_hv": "Kinh Tiểu Hỏa",
+   "name_han": "荊小火",
+   "gloss": "Little fire",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "phan_vu",
+   "rank": "ngoai_mon",
+   "home": 29,
+   "birthplace": 162,
+   "role": "Outer disciple on the cooled lava",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 38,
+     "hoa": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Humble",
+     "Patient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A caravan boy from Tang Âm who sits on the cold rock at the fourth layer, watches Long Chước Sinh (long_chuoc_sinh) go in deeper, and does not envy him.",
+   "ties": [
+    {
+     "to": "long_chuoc_sinh",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "vent-sitting-breath",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "Cooled lava."
+   }
+  },
+  {
+   "key": "nguy_hong_tao",
+   "name_hv": "Nguy Hồng Tảo",
+   "name_han": "危紅藻",
+   "gloss": "Red seaweed",
+   "sex": "F",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "phan_vu",
+   "rank": "ngoai_mon",
+   "home": 29,
+   "birthplace": 44,
+   "role": "Outer disciple from Ngũ Thải Thành, the head's own city",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "thuy": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Gregarious",
+     "Brave"
+    ],
+    "calling": "Duelist",
+    "upbringing": "street_orphan"
+   },
+   "backstory": "A wharf girl from Ngũ Thải whom Hùng Phần Vũ (hung_phan_vu) brought back from a visit home because she knocked down his escort; her Earth gets her through the gate and her Fire never will.",
+   "ties": [
+    {
+     "to": "hung_phan_vu",
+     "kind": "master",
+     "note": "same docks"
+    },
+    {
+     "to": "do_lang_quyen",
+     "kind": "friend",
+     "note": "wharf brawler in the road levy"
+    }
+   ],
+   "master": "hung_phan_vu",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "vent-sitting-breath",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth, stubbornly."
+    },
+    "note": "The head's kind of disciple."
+   }
+  },
+  {
+   "key": "thuong_quy_vu",
+   "name_hv": "Thượng Quy Vũ",
+   "name_han": "尚歸羽",
+   "gloss": "The feather returns",
+   "sex": "M",
+   "born": 1165,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phan_vu",
+   "rank": "noi_mon",
+   "home": 29,
+   "birthplace": 449,
+   "role": "Inner disciple; an ash-born boy who left the palace's outer gate for the vents",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 56,
+     "tho": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Fickle",
+     "Brave",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Born at the Fire Court to its servants, he passed the palace's Feather Kindling and walked out the same week to sit in the vents instead; the palace counts him a deserter, and his old classmate Địch Tiểu Chước (dich_tieu_chuoc) still writes to him.",
+   "ties": [
+    {
+     "to": "trang_hoi_y",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dich_tieu_chuoc",
+     "kind": "friend",
+     "note": "classmate at the Fire Court"
+    },
+    {
+     "to": "nhiep_hoi_sinh",
+     "kind": "friend",
+     "note": "ash-born boy who left the palace's outer gate for the hall"
+    }
+   ],
+   "master": "trang_hoi_y",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "burning-feather-body-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire."
+    },
+    "note": "The deserter."
+   }
+  },
+  {
+   "key": "boc_than",
+   "name_hv": "Bốc Thán",
+   "name_han": "卜炭",
+   "gloss": "Charcoal",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phan_vu",
+   "rank": "tap_dich",
+   "home": 29,
+   "birthplace": 980,
+   "role": "Servant charcoal burner",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Lazy",
+     "Forgiving"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "A Wood-rooted charcoal burner from Thạch Tượng who will never sit in the vent and burns the wood the Fire Court's kitchens eat for Hác Đan Thạch (hac_dan_thach).",
+   "ties": [
+    {
+     "to": "hac_dan_thach",
+     "kind": "friend",
+     "note": "his employer"
+    }
+   ],
+   "exception": "servant (tạp dịch): Wood-Water root, not taught the lineage",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Plain Wood."
+    },
+    "note": "Servant; a stand-in Yellow Wood method."
+   }
+  },
+  {
+   "key": "ke_thu_liet",
+   "name_hv": "Kê Thủ Liệt",
+   "name_han": "嵇守烈",
+   "gloss": "Keeps the fire",
+   "sex": "M",
+   "born": 1001,
+   "died": 1025,
+   "cause": "died in the vent at the hall's first sitting (A310)",
+   "alive": false,
+   "peak_realm": "luyen_khi",
+   "sect": "phan_vu",
+   "rank": "noi_mon",
+   "home": 29,
+   "birthplace": 29,
+   "role": "Hùng Phần Vũ's first disciple; the first who died in the vents",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A vent-village boy who followed Hùng Phần Vũ (hung_phan_vu) into the rock in 1020 and asked to sit first. In 1025 he went into the vent for the first sitting with nothing to stop him and burned (A310). Hùng wrote the Vent-Sitting Breath that winter. Every new disciple touches the black stone where he sat.",
+   "ties": [
+    {
+     "to": "hung_phan_vu",
+     "kind": "former_master",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "key": "tuan_ha_y",
+   "name_hv": "Tuân Hà Y",
+   "name_han": "荀霞衣",
+   "gloss": "Robe of red clouds",
+   "sex": "F",
+   "born": 1060,
+   "died": 1162,
+   "cause": "died in the vent's mouth attempting the Red Wall Rebirth (N-phan_vu-04)",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "phan_vu",
+   "rank": "truong_lao",
+   "home": 29,
+   "birthplace": 94,
+   "role": "Hùng Phần Vũ's Dao partner; mother of Hùng Diễm Nhi",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Brave",
+     "Stubborn"
+    ],
+    "calling": "Duelist",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A silk-dyer's daughter of Tang Điền and the hall's best fighter in her day, she was Hùng Phần Vũ's (hung_phan_vu) Dao partner for sixty years. In 1162 the palace took her daughter Hùng Diễm Nhi (hung_diem_nhi) as surety. That autumn, at 102, with a Trúc Cơ that had not moved in forty years, she went into the vent's mouth for the Red Wall Rebirth to break through, and did not come out.",
+   "ties": [
+    {
+     "to": "hung_phan_vu",
+     "kind": "dao_partner",
+     "note": ""
+    },
+    {
+     "to": "hung_diem_nhi",
+     "kind": "child",
+     "note": ""
+    }
+   ]
+  }
+ ]
+}

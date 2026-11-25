@@ -1,0 +1,1452 @@
+{
+"_doc": "Input slice for the depth writer of le_tuyen (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "le_tuyen",
+"name": "Lễ Tuyền Phái",
+"name_han": "醴泉派",
+"gloss": "School of the Sweet Spring",
+"alignment": "chính đạo",
+"leans": [
+"Water",
+"Wood"
+],
+"craft": "healing, spirit wine and the lake springs",
+"lord": "phuong_minh",
+"region": 17,
+"seat": 26,
+"kind": "minor"
+},
+"start_state": {
+"key": "le_tuyen",
+"name": "Lễ Tuyền Phái",
+"name_han": "醴泉派",
+"gloss": "School of the Sweet Spring",
+"kind": "minor",
+"alignment": "chinh",
+"leans": [
+"Water",
+"Wood"
+],
+"seat": 26,
+"levels": {
+"holdings": 2,
+"institutions": 4,
+"military": 2,
+"trade": 3
+},
+"treasury": 7000,
+"founded": 660,
+"specialty": "dan_su",
+"lord": "phuong_minh",
+"loyalty": 65,
+"craft": "healing, spirit wine and the lake springs",
+"region": 17,
+"leader": "mai_le_tuyen"
+},
+"lord": "phuong_minh",
+"vassals": [],
+"seat": {
+"id": 26,
+"name": "Lễ Tuyền Phái",
+"gloss": "",
+"kind": "minor_seat",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 22,
+"hoa": 19,
+"tho": 29,
+"kim": 12,
+"thuy": 17
+},
+"variants": {},
+"density": 1.33,
+"note": ""
+},
+"seat_audit": "## MOVE Lễ Tuyền Phái (le_tuyen; leans Water/Wood)\nSeat: Lễ Tuyền Phái (id 26, minor_seat, region 17, grassland), density 1.33\nSeat qi: Water 17%, Wood 22%\nCandidates: none in its own ground; re-lean the sect to its land, or move it to a fitting place nearby (see rules-proposals R4).\n",
+"ground": [
+{
+"id": 434,
+"name": "Thạch Ma Trấn",
+"gloss": "Millstone Town",
+"kind": "ruin",
+"region": 17,
+"biome": "high mountain",
+"elev_km": 0.41,
+"qi": {
+"moc": 15,
+"hoa": 12,
+"tho": 25,
+"kim": 28,
+"thuy": 20
+},
+"variants": {},
+"density": 1.36,
+"note": ""
+},
+{
+"id": 26,
+"name": "Lễ Tuyền Phái",
+"gloss": "",
+"kind": "minor_seat",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 22,
+"hoa": 19,
+"tho": 29,
+"kim": 12,
+"thuy": 17
+},
+"variants": {},
+"density": 1.33,
+"note": ""
+},
+{
+"id": 220,
+"name": "Vân Môn Thành",
+"gloss": "City of the Cloud Gate",
+"kind": "ruin",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 19,
+"hoa": 19,
+"tho": 30,
+"kim": 12,
+"thuy": 19
+},
+"variants": {},
+"density": 1.32,
+"note": "Cửu Thiều's city, named for the ancient Vân Môn music, twin of the Thiều; abandoned after the War of the Nine Shao."
+},
+{
+"id": 795,
+"name": "Liệu Phàm Bảo",
+"gloss": "Fort Watching for Sails",
+"kind": "ruin",
+"region": 17,
+"biome": "high mountain",
+"elev_km": 0.6,
+"qi": {
+"moc": 11,
+"hoa": 11,
+"tho": 20,
+"kim": 26,
+"thuy": 32
+},
+"variants": {},
+"density": 1.31,
+"note": ""
+},
+{
+"id": 269,
+"name": "Cam Lộ Thang",
+"gloss": "Sweet Dew Bath",
+"kind": "hot_spring",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.09,
+"qi": {
+"moc": 21,
+"hoa": 23,
+"tho": 34,
+"kim": 13,
+"thuy": 10
+},
+"variants": {},
+"density": 1.22,
+"note": ""
+},
+{
+"id": 193,
+"name": "Triêu Hà Hồ",
+"gloss": "Lake of the Dawn Clouds",
+"kind": "lake",
+"region": 17,
+"biome": "lake",
+"elev_km": -0.04,
+"qi": {
+"moc": 25,
+"hoa": 14,
+"tho": 22,
+"kim": 15,
+"thuy": 25
+},
+"variants": {},
+"density": 1.22,
+"note": "The east's dawn clouds answer Lạc Hà's sunset clouds in the west; beside Lễ Tuyền Phái"
+},
+{
+"id": 433,
+"name": "Bạc Hà Đàm",
+"gloss": "Mint Pool",
+"kind": "lake",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 21,
+"hoa": 16,
+"tho": 26,
+"kim": 17,
+"thuy": 19
+},
+"variants": {},
+"density": 1.21,
+"note": ""
+},
+{
+"id": 335,
+"name": "Ngọc Quản Trấn",
+"gloss": "Jade Pipe Town",
+"kind": "ruin",
+"region": 17,
+"biome": "temperate forest",
+"elev_km": 0.27,
+"qi": {
+"moc": 26,
+"hoa": 14,
+"tho": 23,
+"kim": 23,
+"thuy": 14
+},
+"variants": {},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 432,
+"name": "Minh Kính Hồ",
+"gloss": "Bright Mirror Lake",
+"kind": "lake",
+"region": 17,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 28,
+"hoa": 15,
+"tho": 22,
+"kim": 14,
+"thuy": 21
+},
+"variants": {},
+"density": 1.12,
+"note": ""
+},
+{
+"id": 228,
+"name": "Châu Lệ Cảng",
+"gloss": "Harbour of Pearl Tears",
+"kind": "ruin",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 16,
+"hoa": 20,
+"tho": 29,
+"kim": 13,
+"thuy": 21
+},
+"variants": {},
+"density": 1.05,
+"note": "Lý Thương Ẩn: the pearl in the moonlit sea has tears. Burned by Thôn Hải's raiders."
+},
+{
+"id": 431,
+"name": "Dã Trư Lâm",
+"gloss": "Wild Boar Forest",
+"kind": "beast_lair",
+"region": 17,
+"biome": "temperate forest",
+"elev_km": 0.21,
+"qi": {
+"moc": 28,
+"hoa": 17,
+"tho": 26,
+"kim": 20,
+"thuy": 10
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 781,
+"name": "Xích Vũ Phong",
+"gloss": "Red Feather Peak",
+"kind": "peak",
+"region": 17,
+"biome": "high mountain",
+"elev_km": 1.45,
+"qi": {
+"moc": 7,
+"hoa": 12,
+"tho": 28,
+"kim": 42,
+"thuy": 11
+},
+"variants": {
+"am": 8.7
+},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 780,
+"name": "Chu Đồng Khoáng",
+"gloss": "Vermilion Copper Mine",
+"kind": "mine",
+"region": 17,
+"biome": "high mountain",
+"elev_km": 1.02,
+"qi": {
+"moc": 11,
+"hoa": 14,
+"tho": 29,
+"kim": 35,
+"thuy": 12
+},
+"variants": {},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 782,
+"name": "Ô Ngọc Khoáng",
+"gloss": "Crow-Black Jade Mine",
+"kind": "mine",
+"region": 17,
+"biome": "high mountain",
+"elev_km": 1.08,
+"qi": {
+"moc": 18,
+"hoa": 12,
+"tho": 23,
+"kim": 28,
+"thuy": 20
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 785,
+"name": "Ngọa Ngưu Sơn",
+"gloss": "Mount of the Lying Ox",
+"kind": "peak",
+"region": 17,
+"biome": "high mountain",
+"elev_km": 1.22,
+"qi": {
+"moc": 14,
+"hoa": 10,
+"tho": 20,
+"kim": 28,
+"thuy": 28
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 794,
+"name": "Phủ Điền Lĩnh",
+"gloss": "Ridge Bowing Over the Fields",
+"kind": "peak",
+"region": 17,
+"biome": "high mountain",
+"elev_km": 1.3,
+"qi": {
+"moc": 18,
+"hoa": 16,
+"tho": 28,
+"kim": 28,
+"thuy": 12
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 789,
+"name": "Kim Ô Phong",
+"gloss": "Peak of the Golden Crow",
+"kind": "peak",
+"region": 17,
+"biome": "high mountain",
+"elev_km": 1.35,
+"qi": {
+"moc": 13,
+"hoa": 11,
+"tho": 23,
+"kim": 28,
+"thuy": 25
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 786,
+"name": "Thần Chung Phong",
+"gloss": "Peak of the Morning Bell",
+"kind": "peak",
+"region": 17,
+"biome": "high mountain",
+"elev_km": 1.53,
+"qi": {
+"moc": 18,
+"hoa": 11,
+"tho": 22,
+"kim": 27,
+"thuy": 22
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 783,
+"name": "Bích Tiêu Phong",
+"gloss": "Peak of the Azure Heaven",
+"kind": "peak",
+"region": 17,
+"biome": "high mountain",
+"elev_km": 1.55,
+"qi": {
+"moc": 14,
+"hoa": 12,
+"tho": 25,
+"kim": 31,
+"thuy": 19
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 770,
+"name": "Quần Sài Cương",
+"gloss": "Ridge of the Jackal Packs",
+"kind": "beast_lair",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.32,
+"qi": {
+"moc": 17,
+"hoa": 21,
+"tho": 34,
+"kim": 20,
+"thuy": 8
+},
+"variants": {},
+"density": 0.96,
+"note": ""
+},
+{
+"id": 776,
+"name": "Hải Diêm Trấn",
+"gloss": "Sea Salt Town",
+"kind": "ruin",
+"region": 17,
+"biome": "steppe",
+"elev_km": 0.04,
+"qi": {
+"moc": 10,
+"hoa": 14,
+"tho": 19,
+"kim": 12,
+"thuy": 46
+},
+"variants": {},
+"density": 0.95,
+"note": ""
+},
+{
+"id": 784,
+"name": "Vân Thạch Khoáng",
+"gloss": "Cloud Stone Quarry",
+"kind": "mine",
+"region": 17,
+"biome": "high mountain",
+"elev_km": 0.09,
+"qi": {
+"moc": 13,
+"hoa": 10,
+"tho": 18,
+"kim": 24,
+"thuy": 36
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 773,
+"name": "Liệp Điêu Nhai",
+"gloss": "Cliff of the Hunting Eagles",
+"kind": "beast_lair",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.57,
+"qi": {
+"moc": 20,
+"hoa": 21,
+"tho": 33,
+"kim": 19,
+"thuy": 7
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 778,
+"name": "Xích Nghĩ Nguyên",
+"gloss": "Plain of the Red Ants",
+"kind": "beast_lair",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.14,
+"qi": {
+"moc": 12,
+"hoa": 21,
+"tho": 33,
+"kim": 15,
+"thuy": 18
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 790,
+"name": "Thiết Giác Nguyên",
+"gloss": "Plain of the Iron Horns",
+"kind": "beast_lair",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.03,
+"qi": {
+"moc": 19,
+"hoa": 23,
+"tho": 34,
+"kim": 14,
+"thuy": 10
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 150,
+"name": "Ngân Hạnh Thôn",
+"gloss": "Ginkgo Village",
+"kind": "village",
+"region": 17,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 32,
+"hoa": 15,
+"tho": 21,
+"kim": 13,
+"thuy": 20
+},
+"variants": {},
+"density": 0.91,
+"note": ""
+},
+{
+"id": 87,
+"name": "Lục Dã Trấn",
+"gloss": "Green Meadows Town",
+"kind": "town",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 22,
+"hoa": 14,
+"tho": 24,
+"kim": 19,
+"thuy": 21
+},
+"variants": {},
+"density": 0.89,
+"note": ""
+},
+{
+"id": 771,
+"name": "Hoàng Lương Thôn",
+"gloss": "Yellow Millet Village",
+"kind": "village",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.08,
+"qi": {
+"moc": 16,
+"hoa": 19,
+"tho": 33,
+"kim": 22,
+"thuy": 9
+},
+"variants": {},
+"density": 0.83,
+"note": ""
+},
+{
+"id": 86,
+"name": "Đạo Hương Trấn",
+"gloss": "Rice Scent Town",
+"kind": "town",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 29,
+"hoa": 14,
+"tho": 20,
+"kim": 15,
+"thuy": 22
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 148,
+"name": "Thủy Điền Thôn",
+"gloss": "Paddy Fields Village",
+"kind": "village",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.06,
+"qi": {
+"moc": 22,
+"hoa": 23,
+"tho": 26,
+"kim": 13,
+"thuy": 16
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 85,
+"name": "Hoàng Vân Thành",
+"gloss": "Yellow Clouds of Grain City",
+"kind": "city",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.05,
+"qi": {
+"moc": 31,
+"hoa": 16,
+"tho": 22,
+"kim": 13,
+"thuy": 18
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 152,
+"name": "Hoàng Ngưu Thôn",
+"gloss": "Yellow Ox Village",
+"kind": "village",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 26,
+"hoa": 15,
+"tho": 23,
+"kim": 15,
+"thuy": 22
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 775,
+"name": "Hàm Ôn Tuyền",
+"gloss": "Salt-Warm Spring",
+"kind": "hot_spring",
+"region": 17,
+"biome": "steppe",
+"elev_km": 0.06,
+"qi": {
+"moc": 12,
+"hoa": 21,
+"tho": 33,
+"kim": 15,
+"thuy": 19
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 337,
+"name": "Vọng Triều Đường",
+"gloss": "Hall Watching the Tide",
+"kind": "minor_seat",
+"region": 17,
+"biome": "steppe",
+"elev_km": 0.05,
+"qi": {
+"moc": 16,
+"hoa": 19,
+"tho": 25,
+"kim": 12,
+"thuy": 28
+},
+"variants": {},
+"density": 0.79,
+"note": ""
+},
+{
+"id": 339,
+"name": "Ngưu Dục Trì",
+"gloss": "Ox Bath Pool",
+"kind": "hot_spring",
+"region": 17,
+"biome": "steppe",
+"elev_km": 0.1,
+"qi": {
+"moc": 27,
+"hoa": 19,
+"tho": 27,
+"kim": 12,
+"thuy": 15
+},
+"variants": {},
+"density": 0.78,
+"note": ""
+},
+{
+"id": 149,
+"name": "Âu Lộ Thôn",
+"gloss": "Gulls and Herons Village",
+"kind": "village",
+"region": 17,
+"biome": "grassland",
+"elev_km": -0.01,
+"qi": {
+"moc": 21,
+"hoa": 16,
+"tho": 19,
+"kim": 10,
+"thuy": 34
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 151,
+"name": "Lý Hoa Thôn",
+"gloss": "Plum Blossom Village",
+"kind": "village",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 22,
+"hoa": 20,
+"tho": 25,
+"kim": 11,
+"thuy": 23
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 774,
+"name": "Phong Mật Thôn",
+"gloss": "Honey Village",
+"kind": "village",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.2,
+"qi": {
+"moc": 19,
+"hoa": 20,
+"tho": 33,
+"kim": 21,
+"thuy": 7
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 777,
+"name": "Tử Thái Thôn",
+"gloss": "Laver Village",
+"kind": "village",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 15,
+"hoa": 21,
+"tho": 31,
+"kim": 14,
+"thuy": 20
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 334,
+"name": "Thanh Âu Nhãn",
+"gloss": "Eye of the Grey Gull",
+"kind": "spirit_vein",
+"region": 17,
+"biome": "temperate forest",
+"elev_km": 0.1,
+"qi": {
+"moc": 24,
+"hoa": 19,
+"tho": 23,
+"kim": 10,
+"thuy": 22
+},
+"variants": {},
+"density": 0.72,
+"note": ""
+},
+{
+"id": 41,
+"name": "Lai Nghi Thành",
+"gloss": "City Where the Phoenix Comes",
+"kind": "city",
+"region": 17,
+"biome": "steppe",
+"elev_km": 0.0,
+"qi": {
+"moc": 17,
+"hoa": 19,
+"tho": 29,
+"kim": 13,
+"thuy": 22
+},
+"variants": {},
+"density": 0.7,
+"note": "Kinh Thư: Tiêu Thiều cửu thành, phượng hoàng lai nghi (when the Shao music was played nine times, the phoenix came)"
+},
+{
+"id": 793,
+"name": "Thâm Tỉnh Thôn",
+"gloss": "Deep Well Village",
+"kind": "village",
+"region": 17,
+"biome": "steppe",
+"elev_km": 0.1,
+"qi": {
+"moc": 17,
+"hoa": 24,
+"tho": 38,
+"kim": 15,
+"thuy": 5
+},
+"variants": {},
+"density": 0.68,
+"note": ""
+},
+{
+"id": 788,
+"name": "Nhật Xuất Thôn",
+"gloss": "Sunrise Village",
+"kind": "village",
+"region": 17,
+"biome": "steppe",
+"elev_km": 0.02,
+"qi": {
+"moc": 15,
+"hoa": 17,
+"tho": 21,
+"kim": 12,
+"thuy": 35
+},
+"variants": {},
+"density": 0.67,
+"note": ""
+},
+{
+"id": 791,
+"name": "Hải Mục Thôn",
+"gloss": "Sea Pasture Village",
+"kind": "village",
+"region": 17,
+"biome": "steppe",
+"elev_km": 0.01,
+"qi": {
+"moc": 12,
+"hoa": 19,
+"tho": 29,
+"kim": 14,
+"thuy": 26
+},
+"variants": {},
+"density": 0.66,
+"note": ""
+},
+{
+"id": 779,
+"name": "Hàm Trạch Thôn",
+"gloss": "Salt Marsh Village",
+"kind": "village",
+"region": 17,
+"biome": "steppe",
+"elev_km": -0.04,
+"qi": {
+"moc": 11,
+"hoa": 16,
+"tho": 22,
+"kim": 13,
+"thuy": 39
+},
+"variants": {},
+"density": 0.66,
+"note": ""
+},
+{
+"id": 336,
+"name": "Kim Diệp Mạch",
+"gloss": "Vein of the Golden Leaves",
+"kind": "spirit_vein",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.08,
+"qi": {
+"moc": 29,
+"hoa": 24,
+"tho": 30,
+"kim": 11,
+"thuy": 6
+},
+"variants": {},
+"density": 0.62,
+"note": ""
+},
+{
+"id": 787,
+"name": "Đông Thăng Nhãn",
+"gloss": "Eye of the Rising Sun",
+"kind": "spirit_vein",
+"region": 17,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 20,
+"hoa": 23,
+"tho": 32,
+"kim": 13,
+"thuy": 12
+},
+"variants": {},
+"density": 0.62,
+"note": ""
+},
+{
+"id": 370,
+"name": "Cửu Tấu Mạch",
+"gloss": "Vein of the Nine Performances",
+"kind": "spirit_vein",
+"region": 17,
+"biome": "steppe",
+"elev_km": 0.06,
+"qi": {
+"moc": 13,
+"hoa": 23,
+"tho": 36,
+"kim": 15,
+"thuy": 12
+},
+"variants": {},
+"density": 0.57,
+"note": ""
+},
+{
+"id": 333,
+"name": "Hòa Miêu Mạch",
+"gloss": "Vein of the Rice Shoots",
+"kind": "spirit_vein",
+"region": 17,
+"biome": "steppe",
+"elev_km": 0.08,
+"qi": {
+"moc": 16,
+"hoa": 28,
+"tho": 30,
+"kim": 17,
+"thuy": 9
+},
+"variants": {},
+"density": 0.55,
+"note": ""
+},
+{
+"id": 792,
+"name": "Hậu Thổ Huyệt",
+"gloss": "Node of the Earth Sovereign",
+"kind": "spirit_vein",
+"region": 17,
+"biome": "steppe",
+"elev_km": 0.2,
+"qi": {
+"moc": 16,
+"hoa": 25,
+"tho": 39,
+"kim": 15,
+"thuy": 5
+},
+"variants": {},
+"density": 0.54,
+"note": ""
+}
+],
+"ground_place_count": 51,
+"events": [
+{
+"id": "C050",
+"tier": "landmark",
+"year": 130,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"cuu_thieu"
+],
+"text_en": "Cửu Thiều builds Vân Môn Thành on the plain, named for the Vân Môn music, the Thiều's twin; the stone chime Vân Môn Khánh hangs in its hall.",
+"place": 220,
+"item": "van_mon_khanh"
+},
+{
+"id": "A249",
+"tier": "annal",
+"year": 140,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Rice is first planted in the flooded fields of the plain; Thủy Điền's paddies are older than every sect but two.",
+"place": 148,
+"region": 17
+},
+{
+"id": "A250",
+"tier": "annal",
+"year": 200,
+"kind": "tale",
+"people": [],
+"sects": [
+"cuu_thieu"
+],
+"text_en": "Vân Môn's musicians play to the morning sun over the lake, and the dawn clouds take the colour of the music.",
+"place": 193,
+"region": 17
+},
+{
+"id": "A251",
+"tier": "annal",
+"year": 341,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "Vân Môn Thành empties within a year; its people take the music with them and scatter to the four coasts.",
+"place": 220,
+"region": 17
+},
+{
+"id": "V138",
+"tier": "annal",
+"year": 341,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "With Cửu Thiều Cung fallen, the jade-pipe makers of Ngọc Quản Trấn leave, and the oak woods take the town.",
+"place": 335,
+"region": 17
+},
+{
+"id": "A252",
+"tier": "annal",
+"year": 400,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Yellow oxen run wild on the empty plain; the village that tames them is called Hoàng Ngưu.",
+"place": 152,
+"region": 17
+},
+{
+"id": "A253",
+"tier": "annal",
+"year": 470,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Gulls and herons crowd the shore at Âu Lộ; fishers say the birds were there before the sects and will be after.",
+"place": 149,
+"region": 17
+},
+{
+"id": "A254",
+"tier": "annal",
+"year": 520,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The Vương family, rivals of the Tạ in another land, settle among the rice of Đạo Hương and plant a field each generation.",
+"place": 86,
+"region": 17
+},
+{
+"id": "C112",
+"tier": "landmark",
+"year": 530,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh Cung founds Lai Nghi Thành on the plain, where the phoenix comes when the music is played nine times.",
+"place": 41
+},
+{
+"id": "A255",
+"tier": "annal",
+"year": 560,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Plum blossom at Lý Hoa Thôn is so white that snow geese land among it by mistake.",
+"place": 151,
+"region": 17
+},
+{
+"id": "C121",
+"tier": "landmark",
+"year": 600,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh Cung founds Hoàng Vân Thành, the granary of the rice plain.",
+"place": 85
+},
+{
+"id": "C123",
+"tier": "landmark",
+"year": 600,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh Cung builds the pearl harbour Châu Lệ Cảng on its eastern coast.",
+"place": 228
+},
+{
+"id": "C134",
+"tier": "landmark",
+"year": 649,
+"kind": "tale",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Hoàng Vân Thành's granaries feed the south through a seven-year drought; Phượng Minh's rice becomes its strength.",
+"place": 85
+},
+{
+"id": "A256",
+"tier": "annal",
+"year": 660,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"le_tuyen",
+"phuong_minh"
+],
+"text_en": "Healers who brew wine from the sweet spring the phoenix drinks found Lễ Tuyền Phái.",
+"place": 26,
+"region": 17
+},
+{
+"id": "A257",
+"tier": "annal",
+"year": 662,
+"kind": "settlement",
+"people": [],
+"sects": [
+"le_tuyen",
+"phuong_minh"
+],
+"text_en": "The green meadows of Lục Dã are given to Lễ Tuyền Phái for its herb gardens.",
+"place": 87,
+"region": 17
+},
+{
+"id": "A258",
+"tier": "annal",
+"year": 700,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "A ginkgo at Ngân Hạnh Thôn turns gold in a single night every autumn; it is older than the village.",
+"place": 150,
+"region": 17
+},
+{
+"id": "C151",
+"tier": "landmark",
+"year": 762,
+"kind": "city_ruined",
+"people": [],
+"sects": [
+"thon_hai",
+"phuong_minh"
+],
+"text_en": "Thôn Hải's pirates burn Châu Lệ Cảng; the pearl harbour's divers flee, and the pearls in the moonlit sea are said to weep.",
+"place": 228
+},
+{
+"id": "A259",
+"tier": "annal",
+"year": 763,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The pearl divers of burned Châu Lệ Cảng settle inland at Âu Lộ and never dive again.",
+"place": 149,
+"region": 17
+},
+{
+"id": "V139",
+"tier": "annal",
+"year": 764,
+"kind": "raid",
+"people": [],
+"sects": [],
+"text_en": "Thôn Hải's pirates burn the salt town of Hải Diêm Trấn, two years after Châu Lệ Cảng; its salt makers never come back.",
+"place": 776,
+"region": 17
+},
+{
+"id": "V140",
+"tier": "annal",
+"year": 790,
+"kind": "tale",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "After the Purge, Phượng Minh withdraws the garrison of Liệu Phàm Bảo, and the empty fort begins to crumble into the gulf.",
+"place": 795,
+"region": 17
+},
+{
+"id": "V141",
+"tier": "annal",
+"year": 790,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"vong_trieu",
+"phuong_minh"
+],
+"text_en": "Survivors of the pirate years found Vọng Triều Đường by the burned piers of Châu Lệ, swearing no harbour on this coast will burn again.",
+"place": 337,
+"region": 17
+},
+{
+"id": "V136",
+"tier": "annal",
+"year": 812,
+"kind": "disaster",
+"people": [],
+"sects": [
+"le_tuyen"
+],
+"text_en": "A fever kills half of Cựu Khê Trấn before Lễ Tuyền's healers come; the survivors move down to Thanh Khê and never go back up.",
+"place": 430,
+"region": 16
+},
+{
+"id": "A260",
+"tier": "annal",
+"year": 850,
+"kind": "birth",
+"people": [
+"mai_le_tuyen"
+],
+"sects": [],
+"text_en": "Mai Lễ Tuyền is born in Lục Dã Trấn; they say her first cry made the spring flow sweeter.",
+"place": 87,
+"region": 17
+},
+{
+"id": "A261",
+"tier": "annal",
+"year": 950,
+"kind": "birth",
+"people": [
+"hoa_trieu_duong"
+],
+"sects": [],
+"text_en": "Hoa Triêu Dương is born at dawn on the shore of Triêu Hà Hồ as the clouds turn red.",
+"place": 193,
+"region": 17
+},
+{
+"id": "A262",
+"tier": "annal",
+"year": 1060,
+"kind": "trade",
+"people": [],
+"sects": [
+"phuong_minh",
+"bang_tam"
+],
+"text_en": "Hoàng Vân Thành's granaries are opened to Băng Tâm's desert in a famine year, and the old Desert Road quarrel is quietly forgotten.",
+"place": 85,
+"region": 17
+},
+{
+"id": "V142",
+"tier": "annal",
+"year": 1062,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "In the great rains the hillside slides and buries the millstone town of Thạch Ma Trấn in a night; the survivors go down to Lục Dã.",
+"place": 434,
+"region": 17
+},
+{
+"id": "A263",
+"tier": "annal",
+"year": 1140,
+"kind": "trade",
+"people": [],
+"sects": [
+"le_tuyen",
+"thien_xu"
+],
+"text_en": "Lễ Tuyền Phái's spirit wine is served at the Pivot's table for the first time; Thiên Xu orders a hundred jars a year.",
+"place": 26,
+"region": 17
+},
+{
+"id": "A264",
+"tier": "annal",
+"year": 1199,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The Vương clan of Đạo Hương sends a letter of betrothal to the Tạ of Phong Lâm; the reply has not yet come.",
+"place": 86,
+"region": 17
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "mai_le_tuyen",
+"name": "Mai Lễ Tuyền",
+"name_han": "梅醴泉",
+"gloss": "The sweet spring (Trang Tử)",
+"sex": "F",
+"born": 850,
+"alive": true,
+"sect": "le_tuyen",
+"rank": "tong_chu",
+"role": "Head of Lễ Tuyền Phái, healing, spirit wine and the lake springs",
+"realm": "ket_dan",
+"home": 26,
+"traits": {
+"personality": [
+"Compassionate",
+"Gregarious",
+"Indulgent"
+],
+"calling": "Alchemist",
+"fate_given": []
+},
+"vassal_of": "phuong_minh",
+"build": {
+"root": {
+"elements": {
+"thuy": 76,
+"moc": 62
+}
+},
+"thien_phu": {
+"ngo_tinh": 66,
+"can_cot": 58,
+"than_hon": 62,
+"khi_van": 64,
+"dao_tam": 56,
+"mi_luc": 80
+},
+"archetype": "dan_su",
+"stage": 2,
+"main": {
+"tech": "still-moon-tide-scripture",
+"layer": 8
+},
+"aux": [],
+"gear": [
+{
+"named": "water-still-pool-gourd"
+},
+{
+"base": "chuong",
+"grade": 3,
+"element": "moc"
+},
+{
+"base": "dao_bao",
+"grade": 3,
+"element": "thuy"
+}
+],
+"tree": {
+"start": "thuy",
+"targets": [
+4805,
+5374,
+5157,
+5338,
+6619
+]
+},
+"skills": {
+"dan_dao": 6
+},
+"note": "The healer of the sweet springs: a brimming cup of spirit wine, gentle rain and endless regeneration"
+}
+}
+],
+"legendary_items": []
+}

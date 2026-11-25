@@ -1,0 +1,44 @@
+{
+ "sect": "muc_van",
+ "_doc": "Mục Vân Trang lineage (rules-proposals R5), a no-lean body sect (R3): leans Wind, Earth -> none. There is no wind qi anywhere in its ground and the seat is Water 46 %, so the manor recruits by bone (căn cốt) and by the herd's choice, not by root. Outer gate: mountain-bone-body-art (existing Yellow body). Inner gate and above: cloud-herd-body-canon (proposal, Profound body). Secret arts: herd-call (proposal, inner), gale-courier-scripture (existing Wind main, held as the Phù Dao Quán book since 1121, V100; taught only to the rare Wind-born). Proposals are unpriced.",
+ "lineage": {
+  "outer": "mountain-bone-body-art",
+  "main": "cloud-herd-body-canon",
+  "secret": [
+   {"id": "herd-call", "rank": "noi_mon"},
+   {"id": "gale-courier-scripture", "rank": "truong_lao"}
+  ],
+  "body": "cloud-herd-body-canon",
+  "elements": [],
+  "tree_route": [707, 6487],
+  "tree_route_note": "Solid Ground and Beast Pen: a rider's steady body and the herd; the horse lord's own opening. The lineage has no element; priced from Earth, the start of every lineage A/B member (48)."
+ },
+ "techniques": [
+  {
+   "id": "cloud-herd-body-canon",
+   "name": "Cloud-Herding Body Canon (Mục Vân Thể Kinh)",
+   "tier": 1, "tech_kind": "body", "names": [], "layers": 9, "rank": "noi_mon",
+   "concept": "The founder's method, learned from the herd. The disciple tempers the body on horseback: the long ride, a day and a night at the gallop, one more hour for each layer, until the legs and the spine take the horse's rhythm and keep it on foot. It runs on no element. What it needs is bone and patience, and a horse that will carry the disciple that far. In a fight it is momentum: the holder hits harder the longer they have been moving, and their beast fights beside them in step.",
+   "arts": [
+    {"new": "The Long Ride (Trường Khu)", "concept": "A stance. Each second in which you or your horse land a hit adds a momentum stack; each raises your Physical damage and body shield a little. A single heavy blow (5 % of your health or more), or being Displaced, loses half.", "authored": "d20"},
+    {"new": "Run With the Herd (Đồng Bôn)", "concept": "A charge that spends momentum: your hit and your companion's next hit land together; the foe is Displaced (heavy) and takes Physical damage scaled by the stacks spent.", "authored": "a1"},
+    {"new": "Bridle Hand (Khống Bí)", "concept": "Seizes a foe at arm's length and holds them for 1 s; while held, the holder's companion deals extra damage to them."}
+   ],
+   "lore": "Mẫn Bạch Câu wrote it in 742 from the way the plain's herders had always broken their colts and themselves together. The first page says: a horse is a disciple's first master.",
+   "status": "proposal",
+   "authored": "d20, a1"
+  },
+  {
+   "id": "herd-call",
+   "name": "Herd Call (Quần Mã Hiệu)",
+   "tier": 1, "tech_kind": "secret", "names": [], "layers": 9, "rank": "noi_mon",
+   "concept": "A whistled call, half breath and half qi, that a horse raised on the manor answers from a valley away. The inner disciple learns to call one beast, then three, and the head can turn the whole herd. In a fight it calls the holder's companion to them and steadies it: the beast's health and attack rise while it stays within call, and a frightened beast stops running.",
+   "arts": [
+    {"new": "Whistle Home (Hô Quy)", "concept": "Calls the holder's companion to their side, heals it a little and clears one fear or slow from it."},
+    {"new": "The Herd Turns (Quần Chuyển)", "concept": "For a few seconds the holder's companions gain attack and art speed, and foes struck by them are slowed."}
+   ],
+   "lore": "No book: it is taught by ear, in the stables, in the disciple's first year, and the outer gate is not allowed to hear it.",
+   "status": "proposal"
+  }
+ ]
+}

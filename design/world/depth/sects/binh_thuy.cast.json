@@ -1,0 +1,1312 @@
+{
+ "sect": "binh_thuy",
+ "people": [
+  {
+   "key": "bui_phieu_binh",
+   "name_hv": "Bùi Phiêu Bình",
+   "name_han": "裴飄萍",
+   "gloss": "Drifting duckweed",
+   "sex": "M",
+   "born": 790,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "binh_thuy",
+   "rank": "tong_chu",
+   "home": 302,
+   "birthplace": 223,
+   "role": "Head of Bình Thủy Môn since 1110 (A156); master of the strait crossing and the sect's sea trade",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 74
+    },
+    "variants": {
+     "phong": 58
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 58,
+    "than_hon": 62,
+    "khi_van": 68,
+    "dao_tam": 50,
+    "mi_luc": 74
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Fickle",
+     "Pragmatic"
+    ],
+    "calling": "Merchant",
+    "upbringing": "war_orphan",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "gambler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Life-debt"
+    ]
+   },
+   "appearance": "A brown, loose-jointed man who looks fifty, with salt in his beard, a sailcloth fan in his belt and a laugh that carries across a harbour.",
+   "backstory": "Bùi Phiêu Bình was born in Vô Định Thành in 790. In 803, when the battle on the plain reached the city (C158), the tally-keeper Phong Ý Nhàn (phong_y_nhan) put him on the last archive boat, pushed a ledger into his arms and went back for more. The boats got out and she did not. He drifted down to the bay with the archives and came to the island in 806 as a ship's boy, with no name anyone knew. The ferrymen of Bình Thủy took him in and called him for the duckweed. The second head Hạng Thiên Nhai (hang_thien_nhai) taught him the oar and the primer, and found the Wind in him that lets him smell weather a day off. He became head in 1110 (A156) and has run the crossing every day of the year since. In 1115 he fought the Claw King for two tides and took its shoal for the sect (N-binh_thuy-03, -04). He drinks with Lạc Hà's envoy Hách Ánh Hà (hach_anh_ha) on the ferry, lends boats and crews to the island warden Lận Viễn Phàm (lan_vien_pham), and has lost two of them (N-binh_thuy-05, -06). He has named four heirs in ninety years and unnamed three.",
+   "wants": "To keep the crossing running every day until someone better takes the oar, and to see the whale-child Sa Kình Nhi build a foundation before he dies.",
+   "secret": "He still has the ledger Phong Ý Nhàn gave him. Its last pages, which he learned to read at forty, record what the Geese Hall drew from Vô Định's stores in the spring of 802 under the founder's seal: nine hundred jars of grave-lotus resin and the stones of a buried array. He knows what rose over Chiết Kích Nguyên. He has shown it to no one, not even Trầm Tịch Dương, whose wife saved him.",
+   "ties": [
+    {
+     "to": "hang_thien_nhai",
+     "kind": "master",
+     "note": "the second head, who gave him the oar"
+    },
+    {
+     "to": "phong_y_nhan",
+     "kind": "debt",
+     "note": "she put him on the last boat out of Vô Định Thành in 803"
+    },
+    {
+     "to": "tram_tich_duong",
+     "kind": "debt",
+     "note": "the widower of the woman who saved him; Bùi has never told him"
+    },
+    {
+     "to": "luong_bach_tan",
+     "kind": "lover",
+     "note": "asked her to leave Phiêu Bồng Quán in 1101; she did, and has never forgiven either of them"
+    },
+    {
+     "to": "ong_te_do",
+     "kind": "disciple",
+     "note": "his master of the crossing"
+    },
+    {
+     "to": "sa_kinh_nhi",
+     "kind": "disciple",
+     "note": "the whale-child; his fifth heir, and the first he means to keep"
+    },
+    {
+     "to": "hach_anh_ha",
+     "kind": "friend",
+     "note": "Lạc Hà's envoy; she crossed on his ferry at fifteen and paid in shell coin"
+    },
+    {
+     "to": "lan_vien_pham",
+     "kind": "friend",
+     "note": "lends him boats and crews for the search for Cô Phàm's fleet; two have not come back"
+    },
+    {
+     "to": "giang_cuu_khuc",
+     "kind": "rival",
+     "note": "Lãng Đào's ferry master; they trade weather and rope, and Bùi refused Lạc Hà boats for the Đào Sa raid"
+    },
+    {
+     "to": "ong_hai_linh",
+     "kind": "friend",
+     "note": "the Minh Loan bell-keeper; every ferry of his carries one of her bells"
+    },
+    {
+     "to": "hau_bach_chu",
+     "kind": "friend",
+     "note": "the shipwright he stretched the fan's sail for in 1110"
+    },
+    {
+     "to": "khuat_do_sinh",
+     "kind": "disciple",
+     "note": "keeper of the Strangers' Hall; placed from Lạc Hà in 1176"
+    }
+   ],
+   "master": "hang_thien_nhai",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "gale-courier-scripture",
+      "layer": 8
+     },
+     {
+      "tech": "undertow-litany",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "bth-following-wind-fan"
+     },
+     {
+      "named": "bth-strait-crossing-coat"
+     },
+     {
+      "named": "bth-ferry-token-ring"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water first for the tide's sustain and buffs, Wind second for speed and evasion: always somewhere else by morning, and never quite where the blow lands.",
+     "targets": [
+      5369,
+      5361,
+      5365,
+      4974,
+      5585
+     ],
+     "targets_note": "The strait route (Misty Rain, Cardinal Points), Blink Mark's capability, then Whale Drinks' leech to feed the Wind land's Boundless Sea keystone, a doubled linh lực pool that refills only by draining the foe: never where the blow lands."
+    },
+    "note": "The strait-crossing master: the tide under him and the wind in the fan."
+   },
+   "items": [
+    "bth-following-wind-fan",
+    "bth-ferry-token-ring",
+    "bth-strait-crossing-coat"
+   ],
+   "changed": "build: main gale-courier-scripture -> still-moon-tide-scripture (the lineage's inner method, R5); gale-courier kept as aux (his own Wind); tree targets -> intent; root, thien_phu, stage moved to the top level; home 18 -> 302 with the seat (R4); birthplace 223 added."
+  },
+  {
+   "key": "luong_bach_tan",
+   "name_hv": "Lương Bạch Tần",
+   "name_han": "梁白蘋",
+   "gloss": "White water-clover",
+   "sex": "F",
+   "born": 1000,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "binh_thuy",
+   "rank": "truong_lao",
+   "home": 302,
+   "birthplace": 122,
+   "role": "First elder of Bình Thủy Môn and keeper of the Tide Hall; the last disciple of Phiêu Bồng Quán",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 62,
+     "moc": 44
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 78,
+    "can_cot": 50,
+    "than_hon": 70,
+    "khi_van": 46,
+    "dao_tam": 64,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Stubborn",
+     "Honest"
+    ],
+    "calling": "Teacher",
+    "upbringing": "temple_raised",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "long_seclusion"
+    ],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": "buried_in_seclusion",
+    "fate_given": [],
+    "gained": [
+     "Embittered"
+    ]
+   },
+   "appearance": "A thin woman in undyed sailcloth with white streaks in her black hair and the Claw King's shell on her back like a door she carries with her.",
+   "backstory": "Lương Bạch Tần was a shell-gatherer's child from Bối Sa Thôn (A144), given at six to Phiêu Bồng Quán, the abbey of the drifting tumbleweed on the sea cliffs. Its last master taught her to read the tide in the Still Moon Tide Scripture and meant her to keep the abbey after him. She was the only disciple left. In 1101 Bùi Phiêu Bình (bui_phieu_binh), a ferryman with a fan who came up the cliff path every month to buy the abbey's salt, asked her to come down to the ferry, and she went (N-binh_thuy-02). Her master died alone that winter and left his books to Bình Thủy, because she was there (V093). She took the Still Moon Tide down to the shoal with the sect in 1116, taught it to the inner gate, and has kept the Tide Hall since. She has never gone back up the cliff path, and she has not let Bùi into her room for ninety years.",
+   "wants": "To go back to Phiêu Bồng Quán once before she dies and light the lamp her master kept, and to find one disciple who will stay.",
+   "secret": "The abbey's books had a last fascicle, the Still Moon Tide's tenth to twelfth layers. She took it out of the chest before the books came down and has kept it under the Tide Hall's floor. She has turned the tenth layer herself, which is why the first elder is a layer past the head. No one has asked why.",
+   "ties": [
+    {
+     "to": "hang_thien_nhai",
+     "kind": "master",
+     "note": "the second head took her in at the landing in 1101"
+    },
+    {
+     "to": "bui_phieu_binh",
+     "kind": "lover",
+     "note": "she left her master for him in 1101; she blames them both for the winter that followed"
+    },
+    {
+     "to": "kieu_vong_hai",
+     "kind": "disciple",
+     "note": "her one inner disciple who might stay"
+    },
+    {
+     "to": "cu_boi_ngan",
+     "kind": "disciple",
+     "note": "keeps the till; Lương taught her to count the tide"
+    },
+    {
+     "to": "sa_kinh_nhi",
+     "kind": "rival",
+     "note": "Bùi's heir, who would need the last fascicle"
+    },
+    {
+     "to": "phuc_thuy_hang",
+     "kind": "disciple",
+     "note": "mate of the coast traders at Lãng Thạch; sailed under Tôn Viễn Hàng until 1187"
+    }
+   ],
+   "master": "hang_thien_nhai",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 10
+    },
+    "aux": [
+     {
+      "tech": "returning-wake-verse",
+      "layer": 6
+     },
+     {
+      "tech": "undertow-litany",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "named": "bth-claw-king-shell"
+     },
+     {
+      "named": "bth-phieu-bong-tide-mirror"
+     },
+     {
+      "named": "bth-shell-gatherer-robe"
+     }
+    ],
+    "skills": {
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water for linh lực and the tide's swell, Wood behind it for healing: she fights from behind the shell and lets the foe tire.",
+     "targets": [
+      5369,
+      5361,
+      5003,
+      5007,
+      5012,
+      5374
+     ],
+     "targets_note": "Crossing route, then the Moon over the Tide and Nourishing Rain: the tide's swell behind the shell."
+    },
+    "note": "The keeper of the tide: a shell, a mirror and a canon one layer longer than anyone knows."
+   },
+   "items": [
+    "bth-claw-king-shell",
+    "bth-phieu-bong-tide-mirror",
+    "bth-shell-gatherer-robe"
+   ]
+  },
+  {
+   "key": "ong_te_do",
+   "name_hv": "Ông Tế Độ",
+   "name_han": "翁濟渡",
+   "gloss": "To ferry across",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "binh_thuy",
+   "rank": "truong_lao",
+   "home": 49,
+   "birthplace": 123,
+   "role": "Master of the crossing: runs the strait ferry from Tương Phùng Thị to Nhạn Thanh Thành",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 48,
+    "can_cot": 64,
+    "than_hon": 50,
+    "khi_van": 52,
+    "dao_tam": 60,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Calm",
+     "Loyal"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "path": [],
+    "lifestyle": null,
+    "gained": [
+     "Battle-hardened"
+    ]
+   },
+   "appearance": "A square, silent man with tar under his nails, who carries the stern lamp ashore every night like a lantern for a funeral.",
+   "backstory": "A Wave Rock fisher's son who learned to sail off Lãng Thạch's harbour, where the Cô Phàm charts were found (A154). Bùi Phiêu Bình (bui_phieu_binh) took him onto the ferry at fourteen and gave him the crossing in 1170. He has not missed a day in thirty years, including the storm day in 1187 when the news of Tôn Viễn Hàng's (ton_vien_hang) boat came in and he took the ferry out anyway. Kiều Vọng Hải has not spoken to him since.",
+   "ties": [
+    {
+     "to": "bui_phieu_binh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ong_tieu_pham",
+     "kind": "child",
+     "note": "his son, on the ferry"
+    },
+    {
+     "to": "dam_thuy_sinh",
+     "kind": "disciple",
+     "note": "the placed boy from Lạc Hà"
+    },
+    {
+     "to": "kieu_vong_hai",
+     "kind": "rival",
+     "note": "he sailed on the day her husband was lost"
+    },
+    {
+     "to": "hoang_phu_duyen",
+     "kind": "friend",
+     "note": "the market woman whose clients his ferry brings"
+    },
+    {
+     "to": "ba_lang_nhi",
+     "kind": "disciple",
+     "note": "deckhand of the strait ferry"
+    },
+    {
+     "to": "ngo_ba_can",
+     "kind": "disciple",
+     "note": "poles the freight rafts from the crossing to the shoal"
+    }
+   ],
+   "master": "bui_phieu_binh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "returning-wake-verse",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "bth-crossing-lamp"
+     },
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water: sustain and a steady hand for a fight that lasts as long as a crossing.",
+     "targets": [
+      5369,
+      5361,
+      5374,
+      5379
+     ],
+     "targets_note": "Crossing route, then Rain on Bamboo: sustain for a fight as long as a crossing."
+    },
+    "note": "A boat-hook and the stern lamp."
+   },
+   "items": [
+    "bth-crossing-lamp"
+   ]
+  },
+  {
+   "key": "kieu_vong_hai",
+   "name_hv": "Kiều Vọng Hải",
+   "name_han": "喬望海",
+   "gloss": "Watching the sea",
+   "sex": "F",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "binh_thuy",
+   "rank": "noi_mon",
+   "home": 302,
+   "birthplace": 460,
+   "role": "Captain of the sect's coast traders; widow of the captain lost in 1187",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 58,
+    "than_hon": 52,
+    "khi_van": 40,
+    "dao_tam": 62,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Brave",
+     "Just"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born",
+    "path": [],
+    "lifestyle": null,
+    "coping": "vengeance_vow",
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A tall mangrove woman with a burnt-dark face who still wears her husband's oilskin, cut down to fit.",
+   "backstory": "A mangrove girl from Hồng Thụ Thôn and Lương Bạch Tần's (luong_bach_tan) inner disciple, she married the captain Tôn Viễn Hàng (ton_vien_hang) in 1170. In 1187 he took the second of the boats Lận Viễn Phàm (lan_vien_pham) paid for out past the charts to look for Cô Phàm's fleet, and did not come back (N-binh_thuy-06). Lận had taken his own disciple off that boat at the quay. Kiều has not forgiven him for it, or Bùi for lending the crew, and she sails the coast traders to every harbour that might have heard something.",
+   "ties": [
+    {
+     "to": "luong_bach_tan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ton_vien_hang",
+     "kind": "spouse",
+     "note": "lost at sea in 1187"
+    },
+    {
+     "to": "ton_niem_trieu",
+     "kind": "child",
+     "note": "their daughter"
+    },
+    {
+     "to": "lan_vien_pham",
+     "kind": "enemy",
+     "note": "took his own disciple off the boat and left her husband on it"
+    },
+    {
+     "to": "giang_vong_pham",
+     "kind": "rival",
+     "note": "the disciple Lận saved"
+    },
+    {
+     "to": "ong_te_do",
+     "kind": "rival",
+     "note": "the elder who sailed on the day her husband was lost"
+    },
+    {
+     "to": "lanh_trieu_am",
+     "kind": "disciple",
+     "note": "inner disciple; keeps the coast traders' shell till"
+    },
+    {
+     "to": "phuc_thuy_hang",
+     "kind": "friend",
+     "note": "mate of the coast traders at Lãng Thạch; sailed under Tôn Viễn Hàng until 1187"
+    }
+   ],
+   "master": "luong_bach_tan",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "returning-wake-verse",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water, with the backwash seal: she hits twice and outlasts.",
+     "targets": [
+      5369,
+      5361,
+      5255,
+      5265
+     ],
+     "targets_note": "Crossing route, then Swell and Breaker: she hits twice."
+    },
+    "note": "A captain's seal and oilskin."
+   }
+  },
+  {
+   "key": "hau_bach_chu",
+   "name_hv": "Hầu Bách Chu",
+   "name_han": "侯柏舟",
+   "gloss": "The cypress boat (Shijing)",
+   "sex": "M",
+   "born": 1060,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "binh_thuy",
+   "rank": "noi_mon",
+   "home": 302,
+   "birthplace": 476,
+   "role": "Shipwright of the Tide Hall; built the ferry, the coast traders and both lost boats",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 60,
+     "thuy": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 56,
+    "than_hon": 44,
+    "khi_van": 42,
+    "dao_tam": 54,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Stubborn",
+     "Humble"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "path": [
+     "forge_scarred"
+    ],
+    "lifestyle": null
+   },
+   "appearance": "A stooped cane-raft man with sawdust in his eyebrows and three fingers on his left hand.",
+   "backstory": "A Phù Can Thôn boy who poled cane rafts before he could swim, he came to the ferry in 1088 and has built every hull the sect has floated since, from agarwood out of Kỳ Nam Lâm. Lận Viễn Phàm (lan_vien_pham) paid him for two deep-water boats; neither came back. He says the hulls were sound. He has built a third on his own time, and has told no one who it is for.",
+   "ties": [
+    {
+     "to": "bui_phieu_binh",
+     "kind": "friend",
+     "note": "stretched the fan's sail for him in 1110"
+    },
+    {
+     "to": "ton_niem_trieu",
+     "kind": "disciple",
+     "note": "the captain's daughter, who wants the third boat"
+    },
+    {
+     "to": "ngo_tan_tan",
+     "kind": "disciple",
+     "note": "a cane-raft girl from his own village"
+    },
+    {
+     "to": "lan_vien_pham",
+     "kind": "creditor",
+     "note": "owes him for the second boat"
+    },
+    {
+     "to": "uong_tam_pham",
+     "kind": "friend",
+     "note": "another lost captain's son, who means to sail the third boat"
+    },
+    {
+     "to": "nhu_thanh_can",
+     "kind": "disciple",
+     "note": "yard hand at the shoal; placed from Lạc Hà in 1199"
+    }
+   ],
+   "master": "bui_phieu_binh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 6,
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood for a hard, healing body; he fights as little as he can.",
+     "targets": [
+      5369,
+      5361,
+      6281,
+      6304
+     ],
+     "targets_note": "Crossing route from Wood, then Strong Sapling and Green Grove: a hard, healing body."
+    },
+    "note": "A shipwright who refines hulls and keels."
+   }
+  },
+  {
+   "key": "cu_boi_ngan",
+   "name_hv": "Cù Bối Ngân",
+   "name_han": "瞿貝銀",
+   "gloss": "Shell silver",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "binh_thuy",
+   "rank": "chap_su",
+   "home": 49,
+   "birthplace": 122,
+   "role": "Purser: keeps the shell-coin till and the Book of Meetings at Tương Phùng Thị",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Gregarious",
+     "Patient"
+    ],
+    "calling": "Steward",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A Bối Sa shell-trader's girl who taught herself sums on shell coin (A144); she takes every fare and writes every newcomer's home in the Book of Meetings, and Lương Bạch Tần (luong_bach_tan) taught her to read the tide tables.",
+   "ties": [
+    {
+     "to": "luong_bach_tan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "hoan_khach_nhi",
+     "kind": "disciple",
+     "note": "copyist of the Book of Meetings, born in the Strangers' Hall"
+    },
+    {
+     "to": "khuat_do_sinh",
+     "kind": "friend",
+     "note": "keeper of the Strangers' Hall; placed from Lạc Hà in 1176"
+    }
+   ],
+   "master": "luong_bach_tan",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "The till."
+   }
+  },
+  {
+   "key": "sa_kinh_nhi",
+   "name_hv": "Sa Kình Nhi",
+   "name_han": "沙鯨兒",
+   "gloss": "Whale child of the sands",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "binh_thuy",
+   "rank": "noi_mon",
+   "home": 302,
+   "birthplace": 125,
+   "role": "The head's youngest disciple and heir; found beside the stranded whale on Tình Sa in 1190",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 66,
+     "moc": 24
+    },
+    "variants": {
+     "phong": 34
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 52,
+    "than_hon": 66,
+    "khi_van": 72,
+    "dao_tam": 58,
+    "mi_luc": 60
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Compassionate"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null
+   },
+   "appearance": "A small, sea-burnt girl of eighteen with pale eyes and a whale's tooth on a cord.",
+   "backstory": "In 1190 a whale stranded on Tình Sa lived three days, and the island gave it back to the sea (A157). On the third day the villagers found a girl of about eight asleep against its side, speaking no tongue anyone knew. Bùi Phiêu Bình (bui_phieu_binh) took her, called her the whale-child and found Wind in her like his own. She now speaks like a Tương Phùng market girl and wants to sail the way the whale came.",
+   "ties": [
+    {
+     "to": "bui_phieu_binh",
+     "kind": "master",
+     "note": "he found her; she is his heir"
+    },
+    {
+     "to": "luong_bach_tan",
+     "kind": "rival",
+     "note": "the first elder will not teach her past the ninth layer"
+    },
+    {
+     "to": "ton_niem_trieu",
+     "kind": "friend",
+     "note": "both want the third boat"
+    },
+    {
+     "to": "doan_thuong_hai",
+     "kind": "friend",
+     "note": "the blind hermit who tells her the tongue she dreams in is older than Cô Phàm"
+    },
+    {
+     "to": "lanh_trieu_am",
+     "kind": "rival",
+     "note": "inner disciple; keeps the coast traders' shell till"
+    }
+   ],
+   "master": "bui_phieu_binh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 3
+    },
+    "aux": [
+     {
+      "tech": "returning-wake-verse",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water like her master, with the Wind she shares with him: fast and hard to pin.",
+     "targets": [
+      5369,
+      5361,
+      748
+     ],
+     "targets_note": "Luyện Khí: the crossing route, then Calm Pool at the start: her master's road before anything of her own."
+    },
+    "note": "The heir."
+   }
+  },
+  {
+   "key": "ong_tieu_pham",
+   "name_hv": "Ông Tiểu Phàm",
+   "name_han": "翁小帆",
+   "gloss": "Little sail",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "binh_thuy",
+   "rank": "ngoai_mon",
+   "home": 49,
+   "birthplace": 123,
+   "role": "Deckhand of the strait ferry; the master of the crossing's son",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Lazy",
+     "Gregarious",
+     "Content"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Ông Tế Độ's (ong_te_do) son, who has crossed the strait six thousand times and would like, once, to go somewhere else.",
+   "ties": [
+    {
+     "to": "ong_te_do",
+     "kind": "parent",
+     "note": "his father and master"
+    },
+    {
+     "to": "ba_lang_nhi",
+     "kind": "friend",
+     "note": "deckhand of the strait ferry"
+    }
+   ],
+   "master": "ong_te_do",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "duckweed-drift-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "A deckhand."
+   }
+  },
+  {
+   "key": "ton_niem_trieu",
+   "name_hv": "Tôn Niệm Triều",
+   "name_han": "孫念潮",
+   "gloss": "Remembering the tide",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "binh_thuy",
+   "rank": "ngoai_mon",
+   "home": 302,
+   "birthplace": 302,
+   "role": "Outer disciple and shipwright's apprentice; daughter of the lost captain",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 38,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Brave",
+     "Diligent"
+    ],
+    "calling": "Refiner",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "She was four when her father Tôn Viễn Hàng (ton_vien_hang) sailed past the charts; she has learned the adze from Hầu Bách Chu (hau_bach_chu) so that she can finish the third boat herself.",
+   "ties": [
+    {
+     "to": "kieu_vong_hai",
+     "kind": "parent",
+     "note": "her mother"
+    },
+    {
+     "to": "ton_vien_hang",
+     "kind": "parent",
+     "note": "lost in 1187"
+    },
+    {
+     "to": "hau_bach_chu",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "uong_tam_pham",
+     "kind": "rival",
+     "note": "the lost captain's son, who also means to sail it"
+    },
+    {
+     "to": "sa_kinh_nhi",
+     "kind": "friend",
+     "note": "both want the third boat"
+    },
+    {
+     "to": "phuc_thuy_hang",
+     "kind": "friend",
+     "note": "mate of the coast traders at Lãng Thạch; sailed under Tôn Viễn Hàng until 1187"
+    }
+   ],
+   "master": "hau_bach_chu",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "duckweed-drift-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "An adze and a plank."
+   }
+  },
+  {
+   "key": "dam_thuy_sinh",
+   "name_hv": "Đàm Thủy Sinh",
+   "name_han": "譚水生",
+   "gloss": "Born of the water",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "binh_thuy",
+   "rank": "ngoai_mon",
+   "home": 49,
+   "birthplace": 136,
+   "role": "Outer disciple placed from Lạc Hà's outer gate on Placement Day, 1199",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 32,
+     "tho": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Patient",
+     "Cautious"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hoa Khê boy who failed Lạc Hà's dusk test three times; his old teacher Ngạc Viễn Sơn (ngac_vien_son) wrote to the ferry for him, and Lạc Hà takes a tenth of his pay for thirty years.",
+   "ties": [
+    {
+     "to": "ngac_vien_son",
+     "kind": "former_master",
+     "note": "taught him at Cựu Hà Viện"
+    },
+    {
+     "to": "ong_te_do",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "ong_te_do",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "duckweed-drift-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "A placed boy."
+   }
+  },
+  {
+   "key": "ngo_tan_tan",
+   "name_hv": "Ngô Tần Tần",
+   "name_han": "吳蘋蘋",
+   "gloss": "Water-clover",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "binh_thuy",
+   "rank": "ngoai_mon",
+   "home": 302,
+   "birthplace": 476,
+   "role": "Outer disciple who poles the cane rafts between the shoal and Lãng Thạch's harbour",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Fickle",
+     "Generous"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Phù Can Thôn raft girl and Hầu Bách Chu's (hau_bach_chu) second apprentice, who sings in the old island tongue while she poles and does not know what the words mean.",
+   "ties": [
+    {
+     "to": "hau_bach_chu",
+     "kind": "master",
+     "note": "from her village"
+    },
+    {
+     "to": "ngo_ba_can",
+     "kind": "sibling",
+     "note": "her brother; poles the freight rafts from the crossing to the shoal"
+    }
+   ],
+   "master": "hau_bach_chu",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "duckweed-drift-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "A raft pole."
+   }
+  },
+  {
+   "key": "doan_binh_so",
+   "name_hv": "Doãn Bình Sơ",
+   "name_han": "尹萍初",
+   "gloss": "The first duckweed",
+   "sex": "F",
+   "born": 360,
+   "died": 860,
+   "cause": "end of her years (500), on the ferry",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "binh_thuy",
+   "rank": "founder",
+   "home": 18,
+   "birthplace": 131,
+   "role": "Founder of Bình Thủy Môn (520); wrote the Duckweed Drift Primer",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Generous",
+     "Pragmatic"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A salt trader from the mainland wrecked on Tình Sa in 519 with eleven others, none of whom shared her tongue or her road home. They wintered on the beach, taught each other what cultivation each knew, and in 520 built a boat and a hall on the grass above the landing (A147). She wrote their teaching down as the Duckweed Drift Primer and made the rule that the crossing refuses no one.",
+   "ties": [
+    {
+     "to": "hang_thien_nhai",
+     "kind": "disciple",
+     "note": "her successor"
+    }
+   ],
+   "changed": "fix pass A 2026-11-25: born 470 -> 360, so a death at the end of the years falls at the Kết Đan lifespan (500)"
+  },
+  {
+   "key": "hang_thien_nhai",
+   "name_hv": "Hạng Thiên Nhai",
+   "name_han": "項天涯",
+   "gloss": "The edge of the sky",
+   "sex": "M",
+   "born": 610,
+   "died": 1110,
+   "cause": "end of his years (500), in the Strangers' Hall",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "binh_thuy",
+   "rank": "last_head",
+   "home": 18,
+   "birthplace": 49,
+   "role": "Second head of Bình Thủy Môn (860-1110)",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Patient",
+     "Forgiving",
+     "Calm"
+    ],
+    "calling": "Teacher",
+    "upbringing": "street_orphan"
+   },
+   "backstory": "A Tương Phùng market orphan whom the founder Doãn Bình Sơ (doan_binh_so) took off the quay, he kept the sect for 250 years and gave it its saying: meeting, why must we have known each other before? He took in a war-orphan ship's boy in 806 and a runaway abbey girl in 1101, and died the year he named the boy head (A156).",
+   "ties": [
+    {
+     "to": "doan_binh_so",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "bui_phieu_binh",
+     "kind": "disciple",
+     "note": "his heir"
+    },
+    {
+     "to": "luong_bach_tan",
+     "kind": "disciple",
+     "note": "the last he took"
+    }
+   ],
+   "master": "doan_binh_so",
+   "changed": "fix pass A 2026-11-25: born 640 -> 610, so a death at the end of the years falls at the Kết Đan lifespan (500)"
+  },
+  {
+   "key": "ton_vien_hang",
+   "name_hv": "Tôn Viễn Hàng",
+   "name_han": "孫遠航",
+   "gloss": "The far voyage",
+   "sex": "M",
+   "born": 1128,
+   "died": 1187,
+   "cause": "lost at sea past the edge of the Cô Phàm charts",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "binh_thuy",
+   "rank": "noi_mon",
+   "home": 302,
+   "birthplace": 71,
+   "role": "Captain of the second deep-water boat lent to Lận Viễn Phàm",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Ambitious",
+     "Trusting"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hải Yến nest-picker's son who believed Lận Viễn Phàm (lan_vien_pham) about the lost fleet and sailed west to find it in 1187 (N-binh_thuy-06).",
+   "ties": [
+    {
+     "to": "kieu_vong_hai",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "ton_niem_trieu",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "lan_vien_pham",
+     "kind": "friend",
+     "note": "sailed for him"
+    },
+    {
+     "to": "phuc_thuy_hang",
+     "kind": "friend",
+     "note": "mate of the coast traders at Lãng Thạch; sailed under Tôn Viễn Hàng until 1187"
+    }
+   ]
+  }
+ ]
+}

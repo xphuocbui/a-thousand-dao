@@ -1,0 +1,508 @@
+{
+ "sect": "lang_dao",
+ "people": [
+  {
+   "key": "tiet_an_thuy",
+   "name_hv": "Tiết Ấn Thủy",
+   "name_han": "薛印水",
+   "gloss": "Seal on the water",
+   "sex": "M",
+   "born": 1115,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "lang_dao",
+   "rank": "chap_su",
+   "home": 13,
+   "birthplace": 1229,
+   "role": "Toll clerk of the gate-house: stamps the passes and keeps the toll books",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Cautious",
+     "Diligent"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hoành Độ crossing-keeper's son who has stamped passes at the gate-house since the rebuilding of 1175 and fines his own cousins; he says a pass is Giang Cửu Khúc's (giang_cuu_khuc) word, and he has never stamped one the fleet could not honour.",
+   "ties": [
+    {
+     "to": "giang_cuu_khuc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "to_lenh_chu",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "giang_cuu_khuc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "washing-waves-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "returning-wake-verse",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water that strips wards; a clerk's thoroughness."
+    },
+    "note": "The second toll seal."
+   }
+  },
+  {
+   "key": "uc_lang_hoa",
+   "name_hv": "Úc Lãng Hoa",
+   "name_han": "郁浪花",
+   "gloss": "Spray of the waves",
+   "sex": "F",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "lang_dao",
+   "rank": "noi_mon",
+   "home": 13,
+   "birthplace": 1274,
+   "role": "Helmswoman of the awning boats of Ô Bồng; head of the Úc boat family",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Stubborn",
+     "Generous"
+    ],
+    "calling": "Steward",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "Her family's boat is named for a mother who sailed with the side that sank Phân Thủy Môn in 788, and she will walk out of the spring landing if Đổng Cựu Môn (dong_cuu_mon) gets that name read.",
+   "ties": [
+    {
+     "to": "thuong_bach_pham",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dong_cuu_mon",
+     "kind": "rival",
+     "note": "the old gate's name"
+    },
+    {
+     "to": "uc_tieu_bong",
+     "kind": "child",
+     "note": "her son"
+    }
+   ],
+   "master": "thuong_bach_pham",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "washing-waves-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water pressure over a long crossing."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "uc_tieu_bong",
+   "name_hv": "Úc Tiểu Bồng",
+   "name_han": "郁小篷",
+   "gloss": "Little awning",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "lang_dao",
+   "rank": "ngoai_mon",
+   "home": 1274,
+   "birthplace": 1274,
+   "role": "Outer deck child of the Úc awning boat",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Lazy",
+     "Forgiving"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Born on the Úc boat and stood for by his mother Úc Lãng Hoa (uc_lang_hoa), he splices rope for Sài Kết Lãm (sai_ket_lam) and has made friends with Đổng Cựu Môn (dong_cuu_mon), which his mother does not know.",
+   "ties": [
+    {
+     "to": "uc_lang_hoa",
+     "kind": "parent",
+     "note": "his mother"
+    },
+    {
+     "to": "sai_ket_lam",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dong_cuu_mon",
+     "kind": "friend",
+     "note": "his mother's rival"
+    }
+   ],
+   "master": "sai_ket_lam",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ferry-pole-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water on a pole."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "to_lenh_chu",
+   "name_hv": "Tô Lệnh Chu",
+   "name_han": "蘇令舟",
+   "gloss": "Orders the boat",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lang_dao",
+   "rank": "noi_mon",
+   "home": 13,
+   "birthplace": 1279,
+   "role": "Inner disciple of the gate-house; checks passes on the first landing",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 47,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Stubborn",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A helmsman's daughter of Đà Công who fined her own uncle a season's pay for an unstamped passenger; Tiết Ấn Thủy (tiet_an_thuy) says she is the first clerk he has trained who enjoys it.",
+   "ties": [
+    {
+     "to": "tiet_an_thuy",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "le_tieu_pham",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "tiet_an_thuy",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "washing-waves-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water wards."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "bo_tay_sa",
+   "name_hv": "Bồ Tẩy Sa",
+   "name_han": "蒲洗沙",
+   "gloss": "Washes sand",
+   "sex": "M",
+   "born": 1171,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lang_dao",
+   "rank": "ngoai_mon",
+   "home": 47,
+   "birthplace": 47,
+   "role": "Outer disciple at the Đào Sa landing; a gold-washer's orphan of the burning",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Wrathful",
+     "Brave",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "war_orphan"
+   },
+   "backstory": "His parents burned with the Đào Sa landing in 1173 (A080) when he was two; he drills with the pole every night, spends each slack month at Lãng Đào Môn, a few days off by boat, drilling with Thạch Thập Đinh (thach_thap_dinh), and would follow Giang Hồi Lan (giang_hoi_lan) back across the river tomorrow.",
+   "ties": [
+    {
+     "to": "thuong_thien_dao",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "thach_thap_dinh",
+     "kind": "friend",
+     "note": "another orphan of the burning"
+    }
+   ],
+   "master": "thuong_thien_dao",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ferry-pole-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water damage."
+    },
+    "note": "Too old for the inner gate, like his friend."
+   }
+  },
+  {
+   "key": "ngo_da_do",
+   "name_hv": "Ngô Dạ Độ",
+   "name_han": "吳夜渡",
+   "gloss": "Night crossing",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lang_dao",
+   "rank": "noi_mon",
+   "home": 13,
+   "birthplace": 1235,
+   "role": "Inner disciple of the eighth-bend pilot; rowed the spring pig to the serpent",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 33
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Calm",
+     "Pragmatic"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "She rowed the pig to the serpent at this year's spring landing because Lại Bát Khúc (lai_bat_khuc) had a fever; she says Mã Trường Cao (ma_truong_cao) saw a lamp on the water, not an eye.",
+   "ties": [
+    {
+     "to": "lai_bat_khuc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ma_truong_cao",
+     "kind": "rival",
+     "note": "the eye on the eighth bend"
+    }
+   ],
+   "master": "lai_bat_khuc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "washing-waves-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water, steady at night."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "ky_chu_nhi",
+   "name_hv": "Kỷ Chu Nhi",
+   "name_han": "紀舟兒",
+   "gloss": "Boat child",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "lang_dao",
+   "rank": "ngoai_mon",
+   "home": 47,
+   "birthplace": 1223,
+   "role": "Outer deck boy of the Đào Sa captain",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Loyal",
+     "Warlike"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A rope-maker's son of Lô Chu who wants the Ferry War fought again because his captain Giang Hồi Lan (giang_hoi_lan) does; he has seen Giang Tiểu Loan (giang_tieu_loan) add pages to her grandfather's letters and kept quiet.",
+   "ties": [
+    {
+     "to": "giang_hoi_lan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "giang_tieu_loan",
+     "kind": "friend",
+     "note": "he keeps her secret"
+    }
+   ],
+   "master": "giang_hoi_lan",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ferry-pole-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood on a pole."
+    },
+    "note": ""
+   }
+  }
+ ]
+}

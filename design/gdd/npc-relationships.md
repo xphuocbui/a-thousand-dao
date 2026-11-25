@@ -842,6 +842,10 @@ avenger and gratitude events, at most `avenger_max` and `gratitude_max` a season
 - **Character Stats** (modifier source `tie`), **Effects** (đạo lữ group condition), **Sects**, **World Generation**:
   Dependencies rows.
 
+**Back-link written 2026-11-25** (world-depth rulings): **Sects & Missions** (#26, rule 20d, F21) reads this
+system's Families (parent, grandparent) for its intake `kin` term: a kin sect ranks members' families first
+(`kin_bonus` 1000).
+
 ## Visual/Audio Requirements
 
 Art bible sections 1–4 are still `[To be designed]`, so this draws on the pillars and on art bible §7 (icon grammar,

@@ -6,6 +6,7 @@
 > **Last Updated**: 2026-11-10 (re-review fixes); 2026-11-09 (#44 part 5: stat keys; accepted 2026-11-10)
 > **Last Verified**: 2026-11-10
 > **Implements Pillar**: Pillar 2 (Every Number Is Bounded and Visible), Pillar 3 (Power Is Built, Not Given); touches Pillar 1 (Your Dao, Your Name)
+> **Amended 2026-11-25** (user rulings, world-depth pass: `design/world/depth/DECISIONS-2026-11-25.md` group 12): a talent's grade is shown from its effective value, with the base grade beside it (rule 5, Formula B, AC-CS-08).
 
 ## Summary
 
@@ -92,7 +93,14 @@ here but not built yet.
    variants give modifiers, not base changes.
 5. **Effective talent.** Effective value = base + the stat sheet's flat modifiers on that
    talent's key, clamped to 1–150. Every rule that reads a talent reads the effective
-   value. The grade shown is the base value's grade.
+   value. ~~The grade shown is the base value's grade.~~ **Amended 2026-11-25** (user ruling, world-depth group 12;
+   NPC Traits Open Question 16): the grade shown is the **effective value's grade, with the base grade beside it**
+   when they differ, e.g. **"Upper (base Middle, Genius +20)"**: comprehension base 45 (Middle) with `quick_minded`
+   tier 3 reads 65 (Upper). The bracket names the base grade and each NPC Traits talent tier on that talent by its
+   tier name and add; other flats (gear, tree) sit in the Breakdown. When both grades are the same, the grade shows
+   alone. An effective value above 100 grades as Heavenly (Thiên), the top band. Display only: no rule's input
+   changes, since every rule already reads the effective value. Applies to the person card (`design/ux/person.md`)
+   and the character sheet (`design/ux/character-sheet.md`, C3 Thiên phú).
 
 **State**
 
@@ -412,7 +420,7 @@ The effective_talent formula is defined as:
 |----------|------|-------|--------|-------------|
 | base(t) | int | 1–100 | calculated (A, talent pills, events) | Innate value; any origin bonus is already applied, clamped to 100 |
 | Σ flat(t) | float | about −20 to +40 | calculated (stat sheet) | All modifiers on that talent key |
-| eff(t) | float | 1–150 | calculated | What every rule reads; the grade comes from base(t) |
+| eff(t) | float | 1–150 | calculated | What every rule reads; the grade shown comes from eff(t), with base(t)'s grade beside it when they differ (rule 5, amended 2026-11-25) |
 
 **Output Range:** 1–150.
 
@@ -924,6 +932,14 @@ systems split out of Combat depend on each other as follows.
 - **Combat Defence & Healing (#21a):** reads maximum health and linh lực, thần thức and `ds_ref`, and căn cốt (body defence).
 - **Effects System (#41):** reads sheet values at compile; the caller applies the life costs Effects report (heart demon, lifespan, toxicity, purity) through this GDD's rules.
 
+**Back-links written 2026-11-25** (world-depth rulings, `design/world/depth/DECISIONS-2026-11-25.md`):
+- **Sects & Missions** (#26, rule 20d, F21): Sects reads the realm, and a no-lean sect's intake ranks candidates
+  by one talent (`recruit_by`: `can_cot`, `than_hon`, `ngo_tinh` or `dao_tam`).
+- **NPC Traits** (#42, F1b, F6b): talent tiers are flat modifiers on the talent keys (`talent_tier_add` +6 / +12 /
+  +20 for gifts, the same down for flaws), summed on the sheet; Waning years reads lifespan left (`waning_share`
+  0.10). **Answered 2026-11-25** (NPC Traits Open Question 16, ruling group 12): the grade shown is the effective
+  value's, with the base beside it, e.g. "Upper (base Middle, Genius +20)" (rule 5 here owns the display).
+
 ## Tuning Knobs
 
 Ranges marked *derived* follow from another constraint in this GDD or an approved one.
@@ -1052,7 +1068,9 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
   - 45 + 10 = 55;
   - 5 − 10 → 1, with a clamp line;
   - 100 + 60 → 150, with a clamp line;
-  - base 58 + 10 = 68, with the grade shown as Middle, from the base.
+  - base 58 + 10 = 68, with the grade shown as "Upper (base Middle)" (rule 5, amended 2026-11-25; was Middle);
+  - for comprehension only: base 45 with `quick_minded` tier 3 shows "Upper (base Middle, Genius +20)"; for each key,
+    base 45 + 5 shows "Middle" alone and base 100 + 30 shows "Heavenly" alone.
 
 **State**
 

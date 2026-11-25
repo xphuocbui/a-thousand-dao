@@ -1,0 +1,489 @@
+{
+ "sect": "thu_phan",
+ "people": [
+  {
+   "key": "hoac_tich_ca",
+   "name_hv": "Hoắc Tịch Ca",
+   "name_han": "霍寂歌",
+   "gloss": "Silent song",
+   "sex": "M",
+   "born": 1112,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thu_phan",
+   "rank": "noi_mon",
+   "home": 221,
+   "birthplace": 221,
+   "role": "Leads the nightly autumn chant at the graves under Bào Thu Xướng",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Calm",
+     "Patient"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born"
+   },
+   "backstory": "Has sung beside Bào Thu Xướng (bao_thu_xuong) every autumn for sixty years and hears the new voice in the chorus as clearly as he does; he thinks it is a woman's, and Lương Thanh Mộ's (luong_thanh_mo).",
+   "ties": [
+    {
+     "to": "bao_thu_xuong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "bui_song_khe",
+     "kind": "friend",
+     "note": "sings the low part"
+    },
+    {
+     "to": "thuong_dich_am",
+     "kind": "disciple",
+     "note": "flute-cutter in the tribulation-bamboo grove"
+    }
+   ],
+   "master": "bao_thu_xuong",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "autumn-grave-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Soul song with Wood sustain."
+    }
+   }
+  },
+  {
+   "key": "tiet_an_suong",
+   "name_hv": "Tiết Ấn Sương",
+   "name_han": "薛印霜",
+   "gloss": "Frost seal",
+   "sex": "F",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thu_phan",
+   "rank": "noi_mon",
+   "home": 230,
+   "birthplace": 158,
+   "role": "Ward-setter at the jade beds",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "kim": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Ambitious",
+     "Cautious"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born"
+   },
+   "backstory": "Lays the seal-lines over the jade beds for Thẩm Thổ Bích (tham_tho_bich) and agrees with her that the sealed books should have been sold; she has not said so to the head.",
+   "ties": [
+    {
+     "to": "ly_han_bich",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tham_tho_bich",
+     "kind": "friend",
+     "note": "the jade beds"
+    },
+    {
+     "to": "co_ky_am",
+     "kind": "rival",
+     "note": "the copyist"
+    },
+    {
+     "to": "ton_du_tan",
+     "kind": "disciple",
+     "note": "grave-sweeper from the hamlet on the ruin of Lôi Trạch"
+    }
+   ],
+   "master": "ly_han_bich",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "autumn-grave-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Seals that hold."
+    }
+   }
+  },
+  {
+   "key": "chu_an_thach",
+   "name_hv": "Chử Ẩn Thạch",
+   "name_han": "褚隱石",
+   "gloss": "Hidden stone",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "thu_phan",
+   "rank": "ngoai_mon",
+   "home": 230,
+   "birthplace": 852,
+   "role": "A hunters' son from the ridge, brought down on the cave walk",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "kim": 34,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Deceitful",
+     "Ambitious",
+     "Cautious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "wild_raised"
+   },
+   "backstory": "Ôn Tịch Nhai (on_tich_nhai) walked him down from the ridge in 1196 because he has Earth and Water; the head looks at him each autumn for the Darkness, and he has started pretending it has woken.",
+   "ties": [
+    {
+     "to": "on_tich_nhai",
+     "kind": "master",
+     "note": "the cave watch"
+    },
+    {
+     "to": "ly_han_bich",
+     "kind": "friend",
+     "note": "the head, who hopes"
+    }
+   ],
+   "master": "on_tich_nhai",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "grave-sweeping-chant",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth for now."
+    }
+   }
+  },
+  {
+   "key": "cam_thuy_ngam",
+   "name_hv": "Cam Thủy Ngâm",
+   "name_han": "甘水吟",
+   "gloss": "Water chant",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "thu_phan",
+   "rank": "ngoai_mon",
+   "home": 230,
+   "birthplace": 906,
+   "role": "Sweeper from Mãn Võng who heard the graves from the boats",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Devout",
+     "Stubborn"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Followed her cousin Cam Võng Nhi (cam_vong_nhi) up from Mãn Võng because she too heard the graves from the boats; she sings the sweeping chant off-key on purpose, so that the dead will know her voice.",
+   "ties": [
+    {
+     "to": "bui_song_khe",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "cam_vong_nhi",
+     "kind": "cousin",
+     "note": ""
+    }
+   ],
+   "master": "bui_song_khe",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "grave-sweeping-chant",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain under song."
+    }
+   }
+  },
+  {
+   "key": "hua_tang_thu",
+   "name_hv": "Hứa Tàng Thư",
+   "name_han": "許藏書",
+   "gloss": "Hidden books",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "thu_phan",
+   "rank": "noi_mon",
+   "home": 230,
+   "birthplace": 230,
+   "role": "Clerk of the copy room",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "kim": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Loyal",
+     "Cautious"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "scholar_family"
+   },
+   "backstory": "Ruled the lines for Cơ Ký Âm's (co_ky_am) grave books and knows the second copy exists, because he sewed its binding; he has told no one, and has begun to read it.",
+   "ties": [
+    {
+     "to": "co_ky_am",
+     "kind": "master",
+     "note": "the copyist"
+    }
+   ],
+   "master": "co_ky_am",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "autumn-grave-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Song and seal from the books."
+    }
+   }
+  },
+  {
+   "key": "thuong_dich_am",
+   "name_hv": "Thường Địch Âm",
+   "name_han": "常笛音",
+   "gloss": "Flute note",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "thu_phan",
+   "rank": "ngoai_mon",
+   "home": 1485,
+   "birthplace": 1485,
+   "role": "Flute-cutter in the tribulation-bamboo grove",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "kim": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Impatient",
+     "Gregarious",
+     "Fickle"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Cuts flutes from tribulation bamboo with Nhan Thu Mặc (nhan_thu_mac) and plays the grave songs on them, which is taboo away from the Pavilion; she says the grove counts as the Pavilion.",
+   "ties": [
+    {
+     "to": "hoac_tich_ca",
+     "kind": "master",
+     "note": "the chant leader"
+    },
+    {
+     "to": "nhan_thu_mac",
+     "kind": "friend",
+     "note": "the flute grove"
+    }
+   ],
+   "master": "hoac_tich_ca",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "grave-sweeping-chant",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and the flute."
+    }
+   }
+  },
+  {
+   "key": "ton_du_tan",
+   "name_hv": "Tôn Dư Tẫn",
+   "name_han": "孫餘燼",
+   "gloss": "Remaining embers",
+   "sex": "M",
+   "born": 1174,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "thu_phan",
+   "rank": "ngoai_mon",
+   "home": 221,
+   "birthplace": 221,
+   "role": "Grave-sweeper from the hamlet on the ruin of Lôi Trạch",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "thuy": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Calm",
+     "Stubborn"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "His family has farmed the hamlet on the ruin of Lôi Trạch for generations and claims kin among the city's dead; he sweeps his own forebears' graves, he says, and the chorus is quieter where he sweeps.",
+   "ties": [
+    {
+     "to": "tiet_an_suong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dien_xuong_uong",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "tiet_an_suong",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "grave-sweeping-chant",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood health; a sweeper's patience."
+    }
+   }
+  }
+ ]
+}

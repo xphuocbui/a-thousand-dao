@@ -1,0 +1,1206 @@
+{
+ "sect": "vu_linh",
+ "people": [
+  {
+   "key": "an_thanh_linh",
+   "name_hv": "Ân Thanh Linh",
+   "name_han": "殷清鈴",
+   "gloss": "A bell that rings clear",
+   "sex": "F",
+   "born": 1010,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "vu_linh",
+   "rank": "tong_chu",
+   "home": 372,
+   "birthplace": 372,
+   "role": "Mistress of Vũ Linh Đường since 1150: rain-bell warning arrays and bronze casting; keeps the warding bells on the walls of Thu Trì Thành",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 62,
+     "hoa": 54,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 50,
+    "than_hon": 72,
+    "khi_van": 54,
+    "dao_tam": 60,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Pragmatic",
+     "Paranoid"
+    ],
+    "calling": "Formation master",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "formation_mind"
+    ],
+    "lifestyle": "collector",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A neat, grey-eyed woman with burn scars on both wrists, who stops talking whenever a bell rings anywhere and resumes at the same word.",
+   "backstory": "Ân Thanh Linh was born at the hall in 1010, eighty years after the founder Chung Thiết Liên (chung_thiet_lien) brought his lamp-casters south from Thanh Đăng Trấn and turned them to bells (V148, V149). The Tower had put out its lamps, so it would need to hear. At twenty she cast a bell for the Nhiếp family that rings only when someone is listening at a door. The Tower's spymaster still wears it. In 1062 she cast Thu Phần's grave bell. In 1105 she hung the hall's first bell line over the forest road (N-vu_linh-02). In 1150 the founder's son Chung Tàn Hưởng (chung_tan_huong) stepped down and gave her the hall, saying she heard bronze better than he did (N-vu_linh-03). She keeps the bells on the walls of Thu Trì and the lines along the forest roads, and she listens to all of them. For a century she has argued bronze by letter with the Tower's forge master Thạch Liên Hoàn (thach_lien_hoan). He forges in lightning; she casts in a charcoal fire and hangs the bell in a living tree to teach it to listen. The Tower's envoy Hứa Thanh Diêm (hua_thanh_diem) visits her before any other vassal.",
+   "wants": "That the bells on Thu Trì's walls never ring for a war in her lifetime; and the last word in her century of letters.",
+   "secret": "Inside Thu Trì's walls she hung a second line of bells that no one knows of, tuned to the Hall of Echoes' own listeners. For fifty years she has known every ear the Tower keeps in the south, and she has written it all down.",
+   "ties": [
+    {
+     "to": "chung_tan_huong",
+     "kind": "former_master",
+     "note": "taught her to cast; gave her the hall in 1150"
+    },
+    {
+     "to": "chung_thiet_lien",
+     "kind": "ancestor",
+     "note": "the founder, who turned lamps into bells (lineage, not blood)"
+    },
+    {
+     "to": "thach_lien_hoan",
+     "kind": "rival",
+     "note": "a century of letters about bronze"
+    },
+    {
+     "to": "hua_thanh_diem",
+     "kind": "friend",
+     "note": "the Tower's envoy, who comes to her first"
+    },
+    {
+     "to": "nhiep_vo_thanh",
+     "kind": "rival",
+     "note": "the spymaster who wears her bell; Ân's hidden bells hear her ears"
+    },
+    {
+     "to": "nghe_hong_dau",
+     "kind": "rival",
+     "note": "moved her rooms out of the bells' reach in 1110"
+    },
+    {
+     "to": "ly_han_bich",
+     "kind": "friend",
+     "note": "cast her grave bell in 1062"
+    },
+    {
+     "to": "thieu_van_linh",
+     "kind": "disciple",
+     "note": "her true disciple"
+    },
+    {
+     "to": "trinh_thu_linh",
+     "kind": "disciple",
+     "note": "keeper of the wall bells"
+    },
+    {
+     "to": "chung_hong_lo",
+     "kind": "disciple",
+     "note": "the founder's great-granddaughter, at the furnace"
+    },
+    {
+     "to": "dang_quai_linh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "la_dang_huyen",
+     "kind": "disciple",
+     "note": "hangs and tunes the warning lines in Mãng Đằng Lâm"
+    }
+   ],
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "canopy-bell-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "listening-bell-seal",
+      "layer": 10
+     },
+     {
+      "tech": "molten-bronze-litany",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "named": "vl-clear-bell"
+     },
+     {
+      "named": "vl-root-line-banner"
+     },
+     {
+      "named": "vl-casters-apron"
+     }
+    ],
+    "skills": {
+     "tran_phap": 7,
+     "luyen_khi": 6
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood toward wards, evasion and slows, with a Fire branch for the pour: she is never surprised, and her foe is always a step late.",
+     "targets": [
+      6085,
+      6088,
+      6151,
+      6145,
+      5782,
+      5784,
+      6227,
+      9015
+     ],
+     "targets_note": "Lineage bells, Swaying Bamboo, Binding Vine for slows, Wutong Perch for the pour, then Strangling Vines: the foe is always a step late."
+    },
+    "note": "The bell-caster: wards that ring before the blow, and a bronze pour for whoever comes too close."
+   },
+   "items": [
+    "vl-clear-bell",
+    "vl-root-line-banner",
+    "vl-casters-apron"
+   ],
+   "changed": "existing record had no root or build: root Wood 62, Fire 54, Earth 28 set from her birthplace (R1) and the hall's re-lean to Wood, Fire (R4); build, thien_phu, stage 1 and birthplace 372 added."
+  },
+  {
+   "key": "chung_tan_huong",
+   "name_hv": "Chung Tàn Hưởng",
+   "name_han": "鍾殘響",
+   "gloss": "The lingering ring",
+   "sex": "M",
+   "born": 905,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "vu_linh",
+   "rank": "thai_thuong",
+   "home": 372,
+   "birthplace": 810,
+   "role": "Grand elder; the founder's son, head 1060-1150, who gave the hall to Ân Thanh Linh",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "hoa": 46,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 60,
+    "than_hon": 56,
+    "khi_van": 50,
+    "dao_tam": 66,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Humble",
+     "Patient"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [
+     "forge_scarred"
+    ],
+    "lifestyle": "tea_master",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Humbled"
+    ]
+   },
+   "appearance": "A huge, slow old caster with one ear gone to a cracked pour, who keeps an unlit blue lamp on his tea table.",
+   "backstory": "Born at Thanh Đăng Trấn, the town of the blue lamps, in the year the Night Rain Edict put the Tower's lamps out (C167). He walked south at twenty-five behind his father Chung Thiết Liên (chung_thiet_lien) and learned to cast bells instead. He led the hall for ninety years after his father died at the pour, and in 1150 he gave it to Ân Thanh Linh (an_thanh_linh), who could hear what he could not. He has not lit his father's last lamp since 905.",
+   "ties": [
+    {
+     "to": "chung_thiet_lien",
+     "kind": "parent",
+     "note": "his father, the founder"
+    },
+    {
+     "to": "chung_thiet_lien",
+     "kind": "master",
+     "note": "taught him the pour"
+    },
+    {
+     "to": "an_thanh_linh",
+     "kind": "former_disciple",
+     "note": "the girl he gave the hall to"
+    },
+    {
+     "to": "chung_hong_lo",
+     "kind": "grandchild",
+     "note": "at the furnace"
+    },
+    {
+     "to": "chung_dong_am",
+     "kind": "disciple",
+     "note": "pours the second crucible at the furnace"
+    }
+   ],
+   "master": "chung_thiet_lien",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "canopy-bell-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "molten-bronze-litany",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "vl-last-blue-lamp"
+     },
+     {
+      "base": "phu",
+      "grade": 3,
+      "element": "hoa"
+     },
+     {
+      "base": "chuong",
+      "grade": 3,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 7,
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire for the pour and the hammer, Wood behind it for a long life: a caster, not a duelist.",
+     "targets": [
+      2601,
+      2579,
+      2586,
+      2736,
+      2901
+     ],
+     "targets_note": "From Fire: Dry Kindling, the Molten Core for the pour, Pyroclast for the hammer, Long Candle for a long life."
+    },
+    "note": "Slow and heavy; a bell and a hammer."
+   },
+   "items": [
+    "vl-last-blue-lamp"
+   ]
+  },
+  {
+   "key": "trinh_thu_linh",
+   "name_hv": "Trịnh Thủ Linh",
+   "name_han": "鄭守鈴",
+   "gloss": "Keeper of the bells",
+   "sex": "M",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "vu_linh",
+   "rank": "chap_su",
+   "home": 42,
+   "birthplace": 42,
+   "role": "Keeper of the warding bells on the walls of Thu Trì Thành",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 44
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 52,
+    "can_cot": 50,
+    "than_hon": 60,
+    "khi_van": 48,
+    "dao_tam": 54,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Cautious",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A tidy man in a grey coat with a ring of small keys at his belt, one for each bell tower on the wall.",
+   "backstory": "A Thu Trì chandler's son who has walked the city walls every night for sixty years, oiling the bells and listening. He drinks with the Tower's ear at the ferry inn, Lục Nhĩ Thính (luc_nhi_thinh), and each knows what the other is. He does not know about the second line of bells inside the walls, and Ân Thanh Linh (an_thanh_linh) has not told him.",
+   "ties": [
+    {
+     "to": "an_thanh_linh",
+     "kind": "master",
+     "note": "his mistress"
+    },
+    {
+     "to": "luc_nhi_thinh",
+     "kind": "friend",
+     "note": "the Tower's ear at the ferry inn; they drink together and know each other"
+    },
+    {
+     "to": "nguy_tieu_dac",
+     "kind": "disciple",
+     "note": "his runner on the walls"
+    },
+    {
+     "to": "au_tuong_thu",
+     "kind": "disciple",
+     "note": "keeps the warding bells on the walls of Thu Trì"
+    }
+   ],
+   "master": "an_thanh_linh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "canopy-bell-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood wards and warning, Water for linh lực on a long night watch.",
+     "targets": [
+      6085,
+      6088,
+      6151,
+      6669
+     ],
+     "targets_note": "Lineage bells, Reed Root for Water's linh lực on the night watch."
+    },
+    "note": "A watchman: sees it coming."
+   }
+  },
+  {
+   "key": "chung_hong_lo",
+   "name_hv": "Chung Hồng Lô",
+   "name_han": "鍾紅爐",
+   "gloss": "The red furnace",
+   "sex": "F",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "vu_linh",
+   "rank": "noi_mon",
+   "home": 372,
+   "birthplace": 372,
+   "role": "Mistress of the furnace: the hall's master caster at the pour",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "hoa": 60,
+     "moc": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 62,
+    "than_hon": 46,
+    "khi_van": 48,
+    "dao_tam": 50,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Wrathful",
+     "Diligent",
+     "Arrogant"
+    ],
+    "calling": "Refiner",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "forge_scarred",
+     "fire_tempered"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Broad and red-armed, with her hair burned short and a leather apron black with bronze.",
+   "backstory": "The founder's great-granddaughter, raised at the furnace. Every bell the hall has cast in fifty years has been poured by her hands, and she resents that the casting is called Ân Thanh Linh's (an_thanh_linh). She writes the technical half of the letters to the Tower's forge, and Thạch Liên Hoàn (thach_lien_hoan) is the only man alive she thinks pours as well as she does.",
+   "ties": [
+    {
+     "to": "an_thanh_linh",
+     "kind": "master",
+     "note": "her mistress, who takes the credit"
+    },
+    {
+     "to": "chung_tan_huong",
+     "kind": "grandparent",
+     "note": "her grandfather"
+    },
+    {
+     "to": "thach_lien_hoan",
+     "kind": "rival",
+     "note": "the Tower's forge master; she answers his technical letters"
+    },
+    {
+     "to": "thang_tieu_hoa",
+     "kind": "disciple",
+     "note": "the bellows boy"
+    },
+    {
+     "to": "thieu_van_linh",
+     "kind": "rival",
+     "note": "the true disciple whose bells she pours; she says the cracks are hers"
+    },
+    {
+     "to": "chung_dong_am",
+     "kind": "cousin",
+     "note": "her cousin; pours the second crucible at the furnace"
+    },
+    {
+     "to": "giang_phong_lo",
+     "kind": "disciple",
+     "note": "bellows boy at the furnace"
+    }
+   ],
+   "master": "an_thanh_linh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "canopy-bell-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "molten-bronze-litany",
+      "layer": 7
+     }
+    ],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 6
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire toward burns and the bronze pour; she fights the way she casts.",
+     "targets": [
+      2601,
+      2417,
+      2579,
+      2639
+     ],
+     "targets_note": "From Fire: Dry Kindling, Clinging Embers and Long Burn for the pour's burns, Molten Shell."
+    },
+    "note": "The pour, then the hammer."
+   }
+  },
+  {
+   "key": "dang_quai_linh",
+   "name_hv": "Đằng Quải Linh",
+   "name_han": "滕掛鈴",
+   "gloss": "Hangs the bells",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "vu_linh",
+   "rank": "noi_mon",
+   "home": 372,
+   "birthplace": 435,
+   "role": "Bell-hanger: climbs the canopy to hang and tend the bell lines",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "hoa": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Content",
+     "Gregarious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "wild_raised",
+    "talent": [],
+    "path": [],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Grew up among the pythons of Mãng Đằng Lâm and climbs anything; he has hung half the bells on the forest roads and fallen out of a quarter of the trees.",
+   "ties": [
+    {
+     "to": "an_thanh_linh",
+     "kind": "master",
+     "note": "his mistress"
+    },
+    {
+     "to": "hach_chi_dien",
+     "kind": "disciple",
+     "note": "the kite girl"
+    },
+    {
+     "to": "bach_mien_thanh",
+     "kind": "disciple",
+     "note": "the kapok boy"
+    },
+    {
+     "to": "phan_linh_sach",
+     "kind": "disciple",
+     "note": "climber on the forest lines"
+    },
+    {
+     "to": "la_dang_huyen",
+     "kind": "friend",
+     "note": "hangs and tunes the warning lines in Mãng Đằng Lâm"
+    }
+   ],
+   "master": "an_thanh_linh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "canopy-bell-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "tran_phap": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and evasion in the trees."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "thieu_van_linh",
+   "name_hv": "Thiệu Văn Linh",
+   "name_han": "邵聞鈴",
+   "gloss": "Hears the bells",
+   "sex": "F",
+   "born": 1160,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "vu_linh",
+   "rank": "chan_truyen",
+   "home": 372,
+   "birthplace": 372,
+   "role": "The mistress's true disciple, who has tried nine times to cast a listening bell",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "hoa": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 44,
+    "than_hon": 64,
+    "khi_van": 52,
+    "dao_tam": 46,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Impatient",
+     "Honest"
+    ],
+    "calling": "Formation master",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": "obsessive_training",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A quick young woman with nine small cracked bells on a cord round her neck.",
+   "backstory": "Born at the hall to two casters. Ân Thanh Linh (an_thanh_linh) took her as her true disciple at twenty-five, and she has spent fifteen years trying to cast a bell like the one the mistress made at twenty. Nine have cracked in the pour, and she wears them all. She suspects the mistress has not taught her the whole seal, and she is right.",
+   "ties": [
+    {
+     "to": "an_thanh_linh",
+     "kind": "master",
+     "note": "who has not taught her the whole seal"
+    },
+    {
+     "to": "canh_tinh_am",
+     "kind": "disciple",
+     "note": "the deaf girl who feels the bells"
+    },
+    {
+     "to": "chung_hong_lo",
+     "kind": "rival",
+     "note": "pours her bells, and says the cracks are hers"
+    },
+    {
+     "to": "doan_thinh_moc",
+     "kind": "disciple",
+     "note": "holds the bells while the true disciple tries the listening seal"
+    }
+   ],
+   "master": "an_thanh_linh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "canopy-bell-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "molten-bronze-litany",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 3,
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood wards toward the listening seal she has not been given.",
+     "targets": [
+      6085,
+      6088,
+      6151,
+      6126
+     ],
+     "targets_note": "Lineage bells, Upright Trunk: not yet the listening seal."
+    },
+    "note": "Bells in the air, and not yet the one she wants."
+   }
+  },
+  {
+   "key": "thang_tieu_hoa",
+   "name_hv": "Thang Tiểu Hỏa",
+   "name_han": "湯小火",
+   "gloss": "A small fire",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "vu_linh",
+   "rank": "ngoai_mon",
+   "home": 372,
+   "birthplace": 371,
+   "role": "Bellows boy at the furnace",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 40,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Impatient",
+     "Trusting"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A bath-keeper's boy from the hall's hot spring at Quế Hương Thang who pumps the bellows at the pour and has not yet been burned.",
+   "ties": [
+    {
+     "to": "chung_hong_lo",
+     "kind": "master",
+     "note": "the furnace mistress"
+    },
+    {
+     "to": "co_thang_nhi",
+     "kind": "friend",
+     "note": "bath-keepers' girl at Quế Hương Thang"
+    },
+    {
+     "to": "giang_phong_lo",
+     "kind": "friend",
+     "note": "bellows boy at the furnace"
+    }
+   ],
+   "master": "chung_hong_lo",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "charcoal-burners-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "hach_chi_dien",
+   "name_hv": "Hách Chỉ Diên",
+   "name_han": "郝紙鳶",
+   "gloss": "A paper kite",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "vu_linh",
+   "rank": "ngoai_mon",
+   "home": 372,
+   "birthplace": 807,
+   "role": "Flies paper kites to carry the bell lines across gorges",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "tho": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Fickle",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "From Trúc Chỉ Thôn, the bamboo-paper village; she flies the first cord of each new bell line over a gorge on a kite of her own paper.",
+   "ties": [
+    {
+     "to": "dang_quai_linh",
+     "kind": "master",
+     "note": "the bell-hanger"
+    }
+   ],
+   "master": "dang_quai_linh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "charcoal-burners-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "bach_mien_thanh",
+   "name_hv": "Bạch Miên Thanh",
+   "name_han": "白綿聲",
+   "gloss": "A muffled sound",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "vu_linh",
+   "rank": "ngoai_mon",
+   "home": 372,
+   "birthplace": 809,
+   "role": "Stuffs and tunes the clappers of the bell lines",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Patient",
+     "Reclusive"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A kapok-picker's son from Mộc Miên Thôn who packs each bell's clapper with kapok so that it rings only for what it is tuned to and not for the rain.",
+   "ties": [
+    {
+     "to": "dang_quai_linh",
+     "kind": "master",
+     "note": "the bell-hanger"
+    }
+   ],
+   "master": "dang_quai_linh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "charcoal-burners-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "tran_phap": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood wards."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "nguy_tieu_dac",
+   "name_hv": "Ngụy Tiểu Đạc",
+   "name_han": "魏小鐸",
+   "gloss": "A little hand-bell",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "vu_linh",
+   "rank": "ngoai_mon",
+   "home": 42,
+   "birthplace": 42,
+   "role": "Runner on the walls of Thu Trì",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Ambitious",
+     "Deceitful"
+    ],
+    "calling": "Schemer",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "An innkeeper's son from Thu Trì who runs messages between the wall towers and sells what he overhears to whoever is buying in the Night Rain Market.",
+   "ties": [
+    {
+     "to": "trinh_thu_linh",
+     "kind": "master",
+     "note": "the wall keeper"
+    },
+    {
+     "to": "au_tuong_thu",
+     "kind": "friend",
+     "note": "keeps the warding bells on the walls of Thu Trì"
+    }
+   ],
+   "master": "trinh_thu_linh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "charcoal-burners-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water and speed."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "canh_tinh_am",
+   "name_hv": "Cảnh Tĩnh Âm",
+   "name_han": "景靜音",
+   "gloss": "A quiet sound",
+   "sex": "F",
+   "born": 1177,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "vu_linh",
+   "rank": "ngoai_mon",
+   "home": 372,
+   "birthplace": 372,
+   "role": "Deafened at a pour; feels the bell lines through her feet",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "hoa": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Stubborn",
+     "Humble"
+    ],
+    "calling": "Formation master",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Scarred"
+    ]
+   },
+   "backstory": "Lost her hearing at fifteen when a bell cracked in the pour; she now stands barefoot on the roots and feels every bell in the line, and hears them better than anyone but the mistress.",
+   "ties": [
+    {
+     "to": "thieu_van_linh",
+     "kind": "master",
+     "note": "the true disciple"
+    }
+   ],
+   "master": "thieu_van_linh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "charcoal-burners-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "tran_phap": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood, through the roots."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "chung_thiet_lien",
+   "name_hv": "Chung Thiết Liên",
+   "name_han": "鍾鐵鏈",
+   "gloss": "An iron chain",
+   "sex": "M",
+   "born": 860,
+   "died": 1060,
+   "cause": "a bell cracked in the pour",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "vu_linh",
+   "rank": "founder",
+   "home": 372,
+   "birthplace": 810,
+   "role": "Founder of Vũ Linh Đường (930): a lamp-and-chain caster of Thanh Đăng Trấn who turned to bells",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Diligent",
+     "Stubborn"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [
+     "forge_scarred"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A caster of Thanh Đăng Trấn who made the town's blue lamps and the Tower's bronze rain-chains. When the Night Rain Edict put the Tower's lamps out (C167, A274), the lamp trade died, and in 930 the lamp-makers went to Hạnh Hoa Thị (V148). Chung took his casters south above Thu Trì instead and turned them to bells (V149): if the Tower would not see at night, it would have to hear. He died at the pour in 1060, under a bell that cracked. His son Chung Tàn Hưởng (chung_tan_huong) kept the cracked bell, and in 1150 gave its bronze to Ân Thanh Linh (an_thanh_linh).",
+   "ties": [
+    {
+     "to": "chung_tan_huong",
+     "kind": "child",
+     "note": "his son and heir"
+    },
+    {
+     "to": "chung_tan_huong",
+     "kind": "disciple",
+     "note": "taught him the pour"
+    },
+    {
+     "to": "an_thanh_linh",
+     "kind": "descendant",
+     "note": "a later head of his line (lineage, not blood)"
+    }
+   ]
+  }
+ ]
+}

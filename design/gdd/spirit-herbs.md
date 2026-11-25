@@ -216,6 +216,9 @@ The mastery_xp formula is defined as:
 
 **Back-links:** added 2026-11-21 in Cave Abode, Trade Goods, Regional Economy, Formations and Character Stats; Realms needs none.
 
+**Back-link written 2026-11-25** (world-depth rulings): **NPC Traits** (#42, rule 8a) opens `craft:herbs`
+(`gardener`) on a grower; what the edge gives is this GDD's rule, still to write (NPC Traits Open Question 15).
+
 ## Visual/Audio Requirements
 
 Art bible §1–4 are still placeholders; this section draws on §7 and the pillars.

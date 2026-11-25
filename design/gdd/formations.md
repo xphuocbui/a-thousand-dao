@@ -266,6 +266,10 @@ The diagram_reservation formula is defined as:
 
 Back-links added 2026-11-21 in Regional Economy (Formula H gains `burn_formation`), Sects and công pháp; Character Stats already listed Formations. Combat rules 12 and 13 were amended the same day (the diagram never competes under "one formation per side"; slot order is the node index).
 
+**Back-links written 2026-11-25** (world-depth rulings, `design/world/depth/DECISIONS-2026-11-25.md` group 12; a note only, no rule here changes):
+- **Combat** (#21, rule 25, duel readings): "your own formation" or "your array" reads whether your combat diagram is laid, through the Effects readable `diagram_laid` (bool, at compile), and field Pieces may come from a formation. Both are **read only**: diagrams, nodes, links, fuel, reservation and the art loadout are unchanged.
+- **NPC Traits** (#42, catalogue § Hooks by consumer): the `craft:formations` edge, opened by `scholar_family` (Scholar's child) and `formation_mind` (Array mind). What the edge gives is this GDD's to define when it is wanted (NPC Traits Open Question 15); until then the hook is inert.
+
 ## Visual/Audio Requirements
 
 Today's surface is the Debug Terminal, so these are the terminal's needs plus intent for the Game UI (#37). Assets are deferred with that system. Art bible §1–4 are still placeholders; this section draws on §7 and the pillars.

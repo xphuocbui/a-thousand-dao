@@ -1,0 +1,66 @@
+{
+ "sect": "cung_tinh",
+ "_doc": "Củng Tinh Quán signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow the earth and general catalogues' grade 3-4 items. Prefix ct-. The head also keeps the catalogue's earth-mountain-pressing-seal (unchanged), and holds the legendary armillary Tuyền Cơ Nghi (tuyen_co_nghi, world history), which is a fixed instrument at the seat, not gear.",
+ "items": [
+  {
+   "id": "ct-star-lake-mirror", "name": "Mirror of the Star-Fallen Lake (Tinh Lạc Kính)", "family": "earth", "kind": "treasure", "base": "kinh", "grade": 4,
+   "modifiers": [{"key": "than_thuc_pct", "value": 8, "scope": []}, {"key": "stack_effect_pct", "value": 30, "scope": ["tho", "debuff"]}, {"key": "status_duration_pct", "value": 15, "scope": []}, {"key": "khi_van", "value": 1, "scope": []}, {"key": "ward_efficiency_pct", "value": 12, "scope": []}],
+   "effects": [{"new": true, "id": "seen-in-the-water", "name": "Seen in the Water (Thủy Trung Kiến)", "rule": "At the start of a fight you see the first art each foe will use. The first time each foe uses it, you ward it fully."}],
+   "lore": "A disc of black stone polished flat and set in a bronze rim, cut in 160 from the bed of Tinh Lạc Hồ where the lake holds the Dipper at night (A205). Laid on the water, it shows the stars as the lake sees them. Thẩm Bắc Thần has carried it for six hundred years.",
+   "build_use": "The head's divination piece: thần thức, Earth stacks, and a ward against the first blow.",
+   "holder": "tham_bac_than", "made_by": "lenh_ho_chiem", "made_year": 160, "set": "ct-pole-star-court", "status": "proposal"
+  },
+  {
+   "id": "ct-armillary-ring", "name": "Ring of the Armillary (Tuyền Cơ Hoàn)", "family": "earth", "kind": "artifact", "base": "nhan", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 14, "scope": ["tho"]}, {"key": "stack_duration_pct", "value": 30, "scope": ["tho", "debuff"]}, {"key": "than_thuc_pct", "value": 4, "scope": []}, {"key": "linh_luc_pct", "value": 8, "scope": []}, {"key": "stack_effect_pct", "value": 20, "scope": ["tho", "debuff"]}],
+   "effects": [{"new": true, "id": "keeper-of-the-hours", "name": "Keeper of the Hours (Thủ Thời)", "rule": "Arrays you lay last a third longer, and the first array you lay in a fight is laid at no cost."}],
+   "lore": "A ring of Vẫn Tinh star iron cut from the spare outer circle when the armillary was finished in 180 (C055). It is given to the keeper of the Tuyền Cơ Nghi, who winds it each dusk. Tô Tinh Nghi has worn it since 1090.",
+   "build_use": "The armillary keeper's ring: longer Earth stacks and longer arrays.",
+   "holder": "to_tinh_nghi", "made_by": "lenh_ho_chiem", "made_year": 180, "set": "ct-armillary-rings", "status": "proposal",
+   "authored": "b7"
+  },
+  {
+   "id": "ct-dipper-array-flag", "name": "Flag of the Turning Dipper (Chuyển Đẩu Trận Kỳ)", "family": "earth", "kind": "artifact", "base": "ky", "grade": 4,
+   "modifiers": [{"key": "stack_effect_pct", "value": 30, "scope": ["tho", "debuff"]}, {"key": "stack_duration_pct", "value": 30, "scope": ["tho", "debuff"]}, {"key": "than_thuc_pct", "value": 6, "scope": []}, {"key": "khi_huyet_pct", "value": 10, "scope": []}],
+   "effects": [],
+   "lore": "Seven small flags on one staff, which the head plants and turns a seventh of a circle each night as the Dipper turns.",
+   "build_use": "Earth stacks that last: the field that turns around him.",
+   "holder": "tham_bac_than", "made_by": "tham_bac_than", "made_year": 560, "set": "ct-pole-star-court", "status": "proposal"
+  },
+  {
+   "id": "ct-ecliptic-flag", "name": "Flag of the Ecliptic (Hoàng Đạo Kỳ)", "family": "earth", "kind": "artifact", "base": "ky", "grade": 3,
+   "modifiers": [{"key": "stack_effect_pct", "value": 22, "scope": ["tho", "debuff"]}, {"key": "attack_pct", "value": 12, "scope": ["tho"]}, {"key": "than_thuc_pct", "value": 4, "scope": []}, {"key": "defense_pct", "value": 6, "scope": []}],
+   "effects": [],
+   "lore": "A ring of twelve pennants that marks the sun's road; the prioress plants it inside her first ring to lay the second.",
+   "build_use": "Ring damage and the second ring on the first.",
+   "holder": "to_tinh_nghi", "made_by": "lenh_ho_chiem", "made_year": 180, "set": "ct-armillary-rings", "status": "proposal"
+  },
+  {
+   "id": "ct-prioress-robe", "name": "Robe of the Armillary Keeper (Tuyền Cơ Bào)", "family": "metal", "kind": "artifact", "base": "dao_bao", "grade": 3,
+   "modifiers": [{"key": "khi_huyet_pct", "value": 12, "scope": []}, {"key": "defense_pct", "value": 8, "scope": []}, {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}, {"key": "status_resist_pct", "value": 10, "scope": []}],
+   "effects": [],
+   "lore": "Brass-grey, cut to work in the armillary hall's cold all night; the sleeves are bound so they never catch on a moving ring.",
+   "build_use": "Guard and linh lực for the keeper who holds the rings.",
+   "holder": "to_tinh_nghi", "made_by": "cung_tinh", "made_year": 1090, "set": "ct-armillary-rings", "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "ct-pole-star-court", "name": "Pole Star Court (Bắc Thần Tinh Đình)", "pieces": ["ct-star-lake-mirror", "ct-dipper-array-flag"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "stack_effect_pct", "value": 12, "scope": ["tho", "debuff"]}, {"key": "than_thuc_pct", "value": 4, "scope": []}], "effect": "The Field Turns (Tinh Chuyển): while your array field is up and you are Still, every 4 s the foe gains one Earth stack and is Displaced. A foe whose first art the Mirror warded fully takes double damage from your next array art."}
+   ],
+   "story": "The lake mirror of 160 and the flag the head made for himself in 560, the year he took the abbey's centre. Whole in his hands for six centuries; the Mountain-Pressing Seal presses what the field has gathered.",
+   "authored": "a1"
+  },
+  {
+   "id": "ct-armillary-rings", "name": "Rings of the Armillary (Tuyền Cơ Tam Hoàn)", "pieces": ["ct-armillary-ring", "ct-ecliptic-flag", "ct-prioress-robe"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "stack_duration_pct", "value": 14, "scope": ["tho", "debuff"]}, {"key": "linh_luc_pct", "value": 4, "scope": []}]},
+    {"pieces": 3, "effect": "Ring Within the Ring (Hoàn Trung Hoàn): a Ring of the Hour you lay on a foe already inside your ring becomes a second ring; while both stand, the foe is Pinned and takes your array damage once for each ring every second."}
+   ],
+   "story": "The armillary's spare circle, the ecliptic flag cut from the same bronze in 180, and the keeper's robe. They go to whoever keeps Tuyền Cơ Nghi, not to the prioress as such.",
+   "authored": "d46"
+  }
+ ]
+}

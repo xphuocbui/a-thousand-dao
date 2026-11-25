@@ -1,0 +1,2146 @@
+{
+"_doc": "World context for every depth writer. start_year = the game's first year.",
+"start_year": 1200,
+"eras": [
+{
+"from": 0,
+"to": 119,
+"name": "The Wild Age",
+"name_hv": "Hoang Kỷ",
+"name_han": "荒紀",
+"gist": "Hermits and beasts. Cửu Thiều Cung (70) is the only sect."
+},
+{
+"from": 120,
+"to": 339,
+"name": "The Age of First Gates",
+"name_hv": "Khai Môn Kỷ",
+"name_han": "開門紀",
+"gist": "Thiên Xu and the first great sects open their gates; Thiên Xu claims the heart of the continent. Ends with the War of the Nine Shao, Thiên Xu's first judgement."
+},
+{
+"from": 340,
+"to": 509,
+"name": "The Age of Seven Seats",
+"name_hv": "Thất Tọa Kỷ",
+"name_han": "七座紀",
+"gist": "The other great sects are founded and grab land; three old sects end. Ends when Tùng Đào and Lạc Hà try to take the heart and lose the War of the Pivot."
+},
+{
+"from": 510,
+"to": 789,
+"name": "The Age of the North Star Compact",
+"name_hv": "Bắc Thần Kỷ",
+"name_han": "北辰紀",
+"gist": "Land changes hands only by a fall, a gift, an oath or a war licensed by Thiên Xu's writ. Thiên Xu enforces the Compact."
+},
+{
+"from": 790,
+"to": 805,
+"name": "The War of Broken Halberds",
+"name_hv": "Chiết Kích Chi Chiến",
+"name_han": "折戟之戰",
+"gist": "Lạc Hà and Thính Vũ break the Compact together; Thiên Xu wins at the cost of its marshal, and the 805 truce renews the Compact."
+},
+{
+"from": 806,
+"to": 1200,
+"name": "The Age of Vein Wars",
+"name_hv": "Tranh Mạch Kỷ",
+"name_han": "爭脈紀",
+"gist": "No sect dares an open war of conquest; neighbours fight short wars over the wild veins near their borders, and Thiên Xu ends or decides them."
+}
+],
+"sects": [
+{
+"key": "thien_xu",
+"name": "Thiên Xu Tông",
+"name_han": "天樞宗",
+"gloss": "Sect of the Heavenly Pivot",
+"kind": "great",
+"lord": "",
+"leans": [
+"Metal",
+"Earth"
+],
+"seat": "Thiên Xu Tông",
+"alignment": "trung",
+"specialty": "tran_su",
+"founded": 120
+},
+{
+"key": "tung_dao",
+"name": "Tùng Đào Cung",
+"name_han": "松濤宮",
+"gloss": "Palace of the Pine Waves",
+"kind": "great",
+"lord": "",
+"leans": [
+"Wood",
+"Water"
+],
+"seat": "Tùng Đào Cung",
+"alignment": "chinh",
+"specialty": "phap_tu",
+"founded": 200
+},
+{
+"key": "lac_ha",
+"name": "Lạc Hà Tông",
+"name_han": "落霞宗",
+"gloss": "Sect of the Drifting Sunset Clouds",
+"kind": "great",
+"lord": "",
+"leans": [
+"Earth",
+"Wood"
+],
+"seat": "Lạc Hà Tông",
+"alignment": "trung",
+"specialty": "phap_tu",
+"founded": 290
+},
+{
+"key": "thinh_vu",
+"name": "Thính Vũ Lâu",
+"name_han": "聽雨樓",
+"gloss": "Tower Where One Listens to the Rain",
+"kind": "great",
+"lord": "",
+"leans": [
+"Metal",
+"Water",
+"Thunder"
+],
+"seat": "Thính Vũ Lâu",
+"alignment": "ma",
+"specialty": "kiem_tu",
+"founded": 380
+},
+{
+"key": "bang_tam",
+"name": "Băng Tâm Các",
+"name_han": "冰心閣",
+"gloss": "Pavilion of the Ice Heart",
+"kind": "great",
+"lord": "",
+"leans": [
+"Water",
+"Ice"
+],
+"seat": "Băng Tâm Các",
+"alignment": "chinh",
+"specialty": "kiem_tu",
+"founded": 440
+},
+{
+"key": "thuy_vi",
+"name": "Thúy Vi Tông",
+"name_han": "翠微宗",
+"gloss": "Sect of the Emerald Haze",
+"kind": "great",
+"lord": "",
+"leans": [
+"Wood",
+"Earth"
+],
+"seat": "Thúy Vi Tông",
+"alignment": "chinh",
+"specialty": "dan_su",
+"founded": 500
+},
+{
+"key": "phuong_minh",
+"name": "Phượng Minh Cung",
+"name_han": "鳳鳴宮",
+"gloss": "Palace of the Phoenix's Call",
+"kind": "great",
+"lord": "",
+"leans": [
+"Fire",
+"Wood"
+],
+"seat": "Phượng Minh Cung",
+"alignment": "chinh",
+"specialty": "phap_tu",
+"founded": 480
+},
+{
+"key": "thoi_tinh",
+"name": "Thối Tinh Môn",
+"name_han": "淬星門",
+"gloss": "Gate of the Quenched Stars",
+"kind": "minor",
+"lord": "thien_xu",
+"leans": [
+"Metal",
+"Fire"
+],
+"seat": "Thối Tinh Môn",
+"alignment": "trung",
+"specialty": "kiem_tu",
+"founded": 330
+},
+{
+"key": "phat_y",
+"name": "Phất Y Cốc",
+"name_han": "拂衣谷",
+"gloss": "Valley of the Brushed Sleeve",
+"kind": "minor",
+"lord": "thien_xu",
+"leans": [
+"Metal",
+"Wind"
+],
+"seat": "Phất Y Cốc",
+"alignment": "chinh",
+"specialty": "kiem_tu",
+"founded": 560
+},
+{
+"key": "cung_tinh",
+"name": "Củng Tinh Quán",
+"name_han": "拱星觀",
+"gloss": "Abbey of the Bowing Stars",
+"kind": "minor",
+"lord": "thien_xu",
+"leans": [
+"Earth",
+"Metal"
+],
+"seat": "Củng Tinh Quán",
+"alignment": "trung",
+"specialty": "tran_su",
+"founded": 150
+},
+{
+"key": "cuu_cao",
+"name": "Cửu Cao Phái",
+"name_han": "九皋派",
+"gloss": "School of the Nine Marshes",
+"kind": "minor",
+"lord": "thien_xu",
+"leans": [
+"Wind",
+"Wood"
+],
+"seat": "Cửu Cao Phái",
+"alignment": "chinh",
+"specialty": "phap_tu",
+"founded": 700
+},
+{
+"key": "ham_nguyet",
+"name": "Hàm Nguyệt Trang",
+"name_han": "含月莊",
+"gloss": "Manor That Holds the Moon",
+"kind": "minor",
+"lord": "tung_dao",
+"leans": [
+"Water",
+"Ice"
+],
+"seat": "Hàm Nguyệt Trang",
+"alignment": "chinh",
+"specialty": "phap_tu",
+"founded": 410
+},
+{
+"key": "van_hac",
+"name": "Vạn Hác Viện",
+"name_han": "萬壑院",
+"gloss": "Academy of the Ten Thousand Ravines",
+"kind": "minor",
+"lord": "tung_dao",
+"leans": [
+"Wood",
+"Wind"
+],
+"seat": "Vạn Hác Viện",
+"alignment": "chinh",
+"specialty": "phap_tu",
+"founded": 620
+},
+{
+"key": "thai_chi",
+"name": "Thải Chi Cốc",
+"name_han": "採芝谷",
+"gloss": "Valley of the Lingzhi Pickers",
+"kind": "minor",
+"lord": "tung_dao",
+"leans": [
+"Wood",
+"Water"
+],
+"seat": "Thải Chi Cốc",
+"alignment": "chinh",
+"specialty": "dan_su",
+"founded": 480
+},
+{
+"key": "lang_dao",
+"name": "Lãng Đào Môn",
+"name_han": "浪淘門",
+"gloss": "Gate of the Washing Waves",
+"kind": "minor",
+"lord": "tung_dao",
+"leans": [
+"Water",
+"Wood"
+],
+"seat": "Lãng Đào Môn",
+"alignment": "chinh",
+"specialty": "phap_tu",
+"founded": 790
+},
+{
+"key": "binh_thuy",
+"name": "Bình Thủy Môn",
+"name_han": "萍水門",
+"gloss": "Gate of Duckweed and Water",
+"kind": "minor",
+"lord": "lac_ha",
+"leans": [
+"Water",
+"Wood"
+],
+"seat": "Bình Thủy Môn",
+"alignment": "trung",
+"specialty": "phap_tu",
+"founded": 520
+},
+{
+"key": "muc_van",
+"name": "Mục Vân Trang",
+"name_han": "牧雲莊",
+"gloss": "Manor of the Cloud Herders",
+"kind": "minor",
+"lord": "lac_ha",
+"leans": [
+"Wind",
+"Earth"
+],
+"seat": "Mục Vân Trang",
+"alignment": "trung",
+"specialty": "the_tu",
+"founded": 740
+},
+{
+"key": "thien_bao",
+"name": "Thiên Bảo Trai",
+"name_han": "天寶齋",
+"gloss": "Studio of Heaven's Treasures",
+"kind": "minor",
+"lord": "lac_ha",
+"leans": [
+"Metal",
+"Earth"
+],
+"seat": "Thiên Bảo Trai",
+"alignment": "trung",
+"specialty": "tran_su",
+"founded": 350
+},
+{
+"key": "nam_pho",
+"name": "Nam Phố Đường",
+"name_han": "南浦堂",
+"gloss": "Hall of the Southern Shore",
+"kind": "minor",
+"lord": "lac_ha",
+"leans": [
+"Wood",
+"Water"
+],
+"seat": "Nam Phố Đường",
+"alignment": "chinh",
+"specialty": "tran_su",
+"founded": 880
+},
+{
+"key": "xuyen_lam",
+"name": "Xuyên Lâm Môn",
+"name_han": "穿林門",
+"gloss": "Gate Through the Forest",
+"kind": "minor",
+"lord": "thinh_vu",
+"leans": [
+"Thunder",
+"Wood"
+],
+"seat": "Xuyên Lâm Môn",
+"alignment": "chinh",
+"specialty": "the_tu",
+"founded": 690
+},
+{
+"key": "hong_dau",
+"name": "Hồng Đậu Trang",
+"name_han": "紅豆莊",
+"gloss": "Manor of the Red Beans",
+"kind": "minor",
+"lord": "thinh_vu",
+"leans": [
+"Poison",
+"Wood"
+],
+"seat": "Hồng Đậu Trang",
+"alignment": "ma",
+"specialty": "dan_su",
+"founded": 910
+},
+{
+"key": "le_hoa",
+"name": "Lê Hoa Am",
+"name_han": "梨花庵",
+"gloss": "Hermitage of the Pear Blossom",
+"kind": "minor",
+"lord": "bang_tam",
+"leans": [
+"Ice",
+"Water"
+],
+"seat": "Lê Hoa Am",
+"alignment": "chinh",
+"specialty": "kiem_tu",
+"founded": 600
+},
+{
+"key": "trac_anh",
+"name": "Trạc Anh Đài",
+"name_han": "濯纓臺",
+"gloss": "Terrace Where the Hat Strings Are Washed",
+"kind": "minor",
+"lord": "bang_tam",
+"leans": [
+"Water",
+"Ice"
+],
+"seat": "Trạc Anh Đài",
+"alignment": "trung",
+"specialty": "the_tu",
+"founded": 830
+},
+{
+"key": "da_quang",
+"name": "Dạ Quang Môn",
+"name_han": "夜光門",
+"gloss": "Gate of the Night-Glowing Cup",
+"kind": "minor",
+"lord": "bang_tam",
+"leans": [
+"Fire",
+"Metal"
+],
+"seat": "Dạ Quang Môn",
+"alignment": "ma",
+"specialty": "kiem_tu",
+"founded": 970
+},
+{
+"key": "hong_lo",
+"name": "Hồng Lô Cốc",
+"name_han": "紅爐谷",
+"gloss": "Valley of the Red Furnace",
+"kind": "minor",
+"lord": "thuy_vi",
+"leans": [
+"Fire",
+"Wood"
+],
+"seat": "Hồng Lô Cốc",
+"alignment": "chinh",
+"specialty": "dan_su",
+"founded": 650
+},
+{
+"key": "van_khoi",
+"name": "Vân Khởi Quán",
+"name_han": "雲起觀",
+"gloss": "Abbey Where the Clouds Rise",
+"kind": "minor",
+"lord": "thuy_vi",
+"leans": [
+"Earth",
+"Wood"
+],
+"seat": "Vân Khởi Quán",
+"alignment": "chinh",
+"specialty": "phap_tu",
+"founded": 540
+},
+{
+"key": "truc_thuc",
+"name": "Trúc Thực Viên",
+"name_han": "竹實園",
+"gloss": "Garden of the Bamboo Seed",
+"kind": "minor",
+"lord": "phuong_minh",
+"leans": [
+"Wood",
+"Fire"
+],
+"seat": "Trúc Thực Viên",
+"alignment": "chinh",
+"specialty": "linh_thuc_su",
+"founded": 760
+},
+{
+"key": "le_tuyen",
+"name": "Lễ Tuyền Phái",
+"name_han": "醴泉派",
+"gloss": "School of the Sweet Spring",
+"kind": "minor",
+"lord": "phuong_minh",
+"leans": [
+"Water",
+"Wood"
+],
+"seat": "Lễ Tuyền Phái",
+"alignment": "chinh",
+"specialty": "dan_su",
+"founded": 660
+},
+{
+"key": "phan_vu",
+"name": "Phần Vũ Đường",
+"name_han": "焚羽堂",
+"gloss": "Hall of the Burning Feathers",
+"kind": "minor",
+"lord": "phuong_minh",
+"leans": [
+"Fire",
+"Earth"
+],
+"seat": "Phần Vũ Đường",
+"alignment": "trung",
+"specialty": "the_tu",
+"founded": 1020
+},
+{
+"key": "thu_phan",
+"name": "Thu Phần Các",
+"name_han": "秋墳閣",
+"gloss": "Pavilion of the Autumn Graves",
+"kind": "minor",
+"lord": "thinh_vu",
+"leans": [
+"Darkness",
+"Metal"
+],
+"seat": "Thu Phần Các",
+"alignment": "ma",
+"specialty": "phap_tu",
+"founded": 960
+},
+{
+"key": "ngao_tuyet",
+"name": "Ngạo Tuyết Phái",
+"name_han": "傲雪派",
+"gloss": "School That Defies the Snow",
+"kind": "minor",
+"lord": "tung_dao",
+"leans": [
+"Wood",
+"Metal"
+],
+"seat": "Ngạo Tuyết Phái",
+"alignment": "chinh",
+"specialty": "kiem_tu",
+"founded": 1105
+},
+{
+"key": "bach_vu",
+"name": "Bách Vũ Các",
+"name_han": "百羽閣",
+"gloss": "Pavilion of the Hundred Feathers",
+"kind": "minor",
+"lord": "phuong_minh",
+"leans": [
+"Fire",
+"Wood"
+],
+"seat": "Bách Vũ Các",
+"alignment": "chinh",
+"specialty": "linh_thuc_su",
+"founded": 1110
+},
+{
+"key": "vong_trieu",
+"name": "Vọng Triều Đường",
+"name_han": "望潮堂",
+"gloss": "Hall Watching the Tide",
+"kind": "minor",
+"lord": "phuong_minh",
+"leans": [
+"Water",
+"Metal"
+],
+"seat": "Vọng Triều Đường",
+"alignment": "chinh",
+"specialty": "tran_su",
+"founded": 790
+},
+{
+"key": "tran_sa",
+"name": "Trấn Sa Đường",
+"name_han": "鎮沙堂",
+"gloss": "Hall That Holds the Sand",
+"kind": "minor",
+"lord": "bang_tam",
+"leans": [
+"Metal",
+"Earth"
+],
+"seat": "Trấn Sa Đường",
+"alignment": "chinh",
+"specialty": "kiem_tu",
+"founded": 1125
+},
+{
+"key": "lanh_giang",
+"name": "Lãnh Giang Phái",
+"name_han": "冷江派",
+"gloss": "School of the Chill River",
+"kind": "minor",
+"lord": "bang_tam",
+"leans": [
+"Water"
+],
+"seat": "Lãnh Giang Phái",
+"alignment": "trung",
+"specialty": "phap_tu",
+"founded": 1140
+},
+{
+"key": "nhan_van",
+"name": "Nhàn Vân Quán",
+"name_han": "閑雲觀",
+"gloss": "Abbey of the Idle Clouds",
+"kind": "minor",
+"lord": "lac_ha",
+"leans": [
+"Water",
+"Wood"
+],
+"seat": "Nhàn Vân Quán",
+"alignment": "trung",
+"specialty": "phap_tu",
+"founded": 905
+},
+{
+"key": "nhan_tran",
+"name": "Nhạn Trận Môn",
+"name_han": "雁陣門",
+"gloss": "Gate of the Goose Formation",
+"kind": "minor",
+"lord": "lac_ha",
+"leans": [
+"Metal",
+"Earth"
+],
+"seat": "Nhạn Trận Môn",
+"alignment": "chinh",
+"specialty": "tran_su",
+"founded": 806
+},
+{
+"key": "vu_linh",
+"name": "Vũ Linh Đường",
+"name_han": "雨鈴堂",
+"gloss": "Hall of the Rain Bells",
+"kind": "minor",
+"lord": "thinh_vu",
+"leans": [
+"Metal",
+"Water"
+],
+"seat": "Vũ Linh Đường",
+"alignment": "trung",
+"specialty": "tran_su",
+"founded": 930
+},
+{
+"key": "tuan_tung",
+"name": "Tuần Tùng Đường",
+"name_han": "巡松堂",
+"gloss": "Hall of the Pine Wardens",
+"kind": "minor",
+"lord": "tung_dao",
+"leans": [
+"Wood",
+"Metal"
+],
+"seat": "Tuần Tùng Đường",
+"alignment": "chinh",
+"specialty": "the_tu",
+"founded": 1191
+},
+{
+"key": "tam_kiem",
+"name": "Tầm Kiếm Đường",
+"name_han": "尋劍堂",
+"gloss": "Hall of the Sword Seekers",
+"kind": "minor",
+"lord": "bang_tam",
+"leans": [
+"Metal",
+"Water"
+],
+"seat": "Tầm Kiếm Đường",
+"alignment": "trung",
+"specialty": "kiem_tu",
+"founded": 1162
+},
+{
+"key": "chan_kim",
+"name": "Chân Kim Các",
+"name_han": "真金閣",
+"gloss": "Pavilion of True Gold",
+"kind": "minor",
+"lord": "thien_xu",
+"leans": [
+"Metal",
+"Earth"
+],
+"seat": "Chân Kim Các",
+"alignment": "trung",
+"specialty": "kiem_tu",
+"founded": 980
+},
+{
+"key": "coc_vu",
+"name": "Cốc Vũ Quán",
+"name_han": "穀雨觀",
+"gloss": "Abbey of the Grain Rain",
+"kind": "minor",
+"lord": "thinh_vu",
+"leans": [
+"Water",
+"Wood"
+],
+"seat": "Cốc Vũ Quán",
+"alignment": "trung",
+"specialty": "linh_thuc_su",
+"founded": 610
+},
+{
+"key": "minh_loan",
+"name": "Minh Loan Các",
+"name_han": "鳴鸞閣",
+"gloss": "Pavilion of the Singing Bells",
+"kind": "minor",
+"lord": "lac_ha",
+"leans": [
+"Metal",
+"Earth"
+],
+"seat": "Minh Loan Các",
+"alignment": "trung",
+"specialty": "phap_tu",
+"founded": 960
+},
+{
+"key": "yen_quang",
+"name": "Yên Quang Các",
+"name_han": "煙光閣",
+"gloss": "Pavilion of the Hazy Light",
+"kind": "minor",
+"lord": "lac_ha",
+"leans": [
+"Wood",
+"Earth"
+],
+"seat": "Yên Quang Các",
+"alignment": "chinh",
+"specialty": "dan_su",
+"founded": 1065
+},
+{
+"key": "hoa_cai",
+"name": "Hoa Cái Đường",
+"name_han": "華蓋堂",
+"gloss": "Hall of the Canopy Star",
+"kind": "minor",
+"lord": "thien_xu",
+"leans": [
+"Fire",
+"Earth"
+],
+"seat": "Hoa Cái Đường",
+"alignment": "chinh",
+"specialty": "dan_su",
+"founded": 1060
+},
+{
+"key": "suong_tung",
+"name": "Sương Tùng Các",
+"name_han": "霜松閣",
+"gloss": "Pavilion of the Frosted Pines",
+"kind": "minor",
+"lord": "tung_dao",
+"leans": [
+"Wood",
+"Water"
+],
+"seat": "Sương Tùng Các",
+"alignment": "chinh",
+"specialty": "phap_tu",
+"founded": 1060
+},
+{
+"key": "chuc_ha",
+"name": "Chức Hà Các",
+"name_han": "織霞閣",
+"gloss": "Pavilion of the Woven Clouds",
+"kind": "minor",
+"lord": "phuong_minh",
+"leans": [
+"Fire",
+"Wood"
+],
+"seat": "Chức Hà Các",
+"alignment": "trung",
+"specialty": "phap_tu",
+"founded": 1150
+},
+{
+"key": "vu_an",
+"name": "Vụ Ẩn Môn",
+"name_han": "霧隱門",
+"gloss": "Gate Hidden in Mist",
+"kind": "minor",
+"lord": "thuy_vi",
+"leans": [
+"Wood",
+"Water"
+],
+"seat": "Vụ Ẩn Môn",
+"alignment": "trung",
+"specialty": "tran_su",
+"founded": 1050
+},
+{
+"key": "ho_lam",
+"name": "Hộ Lâm Đường",
+"name_han": "護林堂",
+"gloss": "Hall of the Forest Wardens",
+"kind": "minor",
+"lord": "thuy_vi",
+"leans": [
+"Wood",
+"Earth"
+],
+"seat": "Hộ Lâm Đường",
+"alignment": "chinh",
+"specialty": "linh_thuc_su",
+"founded": 910
+},
+{
+"key": "hoa_tinh",
+"name": "Họa Tinh Đường",
+"name_han": "畫星堂",
+"gloss": "Hall of the Painted Stars",
+"kind": "minor",
+"lord": "thien_xu",
+"leans": [
+"Wood",
+"Metal"
+],
+"seat": "Họa Tinh Đường",
+"alignment": "chinh",
+"specialty": "phap_tu",
+"founded": 910
+}
+],
+"fallen_sects": [
+{
+"key": "khong_son",
+"name": "Không Sơn Viện",
+"name_han": "空山院",
+"gloss": "Academy of the Empty Mountain",
+"founded": 180,
+"fell": 500,
+"cause": "no heir; its master gave the hills to Thúy Vi's founder",
+"land": [
+3
+],
+"ruin": null
+},
+{
+"key": "ho_thien",
+"name": "Hồ Thiên Phái",
+"name_han": "胡天派",
+"gloss": "School of the Northern Sky",
+"founded": 210,
+"fell": 425,
+"cause": "buried by the eruption of Chúc Long Sơn",
+"land": [
+7
+],
+"ruin": null
+},
+{
+"key": "xich_thanh",
+"name": "Xích Thành Môn",
+"name_han": "赤城門",
+"gloss": "Gate of the Red Wall",
+"founded": 250,
+"fell": 590,
+"cause": "turned to burning villages; destroyed by Phượng Minh under writ. Phần Vũ Đường (1020) later revives its fire arts in the same vents",
+"land": [
+20
+],
+"ruin": null
+},
+{
+"key": "han_giang",
+"name": "Hàn Giang Môn",
+"name_han": "寒江門",
+"gloss": "Gate of the Cold River",
+"founded": 300,
+"fell": 498,
+"cause": "conquered by Băng Tâm in the War of the Frost Coast",
+"land": [
+9
+],
+"ruin": null
+},
+{
+"key": "thon_hai",
+"name": "Thôn Hải Môn",
+"name_han": "吞海門",
+"gloss": "Gate That Swallows the Sea",
+"founded": 640,
+"fell": 781,
+"cause": "ma đạo pirates destroyed in the Pirate Purge",
+"land": [],
+"ruin": null
+},
+{
+"key": "pha_quan",
+"name": "Phá Quân Môn",
+"name_han": "破軍門",
+"gloss": "Gate of the Army-Breaker Star",
+"founded": 720,
+"fell": 874,
+"cause": "rebelled to make war on its neighbours; destroyed",
+"land": [],
+"ruin": null
+},
+{
+"key": "kim_coc",
+"name": "Kim Cốc Viên",
+"name_han": "金谷園",
+"gloss": "Garden of the Golden Valley",
+"founded": 760,
+"fell": 1003,
+"cause": "a market crash and a great fire",
+"land": [],
+"ruin": null
+},
+{
+"key": "lac_anh",
+"name": "Lạc Anh Phái",
+"name_han": "落英派",
+"gloss": "School of the Fallen Petals",
+"founded": 230,
+"fell": 610,
+"cause": "split by an inheritance quarrel; the last head vanished",
+"ruin_slot": "V-1",
+"last_head": "khuong_vong_nguyet"
+},
+{
+"key": "khai_loi",
+"name": "Khải Lôi Môn",
+"name_han": "啟雷門",
+"gloss": "Gate That Opens the Thunder",
+"founded": 160,
+"fell": 480,
+"cause": "its head was struck down by his own tribulation and the sect never recovered; Thính Vũ Lâu later rose on its ground",
+"ruin_slot": "V-2",
+"last_head": "hau_xuan_loi"
+},
+{
+"key": "cuu_thieu",
+"name": "Cửu Thiều Cung",
+"name_han": "九韶宮",
+"gloss": "Palace of the Nine Shao (the ancient court music)",
+"founded": 70,
+"fell": 340,
+"cause": "destroyed by its neighbour Thiên Xu Tông in the War of the Nine Shao; Phượng Minh Cung was founded on that land 140 years later",
+"ruin_slot": "V-3",
+"last_head": "lac_thieu_am"
+},
+{
+"key": "co_pham",
+"name": "Cô Phàm Các",
+"name_han": "孤帆閣",
+"gloss": "Pavilion of the Lone Sail (Lý Bạch: cô phàm viễn ảnh bích không tận)",
+"founded": 400,
+"fell": 705,
+"cause": "the whole sect and its fleet were lost at sea in a storm",
+"ruin_slot": "V-4",
+"last_head": "ma_vien_anh"
+}
+],
+"wars": [
+{
+"key": "nine_shao",
+"years": [
+335,
+340
+],
+"name": "War of the Nine Shao",
+"name_hv": "Cửu Thiều Chi Chiến",
+"sides": [
+[
+"thien_xu"
+],
+[
+"cuu_thieu"
+]
+],
+"outcome": "Cửu Thiều Cung destroyed for arts that bent the minds of others' disciples; Thiên Xu takes none of its land. Thiên Xu's first judgement.",
+"approved_event": "C005"
+},
+{
+"key": "frost_coast",
+"years": [
+492,
+498
+],
+"name": "War of the Frost Coast",
+"name_hv": "Hàn Ngạn Chi Chiến",
+"sides": [
+[
+"bang_tam"
+],
+[
+"han_giang"
+]
+],
+"outcome": "Hàn Giang Môn falls; Hàn Sương Châu goes to Băng Tâm. One of the last land-grabs before the Compact."
+},
+{
+"key": "pivot",
+"years": [
+502,
+509
+],
+"name": "War of the Pivot",
+"name_hv": "Tranh Xu Chi Chiến",
+"sides": [
+[
+"tung_dao",
+"lac_ha"
+],
+[
+"thien_xu"
+]
+],
+"outcome": "Tùng Đào and Lạc Hà try to take the heart of the continent, the crossroads of every route. Thiên Xu beats both, takes no land, and imposes the North Star Compact in 510."
+},
+{
+"key": "vermilion_caves",
+"years": [
+584,
+590
+],
+"name": "War of the Vermilion Caves",
+"name_hv": "Đan Huyệt Chi Chiến",
+"sides": [
+[
+"phuong_minh"
+],
+[
+"xich_thanh"
+]
+],
+"outcome": "Xích Thành Môn had turned to burning villages; Phượng Minh fights it under Thiên Xu's writ and takes Đan Huyệt Châu."
+},
+{
+"key": "petal_shore",
+"years": [
+612,
+620
+],
+"name": "War of the Petal Shore",
+"name_hv": "Lạc Anh Chi Chiến",
+"sides": [
+[
+"thinh_vu"
+],
+[
+"lac_ha"
+]
+],
+"outcome": "The two fight over the land of the vanished Lạc Anh Phái; the Pivot's judgement of 620 splits it, the bay to Lạc Hà and the forest to Thính Vũ."
+},
+{
+"key": "haze_and_pine",
+"years": [
+668,
+672
+],
+"name": "Haze-and-Pine War",
+"name_hv": "Yên Tùng Chi Chiến",
+"sides": [
+[
+"tung_dao"
+],
+[
+"thuy_vi"
+]
+],
+"outcome": "Tùng Đào takes the Cold Ford coast with Hàn Tân Thành without a writ; the Pivot lets it stand."
+},
+{
+"key": "desert_road",
+"years": [
+722,
+728
+],
+"name": "Desert Road War",
+"name_hv": "Sa Lộ Chi Chiến",
+"sides": [
+[
+"bang_tam"
+],
+[
+"phuong_minh"
+]
+],
+"outcome": "Over the caravan road between Cô Yên Mạc and Triêu Dương Nguyên. Thiên Xu imposes a truce; no land changes."
+},
+{
+"key": "pirate_purge",
+"years": [
+776,
+781
+],
+"name": "The Pirate Purge",
+"name_hv": "Thanh Hải Chi Dịch",
+"sides": [
+[
+"thien_xu",
+"phuong_minh",
+"lac_ha"
+],
+[
+"thon_hai"
+]
+],
+"outcome": "Called and led by Thiên Xu with Phượng Minh's and Lạc Hà's fleets; the ma đạo pirates of Thôn Hải Môn are destroyed."
+},
+{
+"key": "broken_halberds",
+"years": [
+790,
+805
+],
+"name": "War of Broken Halberds",
+"name_hv": "Chiết Kích Chi Chiến",
+"sides": [
+[
+"lac_ha",
+"thinh_vu"
+],
+[
+"thien_xu"
+]
+],
+"outcome": "Lạc Hà and Thính Vũ break the Compact together. The war ends in one day at Chiết Kích Nguyên in 803; Thiên Xu holds but loses its marshal and ten thousand dead; the 805 truce renews the Compact and leaves the poisoned plain empty.",
+"approved_event": "C016, C017, C018"
+},
+{
+"key": "pha_quan",
+"years": [
+870,
+874
+],
+"name": "Phá Quân Rebellion",
+"name_hv": "Phá Quân Chi Loạn",
+"sides": [
+[
+"pha_quan"
+],
+[
+"thien_xu"
+]
+],
+"outcome": "A Thiên Xu vassal that wanted conquest rises against its lord and is destroyed; Cửu Cao Phái receives its holdings."
+},
+{
+"key": "cold_ford",
+"years": [
+901,
+905
+],
+"name": "Cold Ford War",
+"name_hv": "Hàn Tân Chi Chiến",
+"sides": [
+[
+"thuy_vi"
+],
+[
+"tung_dao"
+]
+],
+"outcome": "Thúy Vi retakes the Cold Ford coast under Thiên Xu's writ."
+},
+{
+"key": "long_lake",
+"years": [
+940,
+944
+],
+"name": "Long Lake War",
+"name_hv": "Trường Hồ Chi Chiến",
+"sides": [
+[
+"tung_dao"
+],
+[
+"bang_tam"
+]
+],
+"outcome": "Over Hạo Nguyệt Hồ and its pearls on the Lãnh Nguyệt Lâm border; settled by Thiên Xu's arbitration with no land change."
+},
+{
+"key": "thunder_vein",
+"years": [
+1040,
+1046
+],
+"name": "Thunder Vein War",
+"name_hv": "Kinh Lôi Chi Chiến",
+"sides": [
+[
+"phuong_minh"
+],
+[
+"thinh_vu"
+]
+],
+"outcome": "Phượng Minh tries to take Kinh Lôi Mạch; the Pivot ends the war and Thính Vũ keeps the vein."
+},
+{
+"key": "da_quang",
+"years": [
+1119,
+1121
+],
+"name": "Taming of Dạ Quang",
+"name_hv": "Hàng Dạ Quang",
+"sides": [
+[
+"bang_tam"
+],
+[
+"da_quang"
+]
+],
+"outcome": "The independent desert raiders of Dạ Quang Môn are beaten and made a vassal of Băng Tâm; hence their low loyalty."
+},
+{
+"key": "cinnabar_vein",
+"years": [
+1150,
+1158
+],
+"name": "Cinnabar Vein War",
+"name_hv": "Đan Sơn Chi Chiến",
+"sides": [
+[
+"thinh_vu"
+],
+[
+"phuong_minh",
+"thien_xu"
+]
+],
+"outcome": "Thính Vũ attacks Phượng Minh's Đan Sơn Mạch; Thiên Xu steps in on Phượng Minh's side and Thính Vũ is beaten."
+},
+{
+"key": "ferry",
+"years": [
+1172,
+1175
+],
+"name": "Ferry War",
+"name_hv": "Độ Khẩu Chi Chiến",
+"sides": [
+[
+"tung_dao"
+],
+[
+"lac_ha"
+]
+],
+"outcome": "Over river tolls on the Ngư Ca border; no land changes."
+}
+],
+"grudges": [
+{
+"pair": [
+"thien_xu",
+"thinh_vu"
+],
+"g": -15,
+"from": [
+"broken_halberds",
+"cinnabar_vein"
+]
+},
+{
+"pair": [
+"phuong_minh",
+"thinh_vu"
+],
+"g": -15,
+"from": [
+"thunder_vein",
+"cinnabar_vein"
+]
+},
+{
+"pair": [
+"thien_xu",
+"lac_ha"
+],
+"g": -10,
+"from": [
+"broken_halberds"
+]
+},
+{
+"pair": [
+"tung_dao",
+"lac_ha"
+],
+"g": -10,
+"from": [
+"ferry"
+]
+},
+{
+"pair": [
+"thuy_vi",
+"tung_dao"
+],
+"g": -5,
+"from": [
+"cold_ford"
+]
+},
+{
+"pair": [
+"tung_dao",
+"bang_tam"
+],
+"g": -5,
+"from": [
+"long_lake"
+]
+}
+],
+"vassal_lord_changes": [
+{
+"sect": "co_pham",
+"year": 500,
+"from": null,
+"to": "lac_ha",
+"how": "the Strait Oath"
+},
+{
+"sect": "da_quang",
+"year": 1121,
+"from": null,
+"to": "bang_tam",
+"how": "beaten in the Taming of Dạ Quang"
+},
+{
+"sect": "cuu_cao",
+"year": 874,
+"note": "receives the holdings of the destroyed Phá Quân Môn"
+}
+],
+"loose_cast": [
+{
+"key": "mac_quy_khu",
+"name": "Mạc Quy Khư",
+"name_han": "莫歸墟",
+"gloss": "Quy khư is the abyss at the sea's end where all waters return (Liệt Tử)",
+"sex": "M",
+"born": -240,
+"alive": true,
+"sect": "",
+"rank": "",
+"role": "The oldest living person (age 1,440): a hermit on the island by the gate of Phù Tang Cảnh, who remembers the world before the sects",
+"realm": "hoa_than",
+"home": 198,
+"traits": {
+"personality": [
+"Reclusive",
+"Patient",
+"Humble"
+],
+"calling": "Wanderer",
+"fate_given": [
+"Spirit-eyed"
+]
+}
+},
+{
+"key": "hoac_han_quang",
+"name": "Hoắc Hàn Quang",
+"name_han": "霍寒光",
+"gloss": "Cold light",
+"sex": "M",
+"born": 150,
+"alive": false,
+"sect": "",
+"rank": "",
+"role": "A wandering ice swordsman; owner of the cave abode in slot A-1 (Ngọc Hồ Sơn)",
+"peak_realm": "nguyen_anh",
+"died": 700,
+"cause": "died in a failed Hóa Thần breakthrough tribulation (age 550)",
+"record": true,
+"abode_slot": "A-1"
+},
+{
+"key": "cao_dan_ha",
+"name": "Cao Đan Hà",
+"name_han": "高丹霞",
+"gloss": "Red glow of the evening sky",
+"sex": "F",
+"born": 420,
+"alive": false,
+"sect": "",
+"rank": "",
+"role": "A famous alchemist; owner of the cave abode in slot A-2",
+"peak_realm": "nguyen_anh",
+"died": 920,
+"cause": "poisoned by her own pill (age 500)",
+"record": true,
+"abode_slot": "A-2"
+},
+{
+"key": "cung_hoa_van",
+"name": "Cung Hỏa Vân",
+"name_han": "宮火雲",
+"gloss": "Clouds of fire",
+"sex": "M",
+"born": 300,
+"alive": false,
+"sect": "",
+"rank": "",
+"role": "A fire cultivator; owner of the cave abode in slot A-4 (Tuyết Hỏa Giác)",
+"peak_realm": "ket_dan",
+"died": 640,
+"cause": "vanished among the volcanic vents; his body was found years later (age 340)",
+"record": true,
+"abode_slot": "A-4"
+},
+{
+"key": "luong_lac_mai",
+"name": "Lương Lạc Mai",
+"name_han": "梁落梅",
+"gloss": "Falling plum blossom",
+"sex": "F",
+"born": 400,
+"alive": false,
+"sect": "",
+"rank": "",
+"role": "A wandering swordswoman; owner of the cave abode in slot A-5",
+"peak_realm": "ket_dan",
+"died": 860,
+"cause": "found dead in her sealed abode, cause unknown (age 460)",
+"record": true,
+"abode_slot": "A-5"
+},
+{
+"key": "mac_huyet_sinh",
+"name": "Mặc Huyết Sinh",
+"name_han": "墨血生",
+"gloss": "Ink-blood scholar",
+"sex": "M",
+"born": 500,
+"alive": false,
+"sect": "",
+"rank": "",
+"role": "A ma đạo master; owner of the cave abode in slot A-6",
+"peak_realm": "nguyen_anh",
+"died": 1090,
+"cause": "killed by a coalition of righteous sects (age 590)",
+"record": true,
+"abode_slot": "A-6"
+},
+{
+"key": "tu_khong_hac_nien",
+"name": "Tư Không Hạc Niên",
+"name_han": "司空鶴年",
+"gloss": "A crane's long years",
+"sex": "M",
+"born": 700,
+"alive": true,
+"sect": "",
+"rank": "",
+"role": "A wandering sword sage (age 500), bound to no sect",
+"realm": "nguyen_anh",
+"home": 48,
+"traits": {
+"personality": [
+"Reclusive",
+"Just",
+"Brave"
+],
+"calling": "Wanderer",
+"fate_given": []
+}
+},
+{
+"key": "trieu_huyet_y",
+"name": "Triệu Huyết Y",
+"name_han": "趙血衣",
+"gloss": "Blood-red robe",
+"sex": "F",
+"born": 940,
+"alive": true,
+"sect": "",
+"rank": "",
+"role": "The last disciple of the ma đạo master Mặc Huyết Sinh (age 260), hunting for her master's abode",
+"realm": "ket_dan",
+"home": 47,
+"traits": {
+"personality": [
+"Vengeful",
+"Deceitful",
+"Impatient"
+],
+"calling": "Schemer",
+"fate_given": [
+"Demon-seeded"
+]
+},
+"master": "mac_huyet_sinh"
+},
+{
+"key": "lac_dan_thanh",
+"name": "Lạc Đan Thanh",
+"name_han": "駱丹青",
+"gloss": "Vermilion and blue pigments; a painter's fame",
+"sex": "M",
+"born": 900,
+"alive": true,
+"sect": "",
+"rank": "",
+"role": "A famous alchemist who sells his pills in the market (age 300)",
+"realm": "ket_dan",
+"home": 50,
+"traits": {
+"personality": [
+"Greedy",
+"Gregarious",
+"Diligent"
+],
+"calling": "Alchemist",
+"fate_given": []
+}
+},
+{
+"key": "gia_hoi_xuan",
+"name": "Giả Hồi Xuân",
+"name_han": "賈回春",
+"gloss": "Brings back the spring",
+"sex": "F",
+"born": 1020,
+"alive": true,
+"sect": "",
+"rank": "",
+"role": "A healer of the apricot-blossom market, famous for curing what others will not (age 180)",
+"realm": "ket_dan",
+"home": 54,
+"traits": {
+"personality": [
+"Compassionate",
+"Humble",
+"Patient"
+],
+"calling": "Herbalist",
+"fate_given": []
+}
+},
+{
+"key": "kim_van_ly",
+"name": "Kim Vạn Lý",
+"name_han": "金萬里",
+"gloss": "Ten thousand li of gold",
+"sex": "M",
+"born": 850,
+"alive": true,
+"sect": "",
+"rank": "",
+"role": "The richest merchant of the western plains (age 350)",
+"realm": "ket_dan",
+"home": 38,
+"traits": {
+"personality": [
+"Greedy",
+"Ambitious",
+"Gregarious"
+],
+"calling": "Merchant",
+"fate_given": []
+}
+},
+{
+"key": "doan_thuong_hai",
+"name": "Đoạn Thương Hải",
+"name_han": "段滄海",
+"gloss": "Broken on the blue sea",
+"sex": "M",
+"born": 720,
+"alive": true,
+"sect": "",
+"rank": "",
+"role": "The only man to survive a Hóa Thần tribulation that killed his master (age 480); blind since, lives by the island sea",
+"realm": "nguyen_anh",
+"home": 37,
+"traits": {
+"personality": [
+"Calm",
+"Patient",
+"Reclusive"
+],
+"calling": "Wanderer",
+"fate_given": [
+"Heaven-favoured"
+]
+}
+},
+{
+"key": "ve_van_co",
+"name": "Vệ Văn Cơ",
+"name_han": "衛文機",
+"gloss": "Letters and the loom of fate",
+"sex": "M",
+"born": 980,
+"alive": true,
+"sect": "",
+"rank": "",
+"role": "A freelance formation master (age 220)",
+"realm": "ket_dan",
+"home": 40,
+"traits": {
+"personality": [
+"Cautious",
+"Pragmatic",
+"Diligent"
+],
+"calling": "Formation master",
+"fate_given": []
+}
+},
+{
+"key": "lam_da_hac",
+"name": "Lâm Dã Hạc",
+"name_han": "林野鶴",
+"gloss": "A crane in the wild woods",
+"sex": "M",
+"born": 1145,
+"alive": true,
+"sect": "",
+"rank": "",
+"role": "A loose cultivator, a rising talent with no sect (age 55)",
+"realm": "truc_co",
+"home": 46,
+"traits": {
+"personality": [
+"Brave",
+"Ambitious",
+"Honest"
+],
+"calling": "Wanderer",
+"fate_given": [
+"Iron-boned"
+]
+}
+}
+],
+"regions": [
+{
+"id": 1,
+"name": "Lãnh Nguyệt Lâm",
+"gloss": "Forest of the Cold Moon",
+"holder": "tung_dao",
+"biomes": [
+[
+"Temperate forest",
+77.6
+],
+[
+"Tundra",
+14.5
+],
+[
+"Swamp",
+5.1
+],
+[
+"Lake",
+2.5
+]
+]
+},
+{
+"id": 2,
+"name": "Tuyết Hỏa Giác",
+"gloss": "Cape of Snow and Fire",
+"holder": "thuy_vi",
+"biomes": [
+[
+"Temperate forest",
+71.3
+],
+[
+"Tundra",
+17.2
+],
+[
+"Swamp",
+3.9
+],
+[
+"High mountain",
+3.5
+]
+]
+},
+{
+"id": 3,
+"name": "Thanh Loan Lĩnh",
+"gloss": "Ridges of the Blue Peaks",
+"holder": "thuy_vi",
+"biomes": [
+[
+"Temperate forest",
+67.6
+],
+[
+"High mountain",
+14.3
+],
+[
+"Tundra",
+12.9
+],
+[
+"Swamp",
+2.8
+]
+]
+},
+{
+"id": 4,
+"name": "Thâm Tùng Hải",
+"gloss": "Deep Sea of Pines",
+"holder": "tung_dao",
+"biomes": [
+[
+"Temperate forest",
+88.4
+],
+[
+"High mountain",
+8.4
+],
+[
+"Tundra",
+1.4
+]
+]
+},
+{
+"id": 5,
+"name": "Cửu Khúc Xuyên",
+"gloss": "Land of the Nine-Bend River",
+"holder": "tung_dao",
+"biomes": [
+[
+"Temperate forest",
+85.2
+],
+[
+"Tundra",
+7.2
+],
+[
+"Swamp",
+4.8
+],
+[
+"High mountain",
+2.6
+]
+]
+},
+{
+"id": 6,
+"name": "Dao Quang Lĩnh",
+"gloss": "Ridge of the Jade Light",
+"holder": "thien_xu",
+"biomes": [
+[
+"Temperate forest",
+60.4
+],
+[
+"High mountain",
+23.2
+],
+[
+"Steppe",
+9.3
+],
+[
+"Badlands",
+6.0
+]
+]
+},
+{
+"id": 7,
+"name": "Ngọc Hồ Sơn",
+"gloss": "Mountains of the Jade Vessel",
+"holder": "bang_tam",
+"biomes": [
+[
+"Temperate forest",
+45.7
+],
+[
+"High mountain",
+33.4
+],
+[
+"Tundra",
+8.7
+],
+[
+"Swamp",
+6.7
+]
+]
+},
+{
+"id": 8,
+"name": "Cô Yên Mạc",
+"gloss": "Desert of the Lone Smoke",
+"holder": "bang_tam",
+"biomes": [
+[
+"Steppe",
+44.0
+],
+[
+"Desert",
+20.0
+],
+[
+"High mountain",
+15.1
+],
+[
+"Grassland",
+7.9
+]
+]
+},
+{
+"id": 9,
+"name": "Hàn Sương Châu",
+"gloss": "Land of Cold Frost",
+"holder": "bang_tam",
+"biomes": [
+[
+"Temperate forest",
+69.1
+],
+[
+"Tundra",
+11.9
+],
+[
+"High mountain",
+9.1
+],
+[
+"Steppe",
+3.6
+]
+]
+},
+{
+"id": 10,
+"name": "Cô Vụ Đảo",
+"gloss": "Isle of the Lone Wild Duck",
+"holder": "lac_ha",
+"biomes": [
+[
+"Grassland",
+53.2
+],
+[
+"Bamboo forest",
+19.8
+],
+[
+"Jungle",
+18.0
+],
+[
+"Temperate forest",
+4.6
+]
+]
+},
+{
+"id": 11,
+"name": "Trường Thiên Nguyên",
+"gloss": "Plain of the Endless Sky",
+"holder": "lac_ha",
+"biomes": [
+[
+"Grassland",
+58.8
+],
+[
+"Steppe",
+22.9
+],
+[
+"Temperate forest",
+16.7
+]
+]
+},
+{
+"id": 12,
+"name": "Thu Thủy Loan",
+"gloss": "Bay of Autumn Water",
+"holder": "lac_ha",
+"biomes": [
+[
+"Steppe",
+39.2
+],
+[
+"Grassland",
+37.2
+],
+[
+"Badlands",
+8.9
+],
+[
+"Bamboo forest",
+4.8
+]
+]
+},
+{
+"id": 13,
+"name": "Ngư Ca Xuyên",
+"gloss": "River Land of the Fishermen's Songs",
+"holder": "lac_ha",
+"biomes": [
+[
+"Temperate forest",
+36.3
+],
+[
+"Grassland",
+24.9
+],
+[
+"Steppe",
+19.7
+],
+[
+"Badlands",
+8.7
+]
+]
+},
+{
+"id": 14,
+"name": "Thiên Tuyền Nguyên",
+"gloss": "Plain of the Heavenly Jade Wheel",
+"holder": "thien_xu",
+"biomes": [
+[
+"High mountain",
+27.0
+],
+[
+"Steppe",
+25.6
+],
+[
+"Highland",
+21.4
+],
+[
+"Temperate forest",
+14.5
+]
+]
+},
+{
+"id": 15,
+"name": "Ngọc Hành Sơn",
+"gloss": "Mountains of the Jade Balance",
+"holder": "thien_xu",
+"biomes": [
+[
+"High mountain",
+46.2
+],
+[
+"Steppe",
+20.3
+],
+[
+"Grassland",
+15.1
+],
+[
+"Desert",
+7.2
+]
+]
+},
+{
+"id": 16,
+"name": "Thê Ngô Lĩnh",
+"gloss": "Ridge Where the Phoenix Roosts",
+"holder": "phuong_minh",
+"biomes": [
+[
+"High mountain",
+38.0
+],
+[
+"Grassland",
+23.2
+],
+[
+"Bamboo forest",
+15.5
+],
+[
+"Jungle",
+10.8
+]
+]
+},
+{
+"id": 17,
+"name": "Triêu Dương Nguyên",
+"gloss": "Plain of the Morning Sun",
+"holder": "phuong_minh",
+"biomes": [
+[
+"Grassland",
+46.8
+],
+[
+"Steppe",
+33.3
+],
+[
+"High mountain",
+11.2
+],
+[
+"Temperate forest",
+6.1
+]
+]
+},
+{
+"id": 18,
+"name": "Tiêu Vũ Lâm",
+"gloss": "Forest of Rain on Banana Leaves",
+"holder": "thinh_vu",
+"biomes": [
+[
+"Grassland",
+35.2
+],
+[
+"Jungle",
+17.6
+],
+[
+"High mountain",
+12.0
+],
+[
+"Steppe",
+10.1
+]
+]
+},
+{
+"id": 19,
+"name": "Kinh Trập Sơn",
+"gloss": "Mountains of the Waking Thunder",
+"holder": "thinh_vu",
+"biomes": [
+[
+"High mountain",
+32.0
+],
+[
+"Grassland",
+24.8
+],
+[
+"Bamboo forest",
+17.7
+],
+[
+"Jungle",
+12.9
+]
+]
+},
+{
+"id": 20,
+"name": "Đan Huyệt Châu",
+"gloss": "Coast of the Vermilion Caves",
+"holder": "phuong_minh",
+"biomes": [
+[
+"Grassland",
+41.1
+],
+[
+"Jungle",
+35.3
+],
+[
+"Steppe",
+8.7
+],
+[
+"Bamboo forest",
+5.5
+]
+]
+}
+]
+}

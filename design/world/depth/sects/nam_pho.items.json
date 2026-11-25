@@ -1,0 +1,337 @@
+{
+ "sect": "nam_pho",
+ "_doc": "Nam Phố Đường signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow the wood and soul-song-seal catalogues' grade 3 items. The hall-mistress also carries the catalogue's Talisman-Bearer's Ring (general-talisman-bearer-ring).",
+ "items": [
+  {
+   "id": "np-southern-cloud-seal",
+   "name": "Southern Shore Cloud Seal (Nam Phố Vân Ấn)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "an",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 18,
+     "scope": [
+      "talisman"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "talisman"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 16,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 3,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "dawn-ink",
+     "name": "Dawn Ink (Triêu Mặc)",
+     "rule": "Talismans you lay in the first 10 s of a fight last 50 % longer, and each one that expires unspent returns a little linh lực."
+    }
+   ],
+   "lore": "A mulberry-wood seal cut by the founder Nghiêm Họa Đống, with a cloud on its face that she carved from the first morning she painted on the southern shore. Every talisman Nam Phố sells is stamped with it. The hall says a talisman without the cloud is not theirs.",
+   "build_use": "Talisman damage and speed, and a reward for laying paper early in a long fight.",
+   "holder": "chau_phi_van",
+   "made_by": "nghiem_hoa_dong",
+   "made_year": 880,
+   "set": "np-dawn-half",
+   "status": "proposal"
+  },
+  {
+   "id": "np-painted-beam-banner",
+   "name": "Painted Beam Banner (Họa Đống Kỳ)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "ky",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "attack_pct",
+     "value": 15,
+     "scope": [
+      "talisman"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 18,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A long silk banner painted with a beam of the founders' hall, flown over the scribes when they paint the clouds at dawn. Ôn Châu Liêm painted it, and it passed to his disciple Kha Triêu Phi. It is the one piece of the dusk line the hall still has.",
+   "build_use": "Faster Wood arts and heavier Wood stacks for a scribe who lays paper and waits.",
+   "holder": "kha_trieu_phi",
+   "made_by": "on_chau_liem",
+   "made_year": 900,
+   "set": "np-dusk-half",
+   "status": "proposal"
+  },
+  {
+   "id": "np-dawn-cloud-brush",
+   "name": "Dawn Cloud Brush (Triêu Vân Bút)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "cham",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "talisman"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "talisman"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The founder's morning brush, a mulberry stalk tipped with goat hair, used only between first light and sunrise. Nghiêm Họa Đống painted two hundred years of dawns with it.",
+   "build_use": "The dawn half's hand: talisman damage and speed.",
+   "holder": "chau_phi_van",
+   "made_by": "nghiem_hoa_dong",
+   "made_year": 880,
+   "set": "np-dawn-half",
+   "status": "proposal"
+  },
+  {
+   "id": "np-mulberry-hemp-robe",
+   "name": "Mulberry-Hemp Robe (Tang Ma Bào)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    },
+    {
+     "key": "defense_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A plain robe of Tang Ma Thành hemp dyed with mulberry, the same juice she drew her first talisman in. The hall's mistresses have each had one made at home.",
+   "build_use": "The linh lực a long paper fight needs, and Wood stacks that bind.",
+   "holder": "chau_phi_van",
+   "made_by": "nam_pho",
+   "made_year": 1100,
+   "set": "np-dawn-half",
+   "status": "proposal"
+  },
+  {
+   "id": "np-dusk-rain-seal",
+   "name": "Dusk Rain Seal (Mộ Vũ Ấn)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "an",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "attack_pct",
+     "value": 10,
+     "scope": [
+      "talisman"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "Ôn Châu Liêm's evening seal, cut with a curtain of rain on the western hills. The dusk line stamps its washing talismans with it.",
+   "build_use": "The dusk half's rain: heals and talismans that wash.",
+   "holder": "kha_trieu_phi",
+   "made_by": "on_chau_liem",
+   "made_year": 900,
+   "set": "np-dusk-half",
+   "status": "proposal"
+  },
+  {
+   "id": "np-maple-scholar-robe",
+   "name": "Maple Scholar's Robe (Phong Lâm Nho Bào)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 20,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "An examination candidate's blue robe from Phong Lâm Trấn, his grandfather's, worn to three failed examinations before Kha took it to the hall.",
+   "build_use": "Wood binds that last.",
+   "holder": "kha_trieu_phi",
+   "made_by": "kha_trieu_phi",
+   "made_year": 1050,
+   "set": "np-dusk-half",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "np-dawn-half",
+   "name": "The Dawn Half (Triêu Phi Bán Bích)",
+   "pieces": [
+    "np-southern-cloud-seal",
+    "np-dawn-cloud-brush",
+    "np-mulberry-hemp-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "attack_pct",
+       "value": 8,
+       "scope": [
+        "talisman"
+       ]
+      },
+      {
+       "key": "linh_luc_pct",
+       "value": 5,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Paper Laid at Dawn (Triêu Bố): talismans you lay cost no linh lực until they fire, and each one grows once for every 10 s it stays unspent: each growth gives it 10 % more talisman damage and one more Wood stack on the foes it strikes, and adds 2 % of your maximum linh lực to what it costs when it fires."
+    }
+   ],
+   "story": "The founder's seal and brush and a robe from home. Châu Phi Vân holds all three; the set pays for paper the way the Talisman-Bearer's Ring did, and the ring stays in her keeping, unworn. The founders' art had two halves; so does the hall's treasure, and the dusk half is Kha's."
+  },
+  {
+   "id": "np-dusk-half",
+   "name": "The Dusk Half (Mộ Quyển Bán Bích)",
+   "pieces": [
+    "np-painted-beam-banner",
+    "np-dusk-rain-seal",
+    "np-maple-scholar-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "healing_pct",
+       "value": 5,
+       "scope": []
+      },
+      {
+       "key": "stack_effect_pct",
+       "value": 8,
+       "scope": [
+        "moc",
+        "debuff"
+       ]
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Roll Up the Western Rain (Quyển Tây Sơn Vũ): when the foe is Broken, or sheds your Wood stacks (a cleanse or their end), the stacks wash back as rain: each stack shed heals you 1 % of your health and removes one of your debuffs."
+    }
+   ],
+   "story": "Ôn Châu Liêm's banner and seal, and the robe of a failed scholar. Kha Triêu Phi holds all three. The hall says the whole Painted Beams talisman needs both halves in one room.",
+   "authored": "a1"
+  }
+ ]
+}

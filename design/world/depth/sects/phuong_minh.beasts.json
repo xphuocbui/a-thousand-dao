@@ -1,0 +1,134 @@
+{
+ "sect": "phuong_minh",
+ "_doc": "Phượng Minh Cung: named spirit beasts (linh thú). Proposal, unpriced (review/RANKED.md A7, 2026-11-25; form of sects/cuu_cao.beasts.json). An owned beast is a people record with is_beast and owner_id, and its owner lists it in `beasts` (src/gameplay/character/beast_keeper.gd, assets/data/creatures_linh_thu.json). Capacity is 1 + floor(effective thần hồn / 40). In a fight it is a companion: it adds power_share (0.5) of its chiến lực to its owner's offense, strikes every basic_cooldown, cannot be targeted and never leaves the fight (Combat rule 19). `combat` and `bond` are depth fields; `bond.rider` marks a mount, `bond.keeper` a beast that is not ridden. The owners' cast records do not list these beasts yet.",
+ "beasts": [
+  {
+   "key": "xich_quan",
+   "name_hv": "Xích Quan",
+   "name_han": "赤冠",
+   "gloss": "Red Crest",
+   "is_beast": true,
+   "species": "red-crested writ bird",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "root": {
+    "elements": {
+     "hoa": 46,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "owner_id": "vu_ngo_dong",
+   "loyalty": 90,
+   "home": 6,
+   "location_id": 6,
+   "tags": [
+    "bird",
+    "companion"
+   ],
+   "appearance": "A red-crested messenger bird with a green back, riding his right shoulder.",
+   "combat": {
+    "strikes": "hoa",
+    "power_share": 0.5,
+    "note": "One of the bird companions The Birds Fight First (pm-wutong-court) and Birds Pay Court to the Phoenix (five-virtue-phoenix-canon) count."
+   },
+   "bond": {
+    "keeper": "vu_ngo_dong",
+    "since": 1121,
+    "event": null,
+    "rule": "Hatched in the Wutong aviary and raised by his hand."
+   },
+   "backstory": "The eldest writ bird of the Wutong Court. It carries only the head's own letters and goes to no other shoulder.",
+   "status": "proposal",
+   "authored": "review-A7"
+  },
+  {
+   "key": "tieu_vi",
+   "name_hv": "Tiêu Vĩ",
+   "name_han": "焦尾",
+   "gloss": "Scorched Tail",
+   "is_beast": true,
+   "species": "fighting bird of the great wutong",
+   "sex": "F",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "root": {
+    "elements": {
+     "hoa": 52
+    },
+    "variants": {}
+   },
+   "owner_id": "vu_ngo_dong",
+   "loyalty": 90,
+   "home": 6,
+   "location_id": 6,
+   "tags": [
+    "bird",
+    "companion"
+   ],
+   "appearance": "A hawk-sized red bird on his left shoulder whose tail feathers end in black char.",
+   "combat": {
+    "strikes": "hoa",
+    "power_share": 0.5,
+    "note": "His fighting bird: the other bird companion of The Birds Fight First (pm-wutong-court)."
+   },
+   "bond": {
+    "keeper": "vu_ngo_dong",
+    "since": 1141,
+    "event": null,
+    "rule": "Hatched in the great wutong and raised by his hand."
+   },
+   "backstory": "One of the fighting birds that roost in the great wutong. Its tail was scorched in the Cinnabar Vein War in 1154 and grew back black, and the ridge children call it the coal bird.",
+   "status": "proposal",
+   "authored": "review-A7"
+  },
+  {
+   "key": "ngu_cau",
+   "name_hv": "Ngư Cẩu",
+   "name_han": "魚狗",
+   "gloss": "Fish-Dog (an old name for the kingfisher)",
+   "is_beast": true,
+   "species": "spirit kingfisher",
+   "sex": "F",
+   "born": 1160,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 3,
+   "root": {
+    "elements": {
+     "moc": 30,
+     "hoa": 24
+    },
+    "variants": {}
+   },
+   "owner_id": "an_thuy_vu",
+   "loyalty": 90,
+   "home": 6,
+   "location_id": 6,
+   "tags": [
+    "bird",
+    "companion"
+   ],
+   "appearance": "A blue-backed kingfisher that never leaves her collar.",
+   "combat": {
+    "strikes": "moc",
+    "power_share": 0.5,
+    "note": "The bird half that The Birds Bring the Fire (pm-wutong-twig-ring) reads."
+   },
+   "bond": {
+    "keeper": "an_thuy_vu",
+    "since": 1162,
+    "event": null,
+    "rule": "Hatched in the aviary; it chose her collar and has not left it."
+   },
+   "backstory": "An Thúy Vũ calls it by the old name for its kind. Vu Ngô Đồng calls it the fish-dog, loudly, and it bites him.",
+   "status": "proposal",
+   "authored": "review-A7"
+  }
+ ]
+}

@@ -1,0 +1,72 @@
+{
+ "sect": "minh_loan",
+ "_doc": "Minh Loan Các lineage (rules-proposals R5). Leans Metal, Earth unchanged; the seat moved in 1188 from the coast (527, Metal 15 %) up to Tằng Loan Phong (519, Metal 26 %, Earth 49 %). Outer gate: clay-mould-primer (Yellow, Earth or Metal; the mould-makers). Inner gate and above: singing-luan-bell-canon (Profound, Metal; the casters and ringers). Secret arts: hanging-bells-array (inner gate), unstruck-bell-canon (elders and the head; the founder's, finished by the head). Unpriced.",
+ "lineage": {
+  "outer": "clay-mould-primer",
+  "main": "singing-luan-bell-canon",
+  "secret": [
+   {"id": "hanging-bells-array", "rank": "noi_mon"},
+   {"id": "unstruck-bell-canon", "rank": "truong_lao"}
+  ],
+  "body": null,
+  "elements": ["kim", "tho"],
+  "tree_route": [4299, 4303, 4307],
+  "tree_route_note": "The Golden Bell idea (Bell Rim, Golden Hum, Golden Bell): ward strength and block, the bell that rings when it is struck."
+ },
+ "techniques": [
+  {
+   "id": "clay-mould-primer",
+   "name": "Clay Mould Primer (Phạm Thổ Quyết)",
+   "tier": 0, "tech_kind": "main", "names": ["tho", "kim"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The outer gate makes the moulds a bell is cast in, and this is the method it makes them by. The novice packs clay round a core with her palms, breath by breath, until the clay holds the shape of a note before any bronze is poured. The Earth it draws is the mountain's, and the little Metal it touches is the ore dust in the clay. In a fight it hardens the skin like a fired mould and answers a blow with a dull ring.",
+   "arts": [
+    {"new": "Fired Mould (Thiêu Phạm)", "concept": "A ward stance: the holder's skin sets like baked clay for 3 s, blocking the next hit; when the ward breaks it rings, giving nearby foes an Earth stack."},
+    "mountain-stance"
+   ],
+   "lore": "Written at the coast in 962 by Hoa Minh Hòa, who said a caster who cannot make a mould will crack every bell she pours. Since 1188 it has been taught on the casting floor of Tằng Loan Phong, where the clay is better.",
+   "status": "proposal"
+  },
+  {
+   "id": "singing-luan-bell-canon",
+   "name": "Singing Luan Bell Canon (Minh Loan Chung Kinh)",
+   "tier": 1, "tech_kind": "main", "names": ["kim"], "layers": 9, "rank": "noi_mon",
+   "concept": "The caster casts herself. Metal qi is poured into the dantian like bronze into a mould and tuned there, layer by layer, until it rings at one true note. A cultivator of the canon fights by sounding that note. The luan bells of a lord's carriage ring because the carriage moves, and the canon's bell works the same way: it rings when the foe moves, and each ring lays Metal on them. The note drives off beasts and carries a warning a long way, which is what the pavilion sells.",
+   "arts": [
+    {"new": "Carriage Bell (Loan Linh)", "concept": "For 6 s, each time a foe within hearing moves or dodges, the bell rings: a light Metal hit and one Metal stack on that foe."},
+    {"new": "Ward Peal (Hộ Hưởng)", "concept": "One long note: a creature foe's soonest art waits 2 s (it flees); you gain a ward that grows with the Metal stacks on the foe.", "authored": "a1"}
+   ],
+   "lore": "Yến Bội Ngọc and Hoa Minh Hòa wrote it at the coast between 960 and 1000, from the ship bells they cast. Its upper layers were rewritten on Tằng Loan Phong after 1188, because the note rang truer there.",
+   "status": "proposal",
+   "passives": [
+    {"key": "stack_effect_pct", "value": 12, "scope": ["kim", "debuff"]},
+    {"key": "stack_duration_pct", "value": 16, "scope": ["kim", "debuff"]}
+   ],
+   "authored": "b3, a1"
+  },
+  {
+   "id": "hanging-bells-array",
+   "name": "Hanging Bells Array (Huyền Chung Trận)",
+   "tier": 1, "tech_kind": "secret", "names": ["kim", "tho"], "layers": 9, "rank": "noi_mon",
+   "concept": "The art of hanging bells so that they guard a place: on a ship's rail, a caravan's poles, a city gate or Lạc Hà's Cloud Bridge. Each bell is set in Earth so that it hears the ground, and tuned in Metal so that the others answer it. A line of them rings when anything crosses it, and rings louder the harder it is pushed. In a fight the ringer sets small bells around a ground, and foes inside are slowed by the ringing.",
+   "arts": [
+    {"new": "Hang the Bells (Huyền Linh)", "concept": "Sets four bell Pieces for 10 s; each time the foe fires an art while two or more stand, it gains one Slowed Time stack and Metal stacks, one more each crossing than the last. In a foreseen fight, the bells are hung before it begins, at no cost.", "authored": "d15, a1"},
+    {"new": "Alarm Line (Cảnh Tuyến)", "concept": "Rings all your bell Pieces at once: the foe gains 2 Earth stacks, and its arts that come ready in the next 0.5 s wait until it ends.", "authored": "a1"}
+   ],
+   "lore": "The pavilion's trade since 960 (V102). In 1184 Thẩm Hưởng Nhi hung forty of its bells on Quách Tiếp Vân's Cloud Bridge Array at Vân Kiều Trấn (N-lac_ha-04).",
+   "status": "proposal",
+   "authored": "d15, a1"
+  },
+  {
+   "id": "unstruck-bell-canon",
+   "name": "Canon of the Unstruck Bell (Bất Kích Chung Kinh)",
+   "tier": 2, "tech_kind": "secret", "names": ["kim"], "layers": 12, "rank": "truong_lao",
+   "concept": "Hoa Minh Hòa believed that the best bell is never struck: it rings from what is done to it. He died in 1121 before he could cast one, and Yến Bội Ngọc finished his canon on paper. The cultivator becomes a bell that the foe's own blows ring. Each hit she takes sounds back into the striker as Metal, and a bell that has been struck enough answers on its own.",
+   "arts": [
+    {"new": "Struck, It Answers (Kích Tắc Ứng)", "concept": "For 8 s, each hit the holder takes returns a share of its damage to the striker as Metal and lays a Metal stack on them."},
+    {"new": "The Bell That Rings Itself (Tự Minh)", "concept": "Once a foe carries 8 Metal stacks, the bell rings on its own once per second on that foe until the stacks are gone."}
+   ],
+   "lore": "Taught to the head and the casting master. Ngụy Trầm Âm has spent forty years trying to cast it in bronze as well as hold it in the body.",
+   "status": "proposal"
+  }
+ ]
+}

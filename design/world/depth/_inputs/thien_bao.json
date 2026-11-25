@@ -1,0 +1,1494 @@
+{
+"_doc": "Input slice for the depth writer of thien_bao (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "thien_bao",
+"name": "Thiên Bảo Trai",
+"name_han": "天寶齋",
+"gloss": "Studio of Heaven's Treasures",
+"alignment": "trung lập",
+"leans": [
+"Metal",
+"Earth"
+],
+"craft": "artifact refining and a treasure market",
+"lord": "lac_ha",
+"region": 12,
+"seat": 20,
+"kind": "minor"
+},
+"start_state": {
+"key": "thien_bao",
+"name": "Thiên Bảo Trai",
+"name_han": "天寶齋",
+"gloss": "Studio of Heaven's Treasures",
+"kind": "minor",
+"alignment": "trung",
+"leans": [
+"Metal",
+"Earth"
+],
+"seat": 20,
+"levels": {
+"holdings": 3,
+"institutions": 2,
+"military": 2,
+"trade": 4
+},
+"treasury": 7000,
+"founded": 350,
+"specialty": "tran_su",
+"lord": "lac_ha",
+"loyalty": 65,
+"craft": "artifact refining and a treasure market",
+"region": 12,
+"leader": "phan_vat_hoa"
+},
+"lord": "lac_ha",
+"vassals": [],
+"seat": {
+"id": 20,
+"name": "Thiên Bảo Trai",
+"gloss": "",
+"kind": "minor_seat",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.4,
+"qi": {
+"moc": 4,
+"hoa": 21,
+"tho": 41,
+"kim": 30,
+"thuy": 4
+},
+"variants": {},
+"density": 1.25,
+"note": ""
+},
+"seat_audit": "## OK  Thiên Bảo Trai (thien_bao; leans Metal/Earth)\nSeat: Thiên Bảo Trai (id 20, minor_seat, region 12, steppe), density 1.25\nSeat qi: Metal 30%, Earth 41%\n",
+"ground": [
+{
+"id": 207,
+"name": "Trường Hà Mạch",
+"gloss": "Vein of the Long River",
+"kind": "spirit_vein",
+"region": 12,
+"biome": "high mountain",
+"elev_km": 1.22,
+"qi": {
+"moc": 6,
+"hoa": 20,
+"tho": 38,
+"kim": 29,
+"thuy": 7
+},
+"variants": {},
+"density": 1.63,
+"note": "Vương Duy: trường hà lạc nhật viên, the long river and the round setting sun. On the border with Thính Vũ."
+},
+{
+"id": 520,
+"name": "Hoàng Tích Cương",
+"gloss": "Yellow Lizard Ridge",
+"kind": "beast_lair",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.23,
+"qi": {
+"moc": 6,
+"hoa": 24,
+"tho": 47,
+"kim": 18,
+"thuy": 5
+},
+"variants": {},
+"density": 1.3,
+"note": ""
+},
+{
+"id": 20,
+"name": "Thiên Bảo Trai",
+"gloss": "",
+"kind": "minor_seat",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.4,
+"qi": {
+"moc": 4,
+"hoa": 21,
+"tho": 41,
+"kim": 30,
+"thuy": 4
+},
+"variants": {},
+"density": 1.25,
+"note": ""
+},
+{
+"id": 223,
+"name": "Vô Định Thành",
+"gloss": "City of the Vô Định River",
+"kind": "ruin",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.23,
+"qi": {
+"moc": 5,
+"hoa": 22,
+"tho": 46,
+"kim": 21,
+"thuy": 6
+},
+"variants": {},
+"density": 1.2,
+"note": "Trần Đào: the bones by the Vô Định river that wives still dream of. Burned in the battle of 803 and left to the miasma."
+},
+{
+"id": 243,
+"name": "Thiên Chu Lâm",
+"gloss": "Thousand Spider Wood",
+"kind": "beast_lair",
+"region": 12,
+"biome": "jungle",
+"elev_km": 0.05,
+"qi": {
+"moc": 25,
+"hoa": 20,
+"tho": 22,
+"kim": 10,
+"thuy": 22
+},
+"variants": {},
+"density": 1.14,
+"note": "Jungle of Thu Thủy Loan webbed by poison spiders."
+},
+{
+"id": 315,
+"name": "Quần Hầu Lĩnh",
+"gloss": "Ridge of the Monkey Troops",
+"kind": "beast_lair",
+"region": 12,
+"biome": "bamboo forest",
+"elev_km": 0.17,
+"qi": {
+"moc": 38,
+"hoa": 21,
+"tho": 20,
+"kim": 12,
+"thuy": 9
+},
+"variants": {},
+"density": 1.14,
+"note": ""
+},
+{
+"id": 219,
+"name": "Kim Cốc Thành",
+"gloss": "City of the Golden Valley",
+"kind": "ruin",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 21,
+"hoa": 17,
+"tho": 21,
+"kim": 12,
+"thuy": 29
+},
+"variants": {},
+"density": 1.05,
+"note": "Kim Cốc Viên's merchant city, burned in the crash of 1003."
+},
+{
+"id": 222,
+"name": "Hồng Vũ Thành",
+"gloss": "City of the Red Rain",
+"kind": "ruin",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 35,
+"hoa": 20,
+"tho": 25,
+"kim": 13,
+"thuy": 7
+},
+"variants": {},
+"density": 1.05,
+"note": "Lý Hạ: peach petals falling like red rain. Lạc Anh's city on the Petal Shore, burned in the war over its land."
+},
+{
+"id": 523,
+"name": "Mã Độ Thôn",
+"gloss": "Horse Ford Village",
+"kind": "village",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.02,
+"qi": {
+"moc": 12,
+"hoa": 20,
+"tho": 38,
+"kim": 15,
+"thuy": 15
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 509,
+"name": "Đào Ẩn Thôn",
+"gloss": "Village of the Hidden Peaches",
+"kind": "village",
+"region": 12,
+"biome": "jungle",
+"elev_km": 0.09,
+"qi": {
+"moc": 39,
+"hoa": 20,
+"tho": 19,
+"kim": 12,
+"thuy": 10
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 510,
+"name": "Ngư Võng Thôn",
+"gloss": "Fishing Net Village",
+"kind": "village",
+"region": 12,
+"biome": "jungle",
+"elev_km": 0.0,
+"qi": {
+"moc": 20,
+"hoa": 17,
+"tho": 19,
+"kim": 10,
+"thuy": 33
+},
+"variants": {},
+"density": 0.96,
+"note": ""
+},
+{
+"id": 312,
+"name": "Hoa Ổ Viện",
+"gloss": "Academy of the Flower Hollow",
+"kind": "ruin",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.09,
+"qi": {
+"moc": 17,
+"hoa": 19,
+"tho": 26,
+"kim": 12,
+"thuy": 25
+},
+"variants": {},
+"density": 0.95,
+"note": ""
+},
+{
+"id": 314,
+"name": "Độc Phong Nguyên",
+"gloss": "Poison Hornet Plain",
+"kind": "beast_lair",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.09,
+"qi": {
+"moc": 25,
+"hoa": 20,
+"tho": 25,
+"kim": 12,
+"thuy": 18
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 419,
+"name": "Bạch Miết Chử",
+"gloss": "White Turtle Shoal",
+"kind": "beast_lair",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.15,
+"qi": {
+"moc": 29,
+"hoa": 22,
+"tho": 28,
+"kim": 12,
+"thuy": 10
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 421,
+"name": "Thạc Thử Cương",
+"gloss": "Ridge of the Great Rats",
+"kind": "beast_lair",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 29,
+"hoa": 19,
+"tho": 21,
+"kim": 12,
+"thuy": 19
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 382,
+"name": "Hạt Vĩ Cương",
+"gloss": "Scorpion-Tail Ridge",
+"kind": "beast_lair",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.17,
+"qi": {
+"moc": 5,
+"hoa": 26,
+"tho": 45,
+"kim": 19,
+"thuy": 6
+},
+"variants": {},
+"density": 0.88,
+"note": ""
+},
+{
+"id": 316,
+"name": "Vong Ưu Tuyền",
+"gloss": "Spring of Forgetting",
+"kind": "hot_spring",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 28,
+"hoa": 17,
+"tho": 19,
+"kim": 12,
+"thuy": 24
+},
+"variants": {},
+"density": 0.86,
+"note": ""
+},
+{
+"id": 513,
+"name": "Ngọc Lộ Thang",
+"gloss": "Jade Dew Spring",
+"kind": "hot_spring",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.03,
+"qi": {
+"moc": 31,
+"hoa": 22,
+"tho": 23,
+"kim": 10,
+"thuy": 14
+},
+"variants": {},
+"density": 0.86,
+"note": ""
+},
+{
+"id": 529,
+"name": "Hoàng Điêu Đài",
+"gloss": "Tawny Eagle Terrace",
+"kind": "beast_lair",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.16,
+"qi": {
+"moc": 8,
+"hoa": 24,
+"tho": 44,
+"kim": 18,
+"thuy": 5
+},
+"variants": {},
+"density": 0.86,
+"note": ""
+},
+{
+"id": 522,
+"name": "Dã Lư Nguyên",
+"gloss": "Wild Ass Plain",
+"kind": "beast_lair",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.23,
+"qi": {
+"moc": 9,
+"hoa": 24,
+"tho": 44,
+"kim": 18,
+"thuy": 5
+},
+"variants": {},
+"density": 0.85,
+"note": ""
+},
+{
+"id": 368,
+"name": "Tử Trúc Mạch",
+"gloss": "Purple Bamboo Vein",
+"kind": "spirit_vein",
+"region": 12,
+"biome": "bamboo forest",
+"elev_km": 0.14,
+"qi": {
+"moc": 38,
+"hoa": 18,
+"tho": 22,
+"kim": 14,
+"thuy": 8
+},
+"variants": {},
+"density": 0.82,
+"note": ""
+},
+{
+"id": 521,
+"name": "Liên Chu Thôn",
+"gloss": "Linked Boats Village",
+"kind": "village",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.04,
+"qi": {
+"moc": 12,
+"hoa": 20,
+"tho": 39,
+"kim": 15,
+"thuy": 15
+},
+"variants": {},
+"density": 0.82,
+"note": ""
+},
+{
+"id": 531,
+"name": "Bạch Lỗ Hồ",
+"gloss": "White Brine Lake",
+"kind": "lake",
+"region": 12,
+"biome": "salt flats",
+"elev_km": 0.03,
+"qi": {
+"moc": 8,
+"hoa": 23,
+"tho": 41,
+"kim": 18,
+"thuy": 11
+},
+"variants": {},
+"density": 0.82,
+"note": ""
+},
+{
+"id": 76,
+"name": "Liễu Ngạn Trấn",
+"gloss": "Willow Bank Town",
+"kind": "town",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 35,
+"hoa": 17,
+"tho": 21,
+"kim": 10,
+"thuy": 17
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 133,
+"name": "Khê Đầu Thôn",
+"gloss": "Brook Head Village",
+"kind": "village",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 31,
+"hoa": 18,
+"tho": 22,
+"kim": 10,
+"thuy": 18
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 527,
+"name": "Minh Loan Các",
+"gloss": "Pavilion of the Singing Bells",
+"kind": "minor_seat",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.07,
+"qi": {
+"moc": 8,
+"hoa": 19,
+"tho": 28,
+"kim": 15,
+"thuy": 30
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 132,
+"name": "Khê Thanh Thôn",
+"gloss": "Brook Sound Village",
+"kind": "village",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 31,
+"hoa": 17,
+"tho": 22,
+"kim": 11,
+"thuy": 19
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 39,
+"name": "Tử Điện Thành",
+"gloss": "City of the Purple Lightning",
+"kind": "city",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 31,
+"hoa": 15,
+"tho": 18,
+"kim": 11,
+"thuy": 26
+},
+"variants": {},
+"density": 0.8,
+"note": "Vương Bột: tử điện thanh sương, Vương tướng quân chi vũ khố (the purple-lightning and blue-frost swords of General Vương's armoury)"
+},
+{
+"id": 1479,
+"name": "Long Quang Mạch",
+"gloss": "Vein of the Dragon Light",
+"kind": "spirit_vein",
+"region": 12,
+"biome": "badlands",
+"elev_km": 0.51,
+"qi": {
+"moc": 4,
+"hoa": 19,
+"tho": 38,
+"kim": 35,
+"thuy": 4
+},
+"variants": {},
+"density": 0.79,
+"note": ""
+},
+{
+"id": 524,
+"name": "Lưu Đan Trì",
+"gloss": "Pool of the Flowing Vermilion",
+"kind": "hot_spring",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.12,
+"qi": {
+"moc": 11,
+"hoa": 22,
+"tho": 36,
+"kim": 16,
+"thuy": 16
+},
+"variants": {},
+"density": 0.78,
+"note": ""
+},
+{
+"id": 169,
+"name": "Xích Kim Khoáng",
+"gloss": "Red Gold Mine",
+"kind": "mine",
+"region": 12,
+"biome": "badlands",
+"elev_km": 0.4,
+"qi": {
+"moc": 3,
+"hoa": 18,
+"tho": 34,
+"kim": 42,
+"thuy": 4
+},
+"variants": {},
+"density": 0.78,
+"note": "Gold the colour of Lạc Hà's sunset, for Thiên Bảo Trai's treasure market."
+},
+{
+"id": 526,
+"name": "Kim Sa Tuyền",
+"gloss": "Gold Sand Spring",
+"kind": "hot_spring",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.16,
+"qi": {
+"moc": 11,
+"hoa": 25,
+"tho": 42,
+"kim": 17,
+"thuy": 5
+},
+"variants": {},
+"density": 0.77,
+"note": ""
+},
+{
+"id": 50,
+"name": "Vật Hoa Thị",
+"gloss": "Market of the Land's Riches",
+"kind": "market",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.15,
+"qi": {
+"moc": 5,
+"hoa": 25,
+"tho": 46,
+"kim": 18,
+"thuy": 5
+},
+"variants": {},
+"density": 0.77,
+"note": "Vương Bột: vật hoa thiên bảo (the riches of the land are heaven's treasures); beside Thiên Bảo Trai"
+},
+{
+"id": 514,
+"name": "Châu Liêm Trấn",
+"gloss": "Pearl Curtain Town",
+"kind": "town",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 22,
+"hoa": 18,
+"tho": 18,
+"kim": 10,
+"thuy": 32
+},
+"variants": {},
+"density": 0.77,
+"note": ""
+},
+{
+"id": 77,
+"name": "Hòa Phong Trấn",
+"gloss": "Gentle Breeze Town",
+"kind": "town",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 23,
+"hoa": 16,
+"tho": 19,
+"kim": 11,
+"thuy": 30
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 78,
+"name": "Ngũ Cốc Thành",
+"gloss": "Five Grains City",
+"kind": "city",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 25,
+"hoa": 17,
+"tho": 19,
+"kim": 11,
+"thuy": 28
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 134,
+"name": "Hải Môn Thôn",
+"gloss": "Sea Gate Village",
+"kind": "village",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 29,
+"hoa": 17,
+"tho": 19,
+"kim": 12,
+"thuy": 24
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 135,
+"name": "Tân Khẩu Thôn",
+"gloss": "Harbour Mouth Village",
+"kind": "village",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 24,
+"hoa": 15,
+"tho": 16,
+"kim": 12,
+"thuy": 33
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 507,
+"name": "Thu Tân Thôn",
+"gloss": "Autumn Ford Village",
+"kind": "village",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 8,
+"hoa": 20,
+"tho": 34,
+"kim": 16,
+"thuy": 22
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 512,
+"name": "Hoàng Long Trấn",
+"gloss": "Yellow Dragon Town",
+"kind": "town",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 22,
+"hoa": 18,
+"tho": 21,
+"kim": 10,
+"thuy": 29
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 313,
+"name": "Chu Hoa Mạch",
+"gloss": "Vein of the Vermilion Bloom",
+"kind": "spirit_vein",
+"region": 12,
+"biome": "temperate forest",
+"elev_km": 0.14,
+"qi": {
+"moc": 25,
+"hoa": 20,
+"tho": 29,
+"kim": 14,
+"thuy": 12
+},
+"variants": {},
+"density": 0.72,
+"note": ""
+},
+{
+"id": 530,
+"name": "Hà Khúc Thôn",
+"gloss": "River Bend Village",
+"kind": "village",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.06,
+"qi": {
+"moc": 12,
+"hoa": 20,
+"tho": 38,
+"kim": 16,
+"thuy": 15
+},
+"variants": {},
+"density": 0.7,
+"note": ""
+},
+{
+"id": 532,
+"name": "Xích Thổ Thôn",
+"gloss": "Red Earth Village",
+"kind": "village",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.12,
+"qi": {
+"moc": 10,
+"hoa": 21,
+"tho": 37,
+"kim": 16,
+"thuy": 14
+},
+"variants": {},
+"density": 0.7,
+"note": ""
+},
+{
+"id": 525,
+"name": "Hàm Phong Thôn",
+"gloss": "Salt Wind Village",
+"kind": "village",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.02,
+"qi": {
+"moc": 11,
+"hoa": 18,
+"tho": 28,
+"kim": 14,
+"thuy": 29
+},
+"variants": {},
+"density": 0.66,
+"note": ""
+},
+{
+"id": 528,
+"name": "Bạch Dương Thôn",
+"gloss": "White Sheep Village",
+"kind": "village",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.04,
+"qi": {
+"moc": 10,
+"hoa": 26,
+"tho": 40,
+"kim": 17,
+"thuy": 6
+},
+"variants": {},
+"density": 0.66,
+"note": ""
+},
+{
+"id": 420,
+"name": "Huệ Phong Mạch",
+"gloss": "Orchid-Breeze Vein",
+"kind": "spirit_vein",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 29,
+"hoa": 18,
+"tho": 22,
+"kim": 12,
+"thuy": 19
+},
+"variants": {},
+"density": 0.62,
+"note": ""
+},
+{
+"id": 508,
+"name": "Thúy Bình Mạch",
+"gloss": "Green Screen Vein",
+"kind": "spirit_vein",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.23,
+"qi": {
+"moc": 39,
+"hoa": 21,
+"tho": 20,
+"kim": 11,
+"thuy": 10
+},
+"variants": {},
+"density": 0.62,
+"note": ""
+},
+{
+"id": 511,
+"name": "Lưu Thủy Mạch",
+"gloss": "Vein of the Flowing Water",
+"kind": "spirit_vein",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.03,
+"qi": {
+"moc": 24,
+"hoa": 20,
+"tho": 23,
+"kim": 10,
+"thuy": 23
+},
+"variants": {},
+"density": 0.62,
+"note": ""
+},
+{
+"id": 518,
+"name": "Lam Ngọc Khoáng",
+"gloss": "Blue Jade Mine",
+"kind": "mine",
+"region": 12,
+"biome": "high mountain",
+"elev_km": 1.08,
+"qi": {
+"moc": 4,
+"hoa": 14,
+"tho": 50,
+"kim": 26,
+"thuy": 6
+},
+"variants": {
+"am": 10.1
+},
+"density": 0.59,
+"note": ""
+},
+{
+"id": 519,
+"name": "Tằng Loan Phong",
+"gloss": "Peak of the Layered Ranges",
+"kind": "peak",
+"region": 12,
+"biome": "high mountain",
+"elev_km": 1.15,
+"qi": {
+"moc": 4,
+"hoa": 14,
+"tho": 49,
+"kim": 26,
+"thuy": 6
+},
+"variants": {
+"am": 12.2
+},
+"density": 0.56,
+"note": ""
+}
+],
+"ground_place_count": 52,
+"events": [
+{
+"id": "C063",
+"tier": "landmark",
+"year": 240,
+"kind": "item_made",
+"people": [
+"dao_tan_phan"
+],
+"sects": [
+"lac_anh"
+],
+"text_en": "Đào Tân Phân forges the twin swords Phi Hồng and Tàn Hồng from one peach branch hardened by a thousand springs, and decrees that whoever holds both leads the school.",
+"place": 222,
+"item": "phi_hong"
+},
+{
+"id": "C069",
+"tier": "landmark",
+"year": 260,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_anh"
+],
+"text_en": "Lạc Anh Phái builds Hồng Vũ Thành on the Petal Shore.",
+"place": 222
+},
+{
+"id": "A175",
+"tier": "annal",
+"year": 350,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"thien_bao",
+"lac_ha"
+],
+"text_en": "Thiên Bảo Trai is founded beside the bay as a refiners' workshop; its sign says the riches of the land are heaven's treasures.",
+"place": 20,
+"region": 12
+},
+{
+"id": "A176",
+"tier": "annal",
+"year": 360,
+"kind": "mine",
+"people": [],
+"sects": [
+"thien_bao"
+],
+"text_en": "Red gold is found at Xích Kim; Thiên Bảo Trai buys the mine before Lạc Hà's stewards hear of it.",
+"place": 169,
+"region": 12
+},
+{
+"id": "C082",
+"tier": "landmark",
+"year": 360,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_anh"
+],
+"text_en": "Lạc Anh Phái founds a city on the bay side of the Petal Shore; it will bear another name before it bears its last.",
+"place": 39
+},
+{
+"id": "A177",
+"tier": "annal",
+"year": 410,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Willows planted on the bank at Liễu Ngạn hold the river where it floods.",
+"place": 76,
+"region": 12
+},
+{
+"id": "A178",
+"tier": "annal",
+"year": 450,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The Sea Gate at Hải Môn Thôn is a rock arch the tide runs through twice a day.",
+"place": 134,
+"region": 12
+},
+{
+"id": "A179",
+"tier": "annal",
+"year": 500,
+"kind": "settlement",
+"people": [],
+"sects": [
+"thien_bao"
+],
+"text_en": "A market for the land's riches grows beside Thiên Bảo Trai; it is called Vật Hoa Thị.",
+"place": 50,
+"region": 12
+},
+{
+"id": "C122",
+"tier": "landmark",
+"year": 600,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà Tông builds Vô Định Thành on the river where three lands meet.",
+"place": 223
+},
+{
+"id": "C127",
+"tier": "landmark",
+"year": 618,
+"kind": "city_ruined",
+"people": [],
+"sects": [
+"lac_ha",
+"thinh_vu"
+],
+"text_en": "Hồng Vũ Thành burns in the fighting; its petals and its ashes fall together like red rain.",
+"place": 222,
+"war": "petal_shore"
+},
+{
+"id": "V101",
+"tier": "annal",
+"year": 618,
+"kind": "siege",
+"people": [],
+"sects": [
+"lac_ha",
+"thinh_vu"
+],
+"text_en": "In the fighting between Lạc Hà and Thính Vũ over the empty Petal Shore, Hoa Ổ Viện burns with its peach orchards and is never rebuilt.",
+"place": 312,
+"region": 12
+},
+{
+"id": "A180",
+"tier": "annal",
+"year": 620,
+"kind": "discovery",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà finds the Long River vein on its new border with Thính Vũ and names it Trường Hà Mạch.",
+"place": 207,
+"region": 12
+},
+{
+"id": "C128",
+"tier": "landmark",
+"year": 620,
+"kind": "war_end",
+"people": [
+"chung_hoai_cuc",
+"nhan_co_vu",
+"pho_tieu_tuong"
+],
+"sects": [
+"thien_xu",
+"lac_ha",
+"thinh_vu"
+],
+"text_en": "The Pivot's judgement divides the Petal Shore, the bay to Lạc Hà and the forest to Thính Vũ; Lạc Hà renames the bay city Tử Điện Thành, for its armoury.",
+"place": 39,
+"war": "petal_shore",
+"judgement": true
+},
+{
+"id": "A181",
+"tier": "annal",
+"year": 700,
+"kind": "trade",
+"people": [],
+"sects": [
+"thien_bao"
+],
+"text_en": "The brooks at Khê Đầu and Khê Thanh run so clear that Thiên Bảo Trai washes its finest refinings in them.",
+"place": 132,
+"region": 12
+},
+{
+"id": "C149",
+"tier": "landmark",
+"year": 760,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"kim_coc",
+"lac_ha"
+],
+"text_en": "Merchants of Thu Thủy Loan found Kim Cốc Viên, a garden of trade under Lạc Hà Tông, and build Kim Cốc Thành around it.",
+"place": 219
+},
+{
+"id": "C158",
+"tier": "landmark",
+"year": 803,
+"kind": "city_ruined",
+"people": [],
+"sects": [
+"lac_ha",
+"thien_xu",
+"thinh_vu"
+],
+"text_en": "Vô Định Thành burns in the battle on the plain, and the miasma takes what is left; its dead are still dreamed of in the river towns.",
+"place": 223,
+"war": "broken_halberds"
+},
+{
+"id": "A182",
+"tier": "annal",
+"year": 805,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Refugees from Vô Định Thành found Tân Khẩu Thôn at the harbour mouth and never speak of the plain.",
+"place": 135,
+"region": 12
+},
+{
+"id": "A183",
+"tier": "annal",
+"year": 900,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "A gentle sea breeze keeps Hòa Phong Trấn free of fever in the year of the southern plague.",
+"place": 77,
+"region": 12
+},
+{
+"id": "V102",
+"tier": "annal",
+"year": 960,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"minh_loan",
+"lac_ha"
+],
+"text_en": "Bell-casters found Minh Loan Các under Lạc Hà Tông and cast ward bells whose note drives off beasts and warns of attack.",
+"place": 527,
+"region": 12
+},
+{
+"id": "C174",
+"tier": "landmark",
+"year": 1003,
+"kind": "sect_fall",
+"people": [],
+"sects": [
+"kim_coc",
+"lac_ha"
+],
+"text_en": "Kim Cốc Viên collapses in a market crash and a great fire; Kim Cốc Thành burns, and the pearl Lục Châu is lost in the ashes.",
+"place": 219,
+"item": "luc_chau"
+},
+{
+"id": "A184",
+"tier": "annal",
+"year": 1004,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_bao",
+"kim_coc"
+],
+"text_en": "A year after Kim Cốc burns, its merchants beg in Vật Hoa Thị; Thiên Bảo Trai hires the ones who can still count.",
+"place": 50,
+"region": 12
+},
+{
+"id": "C176",
+"tier": "landmark",
+"year": 1010,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Ngũ Cốc Thành grows rich on the trade Kim Cốc lost.",
+"place": 78
+},
+{
+"id": "A185",
+"tier": "annal",
+"year": 1050,
+"kind": "headship",
+"people": [
+"phan_vat_hoa"
+],
+"sects": [
+"thien_bao"
+],
+"text_en": "Phan Vật Hoa becomes mistress of Thiên Bảo Trai and holds a treasure auction every season.",
+"place": 20,
+"region": 12
+},
+{
+"id": "C183",
+"tier": "landmark",
+"year": 1105,
+"kind": "tale",
+"people": [
+"lac_dan_thanh"
+],
+"sects": [],
+"text_en": "Lạc Đan Thanh buys the Đào Nguyên Đồ at Vật Hoa Thị for a pill no one else could make.",
+"place": 50,
+"item": "dao_nguyen_do"
+},
+{
+"id": "A186",
+"tier": "annal",
+"year": 1110,
+"kind": "trade",
+"people": [
+"lac_dan_thanh"
+],
+"sects": [],
+"text_en": "Lạc Đan Thanh sets up his pill stall in Vật Hoa Thị and charges whatever he likes.",
+"place": 50,
+"region": 12
+},
+{
+"id": "A142",
+"tier": "annal",
+"year": 1180,
+"kind": "beast",
+"people": [],
+"sects": [
+"thien_bao"
+],
+"text_en": "Hunters bring a white bear out of Vô Tung Lâm alive and sell it in Mộc Lan Thành to a buyer from Thiên Bảo Trai.",
+"place": 68,
+"region": 9
+},
+{
+"id": "A187",
+"tier": "annal",
+"year": 1180,
+"kind": "omen",
+"people": [],
+"sects": [],
+"text_en": "Ghost lights are seen on the ruins of Hồng Vũ Thành every spring when the peach trees bloom.",
+"place": 222,
+"region": 12
+},
+{
+"id": "A188",
+"tier": "annal",
+"year": 1196,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Children of Tân Khẩu dare each other to touch the edge of the miasma by Vô Định Thành; one doesn't come back.",
+"place": 223,
+"region": 12
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": [
+{
+"key": "kim_coc_collapse",
+"year": 1003,
+"text": "Kim Cốc Viên, Lạc Hà's merchant vassal, collapses in a market crash and a great fire; its city in Thu Thủy Loan is left a ruin and Thiên Bảo Trai takes its trade."
+}
+]
+},
+"cast": [
+{
+"key": "phan_vat_hoa",
+"name": "Phan Vật Hoa",
+"name_han": "潘物華",
+"gloss": "The riches of the land are the treasures of heaven (Vương Bột)",
+"sex": "F",
+"born": 600,
+"alive": true,
+"sect": "thien_bao",
+"rank": "tong_chu",
+"role": "Mistress of Thiên Bảo Trai, artifact refining and the treasure market",
+"realm": "nguyen_anh",
+"home": 20,
+"traits": {
+"personality": [
+"Greedy",
+"Arrogant",
+"Ambitious"
+],
+"calling": "Merchant",
+"fate_given": []
+},
+"vassal_of": "lac_ha",
+"build": {
+"root": {
+"elements": {
+"kim": 84,
+"tho": 66
+}
+},
+"thien_phu": {
+"ngo_tinh": 74,
+"can_cot": 58,
+"than_hon": 76,
+"khi_van": 80,
+"dao_tam": 62,
+"mi_luc": 72
+},
+"archetype": "tran_su",
+"stage": 1,
+"main": {
+"tech": "thien_tho",
+"layer": 11
+},
+"aux": [
+{
+"tech": "kim_cang_the",
+"layer": 9
+}
+],
+"gear": [
+{
+"named": "general-heaven-purchasing-coin"
+},
+{
+"base": "an",
+"grade": 4,
+"element": "kim"
+},
+{
+"base": "nhan",
+"grade": 4,
+"element": "kim"
+}
+],
+"tree": {
+"start": "kim",
+"targets": [
+3860,
+4085,
+4071,
+4074,
+9012,
+4423,
+4463,
+4296
+]
+},
+"skills": {
+"luyen_khi": 8
+},
+"note": "The treasure-market mistress: every point bought for refining and treasure, one nurtured artifact grown inside her for centuries"
+}
+}
+],
+"legendary_items": []
+}

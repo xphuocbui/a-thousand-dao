@@ -1,0 +1,508 @@
+{
+ "sect": "tuan_tung",
+ "people": [
+  {
+   "key": "canh_da_tuan",
+   "name_hv": "Cảnh Dạ Tuần",
+   "name_han": "耿夜巡",
+   "gloss": "Night patrol",
+   "sex": "M",
+   "born": 1132,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "tuan_tung",
+   "rank": "noi_mon",
+   "home": 376,
+   "birthplace": 64,
+   "role": "Stablemaster of the wardens' hall and its mule-doctor; a Pivot-born caravan driver",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 42,
+     "kim": 30,
+     "tho": 25
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Loyal",
+     "Temperate"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "He drove the fourth wagon of Trang Thiết Cước's (trang_thiet_cuoc) column in 1190, one of the drivers the hall kept, and joined to stay with the mules; he says they smelled wolf from the first night out of Tùng Hạ.",
+   "ties": [
+    {
+     "to": "trang_thiet_cuoc",
+     "kind": "friend",
+     "note": "his old caravan master"
+    },
+    {
+     "to": "hua_van_cung",
+     "kind": "friend",
+     "note": "the warden who stood by his wagon"
+    },
+    {
+     "to": "doan_bat_mien",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "pine-warden-staff-and-bow-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "loi_truong",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "A body that walks all night; staff work."
+    },
+    "note": "Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
+   }
+  },
+  {
+   "key": "tu_tien_suong",
+   "name_hv": "Từ Tiễn Sương",
+   "name_han": "徐箭霜",
+   "gloss": "Frost on the arrow",
+   "sex": "F",
+   "born": 1145,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "tuan_tung",
+   "rank": "noi_mon",
+   "home": 376,
+   "birthplace": 938,
+   "role": "Tracker of the Bạch Lang road; reads wolf sign",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Brave",
+     "Reclusive"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "lifestyle": "hunter"
+   },
+   "backstory": "A hunter of Liệp Hộ who shot beside Diêm Lạc Nhạn (diem_lac_nhan) long before the hall; she found the new wolf sign on the Bạch Lang road this autumn and agrees with her friend that the head's mercy brought it.",
+   "ties": [
+    {
+     "to": "diem_lac_nhan",
+     "kind": "friend",
+     "note": "they hunted together before the hall"
+    },
+    {
+     "to": "lac_tung_lang",
+     "kind": "friend",
+     "note": "the road's warden"
+    },
+    {
+     "to": "lam_tieu_tien",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "pine-warden-staff-and-bow-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Arrows that pin; patience on a track."
+    },
+    "note": "Bow on the cham base (no bow base yet: Item DB open question)."
+   }
+  },
+  {
+   "key": "doan_bat_mien",
+   "name_hv": "Đoàn Bất Miên",
+   "name_han": "段不眠",
+   "gloss": "Sleepless",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "tuan_tung",
+   "rank": "ngoai_mon",
+   "home": 376,
+   "birthplace": 1165,
+   "role": "Outer warden from Phạt Mộc; walks the night watch",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Diligent",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "He walked the recruitment night on the Tùng Hạ - Cổ Độ road and was still talking at dawn, which Cảnh Dạ Tuần (canh_da_tuan) counted in his favour; Vương Tiều Nhi (vuong_tieu_nhi) knew him in Phạt Mộc and pretends she did not.",
+   "ties": [
+    {
+     "to": "canh_da_tuan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "vuong_tieu_nhi",
+     "kind": "friend",
+     "note": "from his village"
+    }
+   ],
+   "master": "canh_da_tuan",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "loi_truong",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Body first."
+    },
+    "note": "Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
+   }
+  },
+  {
+   "key": "hua_tich_van",
+   "name_hv": "Hứa Tịch Vân",
+   "name_han": "許夕雲",
+   "gloss": "Evening cloud",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "tuan_tung",
+   "rank": "noi_mon",
+   "home": 376,
+   "birthplace": 32,
+   "role": "Inner warden; the timber magistrate's daughter, who ran from Tùng Gian to her uncle's hall",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "thuy": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Just",
+     "Ambitious"
+    ],
+    "calling": "Strategist",
+    "upbringing": "mortal_noble"
+   },
+   "backstory": "Her father, the timber magistrate of Tùng Gian, calls the hall a disgrace; she walked out of the city to her uncle Hứa Vãn Cung (hua_van_cung) at sixteen, and her father has not written since.",
+   "ties": [
+    {
+     "to": "hua_van_cung",
+     "kind": "aunt_uncle",
+     "note": "her uncle and master"
+    }
+   ],
+   "master": "hua_van_cung",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "pine-warden-staff-and-bow-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Staff and bow."
+    },
+    "note": "Bow on the cham base (no bow base yet: Item DB open question)."
+   }
+  },
+  {
+   "key": "lam_tieu_tien",
+   "name_hv": "Lâm Tiểu Tiễn",
+   "name_han": "林小箭",
+   "gloss": "Little arrow",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "tuan_tung",
+   "rank": "ngoai_mon",
+   "home": 376,
+   "birthplace": 110,
+   "role": "Outer warden from Bạch Lang; a tracker in training",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Compassionate"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "lifestyle": "hunter"
+   },
+   "backstory": "Born in the wolf village of Bạch Lang, she can follow a pack's track on frozen needles; she has not decided whether she wants the wolves dead like her master Từ Tiễn Sương (tu_tien_suong) or gone, like the head.",
+   "ties": [
+    {
+     "to": "tu_tien_suong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "lac_tung_lang",
+     "kind": "friend",
+     "note": "the warden of her home road"
+    }
+   ],
+   "master": "tu_tien_suong",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Body first."
+    },
+    "note": "Bow on the cham base (no bow base yet: Item DB open question)."
+   }
+  },
+  {
+   "key": "khau_toan_lo",
+   "name_hv": "Khâu Toán Lộ",
+   "name_han": "丘算路",
+   "gloss": "Reckons the road",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "tuan_tung",
+   "rank": "noi_mon",
+   "home": 46,
+   "birthplace": 46,
+   "role": "Inner warden of the counting-house; counts caravan fees and walks the roads he counts",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "kim": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Honest",
+     "Cautious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A Tùng Hạ market boy who reckons fees in Trang Thiết Cước's (trang_thiet_cuoc) counting-house by day and walks the caravans he billed by night, because the hall's rule says he must; Trang Tiểu Đà (trang_tieu_da) copies his sums.",
+   "ties": [
+    {
+     "to": "trang_thiet_cuoc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "trang_tieu_da",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "trang_thiet_cuoc",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "pine-warden-staff-and-bow-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "loi_truong",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Staff work."
+    },
+    "note": "Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
+   }
+  },
+  {
+   "key": "hoang_thiet_huyen",
+   "name_hv": "Hoàng Thiết Huyền",
+   "name_han": "黃鐵弦",
+   "gloss": "Iron bowstring",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "tuan_tung",
+   "rank": "ngoai_mon",
+   "home": 376,
+   "birthplace": 106,
+   "role": "Outer warden in the shooting yard",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Wrathful",
+     "Diligent",
+     "Warlike"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "lifestyle": "hunter"
+   },
+   "backstory": "A Thanh Tùng boy who strings his own bows and wants every wolf that ever followed a caravan dead, as his master Diêm Lạc Nhạn (diem_lac_nhan) does; the head's rule against shooting a running beast is the one he argues with.",
+   "ties": [
+    {
+     "to": "diem_lac_nhan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "sam_thanh_tung",
+     "kind": "friend",
+     "note": "from his village"
+    }
+   ],
+   "master": "diem_lac_nhan",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Body, then the bow."
+    },
+    "note": "Bow on the cham base (no bow base yet: Item DB open question)."
+   }
+  }
+ ]
+}

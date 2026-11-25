@@ -1,0 +1,55 @@
+{
+ "sect": "van_khoi",
+ "_doc": "Vân Khởi Quán lineage (rules-proposals R5), a no-lean abbey (R3): leans Earth/Wood -> none. The seat is Metal 48 %, Earth and Wood 15-17 %; no base lean passes R4 on the abbey's heights, and the abbey recruits by Dao heart (đạo tâm), not by root. Outer gate: water-ends-primer (proposal, Yellow, element-free). Novices and above: sitting-cloud-canon (proposal, Earth tier, element-free soul method; the abbot's). Secret arts: hundred-echo-palm-scripture (existing body technique, element-free; the abbey's only fighting art), cloud-mother-seal (proposal, Profound, element-free seal; the elders'). Not taught: empty-mountain-sutra (Thúy Vi's head secret), which the abbot learned from Thôi Bất Kiến before 500 and keeps unwritten. Note: every soul/song/seal technique in design/techniques/catalogue-soul-song-seal.json carries an element, so an element-free soul abbey needs new proposals. Unpriced.",
+ "lineage": {
+  "outer": "water-ends-primer",
+  "main": "sitting-cloud-canon",
+  "secret": [
+   {"id": "hundred-echo-palm-scripture", "rank": "noi_mon"},
+   {"id": "cloud-mother-seal", "rank": "truong_lao"}
+  ],
+  "body": "hundred-echo-palm-scripture",
+  "elements": [],
+  "outside_kept": [{"id": "empty-mountain-sutra", "who": "its first nine layers, the abbot alone, from his master; never taught"}],
+  "tree_route": [3432, 3425],
+  "tree_route_note": "Gate of Faith (Tín Môn) and Unshaken Heart (Bất Động Tâm): the sitter's đạo tâm, as the abbot took it; the Sitting Cloud Canon trains the unmoved heart before any soul art."
+ },
+ "techniques": [
+  {
+   "id": "water-ends-primer",
+   "name": "Walking to Where the Water Ends (Hành Đáo Thủy Cùng Quyết)",
+   "tier": 0, "tech_kind": "main", "names": [], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The novice's method is a walk. Each morning a novice follows a stream uphill toward its source, breathing with their steps and counting nothing, until the water ends in moss or rock. Then they sit. It cultivates no element. It trains the breath and the soul to go on without a goal, so any root can learn it. The sixth layer is reached on the day a novice walks to the source of Thủy Cùng Phong's spring without once wondering how far it is.",
+   "arts": [
+    {"new": "Not Counting the Steps (Bất Kế Bộ)", "concept": "A walking stance: while you keep moving, each second adds a little evasion and costs a little more linh lực than the second before, and the first hit that lands on you clears it."}
+   ],
+   "lore": "Tống Tọa Vân taught it to his first novices in 540 by walking them up the mountain and not saying why (C114). It was written down only in 830, by the prior Mâu Hành Đáo.",
+   "status": "proposal"
+  },
+  {
+   "id": "sitting-cloud-canon",
+   "name": "Sit and Watch the Clouds Rise (Tọa Khán Vân Khởi Kinh)",
+   "tier": 2, "tech_kind": "main", "names": [], "layers": 12, "rank": "noi_mon",
+   "concept": "The abbey's method and its name, from the second half of Vương Duy's couplet: walk to where the water ends, then sit and watch the clouds rise (hành đáo thủy cùng xứ, tọa khán vân khởi thời). The practitioner sits until thought rises and passes like cloud off a peak, and draws qi through the soul (thần hồn) rather than through any element. In a fight it is patient and very hard to unsettle. The holder's divine sense hardens against soul attacks and status, and their arts grow stronger the longer they hold still.",
+   "arts": [
+    "lamp-oil-lance",
+    {"new": "Clouds Rise (Vân Khởi)", "concept": "While you have not moved for 2 s, each second banks a Cloud, and each new Cloud costs a little more linh lực to bank than the one before. Your next soul art spends them: each Cloud adds damage and lengthens the status it lays."},
+    {"new": "The Water Has Ended (Thủy Cùng)", "concept": "A ward that holds while you sit: the first status laid on you each 8 s is turned aside, and you regain a little thần thức."}
+   ],
+   "lore": "Tống Tọa Vân made it between 540 and 600 at Vân Khởi Quán (place 10), from what Thôi Bất Kiến taught him and from the abbey Rule of Bão Nhất Quán, whose last abbot came down to Không Sơn Viện as a guest in 488 (V022). Tống has said it is the Empty Mountain Sutra with the mountain taken out.",
+   "status": "proposal"
+  },
+  {
+   "id": "cloud-mother-seal",
+   "name": "Cloud Mother Seal (Vân Mẫu Ấn)",
+   "tier": 1, "tech_kind": "secret", "names": [], "layers": 9, "rank": "truong_lao",
+   "concept": "A seal art cut into panes of mica, which the abbey calls the mother of clouds (vân mẫu). A seal stamped on mica holds a ward. Stamped on a foe, it fixes them for a moment the way a cloud is fixed in glass. The abbey uses it to seal its windows against winter and its scriptures against damp. Its elders use it in a fight to stop a foe's arts and to keep their own wards whole.",
+   "arts": [
+    "frozen-hour-seal",
+    {"new": "Cloud in the Pane (Song Trung Vân)", "concept": "Seals the foe's last-used art for 3 s; while it is sealed, your wards lose half as much when struck."}
+   ],
+   "lore": "The monks opened the mica mine of Vân Mẫu Khoáng in 560 and said the stone was cloud made solid (A039). The seal was made from it in the 600s. The mine has run thin since 1080 (A046), and every pane cut now is counted.",
+   "status": "proposal"
+  }
+ ]
+}

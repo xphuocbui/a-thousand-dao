@@ -1,0 +1,1170 @@
+{
+ "sect": "truc_thuc",
+ "people": [
+  {
+   "key": "ninh_truc_thuc",
+   "name_hv": "Ninh Trúc Thực",
+   "name_han": "甯竹實",
+   "gloss": "The bamboo seed the phoenix eats (Trang Tử)",
+   "sex": "M",
+   "born": 900,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "truc_thuc",
+   "rank": "tong_chu",
+   "home": 25,
+   "birthplace": 25,
+   "role": "Head of Trúc Thực Viên since 1050; the spirit farmer who makes the bamboo seed every year",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 80,
+     "hoa": 54
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 62,
+    "than_hon": 58,
+    "khi_van": 66,
+    "dao_tam": 66,
+    "mi_luc": 64
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Content",
+     "Generous"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     },
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "perfect_foundation"
+    ],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A broad, slow man with mud dried grey to the knee, a straw hat on his back and a red clay censer hung from his belt like a lantern.",
+   "backstory": "Ninh Trúc Thực was born in the garden in 900 to a seed-picker, with a Fire the wet bamboo land almost never breeds. The second head Tất Mạn Thu (tat_man_thu) took him at ten because he could warm a cold seedbed with his hands. In 990 he watched the whole grove flower, seed and die in a month, as bamboo does once in sixty years, and he watched the bamboo rats come down from Trúc Thử Nguyên to eat the fallen seed and then the villages' rice. In 1050 the grove flowered again, Tất died with it (N-truc_thuc-03), and he became head. That spring he lit a censer at the foot of the young clumps and walked the rows with it for nine nights, and they seeded. They have seeded every year since (A246). The palace's birds, Bách Vũ's messengers and the spirit fields of Điền Phong Niên (dien_phong_nien) now eat that seed every year, and the garden's name has never stood higher. He trades with Điền every autumn and gives away more than he sells. He has trained eleven disciples and none of them has Fire.",
+   "wants": "To find one disciple who can carry the censer into the grove after him.",
+   "secret": "He has not bred a new bamboo. It is the old sixty-year grove, forced to seed every spring by his Fire. When he stops, every clump will flower at once and die, and the rats will come as they did in 990, but worse, because they have been breeding on the yearly seed for 150 years.",
+   "ties": [
+    {
+     "to": "tat_man_thu",
+     "kind": "master",
+     "note": "the second head, who took him at ten; she died in the flowering of 1050"
+    },
+    {
+     "to": "man_tiet_thanh",
+     "kind": "disciple",
+     "note": "his true disciple and heir, with no Fire"
+    },
+    {
+     "to": "uy_thuong_dien",
+     "kind": "friend",
+     "note": "his water elder for ninety years; she wants the grove rested and he cannot tell her why it cannot be"
+    },
+    {
+     "to": "dien_phong_nien",
+     "kind": "friend",
+     "note": "the palace's granary master; seed for rice every autumn"
+    },
+    {
+     "to": "kha_thanh_mieu",
+     "kind": "friend",
+     "note": "the field steward's daughter, sent up to the palace on her Wood; he wrote her letter"
+    },
+    {
+     "to": "ong_luc_tiet",
+     "kind": "ancestor",
+     "note": "the founder (lineage, not blood)"
+    },
+    {
+     "to": "mai_le_tuyen",
+     "kind": "friend",
+     "note": "seed and wine at New Year; she laughs at his caution"
+    },
+    {
+     "to": "ta_thanh_loan",
+     "kind": "friend",
+     "note": "Bách Vũ's head; his seed feeds her birds, her hawks eat his rats"
+    },
+    {
+     "to": "kha_tung_canh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "sam_dao_huong",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "phi_dong_canh",
+     "kind": "friend",
+     "note": "the servant who tells him about the clumps; he pretends not to hear"
+    },
+    {
+     "to": "khuat_liep_nguyen",
+     "kind": "rival",
+     "note": "the inner disciple who thinks he knows something about the rats"
+    },
+    {
+     "to": "chiem_da_tuan",
+     "kind": "disciple",
+     "note": "walks the rat fence at night"
+    }
+   ],
+   "master": "tat_man_thu",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "sixty-year-flower",
+      "layer": 9
+     },
+     {
+      "tech": "flooded-field-verse",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "ttv-seed-warming-censer"
+     },
+     {
+      "named": "ttv-flowering-bell"
+     },
+     {
+      "named": "ttv-seed-picker-ring"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 9,
+     "dan_dao": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood for growth and mending; a thread of Fire for warmth: he fights as he farms, by making his side outlast the other.",
+     "targets": [
+      6142,
+      6117,
+      6133,
+      5706,
+      6496,
+      5748
+     ],
+     "targets_note": "The garden route (Bamboo Grove, Seedling Field), then Bamboo Joint, Spirit Seed, Spirit Garden and Hundred Herbs Kept Alive: a gardener who outlasts."
+    },
+    "note": "The bamboo breeder: the continent's best spirit farmer. He has stored the Sixty-Year Flower for 160 years and never flowered."
+   },
+   "items": [
+    "earth-boundary-flag",
+    "ttv-seed-warming-censer",
+    "ttv-flowering-bell",
+    "ttv-seed-picker-ring"
+   ],
+   "changed": "build: aux [] -> sixty-year-flower and flooded-field-verse (lineage, R5); gear phien and chuong -> his named censer and a chuong; tree targets -> intent; birthplace 25 added. Root kept (Wood 80, Fire 54): the garden re-leans Wood/Fire -> Wood/Water and he holds the main method's Wood."
+  },
+  {
+   "key": "uy_thuong_dien",
+   "name_hv": "Úy Thương Điền",
+   "name_han": "蔚滄田",
+   "gloss": "Fields of deep blue-green water",
+   "sex": "F",
+   "born": 1010,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "truc_thuc",
+   "rank": "truong_lao",
+   "home": 25,
+   "birthplace": 147,
+   "role": "Elder of the Water Fields (Thủy Điền), the flood terraces below the grove; keeper of the garden's rain record",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 66,
+     "moc": 55
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 68,
+    "can_cot": 58,
+    "than_hon": 64,
+    "khi_van": 50,
+    "dao_tam": 62,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Honest",
+     "Stubborn"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "pure_root_devotee"
+    ],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A lean, sun-dark woman with her trousers rolled to the thigh and a gourd at her hip, who looks at the sky before she looks at anyone.",
+   "backstory": "Úy Thương Điền is a fisher's daughter from Bích Lãng Thôn, where the jade waves carry the boats home (A244). The garden took her in 1026 on her Wood, and she found that her Water was the stronger. In 1108 she cut the first flood terraces below the grove and wrote the Flooded Field Verse as a work song, and since then half the garden's people have been the Water-rooted children of the coast villages, whom the palace would never take. She has measured every rain since in a gourd and written the numbers in a book. The book says that the land under the grove dries a little more every decade, and the bamboo rats on Trúc Thử Nguyên have doubled since 1150. She has asked Ninh Trúc Thực (ninh_truc_thuc) four times to let the grove rest one year. Four times he has said no and has not told her why. She is the reason the garden now writes its lineage as Wood and Water (N-truc_thuc-05).",
+   "wants": "One fallow year for the grove, before the land and the rats decide it for them.",
+   "secret": "Since 1150 she has kept a second grove at Tử Trúc Lâm, grown from old sixty-year seed she saved before 1050, against the day the head's grove fails. Planting it says she expects him to fail, so she has never told him.",
+   "ties": [
+    {
+     "to": "ninh_truc_thuc",
+     "kind": "friend",
+     "note": "her head; she loves him and does not believe him"
+    },
+    {
+     "to": "an_coc_vu",
+     "kind": "disciple",
+     "note": "her one inner disciple; he tends the hidden grove"
+    },
+    {
+     "to": "ly_bich_ba",
+     "kind": "disciple",
+     "note": "a fisher girl from her own village"
+    },
+    {
+     "to": "khuat_liep_nguyen",
+     "kind": "friend",
+     "note": "the rat warden; he brings her the counts"
+    },
+    {
+     "to": "man_tiet_thanh",
+     "kind": "friend",
+     "note": "the true disciple she tells the truth about the rains"
+    },
+    {
+     "to": "dao_luong_khe",
+     "kind": "disciple",
+     "note": "sluice-keeper of the flood terraces; keeps the rain book's copy"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "flooded-field-verse",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "ttv-rain-measure-gourd"
+     },
+     {
+      "named": "ttv-flood-terrace-fan"
+     },
+     {
+      "named": "ttv-fisher-oilskin"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 7,
+     "tran_phap": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water first for floods and slows, Wood after for the growth that the flood feeds.",
+     "targets": [
+      5003,
+      5012,
+      5055,
+      6679,
+      6673,
+      9013
+     ],
+     "targets_note": "From Water: Moon over the Tide for the flood, Tangled Current to slow, the reeds into Wood, then Water Begets Wood: the flood feeds the garden."
+    },
+    "note": "The flood elder: she drowns the ground and lets the garden's Wood do the rest."
+   },
+   "items": [
+    "ttv-rain-measure-gourd",
+    "ttv-flood-terrace-fan",
+    "ttv-fisher-oilskin"
+   ]
+  },
+  {
+   "key": "man_tiet_thanh",
+   "name_hv": "Mẫn Tiết Thanh",
+   "name_han": "閔節青",
+   "gloss": "Green at the node",
+   "sex": "M",
+   "born": 1090,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "truc_thuc",
+   "rank": "chan_truyen",
+   "home": 25,
+   "birthplace": 25,
+   "role": "The head's true disciple and expected heir; runs the seed harvest",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 68,
+     "thuy": 38
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 60,
+    "than_hon": 54,
+    "khi_van": 46,
+    "dao_tam": 58,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Cautious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "gardener",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A quiet man with green-stained fingers who stands with his weight on one leg like a heron.",
+   "backstory": "Born in the garden in 1090 and given to Ninh Trúc Thực (ninh_truc_thuc) at six, Mẫn Tiết Thanh has learned every row, every rain and every seed count the head knows. He runs the harvest that goes up to the palace each autumn. He has asked twice to carry the censer into the grove in spring, and twice the head has held it a moment and then taken it back. He thinks he has failed a test. He has no Fire, and no one has told him that is the whole of it.",
+   "ties": [
+    {
+     "to": "ninh_truc_thuc",
+     "kind": "master",
+     "note": "his master since he was six"
+    },
+    {
+     "to": "uy_thuong_dien",
+     "kind": "friend",
+     "note": "the elder who tells him the truth about the rains"
+    },
+    {
+     "to": "tan_tieu_duan",
+     "kind": "disciple",
+     "note": "his first disciple"
+    },
+    {
+     "to": "ung_so_hoa",
+     "kind": "disciple",
+     "note": "the heir's only disciple; carries his harvest knives"
+    }
+   ],
+   "master": "ninh_truc_thuc",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "flooded-field-verse",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 6
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood mending and slow stacks, like his master's without the Fire.",
+     "targets": [
+      6142,
+      6117,
+      5706,
+      5780,
+      5784
+     ],
+     "targets_note": "Lineage, Spirit Seed, Binding Vine for slow stacks: his master's road without the Fire."
+    },
+    "note": "The heir who does not know why he is not yet the heir."
+   }
+  },
+  {
+   "key": "khuat_liep_nguyen",
+   "name_hv": "Khuất Liệp Nguyên",
+   "name_han": "屈獵原",
+   "gloss": "Hunter of the plain",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "truc_thuc",
+   "rank": "noi_mon",
+   "home": 1488,
+   "birthplace": 727,
+   "role": "Rat warden of Trúc Thử Nguyên, the bamboo rats' plain three tiles from the garden",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "kim": 38,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 52,
+    "can_cot": 66,
+    "than_hon": 58,
+    "khi_van": 44,
+    "dao_tam": 50,
+    "mi_luc": 38
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Brave",
+     "Reclusive"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "hunter",
+    "health": "old_wound",
+    "fate_given": [],
+    "gained": [
+     "Scarred"
+    ]
+   },
+   "appearance": "A wiry man in a rat-skin cloak, missing the tip of his nose to a bamboo rat the size of a dog.",
+   "backstory": "A raft-maker's son from Trúc Phiệt Thôn, Khuất Liệp Nguyên has lived on Trúc Thử Nguyên since 1140 and keeps the garden's fences against the bamboo rats. He sells their pelts at Bích Lãng and their meat to Bách Vũ Các for its hawks. He counts them every winter and gives the count to Úy Thương Điền (uy_thuong_dien), because the head only nods. There were nine hundred in 1150; this winter he stopped counting at four thousand. Last month he found their runs under the brook toward Bích Lãng's paddies.",
+   "ties": [
+    {
+     "to": "uy_thuong_dien",
+     "kind": "friend",
+     "note": "the one who reads his counts"
+    },
+    {
+     "to": "yen_mach_nhi",
+     "kind": "disciple",
+     "note": "the orphan girl he took off the plain"
+    },
+    {
+     "to": "ninh_truc_thuc",
+     "kind": "rival",
+     "note": "thinks the head knows something about the rats and will not say it"
+    },
+    {
+     "to": "chiem_da_tuan",
+     "kind": "friend",
+     "note": "walks the rat fence at night"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood snares and a hard hide; Metal on the axe.",
+     "targets": [
+      6142,
+      6117,
+      5782,
+      5784,
+      6252,
+      6263
+     ],
+     "targets_note": "Lineage, Binding Vine for snares, Thorn Hedge and Leaf Shield for a hard hide."
+    },
+    "note": "The fence on the plain."
+   }
+  },
+  {
+   "key": "sam_dao_huong",
+   "name_hv": "Sầm Đạo Hương",
+   "name_han": "岑稻香",
+   "gloss": "Scent of the rice",
+   "sex": "F",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "truc_thuc",
+   "rank": "noi_mon",
+   "home": 25,
+   "birthplace": 83,
+   "role": "Carries the seed tribute to Hoàng Vân Thành and the Wutong Court each autumn",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "thuy": 44,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 52,
+    "than_hon": 50,
+    "khi_van": 60,
+    "dao_tam": 48,
+    "mi_luc": 66
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Ambitious",
+     "Honest"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "tea_master",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A tidy woman in a blue travelling coat who always smells of cooked rice and knows everyone's name at the granary gate.",
+   "backstory": "A grain-broker's daughter from Mạch Điền Trấn, Sầm Đạo Hương joined the garden for its Water fields and stayed for its roads. Every autumn she drives the seed carts to Điền Phong Niên (dien_phong_nien) at Hoàng Vân Thành and then up the ridge to Vu Ngô Đồng's aviary (vu_ngo_dong). She drinks with the palace's healer Từ Cam Tuyền (tu_cam_tuyen) and hears everything first. She would like a seat in the palace's Hall of Benevolence and knows that a Fire root is the price.",
+   "ties": [
+    {
+     "to": "dien_phong_nien",
+     "kind": "friend",
+     "note": "her buyer at the granary"
+    },
+    {
+     "to": "tu_cam_tuyen",
+     "kind": "friend",
+     "note": "tea and gossip at Hoàng Vân Thành"
+    },
+    {
+     "to": "ninh_truc_thuc",
+     "kind": "master",
+     "note": "the head taught her the inner method"
+    },
+    {
+     "to": "pho_tong_thuc",
+     "kind": "disciple",
+     "note": "drives the seed cart on the tribute road"
+    }
+   ],
+   "master": "ninh_truc_thuc",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood sustain for long roads; she does not fight if she can talk.",
+     "targets": [
+      6142,
+      6117,
+      6031,
+      6026
+     ],
+     "targets_note": "Lineage, Drifting Seed for long roads, Laurel Leaf for the talking."
+    },
+    "note": "The garden's face at the granary."
+   }
+  },
+  {
+   "key": "kha_tung_canh",
+   "name_hv": "Kha Tùng Canh",
+   "name_han": "柯松耕",
+   "gloss": "Ploughs under the pines",
+   "sex": "M",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "truc_thuc",
+   "rank": "chap_su",
+   "home": 25,
+   "birthplace": 25,
+   "role": "Steward of the lower bamboo rows; father of Kha Thanh Miêu, now at the palace",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Trusting",
+     "Diligent"
+    ],
+    "calling": "Steward",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Kha Tùng Canh sent his daughter Kha Thanh Miêu (kha_thanh_mieu) up to the palace on her Wood and tells every visitor she will be an elder; her letters say she cannot pass the Feather Kindling.",
+   "ties": [
+    {
+     "to": "kha_thanh_mieu",
+     "kind": "child",
+     "note": "his daughter, an outer disciple of Phượng Minh"
+    },
+    {
+     "to": "ninh_truc_thuc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "chu_thu_dien",
+     "kind": "disciple",
+     "note": "hand on the lower rows"
+    }
+   ],
+   "master": "ninh_truc_thuc",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Plain Wood growth."
+    },
+    "note": "The rows."
+   }
+  },
+  {
+   "key": "an_coc_vu",
+   "name_hv": "Ân Cốc Vũ",
+   "name_han": "殷穀雨",
+   "gloss": "Grain Rain, the spring solar term",
+   "sex": "M",
+   "born": 1175,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "truc_thuc",
+   "rank": "noi_mon",
+   "home": 331,
+   "birthplace": 147,
+   "role": "Úy Thương Điền's inner disciple; tends her hidden grove at Tử Trúc Lâm",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 42
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Reclusive",
+     "Patient"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Úy Thương Điền (uy_thuong_dien) sends him to the purple bamboo forest every month to weed a grove no one else in the garden knows about, and he has never asked why.",
+   "ties": [
+    {
+     "to": "uy_thuong_dien",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "uy_thuong_dien",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood, slowly."
+    },
+    "note": "The hidden grove's keeper."
+   }
+  },
+  {
+   "key": "tan_tieu_duan",
+   "name_hv": "Tần Tiểu Duẩn",
+   "name_han": "秦小筍",
+   "gloss": "Little bamboo shoot",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "truc_thuc",
+   "rank": "ngoai_mon",
+   "home": 25,
+   "birthplace": 725,
+   "role": "Outer disciple; Mẫn Tiết Thanh's first disciple",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "kim": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Impatient",
+     "Brave",
+     "Gregarious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A zither-string maker's girl from Cầm Huyền Hương who wants to be the first disciple Mẫn Tiết Thanh (man_tiet_thanh) ever made an elder, and works the rows twice as fast as anyone to prove it.",
+   "ties": [
+    {
+     "to": "man_tiet_thanh",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "man_tiet_thanh",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "rain-on-bamboo-breath",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "A quick shoot."
+   }
+  },
+  {
+   "key": "ly_bich_ba",
+   "name_hv": "Lý Bích Ba",
+   "name_han": "李碧波",
+   "gloss": "Jade waves",
+   "sex": "F",
+   "born": 1168,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "truc_thuc",
+   "rank": "ngoai_mon",
+   "home": 25,
+   "birthplace": 147,
+   "role": "Outer disciple of the Water Fields; works the sluices",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Honest",
+     "Content"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A fisher girl from Úy Thương Điền's (uy_thuong_dien) own village who came for the sluices, not the bamboo; her Wood is too thin for the inner gate and she does not mind.",
+   "ties": [
+    {
+     "to": "uy_thuong_dien",
+     "kind": "master",
+     "note": "same village"
+    },
+    {
+     "to": "dieu_lang_nhi",
+     "kind": "friend",
+     "note": "terrace hand from Bích Lãng"
+    }
+   ],
+   "master": "uy_thuong_dien",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "rain-on-bamboo-breath",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "The sluice gate."
+   }
+  },
+  {
+   "key": "yen_mach_nhi",
+   "name_hv": "Yên Mạch Nhi",
+   "name_han": "燕麥兒",
+   "gloss": "Oat child",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "truc_thuc",
+   "rank": "ngoai_mon",
+   "home": 1488,
+   "birthplace": 727,
+   "role": "Outer disciple on the rat plain; Khuất Liệp Nguyên's ward",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "kim": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Diligent",
+     "Paranoid"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "street_orphan"
+   },
+   "backstory": "Her family's winter store in Trúc Phiệt Thôn was eaten to the last grain by bamboo rats in 1191, and Khuất Liệp Nguyên (khuat_liep_nguyen) found her on the plain setting snares with her bare hands.",
+   "ties": [
+    {
+     "to": "khuat_liep_nguyen",
+     "kind": "master",
+     "note": "took her in"
+    }
+   ],
+   "master": "khuat_liep_nguyen",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "rain-on-bamboo-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood snares."
+    },
+    "note": "She counts the rats too."
+   }
+  },
+  {
+   "key": "phi_dong_canh",
+   "name_hv": "Phí Đông Canh",
+   "name_han": "費冬耕",
+   "gloss": "Winter ploughing",
+   "sex": "M",
+   "born": 1110,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "truc_thuc",
+   "rank": "tap_dich",
+   "home": 25,
+   "birthplace": 736,
+   "role": "Old servant ploughman of the garden",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 44,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Humble",
+     "Lazy"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "A buckwheat farmer's son from the ridge with a Metal root no Wood method can use; he has ploughed the garden's rows since 1126 and is the only one who has noticed that the head's new bamboo stands in the same clumps as the old, culm for culm (ninh_truc_thuc).",
+   "ties": [
+    {
+     "to": "ninh_truc_thuc",
+     "kind": "friend",
+     "note": "the head pretends not to hear him about the clumps"
+    },
+    {
+     "to": "ngo_le_thach",
+     "kind": "friend",
+     "note": "servant ploughman from the ridge"
+    }
+   ],
+   "exception": "servant (tạp dịch): Metal-Earth root, not taught the lineage",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_kim",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Plain Metal for a strong back."
+    },
+    "note": "Servant; a stand-in Yellow Metal method."
+   }
+  },
+  {
+   "key": "ong_luc_tiet",
+   "name_hv": "Ông Lục Tiết",
+   "name_han": "翁六節",
+   "gloss": "Six nodes",
+   "sex": "M",
+   "born": 690,
+   "died": 905,
+   "cause": "died in the garden at 215, of the meridian scars of his forty-one Feather Kindlings",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "truc_thuc",
+   "rank": "founder",
+   "home": 25,
+   "birthplace": 145,
+   "role": "Founder of Trúc Thực Viên (760); a palace outer disciple who never passed the Feather Kindling",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Patient",
+     "Humble",
+     "Devout"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Wood-rooted peach farmer's son from Đào Khê who sat the palace's Feather Kindling forty-one times and never held the feather without burning. In 760 he led forty other unkindled outer disciples down to the wet grass below Tử Trúc Lâm and asked the palace for one thing: leave to grow the bamboo seed the phoenix eats (A243, N-truc_thuc-01). The palace gave it, with sixty years of rice. He lived to see the flowerings of 810 and 870.",
+   "ties": [
+    {
+     "to": "tat_man_thu",
+     "kind": "former_disciple",
+     "note": "his last disciple, the second head"
+    },
+    {
+     "to": "ngo_the_dong",
+     "kind": "former_master",
+     "note": "the palace founder, whose outer gate he served for forty years"
+    },
+    {
+     "to": "ninh_truc_thuc",
+     "kind": "descendant",
+     "note": "a later head of his line (lineage, not blood)"
+    }
+   ]
+  },
+  {
+   "key": "tat_man_thu",
+   "name_hv": "Tất Mạn Thu",
+   "name_han": "畢曼秋",
+   "gloss": "Long autumn",
+   "sex": "F",
+   "born": 820,
+   "died": 1050,
+   "cause": "died in the flowering of 1050, at 230, when the old grove bloomed and died",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "truc_thuc",
+   "rank": "last_head",
+   "home": 25,
+   "birthplace": 25,
+   "role": "Second head of Trúc Thực Viên (905-1050); wrote the Sixty-Year Flower",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Calm",
+     "Just",
+     "Reclusive"
+    ],
+    "calling": "Teacher",
+    "upbringing": "sect_raised",
+    "path": [
+     "long_seclusion"
+    ]
+   },
+   "backstory": "The founder Ông Lục Tiết's (ong_luc_tiet) last disciple, garden-born, head from 905. After the flowering of 990 she wrote the Sixty-Year Flower from what she watched the bamboo do. In the spring of 1050 the grove flowered again; she went out among it, flowered herself to heal the field hands the rats had bitten, and did not see the summer (N-truc_thuc-03).",
+   "ties": [
+    {
+     "to": "ong_luc_tiet",
+     "kind": "former_master",
+     "note": ""
+    },
+    {
+     "to": "ninh_truc_thuc",
+     "kind": "disciple",
+     "note": "her heir"
+    }
+   ]
+  }
+ ]
+}

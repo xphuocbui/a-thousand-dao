@@ -1,0 +1,524 @@
+{
+ "sect": "tran_sa",
+ "people": [
+  {
+   "key": "la_doan_cuong",
+   "name_hv": "Lã Đoán Cương",
+   "name_han": "呂鍛鋼",
+   "gloss": "Forged steel",
+   "sex": "M",
+   "born": 1105,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "tran_sa",
+   "rank": "noi_mon",
+   "home": 255,
+   "birthplace": 35,
+   "role": "Second smith of the forge at Tẩy Kiếm Tuyền",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 48,
+     "kim": 46,
+     "hoa": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Stubborn",
+     "Honest"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "Tống Thối Kim's (tong_thoi_kim) senior striker for sixty years, he would be master smith if Tống left. He fears the head's war will empty the forge of strikers, and says so at the long table.",
+   "ties": [
+    {
+     "to": "tong_thoi_kim",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "vien_co_yen",
+     "kind": "rival",
+     "note": "opposes her waiting war"
+    },
+    {
+     "to": "la_tinh_nhi",
+     "kind": "child",
+     "note": "his daughter, who works the forge bellows"
+    },
+    {
+     "to": "la_tinh_nhi",
+     "kind": "disciple",
+     "note": "he teaches her the forge"
+    }
+   ],
+   "master": "tong_thoi_kim",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "sand-holding-sabre-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "sword-washing-temper",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 5
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth under Metal, the anvil and the blade."
+    }
+   },
+   "changed": "fix pass A: gear + phi_kiem (a sabre-canon kiem_tu wears a blade); the sabre rides on a phi_kiem base until the item bases gain a sabre (Item DB open question)"
+  },
+  {
+   "key": "ninh_ha_vien",
+   "name_hv": "Ninh Hà Viễn",
+   "name_han": "寧河遠",
+   "gloss": "The river is far",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "tran_sa",
+   "rank": "noi_mon",
+   "home": 359,
+   "birthplace": 35,
+   "role": "Caravan lieutenant to Bàng Trấn Nhạc on the Hồi Lan road",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 50,
+     "kim": 32,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Loyal",
+     "Honest"
+    ],
+    "calling": "Strategist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Bàng Trấn Nhạc's (bang_tran_nhac) lieutenant on the Hồi Lan road, he keeps the cup shelf counted. He has seen Tất Dạ Lang's horse at the hall's back gate twice, long after the man deserted to Dạ Quang, and has told no one but his own file; he does not know that Viên Cô Yên (vien_co_yen) let it in.",
+   "ties": [
+    {
+     "to": "bang_tran_nhac",
+     "kind": "friend",
+     "note": "his captain"
+    },
+    {
+     "to": "vien_co_yen",
+     "kind": "friend",
+     "note": "his captain's wife and his head; he wonders what she knows about the back gate"
+    },
+    {
+     "to": "cam_diem_nhi",
+     "kind": "disciple",
+     "note": "Cam Thiết Bình's sister; cooks at the long table"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "sand-holding-sabre-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "iron-hide-manual",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth, the held line."
+    }
+   },
+   "changed": "fix pass A: he no longer knows Viên's secret (it leaked); tie rival -> friend"
+  },
+  {
+   "key": "la_tinh_nhi",
+   "name_hv": "Lã Tinh Nhi",
+   "name_han": "呂星兒",
+   "gloss": "Spark",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "tran_sa",
+   "rank": "ngoai_mon",
+   "home": 255,
+   "birthplace": 35,
+   "role": "Lã Đoán Cương's daughter; works the forge bellows",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 42,
+     "kim": 38,
+     "hoa": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Impatient",
+     "Diligent",
+     "Stubborn"
+    ],
+    "calling": "Refiner",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Her father Lã Đoán Cương (la_doan_cuong) lets her work the bellows but not the quench. She has shaved her eyebrows like the smiths, and argues with Mễ Tiểu Chùy (me_tieu_chuy) over who strikes next.",
+   "ties": [
+    {
+     "to": "la_doan_cuong",
+     "kind": "parent",
+     "note": "father and master"
+    },
+    {
+     "to": "la_doan_cuong",
+     "kind": "master",
+     "note": "teaches her the forge"
+    },
+    {
+     "to": "me_tieu_chuy",
+     "kind": "rival",
+     "note": "the next stroke"
+    }
+   ],
+   "master": "la_doan_cuong",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "sand-wall-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth, then Metal."
+    }
+   },
+   "changed": "fix pass A: archetype kiem_tu -> the_tu (the Sand Wall Primer is a guard method, no blade)"
+  },
+  {
+   "key": "o_sa_ho",
+   "name_hv": "Ổ Sa Hổ",
+   "name_han": "鄔沙虎",
+   "gloss": "Sand tiger",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "tran_sa",
+   "rank": "ngoai_mon",
+   "home": 359,
+   "birthplace": 1404,
+   "role": "Night-watch caravan guard; Ổ Sa Nhi's brother",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 48,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Calm",
+     "Honest"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "He and his sister Ổ Sa Nhi (o_sa_nhi) were tested in the same felt tent. She rode to Dạ Quang and he walked to Trấn Sa, and on the Đà Linh road they pretend not to know each other.",
+   "ties": [
+    {
+     "to": "o_sa_nhi",
+     "kind": "sibling",
+     "note": "rides for Dạ Quang"
+    },
+    {
+     "to": "bang_tran_nhac",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "bang_tran_nhac",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "sand-wall-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    }
+   },
+   "changed": "fix pass A: archetype kiem_tu -> the_tu (the Sand Wall Primer is a guard method, no blade)"
+  },
+  {
+   "key": "nghiem_sa_lo",
+   "name_hv": "Nghiêm Sa Lộ",
+   "name_han": "嚴沙路",
+   "gloss": "Sand road",
+   "sex": "F",
+   "born": 1173,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "tran_sa",
+   "rank": "noi_mon",
+   "home": 1418,
+   "birthplace": 1421,
+   "role": "Outrider of the watch at Đà Linh",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 50,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Paranoid",
+     "Just"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Nhiếp Cô Đăng (nhiep_co_dang) taught her to read hoofprints and then stopped asking her to. She writes up Ô Liệt Phong's escorts in the watch book anyway, and hers are the only pages still full.",
+   "ties": [
+    {
+     "to": "nhiep_co_dang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dam_tri_ma",
+     "kind": "friend",
+     "note": "the other outrider"
+    }
+   ],
+   "master": "nhiep_co_dang",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "sand-holding-sabre-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    }
+   },
+   "changed": "fix pass A: gear kinh -> phi_kiem (a sabre-canon kiem_tu wears a blade); the sabre rides on a phi_kiem base until the item bases gain a sabre (Item DB open question)"
+  },
+  {
+   "key": "khuc_dang_ha",
+   "name_hv": "Khúc Đăng Hà",
+   "name_han": "曲燈河",
+   "gloss": "River of lamps",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "tran_sa",
+   "rank": "ngoai_mon",
+   "home": 359,
+   "birthplace": 35,
+   "role": "Trường Vân lamp-seller's son who dusts the cup shelf",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "tho": 32,
+     "moc": 18
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Trusting",
+     "Gregarious"
+    ],
+    "calling": "Steward",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "His Water should have sent him to the Desert Pavilion; he chose the hall for its Earth. Viên Cô Yên (vien_co_yen) set him to dusting the 312 cups, and he has noticed the last eleven were found on roads Ô Liệt Phong did not ride.",
+   "ties": [
+    {
+     "to": "vien_co_yen",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "vien_co_yen",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "sand-wall-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth, which he chose."
+    }
+   },
+   "changed": "fix pass A: archetype kiem_tu -> the_tu (the Sand Wall Primer is a guard method, no blade)"
+  },
+  {
+   "key": "cam_diem_nhi",
+   "name_hv": "Cam Diêm Nhi",
+   "name_han": "甘鹽兒",
+   "gloss": "Salt child",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "tran_sa",
+   "rank": "ngoai_mon",
+   "home": 359,
+   "birthplace": 1406,
+   "role": "Cam Thiết Bình's sister; cooks at the long table",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 36,
+     "thuy": 34,
+     "hoa": 18
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Content",
+     "Devout"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "She followed her brother Cam Thiết Bình (cam_thiet_binh) from the salt pans and cooks at the long table, where she sets Viên Trường Hà's empty place each night without being asked.",
+   "ties": [
+    {
+     "to": "cam_thiet_binh",
+     "kind": "sibling",
+     "note": "her elder brother"
+    },
+    {
+     "to": "ninh_ha_vien",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "ninh_ha_vien",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "sand-wall-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    }
+   },
+   "changed": "fix pass A: archetype kiem_tu -> the_tu (the Sand Wall Primer is a guard method, no blade)"
+  }
+ ]
+}

@@ -1,0 +1,3256 @@
+{
+ "sect": "thinh_vu",
+ "_doc": "Thính Vũ Lâu cast, part 2: the dead of the lineage, then the Trúc Cơ.",
+ "people": [
+  {
+   "key": "pho_tieu_tuong",
+   "name_hv": "Phó Tiêu Tương",
+   "name_han": "傅瀟湘",
+   "gloss": "The rain on the Tiêu and Tương rivers",
+   "sex": "F",
+   "born": 240,
+   "alive": false,
+   "died": 880,
+   "cause": "died at 640 in her third attempt on Hóa Thần, by the lotus on Tàn Hà Hồ",
+   "peak_realm": "nguyen_anh",
+   "sect": "thinh_vu",
+   "rank": "founder",
+   "home": 7,
+   "birthplace": 197,
+   "role": "Founder of Thính Vũ Lâu (year 380, at 140); hung the first rain-chain and kept the withered lotus",
+   "tier": "A",
+   "thien_phu": {
+    "ngo_tinh": 86,
+    "can_cot": 58,
+    "than_hon": 90,
+    "khi_van": 64,
+    "dao_tam": 84,
+    "mi_luc": 72
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Patient",
+     "Ambitious"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 3
+     }
+    ],
+    "path": [
+     "perfect_foundation"
+    ],
+    "lifestyle": "poet",
+    "fate_given": [
+     "Spirit-eyed"
+    ],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "Remembered as a slight woman under a spotted-bamboo umbrella, who would stop speaking in the middle of a sentence when it began to rain.",
+   "backstory": "Phó Tiêu Tương was born in 240 on Tương Phi Đảo, the isle of the spotted bamboo, where the sea rain comes in sideways, and her root was Water and Metal: rain on bronze. She wandered the south for a century. In 380, at 140, she raised a tower on the cone above the rain forest of Tiêu Vũ Lâm (C006), because from that height she could hear rain fall on the whole forest at once. She hung a bronze rain-chain from its eaves (N-thinh_vu-01) and kept the withered lotus on the lake below to hear the rain on it (A266). When Khải Lôi fell in 480 the Tower took its mountains (C008), and she took in the drummer's boy Nhiếp Văn Lôi (nhiep_van_loi) and let him write the thunder into her chain (N-thinh_vu-03). She fought Lạc Hà for the Petal Shore (C126, C128), then swore with Lạc Hà's founder Nhan Cô Vụ (nhan_co_vu) to end the Pivot's oversight (C155), and lost the War of Broken Halberds at Chiết Kích Nguyên (C017). She signed the truce (C018) and spent her last seventy-five years beside the lake. She died there in 880 (C164) and was sunk in it under the lotus.",
+   "ties": [
+    {
+     "to": "manh_da_vu",
+     "kind": "disciple",
+     "note": "her heir, who took the umbrella and not the chain"
+    },
+    {
+     "to": "quan_vu_thanh",
+     "kind": "disciple",
+     "note": "carried her umbrella on the plain"
+    },
+    {
+     "to": "lu_tan_ha",
+     "kind": "disciple",
+     "note": "her last"
+    },
+    {
+     "to": "le_tieu_hon",
+     "kind": "disciple",
+     "note": "taken for his Thunder in 836"
+    },
+    {
+     "to": "nhiep_van_loi",
+     "kind": "disciple",
+     "note": "the drummer's boy who wrote the canon"
+    },
+    {
+     "to": "dieu_tram_hoa",
+     "kind": "disciple",
+     "note": "her war captain, who burned with Hồng Vũ Thành"
+    },
+    {
+     "to": "nhan_co_vu",
+     "kind": "friend",
+     "note": "enemy on the Petal Shore, sworn ally after 788"
+    },
+    {
+     "to": "chung_hoai_cuc",
+     "kind": "enemy",
+     "note": "the Pivot's founder, whose judgement split the Petal Shore"
+    },
+    {
+     "to": "hau_xuan_loi",
+     "kind": "rival",
+     "note": "the neighbour whose tribulation she watched from her tower in 480"
+    },
+    {
+     "to": "truong_anh_dao",
+     "kind": "enemy",
+     "note": "the Lạc Hà elder whose orchards her disciples burned"
+    }
+   ],
+   "record": true,
+   "changed": "cause 'old age at 640' -> a failed Hóa Thần attempt at 640: a Nguyên Anh lives 1,000 years (fix pass A, 2026-11-25)"
+  },
+  {
+   "key": "nhiep_van_loi",
+   "name_hv": "Nhiếp Văn Lôi",
+   "name_han": "聶聞雷",
+   "gloss": "He who hears the thunder",
+   "sex": "M",
+   "born": 466,
+   "alive": false,
+   "died": 803,
+   "cause": "killed at Chiết Kích Nguyên covering the founder's withdrawal (C017)",
+   "peak_realm": "ket_dan",
+   "sect": "thinh_vu",
+   "rank": "truong_lao",
+   "home": 7,
+   "birthplace": 346,
+   "role": "Author of the Văn Lôi Kinh and first master of the Hall of Echoes; a drummer's boy of fallen Khải Lôi",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Reclusive",
+     "Loyal"
+    ],
+    "calling": "Strategist",
+    "upbringing": "war_orphan",
+    "path": [
+     "thunder_struck"
+    ],
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "Remembered with drum-callused palms and one ear always turned to the sky.",
+   "backstory": "Nhiếp Văn Lôi was born in 466 at Kích Cổ Đường, where Khải Lôi's drummers answered the thunder. When the Gate fell (C008) the drummers scattered (V153), and the boy of sixteen walked up the cone with the storm notes in his head (N-thinh_vu-02). Phó Tiêu Tương (pho_tieu_tuong) took him in. On Văn Lôi Đài he wrote the Văn Lôi Kinh (N-thinh_vu-03), and he set the first listeners in the inns of the south. He died at Chiết Kích Nguyên in 803 (C017), holding the ground while the founder withdrew.",
+   "ties": [
+    {
+     "to": "pho_tieu_tuong",
+     "kind": "master",
+     "note": "took him in after Khải Lôi fell"
+    },
+    {
+     "to": "nhiep_vo_thanh",
+     "kind": "grandchild",
+     "note": "keeps his Hall of Echoes"
+    }
+   ],
+   "master": "pho_tieu_tuong"
+  },
+  {
+   "key": "dieu_tram_hoa",
+   "name_hv": "Diêu Trảm Hoa",
+   "name_han": "姚斬花",
+   "gloss": "He who cuts down flowers",
+   "sex": "M",
+   "born": 470,
+   "alive": false,
+   "died": 618,
+   "cause": "burned with Hồng Vũ Thành in the War of the Petal Shore (C127)",
+   "peak_realm": "ket_dan",
+   "sect": "thinh_vu",
+   "rank": "truong_lao",
+   "home": 7,
+   "birthplace": 43,
+   "role": "The founder's war captain on the Petal Shore",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Stubborn",
+     "Warlike"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "path": [
+     "sword_heart"
+    ],
+    "fate_given": [],
+    "gained": [
+     "Battle-hardened"
+    ]
+   },
+   "appearance": "Remembered as a red-bearded man who fought bareheaded in the rain.",
+   "backstory": "Diêu Trảm Hoa was born in 470 in Không Mông Thành, ten years before Khải Lôi's city passed to the Tower (C056, C008). He was the founder's war captain in the War of the Petal Shore (C126). He took Hồng Vũ Thành and would not leave it when the orchards were set burning, and he died in the city in 618 (C127). His disciples say the red rain that fell was his. The Pivot's judgement gave the Tower the forest he had held (C128).",
+   "ties": [
+    {
+     "to": "pho_tieu_tuong",
+     "kind": "master",
+     "note": "his founder"
+    },
+    {
+     "to": "nhan_co_vu",
+     "kind": "enemy",
+     "note": "Lạc Hà's founder, across the burning orchards"
+    },
+    {
+     "to": "dieu_tieu_phong",
+     "kind": "descendant",
+     "note": "a great-great-grandson in the outer gate"
+    },
+    {
+     "to": "truong_anh_dao",
+     "kind": "enemy",
+     "note": "the Lạc Hà elder who held Hồng Vũ Thành against him; both died in its fire in 618"
+    }
+   ],
+   "master": "pho_tieu_tuong"
+  },
+  {
+   "key": "van_hai_kho",
+   "name_hv": "Văn Hải Khô",
+   "name_han": "文海枯",
+   "gloss": "Until the sea runs dry",
+   "sex": "M",
+   "born": 610,
+   "alive": false,
+   "died": 951,
+   "cause": "died in seclusion at the Tower; recorded as a qi deviation",
+   "peak_realm": "ket_dan",
+   "sect": "thinh_vu",
+   "rank": "khach_khanh",
+   "home": 7,
+   "role": "A ma đạo master of the Hollow Tide Scripture; guest elder after the Night Rain Edict",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Cruel",
+     "Patient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "street_orphan",
+    "path": [
+     "demonic_path"
+    ],
+    "fate_given": [],
+    "gained": [
+     "Hunted"
+    ]
+   },
+   "appearance": "Remembered as a grey, dry man whose handshake left the hand cold.",
+   "backstory": "Văn Hải Khô drained the qi wells of three river towns in the west before he was driven out of them. He came to the Tower by night at the Night Rain Edict (C196) with his scripture as his price, and Mạnh Dạ Vũ (manh_da_vu) made him a guest elder. He died in seclusion in 951. The Tower recorded a qi deviation, and his scripture passed to the head.",
+   "ties": [
+    {
+     "to": "manh_da_vu",
+     "kind": "enemy",
+     "note": "the host who took his scripture"
+    },
+    {
+     "to": "co_da_lan",
+     "kind": "enemy",
+     "note": "she kept the door"
+    },
+    {
+     "to": "tra_ham_tuyen",
+     "kind": "disciple",
+     "note": "the well-keeper's boy he took instead of the well, and left in the west in 906"
+    },
+    {
+     "to": "tra_cam_tinh",
+     "kind": "enemy",
+     "note": "the girl who turned the last well bitter against him"
+    },
+    {
+     "to": "mac_huyet_sinh",
+     "kind": "master",
+     "note": "his master, whom he left for the Tower"
+    }
+   ],
+   "master": "mac_huyet_sinh"
+  },
+  {
+   "key": "ta_thiet_tru",
+   "name_hv": "Tạ Thiết Trụ",
+   "name_han": "謝鐵柱",
+   "gloss": "Iron pillar",
+   "sex": "M",
+   "born": 880,
+   "alive": false,
+   "died": 1042,
+   "cause": "burned with Thủ Lôi Bảo in the Thunder Vein War (V161)",
+   "peak_realm": "ket_dan",
+   "sect": "thinh_vu",
+   "rank": "truong_lao",
+   "home": 875,
+   "birthplace": 861,
+   "role": "The Tower's first lightning-rod man; held Thủ Lôi Bảo for nine days",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Stubborn",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "path": [
+     "thunder_struck"
+    ],
+    "fate_given": [
+     "Iron-boned"
+    ],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "Remembered as a huge man who stood bareheaded on the wall in storms.",
+   "backstory": "Tạ Thiết Trụ was born in 880 at Lôi Tinh Khoáng, the thunder-crystal mine of the ridge, and his Thunder let him stand under a strike. Lệ Tiêu Hồn (le_tieu_hon) gave him Thủ Lôi Bảo, the guard above Kinh Lôi Mạch. When Phượng Minh's disciples came in 1042 (V161) he held it for nine days and burned with it. The Tower built its new guard higher on the ridge, on Thần Cổ Phong, and named the guardhouse for him (N-thinh_vu-07).",
+   "ties": [
+    {
+     "to": "le_tieu_hon",
+     "kind": "master",
+     "note": "gave him the fort"
+    },
+    {
+     "to": "ta_ke_tru",
+     "kind": "grandchild",
+     "note": "keeps his guardhouse on the new seat"
+    },
+    {
+     "to": "he_binh_hoa",
+     "kind": "enemy",
+     "note": "the Phượng Minh elder who burned his fort in 1042 and died in its lightning"
+    }
+   ],
+   "master": "le_tieu_hon"
+  },
+  {
+   "key": "ky_van_tinh",
+   "name_hv": "Kỷ Vãn Tình",
+   "name_han": "紀晚晴",
+   "gloss": "The evening clears after rain",
+   "sex": "F",
+   "born": 900,
+   "alive": false,
+   "died": 1156,
+   "cause": "killed holding the pass at Đan Sơn Mạch (N-thinh_vu-08)",
+   "peak_realm": "ket_dan",
+   "sect": "thinh_vu",
+   "rank": "truong_lao",
+   "home": 7,
+   "birthplace": 42,
+   "role": "The head's Dao partner and Mạnh Lưu Ly's mother; commanded the rear guard at Đan Sơn Mạch",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Wrathful",
+     "Loyal"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born",
+    "path": [
+     "sword_heart"
+    ],
+    "fate_given": [],
+    "gained": [
+     "Lovestruck"
+    ]
+   },
+   "appearance": "Remembered as a tall ferryman's daughter who laughed loudly and wore her hair cut short for the sword.",
+   "backstory": "Kỷ Vãn Tình was born in 900 in Thu Trì Thành, a ferryman's daughter with a Water root and a temper. She was Mạnh Dạ Vũ's (manh_da_vu) Dao partner for two hundred years, though the Tower never named it, and the mother of Mạnh Lưu Ly (manh_luu_ly). At Đan Sơn Mạch, when Thiên Xu came in on Phượng Minh's side (C189), the head gave her the rear guard and told her to hold the pass until the column was through. She sent four people out with the wounded and held it until the Pivot's arrays closed in 1156 (N-thinh_vu-08).",
+   "ties": [
+    {
+     "to": "manh_da_vu",
+     "kind": "dao_partner",
+     "note": "two hundred years, never named"
+    },
+    {
+     "to": "manh_luu_ly",
+     "kind": "child",
+     "note": "her daughter; the letters were for her"
+    },
+    {
+     "to": "phuong_doan_vu",
+     "kind": "creditor",
+     "note": "she sent him out of the pass"
+    },
+    {
+     "to": "doan_ngoc_hanh",
+     "kind": "enemy",
+     "note": "his arrays closed the pass"
+    },
+    {
+     "to": "chu_tri_am",
+     "kind": "friend",
+     "note": "served in her rear guard at Đan Sơn Mạch; taken alive when the arrays closed"
+    },
+    {
+     "to": "uc_tu_hanh",
+     "kind": "friend",
+     "note": "the Xuyên Lâm guide who led her rear guard and died with it"
+    },
+    {
+     "to": "lo_tiem_tiem",
+     "kind": "descendant",
+     "note": "her sister's granddaughter"
+    }
+   ]
+  },
+  {
+   "key": "khuc_thanh_dien",
+   "name_hv": "Khúc Thanh Điện",
+   "name_han": "曲青電",
+   "gloss": "Blue lightning",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 208,
+   "birthplace": 873,
+   "role": "Thunder prodigy of the inner gate, born under the new seat; Hầu Vọng Xuân's disciple, courted by Mạnh Lưu Ly",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 64,
+     "hoa": 30,
+     "tho": 26
+    },
+    "variants": {
+     "loi": 48
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 78,
+    "can_cot": 66,
+    "than_hon": 60,
+    "khi_van": 70,
+    "dao_tam": 52,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Fickle",
+     "Gregarious"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     },
+     {
+      "id": "lucky",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "thunder_struck"
+    ],
+    "lifestyle": "duel_seeker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A wiry young woman with gold dust still in the creases of her knuckles and hair that stands up a little before a storm.",
+   "backstory": "Khúc Thanh Điện was born in 1150 at Sa Kim Khoáng, the gold-sand mine below Thần Cổ Phong, sixteen years before the Tower's halls came up the ridge. Her mother washed gold in the stream, and her father hauls ore for Xuyên Lâm Môn, which holds the mine. Lightning struck the washing shed when she was six, and the girl inside was found sitting up and laughing: that was her Thunder forming. Hầu Vọng Xuân (hau_vong_xuan) took her at twelve, one of the first disciples from the new seat's own ridge, and drove her hard. At fifty she holds a sword raised to the cloud longer than anyone in the inner gate (A316). In 1197 Mạnh Lưu Ly (manh_luu_ly) began to come to her drills, bringing glass from Tử Tinh Khoáng and teaching her to listen to rain the way the head does. Hầu has noticed. Her little brother entered the outer gate in 1199.",
+   "wants": "To be the best Thunder sword in the Tower, and to choose her own master, which the Tower does not allow.",
+   "secret": "Her father is Xuyên Lâm Môn's informer at the mine. For three years she has passed him the dates of the Tower's storm drills, and she knows that Úc Diệp Thanh reads them.",
+   "ties": [
+    {
+     "to": "hau_vong_xuan",
+     "kind": "master",
+     "note": "drives her hard and expects to keep her"
+    },
+    {
+     "to": "manh_luu_ly",
+     "kind": "friend",
+     "note": "brings glass and teaches her to listen"
+    },
+    {
+     "to": "khuc_tieu_thach",
+     "kind": "sibling",
+     "note": "her little brother in the outer gate"
+    },
+    {
+     "to": "uc_diep_thanh",
+     "kind": "debt",
+     "note": "her father's master; she feeds him the drill dates"
+    },
+    {
+     "to": "doan_kim_sa",
+     "kind": "rival",
+     "note": "a boy from the same mine who cannot forgive her the Thunder"
+    },
+    {
+     "to": "uc_da_diep",
+     "kind": "friend",
+     "note": "the Xuyên Lâm hostage; they speak of the forest road"
+    },
+    {
+     "to": "tong_loi_nhi",
+     "kind": "friend",
+     "note": "the outer girl who has made her an idol"
+    },
+    {
+     "to": "khuc_phu_thach",
+     "kind": "parent",
+     "note": "her father, who works for Xuyên Lâm's head"
+    }
+   ],
+   "master": "hau_vong_xuan",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "lightning-rod-sword",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "tvl-gold-sand-sword"
+     },
+     {
+      "named": "tvl-washers-leather"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "loi",
+     "intent": "Thunder land toward the raised sword and chained hits, then Metal crits.",
+     "targets": [
+      846,
+      8188,
+      7965,
+      7973,
+      8018
+     ],
+     "targets_note": "Thunder Root and her master's Lingering Thunder, then Branching Bolt for the chained hits and Storm Eye's crit."
+    },
+    "note": "Throws the sword high and waits for the sky."
+   },
+   "items": [
+    "tvl-gold-sand-sword",
+    "tvl-washers-leather"
+   ]
+  },
+  {
+   "key": "ung_thinh_thien",
+   "name_hv": "Ung Thính Thiền",
+   "name_han": "雍聽蟬",
+   "gloss": "He who listens to the cicadas",
+   "sex": "M",
+   "born": 1170,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thinh_vu",
+   "rank": "chan_truyen",
+   "home": 874,
+   "birthplace": 54,
+   "role": "The head's last disciple, blind from birth; a root like the head's own",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "kim": 50
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 84,
+    "can_cot": 44,
+    "than_hon": 86,
+    "khi_van": 58,
+    "dao_tam": 74,
+    "mi_luc": 56
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Humble",
+     "Honest"
+    ],
+    "calling": "Strategist",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 3
+     }
+    ],
+    "path": [
+     "perfect_foundation"
+    ],
+    "lifestyle": "qin_player",
+    "health": "blind",
+    "coping": null,
+    "fate_given": [
+     "Spirit-eyed"
+    ],
+    "gained": []
+   },
+   "appearance": "A thin young man with milky eyes, who turns his whole body toward whoever speaks and plucks a qin with three strings missing.",
+   "backstory": "Ung Thính Thiền was born blind in 1170 in Hạnh Hoa Thị, below the old tower, to a family that sells apricot blossom after rain (A290). At nine he could name every bird in the market by its call and every stall-keeper by their walk. The healer Giả Hồi Xuân (gia_hoi_xuan) tried his eyes and said there was nothing wrong with them except that they did not see. Mạnh Dạ Vũ (manh_da_vu), on one of his rainy-season visits to Văn Lôi Đài, heard of him, sat beside him in the market for a night of spring rain, and took him as his disciple in 1186, the first he had taken in a century. The boy's root is the head's own, Water and Metal without Thunder, and the Tower drew its conclusions. He reached Trúc Cơ at twenty-nine, fast for a root of two. He hears the life lamps hum in the vaults through two hundred feet of rock.",
+   "wants": "To hear the founder's chain ring on the old tower once, as the head says it did in her day, and not to be anybody's weapon against Mạnh Lưu Ly.",
+   "secret": "Among the four thousand lamps in the vaults he can hear one burning to the note of the head's own breath. The vault law says a head has no lamp. He has told no one.",
+   "ties": [
+    {
+     "to": "manh_da_vu",
+     "kind": "master",
+     "note": "sat beside him through a night of rain"
+    },
+    {
+     "to": "manh_luu_ly",
+     "kind": "rival",
+     "note": "she is kind to him, and he cannot tell if she means it"
+    },
+    {
+     "to": "ninh_tich_dang",
+     "kind": "friend",
+     "note": "the lamp keeper reads to him"
+    },
+    {
+     "to": "gia_hoi_xuan",
+     "kind": "friend",
+     "note": "the healer who could not cure his eyes and told him why"
+    },
+    {
+     "to": "diep_an_thu",
+     "kind": "friend",
+     "note": "reads the manual aloud to him"
+    },
+    {
+     "to": "giang_hanh_hoa",
+     "kind": "friend",
+     "note": "he tells her which lamps flicker"
+    }
+   ],
+   "master": "manh_da_vu",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "thunder-in-the-rain-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "hundred-echo-palm-scripture",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "tvl-apricot-rain-sword"
+     },
+     {
+      "named": "tvl-market-night-bell"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water land toward evasion and sight, the head's road taken young.",
+     "targets": [
+      5456,
+      5340,
+      5308,
+      4943,
+      4940,
+      4947
+     ],
+     "targets_note": "Water Eye for a blind man's sight, the head's Moonlit Rain, Dry in the Rain and the Mirror Lake for evasion and the counter to every first blow."
+    },
+    "note": "Cannot be surprised; counters every first blow."
+   },
+   "items": [
+    "tvl-apricot-rain-sword",
+    "tvl-market-night-bell"
+   ]
+  },
+  {
+   "key": "tao_mac_toan",
+   "name_hv": "Tào Mặc Toán",
+   "name_han": "曹默算",
+   "gloss": "Silent counting",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thinh_vu",
+   "rank": "chap_su",
+   "home": 874,
+   "birthplace": 81,
+   "role": "Clerk of the Tower's stores; the Pivot's counter",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "tho": 40,
+     "hoa": 24
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 44,
+    "than_hon": 58,
+    "khi_van": 46,
+    "dao_tam": 50,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Diligent",
+     "Deceitful"
+    ],
+    "calling": "Steward",
+    "upbringing": "scholar_family",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "chronicler",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A neat, forgettable man with an ink callus on his middle finger and a habit of moving his lips as people pass.",
+   "backstory": "Tào Mặc Toán was born in 1120 in Thạch Kiều Thành, the Pivot's city where the Compact was sealed (C107), and came to the Tower's outer gate in 1140 with papers that said Lãng Hoa Thành. He keeps the stores' ledgers and counts everything, which is what Doãn Ngọc Hành's (doan_ngoc_hanh) envoys pay him for: the count of 1165 (C200) was his. Nhiếp Vô Thanh has known since 1166. He does not know she knows, only that he is still alive.",
+   "ties": [
+    {
+     "to": "doan_ngoc_hanh",
+     "kind": "debt",
+     "note": "paid by the Pivot's envoys since 1140"
+    },
+    {
+     "to": "nhiep_vo_thanh",
+     "kind": "debt",
+     "note": "owes her his life and does not know it"
+    },
+    {
+     "to": "tuong_lau_thanh",
+     "kind": "master",
+     "note": "the Hall of Rules keeps the stores"
+    },
+    {
+     "to": "chu_ngoc_trich",
+     "kind": "friend",
+     "note": "the outer clerk whose sums he checks by letter"
+    },
+    {
+     "to": "lang_ngan_lo",
+     "kind": "rival",
+     "note": "the inner disciple who watches him for her master"
+    },
+    {
+     "to": "tiet_thu_bach",
+     "kind": "disciple",
+     "note": "tallies the salted meat and barley in the seat's stores"
+    },
+    {
+     "to": "phi_thanh_giang",
+     "kind": "rival",
+     "note": "steward of the Rain Tower's cisterns and the south's grain tax"
+    }
+   ],
+   "master": "tuong_lau_thanh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal land toward guard; he means never to fight.",
+     "targets": [
+      725,
+      4270,
+      4280,
+      3860,
+      4299
+     ],
+     "targets_note": "Lineage sword because the inner gate teaches it, then Spirit Coin for the stores and Bell Rim for a clerk's guard."
+    },
+    "note": "A clerk with a seal."
+   }
+  },
+  {
+   "key": "uc_da_diep",
+   "name_hv": "Úc Đả Diệp",
+   "name_han": "郁打葉",
+   "gloss": "Rain beating the leaves",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 874,
+   "birthplace": 28,
+   "role": "Xuyên Lâm Môn's surety at the new seat since 1170; the head of Xuyên Lâm's nephew",
+   "tier": "B",
+   "exception": "hostage: kept at the seat as surety for Xuyên Lâm Môn since 1170 (N-thinh_vu-11); trained in Xuyên Lâm's staff method, never taught the lineage",
+   "root": {
+    "elements": {
+     "kim": 52,
+     "moc": 36,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 72,
+    "than_hon": 54,
+    "khi_van": 56,
+    "dao_tam": 66,
+    "mi_luc": 70
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Honest",
+     "Peaceable"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "clan_heir",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": "hunter",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A big, easy man in a green Xuyên Lâm tunic under a borrowed black cloak, a bamboo staff over his shoulder.",
+   "backstory": "Úc Đả Diệp was born in 1140 at Xuyên Lâm Môn, the staff-fighters' gate that guides travellers through the rain forest (A289) and refused the arts of the Night Rain Edict (A292). When the Tower set its new seat on Thần Cổ Phong among Xuyên Lâm's mines, the Gate protested, and in 1170 its head Úc Diệp Thanh (uc_diep_thanh) sent his nephew to the seat as surety (N-thinh_vu-11). He was thirty. He has been taught nothing of the lineage, keeps to his staff, and has become the best-liked man in the inner gate.",
+   "ties": [
+    {
+     "to": "uc_diep_thanh",
+     "kind": "aunt_uncle",
+     "note": "his uncle, who sent him"
+    },
+    {
+     "to": "khuc_thanh_dien",
+     "kind": "friend",
+     "note": "a ridge girl whose father works for his uncle"
+    },
+    {
+     "to": "nghiem_to_to",
+     "kind": "friend",
+     "note": "her brother fled to Xuyên Lâm; he carries her letters"
+    },
+    {
+     "to": "uc_yen_vu",
+     "kind": "child",
+     "note": "his daughter at Xuyên Lâm"
+    },
+    {
+     "to": "nghiem_quy_khu",
+     "kind": "friend",
+     "note": "the runaway at Xuyên Lâm whose sister's letters he carries"
+    },
+    {
+     "to": "ky_khinh_ma",
+     "kind": "lover",
+     "note": "the Xuyên Lâm woman he left behind; letters every season for twenty-five years"
+    },
+    {
+     "to": "uc_tu_hanh",
+     "kind": "parent",
+     "note": "his father, who died in the rear guard at Đan Sơn Mạch"
+    },
+    {
+     "to": "quach_tu_tinh",
+     "kind": "rival",
+     "note": "the inner disciple he keeps asking to stop"
+    },
+    {
+     "to": "sa_bat_ngu",
+     "kind": "friend",
+     "note": "Xuyên Lâm Môn's servant (tạp dịch), sent with its hostage"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "calm-wind-staff-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "loi_truong",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal land toward the body's guard, as Xuyên Lâm teaches its staff.",
+     "targets": [
+      730,
+      734,
+      4490,
+      4487,
+      4478
+     ],
+     "targets_note": "Xuyên Lâm's staff on a Metal root: Steel Frame, Tempered Bone, the Vajra Body and Iron Discipline: very hard to knock down."
+    },
+    "note": "Staff and footwork; very hard to knock down."
+   },
+   "changed": "cross-sect pass: build main huyen_kim -> calm-wind-staff-canon: he is Xuyên Lâm's hostage, taught his own gate's staff and never the Tower's lineage (exception), so his main method is Xuyên Lâm's staff canon (xuyen_lam writer's request)."
+  },
+  {
+   "key": "dam_van_chung",
+   "name_hv": "Đàm Vãn Chung",
+   "name_han": "譚晚鐘",
+   "gloss": "The evening bell",
+   "sex": "F",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 874,
+   "birthplace": 54,
+   "role": "Mạnh Lưu Ly's first disciple; rings the evening bell at the new seat",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 52,
+     "hoa": 36
+    },
+    "variants": {
+     "loi": 46
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 58,
+    "than_hon": 56,
+    "khi_van": 54,
+    "dao_tam": 66,
+    "mi_luc": 60
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Cautious",
+     "Gregarious"
+    ],
+    "calling": "Steward",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "thunder_struck"
+    ],
+    "lifestyle": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A solid, freckled woman with a bell-rope callus across both palms.",
+   "backstory": "Đàm Vãn Chung was born in 1120 in Hạnh Hoa Thị, where the apricot sellers' children grow up on the old tower's stair. Mạnh Lưu Ly (manh_luu_ly) took her in 1146, her first disciple. Đàm has followed her up the ridge, through two breakthroughs that failed and one that did not, and through every quarrel with the Thunder Hall. She rings the evening bell at the new seat. She carries Lưu Ly's letters, and in 1157 she read one.",
+   "ties": [
+    {
+     "to": "manh_luu_ly",
+     "kind": "master",
+     "note": "her master; Đàm read one of the mother's letters before it was delivered"
+    },
+    {
+     "to": "lu_ngan_xuyen",
+     "kind": "cousin",
+     "note": "her cousin in the outer gate"
+    },
+    {
+     "to": "tu_van_ha",
+     "kind": "friend",
+     "note": "the other disciple of their master"
+    }
+   ],
+   "master": "manh_luu_ly",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "lightning-rod-sword",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "chuong",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal toward guard and the bell's ward, a little Thunder.",
+     "targets": [
+      725,
+      4270,
+      4280,
+      4110,
+      4307
+     ],
+     "targets_note": "Lineage sword, Great Bell Toll and the Golden Bell for the evening bell's ward. Her master's Thunder is 48 points from Metal (wishlist: rain-chain-conductor)."
+    },
+    "note": "Guards her master's back."
+   }
+  },
+  {
+   "key": "boc_thu_chung",
+   "name_hv": "Bộc Thủ Chung",
+   "name_han": "卜守鐘",
+   "gloss": "He who keeps the bell",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thinh_vu",
+   "rank": "chap_su",
+   "home": 874,
+   "birthplace": 802,
+   "role": "Steward of the outer gate; rings the Kinh Trập Bell Test",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "tho": 44,
+     "hoa": 22
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 54,
+    "can_cot": 60,
+    "than_hon": 52,
+    "khi_van": 40,
+    "dao_tam": 72,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Just",
+     "Humble"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "teacher_at_heart",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A stooped, kindly man with a herder's crook he uses as a pointer.",
+   "backstory": "Bộc Thủ Chung was born in 1100 in Thảo Lư Thôn and keeps the outer gate on the ridge for Tưởng Lậu Thanh (tuong_lau_thanh). He rings the bronze bell for the Kinh Trập Bell Test every spring: an outer disciple whose Metal has reached 45 hears the bell answer inside their own chest and walks inward. He has rung it for eighty springs and remembers the year it did not answer him.",
+   "ties": [
+    {
+     "to": "tuong_lau_thanh",
+     "kind": "master",
+     "note": "the Hall of Rules"
+    },
+    {
+     "to": "nhieu_ha_loi",
+     "kind": "disciple",
+     "note": "the Thunder girl the bell cannot hear"
+    },
+    {
+     "to": "chau_tieu_dam",
+     "kind": "disciple",
+     "note": "homesick for the rain"
+    },
+    {
+     "to": "dieu_tieu_phong",
+     "kind": "disciple",
+     "note": "an outer disciple in his charge"
+    },
+    {
+     "to": "hau_tieu_co",
+     "kind": "disciple",
+     "note": "an outer disciple in his charge"
+    },
+    {
+     "to": "thieu_mo_vu",
+     "kind": "disciple",
+     "note": "an outer disciple in his charge"
+    },
+    {
+     "to": "van_diem_trich",
+     "kind": "disciple",
+     "note": "an outer disciple in his charge"
+    },
+    {
+     "to": "nhac_cuu_huong",
+     "kind": "friend",
+     "note": "the oldest outer disciple on the ridge"
+    }
+   ],
+   "master": "tuong_lau_thanh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "hundred-echo-palm-scripture",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal and Earth toward guard; a teacher's build.",
+     "targets": [
+      725,
+      4270,
+      4280,
+      4108,
+      1469
+     ],
+     "targets_note": "Lineage sword, Dawn Toll for the Bell Test he rings, Earth and Metal for a teacher's guard."
+    },
+    "note": "Teaches more than he fights."
+   }
+  },
+  {
+   "key": "ton_tuyet_bich",
+   "name_hv": "Tôn Tuyệt Bích",
+   "name_han": "孫絕壁",
+   "gloss": "Sheer wall",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 874,
+   "birthplace": 861,
+   "role": "Cố Dạ Lan's youngest disciple; the inner gate's best duelist",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 70,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 74,
+    "than_hon": 50,
+    "khi_van": 52,
+    "dao_tam": 58,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Arrogant",
+     "Vengeful"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "sword_heart"
+    ],
+    "lifestyle": "duel_seeker",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A hard, hawk-nosed man with two names stitched in red on his left sleeve.",
+   "backstory": "Tôn Tuyệt Bích was born in 1120 at Lôi Tinh Khoáng, the thunder-crystal mine whose seams carry no thunder at all, and his root is the same: Metal and Earth, no Fire. Cố Dạ Lan (co_da_lan) took him in 1170, the year the halls came to the ridge, because he had climbed Tuyệt Bích Phong at twelve without a rope. He has fought thirty-one duels with outsiders and lost two. He keeps the two winners' names on his sleeve.",
+   "ties": [
+    {
+     "to": "co_da_lan",
+     "kind": "master",
+     "note": "the war elder"
+    },
+    {
+     "to": "phuong_doan_vu",
+     "kind": "sworn_sibling",
+     "note": "drills him in the rain"
+    },
+    {
+     "to": "vu_nhat_tuyen",
+     "kind": "disciple",
+     "note": "an outer-gate boy who wants a sleeve like his"
+    },
+    {
+     "to": "thuong_bich_ngan",
+     "kind": "disciple",
+     "note": "Tôn Tuyệt Bích's shadow in the practice yard"
+    },
+    {
+     "to": "vien_thanh_lo",
+     "kind": "rival",
+     "note": "writes the Rain faction's letters home from the ridge"
+    }
+   ],
+   "master": "co_da_lan",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "hundred-blades-canon",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal land toward the first-strike crit, his master's road.",
+     "targets": [
+      725,
+      4270,
+      4280,
+      4246,
+      4248,
+      4250
+     ],
+     "targets_note": "His master's road: lineage sword with Sword Bow, then Sword Intent for the one cut."
+    },
+    "note": "Waits, then one cut."
+   }
+  },
+  {
+   "key": "diep_an_thu",
+   "name_hv": "Diệp Ẩn Thư",
+   "name_han": "葉隱書",
+   "gloss": "The hidden book",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 874,
+   "birthplace": 88,
+   "role": "Inner disciple who reads a righteous sword manual by night",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "moc": 44
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 50,
+    "than_hon": 60,
+    "khi_van": 48,
+    "dao_tam": 70,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Reclusive",
+     "Honest"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "calligrapher",
+    "fate_given": [
+     "Pure-hearted"
+    ],
+    "gained": []
+   },
+   "appearance": "A quiet woman with ink-stained cuffs, who sheathes her sword before she bows.",
+   "backstory": "Diệp Ẩn Thư was born in 1130 in Bình Dã Trấn, the plain in the forest where it rarely rains (A267). In 1150 she found one book in a wall cupboard of empty Trúc Ẩn Viện, left behind when its masters walked north at the Night Rain Edict (V146): a righteous sword manual. She has read it every night since, and her sword has grown gentler than the Tower likes. Tưởng Lậu Thanh suspects. Nhiếp Vô Thanh (nhiep_vo_thanh) knows.",
+   "ties": [
+    {
+     "to": "hua_thanh_diem",
+     "kind": "master",
+     "note": "the envoy, who likes her gentleness"
+    },
+    {
+     "to": "nhiep_vo_thanh",
+     "kind": "enemy",
+     "note": "knows about the book and has said nothing yet"
+    },
+    {
+     "to": "ung_thinh_thien",
+     "kind": "friend",
+     "note": "reads the manual aloud to him"
+    }
+   ],
+   "master": "hua_thanh_diem",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "hundred-blades-canon",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal toward guard and disarming cuts; she does not take the killing notables.",
+     "targets": [
+      725,
+      4270,
+      4280,
+      4272,
+      4299
+     ],
+     "targets_note": "Lineage sword, then Crossguard and Bell Rim: guard and disarming cuts, no killing notables beyond the lineage."
+    },
+    "note": "Disarms first."
+   }
+  },
+  {
+   "key": "luc_nhi_thinh",
+   "name_hv": "Lục Nhĩ Thính",
+   "name_han": "陸耳聽",
+   "gloss": "The ear that listens",
+   "sex": "F",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 42,
+   "birthplace": 42,
+   "role": "Hall of Echoes: keeps the inn at the Thu Trì ferry",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "thuy": 44
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Deceitful",
+     "Patient"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Runs the ferry inn at Thu Trì Thành for Nhiếp Vô Thanh (nhiep_vo_thanh) and has never asked a guest's name, as her grandmother never did (A313).",
+   "ties": [
+    {
+     "to": "nhiep_vo_thanh",
+     "kind": "master",
+     "note": "her ear in Thu Trì"
+    },
+    {
+     "to": "kieu_man_lau",
+     "kind": "friend",
+     "note": "his buyers sleep at her inn"
+    },
+    {
+     "to": "gian_van_lo",
+     "kind": "friend",
+     "note": "lodges at her ferry inn and tells her more than he means to"
+    },
+    {
+     "to": "moc_tau_vu",
+     "kind": "friend",
+     "note": "the carrier she pays; he does not know she is the Tower's ear"
+    },
+    {
+     "to": "trinh_thu_linh",
+     "kind": "friend",
+     "note": "Vũ Linh's ear at the ferry inn; they drink together and know each other"
+    },
+    {
+     "to": "lac_kim_bang",
+     "kind": "disciple",
+     "note": "ferry boy at the Thu Trì inn of the Hall of Echoes"
+    }
+   ],
+   "master": "nhiep_vo_thanh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "hundred-echo-palm-scripture",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "tree": {
+     "start": "thuy",
+     "intent": "Water toward evasion and sight."
+    }
+   }
+  },
+  {
+   "key": "kieu_tieu_vu",
+   "name_hv": "Kiều Tiểu Vũ",
+   "name_han": "喬小雨",
+   "gloss": "Little rain",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 42,
+   "birthplace": 42,
+   "role": "The market master's son, who wants the sword and not the abacus",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 47,
+     "thuy": 50
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Kiều Mãn Lâu's (kieu_man_lau) son, who drills in the Thu Trì rain every morning so that his father will stop offering him the market.",
+   "ties": [
+    {
+     "to": "kieu_man_lau",
+     "kind": "parent",
+     "note": "his father"
+    },
+    {
+     "to": "chau_tieu_dam",
+     "kind": "friend",
+     "note": "a Thu Trì boy on the ridge who writes to him"
+    },
+    {
+     "to": "kieu_ngan_chau",
+     "kind": "cousin",
+     "note": "his cousin; weigher of the Night Rain Market and keeper of the guest stalls' leases"
+    }
+   ],
+   "master": "quan_vu_thanh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "tree": {
+     "start": "kim",
+     "intent": "Metal toward the sword."
+    }
+   }
+  },
+  {
+   "key": "thach_vu_lien",
+   "name_hv": "Thạch Vũ Liên",
+   "name_han": "石雨鏈",
+   "gloss": "Rain-chain",
+   "sex": "F",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 178,
+   "birthplace": 178,
+   "role": "The forge master's daughter; casts the cups of every rain-chain",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 66,
+     "hoa": 34
+    },
+    "variants": {
+     "loi": 47
+    }
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Calm",
+     "Content"
+    ],
+    "calling": "Refiner",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Thạch Liên Hoàn's (thach_lien_hoan) daughter, who casts the bronze cups of the Tower's rain-chains at Tử Kim Khoáng and tunes each one by ear.",
+   "ties": [
+    {
+     "to": "thach_lien_hoan",
+     "kind": "parent",
+     "note": "her father"
+    },
+    {
+     "to": "ma_thiet_cau",
+     "kind": "disciple",
+     "note": "her forge boy"
+    },
+    {
+     "to": "phung_toi_hoa",
+     "kind": "disciple",
+     "note": "bellows boy at the storm forge"
+    }
+   ],
+   "master": "thach_lien_hoan",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "hundred-blades-canon",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "tree": {
+     "start": "kim",
+     "intent": "Metal toward armour, a little Thunder for the forge."
+    }
+   }
+  },
+  {
+   "key": "yen_trich_thuy",
+   "name_hv": "Yên Trích Thủy",
+   "name_han": "煙滴水",
+   "gloss": "Water dripping in mist",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 194,
+   "birthplace": 802,
+   "role": "Lư Tàn Hà's last disciple; will keep the withered lotus",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "kim": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Calm",
+     "Humble"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Lư Tàn Hà's (lu_tan_ha) last disciple, who sits beside her on the shore of Tàn Hà Hồ in every rain and has learned the names of all the dead in the lake.",
+   "ties": [
+    {
+     "to": "lu_tan_ha",
+     "kind": "master",
+     "note": "one of the founder's four living disciples"
+    },
+    {
+     "to": "ha_lac_vu",
+     "kind": "friend",
+     "note": "sings to the founder's chain with her"
+    },
+    {
+     "to": "lu_ha_tinh",
+     "kind": "friend",
+     "note": "rows the dead out to the withered lotus at Tàn Hà Hồ"
+    }
+   ],
+   "master": "lu_tan_ha",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "tree": {
+     "start": "thuy",
+     "intent": "Water toward sustain."
+    }
+   }
+  },
+  {
+   "key": "giang_hanh_hoa",
+   "name_hv": "Giang Hạnh Hoa",
+   "name_han": "江杏花",
+   "gloss": "Apricot blossom",
+   "sex": "F",
+   "born": 1145,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 208,
+   "birthplace": 54,
+   "role": "Copyist of the soul vaults; writes the names on the lamps",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 46,
+     "kim": 48
+    },
+    "variants": {
+     "loi": 47
+    }
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Reclusive",
+     "Cautious"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Writes the names on new life lamps for Ninh Tịch Đăng (ninh_tich_dang) and keeps a second list, in her own hand, of every lamp that has gone out.",
+   "ties": [
+    {
+     "to": "ninh_tich_dang",
+     "kind": "master",
+     "note": "the lamp keeper"
+    },
+    {
+     "to": "ung_thinh_thien",
+     "kind": "friend",
+     "note": "he tells her which lamps flicker"
+    },
+    {
+     "to": "hang_dan_ha",
+     "kind": "disciple",
+     "note": "carries the vaults' copies to the seat"
+    },
+    {
+     "to": "mac_tinh_loi",
+     "kind": "friend",
+     "note": "night watch of the life lamps in the soul vaults"
+    }
+   ],
+   "master": "ninh_tich_dang",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire into Thunder toward seals."
+    }
+   }
+  },
+  {
+   "key": "mai_doc_ca",
+   "name_hv": "Mai Độc Ca",
+   "name_han": "梅獨歌",
+   "gloss": "A song sung alone",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thinh_vu",
+   "rank": "tap_dich",
+   "home": 42,
+   "birthplace": 821,
+   "role": "Apprentice and servant to the guest alchemist",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Callous",
+     "Greedy",
+     "Patient"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "wild_raised"
+   },
+   "backstory": "Ô Thiềm Tử's (o_thiem_tu) apprentice from the toad wood, who tastes his master's poisons second and has started selling his own under the market's counter.",
+   "ties": [
+    {
+     "to": "o_thiem_tu",
+     "kind": "master",
+     "note": "the guest alchemist"
+    },
+    {
+     "to": "nhieu_ha_loi",
+     "kind": "creditor",
+     "note": "sold her the marrow pills on credit"
+    },
+    {
+     "to": "nghe_xuan_chi",
+     "kind": "friend",
+     "note": "the Hồng Đậu elder who buys through him; her father's apprentice"
+    },
+    {
+     "to": "me_thiem_nhi",
+     "kind": "lover",
+     "note": "the loose girl who comes for the venom"
+    }
+   ],
+   "master": "o_thiem_tu",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "huyen_moc",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood toward poison stacks."
+    }
+   },
+   "exception": "servant (tạp dịch) to the guest alchemist; a Wood root outside the lineage"
+  },
+  {
+   "key": "muc_trap_sinh",
+   "name_hv": "Mục Trập Sinh",
+   "name_han": "穆蟄生",
+   "gloss": "Born at the waking of insects",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 874,
+   "birthplace": 177,
+   "role": "Drill sergeant of the War Hall on Liệt Khuyết Phong",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 62,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Wrathful",
+     "Loyal",
+     "Diligent"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Born on the day of Kinh Trập at Kinh Điện Khoáng; Phương Đoạn Vũ's (phuong_doan_vu) sergeant, who leads the outer gate up the peak in the first storm (A316).",
+   "ties": [
+    {
+     "to": "phuong_doan_vu",
+     "kind": "master",
+     "note": "the drillmaster"
+    },
+    {
+     "to": "tran_sau_vu",
+     "kind": "disciple",
+     "note": "a boy with his temper"
+    },
+    {
+     "to": "bi_thiet_nha",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "vi_quan_van",
+     "kind": "friend",
+     "note": "leads the climbs he calls"
+    },
+    {
+     "to": "gian_thiet_son",
+     "kind": "disciple",
+     "note": "carries the War Hall's practice swords up Liệt Khuyết Phong"
+    },
+    {
+     "to": "cung_tram_van",
+     "kind": "rival",
+     "note": "The War Hall's pace-setter on the storm climb of Liệt Khuyết Phong"
+    }
+   ],
+   "master": "phuong_doan_vu",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "hundred-blades-canon",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "tree": {
+     "start": "kim",
+     "intent": "Metal toward armour and volleys."
+    }
+   }
+  },
+  {
+   "key": "ha_lac_vu",
+   "name_hv": "Hà Lạc Vũ",
+   "name_han": "何落雨",
+   "gloss": "Falling rain",
+   "sex": "F",
+   "born": 1160,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 7,
+   "birthplace": 43,
+   "role": "Rain faction disciple at the old tower; sings to the founder's chain",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "kim": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Gregarious",
+     "Forgiving"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Không Mông girl who chose to stay at the old tower in 1186 when her year went east, and sings the founder's chain-songs on the eaves in every rain.",
+   "ties": [
+    {
+     "to": "hua_thanh_diem",
+     "kind": "master",
+     "note": "the envoy"
+    },
+    {
+     "to": "lien_vu_tinh",
+     "kind": "cousin",
+     "note": "her cousin in the outer gate"
+    },
+    {
+     "to": "yen_trich_thuy",
+     "kind": "friend",
+     "note": "sings to the founder's chain with her"
+    },
+    {
+     "to": "lam_vu_mi",
+     "kind": "disciple",
+     "note": "outer disciple kept at the old tower"
+    }
+   ],
+   "master": "hua_thanh_diem",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "tree": {
+     "start": "thuy",
+     "intent": "Water toward wards."
+    }
+   }
+  },
+  {
+   "key": "phan_tich_lich",
+   "name_hv": "Phan Tích Lịch",
+   "name_han": "潘霹靂",
+   "gloss": "Thunderclap",
+   "sex": "M",
+   "born": 1155,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 874,
+   "birthplace": 863,
+   "role": "Young Thunder sword in Mạnh Lưu Ly's circle",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 58,
+     "hoa": 28
+    },
+    "variants": {
+     "loi": 40
+    }
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Brave",
+     "Fickle"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "An amethyst miner's son who left Hầu Vọng Xuân's drills for Mạnh Lưu Ly's (manh_luu_ly) in 1195, and has not been forgiven by the Thunder Hall.",
+   "ties": [
+    {
+     "to": "manh_luu_ly",
+     "kind": "master",
+     "note": "the head's heir"
+    },
+    {
+     "to": "hau_vong_xuan",
+     "kind": "enemy",
+     "note": "left his drills"
+    }
+   ],
+   "master": "manh_luu_ly",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "lightning-rod-sword",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "tree": {
+     "start": "loi",
+     "intent": "Thunder toward speed."
+    }
+   }
+  },
+  {
+   "key": "quach_tu_tinh",
+   "name_hv": "Quách Tử Tinh",
+   "name_han": "郭紫晶",
+   "gloss": "Amethyst",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 863,
+   "birthplace": 863,
+   "role": "Keeps the Tower's amethyst seams at Tử Tinh Khoáng; feuds with Xuyên Lâm's foremen",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 60,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Stubborn",
+     "Warlike"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Keeps the seams of thunder-glass the Tower cuts at Tử Tinh Khoáng, a mine Xuyên Lâm holds, and has broken two Xuyên Lâm foremen's arms over the tally.",
+   "ties": [
+    {
+     "to": "thach_lien_hoan",
+     "kind": "master",
+     "note": "the forge master who buys his glass"
+    },
+    {
+     "to": "uc_da_diep",
+     "kind": "rival",
+     "note": "the hostage asks him to stop"
+    },
+    {
+     "to": "lo_kim_tuyen",
+     "kind": "enemy",
+     "note": "the Xuyên Lâm steward whose two foremen's arms he broke"
+    },
+    {
+     "to": "mac_tieu_dien",
+     "kind": "disciple",
+     "note": "outer disciple from Tử Tinh Khoáng with a Thunder root"
+    }
+   ],
+   "master": "thach_lien_hoan",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "tree": {
+     "start": "kim",
+     "intent": "Metal toward armour."
+    }
+   }
+  },
+  {
+   "key": "hoang_tieu_diep",
+   "name_hv": "Hoàng Tiêu Diệp",
+   "name_han": "黃蕉葉",
+   "gloss": "Banana leaf",
+   "sex": "F",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 90,
+   "birthplace": 90,
+   "role": "Keeps the Tower's house at Lãng Hoa Thành on the coast",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "kim": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Calm",
+     "Generous"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Keeps the Tower's house at Lãng Hoa Thành, the sea-spray city founded the year the pirates were gone (C157), and ships the Night Rain Market's goods down the coast.",
+   "ties": [
+    {
+     "to": "kieu_man_lau",
+     "kind": "master",
+     "note": "the market master"
+    },
+    {
+     "to": "chu_ngoc_trich",
+     "kind": "disciple",
+     "note": "a coast girl in the outer gate"
+    },
+    {
+     "to": "chung_hai_duong",
+     "kind": "disciple",
+     "note": "outer disciple at the Tower's coast house in Lãng Hoa"
+    },
+    {
+     "to": "dinh_an_thanh",
+     "kind": "friend",
+     "note": "listener of the Hall of Echoes in the harbour taverns of Lãng Hoa"
+    }
+   ],
+   "master": "kieu_man_lau",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "tree": {
+     "start": "thuy",
+     "intent": "Water toward linh lực."
+    }
+   }
+  },
+  {
+   "key": "ong_vu_hoa",
+   "name_hv": "Ông Vũ Hoa",
+   "name_han": "翁雨花",
+   "gloss": "Rain flowers",
+   "sex": "M",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thinh_vu",
+   "rank": "chap_su",
+   "home": 179,
+   "birthplace": 179,
+   "role": "Warden of Vũ Hoa Khoáng and its rain-flower pebbles",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 62,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Honest",
+     "Temperate"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Warden of the rain-flower mine (A286) since the guard moved up to it after the storm of 1102 (V162); he sends every pebble shaped like a flower to the old tower.",
+   "ties": [
+    {
+     "to": "co_da_lan",
+     "kind": "master",
+     "note": "the war elder keeps the mines' guards"
+    },
+    {
+     "to": "luu_thach_khe",
+     "kind": "disciple",
+     "note": "a mine boy"
+    },
+    {
+     "to": "dong_vu_thach",
+     "kind": "disciple",
+     "note": "picks rain-flower pebbles from the stream at Vũ Hoa Khoáng"
+    },
+    {
+     "to": "nguy_thach_hoa",
+     "kind": "niece_nephew",
+     "note": "his niece; sorts the rain-flower pebbles at Vũ Hoa Khoáng"
+    }
+   ],
+   "master": "co_da_lan",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "hundred-blades-canon",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "tree": {
+     "start": "kim",
+     "intent": "Metal toward guard."
+    }
+   }
+  },
+  {
+   "key": "thai_canh_lau",
+   "name_hv": "Thái Canh Lậu",
+   "name_han": "蔡更漏",
+   "gloss": "The night-watch clock",
+   "sex": "M",
+   "born": 1160,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 874,
+   "birthplace": 802,
+   "role": "Keeps the water clock at night for the Hall of Rules",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "tho": 42
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Patient",
+     "Reclusive"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Tưởng Lậu Thanh's (tuong_lau_thanh) night clerk, who sits by the water clock until dawn and reports every lamp he sees lit.",
+   "ties": [
+    {
+     "to": "tuong_lau_thanh",
+     "kind": "master",
+     "note": "the Hall of Rules"
+    },
+    {
+     "to": "than_thu_nhat",
+     "kind": "disciple",
+     "note": "a quiet outer-gate boy"
+    },
+    {
+     "to": "lo_canh_son",
+     "kind": "disciple",
+     "note": "keeps the water clock's cistern full at night"
+    },
+    {
+     "to": "bach_khac_thi",
+     "kind": "friend",
+     "note": "reader of the Hall of Rules: keeps the sect rules and reads the charge at trials"
+    }
+   ],
+   "master": "tuong_lau_thanh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "tree": {
+     "start": "kim",
+     "intent": "Metal and Earth toward guard."
+    }
+   }
+  },
+  {
+   "key": "lang_ngan_lo",
+   "name_hv": "Lăng Ngân Lộ",
+   "name_han": "凌銀露",
+   "gloss": "Silver dew",
+   "sex": "F",
+   "born": 1125,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 874,
+   "birthplace": 796,
+   "role": "Runner for the Hall of Echoes on the ridge",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "tho": 44
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Loyal",
+     "Gregarious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Born at Ngân Lộ Khoáng below the old tower and carried east in 1166; she runs messages between the Hall of Echoes and its ears along the ridge road.",
+   "ties": [
+    {
+     "to": "nhiep_vo_thanh",
+     "kind": "master",
+     "note": "the Hall of Echoes"
+    },
+    {
+     "to": "tao_mac_toan",
+     "kind": "rival",
+     "note": "watches him for her master and has not been told why"
+    },
+    {
+     "to": "thoi_an_phong",
+     "kind": "disciple",
+     "note": "runner for the Hall of Echoes between the ridge and Hạnh Hoa Thị"
+    }
+   ],
+   "master": "nhiep_vo_thanh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "hundred-echo-palm-scripture",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "tree": {
+     "start": "kim",
+     "intent": "Metal toward speed and evasion."
+    }
+   }
+  },
+  {
+   "key": "tieu_ung_loi",
+   "name_hv": "Tiêu Ứng Lôi",
+   "name_han": "蕭應雷",
+   "gloss": "Answering thunder",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 208,
+   "birthplace": 54,
+   "role": "Thunder Hall guard on Kinh Lôi Mạch",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 48,
+     "kim": 46
+    },
+    "variants": {
+     "loi": 47
+    }
+   },
+   "traits": {
+    "personality": [
+     "Cruel",
+     "Loyal",
+     "Calm"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hạnh Hoa boy whose Thunder formed on the cone; he walks the Iron Rain chain from the seat to the vein each night for Lệ Tiêu Hồn (le_tieu_hon).",
+   "ties": [
+    {
+     "to": "le_tieu_hon",
+     "kind": "master",
+     "note": "the vault master"
+    },
+    {
+     "to": "ta_ke_tru",
+     "kind": "friend",
+     "note": "they share the night watch"
+    },
+    {
+     "to": "banh_chu_thiet",
+     "kind": "friend",
+     "note": "draws the bronze wire for the Iron Rain chain at the storm forge"
+    },
+    {
+     "to": "trac_kinh_phong",
+     "kind": "friend",
+     "note": "holds the outer door of the soul vaults under Kinh Lôi Mạch"
+    }
+   ],
+   "master": "le_tieu_hon",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "lightning-rod-sword",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "tree": {
+     "start": "loi",
+     "intent": "Thunder toward stuns."
+    }
+   }
+  },
+  {
+   "key": "lo_tiem_tiem",
+   "name_hv": "Lộ Tiêm Tiêm",
+   "name_han": "路纖纖",
+   "gloss": "Fine drizzle",
+   "sex": "F",
+   "born": 1158,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 7,
+   "birthplace": 42,
+   "role": "Rain faction sword at the old tower",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "kim": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Brave",
+     "Temperate"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Thu Trì ferryman's granddaughter, kin to the dead Kỷ Vãn Tình (ky_van_tinh), who guards the old tower's stair for Quan Vũ Thanh.",
+   "ties": [
+    {
+     "to": "quan_vu_thanh",
+     "kind": "master",
+     "note": "the first elder"
+    },
+    {
+     "to": "ky_van_tinh",
+     "kind": "ancestor",
+     "note": "her grandmother's sister"
+    },
+    {
+     "to": "lieu_thu_trich",
+     "kind": "disciple",
+     "note": "sweeps the founder's cistern at the Rain Tower"
+    },
+    {
+     "to": "tan_lien_am",
+     "kind": "friend",
+     "note": "keeper of the founder's rain-chain at the Rain Tower"
+    }
+   ],
+   "master": "quan_vu_thanh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "tree": {
+     "start": "thuy",
+     "intent": "Water toward evasion."
+    }
+   }
+  },
+  {
+   "key": "bo_ngoc_cham",
+   "name_hv": "Bồ Ngọc Châm",
+   "name_han": "蒲玉簪",
+   "gloss": "Jade hairpin",
+   "sex": "F",
+   "born": 1115,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 874,
+   "birthplace": 54,
+   "role": "Tends the lightning burns after storm drills",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "hoa": 40,
+     "moc": 30
+    },
+    "variants": {
+     "loi": 44
+    }
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Calm",
+     "Diligent"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Dresses the burns after every storm drill on Liệt Khuyết Phong; she learned her salves from the healer Giả Hồi Xuân (gia_hoi_xuan) in Hạnh Hoa Thị.",
+   "ties": [
+    {
+     "to": "ninh_tich_dang",
+     "kind": "master",
+     "note": "the lamp keeper"
+    },
+    {
+     "to": "gia_hoi_xuan",
+     "kind": "friend",
+     "note": "taught her salves"
+    },
+    {
+     "to": "cat_viem",
+     "kind": "disciple",
+     "note": "cone-born outer disciple who helps tend the lightning burns"
+    }
+   ],
+   "master": "ninh_tich_dang",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 7
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "tree": {
+     "start": "kim",
+     "intent": "Metal toward sustain."
+    }
+   }
+  },
+  {
+   "key": "tu_van_ha",
+   "name_hv": "Từ Vãn Hà",
+   "name_han": "徐晚荷",
+   "gloss": "Evening lotus",
+   "sex": "F",
+   "born": 1165,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 874,
+   "birthplace": 43,
+   "role": "Mạnh Lưu Ly's second disciple",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "kim": 47
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Gregarious",
+     "Indulgent"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born"
+   },
+   "backstory": "Mạnh Lưu Ly's (manh_luu_ly) second disciple, a Không Mông girl who wants her master to be head and says so in the dining hall.",
+   "ties": [
+    {
+     "to": "manh_luu_ly",
+     "kind": "master",
+     "note": "the head's heir"
+    },
+    {
+     "to": "dam_van_chung",
+     "kind": "friend",
+     "note": "her senior"
+    }
+   ],
+   "master": "manh_luu_ly",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "tree": {
+     "start": "thuy",
+     "intent": "Water toward linh lực."
+    }
+   }
+  },
+  {
+   "key": "ta_ke_tru",
+   "name_hv": "Tạ Kế Trụ",
+   "name_han": "謝繼柱",
+   "gloss": "He who follows the pillar",
+   "sex": "M",
+   "born": 1118,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 874,
+   "birthplace": 861,
+   "role": "Keeps Tạ Thiết Trụ's guardhouse on the new seat",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 60,
+     "hoa": 34
+    },
+    "variants": {
+     "loi": 45
+    }
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Stubborn",
+     "Humble"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Tạ Thiết Trụ's (ta_thiet_tru) grandson, who keeps the guardhouse on Thần Cổ Phong named for him and stands on its wall in storms as he did.",
+   "ties": [
+    {
+     "to": "ta_thiet_tru",
+     "kind": "grandparent",
+     "note": "held Thủ Lôi Bảo nine days"
+    },
+    {
+     "to": "le_tieu_hon",
+     "kind": "master",
+     "note": "the vault master"
+    },
+    {
+     "to": "tieu_ung_loi",
+     "kind": "friend",
+     "note": "they share the night watch"
+    }
+   ],
+   "master": "le_tieu_hon",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "lightning-rod-sword",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "tree": {
+     "start": "loi",
+     "intent": "Thunder and Metal toward guard."
+    }
+   }
+  },
+  {
+   "key": "la_to_y",
+   "name_hv": "La Tố Y",
+   "name_han": "羅素衣",
+   "gloss": "Plain robe",
+   "sex": "F",
+   "born": 1148,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 7,
+   "birthplace": 42,
+   "role": "Courier from the old tower to the vassals",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "kim": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Trusting",
+     "Gregarious",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Carries Hứa Thanh Diêm's (hua_thanh_diem) letters to the vassal manors and has eaten a meal at Hồng Đậu Trang without dying, which she boasts of.",
+   "ties": [
+    {
+     "to": "hua_thanh_diem",
+     "kind": "master",
+     "note": "the envoy"
+    },
+    {
+     "to": "nghe_hong_dau",
+     "kind": "rival",
+     "note": "the manor mistress laughed at her boast"
+    },
+    {
+     "to": "lieu_da_thai",
+     "kind": "friend",
+     "note": "the Hồng Đậu steward who let her eat and live, to hear what she would say"
+    },
+    {
+     "to": "ha_mach_tue",
+     "kind": "disciple",
+     "note": "farm girl from Phong Đăng who carries the grain tax"
+    },
+    {
+     "to": "quan_minh_tuyen",
+     "kind": "disciple",
+     "note": "Quan Vũ Thanh's grand-nephew at the Rain Tower"
+    }
+   ],
+   "master": "hua_thanh_diem",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "tree": {
+     "start": "thuy",
+     "intent": "Water toward evasion."
+    }
+   }
+  },
+  {
+   "key": "doan_kim_sa",
+   "name_hv": "Đoàn Kim Sa",
+   "name_han": "段金砂",
+   "gloss": "Gold sand",
+   "sex": "M",
+   "born": 1162,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 874,
+   "birthplace": 873,
+   "role": "A Sa Kim boy in Hầu Vọng Xuân's drills, with no Thunder",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 58,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Vengeful",
+     "Diligent"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Grew up beside Khúc Thanh Điện (khuc_thanh_dien) at the gold-sand mine; his root is Metal without Fire, and he cannot forgive her the lightning.",
+   "ties": [
+    {
+     "to": "hau_vong_xuan",
+     "kind": "master",
+     "note": "keeps him for his Metal"
+    },
+    {
+     "to": "khuc_thanh_dien",
+     "kind": "rival",
+     "note": "same mine, one Thunder"
+    },
+    {
+     "to": "tat_thien_huong",
+     "kind": "rival",
+     "note": "Young Thunder sword of the Thunder Hall"
+    }
+   ],
+   "master": "hau_vong_xuan",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 3
+    },
+    "aux": [
+     {
+      "tech": "hundred-blades-canon",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "tree": {
+     "start": "kim",
+     "intent": "Metal toward crits."
+    }
+   }
+  },
+  {
+   "key": "vi_quan_van",
+   "name_hv": "Vi Quan Vân",
+   "name_han": "韋觀雲",
+   "gloss": "He who watches the clouds",
+   "sex": "M",
+   "born": 1128,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thinh_vu",
+   "rank": "noi_mon",
+   "home": 874,
+   "birthplace": 177,
+   "role": "Reads the storms for the drills on Liệt Khuyết Phong",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 54,
+     "hoa": 30
+    },
+    "variants": {
+     "loi": 40
+    }
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Calm",
+     "Patient"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Reads the sky for Phương Đoạn Vũ (phuong_doan_vu): he calls the drills up the peak when a storm will strike, and down when it will kill.",
+   "ties": [
+    {
+     "to": "phuong_doan_vu",
+     "kind": "master",
+     "note": "the drillmaster"
+    },
+    {
+     "to": "muc_trap_sinh",
+     "kind": "friend",
+     "note": "leads the climb he calls"
+    },
+    {
+     "to": "uong_hong_tieu",
+     "kind": "disciple",
+     "note": "cone girl admitted on Fire, who reads the clouds for the drills"
+    }
+   ],
+   "master": "phuong_doan_vu",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "rain-chain-sword-scripture",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "lightning-rod-sword",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "loi_truong",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "tree": {
+     "start": "loi",
+     "intent": "Thunder toward the raised sword."
+    }
+   }
+  }
+ ]
+}

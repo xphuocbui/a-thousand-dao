@@ -1,0 +1,1469 @@
+{
+"_doc": "Input slice for the depth writer of truc_thuc (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "truc_thuc",
+"name": "Trúc Thực Viên",
+"name_han": "竹實園",
+"gloss": "Garden of the Bamboo Seed",
+"alignment": "chính đạo",
+"leans": [
+"Wood",
+"Fire"
+],
+"craft": "spirit farming: spirit grain and beast feed",
+"lord": "phuong_minh",
+"region": 16,
+"seat": 25,
+"kind": "minor"
+},
+"start_state": {
+"key": "truc_thuc",
+"name": "Trúc Thực Viên",
+"name_han": "竹實園",
+"gloss": "Garden of the Bamboo Seed",
+"kind": "minor",
+"alignment": "chinh",
+"leans": [
+"Wood",
+"Fire"
+],
+"seat": 25,
+"levels": {
+"holdings": 4,
+"institutions": 2,
+"military": 2,
+"trade": 3
+},
+"treasury": 7000,
+"founded": 760,
+"specialty": "linh_thuc_su",
+"lord": "phuong_minh",
+"loyalty": 65,
+"craft": "spirit farming: spirit grain and beast feed",
+"region": 16,
+"leader": "ninh_truc_thuc"
+},
+"lord": "phuong_minh",
+"vassals": [],
+"seat": {
+"id": 25,
+"name": "Trúc Thực Viên",
+"gloss": "",
+"kind": "minor_seat",
+"region": 16,
+"biome": "grassland",
+"elev_km": 0.03,
+"qi": {
+"moc": 33,
+"hoa": 11,
+"tho": 13,
+"kim": 16,
+"thuy": 28
+},
+"variants": {},
+"density": 1.31,
+"note": ""
+},
+"seat_audit": "## MOVE Trúc Thực Viên (truc_thuc; leans Wood/Fire)\nSeat: Trúc Thực Viên (id 25, minor_seat, region 16, grassland), density 1.31\nSeat qi: Wood 33%, Fire 11%\nCandidates:\n- Long Não Lâm (id 744, forest, region 16, jungle, elev 0.02 km): Wood 32%, Fire 20%; density 1.17\n- Ẩn Phàm Trại (id 746, ruin, region 16, jungle, elev 0.14 km): Wood 29%, Fire 18%; density 1.27\n- Đào Hoa Thang (id 328, hot_spring, region 16, grassland, elev 0.26 km): Wood 29%, Fire 20%; density 0.89\n- Ngô Căn Mạch (id 747, spirit_vein, region 16, jungle, elev 0.11 km): Wood 32%, Fire 19%; density 0.85\n- Huyền Viên Lâm (id 235, beast_lair, region 16, jungle, elev 0.45 km): Wood 25%, Fire 17%; density 1.15\n- Hồng Lang Cương (id 760, beast_lair, region 16, temperate forest, elev 0.29 km): Wood 25%, Fire 16%; density 1.05\n",
+"ground": [
+{
+"id": 6,
+"name": "Phượng Minh Cung",
+"gloss": "",
+"kind": "great_seat",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.68,
+"qi": {
+"moc": 13,
+"hoa": 10,
+"tho": 26,
+"kim": 41,
+"thuy": 10
+},
+"variants": {},
+"density": 2.11,
+"note": ""
+},
+{
+"id": 452,
+"name": "Minh Cổ Bảo",
+"gloss": "Fort of the Sounding Drum",
+"kind": "ruin",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.96,
+"qi": {
+"moc": 12,
+"hoa": 10,
+"tho": 27,
+"kim": 41,
+"thuy": 10
+},
+"variants": {},
+"density": 2.03,
+"note": ""
+},
+{
+"id": 768,
+"name": "Tiêu Sơn Thị",
+"gloss": "Flute Mountain Market",
+"kind": "ruin",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.05,
+"qi": {
+"moc": 23,
+"hoa": 11,
+"tho": 21,
+"kim": 34,
+"thuy": 11
+},
+"variants": {},
+"density": 1.97,
+"note": ""
+},
+{
+"id": 451,
+"name": "Triều Phượng Đỉnh",
+"gloss": "Summit Where the Birds Pay Homage to the Phoenix",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.93,
+"qi": {
+"moc": 13,
+"hoa": 10,
+"tho": 26,
+"kim": 40,
+"thuy": 11
+},
+"variants": {},
+"density": 1.88,
+"note": ""
+},
+{
+"id": 762,
+"name": "Thanh Minh Lĩnh",
+"gloss": "Ridge of the Clear Cry",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.93,
+"qi": {
+"moc": 25,
+"hoa": 12,
+"tho": 22,
+"kim": 30,
+"thuy": 11
+},
+"variants": {},
+"density": 1.88,
+"note": ""
+},
+{
+"id": 765,
+"name": "Xích Ngọc Khoáng",
+"gloss": "Red Jade Mine",
+"kind": "mine",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.13,
+"qi": {
+"moc": 14,
+"hoa": 10,
+"tho": 26,
+"kim": 40,
+"thuy": 11
+},
+"variants": {},
+"density": 1.84,
+"note": ""
+},
+{
+"id": 724,
+"name": "Kích Khánh Đường",
+"gloss": "Hall of the Struck Chime",
+"kind": "ruin",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.78,
+"qi": {
+"moc": 17,
+"hoa": 10,
+"tho": 24,
+"kim": 38,
+"thuy": 10
+},
+"variants": {},
+"density": 1.79,
+"note": ""
+},
+{
+"id": 735,
+"name": "Quy Vũ Lĩnh",
+"gloss": "Ridge of the Returning Feathers",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.05,
+"qi": {
+"moc": 10,
+"hoa": 12,
+"tho": 23,
+"kim": 45,
+"thuy": 9
+},
+"variants": {},
+"density": 1.66,
+"note": ""
+},
+{
+"id": 211,
+"name": "Đan Sơn Mạch",
+"gloss": "Vein of the Cinnabar Mountain",
+"kind": "spirit_vein",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.34,
+"qi": {
+"moc": 12,
+"hoa": 13,
+"tho": 25,
+"kim": 31,
+"thuy": 19
+},
+"variants": {},
+"density": 1.65,
+"note": "Sơn Hải Kinh's cinnabar mountain is where the phoenix is born. 3 tiles from Thiên Xu's border."
+},
+{
+"id": 766,
+"name": "Lạc Vũ Phong",
+"gloss": "Peak of the Fallen Feather",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.92,
+"qi": {
+"moc": 14,
+"hoa": 10,
+"tho": 26,
+"kim": 39,
+"thuy": 11
+},
+"variants": {},
+"density": 1.57,
+"note": ""
+},
+{
+"id": 772,
+"name": "Đan Sa Quật",
+"gloss": "Cinnabar Grotto",
+"kind": "mine",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.87,
+"qi": {
+"moc": 11,
+"hoa": 13,
+"tho": 26,
+"kim": 32,
+"thuy": 17
+},
+"variants": {},
+"density": 1.44,
+"note": ""
+},
+{
+"id": 767,
+"name": "Hồng Bích Nhai",
+"gloss": "Red Wall Cliff",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.05,
+"qi": {
+"moc": 19,
+"hoa": 11,
+"tho": 22,
+"kim": 37,
+"thuy": 11
+},
+"variants": {},
+"density": 1.41,
+"note": ""
+},
+{
+"id": 718,
+"name": "Phượng Dực Phong",
+"gloss": "Phoenix Wing Peak",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.39,
+"qi": {
+"moc": 15,
+"hoa": 10,
+"tho": 24,
+"kim": 40,
+"thuy": 11
+},
+"variants": {},
+"density": 1.41,
+"note": ""
+},
+{
+"id": 212,
+"name": "Cao Cương Phong",
+"gloss": "Peak of the High Ridge",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 2.56,
+"qi": {
+"moc": 11,
+"hoa": 12,
+"tho": 24,
+"kim": 35,
+"thuy": 19
+},
+"variants": {
+"loi": 40.0,
+"quang": 40.0
+},
+"density": 1.39,
+"note": "Kinh Thi: phượng hoàng minh hĩ, vu bỉ cao cương, the phoenix sings on that high ridge. A sacred summit (Light)."
+},
+{
+"id": 764,
+"name": "Huyền Tiêu Phong",
+"gloss": "Peak of the Hanging Flute",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.57,
+"qi": {
+"moc": 15,
+"hoa": 10,
+"tho": 26,
+"kim": 39,
+"thuy": 11
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 331,
+"name": "Tử Trúc Lâm",
+"gloss": "Purple Bamboo Forest",
+"kind": "forest",
+"region": 16,
+"biome": "bamboo forest",
+"elev_km": 0.1,
+"qi": {
+"moc": 42,
+"hoa": 10,
+"tho": 11,
+"kim": 18,
+"thuy": 19
+},
+"variants": {},
+"density": 1.31,
+"note": ""
+},
+{
+"id": 25,
+"name": "Trúc Thực Viên",
+"gloss": "",
+"kind": "minor_seat",
+"region": 16,
+"biome": "grassland",
+"elev_km": 0.03,
+"qi": {
+"moc": 33,
+"hoa": 11,
+"tho": 13,
+"kim": 16,
+"thuy": 28
+},
+"variants": {},
+"density": 1.31,
+"note": ""
+},
+{
+"id": 1488,
+"name": "Trúc Thử Nguyên",
+"gloss": "Plain of the Bamboo Rats",
+"kind": "beast_lair",
+"region": 16,
+"biome": "grassland",
+"elev_km": 0.14,
+"qi": {
+"moc": 31,
+"hoa": 11,
+"tho": 13,
+"kim": 17,
+"thuy": 28
+},
+"variants": {},
+"density": 1.3,
+"note": ""
+},
+{
+"id": 332,
+"name": "Trúc Địch Viện",
+"gloss": "Academy of the Bamboo Flute",
+"kind": "ruin",
+"region": 16,
+"biome": "bamboo forest",
+"elev_km": 0.02,
+"qi": {
+"moc": 41,
+"hoa": 8,
+"tho": 11,
+"kim": 21,
+"thuy": 20
+},
+"variants": {},
+"density": 1.29,
+"note": ""
+},
+{
+"id": 197,
+"name": "Tương Phi Đảo",
+"gloss": "Isle of the Xiang Consorts",
+"kind": "island",
+"region": 16,
+"biome": "bamboo forest",
+"elev_km": 0.18,
+"qi": {
+"moc": 12,
+"hoa": 10,
+"tho": 12,
+"kim": 14,
+"thuy": 52
+},
+"variants": {},
+"density": 1.29,
+"note": "Its spotted bamboo, stained by the tears of the two consorts of Thuấn"
+},
+{
+"id": 746,
+"name": "Ẩn Phàm Trại",
+"gloss": "Stockade of the Hidden Sails",
+"kind": "ruin",
+"region": 16,
+"biome": "jungle",
+"elev_km": 0.14,
+"qi": {
+"moc": 29,
+"hoa": 18,
+"tho": 15,
+"kim": 16,
+"thuy": 22
+},
+"variants": {},
+"density": 1.27,
+"note": ""
+},
+{
+"id": 386,
+"name": "Minh Cầm Phong",
+"gloss": "Peak of the Sounding Zither",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.91,
+"qi": {
+"moc": 14,
+"hoa": 9,
+"tho": 25,
+"kim": 41,
+"thuy": 10
+},
+"variants": {},
+"density": 1.26,
+"note": ""
+},
+{
+"id": 719,
+"name": "Vân Trúc Lâm",
+"gloss": "Cloud Bamboo Forest",
+"kind": "forest",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.21,
+"qi": {
+"moc": 28,
+"hoa": 11,
+"tho": 20,
+"kim": 31,
+"thuy": 10
+},
+"variants": {},
+"density": 1.26,
+"note": ""
+},
+{
+"id": 430,
+"name": "Cựu Khê Trấn",
+"gloss": "Old Brook Town",
+"kind": "ruin",
+"region": 16,
+"biome": "bamboo forest",
+"elev_km": 0.24,
+"qi": {
+"moc": 30,
+"hoa": 12,
+"tho": 18,
+"kim": 29,
+"thuy": 11
+},
+"variants": {},
+"density": 1.26,
+"note": ""
+},
+{
+"id": 703,
+"name": "Lưu Kim Khoáng",
+"gloss": "Flowing Gold Mine",
+"kind": "mine",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.17,
+"qi": {
+"moc": 9,
+"hoa": 9,
+"tho": 27,
+"kim": 45,
+"thuy": 10
+},
+"variants": {
+"loi": 15.2
+},
+"density": 1.25,
+"note": ""
+},
+{
+"id": 53,
+"name": "Thiều Âm Thị",
+"gloss": "Market of the Shao Music",
+"kind": "market",
+"region": 16,
+"biome": "bamboo forest",
+"elev_km": 0.14,
+"qi": {
+"moc": 20,
+"hoa": 8,
+"tho": 20,
+"kim": 33,
+"thuy": 19
+},
+"variants": {},
+"density": 1.23,
+"note": "The music that brings the phoenix; below Phượng Minh Cung's seat"
+},
+{
+"id": 147,
+"name": "Bích Lãng Thôn",
+"gloss": "Jade Waves Village",
+"kind": "village",
+"region": 16,
+"biome": "bamboo forest",
+"elev_km": -0.04,
+"qi": {
+"moc": 37,
+"hoa": 9,
+"tho": 9,
+"kim": 14,
+"thuy": 31
+},
+"variants": {},
+"density": 1.23,
+"note": ""
+},
+{
+"id": 721,
+"name": "Nguyệt Ngân Khoáng",
+"gloss": "Moon Silver Mine",
+"kind": "mine",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.6,
+"qi": {
+"moc": 21,
+"hoa": 10,
+"tho": 22,
+"kim": 37,
+"thuy": 10
+},
+"variants": {},
+"density": 1.22,
+"note": ""
+},
+{
+"id": 736,
+"name": "Kiều Mạch Thôn",
+"gloss": "Buckwheat Village",
+"kind": "village",
+"region": 16,
+"biome": "grassland",
+"elev_km": 0.12,
+"qi": {
+"moc": 13,
+"hoa": 15,
+"tho": 24,
+"kim": 43,
+"thuy": 5
+},
+"variants": {},
+"density": 1.18,
+"note": ""
+},
+{
+"id": 744,
+"name": "Long Não Lâm",
+"gloss": "Camphor Forest",
+"kind": "forest",
+"region": 16,
+"biome": "jungle",
+"elev_km": 0.02,
+"qi": {
+"moc": 32,
+"hoa": 20,
+"tho": 11,
+"kim": 7,
+"thuy": 29
+},
+"variants": {},
+"density": 1.17,
+"note": ""
+},
+{
+"id": 254,
+"name": "Lôi Ngô Lâm",
+"gloss": "Thunder-Struck Wutong Wood",
+"kind": "lightning_wood",
+"region": 16,
+"biome": "jungle",
+"elev_km": 0.02,
+"qi": {
+"moc": 22,
+"hoa": 14,
+"tho": 15,
+"kim": 18,
+"thuy": 31
+},
+"variants": {},
+"density": 1.16,
+"note": "Wutong trees under the storm peaks of Thê Ngô Lĩnh, struck again and again."
+},
+{
+"id": 235,
+"name": "Huyền Viên Lâm",
+"gloss": "Dark Ape Forest",
+"kind": "beast_lair",
+"region": 16,
+"biome": "jungle",
+"elev_km": 0.45,
+"qi": {
+"moc": 25,
+"hoa": 17,
+"tho": 18,
+"kim": 23,
+"thuy": 18
+},
+"variants": {},
+"density": 1.15,
+"note": "Jungle below the wutong hills of Thê Ngô Lĩnh, held by dark apes."
+},
+{
+"id": 723,
+"name": "Thực Thiết Cốc",
+"gloss": "Valley of the Iron-Eaters",
+"kind": "beast_lair",
+"region": 16,
+"biome": "bamboo forest",
+"elev_km": 0.19,
+"qi": {
+"moc": 35,
+"hoa": 10,
+"tho": 17,
+"kim": 28,
+"thuy": 9
+},
+"variants": {},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 429,
+"name": "Kim Trúc Lâm",
+"gloss": "Golden Bamboo Forest",
+"kind": "forest",
+"region": 16,
+"biome": "bamboo forest",
+"elev_km": 0.17,
+"qi": {
+"moc": 29,
+"hoa": 12,
+"tho": 14,
+"kim": 20,
+"thuy": 25
+},
+"variants": {},
+"density": 1.14,
+"note": ""
+},
+{
+"id": 749,
+"name": "Hắc Ngạc Chử",
+"gloss": "Black Crocodile Shore",
+"kind": "beast_lair",
+"region": 16,
+"biome": "jungle",
+"elev_km": 0.18,
+"qi": {
+"moc": 19,
+"hoa": 13,
+"tho": 13,
+"kim": 15,
+"thuy": 41
+},
+"variants": {},
+"density": 1.14,
+"note": ""
+},
+{
+"id": 722,
+"name": "Thê Hoàng Phong",
+"gloss": "Peak Where the Hen-Phoenix Roosts",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.18,
+"qi": {
+"moc": 16,
+"hoa": 10,
+"tho": 24,
+"kim": 39,
+"thuy": 10
+},
+"variants": {},
+"density": 1.14,
+"note": ""
+},
+{
+"id": 717,
+"name": "Xích Tiêu Phong",
+"gloss": "Peak of the Crimson Sky",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.96,
+"qi": {
+"moc": 13,
+"hoa": 10,
+"tho": 26,
+"kim": 41,
+"thuy": 10
+},
+"variants": {},
+"density": 1.13,
+"note": ""
+},
+{
+"id": 330,
+"name": "Bách Vũ Các",
+"gloss": "Pavilion of the Hundred Feathers",
+"kind": "minor_seat",
+"region": 16,
+"biome": "jungle",
+"elev_km": 0.04,
+"qi": {
+"moc": 33,
+"hoa": 20,
+"tho": 22,
+"kim": 15,
+"thuy": 10
+},
+"variants": {},
+"density": 1.11,
+"note": ""
+},
+{
+"id": 251,
+"name": "Niết Hỏa Khẩu",
+"gloss": "Nirvana Fire Vent",
+"kind": "lava_vent",
+"region": 16,
+"biome": "volcano",
+"elev_km": 1.76,
+"qi": {
+"moc": 5,
+"hoa": 51,
+"tho": 14,
+"kim": 20,
+"thuy": 11
+},
+"variants": {},
+"density": 1.07,
+"note": "In Thê Ngô Lĩnh, the wutong hills where the phoenix is reborn in fire."
+},
+{
+"id": 760,
+"name": "Hồng Lang Cương",
+"gloss": "Red Wolf Ridge",
+"kind": "beast_lair",
+"region": 16,
+"biome": "temperate forest",
+"elev_km": 0.29,
+"qi": {
+"moc": 25,
+"hoa": 16,
+"tho": 27,
+"kim": 22,
+"thuy": 10
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 716,
+"name": "Ô Thiết Khoáng",
+"gloss": "Black Iron Mine",
+"kind": "mine",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 1.13,
+"qi": {
+"moc": 9,
+"hoa": 8,
+"tho": 23,
+"kim": 51,
+"thuy": 9
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 737,
+"name": "Chung Nhũ Động",
+"gloss": "Stalactite Cave",
+"kind": "mine",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.52,
+"qi": {
+"moc": 12,
+"hoa": 10,
+"tho": 15,
+"kim": 18,
+"thuy": 46
+},
+"variants": {
+"am": 19.0
+},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 745,
+"name": "Đằng Khê Thôn",
+"gloss": "Rattan Brook Village",
+"kind": "village",
+"region": 16,
+"biome": "jungle",
+"elev_km": 0.01,
+"qi": {
+"moc": 34,
+"hoa": 19,
+"tho": 13,
+"kim": 7,
+"thuy": 27
+},
+"variants": {},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 727,
+"name": "Trúc Phiệt Thôn",
+"gloss": "Bamboo Raft Village",
+"kind": "village",
+"region": 16,
+"biome": "bamboo forest",
+"elev_km": 0.03,
+"qi": {
+"moc": 31,
+"hoa": 9,
+"tho": 17,
+"kim": 27,
+"thuy": 16
+},
+"variants": {},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 728,
+"name": "Xích Đồng Khoáng",
+"gloss": "Red Copper Mine",
+"kind": "mine",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.04,
+"qi": {
+"moc": 12,
+"hoa": 9,
+"tho": 22,
+"kim": 35,
+"thuy": 22
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 733,
+"name": "Ngưng Hà Lĩnh",
+"gloss": "Ridge of the Gathered Clouds",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.97,
+"qi": {
+"moc": 19,
+"hoa": 9,
+"tho": 18,
+"kim": 30,
+"thuy": 23
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 769,
+"name": "Nhục Quế Thôn",
+"gloss": "Cinnamon Village",
+"kind": "village",
+"region": 16,
+"biome": "jungle",
+"elev_km": 0.08,
+"qi": {
+"moc": 34,
+"hoa": 16,
+"tho": 18,
+"kim": 21,
+"thuy": 11
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 739,
+"name": "Đan Hoàng Quật",
+"gloss": "Grotto of Red and Yellow",
+"kind": "mine",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.79,
+"qi": {
+"moc": 11,
+"hoa": 10,
+"tho": 19,
+"kim": 27,
+"thuy": 33
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 726,
+"name": "Vịnh Trúc Lĩnh",
+"gloss": "Ridge of the Bamboo Ode",
+"kind": "peak",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.98,
+"qi": {
+"moc": 24,
+"hoa": 9,
+"tho": 20,
+"kim": 34,
+"thuy": 14
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 731,
+"name": "Thạch Thanh Khoáng",
+"gloss": "Stone-Blue Mine",
+"kind": "mine",
+"region": 16,
+"biome": "high mountain",
+"elev_km": 0.08,
+"qi": {
+"moc": 15,
+"hoa": 9,
+"tho": 17,
+"kim": 25,
+"thuy": 34
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+}
+],
+"ground_place_count": 81,
+"events": [
+{
+"id": "V131",
+"tier": "annal",
+"year": 340,
+"kind": "siege",
+"people": [],
+"sects": [],
+"text_en": "The students of Trúc Địch Viện, Cửu Thiều Cung's flute school, go up to the palace's last stand and do not come back.",
+"place": 332,
+"region": 16
+},
+{
+"id": "V132",
+"tier": "annal",
+"year": 340,
+"kind": "siege",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "In the War of the Nine Shao, Cửu Thiều Cung's drum fort Minh Cổ Bảo falls; Phượng Minh leaves it as it fell.",
+"place": 452,
+"region": 16
+},
+{
+"id": "V133",
+"tier": "annal",
+"year": 340,
+"kind": "siege",
+"people": [],
+"sects": [],
+"text_en": "The hall of Cửu Thiều Cung's chime makers, Kích Khánh Đường, is smashed in the war; its broken chimes still ring when stepped on.",
+"place": 724,
+"region": 16
+},
+{
+"id": "V134",
+"tier": "annal",
+"year": 341,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "A year after Cửu Thiều Cung falls, the flute sellers of Tiêu Sơn Thị have all gone, and the market is never resettled.",
+"place": 768,
+"region": 16
+},
+{
+"id": "A237",
+"tier": "annal",
+"year": 400,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Wild peach trees grow over the empty palace grounds; the brook below is named Đào Khê.",
+"place": 145,
+"region": 16
+},
+{
+"id": "C009",
+"tier": "landmark",
+"year": 480,
+"kind": "sect_founded",
+"people": [
+"ngo_the_dong"
+],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Ngô Thê Đồng founds Phượng Minh Cung on the lands left empty since the fall of Cửu Thiều Cung, 140 years before.",
+"place": 6
+},
+{
+"id": "A238",
+"tier": "annal",
+"year": 485,
+"kind": "settlement",
+"people": [
+"ngo_the_dong"
+],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh's founder clears the ridges and opens a market of the Shao music at the foot of the new palace: Thiều Âm Thị.",
+"place": 53,
+"region": 16
+},
+{
+"id": "A239",
+"tier": "annal",
+"year": 500,
+"kind": "tale",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "The spotted bamboo on Tương Phi Đảo is said to be stained by the tears of two consorts; Phượng Minh forbids cutting it.",
+"place": 197,
+"region": 16
+},
+{
+"id": "A240",
+"tier": "annal",
+"year": 530,
+"kind": "settlement",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Wheat fields at Mạch Điền feed the new palace; the town grows around its granary.",
+"place": 83,
+"region": 16
+},
+{
+"id": "C116",
+"tier": "landmark",
+"year": 560,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh Cung founds Thanh Khê Thành, its port on the gulf.",
+"place": 84
+},
+{
+"id": "A241",
+"tier": "annal",
+"year": 600,
+"kind": "tale",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh's disciples climb Cao Cương Phong at dawn and say the phoenix sang there, on that high ridge.",
+"place": 212,
+"region": 16
+},
+{
+"id": "A242",
+"tier": "annal",
+"year": 700,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "The river bend at Hà Loan floods every autumn; its people build their houses on stilts.",
+"place": 146,
+"region": 16
+},
+{
+"id": "A243",
+"tier": "annal",
+"year": 760,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"truc_thuc",
+"phuong_minh"
+],
+"text_en": "Spirit farmers found Trúc Thực Viên to grow the bamboo seed the phoenix eats.",
+"place": 25,
+"region": 16
+},
+{
+"id": "V135",
+"tier": "annal",
+"year": 780,
+"kind": "raid",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh's fleet burns Ẩn Phàm Trại, the shore camp where Thôn Hải Môn hid its boats, a year before the Purge.",
+"place": 746,
+"region": 16
+},
+{
+"id": "A244",
+"tier": "annal",
+"year": 800,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Jade-green waves at Bích Lãng carry the fishing boats home from the gulf.",
+"place": 147,
+"region": 16
+},
+{
+"id": "V136",
+"tier": "annal",
+"year": 812,
+"kind": "disaster",
+"people": [],
+"sects": [
+"le_tuyen"
+],
+"text_en": "A fever kills half of Cựu Khê Trấn before Lễ Tuyền's healers come; the survivors move down to Thanh Khê and never go back up.",
+"place": 430,
+"region": 16
+},
+{
+"id": "A245",
+"tier": "annal",
+"year": 900,
+"kind": "discovery",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Phượng Minh finds the Cinnabar Mountain vein near its border with the heart and names it Đan Sơn Mạch.",
+"place": 211,
+"region": 16
+},
+{
+"id": "A246",
+"tier": "annal",
+"year": 1050,
+"kind": "headship",
+"people": [
+"ninh_truc_thuc"
+],
+"sects": [
+"truc_thuc"
+],
+"text_en": "Ninh Trúc Thực becomes head of Trúc Thực Viên and breeds a bamboo that seeds every year instead of once in sixty.",
+"place": 25,
+"region": 16
+},
+{
+"id": "C181",
+"tier": "landmark",
+"year": 1100,
+"kind": "headship",
+"people": [
+"ngo_the_dong",
+"hoa_trieu_duong"
+],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Ngô Thê Đồng dies at 770; Hoa Triêu Dương becomes head of Phượng Minh Cung.",
+"place": 6
+},
+{
+"id": "C182",
+"tier": "landmark",
+"year": 1100,
+"kind": "item_passed",
+"people": [
+"ngo_the_dong",
+"hoa_trieu_duong"
+],
+"sects": [
+"phuong_minh"
+],
+"text_en": "Dying, Ngô Thê Đồng gives Hoa Triêu Dương the Tiêu Thiều Quản and tells her never to play it in full.",
+"place": 6,
+"item": "tieu_thieu_quan",
+"secret": true
+},
+{
+"id": "V137",
+"tier": "annal",
+"year": 1110,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"bach_vu",
+"phuong_minh"
+],
+"text_en": "Bird catchers who say all birds bow to the phoenix found Bách Vũ Các to raise messenger birds for Phượng Minh's palace.",
+"place": 330,
+"region": 16
+},
+{
+"id": "C188",
+"tier": "landmark",
+"year": 1150,
+"kind": "war_start",
+"people": [
+"manh_da_vu",
+"hoa_trieu_duong"
+],
+"sects": [
+"thinh_vu",
+"phuong_minh"
+],
+"text_en": "Thính Vũ Lâu attacks Đan Sơn Mạch, Phượng Minh's cinnabar vein near the heart.",
+"place": 211,
+"war": "cinnabar_vein"
+},
+{
+"id": "C189",
+"tier": "landmark",
+"year": 1154,
+"kind": "intervention",
+"people": [
+"doan_ngoc_hanh"
+],
+"sects": [
+"thien_xu",
+"phuong_minh",
+"thinh_vu"
+],
+"text_en": "Doãn Ngọc Hành brings Thiên Xu Tông into the war on Phượng Minh's side, to enforce the Compact.",
+"place": 211,
+"war": "cinnabar_vein"
+},
+{
+"id": "A247",
+"tier": "annal",
+"year": 1157,
+"kind": "tale",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "In the Cinnabar Vein War, Thanh Khê Thành's harbour shelters Phượng Minh's wounded; the city's lanterns burn all year.",
+"place": 84,
+"region": 16
+},
+{
+"id": "C190",
+"tier": "landmark",
+"year": 1158,
+"kind": "war_end",
+"people": [
+"manh_da_vu",
+"doan_ngoc_hanh",
+"hoa_trieu_duong"
+],
+"sects": [
+"thinh_vu",
+"thien_xu",
+"phuong_minh"
+],
+"text_en": "Thính Vũ Lâu is beaten at Đan Sơn Mạch and withdraws; Mạnh Dạ Vũ swears the Pivot will answer for it.",
+"place": 211,
+"war": "cinnabar_vein"
+},
+{
+"id": "A248",
+"tier": "annal",
+"year": 1195,
+"kind": "tale",
+"people": [],
+"sects": [
+"phuong_minh"
+],
+"text_en": "A musician in Thiều Âm Thị plays a tune no one taught him, and every bird on the ridge falls silent; Phượng Minh's elders pay his passage far away.",
+"place": 53,
+"region": 16
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "ninh_truc_thuc",
+"name": "Ninh Trúc Thực",
+"name_han": "甯竹實",
+"gloss": "The bamboo seed the phoenix eats (Trang Tử)",
+"sex": "M",
+"born": 900,
+"alive": true,
+"sect": "truc_thuc",
+"rank": "tong_chu",
+"role": "Head of Trúc Thực Viên, spirit farming: spirit grain and beast feed",
+"realm": "ket_dan",
+"home": 25,
+"traits": {
+"personality": [
+"Diligent",
+"Content",
+"Generous"
+],
+"calling": "Herbalist",
+"fate_given": []
+},
+"vassal_of": "phuong_minh",
+"build": {
+"root": {
+"elements": {
+"moc": 80,
+"hoa": 54
+}
+},
+"thien_phu": {
+"ngo_tinh": 70,
+"can_cot": 62,
+"than_hon": 58,
+"khi_van": 66,
+"dao_tam": 66,
+"mi_luc": 64
+},
+"archetype": "linh_thuc_su",
+"stage": 1,
+"main": {
+"tech": "verdant-cycle-scripture",
+"layer": 8
+},
+"aux": [],
+"gear": [
+{
+"named": "earth-boundary-flag"
+},
+{
+"base": "phien",
+"grade": 3,
+"element": "moc"
+},
+{
+"base": "chuong",
+"grade": 3,
+"element": "moc"
+}
+],
+"tree": {
+"start": "moc",
+"targets": [
+6142,
+6133,
+6117,
+5706,
+6496,
+5748
+]
+},
+"skills": {
+"linh_thuc": 9
+},
+"note": "The bamboo breeder: the continent's best spirit farmer, his fields and his bamboo grove are the whole of his build"
+}
+}
+],
+"legendary_items": []
+}

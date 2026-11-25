@@ -1,0 +1,1535 @@
+{
+ "group": "market-folk",
+ "_doc": "Market folk: cultivators who live by trade and craft in the cities and markets (merchants, alchemists, healers, formation masters for hire, talisman sellers, appraisers, brokers, moneylenders). Page: market-folk.md. Batch 1: tier A, the dead, and the tier B Kết Đan.",
+ "people": [
+  {
+   "key": "lac_dan_thanh",
+   "name_hv": "Lạc Đan Thanh",
+   "name_han": "駱丹青",
+   "gloss": "Vermilion and blue pigments; a painter's fame",
+   "sex": "M",
+   "born": 900,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 50,
+   "birthplace": 482,
+   "role": "The pill-seller of Vật Hoa Thị: a pigment-grinder's son who charges whatever he likes, and holder of the only map of the Peach Spring",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "hoa": 80,
+     "moc": 56
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 76,
+    "can_cot": 58,
+    "than_hon": 70,
+    "khi_van": 70,
+    "dao_tam": 58,
+    "mi_luc": 72
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Gregarious",
+     "Diligent"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "pill_master_tongue",
+     "fire_tempered"
+    ],
+    "lifestyle": "collector",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A round, cheerful man with vermilion under his fingernails that no washing removes, who wears a painter's smock over a silk robe worth a house.",
+   "backstory": "Lạc Đan Thanh was born in 900 in Phong Sào Thôn on Cô Vụ Đảo, the son of a man who ground cinnabar and azurite for the island's painters. He learned fire from the mortar: cinnabar heated wrong turns to quicksilver and poisons the grinder, and that is how his father died. At twenty he sold the last of his father's pigments to a loose alchemist in Hạc Đinh Thị and stayed to keep his furnace. He has bought every method he uses, the Red Sun Scripture among them, and has never served a sect. In 1105 he paid Phan Vật Hoa (phan_vat_hoa) for the Peach Spring Painting at the season auction with a pill no one else could make (C183): the Vermilion-Azure Pill, ground like paint and fired like a pigment. In 1110 he opened his stall in Vật Hoa Thị on her ground and began charging whatever he likes (A186). He sells to every sect and to its enemies. Tăng Vân Tiêu (tang_van_tieu) owes him for three failed breakthrough pills. Vi Ngưng Yên (vi_ngung_yen) bought a dusk herb at his stall the year she died (N-yen_quang-02). His agents buy Thúy Vi's pills from Đậu Tam Thất (dau_tam_that) and copy the seals, and Úy Thanh Diễm (uy_thanh_diem) has not forgiven it. Hoa Cái Đường and half the west have asked for his recipes. He has sold none.",
+   "wants": "To go into the Peach Spring when it opens in 1200 and come out remembering the way; failing that, to sell the painting for more than any lot has ever fetched at Vật Hoa Thị.",
+   "secret": "He has been inside Đào Nguyên Cảnh once, at the opening of 1120, and came out with three peach stones and no memory of the road, as everyone does. The pill that made his name after 1120 is ground from those kernels, and one stone is left. His ledger of 1150 shows that Vi Ngưng Yên asked for the dusk herb by name, and that he wrote a warning beside the sale. He has never shown it, because it would clear him and shame her. The breakthrough pills he sells to cultivators who have already failed once hold a soul thread he buys each year from Hám Tàn Chung (ham_tan_chung) in the same market as the apricot clinic.",
+   "ties": [
+    {
+     "to": "phan_vat_hoa",
+     "kind": "friend",
+     "note": "his landlord; sold him the Peach Spring Painting in 1105"
+    },
+    {
+     "to": "tang_van_tieu",
+     "kind": "creditor",
+     "note": "owes him for three failed breakthrough pills"
+    },
+    {
+     "to": "uy_thanh_diem",
+     "kind": "rival",
+     "note": "the Furnace Hall master whose pills he copies"
+    },
+    {
+     "to": "dau_tam_that",
+     "kind": "rival",
+     "note": "sells to his agents and knows what they do with the seals"
+    },
+    {
+     "to": "diem_tu_to",
+     "kind": "rival",
+     "note": "Vi's Dao partner, who has never asked him about the herb"
+    },
+    {
+     "to": "vi_ngung_yen",
+     "kind": "friend",
+     "note": "sold her the dusk herb in 1150, with a warning she did not read"
+    },
+    {
+     "to": "diem_hai_tao",
+     "kind": "rival",
+     "note": "Thúy Vi's port house wants the painting"
+    },
+    {
+     "to": "me_thanh_dai",
+     "kind": "disciple",
+     "note": "his agent in Lam Yên Thị"
+    },
+    {
+     "to": "dang_thach_luc",
+     "kind": "disciple",
+     "note": "his furnace boy, the only one who has seen the last stone"
+    },
+    {
+     "to": "tang_bach_thong",
+     "kind": "rival",
+     "note": "the money-changer buying back his son's pill notes"
+    },
+    {
+     "to": "khau_phuc_linh",
+     "kind": "rival",
+     "note": "undersells his copies in the north"
+    },
+    {
+     "to": "ham_tan_chung",
+     "kind": "friend",
+     "note": "sells him a soul thread a year, and neither speaks of it"
+    },
+    {
+     "to": "khuyet_van_ha",
+     "kind": "friend",
+     "note": "he sells the hermit's pills and takes a third"
+    },
+    {
+     "to": "ho_te_xuyen",
+     "kind": "friend",
+     "note": "his copied pills ride in the Hỗ second holds"
+    },
+    {
+     "to": "gia_chi_lo",
+     "kind": "enemy",
+     "note": "had him beaten for selling Peach Spring maps"
+    },
+    {
+     "to": "bi_tieu_tho",
+     "kind": "friend",
+     "note": "the boy he pays for silence"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 8
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "mf-vermilion-azure-censer"
+     },
+     {
+      "named": "mf-pigment-gourd"
+     },
+     {
+      "named": "mf-azure-ring"
+     }
+    ],
+    "skills": {
+     "dan_dao": 8
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire land toward burn stacks and pill-fed sustain, then a reach into Wood for regrowth: a long fight fed by his own pills.",
+     "targets": [
+      2364,
+      2325,
+      2380,
+      2369,
+      2283,
+      2978,
+      6287
+     ],
+     "targets_note": "The Fire land's alchemy: Night Brew, Watching the Fire, Cinnabar Chamber and Fire Lily for pills and toxicity, Strange Pill Reborn (his failures come out as pills), Alchemist's Heart, and New Growth in the Wood land for regrowth."
+    },
+    "note": "The market alchemist who charges what he likes: pills no one else can make, and even his failures come out as pills."
+   },
+   "items": [
+    "mf-vermilion-azure-censer",
+    "mf-peach-spring-painting",
+    "mf-pigment-gourd",
+    "mf-azure-ring"
+   ],
+   "changed": "gear: the plain grade-3 censer -> mf-vermilion-azure-censer; tree targets -> an intent; birthplace added (Phong Sào Thôn, 482: Wood 46, Fire 22)"
+  },
+  {
+   "key": "gia_hoi_xuan",
+   "name_hv": "Giả Hồi Xuân",
+   "name_han": "賈回春",
+   "gloss": "Brings back the spring",
+   "sex": "F",
+   "born": 1020,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 54,
+   "birthplace": 54,
+   "role": "Healer of Hạnh Hoa Thị, the apricot-blossom market: cures what the alchemists of three sects will not touch",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 78,
+     "thuy": 60
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 60,
+    "than_hon": 66,
+    "khi_van": 58,
+    "dao_tam": 74,
+    "mi_luc": 70
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Humble",
+     "Patient"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "poison_proof"
+    ],
+    "lifestyle": "gardener",
+    "health": "lingering_poison",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "Small and plain, in a robe the colour of apricot blossom gone brown, with a roll of needles at her hip and lips faintly blue.",
+   "backstory": "Giả Hồi Xuân was born in 1020 in Hạnh Hoa Thị, the market that grew below Thính Vũ's southern road (A290, A294), to a family that sold apricot blossom after rain. The old healer Mẫn Tế Thế (man_te_the) kept a clinic under the market's largest apricot tree and took her at seven to grind roots. The abbess Dương Hảo Vũ (duong_hao_vu) of Cốc Vũ Quán was the clinic's friend and had held her as a baby, and the two of them have traded herbs and hard cases all her life. When Mẫn died in 1110 (N-market_folk-04) she kept the clinic and the tree and did not raise her prices. Her fame is for the cases sect alchemists refuse: the poisons Ô Thiềm Tử (o_thiem_tu) sends her from the Night Rain Market, the lightning burns of the Tower's storm drills, the blind boy Ung Thính Thiền (ung_thinh_thien), whose eyes she tried and told him honestly why she could not mend. Bồ Ngọc Châm (bo_ngoc_cham) learned her salves at the clinic, Lam Nhuận Chi (lam_nhuan_chi) walks the hard cases down the road, and Dư Tục Đoạn (du_tuc_doan) of Thúy Vi trades cases with her by letter. Hoa Cái Đường has asked for her recipes. She gives them to anyone who will sit with a patient for a season, and no one from Hoa Cái has come.",
+   "wants": "To leave the clinic and the tree to Nhiêu Tử Uyển (nhieu_tu_uyen), and to teach her to cure without tasting.",
+   "secret": "She learns each new poison Ô Thiềm Tử sends by tasting it first. A hundred and fifty years of them sit in her meridians, held down by her own needles, and that is why her lips are blue. She has perhaps forty years left, not three hundred, and has told only the abbess. She also knows how to wake the gardener Tề Vong Quy (te_vong_quy) and has not done it: his daughter asked, and his mistress did not.",
+   "ties": [
+    {
+     "to": "man_te_the",
+     "kind": "master",
+     "note": "the healer under the apricot tree; she keeps his clinic"
+    },
+    {
+     "to": "duong_hao_vu",
+     "kind": "friend",
+     "note": "the abbess who held her as a baby; they trade herbs and the hard cases"
+    },
+    {
+     "to": "o_thiem_tu",
+     "kind": "rival",
+     "note": "sends her each new poison; she answers each one"
+    },
+    {
+     "to": "lam_nhuan_chi",
+     "kind": "friend",
+     "note": "the herb nun who brings her patients"
+    },
+    {
+     "to": "ung_thinh_thien",
+     "kind": "friend",
+     "note": "the blind boy whose eyes she could not cure, and told him why"
+    },
+    {
+     "to": "bo_ngoc_cham",
+     "kind": "friend",
+     "note": "learned her salves at the clinic"
+    },
+    {
+     "to": "du_tuc_doan",
+     "kind": "friend",
+     "note": "Thúy Vi's bone-setter; they trade hard cases by letter"
+    },
+    {
+     "to": "te_niem_quy",
+     "kind": "friend",
+     "note": "the gardener's daughter who came to ask for her father"
+    },
+    {
+     "to": "nhieu_tu_uyen",
+     "kind": "disciple",
+     "note": "her senior apprentice and chosen heir"
+    },
+    {
+     "to": "vu_ngan_kieu",
+     "kind": "friend",
+     "note": "her apprentice's apprentice, who grinds the roots"
+    },
+    {
+     "to": "ha_kho_sam",
+     "kind": "friend",
+     "note": "the courier who carries the poisons and the answers"
+    },
+    {
+     "to": "ham_tan_chung",
+     "kind": "rival",
+     "note": "the soul-buyer of her own market; he buys the dying she cannot save"
+    },
+    {
+     "to": "duong_kho_chi",
+     "kind": "rival",
+     "note": "she cures what he moves"
+    }
+   ],
+   "master": "man_te_the",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 8
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "mf-second-spring-needles"
+     },
+     {
+      "named": "mf-apricot-gourd"
+     },
+     {
+      "named": "mf-clinic-pendant"
+     }
+    ],
+    "skills": {
+     "dan_dao": 7
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood land toward healing and regrowth, then poison resistance and slow cures: the healer who outlasts the poison.",
+     "targets": [
+      784,
+      6093,
+      6357,
+      6358,
+      6170,
+      9002
+     ],
+     "targets_note": "The Wood land's healing: Green Root, Weeping Willow, Spirit Berries and Vermilion Fruit, Pine Needle Tea against poison, then Ageless Pine for the long cure."
+    },
+    "note": "The apricot-blossom healer: a second spring for whoever others gave up on. Her own needle art is proposed in market-folk.techniques.json (second-spring-needle-art)."
+   },
+   "items": [
+    "mf-second-spring-needles",
+    "mf-apricot-gourd",
+    "mf-clinic-pendant",
+    "wood-sap-heart-pendant"
+   ],
+   "changed": "gear: the plain grade-3 needle -> mf-second-spring-needles; tree targets -> an intent. R1 note: Hạnh Hoa Thị is Wood 10 %, so her Wood root is the market's odd one (the market says the apricot tree gave it)"
+  },
+  {
+   "key": "kim_van_ly",
+   "name_hv": "Kim Vạn Lý",
+   "name_han": "金萬里",
+   "gloss": "Ten thousand li of gold",
+   "sex": "M",
+   "born": 850,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 38,
+   "birthplace": 169,
+   "role": "The richest merchant of the western plains: wool, wine, hulls and other people's debts, out of Nhạn Thanh Thành",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 76,
+     "tho": 60
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 54,
+    "than_hon": 60,
+    "khi_van": 84,
+    "dao_tam": 50,
+    "mi_luc": 82
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Ambitious",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 3
+     },
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": "gambler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A big, laughing man in plain wool with one gold coin on a cord at his throat, who remembers the name of every herder's child on the plain.",
+   "backstory": "Kim Vạn Lý was born in 850 at the red-gold diggings of Xích Kim Khoáng above Vật Hoa Thị, where his father carried ore for Thiên Bảo Trai's furnaces. He left the mine at twelve with a sack of tailings and sold it twice. By a hundred and fifty he was the wool broker of the steppe. In 1002 he sold his share of Kim Cốc Viên's notes to the banker Quản Doanh Hư (quan_doanh_hu) a month before the garden crashed and Kim Cốc Thành burned (C174, N-market_folk-01). In 1040 he bought the wool of the whole plain in one season and became the richest merchant of the west (A170). His son Kim Tích Phúc (kim_tich_phuc) runs the caravans, and his grandson Kim Đắc Lộc (kim_dac_loc) is in Mục Vân Trang's stables. He owes everyone a little: Khúc Liệt Dương (khuc_liet_duong) a year's pay, Nhạc Thuần Nhưỡng (nhac_thuan_nhuong) forty jars of pure spring wine, the Pivot's treasury forty years of silver tolls. Diêm Hải Tảo (diem_hai_tao) owes him three hulls he never asks back. He buys Lạc Hà's notes from Thiên Bảo for Trầm Tịch Dương (tram_tich_duong), keeps a table at which Tiền Ngũ Phân (tien_ngu_phan) loses, and at every festival bets on Khấu Mục Vân's (khau_muc_van) horses against Tô Vãn Chiếu (to_van_chieu), and loses anyway (A172).",
+   "wants": "To hand Kim Tích Phúc a house that does not need its founder, and to be buried with more owed to him than he owes.",
+   "secret": "Since the cold year of 1120 (A171) killed the herds he had paid for, the house has run on credit from Từ Bỉnh Quyền (tu_binh_quyen) of Thiên Quyền Thị. He pays no debt until it is called. The lost bets are the one payment he never delays: losing to a sect head at her own festival is a gift no treasurer can call a bribe, and it buys the patience of everyone who could call his loans. Trầm's money sits in his hands for months between purchases, and he has used it to cover his own payments, though he has never yet failed to pass it on.",
+   "ties": [
+    {
+     "to": "tu_binh_quyen",
+     "kind": "debt",
+     "note": "the credit the house has lived on since 1120"
+    },
+    {
+     "to": "khuc_liet_duong",
+     "kind": "debt",
+     "note": "a year's pay from the western road"
+    },
+    {
+     "to": "nhac_thuan_nhuong",
+     "kind": "debt",
+     "note": "forty jars of pure spring wine"
+    },
+    {
+     "to": "dang_quan_binh",
+     "kind": "debt",
+     "note": "forty years of silver tolls to the Pivot's treasury"
+    },
+    {
+     "to": "diem_hai_tao",
+     "kind": "creditor",
+     "note": "three hulls lent and never asked back"
+    },
+    {
+     "to": "tien_ngu_phan",
+     "kind": "creditor",
+     "note": "loses at his table"
+    },
+    {
+     "to": "bao_te_hai",
+     "kind": "creditor",
+     "note": "paid the yards' debt in 1160 for a third of the ship-house"
+    },
+    {
+     "to": "tram_tich_duong",
+     "kind": "friend",
+     "note": "buys Lạc Hà's notes for him, a few at a time"
+    },
+    {
+     "to": "phan_vat_hoa",
+     "kind": "friend",
+     "note": "sells him the notes at a premium and knows whose they are"
+    },
+    {
+     "to": "to_van_chieu",
+     "kind": "friend",
+     "note": "bets against her on the horses every festival, and loses"
+    },
+    {
+     "to": "khau_muc_van",
+     "kind": "friend",
+     "note": "bought the plain's wool in 1040; bets on his horses"
+    },
+    {
+     "to": "du_bon_van",
+     "kind": "rival",
+     "note": "bet on her losing one race in 1185"
+    },
+    {
+     "to": "khang_vien_dac",
+     "kind": "friend",
+     "note": "rides with his wool caravans and fits their bells"
+    },
+    {
+     "to": "vuu_cam_thu",
+     "kind": "rival",
+     "note": "outbids him for the south's tea"
+    },
+    {
+     "to": "ho_te_xuyen",
+     "kind": "rival",
+     "note": "offered to buy the Hỗ fleet in 1170, and will ask again"
+    },
+    {
+     "to": "kieu_man_lau",
+     "kind": "rival",
+     "note": "he undercuts the Night Rain Market in the desert"
+    },
+    {
+     "to": "kim_tich_phuc",
+     "kind": "child",
+     "note": "his only son"
+    },
+    {
+     "to": "kim_dac_loc",
+     "kind": "grandchild",
+     "note": "pays his keep in the stables"
+    },
+    {
+     "to": "quan_doanh_hu",
+     "kind": "enemy",
+     "note": "sold him the Kim Cốc notes a month before the fire"
+    },
+    {
+     "to": "quan_phuc_thu",
+     "kind": "enemy",
+     "note": "Quản's granddaughter, who means to ruin him"
+    },
+    {
+     "to": "quan_than_ngon",
+     "kind": "friend",
+     "note": "his best clerk, whom he trusts with the real books"
+    },
+    {
+     "to": "dai_song_luc",
+     "kind": "friend",
+     "note": "the runner who carries his bets"
+    },
+    {
+     "to": "dieu_thiet_tien",
+     "kind": "friend",
+     "note": "a guard on his western road"
+    },
+    {
+     "to": "ho_dien_linh",
+     "kind": "friend",
+     "note": "his camel-train master on the desert road"
+    },
+    {
+     "to": "hoang_phu_duyen",
+     "kind": "friend",
+     "note": "his client for forty years"
+    },
+    {
+     "to": "ky_minh_tien",
+     "kind": "friend",
+     "note": "his tea factor at Hồi Lan, outbid each spring by Vưu Cẩm Thư"
+    },
+    {
+     "to": "su_que_huong",
+     "kind": "friend",
+     "note": "the spice merchant who shipped on his account for thirty years and now ships on the palace's, because he pays late"
+    },
+    {
+     "to": "tu_thien_toan",
+     "kind": "debt",
+     "note": "the heir of the house that holds his paper"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "dia_tho",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "iron-hide-manual",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "metal-heaven-minted-coin"
+     },
+     {
+      "named": "mf-losing-hand-ring"
+     },
+     {
+      "named": "mf-vault-robe"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal land toward coin and cache arts and luck, then Earth's health and buried wards: a gold root who buys his way through a fight.",
+     "targets": [
+      3860,
+      4092,
+      4072,
+      4294,
+      4296,
+      4326,
+      3461,
+      3487
+     ],
+     "targets_note": "The Metal land's coins and caches: Spirit Coin, Charm Coin, Horseshoe Gold, Hidden Cache, Buried Vault and Taigong Fishing for fortune, then Mountain Hollow and Battlements in the Earth land for health and buried wards."
+    },
+    "note": "The richest merchant of the west: coins, caches and buried vaults, a gold root who bets badly on purpose."
+   },
+   "items": [
+    "mf-losing-hand-ring",
+    "mf-vault-robe",
+    "metal-heaven-minted-coin"
+   ],
+   "changed": "gear: the plain grade-3 ring -> mf-losing-hand-ring; tree targets -> an intent; birthplace added (Xích Kim Khoáng, 169: Metal 41, Earth 33)"
+  },
+  {
+   "key": "ve_van_co",
+   "name_hv": "Vệ Văn Cơ",
+   "name_han": "衛文機",
+   "gloss": "Letters and the loom of fate",
+   "sex": "M",
+   "born": 980,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 40,
+   "birthplace": 40,
+   "role": "A formation master for hire out of Tinh Hán Thành; Củng Tinh Quán's runaway, who sells the abbey's craft by the stone",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "tho": 74,
+     "kim": 60
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 76,
+    "can_cot": 52,
+    "than_hon": 74,
+    "khi_van": 56,
+    "dao_tam": 62,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Pragmatic",
+     "Diligent"
+    ],
+    "calling": "Formation master",
+    "upbringing": "temple_raised",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "formation_mind"
+    ],
+    "lifestyle": "go_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Thin and stooped from a life bent over stones, in sand-coloured robes, with a habit of drawing figures in any dust he sits beside.",
+   "backstory": "Vệ Văn Cơ was born in 980 in Tinh Hán Thành and drew formations in the harbour sand before he could talk (A230). A Củng Tinh Daoist buying lamp oil on the quay saw the figures, and the head Thẩm Bắc Thần (tham_bac_than) took the boy up to the plateau. He learned the stars and the Armillary Array Canon, and he learned that the abbey would sooner read the sky than lay a ward for a granary. In 1100 he left to lay formations for hire (N-cung_tinh-02). He has worked for anyone who pays: the Pivot's boundary steles, which he took twice from Phó Cương Đẩu (pho_cuong_dau) by bidding under the abbey; the Cloud Bridge Array, whose design he sold to Lạc Hà's Quách Tiếp Vân (quach_tiep_van) in 1180 (N-lac_ha-04); granary rings and caravan camps from the steppe to the coast. Thiện Thừa Củ (thien_thua_cu) offered him a place in the Pivot's Thiên Cơ Hall, and he turned it down, which the hall has not forgotten. In 1198 Quý Thủ Lũy (quy_thu_luy) paid him to re-lay the wards around the Vạn Cốt Trủng, and he quit after one night (A218) and gave back half the fee without saying why. He keeps two apprentices, both harbour children like himself.",
+   "wants": "To be paid for the Cloud Bridge's outer ring, and to stand once more in Củng Tinh's armillary hall before he dies.",
+   "secret": "The old wards around the Vạn Cốt Trủng are written in Củng Tinh's star-script, and their cornerstone carries his master's mark from 806: Thẩm Bắc Thần laid the barrow's wards for the Pivot after the war. They are failing on the side that faces the old field. Vệ would not be paid to unmake his master's work, and he has not written to ask why it was laid the way it was.",
+   "ties": [
+    {
+     "to": "tham_bac_than",
+     "kind": "former_master",
+     "note": "took him up from the harbour sand; he left in 1100"
+    },
+    {
+     "to": "pho_cuong_dau",
+     "kind": "rival",
+     "note": "the abbey's array master, whom he has underbid twice for the steles"
+    },
+    {
+     "to": "thien_thua_cu",
+     "kind": "rival",
+     "note": "offered him the Thiên Cơ Hall and was turned down"
+    },
+    {
+     "to": "quach_tiep_van",
+     "kind": "creditor",
+     "note": "owes him the Cloud Bridge's outer ring, in his own name"
+    },
+    {
+     "to": "quy_thu_luy",
+     "kind": "friend",
+     "note": "hired him for the barrow wards in 1198; he gave back half the fee"
+    },
+    {
+     "to": "phong_kinh_sa",
+     "kind": "disciple",
+     "note": "his first apprentice, a dock orphan"
+    },
+    {
+     "to": "ngu_hoa_sa",
+     "kind": "disciple",
+     "note": "the second harbour child he found drawing in the sand"
+    },
+    {
+     "to": "banh_cham_thach",
+     "kind": "rival",
+     "note": "lays thicker wards for less in the heartland"
+    }
+   ],
+   "master": "tham_bac_than",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "bowing-stars-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "armillary-array-canon",
+      "layer": 7
+     },
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "mf-loom-of-letters-seal"
+     },
+     {
+      "named": "mf-carried-array-flag"
+     },
+     {
+      "named": "mf-paid-shield"
+     }
+    ],
+    "skills": {
+     "tran_phap": 8
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth land toward wards and seals, then Metal's array arts: he fights from inside a formation he carried in.",
+     "targets": [
+      3151,
+      3145,
+      3236,
+      3019,
+      3591,
+      3839,
+      4063
+     ],
+     "targets_note": "The Earth formations he carries: Array Foundation, Quicksand Array, Array Gate, Formation Within a Formation, Portable Cave Abode and Earth Vein Tap to feed what he stands up, then Shield Formation in the Metal land."
+    },
+    "note": "The formation master for hire: his arrays travel with him and stand wherever he is paid to stand them."
+   },
+   "items": [
+    "mf-loom-of-letters-seal",
+    "mf-carried-array-flag",
+    "mf-paid-shield",
+    "general-five-phase-flag"
+   ],
+   "changed": "main dia_tho (stand-in) -> bowing-stars-canon, aux + armillary-array-canon: Củng Tinh Quán's lineage, learned before he left in 1100 (N-cung_tinh-02); gear: the plain grade-3 seal -> mf-loom-of-letters-seal; tree targets -> an intent"
+  },
+  {
+   "key": "tu_binh_quyen",
+   "name_hv": "Từ Bỉnh Quyền",
+   "name_han": "徐秉權",
+   "gloss": "Holds the steelyard",
+   "sex": "F",
+   "born": 1010,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 52,
+   "birthplace": 52,
+   "role": "Mistress of the Từ counting house in Thiên Quyền Thị: the lender sects go to when they cannot be seen borrowing from Thiên Bảo",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 62,
+     "tho": 55
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 50,
+    "than_hon": 66,
+    "khi_van": 62,
+    "dao_tam": 72,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Patient",
+     "Stubborn"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     },
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "go_player",
+    "health": null,
+    "coping": "cold_detachment",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Grey-haired and straight-backed, in black, with a brass steelyard weight on a cord at her wrist; she counts while she listens.",
+   "backstory": "Từ Bỉnh Quyền was born in 1010 above her father's weighing booth in Thiên Quyền Thị, the market of fair weights beside the Pivot's seat (A207). Six years before, her father had spent the house's savings on one of the four copies of Kim Cốc Viên's Golden Valley Ledger Canon that the ruined banker Quản Doanh Hư (quan_doanh_hu) sold in Vật Hoa Thị to pay his creditors (N-market_folk-02), so that his children would cultivate like merchants and not like sect servants. She opened it at nine. At thirty she lent her first hundred stones, to a Pivot outer disciple who wanted a better sword, and was repaid. The Từ house now lends to the vassals and small sects of the heartland and to elders who cannot be seen borrowing from Thiên Bảo Trai. Its one rule is that it never says who owes it. Each spring she has her weights checked against the Pivot's standard by Đặng Quân Bình (dang_quan_binh), who has never found them light. Since the cold year (A171) she has carried Kim Vạn Lý (kim_van_ly), and twice since 1180 Phan Vật Hoa (phan_vat_hoa) has offered to buy his paper from her.",
+   "wants": "To have the Từ weights accepted by the Pivot as its own standard, so that her house never needs a lord's protection.",
+   "secret": "She holds enough of Kim Vạn Lý's paper to own the Bào yards and the wool road by autumn if she called it. She will not. She has read in his books what his lost bets buy, and a merchant who can make a sect head grateful is worth more standing than fallen. She has also offered Đặng Quân Bình half the face of Kim's forty years of unpaid tolls, and Đặng has not answered.",
+   "ties": [
+    {
+     "to": "kim_van_ly",
+     "kind": "creditor",
+     "note": "has carried the Kim house since 1120"
+    },
+    {
+     "to": "dang_quan_binh",
+     "kind": "friend",
+     "note": "checks her weights against the Pivot's every spring"
+    },
+    {
+     "to": "phan_vat_hoa",
+     "kind": "rival",
+     "note": "the other great lender; wants Kim's paper"
+    },
+    {
+     "to": "quan_phuc_thu",
+     "kind": "rival",
+     "note": "wants her grandfather's canon back, and Từ has a copy"
+    },
+    {
+     "to": "tu_thien_toan",
+     "kind": "grandchild",
+     "note": "her heir, who thinks her too patient"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "huyen_kim",
+     "layer": 7
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "mf-golden-valley-coin"
+     },
+     {
+      "named": "mf-tu-house-ring"
+     },
+     {
+      "named": "mf-tu-house-robe"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal land toward coin arts and crit, then Earth's wards: she pays for every exchange in a fight and expects change.",
+     "targets": [
+      3860,
+      4092,
+      4083,
+      4148,
+      4319,
+      3724
+     ],
+     "targets_note": "The Metal land's coins (Spirit Coin, Charm Coin, Spade Money), Jade Carving and Sickle Moon for crit, then Earthen Gate's ward: she pays for every exchange."
+    },
+    "note": "The banker of fair weights. Her method is Kim Cốc's Golden Valley Ledger Canon (proposal golden-valley-ledger-canon in market-folk.techniques.json); huyen_kim stands in until the checker reads group technique files."
+   },
+   "items": [
+    "mf-golden-valley-coin",
+    "mf-tu-house-ring",
+    "mf-tu-house-robe"
+   ]
+  },
+  {
+   "key": "bao_te_hai",
+   "name_hv": "Bào Tế Hải",
+   "name_han": "鮑濟海",
+   "gloss": "Crosses the sea",
+   "sex": "M",
+   "born": 1042,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 30,
+   "birthplace": 57,
+   "role": "Master of the Bào ship-house at Yên Ba Thành, builder of the cape's merchant hulls",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 70,
+     "moc": 38
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 66,
+    "than_hon": 58,
+    "khi_van": 70,
+    "dao_tam": 60,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Stubborn",
+     "Generous"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "drinker",
+    "health": "old_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Broad, bald and salt-burned, with one shoulder lower than the other since a mast fell on it in 1130; he smells of pine tar.",
+   "backstory": "Bào Tế Hải was born in 1042 at Bạch Sa Trấn, two years after the Hỗ captain's Thẩm marriage and his jetty made the white sands a trading town (A029). His father Bào Thừa Phong (bao_thua_phong) came for the jetty, built coasting junks on the beach and sold them up and down the cape, most of them to the Hỗ fleet that Hỗ Tế Xuyên (ho_te_xuyen) now runs. The son built the first deep-keeled hull of Yên Ba and moved the yards into the city's harbour. In 1150 he paid the price of four hulls at Phan Vật Hoa's (phan_vat_hoa) season auction for the Still Moon Tide Scripture, and reached Kết Đan on it at a hundred and twenty. When his father died in 1160 (N-market_folk-05) the house was in debt for the new yards, and Kim Vạn Lý (kim_van_ly) paid it off for a third of the house. Bào builds the hulls Kim lends to Diêm Hải Tảo (diem_hai_tao) of Thúy Vi's port house, and drinks with her on their decks. His shipwright Quan Liêm Chu (quan_liem_chu) has shaped every keel since 1180. His daughter Bào Thính Triều (bao_thinh_trieu) wants to sail with Diêm wherever she goes.",
+   "wants": "To build a hull that sails to the southern islands and comes back, which no ship of Yên Ba has done since Cô Phàm Các's fleet was lost in 705.",
+   "secret": "In 1190 Kim Vạn Lý ordered the three hulls for Diêm deep-keeled and copper-sheathed for southern water, which means Kim knows she has a chart of the southern islands. Bào has not told her, because he wants to be on the ship when she sails it.",
+   "ties": [
+    {
+     "to": "bao_thua_phong",
+     "kind": "parent",
+     "note": "the junk-builder of Bạch Sa"
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "debt",
+     "note": "a third of the house since 1160"
+    },
+    {
+     "to": "diem_hai_tao",
+     "kind": "friend",
+     "note": "he builds the hulls she borrows, and drinks with her on them"
+    },
+    {
+     "to": "bao_thinh_trieu",
+     "kind": "child",
+     "note": "his daughter, who wants to sail south"
+    },
+    {
+     "to": "quan_liem_chu",
+     "kind": "friend",
+     "note": "his master shipwright"
+    },
+    {
+     "to": "lan_vien_pham",
+     "kind": "rival",
+     "note": "Lạc Hà's island warden; they bid for the same mast pine"
+    },
+    {
+     "to": "ho_te_xuyen",
+     "kind": "friend",
+     "note": "the Hỗ fleet master; Bào builds his junks, and Kim wants to buy them"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "mf-sea-crossing-anchor"
+     },
+     {
+      "named": "mf-hull-armour"
+     },
+     {
+      "named": "mf-fog-bell"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 5
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water land toward linh lực sustain and tide arts, then Wood's regrowth: a captain who outlasts the storm.",
+     "targets": [
+      5493,
+      5003,
+      5012,
+      4910,
+      4912,
+      6364
+     ],
+     "targets_note": "Lingering Ripples, the Moon over the Tide idea, the Black Abyss idea (Heavy Water, Black Abyss) for a deep, slow pool, Vine Trellis for Wood's regrowth: a captain who outlasts the storm."
+    },
+    "note": "A shipwright-captain: heavy, slow and impossible to move."
+   },
+   "items": [
+    "mf-sea-crossing-anchor",
+    "mf-hull-armour",
+    "mf-fog-bell"
+   ]
+  },
+  {
+   "key": "quan_phuc_thu",
+   "name_hv": "Quản Phục Thu",
+   "name_han": "管復收",
+   "gloss": "Gathers it in again",
+   "sex": "F",
+   "born": 1125,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 78,
+   "birthplace": 78,
+   "role": "Debt broker of Ngũ Cốc Thành who buys bad paper at a tenth; granddaughter of the banker ruined in 1003",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "tho": 44,
+     "kim": 28
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 48,
+    "than_hon": 64,
+    "khi_van": 40,
+    "dao_tam": 70,
+    "mi_luc": 60
+   },
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Diligent",
+     "Honest"
+    ],
+    "calling": "Schemer",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": "vengeance_vow",
+    "fate_given": [],
+    "gained": [
+     "Grudge",
+     "Oath-bound"
+    ]
+   },
+   "appearance": "A narrow woman in mended grey who writes with her left hand and never sits with her back to a door.",
+   "backstory": "Quản Phục Thu was born in 1125 in Ngũ Cốc Thành, the city that grew rich on the trade Kim Cốc lost (C176), into the family that lost the most. Her grandfather Quản Doanh Hư (quan_doanh_hu) had lent Kim Cốc Viên its last year of credit against its manuals, and in 1002 he bought Kim Vạn Lý's (kim_van_ly) share of its notes, a month before the crash (N-market_folk-01). When Kim Cốc Thành burned (C174) he sold four copies of the Golden Valley Ledger Canon to pay his creditors (N-market_folk-02), paid eighty parts in a hundred, and died. Market custom closes a dead man's ledger. In 1150 she opened it (N-market_folk-06), and took on its last twenty parts. She has paid them down for fifty years by buying bad debts at a tenth and collecting them in full, and her name is spat in four markets. Her brother Quản Thận Ngôn (quan_than_ngon) keeps Kim Vạn Lý's books. Tiền Ngũ Phân (tien_ngu_phan), the grandson of another Kim Cốc ruin, drinks with her after the auction.",
+   "wants": "To close her grandfather's ledger paid in full, to buy back the four copies of the canon, and to see Kim Vạn Lý owe a debt he cannot pay.",
+   "secret": "Her brother copies Kim's ledgers for her every new moon. She knows the house runs on Từ Bỉnh Quyền's credit. She has been offering to buy the small debts Kim leaves unpaid, Khúc Liệt Dương's year's wages and Nhạc's forty jars among them, so that she can call them all on one day and make Từ choose.",
+   "ties": [
+    {
+     "to": "quan_doanh_hu",
+     "kind": "grandparent",
+     "note": "the banker whose ledger she opened"
+    },
+    {
+     "to": "quan_than_ngon",
+     "kind": "sibling",
+     "note": "her brother inside the Kim house"
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "enemy",
+     "note": "sold her grandfather the notes a month before the fire"
+    },
+    {
+     "to": "tu_binh_quyen",
+     "kind": "rival",
+     "note": "holds one of the four copies"
+    },
+    {
+     "to": "tien_ngu_phan",
+     "kind": "friend",
+     "note": "another grandchild of the Kim Cốc ruin"
+    },
+    {
+     "to": "khuc_liet_duong",
+     "kind": "friend",
+     "note": "has offered to buy her claim on Kim's year's pay"
+    },
+    {
+     "to": "tang_bach_thong",
+     "kind": "rival",
+     "note": "the Hạc Đinh money-changer who will not sell her paper"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "huyen_tho",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "mf-pledge-coin"
+     },
+     {
+      "named": "mf-surety-jade"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth land toward binding stacks and debt-of-stone sustain, then Metal's crit: she collects in full.",
+     "targets": [
+      3357,
+      3324,
+      3327,
+      3449,
+      4148
+     ],
+     "targets_note": "Heavy as a Mountain and the Millstone idea (Crushed Stone, Millstone) for binding slows, Blessed Basin for the stone's sustain, Jade Carving for Metal crit; Earth stacks unscaled (wish W1-earth-weight)."
+    },
+    "note": "Her method is the Quản copy of the Golden Valley Ledger Canon (proposal in market-folk.techniques.json); huyen_tho stands in."
+   },
+   "items": [
+    "mf-golden-valley-seal",
+    "mf-pledge-coin",
+    "mf-surety-jade"
+   ]
+  },
+  {
+   "key": "quan_doanh_hu",
+   "name_hv": "Quản Doanh Hư",
+   "name_han": "管盈虛",
+   "gloss": "Full and empty (fortune's tide)",
+   "sex": "M",
+   "born": 790,
+   "alive": false,
+   "died": 1005,
+   "cause": "a heart demon after ruin; he died in a rented room in Vật Hoa Thị with his ledger closed",
+   "peak_realm": "ket_dan",
+   "sect": "",
+   "rank": "",
+   "home": 219,
+   "birthplace": 219,
+   "role": "Loose banker of Kim Cốc Thành, ruined with Kim Cốc Viên in 1003",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Trusting",
+     "Generous",
+     "Ambitious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Disgraced"
+    ]
+   },
+   "backstory": "A loose banker of Kim Cốc Thành who lent Kim Cốc Viên its last year of credit against its manuals, and in 1002 bought Kim Vạn Lý's (kim_van_ly) share of its notes (N-market_folk-01). When the garden crashed and burned in 1003 (C174) he held the manuals and nothing else. He sold four copies of the Golden Valley Ledger Canon in Vật Hoa Thị (N-market_folk-02), paid his creditors eighty parts in a hundred, closed his ledger, and died (N-market_folk-03).",
+   "ties": [
+    {
+     "to": "kim_van_ly",
+     "kind": "enemy",
+     "note": "sold him the notes a month before the fire"
+    },
+    {
+     "to": "quan_phuc_thu",
+     "kind": "grandchild",
+     "note": "opened his ledger in 1150"
+    }
+   ]
+  },
+  {
+   "key": "man_te_the",
+   "name_hv": "Mẫn Tế Thế",
+   "name_han": "閔濟世",
+   "gloss": "Relieves the world",
+   "sex": "M",
+   "born": 880,
+   "alive": false,
+   "died": 1110,
+   "cause": "spent the last of his lifespan in needles breaking a fever in the lamp-makers' quarter",
+   "peak_realm": "ket_dan",
+   "sect": "",
+   "rank": "",
+   "home": 54,
+   "birthplace": 160,
+   "role": "The first healer of Hạnh Hoa Thị; Giả Hồi Xuân's master",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Stubborn",
+     "Temperate"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "backstory": "A Wood-rooted healer from Hà Châu Thôn on the river who opened a clinic under the largest apricot tree of Hạnh Hoa Thị around 920 and never charged a mortal. When the lamp-makers of Thanh Đăng came to the market (V148) he nursed their burns for nothing. He took Giả Hồi Xuân (gia_hoi_xuan) at seven. In 1110 a fever took the lamp-makers' quarter and no pill would break it; he spent his own years in needles to break it, and died under the tree at the end of the month (N-market_folk-04).",
+   "ties": [
+    {
+     "to": "gia_hoi_xuan",
+     "kind": "disciple",
+     "note": "his heir under the apricot tree"
+    },
+    {
+     "to": "duong_hao_vu",
+     "kind": "friend",
+     "note": "the rain abbess, who sent him her hard cases"
+    }
+   ]
+  },
+  {
+   "key": "bao_thua_phong",
+   "name_hv": "Bào Thừa Phong",
+   "name_han": "鮑乘風",
+   "gloss": "Rides the wind",
+   "sex": "M",
+   "born": 990,
+   "alive": false,
+   "died": 1160,
+   "cause": "a fall from the slipway of the new yards he still owed for, at 170",
+   "peak_realm": "truc_co",
+   "sect": "",
+   "rank": "",
+   "home": 57,
+   "birthplace": 57,
+   "role": "Founder of the Bào ship-house",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Content",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born"
+   },
+   "backstory": "A junk-builder who came to Bạch Sa when the Hỗ jetty made the white sands a trading town (A029), built the Hỗ fleet its coasting junks, and died in 1160 owing for his son's new yards (N-market_folk-05).",
+   "ties": [
+    {
+     "to": "bao_te_hai",
+     "kind": "child",
+     "note": "his son, who moved the yards to Yên Ba"
+    }
+   ]
+  },
+  {
+   "key": "lieu_thinh_kim",
+   "name_hv": "Liêu Thính Kim",
+   "name_han": "廖聽金",
+   "gloss": "Listens to metal",
+   "sex": "F",
+   "born": 1060,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 53,
+   "birthplace": 53,
+   "role": "Appraiser of Thiều Âm Thị: bronze, bells and the old instruments the south ploughs up",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 64,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 68,
+    "can_cot": 50,
+    "than_hon": 72,
+    "khi_van": 54,
+    "dao_tam": 60,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Calm",
+     "Arrogant"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "collector",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Tall, with long ears weighted by bronze rings; she taps every object handed to her with a fingernail before she looks at it.",
+   "backstory": "Born in 1060 among the instrument stalls of Thiều Âm Thị, the market of the Shao music that Phượng Minh's founder opened (A238), Liêu Thính Kim can name a bronze's foundry and century by the note it gives. She appraises what the farmers of Thê Ngô Lĩnh plough up from Cửu Thiều Cung's age for a tenth of the price, and Vưu Cẩm Thư (vuu_cam_thu) buys most of it for the palace's Hall of Spoils. She worked three seasons on Thiên Bảo's auction floor as a hired hand and left before Phan Vật Hoa (phan_vat_hoa) could make her an offer.",
+   "ties": [
+    {
+     "to": "vuu_cam_thu",
+     "kind": "friend",
+     "note": "her best buyer, for the Hall of Spoils"
+    },
+    {
+     "to": "phan_vat_hoa",
+     "kind": "rival",
+     "note": "left the auction floor before the mistress could keep her"
+    },
+    {
+     "to": "nguy_minh_giam",
+     "kind": "rival",
+     "note": "the studio's young appraiser, who judges with her eyes"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_kim",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "mf-listening-bronze-mirror"
+     },
+     {
+      "base": "chuong",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 3,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 4
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal land toward soul resistance and crit, then Earth: she strikes once, where the flaw is.",
+     "targets": [
+      4106,
+      4148,
+      4140,
+      3461
+     ],
+     "targets_note": "Ritual Bell for soul resistance, Jade Carving and Three-Pointed Blade for the one blow where the flaw is, Mountain Hollow for the Earth behind it."
+    },
+    "note": "An appraiser who fights the way she judges: listen, then one blow."
+   },
+   "items": [
+    "mf-listening-bronze-mirror"
+   ]
+  },
+  {
+   "key": "trinh_chu_sa",
+   "name_hv": "Trịnh Chu Sa",
+   "name_han": "鄭朱砂",
+   "gloss": "Cinnabar (talisman ink)",
+   "sex": "M",
+   "born": 1030,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 47,
+   "birthplace": 79,
+   "role": "Talisman seller of Đào Sa Thị who sells without the cloud stamp; sent away from Nam Phố Đường in 1120",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 60,
+     "thuy": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 56,
+    "than_hon": 62,
+    "khi_van": 46,
+    "dao_tam": 54,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Wrathful",
+     "Loyal"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Scarred"
+    ]
+   },
+   "appearance": "Red-faced and burn-scarred down one arm, with cinnabar ground into the creases of his knuckles.",
+   "backstory": "A Phong Lâm boatman's son, Trịnh Chu Sa was an inner disciple of Nam Phố Đường until 1120, when he sold unstamped talismans at Hạc Đinh Thị and the hall-mistress Châu Phi Vân (chau_phi_van) sent him down the river. He opened a stall at Đào Sa Thị and sold wards to the river boats at half the hall's price. In 1173 Lạc Hà's raiders burned Lãng Đào's boats at Đào Sa with fire talismans painted at Nam Phố (A080, N-nam_pho-03), and his stall burned with them. He keeps a scorched slip with the cloud stamp on it.",
+   "ties": [
+    {
+     "to": "chau_phi_van",
+     "kind": "former_master",
+     "note": "sent him away in 1120 for selling unstamped talismans"
+    },
+    {
+     "to": "kha_trieu_phi",
+     "kind": "rival",
+     "note": "he believes Kha knew what the 1173 order was for"
+    },
+    {
+     "to": "trac_thu_lan",
+     "kind": "rival",
+     "note": "keeps the hall's stall at Hạc Đinh Thị, where he once sold"
+    },
+    {
+     "to": "giang_cuu_khuc",
+     "kind": "friend",
+     "note": "the ferry master who buys his wards"
+    },
+    {
+     "to": "trinh_hong_tien",
+     "kind": "child",
+     "note": "his daughter, who paints his wards"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "southern-shore-cloud-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "general-talisman-bearer-ring"
+     },
+     {
+      "named": "mf-scorched-cloud-seal"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 7
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood land toward talisman arts and binding stacks, then Water's wards: the talismans do the fighting.",
+     "targets": [
+      5780,
+      5784,
+      4898,
+      4902,
+      5405
+     ],
+     "targets_note": "The Binding Vine idea (Creeping Vine, Binding Vine) for binding stacks, Ink Pool and Cursive Script for the talismans, Ice Mirror for Water's ward."
+    },
+    "note": "Nam Phố's inner method, carried out of the hall in 1120."
+   },
+   "items": [
+    "mf-scorched-cloud-seal"
+   ]
+  }
+ ]
+}

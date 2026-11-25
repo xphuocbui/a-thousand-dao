@@ -1,0 +1,338 @@
+{
+ "sect": "le_tuyen",
+ "_doc": "Lễ Tuyền Phái signature items (rules-proposals R7; design/items record). Prefix ltp- (lt- is free today, the third letter guards against later sects). Unpriced proposals; modifier sizes follow the wood and water catalogues' grade 3 items. The head also carries the catalogue gourd water-still-pool-gourd (unchanged).",
+ "items": [
+  {
+   "id": "ltp-sweet-dew-needles",
+   "name": "Sweet Dew Needles (Cam Lộ Châm)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "cham",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 18,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "needle-of-mending",
+     "name": "Needle of Mending (Bổ Châm)",
+     "rule": "Your needle arts may be set, in the loadout, to heal you for the damage they would deal and clear one debuff stack instead of striking.",
+     "authored": "a1"
+    }
+   ],
+   "lore": "Nine silver-and-boxwood needles in a roll of green silk. Mai Lễ Tuyền's master Liêm Cam Lộ made them; Mai has used them on fever towns, drunken elders and once, in 950, on a woman giving birth at dawn on the shore of Triêu Hà Hồ (A261).",
+   "build_use": "The head's healing weapon: needle arts that mend instead of wound.",
+   "holder": "mai_le_tuyen",
+   "made_by": "liem_cam_lo",
+   "made_year": 700,
+   "set": "ltp-sweet-spring",
+   "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "ltp-hundred-jar-seal",
+   "name": "Seal of the Hundred Jars (Bách Úng Ấn)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "an",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "thuy"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 20,
+     "scope": [
+      "thuy",
+      "debuff"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "sealed-cask",
+     "name": "Sealed Cask (Phong Úng)",
+     "rule": "A foe struck by your Water art while carrying three or more of your Water stacks gains one Drunk stack and one Heavy Breath.",
+     "authored": "d39"
+    }
+   ],
+   "lore": "The cellar seal pressed into the clay of every jar the school sends to the Pivot's table since 1140 (A263). Nhạc Thuần Nhưỡng had it cut from Ngọa Ngưu Sơn stone when the first order came, and he has pressed it into rather more than a hundred jars a year.",
+   "build_use": "The wine-master's piece: heavier Water stacks and a drunken foe.",
+   "holder": "nhac_thuan_nhuong",
+   "made_by": "nhac_thuan_nhuong",
+   "made_year": 1140,
+   "set": "ltp-hundred-jars",
+   "status": "proposal",
+   "authored": "d39"
+  },
+  {
+   "id": "ltp-red-dawn-robe",
+   "name": "Robe of the Red Dawn (Triêu Hà Bào)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 14,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A white healer's robe with one red cloud embroidered at the hem, sewn after the dawn of 950 on the shore of Triêu Hà Hồ, when she delivered the girl who became the palace's head (A261).",
+   "build_use": "Keeps her side standing longest: healing and regeneration.",
+   "holder": "mai_le_tuyen",
+   "made_by": "mai_le_tuyen",
+   "made_year": 950,
+   "set": "ltp-sweet-spring",
+   "status": "proposal"
+  },
+  {
+   "id": "ltp-sweet-spring-cup",
+   "name": "Cup of the Sweet Spring (Cam Tuyền Hồ)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "ho_lo",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "linh_luc_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 20,
+     "scope": [
+      "thuy",
+      "buff"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "A white gourd filled at the spring itself, never at the cellars. She does not let the wine-master fill it.",
+   "build_use": "The tide that fills her before it breaks: linh lực and Water buff stacks.",
+   "holder": "mai_le_tuyen",
+   "made_by": "liem_cam_lo",
+   "made_year": 860,
+   "set": "ltp-sweet-spring",
+   "status": "proposal"
+  },
+  {
+   "id": "ltp-cut-wine-cask",
+   "name": "Cask of the Cut Wine (Đoái Tửu Hồ)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "ho_lo",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "thuy"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 24,
+     "scope": [
+      "thuy",
+      "debuff"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A small travelling cask, half spring and half lake. He offers it to anyone he has to fight.",
+   "build_use": "A drunk foe: long Water stacks.",
+   "holder": "nhac_thuan_nhuong",
+   "made_by": "nhac_thuan_nhuong",
+   "made_year": 1141,
+   "set": "ltp-hundred-jars",
+   "status": "proposal"
+  },
+  {
+   "id": "ltp-cellar-leather",
+   "name": "Cellar Leather (Hầm Tửu Giáp)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A cellarman's stiff leather apron, stained with every vintage since 1100.",
+   "build_use": "A full cask's guard.",
+   "holder": "nhac_thuan_nhuong",
+   "made_by": "nhac_thuan_nhuong",
+   "made_year": 1100,
+   "set": "ltp-hundred-jars",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "ltp-sweet-spring",
+   "name": "The Sweet Spring (Cam Tuyền Tam Bảo)",
+   "pieces": [
+    "ltp-sweet-dew-needles",
+    "ltp-red-dawn-robe",
+    "ltp-sweet-spring-cup"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "healing_pct",
+       "value": 6,
+       "scope": []
+      },
+      {
+       "key": "linh_luc_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "A Brimming Cup (Mãn Bôi): each heal you cast while above 80 % linh lực overflows, and the overflow becomes a ward worth half the heal. When you have held full linh lực for 3 s, your next heal is doubled."
+    }
+   ],
+   "story": "The founder's needles, the gourd of the true spring and the robe of the red dawn. The head holds all three. It is the healers' set, not the cellars', and she means the school to remember the difference.",
+   "status": "proposal"
+  },
+  {
+   "id": "ltp-hundred-jars",
+   "name": "The Hundred Jars (Bách Úng Tam Bảo)",
+   "pieces": [
+    "ltp-hundred-jar-seal",
+    "ltp-cut-wine-cask",
+    "ltp-cellar-leather"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "stack_effect_pct",
+       "value": 10,
+       "scope": [
+        "thuy",
+        "debuff"
+       ]
+      },
+      {
+       "key": "linh_luc_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Half Lake (Bán Hồ): a foe carrying six or more of your Water stacks gains one Drunk stack each pulse while it stays at six or more."
+    }
+   ],
+   "story": "The cellar's seal, the cask and the apron. The wine-master holds all three. They are worth more to Kim Vạn Lý than to the school, and he knows it.",
+   "status": "proposal",
+   "authored": "d39"
+  }
+ ]
+}

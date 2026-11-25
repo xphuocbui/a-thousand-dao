@@ -2,8 +2,9 @@
 
 > **Status**: In Review (design-review 2026-11-10: NEEDS REVISION, 3 blocking; answers and fixes applied the same day, see `reviews/item-database-review-2026-11-10.md`; confirming re-review 2026-11-10 answered and fixed the same day, see `reviews/item-database-rereview-2026-11-10.md`). D2 applied 2026-11-08: the role tags `ward` and `body` are now `ward_gear` and `body_gear`. **2026-11-12:** rule 20 (named items) expanded with user decisions (copies by rarity, the same plain-modifier budget as a rolled artifact, four sources), Formulas I added, with Edge Cases, Tuning Knobs, AC-ID-88 to 91 and Open Questions 17 to 19. **2026-11-12:** rule 11 (equipping) redesigned with the user: base slots (1 weapon, 1 armour, 2 rings, 1 necklace) cost no thần thức; extra slots take any piece, grow by realm (2 / 3 / 4 / 5 / 6) plus `artifact_slots`, and cost thần thức; `ring` and `necklace` roles and two worn bases added (rule 6, Formulas E). **2026-11-12:** Open Questions 4, 5, 7, 13, 15, 17, 18 closed and 20 partly; **2026-11-13:** 8, 19, 20, 21, 23, 24 closed and 10 narrowed (`named_W_tolerance` 1.05, jewellery affix pool, art power through the gear layers), 22 kept for the harness (user decisions: edible herbs, Lost-item decay, timed effects on the character, rank names, no manual reissue, refining named items up, unique items return, the robe). **2026-11-12:** rule 21 added (user decisions): weapons give attack arts, armour and ward gear ward arts, rings, necklaces and utility an Effect or modifiers and optionally a reserve art; every rolled weapon and ward piece gives its base's common art; item arts use the art slots; the piece's number powers its art; the rule is a blueprint, and authored exceptions are marked and listed by the lint. **2026-11-13 (with the user):** rule 11 changed: no piece costs thần thức; extra slots are free and thần thức adds more (one per `artifact_slot_sense_step` × `ds_ref`, no cap); the Linh affix gives thần thức % (Formulas D, Edge Cases, AC-ID-12, 41, 42, 43, 80 and Open Question 21 follow).
 > **Author**: user + agents
-> **Last Updated**: 2026-11-12
+> **Last Updated**: 2026-11-25 (world-depth amendment: signature items and item sets)
 > **Last Verified**: 2026-11-10
+> **Amended 2026-11-25** (user rulings, world-depth pass: `design/world/depth/DECISIONS-2026-11-25.md` groups 1, 4, 6, 8 and 11; proposal `design/world/depth/rules-proposals.md` R7): **the authored cast carries signature items, and named items may form sets** whose pieces count only while worn: 2 pieces give plain Modifiers, the full set a hand-written Effect, and the cast's growing gear list makes a set a growth goal (rules 20f, 20g, 22; Formulas J). The 490 proposed items and 166 sets live in `design/world/depth/**/*.items.json`, unpriced until the item pass. Group 11: the set growth goal binds the cast and NPCs only; the player's slots follow rule 11 (rule 22e, Open Question 26).
 > **Implements Pillar**: Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2); Every Season Counts (4)
 
 ## Summary
@@ -132,7 +133,8 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
     2026-11-13, replacing the per-piece cost of 2026-11-12).
     - **Base slots, the same at every realm** (`equip.base_slots`): **1 weapon, 1 armour, 2 rings, 1 necklace**. The
       weapon slot takes a piece with the `weapon` role, the armour slot a `body_gear` piece, a ring slot a `ring` and
-      the necklace slot a `necklace`, so a Qi Refining cultivator can always wear a full set.
+      the necklace slot a `necklace`, so a Qi Refining cultivator can always wear a full base loadout (an item set,
+      rule 22, is a different thing).
     - **Extra slots, free like the base slots.** An extra slot takes **any equippable piece** (user decision
       2026-11-12): a second flying sword, a bell, a seal, a gourd, a third ring or a second armour. How many extra
       slots a character has (Formulas D, item slots):
@@ -212,7 +214,11 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
     tags live in a new `items_tags.json`, which also holds the existing recipe `effect.tag` strings. The lint also
     checks the affix pool against the Modifier System (review ID-07, D6): every affix key is a catalogue modifier
     priced in W, no rolled affix carries a rare modifier, and Chaos resistance is never in the rolled pool (named
-    items only, Combat Damage Types rule 5); resistance affixes are counted in points.
+    items only, Combat Damage Types rule 5); resistance affixes are counted in points. **Sets (amended 2026-11-25):**
+    the lint also checks every item set (rule 22): 2-5 pieces, each an existing named template whose `set` field names
+    that set and no other; a 2-piece bonus of plain Modifiers within Formulas J's budget; an Effect at the full set;
+    and a base on every piece (a piece with `base: null` is reported, because it cannot be worn and its set can never be
+    whole).
 20. **Named items** (user decisions 2026-11-10, review D1, and 2026-11-12). A named item is an authored artifact or
     treasure template marked `named`. It is read through its template, like an authored manual, and generation never
     rolls one. A rolled artifact never carries an Effect or a rare modifier.
@@ -247,6 +253,35 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
       - **Crafting:** Artifact Refining may hold a recipe for a **repeatable** named item. A unique item is never crafted.
     - **e. Markets never stock or restock a named item.** One sold to a Market becomes that Market's stock, as rule 14
       already says.
+    - **f. Signature items (new, 2026-11-25; R7, ruling group 1).** The authored cast carries **signature items**: named
+      items made for a person or handed down to them. Heads carry 3-4, elders 2-3 and key disciples 1-2, and every
+      living tier A person wears at least one piece of a personal or sect set (rule 22). A signature item is an
+      ordinary named item: rules 20a-e and 21 apply unchanged (base, grade, modifiers within Formulas I, unpriced
+      Effects, arts by role, uniqueness by rarity). It adds `holder` (its authored owner at world start), `made_by`,
+      `made_year`, `set` (rule 22) and, when it is a World Generation legendary record made real, `legendary_key`.
+      - **Authored source:** `design/world/depth/sects/<key>.items.json` and `design/world/depth/people/<group>.items.json`
+        (format: `design/world/depth/schema.md`, "signature items and sets"). Do not copy them here.
+      - **Counts (measured 2026-11-25):** 490 items in 56 files (432 artifacts, 58 treasures; grade 1 / 2 / 3 / 4:
+        5 / 69 / 288 / 128), 429 of them set pieces; 166 sets. No grade-4 artifact or rarity-5 treasure is held
+        below Kết Đan, so every unique one meets `holder_realm_min` (rule 20d).
+      - **Status:** every one is `status: "proposal"`, **unpriced and unlinted until the item pass** (user ruling
+        2026-11-25: "items stay unpriced proposals until the item pass (item lint to repair)"). The item pass prices
+        them against Formulas I and J and lints them; how they then reach the game data (into the `design/items/`
+        catalogue, or exported from the depth files) is the item pass's call. A unique one held by an authored person starts with that person (World Generation Edge
+        Cases); rule 20d places only the rest.
+    - **g. What item and set rules may not read (new, 2026-11-25; ruling groups 1, 6 and 8).** These limits apply to
+      every named item's Effects and to every set bonus (rule 22):
+      - **No environment conditions.** No rule reads the ground, terrain, biome, weather, place, time of day or season
+        (user, 2026-11-25: "this is stupid, remove conditions like this"; time and season followed in group 6). A rule
+        may read the fight's own state: health, stacks, wards, Still, Broken, the arts cast. An art named for weather
+        (a rain field the wearer casts) is an art, not a condition.
+      - **No caps inside pieces.** Where a piece would run away (a store, a stack count, a layer count), it gets a
+        **closing cost** (the store is spent all at once, the layers break when hit) or a **decay** (it fades at a
+        stated rate), never a hard "at most N" (user ruling, group 8; the standing rule since 2026-11-11 that scaling
+        has no caps).
+        For example, "each crit you take puts a coin in the vault (at most 5)" becomes "each crit you take puts a coin
+        in the vault, and the vault loses one coin every 3 s; your next coin art spends them all" (an illustration, not
+        an authored item).
 21. **What an item gives, by role** (user decisions 2026-11-12). **This rule is a blueprint, not a law** (user, the same
     day): authored content may break it where a piece is better for it. A base or a named piece may give another kind of
     art, more than one, or none (a ring with an attack art, armour with an Effect and no ward). Each exception is marked
@@ -279,6 +314,56 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
     those scale every art and ward the wearer has, the item's own among them. An item art is an ordinary art: nothing
     scales it beyond that, so grade and tier still matter (Formulas D). The common arts of each base are authored content (Open Question 24); a base
     with none yet gives no art.
+22. **Item sets (new, 2026-11-25; R7, user 2026-11-24: "both"; ruling groups 1 and 4).** Named items made together (a
+    sect's regalia, a master's pair of swords, a clan's heirloom suite) may form a set that pays its wearer for wearing
+    them together.
+    - **a. What a set is.** A named template may carry `set: <set id>`. A set record has `id`, `name` ("English
+      (Hán-Việt)"), `pieces` (**2 to 5** named template ids), `bonuses` and `story` (who made it, and why it is whole or
+      split). A piece belongs to one set at most. A set never changes a piece's own modifiers, Effects or arts; it adds
+      lines of its own. Set records export to a new `items_sets.json` (**change**); until the item pass they sit under
+      `sets` in the depth items files (rule 20f).
+    - **b. Bonuses by pieces worn** (Formulas J1, J2):
+      - **2 pieces worn:** plain Modifiers (Modifier System catalogue keys, with scopes), about **half one item's
+        budget**.
+      - **The full set worn:** a **hand-written Effect** (Effects System), unpriced like every Effect (user decision
+        2026-11-08), on top of the 2-piece Modifiers. For a 2-piece set both switch on together at 2.
+      - A count between 2 and full (3 of 4, 3 or 4 of 5) adds nothing more. There are no other thresholds; an Effect
+        authored below the full set is a rule 21-style `exception` with a one-line reason, listed by the lint.
+      - Both bonuses are lines on the wearer with the source `set:<id>`, shown in its Breakdown with the count worn
+        (rule 17), so a player sees which set is paying and what the next piece would add.
+    - **c. Worn, not carried.** A piece counts only while it is **Equipped and counts under rule 11**: in a base slot,
+      or in an extra slot within the count (under the `single_artifact` keystone, only the one extra piece that counts).
+      A piece in the bag, past the extra-slot count or in a slot its wearer cannot control counts nothing. Two records
+      of the same repeatable piece count as one piece. Combat reads the count when it compiles the loadout, like every
+      other piece.
+    - **d. A set may be split across holders.** Pieces move under rule 14 like any item (succession, gift, theft, a
+      holder's death), and a piece keeps its `set` wherever it goes. **A set is whole only when one person wears all of
+      it**, so succession and theft matter: a head and a first elder may share a sect's regalia, and the set's `story`
+      says who holds what.
+    - **e. Sets and the cast's gear list (ruling group 4).** An authored cast member wears the gear list of their build,
+      **`1 + realm index` pieces, at most 3** (World Generation rule 6, the format in `design/world/cast_builds.json`;
+      Formulas J3), not rule 11's full slot count. It is the same count NPC Build Generation gives random NPCs
+      (`world_generation.json` `artifacts_base` 1, `artifacts_per_realm` 1, `artifacts_max` 3). A set meant to be whole
+      on its holder has at most that many pieces: up to 3 from Kết Đan up, 2 at Trúc Cơ, and 2 at Luyện Khí as the
+      growth goal below. **A Luyện Khí person wears one piece of a 2-piece set and holds the other, and the set bonus
+      switches on when they reach Trúc Cơ and their gear list gains a slot** (user, 2026-11-25: "a growth goal"). At
+      that breakthrough NPC Builds equips the held piece into the new slot (**provisional and not built**: NPC Builds has
+      no GDD, and today `BuildGenerator` equips an NPC once, when it is generated, and nothing re-equips at a
+      breakthrough; Open Question 30). **The growth goal binds the cast and NPCs only** (amended 2026-11-25; user ruling, DECISIONS group 11, Open
+      Question 26). The player is not bound by the gear list: their slots follow rule 11, so a Qi Refining player
+      can wear both pieces of a 2-piece set at once and gets its bonus at once. Option (b)'s `set_pieces_by_realm` count is not
+      adopted.
+    - **f. Bigger sets.** The rule allows 4 and 5 pieces, but no authored person can wear one whole while the cast's
+      gear list stops at 3, so every set authored on 2026-11-25 has 2 or 3 pieces (99 three-piece, 67 two-piece). A
+      4-5 piece set is for the player (whose slots follow rule 11), or for the cast once its gear list grows past 3
+      (`artifacts_max`, still open in Open Question 26).
+    - **g. Limits.** Rule 20g (no environment conditions, no caps inside pieces) applies to every set bonus.
+    - **Measured on the 2026-11-25 proposals:** 144 sets are worn whole by one person (58 two-piece, 86 three-piece);
+      18 sets are split across holders; 30 person-set pairs wear part of a set, 3 of them Luyện Khí tier A people
+      wearing one piece of a 2-piece set and holding the other. 3 sets can never be whole until their missing base
+      exists (Open Question 27). Example: the Ice Heart Regalia (Băng Tâm Tam Bảo, `bt-regalia`) is split. Sở Ngọc Hồ
+      wears the Jade Vessel and the Frost Seal and gets the 2-piece Modifiers; Tiết Hàn Mai wears the Clear Heart Mirror
+      and gets nothing from the set; the Effect switches on only if one of them comes to wear all three.
 
 ### States and Transitions
 
@@ -309,17 +394,18 @@ World have no GDD yet (quick specs at most). Rows marked **provisional** hold th
 | Realms & Bottlenecks (#8) | out | Breakthrough pills (tag and quality) and talismans, consumed on use; the unequip preview | Realms (what a gate needs); this GDD (the items and the preview) |
 | Cultivation Techniques (#9) | out / in | Manuals as items pointing at templates; generated commons stored whole; the reserved flag | Techniques (record schema, rule 18); this GDD (storage, flags) |
 | Đạo Đồ (#10) | none | Retired 2026-11-10: the Đạo Ấn seal key had nothing left to open | — |
-| Combat (#21) | out | Equipped pieces with role tags, attack (with its `damage_type`), defence and affixes; consumable arts (talismans); named items' active arts | Combat (what a piece adds); this GDD (roles) |
+| Combat (#21) | out | Equipped pieces with role tags, attack (with its `damage_type`), defence and affixes; consumable arts (talismans); named items' active arts; set bonus lines, read when the loadout compiles (rule 22c; 2026-11-25) | Combat (what a piece adds); this GDD (roles, sets) |
 | Combat Defence & Healing (#21a) | out | Role tags and defence numbers; it maps them to `a_w` and `a_b` (its Formulas A0) | Combat Defence (the mapping); this GDD (tags, numbers) |
 | Combat Damage Types (#21b) | out | Each base's `damage_type`; named items' active arts declare their parts | Combat Damage Types |
-| Modifier System (#40) | in | The catalogue keys and prices affixes and named modifiers use; rare modifiers only on named items | Modifier System |
-| Effects System (#41) | in | The Effect records named items host (rule 20) | Effects System |
+| Modifier System (#40) | in | The catalogue keys and prices affixes and named modifiers use; rare modifiers only on named items; the keys and prices of set 2-piece Modifiers (rule 22, Formulas J2; 2026-11-25) | Modifier System |
+| Effects System (#41) | in | The Effect records named items host (rule 20) and the full-set Effects sets host (rule 22; 2026-11-25) | Effects System |
 | The Way (#39) | in | `artifact_slots` from Kim Đạo's facet (rule 11) | the Way |
 | Alchemy (#15), Spirit Herbs (#14) | in / out | Herbs and pills created and consumed; a Planted herb's age advanced on the tick (**provisional**); harvested ages fixed (rule 15) | Alchemy, Spirit Herbs |
 | Artifact Refining (#16), Formations (#17), Talismans (#18), Spirit Beasts (#19) | in / out | Crafted items created and ingredients consumed (**provisional**) | each crafting system |
 | Market (#20) | out | Value, the reserved and bound flags (**provisional**) | Market (price and stock); this GDD (value) |
 | Event Engine (#23) | in / out | Item requests within a budget; rewards created through generation (**provisional**) | Event Engine (the request); this GDD (the record) |
 | NPC Builds (#24), Living World (#28) | in | Items generated for NPCs and moved by the world (**provisional**) | NPC Builds, Living World |
+| World Generation (#27), NPC Builds (#24) | in / out | In: signature items' authored holders and the cast's gear list (`1 + realm index` pieces, at most 3) that set sizes follow. Out: set records and the count worn. NPC Builds equips a held set piece when a cast member's gear list grows at a breakthrough (rules 20f, 22e; **provisional**, 2026-11-25) | World Generation (the cast and its builds); NPC Builds (equipping); this GDD (sets and what counts) |
 | Save/Load (#5) | out | The records, whole | Save/Load |
 | Debug Terminal (#36), Game UI (#37) | out | `describe`, category and tag data, previews | the presentation system |
 | Balance Harness (#33) | out | Counts by kind, category and rarity | Balance Harness |
@@ -349,6 +435,8 @@ acceptance criteria that fail today are listed so the build scope is visible.
 | 20 | No named items, no Effects or rare modifiers on items, no uniqueness or return timer, no named-item budget lint | 85e, 88 to 91, 93 |
 | 21 | Items give no arts; a piece's attack and defence feed combat power directly | 94, 95 |
 | Formulas D | No `damage_type` on bases | 87 |
+| 20f, 20g, 22, Formulas J | No `set` field, set records, `items_sets.json`, set bonus lines or set lint; the 490 signature items and 166 sets exist only as proposals in `design/world/depth/` (2026-11-25) | 98 to 106, 108, 109 |
+| 19 (the lint tool) | `tools/design/items/lint_items.py` stops before checking anything: it loads `tools/design/dao_do_rework/editor/export_catalogue.py`, removed with the Đạo Đồ editor on 2026-11-19 (`FileNotFoundError`, reproduced 2026-11-25). It also reads only `design/items/catalogue-*.json`, not the depth files' `{items, sets}` shape, and has no set checks (Open Question 28) | 88, 107 |
 
 Migration: removing stored `value` and herb `rarity` and adding `bound` needs a save `version` bump (today 3) and a migration of
 version 3 records (`bound` set from the template, `value` dropped, `damage_type` set to Physical). Combat's AC-ID-70 is on hold with the full fight.
@@ -688,6 +776,84 @@ Formulas F) and is not priced here.
 **Example:** Hearth Aura reserves 12 %, so it may grant up to 12 W; its +25 % stack duration and +10 % stack effect
 [hoa, debuff] cost 5.0 + 2.5 = 7.5 W.
 
+### J. Item sets (new, 2026-11-25)
+
+Rule 22. **None of the 166 proposed sets is priced yet** (R7 ruling: unpriced until the item pass), so the output ranges
+below are the budget, not measured spends.
+
+**J1. Pieces worn and the bonuses on.**
+
+The n_worn formula is defined as:
+
+`n_worn(s, c) = |{ t ∈ pieces(s) : c wears a record of template t that counts under rule 11 }|`
+
+`mods_on = (n_worn ≥ set_bonus_min_pieces)` ; `effect_on = (n_worn = |pieces(s)|)`
+
+**Variables:**
+
+| Variable | Type | Range | Source | Description |
+|---|---|---|---|---|
+| s | set record | — | `items_sets.json` (**change**: new) | The set |
+| c | character | — | World Database | The wearer |
+| pieces(s) | set of template ids | 2–5 ids | set record | The set's distinct pieces; two records of one template count once |
+| n_worn | int | 0–5 | calculated | Distinct pieces `c` wears that count under rule 11 (base slot, extra slot within the count, or the one `single_artifact` piece) |
+| set_bonus_min_pieces | int | 2 | data file (**change**: new) | Pieces worn for the 2-piece Modifiers (R7) |
+| mods_on, effect_on | bool | — | calculated | Whether the 2-piece Modifiers and the full-set Effect apply |
+
+**Output Range:** `n_worn` from 0 to the set's size. Nothing applies below 2; the Modifiers apply from 2; the Effect
+applies only at the full set, and for a 2-piece set both apply at 2.
+
+**Example:** the Ice Heart Regalia has 3 pieces. Sở Ngọc Hồ wears two, so `n_worn` = 2: `mods_on` (+8 % linh lực,
++10 % heart-demon resistance), `effect_on` false. Tiết Hàn Mai wears the third: `n_worn` = 1, nothing. If Sở comes to
+wear the Mirror as well, `n_worn` = 3 and the Effect, The Keeper's Stillness, switches on.
+
+**J2. The 2-piece Modifier budget.**
+
+The set_W_max formula is defined as:
+
+`set_W_max = set_W_share · named_W_max[g_set]` ; `g_set = min(grade of each piece)`
+
+The lint passes a set when `Σ W(2-piece modifiers) ≤ set_W_max · named_W_tolerance`. The full-set Effect is unpriced and
+is not counted.
+
+**Variables:**
+
+| Variable | Type | Range | Source | Description |
+|---|---|---|---|---|
+| set_W_share | float | 0.5 (guess, from R7's "about half a single item's budget") | data file (**change**: new) | The share of one item's plain-modifier budget a set's 2-piece bonus may spend |
+| named_W_max[g] | float | about 12.8 / 25.6 / 38.3 / 51 W for grades 1–4 | Formulas I | One named item's plain-modifier budget at grade `g` |
+| g_set | int | 1–4 | calculated | The **lowest** grade among the pieces (a guess: the weakest piece bounds the set, so a grade-4 piece paired with a grade-2 piece is not priced as two grade-4s). A treasure uses its Formulas I grade (rarity − 1) |
+| W(modifier) | float | ≥ 0 | Modifier System | Each 2-piece modifier's price; a rare modifier costs its rare price, as on a named item |
+| named_W_tolerance | float | 1.05 | Formulas I | Shared with named items |
+
+**Output Range:** `set_W_max` runs from about 6.4 W (grade 1) to about 25.6 W (grade 4), so the lint passes up to about
+6.7 W and 26.8 W.
+
+**Example:** a set of two grade-3 pieces gets 0.5 × 38.3 = **19.2 W** of 2-piece Modifiers, and the lint passes up to
+20.1 W. A set of one grade-4 and one grade-2 piece gets 0.5 × 25.6 = **12.8 W** (passes up to 13.4 W).
+
+**J3. The cast's gear list (read from World Generation; stated here because rule 22e sizes sets by it).**
+
+The n_gear formula is defined as:
+
+`n_gear(r) = min(artifacts_base + r · artifacts_per_realm, artifacts_max)`
+
+**Variables:**
+
+| Variable | Type | Range | Source | Description |
+|---|---|---|---|---|
+| r | int | 0–4 | the person's realm index | 0 Luyện Khí, 1 Trúc Cơ, 2 Kết Đan, 3 Nguyên Anh, 4 Hóa Thần |
+| artifacts_base, artifacts_per_realm | int | 1, 1 | data file (`world_generation.json`, built) | The gear count at Luyện Khí and its growth per realm, for random NPCs and the cast build format alike |
+| artifacts_max | int | 3 | data file (`world_generation.json`, built) | The longest gear list; owned by World Generation / NPC Build Generation |
+| n_gear | int | 1–3 | calculated | Pieces an authored cast member wears |
+
+**Output Range:** 1 / 2 / 3 / 3 / 3 from Luyện Khí to Hóa Thần. A set meant to be whole on its holder has at most
+`n_gear(r)` pieces; the one planned exception is the Luyện Khí 2-piece set (rule 22e), sized to `n_gear(1)` = 2.
+
+**Example:** a Luyện Khí disciple has `n_gear(0)` = 1. She wears the Thawing Brazier and keeps the Ember Pendant in her
+pack, so `n_worn` = 1 and nothing applies. At Trúc Cơ `n_gear(1)` = 2, the pendant is equipped, `n_worn` = 2, and the
+set's Modifiers and Effect both switch on.
+
 ## Edge Cases
 
 **Records and data**
@@ -747,6 +913,24 @@ Formulas F) and is not priced here.
 - **If a named template's rarity is lowered below `unique_rarity_min` after copies existed as unique:** nothing changes on existing records; sources may then make more.
 - **If an event's narration names a named item:** it may only name one the engine has already created (rule 16); the LLM never invents a named item.
 
+**Item sets and signature items** (rules 20f, 20g, 22, Formulas J; new 2026-11-25)
+
+- **If a set piece is held but not equipped:** it counts nothing (rule 22c). Equipping it raises `n_worn` at once, and the next loadout compile applies whatever the new count switches on.
+- **If a set piece sits past the extra-slot count, or is a second extra piece under `single_artifact`:** it counts nothing, as it adds nothing under rule 11. When a slot frees up and the piece counts again, it counts toward its set again.
+- **If a wearer wears two records of the same repeatable piece:** they count as one piece; a 2-piece set is never whole from two copies of one piece.
+- **If a set is split between two people:** each is counted alone. A holder wearing 2 of 3 pieces gets the 2-piece Modifiers; a holder wearing 1 gets nothing from the set.
+- **If two people each wear a whole copy of a repeatable set:** both get every bonus. A set with any unique piece can be whole for one person only, because that piece exists once (rule 20c).
+- **If a unique set piece is destroyed:** its set cannot be whole until the piece returns after `unique_return_years` (rule 20c). A wearer of the remaining pieces keeps the 2-piece Modifiers while they still wear 2.
+- **If a set piece has `base: null`:** it cannot be equipped (it has no role), the lint reports it, and its set can never be whole until a base exists. On the 2026-11-25 proposals this is 5 items and 3 sets (Open Question 27).
+- **If a piece's `set` names a set that does not list it, or a set lists a piece whose `set` names another set:** the lint rejects both records.
+- **If a set lists a catalogue item from `design/items/` as a piece** (some 2026-11-25 sets do, such as `ice-moonrime-sword`): the catalogue item gains the `set` field at the item pass; until then the lint reports the missing field.
+- **If an authored set Effect says "while you hold" the set:** it is read as "while you wear" (rule 22c). The item pass rewords it; 24 set Effects on the 2026-11-25 proposals use "hold" or "carry".
+- **If a set bonus and a piece give the same modifier key:** they add, as any two Modifier lines do (Modifier System).
+- **If a Luyện Khí cast member's held second piece is gone when they reach Trúc Cơ** (sold, stolen, lost): nothing in the set switches on. What fills the new slot is NPC Builds' call (Open Question 30); today nothing re-equips an NPC at a breakthrough, so it stays empty.
+- **If a cast member wears more set pieces than their gear list allows:** the depth checker reports any build whose gear list is not `n_gear(r)` long (`tools/design/world/depth_check.py`, "gear pieces, want"), and the export check `export_world.py --check` should refuse one (a back-link owed by World Generation rule 6; today it checks only that each gear id exists). A 4-5 piece set therefore cannot be whole on any authored person (rule 22f).
+- **If a set or item Effect needs an engine feature that does not exist yet** (delayed damage, timer-delay immunity, tick-to-heal, a foe clock stop, a mist tag, Charmed or Sleep holding the caster's arts): the Effect stays as written and waits for the combat port, which lists the features in `design/world/depth/builds/engine-wishes.md` (ruling group 8). Until a feature is built, the Effect does nothing (Open Question 31).
+- **If an Effect reads the environment, or holds an "at most N" limit:** it breaks rule 20g; the item pass rewrites it before export (Open Question 29).
+
 ## Dependencies
 
 **Upstream (the Item Database needs these).**
@@ -756,8 +940,9 @@ Formulas F) and is not priced here.
 | World Database (#3) | Hard | The `items` table, owner index, event log | Built, no GDD |
 | Config (#1), Sim Core (#2) | Hard | Data files, seeded streams, Breakdown | Built, no GDD |
 | Character Stats (#7) | Soft | The lifespan cap for the rule 12 preview; the `artifact_slots` key, which adds extra slots (rule 11) | GDD in review |
-| Modifier System (#40) | Soft | Catalogue keys and prices for affixes; rare modifiers on named items only | Approved |
-| Effects System (#41) | Soft | The Effect records named items host (rule 20) | Approved |
+| Modifier System (#40) | Soft | Catalogue keys and prices for affixes; rare modifiers on named items only; keys and prices for set 2-piece Modifiers (rule 22, Formulas J2; 2026-11-25) | Approved |
+| Effects System (#41) | Soft | The Effect records named items host (rule 20) and full-set Effects (rule 22; 2026-11-25) | Approved |
+| World Generation (#27) | Soft | The authored cast: each signature item's `holder`, and the cast build's gear list (`1 + realm index` pieces, at most 3) that set sizes follow (rules 20f, 22e, Formulas J3; new 2026-11-25) | GDD designed; the 2026-11-25 cast and items are proposals in `design/world/depth/` |
 
 **Downstream (these need the Item Database).**
 
@@ -779,7 +964,7 @@ Formulas F) and is not priced here.
 | Quests (#31) | Hard | Prices and rarity bounds for quest rewards; item classes for `deliver` and `craft` stages | GDD designed (`design/gdd/quests.md`), in review |
 | Travel & Map (#25) | Soft | Maps, jade slips and told secrets as clue items; resources mapped to materials and herbs; `linh_thach_max` for the teleport fee and abode cost | GDD designed (`design/gdd/travel-map.md`), pending review |
 | Event Engine (#23), LLM GM (#29) | Hard | Budgeted item requests | Built, no GDD |
-| NPC Builds (#24), World Generation (#27), Living World (#28) | Hard | Items for NPCs and history; World Generation places every unique named item at world start and NPC Builds equips it (rule 20d) | Built, no GDD; named items not built |
+| NPC Builds (#24), World Generation (#27), Living World (#28) | Hard | Items for NPCs and history; World Generation places every unique named item at world start and NPC Builds equips it (rule 20d); World Generation places the signature items with their authored holders (rule 20f), and NPC Builds equips a held set piece when a cast member's gear list grows (rule 22e, **provisional**; 2026-11-25) | Built, no GDD; named items and sets not built |
 | Save/Load (#5) | Hard | Whole records; a save `version` bump and migration for the new fields | Built, no GDD |
 | Guidance (#35), Debug Terminal (#36), Game UI (#37), Balance Harness (#33) | Soft | `describe`, previews, counts | Terminal and Guidance built |
 
@@ -788,6 +973,18 @@ Combat Damage Types, the Modifier and Effects Systems, Quests, Heavenly Tribulat
 row for #13 gains Character Stats as a soft dependency (the rule 12 read). No
 circular dependency is added: crafts and effects act through their own systems, and this system never calls them back
 except for the rule 12 preview, which is a read.
+
+**Back-links owed by the 2026-11-25 amendment** (rules 20f, 20g, 22). World Generation (rule 6 should state the cast
+build's gear list, `1 + realm index` pieces at most 3, that sets are sized to, and that signature items start with
+their authored holders; its export check should refuse a gear list of the wrong length), the Effects System (full-set
+Effects as a new host, and rule 20g's no-environment and no-caps limits), the Modifier System (set bonus lines with
+source `set:<id>`), Combat (set lines read at loadout compile) and NPC Builds when its GDD is written (equipping a held
+set piece at a breakthrough). World Generation becomes a two-way dependency: it already lists this system for rule 20d.
+*(Written 2026-11-25 in World Generation, Effects, the Modifier System and Combat; NPC Builds has no GDD yet.)*
+
+**Back-link written 2026-11-25** (world-depth rulings): **NPC Traits** (#42, rule 8a) opens `craft:refining`
+(`forge_scarred`) on a refiner; what the edge gives is the refining rule's (Artifact Refining #16), still to write
+(NPC Traits Open Question 15).
 
 **Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
 systems split out of Combat depend on each other as follows.
@@ -819,6 +1016,10 @@ the Market's margin, stay with their owners.
 | `lost_decay_years` (30, a guess), `lost_decay_rarity_max` (4) | How long ordinary Lost items last, and from which rarity they never decay (rule 14) |
 | `reserve_w_rate` (1.0, a guess) | How much a reserve art may grant per point of linh lực it reserves (Formulas I) |
 | `named_W_tolerance` (`w_affix` is computed, not set) | How much plain power a named item may carry beside its Effects (Formulas I) |
+| `set_W_share` (0.5, a guess; safe 0.3–0.7; new 2026-11-25) | How much a set's 2-piece Modifiers may spend, as a share of one item's budget (Formulas J2). Lower makes a set worth wearing only for its Effect; higher makes two pieces of a set beat two better unrelated pieces |
+| `set_bonus_min_pieces` (2; new 2026-11-25) | Pieces worn for the 2-piece Modifiers (Formulas J1). R7 fixes it at 2; raising it would leave every 2-piece set paying only at full |
+| `set_size_min`, `set_size_max` (2, 5; new 2026-11-25) | The pieces a set may have (rule 22a), checked by the lint |
+| `artifacts_max` (3; with `artifacts_base` 1 and `artifacts_per_realm` 1, in `world_generation.json`; owned by World Generation, read here) | How many pieces the longest cast gear list holds, and so the largest set an authored person can wear whole (rule 22e, f; Formulas J3; Open Question 26) |
 
 **Knobs that move together.** `kind_offset` and `realm_rarity_cap` together set every kind's cap, so a change to one must be
 checked against the built caps (AC-ID-07). Breakthrough recipe herbs and `min_age` are owned by Realms and are calibrated:
@@ -844,7 +1045,7 @@ The terminal shows rarity through a colour and always through a word as well, so
 |---|---|---|
 | Inventory | Items grouped by category, an item appearing under each of its categories, with rarity and value | Filter by category, tag and rarity; pick an action |
 | Item detail | `describe` line, categories, tags, rarity, value and any Breakdown (rule 17) | Each action its categories grant, with bound items showing that they cannot be traded |
-| Equip panel | Equipped pieces, base and extra slots used and the count, the thần thức the next extra slot needs, roles | Equip and unequip, with the rule 12 preview on a removal that would end a life |
+| Equip panel | Equipped pieces, base and extra slots used and the count, the thần thức the next extra slot needs, roles; for each set with a piece worn, its name, pieces worn of its size, the bonus on and the bonus the next piece adds (rule 22b; 2026-11-25) | Equip and unequip, with the rule 12 preview on a removal that would end a life |
 | Use preview | The effect and the choice or irreversible result that needs it | Confirm or back out |
 
 All of these work in the Debug Terminal first, with numbered menus as elsewhere.
@@ -865,6 +1066,8 @@ All of these work in the Debug Terminal first, with numbered menus as elsewhere.
 | Rule 6, Formulas E | combat-defence.md Formulas A0, A2, B | body_gear defence feeds `a_b` (block and body shield), the rest `a_w` (ward strength, efficiency, gear block) | Combat Defence owns the mapping; this GDD owns the tags and numbers (closes Combat Defence Open Question 13 from this side) |
 | Rule 11 | character-stats.md rule 15 (`artifact_slots`); dao-do.md capability #2; dao.md Kim Đạo; modifiers.md (Artifact slots, rare) | Extra equip slots | Read only |
 | Formulas D | character-stats.md | Affix stat keys | Read only |
+| Rules 20f, 22e, Formulas J3 | world-generation.md rule 6; `design/world/cast_builds.json` `_doc` | The cast's builds, signature items' holders and the gear list of `1 + realm index` pieces (at most 3) | World Generation owns the cast; this GDD owns sets (2026-11-25) |
+| Rules 20f, 20g, 22 | `design/world/depth/DECISIONS-2026-11-25.md` groups 1, 4, 6, 8; `rules-proposals.md` R7; `schema.md` | The rulings and the authored items and sets | The depth files are the authored source |
 
 ## Acceptance Criteria
 
@@ -1052,6 +1255,55 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
   at t = 0 and no art slot is used; given the same necklace in an extra slot its wearer cannot control, nothing is
   reserved and the art is not available.
 
+**Item sets and signature items (2026-11-25).** Fixture **FX-S**: a 2-piece set S2 (pieces A, B; 2-piece Modifiers
++8 % `linh_luc_pct`; an Effect at 2), a 3-piece set S3 (pieces C, D, E; 2-piece Modifiers +6 % `crit_chance_pct`; an
+Effect at 3) and a 5-piece set S5 (pieces F to J), all repeatable, grade 3, every piece an extra-slot piece (a
+flying sword, a bell, a seal or a gourd, so it takes no base slot), with a Kết Đan wearer whose extra slots are free
+unless a criterion fills them first.
+
+- **AC-ID-98** [Logic · BLOCKING] Rule 22c, worn not carried. **GIVEN** FX-S with A equipped and B in the bag, **THEN**
+  the wearer has no `set:S2` line; **WHEN** B is equipped, **THEN** +8 % linh lực and the S2 Effect apply with source
+  `set:S2`; **WHEN** A is unequipped, **THEN** both are gone.
+- **AC-ID-99** [Logic · BLOCKING] Rule 22b, Formulas J1, thresholds. **GIVEN** FX-S, **THEN** 2 of S3 worn gives +6 %
+  crit and no Effect; 3 of S3 gives +6 % crit and the Effect; 4 of S5 gives only S5's 2-piece Modifiers; 1 of any set
+  gives nothing.
+- **AC-ID-100** [Logic · BLOCKING] Rule 22c with rule 11. **GIVEN** FX-S with C and E counted and D equipped in an
+  extra slot past the count, **THEN** S3's `n_worn` is 2 (Modifiers, no Effect); **WHEN** an earlier extra piece is
+  unequipped and D counts, **THEN** `n_worn` is 3 and the Effect applies; **GIVEN** the `single_artifact` keystone with C
+  and D both in extra slots, **THEN** only the first in equip order counts; **GIVEN** two records of C and nothing else of
+  S3, **THEN** `n_worn` is 1.
+- **AC-ID-101** [Logic · BLOCKING] Rule 22d, split sets. **GIVEN** X wears C and D and Y wears E, **THEN** X has S3's
+  2-piece Modifiers and Y has no `set:S3` line; **WHEN** Y gives E to X and X equips it, **THEN** X has the S3 Effect.
+- **AC-ID-102** [Integration · BLOCKING] Rule 22e, the growth goal. **GIVEN** a Luyện Khí cast member with a gear list of
+  one (A worn, B held), **THEN** no `set:S2` line; **WHEN** they break through to Trúc Cơ, **THEN** B is equipped in the
+  new slot and the S2 Modifiers and Effect apply; **GIVEN** B was stolen before the breakthrough, **THEN** nothing in S2
+  applies. Blocked on Open Question 30 (NPC Builds' equipping step).
+- **AC-ID-103** [Config/Data · BLOCKING] Formulas J2. With `w_affix` 12.8 W: a set of two grade-3 pieces with 20.1 W of
+  2-piece Modifiers passes and one with 20.2 W fails; a set of a grade-4 and a grade-2 piece is held to 13.4 W (12.8 W at
+  tolerance 1.05); the full-set Effect is never priced.
+- **AC-ID-104** [Config/Data · BLOCKING] Rule 19, set schema. The lint rejects: a set of 1 piece and one of 6; a piece
+  whose `set` names a set that does not list it; a piece listed in two sets; a set naming a template that does not
+  exist. It notes a set with no Effect at full, and lists an Effect below the full set as an exception (with a reason)
+  or reports it unmarked (without).
+- **AC-ID-105** [Config/Data · BLOCKING] Rule 19, missing bases. A piece with `base: null` is reported, and its set is
+  listed as unable to be whole. On the 2026-11-25 proposals the lint reports 5 such items and 3 such sets.
+- **AC-ID-106** [Config/Data · ADVISORY] Rule 20g. The lint's term scan (ground, terrain, biome, weather, place, night,
+  dawn, dusk, season; "at most", "up to") lists every item and set Effect that matches, as notes; the item pass reads
+  each and leaves none that reads the environment or holds a hard limit in the exported data.
+- **AC-ID-107** [Config/Data · BLOCKING] The lint runs. `python -I tools/design/items/lint_items.py` over
+  `design/items/catalogue-*.json` and `design/world/depth/**/*.items.json` ends with `checked N items, F findings`, N at
+  least 658 (168 catalogue + 490 proposals), and no Python error.
+- **AC-ID-108** [Integration · BLOCKING] Rule 20f. A new world holds every exported signature item with its authored
+  `holder`, each unique one exactly once (AC-ID-90), none held below `holder_realm_min`, and every cast member's
+  equipped pieces equal their build's gear list.
+- **AC-ID-109** [UI · BLOCKING] Rule 22b, Breakdown and the equip panel. **GIVEN** FX-S with C and D worn, a retained
+  transcript in `production/qa/evidence/debug-terminal/` shows S3's name, "2 of 3", the +6 % crit line with source
+  `set:S3`, and the Effect the third piece would add.
+- **AC-ID-110** [Logic · BLOCKING] Rule 22e, the player (new, 2026-11-25; ruling group 11). **GIVEN** a Qi Refining
+  player with rule 11's slots and both pieces of the 2-piece set S2, **WHEN** both are equipped, **THEN** both are worn
+  and S2's 2-piece Modifiers and Effect apply at once, with no gear-list count checked; **GIVEN** a Luyện Khí cast
+  member holding the same two pieces, **THEN** AC-ID-102 still holds (one worn, no `set:S2` line).
+
 ## Open Questions
 
 | # | Question | Owner | Blocks |
@@ -1081,3 +1333,9 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 | 23 | ~~How an item art's power reads its piece's number~~ **Closed 2026-11-13:** through the gear layers as today (rule 21): attack feeds L3, defence feeds `a_w` / `a_b`; an item art is an ordinary art | — | — |
 | 24 | ~~Common arts, common wards, reserve arts~~ **Closed 2026-11-12/13:** each weapon base has a common art (`design/items/common-arts.json`), armour and ward gear use the starter wards, named items carry their reserve arts | — | — |
 | 25 | **Hand-off from Regional Economy & Trade (#43, 2026-11-14), pending:** items gain an `origin_market` tag (the market where they were bought, gathered or looted; empty on old saves, which then pay no tariff). Selling an item in another market pays that market's import tariff (#43 rule 16, Formula G). Raw goods also need their **good class** (herb, ore, beast, special) and finished goods their **main input's class** (#43 rule 4) **Hand-off from Trade Goods (#45, 2026-11-14), pending:** each raw herb and material template gains a `trade` block (`good_class`, `element`, `source`, `weight`; Trade Goods rule 1); 6 new templates (Thiết Tuyến Thảo, Tử Kim Sa, Yêu Cốt, Yêu Thú Bì, Linh Tuyền Thủy, Địa Hỏa Tinh; values are Trade Goods guesses); every catalogue good needs a recipe that uses it (Trade Goods rule 4a); a crafted item takes its main input's `origin_market` (Trade Goods Formula I); the three margin outliers need recipe changes (Trade Goods Open Question 1); Linh Thạch Khoáng stays outside trade. **Decided 2026-11-14 (user):** the 6 goods' values (3 maturing in 1 year, 180, 10, 12, 8, 80); the recipe revision for the three outliers and the new Thiết Cốt Đan (Formula C's margins); a storage-item kind with capacities by rarity 150 / 400 / 1,000 / 2,500 / 6,000 / 15,000 (30 with none; the best one counts; no slot; trade goods only for MVP; Trade Goods rule 16a). **Applied 2026-11-15 (Trade Goods Open Question 14):** a harvested herb's age is fixed and only a Planted herb ages (rule 15, Formula B, States); wild-gathered ages by Trade Goods Formula K; the Ngưng Nguyên margin corrected to 1.73 (Formula C). The `trade` block, the 6 templates, the recipe changes and the storage-item kind still wait on the data revision | Item Database, #43 | The Item Database revision |
+| 26 | ~~**Does the set growth goal bind the player? (2026-11-25)**~~ **Answered 2026-11-25** (ruling group 11): option (a), the growth goal binds the **cast and NPCs only**; the player's slots follow rule 11 (rule 22e amended). **Still open:** the related `artifacts_max` 3 (a cap against the no-caps rule; whether the cast's list grows to 4 / 5 at Nguyên Anh / Hóa Thần, rule 22f). The question as asked: The ruling (DECISIONS group 4: "the set bonus switches on when they reach Trúc Cơ and gain a slot") was made on the cast build's gear list, `1 + realm index` pieces at most 3. Under rule 11 a Qi Refining player wears 5 base pieces and 2 extra, so they can wear a whole 2-piece or 3-piece set at once. Options: (a) **cast only**, as rule 22e is written: the player wears sets freely; (b) a new `set_pieces_by_realm` count (1 / 2 / 3 / …) of set pieces that count for anyone, which makes sets a growth goal for the player too. Related: `artifacts_max` 3 is a cap, against the standing no-caps rule, and it means no authored person can wear a 4-5 piece set whole (rule 22f); raising the list to 4 / 5 at Nguyên Anh / Hóa Thần would open them | user, game-designer | Rule 22e, f; AC-ID-102 |
+| 27 | **Missing bases (2026-11-25).** The authored items wanted bases that `design/items/bases.json` lacks: spear, halberd, tally, bow, staff, umbrella, flute, panpipe, whisk, sash, scabbard, hook, spade, pole and fishing rod. Writers used the nearest base, or `base: null` for 5 items: `mf-peach-spring-painting`, `lh-scribes-reed-brush`, `tx-pha-quan-spear`, `tx-iron-horse-tally`, `ttg-wolf-winter-bow` (the summary of the pass counted 4; recounted 2026-11-25). Three of them are set pieces, so `tx-breaker-harness`, `tx-iron-horse` and `ttg-three-nights` cannot be whole. Add the bases (roles, attack and defence, `damage_type`, a common art or ward per rule 21), or map each item to an existing base. The `bow` tag already goes onto the library arts (ruling group 8) | game-designer, at the item pass | AC-ID-105; the 3 sets |
+| 28 | **The item lint is broken (2026-11-25; build gap).** `tools/design/items/lint_items.py` loads `tools/design/dao_do_rework/editor/export_catalogue.py`, removed with the Đạo Đồ editor on 2026-11-19, so it stops with `FileNotFoundError` before reading any item. The repair: take the modifier prices from where they live now, read the depth files' `{items, sets}` shape as well as `design/items/catalogue-*.json`, and add the set checks (rule 19, Formulas J2) | tools-programmer | AC-ID-88, 104 to 107; pricing the 490 proposals |
+| 29 | **Caps and conditions left in the proposals (2026-11-25).** The sweeps removed environment, time and season conditions and caps inside pieces (ruling groups 1, 6, 8), but a text scan still finds "at most" or "up to" in 34 set Effects and 15 item Effects. Some are caps to rewrite as a closing cost or a decay (rule 20g; "each crit puts a coin in the vault (at most 5)"), others are rates or durations that may stand ("at most once a second"). The item pass reads each | game-designer, at the item pass | AC-ID-106 |
+| 30 | **Who equips a held set piece when an NPC's gear grows? (2026-11-25)** Rule 22e needs NPC Builds (no GDD yet) to equip the held piece of a cast member's set when a breakthrough lengthens their gear list, and to choose another piece if it is gone. Today `BuildGenerator` equips an NPC once, at generation, and nothing re-equips at a breakthrough (read 2026-11-25), so until that step exists the growth goal never pays for an NPC | gameplay-programmer, NPC Builds owner | AC-ID-102 |
+| 31 | **Engine features some set and item Effects need (2026-11-25).** Delayed damage, timer-delay immunity, tick-to-heal, a foe clock stop, a mist tag, and Charmed or Sleep holding the caster's arts. The Effects stay as written (ruling group 8); the features are listed for the combat port in `design/world/depth/builds/engine-wishes.md`. Until each is built, the Effects that need it do nothing | combat port (gameplay-programmer) | Those Effects; AC-ID-108's world start is unaffected |

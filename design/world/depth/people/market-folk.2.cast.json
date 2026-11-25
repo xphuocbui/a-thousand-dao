@@ -1,0 +1,2097 @@
+{
+ "group": "market-folk",
+ "_doc": "Market folk, batch 2: Trúc Cơ and Luyện Khí. Page: market-folk.md.",
+ "people": [
+  {
+   "key": "kim_tich_phuc",
+   "name_hv": "Kim Tích Phúc",
+   "name_han": "金積福",
+   "gloss": "Stores up fortune",
+   "sex": "M",
+   "born": 1095,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 38,
+   "birthplace": 38,
+   "role": "Kim Vạn Lý's son: runs the wool caravans from Nhạn Thanh Thành to Vật Hoa Thị",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "kim": 40,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 62,
+    "than_hon": 54,
+    "khi_van": 40,
+    "dao_tam": 64,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Content",
+     "Loyal"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "tea_master",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "His father's frame without the laugh, in a herder's felt coat; his wife says he counts sheep in his sleep.",
+   "backstory": "Kim Vạn Lý's (kim_van_ly) only son was born with a Water root in a house of gold, and the steppe has never let him forget it. He runs the wool caravans from Nhạn Thanh Thành across the steppe and down to Vật Hoa Thị, with Minh Loan's bell-fitter Khang Viễn Đạc (khang_vien_dac) riding beside the lead cart. He has never placed a bet. His father sent his son Kim Đắc Lộc (kim_dac_loc) to Mục Vân Trang's stables, and Tích Phúc did not argue. He does not know what the house owes.",
+   "ties": [
+    {
+     "to": "kim_van_ly",
+     "kind": "parent",
+     "note": "the father he does not understand"
+    },
+    {
+     "to": "kim_dac_loc",
+     "kind": "child",
+     "note": "in Mục Vân's stables"
+    },
+    {
+     "to": "khang_vien_dac",
+     "kind": "friend",
+     "note": "rides beside the lead cart"
+    },
+    {
+     "to": "ho_dien_linh",
+     "kind": "friend",
+     "note": "the desert leg of the house's trains"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water land toward health and linh lực sustain, then Metal's block: the man who walks beside the lead cart.",
+     "targets": [
+      5340,
+      5493,
+      4180,
+      4158
+     ],
+     "targets_note": "Moonlit Rain and Lingering Ripples for health and linh lực, then the Metal land's Warding Bracers and Binding Chain for block: the man beside the lead cart."
+    },
+    "note": "A caravan wall, not a fighter."
+   }
+  },
+  {
+   "key": "tang_bach_thong",
+   "name_hv": "Tăng Bách Thông",
+   "name_han": "曾百通",
+   "gloss": "Exchanges a hundred ways",
+   "sex": "M",
+   "born": 1050,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 51,
+   "birthplace": 51,
+   "role": "Money-changer of Hạc Đinh Thị; father of Lạc Hà's caravan disciple Tăng Vân Tiêu",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 50,
+     "hoa": 34
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 44,
+    "than_hon": 56,
+    "khi_van": 50,
+    "dao_tam": 58,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Paranoid",
+     "Honest"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": "waning_years",
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A small dry man behind a counter of shell, silver and stone, who bites every coin.",
+   "backstory": "He has changed shell coin, mortal silver and spirit stones at the same counter in Hạc Đinh Thị for a hundred and twenty years. His son Tăng Vân Tiêu (tang_van_tieu) went up to Lạc Hà in 1112, has stood at the peak of Trúc Cơ for forty years, and spends every stone he earns on Lạc Đan Thanh's (lac_dan_thanh) breakthrough pills. Since the third pill failed, Tăng Bách Thông has been buying his son's notes back from Lạc at the price of the pills, and has not told him.",
+   "ties": [
+    {
+     "to": "tang_van_tieu",
+     "kind": "child",
+     "note": "his son, at Lạc Hà"
+    },
+    {
+     "to": "tang_phan_ly",
+     "kind": "child",
+     "note": "his late-born daughter, who keeps the counter"
+    },
+    {
+     "to": "lac_dan_thanh",
+     "kind": "rival",
+     "note": "buys back his son's pill notes from him"
+    },
+    {
+     "to": "quan_phuc_thu",
+     "kind": "rival",
+     "note": "she buys the paper he will not"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth land toward health and wards: an old man who wants to be left alone.",
+     "targets": [
+      3724,
+      3449,
+      3487,
+      3504
+     ],
+     "targets_note": "Earthen Gate and Blessed Basin for health, Battlements and Wall Brick for wards: an old man left alone."
+    },
+    "note": "A counter-keeper; avoids every fight."
+   }
+  },
+  {
+   "key": "me_thanh_dai",
+   "name_hv": "Mễ Thanh Đại",
+   "name_han": "米青黛",
+   "gloss": "Indigo (a painter's blue)",
+   "sex": "F",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 45,
+   "birthplace": 45,
+   "role": "Lạc Đan Thanh's agent in Lam Yên Thị, who buys Thúy Vi's pills and copies the seals",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "hoa": 34
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 46,
+    "than_hon": 58,
+    "khi_van": 52,
+    "dao_tam": 50,
+    "mi_luc": 60
+   },
+   "traits": {
+    "personality": [
+     "Deceitful",
+     "Diligent",
+     "Calm"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "street_orphan",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "calligrapher",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Neat, quiet and ink-stained, with a seal-cutter's loupe on a ribbon round her neck.",
+   "backstory": "A mist-market orphan whom Lạc Đan Thanh (lac_dan_thanh) took in and named for a pigment, as he names all his apprentices. She buys Thúy Vi's pills at Đậu Tam Thất's (dau_tam_that) shop, cuts the seals in soapstone at night, and sends the copies and the formulas she guesses from the ash down the road to Vật Hoa Thị. Đậu knows, and charges her a little more each year.",
+   "ties": [
+    {
+     "to": "lac_dan_thanh",
+     "kind": "master",
+     "note": "named her for indigo"
+    },
+    {
+     "to": "dau_tam_that",
+     "kind": "rival",
+     "note": "sells her the pills and raises the price"
+    },
+    {
+     "to": "dang_thach_luc",
+     "kind": "friend",
+     "note": "the other pigment-named apprentice"
+    }
+   ],
+   "master": "lac_dan_thanh",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood land toward over-time damage, then Fire burns: she wins by not being there.",
+     "targets": [
+      5780,
+      5606,
+      6227,
+      2380
+     ],
+     "targets_note": "Creeping Vine and Falling Leaves for over-time damage, Wutong Perch for Burns that last while she is gone, and her master's Cinnabar Chamber for the alchemist second."
+    },
+    "note": "A copyist first, an alchemist second."
+   }
+  },
+  {
+   "key": "nhieu_tu_uyen",
+   "name_hv": "Nhiêu Tử Uyển",
+   "name_han": "饒紫菀",
+   "gloss": "Purple aster (a cough root)",
+   "sex": "F",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 54,
+   "birthplace": 157,
+   "role": "Senior apprentice at the apricot clinic of Hạnh Hoa Thị, Giả Hồi Xuân's chosen heir",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 60,
+    "than_hon": 56,
+    "khi_van": 48,
+    "dao_tam": 66,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Impatient",
+     "Brave"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "teacher_at_heart",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A farm girl's shoulders and a healer's clean hands; she rolls her sleeves to the elbow before anyone asks.",
+   "backstory": "She was ten at Ương Ca in the drought of 1150, when Dương Hảo Vũ (duong_hao_vu) held the Grain Rain rite for nine days over the valley, and she carried water to the abbess. Lam Nhuận Chi (lam_nhuan_chi) brought her to Giả Hồi Xuân (gia_hoi_xuan) the next spring with a cough no one at home could cure, and she stayed. She refuses to taste poisons, and Giả has never asked her to.",
+   "ties": [
+    {
+     "to": "gia_hoi_xuan",
+     "kind": "master",
+     "note": "her teacher and the clinic's keeper"
+    },
+    {
+     "to": "lam_nhuan_chi",
+     "kind": "friend",
+     "note": "brought her down the road"
+    },
+    {
+     "to": "duong_hao_vu",
+     "kind": "friend",
+     "note": "she carried the abbess water in the drought"
+    },
+    {
+     "to": "vu_ngan_kieu",
+     "kind": "disciple",
+     "note": "the fever girl she nursed and kept"
+    }
+   ],
+   "master": "gia_hoi_xuan",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "dan_dao": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood land toward healing and regrowth, then Water's linh lực sustain.",
+     "targets": [
+      6371,
+      5713,
+      5157,
+      6357
+     ],
+     "targets_note": "Spirit Spring and Healing Herbs for healing and regrowth, Water Wears Stone for linh lực sustain, and her master's Spirit Berries: a field healer."
+    },
+    "note": "A field healer."
+   }
+  },
+  {
+   "key": "phong_kinh_sa",
+   "name_hv": "Phong Kính Sa",
+   "name_han": "馮鏡沙",
+   "gloss": "Mirror sand",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 40,
+   "birthplace": 40,
+   "role": "Vệ Văn Cơ's first apprentice; lays the granary rings and caravan wards his master no longer travels for",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 54,
+    "than_hon": 60,
+    "khi_van": 46,
+    "dao_tam": 52,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Diligent",
+     "Impatient"
+    ],
+    "calling": "Formation master",
+    "upbringing": "street_orphan",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "formation_mind"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Sunburnt and quick, with a surveyor's cord wound round his forearm.",
+   "backstory": "A Tinh Hán Thành dock orphan whom Vệ Văn Cơ (ve_van_co) found drawing in the harbour sand in 1152, as the abbey once found Vệ. He knows the Star-Pacing Primer, which Vệ had no right to teach him, and wants Củng Tinh's Armillary Array Canon, which Vệ will not. He bids against Bành Chẩm Thạch (banh_cham_thach) for the granaries of Thạch Kiều Thành.",
+   "ties": [
+    {
+     "to": "ve_van_co",
+     "kind": "master",
+     "note": "found him in the harbour sand"
+    },
+    {
+     "to": "banh_cham_thach",
+     "kind": "rival",
+     "note": "the Thạch Kiều granary contracts"
+    },
+    {
+     "to": "ngu_hoa_sa",
+     "kind": "friend",
+     "note": "teaches her when Vệ is away"
+    }
+   ],
+   "master": "ve_van_co",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "star-pacing-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "tran_phap": 5
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth land toward wards and seals, like his master.",
+     "targets": [
+      3151,
+      3145,
+      3094,
+      3487
+     ],
+     "targets_note": "His master's Array Foundation and Quicksand Array (the abbey's primer figures, no route of the abbey's), then Guardian Array and Battlements for wards."
+    },
+    "note": "Lays the abbey's primer figures without the abbey's leave."
+   }
+  },
+  {
+   "key": "banh_cham_thach",
+   "name_hv": "Bành Chẩm Thạch",
+   "name_han": "彭枕石",
+   "gloss": "Pillows his head on stone",
+   "sex": "M",
+   "born": 1105,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 81,
+   "birthplace": 81,
+   "role": "Formation master for hire at Thạch Kiều Thành, Vệ Văn Cơ's rival for the heartland's granary wards",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 55,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Ambitious",
+     "Diligent"
+    ],
+    "calling": "Formation master",
+    "upbringing": "merchant_child",
+    "path": [
+     "formation_mind"
+    ]
+   },
+   "backstory": "A bridge-mason's grandson of Thạch Kiều Thành who sells wards cheaper than Vệ Văn Cơ (ve_van_co) and lays them twice as thick, because he cannot lay them as true.",
+   "ties": [
+    {
+     "to": "ve_van_co",
+     "kind": "rival",
+     "note": "the better hand"
+    },
+    {
+     "to": "phong_kinh_sa",
+     "kind": "rival",
+     "note": "the granary bids"
+    }
+   ],
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "huyen_tho",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth wards, thick and slow."
+    },
+    "note": "Wards by weight."
+   }
+  },
+  {
+   "key": "hoang_phu_duyen",
+   "name_hv": "Hoàng Phủ Duyên",
+   "name_han": "皇甫緣",
+   "gloss": "A fated meeting",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 49,
+   "birthplace": 49,
+   "role": "Broker of Tương Phùng Thị, the market of chance meetings: hires, marriages, partnerships and introductions, for a tenth",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 42,
+    "than_hon": 58,
+    "khi_van": 60,
+    "dao_tam": 48,
+    "mi_luc": 76
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Deceitful",
+     "Patient"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "tea_master",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Plump and smiling, in a ferry-blue robe, with a book of names in her sleeve that no one has seen open.",
+   "backstory": "Tương Phùng Thị grew beside Bình Thủy Môn's crossing (A148), and every traveller off Ông Tế Độ's (ong_te_do) ferry passes Hoàng Phủ Duyên's teahouse. She has arranged three hundred marriages and a thousand hires, and takes a tenth of the first year. In 1190 she found Kim Vạn Lý (kim_van_ly) a clerk, Quản Thận Ngôn (quan_than_ngon), and did not ask why a Quản wanted to work for a Kim.",
+   "ties": [
+    {
+     "to": "ong_te_do",
+     "kind": "friend",
+     "note": "the master of the crossing; his ferry brings her clients"
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "friend",
+     "note": "a client for forty years"
+    },
+    {
+     "to": "quan_than_ngon",
+     "kind": "friend",
+     "note": "placed him with Kim in 1190"
+    },
+    {
+     "to": "hoang_phu_chu",
+     "kind": "child",
+     "note": "her son, who runs from her matches"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "named": "mf-way-out-knot"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water land toward evasion and linh lực: she leaves before the fight.",
+     "targets": [
+      5493,
+      5498,
+      5369,
+      5308
+     ],
+     "targets_note": "Lingering Ripples for linh lực, Water Ring Step, Misty Rain and Dry in the Rain for evasion and escape: she leaves before the fight."
+    },
+    "note": "A go-between; never fights her own battles."
+   },
+   "items": [
+    "mf-way-out-knot"
+   ],
+   "authored": "d2"
+  },
+  {
+   "key": "bang_thu_khe",
+   "name_hv": "Bàng Thủ Khế",
+   "name_han": "龐守契",
+   "gloss": "Keeps the bond",
+   "sex": "M",
+   "born": 1080,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 48,
+   "birthplace": 48,
+   "role": "Pawnbroker of Tống Khách Thị, who lends road money to outer disciples who failed the Frost Test",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Callous",
+     "Honest"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "lifestyle": "collector"
+   },
+   "backstory": "He keeps the pawn shop by the farewell pavilion of Tống Khách Thị, where the market pours a cup each year for the traveller who never came back (A138), and holds the swords of Băng Tâm's failed outer disciples against road money; Ôn Sa Ngọc (on_sa_ngoc) redeems one or two a year.",
+   "ties": [
+    {
+     "to": "on_sa_ngoc",
+     "kind": "friend",
+     "note": "redeems the swords of the desert children"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood health and patience."
+    },
+    "note": "Pawnbroker."
+   }
+  },
+  {
+   "key": "su_que_huong",
+   "name_hv": "Sử Quế Hương",
+   "name_han": "史桂香",
+   "gloss": "Cassia fragrance",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 988,
+   "birthplace": 988,
+   "role": "Spice merchant of Hương Liệu Thị, who ships the far south's cassia north",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "hoa": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Gregarious",
+     "Fickle"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born",
+    "lifestyle": "gardener"
+   },
+   "backstory": "She buys cassia and pepper in the jungle market of the far south and has shipped it north on Kim Vạn Lý's (kim_van_ly) account for thirty years; she has begun to ship on Vưu Cẩm Thư's (vuu_cam_thu) instead, because the palace pays in advance.",
+   "ties": [
+    {
+     "to": "kim_van_ly",
+     "kind": "friend",
+     "note": "her old buyer, who pays late"
+    },
+    {
+     "to": "vuu_cam_thu",
+     "kind": "friend",
+     "note": "her new buyer, who pays first"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood over-time damage."
+    },
+    "note": "Spice trader."
+   }
+  },
+  {
+   "key": "khau_phuc_linh",
+   "name_hv": "Khâu Phục Linh",
+   "name_han": "丘茯苓",
+   "gloss": "Poria, the pine-root fungus",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 46,
+   "birthplace": 46,
+   "role": "Loose alchemist of Tùng Hạ Thị who brews pine-root wound pills for the road watch",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 62,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Diligent",
+     "Trusting"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born",
+    "path": [
+     "pill_fed"
+    ]
+   },
+   "backstory": "A Tùng Đào outer disciple who was not taken inward and went down to the pine market with the Listening Pine Primer; since the wolves of 1190 (A064) he sells the road watch its wound pills at cost, and sells against Lạc Đan Thanh's (lac_dan_thanh) copied pills at a loss.",
+   "ties": [
+    {
+     "to": "lac_dan_thanh",
+     "kind": "rival",
+     "note": "undersells his copies in the north"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "listening-pine-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing."
+    },
+    "note": "Road-watch apothecary."
+   }
+  },
+  {
+   "key": "ho_dien_linh",
+   "name_hv": "Hô Diên Linh",
+   "name_han": "呼延鈴",
+   "gloss": "Camel bell",
+   "sex": "M",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 1418,
+   "birthplace": 1418,
+   "role": "Camel-train master of Đà Linh Trấn, who carries Kim Vạn Lý's goods along the desert road",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 52,
+     "hoa": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Temperate",
+     "Greedy"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born",
+    "path": [
+     "body_tempered"
+    ]
+   },
+   "backstory": "A desert-born caravan master who runs Kim Vạn Lý's (kim_van_ly) trains along Băng Tâm's caravan road and pays Ôn Sa Ngọc's (on_sa_ngoc) Desert Pavilion its toll in well-salt; Kiều Mãn Lâu's (kieu_man_lau) buyers have twice tried to hire him away.",
+   "ties": [
+    {
+     "to": "kim_van_ly",
+     "kind": "friend",
+     "note": "his employer"
+    },
+    {
+     "to": "on_sa_ngoc",
+     "kind": "friend",
+     "note": "the Desert Pavilion's toll"
+    },
+    {
+     "to": "kieu_man_lau",
+     "kind": "rival",
+     "note": "tried to buy him"
+    },
+    {
+     "to": "kim_tich_phuc",
+     "kind": "friend",
+     "note": "the Kim house's merchant, whose trains he runs on the desert leg"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "huyen_tho",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth health and block."
+    },
+    "note": "Desert caravan guard."
+   }
+  },
+  {
+   "key": "quan_than_ngon",
+   "name_hv": "Quản Thận Ngôn",
+   "name_han": "管慎言",
+   "gloss": "Guards his words",
+   "sex": "M",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 38,
+   "birthplace": 78,
+   "role": "Kim Vạn Lý's ledger clerk at Nhạn Thanh Thành; Quản Phục Thu's brother",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 68,
+    "can_cot": 40,
+    "than_hon": 58,
+    "khi_van": 44,
+    "dao_tam": 50,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Deceitful",
+     "Loyal",
+     "Cautious"
+    ],
+    "calling": "Steward",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "calligrapher",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A soft-spoken young man with an abacus of jade beads and a better memory than the abacus.",
+   "backstory": "Hoàng Phủ Duyên (hoang_phu_duyen) placed him with Kim Vạn Lý (kim_van_ly) in 1190, and in ten years he has become the clerk Kim trusts with the house's real books. He copies them for his sister Quản Phục Thu (quan_phuc_thu) every new moon. He has begun to like the old man, and has not told her.",
+   "ties": [
+    {
+     "to": "quan_phuc_thu",
+     "kind": "sibling",
+     "note": "his sister, for whom he copies the books"
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "friend",
+     "note": "the employer he spies on and has come to like"
+    },
+    {
+     "to": "hoang_phu_duyen",
+     "kind": "friend",
+     "note": "placed him in the Kim house"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "huyen_tho",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth wards and health: a clerk who wants to survive.",
+     "targets": [
+      715,
+      707,
+      3724
+     ],
+     "targets_note": "Luyện Khí: Earth Root, Solid Ground and Earthen Gate near the start: block and health for a clerk who wants to survive."
+    },
+    "note": "The Quản copy of the Golden Valley Ledger Canon; huyen_tho stands in."
+   }
+  },
+  {
+   "key": "bao_thinh_trieu",
+   "name_hv": "Bào Thính Triều",
+   "name_han": "鮑聽潮",
+   "gloss": "Listens to the tide",
+   "sex": "F",
+   "born": 1165,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 30,
+   "birthplace": 30,
+   "role": "Bào Tế Hải's daughter; a yard-born sailor who wants to sail south with Diêm Hải Tảo",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 64,
+    "than_hon": 50,
+    "khi_van": 58,
+    "dao_tam": 54,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Honest"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Tall like her father, with salt-whitened braids and rope-burned palms.",
+   "backstory": "Raised in the yards of Yên Ba, she has sailed every coasting hull her father Bào Tế Hải (bao_te_hai) built, and spends her evenings at Thúy Vi's port house listening to Diêm Hải Tảo (diem_hai_tao) and the weather-reader Khuất Phong Phàm (khuat_phong_pham) argue about the southern sea. She has asked Diêm three times to take her on the next ship.",
+   "ties": [
+    {
+     "to": "bao_te_hai",
+     "kind": "parent",
+     "note": "her father, the shipwright"
+    },
+    {
+     "to": "diem_hai_tao",
+     "kind": "friend",
+     "note": "the captain she wants to sail with"
+    },
+    {
+     "to": "khuat_phong_pham",
+     "kind": "friend",
+     "note": "argues the southern weather with her"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water land toward tide arts and linh lực sustain.",
+     "targets": [
+      748,
+      744,
+      5493
+     ],
+     "targets_note": "Luyện Khí: Calm Pool, Flowing Thought and Lingering Ripples: the linh lực her father's tide method needs at its start."
+    },
+    "note": "Her father's method, at its start."
+   }
+  },
+  {
+   "key": "dai_song_luc",
+   "name_hv": "Đái Song Lục",
+   "name_han": "戴雙陸",
+   "gloss": "Double sixes (the board game)",
+   "sex": "M",
+   "born": 1160,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 38,
+   "birthplace": 38,
+   "role": "Kim Vạn Lý's bet-runner, who carries his wagers to the festival book and his losses home",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Fickle",
+     "Indulgent"
+    ],
+    "calling": "Schemer",
+    "upbringing": "street_orphan",
+    "lifestyle": "gambler"
+   },
+   "backstory": "He places Kim Vạn Lý's (kim_van_ly) bets at Lạc Hà's festival and has noticed that the old man only ever loses to people who matter; in 1185 he bet his own stones on Dư Bôn Vân (du_bon_van) and won.",
+   "ties": [
+    {
+     "to": "kim_van_ly",
+     "kind": "friend",
+     "note": "carries his bets"
+    },
+    {
+     "to": "du_bon_van",
+     "kind": "friend",
+     "note": "won on her in 1185"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water evasion."
+    },
+    "note": "Bet-runner."
+   }
+  },
+  {
+   "key": "quan_liem_chu",
+   "name_hv": "Quan Liêm Chu",
+   "name_han": "關濂舟",
+   "gloss": "Boat on the clear stream",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 30,
+   "birthplace": 57,
+   "role": "Master shipwright of the Bào yards",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Diligent",
+     "Reclusive"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "health": "old_wound"
+   },
+   "backstory": "A Bạch Sa net-mender's son who has shaped every keel of the Bào yards since 1180 and knows, as Bào Tế Hải (bao_te_hai) does, what the three copper-sheathed hulls were built for.",
+   "ties": [
+    {
+     "to": "bao_te_hai",
+     "kind": "friend",
+     "note": "his master and employer"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water health."
+    },
+    "note": "Shipwright with an adze."
+   }
+  },
+  {
+   "key": "dang_thach_luc",
+   "name_hv": "Đằng Thạch Lục",
+   "name_han": "滕石綠",
+   "gloss": "Malachite green",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 50,
+   "birthplace": 50,
+   "role": "Lạc Đan Thanh's furnace boy at Vật Hoa Thị",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 48,
+     "hoa": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Trusting",
+     "Humble"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "street_orphan"
+   },
+   "backstory": "A Vật Hoa Thị foundling whom Lạc Đan Thanh (lac_dan_thanh) named for the green his own father used to grind; he keeps the furnace, and is the only one who has seen the last peach stone.",
+   "ties": [
+    {
+     "to": "lac_dan_thanh",
+     "kind": "master",
+     "note": "named him"
+    },
+    {
+     "to": "me_thanh_dai",
+     "kind": "friend",
+     "note": "the indigo apprentice"
+    }
+   ],
+   "master": "lac_dan_thanh",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire burns."
+    },
+    "note": "Furnace boy."
+   }
+  },
+  {
+   "key": "vu_ngan_kieu",
+   "name_hv": "Vu Ngân Kiều",
+   "name_han": "于銀翹",
+   "gloss": "Honeysuckle and forsythia (a fever remedy)",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 54,
+   "birthplace": 158,
+   "role": "Junior apprentice at the apricot clinic",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Gregarious",
+     "Impatient"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Song Khê farm girl who came down to Hạnh Hoa Thị with a fever in 1192 and was nursed by Nhiêu Tử Uyển (nhieu_tu_uyen); she grinds roots for Giả Hồi Xuân (gia_hoi_xuan) and wants to learn the needles.",
+   "ties": [
+    {
+     "to": "nhieu_tu_uyen",
+     "kind": "master",
+     "note": "nursed her and kept her"
+    },
+    {
+     "to": "gia_hoi_xuan",
+     "kind": "friend",
+     "note": "grinds her roots"
+    }
+   ],
+   "master": "nhieu_tu_uyen",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing."
+    },
+    "note": "Root-grinder."
+   }
+  },
+  {
+   "key": "ha_kho_sam",
+   "name_hv": "Hà Khổ Sâm",
+   "name_han": "何苦參",
+   "gloss": "Bitter root (sophora)",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 54,
+   "birthplace": 42,
+   "role": "Courier between the Night Rain Market and the apricot clinic",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Brave",
+     "Content"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "street_orphan",
+    "health": "lingering_poison"
+   },
+   "backstory": "A Thu Trì Thành porter who drank one of Ô Thiềm Tử's (o_thiem_tu) new poisons by accident and was cured by Giả Hồi Xuân (gia_hoi_xuan); he has carried the poisons and the answers between them ever since, sealed, and has never opened a box again.",
+   "ties": [
+    {
+     "to": "o_thiem_tu",
+     "kind": "friend",
+     "note": "hands him each new poison"
+    },
+    {
+     "to": "gia_hoi_xuan",
+     "kind": "friend",
+     "note": "cured him; he carries for her"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water evasion and poison resistance."
+    },
+    "note": "Courier."
+   }
+  },
+  {
+   "key": "tang_phan_ly",
+   "name_hv": "Tăng Phân Ly",
+   "name_han": "曾分釐",
+   "gloss": "Fen and li (the smallest units)",
+   "sex": "F",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 51,
+   "birthplace": 51,
+   "role": "Daughter of the Hạc Đinh Thị money-changer, who keeps the counter when he naps",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 42,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Impatient",
+     "Just"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Tăng Bách Thông's (tang_bach_thong) late daughter, seventy years younger than her brother Tăng Vân Tiêu (tang_van_tieu); she found the bought-back pill notes in the strongbox and has not decided whom to tell.",
+   "ties": [
+    {
+     "to": "tang_bach_thong",
+     "kind": "parent",
+     "note": "her father"
+    },
+    {
+     "to": "tang_van_tieu",
+     "kind": "sibling",
+     "note": "the brother she barely knows"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth wards."
+    },
+    "note": "Counter-keeper."
+   }
+  },
+  {
+   "key": "tu_thien_toan",
+   "name_hv": "Từ Thiên Toán",
+   "name_han": "徐千算",
+   "gloss": "A thousand reckonings",
+   "sex": "M",
+   "born": 1175,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 52,
+   "birthplace": 52,
+   "role": "Grandson, clerk and heir of the Từ counting house",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Arrogant",
+     "Diligent"
+    ],
+    "calling": "Steward",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ]
+   },
+   "backstory": "Từ Bỉnh Quyền's (tu_binh_quyen) grandson and heir, who keeps the house's ledgers on the Golden Valley Ledger Canon and thinks his grandmother too patient with Kim Vạn Lý.",
+   "ties": [
+    {
+     "to": "tu_binh_quyen",
+     "kind": "grandparent",
+     "note": "his grandmother and mistress"
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "creditor",
+     "note": "owes his house; the paper he would call"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "huyen_kim",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal crit."
+    },
+    "note": "Golden Valley Ledger Canon; huyen_kim stands in."
+   }
+  },
+  {
+   "key": "ngu_hoa_sa",
+   "name_hv": "Ngư Họa Sa",
+   "name_han": "魚畫沙",
+   "gloss": "Draws in the sand",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 40,
+   "birthplace": 40,
+   "role": "Vệ Văn Cơ's second apprentice, a fishwife's daughter of the harbour",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Gregarious",
+     "Stubborn"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born"
+   },
+   "backstory": "Vệ Văn Cơ (ve_van_co) found her drawing ward figures in the harbour sand at Tinh Hán Thành in 1195, the second child he has found that way; Phong Kính Sa (phong_kinh_sa) teaches her when Vệ is away.",
+   "ties": [
+    {
+     "to": "ve_van_co",
+     "kind": "master",
+     "note": "found her in the sand"
+    },
+    {
+     "to": "phong_kinh_sa",
+     "kind": "friend",
+     "note": "her senior"
+    }
+   ],
+   "master": "ve_van_co",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "star-pacing-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 2
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth wards."
+    },
+    "note": "Sand-drawer."
+   }
+  },
+  {
+   "key": "hoang_phu_chu",
+   "name_hv": "Hoàng Phủ Chu",
+   "name_han": "皇甫舟",
+   "gloss": "Boat",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 49,
+   "birthplace": 49,
+   "role": "Hoàng Phủ Duyên's son, who runs her notes between the ferry and the teahouse",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Lazy",
+     "Honest"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "His mother Hoàng Phủ Duyên (hoang_phu_duyen) has arranged three marriages for him, and he has run from all three on Ông Tế Độ's (ong_te_do) ferry.",
+   "ties": [
+    {
+     "to": "hoang_phu_duyen",
+     "kind": "parent",
+     "note": "his mother, the broker"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water evasion."
+    },
+    "note": "Runner."
+   }
+  },
+  {
+   "key": "trinh_hong_tien",
+   "name_hv": "Trịnh Hồng Tiên",
+   "name_han": "鄭紅箋",
+   "gloss": "Red letter-paper",
+   "sex": "F",
+   "born": 1168,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 47,
+   "birthplace": 47,
+   "role": "Trịnh Chu Sa's daughter, who paints his wards and wants the cloud stamp he lost",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Honest",
+     "Ambitious"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Born on the stall at Đào Sa Thị, she was five when it burned in 1173 (A080); she paints her father Trịnh Chu Sa's (trinh_chu_sa) wards on the Mulberry Ink Primer he should not have taught her, and wants to sit Nam Phố's contest at Hạc Đinh Thị under her own name.",
+   "ties": [
+    {
+     "to": "trinh_chu_sa",
+     "kind": "parent",
+     "note": "her father and teacher"
+    }
+   ],
+   "master": "trinh_chu_sa",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mulberry-ink-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood talisman arts."
+    },
+    "note": "Talisman painter."
+   }
+  },
+  {
+   "key": "dieu_thiet_tien",
+   "name_hv": "Diêu Thiết Tiên",
+   "name_han": "姚鐵鞭",
+   "gloss": "Iron whip",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 38,
+   "birthplace": 662,
+   "role": "Guard on Kim Vạn Lý's western road; once an outer disciple of Phất Y Cốc",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 44,
+     "kim": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Loyal",
+     "Wrathful"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Đà Đội camel-boy who left Phất Y Cốc's outer gate with its Dry Road Sword Primer and rode Kim Vạn Lý's (kim_van_ly) trains beside Khúc Liệt Dương (khuc_liet_duong); he was paid and she was not, and he has not forgiven himself for not asking why.",
+   "ties": [
+    {
+     "to": "khuc_liet_duong",
+     "kind": "friend",
+     "note": "rode the western road with her"
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "friend",
+     "note": "his employer"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "dry-road-sword-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal sword crit."
+    },
+    "note": "Caravan sword."
+   }
+  },
+  {
+   "key": "bi_tieu_tho",
+   "name_hv": "Bì Tiểu Thố",
+   "name_han": "皮小兔",
+   "gloss": "Little hare",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 50,
+   "birthplace": 50,
+   "role": "Street runner of Vật Hoa Thị who sells auction gossip by the word",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 38,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Deceitful",
+     "Gregarious",
+     "Brave"
+    ],
+    "calling": "Schemer",
+    "upbringing": "street_orphan"
+   },
+   "backstory": "He sells Tiền Ngũ Phân (tien_ngu_phan) the names of who is bidding before the hammer, and sells the bidders Tiền's lot book after it; Lạc Đan Thanh (lac_dan_thanh) pays him in pills to say nothing at all.",
+   "ties": [
+    {
+     "to": "tien_ngu_phan",
+     "kind": "friend",
+     "note": "buys his names"
+    },
+    {
+     "to": "lac_dan_thanh",
+     "kind": "friend",
+     "note": "pays him for silence"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth evasion and health."
+    },
+    "note": "Runner."
+   }
+  },
+  {
+   "key": "ky_minh_tien",
+   "name_hv": "Kỷ Minh Tiền",
+   "name_han": "紀明前",
+   "gloss": "Before Qingming (the first tea)",
+   "sex": "F",
+   "born": 1175,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 67,
+   "birthplace": 67,
+   "role": "Tea and rice factor at Hồi Lan Thành for the Kim house",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Cautious",
+     "Honest"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Granddaughter of the Hồi Lan merchant who brought the first southern rice through the desert in 1160 (A124), she buys the south's tea for Kim Vạn Lý (kim_van_ly) and is outbid each spring by Vưu Cẩm Thư (vuu_cam_thu), who pays in advance.",
+   "ties": [
+    {
+     "to": "kim_van_ly",
+     "kind": "friend",
+     "note": "her house's buyer"
+    },
+    {
+     "to": "vuu_cam_thu",
+     "kind": "rival",
+     "note": "outbids her every spring"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water linh lực."
+    },
+    "note": "Tea factor."
+   }
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "group": "loose-north",
+ "_doc": "The loose cultivators of the north: named spirit beasts (linh thú). Proposal, unpriced (review/RANKED.md A7, 2026-11-25; form of sects/cuu_cao.beasts.json). An owned beast is a people record with is_beast and owner_id, and its owner lists it in `beasts` (src/gameplay/character/beast_keeper.gd, assets/data/creatures_linh_thu.json). Capacity is 1 + floor(effective thần hồn / 40). In a fight it is a companion: it adds power_share (0.5) of its chiến lực to its owner's offense, strikes every basic_cooldown, cannot be targeted and never leaves the fight (Combat rule 19). `combat` and `bond` are depth fields; `bond.rider` marks a mount, `bond.keeper` a beast that is not ridden. The owners' cast records do not list these beasts yet.",
+ "beasts": [
+  {
+   "key": "tiem_anh",
+   "name_hv": "Tiềm Ảnh",
+   "name_han": "潛影",
+   "gloss": "Hidden Shadow",
+   "is_beast": true,
+   "species": "spirit lynx",
+   "sex": "M",
+   "born": 1175,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 3,
+   "root": {
+    "elements": {
+     "moc": 38
+    },
+    "variants": {}
+   },
+   "owner_id": "quan_tuyet_tung",
+   "loyalty": 90,
+   "home": 938,
+   "location_id": 938,
+   "tags": [
+    "lynx",
+    "companion"
+   ],
+   "appearance": "A grey lynx with black ear tufts, always at his heel.",
+   "combat": {
+    "strikes": "moc",
+    "power_share": 0.5,
+    "note": "The lynx in front (his Beast Den node)."
+   },
+   "bond": {
+    "keeper": "quan_tuyet_tung",
+    "since": 1176,
+    "event": null,
+    "rule": "Raised from a kit he did not sell."
+   },
+   "backstory": "The one kit of a litter Quản Tuyết Tung kept instead of selling at Quy Điểu Trấn's ice market. It hunts with him in Lãnh Nguyệt Lâm and will not go near Quần Lang Lâm.",
+   "status": "proposal",
+   "authored": "review-A7"
+  }
+ ]
+}

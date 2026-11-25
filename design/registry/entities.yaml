@@ -55,7 +55,7 @@
 #   in any other shape is reported as unsupported layout, with its number.
 
 version: 1
-last_updated: "2026-11-07"
+last_updated: "2026-11-25"
 
 # ─── ENTITIES ────────────────────────────────────────────────────────────────
 # Named game-world objects: enemies, NPCs, characters, factions, bosses.
@@ -1750,10 +1750,10 @@ formulas:
       - fate_p_any
       - g_f
     output_range: ["3 personality, 1 calling", "0-2 fate-given"]
-    expression: "w_t = b_t * m_arch * m_sect * m_master; 3 draws removing t and opp(t); fate-given P(0/1/2) = 0.90/0.09/0.01, the second fate-given draw removing the first trait and its opposite"
-    notes: "NPC Traits F4, F5. Key (traits, person_id); inheritance chance trait_inherit_chance per parent. The GDD writes the fate-given count chances as p_any and p_second (constant fate_p_any = p_any)."
+    expression: "w_t = b_t * m_arch * m_sect * m_master; 3 draws removing t and opp(t); fate-given P(0/1/2) = 0.96/0.036/0.004, the second fate-given draw removing the first trait and its opposite"
+    notes: "NPC Traits F4, F5. Key (traits, person_id); inheritance chance trait_inherit_chance per parent. The GDD writes the fate-given count chances as p_any and p_second (constant fate_p_any = p_any). The v2 kinds roll by F4b (n_create_max) and talent tiers inherit by F5b (talent_inherit)."
     added: 2026-11-14
-    revised: 2026-11-14 # was: no opposed rule on the second fate-given draw
+    revised: 2026-11-25 # was: fate-given P(0/1/2) = 0.90/0.09/0.01 (p_any 0.10; npc-traits.md F4, traits v2 amendment)
   - name: trait_conflict
     status: active
     source: design/gdd/npc-traits.md
@@ -2167,11 +2167,11 @@ formulas:
       - world_cultivators
       - world_cultivators_min
       - c_r
-    output_range: "sum of T_r = N exactly; N 5,000 -> 3,935 / 844 / 191 / 27 / 3; N 3,000 -> 2,361 / 506 / 115 / 16 / 2"
+    output_range: "sum of T_r = N exactly; N 5,000 -> 3,935 / 844 / 191 / 27 / 3; N 3,000 (fixture only, below the floor) -> 2,361 / 506 / 115 / 16 / 2"
     expression: "N = max(world_cultivators, world_cultivators_min); raw_r = N * c_r / sum(c); T_r = floor(raw_r), plus 1 for the (N - sum of floors) realms with the largest fractions (ties to the lower realm)"
-    notes: "World Generation Formula A (user decision 2026-11-15 for the fixed world). Weights c_r start as Realms' solved headcounts (realm_start_share). Realms owns the headcount targets (world_headcount_targets); this formula only rounds them for a world of size N."
+    notes: "World Generation Formula A (user decision 2026-11-15 for the fixed world). Weights c_r start as Realms' solved headcounts (realm_start_share). Realms owns the headcount targets (world_headcount_targets); this formula only rounds them for a world of size N. (2026-11-25: floor 5,000, was 3,000; DECISIONS-2026-11-25 group 11.)"
     added: 2026-11-15
-    revised: ""
+    revised: 2026-11-25
   - name: slot_pick
     status: active
     source: design/gdd/world-generation.md
@@ -3079,11 +3079,11 @@ constants:
     referenced_by:
       - design/gdd/canh-gioi.md
       - design/gdd/world-generation.md
-    value: "5,000 simulated cultivators (world_cultivators), at least 3,000 (world_cultivators_min): Nascent Soul about 27, Deity Transformation about 3"
+    value: "5,000 simulated cultivators (world_cultivators), at least 5,000 (world_cultivators_min): Nascent Soul about 27, Deity Transformation about 3"
     unit: cultivators per world
-    notes: "User decision 2026-11-05. Cohort targets, not caps; the player does not count. Mortals are not simulated."
+    notes: "User decision 2026-11-05. Cohort targets, not caps; the player does not count. Mortals are not simulated. (2026-11-25: floor 5,000, was 3,000; the authored cast needs 4,947; DECISIONS-2026-11-25 group 11, World Generation Open Question 8.)"
     added: 2026-11-05
-    revised: ""
+    revised: 2026-11-25
   - name: breakthrough_pill_chance
     status: active
     source: design/gdd/canh-gioi.md
@@ -5489,11 +5489,11 @@ constants:
     source: design/gdd/npc-traits.md
     referenced_by:
       - design/gdd/npc-traits.md
-    value: 0.1
+    value: 0.04
     unit: chance
-    notes: "NPC Traits F4. Chance of one fate-given trait; a second at 0.10 of those (the GDD's p_any and p_second, both 0.10). Guess."
+    notes: "NPC Traits F4. Chance of one fate-given trait; a second at 0.10 of those (the GDD's p_any and p_second). Since 2026-11-25 the pool is the 4 kept fates (talent tiers replace the plain gifts), so p_any 0.04 keeps each kept fate at its v1 world count. Guess."
     added: 2026-11-14
-    revised: 2026-11-14 # was: GDD symbol names not stated
+    revised: 2026-11-25 # was: 0.1 (npc-traits.md F4, traits v2 amendment)
   - name: trait_inherit_chance
     status: active
     source: design/gdd/npc-traits.md
@@ -5782,11 +5782,11 @@ constants:
     source: design/gdd/world-generation.md
     referenced_by:
       - design/gdd/world-generation.md
-    value: [60, 100]
+    value: "about 1,900 (1,889 authored: 171 tier A, 369 tier B, 1,349 tier C)"
     unit: people
-    notes: "User decision 2026-11-15. Authored special characters, the same in every game, including the 29 sect heads. Living members count toward the realm headcounts; the target is a warning, not a failing check. Each living member has a fully authored build."
+    notes: "World Generation rule 5 (amended 2026-11-25, ruling R8: keep ~1,900 authored people; the random fill supplies the rest). Authored special characters, the same in every game, including the sect heads; content in design/world/depth/. Living members count toward the realm headcounts, and Checking needs N >= N_cast (Formula B). Each living member has a fully authored build."
     added: 2026-11-15
-    revised: ""
+    revised: 2026-11-25 # was: [60, 100] (user decision 2026-11-15; world-generation.md rule 5 amended)
   - name: hidden_slot_counts
     status: active
     source: design/gdd/world-generation.md
@@ -6120,4 +6120,582 @@ constants:
     unit: building slots by seat kind
     notes: "Provinces F5 / rule 7."
     added: 2026-11-23
+    revised: ""
+  - name: land_k
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/provinces.md
+      - design/gdd/world-generation.md
+    value: 1.0
+    unit: factor per relative land deviation
+    notes: "Linh Căn Formulas A2 (R1, ruling 2026-11-25): factor = clamp(1 + land_k (s_e - s_mean_e) / s_mean_e, land_factor_min, land_factor_max); a birth reads its province's land qi. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: land_factor_min
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+    value: 0.25
+    unit: factor
+    notes: "Linh Căn Formulas A2: the land factor's lower bound. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: land_factor_max
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+    value: 3
+    unit: factor
+    notes: "Linh Căn Formulas A2: the land factor's upper bound. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: land_purity_shift
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+    value: 6
+    unit: purity points per unit of factor
+    notes: "Linh Căn Formulas A2: purity shift above or below factor 1. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: variant_parts_tilt
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+    value: 0.5
+    unit: share points per variant land point
+    notes: "Linh Căn Formulas A2 (R1b, ruling group 3): variant land raises the variant's required elements so it can form. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: variant_land_k
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+    value: 1.0
+    unit: variant boost per 10 points of variant land
+    notes: "Linh Căn Formulas D4; reads the province's strongest variant tile. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: variant_land_max
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+    value: 5
+    unit: times (variant odds multiplier cap)
+    notes: "Linh Căn Formulas D4 (R1: variant odds up to x5). (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: land_element_means
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/provinces.md
+      - design/gdd/travel-map.md
+    value: {moc: 31.1, hoa: 15.1, tho: 20.1, kim: 13.7, thuy: 20.0}
+    unit: percent (population-weighted world mean share)
+    notes: "Linh Căn Formulas A2 (ruling group 10): each element against its own world mean over settlement provinces; written by the map export, fixed with the fixed world. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: set_W_share
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+      - design/gdd/modifiers.md
+    value: 0.5
+    unit: share of one item's plain-modifier budget
+    notes: "Item DB Formulas J2: a set's 2-piece Modifiers budget. Guess (R7: about half a single item's budget). (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: set_bonus_min_pieces
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+      - design/gdd/combat.md
+    value: 2
+    unit: pieces worn
+    notes: "Item DB Formulas J1: pieces worn for the 2-piece Modifiers; the full set gives an Effect. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: set_size_min
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+      - design/gdd/world-generation.md
+    value: 2
+    unit: pieces
+    notes: "Item DB rule 22: smallest set. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: set_size_max
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+      - design/gdd/world-generation.md
+    value: 5
+    unit: pieces
+    notes: "Item DB rule 22: largest set (only a 2-3 piece set can be worn whole under artifacts_max 3). (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: items_sets_file
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    value: "items_sets.json"
+    unit: data file
+    notes: "Item DB rule 22: the set records (id, name, pieces, bonus lines, full-set Effect). Proposals in design/world/depth/**/*.items.json. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: artifacts_max
+    status: active
+    source: design/gdd/world-generation.md
+    referenced_by:
+      - design/gdd/world-generation.md
+      - design/gdd/item-database.md
+    value: 3
+    unit: gear pieces (cast build gear list)
+    notes: "Gear list = 1 + realm index, at most 3 (artifacts_base 1, artifacts_per_realm 1, world_generation.json). World Generation owns it, Item DB reads it (rule 22, Formulas J3). (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: admit_min
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+      - design/gdd/world-generation.md
+      - design/gdd/living-world-tick.md
+    value: 30
+    unit: purity
+    notes: "Sects F20 (R2): outer test. Safe 20-40. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: admit_core
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+      - design/gdd/world-generation.md
+    value: 45
+    unit: purity
+    notes: "Sects F20: core test for base elements (a convergence-variant lineage's core needs the main element or the variant). Safe 35-55. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: head_min
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+      - design/gdd/world-generation.md
+    value: 50
+    unit: purity
+    notes: "Sects F20: head test, base and variant. Safe 45-60. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: kin_bonus
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+      - design/gdd/npc-relationships.md
+    value: 1000
+    unit: intake score
+    notes: "Sects F21: kin first, before any outsider. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: home_bonus
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+      - design/gdd/world-generation.md
+    value: 500
+    unit: intake score
+    notes: "Sects F21: own-ground births next. Safe 0-1,000. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: variant_bonus
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+    value: 100
+    unit: intake score
+    notes: "Sects F21: a variant sect takes holders of its variant before plain base roots. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: lineage_share_min
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+      - design/gdd/cong-phap.md
+    value: 0.80
+    unit: share of members
+    notes: "Sects rule 20b: content check on the authored cast: at least this share of a sect's named members run its outer, inner or main lineage method as their main technique (safe 0.7-0.95). (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: array_round
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+      - design/gdd/world-generation.md
+    value: 0.05
+    unit: density
+    notes: "Sects F22 / World Generation Formula G: founder's arrays round to this step. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: recruit_by
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+      - design/gdd/character-stats.md
+      - design/gdd/world-generation.md
+    value: "[can_cot, than_hon, ngo_tinh, dao_tam] (optionally kin)"
+    unit: sect field
+    notes: "Sects rule 20d (R3): the talent a no-lean sect (leans []) recruits by; F21 ranks candidates by it. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: sect_lineage
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+      - design/gdd/cong-phap.md
+      - design/gdd/dao-do.md
+      - design/gdd/world-generation.md
+    value: "lineage {elements, methods by rank, tree_route (2-4 notable ids)}"
+    unit: sect field
+    notes: "Sects rule 20b (R5): every sect has a công pháp lineage; 180 proposed techniques (Sects Open Question 20) in design/world/depth/sects/*.techniques.json. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: sect_titles
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+      - design/gdd/world-generation.md
+    value: [thai_thuong, chan_truyen, chap_su, khach_khanh, tap_dich]
+    unit: titles
+    notes: "Sects rule 19b: the five titles of the authored cast, each mapped to one ladder rank. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: admission_exceptions
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+      - design/gdd/world-generation.md
+    value: [root_changed, before_relean, head_outside_line]
+    unit: member marks
+    notes: "Sects rule 20c: members kept although their root fails the current test. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: seat_array_density
+    status: active
+    source: design/gdd/world-generation.md
+    referenced_by:
+      - design/gdd/world-generation.md
+      - design/gdd/sects.md
+      - design/gdd/travel-map.md
+      - design/gdd/event-engine.md
+    value: "per seat, 0 - 0.65 (proposed)"
+    unit: place density
+    notes: "World Generation rule 16a, Formula G (ruling group 2): a moved seat's founder's array, ~max(0, d_old - d_seat) rounded to 0.05; joins Travel & Map Formula B as part of ΔD2p; breaking it (a hook) sets it to 0. Values per seat in Formula G's table. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: companion_share
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/effects.md
+      - design/gdd/modifiers.md
+    value: 0.5
+    unit: share
+    notes: "Combat Formulas L: each companion's share of an ally strike payload ([companion] scope). Safe 0.25-1.0. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: spread_share
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/effects.md
+    value: 0.5
+    unit: share
+    notes: "Combat Formulas L: a spread lands again on the same foe at this share. Guess. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: act_window
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/effects.md
+    value: 1
+    unit: s
+    notes: "Combat Formulas L: how long a foe counts as having moved. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: still_after
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/effects.md
+    value: 2
+    unit: s
+    notes: "Combat Formulas L: seconds without a damaging or movement art or evade before Still. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: moving_after
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/effects.md
+    value: 1
+    unit: s
+    notes: "Combat Formulas L: Moving after an evade or a movement art. Guess. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: range_open
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/effects.md
+    value: 3
+    unit: s
+    notes: "Combat Formulas L: the opening At range window. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: range_refresh
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/effects.md
+    value: 1
+    unit: s
+    notes: "Combat Formulas L: At range after an evade, movement art or push. Guess. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: displace_delay
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/effects.md
+    value: {normal: 0.3, heavy: 0.5}
+    unit: s
+    notes: "Combat Formulas L (ruling group 9): the timer delay of a Displace (heavy-tagged 0.5), through Effects rule 6. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: displaced_time
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/effects.md
+    value: 2
+    unit: s
+    notes: "Combat Formulas L: how long Displaced lasts. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: rooted_delay_share
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/effects.md
+    value: 0.5
+    unit: share of Rooted's N s
+    notes: "Combat Formulas L: the delay when Rooted lands. Guess. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: rooted_moment
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/effects.md
+    value: 1
+    unit: s
+    notes: "Combat Formulas L: 'a moment' or 'a breath' of Rooted. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: broken_threshold
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/effects.md
+    value: 0.25
+    unit: health share
+    notes: "Combat rule 25 (ruling group 9): Broken / Wounded fire on the first fall to this, once a fight; above cull_threshold 8 %. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: duel_statuses
+    status: active
+    source: design/gdd/effects.md
+    referenced_by:
+      - design/gdd/effects.md
+      - design/gdd/combat.md
+      - design/gdd/combat-defence.md
+    value: [Displaced, Rooted, Pinned, Planted]
+    unit: statuses
+    notes: "Effects rule 17 and Status Catalogue (ruling group 9): Displaced (2 s, no Still), Rooted (evade 0), Pinned (Rooted and no escape), Planted (immune to Displace). (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: local_recruit
+    status: active
+    source: design/gdd/world-generation.md
+    referenced_by:
+      - design/gdd/world-generation.md
+      - design/gdd/sects.md
+    value: 0.75
+    unit: share
+    notes: "World Generation Formula E: share of a sect's random members born on its own ground. Safe 0.5-0.9. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: admit_tries
+    status: active
+    source: design/gdd/world-generation.md
+    referenced_by:
+      - design/gdd/world-generation.md
+      - design/gdd/sects.md
+    value: 8
+    unit: draws
+    notes: "World Generation rule 8a: redraws of a fill candidate who fails admission. Guess. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: N_cast
+    status: active
+    source: design/gdd/world-generation.md
+    referenced_by:
+      - design/gdd/world-generation.md
+      - design/gdd/canh-gioi.md
+    value: 4947
+    unit: cultivators (calculated)
+    notes: "World Generation Formula B: the smallest world that holds the authored cast (Nguyên Anh binds); Checking needs N >= N_cast; Realms' world_cultivators_min is 5,000 (2026-11-25: floor 5,000, was 3,000; Open Question 8 answered), so a shipped world always holds the cast. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: seat_fit_bars
+    status: active
+    source: design/gdd/world-generation.md
+    referenced_by:
+      - design/gdd/world-generation.md
+      - design/gdd/sects.md
+    value: {first_lean: 25, other_lean: 15, variant: 5}
+    unit: 'percent qi share (variant: variant qi)'
+    notes: "World Generation Formula F (R4): first base lean >= 25 % or the top element, other base leans >= 15 % or in the top two, variant leans >= 5 variant qi; innate variants (Wind) exempt. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: row_premium
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+      - design/gdd/npc-traits-catalogue.md
+    value: {personality: 2.0, calling: 1.0, fate_given: 1.0, gained: 1.0}
+    unit: trait premium P_t
+    notes: "NPC Traits F1 (ruling group 5: personality rows doubled). Safe 1.0-2.5 for personality. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: talent_tier_add
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+      - design/gdd/character-stats.md
+      - design/gdd/modifiers.md
+    value: [6, 12, 20]
+    unit: talent points per tier 1/2/3
+    notes: "NPC Traits F1b (R6): a talent tier is a flat modifier on the talent key, + for gifts and - for flaws; grade shown stays the base's. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: opinion_like_dislike
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+      - design/gdd/npc-interaction-dialogue.md
+      - design/gdd/npc-relationships.md
+    value: {like: 5, dislike: 10}
+    unit: opinion points
+    notes: "NPC Traits F3 lk term: regard per liked / disliked v2 trait; like x 77 ~ dislike x 39 keeps the world's mean opinion steady (Open Question 11). (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: talent_inherit
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+      - design/gdd/living-world-tick.md
+    value: {one_parent: 0.35, both_parents: 0.65, drift: {down: 0.40, same: 0.45, up: 0.15}}
+    unit: chance
+    notes: "NPC Traits F5b: talent families pass with these odds; the tier drifts by -1 / 0 / +1 (mean drift -0.25). Guess. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: n_create_max
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+      - design/gdd/world-generation.md
+    value: 6
+    unit: traits at creation
+    notes: "NPC Traits F4b: traits an ordinary rolled person may reach (Open Question 20 asks about 7). (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: coping_fade
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+      - design/gdd/living-world-tick.md
+      - design/gdd/event-engine.md
+    value: {fade_seasons: 20, harden_refreshes: 3}
+    unit: seasons; refreshes
+    notes: "NPC Traits F6b: a coping trait fades 20 seasons after its last trigger and becomes lifelong after 3 refreshes. Guess. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: waning_share
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+      - design/gdd/character-stats.md
+      - design/gdd/living-world-tick.md
+    value: 0.10
+    unit: share of lifespan
+    notes: "NPC Traits F6b: Waning years arrives when this share of the lifespan is left. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: ""
+  - name: trait_ids_max
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+      - design/gdd/world-generation.md
+    value: 18
+    unit: trait ids per person
+    notes: "NPC Traits rule 3 (amended 2026-11-25; was 8 before the v2 kinds): 3 personality, 1 calling, fate-given, gained and the v2 kinds; with <= 3 talent tiers, <= 3 expiries, <= 1 coping refresh count. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
     revised: ""

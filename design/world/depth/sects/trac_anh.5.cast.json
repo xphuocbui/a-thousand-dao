@@ -1,0 +1,504 @@
+{
+ "sect": "trac_anh",
+ "people": [
+  {
+   "key": "boc_kinh_thang",
+   "name_hv": "Bốc Kình Thăng",
+   "name_han": "卜鯨升",
+   "gloss": "The whale rises",
+   "sex": "M",
+   "born": 1095,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "trac_anh",
+   "rank": "noi_mon",
+   "home": 17,
+   "birthplace": 1450,
+   "role": "Captain of the third whaleboat; the loudest voice for hunting the Old Ivory",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "kim": 34,
+     "moc": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Vengeful",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "His grandfather's boat went down under the Old Ivory. He has promised his crew that the third boat will follow Ngạc Hải Tiêu (ngac_hai_tieu) the day he goes for the whale, whatever the head says.",
+   "ties": [
+    {
+     "to": "doan_thanh_lang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ngac_hai_tieu",
+     "kind": "friend",
+     "note": "will follow him after the whale"
+    },
+    {
+     "to": "boc_hai_dong",
+     "kind": "child",
+     "note": "his son, who bails the third boat"
+    },
+    {
+     "to": "boc_hai_dong",
+     "kind": "disciple",
+     "note": "he teaches him the boats"
+    }
+   ],
+   "master": "doan_thanh_lang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "canglang-body-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "whale-line-harpoon",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water and a body that does not stop in cold water."
+    }
+   }
+  },
+  {
+   "key": "dau_thuy_lang",
+   "name_hv": "Đậu Thủy Lăng",
+   "name_han": "竇水菱",
+   "gloss": "Water caltrop",
+   "sex": "F",
+   "born": 1125,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "trac_anh",
+   "rank": "noi_mon",
+   "home": 17,
+   "birthplace": 1443,
+   "role": "Diver of the seal inlet; learns the palm from Phí Nhạn Tâm",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "moc": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Peaceable",
+     "Patient",
+     "Stubborn"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "She dives beside Đoàn Tố Ba (doan_to_ba) and swore to her that the inlet's seals will not be hunted while she lives. Phí Nhạn Tâm (phi_nhan_tam) teaches her the Tê Nhạn palm; she is the only one who rows out to the ruin with him.",
+   "ties": [
+    {
+     "to": "phi_nhan_tam",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "doan_to_ba",
+     "kind": "friend",
+     "note": "sworn over the seals"
+    }
+   ],
+   "master": "phi_nhan_tam",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "canglang-body-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "hundred-echo-palm-scripture",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water, long breath."
+    }
+   }
+  },
+  {
+   "key": "boc_hai_dong",
+   "name_hv": "Bốc Hải Đồng",
+   "name_han": "卜海童",
+   "gloss": "Sea child",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "trac_anh",
+   "rank": "ngoai_mon",
+   "home": 17,
+   "birthplace": 1450,
+   "role": "Bốc Kình Thăng's son; bails the third boat",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Gregarious",
+     "Impatient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "His father Bốc Kình Thăng (boc_kinh_thang) put him in the third boat at twelve. He came up from the winter dive on the second try, and Bào Thiết Thủ (bao_thiet_thu) still calls him the one who asked twice.",
+   "ties": [
+    {
+     "to": "boc_kinh_thang",
+     "kind": "parent",
+     "note": "father and master"
+    },
+    {
+     "to": "boc_kinh_thang",
+     "kind": "master",
+     "note": "teaches him the boats"
+    },
+    {
+     "to": "bao_thiet_thu",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "boc_kinh_thang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "kim_hai_yen",
+   "name_hv": "Kim Hải Yến",
+   "name_han": "金海燕",
+   "gloss": "Sea swallow",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "trac_anh",
+   "rank": "ngoai_mon",
+   "home": 17,
+   "birthplace": 1438,
+   "role": "Seal-oil boiler's daughter of the Sóc Phương families",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 40,
+     "thuy": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Ambitious"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Her family boiled seal oil at Sóc Phương Thành before it fell (V078). She renders the terrace's oil for the Pavilion tax and wants to dive for Đoàn Tố Ba (doan_to_ba), who has not asked her yet.",
+   "ties": [
+    {
+     "to": "vu_bich_trieu",
+     "kind": "friend",
+     "note": "a diver of Đoàn Tố Ba's"
+    },
+    {
+     "to": "doan_to_ba",
+     "kind": "friend",
+     "note": "hopes to dive for her"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal, the seal-oil blood."
+    }
+   }
+  },
+  {
+   "key": "lam_nhan_thanh",
+   "name_hv": "Lam Nhạn Thanh",
+   "name_han": "藍雁清",
+   "gloss": "Clear as the wild goose",
+   "sex": "M",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "trac_anh",
+   "rank": "noi_mon",
+   "home": 17,
+   "birthplace": 1476,
+   "role": "Novice of the palm hall, raised at the ruin of Tê Nhạn Quán",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Patient",
+     "Humble"
+    ],
+    "calling": "Steward",
+    "upbringing": "temple_raised"
+   },
+   "backstory": "Phí Nhạn Tâm (phi_nhan_tam) found him a foundling in the reeds by Tê Nhạn Quán and taught him the monastery's chant before the dive. He sweeps the palm hall and keeps a list of what the rebuilding would cost.",
+   "ties": [
+    {
+     "to": "phi_nhan_tam",
+     "kind": "master",
+     "note": "found him in the reeds"
+    },
+    {
+     "to": "lo_chau_nuong",
+     "kind": "friend",
+     "note": "sells pearls toward the rebuilding"
+    }
+   ],
+   "master": "phi_nhan_tam",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "canglang-body-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water, the monks' stillness."
+    }
+   }
+  },
+  {
+   "key": "co_lang_hoa",
+   "name_hv": "Cố Lãng Hoa",
+   "name_han": "顧浪花",
+   "gloss": "Wave-foam",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "trac_anh",
+   "rank": "noi_mon",
+   "home": 17,
+   "birthplace": 1477,
+   "role": "Harpooner in Ngạc's boat; wants the bow seat for the whale",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Warlike",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Ngạc Hải Tiêu (ngac_hai_tieu) took her into his boat because she threw farther than Nghê Tiểu Lãng (nghe_tieu_lang). She wants the bow seat on the day they go for the Old Ivory.",
+   "ties": [
+    {
+     "to": "ngac_hai_tieu",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nghe_tieu_lang",
+     "kind": "rival",
+     "note": "the bow seat"
+    }
+   ],
+   "master": "ngac_hai_tieu",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "canglang-body-canon",
+     "layer": 3
+    },
+    "aux": [
+     {
+      "tech": "whale-line-harpoon",
+      "layer": 1
+     }
+    ],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "dong_thoa",
+   "name_hv": "Đổng Thoa",
+   "name_han": "董梭",
+   "gloss": "Shuttle",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "trac_anh",
+   "rank": "ngoai_mon",
+   "home": 17,
+   "birthplace": 1452,
+   "role": "Đổng Võng's sister; mends the whaleboats' lines",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Diligent",
+     "Cautious"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "She mends the harpoon lines in the boat shed for Bào Thiết Thủ (bao_thiet_thu), who lets no one else check a line he has spliced. Her brother Đổng Võng (dong_vong) knots the nets.",
+   "ties": [
+    {
+     "to": "bao_thiet_thu",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dong_vong",
+     "kind": "sibling",
+     "note": "her elder brother"
+    }
+   ],
+   "master": "bao_thiet_thu",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "lac_thiet",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  }
+ ]
+}

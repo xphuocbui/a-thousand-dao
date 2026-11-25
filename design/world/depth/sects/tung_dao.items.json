@@ -1,0 +1,1444 @@
+{
+ "sect": "tung_dao",
+ "_doc": "Tùng Đào Cung signature items and sets (rules-proposals R7). Item ids prefixed td-. Modifier keys and sizes follow design/items catalogue-wood and catalogue-water at grades 2-4. Effects are short hand-written rules, unpriced. Proposals only.",
+ "items": [
+  {
+   "id": "td-wandering-dragon-sash",
+   "name": "Wandering Dragon Sash (Du Long Thao)",
+   "family": "wind",
+   "kind": "treasure",
+   "base": "dao_bao",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "evade_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "supple-as-a-dragon",
+     "name": "Supple as a Swimming Dragon (Uyển Nhược Du Long)",
+     "rule": "Once every 15 s, when a single hit would take more than a tenth of your health, you slip half of it and are moved one step aside."
+    }
+   ],
+   "lore": "A long sash of grey-green silk woven with wind qi, worn over the robe. Kỳ Tùng Ẩn had it made in the year he founded the palace (C003) for his first disciple, from the line of Lạc Thần Phú that her name comes from: light as a startled goose, supple as a swimming dragon. Thôi Khinh Hồng has worn it for 1,000 years. It is a Wind treasure on a Wood and Water root, and she uses only its slipping. Legendary item du_long_thao.",
+   "build_use": "The grand old woman's guard: evasion and the slip that keeps a Hóa Thần from being caught by one great blow.",
+   "holder": "thoi_khinh_hong",
+   "made_by": "ky_tung_an",
+   "made_year": 200,
+   "set": "td-goose-and-dragon",
+   "legendary_key": "du_long_thao",
+   "status": "proposal"
+  },
+  {
+   "id": "td-white-wolf-fang",
+   "name": "White Wolf King's Fang (Bạch Lang Vương Nha)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 24,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "the-pack-remembers",
+     "name": "The Pack Remembers (Lang Quần Ký)",
+     "rule": "Against a rooted foe, your Wood damage ignores 15 % of their resistance."
+    }
+   ],
+   "lore": "The left eye-tooth of the white wolf king of Cửu Khúc Xuyên, which Thôi Khinh Hồng killed in 455 (C093), set in pine-root wood and worn on a cord. The children of Bạch Lang Thôn wear wolf-tooth charms in imitation (A070); hers is the one they copy.",
+   "build_use": "Her killing piece: Wood damage and roots.",
+   "holder": "thoi_khinh_hong",
+   "made_by": "thoi_khinh_hong",
+   "made_year": 455,
+   "set": "td-goose-and-dragon",
+   "status": "proposal"
+  },
+  {
+   "id": "td-pine-wave-seal",
+   "name": "Seal of the Pine Waves (Tùng Đào Ấn)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "an",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 22,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 16,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A square seal of pine heartwood turned to stone, cut from the first pine that fell on the palace ground after the founding. It is the only piece of the regalia that bears writing: the four characters of the palace's name. Kỳ Tùng Ẩn stamped it on the river claim of 260 (C066); Thôi Khinh Hồng handed it to Đàm Tùng Lại in 900 (C021).",
+   "build_use": "The head's Wood damage and art speed.",
+   "holder": "dam_tung_lai",
+   "made_by": "ky_tung_an",
+   "made_year": 205,
+   "set": "td-pine-regalia",
+   "status": "proposal"
+  },
+  {
+   "id": "td-listening-robe",
+   "name": "Robe of the Listening Dawn (Thính Hiểu Bào)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "healing_taken_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "hear-it-coming",
+     "name": "Hear It Coming (Văn Lai)",
+     "rule": "The first art each fight that would stun or root you is heard before it lands, and fails."
+    }
+   ],
+   "lore": "An undyed robe of pine-bark linen, the head's dress for the dawn listening. It has been patched with the bark of every pine the sect has lost to storm since 200, so it is darker at the hem than at the shoulder.",
+   "build_use": "Sustain and control resistance for a head who answers rather than strikes.",
+   "holder": "dam_tung_lai",
+   "made_by": "ky_tung_an",
+   "made_year": 210,
+   "set": "td-pine-regalia",
+   "status": "proposal"
+  },
+  {
+   "id": "td-pine-heart-censer",
+   "name": "Pine-Heart Censer (Tùng Tâm Lô)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "huong_lo",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 30,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "cultivation_speed_pct",
+     "value": 12,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "one-stick-of-listening",
+     "name": "One Stick of Listening (Nhất Chú Thính)",
+     "rule": "Out of combat: disciples who sit in its smoke for the listening cultivate 10 % faster that season."
+    }
+   ],
+   "lore": "A bronze censer the size of a drum, set on the palace terrace. One stick of Lãnh Hương incense burns in it at dawn and one at dusk, and the whole sect is silent while it burns. The incense has come from the herb gardens of Lãnh Hương Viện since 890 (V004).",
+   "build_use": "Slow heals and long Wood buffs; the sect's clock.",
+   "holder": "dam_tung_lai",
+   "made_by": "ky_tung_an",
+   "made_year": 230,
+   "set": "td-pine-regalia",
+   "status": "proposal"
+  },
+  {
+   "id": "td-still-water-lamp",
+   "name": "Lamp of Still Water (Tĩnh Thủy Đăng)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "dang",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 22,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 18,
+     "scope": [
+      "thuy",
+      "buff"
+     ]
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "still-water",
+     "name": "Still Water (Tĩnh Thủy)",
+     "rule": "The first Water art you cast in each 10 s costs no linh lực."
+    }
+   ],
+   "lore": "The altar lamp of Tĩnh Thủy Quán, a bowl of green glass on a bronze stem. A twelve-year-old girl dug it out of the river mud two years after the flood that drowned the abbey (A074, V046) and carried it to Tùng Đào. Dụ Tĩnh Lưu has kept it lit for 498 years.",
+   "build_use": "Linh lực for a long Water fight.",
+   "holder": "du_tinh_luu",
+   "made_by": "tinh_thuy_quan",
+   "made_year": 520,
+   "set": "td-still-water-relics",
+   "status": "proposal"
+  },
+  {
+   "id": "td-nine-bend-ring",
+   "name": "Ring of the Nine Bends (Cửu Khúc Hoàn)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "nhan",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "thuy"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": [
+      "thuy"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": [
+      "curse"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "the-ninth-bend",
+     "name": "The Ninth Bend (Đệ Cửu Khúc)",
+     "rule": "Every ninth Water art you cast bends back and strikes again at half strength."
+    }
+   ],
+   "lore": "Nine rings of river-jade linked into one, made for the master of the River Hall. Hề Tùng Ba wore it, and Dụ Tĩnh Lưu took it from his hand when he died in 840.",
+   "build_use": "Water damage for the River Hall.",
+   "holder": "du_tinh_luu",
+   "made_by": "tung_dao",
+   "made_year": 650,
+   "set": "td-still-water-relics",
+   "status": "proposal"
+  },
+  {
+   "id": "td-ford-governor-seal",
+   "name": "Seal of the Cold Ford Governor (Hàn Tân Thủ Ấn)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "an",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 18,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The governor's seal of the Cold Ford coast, cut in 672 when the sect took Hàn Tân Thành (C136). Every resin-tax receipt of 233 years carried its stamp (A041). Giáp Tùng Chi held it until he died on the quay in 905 (C166); his disciple Nhiếp Cô Tân carried it out of the town.",
+   "build_use": "Wood damage and a little guard.",
+   "holder": "nhiep_co_tan",
+   "made_by": "tung_dao",
+   "made_year": 672,
+   "set": "td-cold-ford-charge",
+   "status": "proposal"
+  },
+  {
+   "id": "td-ford-governor-lantern",
+   "name": "Quay Lantern of the Cold Ford (Hàn Tân Kiều Đăng)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "dang",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "healing_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The lantern that hung over the governor's quay at Hàn Tân. When Giáp Tùng Chi fell beside it in 905 it was left on the stones. That month Hướng Dạ Đăng dug his ancestor Hướng Đông Lâm's lamp out from under the quay stones (C166), and the fishers say he put the governor's lantern into the same hole. Nobody in Tùng Đào knows where it is.",
+   "build_use": "Linh lực and resistance; half of the governor's pair.",
+   "holder": null,
+   "made_by": "tung_dao",
+   "made_year": 672,
+   "set": "td-cold-ford-charge",
+   "status": "proposal"
+  },
+  {
+   "id": "td-coiled-root-banner",
+   "name": "Banner of the Coiled Roots (Bàn Căn Kỳ)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "ky",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "art_speed_pct",
+     "value": 14,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 26,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 30,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "roots-under-the-field",
+     "name": "Roots Under the Field (Địa Hạ Căn)",
+     "rule": "When the foe has been Still for 2 s, it is Rooted for 1 s; once every 10 s.",
+     "authored": "a1"
+    }
+   ],
+   "lore": "The war banner of the Coiled Root Hall: brown cloth with a pattern of roots, woven from the fibre of pines that fell in Bàn Căn Lâm, where the sect lays its dead. It went to the Pivot war in 502 and to the Cold Ford in 668. Đàm Tùng Lại has not let it leave the palace since 905.",
+   "build_use": "Wood roots and long debuffs: a war leader's piece.",
+   "holder": "nhiep_co_tan",
+   "made_by": "ky_tung_an",
+   "made_year": 500,
+   "set": null,
+   "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "td-pine-rain-fan",
+   "name": "Fan of Rain on the Pines (Tùng Vũ Phiến)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "phien",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "thuy",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "cool-the-burn",
+     "name": "Cool the Burn (Tiêu Chước)",
+     "rule": "Your heals also remove one Fire stack from the ally they land on."
+    }
+   ],
+   "lore": "A folding fan of thin pine slats with a painted rain on it, the first elder's teaching fan. Hồ Tùng Nguyệt taps the time of the canon's lines on her palm with it, and every disciple she has taught knows the sound.",
+   "build_use": "Heals and linh lực for the first elder's rain.",
+   "holder": "ho_tung_nguyet",
+   "made_by": "ho_tung_nguyet",
+   "made_year": 1010,
+   "set": "td-rain-over-long-lake",
+   "status": "proposal"
+  },
+  {
+   "id": "td-clear-sound-zither",
+   "name": "Zither of Clear Sound (Thanh Âm Cầm)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "cam",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "heard-once",
+     "name": "Heard Once (Nhất Văn)",
+     "rule": "Out of combat: arts taught to the holder by voice are learned 20 % faster."
+    }
+   ],
+   "lore": "A seven-string zither of storm-felled pine, made by the zither-makers of Cầm Tượng Trấn the year before the ravine buried their town (V041). Hà Thính Tùng of Vạn Hác Viện chose it for Vi Thanh Âm when she was twenty.",
+   "build_use": "Soul guard and Wood art speed for the heir who remembers everything.",
+   "holder": "vi_thanh_am",
+   "made_by": "cam_tuong",
+   "made_year": 1011,
+   "set": "td-unwritten-score",
+   "status": "proposal"
+  },
+  {
+   "id": "td-broken-ice-flags",
+   "name": "Flags That Broke the Ice (Phá Băng Kỳ)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "ky",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "status_duration_pct",
+     "value": 14,
+     "scope": [
+      "curse"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 18,
+     "scope": [
+      "thuy",
+      "debuff"
+     ]
+    },
+    {
+     "key": "ward_efficiency_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "crack-the-ice",
+     "name": "Crack the Ice (Liệt Băng)",
+     "rule": "While the flags stand, a foe that has been Still for 3 s is Rooted for 2 s and takes a Water stack each second.",
+     "authored": "a1"
+    }
+   ],
+   "lore": "Nine small blue flags on pine poles. Cận Tùng Hàn planted them on the river-mouth ice of the Cold Ford in the winter of 904, and the ice broke under forty Thúy Vi disciples crossing at night (N-thuy_vi-06). He has not unrolled them since.",
+   "build_use": "An array master's curse flags.",
+   "holder": "can_tung_han",
+   "made_by": "can_tung_han",
+   "made_year": 880,
+   "set": "td-ice-breaker-array",
+   "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "td-ferryman-gourd",
+   "name": "Ferryman's Gourd (Độ Gia Hồ Lô)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "ho_lo",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "dan_doc_resist_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A ferryman's water gourd from Cổ Độ Thành, lacquered inside so it will hold a low fire. Đàm Thanh Giang brought it from home at six and brews his first draughts in it still.",
+   "build_use": "A healer's pill gourd.",
+   "holder": "dam_thanh_giang",
+   "made_by": "",
+   "made_year": 1100,
+   "set": "td-ferryman-remedy",
+   "status": "proposal"
+  },
+  {
+   "id": "td-bridge-cutter",
+   "name": "Bridge-Cutter (Đoạn Kiều)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 12,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "pierce_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A short flying blade of black pine iron. Nhiếp Thừa Phong cut the rope bridges of the Ngư Ca border with it in the Ferry War (A202) and was killed on the last one. Lạc Hà sent it back without him.",
+   "build_use": "A young fighter's flying blade.",
+   "holder": "nhiep_van_dao",
+   "made_by": "tung_dao",
+   "made_year": 1150,
+   "set": "td-cut-bridges",
+   "status": "proposal"
+  },
+  {
+   "id": "td-moon-lake-mirror",
+   "name": "Mirror of the Long Lake Moon (Trường Hồ Nguyệt Kính)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "kinh",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "thuy",
+      "buff"
+     ]
+    },
+    {
+     "key": "healing_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "moon-on-open-water",
+     "name": "Moon on Open Water (Thủy Thượng Nguyệt)",
+     "rule": "While you have not moved for 2 s, your Water arts reach twice as far."
+    }
+   ],
+   "lore": "A bronze mirror polished on Hạo Nguyệt Hồ. Thiều Lăng Ba carried it in the Long Lake War (C170) to signal the boats at night.",
+   "build_use": "The Lake Warden's linh lực.",
+   "holder": "thieu_lang_ba",
+   "made_by": "tung_dao",
+   "made_year": 930,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "td-ferry-rope-needles",
+   "name": "Ferry-Rope Needles (Độ Thằng Châm)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "cham",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 12,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Nine bone needles wound in a hank of the tow rope from the Đàm family's ferry at Cổ Độ Thành. Bồ Hạnh Lâm made them for Đàm Thanh Giang when he took the second furnace, so that the gourd from home would have something from home to work with.",
+   "build_use": "The healer's hand: Wood heals and Wood buff stacks laid on the ally he keeps standing.",
+   "holder": "dam_thanh_giang",
+   "made_by": "bo_hanh_lam",
+   "made_year": 1185,
+   "set": "td-ferryman-remedy",
+   "status": "proposal"
+  },
+  {
+   "id": "td-last-bridge-knot",
+   "name": "Knot of the Last Bridge (Mạt Kiều Kết)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "nhan",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "crit_damage_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 6,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A ring of rope from the last bridge Nhiếp Thừa Phong cut on the Ngư Ca border, the end Lạc Hà sent back wrapped round his blade. Nhiếp Cô Tân tied it into a knot for his granddaughter the year she was eight.",
+   "build_use": "The duellist's finish: crit damage and faster Wood arts.",
+   "holder": "nhiep_van_dao",
+   "made_by": "nhiep_co_tan",
+   "made_year": 1174,
+   "set": "td-cut-bridges",
+   "status": "proposal"
+  },
+  {
+   "id": "td-startled-goose-pin",
+   "name": "Startled Goose Hairpin (Kinh Hồng Trâm)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "cham",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A pin of pale pine-heart wood with one white goose feather bound under the head. Thôi Khinh Hồng cut it herself in 900, the morning she gave the regalia to Đàm, so that she would keep three things that answered to her name.",
+   "build_use": "The regrowth piece: health that comes back and a little more of the goose's leap.",
+   "holder": "thoi_khinh_hong",
+   "made_by": "thoi_khinh_hong",
+   "made_year": 900,
+   "set": "td-goose-and-dragon",
+   "status": "proposal"
+  },
+  {
+   "id": "td-ford-governor-coat",
+   "name": "Coat of the Cold Ford Governor (Hàn Tân Thủ Giáp)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 100,
+     "scope": [
+      "cold"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "The governor's quilted coat of pine-bark scale, made with the seal and the lantern in 672. Giáp Tùng Chi died in it on the quay in 905, and his disciple Nhiếp Cô Tân took it off him there and has worn it under his robe ever since.",
+   "build_use": "The body piece of the Governor's Charge: health, block and the river-mouth cold kept out.",
+   "holder": "nhiep_co_tan",
+   "made_by": "tung_dao",
+   "made_year": 672,
+   "set": "td-cold-ford-charge",
+   "status": "proposal"
+  },
+  {
+   "id": "td-drowned-abbey-habit",
+   "name": "Habit of the Drowned Abbey (Tĩnh Thủy Đạo Y)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "linh_luc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "healing_taken_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Her mother's lay habit from Tĩnh Thủy Quán, which the girl wore for four days on the abbey roof in 700. Hề Tùng Ba had it rewoven with river qi in 720 and gave it back to her without a word; she understood why only in 840.",
+   "build_use": "Deep linh lực and its return: the long river's body.",
+   "holder": "du_tinh_luu",
+   "made_by": "he_tung_ba",
+   "made_year": 720,
+   "set": "td-still-water-relics",
+   "status": "proposal"
+  },
+  {
+   "id": "td-quy-dieu-pearl",
+   "name": "Pearl of Quy Điểu (Quy Điểu Châu Bội)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A lake pearl on a black cord, the one her family of brokers at Quy Điểu Trấn would not sell in the winter market of 811. Her mother hung it on her the day Đàm Tùng Lại took her up the mountain.",
+   "build_use": "Linh lực for a long fight of rain and heals.",
+   "holder": "ho_tung_nguyet",
+   "made_by": "ho_tung_nguyet",
+   "made_year": 811,
+   "set": "td-rain-over-long-lake",
+   "status": "proposal"
+  },
+  {
+   "id": "td-hall-of-voices-robe",
+   "name": "Robe of the Hall of Voices (Thanh Đường Bào)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The grey robe of the keeper of the Hall of Voices, sewn with the first lines of every song the hall teaches, in thread the colour of the cloth so that no one can read them. Thôi Khinh Hồng gave it to Hồ Tùng Nguyệt with her pine name in 890.",
+   "build_use": "A healer's robe that keeps the teacher's head clear.",
+   "holder": "ho_tung_nguyet",
+   "made_by": "thoi_khinh_hong",
+   "made_year": 890,
+   "set": "td-rain-over-long-lake",
+   "status": "proposal"
+  },
+  {
+   "id": "td-pine-needle-tuning-pendant",
+   "name": "Pine-Needle Tuning Pendant (Tùng Châm Điệu Bội)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A pendant of green jade drilled with twelve holes; the wind through it sounds the twelve pitches of the Pine Wave canon. Hà Thính Tùng sent it to Vi Thanh Âm in 1162, the year he understood what her tablature was.",
+   "build_use": "Fast Wood arts and the linh lực to keep them coming.",
+   "holder": "vi_thanh_am",
+   "made_by": "ha_thinh_tung",
+   "made_year": 1162,
+   "set": "td-unwritten-score",
+   "status": "proposal"
+  },
+  {
+   "id": "td-twelfth-song-robe",
+   "name": "Robe of the Twelfth Song (Thập Nhị Khúc Bào)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "soul_res_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Đàm Tùng Lại gave his heir this pine-green robe when she sang the canon's twelfth layer back to him in 1190. It is the only robe in the palace that has a pocket, and she keeps the zither's tuning key in it.",
+   "build_use": "The heir's guard: soul resistance so the song does not stop.",
+   "holder": "vi_thanh_am",
+   "made_by": "dam_tung_lai",
+   "made_year": 1190,
+   "set": "td-unwritten-score",
+   "status": "proposal"
+  },
+  {
+   "id": "td-ward-song-seal",
+   "name": "Ward-Song Seal (Hộ Ca Ấn)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "an",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": [
+      "curse"
+     ]
+    },
+    {
+     "key": "ward_efficiency_pct",
+     "value": 3,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A river-stone seal cut with the first stroke of every ward-song the Array Hall keeps in its head. Cận Tùng Hàn cut it in 1150 as the start of a record he has never dared to finish.",
+   "build_use": "Curses that last and wards that cost less.",
+   "holder": "can_tung_han",
+   "made_by": "can_tung_han",
+   "made_year": 1150,
+   "set": "td-ice-breaker-array",
+   "status": "proposal"
+  },
+  {
+   "id": "td-keel-board-shield",
+   "name": "Keel-Board Shield (Long Cốt Thuẫn)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "thuan",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A shield cut from the keel of the first boat his father built at Lâu Thuyền Trấn, laid from the bottom up as he lays his arrays.",
+   "build_use": "Holds the array master up while the ground does the work.",
+   "holder": "can_tung_han",
+   "made_by": "can_tung_han",
+   "made_year": 790,
+   "set": "td-ice-breaker-array",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "td-pine-regalia",
+   "name": "Pine Waves Regalia (Tùng Đào Tam Bảo)",
+   "pieces": [
+    "td-pine-wave-seal",
+    "td-listening-robe",
+    "td-pine-heart-censer"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "healing_pct",
+       "value": 8,
+       "scope": []
+      },
+      {
+       "key": "linh_luc_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "The Sea Answers (Hải Ứng): while you stand still, every 3 s a wave goes out from you. Allies in reach heal 2 % of their health and foes in reach gain one Wood stack. Each wave is stronger than the last, and every wave after the fifth costs you 2 % of your maximum linh lực; the waves break if you are moved."
+    }
+   ],
+   "story": "Kỳ Tùng Ẩn made all three in the palace's first thirty years. Unlike the regalia of Băng Tâm and Thúy Vi, Tùng Đào's has never been split: Thôi Khinh Hồng handed all three to Đàm Tùng Lại in one morning in 900. The Coiled Root Hall says a head who gave up the Cold Ford should not wear them, and Đàm, who agrees more than he says, wears only the robe except at the new year."
+  },
+  {
+   "id": "td-cold-ford-charge",
+   "name": "The Governor's Charge (Thủ Tân Song Bảo)",
+   "pieces": [
+    "td-ford-governor-seal",
+    "td-ford-governor-lantern",
+    "td-ford-governor-coat"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "defense_pct",
+       "value": 8,
+       "scope": []
+      },
+      {
+       "key": "khi_huyet_pct",
+       "value": 8,
+       "scope": []
+      }
+     ],
+     "effect": "Hold the Quay (Thủ Kiều): after you have not moved for 3 s, you take 12 % less damage and your roots last 1 s longer."
+    },
+    {
+     "pieces": 3,
+     "effect": "Light on the Quay (Kiều Thượng Đăng): while you hold all three and stand still, the lantern lights the ground around you: allies in it heal 1 % of their health each second and foes in it are Slowed; a foe rooted in the light for 2 s is struck by a palm counter."
+    }
+   ],
+   "story": "The seal and the lantern of the Cold Ford governor, made in 672. Nhiếp Cô Tân has the seal; the lantern was left on the quay at Hàn Tân in 905. He would give a great deal for it, and more for the war that would let him walk onto that quay and look. The governor's coat, made with them, came off Giáp Tùng Chi's body in Nhiếp's hands that day, so he wears two of the three; the Charge is whole only with the lantern from under the quay stones."
+  },
+  {
+   "id": "td-ferryman-remedy",
+   "name": "The Ferryman's Remedy (Độ Gia Song Bảo)",
+   "pieces": [
+    "td-ferryman-gourd",
+    "td-ferry-rope-needles"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "healing_pct",
+       "value": 5,
+       "scope": []
+      },
+      {
+       "key": "dan_doc_resist_pct",
+       "value": 6,
+       "scope": []
+      }
+     ],
+     "effect": "Ferry Across (Độ Khách): when you heal an ally below half health, they also shed one poison stack and gain one Wood buff stack; once per ally every 6 s."
+    }
+   ],
+   "story": "A gourd from the ferry and needles wound in its rope: Bồ Hạnh Lâm made the second piece in 1185 to match the first. Both are Đàm Thanh Giang's, and the set is whole."
+  },
+  {
+   "id": "td-cut-bridges",
+   "name": "Cut Bridges (Đoạn Kiều Song Bảo)",
+   "pieces": [
+    "td-bridge-cutter",
+    "td-last-bridge-knot"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "crit_chance_pct",
+       "value": 3,
+       "scope": []
+      },
+      {
+       "key": "attack_pct",
+       "value": 6,
+       "scope": [
+        "moc"
+       ]
+      }
+     ],
+     "effect": "The Last Bridge (Mạt Kiều): the first time in a fight a foe falls below half health from your hits, your next flying-sword hit on it is a certain crit and roots it for 1 s."
+    }
+   ],
+   "story": "Her father's blade and the rope of the bridge he died on, which came home together in 1174. Nhiếp Vãn Đào holds both."
+  },
+  {
+   "id": "td-goose-and-dragon",
+   "name": "Swan Goose and Swimming Dragon (Kinh Hồng Du Long)",
+   "pieces": [
+    "td-wandering-dragon-sash",
+    "td-startled-goose-pin",
+    "td-white-wolf-fang"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "khi_huyet_pct",
+       "value": 8,
+       "scope": []
+      },
+      {
+       "key": "evade_pct",
+       "value": 4,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Light as a Startled Goose (Phiên Nhược Kinh Hồng): each time the Sash slips a blow, you regrow 4 % of your health over 4 s and the attacker is rooted for 1 s where it stands, so the Fang's resistance cut applies to it."
+    }
+   ],
+   "story": "Not made together: the founder's sash of 200, the wolf king's tooth of 455 and the pin she cut in 900. She bound them with one cord the morning she retired, and they have answered one another since. All three are hers; the Thousand Roots Banner stays furled at Thính Đào Nhãn."
+  },
+  {
+   "id": "td-still-water-relics",
+   "name": "Relics of Still Water (Tĩnh Thủy Tam Di)",
+   "pieces": [
+    "td-still-water-lamp",
+    "td-drowned-abbey-habit",
+    "td-nine-bend-ring"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "linh_luc_regen_inc_pct",
+       "value": 10,
+       "scope": []
+      },
+      {
+       "key": "linh_luc_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "The River Keeps Its Bed (Hà Thủ Kỳ Sàng): each Water art the Lamp makes free counts twice toward the Ring's ninth bend, and when the ninth wave bends back it also heals you and the ally lowest on health for 3 % of your maximum linh lực."
+    }
+   ],
+   "story": "The abbey's lamp, her mother's habit and the River Hall's ring: two relics of the flood of 700 and the hand of the man who sent it. Dụ Tĩnh Lưu wears all three, and only she knows why that is a penance."
+  },
+  {
+   "id": "td-rain-over-long-lake",
+   "name": "Rain over the Long Lake (Trường Hồ Vũ)",
+   "pieces": [
+    "td-pine-rain-fan",
+    "td-quy-dieu-pearl",
+    "td-hall-of-voices-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "healing_pct",
+       "value": 6,
+       "scope": []
+      },
+      {
+       "key": "linh_luc_regen_inc_pct",
+       "value": 8,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Voice in the Rain (Vũ Trung Thanh): while your Pine Rain falls, each heal you land on an ally under it also gives them one Water buff stack and restores 1 % of your maximum linh lực; heals on allies below a third of their health are 25 % stronger."
+    }
+   ],
+   "story": "The teaching fan, the pearl from home and the robe of the Hall of Voices, gathered over three centuries. All are Hồ Tùng Nguyệt's, and the hall expects them to pass to whoever keeps it after her."
+  },
+  {
+   "id": "td-unwritten-score",
+   "name": "The Unwritten Score (Vô Tự Cầm Phổ)",
+   "pieces": [
+    "td-clear-sound-zither",
+    "td-pine-needle-tuning-pendant",
+    "td-twelfth-song-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "art_speed_pct",
+       "value": 6,
+       "scope": [
+        "moc"
+       ]
+      },
+      {
+       "key": "soul_res_pct",
+       "value": 10,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Keep Singing (Bất Đình Ca): while you cast Wood arts with no gap over 1.5 s, each art gives you one Song stack (2 % Wood art speed and 3 % soul resistance each), and each Song fades 8 s after you gain it. A soul art or a silence that would land on you takes 4 Song instead."
+    }
+   ],
+   "story": "A zither from Vạn Hác's head, a pendant from Vạn Hác's head and a robe from her own master. Vi Thanh Âm holds all three. The set's name is the palace's joke for the canon that is never written down; she does not laugh at it."
+  },
+  {
+   "id": "td-ice-breaker-array",
+   "name": "The Ice-Breaker's Array (Phá Băng Trận Cụ)",
+   "pieces": [
+    "td-broken-ice-flags",
+    "td-ward-song-seal",
+    "td-keel-board-shield"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "status_duration_pct",
+       "value": 8,
+       "scope": [
+        "curse"
+       ]
+      },
+      {
+       "key": "ward_efficiency_pct",
+       "value": 2,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Ground Set Before (Tiên Bố Địa): arrays and curses you lay in the first 5 s of a fight last 50 % longer, and a foe who stands cursed inside your array for 3 s is rooted for 1.5 s and takes a Water stack; once per foe every 10 s."
+    }
+   ],
+   "story": "The nine flags of 904, a seal for the ward-songs and his father's keel. Cận Tùng Hàn holds all three, and the flags are still rolled; the set has not been worn whole since that winter."
+  }
+ ]
+}

@@ -1,0 +1,363 @@
+{
+ "sect": "binh_thuy",
+ "_doc": "Bình Thủy Môn signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow the water and wind catalogues' grade 2-3 items. Prefix bth- (bt- is Băng Tâm's).",
+ "items": [
+  {
+   "id": "bth-following-wind-fan",
+   "name": "Fan of the Following Wind (Thuận Phong Phiến)",
+   "family": "wind",
+   "kind": "artifact",
+   "base": "phien",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "phong"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "phong"
+     ]
+    },
+    {
+     "key": "basic_speed_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "thuy",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "every-day-of-the-year",
+     "name": "Every Day of the Year (Nhật Nhật Độ)",
+     "rule": "While you carry a Water buff stack, slows from foes' Wind and Water arts do not slow you, and your first evade each fight grants 2 Water buff stacks."
+    }
+   ],
+   "lore": "A folding fan of grey sailcloth on ribs cut from the mast of the first ferry, the one the founders built on Tình Sa beach in 520. Bùi Phiêu Bình had the sail re-stretched in 1110, the year he became head, and with it he has taken the strait crossing out in weather that kept every other boat ashore (A156).",
+   "build_use": "The head's crossing: Wind speed and Water buffs, and slows that do not stop him.",
+   "holder": "bui_phieu_binh",
+   "made_by": "hau_bach_chu",
+   "made_year": 1110,
+   "set": "bth-the-crossing",
+   "status": "proposal"
+  },
+  {
+   "id": "bth-claw-king-shell",
+   "name": "Shell of the Claw King (Ngao Vương Thuẫn)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "thuan",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 100,
+     "scope": [
+      "physical"
+     ]
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "slack-water",
+     "name": "Slack Water (Triều Đình)",
+     "rule": "When you block, gain 1 Water buff stack; at 5 stacks your next Still Moon Tide art heals you for 4 % of your health."
+    }
+   ],
+   "lore": "The back-shell of the great crab that held Cự Ngao Chử until 1115, when Bùi Phiêu Bình fought it for two tides on the shoal and killed it at slack water (N-binh_thuy-03). The shell is the width of a door. It hung over the Tide Hall's gate until the first elder Lương Bạch Tần took it down to carry.",
+   "build_use": "A slow, blocking defence that feeds Water stacks to the tide canon.",
+   "holder": "luong_bach_tan",
+   "made_by": "hau_bach_chu",
+   "made_year": 1116,
+   "set": "bth-slack-water",
+   "status": "proposal"
+  },
+  {
+   "id": "bth-crossing-lamp",
+   "name": "Stern Lamp of the Crossing (Độ Đầu Đăng)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "dang",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 3,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The lamp that hangs at the stern of the strait ferry. It has been lit every evening since 1110, because the ferry has crossed every day since then. The master of the crossing carries it ashore.",
+   "build_use": "Steady linh lực and a clear head on long crossings.",
+   "holder": "ong_te_do",
+   "made_by": "hau_bach_chu",
+   "made_year": 1112,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "bth-ferry-token-ring",
+   "name": "Ferry Token Ring (Độ Bài Giới)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "nhan",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "thuy",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A ring of bone carved from the first ferry token the founders sold on Tình Sa beach. Hang Thiên Nhai gave it to Bùi Phiêu Bình the day he first took the oar.",
+   "build_use": "The tide's buffs, a little evasion.",
+   "holder": "bui_phieu_binh",
+   "made_by": "hang_thien_nhai",
+   "made_year": 830,
+   "set": "bth-the-crossing",
+   "status": "proposal"
+  },
+  {
+   "id": "bth-strait-crossing-coat",
+   "name": "Coat of the Strait Crossing (Độ Hải Bào)",
+   "family": "wind",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": [
+      "phong"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A sea-grey coat of the same sailcloth as the fan, cut from the first ferry's spare sail. It has crossed the strait more often than any boat now afloat.",
+   "build_use": "Wind for the speed and the slip.",
+   "holder": "bui_phieu_binh",
+   "made_by": "binh_thuy",
+   "made_year": 1110,
+   "set": "bth-the-crossing",
+   "status": "proposal"
+  },
+  {
+   "id": "bth-phieu-bong-tide-mirror",
+   "name": "Tide Mirror of Phiêu Bồng (Phiêu Bồng Triều Kính)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "kinh",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The abbey's bronze mirror for reading the tide by the moon; its last master showed her the tenth layer in it. She brought it down from the sea cliffs with the books.",
+   "build_use": "Linh lực for the tide's swell.",
+   "holder": "luong_bach_tan",
+   "made_by": "phieu_bong_quan",
+   "made_year": 900,
+   "set": "bth-slack-water",
+   "status": "proposal"
+  },
+  {
+   "id": "bth-shell-gatherer-robe",
+   "name": "Shell-Gatherer's Robe (Bối Sa Bào)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A robe woven of sea-grass from Bối Sa Thôn, where she gathered shells as a child; the village sends her a new one every ten years.",
+   "build_use": "Wood healing behind the shell.",
+   "holder": "luong_bach_tan",
+   "made_by": "binh_thuy",
+   "made_year": 1190,
+   "set": "bth-slack-water",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "bth-the-crossing",
+   "name": "The Crossing (Độ Hải Tam Bảo)",
+   "pieces": [
+    "bth-following-wind-fan",
+    "bth-ferry-token-ring",
+    "bth-strait-crossing-coat"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "evade_pct",
+       "value": 3,
+       "scope": []
+      },
+      {
+       "key": "stack_effect_pct",
+       "value": 6,
+       "scope": [
+        "thuy",
+        "buff"
+       ]
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Somewhere Else by Morning (Hiểu Tại Tha Phương): each time you evade, gain one Water buff stack; at 5 stacks your next evade carries you behind the attacker and turns all five into a tide that heals you 1 % of your health per stack each second for 5 s."
+    }
+   ],
+   "story": "The fan, the token and the coat of the first ferry, gathered by the man who has crossed every day since 1110. Bùi Phiêu Bình holds all three."
+  },
+  {
+   "id": "bth-slack-water",
+   "name": "Slack Water (Triều Đình Tam Bảo)",
+   "pieces": [
+    "bth-claw-king-shell",
+    "bth-phieu-bong-tide-mirror",
+    "bth-shell-gatherer-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "block_rating",
+       "value": 8,
+       "scope": []
+      },
+      {
+       "key": "healing_pct",
+       "value": 5,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "The Tenth Layer (Đệ Thập Tầng): the Shell's heal comes at 4 Water buff stacks instead of 5, and each heal it makes also gives you one Water buff stack; while you block, your Water buff stacks do not fade."
+    }
+   ],
+   "story": "The crab he killed for her, the abbey's mirror and her village's robe. Lương Bạch Tần holds all three. The set's name is the hour the crab died, and the hour she meets the head on the shoal.",
+   "authored": "a1"
+  }
+ ]
+}

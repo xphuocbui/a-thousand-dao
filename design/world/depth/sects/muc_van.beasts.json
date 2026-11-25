@@ -1,0 +1,95 @@
+{
+ "sect": "muc_van",
+ "_doc": "Mục Vân Trang: named spirit beasts (linh thú). Proposal, unpriced (review/RANKED.md A7, 2026-11-25; form of sects/cuu_cao.beasts.json). An owned beast is a people record with is_beast and owner_id, and its owner lists it in `beasts` (src/gameplay/character/beast_keeper.gd, assets/data/creatures_linh_thu.json). Capacity is 1 + floor(effective thần hồn / 40). In a fight it is a companion: it adds power_share (0.5) of its chiến lực to its owner's offense, strikes every basic_cooldown, cannot be targeted and never leaves the fight (Combat rule 19). `combat` and `bond` are depth fields; `bond.rider` marks a mount, `bond.keeper` a beast that is not ridden. The owners' cast records do not list these beasts yet.",
+ "beasts": [
+  {
+   "key": "dap_van",
+   "name_hv": "Đạp Vân",
+   "name_han": "踏雲",
+   "gloss": "Cloud-Treader",
+   "is_beast": true,
+   "species": "spirit horse (linh mã)",
+   "sex": "M",
+   "born": 940,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "root": {
+    "elements": {
+     "tho": 40
+    },
+    "variants": {
+     "phong": 66
+    }
+   },
+   "owner_id": "khau_muc_van",
+   "loyalty": 100,
+   "home": 19,
+   "location_id": 19,
+   "tags": [
+    "horse",
+    "mount",
+    "companion"
+   ],
+   "appearance": "A grey stallion a hand taller than any horse on the plain, dappled like cloud, its muzzle gone white.",
+   "combat": {
+    "strikes": "phong",
+    "power_share": 0.5,
+    "note": "The companion of mv-horse-lord, Horse and Rider Bear It Together (mv-dap-van-bridle-ring) and Turn the Herd (mv-cloud-herding-lance); it wears the Packmate Collar (wood-packmate-collar). The Long Ride counts its hits."
+   },
+   "bond": {
+    "rider": "khau_muc_van",
+    "since": 940,
+    "event": "A169",
+    "rule": "Born the same night as its rider; it has let no one else ride it."
+   },
+   "backstory": "Foaled in the manor's stable in Thanh Điền the night Khấu Mục Vân was born (A169), and named Cloud-Treader by him. It has carried him in thirty-one festival races and lost none. The grooms say it has grown slow this decade.",
+   "status": "proposal",
+   "authored": "review-A7"
+  },
+  {
+   "key": "hong_tong",
+   "name_hv": "Hồng Tông",
+   "name_han": "紅鬃",
+   "gloss": "Red Mane",
+   "is_beast": true,
+   "species": "spirit mare of the plain",
+   "sex": "F",
+   "born": 1112,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "root": {
+    "elements": {
+     "tho": 42,
+     "moc": 20
+    },
+    "variants": {}
+   },
+   "owner_id": "tan_thien_ly",
+   "loyalty": 90,
+   "home": 19,
+   "location_id": 19,
+   "tags": [
+    "horse",
+    "mount",
+    "companion"
+   ],
+   "appearance": "A short-coupled chestnut mare with a mane like a grass fire and a temper to match.",
+   "combat": {
+    "strikes": "tho",
+    "power_share": 0.5,
+    "note": "The horse The Long Ride (cloud-herd-body-canon) counts for him."
+   },
+   "bond": {
+    "rider": "tan_thien_ly",
+    "since": 1116,
+    "event": "A171",
+    "rule": "Broken to the saddle by him in 1116, at the cost of his lip."
+   },
+   "backstory": "The mare whose hoof split Tần Thiên Lý's lip when he broke her in 1116. In the snow of 1121 (A171) she was the one horse of his string that lived, and he built the herds back from her foals.",
+   "status": "proposal",
+   "authored": "review-A7"
+  }
+ ]
+}

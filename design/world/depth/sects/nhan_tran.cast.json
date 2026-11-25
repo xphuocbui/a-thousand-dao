@@ -1,0 +1,1274 @@
+{
+ "sect": "nhan_tran",
+ "people": [
+  {
+   "key": "muc_han_nhan",
+   "name_hv": "Mục Hàn Nhạn",
+   "name_han": "穆寒雁",
+   "gloss": "Wild geese in the cold",
+   "sex": "M",
+   "born": 900,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "nhan_tran",
+   "rank": "tong_chu",
+   "home": 367,
+   "birthplace": 38,
+   "role": "Head of Nhạn Trận Môn since 1150; drills the plain's levies every spring and keeps the gate out of Lạc Hà's quarrels",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "tho": 56,
+     "thuy": 48,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 74,
+    "than_hon": 58,
+    "khi_van": 46,
+    "dao_tam": 76,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Loyal",
+     "Cautious"
+    ],
+    "calling": "Strategist",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "body_tempered",
+     "formation_mind"
+    ],
+    "lifestyle": "teacher_at_heart",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Oath-bound"
+    ]
+   },
+   "appearance": "A square, weathered man with a grey goose feather in his felt cap and a voice that carries the length of a lake shore without being raised.",
+   "backstory": "Mục Hàn Nhạn was born in 900 in Nhạn Thanh Thành, the grandson of a levy farmer who walked out of Chiết Kích Nguyên in Thạch Liệt Hàng's file (N-nhan_tran-01). Fever took his parents when he was six, and the founder Thạch Liệt Hàng (thach_liet_hang) took him into the gate. He learned the file from Quản Tề Phong (quan_te_phong) and has been head since she died in her breakthrough in 1150. In the cold year of 1120 the archers of Nhạn Thanh Thành shot the geese from the walls (A171). He walked the walls breaking bows until the city forbade it, which is how the plain came to call him the Cold Goose. He drills the farmers of Thảo Đường and Nhạn Thanh on the shore of Lạc Nhạn Hồ every spring, and he has sent Lạc Hà's Geese Hall its best drill master's training, ten years of Thịnh Kinh Hàn (thinh_kinh_han). He calls Lạc Hà's war elder Cảnh Trường Thiên (canh_truong_thien), who drilled the first squads for nine years without pay, the gate's second founder.",
+   "wants": "To keep the gate out of Hình Trọng Sơn's war without saying why, and to hand the banner to his daughter at a spring levy, not on a battlefield.",
+   "secret": "Before he died in 1040 the founder told him why the gate swears never to break file. In the grey of 803 a young Kết Đan of the One Colour field ran past Thạch's line alone and empty-handed, and did not stop when Thạch shouted. In 806 the same man came to drill the survivors for nothing. Thạch knew his face, said nothing, and took the nine unpaid years as the debt paid. On his deathbed he told Mục that the man who ran was Cảnh Trường Thiên. Mục has told no one, out of gratitude for the nine years.",
+   "ties": [
+    {
+     "to": "quan_te_phong",
+     "kind": "master",
+     "note": "the second head, who taught him the file"
+    },
+    {
+     "to": "thach_liet_hang",
+     "kind": "former_master",
+     "note": "the founder, who took him in and told him about the man who ran"
+    },
+    {
+     "to": "muc_tan_vu",
+     "kind": "child",
+     "note": "his daughter and true disciple, the point of the first file"
+    },
+    {
+     "to": "luong_thu_hang",
+     "kind": "disciple",
+     "note": "keeps the Roll of Files"
+    },
+    {
+     "to": "dong_kien_luy",
+     "kind": "rival",
+     "note": "the levy master, who wants the gate to go to war"
+    },
+    {
+     "to": "canh_truong_thien",
+     "kind": "friend",
+     "note": "Lạc Hà's war elder; the gate's second founder, and the man who ran"
+    },
+    {
+     "to": "thinh_kinh_han",
+     "kind": "friend",
+     "note": "drilled with the gate for ten years"
+    },
+    {
+     "to": "kieu_thiet_duc",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "duong_thu_tuyen",
+     "kind": "disciple",
+     "note": "leads the file hired out to Lạc Hà's caravans"
+    }
+   ],
+   "master": "quan_te_phong",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "wild-geese-formation-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "walking-out-of-the-grey",
+      "layer": 9
+     },
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "nt-first-file-banner"
+     },
+     {
+      "named": "nt-breath-cloth"
+     },
+     {
+      "named": "nt-rear-guard-shield"
+     }
+    ],
+    "skills": {
+     "tran_phap": 7
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth for health and the block, toward wards and shared damage: he is the first share of every blow his file takes, and he means to be the last man standing in it.",
+     "targets": [
+      715,
+      3724,
+      3051,
+      3250,
+      3256,
+      3258,
+      3487
+     ],
+     "targets_note": "File route, then the Bulwark and Battlements: the first share of every blow; shared damage waits on wish targets-tl/geese-line."
+    },
+    "note": "A file commander: holds the line and outlasts."
+   },
+   "items": [
+    "nt-first-file-banner",
+    "nt-breath-cloth",
+    "nt-rear-guard-shield"
+   ],
+   "changed": "leans Metal, Earth -> none (no-lean sect, rules R3); birthplace 38 added; build written to the lineage. Lạc Hà's cast notes call his gate 'her gate' (canh_truong_thien, thinh_kinh_han ties); his sex stays M as in world_history."
+  },
+  {
+   "key": "dong_kien_luy",
+   "name_hv": "Đổng Kiên Lũy",
+   "name_han": "董堅壘",
+   "gloss": "A firm rampart",
+   "sex": "M",
+   "born": 1020,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "nhan_tran",
+   "rank": "truong_lao",
+   "home": 366,
+   "birthplace": 74,
+   "role": "Elder and master of the spring levy on Lạc Nhạn Hồ; the gate's war voice",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 44,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 50,
+    "can_cot": 78,
+    "than_hon": 46,
+    "khi_van": 50,
+    "dao_tam": 54,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Warlike",
+     "Brave",
+     "Impatient"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A huge farmer-built man with a drumstick through his belt and a laugh like a buffalo.",
+   "backstory": "A Thảo Đường farmer's son who came to the spring levy at sixteen and never went home. Quản Tề Phong (quan_te_phong) made him a disciple. He has drilled the plain's farmers on the lake shore for a century and believes a gate that drills for war and never goes is lying to them. He writes to Lạc Hà's Hình Trọng Sơn (hinh_trong_son), and the Watch's war party counts the gate's files as its army.",
+   "ties": [
+    {
+     "to": "quan_te_phong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "hinh_trong_son",
+     "kind": "friend",
+     "note": "Lạc Hà's Watch warden; they write about the Compact"
+    },
+    {
+     "to": "thinh_kinh_han",
+     "kind": "friend",
+     "note": "drilled him for ten years; both want to know if they are any good"
+    },
+    {
+     "to": "cat_tri_co",
+     "kind": "disciple",
+     "note": "his drummer"
+    },
+    {
+     "to": "ninh_bac_hang",
+     "kind": "grandchild",
+     "note": "his grandson and disciple"
+    },
+    {
+     "to": "muc_tan_vu",
+     "kind": "friend",
+     "note": "the head's daughter; she knows about his night drill"
+    },
+    {
+     "to": "muc_han_nhan",
+     "kind": "rival",
+     "note": "the head, who will not let the gate go to war"
+    },
+    {
+     "to": "co_thiet_liet",
+     "kind": "disciple",
+     "note": "leader of the second file; Đổng Kiên Lũy's man at the Lake Shore"
+    }
+   ],
+   "master": "quan_te_phong",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wild-geese-formation-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "spring-levy-drum",
+      "layer": 9
+     },
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "nt-lake-drum"
+     },
+     {
+      "base": "giap",
+      "grade": 3,
+      "element": "thuy"
+     },
+     {
+      "base": "thuan",
+      "grade": 3,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water for staying power and Wood for regeneration under a heavy body: the drummer who keeps beating after the line is hit.",
+     "targets": [
+      715,
+      3724,
+      3051,
+      5374,
+      5379
+     ],
+     "targets_note": "File route from Water, then Rain on Bamboo: regeneration under a heavy body."
+    },
+    "note": "Drum and body."
+   },
+   "items": [
+    "nt-lake-drum"
+   ]
+  },
+  {
+   "key": "muc_tan_vu",
+   "name_hv": "Mục Tân Vũ",
+   "name_han": "穆新羽",
+   "gloss": "A new feather",
+   "sex": "F",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "nhan_tran",
+   "rank": "chan_truyen",
+   "home": 367,
+   "birthplace": 38,
+   "role": "The head's daughter and true disciple; the point of the first file",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "tho": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 72,
+    "than_hon": 54,
+    "khi_van": 58,
+    "dao_tam": 60,
+    "mi_luc": 56
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Ambitious",
+     "Loyal"
+    ],
+    "calling": "Strategist",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     },
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": "duel_seeker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A tall, rangy woman with her father's square jaw, a grey feather in her braid and a point-sword worn high on the back.",
+   "backstory": "Mục Tân Vũ was born in 1140 in Nhạn Thanh Thành to the head Mục Hàn Nhạn (muc_han_nhan) and a Thảo Đường grain-merchant's daughter who never cultivated and died in 1190. She has held the point of the first file since 1180, the youngest in the Roll of Files. She drills by day and duels by night where the gate cannot see, because the gate forbids single fights. She has never been in a war. Her friend in Lạc Hà, Hình Lạc Nhạn (hinh_lac_nhan), walked three hundred paces into the miasma of Chiết Kích Nguyên in 1196 (N-lac_ha-07) and came back with a boy's shoe. The two of them have the same question: whether the founders really walked out of that grey in file, and whether a file could walk back in.",
+   "wants": "To lead a file into something real, and to prove that the founders' art works by walking it into the grey.",
+   "secret": "She has promised Hình Lạc Nhạn a file of ten to walk into the miasma with her, breathing in turns the way the founders did. For two years she has drilled the ten at night on Hắc Thứu Đài from Thạch Liệt Hàng's notes, which she took from the Roll of Files. Đổng Kiên Lũy knows and has said nothing.",
+   "ties": [
+    {
+     "to": "muc_han_nhan",
+     "kind": "parent",
+     "note": "her father and master, who will not teach her the founders' art"
+    },
+    {
+     "to": "hinh_lac_nhan",
+     "kind": "friend",
+     "note": "Lạc Hà's walker in the miasma; the promise"
+    },
+    {
+     "to": "lam_te_vu",
+     "kind": "disciple",
+     "note": "one of the ten"
+    },
+    {
+     "to": "dong_kien_luy",
+     "kind": "friend",
+     "note": "knows about the night drill"
+    },
+    {
+     "to": "thach_liet_hang",
+     "kind": "ancestor",
+     "note": "the founder whose notes she took (lineage, not blood)"
+    },
+    {
+     "to": "ninh_bac_hang",
+     "kind": "friend",
+     "note": "one of her ten"
+    },
+    {
+     "to": "thieu_vu_hang",
+     "kind": "disciple",
+     "note": "one of Mục Tân Vũ's ten"
+    },
+    {
+     "to": "bo_thanh_lang",
+     "kind": "friend",
+     "note": "one of the ten; keeps the founder's notes"
+    },
+    {
+     "to": "duong_thu_tuyen",
+     "kind": "rival",
+     "note": "leads the file hired out to Lạc Hà's caravans"
+    }
+   ],
+   "master": "muc_han_nhan",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wild-geese-formation-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "nt-point-sword"
+     },
+     {
+      "named": "nt-point-felt-coat"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water for staying power, then body and block: the point takes the wind so the file behind her does not.",
+     "targets": [
+      715,
+      3724,
+      3051,
+      5082,
+      5374
+     ],
+     "targets_note": "File route from Water, then Carp Scales and Nourishing Rain: the point that takes the wind."
+    },
+    "note": "The point of the file."
+   },
+   "items": [
+    "nt-point-sword",
+    "nt-point-felt-coat"
+   ]
+  },
+  {
+   "key": "luong_thu_hang",
+   "name_hv": "Lương Thủ Hàng",
+   "name_han": "梁守行",
+   "gloss": "He who keeps the file",
+   "sex": "M",
+   "born": 1095,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "nhan_tran",
+   "rank": "chap_su",
+   "home": 367,
+   "birthplace": 367,
+   "role": "Keeper of the Roll of Files and the burial rows",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 54,
+    "than_hon": 60,
+    "khi_van": 40,
+    "dao_tam": 66,
+    "mi_luc": 38
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Patient",
+     "Devout"
+    ],
+    "calling": "Steward",
+    "upbringing": "sect_raised",
+    "talent": [],
+    "path": [],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A thin, bald man with a writing board on a cord round his neck and the names of the dead under his fingernails.",
+   "backstory": "The great-grandson of a man in Thạch Liệt Hàng's file of forty (N-nhan_tran-01), born at the gate. He keeps the Roll of Files, which lists every disciple by the file they stood in and not by name, and the burial rows below the gate, where a gap is left in each row for the dead of 803 who were not brought off the plain. He noticed in 1198 that the founder's notes were gone from the Roll, and he told Mục Hàn Nhạn (muc_han_nhan) they were being rebound.",
+   "ties": [
+    {
+     "to": "muc_han_nhan",
+     "kind": "master",
+     "note": "he covers for the head's daughter without being asked"
+    },
+    {
+     "to": "hang_co_nhan",
+     "kind": "disciple",
+     "note": "the placed boy"
+    },
+    {
+     "to": "kieu_thiet_duc",
+     "kind": "friend",
+     "note": "wrote his name in the row for the Ferry War dead"
+    },
+    {
+     "to": "luong_bo_khuyet",
+     "kind": "niece_nephew",
+     "note": "his niece and disciple; weeds the burial rows; a descendant of the 803 file"
+    }
+   ],
+   "master": "muc_han_nhan",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "wild-geese-formation-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth and wards: the man in the file who does not fall.",
+     "targets": [
+      715,
+      3724,
+      3051,
+      3487,
+      3504
+     ],
+     "targets_note": "File route, then Battlements and Wall Brick: the man who does not fall."
+    },
+    "note": "Keeper of the Roll."
+   }
+  },
+  {
+   "key": "cat_tri_co",
+   "name_hv": "Cát Trì Cổ",
+   "name_han": "葛持鼓",
+   "gloss": "She who holds the drum",
+   "sex": "F",
+   "born": 1125,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "nhan_tran",
+   "rank": "noi_mon",
+   "home": 366,
+   "birthplace": 503,
+   "role": "Levy drummer on Lạc Nhạn Hồ",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 48,
+     "hoa": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Patient",
+     "Stubborn"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born"
+   },
+   "backstory": "A herdsman's daughter from Mục Địch Thôn who could keep a flute's time on a cooking pot at five; she beats the levy drum when Đổng Kiên Lũy's (dong_kien_luy) arms tire, which is less often than he says.",
+   "ties": [
+    {
+     "to": "dong_kien_luy",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "la_nhat_hang",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "bo_thanh_lang",
+     "kind": "disciple",
+     "note": "one of the ten; keeps the founder's notes"
+    }
+   ],
+   "master": "dong_kien_luy",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wild-geese-formation-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "spring-levy-drum",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "co",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth and the beat."
+    },
+    "note": "Drummer."
+   }
+  },
+  {
+   "key": "ngo_bat_tan",
+   "name_hv": "Ngô Bất Tán",
+   "name_han": "吳不散",
+   "gloss": "He does not scatter",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "nhan_tran",
+   "rank": "noi_mon",
+   "home": 367,
+   "birthplace": 495,
+   "role": "The one survivor of the file lost on the Ngư Ca border in the Ferry War",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 44,
+     "moc": 36,
+     "kim": 28
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 46,
+    "can_cot": 66,
+    "than_hon": 40,
+    "khi_van": 30,
+    "dao_tam": 58,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Vengeful",
+     "Calm"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": null,
+    "health": "old_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Embittered"
+    ]
+   },
+   "appearance": "A short, heavy man who walks with a stiff left leg and stands in file even when he is alone.",
+   "backstory": "A rice farmer's son from Hòa Lũng Thôn and the only man of Kiều Thiết Dực's (kieu_thiet_duc) file to come home from the Ferry War. Lạc Hà hired the file to hold the near end of a rope bridge on the Ngư Ca border in 1174. Tùng Đào's raiders cut the ropes (A202) and the file went down with the bridge. He came up downstream with his leg broken in three places. He teaches the outer gate to stand, and he has never once said Tùng Đào's name aloud.",
+   "ties": [
+    {
+     "to": "kieu_thiet_duc",
+     "kind": "master",
+     "note": "led his file; died on the bridge"
+    },
+    {
+     "to": "ton_lac_ho",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "lo_tieu_ca",
+     "kind": "friend",
+     "note": "Lạc Hà's singer, who held the far end of the same border that week"
+    },
+    {
+     "to": "yen_hoi_do",
+     "kind": "debt",
+     "note": "pulled him out of the river below the cut bridge in 1174"
+    },
+    {
+     "to": "lieu_kien_thach",
+     "kind": "disciple",
+     "note": "placed from Lạc Hà's Geese Hall cadets this spring"
+    },
+    {
+     "to": "sach_bat_ngon",
+     "kind": "disciple",
+     "note": "levy girl who stood the line last spring"
+    }
+   ],
+   "master": "kieu_thiet_duc",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wild-geese-formation-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth and block: a man who does not move.",
+     "targets": [
+      715,
+      3724,
+      3051,
+      3042,
+      3085
+     ],
+     "targets_note": "File route, then Central Peak and Winding Path: a man who does not move."
+    },
+    "note": "Survivor of the bridge."
+   }
+  },
+  {
+   "key": "la_nhat_hang",
+   "name_hv": "La Nhất Hàng",
+   "name_han": "羅一行",
+   "gloss": "One file",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "nhan_tran",
+   "rank": "noi_mon",
+   "home": 367,
+   "birthplace": 74,
+   "role": "Inner disciple; a levy boy who stood the line test",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "thuy": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Content",
+     "Honest"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Thảo Đường farm boy who came to the spring levy in 1196 and stood in the line from dawn to dusk without moving, which is the gate's whole test; Cát Trì Cổ (cat_tri_co) took him in that evening.",
+   "ties": [
+    {
+     "to": "cat_tri_co",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "cat_tri_co",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wild-geese-formation-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and stamina."
+    },
+    "note": "Stood the line."
+   }
+  },
+  {
+   "key": "ton_lac_ho",
+   "name_hv": "Tôn Lạc Hồ",
+   "name_han": "孫落湖",
+   "gloss": "Alighting on the lake",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "nhan_tran",
+   "rank": "ngoai_mon",
+   "home": 367,
+   "birthplace": 129,
+   "role": "Outer disciple from the river ford",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Diligent",
+     "Humble"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A ferryman's daughter from Chu Tân Thôn (A163) who learns to stand from Ngô Bất Tán (ngo_bat_tan) and to swim from no one, which he would like her to stop doing.",
+   "ties": [
+    {
+     "to": "ngo_bat_tan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "sach_bat_ngon",
+     "kind": "friend",
+     "note": "levy girl who stood the line last spring"
+    }
+   ],
+   "master": "ngo_bat_tan",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-bone-body-art",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Outer gate."
+   }
+  },
+  {
+   "key": "hang_co_nhan",
+   "name_hv": "Hạng Cô Nhạn",
+   "name_han": "項孤雁",
+   "gloss": "The lone goose",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "nhan_tran",
+   "rank": "ngoai_mon",
+   "home": 367,
+   "birthplace": 488,
+   "role": "Outer disciple placed from Lạc Hà",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 44,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Arrogant",
+     "Diligent"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A well-digger's son from Song Tỉnh Thôn, Thịnh Kinh Hàn's (thinh_kinh_han) village, placed with the gate on Placement Day in 1199 by Tô Bình Chu (to_binh_chu). He was a loner at Lạc Hà and is a loner here, which the gate finds funny.",
+   "ties": [
+    {
+     "to": "luong_thu_hang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "to_binh_chu",
+     "kind": "debt",
+     "note": "placed him; Lạc Hà's tenth until 1229"
+    },
+    {
+     "to": "thinh_kinh_han",
+     "kind": "friend",
+     "note": "the drill master from his village, who told him to go"
+    }
+   ],
+   "master": "luong_thu_hang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-bone-body-art",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "Placed child."
+   }
+  },
+  {
+   "key": "lam_te_vu",
+   "name_hv": "Lam Tề Vũ",
+   "name_han": "藍齊羽",
+   "gloss": "Feathers level in flight",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "nhan_tran",
+   "rank": "noi_mon",
+   "home": 367,
+   "birthplace": 130,
+   "role": "Inner disciple; one of Mục Tân Vũ's ten",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "moc": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Brave",
+     "Fickle"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A reed-cutter's girl from Lô Cảng Thôn, where Lạc Hà keeps its western watch (A167); she would follow Mục Tân Vũ (muc_tan_vu) into the miasma and has said so twice.",
+   "ties": [
+    {
+     "to": "muc_tan_vu",
+     "kind": "master",
+     "note": "one of the ten"
+    },
+    {
+     "to": "thieu_vu_hang",
+     "kind": "friend",
+     "note": "one of Mục Tân Vũ's ten"
+    }
+   ],
+   "master": "muc_tan_vu",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wild-geese-formation-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "One of the ten."
+   }
+  },
+  {
+   "key": "ninh_bac_hang",
+   "name_hv": "Ninh Bắc Hàng",
+   "name_han": "寧北行",
+   "gloss": "A quiet march north",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "nhan_tran",
+   "rank": "noi_mon",
+   "home": 366,
+   "birthplace": 484,
+   "role": "Inner disciple; Đổng Kiên Lũy's grandson and one of the ten",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 42,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Warlike",
+     "Pragmatic"
+    ],
+    "calling": "Strategist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Đổng Kiên Lũy's (dong_kien_luy) grandson, born in Bạch Thảo Thôn and raised on the lake shore; he drills with Mục Tân Vũ's ten at night and reports to his grandfather in the morning.",
+   "ties": [
+    {
+     "to": "dong_kien_luy",
+     "kind": "grandparent",
+     "note": "his grandfather and master"
+    },
+    {
+     "to": "muc_tan_vu",
+     "kind": "friend",
+     "note": "one of the ten"
+    }
+   ],
+   "master": "dong_kien_luy",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wild-geese-formation-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "One of the ten."
+   }
+  },
+  {
+   "key": "thach_liet_hang",
+   "name_hv": "Thạch Liệt Hàng",
+   "name_han": "石列行",
+   "gloss": "Stone, standing in rank",
+   "sex": "M",
+   "born": 760,
+   "died": 1040,
+   "cause": "the grey in his lungs: the miasma of 803, at 280",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "nhan_tran",
+   "rank": "founder",
+   "home": 367,
+   "birthplace": 38,
+   "role": "Founder of Nhạn Trận Môn (806); led a file of forty out of the grey at Chiết Kích Nguyên",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Just",
+     "Loyal"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born",
+    "health": "lingering_poison"
+   },
+   "backstory": "A levy captain of Nhạn Thanh Thành and a Trúc Cơ of forty-three at Chiết Kích Nguyên (C017). When the grey rose his file of forty held its line, breathed through one wet cloth in turns and walked out backwards (N-nhan_tran-01). In 806 he founded the gate with the survivors (V096) and swore its disciples would never again fight in loose order. Lạc Hà's Cảnh Trường Thiên (canh_truong_thien) drilled them for nine years. He never said aloud whom he had seen run, except once, on his deathbed, to Mục Hàn Nhạn (muc_han_nhan).",
+   "ties": [
+    {
+     "to": "quan_te_phong",
+     "kind": "disciple",
+     "note": "his successor"
+    },
+    {
+     "to": "muc_han_nhan",
+     "kind": "former_disciple",
+     "note": "took him in at six"
+    },
+    {
+     "to": "canh_truong_thien",
+     "kind": "friend",
+     "note": "drilled the gate 806-815"
+    },
+    {
+     "to": "muc_tan_vu",
+     "kind": "descendant",
+     "note": "a later head of his line (lineage, not blood)"
+    }
+   ]
+  },
+  {
+   "key": "quan_te_phong",
+   "name_hv": "Quản Tề Phong",
+   "name_han": "管齊鋒",
+   "gloss": "Even edges",
+   "sex": "F",
+   "born": 830,
+   "died": 1150,
+   "cause": "failed breakthrough to Nguyên Anh, at 320",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "nhan_tran",
+   "rank": "last_head",
+   "home": 367,
+   "birthplace": 74,
+   "role": "Second head of Nhạn Trận Môn (1040-1150)",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Ambitious",
+     "Temperate"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Thảo Đường levy girl who came to the gate in 846 and rose under the founder Thạch Liệt Hàng (thach_liet_hang). She made the spring levy a contract with Lạc Hà's cities, had the lake drum built, and trained both Mục Hàn Nhạn (muc_han_nhan) and Đổng Kiên Lũy (dong_kien_luy). She went into seclusion in 1149 to break through to Nguyên Anh and did not come out.",
+   "ties": [
+    {
+     "to": "thach_liet_hang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "muc_han_nhan",
+     "kind": "disciple",
+     "note": "her heir"
+    },
+    {
+     "to": "dong_kien_luy",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "thach_liet_hang"
+  },
+  {
+   "key": "kieu_thiet_duc",
+   "name_hv": "Kiều Thiết Dực",
+   "name_han": "喬鐵翼",
+   "gloss": "Iron wing",
+   "sex": "M",
+   "born": 1100,
+   "died": 1174,
+   "cause": "went down with the rope bridge on the Ngư Ca border in the Ferry War, at 74",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "nhan_tran",
+   "rank": "noi_mon",
+   "home": 367,
+   "birthplace": 501,
+   "role": "File leader hired to Lạc Hà in the Ferry War",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Loyal",
+     "Gregarious"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "He led a file of ten for Lạc Hà at the near end of a rope bridge on the Ngư Ca border in 1174 and went down with it when Tùng Đào's raiders cut the ropes (A202); only Ngô Bất Tán (ngo_bat_tan) came home.",
+   "ties": [
+    {
+     "to": "ngo_bat_tan",
+     "kind": "disciple",
+     "note": "the one survivor"
+    },
+    {
+     "to": "muc_han_nhan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "luong_thu_hang",
+     "kind": "friend",
+     "note": "the steward who wrote his name in the row for the Ferry War dead"
+    }
+   ],
+   "master": "muc_han_nhan"
+  }
+ ]
+}

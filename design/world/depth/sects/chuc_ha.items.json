@@ -1,0 +1,173 @@
+{
+ "sect": "chuc_ha",
+ "_doc": "Chức Hà Các signature items (rules-proposals R7; design/items record). Prefix chc-. Unpriced proposals; modifier sizes follow the wood and fire catalogues' grade 2-3 items (the head is Trúc Cơ).",
+ "items": [
+  {
+   "id": "chc-red-cloud-shuttle",
+   "name": "Red Cloud Shuttle (Xích Hà Toa)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "cham",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "over_time"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 24,
+     "scope": [
+      "hoa",
+      "debuff"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "thread-catches",
+     "name": "The Thread Catches (Ti Nhiên)",
+     "rule": "When a foe is bound by two of the holder's threads at once, both threads catch fire: 2 Fire stacks and a short burn."
+    }
+   ],
+   "lore": "A long needle-shuttle of red sandalwood tipped with bronze, which Thân Vân Cẩm has woven every bolt of the pavilion's fire-silk with since 1150. She named it for the Xích Hà Kỳ, the banner she means one day to equal.",
+   "build_use": "The head's weaving weapon: burning threads and longer Fire stacks.",
+   "holder": "than_van_cam",
+   "made_by": "than_van_cam",
+   "made_year": 1150,
+   "set": "chc-unbroken-thread",
+   "status": "proposal"
+  },
+  {
+   "id": "chc-first-weave-robe",
+   "name": "Robe of the First Weave (Sơ Chức Bào)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "resist_pct",
+     "value": 80,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "chars-in-a-season",
+     "name": "Chars in a Season (Quý Tẫn)",
+     "rule": "The robe must be rewoven each season; unrewoven, its modifiers fall by a quarter each season until it is ash."
+    }
+   ],
+   "lore": "The first fire-silk robe woven without the vents, in 1150, from Tang Điền's worms and Thân Vân Cẩm's own Fire. Tang Mộng Kiển has rewoven it two hundred times since, a thread at a time, so that it has never quite been ash.",
+   "build_use": "The worm-keeper's robe: Fire resistance and a mending body.",
+   "holder": "tang_mong_kien",
+   "made_by": "than_van_cam",
+   "made_year": 1150,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "chc-season-woven-robe",
+   "name": "Season-Woven Robe (Quý Chức Bào)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 100,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "Her own robe of vent-less fire-silk, rewoven every season when the last one chars. This is the two hundredth.",
+   "build_use": "Binding threads, and a robe that does not burn in its own fire.",
+   "holder": "than_van_cam",
+   "made_by": "than_van_cam",
+   "made_year": 1199,
+   "set": "chc-unbroken-thread",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "chc-unbroken-thread",
+   "name": "The Unbroken Thread (Bất Đoạn Ti)",
+   "pieces": [
+    "chc-red-cloud-shuttle",
+    "chc-season-woven-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "attack_pct",
+       "value": 8,
+       "scope": [
+        "over_time"
+       ]
+      },
+      {
+       "key": "stack_duration_pct",
+       "value": 10,
+       "scope": [
+        "moc",
+        "debuff"
+       ]
+      }
+     ],
+     "effect": "Fire Runs the Thread (Hỏa Tẩu Ti): while a foe is bound by your thread, each Wood stack on them also burns as a Burn batch. When the binding ends, the fire leaps back along the thread and lays one Burn batch for every three Wood stacks it held."
+    }
+   ],
+   "story": "The shuttle and the robe it wove. She wears both. The set will be whole for a season at a time, until she weaves silk that lasts.",
+   "status": "proposal"
+  }
+ ]
+}

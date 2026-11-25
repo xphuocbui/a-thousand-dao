@@ -1,0 +1,508 @@
+{
+ "sect": "cuu_cao",
+ "_doc": "Wave 3 tier C fill (2026-11-25): night riders and plateau-born riders (Wind by the variant), and the grooms of the marsh (Wood).",
+ "people": [
+  {
+   "key": "banh_da_hang",
+   "name_hv": "Bành Dạ Hàng",
+   "name_han": "彭夜航",
+   "gloss": "Night flight",
+   "sex": "M",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "cuu_cao",
+   "rank": "noi_mon",
+   "home": 14,
+   "birthplace": 603,
+   "role": "Leader of the night riders over Tinh Tủy Mạch, born at the plateau mine",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "kim": 28
+    },
+    "variants": {
+     "phong": 50
+    }
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Callous",
+     "Loyal"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Leads the night riders over Tinh Tủy Mạch for the head and has flown his own crane past its twentieth winter; Đồng Dược Hương (dong_duoc_huong) has buried two cranes from his flights and tells every rider whose they were.",
+   "ties": [
+    {
+     "to": "ung_hac_minh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tong_phi_thu",
+     "kind": "friend",
+     "note": "both plateau-born"
+    },
+    {
+     "to": "dong_duoc_huong",
+     "kind": "rival",
+     "note": "the old cranes"
+    }
+   ],
+   "master": "ung_hac_minh",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "gale-courier-scripture",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "crane-bond-rite",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "phong",
+     "intent": "Wind speed on an Earth root; long night flights."
+    }
+   },
+   "changed": "Fix pass A (2026-11-25): Wind raised from 40 to 50; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b)."
+  },
+  {
+   "key": "ha_vi_lang",
+   "name_hv": "Hà Vĩ Lăng",
+   "name_han": "何葦陵",
+   "gloss": "Reed hill",
+   "sex": "M",
+   "born": 1105,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "cuu_cao",
+   "rank": "ngoai_mon",
+   "home": 112,
+   "birthplace": 112,
+   "role": "Groom of the breeding reeds at Hạc Quy Thôn",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Content",
+     "Compassionate"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Keeps the breeding reeds at Hạc Quy and has raised from the egg every crane the riders now fly; he reached Trúc Cơ the same year as Mai Lô Tuyết (mai_lo_tuyet), and neither old groom has ever been taken up.",
+   "ties": [
+    {
+     "to": "ung_hac_minh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "mai_lo_tuyet",
+     "kind": "friend",
+     "note": "the two old grooms"
+    },
+    {
+     "to": "dau_quang_lang",
+     "kind": "disciple",
+     "note": "groom from Ba Quang Thôn, who rows the feed boats"
+    }
+   ],
+   "master": "ung_hac_minh",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "marsh-reed-breath",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood; a groom's long breath."
+    }
+   }
+  },
+  {
+   "key": "mo_cao_yen",
+   "name_hv": "Mộ Cao Yến",
+   "name_han": "慕高燕",
+   "gloss": "Swallow that longs for height",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "cuu_cao",
+   "rank": "noi_mon",
+   "home": 236,
+   "birthplace": 236,
+   "role": "Rider found on the hawk-catchers' terrace in 1196",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 38,
+     "hoa": 20
+    },
+    "variants": {
+     "phong": 46
+    }
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Trusting"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "wild_raised"
+   },
+   "backstory": "Taken off the hawk-catchers' terrace by Cừ Vân Lý (cu_van_ly) in 1196, the winter after Phất Y Cốc reached Lộ Khinh Trần (lo_khinh_tran) first; a crane came down to her on her third day, and she still sleeps better on the terrace than in the marsh.",
+   "ties": [
+    {
+     "to": "cu_van_ly",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ninh_van_tuoc",
+     "kind": "friend",
+     "note": "from the same camps"
+    }
+   ],
+   "master": "cu_van_ly",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "gale-courier-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "phong",
+     "intent": "Wind; first flights."
+    }
+   },
+   "changed": "Fix pass A (2026-11-25): Wind raised from 32 to 46; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b)."
+  },
+  {
+   "key": "lo_phi_suong",
+   "name_hv": "Lộ Phi Sương",
+   "name_han": "路飛霜",
+   "gloss": "Flying frost",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "cuu_cao",
+   "rank": "noi_mon",
+   "home": 234,
+   "birthplace": 603,
+   "role": "Rider from Tập Trận Khoáng, Lộ Khinh Trần's cousin, at the roc camp",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 36,
+     "kim": 30
+    },
+    "variants": {
+     "phong": 46
+    }
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Gregarious",
+     "Loyal"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Lộ Khinh Trần's (lo_khinh_tran) cousin from Tập Trận Khoáng; Cửu Cao's rider came for one boy in 1195, found him gone to the valley, and took the cousin. The two write by the post, and the riders carry the letters unopened.",
+   "ties": [
+    {
+     "to": "khong_tuong_vu",
+     "kind": "master",
+     "note": "he keeps her camp below the cliff"
+    },
+    {
+     "to": "lo_khinh_tran",
+     "kind": "cousin",
+     "note": ""
+    }
+   ],
+   "master": "khong_tuong_vu",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "gale-courier-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "phong",
+     "intent": "Wind; a courier's legs."
+    }
+   },
+   "changed": "Fix pass A (2026-11-25): Wind raised from 28 to 46; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b)."
+  },
+  {
+   "key": "nguy_ha_lo",
+   "name_hv": "Ngụy Hà Lô",
+   "name_han": "魏荷蘆",
+   "gloss": "Lotus and reed",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "cuu_cao",
+   "rank": "ngoai_mon",
+   "home": 14,
+   "birthplace": 1296,
+   "role": "Groom who digs the reed graves for the cranes",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 42,
+     "thuy": 26,
+     "tho": 18
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Stubborn",
+     "Honest"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Digs the reed graves with Đồng Dược Hương (dong_duoc_huong) for the cranes that come back broken from the vein circuit, and has begun to keep the count in a second ledger the riders do not see.",
+   "ties": [
+    {
+     "to": "mai_lo_tuyet",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dong_duoc_huong",
+     "kind": "friend",
+     "note": "the crane doctor"
+    }
+   ],
+   "master": "mai_lo_tuyet",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "marsh-reed-breath",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood; a groom's hands."
+    }
+   }
+  },
+  {
+   "key": "dau_quang_lang",
+   "name_hv": "Đậu Quang Lãng",
+   "name_han": "竇光浪",
+   "gloss": "Bright wave",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "cuu_cao",
+   "rank": "ngoai_mon",
+   "home": 112,
+   "birthplace": 111,
+   "role": "Groom from Ba Quang Thôn, who rows the feed boats",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Diligent",
+     "Trusting"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A fisherman's son from Ba Quang who rows the grooms' feed boats; every spring he asks Hà Vi Lăng (ha_vi_lang) whether a groom can grow Wind, and every spring he is told that the crane chooses.",
+   "ties": [
+    {
+     "to": "ha_vi_lang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "lu_thuy_dien",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "ha_vi_lang",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "marsh-reed-breath",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water with Wood; marsh work."
+    }
+   }
+  },
+  {
+   "key": "su_man_thanh",
+   "name_hv": "Sử Mạn Thanh",
+   "name_han": "史曼青",
+   "gloss": "Spreading green",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "cuu_cao",
+   "rank": "ngoai_mon",
+   "home": 14,
+   "birthplace": 14,
+   "role": "Groom who copies the flight ledger in the marsh hall",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 38,
+     "kim": 24,
+     "tho": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Honest",
+     "Reclusive"
+    ],
+    "calling": "Steward",
+    "upbringing": "sect_raised",
+    "lifestyle": "chronicler"
+   },
+   "backstory": "Copies the flight ledger into fair hand for the marsh hall, a decade of it each year; she has reached the 790s, and the chest that holds the next pages is the only one in the hall with a lock.",
+   "ties": [
+    {
+     "to": "ung_hac_minh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "pham_thanh_lo",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "ung_hac_minh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "marsh-reed-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood; a copyist's stillness."
+    }
+   }
+  }
+ ]
+}

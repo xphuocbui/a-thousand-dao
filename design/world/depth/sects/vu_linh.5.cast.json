@@ -1,0 +1,485 @@
+{
+ "sect": "vu_linh",
+ "people": [
+  {
+   "key": "chung_dong_am",
+   "name_hv": "Chung Đồng Âm",
+   "name_han": "鍾銅音",
+   "gloss": "Bronze voice",
+   "sex": "M",
+   "born": 1125,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "vu_linh",
+   "rank": "noi_mon",
+   "home": 372,
+   "birthplace": 372,
+   "role": "Pours the second crucible at the furnace",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 52,
+     "moc": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Wrathful",
+     "Honest",
+     "Ambitious"
+    ],
+    "calling": "Refiner",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Pours the second crucible beside his cousin Chung Hồng Lô (chung_hong_lo) and says aloud what she only thinks: that the castings should carry the furnace's mark, not the mistress's.",
+   "ties": [
+    {
+     "to": "chung_tan_huong",
+     "kind": "master",
+     "note": "the grand elder"
+    },
+    {
+     "to": "chung_hong_lo",
+     "kind": "cousin",
+     "note": "the furnace"
+    }
+   ],
+   "master": "chung_tan_huong",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "canopy-bell-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "molten-bronze-litany",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 4
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Molten bronze that burns and hardens."
+    }
+   }
+  },
+  {
+   "key": "la_dang_huyen",
+   "name_hv": "La Đằng Huyền",
+   "name_han": "羅藤懸",
+   "gloss": "Hung on the vine",
+   "sex": "F",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "vu_linh",
+   "rank": "noi_mon",
+   "home": 435,
+   "birthplace": 807,
+   "role": "Hangs and tunes the warning lines in Mãng Đằng Lâm",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "hoa": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Vengeful",
+     "Reclusive"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born"
+   },
+   "backstory": "Hangs the lines through the python vine wood with Đằng Quải Linh (dang_quai_linh); since 1190 two of her bells on the Hồng Đậu road have been cut each spring, and she keeps a red bean from the cut place in her purse.",
+   "ties": [
+    {
+     "to": "an_thanh_linh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dang_quai_linh",
+     "kind": "friend",
+     "note": "the lines"
+    },
+    {
+     "to": "co_thang_nhi",
+     "kind": "disciple",
+     "note": "bath-keepers' girl at Quế Hương Thang"
+    }
+   ],
+   "master": "an_thanh_linh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "canopy-bell-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Warning bells and slowing lines."
+    }
+   }
+  },
+  {
+   "key": "giang_phong_lo",
+   "name_hv": "Giang Phong Lô",
+   "name_han": "江風爐",
+   "gloss": "Wind furnace",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "vu_linh",
+   "rank": "ngoai_mon",
+   "home": 372,
+   "birthplace": 812,
+   "role": "Bellows boy at the furnace",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 38,
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Impatient",
+     "Humble"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "Works the bellows for Chung Hồng Lô (chung_hong_lo) from the first pour to the last and has burned both hands to the wrist; he wants to cast his own bell this year and has been told to wait.",
+   "ties": [
+    {
+     "to": "chung_hong_lo",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "thang_tieu_hoa",
+     "kind": "friend",
+     "note": "the other bellows"
+    }
+   ],
+   "master": "chung_hong_lo",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "charcoal-burners-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire for the kiln."
+    }
+   }
+  },
+  {
+   "key": "au_tuong_thu",
+   "name_hv": "Âu Tường Thủ",
+   "name_han": "歐牆守",
+   "gloss": "Keeps the wall",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "vu_linh",
+   "rank": "ngoai_mon",
+   "home": 42,
+   "birthplace": 42,
+   "role": "Keeps the warding bells on the walls of Thu Trì",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Honest",
+     "Diligent"
+    ],
+    "calling": "Formation master",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A bronze guild's son from Thu Trì who came with a letter and keeps the wall bells for Trịnh Thủ Linh (trinh_thu_linh); he has found one line inside the walls that neither of them hung.",
+   "ties": [
+    {
+     "to": "trinh_thu_linh",
+     "kind": "master",
+     "note": "the walls"
+    },
+    {
+     "to": "nguy_tieu_dac",
+     "kind": "friend",
+     "note": "the other city boy"
+    }
+   ],
+   "master": "trinh_thu_linh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "charcoal-burners-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "tran_phap": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wards that ring."
+    }
+   }
+  },
+  {
+   "key": "doan_thinh_moc",
+   "name_hv": "Đoàn Thính Mộc",
+   "name_han": "段聽木",
+   "gloss": "Hears the wood",
+   "sex": "F",
+   "born": 1177,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "vu_linh",
+   "rank": "noi_mon",
+   "home": 372,
+   "birthplace": 372,
+   "role": "Holds the bells while the true disciple tries the listening seal",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "hoa": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Patient",
+     "Honest"
+    ],
+    "calling": "Formation master",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Holds the bells while Thiệu Văn Linh (thieu_van_linh) tries the listening seal and has swept up the shards of nine; she thinks the tenth will crack too, and that the mistress knows why.",
+   "ties": [
+    {
+     "to": "thieu_van_linh",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "thieu_van_linh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "canopy-bell-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Bells that listen."
+    }
+   }
+  },
+  {
+   "key": "co_thang_nhi",
+   "name_hv": "Cố Thang Nhi",
+   "name_han": "顧湯兒",
+   "gloss": "Child of the bath",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "vu_linh",
+   "rank": "ngoai_mon",
+   "home": 371,
+   "birthplace": 371,
+   "role": "Bath-keepers' girl at Quế Hương Thang",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Content",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Raised by the bath-keepers at Quế Hương Thang, where the casters rest after a pour; she hears more of the hall's quarrels in the steam than at its meals, which are silent.",
+   "ties": [
+    {
+     "to": "la_dang_huyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "thang_tieu_hoa",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "la_dang_huyen",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "charcoal-burners-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood sustain."
+    }
+   }
+  },
+  {
+   "key": "phan_linh_sach",
+   "name_hv": "Phan Linh Sách",
+   "name_han": "潘鈴索",
+   "gloss": "Bell rope",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "vu_linh",
+   "rank": "ngoai_mon",
+   "home": 435,
+   "birthplace": 809,
+   "role": "Climber on the forest lines",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Content",
+     "Gregarious"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born"
+   },
+   "backstory": "Climbs the forest lines for Đằng Quải Linh (dang_quai_linh); the Xuyên Lâm night guides leave a rice ball in the fork of his ladder tree, and he has not missed one crossing's bells in four years.",
+   "ties": [
+    {
+     "to": "dang_quai_linh",
+     "kind": "master",
+     "note": "the lines"
+    },
+    {
+     "to": "gian_tieu_dang",
+     "kind": "friend",
+     "note": "the second lamp on the crossings"
+    }
+   ],
+   "master": "dang_quai_linh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "charcoal-burners-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Climbing and bells."
+    }
+   }
+  }
+ ]
+}

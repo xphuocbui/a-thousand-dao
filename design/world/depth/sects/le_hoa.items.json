@@ -1,0 +1,284 @@
+{
+ "sect": "le_hoa",
+ "_doc": "Lê Hoa Am signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow the ice and metal catalogues' grade 3-4 items. The abbess also carries the catalogue sword ice-moonrime-sword (unchanged).",
+ "items": [
+  {
+   "id": "lh-bolt-ice-bell",
+   "name": "Bell of the Frozen Bolt (Ngưng Lôi Chung)",
+   "family": "ice",
+   "kind": "treasure",
+   "base": "chuong",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "stack_effect_pct",
+     "value": 24,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 30,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "toll-of-the-frozen-bolt",
+     "name": "Toll of the Frozen Bolt (Ngưng Lôi Hưởng)",
+     "rule": "Every fifth Winter Toll Canon art you cast rings the bell: the foe gains 2 Ice stacks, and its arts that come ready in the next 0.5 s wait until it ends, as if struck by lightning that cannot move.",
+     "authored": "a1"
+    }
+   ],
+   "lore": "Cast in 702 from the ice the nuns cut where Hoắc Hàn Quang's tribulation froze the lightning on a northern peak (C039, A105). The ice has not melted in five hundred years. When it is struck it rings with a crack of thunder that never comes. It hangs in the Upper Hermitage and is rung for the dead of Hồ Thiên at each solstice, and every night of the winter of 1199 (A111).",
+   "build_use": "The abbess's bell rite: heavier Ice stacks and a stun on the canon's count.",
+   "holder": "thai_le_tuyet",
+   "made_by": "ky_hoa_anh",
+   "made_year": 702,
+   "set": "lh-pear-blossom-vigil",
+   "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "lh-snow-veil-robe",
+   "name": "Snow Veil Robe (Tuyết Sa Đạo Bào)",
+   "family": "ice",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 15,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Woven of white yak wool and glacier frost by the founder for the abbesses who climb to the seal; it is cold inside, so that the cold outside cannot find the wearer.",
+   "build_use": "Sustain and cold resistance for a long sit against the seal.",
+   "holder": "thai_le_tuyet",
+   "made_by": "ky_hoa_anh",
+   "made_year": 705,
+   "set": "lh-pear-blossom-vigil",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-pear-branch-sword",
+   "name": "Pear Branch (Lê Chi Kiếm)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 20,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    },
+    {
+     "key": "block_rating",
+     "value": 15,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A thin grey sword with a pear-wood hilt, carried by the prioress of the Gate Hermitage. It is the sword that has turned away every man at the gate since 1020, though it has seldom had to leave its sheath.",
+   "build_use": "A gate-keeper's sword: blocks and holds Ice stacks for the Pear Blossom thrust.",
+   "holder": "manh_tinh_chi",
+   "made_by": "the caravan smiths of Trường Vân Thành (before Trấn Sa Đường), for Thái Lê Tuyết's first year as abbess",
+   "made_year": 1021,
+   "set": "lh-the-gate",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-miners-gate-coat",
+   "name": "Miner's Coat of the Gate (Khoáng Phu Bào)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The miner's coat she was found in on the Gate Hermitage's step, lined with grey nun's cloth and iron thread as she grew.",
+   "build_use": "The doorway's guard: block and defence.",
+   "holder": "manh_tinh_chi",
+   "made_by": "manh_tinh_chi",
+   "made_year": 1020,
+   "set": "lh-the-gate",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-grey-sisters-beads",
+   "name": "Grey Sisters' Beads (Hôi Ni Châu)",
+   "family": "ice",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A string of 108 grey beads, one from each sister of the Gate Hermitage who raised her; four of them are dead.",
+   "build_use": "An oath-bound mind: soul guard and linh lực.",
+   "holder": "manh_tinh_chi",
+   "made_by": "le_hoa",
+   "made_year": 1020,
+   "set": "lh-the-gate",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "lh-pear-blossom-vigil",
+   "name": "Pear-Blossom Vigil (Lê Hoa Thủ Tịch)",
+   "pieces": [
+    "lh-bolt-ice-bell",
+    "lh-snow-veil-robe",
+    "ice-moonrime-sword"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "stack_duration_pct",
+       "value": 15,
+       "scope": [
+        "bang",
+        "debuff"
+       ]
+      },
+      {
+       "key": "linh_luc_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Until It Stops Wanting (Chí Bất Dục Chiến): each toll of the bell on a foe held by your Frost Seal makes the hold last 1 s longer, and the foe deals 5 % less damage for 10 s; the tolls stack with no ceiling, and each fades on its own."
+    }
+   ],
+   "story": "The abbess's three for the sit against the seal: the bell cast from the frozen tribulation's ice, the robe, and the Moonrime sword (the catalogue's ice-moonrime-sword, which carries no set field of its own). Thái wears all three; in 1202 she means to walk to the cave in them with the nun she chooses."
+  },
+  {
+   "id": "lh-the-gate",
+   "name": "The Gate (Sơn Môn Tam Kiện)",
+   "pieces": [
+    "lh-pear-branch-sword",
+    "lh-miners-gate-coat",
+    "lh-grey-sisters-beads"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "block_rating",
+       "value": 8,
+       "scope": []
+      },
+      {
+       "key": "defense_pct",
+       "value": 5,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "None Shall Pass (Bất Khả Quá): after you block three hits, your next thrust is a sure crit and pierces the foe's ward; while you have blocked in the last 2 s you cannot be pushed back."
+    }
+   ],
+   "story": "The prioress's grey sword, the coat she was found in and the beads of the sisters who raised her: everything she owns, worn at the gate she has never left."
+  }
+ ]
+}

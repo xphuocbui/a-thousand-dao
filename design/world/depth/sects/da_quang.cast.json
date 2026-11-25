@@ -1,0 +1,1108 @@
+{
+ "sect": "da_quang",
+ "people": [
+  {
+   "key": "hang_da_boi",
+   "name_hv": "Hạng Dạ Bôi",
+   "name_han": "項夜杯",
+   "gloss": "The night-glowing cup (Vương Hàn)",
+   "sex": "M",
+   "born": 870,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "da_quang",
+   "rank": "tong_chu",
+   "home": 16,
+   "birthplace": 35,
+   "role": "Founder (970) and head of Dạ Quang Môn; the desert raider who knelt to Băng Tâm in 1121",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 74,
+     "hoa": 72
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 78,
+    "than_hon": 56,
+    "khi_van": 58,
+    "dao_tam": 44,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Warlike",
+     "Wrathful",
+     "Arrogant"
+    ],
+    "calling": "Duelist",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "demonic_path",
+     "fire_tempered"
+    ],
+    "lifestyle": "drinker",
+    "health": "old_wound",
+    "coping": "rage_flares",
+    "fate_given": [],
+    "gained": [
+     "Humbled",
+     "Grudge"
+    ]
+   },
+   "appearance": "A huge grey-bearded rider with a burn across one side of his face and a jade cup that glows on his belt at night.",
+   "backstory": "Hạng Dạ Bôi was born in 870 into the Hạng, a caravan-guard family of Trường Vân Thành (A120), and rode the Pavilion's caravan road for eighty years. In 968 a caravan of Băng Tâm's tax silver was lost to the sand, and the Desert Pavilion hanged his elder brother for it. Two years later Hạng took the guards the Pavilion had dismissed and became the thing they had guarded against: Dạ Quang Môn, bound to no lord (C172). For a century and a half his raiders drank grape wine from night-glowing cups after every raid and left one cup behind as their mark (A121). In 1119 Băng Tâm marched (C184). In 1121 it burned Huyết Đao Trại, where his loot was hidden and his first wife Lâu Minh Châu (lau_minh_chau) died (V074). He knelt to Sở Ngọc Hồ (so_ngoc_ho) and gave her his son Hạng Minh Sa (hang_minh_sa) as surety (C185). Since then his raiders have guarded the caravans they used to rob (A123). He is 330, and he has not forgiven anything. When his young blades began drinking from the cups again (A126), he poured the first one himself.",
+   "wants": "His son home before he dies, and one day to watch the Keeper of the Vessel kneel.",
+   "secret": "The Pavilion burned the wrong fort. Dạ Quang's real hoard lies under the sand at Mai Sa Bảo, buried in 1050 (V073): enough stones to hire a war.",
+   "ties": [
+    {
+     "to": "hang_minh_sa",
+     "kind": "child",
+     "note": "his son, surety at the Pavilion since 1121"
+    },
+    {
+     "to": "lau_minh_chau",
+     "kind": "spouse",
+     "note": "his first wife, burned at Huyết Đao Trại"
+    },
+    {
+     "to": "do_xich_linh",
+     "kind": "spouse",
+     "note": "his second wife since 1125"
+    },
+    {
+     "to": "hang_luu_hoa",
+     "kind": "child",
+     "note": "his daughter by Đồ Xích Linh"
+    },
+    {
+     "to": "so_ngoc_ho",
+     "kind": "enemy",
+     "note": "he knelt to her in 1121"
+    },
+    {
+     "to": "co_mac_phong",
+     "kind": "sworn_sibling",
+     "note": "the first cup-bearer, killed in 1121"
+    },
+    {
+     "to": "vien_co_yen",
+     "kind": "enemy",
+     "note": "the guard families of Trường Vân call him a traitor, and she watches his every escort"
+    },
+    {
+     "to": "cao_sa_lang",
+     "kind": "enemy",
+     "note": "the disciple he put out of the Night Light"
+    },
+    {
+     "to": "o_liet_phong",
+     "kind": "friend",
+     "note": "his steward, loyal and tired"
+    },
+    {
+     "to": "trac_hong_da",
+     "kind": "disciple",
+     "note": "keeper of the horse lines; an old rider of the knee of 1121"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "night-glow-blood-sabre-canon",
+     "layer": 10
+    },
+    "aux": [
+     {
+      "tech": "debt-ledger-blade",
+      "layer": 6
+     },
+     {
+      "tech": "tearing-force-rites",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "dq-night-sabre"
+     },
+     {
+      "named": "dq-night-glow-cup"
+     },
+     {
+      "named": "dq-lost-silver-tally"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 4
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal crit on the sabre first, Fire behind it for arts paid in blood: wrathful offence he pays for with his own health.",
+     "targets": [
+      696,
+      2763,
+      3909,
+      3913,
+      4671,
+      4535,
+      4520
+     ],
+     "targets_note": "The lineage's Warm Blood and Heated Steel first, then Ring, Sweeping and Horse-Cutting Sabre for the crit on the cut, and Blood Spring and Blood Commands Spirit for the health he pays his arts in."
+    },
+    "note": "The desert raider who knelt and did not forget: blood sabres that cut the horse first."
+   },
+   "items": [
+    "fire-blood-kindling-ring",
+    "dq-night-sabre",
+    "dq-night-glow-cup",
+    "dq-lost-silver-tally"
+   ],
+   "changed": "root: variant huyet 60 removed (not a variant in the Linh Căn set; the blood is in his công pháp, not his root); build: main nine-temper-scripture (Yellow) -> night-glow-blood-sabre-canon (minor main must be Profound or Earth); phi_kiem and giap gear -> his named sabre and cup; tree targets -> intent; birthplace 35 added (A120)."
+  },
+  {
+   "key": "do_xich_linh",
+   "name_hv": "Đồ Xích Linh",
+   "name_han": "屠赤翎",
+   "gloss": "Red feather",
+   "sex": "F",
+   "born": 1020,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "da_quang",
+   "rank": "truong_lao",
+   "home": 16,
+   "birthplace": 1404,
+   "role": "Hạng Dạ Bôi's second wife and first blade; voice of the raiders who would break the knee",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "hoa": 70,
+     "kim": 46,
+     "tho": 38
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 66,
+    "than_hon": 58,
+    "khi_van": 50,
+    "dao_tam": 40,
+    "mi_luc": 70
+   },
+   "traits": {
+    "personality": [
+     "Cruel",
+     "Ambitious",
+     "Brave"
+    ],
+    "calling": "Schemer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "demonic_path"
+    ],
+    "lifestyle": "gambler",
+    "health": null,
+    "coping": "vengeance_vow",
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A lean desert woman in red felt, with a hawk feather knotted to her sabre and a smile that the Pavilion's envoys do not like.",
+   "backstory": "Đồ Xích Linh grew up in the felt tents of Chiên Trướng Thôn and rode with Dạ Quang from the age of sixteen. By 1100 she led its fastest band. In the Taming (C184) she killed more Băng Tâm riders than anyone, and took the sabre of one of them, a hawk feather still on its hilt. She did not kneel in 1121; she was not asked, because the Pavilion did not know her name. She married Hạng Dạ Bôi (hang_da_boi) four years later, after Lâu Minh Châu (lau_minh_chau) burned, and gave him a daughter, Hạng Lưu Hỏa (hang_luu_hoa). She has never met Hạng Minh Sa (hang_minh_sa), and she prefers it that way. To her the knee was a pause, not an end. She has been writing to the ma đạo cultivator Triệu Huyết Y (trieu_huyet_y), who knows blood arts deeper than the Canon. She pays in stones from her own gambling.",
+   "wants": "Her daughter named heir, and Dạ Quang unbound from the Pavilion within her husband's lifetime or after it.",
+   "secret": "She is learning a blood art from Triệu Huyết Y, and she would let Băng Tâm keep the hostage forever if it clears her daughter's road.",
+   "ties": [
+    {
+     "to": "hang_da_boi",
+     "kind": "spouse",
+     "note": "married 1125"
+    },
+    {
+     "to": "hang_luu_hoa",
+     "kind": "child",
+     "note": "her daughter"
+    },
+    {
+     "to": "hang_minh_sa",
+     "kind": "rival",
+     "note": "her stepson, the heir in her daughter's way"
+    },
+    {
+     "to": "trieu_huyet_y",
+     "kind": "debt",
+     "note": "letters and a blood art, paid in stones"
+    },
+    {
+     "to": "cuu_lac_nhat",
+     "kind": "disciple",
+     "note": "her favourite young blade"
+    },
+    {
+     "to": "xa_linh_nhi",
+     "kind": "enemy",
+     "note": "the outer rider who left and knows too much; she wants him back or quiet"
+    },
+    {
+     "to": "cao_sa_lang",
+     "kind": "former_disciple",
+     "note": "she taught him to feed the sabre before he was put out"
+    },
+    {
+     "to": "o_sa_nhi",
+     "kind": "niece_nephew",
+     "note": "a cousin's daughter"
+    },
+    {
+     "to": "tat_da_lang",
+     "kind": "friend",
+     "note": "the outer boy she pays for what he knows"
+    },
+    {
+     "to": "co_xich_nguyet",
+     "kind": "disciple",
+     "note": "granddaughter of the first cup-bearer; pours for the young blades"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "night-glow-blood-sabre-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "debt-ledger-blade",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "dq-red-feather-sabre"
+     },
+     {
+      "named": "dq-felt-rider-coat"
+     },
+     {
+      "named": "dq-gamblers-ember-ring"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire speed and burning stacks: she cuts first and often.",
+     "targets": [
+      696,
+      2763,
+      2767,
+      2494,
+      2502,
+      2457,
+      2417
+     ],
+     "targets_note": "Burning Blade conversion, the Three-Legged Crow's speed, Fire Poison and Clinging Embers stacks: cuts first and often, paid in blood by the canon."
+    },
+    "note": "The red feather: fast Fire cuts paid in blood."
+   },
+   "items": [
+    "dq-red-feather-sabre",
+    "dq-felt-rider-coat",
+    "dq-gamblers-ember-ring"
+   ]
+  },
+  {
+   "key": "hang_luu_hoa",
+   "name_hv": "Hạng Lưu Hỏa",
+   "name_han": "項流火",
+   "gloss": "Flowing fire (the seventh month's falling star)",
+   "sex": "F",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "da_quang",
+   "rank": "chan_truyen",
+   "home": 16,
+   "birthplace": 16,
+   "role": "Hạng Dạ Bôi's daughter; leader of the young blades who drink from the cups again",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "hoa": 64,
+     "kim": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 68,
+    "can_cot": 64,
+    "than_hon": 54,
+    "khi_van": 60,
+    "dao_tam": 52,
+    "mi_luc": 66
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Gregarious",
+     "Impatient"
+    ],
+    "calling": "Strategist",
+    "upbringing": "clan_heir",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Her father's height and her mother's smile, in a riding coat with a night-glow cup sewn on the breast.",
+   "backstory": "Born after the knee, she has never raided. She has only heard about it. In 1194 she was the first to drink from the night-glowing cups again (A126), and half the young blades of Dạ Quang now follow her. Her mother Đồ Xích Linh (do_xich_linh) wants her named heir. She is not sure she wants her half-brother Hạng Minh Sa (hang_minh_sa) to stay a hostage. She has never met him and writes to him every year.",
+   "ties": [
+    {
+     "to": "hang_da_boi",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "do_xich_linh",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "hang_minh_sa",
+     "kind": "sibling",
+     "note": "half-brother; letters, never met"
+    },
+    {
+     "to": "liem_hoa_nhi",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "vien_tieu_yen",
+     "kind": "friend",
+     "note": "the Trấn Sa girl she writes to in secret"
+    },
+    {
+     "to": "xa_linh_nhi",
+     "kind": "friend",
+     "note": "rode the outer patrols with her; he left and still writes"
+    },
+    {
+     "to": "man_xich_cau",
+     "kind": "friend",
+     "note": "an inner-gate friend"
+    },
+    {
+     "to": "thoi_kim_doi",
+     "kind": "disciple",
+     "note": "Trấn Sa guard's daughter who rode out to Dạ Quang in 1197"
+    },
+    {
+     "to": "co_xich_nguyet",
+     "kind": "friend",
+     "note": "granddaughter of the first cup-bearer; pours for the young blades"
+    }
+   ],
+   "master": "do_xich_linh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "night-glow-blood-sabre-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "debt-ledger-blade",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire first, the sabre's bleed second.",
+     "targets": [
+      696,
+      2763,
+      2767,
+      2566,
+      2494
+     ],
+     "targets_note": "Her master's Burning Blade, Flint Spark, Sun Crow's Wing; bleed stacks wished (wish bt-06)."
+    },
+    "note": "The cups again."
+   }
+  },
+  {
+   "key": "o_liet_phong",
+   "name_hv": "Ô Liệt Phong",
+   "name_han": "烏烈風",
+   "gloss": "Fierce wind",
+   "sex": "M",
+   "born": 1090,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "da_quang",
+   "rank": "chap_su",
+   "home": 1418,
+   "birthplace": 1418,
+   "role": "Captain of Dạ Quang's caravan escorts since 1121",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "hoa": 52,
+     "kim": 40,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 68,
+    "than_hon": 50,
+    "khi_van": 54,
+    "dao_tam": 62,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Honest",
+     "Temperate"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "go_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Scarred"
+    ]
+   },
+   "appearance": "A weathered, tidy rider from the camel-bell town who keeps the escort's ledgers in a hand better than his master's.",
+   "backstory": "He rode in the raids as a young man and was made escort captain when the raiders were set to guarding the caravans they had robbed (A123). To everyone's surprise he is good at it, and likes being paid. Trấn Sa Đường's watcher Nhiếp Cô Đăng (nhiep_co_dang) follows every escort he rides. He is the one Dạ Quang man the merchants of Hồi Lan Thành trust.",
+   "ties": [
+    {
+     "to": "hang_da_boi",
+     "kind": "friend",
+     "note": "loyal, and tired"
+    },
+    {
+     "to": "nhiep_co_dang",
+     "kind": "rival",
+     "note": "she watches him; he has started leaving her tea at the stops"
+    },
+    {
+     "to": "hung_da_linh",
+     "kind": "disciple",
+     "note": "a boy from his own town"
+    },
+    {
+     "to": "bang_tran_nhac",
+     "kind": "friend",
+     "note": "the Trấn Sa steward; the same road and a pot of tea at Đà Linh"
+    },
+    {
+     "to": "ho_dien_liet",
+     "kind": "friend",
+     "note": "son of the man he rode the raids with"
+    },
+    {
+     "to": "na_lac_linh",
+     "kind": "disciple",
+     "note": "escort rider on the Đà Linh road"
+    },
+    {
+     "to": "trac_hong_da",
+     "kind": "friend",
+     "note": "keeper of the horse lines; an old rider of the knee of 1121"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "night-glow-blood-sabre-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire and a shield: an escort's long guard.",
+     "targets": [
+      696,
+      2763,
+      2591,
+      2579,
+      3085
+     ],
+     "targets_note": "Ember Armour, Molten Shell and Winding Path: an escort's guard."
+    },
+    "note": "The honest raider."
+   }
+  },
+  {
+   "key": "cuu_lac_nhat",
+   "name_hv": "Cừu Lạc Nhật",
+   "name_han": "仇落日",
+   "gloss": "Setting sun (and a surname that means vengeance)",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "da_quang",
+   "rank": "noi_mon",
+   "home": 16,
+   "birthplace": 1421,
+   "role": "Young blade; Đồ Xích Linh's disciple",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 56,
+     "tho": 40,
+     "kim": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cruel",
+     "Warlike",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "path": [
+     "demonic_path"
+    ],
+    "gained": [
+     "Demon-tainted"
+    ]
+   },
+   "backstory": "A sheep-shed boy who has fed his sabre more than the Canon asks; Đồ Xích Linh (do_xich_linh) tells him the taint is strength.",
+   "ties": [
+    {
+     "to": "do_xich_linh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "cao_sa_lang",
+     "kind": "friend",
+     "note": "the outcast who tells him he will be the next one put out"
+    },
+    {
+     "to": "kieu_liet_ca",
+     "kind": "disciple",
+     "note": "young blade; Cừu Lạc Nhật's disciple"
+    },
+    {
+     "to": "trac_hong_da",
+     "kind": "rival",
+     "note": "keeper of the horse lines; an old rider of the knee of 1121"
+    }
+   ],
+   "master": "do_xich_linh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "night-glow-blood-sabre-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire, paid in blood."
+    },
+    "note": "Too hungry."
+   }
+  },
+  {
+   "key": "o_sa_nhi",
+   "name_hv": "Ổ Sa Nhi",
+   "name_han": "鄔沙兒",
+   "gloss": "Child of the sand",
+   "sex": "F",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "da_quang",
+   "rank": "ngoai_mon",
+   "home": 16,
+   "birthplace": 1404,
+   "role": "Outer rider from the felt tents",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 44,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Fickle",
+     "Gregarious"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Đồ Xích Linh's (do_xich_linh) cousin's girl from Chiên Trướng Thôn, who rides better than she cuts.",
+   "ties": [
+    {
+     "to": "do_xich_linh",
+     "kind": "aunt_uncle",
+     "note": "a cousin's daughter"
+    },
+    {
+     "to": "o_sa_ho",
+     "kind": "sibling",
+     "note": "her brother; night-watch caravan guard; Ổ Sa Nhi's brother"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "red-sand-sabre-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire."
+    },
+    "note": "Rides first."
+   }
+  },
+  {
+   "key": "man_xich_cau",
+   "name_hv": "Mãn Xích Câu",
+   "name_han": "滿赤鉤",
+   "gloss": "Red hook",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "da_quang",
+   "rank": "noi_mon",
+   "home": 16,
+   "birthplace": 1421,
+   "role": "Young blade who drinks with Hạng Lưu Hỏa",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 48,
+     "kim": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Impatient",
+     "Indulgent"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "lifestyle": "gambler"
+   },
+   "backstory": "He lost his first night-glow cup at dice the night Hạng Lưu Hỏa (hang_luu_hoa) poured it, and has been trying to win it back since.",
+   "ties": [
+    {
+     "to": "hang_luu_hoa",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "kieu_liet_ca",
+     "kind": "rival",
+     "note": "young blade; Cừu Lạc Nhật's disciple"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "night-glow-blood-sabre-canon",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire."
+    },
+    "note": "Dice and cups."
+   }
+  },
+  {
+   "key": "hung_da_linh",
+   "name_hv": "Hùng Đà Linh",
+   "name_han": "熊駝鈴",
+   "gloss": "Camel bell",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "da_quang",
+   "rank": "ngoai_mon",
+   "home": 1418,
+   "birthplace": 1418,
+   "role": "Escort boy from the camel-bell town",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 44,
+     "hoa": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Diligent",
+     "Peaceable"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "He rides behind Ô Liệt Phong (o_liet_phong) on the escort and has never seen a raid, only heard the old men boast.",
+   "ties": [
+    {
+     "to": "o_liet_phong",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "o_liet_phong",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "red-sand-sabre-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth guard."
+    },
+    "note": "An escort's shield."
+   },
+   "changed": "fix pass A: gear thuan -> phi_kiem (a sabre-primer kiem_tu wears a blade); the sabre rides on a phi_kiem base until the item bases gain a sabre (Item DB open question)"
+  },
+  {
+   "key": "tat_da_lang",
+   "name_hv": "Tất Dạ Lang",
+   "name_han": "畢夜狼",
+   "gloss": "Night wolf",
+   "sex": "M",
+   "born": 1168,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "da_quang",
+   "rank": "ngoai_mon",
+   "home": 16,
+   "birthplace": 35,
+   "role": "A caravan guard's son who deserted Trấn Sa Đường for Dạ Quang",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 38,
+     "hoa": 30,
+     "thuy": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Deceitful",
+     "Ambitious",
+     "Paranoid"
+    ],
+    "calling": "Schemer",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "He left Trấn Sa Đường's outer gate in 1196 for the cups and the stories; Viên Cô Yên (vien_co_yen) has posted his face at every caravan stop, and Đồ Xích Linh (do_xich_linh) uses what he knows of the guards' routes.",
+   "ties": [
+    {
+     "to": "do_xich_linh",
+     "kind": "friend",
+     "note": "she pays for what he knows"
+    },
+    {
+     "to": "vien_co_yen",
+     "kind": "debt",
+     "note": "his old head, whom Dạ Quang thinks he deserted; he is still her spy"
+    },
+    {
+     "to": "thoi_kim_doi",
+     "kind": "rival",
+     "note": "Trấn Sa guard's daughter who rode out to Dạ Quang in 1197"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "red-sand-sabre-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "A turncoat."
+   }
+  },
+  {
+   "key": "liem_hoa_nhi",
+   "name_hv": "Liêm Hỏa Nhi",
+   "name_han": "廉火兒",
+   "gloss": "Little fire",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "da_quang",
+   "rank": "ngoai_mon",
+   "home": 16,
+   "birthplace": 16,
+   "role": "Youngest rider; Hạng Lưu Hỏa's disciple",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 46,
+     "tho": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Trusting",
+     "Wrathful"
+    ],
+    "calling": "Duelist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Born at the gate to a raider who died in the Taming, she worships Hạng Lưu Hỏa (hang_luu_hoa) and has a cup of her own already.",
+   "ties": [
+    {
+     "to": "hang_luu_hoa",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "hang_luu_hoa",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "red-sand-sabre-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire."
+    },
+    "note": "A cup already."
+   }
+  },
+  {
+   "key": "lau_minh_chau",
+   "name_hv": "Lâu Minh Châu",
+   "name_han": "婁明珠",
+   "gloss": "Bright pearl",
+   "sex": "F",
+   "born": 1060,
+   "died": 1121,
+   "cause": "burned at Huyết Đao Trại when Băng Tâm fired the stockade (V074), at 61",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "da_quang",
+   "rank": "truong_lao",
+   "home": 1409,
+   "birthplace": 67,
+   "role": "Hạng Dạ Bôi's first wife, mother of Hạng Minh Sa; keeper of the loot at Huyết Đao Trại",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Generous",
+     "Cautious",
+     "Loyal"
+    ],
+    "calling": "Steward",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A Hồi Lan Thành merchant's daughter taken in a raid in 1080 who chose to stay, married Hạng Dạ Bôi (hang_da_boi), and kept Dạ Quang's books for forty years. She bore Hạng Minh Sa (hang_minh_sa) in 1100. In 1121 she stayed in Huyết Đao Trại to burn the ledgers before the Pavilion could read them, and burned with them (V074). Because of her, the Pavilion never learned of Mai Sa Bảo.",
+   "ties": [
+    {
+     "to": "hang_da_boi",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "hang_minh_sa",
+     "kind": "child",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "key": "co_mac_phong",
+   "name_hv": "Cổ Mạc Phong",
+   "name_han": "古漠風",
+   "gloss": "Old desert wind",
+   "sex": "M",
+   "born": 880,
+   "died": 1121,
+   "cause": "killed holding the gate of Huyết Đao Trại against Băng Tâm (V074), at 241",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "da_quang",
+   "rank": "truong_lao",
+   "home": 16,
+   "birthplace": 35,
+   "role": "The first cup-bearer: Hạng Dạ Bôi's sworn brother and co-founder",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Brave",
+     "Indulgent"
+    ],
+    "calling": "Duelist",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Hạng Dạ Bôi's (hang_da_boi) fellow guard who rode out with him in 970 (C172), poured the first night-glow cup, and died at the stockade gate so his brother could reach the Pavilion's camp to kneel.",
+   "ties": [
+    {
+     "to": "hang_da_boi",
+     "kind": "sworn_sibling",
+     "note": ""
+    },
+    {
+     "to": "vien_truong_ha",
+     "kind": "enemy",
+     "note": "the Trấn Sa caravan captain his raid killed in the gorge in 1100"
+    },
+    {
+     "to": "co_xich_nguyet",
+     "kind": "grandchild",
+     "note": "his granddaughter; granddaughter of the first cup-bearer; pours for the young blades"
+    }
+   ]
+  }
+ ]
+}

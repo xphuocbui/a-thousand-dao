@@ -1,0 +1,1192 @@
+{
+ "sect": "vu_an",
+ "people": [
+  {
+   "key": "bang_yen_toa",
+   "name_hv": "Bàng Yên Tỏa",
+   "name_han": "龐煙鎖",
+   "gloss": "Locked in mist",
+   "sex": "M",
+   "born": 1085,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "vu_an",
+   "rank": "tong_chu",
+   "home": 1063,
+   "birthplace": 1075,
+   "role": "Head of Vụ Ẩn Môn since 1146: mist formations and concealment arrays along the cape's roads",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 58,
+     "thuy": 50
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 52,
+    "than_hon": 64,
+    "khi_van": 48,
+    "dao_tam": 58,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Pragmatic",
+     "Reclusive"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "formation_mind"
+    ],
+    "lifestyle": "tea_master",
+    "health": null,
+    "coping": "cold_detachment",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A thin, grey, unremarkable man in an oiled cloak, easy to forget even when he is standing in front of you, which he has practised.",
+   "backstory": "Bàng Yên Tỏa was a tea-picker's son from Trà Viên Thôn, the tea village south of the sect's gate. At fifteen he was hired to carry loads on the cape roads. In 1100 the founder, Hàm Thủ Lộ (ham_thu_lo), saw him walk out of a robbers' ambush on the Phù Kiều road by keeping so still that nobody looked at him, and took him in. He learned the Road Mist Primer, then the Mist-Lock canon, then the Haze Walk that Tất Hành Vụ (tat_hanh_vu) had given the founder (N-thuy_vi-07). In 1146 the founder walked into his own mist by empty Đồng Sơn Trấn and was not found. Only his lantern was (N-vu_an-03). Bàng became head at sixty-one and has kept the sect small, quiet and paid. Its guards hold mist over the cape's roads for anyone who pays the road fee, and they do not ask who that is. Diêm Hải Tảo's (diem_hai_tao) carts use the roads, and so do people Thúy Vi would rather they did not. Tất still visits every spring. The Thúy Vi elders who call the walk a theft have begun to talk about a tithe.",
+   "wants": "To keep Vụ Ẩn Môn out of every quarrel coming toward it: no tithe to Thúy Vi, no bargain with Tùng Đào, no robbers on his roads, and no one asking what is under the gate.",
+   "secret": "The founder did not vanish. He died of old age in Bàng's arms on the Đồng Sơn road in 1146, at 198. He asked to be buried under the threshold of the seat's gate, and asked that the cape be told the mist had taken him, so that robbers would believe the mist could take a man. Bàng left the lantern burning on the road and carried the body home in mist. Hàm Thanh Đăng, the founder's daughter, believes her father was murdered.",
+   "ties": [
+    {
+     "to": "ham_thu_lo",
+     "kind": "master",
+     "note": "took him in in 1100; buried by his hands under the gate"
+    },
+    {
+     "to": "tat_hanh_vu",
+     "kind": "friend",
+     "note": "his master's sworn brother; visits the cape every spring"
+    },
+    {
+     "to": "diem_hai_tao",
+     "kind": "friend",
+     "note": "her carts use his roads; she pays in salt fish and never asks for a receipt"
+    },
+    {
+     "to": "ham_thanh_dang",
+     "kind": "rival",
+     "note": "the founder's daughter, who wants the lantern and the truth"
+    },
+    {
+     "to": "trieu_ngu_lang",
+     "kind": "friend",
+     "note": "the road captain, who outranks him in realm and will not take the headship"
+    },
+    {
+     "to": "khuyet_lac_vu",
+     "kind": "disciple",
+     "note": "the best young mist-layer"
+    },
+    {
+     "to": "tap_xuan_tra",
+     "kind": "niece_nephew",
+     "note": "his sister's daughter from Trà Viên"
+    },
+    {
+     "to": "khau_thien_tu",
+     "kind": "enemy",
+     "note": "the robber chief whose band holds the roads through the mist"
+    },
+    {
+     "to": "tap_xuan_tra",
+     "kind": "disciple",
+     "note": "he teaches her the mist arrays"
+    },
+    {
+     "to": "nham_tung_anh",
+     "kind": "disciple",
+     "note": "mist-layer who trains against Khuyết Lạc Vụ in Mê Vụ Lâm"
+    },
+    {
+     "to": "chuc_minh_lo",
+     "kind": "rival",
+     "note": "lantern keeper of the Trà Viên crossroads"
+    }
+   ],
+   "master": "ham_thu_lo",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "mist-lock-array-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "haze-walk",
+      "layer": 6
+     },
+     {
+      "tech": "hidden-gate-array",
+      "layer": 7
+     }
+    ],
+    "gear": [
+     {
+      "named": "va-mist-lock-lantern"
+     },
+     {
+      "named": "va-milestone-flag"
+     }
+    ],
+    "skills": {
+     "tran_phap": 7
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood toward evasion and ward duration, with Water for linh lực to hold a field for a long time.",
+     "targets": [
+      6085,
+      6362,
+      6140,
+      6142,
+      6151,
+      6154
+     ],
+     "targets_note": "Grove Shade and the Bamboo Grove idea, then Hollow Bamboo linh lực to hold a field; ward duration from his lantern."
+    },
+    "note": "Lays the mist, holds it, and leaves. He has not won a fight in fifty years and has not needed to."
+   },
+   "items": [
+    "va-mist-lock-lantern",
+    "va-milestone-flag"
+   ],
+   "changed": "root, thien_phu, build and birthplace (1075, Trà Viên Thôn) added; he had none."
+  },
+  {
+   "key": "trieu_ngu_lang",
+   "name_hv": "Triều Ngũ Lang",
+   "name_han": "晁五郎",
+   "gloss": "The fifth son",
+   "sex": "M",
+   "born": 1050,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "vu_an",
+   "rank": "truong_lao",
+   "home": 1063,
+   "birthplace": 1043,
+   "role": "Road captain; a robber of Đoản Vĩ Cương once",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 54,
+    "can_cot": 70,
+    "than_hon": 50,
+    "khi_van": 60,
+    "dao_tam": 52,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Loyal",
+     "Wrathful"
+    ],
+    "calling": "Duelist",
+    "upbringing": "street_orphan",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Life-debt"
+    ]
+   },
+   "appearance": "A heavy, scarred man with a lynx-bone axe and a laugh that carries further than the mist he lays.",
+   "backstory": "The fifth son of nobody, raised in the robbers' camp on the Ridge of the Bobtails. In 1081 a Thúy Vi road patrol ran him down on the Thạch Công road, and the founder Hàm Thủ Lộ (ham_thu_lo) hid him in mist and did not ask why (N-vu_an-02). He has guarded the road ever since. He formed his core in 1170, which puts him above his head in realm, and he will not take the headship: a robber can guard a road, he says, but not own one. In 1190 his old band killed his friend Bối Trường Đình (boi_truong_dinh) on the Đồng Sơn road.",
+   "ties": [
+    {
+     "to": "ham_thu_lo",
+     "kind": "master",
+     "note": "hid him in 1081; he owes him his life"
+    },
+    {
+     "to": "bang_yen_toa",
+     "kind": "friend",
+     "note": "he backs the head and tells him when he is wrong"
+    },
+    {
+     "to": "boi_truong_dinh",
+     "kind": "friend",
+     "note": "killed by his old band in 1190"
+    },
+    {
+     "to": "ky_that_lo",
+     "kind": "disciple",
+     "note": "the boy he carried out of the 1190 caravan"
+    },
+    {
+     "to": "thai_van_xa",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "luyen_to_y",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "te_doan_vi",
+     "kind": "former_master",
+     "note": "the old robber who taught him before the mist took him"
+    },
+    {
+     "to": "khau_thien_tu",
+     "kind": "sworn_sibling",
+     "note": "raised in the camp together; parted by the mist in 1081"
+    },
+    {
+     "to": "chuc_minh_lo",
+     "kind": "disciple",
+     "note": "lantern keeper of the Trà Viên crossroads"
+    },
+    {
+     "to": "quan_da_tu",
+     "kind": "disciple",
+     "note": "a robber's son from the Bobtail ridge, hidden by the road captain"
+    }
+   ],
+   "master": "ham_thu_lo",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mist-lock-array-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "haze-walk",
+      "layer": 7
+     }
+    ],
+    "gear": [
+     {
+      "named": "va-bobtail-axe"
+     },
+     {
+      "base": "giap",
+      "grade": 3,
+      "element": "moc"
+     },
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood toward health and block, then crit: the man who stands in the road when the mist lifts.",
+     "targets": [
+      6085,
+      6362,
+      6186,
+      6252,
+      6187
+     ],
+     "targets_note": "Thorn Bark and Thorn Hedge block, then Black Forest crit: out of the mist, then the axe."
+    },
+    "note": "Out of the mist, then the axe."
+   },
+   "items": [
+    "va-bobtail-axe"
+   ]
+  },
+  {
+   "key": "ham_thanh_dang",
+   "name_hv": "Hàm Thanh Đăng",
+   "name_han": "咸青燈",
+   "gloss": "The green lantern",
+   "sex": "F",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "vu_an",
+   "rank": "chan_truyen",
+   "home": 1063,
+   "birthplace": 1063,
+   "role": "The founder's daughter; keeper of the crossroads lanterns",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "thuy": 44
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 50,
+    "than_hon": 60,
+    "khi_van": 46,
+    "dao_tam": 54,
+    "mi_luc": 56
+   },
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Diligent",
+     "Paranoid"
+    ],
+    "calling": "Formation master",
+    "upbringing": "sect_raised",
+    "talent": [],
+    "path": [
+     "formation_mind"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": "vengeance_vow",
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A tall woman with ink-stained fingers who carries a green-paned lantern and looks at every stranger twice.",
+   "backstory": "Hàm Thủ Lộ's (ham_thu_lo) daughter, born at the seat. She was forty-six when he walked into the mist by Đồng Sơn Trấn and was not found (N-vu_an-03). She keeps every crossroads lantern on the cape lit, and she keeps a ledger of everyone who has said in her hearing that the Haze Walk was stolen. She believes Thúy Vi's Hall of Rules took the art back in 1146 and her father with it. She calls Tất Hành Vụ uncle. She wants the founder's lantern from Bàng.",
+   "ties": [
+    {
+     "to": "ham_thu_lo",
+     "kind": "parent",
+     "note": "her father, lost in 1146"
+    },
+    {
+     "to": "bang_yen_toa",
+     "kind": "rival",
+     "note": "holds her father's lantern and, she thinks, something else"
+    },
+    {
+     "to": "tat_hanh_vu",
+     "kind": "friend",
+     "note": "her father's sworn brother; she calls him uncle"
+    },
+    {
+     "to": "nhac_chinh_hanh",
+     "kind": "enemy",
+     "note": "has kept Thúy Vi's Hall of Rules since 1150; first on her list"
+    },
+    {
+     "to": "ham_tieu_vu",
+     "kind": "child",
+     "note": "her son"
+    },
+    {
+     "to": "khuyet_lac_vu",
+     "kind": "rival",
+     "note": "the inner girl who thinks her too proud"
+    },
+    {
+     "to": "ham_tieu_vu",
+     "kind": "disciple",
+     "note": "she teaches him the lanterns herself"
+    },
+    {
+     "to": "tap_minh_nhi",
+     "kind": "disciple",
+     "note": "Tập Xuân Trà's cousin; brews the road tea"
+    },
+    {
+     "to": "chuc_minh_lo",
+     "kind": "friend",
+     "note": "lantern keeper of the Trà Viên crossroads"
+    }
+   ],
+   "master": "ham_thu_lo",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "mist-lock-array-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "haze-walk",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "tran_phap": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood toward ward duration and accuracy loss on foes.",
+     "targets": [
+      6085,
+      6362,
+      6140,
+      6142,
+      6149
+     ],
+     "targets_note": "Grove Shade, Bamboo Grove, Hollow Heart; foe accuracy loss wished (wish bt-03)."
+    },
+    "note": "Her lanterns are on every crossroads."
+   }
+  },
+  {
+   "key": "thai_van_xa",
+   "name_hv": "Thai Vãn Xa",
+   "name_han": "邰晚車",
+   "gloss": "The late cart",
+   "sex": "M",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "vu_an",
+   "rank": "noi_mon",
+   "home": 30,
+   "birthplace": 30,
+   "role": "Captain of the Yên Ba road",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Greedy",
+     "Pragmatic"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A carter's son from Yên Ba Thành who holds the mist over the port road for Diêm Hải Tảo's (diem_hai_tao) pill carts, and sometimes over carts that are not hers.",
+   "ties": [
+    {
+     "to": "trieu_ngu_lang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "diem_hai_tao",
+     "kind": "friend",
+     "note": "she knows about the other carts"
+    },
+    {
+     "to": "mao_dao_bi",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "dao_thach_an",
+     "kind": "disciple",
+     "note": "stonecutter's son who holds the chisel for the milestones"
+    },
+    {
+     "to": "bao_thuy_hanh",
+     "kind": "friend",
+     "note": "carter captain of the Yên Ba salt-fish carts; outer for life"
+    }
+   ],
+   "master": "trieu_ngu_lang",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "mist-lock-array-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood mist."
+    },
+    "note": "The late cart gets through."
+   }
+  },
+  {
+   "key": "luyen_to_y",
+   "name_hv": "Luyện Tố Y",
+   "name_han": "練素衣",
+   "gloss": "The plain robe",
+   "sex": "F",
+   "born": 1125,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "vu_an",
+   "rank": "noi_mon",
+   "home": 1063,
+   "birthplace": 1064,
+   "role": "Mist-layer of the Phù Kiều road; on Tùng Đào's money",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "thuy": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 48,
+    "than_hon": 58,
+    "khi_van": 40,
+    "dao_tam": 42,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Deceitful",
+     "Compassionate",
+     "Cautious"
+    ],
+    "calling": "Schemer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A neat woman in an undyed robe who smiles at everyone and remembers what they say.",
+   "backstory": "Born in Phù Kiều Trấn, the river town the founder and Tất Hành Vụ (tat_hanh_vu) both came from. In 1192 her brother's gambling debts in Hàn Tân Thành were bought by an agent of Tùng Đào's first elder, Hồ Tùng Nguyệt (ho_tung_nguyet). The price of the debt is the Haze Walk's ninth layer. She does not have it. Only Tất can read it, and he trusts her because she is from his town.",
+   "ties": [
+    {
+     "to": "trieu_ngu_lang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ho_tung_nguyet",
+     "kind": "debt",
+     "note": "holds her brother's debt; wants the ninth layer"
+    },
+    {
+     "to": "tat_hanh_vu",
+     "kind": "friend",
+     "note": "he trusts her because she is from Phù Kiều"
+    },
+    {
+     "to": "phu_lien_kieu",
+     "kind": "friend",
+     "note": "the other one on Tùng Đào's money, in Thúy Vi's outer gate; they meet at Lam Yên Thị"
+    },
+    {
+     "to": "cat_chau_nuong",
+     "kind": "rival",
+     "note": "the go-between she named her price to: the Haze Walk's ninth layer"
+    },
+    {
+     "to": "luyen_dac_bao",
+     "kind": "sibling",
+     "note": "her brother, whose debts she pays"
+    },
+    {
+     "to": "bien_ha_huong",
+     "kind": "disciple",
+     "note": "survivor of the 1190 caravan; lantern girl of the Phù Kiều road"
+    }
+   ],
+   "master": "trieu_ngu_lang",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "mist-lock-array-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "haze-walk",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood toward evasion and concealment.",
+     "targets": [
+      6085,
+      6362,
+      6140,
+      6145
+     ],
+     "targets_note": "Grove Shade concealment and Swaying Bamboo evasion."
+    },
+    "note": "Asks questions about the ninth layer."
+   }
+  },
+  {
+   "key": "ham_tieu_vu",
+   "name_hv": "Hàm Tiểu Vụ",
+   "name_han": "咸小霧",
+   "gloss": "Little mist",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "vu_an",
+   "rank": "ngoai_mon",
+   "home": 1063,
+   "birthplace": 1063,
+   "role": "Lantern boy; the founder's grandson",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Trusting",
+     "Gregarious",
+     "Fickle"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Hàm Thanh Đăng's (ham_thanh_dang) son, who trims the crossroads lanterns and plays at the seat's gate on a stone he does not know is his grandfather's grave.",
+   "ties": [
+    {
+     "to": "ham_thanh_dang",
+     "kind": "master",
+     "note": "teaches him the lanterns herself"
+    },
+    {
+     "to": "ham_thanh_dang",
+     "kind": "parent",
+     "note": "his mother"
+    },
+    {
+     "to": "ham_thu_lo",
+     "kind": "grandparent",
+     "note": "never met"
+    }
+   ],
+   "master": "ham_thanh_dang",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "road-mist-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "tran_phap": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Plays on the threshold."
+   }
+  },
+  {
+   "key": "tap_xuan_tra",
+   "name_hv": "Tập Xuân Trà",
+   "name_han": "習春茶",
+   "gloss": "Spring tea",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "vu_an",
+   "rank": "ngoai_mon",
+   "home": 1063,
+   "birthplace": 1075,
+   "role": "Outer disciple; the head's niece from Trà Viên",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Honest",
+     "Content"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A tea-picker's daughter from Trà Viên Thôn whom her uncle Bàng Yên Tỏa (bang_yen_toa) took into the gate; she brews the road tea every guard carries.",
+   "ties": [
+    {
+     "to": "bang_yen_toa",
+     "kind": "master",
+     "note": "teaches her the mist arrays"
+    },
+    {
+     "to": "bang_yen_toa",
+     "kind": "aunt_uncle",
+     "note": "her mother's brother"
+    },
+    {
+     "to": "tap_minh_nhi",
+     "kind": "cousin",
+     "note": "her cousin; Tập Xuân Trà's cousin; brews the road tea"
+    }
+   ],
+   "master": "bang_yen_toa",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "road-mist-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "Road tea."
+   }
+  },
+  {
+   "key": "mao_dao_bi",
+   "name_hv": "Mao Đạo Bi",
+   "name_han": "毛道碑",
+   "gloss": "The road stele",
+   "sex": "M",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "vu_an",
+   "rank": "ngoai_mon",
+   "home": 1063,
+   "birthplace": 1057,
+   "role": "Carves the mist-seal milestones",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Reclusive",
+     "Stubborn"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born"
+   },
+   "backstory": "A stonecutter's son from Thạch Công Thôn who carves the lantern-stones and milestones the Mist-Lock arrays are pinned to, under Thai Vãn Xa (thai_van_xa).",
+   "ties": [
+    {
+     "to": "thai_van_xa",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dao_thach_an",
+     "kind": "friend",
+     "note": "stonecutter's son who holds the chisel for the milestones"
+    }
+   ],
+   "master": "thai_van_xa",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "road-mist-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "tran_phap": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "Every milestone."
+   }
+  },
+  {
+   "key": "ky_that_lo",
+   "name_hv": "Ký Thất Lộ",
+   "name_han": "冀失路",
+   "gloss": "Lost the road",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "vu_an",
+   "rank": "ngoai_mon",
+   "home": 1063,
+   "birthplace": 1064,
+   "role": "Newest outer disciple; orphan of the 1190 caravan",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Diligent",
+     "Paranoid"
+    ],
+    "calling": "Duelist",
+    "upbringing": "war_orphan"
+   },
+   "backstory": "Six years old in the caravan the robbers of Đoản Vĩ Cương fell on in 1190 (N-vu_an-04); Triều Ngũ Lang (trieu_ngu_lang) carried him out of it, and he does not yet know his rescuer once rode with the men who did it.",
+   "ties": [
+    {
+     "to": "trieu_ngu_lang",
+     "kind": "master",
+     "note": "carried him out"
+    },
+    {
+     "to": "boi_truong_dinh",
+     "kind": "debt",
+     "note": "died holding the mist over him"
+    },
+    {
+     "to": "hau_tieu_luc",
+     "kind": "creditor",
+     "note": "the robber boy who held the horses the night his caravan died"
+    },
+    {
+     "to": "khau_thien_tu",
+     "kind": "enemy",
+     "note": "the robber chief who let him go in 1190; he has sworn to kill the band"
+    },
+    {
+     "to": "quan_da_tu",
+     "kind": "friend",
+     "note": "a robber's son from the Bobtail ridge, hidden by the road captain"
+    },
+    {
+     "to": "bien_ha_huong",
+     "kind": "rival",
+     "note": "survivor of the 1190 caravan; lantern girl of the Phù Kiều road"
+    }
+   ],
+   "master": "trieu_ngu_lang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "road-mist-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Wants the robbers."
+   }
+  },
+  {
+   "key": "khuyet_lac_vu",
+   "name_hv": "Khuyết Lạc Vụ",
+   "name_han": "闕落霧",
+   "gloss": "Falling mist",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "vu_an",
+   "rank": "noi_mon",
+   "home": 1063,
+   "birthplace": 1061,
+   "role": "The best young mist-layer; trains in Mê Vụ Lâm",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 56,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Brave",
+     "Arrogant"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "path": [
+     "formation_mind"
+    ]
+   },
+   "backstory": "A rope-maker's daughter from Thằng Tác Thôn who lays mist in the Forest of Lost Mist until even Bàng Yên Tỏa (bang_yen_toa) loses his way in it.",
+   "ties": [
+    {
+     "to": "bang_yen_toa",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ham_thanh_dang",
+     "kind": "rival",
+     "note": "the founder's daughter thinks she is too proud"
+    },
+    {
+     "to": "nham_tung_anh",
+     "kind": "rival",
+     "note": "mist-layer who trains against Khuyết Lạc Vụ in Mê Vụ Lâm"
+    }
+   ],
+   "master": "bang_yen_toa",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "mist-lock-array-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood mist."
+    },
+    "note": "The next head, if anyone asked."
+   }
+  },
+  {
+   "key": "ham_thu_lo",
+   "name_hv": "Hàm Thủ Lộ",
+   "name_han": "咸守路",
+   "gloss": "Keeps the road",
+   "sex": "M",
+   "born": 948,
+   "died": 1146,
+   "cause": "old age (198), on the Đồng Sơn road; the cape believes the mist took him (N-vu_an-03)",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "vu_an",
+   "rank": "founder",
+   "home": 1063,
+   "birthplace": 1064,
+   "role": "Founder of Vụ Ẩn Môn (1050); the road guard who learned the Haze Walk",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Generous",
+     "Brave",
+     "Forgiving"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "path": [
+     "formation_mind"
+    ],
+    "gained": [
+     "Sworn sibling"
+    ]
+   },
+   "backstory": "A carter's son from the river town of Phù Kiều Trấn and a road guard on the cape all his life. Tất Hành Vụ (tat_hanh_vu), eighteen years older, pulled him out of the river there as a boy, and they swore brotherhood when he came of age. In 1048 Tất taught him the Haze Walk (N-thuy_vi-07). He saw at once that mist laid like an array could hide a whole caravan, and he became a formation master at a hundred. In 1050 he founded Vụ Ẩn Môn to lay mist on the cape's roads and hide travellers from robbers (V015). He hid a robber once, in 1081, and never said why.",
+   "ties": [
+    {
+     "to": "tat_hanh_vu",
+     "kind": "sworn_sibling",
+     "note": "taught him the Haze Walk in 1048"
+    },
+    {
+     "to": "bang_yen_toa",
+     "kind": "disciple",
+     "note": "his successor, who buried him"
+    },
+    {
+     "to": "ham_thanh_dang",
+     "kind": "child",
+     "note": "his daughter"
+    },
+    {
+     "to": "trieu_ngu_lang",
+     "kind": "disciple",
+     "note": "the robber he hid"
+    },
+    {
+     "to": "ham_tieu_vu",
+     "kind": "grandchild",
+     "note": "his grandson, whom he never met"
+    }
+   ]
+  },
+  {
+   "key": "boi_truong_dinh",
+   "name_hv": "Bối Trường Đình",
+   "name_han": "貝長亭",
+   "gloss": "The long pavilion (where travellers part)",
+   "sex": "M",
+   "born": 1090,
+   "died": 1190,
+   "cause": "killed by the robbers of Đoản Vĩ Cương holding the mist over a caravan on the Đồng Sơn road (N-vu_an-04)",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "vu_an",
+   "rank": "noi_mon",
+   "home": 1063,
+   "birthplace": 1064,
+   "role": "Road guard; died holding the mist in 1190",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Loyal",
+     "Calm"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "He held the mist over a caravan on the Đồng Sơn road until the robbers found him by his voice, and the boy Ký Thất Lộ (ky_that_lo) lived because the mist held a moment longer.",
+   "ties": [
+    {
+     "to": "trieu_ngu_lang",
+     "kind": "friend",
+     "note": "drank together for a century"
+    },
+    {
+     "to": "ky_that_lo",
+     "kind": "creditor",
+     "note": ""
+    },
+    {
+     "to": "duong_tam_dao",
+     "kind": "enemy",
+     "note": "the robber who found him in the mist by his voice in 1190"
+    },
+    {
+     "to": "khau_thien_tu",
+     "kind": "enemy",
+     "note": "the robber chief he held the mist against in 1190, and died doing it"
+    },
+    {
+     "to": "bien_ha_huong",
+     "kind": "creditor",
+     "note": "survivor of the 1190 caravan; lantern girl of the Phù Kiều road; owes him"
+    }
+   ]
+  }
+ ]
+}

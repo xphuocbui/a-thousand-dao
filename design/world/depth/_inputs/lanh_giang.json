@@ -1,0 +1,1438 @@
+{
+"_doc": "Input slice for the depth writer of lanh_giang (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "lanh_giang",
+"name": "Lãnh Giang Phái",
+"name_han": "冷江派",
+"gloss": "School of the Chill River",
+"alignment": "trung lập",
+"leans": [
+"Water"
+],
+"craft": "ice-hole cultivation and escorts for the ice-fish boats",
+"lord": "bang_tam",
+"region": 9,
+"seat": 361,
+"founded": 1140,
+"kind": "minor"
+},
+"start_state": {
+"key": "lanh_giang",
+"name": "Lãnh Giang Phái",
+"name_han": "冷江派",
+"gloss": "School of the Chill River",
+"kind": "minor",
+"alignment": "trung",
+"leans": [
+"Water"
+],
+"seat": 361,
+"levels": {
+"holdings": 4,
+"institutions": 2,
+"military": 2,
+"trade": 3
+},
+"treasury": 7000,
+"founded": 1140,
+"specialty": "phap_tu",
+"lord": "bang_tam",
+"loyalty": 55,
+"craft": "ice-hole cultivation and escorts for the ice-fish boats",
+"region": 9,
+"leader": "lu_doc_dieu"
+},
+"lord": "bang_tam",
+"vassals": [],
+"seat": {
+"id": 361,
+"name": "Lãnh Giang Phái",
+"gloss": "School of the Chill River",
+"kind": "minor_seat",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.02,
+"qi": {
+"moc": 33,
+"hoa": 11,
+"tho": 13,
+"kim": 10,
+"thuy": 34
+},
+"variants": {},
+"density": 1.0,
+"note": ""
+},
+"seat_audit": "## OK  Lãnh Giang Phái (lanh_giang; leans Water)\nSeat: Lãnh Giang Phái (id 361, minor_seat, region 9, temperate forest), density 1.00\nSeat qi: Water 34%\n",
+"ground": [
+{
+"id": 48,
+"name": "Tống Khách Thị",
+"gloss": "Market of Farewells",
+"kind": "market",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.19,
+"qi": {
+"moc": 34,
+"hoa": 13,
+"tho": 22,
+"kim": 16,
+"thuy": 15
+},
+"variants": {},
+"density": 1.54,
+"note": "Vương Xương Linh: bình minh tống khách (at dawn I see my guest off), the Băng Tâm poem"
+},
+{
+"id": 246,
+"name": "Noãn Ngọc Tuyền",
+"gloss": "Warm Jade Spring",
+"kind": "hot_spring",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.37,
+"qi": {
+"moc": 7,
+"hoa": 22,
+"tho": 16,
+"kim": 16,
+"thuy": 40
+},
+"variants": {},
+"density": 1.47,
+"note": "A warm spring in the frost land of Hàn Sương Châu, its stones warm to the touch."
+},
+{
+"id": 1461,
+"name": "Nham Bách Lâm",
+"gloss": "Rock Juniper Wood",
+"kind": "forest",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.14,
+"qi": {
+"moc": 22,
+"hoa": 41,
+"tho": 14,
+"kim": 11,
+"thuy": 13
+},
+"variants": {
+"am": 14.3
+},
+"density": 1.43,
+"note": ""
+},
+{
+"id": 17,
+"name": "Trạc Anh Đài",
+"gloss": "",
+"kind": "minor_seat",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.07,
+"qi": {
+"moc": 41,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 25
+},
+"variants": {},
+"density": 1.41,
+"note": ""
+},
+{
+"id": 379,
+"name": "Bình Minh Hồ",
+"gloss": "Dawn Lake",
+"kind": "lake",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.03,
+"qi": {
+"moc": 23,
+"hoa": 39,
+"tho": 13,
+"kim": 10,
+"thuy": 15
+},
+"variants": {},
+"density": 1.39,
+"note": ""
+},
+{
+"id": 1470,
+"name": "Cố Ngạn Bảo",
+"gloss": "Shore-Holding Fort",
+"kind": "ruin",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.44,
+"qi": {
+"moc": 8,
+"hoa": 9,
+"tho": 20,
+"kim": 23,
+"thuy": 39
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 1445,
+"name": "Sóc Phương Thành",
+"gloss": "City of the North Quarter",
+"kind": "ruin",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.06,
+"qi": {
+"moc": 8,
+"hoa": 9,
+"tho": 16,
+"kim": 14,
+"thuy": 53
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 1487,
+"name": "Thương Lãng Lâm",
+"gloss": "Canglang Wood",
+"kind": "forest",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.03,
+"qi": {
+"moc": 40,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 26
+},
+"variants": {},
+"density": 1.34,
+"note": ""
+},
+{
+"id": 1458,
+"name": "Hàn Nha Phong",
+"gloss": "Cold Crow Peak",
+"kind": "peak",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 1.06,
+"qi": {
+"moc": 12,
+"hoa": 7,
+"tho": 16,
+"kim": 50,
+"thuy": 14
+},
+"variants": {},
+"density": 1.27,
+"note": ""
+},
+{
+"id": 1436,
+"name": "Tuyết Báo Nhai",
+"gloss": "Snow Leopard Cliff",
+"kind": "beast_lair",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.72,
+"qi": {
+"moc": 17,
+"hoa": 10,
+"tho": 19,
+"kim": 17,
+"thuy": 37
+},
+"variants": {},
+"density": 1.24,
+"note": ""
+},
+{
+"id": 1434,
+"name": "Mê Tung Trấn",
+"gloss": "Lost Track Town",
+"kind": "ruin",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.21,
+"qi": {
+"moc": 50,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 17
+},
+"variants": {},
+"density": 1.23,
+"note": ""
+},
+{
+"id": 297,
+"name": "Thoa Lạp Trấn",
+"gloss": "Rain Cape Town",
+"kind": "ruin",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.03,
+"qi": {
+"moc": 30,
+"hoa": 10,
+"tho": 13,
+"kim": 10,
+"thuy": 36
+},
+"variants": {},
+"density": 1.21,
+"note": ""
+},
+{
+"id": 296,
+"name": "Ngân Hùng Cương",
+"gloss": "Silver Bear Rise",
+"kind": "beast_lair",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.08,
+"qi": {
+"moc": 42,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 24
+},
+"variants": {},
+"density": 1.21,
+"note": ""
+},
+{
+"id": 299,
+"name": "Tầm Tung Viện",
+"gloss": "Academy of Track Seekers",
+"kind": "ruin",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.07,
+"qi": {
+"moc": 37,
+"hoa": 11,
+"tho": 13,
+"kim": 10,
+"thuy": 30
+},
+"variants": {},
+"density": 1.18,
+"note": ""
+},
+{
+"id": 191,
+"name": "Phiến Băng Hồ",
+"gloss": "Lake of the Piece of Ice",
+"kind": "lake",
+"region": 9,
+"biome": "lake",
+"elev_km": -0.04,
+"qi": {
+"moc": 32,
+"hoa": 23,
+"tho": 12,
+"kim": 10,
+"thuy": 22
+},
+"variants": {},
+"density": 1.17,
+"note": "Vương Xương Linh: nhất phiến băng tâm (one piece of ice heart); beside Băng Tâm Các"
+},
+{
+"id": 216,
+"name": "Hàn Giang Môn",
+"gloss": "Gate of the Cold River",
+"kind": "ruin",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 32,
+"hoa": 11,
+"tho": 13,
+"kim": 11,
+"thuy": 34
+},
+"variants": {},
+"density": 1.15,
+"note": "The fishers' sect of the frost coast, conquered by Băng Tâm."
+},
+{
+"id": 1430,
+"name": "Băng Hỏa Môn",
+"gloss": "Gate of Ice and Fire",
+"kind": "ruin",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.1,
+"qi": {
+"moc": 28,
+"hoa": 10,
+"tho": 19,
+"kim": 17,
+"thuy": 26
+},
+"variants": {},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 1448,
+"name": "Chiết Liễu Phố",
+"gloss": "Willow-Breaking Shore Town",
+"kind": "ruin",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 27,
+"hoa": 11,
+"tho": 12,
+"kim": 10,
+"thuy": 41
+},
+"variants": {},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 168,
+"name": "Băng Lăng Khoáng",
+"gloss": "Icicle Mine",
+"kind": "mine",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.94,
+"qi": {
+"moc": 12,
+"hoa": 7,
+"tho": 14,
+"kim": 47,
+"thuy": 20
+},
+"variants": {},
+"density": 1.13,
+"note": "Shafts hung with ice in the frost land of Hàn Sương Châu."
+},
+{
+"id": 201,
+"name": "Vô Tung Lâm",
+"gloss": "Forest Without Tracks",
+"kind": "forest",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.24,
+"qi": {
+"moc": 50,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 17
+},
+"variants": {},
+"density": 1.13,
+"note": "Liễu Tông Nguyên, Giang Tuyết: vạn kính nhân tung diệt (on ten thousand paths, no human trace)"
+},
+{
+"id": 1459,
+"name": "Chiến Diệp Lâm",
+"gloss": "Trembling Leaf Wood",
+"kind": "forest",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.32,
+"qi": {
+"moc": 49,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 17
+},
+"variants": {},
+"density": 1.12,
+"note": ""
+},
+{
+"id": 1432,
+"name": "Quả Tùng Lâm",
+"gloss": "Nut Pine Wood",
+"kind": "forest",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.27,
+"qi": {
+"moc": 49,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 17
+},
+"variants": {},
+"density": 1.1,
+"note": ""
+},
+{
+"id": 362,
+"name": "Bạch Âu Đường",
+"gloss": "Hall of the White Gull",
+"kind": "ruin",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 26,
+"hoa": 11,
+"tho": 12,
+"kim": 10,
+"thuy": 41
+},
+"variants": {},
+"density": 1.1,
+"note": ""
+},
+{
+"id": 1457,
+"name": "Không Thanh Khoáng",
+"gloss": "Hollow-Blue Mine",
+"kind": "mine",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.56,
+"qi": {
+"moc": 17,
+"hoa": 7,
+"tho": 14,
+"kim": 46,
+"thuy": 15
+},
+"variants": {},
+"density": 1.09,
+"note": ""
+},
+{
+"id": 408,
+"name": "Xuân Hàn Lâm",
+"gloss": "Wood of the Spring Chill",
+"kind": "forest",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.18,
+"qi": {
+"moc": 45,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 22
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+{
+"id": 1451,
+"name": "Hàn Lục Lâm",
+"gloss": "Cold Green Wood",
+"kind": "forest",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.14,
+"qi": {
+"moc": 44,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 23
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+{
+"id": 1472,
+"name": "Điêu Thử Lâm",
+"gloss": "Sable Wood",
+"kind": "forest",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.07,
+"qi": {
+"moc": 41,
+"hoa": 10,
+"tho": 15,
+"kim": 9,
+"thuy": 26
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 1455,
+"name": "Thùy Lăng Phong",
+"gloss": "Peak of Hanging Icicles",
+"kind": "peak",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.46,
+"qi": {
+"moc": 14,
+"hoa": 7,
+"tho": 12,
+"kim": 43,
+"thuy": 24
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 189,
+"name": "Sương Diễm Sơn",
+"gloss": "Mountain of Frost and Flame",
+"kind": "volcano",
+"region": 9,
+"biome": "volcano",
+"elev_km": 1.16,
+"qi": {
+"moc": 6,
+"hoa": 50,
+"tho": 12,
+"kim": 11,
+"thuy": 21
+},
+"variants": {},
+"density": 1.07,
+"note": "Fire under the frost of the north-east peninsula"
+},
+{
+"id": 1439,
+"name": "Lạp Mai Lâm",
+"gloss": "Winter Plum Wood",
+"kind": "forest",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.09,
+"qi": {
+"moc": 41,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 25
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 298,
+"name": "Lão Sam Lâm",
+"gloss": "Old Fir Wood",
+"kind": "forest",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.07,
+"qi": {
+"moc": 35,
+"hoa": 11,
+"tho": 13,
+"kim": 10,
+"thuy": 31
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 1437,
+"name": "Hải Vụ Lâm",
+"gloss": "Sea Fog Wood",
+"kind": "forest",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.09,
+"qi": {
+"moc": 20,
+"hoa": 10,
+"tho": 17,
+"kim": 15,
+"thuy": 38
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 1473,
+"name": "Vụ Trạch Phái",
+"gloss": "School of the Misty Marsh",
+"kind": "ruin",
+"region": 9,
+"biome": "swamp",
+"elev_km": 0.02,
+"qi": {
+"moc": 26,
+"hoa": 8,
+"tho": 17,
+"kim": 11,
+"thuy": 38
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 119,
+"name": "Tiều Lộ Thôn",
+"gloss": "Woodcutters' Path Village",
+"kind": "village",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 36,
+"hoa": 11,
+"tho": 14,
+"kim": 10,
+"thuy": 30
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 300,
+"name": "Thanh Ly Lâm",
+"gloss": "Blue Lynx Wood",
+"kind": "beast_lair",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.08,
+"qi": {
+"moc": 29,
+"hoa": 13,
+"tho": 18,
+"kim": 11,
+"thuy": 29
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 1476,
+"name": "Tê Nhạn Quán",
+"gloss": "Abbey of the Roosting Geese",
+"kind": "ruin",
+"region": 9,
+"biome": "swamp",
+"elev_km": 0.03,
+"qi": {
+"moc": 19,
+"hoa": 9,
+"tho": 14,
+"kim": 10,
+"thuy": 48
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 1475,
+"name": "Đông Thanh Lâm",
+"gloss": "Holly Wood",
+"kind": "forest",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 36,
+"hoa": 10,
+"tho": 14,
+"kim": 9,
+"thuy": 31
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 1429,
+"name": "Thùy Băng Lâm",
+"gloss": "Wood of Hanging Ice",
+"kind": "forest",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 38,
+"hoa": 10,
+"tho": 15,
+"kim": 11,
+"thuy": 26
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 1441,
+"name": "Tuyết Điêu Lĩnh",
+"gloss": "Snow Eagle Ridge",
+"kind": "beast_lair",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.82,
+"qi": {
+"moc": 19,
+"hoa": 10,
+"tho": 15,
+"kim": 14,
+"thuy": 42
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 1426,
+"name": "Noãn Thạch Khoáng",
+"gloss": "Warm Stone Mine",
+"kind": "mine",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.4,
+"qi": {
+"moc": 8,
+"hoa": 31,
+"tho": 16,
+"kim": 15,
+"thuy": 31
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 1428,
+"name": "Lẫm Đông Thành",
+"gloss": "City of Bitter Winter",
+"kind": "ruin",
+"region": 9,
+"biome": "tundra",
+"elev_km": 0.77,
+"qi": {
+"moc": 12,
+"hoa": 13,
+"tho": 21,
+"kim": 22,
+"thuy": 32
+},
+"variants": {},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 361,
+"name": "Lãnh Giang Phái",
+"gloss": "School of the Chill River",
+"kind": "minor_seat",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.02,
+"qi": {
+"moc": 33,
+"hoa": 11,
+"tho": 13,
+"kim": 10,
+"thuy": 34
+},
+"variants": {},
+"density": 1.0,
+"note": ""
+},
+{
+"id": 1467,
+"name": "Huyền Ngọc Khoáng",
+"gloss": "Dark Jade Mine",
+"kind": "mine",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.42,
+"qi": {
+"moc": 6,
+"hoa": 8,
+"tho": 23,
+"kim": 20,
+"thuy": 43
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 1442,
+"name": "Hắc Ngạn Trấn",
+"gloss": "Black Shore Town",
+"kind": "ruin",
+"region": 9,
+"biome": "tundra",
+"elev_km": 0.78,
+"qi": {
+"moc": 15,
+"hoa": 10,
+"tho": 14,
+"kim": 14,
+"thuy": 47
+},
+"variants": {},
+"density": 0.95,
+"note": ""
+},
+{
+"id": 1464,
+"name": "Hoàng Dương Thôn",
+"gloss": "Gazelle Village",
+"kind": "village",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 32,
+"hoa": 13,
+"tho": 20,
+"kim": 13,
+"thuy": 22
+},
+"variants": {},
+"density": 0.93,
+"note": ""
+},
+{
+"id": 1460,
+"name": "Xích Quả Thôn",
+"gloss": "Red Fruit Village",
+"kind": "village",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.15,
+"qi": {
+"moc": 47,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 20
+},
+"variants": {},
+"density": 0.92,
+"note": ""
+},
+{
+"id": 1433,
+"name": "Mộc Thán Thôn",
+"gloss": "Charcoal Village",
+"kind": "village",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.12,
+"qi": {
+"moc": 49,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 17
+},
+"variants": {},
+"density": 0.92,
+"note": ""
+},
+{
+"id": 1462,
+"name": "Ôn Khê Thôn",
+"gloss": "Warm Brook Village",
+"kind": "village",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 34,
+"hoa": 12,
+"tho": 18,
+"kim": 14,
+"thuy": 22
+},
+"variants": {},
+"density": 0.91,
+"note": ""
+},
+{
+"id": 36,
+"name": "Liên Giang Thành",
+"gloss": "City Where the Rain Meets the River",
+"kind": "city",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 32,
+"hoa": 10,
+"tho": 11,
+"kim": 8,
+"thuy": 39
+},
+"variants": {},
+"density": 0.9,
+"note": "Vương Xương Linh: hàn vũ liên giang dạ nhập Ngô (cold rain joins the river by night), the first line of the Băng Tâm poem"
+},
+{
+"id": 1447,
+"name": "Thái Cô Thôn",
+"gloss": "Mushroom Pickers' Village",
+"kind": "village",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.03,
+"qi": {
+"moc": 49,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 17
+},
+"variants": {},
+"density": 0.88,
+"note": ""
+}
+],
+"ground_place_count": 79,
+"events": [
+{
+"id": "C073",
+"tier": "landmark",
+"year": 300,
+"kind": "sect_founded",
+"people": [
+"lieu_thoa_lap"
+],
+"sects": [
+"han_giang"
+],
+"text_en": "Liễu Thoa Lạp founds Hàn Giang Môn on the frost coast, a sect of fishers who cultivate alone in the snow on the cold river.",
+"place": 216
+},
+{
+"id": "A128",
+"tier": "annal",
+"year": 330,
+"kind": "tale",
+"people": [],
+"sects": [
+"han_giang"
+],
+"text_en": "Hàn Giang's fishers cut holes in the river ice and sit cultivating in the snow beside them for days without moving.",
+"place": 216,
+"region": 9
+},
+{
+"id": "C081",
+"tier": "landmark",
+"year": 350,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"han_giang"
+],
+"text_en": "Hàn Giang Môn founds Liên Giang Thành where the cold rain joins the river.",
+"place": 36
+},
+{
+"id": "A129",
+"tier": "annal",
+"year": 360,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The cock crows at Kê Minh even in the dark of winter; the town keeps the cock as its emblem.",
+"place": 69,
+"region": 9
+},
+{
+"id": "V076",
+"tier": "annal",
+"year": 497,
+"kind": "siege",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "In the War of the Frost Coast, Băng Tâm storms Hàn Giang Môn's coast fort of Cố Ngạn Bảo.",
+"place": 1470,
+"region": 9
+},
+{
+"id": "C099",
+"tier": "landmark",
+"year": 498,
+"kind": "war_end",
+"people": [
+"tan_ngung_suong",
+"lieu_co_chu"
+],
+"sects": [
+"bang_tam",
+"han_giang"
+],
+"text_en": "Hàn Giang Môn falls with its last head Liễu Cô Chu; Hàn Sương Châu and Liên Giang Thành pass to Băng Tâm Các.",
+"place": 216,
+"war": "frost_coast"
+},
+{
+"id": "V077",
+"tier": "annal",
+"year": 498,
+"kind": "siege",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Thoa Lạp Trấn, the fishers' town named for Hàn Giang's founder's rain cape and hat, burns in the last year of the War of the Frost Coast.",
+"place": 297,
+"region": 9
+},
+{
+"id": "V078",
+"tier": "annal",
+"year": 498,
+"kind": "city_abandoned",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "With the frost coast won, Băng Tâm moves the people of the seal-oil city Sóc Phương Thành south to Liên Giang, and the city is left empty.",
+"place": 1445,
+"region": 9
+},
+{
+"id": "A131",
+"tier": "annal",
+"year": 499,
+"kind": "tale",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "After the Frost Coast falls, Hàn Giang's fishers keep fishing the cold river under Băng Tâm's flag and pay their tax in ice-fish.",
+"place": 36,
+"region": 9
+},
+{
+"id": "A132",
+"tier": "annal",
+"year": 540,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The woodcutters' paths into Vô Tung Lâm vanish under the snow every night; only the people of Tiều Lộ Thôn can find them again.",
+"place": 119,
+"region": 9
+},
+{
+"id": "A133",
+"tier": "annal",
+"year": 580,
+"kind": "mine",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Băng Tâm opens Băng Lăng Khoáng, a shaft hung with ice that never melts.",
+"place": 168,
+"region": 9
+},
+{
+"id": "C129",
+"tier": "landmark",
+"year": 620,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Băng Tâm Các founds Mộc Lan Thành on the frost coast.",
+"place": 68
+},
+{
+"id": "A134",
+"tier": "annal",
+"year": 640,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Reed flowers cover the marsh at Lô Hoa Thôn like snow in summer.",
+"place": 121,
+"region": 9
+},
+{
+"id": "V079",
+"tier": "annal",
+"year": 655,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "The sea freezes to the horizon and crushes the ships in the harbour of Lẫm Đông Thành; its people move to Mộc Lan.",
+"place": 1428,
+"region": 9
+},
+{
+"id": "A135",
+"tier": "annal",
+"year": 700,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "Sương Diễm Sơn breathes fire under the frost for a week; the people of Mộc Lan Thành sleep on the beach.",
+"place": 189,
+"region": 9
+},
+{
+"id": "V080",
+"tier": "annal",
+"year": 700,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "Ash from Sương Diễm Sơn falls on Hắc Ngạn Trấn and turns its wells bitter, and the fishers leave.",
+"place": 1442,
+"region": 9
+},
+{
+"id": "V081",
+"tier": "annal",
+"year": 779,
+"kind": "raid",
+"people": [],
+"sects": [],
+"text_en": "Thôn Hải Môn's pirates burn Bạch Âu Đường, the hall of the sea cultivators, two years before the Purge destroys them.",
+"place": 362,
+"region": 9
+},
+{
+"id": "A136",
+"tier": "annal",
+"year": 780,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Lâm Ẩn Thôn shelters a hermit who teaches the village children to read tracks in the snow.",
+"place": 120,
+"region": 9
+},
+{
+"id": "A137",
+"tier": "annal",
+"year": 830,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"trac_anh",
+"bang_tam"
+],
+"text_en": "Fishers and sea hunters of the frost coast found Trạc Anh Đài, where they wash their hat strings in the clear water.",
+"place": 17,
+"region": 9
+},
+{
+"id": "V082",
+"tier": "annal",
+"year": 870,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "A cold fever comes off the marsh, and none of the forty disciples of Vụ Trạch Phái see the spring.",
+"place": 1473,
+"region": 9
+},
+{
+"id": "A138",
+"tier": "annal",
+"year": 900,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "A traveller is seen off at dawn from Tống Khách Thị and never returns; the market still pours a farewell cup for him each year.",
+"place": 48,
+"region": 9
+},
+{
+"id": "V083",
+"tier": "annal",
+"year": 980,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The fire and water disciples of Băng Hỏa Môn quarrel until the sect splits and burns itself out.",
+"place": 1430,
+"region": 9
+},
+{
+"id": "A139",
+"tier": "annal",
+"year": 990,
+"kind": "birth",
+"people": [
+"doan_thanh_lang"
+],
+"sects": [],
+"text_en": "Đoàn Thanh Lãng is born in Liên Giang Thành during a cold rain that joins the river by night.",
+"place": 36,
+"region": 9
+},
+{
+"id": "V084",
+"tier": "annal",
+"year": 1012,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "Too many of its loggers have been lost in Vô Tung Lâm; the last families of Mê Tung Trấn move to Tiều Lộ.",
+"place": 1434,
+"region": 9
+},
+{
+"id": "V085",
+"tier": "annal",
+"year": 1040,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The masters of Tầm Tung Viện go into Vô Tung Lâm together and do not come back.",
+"place": 299,
+"region": 9
+},
+{
+"id": "A140",
+"tier": "annal",
+"year": 1065,
+"kind": "tale",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Phiến Băng Hồ freezes as clear as glass; Băng Tâm disciples meditate on it and see their own hearts.",
+"place": 191,
+"region": 9
+},
+{
+"id": "V086",
+"tier": "annal",
+"year": 1095,
+"kind": "tale",
+"people": [],
+"sects": [
+"trac_anh"
+],
+"text_en": "The last abbot of Tê Nhạn Quán joins Trạc Anh Đài with his disciples, and the halls are left to the marsh geese.",
+"place": 1476,
+"region": 9
+},
+{
+"id": "A141",
+"tier": "annal",
+"year": 1130,
+"kind": "tale",
+"people": [
+"tu_khong_hac_nien"
+],
+"sects": [],
+"text_en": "After his duel, Tư Không Hạc Niên settles in Tống Khách Thị and teaches no one.",
+"place": 48,
+"region": 9
+},
+{
+"id": "V087",
+"tier": "annal",
+"year": 1140,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "Its harbour silted up and its ships gone to Liên Giang, Chiết Liễu Phố, where travellers once broke willow twigs in farewell, stands empty.",
+"place": 1448,
+"region": 9
+},
+{
+"id": "V088",
+"tier": "annal",
+"year": 1140,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"lanh_giang",
+"bang_tam"
+],
+"text_en": "The fishers of Liên Giang found Lãnh Giang Phái under Băng Tâm's licence to revive Hàn Giang's ice-hole cultivation.",
+"place": 361,
+"region": 9
+},
+{
+"id": "A142",
+"tier": "annal",
+"year": 1180,
+"kind": "beast",
+"people": [],
+"sects": [
+"thien_bao"
+],
+"text_en": "Hunters bring a white bear out of Vô Tung Lâm alive and sell it in Mộc Lan Thành to a buyer from Thiên Bảo Trai.",
+"place": 68,
+"region": 9
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "lu_doc_dieu",
+"name": "Lư Độc Điếu",
+"name_han": "盧獨釣",
+"gloss": "Fishing alone in the snow on the cold river (Liễu Tông Nguyên: độc điếu hàn giang tuyết)",
+"sex": "M",
+"born": 1095,
+"alive": true,
+"sect": "lanh_giang",
+"rank": "tong_chu",
+"role": "A founder (1140) and head of Lãnh Giang Phái, ice-hole cultivation and escorts for the ice-fish boats",
+"realm": "truc_co",
+"home": 361,
+"traits": {
+"personality": [
+"Patient",
+"Reclusive",
+"Devout"
+],
+"calling": "Teacher",
+"fate_given": []
+},
+"vassal_of": "bang_tam"
+}
+],
+"legendary_items": []
+}

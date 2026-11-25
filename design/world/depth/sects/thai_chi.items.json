@@ -1,0 +1,224 @@
+{
+ "sect": "thai_chi",
+ "_doc": "Thải Chi Cốc signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow catalogue-wood and catalogue-fire grade 3-4. No set.",
+ "items": [
+  {
+   "id": "tc-purple-lingzhi-gourd",
+   "name": "Purple Lingzhi Gourd (Tử Chi Hồ Lô)",
+   "family": "wood",
+   "kind": "treasure",
+   "base": "ho_lo",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 24,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "dan_doc_resist_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "the-herbs-stay-alive",
+     "name": "The Herbs Stay Alive (Thảo Bất Tử)",
+     "rule": "Herbs and pills carried in the gourd do not lose age or potency. In a fight, the first pill you take each fight heals half again as much, and its Wood stacks do not fade while the gourd is open."
+    },
+    {
+     "new": true,
+     "id": "the-empty-mountains-answer",
+     "name": "The Empty Mountain's Answer (Không Sơn Đáp)",
+     "rule": "Healing lost to your full health is stored as Green, and the Green fades by a tenth each second. When the foe is Rooted or carries 5 or more of your Wood stacks, the Green falls on it as Wood damage, once every 3 s.",
+     "authored": "d5"
+    }
+   ],
+   "lore": "A gourd grown on the founder's own vine in 482 and cured with the spores of a purple lingzhi, so that what is put in it goes on living. Valley-mistresses have carried their herbs in it for seven hundred years. Nghiêm Linh Chi keeps a sprig of every herb a child of the valley has ever planted in it, and none of them has wilted.",
+   "build_use": "The mistress's alchemy and sustain: stronger pills, longer Wood buffs and poison resistance.",
+   "holder": "nghiem_linh_chi",
+   "made_by": "tan_tu_chi",
+   "made_year": 482,
+   "set": "tc-herb-terraces",
+   "status": "proposal",
+   "authored": "d5"
+  },
+  {
+   "id": "tc-cinder-censer",
+   "name": "Cinder Censer of Lăng Tiêu (Lăng Tiêu Tẫn Lô)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "huong_lo",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "hoa"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 16,
+     "scope": [
+      "hoa",
+      "debuff"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "hoa"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "banked-coals",
+     "name": "Banked Coals (Tàng Hỏa)",
+     "rule": "The censer keeps one coal of the furnace that burned Lăng Tiêu Các. Once per fight, when you cast a Fire art, the coal flares: the art's burn stacks are doubled, and you take a light burn yourself."
+    }
+   ],
+   "lore": "A small bronze censer the alchemist Diêu Tẫn Đan carried out of the burning pill hall of Lăng Tiêu Các in 1066 (V050), with a coal of the fire still in it. The coal has not gone out in a hundred and thirty years. The valley will not let it into the herb terraces.",
+   "build_use": "The guest elder's furnace in a fight: Fire damage and burns, at a cost.",
+   "holder": "dieu_tan_dan",
+   "made_by": "the alchemists of Lăng Tiêu Các",
+   "made_year": 980,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "tc-grain-rain-fan",
+   "name": "Grain Rain Fan (Cốc Vũ Phiến)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "phien",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 12,
+     "scope": [
+      "thuy",
+      "buff"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "A fan of lotus leaf on bamboo ribs that sprinkles water when it is opened. Cố Hoài Sơn watered the high terraces with it and gave it to the girl he found on the roof.",
+   "build_use": "The rain: heals and Water buffs over the field she stands on.",
+   "holder": "nghiem_linh_chi",
+   "made_by": "co_hoai_son",
+   "made_year": 930,
+   "set": "tc-herb-terraces",
+   "status": "proposal"
+  },
+  {
+   "id": "tc-terrace-bell",
+   "name": "Bell of the Herb Terraces (Chi Điền Chung)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "chuong",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "stack_duration_pct",
+     "value": 24,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "dan_doc_resist_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The wooden bell that calls the valley's children to weed at dawn. Every valley-mistress has rung it herself for her first ten years in the post.",
+   "build_use": "Spores that stay on a foe, and a body that does not wilt.",
+   "holder": "nghiem_linh_chi",
+   "made_by": "thai_chi",
+   "made_year": 600,
+   "set": "tc-herb-terraces",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "tc-herb-terraces",
+   "name": "The Herb Terraces (Dược Điền Tam Bảo)",
+   "pieces": [
+    "tc-purple-lingzhi-gourd",
+    "tc-grain-rain-fan",
+    "tc-terrace-bell"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "healing_pct",
+       "value": 6,
+       "scope": []
+      },
+      {
+       "key": "health_regen_inc_pct",
+       "value": 12,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Rain on the Sown Field (Vũ Lạc Bá Điền): while your Grain Rain falls, Lingzhi Spores on foes under it do not fade, and each time a spore stack ripens it heals you and the ally lowest on health for 2 % of their health."
+    }
+   ],
+   "story": "The founder's gourd, her master's fan and the valley's bell. Nghiêm Linh Chi holds all three; they go to the next valley-mistress together, or the terraces say the year's harvest fails."
+  }
+ ]
+}

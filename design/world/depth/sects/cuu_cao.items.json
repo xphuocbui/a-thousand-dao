@@ -1,0 +1,39 @@
+{
+ "sect": "cuu_cao",
+ "_doc": "Cửu Cao Phái signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow the wind catalogue's grade 3-4 items. Prefix cc-. The head also carries the catalogue's wind-heron-fan (unchanged).",
+ "items": [
+  {
+   "id": "cc-green-field-bell", "name": "Green Field Bell (Thanh Điền Linh)", "family": "wind", "kind": "treasure", "base": "chuong", "grade": 4,
+   "modifiers": [{"key": "art_speed_pct", "value": 14, "scope": ["phong"]}, {"key": "stack_effect_pct", "value": 24, "scope": ["phong", "buff"]}, {"key": "than_thuc_pct", "value": 6, "scope": []}, {"key": "evade_pct", "value": 5, "scope": []}, {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}],
+   "effects": [{"new": true, "id": "the-king-answers", "name": "The King Answers (Vương Ứng)", "rule": "Once a fight, ringing the bell calls the crane king Thanh Điền: it strikes every foe near you with Wind and, for a few seconds, any crane art you use is cast twice."}],
+   "lore": "A small bronze bell tied to the leg of the crane king Thanh Điền, which Ung Hạc Minh tamed in 1197 and which lets no one else ride it (A097). The bell was the founder's; it hung silent in the hall for two hundred years until a crane would wear it.",
+   "build_use": "The head's crane rite: faster Wind arts, stronger buffs, and the king when it matters.",
+   "holder": "ung_hac_minh", "made_by": "tan_minh_cao", "made_year": 700, "set": "cc-green-field-riders", "status": "proposal"
+  },
+  {
+   "id": "cc-winter-terrace-cloak", "name": "Winter Terrace Cloak (Đông Đài Sưởng)", "family": "wind", "kind": "artifact", "base": "dao_bao", "grade": 3,
+   "modifiers": [{"key": "khi_huyet_pct", "value": 14, "scope": []}, {"key": "resist_pct", "value": 120, "scope": ["cold"]}, {"key": "evade_pct", "value": 5, "scope": []}, {"key": "art_speed_pct", "value": 10, "scope": []}],
+   "effects": [],
+   "lore": "A cloak of crane down quilted between grey felt, made at the winter terrace on Thương Ưng Đài, where the wind never stops and the riders spend the cold months with the flock. Cừ Vân Lý has worn it on every winter flight since 1160.",
+   "build_use": "A rider's cloak: health, cold resistance and a little speed in the air.",
+   "holder": "cu_van_ly", "made_by": "the felt-makers of Thương Ưng Đài", "made_year": 1160, "set": null, "status": "proposal"
+  },
+  {
+   "id": "cc-crane-down-robe", "name": "Robe of Crane Down (Hạc Nhung Bào)", "family": "wind", "kind": "artifact", "base": "dao_bao", "grade": 3,
+   "modifiers": [{"key": "evade_pct", "value": 6, "scope": []}, {"key": "khi_huyet_pct", "value": 12, "scope": []}, {"key": "health_regen_inc_pct", "value": 20, "scope": []}, {"key": "resist_pct", "value": 100, "scope": ["cold"]}],
+   "effects": [],
+   "lore": "Down gathered from the marsh nests after the young fledge, never plucked; it is warm at the height where riders freeze.",
+   "build_use": "Evasion and the Wood sustain behind it.",
+   "holder": "ung_hac_minh", "made_by": "cuu_cao", "made_year": 1100, "set": "cc-green-field-riders", "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "cc-green-field-riders", "name": "Rider of the Green Field (Thanh Điền Kỵ Cụ)", "pieces": ["cc-green-field-bell", "cc-crane-down-robe"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "evade_pct", "value": 4, "scope": []}, {"key": "attack_pct", "value": 8, "scope": ["companion"]}], "effect": "Rider and King (Kỵ Vương Đồng Phong): each attack you evade, the crane king answers with one Wind strike at the attacker (at most once a second). While the king fights beside you, you regain 1 % of your health each second."}
+   ],
+   "story": "The founder's bell, which the king wears on its leg, and the robe of the marsh's down. Whole only while the king lets her ride: if Thanh Điền chooses another rider, the bell goes with him. She fights with the catalogue's Heron Fan beside them."
+  }
+ ]
+}

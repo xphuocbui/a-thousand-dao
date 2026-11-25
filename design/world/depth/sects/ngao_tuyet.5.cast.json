@@ -1,0 +1,510 @@
+{
+ "sect": "ngao_tuyet",
+ "people": [
+  {
+   "key": "chung_thiet_tuyen",
+   "name_hv": "Chung Thiết Tuyền",
+   "name_han": "鍾鐵泉",
+   "gloss": "Iron spring",
+   "sex": "M",
+   "born": 1118,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "ngao_tuyet",
+   "rank": "noi_mon",
+   "home": 1262,
+   "birthplace": 1188,
+   "role": "Master of the ice drills: holds the inner-gate test on the frozen ore tailings",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Honest",
+     "Stubborn"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "lifestyle": "duel_seeker"
+   },
+   "backstory": "He came to the plum gate in 1150 to duel the founder, lost in two petals and asked to be taught; Lăng Đạp Tuyết (lang_dap_tuyet) taught him the canon for ten years, then gave him the inner-gate test on the tailings ice after the move.",
+   "ties": [
+    {
+     "to": "lang_dap_tuyet",
+     "kind": "former_master",
+     "note": "taught him the canon until 1160"
+    },
+    {
+     "to": "pho_ngao_suong",
+     "kind": "friend",
+     "note": "he says she should be heir"
+    },
+    {
+     "to": "ha_tuyet_nhan",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "plum-through-snow-sword-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "iron-hide-manual",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Hard Metal first, the blossom late."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "duong_tam_mach",
+   "name_hv": "Dương Tầm Mạch",
+   "name_han": "楊尋脈",
+   "gloss": "Seeking the seam",
+   "sex": "F",
+   "born": 1128,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "ngao_tuyet",
+   "rank": "noi_mon",
+   "home": 1262,
+   "birthplace": 1268,
+   "role": "Seam-finder: walks the old mines of the mountain for iron the forge can use",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Cautious",
+     "Diligent"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "Trác Thiết Cán (trac_thiet_can) taught her the forge when she was a Luyện Khí miner's girl of Ngân Tuyết Khoáng, then sent her into Hổ Văn Khoáng and the old shafts to look for a new seam; he has never told her why it is urgent.",
+   "ties": [
+    {
+     "to": "trac_thiet_can",
+     "kind": "former_master",
+     "note": "taught her the forge"
+    },
+    {
+     "to": "hau_thach_nhan",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "plum-through-snow-sword-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "iron-hide-manual",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 3
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal and Earth toughness; she outlasts a collapsed shaft."
+    },
+    "note": "Wears a sword, as the plum gate's canon asks."
+   }
+  },
+  {
+   "key": "ha_tuyet_nhan",
+   "name_hv": "Hạ Tuyết Nhận",
+   "name_han": "夏雪刃",
+   "gloss": "Snow blade",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "ngao_tuyet",
+   "rank": "noi_mon",
+   "home": 1262,
+   "birthplace": 1260,
+   "role": "Inner disciple of the ice drills",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Wrathful",
+     "Diligent"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "She passed the five thrusts on the tailings ice on her second try, which Chung Thiết Tuyền (chung_thiet_tuyen) says nobody does, and has wanted to beat Cung Hàn Nhạn (cung_han_nhan) to the fifth petal since.",
+   "ties": [
+    {
+     "to": "chung_thiet_tuyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "cung_han_nhan",
+     "kind": "rival",
+     "note": ""
+    }
+   ],
+   "master": "chung_thiet_tuyen",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "plum-through-snow-sword-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal hits."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "doan_mai_cot",
+   "name_hv": "Doãn Mai Cốt",
+   "name_han": "尹梅骨",
+   "gloss": "Plum bone",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "ngao_tuyet",
+   "rank": "ngoai_mon",
+   "home": 284,
+   "birthplace": 1255,
+   "role": "Outer disciple at the Plum Gate; tends the grave trees",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 38,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Patient",
+     "Content"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "lifestyle": "gardener"
+   },
+   "backstory": "A Ma Bố boy with chilblains to the knee who would rather tend the grave plums than duel; he and Phí Tầm Mai (phi_tam_mai) keep Lăng Nhược Mai's (lang_nhuoc_mai) tree, and he has never broken a branch.",
+   "ties": [
+    {
+     "to": "mac_chiet_chi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "phi_tam_mai",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "mac_chiet_chi",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "cold-plum-sword-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal, slowly."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "truong_luyen_phong",
+   "name_hv": "Trương Luyện Phong",
+   "name_han": "張煉鋒",
+   "gloss": "Tempered edge",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "ngao_tuyet",
+   "rank": "ngoai_mon",
+   "home": 1262,
+   "birthplace": 1267,
+   "role": "Outer disciple of the forge; quenches the school's blades",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 44,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Wrathful",
+     "Diligent",
+     "Arrogant"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "He quenches every blade the forge makes in meltwater from the tailings and thinks he should be the smith's heir, not Dư Hổ Văn (du_ho_van), whose only claim is that his family mined the town.",
+   "ties": [
+    {
+     "to": "trac_thiet_can",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "du_ho_van",
+     "kind": "rival",
+     "note": "the other smith's boy"
+    }
+   ],
+   "master": "trac_thiet_can",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "cold-plum-sword-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal body."
+    },
+    "note": "Wears a sword, as the plum gate's canon asks."
+   }
+  },
+  {
+   "key": "hau_thach_nhan",
+   "name_hv": "Hầu Thạch Nhãn",
+   "name_han": "侯石眼",
+   "gloss": "Stone eye",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "ngao_tuyet",
+   "rank": "ngoai_mon",
+   "home": 1262,
+   "birthplace": 1261,
+   "role": "Outer disciple; carries the lamp for the seam-finder",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 42,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Reclusive",
+     "Patient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A quiet boy born at the last diggings of Hổ Văn Khoáng who goes down the dead shafts of Hổ Văn Khoáng behind Dương Tầm Mạch (duong_tam_mach) with the lamp, and can tell iron from tiger-stripe ore by the sound of a hammer.",
+   "ties": [
+    {
+     "to": "duong_tam_mach",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "du_ho_van",
+     "kind": "friend",
+     "note": "the other mine child"
+    }
+   ],
+   "master": "duong_tam_mach",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "cold-plum-sword-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal and Earth."
+    },
+    "note": "Wears a sword, as the plum gate's canon asks."
+   }
+  },
+  {
+   "key": "so_bang_chi",
+   "name_hv": "Sở Băng Chi",
+   "name_han": "楚冰枝",
+   "gloss": "Icy branch",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "ngao_tuyet",
+   "rank": "noi_mon",
+   "home": 1262,
+   "birthplace": 1188,
+   "role": "Inner disciple of the first disciple",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 47,
+     "moc": 33
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Brave",
+     "Impatient"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "She asked Phó Ngạo Sương (pho_ngao_suong) once what happened on the mountain road in 1162 and was sent to train barefoot until dark; she has not asked again, and asks An Lãnh Phong (an_lanh_phong) instead.",
+   "ties": [
+    {
+     "to": "pho_ngao_suong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "an_lanh_phong",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "pho_ngao_suong",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "plum-through-snow-sword-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal hits, Wood bleeds."
+    },
+    "note": ""
+   }
+  }
+ ]
+}

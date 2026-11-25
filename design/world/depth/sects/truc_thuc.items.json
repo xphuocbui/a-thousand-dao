@@ -1,0 +1,339 @@
+{
+ "sect": "truc_thuc",
+ "_doc": "Trúc Thực Viên signature items (rules-proposals R7; design/items record). Prefix ttv- (thoi_tinh and tuan_tung also have the initials tt). Unpriced proposals; modifier sizes follow the wood, water and fire catalogues' grade 3 items. The head also carries the catalogue flag earth-boundary-flag (unchanged).",
+ "items": [
+  {
+   "id": "ttv-seed-warming-censer",
+   "name": "Seed-Warming Censer (Ôn Chủng Lô)",
+   "family": "fire",
+   "kind": "treasure",
+   "base": "huong_lo",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "stack_effect_pct",
+     "value": 20,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "warm-the-grove",
+     "name": "Warm the Grove (Ôn Lâm)",
+     "rule": "While the censer burns, Wood buffs the holder lays on allies last 2 s longer, and each ally who receives one also gains 1 Fire stack of warmth that heals a little over its duration."
+    }
+   ],
+   "lore": "A squat red-clay censer that Ninh Trúc Thực carries into the grove every spring and sets burning at the foot of the oldest clump. He feeds it with his own Fire and walks the rows for nine nights until the culms flower. It is how the garden has had a seed every year since 1050 (A246), and no one else in the garden has the Fire to light it.",
+   "build_use": "The farmer's support piece: longer Wood buffs, a warm heal over time on every ally he tends.",
+   "holder": "ninh_truc_thuc",
+   "made_by": "ninh_truc_thuc, with clay from Thủy Điền Thôn",
+   "made_year": 1051,
+   "set": "ttv-yearly-seed",
+   "status": "proposal"
+  },
+  {
+   "id": "ttv-rain-measure-gourd",
+   "name": "Rain-Measure Gourd (Lượng Vũ Hồ Lô)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "ho_lo",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "thuy"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 30,
+     "scope": [
+      "thuy",
+      "debuff"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "measured-flood",
+     "name": "Measured Flood (Lượng Thủy)",
+     "rule": "Flooded ground the holder lays lasts 3 s longer, and a foe who leaves it keeps its slow for 1 s."
+    }
+   ],
+   "lore": "A bottle gourd marked inside with nine rings, which Úy Thương Điền fills from the sky each wet season to know how much water the terraces may take. She has kept a record of the rains since 1108 and knows the land is drying in the years the grove is forced to seed.",
+   "build_use": "The water elder's flood: longer floods and longer Water stacks.",
+   "holder": "uy_thuong_dien",
+   "made_by": "uy_thuong_dien",
+   "made_year": 1108,
+   "set": "ttv-rain-record",
+   "status": "proposal"
+  },
+  {
+   "id": "ttv-flowering-bell",
+   "name": "Bell of the Flowering (Khai Hoa Chung)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "chuong",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A bamboo-tube bell that rang by itself in 990 and again in 1050, the two years the grove flowered. It has been silent since he began forcing the seed.",
+   "build_use": "His side outlasts: regeneration and a guard.",
+   "holder": "ninh_truc_thuc",
+   "made_by": "tat_man_thu",
+   "made_year": 990,
+   "set": "ttv-yearly-seed",
+   "status": "proposal"
+  },
+  {
+   "id": "ttv-seed-picker-ring",
+   "name": "Seed-Picker's Ring (Thái Chủng Nhẫn)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "nhan",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 18,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The plaited bamboo-root ring of the seed-picker who bore him, worn smooth by sixty years of picking seed.",
+   "build_use": "Growth and mending: Wood buff stacks and healing.",
+   "holder": "ninh_truc_thuc",
+   "made_by": "a seed-picker of the garden, his parent",
+   "made_year": 900,
+   "set": "ttv-yearly-seed",
+   "status": "proposal"
+  },
+  {
+   "id": "ttv-flood-terrace-fan",
+   "name": "Fan of the Flood Terraces (Thủy Điền Phiến)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "phien",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "thuy"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "thuy"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 18,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A palm-leaf fan of the kind the terrace workers use to drive water down the channels. She cut the first terraces with it in 1108.",
+   "build_use": "Drowns the ground and feeds the Wood.",
+   "holder": "uy_thuong_dien",
+   "made_by": "uy_thuong_dien",
+   "made_year": 1108,
+   "set": "ttv-rain-record",
+   "status": "proposal"
+  },
+  {
+   "id": "ttv-fisher-oilskin",
+   "name": "Fisher's Oilskin (Ngư Du Bào)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Her father's oilskin from Bích Lãng Thôn, the one coat on the hill that keeps the flood out.",
+   "build_use": "A body that stands in its own flood.",
+   "holder": "uy_thuong_dien",
+   "made_by": "her father, a fisher of Bích Lãng Thôn",
+   "made_year": 1010,
+   "set": "ttv-rain-record",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "ttv-yearly-seed",
+   "name": "The Yearly Seed (Niên Chủng Tam Bảo)",
+   "pieces": [
+    "ttv-seed-warming-censer",
+    "ttv-flowering-bell",
+    "ttv-seed-picker-ring"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "health_regen_inc_pct",
+       "value": 12,
+       "scope": []
+      },
+      {
+       "key": "stack_effect_pct",
+       "value": 8,
+       "scope": [
+        "moc",
+        "buff"
+       ]
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Forced to Seed (Cưỡng Kết): each Fire art you cast refreshes every Wood buff stack on you and adds one more. If you go 10 s without casting Fire in a fight, all your Wood buff stacks flower at once: each heals you once, and then they are all gone."
+    }
+   ],
+   "story": "The censer, the bell that stopped ringing and the ring of the seed-picker who bore him. The head holds all three and wears them into the grove every spring. The bell is silent because he has not let the grove flower, and he hopes no one asks why.",
+   "status": "proposal"
+  },
+  {
+   "id": "ttv-rain-record",
+   "name": "The Rain Record (Vũ Ký Tam Bảo)",
+   "pieces": [
+    "ttv-rain-measure-gourd",
+    "ttv-flood-terrace-fan",
+    "ttv-fisher-oilskin"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "attack_pct",
+       "value": 8,
+       "scope": [
+        "thuy"
+       ]
+      },
+      {
+       "key": "health_regen_inc_pct",
+       "value": 12,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "The Flood Feeds the Garden (Thủy Dưỡng Điền): each second your flood is up, you gain one Wood buff stack, and each fades after 6 s. When the flood ends, each stack heals you for 1 % of your health."
+    }
+   ],
+   "story": "The gauge, the terrace fan and the coast oilskin, all of the Water Fields. She holds all three and carries them to Tử Trúc Lâm and back, which the head has not noticed.",
+   "status": "proposal"
+  }
+ ]
+}

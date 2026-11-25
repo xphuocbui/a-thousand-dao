@@ -1,0 +1,101 @@
+{
+ "sect": "thien_xu",
+ "_doc": "Thiên Xu Tông lineage (rules-proposals R5). Elements Metal first, then Earth: inner disciples and above hold Metal at 45 or more; the outer gate takes Metal or Earth at 30. Outer gate: weighing-stone-primer (the balance method). Inner gate: dipper-handle-canon (Metal). True disciples and elders: heavenly-pivot-true-canon (the founder's, Heaven tier). Secret arts by rank: hundred-blades-canon (inner gate, existing), boundary-stele-array-canon (elders; the Thiên Cơ Hall), nine-seal-ledger (elders; only the judges of the Bridge Court and the archivists, existing), deep-vein-scripture (the head, existing). Hall art: army-breaker-spear (the Dao Quang Hall; taken from Phá Quân Môn in 874), with drawn-out-edge-canon (existing) beside it. Body: mountain-bone-body-art (existing; the vein guard and the Dao Quang Hall). Forbidden since the War of the Nine Shao (C005): every song and sound art that works on the mind (hollow-bell-canon, thorn-and-ink-verses). Proposals are unpriced.",
+ "lineage": {
+  "outer": "weighing-stone-primer",
+  "inner": "dipper-handle-canon",
+  "main": "heavenly-pivot-true-canon",
+  "secret": [
+   {"id": "hundred-blades-canon", "rank": "noi_mon"},
+   {"id": "boundary-stele-array-canon", "rank": "truong_lao", "note": "the Thiên Cơ Hall's art; taught to its stele wardens at Trúc Cơ"},
+   {"id": "nine-seal-ledger", "rank": "truong_lao", "note": "only the judges of the Bridge Court and the archivists of Tàng Ước Các"},
+   {"id": "deep-vein-scripture", "rank": "tong_chu"}
+  ],
+  "hall_arts": [
+   {"id": "army-breaker-spear", "rank": "truong_lao", "note": "the Dao Quang Hall (war-writ office); Phá Quân Môn's spear art"},
+   {"id": "drawn-out-edge-canon", "rank": "truong_lao", "note": "the Dao Quang Hall; the patient killing blow"}
+  ],
+  "body": "mountain-bone-body-art",
+  "elements": ["kim", "tho"],
+  "forbidden": ["hollow-bell-canon", "thorn-and-ink-verses"],
+  "tree_route": [723, 4141, 3461],
+  "tree_route_note": "The Pivot's road: the Dipper Handle's Metal first (Metal Marrow), the counted, sure thrust that wastes nothing (Serpent Spear: Metal damage and accuracy), then over the Metal-Earth border to Mountain Hollow, the body of the fixed point that does not move. Members on the Earth start walk it from the Earth end (Mountain Hollow first)."
+ },
+ "techniques": [
+  {
+   "id": "weighing-stone-primer",
+   "name": "Weighing-Stone Primer (Quyền Thạch Quyết)",
+   "tier": 0, "tech_kind": "main", "names": ["kim", "tho"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The outer gate's method, practised with a stone weight in each open palm. Metal qi is drawn into the right pan and Earth into the left until the beam of the body lies level; a root that holds only one element fills one pan and must carry the other by effort, which is slow but not closed. Each layer adds a heavier pair of weights from the rack on Thạch Quyền Phong. The sixth layer is the Level Beam: the disciple stands on the great scale of the outer gate holding the master's weights, and if the beam does not tip for the time it takes an incense stick to burn, and their Metal is strong enough to take the Dipper Handle, the inner gate opens.",
+   "arts": [
+    "sinking-weight",
+    "whetstone-pass",
+    {"new": "Counterweight Palm (Đối Trọng Chưởng)", "concept": "A palm that lays one Earth stack, and one Metal stack if the holder's last art was Earth (or the reverse); a foe carrying one of each is pushed off balance and their next art is a little slower."}
+   ],
+   "lore": "Chung Hoài Cực wrote it in 230 for the ore miners of Ngọc Hành Sơn, the first outsiders to come in under the Pivot's protection (C059). They knew weights better than letters, so he wrote a method that could be taught on a market scale. The outer gate's scale on Thạch Quyền Phong is the oldest in the sect, older than the one at Thiên Quyền Thị (A207).",
+   "status": "proposal"
+  },
+  {
+   "id": "dipper-handle-canon",
+   "name": "Dipper Handle Canon (Đẩu Bính Kinh)",
+   "tier": 1, "tech_kind": "main", "names": ["kim"], "layers": 9, "rank": "noi_mon",
+   "concept": "The inner gate's method. The Dipper's handle turns once a year around a still pole and points the season: east for spring, south for summer. The cultivator turns Metal qi around a fixed centre below the navel, one star at a time. In a fight each Metal art cast moves the handle one star; at the seventh star the handle points, and the next Metal art lands twice. A disciple who rushes it, firing an art that is not Metal or two arts within a breath of each other, loses count: the stars fall away, and the handle turns again only after he has stood Still for three seconds. That is the first lesson the inner gate teaches: the order of things is the power.",
+   "arts": [
+    "flying-blade-retinue",
+    "sheathed-edge",
+    {"new": "The Handle Points East (Đẩu Bính Chỉ Đông)", "concept": "Spends a full handle (seven Metal arts) to make the next Metal art strike twice and lay two Metal stacks; if its hit makes the foe Broken, the handle keeps three stars.", "authored": "a1"}
+   ],
+   "lore": "Written by Chung Hoài Cực in the 260s, after the watchmen on Trích Tinh Phong reported that one could pluck the stars by hand (A084). The founder said the line he took from it was that the stars are near but do not come when called. The first copy is cut into the stone of Xu Trụ Phong, seven columns for the seven stars.",
+   "status": "proposal",
+   "authored": "d9, a1"
+  },
+  {
+   "id": "heavenly-pivot-true-canon",
+   "name": "Heavenly Pivot True Canon (Thiên Xu Chân Kinh)",
+   "tier": 3, "tech_kind": "main", "names": ["kim", "tho"], "layers": 15, "rank": "chan_truyen",
+   "concept": "The founder's method and the sect's name. Thiên Xu is the first star of the Dipper, the one the others turn on. The holder becomes the fixed point. While they stand still, their flying edges and their arrays orbit them, and foes inside the orbit are weighed: each hit lays a Weight (an Earth stack), and Metal arts strike harder on a foe who carries more Weight. The method rewards patience and punishes the holder for leaving their centre: a step out of the orbit costs the Weights already laid. Every head has fought from one spot.",
+   "arts": [
+    "mountain-stance",
+    "stone-warden-call",
+    {"new": "The Pivot Does Not Turn (Xu Bất Chuyển)", "concept": "A still stance: while you are Still, the foe gains one Earth stack every 2 s, and your Metal arts deal more for each Earth stack on it. Being Displaced, or firing a movement art, ends the stance and clears half the stacks it laid.", "authored": "a1"},
+    {"new": "Weigh the Heart (Quyền Tâm)", "concept": "A judgement art: deals Metal damage that grows with every stack the foe carries of any element, then strips their two longest buffs. It cannot crit; the sect says a verdict should not be lucky."},
+    {"new": "North Star Writ (Bắc Thần Hịch)", "concept": "For 8 s the foe is Named: your companions and Pieces deal more to it, and while it is above half health it takes Withering.", "authored": "a1"},
+    {"new": "The Pole Draws from the Vein (Xu Cực Dẫn Mạch)", "concept": "A passive art. While you are Still, each second you regain a little linh lực for every three Weights (Earth stacks) on the foe; stepping out of the centre cuts it.", "effect": "the-pole-draws-from-the-vein", "unlock_layer": 7, "authored": "d8"}
+   ],
+   "lore": "Chung Hoài Cực wrote it at 80, the year he founded the sect under the Northern Dipper (C002), and rewrote its last three layers after the War of the Pivot (C106). The rewritten layers teach the holder to stop a war without winning it. Only two people have cultivated past the twelfth layer, the founder and Đỗ Tinh Hà. Doãn Ngọc Hành has been at the tenth for forty years.",
+   "status": "proposal",
+   "passives": [
+    {"key": "stack_effect_pct", "value": 16, "scope": ["tho", "debuff"]}
+   ],
+   "authored": "b7, a1, d8"
+  },
+  {
+   "id": "boundary-stele-array-canon",
+   "name": "Boundary Stele Array Canon (Giới Bi Trận Kinh)",
+   "tier": 2, "tech_kind": "secret", "names": ["tho", "kim"], "layers": 12, "rank": "truong_lao",
+   "concept": "The arrays of the Compact's boundary steles. A stele planted in the ground is an anchor, and an array strung between two anchors becomes a line no one crosses without being felt. The 129 steles the Pivot keeps along the borders of the seven great sects are one great array of this kind, and the Thiên Cơ Hall walks them every ten years. In a fight the holder plants steles, each dearer than the last while others stand; a foe who crosses the line between two of them is slowed and takes Earth stacks, and allies inside the triangle hold a ward.",
+   "arts": [
+    "bastion-reprisal",
+    {"new": "Plant the Stele (Lập Bi)", "concept": "Plants a stele Piece for 12 s; each stele planted while others stand costs half again the linh lực of the one before; each stele up gives you a small ward.", "authored": "a1"},
+    {"new": "No Crossing the Line (Bất Việt Giới)", "concept": "Lights the lines between your stele Pieces for 6 s: each time the foe acts while two or more steles stand, it gains one Slowed Time stack and three Earth stacks.", "authored": "a1"}
+   ],
+   "lore": "The first master of the Thiên Cơ Hall wrote it in 511-515 to plant the steles of the North Star Compact (C107). When the avalanche buried Thủ Bi Trại in 1006 the stele it guarded was moved lower (V129), and the array has carried a small kink there ever since. The hall knows; it has not been mended.",
+   "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "army-breaker-spear",
+   "name": "Army-Breaker Spear (Phá Quân Thương Quyết)",
+   "tier": 2, "tech_kind": "secret", "names": ["kim"], "layers": 12, "rank": "truong_lao",
+   "concept": "Phá Quân Môn's spear art, named for the Dipper's seventh star. The spearman waits. Each second without striking builds Momentum, each second of waiting past the fifth costs 1 % of the holder's linh lực, and the next thrust spends all of it at once. The art teaches a long stillness and one called, killing blow, which is why it suits a war marshal and not a duelist. Its last layers teach the spear to strike a formation at its weakest file, and teach the marshal to let the army fight: hits by his companions, his flying blades and his formation are not his, so they keep his wait and add Momentum to it.",
+   "arts": [
+    "coiling-thrust",
+    "sundering-wedge",
+    {"new": "The Seventh Star Falls (Dao Quang Lạc)", "concept": "Spends all Momentum on one thrust that pierces the target's block and ward; with full Momentum it also breaks one formation link or summoned ward the target holds."}
+   ],
+   "lore": "Taken with Hạ Lang Tinh's spear when Thiên Xu destroyed Phá Quân Môn in 874 (C163). Đỗ Tinh Hà made it the art of the Dao Quang Hall, saying that an art is not guilty of its owner's rebellion. The elders of the Thiên Quyền Hall have argued against that for three centuries.",
+   "status": "proposal",
+   "authored": "d21"
+  }
+ ]
+}

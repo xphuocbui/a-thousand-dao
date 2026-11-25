@@ -1,0 +1,41 @@
+{
+ "sect": "lanh_giang",
+ "_doc": "Lãnh Giang Phái lineage (rules-proposals R5). Leans Water (unchanged; the seat fits). Outer gate: ice-fish-boat-breath (Water). Inner gate and above: lone-line-sitting-canon (Water; Lư Độc Điếu's reconstruction of Hàn Giang Môn's ice-hole sitting). Secret arts: undertow-litany (inner, existing), returning-wake-verse (elders, existing). No Ice: Băng Tâm's licence of 1140 reserves Ice to the Pavilion. Proposals are unpriced.",
+ "lineage": {
+  "outer": "ice-fish-boat-breath",
+  "main": "lone-line-sitting-canon",
+  "secret": [
+   {"id": "undertow-litany", "rank": "noi_mon"},
+   {"id": "returning-wake-verse", "rank": "truong_lao"}
+  ],
+  "body": null,
+  "elements": ["thuy"],
+  "tree_route": [748, 744],
+  "tree_route_note": "Calm Pool (Tĩnh Trì) and Flowing Thought (Lưu Tư): the ice-hole sitter's pool and its slow refill."
+ },
+ "techniques": [
+  {
+   "id": "ice-fish-boat-breath",
+   "name": "Ice-Fish Boat Breathing (Băng Ngư Thuyền Tức Pháp)",
+   "tier": 0, "tech_kind": "main", "names": ["thuy"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The outer disciples' method, practised at the oars. The rower breathes with the stroke and draws the river's Water qi in on the pull and down on the return, so that a day's rowing is a day's cultivation. It is a working method for people who must work, and the Liên Giang fishers say it is the only công pháp that pays for itself.",
+   "arts": [{"new": "Oar Stroke (Trạo Kích)", "concept": "A sweeping Water blow that knocks a foe back and restores a little linh lực to the holder."}],
+   "lore": "Lư Độc Điếu wrote it down in 1140 from the way his grandfather rowed, so the school could take boat children who had no time to sit.",
+   "status": "proposal"
+  },
+  {
+   "id": "lone-line-sitting-canon",
+   "name": "Lone Line Sitting Canon (Độc Điếu Tọa Kinh)",
+   "tier": 1, "tech_kind": "main", "names": ["thuy"], "layers": 9, "rank": "noi_mon",
+   "concept": "The school's attempt to revive Hàn Giang Môn's ice-hole cultivation (A128). The cultivator cuts a hole in the river ice, drops a line, and sits beside it in the snow without moving, drawing the cold river's qi up the line and into the body for days at a time. It is a patient Water method: it builds a deep pool of linh lực and a ward that thickens while the holder is still. Because it was pieced together from old fishers' memories, its last layers are uncertain, and the eighth is where its disciples stall.",
+   "arts": [
+    {"new": "Line Through the Ice (Xuyên Băng Tuyến)", "concept": "A thin Water line that hooks a foe and drains a little of their linh lực each second it holds; what it drains is banked as Catch for Landing the Fish.", "authored": "e5"},
+    {"new": "Sitting in the Snow (Tọa Tuyết)", "concept": "A stance: while the holder does not move, their linh lực regenerates quickly and Water damage taken is lowered."},
+    {"new": "Landing the Fish (Thu Tuyến)", "concept": "A short pull on the line (a small Water hit). Every point of linh lực your Line Through the Ice and your Ice Hook's A Bite on the Line drain is banked as Catch, with no cap. Firing it spends the whole Catch as one free Water hit worth 3 times the Catch in damage, 6 times if the foe is below 20 % linh lực.", "id": "landing-the-fish", "tags": ["water", "hook", "heavy"], "unlock_layer": 6, "record": "builds/authored/auth-tech.json (e5)", "authored": "e5"}
+   ],
+   "lore": "Lư Độc Điếu built it between 1120 and 1140 from what Bồ Tọa Tuyết and the last old sitters of Liên Giang remembered. The true manual of Hàn Giang Môn is lost, as far as the school knows.",
+   "status": "proposal",
+   "authored": "e5"
+  }
+ ]
+}

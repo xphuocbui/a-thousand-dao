@@ -1,0 +1,91 @@
+{
+ "sect": "thuy_vi",
+ "_doc": "Thúy Vi Tông: named spirit beasts (linh thú). Proposal, unpriced (review/RANKED.md A7, 2026-11-25; form of sects/cuu_cao.beasts.json). An owned beast is a people record with is_beast and owner_id, and its owner lists it in `beasts` (src/gameplay/character/beast_keeper.gd, assets/data/creatures_linh_thu.json). Capacity is 1 + floor(effective thần hồn / 40). In a fight it is a companion: it adds power_share (0.5) of its chiến lực to its owner's offense, strikes every basic_cooldown, cannot be targeted and never leaves the fight (Combat rule 19). `combat` and `bond` are depth fields; `bond.rider` marks a mount, `bond.keeper` a beast that is not ridden. The owners' cast records do not list these beasts yet.",
+ "beasts": [
+  {
+   "key": "ngan_ti",
+   "name_hv": "Ngân Tị",
+   "name_han": "銀鼻",
+   "gloss": "Silver Nose",
+   "is_beast": true,
+   "species": "silver marten",
+   "sex": "F",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "root": {
+    "elements": {
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "owner_id": "lo_da_huong",
+   "loyalty": 90,
+   "home": 1048,
+   "location_id": 1048,
+   "tags": [
+    "marten",
+    "companion"
+   ],
+   "appearance": "A silver marten asleep around her neck, which passes for a fur collar until it opens an eye.",
+   "combat": {
+    "strikes": "moc",
+    "power_share": 0.5,
+    "note": "The marten her Beast Pen route and the Beast Soul Union serve."
+   },
+   "bond": {
+    "keeper": "lo_da_huong",
+    "since": 1171,
+    "event": null,
+    "rule": "Bred in the Marten Yard and raised on her shoulder."
+   },
+   "backstory": "The eleventh marten to sleep on Lô Dã Hương's collar, and the best nose the Yard has bred. Hồng Lô Cốc has offered for it twice.",
+   "status": "proposal",
+   "authored": "review-A7"
+  },
+  {
+   "key": "lao_hoang",
+   "name_hv": "Lão Hoàng",
+   "name_han": "老黃",
+   "gloss": "Old Yellow",
+   "is_beast": true,
+   "species": "spirit cow, lead of the cape herd",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "root": {
+    "elements": {
+     "tho": 30,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "owner_id": "uong_muc_dich",
+   "loyalty": 90,
+   "home": 56,
+   "location_id": 56,
+   "tags": [
+    "cattle",
+    "companion"
+   ],
+   "appearance": "A dun spirit cow with one horn broken short, who walks at the head of the herd and stops when the flute stops.",
+   "combat": {
+    "strikes": "tho",
+    "power_share": 0.5,
+    "note": "The herd's lead, the companion his Beast Pen route plays into the foe."
+   },
+   "bond": {
+    "keeper": "uong_muc_dich",
+    "since": 1112,
+    "event": null,
+    "rule": "Raised to the flute."
+   },
+   "backstory": "The lead cow of Thúy Vi's spirit herd on the cape. Uông Mục Địch has played to her for ninety years, and she has stood listening at each of his three failed breakthroughs.",
+   "status": "proposal",
+   "authored": "review-A7"
+  }
+ ]
+}

@@ -1,0 +1,390 @@
+{
+ "sect": "hong_dau",
+ "_doc": "Hồng Đậu Trang signature items (rules-proposals R7; design/items record). Prefix hd-. Unpriced proposals; sizes follow the wood catalogue's grade 3-4 items. The mistress also carries the catalogue pendant wood-venom-drinker-pendant (unchanged). Phi Hồng is the legendary phi_hong given an item record, as thinh_vu did for tuong_phi_tan; its pair Tàn Hồng (slot V-1) is lost and is not pinned here.",
+ "items": [
+  {
+   "id": "hd-phi-hong",
+   "name": "Phi Hồng, Flying Red (Phi Hồng Kiếm)",
+   "family": "wood",
+   "kind": "treasure",
+   "base": "phi_kiem",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 22,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 8,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 20,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "half-a-pair",
+     "name": "Half of a Pair (Bán Song)",
+     "rule": "While Tàn Hồng is not held by the same person, this sword's crit chance counts only against foes carrying your Wood stacks. Held together with Tàn Hồng, each crit with either sword scatters a petal that gives the foe one Wood stack."
+    }
+   ],
+   "lore": "Half of the twin swords Đào Tân Phân forged from one peach branch hardened by a thousand springs, and decreed that whoever holds both leads Lạc Anh Phái (C063). Diệp Phi Hồng kept this one when the school split (C109, C012), carried it into the rain forest in 648 and taught its art to no one (C133). Nghê Hồng Đậu found it in 910 (C168) and built her manor around it. She has never opened its art.",
+   "build_use": "A Wood sword that reads the foe's poison: the mistress's blade, half asleep without its pair.",
+   "holder": "nghe_hong_dau",
+   "made_by": "dao_tan_phan",
+   "made_year": 240,
+   "set": null,
+   "legendary_key": "phi_hong",
+   "status": "proposal"
+  },
+  {
+   "id": "hd-longing-gourd",
+   "name": "Gourd of Longing (Tương Tư Hồ Lô)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "ho_lo",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "stack_duration_pct",
+     "value": 40,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    },
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "over_time"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 20,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A bottle gourd grown on the first trellis at Tiêu Âm Mạch, above the grave of Hàn Tư Quân, and dried for the bean poison. Nghê Xuân Chi has carried it since she took the garden.",
+   "build_use": "Long Wood poisons that ripen: the garden mistress's spout.",
+   "holder": "nghe_xuan_chi",
+   "made_by": "nghe_xuan_chi",
+   "made_year": 1070,
+   "set": "hd-back-garden",
+   "status": "proposal"
+  },
+  {
+   "id": "hd-gracious-door-fan",
+   "name": "Fan of the Gracious Door (Nhã Môn Phiến)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "phien",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "evade_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "x_soul",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "the-second-cup-is-poured",
+     "name": "The Second Cup Is Poured (Châm Bôi Thứ Hai)",
+     "rule": "A foe who has been in the fight with you for more than 20 seconds takes 10 % more damage from your Wood poisons, and Charmed lasts 1 pulse longer on them.",
+     "authored": "d34"
+    }
+   ],
+   "lore": "A rose-silk fan on bamboo ribs that the door mistress never opens all the way. Opened all the way, the manor says, it means the guest is staying.",
+   "build_use": "Charm and stall at the door: the fight that goes on too long.",
+   "holder": "lieu_da_thai",
+   "made_by": "nghe_hong_dau",
+   "made_year": 1140,
+   "set": null,
+   "status": "proposal",
+   "authored": "d34"
+  },
+  {
+   "id": "hd-red-bean-robe",
+   "name": "Robe of Red Beans (Hồng Đậu Bào)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 30,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    },
+    {
+     "key": "evade_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 12,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Rose silk embroidered with a red bean for every guest who has stayed. She has had the robe let out twice.",
+   "build_use": "Charming at the door: evasion, and poison that lasts.",
+   "holder": "nghe_hong_dau",
+   "made_by": "nghe_hong_dau",
+   "made_year": 1000,
+   "set": "hd-tea-at-the-manor",
+   "status": "proposal"
+  },
+  {
+   "id": "hd-second-cup-pot",
+   "name": "Pot of the Second Cup (Đệ Nhị Bôi Hồ)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "ho_lo",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "stack_effect_pct",
+     "value": 24,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    },
+    {
+     "key": "attack_pct",
+     "value": 18,
+     "scope": [
+      "over_time"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A red clay teapot with two chambers. The first pour is tea. Nobody leaves after the second.",
+   "build_use": "Pure poison behind the door.",
+   "holder": "nghe_hong_dau",
+   "made_by": "nghe_hong_dau",
+   "made_year": 1012,
+   "set": "hd-tea-at-the-manor",
+   "status": "proposal"
+  },
+  {
+   "id": "hd-trellis-needles",
+   "name": "Bean-Trellis Needles (Đậu Giá Châm)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "cham",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "over_time"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 24,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The bamboo pins that hold the bean vines to the trellis, dipped each spring in the first poison of the year.",
+   "build_use": "Plants the poison: quick, long-lasting Poison batches.",
+   "holder": "nghe_xuan_chi",
+   "made_by": "nghe_xuan_chi",
+   "made_year": 1101,
+   "set": "hd-back-garden",
+   "status": "proposal"
+  },
+  {
+   "id": "hd-toadwood-ring",
+   "name": "Toad-Wood Ring (Thiềm Mộc Nhẫn)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "nhan",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "healing_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A ring cut from the root of the toad-wood whose venom she ate at forty and did not die of. She knows whose tree it is.",
+   "build_use": "The grove's sustain: health and regeneration while the poison works.",
+   "holder": "nghe_xuan_chi",
+   "made_by": "nghe_xuan_chi",
+   "made_year": 1053,
+   "set": "hd-back-garden",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "hd-tea-at-the-manor",
+   "name": "Tea at the Manor (Trang Trà Song Bảo)",
+   "pieces": [
+    "hd-red-bean-robe",
+    "hd-second-cup-pot"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "stack_effect_pct",
+       "value": 12,
+       "scope": [
+        "moc",
+        "debuff"
+       ]
+      },
+      {
+       "key": "status_duration_pct",
+       "value": 6,
+       "scope": []
+      }
+     ],
+     "effect": "The Second Cup (Đệ Nhị Bôi): once per foe each fight, when the foe carries eight or more of your Poison batches, they drink the second cup: they are Charmed, their Poison batches stop counting down for 3 s, and they gain 2 Heavy Breath."
+    }
+   ],
+   "story": "The robe and the pot are the mistress's own, made for the gracious door. She wears them beside Phi Hồng, which is half of another pair, Lạc Anh's twin swords. That pair waits on Tàn Hồng and is not part of this set.",
+   "status": "proposal",
+   "authored": "d34"
+  },
+  {
+   "id": "hd-back-garden",
+   "name": "The Back Garden (Hậu Viên Tam Bảo)",
+   "pieces": [
+    "hd-longing-gourd",
+    "hd-trellis-needles",
+    "hd-toadwood-ring"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "stack_duration_pct",
+       "value": 15,
+       "scope": [
+        "moc",
+        "debuff"
+       ]
+      },
+      {
+       "key": "khi_huyet_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Planted, Waited, Harvested (Chủng Đãi Thu): each of your Poison batches that has lasted 6 s on a foe is ripe and counts as two for everything that counts your stacks. Once a fight you may harvest: every ripe batch deals all its remaining damage at once, and you heal for a tenth of it."
+    }
+   ],
+   "story": "The gourd over Hàn Tư Quân's grave, the trellis pins and the ring of her father's tree. She made the set herself in the garden, and none of it has ever been through the front door.",
+   "status": "proposal"
+  }
+ ]
+}

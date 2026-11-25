@@ -1,0 +1,968 @@
+{
+ "sect": "",
+ "group": "demonic",
+ "_doc": "Ma đạo cultivators outside the sects (people/demonic.md): the Blood-Ink line, the soul pedlar, the orchid gorge, the Black Wind duelist, the well-drinker, and the dead they come from. Batch 1: Kết Đan and the dead. Trúc Cơ and Luyện Khí in demonic.2.cast.json.",
+ "people": [
+  {
+   "key": "trieu_huyet_y",
+   "name_hv": "Triệu Huyết Y",
+   "name_han": "趙血衣",
+   "gloss": "Blood-red robe",
+   "sex": "F",
+   "born": 940,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 47,
+   "birthplace": 549,
+   "role": "The last disciple of the ma đạo master Mặc Huyết Sinh (age 260), hunting for her master's abode",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 62,
+     "tho": 46,
+     "kim": 44
+    },
+    "variants": {
+     "am": 68
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 56,
+    "than_hon": 66,
+    "khi_van": 48,
+    "dao_tam": 36,
+    "mi_luc": 70
+   },
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Deceitful",
+     "Impatient"
+    ],
+    "calling": "Schemer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "demonic_path"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": "vengeance_vow",
+    "fate_given": [
+     "Demon-seeded"
+    ],
+    "gained": [
+     "Hunted"
+    ]
+   },
+   "appearance": "A tall woman with a quiet, pleasant face, always in a red robe that has darkened to the colour of old liver; a silver needle holds up her hair.",
+   "backstory": "Triệu Huyết Y was born in 940 in Hôi Diêu Thôn, a lime-burners' village on the karst above U Lan Cốc. Her Darkness woke at nine, when the kiln smoke made the other children cough and made her sleep. Mặc Huyết Sinh (mac_huyet_sinh) came through the karst looking for exactly that, bought her from her father for a cartload of lime and took her through a door written in blood. She never learned where his abode stood, because his disciples came and went by the door-talisman. He taught her the Hollow Tide Scripture, which his first disciple Văn Hải Khô (van_hai_kho) had left him as the price of leaving, and spoke her the first six layers of his own Blood-Ink Canon. In 1090 Đồ Vô Cữu (do_vo_cuu) walked the hunters to the door on foot (C024). She ran through the burning back passage while her master held the hall against three sect heads, and came out on a mountain she did not know. She hid two years among the gold-washers of Đào Sa Thị (A079) and pulled a girl named Khang Tẩy Kim (khang_tay_kim) out of the spring flood, which she has never explained to herself. Since then she has bought maps, sold a blood art to Đồ Xích Linh (do_xich_linh) and narrowed her master's mountain to three. In 1196 she found Cung Mặc Sương (cung_mac_suong) on the lake ice.",
+   "wants": "To find the abode, read the walls and finish the canon; and to make Sở Ngọc Hồ's own disciple its next reader.",
+   "secret": "She does not know the way to her master's abode, and the one man who does is the hound she most wants dead. Two of her three mountains are in the Pavilion's ground, which is half of why she courts Cung. The other half is that Cung is the first person since Mặc who understands her, and she has begun to teach her honestly. She has kept every letter Khang Tẩy Kim has sent her.",
+   "ties": [
+    {
+     "to": "mac_huyet_sinh",
+     "kind": "master",
+     "note": "bought her for a cartload of lime; died holding the hall so she could run"
+    },
+    {
+     "to": "cung_mac_suong",
+     "kind": "friend",
+     "note": "met on the lake ice in 1196; the offer of the Blood-Ink Canon; no answer yet"
+    },
+    {
+     "to": "do_xich_linh",
+     "kind": "creditor",
+     "note": "buys the Rite of the Red Debt a layer at a time, in stones"
+    },
+    {
+     "to": "khang_tay_kim",
+     "kind": "creditor",
+     "note": "pulled her out of the flood in 1093; writes to her still"
+    },
+    {
+     "to": "do_vo_cuu",
+     "kind": "enemy",
+     "note": "led the hunt to the door; she got past him in the smoke"
+    },
+    {
+     "to": "thoi_khinh_hong",
+     "kind": "enemy",
+     "note": "one of the three who killed her master"
+    },
+    {
+     "to": "so_ngoc_ho",
+     "kind": "enemy",
+     "note": "one of the three; she means to take her disciple"
+    },
+    {
+     "to": "do_tinh_ha",
+     "kind": "enemy",
+     "note": "called the hunt under the Compact"
+    },
+    {
+     "to": "khang_lang_sa",
+     "kind": "disciple",
+     "note": "Khang Tẩy Kim's nephew; she drained the flood out of his meridians in 1151 and kept him"
+    },
+    {
+     "to": "hanh_lien_y",
+     "kind": "disciple",
+     "note": "her news from the lake"
+    },
+    {
+     "to": "tra_ham_tuyen",
+     "kind": "rival",
+     "note": "her martial nephew, seventy years older, who wants the same walls"
+    },
+    {
+     "to": "sao_an_lan",
+     "kind": "rival",
+     "note": "keeps the karst children Triệu was once one of"
+    },
+    {
+     "to": "ngao_tam_phu",
+     "kind": "debt",
+     "note": "owes him for the third map"
+    },
+    {
+     "to": "biet_tri_phan",
+     "kind": "enemy",
+     "note": "the bounty man who sells heads to the hound"
+    },
+    {
+     "to": "gian_van_lo",
+     "kind": "enemy",
+     "note": "the map-seller who sold her an invented mountain for her master's abode in 1171"
+    },
+    {
+     "to": "mac_than_nuong",
+     "kind": "friend",
+     "note": "the charcoal-burner's girl with a Darkness root she met at Lam Yên Thị in 1199; she has promised to come back with a book"
+    },
+    {
+     "to": "ngu_mong_te",
+     "kind": "friend",
+     "note": "the demonic woman who says there is a canon for what she is"
+    }
+   ],
+   "master": "mac_huyet_sinh",
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hollow-tide-scripture",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "debt-ledger-blade",
+      "layer": 6
+     },
+     {
+      "tech": "undertow-litany",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "dm-ink-needle"
+     },
+     {
+      "named": "dm-blood-red-robe"
+     },
+     {
+      "base": "nhan",
+      "grade": 3,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 5
+    },
+    "tree": {
+     "start": "am",
+     "intent": "Darkness and drain: writs that bind, a tide that empties the foe and fills her; health paid and taken back.",
+     "targets": [
+      859,
+      7381,
+      8997,
+      7635,
+      7636
+     ],
+     "targets_note": "Darkness start (no sect route): Shadow Seed, New Moon and Hidden Moon for evasion and stealth, Concealed Breath, and the Great Essence-Draining Art for the drain."
+    },
+    "note": "The last disciple of Mặc Huyết Sinh: hidden, drained and draining. Beside the Hollow Tide she carries the first six layers of the Blood-Ink Canon (proposal blood-ink-canon, demonic.techniques.json), which she cannot finish without the abode's walls."
+   },
+   "items": [
+    "dm-blood-red-robe",
+    "dm-ink-needle"
+   ],
+   "changed": "root variant huyet 60 removed (blood is not a Linh Căn variant; her blood arts run on Water and Darkness); birthplace 549 added; tree targets -> intent; gear cham/dao_bao -> the named needle and robe; backstory, ties, traits v2 added"
+  },
+  {
+   "key": "mac_huyet_sinh",
+   "name_hv": "Mặc Huyết Sinh",
+   "name_han": "墨血生",
+   "gloss": "Ink-blood scholar",
+   "sex": "M",
+   "born": 500,
+   "alive": false,
+   "died": 1090,
+   "cause": "killed by a coalition of righteous sects (age 590)",
+   "peak_realm": "nguyen_anh",
+   "sect": "",
+   "rank": "",
+   "home": null,
+   "birthplace": null,
+   "role": "A ma đạo master; owner of the cave abode in slot A-6; author of the Blood-Ink Canon",
+   "tier": "A",
+   "traits": {
+    "personality": [
+     "Patient",
+     "Cruel",
+     "Diligent"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "scholar_family",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 3
+     }
+    ],
+    "path": [
+     "demonic_path",
+     "long_seclusion"
+    ],
+    "lifestyle": "calligrapher",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "backstory": "Mặc Huyết Sinh was a copyist's son who became the finest talisman hand of his age under the wandering master Sách Viễn Thư (sach_vien_thu). Sách taught that a talisman is only as strong as what it is written in. Mặc took him at his word. In 700 he made the brush Huyết Mặc Bút from his master's hair and filled it with his master's blood (N-demonic-02), and for four centuries after he wrote in other people's. He was not a raider. He bargained, he bought, and he killed only those he meant to write with, slowly: the Blood-Ink Canon took him three hundred years, and he wrote its second half on the walls of his abode, where no disciple could carry it off. He took two disciples in five hundred years. The first, Văn Hải Khô (van_hai_kho), learned to drain wells, wrote the Hollow Tide Scripture and went to the Tower at the Night Rain Edict (C196); Mặc said the Tower would collect, and in 951 it did. The second was a karst child, Triệu Huyết Y (trieu_huyet_y). In 1090 the Pivot called a hunt under the Compact (C024), and Đỗ Tinh Hà (do_tinh_ha), Thôi Khinh Hồng (thoi_khinh_hong) and Sở Ngọc Hồ (so_ngoc_ho) came through his door. He held the hall long enough for her to run.",
+   "ties": [
+    {
+     "to": "sach_vien_thu",
+     "kind": "former_master",
+     "note": "killed him for the brush"
+    },
+    {
+     "to": "van_hai_kho",
+     "kind": "disciple",
+     "note": "his first; left for the Tower"
+    },
+    {
+     "to": "trieu_huyet_y",
+     "kind": "disciple",
+     "note": "his last"
+    },
+    {
+     "to": "do_tinh_ha",
+     "kind": "enemy",
+     "note": "called the hunt"
+    },
+    {
+     "to": "thoi_khinh_hong",
+     "kind": "enemy",
+     "note": "killed him"
+    },
+    {
+     "to": "so_ngoc_ho",
+     "kind": "enemy",
+     "note": "killed him"
+    },
+    {
+     "to": "do_vo_cuu",
+     "kind": "enemy",
+     "note": "found the door"
+    }
+   ],
+   "changed": "added backstory, traits and ties; no fact changed"
+  },
+  {
+   "key": "ham_tan_chung",
+   "name_hv": "Hám Tàn Chung",
+   "name_han": "闞殘鐘",
+   "gloss": "The cracked bell",
+   "sex": "M",
+   "born": 975,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 54,
+   "birthplace": 1056,
+   "role": "The soul pedlar: buys the last breaths of the dying and sells them to cultivators who need them",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 54,
+     "thuy": 42,
+     "moc": 38
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 44,
+    "than_hon": 88,
+    "khi_van": 52,
+    "dao_tam": 60,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Honest",
+     "Callous"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 3
+     }
+    ],
+    "path": [
+     "demonic_path"
+    ],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": "cold_detachment",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A stooped, clean old man in a pedlar's grey coat, a black lamp on a pole over his shoulder and a cracked hand bell at his belt that never rings.",
+   "backstory": "Hám Tàn Chung was born in 975 in Đồng Sơn Trấn, where everyone cast bells, and his father cast the cracked one he still carries. When the copper seam gave out (V017) the town starved slowly. Hám, a Trúc Cơ by then with a Metal root and nothing left to cast, sat with the old who could not leave. A wandering monk had once taught him the Hollow Bell Canon, and he found that a breath drawn into a bell at the right moment stays there. He meant it as a kindness: the bell-casters would ring once more. By 1100 he held forty breaths and had learned what one is worth to a cultivator at a breakthrough. He walks the poor roads now with a pedlar's lamp. He buys last breaths from the dying for their debts or their children's school fees, and writes every one in his ledger, the name and the price. He sells the threads at the Night Rain Market through Kiều Mãn Lâu (kieu_man_lau), and to buyers who would hang him. In 1150 the Tower offered him a guest seat, and he would not let it light a lamp for him. Lý Hận Bích (ly_han_bich) has sworn to break his bells since he took a singer from the graves of Lôi Trạch.",
+   "wants": "To keep the ledger honest: every breath paid for, every price written down, no one taken who did not sell.",
+   "secret": "Lạc Đan Thanh buys a thread a year from him for the breakthrough pills he sells to cultivators who have already failed once, and pays in silence. And the cracked bell holds his mother's breath, which he took in 1097 without asking her, the one entry missing from the ledger.",
+   "ties": [
+    {
+     "to": "tong_bich_linh",
+     "kind": "disciple",
+     "note": "keeps the ledger; frees one breath a year, and he lets her"
+    },
+    {
+     "to": "khich_tieu_chung",
+     "kind": "disciple",
+     "note": "his runner boy"
+    },
+    {
+     "to": "kieu_man_lau",
+     "kind": "friend",
+     "note": "the Night Rain Market buys his threads"
+    },
+    {
+     "to": "lac_dan_thanh",
+     "kind": "friend",
+     "note": "his biggest buyer, by the year, in secret"
+    },
+    {
+     "to": "mat_thu_ninh",
+     "kind": "creditor",
+     "note": "still owes for her son's lamp"
+    },
+    {
+     "to": "ly_han_bich",
+     "kind": "enemy",
+     "note": "he took a singer from her graves"
+    },
+    {
+     "to": "gia_hoi_xuan",
+     "kind": "rival",
+     "note": "the healer in the same market; she keeps them alive, he buys them when she cannot"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "dia_kim",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "hollow-bell-canon",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "dm-cracked-bell"
+     },
+     {
+      "named": "dm-borrowed-wick-lamp"
+     },
+     {
+      "named": "dm-pedlar-robe"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 3
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Soul and bell: arts that ring a held voice through the foe, and soul defence for a man who keeps other people's souls.",
+     "targets": [
+      4106,
+      4219,
+      4216,
+      4303,
+      4725,
+      4734,
+      4744
+     ],
+     "targets_note": "Ritual Bell, the Clear Gong and Golden Hum for soul defence, the Divided Mirror for a man who keeps other people's souls (wishlist: grave-chorus for the bell's soul damage)."
+    },
+    "note": "Main is a stand-in for his own bell canon; his signature art is the Sutra of the Borrowed Wick (proposal borrowed-wick-sutra, demonic.techniques.json)."
+   },
+   "items": [
+    "dm-cracked-bell",
+    "dm-borrowed-wick-lamp",
+    "dm-pedlar-robe"
+   ]
+  },
+  {
+   "key": "sao_an_lan",
+   "name_hv": "Sào Ẩn Lan",
+   "name_han": "巢隱蘭",
+   "gloss": "The orchid hidden in the nest",
+   "sex": "F",
+   "born": 1050,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 547,
+   "birthplace": 546,
+   "role": "Keeper of U Lan Cốc, where the karst children whose Darkness wakes go when no sect will take them",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "tho": 44,
+     "moc": 36
+    },
+    "variants": {
+     "am": 54
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 52,
+    "than_hon": 74,
+    "khi_van": 40,
+    "dao_tam": 78,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Reclusive",
+     "Stubborn"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "demonic_path"
+    ],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Disgraced"
+    ]
+   },
+   "appearance": "A thin woman with ink-grey fingertips and a pale stone at her throat, who speaks very softly, as if someone in the next room were asleep.",
+   "backstory": "Sào Ẩn Lan was a mushroom-picker's daughter of Hầu Đầu Thôn who went down to Nam Phố Đường's outer gate at sixteen on her Water, and ground ink at the Jade Milk spring for thirty years. Her talismans began to come out darker, as Đới Huyền Nghiên's (doi_huyen_nghien) do now, and in 1097 one of them put the hall's copyist to sleep for three days. Châu Phi Vân (chau_phi_van), not yet hall-mistress, did not report her to Lạc Hà. She gave her a year's stones and told her to go up the karst and not come down. In the sunken market of Hãm Thạch Trấn (V105) Sào found a stone an orchid had grown on in the dark, and with it a few nights' breath that cost no one anything. It did not last. Darkness grows by taking. Since 1101 the karst children whose Darkness wakes have come up to her in U Lan Cốc, because no sect takes a Darkness root and the villages say the gorge breathes. She keeps eleven now, five of them cultivators. She wrote them a primer and left out the fourth layer, and they teach it to each other.",
+   "wants": "A Darkness method that does not take, found before her children need one.",
+   "secret": "Most nights she drinks from Hầu Đầu Thôn, her own village, so that the children need not, and her brother's grandchildren wake tired. In 1193 Ngư Mộng Tê drank a raftsman of Phóng Mộc Thôn dry, and Sào buried him in the gorge.",
+   "ties": [
+    {
+     "to": "chau_phi_van",
+     "kind": "debt",
+     "note": "let her go in 1097 and told no one"
+    },
+    {
+     "to": "kha_trieu_phi",
+     "kind": "friend",
+     "note": "ground ink beside her at the outer gate"
+    },
+    {
+     "to": "doi_huyen_nghien",
+     "kind": "friend",
+     "note": "the next one; she has written to him once, and he has not answered"
+    },
+    {
+     "to": "ngu_mong_te",
+     "kind": "disciple",
+     "note": "the eldest; drank a man dry"
+    },
+    {
+     "to": "sung_ngoc_khe",
+     "kind": "disciple",
+     "note": "refuses to drink at all"
+    },
+    {
+     "to": "chi_da_hanh",
+     "kind": "disciple",
+     "note": "from her own village"
+    },
+    {
+     "to": "tien_hoi_nhi",
+     "kind": "disciple",
+     "note": "walked from the Thúy Vi karst"
+    },
+    {
+     "to": "trieu_huyet_y",
+     "kind": "rival",
+     "note": "a karst child before the gorge had a keeper; wants the children"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_am",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "undertow-litany",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "dm-cave-orchid-pendant"
+     },
+     {
+      "named": "dm-karst-lamp"
+     },
+     {
+      "named": "dm-ink-grinder-robe"
+     }
+    ],
+    "skills": {
+     "phu_luc": 4,
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "am",
+     "intent": "Darkness that dims and sleeps the foe rather than killing; regeneration in the dark.",
+     "targets": [
+      859,
+      7205,
+      7206,
+      7183,
+      7184,
+      7600,
+      7569
+     ],
+     "targets_note": "Shadow Seed, the Night Moth's curses to dim and sleep, Night Lotus and Moon Drinker for her regeneration in the dark."
+    },
+    "note": "Main is a stand-in for the method she has not finished writing; she teaches the Shade Orchid Breathing (proposal shade-orchid-breath, demonic.techniques.json)."
+   },
+   "items": [
+    "dm-cave-orchid-pendant",
+    "dm-karst-lamp",
+    "dm-ink-grinder-robe"
+   ]
+  },
+  {
+   "key": "khoai_thiet_ung",
+   "name_hv": "Khoái Thiết Ưng",
+   "name_han": "蒯鐵鷹",
+   "gloss": "Iron eagle",
+   "sex": "M",
+   "born": 916,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 695,
+   "birthplace": 702,
+   "role": "The last of the Hắc Phong rogues: a blood duelist on Hắc Ưng Phong, in the Pivot's own mountains",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 58,
+     "hoa": 40,
+     "tho": 34
+    },
+    "variants": {
+     "loi": 24
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 78,
+    "than_hon": 50,
+    "khi_van": 44,
+    "dao_tam": 62,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Wrathful",
+     "Brave"
+    ],
+    "calling": "Duelist",
+    "upbringing": "war_orphan",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "demonic_path"
+    ],
+    "lifestyle": "duel_seeker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Hunted"
+    ]
+   },
+   "appearance": "A broad grey man with a sabre across his knees and a beard stained rust at the corners.",
+   "backstory": "Khoái Thiết Ưng grew up in Hắc Phong Trại beside a boy four years younger, Đồ Vô Cữu (do_vo_cuu). When Thiên Xu cleared the stockade in 940 (V126), Đỗ Tinh Hà (do_tinh_ha) spared the youngest. Khoái, twenty-four, fled north along the ore range with the captain's sabre and the stockade's blood method. He lives on Hắc Ưng Phong, where the Darkness in the rock makes the Pivot's patrols short. He fights only those who climb up to duel him, and he drinks the loser's blood. Đồ has found him twice and gone back down twice.",
+   "ties": [
+    {
+     "to": "do_vo_cuu",
+     "kind": "sworn_sibling",
+     "note": "the stockade boys; spared and fled; the hound has let him go twice"
+    },
+    {
+     "to": "khoai_hong_ngac",
+     "kind": "child",
+     "note": "found on an ore cart in 1095 and raised"
+    },
+    {
+     "to": "khoai_hong_ngac",
+     "kind": "disciple",
+     "note": "taught the sabre"
+    },
+    {
+     "to": "bo_thiet_sinh",
+     "kind": "disciple",
+     "note": "a mine boy who climbed up to duel and lost, and stayed"
+    },
+    {
+     "to": "do_tinh_ha",
+     "kind": "enemy",
+     "note": "cleared the stockade"
+    },
+    {
+     "to": "biet_tri_phan",
+     "kind": "enemy",
+     "note": "has come up the mountain once for his head"
+    },
+    {
+     "to": "do_liet_co",
+     "kind": "friend",
+     "note": "the stockade girl who fled south while he fled north with the captain's sabre"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "dia_kim",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "debt-ledger-blade",
+      "layer": 6
+     },
+     {
+      "tech": "black-wind-blood-sabre",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "dm-black-wind-sabre"
+     },
+     {
+      "base": "giap",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "nhan",
+      "grade": 3,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "A Metal duelist who lives on leech: hits that heal, crits that drink.",
+     "targets": [
+      4432,
+      4412,
+      4415,
+      4484,
+      4250
+     ],
+     "targets_note": "Sword Sparks and the Whetstone Wheel for crits that drink, Iron Blood with his Debt Ledger Blade's health leech for hits that heal, Sword Intent for the sabre."
+    },
+    "note": "Main is a stand-in for the Black Wind Blood Sabre (proposal black-wind-blood-sabre, demonic.techniques.json)."
+   },
+   "items": [
+    "dm-black-wind-sabre"
+   ],
+   "authored": "e7"
+  },
+  {
+   "key": "tra_ham_tuyen",
+   "name_hv": "Tra Hàm Tuyền",
+   "name_han": "查鹹泉",
+   "gloss": "The salt spring",
+   "sex": "M",
+   "born": 870,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 37,
+   "birthplace": 125,
+   "role": "Văn Hải Khô's disciple, left behind in the west: a well-drinker who holds the Hollow Tide Scripture",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "moc": 40,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 50,
+    "than_hon": 60,
+    "khi_van": 38,
+    "dao_tam": 44,
+    "mi_luc": 36
+   },
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Patient",
+     "Temperate"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [
+     "demonic_path"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": "vengeance_vow",
+    "fate_given": [],
+    "gained": [
+     "Embittered"
+    ]
+   },
+   "appearance": "A dry, tidy old man who carries a gourd and never drinks from anyone's well while they watch.",
+   "backstory": "Tra Hàm Tuyền was a well-keeper's son of Tình Sa Thôn when Văn Hải Khô (van_hai_kho) drained the qi wells of three river towns in the west. In 885 his sister Tra Cam Tỉnh (tra_cam_tinh) went into the last well of Tình Sa with a bitter-root charm, and her qi turned the water so bitter that Văn could not drink it (N-demonic-01). Văn took the brother instead, as a disciple, and taught him the Hollow Tide. In 906 Văn went to the Tower and left him behind. In 951 the Tower said Văn died of a deviation. Tra has never believed it. He is one of three people alive who hold that scripture.",
+   "ties": [
+    {
+     "to": "van_hai_kho",
+     "kind": "master",
+     "note": "killed his sister's town's wells and taught him"
+    },
+    {
+     "to": "tra_cam_tinh",
+     "kind": "sibling",
+     "note": "the bitter well"
+    },
+    {
+     "to": "manh_da_vu",
+     "kind": "enemy",
+     "note": "holds his master's scripture; he believes the head killed Văn"
+    },
+    {
+     "to": "trieu_huyet_y",
+     "kind": "rival",
+     "note": "his martial aunt, seventy years younger; both want Mặc's walls"
+    },
+    {
+     "to": "dung_tinh_nhi",
+     "kind": "disciple",
+     "note": "a well-digger's boy of Đàm Ảnh"
+    }
+   ],
+   "master": "van_hai_kho",
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hollow-tide-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "undertow-litany",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "dm-bitter-well-gourd"
+     },
+     {
+      "base": "cham",
+      "grade": 3,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "tran_phap": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Drain: linh lực taken from the foe and the place, and a guard against being drained in turn.",
+     "targets": [
+      5312,
+      4962,
+      4926,
+      4932,
+      4909
+     ],
+     "targets_note": "Whirling Palm and Whirling Step, the Whirlpool for drain, Dark Water against being drained."
+    },
+    "note": "The Hollow Tide as Văn Hải Khô taught it, older and slower than Triệu's."
+   },
+   "items": [
+    "dm-bitter-well-gourd"
+   ]
+  },
+  {
+   "key": "tra_cam_tinh",
+   "name_hv": "Tra Cam Tỉnh",
+   "name_han": "查甘井",
+   "gloss": "The sweet well",
+   "sex": "F",
+   "born": 858,
+   "alive": false,
+   "died": 885,
+   "cause": "went into the last well of Tình Sa Thôn to spoil it for Văn Hải Khô (age 27)",
+   "peak_realm": "luyen_khi",
+   "sect": "",
+   "rank": "",
+   "home": 125,
+   "birthplace": 125,
+   "role": "The Bitter Well of Tình Sa: a well-keeper's daughter who made the last well undrinkable; the river towns still tell it",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Stubborn",
+     "Compassionate"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "backstory": "Tra Cam Tỉnh kept the well of Tình Sa Thôn after her father, and she knew which roots make water bitter. When Văn Hải Khô (van_hai_kho) had drunk the qi wells of three river towns down to the last well of Tình Sa, she tied a bundle of bitter root to her chest and went down into the well. Her qi went into the water with the root's bitterness, and he spat it out. Tình Sa lived. Its people still drink from that well, and it is still bitter (N-demonic-01).",
+   "ties": [
+    {
+     "to": "tra_ham_tuyen",
+     "kind": "sibling",
+     "note": "her younger brother, taken by the man she stopped"
+    },
+    {
+     "to": "van_hai_kho",
+     "kind": "enemy",
+     "note": "the well-drinker"
+    }
+   ]
+  },
+  {
+   "key": "sach_vien_thu",
+   "name_hv": "Sách Viễn Thư",
+   "name_han": "索遠書",
+   "gloss": "Letters sent far",
+   "sex": "M",
+   "born": 410,
+   "alive": false,
+   "died": 700,
+   "cause": "killed by his disciple Mặc Huyết Sinh, who made a brush from his hair (age 290)",
+   "peak_realm": "ket_dan",
+   "sect": "",
+   "rank": "",
+   "home": null,
+   "birthplace": null,
+   "role": "A wandering talisman master; Mặc Huyết Sinh's teacher and the first ink of the Blood-Ink Canon",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Trusting",
+     "Arrogant"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "scholar_family",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "calligrapher",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Sách Viễn Thư wrote talismans for whoever paid, on the road between the sects, and taught that a talisman is only as strong as what it is written in: cinnabar, then beast blood, then one's own. He took one disciple, the copyist's son Mặc Huyết Sinh (mac_huyet_sinh), and was proud of him for two hundred years. In 700 Mặc made a brush from his master's hair and filled it with his blood (N-demonic-02). It is the brush Triệu Huyết Y is looking for.",
+   "ties": [
+    {
+     "to": "mac_huyet_sinh",
+     "kind": "former_disciple",
+     "note": "his disciple and his killer"
+    }
+   ]
+  }
+ ]
+}

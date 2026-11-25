@@ -1,0 +1,180 @@
+{
+ "sect": "suong_tung",
+ "_doc": "Sương Tùng Các signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow catalogue-soul-song-seal and catalogue-wood grade 3. No set.",
+ "items": [
+  {
+   "id": "st-cold-night-lantern",
+   "name": "The Lamp on a Cold Night (Hàn Dạ Đăng)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "dang",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 100,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "the-light-that-stays",
+     "name": "The Light That Stays (Đăng Bất Diệt)",
+     "rule": "Your Cold Night Lamp lantern lasts twice as long, and while it burns, the first ward each foe crosses does not burn out."
+    }
+   ],
+   "lore": "The first ward lantern Văn Hàn Đăng made, at sixteen in his father's shop at Hồ Khẩu Thôn: birch-bark paper on a pine frame, with the founder's Lantern Ward written inside it. It hung over the lake mouth for twenty winters before he took it down and carried it up to the pavilion. Every lantern of the lake villages is copied from it.",
+   "build_use": "The head's lantern: sustain and cold resistance for allies, and wards that last.",
+   "holder": "van_han_dang",
+   "made_by": "van_han_dang",
+   "made_year": 1116,
+   "set": "st-lamp-and-brush",
+   "status": "proposal"
+  },
+  {
+   "id": "st-hundred-wards-flag",
+   "name": "Flag of a Hundred Wards (Bách Phù Kỳ)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "ky",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "seal"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "sheets-in-the-wind",
+     "name": "Sheets in the Wind (Phong Trung Chỉ)",
+     "rule": "Each time you lay a ward, one blank sheet from the flag flies to the nearest foe and slows it briefly."
+    }
+   ],
+   "lore": "A flag stitched from the hundred best sheets of birch-bark paper Nhạc Hoa Bì has ever pressed, each with a plain ward on it. She carries it on the paper road to the palace, where Lư Chỉ Mặc of the pines checks every sheet before the wards are written.",
+   "build_use": "The paper-mistress's flag: faster seals, longer statuses and slowing sheets.",
+   "holder": "nhac_hoa_bi",
+   "made_by": "nhac_hoa_bi",
+   "made_year": 1170,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "st-lantern-maker-brush",
+   "name": "Lantern-Maker's Brush (Đăng Tượng Bút)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "cham",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": [
+      "talisman"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "attack_pct",
+     "value": 8,
+     "scope": [
+      "talisman"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "His father's brush for lantern lettering, a pine-resin tip on a reed. He wrote his first ward with it at sixteen.",
+   "build_use": "Wards and talismans laid faster and holding longer.",
+   "holder": "van_han_dang",
+   "made_by": "van_han_dang",
+   "made_year": 1110,
+   "set": "st-lamp-and-brush",
+   "status": "proposal",
+   "authored": "b4"
+  }
+ ],
+ "sets": [
+  {
+   "id": "st-lamp-and-brush",
+   "name": "Lamp and Brush (Đăng Bút Song Bảo)",
+   "pieces": [
+    "st-cold-night-lantern",
+    "st-lantern-maker-brush"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "healing_pct",
+       "value": 5,
+       "scope": []
+      },
+      {
+       "key": "status_duration_pct",
+       "value": 6,
+       "scope": []
+      }
+     ],
+     "effect": "Ward Written Inside (Nội Thư Phù): wards you lay inside your Cold Night Lamp's light are written twice: each burns out only after a second foe crosses it."
+    }
+   ],
+   "story": "The first lantern and the brush that wrote it, both from the shop at Hồ Khẩu Thôn. Văn Hàn Đăng holds both."
+  }
+ ]
+}

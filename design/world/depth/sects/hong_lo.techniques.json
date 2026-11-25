@@ -1,0 +1,56 @@
+{
+ "sect": "hong_lo",
+ "_doc": "Hồng Lô Cốc lineage (rules-proposals R5). Re-leans Fire/Wood -> Fire/Water (R4: the valley is Fire 47 %, Water 30 %, Wood 5 %). Elements Fire first, then Water: inner disciples and above hold Fire at 45 or more; the outer gate takes Fire or Water at 30. Outer gate: snow-hearth-primer (proposal, Yellow). Inner gate and above: red-sun-scripture (existing, Profound Fire; the head's method since 930). Secret arts: whale-road-harpoon (proposal, Profound Water; the boat crews, taught to outer disciples by the head's leave), water-over-fire-canon (proposal, Earth tier; the elders' alchemy). Outside method kept under exception: the Thanh Nang healers' own healing method (generated stand-in huyen_moc, as in thuy_vi.cast.json for Ngải Thanh Hao). Unpriced.",
+ "lineage": {
+  "outer": "snow-hearth-primer",
+  "main": "red-sun-scripture",
+  "secret": [
+   {"id": "whale-road-harpoon", "rank": "ngoai_mon", "note": "the boat crews only, by the head's leave"},
+   {"id": "water-over-fire-canon", "rank": "truong_lao"}
+  ],
+  "body": null,
+  "elements": ["hoa", "thuy"],
+  "outside_kept": [{"id": "huyen_moc", "who": "the Satchel Hall (Thanh Nang Đường's healers, since 1101)"}],
+  "tree_route": [2297, 2382],
+  "tree_route_note": "Furnace Heart (Lô Tâm) and Pill Cauldron (Đan Đỉnh): the valley's furnace, as its head took them."
+ },
+ "techniques": [
+  {
+   "id": "snow-hearth-primer",
+   "name": "Snow Hearth Primer (Tuyết Táo Quyết)",
+   "tier": 0, "tech_kind": "main", "names": ["hoa", "thuy"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The outer gate's method, learned in the kitchens and at the snow pits. A Fire root breathes the heat that comes up through the valley floor; a Water root breathes the melt that runs off the snow above it. Either carries a disciple through the six layers. The sixth layer is the Winter Coal: the disciple keeps one coal alive in a snowbank from the first snow to the thaw, feeding it nothing but breath. A Fire root that holds 45 then walks into the furnace hall. A Water root goes to the snow jackets or the boats.",
+   "arts": [
+    "brazier-form",
+    {"new": "Bank the Coal (Ủ Than)", "concept": "Each Fire hit you land banks its heat as a coal, and each coal goes cold 6 s after it is banked. A Water art fired while you hold a coal spends it: the Water hit also lays 2 Burn stacks, and you regain a little linh lực."}
+   ],
+   "lore": "Written in 1151 by Tần Tuyết Thán at Đồng Hồng Lô's order (N-hong_lo-04), the winter the gate was opened to Water roots. The old primer was the founder's, taught only to Fire roots, and it is still read aloud in the kitchens on the first day of snow.",
+   "status": "proposal"
+  },
+  {
+   "id": "water-over-fire-canon",
+   "name": "Water Over Fire Canon (Ký Tế Lô Kinh)",
+   "tier": 2, "tech_kind": "secret", "names": ["hoa", "thuy"], "layers": 12, "rank": "truong_lao",
+   "concept": "The valley's alchemy, named for the hexagram Ký Tế (既濟), water above fire: the pot is finished. Volcanic fire is too hot for herbs. The alchemist runs snow-melt through copper jackets around the furnace and holds the flame at the edge of boiling, which lets one furnace brew two batches in a season without spoiling either. The danger is the moment the balance tips. In a fight it is a method of opposites: Fire hits that the holder's own Water cools into healing, and Water hits that the holder's Fire turns to scalding steam.",
+   "arts": [
+    "furnace-heart",
+    {"new": "Steam from the Jacket (Lô Giáp Chưng Khí)", "concept": "A Water hit that turns every 3 Burn stacks on the foe into a burst of steam: a Fire-and-Water hit that also heals you for a third of its damage. The Burn stacks are spent."},
+    {"new": "The Pot Is Finished (Ký Tế)", "concept": "A stance for 8 s: while you hold both a Fire and a Water stack, your pills and heals act a second sooner and your Fire arts cost 20 % less. If either kind of stack runs out, the stance breaks and you take a small Fire hit."}
+   ],
+   "lore": "The founder Tiết Thừa Hỏa (tiet_thua_hoa) brought only fire from the isles in 650. The water came later. Đồng Hồng Lô (dong_hong_lo) first ran snow through the jackets in 930 to keep the furnace lit through his nine years of mourning (A028), and the canon grew out of that habit. Tần Tuyết Thán wrote down its last three layers. The elders still argue over whether it belongs to the head or to her.",
+   "status": "proposal"
+  },
+  {
+   "id": "whale-road-harpoon",
+   "name": "Whale Road Harpoon (Kình Lộ Tiêu Pháp)",
+   "tier": 1, "tech_kind": "secret", "names": ["thuy"], "layers": 9, "rank": "ngoai_mon",
+   "concept": "The sea hunters' art from Kình Cốt Đường, carried into the valley in 884 (V013). The hunter throws a line of Water qi with the spear and hauls on it, so a struck foe is dragged and held. It was made for spirit whales and works on anything that tries to run. Hồng Lô's boat crews use it to hold their boats in the swell off the volcanic isles while the alchemists gather ash.",
+   "arts": [
+    "drag-of-the-deep",
+    {"new": "Line on the Whale (Kình Tác)", "concept": "A spear hit that ties a Water line to the foe for 6 s: while it holds, the foe's movement arts fail and each of your Water hits on them adds a Slowed Time stack."}
+   ],
+   "lore": "Nghiêu Phá Lãng (nghieu_pha_lang), the last head of Kình Cốt Đường, went out on the whale road after a great spirit whale in 884 and did not come back. His hunters brought the art to Hồng Lô with their boats. Until 1151 it was taught only in Bồ Diệp Thôn, outside the gate.",
+   "status": "proposal"
+  }
+ ]
+}

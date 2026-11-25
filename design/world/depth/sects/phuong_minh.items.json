@@ -1,0 +1,1534 @@
+{
+ "sect": "phuong_minh",
+ "_doc": "Phượng Minh Cung signature items and sets (rules-proposals R7; design/items record). Unpriced proposals: modifier sizes follow the fire and soul-song-seal catalogues' grade 2-4 items; Effects are hand-written rules, unpriced. The Red Plum (bt-red-plum) is declared in bang_tam.items.json with holder hoa_trieu_duong; this file confirms it (phuong_minh.md §10) and does not redeclare it. There is no pipe or flute base in design/items/bases.json: the panpipes and the pipe use `cam` (the music base) until a pipe base exists.",
+ "items": [
+  {
+   "id": "pm-tieu-thieu-quan",
+   "name": "Panpipes of the Shao (Tiêu Thiều Quản)",
+   "family": "soul-song-seal",
+   "kind": "treasure",
+   "base": "cam",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "x_soul",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "soul"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "eight-of-nine",
+     "name": "Eight of Nine (Bát Thành)",
+     "rule": "Played as an art, each movement lays one Shao stack on every foe in hearing; a foe with eight stacks holds its arts: those that come ready in the next 2 s wait until the 2 s end. The ninth movement is not an art: while it plays, no hearer of lower realm can act against the player. Story use only.",
+     "authored": "a1"
+    }
+   ],
+   "lore": "Twenty-three pipes of pale bamboo bound in gold that has gone the colour of honey. Cơ Phượng Nghi (co_phuong_nghi) made it for Cửu Thiều Cung in 80. Ngô Thê Đồng found it in the palace ruins in 485 and told no one (C097), and gave it to Hoa Triêu Dương dying (C182). Legendary item tieu_thieu_quan; the pipes are Light, the only Light in the palace.",
+   "build_use": "Not worn in fights. A soul piece for the head's Nine Shao method; its real use is the hook.",
+   "holder": "hoa_trieu_duong",
+   "made_by": "co_phuong_nghi",
+   "made_year": 80,
+   "set": null,
+   "legendary_key": "tieu_thieu_quan",
+   "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "pm-morning-sun-fan",
+   "name": "Fan of the Morning Sun (Triêu Dương Phiến)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "phien",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 22,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 24,
+     "scope": [
+      "hoa",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Nine ribs of wutong wood and a leaf of red feathers from the vent birds of Chúc Dung Khẩu. The founder made it for his heir the year he gave her the palace, and named it for her.",
+   "build_use": "The head's offence: Fire damage and heavier plumage stacks.",
+   "holder": "hoa_trieu_duong",
+   "made_by": "ngo_the_dong",
+   "made_year": 1100,
+   "set": "pm-five-virtue",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-five-colour-robe",
+   "name": "Five-Colour Plumage Robe (Ngũ Thải Vũ Y)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 150,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "healing_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "five-marks-shine",
+     "name": "The Five Marks Shine (Ngũ Văn Hiển)",
+     "rule": "Each time you spend a full five-colour plumage, you gain a ward equal to 6 % of your health for 4 s."
+    }
+   ],
+   "lore": "Sewn from feathers the wutong's birds shed on the ridge in the palace's first twenty years, one colour for each virtue the Sơn Hải Kinh writes on the phoenix. The founder wore it to the North Star Compact (C107).",
+   "build_use": "The head's guard: health, Fire resistance, and a ward every time the plumage is spent.",
+   "holder": "hoa_trieu_duong",
+   "made_by": "ngo_the_dong",
+   "made_year": 505,
+   "set": "pm-five-virtue",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-wutong-seal",
+   "name": "Seal of the Wutong (Ngô Đồng Ấn)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "an",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 18,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 24,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Cut from a dead branch of the great wutong on the ridge in 485. Every writ the palace sent its vassals carried it until 1162. When the court moved to the Fire Court, Vu Ngô Đồng would not let it go: the founder had said the seal stays with the tree.",
+   "build_use": "Wood sustain and Wood stacks: the Wutong Court's piece.",
+   "holder": "vu_ngo_dong",
+   "made_by": "ngo_the_dong",
+   "made_year": 485,
+   "set": "pm-five-virtue",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-ash-seat-censer",
+   "name": "Censer of the Ash Seat (Niết Tọa Hương Lô)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "huong_lo",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "stack_grant",
+     "value": 1,
+     "scope": [
+      "hoa",
+      "buff"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 30,
+     "scope": [
+      "hoa",
+      "debuff"
+     ]
+    },
+    {
+     "key": "healing_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 14,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "sit-beside",
+     "name": "Sit Beside (Bàng Tọa)",
+     "rule": "A member of the holder's sect who attempts a breakthrough beside the lit censer has heart-demon odds cut by a quarter, and a failed attempt leaves no meridian scar."
+    }
+   ],
+   "lore": "A bronze censer that holds one ember from the mouth of Chúc Dung Khẩu. It has not gone out since Nhiếp Tẫn Sa lit it in 952. Every elder of the palace for two hundred years broke through with it beside them.",
+   "build_use": "The grand elder's sustain and the palace's breakthrough aid.",
+   "holder": "nhiep_tan_sa",
+   "made_by": "nhiep_tan_sa",
+   "made_year": 952,
+   "set": "pm-ash-seat",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-left-wing-fan",
+   "name": "Left Wing (Tả Dực Phiến)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "phien",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 24,
+     "scope": [
+      "hoa",
+      "debuff"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "One of a pair made in 1100 for two Dao partners of the Hall of Righteousness. Sử Hoành Dực carries the left. The right was taken from Dụ Đan Huỳnh's body at Đan Sơn Mạch in 1154 (N-phuong_minh-10).",
+   "build_use": "A war fan: Fire damage, crit, long burns.",
+   "holder": "su_hoanh_duc",
+   "made_by": "phuong_minh",
+   "made_year": 1100,
+   "set": "pm-twin-wings",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-right-wing-fan",
+   "name": "Right Wing (Hữu Dực Phiến)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "phien",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "crit_damage_pct",
+     "value": 18,
+     "scope": []
+    },
+    {
+     "key": "leech_health_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 20,
+     "scope": [
+      "hoa",
+      "debuff"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "Dụ Đan Huỳnh's fan, taken at Đan Sơn Mạch in 1154 by Thính Vũ's war elder Cố Dạ Lan (co_da_lan), who is said to keep it in the Tower as a trophy. Phượng Minh has asked for it at every truce talk since. The palace keeps another sect's sword in its own hall of spoils (bt-red-plum), and Sử Hoành Dực does not like to hear that said.",
+   "build_use": "The pair's heavy fan: crit damage and leech.",
+   "holder": "co_da_lan",
+   "where": "Thính Vũ Lâu, with Cố Dạ Lan (confirmed in the cross-sect pass; in her items)",
+   "made_by": "phuong_minh",
+   "made_year": 1100,
+   "set": "pm-twin-wings",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-nest-thread-banner",
+   "name": "Nest-Thread Banner (Sào Ti Kỳ)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "ky",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "ward_efficiency_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 18,
+     "scope": [
+      "hoa",
+      "buff"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "thread-of-the-nest",
+     "name": "Thread of the Nest (Sào Ti)",
+     "rule": "While planted inside an array the holder laid, allies within it take 10 % less Fire damage and the holder's wards last a second longer."
+    }
+   ],
+   "lore": "A small array banner hemmed with one strand of the fire-silk Tang Sơ Ti gave the Nest Array in 592. The Tang family has passed it from keeper to keeper.",
+   "build_use": "The array keeper's piece: wards and Fire stacks inside her own lines.",
+   "holder": "tang_ke_ti",
+   "made_by": "tang_so_ti",
+   "made_year": 600,
+   "set": "pm-nest-array",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-remnant-score-zither",
+   "name": "Remnant-Score Zither (Tàn Phổ Cầm)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "cam",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "x_soul",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "song"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Liên Khánh Dao's zither, on which she wrote the seven movements of the Shao Remnant Score. Its eighth string snapped the night she died in 760 and has never been restrung.",
+   "build_use": "A Hall of Rites player's piece: soul arts and long slows.",
+   "holder": "lien_thieu_nghi",
+   "made_by": "lien_khanh_dao",
+   "made_year": 620,
+   "set": "pm-seven-movements",
+   "status": "proposal",
+   "authored": "b2"
+  },
+  {
+   "id": "pm-dawn-plume-fan",
+   "name": "Dawn-Plume Fan (Hi Vũ Phiến)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "phien",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 18,
+     "scope": [
+      "hoa",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The head had it made for her chief disciple when he reached Kết Đan, a smaller copy of her own.",
+   "build_use": "Fire damage and plumage stacks, as the head's own fan.",
+   "holder": "trinh_hi_quang",
+   "made_by": "hoa_trieu_duong",
+   "made_year": 1165,
+   "set": "pm-small-morning",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-dawn-call-pipe",
+   "name": "Dawn-Call Pipe (Triêu Minh Tiêu)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "cam",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "x_soul",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "song"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 3,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [{"new": "Dawn Call (Thần Khiếu)", "concept": "A note on the pipe: a Light hit with an added Soul part of 30 % (Damage Types rule 1, the R11 exception), so it counts as a song and a soul art. Every third cast lays Exposed (all resistance −100 points, 3 s). Needs a Light variant in the root.", "id": "dawn-call", "tags": ["light", "song", "soul", "pipe"], "record": "builds/authored/auth-tech.json (e10)", "authored": "e10"}],
+   "lore": "A plain bamboo flute from Thiều Âm Thị, the one Chúc Hiểu Nghi's brother played the morning the birds fell silent (A248). He left it behind when he was sent away.",
+   "build_use": "A young player's soul piece.",
+   "holder": "chuc_hieu_nghi",
+   "made_by": "",
+   "made_year": 1190,
+   "set": "pm-dawn-call",
+   "status": "proposal",
+   "authored": "b2, e10"
+  },
+  {
+   "id": "pm-chrysanthemum-fan",
+   "name": "Chrysanthemum Fan (Cúc Phiến)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "phien",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 6,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 20,
+     "scope": [
+      "hoa",
+      "debuff"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "Painted with the yellow chrysanthemums of Cúc Viên Thôn, where the villagers hid the palace's scouts in 586 (A303). Du Diễm Ca's mother painted it.",
+   "build_use": "A duelist's fan: Fire damage and long burns.",
+   "holder": "du_diem_ca",
+   "made_by": "",
+   "made_year": 1185,
+   "set": "pm-yellow-chrysanthemum",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-vent-ash-robe",
+   "name": "Robe of the Vent Ash (Hỏa Khẩu Tro Bào)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 150,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Grey cloth that has lain for two centuries in the ash at the mouth of Chúc Dung Khẩu. Each time he rises from the ash it is a little greyer.",
+   "build_use": "The man at the vent's body: health, regeneration and Fire resistance.",
+   "holder": "nhiep_tan_sa",
+   "made_by": "nhiep_tan_sa",
+   "made_year": 952,
+   "set": "pm-ash-seat",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-siege-line-fan",
+   "name": "Fan of the Siege Line (Vi Thành Phiến)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "phien",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 30,
+     "scope": [
+      "hoa",
+      "debuff"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The fan the young Nhiếp carried on the siege line before Cô Thành in 724 (N-phuong_minh-05). He has not opened it in anger since 726, and he will not say why it has a red-ink note folded in its ribs.",
+   "build_use": "Long burns from a man who fights rarely and to the end.",
+   "holder": "nhiep_tan_sa",
+   "made_by": "lau_liet_ha",
+   "made_year": 720,
+   "set": "pm-ash-seat",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-righteous-hall-mail",
+   "name": "Mail of the Hall of Righteousness (Nghĩa Đường Giáp)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 150,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Red-lacquered scale the master of the Hall has worn on every campaign since Đan Sơn Mạch. The lacquer over the left breast is newer than the rest.",
+   "build_use": "A war leader's guard for a burst caster who stands in front.",
+   "holder": "su_hoanh_duc",
+   "made_by": "the palace's armoury",
+   "made_year": 1155,
+   "set": "pm-hall-stands",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-dan-huynh-pendant",
+   "name": "Pendant of Dụ Đan Huỳnh (Đan Huỳnh Ngọc Bội)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "crit_damage_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "pierce_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Red jade from his Dao partner's throat, the only thing of hers that came home from the pass in 1154. The fan that should go with it hangs in Thính Vũ Lâu.",
+   "build_use": "The crit damage the missing right wing used to give.",
+   "holder": "su_hoanh_duc",
+   "made_by": "du_dan_huynh",
+   "made_year": 1100,
+   "set": "pm-hall-stands",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-writ-bird-banner",
+   "name": "Banner of the Writ Birds (Truyền Thư Kỳ)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "ky",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "companion"
+     ]
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 18,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A green banner that the red-crested writ birds of the Wutong Court roost on. When it is raised, every bird in the aviary comes to it.",
+   "build_use": "His birds fight first: companion damage and Wood buff stacks.",
+   "holder": "vu_ngo_dong",
+   "made_by": "vu_ngo_dong",
+   "made_year": 1120,
+   "set": "pm-wutong-court",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-wutong-leaf-robe",
+   "name": "Robe of Wutong Leaves (Ngô Đồng Diệp Bào)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "healing_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A green robe sewn with leaves the great wutong drops each autumn, pressed and lacquered. He has worn it since the court left the ridge and he stayed.",
+   "build_use": "Wood sustain while his birds fight first.",
+   "holder": "vu_ngo_dong",
+   "made_by": "vu_ngo_dong",
+   "made_year": 1162,
+   "set": "pm-wutong-court",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-nest-lattice-seal",
+   "name": "Nest-Lattice Seal (Sào Võng Ấn)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "an",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "stack_effect_pct",
+     "value": 18,
+     "scope": [
+      "hoa",
+      "buff"
+     ]
+    },
+    {
+     "key": "ward_efficiency_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "seal"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A seal whose face is cut with the Nest Array's lattice. Pressed into the ground, it lays one cell of the array wherever she stands.",
+   "build_use": "Array laying and Fire buff stacks.",
+   "holder": "tang_ke_ti",
+   "made_by": "tang_ke_ti",
+   "made_year": 1160,
+   "set": "pm-nest-array",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-first-silk-robe",
+   "name": "Robe of the First Silk (Sơ Ti Bào)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "resist_pct",
+     "value": 150,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Fire-silk reeled at the vent before the founder's vow. The Tang family has patched it from keeper to keeper, and it is older than anything else she owns.",
+   "build_use": "Fights from inside her own fire: resistance and a guard.",
+   "holder": "tang_ke_ti",
+   "made_by": "tang_so_ti",
+   "made_year": 592,
+   "set": "pm-nest-array",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-rites-drum",
+   "name": "Drum of the Hall of Rites (Lễ Đường Cổ)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "co",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "x_soul",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": [
+      "song"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "The funeral drum of the Wutong Court, beaten at every rite the Hall has held since the founder's. It keeps the score's measure when the zither cannot.",
+   "build_use": "The score's beat: soul damage and longer slows.",
+   "holder": "lien_thieu_nghi",
+   "made_by": "lien_khanh_dao",
+   "made_year": 750,
+   "set": "pm-seven-movements",
+   "status": "proposal",
+   "authored": "b2"
+  },
+  {
+   "id": "pm-score-archive-robe",
+   "name": "Robe of the Score Archive (Phổ Tàng Bào)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "soul_res_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Black silk embroidered with the notation of all seven movements. The eighth line is left bare.",
+   "build_use": "Steadies her side: soul resistance and linh lực.",
+   "holder": "lien_thieu_nghi",
+   "made_by": "lien_thieu_nghi",
+   "made_year": 1140,
+   "set": "pm-seven-movements",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-virtue-hall-robe",
+   "name": "Robe of the Hall of Virtue (Đức Điện Bào)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "healing_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 15,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Red robe of the Hall of Virtue, cut to the pattern of the Five-Colour Plumage Robe but in one colour only. The head says he may add a colour for each virtue he shows.",
+   "build_use": "The long fight he expects to win: health, healing and resistance.",
+   "holder": "trinh_hi_quang",
+   "made_by": "hoa_trieu_duong",
+   "made_year": 1180,
+   "set": "pm-small-morning",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-dawn-jade",
+   "name": "Dawn Jade (Hi Quang Ngọc Bội)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "hoa",
+      "buff"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A disc of red jade from Triêu Hà Hồ that the healer Mai Lễ Tuyền gave the head as a girl. The head gave it to her chief disciple on the day he took the Hall of Virtue.",
+   "build_use": "Plumage stacks and linh lực for a careful caster.",
+   "holder": "trinh_hi_quang",
+   "made_by": "mai_le_tuyen",
+   "made_year": 960,
+   "set": "pm-small-morning",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-morning-light-robe",
+   "name": "Robe of the Morning Light (Thần Quang Bào)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 100,
+     "scope": [
+      "fire"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "A pale-gold robe the head gave her youngest disciple when the girl's Light first showed. It glows faintly at dawn, which embarrasses her.",
+   "build_use": "A young player's guard and linh lực.",
+   "holder": "chuc_hieu_nghi",
+   "made_by": "hoa_trieu_duong",
+   "made_year": 1195,
+   "set": "pm-dawn-call",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-cuc-vien-leather",
+   "name": "Leather of Cúc Viên (Cúc Viên Giáp)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 100,
+     "scope": [
+      "fire"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "A duelist's leather jerkin from Cúc Viên Thôn, stitched with a yellow chrysanthemum over the heart by the same hand that painted the fan.",
+   "build_use": "A duelist's footing: guard and evasion.",
+   "holder": "du_diem_ca",
+   "made_by": "his mother, a painter of Cúc Viên Thôn",
+   "made_year": 1185,
+   "set": "pm-yellow-chrysanthemum",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-tower-rain-chain-sword",
+   "name": "Tower Sword of the Rain-Chain (Vũ Liên Lâu Kiếm)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "kim"
+     ]
+    },
+    {
+     "key": "attack_pct",
+     "value": 10,
+     "scope": [
+      "loi"
+     ]
+    },
+    {
+     "key": "resist_pct",
+     "value": 150,
+     "scope": [
+      "lightning"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "The sword the Listening Rain Tower gave him at his inner-gate rite. He left the Tower but not its sword, and still cleans it the Tower's way.",
+   "build_use": "The Tower's Metal-then-Thunder cut, kept by a guest of the palace.",
+   "holder": "chu_tri_am",
+   "made_by": "thinh_vu",
+   "made_year": null,
+   "set": null,
+   "status": "proposal",
+   "authored": "b6"
+  },
+  {
+   "id": "pm-wutong-twig-ring",
+   "name": "Wutong Twig Ring (Ngô Đồng Chi Hoàn)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "nhan",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 12,
+     "scope": [
+      "companion"
+     ]
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "birds-bring-the-fire",
+     "name": "The Birds Bring the Fire (Điểu Đái Hỏa)",
+     "rule": "Each hit your bird companions land gives you one Fire buff stack for 4 s."
+    }
+   ],
+   "lore": "A ring bent from a wutong twig of the court's roost, given to the girl who feeds the writ birds.",
+   "build_use": "Her birds fight; their hits warm her Fire arts.",
+   "holder": "an_thuy_vu",
+   "made_by": "vu_ngo_dong",
+   "made_year": null,
+   "set": null,
+   "status": "proposal",
+   "authored": "d36"
+  }
+ ],
+ "sets": [
+  {
+   "id": "pm-five-virtue",
+   "name": "Five-Virtue Regalia (Ngũ Đức Nghi)",
+   "pieces": [
+    "pm-morning-sun-fan",
+    "pm-five-colour-robe",
+    "pm-wutong-seal"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "linh_luc_pct",
+       "value": 8,
+       "scope": []
+      },
+      {
+       "key": "attack_pct",
+       "value": 8,
+       "scope": [
+        "fire"
+       ]
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "The Phoenix Comes with Stately Grace (Phượng Hoàng Lai Nghi): while you hold all three, each full five-colour plumage you spend heals every ally in the fight for 5 % of their health, and the next plumage starts with two colours."
+    }
+   ],
+   "story": "The founder made the robe in 505 and the seal in 485, and in 1100 the fan to go with them. The fan and robe went to the Fire Court with the head in 1162 (N-phuong_minh-12); the seal stayed on the ridge with Vu Ngô Đồng, because the founder said it stays with the tree. The Regalia is whole only if the head takes the seal from the Wutong Court, which the ridge would call a theft, or goes back up the ridge to wear it."
+  },
+  {
+   "id": "pm-twin-wings",
+   "name": "Twin Wings (Song Dực Phiến)",
+   "pieces": [
+    "pm-left-wing-fan",
+    "pm-right-wing-fan"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "crit_chance_pct",
+       "value": 6,
+       "scope": []
+      },
+      {
+       "key": "attack_pct",
+       "value": 8,
+       "scope": [
+        "fire"
+       ]
+      }
+     ],
+     "effect": "Two Wings Beat (Song Dực Phấn): fan arts alternate wings; every third fan art throws its feathers twice."
+    }
+   ],
+   "story": "Made for Sử Hoành Dực and Dụ Đan Huỳnh in 1100; parted at Đan Sơn Mạch in 1154."
+  },
+  {
+   "id": "pm-ash-seat",
+   "name": "The Ash Seat (Tro Tọa Tam Bảo)",
+   "pieces": [
+    "pm-ash-seat-censer",
+    "pm-vent-ash-robe",
+    "pm-siege-line-fan"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "health_regen_inc_pct",
+       "value": 15,
+       "scope": []
+      },
+      {
+       "key": "stack_duration_pct",
+       "value": 15,
+       "scope": [
+        "hoa",
+        "debuff"
+       ]
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "The Censer Remembers (Lô Ức): each second a foe burns under your Fire, the censer banks 0.5 % of your health, and the bank leaks 2 % of itself each second you deal no Fire. When you rise from the ash, the bank returns as a ward. With no rebirth left, you may spend the bank once a fight as a heal when you fall below a quarter of your health."
+    }
+   ],
+   "story": "The fan from the siege of 724, the censer lit in 952 and the robe that has lain in the vent's ash since. The grand elder has held all three for two hundred years, and the palace's breakthroughs happen beside them.",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-hall-stands",
+   "name": "The Hall Stands (Nghĩa Đường Song Bảo)",
+   "pieces": [
+    "pm-righteous-hall-mail",
+    "pm-dan-huynh-pendant"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "crit_chance_pct",
+       "value": 4,
+       "scope": []
+      },
+      {
+       "key": "attack_pct",
+       "value": 8,
+       "scope": [
+        "fire"
+       ]
+      }
+     ],
+     "effect": "Burning Feathers (Hỏa Vũ): each fan crit lays one more Burn batch. Against a foe who carries ten or more of your Burn batches, your Fire crit chance rises by 10 %."
+    }
+   ],
+   "story": "What Sử Hoành Dực carries in place of the fan that was taken: the mail he had made after the pass and her pendant. He wears them beside the left wing, and the Twin Wings stay parted until the Tower gives the right one back.",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-wutong-court",
+   "name": "The Wutong Court (Ngô Đồng Đình)",
+   "pieces": [
+    "pm-writ-bird-banner",
+    "pm-wutong-leaf-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "attack_pct",
+       "value": 10,
+       "scope": [
+        "companion"
+       ]
+      },
+      {
+       "key": "health_regen_inc_pct",
+       "value": 12,
+       "scope": []
+      }
+     ],
+     "effect": "The Birds Fight First (Điểu Tiên): each hit your companion birds land lays one Wood buff stack on you. Your fan arts spend them all, for 6 % more damage each."
+    }
+   ],
+   "story": "The first elder made both for the ridge after the court left it in 1162. They are the Wutong Court's, not the palace's, and he fights in them with the Ashen Phoenix fan. The Seal of the Wutong belongs to the Five-Virtue Regalia; it stays on the tree's altar at the Court, not on his belt.",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-nest-array",
+   "name": "The Nest Array (Sào Trận Tam Bảo)",
+   "pieces": [
+    "pm-nest-thread-banner",
+    "pm-nest-lattice-seal",
+    "pm-first-silk-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "ward_efficiency_pct",
+       "value": 4,
+       "scope": []
+      },
+      {
+       "key": "linh_luc_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Fire Down the Thread (Hỏa Hành Ti): while you stand inside an array you laid, each Fire buff stack you gain also lays a ward thread on you worth 2 % of your health, and each new thread costs 1 % of your linh lực. A hit that breaks a thread deals its value back to the striker as Fire damage."
+    }
+   ],
+   "story": "The Tang family's keeping since 592: the robe, the banner hemmed with the founder's strand, and the seal Tang Kế Ti cut herself. The set passes with the Nest Array, not with the family, though it has never yet left the family.",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-seven-movements",
+   "name": "The Seven Movements (Thất Chương)",
+   "pieces": [
+    "pm-remnant-score-zither",
+    "pm-rites-drum",
+    "pm-score-archive-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "x_soul",
+       "value": 4,
+       "scope": []
+      },
+      {
+       "key": "status_duration_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Never the Eighth (Bất Tấu Đệ Bát): each movement of the Remnant Score you play lays one Slowed Time stack. When you play the seventh in a fight, the foe takes 5 Slowed Time stacks, and the score begins again from the first with your soul arts 20 % faster. There is no eighth."
+    }
+   ],
+   "story": "The zither of 760, the drum it was played with and the robe that holds the score. Liên Thiều Nghi holds all three at the Wutong Court. The eighth string has never been restrung, and the set's rule is that it never will be.",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-small-morning",
+   "name": "The Small Morning (Tiểu Triêu Tam Bảo)",
+   "pieces": [
+    "pm-dawn-plume-fan",
+    "pm-virtue-hall-robe",
+    "pm-dawn-jade"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "linh_luc_pct",
+       "value": 6,
+       "scope": []
+      },
+      {
+       "key": "healing_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "A Copy in Small (Tiểu Nghi): each full plumage you spend gives you a ward worth 4 % of your health. While that ward holds, your plumage stacks build 25 % faster."
+    }
+   ],
+   "story": "The head gave all three to her chief disciple, a smaller copy of her own Five-Virtue Regalia. The palace reads it as a promise of succession, and so does he.",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-dawn-call",
+   "name": "The Morning the Birds Fell Silent (Điểu Tịch Chi Triêu)",
+   "pieces": [
+    "pm-dawn-call-pipe",
+    "pm-morning-light-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "x_soul",
+       "value": 3,
+       "scope": []
+      },
+      {
+       "key": "linh_luc_pct",
+       "value": 4,
+       "scope": []
+      }
+     ],
+     "effect": "Light on the Pipe (Quản Thượng Quang): every fifth soul art you play on the pipe also lays Exposed on the foe."
+    }
+   ],
+   "story": "Her brother's flute and the head's robe: what she was left, and what she was given. She wears both. Only Light can open the set, and she is the only Light in the palace.",
+   "status": "proposal"
+  },
+  {
+   "id": "pm-yellow-chrysanthemum",
+   "name": "Yellow Chrysanthemums (Hoàng Cúc)",
+   "pieces": [
+    "pm-chrysanthemum-fan",
+    "pm-cuc-vien-leather"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "art_speed_pct",
+       "value": 5,
+       "scope": [
+        "fire"
+       ]
+      },
+      {
+       "key": "evade_pct",
+       "value": 3,
+       "scope": []
+      }
+     ],
+     "effect": "Petal Feint (Hoa Hư): after you evade a hit, your next fan art fires 30 % faster and its Burns last 2 s longer."
+    }
+   ],
+   "story": "His mother painted the fan and stitched the jerkin, both for the day he went up to the palace. He wears both to every duel.",
+   "status": "proposal"
+  }
+ ]
+}

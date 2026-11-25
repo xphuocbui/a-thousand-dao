@@ -1,0 +1,1270 @@
+{
+ "sect": "hong_lo",
+ "people": [
+  {
+   "key": "dong_hong_lo",
+   "name_hv": "Đồng Hồng Lô",
+   "name_han": "童紅爐",
+   "gloss": "The red furnace",
+   "sex": "M",
+   "born": 760,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "hong_lo",
+   "rank": "tong_chu",
+   "home": 9,
+   "birthplace": 9,
+   "role": "Head of Hồng Lô Cốc since 930 (A028); the furnace that is said never to cool",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "hoa": 84,
+     "moc": 58
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 64,
+    "than_hon": 72,
+    "khi_van": 62,
+    "dao_tam": 72,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Diligent",
+     "Stubborn"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "fire_tempered"
+    ],
+    "lifestyle": "teacher_at_heart",
+    "health": "fire_poison",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A short, broad old man with a burn-glazed face and no eyebrows, who carries a bronze censer on his belt and warms his hands on it while he talks.",
+   "backstory": "Đồng Hồng Lô was born in the valley in 760 to two of the founder's furnace-men, Fire-Wood alchemists who had followed Tiết Thừa Hỏa (tiet_thua_hoa) out of Thúy Vi. He was carrying coal in the kitchens at six. Tiết took him as her disciple at twelve because he would sit by a fire all night and not sleep. In 902 the Cold Ford War was fought along the coast to the east, and the furnace brewed its wound pills for no fee (N-hong_lo-02). In the winter of 929 the founder went down into the vent below Kê Quan Khoáng to bring up fire, and she did not come up (N-hong_lo-03). He became master in 930 and kept the furnace burning for nine years without letting it cool (A028). To do it he ran snow-melt through copper jackets around the furnace, which is where the valley's water half began. The habit became the Water Over Fire Canon, and it brews two batches in a season where Thúy Vi brews one. His best student was Viên Chước (vien_chuoc), who went to Băng Tâm in 1150. He still mentions it. In 1151 he opened the gate to Water roots (N-hong_lo-04). In 1185 the isles smoked, and at 425 he sailed out with the boats to gather the ash before the rain did (A031). He has about sixty years left.",
+   "wants": "To form his Nascent Soul over the Red Furnace before his years run out, as Úy Thanh Diễm did over the green one, and to name an heir only after that.",
+   "secret": "In 1150 Viên Chước lost the sect's whole year of ash money at the gaming tables of Hàn Tân Thành. Đồng sold the boy's contract to Băng Tâm's head, Sở Ngọc Hồ, to cover it, and he has told the cape ever since that Băng Tâm stole his best student. That night, for the first time in 220 years, the ember on his belt went out. Phòng Tẫn Thủ relit it before dawn.",
+   "ties": [
+    {
+     "to": "tiet_thua_hoa",
+     "kind": "master",
+     "note": "the founder; took him from the kitchens at twelve"
+    },
+    {
+     "to": "vien_chuoc",
+     "kind": "former_disciple",
+     "note": "his best student, gone to Băng Tâm in 1150; he still mentions it"
+    },
+    {
+     "to": "tan_tuyet_than",
+     "kind": "former_disciple",
+     "note": "his first elder; she wrote down the canon he started"
+    },
+    {
+     "to": "nguy_dan_chu",
+     "kind": "disciple",
+     "note": "his true disciple since 1151"
+    },
+    {
+     "to": "phong_tan_thu",
+     "kind": "disciple",
+     "note": "the vent warden, who relit the ember"
+    },
+    {
+     "to": "uy_thanh_diem",
+     "kind": "friend",
+     "note": "Thúy Vi's Furnace Master; they trade volcano ash for spirit wood and argue about fire"
+    },
+    {
+     "to": "lo_da_huong",
+     "kind": "friend",
+     "note": "he overpays for her marten pups, because she is the one Thúy Vi elder who has never called his pills harsh"
+    },
+    {
+     "to": "so_ngoc_ho",
+     "kind": "rival",
+     "note": "Băng Tâm's head, who bought Viên's contract; Đồng calls it theft in public"
+    },
+    {
+     "to": "ke_chu_sa",
+     "kind": "rival",
+     "note": "Phượng Minh's palace alchemist, who resents his volcano and his sales to Băng Tâm"
+    }
+   ],
+   "master": "tiet_thua_hoa",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "water-over-fire-canon",
+      "layer": 10
+     }
+    ],
+    "gear": [
+     {
+      "named": "hlo-nine-year-ember"
+     },
+     {
+      "named": "hlo-coal-carrier-ring"
+     },
+     {
+      "named": "fire-furnace-mouth-gourd"
+     }
+    ],
+    "skills": {
+     "dan_dao": 9,
+     "luyen_khi": 3
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire land toward Burn duration and the furnace heart, with a short reach into linh lực regeneration for long brews.",
+     "targets": [
+      2297,
+      2382,
+      2349,
+      2312,
+      2978,
+      2739
+     ],
+     "targets_note": "The valley's Furnace Heart and Pill Cauldron, Nine Turns and Divided Furnace Flame for two recipes a season, the Alchemist's Heart capability, then Volcano's linh lực and Fire damage for a fight he lets burn."
+    },
+    "note": "The furnace that never cools: two recipes in one season over volcanic fire. In a fight he piles Burn and lets it wait."
+   },
+   "items": [
+    "hlo-nine-year-ember",
+    "fire-furnace-mouth-gourd",
+    "hlo-coal-carrier-ring"
+   ],
+   "changed": "build revised: aux water-over-fire-canon added; gear: hlo-nine-year-ember replaces the plain grade 3 censer; tree targets replaced by an intent. Birthplace 9 added. Hồng Lô Cốc re-leans Fire/Wood -> Fire/Water (R4); his Fire passes the core rule, and his Wood is his parents' Thúy Vi blood."
+  },
+  {
+   "key": "tan_tuyet_than",
+   "name_hv": "Tần Tuyết Thán",
+   "name_han": "秦雪炭",
+   "gloss": "Charcoal in the snow (help that comes when it is needed)",
+   "sex": "F",
+   "born": 985,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "hong_lo",
+   "rank": "truong_lao",
+   "home": 9,
+   "birthplace": 9,
+   "role": "First elder; keeper of the snow jackets and author of the Snow Hearth Primer",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "hoa": 62,
+     "thuy": 60
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 76,
+    "can_cot": 58,
+    "than_hon": 66,
+    "khi_van": 50,
+    "dao_tam": 70,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Ambitious",
+     "Just"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     },
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "perfect_foundation"
+    ],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A tall woman in a seal-skin coat over red felt, with frost on her sleeves and soot on her hands, who never raises her voice in the furnace hall.",
+   "backstory": "Tần Tuyết Thán was born in the valley in 985. Her father fed the furnace, and her mother was a daughter of Nghiêu Phá Lãng (nghieu_pha_lang), the whale hunter who went out on the whale road in 884 and did not come back (V013). She was born with Fire and Water in almost equal measure. The founder's primer taught Fire roots only, so half her root went to waste. Đồng Hồng Lô (dong_hong_lo) took her as his disciple at fourteen and set her to the snow jackets, the copper sleeves of melt that keep the furnace from boiling over. She was the first to understand why they worked. She wrote down the last three layers of the Water Over Fire Canon, formed her core in 1120, and became first elder in 1140. In 1151 Đồng opened the gate to Water roots, and she wrote the Snow Hearth Primer for it in one winter (N-hong_lo-04). Since then the whale crews' children have come in through the kitchens, and the crews call her their elder. She keeps the sect's books and the ash ledger. Every morning she pours her gourd into the jackets herself.",
+   "wants": "To be named heir, and to see a Water root walk through the furnace hall's door as an inner disciple before she dies, which the rule forbids.",
+   "secret": "The ash ledger for 1150 shows a payment from Băng Tâm the week Viên Chước left. She knows the head sold the contract, and she has told no one. She is keeping it for the day he names his heir.",
+   "ties": [
+    {
+     "to": "dong_hong_lo",
+     "kind": "former_master",
+     "note": "his disciple until she formed her core in 1120"
+    },
+    {
+     "to": "nghieu_pha_lang",
+     "kind": "grandparent",
+     "note": "her mother's father, lost on the whale road"
+    },
+    {
+     "to": "nghieu_vong_kinh",
+     "kind": "cousin",
+     "note": "the boat captain, her mother's brother's grandson; her ally in the hall"
+    },
+    {
+     "to": "nguy_dan_chu",
+     "kind": "rival",
+     "note": "he thinks the snow weakens the furnace and says so at council"
+    },
+    {
+     "to": "on_noan_tuyet",
+     "kind": "disciple",
+     "note": "her one inner disciple"
+    },
+    {
+     "to": "vien_chuoc",
+     "kind": "rival",
+     "note": "they were Đồng's two best students; she has never forgiven the gambling"
+    },
+    {
+     "to": "lai_tieu_than",
+     "kind": "friend",
+     "note": "the outer boy she lets watch the pour"
+    },
+    {
+     "to": "luong_hoa_tuyen",
+     "kind": "disciple",
+     "note": "packs the snow jackets and keeps the two-batch timings under Tần Tuyết Thán"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "water-over-fire-canon",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "named": "hlo-snow-melt-gourd"
+     },
+     {
+      "named": "hlo-first-snow-jacket"
+     },
+     {
+      "named": "hlo-steam-censer"
+     }
+    ],
+    "skills": {
+     "dan_dao": 8,
+     "tran_phap": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water land toward healing and status resistance, crossing into Fire for the steam arts of the canon.",
+     "targets": [
+      2297,
+      2382,
+      5351,
+      6118,
+      6125,
+      2457,
+      2417
+     ],
+     "targets_note": "Timely Rain healing, Evergreen status resistance, then Fire Poison and Clinging Embers for the Burn her steam arts spend."
+    },
+    "note": "Fire and Water in balance: steam bursts from her own Burn, and pills that act a second early."
+   },
+   "items": [
+    "hlo-snow-melt-gourd",
+    "hlo-first-snow-jacket",
+    "hlo-steam-censer"
+   ]
+  },
+  {
+   "key": "nguy_dan_chu",
+   "name_hv": "Ngụy Đan Chu",
+   "name_han": "魏丹朱",
+   "gloss": "Cinnabar red",
+   "sex": "M",
+   "born": 1118,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "hong_lo",
+   "rank": "chan_truyen",
+   "home": 9,
+   "birthplace": 9,
+   "role": "The head's true disciple; the old Red Sun way",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "hoa": 72,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 60,
+    "than_hon": 58,
+    "khi_van": 54,
+    "dao_tam": 48,
+    "mi_luc": 56
+   },
+   "traits": {
+    "personality": [
+     "Impatient",
+     "Ambitious",
+     "Brave"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "fire_tempered"
+    ],
+    "lifestyle": "duel_seeker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A lean young man with scorched forearms and a cinnabar-red robe he dyes himself, too bright for the valley.",
+   "backstory": "A cook's son born in the kitchens, Ngụy Đan Chu tended Viên Chước's (vien_chuoc) furnace from the age of eight and learned more from him than from anyone. When Viên went to Băng Tâm in 1150, Đồng Hồng Lô (dong_hong_lo) took the boy as his true disciple. He means to be what Viên would have been. He thinks the snow jackets have made the Red Furnace timid, and he says so at council. He is the only disciple who still brews the old one-batch way.",
+   "ties": [
+    {
+     "to": "dong_hong_lo",
+     "kind": "master",
+     "note": "his master since 1151"
+    },
+    {
+     "to": "vien_chuoc",
+     "kind": "former_master",
+     "note": "his first teacher, in the kitchens; they still write"
+    },
+    {
+     "to": "tan_tuyet_than",
+     "kind": "rival",
+     "note": "the snow against the fire, at every council"
+    },
+    {
+     "to": "hac_tan_dang",
+     "kind": "rival",
+     "note": "the hermit who wants the cape's old fire as much as he does"
+    },
+    {
+     "to": "on_noan_tuyet",
+     "kind": "rival",
+     "note": "the inner girl who brews two batches to his one"
+    },
+    {
+     "to": "khong_viem_sinh",
+     "kind": "disciple",
+     "note": "Ngụy Đan Chu's disciple; copies the furnace roster"
+    },
+    {
+     "to": "luong_hoa_tuyen",
+     "kind": "rival",
+     "note": "packs the snow jackets and keeps the two-batch timings under Tần Tuyết Thán"
+    }
+   ],
+   "master": "dong_hong_lo",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "dan_dao": 6
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Pure Fire toward raw damage and Burn stacks; he has no interest in the Water half.",
+     "targets": [
+      2297,
+      2382,
+      2201,
+      2203,
+      2457
+     ],
+     "targets_note": "The Sun Disc idea's raw Fire damage and penetration, then Fire Poison for Burn stacks: the Red Sun's four forms, the Water half ignored."
+    },
+    "note": "The Red Sun's four forms in quick succession, and nothing held back."
+   }
+  },
+  {
+   "key": "giai_bach_bo",
+   "name_hv": "Giải Bách Bộ",
+   "name_han": "解百部",
+   "gloss": "Stemona, the cough root",
+   "sex": "F",
+   "born": 1062,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "hong_lo",
+   "rank": "chap_su",
+   "home": 9,
+   "birthplace": 1068,
+   "role": "Keeper of the Satchel Hall: Thanh Nang Đường's healers inside Hồng Lô",
+   "tier": "B",
+   "exception": "R2: admitted for a craft the sect hires (healing and herb-finding); a Wood root keeping Thanh Nang Đường's own method, never taught the lineage",
+   "root": {
+    "elements": {
+     "moc": 60,
+     "thuy": 38
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 50,
+    "than_hon": 60,
+    "khi_van": 46,
+    "dao_tam": 66,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Stubborn",
+     "Cautious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A small grey woman with a green satchel across her chest, the only green thing in the valley.",
+   "backstory": "Giải Bách Bộ was thirty-nine and the senior healer of Thanh Nang Đường when its last head, Thai Bạch Thược (thai_bach_thuoc), died in closed-door cultivation without naming an heir (V018). She led twenty-two healers north to Hồng Lô with their satchels. One of them, Dư Tục Đoạn (du_tuc_doan), twenty-one, walked the other way to Thúy Vi with a six-year-old. She runs the Satchel Hall, where herbs are brewed over spirit wood rather than the vent. She buys Lô Dã Hương's marten pups to find the herbs the tundra will not grow.",
+   "ties": [
+    {
+     "to": "thai_bach_thuoc",
+     "kind": "master",
+     "note": "the last head of Thanh Nang Đường, dead in seclusion"
+    },
+    {
+     "to": "du_tuc_doan",
+     "kind": "friend",
+     "note": "the boy who walked the other way in 1101; they meet at Lam Yên Thị on the Green Door Day"
+    },
+    {
+     "to": "lo_da_huong",
+     "kind": "debt",
+     "note": "the martens; Đồng pays, but Giải asks"
+    },
+    {
+     "to": "cuc_xa_tien",
+     "kind": "disciple",
+     "note": "the healers' child she is teaching"
+    }
+   ],
+   "master": "thai_bach_thuoc",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "huyen_moc",
+     "layer": 8
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 6,
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing and poison resistance.",
+     "targets": [
+      6093,
+      6169,
+      6170,
+      6357
+     ],
+     "targets_note": "Outside method, no lineage route: Weeping Willow and Spirit Berries healing, Pine Bark and Pine Needle Tea poison resistance."
+    },
+    "note": "Outside method (R5): Thanh Nang Đường's healing method (generated stand-in huyen_moc), kept since 1101."
+   }
+  },
+  {
+   "key": "nghieu_vong_kinh",
+   "name_hv": "Nghiêu Vọng Kình",
+   "name_han": "堯望鯨",
+   "gloss": "Watches for the whale",
+   "sex": "M",
+   "born": 1078,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "hong_lo",
+   "rank": "ngoai_mon",
+   "home": 9,
+   "birthplace": 1030,
+   "role": "Captain of the ash boats; an outer disciple for a hundred years",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 64,
+     "hoa": 32
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 52,
+    "can_cot": 72,
+    "than_hon": 50,
+    "khi_van": 58,
+    "dao_tam": 56,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Vengeful",
+     "Gregarious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": "vengeance_vow",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A huge man in oiled seal-skin with a harpoon of whale rib across his back and salt in his beard.",
+   "backstory": "Great-grandson of Nghiêu Phá Lãng (nghieu_pha_lang), born among the crews' families at Bồ Diệp Thôn. His Fire is too thin for the furnace hall, so he has been an outer disciple for a hundred years and captain of the boats for sixty. In 1185, when the isles smoked for a month, he took the alchemists out to gather the ash before the rain (A031). He has sworn to find the spirit whale that took his great-grandfather. Since 1151 he has taught the harpoon inside the gate.",
+   "ties": [
+    {
+     "to": "nghieu_pha_lang",
+     "kind": "ancestor",
+     "note": "his great-grandfather, lost on the whale road"
+    },
+    {
+     "to": "tan_tuyet_than",
+     "kind": "cousin",
+     "note": "the first elder, his kin through the crews"
+    },
+    {
+     "to": "nghieu_lang_hoa",
+     "kind": "child",
+     "note": "his daughter, who rows his second boat"
+    },
+    {
+     "to": "nghieu_lang_hoa",
+     "kind": "disciple",
+     "note": "he teaches her the harpoon"
+    },
+    {
+     "to": "te_luc_tien",
+     "kind": "disciple",
+     "note": "ash-boat oarsman who still plays dice in Hàn Tân Thành"
+    },
+    {
+     "to": "cao_hai_mac",
+     "kind": "friend",
+     "note": "captain of the fire-jade boat; an outer disciple for eighty years"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "snow-hearth-primer",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "whale-road-harpoon",
+      "layer": 7
+     }
+    ],
+    "gear": [
+     {
+      "named": "hlo-whale-road-spear"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water toward health, slows and holding a foe in place.",
+     "targets": [
+      2297,
+      2382,
+      5226,
+      5065
+     ],
+     "targets_note": "The valley's furnace route, then Snowdrift health and Water Shackles to hold the foe on the line."
+    },
+    "note": "The line on the whale: hold, drag, strike."
+   },
+   "items": [
+    "hlo-whale-road-spear"
+   ]
+  },
+  {
+   "key": "phong_tan_thu",
+   "name_hv": "Phòng Tẫn Thủ",
+   "name_han": "房燼守",
+   "gloss": "Keeper of embers",
+   "sex": "M",
+   "born": 1035,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "hong_lo",
+   "rank": "chap_su",
+   "home": 9,
+   "birthplace": 9,
+   "role": "Vent warden; keeps the furnace roster and the night watch",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 60,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Patient",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "sect_raised",
+    "path": [],
+    "lifestyle": "tea_master"
+   },
+   "backstory": "He has kept the night watch on the Red Furnace for a hundred and fifty years, and in 1150 he relit the ember on Đồng Hồng Lô's (dong_hong_lo) belt before dawn without asking why it had gone out.",
+   "ties": [
+    {
+     "to": "dong_hong_lo",
+     "kind": "master",
+     "note": "he keeps the head's secret without knowing it"
+    },
+    {
+     "to": "duong_bat_oan",
+     "kind": "friend",
+     "note": "tea at the furnace mouth every midnight"
+    },
+    {
+     "to": "khong_viem_sinh",
+     "kind": "friend",
+     "note": "Ngụy Đan Chu's disciple; copies the furnace roster"
+    }
+   ],
+   "master": "dong_hong_lo",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 8
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "dan_dao": 4
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire for tending the vent."
+    },
+    "note": "The night watch."
+   }
+  },
+  {
+   "key": "duong_bat_oan",
+   "name_hv": "Dương Bát Oản",
+   "name_han": "楊八碗",
+   "gloss": "Eight bowls",
+   "sex": "M",
+   "born": 1122,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "hong_lo",
+   "rank": "tap_dich",
+   "home": 9,
+   "birthplace": 9,
+   "role": "Head cook of the kitchens, the valley's first furnace",
+   "tier": "C",
+   "exception": "tap_dich: kitchen servant; thin Fire root, not taught the lineage",
+   "root": {
+    "elements": {
+     "hoa": 38,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Generous",
+     "Content"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "He let Viên Chước buy his son Dương Lô (duong_lo) out of the kitchens in 1188, because the boy would never leave them otherwise, and has had one letter from Băng Tâm since.",
+   "ties": [
+    {
+     "to": "duong_lo",
+     "kind": "child",
+     "note": "his son, now Viên's apprentice at Hàn Giao Chử"
+    },
+    {
+     "to": "vien_chuoc",
+     "kind": "creditor",
+     "note": "Viên promised a letter each winter and has sent one"
+    },
+    {
+     "to": "phong_tan_thu",
+     "kind": "friend",
+     "note": "the vent warden; tea at the furnace mouth every midnight"
+    },
+    {
+     "to": "duong_thang_nhi",
+     "kind": "child",
+     "note": "his daughter; the head cook's daughter; keeps the broth pot at the furnace mouth"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_hoa",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Kitchen fire."
+    },
+    "note": "Eight bowls of whale broth a day for every furnace-man."
+   }
+  },
+  {
+   "key": "nghieu_lang_hoa",
+   "name_hv": "Nghiêu Lãng Hoa",
+   "name_han": "堯浪花",
+   "gloss": "Spray of the wave",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "hong_lo",
+   "rank": "ngoai_mon",
+   "home": 9,
+   "birthplace": 1030,
+   "role": "Rows the second ash boat",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Ambitious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Nghiêu Vọng Kình's (nghieu_vong_kinh) daughter, who wants to sail past the smoking isles to the fire-jade island whose chart Thúy Vi has kept sealed since 565 (A022).",
+   "ties": [
+    {
+     "to": "nghieu_vong_kinh",
+     "kind": "master",
+     "note": "teaches her the harpoon"
+    },
+    {
+     "to": "nghieu_vong_kinh",
+     "kind": "parent",
+     "note": "her father"
+    },
+    {
+     "to": "lai_tieu_than",
+     "kind": "friend",
+     "note": "he shovels snow, she rows; both outside the furnace door"
+    },
+    {
+     "to": "nhan_doi_nhi",
+     "kind": "friend",
+     "note": "rower on the fire-jade boat"
+    }
+   ],
+   "master": "nghieu_vong_kinh",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "snow-hearth-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water: the line and the oar."
+    },
+    "note": "Wants the sealed chart."
+   }
+  },
+  {
+   "key": "lai_tieu_than",
+   "name_hv": "Lại Tiểu Thán",
+   "name_han": "賴小炭",
+   "gloss": "Little charcoal",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "hong_lo",
+   "rank": "ngoai_mon",
+   "home": 9,
+   "birthplace": 1030,
+   "role": "Newest outer disciple; shovels snow into the jackets",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 28,
+     "hoa": 12
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Trusting"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A fisher's boy from Bồ Diệp Thôn who came in through the kitchens in 1200 and shovels snow into Tần Tuyết Thán's (tan_tuyet_than) jackets, hoping his Fire will grow if he stands near enough to it.",
+   "ties": [
+    {
+     "to": "tan_tuyet_than",
+     "kind": "friend",
+     "note": "she lets him watch the pour"
+    },
+    {
+     "to": "nghieu_lang_hoa",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "snow-hearth-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "dan_dao": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Wants Fire."
+   }
+  },
+  {
+   "key": "on_noan_tuyet",
+   "name_hv": "Ôn Noãn Tuyết",
+   "name_han": "溫暖雪",
+   "gloss": "Warm snow",
+   "sex": "F",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "hong_lo",
+   "rank": "noi_mon",
+   "home": 9,
+   "birthplace": 9,
+   "role": "Tần Tuyết Thán's inner disciple; brews the two-batch pills",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 56,
+     "thuy": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Diligent",
+     "Loyal"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "sect_raised",
+    "path": [
+     "pill_fed"
+    ]
+   },
+   "backstory": "Valley-born with her master's balance of fire and water; she has brewed two batches a season since she was twenty and has not spoiled one, which Ngụy Đan Chu (nguy_dan_chu) cannot say.",
+   "ties": [
+    {
+     "to": "tan_tuyet_than",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nguy_dan_chu",
+     "kind": "rival",
+     "note": "his one batch against her two"
+    },
+    {
+     "to": "be_diem_suong",
+     "kind": "friend",
+     "note": "brews the one-season pills under Lương Hỏa Tuyền"
+    }
+   ],
+   "master": "tan_tuyet_than",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "dan_dao": 4
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire with a Water reach, as her master."
+    },
+    "note": "Never spoiled a batch."
+   }
+  },
+  {
+   "key": "cuc_xa_tien",
+   "name_hv": "Cúc Xa Tiền",
+   "name_han": "鞠車前",
+   "gloss": "Plantain, the herb of the cart tracks",
+   "sex": "M",
+   "born": 1168,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "hong_lo",
+   "rank": "ngoai_mon",
+   "home": 9,
+   "birthplace": 1044,
+   "role": "Apprentice of the Satchel Hall",
+   "tier": "C",
+   "exception": "R2: Satchel Hall apprentice, taught Thanh Nang Đường's healing method, not the lineage",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Reclusive",
+     "Honest"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Born in Thái Dược Thôn, the herb-gatherers' village, to one of the healers who came north in 1101; Giải Bách Bộ (giai_bach_bo) is teaching him the satchel method so that it outlives her.",
+   "ties": [
+    {
+     "to": "giai_bach_bo",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "giai_bach_bo",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "huyen_moc",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing."
+    },
+    "note": "Outside method (R5): the satchel method."
+   }
+  },
+  {
+   "key": "tiet_thua_hoa",
+   "name_hv": "Tiết Thừa Hỏa",
+   "name_han": "薛承火",
+   "gloss": "Carries on the fire",
+   "sex": "F",
+   "born": 540,
+   "died": 929,
+   "cause": "went down into the vent below Kê Quan Khoáng to bring up fire in a blizzard and did not come up (age 389)",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "hong_lo",
+   "rank": "founder",
+   "home": 9,
+   "birthplace": 1,
+   "role": "Founder of Hồng Lô Cốc (650); carried fire from the volcanic isles",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Ambitious",
+     "Stubborn"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "sect_raised",
+    "path": [
+     "fire_tempered"
+    ],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "backstory": "A disciple of Thúy Vi's first Furnace Master, Âu Dương Thanh Lô (au_duong_thanh_lo), who would not settle for green fire. In 650 she sailed to the volcanic isles with the sect's leave and the chart it had sealed in 565 (A022), and brought back a coal in a jade box. She lit it on the valley's vent and founded Hồng Lô Cốc (A024). Her journal says she first came to the vents looking for the fire of Cung Hỏa Vân (cung_hoa_van), who had vanished there in 640 (C013). In 929 the island coal died in a blizzard, and she went down after the vent's own fire.",
+   "ties": [
+    {
+     "to": "au_duong_thanh_lo",
+     "kind": "former_master",
+     "note": "taught her green fire; she wanted red"
+    },
+    {
+     "to": "dong_hong_lo",
+     "kind": "disciple",
+     "note": "the kitchen boy she made her heir"
+    }
+   ]
+  },
+  {
+   "key": "nghieu_pha_lang",
+   "name_hv": "Nghiêu Phá Lãng",
+   "name_han": "堯破浪",
+   "gloss": "Breaks the waves",
+   "sex": "M",
+   "born": 712,
+   "died": 884,
+   "cause": "went out on the whale road after a great spirit whale and never came back (V013)",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "",
+   "rank": "last_head",
+   "home": 1092,
+   "birthplace": 1092,
+   "role": "Last head of Kình Cốt Đường, the whale hunters' hall; his crews joined Hồng Lô",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Arrogant",
+     "Stubborn"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "He went out alone after the great spirit whale in 884 and never came back, and his hunters took their boats and their harpoon to Hồng Lô Cốc (V013).",
+   "ties": [
+    {
+     "to": "tan_tuyet_than",
+     "kind": "grandchild",
+     "note": "his daughter's daughter"
+    },
+    {
+     "to": "nghieu_vong_kinh",
+     "kind": "descendant",
+     "note": "his great-grandson, who has sworn to find the whale"
+    }
+   ]
+  },
+  {
+   "key": "thai_bach_thuoc",
+   "name_hv": "Thai Bạch Thược",
+   "name_han": "邰白芍",
+   "gloss": "White peony root",
+   "sex": "F",
+   "born": 880,
+   "died": 1101,
+   "cause": "died in closed-door cultivation without naming an heir (V018)",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "",
+   "rank": "last_head",
+   "home": 1068,
+   "birthplace": 1068,
+   "role": "Last head of Thanh Nang Đường, the healers' hall in the cape's forest",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Compassionate",
+     "Cautious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "She went into seclusion in 1098 to break through and died there without naming an heir (V018); her senior healer Giải Bách Bộ (giai_bach_bo) took the satchels north.",
+   "ties": [
+    {
+     "to": "giai_bach_bo",
+     "kind": "disciple",
+     "note": "led the healers to Hồng Lô"
+    },
+    {
+     "to": "du_tuc_doan",
+     "kind": "former_disciple",
+     "note": "her last student at Thanh Nang Đường; went to Thúy Vi instead of Hồng Lô"
+    }
+   ],
+   "changed": "cross-sect pass: tie to du_tuc_doan disciple -> former_disciple: he went to Thúy Vi and his master there is Úy Thanh Diễm."
+  }
+ ]
+}

@@ -1,0 +1,1603 @@
+{
+"_doc": "Input slice for the depth writer of coc_vu (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "coc_vu",
+"name": "Cốc Vũ Quán",
+"name_han": "穀雨觀",
+"gloss": "Abbey of the Grain Rain",
+"alignment": "trung lập",
+"leans": [
+"Water",
+"Wood"
+],
+"craft": "rain-calling rites and spirit-rice fields",
+"lord": "thinh_vu",
+"region": 19,
+"seat": 441,
+"founded": 610,
+"kind": "minor"
+},
+"start_state": {
+"key": "coc_vu",
+"name": "Cốc Vũ Quán",
+"name_han": "穀雨觀",
+"gloss": "Abbey of the Grain Rain",
+"kind": "minor",
+"alignment": "trung",
+"leans": [
+"Water",
+"Wood"
+],
+"seat": 441,
+"levels": {
+"holdings": 4,
+"institutions": 3,
+"military": 2,
+"trade": 2
+},
+"treasury": 7000,
+"founded": 610,
+"specialty": "linh_thuc_su",
+"lord": "thinh_vu",
+"loyalty": 55,
+"craft": "rain-calling rites and spirit-rice fields",
+"region": 19,
+"leader": "duong_hao_vu"
+},
+"lord": "thinh_vu",
+"vassals": [],
+"seat": {
+"id": 441,
+"name": "Cốc Vũ Quán",
+"gloss": "Abbey of the Grain Rain",
+"kind": "minor_seat",
+"region": 19,
+"biome": "bamboo forest",
+"elev_km": 0.23,
+"qi": {
+"moc": 51,
+"hoa": 9,
+"tho": 10,
+"kim": 22,
+"thuy": 9
+},
+"variants": {},
+"density": 1.12,
+"note": ""
+},
+"seat_audit": "## MOVE Cốc Vũ Quán (coc_vu; leans Water/Wood)\nSeat: Cốc Vũ Quán (id 441, minor_seat, region 19, bamboo forest), density 1.12\nSeat qi: Water 9%, Wood 51%\nCandidates:\n- Dạ Bức Lâm (id 907, beast_lair, region 19, jungle, elev 0.00 km): Water 28%, Wood 35%; density 1.16\n- Kích Cổ Đường (id 346, ruin, region 19, grassland, elev 0.07 km): Water 29%, Wood 28%; density 1.05\n- Tượng Trủng Cương (id 899, beast_lair, region 19, grassland, elev 0.10 km): Water 28%, Wood 32%; density 0.98\n- Lôi Trạch Thành (id 221, ruin, region 19, temperate forest, elev -0.08 km): Water 26%, Wood 39%; density 1.19\n- Lão Ngạc Chử (id 905, beast_lair, region 19, grassland, elev 0.01 km): Water 27%, Wood 31%; density 0.94\n- Tử Đằng Nhãn (id 901, spirit_vein, region 19, jungle, elev 0.10 km): Water 27%, Wood 32%; density 0.83\n",
+"ground": [
+{
+"id": 840,
+"name": "Hạ Lôi Thành",
+"gloss": "City of the Summer Thunder",
+"kind": "ruin",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 0.73,
+"qi": {
+"moc": 5,
+"hoa": 42,
+"tho": 23,
+"kim": 21,
+"thuy": 9
+},
+"variants": {
+"bang": 2.0
+},
+"density": 2.26,
+"note": ""
+},
+{
+"id": 862,
+"name": "Nghênh Lôi Trại",
+"gloss": "Stockade Where the Lightning Is Welcomed",
+"kind": "ruin",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 3.29,
+"qi": {
+"moc": 6,
+"hoa": 10,
+"tho": 28,
+"kim": 47,
+"thuy": 10
+},
+"variants": {},
+"density": 2.11,
+"note": ""
+},
+{
+"id": 698,
+"name": "Nam Vọng Bảo",
+"gloss": "South-Watching Fort",
+"kind": "ruin",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 2.06,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 28,
+"kim": 46,
+"thuy": 10
+},
+"variants": {
+"loi": 14.3
+},
+"density": 1.92,
+"note": ""
+},
+{
+"id": 875,
+"name": "Thủ Lôi Bảo",
+"gloss": "Fort That Guards the Thunder",
+"kind": "ruin",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 1.46,
+"qi": {
+"moc": 15,
+"hoa": 9,
+"tho": 24,
+"kim": 41,
+"thuy": 10
+},
+"variants": {
+"loi": 14.3
+},
+"density": 1.9,
+"note": ""
+},
+{
+"id": 863,
+"name": "Tử Tinh Khoáng",
+"gloss": "Amethyst Mine",
+"kind": "mine",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 2.38,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 28,
+"kim": 46,
+"thuy": 10
+},
+"variants": {
+"loi": 36.9
+},
+"density": 1.8,
+"note": ""
+},
+{
+"id": 874,
+"name": "Thần Cổ Phong",
+"gloss": "Divine Drum Peak",
+"kind": "peak",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 2.8,
+"qi": {
+"moc": 9,
+"hoa": 9,
+"tho": 27,
+"kim": 45,
+"thuy": 10
+},
+"variants": {
+"loi": 40.0
+},
+"density": 1.77,
+"note": ""
+},
+{
+"id": 208,
+"name": "Kinh Lôi Mạch",
+"gloss": "Vein of the Startling Thunder",
+"kind": "spirit_vein",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 3.19,
+"qi": {
+"moc": 6,
+"hoa": 10,
+"tho": 28,
+"kim": 47,
+"thuy": 10
+},
+"variants": {
+"loi": 23.2
+},
+"density": 1.73,
+"note": "In Kinh Trập Sơn, the mountains of the thunder that wakes the sleepers; within reach of the storm peaks, so it carries Thunder. 5 tiles from Thiên Xu's border."
+},
+{
+"id": 697,
+"name": "Tuyệt Bích Phong",
+"gloss": "Sheer Wall Peak",
+"kind": "peak",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 2.81,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 28,
+"kim": 46,
+"thuy": 10
+},
+"variants": {},
+"density": 1.66,
+"note": ""
+},
+{
+"id": 852,
+"name": "Thủ Động Trại",
+"gloss": "Stockade of the Cave Watch",
+"kind": "ruin",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 2.01,
+"qi": {
+"moc": 5,
+"hoa": 10,
+"tho": 29,
+"kim": 46,
+"thuy": 9
+},
+"variants": {
+"am": 34.4
+},
+"density": 1.66,
+"note": ""
+},
+{
+"id": 28,
+"name": "Xuyên Lâm Môn",
+"gloss": "",
+"kind": "minor_seat",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 1.14,
+"qi": {
+"moc": 17,
+"hoa": 9,
+"tho": 23,
+"kim": 40,
+"thuy": 10
+},
+"variants": {},
+"density": 1.64,
+"note": ""
+},
+{
+"id": 873,
+"name": "Sa Kim Khoáng",
+"gloss": "Gold Sand Mine",
+"kind": "mine",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 1.42,
+"qi": {
+"moc": 7,
+"hoa": 9,
+"tho": 27,
+"kim": 46,
+"thuy": 10
+},
+"variants": {
+"loi": 23.2
+},
+"density": 1.63,
+"note": ""
+},
+{
+"id": 187,
+"name": "Liệt Khuyết Phong",
+"gloss": "Peak of the Lightning Rift",
+"kind": "peak",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 4.0,
+"qi": {
+"moc": 6,
+"hoa": 10,
+"tho": 28,
+"kim": 47,
+"thuy": 10
+},
+"variants": {},
+"density": 1.6,
+"note": "Lý Bạch, Mộng du Thiên Mỗ: liệt khuyết phích lịch, khâu loan băng thôi (lightning and thunder, and the ridges crumble)"
+},
+{
+"id": 861,
+"name": "Lôi Tinh Khoáng",
+"gloss": "Thunder Crystal Mine",
+"kind": "mine",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 2.57,
+"qi": {
+"moc": 5,
+"hoa": 10,
+"tho": 28,
+"kim": 48,
+"thuy": 10
+},
+"variants": {},
+"density": 1.54,
+"note": ""
+},
+{
+"id": 696,
+"name": "Tử Ngọc Khoáng",
+"gloss": "Purple Jade Mine",
+"kind": "mine",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 1.9,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 28,
+"kim": 45,
+"thuy": 10
+},
+"variants": {},
+"density": 1.54,
+"note": ""
+},
+{
+"id": 870,
+"name": "Tình Tiêu Phong",
+"gloss": "Peak of the Clear Sky",
+"kind": "peak",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 2.03,
+"qi": {
+"moc": 6,
+"hoa": 10,
+"tho": 28,
+"kim": 47,
+"thuy": 10
+},
+"variants": {},
+"density": 1.5,
+"note": ""
+},
+{
+"id": 389,
+"name": "Thạch Môn Trại",
+"gloss": "Stone Gate Stockade",
+"kind": "ruin",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 0.47,
+"qi": {
+"moc": 6,
+"hoa": 17,
+"tho": 36,
+"kim": 34,
+"thuy": 8
+},
+"variants": {},
+"density": 1.49,
+"note": ""
+},
+{
+"id": 859,
+"name": "Hộ Khoáng Bảo",
+"gloss": "Fort of the Mine Guard",
+"kind": "ruin",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 0.24,
+"qi": {
+"moc": 4,
+"hoa": 9,
+"tho": 22,
+"kim": 57,
+"thuy": 8
+},
+"variants": {},
+"density": 1.48,
+"note": ""
+},
+{
+"id": 867,
+"name": "Vọng Phàm Bảo",
+"gloss": "Sail-Watch Fort",
+"kind": "ruin",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 0.7,
+"qi": {
+"moc": 4,
+"hoa": 9,
+"tho": 21,
+"kim": 56,
+"thuy": 10
+},
+"variants": {},
+"density": 1.46,
+"note": ""
+},
+{
+"id": 896,
+"name": "Hoàng Diễm Trấn",
+"gloss": "Town of the Yellow Flames",
+"kind": "ruin",
+"region": 19,
+"biome": "volcano",
+"elev_km": 0.39,
+"qi": {
+"moc": 13,
+"hoa": 54,
+"tho": 8,
+"kim": 6,
+"thuy": 20
+},
+"variants": {},
+"density": 1.45,
+"note": ""
+},
+{
+"id": 869,
+"name": "Sơn Khẩu Trại",
+"gloss": "Pass-Mouth Stockade",
+"kind": "ruin",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 0.91,
+"qi": {
+"moc": 7,
+"hoa": 8,
+"tho": 22,
+"kim": 55,
+"thuy": 8
+},
+"variants": {},
+"density": 1.44,
+"note": ""
+},
+{
+"id": 387,
+"name": "Hắc Tích Khoáng",
+"gloss": "Black Tin Mine",
+"kind": "mine",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 0.11,
+"qi": {
+"moc": 5,
+"hoa": 18,
+"tho": 36,
+"kim": 33,
+"thuy": 7
+},
+"variants": {},
+"density": 1.42,
+"note": ""
+},
+{
+"id": 1494,
+"name": "Thiết Trượng Phong",
+"gloss": "Iron Staff Peak",
+"kind": "peak",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 2.3,
+"qi": {
+"moc": 7,
+"hoa": 7,
+"tho": 19,
+"kim": 60,
+"thuy": 7
+},
+"variants": {
+"loi": 10.6
+},
+"density": 1.41,
+"note": ""
+},
+{
+"id": 920,
+"name": "Vọng Xu Bảo",
+"gloss": "Fort Watching the Pivot",
+"kind": "ruin",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 1.43,
+"qi": {
+"moc": 7,
+"hoa": 12,
+"tho": 29,
+"kim": 43,
+"thuy": 8
+},
+"variants": {},
+"density": 1.4,
+"note": ""
+},
+{
+"id": 849,
+"name": "Thanh Thạch Bảo",
+"gloss": "Bluestone Fort",
+"kind": "ruin",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 1.59,
+"qi": {
+"moc": 6,
+"hoa": 12,
+"tho": 31,
+"kim": 42,
+"thuy": 11
+},
+"variants": {},
+"density": 1.36,
+"note": ""
+},
+{
+"id": 913,
+"name": "Tây Vọng Bảo",
+"gloss": "West-Watch Fort",
+"kind": "ruin",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 0.91,
+"qi": {
+"moc": 6,
+"hoa": 15,
+"tho": 34,
+"kim": 36,
+"thuy": 8
+},
+"variants": {},
+"density": 1.36,
+"note": ""
+},
+{
+"id": 388,
+"name": "Quy Nhạn Phong",
+"gloss": "Peak of the Returning Geese",
+"kind": "peak",
+"region": 19,
+"biome": "badlands",
+"elev_km": 0.97,
+"qi": {
+"moc": 5,
+"hoa": 20,
+"tho": 37,
+"kim": 31,
+"thuy": 7
+},
+"variants": {},
+"density": 1.3,
+"note": ""
+},
+{
+"id": 54,
+"name": "Hạnh Hoa Thị",
+"gloss": "Market of the Apricot Blossom",
+"kind": "market",
+"region": 19,
+"biome": "steppe",
+"elev_km": 0.07,
+"qi": {
+"moc": 10,
+"hoa": 17,
+"tho": 30,
+"kim": 27,
+"thuy": 17
+},
+"variants": {},
+"density": 1.24,
+"note": "Lục Du: tiểu lâu nhất dạ thính xuân vũ, thâm hạng minh triều mại hạnh hoa (all night in the small tower I listened to the spring rain; tomorrow the lanes will sell apricot blossom); below Thính Vũ Lâu"
+},
+{
+"id": 871,
+"name": "Đảm Phàn Khoáng",
+"gloss": "Blue Vitriol Mine",
+"kind": "mine",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 0.27,
+"qi": {
+"moc": 6,
+"hoa": 17,
+"tho": 36,
+"kim": 33,
+"thuy": 8
+},
+"variants": {},
+"density": 1.21,
+"note": ""
+},
+{
+"id": 202,
+"name": "Đả Diệp Lâm",
+"gloss": "Forest of the Beaten Leaves",
+"kind": "forest",
+"region": 19,
+"biome": "bamboo forest",
+"elev_km": 0.15,
+"qi": {
+"moc": 51,
+"hoa": 6,
+"tho": 7,
+"kim": 23,
+"thuy": 12
+},
+"variants": {},
+"density": 1.19,
+"note": "Tô Thức: xuyên lâm đả diệp thanh (rain piercing the forest, beating the leaves), the line of Xuyên Lâm Môn nearby"
+},
+{
+"id": 221,
+"name": "Lôi Trạch Thành",
+"gloss": "City of the Thunder Marsh",
+"kind": "ruin",
+"region": 19,
+"biome": "temperate forest",
+"elev_km": -0.08,
+"qi": {
+"moc": 39,
+"hoa": 11,
+"tho": 10,
+"kim": 13,
+"thuy": 26
+},
+"variants": {},
+"density": 1.19,
+"note": "Khải Lôi's river-mouth city, burned by the lightning of Hầu Xuân Lôi's tribulation."
+},
+{
+"id": 868,
+"name": "Lôi Trụ Phong",
+"gloss": "Thunder Pillar Peak",
+"kind": "peak",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 2.74,
+"qi": {
+"moc": 5,
+"hoa": 9,
+"tho": 26,
+"kim": 52,
+"thuy": 9
+},
+"variants": {
+"am": 10.6
+},
+"density": 1.18,
+"note": ""
+},
+{
+"id": 851,
+"name": "Vân Hải Đỉnh",
+"gloss": "Summit Above the Sea of Clouds",
+"kind": "peak",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 2.87,
+"qi": {
+"moc": 5,
+"hoa": 9,
+"tho": 27,
+"kim": 49,
+"thuy": 9
+},
+"variants": {},
+"density": 1.18,
+"note": ""
+},
+{
+"id": 440,
+"name": "Lôi Trúc Lâm",
+"gloss": "Thunder Bamboo Grove",
+"kind": "lightning_wood",
+"region": 19,
+"biome": "bamboo forest",
+"elev_km": 0.0,
+"qi": {
+"moc": 43,
+"hoa": 14,
+"tho": 12,
+"kim": 16,
+"thuy": 14
+},
+"variants": {},
+"density": 1.17,
+"note": ""
+},
+{
+"id": 439,
+"name": "Lân Giáp Cốc",
+"gloss": "Valley of the Scaled Ones",
+"kind": "beast_lair",
+"region": 19,
+"biome": "bamboo forest",
+"elev_km": 0.02,
+"qi": {
+"moc": 39,
+"hoa": 12,
+"tho": 13,
+"kim": 16,
+"thuy": 20
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 907,
+"name": "Dạ Bức Lâm",
+"gloss": "Night Bat Wood",
+"kind": "beast_lair",
+"region": 19,
+"biome": "jungle",
+"elev_km": 0.0,
+"qi": {
+"moc": 35,
+"hoa": 21,
+"tho": 10,
+"kim": 7,
+"thuy": 28
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 1485,
+"name": "Kiếp Trúc Lâm",
+"gloss": "Grove of the Tribulation Bamboo",
+"kind": "lightning_wood",
+"region": 19,
+"biome": "bamboo forest",
+"elev_km": 0.07,
+"qi": {
+"moc": 49,
+"hoa": 9,
+"tho": 10,
+"kim": 20,
+"thuy": 11
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 887,
+"name": "Hải Trúc Lâm",
+"gloss": "Sea Bamboo Grove",
+"kind": "forest",
+"region": 19,
+"biome": "bamboo forest",
+"elev_km": 0.02,
+"qi": {
+"moc": 39,
+"hoa": 18,
+"tho": 15,
+"kim": 12,
+"thuy": 17
+},
+"variants": {},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 884,
+"name": "Xích Túc Cốc",
+"gloss": "Red-Legged Valley",
+"kind": "beast_lair",
+"region": 19,
+"biome": "bamboo forest",
+"elev_km": 0.39,
+"qi": {
+"moc": 42,
+"hoa": 7,
+"tho": 12,
+"kim": 29,
+"thuy": 10
+},
+"variants": {},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 345,
+"name": "Hoàng Phong Cốc",
+"gloss": "Hornet Valley",
+"kind": "beast_lair",
+"region": 19,
+"biome": "bamboo forest",
+"elev_km": 0.12,
+"qi": {
+"moc": 40,
+"hoa": 12,
+"tho": 14,
+"kim": 17,
+"thuy": 16
+},
+"variants": {},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 894,
+"name": "Đằng La Lâm",
+"gloss": "Forest of Hanging Vines",
+"kind": "forest",
+"region": 19,
+"biome": "jungle",
+"elev_km": 0.07,
+"qi": {
+"moc": 41,
+"hoa": 21,
+"tho": 15,
+"kim": 10,
+"thuy": 13
+},
+"variants": {},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 347,
+"name": "Địch Trúc Lâm",
+"gloss": "Flute Bamboo Grove",
+"kind": "forest",
+"region": 19,
+"biome": "bamboo forest",
+"elev_km": 0.31,
+"qi": {
+"moc": 47,
+"hoa": 15,
+"tho": 11,
+"kim": 16,
+"thuy": 11
+},
+"variants": {},
+"density": 1.13,
+"note": ""
+},
+{
+"id": 230,
+"name": "Thu Phần Các",
+"gloss": "Pavilion of the Autumn Graves",
+"kind": "minor_seat",
+"region": 19,
+"biome": "bamboo forest",
+"elev_km": 0.13,
+"qi": {
+"moc": 48,
+"hoa": 11,
+"tho": 12,
+"kim": 20,
+"thuy": 9
+},
+"variants": {},
+"density": 1.13,
+"note": "Lý Hạ: thu phần quỷ xướng Bão gia thi, ghosts sing old poems in the autumn graves. A bamboo hill 10 tiles from the ruins of Lôi Trạch Thành."
+},
+{
+"id": 179,
+"name": "Vũ Hoa Khoáng",
+"gloss": "Rain Flower Mine",
+"kind": "mine",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 1.87,
+"qi": {
+"moc": 4,
+"hoa": 9,
+"tho": 20,
+"kim": 55,
+"thuy": 12
+},
+"variants": {},
+"density": 1.12,
+"note": "Rain-flower pebbles, said to be flowers that fell as rain while a master preached; the richest ground of the sixteen (land density 1.87). In Thính Vũ's land of rain."
+},
+{
+"id": 441,
+"name": "Cốc Vũ Quán",
+"gloss": "Abbey of the Grain Rain",
+"kind": "minor_seat",
+"region": 19,
+"biome": "bamboo forest",
+"elev_km": 0.23,
+"qi": {
+"moc": 51,
+"hoa": 9,
+"tho": 10,
+"kim": 22,
+"thuy": 9
+},
+"variants": {},
+"density": 1.12,
+"note": ""
+},
+{
+"id": 860,
+"name": "Phi Lôi Phong",
+"gloss": "Peak of the Flying Thunder",
+"kind": "peak",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 1.97,
+"qi": {
+"moc": 4,
+"hoa": 8,
+"tho": 23,
+"kim": 57,
+"thuy": 7
+},
+"variants": {
+"am": 10.6
+},
+"density": 1.11,
+"note": ""
+},
+{
+"id": 876,
+"name": "Vũ Hoàn Khoáng",
+"gloss": "Rain Ring Mine",
+"kind": "mine",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 0.23,
+"qi": {
+"moc": 10,
+"hoa": 10,
+"tho": 21,
+"kim": 51,
+"thuy": 8
+},
+"variants": {},
+"density": 1.1,
+"note": ""
+},
+{
+"id": 178,
+"name": "Tử Kim Khoáng",
+"gloss": "Purple Gold Mine",
+"kind": "mine",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 0.97,
+"qi": {
+"moc": 4,
+"hoa": 9,
+"tho": 23,
+"kim": 58,
+"thuy": 6
+},
+"variants": {},
+"density": 1.1,
+"note": "Purple-gold ore, the colour of storm light."
+},
+{
+"id": 838,
+"name": "Lôi Ngân Khoáng",
+"gloss": "Thunder Silver Mine",
+"kind": "mine",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 1.24,
+"qi": {
+"moc": 5,
+"hoa": 10,
+"tho": 25,
+"kim": 54,
+"thuy": 6
+},
+"variants": {},
+"density": 1.09,
+"note": ""
+},
+{
+"id": 877,
+"name": "Bích Loa Phong",
+"gloss": "Green Conch Peak",
+"kind": "peak",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 0.92,
+"qi": {
+"moc": 11,
+"hoa": 9,
+"tho": 20,
+"kim": 53,
+"thuy": 7
+},
+"variants": {},
+"density": 1.09,
+"note": ""
+},
+{
+"id": 850,
+"name": "Dẫn Lôi Phong",
+"gloss": "Peak That Draws the Lightning",
+"kind": "peak",
+"region": 19,
+"biome": "high mountain",
+"elev_km": 1.38,
+"qi": {
+"moc": 4,
+"hoa": 9,
+"tho": 23,
+"kim": 57,
+"thuy": 6
+},
+"variants": {},
+"density": 1.09,
+"note": ""
+}
+],
+"ground_place_count": 123,
+"events": [
+{
+"id": "C053",
+"tier": "landmark",
+"year": 170,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"khai_loi"
+],
+"text_en": "Khải Lôi Môn builds Lôi Trạch Thành at the river mouth below its mountains.",
+"place": 221
+},
+{
+"id": "C056",
+"tier": "landmark",
+"year": 200,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"khai_loi"
+],
+"text_en": "Khải Lôi Môn founds Không Mông Thành in the hazy rain of its southern valleys.",
+"place": 43
+},
+{
+"id": "A281",
+"tier": "annal",
+"year": 220,
+"kind": "mine",
+"people": [],
+"sects": [
+"khai_loi"
+],
+"text_en": "Lightning strikes the ore of Kinh Điện so often that Khải Lôi's smiths forge in the storm.",
+"place": 177,
+"region": 19
+},
+{
+"id": "A282",
+"tier": "annal",
+"year": 300,
+"kind": "mine",
+"people": [],
+"sects": [
+"khai_loi"
+],
+"text_en": "Purple-gold ore, the colour of storm light, is dug at Tử Kim.",
+"place": 178,
+"region": 19
+},
+{
+"id": "V150",
+"tier": "annal",
+"year": 352,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "The cone wakes and buries Hạ Lôi Thành, Khải Lôi Môn's western market city, in ash; the Gate never rebuilds it.",
+"place": 840,
+"region": 19
+},
+{
+"id": "A283",
+"tier": "annal",
+"year": 440,
+"kind": "tale",
+"people": [],
+"sects": [
+"khai_loi"
+],
+"text_en": "Khải Lôi's disciples climb Liệt Khuyết Phong in storms to invite the lightning; a third of them come down.",
+"place": 187,
+"region": 19
+},
+{
+"id": "V151",
+"tier": "annal",
+"year": 480,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "With Khải Lôi Môn fallen, the storm camp of Nghênh Lôi Trại, where its disciples waited to invite the lightning, is left to the weather.",
+"place": 862,
+"region": 19
+},
+{
+"id": "A285",
+"tier": "annal",
+"year": 481,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "A year after the tribulation burned Lôi Trạch Thành, its people move up the valley to Không Mông Thành.",
+"place": 221,
+"region": 19
+},
+{
+"id": "V152",
+"tier": "annal",
+"year": 481,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The wardens Khải Lôi kept at Thủ Động Trại go home, and the hunters of the cave keep their own order on the day of Kinh Trập.",
+"place": 852,
+"region": 19
+},
+{
+"id": "V153",
+"tier": "annal",
+"year": 482,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Two years after the Gate's fall, with no thunder left to answer, the last drummers of Kích Cổ Đường scatter.",
+"place": 346,
+"region": 19
+},
+{
+"id": "A286",
+"tier": "annal",
+"year": 500,
+"kind": "mine",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Rain-flower pebbles, said to be flowers that fell as rain while a master preached, are found at Vũ Hoa; Thính Vũ keeps the mine.",
+"place": 179,
+"region": 19
+},
+{
+"id": "A287",
+"tier": "annal",
+"year": 540,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Farmers sing as they plant the rice terraces at Ương Ca; the song is the oldest in the south.",
+"place": 157,
+"region": 19
+},
+{
+"id": "A288",
+"tier": "annal",
+"year": 600,
+"kind": "trade",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "The Lục family's harvests at Phong Đăng are so rich that Thính Vũ collects its grain tax from them first.",
+"place": 92,
+"region": 19
+},
+{
+"id": "V154",
+"tier": "annal",
+"year": 610,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"coc_vu",
+"thinh_vu"
+],
+"text_en": "Cốc Vũ Quán is founded on a bamboo hill above Phong Đăng to call the rain for the farmers and grow spirit rice (linh mễ) on its terraces.",
+"place": 441,
+"region": 19
+},
+{
+"id": "V155",
+"tier": "annal",
+"year": 645,
+"kind": "tale",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "With the west settled by the Pivot's judgement on the Petal Shore, the Tower lets the garrison of Khải Lôi's old Thạch Môn Trại go.",
+"place": 389,
+"region": 19
+},
+{
+"id": "A289",
+"tier": "annal",
+"year": 690,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"xuyen_lam",
+"thinh_vu"
+],
+"text_en": "Staff fighters who guide travellers through the rain forest found Xuyên Lâm Môn; they pay no heed to the rain beating the leaves.",
+"place": 28,
+"region": 19
+},
+{
+"id": "A290",
+"tier": "annal",
+"year": 700,
+"kind": "settlement",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "An apricot-blossom market grows below Thính Vũ's southern road; after a night of spring rain its lanes sell flowers.",
+"place": 54,
+"region": 19
+},
+{
+"id": "A291",
+"tier": "annal",
+"year": 780,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The watchtowers on the sea cliffs at Vọng Hải see Thôn Hải's sails a day before they land.",
+"place": 91,
+"region": 19
+},
+{
+"id": "C157",
+"tier": "landmark",
+"year": 800,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Thính Vũ Lâu founds Lãng Hoa Thành on the sea-spray coast, safe at last from pirates.",
+"place": 90
+},
+{
+"id": "V123",
+"tier": "annal",
+"year": 806,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "After the truce the Pivot stands down Nam Vọng Bảo, its border watch above Kinh Lôi Mạch.",
+"place": 698,
+"region": 15
+},
+{
+"id": "V156",
+"tier": "annal",
+"year": 806,
+"kind": "tale",
+"people": [],
+"sects": [
+"thinh_vu",
+"thien_xu"
+],
+"text_en": "With the North Star Compact sworn again at the truce, the Tower pulls the walls of Vọng Xu Bảo down to knee height as a sign of good faith.",
+"place": 920,
+"region": 19
+},
+{
+"id": "V157",
+"tier": "annal",
+"year": 810,
+"kind": "tale",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "With no pirate sails left to watch for since the Purge, the Tower sends the garrison of Vọng Phàm Bảo home.",
+"place": 867,
+"region": 19
+},
+{
+"id": "A292",
+"tier": "annal",
+"year": 907,
+"kind": "tale",
+"people": [],
+"sects": [
+"xuyen_lam",
+"thinh_vu"
+],
+"text_en": "Xuyên Lâm Môn refuses the arts of the Night Rain Edict; its head walks the forest road alone for a month in protest.",
+"place": 28,
+"region": 19
+},
+{
+"id": "C197",
+"tier": "landmark",
+"year": 960,
+"kind": "sect_founded",
+"people": [
+"ly_han_bich"
+],
+"sects": [
+"thu_phan",
+"thinh_vu"
+],
+"text_en": "Lý Hận Bích founds Thu Phần Các among the graves of Lôi Trạch Thành, where ghosts sing old poems in autumn, and swears it to Thính Vũ Lâu.",
+"place": 230
+},
+{
+"id": "A314",
+"tier": "annal",
+"year": 962,
+"kind": "tale",
+"people": [],
+"sects": [
+"thu_phan"
+],
+"text_en": "Since Thu Phần Các came, the villagers of Ương Ca hear singing from the graves of Lôi Trạch every autumn, and sing louder at planting to drown it.",
+"place": 157,
+"region": 19
+},
+{
+"id": "V158",
+"tier": "annal",
+"year": 980,
+"kind": "tale",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Lightning has struck Tây Vọng Bảo so often that its garrison begs to leave, and the Tower lets the fort stand empty.",
+"place": 913,
+"region": 19
+},
+{
+"id": "A293",
+"tier": "annal",
+"year": 1000,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Twin brooks meet below Song Khê; lovers who drink from both are said never to part.",
+"place": 158,
+"region": 19
+},
+{
+"id": "C199",
+"tier": "landmark",
+"year": 1010,
+"kind": "appointment",
+"people": [
+"le_tieu_hon",
+"manh_da_vu"
+],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Lệ Tiêu Hồn reaches Nguyên Anh in the Tower's soul vaults; Mạnh Dạ Vũ makes him keeper of Kinh Lôi Mạch.",
+"place": 208
+},
+{
+"id": "V159",
+"tier": "annal",
+"year": 1013,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "The small volcano wakes and buries the sulphur town of Hoàng Diễm Trấn in ash; most of its people escape to the shore and found Ôn Sa.",
+"place": 896,
+"region": 19
+},
+{
+"id": "A294",
+"tier": "annal",
+"year": 1020,
+"kind": "birth",
+"people": [
+"gia_hoi_xuan"
+],
+"sects": [],
+"text_en": "Giả Hồi Xuân is born in Hạnh Hoa Thị; she will cure what the alchemists of three sects would not touch.",
+"place": 54,
+"region": 19
+},
+{
+"id": "C178",
+"tier": "landmark",
+"year": 1040,
+"kind": "war_start",
+"people": [
+"ngo_the_dong",
+"manh_da_vu"
+],
+"sects": [
+"phuong_minh",
+"thinh_vu"
+],
+"text_en": "Phượng Minh Cung goes to war with Thính Vũ Lâu for the Kinh Lôi vein.",
+"place": 208,
+"war": "thunder_vein"
+},
+{
+"id": "V160",
+"tier": "annal",
+"year": 1041,
+"kind": "beast",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Its garrison called east to the Thunder Vein War, Thanh Thạch Bảo is taken by the tiger-kind beasts of Phục Hổ Cương and never manned again.",
+"place": 849,
+"region": 19
+},
+{
+"id": "V161",
+"tier": "annal",
+"year": 1042,
+"kind": "siege",
+"people": [],
+"sects": [
+"phuong_minh",
+"thinh_vu"
+],
+"text_en": "In the Thunder Vein War Phượng Minh's disciples take and burn Thủ Lôi Bảo; when the vein is kept, the Tower builds its new guard higher on the ridge.",
+"place": 875,
+"region": 19
+},
+{
+"id": "A295",
+"tier": "annal",
+"year": 1045,
+"kind": "raid",
+"people": [],
+"sects": [
+"phuong_minh",
+"thien_xu"
+],
+"text_en": "In the Thunder Vein War, Phượng Minh's raiders reach the upper ferry at Thượng Độ before the Pivot's envoys stop them.",
+"place": 159,
+"region": 19
+},
+{
+"id": "C179",
+"tier": "landmark",
+"year": 1046,
+"kind": "war_end",
+"people": [
+"do_tinh_ha",
+"ngo_the_dong",
+"manh_da_vu"
+],
+"sects": [
+"thien_xu",
+"phuong_minh",
+"thinh_vu"
+],
+"text_en": "The Pivot ends the Thunder Vein War: Thính Vũ keeps the vein, and the south remembers.",
+"place": 208,
+"war": "thunder_vein",
+"judgement": true
+},
+{
+"id": "V162",
+"tier": "annal",
+"year": 1102,
+"kind": "disaster",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "A storm brings the slope down on the lower court of Hộ Khoáng Bảo, and the guard moves up to Vũ Hoa Khoáng itself.",
+"place": 859,
+"region": 19
+},
+{
+"id": "A316",
+"tier": "annal",
+"year": 1166,
+"kind": "tale",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Thính Vũ's disciples drill on Liệt Khuyết Phong in thunderstorms; the villagers below count the lightning and the disciples both.",
+"place": 187,
+"region": 19
+},
+{
+"id": "A296",
+"tier": "annal",
+"year": 1170,
+"kind": "headship",
+"people": [
+"uc_diep_thanh"
+],
+"sects": [
+"xuyen_lam"
+],
+"text_en": "Úc Diệp Thanh becomes head of Xuyên Lâm Môn and guides every traveller himself for a year.",
+"place": 28,
+"region": 19
+},
+{
+"id": "A297",
+"tier": "annal",
+"year": 1199,
+"kind": "discovery",
+"people": [],
+"sects": [
+"thinh_vu",
+"xuyen_lam"
+],
+"text_en": "A river isle at Hà Châu rises out of the water after an earthquake; Thính Vũ and Xuyên Lâm both claim it.",
+"place": 160,
+"region": 19
+},
+{
+"id": "V163",
+"tier": "annal",
+"year": 1199,
+"kind": "disaster",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "The earthquake that raises the isle at Hà Châu splits Sơn Khẩu Trại from end to end, and the Tower does not send its guard back.",
+"place": 869,
+"region": 19
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "duong_hao_vu",
+"name": "Dương Hảo Vũ",
+"name_han": "楊好雨",
+"gloss": "The good rain that knows its season (Đỗ Phủ: hảo vũ tri thời tiết)",
+"sex": "F",
+"born": 830,
+"alive": true,
+"sect": "coc_vu",
+"rank": "tong_chu",
+"role": "Abbess of Cốc Vũ Quán, rain-calling rites and spirit-rice terraces for the farmers of the south",
+"realm": "ket_dan",
+"home": 441,
+"traits": {
+"personality": [
+"Devout",
+"Compassionate",
+"Cautious"
+],
+"calling": "Herbalist",
+"fate_given": []
+},
+"vassal_of": "thinh_vu"
+}
+],
+"legendary_items": []
+}

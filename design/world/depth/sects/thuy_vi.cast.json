@@ -1,0 +1,2742 @@
+{
+ "sect": "thuy_vi",
+ "_doc": "Thúy Vi Tông cast, part 1: the Nguyên Anh, the Kết Đan and the dead of the lineage (tiers A and B).",
+ "people": [
+  {
+   "key": "ngu_lam_son",
+   "name_hv": "Ngu Lam Sơn",
+   "name_han": "虞嵐山",
+   "gloss": "Lam is the blue mist on a mountain",
+   "sex": "M",
+   "born": 640,
+   "alive": true,
+   "realm": "nguyen_anh",
+   "stage": 2,
+   "sect": "thuy_vi",
+   "rank": "tong_chu",
+   "home": 1110,
+   "birthplace": 45,
+   "role": "Head of Thúy Vi Tông; the man who brought the sect down off the ridge",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 82,
+     "tho": 68
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 76,
+    "can_cot": 64,
+    "than_hon": 70,
+    "khi_van": 66,
+    "dao_tam": 86,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Temperate",
+     "Peaceable"
+    ],
+    "calling": "Steward",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 3
+     },
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "perfect_foundation"
+    ],
+    "lifestyle": "tea_master",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A small, round-shouldered man in a grey robe that is always damp at the hem, with a tea-stained thumb and the White Cloud Whisk pushed through his belt like a fly-swat.",
+   "backstory": "Ngu Lam Sơn was born in 640 above a tea stall in Lam Yên Thị, the market that grew in the haze below the old seat (A040). Phùng Yên Hà (phung_yen_ha) took him into the outer gate at nine because he could sit in the mist all day without growing bored. He never learned a killing art. In the Haze-and-Pine War he carried pills to the Cold Ford, and he carried them again in 901 (C165). The founder died in 1000 at 640, her pulse gone thin and hard as wire in her last years. Cù Thúy Bách (cu_thuy_bach) refused the headship and named him. He took the White Cloud Whisk (C173) and walked in the haze for a hundred days before giving his first order (A045). The order was to go down. He had found that the green breath the sect is named for pools thickest over the empty post town of Cổ Dịch, where the road had been given up to the forest (N-thuy_vi-01). He moved the sect there between 1001 and 1006 (N-thuy_vi-03). He rules by walking: every council of the sect is held on a path. In 1195 he planted the Heir's Garden (N-thuy_vi-08), and he means to step down when it is judged.",
+   "wants": "To hand the sect to someone who will keep it gentle, then walk into the haze and not come back for a long time.",
+   "secret": "He read the founder's pulse in her last year and felt in it what a Wood root feels on Metal ground; he believes the ridge wore her life down. He moved the sect for that reason, and he has let Cù Thúy Bách believe he moved it for the vein. She knows the same thing, and neither has said it to the other.",
+   "ties": [
+    {
+     "to": "phung_yen_ha",
+     "kind": "master",
+     "note": "his master; he keeps her tea bowl at the new seat"
+    },
+    {
+     "to": "diem_hai_tao",
+     "kind": "disciple",
+     "note": "the pirates' child he found eating kelp on the beach in 781"
+    },
+    {
+     "to": "thieu_thanh_dai",
+     "kind": "disciple",
+     "note": "the disciple most like him, and his choice if he made one"
+    },
+    {
+     "to": "lo_da_huong",
+     "kind": "disciple",
+     "note": "taken in 1010 for her nose"
+    },
+    {
+     "to": "thuong_doc_hoat",
+     "kind": "disciple",
+     "note": "his oldest living disciple, who stopped at Trúc Cơ and is happy"
+    },
+    {
+     "to": "cu_thuy_bach",
+     "kind": "friend",
+     "note": "she named him head and his first order was to leave her mountain; they drink tea together once a year, on the founder's death day"
+    },
+    {
+     "to": "quyen_thanh_lam",
+     "kind": "friend",
+     "note": "the elder who carried the sect down the mountain for him"
+    },
+    {
+     "to": "huong_da_dang",
+     "kind": "rival",
+     "note": "the warden wants a war with Tùng Đào; Ngu will not give him one"
+    },
+    {
+     "to": "tong_toa_van",
+     "kind": "friend",
+     "note": "the empty mountain's last student; they walk together on Thủy Cùng Phong"
+    },
+    {
+     "to": "dam_tung_lai",
+     "kind": "rival",
+     "note": "Tùng Đào's head, who lost the Cold Ford in 905; Ngu sends him tea every new year and gets none back"
+    },
+    {
+     "to": "thi_tra_yen",
+     "kind": "friend",
+     "note": "the inner disciple whose tea he drinks"
+    }
+   ],
+   "master": "phung_yen_ha",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "emerald-haze-canon",
+     "layer": 12
+    },
+    "aux": [
+     {
+      "tech": "empty-mountain-sutra",
+      "layer": 12
+     }
+    ],
+    "gear": [
+     {
+      "named": "tv-white-cloud-whisk"
+     },
+     {
+      "named": "tv-emerald-haze-seal"
+     },
+     {
+      "named": "tv-empty-green-robe"
+     }
+    ],
+    "skills": {
+     "dan_dao": 7,
+     "linh_thuc": 6
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Deep into the Wood land toward haze heals and sustain, then the Earth land's wards; he passes every killing notable by.",
+     "targets": [
+      6299,
+      6103,
+      6125,
+      5713,
+      5595,
+      5597,
+      3487,
+      3105
+     ],
+     "targets_note": "The sect's Growth Rings and New Leaf, Evergreen's status resistance, Healing Herbs, Spreading Canopy and World Tree for the slow green heal, then Battlements and Array Keeper wards from the Earth side; no killing notable."
+    },
+    "note": "Never strikes first: haze field, returning light and a slow green heal that outlasts the foe."
+   },
+   "items": [
+    "tv-white-cloud-whisk",
+    "tv-emerald-haze-seal",
+    "tv-empty-green-robe"
+   ],
+   "changed": "build main dia_moc (stand-in) -> emerald-haze-canon, aux empty-mountain-sutra (the lineage, R5); tree targets -> intent; gear: the whisk and two regalia pieces replace plain pieces; home 1 -> 1110 (R4 seat move, N-thuy_vi-03); birthplace added (45)"
+  },
+  {
+   "key": "cu_thuy_bach",
+   "name_hv": "Cù Thúy Bách",
+   "name_han": "瞿翠柏",
+   "gloss": "Green cypress",
+   "sex": "F",
+   "born": 560,
+   "alive": true,
+   "realm": "nguyen_anh",
+   "stage": 2,
+   "sect": "thuy_vi",
+   "rank": "thai_thuong",
+   "home": 1,
+   "birthplace": 1,
+   "role": "Grand elder; keeper of the Cliff Hall on the old seat, the founder's grave and the founder's pine",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 74,
+     "tho": 50,
+     "kim": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 84,
+    "than_hon": 70,
+    "khi_van": 50,
+    "dao_tam": 90,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Loyal",
+     "Patient"
+    ],
+    "calling": "Teacher",
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "body_tempered",
+     "heart_demon_victor"
+    ],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Embittered"
+    ]
+   },
+   "appearance": "Tall and bony, with hands cracked like bark and grey hair cut at the jaw; she wears the old ridge robe of undyed hemp, and it is dry, because she will not stand in the haze.",
+   "backstory": "Cù Thúy Bách was born in 560 to a jade-cutter's family that served the sect on its ridge, and she is the oldest person Thúy Vi has. Phùng Yên Hà (phung_yen_ha) took her in 576, the first disciple she ever took. For four hundred years Cù was the founder's hands. She planted the cypress walk on the ridge, held the inner gate through both wars with Tùng Đào (C135, C165), and nursed the founder through her last century. When Phùng died in 1000 (C173), the sect expected Cù to take the whisk. She refused it and named Ngu Lam Sơn (ngu_lam_son), the quiet one, because she wanted to stay on the ridge with the founder's tree. His first order was to leave it. She did not go down. Since 1006 the old seat has been the Cliff Hall (N-thuy_vi-03). She keeps it with a few dozen people: the founder's grave, the founder's pine that grows sideways out of the rock, and the life trees of every disciple who joined before the move. She also keeps a teaching that the sect calls harsh and she calls honest. She is the last of the founder's first disciples. She trains her disciples hard and sends them down to win.",
+   "wants": "To see her disciple Hoàn Cô Bách named heir, so the sect remembers what the ridge made it. Failing that, to be buried beside the founder and never moved.",
+   "secret": "She nursed the founder's last century and watched her stiffen like bark, a Wood root starved on Metal ground. She believes the ridge shortened Phùng's life, and she has never said it, because saying it would mean the move was right.",
+   "ties": [
+    {
+     "to": "phung_yen_ha",
+     "kind": "master",
+     "note": "the founder; Cù closed her eyes"
+    },
+    {
+     "to": "hoan_co_bach",
+     "kind": "disciple",
+     "note": "the ridge's heir, if she has her way"
+    },
+    {
+     "to": "nhac_chinh_hanh",
+     "kind": "disciple",
+     "note": "dug out of the avalanche's grief and made hard on the ridge"
+    },
+    {
+     "to": "bao_nham_tinh",
+     "kind": "disciple",
+     "note": "her steward, the only one who calls her by name"
+    },
+    {
+     "to": "au_duong_tan_di",
+     "kind": "disciple",
+     "note": "the founder's last blood, kept on the ridge"
+    },
+    {
+     "to": "ngu_lam_son",
+     "kind": "friend",
+     "note": "she made him head; he took the sect off her mountain"
+    },
+    {
+     "to": "uy_thanh_diem",
+     "kind": "rival",
+     "note": "he carried the Green Furnace down the mountain, still burning"
+    },
+    {
+     "to": "man_trieu_am",
+     "kind": "sworn_sibling",
+     "note": "sworn sisters as the founder's first disciples; Mẫn died on the coast in 744"
+    },
+    {
+     "to": "quyen_thanh_lam",
+     "kind": "friend",
+     "note": "the only elder from the slope she trusts; he did her one favour in 1006"
+    },
+    {
+     "to": "la_trac_thach",
+     "kind": "friend",
+     "note": "she pays the guest refiner out of the Cliff Hall's purse"
+    },
+    {
+     "to": "kha_thuy_cung",
+     "kind": "cousin",
+     "note": "of her jade-cutter family; she walked him up to the abbey when the gate refused him"
+    },
+    {
+     "to": "dinh_lao_hoe",
+     "kind": "friend",
+     "note": "the servant who argues with her about salt"
+    },
+    {
+     "to": "gian_chieu_thanh",
+     "kind": "rival",
+     "note": "the elder she told to go to open ground"
+    },
+    {
+     "to": "bo_do_trong",
+     "kind": "disciple",
+     "note": "oldest of the Cliff Hall's inner disciples"
+    },
+    {
+     "to": "o_thach_tung",
+     "kind": "disciple",
+     "note": "gatekeeper of the Cliff Hall; props the founder's pine"
+    },
+    {
+     "to": "phong_thach_hoc",
+     "kind": "disciple",
+     "note": "Cliff Hall disciple who tends the old life trees with Bao Nham Tỉnh"
+    }
+   ],
+   "master": "phung_yen_ha",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "emerald-haze-canon",
+     "layer": 12
+    },
+    "aux": [
+     {
+      "tech": "rock-splitting-root",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "tv-founders-seed-gourd"
+     },
+     {
+      "named": "tv-cliff-bark-shield"
+     },
+     {
+      "named": "tv-root-splitting-axe"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 5,
+     "luyen_khi": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood land toward defence and Metal resistance, then the Earth land's guard: the pine that does not move.",
+     "targets": [
+      6299,
+      6103,
+      6169,
+      6166,
+      9002,
+      6126,
+      6125,
+      6263,
+      3051
+     ],
+     "targets_note": "Pine Strength căn cốt, Ageless Pine health and regeneration, Evergreen timer resistance and block, Leaf Shield, then Five Peaks in the Earth land: the pine that does not move."
+    },
+    "note": "Stands in Pine Against the Wind, splits the foe's guard with roots, and outlasts them on the founder's seed."
+   },
+   "items": [
+    "tv-founders-seed-gourd",
+    "tv-cliff-bark-shield",
+    "tv-root-splitting-axe"
+   ]
+  },
+  {
+   "key": "uy_thanh_diem",
+   "name_hv": "Úy Thanh Diễm",
+   "name_han": "尉青焰",
+   "gloss": "Green flame",
+   "sex": "M",
+   "born": 880,
+   "alive": true,
+   "realm": "nguyen_anh",
+   "stage": 0,
+   "sect": "thuy_vi",
+   "rank": "truong_lao",
+   "home": 1110,
+   "birthplace": 1033,
+   "role": "Master of the Furnace Hall; keeper of the Green Furnace, the maker of Thúy Vi's pills",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 78,
+     "hoa": 52
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 84,
+    "can_cot": 58,
+    "than_hon": 76,
+    "khi_van": 52,
+    "dao_tam": 70,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Ambitious",
+     "Honest"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "pill_master_tongue"
+    ],
+    "lifestyle": "collector",
+    "health": "lingering_poison",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A lean man with soot in the creases of his knuckles and a green tint to his lips from three centuries of tasting pills.",
+   "backstory": "Úy Thanh Diễm grew up among the charcoal clamps of Thiêu Thán Thôn and could judge a fire by its smoke before he could read. At twenty he walked south to learn from Cao Đan Hà (cao_dan_ha), the greatest alchemist of the age, and kept her furnaces for twenty years. In 920 he came back from an errand to find her dead in her abode beside the pill that killed her (C022). He left without touching it. Thúy Vi took him in at forty, a late start, because Âu Dương Thanh Lô (au_duong_thanh_lo) saw how he fed a fire. He learned the green flame in eleven years. In 932 he watched his second master die at Bách Thảo Viện (V029), trying to hold a cauldron of fire that green flame could not tame. He has kept the Green Furnace lit ever since. When the sect went down the mountain in 1006 he carried the furnace on his back, still burning, and Cù Thúy Bách (cu_thuy_bach) has not forgiven it. He reached Nguyên Anh over that fire in 1150 (N-thuy_vi-10). Thúy Vi's pills are his: clean, slow and trusted. He tastes every batch.",
+   "wants": "To brew the pill that killed Cao Đan Hà correctly, so that her last work is not a poison. For that he needs her Purple Smoke Furnace (Tử Yên Lô) from her lost abode.",
+   "secret": "He knows what the pill was meant to do: carry a Nguyên Anh through the Hóa Thần tribulation. He believes he can make it, and he has told no one, least of all the head.",
+   "ties": [
+    {
+     "to": "au_duong_thanh_lo",
+     "kind": "master",
+     "note": "his master in the green flame, who died at Bách Thảo Viện"
+    },
+    {
+     "to": "cao_dan_ha",
+     "kind": "former_master",
+     "note": "his first master; he found her dead in 920"
+    },
+    {
+     "to": "bien_van_tinh",
+     "kind": "disciple",
+     "note": "trained in the furnace; better at selling than brewing"
+    },
+    {
+     "to": "du_tuc_doan",
+     "kind": "disciple",
+     "note": "the Thanh Nang healer who came to him in 1101"
+    },
+    {
+     "to": "te_tu_to",
+     "kind": "disciple",
+     "note": "his best brewer; he does not see what she reads"
+    },
+    {
+     "to": "cu_thuy_bach",
+     "kind": "rival",
+     "note": "has not forgiven him the furnace"
+    },
+    {
+     "to": "dong_hong_lo",
+     "kind": "friend",
+     "note": "Hồng Lô Cốc's head; they trade volcano ash for spirit wood and argue about fire"
+    },
+    {
+     "to": "lac_dan_thanh",
+     "kind": "rival",
+     "note": "the market alchemist who copies Thúy Vi's pills, and who holds the Peach Spring map"
+    },
+    {
+     "to": "luc_thanh_sam",
+     "kind": "debt",
+     "note": "Hộ Lâm's head, who felled the Grandmother Fir in 1150 for his breakthrough"
+    },
+    {
+     "to": "duong_kho_chi",
+     "kind": "former_disciple",
+     "note": "the disciple he expelled in 1120"
+    },
+    {
+     "to": "chu_hong_diep",
+     "kind": "rival",
+     "note": "Lạc Hà's Furnace Master, across the herb markets"
+    },
+    {
+     "to": "khuyet_van_ha",
+     "kind": "rival",
+     "note": "Cao Đan Hà's junior apprentice; both mean to finish their master's pill"
+    },
+    {
+     "to": "chiem_dan_sam",
+     "kind": "disciple",
+     "note": "Furnace Hall brewer, second to Tề Tử Tô"
+    }
+   ],
+   "master": "au_duong_thanh_lo",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "emerald-haze-canon",
+     "layer": 10
+    },
+    "aux": [
+     {
+      "tech": "green-furnace-canon",
+      "layer": 12
+     }
+    ],
+    "gear": [
+     {
+      "named": "tv-green-furnace"
+     },
+     {
+      "named": "tv-pulse-needle"
+     },
+     {
+      "named": "tv-charcoal-clamp-robe"
+     }
+    ],
+    "skills": {
+     "dan_dao": 9,
+     "linh_thuc": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood land toward slow burns and pill sustain, with a reach into the Fire land for burn duration.",
+     "targets": [
+      6299,
+      6103,
+      6203,
+      2348,
+      2344,
+      6227,
+      2639,
+      2642
+     ],
+     "targets_note": "Slow Venom duration and the pill pouch, then Wutong Perch and Prairie Fire: green fire that lingers and rekindles."
+    },
+    "note": "Green fire on the wounded, fast pills on himself; the furnace does the killing."
+   },
+   "items": [
+    "tv-green-furnace",
+    "tv-pulse-needle",
+    "tv-charcoal-clamp-robe"
+   ]
+  },
+  {
+   "key": "quyen_thanh_lam",
+   "name_hv": "Quyền Thanh Lam",
+   "name_han": "權青嵐",
+   "gloss": "Green mountain haze",
+   "sex": "M",
+   "born": 840,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "thuy_vi",
+   "rank": "truong_lao",
+   "home": 1110,
+   "birthplace": 1149,
+   "role": "First elder of Thúy Vi Tông; master of the Field Hall: grain, herbs and spirit fields",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "tho": 70,
+     "moc": 62
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 62,
+    "than_hon": 60,
+    "khi_van": 56,
+    "dao_tam": 72,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Loyal"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Broad and slow, brown as a field in winter, with lime-burn scars on both forearms and soil under his nails that never washes out.",
+   "backstory": "Quyền Thanh Lam grew up at the lime kilns of Thiêu Hôi Thôn, which has more Earth in its ground than any other village of the sect, and he still smells faintly of burnt stone. Phùng Yên Hà (phung_yen_ha) took him at twelve for the fields, not the hall. He has been first elder since 1040, because nobody else would keep the sect's grain, herbs and spirit fields with the same patience. In 1001 he was the first elder to agree with Ngu Lam Sơn (ngu_lam_son) about going down, and he did the work. He broke the founder's terraces into carts and carried the soil of the ridge gardens down in baskets. In 1006 he rewrote the outer gate's primer for the deep loam of the post town (N-thuy_vi-03). Wherever he travels he carries a field, a nine-square plot that unfolds from his seal. His Dao partner is the herb-keeper Khổng Đương Quy (khong_duong_quy). Their daughter Quyền Tiểu Mạch (quyen_tieu_mach) is the only child either of them wanted. He is old for Kết Đan and has stopped trying for Nguyên Anh, which he says is the same as being content.",
+   "wants": "To see the sect's fields feed it without buying a single grain, and to see his daughter reach Kết Đan before he dies.",
+   "secret": "In 1006 he held back three baskets of the ridge's soil and buried them under the head's new hall, at Cù Thúy Bách's request, so that the founder's ground would lie under the sect wherever it went. Ngu does not know.",
+   "ties": [
+    {
+     "to": "phung_yen_ha",
+     "kind": "master",
+     "note": "took him for the fields"
+    },
+    {
+     "to": "khong_duong_quy",
+     "kind": "dao_partner",
+     "note": "married in 1100; they trade their set's pieces each spring"
+    },
+    {
+     "to": "quyen_tieu_mach",
+     "kind": "child",
+     "note": "his daughter, stuck at Trúc Cơ"
+    },
+    {
+     "to": "pham_thu_dien",
+     "kind": "disciple",
+     "note": "master of the outer gate"
+    },
+    {
+     "to": "canh_bo_anh",
+     "kind": "disciple",
+     "note": "reached Trúc Cơ behind a plough"
+    },
+    {
+     "to": "phi_tung_chi",
+     "kind": "disciple",
+     "note": "keeps the spirit-wood stores"
+    },
+    {
+     "to": "dong_ho_dao",
+     "kind": "disciple",
+     "note": "building him a second field for forty years"
+    },
+    {
+     "to": "ngu_lam_son",
+     "kind": "friend",
+     "note": "the head, whom he followed down the mountain"
+    },
+    {
+     "to": "cu_thuy_bach",
+     "kind": "friend",
+     "note": "the soil under the hall is their secret"
+    },
+    {
+     "to": "luc_thanh_sam",
+     "kind": "friend",
+     "note": "outer disciples together; Lục founded Hộ Lâm Đường in 910 and still sends the wood"
+    },
+    {
+     "to": "hong_moc_huong",
+     "kind": "disciple",
+     "note": "steward of the rite of asking, before a spirit tree is felled"
+    },
+    {
+     "to": "lu_sa_sam",
+     "kind": "disciple",
+     "note": "Field Hall disciple who keeps the grain tally"
+    }
+   ],
+   "master": "phung_yen_ha",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "emerald-haze-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "tv-well-field-seal"
+     },
+     {
+      "named": "tv-lime-kiln-jacket"
+     },
+     {
+      "base": "ho_lo",
+      "grade": 3,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 5,
+     "linh_thuc": 5
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth land toward guard and body shield, then the Wood land's regeneration: the field that cannot be trampled.",
+     "targets": [
+      6299,
+      6103,
+      3299,
+      3300,
+      3250,
+      3256,
+      3258
+     ],
+     "targets_note": "The sect's Growth Rings and New Leaf, Five Grains and Tiller's Bones for a farmer's health, then the Bulwark idea's body shield and block: the field that cannot be trampled."
+    },
+    "note": "Thúy Vi's diligent, loyal first elder: the sect's fields carried wherever he goes, a steady Earth body under him."
+   },
+   "items": [
+    "tv-well-field-seal",
+    "tv-lime-kiln-jacket"
+   ],
+   "changed": "build main verdant-cycle-scripture (the inner method) -> emerald-haze-canon (elders run the founder's method, R5); tree targets -> intent; gear chuong -> tv-well-field-seal; home 1 -> 1110 (R4 seat move); birthplace added (1149); fix pass A: archetype dan_su -> the_tu (his intent is an Earth guard and body shield, his aux the Mountain Bone Body Art); route redone from the lineage"
+  },
+  {
+   "key": "huong_da_dang",
+   "name_hv": "Hướng Dạ Đăng",
+   "name_han": "向夜燈",
+   "gloss": "Lamp in the night",
+   "sex": "M",
+   "born": 870,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "thuy_vi",
+   "rank": "truong_lao",
+   "home": 31,
+   "birthplace": 31,
+   "role": "Warden of the Cold Ford Hall at Hàn Tân Thành; the sect's hawk on the Tùng Đào border",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 64,
+     "moc": 56
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 76,
+    "than_hon": 58,
+    "khi_van": 54,
+    "dao_tam": 62,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Warlike",
+     "Vengeful",
+     "Brave"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": "vengeance_vow",
+    "fate_given": [],
+    "gained": [
+     "Battle-hardened",
+     "Grieving"
+    ]
+   },
+   "appearance": "A weathered, thick-necked man with a fisher's squint, a white scar through one eyebrow from the ice of 904, and the quay lamp hung at his hip, unlit by day.",
+   "backstory": "Hướng Dạ Đăng was born in Hàn Tân Thành in 870 as a subject of Tùng Đào Cung. His fisher family had kept the name of the warden who fell on the quay in 672, Hướng Đông Lâm (huong_dong_lam), for eight generations. His grandmother paid the resin tax in fish because she had no resin (A041). At eleven he swam the river mouth to the hills to join Thúy Vi. He was a Trúc Cơ in the Cold Ford War (C165), under Tân Hàn Chu (tan_han_chu), who died the winter before the ford came home (N-thuy_vi-06). In 905 he dug his ancestor's lamp out from under the quay stones where the fishers had hidden it (C166), and the fishers lit lamps on every boat for a month (A044). He has held the Cold Ford Hall since 960. He thinks the Pivot's writs are a game Tùng Đào plays better. In his view the ford came back with a writ only because Đỗ Tinh Hà (do_tinh_ha) was ashamed of the first one, and the next war will not wait for paper. Every winter he drills the coast's disciples on the ice of the river mouth. His wife drowned in 1180. His daughter Hướng Vãn Chu (huong_van_chu) holds a plot in the Heir's Garden, and he wants her to win it.",
+   "wants": "To push the border back to Lô Khẩu marsh and the old resin-tax villages, and to see his daughter head of the sect.",
+   "secret": "In 1172 he caught a Tùng Đào patrol on the ice of the river mouth and put all six of them under it. The Pivot never heard, and Tùng Đào believes they deserted.",
+   "ties": [
+    {
+     "to": "tan_han_chu",
+     "kind": "master",
+     "note": "his master, who broke through the ice in 904 and did not come up"
+    },
+    {
+     "to": "huong_van_chu",
+     "kind": "child",
+     "note": "his daughter and disciple, in the Heir's Garden"
+    },
+    {
+     "to": "huong_van_chu",
+     "kind": "disciple",
+     "note": "taught her the pole and the ice"
+    },
+    {
+     "to": "huong_tieu_lam",
+     "kind": "child",
+     "note": "his younger son, born late, who would rather fish than fight"
+    },
+    {
+     "to": "vo_han_lo",
+     "kind": "disciple",
+     "note": "the one he took onto the ice in 1172"
+    },
+    {
+     "to": "nham_lieu_ngan",
+     "kind": "disciple",
+     "note": "a ferryman's daughter of Hàn Tân"
+    },
+    {
+     "to": "ngu_lam_son",
+     "kind": "rival",
+     "note": "the head will not give him his war"
+    },
+    {
+     "to": "bien_van_tinh",
+     "kind": "rival",
+     "note": "the envoy who keeps undoing his winters"
+    },
+    {
+     "to": "dam_tung_lai",
+     "kind": "enemy",
+     "note": "head of Tùng Đào since 900, who lost the ford to him in 905"
+    },
+    {
+     "to": "ho_tung_nguyet",
+     "kind": "rival",
+     "note": "Tùng Đào's first elder; they meet at the border talks every ten years and do not shake hands"
+    },
+    {
+     "to": "lo_thanh_xuyen",
+     "kind": "enemy",
+     "note": "the Tùng Đào patrolman he put under the ice in 1172"
+    },
+    {
+     "to": "nhiep_co_tan",
+     "kind": "enemy",
+     "note": "the boy from two doors down in Hàn Tân, now Tùng Đào's man across the ford"
+    },
+    {
+     "to": "nhac_chinh_hanh",
+     "kind": "rival",
+     "note": "the Hall of Rules elder who suspects his border killings and would judge them on proof"
+    },
+    {
+     "to": "tan_thuong_truat",
+     "kind": "disciple",
+     "note": "Cold Ford Hall fighter of Tân Hàn Chu's line"
+    }
+   ],
+   "master": "tan_han_chu",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "emerald-haze-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "haze-walk",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "tv-quay-lamp"
+     },
+     {
+      "named": "tv-dong-lam-spear"
+     },
+     {
+      "named": "tv-winter-quay-coat"
+     }
+    ],
+    "skills": {
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood land toward rooting and damage, then the Water land for linh lực on long winter fights.",
+     "targets": [
+      6299,
+      6103,
+      5780,
+      5784,
+      6187,
+      6151,
+      6154
+     ],
+     "targets_note": "Binding Vine rooting (status duration), Black Forest damage, Hollow Bamboo linh lực for long winter fights."
+    },
+    "note": "Roots the foe on the ice, strips their concealment with the lamp, and keeps going."
+   },
+   "items": [
+    "tv-quay-lamp",
+    "tv-dong-lam-spear",
+    "tv-winter-quay-coat"
+   ]
+  },
+  {
+   "key": "diem_hai_tao",
+   "name_hv": "Diêm Hải Tảo",
+   "name_han": "閻海藻",
+   "gloss": "Diêm for the salt; hải tảo is sargassum, a seaweed in the herb book",
+   "sex": "F",
+   "born": 778,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "thuy_vi",
+   "rank": "truong_lao",
+   "home": 30,
+   "birthplace": 101,
+   "role": "Keeper of the port house at Yên Ba Thành: the sect's sea trade and the cape's coast",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 66,
+     "moc": 48
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 66,
+    "than_hon": 54,
+    "khi_van": 78,
+    "dao_tam": 56,
+    "mi_luc": 70
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Brave",
+     "Pragmatic"
+    ],
+    "calling": "Merchant",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "gambler",
+    "health": "waning_years",
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Short, brown and salt-cracked, with a sailor's rolling walk, a whale-cast brass lock on a cord at her throat and a laugh that carries across a harbour.",
+   "backstory": "When the Pivot's fleets broke Thôn Hải in 781, the pirates who had wintered in the cove below Ẩn Loan Thôn vanished in one night. They left a chest of salt and a three-year-old girl (A026). The villagers fed her and said nothing, as they had fed the pirates (A025). Ngu Lam Sơn (ngu_lam_son), then a Kết Đan carrying pills down the cape, found her eating kelp on the beach and took her up to the ridge (N-thuy_vi-04). The sect names its foundlings from the herb book. It named her Hải Tảo for the seaweed and Diêm, by a pun, for the salt. She grew up the sect's sailor. She keeps the port house at Yên Ba Thành, which ships Thúy Vi's pills down the coast and up the strait. She has more friends among the boatwrights and smugglers of the cape than any elder has in the halls. She is 422 and has perhaps eighty years left. In those years she means to learn whose daughter she is. She is fairly sure she knows already: the pirate lord Ô Kình Hải (o_kinh_hai), who died in the Purge the year she was left.",
+   "wants": "To find her father's sabre Kình Nha at the ruin of Thôn Hải Môn far in the south (place 217), and to learn whether the chest was left for her or only with her.",
+   "secret": "The chest of salt had a false bottom. Inside was a sea chart of the southern islands in Ô Kình Hải's hand. She has kept it for four hundred years and never sailed it.",
+   "ties": [
+    {
+     "to": "ngu_lam_son",
+     "kind": "master",
+     "note": "found her on the beach"
+    },
+    {
+     "to": "o_kinh_hai",
+     "kind": "parent",
+     "note": "the pirate lord; she believes it and cannot prove it"
+    },
+    {
+     "to": "tham_tinh_sa",
+     "kind": "disciple",
+     "note": "keeps her books"
+    },
+    {
+     "to": "ke_lang_hoa",
+     "kind": "disciple",
+     "note": "the girl who followed the peach petals"
+    },
+    {
+     "to": "thoi_hai_thuy",
+     "kind": "disciple",
+     "note": "promised the first voyage south"
+    },
+    {
+     "to": "bang_yen_toa",
+     "kind": "friend",
+     "note": "Vụ Ẩn Môn's head lays mist on the cape roads her carts use"
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "debt",
+     "note": "the plains merchant who lends her hulls and has never asked for them back, which worries her"
+    },
+    {
+     "to": "bao_te_hai",
+     "kind": "friend",
+     "note": "the shipwright whose hulls she borrows; they drink on them"
+    },
+    {
+     "to": "bao_thinh_trieu",
+     "kind": "friend",
+     "note": "the young captain who wants to sail with her"
+    },
+    {
+     "to": "boc_tram_chu",
+     "kind": "friend",
+     "note": "the Pivot elder who sells her his wine and tells the sabre story"
+    },
+    {
+     "to": "cam_le_chau",
+     "kind": "friend",
+     "note": "the port girl she keeps busy on the docks"
+    },
+    {
+     "to": "ho_te_xuyen",
+     "kind": "friend",
+     "note": "keeper of the Hỗ port house; she is his best cargo"
+    },
+    {
+     "to": "thai_van_xa",
+     "kind": "friend",
+     "note": "the Vụ Ẩn smuggler; she knows about the other carts"
+    },
+    {
+     "to": "lac_dan_thanh",
+     "kind": "rival",
+     "note": "the herb-seller who wants the painting her port house holds"
+    },
+    {
+     "to": "kieu_con_bo",
+     "kind": "disciple",
+     "note": "captain of a port-house pill ship"
+    },
+    {
+     "to": "bao_thuy_hanh",
+     "kind": "friend",
+     "note": "carter captain of the Yên Ba salt-fish carts; outer for life"
+    }
+   ],
+   "master": "ngu_lam_son",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "emerald-haze-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "haze-walk",
+      "layer": 7
+     }
+    ],
+    "gear": [
+     {
+      "named": "tv-salt-chest-lock"
+     },
+     {
+      "named": "tv-cove-wind-fan"
+     },
+     {
+      "named": "tv-salt-crust-robe"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water land for linh lực and leech on long sea fights, then the Wood land's haze heals.",
+     "targets": [
+      6299,
+      6103,
+      5312,
+      4926,
+      4932,
+      5304,
+      5351
+     ],
+     "targets_note": "Whirling Palm and the Whirlpool's linh lực leech for long sea fights, Mill Race speed, Timely Rain heals."
+    },
+    "note": "A deck fighter: haze on the water, a fan for the wind, and the patience of someone who has outlived every pirate she knew."
+   },
+   "items": [
+    "tv-salt-chest-lock",
+    "tv-cove-wind-fan",
+    "tv-salt-crust-robe"
+   ]
+  },
+  {
+   "key": "thieu_thanh_dai",
+   "name_hv": "Thiệu Thanh Đài",
+   "name_han": "邵青苔",
+   "gloss": "Green moss (Vương Duy: the returning light shines again on the green moss)",
+   "sex": "F",
+   "born": 1040,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "thuy_vi",
+   "rank": "chan_truyen",
+   "home": 1110,
+   "birthplace": 1111,
+   "role": "The head's true disciple and the sect's best healer-grower; holds the first plot of the Heir's Garden",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 80,
+     "tho": 42
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 78,
+    "can_cot": 54,
+    "than_hon": 80,
+    "khi_van": 60,
+    "dao_tam": 84,
+    "mi_luc": 64
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Patient",
+     "Humble"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     },
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "perfect_foundation"
+    ],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [
+     "Pure-hearted"
+    ],
+    "gained": []
+   },
+   "appearance": "Slight and soft-spoken, with grey-green eyes and her sleeves always rolled; a mirror furred with moss hangs at her waist.",
+   "backstory": "Thiệu Thanh Đài was born in Phục Linh Thôn among the poria diggers, who find the fungus by its smell under old pines, and she has their patience. She came to the outer gate in 1052, one of the first generation raised wholly at the new seat. She has never lived on the ridge and does not miss it. Ngu Lam Sơn (ngu_lam_son) chose her as his disciple in 1060. He says it was because she kept a moss garden alive through a drought by talking to it; she says she only watered it at night. She is the sect's best healer after Dư Tục Đoạn (du_tuc_doan), and its best grower after no one. She reached Kết Đan in 1180, and her master gave her the moss mirror with the line the sect lives by: the returning light shines again on the green moss. In 1195 he gave her one of the three plots of the Heir's Garden (N-thuy_vi-08). She has planted moss. Hoàn Cô Bách (hoan_co_bach) says moss is what grows where nothing else will. Her first disciple is the foundling Kiển Viễn Chí (kien_vien_chi), who wants the headship more than she does.",
+   "wants": "To keep the sect as her master made it, quiet and green, whether or not she is the one who leads it.",
+   "secret": "She does not want to be head. She planted moss so that she would lose, and she is afraid her disciple has guessed.",
+   "ties": [
+    {
+     "to": "ngu_lam_son",
+     "kind": "master",
+     "note": "her master; she brews his tea when Thi Trà Yên is away"
+    },
+    {
+     "to": "kien_vien_chi",
+     "kind": "disciple",
+     "note": "her foundling, too ambitious for her plot"
+    },
+    {
+     "to": "vuong_phuc_linh",
+     "kind": "disciple",
+     "note": "a girl from her own village, taken in 1199"
+    },
+    {
+     "to": "hoan_co_bach",
+     "kind": "rival",
+     "note": "the second plot; he despises moss"
+    },
+    {
+     "to": "huong_van_chu",
+     "kind": "friend",
+     "note": "the third plot; they like each other more than the factions behind them would wish"
+    },
+    {
+     "to": "du_tuc_doan",
+     "kind": "friend",
+     "note": "they share the Green Door Day"
+    }
+   ],
+   "master": "ngu_lam_son",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "emerald-haze-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "haze-walk",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "tv-green-moss-mirror"
+     },
+     {
+      "named": "tv-poria-gourd"
+     },
+     {
+      "named": "tv-weeping-willow-robe"
+     }
+    ],
+    "skills": {
+     "dan_dao": 6,
+     "linh_thuc": 7
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood land toward healing and buff duration: the healer who keeps everyone standing.",
+     "targets": [
+      6299,
+      6103,
+      6093,
+      6357,
+      5591,
+      5595,
+      5597
+     ],
+     "targets_note": "Weeping Willow and Spirit Berries healing, then the World Tree's health and regeneration; buff duration wished (wish bt-01)."
+    },
+    "note": "A support who wins by nobody falling: haze field, blooming heals, and the mirror sharing it all with the weakest."
+   },
+   "items": [
+    "tv-green-moss-mirror",
+    "tv-poria-gourd",
+    "tv-weeping-willow-robe"
+   ]
+  },
+  {
+   "key": "hoan_co_bach",
+   "name_hv": "Hoàn Cô Bách",
+   "name_han": "桓孤柏",
+   "gloss": "Lone cypress",
+   "sex": "M",
+   "born": 1020,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "thuy_vi",
+   "rank": "chan_truyen",
+   "home": 1,
+   "birthplace": 1,
+   "role": "The grand elder's true disciple and the Cliff Hall's champion; holds the second plot of the Heir's Garden",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 66,
+     "kim": 42,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 82,
+    "than_hon": 56,
+    "khi_van": 48,
+    "dao_tam": 74,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Diligent",
+     "Stubborn"
+    ],
+    "calling": "Duelist",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": "duel_seeker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Tall and hard-faced, burnt dark by the ridge wind, with a cypress banner-pole across his back and hands calloused from cutting stone.",
+   "backstory": "Hoàn Cô Bách was born on the ridge in 1020, fourteen years after the sect left it, to a jade-cutter who stayed. He is the only true disciple of Thúy Vi who has never lived at the new seat. Cù Thúy Bách (cu_thuy_bach) took him at six and raised him on the Cliff Hall's teaching: roots that split rock, a body hardened by the Metal wind, sleep on stone. At forty he walked down to the new seat for the inner gate's contest, beat every disciple there with a cypress pole, and walked back up the same night. He has the ridge in his root, Metal beside his Wood, and he does not hide it. He thinks the new seat breeds soft people in a warm garden, and that the sect would have lost the Cold Ford War if it had fought it from Cổ Dịch. In 1195 the head gave him a plot of the Heir's Garden (N-thuy_vi-08). He did not plant it at the seat. He carried a cypress seedling up to a crack in the rock above the founder's pine and planted it there, where nothing grows. It is alive.",
+   "wants": "To be named heir and bring the sect's heart back up the mountain, or at least the inner gate's teaching.",
+   "secret": "He is afraid of the haze. As a boy he was lost in it on the slope for a night and nearly drowned in a ditch, and the ridge is the only place he can breathe. He has never told Cù.",
+   "ties": [
+    {
+     "to": "cu_thuy_bach",
+     "kind": "master",
+     "note": "raised him from six"
+    },
+    {
+     "to": "thang_ha_kho",
+     "kind": "disciple",
+     "note": "the pine-soot boy the slope laughed at"
+    },
+    {
+     "to": "banh_lap_mai",
+     "kind": "disciple",
+     "note": "came up because the slope was too easy"
+    },
+    {
+     "to": "thieu_thanh_dai",
+     "kind": "rival",
+     "note": "the moss plot; he cannot see why the head favours her"
+    },
+    {
+     "to": "huong_van_chu",
+     "kind": "rival",
+     "note": "the third plot; he respects her more than he admits"
+    },
+    {
+     "to": "la_trac_thach",
+     "kind": "friend",
+     "note": "his father's old workmate at the jade mine; the only man he drinks with"
+    },
+    {
+     "to": "bao_nham_tinh",
+     "kind": "friend",
+     "note": "the Cliff Hall's steward, who taught him to water stone"
+    },
+    {
+     "to": "le_khuong_hoat",
+     "kind": "disciple",
+     "note": "Cliff Hall fighter; Thang Hạ Khô's sworn brother"
+    },
+    {
+     "to": "vien_son_thu",
+     "kind": "disciple",
+     "note": "forest-born disciple who chose the Cliff Hall"
+    }
+   ],
+   "master": "cu_thuy_bach",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "emerald-haze-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "rock-splitting-root",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "tv-lone-cypress-banner"
+     },
+     {
+      "named": "tv-ridge-jade-buckler"
+     },
+     {
+      "named": "tv-metal-wind-coat"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood land toward physical weight and guard-breaking, with a reach into Metal for resistance: the pine on the cliff.",
+     "targets": [
+      6299,
+      6103,
+      6169,
+      6166,
+      5954,
+      5956,
+      4522
+     ],
+     "targets_note": "His master's Pine Strength, the Green Dragon idea's penetration to crack a guard, Metal Skin from the Vajra Body for the reach into Metal."
+    },
+    "note": "Cracks the foe's guard with roots and leans on them with the banner pole until they break."
+   },
+   "items": [
+    "tv-lone-cypress-banner",
+    "tv-ridge-jade-buckler",
+    "tv-metal-wind-coat"
+   ]
+  },
+  {
+   "key": "tat_hanh_vu",
+   "name_hv": "Tất Hành Vụ",
+   "name_han": "畢行霧",
+   "gloss": "Walks in the mist",
+   "sex": "M",
+   "born": 930,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "thuy_vi",
+   "rank": "truong_lao",
+   "home": 1110,
+   "birthplace": 1064,
+   "role": "Master of the Array Hall; the elder who taught the Haze Walk away",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 62,
+     "thuy": 44
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 80,
+    "can_cot": 50,
+    "than_hon": 72,
+    "khi_van": 58,
+    "dao_tam": 60,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Generous",
+     "Gregarious",
+     "Stubborn"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "formation_mind"
+    ],
+    "lifestyle": "go_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A wiry old man who walks fast and talks faster, with array chalk on his cuffs.",
+   "backstory": "Born in the river mists of Phù Kiều Trấn, Tất Hành Vụ took to formations because the haze already looked to him like an array. He laid the new seat's Lotus Throne and Spring Return arrays in 1006, and he alone can read the Haze Walk's ninth layer. In 1048 he taught the walk to his sworn brother, a road guard, who took it to the cape and founded Vụ Ẩn Môn on it (N-thuy_vi-07). Half the elders call it theft. He calls it the only good the walk has ever done. His granddaughter Tất Quế Lạc (tat_que_lac) is his disciple.",
+   "ties": [
+    {
+     "to": "phung_yen_ha",
+     "kind": "master",
+     "note": "the founder taught him his first array"
+    },
+    {
+     "to": "tat_que_lac",
+     "kind": "disciple",
+     "note": "his granddaughter; they argue about Vụ Ẩn Môn at dinner"
+    },
+    {
+     "to": "khang_thach_tuyen",
+     "kind": "disciple",
+     "note": "his array runner"
+    },
+    {
+     "to": "tuan_van_mau",
+     "kind": "disciple",
+     "note": "grinds his mica"
+    },
+    {
+     "to": "uong_muc_dich",
+     "kind": "disciple",
+     "note": "the flute boy of Địch Thanh Viện, now 198"
+    },
+    {
+     "to": "bang_yen_toa",
+     "kind": "friend",
+     "note": "head of Vụ Ẩn Môn, his sworn brother's successor; he visits the cape every spring"
+    },
+    {
+     "to": "ham_thanh_dang",
+     "kind": "friend",
+     "note": "his sworn brother's daughter; she calls him uncle"
+    },
+    {
+     "to": "luyen_to_y",
+     "kind": "friend",
+     "note": "the Phù Kiều woman he trusts because of where she is from"
+    },
+    {
+     "to": "ham_thu_lo",
+     "kind": "sworn_sibling",
+     "note": "Vụ Ẩn's founder, who taught him the Haze Walk in 1048"
+    },
+    {
+     "to": "ngo_cau_dang",
+     "kind": "disciple",
+     "note": "Array Hall disciple who walks the Spring Return array each dawn"
+    }
+   ],
+   "master": "phung_yen_ha",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "emerald-haze-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "haze-walk",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 3,
+      "element": "moc"
+     },
+     {
+      "base": "an",
+      "grade": 3,
+      "element": "tho"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "tran_phap": 8
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood land toward haze and concealment, with Earth for array wards.",
+     "targets": [
+      6299,
+      6103,
+      6140,
+      6142,
+      3094,
+      3151
+     ],
+     "targets_note": "Grove Shade concealment and Bamboo Grove, then Earth formation power for the Lotus Throne array."
+    },
+    "note": "Lays the Lotus Throne, walks out of reach, and lets the array fight."
+   }
+  },
+  {
+   "key": "khong_duong_quy",
+   "name_hv": "Khổng Đương Quy",
+   "name_han": "孔當歸",
+   "gloss": "Angelica; the herb's name means 'ought to return'",
+   "sex": "F",
+   "born": 920,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "thuy_vi",
+   "rank": "truong_lao",
+   "home": 1110,
+   "birthplace": 1116,
+   "role": "Keeper of the Herb Gardens and of Bách Thảo Viện's books",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 72,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 46,
+    "than_hon": 64,
+    "khi_van": 50,
+    "dao_tam": 70,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Honest",
+     "Cautious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Scarred"
+    ]
+   },
+   "appearance": "Small and stooped, always smelling of angelica root, with a burn scar along one cheek from 932.",
+   "backstory": "Khổng Đương Quy was twelve and a servant orphan of Bách Thảo Viện when its fire cauldron burst in 932 (V029). Âu Dương Thanh Lô (au_duong_thanh_lo) threw her out of the hall with the academy's seed gourd in her arms before the roof came down on him. Thúy Vi carried the academy's herb books to the seat, and her with them. She has kept the books and the sect's herb gardens ever since. She still means to rebuild Bách Thảo Viện one day, as her herb name says. She married Quyền Thanh Lam (quyen_thanh_lam) in 1100.",
+   "ties": [
+    {
+     "to": "phung_yen_ha",
+     "kind": "master",
+     "note": "the founder took the burned child as a disciple"
+    },
+    {
+     "to": "quyen_thanh_lam",
+     "kind": "dao_partner",
+     "note": "the field and the garden"
+    },
+    {
+     "to": "quyen_tieu_mach",
+     "kind": "child",
+     "note": "their daughter, also her disciple"
+    },
+    {
+     "to": "quyen_tieu_mach",
+     "kind": "disciple",
+     "note": "keeps the seed vault"
+    },
+    {
+     "to": "han_moc_te",
+     "kind": "disciple",
+     "note": "copies the Bách Thảo books before the paper rots"
+    },
+    {
+     "to": "thi_tra_yen",
+     "kind": "disciple",
+     "note": "the tea grower"
+    },
+    {
+     "to": "au_duong_thanh_lo",
+     "kind": "debt",
+     "note": "he died getting her out"
+    },
+    {
+     "to": "van_tu_uyen",
+     "kind": "disciple",
+     "note": "keeper of the osmanthus terraces at Thương Thúy Lâm"
+    }
+   ],
+   "master": "phung_yen_ha",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "emerald-haze-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "green-furnace-canon",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "tv-hundred-herb-gourd"
+     },
+     {
+      "base": "cham",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 6,
+     "linh_thuc": 8
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood land toward healing and regeneration.",
+     "targets": [
+      6299,
+      6103,
+      6093,
+      6095,
+      6357,
+      5713
+     ],
+     "targets_note": "Willow healing, Spirit Berries, Healing Herbs: the garden's healer."
+    },
+    "note": "A healer who never leaves the garden; in a fight she keeps the haze up and the wounded on their feet."
+   },
+   "items": [
+    "tv-hundred-herb-gourd"
+   ]
+  },
+  {
+   "key": "nhac_chinh_hanh",
+   "name_hv": "Nhạc Chính Hành",
+   "name_han": "岳正衡",
+   "gloss": "A true balance",
+   "sex": "M",
+   "born": 1000,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "thuy_vi",
+   "rank": "truong_lao",
+   "home": 1110,
+   "birthplace": 1130,
+   "role": "Master of the Hall of Rules; ridge-trained, called the Avalanche",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "tho": 46,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 70,
+    "than_hon": 60,
+    "khi_van": 44,
+    "dao_tam": 78,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Stubborn",
+     "Calm"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [
+     "heart_demon_victor"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "Square, unsmiling and grey at the temples; he stands very straight and speaks in the fewest words he can.",
+   "backstory": "Nhạc Chính Hành was nineteen and a Luyện Khí outer disciple, home for the New Year, when the avalanche buried the upper street of Vân Gian Trấn and his family in it (V031). He dug for nine days. Afterwards Cù Thúy Bách (cu_thuy_bach) took him up to the ridge, and the Cliff Hall made him hard and exact. He has kept the Hall of Rules at the new seat since 1150 and judges as the ridge would: by the rule, not the person. The haze-born disciples fear him and call him the Avalanche.",
+   "ties": [
+    {
+     "to": "cu_thuy_bach",
+     "kind": "master",
+     "note": "took him up the mountain after the avalanche"
+    },
+    {
+     "to": "liem_truc_anh",
+     "kind": "disciple",
+     "note": "his clerk, who keeps a second book"
+    },
+    {
+     "to": "huong_da_dang",
+     "kind": "rival",
+     "note": "suspects the warden's border killings and will judge them if he finds proof"
+    },
+    {
+     "to": "quan_anh_ho",
+     "kind": "creditor",
+     "note": "he renews her outside-method exception every decade"
+    },
+    {
+     "to": "ham_thanh_dang",
+     "kind": "enemy",
+     "note": "the Vụ Ẩn woman who has put his name first on her list"
+    },
+    {
+     "to": "mau_hanh_dao",
+     "kind": "friend",
+     "note": "the Vân Khởi elder who dug beside him for six of the nine days in 1019"
+    },
+    {
+     "to": "su_te_tan",
+     "kind": "disciple",
+     "note": "investigator of the Hall of Rules"
+    }
+   ],
+   "master": "cu_thuy_bach",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "emerald-haze-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "rock-splitting-root",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 3,
+      "element": "tho"
+     },
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 3,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth land toward guard and block, then Wood for staying power.",
+     "targets": [
+      6299,
+      6103,
+      715,
+      3724,
+      3051
+     ],
+     "targets_note": "Earth Root, Earthen Gate and Five Peaks: block and health for the line, with the lineage's Wood regeneration behind it."
+    },
+    "note": "Holds the line and breaks the foe's guard one root at a time."
+   }
+  },
+  {
+   "key": "lo_da_huong",
+   "name_hv": "Lô Dã Hương",
+   "name_han": "盧野香",
+   "gloss": "Wild fragrance",
+   "sex": "F",
+   "born": 990,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "thuy_vi",
+   "rank": "truong_lao",
+   "home": 1048,
+   "birthplace": 1049,
+   "role": "Keeper of the Marten Yard on Ngân Điêu Đài, where silver martens are bred to find spirit herbs",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 76,
+     "thuy": 28
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 64,
+    "than_hon": 58,
+    "khi_van": 66,
+    "dao_tam": 52,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Honest",
+     "Greedy"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [
+     "beast_bonded"
+    ],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Sharp-faced and quick, with a fur collar that turns out to be a live silver marten asleep.",
+   "backstory": "Lô Dã Hương grew up hunting matsutake under the pines of Tùng Nhung Thôn with a tame marten on her shoulder. Ngu Lam Sơn (ngu_lam_son) took her as his disciple in 1010 for her nose. She runs the sect's Marten Yard on Ngân Điêu Đài, where silver martens are bred to sniff out spirit herbs. She trusts animals over people and says so. Her martens find a hundred-year ginseng in a season, and she sells their pups to Hồng Lô Cốc for more than the ginseng is worth.",
+   "ties": [
+    {
+     "to": "ngu_lam_son",
+     "kind": "master",
+     "note": "took her for her nose"
+    },
+    {
+     "to": "bach_hop_hoan",
+     "kind": "disciple",
+     "note": "names every pup and cries when they are sold"
+    },
+    {
+     "to": "dong_hong_lo",
+     "kind": "friend",
+     "note": "Hồng Lô Cốc's head buys her marten pups and overpays"
+    },
+    {
+     "to": "giai_bach_bo",
+     "kind": "creditor",
+     "note": "the Hồng Lô steward who asks for the martens Đồng pays for"
+    },
+    {
+     "to": "mach_phuc_linh",
+     "kind": "rival",
+     "note": "the loose marten-keeper whose beasts undercut hers"
+    }
+   ],
+   "master": "ngu_lam_son",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "emerald-haze-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "haze-walk",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "wood-packmate-collar"
+     },
+     {
+      "base": "phu",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 6
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood land toward companion damage and speed.",
+     "targets": [
+      6299,
+      6103,
+      6487,
+      6537,
+      6547,
+      6542
+     ],
+     "targets_note": "Beast Pen, then the Beast-Soul Totem idea and its Beast Soul Union: the martens' power, bound to her."
+    },
+    "note": "The martens fight; she keeps them hidden in the haze until they bite."
+   }
+  },
+  {
+   "key": "bien_van_tinh",
+   "name_hv": "Biện Vãn Tình",
+   "name_han": "卞晚晴",
+   "gloss": "Clear evening sky",
+   "sex": "F",
+   "born": 1050,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "thuy_vi",
+   "rank": "truong_lao",
+   "home": 1110,
+   "birthplace": 46,
+   "role": "The sect's envoy to the Pivot, the vassals and Tùng Đào",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 64,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 50,
+    "than_hon": 62,
+    "khi_van": 64,
+    "dao_tam": 58,
+    "mi_luc": 80
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Pragmatic",
+     "Patient"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "poet",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Elegant and quick-eyed, in a robe cut in the Tùng Đào fashion and dyed Thúy Vi green.",
+   "backstory": "Biện Vãn Tình was born in Tùng Hạ Thị, Tùng Đào's market under the pines, to a Thúy Vi pill trader and a local scribe, and she speaks both sects' courtesies without an accent. Úy Thanh Diễm (uy_thanh_diem) trained her in the Furnace Hall until it was clear she sold a pill better than she brewed one. Since 1140 she has carried the sect's letters to the Pivot, the vassals and across the border. She has kept the Cold Ford quiet through four of Hướng Dạ Đăng's (huong_da_dang) winters. She thinks the warden will start a war and that the head will let him finish it.",
+   "ties": [
+    {
+     "to": "uy_thanh_diem",
+     "kind": "master",
+     "note": "trained her in the furnace"
+    },
+    {
+     "to": "duong_tich_chieu",
+     "kind": "disciple",
+     "note": "her letter-writer"
+    },
+    {
+     "to": "dau_tam_that",
+     "kind": "disciple",
+     "note": "runs the pill shop"
+    },
+    {
+     "to": "huong_da_dang",
+     "kind": "rival",
+     "note": "she undoes his winters every spring"
+    },
+    {
+     "to": "ho_tung_nguyet",
+     "kind": "friend",
+     "note": "Tùng Đào's first elder; between them they keep the border talks civil"
+    },
+    {
+     "to": "phu_lien_kieu",
+     "kind": "friend",
+     "note": "a boy from her own market; she has taken him under her wing"
+    },
+    {
+     "to": "mau_tri_vien",
+     "kind": "friend",
+     "note": "the Pivot elder she trades gossip with over tea at Thạch Kiều"
+    },
+    {
+     "to": "chu_hoai_son",
+     "kind": "disciple",
+     "note": "steward of the Cold Ford Hall's stores and boat lamps"
+    }
+   ],
+   "master": "uy_thanh_diem",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "emerald-haze-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "haze-walk",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 3,
+      "element": "moc"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood land toward evasion and linh lực: an envoy who never needs to win, only to leave.",
+     "targets": [
+      6299,
+      6103,
+      6085,
+      6451,
+      6455,
+      6154
+     ],
+     "targets_note": "Willow Dance evasion, Riding the Wind escape and Hollow Bamboo linh lực: an envoy who leaves."
+    },
+    "note": "Never stays in a fight long enough to lose it."
+   }
+  },
+  {
+   "key": "la_trac_thach",
+   "name_hv": "Lã Trác Thạch",
+   "name_han": "呂琢石",
+   "gloss": "Carves the stone",
+   "sex": "M",
+   "born": 950,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "thuy_vi",
+   "rank": "khach_khanh",
+   "home": 165,
+   "birthplace": 165,
+   "role": "Guest elder for refining: jade-cutter, needle-smith and furnace-mender at Bích Ngọc Khoáng",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 72,
+     "tho": 44
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 78,
+    "than_hon": 50,
+    "khi_van": 46,
+    "dao_tam": 60,
+    "mi_luc": 38
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Honest",
+     "Reclusive"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [
+     "forge_scarred"
+    ],
+    "lifestyle": null,
+    "health": "maimed",
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Grey with stone dust and thick in the wrist, missing the last finger of his left hand to a jade saw.",
+   "backstory": "Lã Trác Thạch was born at the green jade mine below the old seat (A037), where the rock is half Metal, and his root came out Metal and Earth with no Wood in it at all. Thúy Vi could not take him into its lineage, so it hired him. He has been the sect's guest elder for refining since 1030. He cuts the jade for its seals, forges its pill needles and mends the iron bands of its green furnaces. He lives at the mine, not the seat, and goes up to the Cliff Hall to drink with Hoàn Cô Bách (hoan_co_bach), whose father worked his seam.",
+   "ties": [
+    {
+     "to": "hoan_co_bach",
+     "kind": "friend",
+     "note": "his old workmate's son"
+    },
+    {
+     "to": "cu_thuy_bach",
+     "kind": "friend",
+     "note": "the Cliff Hall pays his contract"
+    }
+   ],
+   "exception": "khach_khanh: hired refiner and jade-cutter of the sect's own ground; Metal-Earth root, never taught the lineage",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "dia_kim",
+     "layer": 8
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 7
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal land toward physical damage and armour.",
+     "targets": [
+      730,
+      4144,
+      4489,
+      4487,
+      4329
+     ],
+     "targets_note": "Outside method, no lineage route: Steel Frame, Bone-Breaker pierce, Vajra Body health, Golden Armour."
+    },
+    "note": "A miner's fighter: an axe and a heavy coat, no subtlety."
+   }
+  },
+  {
+   "key": "du_tuc_doan",
+   "name_hv": "Dư Tục Đoạn",
+   "name_han": "余續斷",
+   "gloss": "Teasel root; the herb's name means 'rejoins what is broken'",
+   "sex": "M",
+   "born": 1080,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "thuy_vi",
+   "rank": "truong_lao",
+   "home": 45,
+   "birthplace": 1068,
+   "role": "Elder of the Healing House at Lam Yên Thị; the sect's bone-setter and the Green Door Day's healer",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 58,
+     "thuy": 42
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 52,
+    "than_hon": 66,
+    "khi_van": 50,
+    "dao_tam": 72,
+    "mi_luc": 60
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Diligent",
+     "Trusting"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "teacher_at_heart",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A long-armed, gentle man with a healer's satchel and green-stained fingertips.",
+   "backstory": "Dư Tục Đoạn was raised at Thanh Nang Đường, the healers' hall in the forest, and was twenty-one when its last head died in seclusion without naming an heir (V018). The other healers took their satchels to Hồng Lô Cốc. He walked the other way, to Thúy Vi, because he had heard its pills were cleaner, and Úy Thanh Diễm (uy_thanh_diem) took him into the Furnace Hall. He is the sect's bone-setter. Once a month, on the Green Door Day, he sits at the sect's door in Lam Yên Thị and treats anyone for nothing. That is how the sect found the foundling Kiển Viễn Chí (kien_vien_chi).",
+   "ties": [
+    {
+     "to": "uy_thanh_diem",
+     "kind": "master",
+     "note": "took him in from Thanh Nang Đường"
+    },
+    {
+     "to": "tien_ban_ha",
+     "kind": "disciple",
+     "note": "keeps the Green Door list"
+    },
+    {
+     "to": "ngai_thanh_hao",
+     "kind": "disciple",
+     "note": "the Thanh Nang child he brought with him"
+    },
+    {
+     "to": "kien_vien_chi",
+     "kind": "friend",
+     "note": "found him on the step in 1166"
+    },
+    {
+     "to": "thieu_thanh_dai",
+     "kind": "friend",
+     "note": "they share the Green Door Day"
+    },
+    {
+     "to": "te_tu_to",
+     "kind": "rival",
+     "note": "she brews for wounds; he says she brews for the wound, not the patient"
+    },
+    {
+     "to": "gia_hoi_xuan",
+     "kind": "friend",
+     "note": "the apricot-market healer; they trade hard cases by letter"
+    },
+    {
+     "to": "thai_bach_thuoc",
+     "kind": "former_master",
+     "note": "the last head of Thanh Nang Đường, who taught him before she died in 1101"
+    },
+    {
+     "to": "giai_bach_bo",
+     "kind": "friend",
+     "note": "the Thanh Nang boy who went to Hồng Lô in 1101; they meet at Lam Yên Thị on the Green Door Day"
+    },
+    {
+     "to": "ninh_ich_mau",
+     "kind": "disciple",
+     "note": "healer of the Green Door Day"
+    },
+    {
+     "to": "lam_cat_canh",
+     "kind": "friend",
+     "note": "came through the Green Door with a broken arm"
+    }
+   ],
+   "master": "uy_thanh_diem",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "emerald-haze-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "green-furnace-canon",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 3,
+      "element": "moc"
+     },
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 6
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood land toward healing others.",
+     "targets": [
+      6299,
+      6103,
+      6093,
+      5713,
+      5720
+     ],
+     "targets_note": "Weeping Willow and the Hundred-Herb Garden's healing."
+    },
+    "note": "Heals; fights only to reach the wounded."
+   }
+  },
+  {
+   "key": "phung_yen_ha",
+   "name_hv": "Phùng Yên Hà",
+   "name_han": "馮煙霞",
+   "gloss": "Mist and rosy cloud; yên hà is also the love of landscape",
+   "sex": "F",
+   "born": 360,
+   "alive": false,
+   "died": 1000,
+   "cause": "lifespan worn down on the Metal ground of the ridge, which starved her Wood; died at 640",
+   "peak_realm": "nguyen_anh",
+   "sect": "thuy_vi",
+   "rank": "founder",
+   "home": 1,
+   "birthplace": null,
+   "role": "Founder of Thúy Vi Tông (year 500, at 140); lies on the ridge under her pine",
+   "tier": "A",
+   "traits": {
+    "personality": [
+     "Patient",
+     "Calm",
+     "Just"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "scholar_family",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "pilgrim",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "backstory": "Phùng Yên Hà was a painter's daughter who never painted. She walked into landscapes instead, which is what yên hà means: an incurable love of mist and mountains. In 500, at 140, she came to the empty mountain of Không Sơn Viện. Its last master, Thôi Bất Kiến (thoi_bat_kien), had no heir and gave her the hills of Thanh Loan Lĩnh, his whisk and his only student, Tống Tọa Vân (tong_toa_van) (C100). She founded Thúy Vi Tông the same year (C010). She built her halls on the high ridge where she could see every hill she had been given, and she planted a pine in the rock by the gate. When the old master died in the empty academy in 520, she left it as it was, unlocked and unlooted (A038). She took the cape (C115), founded Yên Ba Thành (C120) and Mục Ca Thành (C139), lost the Cold Ford to Tùng Đào in 672 (C136) and took it back with the Pivot's writ in 905 (C166). Her Dao partner was the alchemist Âu Dương Thanh Lô (au_duong_thanh_lo). She died at 640 (C173), stiff and grey in her last century, and was buried under her pine.",
+   "ties": [
+    {
+     "to": "cu_thuy_bach",
+     "kind": "disciple",
+     "note": "her first disciple, who nursed her last century"
+    },
+    {
+     "to": "ngu_lam_son",
+     "kind": "disciple",
+     "note": "the quiet one, who became head"
+    },
+    {
+     "to": "quyen_thanh_lam",
+     "kind": "disciple",
+     "note": "taken for the fields"
+    },
+    {
+     "to": "tat_hanh_vu",
+     "kind": "disciple",
+     "note": "taught him his first array"
+    },
+    {
+     "to": "khong_duong_quy",
+     "kind": "disciple",
+     "note": "the burned child of Bách Thảo Viện"
+    },
+    {
+     "to": "huong_dong_lam",
+     "kind": "disciple",
+     "note": "the first Warden of the Cold Ford"
+    },
+    {
+     "to": "tan_han_chu",
+     "kind": "disciple",
+     "note": "led the boats in 901"
+    },
+    {
+     "to": "man_trieu_am",
+     "kind": "disciple",
+     "note": "keeper of Lam Triều Các"
+    },
+    {
+     "to": "au_duong_thanh_lo",
+     "kind": "dao_partner",
+     "note": "the first Furnace Master"
+    },
+    {
+     "to": "thoi_bat_kien",
+     "kind": "debt",
+     "note": "gave her the hills, the whisk and his student"
+    },
+    {
+     "to": "tong_toa_van",
+     "kind": "friend",
+     "note": "the student she was given, who left in 540 to watch the clouds rise"
+    },
+    {
+     "to": "luc_thanh_sam",
+     "kind": "former_disciple",
+     "note": "took him at eleven and let him stay in the woods"
+    }
+   ],
+   "changed": "added backstory, traits and ties; home stays 1 (the old seat, now the Cliff Hall, where she is buried)"
+  },
+  {
+   "key": "au_duong_thanh_lo",
+   "name_hv": "Âu Dương Thanh Lô",
+   "name_han": "歐陽青爐",
+   "gloss": "Green furnace",
+   "sex": "M",
+   "born": 470,
+   "alive": false,
+   "died": 932,
+   "cause": "killed at Bách Thảo Viện when a cauldron of untamed pill fire burst (V029)",
+   "peak_realm": "ket_dan",
+   "sect": "thuy_vi",
+   "rank": "truong_lao",
+   "home": 1,
+   "birthplace": null,
+   "role": "The first Furnace Master and the founder's Dao partner; wrote the Green Furnace Canon",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Patient",
+     "Diligent",
+     "Brave"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [
+     "pill_master_tongue"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "In the 520s the sect was too poor to buy volcano fire from the isles, so its first Furnace Master taught himself to burn spirit wood green and wrote the Green Furnace Canon. He fired the Green Furnace in 540. In 932 Bách Thảo Viện sent for him to hold a cauldron of untamed fire. Green flame could not hold it, and he threw the child Khổng Đương Quy (khong_duong_quy) out of the hall before the roof fell (V029). His last disciple, Úy Thanh Diễm (uy_thanh_diem), keeps his furnace lit.",
+   "ties": [
+    {
+     "to": "phung_yen_ha",
+     "kind": "dao_partner",
+     "note": "the founder"
+    },
+    {
+     "to": "uy_thanh_diem",
+     "kind": "disciple",
+     "note": "his last disciple"
+    },
+    {
+     "to": "khong_duong_quy",
+     "kind": "creditor",
+     "note": "the child he saved"
+    },
+    {
+     "to": "tiet_thua_hoa",
+     "kind": "former_disciple",
+     "note": "taught her green fire; she wanted red and sailed for it"
+    }
+   ]
+  },
+  {
+   "key": "huong_dong_lam",
+   "name_hv": "Hướng Đông Lâm",
+   "name_han": "向東林",
+   "gloss": "Eastern wood",
+   "sex": "M",
+   "born": 520,
+   "alive": false,
+   "died": 672,
+   "cause": "fell on the quay of Hàn Tân when Tùng Đào took the Cold Ford (C136)",
+   "peak_realm": "ket_dan",
+   "sect": "thuy_vi",
+   "rank": "truong_lao",
+   "home": 31,
+   "birthplace": null,
+   "role": "The first Warden of the Cold Ford",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Loyal",
+     "Stubborn"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "backstory": "A fisher's son of Hàn Tân Thành whom the founder raised to Kết Đan and made the first Warden of the Cold Ford. When Tùng Đào came without a writ in 668 (C135), he held the quays for four years. When the Pivot let the conquest stand in 672 (C136), he would not leave them, and he died beside his lamp, which the fishers hid under the quay stones. His family stayed under Tùng Đào's resin tax for 233 years and kept his name (N-thuy_vi-05). Hướng Dạ Đăng (huong_da_dang) is of his line.",
+   "ties": [
+    {
+     "to": "phung_yen_ha",
+     "kind": "master",
+     "note": "raised him to Kết Đan"
+    },
+    {
+     "to": "giap_tung_chi",
+     "kind": "enemy",
+     "note": "the Tùng Đào captain who took the quay in 672, the year he fell on it"
+    }
+   ],
+   "master": "phung_yen_ha"
+  },
+  {
+   "key": "tan_han_chu",
+   "name_hv": "Tân Hàn Chu",
+   "name_han": "辛寒舟",
+   "gloss": "A boat in the cold",
+   "sex": "F",
+   "born": 700,
+   "alive": false,
+   "died": 904,
+   "cause": "drowned under the river-mouth ice leading the last attack of the Cold Ford War",
+   "peak_realm": "ket_dan",
+   "sect": "thuy_vi",
+   "rank": "truong_lao",
+   "home": 1,
+   "birthplace": null,
+   "role": "Led the sect's boats in the Cold Ford War",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Loyal"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Battle-hardened"
+    ]
+   },
+   "backstory": "Tân Hàn Chu led the boats in the Cold Ford War (C165). In the winter of 904 she took forty disciples across the ice of the river mouth at night, under Tùng Đào's arrays, and the ice broke. The ford came home the next year (C166) without her. Her disciple Hướng Dạ Đăng (huong_da_dang) found her body at the thaw (N-thuy_vi-06). The coast still calls the river mouth's ice the Boat in the Cold.",
+   "ties": [
+    {
+     "to": "phung_yen_ha",
+     "kind": "master",
+     "note": "the founder gave her the boats"
+    },
+    {
+     "to": "huong_da_dang",
+     "kind": "disciple",
+     "note": "found her at the thaw"
+    },
+    {
+     "to": "can_tung_han",
+     "kind": "enemy",
+     "note": "the Tùng Đào elder whose ice she went through in 904"
+    },
+    {
+     "to": "tan_thuong_truat",
+     "kind": "descendant",
+     "note": "her descendant; Cold Ford Hall fighter of Tân Hàn Chu's line"
+    }
+   ],
+   "master": "phung_yen_ha"
+  },
+  {
+   "key": "gian_chieu_thanh",
+   "name_hv": "Giản Chiếu Thanh",
+   "name_han": "簡照青",
+   "gloss": "Shines on the green",
+   "sex": "M",
+   "born": 860,
+   "alive": false,
+   "died": 1066,
+   "cause": "killed by his own tribulation breaking through to Nguyên Anh (V033)",
+   "peak_realm": "ket_dan",
+   "sect": "thuy_vi",
+   "rank": "truong_lao",
+   "home": 1127,
+   "birthplace": null,
+   "role": "Head of Minh Kính Đường, the sect's branch hall on the forest river",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Impatient",
+     "Honest"
+    ],
+    "calling": "Teacher",
+    "upbringing": "scholar_family",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Giản Chiếu Thanh kept Minh Kính Đường, the sect's branch hall on the forest river, which taught a mirror-still Water method beside the lineage. In 1066 he tried for Nguyên Anh inside the hall rather than on open ground, against Cù Thúy Bách's (cu_thuy_bach) advice. The tribulation burned the hall and him (V033), and his disciples scattered. Only Quản Ảnh Hồ (quan_anh_ho) came to the seat.",
+   "ties": [
+    {
+     "to": "quan_anh_ho",
+     "kind": "former_disciple",
+     "note": "the only one who came to the seat"
+    },
+    {
+     "to": "cu_thuy_bach",
+     "kind": "rival",
+     "note": "she told him to go to open ground"
+    }
+   ]
+  },
+  {
+   "key": "man_trieu_am",
+   "name_hv": "Mẫn Triều Âm",
+   "name_han": "閔潮音",
+   "gloss": "Voice of the tide",
+   "sex": "F",
+   "born": 560,
+   "alive": false,
+   "died": 744,
+   "cause": "killed when Thôn Hải's pirates burned Lam Triều Các (V010)",
+   "peak_realm": "ket_dan",
+   "sect": "thuy_vi",
+   "rank": "truong_lao",
+   "home": 1046,
+   "birthplace": null,
+   "role": "Keeper of Lam Triều Các, the sect's coast pavilion",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Calm",
+     "Generous"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Mẫn Triều Âm kept Lam Triều Các, the sect's coast pavilion, where the cape's boatwrights learned to read the tide. Thôn Hải's pirates landed at night in 744, burned the pavilion and carried off its disciples (V010). She held the point until their boats had gone and was found on it in the morning. The boatwrights still light a fire on the point on that night. Cù Thúy Bách (cu_thuy_bach) was her sworn sister.",
+   "ties": [
+    {
+     "to": "phung_yen_ha",
+     "kind": "master",
+     "note": "one of the founder's first disciples"
+    },
+    {
+     "to": "cu_thuy_bach",
+     "kind": "sworn_sibling",
+     "note": "sworn sisters, born the same year"
+    }
+   ],
+   "master": "phung_yen_ha"
+  }
+ ]
+}

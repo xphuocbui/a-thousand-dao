@@ -1,0 +1,49 @@
+{
+ "group": "loose-south",
+ "_doc": "The loose cultivators of the south: named spirit beasts (linh thú). Proposal, unpriced (review/RANKED.md A7, 2026-11-25; form of sects/cuu_cao.beasts.json). An owned beast is a people record with is_beast and owner_id, and its owner lists it in `beasts` (src/gameplay/character/beast_keeper.gd, assets/data/creatures_linh_thu.json). Capacity is 1 + floor(effective thần hồn / 40). In a fight it is a companion: it adds power_share (0.5) of its chiến lực to its owner's offense, strikes every basic_cooldown, cannot be targeted and never leaves the fight (Combat rule 19). `combat` and `bond` are depth fields; `bond.rider` marks a mount, `bond.keeper` a beast that is not ridden. The owners' cast records do not list these beasts yet.",
+ "beasts": [
+  {
+   "key": "bat_phe",
+   "name_hv": "Bất Phệ",
+   "name_han": "不吠",
+   "gloss": "Never Barks",
+   "is_beast": true,
+   "species": "grey ridge hound",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 3,
+   "root": {
+    "elements": {
+     "kim": 30,
+     "tho": 20
+    },
+    "variants": {}
+   },
+   "owner_id": "an_thu_son",
+   "loyalty": 90,
+   "home": 880,
+   "location_id": 880,
+   "tags": [
+    "hound",
+    "companion"
+   ],
+   "appearance": "A grey ridge hound with a scarred muzzle that never barks.",
+   "combat": {
+    "strikes": "kim",
+    "power_share": 0.5,
+    "note": "The hound his build's Beast Den node and Metal pins work with."
+   },
+   "bond": {
+    "keeper": "an_thu_son",
+    "since": 1179,
+    "event": null,
+    "rule": "Raised from a pup on the beast trails."
+   },
+   "backstory": "A pup of the cave hunters' hounds of Thủ Động Trại. It hunted the tiger-kind of Phục Hổ Cương beside Ân Thủ Sơn and Bành Liệp Hổ, and it helped him carry Bành's body down in 1195.",
+   "status": "proposal",
+   "authored": "review-A7"
+  }
+ ]
+}

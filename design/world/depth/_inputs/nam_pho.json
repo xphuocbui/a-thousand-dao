@@ -1,0 +1,1403 @@
+{
+"_doc": "Input slice for the depth writer of nam_pho (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "nam_pho",
+"name": "Nam Phố Đường",
+"name_han": "南浦堂",
+"gloss": "Hall of the Southern Shore",
+"alignment": "chính đạo",
+"leans": [
+"Wood",
+"Water"
+],
+"craft": "talismans (phù lục) and scribes",
+"lord": "lac_ha",
+"region": 13,
+"seat": 21,
+"kind": "minor"
+},
+"start_state": {
+"key": "nam_pho",
+"name": "Nam Phố Đường",
+"name_han": "南浦堂",
+"gloss": "Hall of the Southern Shore",
+"kind": "minor",
+"alignment": "chinh",
+"leans": [
+"Wood",
+"Water"
+],
+"seat": 21,
+"levels": {
+"holdings": 2,
+"institutions": 4,
+"military": 2,
+"trade": 3
+},
+"treasury": 7000,
+"founded": 880,
+"specialty": "tran_su",
+"lord": "lac_ha",
+"loyalty": 55,
+"craft": "talismans (phù lục) and scribes",
+"region": 13,
+"leader": "chau_phi_van"
+},
+"lord": "lac_ha",
+"vassals": [],
+"seat": {
+"id": 21,
+"name": "Nam Phố Đường",
+"gloss": "",
+"kind": "minor_seat",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.06,
+"qi": {
+"moc": 34,
+"hoa": 12,
+"tho": 17,
+"kim": 11,
+"thuy": 26
+},
+"variants": {},
+"density": 1.42,
+"note": ""
+},
+"seat_audit": "## OK  Nam Phố Đường (nam_pho; leans Wood/Water)\nSeat: Nam Phố Đường (id 21, minor_seat, region 13, temperate forest), density 1.42\nSeat qi: Wood 34%, Water 26%\n",
+"ground": [
+{
+"id": 4,
+"name": "Lạc Hà Tông",
+"gloss": "",
+"kind": "great_seat",
+"region": 13,
+"biome": "steppe",
+"elev_km": 0.25,
+"qi": {
+"moc": 8,
+"hoa": 24,
+"tho": 45,
+"kim": 17,
+"thuy": 5
+},
+"variants": {},
+"density": 1.72,
+"note": ""
+},
+{
+"id": 249,
+"name": "Ngọc Nhũ Tuyền",
+"gloss": "Jade Milk Spring",
+"kind": "hot_spring",
+"region": 13,
+"biome": "karst",
+"elev_km": 0.22,
+"qi": {
+"moc": 17,
+"hoa": 22,
+"tho": 18,
+"kim": 12,
+"thuy": 31
+},
+"variants": {
+"am": 25.8
+},
+"density": 1.44,
+"note": "Warm water among the stone pillars of Ngư Ca Xuyên's karst."
+},
+{
+"id": 21,
+"name": "Nam Phố Đường",
+"gloss": "",
+"kind": "minor_seat",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.06,
+"qi": {
+"moc": 34,
+"hoa": 12,
+"tho": 17,
+"kim": 11,
+"thuy": 26
+},
+"variants": {},
+"density": 1.42,
+"note": ""
+},
+{
+"id": 558,
+"name": "Vân Kiều Trấn",
+"gloss": "Cloud Bridge Town",
+"kind": "ruin",
+"region": 13,
+"biome": "high mountain",
+"elev_km": 0.6,
+"qi": {
+"moc": 21,
+"hoa": 13,
+"tho": 26,
+"kim": 27,
+"thuy": 12
+},
+"variants": {},
+"density": 1.36,
+"note": ""
+},
+{
+"id": 271,
+"name": "Cẩm Kê Nguyên",
+"gloss": "Golden Pheasant Meadow",
+"kind": "beast_lair",
+"region": 13,
+"biome": "grassland",
+"elev_km": 0.09,
+"qi": {
+"moc": 30,
+"hoa": 10,
+"tho": 20,
+"kim": 14,
+"thuy": 26
+},
+"variants": {},
+"density": 1.29,
+"note": ""
+},
+{
+"id": 543,
+"name": "Oanh Hồi Hạp",
+"gloss": "Winding Gorge",
+"kind": "gorge",
+"region": 13,
+"biome": "karst",
+"elev_km": 0.41,
+"qi": {
+"moc": 24,
+"hoa": 15,
+"tho": 22,
+"kim": 14,
+"thuy": 25
+},
+"variants": {
+"am": 25.2
+},
+"density": 1.25,
+"note": ""
+},
+{
+"id": 548,
+"name": "Hãm Thạch Trấn",
+"gloss": "Sunken Stone Town",
+"kind": "ruin",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.08,
+"qi": {
+"moc": 36,
+"hoa": 10,
+"tho": 21,
+"kim": 14,
+"thuy": 19
+},
+"variants": {
+"am": 25.8
+},
+"density": 1.24,
+"note": ""
+},
+{
+"id": 535,
+"name": "Sơn Tiêu Nhai",
+"gloss": "Cliff of the Mountain Apes",
+"kind": "beast_lair",
+"region": 13,
+"biome": "high mountain",
+"elev_km": 0.45,
+"qi": {
+"moc": 15,
+"hoa": 16,
+"tho": 32,
+"kim": 26,
+"thuy": 10
+},
+"variants": {},
+"density": 1.24,
+"note": ""
+},
+{
+"id": 422,
+"name": "Phong Kiêu Lâm",
+"gloss": "Maple Owl Wood",
+"kind": "beast_lair",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 35,
+"hoa": 12,
+"tho": 15,
+"kim": 10,
+"thuy": 29
+},
+"variants": {},
+"density": 1.17,
+"note": ""
+},
+{
+"id": 265,
+"name": "Tề Phi Mạch",
+"gloss": "Vein Where They Fly Together",
+"kind": "spirit_vein",
+"region": 13,
+"biome": "steppe",
+"elev_km": 0.04,
+"qi": {
+"moc": 10,
+"hoa": 24,
+"tho": 44,
+"kim": 17,
+"thuy": 5
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 547,
+"name": "U Lan Cốc",
+"gloss": "Valley of Hidden Orchids",
+"kind": "gorge",
+"region": 13,
+"biome": "karst",
+"elev_km": 0.18,
+"qi": {
+"moc": 38,
+"hoa": 10,
+"tho": 19,
+"kim": 14,
+"thuy": 18
+},
+"variants": {
+"am": 25.9
+},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 79,
+"name": "Phong Lâm Trấn",
+"gloss": "Maple Wood Town",
+"kind": "town",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.0,
+"qi": {
+"moc": 32,
+"hoa": 11,
+"tho": 13,
+"kim": 8,
+"thuy": 36
+},
+"variants": {},
+"density": 1.1,
+"note": ""
+},
+{
+"id": 545,
+"name": "Cuồng Trư Lâm",
+"gloss": "Wood of the Raging Boars",
+"kind": "beast_lair",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.32,
+"qi": {
+"moc": 36,
+"hoa": 10,
+"tho": 21,
+"kim": 14,
+"thuy": 19
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 550,
+"name": "Tằng Thúy Lâm",
+"gloss": "Forest of Layered Green",
+"kind": "forest",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.24,
+"qi": {
+"moc": 43,
+"hoa": 11,
+"tho": 17,
+"kim": 13,
+"thuy": 17
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 318,
+"name": "Sảng Lại Lâm",
+"gloss": "Forest of the Clear Pipes",
+"kind": "forest",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.3,
+"qi": {
+"moc": 42,
+"hoa": 14,
+"tho": 18,
+"kim": 12,
+"thuy": 13
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 317,
+"name": "Lạc Mai Lâm",
+"gloss": "Wood of the Falling Plums",
+"kind": "forest",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 43,
+"hoa": 12,
+"tho": 15,
+"kim": 10,
+"thuy": 20
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 552,
+"name": "Quần Lang Lĩnh",
+"gloss": "Ridge of the Wolf Packs",
+"kind": "beast_lair",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.58,
+"qi": {
+"moc": 37,
+"hoa": 14,
+"tho": 21,
+"kim": 14,
+"thuy": 14
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 319,
+"name": "Yển Tùng Lâm",
+"gloss": "Wood of the Bowed Pines",
+"kind": "forest",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 33,
+"hoa": 15,
+"tho": 17,
+"kim": 10,
+"thuy": 25
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 423,
+"name": "Dã Tang Lâm",
+"gloss": "Wild Mulberry Wood",
+"kind": "forest",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 39,
+"hoa": 17,
+"tho": 21,
+"kim": 10,
+"thuy": 14
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 549,
+"name": "Hôi Diêu Thôn",
+"gloss": "Limekiln Village",
+"kind": "village",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 36,
+"hoa": 10,
+"tho": 21,
+"kim": 14,
+"thuy": 19
+},
+"variants": {
+"am": 8.7
+},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 551,
+"name": "Phóng Mộc Thôn",
+"gloss": "Log Drivers' Village",
+"kind": "village",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.08,
+"qi": {
+"moc": 41,
+"hoa": 10,
+"tho": 15,
+"kim": 11,
+"thuy": 24
+},
+"variants": {
+"am": 18.3
+},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 542,
+"name": "Chung Nhũ Quật",
+"gloss": "Stalactite Cave",
+"kind": "mine",
+"region": 13,
+"biome": "karst",
+"elev_km": 0.14,
+"qi": {
+"moc": 13,
+"hoa": 38,
+"tho": 16,
+"kim": 11,
+"thuy": 22
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 544,
+"name": "Bạch Cao Động",
+"gloss": "White Plaster Cave",
+"kind": "mine",
+"region": 13,
+"biome": "karst",
+"elev_km": 0.35,
+"qi": {
+"moc": 33,
+"hoa": 10,
+"tho": 23,
+"kim": 14,
+"thuy": 19
+},
+"variants": {
+"am": 16.0
+},
+"density": 0.93,
+"note": ""
+},
+{
+"id": 546,
+"name": "Hầu Đầu Thôn",
+"gloss": "Monkey-Head Mushroom Village",
+"kind": "village",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.19,
+"qi": {
+"moc": 35,
+"hoa": 10,
+"tho": 21,
+"kim": 14,
+"thuy": 19
+},
+"variants": {
+"am": 18.3
+},
+"density": 0.93,
+"note": ""
+},
+{
+"id": 553,
+"name": "Sơn Trà Thôn",
+"gloss": "Camellia Village",
+"kind": "village",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.15,
+"qi": {
+"moc": 40,
+"hoa": 11,
+"tho": 15,
+"kim": 10,
+"thuy": 23
+},
+"variants": {},
+"density": 0.92,
+"note": ""
+},
+{
+"id": 51,
+"name": "Hạc Đinh Thị",
+"gloss": "Market of the Crane Shoal",
+"kind": "market",
+"region": 13,
+"biome": "steppe",
+"elev_km": 0.01,
+"qi": {
+"moc": 18,
+"hoa": 21,
+"tho": 34,
+"kim": 13,
+"thuy": 15
+},
+"variants": {},
+"density": 0.89,
+"note": "Vương Bột: hạc đinh phù chử (crane shoals and wild-duck isles); below Lạc Hà Tông's seat"
+},
+{
+"id": 136,
+"name": "Hoa Khê Thôn",
+"gloss": "Flower Brook Village",
+"kind": "village",
+"region": 13,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 42,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 24
+},
+"variants": {},
+"density": 0.87,
+"note": ""
+},
+{
+"id": 555,
+"name": "Vãn Đăng Thôn",
+"gloss": "Evening Lamp Village",
+"kind": "village",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 33,
+"hoa": 16,
+"tho": 20,
+"kim": 10,
+"thuy": 21
+},
+"variants": {},
+"density": 0.86,
+"note": ""
+},
+{
+"id": 560,
+"name": "Vân Gian Thôn",
+"gloss": "Among-the-Clouds Village",
+"kind": "village",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.22,
+"qi": {
+"moc": 28,
+"hoa": 16,
+"tho": 27,
+"kim": 18,
+"thuy": 12
+},
+"variants": {},
+"density": 0.86,
+"note": ""
+},
+{
+"id": 320,
+"name": "Cam Lộ Tuyền",
+"gloss": "Sweet Dew Spring",
+"kind": "hot_spring",
+"region": 13,
+"biome": "grassland",
+"elev_km": 0.1,
+"qi": {
+"moc": 31,
+"hoa": 21,
+"tho": 28,
+"kim": 11,
+"thuy": 9
+},
+"variants": {},
+"density": 0.86,
+"note": ""
+},
+{
+"id": 538,
+"name": "Lô Địch Thôn",
+"gloss": "Reed Flute Village",
+"kind": "village",
+"region": 13,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 12,
+"hoa": 20,
+"tho": 38,
+"kim": 15,
+"thuy": 15
+},
+"variants": {},
+"density": 0.82,
+"note": ""
+},
+{
+"id": 537,
+"name": "Yên Quang Các",
+"gloss": "Pavilion of the Hazy Light",
+"kind": "minor_seat",
+"region": 13,
+"biome": "steppe",
+"elev_km": 0.2,
+"qi": {
+"moc": 13,
+"hoa": 25,
+"tho": 41,
+"kim": 16,
+"thuy": 5
+},
+"variants": {},
+"density": 0.81,
+"note": ""
+},
+{
+"id": 137,
+"name": "Ngân Than Thôn",
+"gloss": "Silver Shoal Village",
+"kind": "village",
+"region": 13,
+"biome": "grassland",
+"elev_km": 0.09,
+"qi": {
+"moc": 41,
+"hoa": 11,
+"tho": 14,
+"kim": 11,
+"thuy": 23
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 139,
+"name": "Thủy Khẩu Thôn",
+"gloss": "Water's Mouth Village",
+"kind": "village",
+"region": 13,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 31,
+"hoa": 18,
+"tho": 24,
+"kim": 9,
+"thuy": 18
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 557,
+"name": "Lăng Hoa Thôn",
+"gloss": "Water Chestnut Village",
+"kind": "village",
+"region": 13,
+"biome": "grassland",
+"elev_km": 0.03,
+"qi": {
+"moc": 32,
+"hoa": 17,
+"tho": 23,
+"kim": 10,
+"thuy": 19
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 80,
+"name": "Tang Ma Thành",
+"gloss": "Mulberry and Hemp City",
+"kind": "city",
+"region": 13,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 36,
+"hoa": 15,
+"tho": 19,
+"kim": 9,
+"thuy": 20
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 536,
+"name": "Hà Quang Tuyền",
+"gloss": "Spring of the Evening Glow",
+"kind": "hot_spring",
+"region": 13,
+"biome": "steppe",
+"elev_km": 0.31,
+"qi": {
+"moc": 17,
+"hoa": 25,
+"tho": 39,
+"kim": 15,
+"thuy": 5
+},
+"variants": {},
+"density": 0.78,
+"note": ""
+},
+{
+"id": 138,
+"name": "Phương Thảo Thôn",
+"gloss": "Fragrant Grass Village",
+"kind": "village",
+"region": 13,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 30,
+"hoa": 15,
+"tho": 18,
+"kim": 10,
+"thuy": 27
+},
+"variants": {},
+"density": 0.73,
+"note": ""
+},
+{
+"id": 556,
+"name": "Phong Ảnh Mạch",
+"gloss": "Maple Shadow Vein",
+"kind": "spirit_vein",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.08,
+"qi": {
+"moc": 28,
+"hoa": 20,
+"tho": 30,
+"kim": 13,
+"thuy": 9
+},
+"variants": {},
+"density": 0.73,
+"note": ""
+},
+{
+"id": 559,
+"name": "Cổ Bách Mạch",
+"gloss": "Old Cypress Vein",
+"kind": "spirit_vein",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.69,
+"qi": {
+"moc": 27,
+"hoa": 15,
+"tho": 25,
+"kim": 20,
+"thuy": 12
+},
+"variants": {},
+"density": 0.72,
+"note": ""
+},
+{
+"id": 534,
+"name": "Than Đầu Thôn",
+"gloss": "Rapids Head Village",
+"kind": "village",
+"region": 13,
+"biome": "steppe",
+"elev_km": 0.04,
+"qi": {
+"moc": 20,
+"hoa": 19,
+"tho": 32,
+"kim": 13,
+"thuy": 16
+},
+"variants": {},
+"density": 0.7,
+"note": ""
+},
+{
+"id": 540,
+"name": "Phí Thạch Tuyền",
+"gloss": "Boiling Stone Spring",
+"kind": "hot_spring",
+"region": 13,
+"biome": "badlands",
+"elev_km": 0.78,
+"qi": {
+"moc": 8,
+"hoa": 22,
+"tho": 43,
+"kim": 20,
+"thuy": 6
+},
+"variants": {},
+"density": 0.67,
+"note": ""
+},
+{
+"id": 554,
+"name": "Vân Tiêu Mạch",
+"gloss": "Vein Where the Clouds Melt",
+"kind": "spirit_vein",
+"region": 13,
+"biome": "grassland",
+"elev_km": 0.04,
+"qi": {
+"moc": 34,
+"hoa": 19,
+"tho": 24,
+"kim": 10,
+"thuy": 12
+},
+"variants": {},
+"density": 0.62,
+"note": ""
+},
+{
+"id": 383,
+"name": "Trường Châu Mạch",
+"gloss": "Vein of the Long Isle",
+"kind": "spirit_vein",
+"region": 13,
+"biome": "steppe",
+"elev_km": 0.16,
+"qi": {
+"moc": 16,
+"hoa": 24,
+"tho": 39,
+"kim": 15,
+"thuy": 5
+},
+"variants": {},
+"density": 0.53,
+"note": ""
+},
+{
+"id": 541,
+"name": "Tử Đồng Khoáng",
+"gloss": "Purple Copper Mine",
+"kind": "mine",
+"region": 13,
+"biome": "badlands",
+"elev_km": 0.78,
+"qi": {
+"moc": 9,
+"hoa": 19,
+"tho": 40,
+"kim": 25,
+"thuy": 8
+},
+"variants": {},
+"density": 0.48,
+"note": ""
+},
+{
+"id": 539,
+"name": "Ngưng Tử Mạch",
+"gloss": "Vein of the Gathered Purple",
+"kind": "spirit_vein",
+"region": 13,
+"biome": "badlands",
+"elev_km": 0.5,
+"qi": {
+"moc": 8,
+"hoa": 24,
+"tho": 47,
+"kim": 17,
+"thuy": 5
+},
+"variants": {},
+"density": 0.44,
+"note": ""
+},
+{
+"id": 533,
+"name": "Thiết Cốt Mạch",
+"gloss": "Iron Bone Vein",
+"kind": "spirit_vein",
+"region": 13,
+"biome": "badlands",
+"elev_km": 0.65,
+"qi": {
+"moc": 20,
+"hoa": 20,
+"tho": 35,
+"kim": 16,
+"thuy": 9
+},
+"variants": {},
+"density": 0.42,
+"note": ""
+}
+],
+"ground_place_count": 47,
+"events": [
+{
+"id": "C004",
+"tier": "landmark",
+"year": 290,
+"kind": "sect_founded",
+"people": [
+"nhan_co_vu"
+],
+"sects": [
+"lac_ha"
+],
+"text_en": "Nhan Cô Vụ founds Lạc Hà Tông in the western lands where the sun goes down.",
+"place": 4
+},
+{
+"id": "A190",
+"tier": "annal",
+"year": 295,
+"kind": "settlement",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà's founder plants maples around the first hall; Phong Lâm Trấn grows among them.",
+"place": 79,
+"region": 13
+},
+{
+"id": "A191",
+"tier": "annal",
+"year": 320,
+"kind": "settlement",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "A market grows below Lạc Hà's seat among crane shoals and wild-duck isles; it is called Hạc Đinh Thị.",
+"place": 51,
+"region": 13
+},
+{
+"id": "C079",
+"tier": "landmark",
+"year": 330,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà Tông founds Tang Ma Thành among the mulberry and hemp fields of Ngư Ca Xuyên.",
+"place": 80
+},
+{
+"id": "C083",
+"tier": "landmark",
+"year": 360,
+"kind": "item_made",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà Tông forges twin swords for its armoury, Tử Điện and Thanh Sương, after the purple lightning and blue frost of an old general's blades.",
+"place": 4,
+"item": "tu_dien"
+},
+{
+"id": "A192",
+"tier": "annal",
+"year": 400,
+"kind": "trade",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Silver glints in the river shallows at Ngân Than; Lạc Hà pans it for its coin.",
+"place": 137,
+"region": 13
+},
+{
+"id": "A193",
+"tier": "annal",
+"year": 470,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The Tạ family, once great in another land, come to Phong Lâm with nothing but their name, and the swallows of their old hall follow them.",
+"place": 79,
+"region": 13
+},
+{
+"id": "A194",
+"tier": "annal",
+"year": 560,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Petals float down the brook at Hoa Khê every spring; lovers drop their names into it.",
+"place": 136,
+"region": 13
+},
+{
+"id": "A195",
+"tier": "annal",
+"year": 640,
+"kind": "trade",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Fragrant grass from Phương Thảo Thôn is woven into the mats of Lạc Hà's meditation halls.",
+"place": 138,
+"region": 13
+},
+{
+"id": "A196",
+"tier": "annal",
+"year": 720,
+"kind": "disaster",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "The river mouth at Thủy Khẩu silts up; Lạc Hà's disciples dig it out by hand in one winter.",
+"place": 139,
+"region": 13
+},
+{
+"id": "A197",
+"tier": "annal",
+"year": 803,
+"kind": "tale",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "News of the battle reaches Lạc Hà's seat; the fishing boats do not sing that dusk, for the first time in six hundred years.",
+"place": 4,
+"region": 13
+},
+{
+"id": "V103",
+"tier": "annal",
+"year": 803,
+"kind": "festival",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "The reed flutes of Lô Địch Thôn fall silent with the boats; the village still plays one tune less on that dusk.",
+"place": 538,
+"region": 13
+},
+{
+"id": "V104",
+"tier": "annal",
+"year": 803,
+"kind": "festival",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "The fishers of Vãn Đăng Thôn light their stern lamps but do not put out; they keep this mourning on the same dusk ever after.",
+"place": 555,
+"region": 13
+},
+{
+"id": "A198",
+"tier": "annal",
+"year": 880,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"nam_pho",
+"lac_ha"
+],
+"text_en": "Talisman scribes who painted the clouds of the southern shore found Nam Phố Đường under Lạc Hà.",
+"place": 21,
+"region": 13
+},
+{
+"id": "V105",
+"tier": "annal",
+"year": 912,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "The ground under the market of Hãm Thạch Trấn falls into a cave; the lime-burners leave within a year and never build on bare karst again.",
+"place": 548,
+"region": 13
+},
+{
+"id": "A199",
+"tier": "annal",
+"year": 930,
+"kind": "birth",
+"people": [
+"chau_phi_van"
+],
+"sects": [],
+"text_en": "Châu Phi Vân is born in Tang Ma Thành; at four she draws her first talisman in mulberry juice.",
+"place": 80,
+"region": 13
+},
+{
+"id": "C169",
+"tier": "landmark",
+"year": 940,
+"kind": "headship",
+"people": [
+"nhan_co_vu",
+"tram_tich_duong"
+],
+"sects": [
+"lac_ha"
+],
+"text_en": "Nhan Cô Vụ dies at 790; Trầm Tịch Dương becomes the second head of Lạc Hà Tông.",
+"place": 4
+},
+{
+"id": "A200",
+"tier": "annal",
+"year": 1000,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The Tạ and the Vương, old rival clans now far apart, exchange letters for the first time in four hundred years.",
+"place": 79,
+"region": 13
+},
+{
+"id": "V106",
+"tier": "annal",
+"year": 1040,
+"kind": "city_abandoned",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "The silver of Vân Kiều Trấn is gone, and its miners move down to Vân Gian; the cloud bridge breaks in a storm a few years later.",
+"place": 558,
+"region": 13
+},
+{
+"id": "V107",
+"tier": "annal",
+"year": 1065,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"yen_quang",
+"lac_ha"
+],
+"text_en": "Alchemists sworn to Lạc Hà Tông found Yên Quang Các and pick their herbs only in the hour of the evening glow.",
+"place": 537,
+"region": 13
+},
+{
+"id": "A201",
+"tier": "annal",
+"year": 1100,
+"kind": "trade",
+"people": [],
+"sects": [
+"lang_dao"
+],
+"text_en": "Tang Ma Thành's hemp ropes are so strong that Lãng Đào's ferrymen will buy no other.",
+"place": 80,
+"region": 13
+},
+{
+"id": "C191",
+"tier": "landmark",
+"year": 1160,
+"kind": "headship",
+"people": [
+"tram_tich_duong",
+"to_van_chieu"
+],
+"sects": [
+"lac_ha"
+],
+"text_en": "Trầm Tịch Dương steps down; his disciple Tô Vãn Chiếu becomes head of Lạc Hà Tông and takes the sword Tử Điện.",
+"place": 4,
+"item": "tu_dien"
+},
+{
+"id": "A202",
+"tier": "annal",
+"year": 1174,
+"kind": "raid",
+"people": [],
+"sects": [
+"tung_dao",
+"lac_ha"
+],
+"text_en": "In the Ferry War, Tùng Đào raiders cut every rope bridge on the Ngư Ca border; Tang Ma weaves new ones in a month.",
+"place": 80,
+"region": 13
+},
+{
+"id": "C194",
+"tier": "landmark",
+"year": 1176,
+"kind": "birth",
+"people": [
+"to_mo_van"
+],
+"sects": [
+"lac_ha"
+],
+"text_en": "A girl is born in Lạc Hà Tông on the day the evening glow fills the whole sky; she is named Tô Mộ Vân.",
+"place": 4
+},
+{
+"id": "A203",
+"tier": "annal",
+"year": 1190,
+"kind": "tale",
+"people": [
+"to_mo_van"
+],
+"sects": [
+"lac_ha",
+"nam_pho"
+],
+"text_en": "Tô Mộ Vân, fourteen, wins the talisman contest at Hạc Đinh Thị against the scribes of Nam Phố Đường.",
+"place": 51,
+"region": 13
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "chau_phi_van",
+"name": "Châu Phi Vân",
+"name_han": "周飛雲",
+"gloss": "Flying clouds (Vương Bột: họa đống triêu phi Nam Phố vân)",
+"sex": "F",
+"born": 930,
+"alive": true,
+"sect": "nam_pho",
+"rank": "tong_chu",
+"role": "Hall-mistress of Nam Phố Đường, talismans and scribes",
+"realm": "ket_dan",
+"home": 21,
+"traits": {
+"personality": [
+"Diligent",
+"Honest",
+"Devout"
+],
+"calling": "Talisman maker",
+"fate_given": []
+},
+"vassal_of": "lac_ha",
+"build": {
+"root": {
+"elements": {
+"thuy": 76,
+"moc": 66
+}
+},
+"thien_phu": {
+"ngo_tinh": 76,
+"can_cot": 50,
+"than_hon": 78,
+"khi_van": 58,
+"dao_tam": 76,
+"mi_luc": 58
+},
+"archetype": "tran_su",
+"stage": 1,
+"main": {
+"tech": "dia_thuy",
+"layer": 8
+},
+"aux": [
+{
+"tech": "thorn-and-ink-verses",
+"layer": 7
+}
+],
+"gear": [
+{
+"named": "general-talisman-bearer-ring"
+},
+{
+"base": "an",
+"grade": 3,
+"element": "thuy"
+},
+{
+"base": "dao_bao",
+"grade": 3,
+"element": "moc"
+}
+],
+"tree": {
+"start": "thuy",
+"targets": [
+4851,
+4830,
+4848,
+4836,
+4838,
+5586
+]
+},
+"skills": {
+"phu_luc": 8
+},
+"note": "The hall-mistress of scribes: a devout talisman maker who fights with nothing but talismans, and rarely spends one"
+}
+}
+],
+"legendary_items": []
+}

@@ -1,0 +1,1446 @@
+{
+ "group": "loose-north",
+ "sect": "",
+ "people": [
+  {
+   "key": "lam_da_hac",
+   "name_hv": "Lâm Dã Hạc",
+   "name_han": "林野鶴",
+   "gloss": "A crane in the wild woods",
+   "sex": "M",
+   "born": 1145,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 46,
+   "birthplace": 46,
+   "role": "A woodcutter's son with iron bones; the strongest loose cultivator of the pine sea, whom Tuần Tùng Đường wants for its Golden Core",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 66,
+     "kim": 56
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 82,
+    "than_hon": 58,
+    "khi_van": 66,
+    "dao_tam": 64,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Ambitious",
+     "Honest"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "body_tempered",
+     "flawed_foundation"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [
+     "Iron-boned"
+    ],
+    "gained": [
+     "Battle-hardened"
+    ]
+   },
+   "appearance": "Broad, sun-dark and bareheaded in all weathers, with a woodcutter's shoulders, his father's axe across his back, and the top of his left ear gone where a wolf caught it in 1190.",
+   "backstory": "Lâm Dã Hạc was born in 1145 in Tùng Hạ Thị to a poor branch of the Lâm woodcarvers of Lộc Minh, and a crane landed on the roof the day he was born (A063). His father felled pines for the market, and the boy carried the axe at nine. At fourteen he walked up to the pines' outer gate on the word of his cousin Lâm Điêu Bách (lam_dieu_bach), long an inner disciple there. The examiner heard iron in his root and said what had once been said of the chain-smith Vưu Liên Hoàn (vuu_lien_hoan): the Listening Pine Primer would take him and grind against him all his life. Lâm would not sit the gate on those terms. He went home and traded a winter's firewood to a smith's widow for the Nine-Temper Scripture. In the wolf winter of 1190 (A064) he stood on the Tùng Hạ road beside Hứa Vãn Cung (hua_van_cung) for three nights. When the road wardens swore to the pines the next spring (V043), he would not swear. He formed his foundation at forty-one on a Yellow method and a pill from the jar behind Bì Tứ Nương's (bi_tu_nuong) counter. Every caravan master at the market says the hall's Golden Core will be him.",
+   "wants": "A Golden Core on his own road, and then a Profound Metal method to carry him past the sixth layer of a Yellow one. He will not kneel to a sect for either.",
+   "secret": "His foundation has a hairline crack from the cheap pill, and he knows a Kết Đan breakthrough on it may kill him. He has told no one, least of all Hứa Vãn Cung, who is waiting for him to try.",
+   "ties": [
+    {
+     "to": "lam_dieu_bach",
+     "kind": "cousin",
+     "note": "the cousin in the pines who spoke for him at the gate"
+    },
+    {
+     "to": "hua_van_cung",
+     "kind": "friend",
+     "note": "stood on the road with him in 1190; will not swear to his hall"
+    },
+    {
+     "to": "thu_phieu_binh",
+     "kind": "friend",
+     "note": "rides guard with her when the pay is good"
+    },
+    {
+     "to": "bi_tu_nuong",
+     "kind": "friend",
+     "note": "her long table is the nearest thing he has to a sect"
+    },
+    {
+     "to": "gia_chi_lo",
+     "kind": "friend",
+     "note": "followed one of his maps into Ngọc Hồ Sơn and came back laughing"
+    },
+    {
+     "to": "ninh_han_chi",
+     "kind": "friend",
+     "note": "the Hàn Mai girl the plum school turned away; he spars with her at the market"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "named": "ln-pine-felling-axe"
+     },
+     {
+      "named": "ln-bark-hide-vest"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood's health and recovery first, then the Metal land's body and axe nodes: a man who will not fall down.",
+     "targets": [
+      782,
+      790,
+      6278,
+      6133,
+      3879,
+      3996
+     ],
+     "targets_note": "Wood Grain, Wood Root and Seedling for health and recovery, Bamboo Joint for speed, then into the Metal land for Iron Shirt and Battle Axe: the body that will not fall, and the axe."
+    },
+    "note": "The woodcutter's son with iron bones: an axe, a body that will not break, and no sect to teach him"
+   },
+   "items": [
+    "ln-pine-felling-axe",
+    "ln-bark-hide-vest"
+   ],
+   "changed": "tree targets (old node ids) -> an intent sentence; gear axe base phu grade 2 -> named ln-pine-felling-axe (his father's axe, same base and grade); backstory, ties and v2 traits added; v1 traits, root, realm and build kept"
+  },
+  {
+   "key": "phan_co_dang",
+   "name_hv": "Phàn Cổ Đăng",
+   "name_han": "樊古燈",
+   "gloss": "An old lamp",
+   "sex": "F",
+   "born": 1010,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 48,
+   "birthplace": 68,
+   "role": "Boss of the frost coast's ruin-diggers, licensed by the Pavilion's Hall of Cold Law to dig the coast's dead halls",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 62,
+     "moc": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 58,
+    "than_hon": 76,
+    "khi_van": 60,
+    "dao_tam": 66,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Greedy",
+     "Cautious"
+    ],
+    "calling": "Formation master",
+    "upbringing": "street_orphan",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "formation_mind"
+    ],
+    "lifestyle": "collector",
+    "health": "cold_toxin",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A small grey woman in a seal-fur coat patched from three coats, who carries an old bronze lamp lit even at noon and talks to it more than to her crew.",
+   "backstory": "Phàn Cổ Đăng was born in 1010 in the fish lanes of Mộc Lan Thành, among the families who came from frozen Lẫm Đông Thành when the sea crushed its harbour (V079), and she learned to dig in that drowned city's ice before she learned to read. The frost coast is a coast of dead halls: Hàn Giang Môn (C099), burned Thoa Lạp Trấn (V077), Sóc Phương Thành emptied by the Pavilion (V078), Băng Hỏa Môn that split and burned itself out (V083), and Tầm Tung Viện, whose masters walked into Vô Tung Lâm and did not come back (V085). She has dug their outer halls and storerooms under the Hall of Cold Law's licence, which takes a tenth; the ice under Hàn Giang's own hall she leaves alone, because the Liên Giang fishers would not forgive her. In 1158 she dug the Track Seekers' empty academy, and in 1160 she sold its water-stained tracking manual from a stall in Tống Khách Thị. The hunter who bought it, Tiêu Vấn Phong (tieu_van_phong), built Tầm Kiếm Đường on it. In 1171 her Dao partner Thiệu Tàn Đăng (thieu_tan_dang) forced the fire hall of Băng Hỏa Môn with a borrowed fire talisman, and its ward burned him where he stood (N-loose_north-01). His bones are still inside. She has run the crew alone since, out of the market where the sword sage Tư Không Hạc Niên (tu_khong_hac_nien) sits and teaches no one. She is the only person there he plays go with.",
+   "wants": "To bring Thiệu Tàn Đăng's bones out of the fire hall of Băng Hỏa Môn and stand him in the ice above Mộc Lan, facing the sea he dug beside.",
+   "secret": "The fire hall opens only to fire qi. She did not take Dư Chúc Nhi into the crew out of pity: she means to send the girl through the door that killed Thiệu. She also knows that Hồng Lô Cốc on the cape would teach a Fire root properly, and she has not told her.",
+   "ties": [
+    {
+     "to": "thieu_tan_dang",
+     "kind": "dao_partner",
+     "note": "burned in the fire hall of Băng Hỏa Môn in 1171"
+    },
+    {
+     "to": "du_chuc_nhi",
+     "kind": "disciple",
+     "note": "bought from the ice-cutters in 1195; meant for the fire door"
+    },
+    {
+     "to": "chiem_thinh_phong",
+     "kind": "disciple",
+     "note": "the crew's nose for hollow halls"
+    },
+    {
+     "to": "khong_vong_bang",
+     "kind": "friend",
+     "note": "the crew's ice-cutter"
+    },
+    {
+     "to": "lien_bat_ngu",
+     "kind": "friend",
+     "note": "buys the Ice beast cores her crew cuts out of the ruins"
+    },
+    {
+     "to": "tieu_van_phong",
+     "kind": "friend",
+     "note": "bought the Tầm Tung manual from her stall in 1160"
+    },
+    {
+     "to": "tham_han_giang",
+     "kind": "debt",
+     "note": "the Hall of Cold Law's licence: a tenth of every dig"
+    },
+    {
+     "to": "tu_khong_hac_nien",
+     "kind": "friend",
+     "note": "go across a board at Tống Khách Thị"
+    },
+    {
+     "to": "gia_chi_lo",
+     "kind": "rival",
+     "note": "sells maps to ruins she emptied fifty years ago"
+    }
+   ],
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "hollow-bell-canon",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "ln-old-bronze-lamp"
+     },
+     {
+      "named": "ln-lock-breaker-seal"
+     },
+     {
+      "named": "ln-frost-digger-coat"
+     }
+    ],
+    "skills": {
+     "tran_phap": 6
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water's linh lực sustain and wards, then the seal and array nodes that break old locks; she fights only to get out of a hall alive.",
+     "targets": [
+      5493,
+      4909,
+      4912,
+      5405,
+      5369,
+      3151
+     ],
+     "targets_note": "Lingering Ripples and the Black Abyss idea for linh lực, Ice Mirror's ward, Misty Rain to get out of a hall, then Array Foundation for the array nodes that open old locks."
+    },
+    "note": "The digger: a lamp, a seal for old locks, and a long, cold patience. The Still Moon Tide Scripture came out of the ice of Sóc Phương Thành in 1102, the one find she never sold."
+   },
+   "items": [
+    "ln-old-bronze-lamp",
+    "ln-lock-breaker-seal",
+    "ln-frost-digger-coat"
+   ]
+  },
+  {
+   "key": "khau_thien_tu",
+   "name_hv": "Khấu Thiên Tứ",
+   "name_han": "寇天賜",
+   "gloss": "Heaven's gift (the old chief's joke: no one else gave the boy anything)",
+   "sex": "M",
+   "born": 1045,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 1043,
+   "birthplace": 1043,
+   "role": "Chief of the robbers of Đoản Vĩ Cương, the Bobtail ridge; Triều Ngũ Lang's sworn brother from the camp",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "kim": 44
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 74,
+    "than_hon": 60,
+    "khi_van": 52,
+    "dao_tam": 58,
+    "mi_luc": 70
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Loyal",
+     "Warlike"
+    ],
+    "calling": "Strategist",
+    "upbringing": "street_orphan",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": null,
+    "health": "old_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Battle-hardened",
+     "Hunted"
+    ]
+   },
+   "appearance": "A long-armed old man in a lynx-skin cap with the bob tail left on, the camp's badge, and an axe hafted in lynx bone through his belt.",
+   "backstory": "Khấu Thiên Tứ was a foundling of the robbers' camp on the Ridge of the Bobtails, raised beside another nobody's son, Triều Ngũ Lang (trieu_ngu_lang), by the old chief Tề Đoản Vĩ (te_doan_vi), who had two woodsmen's axes re-hafted in lynx bone for the two boys. In 1081 a Thúy Vi road patrol ran them down on the Thạch Công road. Khấu got away into the bracken. Triều did not, and a stranger's mist hid him (N-vu_an-02). Triều never came back, and Khấu has never forgiven the mist. When the old chief died under a patrol's swords in 1139 (N-loose_north-02), Khấu took the band. He is a Golden Core in a hill camp, the strongest thing on the cape's roads that answers to no sect. The band takes from carts that do not pay Vụ Ẩn Môn's road fee, carries grain to the charcoal and tea villages in bad winters, and is fed and hidden by them in return, as Ẩn Loan once fed its pirates (A025). In 1190 his lieutenant Dương Tam Đao (duong_tam_dao) fell on a caravan under the mist on the Đồng Sơn road, and Bối Trường Đình (boi_truong_dinh) died holding it (N-vu_an-04). Khấu let the raid stand rather than lose the band.",
+   "wants": "To keep the ridge free of every sect for as long as he lives, and to sit across a fire from Triều once more before one of them dies.",
+   "secret": "In the 1190 raid he saw Triều carry a six-year-old boy out of the mist and lowered his own axe to let them pass. The boy is Ký Thất Lộ, who has sworn to kill the band, and Khấu would let him try.",
+   "ties": [
+    {
+     "to": "trieu_ngu_lang",
+     "kind": "sworn_sibling",
+     "note": "raised in the camp together; parted by the mist in 1081"
+    },
+    {
+     "to": "te_doan_vi",
+     "kind": "master",
+     "note": "the old chief who raised them both; buried by Khấu in 1139"
+    },
+    {
+     "to": "duong_tam_dao",
+     "kind": "disciple",
+     "note": "his lieutenant, taught the axe by him; led the 1190 raid"
+    },
+    {
+     "to": "hau_tieu_luc",
+     "kind": "disciple",
+     "note": "the youngest of the camp"
+    },
+    {
+     "to": "ky_that_lo",
+     "kind": "enemy",
+     "note": "the boy he let go in 1190, sworn to kill the band"
+    },
+    {
+     "to": "boi_truong_dinh",
+     "kind": "enemy",
+     "note": "died holding the mist against the band in 1190"
+    },
+    {
+     "to": "bang_yen_toa",
+     "kind": "enemy",
+     "note": "the head of the mist that takes the band's roads"
+    }
+   ],
+   "master": "te_doan_vi",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "drawn-out-edge-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "debt-ledger-blade",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "ln-lynx-bone-axe"
+     },
+     {
+      "named": "ln-lynx-pelt-armour"
+     },
+     {
+      "named": "ln-robber-ring"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood's health and leech first, then the Metal land's axe and crit nodes; he fights like a man who has never had a healer.",
+     "targets": [
+      6278,
+      6403,
+      3996,
+      3998,
+      4550
+     ],
+     "targets_note": "Seedling and Taproot for Wood's health, then the Metal land's Battle Axe, Mountain Cleave and Bleak Autumn for the axe and its crit; the tree has no health leech (wish W10-health-leech)."
+    },
+    "note": "The robber chief: an axe, armour, and a canon that was in a Pivot surveyor's saddlebag on the Thạch Công road in 1142."
+   },
+   "items": [
+    "ln-lynx-bone-axe",
+    "ln-lynx-pelt-armour",
+    "ln-robber-ring"
+   ]
+  },
+  {
+   "key": "du_chuc_nhi",
+   "name_hv": "Dư Chúc Nhi",
+   "name_han": "余燭兒",
+   "gloss": "Little candle",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 48,
+   "birthplace": 946,
+   "role": "A Fire root born in an ice-cutters' village; the ruin crew's thaw-girl",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "hoa": 64,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 52,
+    "than_hon": 62,
+    "khi_van": 48,
+    "dao_tam": 58,
+    "mi_luc": 66
+   },
+   "traits": {
+    "personality": [
+     "Impatient",
+     "Brave",
+     "Trusting"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "fire_tempered"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Disgraced"
+    ]
+   },
+   "appearance": "A thin girl with chapped red hands that are always warm, frost-burn marks on her cheeks from the winter the village tried to cool her in the lake, and hair she cuts with a hot knife.",
+   "backstory": "Dư Chúc Nhi was born in 1180 in Tạc Băng Thôn, where the families cut the winter sea ice for the lake towns' cellars, and her father's blocks sweated in her arms. By six she could melt a hole in the lake with her palm. In an ice-cutters' village that is a curse, and the village said so, and one winter tried to cool her in the lake. The pearl manor's gate at Hàm Nguyệt Trang asks for Water and the pines' outer gate for Wood or Water, and she had too little of either; both sent her home. In 1195 Phàn Cổ Đăng's (phan_co_dang) crew came to open the frozen doors of Bắc Minh Quán, the abbey its hermits left on the northern shore in 332 (V001), and hired the ice-cutters. Chúc Nhi melted a door the cutters could not chip. Phàn paid her father ten stones a year for her and bought her the Scorch Fist Primer at Tống Khách Thị. She has thawed eleven halls on the frost coast since, and she thinks Phàn is the kindest person she has ever met.",
+   "wants": "A real Fire method and a teacher with fire in her, and enough stones sent home that Tạc Băng stops calling her a curse.",
+   "secret": "She has twice gone alone to the sealed fire hall of Băng Hỏa Môn and felt its door warm under her hand, as if it knew her. She has not told Phàn, because Phàn's face changes whenever anyone says the hall's name.",
+   "ties": [
+    {
+     "to": "phan_co_dang",
+     "kind": "master",
+     "note": "bought her from the ice-cutters in 1195"
+    },
+    {
+     "to": "chiem_thinh_phong",
+     "kind": "friend",
+     "note": "the only crewman near her age"
+    },
+    {
+     "to": "khong_vong_bang",
+     "kind": "friend",
+     "note": "he cuts the ice and she melts it"
+    }
+   ],
+   "master": "phan_co_dang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "scorch-fist-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "ln-thawing-brazier"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire's burning stacks and heat; for now a girl who can thaw a door and punch whatever comes out of it.",
+     "targets": [
+      695,
+      700,
+      693,
+      696,
+      2566
+     ],
+     "targets_note": "Luyện Khí: the Fire start's ring (First Spark, Fire Root, Fire Start, Warm Blood) and Flint Spark: hot fists for now."
+    },
+    "note": "The thaw-girl: hot fists, a brazier, and fire in a land of ice."
+   },
+   "items": [
+    "ln-thawing-brazier",
+    "ln-ember-pendant"
+   ]
+  },
+  {
+   "key": "thu_phieu_binh",
+   "name_hv": "Thư Phiêu Bình",
+   "name_han": "舒飄萍",
+   "gloss": "Drifting duckweed",
+   "sex": "F",
+   "born": 1112,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 46,
+   "birthplace": 1250,
+   "role": "Caravan guard for hire at Tùng Hạ Thị; taught the boy Hứa Vãn Cung the road",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 58,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 54,
+    "can_cot": 66,
+    "than_hon": 50,
+    "khi_van": 58,
+    "dao_tam": 56,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Stubborn",
+     "Generous"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "drinker",
+    "health": "old_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Battle-hardened"
+    ]
+   },
+   "appearance": "A tall woman of eighty-eight who looks fifty, with a bowyer's bow from her home village and a staff worn white at the grip.",
+   "backstory": "A bowyer's daughter from Cung Tiễn Thôn, Thư Phiêu Bình has guarded caravans on the pine-sea roads for seventy years and sworn to no one. In 1164 she took on a fourteen-year-old magistrate's son who had failed the pines' chant, Hứa Vãn Cung (hua_van_cung), as her wagon boy, and Doanh Thủ Lộ (doanh_thu_lo) joined them later. The three rode as one company until a quarrel over pay in 1188. In the wolf winter (A064) she was on the southern road with a Pivot column. Hứa held the road without her, and Doanh died on it. She sends Doanh's son in the herb valley, Nghiêm Tục Đoạn (nghiem_tuc_doan), half of every fee.",
+   "ties": [
+    {
+     "to": "doanh_thu_lo",
+     "kind": "friend",
+     "note": "rode with her twenty years; died while she was away"
+    },
+    {
+     "to": "nghiem_tuc_doan",
+     "kind": "friend",
+     "note": "she sends him half of every fee; he does not know whose silver it is"
+    },
+    {
+     "to": "lam_da_hac",
+     "kind": "friend",
+     "note": "the axe she hires when the road looks bad"
+    },
+    {
+     "to": "bi_tu_nuong",
+     "kind": "friend",
+     "note": "drinks at the long table"
+    },
+    {
+     "to": "hua_van_cung",
+     "kind": "former_disciple",
+     "note": "her wagon boy from 1164, whom she taught the road; now a sect head she will not swear to"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "huyen_moc",
+     "layer": 7
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "loi_truong",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood sustain and health: a guard who outlasts the night.",
+     "targets": [
+      6278,
+      6371,
+      6126,
+      5591
+     ],
+     "targets_note": "Seedling and Spirit Spring for sustain, Upright Trunk's block, Deep Roots for health: a guard who outlasts the night."
+    },
+    "note": "Staff, bow and a Profound Wood method from a dead guard's saddlebag."
+   }
+  },
+  {
+   "key": "nham_do_han",
+   "name_hv": "Nhâm Độ Hàn",
+   "name_han": "任渡寒",
+   "gloss": "Ferries the cold",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 31,
+   "birthplace": 31,
+   "role": "Night ferryman of the Cold Ford river mouth, who carries anyone across and remembers no one",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "moc": 26
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 62,
+    "than_hon": 54,
+    "khi_van": 50,
+    "dao_tam": 60,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Patient",
+     "Reclusive"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A stooped man in a reed rain-cape who poles without a lantern and has never been seen to hurry.",
+   "backstory": "Nhâm Độ Hàn's family has poled boats across the Cold Ford river mouth since the fishers paid the pines' resin tax in fish (A041). His Water root would have taken him into Tùng Đào across the water, and his grandmother would have drowned him first; Thúy Vi, which took the coast back in 905 (C166), wanted Wood and Earth. So he ferries. He crosses at night, takes a fish or a stone, asks no name and keeps no face. His daughter Nhâm Liễu Ngạn (nham_lieu_ngan) went up to Thúy Vi and carries letters over his river; he poles her and does not ask whose they are.",
+   "ties": [
+    {
+     "to": "nham_lieu_ngan",
+     "kind": "child",
+     "note": "his daughter at Thúy Vi"
+    },
+    {
+     "to": "cu_lo_nhi",
+     "kind": "disciple",
+     "note": "the reed foundling he is teaching the pole"
+    },
+    {
+     "to": "cat_chau_nuong",
+     "kind": "friend",
+     "note": "she sends him passengers and pays for what he does not see"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain and evasion; he has never needed to win a fight, only to reach the other bank.",
+     "targets": [
+      5340,
+      5498,
+      5369,
+      4940
+     ],
+     "targets_note": "Moonlit Rain for sustain, Water Ring Step, Misty Rain and Reflected Moon for evasion: only the other bank matters."
+    },
+    "note": "A boat anchor on a chain and a fishers' breathing older than the resin tax."
+   },
+   "items": [
+    "mf-way-out-knot"
+   ],
+   "authored": "d2"
+  },
+  {
+   "key": "cat_chau_nuong",
+   "name_hv": "Cát Châu Nương",
+   "name_han": "葛珠娘",
+   "gloss": "Pearl lady",
+   "sex": "F",
+   "born": 1060,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 31,
+   "birthplace": 55,
+   "role": "Keeper of the dice house on the Hàn Tân quay; buys debts and gossip for Tùng Đào's first elder",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 40,
+    "than_hon": 58,
+    "khi_van": 62,
+    "dao_tam": 50,
+    "mi_luc": 72
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Gregarious",
+     "Deceitful"
+    ],
+    "calling": "Schemer",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": "gambler",
+    "health": "waning_years",
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A plump old woman with a pearl in each ear, one real and one glass, who never says which.",
+   "backstory": "A pearl broker's daughter of Quy Điểu Trấn, where the market is held on the lake ice (A011), Cát Châu Nương came to Hàn Tân Thành in 1120 and opened a dice house on the quay. Her family brokered pearls beside the family of Tùng Đào's first elder, Hồ Tùng Nguyệt (ho_tung_nguyet), and since 1150 Hồ has paid her for what the quay says. She keeps a ledger of every debt on the Cold Ford coast and remembers every loser; the one she likes best is a young Hồng Lô alchemist of 1150. In 1192 she bought the debts of a Phù Kiều gambler, Luyện Đắc Bảo (luyen_dac_bao), on Hồ's silver, and named the price to his sister.",
+   "ties": [
+    {
+     "to": "ho_tung_nguyet",
+     "kind": "friend",
+     "note": "her paymaster since 1150; their families brokered pearls side by side"
+    },
+    {
+     "to": "luyen_dac_bao",
+     "kind": "creditor",
+     "note": "she holds forty years of his debts"
+    },
+    {
+     "to": "luyen_to_y",
+     "kind": "rival",
+     "note": "the sister she named the price to: the Haze Walk's ninth layer"
+    },
+    {
+     "to": "phu_lien_kieu",
+     "kind": "friend",
+     "note": "his reports to the first elder pass through her back room"
+    },
+    {
+     "to": "nham_do_han",
+     "kind": "friend",
+     "note": "the ferry that carries what she buys"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 8
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Linh lực and soul defence; she has never had to fight anyone she could not buy.",
+     "targets": [
+      5493,
+      4943,
+      4947,
+      5363
+     ],
+     "targets_note": "Lingering Ripples for linh lực, the Mirror Lake idea (Still Pond, Mirror Lake) for soul defence, Wind Rose for the luck ring."
+    },
+    "note": "A mirror for faces and a ring for luck; the Hồ family's pearl brokers' breathing."
+   }
+  },
+  {
+   "key": "ho_dien_liet",
+   "name_hv": "Hô Diên Liệt",
+   "name_han": "呼延烈",
+   "gloss": "Fierce, of the old steppe clan Hô Diên",
+   "sex": "M",
+   "born": 1105,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 1418,
+   "birthplace": 1418,
+   "role": "Free sabre of the desert road, hired by Hồi Lan merchants who trust neither Trấn Sa nor Dạ Quang",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 52,
+     "hoa": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 70,
+    "than_hon": 52,
+    "khi_van": 54,
+    "dao_tam": 60,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Temperate",
+     "Just"
+    ],
+    "calling": "Duelist",
+    "upbringing": "war_orphan",
+    "talent": [],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Scarred"
+    ]
+   },
+   "appearance": "A bow-legged rider with a sabre on each hip, one from each of his parents' sides, and a face the sand has worn smooth.",
+   "backstory": "Hô Diên Liệt's father rode with Dạ Quang and died in the Taming in 1120 (C184); his mother was a guard's daughter of Trường Vân whose brothers helped found Trấn Sa Đường five years later (V075). Neither side would have him. He took his father's sabre and his mother's and rides for the Hồi Lan merchants who will pay a man who belongs to no one. When a night-glow cup turns up at a stop, they hire him first. In 1194 he came back alone out of the sandstorm that buried his road partner Hà Khổ Hàn (ha_kho_han), and he has paid the widow's pond rent since.",
+   "ties": [
+    {
+     "to": "ha_kho_han",
+     "kind": "friend",
+     "note": "his road partner, buried by the 1194 storm"
+    },
+    {
+     "to": "mong_thuy_huong",
+     "kind": "friend",
+     "note": "he pays her rent; she has never asked him to"
+    },
+    {
+     "to": "o_liet_phong",
+     "kind": "friend",
+     "note": "rode in the raids with his father"
+    },
+    {
+     "to": "ngu_bat_te",
+     "kind": "friend",
+     "note": "the storyteller who tells his rides better than he does"
+    },
+    {
+     "to": "vien_co_yen",
+     "kind": "rival",
+     "note": "wants him in her hall or off her road"
+    },
+    {
+     "to": "nhiep_co_dang",
+     "kind": "friend",
+     "note": "they share a fire at the stops"
+    },
+    {
+     "to": "xa_linh_nhi",
+     "kind": "friend",
+     "note": "rides with him when a cup is found"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "red-sand-sabre-primer",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "sand-wall-primer",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth wards and health with Fire's burning edge: a guard who holds a wagon line in a storm.",
+     "targets": [
+      3724,
+      3360,
+      3366,
+      3449
+     ],
+     "targets_note": "Earthen Gate's block, the Kiln Hill idea (Fired Clay, Kiln Hill) for Fire's burning edge, Blessed Basin for health: holds the wagon line."
+    },
+    "note": "Two sabres and two primers: his father's raiders' method and his mother's guard families' wall. Both sabres sit on the phi_kiem base until a sabre base exists."
+   }
+  },
+  {
+   "key": "quan_tuyet_tung",
+   "name_hv": "Quản Tuyết Tung",
+   "name_han": "管雪蹤",
+   "gloss": "Tracks in the snow",
+   "sex": "M",
+   "born": 1128,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 938,
+   "birthplace": 938,
+   "role": "Beast hunter of Lãnh Nguyệt Lâm; the man who sold the wolf-king's cub",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 62,
+     "thuy": 28
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 68,
+    "than_hon": 56,
+    "khi_van": 46,
+    "dao_tam": 50,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Patient",
+     "Paranoid"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [
+     "beast_bonded"
+    ],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A lean man in a white fox cape with a tame lynx at his heel and a string of wolf teeth he no longer wears.",
+   "backstory": "Quản Tuyết Tung grew up in Liệp Hộ Thôn, the hunters' village, and hunted the northern forest beside the girl next door, Diêm Lạc Nhạn (diem_lac_nhan), until she went south. He sells live beasts and cores at Quy Điểu Trấn's ice market to whoever pays: the pearl manor, Pivot merchants, a buyer for Thiên Bảo Trai. In the autumn of 1189 he and the old trapper Nhung Tử Điêu (nhung_tu_dieu) dug a wolf-king's cub out of its den in Quần Lang Lâm and sold it to a buyer riding south with a Pivot caravan. That winter the pack followed the caravans to Tùng Hạ (A064). He has never said so, and he bought his foundation pill with the money.",
+   "ties": [
+    {
+     "to": "diem_lac_nhan",
+     "kind": "friend",
+     "note": "grew up next door; she wanted every wolf dead"
+    },
+    {
+     "to": "nhung_tu_dieu",
+     "kind": "friend",
+     "note": "dug the cub out with him"
+    },
+    {
+     "to": "doanh_thu_lo",
+     "kind": "debt",
+     "note": "died on the road the cub's pack came down; he knows what he owes"
+    },
+    {
+     "to": "au_van_chieu",
+     "kind": "friend",
+     "note": "pays him to walk buyers out of Phản Cảnh Lâm"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "huyen_moc",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "hunters-reach-canon",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood's health and the hunter's reach: needles from cover, the lynx in front.",
+     "targets": [
+      6278,
+      6505,
+      6140,
+      6131
+     ],
+     "targets_note": "Seedling's health, Beast Den for the lynx, Grove Shade for cover, Bamboo Staff's accuracy for the darts."
+    },
+    "note": "Darts, a lynx, and a hunter's method bought at the ice market."
+   }
+  },
+  {
+   "key": "gia_chi_lo",
+   "name_hv": "Giả Chỉ Lộ",
+   "name_han": "賈指路",
+   "gloss": "Points the way",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 46,
+   "birthplace": 45,
+   "role": "Seller of maps in the northern markets, most of them false",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 36,
+     "kim": 28,
+     "tho": 22
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 38,
+    "than_hon": 52,
+    "khi_van": 64,
+    "dao_tam": 30,
+    "mi_luc": 74
+   },
+   "traits": {
+    "personality": [
+     "Deceitful",
+     "Gregarious",
+     "Fickle"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "calligrapher",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Disgraced"
+    ]
+   },
+   "appearance": "A smiling man in scholar's grey with ink on every finger and a map case on each shoulder, one for buyers and one he never opens.",
+   "backstory": "Giả Chỉ Lộ draws maps: to the sealed sword cave a Hòe Âm hunter found and lost (A108), to the Peach Spring whose only true map Lạc Đan Thanh (lac_dan_thanh) keeps, to Mặc Huyết Sinh's abode, to Cung Hỏa Vân's vent on the cape. He buys Hách Tùng's (hach_tung) honest copies of Tầm Kiếm's massif, adds a cross, and sells each three times at Tùng Hạ Thị and Lam Yên Thị. Lâm Dã Hạc (lam_da_hac) once followed one into Ngọc Hồ Sơn and came back with frostbite and a laugh. In 1197 a buyer came back from a map Giả had made up and paid him double. Giả does not know what the man found.",
+   "ties": [
+    {
+     "to": "lac_dan_thanh",
+     "kind": "enemy",
+     "note": "had him beaten for selling Peach Spring maps"
+    },
+    {
+     "to": "hach_tung",
+     "kind": "friend",
+     "note": "sells him the real maps he spoils"
+    },
+    {
+     "to": "lam_da_hac",
+     "kind": "friend",
+     "note": "the only buyer who came back and laughed"
+    },
+    {
+     "to": "bi_tu_nuong",
+     "kind": "debt",
+     "note": "owes her three years of wine"
+    },
+    {
+     "to": "phan_co_dang",
+     "kind": "rival",
+     "note": "she says every ruin on his maps was empty before he was born"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "phu_luc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Escape and evasion; a man who has always run before the buyer came back.",
+     "targets": [
+      780,
+      6085,
+      6362
+     ],
+     "targets_note": "Luyện Khí: Young Branch, Willow Dance and Hidden Glade: speed and evasion to be gone before the buyer comes back."
+    },
+    "note": "A mirror, a brush and fast feet."
+   }
+  },
+  {
+   "key": "mong_thuy_huong",
+   "name_hv": "Mông Thủy Hương",
+   "name_han": "蒙水香",
+   "gloss": "Fragrance of water",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 116,
+   "birthplace": 116,
+   "role": "Widow of Ngư Đàm Thôn raising a Water-gifted daughter she will not give to the Pavilion",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 52,
+    "can_cot": 48,
+    "than_hon": 50,
+    "khi_van": 40,
+    "dao_tam": 66,
+    "mi_luc": 56
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Compassionate",
+     "Cautious"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A small brown woman with fish-scale silver on her sleeves from the ponds and her dead husband's undyed sash tied at her waist.",
+   "backstory": "Mông Thủy Hương keeps the fish ponds of Ngư Đàm Thôn (A115), as her mother did. Her husband Hà Khổ Hàn (ha_kho_han) sat the Pavilion's Frost Test three winters, felt nothing, took the road, and guarded salt caravans until a sandstorm buried him in 1194. Their daughter Hà Tiểu Băng (ha_tieu_bang) has more Water in her than the oasis has ever bred, and Ôn Sa Ngọc (on_sa_ngoc) has come every spring since to ask for her. Mông says no every spring. The village girl Hồ Tiểu Đàm (ho_tieu_dam) is about to sit her own third test, and Mông is watching that too.",
+   "ties": [
+    {
+     "to": "ha_kho_han",
+     "kind": "spouse",
+     "note": "died in the sandstorm of 1194"
+    },
+    {
+     "to": "ha_tieu_bang",
+     "kind": "child",
+     "note": "the daughter she will not send to the ice"
+    },
+    {
+     "to": "on_sa_ngoc",
+     "kind": "rival",
+     "note": "asks for her daughter every spring"
+    },
+    {
+     "to": "ho_dien_liet",
+     "kind": "friend",
+     "note": "her husband's partner; pays her rent"
+    },
+    {
+     "to": "ho_tieu_dam",
+     "kind": "friend",
+     "note": "a village girl two failures down the same road"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "clear-frost-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water healing and sustain.",
+     "targets": [
+      748,
+      5340,
+      5338
+     ],
+     "targets_note": "Luyện Khí: Calm Pool, then Moonlit Rain and Full Moon for Water healing."
+    },
+    "note": "The Pavilion's outer primer, taught her by the husband it turned away."
+   }
+  },
+  {
+   "key": "chiem_thinh_phong",
+   "name_hv": "Chiêm Thính Phong",
+   "name_han": "詹聽風",
+   "gloss": "Listens to the wind",
+   "sex": "M",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 48,
+   "birthplace": 69,
+   "role": "A Wind root in a ruin crew; feels the draught of a buried hall through rock",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 24,
+     "kim": 18
+    },
+    "variants": {
+     "phong": 54
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 44,
+    "than_hon": 70,
+    "khi_van": 56,
+    "dao_tam": 48,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Fickle",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A gangling young man who tilts his head at walls the way a dog does, with a strip of silk tied to his wrist that stirs when nothing else does.",
+   "backstory": "Chiêm Thính Phong was born on a seal-oil boat in a gale off Kê Minh Trấn (A129), and his mother said the wind came in with his first breath. No sect on the frost coast teaches Wind; the Pavilion's recruiters tested him for Water and walked on. Phàn Cổ Đăng (phan_co_dang) found him in 1192 at the wall of a net shed, telling the fishers where the rats' tunnel ran. He feels air move through stone. He has found four sealed halls for the crew, and the 1198 dig at Sóc Phương Thành gave up the Gale Courier Scripture, which Phàn let him keep.",
+   "ties": [
+    {
+     "to": "phan_co_dang",
+     "kind": "master",
+     "note": "took him into the crew in 1192"
+    },
+    {
+     "to": "du_chuc_nhi",
+     "kind": "friend",
+     "note": "the thaw-girl; they open the doors together"
+    },
+    {
+     "to": "khong_vong_bang",
+     "kind": "friend",
+     "note": "carries him out when the air goes bad"
+    }
+   ],
+   "master": "phan_co_dang",
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "gale-courier-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "phong",
+     "intent": "Wind's speed and evasion; he finds the door and runs through it first.",
+     "targets": [
+      797,
+      808,
+      5369
+     ],
+     "targets_note": "Luyện Khí: Light Feet and Wind Rider for speed and evasion, then Misty Rain's escape (his patron's road) through the first door."
+    },
+    "note": "A fan and a nose for moving air."
+   }
+  }
+ ]
+}

@@ -1,0 +1,64 @@
+{
+ "sect": "chan_kim",
+ "_doc": "Chân Kim Các signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow the general and metal catalogues' grade 3-4 items. Prefix ck-.",
+ "items": [
+  {
+   "id": "ck-hundred-fold-crucible", "name": "Hundred-Fold Crucible (Bách Luyện Lô)", "family": "general", "kind": "treasure", "base": "huong_lo", "grade": 4,
+   "modifiers": [{"key": "attack_pct", "value": 20, "scope": ["art"]}, {"key": "than_thuc_pct", "value": 8, "scope": []}, {"key": "stack_effect_pct", "value": 20, "scope": ["debuff"]}, {"key": "resist_pen_pct", "value": 10, "scope": []}, {"key": "khi_huyet_pct", "value": 10, "scope": []}],
+   "effects": [{"new": true, "id": "nothing-false-survives", "name": "Nothing False Survives (Ngụy Bất Tồn)", "rule": "Every buff, ward or borrowed stat a foe gains while near you burns off twice as fast. You can tell whether any item you are shown is what its owner says it is."}],
+   "lore": "A small crucible of white clay and silver wire, made by Tưởng Bách Luyện in 980 for the first assay of the house, and used every day since. It is said that no false metal has ever come out of it, and no true one has ever been refused.",
+   "build_use": "The head's crucible: art damage, spirit sense and a field that burns off false strength.",
+   "holder": "tuong_bach_luyen", "made_by": "tuong_bach_luyen", "made_year": 980, "set": "ck-assayer-tools", "status": "proposal"
+  },
+  {
+   "id": "ck-house-weight", "name": "The House Weight (Các Cân)", "family": "general", "kind": "artifact", "base": "an", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 14, "scope": ["seal"]}, {"key": "status_duration_pct", "value": 12, "scope": []}, {"key": "than_thuc_pct", "value": 4, "scope": []}, {"key": "khi_van", "value": 1, "scope": []}],
+   "effects": [{"new": true, "id": "a-hair-light", "name": "A Hair Light (Khinh Nhất Hào)", "rule": "Once a fight, you may make one roll that weighs against you come out slightly in your favour (a dodge, a resist or a crit)."}],
+   "lore": "Chân Kim's copy of the Pivot's standard weight, cast in bronze in 980 and kept on the house's side of the open square at Song Kiều. Đặng Quân Bình of the Pivot has twice found it a hair light, and twice it has been found true when the head weighed it himself. Tưởng Ngọc Cân, the head's granddaughter, keeps it.",
+   "build_use": "The scale-keeper's seal: status duration and a small thumb on the scale.",
+   "holder": "tuong_ngoc_can", "made_by": "tuong_bach_luyen", "made_year": 980, "set": "ck-scale-pair", "status": "proposal"
+  },
+  {
+   "id": "ck-hallmark-seal", "name": "Hallmark Seal (Kim Ấn)", "family": "metal", "kind": "artifact", "base": "an", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 14, "scope": ["seal"]}, {"key": "stack_effect_pct", "value": 20, "scope": ["kim", "debuff"]}, {"key": "than_thuc_pct", "value": 5, "scope": []}, {"key": "status_duration_pct", "value": 12, "scope": []}],
+   "effects": [{"new": true, "id": "touchstone", "name": "Touchstone (Thí Kim Thạch)", "rule": "Once per art firing, your first hit on a foe that holds buff stacks strips one of them (its largest pile, oldest batch first).", "authored": "d38"}],
+   "lore": "The house's assay stamp: a bar of silver it has struck is good in every market from the Pivot to the coast.",
+   "build_use": "Debuffs that stick to a foe the crucible has tried.",
+   "holder": "tuong_bach_luyen", "made_by": "tuong_bach_luyen", "made_year": 980, "set": "ck-assayer-tools", "status": "proposal",
+   "authored": "d38"
+  },
+  {
+   "id": "ck-refiner-robe", "name": "Robe of the Refiner (Luyện Kim Bào)", "family": "fire", "kind": "artifact", "base": "dao_bao", "grade": 3,
+   "modifiers": [{"key": "khi_huyet_pct", "value": 14, "scope": []}, {"key": "defense_pct", "value": 8, "scope": []}, {"key": "resist_pct", "value": 120, "scope": ["fire"]}, {"key": "soul_res_pct", "value": 12, "scope": []}],
+   "effects": [],
+   "lore": "Scorched at the hem by two centuries at the crucible's mouth, mended in silver thread.",
+   "build_use": "Guard for an assayer who stands close.",
+   "holder": "tuong_bach_luyen", "made_by": "chan_kim", "made_year": 990, "set": "ck-assayer-tools", "status": "proposal"
+  },
+  {
+   "id": "ck-counterweight-coin", "name": "Counterweight Coin (Đối Trọng Tiền)", "family": "earth", "kind": "artifact", "base": "tien_tieu", "grade": 2,
+   "modifiers": [{"key": "than_thuc_pct", "value": 4, "scope": []}, {"key": "status_duration_pct", "value": 10, "scope": []}, {"key": "crit_chance_pct", "value": 4, "scope": []}],
+   "effects": [],
+   "lore": "A bronze counterweight she cast herself for the house's pan of the scale; set beside the House Weight, the pair reads true whenever the Pivot's assayer tests it.",
+   "build_use": "Spirit sense and the small lean of the scale.",
+   "holder": "tuong_ngoc_can", "made_by": "tuong_ngoc_can", "made_year": 1160, "set": "ck-scale-pair", "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "ck-assayer-tools", "name": "Assayer's Tools (Thí Kim Tam Khí)", "pieces": ["ck-hundred-fold-crucible", "ck-hallmark-seal", "ck-refiner-robe"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "than_thuc_pct", "value": 4, "scope": []}, {"key": "stack_effect_pct", "value": 10, "scope": ["debuff"]}]},
+    {"pieces": 3, "effect": "Tried and Stamped (Thí Ấn): a foe your art hits while it carries a buff is stamped for 6 s; the next buff it gains burns off at once, and you gain a ward worth 5 % of your health."}
+   ],
+   "story": "Crucible, stamp and robe of the house's founder, made in its first decade. They are the house; whoever holds all three is its head, whatever the house's book says."
+  },
+  {
+   "id": "ck-scale-pair", "name": "Thumb on the Scale (Thủ Chỉ Áp Cân)", "pieces": ["ck-house-weight", "ck-counterweight-coin"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "than_thuc_pct", "value": 3, "scope": []}, {"key": "status_duration_pct", "value": 6, "scope": []}], "effect": "A Second Lean (Tái Khuynh): the House Weight's tipped roll comes twice a fight; after each tipped roll you see the next art that foe will use."}
+   ],
+   "story": "The founder's House Weight and the counterweight its keeper cast for it in 1160. Tưởng Ngọc Cân keeps both on the house's side of the square, and never lets them be weighed apart."
+  }
+ ]
+}

@@ -1,0 +1,524 @@
+{
+ "sect": "yen_quang",
+ "people": [
+  {
+   "key": "nhac_vien_chi",
+   "name_hv": "Nhạc Viễn Chí",
+   "name_han": "樂遠志",
+   "gloss": "Far will (polygala)",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "yen_quang",
+   "rank": "noi_mon",
+   "home": 537,
+   "birthplace": 534,
+   "role": "Dusk Field picker; stayed with the grand elder in 1187",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "tho": 42
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Patient",
+     "Reclusive"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Than Đầu shepherd who took the herb name Viễn Chí in 1140 and stayed on the Dusk Field with Diêm Tử Tô (diem_tu_to) in 1187; he lights the grand elder's lamp at dusk and has never once seen him look at the cold furnace.",
+   "ties": [
+    {
+     "to": "diem_tu_to",
+     "kind": "master",
+     "note": "the grand elder"
+    },
+    {
+     "to": "van_duong_quy",
+     "kind": "friend",
+     "note": "picks the same field"
+    }
+   ],
+   "master": "diem_tu_to",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "evening-haze-furnace",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 5,
+     "dan_dao": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  },
+  {
+   "key": "au_hoang_ky",
+   "name_hv": "Âu Hoàng Kỳ",
+   "name_han": "歐黃芪",
+   "gloss": "Astragalus",
+   "sex": "F",
+   "born": 1155,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "yen_quang",
+   "rank": "noi_mon",
+   "home": 423,
+   "birthplace": 551,
+   "role": "Furnace House alchemist; tastes the quarter dose",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "tho": 30,
+     "thuy": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Temperate",
+     "Brave"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born",
+    "path": [
+     "poison_proof"
+    ]
+   },
+   "backstory": "A Phóng Mộc log-driver's daughter and Phùng Cam Thảo's (phung_cam_thao) aunt, who works the Furnace House beside Sầm Bạch Chỉ (sam_bach_chi) and tastes every quarter dose; Diêm Tử Tô (diem_tu_to) taught her the canon and never once a recipe.",
+   "ties": [
+    {
+     "to": "diem_tu_to",
+     "kind": "master",
+     "note": "the grand elder"
+    },
+    {
+     "to": "sam_bach_chi",
+     "kind": "friend",
+     "note": "keeps the furnaces she works"
+    },
+    {
+     "to": "phung_cam_thao",
+     "kind": "niece_nephew",
+     "note": "her sister's son"
+    }
+   ],
+   "master": "diem_tu_to",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "evening-haze-furnace",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "dan_dao": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  },
+  {
+   "key": "ma_thu_diep",
+   "name_hv": "Ma Thu Diệp",
+   "name_han": "麻秋葉",
+   "gloss": "Autumn leaf",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "yen_quang",
+   "rank": "ngoai_mon",
+   "home": 537,
+   "birthplace": 495,
+   "role": "Placed from Lạc Hà this spring; picks on the Dusk Field",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 38,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Pragmatic",
+     "Gregarious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hòa Lũng rice-planter's girl who planted the Maple Hall's spirit rice with Ôn Hòa Miêu (on_hoa_mieu) and failed the dusk test three times; placed on the Dusk Field this spring, she does the same hour's work for less pay.",
+   "ties": [
+    {
+     "to": "van_duong_quy",
+     "kind": "master",
+     "note": "the best picker"
+    },
+    {
+     "to": "on_hoa_mieu",
+     "kind": "friend",
+     "note": "planted rice beside her at Lạc Hà"
+    },
+    {
+     "to": "to_binh_chu",
+     "kind": "debt",
+     "note": "placed by him; owes Lạc Hà a tenth until 1230"
+    }
+   ],
+   "master": "van_duong_quy",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "dusk-gathering-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  },
+  {
+   "key": "thai_tri_mau",
+   "name_hv": "Thái Tri Mẫu",
+   "name_han": "蔡知母",
+   "gloss": "Anemarrhena",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "yen_quang",
+   "rank": "noi_mon",
+   "home": 423,
+   "birthplace": 553,
+   "role": "Inner disciple; grinds miasma-root for the head's antidote",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Cautious",
+     "Honest"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Sơn Trà tea-picker's son who took the herb name Tri Mẫu and grinds the miasma-root Tào Mộ Tử (tao_mo_tu) takes in payment; from the weights he has worked out what Khổng Ích Mẫu (khong_ich_mau) only suspects about the doses.",
+   "ties": [
+    {
+     "to": "tao_mo_tu",
+     "kind": "master",
+     "note": "the head"
+    },
+    {
+     "to": "khong_ich_mau",
+     "kind": "friend",
+     "note": "carries the tincture"
+    }
+   ],
+   "master": "tao_mo_tu",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  },
+  {
+   "key": "co_tam_nhi",
+   "name_hv": "Cố Tằm Nhi",
+   "name_han": "顧蠶兒",
+   "gloss": "Silkworm child",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "yen_quang",
+   "rank": "ngoai_mon",
+   "home": 423,
+   "birthplace": 80,
+   "role": "Mistletoe cutter of the mulberry wood",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "tho": 28,
+     "thuy": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Trusting",
+     "Diligent"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A Tang Ma silk-reeler's girl whom Lý Tang Ký (ly_tang_ky) hired out of her father's shop to cut mistletoe; she carries Lý's letters to a Thúy Vi buyer in the city and has not opened one.",
+   "ties": [
+    {
+     "to": "ly_tang_ky",
+     "kind": "master",
+     "note": "keeper of the mulberry wood"
+    },
+    {
+     "to": "tien_tieu_dong",
+     "kind": "friend",
+     "note": "sells cuttings in the city"
+    }
+   ],
+   "master": "ly_tang_ky",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "dusk-gathering-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  },
+  {
+   "key": "trang_van_lo",
+   "name_hv": "Trang Vãn Lô",
+   "name_han": "莊晚蘆",
+   "gloss": "Evening reed",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "yen_quang",
+   "rank": "ngoai_mon",
+   "home": 537,
+   "birthplace": 538,
+   "role": "Dusk Field picker; Trang Vãn Thảo's elder brother",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 44,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Loyal",
+     "Stubborn"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Trang Vãn Thảo's (trang_van_thao) elder brother, who picks beside her on the Dusk Field; he knows her tune is the one Lô Địch stopped playing after 803 (V103), and has asked her to stop before Lạc Hà's choir leader asks again.",
+   "ties": [
+    {
+     "to": "van_duong_quy",
+     "kind": "master",
+     "note": "the best picker"
+    },
+    {
+     "to": "trang_van_thao",
+     "kind": "sibling",
+     "note": "his younger sister"
+    }
+   ],
+   "master": "van_duong_quy",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "dusk-gathering-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    }
+   }
+  },
+  {
+   "key": "mo_nguu_tat",
+   "name_hv": "Mộ Ngưu Tất",
+   "name_han": "慕牛膝",
+   "gloss": "Ox-knee (achyranthes)",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "yen_quang",
+   "rank": "noi_mon",
+   "home": 423,
+   "birthplace": 549,
+   "role": "Inner disciple of the Furnace House; banks the founder's coals",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Diligent",
+     "Paranoid"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hôi Diêu lime-burner's girl who took the herb name Ngưu Tất and banks Sầm Bạch Chỉ's (sam_bach_chi) furnaces at dawn; she has tended the founder's coals since the move and believes that if they go out, the pavilion goes too.",
+   "ties": [
+    {
+     "to": "sam_bach_chi",
+     "kind": "master",
+     "note": "the furnace keeper"
+    },
+    {
+     "to": "phung_cam_thao",
+     "kind": "friend",
+     "note": "works the bellows"
+    }
+   ],
+   "master": "sam_bach_chi",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  }
+ ]
+}

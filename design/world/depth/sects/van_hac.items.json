@@ -1,0 +1,213 @@
+{
+ "sect": "van_hac",
+ "_doc": "Vạn Hác Viện signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow catalogue-soul-song-seal grade 3-4 (the thousand-string zither). vh-tung-phong-cam is the legendary tung_phong_cam (world_history legendary_items), written here as an item record as tung_dao did for du_long_thao. No set.",
+ "items": [
+  {
+   "id": "vh-tung-phong-cam",
+   "name": "Pine-Wind Zither (Tùng Phong Cầm)",
+   "family": "soul-song-seal",
+   "kind": "treasure",
+   "base": "cam",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "x_soul",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 14,
+     "scope": [
+      "soul"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "pines-in-ten-thousand-ravines",
+     "name": "Pines in Ten Thousand Ravines (Vạn Hác Tùng)",
+     "rule": "Each note of a song art played on this zither also sounds once more a second later from a random point near the foe, as an echo with half the effect. Echoes add Resonance but cannot themselves echo."
+    }
+   ],
+   "lore": "The monk's zither of 620, made of a pine that a storm laid across a ravine of Thâm Tùng Hải. He played it in the pines until it sounded like ten thousand ravines and left it with his listeners, who founded the academy round it (C130). The line it is named for is the poet's: như thính vạn hác tùng, as if hearing the pines in ten thousand ravines. Only the head plays it, and only at the new year.",
+   "build_use": "The head's song instrument: faster soul arts, longer statuses and an echo on every note.",
+   "holder": "ha_thinh_tung",
+   "made_by": "khong_hac",
+   "made_year": 620,
+   "set": "vh-monks-things",
+   "status": "proposal"
+  },
+  {
+   "id": "vh-stringless-zither",
+   "name": "The Stringless Zither of Cầm Tượng (Cầm Tượng Vô Huyền Cầm)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "cam",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "x_soul",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 24,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "art_cost_pct",
+     "value": -8,
+     "scope": [
+      "soul"
+     ]
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "the-unplayed-note",
+     "name": "The Unplayed Note (Vô Thanh)",
+     "rule": "While you hold the Monk's Rest silence, this zither plays the note you did not: the next song art you cast after the silence costs no linh lực."
+    }
+   ],
+   "lore": "The last zither Cù Cổ Đồng finished in Cầm Tượng Trấn, the night before the ravine wall came down on the town in 1012 (V041). He had not strung it yet. His son Cù Đồng Mộc dug it out of the rubble and has never strung it either. He plays it with his fingers on the bare wood, and the students swear they can hear it.",
+   "build_use": "The maker's instrument: cheaper songs after a silence, and a guard against soul arts.",
+   "holder": "cu_dong_moc",
+   "made_by": "cu_co_dong",
+   "made_year": 1012,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "vh-held-rest-beads",
+   "name": "Beads of the Held Rest (Đình Âm Niệm Châu)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "soul"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Twelve pine-seed beads the monk counted rests on, one bead for each beat of silence. They were found with the zither in 620.",
+   "build_use": "Faster song arts and longer silences.",
+   "holder": "ha_thinh_tung",
+   "made_by": "khong_hac",
+   "made_year": 620,
+   "set": "vh-monks-things",
+   "status": "proposal"
+  },
+  {
+   "id": "vh-ravine-wind-robe",
+   "name": "Robe of the Ravine Wind (Hác Phong Bào)",
+   "family": "wind",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "evade_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The monk's patched travelling robe, so thin the ravine wind plays it. The academy's heads wear it once a year, at the playing of the zither.",
+   "build_use": "The player's guard: evasion and linh lực while the song goes on.",
+   "holder": "ha_thinh_tung",
+   "made_by": "khong_hac",
+   "made_year": 600,
+   "set": "vh-monks-things",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "vh-monks-things",
+   "name": "The Monk's Things (Không Hạc Di Vật)",
+   "pieces": [
+    "vh-tung-phong-cam",
+    "vh-held-rest-beads",
+    "vh-ravine-wind-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "x_soul",
+       "value": 6,
+       "scope": []
+      },
+      {
+       "key": "art_speed_pct",
+       "value": 5,
+       "scope": [
+        "soul"
+       ]
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Silence After the Twelfth (Thập Nhị Hậu Tịch): each echo the Zither sounds adds one Resonance to its foe; when you stop playing (The Held Rest), a foe with 6 or more Resonance falls into the silence: its next art fails and its casting is 30 % slower for 3 s."
+    }
+   ],
+   "story": "Everything the monk left in the ravine in 620: the zither, the beads and the robe. Hà Thính Tùng holds all three, and the academy rule is that only a player of the twelfth movement may."
+  }
+ ]
+}

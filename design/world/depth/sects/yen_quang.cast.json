@@ -1,0 +1,1124 @@
+{
+ "sect": "yen_quang",
+ "people": [
+  {
+   "key": "tao_mo_tu",
+   "name_hv": "Tào Mộ Tử",
+   "name_han": "曹暮紫",
+   "gloss": "The purple of the evening hills (Vương Bột: yên quang ngưng nhi mộ sơn tử)",
+   "sex": "M",
+   "born": 1080,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "yen_quang",
+   "rank": "tong_chu",
+   "home": 423,
+   "birthplace": 537,
+   "role": "Head of Yên Quang Các since 1150; moved it to the wild mulberry wood in 1187; Lạc Hà's pill supplier",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 56,
+     "tho": 48
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 52,
+    "than_hon": 60,
+    "khi_van": 40,
+    "dao_tam": 74,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Temperate",
+     "Devout"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "poison_proof",
+     "pill_master_tongue"
+    ],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A lean, unhurried man in a smoke-grey robe with his sleeves tied, whose lips are stained faintly purple from seventy years of tasting pills.",
+   "backstory": "Tào Mộ Tử was left at the pavilion's steppe gate as a newborn in 1080, in the hour of the evening glow. The founder Vi Ngưng Yên (vi_ngung_yen) named him from the line the pavilion was named for, the purple of the evening hills. He is the one inner disciple without an herb name. He grew up among the furnaces and, by the pavilion's rule, tasted every pill he made. When Vi died in her breakthrough in 1150 (N-yen_quang-02), her Dao partner Diêm Tử Tô (diem_tu_to) refused the headship and would not light a furnace again. The pavilion made Tào head at seventy, a Trúc Cơ over a Kết Đan grand elder. After Lạc Hà moved its seat up the mountain in 1185, its Maple Hall under Chử Hồng Diệp (chu_hong_diep) began making the sect's own pills. Tào saw his best customer learning to grow its own. In 1187 he moved the furnaces and beds to the wild mulberry wood beside Tang Ma Thành and kept the steppe as the Dusk Field (N-yen_quang-03). In 1195 he made the veil and tincture with which Lạc Hà's Hình Lạc Nhạn (hinh_lac_nhan) walked into the miasma.",
+   "wants": "To reach Kết Đan before his years run out, by a pill the pavilion's rule will not let him make for himself, and to make an antidote to the miasma of Chiết Kích Nguyên.",
+   "secret": "He knows what Hình Lạc Nhạn's tincture is for. The strength she asked for in 1197 is enough for a thousand paces of the grey, not three hundred. He made it and took his fee in miasma-root from the grey's edge, which he needs for the antidote. He has told no one, least of all Cảnh Trường Thiên, who has forbidden her the plain.",
+   "ties": [
+    {
+     "to": "vi_ngung_yen",
+     "kind": "master",
+     "note": "found him at the gate and named him"
+    },
+    {
+     "to": "diem_tu_to",
+     "kind": "friend",
+     "note": "the grand elder who will not light a furnace, even for him"
+    },
+    {
+     "to": "hinh_lac_nhan",
+     "kind": "creditor",
+     "note": "Lạc Hà's walker in the miasma; pays for her tincture in miasma-root"
+    },
+    {
+     "to": "chu_hong_diep",
+     "kind": "rival",
+     "note": "Lạc Hà's Maple Hall, which now makes the pills he used to sell"
+    },
+    {
+     "to": "phung_cam_thao",
+     "kind": "disciple",
+     "note": "at the bellows"
+    },
+    {
+     "to": "khong_ich_mau",
+     "kind": "disciple",
+     "note": "carries the tincture to the Watch"
+    },
+    {
+     "to": "ly_tang_ky",
+     "kind": "friend",
+     "note": "found the mulberry wood; sells the pills"
+    },
+    {
+     "to": "sam_bach_chi",
+     "kind": "friend",
+     "note": "an inner disciple he trusts"
+    },
+    {
+     "to": "van_duong_quy",
+     "kind": "friend",
+     "note": "the woman whose pill he offered to make and she refused"
+    },
+    {
+     "to": "thai_tri_mau",
+     "kind": "disciple",
+     "note": "inner disciple; grinds miasma-root for the head's antidote"
+    }
+   ],
+   "master": "vi_ngung_yen",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "evening-haze-furnace",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "named": "yq-evening-glow-furnace"
+     },
+     {
+      "named": "yq-purple-haze-gourd"
+     }
+    ],
+    "skills": {
+     "dan_dao": 8,
+     "linh_thuc": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood for healing over time and poison resistance, Earth for the body under it: he outlasts a fight the way he outlasts a recipe.",
+     "targets": [
+      5918,
+      5922,
+      5917,
+      6371,
+      6170,
+      6312
+     ],
+     "targets_note": "Lingzhi route, then Spirit Spring, Pine Needle Tea and Climbing Vine: heals over time and poison resistance."
+    },
+    "note": "A pill-taster who heals slowly and does not fall."
+   },
+   "items": [
+    "yq-evening-glow-furnace",
+    "yq-purple-haze-gourd"
+   ],
+   "changed": "home 537 -> 423 with the seat (rules R4, N-yen_quang-03); birthplace 537 added; build written to the lineage."
+  },
+  {
+   "key": "diem_tu_to",
+   "name_hv": "Diêm Tử Tô",
+   "name_han": "閻紫蘇",
+   "gloss": "Perilla (his herb name)",
+   "sex": "M",
+   "born": 1000,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "yen_quang",
+   "rank": "thai_thuong",
+   "home": 537,
+   "birthplace": 553,
+   "role": "Grand elder and co-founder (1065); keeps the Dusk Field at the old seat and has not lit a furnace since 1150",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 62,
+     "tho": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 76,
+    "can_cot": 54,
+    "than_hon": 66,
+    "khi_van": 44,
+    "dao_tam": 62,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Reclusive",
+     "Compassionate"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "pill_master_tongue"
+    ],
+    "lifestyle": "tea_master",
+    "health": null,
+    "coping": "buried_in_seclusion",
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A tall old man with a perilla leaf pinned to his collar, who sits beside a cold bronze furnace on the steppe every evening and polishes it until the light goes.",
+   "backstory": "Diêm Tử Tô was born in 1000 in Sơn Trà Thôn, a camellia-picker's son, and came to Lạc Hà's outer gate with Wood enough for any sect and just enough Earth for its inner one. There he met Vi Ngưng Yên (vi_ngung_yen), the gate's best herbalist. In 1065, with their lord's leave, the two of them founded the pavilion on the steppe below Lạc Hà's seat to make its pills (V107). He lit its first furnace and wrote the furnace art it still teaches. In 1150 he made the pill for Vi's breakthrough to Nguyên Anh. She died in it (N-yen_quang-02). He refused the headship, gave it to Vi's foundling Tào Mộ Tử (tao_mo_tu), and has not lit a furnace since. When the pavilion moved to the mulberry wood in 1187 he stayed on the steppe, where she is buried. He keeps the Dusk Field with Văn Đương Quy (van_duong_quy) and teaches anyone who walks out at sunset.",
+   "wants": "To light a furnace once more before he dies, for Văn Đương Quy's Kết Đan, and to know why Vi changed the recipe.",
+   "secret": "Sorting her notes for the move in 1187, he found that Vi changed the recipe of her breakthrough pill the night before. She added a dusk herb she had bought at Lạc Đan Thanh's stall in Vật Hoa Thị (A186). He does not know whether Lạc sold her a bad herb or whether she asked him for one. He has never asked, because either answer would end something.",
+   "ties": [
+    {
+     "to": "vi_ngung_yen",
+     "kind": "dao_partner",
+     "note": "died on the pill he made"
+    },
+    {
+     "to": "tao_mo_tu",
+     "kind": "friend",
+     "note": "the head he chose; he will not make him a pill either"
+    },
+    {
+     "to": "van_duong_quy",
+     "kind": "disciple",
+     "note": "keeps the Dusk Field with him; ready for Kết Đan"
+    },
+    {
+     "to": "sam_bach_chi",
+     "kind": "disciple",
+     "note": "keeps the furnaces he will not light"
+    },
+    {
+     "to": "ly_tang_ky",
+     "kind": "disciple",
+     "note": "found the mulberry wood"
+    },
+    {
+     "to": "lac_dan_thanh",
+     "kind": "rival",
+     "note": "sold Vi the herb; Diêm has never asked him about it"
+    },
+    {
+     "to": "chu_hong_diep",
+     "kind": "friend",
+     "note": "Lạc Hà's Maple Hall master, from the same camellia village; she writes to him every spring"
+    },
+    {
+     "to": "au_hoang_ky",
+     "kind": "disciple",
+     "note": "Furnace House alchemist; tastes the quarter dose"
+    },
+    {
+     "to": "nhac_vien_chi",
+     "kind": "disciple",
+     "note": "Dusk Field picker; stayed with the grand elder in 1187"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "gathered-haze-canon",
+      "layer": 9
+     },
+     {
+      "tech": "evening-haze-furnace",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "yq-cold-furnace"
+     },
+     {
+      "named": "yq-camellia-seed-pendant"
+     },
+     {
+      "named": "yq-dusk-field-robe"
+     }
+    ],
+    "skills": {
+     "dan_dao": 9,
+     "linh_thuc": 6
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing gathered and held, Earth for staying power: a slow, patient fight that ends in one wave of mending.",
+     "targets": [
+      5918,
+      5922,
+      5917,
+      5595,
+      5597,
+      5591,
+      6619
+     ],
+     "targets_note": "Lingzhi route, then the World Tree and the Sun and Rain keystone: healing gathered and held."
+    },
+    "note": "The cold furnace: great healing he will not spend."
+   },
+   "items": [
+    "yq-cold-furnace",
+    "yq-camellia-seed-pendant",
+    "yq-dusk-field-robe"
+   ]
+  },
+  {
+   "key": "van_duong_quy",
+   "name_hv": "Văn Đương Quy",
+   "name_han": "文當歸",
+   "gloss": "Angelica, 'ought to return' (her herb name)",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "yen_quang",
+   "rank": "noi_mon",
+   "home": 537,
+   "birthplace": 136,
+   "role": "The pavilion's best picker; keeps the Dusk Field with the grand elder",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 58,
+    "than_hon": 56,
+    "khi_van": 46,
+    "dao_tam": 72,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Honest",
+     "Stubborn"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A brown, wiry woman in a straw cape, always kneeling, with a gourd at her hip and grass seeds in her hair.",
+   "backstory": "A girl from Hoa Khê Thôn, where lovers drop their names into the brook (A194). She took the herb name Đương Quy, 'ought to return', and has picked on the steppe at sunset for seventy years. When the furnaces moved in 1187 she stayed on the Dusk Field with Diêm Tử Tô (diem_tu_to). At ninety she is ready for Kết Đan. She will take a pill from no one but Diêm, and he will not light a furnace.",
+   "ties": [
+    {
+     "to": "diem_tu_to",
+     "kind": "master",
+     "note": "the only maker she trusts"
+    },
+    {
+     "to": "trang_van_thao",
+     "kind": "disciple",
+     "note": "the girl who hums"
+    },
+    {
+     "to": "mai_tieu_ngai",
+     "kind": "disciple",
+     "note": "the placed girl"
+    },
+    {
+     "to": "tao_mo_tu",
+     "kind": "friend",
+     "note": "the head, who has offered to make her pill and been refused"
+    },
+    {
+     "to": "ma_thu_diep",
+     "kind": "disciple",
+     "note": "placed from Lạc Hà this spring; picks on the Dusk Field"
+    },
+    {
+     "to": "trang_van_lo",
+     "kind": "disciple",
+     "note": "Dusk Field picker; Trang Vãn Thảo's elder brother"
+    },
+    {
+     "to": "nhac_vien_chi",
+     "kind": "friend",
+     "note": "Dusk Field picker; stayed with the grand elder in 1187"
+    }
+   ],
+   "master": "diem_tu_to",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "evening-haze-furnace",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "yq-last-light-gourd"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 7,
+     "dan_dao": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing and sustain: a picker who can kneel in a fight as long as in a field.",
+     "targets": [
+      5918,
+      5922,
+      5917,
+      6357,
+      6358
+     ],
+     "targets_note": "Lingzhi route, then Spirit Berries and Vermilion Fruit: a picker's heals."
+    },
+    "note": "The picker."
+   },
+   "items": [
+    "yq-last-light-gourd"
+   ]
+  },
+  {
+   "key": "sam_bach_chi",
+   "name_hv": "Sầm Bạch Chỉ",
+   "name_han": "岑白芷",
+   "gloss": "Angelica root (his herb name)",
+   "sex": "M",
+   "born": 1125,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "yen_quang",
+   "rank": "noi_mon",
+   "home": 423,
+   "birthplace": 498,
+   "role": "Keeper of the furnaces at the mulberry wood",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "hoa": 30,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Content",
+     "Gregarious"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A charcoal-burner's son from Thán Ổ Thôn who keeps the new seat's furnaces and burns their charcoal from mulberry deadwood; Diêm Tử Tô (diem_tu_to) taught him, and Tào Mộ Tử works him harder.",
+   "ties": [
+    {
+     "to": "diem_tu_to",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tao_mo_tu",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "mo_nguu_tat",
+     "kind": "disciple",
+     "note": "inner disciple of the Furnace House; banks the founder's coals"
+    },
+    {
+     "to": "au_hoang_ky",
+     "kind": "friend",
+     "note": "Furnace House alchemist; tastes the quarter dose"
+    }
+   ],
+   "master": "diem_tu_to",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "dan_dao": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "Furnaces."
+   }
+  },
+  {
+   "key": "ly_tang_ky",
+   "name_hv": "Lý Tang Ký",
+   "name_han": "李桑寄",
+   "gloss": "Mulberry mistletoe (her herb name)",
+   "sex": "F",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "yen_quang",
+   "rank": "noi_mon",
+   "home": 423,
+   "birthplace": 80,
+   "role": "Keeper of the mulberry wood; sells the pavilion's pills",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 44,
+    "than_hon": 50,
+    "khi_van": 60,
+    "dao_tam": 46,
+    "mi_luc": 64
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Pragmatic",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "collector",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A sharp-faced woman in a silk robe dyed the green of mulberry leaves, with a price list sewn inside her sleeve.",
+   "backstory": "A Tang Ma Thành silk-dealer's daughter. She took the herb name Tang Ký in 1160 when she found mistletoe on the wild mulberries three tiles from her father's shop. It was she who told Tào Mộ Tử (tao_mo_tu) the wood was there. She keeps it now and sells the pavilion's pills in Tang Ma and to Lạc Hà. She thinks the pavilion should sell to Thúy Vi as well, since Lạc Hà's Maple Hall is selling against it.",
+   "ties": [
+    {
+     "to": "diem_tu_to",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tao_mo_tu",
+     "kind": "friend",
+     "note": "she found him the wood"
+    },
+    {
+     "to": "bac_hy_van",
+     "kind": "rival",
+     "note": "Lạc Hà's Maple Hall terraces, which sell what she used to"
+    },
+    {
+     "to": "tien_tieu_dong",
+     "kind": "disciple",
+     "note": "sells cuttings she pretends not to see"
+    },
+    {
+     "to": "co_tam_nhi",
+     "kind": "disciple",
+     "note": "mistletoe cutter of the mulberry wood"
+    }
+   ],
+   "master": "diem_tu_to",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "evening-haze-furnace",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "dan_dao": 4,
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood: she leeches a little and heals a little, and leaves before it gets expensive.",
+     "targets": [
+      5918,
+      5922,
+      5917,
+      6359,
+      6031
+     ],
+     "targets_note": "Lingzhi route, then Bitter Berries and Drifting Seed: heal a little and leave."
+    },
+    "note": "Wood-keeper and seller."
+   }
+  },
+  {
+   "key": "phung_cam_thao",
+   "name_hv": "Phùng Cam Thảo",
+   "name_han": "馮甘草",
+   "gloss": "Licorice (his herb name)",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "yen_quang",
+   "rank": "noi_mon",
+   "home": 423,
+   "birthplace": 551,
+   "role": "Inner disciple at the bellows",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Forgiving",
+     "Gregarious",
+     "Lazy"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A log-driver's son from Phóng Mộc Thôn who took the herb name Cam Thảo because licorice goes into every recipe and so, he says, does he; Tào Mộ Tử (tao_mo_tu) keeps him at the bellows.",
+   "ties": [
+    {
+     "to": "tao_mo_tu",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "au_hoang_ky",
+     "kind": "aunt_uncle",
+     "note": "his aunt; Furnace House alchemist; tastes the quarter dose"
+    },
+    {
+     "to": "mo_nguu_tat",
+     "kind": "friend",
+     "note": "inner disciple of the Furnace House; banks the founder's coals"
+    }
+   ],
+   "master": "tao_mo_tu",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "Bellows."
+   }
+  },
+  {
+   "key": "khong_ich_mau",
+   "name_hv": "Khổng Ích Mẫu",
+   "name_han": "孔益母",
+   "gloss": "Motherwort (her herb name)",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "yen_quang",
+   "rank": "noi_mon",
+   "home": 423,
+   "birthplace": 138,
+   "role": "Carries the tincture to Lạc Hà's Miasma Watch",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Brave",
+     "Honest"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A grass-weaver's daughter from Phương Thảo Thôn (A195) who carries the evening-herb tincture up to the Miasma Watch each season for Hình Lạc Nhạn (hinh_lac_nhan), and has begun to wonder why the doses keep growing.",
+   "ties": [
+    {
+     "to": "tao_mo_tu",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "hinh_lac_nhan",
+     "kind": "friend",
+     "note": "takes her the tincture"
+    },
+    {
+     "to": "khoi_thao_nhi",
+     "kind": "friend",
+     "note": "the loose woman who buys her moss for the tincture"
+    },
+    {
+     "to": "thai_tri_mau",
+     "kind": "friend",
+     "note": "inner disciple; grinds miasma-root for the head's antidote"
+    }
+   ],
+   "master": "tao_mo_tu",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2,
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "The courier."
+   }
+  },
+  {
+   "key": "trang_van_thao",
+   "name_hv": "Trang Vãn Thảo",
+   "name_han": "莊晚草",
+   "gloss": "Evening grass",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "yen_quang",
+   "rank": "ngoai_mon",
+   "home": 537,
+   "birthplace": 538,
+   "role": "Outer disciple on the Dusk Field",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 42,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Patient",
+     "Humble"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A reed-flute girl from Lô Địch Thôn, the village that plays one tune fewer since 803 (V103). She picks on the Dusk Field under Văn Đương Quy (van_duong_quy) and hums a tune her grandmother told her never to play at dusk.",
+   "ties": [
+    {
+     "to": "van_duong_quy",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "hong_van_tinh",
+     "kind": "friend",
+     "note": "Lạc Hà's choir leader has asked her what she hums"
+    },
+    {
+     "to": "trang_van_lo",
+     "kind": "sibling",
+     "note": "her brother; Dusk Field picker; Trang Vãn Thảo's elder brother"
+    }
+   ],
+   "master": "van_duong_quy",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "dusk-gathering-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "The girl who hums."
+   }
+  },
+  {
+   "key": "tien_tieu_dong",
+   "name_hv": "Tiền Tiểu Đồng",
+   "name_han": "錢小童",
+   "gloss": "Little lad",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "yen_quang",
+   "rank": "ngoai_mon",
+   "home": 423,
+   "birthplace": 80,
+   "role": "Outer disciple from Tang Ma Thành's rope walks",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 36,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Impatient",
+     "Greedy",
+     "Brave"
+    ],
+    "calling": "Merchant",
+    "upbringing": "street_orphan"
+   },
+   "backstory": "A rope-walk orphan of Tang Ma Thành (A201) who followed the pavilion's carts into the wood in 1187 and stayed; he sells mistletoe cuttings in the city, and Lý Tang Ký (ly_tang_ky) pretends not to know.",
+   "ties": [
+    {
+     "to": "ly_tang_ky",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "co_tam_nhi",
+     "kind": "friend",
+     "note": "mistletoe cutter of the mulberry wood"
+    }
+   ],
+   "master": "ly_tang_ky",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "dusk-gathering-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "Orphan."
+   }
+  },
+  {
+   "key": "mai_tieu_ngai",
+   "name_hv": "Mai Tiểu Ngải",
+   "name_han": "梅小艾",
+   "gloss": "Little mugwort",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "yen_quang",
+   "rank": "ngoai_mon",
+   "home": 537,
+   "birthplace": 503,
+   "role": "Outer disciple placed from Lạc Hà",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Cautious",
+     "Loyal"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "She failed Lạc Hà's dusk test three times and asked to be placed here, because the Dusk Field works the same hour. Tô Bình Chu (to_binh_chu) placed her in 1199, and Lạc Hà takes its tenth until 1229.",
+   "ties": [
+    {
+     "to": "van_duong_quy",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "to_binh_chu",
+     "kind": "debt",
+     "note": "placed her; Lạc Hà's tenth until 1229"
+    }
+   ],
+   "master": "van_duong_quy",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "dusk-gathering-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "Placed child."
+   }
+  },
+  {
+   "key": "vi_ngung_yen",
+   "name_hv": "Vi Ngưng Yên",
+   "name_han": "韋凝煙",
+   "gloss": "The haze gathers",
+   "sex": "F",
+   "born": 940,
+   "died": 1150,
+   "cause": "died in her breakthrough to Nguyên Anh, on a pill her Dao partner made, at 210",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "yen_quang",
+   "rank": "founder",
+   "home": 537,
+   "birthplace": 139,
+   "role": "Founder of Yên Quang Các (1065); picked only in the hour of the glow",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Devout",
+     "Patient",
+     "Ambitious"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A river-mouth girl from Thủy Khẩu Thôn and Lạc Hà's best inner-gate herbalist. In 1065, with her lord's leave and her Dao partner Diêm Tử Tô (diem_tu_to), she founded the pavilion on the steppe below Lạc Hà's seat to make its pills (V107). In 1080 she found a newborn at the gate in the evening light and named him Tào Mộ Tử (tao_mo_tu). She died in 1150 in her breakthrough to Nguyên Anh (N-yen_quang-02).",
+   "ties": [
+    {
+     "to": "diem_tu_to",
+     "kind": "dao_partner",
+     "note": ""
+    },
+    {
+     "to": "tao_mo_tu",
+     "kind": "disciple",
+     "note": "her foundling"
+    },
+    {
+     "to": "han_thanh_cao",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "lac_dan_thanh",
+     "kind": "friend",
+     "note": "the herb-seller who sold her the dusk herb in 1150, with a warning she did not read"
+    }
+   ]
+  },
+  {
+   "key": "han_thanh_cao",
+   "name_hv": "Hàn Thanh Cao",
+   "name_han": "韓青蒿",
+   "gloss": "Sweet wormwood (his herb name)",
+   "sex": "M",
+   "born": 1060,
+   "died": 1131,
+   "cause": "a grass fire on the dry steppe, at 71",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "yen_quang",
+   "rank": "noi_mon",
+   "home": 537,
+   "birthplace": 534,
+   "role": "Picker who died saving the last bed of dusk-wormwood",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Stubborn",
+     "Devout"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "He died in a grass fire in the dry summer of 1131, the summer the last of Lạc Hà's maples died (N-lac_ha-02), saving the last bed of dusk-wormwood; the pavilion still grows wormwood only from his seed, and Vi Ngưng Yên (vi_ngung_yen) buried him in it.",
+   "ties": [
+    {
+     "to": "vi_ngung_yen",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "vi_ngung_yen"
+  }
+ ]
+}

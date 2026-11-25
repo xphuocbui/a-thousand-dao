@@ -1,0 +1,191 @@
+{
+ "sect": "phuong_minh",
+ "_doc": "Phượng Minh Cung lineage (rules-proposals R5). Outer gate: wutong-dawn-breath (Wood and Fire; a Wood root with little Fire may practise it). Inner gate: red-sun-scripture (Fire; existing). True disciples and elders: five-virtue-phoenix-canon (the founder's method, Fire fed by Wood). Secret arts by rank: morning-sun-feather-fan (inner gate, the sect's fan), shao-remnant-score (inner gate, Hall of Rites only), ashen-phoenix-canon (elders; existing, taken from Xích Thành Môn in 590), nine-shao-advent (the head only). Proposals are unpriced.",
+ "lineage": {
+  "outer": "wutong-dawn-breath",
+  "inner": "red-sun-scripture",
+  "main": "five-virtue-phoenix-canon",
+  "secret": [
+   {
+    "id": "morning-sun-feather-fan",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "shao-remnant-score",
+    "rank": "noi_mon",
+    "note": "taught only in the Hall of Rites (Lễ Đường) at the Wutong Court, place 6"
+   },
+   {
+    "id": "ashen-phoenix-canon",
+    "rank": "truong_lao",
+    "note": "Xích Thành Môn's canon, taken in 590 (N-phuong_minh-02); taught with its blood pyre sealed"
+   },
+   {
+    "id": "nine-shao-advent",
+    "rank": "tong_chu"
+   }
+  ],
+  "body": null,
+  "elements": [
+   "hoa",
+   "moc"
+  ],
+  "forbidden": [
+   "the blood-fed pyre of ashen-phoenix-canon fed on anyone but the caster",
+   "the ninth movement of nine-shao-advent"
+  ],
+  "tree_route": [2493, 2463],
+  "tree_route_note": "The Five-Virtue canon's plumage heals its holder: every Fire-start member opens the Phoenix Nest and Phoenix Down first, as the head did; most add Dry Kindling after, for the Wood that feeds the fire. Wood-start members of the Halls of Rites and Benevolence open from Wood instead."
+ },
+ "techniques": [
+  {
+   "id": "wutong-dawn-breath",
+   "name": "Wutong Dawn Breath (Ngô Đồng Triêu Tức Quyết)",
+   "tier": 0,
+   "tech_kind": "main",
+   "names": [
+    "moc",
+    "hoa"
+   ],
+   "layers": 6,
+   "rank": "ngoai_mon",
+   "concept": "The outer gate's method, breathed at dawn facing east the way the wutong grows toward the morning sun (the Thi Kinh line the sect is named from). Wood qi is drawn up like sap and burned slowly at the top of the breath, so a Wood root learns to be kindling and a Fire root learns to rise without flaring. Its sixth layer ends in the Feather Kindling: the disciple holds a vent bird's down feather in the palm and runs the breath; if the feather catches without burning the hand, Fire is ready for the inner gate.",
+   "arts": [
+    "seed-of-spring",
+    {
+     "new": "Dawn Call (Triêu Minh Chưởng)",
+     "concept": "An open palm that carries a breath of heat: a light Fire hit that also lays one Wood stack on the striker, which the next Fire art spends for extra damage. The outer disciples' only art for years."
+    }
+   ],
+   "lore": "Ngô Thê Đồng wrote it on the ridge in 486, the year after he opened Thiều Âm Thị (A238), for children of the bamboo villages who had more Wood in them than Fire. The dawn flute that starts it is still played at both courts every morning.",
+   "status": "proposal"
+  },
+  {
+   "id": "five-virtue-phoenix-canon",
+   "name": "Five-Virtue Phoenix Canon (Ngũ Đức Phượng Hoàng Kinh)",
+   "tier": 2,
+   "tech_kind": "main",
+   "names": [
+    "hoa",
+    "moc"
+   ],
+   "layers": 12,
+   "rank": "chan_truyen",
+   "concept": "The founder's method. The Sơn Hải Kinh says the phoenix of Đan Huyệt carries five marks: virtue on the head, righteousness on the wings, rites on the back, benevolence on the breast, trust on the belly. The canon opens five marks in the meridians in that order, each lit by Fire and fed by Wood (wood feeds fire). In a fight each art lays a plumage stack in one of five colours; at five colours the holder sings, a burst of Fire that also mends them. The price is the Wood root: as the marks burn brighter the Wood that feeds them thins, and old elders of the palace are pure Fire whether they wanted it or not.",
+   "arts": [
+    "furnace-heart",
+    {
+     "new": "Five-Colour Plumage (Ngũ Thải Vũ)",
+     "concept": "Each art lays the plumage colour of its kind: a Fire art of this canon, a fan art, a song art, a heal or Wood art, a ward. A colour you hold does not count again, and two Fire arts that add no colour lay one repeat colour. At five colours the plumage is spent: your next art deals more and heals you for part of its damage, at half if any colour was a repeat.",
+     "authored": "d1"
+    },
+    {
+     "new": "The Phoenix Sings on the High Ridge (Minh Ư Cao Cương)",
+     "concept": "A sung burst of Fire around the holder that spends every plumage stack; each stack spent burns foes and gives the holder linh lực."
+    },
+    {
+     "new": "Perch on the Wutong (Thê Ngô Đồng)",
+     "concept": "A stance: while standing still the holder draws Wood qi into a ward of warm bark; the first Fire art after it consumes the ward for damage."
+    },
+    {"new": "Birds Pay Court to the Phoenix (Bách Điểu Triều Phượng)", "concept": "A passive art. Each hit your bird companions land lays on you the next Five-Colour Plumage colour you lack, at most once a pulse. Each time you spend a full plumage (five colours), you heal 3 % of your maximum health and your companions' next hits deal 30 % more.", "effect": "birds-pay-court-to-the-phoenix", "unlock_layer": 5, "authored": "d36"}
+   ],
+   "lore": "Ngô Thê Đồng wrote the first four marks on the ridge between 480 and 590 and could not light the fifth (trust, on the belly) until he sat by Chúc Dung Khẩu in 592. The sect says trust needs fire under it.",
+   "status": "proposal",
+   "authored": "d1, d36"
+  },
+  {
+   "id": "morning-sun-feather-fan",
+   "name": "Morning Sun Feather Fan (Triêu Dương Vũ Phiến Quyết)",
+   "tier": 1,
+   "tech_kind": "secret",
+   "names": [
+    "hoa"
+   ],
+   "layers": 9,
+   "rank": "noi_mon",
+   "concept": "The palace's fighting art and the reason its disciples carry fans instead of swords. A fan stroke throws burning feathers, each a Fire stack; the closed fan is a guard; the open fan turned edge-on cuts. Duels between inner disciples are fought with closed fans on the Fire Court's stair, and the loser's feathers are counted in the burns on their sleeves.",
+   "arts": [
+    "flint-volley",
+    {
+     "new": "Hundred Plumes (Bách Vũ)",
+     "concept": "A sweep that throws a spread of burning feathers; each feather that lands lays one Fire stack, and foes with five stacks are set alight."
+    },
+    {
+     "new": "Wing Screen (Dực Bình)",
+     "concept": "The fan opened as a screen: the next hit taken is reduced, and the attacker takes a Fire stack."
+    }
+   ],
+   "lore": "Nguyên Chước Ly (nguyen_chuoc_ly) took it from the founder's dawn breath and made it a war art in the Vermilion Caves (584-590). The Hall of Righteousness has taught it since.",
+   "status": "proposal"
+  },
+  {
+   "id": "shao-remnant-score",
+   "name": "Shao Remnant Score (Thiều Âm Tàn Phổ)",
+   "tier": 1,
+   "tech_kind": "secret",
+   "names": [
+    "moc"
+   ],
+   "layers": 9,
+   "rank": "noi_mon",
+   "concept": "What the scattered Vân Môn musicians remembered of the Shao after Cửu Thiều fell (A251), written down by Liên Khánh Dao (lien_khanh_dao) in the founder's time. It is a Wood method of sound: the player's qi rides the note into the hearer's meridians and slows or steadies them. Seven movements are written. The score breaks off where the eighth should begin, and Liên Khánh Dao died in 760 trying to play past it.",
+   "arts": [
+    "thorn-lullaby",
+    {
+     "new": "Dawn Clouds Take the Colour (Triêu Hà Nhiễm Sắc)",
+     "concept": "A sustained note: allies in hearing regain linh lực while it plays, foes' art speed falls; it ends when a hit gets past the player's ward or body shield (A250).",
+     "tags": ["song"],
+     "authored": "b2, e4"
+    },
+    {"new": "The Next Movement, Remnant Score (Tàn Phổ Tấu Tiếp)", "concept": "Each firing plays the Remnant Score's next movement, 1 to 7, each with its own small rule: 1 one Slowed Time; 2 you regain 2 % linh lực; 3 three Poison stacks; 4 two Slowed Time; 5 heals you 3 %; 6 four Stagnation; 7 the foe's slowest-ready art is delayed 1 s. Thorn Lullaby and Dawn Clouds are passages of the score and neither advance nor break it; any other song art fired between starts the piece again at 1. After the seventh, the next firing is the attempt at the eighth (Playing Past the Break), or the first again.", "id": "remnant-next-movement", "tags": ["song", "soul", "wood", "movement"], "unlock_layer": 4, "record": "builds/authored/auth-tech.json (e4)", "authored": "e4"}
+   ],
+   "lore": "Taught only in the Hall of Rites at the Wutong Court, on the ridge where the Shao was first played. Disciples learn it on bamboo flutes from Tử Trúc Lâm.",
+   "status": "proposal",
+   "passives": [
+    {"key": "x_soul", "value": 5, "scope": ["song"]},
+    {"key": "art_speed_pct", "value": 8, "scope": ["song"]}
+   ],
+   "authored": "b2, e4",
+   "effects": [{"id": "playing-past-the-break", "name": "Playing Past the Break (Tục Phổ)", "group": "trigger", "rule": "Once a fight, the firing of the Remnant Score's Next Movement right after its seventh is an attempt at the eighth. The attempt is a counted chance (Formulas A) with p = (thần hồn + khí vận) / 400, on a meter the player keeps from fight to fight; it succeeds when the meter reaches 1. Success: the Eighth Movement plays: the foe takes 5 Slowed Time for 5 s and you regain 10 % of your linh lực. Failure: a soul backlash: you lose 10 % of your health and 10 % of your linh lực. Either way the score then starts again at the first.", "reads": "The movement counter (instant); own thần hồn and khí vận (attributes, compile); the holder's carried counted-chance meter", "payload": "Success: 5 Slowed Time (5 s) on the foe, linh lực +10 % of maximum. Failure: −10 % of health and −10 % of linh lực on yourself", "closes": "Once per fight. Cannot be attempted while the full Seven Movements set is worn: Never the Eighth restarts the score after the seventh ('There is no eighth')", "hosts": ["Tech"], "authored": "e4"}]
+  },
+  {
+   "id": "nine-shao-advent",
+   "name": "Nine Shao Phoenix Advent (Cửu Thành Lai Nghi Kinh)",
+   "tier": 3,
+   "tech_kind": "secret",
+   "names": [
+    "hoa"
+   ],
+   "layers": 15,
+   "rank": "tong_chu",
+   "concept": "The head's method, written by the founder from the Tiêu Thiều Quản itself after he found it in 485 (C097). The Thư Kinh line is its whole teaching: when the Shao is played nine times, the phoenix comes with stately grace. Each movement is an art; each lifts the player's Fire and lays the music in every hearer. The ninth movement is the art Thiên Xu destroyed Cửu Thiều for: while it plays, no hearer of lower realm can raise a hand or a thought against the player. The founder wrote the ninth movement down and told his heir never to play it in full (C182).",
+   "arts": [
+    {
+     "new": "First Movement: The Pipes Wake (Tiêu Tỉnh)",
+     "concept": "A short phrase that lays one Shao stack on every foe in hearing and gives the player a Fire buff."
+    },
+    {
+     "new": "Fifth Movement: The Hundred Beasts Dance (Bách Thú Suất Vũ)",
+     "concept": "Every foe with three or more Shao stacks moves and casts more slowly for as long as the phrase lasts."
+    },
+    {
+     "new": "Eighth Movement: The Phoenix Is Near (Phượng Cận)",
+     "concept": "A held note: foes with eight Shao stacks cannot target the player with an art for two seconds. Played in its turn, after the seventh movement, it takes effect without the eight stacks.",
+     "authored": "e4"
+    },
+    {
+     "new": "Ninth Movement: The Phoenix Comes (Phượng Hoàng Lai Nghi)",
+     "concept": "Forbidden. While it plays, every hearer of lower realm cannot act against the player. Not an art the game should let the player or an NPC use lightly; a story weapon."
+    },
+    {"new": "The Next Movement (Tấu Tiếp)", "concept": "Nine Shao is played in order, 1 to 8. The First, Fifth and Eighth Movements are their own arts; this art plays every movement between them (2, 3, 4, 6, 7), each with its own small rule: 2 one Shao stack on the foe and 2 Fire buff stacks; 3 a soul strike and 1 Slowed Time; 4 two Shao stacks; 6 heals you 4 %; 7 two Shao stacks and your next Nine Shao art costs nothing. A Nine Shao art fired in its turn advances the piece; one fired out of turn, or any other song art between, starts it again at the First. Played in its turn, the Eighth Movement takes effect without eight Shao stacks. The ninth is not part of this art.", "id": "nine-shao-next-movement", "tags": ["song", "soul", "fire", "movement"], "unlock_layer": 3, "record": "builds/authored/auth-tech.json (e4)", "authored": "e4"}
+   ],
+   "lore": "Only two people have read it whole: the founder and Hoa Triêu Dương. The ninth movement lives in the fifteenth layer, and the palace's own rule says no head cultivates past the twelfth.",
+   "status": "proposal",
+   "authored": "e4"
+  }
+ ],
+ "existing_used": {
+  "red-sun-scripture": "the inner gate's method (Profound, Fire): the morning sun of the sect's charter poem; taught at the Fire Court since 592",
+  "ashen-phoenix-canon": "the elders' secret (Earth, Fire). Proposal: it is Xích Thành Môn's canon, carried out of the burning gate in 590 (N-phuong_minh-02). The palace teaches it with its blood-fed pyre turned on the caster's own blood only; feeding it on others is the sect's gravest crime"
+ }
+}

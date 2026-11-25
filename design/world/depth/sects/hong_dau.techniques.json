@@ -1,0 +1,43 @@
+{
+ "sect": "hong_dau",
+ "_doc": "Hồng Đậu Trang lineage (rules-proposals R5). Leans Poison, Wood -> Wood, Water: Poison is not a root (the world's poison land is Darkness, and the manor's land has none), so poison stays what it is in the catalogue, an art tag on Wood. The seat moves 5 tiles from the manor house (27) to its own spirit vein Tiêu Âm Mạch (263), which fits Wood, Water. Outer gate: red-bean-primer (proposal, Yellow, Wood or Water). Inner gate and above: canon-of-longing (proposal, Earth, Wood). Secret arts: thorn-and-ink-verses (existing, the charms, inner gate) and rotting-canopy-canon (existing, the garden's poisons, elders and the mistress). Unpriced.",
+ "lineage": {
+  "outer": "red-bean-primer",
+  "main": "canon-of-longing",
+  "secret": [
+   {"id": "thorn-and-ink-verses", "rank": "noi_mon"},
+   {"id": "rotting-canopy-canon", "rank": "truong_lao"}
+  ],
+  "body": null,
+  "elements": ["moc", "thuy"],
+  "tree_route": [6375, 6199, 6388],
+  "tree_route_note": "The Canon of Longing's poisons ripen: Venom Surge, Serpent Fang and Bitter Leaf, the head's own first three, for the red bean's poison and its stacks; the gardeners add Slow Venom after."
+ },
+ "techniques": [
+  {
+   "id": "red-bean-primer",
+   "name": "Red Bean Primer (Hồng Đậu Quyết)",
+   "tier": 0, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The bean-pickers' method, learned on the trellises at the back garden. The student draws Wood or Water qi through the fingertips while sorting red beans, which are bright, pretty and deadly, by touch alone, so that the hand learns which seed is ripe and which is poison before the eye does. It is a gentle method with one hard lesson: a picker who sorts carelessly dies of it. In a fight it sows seeds that ripen into small poisons.",
+   "arts": [
+    {"new": "Scatter Beans (Tán Đậu)", "concept": "Throws a handful of red beans: each foe hit gains one Wood poison stack, and a foe who already holds three stacks is slowed briefly."}
+   ],
+   "lore": "Written by Nghê Hồng Đậu in 912 for the first girls she took in at the manor, two years after she found the sword and planted the beans (C168, A275).",
+   "status": "proposal"
+  },
+  {
+   "id": "canon-of-longing",
+   "name": "Canon of Longing (Tương Tư Kinh)",
+   "tier": 2, "tech_kind": "main", "names": ["moc"], "layers": 12, "rank": "noi_mon",
+   "concept": "The manor's own canon, made from a line of an old poem: red beans grow in the southern land, and these most of all are longing. Its poisons do not strike. They ripen. Each Wood stack on a foe grows heavier the longer it is left, as longing does, and the cultivator's charm arts make a foe less willing to break away. Against a careful foe it is slow; against a foe who stays too long it is final.",
+   "arts": [
+    {"new": "A Branch in Spring (Xuân Phát Chi)", "concept": "Plants a red bean in the foe: a Wood poison that deals little at first and grows each second it is not cleansed; it stops growing (and keeps what it has) once the holder goes 4 s without laying another Wood poison."},
+    {"new": "Gather More (Đa Thải Hiệt)", "concept": "Harvests every ripening poison on the foe at once for damage by their age, and heals the holder for part of it."},
+    {"new": "The Second Cup (Đệ Nhị Bôi)", "concept": "A charm: the foe is Charmed for 2 s; while it holds, its escape and its cleanses fail, and its first art after the charm ends deals 20 % less.", "authored": "d34"}
+   ],
+   "lore": "Nghê Hồng Đậu wrote it between 915 and 960, after she could not open the art of the sword she had found (C168). The manor says she made her own art so as not to need the sword's.",
+   "status": "proposal",
+   "authored": "d34"
+  }
+ ]
+}

@@ -1,0 +1,1070 @@
+{
+ "sect": "hoa_cai",
+ "people": [
+  {
+   "key": "la_tu_vi",
+   "name_hv": "La Tử Vi",
+   "name_han": "羅紫微",
+   "gloss": "Tử Vi is the enclosure of the pole star, beneath the Canopy",
+   "sex": "F",
+   "born": 1090,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "hoa_cai",
+   "rank": "tong_chu",
+   "home": 565,
+   "birthplace": 81,
+   "role": "Mistress of Hoa Cái Đường since 1150, pill refining from badland cinnabar and sulphur",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "tho": 58,
+     "kim": 36,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 76,
+    "can_cot": 50,
+    "than_hon": 66,
+    "khi_van": 54,
+    "dao_tam": 60,
+    "mi_luc": 64
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Pragmatic",
+     "Diligent"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "pill_fed",
+     "pill_master_tongue"
+    ],
+    "lifestyle": "collector",
+    "health": "lingering_poison",
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A handsome woman of middle years in a vermilion coat, with a faint tremor in her left hand that she hides by holding a fan.",
+   "backstory": "La Tử Vi was a pill-seller's daughter of Thạch Kiều Thành who walked up to the new Hall in 1100 because its pills were the only ones weighed at Thiên Quyền Thị like everything else (V117). The founder Úy Đan Dương (uy_dan_duong) made her his disciple. In 1150 the fumes of the eighth turn of his Canopy Pill blinded him, and the same month his co-founder Tôn Luyện Hà (ton_luyen_ha) died of the mercury. La Tử Vi took the furnace from his hands at sixty and has run the Hall since as a Trúc Cơ, which no one in the heartland expected to last. She made it last by trade. The Hall works the Pivot's own cinnabar diggings at Thần Sa Khoáng under lease, washes and refines the ore, and sells the refined cinnabar back to the Pivot with its wound pills. The Pivot's pill-maker Chúc Đan Sa (chuc_dan_sa) buys from her and is the friend she tells most of her recipes to. She is 110, and a Trúc Cơ has two hundred years.",
+   "wants": "To finish the founder's Canopy Pill and reach Kết Đan by it, before her years run out.",
+   "secret": "She has been taking the unfinished pill from the founder's gourd at a hundredth of a dose for ten years. The tremor in her hand is the mercury.",
+   "ties": [
+    {
+     "to": "uy_dan_duong",
+     "kind": "master",
+     "note": "the founder, blind in his sealed room, whose key she holds"
+    },
+    {
+     "to": "thieu_ngan_hong",
+     "kind": "rival",
+     "note": "the mercury master, older in the Hall than she is"
+    },
+    {
+     "to": "muc_hong_sa",
+     "kind": "friend",
+     "note": "her foreman at the Pivot's cinnabar diggings"
+    },
+    {
+     "to": "la_khoi_minh",
+     "kind": "niece_nephew",
+     "note": "her brother's son, whom she brought up from the city"
+    },
+    {
+     "to": "chuc_dan_sa",
+     "kind": "friend",
+     "note": "the Pivot's pill-maker; La sells her the cinnabar and most of her secrets"
+    },
+    {
+     "to": "ton_luyen_ha",
+     "kind": "friend",
+     "note": "the co-founder who taught her the furnace and died of it"
+    },
+    {
+     "to": "chau_di_an",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "phi_tieu_lam",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "van_thuy_dan",
+     "kind": "friend",
+     "note": "from her street of Thạch Kiều"
+    },
+    {
+     "to": "co_tich_dang",
+     "kind": "disciple",
+     "note": "outer disciple who carries the founder's meals to the sealed room"
+    },
+    {
+     "to": "ky_chu_sa",
+     "kind": "friend",
+     "note": "keeper of the Mistress's furnace log, her friend from Thạch Kiều"
+    }
+   ],
+   "master": "uy_dan_duong",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "canopy-furnace-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "nine-cycle-mercury-art",
+      "layer": 7
+     },
+     {
+      "tech": "sulphur-lung-breath",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "hc-canopy-furnace"
+     },
+     {
+      "named": "hc-sulphur-fan"
+     }
+    ],
+    "skills": {
+     "dan_dao": 8
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth debuffs and Mercury stacks under a ward: she poisons a foe and waits under the lid.",
+     "targets": [
+      3389,
+      3724,
+      2325,
+      2302,
+      3105,
+      3366
+     ],
+     "targets_note": "Canopy route, then Nine Turns for the pill house, Array Keeper's ward for the lid, Kiln Hill's burning ground; Mercury stacks unscaled (wish W2-metal-marks)."
+    },
+    "note": "The Mistress of the Canopy: a Trúc Cơ who runs a pill house on trade and nerve."
+   },
+   "items": [
+    "hc-canopy-furnace",
+    "hc-sulphur-fan"
+   ],
+   "changed": "build added (none existed); home kept; birthplace 81 added; head since 1150 (proposal, N-hoa_cai-02). cross-sect pass: tie to la_khoi_minh aunt_uncle -> niece_nephew (he is her brother's son; both sides said aunt_uncle)."
+  },
+  {
+   "key": "uy_dan_duong",
+   "name_hv": "Úy Đan Dương",
+   "name_han": "尉丹陽",
+   "gloss": "Vermilion sun",
+   "sex": "M",
+   "born": 990,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "hoa_cai",
+   "rank": "retired_head",
+   "home": 565,
+   "birthplace": 170,
+   "role": "Founder of Hoa Cái Đường (1060), blinded by his own pill in 1150; lives in a sealed room at the Hall",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "tho": 66,
+     "kim": 50,
+     "hoa": 34
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 82,
+    "can_cot": 54,
+    "than_hon": 72,
+    "khi_van": 40,
+    "dao_tam": 70,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Patient",
+     "Reclusive"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 3
+     }
+    ],
+    "path": [
+     "pill_master_tongue",
+     "poison_proof"
+    ],
+    "lifestyle": null,
+    "health": "blind",
+    "coping": "buried_in_seclusion",
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A gaunt, silver-skinned old man with clouded eyes, who sits with his hands on a bronze gourd and smells the air before anyone speaks.",
+   "backstory": "Úy Đan Dương was a cinnabar washer's son at Thần Sa Khoáng, the diggings the Pivot's alchemists opened in 300 (A208). He learned refining from the Pivot's own pill-makers without being admitted, and in 1060, at seventy, founded the Hall on the forest slope below the Pivot's seat with Tôn Luyện Hà (ton_luyen_ha) and a dozen washers (V117). He swore the Hall's pills would be weighed in the open market like the Pivot's ore. For ninety years he worked on one pill, the Canopy Pill, a nine-turn cinnabar elixir that was to carry a Trúc Cơ through Kết Đan without a tribulation's luck. In 1150 the eighth turn blew back in his face. It blinded him and the fumes killed Tôn in the next room. He gave the furnace to his disciple La Tử Vi (la_tu_vi) and has lived since in a sealed room, smelling batches she brings him. The ninth turn of the pill is still in his gourd.",
+   "wants": "For someone to finish the ninth turn, and for it not to be La Tử Vi.",
+   "secret": "He knows from the smell of her breath that she has been taking the pill. He has not told her that the eighth turn was not an accident of the furnace: the pill itself is poison at every dose.",
+   "ties": [
+    {
+     "to": "la_tu_vi",
+     "kind": "disciple",
+     "note": "his successor, who brings him every batch"
+    },
+    {
+     "to": "thieu_ngan_hong",
+     "kind": "disciple",
+     "note": "the mercury master"
+    },
+    {
+     "to": "ton_luyen_ha",
+     "kind": "dao_partner",
+     "note": "his co-founder, who died of his pill in 1150"
+    },
+    {
+     "to": "chau_di_an",
+     "kind": "friend",
+     "note": "the girl who brings his meals and reads him the market prices"
+    },
+    {
+     "to": "muc_hong_sa",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "van_thuy_dan",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "ky_chu_sa",
+     "kind": "disciple",
+     "note": "keeper of the Mistress's furnace log, her friend from Thạch Kiều"
+    },
+    {
+     "to": "trac_dao_sa",
+     "kind": "disciple",
+     "note": "master of the washing shed, who teaches the Sulphur Lung Breath"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "canopy-furnace-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "nine-cycle-mercury-art",
+      "layer": 9
+     },
+     {
+      "tech": "sulphur-lung-breath",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "hc-nine-cycle-gourd"
+     },
+     {
+      "named": "hc-fume-censer"
+     },
+     {
+      "named": "hc-cinnabar-robe"
+     }
+    ],
+    "skills": {
+     "dan_dao": 9
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Mercury stacks and poison resistance: a blind man who fills the room with fume and outlasts anyone in it.",
+     "targets": [
+      3389,
+      3724,
+      2325,
+      3379,
+      3569,
+      2306,
+      2978
+     ],
+     "targets_note": "Canopy route, then Steady Steps and Warding Stone for resistance in the fume, Furnace Fire, and Alchemist's Heart; Mercury stacks and poison resistance unscaled (wish W2-metal-marks, W5-earth-poison-resist)."
+    },
+    "note": "The blind founder."
+   },
+   "items": [
+    "hc-nine-cycle-gourd",
+    "hc-fume-censer",
+    "hc-cinnabar-robe"
+   ]
+  },
+  {
+   "key": "thieu_ngan_hong",
+   "name_hv": "Thiệu Ngân Hống",
+   "name_han": "邵銀汞",
+   "gloss": "Silver mercury",
+   "sex": "M",
+   "born": 1080,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "hoa_cai",
+   "rank": "truong_lao",
+   "home": 565,
+   "birthplace": 171,
+   "role": "Master of the mercury room, the Hall's oldest refiner after the founder",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 52,
+     "kim": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 52,
+    "than_hon": 60,
+    "khi_van": 44,
+    "dao_tam": 58,
+    "mi_luc": 38
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Arrogant",
+     "Just"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [
+     "poison_proof"
+    ],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A thin man in a leather mask with glass eyes, which he takes off only to eat.",
+   "backstory": "A sulphur miner's son from Lưu Hoàng, where the badlands smell of eggs for twenty li (A209). He joined the Hall ten years before La Tử Vi (la_tu_vi) and expected the furnace in 1150. He keeps the Nine-Cycle Mercury Art and teaches it slowly, because he carried Tôn Luyện Hà (ton_luyen_ha) out of the refining room himself. He wants the Canopy Pill destroyed.",
+   "ties": [
+    {
+     "to": "uy_dan_duong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "la_tu_vi",
+     "kind": "rival",
+     "note": "who got the furnace he expected"
+    },
+    {
+     "to": "du_hoang_nhi",
+     "kind": "disciple",
+     "note": "a sulphur girl from his own village"
+    },
+    {
+     "to": "bien_lam_chau",
+     "kind": "disciple",
+     "note": "inner disciple of the mercury room, Mục Hồng Sa's niece"
+    },
+    {
+     "to": "trac_dao_sa",
+     "kind": "friend",
+     "note": "master of the washing shed, who teaches the Sulphur Lung Breath"
+    }
+   ],
+   "master": "uy_dan_duong",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "canopy-furnace-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "nine-cycle-mercury-art",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "dan_dao": 7
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Mercury stacks: slow, sure poison.",
+     "targets": [
+      3389,
+      3724,
+      2325,
+      3366
+     ],
+     "targets_note": "Canopy route walked from the Metal start, then Kiln Hill: slow, sure poison from the mercury room; Mercury stacks unscaled (wish W2-metal-marks)."
+    },
+    "note": "The mercury room."
+   }
+  },
+  {
+   "key": "muc_hong_sa",
+   "name_hv": "Mục Hồng Sa",
+   "name_han": "穆紅砂",
+   "gloss": "Red sand",
+   "sex": "F",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "hoa_cai",
+   "rank": "chap_su",
+   "home": 170,
+   "birthplace": 170,
+   "role": "Foreman of the Hall's lease at the Pivot's cinnabar diggings of Thần Sa Khoáng",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 56,
+     "tho": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 54,
+    "can_cot": 66,
+    "than_hon": 50,
+    "khi_van": 52,
+    "dao_tam": 56,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Brave",
+     "Gregarious"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "poison_proof"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A big red-handed woman whose teeth are pink from cinnabar dust.",
+   "backstory": "Born at the diggings like the founder, she runs the forty washers the Hall keeps at Thần Sa Khoáng under the Pivot's lease (A208): the Pivot owns the mine, the Hall digs and washes it, and every basket is weighed at Thiên Quyền Thị. La Tử Vi (la_tu_vi) is her friend and her mistress.",
+   "ties": [
+    {
+     "to": "uy_dan_duong",
+     "kind": "master",
+     "note": "taught her the primer at the troughs"
+    },
+    {
+     "to": "la_tu_vi",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "me_thanh_mach",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "tong_binh_hanh",
+     "kind": "rival",
+     "note": "the Pivot's keeper of the standard scales at Thiên Quyền Thị, who weighs her baskets"
+    },
+    {
+     "to": "bien_lam_chau",
+     "kind": "niece_nephew",
+     "note": "her niece; inner disciple of the mercury room, Mục Hồng Sa's niece"
+    }
+   ],
+   "master": "uy_dan_duong",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "canopy-furnace-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "sulphur-lung-breath",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Heavy Metal and Earth: a foreman who can stop a fight at the troughs.",
+     "targets": [
+      3389,
+      3724,
+      2325,
+      4144,
+      3461
+     ],
+     "targets_note": "Canopy route from the Metal start, then Bone-Breaker and Mountain Hollow: a foreman's heavy Metal and Earth."
+    },
+    "note": "The diggings."
+   }
+  },
+  {
+   "key": "van_thuy_dan",
+   "name_hv": "Văn Thụy Đan",
+   "name_han": "文瑞丹",
+   "gloss": "An auspicious pill",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "hoa_cai",
+   "rank": "noi_mon",
+   "home": 52,
+   "birthplace": 81,
+   "role": "The Hall's seller at the market of Thiên Quyền Thị",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 46,
+     "hoa": 34,
+     "kim": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Greedy",
+     "Honest"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "lifestyle": "gambler"
+   },
+   "backstory": "A Thạch Kiều pill-seller's son like his mistress La Tử Vi (la_tu_vi), he sells the Hall's pills at the Pivot's market and has them weighed in public, and has never once been caught short.",
+   "ties": [
+    {
+     "to": "uy_dan_duong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "la_tu_vi",
+     "kind": "friend",
+     "note": "from the same street of Thạch Kiều"
+    },
+    {
+     "to": "la_khoi_minh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "chung_minh_hien",
+     "kind": "disciple",
+     "note": "outer disciple at the market stall of Thiên Quyền Thị"
+    }
+   ],
+   "master": "uy_dan_duong",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "canopy-furnace-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "tien_tieu",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "dan_dao": 3
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "The market."
+   }
+  },
+  {
+   "key": "du_hoang_nhi",
+   "name_hv": "Dư Hoàng Nhi",
+   "name_han": "余黃兒",
+   "gloss": "Little yellow (sulphur)",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "hoa_cai",
+   "rank": "noi_mon",
+   "home": 565,
+   "birthplace": 171,
+   "role": "Inner disciple of the mercury room, a sulphur miner's daughter",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "tho": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Calm",
+     "Paranoid"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born",
+    "path": [
+     "poison_proof"
+    ]
+   },
+   "backstory": "From Lưu Hoàng like her master Thiệu Ngân Hống (thieu_ngan_hong); she breathes the mercury room's air without a mask and he cannot decide whether to be proud or afraid.",
+   "ties": [
+    {
+     "to": "thieu_ngan_hong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ngai_hoang_thach",
+     "kind": "friend",
+     "note": "outer disciple at the washing troughs, a sulphur miner's son"
+    }
+   ],
+   "master": "thieu_ngan_hong",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "canopy-furnace-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Mercury."
+    },
+    "note": "No mask."
+   }
+  },
+  {
+   "key": "me_thanh_mach",
+   "name_hv": "Mễ Thanh Mạch",
+   "name_han": "米青麥",
+   "gloss": "Green barley",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "hoa_cai",
+   "rank": "ngoai_mon",
+   "home": 170,
+   "birthplace": 567,
+   "role": "Outer disciple at the washing troughs, from the Hall's barley village",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 46,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Trusting",
+     "Patient"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A barley farmer's boy from Thanh Khoa Thôn, where the stones of an old fort built the houses (V108); he rocks the ore pans for Mục Hồng Sa (muc_hong_sa) and sends his pay home.",
+   "ties": [
+    {
+     "to": "muc_hong_sa",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "me_hoa_thu",
+     "kind": "sibling",
+     "note": "his sister; outer disciple from the barley village, who buries the Hall's dead"
+    }
+   ],
+   "master": "muc_hong_sa",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "cinnabar-washing-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "The troughs."
+   }
+  },
+  {
+   "key": "phi_tieu_lam",
+   "name_hv": "Phí Tiểu Lâm",
+   "name_han": "費小林",
+   "gloss": "Little wood",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "hoa_cai",
+   "rank": "ngoai_mon",
+   "home": 565,
+   "birthplace": 637,
+   "role": "Outer disciple and herb gatherer from Tầm Dược Thôn",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 42,
+     "tho": 30,
+     "moc": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Fickle",
+     "Generous"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "An herb seeker's son who gathers the angelica and mountain roots the Hall mixes into its wound pills, and courts Châu Dĩ An (chau_di_an) with them.",
+   "ties": [
+    {
+     "to": "la_tu_vi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "chau_di_an",
+     "kind": "lover",
+     "note": "she has not said yes"
+    }
+   ],
+   "master": "la_tu_vi",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "cinnabar-washing-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "Herbs."
+   }
+  },
+  {
+   "key": "chau_di_an",
+   "name_hv": "Châu Dĩ An",
+   "name_han": "周以安",
+   "gloss": "So that there may be peace",
+   "sex": "F",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "hoa_cai",
+   "rank": "noi_mon",
+   "home": 565,
+   "birthplace": 565,
+   "role": "Inner disciple who tends the founder's sealed room",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 48,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Honest",
+     "Cautious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "servant_born"
+   },
+   "backstory": "A washer's daughter born at the Hall, she brings Úy Đan Dương (uy_dan_duong) his meals and reads him the market prices, and is the only one he talks to about the ninth turn.",
+   "ties": [
+    {
+     "to": "la_tu_vi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "uy_dan_duong",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "phi_tieu_lam",
+     "kind": "lover",
+     "note": "the outer boy who has asked her; she has not said yes"
+    },
+    {
+     "to": "co_tich_dang",
+     "kind": "friend",
+     "note": "outer disciple who carries the founder's meals to the sealed room"
+    }
+   ],
+   "master": "la_tu_vi",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "canopy-furnace-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "The sealed room."
+   }
+  },
+  {
+   "key": "la_khoi_minh",
+   "name_hv": "La Khởi Minh",
+   "name_han": "羅啟明",
+   "gloss": "The morning star",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "hoa_cai",
+   "rank": "ngoai_mon",
+   "home": 565,
+   "birthplace": 81,
+   "role": "Outer disciple, the Mistress's nephew",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Lazy",
+     "Arrogant"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "La Tử Vi's (la_tu_vi) brother's son from Thạch Kiều, brought up the slope to be her heir and much more interested in the market than the furnace.",
+   "ties": [
+    {
+     "to": "la_tu_vi",
+     "kind": "aunt_uncle",
+     "note": "his aunt"
+    },
+    {
+     "to": "van_thuy_dan",
+     "kind": "master",
+     "note": "teaches him the market"
+    },
+    {
+     "to": "chung_minh_hien",
+     "kind": "rival",
+     "note": "outer disciple at the market stall of Thiên Quyền Thị"
+    }
+   ],
+   "master": "van_thuy_dan",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "cinnabar-washing-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "The nephew."
+   }
+  },
+  {
+   "key": "ton_luyen_ha",
+   "name_hv": "Tôn Luyện Hà",
+   "name_han": "孫煉霞",
+   "gloss": "Refines the red clouds",
+   "sex": "F",
+   "born": 1000,
+   "died": 1150,
+   "cause": "the fumes of the eighth turn of the Canopy Pill, at 150",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "hoa_cai",
+   "rank": "founder",
+   "home": 565,
+   "birthplace": 170,
+   "role": "Co-founder of Hoa Cái Đường (1060), killed by the founder's pill in 1150",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Generous",
+     "Brave",
+     "Impatient"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A cinnabar washer of Thần Sa Khoáng and Úy Đan Dương's (uy_dan_duong) Dao partner, who founded the Hall with him in 1060 (V117). She learned the mercury art first, taught La Tử Vi (la_tu_vi) the furnace, and died in the next room when the eighth turn of the Canopy Pill blew back in 1150. The Sulphur Lung Breath was made after her death so that no one else would die the same way.",
+   "ties": [
+    {
+     "to": "uy_dan_duong",
+     "kind": "dao_partner",
+     "note": ""
+    },
+    {
+     "to": "la_tu_vi",
+     "kind": "friend",
+     "note": "taught her the furnace"
+    },
+    {
+     "to": "trac_dao_sa",
+     "kind": "former_disciple",
+     "note": "master of the washing shed, who teaches the Sulphur Lung Breath"
+    }
+   ]
+  }
+ ]
+}

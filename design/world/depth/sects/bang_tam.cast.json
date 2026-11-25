@@ -1,0 +1,2815 @@
+{
+ "sect": "bang_tam",
+ "_doc": "Băng Tâm Các cast, world-depth pilot (schema.md). Tiers A and B written by hand; tier C to follow. Seat ids assume the R4 move to place 214.",
+ "people": [
+  {
+   "key": "so_ngoc_ho",
+   "name_hv": "Sở Ngọc Hồ",
+   "name_han": "楚玉壺",
+   "gloss": "Ngọc hồ is the jade vessel that holds the ice heart (Vương Xương Linh)",
+   "sex": "F",
+   "born": 810,
+   "alive": true,
+   "realm": "nguyen_anh",
+   "stage": 1,
+   "sect": "bang_tam",
+   "rank": "tong_chu",
+   "home": 214,
+   "birthplace": 1393,
+   "role": "Head of Băng Tâm Các, Keeper of the Vessel",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 86
+    },
+    "variants": {
+     "bang": 84
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 80,
+    "can_cot": 60,
+    "than_hon": 82,
+    "khi_van": 55,
+    "dao_tam": 88,
+    "mi_luc": 56
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Calm",
+     "Just"
+    ],
+    "calling": "Strategist",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 3
+     },
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "frost_veined",
+     "heart_demon_victor"
+    ],
+    "lifestyle": "qin_player",
+    "health": null,
+    "coping": "cold_detachment",
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "Tall, white-haired since her Kết Đan, with eyes the pale grey of lake ice; she wears the jade vessel at her belt and nothing else of colour.",
+   "backstory": "Sở Ngọc Hồ was found as an infant in a herder's tent on the flank of Băng Bích Nhai, the only one alive after a night so cold the herders' fire froze; Tần Ngưng Sương (tan_ngung_suong) took her as the last disciple of her long life and named her for the vessel. She grew up inside the Pavilion and has never lived anywhere else. When Tần died in 1010 (C175) the Vessel passed over the senior disciple Cố Lăng Sương (co_lang_suong) to her, and she has never learned why. She rules by stillness: the youngest speaks first, she speaks last, and her verdicts are short. In 1090 she stood with Đỗ Tinh Hà (do_tinh_ha) and Thôi Khinh Hồng (thoi_khinh_hong) at the death of Mặc Huyết Sinh (C024), and in 1121 she made Hạng Dạ Bôi (hang_da_boi) kneel (C185). The year the Pivot refused her claim to Tinh Tủy Mạch (C195) she shut herself in the ice hall for a year and came out with her hair a shade whiter. She plays the qin alone at night, the same three pieces.",
+   "wants": "To leave the Pavilion stronger than she found it, and to name an heir who will not need her.",
+   "secret": "She knows the Jade Vessel Array is weakening and has not told the sect, because she does not know how to mend it without Tiết Hàn Mai, who is dying.",
+   "ties": [
+    {
+     "to": "tan_ngung_suong",
+     "kind": "master",
+     "note": "her master; she still keeps Tần's cup on the Vessel Hall table"
+    },
+    {
+     "to": "so_han_y",
+     "kind": "disciple",
+     "note": "her favoured disciple, too like her"
+    },
+    {
+     "to": "khuong_luu_ly",
+     "kind": "disciple",
+     "note": "her first disciple; the obvious heir she has not named"
+    },
+    {
+     "to": "cung_mac_suong",
+     "kind": "disciple",
+     "note": "the gifted one she watches"
+    },
+    {
+     "to": "co_lang_suong",
+     "kind": "rival",
+     "note": "the senior sister passed over for her; they have not spoken in 190 years"
+    },
+    {
+     "to": "tiet_han_mai",
+     "kind": "friend",
+     "note": "the only elder who calls her by name"
+    },
+    {
+     "to": "thoi_khinh_hong",
+     "kind": "friend",
+     "note": "respect since the hunt of 1090"
+    },
+    {
+     "to": "doan_ngoc_hanh",
+     "kind": "rival",
+     "note": "refused her petition in 1188"
+    },
+    {
+     "to": "hang_da_boi",
+     "kind": "enemy",
+     "note": "knelt to her in 1121 and has not forgiven it"
+    },
+    {
+     "to": "mac_huyet_sinh",
+     "kind": "enemy",
+     "note": "the blood cultivator she killed"
+    },
+    {
+     "to": "trieu_huyet_y",
+     "kind": "enemy",
+     "note": "the blood cultivator who wants her disciple"
+    },
+    {
+     "to": "phuong_truc_ngon",
+     "kind": "friend",
+     "note": "the Pivot judge; letters since 1188 that never mention the petition"
+    },
+    {
+     "to": "dong_hong_lo",
+     "kind": "rival",
+     "note": "Hồng Lô's head; sold her Viên Chước's contract in 1150 and calls it theft in public; she lets him"
+    },
+    {
+     "to": "nguy_thanh_han",
+     "kind": "creditor",
+     "note": "the envoy whose failed petition she forgave; he owes her a vein"
+    },
+    {
+     "to": "vien_chuoc",
+     "kind": "debt",
+     "note": "the alchemist whose contract she bought; the sect owes him three years' fees"
+    },
+    {
+     "to": "tham_han_giang",
+     "kind": "friend",
+     "note": "the elder whose judgement she trusts more than his ambition"
+    }
+   ],
+   "master": "tan_ngung_suong",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "jade-vessel-ice-heart-canon",
+     "layer": 12
+    },
+    "aux": [
+     {
+      "tech": "stilled-hour-sutra",
+      "layer": 12
+     }
+    ],
+    "gear": [
+     {
+      "named": "bt-jade-vessel"
+     },
+     {
+      "named": "bt-pavilion-frost-seal"
+     },
+     {
+      "named": "ice-deep-freeze-ring"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "bang",
+     "intent": "Deep into the Ice land toward frost wards and the stilled-hour freeze, then the Water land's linh lực sustain.",
+     "targets": [
+      765,
+      768,
+      5227,
+      9001,
+      5203,
+      5202,
+      7677,
+      7687,
+      4912
+     ],
+     "targets_note": "Ice wards and the Frost Seal that keeps her stacks on the foe, Snow Lotus duration for the long stillness, Icicle Crown ward strength, and Black Abyss linh lực to hold the stance."
+    },
+    "note": "The still Keeper: stands in the Heart in the Jade Vessel stance until her ward is thick, freezes the hour, and seals the foe in frost."
+   },
+   "items": [
+    "bt-jade-vessel",
+    "bt-pavilion-frost-seal"
+   ],
+   "changed": "build main thien_thuy (stand-in) -> jade-vessel-ice-heart-canon (the sect lineage, R5); gear: the regalia replace the plain sword and armour; fix pass A: archetype kiem_tu -> phap_tu (her canon is a ward method, her route is Ice wards and the Frost Seal, and she carries no sword)"
+  },
+  {
+   "key": "co_lang_suong",
+   "name_hv": "Cố Lăng Sương",
+   "name_han": "顧凌霜",
+   "gloss": "She who stands above the frost",
+   "sex": "F",
+   "born": 560,
+   "alive": true,
+   "realm": "nguyen_anh",
+   "stage": 2,
+   "sect": "bang_tam",
+   "rank": "thai_thuong",
+   "home": 1393,
+   "birthplace": 1362,
+   "role": "Grand elder of Băng Tâm Các, in seclusion on Băng Bích Nhai since 1010",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 90
+    },
+    "variants": {
+     "bang": 88
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 84,
+    "can_cot": 58,
+    "than_hon": 86,
+    "khi_van": 48,
+    "dao_tam": 90,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Stubborn",
+     "Loyal"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     },
+     {
+      "id": "steady_heart",
+      "tier": 3
+     }
+    ],
+    "path": ["long_seclusion", "array_bound"],
+    "lifestyle": null,
+    "health": null,
+    "coping": "buried_in_seclusion",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A small woman wrapped in a grey fur gone white with rime, who has not cut her hair in two hundred years and wears it bound around her like a cloak.",
+   "backstory": "Cố Lăng Sương was born in an ice-cutters' hamlet under Băng Trụ Phong in 560 and came to the Pavilion at nine, the first child of Ngọc Hồ Sơn to pass the Frost Test after the move onto Hồ Thiên's ruin (N-bang_tam-01). She was Tần Ngưng Sương's (tan_ngung_suong) senior disciple for four hundred years and her right hand in the Array; every elder expected her to take the Vessel. Tần gave it to the girl Sở Ngọc Hồ (so_ngoc_ho) instead (C175), and the same winter Cố climbed Băng Bích Nhai and closed the cave behind her (N-bang_tam-04). The sect has told itself the story of her bitterness for 190 years. The truth is the founder's last order: watch the fire from above, where the Array's threads meet the sky, and come down only when it wakes. For twenty years she has felt Chúc Long Sơn stir (A111). She has not come down, because she is not sure, and because coming down means admitting she was never bitter at all.",
+   "wants": "To keep the founder's last order, and to be sure before she breaks her silence.",
+   "secret": "She was never passed over: Tần chose her for the watch and Sở for the hall, and told neither the other's task.",
+   "ties": [
+    {
+     "to": "tan_ngung_suong",
+     "kind": "master",
+     "note": "her master of four hundred years"
+    },
+    {
+     "to": "so_ngoc_ho",
+     "kind": "rival",
+     "note": "the junior sister the sect thinks she hates"
+    },
+    {
+     "to": "tiet_han_mai",
+     "kind": "friend",
+     "note": "they laid the Array's last nodes together in 820; the only one who sends tea up the mountain"
+    },
+    {
+     "to": "nhac_bang_thiem",
+     "kind": "friend",
+     "note": "lights the lamp with her each year"
+    }
+   ],
+   "master": "tan_ngung_suong",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "jade-vessel-ice-heart-canon",
+     "layer": 12
+    },
+    "aux": [
+     {
+      "tech": "frost-lotus-array-canon",
+      "layer": 12
+     }
+    ],
+    "gear": [
+     {
+      "named": "bt-frost-lotus-banner"
+     },
+     {
+      "named": "bt-glacier-bastion-plate"
+     },
+     {
+      "named": "bt-last-order-seal"
+     }
+    ],
+    "skills": {
+     "tran_phap": 9
+    },
+    "tree": {
+     "start": "bang",
+     "intent": "The Ice land's array and stack nodes, then Earth for formation power; she fights only inside her own seal.",
+     "targets": [
+      765,
+      768,
+      7692,
+      7728,
+      7722,
+      3094,
+      3151,
+      3839
+     ],
+     "targets_note": "The glacier bastion (Frost Plate) then Earth formation power, capped by Earth Vein Tap: she has no regeneration outside her own seal, and never needs it."
+    },
+    "note": "The array on the peak: a frost-lotus seal, a glacier bastion, and a patience no one has outlasted."
+   },
+   "items": [
+    "bt-frost-lotus-banner",
+    "bt-glacier-bastion-plate",
+    "bt-last-order-seal"
+   ]
+  },
+  {
+   "key": "tham_han_giang",
+   "name_hv": "Thẩm Hàn Giang",
+   "name_han": "沈寒江",
+   "gloss": "The cold river, sunk deep",
+   "sex": "M",
+   "born": 900,
+   "alive": true,
+   "realm": "nguyen_anh",
+   "stage": 0,
+   "sect": "bang_tam",
+   "rank": "truong_lao",
+   "home": 214,
+   "birthplace": 36,
+   "role": "Master of the Hall of Cold Law; voice of the frost coast in the Pavilion",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 78,
+     "moc": 34
+    },
+    "variants": {
+     "bang": 70
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 70,
+    "than_hon": 66,
+    "khi_van": 58,
+    "dao_tam": 78,
+    "mi_luc": 72
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Just",
+     "Gregarious"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "perfect_foundation"
+    ],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "Broad, weathered and loud for a Băng Tâm elder, with a fisher's hands and a laugh that the seat's halls are not built for.",
+   "backstory": "Thẩm Hàn Giang was born in Liên Giang Thành in 900 to ice-fishers who had paid their tax in fish since the Frost Coast fell (A131), and grew up cutting holes in the river ice beside the old men who still sat cultivating there in Hàn Giang's way. He passed the Frost Test at fourteen and rose through the Hall of Cold Law, which judges the frost-coast towns, until he ran it. He reached Nguyên Anh in 1180, the first frost-coast man to do so in the Pavilion's history. He laughs in council, which no one else does, and the coast loves him for it; his sworn brother Đoàn Thanh Lãng (doan_thanh_lang) heads Trạc Anh Đài. He wants the Vessel. He believes, honestly, that the Pavilion has spent seven hundred years ruling the coast without ever belonging to it, and that a coast-born Keeper would end the quiet contempt of the ice-born for everyone else. His disciple Liễu Ngư Ca (lieu_ngu_ca) is closer to that cause than even Thẩm knows.",
+   "wants": "To be named heir, and to make the frost coast the Pavilion's equal rather than its tax.",
+   "secret": "He has quietly kept the frost-coast towns' tax books in two sets for forty years: one for the seat, one that shows what the coast really pays.",
+   "ties": [
+    {
+     "to": "lieu_ngu_ca",
+     "kind": "disciple",
+     "note": "his only disciple"
+    },
+    {
+     "to": "doan_thanh_lang",
+     "kind": "sworn_sibling",
+     "note": "sworn brothers since boyhood in Liên Giang"
+    },
+    {
+     "to": "khuong_luu_ly",
+     "kind": "rival",
+     "note": "the other heir"
+    },
+    {
+     "to": "so_ngoc_ho",
+     "kind": "friend",
+     "note": "she trusts his judgement more than his ambition"
+    },
+    {
+     "to": "dai_tuyet_lap",
+     "kind": "creditor",
+     "note": "Lãnh Giang's founder, whose licence he spoke for"
+    },
+    {
+     "to": "lu_doc_dieu",
+     "kind": "creditor",
+     "note": "Lãnh Giang's head; he spoke for the licence in 1140"
+    },
+    {
+     "to": "phan_co_dang",
+     "kind": "creditor",
+     "note": "a loose digger who pays his Hall of Cold Law a tenth of every dig"
+    },
+    {
+     "to": "bo_toa_tuyet",
+     "kind": "friend",
+     "note": "the Lãnh Giang elder who cut ice holes beside him when he was a boy"
+    },
+    {
+     "to": "luc_han_chu",
+     "kind": "friend",
+     "note": "the elder who backs him for heir"
+    },
+    {
+     "to": "pham_lanh_van",
+     "kind": "friend",
+     "note": "the steward who keeps his second books"
+    },
+    {
+     "to": "tong_thoi_kim",
+     "kind": "friend",
+     "note": "the Trấn Sa smith who forged his sword in 1180"
+    },
+    {
+     "to": "quach_lam",
+     "kind": "rival",
+     "note": "the steward who suspects the two sets of books"
+    },
+    {
+     "to": "kha_tinh_ba",
+     "kind": "friend",
+     "note": "the steward who backs him"
+    },
+    {
+     "to": "lac_ngan_bang",
+     "kind": "disciple",
+     "note": "tax-reckoner of the Hall of Cold Law on the frost coast"
+    },
+    {
+     "to": "tong_ngu_lan",
+     "kind": "disciple",
+     "note": "Thẩm Hàn Giang's disciple at the seat; the frost coast's voice among the inner disciples"
+    },
+    {
+     "to": "manh_trieu_suong",
+     "kind": "friend",
+     "note": "skiff disciple who carries the Hall of Cold Law's letters along the frost coast"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "jade-vessel-ice-heart-canon",
+     "layer": 10
+    },
+    "aux": [
+     {
+      "tech": "snow-plum-sword",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "bt-ice-hole-blade"
+     },
+     {
+      "named": "bt-seal-oil-coat"
+     },
+     {
+      "named": "bt-coast-wine-gourd"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water first for health and linh lực sustain, Ice second for the Snow Plum stacks: a brawler's long fight.",
+     "targets": [
+      765,
+      768,
+      5374,
+      5379,
+      5414,
+      5203,
+      9004
+     ],
+     "targets_note": "Water regeneration for the brawl (Rain on Bamboo), Winter Plum and Frost Bloom for the plum cuts, Ebb Tide for the second wind."
+    },
+    "note": "The coast's sword: outlasts, then plum-cuts."
+   },
+   "items": [
+    "bt-ice-hole-blade",
+    "bt-seal-oil-coat",
+    "bt-coast-wine-gourd"
+   ]
+  },
+  {
+   "key": "tiet_han_mai",
+   "name_hv": "Tiết Hàn Mai",
+   "name_han": "薛寒梅",
+   "gloss": "Plum blossom in the cold",
+   "sex": "F",
+   "born": 760,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "bang_tam",
+   "rank": "truong_lao",
+   "home": 214,
+   "birthplace": 66,
+   "role": "First elder of Băng Tâm Các and keeper of the Jade Vessel Array (age 440)",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 72,
+     "tho": 50
+    },
+    "variants": {
+     "bang": 54
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 56,
+    "than_hon": 72,
+    "khi_van": 52,
+    "dao_tam": 74,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Honest",
+     "Stubborn"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "formation_mind",
+     "array_bound"
+    ],
+    "lifestyle": "tea_master",
+    "health": "waning_years",
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Thin and stooped now, her hands always cold, a frost-silk sash knotted the old way; she smells of the pine tea she brews for the grand elder.",
+   "backstory": "Tiết Hàn Mai came from the locust-shaded village of Hòe Âm (A102) and was the last disciple Tần Ngưng Sương (tan_ngung_suong) trained in the Array itself. In 820 she and Cố Lăng Sương (co_lang_suong) laid the Array's last nodes, sixty years after the Ice Soul vein was opened (A106), and she has kept it every year since, walking its 108 nodes under the seat by touch each winter. She is honest to the point of rudeness and cautious to the point of paralysis, and she has never taught the Array whole to anyone, because no one has been careful enough. She is 440, sixty years from the end of a Kết Đan life, and she knows that the Array will outlive her only if she reaches Nguyên Anh or finds an heir. She holds the Clear-Heart Mirror of the Regalia and has never offered it to Sở Ngọc Hồ (so_ngoc_ho), who has never asked. Every month she sends pine tea up Băng Bích Nhai. It is the only thing that goes up.",
+   "wants": "Time: a Nguyên Anh breakthrough, or a disciple careful enough to hold the Array after her.",
+   "secret": "She has felt three of the Array's nodes go warm since 1199 and has told only the grand elder.",
+   "ties": [
+    {
+     "to": "tan_ngung_suong",
+     "kind": "master",
+     "note": "taught her the Array"
+    },
+    {
+     "to": "co_lang_suong",
+     "kind": "friend",
+     "note": "her one friend; the tea"
+    },
+    {
+     "to": "pho_am_huong",
+     "kind": "rival",
+     "note": "an old friend, and her rival for the one breakthrough pill"
+    },
+    {
+     "to": "so_ngoc_ho",
+     "kind": "friend",
+     "note": "the only elder who calls her by name"
+    },
+    {
+     "to": "van_tuyet_khanh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "ong_tinh_hai",
+     "kind": "friend",
+     "note": "the steward who brings her tea"
+    },
+    {
+     "to": "thai_le_tuyet",
+     "kind": "friend",
+     "note": "Lê Hoa Am's head; childhood friend from Hòe Âm, born the same spring; letters at the solstice"
+    },
+    {
+     "to": "dam_tinh_thach",
+     "kind": "disciple",
+     "note": "Array Hall disciple who checks the lid stones of the Jade Vessel Array"
+    }
+   ],
+   "master": "tan_ngung_suong",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "jade-vessel-ice-heart-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "frost-lotus-array-canon",
+      "layer": 10
+     }
+    ],
+    "gear": [
+     {
+      "named": "bt-clear-heart-mirror"
+     },
+     {
+      "named": "bt-locust-shade-seal"
+     },
+     {
+      "named": "bt-locust-lid-shield"
+     }
+    ],
+    "skills": {
+     "tran_phap": 8
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water and Earth toward formation power and wards; she never leaves her seal.",
+     "targets": [
+      765,
+      768,
+      5227,
+      9001,
+      7728,
+      3094,
+      3096
+     ],
+     "targets_note": "The lineage's Still Ice and Frost Seed, Frost Shield and Glacier for the lid she stands on, the Frost Seal to keep her stacks on the foe, then Guardian Array and Night Watch: formation power and soul sense for the frost-lotus seal."
+    },
+    "note": "The keeper of the lid: frost-lotus seal, glacier bastion, and a mirror for the soul arts."
+   },
+   "items": [
+    "bt-clear-heart-mirror",
+    "bt-locust-shade-seal",
+    "bt-locust-lid-shield"
+   ],
+   "changed": "build main winter-toll-canon -> jade-vessel-ice-heart-canon (an elder's lineage method, R5); aux frost-lotus-array-canon; gear: the Regalia's Mirror"
+  },
+  {
+   "key": "pho_am_huong",
+   "name_hv": "Phó Ám Hương",
+   "name_han": "傅暗香",
+   "gloss": "Hidden fragrance (the plum's scent in the dark)",
+   "sex": "M",
+   "born": 720,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "bang_tam",
+   "rank": "truong_lao",
+   "home": 214,
+   "birthplace": 1412,
+   "role": "Master of the Plum Sword Hall; the last of Lãnh Hương Các (age 480)",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 66,
+     "kim": 48
+    },
+    "variants": {
+     "bang": 60
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 76,
+    "can_cot": 64,
+    "than_hon": 60,
+    "khi_van": 40,
+    "dao_tam": 70,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Diligent",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "upbringing": "war_orphan",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     },
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "sword_heart"
+    ],
+    "lifestyle": "poet",
+    "health": "waning_years",
+    "coping": "vengeance_vow",
+    "fate_given": [],
+    "gained": [
+     "Battle-hardened"
+    ]
+   },
+   "appearance": "A lean old swordsman with a plum-blossom scar on his left hand where his father's cape-pin burned him in the fire of Cô Thành.",
+   "backstory": "Phó Ám Hương was four when his father Phó Thanh Mai (pho_thanh_mai) and every plum-blossom swordsman of Lãnh Hương Các rode out to break Phượng Minh's siege of Cô Thành and died (V071). A Băng Tâm soldier carried the boy out of the ruin wrapped in his father's cape, with the red-ink manual of the Snow Plum Sword sewn into the lining (N-bang_tam-03). The Pavilion raised him, and he gave it the sword: the inner gate learns it from him, in red ink only. He holds the white sword of the Plum pair; the red was lost at Cô Thành, and he believes Phượng Minh Cung took it. He writes a poem every year on the day the fortress fell. He is 480. He will not reach Nguyên Anh without the breakthrough pill the sect can buy once a generation, and so will Tiết Hàn Mai (tiet_han_mai), his friend of four centuries. He has decided, without telling anyone, that he will not ask for it until he has the red sword back.",
+   "wants": "The red plum sword back from Phượng Minh before he dies; a disciple worthy of the pair.",
+   "secret": "He has written to Phượng Minh's head Hoa Triêu Dương (hoa_trieu_duong) three times offering a duel for the sword, and has never sent the letters.",
+   "ties": [
+    {
+     "to": "pho_thanh_mai",
+     "kind": "parent",
+     "note": "his father, dead at Cô Thành"
+    },
+    {
+     "to": "ha_lang_han",
+     "kind": "disciple",
+     "note": "his last disciple"
+    },
+    {
+     "to": "tiet_han_mai",
+     "kind": "rival",
+     "note": "his friend, and the only other claimant to the pill"
+    },
+    {
+     "to": "hoa_trieu_duong",
+     "kind": "feud",
+     "note": "Phượng Minh's head, holder (he thinks) of the red plum"
+    },
+    {
+     "to": "nhiep_tan_sa",
+     "kind": "creditor",
+     "note": "the Phượng Minh rider who killed his father at Cô Thành in 724; owes him the Red Plum and the truth"
+    },
+    {
+     "to": "than_ngung_lam",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "tuong_han_phong",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "vien_chuoc",
+     "kind": "enemy",
+     "note": "the hired alchemist of the fire he has hated since Cô Thành"
+    },
+    {
+     "to": "lam_ngung_phong",
+     "kind": "disciple",
+     "note": "Plum Sword Hall swordsman of Tưởng Hàn Phong's side"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "jade-vessel-ice-heart-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "snow-plum-sword",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "bt-white-plum"
+     },
+     {
+      "named": "bt-plum-father-cape"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 3,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "bang",
+     "intent": "Ice stacks and sword crit through the Ice land, a branch into Metal for pierce.",
+     "targets": [
+      765,
+      768,
+      774,
+      5390,
+      7657,
+      7672,
+      9000
+     ],
+     "targets_note": "Cold crit through Ice Root and Clear Frost, the Icicle Crown idea's crit, then Keen Edge's pierce and crit damage: a sword that gives up its block."
+    },
+    "note": "Five petals of cold and a falling plum: the inner gate's sword in its first form."
+   },
+   "items": [
+    "bt-white-plum",
+    "bt-plum-father-cape"
+   ]
+  },
+  {
+   "key": "khuong_luu_ly",
+   "name_hv": "Khương Lưu Ly",
+   "name_han": "姜琉璃",
+   "gloss": "Lapis glaze (lưu ly), clear and cold",
+   "sex": "F",
+   "born": 950,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "bang_tam",
+   "rank": "chan_truyen",
+   "home": 214,
+   "birthplace": 214,
+   "role": "The head's first disciple and the seat's heir candidate",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 80
+    },
+    "variants": {
+     "bang": 76
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 78,
+    "can_cot": 58,
+    "than_hon": 74,
+    "khi_van": 60,
+    "dao_tam": 76,
+    "mi_luc": 70
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Diligent",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 2
+     },
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "frost_veined",
+     "pure_root_devotee"
+    ],
+    "lifestyle": "calligrapher",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Beautiful in the Pavilion's way, cold and exact, with a sword so clear it looks like a sliver of glazed glass.",
+   "backstory": "Khương Lưu Ly was born inside the seat in 950 to two inner disciples, the first child of the Pavilion's own halls in a century, and was the head's first disciple from the day Sở Ngọc Hồ (so_ngoc_ho) took the Vessel. She has never known a teacher, a home or a cause other than the Pavilion. She is the most gifted Ice cultivator of her generation and has never failed at anything she tried, which makes her arrogant without her noticing. She took half of a single element and drove it to the bottom; the only thing in her root is Water and Ice. The seat's elders see in her the old Pavilion they love. She sees the frost-coast man Thẩm Hàn Giang (tham_han_giang) as a decent elder who has mistaken a tax quarrel for a Dao. She has waited 190 years for her master to name her and has begun, privately, to wonder whether her master's silence is a judgement on her.",
+   "wants": "To be named heir, and to know why she has not been.",
+   "secret": "Since the 1188 petition she has written to the Pivot's young disciples under a false name to learn what Doãn Ngọc Hành said of her master.",
+   "ties": [
+    {
+     "to": "so_ngoc_ho",
+     "kind": "master",
+     "note": "her master since 1010"
+    },
+    {
+     "to": "tham_han_giang",
+     "kind": "rival",
+     "note": "the other heir"
+    },
+    {
+     "to": "so_han_y",
+     "kind": "friend",
+     "note": "her junior; she taught her the first cut"
+    },
+    {
+     "to": "cung_mac_suong",
+     "kind": "rival",
+     "note": "she distrusts the second disciple's quiet"
+    },
+    {
+     "to": "mac_ngung_bich",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "ta_ngan_suong",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "la_ngu_nhi",
+     "kind": "friend",
+     "note": "an outer girl she has noticed and may take on"
+    },
+    {
+     "to": "ky_han_bach",
+     "kind": "disciple",
+     "note": "teacher of the primer at the outer gate; the seat's man at the lake"
+    }
+   ],
+   "master": "so_ngoc_ho",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "jade-vessel-ice-heart-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "snow-plum-sword",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "bt-glazed-frost-sword"
+     },
+     {
+      "named": "bt-frost-star-ring"
+     },
+     {
+      "named": "bt-ink-frost-robe"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "bang",
+     "intent": "Pure Ice: stack effect and crit, nothing else.",
+     "targets": [
+      765,
+      768,
+      5445,
+      7740,
+      7760,
+      7756,
+      7752
+     ],
+     "targets_note": "Pure Ice: Frost Crack crit, then the whole Frost Star idea, stack effect, duration and cold crit; no keystone yet, her master holds the Seal."
+    },
+    "note": "The pure Ice duelist: every cut a stack, every fifth a freeze."
+   },
+   "items": [
+    "bt-glazed-frost-sword",
+    "bt-frost-star-ring",
+    "bt-ink-frost-robe"
+   ]
+  },
+  {
+   "key": "on_sa_ngoc",
+   "name_hv": "Ôn Sa Ngọc",
+   "name_han": "溫沙玉",
+   "gloss": "Warm jade of the sand",
+   "sex": "F",
+   "born": 905,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "bang_tam",
+   "rank": "truong_lao",
+   "home": 3,
+   "birthplace": 116,
+   "role": "Keeper of the Desert Pavilion (the old seat): caravans, trade and desert recruits",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "tho": 44
+    },
+    "variants": {
+     "bang": 40
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 60,
+    "than_hon": 56,
+    "khi_van": 64,
+    "dao_tam": 60,
+    "mi_luc": 74
+   },
+   "traits": {
+    "personality": [
+     "Generous",
+     "Pragmatic",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "go_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Sun-browned, the only elder who smiles in public, with sand always in the folds of her white robe.",
+   "backstory": "Born at the oasis fish ponds of Ngư Đàm Thôn (A115), Ôn Sa Ngọc is proof that the desert can grow ice: she passed the Frost Test on her third try. She runs the old seat as the Pavilion's door to the desert and the caravan road, keeps peace with Dạ Quang's escorts, and sends the Frost Test the oasis children nobody else would look for, among them Hồ Tiểu Đàm (ho_tieu_dam). The ice-born elders call her post an exile, and she has come to love it.",
+   "ties": [
+    {
+     "to": "ho_tieu_dam",
+     "kind": "friend",
+     "note": "a child of her own village; she brought her in"
+    },
+    {
+     "to": "hang_minh_sa",
+     "kind": "friend",
+     "note": "she has been kind to the hostage for 79 years"
+    },
+    {
+     "to": "cat_ngoc_tri",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "giang_suong_lac",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "bang_thu_khe",
+     "kind": "friend",
+     "note": "the pawnbroker who holds the swords of the Frost Test's failures; she redeems one or two a year"
+    },
+    {
+     "to": "ha_tieu_bang",
+     "kind": "friend",
+     "note": "a village girl she asks after every spring"
+    },
+    {
+     "to": "ho_dien_linh",
+     "kind": "friend",
+     "note": "Kim Vạn Lý's camel-train master, who pays her Desert Pavilion its toll in well-salt"
+    },
+    {
+     "to": "khong_thiet_ngung",
+     "kind": "friend",
+     "note": "an outer boy she took in"
+    },
+    {
+     "to": "ma_dong_lam",
+     "kind": "friend",
+     "note": "an outer boy of the Desert Pavilion"
+    },
+    {
+     "to": "ngu_bat_te",
+     "kind": "friend",
+     "note": "tested him in 1135 and failed him; she still buys his supper"
+    },
+    {
+     "to": "ton_han_thach",
+     "kind": "friend",
+     "note": "her right hand at the Desert Pavilion"
+    },
+    {
+     "to": "vien_co_yen",
+     "kind": "friend",
+     "note": "Trấn Sa's head, whose licence keeps the Desert Pavilion's hall"
+    },
+    {
+     "to": "mong_thuy_huong",
+     "kind": "rival",
+     "note": "the widow whose Water-gifted daughter she asks for every spring; the answer is always no"
+    },
+    {
+     "to": "phi_thanh_sa",
+     "kind": "disciple",
+     "note": "keeper of the Desert Pavilion's caravan ledgers"
+    },
+    {
+     "to": "yen_luc_tuyen",
+     "kind": "disciple",
+     "note": "keeps the founder's cold well at the Desert Pavilion"
+    },
+    {
+     "to": "nghe_kho_tuyen",
+     "kind": "friend",
+     "note": "oasis boy who failed the Frost Test three times"
+    },
+    {
+     "to": "phuong_diem_nhi",
+     "kind": "friend",
+     "note": "salt-boiler's daughter at the Desert Pavilion"
+    }
+   ],
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "jade-vessel-ice-heart-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 3,
+      "element": "tho"
+     },
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain and Earth wards; a caravan guard, not a duelist.",
+     "targets": [
+      765,
+      768,
+      5374,
+      5379,
+      4349,
+      4357
+     ],
+     "targets_note": "Water regeneration and the Golden Bell's ward strength and block: a caravan guard's patience."
+    },
+    "note": "The desert's ice: wards and patience on the caravan road."
+   }
+  },
+  {
+   "key": "kha_tinh_ba",
+   "name_hv": "Kha Tĩnh Ba",
+   "name_han": "柯靜波",
+   "gloss": "Still wave",
+   "sex": "M",
+   "born": 980,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "bang_tam",
+   "rank": "chap_su",
+   "home": 209,
+   "birthplace": 69,
+   "role": "Steward and warden of the Ice Soul vein, Băng Phách Mạch",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 64,
+     "kim": 36
+    },
+    "variants": {
+     "bang": 48
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 66,
+    "than_hon": 54,
+    "khi_van": 44,
+    "dao_tam": 68,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Content",
+     "Loyal"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [
+     "thunder_struck"
+    ],
+    "lifestyle": null,
+    "health": "old_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Scarred"
+    ]
+   },
+   "appearance": "A quiet man whose left arm twitches when storms come; the scar of a lightning lash runs from his shoulder to his wrist.",
+   "backstory": "From Kê Minh Trấn, where the cock crows in winter dark (A129), Kha Tĩnh Ba has watched the Ice Soul vein for sixty years. The vein's qi is two-thirds thunder, poison to Ice, and it lashed him in his first year; he stayed. He knows that ice beasts gather when the vein runs hot, and that it ran hot the winter Thủ Tuyết Bảo fell (V068). He reports to Thẩm Hàn Giang (tham_han_giang), whom he admires, and to Lam Tuyết Điêu (lam_tuyet_dieu), whom he loves.",
+   "ties": [
+    {
+     "to": "lam_tuyet_dieu",
+     "kind": "dao_partner",
+     "note": "Dao partners for forty years"
+    },
+    {
+     "to": "tham_han_giang",
+     "kind": "friend",
+     "note": "his hall master's friend and backer"
+    },
+    {
+     "to": "bach_han_yen",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "quan_lang_ba",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "lo_kinh_thach",
+     "kind": "friend",
+     "note": "a loose miner scarred by the same vein; they drink when he comes north"
+    },
+    {
+     "to": "kha_lac_tuyet",
+     "kind": "disciple",
+     "note": "his disciple, who watches the Ice Soul vein"
+    },
+    {
+     "to": "kha_lac_tuyet",
+     "kind": "niece_nephew",
+     "note": "his brother's daughter"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 9
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 3,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "chuong",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "bang",
+     "intent": "Ice wards and status resistance; a warden who holds a gate.",
+     "targets": [
+      765,
+      768,
+      5227,
+      6118,
+      6125,
+      4357
+     ],
+     "targets_note": "Frost Shield, Evergreen status and timer resistance, Golden Bell ward: a warden who holds a gate."
+    },
+    "note": "The vein's warden: shield, armour, bell, and a long stubborn fight."
+   }
+  },
+  {
+   "key": "lam_tuyet_dieu",
+   "name_hv": "Lam Tuyết Điêu",
+   "name_han": "藍雪貂",
+   "gloss": "Blue snow sable",
+   "sex": "F",
+   "born": 1000,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "bang_tam",
+   "rank": "truong_lao",
+   "home": 239,
+   "birthplace": 233,
+   "role": "Elder of the Beast Hall: the ice beasts and the sect's mounts",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 62,
+     "moc": 40
+    },
+    "variants": {
+     "bang": 46
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 68,
+    "than_hon": 64,
+    "khi_van": 56,
+    "dao_tam": 58,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Compassionate",
+     "Impatient"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "beast_bonded"
+    ],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Wiry and wind-burned, a white sable usually draped across her shoulders, smelling of hide and snow.",
+   "backstory": "Raised by wolf-hunters on Tuyết Lang Nguyên, Lam Tuyết Điêu came to the Pavilion with a sable kit inside her coat and a tundra wolf at her heel. She keeps the Beast Hall at Hàn Giao Chử, where the sect's ice beasts are bred and its mounts trained, and she is the first to know when the beasts grow restless. Lately they have been restless. Her Dao partner Kha Tĩnh Ba (kha_tinh_ba) says the vein is warming.",
+   "ties": [
+    {
+     "to": "kha_tinh_ba",
+     "kind": "dao_partner",
+     "note": "forty years"
+    },
+    {
+     "to": "dieu_han_dam",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "ninh_bach_ho",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "phan_dong_nhi",
+     "kind": "friend",
+     "note": "an outer girl who wants to be her disciple; she has not said no"
+    },
+    {
+     "to": "luong_sa_bang",
+     "kind": "disciple",
+     "note": "desert-born rider of the Beast Hall"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 8
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 3,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 3,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 7
+    },
+    "tree": {
+     "start": "bang",
+     "intent": "Companion health and Ice stacks; the beast does the fighting.",
+     "targets": [
+      765,
+      768,
+      5232,
+      5167,
+      5186
+     ],
+     "targets_note": "Blizzard stacks, then companion health and power (Bubble Shield, Paper Puppets) for the frost-wolf pack."
+    },
+    "note": "The beast keeper: a frost-wolf pack leader and an ice sable."
+   }
+  },
+  {
+   "key": "nguy_thanh_han",
+   "name_hv": "Ngụy Thanh Hàn",
+   "name_han": "魏清寒",
+   "gloss": "Clear cold",
+   "sex": "M",
+   "born": 1030,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "bang_tam",
+   "rank": "truong_lao",
+   "home": 214,
+   "birthplace": 67,
+   "role": "Envoy of Băng Tâm Các to the Pivot and the vassals",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "kim": 38
+    },
+    "variants": {
+     "bang": 44
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 50,
+    "than_hon": 60,
+    "khi_van": 50,
+    "dao_tam": 56,
+    "mi_luc": 72
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Deceitful",
+     "Patient"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": "obsessive_training",
+    "fate_given": [],
+    "gained": [
+     "Humbled"
+    ]
+   },
+   "appearance": "Neat, soft-spoken, ink on his cuff; he bows exactly as deep as each listener's rank and never deeper.",
+   "backstory": "A Hồi Lan Thành merchant's son, Ngụy Thanh Hàn wrote the Pavilion's 1188 petition for Tinh Tủy Mạch (C195) and watched Doãn Ngọc Hành (doan_ngoc_hanh) refuse it in front of the seven sects. He has never forgiven himself, and since then he has collected records of the vein's boundary stones, an old surveyor's map and the Pivot's own land rolls. He means to bring a second claim the Pivot cannot refuse.",
+   "ties": [
+    {
+     "to": "doan_ngoc_hanh",
+     "kind": "rival",
+     "note": "refused his petition"
+    },
+    {
+     "to": "so_ngoc_ho",
+     "kind": "debt",
+     "note": "she forgave him the petition; he owes her a vein"
+    },
+    {
+     "to": "thich_minh_thu",
+     "kind": "debt",
+     "note": "the Pivot clerk who gave him the 803 roll; he counts it a debt"
+    },
+    {
+     "to": "vuong_thanh_lam",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "thu_ngan_hanh",
+     "kind": "friend",
+     "note": "Phượng Minh's envoy; forty years of the same inns"
+    },
+    {
+     "to": "tieu_thu_dao",
+     "kind": "friend",
+     "note": "keeps the Tiêu inn where he has slept on every journey south for a century"
+    },
+    {
+     "to": "mau_tri_vien",
+     "kind": "rival",
+     "note": "the Pivot elder who walked him to the gate in 1188; letters in the formal style since"
+    },
+    {
+     "to": "phuong_truc_ngon",
+     "kind": "rival",
+     "note": "the Pivot judge who called his petition the best she had read and was not let rule on it"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "jade-vessel-ice-heart-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 3,
+      "element": "thuy"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water linh lực and escape; an envoy survives first.",
+     "targets": [
+      765,
+      768,
+      4909,
+      5361,
+      5365
+     ],
+     "targets_note": "Dark Water linh lực, Cardinal Points escape and Blink Mark: the envoy's quick road home."
+    },
+    "note": "The envoy: a frost fan and a quick road home."
+   }
+  },
+  {
+   "key": "vien_chuoc",
+   "name_hv": "Viên Chước",
+   "name_han": "袁灼",
+   "gloss": "Scorching",
+   "sex": "M",
+   "born": 1010,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "bang_tam",
+   "rank": "khach_khanh",
+   "home": 239,
+   "birthplace": 9,
+   "role": "Guest alchemist of Băng Tâm Các (a Fire root in an Ice sect)",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "hoa": 74,
+     "moc": 52
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 52,
+    "than_hon": 62,
+    "khi_van": 50,
+    "dao_tam": 54,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Diligent",
+     "Arrogant"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "pill_master_tongue"
+    ],
+    "lifestyle": "gambler",
+    "health": "fire_poison",
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Red-cheeked and sweating even in the Pavilion's cold, the only man at Hàn Giao Chử who wears his robe open.",
+   "backstory": "Trained at Hồng Lô Cốc, Thúy Vi's furnace vassal in the tundra, Viên Chước was bought away in 1150 by Băng Tâm, which cannot brew a pill without fire and will not light one inside the Array. He brews outside the seat at Hàn Giao Chử, charges like a pirate, and gambles the fees. Phó Ám Hương (pho_am_huong), who has hated every Fire cultivator since Cô Thành burned, will not eat a pill he makes. Viên alone could brew the breakthrough pill both old elders need, and he knows it.",
+   "exception": "R2 guest elder (khách khanh): hired alchemist, never taught the lineage",
+   "ties": [
+    {
+     "to": "pho_am_huong",
+     "kind": "enemy",
+     "note": "Phó hates fire since Cô Thành"
+    },
+    {
+     "to": "so_ngoc_ho",
+     "kind": "creditor",
+     "note": "his contract; the sect owes him three years' fees"
+    },
+    {
+     "to": "duong_bat_oan",
+     "kind": "debt",
+     "note": "the Hồng Lô servant he promised a letter every winter; he has sent one"
+    },
+    {
+     "to": "tieu_thu_tuyen",
+     "kind": "debt",
+     "note": "owes the Tiêu for three harvests of locust buds"
+    },
+    {
+     "to": "tuan_tuyet_lien",
+     "kind": "debt",
+     "note": "owes her for last year's lotus"
+    },
+    {
+     "to": "duong_lo",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "nguy_dan_chu",
+     "kind": "former_disciple",
+     "note": "the kitchen boy he taught first at Hồng Lô; they still write"
+    },
+    {
+     "to": "dong_hong_lo",
+     "kind": "former_master",
+     "note": "his master at Hồng Lô, who sold his contract to cover the ash money he lost"
+    },
+    {
+     "to": "ke_chu_sa",
+     "kind": "rival",
+     "note": "Phượng Minh's palace alchemist, who resents his furnace and the pills he sells for Băng Tâm"
+    },
+    {
+     "to": "tan_tuyet_than",
+     "kind": "rival",
+     "note": "Hồng Lô's first elder; she has never forgiven the gambling"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 8
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 3,
+      "element": "hoa"
+     },
+     {
+      "base": "ho_lo",
+      "grade": 3,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "dan_dao": 8
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire for alchemy and the furnace heart; he fights only to escape.",
+     "targets": [
+      2325,
+      2380,
+      2279,
+      2283,
+      2348
+     ],
+     "targets_note": "Outside method, no lineage route: alchemy (Watching the Fire, Cinnabar Chamber), the Strange Pill Gourd and its capability, Pill Pouch."
+    },
+    "note": "A furnace in the snow: pills first, flame if cornered."
+   }
+  },
+  {
+   "key": "so_han_y",
+   "name_hv": "Sở Hàn Y",
+   "name_han": "楚寒衣",
+   "gloss": "Winter clothes",
+   "sex": "F",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "home": 214,
+   "birthplace": 1394,
+   "role": "The head's disciple, age 60",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 70
+    },
+    "variants": {
+     "bang": 66
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 60,
+    "than_hon": 58,
+    "khi_van": 52,
+    "dao_tam": 70,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Stubborn",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "sword_heart"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A grave young woman in undyed white who wears the winter robe her name means even in summer.",
+   "backstory": "Sở Hàn Y was left in the snow at the ruin of Bắc Đình Thành as a baby, with a winter robe around her and no name, and was brought to the Vessel Hall; Sở Ngọc Hồ (so_ngoc_ho) gave her her own surname, which she has given no one else, and named her for the robe. She learned her first cut from Khương Lưu Ly (khuong_luu_ly) and her stillness from her master, whom she copies so closely the seat jokes there are two Keepers. She has nothing yet but an ice sword and the frost seal, and she is not in a hurry. She is the one person in the Pavilion who would follow her master into the volcano without asking why.",
+   "wants": "To be worthy of the surname.",
+   "secret": "She has seen the Keeper walk the Array alone at night with Tiết Hàn Mai, and has guessed something is wrong under the seat.",
+   "ties": [
+    {
+     "to": "so_ngoc_ho",
+     "kind": "master",
+     "note": "her master, and the only family she has"
+    },
+    {
+     "to": "khuong_luu_ly",
+     "kind": "friend",
+     "note": "her senior; taught her the first cut"
+    },
+    {
+     "to": "cung_mac_suong",
+     "kind": "rival",
+     "note": "the other disciple"
+    },
+    {
+     "to": "lieu_ngu_ca",
+     "kind": "friend",
+     "note": "they spar on the lake ice"
+    },
+    {
+     "to": "ly_han_tam",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "so_ngoc_ho",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "snow-plum-sword",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "named": "bt-snow-step-sword"
+     },
+     {
+      "named": "bt-winter-robe"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "bang",
+     "intent": "Ice stacks and the seal; she follows her master's road step for step.",
+     "targets": [
+      765,
+      768,
+      5227,
+      5203,
+      5202
+     ],
+     "targets_note": "Her master's road step for step: Frost Shield, then the Snow Lotus idea's stack duration; the Frost Seal waits for her Kết Đan."
+    },
+    "note": "Her master's calm, stubborn disciple: an ice sword and the frost seal, nothing else yet."
+   },
+   "items": [
+    "bt-snow-step-sword",
+    "bt-winter-robe"
+   ]
+  },
+  {
+   "key": "cung_mac_suong",
+   "name_hv": "Cung Mặc Sương",
+   "name_han": "宮墨霜",
+   "gloss": "Ink-black frost",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "home": 214,
+   "birthplace": 1442,
+   "role": "The head's second disciple, who hides a Darkness root",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 68,
+     "tho": 40
+    },
+    "variants": {
+     "bang": 58,
+     "am": 30
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 82,
+    "can_cot": 50,
+    "than_hon": 76,
+    "khi_van": 46,
+    "dao_tam": 52,
+    "mi_luc": 64
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Deceitful",
+     "Patient"
+    ],
+    "calling": "Schemer",
+    "upbringing": "street_orphan",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 3
+     },
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "go_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Small, pale, with black eyes that do not reflect the lamps; her frost leaves a faint grey stain where it melts.",
+   "backstory": "Cung Mặc Sương grew up among the bitter wells of Hắc Ngạn Trấn after the ash fell (V080), stealing from the fishers who were left, and was taken into the outer gate at twelve for her Water. She passed the Frost Test in a single night, the fastest anyone remembered, and Sở Ngọc Hồ (so_ngoc_ho) took her as her second disciple. Her Ice is real. Under it is Darkness, Earth and Water converged, which she learned to hide before she learned to read. No Ice method feeds it, and it starves inside her. In 1196 a woman found her on the lake ice and offered her a method that would feed it. The woman was Triệu Huyết Y (trieu_huyet_y), the last disciple of the ma đạo master Cung's own master helped kill (C024). Cung has not said yes. She has not reported it either.",
+   "wants": "To stop starving half of her root.",
+   "secret": "The Darkness root, and Triệu Huyết Y's offer.",
+   "ties": [
+    {
+     "to": "so_ngoc_ho",
+     "kind": "master",
+     "note": "her master"
+    },
+    {
+     "to": "so_han_y",
+     "kind": "rival",
+     "note": "the favoured one"
+    },
+    {
+     "to": "khuong_luu_ly",
+     "kind": "rival",
+     "note": "distrusts her"
+    },
+    {
+     "to": "trieu_huyet_y",
+     "kind": "friend",
+     "note": "the tempter; not yet an ally"
+    },
+    {
+     "to": "hang_minh_sa",
+     "kind": "lover",
+     "note": "two outsiders at the seat; secret"
+    },
+    {
+     "to": "khang_lang_sa",
+     "kind": "friend",
+     "note": "the demonic boy who carries her master's letters across the lake ice; she knows what he feels"
+    },
+    {
+     "to": "hanh_lien_y",
+     "kind": "rival",
+     "note": "the demonic girl who hates her for being the one the master wants"
+    }
+   ],
+   "master": "so_ngoc_ho",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 7
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "bt-ice-knot-needle"
+     },
+     {
+      "named": "bt-black-backed-mirror"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "bang",
+     "intent": "Ice seals for now; the Darkness land waits.",
+     "targets": [
+      765,
+      768,
+      5437,
+      5382,
+      5055,
+      5053
+     ],
+     "targets_note": "Ice Ring Seal stacks, then the Endless Knot curses: the black edge kept inside a Water idea."
+    },
+    "note": "An Ice caster with a black edge she does not use in public."
+   },
+   "items": [
+    "bt-ice-knot-needle",
+    "bt-black-backed-mirror"
+   ]
+  },
+  {
+   "key": "lieu_ngu_ca",
+   "name_hv": "Liễu Ngư Ca",
+   "name_han": "柳漁歌",
+   "gloss": "Fisherman's song",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "home": 214,
+   "birthplace": 36,
+   "role": "Thẩm Hàn Giang's disciple; the hidden heir of Hàn Giang Môn",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 72
+    },
+    "variants": {
+     "bang": 50
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 68,
+    "can_cot": 62,
+    "than_hon": 60,
+    "khi_van": 62,
+    "dao_tam": 66,
+    "mi_luc": 68
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Honest",
+     "Vengeful"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "qin_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A tall, easy young man who sings fishermen's songs under his breath, badly, and sits on the lake ice the old Hàn Giang way.",
+   "backstory": "Liễu Ngư Ca's family have fished the cold river at Liên Giang since the Frost Coast fell, and they have kept a secret for seven hundred years: they are the line of Liễu Cô Chu (lieu_co_chu), Hàn Giang Môn's last head, who died when the Pavilion took the coast (C099). His grandmother taught him the ice-hole sitting method of the fallen sect before he could swim, and told him where Liễu Thoa Lạp's (lieu_thoa_lap) lone fisher's rod was lost in the ruin of Hàn Giang Môn. Thẩm Hàn Giang (tham_han_giang) took him as a disciple without knowing any of it. Liễu loves his master, the lake, and the Pavilion's songless halls, and he does not know what he would do if the frost coast rose and asked for him.",
+   "wants": "To find the Lone Fisher's Rod; to never have to choose between his master and his blood.",
+   "secret": "His blood, and the ice-hole method.",
+   "ties": [
+    {
+     "to": "tham_han_giang",
+     "kind": "master",
+     "note": "his master"
+    },
+    {
+     "to": "lieu_co_chu",
+     "kind": "ancestor",
+     "note": "his ancestor, Hàn Giang's last head (twenty-six generations back)"
+    },
+    {
+     "to": "so_han_y",
+     "kind": "friend",
+     "note": "they spar on the ice"
+    },
+    {
+     "to": "hang_minh_sa",
+     "kind": "friend",
+     "note": "drinks with the hostage"
+    },
+    {
+     "to": "doan_thanh_lang",
+     "kind": "creditor",
+     "note": "Trạc Anh's head, sworn to his grandmother to look after him"
+    },
+    {
+     "to": "luu_han_ngan",
+     "kind": "friend",
+     "note": "an inner-gate friend"
+    },
+    {
+     "to": "ta_ngan_suong",
+     "kind": "friend",
+     "note": "laughs at his songs and asks for more"
+    },
+    {
+     "to": "yen_tuyet_ngung",
+     "kind": "friend",
+     "note": "an outer girl who knows the old songs he sings"
+    },
+    {
+     "to": "lieu_thoa_nhi",
+     "kind": "sibling",
+     "note": "his younger sister at Lãnh Giang"
+    },
+    {
+     "to": "lieu_tieu_giang",
+     "kind": "cousin",
+     "note": "his young cousin at the outer gate"
+    },
+    {
+     "to": "tong_ngu_lan",
+     "kind": "friend",
+     "note": "Thẩm Hàn Giang's disciple at the seat; the frost coast's voice among the inner disciples"
+    }
+   ],
+   "master": "tham_han_giang",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "snow-plum-sword",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "named": "bt-fisher-sword"
+     },
+     {
+      "named": "bt-river-ice-gourd"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain, Ice second, like his master.",
+     "targets": [
+      765,
+      768,
+      5374,
+      5379,
+      5414
+     ],
+     "targets_note": "Like his master: Water regeneration first, Winter Plum second."
+    },
+    "note": "A young sword who outlasts."
+   },
+   "changed": "cross-sect pass: tie to lieu_co_chu parent -> ancestor (twenty-six generations back; fix pass A: was \"seven\", which made a mortal generation 100 years).",
+   "items": [
+    "bt-fisher-sword",
+    "bt-river-ice-gourd"
+   ]
+  },
+  {
+   "key": "ha_lang_han",
+   "name_hv": "Hạ Lăng Hàn",
+   "name_han": "夏凌寒",
+   "gloss": "Summer that defies the cold",
+   "sex": "F",
+   "born": 1145,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "bang_tam",
+   "rank": "chan_truyen",
+   "home": 214,
+   "birthplace": 35,
+   "role": "Phó Ám Hương's last disciple, heir to the white plum",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 64,
+     "kim": 32
+    },
+    "variants": {
+     "bang": 58
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 64,
+    "than_hon": 54,
+    "khi_van": 48,
+    "dao_tam": 66,
+    "mi_luc": 56
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Wrathful",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "mortal_noble",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "sword_heart"
+    ],
+    "lifestyle": "duel_seeker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Sharp-featured, a guard captain's daughter's bearing, red ink on her fingers from copying her master's manual.",
+   "backstory": "The daughter of Trường Vân Thành's caravan magistrate, Hạ Lăng Hàn came to the Pavilion with a temper and left it at the gate of the Plum Sword Hall. Phó Ám Hương (pho_am_huong) chose her because she was the only disciple who had ever asked about Cô Thành. She means to bring the red plum home for him, by duel if she has to.",
+   "ties": [
+    {
+     "to": "pho_am_huong",
+     "kind": "master",
+     "note": "her master"
+    },
+    {
+     "to": "hoa_trieu_duong",
+     "kind": "enemy",
+     "note": "she has sworn to take the red plum from Phượng Minh"
+    },
+    {
+     "to": "du_diem_ca",
+     "kind": "friend",
+     "note": "letters from Phượng Minh under a false name; she knows who writes them and answers anyway"
+    },
+    {
+     "to": "bui_han",
+     "kind": "rival",
+     "note": "an inner disciple who carries his master's grudge against her"
+    },
+    {
+     "to": "tuong_han_phong",
+     "kind": "rival",
+     "note": "believes she took the place he earned"
+    },
+    {
+     "to": "kieu_tuyet_ky",
+     "kind": "cousin",
+     "note": "her cousin"
+    },
+    {
+     "to": "lam_ngung_phong",
+     "kind": "rival",
+     "note": "Plum Sword Hall swordsman of Tưởng Hàn Phong's side"
+    }
+   ],
+   "master": "pho_am_huong",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "snow-plum-sword",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "bang",
+     "intent": "Ice crit and sword speed: the plum cuts, faster than her master.",
+     "targets": [
+      765,
+      768,
+      774,
+      5390,
+      5304
+     ],
+     "targets_note": "Her master's cold crit (Ice Root, Clear Frost) and Mill Race speed: the faster plum."
+    },
+    "note": "The plum's next blade."
+   }
+  },
+  {
+   "key": "hang_minh_sa",
+   "name_hv": "Hạng Minh Sa",
+   "name_han": "項明沙",
+   "gloss": "Bright sand",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "da_quang",
+   "rank": "noi_mon",
+   "home": 214,
+   "birthplace": 16,
+   "role": "Dạ Quang Môn's heir, kept at Băng Tâm Các as surety since 1121",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "hoa": 62,
+     "kim": 55
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 70,
+    "than_hon": 52,
+    "khi_van": 40,
+    "dao_tam": 58,
+    "mi_luc": 66
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Vengeful",
+     "Gregarious"
+    ],
+    "calling": "Schemer",
+    "upbringing": "clan_heir",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": "drowns_in_wine",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A desert man with a sabre scar and a ready laugh, the only warm-coloured robe in the Vessel Hall.",
+   "backstory": "Hạng Dạ Bôi's (hang_da_boi) son was sent to the Pavilion at twenty-one as surety for his father's knee (C185, N-bang_tam-05). He has been taught nothing and has watched everything for 79 years. He drinks with the frost-coast disciples, plays go with Ôn Sa Ngọc (on_sa_ngoc), and loves Cung Mặc Sương (cung_mac_suong) in secret. He is Dạ Quang's heir, and his father is old.",
+   "exception": "R2: hostage, held outside the lineage (Dạ Quang member living at the Băng Tâm seat)",
+   "ties": [
+    {
+     "to": "hang_da_boi",
+     "kind": "parent",
+     "note": "his father, Dạ Quang's head"
+    },
+    {
+     "to": "cung_mac_suong",
+     "kind": "lover",
+     "note": "secret"
+    },
+    {
+     "to": "on_sa_ngoc",
+     "kind": "friend",
+     "note": "kind to him for 79 years"
+    },
+    {
+     "to": "lieu_ngu_ca",
+     "kind": "friend",
+     "note": "drinks together"
+    },
+    {
+     "to": "lau_minh_chau",
+     "kind": "parent",
+     "note": "his mother"
+    },
+    {
+     "to": "do_xich_linh",
+     "kind": "rival",
+     "note": "his stepmother, who wants the heirship for her own daughter"
+    },
+    {
+     "to": "hang_luu_hoa",
+     "kind": "sibling",
+     "note": "his half-sister; letters only, they have never met"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "huyen_hoa",
+     "layer": 9
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire and Metal toward the blood sabre his father's sect teaches, if he is ever taught it.",
+     "targets": [
+      700,
+      2566,
+      2763,
+      2767
+     ],
+     "targets_note": "Outside method, no lineage route: Fire Root and Flint Spark, then Burning Blade, the closest thing to the blood sabre he was never taught."
+    },
+    "note": "A sabre with nowhere to be drawn."
+   }
+  },
+  {
+   "key": "do_suong_nhi",
+   "name_hv": "Đỗ Sương Nhi",
+   "name_han": "杜霜兒",
+   "gloss": "Frost child",
+   "sex": "F",
+   "born": 1080,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "bang_tam",
+   "rank": "chap_su",
+   "home": 191,
+   "birthplace": 68,
+   "role": "Steward of the outer gate; keeper of the Frost Test on Phiến Băng Hồ",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 60
+    },
+    "variants": {
+     "bang": 42
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 58,
+    "than_hon": 60,
+    "khi_van": 50,
+    "dao_tam": 72,
+    "mi_luc": 60
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Compassionate",
+     "Just"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [
+     "flawed_foundation"
+    ],
+    "lifestyle": "teacher_at_heart",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Round-faced and kind, with frostbitten earlobes from a hundred solstice nights on the lake.",
+   "backstory": "Đỗ Sương Nhi failed the Frost Test twice before Ice answered her on the third night. A rushed foundation left a crack she will carry to the end of her life, and she has given that life to the outer gate. She sits the solstice night on Phiến Băng Hồ (A140) beside every candidate and remembers every one who walked back. Hồ Tiểu Đàm (ho_tieu_dam) is her current worry.",
+   "ties": [
+    {
+     "to": "ho_tieu_dam",
+     "kind": "friend",
+     "note": "her outer disciple; she sees herself in her"
+    },
+    {
+     "to": "chu_suong_linh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "khong_vong_bang",
+     "kind": "former_disciple",
+     "note": "a boy of her outer gate who left; she remembers his name"
+    },
+    {
+     "to": "thang_phuc_tuyet",
+     "kind": "former_disciple",
+     "note": "failed her Frost Test and went to Tầm Kiếm; she kept his test"
+    },
+    {
+     "to": "han_tieu_bac",
+     "kind": "friend",
+     "note": "an outer disciple she keeps an eye on"
+    },
+    {
+     "to": "hau_ngu",
+     "kind": "friend",
+     "note": "an outer boy whose small lapses she pretends not to see"
+    },
+    {
+     "to": "sam_bich_lan",
+     "kind": "friend",
+     "note": "an outer girl who calls her teacher"
+    },
+    {
+     "to": "te_lac_bang",
+     "kind": "friend",
+     "note": "an outer disciple she keeps an eye on"
+    },
+    {
+     "to": "truong_lanh_ha",
+     "kind": "friend",
+     "note": "the oldest of her outer disciples; she speaks for him at every review"
+    },
+    {
+     "to": "nhiem_han_chau",
+     "kind": "rival",
+     "note": "turned him away kindly; she does not know he never forgave it"
+    },
+    {
+     "to": "nhiep_lang_tuyet",
+     "kind": "friend",
+     "note": "deputy steward of the outer gate; keeps the Frost Test roll"
+    }
+   ],
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water healing and wards; a teacher's tree.",
+     "targets": [
+      765,
+      768,
+      5351,
+      5340,
+      5227
+     ],
+     "targets_note": "Timely Rain and Moonlit Rain healing, Frost Shield for the outer gate's banner."
+    },
+    "note": "The outer gate's keeper: a banner and a warm hand."
+   }
+  },
+  {
+   "key": "ho_tieu_dam",
+   "name_hv": "Hồ Tiểu Đàm",
+   "name_han": "胡小潭",
+   "gloss": "Little pond",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "home": 191,
+   "birthplace": 116,
+   "role": "An oasis girl in the outer gate who has failed the Frost Test twice",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 54,
+    "than_hon": 50,
+    "khi_van": 60,
+    "dao_tam": 66,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Stubborn",
+     "Humble"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Brown and freckled from the oasis sun, the warmest-looking face on the lake, wrapped in three borrowed furs.",
+   "backstory": "From the fish ponds of Ngư Đàm Thôn, brought to the Desert Pavilion by Ôn Sa Ngọc (on_sa_ngoc), Hồ Tiểu Đàm has sat on Phiến Băng Hồ two solstice nights and felt nothing but cold. One more failure and she will be offered the Desert Pavilion or the road. Đỗ Sương Nhi (do_suong_nhi) thinks she will pass. Hồ grows a little oasis reed in a pot by her bed and talks to it.",
+   "ties": [
+    {
+     "to": "on_sa_ngoc",
+     "kind": "friend",
+     "note": "from her village; brought her in"
+    },
+    {
+     "to": "do_suong_nhi",
+     "kind": "friend",
+     "note": "her teacher at the outer gate"
+    },
+    {
+     "to": "cat_ngoc_tri",
+     "kind": "friend",
+     "note": "from her village; the inner disciple she hopes to become"
+    },
+    {
+     "to": "ha_tieu_bang",
+     "kind": "friend",
+     "note": "the village girl who came after her; she writes home about her"
+    },
+    {
+     "to": "mong_thuy_huong",
+     "kind": "friend",
+     "note": "the widow who watches her third test; her husband failed the Frost Test three winters"
+    },
+    {
+     "to": "nghiem_tieu_tuyet",
+     "kind": "friend",
+     "note": "an outer-gate friend"
+    },
+    {
+     "to": "tieu_bach_lo",
+     "kind": "friend",
+     "note": "an outer-gate friend"
+    },
+    {
+     "to": "uong_tuyet_nhan",
+     "kind": "friend",
+     "note": "an outer-gate friend"
+    },
+    {
+     "to": "luong_sa_bang",
+     "kind": "cousin",
+     "note": "her cousin; desert-born rider of the Beast Hall"
+    },
+    {
+     "to": "cat_lo_chau",
+     "kind": "friend",
+     "note": "Cát Ngọc Trì's niece at the Desert Pavilion"
+    },
+    {
+     "to": "nghe_kho_tuyen",
+     "kind": "friend",
+     "note": "oasis boy who failed the Frost Test three times"
+    },
+    {
+     "to": "phi_thanh_sa",
+     "kind": "friend",
+     "note": "keeper of the Desert Pavilion's caravan ledgers"
+    },
+    {
+     "to": "phu_suong_nguyen",
+     "kind": "friend",
+     "note": "has failed the Frost Test twice"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "clear-frost-breath",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water for herb growth; she would make a better gardener than a sword.",
+     "targets": [
+      765,
+      768,
+      5351
+     ],
+     "targets_note": "The lineage's two notables and Timely Rain healing; the garden waits for more points."
+    },
+    "note": "The outer gate's hope, one night from the road."
+   }
+  },
+  {
+   "key": "tan_ngung_suong",
+   "name_hv": "Tần Ngưng Sương",
+   "name_han": "秦凝霜",
+   "gloss": "Frost that has set",
+   "sex": "F",
+   "born": 300,
+   "alive": false,
+   "died": 1010,
+   "cause": "spent the last of her lifespan into the Jade Vessel Array to hold the lid, and lies inside it (1010, age 710)",
+   "peak_realm": "nguyen_anh",
+   "sect": "bang_tam",
+   "rank": "founder",
+   "home": 214,
+   "birthplace": null,
+   "role": "Founder of Băng Tâm Các (year 440, at 140); lies inside the Jade Vessel Array under the seat",
+   "tier": "A",
+   "traits": {
+    "personality": [
+     "Patient",
+     "Calm",
+     "Ambitious"
+    ],
+    "calling": "Formation master",
+    "upbringing": "scholar_family",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 3
+     }
+    ],
+    "path": [
+     "formation_mind",
+     "heart_demon_victor"
+    ],
+    "lifestyle": "poet",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "backstory": "Tần Ngưng Sương came out of a scholar's family in the warm south carrying one line of poetry, a piece of ice in a jade vessel, and a method she had written to keep a heart that clear. She crossed the desert in 440 and founded the Pavilion at its edge, facing ice she could not yet take (C007), and made the desert well run cold (A114). In 470 she claimed the empty ice of Ngọc Hồ Sơn (C095), moved the sect onto the ruin of Hồ Thiên Phái (N-bang_tam-01) and laid the Jade Vessel Array over the vent that had buried it (N-bang_tam-02). She won the Frost Coast (C099) and lost the Desert Road (C143), and she ruled 570 years. At the end she gave the hall to Sở Ngọc Hồ (so_ngoc_ho) and the watch to Cố Lăng Sương (co_lang_suong), told neither, and had herself laid inside the Array, which some say she still keeps.",
+   "ties": [
+    {
+     "to": "so_ngoc_ho",
+     "kind": "disciple",
+     "note": "her last disciple, given the Vessel"
+    },
+    {
+     "to": "co_lang_suong",
+     "kind": "disciple",
+     "note": "her senior disciple, given the watch"
+    },
+    {
+     "to": "tiet_han_mai",
+     "kind": "disciple",
+     "note": "taught her the Array"
+    }
+   ],
+   "changed": "added backstory, traits and ties; home 3 -> 214 (R4 seat move)"
+  },
+  {
+   "key": "pho_thanh_mai",
+   "name_hv": "Phó Thanh Mai",
+   "name_han": "傅青梅",
+   "gloss": "Green plum",
+   "sex": "M",
+   "born": 580,
+   "alive": false,
+   "died": 724,
+   "cause": "killed riding to break the siege of Cô Thành",
+   "peak_realm": "ket_dan",
+   "sect": "lanh_huong",
+   "rank": "truong_lao",
+   "home": 1412,
+   "birthplace": 1412,
+   "role": "Plum-blossom swordsman of Lãnh Hương Các; father of Phó Ám Hương",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Loyal",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "upbringing": "sect_raised",
+    "talent": [],
+    "path": [
+     "sword_heart"
+    ],
+    "lifestyle": "poet",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "The best sword of Lãnh Hương Các, the small plum-blossom sect at the edge of the desert, Phó Thanh Mai rode out with all his brothers to break Phượng Minh's siege of Cô Thành in 724 (V071) and did not come back. He sewed the Snow Plum manual into his son's cape the night before, as if he knew. His son Phó Ám Hương (pho_am_huong) still has the cape.",
+   "ties": [
+    {
+     "to": "pho_am_huong",
+     "kind": "child",
+     "note": "his son"
+    },
+    {
+     "to": "nhiep_tan_sa",
+     "kind": "enemy",
+     "note": "the Phượng Minh rider who burned him at Cô Thành in 724"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1443 @@
+{
+"_doc": "Input slice for the depth writer of hoa_tinh (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "hoa_tinh",
+"name": "Họa Tinh Đường",
+"name_han": "畫星堂",
+"gloss": "Hall of the Painted Stars",
+"alignment": "chính đạo",
+"leans": [
+"Wood",
+"Metal"
+],
+"craft": "talismans (phù lục) painted with the Dipper",
+"lord": "thien_xu",
+"region": 6,
+"seat": 1328,
+"founded": 910,
+"kind": "minor"
+},
+"start_state": {
+"key": "hoa_tinh",
+"name": "Họa Tinh Đường",
+"name_han": "畫星堂",
+"gloss": "Hall of the Painted Stars",
+"kind": "minor",
+"alignment": "chinh",
+"leans": [
+"Wood",
+"Metal"
+],
+"seat": 1328,
+"levels": {
+"holdings": 2,
+"institutions": 4,
+"military": 2,
+"trade": 3
+},
+"treasury": 7000,
+"founded": 910,
+"specialty": "phap_tu",
+"lord": "thien_xu",
+"loyalty": 55,
+"craft": "talismans (phù lục) painted with the Dipper",
+"region": 6,
+"leader": "ky_ngan_chuc"
+},
+"lord": "thien_xu",
+"vassals": [],
+"seat": {
+"id": 1328,
+"name": "Họa Tinh Đường",
+"gloss": "Hall of the Painted Stars",
+"kind": "minor_seat",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.09,
+"qi": {
+"moc": 51,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 16
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+"seat_audit": "## MOVE Họa Tinh Đường (hoa_tinh; leans Wood/Metal)\nSeat: Họa Tinh Đường (id 1328, minor_seat, region 6, temperate forest), density 1.08\nSeat qi: Wood 51%, Metal 9%\nCandidates:\n- Hạc Tê Lâm (id 258, forest, region 6, temperate forest, elev 0.21 km): Wood 34%, Metal 18%; density 1.34\n- Đại Hùng Lâm (id 1293, beast_lair, region 6, temperate forest, elev 0.91 km): Wood 28%, Metal 16%; density 1.05\n- Thiết Mộc Mạch (id 1295, spirit_vein, region 6, temperate forest, elev 0.49 km): Wood 32%, Metal 18%; density 0.81\n- Hải Vụ Mạch (id 1339, spirit_vein, region 6, temperate forest, elev 0.30 km): Wood 29%, Metal 18%; density 0.79\n- Tức Ngưu Sơn (id 1283, peak, region 6, high mountain, elev 1.15 km): Wood 38%, Metal 16%; density 0.97\n\n",
+"ground": [
+{
+"id": 182,
+"name": "Trích Tinh Phong",
+"gloss": "Peak Where One Picks the Stars",
+"kind": "peak",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 4.72,
+"qi": {
+"moc": 5,
+"hoa": 9,
+"tho": 28,
+"kim": 47,
+"thuy": 10
+},
+"variants": {
+"quang": 40.0,
+"bang": 10.0
+},
+"density": 1.76,
+"note": "Lý Bạch: thủ khả trích tinh thần (one could pluck the stars by hand); 4.7 km, the roof of the heartland"
+},
+{
+"id": 1312,
+"name": "Thị Tinh Phong",
+"gloss": "Peak That Attends the Stars",
+"kind": "peak",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 4.59,
+"qi": {
+"moc": 6,
+"hoa": 10,
+"tho": 28,
+"kim": 47,
+"thuy": 10
+},
+"variants": {
+"bang": 10.0
+},
+"density": 1.74,
+"note": ""
+},
+{
+"id": 1311,
+"name": "Tuyết Ngọc Khoáng",
+"gloss": "Snow Jade Mine",
+"kind": "mine",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 3.52,
+"qi": {
+"moc": 5,
+"hoa": 9,
+"tho": 28,
+"kim": 47,
+"thuy": 10
+},
+"variants": {
+"quang": 14.3,
+"bang": 8.2
+},
+"density": 1.68,
+"note": ""
+},
+{
+"id": 205,
+"name": "Tinh Tủy Mạch",
+"gloss": "Star Marrow Vein",
+"kind": "spirit_vein",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 3.02,
+"qi": {
+"moc": 5,
+"hoa": 10,
+"tho": 28,
+"kim": 46,
+"thuy": 10
+},
+"variants": {},
+"density": 1.67,
+"note": "A wild vein high in Dao Quang Lĩnh, near Trích Tinh Phong, 4 tiles from Băng Tâm's border."
+},
+{
+"id": 1290,
+"name": "Ẩn Tinh Phong",
+"gloss": "Peak of the Hidden Star",
+"kind": "peak",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 2.12,
+"qi": {
+"moc": 8,
+"hoa": 10,
+"tho": 27,
+"kim": 44,
+"thuy": 11
+},
+"variants": {},
+"density": 1.44,
+"note": ""
+},
+{
+"id": 218,
+"name": "Phá Quân Môn",
+"gloss": "Gate of the Army-Breaker Star",
+"kind": "ruin",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 2.91,
+"qi": {
+"moc": 9,
+"hoa": 10,
+"tho": 27,
+"kim": 43,
+"thuy": 11
+},
+"variants": {
+"bang": 6.1
+},
+"density": 1.41,
+"note": "The mountain fort of the vassal that rebelled against Thiên Xu."
+},
+{
+"id": 14,
+"name": "Cửu Cao Phái",
+"gloss": "",
+"kind": "minor_seat",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.31,
+"qi": {
+"moc": 31,
+"hoa": 12,
+"tho": 21,
+"kim": 21,
+"thuy": 15
+},
+"variants": {},
+"density": 1.4,
+"note": ""
+},
+{
+"id": 1338,
+"name": "Hắc Thạch Trấn",
+"gloss": "Black Stone Town",
+"kind": "ruin",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 0.44,
+"qi": {
+"moc": 20,
+"hoa": 11,
+"tho": 18,
+"kim": 22,
+"thuy": 29
+},
+"variants": {},
+"density": 1.38,
+"note": ""
+},
+{
+"id": 1310,
+"name": "Chấp Bút Phong",
+"gloss": "Peak of the Held Brush",
+"kind": "peak",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 2.55,
+"qi": {
+"moc": 9,
+"hoa": 10,
+"tho": 27,
+"kim": 43,
+"thuy": 11
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 1308,
+"name": "Vi Thành Trại",
+"gloss": "Siege Stockade",
+"kind": "ruin",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 1.01,
+"qi": {
+"moc": 13,
+"hoa": 11,
+"tho": 28,
+"kim": 36,
+"thuy": 11
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 258,
+"name": "Hạc Tê Lâm",
+"gloss": "Forest Where the Cranes Roost",
+"kind": "forest",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.21,
+"qi": {
+"moc": 34,
+"hoa": 12,
+"tho": 20,
+"kim": 18,
+"thuy": 16
+},
+"variants": {},
+"density": 1.34,
+"note": ""
+},
+{
+"id": 1317,
+"name": "Hồ Đào Lâm",
+"gloss": "Walnut Forest",
+"kind": "forest",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.11,
+"qi": {
+"moc": 56,
+"hoa": 10,
+"tho": 12,
+"kim": 8,
+"thuy": 14
+},
+"variants": {},
+"density": 1.2,
+"note": ""
+},
+{
+"id": 290,
+"name": "Bạch Lộc Quán",
+"gloss": "Abbey of the White Deer",
+"kind": "ruin",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.24,
+"qi": {
+"moc": 35,
+"hoa": 15,
+"tho": 24,
+"kim": 13,
+"thuy": 14
+},
+"variants": {},
+"density": 1.18,
+"note": ""
+},
+{
+"id": 1296,
+"name": "Lý Ngư Thôn",
+"gloss": "Carp Village",
+"kind": "village",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.21,
+"qi": {
+"moc": 32,
+"hoa": 11,
+"tho": 19,
+"kim": 18,
+"thuy": 20
+},
+"variants": {},
+"density": 1.17,
+"note": ""
+},
+{
+"id": 287,
+"name": "Cựu Tân Trấn",
+"gloss": "Old Ferry Town",
+"kind": "ruin",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.09,
+"qi": {
+"moc": 21,
+"hoa": 11,
+"tho": 14,
+"kim": 14,
+"thuy": 39
+},
+"variants": {},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 1286,
+"name": "Chi Hương Trấn",
+"gloss": "Resin Scent Town",
+"kind": "ruin",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.52,
+"qi": {
+"moc": 42,
+"hoa": 13,
+"tho": 18,
+"kim": 11,
+"thuy": 16
+},
+"variants": {},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 1305,
+"name": "Vọng Tinh Bảo",
+"gloss": "Star-Watch Fort",
+"kind": "ruin",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 1.6,
+"qi": {
+"moc": 14,
+"hoa": 14,
+"tho": 31,
+"kim": 32,
+"thuy": 11
+},
+"variants": {},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 1327,
+"name": "Chu Tùng Lâm",
+"gloss": "Vermilion Pine Forest",
+"kind": "forest",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.35,
+"qi": {
+"moc": 53,
+"hoa": 10,
+"tho": 13,
+"kim": 9,
+"thuy": 15
+},
+"variants": {},
+"density": 1.14,
+"note": ""
+},
+{
+"id": 1299,
+"name": "Mật Tùng Lâm",
+"gloss": "Dense Pine Forest",
+"kind": "forest",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.11,
+"qi": {
+"moc": 47,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 20
+},
+"variants": {},
+"density": 1.11,
+"note": ""
+},
+{
+"id": 1336,
+"name": "Ngân Dương Lâm",
+"gloss": "Silver Poplar Forest",
+"kind": "forest",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.42,
+"qi": {
+"moc": 51,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 16
+},
+"variants": {},
+"density": 1.1,
+"note": ""
+},
+{
+"id": 1313,
+"name": "Hồng Câu Khoáng",
+"gloss": "Red Gully Copper Mine",
+"kind": "mine",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 0.82,
+"qi": {
+"moc": 5,
+"hoa": 13,
+"tho": 29,
+"kim": 48,
+"thuy": 5
+},
+"variants": {},
+"density": 1.09,
+"note": ""
+},
+{
+"id": 403,
+"name": "Khê Sam Lâm",
+"gloss": "Brook Fir Forest",
+"kind": "forest",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.15,
+"qi": {
+"moc": 42,
+"hoa": 12,
+"tho": 16,
+"kim": 10,
+"thuy": 20
+},
+"variants": {},
+"density": 1.09,
+"note": ""
+},
+{
+"id": 358,
+"name": "Thần Hi Lâm",
+"gloss": "Dawnlight Forest",
+"kind": "forest",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.1,
+"qi": {
+"moc": 41,
+"hoa": 12,
+"tho": 14,
+"kim": 10,
+"thuy": 23
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+{
+"id": 1328,
+"name": "Họa Tinh Đường",
+"gloss": "Hall of the Painted Stars",
+"kind": "minor_seat",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.09,
+"qi": {
+"moc": 51,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 16
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+{
+"id": 1330,
+"name": "Phục Tùng Lâm",
+"gloss": "Forest of the Crouching Pines",
+"kind": "forest",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.06,
+"qi": {
+"moc": 33,
+"hoa": 11,
+"tho": 13,
+"kim": 10,
+"thuy": 34
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 286,
+"name": "Kiêu Minh Lâm",
+"gloss": "Forest of the Hooting Owls",
+"kind": "beast_lair",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.11,
+"qi": {
+"moc": 29,
+"hoa": 11,
+"tho": 14,
+"kim": 13,
+"thuy": 33
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 1332,
+"name": "Long Cốt Lâm",
+"gloss": "Keel Forest",
+"kind": "forest",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.0,
+"qi": {
+"moc": 48,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 18
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 404,
+"name": "Cổ Bách Lâm",
+"gloss": "Old Cypress Forest",
+"kind": "forest",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.23,
+"qi": {
+"moc": 31,
+"hoa": 17,
+"tho": 26,
+"kim": 13,
+"thuy": 13
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 1288,
+"name": "Cung Sam Lâm",
+"gloss": "Bow Fir Forest",
+"kind": "forest",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.53,
+"qi": {
+"moc": 40,
+"hoa": 14,
+"tho": 20,
+"kim": 11,
+"thuy": 15
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 1293,
+"name": "Đại Hùng Lâm",
+"gloss": "Forest of the Great Bears",
+"kind": "beast_lair",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.91,
+"qi": {
+"moc": 28,
+"hoa": 16,
+"tho": 28,
+"kim": 16,
+"thuy": 12
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 234,
+"name": "Bằng Sào Nhai",
+"gloss": "Roc's Nest Cliff",
+"kind": "beast_lair",
+"region": 6,
+"biome": "highland",
+"elev_km": 1.48,
+"qi": {
+"moc": 9,
+"hoa": 15,
+"tho": 35,
+"kim": 31,
+"thuy": 9
+},
+"variants": {},
+"density": 1.05,
+"note": "A roc nests on the cliffs of Dao Quang Lĩnh."
+},
+{
+"id": 1291,
+"name": "Quần Lang Cương",
+"gloss": "Ridge of the Wolf Packs",
+"kind": "beast_lair",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.64,
+"qi": {
+"moc": 38,
+"hoa": 14,
+"tho": 21,
+"kim": 12,
+"thuy": 15
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 1285,
+"name": "Sơn Trư Cương",
+"gloss": "Ridge of the Mountain Boars",
+"kind": "beast_lair",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.73,
+"qi": {
+"moc": 45,
+"hoa": 12,
+"tho": 16,
+"kim": 11,
+"thuy": 16
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 1314,
+"name": "Chu Bình Phong",
+"gloss": "Vermilion Screen Peak",
+"kind": "peak",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 1.28,
+"qi": {
+"moc": 6,
+"hoa": 14,
+"tho": 31,
+"kim": 44,
+"thuy": 6
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 1309,
+"name": "Bạch Tích Khoáng",
+"gloss": "White Tin Mine",
+"kind": "mine",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 0.53,
+"qi": {
+"moc": 11,
+"hoa": 10,
+"tho": 27,
+"kim": 41,
+"thuy": 11
+},
+"variants": {},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 1306,
+"name": "Duyên Ngân Khoáng",
+"gloss": "Lead-Silver Mine",
+"kind": "mine",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 0.87,
+"qi": {
+"moc": 12,
+"hoa": 10,
+"tho": 27,
+"kim": 39,
+"thuy": 11
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 1319,
+"name": "Mặc Nghiên Khoáng",
+"gloss": "Inkstone Mine",
+"kind": "mine",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 1.48,
+"qi": {
+"moc": 17,
+"hoa": 15,
+"tho": 30,
+"kim": 27,
+"thuy": 11
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 1329,
+"name": "Huyền Chi Thôn",
+"gloss": "Dark Fungus Village",
+"kind": "village",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.15,
+"qi": {
+"moc": 54,
+"hoa": 10,
+"tho": 12,
+"kim": 8,
+"thuy": 15
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 1341,
+"name": "Quan Triều Phong",
+"gloss": "Tide-Watching Peak",
+"kind": "peak",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 1.81,
+"qi": {
+"moc": 12,
+"hoa": 10,
+"tho": 22,
+"kim": 31,
+"thuy": 25
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 1315,
+"name": "Chỉ Nam Khoáng",
+"gloss": "South-Pointing Mine",
+"kind": "mine",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 1.63,
+"qi": {
+"moc": 8,
+"hoa": 15,
+"tho": 36,
+"kim": 32,
+"thuy": 9
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 1323,
+"name": "Bích Lăng Khoáng",
+"gloss": "Mine of the Blue Ridges",
+"kind": "mine",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 0.86,
+"qi": {
+"moc": 8,
+"hoa": 17,
+"tho": 37,
+"kim": 31,
+"thuy": 8
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 1297,
+"name": "Giả Thiết Khoáng",
+"gloss": "Ochre Iron Mine",
+"kind": "mine",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 0.85,
+"qi": {
+"moc": 22,
+"hoa": 12,
+"tho": 24,
+"kim": 29,
+"thuy": 13
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 1326,
+"name": "Lộc Giác Phong",
+"gloss": "Antler Peak",
+"kind": "peak",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 1.7,
+"qi": {
+"moc": 15,
+"hoa": 15,
+"tho": 32,
+"kim": 28,
+"thuy": 10
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 1316,
+"name": "Thạch Cổ Phong",
+"gloss": "Stone Drum Peak",
+"kind": "peak",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 1.23,
+"qi": {
+"moc": 13,
+"hoa": 15,
+"tho": 33,
+"kim": 30,
+"thuy": 10
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 1325,
+"name": "Hợp Giác Phong",
+"gloss": "Peak of the Joining Horns",
+"kind": "peak",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 1.32,
+"qi": {
+"moc": 12,
+"hoa": 17,
+"tho": 36,
+"kim": 27,
+"thuy": 8
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 1318,
+"name": "Mộc Phiệt Thôn",
+"gloss": "Log Raft Village",
+"kind": "village",
+"region": 6,
+"biome": "temperate forest",
+"elev_km": 0.1,
+"qi": {
+"moc": 52,
+"hoa": 9,
+"tho": 11,
+"kim": 7,
+"thuy": 21
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 1283,
+"name": "Tức Ngưu Sơn",
+"gloss": "Resting Ox Mountain",
+"kind": "peak",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 1.15,
+"qi": {
+"moc": 38,
+"hoa": 12,
+"tho": 19,
+"kim": 16,
+"thuy": 16
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 1298,
+"name": "Xích Quan Phong",
+"gloss": "Red Crest Peak",
+"kind": "peak",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 1.0,
+"qi": {
+"moc": 24,
+"hoa": 12,
+"tho": 24,
+"kim": 28,
+"thuy": 13
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 1307,
+"name": "Khiếu Lang Phong",
+"gloss": "Howling Wolf Peak",
+"kind": "peak",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 1.49,
+"qi": {
+"moc": 15,
+"hoa": 11,
+"tho": 27,
+"kim": 35,
+"thuy": 11
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 1320,
+"name": "Huyền Vũ Phong",
+"gloss": "Peak of the Black Warrior",
+"kind": "peak",
+"region": 6,
+"biome": "high mountain",
+"elev_km": 1.67,
+"qi": {
+"moc": 16,
+"hoa": 14,
+"tho": 30,
+"kim": 28,
+"thuy": 11
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+}
+],
+"ground_place_count": 80,
+"events": [
+{
+"id": "A084",
+"tier": "annal",
+"year": 260,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Thiên Xu's first watchmen climb Trích Tinh Phong and report that one could pluck the stars by hand.",
+"place": 182,
+"region": 6
+},
+{
+"id": "C071",
+"tier": "landmark",
+"year": 280,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Thiên Xu Tông founds Khai Dương Thành on the northern road.",
+"place": 34
+},
+{
+"id": "A085",
+"tier": "annal",
+"year": 300,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "A jade-green brook below the ridges gives Bích Khê Trấn its name and its trade in river jade.",
+"place": 64,
+"region": 6
+},
+{
+"id": "A086",
+"tier": "annal",
+"year": 380,
+"kind": "settlement",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Deer gather each spring in the high meadow of Lộc Uyển; Thiên Xu forbids hunting there.",
+"place": 113,
+"region": 6
+},
+{
+"id": "A087",
+"tier": "annal",
+"year": 470,
+"kind": "discovery",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Thiên Xu finds the Star Marrow vein high near Trích Tinh Phong and posts a guard that has never been withdrawn.",
+"place": 205,
+"region": 6
+},
+{
+"id": "C110",
+"tier": "landmark",
+"year": 520,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Thiên Xu Tông founds Thanh Bách Thành on its northern road.",
+"place": 65
+},
+{
+"id": "A088",
+"tier": "annal",
+"year": 600,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Light glints so brightly on the mountain lakes at Ba Quang that travellers think the village is on fire.",
+"place": 111,
+"region": 6
+},
+{
+"id": "V054",
+"tier": "annal",
+"year": 612,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "The last master of Bạch Lộc Quán, the abbey that asked Thiên Xu to ban hunting in the deer meadow, dies without a disciple; the halls are left to the deer.",
+"place": 290,
+"region": 6
+},
+{
+"id": "A089",
+"tier": "annal",
+"year": 700,
+"kind": "settlement",
+"people": [],
+"sects": [
+"cuu_cao"
+],
+"text_en": "Cranes return to the marshes on the same day every year; the village where they land is named Hạc Quy, and Cửu Cao Phái rides the first of them.",
+"place": 112,
+"region": 6
+},
+{
+"id": "C140",
+"tier": "landmark",
+"year": 700,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"cuu_cao",
+"thien_xu"
+],
+"text_en": "Crane riders tame the first cranes of the nine marshes in Dao Quang Lĩnh and found Cửu Cao Phái; their cry is heard in the sky.",
+"place": 14
+},
+{
+"id": "V055",
+"tier": "annal",
+"year": 712,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "In a dry summer fire starts in the pitch yards of Chi Hương Trấn and burns the town and the forest around it; no one rebuilds.",
+"place": 1286,
+"region": 6
+},
+{
+"id": "C141",
+"tier": "landmark",
+"year": 720,
+"kind": "sect_founded",
+"people": [
+"ha_lang_tinh"
+],
+"sects": [
+"pha_quan",
+"thien_xu"
+],
+"text_en": "Hạ Lang Tinh founds Phá Quân Môn in the mountains of Dao Quang Lĩnh as a vassal of Thiên Xu, named for the Dipper's seventh star, the Army-Breaker.",
+"place": 218
+},
+{
+"id": "A090",
+"tier": "annal",
+"year": 760,
+"kind": "tale",
+"people": [],
+"sects": [
+"pha_quan"
+],
+"text_en": "Phá Quân Môn's disciples begin to drill at night on Phụ Tinh Phong, under the faint companion star.",
+"place": 181,
+"region": 6
+},
+{
+"id": "C162",
+"tier": "landmark",
+"year": 870,
+"kind": "war_start",
+"people": [
+"ha_lang_tinh",
+"do_tinh_ha"
+],
+"sects": [
+"pha_quan",
+"thien_xu"
+],
+"text_en": "Hạ Lang Tinh leads Phá Quân Môn against its lord, to win by war the land the Compact forbids.",
+"place": 218,
+"war": "pha_quan"
+},
+{
+"id": "A091",
+"tier": "annal",
+"year": 872,
+"kind": "tale",
+"people": [],
+"sects": [
+"cuu_cao",
+"thien_xu",
+"pha_quan"
+],
+"text_en": "In the rebellion, Cửu Cao's crane riders carry Thiên Xu's messages over Phá Quân's fort.",
+"place": 218,
+"region": 6
+},
+{
+"id": "C163",
+"tier": "landmark",
+"year": 874,
+"kind": "war_end",
+"people": [
+"ha_lang_tinh",
+"do_tinh_ha"
+],
+"sects": [
+"pha_quan",
+"thien_xu",
+"cuu_cao"
+],
+"text_en": "Thiên Xu destroys Phá Quân Môn; Đỗ Tinh Hà takes Hạ Lang Tinh's spear, and Cửu Cao Phái receives the rebels' holdings.",
+"place": 218,
+"item": "pha_quan_thuong",
+"war": "pha_quan"
+},
+{
+"id": "V056",
+"tier": "annal",
+"year": 874,
+"kind": "siege",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "When the rebellion is crushed, the garrison of Phá Quân Môn's Vọng Tinh Bảo surrenders without a fight; the fort is burned and left.",
+"place": 1305,
+"region": 6
+},
+{
+"id": "V057",
+"tier": "annal",
+"year": 874,
+"kind": "siege",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "The rebel gate of Phá Quân Môn falls, and Thiên Xu abandons Vi Thành Trại, the siege camp it raised three years before; soldiers' names stay scratched on its stones.",
+"place": 1308,
+"region": 6
+},
+{
+"id": "V058",
+"tier": "annal",
+"year": 874,
+"kind": "city_abandoned",
+"people": [],
+"sects": [
+"cuu_cao"
+],
+"text_en": "Phá Quân Môn's mining town of Hắc Thạch Trấn passes to Cửu Cao Phái, but its people have already fled to Cự Môn, and none come back.",
+"place": 1338,
+"region": 6
+},
+{
+"id": "A092",
+"tier": "annal",
+"year": 900,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Khai Dương Thành's gate is rebuilt to face the morning star; travellers say the city wakes before the sun.",
+"place": 34,
+"region": 6
+},
+{
+"id": "V059",
+"tier": "annal",
+"year": 910,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"hoa_tinh",
+"thien_xu"
+],
+"text_en": "Talisman makers who paint the Dipper's stars found Họa Tinh Đường and swear to Thiên Xu; their talismans will not run in the rain.",
+"place": 1328,
+"region": 6
+},
+{
+"id": "V060",
+"tier": "annal",
+"year": 968,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "A storm tide drives over the quay of Cựu Tân Trấn and takes half the town; the rest move inland to the lakes of Ba Quang.",
+"place": 287,
+"region": 6
+},
+{
+"id": "A093",
+"tier": "annal",
+"year": 980,
+"kind": "trade",
+"people": [],
+"sects": [
+"thoi_tinh"
+],
+"text_en": "A star falls near Thanh Bách Thành; the fragment is sold to Thối Tinh Môn for three years of the city's taxes.",
+"place": 65,
+"region": 6
+},
+{
+"id": "A094",
+"tier": "annal",
+"year": 1010,
+"kind": "birth",
+"people": [
+"ung_hac_minh"
+],
+"sects": [],
+"text_en": "Ung Hạc Minh is born in Hạc Quy Thôn; that year the cranes stay a month longer.",
+"place": 112,
+"region": 6
+},
+{
+"id": "A095",
+"tier": "annal",
+"year": 1100,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "The pilgrims' road up Trích Tinh Phong is cut into the rock in a thousand steps.",
+"place": 182,
+"region": 6
+},
+{
+"id": "C195",
+"tier": "landmark",
+"year": 1188,
+"kind": "petition",
+"people": [
+"so_ngoc_ho",
+"doan_ngoc_hanh"
+],
+"sects": [
+"bang_tam",
+"thien_xu"
+],
+"text_en": "Băng Tâm Các claims Tinh Tủy Mạch before the Pivot; the claim is rejected, and Sở Ngọc Hồ withdraws in silence.",
+"place": 205
+},
+{
+"id": "A096",
+"tier": "annal",
+"year": 1189,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_xu",
+"cuu_cao"
+],
+"text_en": "After Băng Tâm's petition, Thiên Xu doubles the guard on Tinh Tủy Mạch; Cửu Cao's cranes circle it day and night.",
+"place": 205,
+"region": 6
+},
+{
+"id": "A097",
+"tier": "annal",
+"year": 1197,
+"kind": "beast",
+"people": [
+"ung_hac_minh"
+],
+"sects": [
+"cuu_cao"
+],
+"text_en": "Ung Hạc Minh tames a crane king that will let no one else ride it.",
+"place": 14,
+"region": 6
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "ky_ngan_chuc",
+"name": "Kỷ Ngân Chúc",
+"name_han": "紀銀燭",
+"gloss": "The silver candle by the painted screen, under the autumn stars (Đỗ Mục, Thu tịch)",
+"sex": "F",
+"born": 960,
+"alive": true,
+"sect": "hoa_tinh",
+"rank": "tong_chu",
+"role": "Hall-mistress of Họa Tinh Đường, talismans painted with the Dipper in Mặc Yên soot",
+"realm": "ket_dan",
+"home": 1328,
+"traits": {
+"personality": [
+"Devout",
+"Diligent",
+"Calm"
+],
+"calling": "Talisman maker",
+"fate_given": []
+},
+"vassal_of": "thien_xu"
+}
+],
+"legendary_items": []
+}

@@ -1,0 +1,3128 @@
+{
+ "sect": "lac_ha",
+ "people": [
+  {
+   "key": "uong_binh_tru",
+   "name_hv": "Uông Bình Trù",
+   "name_han": "汪平籌",
+   "gloss": "Even tally",
+   "sex": "M",
+   "born": 1132,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "chap_su",
+   "home": 51,
+   "birthplace": 51,
+   "role": "Clerk of the Counting House's trade office at Hạc Đinh Thị",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 52,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Deceitful",
+     "Patient"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "He keeps the trade office's books below the old seat and has twice carried Trầm Tịch Dương's (tram_tich_duong) sealed purchases to Kim Vạn Lý's counter without reading them; he has read the totals.",
+   "ties": [
+    {
+     "to": "tong_thu_tin",
+     "kind": "master",
+     "note": "the Counting House"
+    },
+    {
+     "to": "ta_mac_tru",
+     "kind": "friend",
+     "note": "the other Hạc Đinh clerk"
+    },
+    {
+     "to": "uong_tu_ngan",
+     "kind": "child",
+     "note": "his daughter"
+    },
+    {
+     "to": "nhieu_kim_chau",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "tong_thu_tin",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "ruin-ledger-scripture",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth ledgers."
+    }
+   }
+  },
+  {
+   "key": "ky_minh_uoc",
+   "name_hv": "Kỷ Minh Ước",
+   "name_han": "紀明約",
+   "gloss": "Clear contract",
+   "sex": "F",
+   "born": 1138,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 558,
+   "birthplace": 50,
+   "role": "Reads the oath contracts aloud at sunset for the Hall of Scales",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 58,
+     "hoa": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Honest",
+     "Stubborn"
+    ],
+    "calling": "Steward",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A Vật Hoa Thị broker's daughter who reads every disciple's oath of entry aloud as the sun sets; she has asked Từ Bình Hành (tu_binh_hanh) why the 1179 loan is the one contract the Hall may not read.",
+   "ties": [
+    {
+     "to": "tu_binh_hanh",
+     "kind": "master",
+     "note": "the Hall of Scales"
+    },
+    {
+     "to": "phuong_toan_ngoc",
+     "kind": "friend",
+     "note": "the clerk who found the vault unopened"
+    },
+    {
+     "to": "bach_van_khe",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "tu_binh_hanh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "ruin-ledger-scripture",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth seals."
+    }
+   }
+  },
+  {
+   "key": "hang_kieu_sinh",
+   "name_hv": "Hạng Kiều Sinh",
+   "name_han": "項橋生",
+   "gloss": "Born of the bridge",
+   "sex": "M",
+   "born": 1128,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 558,
+   "birthplace": 560,
+   "role": "Bridge Hall inner disciple; digs the galleries under the new seat",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 49,
+     "kim": 35
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Loyal",
+     "Brave"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born"
+   },
+   "backstory": "The grandson of a Vân Gian miner who came down the mountain in 1040, he dug the footings of the Cloud Bridge Array for Quách Tiếp Vân (quach_tiep_van) and would bring the whole village up to build the outer ring if anyone paid them.",
+   "ties": [
+    {
+     "to": "quach_tiep_van",
+     "kind": "master",
+     "note": "the Bridge Hall"
+    },
+    {
+     "to": "mach_ngan_suong",
+     "kind": "friend",
+     "note": "she keeps the props he set"
+    },
+    {
+     "to": "hang_son_quat",
+     "kind": "niece_nephew",
+     "note": "his brother's son"
+    },
+    {
+     "to": "quach_ngan_dang",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "quach_tiep_van",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 7
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Ground arrays."
+    }
+   }
+  },
+  {
+   "key": "khau_tich_nhan",
+   "name_hv": "Khấu Tịch Nhạn",
+   "name_han": "寇夕雁",
+   "gloss": "Evening goose",
+   "sex": "F",
+   "born": 1134,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 558,
+   "birthplace": 488,
+   "role": "Geese Hall inner disciple; captain of the second line",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 60,
+     "kim": 33
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Warlike",
+     "Brave",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Song Tỉnh well-digger's daughter who drills the Geese Hall's second line under Thịnh Kinh Hàn (thinh_kinh_han) and has signed the war party's petition for the tolls, which he has not.",
+   "ties": [
+    {
+     "to": "thinh_kinh_han",
+     "kind": "master",
+     "note": "the drill master"
+    },
+    {
+     "to": "dang_liet_hang",
+     "kind": "friend",
+     "note": "the dawn drill"
+    },
+    {
+     "to": "dong_xuyen_van",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "bang_kich_van",
+     "kind": "friend",
+     "note": "Geese Hall cadet of the war party"
+    }
+   ],
+   "master": "thinh_kinh_han",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 7
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth that holds a line."
+    }
+   }
+  },
+  {
+   "key": "quan_dan_phong",
+   "name_hv": "Quản Đan Phong",
+   "name_han": "管丹楓",
+   "gloss": "Red maple",
+   "sex": "F",
+   "born": 1142,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 556,
+   "birthplace": 553,
+   "role": "Maple Hall inner disciple; makes the pills that sell against Thúy Vi's",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 58,
+     "tho": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Diligent",
+     "Pragmatic"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Sơn Trà Thôn tea-grower's daughter who entered the inner gate by a single point of Earth, like her master Chử Hồng Diệp (chu_hong_diep), and prices her pills a tenth under Thúy Vi's at every market in the west.",
+   "ties": [
+    {
+     "to": "chu_hong_diep",
+     "kind": "master",
+     "note": "the Maple Hall"
+    },
+    {
+     "to": "bac_hy_van",
+     "kind": "friend",
+     "note": "the herb terraces"
+    },
+    {
+     "to": "quan_thanh_diep",
+     "kind": "niece_nephew",
+     "note": "her brother's daughter and disciple"
+    }
+   ],
+   "master": "chu_hong_diep",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "evening-song-of-the-boats",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing over Earth."
+    }
+   }
+  },
+  {
+   "key": "ha_hau_thanh_bich",
+   "name_hv": "Hạ Hầu Thanh Bích",
+   "name_han": "夏侯清碧",
+   "gloss": "Clear jade-green",
+   "sex": "F",
+   "born": 1146,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 139,
+   "birthplace": 534,
+   "role": "Boat Hall pilot at Thủy Khẩu; wants a sea boat",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 47,
+     "thuy": 41
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Brave",
+     "Impatient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Of the line of the fleet master Hạ Hầu Trường Phong (ha_hau_truong_phong), she pilots river boats for Lô Xướng Vãn (lo_xuong_van) and has asked Lận Viễn Phàm for a berth on his third boat.",
+   "ties": [
+    {
+     "to": "lo_xuong_van",
+     "kind": "master",
+     "note": "the Boat Hall"
+    },
+    {
+     "to": "ha_hau_truong_phong",
+     "kind": "ancestor",
+     "note": "the fleet master of the Pirate Purge"
+    },
+    {
+     "to": "giang_vong_pham",
+     "kind": "friend",
+     "note": "who also wants the third boat"
+    },
+    {
+     "to": "cao_van_ca",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "lo_xuong_van",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "evening-song-of-the-boats",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth anchor, river sustain."
+    }
+   }
+  },
+  {
+   "key": "nhac_truong_tin",
+   "name_hv": "Nhạc Trường Tín",
+   "name_han": "岳長信",
+   "gloss": "Long trust",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 558,
+   "birthplace": 503,
+   "role": "Rider of the Vassal Hall; carries the tribute receipts",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 50,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Cautious",
+     "Honest"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born"
+   },
+   "backstory": "He carries the eight vassals' tribute receipts for Hách Ánh Hà (hach_anh_ha) and knows, from what she does not say on the road, that she wants the succession more than anything she has been sent to buy.",
+   "ties": [
+    {
+     "to": "hach_anh_ha",
+     "kind": "master",
+     "note": "the envoy"
+    },
+    {
+     "to": "cam_nhu_y",
+     "kind": "friend",
+     "note": "the other letter-carrier"
+    }
+   ],
+   "master": "hach_anh_ha",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth sustain on the road."
+    }
+   }
+  },
+  {
+   "key": "dinh_thu_hoang",
+   "name_hv": "Đinh Thủ Hoang",
+   "name_han": "丁守荒",
+   "gloss": "Keeper of the waste",
+   "sex": "M",
+   "born": 1125,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 223,
+   "birthplace": 532,
+   "role": "Guard of the Miasma Watch; lost two fingers to the grey",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 64,
+     "kim": 29
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Warlike",
+     "Wrathful",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Xích Thổ herder who left two fingers in the miasma's edge pulling a scout out, he stands with Hình Trọng Sơn (hinh_trong_son) for breaking the Compact and has raised his son to the same.",
+   "ties": [
+    {
+     "to": "hinh_trong_son",
+     "kind": "master",
+     "note": "the Watch"
+    },
+    {
+     "to": "mong_thiet_son",
+     "kind": "friend",
+     "note": "the other Watch guard"
+    },
+    {
+     "to": "dinh_bac_thach",
+     "kind": "child",
+     "note": "his son and disciple"
+    }
+   ],
+   "master": "hinh_trong_son",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 8
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth armour; outlast."
+    }
+   }
+  },
+  {
+   "key": "truong_vong_thanh",
+   "name_hv": "Trương Vọng Thành",
+   "name_han": "張望城",
+   "gloss": "Watching the city",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 207,
+   "birthplace": 525,
+   "role": "Watches the Thính Vũ border at the Long River vein",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 48,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Paranoid",
+     "Patient"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Of the house of Trương Ánh Đào (truong_anh_dao), who held Hồng Vũ Thành in the War of the Petal Shore, he watches Thính Vũ's side of the vein for Sử Thu Thủy (su_thu_thuy) and counts its lamps every night.",
+   "ties": [
+    {
+     "to": "su_thu_thuy",
+     "kind": "master",
+     "note": "the bay and the vein"
+    },
+    {
+     "to": "truong_anh_dao",
+     "kind": "ancestor",
+     "note": "the elder of Hồng Vũ Thành"
+    },
+    {
+     "to": "truong_ngan_cau",
+     "kind": "grandchild",
+     "note": "his granddaughter and disciple"
+    }
+   ],
+   "master": "su_thu_thuy",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 7
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth wards on a border."
+    }
+   }
+  },
+  {
+   "key": "luc_bong_sa",
+   "name_hv": "Lục Bồng Sa",
+   "name_han": "陸蓬沙",
+   "gloss": "Drifting sand",
+   "sex": "F",
+   "born": 1152,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "lac_ha",
+   "rank": "chap_su",
+   "home": 72,
+   "birthplace": 521,
+   "role": "Steward of the island hall's stores at Triều Âm Thành",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 52,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Honest",
+     "Impatient"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Steppe-born at Liên Chu Thôn and seasick on every crossing, she keeps Lận Viễn Phàm's (lan_vien_pham) stores and his debts, and is the reason the third boat is not yet paid for.",
+   "ties": [
+    {
+     "to": "lan_vien_pham",
+     "kind": "master",
+     "note": "the island hall"
+    },
+    {
+     "to": "luc_tieu_tinh",
+     "kind": "niece_nephew",
+     "note": "her brother's daughter"
+    }
+   ],
+   "master": "lan_vien_pham",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "ruin-ledger-scripture",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth ledgers."
+    }
+   }
+  },
+  {
+   "key": "thieu_hong_lo",
+   "name_hv": "Thiệu Hồng Lô",
+   "name_han": "邵紅爐",
+   "gloss": "Red furnace",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 39,
+   "birthplace": 523,
+   "role": "The sect's own man in the armoury at Tử Điện Thành",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 50,
+     "kim": 44
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Diligent",
+     "Paranoid"
+    ],
+    "calling": "Refiner",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "A descendant of the first armourer Thiệu Song Phong (thieu_song_phong), he works beside the hired smith Vưu Chước Kim (vuu_chuoc_kim) and resents that the sword his ancestor forged woke for a guest.",
+   "ties": [
+    {
+     "to": "su_thu_thuy",
+     "kind": "master",
+     "note": "the bay warden"
+    },
+    {
+     "to": "thieu_song_phong",
+     "kind": "ancestor",
+     "note": "the first armourer"
+    },
+    {
+     "to": "vuu_chuoc_kim",
+     "kind": "rival",
+     "note": "the guest smith"
+    }
+   ],
+   "master": "su_thu_thuy",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 4
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth and the forge."
+    }
+   }
+  },
+  {
+   "key": "mac_huong_tay",
+   "name_hv": "Mặc Hướng Tây",
+   "name_han": "墨向西",
+   "gloss": "Facing west",
+   "sex": "M",
+   "born": 1108,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "lac_ha",
+   "rank": "chap_su",
+   "home": 196,
+   "birthplace": 484,
+   "role": "Digs the graves on the Evening Isle, facing west",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 46,
+     "thuy": 42
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Devout",
+     "Reclusive"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "He has buried thirty-one elders on the beach of Tịch Chiếu Đảo for Bồ Tàn Chiếu (bo_tan_chieu), and has already dug the keeper's grave and covered it with a sail.",
+   "ties": [
+    {
+     "to": "bo_tan_chieu",
+     "kind": "master",
+     "note": "the keeper of the isle"
+    },
+    {
+     "to": "khuc_lao_dieu",
+     "kind": "friend",
+     "note": "the ferryman"
+    }
+   ],
+   "master": "bo_tan_chieu",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "evening-song-of-the-boats",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth that waits."
+    }
+   }
+  },
+  {
+   "key": "thuong_thu_ha",
+   "name_hv": "Thường Thủ Hà",
+   "name_han": "常守霞",
+   "gloss": "Keeper of the glow",
+   "sex": "F",
+   "born": 1144,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "chap_su",
+   "home": 4,
+   "birthplace": 528,
+   "role": "Holds the dusk test on the steppe at Cựu Hà Viện",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 56,
+     "hoa": 31
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Callous",
+     "Patient"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born"
+   },
+   "backstory": "She watches the outer disciples' palms from sunset to full dark and writes down who lets the glow go; every name on Tô Bình Chu's (to_binh_chu) Placement Day list was written by her.",
+   "ties": [
+    {
+     "to": "tram_tich_duong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "to_binh_chu",
+     "kind": "friend",
+     "note": "the steward of the old seat"
+    },
+    {
+     "to": "ngac_vien_son",
+     "kind": "friend",
+     "note": "who teaches the outer gate with her"
+    },
+    {
+     "to": "chuong_hoang_sa",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "kieu_mo_sa",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "tram_tich_duong",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth glow that holds till dark."
+    }
+   }
+  },
+  {
+   "key": "ong_dinh_hoa",
+   "name_hv": "Ông Định Hóa",
+   "name_han": "翁定貨",
+   "gloss": "Fixing the goods",
+   "sex": "M",
+   "born": 1112,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "lac_ha",
+   "rank": "chap_su",
+   "home": 51,
+   "birthplace": 50,
+   "role": "Caravan master of the steppe road to Vật Hoa Thị",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 62,
+     "kim": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Brave",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "He has run the steppe caravans for sixty years and believes the Hạc Đinh road is his, not Lộ Hành Sa's (lo_hanh_sa); he sold mutton to both camps in 1175.",
+   "ties": [
+    {
+     "to": "tong_thu_tin",
+     "kind": "master",
+     "note": "the Counting House"
+    },
+    {
+     "to": "lo_hanh_sa",
+     "kind": "rival",
+     "note": "the other caravan steward"
+    }
+   ],
+   "master": "tong_thu_tin",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "ruin-ledger-scripture",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth endurance."
+    }
+   }
+  },
+  {
+   "key": "gian_binh_chuong",
+   "name_hv": "Giản Bình Chương",
+   "name_han": "簡平章",
+   "gloss": "Even ruling",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 558,
+   "birthplace": 538,
+   "role": "Prices the buy-outs for the Hall of Scales",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 55,
+     "kim": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Callous",
+     "Temperate"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "When a disciple wants to buy out the rest of a term, he works the price; he priced Tạ Quy Yến's (ta_quy_yen) at nothing, since Placement Day will sell him anyway.",
+   "ties": [
+    {
+     "to": "tu_binh_hanh",
+     "kind": "master",
+     "note": "the Hall of Scales"
+    },
+    {
+     "to": "mo_hanh_van",
+     "kind": "friend",
+     "note": "the Hall's enforcer"
+    },
+    {
+     "to": "pham_thu_uoc",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "tu_binh_hanh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "ruin-ledger-scripture",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth seals."
+    }
+   }
+  },
+  {
+   "key": "uong_tu_ngan",
+   "name_hv": "Uông Tú Ngân",
+   "name_han": "汪秀銀",
+   "gloss": "Fine silver",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 4,
+   "birthplace": 51,
+   "role": "Outer disciple who counts faster than the clerks",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 41,
+     "hoa": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Impatient",
+     "Ambitious",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Uông Bình Trù's (uong_binh_tru) daughter, who can add a caravan's manifest in her head and keeps letting the glow go at the dusk test because she cannot sit still till dark.",
+   "ties": [
+    {
+     "to": "uong_binh_tru",
+     "kind": "parent",
+     "note": "her father"
+    },
+    {
+     "to": "phuong_tieu_lan",
+     "kind": "friend",
+     "note": "the other Hạc Đinh girl"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Coins and dust."
+    }
+   }
+  },
+  {
+   "key": "bach_van_khe",
+   "name_hv": "Bạch Văn Khế",
+   "name_han": "白文契",
+   "gloss": "Written deed",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 558,
+   "birthplace": 50,
+   "role": "Young inner disciple; copies contracts for the Hall of Scales",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 50,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Honest",
+     "Cautious"
+    ],
+    "calling": "Steward",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "He copies the oath contracts that Kỷ Minh Ước (ky_minh_uoc) reads aloud and has noticed that the copy of the 1179 loan in the register is in the head's own hand.",
+   "ties": [
+    {
+     "to": "ky_minh_uoc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "liem_nhuoc_thuy",
+     "kind": "friend",
+     "note": "the other copyist"
+    }
+   ],
+   "master": "ky_minh_uoc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth seals."
+    }
+   }
+  },
+  {
+   "key": "hang_son_quat",
+   "name_hv": "Hạng Sơn Quật",
+   "name_han": "項山窟",
+   "gloss": "Mountain cave",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 4,
+   "birthplace": 560,
+   "role": "Outer disciple from the miners' village of Vân Gian",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "kim": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Stubborn",
+     "Generous"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born"
+   },
+   "backstory": "Hạng Kiều Sinh's (hang_kieu_sinh) nephew, who walked down from Vân Gian to the old seat to be tested and wants to come back up to dig the outer ring.",
+   "ties": [
+    {
+     "to": "hang_kieu_sinh",
+     "kind": "aunt_uncle",
+     "note": "his father's brother"
+    },
+    {
+     "to": "xa_tieu_ho",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 1
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Ground arrays."
+    }
+   }
+  },
+  {
+   "key": "dong_xuyen_van",
+   "name_hv": "Đổng Xuyên Vân",
+   "name_han": "董穿雲",
+   "gloss": "Piercing the clouds",
+   "sex": "M",
+   "born": 1174,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 558,
+   "birthplace": 523,
+   "role": "Geese Hall cadet; the second-best bow",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 52,
+     "kim": 37
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Arrogant",
+     "Warlike"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Mã Độ ferryman's son who has lost every archery trial to Thịnh Thiếu Hàng (thinh_thieu_hang) by a hand's width and says the drill master's grandson is judged by his name.",
+   "ties": [
+    {
+     "to": "khau_tich_nhan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "thinh_thieu_hang",
+     "kind": "rival",
+     "note": "the Geese Hall's best cadet"
+    }
+   ],
+   "master": "khau_tich_nhan",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth weight behind arrows."
+    }
+   }
+  },
+  {
+   "key": "bang_kich_van",
+   "name_hv": "Bàng Kích Vân",
+   "name_han": "龐擊雲",
+   "gloss": "Striking the clouds",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 558,
+   "birthplace": 488,
+   "role": "Geese Hall cadet of the war party",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 49,
+     "kim": 31
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Warlike",
+     "Wrathful",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "From Song Tỉnh like Khấu Tịch Nhạn (khau_tich_nhan), she wears a goose pin and a Ferry War toll token on the same cord and wants the tolls back before she forms her foundation.",
+   "ties": [
+    {
+     "to": "dang_liet_hang",
+     "kind": "master",
+     "note": "the dawn drill"
+    },
+    {
+     "to": "khau_tich_nhan",
+     "kind": "friend",
+     "note": "from her village"
+    }
+   ],
+   "master": "dang_liet_hang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth armour."
+    }
+   }
+  },
+  {
+   "key": "quan_thanh_diep",
+   "name_hv": "Quản Thanh Diệp",
+   "name_han": "管青葉",
+   "gloss": "Green leaf",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 556,
+   "birthplace": 553,
+   "role": "Outer disciple; sweeps the Maple Hall's drying floors",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "tho": 33
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Compassionate",
+     "Cautious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Quản Đan Phong's (quan_dan_phong) niece, Wood-strong and Earth-thin, who knows she will go to a vassal on Placement Day unless her Earth rises twelve points.",
+   "ties": [
+    {
+     "to": "quan_dan_phong",
+     "kind": "aunt_uncle",
+     "note": "her aunt and master"
+    }
+   ],
+   "master": "quan_dan_phong",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing."
+    }
+   }
+  },
+  {
+   "key": "on_hoa_mieu",
+   "name_hv": "Ôn Hòa Miêu",
+   "name_han": "溫禾苗",
+   "gloss": "Rice seedling",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 556,
+   "birthplace": 495,
+   "role": "Outer disciple; plants the Maple Hall's spirit rice",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 38,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Diligent",
+     "Peaceable"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hòa Lũng farmer's boy who plants spirit rice behind Điền Hòa Lũng (dien_hoa_lung) and would gladly be placed with a vassal if they have fields.",
+   "ties": [
+    {
+     "to": "dien_hoa_lung",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ma_thu_diep",
+     "kind": "friend",
+     "note": "placed from Lạc Hà this spring; picks on the Dusk Field"
+    }
+   ],
+   "master": "dien_hoa_lung",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Fields and Earth."
+    }
+   }
+  },
+  {
+   "key": "cao_van_ca",
+   "name_hv": "Cao Vãn Ca",
+   "name_han": "高晚歌",
+   "gloss": "Evening song",
+   "sex": "F",
+   "born": 1177,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 139,
+   "birthplace": 490,
+   "role": "Young inner disciple of the Boat Hall; sings the fourth verse",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 45,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Fickle",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Vãn Chu Thôn fisher girl who sings the Evening Song's fourth verse on Hạ Hầu Thanh Bích's (ha_hau_thanh_bich) boat and learned it from Thương Ngư Ca (thuong_ngu_ca) on the same jetty.",
+   "ties": [
+    {
+     "to": "ha_hau_thanh_bich",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "thuong_ngu_ca",
+     "kind": "friend",
+     "note": "from her village"
+    }
+   ],
+   "master": "ha_hau_thanh_bich",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 3
+    },
+    "aux": [
+     {
+      "tech": "evening-song-of-the-boats",
+      "layer": 1
+     }
+    ],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Song sustain."
+    }
+   }
+  },
+  {
+   "key": "lam_that_am",
+   "name_hv": "Lam Thất Âm",
+   "name_han": "藍七音",
+   "gloss": "Seven notes",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 139,
+   "birthplace": 458,
+   "role": "Outer disciple from Xướng Vãn Thôn; the choir's youngest",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 34,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Trusting",
+     "Gregarious"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born"
+   },
+   "backstory": "Her grandmother in Xướng Vãn Thôn still hums a line of the verse the village stopped singing in 803, and Hồng Vãn Tình (hong_van_tinh) has taken her into the choir to get at it.",
+   "ties": [
+    {
+     "to": "hong_van_tinh",
+     "kind": "master",
+     "note": "the choir"
+    }
+   ],
+   "master": "hong_van_tinh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Song sustain."
+    }
+   }
+  },
+  {
+   "key": "mac_trieu_sinh",
+   "name_hv": "Mạc Triều Sinh",
+   "name_han": "莫潮生",
+   "gloss": "Born of the tide",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 72,
+   "birthplace": 72,
+   "role": "Outer disciple of the island hall",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 42,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Ambitious",
+     "Impatient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Triều Âm dock boy who copies Luân Hải Yến's (luan_hai_yen) charts by lamplight and means to be aboard the third boat when it sails for the lost fleet.",
+   "ties": [
+    {
+     "to": "luan_hai_yen",
+     "kind": "master",
+     "note": "the charts"
+    },
+    {
+     "to": "cu_bich_truc",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "luan_hai_yen",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood linh lực."
+    }
+   }
+  },
+  {
+   "key": "cu_bich_truc",
+   "name_hv": "Cù Bích Trúc",
+   "name_han": "瞿碧竹",
+   "gloss": "Green bamboo",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 72,
+   "birthplace": 476,
+   "role": "Outer disciple of the island hall, due for Placement Day",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Content",
+     "Humble"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A bamboo-cutter's daughter of Phù Can Thôn with almost no Earth, she expects to be placed with Nhàn Vân Quán and has asked Mạc Triều Sinh (mac_trieu_sinh) to write to her.",
+   "ties": [
+    {
+     "to": "mac_trieu_sinh",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood linh lực."
+    }
+   }
+  },
+  {
+   "key": "dinh_bac_thach",
+   "name_hv": "Đinh Bắc Thạch",
+   "name_han": "丁北石",
+   "gloss": "North stone",
+   "sex": "M",
+   "born": 1175,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 223,
+   "birthplace": 532,
+   "role": "Young inner disciple; runner of the Miasma Watch",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 51,
+     "kim": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Loyal",
+     "Warlike"
+    ],
+    "calling": "Duelist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Đinh Thủ Hoang's (dinh_thu_hoang) son, who runs the Watch's messages with Vũ Tri Thu (vu_tri_thu) and repeats his father's talk of breaking the Compact word for word.",
+   "ties": [
+    {
+     "to": "dinh_thu_hoang",
+     "kind": "parent",
+     "note": "his father and master"
+    },
+    {
+     "to": "vu_tri_thu",
+     "kind": "friend",
+     "note": "the other runner"
+    }
+   ],
+   "master": "dinh_thu_hoang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth armour."
+    }
+   }
+  },
+  {
+   "key": "tieu_vong_hoi",
+   "name_hv": "Tiêu Vọng Hôi",
+   "name_han": "蕭望灰",
+   "gloss": "Watching the grey",
+   "sex": "F",
+   "born": 1177,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 223,
+   "birthplace": 507,
+   "role": "Outer disciple posted to the Miasma Watch",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 44,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Patient",
+     "Reclusive"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Thu Tân shore girl who walks the miasma's edge behind Hàm Tú Sa (ham_tu_sa) and marks with stones where the grey moved each night; it has moved toward the old seat this year.",
+   "ties": [
+    {
+     "to": "ham_tu_sa",
+     "kind": "master",
+     "note": "the scout"
+    }
+   ],
+   "master": "ham_tu_sa",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth wards."
+    }
+   }
+  },
+  {
+   "key": "truong_ngan_cau",
+   "name_hv": "Trương Ngân Câu",
+   "name_han": "張銀鉤",
+   "gloss": "Silver hook",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 207,
+   "birthplace": 525,
+   "role": "Outer disciple at the Long River vein",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "thuy": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Paranoid",
+     "Honest"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Trương Vọng Thành's (truong_vong_thanh) granddaughter, who counts Thính Vũ's lamps beside him and has begun to count the gaps where a lamp should be.",
+   "ties": [
+    {
+     "to": "truong_vong_thanh",
+     "kind": "grandparent",
+     "note": "her grandfather and master"
+    }
+   ],
+   "master": "truong_vong_thanh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth wards."
+    }
+   }
+  },
+  {
+   "key": "ngu_hoa_lien",
+   "name_hv": "Ngũ Hỏa Liên",
+   "name_han": "伍火蓮",
+   "gloss": "Fire lotus",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "lac_ha",
+   "rank": "tap_dich",
+   "home": 39,
+   "birthplace": 39,
+   "role": "Works the bellows of the armoury at Tử Điện Thành (servant)",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 44,
+     "kim": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Brave",
+     "Fickle"
+    ],
+    "calling": "Refiner",
+    "upbringing": "servant_born"
+   },
+   "backstory": "A Tử Điện dock girl who works the bellows beside Cổ Tiểu Thiết (co_tieu_thiet) and is the only one he told about the sword's hum.",
+   "ties": [
+    {
+     "to": "vuu_chuoc_kim",
+     "kind": "master",
+     "note": "the armourer"
+    },
+    {
+     "to": "co_tieu_thiet",
+     "kind": "friend",
+     "note": "the forge boy"
+    }
+   ],
+   "master": "vuu_chuoc_kim",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_hoa",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire health."
+    }
+   },
+   "exception": "servant (tạp dịch) of the armoury: a Fire-Metal root the lineage cannot take (R2)"
+  },
+  {
+   "key": "khuc_tich_ba",
+   "name_hv": "Khúc Tịch Ba",
+   "name_han": "曲夕波",
+   "gloss": "Evening wave",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 4,
+   "birthplace": 130,
+   "role": "Outer disciple; rows for her grandfather the isle's ferryman",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Brave",
+     "Stubborn"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Khúc Lão Điếu's (khuc_lao_dieu) granddaughter, who rows the elders to Tịch Chiếu Đảo with him on rest days and has promised Bồ Tiểu Lô (bo_tieu_lo) the second oar on the keeper's last row.",
+   "ties": [
+    {
+     "to": "khuc_lao_dieu",
+     "kind": "grandparent",
+     "note": "her grandfather"
+    },
+    {
+     "to": "bo_tieu_lo",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood linh lực."
+    }
+   }
+  },
+  {
+   "key": "chuong_hoang_sa",
+   "name_hv": "Chương Hoàng Sa",
+   "name_han": "章黃沙",
+   "gloss": "Yellow sand",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 4,
+   "birthplace": 530,
+   "role": "Outer disciple from Hà Khúc; likely to pass the dusk test",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 47,
+     "kim": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Patient",
+     "Humble"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A well-digger's son from Hà Khúc whose palms held the glow to full dark at his first try; Thường Thủ Hà (thuong_thu_ha) has told him not to boast of it to the river children.",
+   "ties": [
+    {
+     "to": "thuong_thu_ha",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "xa_tieu_ho",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "luc_tieu_tinh",
+     "kind": "friend",
+     "note": "outer disciple from Liên Chu; a well-digger's daughter"
+    }
+   ],
+   "master": "thuong_thu_ha",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth glow."
+    }
+   }
+  },
+  {
+   "key": "kieu_mo_sa",
+   "name_hv": "Kiều Mộ Sa",
+   "name_han": "喬暮沙",
+   "gloss": "Dusk sand",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 4,
+   "birthplace": 528,
+   "role": "Outer disciple from Bạch Dương Thôn",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 39,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Diligent",
+     "Vengeful"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "From the same steppe village as her master Thường Thủ Hà (thuong_thu_ha), she has heard that the examiner fails her own neighbours hardest and practises in the noon sun to prove it.",
+   "ties": [
+    {
+     "to": "thuong_thu_ha",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "thuong_thu_ha",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth glow."
+    }
+   }
+  },
+  {
+   "key": "chung_moc_an",
+   "name_hv": "Chung Mộc Ân",
+   "name_han": "鍾木恩",
+   "gloss": "Wood's grace",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 4,
+   "birthplace": 79,
+   "role": "Outer disciple of Phong Lâm who has failed the dusk test twice",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "thuy": 30,
+     "tho": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Humble",
+     "Loyal"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Phong Lâm maple-tapper's son who has failed the dusk test twice and stands in this spring's Placement Day line beside Tạ Quy Yến (ta_quy_yen), hoping for Bình Thủy Môn.",
+   "ties": [
+    {
+     "to": "ta_quy_yen",
+     "kind": "friend",
+     "note": "from the same town"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood linh lực."
+    }
+   }
+  },
+  {
+   "key": "tao_bach_ma",
+   "name_hv": "Tào Bách Ma",
+   "name_han": "曹百麻",
+   "gloss": "Hundred hemp",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 4,
+   "birthplace": 80,
+   "role": "Outer disciple; a hemp-trader's son whose father priced his buy-out",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Honest",
+     "Generous"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "His father in Tang Ma Thành has already sent the coin to buy out his term, and he has asked Dịch Bách Lý (dich_bach_ly), who buys his father's rope, to keep it from reaching the Hall of Scales.",
+   "ties": [
+    {
+     "to": "dich_bach_ly",
+     "kind": "friend",
+     "note": "the rope steward"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood linh lực."
+    }
+   }
+  },
+  {
+   "key": "luc_tieu_tinh",
+   "name_hv": "Lục Tiểu Tỉnh",
+   "name_han": "陸小井",
+   "gloss": "Little well",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 4,
+   "birthplace": 521,
+   "role": "Outer disciple from Liên Chu; a well-digger's daughter",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 46,
+     "kim": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Content",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Lục Bồng Sa's (luc_bong_sa) niece, a Liên Chu well-digger's daughter, who holds the glow easily and would rather dig a well than sit in the inner gate.",
+   "ties": [
+    {
+     "to": "luc_bong_sa",
+     "kind": "aunt_uncle",
+     "note": "her father's sister"
+    },
+    {
+     "to": "chuong_hoang_sa",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "tuyen_thach_nha",
+     "kind": "friend",
+     "note": "placed from Lạc Hà this spring; weighs ore for the vault book"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth glow."
+    }
+   }
+  },
+  {
+   "key": "au_dau_sinh",
+   "name_hv": "Âu Đẩu Sinh",
+   "name_han": "歐斗生",
+   "gloss": "Born under the Dipper",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 4,
+   "birthplace": 468,
+   "role": "Outer disciple; a herder from Ngưu Đẩu Thôn",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 37,
+     "moc": 33
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Lazy",
+     "Gregarious",
+     "Trusting"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A cattle herder from the island grassland of Ngưu Đẩu, where Hách Ánh Hà was born, he sleeps through the dusk practice when Ngạc Viễn Sơn (ngac_vien_son) is not watching.",
+   "ties": [
+    {
+     "to": "ngac_vien_son",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "hach_than_ha",
+     "kind": "friend",
+     "note": "from his village"
+    }
+   ],
+   "master": "ngac_vien_son",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth and a beast."
+    }
+   }
+  },
+  {
+   "key": "pham_thu_uoc",
+   "name_hv": "Phạm Thủ Ước",
+   "name_han": "范守約",
+   "gloss": "Keeping the pact",
+   "sex": "M",
+   "born": 1173,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 558,
+   "birthplace": 532,
+   "role": "Young inner disciple; the youngest witness on the Hall of Scales' seals",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 53,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Cautious",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "He witnesses the sunset seals for Giản Bình Chương (gian_binh_chuong), and Hình Trọng Sơn's war party has asked him, twice and politely, which oaths the Compact can be said to have broken first.",
+   "ties": [
+    {
+     "to": "gian_binh_chuong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "mong_tieu_thach",
+     "kind": "friend",
+     "note": "from the Watch's villages"
+    }
+   ],
+   "master": "gian_binh_chuong",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "ruin-ledger-scripture",
+      "layer": 1
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth seals."
+    }
+   }
+  },
+  {
+   "key": "nhieu_kim_chau",
+   "name_hv": "Nhiêu Kim Châu",
+   "name_han": "饒金珠",
+   "gloss": "Golden pearl",
+   "sex": "F",
+   "born": 1175,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 51,
+   "birthplace": 51,
+   "role": "Young inner disciple at the trade office of Hạc Đinh Thị",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 47,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Diligent",
+     "Paranoid"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "She can tell a forged Thiên Bảo note by its weight in her palm, and Uông Bình Trù (uong_binh_tru) has her weigh every note Trầm's go-between brings.",
+   "ties": [
+    {
+     "to": "uong_binh_tru",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "phuong_toan_ngoc",
+     "kind": "friend",
+     "note": "the Counting House clerk"
+    }
+   ],
+   "master": "uong_binh_tru",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 3
+    },
+    "aux": [
+     {
+      "tech": "ruin-ledger-scripture",
+      "layer": 1
+     }
+    ],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth ledgers."
+    }
+   }
+  },
+  {
+   "key": "quach_ngan_dang",
+   "name_hv": "Quách Ngân Đăng",
+   "name_han": "郭銀燈",
+   "gloss": "Silver lamp",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lac_ha",
+   "rank": "noi_mon",
+   "home": 558,
+   "birthplace": 560,
+   "role": "Young inner disciple of the Bridge Hall; carries lamps in the galleries",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 48,
+     "kim": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Trusting",
+     "Diligent"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born"
+   },
+   "backstory": "Quách Tiếp Vân's (quach_tiep_van) grand-niece from Vân Gian, who carries the lamps for Hạng Kiều Sinh's (hang_kieu_sinh) gallery crews and has seen the head's locked door with fresh dust on its sill.",
+   "ties": [
+    {
+     "to": "hang_kieu_sinh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "quach_tiep_van",
+     "kind": "aunt_uncle",
+     "note": "her grandfather's brother"
+    },
+    {
+     "to": "mieu_thach_lan",
+     "kind": "friend",
+     "note": "who also noticed the lock"
+    }
+   ],
+   "master": "hang_kieu_sinh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 2
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Ground arrays."
+    }
+   }
+  },
+  {
+   "key": "hua_tra_nuong",
+   "name_hv": "Hứa Trà Nương",
+   "name_han": "許茶娘",
+   "gloss": "The tea girl",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lac_ha",
+   "rank": "tap_dich",
+   "home": 558,
+   "birthplace": 498,
+   "role": "The head's tea servant (servant)",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 36,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Deceitful",
+     "Patient"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "She brewed tea for Tô Vãn Chiếu (to_van_chieu) when the head was a merchant on the river road and carried the same kettle up the mountain in 1185; she hears everything said over it and repeats none of it.",
+   "ties": [
+    {
+     "to": "to_van_chieu",
+     "kind": "friend",
+     "note": "her mistress of seventy years"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_hoa",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire health."
+    }
+   },
+   "exception": "servant (tạp dịch) of the Sunset Hall: a Fire root with Earth under 30 (R2)"
+  },
+  {
+   "key": "tan_tieu_uyen",
+   "name_hv": "Tần Tiểu Uyển",
+   "name_han": "秦小婉",
+   "gloss": "Little gentle one",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "tap_dich",
+   "home": 558,
+   "birthplace": 555,
+   "role": "Serves the guest house on the Cloud Bridge (servant)",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 34,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Deceitful",
+     "Gregarious",
+     "Pragmatic"
+    ],
+    "calling": "Schemer",
+    "upbringing": "servant_born"
+   },
+   "backstory": "A lamp-maker's daughter of Vãn Đăng Thôn who pours for the guests and tells Trì Vãn Hương (tri_van_huong) every word, who tells the envoy.",
+   "ties": [
+    {
+     "to": "tri_van_huong",
+     "kind": "master",
+     "note": "the guest house"
+    }
+   ],
+   "master": "tri_van_huong",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood linh lực."
+    }
+   },
+   "exception": "servant (tạp dịch) of the guest house: taken on as staff, not tested for the gate"
+  },
+  {
+   "key": "nguy_thu_can",
+   "name_hv": "Ngụy Thụ Căn",
+   "name_han": "魏樹根",
+   "gloss": "Tree root",
+   "sex": "M",
+   "born": 1115,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lac_ha",
+   "rank": "tap_dich",
+   "home": 4,
+   "birthplace": 136,
+   "role": "Oils the founder's maple stumps at the old seat (servant)",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 34,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Patient",
+     "Content"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Taken on as a servant boy at ten, before the last maple died in 1131, he has oiled its stump every autumn since and sits with Hồ Tứ Nương (ho_tu_nuong) in the old seat's kitchen.",
+   "ties": [
+    {
+     "to": "ho_tu_nuong",
+     "kind": "friend",
+     "note": "the old seat's cook"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth health."
+    }
+   },
+   "exception": "servant (tạp dịch) of the old seat since childhood; never sat the gate"
+  },
+  {
+   "key": "hach_than_ha",
+   "name_hv": "Hách Thần Hà",
+   "name_han": "郝晨霞",
+   "gloss": "Dawn glow",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 4,
+   "birthplace": 468,
+   "role": "Outer disciple; the envoy's grand-niece",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 42,
+     "moc": 35
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Gregarious",
+     "Arbitrary"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born"
+   },
+   "backstory": "Hách Ánh Hà's (hach_anh_ha) grand-niece from Ngưu Đẩu, named for the dawn to her great-aunt's dusk, who tells the outer gate the envoy will be the next head.",
+   "ties": [
+    {
+     "to": "hach_anh_ha",
+     "kind": "aunt_uncle",
+     "note": "her grandfather's sister"
+    },
+    {
+     "to": "au_dau_sinh",
+     "kind": "friend",
+     "note": "from her village"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth glow."
+    }
+   }
+  },
+  {
+   "key": "ho_dang_son",
+   "name_hv": "Hồ Đăng Sơn",
+   "name_han": "胡登山",
+   "gloss": "Climbing the mountain",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "lac_ha",
+   "rank": "ngoai_mon",
+   "home": 4,
+   "birthplace": 135,
+   "role": "Outer disciple from Tân Khẩu; held the rope at the miasma's edge",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Brave",
+     "Paranoid"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "He held the rope the day Đồ Tiểu Liên's (do_tieu_lien) brother walked into the grey, and felt it go slack; he has asked to go with her when she goes back in.",
+   "ties": [
+    {
+     "to": "do_tieu_lien",
+     "kind": "friend",
+     "note": "from his village"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "evening-dust-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth endurance."
+    }
+   }
+  }
+ ]
+}

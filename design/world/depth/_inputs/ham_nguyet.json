@@ -1,0 +1,1445 @@
+{
+"_doc": "Input slice for the depth writer of ham_nguyet (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "ham_nguyet",
+"name": "Hàm Nguyệt Trang",
+"name_han": "含月莊",
+"gloss": "Manor That Holds the Moon",
+"alignment": "chính đạo",
+"leans": [
+"Water",
+"Ice"
+],
+"craft": "water arts; spirit fish and lake pearls",
+"lord": "tung_dao",
+"region": 1,
+"seat": 8,
+"kind": "minor"
+},
+"start_state": {
+"key": "ham_nguyet",
+"name": "Hàm Nguyệt Trang",
+"name_han": "含月莊",
+"gloss": "Manor That Holds the Moon",
+"kind": "minor",
+"alignment": "chinh",
+"leans": [
+"Water",
+"Ice"
+],
+"seat": 8,
+"levels": {
+"holdings": 4,
+"institutions": 2,
+"military": 2,
+"trade": 3
+},
+"treasury": 7000,
+"founded": 410,
+"specialty": "phap_tu",
+"lord": "tung_dao",
+"loyalty": 65,
+"craft": "water arts; spirit fish and lake pearls",
+"region": 1,
+"leader": "kieu_nguyet_chau"
+},
+"lord": "tung_dao",
+"vassals": [],
+"seat": {
+"id": 8,
+"name": "Hàm Nguyệt Trang",
+"gloss": "",
+"kind": "minor_seat",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.09,
+"qi": {
+"moc": 42,
+"hoa": 10,
+"tho": 15,
+"kim": 9,
+"thuy": 25
+},
+"variants": {},
+"density": 1.41,
+"note": ""
+},
+"seat_audit": "## MOVE Hàm Nguyệt Trang (ham_nguyet; leans Water/Ice)\nSeat: Hàm Nguyệt Trang (id 8, minor_seat, region 1, temperate forest), density 1.41\nSeat qi: Water 25%, Ice 0\nCandidates: none in its own ground; re-lean the sect to its land, or move it to a fitting place nearby (see rules-proposals R4).\n",
+"ground": [
+{
+"id": 8,
+"name": "Hàm Nguyệt Trang",
+"gloss": "",
+"kind": "minor_seat",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.09,
+"qi": {
+"moc": 42,
+"hoa": 10,
+"tho": 15,
+"kim": 9,
+"thuy": 25
+},
+"variants": {},
+"density": 1.41,
+"note": ""
+},
+{
+"id": 260,
+"name": "Trầm Bích Đàm",
+"gloss": "Pool of the Sunken Jade Disc",
+"kind": "lake",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 42,
+"hoa": 9,
+"tho": 13,
+"kim": 8,
+"thuy": 28
+},
+"variants": {},
+"density": 1.37,
+"note": ""
+},
+{
+"id": 957,
+"name": "Tà Dương Trấn",
+"gloss": "Slanting Sun Town",
+"kind": "ruin",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.33,
+"qi": {
+"moc": 60,
+"hoa": 9,
+"tho": 11,
+"kim": 7,
+"thuy": 13
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 964,
+"name": "Dịch Lộ Trấn",
+"gloss": "Post Road Town",
+"kind": "ruin",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.51,
+"qi": {
+"moc": 60,
+"hoa": 9,
+"tho": 11,
+"kim": 7,
+"thuy": 13
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 961,
+"name": "Lãnh Hương Viện",
+"gloss": "Academy of the Cold Fragrance",
+"kind": "ruin",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.2,
+"qi": {
+"moc": 53,
+"hoa": 10,
+"tho": 13,
+"kim": 9,
+"thuy": 16
+},
+"variants": {},
+"density": 1.26,
+"note": ""
+},
+{
+"id": 956,
+"name": "Bàn Căn Lâm",
+"gloss": "Forest of Coiled Roots",
+"kind": "forest",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.33,
+"qi": {
+"moc": 60,
+"hoa": 9,
+"tho": 11,
+"kim": 7,
+"thuy": 13
+},
+"variants": {},
+"density": 1.24,
+"note": ""
+},
+{
+"id": 963,
+"name": "Tông Hùng Nhai",
+"gloss": "Brown Bear Crag",
+"kind": "beast_lair",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.47,
+"qi": {
+"moc": 59,
+"hoa": 9,
+"tho": 11,
+"kim": 7,
+"thuy": 13
+},
+"variants": {},
+"density": 1.24,
+"note": ""
+},
+{
+"id": 200,
+"name": "Phản Cảnh Lâm",
+"gloss": "Forest of the Returning Light",
+"kind": "forest",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.18,
+"qi": {
+"moc": 59,
+"hoa": 9,
+"tho": 11,
+"kim": 7,
+"thuy": 13
+},
+"variants": {},
+"density": 1.22,
+"note": "Vương Duy, Lộc Trại: phản cảnh nhập thâm lâm (the evening light comes back into the deep forest); the heart of the northern forest"
+},
+{
+"id": 947,
+"name": "Thính Tùng Lâm",
+"gloss": "Wood Where One Listens to the Pines",
+"kind": "forest",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.18,
+"qi": {
+"moc": 56,
+"hoa": 10,
+"tho": 12,
+"kim": 8,
+"thuy": 14
+},
+"variants": {},
+"density": 1.18,
+"note": ""
+},
+{
+"id": 922,
+"name": "Điêu Bì Trấn",
+"gloss": "Sable Fur Town",
+"kind": "ruin",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.2,
+"qi": {
+"moc": 44,
+"hoa": 11,
+"tho": 15,
+"kim": 10,
+"thuy": 20
+},
+"variants": {},
+"density": 1.18,
+"note": ""
+},
+{
+"id": 948,
+"name": "Sương Tùng Các",
+"gloss": "Pavilion of the Frosted Pines",
+"kind": "minor_seat",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.25,
+"qi": {
+"moc": 58,
+"hoa": 9,
+"tho": 11,
+"kim": 8,
+"thuy": 14
+},
+"variants": {},
+"density": 1.17,
+"note": ""
+},
+{
+"id": 943,
+"name": "Nghênh Nguyệt Trấn",
+"gloss": "Town That Greets the Moon",
+"kind": "ruin",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.05,
+"qi": {
+"moc": 25,
+"hoa": 10,
+"tho": 12,
+"kim": 10,
+"thuy": 43
+},
+"variants": {},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 261,
+"name": "Cựu Châu Trấn",
+"gloss": "Old Pearl Town",
+"kind": "ruin",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.05,
+"qi": {
+"moc": 35,
+"hoa": 10,
+"tho": 15,
+"kim": 10,
+"thuy": 30
+},
+"variants": {},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 190,
+"name": "Hạo Nguyệt Hồ",
+"gloss": "Lake of the Bright Moon",
+"kind": "lake",
+"region": 1,
+"biome": "lake",
+"elev_km": -0.04,
+"qi": {
+"moc": 40,
+"hoa": 7,
+"tho": 11,
+"kim": 6,
+"thuy": 36
+},
+"variants": {},
+"density": 1.14,
+"note": "The long lake of Lãnh Nguyệt Lâm, the biggest on the continent; Hàm Nguyệt Trang holds its moon"
+},
+{
+"id": 931,
+"name": "Lạc Diệp Lâm",
+"gloss": "Forest of Falling Needles",
+"kind": "forest",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.14,
+"qi": {
+"moc": 54,
+"hoa": 10,
+"tho": 13,
+"kim": 8,
+"thuy": 15
+},
+"variants": {},
+"density": 1.14,
+"note": ""
+},
+{
+"id": 960,
+"name": "U Thúy Lâm",
+"gloss": "Shadowed Green Forest",
+"kind": "forest",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.1,
+"qi": {
+"moc": 52,
+"hoa": 10,
+"tho": 13,
+"kim": 9,
+"thuy": 16
+},
+"variants": {},
+"density": 1.12,
+"note": ""
+},
+{
+"id": 935,
+"name": "Hàn Kính Hồ",
+"gloss": "Cold Mirror Lake",
+"kind": "lake",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 41,
+"hoa": 8,
+"tho": 11,
+"kim": 7,
+"thuy": 33
+},
+"variants": {},
+"density": 1.12,
+"note": ""
+},
+{
+"id": 939,
+"name": "Tàng Châu Đàm",
+"gloss": "Pool of Hidden Pearls",
+"kind": "lake",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.02,
+"qi": {
+"moc": 42,
+"hoa": 8,
+"tho": 12,
+"kim": 7,
+"thuy": 31
+},
+"variants": {},
+"density": 1.12,
+"note": ""
+},
+{
+"id": 933,
+"name": "Tẩy Nguyệt Đàm",
+"gloss": "Moon-Washing Pool",
+"kind": "lake",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.02,
+"qi": {
+"moc": 41,
+"hoa": 8,
+"tho": 12,
+"kim": 7,
+"thuy": 32
+},
+"variants": {},
+"density": 1.12,
+"note": ""
+},
+{
+"id": 927,
+"name": "Vạn Tùng Lâm",
+"gloss": "Forest of Ten Thousand Pines",
+"kind": "forest",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.07,
+"qi": {
+"moc": 44,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 22
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+{
+"id": 973,
+"name": "Cự Thỉ Cương",
+"gloss": "Giant Boar Knoll",
+"kind": "beast_lair",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.07,
+"qi": {
+"moc": 42,
+"hoa": 10,
+"tho": 16,
+"kim": 10,
+"thuy": 22
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+{
+"id": 950,
+"name": "Vân Sam Lâm",
+"gloss": "Spruce Forest",
+"kind": "forest",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.12,
+"qi": {
+"moc": 51,
+"hoa": 10,
+"tho": 13,
+"kim": 9,
+"thuy": 17
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 945,
+"name": "Tuyết Tùng Lâm",
+"gloss": "Snow Cedar Forest",
+"kind": "forest",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 39,
+"hoa": 11,
+"tho": 14,
+"kim": 10,
+"thuy": 27
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 390,
+"name": "Bách Điểu Lâm",
+"gloss": "Forest of a Hundred Birds",
+"kind": "forest",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.05,
+"qi": {
+"moc": 41,
+"hoa": 11,
+"tho": 14,
+"kim": 10,
+"thuy": 25
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 958,
+"name": "Sơn Ổ Thôn",
+"gloss": "Hill Hollow Village",
+"kind": "village",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.18,
+"qi": {
+"moc": 60,
+"hoa": 9,
+"tho": 11,
+"kim": 7,
+"thuy": 13
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 965,
+"name": "Phong Khẩu Thôn",
+"gloss": "Wind Gap Village",
+"kind": "village",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.21,
+"qi": {
+"moc": 60,
+"hoa": 9,
+"tho": 11,
+"kim": 7,
+"thuy": 13
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 929,
+"name": "Tố Hoa Lâm",
+"gloss": "Plain Birch Wood",
+"kind": "forest",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 46,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 21
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 942,
+"name": "Sơn Miêu Cương",
+"gloss": "Lynx Knoll",
+"kind": "beast_lair",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.03,
+"qi": {
+"moc": 39,
+"hoa": 11,
+"tho": 14,
+"kim": 10,
+"thuy": 27
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 975,
+"name": "Kim Điêu Đài",
+"gloss": "Golden Eagle Terrace",
+"kind": "beast_lair",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.08,
+"qi": {
+"moc": 33,
+"hoa": 10,
+"tho": 14,
+"kim": 9,
+"thuy": 34
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 971,
+"name": "Tuyết Áp Lâm",
+"gloss": "Snow-Bowed Forest",
+"kind": "forest",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.21,
+"qi": {
+"moc": 36,
+"hoa": 10,
+"tho": 18,
+"kim": 11,
+"thuy": 25
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 952,
+"name": "Hồng Tùng Lâm",
+"gloss": "Red Pine Forest",
+"kind": "forest",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.05,
+"qi": {
+"moc": 45,
+"hoa": 10,
+"tho": 13,
+"kim": 8,
+"thuy": 23
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 921,
+"name": "Quần Lang Lâm",
+"gloss": "Forest of the Wolf Packs",
+"kind": "beast_lair",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 26,
+"hoa": 8,
+"tho": 20,
+"kim": 11,
+"thuy": 36
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 925,
+"name": "Dạ Kiêu Lâm",
+"gloss": "Night Owl Forest",
+"kind": "beast_lair",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.1,
+"qi": {
+"moc": 41,
+"hoa": 10,
+"tho": 14,
+"kim": 9,
+"thuy": 27
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 444,
+"name": "Tuyết Báo Cương",
+"gloss": "Snow Leopard Knoll",
+"kind": "beast_lair",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.07,
+"qi": {
+"moc": 27,
+"hoa": 9,
+"tho": 15,
+"kim": 10,
+"thuy": 39
+},
+"variants": {},
+"density": 1.03,
+"note": ""
+},
+{
+"id": 949,
+"name": "Tùng Kiều Thôn",
+"gloss": "Pine Bridge Village",
+"kind": "village",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.06,
+"qi": {
+"moc": 52,
+"hoa": 8,
+"tho": 10,
+"kim": 7,
+"thuy": 23
+},
+"variants": {},
+"density": 1.02,
+"note": ""
+},
+{
+"id": 938,
+"name": "Liệp Hộ Thôn",
+"gloss": "Hunters' Village",
+"kind": "village",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.13,
+"qi": {
+"moc": 57,
+"hoa": 9,
+"tho": 12,
+"kim": 8,
+"thuy": 14
+},
+"variants": {},
+"density": 1.0,
+"note": ""
+},
+{
+"id": 959,
+"name": "Hệ Bì Thôn",
+"gloss": "Bark-Tying Village",
+"kind": "village",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.12,
+"qi": {
+"moc": 53,
+"hoa": 9,
+"tho": 11,
+"kim": 7,
+"thuy": 20
+},
+"variants": {},
+"density": 1.0,
+"note": ""
+},
+{
+"id": 934,
+"name": "Nguyệt Tân Trấn",
+"gloss": "Moon Ferry Town",
+"kind": "town",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.05,
+"qi": {
+"moc": 48,
+"hoa": 8,
+"tho": 11,
+"kim": 7,
+"thuy": 26
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 932,
+"name": "Thán Diêu Thôn",
+"gloss": "Charcoal Kiln Village",
+"kind": "village",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.13,
+"qi": {
+"moc": 54,
+"hoa": 10,
+"tho": 13,
+"kim": 8,
+"thuy": 15
+},
+"variants": {},
+"density": 0.96,
+"note": ""
+},
+{
+"id": 968,
+"name": "Bắc Minh Quán",
+"gloss": "Abbey of the Northern Dark",
+"kind": "ruin",
+"region": 1,
+"biome": "tundra",
+"elev_km": 0.04,
+"qi": {
+"moc": 11,
+"hoa": 8,
+"tho": 18,
+"kim": 12,
+"thuy": 51
+},
+"variants": {},
+"density": 0.96,
+"note": ""
+},
+{
+"id": 940,
+"name": "Phóng Phiệt Thôn",
+"gloss": "Raft-Launch Village",
+"kind": "village",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.03,
+"qi": {
+"moc": 45,
+"hoa": 8,
+"tho": 11,
+"kim": 7,
+"thuy": 29
+},
+"variants": {},
+"density": 0.95,
+"note": ""
+},
+{
+"id": 977,
+"name": "Độc Thiềm Chử",
+"gloss": "Poison Toad Shoals",
+"kind": "beast_lair",
+"region": 1,
+"biome": "swamp",
+"elev_km": 0.04,
+"qi": {
+"moc": 22,
+"hoa": 7,
+"tho": 15,
+"kim": 9,
+"thuy": 47
+},
+"variants": {},
+"density": 0.95,
+"note": ""
+},
+{
+"id": 962,
+"name": "Song Thụ Thôn",
+"gloss": "Twin Trees Village",
+"kind": "village",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.07,
+"qi": {
+"moc": 49,
+"hoa": 10,
+"tho": 12,
+"kim": 8,
+"thuy": 21
+},
+"variants": {},
+"density": 0.93,
+"note": ""
+},
+{
+"id": 955,
+"name": "Tùng Tử Thôn",
+"gloss": "Pine Nut Village",
+"kind": "village",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.24,
+"qi": {
+"moc": 48,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 18
+},
+"variants": {},
+"density": 0.91,
+"note": ""
+},
+{
+"id": 936,
+"name": "Sái Võng Thôn",
+"gloss": "Net-Drying Village",
+"kind": "village",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.02,
+"qi": {
+"moc": 43,
+"hoa": 10,
+"tho": 13,
+"kim": 8,
+"thuy": 25
+},
+"variants": {},
+"density": 0.91,
+"note": ""
+},
+{
+"id": 930,
+"name": "Hồi Lưu Thôn",
+"gloss": "Backwater Village",
+"kind": "village",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.0,
+"qi": {
+"moc": 39,
+"hoa": 9,
+"tho": 12,
+"kim": 8,
+"thuy": 32
+},
+"variants": {},
+"density": 0.9,
+"note": ""
+},
+{
+"id": 953,
+"name": "Hồ Khẩu Thôn",
+"gloss": "Lake Mouth Village",
+"kind": "village",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 43,
+"hoa": 8,
+"tho": 12,
+"kim": 7,
+"thuy": 30
+},
+"variants": {},
+"density": 0.9,
+"note": ""
+},
+{
+"id": 937,
+"name": "Thúy Cái Mạch",
+"gloss": "Vein of the Green Canopy",
+"kind": "spirit_vein",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.18,
+"qi": {
+"moc": 58,
+"hoa": 9,
+"tho": 12,
+"kim": 8,
+"thuy": 14
+},
+"variants": {},
+"density": 0.89,
+"note": ""
+},
+{
+"id": 951,
+"name": "Thạch Than Thôn",
+"gloss": "Stony Shallows Village",
+"kind": "village",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.06,
+"qi": {
+"moc": 47,
+"hoa": 9,
+"tho": 12,
+"kim": 8,
+"thuy": 24
+},
+"variants": {},
+"density": 0.89,
+"note": ""
+},
+{
+"id": 924,
+"name": "Tùng Chi Thôn",
+"gloss": "Pine Resin Village",
+"kind": "village",
+"region": 1,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 40,
+"hoa": 10,
+"tho": 16,
+"kim": 10,
+"thuy": 24
+},
+"variants": {},
+"density": 0.87,
+"note": ""
+}
+],
+"ground_place_count": 70,
+"events": [
+{
+"id": "A001",
+"tier": "annal",
+"year": 45,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Fishers on the long lake say that five years ago they saw a man walk over the water into the moon; they build a shrine on the shore.",
+"place": 190,
+"region": 1
+},
+{
+"id": "A002",
+"tier": "annal",
+"year": 140,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Reindeer herders settle on the lake's snowy north shore; their camp becomes Tuyết Lộc Thôn.",
+"place": 95,
+"region": 1
+},
+{
+"id": "A003",
+"tier": "annal",
+"year": 215,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "A winter so cold that smoke freezes above the chimneys gives Hàn Yên Thôn its name.",
+"place": 96,
+"region": 1
+},
+{
+"id": "A004",
+"tier": "annal",
+"year": 300,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Birds return to the lake each autumn in such numbers that the traders' camp on the shore is called Quy Điểu.",
+"place": 55,
+"region": 1
+},
+{
+"id": "V001",
+"tier": "annal",
+"year": 332,
+"kind": "tale",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "Two years after Tùng Đào comes north, the last hermits of Bắc Minh Quán go to the palace and leave their abbey on the northern shore empty.",
+"place": 968,
+"region": 1
+},
+{
+"id": "A005",
+"tier": "annal",
+"year": 345,
+"kind": "settlement",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "Tùng Đào's first steward of the north builds warm stone houses for the lake villages; the hamlet beside them is still called Noãn Ốc.",
+"place": 97,
+"region": 1
+},
+{
+"id": "A006",
+"tier": "annal",
+"year": 410,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"ham_nguyet",
+"tung_dao"
+],
+"text_en": "A water cultivator founds Hàm Nguyệt Trang on the long lake, saying the moon in the lake is easier to catch than the one in the sky.",
+"place": 8,
+"region": 1
+},
+{
+"id": "A007",
+"tier": "annal",
+"year": 470,
+"kind": "trade",
+"people": [],
+"sects": [
+"ham_nguyet"
+],
+"text_en": "A fisher of Tuyết Lộc pulls a pearl the size of a fist from Hạo Nguyệt Hồ; Hàm Nguyệt Trang buys it and begins to farm pearls.",
+"place": 190,
+"region": 1
+},
+{
+"id": "A008",
+"tier": "annal",
+"year": 530,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The evening light lingers so long in the heart of Phản Cảnh Lâm that lost travellers walk by it until dawn; the forest takes its name.",
+"place": 200,
+"region": 1
+},
+{
+"id": "A009",
+"tier": "annal",
+"year": 610,
+"kind": "beast",
+"people": [],
+"sects": [
+"ham_nguyet"
+],
+"text_en": "A snow-leopard spirit beast takes a child from Hàn Yên Thôn; Hàm Nguyệt Trang's disciples track it for forty days across the ice.",
+"place": 96,
+"region": 1
+},
+{
+"id": "C146",
+"tier": "landmark",
+"year": 748,
+"kind": "tale",
+"people": [],
+"sects": [
+"ham_nguyet"
+],
+"text_en": "Hạo Nguyệt Hồ freezes to its bed for one winter; the spirit fish of Hàm Nguyệt Trang live through it in the moon's reflection.",
+"place": 190
+},
+{
+"id": "V002",
+"tier": "annal",
+"year": 749,
+"kind": "city_abandoned",
+"people": [],
+"sects": [
+"ham_nguyet"
+],
+"text_en": "The lake froze to its bed last winter and killed the pearl beds of Cựu Châu Trấn; its people move to Hàm Nguyệt Trang's shore.",
+"place": 261,
+"region": 1
+},
+{
+"id": "A011",
+"tier": "annal",
+"year": 820,
+"kind": "trade",
+"people": [],
+"sects": [],
+"text_en": "Trade in lake pearls makes Quy Điểu Trấn rich; its market is held on the ice every winter.",
+"place": 55,
+"region": 1
+},
+{
+"id": "V003",
+"tier": "annal",
+"year": 868,
+"kind": "city_abandoned",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "With the lake road along the water finished, the old hill road is given up, and the post town of Dịch Lộ Trấn stands empty.",
+"place": 964,
+"region": 1
+},
+{
+"id": "A012",
+"tier": "annal",
+"year": 870,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Hunters find footprints in the snow leading into Phản Cảnh Lâm and never out; no one follows them.",
+"place": 200,
+"region": 1
+},
+{
+"id": "V004",
+"tier": "annal",
+"year": 890,
+"kind": "tale",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "The last master of Lãnh Hương Viện dies in seclusion with no heir named; Tùng Đào takes in the incense makers, and their herbs grow on alone.",
+"place": 961,
+"region": 1
+},
+{
+"id": "C170",
+"tier": "landmark",
+"year": 940,
+"kind": "war_start",
+"people": [
+"dam_tung_lai",
+"tan_ngung_suong"
+],
+"sects": [
+"tung_dao",
+"bang_tam"
+],
+"text_en": "Tùng Đào Cung and Băng Tâm Các go to war over Hạo Nguyệt Hồ and its pearls.",
+"place": 190,
+"war": "long_lake"
+},
+{
+"id": "A013",
+"tier": "annal",
+"year": 942,
+"kind": "raid",
+"people": [],
+"sects": [
+"bang_tam",
+"ham_nguyet"
+],
+"text_en": "In the Long Lake War, Băng Tâm skiffs raid the pearl beds of Hàm Nguyệt Trang; the manor sinks its own boats rather than lose them.",
+"place": 8,
+"region": 1
+},
+{
+"id": "C171",
+"tier": "landmark",
+"year": 944,
+"kind": "war_end",
+"people": [
+"do_tinh_ha",
+"dam_tung_lai",
+"tan_ngung_suong"
+],
+"sects": [
+"thien_xu",
+"tung_dao",
+"bang_tam"
+],
+"text_en": "Đỗ Tinh Hà arbitrates the Long Lake War: the lake stays Tùng Đào's, and Băng Tâm may fish its northern shore.",
+"place": 190,
+"war": "long_lake",
+"judgement": true
+},
+{
+"id": "A014",
+"tier": "annal",
+"year": 1015,
+"kind": "discovery",
+"people": [],
+"sects": [],
+"text_en": "A hot spring is found under the snow at Noãn Ốc; old cultivators come to soak their bones every winter.",
+"place": 97,
+"region": 1
+},
+{
+"id": "V005",
+"tier": "annal",
+"year": 1022,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "The sables are trapped out of the hills, and the last fur traders leave Điêu Bì Trấn for the lake towns.",
+"place": 922,
+"region": 1
+},
+{
+"id": "V006",
+"tier": "annal",
+"year": 1033,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "A spring storm drives the breaking ice ashore in a wall, flattening the harbour and half of Nghênh Nguyệt Trấn; its people never rebuild.",
+"place": 943,
+"region": 1
+},
+{
+"id": "V007",
+"tier": "annal",
+"year": 1060,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"suong_tung",
+"tung_dao"
+],
+"text_en": "Talisman makers sworn to Tùng Đào found Sương Tùng Các in the high pines and write their wards on paper of birch bark and resin.",
+"place": 948,
+"region": 1
+},
+{
+"id": "V008",
+"tier": "annal",
+"year": 1104,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "In the long rains the hillside under Tà Dương Trấn slides away and buries half the town in a night; the rest is left.",
+"place": 957,
+"region": 1
+},
+{
+"id": "A015",
+"tier": "annal",
+"year": 1150,
+"kind": "headship",
+"people": [
+"kieu_nguyet_chau"
+],
+"sects": [
+"ham_nguyet"
+],
+"text_en": "Kiều Nguyệt Châu becomes mistress of Hàm Nguyệt Trang and doubles the pearl harvest within twenty years.",
+"place": 8,
+"region": 1
+},
+{
+"id": "A016",
+"tier": "annal",
+"year": 1192,
+"kind": "omen",
+"people": [],
+"sects": [],
+"text_en": "A white moon-fox is seen on the lake three nights running; the villagers say a blessed land is waking somewhere in the north.",
+"place": 190,
+"region": 1
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "kieu_nguyet_chau",
+"name": "Kiều Nguyệt Châu",
+"name_han": "喬月珠",
+"gloss": "Moon pearl",
+"sex": "F",
+"born": 870,
+"alive": true,
+"sect": "ham_nguyet",
+"rank": "tong_chu",
+"role": "Mistress of Hàm Nguyệt Trang, water arts, spirit fish and lake pearls",
+"realm": "ket_dan",
+"home": 8,
+"traits": {
+"personality": [
+"Calm",
+"Greedy",
+"Gregarious"
+],
+"calling": "Steward",
+"fate_given": []
+},
+"vassal_of": "tung_dao",
+"build": {
+"root": {
+"elements": {
+"thuy": 78
+},
+"variants": {
+"bang": 40
+}
+},
+"thien_phu": {
+"ngo_tinh": 66,
+"can_cot": 54,
+"than_hon": 64,
+"khi_van": 72,
+"dao_tam": 58,
+"mi_luc": 74
+},
+"archetype": "phap_tu",
+"stage": 1,
+"main": {
+"tech": "dia_thuy",
+"layer": 8
+},
+"aux": [
+{
+"tech": "undertow-litany",
+"layer": 6
+}
+],
+"gear": [
+{
+"named": "water-moon-well-pendant"
+},
+{
+"base": "chuong",
+"grade": 3,
+"element": "thuy"
+},
+{
+"base": "dao_bao",
+"grade": 3,
+"element": "thuy"
+}
+],
+"tree": {
+"start": "thuy",
+"targets": [
+4907,
+5289,
+4940,
+5012,
+4978
+]
+},
+"skills": {
+"linh_thuc": 4
+},
+"note": "The pearl mistress of the moon lake: tide-and-moon Water arts and a nose for every pearl and fortune in the water"
+}
+}
+],
+"legendary_items": []
+}

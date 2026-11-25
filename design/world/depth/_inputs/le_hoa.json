@@ -1,0 +1,1478 @@
+{
+"_doc": "Input slice for the depth writer of le_hoa (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "le_hoa",
+"name": "Lê Hoa Am",
+"name_han": "梨花庵",
+"gloss": "Hermitage of the Pear Blossom",
+"alignment": "chính đạo",
+"leans": [
+"Ice",
+"Water"
+],
+"craft": "ice cultivation; a hermitage near the ice fields",
+"lord": "bang_tam",
+"region": 7,
+"seat": 15,
+"kind": "minor"
+},
+"start_state": {
+"key": "le_hoa",
+"name": "Lê Hoa Am",
+"name_han": "梨花庵",
+"gloss": "Hermitage of the Pear Blossom",
+"kind": "minor",
+"alignment": "chinh",
+"leans": [
+"Ice",
+"Water"
+],
+"seat": 15,
+"levels": {
+"holdings": 3,
+"institutions": 4,
+"military": 2,
+"trade": 2
+},
+"treasury": 7000,
+"founded": 600,
+"specialty": "kiem_tu",
+"lord": "bang_tam",
+"loyalty": 65,
+"craft": "ice cultivation; a hermitage near the ice fields",
+"region": 7,
+"leader": "thai_le_tuyet"
+},
+"lord": "bang_tam",
+"vassals": [],
+"seat": {
+"id": 15,
+"name": "Lê Hoa Am",
+"gloss": "",
+"kind": "minor_seat",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.68,
+"qi": {
+"moc": 9,
+"hoa": 10,
+"tho": 27,
+"kim": 42,
+"thuy": 13
+},
+"variants": {},
+"density": 1.63,
+"note": ""
+},
+"seat_audit": "## MOVE Lê Hoa Am (le_hoa; leans Ice/Water)\nSeat: Lê Hoa Am (id 15, minor_seat, region 7, high mountain), density 1.63\nSeat qi: Ice 0, Water 13%\nCandidates:\n- Băng Trụ Phong (id 1362, peak, region 7, glacier, elev 0.32 km): Ice 40, Water 67%; density 0.77\n- Phong Tuyết Đỉnh (id 1392, peak, region 7, glacier, elev 0.77 km): Ice 40, Water 67%; density 0.77\n- Băng Bích Nhai (id 1393, peak, region 7, glacier, elev 0.43 km): Ice 40, Water 66%; density 0.77\n- Hồ Thiên Phái (id 214, ruin, region 7, tundra, elev 0.00 km): Ice 22, Water 61%; density 1.02\n- Hàn Giao Chử (id 239, beast_lair, region 7, tundra, elev 0.09 km): Ice 14, Water 59%; density 1.00\n",
+"ground": [
+{
+"id": 209,
+"name": "Băng Phách Mạch",
+"gloss": "Vein of the Ice Soul",
+"kind": "spirit_vein",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.78,
+"qi": {
+"moc": 8,
+"hoa": 10,
+"tho": 26,
+"kim": 39,
+"thuy": 17
+},
+"variants": {
+"loi": 65.5
+},
+"density": 1.79,
+"note": "Băng phách, the ice soul, is an old name for the moon. Under the ice mountains of Ngọc Hồ Sơn, within reach of the storm peaks."
+},
+{
+"id": 1359,
+"name": "Vọng Triều Bảo",
+"gloss": "Tide-Watching Fort",
+"kind": "ruin",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.67,
+"qi": {
+"moc": 8,
+"hoa": 10,
+"tho": 18,
+"kim": 26,
+"thuy": 38
+},
+"variants": {},
+"density": 1.77,
+"note": ""
+},
+{
+"id": 1387,
+"name": "Khuy Tinh Bảo",
+"gloss": "Star-Peering Fort",
+"kind": "ruin",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 1.83,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 28,
+"kim": 44,
+"thuy": 11
+},
+"variants": {},
+"density": 1.74,
+"note": ""
+},
+{
+"id": 1374,
+"name": "Băng Kỳ Phong",
+"gloss": "Ice Banner Peak",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.38,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 26,
+"kim": 43,
+"thuy": 14
+},
+"variants": {
+"loi": 10.6
+},
+"density": 1.73,
+"note": ""
+},
+{
+"id": 1386,
+"name": "Hàn Tinh Phong",
+"gloss": "Cold Star Peak",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.75,
+"qi": {
+"moc": 5,
+"hoa": 11,
+"tho": 29,
+"kim": 45,
+"thuy": 10
+},
+"variants": {},
+"density": 1.71,
+"note": ""
+},
+{
+"id": 1390,
+"name": "Lang Yên Bảo",
+"gloss": "Wolf-Smoke Fort",
+"kind": "ruin",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 1.3,
+"qi": {
+"moc": 6,
+"hoa": 9,
+"tho": 26,
+"kim": 49,
+"thuy": 9
+},
+"variants": {},
+"density": 1.64,
+"note": ""
+},
+{
+"id": 15,
+"name": "Lê Hoa Am",
+"gloss": "",
+"kind": "minor_seat",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.68,
+"qi": {
+"moc": 9,
+"hoa": 10,
+"tho": 27,
+"kim": 42,
+"thuy": 13
+},
+"variants": {},
+"density": 1.63,
+"note": ""
+},
+{
+"id": 1373,
+"name": "Băng Tinh Quật",
+"gloss": "Ice Crystal Cavern",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.86,
+"qi": {
+"moc": 9,
+"hoa": 10,
+"tho": 27,
+"kim": 41,
+"thuy": 13
+},
+"variants": {
+"loi": 14.9
+},
+"density": 1.62,
+"note": ""
+},
+{
+"id": 1358,
+"name": "Kình Bối Phong",
+"gloss": "Whale-Back Peak",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 1.58,
+"qi": {
+"moc": 11,
+"hoa": 10,
+"tho": 19,
+"kim": 27,
+"thuy": 33
+},
+"variants": {
+"loi": 14.4
+},
+"density": 1.57,
+"note": ""
+},
+{
+"id": 1376,
+"name": "Thùy Thiên Phong",
+"gloss": "Peak That Hangs from Heaven",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 3.86,
+"qi": {
+"moc": 6,
+"hoa": 10,
+"tho": 25,
+"kim": 38,
+"thuy": 21
+},
+"variants": {},
+"density": 1.53,
+"note": ""
+},
+{
+"id": 1361,
+"name": "Nguyệt Thạch Khoáng",
+"gloss": "Moonstone Mine",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.92,
+"qi": {
+"moc": 7,
+"hoa": 9,
+"tho": 21,
+"kim": 41,
+"thuy": 23
+},
+"variants": {
+"loi": 26.4
+},
+"density": 1.53,
+"note": ""
+},
+{
+"id": 1385,
+"name": "Mã Não Quật",
+"gloss": "Agate Cavern",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 1.55,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 28,
+"kim": 44,
+"thuy": 10
+},
+"variants": {},
+"density": 1.52,
+"note": ""
+},
+{
+"id": 1372,
+"name": "Thủ Tuyết Bảo",
+"gloss": "Snow Watch Fort",
+"kind": "ruin",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 1.44,
+"qi": {
+"moc": 10,
+"hoa": 11,
+"tho": 28,
+"kim": 40,
+"thuy": 11
+},
+"variants": {},
+"density": 1.48,
+"note": ""
+},
+{
+"id": 1384,
+"name": "Đoạn Tuyết Quan",
+"gloss": "Snowbreak Pass Fort",
+"kind": "ruin",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.09,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 28,
+"kim": 44,
+"thuy": 12
+},
+"variants": {},
+"density": 1.4,
+"note": ""
+},
+{
+"id": 1360,
+"name": "Khô Tùng Nhai",
+"gloss": "Dead Pine Cliff",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.9,
+"qi": {
+"moc": 14,
+"hoa": 10,
+"tho": 20,
+"kim": 27,
+"thuy": 28
+},
+"variants": {
+"loi": 2.2
+},
+"density": 1.39,
+"note": ""
+},
+{
+"id": 1369,
+"name": "Ngân Lũ Khoáng",
+"gloss": "Silver Thread Mine",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.37,
+"qi": {
+"moc": 15,
+"hoa": 10,
+"tho": 25,
+"kim": 37,
+"thuy": 13
+},
+"variants": {},
+"density": 1.37,
+"note": ""
+},
+{
+"id": 1380,
+"name": "Huyền Băng Phong",
+"gloss": "Black Ice Peak",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.46,
+"qi": {
+"moc": 9,
+"hoa": 10,
+"tho": 27,
+"kim": 41,
+"thuy": 13
+},
+"variants": {},
+"density": 1.37,
+"note": ""
+},
+{
+"id": 1366,
+"name": "Lũng Đầu Trại",
+"gloss": "Stockade at the Ridge Head",
+"kind": "ruin",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.23,
+"qi": {
+"moc": 10,
+"hoa": 11,
+"tho": 24,
+"kim": 35,
+"thuy": 21
+},
+"variants": {},
+"density": 1.36,
+"note": ""
+},
+{
+"id": 268,
+"name": "Hàn Ngọc Khoáng",
+"gloss": "Cold Jade Mine",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 4.6,
+"qi": {
+"moc": 6,
+"hoa": 10,
+"tho": 28,
+"kim": 44,
+"thuy": 13
+},
+"variants": {
+"quang": 14.3,
+"bang": 10.0
+},
+"density": 1.32,
+"note": ""
+},
+{
+"id": 1371,
+"name": "Bích Trâm Phong",
+"gloss": "Green Hairpin Peak",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.07,
+"qi": {
+"moc": 11,
+"hoa": 10,
+"tho": 27,
+"kim": 41,
+"thuy": 11
+},
+"variants": {},
+"density": 1.32,
+"note": ""
+},
+{
+"id": 1375,
+"name": "Tích Thạch Khoáng",
+"gloss": "Tinstone Mine",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.96,
+"qi": {
+"moc": 7,
+"hoa": 11,
+"tho": 21,
+"kim": 30,
+"thuy": 31
+},
+"variants": {},
+"density": 1.25,
+"note": ""
+},
+{
+"id": 184,
+"name": "Lăng Tuyệt Phong",
+"gloss": "Peak Above All",
+"kind": "peak",
+"region": 7,
+"biome": "glacier",
+"elev_km": 5.24,
+"qi": {
+"moc": 6,
+"hoa": 10,
+"tho": 28,
+"kim": 44,
+"thuy": 13
+},
+"variants": {
+"quang": 40.0,
+"bang": 10.0
+},
+"density": 1.23,
+"note": "Đỗ Phủ, Vọng Nhạc: hội đương lăng tuyệt đỉnh, nhất lãm chúng sơn tiểu (I shall stand on the very top and see all mountains small); 5.2 km, the highest on the continent"
+},
+{
+"id": 1379,
+"name": "Từ Thạch Khoáng",
+"gloss": "Lodestone Mine",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 1.14,
+"qi": {
+"moc": 8,
+"hoa": 11,
+"tho": 28,
+"kim": 42,
+"thuy": 11
+},
+"variants": {},
+"density": 1.22,
+"note": ""
+},
+{
+"id": 1345,
+"name": "Tuyết Ẩn Quán",
+"gloss": "Abbey of the Snow Recluse",
+"kind": "ruin",
+"region": 7,
+"biome": "temperate forest",
+"elev_km": 0.1,
+"qi": {
+"moc": 43,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 22
+},
+"variants": {},
+"density": 1.2,
+"note": ""
+},
+{
+"id": 1389,
+"name": "Túc Nhạn Phong",
+"gloss": "Peak Where the Geese Rest",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 1.97,
+"qi": {
+"moc": 6,
+"hoa": 19,
+"tho": 23,
+"kim": 35,
+"thuy": 18
+},
+"variants": {},
+"density": 1.17,
+"note": ""
+},
+{
+"id": 1370,
+"name": "Kiếm Tích Phong",
+"gloss": "Sword-Spine Peak",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.96,
+"qi": {
+"moc": 17,
+"hoa": 10,
+"tho": 25,
+"kim": 36,
+"thuy": 12
+},
+"variants": {},
+"density": 1.14,
+"note": ""
+},
+{
+"id": 252,
+"name": "Hàn Diễm Khẩu",
+"gloss": "Cold Flame Vent",
+"kind": "lava_vent",
+"region": 7,
+"biome": "volcano",
+"elev_km": 2.7,
+"qi": {
+"moc": 4,
+"hoa": 51,
+"tho": 15,
+"kim": 22,
+"thuy": 8
+},
+"variants": {},
+"density": 1.1,
+"note": "A vent high on Ngọc Hồ Sơn, fire under the ice of Băng Tâm's land."
+},
+{
+"id": 1357,
+"name": "Hải Thiết Khoáng",
+"gloss": "Sea Iron Mine",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.24,
+"qi": {
+"moc": 10,
+"hoa": 10,
+"tho": 15,
+"kim": 19,
+"thuy": 46
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+{
+"id": 1382,
+"name": "Hàn Kim Quật",
+"gloss": "Cold Gold Cavern",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.34,
+"qi": {
+"moc": 6,
+"hoa": 9,
+"tho": 28,
+"kim": 44,
+"thuy": 13
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+{
+"id": 188,
+"name": "Chúc Long Sơn",
+"gloss": "Mountain of the Torch Dragon",
+"kind": "volcano",
+"region": 7,
+"biome": "volcano",
+"elev_km": 1.35,
+"qi": {
+"moc": 5,
+"hoa": 50,
+"tho": 7,
+"kim": 6,
+"thuy": 32
+},
+"variants": {},
+"density": 1.07,
+"note": "Sơn Hải Kinh: in the dark far north the Torch Dragon lights the world; a volcano on the ice"
+},
+{
+"id": 1397,
+"name": "Hoàng Tùng Lâm",
+"gloss": "Yellow Larch Wood",
+"kind": "forest",
+"region": 7,
+"biome": "temperate forest",
+"elev_km": 0.02,
+"qi": {
+"moc": 39,
+"hoa": 9,
+"tho": 16,
+"kim": 9,
+"thuy": 27
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 292,
+"name": "Dã Liễu Lâm",
+"gloss": "Wild Willow Wood",
+"kind": "forest",
+"region": 7,
+"biome": "temperate forest",
+"elev_km": 0.23,
+"qi": {
+"moc": 27,
+"hoa": 10,
+"tho": 15,
+"kim": 14,
+"thuy": 34
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 1349,
+"name": "Ngọa Tùng Lâm",
+"gloss": "Wood of the Lying Pines",
+"kind": "forest",
+"region": 7,
+"biome": "temperate forest",
+"elev_km": 0.1,
+"qi": {
+"moc": 36,
+"hoa": 10,
+"tho": 15,
+"kim": 10,
+"thuy": 29
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 1353,
+"name": "Trầm Vụ Lâm",
+"gloss": "Wood of Sunken Fog",
+"kind": "forest",
+"region": 7,
+"biome": "temperate forest",
+"elev_km": 0.03,
+"qi": {
+"moc": 38,
+"hoa": 10,
+"tho": 13,
+"kim": 9,
+"thuy": 30
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 1367,
+"name": "Phong Diệp Lâm",
+"gloss": "Maple Wood",
+"kind": "forest",
+"region": 7,
+"biome": "temperate forest",
+"elev_km": 0.32,
+"qi": {
+"moc": 30,
+"hoa": 11,
+"tho": 20,
+"kim": 25,
+"thuy": 14
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 1347,
+"name": "Hoa Bì Lâm",
+"gloss": "Birch Bark Wood",
+"kind": "forest",
+"region": 7,
+"biome": "temperate forest",
+"elev_km": 0.09,
+"qi": {
+"moc": 29,
+"hoa": 9,
+"tho": 14,
+"kim": 9,
+"thuy": 39
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 405,
+"name": "Hào Trư Cương",
+"gloss": "Porcupine Rise",
+"kind": "beast_lair",
+"region": 7,
+"biome": "temperate forest",
+"elev_km": 0.07,
+"qi": {
+"moc": 30,
+"hoa": 11,
+"tho": 15,
+"kim": 14,
+"thuy": 30
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 291,
+"name": "Hàn Sam Lâm",
+"gloss": "Cold Fir Wood",
+"kind": "forest",
+"region": 7,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 38,
+"hoa": 10,
+"tho": 13,
+"kim": 9,
+"thuy": 30
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 1344,
+"name": "Mặc Sam Lâm",
+"gloss": "Ink Fir Wood",
+"kind": "forest",
+"region": 7,
+"biome": "temperate forest",
+"elev_km": 0.05,
+"qi": {
+"moc": 39,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 28
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 1351,
+"name": "Trầm Mộc Lâm",
+"gloss": "Drowned Wood",
+"kind": "forest",
+"region": 7,
+"biome": "temperate forest",
+"elev_km": -0.01,
+"qi": {
+"moc": 36,
+"hoa": 10,
+"tho": 14,
+"kim": 10,
+"thuy": 30
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 1355,
+"name": "Mi Lộc Lâm",
+"gloss": "Elk Wood",
+"kind": "beast_lair",
+"region": 7,
+"biome": "temperate forest",
+"elev_km": 0.02,
+"qi": {
+"moc": 34,
+"hoa": 10,
+"tho": 13,
+"kim": 9,
+"thuy": 35
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 1391,
+"name": "Ngân Bình Phong",
+"gloss": "Silver Screen Peak",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.88,
+"qi": {
+"moc": 5,
+"hoa": 10,
+"tho": 28,
+"kim": 44,
+"thuy": 13
+},
+"variants": {
+"bang": 2.5
+},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 214,
+"name": "Hồ Thiên Phái",
+"gloss": "School of the Northern Sky",
+"kind": "ruin",
+"region": 7,
+"biome": "tundra",
+"elev_km": 0.0,
+"qi": {
+"moc": 8,
+"hoa": 12,
+"tho": 10,
+"kim": 10,
+"thuy": 61
+},
+"variants": {
+"bang": 22.5
+},
+"density": 1.02,
+"note": "Buried by the eruption of Chúc Long Sơn under the ice."
+},
+{
+"id": 1365,
+"name": "Bão Tuyết Phong",
+"gloss": "Snow-Embracing Peak",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.56,
+"qi": {
+"moc": 9,
+"hoa": 11,
+"tho": 27,
+"kim": 41,
+"thuy": 12
+},
+"variants": {},
+"density": 1.02,
+"note": ""
+},
+{
+"id": 1377,
+"name": "Hàn Ngân Khoáng",
+"gloss": "Cold Silver Mine",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.61,
+"qi": {
+"moc": 12,
+"hoa": 10,
+"tho": 26,
+"kim": 40,
+"thuy": 11
+},
+"variants": {},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 1378,
+"name": "Kim Quan Phong",
+"gloss": "Golden Crown Peak",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.67,
+"qi": {
+"moc": 9,
+"hoa": 10,
+"tho": 27,
+"kim": 43,
+"thuy": 11
+},
+"variants": {},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 183,
+"name": "Hồi Lộ Phong",
+"gloss": "Peak of the Winding Road",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 3.51,
+"qi": {
+"moc": 6,
+"hoa": 12,
+"tho": 27,
+"kim": 43,
+"thuy": 11
+},
+"variants": {},
+"density": 1.01,
+"note": "Sầm Tham, Bạch Tuyết Ca: sơn hồi lộ chuyển bất kiến quân (the mountain turns, the road bends, and you are gone)"
+},
+{
+"id": 406,
+"name": "Tầm Kiếm Đường",
+"gloss": "Hall of the Sword Seekers",
+"kind": "minor_seat",
+"region": 7,
+"biome": "temperate forest",
+"elev_km": 0.14,
+"qi": {
+"moc": 27,
+"hoa": 11,
+"tho": 16,
+"kim": 16,
+"thuy": 31
+},
+"variants": {},
+"density": 1.0,
+"note": ""
+},
+{
+"id": 239,
+"name": "Hàn Giao Chử",
+"gloss": "Islet of the Cold Flood-Dragon",
+"kind": "beast_lair",
+"region": 7,
+"biome": "tundra",
+"elev_km": 0.09,
+"qi": {
+"moc": 7,
+"hoa": 15,
+"tho": 10,
+"kim": 9,
+"thuy": 59
+},
+"variants": {
+"bang": 14.1
+},
+"density": 1.0,
+"note": "A lone islet far north of Ngọc Hồ Sơn where a cold giao coils."
+},
+{
+"id": 1364,
+"name": "Hàn Ưng Phong",
+"gloss": "Cold Eagle Peak",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 1.39,
+"qi": {
+"moc": 17,
+"hoa": 10,
+"tho": 22,
+"kim": 30,
+"thuy": 21
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+}
+],
+"ground_place_count": 74,
+"events": [
+{
+"id": "A098",
+"tier": "annal",
+"year": 120,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Ice hunters say the Torch Dragon sleeps under Chúc Long Sơn and lights the mountain when it dreams.",
+"place": 188,
+"region": 7
+},
+{
+"id": "C058",
+"tier": "landmark",
+"year": 210,
+"kind": "sect_founded",
+"people": [
+"khuc_ho_gia"
+],
+"sects": [
+"ho_thien"
+],
+"text_en": "Khúc Hồ Già founds Hồ Thiên Phái on the ice of Ngọc Hồ Sơn, below the fire mountain Chúc Long Sơn, where snow flies in the eighth month.",
+"place": 214
+},
+{
+"id": "C061",
+"tier": "landmark",
+"year": 230,
+"kind": "item_made",
+"people": [
+"khuc_ho_gia"
+],
+"sects": [
+"ho_thien"
+],
+"text_en": "Khúc Hồ Già forges the sword Phi Tuyết from ice that never melts.",
+"place": 214,
+"item": "phi_tuyet"
+},
+{
+"id": "A099",
+"tier": "annal",
+"year": 300,
+"kind": "tale",
+"people": [],
+"sects": [
+"ho_thien"
+],
+"text_en": "Hồ Thiên's disciples carve a stair of ice up Hồi Lộ Phong; it bends so often that companions lose each other in plain sight.",
+"place": 183,
+"region": 7
+},
+{
+"id": "C090",
+"tier": "landmark",
+"year": 425,
+"kind": "disaster",
+"people": [
+"khuc_ho_gia"
+],
+"sects": [
+"ho_thien"
+],
+"text_en": "Chúc Long Sơn erupts under the ice and buries Hồ Thiên Phái with its founder Khúc Hồ Già; Ngọc Hồ Sơn lies empty.",
+"place": 188
+},
+{
+"id": "A100",
+"tier": "annal",
+"year": 426,
+"kind": "omen",
+"people": [],
+"sects": [],
+"text_en": "A year after the eruption, steam still rises from the ice where Hồ Thiên stood; no bird sings there.",
+"place": 214,
+"region": 7
+},
+{
+"id": "V061",
+"tier": "annal",
+"year": 426,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "With Hồ Thiên Phái buried by the eruption, the garrison of Lũng Đầu Trại goes home and never comes back.",
+"place": 1366,
+"region": 7
+},
+{
+"id": "V062",
+"tier": "annal",
+"year": 432,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "The fur and ivory trade has died with Hồ Thiên Phái, and the last families leave Bắc Đình Thành on the northern shore.",
+"place": 1394,
+"region": 7
+},
+{
+"id": "A101",
+"tier": "annal",
+"year": 480,
+"kind": "tale",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Băng Tâm's climbers reach the top of Lăng Tuyệt Phong and see all the mountains small.",
+"place": 184,
+"region": 7
+},
+{
+"id": "A102",
+"tier": "annal",
+"year": 520,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Locust trees planted by the Tiêu family shade the road into the mountains; their village becomes Hòe Âm.",
+"place": 66,
+"region": 7
+},
+{
+"id": "A103",
+"tier": "annal",
+"year": 600,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"le_hoa",
+"bang_tam"
+],
+"text_en": "A snow that falls like pear blossom overnight in the eighth month brings a nun to found Lê Hoa Am by the ice fields.",
+"place": 15,
+"region": 7
+},
+{
+"id": "A104",
+"tier": "annal",
+"year": 640,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Azaleas bloom red on the slopes above Đỗ Quyên Thôn each spring; the villagers say they are the eruption's dead.",
+"place": 114,
+"region": 7
+},
+{
+"id": "V063",
+"tier": "annal",
+"year": 690,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The last master of Tuyết Ẩn Quán goes into seclusion and never comes out; his few disciples go down to the coast, and the abbey falls in.",
+"place": 1345,
+"region": 7
+},
+{
+"id": "A105",
+"tier": "annal",
+"year": 702,
+"kind": "discovery",
+"people": [],
+"sects": [
+"le_hoa"
+],
+"text_en": "Two years after a failed tribulation froze the lightning on a northern peak, Lê Hoa Am's nuns cut ice from it that never melts.",
+"region": 7
+},
+{
+"id": "V064",
+"tier": "annal",
+"year": 726,
+"kind": "siege",
+"people": [],
+"sects": [
+"phuong_minh",
+"bang_tam"
+],
+"text_en": "In the year Cô Thành falls, Phượng Minh's fire breaks Băng Tâm's beacon fort of Lang Yên Bảo on the caravan road.",
+"place": 1390,
+"region": 7
+},
+{
+"id": "A106",
+"tier": "annal",
+"year": 760,
+"kind": "discovery",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Băng Tâm opens the Ice Soul vein, Băng Phách Mạch, below the ice mountains.",
+"place": 209,
+"region": 7
+},
+{
+"id": "V065",
+"tier": "annal",
+"year": 790,
+"kind": "tale",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Nine years after the Pirate Purge, Băng Tâm withdraws the garrison of Vọng Triều Bảo and leaves the tower to the storms.",
+"place": 1359,
+"region": 7
+},
+{
+"id": "A107",
+"tier": "annal",
+"year": 850,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Orioles winter in the valley of Hoàng Oanh Thôn, the only birdsong in the ice mountains.",
+"place": 115,
+"region": 7
+},
+{
+"id": "A108",
+"tier": "annal",
+"year": 930,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "A hunter of Hòe Âm finds a sealed cave on the mountain with a sword's cold light behind the seal; he runs, and never finds it again.",
+"place": 66,
+"region": 7
+},
+{
+"id": "V066",
+"tier": "annal",
+"year": 1012,
+"kind": "disaster",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "A winter avalanche buries Đoạn Tuyết Quan with its garrison; Băng Tâm never digs it out.",
+"place": 1384,
+"region": 7
+},
+{
+"id": "A109",
+"tier": "annal",
+"year": 1020,
+"kind": "headship",
+"people": [
+"thai_le_tuyet"
+],
+"sects": [
+"le_hoa"
+],
+"text_en": "Thái Lê Tuyết becomes abbess of Lê Hoa Am.",
+"place": 15,
+"region": 7
+},
+{
+"id": "V067",
+"tier": "annal",
+"year": 1065,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "The sable are trapped out and the harbour ices in every year; the last families of Điêu Cừu Trấn move south to Hòe Âm.",
+"place": 1348,
+"region": 7
+},
+{
+"id": "V068",
+"tier": "annal",
+"year": 1102,
+"kind": "beast",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Ice beasts drawn by the cold of Băng Phách Mạch overrun Thủ Tuyết Bảo; the Pavilion does not rebuild it.",
+"place": 1372,
+"region": 7
+},
+{
+"id": "A110",
+"tier": "annal",
+"year": 1150,
+"kind": "tale",
+"people": [],
+"sects": [
+"le_hoa"
+],
+"text_en": "The Tiêu clan sends its first son to the gate of Lê Hoa Am; he is turned away for being a son, and becomes a hunter.",
+"place": 15,
+"region": 7
+},
+{
+"id": "V069",
+"tier": "annal",
+"year": 1162,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"tam_kiem",
+"bang_tam"
+],
+"text_en": "A Tiêu-clan hunter turned away from Lê Hoa Am's gate founds Tầm Kiếm Đường, for the men the hermitage will not take, to search for the sealed sword cave.",
+"place": 406,
+"region": 7
+},
+{
+"id": "V070",
+"tier": "annal",
+"year": 1189,
+"kind": "tale",
+"people": [],
+"sects": [
+"bang_tam",
+"thien_xu"
+],
+"text_en": "With its claim to the vein rejected and Thiên Xu's guard doubled, Băng Tâm withdraws the watchers of Khuy Tinh Bảo and bars the doors, so as not to look like war.",
+"place": 1387,
+"region": 7
+},
+{
+"id": "A111",
+"tier": "annal",
+"year": 1199,
+"kind": "omen",
+"people": [],
+"sects": [
+"le_hoa"
+],
+"text_en": "Chúc Long Sơn rumbles under the ice for the first time in 774 years; Lê Hoa Am's nuns pray all winter.",
+"place": 188,
+"region": 7
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "thai_le_tuyet",
+"name": "Thái Lê Tuyết",
+"name_han": "蔡梨雪",
+"gloss": "Snow like pear blossom",
+"sex": "F",
+"born": 760,
+"alive": true,
+"sect": "le_hoa",
+"rank": "tong_chu",
+"role": "Abbess of Lê Hoa Am, ice cultivation in a hermitage by the ice fields",
+"realm": "ket_dan",
+"home": 15,
+"traits": {
+"personality": [
+"Compassionate",
+"Reclusive",
+"Calm"
+],
+"calling": "Teacher",
+"fate_given": []
+},
+"vassal_of": "bang_tam",
+"build": {
+"root": {
+"elements": {
+"thuy": 74
+},
+"variants": {
+"bang": 76
+}
+},
+"thien_phu": {
+"ngo_tinh": 74,
+"can_cot": 56,
+"than_hon": 70,
+"khi_van": 54,
+"dao_tam": 82,
+"mi_luc": 60
+},
+"archetype": "kiem_tu",
+"stage": 2,
+"main": {
+"tech": "winter-toll-canon",
+"layer": 9
+},
+"aux": [
+{
+"tech": "stilled-hour-sutra",
+"layer": 7
+}
+],
+"gear": [
+{
+"named": "ice-moonrime-sword"
+},
+{
+"base": "dao_bao",
+"grade": 3,
+"element": "thuy"
+},
+{
+"base": "ngoc_boi",
+"grade": 3,
+"element": "thuy"
+}
+],
+"tree": {
+"start": "thuy",
+"targets": [
+759,
+5202,
+5203,
+9001,
+5122
+]
+},
+"skills": {},
+"note": "The abbess of the pear-blossom hermitage: a compassionate teacher with a moonrime sword and snow-lotus ice"
+}
+}
+],
+"legendary_items": []
+}

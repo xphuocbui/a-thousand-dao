@@ -1,0 +1,1007 @@
+{
+ "sect": "hoa_tinh",
+ "people": [
+  {
+   "key": "ky_ngan_chuc",
+   "name_hv": "Kỷ Ngân Chúc",
+   "name_han": "紀銀燭",
+   "gloss": "The silver candle by the painted screen, under the autumn stars (Đỗ Mục, Thu tịch)",
+   "sex": "F",
+   "born": 960,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "hoa_tinh",
+   "rank": "tong_chu",
+   "home": 1328,
+   "birthplace": 1329,
+   "role": "Hall-mistress of Họa Tinh Đường since 1150, talismans painted with the Dipper in Mặc Yên soot",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 64,
+     "thuy": 48
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 76,
+    "can_cot": 48,
+    "than_hon": 74,
+    "khi_van": 56,
+    "dao_tam": 78,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Diligent",
+     "Calm"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "clan_heir",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "pure_root_devotee"
+    ],
+    "lifestyle": "calligrapher",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Oath-bound"
+    ]
+   },
+   "appearance": "A slight, grey-haired woman in a black robe flecked with soot, who sits so still at the painting table that moths settle on her sleeves.",
+   "backstory": "Kỷ Ngân Chúc was born in the dark-fungus village of Huyền Chi Thôn, the Hall's own, and is the founder Kỷ Thu Tịch's (ky_thu_tich) grand-niece. She ground ink for a thousand mornings before the founder let her hold a brush, and has painted the Pivot's Dipper talismans by the Silver Candle since 1100. The founder made the Hall in 910, sworn to the Pivot, and its talismans would not run in the rain (V059). That is why the Pivot's archive and its envoys use nothing else. When the founder died in 1150 she left the Hall to Kỷ Ngân Chúc with a key and an oath. The key opens a cedar box in the head's room. The oath is that the box is never opened while the Hall is the Pivot's. The box holds the founder's copy of Thorn and Ink Verses, a song art the Pivot has forbidden since it destroyed Cửu Thiều Cung (C005). The Hall's rain-fast ink comes from its blood-ink writ. She opened the box once, the night she took the oath, and has kept the oath since. The Hall's soot comes from the kilns of Mặc Yên in the vermilion pines, under her ink master Lăng Mặc Khanh (lang_mac_khanh).",
+   "wants": "To find an heir who can keep the box shut, and to keep painting until the candle burns down.",
+   "secret": "The rain-fast ink every talisman of the Hall carries is a forbidden song art with the blood taken out. Every copy of the Compact the Pivot's archive has made since 910 is written in it.",
+   "ties": [
+    {
+     "to": "ky_thu_tich",
+     "kind": "master",
+     "note": "the founder, her grand-aunt, who left her the key and the oath"
+    },
+    {
+     "to": "lac_to_binh",
+     "kind": "disciple",
+     "note": "her chief painter and expected heir"
+    },
+    {
+     "to": "tan_cuc_hoa",
+     "kind": "disciple",
+     "note": "a quiet girl who has noticed the cedar box"
+    },
+    {
+     "to": "su_ngung_mac",
+     "kind": "friend",
+     "note": "the keeper of the Pivot's archive, who writes in the Hall's ink"
+    },
+    {
+     "to": "ung_hac_minh",
+     "kind": "friend",
+     "note": "the crane school 34 tiles east, whose riders carry the Hall's talismans"
+    },
+    {
+     "to": "han_thuy_mac",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "luc_thanh_chi",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "lang_mac_khanh",
+     "kind": "disciple",
+     "note": "her ink master, a century younger than she is"
+    },
+    {
+     "to": "diep_tung_yen",
+     "kind": "disciple",
+     "note": "steward of the pine-tappers at the Mặc Yên kilns"
+    },
+    {
+     "to": "nhiep_to_han",
+     "kind": "disciple",
+     "note": "painter of the Dipper's middle stars, a Khai Dương scribe's son"
+    }
+   ],
+   "master": "ky_thu_tich",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "painted-dipper-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "rainfast-ink-art",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "ht-silver-candle"
+     },
+     {
+      "named": "general-talisman-bearer-ring"
+     },
+     {
+      "named": "ht-rainfast-ink-gourd"
+     }
+    ],
+    "skills": {
+     "phu_luc": 9
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Talisman damage and speed on Wood, Water behind it for marks that cannot be cleansed: she paints a foe into the seven stars and lets the figure close.",
+     "targets": [
+      780,
+      4898,
+      4902,
+      4836,
+      4843,
+      4838,
+      5586
+     ],
+     "targets_note": "Painters' route, then the Brush and Inkstone idea (Ink Stick, Long Brush, Endless Talismans) and Thousand Talismans: seven stars in one stroke; uncleansable marks have no piece yet (wish W6-rainfast-marks)."
+    },
+    "note": "The talisman mistress: seven stars, one stroke, and ink the rain cannot take."
+   },
+   "items": [
+    "ht-silver-candle",
+    "general-talisman-bearer-ring",
+    "ht-rainfast-ink-gourd"
+   ],
+   "changed": "build added (none existed); birthplace 1329 added; head since 1150 (proposal, N-hoa_tinh-02)."
+  },
+  {
+   "key": "lac_to_binh",
+   "name_hv": "Lạc Tố Bình",
+   "name_han": "駱素屏",
+   "gloss": "A plain screen (the same poem)",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "hoa_tinh",
+   "rank": "chan_truyen",
+   "home": 1328,
+   "birthplace": 1329,
+   "role": "Chief painter of the Hall and the head's expected heir",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 56,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 46,
+    "than_hon": 64,
+    "khi_van": 52,
+    "dao_tam": 54,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Honest",
+     "Impatient"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "poet",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A tall woman with ink to the elbow and a boxwood seal on a cord, who talks while she paints, which no one else dares.",
+   "backstory": "A fungus-gatherer's daughter from the Hall's village like her master Kỷ Ngân Chúc (ky_ngan_chuc), named by her for the same poem. She holds the Dipper Talisman Seal and paints most of what the Pivot buys. She believes the rain-fast ink is the founder's honest discovery, and she would like to sell it to every sect on the continent.",
+   "ties": [
+    {
+     "to": "ky_ngan_chuc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ma_tinh_but",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "han_thuy_mac",
+     "kind": "rival",
+     "note": "who says the Hall should sell to no one but the Pivot"
+    },
+    {
+     "to": "te_thu_anh",
+     "kind": "disciple",
+     "note": "inner disciple who paints the fourth star, Lạc Tố Bình's disciple"
+    },
+    {
+     "to": "diep_tung_yen",
+     "kind": "rival",
+     "note": "steward of the pine-tappers at the Mặc Yên kilns"
+    },
+    {
+     "to": "nhiep_to_han",
+     "kind": "rival",
+     "note": "painter of the Dipper's middle stars, a Khai Dương scribe's son"
+    }
+   ],
+   "master": "ky_ngan_chuc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "painted-dipper-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "rainfast-ink-art",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "ht-dipper-talisman-seal"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 7
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Fast talismans.",
+     "targets": [
+      780,
+      4898,
+      4902,
+      4848
+     ],
+     "targets_note": "Painters' route, then Running Script: fast talismans."
+    },
+    "note": "The chief painter."
+   },
+   "items": [
+    "ht-dipper-talisman-seal"
+   ]
+  },
+  {
+   "key": "lang_mac_khanh",
+   "name_hv": "Lăng Mặc Khanh",
+   "name_han": "凌墨卿",
+   "gloss": "Lord of ink",
+   "sex": "M",
+   "born": 1060,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "hoa_tinh",
+   "rank": "truong_lao",
+   "home": 1327,
+   "birthplace": 1299,
+   "role": "Ink master of the Mặc Yên soot kilns in the vermilion pines",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 60,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 58,
+    "than_hon": 62,
+    "khi_van": 44,
+    "dao_tam": 66,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Patient",
+     "Stubborn"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "collector",
+    "health": "old_wound",
+    "coping": null,
+    "fate_given": [
+     "Spirit-eyed"
+    ],
+    "gained": []
+   },
+   "appearance": "A black-handed old charcoal burner with burnt eyebrows and a cabinet of a thousand ink sticks, each labelled with its year.",
+   "backstory": "A charcoal burner's son from the dense pines of Mật Tùng Lâm, he keeps the Hall's soot kilns, the Mặc Yên, among the vermilion pines. They were built on the ash of the pitch town that burned in 712 (V055). He can tell the year an ink was made by its smell and the shine of a stroke. He keeps a stick from every year since 1100, and he has never been asked to use the gift on anything but forgeries. Kỷ Ngân Chúc (ky_ngan_chuc) is his master.",
+   "ties": [
+    {
+     "to": "ky_ngan_chuc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ho_mac_nhi",
+     "kind": "disciple",
+     "note": "the kiln girl"
+    },
+    {
+     "to": "diep_tung_yen",
+     "kind": "friend",
+     "note": "steward of the pine-tappers at the Mặc Yên kilns"
+    }
+   ],
+   "master": "ky_ngan_chuc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "painted-dipper-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood debuffs: smoke and slow.",
+     "targets": [
+      780,
+      4898,
+      4902,
+      5780,
+      5778
+     ],
+     "targets_note": "Painters' route, then Creeping Vine and Strangler Vine from the Binding Vine idea: Wood debuffs, smoke and slow."
+    },
+    "note": "The soot."
+   }
+  },
+  {
+   "key": "han_thuy_mac",
+   "name_hv": "Hàn Thủy Mặc",
+   "name_han": "韓水墨",
+   "gloss": "Ink and water",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "hoa_tinh",
+   "rank": "noi_mon",
+   "home": 5,
+   "birthplace": 34,
+   "role": "The Hall's resident ink-maker at the Pivot's seat, who supplies the archive of the Compact",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 44
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 44,
+    "than_hon": 58,
+    "khi_van": 50,
+    "dao_tam": 56,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Cautious",
+     "Humble"
+    ],
+    "calling": "Steward",
+    "upbringing": "scholar_family",
+    "talent": [],
+    "path": [],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A neat, soft-spoken clerk in Pivot grey with the Hall's black cord at his wrist.",
+   "backstory": "A scribe's son from Khai Dương Thành, he has lived at the Pivot's seat since 1160 and grinds the rain-fast ink for Tàng Ước Các. Its keeper Sử Ngưng Mặc (su_ngung_mac) trusts no other ink. In 1195 the copyist Thích Minh Thư (thich_minh_thu) asked him for a night's ink \"for a guard roll of Tinh Tủy Mạch\". He ground it and wrote the request in his book, with the date.",
+   "ties": [
+    {
+     "to": "ky_ngan_chuc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "su_ngung_mac",
+     "kind": "friend",
+     "note": "the archive's keeper"
+    },
+    {
+     "to": "thich_minh_thu",
+     "kind": "friend",
+     "note": "asked him for a night's ink in 1195, for a guard roll"
+    },
+    {
+     "to": "phu_vu_sinh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "lac_to_binh",
+     "kind": "rival",
+     "note": "the true disciple who says the Hall should sell to no one but the Pivot"
+    },
+    {
+     "to": "nham_thanh_luu",
+     "kind": "disciple",
+     "note": "outer disciple at the Pivot's seat, grinding the archive's ink"
+    },
+    {
+     "to": "nhiep_to_han",
+     "kind": "friend",
+     "note": "painter of the Dipper's middle stars, a Khai Dương scribe's son"
+    }
+   ],
+   "master": "ky_ngan_chuc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "painted-dipper-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "rainfast-ink-art",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 5
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water marks that cannot be cleansed.",
+     "targets": [
+      4898,
+      4902,
+      780,
+      5203,
+      5202
+     ],
+     "targets_note": "Painters' route from the Water end (ink first), then the Snow Lotus idea's stack duration for marks that last; uncleansable marks have no piece yet (wish W6-rainfast-marks)."
+    },
+    "note": "The archive's ink."
+   }
+  },
+  {
+   "key": "luc_thanh_chi",
+   "name_hv": "Lục Thanh Chi",
+   "name_han": "陸青芝",
+   "gloss": "Green fungus",
+   "sex": "F",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "hoa_tinh",
+   "rank": "chap_su",
+   "home": 1329,
+   "birthplace": 1329,
+   "role": "Keeper of the Hall's village and its fungus dyes",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 58,
+     "tho": 26,
+     "thuy": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Generous",
+     "Pragmatic"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "lifestyle": "gardener"
+   },
+   "backstory": "She grows the dark fungus that gives the Hall's paper its grey and its seal ink its violet, and runs Huyền Chi Thôn for Kỷ Ngân Chúc (ky_ngan_chuc), who was born two doors from her mother.",
+   "ties": [
+    {
+     "to": "ky_ngan_chuc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "quan_loc_nhi",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "liem_an_loc",
+     "kind": "disciple",
+     "note": "outer disciple from the deer meadow of Lộc Uyển"
+    },
+    {
+     "to": "thai_huyen_nhung",
+     "kind": "disciple",
+     "note": "outer disciple at the fungus-dye vats of Huyền Chi Thôn"
+    }
+   ],
+   "master": "ky_ngan_chuc",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "painted-dipper-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 5,
+     "phu_luc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "Fungus dyes."
+   }
+  },
+  {
+   "key": "tan_cuc_hoa",
+   "name_hv": "Tân Cức Hoa",
+   "name_han": "辛棘花",
+   "gloss": "Thorn flower",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "hoa_tinh",
+   "rank": "noi_mon",
+   "home": 1328,
+   "birthplace": 1329,
+   "role": "Inner disciple of the head, who has noticed the cedar box",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Deceitful",
+     "Ambitious"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born"
+   },
+   "backstory": "Kỷ Ngân Chúc's (ky_ngan_chuc) last disciple, she sweeps the head's room and has found that the rain-fast stroke she is taught matches a verse on a scrap of paper caught under the cedar box's lid.",
+   "ties": [
+    {
+     "to": "ky_ngan_chuc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "te_thu_anh",
+     "kind": "rival",
+     "note": "inner disciple who paints the fourth star, Lạc Tố Bình's disciple"
+    }
+   ],
+   "master": "ky_ngan_chuc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "painted-dipper-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood talismans."
+    },
+    "note": "The scrap."
+   }
+  },
+  {
+   "key": "ma_tinh_but",
+   "name_hv": "Mã Tinh Bút",
+   "name_han": "馬星筆",
+   "gloss": "Star brush",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "hoa_tinh",
+   "rank": "noi_mon",
+   "home": 1328,
+   "birthplace": 1328,
+   "role": "Inner disciple who paints the seventh star",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Humble",
+     "Patient"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Born at the Hall to two of its painters, he paints only the seventh star on the Pivot's talismans, the hardest, for Lạc Tố Bình (lac_to_binh), and has never spoiled one.",
+   "ties": [
+    {
+     "to": "lac_to_binh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "te_thu_anh",
+     "kind": "friend",
+     "note": "inner disciple who paints the fourth star, Lạc Tố Bình's disciple"
+    }
+   ],
+   "master": "lac_to_binh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "painted-dipper-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "The seventh star."
+   }
+  },
+  {
+   "key": "ho_mac_nhi",
+   "name_hv": "Hồ Mặc Nhi",
+   "name_han": "胡墨兒",
+   "gloss": "Little ink",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "hoa_tinh",
+   "rank": "ngoai_mon",
+   "home": 1327,
+   "birthplace": 1327,
+   "role": "Outer disciple at the soot kilns",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Gregarious",
+     "Indulgent"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A pine-tapper's girl of the vermilion pines who scrapes soot from the kiln roofs for Lăng Mặc Khanh (lang_mac_khanh) and is black from hair to heel by noon.",
+   "ties": [
+    {
+     "to": "lang_mac_khanh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "thai_huyen_nhung",
+     "kind": "friend",
+     "note": "outer disciple at the fungus-dye vats of Huyền Chi Thôn"
+    },
+    {
+     "to": "ho_bach_yen",
+     "kind": "sibling",
+     "note": "her brother; outer disciple at the soot kilns, Hồ Mặc Nhi's elder brother"
+    }
+   ],
+   "master": "lang_mac_khanh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ink-grinding-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "Soot."
+   }
+  },
+  {
+   "key": "phu_vu_sinh",
+   "name_hv": "Phù Vũ Sinh",
+   "name_han": "符雨生",
+   "gloss": "Talisman born in rain",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "hoa_tinh",
+   "rank": "ngoai_mon",
+   "home": 5,
+   "birthplace": 34,
+   "role": "Outer disciple at the Pivot's seat, the ink-maker's apprentice",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Trusting",
+     "Fickle"
+    ],
+    "calling": "Steward",
+    "upbringing": "scholar_family"
+   },
+   "backstory": "A Khai Dương boy who grinds ink for Hàn Thủy Mặc (han_thuy_mac) at the Pivot's archive and has made friends with every copyist in Tàng Ước Các.",
+   "ties": [
+    {
+     "to": "han_thuy_mac",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nham_thanh_luu",
+     "kind": "friend",
+     "note": "outer disciple at the Pivot's seat, grinding the archive's ink"
+    }
+   ],
+   "master": "han_thuy_mac",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ink-grinding-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Grinds ink."
+   }
+  },
+  {
+   "key": "quan_loc_nhi",
+   "name_hv": "Quan Lộc Nhi",
+   "name_han": "關鹿兒",
+   "gloss": "Little deer",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "hoa_tinh",
+   "rank": "ngoai_mon",
+   "home": 1329,
+   "birthplace": 113,
+   "role": "Outer disciple from the deer meadow village",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Cautious",
+     "Honest"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "From Lộc Uyển, where the Pivot forbids hunting the deer (A086); she gathers fungus for Lục Thanh Chi (luc_thanh_chi) and refuses to paint with deer-glue ink.",
+   "ties": [
+    {
+     "to": "luc_thanh_chi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "liem_an_loc",
+     "kind": "friend",
+     "note": "outer disciple from the deer meadow of Lộc Uyển"
+    }
+   ],
+   "master": "luc_thanh_chi",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "ink-grinding-breath",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "No deer glue."
+   }
+  },
+  {
+   "key": "ky_thu_tich",
+   "name_hv": "Kỷ Thu Tịch",
+   "name_han": "紀秋夕",
+   "gloss": "An autumn evening (Đỗ Mục, Thu tịch)",
+   "sex": "F",
+   "born": 820,
+   "died": 1150,
+   "cause": "kiln soot in her lungs from three centuries of ink-making, at 330, at the painting table",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "hoa_tinh",
+   "rank": "founder",
+   "home": 1328,
+   "birthplace": 1329,
+   "role": "Founder of Họa Tinh Đường (910); she painted the Dipper's stars and kept a forbidden book",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Devout",
+     "Deceitful",
+     "Patient"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "A fungus-dyer's daughter who painted the Dipper as the Pivot's watchmen described it from Trích Tinh Phong (A084). In 910 she founded the Hall, sworn to the Pivot, and its talismans would not run in the rain (V059). She bought the book that made them so from a beggar in Khai Dương: a copy of Thorn and Ink Verses, carried out of Cửu Thiều Cung after its fall (C005). She left the Hall, the key and the oath to her grand-niece Kỷ Ngân Chúc (ky_ngan_chuc).",
+   "ties": [
+    {
+     "to": "ky_ngan_chuc",
+     "kind": "disciple",
+     "note": "her grand-niece and successor"
+    }
+   ]
+  }
+ ]
+}

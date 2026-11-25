@@ -1,0 +1,78 @@
+{
+ "sect": "tung_dao",
+ "_doc": "Tùng Đào Cung lineage (rules-proposals R5). Elements Wood first, then Water: inner disciples and above hold Wood at 45 or more; the outer gate takes Wood or Water at 30. Outer gate: listening-pine-primer (Wood or Water). Inner gate: verdant-cycle-scripture (Wood; existing). True disciples and elders: pine-wave-true-canon (the founder's method, Heaven tier; layers 13-15 are taught only to the head, and the 15th was never spoken). Secret arts by rank: returning-wake-verse (inner gate, the river and lake halls; existing), hundred-echo-palm-scripture (body, inner gate and the Coiled Root Hall; existing), pine-rain-canon (elders), startled-goose-step (Thôi Khinh Hồng's own; never taught). Carried in from outside: still-moon-tide-scripture (existing), kept by the Tide Rite from Vọng Triều Các (V035). Nothing in the lineage is written down: every method is taught mouth to ear (khẩu truyền). Proposals are unpriced.",
+ "lineage": {
+  "outer": "listening-pine-primer",
+  "inner": "verdant-cycle-scripture",
+  "main": "pine-wave-true-canon",
+  "secret": [
+   {"id": "returning-wake-verse", "rank": "noi_mon", "note": "taught by the River Hall and the Lake Hall; the Water half of the inner gate"},
+   {"id": "pine-rain-canon", "rank": "truong_lao"},
+   {"id": "startled-goose-step", "rank": "thai_thuong", "note": "Thôi Khinh Hồng's own art; she has taught it to no one"}
+  ],
+  "body": "hundred-echo-palm-scripture",
+  "carried": [{"id": "still-moon-tide-scripture", "note": "the Tide Rite, from the disciples of Vọng Triều Các who came in 470 (V035)"}],
+  "elements": ["moc", "thuy"],
+  "tree_route": [6169, 6166, 6170],
+  "tree_route_note": "The Pine Strength idea (Pine Bark, Pine Strength, Pine Needle Tea): the canon's holder roots like a pine, hard-boned and proof against rot. It lies between the Wood and Water starts (19 from Wood, 23 from Water), so both halves of the palace take it."
+ },
+ "techniques": [
+  {
+   "id": "listening-pine-primer",
+   "name": "Listening Pine Primer (Thính Tùng Quyết)",
+   "tier": 0, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The outer gate's method, learned sitting under the pines at dawn and dusk with the eyes shut. A Wood root breathes with the trunk, slow and upright; a Water root breathes with the sound, the long rise and fall of wind through needles that gives the sect its name. Either root carries a disciple through six layers. The sixth layer is called Hearing the Wave: the disciple can tell, eyes shut, which way qi is moving through the trees around them. Then the inner gate tests the Wood.",
+   "arts": [
+    "seed-of-spring",
+    {"new": "Needle Rain (Châm Vũ)", "concept": "A spray of qi-hardened pine needles at one foe; each needle that lands lays a short Wood stack, and a foe already carrying Water stacks is slowed for a breath. The outer gate's one fighting art."}
+   ],
+   "lore": "Kỳ Tùng Ẩn chanted it to his first hundred disciples in the year 200 (C003), sitting under the pine that still stands in the palace yard. It has never been written down. Outer disciples learn it line by line from a steward's voice, and a disciple who cannot repeat the whole primer from memory at the sixth layer is not tested for the inner gate.",
+   "status": "proposal"
+  },
+  {
+   "id": "pine-wave-true-canon",
+   "name": "Pine Wave True Canon (Tùng Đào Chân Kinh)",
+   "tier": 3, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 15, "rank": "chan_truyen",
+   "concept": "The founder's method. The practitioner roots like a pine and lets qi pass through them the way wind passes through a pine sea: in long waves that build, break and come back. Each wave mends the holder a little and presses on a foe a little; the canon's strength is that the waves never stop, so a fight against its holder grows harder the longer it lasts. Layers 1-12 are taught to true disciples and elders. Layers 13-15 are taught only to the head. The 15th layer, the one in which the holder's waves are said to go on after the holder is gone, was never spoken aloud: Kỳ Tùng Ẩn died before he chanted it (C138).",
+   "arts": [
+    "second-spring",
+    "rooted-form",
+    "gathering-wave",
+    {"new": "Ten Thousand Pines Answer (Vạn Tùng Ứng)", "concept": "For 8 s the holder's every heal also sends a wave outward: foes in reach take a Wood stack and allies in reach regain a little linh lực. Each wave is 10 % stronger than the one before it, resetting if the holder is moved."},
+    {"new": "The Wave Comes Back (Đào Hồi)", "concept": "Marks the holder's place. When the holder falls below half health, or after 10 s, they are pulled back toward the mark and regain health equal to the damage they took since marking it."},
+    {"new": "Answering Wave (Ứng Đào)", "concept": "A passive art. Each heal from your arts lays one Wood stack on the foe per 1 % of your health restored and gives you one Water stack.", "effect": "answering-wave", "unlock_layer": 4, "authored": "d6"}
+   ],
+   "lore": "Kỳ Tùng Ẩn made it in the Wild Age, alone in the pines of Thâm Tùng Hải, from listening. He chanted the first fourteen layers to Thôi Khinh Hồng over four hundred years. The canon was never written, and the sect will not write it: what is heard must be earned, and a book can be stolen.",
+   "status": "proposal",
+   "authored": "d6, e6",
+   "effects": [{"id": "pine-wave-fifteenth-layer", "name": "The Fifteenth Layer (Đệ Thập Ngũ Tầng)", "group": "rule_change", "rule": "When you go Down and no refusal holds you up, you stay on the field as the pine for 6 s: you cannot act, be healed or be struck, but every wave you have banked (Gathering Wave's held waves and the canon's waves) fires one a second as a free hit, half Water and half Wood, until the bank is empty or the 6 s end. If the foe goes Down in that window, the fight ends as a double knockout (a draw), not your loss.", "reads": "Down step (event); own banked waves (instant)", "payload": "Free hits from the bank, one a second, c 0.8 each (Gathering Wave's bank value), split Physical (Wood) and the Water art's type", "closes": "Once a fight. A last act: if Final Clause is also held, the waves replace it. Opens only at layer 15, which no copy of the canon teaches: the layer is recovered by quest (Hall of Voices, or the founder's pine)", "hosts": ["Tech"], "unlock_layer": 15, "authored": "e6"}]
+  },
+  {
+   "id": "pine-rain-canon",
+   "name": "Rain on the Pine Sea Canon (Tùng Hải Vũ Kinh)",
+   "tier": 2, "tech_kind": "secret", "names": ["thuy", "moc"], "layers": 12, "rank": "truong_lao",
+   "concept": "The elders' secret art, made by the River Hall and the Lake Hall to give the Water half of the sect a voice of its own. The holder calls a fine rain over the ground around them. Allies under it heal slowly and their linh lực comes back faster; foes under it grow heavy, and Wood arts cast into the rain take root and last longer. A slow art for long fights and for holding ground.",
+   "arts": [
+    "brimming-cup",
+    {"new": "Rain Through the Needles (Vũ Xuyên Châm)", "concept": "Lays a rain field for 10 s: allies inside regain 1 % of their health and linh lực each second, foes inside gain a Water stack every 2 s, and any Wood stack laid inside the field lasts twice as long."},
+    {"new": "The Road in a Dream (Mộng Lộ)", "concept": "Out of combat: while travelling, the holder cultivates as if sitting in closed-door seclusion at a third of the rate. In combat: once per fight, when stunned, they wake at once and gain a ward."}
+   ],
+   "lore": "Hề Tùng Ba, master of the River Hall, chanted its first version in 760; Hồ Tùng Nguyệt added the dream-road layers in 1010, after she cultivated through a whole winter's journey to the long lake asleep in a cart.",
+   "status": "proposal"
+  },
+  {
+   "id": "startled-goose-step",
+   "name": "Startled Goose Step (Kinh Hồng Bộ)",
+   "tier": 2, "tech_kind": "secret", "names": ["moc"], "layers": 12, "rank": "thai_thuong",
+   "concept": "Thôi Khinh Hồng's own movement art, named for the line her name comes from: light as a startled swan goose, supple as a swimming dragon. The holder rises off the ground on a breath of her own Wood qi, so the art is strongest while her Wood regrowth runs on her and weak once it has stopped. It gives evasion, a long leap out of danger, and a strike from above that roots the foe where it lands.",
+   "arts": [
+    "swallow-stance",
+    {"new": "The Goose Rises from the Reeds (Hồng Khởi Lô Trung)", "concept": "You leap away: you are At range for 1 s, the foe's next hit within 2 s misses, and your next art lands with 30 % more effect.", "authored": "a1"},
+    {"new": "The White Wolf Falls (Bạch Lang Lạc)", "concept": "Drop on one foe from above: heavy Wood damage, the foe is rooted for 2 s and takes 3 Wood stacks. The art that killed the white wolf king of Cửu Khúc Xuyên in 455 (C093)."}
+   ],
+   "lore": "She made it in the 450s to hunt the white wolf king (C093) and has used it in earnest twice since, the second time in the cave abode of Mặc Huyết Sinh in 1090 (C024). She has taught it to no one. Her attendant Yến Thu Hồng has watched her practise it for a hundred years and cannot do the first step.",
+   "status": "proposal",
+   "authored": "a1"
+  }
+ ]
+}

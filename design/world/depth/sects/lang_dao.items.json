@@ -1,0 +1,228 @@
+{
+ "sect": "lang_dao",
+ "_doc": "Lãng Đào Môn signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow catalogue-water grade 3-4. The head also keeps the catalogue's Drowned Anchor (water-drowned-anchor, unchanged). No set.",
+ "items": [
+  {
+   "id": "ld-nine-bend-toll-seal",
+   "name": "Toll Seal of the Nine Bends (Cửu Khúc Quan Ấn)",
+   "family": "water",
+   "kind": "treasure",
+   "base": "an",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "thuy"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "thuy"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 14,
+     "scope": [
+      "curse"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "pay-the-toll",
+     "name": "Pay the Toll (Nạp Thuế)",
+     "rule": "Your first Water art each fight stamps the foe Tolled. A Tolled foe loses a small part of its linh lực to you each time it casts an art, until it has paid a tenth of its maximum; then the stamp turns to a Pass and you take 10 % less damage from it."
+    }
+   ],
+   "lore": "The bronze seal the ferry master stamps on every pass at the nine landings, cut in 790 when the boat families became one gate (A075). The Ferry War began over what it stamped (C192). Giang Cửu Khúc has carried it since 1010 and uses it in a fight as a hand seal; he says everybody pays in the end.",
+   "build_use": "The head's toll: Water damage, a linh lực tithe from the foe, and less damage once it has paid.",
+   "holder": "giang_cuu_khuc",
+   "made_by": "uong_lien_chu",
+   "made_year": 790,
+   "set": "ld-nine-landings",
+   "status": "proposal"
+  },
+  {
+   "id": "ld-last-white-sail",
+   "name": "The Last White Sail (Bạch Phàm Kỳ)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "ky",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "thuy",
+      "buff"
+     ]
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "the-boat-that-did-not-burn",
+     "name": "The Boat That Did Not Burn (Bất Phần Chu)",
+     "rule": "Allies near the planted sail take half damage from burns and fire, and the first ally each fight who would be killed by a burn is left at 1 health instead."
+    }
+   ],
+   "lore": "The sail of the one ferry that did not burn at the Đào Sa landing in 1173 (A080), because Thương Bạch Phàm cut it loose and poled it into the current with nine children aboard. She had it made into a war flag when the fleet was rebuilt with the pines' timber in 1175, and plants it on the landing every spring.",
+   "build_use": "The boat-mistress's flag: defence, evasion and fire protection for those around her.",
+   "holder": "thuong_bach_pham",
+   "made_by": "thuong_bach_pham",
+   "made_year": 1175,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "ld-first-fleet-anchor",
+   "name": "Anchor of the First Fleet (Sơ Hạm Mao)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "mao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 18,
+     "scope": [
+      "thuy"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": [
+      "thuy"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "thuy",
+      "buff"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The bronze anchor of the founder's own ferry, the first boat of the joined families in 790. It rode out the burning of 1173 on the river bed and was hauled up for the rebuilt fleet.",
+   "build_use": "The ferryman's blow: Water damage that arrives with weight.",
+   "holder": "giang_cuu_khuc",
+   "made_by": "uong_lien_chu",
+   "made_year": 790,
+   "set": "ld-nine-landings",
+   "status": "proposal"
+  },
+  {
+   "id": "ld-ferry-master-oilskin",
+   "name": "Ferry Master's Oilskin (Độ Chủ Du Giáp)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Oiled sharkskin over river-reed scale, the coat a ferry master wears at the spring flood. Thương Bạch Phàm sewed this one for him after the Ferry War.",
+   "build_use": "A ferryman's body that goes round a blow.",
+   "holder": "giang_cuu_khuc",
+   "made_by": "thuong_bach_pham",
+   "made_year": 1175,
+   "set": "ld-nine-landings",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "ld-nine-landings",
+   "name": "The Nine Landings (Cửu Độ Tam Bảo)",
+   "pieces": [
+    "ld-nine-bend-toll-seal",
+    "ld-first-fleet-anchor",
+    "ld-ferry-master-oilskin"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "attack_pct",
+       "value": 8,
+       "scope": [
+        "thuy"
+       ]
+      },
+      {
+       "key": "evade_pct",
+       "value": 3,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Round the Bend, Then the Anchor (Hồi Khúc Trầm Mao): each blow you slip with the Nine Bends also takes one toll from a Tolled foe, as if it had cast; when you arrive at nine Bends, the anchor drops with you: a Water hit that ignores half the foe's ward."
+    }
+   ],
+   "story": "The founder's seal and anchor, and his Dao partner's coat. Giang Cửu Khúc holds all three. The Drowned Anchor of the catalogue stays aboard his boat."
+  }
+ ]
+}

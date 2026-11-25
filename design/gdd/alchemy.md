@@ -230,6 +230,10 @@ The dan_dao_xp formula is defined as: a success gives the recipe's `xp`, a failu
 
 **Owed:** back-links in Trade Goods, Regional Economy, Sects and Realms, plus the herb rework's Item Database and Trade Goods catalogue changes. None has been edited.
 
+**Back-link written 2026-11-25** (world-depth rulings): **NPC Traits** (#42, rule 8a) opens `craft:alchemy`
+(`pill_master_tongue`) on an alchemist; what the edge gives is this GDD's rule, still to write (NPC Traits Open
+Question 15).
+
 ## Visual/Audio Requirements
 
 Art bible §1–4 are still placeholders; this section draws on §7 and the pillars.

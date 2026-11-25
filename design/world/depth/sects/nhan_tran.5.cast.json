@@ -1,0 +1,504 @@
+{
+ "sect": "nhan_tran",
+ "people": [
+  {
+   "key": "co_thiet_liet",
+   "name_hv": "Cổ Thiết Liệt",
+   "name_han": "古鐵列",
+   "gloss": "Iron rank",
+   "sex": "M",
+   "born": 1128,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "nhan_tran",
+   "rank": "noi_mon",
+   "home": 366,
+   "birthplace": 74,
+   "role": "Leader of the second file; Đổng Kiên Lũy's man at the Lake Shore",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Warlike",
+     "Loyal",
+     "Impatient"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Thảo Đường levy boy like his master Đổng Kiên Lũy (dong_kien_luy), who has stepped back from the point twice by the ten-year rule; he wants to be sent to war once before he steps back again, and witnesses Đổng's letters to Hình Trọng Sơn (hinh_trong_son).",
+   "ties": [
+    {
+     "to": "dong_kien_luy",
+     "kind": "master",
+     "note": "master of the spring levy"
+    },
+    {
+     "to": "hinh_trong_son",
+     "kind": "friend",
+     "note": "Lạc Hà's war elder, by letter"
+    }
+   ],
+   "master": "dong_kien_luy",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wild-geese-formation-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water staying power and the file's shared strain."
+    }
+   }
+  },
+  {
+   "key": "duong_thu_tuyen",
+   "name_hv": "Đường Thủ Tuyến",
+   "name_han": "唐守線",
+   "gloss": "Holding the line",
+   "sex": "F",
+   "born": 1160,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "nhan_tran",
+   "rank": "noi_mon",
+   "home": 367,
+   "birthplace": 38,
+   "role": "Leads the file hired out to Lạc Hà's caravans",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Cautious",
+     "Peaceable"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Nhạn Thanh Thành gate-guard's daughter who leads the file the gate hires out to Lạc Hà's caravans; like the head she would keep the gate out of Lạc Hà's quarrels, and has told Mục Tân Vũ (muc_tan_vu) that ten who drill at night without leave are loose order, however neatly they stand.",
+   "ties": [
+    {
+     "to": "muc_han_nhan",
+     "kind": "master",
+     "note": "the head"
+    },
+    {
+     "to": "muc_tan_vu",
+     "kind": "rival",
+     "note": "over the ten"
+    },
+    {
+     "to": "lo_hanh_sa",
+     "kind": "friend",
+     "note": "the caravan steward she escorts"
+    }
+   ],
+   "master": "muc_han_nhan",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wild-geese-formation-canon",
+     "layer": 3
+    },
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "lieu_kien_thach",
+   "name_hv": "Liêu Kiên Thạch",
+   "name_han": "廖堅石",
+   "gloss": "Firm stone",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "nhan_tran",
+   "rank": "ngoai_mon",
+   "home": 367,
+   "birthplace": 532,
+   "role": "Placed from Lạc Hà's Geese Hall cadets this spring",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 42,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Honest"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Xích Thổ boy who marched in the Geese Hall's cadet line behind Đặng Liệt Hàng (dang_liet_hang) and failed the dusk test three times; placed with the gate this spring, he stood the levy line on his first day and was annoyed to find it easy.",
+   "ties": [
+    {
+     "to": "ngo_bat_tan",
+     "kind": "master",
+     "note": "teaches the outer gate"
+    },
+    {
+     "to": "dang_liet_hang",
+     "kind": "former_master",
+     "note": "drilled him at Lạc Hà"
+    },
+    {
+     "to": "to_binh_chu",
+     "kind": "debt",
+     "note": "placed by him; owes Lạc Hà a tenth until 1230"
+    }
+   ],
+   "master": "ngo_bat_tan",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-bone-body-art",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    }
+   }
+  },
+  {
+   "key": "thieu_vu_hang",
+   "name_hv": "Thiều Vũ Hàng",
+   "name_han": "韶羽行",
+   "gloss": "Feather file",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "nhan_tran",
+   "rank": "noi_mon",
+   "home": 367,
+   "birthplace": 128,
+   "role": "One of Mục Tân Vũ's ten",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Calm",
+     "Loyal"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Yến Quy ferry girl and one of Mục Tân Vũ's (muc_tan_vu) ten, who holds the wet cloth in the night drill on Hắc Thứu Đài; she breathes slowest of the ten, and the point means to put her at the front in the grey.",
+   "ties": [
+    {
+     "to": "muc_tan_vu",
+     "kind": "master",
+     "note": "the point of the first file"
+    },
+    {
+     "to": "lam_te_vu",
+     "kind": "friend",
+     "note": "one of the ten"
+    }
+   ],
+   "master": "muc_tan_vu",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wild-geese-formation-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "bo_thanh_lang",
+   "name_hv": "Bộ Thanh Lăng",
+   "name_han": "步青陵",
+   "gloss": "Green hill",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "nhan_tran",
+   "rank": "noi_mon",
+   "home": 366,
+   "birthplace": 75,
+   "role": "One of the ten; keeps the founder's notes",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 38,
+     "thuy": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Paranoid",
+     "Diligent"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Ngư Lương fisher's son and the one of Mục Tân Vũ's (muc_tan_vu) ten who keeps the founder's stolen notes rolled in his drum case; his master Cát Trì Cổ (cat_tri_co) has not looked inside it.",
+   "ties": [
+    {
+     "to": "cat_tri_co",
+     "kind": "master",
+     "note": "the levy drummer"
+    },
+    {
+     "to": "muc_tan_vu",
+     "kind": "friend",
+     "note": "he drills in her ten"
+    }
+   ],
+   "master": "cat_tri_co",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wild-geese-formation-canon",
+     "layer": 2
+    },
+    "aux": [
+     {
+      "tech": "spring-levy-drum",
+      "layer": 1
+     }
+    ],
+    "gear": [
+     {
+      "base": "co",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  },
+  {
+   "key": "luong_bo_khuyet",
+   "name_hv": "Lương Bổ Khuyết",
+   "name_han": "梁補缺",
+   "gloss": "Filling the gap",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "nhan_tran",
+   "rank": "ngoai_mon",
+   "home": 367,
+   "birthplace": 367,
+   "role": "Weeds the burial rows; a descendant of the 803 file",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Gregarious",
+     "Stubborn"
+    ],
+    "calling": "Steward",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Lương Thủ Hàng's (luong_thu_hang) grand-niece, born at the gate, who weeds the burial rows and asks him each spring whose gap is whose; the Roll of Files has no names, so he tells her by the file.",
+   "ties": [
+    {
+     "to": "luong_thu_hang",
+     "kind": "aunt_uncle",
+     "note": "her grandfather's brother and master; keeper of the Roll"
+    }
+   ],
+   "master": "luong_thu_hang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-bone-body-art",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "sach_bat_ngon",
+   "name_hv": "Sách Bất Ngôn",
+   "name_han": "索不言",
+   "gloss": "Says nothing",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "nhan_tran",
+   "rank": "ngoai_mon",
+   "home": 367,
+   "birthplace": 486,
+   "role": "Levy girl who stood the line last spring",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 36,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Brave",
+     "Humble"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Thanh Phong carter's daughter who stood last spring's levy line from dawn to dusk on a broken toe and said so only at evening; Ngô Bất Tán (ngo_bat_tan) took her in, and is teaching her to say so sooner.",
+   "ties": [
+    {
+     "to": "ngo_bat_tan",
+     "kind": "master",
+     "note": "teaches the outer gate"
+    },
+    {
+     "to": "ton_lac_ho",
+     "kind": "friend",
+     "note": "his other disciple"
+    }
+   ],
+   "master": "ngo_bat_tan",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-bone-body-art",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  }
+ ]
+}

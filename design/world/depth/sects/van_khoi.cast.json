@@ -1,0 +1,1322 @@
+{
+ "sect": "van_khoi",
+ "people": [
+  {
+   "key": "tong_toa_van",
+   "name_hv": "Tống Tọa Vân",
+   "name_han": "宋坐雲",
+   "gloss": "Sit and watch the clouds rise (Vương Duy)",
+   "sex": "M",
+   "born": 420,
+   "alive": true,
+   "realm": "nguyen_anh",
+   "stage": 2,
+   "sect": "van_khoi",
+   "rank": "tong_chu",
+   "home": 10,
+   "birthplace": 59,
+   "role": "Abbot and founder of Vân Khởi Quán (540); the empty mountain's last student",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "tho": 76,
+     "moc": 72
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 84,
+    "can_cot": 58,
+    "than_hon": 78,
+    "khi_van": 56,
+    "dao_tam": 92,
+    "mi_luc": 66
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Devout",
+     "Humble"
+    ],
+    "calling": "Teacher",
+    "upbringing": "hermit_taught",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 3
+     },
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "long_seclusion"
+    ],
+    "lifestyle": "pilgrim",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A thin, very old man in patched grey hemp who walks slowly uphill and sits down wherever the path ends, as if he had been waiting there.",
+   "backstory": "Tống Tọa Vân was a woodcutter's son from Tiều Ca Trấn, the town whose singers Không Sơn Viện had asked to sing more quietly (A033). At nine he carried wood up to the academy and stayed to sweep it. In 460 its master, Thôi Bất Kiến (thoi_bat_kien), took him as his only disciple (C094). In 488 the last abbot of Bão Nhất Quán, Cống Thủ Nhất (cong_thu_nhat), came down to the academy as a guest when his spring dried (V022), and taught him the Rule of an abbey. In 500 Thôi, who had no heir, gave the hills, his whisk and his one student to Phùng Yên Hà (phung_yen_ha) (C100). Tống went where he was given. He served Thúy Vi for forty years, and in 540 he asked to leave. He walked up the stream above the ridge until the water ended, sat down, and founded Vân Khởi Quán where he sat (C114). In 1080 the mica ran thin, and he said that clouds, too, pass (A046). He is 780 and has kept the abbey poor, quiet and open for 660 years. He walks with Ngu Lam Sơn (ngu_lam_son) and Thường Độc Hoạt (thuong_doc_hoat) on Thủy Cùng Phong. He has never held a killing art.",
+   "wants": "To leave the abbey to someone who can sit as Thôi sat, and to die on Thủy Cùng Phong at the place where the water ends.",
+   "secret": "Thôi taught him the first nine layers of the Empty Mountain Sutra before the gift of 500 (the last six went only to Phùng Yên Hà), and Thúy Vi does not know that he has them. Every year since 520, on the night of Thôi's death, a monk of the abbey has gone through the haze behind the sealed gate and read those nine layers aloud in the empty academy, as Tống promised Thôi: on the empty mountain no one is seen, but voices are heard. The traveller of 1195 heard Văn Nhân Hưởng (A048). Thường Độc Hoạt shows the readers the way.",
+   "ties": [
+    {
+     "to": "thoi_bat_kien",
+     "kind": "master",
+     "note": "the master who gave him away with the hills; he has never resented it, which is why he can teach"
+    },
+    {
+     "to": "cong_thu_nhat",
+     "kind": "former_master",
+     "note": "taught him the abbey Rule in 488-499"
+    },
+    {
+     "to": "phung_yen_ha",
+     "kind": "friend",
+     "note": "the founder he was given to; she let him go in 540"
+    },
+    {
+     "to": "ngu_lam_son",
+     "kind": "friend",
+     "note": "they walk together on Thủy Cùng Phong"
+    },
+    {
+     "to": "thuong_doc_hoat",
+     "kind": "friend",
+     "note": "they watch the clouds rise together; he guides the readers"
+    },
+    {
+     "to": "van_nhan_huong",
+     "kind": "disciple",
+     "note": "the Reader"
+    },
+    {
+     "to": "lanh_xuan_gian",
+     "kind": "disciple",
+     "note": "keeper of the mica"
+    },
+    {
+     "to": "mau_hanh_dao",
+     "kind": "disciple",
+     "note": "his first prior, lost in the avalanche of 1019"
+    },
+    {
+     "to": "tho_u_hoang",
+     "kind": "disciple",
+     "note": "the hermit of the Peak of Sitting Alone"
+    },
+    {
+     "to": "ha_khong_thuy",
+     "kind": "disciple",
+     "note": "teaches letters at the Bách Diệp school"
+    }
+   ],
+   "master": "thoi_bat_kien",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "sitting-cloud-canon",
+     "layer": 12
+    },
+    "aux": [
+     {
+      "tech": "hundred-echo-palm-scripture",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "vk-rising-cloud-robe"
+     },
+     {
+      "named": "vk-thoi-censer"
+     },
+     {
+      "named": "vk-hundred-echo-seal"
+     }
+    ],
+    "skills": {
+     "phu_luc": 4
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth land toward health and status resistance, then the soul paths: a sitter who cannot be moved.",
+     "targets": [
+      3432,
+      3425,
+      713,
+      3774,
+      8969,
+      8943,
+      6299
+     ],
+     "targets_note": "The abbey's Gate of Faith and Unshaken Heart first, Unwavering Faith against heart demons, Cloud Head and Cloud Gate for the banked Clouds, Embryonic Breath, and the Wood side's Growth Rings: a sitter who cannot be moved."
+    },
+    "note": "The last student of the empty mountain: an unshakable Dao heart. He sits, banks Clouds, and answers with the hundred-echo palm only if he must."
+   },
+   "items": [
+    "soul-song-seal-ninth-vigil-heart-lamp",
+    "vk-rising-cloud-robe",
+    "vk-thoi-censer",
+    "vk-hundred-echo-seal"
+   ],
+   "changed": "build revised for the no-lean abbey (R3): main dia_moc -> sitting-cloud-canon (his own method, layer 12 kept); gear dao_bao grade 4 -> vk-rising-cloud-robe; tree targets replaced by an intent. Birthplace 59 (Tiều Ca Trấn) added."
+  },
+  {
+   "key": "van_nhan_huong",
+   "name_hv": "Văn Nhân Hưởng",
+   "name_han": "聞人響",
+   "gloss": "But voices are heard (Vương Duy, Lộc Trại)",
+   "sex": "F",
+   "born": 1146,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "van_khoi",
+   "rank": "noi_mon",
+   "home": 10,
+   "birthplace": 166,
+   "role": "The Reader: reads the Empty Mountain Sutra aloud in Không Sơn Viện once a year",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 58,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 78,
+    "can_cot": 46,
+    "than_hon": 74,
+    "khi_van": 52,
+    "dao_tam": 60,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Honest",
+     "Ambitious"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     },
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "chronicler",
+    "health": "meridian_scar",
+    "coping": "obsessive_training",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A small, sharp-eyed woman with a mica-miner's cracked hands and a reader's voice, low and very clear, that carries through stone.",
+   "backstory": "Văn Nhân Hưởng was born at the mica mine of Vân Mẫu Khoáng, where the vein had been running thin since 1080 (A046), and came up to the abbey at eleven because it fed anyone who could sit still. She could not sit still, but she could remember anything she heard once, and she read aloud better than anyone the abbey had. In 1180 the abbot Tống Tọa Vân (tong_toa_van) gave her the bell of the empty hall and made her the Reader. Once a year, on the night Thôi Bất Kiến died, Thường Độc Hoạt (thuong_doc_hoat) of Thúy Vi walks her up through the haze to a crack behind the gate Thúy Vi sealed in 830 (A043). She rings the bell at the door of Không Sơn Viện and reads the nine layers of the Empty Mountain Sutra that the abbot holds aloud to the empty rooms until dawn. In 1195 a traveller sleeping in the next room heard her (A048), and the cape has talked of a ghost ever since. Tống chose her because her root is Metal: the sutra runs on Earth and Wood, and the abbot meant the reading to be a promise kept, not a teaching given.",
+   "wants": "To understand what she has been reading for twenty years, and to read it once in daylight, with Thúy Vi's leave, so that it is no longer a secret.",
+   "secret": "She has tried to cultivate the sutra's first three layers anyway, against her root. It has scarred a meridian, and the abbot does not know. She has also written the nine layers down, which nobody outside Thúy Vi has done since Thôi.",
+   "ties": [
+    {
+     "to": "tong_toa_van",
+     "kind": "master",
+     "note": "made her the Reader in 1180"
+    },
+    {
+     "to": "thuong_doc_hoat",
+     "kind": "friend",
+     "note": "walks her up through the haze every year and waits outside"
+    },
+    {
+     "to": "ba_xuan_son",
+     "kind": "disciple",
+     "note": "the youngest novice, who wants to be the next Reader"
+    },
+    {
+     "to": "kha_thuy_cung",
+     "kind": "rival",
+     "note": "the prior thinks the reading should end with the abbot"
+    },
+    {
+     "to": "ha_que_hoa",
+     "kind": "disciple",
+     "note": "young monk who carries the Reader's bell"
+    },
+    {
+     "to": "han_thanh_dai",
+     "kind": "rival",
+     "note": "keeper of the lamp oil and the guests' millet"
+    }
+   ],
+   "master": "tong_toa_van",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "sitting-cloud-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "vk-empty-hall-bell"
+     },
+     {
+      "named": "vk-mica-reader-robe"
+     }
+    ],
+    "skills": {
+     "phu_luc": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal toward thần thức and soul resistance, the reader's voice.",
+     "targets": [
+      3432,
+      3425,
+      4128,
+      4114,
+      4219,
+      4223
+     ],
+     "targets_note": "Lake Trigram and Soul-Calming Jade thần thức, Clear Gong soul resistance: the reader's voice."
+    },
+    "note": "A soul caster who wins by holding still and talking."
+   },
+   "items": [
+    "vk-empty-hall-bell",
+    "vk-mica-reader-robe"
+   ]
+  },
+  {
+   "key": "kha_thuy_cung",
+   "name_hv": "Kha Thủy Cùng",
+   "name_han": "柯水窮",
+   "gloss": "Where the water ends",
+   "sex": "M",
+   "born": 905,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "van_khoi",
+   "rank": "truong_lao",
+   "home": 10,
+   "birthplace": 1,
+   "role": "Prior (giám viện); runs the school and the novices",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 60,
+     "tho": 36,
+     "moc": 22
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 56,
+    "than_hon": 62,
+    "khi_van": 44,
+    "dao_tam": 70,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Stubborn",
+     "Cautious"
+    ],
+    "calling": "Teacher",
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "teacher_at_heart",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Humbled"
+    ]
+   },
+   "appearance": "A square grey man with a jade-cutter's forearms who teaches letters with a stick and never uses it.",
+   "backstory": "Born on Thúy Vi's ridge into the jade-cutters' family that served the sect, the family Cù Thúy Bách (cu_thuy_bach) came from. At twelve his Wood was too thin for the gate. Cù walked him up to the abbey herself. He has been prior since 1019, when Mâu Hành Đáo (mau_hanh_dao) died in the avalanche, and he runs the school that takes the ridge's turned-away children. He thinks the yearly reading puts the abbey at Thúy Vi's mercy.",
+   "ties": [
+    {
+     "to": "mau_hanh_dao",
+     "kind": "master",
+     "note": "the prior before him"
+    },
+    {
+     "to": "cu_thuy_bach",
+     "kind": "cousin",
+     "note": "of her jade-cutter family; she walked him up to the abbey when the gate refused him"
+    },
+    {
+     "to": "nong_bach_thach",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "trang_thanh_tuyen",
+     "kind": "disciple",
+     "note": "the schoolmistress in Bách Diệp"
+    },
+    {
+     "to": "van_nhan_huong",
+     "kind": "rival",
+     "note": "the inner disciple who thinks the reading should end with the abbot"
+    },
+    {
+     "to": "han_thanh_dai",
+     "kind": "disciple",
+     "note": "keeper of the lamp oil and the guests' millet"
+    },
+    {
+     "to": "pho_tieu_diem",
+     "kind": "disciple",
+     "note": "ridge servant's child; carries salt and letters to the abbey kitchen"
+    }
+   ],
+   "master": "mau_hanh_dao",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "sitting-cloud-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "hundred-echo-palm-scripture",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "an",
+      "grade": 3,
+      "element": "tho"
+     },
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "phu_luc": 3
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal toward defence and block; a teacher who stands in a doorway.",
+     "targets": [
+      3432,
+      3425,
+      4110,
+      4299,
+      4307,
+      4017
+     ],
+     "targets_note": "Great Bell Toll, Golden Bell and Bronze Shield: a teacher in a doorway."
+    },
+    "note": "Guards the school."
+   }
+  },
+  {
+   "key": "lanh_xuan_gian",
+   "name_hv": "Lãnh Xuân Giản",
+   "name_han": "冷春澗",
+   "gloss": "The spring brook (Vương Duy: thời minh xuân giản trung)",
+   "sex": "F",
+   "born": 1010,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "van_khoi",
+   "rank": "truong_lao",
+   "home": 10,
+   "birthplace": 1143,
+   "role": "Keeper of the mica and the Cloud Mother Seal",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 52,
+     "kim": 50
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 52,
+    "than_hon": 66,
+    "khi_van": 40,
+    "dao_tam": 58,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Reclusive",
+     "Greedy"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "formation_mind"
+    ],
+    "lifestyle": "collector",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A pale woman who holds every stone up to the light before she speaks to the person who brought it.",
+   "backstory": "A pine-village girl from Tùng Yên Thôn who came up to the abbey in 1022 and never went down. She cut the last clear pane of mica from Vân Mẫu Khoáng in 1080, the year the abbot said clouds also pass (A046), and made it into the mirror every seal is stamped through. She counts every pane. She trades seal-work with Thúy Vi's mica-grinder Tuân Vân Mẫu (tuan_van_mau) and will not say how much clear mica is left.",
+   "ties": [
+    {
+     "to": "tong_toa_van",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tuan_van_mau",
+     "kind": "friend",
+     "note": "they trade seal-work and mica dust"
+    },
+    {
+     "to": "thong_van_thach",
+     "kind": "disciple",
+     "note": "the miner's son who digs for her"
+    },
+    {
+     "to": "trinh_van_phien",
+     "kind": "disciple",
+     "note": "cuts and counts the mica at Vân Mẫu Khoáng"
+    }
+   ],
+   "master": "tong_toa_van",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "sitting-cloud-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "cloud-mother-seal",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "vk-cloud-mother-mirror"
+     },
+     {
+      "base": "an",
+      "grade": 3,
+      "element": "tho"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "phu_luc": 6,
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth toward ward strength and duration.",
+     "targets": [
+      3432,
+      3425,
+      3504,
+      3487,
+      3101,
+      3105
+     ],
+     "targets_note": "Wall Brick and the Rampart's ward strength, then the Array Keeper idea's ward and formation power: behind mica; ward duration comes from his Cloud Mother Mirror."
+    },
+    "note": "Seals the foe's last art and outlasts them behind mica."
+   },
+   "items": [
+    "vk-cloud-mother-mirror"
+   ]
+  },
+  {
+   "key": "nong_bach_thach",
+   "name_hv": "Nông Bạch Thạch",
+   "name_han": "農白石",
+   "gloss": "White stone (Vương Duy: kinh khê bạch thạch xuất)",
+   "sex": "M",
+   "born": 1105,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "van_khoi",
+   "rank": "noi_mon",
+   "home": 10,
+   "birthplace": 1149,
+   "role": "Teaches the novices the walk; turned away by Thúy Vi's inner gate",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 54,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 62,
+    "than_hon": 56,
+    "khi_van": 42,
+    "dao_tam": 64,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Forgiving",
+     "Diligent"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A broad, quiet man who smells of lime and always has a white pebble in his hand.",
+   "backstory": "A lime-burner's son from Thiêu Hôi Thôn, the village Quyền Thanh Lam (quyen_thanh_lam) came from, who spent thirty years in Thúy Vi's outer gate on his Earth. In 1150 Phạm Thủ Điền (pham_thu_dien) told him, kindly, that the inner gate would not open, and he walked up to the abbey the next spring. He reached Trúc Cơ there in 1176. Now he walks the novices up the hill streams each morning, and once a year leads them the five days (some 80 km) to the water's end at Thủy Cùng Phong. He writes every year to the Earth-rooted girl in Thúy Vi's outer gate, Mễ Điền Nhi (me_dien_nhi), to say the door here is open.",
+   "ties": [
+    {
+     "to": "kha_thuy_cung",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "pham_thu_dien",
+     "kind": "friend",
+     "note": "told him kindly; they still write"
+    },
+    {
+     "to": "me_dien_nhi",
+     "kind": "friend",
+     "note": "writes to her every year; she has not answered"
+    },
+    {
+     "to": "cu_tung_gian",
+     "kind": "disciple",
+     "note": "the cook, another ridge child"
+    },
+    {
+     "to": "an_tho_hoa",
+     "kind": "disciple",
+     "note": "lime-burner's daughter turned away by Thúy Vi's outer gate"
+    }
+   ],
+   "master": "kha_thuy_cung",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "sitting-cloud-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "hundred-echo-palm-scripture",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth toward health and block, with the palm's echoes.",
+     "targets": [
+      3432,
+      3425,
+      3724,
+      3051
+     ],
+     "targets_note": "Earthen Gate and Five Peaks health and block; palm modifiers wished (wish bt-08)."
+    },
+    "note": "The Earth-only man the lineage turned away."
+   }
+  },
+  {
+   "key": "trang_thanh_tuyen",
+   "name_hv": "Trang Thanh Tuyền",
+   "name_han": "莊清泉",
+   "gloss": "Clear spring (Vương Duy: thanh tuyền thạch thượng lưu)",
+   "sex": "F",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "van_khoi",
+   "rank": "chap_su",
+   "home": 58,
+   "birthplace": 58,
+   "role": "Schoolmistress of the abbey's school in Bách Diệp Trấn",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Patient",
+     "Just"
+    ],
+    "calling": "Teacher",
+    "upbringing": "scholar_family",
+    "lifestyle": "calligrapher"
+   },
+   "backstory": "She teaches the children of Bách Diệp Trấn their letters under the cypress groves Không Sơn planted as a lesson in patience (A034), and sends the stillest of them up the mountain.",
+   "ties": [
+    {
+     "to": "kha_thuy_cung",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "lao_hong_diep",
+     "kind": "disciple",
+     "note": "taught her letters"
+    },
+    {
+     "to": "ho_kinh_dieu",
+     "kind": "disciple",
+     "note": "the merchant's boy she cannot keep in his seat"
+    },
+    {
+     "to": "mai_ngu_yen",
+     "kind": "disciple",
+     "note": "Yên Ba merchant's daughter at the school who cannot sit still"
+    },
+    {
+     "to": "ha_khong_thuy",
+     "kind": "friend",
+     "note": "teaches letters at the Bách Diệp school"
+    }
+   ],
+   "master": "kha_thuy_cung",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "sitting-cloud-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "kinh",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain."
+    },
+    "note": "The school in the cypresses."
+   }
+  },
+  {
+   "key": "tho_u_hoang",
+   "name_hv": "Thọ U Hoàng",
+   "name_han": "壽幽篁",
+   "gloss": "The dark bamboo (Vương Duy: độc tọa u hoàng lý)",
+   "sex": "M",
+   "born": 1060,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "van_khoi",
+   "rank": "noi_mon",
+   "home": 1139,
+   "birthplace": 1135,
+   "role": "Hermit of the Peak of Sitting Alone",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Calm",
+     "Temperate"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "path": [],
+    "lifestyle": "qin_player"
+   },
+   "backstory": "An inkstone-cutter's son who has sat alone on Độc Tọa Phong for seventy years; travellers on the pass hear his qin on still nights, and Tống Tọa Vân (tong_toa_van) climbs up once a decade to listen.",
+   "ties": [
+    {
+     "to": "tong_toa_van",
+     "kind": "master",
+     "note": "climbs up once a decade"
+    }
+   ],
+   "master": "tong_toa_van",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "sitting-cloud-canon",
+     "layer": 7
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal toward thần thức."
+    },
+    "note": "Plays to no one."
+   }
+  },
+  {
+   "key": "ho_kinh_dieu",
+   "name_hv": "Hỗ Kinh Điểu",
+   "name_han": "扈驚鳥",
+   "gloss": "The startled bird (Vương Duy: nguyệt xuất kinh sơn điểu)",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "van_khoi",
+   "rank": "ngoai_mon",
+   "home": 58,
+   "birthplace": 30,
+   "role": "A Yên Ba merchant's son sent up for schooling",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Impatient",
+     "Gregarious",
+     "Indulgent"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A son of the Yên Ba merchant house a Thẩm daughter married into in 1040 (A029), sent up to be made calm; he has not been, and he writes to his cousin Thẩm Tịnh Sa (tham_tinh_sa) at Thúy Vi's port house to get him out.",
+   "ties": [
+    {
+     "to": "trang_thanh_tuyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tham_tinh_sa",
+     "kind": "cousin",
+     "note": "through the Thẩm of Bạch Sa"
+    },
+    {
+     "to": "ho_te_xuyen",
+     "kind": "ancestor",
+     "note": "his great-grandfather, who sent him to be made calm"
+    },
+    {
+     "to": "ho_quan_lan",
+     "kind": "parent",
+     "note": "his father"
+    },
+    {
+     "to": "trinh_hai_au",
+     "kind": "parent",
+     "note": "his mother"
+    },
+    {
+     "to": "ho_ngan_trieu",
+     "kind": "sibling",
+     "note": "his younger sister"
+    },
+    {
+     "to": "ho_yen_thuy",
+     "kind": "sibling",
+     "note": "his elder sister"
+    },
+    {
+     "to": "mai_ngu_yen",
+     "kind": "friend",
+     "note": "Yên Ba merchant's daughter at the school who cannot sit still"
+    }
+   ],
+   "master": "trang_thanh_tuyen",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "water-ends-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Cannot sit still."
+   }
+  },
+  {
+   "key": "lao_hong_diep",
+   "name_hv": "Lao Hồng Diệp",
+   "name_han": "勞紅葉",
+   "gloss": "Red leaf",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "van_khoi",
+   "rank": "ngoai_mon",
+   "home": 10,
+   "birthplace": 104,
+   "role": "Novice; sells red-leaf bookmarks at Lam Yên Thị",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Generous",
+     "Honest",
+     "Content"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born"
+   },
+   "backstory": "From Thu Diệp Thôn, whose red leaves are sold as scripture bookmarks (A047); she sells them at Lam Yên Thị to keep the abbey in lamp oil, and was taught her letters by Trang Thanh Tuyền (trang_thanh_tuyen).",
+   "ties": [
+    {
+     "to": "trang_thanh_tuyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ha_que_hoa",
+     "kind": "friend",
+     "note": "young monk who carries the Reader's bell"
+    }
+   ],
+   "master": "trang_thanh_tuyen",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "water-ends-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Lamp oil from leaves."
+   }
+  },
+  {
+   "key": "thong_van_thach",
+   "name_hv": "Thông Vân Thạch",
+   "name_han": "通雲石",
+   "gloss": "Cloud stone (mica)",
+   "sex": "M",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "van_khoi",
+   "rank": "ngoai_mon",
+   "home": 166,
+   "birthplace": 166,
+   "role": "Digs the thin mica vein for the abbey",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 56,
+     "tho": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Diligent",
+     "Paranoid"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A miner's son of Vân Mẫu Khoáng and the nephew of Thúy Vi's mica-grinder Tuân Vân Mẫu (tuan_van_mau); he digs for clear mica in a vein everyone says is spent, and thinks he has found a new seam.",
+   "ties": [
+    {
+     "to": "lanh_xuan_gian",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tuan_van_mau",
+     "kind": "aunt_uncle",
+     "note": "his aunt"
+    },
+    {
+     "to": "trinh_van_phien",
+     "kind": "friend",
+     "note": "cuts and counts the mica at Vân Mẫu Khoáng"
+    }
+   ],
+   "master": "lanh_xuan_gian",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "water-ends-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "A new seam, he says."
+   }
+  },
+  {
+   "key": "cu_tung_gian",
+   "name_hv": "Cừ Tùng Gian",
+   "name_han": "璩松間",
+   "gloss": "Among the pines (Vương Duy: minh nguyệt tùng gian chiếu)",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "van_khoi",
+   "rank": "noi_mon",
+   "home": 10,
+   "birthplace": 1,
+   "role": "The abbey's cook; a ridge child",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Humble",
+     "Loyal"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Nephew of the Cliff Hall's cook Đinh Lão Hòe (dinh_lao_hoe), born on Thúy Vi's ridge with a Metal root; he came up to the abbey at twelve and cooks millet for it as his uncle cooks for Cù.",
+   "ties": [
+    {
+     "to": "dinh_lao_hoe",
+     "kind": "aunt_uncle",
+     "note": "his mother's brother; they argue about salt by letter"
+    },
+    {
+     "to": "nong_bach_thach",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "pho_tieu_diem",
+     "kind": "friend",
+     "note": "ridge servant's child; carries salt and letters to the abbey kitchen"
+    }
+   ],
+   "master": "nong_bach_thach",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "water-ends-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "Millet and quiet."
+   }
+  },
+  {
+   "key": "ba_xuan_son",
+   "name_hv": "Ba Xuân Sơn",
+   "name_han": "巴春山",
+   "gloss": "The spring mountain (Vương Duy: dạ tĩnh xuân sơn không)",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "van_khoi",
+   "rank": "ngoai_mon",
+   "home": 10,
+   "birthplace": 1143,
+   "role": "Youngest novice; wants to be the next Reader",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 44,
+     "kim": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Fickle",
+     "Trusting"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Tùng Yên Thôn girl who walked up Thủy Cùng Phong beside Thường Độc Hoạt (thuong_doc_hoat) on her first long walk and has guessed where the Reader goes once a year.",
+   "ties": [
+    {
+     "to": "van_nhan_huong",
+     "kind": "master",
+     "note": "wants her bell"
+    },
+    {
+     "to": "thuong_doc_hoat",
+     "kind": "friend",
+     "note": "walked up the peak with him once"
+    }
+   ],
+   "master": "van_nhan_huong",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "water-ends-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "Has guessed."
+   }
+  },
+  {
+   "key": "mau_hanh_dao",
+   "name_hv": "Mâu Hành Đáo",
+   "name_han": "繆行到",
+   "gloss": "Walks until (the water ends)",
+   "sex": "F",
+   "born": 700,
+   "died": 1019,
+   "cause": "the second slide of the Vân Gian Trấn avalanche, digging for the buried (age 319)",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "van_khoi",
+   "rank": "truong_lao",
+   "home": 10,
+   "birthplace": 1130,
+   "role": "The abbey's first prior; wrote down the novices' walk; died in the avalanche of 1019",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Brave",
+     "Diligent"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "backstory": "Born in Vân Gian Trấn, the town among the clouds, and Tống Tọa Vân's (tong_toa_van) first disciple. She wrote down the novices' walk in 830 and ran the abbey for him for three centuries. In the winter of 1019 the avalanche buried her birthplace's upper street. She came down and dug for six days beside a nineteen-year-old Thúy Vi boy, Nhạc Chính Hành (nhac_chinh_hanh), whose family was under it, and the second slide took her (V031).",
+   "ties": [
+    {
+     "to": "tong_toa_van",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "kha_thuy_cung",
+     "kind": "disciple",
+     "note": "the prior after her"
+    },
+    {
+     "to": "nhac_chinh_hanh",
+     "kind": "friend",
+     "note": "dug beside him for six of his nine days"
+    }
+   ]
+  },
+  {
+   "key": "cong_thu_nhat",
+   "name_hv": "Cống Thủ Nhất",
+   "name_han": "貢守一",
+   "gloss": "Keeps the One",
+   "sex": "M",
+   "born": 205,
+   "died": 499,
+   "cause": "his core withered after his spring dried in 488 (his method drew on it); died a guest at Không Sơn Viện, age 294",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "",
+   "rank": "last_head",
+   "home": 213,
+   "birthplace": 1157,
+   "role": "Last abbot of Bão Nhất Quán; gave the young Tống Tọa Vân the abbey Rule",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Devout",
+     "Patient",
+     "Humble"
+    ],
+    "calling": "Teacher",
+    "upbringing": "temple_raised"
+   },
+   "backstory": "When the spring of Bão Nhất Quán dried in 488 he went down to Không Sơn Viện as a guest (V022), and spent his last years teaching the abbey Rule to Tống Tọa Vân (tong_toa_van).",
+   "ties": [
+    {
+     "to": "tong_toa_van",
+     "kind": "former_disciple",
+     "note": "taught him the Rule"
+    }
+   ]
+  }
+ ]
+}

@@ -667,7 +667,9 @@ power_mult = (209 + 138) ÷ 209 = **1.660**, +24.8 %.
   requirement in the catalogue, so this cannot happen in shipped data.
 - **If an NPC dies:** its Dao stays in its record. The World Database keeps it as history.
 - **If a world is small:** a 3,000-cultivator world has about 1.7 Deity Transformation NPCs, so a
-  Dao held only by Deity Transformation NPCs may not exist in that world. That is allowed.
+  Dao held only by Deity Transformation NPCs may not exist in that world. That is allowed. (2026-11-25: floor
+  5,000, was 3,000; World Generation Open Question 8. The smallest world now has about 3 Deity Transformation NPCs,
+  so the case is rarer but still allowed.)
 
 ## Dependencies
 

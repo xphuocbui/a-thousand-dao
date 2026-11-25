@@ -1,0 +1,308 @@
+{
+ "sect": "yen_quang",
+ "_doc": "Yên Quang Các signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow the wood and earth catalogues' grade 3-4 items. No set.",
+ "items": [
+  {
+   "id": "yq-evening-glow-furnace",
+   "name": "Furnace of the Evening Glow (Mộ Quang Lô)",
+   "family": "wood",
+   "kind": "treasure",
+   "base": "huong_lo",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 16,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 20,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    },
+    {
+     "key": "dan_doc_resist_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "lit-at-dusk",
+     "name": "Lit at Dusk (Mộ Nhiên)",
+     "rule": "After the fight's 20th second the furnace burns hotter: healing-over-time stacks the holder grants are 20 % stronger for the rest of the fight."
+    }
+   ],
+   "lore": "A squat clay censer-furnace fired at Hôi Diêu Thôn's lime kilns, the one Tào Mộ Tử carried down from the steppe in 1187 with the coals still in it, so that the pavilion's fire never went out across the move (N-yen_quang-03). He made Hình Lạc Nhạn's tincture in it.",
+   "build_use": "The head's healing furnace: slow at first, strong after twenty seconds.",
+   "holder": "tao_mo_tu",
+   "made_by": "vi_ngung_yen",
+   "made_year": 1066,
+   "set": "yq-evening-glow",
+   "status": "proposal"
+  },
+  {
+   "id": "yq-cold-furnace",
+   "name": "The Cold Furnace (Lãnh Lô)",
+   "family": "wood",
+   "kind": "treasure",
+   "base": "huong_lo",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 24,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "unlit",
+     "name": "Unlit (Vị Nhiên)",
+     "rule": "Until it is lit the furnace gives only its modifiers. It lights itself the first time the holder's health falls to 40 % or below: for 10 s his healing over time is doubled, and he loses 10 % of his maximum health.",
+     "authored": "d41"
+    }
+   ],
+   "lore": "The bronze furnace in which Diêm Tử Tô made the founder's breakthrough pill in 1150 (N-yen_quang-02). He has not lit it since. He keeps it on the Dusk Field beside her grave and polishes it every evening.",
+   "build_use": "The grand elder's furnace: large modifiers, and one lighting he refuses to use.",
+   "holder": "diem_tu_to",
+   "made_by": "diem_tu_to",
+   "made_year": 1068,
+   "set": "yq-dusk-field",
+   "status": "proposal",
+   "authored": "d41"
+  },
+  {
+   "id": "yq-last-light-gourd",
+   "name": "Gourd of the Last Light (Tàn Quang Hồ Lô)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "ho_lo",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "A bottle gourd from Hoa Khê Thôn, lacquered inside with the founder's resin, that keeps an herb picked in the evening glow as fresh as the hour it was cut for a year. Văn Đương Quy has carried it on the Dusk Field for sixty years.",
+   "build_use": "The picker's gourd: healing and linh lực sustain.",
+   "holder": "van_duong_quy",
+   "made_by": "vi_ngung_yen",
+   "made_year": 1120,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "yq-camellia-seed-pendant",
+   "name": "Camellia Seed Pendant (Sơn Trà Bội)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A camellia seed from Sơn Trà Thôn set in a ring of bone. Vi Ngưng Yên gave it to him in 1065 and asked for it back if he ever lit the furnace for anyone else.",
+   "build_use": "Healing gathered and slow.",
+   "holder": "diem_tu_to",
+   "made_by": "vi_ngung_yen",
+   "made_year": 1065,
+   "set": "yq-dusk-field",
+   "status": "proposal"
+  },
+  {
+   "id": "yq-dusk-field-robe",
+   "name": "Robe of the Dusk Field (Mộ Điền Bào)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "dan_doc_resist_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Earth-brown robe stained with fifty years of the Dusk Field's soil. He has knelt by her grave in it every evening since 1150.",
+   "build_use": "Staying power for the long, patient fight.",
+   "holder": "diem_tu_to",
+   "made_by": "diem_tu_to",
+   "made_year": 1150,
+   "set": "yq-dusk-field",
+   "status": "proposal"
+  },
+  {
+   "id": "yq-purple-haze-gourd",
+   "name": "Gourd of the Purple Haze (Tử Yên Hồ Lô)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "ho_lo",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "health_regen_inc_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "dan_doc_resist_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "healing_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A small gourd from the founder's own vine, stoppered with the cloth he was left in at the steppe gate; it holds a breath of the evening haze for a day. Vi Ngưng Yên gave it to him at his foundation.",
+   "build_use": "Heals over time and poison kept out: he does not fall.",
+   "holder": "tao_mo_tu",
+   "made_by": "vi_ngung_yen",
+   "made_year": 1120,
+   "set": "yq-evening-glow",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "yq-evening-glow",
+   "name": "Evening Glow (Mộ Quang Song Bảo)",
+   "pieces": [
+    "yq-evening-glow-furnace",
+    "yq-purple-haze-gourd"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "healing_pct",
+       "value": 5,
+       "scope": []
+      },
+      {
+       "key": "dan_doc_resist_pct",
+       "value": 6,
+       "scope": []
+      }
+     ],
+     "effect": "Banked Till Dusk (Tàng Đáo Mộ): before the fight's 20th second your healing-over-time stacks last 50 % longer; after it, each one that ends on an ally also removes one poison stack from them."
+    }
+   ],
+   "story": "The founder's furnace and gourd, the one carried lit across the steppe, the other stoppered with his swaddling cloth. Tào Mộ Tử holds both."
+  },
+  {
+   "id": "yq-dusk-field",
+   "name": "The Dusk Field (Mộ Điền Tam Bảo)",
+   "pieces": [
+    "yq-cold-furnace",
+    "yq-camellia-seed-pendant",
+    "yq-dusk-field-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "healing_pct",
+       "value": 6,
+       "scope": []
+      },
+      {
+       "key": "khi_huyet_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Haze Held All Night (Yên Ngưng Chung Dạ): healing you would receive from your own arts while the Cold Furnace is unlit is stored in it instead, and the store fades by a twentieth each second; when the furnace lights, the store is restored to you at once, and lighting it costs you no health."
+    }
+   ],
+   "story": "The furnace he will not light, the seed she gave him and the robe of her grave. Diêm Tử Tô holds all three.",
+   "authored": "d41"
+  }
+ ]
+}

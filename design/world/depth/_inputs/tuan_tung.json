@@ -1,0 +1,1478 @@
+{
+"_doc": "Input slice for the depth writer of tuan_tung (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "tuan_tung",
+"name": "Tuần Tùng Đường",
+"name_han": "巡松堂",
+"gloss": "Hall of the Pine Wardens",
+"alignment": "chính đạo",
+"leans": [
+"Wood",
+"Metal"
+],
+"craft": "road wardens and caravan guards; staff and bow arts",
+"lord": "tung_dao",
+"region": 4,
+"seat": 376,
+"founded": 1191,
+"kind": "minor"
+},
+"start_state": {
+"key": "tuan_tung",
+"name": "Tuần Tùng Đường",
+"name_han": "巡松堂",
+"gloss": "Hall of the Pine Wardens",
+"kind": "minor",
+"alignment": "chinh",
+"leans": [
+"Wood",
+"Metal"
+],
+"seat": 376,
+"levels": {
+"holdings": 2,
+"institutions": 2,
+"military": 4,
+"trade": 3
+},
+"treasury": 7000,
+"founded": 1191,
+"specialty": "the_tu",
+"lord": "tung_dao",
+"loyalty": 65,
+"craft": "road wardens and caravan guards; staff and bow arts",
+"region": 4,
+"leader": "hua_van_cung"
+},
+"lord": "tung_dao",
+"vassals": [],
+"seat": {
+"id": 376,
+"name": "Tuần Tùng Đường",
+"gloss": "Hall of the Pine Wardens",
+"kind": "minor_seat",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.45,
+"qi": {
+"moc": 43,
+"hoa": 11,
+"tho": 16,
+"kim": 13,
+"thuy": 17
+},
+"variants": {},
+"density": 1.6,
+"note": ""
+},
+"seat_audit": "## MOVE Tuần Tùng Đường (tuan_tung; leans Wood/Metal)\nSeat: Tuần Tùng Đường (id 376, minor_seat, region 4, temperate forest), density 1.60\nSeat qi: Wood 43%, Metal 13%\nCandidates:\n- Cầm Tượng Trấn (id 1491, ruin, region 4, temperate forest, elev 0.47 km): Wood 33%, Metal 26%; density 1.45\n- Phi Thử Nhai (id 1194, beast_lair, region 4, temperate forest, elev 0.76 km): Wood 28%, Metal 26%; density 1.55\n- Bích Hác Sâm (id 1490, forest, region 4, temperate forest, elev 1.27 km): Wood 27%, Metal 38%; density 1.50\n- Hàn Thạch Trấn (id 1190, ruin, region 4, high mountain, elev 0.68 km): Wood 40%, Metal 16%; density 1.36\n- Thạch Lục Khoáng (id 167, mine, region 4, high mountain, elev 0.79 km): Wood 26%, Metal 43%; density 1.39\n- Thải Sâm Trấn (id 1175, ruin, region 4, temperate forest, elev 0.64 km): Wood 38%, Metal 16%; density 1.32\n",
+"ground": [
+{
+"id": 2,
+"name": "Tùng Đào Cung",
+"gloss": "",
+"kind": "great_seat",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.81,
+"qi": {
+"moc": 48,
+"hoa": 11,
+"tho": 14,
+"kim": 10,
+"thuy": 16
+},
+"variants": {},
+"density": 1.93,
+"note": ""
+},
+{
+"id": 206,
+"name": "Thương Tùng Mạch",
+"gloss": "Vein of the Grey Pines",
+"kind": "spirit_vein",
+"region": 4,
+"biome": "high mountain",
+"elev_km": 1.4,
+"qi": {
+"moc": 24,
+"hoa": 11,
+"tho": 25,
+"kim": 27,
+"thuy": 13
+},
+"variants": {},
+"density": 1.65,
+"note": "A wild vein under the old pine sea, 4 tiles from Thiên Xu's border."
+},
+{
+"id": 376,
+"name": "Tuần Tùng Đường",
+"gloss": "Hall of the Pine Wardens",
+"kind": "minor_seat",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.45,
+"qi": {
+"moc": 43,
+"hoa": 11,
+"tho": 16,
+"kim": 13,
+"thuy": 17
+},
+"variants": {},
+"density": 1.6,
+"note": ""
+},
+{
+"id": 11,
+"name": "Vạn Hác Viện",
+"gloss": "",
+"kind": "minor_seat",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.84,
+"qi": {
+"moc": 24,
+"hoa": 7,
+"tho": 11,
+"kim": 48,
+"thuy": 10
+},
+"variants": {},
+"density": 1.55,
+"note": ""
+},
+{
+"id": 1194,
+"name": "Phi Thử Nhai",
+"gloss": "Flying Squirrel Crag",
+"kind": "beast_lair",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.76,
+"qi": {
+"moc": 28,
+"hoa": 11,
+"tho": 21,
+"kim": 26,
+"thuy": 14
+},
+"variants": {},
+"density": 1.55,
+"note": ""
+},
+{
+"id": 1196,
+"name": "Hôi Thiết Khoáng",
+"gloss": "Grey Iron Mine",
+"kind": "mine",
+"region": 4,
+"biome": "high mountain",
+"elev_km": 1.22,
+"qi": {
+"moc": 22,
+"hoa": 11,
+"tho": 26,
+"kim": 28,
+"thuy": 13
+},
+"variants": {},
+"density": 1.51,
+"note": ""
+},
+{
+"id": 1490,
+"name": "Bích Hác Sâm",
+"gloss": "Green Ravine Forest",
+"kind": "forest",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 1.27,
+"qi": {
+"moc": 27,
+"hoa": 9,
+"tho": 14,
+"kim": 38,
+"thuy": 12
+},
+"variants": {},
+"density": 1.5,
+"note": ""
+},
+{
+"id": 1489,
+"name": "Thính Đào Nhãn",
+"gloss": "Eye Where One Hears the Waves",
+"kind": "spirit_vein",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.34,
+"qi": {
+"moc": 47,
+"hoa": 11,
+"tho": 15,
+"kim": 10,
+"thuy": 17
+},
+"variants": {},
+"density": 1.46,
+"note": ""
+},
+{
+"id": 1195,
+"name": "Thạch Tỉnh Thôn",
+"gloss": "Stone Well Village",
+"kind": "village",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.45,
+"qi": {
+"moc": 32,
+"hoa": 11,
+"tho": 20,
+"kim": 22,
+"thuy": 15
+},
+"variants": {},
+"density": 1.46,
+"note": ""
+},
+{
+"id": 1491,
+"name": "Cầm Tượng Trấn",
+"gloss": "Zither-Makers' Town",
+"kind": "ruin",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.47,
+"qi": {
+"moc": 33,
+"hoa": 10,
+"tho": 16,
+"kim": 26,
+"thuy": 14
+},
+"variants": {},
+"density": 1.45,
+"note": ""
+},
+{
+"id": 167,
+"name": "Thạch Lục Khoáng",
+"gloss": "Malachite Mine",
+"kind": "mine",
+"region": 4,
+"biome": "high mountain",
+"elev_km": 0.79,
+"qi": {
+"moc": 26,
+"hoa": 8,
+"tho": 13,
+"kim": 43,
+"thuy": 11
+},
+"variants": {},
+"density": 1.39,
+"note": "Malachite, the green of the pine sea, dug under the trees."
+},
+{
+"id": 1190,
+"name": "Hàn Thạch Trấn",
+"gloss": "Cold Stone Town",
+"kind": "ruin",
+"region": 4,
+"biome": "high mountain",
+"elev_km": 0.68,
+"qi": {
+"moc": 40,
+"hoa": 11,
+"tho": 17,
+"kim": 16,
+"thuy": 16
+},
+"variants": {},
+"density": 1.36,
+"note": ""
+},
+{
+"id": 1172,
+"name": "Hải Vận Lâm",
+"gloss": "Forest of the Sea's Rhythm",
+"kind": "forest",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.47,
+"qi": {
+"moc": 46,
+"hoa": 11,
+"tho": 15,
+"kim": 11,
+"thuy": 17
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 229,
+"name": "Thiết Tỏa Quan",
+"gloss": "Fort of the Iron Chain",
+"kind": "ruin",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.57,
+"qi": {
+"moc": 26,
+"hoa": 11,
+"tho": 23,
+"kim": 27,
+"thuy": 13
+},
+"variants": {},
+"density": 1.33,
+"note": "Lưu Vũ Tích: the thousand-fathom iron chain sank to the river bed. The Tùng Đào and Lạc Hà fort that Thiên Xu broke in the War of the Pivot."
+},
+{
+"id": 1175,
+"name": "Thải Sâm Trấn",
+"gloss": "Ginseng-Diggers' Town",
+"kind": "ruin",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.64,
+"qi": {
+"moc": 38,
+"hoa": 12,
+"tho": 18,
+"kim": 16,
+"thuy": 16
+},
+"variants": {},
+"density": 1.32,
+"note": ""
+},
+{
+"id": 1177,
+"name": "Ải Tùng Lâm",
+"gloss": "Dwarf Pine Wood",
+"kind": "forest",
+"region": 4,
+"biome": "high mountain",
+"elev_km": 0.99,
+"qi": {
+"moc": 40,
+"hoa": 12,
+"tho": 17,
+"kim": 15,
+"thuy": 16
+},
+"variants": {},
+"density": 1.24,
+"note": ""
+},
+{
+"id": 225,
+"name": "Hổ Khiếu Trấn",
+"gloss": "Town of the Tiger's Roar",
+"kind": "ruin",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": -0.03,
+"qi": {
+"moc": 39,
+"hoa": 9,
+"tho": 11,
+"kim": 8,
+"thuy": 33
+},
+"variants": {},
+"density": 1.2,
+"note": "A forest town overrun by a beast tide."
+},
+{
+"id": 398,
+"name": "Luyện Thiết Trấn",
+"gloss": "Iron-Smelting Town",
+"kind": "ruin",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.38,
+"qi": {
+"moc": 47,
+"hoa": 11,
+"tho": 15,
+"kim": 11,
+"thuy": 17
+},
+"variants": {},
+"density": 1.19,
+"note": ""
+},
+{
+"id": 1162,
+"name": "U Lam Lâm",
+"gloss": "Forest of the Dim Mists",
+"kind": "forest",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.22,
+"qi": {
+"moc": 55,
+"hoa": 10,
+"tho": 12,
+"kim": 8,
+"thuy": 15
+},
+"variants": {},
+"density": 1.17,
+"note": ""
+},
+{
+"id": 1205,
+"name": "Khô Mộc Tự",
+"gloss": "Temple of the Withered Tree",
+"kind": "ruin",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.15,
+"qi": {
+"moc": 50,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 16
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 46,
+"name": "Tùng Hạ Thị",
+"gloss": "Market Beneath the Pines",
+"kind": "market",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.18,
+"qi": {
+"moc": 49,
+"hoa": 11,
+"tho": 14,
+"kim": 10,
+"thuy": 16
+},
+"variants": {},
+"density": 1.15,
+"note": "Giả Đảo: tùng hạ vấn đồng tử (beneath the pine I asked the boy where his master was)"
+},
+{
+"id": 1211,
+"name": "Thủy Sam Lâm",
+"gloss": "Dawn Redwood Forest",
+"kind": "forest",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.05,
+"qi": {
+"moc": 53,
+"hoa": 10,
+"tho": 13,
+"kim": 8,
+"thuy": 15
+},
+"variants": {},
+"density": 1.14,
+"note": ""
+},
+{
+"id": 280,
+"name": "Cổ Cái Lâm",
+"gloss": "Forest of the Old Canopies",
+"kind": "forest",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 47,
+"hoa": 10,
+"tho": 13,
+"kim": 9,
+"thuy": 21
+},
+"variants": {},
+"density": 1.12,
+"note": ""
+},
+{
+"id": 279,
+"name": "Hỏa Tẫn Trấn",
+"gloss": "Town of Embers",
+"kind": "ruin",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.11,
+"qi": {
+"moc": 34,
+"hoa": 11,
+"tho": 13,
+"kim": 10,
+"thuy": 33
+},
+"variants": {},
+"density": 1.11,
+"note": ""
+},
+{
+"id": 1215,
+"name": "Tạp Mộc Lâm",
+"gloss": "Mixed Wood",
+"kind": "forest",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.08,
+"qi": {
+"moc": 50,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 16
+},
+"variants": {},
+"density": 1.11,
+"note": ""
+},
+{
+"id": 1213,
+"name": "Trực Cán Lâm",
+"gloss": "Straight-Trunk Forest",
+"kind": "forest",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.05,
+"qi": {
+"moc": 48,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 18
+},
+"variants": {},
+"density": 1.11,
+"note": ""
+},
+{
+"id": 278,
+"name": "Ngân Hồ Cương",
+"gloss": "Silver Fox Knoll",
+"kind": "beast_lair",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.3,
+"qi": {
+"moc": 44,
+"hoa": 11,
+"tho": 14,
+"kim": 10,
+"thuy": 21
+},
+"variants": {},
+"density": 1.09,
+"note": ""
+},
+{
+"id": 1204,
+"name": "Tịch Tĩnh Lâm",
+"gloss": "Silent Forest",
+"kind": "forest",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.14,
+"qi": {
+"moc": 48,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 18
+},
+"variants": {},
+"density": 1.09,
+"note": ""
+},
+{
+"id": 1207,
+"name": "Lục Vân Lâm",
+"gloss": "Green Cloud Forest",
+"kind": "forest",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.16,
+"qi": {
+"moc": 49,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 17
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+{
+"id": 1174,
+"name": "Bạch Viên Lĩnh",
+"gloss": "White Ape Ridge",
+"kind": "beast_lair",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 1.05,
+"qi": {
+"moc": 38,
+"hoa": 11,
+"tho": 18,
+"kim": 16,
+"thuy": 16
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+{
+"id": 281,
+"name": "Ban Hổ Lĩnh",
+"gloss": "Striped Tiger Ridge",
+"kind": "beast_lair",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.46,
+"qi": {
+"moc": 43,
+"hoa": 11,
+"tho": 16,
+"kim": 13,
+"thuy": 16
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+{
+"id": 1217,
+"name": "Hải Phong Lâm",
+"gloss": "Sea Wind Forest",
+"kind": "forest",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.12,
+"qi": {
+"moc": 39,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 28
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+{
+"id": 397,
+"name": "Cự Thát Chử",
+"gloss": "Giant Otter Shoals",
+"kind": "beast_lair",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.03,
+"qi": {
+"moc": 41,
+"hoa": 10,
+"tho": 12,
+"kim": 9,
+"thuy": 29
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 1202,
+"name": "Thương Lang Cương",
+"gloss": "Grey Wolf Knoll",
+"kind": "beast_lair",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.09,
+"qi": {
+"moc": 35,
+"hoa": 9,
+"tho": 17,
+"kim": 10,
+"thuy": 29
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 1197,
+"name": "Độc Phong Lâm",
+"gloss": "Forest of Venom Hornets",
+"kind": "beast_lair",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.3,
+"qi": {
+"moc": 41,
+"hoa": 12,
+"tho": 18,
+"kim": 14,
+"thuy": 16
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 1179,
+"name": "Xích Bì Lâm",
+"gloss": "Red-Bark Forest",
+"kind": "forest",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.24,
+"qi": {
+"moc": 43,
+"hoa": 12,
+"tho": 16,
+"kim": 13,
+"thuy": 17
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 1212,
+"name": "Mộc Tập Trấn",
+"gloss": "Timber Fair Town",
+"kind": "town",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 49,
+"hoa": 9,
+"tho": 11,
+"kim": 8,
+"thuy": 23
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 1189,
+"name": "Thâm Vụ Lâm",
+"gloss": "Deep Mist Forest",
+"kind": "forest",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.71,
+"qi": {
+"moc": 40,
+"hoa": 11,
+"tho": 17,
+"kim": 15,
+"thuy": 16
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 1166,
+"name": "Lăng Vân Lâm",
+"gloss": "Cloud-Piercing Forest",
+"kind": "forest",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.85,
+"qi": {
+"moc": 43,
+"hoa": 11,
+"tho": 16,
+"kim": 13,
+"thuy": 17
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 1168,
+"name": "Huyền Báo Nhai",
+"gloss": "Black Leopard Crag",
+"kind": "beast_lair",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.41,
+"qi": {
+"moc": 45,
+"hoa": 11,
+"tho": 15,
+"kim": 12,
+"thuy": 17
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 1192,
+"name": "Tử Sam Lâm",
+"gloss": "Yew Forest",
+"kind": "forest",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.42,
+"qi": {
+"moc": 47,
+"hoa": 12,
+"tho": 15,
+"kim": 10,
+"thuy": 17
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 61,
+"name": "Cổ Độ Thành",
+"gloss": "Old Ferry City",
+"kind": "city",
+"region": 4,
+"biome": "bamboo forest",
+"elev_km": 0.14,
+"qi": {
+"moc": 45,
+"hoa": 10,
+"tho": 13,
+"kim": 9,
+"thuy": 24
+},
+"variants": {},
+"density": 1.03,
+"note": ""
+},
+{
+"id": 1163,
+"name": "Tùng Mặc Thôn",
+"gloss": "Pine Ink Village",
+"kind": "village",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.08,
+"qi": {
+"moc": 54,
+"hoa": 10,
+"tho": 12,
+"kim": 8,
+"thuy": 15
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 1176,
+"name": "Tiều Phu Thôn",
+"gloss": "Woodsmen's Village",
+"kind": "village",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.36,
+"qi": {
+"moc": 38,
+"hoa": 12,
+"tho": 18,
+"kim": 16,
+"thuy": 16
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 107,
+"name": "Tùng Phong Thôn",
+"gloss": "Pine Wind Village",
+"kind": "village",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.2,
+"qi": {
+"moc": 43,
+"hoa": 10,
+"tho": 13,
+"kim": 10,
+"thuy": 24
+},
+"variants": {},
+"density": 0.96,
+"note": ""
+},
+{
+"id": 1183,
+"name": "Vọng Triều Các",
+"gloss": "Pavilion That Watches the Tide",
+"kind": "ruin",
+"region": 4,
+"biome": "tundra",
+"elev_km": 0.04,
+"qi": {
+"moc": 14,
+"hoa": 8,
+"tho": 16,
+"kim": 11,
+"thuy": 51
+},
+"variants": {},
+"density": 0.95,
+"note": ""
+},
+{
+"id": 106,
+"name": "Thanh Tùng Thôn",
+"gloss": "Green Pine Village",
+"kind": "village",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 44,
+"hoa": 9,
+"tho": 12,
+"kim": 8,
+"thuy": 27
+},
+"variants": {},
+"density": 0.95,
+"note": ""
+},
+{
+"id": 1165,
+"name": "Phạt Mộc Thôn",
+"gloss": "Woodcutting Village",
+"kind": "village",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.1,
+"qi": {
+"moc": 53,
+"hoa": 10,
+"tho": 13,
+"kim": 9,
+"thuy": 16
+},
+"variants": {},
+"density": 0.95,
+"note": ""
+},
+{
+"id": 1201,
+"name": "Quan Hạ Thôn",
+"gloss": "Below-the-Fort Village",
+"kind": "village",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.48,
+"qi": {
+"moc": 31,
+"hoa": 12,
+"tho": 21,
+"kim": 22,
+"thuy": 14
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 1210,
+"name": "Tùng Hoa Thôn",
+"gloss": "Pine Pollen Village",
+"kind": "village",
+"region": 4,
+"biome": "temperate forest",
+"elev_km": 0.12,
+"qi": {
+"moc": 51,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 16
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+}
+],
+"ground_place_count": 82,
+"events": [
+{
+"id": "C003",
+"tier": "landmark",
+"year": 200,
+"kind": "sect_founded",
+"people": [
+"ky_tung_an",
+"thoi_khinh_hong"
+],
+"sects": [
+"tung_dao"
+],
+"text_en": "Kỳ Tùng Ẩn founds Tùng Đào Cung among the endless pines, with his first disciple Thôi Khinh Hồng, then 120.",
+"place": 2
+},
+{
+"id": "A049",
+"tier": "annal",
+"year": 205,
+"kind": "settlement",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "Pilgrims who come to hear the pine waves of the new palace stay on; Tùng Hạ Thị begins as a ring of tents beneath the pines.",
+"place": 46,
+"region": 4
+},
+{
+"id": "C062",
+"tier": "landmark",
+"year": 240,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "Tùng Đào Cung raises Tùng Gian Thành among the pines below its palace.",
+"place": 32
+},
+{
+"id": "A050",
+"tier": "annal",
+"year": 250,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "A deer calls at the forest's edge every dawn for a year; the Lâm family settles where it called and names the place Lộc Minh.",
+"place": 60,
+"region": 4
+},
+{
+"id": "C076",
+"tier": "landmark",
+"year": 320,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "Tùng Đào Cung founds Cổ Độ Thành at the old ferry on its southern river.",
+"place": 61
+},
+{
+"id": "A051",
+"tier": "annal",
+"year": 330,
+"kind": "mine",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "Malachite is found under the roots of the oldest pines; Tùng Đào lets it be dug only where no tree must be cut.",
+"place": 167,
+"region": 4
+},
+{
+"id": "A052",
+"tier": "annal",
+"year": 380,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Woodsmen found Hổ Khiếu Trấn deep in the pine sea, where the tigers are.",
+"place": 225,
+"region": 4
+},
+{
+"id": "A053",
+"tier": "annal",
+"year": 470,
+"kind": "discovery",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "Tùng Đào fences the grey pines over an old spirit vein near the heart; it is called Thương Tùng Mạch.",
+"place": 206,
+"region": 4
+},
+{
+"id": "V035",
+"tier": "annal",
+"year": 470,
+"kind": "tale",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "Two years after their master walked into the winter sea to cultivate the tide, the disciples of Vọng Triều Các go to Tùng Đào Cung.",
+"place": 1183,
+"region": 4
+},
+{
+"id": "C104",
+"tier": "landmark",
+"year": 503,
+"kind": "fort_built",
+"people": [],
+"sects": [
+"tung_dao",
+"lac_ha"
+],
+"text_en": "The allies raise Thiết Tỏa Quan and stretch an iron chain across the river road to the heart.",
+"place": 229,
+"war": "pivot"
+},
+{
+"id": "A054",
+"tier": "annal",
+"year": 506,
+"kind": "tale",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "In the War of the Pivot, the ferrymen of Cổ Độ carry the iron chain for Thiết Tỏa Quan link by link.",
+"place": 61,
+"region": 4
+},
+{
+"id": "C105",
+"tier": "landmark",
+"year": 508,
+"kind": "battle",
+"people": [
+"chung_hoai_cuc"
+],
+"sects": [
+"thien_xu",
+"tung_dao",
+"lac_ha"
+],
+"text_en": "Thiên Xu Tông breaks Thiết Tỏa Quan; the thousand-fathom chain sinks to the river bed.",
+"place": 229,
+"war": "pivot"
+},
+{
+"id": "V037",
+"tier": "annal",
+"year": 540,
+"kind": "city_abandoned",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "Tùng Đào has bought no iron since the War of the Pivot, and the furnaces of Luyện Thiết Trấn, which smelted the chain, go cold for good.",
+"place": 398,
+"region": 4
+},
+{
+"id": "V038",
+"tier": "annal",
+"year": 548,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "A great forest fire burns the coast and the timber town of Hỏa Tẫn Trấn; its survivors move inland.",
+"place": 279,
+"region": 4
+},
+{
+"id": "A055",
+"tier": "annal",
+"year": 560,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "White birches grow where a forest fire burned; the new village is named Bạch Hoa.",
+"place": 105,
+"region": 4
+},
+{
+"id": "C130",
+"tier": "landmark",
+"year": 620,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"van_hac",
+"tung_dao"
+],
+"text_en": "A monk plays the zither in the pines of Thâm Tùng Hải until it sounds like ten thousand ravines; his listeners found Vạn Hác Viện and keep the Tùng Phong Cầm.",
+"place": 11,
+"item": "tung_phong_cam"
+},
+{
+"id": "A056",
+"tier": "annal",
+"year": 622,
+"kind": "tale",
+"people": [],
+"sects": [
+"van_hac"
+],
+"text_en": "Vạn Hác Viện's zither students practise in Tùng Phong hamlet; the villagers learn to sleep through anything.",
+"place": 107,
+"region": 4
+},
+{
+"id": "V039",
+"tier": "annal",
+"year": 641,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The abbot of Khô Mộc Tự is turned on by his own art and withers with his tree; his monks scatter, and the village keeps the graves.",
+"place": 1205,
+"region": 4
+},
+{
+"id": "C138",
+"tier": "landmark",
+"year": 690,
+"kind": "headship",
+"people": [
+"ky_tung_an",
+"thoi_khinh_hong"
+],
+"sects": [
+"tung_dao"
+],
+"text_en": "Kỳ Tùng Ẩn dies at 620; his first disciple Thôi Khinh Hồng becomes the second head of Tùng Đào Cung.",
+"place": 2
+},
+{
+"id": "A057",
+"tier": "annal",
+"year": 700,
+"kind": "beast",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "A tiger as large as a house is seen near Hổ Khiếu Trấn; Tùng Đào sends three disciples, and two come back.",
+"place": 225,
+"region": 4
+},
+{
+"id": "C145",
+"tier": "landmark",
+"year": 734,
+"kind": "city_ruined",
+"people": [],
+"sects": [],
+"text_en": "A beast tide pours out of the deep pines and overruns Hổ Khiếu Trấn; the tigers' roar is the last thing its people hear.",
+"place": 225
+},
+{
+"id": "A058",
+"tier": "annal",
+"year": 735,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The survivors of Hổ Khiếu move to Thanh Tùng Thôn and plant a green pine for each of their dead.",
+"place": 106,
+"region": 4
+},
+{
+"id": "A059",
+"tier": "annal",
+"year": 800,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The Lâm clan's woodcarvers of Lộc Minh make the beams of a new hall in Tùng Gian Thành from a single fallen pine.",
+"place": 60,
+"region": 4
+},
+{
+"id": "A060",
+"tier": "annal",
+"year": 880,
+"kind": "festival",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "Tùng Gian Thành holds its first Night of a Thousand Pines, hanging a lantern on every tree around the city.",
+"place": 32,
+"region": 4
+},
+{
+"id": "C021",
+"tier": "landmark",
+"year": 900,
+"kind": "headship",
+"people": [
+"thoi_khinh_hong",
+"dam_tung_lai"
+],
+"sects": [
+"tung_dao"
+],
+"text_en": "Thôi Khinh Hồng, the second head of Tùng Đào Cung, retires at 820 to the retreat by its seat, and her disciple Đàm Tùng Lại, then 380, takes the headship.",
+"place": 2
+},
+{
+"id": "V040",
+"tier": "annal",
+"year": 979,
+"kind": "beast",
+"people": [],
+"sects": [],
+"text_en": "The ginseng diggers of Thải Sâm Trấn dig too high into Bạch Viên Lĩnh, and the white apes drive them out.",
+"place": 1175,
+"region": 4
+},
+{
+"id": "A061",
+"tier": "annal",
+"year": 990,
+"kind": "trade",
+"people": [],
+"sects": [],
+"text_en": "Iron links from the chain of Thiết Tỏa Quan are dragged from the river at Cổ Độ; smiths pay well for them.",
+"place": 61,
+"region": 4
+},
+{
+"id": "V041",
+"tier": "annal",
+"year": 1012,
+"kind": "disaster",
+"people": [],
+"sects": [
+"van_hac"
+],
+"text_en": "The ravine wall gives way and buries half of Cầm Tượng Trấn; the zither makers move to the rim of Vạn Hác Viện.",
+"place": 1491,
+"region": 4
+},
+{
+"id": "A062",
+"tier": "annal",
+"year": 1080,
+"kind": "tale",
+"people": [],
+"sects": [
+"van_hac",
+"thien_xu"
+],
+"text_en": "A Vạn Hác student plays so well under the pines that Thiên Xu's envoy forgets his message.",
+"place": 11,
+"region": 4
+},
+{
+"id": "A063",
+"tier": "annal",
+"year": 1145,
+"kind": "birth",
+"people": [
+"lam_da_hac"
+],
+"sects": [],
+"text_en": "Lâm Dã Hạc is born in Tùng Hạ Thị to a woodcutter's family; a crane lands on the roof the day he is born.",
+"place": 46,
+"region": 4
+},
+{
+"id": "V042",
+"tier": "annal",
+"year": 1151,
+"kind": "disaster",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "A winter avalanche buries the quarry town of Hàn Thạch Trấn, which cut stone for Tùng Đào's halls; the survivors move down to Lạc Thạch.",
+"place": 1190,
+"region": 4
+},
+{
+"id": "A064",
+"tier": "annal",
+"year": 1190,
+"kind": "beast",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "Wolves from the deep pines follow the caravans to Tùng Hạ Thị; Tùng Đào doubles the road watch.",
+"place": 46,
+"region": 4
+},
+{
+"id": "V043",
+"tier": "annal",
+"year": 1191,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"tuan_tung",
+"tung_dao"
+],
+"text_en": "After last winter's wolves, road wardens sworn to Tùng Đào found Tuần Tùng Đường on the hill above Tùng Hạ Thị to guard the caravans.",
+"place": 376,
+"region": 4
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "hua_van_cung",
+"name": "Hứa Vãn Cung",
+"name_han": "許挽弓",
+"gloss": "Draws the bow (Đỗ Phủ: vãn cung đương vãn cường)",
+"sex": "M",
+"born": 1150,
+"alive": true,
+"sect": "tuan_tung",
+"rank": "tong_chu",
+"role": "Founder and head of Tuần Tùng Đường (1191), road wardens and caravan guards of the pine sea, staff and bow",
+"realm": "truc_co",
+"home": 376,
+"traits": {
+"personality": [
+"Brave",
+"Pragmatic",
+"Honest"
+],
+"calling": "Duelist",
+"fate_given": []
+},
+"vassal_of": "tung_dao"
+}
+],
+"legendary_items": []
+}

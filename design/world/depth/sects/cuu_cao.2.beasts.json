@@ -1,0 +1,93 @@
+{
+ "sect": "cuu_cao",
+ "_doc": "Cửu Cao Phái (second file, beside cuu_cao.beasts.json): named spirit beasts (linh thú). Proposal, unpriced (review/RANKED.md A7, 2026-11-25; form of sects/cuu_cao.beasts.json). An owned beast is a people record with is_beast and owner_id, and its owner lists it in `beasts` (src/gameplay/character/beast_keeper.gd, assets/data/creatures_linh_thu.json). Capacity is 1 + floor(effective thần hồn / 40). In a fight it is a companion: it adds power_share (0.5) of its chiến lực to its owner's offense, strikes every basic_cooldown, cannot be targeted and never leaves the fight (Combat rule 19). `combat` and `bond` are depth fields; `bond.rider` marks a mount, `bond.keeper` a beast that is not ridden. The owners' cast records do not list these beasts yet.",
+ "beasts": [
+  {
+   "key": "han_vu",
+   "name_hv": "Hàn Vũ",
+   "name_han": "寒羽",
+   "gloss": "Cold Feather",
+   "is_beast": true,
+   "species": "grey crane of the winter terrace",
+   "sex": "F",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "root": {
+    "elements": {},
+    "variants": {
+     "phong": 58
+    }
+   },
+   "owner_id": "cu_van_ly",
+   "loyalty": 90,
+   "home": 236,
+   "location_id": 236,
+   "tags": [
+    "crane",
+    "bird",
+    "mount",
+    "companion"
+   ],
+   "appearance": "A grey crane with frost-white wingtips that stands on one leg in any gale.",
+   "combat": {
+    "strikes": "phong",
+    "power_share": 0.5,
+    "note": "The crane A Crane for the Rider (crane-bond-rite) reads through the `crane` tag; his build's Wind Edge strike."
+   },
+   "bond": {
+    "rider": "cu_van_ly",
+    "since": 1160,
+    "event": null,
+    "rule": "Bonded by shared breath; it takes no other rider after its rider dies (cuu_cao.md section 4)."
+   },
+   "backstory": "The winter terrace's lead crane. Cừ Vân Lý breathed with it on his first winter flight in 1160 and has flown it every winter since; it has never flown the vein circuit (A096), and he means it never to.",
+   "status": "proposal",
+   "authored": "review-A7"
+  },
+  {
+   "key": "bat_phi",
+   "name_hv": "Bất Phi",
+   "name_han": "不飛",
+   "gloss": "Won't Fly",
+   "is_beast": true,
+   "species": "crane chick of the nine marshes",
+   "sex": "M",
+   "born": 1199,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "root": {
+    "elements": {},
+    "variants": {
+     "phong": 30
+    }
+   },
+   "owner_id": "mai_lo_tuyet",
+   "loyalty": 90,
+   "home": 14,
+   "location_id": 14,
+   "tags": [
+    "crane",
+    "bird",
+    "companion"
+   ],
+   "appearance": "A lame, half-fledged crane chick, all knees and down, usually under her arm.",
+   "combat": {
+    "strikes": "phong",
+    "power_share": 0.5,
+    "note": "Her Beast Den companion; weak, and it will stay weak until it can fly."
+   },
+   "bond": {
+    "keeper": "mai_lo_tuyet",
+    "since": 1199,
+    "event": null,
+    "rule": "Kept, not bonded: she has no Wind to breathe with it, so it is hers by feeding only."
+   },
+   "backstory": "Hatched lame in the breeding reeds in 1199. The crane doctor wanted to cull it; Mai Lô Tuyết, who has never been off the ground, carried it home instead.",
+   "status": "proposal",
+   "authored": "review-A7"
+  }
+ ]
+}

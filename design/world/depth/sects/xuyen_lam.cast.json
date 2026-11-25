@@ -1,0 +1,1382 @@
+{
+ "sect": "xuyen_lam",
+ "people": [
+  {
+   "key": "uc_diep_thanh",
+   "name_hv": "Úc Diệp Thanh",
+   "name_han": "郁葉聲",
+   "gloss": "The sound of rain on leaves (Tô Thức)",
+   "sex": "M",
+   "born": 970,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "xuyen_lam",
+   "rank": "tong_chu",
+   "home": 28,
+   "birthplace": 875,
+   "role": "Head of Xuyên Lâm Môn since 1170: staff and footwork, guides through the rain forest; the Tower's chính vassal and its least willing one",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 70,
+     "hoa": 40,
+     "kim": 38
+    },
+    "variants": {
+     "loi": 58
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 70,
+    "than_hon": 58,
+    "khi_van": 60,
+    "dao_tam": 72,
+    "mi_luc": 60
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Honest",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": "pilgrim",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Grudge"
+    ]
+   },
+   "appearance": "A broad, weathered man in a straw cape with a bamboo staff worn pale at the grip, who walks everywhere and is never out of breath.",
+   "backstory": "Úc Diệp Thanh was born in 970 at Thủ Lôi Bảo, the Tower's thunder fort on the ridge, where his father carried salt and barley up for the garrison. The ridge gave him Metal and Fire, the forest road gave him Wood, and the fort gave him Thunder, which no one at Xuyên Lâm Môn could teach. Nhậm Bình Sinh (nham_binh_sinh) took him at fourteen anyway and taught him to walk. In 1042 Phượng Minh burned the fort he was born in (V161). In 1156 his younger brother Úc Từ Hành (uc_tu_hanh) guided the Tower's column into Đan Sơn Mạch and stayed with its rear guard at the pass (N-thinh_vu-08). Ten years later the Tower put its new seat on Thần Cổ Phong, among the Gate's mines. His master sat nine days in the rain at the Tower's new gate in protest, came home and died (N-xuyen_lam-03). Úc became head in 1170 and guided every traveller himself for a year (A296), so that the forest would see whose road it was. That same year he sent his brother's son Úc Đả Diệp (uc_da_diep) to the Tower as surety (N-thinh_vu-11). In 1199 he planted the Gate's claim on the risen isle at Hà Châu (A297).",
+   "wants": "His nephew home and the Gate out from under the Tower without a war; and, for himself, someone who can teach the Thunder in his root.",
+   "secret": "Khúc Phụ Thạch's daughter passes him the dates of the Tower's storm drills. While the Tower's Thunder disciples are up on Liệt Khuyết Phong, he searches the Gate's mines for the door Hầu Xuân Lôi sealed in 470 (C035). He has heard drumming under Tử Tinh Khoáng, and he wants what is behind it for his own root, not for the Gate.",
+   "ties": [
+    {
+     "to": "nham_binh_sinh",
+     "kind": "master",
+     "note": "took him at fourteen; died after the nine days at the Tower's gate"
+    },
+    {
+     "to": "uc_tu_hanh",
+     "kind": "sibling",
+     "note": "his younger brother, lost with the Tower's rear guard in 1156"
+    },
+    {
+     "to": "uc_da_diep",
+     "kind": "niece_nephew",
+     "note": "his brother's son, sent to the Tower as surety in 1170"
+    },
+    {
+     "to": "uc_yen_vu",
+     "kind": "niece_nephew",
+     "note": "his great-niece, the hostage's daughter, raised at the gate"
+    },
+    {
+     "to": "phi_thoa_y",
+     "kind": "rival",
+     "note": "the Road Mother; the master left him the staff and her the cape"
+    },
+    {
+     "to": "ky_khinh_ma",
+     "kind": "disciple",
+     "note": "his last disciple and fastest guide"
+    },
+    {
+     "to": "dinh_van_do",
+     "kind": "disciple",
+     "note": "his ferry warden, who planted the claim on the isle"
+    },
+    {
+     "to": "khuc_thanh_dien",
+     "kind": "creditor",
+     "note": "the ridge girl who feeds him the Tower's drill dates through her father"
+    },
+    {
+     "to": "hau_vong_xuan",
+     "kind": "rival",
+     "note": "the Tower's Thunder man, whose family mine is the Gate's holding"
+    },
+    {
+     "to": "manh_da_vu",
+     "kind": "feud",
+     "note": "the head who ordered the rear guard to hold, and set his seat among the Gate's mines"
+    },
+    {
+     "to": "duong_hao_vu",
+     "kind": "friend",
+     "note": "Cốc Vũ's head; his guides walk her rain-callers to Thu Trì for no fee"
+    },
+    {
+     "to": "lai_tiet_truong",
+     "kind": "disciple",
+     "note": "master of the staff grove at Phạt Trúc Thôn; cuts and judges every disciple's first staff"
+    }
+   ],
+   "master": "nham_binh_sinh",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "calm-wind-staff-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "hundred-echo-palm-scripture",
+      "layer": 6
+     },
+     {
+      "tech": "unheeding-rain-heart-method",
+      "layer": 7
+     }
+    ],
+    "gear": [
+     {
+      "named": "xl-bamboo-staff"
+     },
+     {
+      "named": "xl-salt-carrier-jacket"
+     },
+     {
+      "named": "xl-pass-pendant"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "loi",
+     "intent": "Thunder for the flash of the step and the crack of the staff, then down into Wood for health and sustain: a step ahead of every strike, and still walking at the end of a long fight.",
+     "targets": [
+      7932,
+      7959,
+      7929,
+      7835,
+      6085,
+      6133,
+      6131
+     ],
+     "targets_note": "Thunder start for his own untaught step (Flash Step, Thunder Step, Lightning Dodge, Cloud Soaring), then across into Wood for the Gate's route: Willow Dance, Bamboo Joint, Bamboo Staff."
+    },
+    "note": "The rain-forest guide: a bamboo staff and footwork that never stops, honest and stubborn; the Thunder in his root is his own and untaught."
+   },
+   "items": [
+    "xl-bamboo-staff",
+    "xl-salt-carrier-jacket",
+    "xl-pass-pendant"
+   ],
+   "changed": "build: main loi_de_chan_kinh (not a catalogue id) -> calm-wind-staff-canon (the Gate's lineage; the Gate is no-lean, R3/R5); aux unheeding-rain-heart-method added; gear loi_truong 3 -> his named staff on the same base; tree targets -> intent; root, thien_phu and stage lifted out of build; birthplace 875 added."
+  },
+  {
+   "key": "phi_thoa_y",
+   "name_hv": "Phí Thoa Y",
+   "name_han": "費蓑衣",
+   "gloss": "The straw rain cape",
+   "sex": "F",
+   "born": 905,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "xuyen_lam",
+   "rank": "truong_lao",
+   "home": 28,
+   "birthplace": 885,
+   "role": "The Road Mother (Lộ Mẫu): master of the guides and keeper of the road books; holds the founder's straw cape",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 62,
+     "kim": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 62,
+    "than_hon": 64,
+    "khi_van": 52,
+    "dao_tam": 70,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Pragmatic",
+     "Compassionate"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "chronicler",
+    "health": "old_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A small, bent woman under a cape so old its straw has gone silver, with a road book under one arm and a lamp in the other hand.",
+   "backstory": "Phí Thoa Y was born in 905 at Dẫn Lộ Thôn, the guides' village in the bamboo below the gate, the year the Tower proclaimed the Night Rain Edict (C167). She carried packs on the forest road at eight and a lamp at twelve. Nhậm Bình Sinh (nham_binh_sinh) took her as his last disciple and gave her the road books: every crossing, ford, beast den and inn between the ridge and the sea. For two hundred years she has kept them, and the guides call her the Road Mother. In 976 she led a frightened girl from Hạnh Hoa Thị up the road to the Tower's gate. The girl was Ninh Tịch Đăng (ninh_tich_dang), now keeper of the Tower's lamps. In 1177 a Xuyên Lâm boy deserted the Tower and came down the road at night. Phí hid Nghiêm Quy Khứ (nghiem_quy_khu) in her own house and wrote one letter up the mountain. The boy's lamp was not put out. When their master died in 1169, he left the founder's staff to Úc Diệp Thanh (uc_diep_thanh) and the founder's cape to her. The Gate has read that as a division ever since. She thinks it was meant as a balance.",
+   "wants": "To keep the road open and the Gate whole, to train a Road Mother after her, and to see the staff and the cape in one pair of hands before she dies. She no longer much minds whose hands they are.",
+   "secret": "Hứa Thanh Diêm has written to her on the Rain Tower's behalf: if the Gate set Úc aside, the Tower would confirm her as head and send Úc Đả Diệp home. She has kept the letter for three years and not answered it.",
+   "ties": [
+    {
+     "to": "nham_binh_sinh",
+     "kind": "master",
+     "note": "her master; left her the cape"
+    },
+    {
+     "to": "uc_diep_thanh",
+     "kind": "rival",
+     "note": "her master left him the staff; she keeps him from the war he wants"
+    },
+    {
+     "to": "nghiem_quy_khu",
+     "kind": "disciple",
+     "note": "the deserter she hid in 1177"
+    },
+    {
+     "to": "lo_kim_tuyen",
+     "kind": "disciple",
+     "note": "her mine warden"
+    },
+    {
+     "to": "ninh_tich_dang",
+     "kind": "creditor",
+     "note": "she led the girl up the road in 976; Ninh did not cut the boy's wick in 1177"
+    },
+    {
+     "to": "hua_thanh_diem",
+     "kind": "friend",
+     "note": "the Tower's envoy, whose letter she has not answered"
+    },
+    {
+     "to": "uc_yen_vu",
+     "kind": "friend",
+     "note": "the hostage's daughter, whom she is quietly training for the road books"
+    },
+    {
+     "to": "do_liet_co",
+     "kind": "enemy",
+     "note": "the robber mother whose camp road she struck from the guide books"
+    },
+    {
+     "to": "truong_da_dao",
+     "kind": "former_disciple",
+     "note": "the guide she trained, whose name she struck"
+    },
+    {
+     "to": "khuong_lang_thu",
+     "kind": "debt",
+     "note": "coast guide at Vọng Hải Trấn; carries the Road Mother's letters to the boats; the Road Mother owes her a season's fees"
+    },
+    {
+     "to": "gian_dang_bo",
+     "kind": "disciple",
+     "note": "lamp-bearer of the night crossings: carries the lead lamp through the Tower's dark forest"
+    }
+   ],
+   "master": "nham_binh_sinh",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "calm-wind-staff-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "unheeding-rain-heart-method",
+      "layer": 8
+     },
+     {
+      "tech": "straw-sandal-step-primer",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "xl-straw-cape"
+     },
+     {
+      "named": "xl-guide-lamp"
+     },
+     {
+      "named": "xl-road-mother-jade"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood for health and regeneration, Metal for a guard: she outlasts, keeps her people moving and lets the foe tire.",
+     "targets": [
+      6085,
+      6133,
+      6131,
+      6125,
+      5591,
+      5597,
+      6252,
+      6254
+     ],
+     "targets_note": "Lineage walk and staff, Evergreen, the World Tree's regeneration, and the Thorn Hedge for a guard: she outlasts."
+    },
+    "note": "The Road Mother: a cape that the weather cannot touch, a lamp that will not go out, and a staff that never hurries."
+   },
+   "items": [
+    "xl-straw-cape",
+    "xl-guide-lamp",
+    "xl-road-mother-jade"
+   ]
+  },
+  {
+   "key": "nghiem_quy_khu",
+   "name_hv": "Nghiêm Quy Khứ",
+   "name_han": "嚴歸去",
+   "gloss": "Going home (Tô Thức: quy khứ)",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "xuyen_lam",
+   "rank": "noi_mon",
+   "home": 28,
+   "birthplace": 28,
+   "role": "The Tower's deserter of 1177, now a staff of the Gate; his life lamp still burns in the Tower's soul vaults",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "moc": 32,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 54,
+    "can_cot": 60,
+    "than_hon": 50,
+    "khi_van": 46,
+    "dao_tam": 66,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Cautious",
+     "Humble"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": "cold_detachment",
+    "fate_given": [],
+    "gained": [
+     "Life-debt"
+    ]
+   },
+   "appearance": "A quiet man with a bronze cup still hung at his throat, which he has never taken off.",
+   "backstory": "Born below the gate in 1150, Nghiêm Quy Khứ passed the Tower's outer gate on his Metal and climbed the ridge in 1167. Ten years later he would not learn the Night Rain arts and walked home by night (N-thinh_vu-12). Lệ Tiêu Hồn (le_tieu_hon) wanted his lamp put out. Ninh Tịch Đăng (ninh_tich_dang) refused to cut the wick, and Phí Thoa Y (phi_thoa_y) hid him. He has taught the Gate's outer boys for twenty years. His sister went up the ridge in 1192 to find out why he lives.",
+   "ties": [
+    {
+     "to": "phi_thoa_y",
+     "kind": "master",
+     "note": "hid him, then taught him the staff"
+    },
+    {
+     "to": "nghiem_to_to",
+     "kind": "sibling",
+     "note": "his little sister in the Tower's outer gate, who visits his lamp"
+    },
+    {
+     "to": "ninh_tich_dang",
+     "kind": "debt",
+     "note": "she would not cut his wick"
+    },
+    {
+     "to": "le_tieu_hon",
+     "kind": "enemy",
+     "note": "wanted his lamp put out"
+    },
+    {
+     "to": "uc_da_diep",
+     "kind": "friend",
+     "note": "carries his sister's letters"
+    },
+    {
+     "to": "thoi_vong_pham",
+     "kind": "disciple",
+     "note": "the coast boy"
+    },
+    {
+     "to": "khuong_lang_thu",
+     "kind": "disciple",
+     "note": "coast guide at Vọng Hải Trấn; carries the Road Mother's letters to the boats"
+    },
+    {
+     "to": "manh_hoi_lo",
+     "kind": "disciple",
+     "note": "A Tower deserter who walked home to the Gate in 1190"
+    },
+    {
+     "to": "lai_tiet_truong",
+     "kind": "rival",
+     "note": "master of the staff grove at Phạt Trúc Thôn; cuts and judges every disciple's first staff"
+    }
+   ],
+   "master": "phi_thoa_y",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "calm-wind-staff-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "straw-sandal-step-primer",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "loi_truong",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal guard and a Wood second wind: a careful staff that does not get hit.",
+     "targets": [
+      730,
+      734,
+      4299,
+      4484
+     ],
+     "targets_note": "The Gate's staff on a Metal root: Steel Frame, Tempered Bone, Bell Rim for guard, Iron Blood for a second wind."
+    },
+    "note": "Fights like a man who knows someone, somewhere, can feel it when he is hurt."
+   }
+  },
+  {
+   "key": "dinh_van_do",
+   "name_hv": "Đinh Vãn Độ",
+   "name_han": "丁晚渡",
+   "gloss": "The late ferry",
+   "sex": "M",
+   "born": 1085,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "xuyen_lam",
+   "rank": "chap_su",
+   "home": 160,
+   "birthplace": 160,
+   "role": "Warden of the Gate's ferry post at Hà Châu, who planted its claim on the risen isle",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "thuy": 38
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 48,
+    "can_cot": 62,
+    "than_hon": 46,
+    "khi_van": 58,
+    "dao_tam": 54,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Diligent",
+     "Content"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A thick-armed ferryman with a staff that doubles as a pole and a gourd of rice wine that never seems to empty.",
+   "backstory": "Đinh Vãn Độ was born at Hà Châu on the forest river in 1085 and has run the Gate's ferry there for ninety years. When the earthquake of 1199 raised an isle in the river beside his landing (A297), he poled out to it before the water had settled and drove the Gate's staff into its mud. The Tower claims it too, and its envoy Hứa Thanh Diêm (hua_thanh_diem) has come to say so twice. Úc Diệp Thanh (uc_diep_thanh) taught him the staff and has not told him to pull it out.",
+   "ties": [
+    {
+     "to": "uc_diep_thanh",
+     "kind": "master",
+     "note": "his head and teacher"
+    },
+    {
+     "to": "man_thanh_truong",
+     "kind": "disciple",
+     "note": "the bamboo boy he is teaching to pole"
+    },
+    {
+     "to": "hua_thanh_diem",
+     "kind": "rival",
+     "note": "the Tower's envoy, who came twice about the isle"
+    },
+    {
+     "to": "lo_tan_chau",
+     "kind": "rival",
+     "note": "the Cốc Vũ ferry warden, whose staff is on the isle"
+    },
+    {
+     "to": "dinh_tieu_chu",
+     "kind": "disciple",
+     "note": "pole-boy on the Hà Châu ferry"
+    },
+    {
+     "to": "gian_dang_bo",
+     "kind": "friend",
+     "note": "lamp-bearer of the night crossings: carries the lead lamp through the Tower's dark forest"
+    },
+    {
+     "to": "dinh_tieu_chu",
+     "kind": "niece_nephew",
+     "note": "his nephew; pole-boy on the Hà Châu ferry"
+    }
+   ],
+   "master": "uc_diep_thanh",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "calm-wind-staff-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "loi_truong",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood for health, Water for linh lực: a ferryman who cannot be pushed off his own landing.",
+     "targets": [
+      6085,
+      6133,
+      6131,
+      6252,
+      6254,
+      6669
+     ],
+     "targets_note": "Lineage, the Thorn Hedge planted on his landing, Reed Root for Water's linh lực."
+    },
+    "note": "Heavy and slow; plants himself and stays."
+   }
+  },
+  {
+   "key": "lo_kim_tuyen",
+   "name_hv": "Lỗ Kim Tuyền",
+   "name_han": "魯金泉",
+   "gloss": "A spring of gold",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "xuyen_lam",
+   "rank": "chap_su",
+   "home": 873,
+   "birthplace": 873,
+   "role": "Warden of the Gate's mines around Thần Cổ Phong (Sa Kim, Tử Tinh, Thủ Lôi)",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 58,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Vengeful",
+     "Paranoid"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Keeps the tally of every cartload the Tower cuts from the Gate's mines, and has not forgiven Quách Tử Tinh (quach_tu_tinh) the two foremen's arms he broke over it.",
+   "ties": [
+    {
+     "to": "phi_thoa_y",
+     "kind": "master",
+     "note": "the Road Mother"
+    },
+    {
+     "to": "khuc_phu_thach",
+     "kind": "disciple",
+     "note": "her hauler and the Gate's ear at Sa Kim"
+    },
+    {
+     "to": "quach_tu_tinh",
+     "kind": "enemy",
+     "note": "broke two of her foremen's arms"
+    },
+    {
+     "to": "mong_thiet_lang",
+     "kind": "disciple",
+     "note": "mine runner at Tử Tinh Khoáng; carries the warden's tallies up to the pass"
+    }
+   ],
+   "master": "phi_thoa_y",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "calm-wind-staff-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "loi_truong",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal defence for a warden who stands in mine mouths."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "ky_khinh_ma",
+   "name_hv": "Kỳ Khinh Mã",
+   "name_han": "祁輕馬",
+   "gloss": "Lighter than a horse (Tô Thức)",
+   "sex": "F",
+   "born": 1155,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "xuyen_lam",
+   "rank": "chan_truyen",
+   "home": 28,
+   "birthplace": 885,
+   "role": "The head's last disciple and the fastest guide on the forest road; the Gate's courier to its hostage",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 56,
+     "kim": 34
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 74,
+    "than_hon": 50,
+    "khi_van": 56,
+    "dao_tam": 52,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Loyal"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Lovestruck"
+    ]
+   },
+   "appearance": "Long-legged and sunburnt, with her sandals tied on with red thread and her staff across her shoulders like a yoke.",
+   "backstory": "A guide's daughter from Dẫn Lộ Thôn who outran the head's own pack-boys at twelve. Úc Diệp Thanh (uc_diep_thanh) took her as his last disciple in 1170, the year he sent his nephew up the ridge. She has carried the Gate's letters to Úc Đả Diệp (uc_da_diep) every season since she was twenty, and her own with them. She teaches his daughter the staff, and the girl does not know why she is so patient with her.",
+   "ties": [
+    {
+     "to": "uc_diep_thanh",
+     "kind": "master",
+     "note": "her head and master"
+    },
+    {
+     "to": "uc_da_diep",
+     "kind": "lover",
+     "note": "the hostage; letters every season for twenty-five years"
+    },
+    {
+     "to": "uc_yen_vu",
+     "kind": "disciple",
+     "note": "his daughter"
+    },
+    {
+     "to": "cu_tieu_thoa",
+     "kind": "disciple",
+     "note": "the lamp girl"
+    }
+   ],
+   "master": "uc_diep_thanh",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "calm-wind-staff-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "straw-sandal-step-primer",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "loi_truong",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood toward speed and evasion: she wins by not being where the blow lands.",
+     "targets": [
+      6085,
+      6133,
+      6131,
+      6145,
+      6088
+     ],
+     "targets_note": "Lineage, Swaying Bamboo and Bending Willow: not where the blow lands."
+    },
+    "note": "All footwork; strikes on the run."
+   }
+  },
+  {
+   "key": "khuc_phu_thach",
+   "name_hv": "Khúc Phụ Thạch",
+   "name_han": "曲負石",
+   "gloss": "Carries stone",
+   "sex": "M",
+   "born": 1118,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "xuyen_lam",
+   "rank": "ngoai_mon",
+   "home": 873,
+   "birthplace": 873,
+   "role": "Ore hauler at Sa Kim Khoáng and the Gate's informer below the Tower's seat",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 44,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Patient",
+     "Loyal"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Has hauled ore for the Gate at Sa Kim for sixty years; both his children are in the Tower now, and his daughter tells him when the Tower drills.",
+   "ties": [
+    {
+     "to": "lo_kim_tuyen",
+     "kind": "master",
+     "note": "the mine warden"
+    },
+    {
+     "to": "khuc_thanh_dien",
+     "kind": "child",
+     "note": "his daughter, the Tower's Thunder prodigy"
+    },
+    {
+     "to": "khuc_tieu_thach",
+     "kind": "child",
+     "note": "his son in the Tower's outer gate"
+    }
+   ],
+   "master": "lo_kim_tuyen",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "straw-sandal-step-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal health and guard; a hauler's body."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "cu_tieu_thoa",
+   "name_hv": "Cù Tiểu Thoa",
+   "name_han": "瞿小蓑",
+   "gloss": "A small straw cape",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "xuyen_lam",
+   "rank": "ngoai_mon",
+   "home": 885,
+   "birthplace": 885,
+   "role": "Lamp-carrier on the night crossings",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "kim": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Brave",
+     "Fickle"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Carries the Gate's lamp ahead of travellers at night; whenever she meets the Tower's people on the road they ask her to put it out, and she never has.",
+   "ties": [
+    {
+     "to": "ky_khinh_ma",
+     "kind": "master",
+     "note": "the courier"
+    },
+    {
+     "to": "gian_tieu_dang",
+     "kind": "friend",
+     "note": "carries the second lamp on the night crossings, behind her father"
+    }
+   ],
+   "master": "ky_khinh_ma",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "straw-sandal-step-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and speed."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "man_thanh_truong",
+   "name_hv": "Mẫn Thanh Trượng",
+   "name_han": "閔青杖",
+   "gloss": "A green staff",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "xuyen_lam",
+   "rank": "ngoai_mon",
+   "home": 160,
+   "birthplace": 886,
+   "role": "Bamboo-feller who cuts the Gate's staffs",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Calm",
+     "Content"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A boy from Phạt Trúc Thôn who can tell a good staff in the standing bamboo; sent down to the ferry to learn the pole from Đinh Vãn Độ.",
+   "ties": [
+    {
+     "to": "dinh_van_do",
+     "kind": "master",
+     "note": "the ferry warden"
+    }
+   ],
+   "master": "dinh_van_do",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "straw-sandal-step-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood for health."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "thoi_vong_pham",
+   "name_hv": "Thôi Vọng Phàm",
+   "name_han": "崔望帆",
+   "gloss": "Watching for sails",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "xuyen_lam",
+   "rank": "ngoai_mon",
+   "home": 91,
+   "birthplace": 91,
+   "role": "Coast guide at Vọng Hải Trấn",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Impatient",
+     "Gregarious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Grandson of the watchtower keepers at Vọng Hải who saw Thôn Hải's sails a day early (A291); guides on the coast road and wants a boat instead.",
+   "ties": [
+    {
+     "to": "nghiem_quy_khu",
+     "kind": "master",
+     "note": "the deserter, his teacher"
+    },
+    {
+     "to": "khuong_lang_thu",
+     "kind": "friend",
+     "note": "coast guide at Vọng Hải Trấn; carries the Road Mother's letters to the boats"
+    }
+   ],
+   "master": "nghiem_quy_khu",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "straw-sandal-step-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water linh lực and evasion."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "uc_yen_vu",
+   "name_hv": "Úc Yên Vũ",
+   "name_han": "郁煙雨",
+   "gloss": "Misty rain (Tô Thức: nhất thoa yên vũ)",
+   "sex": "F",
+   "born": 1168,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "xuyen_lam",
+   "rank": "ngoai_mon",
+   "home": 28,
+   "birthplace": 28,
+   "role": "The hostage's daughter, raised at the gate",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 40,
+     "moc": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Vengeful",
+     "Diligent"
+    ],
+    "calling": "Duelist",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Two years old when her father went up the ridge as surety, she has met him four times; she trains with the staff as if the Tower were on the other end of it.",
+   "ties": [
+    {
+     "to": "uc_da_diep",
+     "kind": "parent",
+     "note": "her father, the Tower's surety"
+    },
+    {
+     "to": "uc_diep_thanh",
+     "kind": "aunt_uncle",
+     "note": "her great-uncle, the head who sent him"
+    },
+    {
+     "to": "uc_tu_hanh",
+     "kind": "grandparent",
+     "note": "the grandfather lost at the pass"
+    },
+    {
+     "to": "ky_khinh_ma",
+     "kind": "master",
+     "note": "her teacher"
+    },
+    {
+     "to": "phi_thoa_y",
+     "kind": "friend",
+     "note": "the Road Mother, who is quietly training her for the road books"
+    },
+    {
+     "to": "mong_thiet_lang",
+     "kind": "friend",
+     "note": "mine runner at Tử Tinh Khoáng; carries the warden's tallies up to the pass"
+    }
+   ],
+   "master": "ky_khinh_ma",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "straw-sandal-step-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal toward crits: she wants to hit hard, not walk far."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "mac_nhat_thoa",
+   "name_hv": "Mạc Nhất Thoa",
+   "name_han": "莫一蓑",
+   "gloss": "One straw cape (Tô Thức)",
+   "sex": "M",
+   "born": 640,
+   "died": 878,
+   "cause": "a centipede's venom in Xích Túc Cốc, guiding a caravan through",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "xuyen_lam",
+   "rank": "founder",
+   "home": 28,
+   "birthplace": 202,
+   "role": "Founder of Xuyên Lâm Môn (690); author of its primer and its staff canon",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Content",
+     "Brave",
+     "Honest"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "wild_raised",
+    "talent": [],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": "pilgrim",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A forest guide born in Đả Diệp Lâm who walked the rain forest road with a bamboo staff, straw sandals and a straw cape, and paid the rain no attention. In 690 he gathered the guides and staff fighters of the road into a gate at the pass where the road leaves the ridge, and swore it to the Tower (A289). He wrote the Gate's primer and its canon, and he died on the road in 878, still guiding.",
+   "ties": [
+    {
+     "to": "nham_binh_sinh",
+     "kind": "disciple",
+     "note": "his first disciple and heir"
+    }
+   ]
+  },
+  {
+   "key": "nham_binh_sinh",
+   "name_hv": "Nhậm Bình Sinh",
+   "name_han": "任平生",
+   "gloss": "Let it be, all my life (Tô Thức: nhậm bình sinh)",
+   "sex": "M",
+   "born": 672,
+   "died": 1169,
+   "cause": "the winter after nine days in the rain at the Tower's new gate",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "xuyen_lam",
+   "rank": "last_head",
+   "home": 28,
+   "birthplace": 885,
+   "role": "Second head of Xuyên Lâm Môn (878-1169); refused the Night Rain arts",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Just",
+     "Peaceable"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "pilgrim",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "backstory": "The founder's first disciple, who joined at eighteen in 690 and led the Gate for three hundred years. When the Tower opened to the ma đạo arts he refused them and walked the forest road alone for a month in protest (A292). In 1169 he sat nine days in the rain at the Tower's new gate on Thần Cổ Phong without a hat (N-xuyen_lam-03), walked home, and died that winter. He left the founder's staff to Úc Diệp Thanh (uc_diep_thanh) and the founder's cape to Phí Thoa Y (phi_thoa_y).",
+   "ties": [
+    {
+     "to": "mac_nhat_thoa",
+     "kind": "master",
+     "note": "the founder"
+    },
+    {
+     "to": "uc_diep_thanh",
+     "kind": "disciple",
+     "note": "his successor"
+    },
+    {
+     "to": "phi_thoa_y",
+     "kind": "disciple",
+     "note": "his last disciple"
+    }
+   ],
+   "master": "mac_nhat_thoa"
+  },
+  {
+   "key": "uc_tu_hanh",
+   "name_hv": "Úc Từ Hành",
+   "name_han": "郁徐行",
+   "gloss": "Walking slowly (Tô Thức)",
+   "sex": "M",
+   "born": 985,
+   "died": 1156,
+   "cause": "lost with Kỷ Vãn Tình's rear guard at the pass of Đan Sơn Mạch",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "xuyen_lam",
+   "rank": "noi_mon",
+   "home": 28,
+   "birthplace": 875,
+   "role": "The head's younger brother; guide to the Tower's column in the Cinnabar Vein War",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Calm",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Guided the Tower's column into Đan Sơn Mạch when the levy asked the Gate for guides, and stayed with Kỷ Vãn Tình's rear guard at the pass (N-thinh_vu-08); he did not come out.",
+   "ties": [
+    {
+     "to": "uc_diep_thanh",
+     "kind": "sibling",
+     "note": "his elder brother"
+    },
+    {
+     "to": "uc_da_diep",
+     "kind": "child",
+     "note": "his son"
+    },
+    {
+     "to": "ky_van_tinh",
+     "kind": "friend",
+     "note": "he guided her rear guard and died with it"
+    },
+    {
+     "to": "phuong_doan_vu",
+     "kind": "friend",
+     "note": "held the pass beside him; Phương was one of the four who came out"
+    },
+    {
+     "to": "uc_yen_vu",
+     "kind": "grandchild",
+     "note": "the granddaughter born twelve years after he fell at the pass"
+    }
+   ]
+  }
+ ]
+}

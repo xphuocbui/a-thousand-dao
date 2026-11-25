@@ -1,0 +1,1618 @@
+{
+ "sect": "lac_ha",
+ "_doc": "Lạc Hà Tông signature items and sets (rules-proposals R7; design/items record). Unpriced proposals: modifier sizes follow the earth, wood, thunder and ice catalogues' grade 2-4 items. Effects are hand-written rules, unpriced. Gaps: no scabbard base (the Empty Frost Scabbard uses thuan, the nearest ward piece) and no counting or trade modifier key (the Vô Định Tally's ledger edge is written as an effect). The Lone Duck Ring is held outside the sect: it is pledged to Thiên Bảo Trai for the 1179 loan.",
+ "items": [
+  {
+   "id": "lh-tu-dien",
+   "name": "Tử Điện, Purple Lightning (Tử Điện Kiếm)",
+   "family": "thunder",
+   "kind": "treasure",
+   "base": "phi_kiem",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 10,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "pierce_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "purple-lightning-sleeps",
+     "name": "The Lightning Sleeps (Tử Điện Miên)",
+     "rule": "Without Thunder in the holder's root, the sword's lightning modifiers do not apply and it strikes as a plain physical sword with 10 % pierce. With Thunder, every fourth hit forks to one more foe for half damage."
+    }
+   ],
+   "lore": "One of the twin swords Lạc Hà forged for its armoury in 360, after the purple lightning and blue frost of an old general's blades (C083). The bay city was renamed for it in 620 (C128). Each head takes it at the headship (C191). No head has had Thunder, so for 840 years the sect has worn a lightning sword that does not wake. Legendary item tu_dien.",
+   "build_use": "Carried as office more than weapon. For Tô Vãn Chiếu it is a pierce sword; in Thunder hands it would be a chain-lightning blade.",
+   "holder": "to_van_chieu",
+   "made_by": "thieu_song_phong",
+   "made_year": 360,
+   "set": "lh-armoury-twins",
+   "legendary_key": "tu_dien",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-thanh-suong",
+   "name": "Thanh Sương, Blue Frost (Thanh Sương Kiếm)",
+   "family": "ice",
+   "kind": "treasure",
+   "base": "phi_kiem",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 30,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "crit_damage_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "blue-frost-on-the-field",
+     "name": "Frost on the Field (Sương Điền)",
+     "rule": "Without Ice in the holder's root, the cold modifiers do not apply. A foe struck while slowed takes the sword's Ice stacks twice."
+    }
+   ],
+   "lore": "Tử Điện's twin (C083). It fell on Chiết Kích Nguyên in 803 and lies in the miasma near Vạn Cốt Trủng (C159; feature tile 244, 211). The sect believes it fell from Nhan Tề Phi's hand when she died, and that no one dares go back for it. One living man knows whose hand it fell from. Legendary item thanh_suong.",
+   "build_use": "Lost. In Ice hands, a stacking frost blade.",
+   "holder": null,
+   "made_by": "thieu_song_phong",
+   "made_year": 360,
+   "set": "lh-armoury-twins",
+   "legendary_key": "thanh_suong",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-sunset-cloud-seal",
+   "name": "Sunset Cloud Seal (Lạc Hà Ấn)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "an",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 22,
+     "scope": [
+      "tho"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 34,
+     "scope": [
+      "tho",
+      "debuff"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 36,
+     "scope": [
+      "tho",
+      "debuff"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 3,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A square of red jasper from the steppe below the old seat, cut by the founder in 290. Every writ of the sect, every contract and every debt note has borne it since. Its stamp is the colour of the western sky at dusk.",
+   "build_use": "The head's offence: heavier, longer Earth stacks for the cloud to feed on.",
+   "holder": "to_van_chieu",
+   "made_by": "nhan_co_vu",
+   "made_year": 290,
+   "set": "lh-sunset-regalia",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-sunset-cloud-robe",
+   "name": "Robe of the Drifting Glow (Lạc Hà Bào)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 20,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "resist_pct",
+     "value": 150,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "colour-of-the-hour",
+     "name": "Colour of the Hour (Thời Sắc)",
+     "rule": "The robe's dye follows the sky. From the 20th second of a fight, the holder's healing over time is 15 % stronger, and stronger again by 15 % after the 40th."
+    }
+   ],
+   "lore": "Hemp from Tang Ma Thành, dyed by the founder's own hand with madder and steppe dust until it held the dusk. The sect's weavers have re-dyed it every hundred years with the same pot.",
+   "build_use": "The long-fight robe: sustain that grows as the fight goes on, as the canon's damage does.",
+   "holder": "to_van_chieu",
+   "made_by": "nhan_co_vu",
+   "made_year": 300,
+   "set": "lh-sunset-regalia",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-lone-duck-ring",
+   "name": "Lone Duck Ring (Cô Vụ Giới)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "nhan",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "than_thuc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 22,
+     "scope": [
+      "tho",
+      "buff"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "cultivation_speed_pct",
+     "value": 2,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "the-treasury-key",
+     "name": "The Treasury Key (Khố Thược)",
+     "rule": "The ring opens the sect's treasury arrays at the seat. In a fight: once, when the holder falls below half health, they gain a ward equal to 20 % of their health."
+    }
+   ],
+   "lore": "The founder's ring, a wild duck cut in grey steppe jade. It is the key to the treasury arrays. In 1179 Tô Vãn Chiếu pledged it to Phan Vật Hoa of Thiên Bảo Trai as surety for the loan that paid for the Cloud Bridge (N-lac_ha-03). The ring now sits in Thiên Bảo Trai's vault, so the sect cannot open its own treasury without its vassal's leave. Only the head, the first elder, the Counting House master and Phan Vật Hoa know this.",
+   "build_use": "Thần thức and a ward; a treasury key first.",
+   "holder": "phan_vat_hoa",
+   "made_by": "nhan_co_vu",
+   "made_year": 290,
+   "set": "lh-sunset-regalia",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-vo-dinh-tally",
+   "name": "Vô Định Tally (Vô Định Trù)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "leech_health_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 24,
+     "scope": [
+      "tho",
+      "buff"
+     ]
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "every-debt-written",
+     "name": "Every Debt Written (Hữu Trái Tất Thư)",
+     "rule": "Damage the holder takes is tallied. Once per fight, the holder may call the tally: the attacker who dealt the most of it takes Earth damage equal to a third of what they dealt."
+    }
+   ],
+   "lore": "A string of bone counting rods in a jade case, all that came out of Vô Định Thành when it burned in 803 (C158). Phong Ý Nhàn, Trầm Tịch Dương's wife, kept the city's tax tallies on it. He has counted on it ever since.",
+   "build_use": "Earth wall's sustain and a ledger strike, paired with the Ruin Ledger Scripture.",
+   "holder": "tram_tich_duong",
+   "made_by": "phong_y_nhan",
+   "made_year": 760,
+   "set": "lh-debt-and-wall",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-cold-geese-sword",
+   "name": "Cold Geese Sword (Hàn Nhạn Kiếm)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "tho"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "tho"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 30,
+     "scope": [
+      "tho",
+      "debuff"
+     ]
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "geese-in-file",
+     "name": "Geese in File (Nhạn Hành)",
+     "rule": "The sword flies in a line of seven short blades. While your One Colour field is up, each ally beyond yourself (companion or Piece) adds one blade, each striking for 8 % of the sword's hit.",
+     "authored": "a1"
+    }
+   ],
+   "lore": "Forged at Tử Điện Thành in 806 from the halberd heads Lạc Hà's dead left on the edge of Chiết Kích Nguyên. Cảnh Trường Thiên asked for it the year Nhạn Trận Môn was founded (V096) and has carried nothing else since.",
+   "build_use": "A war elder's flying sword that grows with the line of allies he holds.",
+   "holder": "canh_truong_thien",
+   "made_by": "lac_ha",
+   "made_year": 806,
+   "set": "lh-off-the-field",
+   "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "lh-empty-frost-scabbard",
+   "name": "Empty Frost Scabbard (Thanh Sương Không Sao)",
+   "family": "ice",
+   "kind": "artifact",
+   "base": "thuan",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 150,
+     "scope": [
+      "cold"
+     ]
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "waits-for-its-blade",
+     "name": "Waits for Its Blade (Đãi Kiếm)",
+     "rule": "If Thanh Sương is ever sheathed in it again, the scabbard's grade rises to 4 and the sword's cold modifiers apply to any holder of the pair."
+    }
+   ],
+   "lore": "Thanh Sương's scabbard. Cảnh Trường Thiên wears it across his back, empty, as a guard. The sect thinks it is mourning. It is penance.",
+   "build_use": "A cold-resisting guard for a man who fights at the edge of miasma.",
+   "holder": "canh_truong_thien",
+   "made_by": "thieu_song_phong",
+   "made_year": 360,
+   "set": "lh-off-the-field",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-evening-market-fan",
+   "name": "Fan of the Evening Market (Vãn Thị Phiến)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "phien",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "tho"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "tho"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 3,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "price-on-the-ribs",
+     "name": "Price on the Ribs (Cốt Thượng Giá)",
+     "rule": "Each rib is painted with a vassal's mark. A foe struck by the fan's art loses 5 % defence for 4 s per Earth stack they carry."
+    }
+   ],
+   "lore": "Eight ribs of maple, one painted with each vassal's mark. Tô Vãn Chiếu, then the sect's trade master, gave it to her disciple Hách Ánh Hà in 1150, when she first went to the vassals in the sect's name.",
+   "build_use": "An envoy's fan: Earth damage that breaks a guard.",
+   "holder": "hach_anh_ha",
+   "made_by": "lac_ha",
+   "made_year": 1150,
+   "set": "lh-envoys-errand",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-cloud-bridge-flags",
+   "name": "Cloud Bridge Flags (Vân Kiều Kỳ)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "ky",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "stack_effect_pct",
+     "value": 26,
+     "scope": [
+      "tho",
+      "buff"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 30,
+     "scope": [
+      "tho",
+      "buff"
+     ]
+    },
+    {
+     "key": "ward_efficiency_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "span-the-gap",
+     "name": "Span the Gap (Hoành Không)",
+     "rule": "Plants two flag Pieces for 12 s; while both stand, you take 10 % less damage and gain a small ward every 3 s.",
+     "authored": "a1"
+    }
+   ],
+   "lore": "The twelve hand flags Quách Tiếp Vân used to lay the Cloud Bridge Array (N-lac_ha-04). Each is a scrap of his father's miner's jacket sewn to a silver-pine pole from the old gallery props.",
+   "build_use": "An array master's ward line.",
+   "holder": "quach_tiep_van",
+   "made_by": "quach_tiep_van",
+   "made_year": 1180,
+   "set": "lh-cloud-bridge-works",
+   "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "lh-miasma-watch-lantern",
+   "name": "Lantern of the Miasma Watch (Thủ Chướng Đăng)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "dang",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "dan_doc_resist_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "green-flame-warns",
+     "name": "The Flame Turns Green (Đăng Hóa Lục)",
+     "rule": "The lantern's flame turns green when miasma or poison is within 30 m. While it burns green, the holder's poison stacks fade twice as fast."
+    }
+   ],
+   "lore": "Lit in 806 at the ruin of Vô Định Thành and kept burning by each warden since. Hình Trọng Sơn has refilled it every night for 140 years.",
+   "build_use": "Poison and status resistance for a watcher at the miasma's edge.",
+   "holder": "hinh_trong_son",
+   "made_by": "lac_ha",
+   "made_year": 806,
+   "set": "lh-miasma-watch",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-crane-shoal-seal",
+   "name": "Crane Shoal Prize Seal (Hạc Đinh Ấn)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "an",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 12,
+     "scope": [
+      "seal"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": [
+      "seal"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The prize of the talisman contest at Hạc Đinh Thị, which Tô Mộ Vân won at fourteen against the scribes of Nam Phố Đường (A203). It had been Nam Phố's for eleven contests running.",
+   "build_use": "A young talisman maker's seal: faster seal arts.",
+   "holder": "to_mo_van",
+   "made_by": "nam_pho",
+   "made_year": 1100,
+   "set": "lh-prize-and-brush",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-dao-sa-nail-needles",
+   "name": "Đào Sa Nail Needles (Đào Sa Đinh Châm)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "cham",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 10,
+     "scope": [
+      "tho"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "tho",
+      "debuff"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 6,
+     "scope": [
+      "tho"
+     ]
+    },
+    {
+     "key": "pierce_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Twenty-four boat nails fished out of the river at Đào Sa Thị after the raid of 1173 (A080), ground into needles. Lữ Tẫn Chu fished them himself at seven.",
+   "build_use": "Cheap Earth needles; a boy's grief made into a weapon.",
+   "holder": "lu_tan_chu",
+   "made_by": "lu_tan_chu",
+   "made_year": 1190,
+   "set": "lh-nails-of-dao-sa",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-miasma-edge-veil",
+   "name": "Veil of the Miasma's Edge (Chướng Biên Sa)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "dan_doc_resist_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A grey hemp veil soaked in Yên Quang Các's evening-herb tincture. Hình Lạc Nhạn wore it the night she walked three hundred paces into the miasma (N-lac_ha-07).",
+   "build_use": "Poison resistance and a little evasion.",
+   "holder": "hinh_lac_nhan",
+   "made_by": "tao_mo_tu",
+   "made_year": 1195,
+   "set": "lh-three-hundred-paces",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-stern-lamp",
+   "name": "Stern Lamp of the Evening Boats (Vãn Chu Đăng)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "dang",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "healing_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 16,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "lamp-lit-not-launched",
+     "name": "Lit but Not Launched (Đăng Bất Khai Hàng)",
+     "rule": "While the holder sings an Evening Song art, the lamp extends it by 2 s."
+    }
+   ],
+   "lore": "A stern lamp from Vãn Đăng Thôn, where the fishers light their lamps on the dusk of 803 and do not put out (V104). The village gave it to Lô Xướng Vãn in 1175 after the Ferry War.",
+   "build_use": "A singer's sustain lamp.",
+   "holder": "lo_xuong_van",
+   "made_by": "lac_ha",
+   "made_year": 1175,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "lh-last-ferry-anchor",
+   "name": "Anchor of the Last Ferry (Mạt Độ Mao)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "mao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "tho"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 26,
+     "scope": [
+      "tho",
+      "debuff"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 30,
+     "scope": [
+      "tho",
+      "debuff"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The anchor of the boat that carries dying elders to Tịch Chiếu Đảo (A164). Bồ Tàn Chiếu has dropped it off the isle's beach four hundred and twelve times.",
+   "build_use": "A slow Earth lock.",
+   "holder": "bo_tan_chieu",
+   "made_by": "lac_ha",
+   "made_year": 610,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "lh-red-maple-gourd",
+   "name": "Red Maple Gourd (Hồng Phong Hồ Lô)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "ho_lo",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 18,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A gourd of maple sap boiled down each autumn at Phong Ảnh Mạch. Chử Hồng Diệp filled the first one in 1131 from the last maple at the old seat, the day it died.",
+   "build_use": "A Wood healer's gourd.",
+   "holder": "chu_hong_diep",
+   "made_by": "chu_hong_diep",
+   "made_year": 1131,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "lh-dao-sa-ferry-coat",
+   "name": "Đào Sa Ferry Coat (Đào Sa Độ Y)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 10,
+     "scope": [
+      "tho",
+      "debuff"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "A tarred boatman's coat his father left on the landing peg at Đào Sa Thị the night of the raid. The boy found it in the morning with the nails, and tars it again every spring.",
+   "build_use": "A thrower's body: health under the needles and heavier Earth stacks.",
+   "holder": "lu_tan_chu",
+   "made_by": "lu_thua_lang",
+   "made_year": 1160,
+   "set": "lh-nails-of-dao-sa",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-grey-walk-sword",
+   "name": "Grey-Walk Sword (Hôi Hành Kiếm)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 12,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 6,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 4,
+     "scope": [
+      "sword"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "A short flying sword of the Watch's own iron, quenched by Tào Mộ Tử in Yên Quang's evening tincture. Her father had it made when she came back from the three hundred paces, and has not said whether it is a gift or a reproach.",
+   "build_use": "Sword first: fast sword arts with an eye for the crit.",
+   "holder": "hinh_lac_nhan",
+   "made_by": "hinh_trong_son",
+   "made_year": 1197,
+   "set": "lh-three-hundred-paces",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-evening-glow-brush",
+   "name": "Evening-Glow Brush (Vãn Hà Bút)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "cham",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 10,
+     "scope": [
+      "talisman"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": [
+      "talisman"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The brush the head gave her the night she was born, cut from a red maple of the old seat and tipped with the hair of a Mục Vân foal. Tô Mộ Vân drew the talisman that won the Crane Shoal Seal with it.",
+   "build_use": "Talisman damage and talisman speed for a paper fighter.",
+   "holder": "to_mo_van",
+   "made_by": "to_van_chieu",
+   "made_year": 1176,
+   "set": "lh-prize-and-brush",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-fathers-copper",
+   "name": "Father's Copper (Phụ Đồng Tiền)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "tien_tieu",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "block_rating",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 20,
+     "scope": [
+      "tho",
+      "buff"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "The bag of copper cash his father sent with him to Nhan Cô Vụ in 659, strung on a cord and refined coin by coin over five centuries. Trầm has never spent one of them.",
+   "build_use": "The wall: block, health and heavier Earth buffs.",
+   "holder": "tram_tich_duong",
+   "made_by": "tram_tich_duong",
+   "made_year": 659,
+   "set": "lh-debt-and-wall",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-treasury-wall-armour",
+   "name": "Treasury Wall Armour (Khố Bích Giáp)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "body_shield_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 150,
+     "scope": [
+      "physical"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "Plate cut from the old seat's treasury door when the sect moved up the mountain. Trầm had the door made into armour rather than leave it to the steppe.",
+   "build_use": "Shield and plate for a fighter who lets the foe spend.",
+   "holder": "tram_tich_duong",
+   "made_by": "tram_tich_duong",
+   "made_year": 1182,
+   "set": "lh-debt-and-wall",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-geese-hall-war-coat",
+   "name": "War Coat of the Geese Hall (Nhạn Đường Chiến Bào)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "ward_efficiency_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Nhan Tề Phi's war coat of grey felt over earth-iron scale. Her field carried it off Chiết Kích Nguyên in 803 without her, and her last disciple has worn it to every field since.",
+   "build_use": "The line's anchor: health, block and stronger group wards.",
+   "holder": "canh_truong_thien",
+   "made_by": "nhan_te_phi",
+   "made_year": 790,
+   "set": "lh-off-the-field",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-shell-coin-ring",
+   "name": "Shell-Coin Ring (Bối Tiền Giới)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "nhan",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "stack_effect_pct",
+     "value": 18,
+     "scope": [
+      "tho",
+      "debuff"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 3,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The shell coin she paid her ferry fare with at fifteen, counted twice; Bùi Phiêu Bình kept it and sent it back to her set in silver when Tô Vãn Chiếu took her as first disciple in 1030.",
+   "build_use": "Earth stacks that weigh more on a guarded foe.",
+   "holder": "hach_anh_ha",
+   "made_by": "bui_phieu_binh",
+   "made_year": 1030,
+   "set": "lh-envoys-errand",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-eight-marks-robe",
+   "name": "Envoy's Robe of Eight Marks (Bát Ấn Sứ Bào)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "healing_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "defense_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A maple-red robe with the eight vassals' marks embroidered on the hem. Each vassal sewed its own, at her asking, in 1160; two of them did it badly on purpose.",
+   "build_use": "The song's sustain: heals and Wood buffs for the line she keeps singing.",
+   "holder": "hach_anh_ha",
+   "made_by": "lac_ha",
+   "made_year": 1160,
+   "set": "lh-envoys-errand",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-gorge-anchor-seal",
+   "name": "Gorge Anchor Seal (Hạp Mao Ấn)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "an",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "stack_duration_pct",
+     "value": 20,
+     "scope": [
+      "kim",
+      "debuff"
+     ]
+    },
+    {
+     "key": "ward_efficiency_pct",
+     "value": 3,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The silver anchor-pin that held his father's cloud bridge rope across the gorge, reforged as a seal when the new seat's array was strung from the same rock.",
+   "build_use": "The bridge's anchors: Metal stacks that hold, and cheaper wards.",
+   "holder": "quach_tiep_van",
+   "made_by": "quach_tiep_van",
+   "made_year": 1180,
+   "set": "lh-cloud-bridge-works",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-van-gian-miner-lamp",
+   "name": "Miner's Lamp of Vân Gian (Vân Gian Khoáng Đăng)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "dang",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A tin miner's lamp from the Vân Gian workings, the last one lit when the miners came down the mountain. He means to give it back to the first of their grandchildren who comes up again.",
+   "build_use": "Upkeep: linh lực for the array and a steady head.",
+   "holder": "quach_tiep_van",
+   "made_by": "quach_tiep_van",
+   "made_year": 1100,
+   "set": "lh-cloud-bridge-works",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-ruin-warden-anchor",
+   "name": "Anchor of the Ruin Warden (Phế Thành Mao)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "mao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "tho"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 22,
+     "scope": [
+      "tho",
+      "debuff"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 26,
+     "scope": [
+      "tho",
+      "debuff"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Cast from the bell of Vô Định Thành's river gate, found in the ash in 806. Each warden of the Watch has dropped it at the edge of the grey.",
+   "build_use": "The anchor: heavy, lasting Earth stacks that lock a foe.",
+   "holder": "hinh_trong_son",
+   "made_by": "lac_ha",
+   "made_year": 806,
+   "set": "lh-miasma-watch",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-grey-felt-watch-coat",
+   "name": "Watch-Coat of Grey Felt (Hôi Chiên Thủ Bào)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "dan_doc_resist_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 16,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Grey felt over earth-iron, soaked each winter in Yên Quang's tincture. The coat has been mended by every warden since 806; Hình's stitches are the ugliest and the most numerous.",
+   "build_use": "Outlast anything that walks out of the grey: health, regeneration, poison resistance.",
+   "holder": "hinh_trong_son",
+   "made_by": "lac_ha",
+   "made_year": 806,
+   "set": "lh-miasma-watch",
+   "status": "proposal"
+  },
+  {
+   "id": "lh-scribes-reed-brush",
+   "name": "Scribe's Reed Brush (Lô Bút)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "cham",
+   "grade": 1,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 6,
+     "scope": [
+      "talisman"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 5,
+     "scope": [
+      "talisman"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "A reed brush cut by the river below the old seat, the kind every outer-gate scribe makes for herself.",
+   "build_use": "A first talisman hand: talismans she slots strike harder and come round sooner.",
+   "holder": "ta_quy_yen",
+   "made_by": "ta_quy_yen",
+   "made_year": null,
+   "set": null,
+   "status": "proposal",
+   "authored": "b4"
+  }
+ ],
+ "sets": [
+  {
+   "id": "lh-sunset-regalia",
+   "name": "Sunset Regalia (Lạc Hà Tam Bảo)",
+   "pieces": [
+    "lh-sunset-cloud-seal",
+    "lh-sunset-cloud-robe",
+    "lh-lone-duck-ring"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "stack_effect_pct",
+       "value": 14,
+       "scope": [
+        "tho",
+        "debuff"
+       ]
+      },
+      {
+       "key": "health_regen_inc_pct",
+       "value": 14,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "The Sky Goes One Colour (Nhất Sắc Thiên): while you hold all three, once each fight after the 30th second, the glow over the field turns red for 8 s. Every foe's Earth stacks count double for your arts, and allies under it heal 3 % of their health each second."
+    }
+   ],
+   "story": "The founder held all three. In 1179 Tô Vãn Chiếu pledged the Lone Duck Ring to Phan Vật Hoa for the loan that built the Cloud Bridge. The Regalia will be whole again when the loan is paid. The sect believes the ring is in the treasury vault."
+  },
+  {
+   "id": "lh-armoury-twins",
+   "name": "Twin Swords of the Armoury (Võ Khố Song Kiếm)",
+   "pieces": [
+    "lh-tu-dien",
+    "lh-thanh-suong"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "crit_chance_pct",
+       "value": 6,
+       "scope": []
+      },
+      {
+       "key": "pierce_pct",
+       "value": 8,
+       "scope": []
+      }
+     ],
+     "effect": "Lightning and Frost (Tử Điện Thanh Sương): each sword's sleeping element wakes for the holder of both, even without Thunder or Ice in the root, at half strength."
+    }
+   ],
+   "story": "Forged by Thiệu Song Phong in 360 (C083) and parted at Chiết Kích Nguyên in 803 (C159). Held together, either sword would wake for a head with no Thunder and no Ice. This is why Tô Vãn Chiếu wants Thanh Sương back, and why Cảnh Trường Thiên is afraid she will ask him to fetch it."
+  },
+  {
+   "id": "lh-nails-of-dao-sa",
+   "name": "Nails of Đào Sa (Đào Sa Đinh)",
+   "pieces": [
+    "lh-dao-sa-nail-needles",
+    "lh-dao-sa-ferry-coat"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "stack_effect_pct",
+       "value": 8,
+       "scope": [
+        "tho",
+        "debuff"
+       ]
+      },
+      {
+       "key": "crit_damage_pct",
+       "value": 10,
+       "scope": []
+      }
+     ],
+     "effect": "Fished from the Shallows (Lao Đinh): each needle that hits a foe carrying 3 or more Earth stacks pins one more; and when a foe hits you, your next needle volley at it is a certain crit (once every 6 s)."
+    }
+   ],
+   "story": "What the river gave back after 1173: the nails and the coat on the peg. Both are Lữ Tẫn Chu's. The reprisal half is the closest line until targets-tl/debt-stone exists."
+  },
+  {
+   "id": "lh-three-hundred-paces",
+   "name": "Three Hundred Paces (Tam Bách Bộ)",
+   "pieces": [
+    "lh-miasma-edge-veil",
+    "lh-grey-walk-sword"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "status_resist_pct",
+       "value": 8,
+       "scope": []
+      },
+      {
+       "key": "attack_pct",
+       "value": 6,
+       "scope": [
+        "sword"
+       ]
+      }
+     ],
+     "effect": "Breath Held (Bế Tức): while you carry a poison or miasma stack, your sword arts are 15 % faster, and each sword hit sheds one poison stack from you."
+    }
+   ],
+   "story": "The veil she walked in with and the sword her father gave her when she walked out, both steeped by Tào Mộ Tử's hand. Hình Lạc Nhạn holds both."
+  },
+  {
+   "id": "lh-prize-and-brush",
+   "name": "Prize and Brush (Ấn Bút Song Bảo)",
+   "pieces": [
+    "lh-crane-shoal-seal",
+    "lh-evening-glow-brush"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "attack_pct",
+       "value": 6,
+       "scope": [
+        "talisman"
+       ]
+      },
+      {
+       "key": "status_duration_pct",
+       "value": 6,
+       "scope": []
+      }
+     ],
+     "effect": "Glow After Dark (Hà Quang Bất Tán): a talisman you seal with the Crane Shoal Seal keeps its glow; if it expires unspent, it fires once at half strength at the nearest foe."
+    }
+   ],
+   "story": "The brush the head gave her at birth and the prize it won at fourteen. Tô Mộ Vân holds both but, at Luyện Khí, can wear only one: she wears the seal, and the set waits for her foundation."
+  },
+  {
+   "id": "lh-debt-and-wall",
+   "name": "Debt and Wall (Trái Bích Tam Bảo)",
+   "pieces": [
+    "lh-vo-dinh-tally",
+    "lh-fathers-copper",
+    "lh-treasury-wall-armour"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "block_rating",
+       "value": 8,
+       "scope": []
+      },
+      {
+       "key": "khi_huyet_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Every Debt Called (Hữu Trái Tất Hoàn): the Tally counts damage you block as well as damage you take, and may be called twice a fight; each call also gives you a shield the size of the damage it returns."
+    }
+   ],
+   "story": "His wife's tally, his father's copper and the old treasury's door: what Trầm Tịch Dương has counted on for five centuries. All three are his. The Mirror of the Second Seat stays in the treasury hall, unworn while he wears the wall."
+  },
+  {
+   "id": "lh-off-the-field",
+   "name": "What Came Off the Field (Chiết Kích Di Vật)",
+   "pieces": [
+    "lh-cold-geese-sword",
+    "lh-empty-frost-scabbard",
+    "lh-geese-hall-war-coat"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "attack_pct",
+       "value": 8,
+       "scope": [
+        "tho"
+       ]
+      },
+      {
+       "key": "defense_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Geese in the Cold (Nhạn Hàn): while your One Colour field stands, you take 10 % less damage; the first time you are Wounded inside it, the Cold Geese Sword gains two blades for the rest of the fight."
+    }
+   ],
+   "story": "A sword from the dead's halberds, an empty scabbard and his master's coat: the three things Cảnh Trường Thiên carried off Chiết Kích Nguyên. He holds all three. The share-the-damage half is the closest line until targets-tl/geese-line exists.",
+   "authored": "a1"
+  },
+  {
+   "id": "lh-envoys-errand",
+   "name": "The Envoy's Errand (Sứ Giả Tam Bảo)",
+   "pieces": [
+    "lh-evening-market-fan",
+    "lh-shell-coin-ring",
+    "lh-eight-marks-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "stack_effect_pct",
+       "value": 8,
+       "scope": [
+        "tho",
+        "debuff"
+       ]
+      },
+      {
+       "key": "healing_pct",
+       "value": 5,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Eight Marks (Bát Ấn): a foe struck by the fan's art at 4 or more Earth stacks has its guard broken (its block and ward 30 % weaker for 4 s), and each guard you break this way lets your song heal every ally near you for 2 % of their health."
+    }
+   ],
+   "story": "Her master's fan, her own fare and the vassals' stitches: Hách Ánh Hà's whole errand. All three are hers."
+  },
+  {
+   "id": "lh-cloud-bridge-works",
+   "name": "The Cloud Bridge Works (Vân Kiều Tam Cụ)",
+   "pieces": [
+    "lh-cloud-bridge-flags",
+    "lh-gorge-anchor-seal",
+    "lh-van-gian-miner-lamp"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "ward_efficiency_pct",
+       "value": 3,
+       "scope": []
+      },
+      {
+       "key": "defense_pct",
+       "value": 5,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Anchored Span (Mao Kiều): while both your flags stand, each time the foe acts it gains 2 Earth stacks and one Slowed Time stack (once per 2 s); while you are Still, your array's upkeep costs no linh lực."
+    }
+   ],
+   "story": "The flags, the anchor-pin and the lamp of the miners: everything Quách Tiếp Vân took from Vân Kiều to build the bridge. All three are his.",
+   "authored": "a1"
+  },
+  {
+   "id": "lh-miasma-watch",
+   "name": "The Miasma Watch (Thủ Chướng Tam Bảo)",
+   "pieces": [
+    "lh-miasma-watch-lantern",
+    "lh-ruin-warden-anchor",
+    "lh-grey-felt-watch-coat"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "dan_doc_resist_pct",
+       "value": 8,
+       "scope": []
+      },
+      {
+       "key": "khi_huyet_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Outlast the Grey (Trì Cửu Hôi Trung): while the Lantern burns green, each poison stack that fades from you heals you 1 % of your health over 3 s and adds one Earth stack to your next anchor hit; a foe at 6 Earth stacks is locked in place for 1.5 s (once per foe every 12 s)."
+    }
+   ],
+   "story": "The warden's lantern, anchor and coat, all made in 806 and handed from warden to warden. Hình Trọng Sơn holds all three; whoever keeps the Watch after him inherits the set."
+  }
+ ]
+}

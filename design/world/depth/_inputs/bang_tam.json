@@ -1,0 +1,2714 @@
+{
+"_doc": "Input slice for the depth writer of bang_tam (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "bang_tam",
+"name": "Băng Tâm Các",
+"name_han": "冰心閣",
+"gloss": "Pavilion of the Ice Heart",
+"tier": 2,
+"leans": [
+"Water",
+"Ice"
+],
+"regions": [
+7,
+8,
+9
+],
+"seat_region": 8,
+"seat": 3,
+"kind": "great"
+},
+"start_state": {
+"key": "bang_tam",
+"name": "Băng Tâm Các",
+"name_han": "冰心閣",
+"gloss": "Pavilion of the Ice Heart",
+"kind": "great",
+"alignment": "chinh",
+"leans": [
+"Water",
+"Ice"
+],
+"seat": 3,
+"levels": {
+"holdings": 6,
+"institutions": 9,
+"military": 9,
+"trade": 6
+},
+"treasury": 30000,
+"founded": 440,
+"specialty": "kiem_tu",
+"tier": 2,
+"regions": [
+7,
+8,
+9
+],
+"leader": "so_ngoc_ho"
+},
+"lord": "",
+"vassals": [
+"le_hoa",
+"trac_anh",
+"da_quang",
+"tran_sa",
+"lanh_giang",
+"tam_kiem"
+],
+"seat": {
+"id": 3,
+"name": "Băng Tâm Các",
+"gloss": "",
+"kind": "great_seat",
+"region": 8,
+"biome": "badlands",
+"elev_km": 0.91,
+"qi": {
+"moc": 18,
+"hoa": 20,
+"tho": 32,
+"kim": 20,
+"thuy": 10
+},
+"variants": {},
+"density": 1.63,
+"note": ""
+},
+"seat_audit": "## MOVE Băng Tâm Các (bang_tam; leans Water/Ice)\nSeat: Băng Tâm Các (id 3, great_seat, region 8, badlands), density 1.63\nSeat qi: Water 10%, Ice 0\nCandidates:\n- Băng Trụ Phong (id 1362, peak, region 7, glacier, elev 0.32 km): Water 67%, Ice 40; density 0.77\n- Phong Tuyết Đỉnh (id 1392, peak, region 7, glacier, elev 0.77 km): Water 67%, Ice 40; density 0.77\n- Băng Bích Nhai (id 1393, peak, region 7, glacier, elev 0.43 km): Water 66%, Ice 40; density 0.77\n- Hồ Thiên Phái (id 214, ruin, region 7, tundra, elev 0.00 km): Water 61%, Ice 22; density 1.02\n- Hàn Giao Chử (id 239, beast_lair, region 7, tundra, elev 0.09 km): Water 59%, Ice 14; density 1.00\n",
+"ground": [
+{
+"id": 209,
+"name": "Băng Phách Mạch",
+"gloss": "Vein of the Ice Soul",
+"kind": "spirit_vein",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.78,
+"qi": {
+"moc": 8,
+"hoa": 10,
+"tho": 26,
+"kim": 39,
+"thuy": 17
+},
+"variants": {
+"loi": 65.5
+},
+"density": 1.79,
+"note": "Băng phách, the ice soul, is an old name for the moon. Under the ice mountains of Ngọc Hồ Sơn, within reach of the storm peaks."
+},
+{
+"id": 1359,
+"name": "Vọng Triều Bảo",
+"gloss": "Tide-Watching Fort",
+"kind": "ruin",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.67,
+"qi": {
+"moc": 8,
+"hoa": 10,
+"tho": 18,
+"kim": 26,
+"thuy": 38
+},
+"variants": {},
+"density": 1.77,
+"note": ""
+},
+{
+"id": 1387,
+"name": "Khuy Tinh Bảo",
+"gloss": "Star-Peering Fort",
+"kind": "ruin",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 1.83,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 28,
+"kim": 44,
+"thuy": 11
+},
+"variants": {},
+"density": 1.74,
+"note": ""
+},
+{
+"id": 1374,
+"name": "Băng Kỳ Phong",
+"gloss": "Ice Banner Peak",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.38,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 26,
+"kim": 43,
+"thuy": 14
+},
+"variants": {
+"loi": 10.6
+},
+"density": 1.73,
+"note": ""
+},
+{
+"id": 1386,
+"name": "Hàn Tinh Phong",
+"gloss": "Cold Star Peak",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.75,
+"qi": {
+"moc": 5,
+"hoa": 11,
+"tho": 29,
+"kim": 45,
+"thuy": 10
+},
+"variants": {},
+"density": 1.71,
+"note": ""
+},
+{
+"id": 1390,
+"name": "Lang Yên Bảo",
+"gloss": "Wolf-Smoke Fort",
+"kind": "ruin",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 1.3,
+"qi": {
+"moc": 6,
+"hoa": 9,
+"tho": 26,
+"kim": 49,
+"thuy": 9
+},
+"variants": {},
+"density": 1.64,
+"note": ""
+},
+{
+"id": 3,
+"name": "Băng Tâm Các",
+"gloss": "",
+"kind": "great_seat",
+"region": 8,
+"biome": "badlands",
+"elev_km": 0.91,
+"qi": {
+"moc": 18,
+"hoa": 20,
+"tho": 32,
+"kim": 20,
+"thuy": 10
+},
+"variants": {},
+"density": 1.63,
+"note": ""
+},
+{
+"id": 15,
+"name": "Lê Hoa Am",
+"gloss": "",
+"kind": "minor_seat",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.68,
+"qi": {
+"moc": 9,
+"hoa": 10,
+"tho": 27,
+"kim": 42,
+"thuy": 13
+},
+"variants": {},
+"density": 1.63,
+"note": ""
+},
+{
+"id": 1373,
+"name": "Băng Tinh Quật",
+"gloss": "Ice Crystal Cavern",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.86,
+"qi": {
+"moc": 9,
+"hoa": 10,
+"tho": 27,
+"kim": 41,
+"thuy": 13
+},
+"variants": {
+"loi": 14.9
+},
+"density": 1.62,
+"note": ""
+},
+{
+"id": 255,
+"name": "Tẩy Kiếm Tuyền",
+"gloss": "Sword-Washing Spring",
+"kind": "spirit_vein",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 0.7,
+"qi": {
+"moc": 9,
+"hoa": 24,
+"tho": 37,
+"kim": 23,
+"thuy": 7
+},
+"variants": {},
+"density": 1.57,
+"note": ""
+},
+{
+"id": 1358,
+"name": "Kình Bối Phong",
+"gloss": "Whale-Back Peak",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 1.58,
+"qi": {
+"moc": 11,
+"hoa": 10,
+"tho": 19,
+"kim": 27,
+"thuy": 33
+},
+"variants": {
+"loi": 14.4
+},
+"density": 1.57,
+"note": ""
+},
+{
+"id": 48,
+"name": "Tống Khách Thị",
+"gloss": "Market of Farewells",
+"kind": "market",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.19,
+"qi": {
+"moc": 34,
+"hoa": 13,
+"tho": 22,
+"kim": 16,
+"thuy": 15
+},
+"variants": {},
+"density": 1.54,
+"note": "Vương Xương Linh: bình minh tống khách (at dawn I see my guest off), the Băng Tâm poem"
+},
+{
+"id": 1376,
+"name": "Thùy Thiên Phong",
+"gloss": "Peak That Hangs from Heaven",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 3.86,
+"qi": {
+"moc": 6,
+"hoa": 10,
+"tho": 25,
+"kim": 38,
+"thuy": 21
+},
+"variants": {},
+"density": 1.53,
+"note": ""
+},
+{
+"id": 1361,
+"name": "Nguyệt Thạch Khoáng",
+"gloss": "Moonstone Mine",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.92,
+"qi": {
+"moc": 7,
+"hoa": 9,
+"tho": 21,
+"kim": 41,
+"thuy": 23
+},
+"variants": {
+"loi": 26.4
+},
+"density": 1.53,
+"note": ""
+},
+{
+"id": 1385,
+"name": "Mã Não Quật",
+"gloss": "Agate Cavern",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 1.55,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 28,
+"kim": 44,
+"thuy": 10
+},
+"variants": {},
+"density": 1.52,
+"note": ""
+},
+{
+"id": 1372,
+"name": "Thủ Tuyết Bảo",
+"gloss": "Snow Watch Fort",
+"kind": "ruin",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 1.44,
+"qi": {
+"moc": 10,
+"hoa": 11,
+"tho": 28,
+"kim": 40,
+"thuy": 11
+},
+"variants": {},
+"density": 1.48,
+"note": ""
+},
+{
+"id": 1423,
+"name": "Ngưng Băng Bảo",
+"gloss": "Fort of Set Ice",
+"kind": "ruin",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 1.24,
+"qi": {
+"moc": 5,
+"hoa": 12,
+"tho": 30,
+"kim": 41,
+"thuy": 12
+},
+"variants": {
+"quang": 2.2
+},
+"density": 1.47,
+"note": ""
+},
+{
+"id": 246,
+"name": "Noãn Ngọc Tuyền",
+"gloss": "Warm Jade Spring",
+"kind": "hot_spring",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.37,
+"qi": {
+"moc": 7,
+"hoa": 22,
+"tho": 16,
+"kim": 16,
+"thuy": 40
+},
+"variants": {},
+"density": 1.47,
+"note": "A warm spring in the frost land of Hàn Sương Châu, its stones warm to the touch."
+},
+{
+"id": 1461,
+"name": "Nham Bách Lâm",
+"gloss": "Rock Juniper Wood",
+"kind": "forest",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.14,
+"qi": {
+"moc": 22,
+"hoa": 41,
+"tho": 14,
+"kim": 11,
+"thuy": 13
+},
+"variants": {
+"am": 14.3
+},
+"density": 1.43,
+"note": ""
+},
+{
+"id": 1409,
+"name": "Huyết Đao Trại",
+"gloss": "Blood Sabre Stockade",
+"kind": "ruin",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 0.42,
+"qi": {
+"moc": 9,
+"hoa": 11,
+"tho": 29,
+"kim": 40,
+"thuy": 11
+},
+"variants": {},
+"density": 1.43,
+"note": ""
+},
+{
+"id": 17,
+"name": "Trạc Anh Đài",
+"gloss": "",
+"kind": "minor_seat",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.07,
+"qi": {
+"moc": 41,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 25
+},
+"variants": {},
+"density": 1.41,
+"note": ""
+},
+{
+"id": 1384,
+"name": "Đoạn Tuyết Quan",
+"gloss": "Snowbreak Pass Fort",
+"kind": "ruin",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.09,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 28,
+"kim": 44,
+"thuy": 12
+},
+"variants": {},
+"density": 1.4,
+"note": ""
+},
+{
+"id": 1360,
+"name": "Khô Tùng Nhai",
+"gloss": "Dead Pine Cliff",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.9,
+"qi": {
+"moc": 14,
+"hoa": 10,
+"tho": 20,
+"kim": 27,
+"thuy": 28
+},
+"variants": {
+"loi": 2.2
+},
+"density": 1.39,
+"note": ""
+},
+{
+"id": 379,
+"name": "Bình Minh Hồ",
+"gloss": "Dawn Lake",
+"kind": "lake",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.03,
+"qi": {
+"moc": 23,
+"hoa": 39,
+"tho": 13,
+"kim": 10,
+"thuy": 15
+},
+"variants": {},
+"density": 1.39,
+"note": ""
+},
+{
+"id": 1369,
+"name": "Ngân Lũ Khoáng",
+"gloss": "Silver Thread Mine",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.37,
+"qi": {
+"moc": 15,
+"hoa": 10,
+"tho": 25,
+"kim": 37,
+"thuy": 13
+},
+"variants": {},
+"density": 1.37,
+"note": ""
+},
+{
+"id": 1380,
+"name": "Huyền Băng Phong",
+"gloss": "Black Ice Peak",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.46,
+"qi": {
+"moc": 9,
+"hoa": 10,
+"tho": 27,
+"kim": 41,
+"thuy": 13
+},
+"variants": {},
+"density": 1.37,
+"note": ""
+},
+{
+"id": 1366,
+"name": "Lũng Đầu Trại",
+"gloss": "Stockade at the Ridge Head",
+"kind": "ruin",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.23,
+"qi": {
+"moc": 10,
+"hoa": 11,
+"tho": 24,
+"kim": 35,
+"thuy": 21
+},
+"variants": {},
+"density": 1.36,
+"note": ""
+},
+{
+"id": 1425,
+"name": "Mai Sa Bảo",
+"gloss": "Sand-Buried Fort",
+"kind": "ruin",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 0.72,
+"qi": {
+"moc": 6,
+"hoa": 19,
+"tho": 32,
+"kim": 35,
+"thuy": 9
+},
+"variants": {},
+"density": 1.36,
+"note": ""
+},
+{
+"id": 1470,
+"name": "Cố Ngạn Bảo",
+"gloss": "Shore-Holding Fort",
+"kind": "ruin",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.44,
+"qi": {
+"moc": 8,
+"hoa": 9,
+"tho": 20,
+"kim": 23,
+"thuy": 39
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 1445,
+"name": "Sóc Phương Thành",
+"gloss": "City of the North Quarter",
+"kind": "ruin",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.06,
+"qi": {
+"moc": 8,
+"hoa": 9,
+"tho": 16,
+"kim": 14,
+"thuy": 53
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 1487,
+"name": "Thương Lãng Lâm",
+"gloss": "Canglang Wood",
+"kind": "forest",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.03,
+"qi": {
+"moc": 40,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 26
+},
+"variants": {},
+"density": 1.34,
+"note": ""
+},
+{
+"id": 268,
+"name": "Hàn Ngọc Khoáng",
+"gloss": "Cold Jade Mine",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 4.6,
+"qi": {
+"moc": 6,
+"hoa": 10,
+"tho": 28,
+"kim": 44,
+"thuy": 13
+},
+"variants": {
+"quang": 14.3,
+"bang": 10.0
+},
+"density": 1.32,
+"note": ""
+},
+{
+"id": 1371,
+"name": "Bích Trâm Phong",
+"gloss": "Green Hairpin Peak",
+"kind": "peak",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 2.07,
+"qi": {
+"moc": 11,
+"hoa": 10,
+"tho": 27,
+"kim": 41,
+"thuy": 11
+},
+"variants": {},
+"density": 1.32,
+"note": ""
+},
+{
+"id": 1416,
+"name": "Tuyết Tôn Phong",
+"gloss": "Snow Lord Peak",
+"kind": "peak",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 4.6,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 29,
+"kim": 42,
+"thuy": 13
+},
+"variants": {
+"quang": 10.6,
+"bang": 10.0
+},
+"density": 1.29,
+"note": ""
+},
+{
+"id": 1458,
+"name": "Hàn Nha Phong",
+"gloss": "Cold Crow Peak",
+"kind": "peak",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 1.06,
+"qi": {
+"moc": 12,
+"hoa": 7,
+"tho": 16,
+"kim": 50,
+"thuy": 14
+},
+"variants": {},
+"density": 1.27,
+"note": ""
+},
+{
+"id": 1375,
+"name": "Tích Thạch Khoáng",
+"gloss": "Tinstone Mine",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 0.96,
+"qi": {
+"moc": 7,
+"hoa": 11,
+"tho": 21,
+"kim": 30,
+"thuy": 31
+},
+"variants": {},
+"density": 1.25,
+"note": ""
+},
+{
+"id": 294,
+"name": "Lục Ba Đàm",
+"gloss": "Green Ripple Pool",
+"kind": "lake",
+"region": 8,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 22,
+"hoa": 22,
+"tho": 28,
+"kim": 12,
+"thuy": 16
+},
+"variants": {},
+"density": 1.25,
+"note": ""
+},
+{
+"id": 1407,
+"name": "Tùng Thạch Khoáng",
+"gloss": "Turquoise Mine",
+"kind": "mine",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 0.89,
+"qi": {
+"moc": 6,
+"hoa": 11,
+"tho": 29,
+"kim": 42,
+"thuy": 12
+},
+"variants": {},
+"density": 1.25,
+"note": ""
+},
+{
+"id": 1436,
+"name": "Tuyết Báo Nhai",
+"gloss": "Snow Leopard Cliff",
+"kind": "beast_lair",
+"region": 9,
+"biome": "high mountain",
+"elev_km": 0.72,
+"qi": {
+"moc": 17,
+"hoa": 10,
+"tho": 19,
+"kim": 17,
+"thuy": 37
+},
+"variants": {},
+"density": 1.24,
+"note": ""
+},
+{
+"id": 1434,
+"name": "Mê Tung Trấn",
+"gloss": "Lost Track Town",
+"kind": "ruin",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.21,
+"qi": {
+"moc": 50,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 17
+},
+"variants": {},
+"density": 1.23,
+"note": ""
+},
+{
+"id": 184,
+"name": "Lăng Tuyệt Phong",
+"gloss": "Peak Above All",
+"kind": "peak",
+"region": 7,
+"biome": "glacier",
+"elev_km": 5.24,
+"qi": {
+"moc": 6,
+"hoa": 10,
+"tho": 28,
+"kim": 44,
+"thuy": 13
+},
+"variants": {
+"quang": 40.0,
+"bang": 10.0
+},
+"density": 1.23,
+"note": "Đỗ Phủ, Vọng Nhạc: hội đương lăng tuyệt đỉnh, nhất lãm chúng sơn tiểu (I shall stand on the very top and see all mountains small); 5.2 km, the highest on the continent"
+},
+{
+"id": 203,
+"name": "Viên Đề Hạp",
+"gloss": "Gorge of the Crying Gibbons",
+"kind": "gorge",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 0.21,
+"qi": {
+"moc": 10,
+"hoa": 10,
+"tho": 26,
+"kim": 35,
+"thuy": 18
+},
+"variants": {},
+"density": 1.22,
+"note": "Lý Bạch: lưỡng ngạn viên thanh đề bất trú (on both banks the gibbons cry without end)"
+},
+{
+"id": 1379,
+"name": "Từ Thạch Khoáng",
+"gloss": "Lodestone Mine",
+"kind": "mine",
+"region": 7,
+"biome": "high mountain",
+"elev_km": 1.14,
+"qi": {
+"moc": 8,
+"hoa": 11,
+"tho": 28,
+"kim": 42,
+"thuy": 11
+},
+"variants": {},
+"density": 1.22,
+"note": ""
+},
+{
+"id": 16,
+"name": "Dạ Quang Môn",
+"gloss": "",
+"kind": "minor_seat",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.01,
+"qi": {
+"moc": 12,
+"hoa": 32,
+"tho": 34,
+"kim": 16,
+"thuy": 6
+},
+"variants": {},
+"density": 1.21,
+"note": ""
+},
+{
+"id": 297,
+"name": "Thoa Lạp Trấn",
+"gloss": "Rain Cape Town",
+"kind": "ruin",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.03,
+"qi": {
+"moc": 30,
+"hoa": 10,
+"tho": 13,
+"kim": 10,
+"thuy": 36
+},
+"variants": {},
+"density": 1.21,
+"note": ""
+},
+{
+"id": 296,
+"name": "Ngân Hùng Cương",
+"gloss": "Silver Bear Rise",
+"kind": "beast_lair",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.08,
+"qi": {
+"moc": 42,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 24
+},
+"variants": {},
+"density": 1.21,
+"note": ""
+},
+{
+"id": 227,
+"name": "Cô Thành",
+"gloss": "The Lone Fortress",
+"kind": "ruin",
+"region": 8,
+"biome": "steppe",
+"elev_km": 0.01,
+"qi": {
+"moc": 17,
+"hoa": 22,
+"tho": 30,
+"kim": 14,
+"thuy": 17
+},
+"variants": {},
+"density": 1.2,
+"note": "Vương Xương Linh, the poet of Băng Tâm: the lone fortress looks far toward the jade gate. Destroyed in the Desert Road War."
+},
+{
+"id": 1345,
+"name": "Tuyết Ẩn Quán",
+"gloss": "Abbey of the Snow Recluse",
+"kind": "ruin",
+"region": 7,
+"biome": "temperate forest",
+"elev_km": 0.1,
+"qi": {
+"moc": 43,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 22
+},
+"variants": {},
+"density": 1.2,
+"note": ""
+},
+{
+"id": 299,
+"name": "Tầm Tung Viện",
+"gloss": "Academy of Track Seekers",
+"kind": "ruin",
+"region": 9,
+"biome": "temperate forest",
+"elev_km": 0.07,
+"qi": {
+"moc": 37,
+"hoa": 11,
+"tho": 13,
+"kim": 10,
+"thuy": 30
+},
+"variants": {},
+"density": 1.18,
+"note": ""
+},
+{
+"id": 1422,
+"name": "Băng Quan Phong",
+"gloss": "Ice Crown Peak",
+"kind": "peak",
+"region": 8,
+"biome": "high mountain",
+"elev_km": 3.46,
+"qi": {
+"moc": 5,
+"hoa": 11,
+"tho": 29,
+"kim": 43,
+"thuy": 12
+},
+"variants": {
+"quang": 14.3,
+"bang": 3.5
+},
+"density": 1.18,
+"note": ""
+}
+],
+"ground_place_count": 196,
+"events": [
+{
+"id": "A112",
+"tier": "annal",
+"year": 100,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Nomad herders drive their horses across the steppe behind the range; their camping ground becomes Mã Minh Thôn.",
+"place": 118,
+"region": 8
+},
+{
+"id": "A098",
+"tier": "annal",
+"year": 120,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Ice hunters say the Torch Dragon sleeps under Chúc Long Sơn and lights the mountain when it dreams.",
+"place": 188,
+"region": 7
+},
+{
+"id": "C058",
+"tier": "landmark",
+"year": 210,
+"kind": "sect_founded",
+"people": [
+"khuc_ho_gia"
+],
+"sects": [
+"ho_thien"
+],
+"text_en": "Khúc Hồ Già founds Hồ Thiên Phái on the ice of Ngọc Hồ Sơn, below the fire mountain Chúc Long Sơn, where snow flies in the eighth month.",
+"place": 214
+},
+{
+"id": "C061",
+"tier": "landmark",
+"year": 230,
+"kind": "item_made",
+"people": [
+"khuc_ho_gia"
+],
+"sects": [
+"ho_thien"
+],
+"text_en": "Khúc Hồ Già forges the sword Phi Tuyết from ice that never melts.",
+"place": 214,
+"item": "phi_tuyet"
+},
+{
+"id": "A099",
+"tier": "annal",
+"year": 300,
+"kind": "tale",
+"people": [],
+"sects": [
+"ho_thien"
+],
+"text_en": "Hồ Thiên's disciples carve a stair of ice up Hồi Lộ Phong; it bends so often that companions lose each other in plain sight.",
+"place": 183,
+"region": 7
+},
+{
+"id": "C073",
+"tier": "landmark",
+"year": 300,
+"kind": "sect_founded",
+"people": [
+"lieu_thoa_lap"
+],
+"sects": [
+"han_giang"
+],
+"text_en": "Liễu Thoa Lạp founds Hàn Giang Môn on the frost coast, a sect of fishers who cultivate alone in the snow on the cold river.",
+"place": 216
+},
+{
+"id": "A128",
+"tier": "annal",
+"year": 330,
+"kind": "tale",
+"people": [],
+"sects": [
+"han_giang"
+],
+"text_en": "Hàn Giang's fishers cut holes in the river ice and sit cultivating in the snow beside them for days without moving.",
+"place": 216,
+"region": 9
+},
+{
+"id": "C081",
+"tier": "landmark",
+"year": 350,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"han_giang"
+],
+"text_en": "Hàn Giang Môn founds Liên Giang Thành where the cold rain joins the river.",
+"place": 36
+},
+{
+"id": "A129",
+"tier": "annal",
+"year": 360,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The cock crows at Kê Minh even in the dark of winter; the town keeps the cock as its emblem.",
+"place": 69,
+"region": 9
+},
+{
+"id": "C090",
+"tier": "landmark",
+"year": 425,
+"kind": "disaster",
+"people": [
+"khuc_ho_gia"
+],
+"sects": [
+"ho_thien"
+],
+"text_en": "Chúc Long Sơn erupts under the ice and buries Hồ Thiên Phái with its founder Khúc Hồ Già; Ngọc Hồ Sơn lies empty.",
+"place": 188
+},
+{
+"id": "A100",
+"tier": "annal",
+"year": 426,
+"kind": "omen",
+"people": [],
+"sects": [],
+"text_en": "A year after the eruption, steam still rises from the ice where Hồ Thiên stood; no bird sings there.",
+"place": 214,
+"region": 7
+},
+{
+"id": "V061",
+"tier": "annal",
+"year": 426,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "With Hồ Thiên Phái buried by the eruption, the garrison of Lũng Đầu Trại goes home and never comes back.",
+"place": 1366,
+"region": 7
+},
+{
+"id": "V062",
+"tier": "annal",
+"year": 432,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "The fur and ivory trade has died with Hồ Thiên Phái, and the last families leave Bắc Đình Thành on the northern shore.",
+"place": 1394,
+"region": 7
+},
+{
+"id": "C007",
+"tier": "landmark",
+"year": 440,
+"kind": "sect_founded",
+"people": [
+"tan_ngung_suong"
+],
+"sects": [
+"bang_tam"
+],
+"text_en": "Tần Ngưng Sương founds Băng Tâm Các in the cold north-east, among the ice fields, a pavilion for the ice heart.",
+"place": 3
+},
+{
+"id": "A114",
+"tier": "annal",
+"year": 445,
+"kind": "tale",
+"people": [
+"tan_ngung_suong"
+],
+"sects": [
+"bang_tam"
+],
+"text_en": "Tần Ngưng Sương makes the well water of the desert seat cold enough to keep ice all summer.",
+"place": 3,
+"region": 8
+},
+{
+"id": "C095",
+"tier": "landmark",
+"year": 470,
+"kind": "claim",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Băng Tâm Các claims the empty ice of Ngọc Hồ Sơn, forty-five years after the eruption.",
+"region": 7
+},
+{
+"id": "C096",
+"tier": "landmark",
+"year": 470,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Băng Tâm Các founds Trường Vân Thành at the edge of the desert, under the long clouds over the snow mountains.",
+"place": 35
+},
+{
+"id": "A101",
+"tier": "annal",
+"year": 480,
+"kind": "tale",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Băng Tâm's climbers reach the top of Lăng Tuyệt Phong and see all the mountains small.",
+"place": 184,
+"region": 7
+},
+{
+"id": "C098",
+"tier": "landmark",
+"year": 492,
+"kind": "war_start",
+"people": [
+"tan_ngung_suong",
+"lieu_co_chu"
+],
+"sects": [
+"bang_tam",
+"han_giang"
+],
+"text_en": "Băng Tâm Các, under Tần Ngưng Sương, makes war on Hàn Giang Môn for the frost coast.",
+"region": 9,
+"war": "frost_coast"
+},
+{
+"id": "V076",
+"tier": "annal",
+"year": 497,
+"kind": "siege",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "In the War of the Frost Coast, Băng Tâm storms Hàn Giang Môn's coast fort of Cố Ngạn Bảo.",
+"place": 1470,
+"region": 9
+},
+{
+"id": "C099",
+"tier": "landmark",
+"year": 498,
+"kind": "war_end",
+"people": [
+"tan_ngung_suong",
+"lieu_co_chu"
+],
+"sects": [
+"bang_tam",
+"han_giang"
+],
+"text_en": "Hàn Giang Môn falls with its last head Liễu Cô Chu; Hàn Sương Châu and Liên Giang Thành pass to Băng Tâm Các.",
+"place": 216,
+"war": "frost_coast"
+},
+{
+"id": "V077",
+"tier": "annal",
+"year": 498,
+"kind": "siege",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Thoa Lạp Trấn, the fishers' town named for Hàn Giang's founder's rain cape and hat, burns in the last year of the War of the Frost Coast.",
+"place": 297,
+"region": 9
+},
+{
+"id": "V078",
+"tier": "annal",
+"year": 498,
+"kind": "city_abandoned",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "With the frost coast won, Băng Tâm moves the people of the seal-oil city Sóc Phương Thành south to Liên Giang, and the city is left empty.",
+"place": 1445,
+"region": 9
+},
+{
+"id": "A131",
+"tier": "annal",
+"year": 499,
+"kind": "tale",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "After the Frost Coast falls, Hàn Giang's fishers keep fishing the cold river under Băng Tâm's flag and pay their tax in ice-fish.",
+"place": 36,
+"region": 9
+},
+{
+"id": "A115",
+"tier": "annal",
+"year": 500,
+"kind": "settlement",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Fish ponds dug in an oasis give Ngư Đàm Thôn its name and Băng Tâm's desert its only fish.",
+"place": 116,
+"region": 8
+},
+{
+"id": "C107",
+"tier": "landmark",
+"year": 510,
+"kind": "compact",
+"people": [
+"chung_hoai_cuc"
+],
+"sects": [
+"thien_xu",
+"tung_dao",
+"lac_ha",
+"thinh_vu",
+"bang_tam",
+"phuong_minh",
+"thuy_vi"
+],
+"text_en": "In Thạch Kiều Thành, Chung Hoài Cực sets the North Star Compact before the seven sects and stamps it with the Bắc Thần Ấn: land changes hands only by a fall, a gift, an oath or a war the Pivot licenses by writ, and Thiên Xu Tông will enforce it.",
+"place": 81,
+"item": "bac_than_an"
+},
+{
+"id": "A102",
+"tier": "annal",
+"year": 520,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Locust trees planted by the Tiêu family shade the road into the mountains; their village becomes Hòe Âm.",
+"place": 66,
+"region": 7
+},
+{
+"id": "C111",
+"tier": "landmark",
+"year": 520,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Băng Tâm Các raises Cô Thành, a lone fortress on a desert lake, to guard the caravan road.",
+"place": 227
+},
+{
+"id": "A132",
+"tier": "annal",
+"year": 540,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The woodcutters' paths into Vô Tung Lâm vanish under the snow every night; only the people of Tiều Lộ Thôn can find them again.",
+"place": 119,
+"region": 9
+},
+{
+"id": "A116",
+"tier": "annal",
+"year": 560,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Lotus ponds bloom at Liên Đường in the middle of the steppe; caravans stop just to look.",
+"place": 117,
+"region": 8
+},
+{
+"id": "A133",
+"tier": "annal",
+"year": 580,
+"kind": "mine",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Băng Tâm opens Băng Lăng Khoáng, a shaft hung with ice that never melts.",
+"place": 168,
+"region": 9
+},
+{
+"id": "A103",
+"tier": "annal",
+"year": 600,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"le_hoa",
+"bang_tam"
+],
+"text_en": "A snow that falls like pear blossom overnight in the eighth month brings a nun to found Lê Hoa Am by the ice fields.",
+"place": 15,
+"region": 7
+},
+{
+"id": "A117",
+"tier": "annal",
+"year": 600,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The gibbons of Viên Đề Hạp cry on both banks without end; caravan drivers stop their ears with wax.",
+"place": 203,
+"region": 8
+},
+{
+"id": "C129",
+"tier": "landmark",
+"year": 620,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Băng Tâm Các founds Mộc Lan Thành on the frost coast.",
+"place": 68
+},
+{
+"id": "A104",
+"tier": "annal",
+"year": 640,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Azaleas bloom red on the slopes above Đỗ Quyên Thôn each spring; the villagers say they are the eruption's dead.",
+"place": 114,
+"region": 7
+},
+{
+"id": "A134",
+"tier": "annal",
+"year": 640,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Reed flowers cover the marsh at Lô Hoa Thôn like snow in summer.",
+"place": 121,
+"region": 9
+},
+{
+"id": "V079",
+"tier": "annal",
+"year": 655,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "The sea freezes to the horizon and crushes the ships in the harbour of Lẫm Đông Thành; its people move to Mộc Lan.",
+"place": 1428,
+"region": 9
+},
+{
+"id": "V063",
+"tier": "annal",
+"year": 690,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The last master of Tuyết Ẩn Quán goes into seclusion and never comes out; his few disciples go down to the coast, and the abbey falls in.",
+"place": 1345,
+"region": 7
+},
+{
+"id": "A135",
+"tier": "annal",
+"year": 700,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "Sương Diễm Sơn breathes fire under the frost for a week; the people of Mộc Lan Thành sleep on the beach.",
+"place": 189,
+"region": 9
+},
+{
+"id": "V080",
+"tier": "annal",
+"year": 700,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "Ash from Sương Diễm Sơn falls on Hắc Ngạn Trấn and turns its wells bitter, and the fishers leave.",
+"place": 1442,
+"region": 9
+},
+{
+"id": "C142",
+"tier": "landmark",
+"year": 722,
+"kind": "war_start",
+"people": [
+"tan_ngung_suong",
+"ngo_the_dong"
+],
+"sects": [
+"bang_tam",
+"phuong_minh"
+],
+"text_en": "Băng Tâm Các and Phượng Minh Cung go to war over the caravan road between the desert and the rice plain.",
+"region": 8,
+"war": "desert_road"
+},
+{
+"id": "A118",
+"tier": "annal",
+"year": 724,
+"kind": "siege",
+"people": [],
+"sects": [
+"bang_tam",
+"phuong_minh"
+],
+"text_en": "Cô Thành's garrison holds out for two years against Phượng Minh's fire, drinking the desert lake down to salt.",
+"place": 227,
+"region": 8
+},
+{
+"id": "V071",
+"tier": "annal",
+"year": 724,
+"kind": "siege",
+"people": [],
+"sects": [],
+"text_en": "All the plum-blossom swordsmen of Lãnh Hương Các ride out to break the siege of Cô Thành, and none come back.",
+"place": 1412,
+"region": 8
+},
+{
+"id": "C143",
+"tier": "landmark",
+"year": 726,
+"kind": "city_ruined",
+"people": [],
+"sects": [
+"phuong_minh",
+"bang_tam"
+],
+"text_en": "Phượng Minh's fire breaks Cô Thành; the lone fortress falls and the desert lake turns to salt.",
+"place": 227,
+"war": "desert_road"
+},
+{
+"id": "V064",
+"tier": "annal",
+"year": 726,
+"kind": "siege",
+"people": [],
+"sects": [
+"phuong_minh",
+"bang_tam"
+],
+"text_en": "In the year Cô Thành falls, Phượng Minh's fire breaks Băng Tâm's beacon fort of Lang Yên Bảo on the caravan road.",
+"place": 1390,
+"region": 7
+},
+{
+"id": "C144",
+"tier": "landmark",
+"year": 728,
+"kind": "war_end",
+"people": [
+"do_tinh_ha",
+"chung_hoai_cuc"
+],
+"sects": [
+"thien_xu",
+"bang_tam",
+"phuong_minh"
+],
+"text_en": "The Pivot imposes a truce on the Desert Road; the caravans pass again, and the border stays where it was.",
+"region": 8,
+"war": "desert_road"
+},
+{
+"id": "A106",
+"tier": "annal",
+"year": 760,
+"kind": "discovery",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Băng Tâm opens the Ice Soul vein, Băng Phách Mạch, below the ice mountains.",
+"place": 209,
+"region": 7
+},
+{
+"id": "C150",
+"tier": "landmark",
+"year": 760,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Băng Tâm Các founds Hồi Lan Thành on the desert coast, after the Desert Road War.",
+"place": 67
+},
+{
+"id": "A119",
+"tier": "annal",
+"year": 770,
+"kind": "trade",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Hồi Lan Thành's harbour fills with ships from the south once the caravan road is safe.",
+"place": 67,
+"region": 8
+},
+{
+"id": "V081",
+"tier": "annal",
+"year": 779,
+"kind": "raid",
+"people": [],
+"sects": [],
+"text_en": "Thôn Hải Môn's pirates burn Bạch Âu Đường, the hall of the sea cultivators, two years before the Purge destroys them.",
+"place": 362,
+"region": 9
+},
+{
+"id": "A136",
+"tier": "annal",
+"year": 780,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Lâm Ẩn Thôn shelters a hermit who teaches the village children to read tracks in the snow.",
+"place": 120,
+"region": 9
+},
+{
+"id": "V065",
+"tier": "annal",
+"year": 790,
+"kind": "tale",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Nine years after the Pirate Purge, Băng Tâm withdraws the garrison of Vọng Triều Bảo and leaves the tower to the storms.",
+"place": 1359,
+"region": 7
+},
+{
+"id": "A137",
+"tier": "annal",
+"year": 830,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"trac_anh",
+"bang_tam"
+],
+"text_en": "Fishers and sea hunters of the frost coast found Trạc Anh Đài, where they wash their hat strings in the clear water.",
+"place": 17,
+"region": 9
+},
+{
+"id": "A107",
+"tier": "annal",
+"year": 850,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Orioles winter in the valley of Hoàng Oanh Thôn, the only birdsong in the ice mountains.",
+"place": 115,
+"region": 7
+},
+{
+"id": "A120",
+"tier": "annal",
+"year": 870,
+"kind": "birth",
+"people": [
+"hang_da_boi"
+],
+"sects": [],
+"text_en": "Hạng Dạ Bôi is born to a caravan guard's family in Trường Vân Thành.",
+"place": 35,
+"region": 8
+},
+{
+"id": "V082",
+"tier": "annal",
+"year": 870,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "A cold fever comes off the marsh, and none of the forty disciples of Vụ Trạch Phái see the spring.",
+"place": 1473,
+"region": 9
+},
+{
+"id": "A138",
+"tier": "annal",
+"year": 900,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "A traveller is seen off at dawn from Tống Khách Thị and never returns; the market still pours a farewell cup for him each year.",
+"place": 48,
+"region": 9
+},
+{
+"id": "A108",
+"tier": "annal",
+"year": 930,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "A hunter of Hòe Âm finds a sealed cave on the mountain with a sword's cold light behind the seal; he runs, and never finds it again.",
+"place": 66,
+"region": 7
+},
+{
+"id": "C170",
+"tier": "landmark",
+"year": 940,
+"kind": "war_start",
+"people": [
+"dam_tung_lai",
+"tan_ngung_suong"
+],
+"sects": [
+"tung_dao",
+"bang_tam"
+],
+"text_en": "Tùng Đào Cung and Băng Tâm Các go to war over Hạo Nguyệt Hồ and its pearls.",
+"place": 190,
+"war": "long_lake"
+},
+{
+"id": "A013",
+"tier": "annal",
+"year": 942,
+"kind": "raid",
+"people": [],
+"sects": [
+"bang_tam",
+"ham_nguyet"
+],
+"text_en": "In the Long Lake War, Băng Tâm skiffs raid the pearl beds of Hàm Nguyệt Trang; the manor sinks its own boats rather than lose them.",
+"place": 8,
+"region": 1
+},
+{
+"id": "C171",
+"tier": "landmark",
+"year": 944,
+"kind": "war_end",
+"people": [
+"do_tinh_ha",
+"dam_tung_lai",
+"tan_ngung_suong"
+],
+"sects": [
+"thien_xu",
+"tung_dao",
+"bang_tam"
+],
+"text_en": "Đỗ Tinh Hà arbitrates the Long Lake War: the lake stays Tùng Đào's, and Băng Tâm may fish its northern shore.",
+"place": 190,
+"war": "long_lake",
+"judgement": true
+},
+{
+"id": "C172",
+"tier": "landmark",
+"year": 970,
+"kind": "sect_founded",
+"people": [
+"hang_da_boi"
+],
+"sects": [
+"da_quang"
+],
+"text_en": "Hạng Dạ Bôi gathers the desert raiders and founds Dạ Quang Môn, bound to no lord.",
+"place": 16
+},
+{
+"id": "V083",
+"tier": "annal",
+"year": 980,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The fire and water disciples of Băng Hỏa Môn quarrel until the sect splits and burns itself out.",
+"place": 1430,
+"region": 9
+},
+{
+"id": "A139",
+"tier": "annal",
+"year": 990,
+"kind": "birth",
+"people": [
+"doan_thanh_lang"
+],
+"sects": [],
+"text_en": "Đoàn Thanh Lãng is born in Liên Giang Thành during a cold rain that joins the river by night.",
+"place": 36,
+"region": 9
+},
+{
+"id": "C175",
+"tier": "landmark",
+"year": 1010,
+"kind": "headship",
+"people": [
+"tan_ngung_suong",
+"so_ngoc_ho"
+],
+"sects": [
+"bang_tam"
+],
+"text_en": "Tần Ngưng Sương dies at 710; Sở Ngọc Hồ becomes head of Băng Tâm Các and keeper of the Jade Vessel.",
+"place": 3,
+"item": "bang_tam_ngoc_ho"
+},
+{
+"id": "V072",
+"tier": "annal",
+"year": 1010,
+"kind": "tale",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Tần Ngưng Sương dies, and no one renews the ice of Ngưng Băng Bảo, the fort her first disciples built of ice blocks; its walls begin to slump.",
+"place": 1423,
+"region": 8
+},
+{
+"id": "V066",
+"tier": "annal",
+"year": 1012,
+"kind": "disaster",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "A winter avalanche buries Đoạn Tuyết Quan with its garrison; Băng Tâm never digs it out.",
+"place": 1384,
+"region": 7
+},
+{
+"id": "V084",
+"tier": "annal",
+"year": 1012,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "Too many of its loggers have been lost in Vô Tung Lâm; the last families of Mê Tung Trấn move to Tiều Lộ.",
+"place": 1434,
+"region": 9
+},
+{
+"id": "A109",
+"tier": "annal",
+"year": 1020,
+"kind": "headship",
+"people": [
+"thai_le_tuyet"
+],
+"sects": [
+"le_hoa"
+],
+"text_en": "Thái Lê Tuyết becomes abbess of Lê Hoa Am.",
+"place": 15,
+"region": 7
+},
+{
+"id": "V085",
+"tier": "annal",
+"year": 1040,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The masters of Tầm Tung Viện go into Vô Tung Lâm together and do not come back.",
+"place": 299,
+"region": 9
+},
+{
+"id": "A122",
+"tier": "annal",
+"year": 1050,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "A sandstorm buries the wells of Mã Minh Thôn; the village moves three li east, horses and all.",
+"place": 118,
+"region": 8
+},
+{
+"id": "V073",
+"tier": "annal",
+"year": 1050,
+"kind": "disaster",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "The sandstorm that buries Mã Minh's wells buries the caravan fort of Mai Sa Bảo too, and it is not dug out.",
+"place": 1425,
+"region": 8
+},
+{
+"id": "A262",
+"tier": "annal",
+"year": 1060,
+"kind": "trade",
+"people": [],
+"sects": [
+"phuong_minh",
+"bang_tam"
+],
+"text_en": "Hoàng Vân Thành's granaries are opened to Băng Tâm's desert in a famine year, and the old Desert Road quarrel is quietly forgotten.",
+"place": 85,
+"region": 17
+},
+{
+"id": "A140",
+"tier": "annal",
+"year": 1065,
+"kind": "tale",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Phiến Băng Hồ freezes as clear as glass; Băng Tâm disciples meditate on it and see their own hearts.",
+"place": 191,
+"region": 9
+},
+{
+"id": "V067",
+"tier": "annal",
+"year": 1065,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "The sable are trapped out and the harbour ices in every year; the last families of Điêu Cừu Trấn move south to Hòe Âm.",
+"place": 1348,
+"region": 7
+},
+{
+"id": "C024",
+"tier": "landmark",
+"year": 1090,
+"kind": "death",
+"people": [
+"mac_huyet_sinh",
+"thoi_khinh_hong",
+"do_tinh_ha",
+"so_ngoc_ho",
+"trieu_huyet_y"
+],
+"sects": [
+"thien_xu",
+"tung_dao",
+"bang_tam"
+],
+"text_en": "Thiên Xu Tông calls a hunt under the North Star Compact for the ma đạo master Mặc Huyết Sinh; with Tùng Đào Cung and Băng Tâm Các at its side, Đỗ Tinh Hà, Thôi Khinh Hồng and Sở Ngọc Hồ kill him in his cave abode. His last disciple Triệu Huyết Y, then 150, escapes.",
+"slot": "A-6"
+},
+{
+"id": "V086",
+"tier": "annal",
+"year": 1095,
+"kind": "tale",
+"people": [],
+"sects": [
+"trac_anh"
+],
+"text_en": "The last abbot of Tê Nhạn Quán joins Trạc Anh Đài with his disciples, and the halls are left to the marsh geese.",
+"place": 1476,
+"region": 9
+},
+{
+"id": "V068",
+"tier": "annal",
+"year": 1102,
+"kind": "beast",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "Ice beasts drawn by the cold of Băng Phách Mạch overrun Thủ Tuyết Bảo; the Pavilion does not rebuild it.",
+"place": 1372,
+"region": 7
+},
+{
+"id": "C184",
+"tier": "landmark",
+"year": 1119,
+"kind": "war_start",
+"people": [
+"so_ngoc_ho",
+"hang_da_boi"
+],
+"sects": [
+"bang_tam",
+"da_quang"
+],
+"text_en": "Băng Tâm Các marches on the desert raiders of Dạ Quang Môn.",
+"place": 16,
+"war": "da_quang"
+},
+{
+"id": "A123",
+"tier": "annal",
+"year": 1121,
+"kind": "tale",
+"people": [],
+"sects": [
+"da_quang",
+"bang_tam"
+],
+"text_en": "Dạ Quang Môn's raiders are made to guard the very caravans they used to rob.",
+"place": 16,
+"region": 8
+},
+{
+"id": "C185",
+"tier": "landmark",
+"year": 1121,
+"kind": "war_end",
+"people": [
+"so_ngoc_ho",
+"hang_da_boi"
+],
+"sects": [
+"bang_tam",
+"da_quang"
+],
+"text_en": "Hạng Dạ Bôi kneels to Sở Ngọc Hồ; Dạ Quang Môn becomes a vassal of Băng Tâm, and does not forget.",
+"place": 16,
+"war": "da_quang"
+},
+{
+"id": "V074",
+"tier": "annal",
+"year": 1121,
+"kind": "siege",
+"people": [],
+"sects": [
+"bang_tam",
+"da_quang"
+],
+"text_en": "At the end of its campaign Băng Tâm burns Huyết Đao Trại, where Dạ Quang's raiders hid their loot; Hạng Dạ Bôi kneels soon after.",
+"place": 1409,
+"region": 8
+},
+{
+"id": "V075",
+"tier": "annal",
+"year": 1125,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"tran_sa",
+"bang_tam"
+],
+"text_en": "The caravan guard families of Trường Vân found Trấn Sa Đường, and watch Dạ Quang's new escorts more closely than the road.",
+"place": 359,
+"region": 8
+},
+{
+"id": "A141",
+"tier": "annal",
+"year": 1130,
+"kind": "tale",
+"people": [
+"tu_khong_hac_nien"
+],
+"sects": [],
+"text_en": "After his duel, Tư Không Hạc Niên settles in Tống Khách Thị and teaches no one.",
+"place": 48,
+"region": 9
+},
+{
+"id": "V087",
+"tier": "annal",
+"year": 1140,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "Its harbour silted up and its ships gone to Liên Giang, Chiết Liễu Phố, where travellers once broke willow twigs in farewell, stands empty.",
+"place": 1448,
+"region": 9
+},
+{
+"id": "V088",
+"tier": "annal",
+"year": 1140,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"lanh_giang",
+"bang_tam"
+],
+"text_en": "The fishers of Liên Giang found Lãnh Giang Phái under Băng Tâm's licence to revive Hàn Giang's ice-hole cultivation.",
+"place": 361,
+"region": 9
+},
+{
+"id": "A110",
+"tier": "annal",
+"year": 1150,
+"kind": "tale",
+"people": [],
+"sects": [
+"le_hoa"
+],
+"text_en": "The Tiêu clan sends its first son to the gate of Lê Hoa Am; he is turned away for being a son, and becomes a hunter.",
+"place": 15,
+"region": 7
+},
+{
+"id": "A124",
+"tier": "annal",
+"year": 1160,
+"kind": "trade",
+"people": [],
+"sects": [
+"bang_tam"
+],
+"text_en": "A merchant of Hồi Lan Thành brings the first southern rice through the desert since the Desert Road War; Băng Tâm taxes it at half.",
+"place": 67,
+"region": 8
+},
+{
+"id": "V069",
+"tier": "annal",
+"year": 1162,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"tam_kiem",
+"bang_tam"
+],
+"text_en": "A Tiêu-clan hunter turned away from Lê Hoa Am's gate founds Tầm Kiếm Đường, for the men the hermitage will not take, to search for the sealed sword cave.",
+"place": 406,
+"region": 7
+},
+{
+"id": "A142",
+"tier": "annal",
+"year": 1180,
+"kind": "beast",
+"people": [],
+"sects": [
+"thien_bao"
+],
+"text_en": "Hunters bring a white bear out of Vô Tung Lâm alive and sell it in Mộc Lan Thành to a buyer from Thiên Bảo Trai.",
+"place": 68,
+"region": 9
+},
+{
+"id": "A125",
+"tier": "annal",
+"year": 1188,
+"kind": "tale",
+"people": [
+"so_ngoc_ho"
+],
+"sects": [
+"bang_tam"
+],
+"text_en": "Sở Ngọc Hồ returns from the Pivot's court without a word and shuts herself in the seat's ice hall for a year.",
+"place": 3,
+"region": 8
+},
+{
+"id": "C195",
+"tier": "landmark",
+"year": 1188,
+"kind": "petition",
+"people": [
+"so_ngoc_ho",
+"doan_ngoc_hanh"
+],
+"sects": [
+"bang_tam",
+"thien_xu"
+],
+"text_en": "Băng Tâm Các claims Tinh Tủy Mạch before the Pivot; the claim is rejected, and Sở Ngọc Hồ withdraws in silence.",
+"place": 205
+},
+{
+"id": "V070",
+"tier": "annal",
+"year": 1189,
+"kind": "tale",
+"people": [],
+"sects": [
+"bang_tam",
+"thien_xu"
+],
+"text_en": "With its claim to the vein rejected and Thiên Xu's guard doubled, Băng Tâm withdraws the watchers of Khuy Tinh Bảo and bars the doors, so as not to look like war.",
+"place": 1387,
+"region": 7
+},
+{
+"id": "A126",
+"tier": "annal",
+"year": 1194,
+"kind": "tale",
+"people": [],
+"sects": [
+"da_quang",
+"bang_tam"
+],
+"text_en": "Dạ Quang's young blades drink from the night-glowing cups again; Băng Tâm's elders pretend not to see.",
+"place": 16,
+"region": 8
+},
+{
+"id": "A111",
+"tier": "annal",
+"year": 1199,
+"kind": "omen",
+"people": [],
+"sects": [
+"le_hoa"
+],
+"text_en": "Chúc Long Sơn rumbles under the ice for the first time in 774 years; Lê Hoa Am's nuns pray all winter.",
+"place": 188,
+"region": 7
+}
+],
+"territory": {
+"land_changes": [
+{
+"year": 440,
+"land": 8,
+"from": null,
+"to": "bang_tam",
+"how": "founding",
+"chronicle_event": "C007"
+},
+{
+"year": 470,
+"land": 7,
+"from": null,
+"to": "bang_tam",
+"how": "claim",
+"chronicle_event": "C095"
+},
+{
+"year": 498,
+"land": 9,
+"from": "han_giang",
+"to": "bang_tam",
+"how": "conquest",
+"war": "frost_coast",
+"chronicle_event": "C099"
+}
+],
+"wars": [
+{
+"key": "frost_coast",
+"years": [
+492,
+498
+],
+"name": "War of the Frost Coast",
+"name_hv": "Hàn Ngạn Chi Chiến",
+"sides": [
+[
+"bang_tam"
+],
+[
+"han_giang"
+]
+],
+"outcome": "Hàn Giang Môn falls; Hàn Sương Châu goes to Băng Tâm. One of the last land-grabs before the Compact."
+},
+{
+"key": "desert_road",
+"years": [
+722,
+728
+],
+"name": "Desert Road War",
+"name_hv": "Sa Lộ Chi Chiến",
+"sides": [
+[
+"bang_tam"
+],
+[
+"phuong_minh"
+]
+],
+"outcome": "Over the caravan road between Cô Yên Mạc and Triêu Dương Nguyên. Thiên Xu imposes a truce; no land changes."
+},
+{
+"key": "long_lake",
+"years": [
+940,
+944
+],
+"name": "Long Lake War",
+"name_hv": "Trường Hồ Chi Chiến",
+"sides": [
+[
+"tung_dao"
+],
+[
+"bang_tam"
+]
+],
+"outcome": "Over Hạo Nguyệt Hồ and its pearls on the Lãnh Nguyệt Lâm border; settled by Thiên Xu's arbitration with no land change."
+},
+{
+"key": "da_quang",
+"years": [
+1119,
+1121
+],
+"name": "Taming of Dạ Quang",
+"name_hv": "Hàng Dạ Quang",
+"sides": [
+[
+"bang_tam"
+],
+[
+"da_quang"
+]
+],
+"outcome": "The independent desert raiders of Dạ Quang Môn are beaten and made a vassal of Băng Tâm; hence their low loyalty."
+}
+],
+"vassal_lord_changes": [
+{
+"sect": "da_quang",
+"year": 1121,
+"from": null,
+"to": "bang_tam",
+"how": "beaten in the Taming of Dạ Quang"
+}
+],
+"grudges": [
+{
+"pair": [
+"tung_dao",
+"bang_tam"
+],
+"g": -5,
+"from": [
+"long_lake"
+]
+}
+],
+"other_events": [
+{
+"key": "star_marrow_petition",
+"year": 1188,
+"text": "Băng Tâm Các claims Tinh Tủy Mạch, Thiên Xu's wild vein near its border, before the Pivot; the claim is rejected and Sở Ngọc Hồ withdraws."
+}
+]
+},
+"cast": [
+{
+"key": "so_ngoc_ho",
+"name": "Sở Ngọc Hồ",
+"name_han": "楚玉壺",
+"gloss": "Ngọc hồ is the jade vessel that holds the ice heart (Vương Xương Linh)",
+"sex": "F",
+"born": 810,
+"alive": true,
+"sect": "bang_tam",
+"rank": "tong_chu",
+"role": "Head of Băng Tâm Các",
+"realm": "nguyen_anh",
+"home": 3,
+"traits": {
+"personality": [
+"Reclusive",
+"Calm",
+"Just"
+],
+"calling": "Strategist",
+"fate_given": []
+},
+"build": {
+"root": {
+"elements": {
+"thuy": 86
+},
+"variants": {
+"bang": 84
+}
+},
+"thien_phu": {
+"ngo_tinh": 80,
+"can_cot": 60,
+"than_hon": 82,
+"khi_van": 55,
+"dao_tam": 88,
+"mi_luc": 56
+},
+"archetype": "kiem_tu",
+"stage": 1,
+"main": {
+"tech": "thien_thuy",
+"layer": 12
+},
+"aux": [
+{
+"tech": "stilled-hour-sutra",
+"layer": 12
+}
+],
+"gear": [
+{
+"named": "ice-deep-freeze-ring"
+},
+{
+"base": "phi_kiem",
+"grade": 4,
+"element": "thuy"
+},
+{
+"base": "giap",
+"grade": 3,
+"element": "thuy"
+}
+],
+"tree": {
+"start": "thuy",
+"targets": [
+774,
+9001,
+5412,
+5207,
+9014,
+5117
+]
+},
+"skills": {},
+"note": "The reclusive Ice head: a near-pure Water-Ice root that freezes the hour and seals every foe in frost"
+}
+},
+{
+"key": "tan_ngung_suong",
+"name": "Tần Ngưng Sương",
+"name_han": "秦凝霜",
+"gloss": "Frost that has set",
+"sex": "F",
+"born": 300,
+"alive": false,
+"sect": "bang_tam",
+"rank": "founder",
+"role": "Founder of Băng Tâm Các (year 440, at 140)",
+"peak_realm": "nguyen_anh",
+"died": 1010,
+"cause": "old age at 710",
+"record": true
+},
+{
+"key": "tiet_han_mai",
+"name": "Tiết Hàn Mai",
+"name_han": "薛寒梅",
+"gloss": "Plum blossom in the cold",
+"sex": "F",
+"born": 760,
+"alive": true,
+"sect": "bang_tam",
+"rank": "truong_lao",
+"role": "First elder of Băng Tâm Các (age 440)",
+"realm": "ket_dan",
+"home": 3,
+"traits": {
+"personality": [
+"Cautious",
+"Honest",
+"Stubborn"
+],
+"calling": "Formation master",
+"fate_given": []
+},
+"build": {
+"root": {
+"elements": {
+"thuy": 72,
+"tho": 50
+},
+"variants": {
+"bang": 54
+}
+},
+"thien_phu": {
+"ngo_tinh": 70,
+"can_cot": 56,
+"than_hon": 72,
+"khi_van": 52,
+"dao_tam": 74,
+"mi_luc": 50
+},
+"archetype": "tran_su",
+"stage": 2,
+"main": {
+"tech": "winter-toll-canon",
+"layer": 9
+},
+"aux": [],
+"gear": [
+{
+"base": "ky",
+"grade": 3,
+"element": "thuy"
+},
+{
+"base": "an",
+"grade": 3,
+"element": "tho"
+},
+{
+"base": "thuan",
+"grade": 3,
+"element": "thuy"
+}
+],
+"tree": {
+"start": "thuy",
+"targets": [
+765,
+5227,
+9001,
+3094
+]
+},
+"skills": {
+"tran_phap": 7
+},
+"note": "Băng Tâm's cautious formation elder: ice seals and frost shields inside a guardian array, honest and immovable"
+}
+},
+{
+"key": "so_han_y",
+"name": "Sở Hàn Y",
+"name_han": "楚寒衣",
+"gloss": "Winter clothes",
+"sex": "F",
+"born": 1140,
+"alive": true,
+"sect": "bang_tam",
+"rank": "noi_mon",
+"role": "The head's disciple, age 60",
+"realm": "truc_co",
+"home": 3,
+"traits": {
+"personality": [
+"Calm",
+"Stubborn",
+"Loyal"
+],
+"calling": "Duelist",
+"fate_given": []
+},
+"master": "so_ngoc_ho",
+"build": {
+"root": {
+"elements": {
+"thuy": 70
+},
+"variants": {
+"bang": 66
+}
+},
+"thien_phu": {
+"ngo_tinh": 66,
+"can_cot": 60,
+"than_hon": 58,
+"khi_van": 52,
+"dao_tam": 70,
+"mi_luc": 52
+},
+"archetype": "kiem_tu",
+"stage": 1,
+"main": {
+"tech": "winter-toll-canon",
+"layer": 5
+},
+"aux": [],
+"gear": [
+{
+"base": "phi_kiem",
+"grade": 2,
+"element": "thuy"
+},
+{
+"base": "ngoc_boi",
+"grade": 1,
+"element": "thuy"
+}
+],
+"tree": {
+"start": "thuy",
+"targets": [
+774,
+9001,
+5207
+]
+},
+"skills": {},
+"note": "Her master's calm, stubborn disciple: an ice sword and the frost seal, nothing else yet"
+}
+}
+],
+"legendary_items": [
+{
+"key": "bang_tam_ngoc_ho",
+"kind": "vessel",
+"role": "treasure",
+"made_by": "bang_tam",
+"made_year": 440,
+"story": "The sect's founding treasure, from Vương Xương Linh's line; its head bears its name.",
+"status": "held",
+"name": "Băng Tâm Ngọc Hồ",
+"name_han": "冰心玉壺",
+"gloss": "Jade Vessel of the Ice Heart",
+"element": "Ice",
+"holder": "so_ngoc_ho"
+}
+]
+}

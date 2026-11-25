@@ -1,0 +1,499 @@
+{
+ "sect": "le_hoa",
+ "people": [
+  {
+   "key": "dinh_ngan_cau",
+   "name_hv": "Đinh Ngân Câu",
+   "name_han": "丁銀鉤",
+   "gloss": "Silver hook",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "le_hoa",
+   "rank": "ngoai_mon",
+   "home": 15,
+   "birthplace": 1369,
+   "role": "Grey sister of the mine-road watch at the Gate Hermitage",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 54,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Stubborn",
+     "Brave"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A miner's widow from Ngân Lũ Khoáng who took the grey robe after the shaft fall of 1158, she walks the mine road for Hướng Thiết Lan (huong_thiet_lan) and would follow the prioress Mạnh Tĩnh Chi (manh_tinh_chi) into any quarrel.",
+   "ties": [
+    {
+     "to": "manh_tinh_chi",
+     "kind": "master",
+     "note": "the prioress who gave her the grey robe"
+    },
+    {
+     "to": "huong_thiet_lan",
+     "kind": "friend",
+     "note": "her captain on the mine road"
+    },
+    {
+     "to": "khuong_thach_luu",
+     "kind": "disciple",
+     "note": "grey novice who sharpens the gate's swords"
+    }
+   ],
+   "master": "manh_tinh_chi",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "gate-sword-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal, the grey sisters' edge."
+    }
+   }
+  },
+  {
+   "key": "ton_han_y",
+   "name_hv": "Tôn Hàn Y",
+   "name_han": "孫寒衣",
+   "gloss": "Winter robe",
+   "sex": "F",
+   "born": 1090,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "le_hoa",
+   "rank": "noi_mon",
+   "home": 184,
+   "birthplace": 115,
+   "role": "White nun who lays the hermitage's dead in the glacier, facing north",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "kim": 30
+    },
+    "variants": {
+     "bang": 44
+    }
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Calm",
+     "Brave"
+    ],
+    "calling": "Teacher",
+    "upbringing": "temple_raised"
+   },
+   "backstory": "She lays the dead in the glacier facing Chúc Long Sơn. She has told the abbess she will walk to the seal in 1202 if Ứng Lê Âm (ung_le_am) is judged too young, and Mạnh Tĩnh Chi (manh_tinh_chi) has not forgiven her the offer.",
+   "ties": [
+    {
+     "to": "thai_le_tuyet",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "manh_tinh_chi",
+     "kind": "rival",
+     "note": "offered to take the prioress's place on the walk of 1202"
+    },
+    {
+     "to": "gian_to_y",
+     "kind": "friend",
+     "note": "the keeper of the book of the dead"
+    }
+   ],
+   "master": "thai_le_tuyet",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "pear-blossom-snow-sword",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 2,
+      "element": "bang"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "bang",
+     "intent": "Ice, toward the cold that keeps the dead."
+    }
+   }
+  },
+  {
+   "key": "doan_han_bich",
+   "name_hv": "Doãn Hàn Bích",
+   "name_han": "尹寒碧",
+   "gloss": "Cold jade-green",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "le_hoa",
+   "rank": "ngoai_mon",
+   "home": 15,
+   "birthplace": 268,
+   "role": "Cold Jade miner's daughter in the grey gate",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "tho": 30,
+     "thuy": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Impatient",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Her mother hauled jade out of Hàn Ngọc Khoáng beside Diệp Quang Nhi's (diep_quang_nhi) mother. She climbs toward the summit whenever she is let, hoping Ice will wake in her the way Light woke in her friend.",
+   "ties": [
+    {
+     "to": "huong_thiet_lan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "diep_quang_nhi",
+     "kind": "friend",
+     "note": "born at the same mine"
+    }
+   ],
+   "master": "huong_thiet_lan",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "gate-sword-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal, reaching toward Ice should it wake."
+    }
+   }
+  },
+  {
+   "key": "chu_tuyet_thanh",
+   "name_hv": "Chu Tuyết Thanh",
+   "name_han": "朱雪清",
+   "gloss": "Clear snow",
+   "sex": "F",
+   "born": 1177,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "le_hoa",
+   "rank": "noi_mon",
+   "home": 184,
+   "birthplace": 1346,
+   "role": "White novice who copies names into the book of the dead",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "kim": 24
+    },
+    "variants": {
+     "bang": 30
+    }
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Diligent",
+     "Humble"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Ice woke in her on the glacier in 1196 and she was given the white robe that night. Giản Tố Y (gian_to_y) set her to copying the book of the dead, and she has begun adding the Silver Thread miners by name, which the book never did.",
+   "ties": [
+    {
+     "to": "gian_to_y",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "thuong_suong_mi",
+     "kind": "friend",
+     "note": "the other new white nun"
+    }
+   ],
+   "master": "gian_to_y",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "bang"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "bang",
+     "intent": "Ice."
+    }
+   }
+  },
+  {
+   "key": "tieu_ngoc_khe",
+   "name_hv": "Tiêu Ngọc Khê",
+   "name_han": "蕭玉溪",
+   "gloss": "Jade stream",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "le_hoa",
+   "rank": "ngoai_mon",
+   "home": 15,
+   "birthplace": 66,
+   "role": "Tiêu-clan daughter in the grey gate; carries letters to the Tầm Kiếm lodge",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "kim": 31,
+     "moc": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Trusting",
+     "Gregarious",
+     "Brave"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "Sent up from Hòe Âm in 1199 after her cousin Tiêu Ngọc Hòe (tieu_ngoc_hoe), she carries letters down the mine road to Tiêu Hòe Sinh (tieu_hoe_sinh) at the Tầm Kiếm lodge. The prioress has begun to read them first.",
+   "ties": [
+    {
+     "to": "tieu_ngoc_hoe",
+     "kind": "cousin",
+     "note": ""
+    },
+    {
+     "to": "tieu_hoe_sinh",
+     "kind": "cousin",
+     "note": "the clan's son at Tầm Kiếm"
+    },
+    {
+     "to": "huong_thiet_lan",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "huong_thiet_lan",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "gate-sword-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water, her mother's valley."
+    }
+   }
+  },
+  {
+   "key": "khuong_thach_luu",
+   "name_hv": "Khương Thạch Lựu",
+   "name_han": "姜石榴",
+   "gloss": "Pomegranate",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "le_hoa",
+   "rank": "ngoai_mon",
+   "home": 15,
+   "birthplace": 1382,
+   "role": "Grey novice who sharpens the gate's swords",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Wrathful",
+     "Brave",
+     "Diligent"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Her father was lost in a shaft of Hàn Kim Quật and his name is in the book of the dead. She wants a sword more than a robe, and spars with Khâu Ngân Linh (khau_ngan_linh) at the gate every dawn.",
+   "ties": [
+    {
+     "to": "dinh_ngan_cau",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "khau_ngan_linh",
+     "kind": "rival",
+     "note": "dawn sparring at the gate"
+    }
+   ],
+   "master": "dinh_ngan_cau",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "gate-sword-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    }
+   }
+  },
+  {
+   "key": "mac_lien_suong",
+   "name_hv": "Mạc Liên Sương",
+   "name_han": "莫蓮霜",
+   "gloss": "Lotus frost",
+   "sex": "F",
+   "born": 1174,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "le_hoa",
+   "rank": "noi_mon",
+   "home": 184,
+   "birthplace": 114,
+   "role": "Herb nun who goes down to the miners with Úc Hàn Chân",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 32
+    },
+    "variants": {
+     "bang": 26
+    }
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Honest",
+     "Impatient"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Úc Hàn Chân (uc_han_chan) takes her on the mine visits, and she has learned to set a crushed hand. She would rather stay below with the miners than ring the bell, and has said so aloud once.",
+   "ties": [
+    {
+     "to": "uc_han_chan",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "uc_han_chan",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "bang",
+     "intent": "Ice, and the herbs that grow in it."
+    }
+   }
+  }
+ ]
+}

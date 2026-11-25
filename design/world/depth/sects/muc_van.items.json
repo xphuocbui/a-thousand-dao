@@ -1,0 +1,313 @@
+{
+ "sect": "muc_van",
+ "_doc": "Mục Vân Trang signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow the body and wind catalogues' grade 3 items. The head also keeps the catalogue's Packmate Collar (wood-packmate-collar), worn by his horse Đạp Vân.",
+ "items": [
+  {
+   "id": "mv-cloud-herding-lance",
+   "name": "Cloud-Herding Lance (Mục Vân Mâu)",
+   "family": "body",
+   "kind": "artifact",
+   "base": "mao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "body_shield_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "companion"
+     ]
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "turn-the-herd",
+     "name": "Turn the Herd (Hồi Quần)",
+     "rule": "When your companion's hit lands within 1 s of one of your art hits, the foe is Displaced and your companion's next hit deals 30 % more.",
+     "authored": "a1"
+    }
+   ],
+   "lore": "A herder's lance of white elm from Bạch Du Lâm with a horn point, made by the founder Mẫn Bạch Câu in 740 to turn stampedes, not men. It has been carried by the head of the manor at every festival race since, and Khấu Mục Vân has never couched it at anything but a wolf.",
+   "build_use": "Rider and beast together: Physical hits, a body shield, and a companion that hits harder alongside.",
+   "holder": "khau_muc_van",
+   "made_by": "man_bach_cau",
+   "made_year": 740,
+   "set": "mv-horse-lord",
+   "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "mv-ram-horn-pennant",
+   "name": "Ram's-Horn Pennant (Dương Giác Kỳ)",
+   "family": "wind",
+   "kind": "artifact",
+   "base": "ky",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "phong"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 18,
+     "scope": [
+      "phong",
+      "buff"
+     ]
+    },
+    {
+     "key": "evade_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "attack_pct",
+     "value": 8,
+     "scope": [
+      "phong"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "The last pennant of Phù Dao Quán, the Abbey of the Whirlwind on the steppe (496), named for the whirlwind that winds up like a ram's horn and carries the great bird ninety thousand li. Thôi Dương Giác took it down from the abbey's pole in the cold year of 1121 (V100) and carried it to the manor with the abbey's book. It has not flown since.",
+   "build_use": "Wind speed and buffs for the one elder who can use them.",
+   "holder": "thoi_duong_giac",
+   "made_by": "the masters of Phù Dao Quán",
+   "made_year": 880,
+   "set": "mv-phu-dao-last",
+   "status": "proposal"
+  },
+  {
+   "id": "mv-dap-van-bridle-ring",
+   "name": "Bridle Ring of Đạp Vân (Đạp Vân Bí Hoàn)",
+   "family": "wind",
+   "kind": "artifact",
+   "base": "nhan",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "companion"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "companion"
+     ]
+    },
+    {
+     "key": "evade_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [{"new": true, "id": "horse-and-rider-bear-it-together", "name": "Horse and Rider Bear It Together (Nhân Mã Đồng Đảm)", "rule": "While your companion fights beside you, 15 % of each direct hit on you is taken by it instead. Each share it takes tires it: its hits deal 2 % less for each share, and each share fades after 5 s, or at once when your next joint strike (you and it hitting the foe within 1 s) rests it fully.", "authored": "d42"}],
+   "lore": "The silver bridle ring off the halter Đạp Vân wore as a foal, the only halter it ever let on. Khấu wears it on his thumb.",
+   "build_use": "The horse hits harder and sooner when he does.",
+   "holder": "khau_muc_van",
+   "made_by": "khau_thuong_thanh",
+   "made_year": 941,
+   "set": "mv-horse-lord",
+   "status": "proposal",
+   "authored": "d42"
+  },
+  {
+   "id": "mv-herder-felt-armour",
+   "name": "Herder's Felt Armour (Mục Chiên Giáp)",
+   "family": "body",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "body_shield_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Plain-felt and horn-plate riding armour of the manor, layered one felt for each festival race the wearer has won. His has thirty-one.",
+   "build_use": "A body that does not break at the gallop.",
+   "holder": "khau_muc_van",
+   "made_by": "muc_van",
+   "made_year": 1060,
+   "set": "mv-horse-lord",
+   "status": "proposal"
+  },
+  {
+   "id": "mv-whirlwind-abbey-habit",
+   "name": "Habit of the Whirlwind Abbey (Phù Dao Đạo Y)",
+   "family": "wind",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "evade_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The grey habit of Phù Dao Quán, cut so wide that the wind fills it. She is the last who has the right to wear it.",
+   "build_use": "Evasion and the breath held for the next step.",
+   "holder": "thoi_duong_giac",
+   "made_by": "phu_dao_quan",
+   "made_year": 1100,
+   "set": "mv-phu-dao-last",
+   "status": "proposal"
+  },
+  {
+   "id": "mv-well-digger-plumb",
+   "name": "Well-Digger's Plumb Stone (Tỉnh Truỵ Bội)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Her father's plumb stone from Song Tỉnh Thôn, which found water under the dry steppe twice. She wears it to remember there is ground under the wind.",
+   "build_use": "The little Earth the manor taught her: a body that stays put when it must.",
+   "holder": "thoi_duong_giac",
+   "made_by": "thoi_duong_giac",
+   "made_year": 1090,
+   "set": "mv-phu-dao-last",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "mv-horse-lord",
+   "name": "Horse Lord of the Plain (Mã Chủ Tam Bảo)",
+   "pieces": [
+    "mv-cloud-herding-lance",
+    "mv-dap-van-bridle-ring",
+    "mv-herder-felt-armour"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "attack_pct",
+       "value": 8,
+       "scope": [
+        "companion"
+       ]
+      },
+      {
+       "key": "khi_huyet_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "One Thread of Wind (Nhất Tuyến Phong): each time you and your companion strike the same target within 1 s, both of you heal 2 % of your health and you gain one Wind buff stack; at 5 stacks your next lance hit knocks the target down for 1 s. Your companion's hits on a target bearing any of your statuses deal 15 % more."
+    }
+   ],
+   "story": "The founder's lance, the foal's bridle ring and the armour of thirty-one races. Khấu Mục Vân holds all three; the Packmate Collar is Đạp Vân's to wear, not his, and the set's last line does its work."
+  },
+  {
+   "id": "mv-phu-dao-last",
+   "name": "The Last of Phù Dao (Phù Dao Di Vật)",
+   "pieces": [
+    "mv-ram-horn-pennant",
+    "mv-whirlwind-abbey-habit",
+    "mv-well-digger-plumb"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "evade_pct",
+       "value": 3,
+       "scope": []
+      },
+      {
+       "key": "art_speed_pct",
+       "value": 5,
+       "scope": [
+        "phong"
+       ]
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Ninety Thousand Li (Cửu Vạn Lý): each blow you evade winds the whirlwind tighter, one Wind buff stack; when you cast a Wind escape art with 8 or more stacks you spend them all on a gust: you are At range for 2 s and gain 2.5 % evasion for 4 s for each stack spent."
+    }
+   ],
+   "story": "The abbey's pennant and habit, and her father's stone. Thôi Dương Giác holds all three, and means to hand the first two to whoever lights the abbey after her.",
+   "authored": "a1"
+  }
+ ]
+}

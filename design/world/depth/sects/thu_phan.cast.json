@@ -1,0 +1,1217 @@
+{
+ "sect": "thu_phan",
+ "people": [
+  {
+   "key": "ly_han_bich",
+   "name_hv": "Lý Hận Bích",
+   "name_han": "李恨碧",
+   "gloss": "The blood of resentment turns to jade (Lý Hạ: hận huyết thiên niên thổ trung bích)",
+   "sex": "F",
+   "born": 830,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "thu_phan",
+   "rank": "tong_chu",
+   "home": 230,
+   "birthplace": 852,
+   "role": "Founder and head of Thu Phần Các (960): soul arts and grave wards among the graves of Lôi Trạch Thành (ma đạo)",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "tho": 56,
+     "kim": 48
+    },
+    "variants": {
+     "am": 72
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 48,
+    "than_hon": 82,
+    "khi_van": 54,
+    "dao_tam": 58,
+    "mi_luc": 56
+   },
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Diligent",
+     "Arbitrary"
+    ],
+    "calling": "Formation master",
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 3
+     }
+    ],
+    "path": [
+     "demonic_path"
+    ],
+    "lifestyle": "poet",
+    "health": "cold_toxin",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Grudge"
+    ]
+   },
+   "appearance": "A gaunt woman in undyed hemp mourning, with grave-earth in the hem and a small bronze bell at her wrist that rings when no one moves.",
+   "backstory": "Lý Hận Bích was born in 830 among the cave hunters of Thủ Động Trại, high on the thunder ridge, where Khải Lôi once kept wardens over the cave in which it laid the disciples its storm climbs killed (A283, V152). Every Kinh Trập the hunters went in to sweep the dead and came out before the first thunder. At twelve she was too slow, and the door was barred behind her by the hunters' own rule. She spent the night among Khải Lôi's dead. Darkness formed in her root, and she heard them sing. She left the ridge at forty and learned soul arts and grave wards from whoever would teach a ma đạo girl. In 960 she came down to the graves of Lôi Trạch Thành, Khải Lôi's city, burned by its own head's tribulation in 480 (C053, C008). No dead on the continent had more cause, and they sang the loudest. She founded the Pavilion on the bamboo hill above them and swore it to the Tower (C197). Since then the villagers of Ương Ca have sung louder at planting to drown the graves out (A314). In 1110 her sworn sister Lương Thanh Mộ (luong_thanh_mo) went into the deepest grave and did not come back. Lý hears her voice among the singers every autumn.",
+   "wants": "To hear the oldest song of Lôi Trạch to its end, and to see a whole stone of grave jade ripen in her lifetime, not a fleck.",
+   "secret": "The oldest graves do not sing poems. They sing what their head was chanting when his tribulation burned the city: passages of Khải Lôi's own canon. Cơ Ký Âm has written them down. She has sealed his copybooks and told the Tower nothing.",
+   "ties": [
+    {
+     "to": "luong_thanh_mo",
+     "kind": "sworn_sibling",
+     "note": "her sworn sister, who went into the deepest grave in 1110"
+    },
+    {
+     "to": "bao_thu_xuong",
+     "kind": "former_disciple",
+     "note": "she taught him as a Trúc Cơ; now her singing master"
+    },
+    {
+     "to": "tham_tho_bich",
+     "kind": "disciple",
+     "note": "her true disciple, keeper of the jade beds"
+    },
+    {
+     "to": "co_ky_am",
+     "kind": "disciple",
+     "note": "the copyist of the songs"
+    },
+    {
+     "to": "on_tich_nhai",
+     "kind": "disciple",
+     "note": "the cave hunters' son, the Pavilion's only other Darkness"
+    },
+    {
+     "to": "le_tieu_hon",
+     "kind": "rival",
+     "note": "the Tower's vault master; they trade the names of the dead and nothing else"
+    },
+    {
+     "to": "duong_hao_vu",
+     "kind": "rival",
+     "note": "born the same year; the abbess prays for the dead to rest"
+    },
+    {
+     "to": "nghe_hong_dau",
+     "kind": "friend",
+     "note": "the other ma đạo mistress; beans for the graves, grave-earth for the garden"
+    },
+    {
+     "to": "hau_xuan_loi",
+     "kind": "enemy",
+     "note": "the dead head whose tribulation burned the city her dead sing for"
+    },
+    {
+     "to": "ham_tan_chung",
+     "kind": "enemy",
+     "note": "the soul-thread seller who took a singer from her graves"
+    },
+    {
+     "to": "an_thanh_linh",
+     "kind": "friend",
+     "note": "Vũ Linh's head, who cast her grave bell in 1062"
+    },
+    {
+     "to": "on_tich_nhai",
+     "kind": "niece_nephew",
+     "note": "her sister's line, the cave hunters' son; the Pavilion's only other Darkness"
+    },
+    {
+     "to": "tiet_an_suong",
+     "kind": "disciple",
+     "note": "ward-setter at the jade beds"
+    },
+    {
+     "to": "chu_an_thach",
+     "kind": "friend",
+     "note": "a hunters' son from the ridge, brought down on the cave walk"
+    }
+   ],
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "autumn-grave-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "jade-of-resentment-ward",
+      "layer": 11
+     }
+    ],
+    "gear": [
+     {
+      "named": "tp-barred-door-robe"
+     },
+     {
+      "named": "tp-autumn-grave-bell"
+     },
+     {
+      "named": "tp-resentment-jade-seal"
+     }
+    ],
+    "skills": {
+     "tran_phap": 7
+    },
+    "tree": {
+     "start": "am",
+     "intent": "Darkness toward curses and soul damage, then the seal and ward roads: she holds the foe down until resentment does the rest.",
+     "targets": [
+      852,
+      7247,
+      7205,
+      7206,
+      7366,
+      7183
+     ],
+     "targets_note": "Darkness start (the Pavilion's Wood route does not fit it): Night Eye, Wandering Soul for soul damage, Moth Wings and Dust of Wings for curses, Soul Ward and Illusory Eyes."
+    },
+    "note": "The grave-ward mistress: a vengeful soul caster who wards the graves, tolls her bell and curses from the dark; her Darkness is her own and untaught."
+   },
+   "items": [
+    "tp-autumn-grave-bell",
+    "tp-resentment-jade-seal",
+    "tp-barred-door-robe"
+   ],
+   "changed": "build: main dia_kim (a stand-in) -> autumn-grave-canon and aux am_anh_bi_thuat (not a catalogue id) -> jade-of-resentment-ward (the Pavilion's lineage; the Pavilion is no-lean, R3/R5); gear ky 3 and chuong 3 -> her two named items; tree targets -> intent; root, thien_phu and stage lifted out of build; birthplace 852 added."
+  },
+  {
+   "key": "bao_thu_xuong",
+   "name_hv": "Bào Thu Xướng",
+   "name_han": "鮑秋唱",
+   "gloss": "An autumn song (Lý Hạ: Bão gia thi)",
+   "sex": "M",
+   "born": 950,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "thu_phan",
+   "rank": "truong_lao",
+   "home": 230,
+   "birthplace": 346,
+   "role": "Singing master of the Pavilion, who leads the autumn chant at the graves",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "moc": 44
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 44,
+    "than_hon": 74,
+    "khi_van": 46,
+    "dao_tam": 62,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Reclusive",
+     "Devout"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "qin_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A soft-spoken old man with a zither on his back and a voice that can fill a valley without being raised.",
+   "backstory": "A drum-maker's son from the ruins of Kích Cổ Đường, where the last drummers scattered in 482 (V153). He heard the graves of Lôi Trạch sing at ten, seventeen tiles off, and walked to them. Lương Thanh Mộ (luong_thanh_mo) taught him the songs, and after she went into the deepest grave in 1110 Lý Hận Bích (ly_han_bich) finished his training. Every autumn he leads the chant, and every autumn he listens for one voice.",
+   "ties": [
+    {
+     "to": "luong_thanh_mo",
+     "kind": "master",
+     "note": "taught him the songs; he listens for her"
+    },
+    {
+     "to": "ly_han_bich",
+     "kind": "former_master",
+     "note": "finished his training"
+    },
+    {
+     "to": "bui_song_khe",
+     "kind": "disciple",
+     "note": "the Song Khê girl"
+    },
+    {
+     "to": "duong_hao_vu",
+     "kind": "friend",
+     "note": "the abbess, who sends him rice each autumn and asks him to sing more softly"
+    },
+    {
+     "to": "hoac_tich_ca",
+     "kind": "disciple",
+     "note": "leads the nightly autumn chant at the graves under Bào Thu Xướng"
+    }
+   ],
+   "master": "luong_thanh_mo",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "autumn-grave-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "grave-sweeping-chant",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "tp-nine-graves-zither"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "thuy"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water for linh lực and long songs, toward the soul and song roads: a chorus that outlasts the fight.",
+     "targets": [
+      5493,
+      4909,
+      4912,
+      4943,
+      5509
+     ],
+     "targets_note": "From Water: Lingering Ripples and the Black Abyss for long songs, Still Pond and Still Water Heart for the soul roads (wishlist: grave-chorus)."
+    },
+    "note": "Sings, and the dead sing with him."
+   },
+   "items": [
+    "tp-nine-graves-zither"
+   ]
+  },
+  {
+   "key": "tham_tho_bich",
+   "name_hv": "Thẩm Thổ Bích",
+   "name_han": "沈土碧",
+   "gloss": "Jade in the earth (Lý Hạ)",
+   "sex": "F",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thu_phan",
+   "rank": "chan_truyen",
+   "home": 230,
+   "birthplace": 230,
+   "role": "The head's true disciple; keeper of the grave-jade beds",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 68,
+    "can_cot": 46,
+    "than_hon": 66,
+    "khi_van": 50,
+    "dao_tam": 48,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Diligent",
+     "Callous"
+    ],
+    "calling": "Formation master",
+    "upbringing": "sect_raised",
+    "talent": [],
+    "path": [
+     "array_bound"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A square-shouldered woman with a jade-cutter's lens on a cord and dirt to the elbows.",
+   "backstory": "Born on the Pavilion's hill to a grave-digger and raised by the sect. Lý Hận Bích (ly_han_bich) made her keeper of the jade beds, where the ward holds the dead's resentment until it hardens. She has dug up three green flecks in a hundred years and thinks the head is too patient. She wants the ward, the beds and the Pavilion, and she thinks the copyist's books should have been sold.",
+   "ties": [
+    {
+     "to": "ly_han_bich",
+     "kind": "master",
+     "note": "her head and master"
+    },
+    {
+     "to": "co_ky_am",
+     "kind": "rival",
+     "note": "the copyist the head trusts with the secret"
+    },
+    {
+     "to": "nhan_thu_mac",
+     "kind": "disciple",
+     "note": "the flute-cutter"
+    },
+    {
+     "to": "tang_mo_sinh",
+     "kind": "disciple",
+     "note": "the foundling of the graves"
+    },
+    {
+     "to": "tiet_an_suong",
+     "kind": "friend",
+     "note": "ward-setter at the jade beds"
+    }
+   ],
+   "master": "ly_han_bich",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "autumn-grave-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "grave-sweeping-chant",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood for sustain, then the seal and ward roads.",
+     "targets": [
+      6125,
+      6151,
+      5784,
+      6252
+     ],
+     "targets_note": "Lineage, Binding Vine for the grave seal, Thorn Hedge for the warden's ward (wishlist: grave-chorus)."
+    },
+    "note": "A warden first; sings only to set the ward."
+   }
+  },
+  {
+   "key": "co_ky_am",
+   "name_hv": "Cơ Ký Âm",
+   "name_han": "姬記音",
+   "gloss": "He who records the sounds",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thu_phan",
+   "rank": "noi_mon",
+   "home": 230,
+   "birthplace": 43,
+   "role": "Copyist of the songs of the graves; he has written down what the oldest dead sing",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 76,
+    "can_cot": 40,
+    "than_hon": 72,
+    "khi_van": 44,
+    "dao_tam": 64,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Reclusive",
+     "Patient"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "scholar_family",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "chronicler",
+    "health": "soul_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Shaken"
+    ]
+   },
+   "appearance": "A thin, short-sighted man who writes with his left hand and holds his right over his ear, as if shading it from a wind.",
+   "backstory": "Cơ Ký Âm was born in 1130 in Không Mông Thành, the valley city that Lôi Trạch's survivors moved up to a year after the tribulation burned their own (A285). His family have been copyists for six hundred years, and his grandmother told him their people came from the graves. He walked down to the Pavilion at twenty with a good ear and a box of brushes, and Lý Hận Bích (ly_han_bich) set him to write down the songs. For fifty autumns he has knelt at the graves and taken them down word by word. The new graves sing poems. The oldest, by the river where the lightning first struck, sing something else, in a cadence like a drum. In 1190 he understood it: the dead are chanting what their head chanted as his tribulation came down, the canon of Khải Lôi Môn (C008, C035). He showed the head. She sealed his copybooks in the ward and told him to tell no one. The Tower's vault master Lệ Tiêu Hồn (le_tieu_hon) has since asked twice to borrow a book of autumn songs.",
+   "wants": "To finish the oldest song, and to have the dead's words read by someone who will not burn them.",
+   "secret": "He kept a second copy of the drum passages, sewn into the lining of his winter robe, and he has played their cadence once on a grave drum. Something under the ridge answered.",
+   "ties": [
+    {
+     "to": "ly_han_bich",
+     "kind": "master",
+     "note": "his head, who sealed his books"
+    },
+    {
+     "to": "tham_tho_bich",
+     "kind": "rival",
+     "note": "thinks his books should be sold"
+    },
+    {
+     "to": "phung_co_am",
+     "kind": "disciple",
+     "note": "the drummer's girl who hears the cadence too"
+    },
+    {
+     "to": "le_tieu_hon",
+     "kind": "rival",
+     "note": "the Tower's vault master, who keeps asking for a book of autumn songs"
+    },
+    {
+     "to": "hua_tang_thu",
+     "kind": "disciple",
+     "note": "clerk of the copy room"
+    },
+    {
+     "to": "tiet_an_suong",
+     "kind": "rival",
+     "note": "ward-setter at the jade beds"
+    }
+   ],
+   "master": "ly_han_bich",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "autumn-grave-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "grave-sweeping-chant",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "tp-grave-drum"
+     },
+     {
+      "named": "tp-lined-winter-robe"
+     }
+    ],
+    "skills": {
+     "phu_luc": 4
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water linh lực toward soul and song: a scholar's chorus, careful and long.",
+     "targets": [
+      748,
+      5493,
+      4943,
+      4836,
+      4843,
+      5509
+     ],
+     "targets_note": "From Water: Calm Pool and Lingering Ripples, Still Pond, the Brush and Inkstone for what he writes down, Still Water Heart (wishlist: grave-chorus)."
+    },
+    "note": "A copyist who fights only by singing what he has written."
+   },
+   "items": [
+    "tp-grave-drum",
+    "tp-lined-winter-robe"
+   ]
+  },
+  {
+   "key": "bui_song_khe",
+   "name_hv": "Bùi Song Khê",
+   "name_han": "裴雙溪",
+   "gloss": "Twin brooks",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thu_phan",
+   "rank": "noi_mon",
+   "home": 230,
+   "birthplace": 158,
+   "role": "Grave singer from Song Khê",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Compassionate",
+     "Stubborn"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "backstory": "Drank from both brooks at Song Khê with a boy who drowned the next spring (A293); she came to the graves to keep the promise and sings to him in autumn.",
+   "ties": [
+    {
+     "to": "bao_thu_xuong",
+     "kind": "master",
+     "note": "the singing master"
+    },
+    {
+     "to": "dien_xuong_uong",
+     "kind": "disciple",
+     "note": "the planting singer"
+    },
+    {
+     "to": "cam_thuy_ngam",
+     "kind": "disciple",
+     "note": "sweeper from Mãn Võng who heard the graves from the boats"
+    },
+    {
+     "to": "hoac_tich_ca",
+     "kind": "friend",
+     "note": "leads the nightly autumn chant at the graves under Bào Thu Xướng"
+    }
+   ],
+   "master": "bao_thu_xuong",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "autumn-grave-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood sustain under a long song."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "on_tich_nhai",
+   "name_hv": "Ôn Tịch Nhai",
+   "name_han": "溫寂崖",
+   "gloss": "A silent cliff",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thu_phan",
+   "rank": "noi_mon",
+   "home": 852,
+   "birthplace": 852,
+   "role": "The cave hunters' son: keeps the Pavilion's watch at Thủ Động Trại, the only other Darkness in the sect",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "tho": 38,
+     "thuy": 28
+    },
+    "variants": {
+     "am": 26
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 50,
+    "can_cot": 66,
+    "than_hon": 58,
+    "khi_van": 44,
+    "dao_tam": 56,
+    "mi_luc": 36
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Loyal",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A short, heavy hunter in ridge furs with a cave lamp on his belt that he never lights.",
+   "backstory": "Born in the hunters' village at Thủ Động Trại, the head's own, five generations down from her sister. He keeps the cave watch on Kinh Trập as his family always has (V152), and every few years he brings a hunters' child with Earth and Water in their root the two months' road down to the graves, because Lý Hận Bích (ly_han_bich) hopes the Darkness that woke in her will wake in one of them. It woke in him, a little. He is the only person at the Pavilion who has been inside the cave.",
+   "ties": [
+    {
+     "to": "ly_han_bich",
+     "kind": "master",
+     "note": "his head"
+    },
+    {
+     "to": "ly_han_bich",
+     "kind": "aunt_uncle",
+     "note": "his great-great-great-aunt, by her sister"
+    },
+    {
+     "to": "cam_vong_nhi",
+     "kind": "disciple",
+     "note": "the fisher girl"
+    },
+    {
+     "to": "an_thu_son",
+     "kind": "cousin",
+     "note": "the cave hunters' son, his cousin"
+    },
+    {
+     "to": "chu_an_thach",
+     "kind": "disciple",
+     "note": "a hunters' son from the ridge, brought down on the cave walk"
+    }
+   ],
+   "master": "ly_han_bich",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "autumn-grave-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "grave-sweeping-chant",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "am",
+     "intent": "A little Darkness toward curses, Metal and Earth for a hunter's guard.",
+     "targets": [
+      852,
+      7205,
+      7206,
+      7549
+     ],
+     "targets_note": "His head's Darkness: Night Eye, Moth Wings, Dust of Wings for curses, Moonlight Hide for a hunter's guard (Metal and Earth are too far from Darkness)."
+    },
+    "note": "A hunter who sings badly and listens well."
+   }
+  },
+  {
+   "key": "dien_xuong_uong",
+   "name_hv": "Điền Xướng Ương",
+   "name_han": "田唱秧",
+   "gloss": "Sings to the seedlings",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "thu_phan",
+   "rank": "ngoai_mon",
+   "home": 230,
+   "birthplace": 157,
+   "role": "The planting singer of Ương Ca whom the graves answered",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Brave",
+     "Fickle"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Sang loudest at the Ương Ca planting to drown the graves (A314, A287), until one autumn the graves sang his own song back to him; his village has not forgiven him for going.",
+   "ties": [
+    {
+     "to": "bui_song_khe",
+     "kind": "master",
+     "note": "the Song Khê singer"
+    },
+    {
+     "to": "dong_tieu_uong",
+     "kind": "rival",
+     "note": "the girl from his village who went to Cốc Vũ"
+    },
+    {
+     "to": "ton_du_tan",
+     "kind": "friend",
+     "note": "grave-sweeper from the hamlet on the ruin of Lôi Trạch"
+    },
+    {
+     "to": "vi_hoa_ca",
+     "kind": "friend",
+     "note": "terrace novice from Ương Ca"
+    }
+   ],
+   "master": "bui_song_khe",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "grave-sweeping-chant",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and voice."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "phung_co_am",
+   "name_hv": "Phùng Cổ Âm",
+   "name_han": "馮鼓音",
+   "gloss": "The sound of a drum",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "thu_phan",
+   "rank": "ngoai_mon",
+   "home": 230,
+   "birthplace": 346,
+   "role": "A drummer's descendant who hears the drum in the oldest songs",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Impatient",
+     "Honest",
+     "Ambitious"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "From the ruin of Kích Cổ Đường, where her family still keeps one drum skin (V153); she taps the rhythm of the oldest graves on her knee without knowing what it is.",
+   "ties": [
+    {
+     "to": "co_ky_am",
+     "kind": "master",
+     "note": "the copyist"
+    }
+   ],
+   "master": "co_ky_am",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "grave-sweeping-chant",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "co",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water and rhythm."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "cam_vong_nhi",
+   "name_hv": "Cam Võng Nhi",
+   "name_han": "甘網兒",
+   "gloss": "A child of the nets",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "thu_phan",
+   "rank": "ngoai_mon",
+   "home": 230,
+   "birthplace": 906,
+   "role": "A fisher girl from the Pavilion's village",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Humble",
+     "Patient"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "From Mãn Võng Thôn, the Pavilion's fishing village; sent up the hill when the nets came up with a singing skull in them.",
+   "ties": [
+    {
+     "to": "on_tich_nhai",
+     "kind": "master",
+     "note": "the hunter"
+    },
+    {
+     "to": "cam_thuy_ngam",
+     "kind": "cousin",
+     "note": "her cousin; sweeper from Mãn Võng who heard the graves from the boats"
+    }
+   ],
+   "master": "on_tich_nhai",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "grave-sweeping-chant",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water linh lực."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "nhan_thu_mac",
+   "name_hv": "Nhan Thu Mặc",
+   "name_han": "顏秋墨",
+   "gloss": "Autumn ink",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "thu_phan",
+   "rank": "ngoai_mon",
+   "home": 1485,
+   "birthplace": 1485,
+   "role": "Cuts tribulation bamboo for the grave flutes",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "kim": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Diligent",
+     "Reclusive"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Cuts lightning-struck bamboo in Kiếp Trúc Lâm, three tiles from the hill, and bores it into the flutes the Pavilion plays at the graves.",
+   "ties": [
+    {
+     "to": "tham_tho_bich",
+     "kind": "master",
+     "note": "the jade keeper"
+    },
+    {
+     "to": "thuong_dich_am",
+     "kind": "friend",
+     "note": "flute-cutter in the tribulation-bamboo grove"
+    }
+   ],
+   "master": "tham_tho_bich",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "grave-sweeping-chant",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood sustain."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "tang_mo_sinh",
+   "name_hv": "Tang Mộ Sinh",
+   "name_han": "桑墓生",
+   "gloss": "Born among the graves",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "thu_phan",
+   "rank": "ngoai_mon",
+   "home": 230,
+   "birthplace": 221,
+   "role": "A foundling found among the graves of Lôi Trạch",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 38,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Trusting",
+     "Content",
+     "Calm"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "street_orphan",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Found as a newborn in 1184 on the oldest grave by the river, wrapped in someone's cape; he hums the graves' songs in his sleep and has never been taught them.",
+   "ties": [
+    {
+     "to": "tham_tho_bich",
+     "kind": "master",
+     "note": "the jade keeper, who found him"
+    }
+   ],
+   "master": "tham_tho_bich",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "grave-sweeping-chant",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and an untaught ear."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "luong_thanh_mo",
+   "name_hv": "Lương Thanh Mộ",
+   "name_han": "梁青墓",
+   "gloss": "A green grave",
+   "sex": "F",
+   "born": 900,
+   "died": 1110,
+   "cause": "went down into the deepest grave of Lôi Trạch to renew the oldest ward from inside, and did not come back",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "thu_phan",
+   "rank": "truong_lao",
+   "home": 230,
+   "birthplace": 221,
+   "role": "First elder of Thu Phần Các and the head's sworn sister; one of the voices in the graves",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Devout",
+     "Compassionate"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "qin_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Born in the hamlet that grew on the ruins of Lôi Trạch, she was the first to answer when Lý Hận Bích (ly_han_bich) came to the graves in 960. She taught the songs to Bào Thu Xướng (bao_thu_xuong) and laid the wards beside the head for a hundred and fifty years. In 1110 the oldest ward by the river began to fail, and she went down into the grave to renew it from inside (N-thu_phan-02). The ward held. Every autumn since, the Pavilion hears a new voice in the chorus.",
+   "ties": [
+    {
+     "to": "ly_han_bich",
+     "kind": "sworn_sibling",
+     "note": "her sworn sister and head"
+    },
+    {
+     "to": "bao_thu_xuong",
+     "kind": "disciple",
+     "note": "her singer"
+    }
+   ]
+  }
+ ]
+}

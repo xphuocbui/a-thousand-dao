@@ -1,0 +1,1175 @@
+{
+ "sect": "coc_vu",
+ "people": [
+  {
+   "key": "duong_hao_vu",
+   "name_hv": "Dương Hảo Vũ",
+   "name_han": "楊好雨",
+   "gloss": "The good rain that knows its season (Đỗ Phủ: hảo vũ tri thời tiết)",
+   "sex": "F",
+   "born": 830,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "coc_vu",
+   "rank": "tong_chu",
+   "home": 441,
+   "birthplace": 92,
+   "role": "Abbess of Cốc Vũ Quán since 958: rain-calling rites and spirit-rice terraces for the farmers of the south",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 72,
+     "thuy": 50
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 56,
+    "than_hon": 66,
+    "khi_van": 58,
+    "dao_tam": 80,
+    "mi_luc": 60
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Compassionate",
+     "Cautious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": "meridian_scar",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A small, brown, smiling woman in a patched grey robe and a rice-straw hat, with mud to the knee and a cough she hides in her sleeve.",
+   "backstory": "Dương Hảo Vũ was born in 830 in a drought year at Phong Đăng, to tenants on the Lục family's farms, whose harvests the Tower taxes first (A288). The abbey's rain came the week she was born, and her mother named her for it. She went up the bamboo hill at ten. The founder Hạng Đảo Vũ (hang_dao_vu) was a rain priestess from the coast who called rain with Water, and by then the hill had stopped answering her. When the founder died in 958, Dương became abbess. She spent forty years learning to call rain the other way: not from the sea, but from the forest's own breath (N-coc_vu-02). It worked, and the farmers have had their rain since. In the great drought of 1150 she held the Grain Rain rite for nine days over the valleys of Phong Đăng and Ương Ca. Her meridians have not been right since. Every autumn she sends rice to Thu Phần's singers and asks them to sing more softly. Their founder, Lý Hận Bích (ly_han_bich), was born the same year as she was, and wants the opposite thing for the dead.",
+   "wants": "Rain for every planting and no rain sold; and the dead of Lôi Trạch at rest before she is.",
+   "secret": "Since 1010 the prior has sold the abbey's rain to the Night Rain Market in dry years, and since 1150 the pills that keep her meridians open have been bought with that money. She knows both things, and she has never asked.",
+   "ties": [
+    {
+     "to": "hang_dao_vu",
+     "kind": "master",
+     "note": "the founder, whose Water rite she rewrote in Wood"
+    },
+    {
+     "to": "thoi_tri_tiet",
+     "kind": "former_disciple",
+     "note": "her prior, who sells the rain"
+    },
+    {
+     "to": "luc_dao_hoa",
+     "kind": "disciple",
+     "note": "the Lục son on the terraces"
+    },
+    {
+     "to": "lam_nhuan_chi",
+     "kind": "disciple",
+     "note": "the herb nun"
+    },
+    {
+     "to": "ly_han_bich",
+     "kind": "rival",
+     "note": "born the same year; keeps the dead singing"
+    },
+    {
+     "to": "bao_thu_xuong",
+     "kind": "friend",
+     "note": "Thu Phần's singer, to whom she sends rice"
+    },
+    {
+     "to": "gia_hoi_xuan",
+     "kind": "friend",
+     "note": "the healer of the apricot market; they trade herbs and patients"
+    },
+    {
+     "to": "kieu_man_lau",
+     "kind": "rival",
+     "note": "the market master who buys the rain"
+    },
+    {
+     "to": "uc_diep_thanh",
+     "kind": "friend",
+     "note": "his guides walk her rain-callers to Thu Trì for no fee"
+    },
+    {
+     "to": "luc_thuong_lam",
+     "kind": "friend",
+     "note": "born on his grandfather's tenancy; he sends her rice every autumn"
+    },
+    {
+     "to": "man_te_the",
+     "kind": "friend",
+     "note": "the apricot healer she sent her hard cases to"
+    },
+    {
+     "to": "nhieu_tu_uyen",
+     "kind": "friend",
+     "note": "carried water to her in the drought"
+    },
+    {
+     "to": "su_van_hoa",
+     "kind": "disciple",
+     "note": "the abbess's attendant at the rite ground"
+    }
+   ],
+   "master": "hang_dao_vu",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "good-rain-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "rite-of-the-grain-rain",
+      "layer": 10
+     },
+     {
+      "tech": "verdant-cycle-scripture",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "named": "cv-rain-calling-banner"
+     },
+     {
+      "named": "cv-seed-rice-gourd"
+     },
+     {
+      "named": "cv-abbess-rain-robe"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 8,
+     "dan_dao": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood toward healing, regeneration and buff stacks, Water for linh lực: she keeps everyone standing in a long fight and wins by outlasting it.",
+     "targets": [
+      6100,
+      6093,
+      5595,
+      5597,
+      5621,
+      6669,
+      9002
+     ],
+     "targets_note": "Lineage rain, the World Tree and Coiled Roots, Reed Root for Water's linh lực, then Ageless Pine: her Wood buff stacks never fall off."
+    },
+    "note": "The rain abbess: a soft rain that heals, roots and does not stop; it costs her more each year."
+   },
+   "items": [
+    "cv-rain-calling-banner",
+    "cv-seed-rice-gourd",
+    "cv-abbess-rain-robe"
+   ],
+   "changed": "existing record had no root or build: root Wood 72, Water 50 set from her birthplace (R1) and the abbey's re-lean to Wood (R4); build, thien_phu, stage 1 and birthplace 92 added."
+  },
+  {
+   "key": "thoi_tri_tiet",
+   "name_hv": "Thời Tri Tiết",
+   "name_han": "時知節",
+   "gloss": "Knows its season (Đỗ Phủ)",
+   "sex": "M",
+   "born": 1000,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "coc_vu",
+   "rank": "truong_lao",
+   "home": 441,
+   "birthplace": 42,
+   "role": "Prior (giám viện) of the abbey: its stores, its tax, and the rain it sells in dry years",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "thuy": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 50,
+    "than_hon": 54,
+    "khi_van": 60,
+    "dao_tam": 48,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Loyal",
+     "Deceitful"
+    ],
+    "calling": "Steward",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "go_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A plump, pleasant monk with an abacus in his sleeve and the soft hands of a man who keeps the books.",
+   "backstory": "A rice merchant's son from Thu Trì who came to the abbey at twenty and never quite stopped counting. Since 1010 he has sold the abbey's rain to Kiều Mãn Lâu (kieu_man_lau) in dry years, so that the Night Rain Market can open, and recorded a third of the price. The rest buys the pills that keep the abbess (duong_hao_vu) breathing. He thinks he is the only one who knows.",
+   "ties": [
+    {
+     "to": "duong_hao_vu",
+     "kind": "former_master",
+     "note": "taught him, and is kept alive by what he hides"
+    },
+    {
+     "to": "kieu_man_lau",
+     "kind": "friend",
+     "note": "the buyer of the rain; old business, a Thu Trì boy like him"
+    },
+    {
+     "to": "la_tiem_da",
+     "kind": "disciple",
+     "note": "the rain-caller he sends to the market"
+    },
+    {
+     "to": "so_loi_duan",
+     "kind": "disciple",
+     "note": "the bamboo keeper"
+    },
+    {
+     "to": "luc_thuong_lam",
+     "kind": "friend",
+     "note": "the Lục patriarch who bought the rain of 1171 from him"
+    },
+    {
+     "to": "huong_can_thu",
+     "kind": "disciple",
+     "note": "keeper of the abbey's grain rolls under the prior"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "good-rain-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "rite-of-the-grain-rain",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "named": "cv-season-seal"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "moc"
+     },
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood sustain with Water linh lực: careful, solvent, hard to kill.",
+     "targets": [
+      6100,
+      6093,
+      5595,
+      6669,
+      6026
+     ],
+     "targets_note": "Lineage rain, Reed Root for linh lực, Laurel Leaf for the abbey's books."
+    },
+    "note": "Holds the rite second, and holds the books first."
+   },
+   "items": [
+    "cv-season-seal"
+   ]
+  },
+  {
+   "key": "luc_dao_hoa",
+   "name_hv": "Lục Đạo Hoa",
+   "name_han": "陸稻花",
+   "gloss": "Rice blossom",
+   "sex": "M",
+   "born": 1095,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "coc_vu",
+   "rank": "noi_mon",
+   "home": 441,
+   "birthplace": 92,
+   "role": "Master of the spirit-rice terraces; a son of the Lục family of Phong Đăng",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 56,
+     "thuy": 36
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 54,
+    "can_cot": 60,
+    "than_hon": 48,
+    "khi_van": 56,
+    "dao_tam": 58,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Content",
+     "Generous"
+    ],
+    "calling": "Steward",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A tall, sunburnt man with a landlord's good boots and a farmer's hands.",
+   "backstory": "The third son of the Lục family, whose harvests at Phong Đăng the Tower taxes first (A288). He gave up the farms for the terraces at twenty, and the spirit rice of the abbey is better for it. His family's tenants send their children to the Tower's Bell Test first and to him when they fail, as the Thiều boy came. He does not mind being second.",
+   "ties": [
+    {
+     "to": "duong_hao_vu",
+     "kind": "master",
+     "note": "the abbess"
+    },
+    {
+     "to": "thieu_mo_canh",
+     "kind": "disciple",
+     "note": "the tenant boy who failed the Tower's test"
+    },
+    {
+     "to": "tan_xuan_duan",
+     "kind": "disciple",
+     "note": "the bamboo-shoot boy"
+    },
+    {
+     "to": "luc_thuong_lam",
+     "kind": "parent",
+     "note": "his father, the Lục of the tenancies"
+    },
+    {
+     "to": "luc_ke_dien",
+     "kind": "sibling",
+     "note": "his brother, who stayed"
+    },
+    {
+     "to": "vi_hoa_ca",
+     "kind": "disciple",
+     "note": "terrace novice from Ương Ca"
+    }
+   ],
+   "master": "duong_hao_vu",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "good-rain-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "verdant-cycle-scripture",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 7
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood health and regeneration: a farmer's fight, long and dull, and he wins it.",
+     "targets": [
+      6100,
+      6093,
+      5595,
+      6287,
+      5591
+     ],
+     "targets_note": "Lineage rain, New Growth and Deep Roots: a farmer's fight."
+    },
+    "note": "Sow, root, mend, harvest."
+   }
+  },
+  {
+   "key": "la_tiem_da",
+   "name_hv": "Lã Tiềm Dạ",
+   "name_han": "呂潛夜",
+   "gloss": "Steals into the night (Đỗ Phủ: tùy phong tiềm nhập dạ)",
+   "sex": "F",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "coc_vu",
+   "rank": "noi_mon",
+   "home": 42,
+   "birthplace": 904,
+   "role": "The abbey's rain-caller in Thu Trì, who calls the Night Rain Market's rain",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 46,
+    "than_hon": 58,
+    "khi_van": 50,
+    "dao_tam": 44,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Pragmatic",
+     "Reclusive"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": "cold_detachment",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A tall woman in a black rain cloak over the abbey's grey, who is seen in Thu Trì only on dry nights.",
+   "backstory": "Born in Yên Vũ Trấn, the town of misty rain, she has the best rain hands in the abbey. In dry years the prior Thời Tri Tiết (thoi_tri_tiet) sends her to Thu Trì to call rain at dusk so that Kiều Mãn Lâu's (kieu_man_lau) market can open, and she stays to drink in it. She has stopped asking what the rain is for.",
+   "ties": [
+    {
+     "to": "thoi_tri_tiet",
+     "kind": "master",
+     "note": "the prior, who sends her"
+    },
+    {
+     "to": "kieu_man_lau",
+     "kind": "creditor",
+     "note": "the market master, who owes her for every rain"
+    },
+    {
+     "to": "van_tieu_hoa",
+     "kind": "disciple",
+     "note": "the ferry girl"
+    },
+    {
+     "to": "khang_vu_ngung",
+     "kind": "disciple",
+     "note": "rain-caller at the abbey's house in Thu Trì"
+    }
+   ],
+   "master": "thoi_tri_tiet",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "good-rain-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water linh lực for long rains, Wood for the heal.",
+     "targets": [
+      5351,
+      5374,
+      5493,
+      6669
+     ],
+     "targets_note": "From Water: Timely Rain and Nourishing Rain for the rain, Lingering Ripples, her master's Reed Root toward Wood."
+    },
+    "note": "A rain-caller: the rain is the fight."
+   }
+  },
+  {
+   "key": "lam_nhuan_chi",
+   "name_hv": "Lam Nhuận Chi",
+   "name_han": "藍潤芝",
+   "gloss": "A moistened herb (Đỗ Phủ: nhuận vật)",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "coc_vu",
+   "rank": "noi_mon",
+   "home": 441,
+   "birthplace": 155,
+   "role": "Herb nun of the abbey's gardens",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Humble",
+     "Patient"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A flower-field girl from Hoa Điền who grows the abbey's herbs and takes the hard cases down the road to Giả Hồi Xuân (gia_hoi_xuan) at the apricot market.",
+   "ties": [
+    {
+     "to": "duong_hao_vu",
+     "kind": "master",
+     "note": "the abbess"
+    },
+    {
+     "to": "gia_hoi_xuan",
+     "kind": "friend",
+     "note": "the healer she brings patients to"
+    },
+    {
+     "to": "dong_tieu_uong",
+     "kind": "disciple",
+     "note": "the Ương Ca singer"
+    },
+    {
+     "to": "nhieu_tu_uyen",
+     "kind": "friend",
+     "note": "brought her down the road"
+    },
+    {
+     "to": "duong_ha_thao",
+     "kind": "disciple",
+     "note": "weeds the abbey's herb beds"
+    },
+    {
+     "to": "su_van_hoa",
+     "kind": "friend",
+     "note": "the abbess's attendant at the rite ground"
+    }
+   ],
+   "master": "duong_hao_vu",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "good-rain-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 3,
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "so_loi_duan",
+   "name_hv": "Sở Lôi Duẩn",
+   "name_han": "楚雷筍",
+   "gloss": "A thunder bamboo shoot",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "coc_vu",
+   "rank": "noi_mon",
+   "home": 440,
+   "birthplace": 440,
+   "role": "Keeper of Lôi Trúc Lâm, the lightning-bamboo grove",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Stubborn",
+     "Calm"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Lives alone in the abbey's lightning-bamboo grove and cuts the struck canes into the poles the rite is held under; he will not say why the struck ones work better.",
+   "ties": [
+    {
+     "to": "thoi_tri_tiet",
+     "kind": "master",
+     "note": "the prior"
+    },
+    {
+     "to": "lo_tan_chau",
+     "kind": "disciple",
+     "note": "the Hà Châu boy"
+    },
+    {
+     "to": "thai_huong_doan",
+     "kind": "disciple",
+     "note": "A Tower reject who walked to the abbey"
+    },
+    {
+     "to": "tong_tiet_truc",
+     "kind": "disciple",
+     "note": "pole-cutter in the lightning-bamboo grove"
+    }
+   ],
+   "master": "thoi_tri_tiet",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "good-rain-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood, rooted."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "thieu_mo_canh",
+   "name_hv": "Thiều Mộ Canh",
+   "name_han": "韶暮耕",
+   "gloss": "Ploughing at dusk",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "coc_vu",
+   "rank": "ngoai_mon",
+   "home": 441,
+   "birthplace": 92,
+   "role": "A Lục tenant boy who failed the Tower's Bell Test and came to the terraces",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Diligent",
+     "Humble"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Failed the Tower's outer gate on his Metal in 1194 and walked to the abbey instead; his sister Thiều Mộ Vũ (thieu_mo_vu) passed on a Metal of exactly 30, and he keeps a terrace ready for her.",
+   "ties": [
+    {
+     "to": "thieu_mo_vu",
+     "kind": "sibling",
+     "note": "his sister in the Tower's outer gate"
+    },
+    {
+     "to": "luc_dao_hoa",
+     "kind": "master",
+     "note": "the terrace master"
+    },
+    {
+     "to": "thieu_xuan_nuong",
+     "kind": "aunt_uncle",
+     "note": "his aunt"
+    },
+    {
+     "to": "moc_tau_vu",
+     "kind": "friend",
+     "note": "failed the Tower's gate with him"
+    },
+    {
+     "to": "thai_huong_doan",
+     "kind": "friend",
+     "note": "A Tower reject who walked to the abbey"
+    }
+   ],
+   "master": "luc_dao_hoa",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "seedling-breath-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "dong_tieu_uong",
+   "name_hv": "Đổng Tiểu Ương",
+   "name_han": "董小秧",
+   "gloss": "A little seedling",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "coc_vu",
+   "rank": "ngoai_mon",
+   "home": 441,
+   "birthplace": 157,
+   "role": "A planting singer from Ương Ca",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Brave",
+     "Stubborn"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Sings the oldest song in the south at Ương Ca's planting (A287), loudest of all, to drown the graves (A314); the boy from her village who went to the graves sang beside her once.",
+   "ties": [
+    {
+     "to": "lam_nhuan_chi",
+     "kind": "master",
+     "note": "the herb nun"
+    },
+    {
+     "to": "dien_xuong_uong",
+     "kind": "rival",
+     "note": "the boy from her village who went to the graves"
+    }
+   ],
+   "master": "lam_nhuan_chi",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "seedling-breath-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and voice."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "lo_tan_chau",
+   "name_hv": "Lô Tân Châu",
+   "name_han": "盧新洲",
+   "gloss": "The new isle",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "coc_vu",
+   "rank": "ngoai_mon",
+   "home": 440,
+   "birthplace": 160,
+   "role": "A Hà Châu boy who wants the risen isle for rice",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 42,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Impatient",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Watched the isle rise out of the river at Hà Châu in 1199 (A297) and thinks the Tower and the Gate are both wrong: it is good rice mud, and it should be the abbey's.",
+   "ties": [
+    {
+     "to": "so_loi_duan",
+     "kind": "master",
+     "note": "the bamboo keeper"
+    },
+    {
+     "to": "dinh_van_do",
+     "kind": "rival",
+     "note": "the Gate's ferry warden, whose staff is in the isle"
+    },
+    {
+     "to": "dinh_tieu_chu",
+     "kind": "rival",
+     "note": "pole-boy on the Hà Châu ferry"
+    }
+   ],
+   "master": "so_loi_duan",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "seedling-breath-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "van_tieu_hoa",
+   "name_hv": "Vạn Tiểu Hòa",
+   "name_han": "萬小禾",
+   "gloss": "A little grain stalk",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "coc_vu",
+   "rank": "ngoai_mon",
+   "home": 42,
+   "birthplace": 159,
+   "role": "Ferry girl from Thượng Độ who carries the rain-caller's gear",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Loyal",
+     "Honest"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Her grandmother saw Phượng Minh's raiders at the upper ferry in 1045 (A295); she follows Lã Tiềm Dạ to Thu Trì on dry nights and does not like the market.",
+   "ties": [
+    {
+     "to": "la_tiem_da",
+     "kind": "master",
+     "note": "the rain-caller"
+    }
+   ],
+   "master": "la_tiem_da",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "seedling-breath-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "tan_xuan_duan",
+   "name_hv": "Tần Xuân Duẩn",
+   "name_han": "秦春筍",
+   "gloss": "A spring bamboo shoot",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "coc_vu",
+   "rank": "ngoai_mon",
+   "home": 441,
+   "birthplace": 883,
+   "role": "Novice from the bamboo-shoot village",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "kim": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Lazy",
+     "Gregarious",
+     "Content"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "From Xuân Duẩn Thôn below the hill; the laziest novice on the terraces and the best at finding bamboo shoots, which the abbess forgives.",
+   "ties": [
+    {
+     "to": "luc_dao_hoa",
+     "kind": "master",
+     "note": "the terrace master"
+    }
+   ],
+   "master": "luc_dao_hoa",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "seedling-breath-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "hang_dao_vu",
+   "name_hv": "Hạng Đảo Vũ",
+   "name_han": "項禱雨",
+   "gloss": "Prays for rain",
+   "sex": "F",
+   "born": 560,
+   "died": 958,
+   "cause": "spent the last of her core on the rite in a dry year, under the last rain she could call (age 398)",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "coc_vu",
+   "rank": "founder",
+   "home": 441,
+   "birthplace": 90,
+   "role": "Founder of Cốc Vũ Quán (610): a coast rain priestess who called rain with Water",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Devout",
+     "Stubborn",
+     "Generous"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "temple_raised",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A rain priestess from the sea-spray coast who came inland in a drought and founded the abbey on a bamboo hill above Phong Đăng to call the rain for the farmers and grow spirit rice (V154). She called rain from the sea with Water, and it came for three hundred years. The hill held no Water of its own, and it came less each century. She died in 958, in a dry year, under the last rain she called. Her disciple Dương Hảo Vũ (duong_hao_vu) learned to call it from the forest instead.",
+   "ties": [
+    {
+     "to": "duong_hao_vu",
+     "kind": "disciple",
+     "note": "her successor"
+    }
+   ]
+  }
+ ]
+}

@@ -370,6 +370,12 @@ systems split out of Combat depend on each other as follows.
 - **Combat Damage Types (#21b):** tribulation lightning deals Lightning, so Lightning resistance is the answer.
 - **Effects System (#41):** refusals and last acts run at Down as in any fight (the Down step).
 
+**Back-links written 2026-11-25** (world-depth rulings, `design/world/depth/DECISIONS-2026-11-25.md`):
+- **Combat** (#21, rule 26; user ruling 2026-11-25 keeps `tribulation` as a kind of fight and removes the `vein` bonus): the place's ground tags a tribulation sends (`vein`, the biome) apply nothing in the
+  fight; whether `tribulation` stays as a request tag is Combat Open Question 30.
+- **NPC Traits** (#42, rule 11a): a tribulation crossed may grant a path trait (Tribulation survivor,
+  Lightning-scarred) through the Event Engine's grant.
+
 ## Tuning Knobs
 
 All live in `tribulation_rules.json` unless stated, and are guesses until the Balance Harness runs (Open Question 2).

@@ -1,0 +1,163 @@
+{
+ "sect": "tam_kiem",
+ "_doc": "Tầm Kiếm Đường signature items (rules-proposals R7). Unpriced proposals; modifier sizes follow the blade and metal catalogues' grade 3 items.",
+ "items": [
+  {
+   "id": "tk-asking-blade",
+   "name": "The Asking Blade (Vấn Phong)",
+   "family": "blade",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 8,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "pierce_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "accuracy_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A plain hunter's sword with a notch filed in the guard for every cave its owner has searched. There are 412 notches. Tiêu Vấn Phong had it made in Hòe Âm in 1162 and has never named it; the hall calls it the Asking Blade.",
+   "build_use": "Crit and pierce for the Asking Canon's marks.",
+   "holder": "tieu_van_phong",
+   "made_by": "a Hòe Âm smith",
+   "made_year": 1162,
+   "set": "tk-map-wall",
+   "status": "proposal"
+  },
+  {
+   "id": "tk-evening-sword",
+   "name": "Evening Sword (Mộ Kiếm)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 18,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "crit_damage_pct",
+     "value": 30,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "evade_pct",
+     "value": 5,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "second-duel",
+     "name": "The Second Duel (Tái Chiến)",
+     "rule": "Against a foe who has already hit you this fight, your sword arts deal 10 % more damage."
+    }
+   ],
+   "lore": "The sword Sài Mộ Kiếm lost with in 1130 at Tống Khách Thị, against Tư Không Hạc Niên. The sage handed it back to him after the duel without a word, which Sài has found harder to bear than losing.",
+   "build_use": "A duelist's sword: crit damage, speed, and a reward for being struck first.",
+   "holder": "sai_mo_kiem",
+   "made_by": "unknown",
+   "made_year": 1010,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "tk-map-coat",
+   "name": "Hunter's Map Coat (Liệp Đồ Bào)",
+   "family": "blade",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "accuracy_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A deer-hide coat with every cave of the southern massif inked on its lining, each one crossed out but one.",
+   "build_use": "Health and sure hits for the long search.",
+   "holder": "tieu_van_phong",
+   "made_by": "tieu_van_phong",
+   "made_year": 1162,
+   "set": "tk-map-wall",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "tk-map-wall",
+   "name": "The Map Wall (Đồ Bích)",
+   "pieces": [
+    "tk-asking-blade",
+    "tk-map-coat"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "crit_chance_pct",
+       "value": 3,
+       "scope": [
+        "sword"
+       ]
+      },
+      {
+       "key": "accuracy_pct",
+       "value": 4,
+       "scope": []
+      }
+     ],
+     "effect": "The Answer (Đáp): each mark you place raises your next answering cut's crit damage by 10 %; an answering cut that spends 5 or more marks ignores the foe's ward."
+    }
+   ],
+   "story": "The hunter's sword with its 412 notches and the coat that carries the map wall's caves: what the Tiêu son took with him when the hermitage turned him away."
+  }
+ ]
+}

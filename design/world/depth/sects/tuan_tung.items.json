@@ -1,0 +1,171 @@
+{
+ "sect": "tuan_tung",
+ "_doc": "Tuần Tùng Đường signature items (rules-proposals R7; design/items record). Prefix ttg- (tt- would collide with thoi_tinh and truc_thuc). Unpriced proposals; modifier sizes follow catalogue-blade and catalogue-body grade 3. design/items has no bow or staff base (an Item DB open question), so the bows stand on the nearest base, cham (Needle: a ranged, piercing shot), and the wardens' staffs on loi_truong (Rod), as Xuyên Lâm's staff does (fix pass A 2026-11-25). No set.",
+ "items": [
+  {
+   "id": "ttg-wolf-winter-bow",
+   "name": "Wolf-Winter Bow (Lang Đông Cung)",
+   "family": "blade",
+   "kind": "artifact",
+   "base": "cham",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 21,
+     "scope": [
+      "bow"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 8,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "pierce_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "accuracy_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "the-pack-turns",
+     "name": "The Pack Turns (Quần Thoái)",
+     "rule": "When the foe you marked is Broken, a creature foe's arts that come ready in the next 3 s wait until they end (it flees).",
+     "authored": "a1"
+    }
+   ],
+   "lore": "A horn-and-yew bow Hứa Vãn Cung bought from the bowyers of Cung Tiễn Thôn as a caravan guard, and carried on the three nights of 1190 (A064). On the third night he shot the grey pack-leader with it, and the bowyers have since refused to make another of its pattern. The string is wolf gut.",
+   "build_use": "The warden-head's bow: accurate, piercing shots at the strongest foe.",
+   "holder": "hua_van_cung",
+   "made_by": "the bowyers of Cung Tiễn Thôn",
+   "made_year": 1172,
+   "set": "ttg-three-nights",
+   "status": "proposal",
+   "authored": "b10, a1"
+  },
+  {
+   "id": "ttg-caravan-bell",
+   "name": "The Caravan Bell of the Wolf Nights (Lang Dạ Đà Linh)",
+   "family": "body",
+   "kind": "artifact",
+   "base": "chuong",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 15,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "ring-for-the-wardens",
+     "name": "Ring for the Wardens (Hiệu Tuần)",
+     "rule": "Ringing the bell: for 3 s you take 20 % less damage, and your companions' hits in that time deal 20 % more.",
+     "authored": "a1"
+    }
+   ],
+   "lore": "The lead wagon's bell of Trang Thiết Cước's caravan, which he rang for three nights in 1190 to keep the wagons together while the wolves circled. He gave his wagons to the wolves and his silver to the hall, and kept the bell.",
+   "build_use": "The old caravan master's guard: a hard body and a rally for allies.",
+   "holder": "trang_thiet_cuoc",
+   "made_by": "a Pivot bell-caster",
+   "made_year": 1140,
+   "set": null,
+   "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "ttg-three-nights-coat",
+   "name": "Warden's Coat of Three Nights (Tam Dạ Tuần Bào)",
+   "family": "body",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The wolf-hide and leather caravan coat he wore for the three nights of 1190, slashed in eleven places. The bowyers of Cung Tiễn Thôn stitched it with bowstring.",
+   "build_use": "A body that comes back each breath through a long night.",
+   "holder": "hua_van_cung",
+   "made_by": "hua_van_cung",
+   "made_year": 1180,
+   "set": "ttg-three-nights",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "ttg-three-nights",
+   "name": "Three Nights on the Road (Tam Dạ Đạo Thượng)",
+   "pieces": [
+    "ttg-wolf-winter-bow",
+    "ttg-three-nights-coat"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "health_regen_inc_pct",
+       "value": 10,
+       "scope": []
+      },
+      {
+       "key": "accuracy_pct",
+       "value": 6,
+       "scope": []
+      }
+     ],
+     "effect": "Dawn Shot (Lê Minh Xạ): your next arrow at the foe marked by the Wolf-Winter Arrow deals 15 % more for each 10 s since your last such arrow (or since the fight began), and pierces wards; the count resets when that arrow lands."
+    }
+   ],
+   "story": "The bow and the coat of the wolf winter. Hứa Vãn Cung holds both."
+  }
+ ]
+}

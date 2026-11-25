@@ -1,0 +1,52 @@
+{
+ "group": "hermits-sages",
+ "sect": "",
+ "_doc": "Methods of the great hermits, proposed (schema.md technique proposals, no lineage: hermits teach one disciple at a time and seal the rest in their abodes). Unpriced. NOTE: depth_check.py reads only sects/*.techniques.json, so builds that run these use a generated stand-in for main and name the proposal in build.note.",
+ "techniques": [
+  {
+   "id": "still-water-mirror-canon",
+   "name": "Still Water Mirror Canon (Chỉ Thủy Giám Kinh)",
+   "tier": 3, "tech_kind": "main", "names": ["thuy"], "layers": 15,
+   "rank": "one disciple; known now only to Mạc Quy Khư, who does not run it",
+   "concept": "Văn Nhân Chỉ Thủy's method from before the calendar. The cultivator stills their own qi until it lies flat as a lake at dawn, and a foe's arts show in it before they are cast. In a fight it lays a still ward that grows each second the holder does not move, and reflects the first art that strikes it. At its last layer the holder can walk on still water, which is how its master left the world (C025).",
+   "arts": [{"new": "The Lake Shows the Moon (Hồ Trung Kiến Nguyệt)", "concept": "A ward that thickens while you stand still; the first art to strike it is mirrored back at half strength."},
+            {"new": "Walking on Still Water (Bộ Chỉ Thủy)", "concept": "A movement art: while you hold the still ward, one step carries you to any point you can see."}],
+   "lore": "Taught by the hermit of Hạo Nguyệt Hồ to his one disciple. Mạc Quy Khư learned nine layers of it before Phù Tang Cảnh burned his root into Chaos and the method stopped fitting him. He remembers all fifteen. A copy may lie in the blessed land his master left (slot L-1).",
+   "status": "proposal"
+  },
+  {
+   "id": "north-wind-cold-light-sword",
+   "name": "North Wind, Cold Light Sword (Sóc Khí Hàn Quang Kiếm)",
+   "tier": 2, "tech_kind": "secret", "names": ["bang"], "layers": 12,
+   "rank": "one disciple at a time; the last was Kỷ Hoa Ảnh",
+   "concept": "Hoắc Hàn Quang's sword method, made around his sword Sóc Khí. Every cut leaves frost in the wound, and the frost rings like a struck gong when the next cut lands. At the eighth layer the swordsman can hold a cut in the air as cold light and release it later. The method's last layers are about meeting lightning with the sword, and Hoắc never finished them.",
+   "arts": [{"new": "Watchman's Gong (Kim Thác Truyền Hàn)", "concept": "Each cut lays an Ice stack; the next cut on the same foe rings it for a burst of cold damage."},
+            {"new": "Cold Light on Iron Mail (Hàn Quang Chiếu Thiết Y)", "concept": "Hold one cut as a light in the air for up to 6 s, then release it at any foe in sight."}],
+   "lore": "Kỷ Hoa Ảnh learned its first six layers; Lê Hoa Am's Pear Blossom Snow Sword grew from them (settled in the cross-sect pass; le_hoa.techniques.json), though the nuns do not say so. The whole method is cut into the wall of the sealed cave (slot A-1), beside the sword.",
+   "status": "proposal"
+  },
+  {
+   "id": "purple-smoke-furnace-canon",
+   "name": "Purple Smoke Furnace Canon (Tử Yên Lô Kinh)",
+   "tier": 2, "tech_kind": "main", "names": ["hoa", "moc"], "layers": 12,
+   "rank": "apprentices of the furnace; Úy Thanh Diễm learned six layers before Thúy Vi, Khuyết Vãn Hà all twelve",
+   "concept": "Cao Đan Hà's alchemist's method. The cultivator keeps a furnace inside the dantian: Wood is the fuel, Fire the flame, and pills taken are brewed again inside the body for a second effect. In a fight the holder burns their own pills for heals and wards, and turns poison taken into fuel.",
+   "arts": [{"new": "Second Brewing (Nhị Độ Luyện)", "concept": "A pill swallowed in a fight heals again 4 s later for half its value."},
+            {"new": "Smoke over the Burner (Tử Yên Phiêu)", "concept": "Purple smoke around you: foes inside it take Fire damage over time and you take 15 % less from poisons."}, {"new": "Pill Smoke (Đan Yên)", "concept": "A puff of censer smoke: a small Chaos hit. If a pill is prepared in your pill slot, the censer burns it: you get its effect at half strength, and the foe takes a cloud of 4 debuff stacks per pill grade, for 6 s, of the pill's element (Fire Burn, Wood Poison, Water or Ice the Ice stacks, Metal, Earth, Thunder and Wind their own; a pill with no element smokes as Poison). A pill that would fail gives you nothing, but its smoke lays in full. With no pill it is only the puff.", "id": "pill-smoke", "tags": ["smoke", "pill", "censer", "over_time"], "unlock_layer": 4, "record": "builds/authored/auth-tech.json (e2)", "authored": "e2"}],
+   "lore": "Written in 500, the year of the Purple Smoke Furnace. The last pages, on a pill to carry a Nguyên Anh through the Hóa Thần tribulation, are in the sealed abode (slot A-2) with the furnace.",
+   "status": "proposal",
+   "authored": "e2"
+  },
+  {
+   "id": "falling-plum-flute-canon",
+   "name": "Falling Plum Flute Canon (Lạc Mai Địch Kinh)",
+   "tier": 2, "tech_kind": "secret", "names": ["phong"], "layers": 12,
+   "rank": "one disciple; Giản Thu Địch has nine layers",
+   "concept": "Lương Lạc Mai's flute-and-blade method on Wind. The tune slows a foe's arts and the blade cuts in its rests; a cut made inside the tune is a sword art and a soul art at once. Its last three layers were to be played through a breakthrough, the tune holding the heart still while the core breaks. Lương was playing them when she died.",
+   "arts": [{"new": "The Fifth-Month Tune (Ngũ Nguyệt Khúc)", "concept": "Play for 3 s: foes in hearing have their arts slowed 10 % for 6 s; your next cut counts as a soul art."},
+            {"new": "Plum Falls Between Notes (Mai Lạc Gian Âm)", "concept": "A quick cut that can be made only while the tune holds; it ends the tune and strikes once per note played."}],
+   "lore": "Lương made the method and the flute together in 600. Giản knows the first nine layers and has never played the last three, because of what she heard at the door in 860.",
+   "status": "proposal"
+  }
+ ]
+}

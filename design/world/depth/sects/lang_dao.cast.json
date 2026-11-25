@@ -1,0 +1,1190 @@
+{
+ "sect": "lang_dao",
+ "people": [
+  {
+   "key": "giang_cuu_khuc",
+   "name_hv": "Giang Cửu Khúc",
+   "name_han": "江九曲",
+   "gloss": "The nine bends of the river",
+   "sex": "M",
+   "born": 880,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "lang_dao",
+   "rank": "tong_chu",
+   "home": 13,
+   "birthplace": 1229,
+   "role": "Ferry master of Lãng Đào Môn since 1010: the nine landings, the river tolls and the rebuilt fleet",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 76,
+     "moc": 54
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 64,
+    "than_hon": 60,
+    "khi_van": 66,
+    "dao_tam": 58,
+    "mi_luc": 72
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Greedy",
+     "Brave"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Embittered"
+    ]
+   },
+   "appearance": "A barrel of a man with a river-boatman's tan and a voice that carries across three bends, who wears the toll seal on a cord round his wrist.",
+   "backstory": "Giang Cửu Khúc was born on a ferry at Hoành Độ Thôn in 880 and named for the river. He poled boats before he could read, and learned the Nine Bends Art from the founder Uông Liên Chu (uong_lien_chu), who had made one gate out of the feuding boat families after Phá Chu Trấn burned (V047). He took the gate in 1010 and has kept the nine landings since. He made the gate rich on tolls. In 1172 the tolls on the Ngư Ca border started a war (C192). The next year Lạc Hà's raiders burned his fleet at the Đào Sa landing (A080), and his ferrymen burned with it, Lữ Thừa Lãng (lu_thua_lang) among them. The pines fought for him and took no land, and Dụ Tĩnh Lưu (du_tinh_luu) split the tolls with Lạc Hà in 1175 and rebuilt his boats with the River Hall's timber. Every spring since, he has written to Lữ's son, whom Lạc Hà raised, and asked him to come home. Lữ Tẫn Chu (lu_tan_chu) has not come.",
+   "wants": "Lữ Tẫn Chu home on a Lãng Đào ferry, the fleet back to its old size, and the Ngư Ca tolls whole again.",
+   "secret": "The toll quarrel that started the Ferry War was his. For ten years before 1172 he charged Lạc Hà's boats at the Ngư Ca landing a toll the pines never set, and kept it. The pines went to war for his greed and he let them believe it was for his honour.",
+   "ties": [
+    {
+     "to": "uong_lien_chu",
+     "kind": "master",
+     "note": "the founder, dead 1010"
+    },
+    {
+     "to": "thuong_bach_pham",
+     "kind": "dao_partner",
+     "note": "the boat-mistress; partners since 1040"
+    },
+    {
+     "to": "giang_hoi_lan",
+     "kind": "child",
+     "note": "their son and his heir"
+    },
+    {
+     "to": "giang_tieu_loan",
+     "kind": "grandchild",
+     "note": ""
+    },
+    {
+     "to": "lai_bat_khuc",
+     "kind": "disciple",
+     "note": "pilot of the eighth bend"
+    },
+    {
+     "to": "sai_ket_lam",
+     "kind": "disciple",
+     "note": "rope master"
+    },
+    {
+     "to": "lu_tan_chu",
+     "kind": "friend",
+     "note": "Lữ's son, raised in Lạc Hà; he writes every spring"
+    },
+    {
+     "to": "lo_xuong_van",
+     "kind": "enemy",
+     "note": "the Lạc Hà elder who burned his boats at Đào Sa"
+    },
+    {
+     "to": "dam_tung_lai",
+     "kind": "friend",
+     "note": "the lord who went to war for his boats"
+    },
+    {
+     "to": "du_tinh_luu",
+     "kind": "debt",
+     "note": "she rebuilt his fleet; she also split his tolls"
+    },
+    {
+     "to": "chu_lan_giang",
+     "kind": "friend",
+     "note": "the pines' envoy; drinking companion"
+    },
+    {
+     "to": "nghiem_linh_chi",
+     "kind": "friend",
+     "note": "he brings her the river's orphans and buys her pills"
+    },
+    {
+     "to": "chau_phi_van",
+     "kind": "creditor",
+     "note": "Nam Phố's head, whose talismans burned his boats; she pays it off in yearly wards"
+    },
+    {
+     "to": "to_van_chieu",
+     "kind": "enemy",
+     "note": "Lạc Hà's head, who ordered his ferries burned at Đào Sa in 1173"
+    },
+    {
+     "to": "yen_hoi_do",
+     "kind": "former_disciple",
+     "note": "poled for him until 1162, then went to the toll boats"
+    },
+    {
+     "to": "dang_hoanh_giang",
+     "kind": "friend",
+     "note": "Tùng Đào's River Hall man at his gate"
+    },
+    {
+     "to": "trinh_chu_sa",
+     "kind": "friend",
+     "note": "the talisman-seller whose wards he buys"
+    },
+    {
+     "to": "bui_phieu_binh",
+     "kind": "rival",
+     "note": "Bình Thủy's head; weather and rope, and he refused Lạc Hà boats for the Đào Sa raid"
+    },
+    {
+     "to": "lu_thua_lang",
+     "kind": "disciple",
+     "note": "his ferryman and disciple, burned at Đào Sa in a war he started; he owes him for it"
+    },
+    {
+     "to": "tiet_an_thuy",
+     "kind": "disciple",
+     "note": "toll clerk of the gate-house: stamps the passes and keeps the toll books"
+    }
+   ],
+   "master": "uong_lien_chu",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "washing-waves-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "nine-bends-art",
+      "layer": 9
+     },
+     {
+      "tech": "returning-wake-verse",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "ld-first-fleet-anchor"
+     },
+     {
+      "named": "ld-nine-bend-toll-seal"
+     },
+     {
+      "named": "ld-ferry-master-oilskin"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water damage through broken wards, and a ferryman's body: he goes round a blow and arrives with the anchor.",
+     "targets": [
+      5452,
+      5449,
+      4974,
+      5021,
+      4936,
+      5089
+     ],
+     "targets_note": "The ferry route (Grand Canal, Spirit Canal) for cheap Water arts, Whale Drinks for damage and linh lực leech, River Spirit's evade, River Lotus and Carp at the Dragon Gate: he goes round the blow and arrives with the anchor."
+    },
+    "note": "The river-fleet master: an anchor, a toll seal and the nine bends."
+   },
+   "items": [
+    "water-drowned-anchor",
+    "ld-nine-bend-toll-seal",
+    "ld-first-fleet-anchor",
+    "ld-ferry-master-oilskin"
+   ],
+   "changed": "build: main dia_thuy -> washing-waves-canon (the gate's own lineage, R5); aux + nine-bends-art; chuong -> ld-nine-bend-toll-seal; tree targets -> intent; birthplace 1229 added."
+  },
+  {
+   "key": "thuong_bach_pham",
+   "name_hv": "Thương Bạch Phàm",
+   "name_han": "商白帆",
+   "gloss": "A white sail",
+   "sex": "F",
+   "born": 1000,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "lang_dao",
+   "rank": "truong_lao",
+   "home": 13,
+   "birthplace": 1279,
+   "role": "Mistress of the boats: the fleet, its building and its crews; saved the one ferry that did not burn",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 66,
+     "moc": 50
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 60,
+    "than_hon": 56,
+    "khi_van": 58,
+    "dao_tam": 66,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Just",
+     "Calm"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born",
+    "path": [
+     "perfect_foundation"
+    ],
+    "lifestyle": "chronicler",
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A tall helmsman's daughter with white hair cropped like a deckhand's and a burn across both palms.",
+   "backstory": "Born in Đà Công Thôn, the helmsmen's village, she has been Giang Cửu Khúc's (giang_cuu_khuc) Dao partner since 1040 and mistress of the boats since 1100. On the night Lạc Hà fired the Đào Sa landing (A080) she cut one ferry loose and poled it into the current with nine children aboard, and its sail is her flag now. She rebuilt the fleet with the River Hall's timber in 1175. She does not know why the war began, and she has started reading the old toll books.",
+   "ties": [
+    {
+     "to": "giang_cuu_khuc",
+     "kind": "dao_partner",
+     "note": ""
+    },
+    {
+     "to": "giang_hoi_lan",
+     "kind": "child",
+     "note": "their son"
+    },
+    {
+     "to": "dong_cuu_mon",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "thuong_thien_dao",
+     "kind": "disciple",
+     "note": "one of the nine children on the boat"
+    },
+    {
+     "to": "uc_lang_hoa",
+     "kind": "disciple",
+     "note": "helmswoman of the awning boats of Ô Bồng; head of the Úc boat family"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "washing-waves-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "nine-bends-art",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "ld-last-white-sail"
+     },
+     {
+      "base": "mao",
+      "grade": 3,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water defence and evasion for her crews; she holds a landing.",
+     "targets": [
+      5452,
+      5449,
+      5477,
+      5283,
+      5498
+     ],
+     "targets_note": "Canal route, then Nine Bends, Clam Shell and Water Ring Step: defence and evasion to hold a landing."
+    },
+    "note": "A sail planted on a landing."
+   },
+   "items": [
+    "ld-last-white-sail"
+   ]
+  },
+  {
+   "key": "giang_hoi_lan",
+   "name_hv": "Giang Hồi Lan",
+   "name_han": "江回瀾",
+   "gloss": "Turning back the great waves",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "lang_dao",
+   "rank": "chan_truyen",
+   "home": 47,
+   "birthplace": 13,
+   "role": "The ferry master's son and heir; captain of the Đào Sa landing",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 62,
+     "moc": 44
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 66,
+    "than_hon": 50,
+    "khi_van": 52,
+    "dao_tam": 48,
+    "mi_luc": 60
+   },
+   "traits": {
+    "personality": [
+     "Wrathful",
+     "Brave",
+     "Vengeful"
+    ],
+    "calling": "Duelist",
+    "upbringing": "clan_heir",
+    "path": [
+     "body_tempered"
+    ],
+    "coping": "vengeance_vow",
+    "fate_given": [],
+    "gained": [
+     "Scarred"
+    ]
+   },
+   "appearance": "His father's build and his mother's burned hands, and a half-healed scar where a Lạc Hà oar took him in 1173.",
+   "backstory": "He was on the Đào Sa landing in 1173 (A080) when the boats burned and has captained it since. He wants the Ferry War fought again and won, and he says so to Đặng Hoành Giang (dang_hoanh_giang), the pines' man at the gate, whenever the River Hall is listening. His daughter Giang Tiểu Loan (giang_tieu_loan) is his disciple. He thinks his father's letters to Lữ Tẫn Chu are weakness.",
+   "ties": [
+    {
+     "to": "giang_cuu_khuc",
+     "kind": "parent",
+     "note": "his father and master"
+    },
+    {
+     "to": "thuong_bach_pham",
+     "kind": "parent",
+     "note": "his mother"
+    },
+    {
+     "to": "giang_tieu_loan",
+     "kind": "child",
+     "note": "and his disciple"
+    },
+    {
+     "to": "dang_hoanh_giang",
+     "kind": "friend",
+     "note": "the River Hall's man at the gate"
+    },
+    {
+     "to": "lo_xuong_van",
+     "kind": "enemy",
+     "note": "led the raid"
+    },
+    {
+     "to": "dinh_van_tac",
+     "kind": "enemy",
+     "note": "the smuggler who wants the war fought again and the trade it would end"
+    },
+    {
+     "to": "thuong_thien_dao",
+     "kind": "friend",
+     "note": "the gold-washer at the landing he captains"
+    },
+    {
+     "to": "ky_chu_nhi",
+     "kind": "disciple",
+     "note": "outer deck boy of the Đào Sa captain"
+    }
+   ],
+   "master": "giang_cuu_khuc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "washing-waves-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "returning-wake-verse",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water damage and a heavy body; he wants to hit first.",
+     "targets": [
+      5452,
+      5449,
+      5255,
+      5261,
+      5082
+     ],
+     "targets_note": "Canal route, then Rolling Waves and Carp Scales: Water damage and a heavy body, his father's carp."
+    },
+    "note": "The heir who wants the war back."
+   }
+  },
+  {
+   "key": "lai_bat_khuc",
+   "name_hv": "Lại Bát Khúc",
+   "name_han": "賴八曲",
+   "gloss": "The eighth bend",
+   "sex": "M",
+   "born": 1090,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "lang_dao",
+   "rank": "noi_mon",
+   "home": 13,
+   "birthplace": 1235,
+   "role": "Pilot of the eighth bend, where the serpent sleeps",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "moc": 40
+    }
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Reclusive",
+     "Devout"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "The only pilot who takes boats through the eighth bend, where the water serpent nested in 900 (A077); he rows out each spring with a pig, as the old boatmen of Đông Lưu fed their river spirit (A065), and the serpent lets the ferries pass.",
+   "ties": [
+    {
+     "to": "giang_cuu_khuc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ma_truong_cao",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "ngo_da_do",
+     "kind": "disciple",
+     "note": "inner disciple of the eighth-bend pilot; rowed the spring pig to the serpent"
+    }
+   ],
+   "master": "giang_cuu_khuc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "washing-waves-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "nine-bends-art",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Evasion and Water."
+    },
+    "note": "Knows where the serpent sleeps."
+   }
+  },
+  {
+   "key": "sai_ket_lam",
+   "name_hv": "Sài Kết Lãm",
+   "name_han": "柴結纜",
+   "gloss": "Ties the hawser",
+   "sex": "M",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "lang_dao",
+   "rank": "chap_su",
+   "home": 13,
+   "birthplace": 1223,
+   "role": "Rope and rigging master; still buys Lạc Hà hemp",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 42
+    }
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Deceitful",
+     "Patient"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Lãng Đào's ferrymen will buy no rope but Tang Ma Thành's hemp (A201), which grows in Lạc Hà's land; since the Ferry War he has bought it through a Đào Sa smuggler and tells the head it comes from somewhere else.",
+   "ties": [
+    {
+     "to": "giang_cuu_khuc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "thach_thap_dinh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "dinh_van_tac",
+     "kind": "friend",
+     "note": "his one buyer, who tells his head the hemp comes from elsewhere"
+    },
+    {
+     "to": "uc_tieu_bong",
+     "kind": "disciple",
+     "note": "outer deck child of the Úc awning boat"
+    }
+   ],
+   "master": "giang_cuu_khuc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "washing-waves-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Binding and holding."
+    },
+    "note": "Good rope from a bad place."
+   }
+  },
+  {
+   "key": "thuong_thien_dao",
+   "name_hv": "Thường Thiên Đào",
+   "name_han": "常千淘",
+   "gloss": "A thousand washings",
+   "sex": "F",
+   "born": 1160,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "lang_dao",
+   "rank": "noi_mon",
+   "home": 47,
+   "birthplace": 47,
+   "role": "Warden of the Đào Sa landing and the gold-washers",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "moc": 38
+    }
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Honest",
+     "Wrathful"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "One of the nine children Thương Bạch Phàm (thuong_bach_pham) poled out of the fire at Đào Sa in 1173 (A080); she keeps the landing where it happened and the gold-washers' tally, and she still fishes nails out of the shallows.",
+   "ties": [
+    {
+     "to": "thuong_bach_pham",
+     "kind": "master",
+     "note": "poled her out of the fire in 1173; she owes her life"
+    },
+    {
+     "to": "giang_hoi_lan",
+     "kind": "friend",
+     "note": "the landing's captain"
+    },
+    {
+     "to": "le_tieu_pham",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "khang_tay_kim",
+     "kind": "friend",
+     "note": "the River Hall's steward at Đào Sa"
+    },
+    {
+     "to": "lieu_tay_sa",
+     "kind": "rival",
+     "note": "the loose gold-washer who counts her pan twice"
+    },
+    {
+     "to": "bo_tay_sa",
+     "kind": "disciple",
+     "note": "outer disciple at the Đào Sa landing; a gold-washer's orphan of the burning"
+    }
+   ],
+   "master": "thuong_bach_pham",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "washing-waves-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Ward-stripping Water."
+    },
+    "note": "Needles ground from the Đào Sa nails."
+   }
+  },
+  {
+   "key": "le_tieu_pham",
+   "name_hv": "Lê Tiểu Phàm",
+   "name_han": "黎小帆",
+   "gloss": "Little sail",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lang_dao",
+   "rank": "noi_mon",
+   "home": 47,
+   "birthplace": 1229,
+   "role": "Inner disciple; a crossing-keeper's daughter",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "moc": 36
+    }
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Gregarious",
+     "Impatient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hoành Độ Thôn girl from the same crossing as the head; Thường Thiên Đào (thuong_thien_dao) is teaching her the landing and she wants the river mouth.",
+   "ties": [
+    {
+     "to": "thuong_thien_dao",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "giang_tieu_loan",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "to_lenh_chu",
+     "kind": "friend",
+     "note": "inner disciple of the gate-house; checks passes on the first landing"
+    }
+   ],
+   "master": "thuong_thien_dao",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "washing-waves-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "ma_truong_cao",
+   "name_hv": "Mã Trường Cao",
+   "name_han": "馬長篙",
+   "gloss": "The long pole",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lang_dao",
+   "rank": "noi_mon",
+   "home": 13,
+   "birthplace": 1279,
+   "role": "Inner disciple of the eighth-bend pilot",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 40
+    }
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Content",
+     "Loyal"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A helmsman's son from Đà Công Thôn who rows the pig out to the eighth bend for Lại Bát Khúc (lai_bat_khuc) each spring and has once seen the serpent's eye open.",
+   "ties": [
+    {
+     "to": "lai_bat_khuc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ngo_da_do",
+     "kind": "rival",
+     "note": "inner disciple of the eighth-bend pilot; rowed the spring pig to the serpent"
+    }
+   ],
+   "master": "lai_bat_khuc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "washing-waves-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "A long pole."
+   }
+  },
+  {
+   "key": "thach_thap_dinh",
+   "name_hv": "Thạch Thập Đinh",
+   "name_han": "石拾釘",
+   "gloss": "Picks up nails",
+   "sex": "M",
+   "born": 1168,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lang_dao",
+   "rank": "ngoai_mon",
+   "home": 13,
+   "birthplace": 47,
+   "role": "Outer disciple; a Đào Sa orphan of the burning, too old for the inner gate",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "moc": 34
+    }
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Diligent",
+     "Paranoid"
+    ],
+    "calling": "Refiner",
+    "upbringing": "war_orphan"
+   },
+   "backstory": "He was five when the landing burned (A080) and fished nails out of the river beside a Lạc Hà elder and a ferryman's boy for a whole morning; the boy went to Lạc Hà, and he stayed and makes the gate's rope fittings for Sài Kết Lãm (sai_ket_lam).",
+   "ties": [
+    {
+     "to": "sai_ket_lam",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "lu_tan_chu",
+     "kind": "friend",
+     "note": "the boy beside him in the shallows in 1173"
+    },
+    {
+     "to": "bo_tay_sa",
+     "kind": "friend",
+     "note": "outer disciple at the Đào Sa landing; a gold-washer's orphan of the burning"
+    }
+   ],
+   "master": "sai_ket_lam",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ferry-pole-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Sturdy."
+    },
+    "note": "Nails."
+   }
+  },
+  {
+   "key": "giang_tieu_loan",
+   "name_hv": "Giang Tiểu Loan",
+   "name_han": "江小灣",
+   "gloss": "A little bay",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "lang_dao",
+   "rank": "ngoai_mon",
+   "home": 47,
+   "birthplace": 47,
+   "role": "Outer disciple; the ferry master's granddaughter",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 38
+    }
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Generous",
+     "Trusting"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "Giang Hồi Lan's (giang_hoi_lan) daughter, who carries her grandfather's spring letters to the Ngư Ca landing and has started adding notes of her own to Lữ Tẫn Chu.",
+   "ties": [
+    {
+     "to": "giang_hoi_lan",
+     "kind": "parent",
+     "note": "and her master"
+    },
+    {
+     "to": "giang_cuu_khuc",
+     "kind": "grandparent",
+     "note": ""
+    },
+    {
+     "to": "le_tieu_pham",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "ky_chu_nhi",
+     "kind": "friend",
+     "note": "outer deck boy of the Đào Sa captain"
+    }
+   ],
+   "master": "giang_hoi_lan",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ferry-pole-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "dong_cuu_mon",
+   "name_hv": "Đổng Cựu Môn",
+   "name_han": "董舊門",
+   "gloss": "The old gate",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lang_dao",
+   "rank": "noi_mon",
+   "home": 13,
+   "birthplace": 1274,
+   "role": "Inner disciple; a descendant of the boatmen of fallen Phân Thủy Môn",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "moc": 30
+    }
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Just",
+     "Reclusive"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "lifestyle": "chronicler"
+   },
+   "backstory": "His family kept a gate-post of Phân Thủy Môn after its boats were sunk in the feud of 788 (V048); he thinks Lãng Đào was built on that feud's ashes and wants the old gate's name spoken at the spring landing.",
+   "ties": [
+    {
+     "to": "thuong_bach_pham",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "uong_lien_chu",
+     "kind": "ancestor",
+     "note": "the founder who made one gate of the feuding families"
+    },
+    {
+     "to": "uc_tieu_bong",
+     "kind": "friend",
+     "note": "outer deck child of the Úc awning boat"
+    },
+    {
+     "to": "uc_lang_hoa",
+     "kind": "rival",
+     "note": "helmswoman of the awning boats of Ô Bồng; head of the Úc boat family"
+    }
+   ],
+   "master": "thuong_bach_pham",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "washing-waves-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "uong_lien_chu",
+   "name_hv": "Uông Liên Chu",
+   "name_han": "汪連舟",
+   "gloss": "Linked boats",
+   "sex": "M",
+   "born": 700,
+   "died": 1010,
+   "cause": "died at the helm of the first ferry of spring, at 310",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "lang_dao",
+   "rank": "founder",
+   "home": 13,
+   "birthplace": 266,
+   "role": "Founder of Lãng Đào Môn (790); made one gate of the feuding boat families",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Just",
+     "Patient",
+     "Gregarious"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born",
+    "path": [
+     "long_seclusion"
+    ]
+   },
+   "backstory": "Born in Phá Chu Trấn, he saw it burned in the landing feud of 786 (V047) and Phân Thủy Môn's boats sunk two years later (V048). In 790 he lashed the surviving families' boats together across the river and would not untie them until they swore one gate under the pines (A075). He wrote the Washing Waves Canon from their songs and cut the toll seal, and he taught Giang Cửu Khúc (giang_cuu_khuc).",
+   "ties": [
+    {
+     "to": "giang_cuu_khuc",
+     "kind": "disciple",
+     "note": "his successor"
+    },
+    {
+     "to": "dong_cuu_mon",
+     "kind": "descendant",
+     "note": "his descendant"
+    }
+   ]
+  },
+  {
+   "key": "lu_thua_lang",
+   "name_hv": "Lữ Thừa Lãng",
+   "name_han": "呂乘浪",
+   "gloss": "Rides the waves",
+   "sex": "M",
+   "born": 1125,
+   "died": 1173,
+   "cause": "burned on his ferry at the Đào Sa landing when Lạc Hà's raiders fired the boats, at 48 (A080)",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "lang_dao",
+   "rank": "noi_mon",
+   "home": 47,
+   "birthplace": 47,
+   "role": "Ferryman of the Đào Sa landing; father of Lữ Niệm Hà and Lữ Tẫn Chu",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Content",
+     "Loyal"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Đào Sa ferryman who would not leave his boat when the raiders fired the landing in 1173 (A080); his daughter went up the river to Thải Chi and his son across it to Lạc Hà.",
+   "ties": [
+    {
+     "to": "lu_niem_ha",
+     "kind": "child",
+     "note": "in Thải Chi Cốc"
+    },
+    {
+     "to": "lu_tan_chu",
+     "kind": "child",
+     "note": "raised by Lạc Hà"
+    },
+    {
+     "to": "giang_cuu_khuc",
+     "kind": "master",
+     "note": "his master, who owes him for the war that burned him at Đào Sa"
+    }
+   ]
+  }
+ ]
+}

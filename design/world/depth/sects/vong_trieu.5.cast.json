@@ -1,0 +1,484 @@
+{
+ "sect": "vong_trieu",
+ "people": [
+  {
+   "key": "bang_tran_lang",
+   "name_hv": "Bàng Trấn Lãng",
+   "name_han": "龐鎮浪",
+   "gloss": "Holds back the waves",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "vong_trieu",
+   "rank": "noi_mon",
+   "home": 337,
+   "birthplace": 791,
+   "role": "Draws breakwater arrays for the storm wards",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 52,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Patient",
+     "Honest"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born"
+   },
+   "backstory": "Has drawn three breakwater arrays for Chân Định Lan (chan_dinh_lan) that Lê Bạch Diêm (le_bach_diem) has costed and the head has refused; he keeps the plans in the founder's tower, where Ôn Thủ Đăng cannot miss them.",
+   "ties": [
+    {
+     "to": "chan_dinh_lan",
+     "kind": "master",
+     "note": "the storm wards"
+    },
+    {
+     "to": "le_bach_diem",
+     "kind": "friend",
+     "note": "the numbers"
+    },
+    {
+     "to": "on_thu_dang",
+     "kind": "rival",
+     "note": "lamps or walls"
+    }
+   ],
+   "master": "chan_dinh_lan",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "lamp-ward-seal-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Wards that break the sea."
+    }
+   }
+  },
+  {
+   "key": "dich_tan_chieu",
+   "name_hv": "Dịch Tàn Chiếu",
+   "name_han": "易殘照",
+   "gloss": "Last light",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "vong_trieu",
+   "rank": "noi_mon",
+   "home": 788,
+   "birthplace": 788,
+   "role": "Keeper of the tide lamp at Nhật Xuất Thôn",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Devout",
+     "Calm"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Born of the drowned keeper Dịch Thủy Thanh's (dich_thuy_thanh) family, five generations down, and sworn in his name; Ôn Thủ Đăng took her as his disciple the year she swore and has never said why he weeps at her lamp.",
+   "ties": [
+    {
+     "to": "on_thu_dang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dich_thuy_thanh",
+     "kind": "aunt_uncle",
+     "note": "her family's drowned keeper, five generations up; died at the Kim Sa lamp in 913"
+    },
+    {
+     "to": "thach_hai_the",
+     "kind": "disciple",
+     "note": "newly sworn keeper at the tide lamp"
+    }
+   ],
+   "master": "on_thu_dang",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "lamp-ward-seal-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "tide-reading-gaze",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "The lamp kept."
+    }
+   }
+  },
+  {
+   "key": "ngu_da_pham",
+   "name_hv": "Ngư Dạ Phàm",
+   "name_han": "魚夜帆",
+   "gloss": "Night sail",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "vong_trieu",
+   "rank": "ngoai_mon",
+   "home": 788,
+   "birthplace": 788,
+   "role": "Carries oil up to the northern lamp",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Honest",
+     "Paranoid"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Carries the oil up to Kiển Mục Hải (kien_muc_hai) in the crumbling fort each month; on one night he stayed he saw the unlit sails pass south, and he has drawn them on the stair wall, nine hulls.",
+   "ties": [
+    {
+     "to": "kien_muc_hai",
+     "kind": "master",
+     "note": "the northern lamp"
+    }
+   ],
+   "master": "kien_muc_hai",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "A hard body for the cliff stair."
+    }
+   }
+  },
+  {
+   "key": "dang_ham_sa",
+   "name_hv": "Đặng Hàm Sa",
+   "name_han": "鄧鹹沙",
+   "gloss": "Salt sand",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "vong_trieu",
+   "rank": "ngoai_mon",
+   "home": 337,
+   "birthplace": 779,
+   "role": "Salt boiler and oil clerk",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Honest",
+     "Gregarious"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Boils salt at Hàm Trạch for the stores and keeps the oil ledgers for Lê Bạch Diêm (le_bach_diem); she can say what three relit towers would cost a year, and has said it to Kỳ Lam Sa (ky_lam_sa).",
+   "ties": [
+    {
+     "to": "le_bach_diem",
+     "kind": "master",
+     "note": "the stores"
+    },
+    {
+     "to": "ky_lam_sa",
+     "kind": "friend",
+     "note": "the young who want walls"
+    }
+   ],
+   "master": "le_bach_diem",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain."
+    }
+   }
+  },
+  {
+   "key": "tram_tham_chau",
+   "name_hv": "Trạm Thâm Châu",
+   "name_han": "湛深珠",
+   "gloss": "Deep pearl",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "vong_trieu",
+   "rank": "ngoai_mon",
+   "home": 228,
+   "birthplace": 149,
+   "role": "Learns to dive at the burned piers",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Loyal",
+     "Impatient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A cousin's girl of Trạm Châu Nhi (tram_chau_nhi) who has learned to dive from her in the dark below the burned piers; the family vow forbids it, and the hall pretends it knows nothing of either of them.",
+   "ties": [
+    {
+     "to": "tram_chau_nhi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tram_chau_nhi",
+     "kind": "cousin",
+     "note": "her mother's cousin"
+    }
+   ],
+   "master": "tram_chau_nhi",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Breath and a hard body."
+    }
+   }
+  },
+  {
+   "key": "bien_vi_dang",
+   "name_hv": "Biện Vĩ Đăng",
+   "name_han": "卞葦燈",
+   "gloss": "Reed lamp",
+   "sex": "M",
+   "born": 1175,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "vong_trieu",
+   "rank": "ngoai_mon",
+   "home": 164,
+   "birthplace": 164,
+   "role": "Wick-cutter at the southern lamp",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Content",
+     "Reclusive"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Cuts reeds for the southern lamp's wicks under Vệ Lư Sinh (ve_lu_sinh) and has kept the lamp his full year without letting it go out; he thinks the oil would be better spent on walls, and says so only to the reeds.",
+   "ties": [
+    {
+     "to": "ve_lu_sinh",
+     "kind": "master",
+     "note": "the southern lamp"
+    }
+   ],
+   "master": "ve_lu_sinh",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood sustain."
+    }
+   }
+  },
+  {
+   "key": "thach_hai_the",
+   "name_hv": "Thạch Hải Thệ",
+   "name_han": "石海誓",
+   "gloss": "Sea oath",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "vong_trieu",
+   "rank": "ngoai_mon",
+   "home": 788,
+   "birthplace": 788,
+   "role": "Newly sworn keeper at the tide lamp",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "tho": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Devout",
+     "Stubborn"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "backstory": "Swore at the founder's tower in 1197 naming a fishing boat the storm took with her parents on it; she stood her night on the tower top without a lamp, awake, and has not slept well since.",
+   "ties": [
+    {
+     "to": "dich_tan_chieu",
+     "kind": "master",
+     "note": "the tide lamp"
+    },
+    {
+     "to": "man_hai_muoi",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "dich_tan_chieu",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "unbroken-flesh-canon",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "A hard body."
+    }
+   }
+  }
+ ]
+}

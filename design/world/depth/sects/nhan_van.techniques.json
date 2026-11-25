@@ -1,0 +1,68 @@
+{
+ "sect": "nhan_van",
+ "_doc": "Nhàn Vân Quán lineage (rules-proposals R5). Seat stays at place 364 (Water 32 %, Wood 16 %: fits); leans Water, Wood unchanged. Outer gate: ink-grinding-primer (Yellow, Water or Wood). Inner gate and above: idle-cloud-reflection-canon (Profound, Water). Secret arts: living-scroll-art (inner gate), old-reflection-art (elders and the head; the founder's). Proposals are unpriced.",
+ "lineage": {
+  "outer": "ink-grinding-primer",
+  "main": "idle-cloud-reflection-canon",
+  "secret": [
+   {"id": "living-scroll-art", "rank": "noi_mon"},
+   {"id": "old-reflection-art", "rank": "truong_lao", "note": "taught to the head and to one elder; Mễ Phù Vân was taught it by the founder and does not use it"}
+  ],
+  "body": null,
+  "elements": ["thuy", "moc"],
+  "tree_route": [4820, 4943, 4947],
+  "tree_route_note": "Pale Ink, then the Mirror Lake idea (Still Pond, Mirror Lake): ink, soul resistance and the reflection that answers a blow; the still pool of Đàm Ảnh Thành."
+ },
+ "techniques": [
+  {
+   "id": "ink-grinding-primer",
+   "name": "Ink-Grinding Primer (Ma Mặc Quyết)",
+   "tier": 0, "tech_kind": "main", "names": ["thuy", "moc"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The outer gate grinds ink before it is allowed to paint. Each stroke of the inkstick on the stone is one breath, and the breath goes into the ink: Water from the well water, Wood from the agarwood soot. After six layers the ink holds qi for a day, and a brush line drawn with it can be pushed a hand's width through the air. The novice fights the way a calligrapher writes, with short wet strokes, and wins by not stopping.",
+   "arts": [
+    {"new": "Wet Stroke (Thấp Bút)", "concept": "A quick ink line flung from the brush: a light Water hit that leaves one Water stack; the third stroke in a row on one foe also leaves a Wood stack."},
+    "backwash-seal"
+   ],
+   "lore": "Kha Đạm Mặc wrote it in 905 for the first island children who came to the abbey, because, he said, a child who will not grind ink will not wait for a cloud.",
+   "status": "proposal"
+  },
+  {
+   "id": "idle-cloud-reflection-canon",
+   "name": "Idle Cloud Reflection Canon (Nhàn Vân Đàm Ảnh Kinh)",
+   "tier": 1, "tech_kind": "main", "names": ["thuy"], "layers": 9, "rank": "noi_mon",
+   "concept": "The cultivator learns to be the still pool of Đàm Ảnh Thành: to hold what passes over without holding on to it. Qi settles in the dantian like water after wind, and whatever crosses it leaves a reflection. In a fight the painter paints her own reflection out of that stillness, a double in wet ink that stands beside her and takes blows, and the longer the fight stays calm the better the double holds. It is a patient, defensive method. It is weak against a rush and very hard to wear down.",
+   "arts": [
+    {"new": "Cloud in the Pool (Đàm Trung Vân)", "concept": "Paints a reflection-double of the holder for 8 s; the double copies her next two arts at half strength and takes a share of hits aimed at her. Recast before it fades and it holds 2 s longer."},
+    {"new": "Upside-Down Sky (Đảo Thiên)", "concept": "Turns the reflection over: for 3 s the double and the holder trade places, and any curse or stack laid on her in that time lands on the double instead."},
+    "deep-lake-stance"
+   ],
+   "lore": "Diệp Tố Quyên and Kha Đạm Mặc wrote it out between 905 and 960 from what they had learned painting the sky upside down in the pool (A152, V092). The abbey says it is not finished and never will be.",
+   "status": "proposal"
+  },
+  {
+   "id": "living-scroll-art",
+   "name": "Living Scroll Art (Hoạt Quyển Thuật)",
+   "tier": 1, "tech_kind": "secret", "names": ["moc", "thuy"], "layers": 9, "rank": "noi_mon",
+   "concept": "The painting of things that move. On bamboo paper from the abbey's mill, a figure painted in qi-ink can walk inside its scroll and, for a few breaths, step off it. Wood gives the figure its life and Water its ink. The abbey lives on this art: it sells door scrolls whose painted guardians step down at night, and boat scrolls whose painted carp swim ahead of a hull to find the deep channel. In a fight the painter unrolls a scroll and lets what is on it out.",
+   "arts": [
+    {"new": "Door Guardian (Môn Thần Quyển)", "concept": "Unrolls a painted guardian for 10 s: a companion that strikes with Wood and takes the foe's hits as a decoy; after it has taken N hits it goes back into the scroll and cannot be called for 20 s.", "authored": "a1"},
+    {"new": "Ink Rain (Mặc Vũ)", "concept": "Shakes the wet scroll over the ground: a field of ink drops for 4 s that slows foes and gives each a Wood stack per second they stand in it."}
+   ],
+   "lore": "The founder's door scrolls were the abbey's first trade, sold in Triều Âm Thành from 910. Since 1158 the abbey teaches it with one rule: never paint a living face onto the scroll, only its reflection.",
+   "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "old-reflection-art",
+   "name": "Painting the Old Reflection (Họa Cựu Ảnh Pháp)",
+   "tier": 2, "tech_kind": "secret", "names": ["thuy"], "layers": 12, "rank": "truong_lao",
+   "concept": "Kha Đạm Mặc believed the pool of Đàm Ảnh Thành keeps every sky it has ever held, layer on layer like sediment, and that a painter with enough stillness can paint an old one back out. This is his method for doing it. In a fight it paints the foe's reflection from a few seconds before and sets the foe back into it: their newest wards and buffs are lost, and any blow they struck in those seconds is undone on the painter. It is slow to cast and costly, and the abbey says that every time it is used something of the painter goes into the water.",
+   "arts": [
+    {"new": "The Sky of a Moment Ago (Tiền Khắc Thiên)", "concept": "A long cast (2 s): the foe loses every buff and ward gained in the last 6 s, and the holder regains the health they took from her in that time. The holder loses 5 % of her maximum health, which does not return in this fight."},
+    {"new": "Ink Sediment (Mặc Trầm)", "concept": "A stance: each second the holder does not move, she gains one layer of stillness; each layer adds to the ward of her reflection-double, and all of them fall away when she moves."}
+   ],
+   "lore": "Kha taught it to two people, Diệp Tố Quyên and Mễ Phù Vân, and died in 1010 at the pool's edge with half the sky of 705 on his silk (N-nhan_van-02). Tần Đảo Ảnh has not been taught it and is trying it anyway.",
+   "status": "proposal"
+  }
+ ]
+}

@@ -1,0 +1,1173 @@
+{
+ "sect": "thai_chi",
+ "people": [
+  {
+   "key": "nghiem_linh_chi",
+   "name_hv": "Nghiêm Linh Chi",
+   "name_han": "嚴靈芝",
+   "gloss": "The spirit mushroom",
+   "sex": "F",
+   "born": 920,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "thai_chi",
+   "rank": "tong_chu",
+   "home": 12,
+   "birthplace": 1233,
+   "role": "Valley-mistress of Thải Chi Cốc since 1000: the herb terraces, the pills, and the river's orphans",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 80,
+     "thuy": 58
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 54,
+    "than_hon": 66,
+    "khi_van": 64,
+    "dao_tam": 70,
+    "mi_luc": 70
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Compassionate",
+     "Patient"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "war_orphan",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "poison_proof"
+    ],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A square, sun-browned woman in a field apron, with soil under her nails and a gourd at her hip that smells of every herb at once.",
+   "backstory": "Nghiêm Linh Chi was four when a spring flood took Hà Đê Thôn's dike and her parents with it in 924. A herb-picker of the valley, Cố Hoài Sơn (co_hoai_son), found her on a roof and carried her up the river in a basket. She grew up weeding his terraces and tasted the hundred herbs at sixty. When he died in his field in 1000 she became valley-mistress, and in her first spring she opened the herb fields to the river's orphans (A078). They have come ever since: flood children, ferry children, the children of the Ferry War. She names them after herbs and gives them her own surname. She sells the pines' Pill Room what Bồ Hạnh Lâm (bo_hanh_lam), whom the valley sent there at nine, cannot brew. The River Hall's mistress Dụ Tĩnh Lưu (du_tinh_luu) sends her grain for the children. She has kept the valley out of every war for two hundred years by being needed by both sides.",
+   "wants": "To name an heir who will keep the orphans' fields open, and to bring Lữ Niệm Hà's brother home from Lạc Hà before one of them dies.",
+   "secret": "In the winter of 1174 she treated Lạc Hà's wounded raiders from the Đào Sa burning by lamplight in the valley's lower field and sent them home. Giang Cửu Khúc (giang_cuu_khuc), whose boats they burned, buys her pills every month.",
+   "ties": [
+    {
+     "to": "co_hoai_son",
+     "kind": "master",
+     "note": "the picker who carried her out of the flood; mistress before her"
+    },
+    {
+     "to": "lu_niem_ha",
+     "kind": "disciple",
+     "note": "her true disciple, a Ferry War orphan"
+    },
+    {
+     "to": "mai_thu_dien",
+     "kind": "disciple",
+     "note": "the field-warden"
+    },
+    {
+     "to": "phung_luc_ngac",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "ong_kho_sam",
+     "kind": "disciple",
+     "note": "the steward"
+    },
+    {
+     "to": "du_tinh_luu",
+     "kind": "friend",
+     "note": "the River Hall's mistress, who feeds the orphans"
+    },
+    {
+     "to": "bo_hanh_lam",
+     "kind": "friend",
+     "note": "the valley's tribute boy, now the pines' Pill Room master"
+    },
+    {
+     "to": "giang_cuu_khuc",
+     "kind": "friend",
+     "note": "the ferry lord who sends her orphans and buys her pills"
+    },
+    {
+     "to": "kieu_nguyet_chau",
+     "kind": "friend",
+     "note": "pearl powder for cold-sickness pills, every winter since 1150"
+    },
+    {
+     "to": "dieu_tan_dan",
+     "kind": "creditor",
+     "note": "the alchemist she took in after the fire of 1066"
+    },
+    {
+     "to": "nghiem_bach_truat",
+     "kind": "disciple",
+     "note": "keeper of the lingzhi beds on the Bối Dược terraces"
+    },
+    {
+     "to": "nghiem_hoang_ky",
+     "kind": "disciple",
+     "note": "keeper of the sick-houses below the terraces, where anyone carried to the gate is treated"
+    }
+   ],
+   "master": "co_hoai_son",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "shang-mountain-lingzhi-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "hundred-herbs-tasting",
+      "layer": 9
+     },
+     {
+      "tech": "grain-rain-canon",
+      "layer": 7
+     }
+    ],
+    "gear": [
+     {
+      "named": "tc-purple-lingzhi-gourd"
+     },
+     {
+      "named": "tc-grain-rain-fan"
+     },
+     {
+      "named": "tc-terrace-bell"
+     }
+    ],
+    "skills": {
+     "dan_dao": 7,
+     "linh_thuc": 7
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing and stacks first, Water sustain second: she fights the way she gardens, slowly, and she does not die.",
+     "targets": [
+      788,
+      5710,
+      5759,
+      5715,
+      5748,
+      6496
+     ],
+     "targets_note": "The valley's herb route (Forest Floor, Herb Seed, Wild Ginseng), then Herb Plot's healing, Hundred Herbs Kept Alive and the Spirit Garden capability: she fights the way she gardens."
+    },
+    "note": "The valley-mistress of the herb fields: a patient grower and brewer who keeps her herbs alive in the gourd."
+   },
+   "items": [
+    "tc-purple-lingzhi-gourd",
+    "tc-grain-rain-fan",
+    "tc-terrace-bell"
+   ],
+   "changed": "build: main verdant-cycle-scripture -> shang-mountain-lingzhi-canon (the valley's own lineage, R5); aux + hundred-herbs-tasting, grain-rain-canon; ho_lo grade 3 -> tc-purple-lingzhi-gourd; tree targets -> intent; birthplace 1233 added."
+  },
+  {
+   "key": "dieu_tan_dan",
+   "name_hv": "Diêu Tẫn Đan",
+   "name_han": "姚燼丹",
+   "gloss": "Ember pill",
+   "sex": "M",
+   "born": 965,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "thai_chi",
+   "rank": "khach_khanh",
+   "home": 12,
+   "birthplace": 1253,
+   "role": "Guest elder and the valley's furnace-master; the last alchemist of Lăng Tiêu Các",
+   "tier": "B",
+   "exception": "guest elder (khách khanh): a hired alchemist with a Fire root, never taught the valley's canon",
+   "root": {
+    "elements": {
+     "hoa": 62,
+     "tho": 36
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 50,
+    "than_hon": 60,
+    "khi_van": 34,
+    "dao_tam": 42,
+    "mi_luc": 38
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Deceitful",
+     "Diligent"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born",
+    "path": [
+     "fire_tempered",
+     "pill_master_tongue"
+    ],
+    "health": "fire_poison",
+    "fate_given": [],
+    "gained": [
+     "Hunted"
+    ]
+   },
+   "appearance": "A gaunt man with burn-scarred forearms who keeps a bronze censer with a live coal in it on a chain at his belt.",
+   "backstory": "He was the youngest master of the pill hall of Lăng Tiêu Các on its mountain when the hall burned in 1066 and its alchemists scattered (V050). He walked down to the valley with the Cinder Censer and nothing else, and Nghiêm Linh Chi (nghiem_linh_chi) gave him a stone furnace-house below the terraces, where open fire cannot reach the herbs. He brews what the Wood canon cannot. He has never said whose furnace the fire started in. The scattered alchemists of Lăng Tiêu still ask after him.",
+   "ties": [
+    {
+     "to": "nghiem_linh_chi",
+     "kind": "debt",
+     "note": "she took him in when no one else would"
+    },
+    {
+     "to": "phung_luc_ngac",
+     "kind": "friend",
+     "note": "the one inner disciple he teaches the furnace to"
+    },
+    {
+     "to": "bo_hanh_lam",
+     "kind": "rival",
+     "note": "the pines' Pill Room master, who says his pills are too hot"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "scorch-fist-primer",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "tc-cinder-censer"
+     },
+     {
+      "base": "ho_lo",
+      "grade": 3,
+      "element": "hoa"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "dan_dao": 8
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire burns and pill strength; Earth for a body that survives its own furnace.",
+     "targets": [
+      2302,
+      2306,
+      2293,
+      2288
+     ],
+     "targets_note": "Outside method (Red Sun), no valley route: the Nine-Turn Furnace, then Toxin-Burning Fire."
+    },
+    "note": "An outside Fire method (R5 exception): he came from a fallen sect and the valley does not teach him."
+   },
+   "items": [
+    "tc-cinder-censer"
+   ]
+  },
+  {
+   "key": "lu_niem_ha",
+   "name_hv": "Lữ Niệm Hà",
+   "name_han": "呂念河",
+   "gloss": "Remembering the river",
+   "sex": "F",
+   "born": 1163,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thai_chi",
+   "rank": "chan_truyen",
+   "home": 12,
+   "birthplace": 47,
+   "role": "The mistress's true disciple; a ferryman's daughter of Đào Sa, orphaned in the Ferry War",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 54
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 56,
+    "than_hon": 58,
+    "khi_van": 46,
+    "dao_tam": 70,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Loyal",
+     "Vengeful"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "war_orphan",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "lifestyle": "teacher_at_heart",
+    "coping": "obsessive_training",
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A wiry woman with a ferryman's hands, who keeps a burnt nail from the Đào Sa landing on a string round her neck.",
+   "backstory": "She was ten when Lạc Hà's raiders burned Lãng Đào's boats at the Đào Sa landing (A080) with her father Lữ Thừa Lãng (lu_thua_lang) on one of them. A Lạc Hà elder took her little brother Lữ Tẫn Chu (lu_tan_chu) home across the border; she was sent up the river to the valley with the other ferry orphans. She refused an herb name and kept her own. Nghiêm Linh Chi (nghiem_linh_chi) made her a true disciple at thirty. She has written to her brother every year. He sings for the side that burned their father, and he has never answered.",
+   "ties": [
+    {
+     "to": "nghiem_linh_chi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "lu_thua_lang",
+     "kind": "parent",
+     "note": "her father, a Lãng Đào ferryman, burned at Đào Sa in 1173"
+    },
+    {
+     "to": "lu_tan_chu",
+     "kind": "sibling",
+     "note": "her little brother, raised by Lạc Hà"
+    },
+    {
+     "to": "nghiem_duong_quy",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "nghiem_tuc_doan",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "dau_sa_nhi",
+     "kind": "friend",
+     "note": "the outer girl from her landing"
+    },
+    {
+     "to": "mai_thu_dien",
+     "kind": "friend",
+     "note": "the elder who backs her"
+    },
+    {
+     "to": "ung_lo_nhi",
+     "kind": "disciple",
+     "note": "inner disciple of the long houses; kept her own name"
+    }
+   ],
+   "master": "nghiem_linh_chi",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "shang-mountain-lingzhi-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "hundred-herbs-tasting",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "dan_dao": 4,
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water healing and Wood spores; a field medic.",
+     "targets": [
+      788,
+      5710,
+      5759,
+      5351,
+      5374
+     ],
+     "targets_note": "Herb route from Water, then Timely Rain and Nourishing Rain: a field medic."
+    },
+    "note": "The heir the mistress has not named."
+   }
+  },
+  {
+   "key": "mai_thu_dien",
+   "name_hv": "Mai Thủ Điền",
+   "name_han": "梅守田",
+   "gloss": "Keeps the fields",
+   "sex": "M",
+   "born": 1040,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thai_chi",
+   "rank": "truong_lao",
+   "home": 12,
+   "birthplace": 1237,
+   "role": "Field-warden of the herb terraces; holds the Grain Rain canon after the mistress",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 62,
+     "thuy": 40
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 54,
+    "can_cot": 66,
+    "than_hon": 50,
+    "khi_van": 48,
+    "dao_tam": 62,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Content",
+     "Honest"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "lifestyle": "gardener",
+    "health": "old_wound",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A bent old farmer with a hoe he will not let anyone else carry and a knee that tells him the rain.",
+   "backstory": "A herb-gatherer's son from Bối Dược Thôn, he has kept the terraces since 1080 and called the Grain Rain over the drowned river fields in the flood of 1093, when Khang Tẩy Kim's gold-washers were pulled from the water downstream. He is 160 and will not form a Golden Core. He says Nghiêm Linh Chi (nghiem_linh_chi) should name Lữ Niệm Hà (lu_niem_ha) heir and stop waiting for the girl to forgive anybody.",
+   "ties": [
+    {
+     "to": "nghiem_linh_chi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nghiem_phuc_linh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "lu_niem_ha",
+     "kind": "friend",
+     "note": "he backs her"
+    },
+    {
+     "to": "nghiem_ich_mau",
+     "kind": "disciple",
+     "note": "outer disciple of the fields; a Bạch Lang orphan"
+    },
+    {
+     "to": "nghiem_bach_truat",
+     "kind": "friend",
+     "note": "keeper of the lingzhi beds on the Bối Dược terraces"
+    }
+   ],
+   "master": "nghiem_linh_chi",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "shang-mountain-lingzhi-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "grain-rain-canon",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 7
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing for allies in the rain; a hard old body.",
+     "targets": [
+      788,
+      5710,
+      5759,
+      5595,
+      6281
+     ],
+     "targets_note": "Herb route, then Spreading Canopy and Strong Sapling: heals for allies in the rain, a hard old body."
+    },
+    "note": "A hoe for an axe."
+   }
+  },
+  {
+   "key": "phung_luc_ngac",
+   "name_hv": "Phùng Lục Ngạc",
+   "name_han": "馮綠萼",
+   "gloss": "Green calyx",
+   "sex": "F",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thai_chi",
+   "rank": "noi_mon",
+   "home": 12,
+   "birthplace": 1227,
+   "role": "Alchemist of the valley, the only one the guest elder teaches",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "hoa": 32
+    }
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Diligent",
+     "Arbitrary"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born",
+    "path": [
+     "pill_fed"
+    ]
+   },
+   "backstory": "A Mạch Hương Thôn girl with a little Fire in her root, which the valley's canon has no use for and Diêu Tẫn Đan (dieu_tan_dan) does; she spends her nights in his stone furnace-house.",
+   "ties": [
+    {
+     "to": "nghiem_linh_chi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dieu_tan_dan",
+     "kind": "friend",
+     "note": "teaches her the furnace"
+    },
+    {
+     "to": "dau_sa_nhi",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "nghiem_linh_chi",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "shang-mountain-lingzhi-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "huong_lo",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "dan_dao": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Pills and Wood stacks."
+    },
+    "note": "Two furnaces."
+   }
+  },
+  {
+   "key": "ong_kho_sam",
+   "name_hv": "Ông Khổ Sâm",
+   "name_han": "翁苦參",
+   "gloss": "Bitter ginseng",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thai_chi",
+   "rank": "chap_su",
+   "home": 33,
+   "birthplace": 1176,
+   "role": "Steward of the valley's trade at Đào Thanh Thành: pills down the river, grain up it",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "tho": 30
+    }
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Greedy",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Grandson of the ginseng diggers the white apes drove out of Thải Sâm Trấn (V040), born in the woodsmen's village they fled to; he sells the valley's pills to the River Hall and Hàm Nguyệt and thinks the mistress gives too many away.",
+   "ties": [
+    {
+     "to": "nghiem_linh_chi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nghiem_cam_thao",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "khang_tay_kim",
+     "kind": "friend",
+     "note": "the River Hall's steward at Đào Sa"
+    },
+    {
+     "to": "nghiem_xuyen_khung",
+     "kind": "disciple",
+     "note": "outer disciple of the trade office at Đào Thanh Thành"
+    },
+    {
+     "to": "nghiem_hoang_ky",
+     "kind": "rival",
+     "note": "keeper of the sick-houses below the terraces, where anyone carried to the gate is treated"
+    }
+   ],
+   "master": "nghiem_linh_chi",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "shang-mountain-lingzhi-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "dan_dao": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Sustain."
+    },
+    "note": "A merchant's gourd."
+   }
+  },
+  {
+   "key": "nghiem_duong_quy",
+   "name_hv": "Nghiêm Đương Quy",
+   "name_han": "嚴當歸",
+   "gloss": "Angelica: 'ought to come home'",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "thai_chi",
+   "rank": "noi_mon",
+   "home": 12,
+   "birthplace": 62,
+   "role": "Inner disciple; a flood orphan of Hà Bạn Trấn",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 36
+    }
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Fickle",
+     "Gregarious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "war_orphan"
+   },
+   "backstory": "Found in a reed basket after a spring flood at Hà Bạn and named for the herb that says come home; she carries Lữ Niệm Hà's (lu_niem_ha) letters to the border and pretends not to read them.",
+   "ties": [
+    {
+     "to": "lu_niem_ha",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nghiem_phuc_linh",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "nghiem_hoac_huong",
+     "kind": "sibling",
+     "note": "her brother; inner disciple of the sick-houses; Nghiêm Đương Quy's twin"
+    }
+   ],
+   "master": "lu_niem_ha",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "shang-mountain-lingzhi-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Healing."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "nghiem_phuc_linh",
+   "name_hv": "Nghiêm Phục Linh",
+   "name_han": "嚴茯苓",
+   "gloss": "Poria: the fungus under the pine root",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "thai_chi",
+   "rank": "ngoai_mon",
+   "home": 12,
+   "birthplace": 1239,
+   "role": "Outer disciple of the terraces",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "tho": 28
+    }
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Patient",
+     "Reclusive"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "war_orphan"
+   },
+   "backstory": "A Thạch Lũy Thôn boy whose mother died of the wolf fever; Mai Thủ Điền (mai_thu_dien) named him for the fungus that grows unseen under pines, which is what he does best.",
+   "ties": [
+    {
+     "to": "mai_thu_dien",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nghiem_duong_quy",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "nghiem_ich_mau",
+     "kind": "friend",
+     "note": "outer disciple of the fields; a Bạch Lang orphan"
+    }
+   ],
+   "master": "mai_thu_dien",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "lingzhi-pickers-song",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Growing things."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "nghiem_tuc_doan",
+   "name_hv": "Nghiêm Tục Đoạn",
+   "name_han": "嚴續斷",
+   "gloss": "Teasel: 'joins the broken'",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "thai_chi",
+   "rank": "noi_mon",
+   "home": 12,
+   "birthplace": 110,
+   "role": "Inner disciple; a bone-setter's apprentice",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 30
+    }
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Just",
+     "Impatient"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "war_orphan"
+   },
+   "backstory": "A Bạch Lang boy with a wolf-tooth charm (A070) whose father, the caravan guard Doanh Thủ Lộ (doanh_thu_lo), died on the Tùng Hạ road in the wolf winter of 1190 (A064); he sets the bones of Tuần Tùng's wardens for nothing.",
+   "ties": [
+    {
+     "to": "doanh_thu_lo",
+     "kind": "parent",
+     "note": "his father, killed on the second night of 1190"
+    },
+    {
+     "to": "lu_niem_ha",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "lac_tung_lang",
+     "kind": "friend",
+     "note": "a Tuần Tùng warden whose arm he set"
+    },
+    {
+     "to": "thu_phieu_binh",
+     "kind": "friend",
+     "note": "the caravan mistress who sends him half of every fee; he does not know whose silver it is"
+    },
+    {
+     "to": "ung_lo_nhi",
+     "kind": "friend",
+     "note": "inner disciple of the long houses; kept her own name"
+    }
+   ],
+   "master": "lu_niem_ha",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "shang-mountain-lingzhi-canon",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Healing."
+    },
+    "note": "Splints and needles."
+   }
+  },
+  {
+   "key": "nghiem_cam_thao",
+   "name_hv": "Nghiêm Cam Thảo",
+   "name_han": "嚴甘草",
+   "gloss": "Licorice: the herb that reconciles all others",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "thai_chi",
+   "rank": "noi_mon",
+   "home": 33,
+   "birthplace": 1221,
+   "role": "Inner disciple of the steward; carries the valley's pills down the river",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 47,
+     "thuy": 34
+    }
+   },
+   "traits": {
+    "personality": [
+     "Forgiving",
+     "Peaceable",
+     "Trusting"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "war_orphan"
+   },
+   "backstory": "An Điếu Đài Thôn orphan named for the herb that makes every other herb agree; Ông Khổ Sâm (ong_kho_sam) uses him to sell to people who dislike each other.",
+   "ties": [
+    {
+     "to": "ong_kho_sam",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nghiem_xuyen_khung",
+     "kind": "friend",
+     "note": "outer disciple of the trade office at Đào Thanh Thành"
+    }
+   ],
+   "master": "ong_kho_sam",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "shang-mountain-lingzhi-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Healing."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "dau_sa_nhi",
+   "name_hv": "Đậu Sa Nhi",
+   "name_han": "竇沙兒",
+   "gloss": "Child of the sand",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "thai_chi",
+   "rank": "ngoai_mon",
+   "home": 12,
+   "birthplace": 47,
+   "role": "Outer disciple; a gold-washer's daughter of Đào Sa",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 32
+    }
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Brave",
+     "Diligent"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Her mother washes gold at Đào Sa and her father is alive, which makes her the only child of the outer gate who is not an orphan; Phùng Lục Ngạc (phung_luc_ngac) is teaching her the furnace.",
+   "ties": [
+    {
+     "to": "phung_luc_ngac",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "lu_niem_ha",
+     "kind": "friend",
+     "note": "from the same landing"
+    },
+    {
+     "to": "nghiem_tu_to",
+     "kind": "friend",
+     "note": "outer disciple; weeds the lingzhi terraces"
+    }
+   ],
+   "master": "phung_luc_ngac",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "lingzhi-pickers-song",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "dan_dao": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water healing."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "tan_tu_chi",
+   "name_hv": "Tần Tử Chi",
+   "name_han": "秦紫芝",
+   "gloss": "Purple lingzhi",
+   "sex": "F",
+   "born": 380,
+   "died": 690,
+   "cause": "went up the valley in her ninetieth year of seclusion and was found sitting under a lingzhi, at 310",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "thai_chi",
+   "rank": "founder",
+   "home": 12,
+   "birthplace": 1237,
+   "role": "Founder of Thải Chi Cốc (480); one of the lingzhi pickers who left the world",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Content",
+     "Generous"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "path": [
+     "long_seclusion"
+    ]
+   },
+   "backstory": "One of the four pickers who walked into the valley in 480 singing the old song of the four hermits (A071). She grew the gourd on her own vine, planted the first spirit-herb fields along the river in 520 (A072), and taught the valley to sing its canon instead of writing it. She died sitting under a lingzhi in 690, the same year the pines' founder died (A010).",
+   "ties": [
+    {
+     "to": "co_hoai_son",
+     "kind": "descendant",
+     "note": "the valley-mistresses and masters after her (lineage)"
+    }
+   ]
+  },
+  {
+   "key": "co_hoai_son",
+   "name_hv": "Cố Hoài Sơn",
+   "name_han": "顧懷山",
+   "gloss": "Longing for the mountain",
+   "sex": "M",
+   "born": 700,
+   "died": 1000,
+   "cause": "died hoeing his terrace, at 300",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "thai_chi",
+   "rank": "last_head",
+   "home": 12,
+   "birthplace": 12,
+   "role": "Master of Thải Chi Cốc before Nghiêm Linh Chi; the picker who carried her out of the flood",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Calm",
+     "Compassionate",
+     "Reclusive"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Found a four-year-old on a roof in the flood of 924 and carried her home in his herb basket; she was Nghiêm Linh Chi (nghiem_linh_chi), and he left her the valley when he died in his field in 1000.",
+   "ties": [
+    {
+     "to": "nghiem_linh_chi",
+     "kind": "disciple",
+     "note": "the girl from the roof"
+    },
+    {
+     "to": "tan_tu_chi",
+     "kind": "ancestor",
+     "note": "his ancestor"
+    }
+   ]
+  }
+ ]
+}

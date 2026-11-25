@@ -1,0 +1,80 @@
+{
+ "_doc": "Realm quotas for the authored living cast (rules-proposals R8; memory difficulty-targets: world ~27 Nguyên Anh, ~3 Hóa Thần, 191 Kết Đan, 844 Trúc Cơ, 3,936 Luyện Khí at 5,000 cultivators). world_living_max counts authored living people plus old cast not yet deepened. per_sect_max: great sects 3-4 Nguyên Anh, 12 Kết Đan, 30 Trúc Cơ, 25 Luyện Khí; minor sects 1 Nguyên Anh (only the three that have one), 2 Kết Đan, 4 Trúc Cơ, 5 Luyện Khí; outside sects ('') 3 Nguyên Anh, 25 Kết Đan, 60 Trúc Cơ, 100 Luyện Khí. No new Hóa Thần. Wave 2 (2026-11-25): great sects grow to 45 Trúc Cơ and 55 Luyện Khí (tier C fill of the gates, files <key>.4.cast.json); world caps 600 / 820 (of 844 / 3,936). Kết Đan world cap 170 -> 180 (of 191) when the outside groups landed. Wave 3 (2026-11-25): minor sects grow to 6 Trúc Cơ and 10 Luyện Khí (files <key>.5.cast.json); world caps 650 / 1,000. World Trúc Cơ cap 650 -> 670 (of 844) for the last wave 3 batch.",
+ "world_living_max": {
+  "hoa_than": 3,
+  "nguyen_anh": 27,
+  "ket_dan": 180,
+  "truc_co": 670,
+  "luyen_khi": 1000
+ },
+ "per_sect_max": {
+  "thien_xu": {
+   "hoa_than": 0,
+   "nguyen_anh": 4,
+   "ket_dan": 12,
+   "truc_co": 45,
+   "luyen_khi": 55
+  },
+  "tung_dao": {
+   "hoa_than": 1,
+   "nguyen_anh": 3,
+   "ket_dan": 12,
+   "truc_co": 45,
+   "luyen_khi": 55
+  },
+  "lac_ha": {
+   "hoa_than": 0,
+   "nguyen_anh": 3,
+   "ket_dan": 12,
+   "truc_co": 45,
+   "luyen_khi": 55
+  },
+  "thinh_vu": {
+   "hoa_than": 0,
+   "nguyen_anh": 3,
+   "ket_dan": 12,
+   "truc_co": 45,
+   "luyen_khi": 55
+  },
+  "bang_tam": {
+   "hoa_than": 0,
+   "nguyen_anh": 3,
+   "ket_dan": 12,
+   "truc_co": 45,
+   "luyen_khi": 55
+  },
+  "thuy_vi": {
+   "hoa_than": 0,
+   "nguyen_anh": 3,
+   "ket_dan": 12,
+   "truc_co": 45,
+   "luyen_khi": 55
+  },
+  "phuong_minh": {
+   "hoa_than": 0,
+   "nguyen_anh": 3,
+   "ket_dan": 12,
+   "truc_co": 45,
+   "luyen_khi": 55
+  },
+  "": {
+   "hoa_than": 1,
+   "nguyen_anh": 3,
+   "ket_dan": 25,
+   "truc_co": 60,
+   "luyen_khi": 100
+  }
+ },
+ "minor_default": {
+  "hoa_than": 0,
+  "nguyen_anh": 0,
+  "ket_dan": 2,
+  "truc_co": 6,
+  "luyen_khi": 10
+ },
+ "minor_with_nguyen_anh": [
+  "cung_tinh",
+  "van_khoi",
+  "thien_bao"
+ ]
+}

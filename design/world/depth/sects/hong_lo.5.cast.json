@@ -1,0 +1,487 @@
+{
+ "sect": "hong_lo",
+ "people": [
+  {
+   "key": "luong_hoa_tuyen",
+   "name_hv": "Lương Hỏa Tuyền",
+   "name_han": "梁火泉",
+   "gloss": "Fire spring",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "hong_lo",
+   "rank": "noi_mon",
+   "home": 9,
+   "birthplace": 9,
+   "role": "Packs the snow jackets and keeps the two-batch timings under Tần Tuyết Thán",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 60,
+     "thuy": 42
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Stubborn",
+     "Diligent"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Valley-born to a furnace-man and a cook, she argues in council that a Water root from the boats should be let through the furnace door, as Tần Tuyết Thán (tan_tuyet_than) wants. Ngụy Đan Chu (nguy_dan_chu) has stopped speaking to her.",
+   "ties": [
+    {
+     "to": "tan_tuyet_than",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nguy_dan_chu",
+     "kind": "rival",
+     "note": "the inner door"
+    },
+    {
+     "to": "be_diem_suong",
+     "kind": "disciple",
+     "note": "brews the one-season pills under Lương Hỏa Tuyền"
+    }
+   ],
+   "master": "tan_tuyet_than",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "dan_dao": 5
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire held at the edge by Water."
+    }
+   }
+  },
+  {
+   "key": "cao_hai_mac",
+   "name_hv": "Cao Hải Mặc",
+   "name_han": "高海墨",
+   "gloss": "Sea ink",
+   "sex": "M",
+   "born": 1090,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "hong_lo",
+   "rank": "ngoai_mon",
+   "home": 9,
+   "birthplace": 1030,
+   "role": "Captain of the fire-jade boat; an outer disciple for eighty years",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Humble",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "He sails the fire-jade boat to Hỏa Ngọc Mạch in a smoking year and has been outer for eighty years, like Nghiêu Vọng Kình (nghieu_vong_kinh). The crews want him to be the first Water root through the furnace door; he does not.",
+   "ties": [
+    {
+     "to": "nghieu_vong_kinh",
+     "kind": "friend",
+     "note": "the other old crew captain"
+    },
+    {
+     "to": "nhan_doi_nhi",
+     "kind": "disciple",
+     "note": "rower on the fire-jade boat"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "snow-hearth-primer",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "whale-road-harpoon",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water, the sea road."
+    }
+   }
+  },
+  {
+   "key": "duong_thang_nhi",
+   "name_hv": "Dương Thang Nhi",
+   "name_han": "楊湯兒",
+   "gloss": "Broth child",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "hong_lo",
+   "rank": "tap_dich",
+   "home": 9,
+   "birthplace": 9,
+   "role": "The head cook's daughter; keeps the broth pot at the furnace mouth",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 40,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Loyal",
+     "Gregarious"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Dương Bát Oản's (duong_bat_oan) daughter keeps the broth pot at the furnace mouth day and night. Her brother Dương Lô (duong_lo) tends Viên Chước's furnace at Băng Tâm, and she has decided she will not follow him.",
+   "ties": [
+    {
+     "to": "duong_bat_oan",
+     "kind": "parent",
+     "note": "her father, the head cook"
+    },
+    {
+     "to": "duong_lo",
+     "kind": "sibling",
+     "note": "her brother at Băng Tâm"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "hoang_hoa",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "dan_dao": 1
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire, the kitchen's."
+    }
+   },
+   "exception": "kitchen servant (tạp dịch)"
+  },
+  {
+   "key": "khong_viem_sinh",
+   "name_hv": "Khổng Viêm Sinh",
+   "name_han": "孔炎生",
+   "gloss": "Born of flame",
+   "sex": "M",
+   "born": 1174,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "hong_lo",
+   "rank": "noi_mon",
+   "home": 9,
+   "birthplace": 9,
+   "role": "Ngụy Đan Chu's disciple; copies the furnace roster",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 54,
+     "thuy": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Diligent",
+     "Loyal"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Ngụy Đan Chu (nguy_dan_chu) chose him from the kitchens for his Fire and teaches him that the snow is a crutch. He copies the furnace roster for Phòng Tẫn Thủ (phong_tan_thu), who has never let him see the page for a night in 1150.",
+   "ties": [
+    {
+     "to": "nguy_dan_chu",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "phong_tan_thu",
+     "kind": "friend",
+     "note": "the vent warden"
+    }
+   ],
+   "master": "nguy_dan_chu",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire, the old Red Sun way."
+    }
+   }
+  },
+  {
+   "key": "nhan_doi_nhi",
+   "name_hv": "Nhan Đới Nhi",
+   "name_han": "顏帶兒",
+   "gloss": "Kelp child",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "hong_lo",
+   "rank": "ngoai_mon",
+   "home": 9,
+   "birthplace": 1042,
+   "role": "Rower on the fire-jade boat",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Brave",
+     "Honest"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "She came in through the kitchens from Hải Đới Thôn on her Water and kept her Winter Coal alive until the thaw. Cao Hải Mặc (cao_hai_mac) took her onto the fire-jade boat; she means to be the Water root the furnace door opens for.",
+   "ties": [
+    {
+     "to": "cao_hai_mac",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nghieu_lang_hoa",
+     "kind": "friend",
+     "note": "rows the ash boat"
+    }
+   ],
+   "master": "cao_hai_mac",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "snow-hearth-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "te_luc_tien",
+   "name_hv": "Tề Lục Tiền",
+   "name_han": "齊六錢",
+   "gloss": "Six coins",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "hong_lo",
+   "rank": "ngoai_mon",
+   "home": 9,
+   "birthplace": 1054,
+   "role": "Ash-boat oarsman who still plays dice in Hàn Tân Thành",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Fickle",
+     "Gregarious",
+     "Deceitful"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "lifestyle": "gambler"
+   },
+   "backstory": "He rows the ash boats for Nghiêu Vọng Kình (nghieu_vong_kinh) and loses his pay at the dice tables of Hàn Tân Thành, where an old dealer told him a Hồng Lô man once lost a whole year's ash money there and was never made to pay.",
+   "ties": [
+    {
+     "to": "nghieu_vong_kinh",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "nghieu_vong_kinh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "snow-hearth-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "be_diem_suong",
+   "name_hv": "Bế Diễm Sương",
+   "name_han": "閉焰霜",
+   "gloss": "Flame and frost",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "hong_lo",
+   "rank": "noi_mon",
+   "home": 9,
+   "birthplace": 9,
+   "role": "Brews the one-season pills under Lương Hỏa Tuyền",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 50,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Diligent",
+     "Compassionate"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Valley-born, she kept her Winter Coal alive under her coat a whole winter at nine. Lương Hỏa Tuyền (luong_hoa_tuyen) teaches her the jackets, and Ôn Noãn Tuyết (on_noan_tuyet) has warned her the quarrel with Ngụy will cost her.",
+   "ties": [
+    {
+     "to": "luong_hoa_tuyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "on_noan_tuyet",
+     "kind": "friend",
+     "note": "Tần's disciple"
+    }
+   ],
+   "master": "luong_hoa_tuyen",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire and snow."
+    }
+   }
+  }
+ ]
+}

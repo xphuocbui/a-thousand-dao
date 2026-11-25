@@ -1,0 +1,1128 @@
+{
+ "sect": "chan_kim",
+ "people": [
+  {
+   "key": "tuong_bach_luyen",
+   "name_hv": "Tưởng Bách Luyện",
+   "name_han": "蔣百煉",
+   "gloss": "Refined a hundred times",
+   "sex": "M",
+   "born": 920,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "chan_kim",
+   "rank": "tong_chu",
+   "home": 427,
+   "birthplace": 176,
+   "role": "A founder (980) and head of Chân Kim Các, assaying and refining spirit ores",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 58,
+     "hoa": 42,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 58,
+    "than_hon": 80,
+    "khi_van": 50,
+    "dao_tam": 74,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Just",
+     "Diligent"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "forge_scarred"
+    ],
+    "lifestyle": "tea_master",
+    "health": "meridian_scar",
+    "coping": null,
+    "fate_given": [
+     "Spirit-eyed"
+    ],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A lean, grey old man with silver burns on his fingertips, who holds every cup of tea a moment too long, as if weighing it.",
+   "backstory": "Tưởng Bách Luyện was a silver-washer's son at Bạch Ngân, where the Pivot strikes its coin (A224), and worked forty years as a refiner in the Pivot's mint without ever being taught its method. In 980 he and four other assayers of the mint founded Chân Kim Các beside the open scales of Song Kiều (V127), sworn to the Pivot, to assay and refine for anyone who would pay a fair fee. He wrote its rule: a house that weighs for others has no root of its own, and takes its apprentices by the eye, not by the element. He refined the flying sword Dawn Charioteer for the Pivot's head in 1168 from Bạch Ngân silver and Thiên Ngoại iron. The Pivot's master of weights, Đặng Quân Bình (dang_quan_binh), has twice caught the house's copy of the standard weight a hair light, and twice Tưởng weighed it himself and found it true, and said so. He believed it the first time.",
+   "wants": "To leave the house to someone who will keep it honest, and to be thought honest when he is dead.",
+   "secret": "The second time, he found out. His granddaughter Tưởng Ngọc Cân (tuong_ngoc_can) shaves the house weight and swaps a true copy in when he comes to test it. He denied it to the Pivot anyway, to save her, and it is the only lie he has told.",
+   "ties": [
+    {
+     "to": "tuong_ngoc_can",
+     "kind": "grandchild",
+     "note": "the keeper of the house weight, whom he lied for"
+    },
+    {
+     "to": "tuong_ngoc_can",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "phung_xich_kim",
+     "kind": "disciple",
+     "note": "the furnace master"
+    },
+    {
+     "to": "dang_quan_binh",
+     "kind": "rival",
+     "note": "the Pivot's master of weights, who has caught the house twice"
+    },
+    {
+     "to": "hang_thu_kim",
+     "kind": "friend",
+     "note": "his co-founder, dead in 1120"
+    },
+    {
+     "to": "doan_hi_hoa",
+     "kind": "friend",
+     "note": "he refined her first sword and still asks after it"
+    },
+    {
+     "to": "on_thuc_ha",
+     "kind": "in_law",
+     "note": "his son's wife, of the Ôn"
+    },
+    {
+     "to": "on_trong_luong",
+     "kind": "in_law",
+     "note": "the Ôn patriarch; their houses married in 1095"
+    },
+    {
+     "to": "cat_luu_quang",
+     "kind": "rival",
+     "note": "Thôi Tinh's head, who has never asked him to test the star mine's ore"
+    },
+    {
+     "to": "hong_chuan_binh",
+     "kind": "rival",
+     "note": "the Pivot's assayer across the square"
+    },
+    {
+     "to": "khuong_tieu_kim",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "la_minh_nhan",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "on_song_ngoc",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "tuong_tieu_quyen",
+     "kind": "descendant",
+     "note": "his descendant; outer disciple, the Tưởng child for 1197, under her mother's scale"
+    },
+    {
+     "to": "duong_noan_ha",
+     "kind": "disciple",
+     "note": "keeper of the house's bath-house at Xuân Thủy Thang"
+    },
+    {
+     "to": "tuong_tri_chuan",
+     "kind": "disciple",
+     "note": "the head's grandson from the silver mine, who tests the weights"
+    },
+    {
+     "to": "tuong_tri_chuan",
+     "kind": "grandchild",
+     "note": "his grandson; the head's grandson from the silver mine, who tests the weights"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "true-gold-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "hundred-refinings-art",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "ck-hundred-fold-crucible"
+     },
+     {
+      "named": "ck-hallmark-seal"
+     },
+     {
+      "named": "ck-refiner-robe"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 8
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Spirit sense and debuffs: he strips what is false from a foe and leaves the rest standing.",
+     "targets": [
+      4241,
+      4128,
+      4114,
+      4785,
+      4734,
+      4427,
+      9012
+     ],
+     "targets_note": "Assayers' route, then Demon-Revealing Mirror and Mirror Sense for the spirit sense that sees what is false, Spirit Furnace, and Hundred Refinements; stripping a foe's borrowed buffs has no piece yet (wish W3-assay-strip)."
+    },
+    "note": "The assayer: he burns off whatever a foe has borrowed."
+   },
+   "items": [
+    "ck-hundred-fold-crucible",
+    "ck-hallmark-seal",
+    "ck-refiner-robe"
+   ],
+   "changed": "build added (none existed): no-lean house, so the root follows his birthplace at Bạch Ngân; birthplace 176 added."
+  },
+  {
+   "key": "tuong_ngoc_can",
+   "name_hv": "Tưởng Ngọc Cân",
+   "name_han": "蔣玉斤",
+   "gloss": "A jade catty (a weight)",
+   "sex": "F",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "chan_kim",
+   "rank": "truong_lao",
+   "home": 82,
+   "birthplace": 82,
+   "role": "The head's granddaughter and keeper of the scales on the house's side of the square at Song Kiều",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "tho": 36,
+     "hoa": 26
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 46,
+    "than_hon": 70,
+    "khi_van": 58,
+    "dao_tam": 50,
+    "mi_luc": 66
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Deceitful",
+     "Ambitious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "clan_heir",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "gambler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A small, quick woman in a miner's blue jacket over a merchant's silk, with a set of brass weights she clicks in her palm.",
+   "backstory": "The head's granddaughter by his son and an Ôn of Song Kiều, the bridge-builders who keep the twin bridges' tolls (A229). She grew up on the square where the Pivot weighs the miners' ore (A219), on her mother's side among the miners and on her father's among the assayers. She has kept the house's scales since 1160. The miners prefer her side of the square, and the house's trade has doubled. Her grandfather (tuong_bach_luyen) thinks it is because she is honest and quick. The Pivot's assayer Hồng Chuẩn Bình (hong_chuan_binh) argues with her across the square every morning about everything except the weight.",
+   "wants": "To make the miners of Ngọc Hành rich enough that they never need the Pivot's fairness again, and to have the house after her grandfather.",
+   "secret": "She shaves the house weight a hair light so that ore weighed on her side comes out heavier and the miners are paid more than the Pivot's scale gives. She swaps a true copy in when anyone tests it. She knows her grandfather found out and lied for her.",
+   "ties": [
+    {
+     "to": "tuong_bach_luyen",
+     "kind": "grandparent",
+     "note": ""
+    },
+    {
+     "to": "tuong_bach_luyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "on_song_ngoc",
+     "kind": "cousin",
+     "note": "her mother's niece, the house's go-between with the Ôn tolls"
+    },
+    {
+     "to": "hong_chuan_binh",
+     "kind": "rival",
+     "note": "the Pivot's assayer across the square"
+    },
+    {
+     "to": "dang_quan_binh",
+     "kind": "enemy",
+     "note": "the woman who caught her twice and will try a third time"
+    },
+    {
+     "to": "quan_thap_thu",
+     "kind": "disciple",
+     "note": "an old outer disciple who knows every weight"
+    },
+    {
+     "to": "on_trong_luong",
+     "kind": "grandparent",
+     "note": "her grandfather on her mother's side"
+    },
+    {
+     "to": "on_thuc_ha",
+     "kind": "parent",
+     "note": "her mother, who keeps the scales"
+    },
+    {
+     "to": "la_minh_nhan",
+     "kind": "friend",
+     "note": "works at her side of the square"
+    },
+    {
+     "to": "tuong_tieu_quyen",
+     "kind": "child",
+     "note": "her daughter; outer disciple, the Tưởng child for 1197, under her mother's scale"
+    },
+    {
+     "to": "tuong_tri_chuan",
+     "kind": "cousin",
+     "note": "her cousin; the head's grandson from the silver mine, who tests the weights"
+    },
+    {
+     "to": "tuong_tieu_quyen",
+     "kind": "disciple",
+     "note": "outer disciple, the Tưởng child for 1197, under her mother's scale"
+    }
+   ],
+   "master": "tuong_bach_luyen",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "true-gold-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "ck-house-weight"
+     },
+     {
+      "named": "ck-counterweight-coin"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Spirit sense and luck: she reads a foe and tips the scale.",
+     "targets": [
+      4128,
+      4114,
+      6014,
+      6080,
+      6073
+     ],
+     "targets_note": "The assayers' spirit-sense pair only (no Metal in her root, so no Sifting Gold), then the Wood land's luck: Squirrel's Store and the Spring Sprout idea."
+    },
+    "note": "The thumb on the scale."
+   },
+   "items": [
+    "ck-house-weight",
+    "ck-counterweight-coin"
+   ]
+  },
+  {
+   "key": "phung_xich_kim",
+   "name_hv": "Phùng Xích Kim",
+   "name_han": "馮赤金",
+   "gloss": "Red gold",
+   "sex": "M",
+   "born": 1050,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "chan_kim",
+   "rank": "chap_su",
+   "home": 427,
+   "birthplace": 176,
+   "role": "Furnace master of the house, who refines the ore the house assays",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 54,
+     "hoa": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 60,
+    "than_hon": 64,
+    "khi_van": 46,
+    "dao_tam": 60,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Reclusive",
+     "Loyal"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [
+     "forge_scarred"
+    ],
+    "lifestyle": null,
+    "health": "fire_poison",
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A stooped man with red-rimmed eyes and silver-grey skin from a century of furnace fumes.",
+   "backstory": "A silver-miner's son from Bạch Ngân, like his master Tưởng Bách Luyện (tuong_bach_luyen). He did the hundred refinings of the Dawn Charioteer for the Pivot's heir in 1168 and keeps the house's three furnaces. He has refined Thối Tinh's Thiên Ngoại iron for silver inlay and found it melts like any mountain iron. He told the head, and the head said a refiner does not assay unasked.",
+   "ties": [
+    {
+     "to": "tuong_bach_luyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "luong_diem_chi",
+     "kind": "disciple",
+     "note": "the furnace girl"
+    },
+    {
+     "to": "hau_thiet_anh",
+     "kind": "friend",
+     "note": "the smiths' mine overseer, who sends him ingots"
+    },
+    {
+     "to": "nghiem_bac_sinh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "nghiem_tuyet_ngan",
+     "kind": "disciple",
+     "note": "outer disciple from the silver mine, at the furnace bellows"
+    },
+    {
+     "to": "tien_phan_vi",
+     "kind": "disciple",
+     "note": "inner disciple who runs the night crucible"
+    }
+   ],
+   "master": "tuong_bach_luyen",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "true-gold-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "hundred-refinings-art",
+      "layer": 6
+     },
+     {
+      "tech": "censer-smoke-manual",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 7
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Debuffs that stack, and a body that has outlived the fumes.",
+     "targets": [
+      4241,
+      4128,
+      4114,
+      4490,
+      4108
+     ],
+     "targets_note": "Assayers' route, then Vajra Bones and Dawn Toll for a body that outlived the fumes; stacking debuffs and poison resistance unscaled (wish W2-metal-marks, W5-earth-poison-resist)."
+    },
+    "note": "The furnace."
+   },
+   "authored": "e2"
+  },
+  {
+   "key": "on_song_ngoc",
+   "name_hv": "Ôn Song Ngọc",
+   "name_han": "溫雙玉",
+   "gloss": "A pair of jades",
+   "sex": "F",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "chan_kim",
+   "rank": "noi_mon",
+   "home": 82,
+   "birthplace": 82,
+   "role": "The house's go-between with the Ôn clan and its bridge tolls",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "moc": 36,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 48,
+    "than_hon": 58,
+    "khi_van": 56,
+    "dao_tam": 52,
+    "mi_luc": 70
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Pragmatic",
+     "Faithless"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "clan_heir",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "go_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Handsome and easy, with an Ôn jade at each wrist and a toll-ledger under her arm.",
+   "backstory": "An Ôn of the bridge-keeping clan of Song Kiều (A229), cousin to Tưởng Ngọc Cân (tuong_ngoc_can). She settles which ore pays toll on which bridge and which side of the square it is weighed on, and so knows more than anyone how much the miners are paid on each side. She has not decided whose side she is on.",
+   "ties": [
+    {
+     "to": "tuong_bach_luyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tuong_ngoc_can",
+     "kind": "cousin",
+     "note": "she knows about the weight"
+    },
+    {
+     "to": "on_tieu_kieu",
+     "kind": "disciple",
+     "note": "a young Ôn"
+    },
+    {
+     "to": "on_trong_luong",
+     "kind": "grandparent",
+     "note": "her grandfather, the Ôn patriarch"
+    },
+    {
+     "to": "on_the_hoanh",
+     "kind": "parent",
+     "note": "her father, who wants her home"
+    },
+    {
+     "to": "on_huu_toan",
+     "kind": "sibling",
+     "note": "her brother, and his rival for the toll houses"
+    },
+    {
+     "to": "on_lap_tru",
+     "kind": "sibling",
+     "note": "her brother"
+    },
+    {
+     "to": "on_bich_lien",
+     "kind": "disciple",
+     "note": "outer disciple of the Ôn clan, sent under the kin rule"
+    }
+   ],
+   "master": "tuong_bach_luyen",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "true-gold-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain and luck.",
+     "targets": [
+      4241,
+      4128,
+      4114,
+      5374,
+      5363
+     ],
+     "targets_note": "Assayers' route walked from the Water start, then Nourishing Rain for sustain and Wind Rose for luck on the toll roads."
+    },
+    "note": "The tolls."
+   }
+  },
+  {
+   "key": "la_minh_nhan",
+   "name_hv": "Lã Minh Nhãn",
+   "name_han": "呂明眼",
+   "gloss": "A clear eye",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "chan_kim",
+   "rank": "noi_mon",
+   "home": 82,
+   "birthplace": 82,
+   "role": "Assayer of the house on the square at Song Kiều",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 44,
+     "moc": 30,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Stubborn",
+     "Wrathful"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child",
+    "fate_given": [
+     "Spirit-eyed"
+    ]
+   },
+   "backstory": "He assays the ore on the house's side of the square and shouts at the Pivot's Hồng Chuẩn Bình (hong_chuan_binh) every morning; he would be horrified to learn about the weight he works beside.",
+   "ties": [
+    {
+     "to": "tuong_bach_luyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tuong_ngoc_can",
+     "kind": "friend",
+     "note": "he works at her side of the square"
+    },
+    {
+     "to": "hong_chuan_binh",
+     "kind": "rival",
+     "note": "a friendship conducted by shouting"
+    },
+    {
+     "to": "cu_tieu_hanh",
+     "kind": "disciple",
+     "note": "inner disciple who writes up the morning's weighings on the square"
+    }
+   ],
+   "master": "tuong_bach_luyen",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "true-gold-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 3
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Spirit sense."
+    },
+    "note": "Clear eye."
+   }
+  },
+  {
+   "key": "khuong_tieu_kim",
+   "name_hv": "Khương Tiểu Kim",
+   "name_han": "姜小金",
+   "gloss": "Little gold",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "chan_kim",
+   "rank": "noi_mon",
+   "home": 427,
+   "birthplace": 426,
+   "role": "Inner disciple from the spring of Xuân Thủy Thang, the best eye of her year",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 38,
+     "hoa": 30,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Arrogant",
+     "Just"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "fate_given": [
+     "Spirit-eyed"
+    ]
+   },
+   "backstory": "A bath-keeper's daughter from the house's hot spring, she told nine silvers apart with her eyes shut at eleven; Tưởng Bách Luyện (tuong_bach_luyen) took her himself.",
+   "ties": [
+    {
+     "to": "tuong_bach_luyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "duong_noan_ha",
+     "kind": "aunt_uncle",
+     "note": "her aunt; keeper of the house's bath-house at Xuân Thủy Thang"
+    }
+   ],
+   "master": "tuong_bach_luyen",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "true-gold-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Spirit sense."
+    },
+    "note": "The best eye."
+   }
+  },
+  {
+   "key": "nghiem_bac_sinh",
+   "name_hv": "Nghiêm Bạc Sinh",
+   "name_han": "嚴箔生",
+   "gloss": "Born to leaf silver",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "chan_kim",
+   "rank": "ngoai_mon",
+   "home": 427,
+   "birthplace": 176,
+   "role": "Outer disciple from the silver mine",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "tho": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Greedy",
+     "Patient"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Bạch Ngân silver-beater's son who sweeps the assay floor and keeps the sweepings; Phùng Xích Kim (phung_xich_kim) lets him.",
+   "ties": [
+    {
+     "to": "phung_xich_kim",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nghiem_tuyet_ngan",
+     "kind": "sibling",
+     "note": "his sister; outer disciple from the silver mine, at the furnace bellows"
+    }
+   ],
+   "master": "phung_xich_kim",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "touchstone-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "Sweepings."
+   }
+  },
+  {
+   "key": "on_tieu_kieu",
+   "name_hv": "Ôn Tiểu Kiều",
+   "name_han": "溫小橋",
+   "gloss": "Little bridge",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "chan_kim",
+   "rank": "ngoai_mon",
+   "home": 82,
+   "birthplace": 82,
+   "role": "Outer disciple of the Ôn clan",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 34,
+     "thuy": 30,
+     "hoa": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Fickle",
+     "Gregarious",
+     "Lazy"
+    ],
+    "calling": "Merchant",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "An Ôn boy sent to the house to learn the eye and learning the tolls instead from Ôn Song Ngọc (on_song_ngoc).",
+   "ties": [
+    {
+     "to": "on_song_ngoc",
+     "kind": "master",
+     "note": "and aunt"
+    },
+    {
+     "to": "on_trong_luong",
+     "kind": "ancestor",
+     "note": "his great-grandfather, the Ôn patriarch"
+    },
+    {
+     "to": "on_bich_de",
+     "kind": "cousin",
+     "note": "his cousin"
+    },
+    {
+     "to": "lo_hanh_nuong",
+     "kind": "parent",
+     "note": "his mother"
+    },
+    {
+     "to": "on_lap_tru",
+     "kind": "parent",
+     "note": "his father"
+    },
+    {
+     "to": "on_thanh_luu",
+     "kind": "sibling",
+     "note": "his elder sister"
+    },
+    {
+     "to": "on_bich_lien",
+     "kind": "cousin",
+     "note": "his cousin; outer disciple of the Ôn clan, sent under the kin rule"
+    }
+   ],
+   "master": "on_song_ngoc",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "touchstone-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "Tolls."
+   }
+  },
+  {
+   "key": "luong_diem_chi",
+   "name_hv": "Lương Diệm Chi",
+   "name_han": "梁焰芝",
+   "gloss": "Flame fungus",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "chan_kim",
+   "rank": "noi_mon",
+   "home": 427,
+   "birthplace": 82,
+   "role": "Furnace apprentice with a Fire root",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 46,
+     "moc": 28,
+     "tho": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Honest"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A Song Kiều cook's daughter who keeps the furnaces alight for Phùng Xích Kim (phung_xich_kim) and is the only one in the house who can feel the heat change without a gauge.",
+   "ties": [
+    {
+     "to": "phung_xich_kim",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tien_phan_vi",
+     "kind": "friend",
+     "note": "inner disciple who runs the night crucible"
+    }
+   ],
+   "master": "phung_xich_kim",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "true-gold-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire."
+    },
+    "note": "Furnace."
+   }
+  },
+  {
+   "key": "quan_thap_thu",
+   "name_hv": "Quản Thập Thù",
+   "name_han": "管十銖",
+   "gloss": "Ten grains (a small weight)",
+   "sex": "M",
+   "born": 1105,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "chan_kim",
+   "rank": "ngoai_mon",
+   "home": 82,
+   "birthplace": 82,
+   "role": "The oldest outer disciple, who knows every weight on the square",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "kim": 26,
+     "moc": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Loyal",
+     "Content"
+    ],
+    "calling": "Steward",
+    "upbringing": "merchant_child",
+    "health": "waning_years"
+   },
+   "backstory": "Ninety-five and still at the sixth layer of the primer, he has carried weights across the square for Tưởng Ngọc Cân (tuong_ngoc_can) and her father before her, and he knows which of the two house weights is which.",
+   "ties": [
+    {
+     "to": "tuong_ngoc_can",
+     "kind": "master",
+     "note": "he carries her weights and her secret"
+    },
+    {
+     "to": "cu_tieu_hanh",
+     "kind": "friend",
+     "note": "inner disciple who writes up the morning's weighings on the square"
+    }
+   ],
+   "master": "tuong_ngoc_can",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "touchstone-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "Carries weights."
+   }
+  },
+  {
+   "key": "hang_thu_kim",
+   "name_hv": "Hạng Thử Kim",
+   "name_han": "項試金",
+   "gloss": "Tests the gold",
+   "sex": "M",
+   "born": 925,
+   "died": 1120,
+   "cause": "fumes of the furnace, at 195, before he reached Kết Đan",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "chan_kim",
+   "rank": "founder",
+   "home": 427,
+   "birthplace": 176,
+   "role": "Co-founder of Chân Kim Các (980), who cast the house weight",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Honest",
+     "Stubborn",
+     "Calm"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "One of the five assayers of the Pivot's mint who founded the house beside Song Kiều's square in 980 (V127), and the friend of Tưởng Bách Luyện (tuong_bach_luyen). He cast the house's copy of the standard weight and swore on it that the house would never weigh for itself. The furnace fumes killed him five years before his old age would have.",
+   "ties": [
+    {
+     "to": "tuong_bach_luyen",
+     "kind": "friend",
+     "note": "his co-founder"
+    }
+   ]
+  }
+ ]
+}

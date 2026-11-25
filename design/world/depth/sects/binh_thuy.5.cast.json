@@ -1,0 +1,521 @@
+{
+ "sect": "binh_thuy",
+ "people": [
+  {
+   "key": "phuc_thuy_hang",
+   "name_hv": "Phục Thủy Hằng",
+   "name_han": "伏水恆",
+   "gloss": "Abiding water",
+   "sex": "F",
+   "born": 1138,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "binh_thuy",
+   "rank": "noi_mon",
+   "home": 123,
+   "birthplace": 460,
+   "role": "Mate of the coast traders at Lãng Thạch; sailed under Tôn Viễn Hàng until 1187",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Cautious",
+     "Stubborn"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born",
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "backstory": "A Hồng Thụ mangrove girl like her captain Kiều Vọng Hải (kieu_vong_hai), and Tôn Viễn Hàng's (ton_vien_hang) mate until a fever put her ashore the week he sailed west in 1187 (N-binh_thuy-06). She sides with Kiều against lending Lận another hull, and has told Tôn Niệm Triều (ton_niem_trieu) she will not crew the third boat.",
+   "ties": [
+    {
+     "to": "luong_bach_tan",
+     "kind": "master",
+     "note": "taught her the tide canon"
+    },
+    {
+     "to": "kieu_vong_hai",
+     "kind": "friend",
+     "note": "her captain, from the same village"
+    },
+    {
+     "to": "ton_vien_hang",
+     "kind": "friend",
+     "note": "her old captain, lost past the charts in 1187"
+    },
+    {
+     "to": "ton_niem_trieu",
+     "kind": "friend",
+     "note": "the captain's daughter; she will not crew her boat"
+    }
+   ],
+   "master": "luong_bach_tan",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "returning-wake-verse",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain for long passages, and the backwash when she is boarded."
+    }
+   }
+  },
+  {
+   "key": "khuat_do_sinh",
+   "name_hv": "Khuất Độ Sinh",
+   "name_han": "屈渡生",
+   "gloss": "Born of the crossing",
+   "sex": "M",
+   "born": 1158,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "binh_thuy",
+   "rank": "chap_su",
+   "home": 18,
+   "birthplace": 130,
+   "role": "Keeper of the Strangers' Hall; placed from Lạc Hà in 1176",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 34,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Generous",
+     "Patient",
+     "Gregarious"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Lô Cảng reed-cutter's son who failed Lạc Hà's dusk test three times; Ngạc Viễn Sơn (ngac_vien_son) placed him with the ferry in 1176, and his Water passed the Tide Hall's gate the first morning. He feeds every newcomer at the Strangers' Hall before Cù Bối Ngân (cu_boi_ngan) writes them into the Book of Meetings.",
+   "ties": [
+    {
+     "to": "bui_phieu_binh",
+     "kind": "master",
+     "note": "took him into the Tide Hall"
+    },
+    {
+     "to": "cu_boi_ngan",
+     "kind": "friend",
+     "note": "he feeds the newcomers, she writes them down"
+    },
+    {
+     "to": "ngac_vien_son",
+     "kind": "former_master",
+     "note": "his outer-gate teacher at Lạc Hà, who wrote his letter"
+    },
+    {
+     "to": "hoan_khach_nhi",
+     "kind": "friend",
+     "note": "copyist of the Book of Meetings, born in the Strangers' Hall"
+    }
+   ],
+   "master": "bui_phieu_binh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water, for a steward who would rather mend than fight."
+    }
+   }
+  },
+  {
+   "key": "ba_lang_nhi",
+   "name_hv": "Ba Lãng Nhi",
+   "name_han": "巴浪兒",
+   "gloss": "Wave child",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "binh_thuy",
+   "rank": "ngoai_mon",
+   "home": 49,
+   "birthplace": 458,
+   "role": "Deckhand of the strait ferry",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Diligent",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Xướng Vãn fisher girl who rows the night crossing beside Ông Tiểu Phàm (ong_tieu_pham); when he talks of going somewhere else, she tells him the ferry already goes everywhere twice a day.",
+   "ties": [
+    {
+     "to": "ong_te_do",
+     "kind": "master",
+     "note": "master of the crossing"
+    },
+    {
+     "to": "ong_tieu_pham",
+     "kind": "friend",
+     "note": "rows the same bench"
+    }
+   ],
+   "master": "ong_te_do",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "duckweed-drift-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "nhu_thanh_can",
+   "name_hv": "Nhữ Thanh Cần",
+   "name_han": "汝青芹",
+   "gloss": "Green cress",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "binh_thuy",
+   "rank": "ngoai_mon",
+   "home": 302,
+   "birthplace": 490,
+   "role": "Yard hand at the shoal; placed from Lạc Hà in 1199",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 38,
+     "tho": 30,
+     "moc": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Diligent",
+     "Cautious"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Vãn Chu fisher's son who sang beside Thương Ngư Ca (thuong_ngu_ca) in Lạc Hà's outer gate and was placed with the ferry in 1199 when his Earth fell short; he planes the planks of Hầu Bách Chu's (hau_bach_chu) third hull and has not asked who it is for.",
+   "ties": [
+    {
+     "to": "hau_bach_chu",
+     "kind": "master",
+     "note": "the shipwright"
+    },
+    {
+     "to": "thuong_ngu_ca",
+     "kind": "friend",
+     "note": "from his village; still at Lạc Hà"
+    },
+    {
+     "to": "to_binh_chu",
+     "kind": "debt",
+     "note": "placed by him; owes Lạc Hà a tenth of his pay until 1229"
+    }
+   ],
+   "master": "hau_bach_chu",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "duckweed-drift-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "lanh_trieu_am",
+   "name_hv": "Lãnh Triều Âm",
+   "name_han": "冷潮音",
+   "gloss": "Sound of the tide",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "binh_thuy",
+   "rank": "noi_mon",
+   "home": 302,
+   "birthplace": 463,
+   "role": "Inner disciple; keeps the coast traders' shell till",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Vengeful",
+     "Diligent"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Nam Minh mangrove girl who keeps the coast traders' shell till for Kiều Vọng Hải (kieu_vong_hai) and has sworn with her never to lend Lận another hull; she cannot forgive the head's heir Sa Kình Nhi (sa_kinh_nhi) for wanting to sail the third boat.",
+   "ties": [
+    {
+     "to": "kieu_vong_hai",
+     "kind": "master",
+     "note": "her captain and teacher"
+    },
+    {
+     "to": "sa_kinh_nhi",
+     "kind": "rival",
+     "note": "over the third boat"
+    }
+   ],
+   "master": "kieu_vong_hai",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "hoan_khach_nhi",
+   "name_hv": "Hoàn Khách Nhi",
+   "name_han": "桓客兒",
+   "gloss": "The guest's child",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "binh_thuy",
+   "rank": "ngoai_mon",
+   "home": 18,
+   "birthplace": 18,
+   "role": "Copyist of the Book of Meetings, born in the Strangers' Hall",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 38,
+     "thuy": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Humble",
+     "Trusting"
+    ],
+    "calling": "Steward",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Her parents came off a burning boat from Đào Sa in 1173 and slept their first night in the Strangers' Hall; she was born there three years later, and copies the Book of Meetings for Cù Bối Ngân (cu_boi_ngan).",
+   "ties": [
+    {
+     "to": "cu_boi_ngan",
+     "kind": "master",
+     "note": "the purser"
+    },
+    {
+     "to": "khuat_do_sinh",
+     "kind": "friend",
+     "note": "keeps the hall she was born in"
+    }
+   ],
+   "master": "cu_boi_ngan",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "duckweed-drift-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  },
+  {
+   "key": "ngo_ba_can",
+   "name_hv": "Ngô Bá Can",
+   "name_han": "吳伯竿",
+   "gloss": "Eldest cane",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "binh_thuy",
+   "rank": "ngoai_mon",
+   "home": 302,
+   "birthplace": 476,
+   "role": "Poles the freight rafts from the crossing to the shoal",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Forgiving",
+     "Calm",
+     "Loyal"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Ngô Tần Tần's (ngo_tan_tan) elder brother from Phù Can, who poles freight rafts from the crossing to the shoal; he knows the songs she sings mean something, because their grandmother cried at them.",
+   "ties": [
+    {
+     "to": "ngo_tan_tan",
+     "kind": "sibling",
+     "note": "his younger sister"
+    },
+    {
+     "to": "ong_te_do",
+     "kind": "master",
+     "note": "master of the crossing"
+    }
+   ],
+   "master": "ong_te_do",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "duckweed-drift-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  }
+ ]
+}

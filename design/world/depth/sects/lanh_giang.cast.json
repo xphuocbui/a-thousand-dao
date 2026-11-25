@@ -1,0 +1,1001 @@
+{
+ "sect": "lanh_giang",
+ "people": [
+  {
+   "key": "lu_doc_dieu",
+   "name_hv": "Lư Độc Điếu",
+   "name_han": "盧獨釣",
+   "gloss": "Fishing alone in the snow on the cold river (Liễu Tông Nguyên: độc điếu hàn giang tuyết)",
+   "sex": "M",
+   "born": 1095,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "lanh_giang",
+   "rank": "tong_chu",
+   "home": 361,
+   "birthplace": 36,
+   "role": "A founder (1140) and head of Lãnh Giang Phái; the man who pieced Hàn Giang's ice-hole sitting back together",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 64,
+     "moc": 38
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 54,
+    "than_hon": 64,
+    "khi_van": 44,
+    "dao_tam": 80,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Reclusive",
+     "Devout"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "long_seclusion"
+    ],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": "obsessive_training",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A thin, stooped man with frost in his beard in every season, who speaks as if each word cost him a fish.",
+   "backstory": "Lư Độc Điếu was a Liên Giang ice-fisher's son who, at twenty-five, sat down beside the last old men still cultivating on the river in Hàn Giang's way and asked them to teach him. Most were dying. The youngest of them, Bồ Tọa Tuyết (bo_toa_tuyet), lived. Over twenty years Lư wrote down every fragment they remembered, filled the gaps by sitting through the winters himself, and called the result the Lone Line Sitting Canon. In 1140 he and the fisher Đái Tuyết Lạp (dai_tuyet_lap) petitioned Băng Tâm, and the Pavilion granted the fishers of Liên Giang a licence to revive Hàn Giang's sitting (V088). The licence had a condition: Water only, because Ice belongs to the Pavilion. The school also escorts the ice-fish boats and pays the old tax in fish (A131). Đái went through the ice in 1168 at the seventh layer. Lư has sat at the eighth for forty years and cannot find the ninth.",
+   "wants": "The true manual of Hàn Giang Môn, or the ninth layer by any road.",
+   "secret": "He suspects the Liễu family of Liên Giang keep Hàn Giang's real method. He took Liễu Thoa Nhi into the school hoping she would show him, and is ashamed of it.",
+   "ties": [
+    {
+     "to": "bo_toa_tuyet",
+     "kind": "master",
+     "note": "the youngest of the old sitters, who taught him"
+    },
+    {
+     "to": "phuong_lo_hoa",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "dai_tuyet_lap",
+     "kind": "sworn_sibling",
+     "note": "co-founder, drowned under the ice in 1168"
+    },
+    {
+     "to": "lieu_thoa_nhi",
+     "kind": "disciple",
+     "note": "the Liễu girl he took in for the wrong reason"
+    },
+    {
+     "to": "doan_thanh_lang",
+     "kind": "friend",
+     "note": "Trạc Anh's head; they split the escort of the ice-fish boats"
+    },
+    {
+     "to": "tham_han_giang",
+     "kind": "debt",
+     "note": "Thẩm spoke for the licence in 1140"
+    },
+    {
+     "to": "bui_truong_tuyen",
+     "kind": "disciple",
+     "note": "the head's disciple; sits the hole beside Liễu Thoa Nhi's"
+    },
+    {
+     "to": "man_tinh_ba",
+     "kind": "friend",
+     "note": "sitter at the far end of the ice; Bồ Tọa Tuyết's disciple"
+    }
+   ],
+   "master": "bo_toa_tuyet",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "lone-line-sitting-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "undertow-litany",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "lg-ice-hook"
+     },
+     {
+      "named": "lg-sitting-robe"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water linh lực and regeneration: he sits, drains, and waits for the foe to tire.",
+     "targets": [
+      748,
+      744,
+      4974,
+      5374,
+      5379,
+      4909
+     ],
+     "targets_note": "Whale Drinks linh lực leech, Rain on Bamboo regeneration, Dark Water: he sits, drains and waits."
+    },
+    "note": "The lone fisher: a hook through the ice and a stance that never moves."
+   },
+   "items": [
+    "lg-ice-hook",
+    "lg-sitting-robe"
+   ],
+   "changed": "root, thien_phu and build added (he had none); birthplace 36 added."
+  },
+  {
+   "key": "bo_toa_tuyet",
+   "name_hv": "Bồ Tọa Tuyết",
+   "name_han": "蒲坐雪",
+   "gloss": "Sitting in the snow",
+   "sex": "M",
+   "born": 860,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "lanh_giang",
+   "rank": "thai_thuong",
+   "home": 361,
+   "birthplace": 36,
+   "role": "Grand elder: the last of the old ice-hole sitters of Liên Giang, who reached Kết Đan on the river alone",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 70,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 66,
+    "than_hon": 70,
+    "khi_van": 52,
+    "dao_tam": 84,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Calm",
+     "Honest"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 3
+     }
+    ],
+    "path": [
+     "long_seclusion"
+    ],
+    "lifestyle": "pilgrim",
+    "health": "cold_toxin",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Enlightened"
+    ]
+   },
+   "appearance": "A tiny, ancient man in a frost-white straw cape who looks like a heap of snow until he speaks.",
+   "backstory": "Bồ Tọa Tuyết was a fisher's boy on the Liên Giang ice in 880, sitting beside the old men who still kept Hàn Giang's way after four centuries. A boy of the next generation, Thẩm Hàn Giang (tham_han_giang), cut ice holes beside them too before the Pavilion took him. The old men died one by one, and Bồ stayed. He never joined a sect and never wanted to, and he reached Kết Đan in 1010 on the river, alone, on fragments and patience. He taught what he remembered to Lư Độc Điếu (lu_doc_dieu) and joined the school as its grand elder in 1140 because the young man asked. In the winter of 1000 he found a cracked stone of Hàn Giang Môn under the ice of the ruin at place 216, and he has read it every winter since. It says the true sitting needs Ice in the root, and that a Water-only sitter stops at the eighth layer. The Pavilion's licence forbids Ice.",
+   "wants": "To die sitting on the river, and before that to see one disciple reach the ninth layer.",
+   "secret": "The stone under the ice: Lãnh Giang can never truly revive Hàn Giang under the Pavilion's licence. He has not told Lư, because it would break him.",
+   "ties": [
+    {
+     "to": "lu_doc_dieu",
+     "kind": "disciple",
+     "note": "the one who asked"
+    },
+    {
+     "to": "tham_han_giang",
+     "kind": "friend",
+     "note": "they cut ice holes side by side when Thẩm was a boy"
+    },
+    {
+     "to": "su_pha_bang",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "tien_ngan_lan",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "lieu_co_chu",
+     "kind": "ancestor",
+     "note": "the last head of Hàn Giang Môn, whose way he keeps (lineage, not blood)"
+    },
+    {
+     "to": "mach_tieu_dieu",
+     "kind": "friend",
+     "note": "the outer boy who sits beside him"
+    },
+    {
+     "to": "man_tinh_ba",
+     "kind": "disciple",
+     "note": "sitter at the far end of the ice; Bồ Tọa Tuyết's disciple"
+    },
+    {
+     "to": "than_vong_giang",
+     "kind": "disciple",
+     "note": "second of the ice-fish escort under Sử Phá Băng"
+    },
+    {
+     "to": "chiem_dong_nhi",
+     "kind": "friend",
+     "note": "cuts the holes at first freeze and keeps the tally of the dead's holes"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "lone-line-sitting-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "returning-wake-verse",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "lg-snow-cape"
+     },
+     {
+      "named": "lg-old-sitter-gourd"
+     },
+     {
+      "named": "lg-river-bottom-stone"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water: deep linh lực, a ward that grows while he sits, and a reply that answers twice.",
+     "targets": [
+      748,
+      744,
+      4907,
+      4909,
+      4912,
+      5508,
+      4947
+     ],
+     "targets_note": "The Black Abyss pool, Still Water's overflow into health, the Mirror Lake's counter: a reply that answers twice."
+    },
+    "note": "A heap of snow that answers."
+   },
+   "items": [
+    "lg-snow-cape",
+    "lg-old-sitter-gourd",
+    "lg-river-bottom-stone"
+   ]
+  },
+  {
+   "key": "phuong_lo_hoa",
+   "name_hv": "Phương Lô Hoa",
+   "name_han": "方蘆花",
+   "gloss": "Reed flower",
+   "sex": "F",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "lanh_giang",
+   "rank": "chap_su",
+   "home": 361,
+   "birthplace": 121,
+   "role": "Steward of the school's boats and the head's wife",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "moc": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 52,
+    "than_hon": 56,
+    "khi_van": 60,
+    "dao_tam": 54,
+    "mi_luc": 64
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Gregarious",
+     "Generous"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A brisk marsh woman with reed-flower pins in her hair and an abacus at her belt.",
+   "backstory": "From Lô Hoa Thôn, where reed flowers cover the marsh like snow in summer (A134). She married Lư Độc Điếu (lu_doc_dieu) in 1150 and has run everything in the school that does not involve sitting still: the boats, the ice-fish sales, the Pavilion's tax and its clerk Phạm Lãnh Vân (pham_lanh_van), who reads the books every spring. She thinks her husband's ninth layer is a fish that is not in the river.",
+   "ties": [
+    {
+     "to": "lu_doc_dieu",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "pham_lanh_van",
+     "kind": "rival",
+     "note": "the Pavilion's clerk who reads the books"
+    },
+    {
+     "to": "ngai_han_tich",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "tien_ngan_lan",
+     "kind": "friend",
+     "note": "they keep the accounts together"
+    },
+    {
+     "to": "phuong_diep_chu",
+     "kind": "disciple",
+     "note": "she teaches him the ice-fish count"
+    },
+    {
+     "to": "phuong_diep_chu",
+     "kind": "niece_nephew",
+     "note": "her nephew"
+    }
+   ],
+   "master": "bo_toa_tuyet",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "lone-line-sitting-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water and Wood healing.",
+     "targets": [
+      748,
+      744,
+      5351,
+      5327
+     ],
+     "targets_note": "Timely Rain and the Rain Curtain idea's Drizzle: Water and Wood healing."
+    },
+    "note": "The abacus."
+   }
+  },
+  {
+   "key": "su_pha_bang",
+   "name_hv": "Sử Phá Băng",
+   "name_han": "史破冰",
+   "gloss": "Ice-breaker",
+   "sex": "M",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "lanh_giang",
+   "rank": "noi_mon",
+   "home": 1440,
+   "birthplace": 1440,
+   "role": "Captain of the ice-fish boat escort",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "kim": 36
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 50,
+    "can_cot": 70,
+    "than_hon": 48,
+    "khi_van": 56,
+    "dao_tam": 52,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Gregarious"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Battle-hardened"
+    ]
+   },
+   "appearance": "A loud, red-faced boatman who breaks the morning ice in the harbour of Tuyết Đăng Trấn with his elbow.",
+   "backstory": "The one member of the school who cannot sit still, so Bồ Tọa Tuyết (bo_toa_tuyet) sent him to the boats. He leads the escort of the ice-fish fleet from Tuyết Đăng Trấn to Liên Giang alongside Trạc Anh's whalers, and he has fought off ice beasts and smugglers. He drinks with Ngạc Hải Tiêu (ngac_hai_tieu) and thinks the terrace should hunt its whale.",
+   "ties": [
+    {
+     "to": "bo_toa_tuyet",
+     "kind": "master",
+     "note": "who gave up on making him sit"
+    },
+    {
+     "to": "ngac_hai_tieu",
+     "kind": "friend",
+     "note": "drinking companion on the escort"
+    },
+    {
+     "to": "cu_bang_ngu",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "lien_bat_ngu",
+     "kind": "enemy",
+     "note": "the escort captain hunting the smuggler he is"
+    },
+    {
+     "to": "ma_han_chu",
+     "kind": "disciple",
+     "note": "Pavilion Frost Test failure who chose the river"
+    },
+    {
+     "to": "than_vong_giang",
+     "kind": "friend",
+     "note": "second of the ice-fish escort under Sử Phá Băng"
+    }
+   ],
+   "master": "bo_toa_tuyet",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "lone-line-sitting-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "undertow-litany",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water health and a boathook.",
+     "targets": [
+      748,
+      744,
+      5226,
+      4384
+     ],
+     "targets_note": "Snowdrift health and Spear Thrust for the boathook."
+    },
+    "note": "Breaks the ice."
+   },
+   "changed": "fix pass A: archetype kiem_tu -> the_tu (the Lone Line Sitting Canon is a body-and-patience method with anchor and armour, no blade)"
+  },
+  {
+   "key": "tien_ngan_lan",
+   "name_hv": "Tiền Ngân Lân",
+   "name_han": "錢銀鱗",
+   "gloss": "Silver scale",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "lanh_giang",
+   "rank": "chap_su",
+   "home": 36,
+   "birthplace": 36,
+   "role": "Keeper of the fish market stall in Liên Giang",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Honest",
+     "Diligent"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "lifestyle": "collector"
+   },
+   "backstory": "Born the year the school was licensed, he sells its ice-fish in Liên Giang Thành and counts every scale of the Pavilion's tax twice, and Bồ Tọa Tuyết (bo_toa_tuyet) taught him to sit anyway.",
+   "ties": [
+    {
+     "to": "bo_toa_tuyet",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "phuong_lo_hoa",
+     "kind": "friend",
+     "note": "the accounts"
+    },
+    {
+     "to": "la_to_lan",
+     "kind": "disciple",
+     "note": "guts and sells fish at the Liên Giang stall"
+    }
+   ],
+   "master": "bo_toa_tuyet",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "lone-line-sitting-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Counts scales."
+   }
+  },
+  {
+   "key": "lieu_thoa_nhi",
+   "name_hv": "Liễu Thoa Nhi",
+   "name_han": "柳簑兒",
+   "gloss": "Little rain cape",
+   "sex": "F",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lanh_giang",
+   "rank": "noi_mon",
+   "home": 361,
+   "birthplace": 36,
+   "role": "The head's disciple; Liễu Ngư Ca's younger sister",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Loyal",
+     "Deceitful"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born"
+   },
+   "backstory": "Named, like every Liễu child, for something of Hàn Giang's founder; at night on the ice she sits the way her grandmother taught her brother Liễu Ngư Ca (lieu_ngu_ca), not the way Lư Độc Điếu (lu_doc_dieu) teaches her.",
+   "ties": [
+    {
+     "to": "lieu_ngu_ca",
+     "kind": "sibling",
+     "note": "her elder brother at the Pavilion"
+    },
+    {
+     "to": "lu_doc_dieu",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "bui_truong_tuyen",
+     "kind": "friend",
+     "note": "the head's disciple; sits the hole beside Liễu Thoa Nhi's"
+    }
+   ],
+   "master": "lu_doc_dieu",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "lone-line-sitting-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Two ways of sitting."
+   }
+  },
+  {
+   "key": "cu_bang_ngu",
+   "name_hv": "Cù Băng Ngư",
+   "name_han": "瞿冰魚",
+   "gloss": "Ice fish",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lanh_giang",
+   "rank": "ngoai_mon",
+   "home": 1440,
+   "birthplace": 1452,
+   "role": "Oarsman on the escort",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Content",
+     "Lazy"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A fisher's son who rows for Sử Phá Băng (su_pha_bang) and cultivates only on the pull of the oar.",
+   "ties": [
+    {
+     "to": "su_pha_bang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ma_han_chu",
+     "kind": "friend",
+     "note": "Pavilion Frost Test failure who chose the river"
+    }
+   ],
+   "master": "su_pha_bang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "ice-fish-boat-breath",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Rows."
+   },
+   "changed": "fix pass A: archetype kiem_tu -> the_tu (an oarsman on the boat breath with an anchor, no blade)"
+  },
+  {
+   "key": "mach_tieu_dieu",
+   "name_hv": "Mạch Tiểu Điếu",
+   "name_han": "麥小釣",
+   "gloss": "Little fishing",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "lanh_giang",
+   "rank": "ngoai_mon",
+   "home": 361,
+   "birthplace": 1431,
+   "role": "Youngest outer disciple",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Humble",
+     "Trusting"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "He sits beside Bồ Tọa Tuyết (bo_toa_tuyet) on the ice every morning because the old man once said he had the patience for it.",
+   "ties": [
+    {
+     "to": "bo_toa_tuyet",
+     "kind": "friend",
+     "note": "sits beside him"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ice-fish-boat-breath",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Sits."
+   }
+  },
+  {
+   "key": "ngai_han_tich",
+   "name_hv": "Ngải Hàn Tịch",
+   "name_han": "艾寒汐",
+   "gloss": "Cold evening tide",
+   "sex": "F",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "lanh_giang",
+   "rank": "noi_mon",
+   "home": 361,
+   "birthplace": 68,
+   "role": "Inner disciple from Mộc Lan Thành; Phương Lô Hoa's disciple",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Diligent",
+     "Arbitrary"
+    ],
+    "calling": "Steward",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A Mộc Lan merchant's daughter who joined for the accounts and stays for Phương Lô Hoa (phuong_lo_hoa), whom she means to replace.",
+   "ties": [
+    {
+     "to": "phuong_lo_hoa",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "phuong_diep_chu",
+     "kind": "friend",
+     "note": "Phương Lô Hoa's nephew; counts the ice-fish"
+    }
+   ],
+   "master": "phuong_lo_hoa",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "lone-line-sitting-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "The next abacus."
+   }
+  },
+  {
+   "key": "hong_lap_nhi",
+   "name_hv": "Hồng Lạp Nhi",
+   "name_han": "洪笠兒",
+   "gloss": "Little rain hat",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "lanh_giang",
+   "rank": "ngoai_mon",
+   "home": 361,
+   "birthplace": 1443,
+   "role": "Outer disciple from the sail-watchers' village",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Forgiving",
+     "Gregarious",
+     "Calm"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Her cousin Uông Tuyết Nhạn (uong_tuyet_nhan) failed the Pavilion's Frost Test three times and is coming to Lãnh Giang; Hồng has already made up a bed for her.",
+   "ties": [
+    {
+     "to": "uong_tuyet_nhan",
+     "kind": "cousin",
+     "note": "coming from the Pavilion's outer gate"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ice-fish-boat-breath",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Made up a bed."
+   }
+  },
+  {
+   "key": "dai_tuyet_lap",
+   "name_hv": "Đái Tuyết Lạp",
+   "name_han": "戴雪笠",
+   "gloss": "Wearing a snow hat (Liễu Tông Nguyên: cô chu thoa lạp ông)",
+   "sex": "M",
+   "born": 1080,
+   "died": 1168,
+   "cause": "went through the river ice while sitting the seventh layer, at 88",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "lanh_giang",
+   "rank": "founder",
+   "home": 361,
+   "birthplace": 36,
+   "role": "Co-founder of Lãnh Giang Phái (1140)",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Gregarious"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born"
+   },
+   "backstory": "The talker of the two founders: he carried the petition to the Pavilion in 1140 and won the licence (V088) with Thẩm Hàn Giang's (tham_han_giang) word behind it. Impatient for the next layer, he sat the seventh on thin spring ice in 1168, and the river took him. Lư Độc Điếu (lu_doc_dieu) has never let a disciple sit on spring ice since.",
+   "ties": [
+    {
+     "to": "lu_doc_dieu",
+     "kind": "sworn_sibling",
+     "note": ""
+    },
+    {
+     "to": "tham_han_giang",
+     "kind": "debt",
+     "note": "spoke for the licence"
+    }
+   ]
+  }
+ ]
+}

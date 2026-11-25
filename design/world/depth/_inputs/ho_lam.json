@@ -1,0 +1,1614 @@
+{
+"_doc": "Input slice for the depth writer of ho_lam (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "ho_lam",
+"name": "Hộ Lâm Đường",
+"name_han": "護林堂",
+"gloss": "Hall of the Forest Wardens",
+"alignment": "chính đạo",
+"leans": [
+"Wood",
+"Earth"
+],
+"craft": "forest wardens; herb and spirit-wood gatherers for Thúy Vi's furnaces",
+"lord": "thuy_vi",
+"region": 3,
+"seat": 1105,
+"founded": 910,
+"kind": "minor"
+},
+"start_state": {
+"key": "ho_lam",
+"name": "Hộ Lâm Đường",
+"name_han": "護林堂",
+"gloss": "Hall of the Forest Wardens",
+"kind": "minor",
+"alignment": "chinh",
+"leans": [
+"Wood",
+"Earth"
+],
+"seat": 1105,
+"levels": {
+"holdings": 4,
+"institutions": 2,
+"military": 3,
+"trade": 2
+},
+"treasury": 7000,
+"founded": 910,
+"specialty": "linh_thuc_su",
+"lord": "thuy_vi",
+"loyalty": 65,
+"craft": "forest wardens; herb and spirit-wood gatherers for Thúy Vi's furnaces",
+"region": 3,
+"leader": "luc_thanh_sam"
+},
+"lord": "thuy_vi",
+"vassals": [],
+"seat": {
+"id": 1105,
+"name": "Hộ Lâm Đường",
+"gloss": "Hall of the Forest Wardens",
+"kind": "minor_seat",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.14,
+"qi": {
+"moc": 48,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 17
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+"seat_audit": "## MOVE Hộ Lâm Đường (ho_lam; leans Wood/Earth)\nSeat: Hộ Lâm Đường (id 1105, minor_seat, region 3, temperate forest), density 1.04\nSeat qi: Wood 48%, Earth 14%\nCandidates:\n- Cổ Dịch Trấn (id 1110, ruin, region 3, temperate forest, elev 0.29 km): Wood 38%, Earth 18%; density 2.00\n- Vọng Bắc Bảo (id 1123, ruin, region 3, temperate forest, elev 0.56 km): Wood 26%, Earth 22%; density 1.63\n- Thương Thúy Lâm (id 1109, forest, region 3, temperate forest, elev 0.22 km): Wood 45%, Earth 15%; density 1.46\n- Vân Gian Trấn (id 1130, ruin, region 3, high mountain, elev 0.78 km): Wood 26%, Earth 22%; density 1.37\n- Hoành Kiều Trấn (id 1160, ruin, region 3, temperate forest, elev 0.14 km): Wood 33%, Earth 18%; density 1.16\n- Nhạn Hồi Phong (id 1129, peak, region 3, high mountain, elev 1.18 km): Wood 28%, Earth 22%; density 0.97\n",
+"ground": [
+{
+"id": 1110,
+"name": "Cổ Dịch Trấn",
+"gloss": "Old Post Town",
+"kind": "ruin",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.29,
+"qi": {
+"moc": 38,
+"hoa": 11,
+"tho": 18,
+"kim": 17,
+"thuy": 16
+},
+"variants": {},
+"density": 2.0,
+"note": ""
+},
+{
+"id": 1,
+"name": "Thúy Vi Tông",
+"gloss": "",
+"kind": "great_seat",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 1.54,
+"qi": {
+"moc": 20,
+"hoa": 9,
+"tho": 20,
+"kim": 38,
+"thuy": 12
+},
+"variants": {},
+"density": 1.94,
+"note": ""
+},
+{
+"id": 10,
+"name": "Vân Khởi Quán",
+"gloss": "",
+"kind": "minor_seat",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 0.88,
+"qi": {
+"moc": 17,
+"hoa": 8,
+"tho": 15,
+"kim": 48,
+"thuy": 13
+},
+"variants": {},
+"density": 1.7,
+"note": ""
+},
+{
+"id": 1123,
+"name": "Vọng Bắc Bảo",
+"gloss": "Fort That Watches the North",
+"kind": "ruin",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.56,
+"qi": {
+"moc": 26,
+"hoa": 11,
+"tho": 22,
+"kim": 27,
+"thuy": 14
+},
+"variants": {},
+"density": 1.63,
+"note": ""
+},
+{
+"id": 1493,
+"name": "Quan Lan Bảo",
+"gloss": "Fort That Watches the Waves",
+"kind": "ruin",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 0.27,
+"qi": {
+"moc": 15,
+"hoa": 10,
+"tho": 19,
+"kim": 25,
+"thuy": 30
+},
+"variants": {},
+"density": 1.58,
+"note": ""
+},
+{
+"id": 1486,
+"name": "Quy Tịch Phong",
+"gloss": "Peak of Returning to Stillness",
+"kind": "peak",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 1.55,
+"qi": {
+"moc": 15,
+"hoa": 8,
+"tho": 18,
+"kim": 50,
+"thuy": 10
+},
+"variants": {},
+"density": 1.5,
+"note": ""
+},
+{
+"id": 1109,
+"name": "Thương Thúy Lâm",
+"gloss": "Forest of Hoary Green",
+"kind": "forest",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.22,
+"qi": {
+"moc": 45,
+"hoa": 11,
+"tho": 15,
+"kim": 12,
+"thuy": 16
+},
+"variants": {},
+"density": 1.46,
+"note": ""
+},
+{
+"id": 166,
+"name": "Vân Mẫu Khoáng",
+"gloss": "Mica Mine",
+"kind": "mine",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 0.43,
+"qi": {
+"moc": 20,
+"hoa": 8,
+"tho": 15,
+"kim": 47,
+"thuy": 11
+},
+"variants": {},
+"density": 1.41,
+"note": "Mica, 'mother of clouds', for Vân Khởi Quán, the abbey of rising clouds."
+},
+{
+"id": 1492,
+"name": "Thủy Cùng Phong",
+"gloss": "Peak Where the Water Ends",
+"kind": "peak",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 1.19,
+"qi": {
+"moc": 17,
+"hoa": 9,
+"tho": 18,
+"kim": 38,
+"thuy": 18
+},
+"variants": {},
+"density": 1.38,
+"note": ""
+},
+{
+"id": 1130,
+"name": "Vân Gian Trấn",
+"gloss": "Town Among the Clouds",
+"kind": "ruin",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 0.78,
+"qi": {
+"moc": 26,
+"hoa": 11,
+"tho": 22,
+"kim": 27,
+"thuy": 14
+},
+"variants": {},
+"density": 1.37,
+"note": ""
+},
+{
+"id": 1157,
+"name": "Bão Nhất Quán",
+"gloss": "Abbey of Embracing the One",
+"kind": "ruin",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 0.9,
+"qi": {
+"moc": 11,
+"hoa": 8,
+"tho": 21,
+"kim": 15,
+"thuy": 45
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 213,
+"name": "Không Sơn Viện",
+"gloss": "Academy of the Empty Mountain",
+"kind": "ruin",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 1.6,
+"qi": {
+"moc": 15,
+"hoa": 10,
+"tho": 23,
+"kim": 32,
+"thuy": 18
+},
+"variants": {},
+"density": 1.35,
+"note": "Left empty after its master gave the hills to Thúy Vi's founder; quiet and never looted."
+},
+{
+"id": 165,
+"name": "Bích Ngọc Khoáng",
+"gloss": "Green Jade Mine",
+"kind": "mine",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 1.0,
+"qi": {
+"moc": 15,
+"hoa": 8,
+"tho": 17,
+"kim": 51,
+"thuy": 9
+},
+"variants": {},
+"density": 1.31,
+"note": "Green stone from the green hills of Thúy Vi."
+},
+{
+"id": 1148,
+"name": "Tuyến Thiên Hạp",
+"gloss": "Gorge of the Thread of Sky",
+"kind": "gorge",
+"region": 3,
+"biome": "karst",
+"elev_km": 0.5,
+"qi": {
+"moc": 25,
+"hoa": 15,
+"tho": 22,
+"kim": 14,
+"thuy": 24
+},
+"variants": {
+"am": 23.8
+},
+"density": 1.25,
+"note": ""
+},
+{
+"id": 1116,
+"name": "Bách Thảo Viện",
+"gloss": "Academy of a Hundred Herbs",
+"kind": "ruin",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.17,
+"qi": {
+"moc": 50,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 17
+},
+"variants": {},
+"density": 1.22,
+"note": ""
+},
+{
+"id": 1131,
+"name": "Thương Ngọc Khoáng",
+"gloss": "Grey-Green Jade Mine",
+"kind": "mine",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 0.76,
+"qi": {
+"moc": 22,
+"hoa": 11,
+"tho": 24,
+"kim": 31,
+"thuy": 13
+},
+"variants": {},
+"density": 1.22,
+"note": ""
+},
+{
+"id": 1122,
+"name": "Tê Hạc Phong",
+"gloss": "Peak Where the Cranes Roost",
+"kind": "peak",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 1.16,
+"qi": {
+"moc": 23,
+"hoa": 11,
+"tho": 23,
+"kim": 30,
+"thuy": 13
+},
+"variants": {},
+"density": 1.21,
+"note": ""
+},
+{
+"id": 45,
+"name": "Lam Yên Thị",
+"gloss": "Market of the Mountain Mist",
+"kind": "market",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.18,
+"qi": {
+"moc": 35,
+"hoa": 11,
+"tho": 19,
+"kim": 20,
+"thuy": 16
+},
+"variants": {},
+"density": 1.2,
+"note": "Below Thúy Vi Tông's seat, in the haze that names it"
+},
+{
+"id": 275,
+"name": "Song Tỉnh Trấn",
+"gloss": "Town of the Twin Wells",
+"kind": "ruin",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.13,
+"qi": {
+"moc": 32,
+"hoa": 11,
+"tho": 13,
+"kim": 11,
+"thuy": 33
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 1135,
+"name": "Nghiên Thạch Khoáng",
+"gloss": "Inkstone Mine",
+"kind": "mine",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 0.54,
+"qi": {
+"moc": 21,
+"hoa": 10,
+"tho": 21,
+"kim": 28,
+"thuy": 19
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 1127,
+"name": "Minh Kính Đường",
+"gloss": "Hall of the Bright Mirror",
+"kind": "ruin",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.06,
+"qi": {
+"moc": 35,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 33
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 1160,
+"name": "Hoành Kiều Trấn",
+"gloss": "Town of the Crossing Bridge",
+"kind": "ruin",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.14,
+"qi": {
+"moc": 33,
+"hoa": 9,
+"tho": 18,
+"kim": 11,
+"thuy": 28
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 394,
+"name": "Kỳ Bàn Phong",
+"gloss": "Chessboard Peak",
+"kind": "peak",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 0.63,
+"qi": {
+"moc": 18,
+"hoa": 10,
+"tho": 20,
+"kim": 25,
+"thuy": 27
+},
+"variants": {},
+"density": 1.12,
+"note": ""
+},
+{
+"id": 1146,
+"name": "Thanh Lang Lĩnh",
+"gloss": "Ridge of the Grey Wolves",
+"kind": "beast_lair",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.19,
+"qi": {
+"moc": 45,
+"hoa": 11,
+"tho": 16,
+"kim": 11,
+"thuy": 17
+},
+"variants": {},
+"density": 1.1,
+"note": ""
+},
+{
+"id": 395,
+"name": "Hồi Âm Cốc",
+"gloss": "Valley of the Echo",
+"kind": "gorge",
+"region": 3,
+"biome": "karst",
+"elev_km": 0.18,
+"qi": {
+"moc": 11,
+"hoa": 39,
+"tho": 12,
+"kim": 9,
+"thuy": 28
+},
+"variants": {},
+"density": 1.09,
+"note": ""
+},
+{
+"id": 1159,
+"name": "Phi Thử Lâm",
+"gloss": "Forest of the Flying Squirrels",
+"kind": "beast_lair",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.13,
+"qi": {
+"moc": 45,
+"hoa": 11,
+"tho": 15,
+"kim": 10,
+"thuy": 20
+},
+"variants": {},
+"density": 1.09,
+"note": ""
+},
+{
+"id": 1126,
+"name": "Thâm U Lâm",
+"gloss": "Forest of Deep Shade",
+"kind": "forest",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.12,
+"qi": {
+"moc": 42,
+"hoa": 11,
+"tho": 13,
+"kim": 9,
+"thuy": 25
+},
+"variants": {},
+"density": 1.09,
+"note": ""
+},
+{
+"id": 1104,
+"name": "Độc Phong Cốc",
+"gloss": "Valley of the Poison Hornets",
+"kind": "beast_lair",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.07,
+"qi": {
+"moc": 48,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 18
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+{
+"id": 1102,
+"name": "Phấn Điệp Lâm",
+"gloss": "Forest of the White Butterflies",
+"kind": "forest",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.16,
+"qi": {
+"moc": 47,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 18
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+{
+"id": 1136,
+"name": "Hàm Vân Phong",
+"gloss": "Peak That Holds the Clouds",
+"kind": "peak",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 1.09,
+"qi": {
+"moc": 21,
+"hoa": 9,
+"tho": 19,
+"kim": 40,
+"thuy": 12
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 276,
+"name": "Thiền Minh Lâm",
+"gloss": "Forest of Singing Cicadas",
+"kind": "forest",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.07,
+"qi": {
+"moc": 32,
+"hoa": 11,
+"tho": 14,
+"kim": 10,
+"thuy": 32
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 1098,
+"name": "Hà Ly Chử",
+"gloss": "Shoal of the Beavers",
+"kind": "beast_lair",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.08,
+"qi": {
+"moc": 38,
+"hoa": 9,
+"tho": 16,
+"kim": 9,
+"thuy": 27
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 396,
+"name": "Phàn Thạch Khoáng",
+"gloss": "Alum Mine",
+"kind": "mine",
+"region": 3,
+"biome": "volcano",
+"elev_km": 0.54,
+"qi": {
+"moc": 9,
+"hoa": 48,
+"tho": 12,
+"kim": 9,
+"thuy": 23
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 1144,
+"name": "Ngô Công Cốc",
+"gloss": "Valley of the Centipedes",
+"kind": "beast_lair",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.12,
+"qi": {
+"moc": 32,
+"hoa": 11,
+"tho": 15,
+"kim": 14,
+"thuy": 29
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 355,
+"name": "Lô Khẩu Trấn",
+"gloss": "Town at the Reed Mouth",
+"kind": "ruin",
+"region": 3,
+"biome": "swamp",
+"elev_km": 0.05,
+"qi": {
+"moc": 24,
+"hoa": 9,
+"tho": 15,
+"kim": 11,
+"thuy": 41
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 1100,
+"name": "Vô Thanh Lâm",
+"gloss": "Silent Forest",
+"kind": "forest",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 44,
+"hoa": 10,
+"tho": 15,
+"kim": 9,
+"thuy": 21
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 1112,
+"name": "Sơ Hiểu Lâm",
+"gloss": "Forest of First Light",
+"kind": "forest",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.15,
+"qi": {
+"moc": 48,
+"hoa": 11,
+"tho": 14,
+"kim": 10,
+"thuy": 17
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 1152,
+"name": "Hàn Thiềm Chử",
+"gloss": "Shoal of the Frost Toads",
+"kind": "beast_lair",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 28,
+"hoa": 9,
+"tho": 16,
+"kim": 11,
+"thuy": 36
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 354,
+"name": "Lãnh Sam Lâm",
+"gloss": "Forest of the Cold Firs",
+"kind": "forest",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.03,
+"qi": {
+"moc": 37,
+"hoa": 10,
+"tho": 14,
+"kim": 9,
+"thuy": 30
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 1153,
+"name": "Dã Ngưu Chử",
+"gloss": "Shoal of the Wild Bison",
+"kind": "beast_lair",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.02,
+"qi": {
+"moc": 32,
+"hoa": 8,
+"tho": 17,
+"kim": 10,
+"thuy": 32
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 1107,
+"name": "Tông Hùng Lâm",
+"gloss": "Forest of the Brown Bears",
+"kind": "beast_lair",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.03,
+"qi": {
+"moc": 46,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 21
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 1105,
+"name": "Hộ Lâm Đường",
+"gloss": "Hall of the Forest Wardens",
+"kind": "minor_seat",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.14,
+"qi": {
+"moc": 48,
+"hoa": 11,
+"tho": 14,
+"kim": 9,
+"thuy": 17
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 274,
+"name": "Lão Tượng Lâm",
+"gloss": "Forest of Old Oaks",
+"kind": "forest",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.0,
+"qi": {
+"moc": 39,
+"hoa": 11,
+"tho": 14,
+"kim": 10,
+"thuy": 27
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 1137,
+"name": "Ngưu Bối Phong",
+"gloss": "Ox-Back Peak",
+"kind": "peak",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 0.71,
+"qi": {
+"moc": 20,
+"hoa": 11,
+"tho": 24,
+"kim": 32,
+"thuy": 13
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 1111,
+"name": "Phục Linh Thôn",
+"gloss": "Poria Village",
+"kind": "village",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.08,
+"qi": {
+"moc": 47,
+"hoa": 11,
+"tho": 14,
+"kim": 10,
+"thuy": 17
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 1119,
+"name": "Ngọc Trụ Phong",
+"gloss": "Jade Pillar Peak",
+"kind": "peak",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 1.12,
+"qi": {
+"moc": 28,
+"hoa": 11,
+"tho": 22,
+"kim": 26,
+"thuy": 14
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 1138,
+"name": "Nhuyễn Thạch Khoáng",
+"gloss": "Softstone Mine",
+"kind": "mine",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 0.09,
+"qi": {
+"moc": 15,
+"hoa": 10,
+"tho": 20,
+"kim": 27,
+"thuy": 28
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 1133,
+"name": "Lãnh Thiết Khoáng",
+"gloss": "Cold Iron Mine",
+"kind": "mine",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 0.74,
+"qi": {
+"moc": 18,
+"hoa": 10,
+"tho": 24,
+"kim": 34,
+"thuy": 14
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 375,
+"name": "Dưỡng Mộc Tuyền",
+"gloss": "Spring That Feeds the Trees",
+"kind": "spirit_vein",
+"region": 3,
+"biome": "temperate forest",
+"elev_km": 0.19,
+"qi": {
+"moc": 39,
+"hoa": 11,
+"tho": 17,
+"kim": 15,
+"thuy": 17
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 1139,
+"name": "Độc Tọa Phong",
+"gloss": "Peak of Sitting Alone",
+"kind": "peak",
+"region": 3,
+"biome": "high mountain",
+"elev_km": 1.0,
+"qi": {
+"moc": 18,
+"hoa": 10,
+"tho": 22,
+"kim": 30,
+"thuy": 19
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+}
+],
+"ground_place_count": 90,
+"events": [
+{
+"id": "C054",
+"tier": "landmark",
+"year": 180,
+"kind": "sect_founded",
+"people": [
+"bui_loc_trai"
+],
+"sects": [
+"khong_son"
+],
+"text_en": "Bùi Lộc Trại founds Không Sơn Viện in the hills of Thanh Loan Lĩnh, an academy so quiet that, as the poem says, on the empty mountain no one is seen.",
+"place": 213
+},
+{
+"id": "A033",
+"tier": "annal",
+"year": 190,
+"kind": "settlement",
+"people": [],
+"sects": [
+"khong_son"
+],
+"text_en": "Woodcutters singing on the ridges below Không Sơn Viện are asked to sing more quietly; the town they found is still called Tiều Ca.",
+"place": 59,
+"region": 3
+},
+{
+"id": "A034",
+"tier": "annal",
+"year": 240,
+"kind": "settlement",
+"people": [],
+"sects": [
+"khong_son"
+],
+"text_en": "Không Sơn's students plant the cypress groves around Bách Diệp as a lesson in patience.",
+"place": 58,
+"region": 3
+},
+{
+"id": "A035",
+"tier": "annal",
+"year": 300,
+"kind": "discovery",
+"people": [],
+"sects": [
+"khong_son"
+],
+"text_en": "Green jade is found in the hills; Không Sơn Viện forbids mining it, so the mountain stays quiet.",
+"place": 165,
+"region": 3
+},
+{
+"id": "A036",
+"tier": "annal",
+"year": 410,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Crows gather on the ridge in such numbers that the village beneath is named Ô Đề.",
+"place": 102,
+"region": 3
+},
+{
+"id": "C091",
+"tier": "landmark",
+"year": 430,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"khong_son"
+],
+"text_en": "Under Không Sơn Viện, fishers and ferrymen build Hàn Tân Thành at the cold ford of the north coast.",
+"place": 31
+},
+{
+"id": "V021",
+"tier": "annal",
+"year": 455,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The last monk of Tĩnh Tuyết Tự dies with no novices, and the temple is left to the snow.",
+"place": 1154,
+"region": 3
+},
+{
+"id": "C094",
+"tier": "landmark",
+"year": 460,
+"kind": "headship",
+"people": [
+"bui_loc_trai",
+"thoi_bat_kien",
+"tong_toa_van"
+],
+"sects": [
+"khong_son"
+],
+"text_en": "Bùi Lộc Trại dies; Thôi Bất Kiến becomes the master of Không Sơn Viện, and takes no disciple but one boy, Tống Tọa Vân.",
+"place": 213
+},
+{
+"id": "V022",
+"tier": "annal",
+"year": 488,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The spring of Bão Nhất Quán dries, and its last abbot goes down to Không Sơn Viện as a guest.",
+"place": 1157,
+"region": 3
+},
+{
+"id": "V023",
+"tier": "annal",
+"year": 497,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The head of Thận Lâu Các walks out on the sea ice after a mirage of a city and never returns; the disciples leave the pavilion.",
+"place": 1150,
+"region": 3
+},
+{
+"id": "C010",
+"tier": "landmark",
+"year": 500,
+"kind": "sect_founded",
+"people": [
+"phung_yen_ha"
+],
+"sects": [
+"thuy_vi"
+],
+"text_en": "Phùng Yên Hà founds Thúy Vi Tông in the blue-green mist of the north-western hills.",
+"place": 1
+},
+{
+"id": "C100",
+"tier": "landmark",
+"year": 500,
+"kind": "gift",
+"people": [
+"thoi_bat_kien",
+"phung_yen_ha",
+"tong_toa_van"
+],
+"sects": [
+"khong_son",
+"thuy_vi"
+],
+"text_en": "Thôi Bất Kiến, with no heir, gives Thanh Loan Lĩnh, his whisk and his only student to Phùng Yên Hà; the empty mountain becomes Thúy Vi's.",
+"place": 213,
+"item": "bach_van_phat_tran"
+},
+{
+"id": "A037",
+"tier": "annal",
+"year": 505,
+"kind": "mine",
+"people": [],
+"sects": [
+"thuy_vi"
+],
+"text_en": "With the hills now Thúy Vi's, the green jade mine of Bích Ngọc Khoáng is opened at last.",
+"place": 165,
+"region": 3
+},
+{
+"id": "A038",
+"tier": "annal",
+"year": 520,
+"kind": "death",
+"people": [
+"thoi_bat_kien",
+"phung_yen_ha"
+],
+"sects": [
+"thuy_vi"
+],
+"text_en": "Thôi Bất Kiến dies in the empty academy he gave away; Phùng Yên Hà leaves it as it was, unlocked and unlooted.",
+"place": 213,
+"region": 3
+},
+{
+"id": "C114",
+"tier": "landmark",
+"year": 540,
+"kind": "sect_founded",
+"people": [
+"tong_toa_van"
+],
+"sects": [
+"van_khoi",
+"thuy_vi"
+],
+"text_en": "Tống Tọa Vân, the last student of the empty mountain, founds Vân Khởi Quán, to walk where the water ends and watch the clouds rise.",
+"place": 10
+},
+{
+"id": "A039",
+"tier": "annal",
+"year": 560,
+"kind": "mine",
+"people": [],
+"sects": [
+"van_khoi"
+],
+"text_en": "The monks of Vân Khởi Quán open the mica mine and say the stone is cloud made solid.",
+"place": 166,
+"region": 3
+},
+{
+"id": "A040",
+"tier": "annal",
+"year": 600,
+"kind": "settlement",
+"people": [],
+"sects": [
+"thuy_vi"
+],
+"text_en": "A market grows at the foot of Thúy Vi Tông in the mountain mist; it is called Lam Yên Thị.",
+"place": 45,
+"region": 3
+},
+{
+"id": "C135",
+"tier": "landmark",
+"year": 668,
+"kind": "war_start",
+"people": [
+"ky_tung_an",
+"phung_yen_ha"
+],
+"sects": [
+"tung_dao",
+"thuy_vi"
+],
+"text_en": "Tùng Đào Cung marches on the Cold Ford coast of Thúy Vi Tông without asking the Pivot for a writ.",
+"place": 31,
+"war": "haze_and_pine"
+},
+{
+"id": "C136",
+"tier": "landmark",
+"year": 672,
+"kind": "war_end",
+"people": [
+"ky_tung_an",
+"chung_hoai_cuc",
+"phung_yen_ha"
+],
+"sects": [
+"tung_dao",
+"thuy_vi",
+"thien_xu"
+],
+"text_en": "Tùng Đào takes the Cold Ford coast and Hàn Tân Thành; Chung Hoài Cực, Kỳ Tùng Ẩn's old drinking friend, lets it stand, and the Compact's first crack shows.",
+"place": 31,
+"war": "haze_and_pine"
+},
+{
+"id": "A041",
+"tier": "annal",
+"year": 674,
+"kind": "trade",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "Under Tùng Đào's rule the fishers of the Cold Ford are taxed in pine resin they do not have; many leave for the hills.",
+"place": 31,
+"region": 3
+},
+{
+"id": "V024",
+"tier": "annal",
+"year": 675,
+"kind": "settlement",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "Fishers of the Cold Ford who fled the resin tax found Tân Cư Thôn on a forest river, and set a jar of resin by every door as a joke.",
+"place": 1101,
+"region": 3
+},
+{
+"id": "V025",
+"tier": "annal",
+"year": 690,
+"kind": "city_abandoned",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "The fishers of Lô Khẩu Trấn have all gone to the hills under the resin tax; with no one to dredge it, the marsh takes the quays.",
+"place": 355,
+"region": 3
+},
+{
+"id": "A042",
+"tier": "annal",
+"year": 760,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "A spring in the woods above Lâm Tuyền Thôn cures the coughing sickness of 760; the village is named for its woods and springs.",
+"place": 103,
+"region": 3
+},
+{
+"id": "V026",
+"tier": "annal",
+"year": 790,
+"kind": "tale",
+"people": [],
+"sects": [
+"thuy_vi"
+],
+"text_en": "With Thôn Hải's sails gone since the Purge, the last of the garrison leaves Quan Lan Bảo.",
+"place": 1493,
+"region": 3
+},
+{
+"id": "A043",
+"tier": "annal",
+"year": 830,
+"kind": "discovery",
+"people": [],
+"sects": [
+"thuy_vi"
+],
+"text_en": "A landslide on the ridge uncovers a stone gate carved with Không Sơn's poem; Thúy Vi seals it again.",
+"place": 213,
+"region": 3
+},
+{
+"id": "C165",
+"tier": "landmark",
+"year": 901,
+"kind": "war_start",
+"people": [
+"phung_yen_ha",
+"thoi_khinh_hong",
+"do_tinh_ha"
+],
+"sects": [
+"thuy_vi",
+"tung_dao",
+"thien_xu"
+],
+"text_en": "Thúy Vi Tông, holding the Pivot's writ, marches to take back the Cold Ford.",
+"place": 31,
+"war": "cold_ford",
+"writ": true
+},
+{
+"id": "C166",
+"tier": "landmark",
+"year": 905,
+"kind": "war_end",
+"people": [
+"phung_yen_ha",
+"dam_tung_lai"
+],
+"sects": [
+"thuy_vi",
+"tung_dao"
+],
+"text_en": "Thúy Vi retakes the Cold Ford coast and Hàn Tân Thành after 233 years.",
+"place": 31,
+"war": "cold_ford"
+},
+{
+"id": "A044",
+"tier": "annal",
+"year": 906,
+"kind": "festival",
+"people": [],
+"sects": [
+"thuy_vi"
+],
+"text_en": "When the Cold Ford comes home, the fishers of Hàn Tân light lamps on every boat for a month.",
+"place": 31,
+"region": 3
+},
+{
+"id": "V027",
+"tier": "annal",
+"year": 910,
+"kind": "tale",
+"people": [],
+"sects": [
+"thuy_vi"
+],
+"text_en": "With the Cold Ford home again, Thúy Vi leaves Vọng Bắc Bảo empty; there is no longer an enemy road to watch.",
+"place": 1123,
+"region": 3
+},
+{
+"id": "V028",
+"tier": "annal",
+"year": 910,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"ho_lam",
+"thuy_vi"
+],
+"text_en": "Thúy Vi's forest wardens found Hộ Lâm Đường to keep the northern woods and gather spirit wood for the sect's furnaces.",
+"place": 1105,
+"region": 3
+},
+{
+"id": "V029",
+"tier": "annal",
+"year": 932,
+"kind": "disaster",
+"people": [],
+"sects": [
+"thuy_vi"
+],
+"text_en": "A cauldron of untamed pill fire bursts and destroys the halls of Bách Thảo Viện; Thúy Vi carries its herb books to the seat.",
+"place": 1116,
+"region": 3
+},
+{
+"id": "V030",
+"tier": "annal",
+"year": 980,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "Five years after the road to Lam Yên is moved east, the last inn of Cổ Dịch Trấn closes.",
+"place": 1110,
+"region": 3
+},
+{
+"id": "A045",
+"tier": "annal",
+"year": 1000,
+"kind": "tale",
+"people": [
+"ngu_lam_son"
+],
+"sects": [
+"thuy_vi"
+],
+"text_en": "Ngu Lam Sơn, the new head, walks in the haze for a hundred days before giving his first order.",
+"place": 1,
+"region": 3
+},
+{
+"id": "C173",
+"tier": "landmark",
+"year": 1000,
+"kind": "headship",
+"people": [
+"phung_yen_ha",
+"ngu_lam_son"
+],
+"sects": [
+"thuy_vi"
+],
+"text_en": "Phùng Yên Hà dies at 640; Ngu Lam Sơn becomes head of Thúy Vi Tông and takes the White Cloud Whisk.",
+"place": 1,
+"item": "bach_van_phat_tran"
+},
+{
+"id": "V031",
+"tier": "annal",
+"year": 1020,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "A year after an avalanche buries its upper street, the survivors of Vân Gian Trấn go down to Lam Yên Thị.",
+"place": 1130,
+"region": 3
+},
+{
+"id": "V032",
+"tier": "annal",
+"year": 1034,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "Since last year's earthquake turned both its sweet wells salt, Song Tỉnh Trấn has emptied.",
+"place": 275,
+"region": 3
+},
+{
+"id": "V033",
+"tier": "annal",
+"year": 1066,
+"kind": "disaster",
+"people": [],
+"sects": [
+"thuy_vi"
+],
+"text_en": "The head of Minh Kính Đường tries to break through to Nguyên Anh; his tribulation burns the hall and kills him, and the disciples scatter.",
+"place": 1127,
+"region": 3
+},
+{
+"id": "A046",
+"tier": "annal",
+"year": 1080,
+"kind": "mine",
+"people": [
+"tong_toa_van"
+],
+"sects": [
+"van_khoi"
+],
+"text_en": "The mica of Vân Mẫu Khoáng runs thin; the abbot Tống Tọa Vân says that clouds, too, pass.",
+"place": 166,
+"region": 3
+},
+{
+"id": "A047",
+"tier": "annal",
+"year": 1140,
+"kind": "trade",
+"people": [],
+"sects": [],
+"text_en": "Red leaves from Thu Diệp Thôn are sold in Lam Yên Thị as bookmarks for scripture; scholars come from three sects to buy them.",
+"place": 104,
+"region": 3
+},
+{
+"id": "V034",
+"tier": "annal",
+"year": 1150,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "The flood that moved the river west has left Hoành Kiều Trấn's bridge over dry ground, and the town follows the water.",
+"place": 1160,
+"region": 3
+},
+{
+"id": "A048",
+"tier": "annal",
+"year": 1195,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "A traveller who spends a night in the empty Không Sơn Viện swears he heard someone reading aloud in the next room.",
+"place": 213,
+"region": 3
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "luc_thanh_sam",
+"name": "Lục Thanh Sam",
+"name_han": "陸青杉",
+"gloss": "The green fir",
+"sex": "M",
+"born": 850,
+"alive": true,
+"sect": "ho_lam",
+"rank": "tong_chu",
+"role": "Founder and head of Hộ Lâm Đường (910), forest wardens; herbs and spirit wood for Thúy Vi's furnaces",
+"realm": "ket_dan",
+"home": 1105,
+"traits": {
+"personality": [
+"Loyal",
+"Patient",
+"Honest"
+],
+"calling": "Herbalist",
+"fate_given": []
+},
+"vassal_of": "thuy_vi"
+}
+],
+"legendary_items": []
+}

@@ -1,0 +1,40 @@
+{
+ "sect": "cuu_cao",
+ "_doc": "Cửu Cao Phái's named spirit beasts (linh thú). Proposal, unpriced (wish d32 S6; user ruling 2026-11-25, group 8). The record follows the game's beast form: an owned beast is a people record with is_beast and owner_id, and its owner lists it in `beasts` (src/gameplay/character/beast_keeper.gd, assets/data/creatures_linh_thu.json, design/quick-specs/phu-luc-linh-thu-thanh-tuu.md). In a fight it is a companion: it adds power_share (0.5) of its chiến lực to its rider's offense, strikes every basic_cooldown, cannot be targeted and never leaves the fight (Combat rule 19). The `combat` and `bond` blocks are depth fields for the combat port and the writers.",
+ "beasts": [
+  {
+   "key": "thanh_dien",
+   "name_hv": "Thanh Điền",
+   "name_han": "青田",
+   "gloss": "Green Field, after the marsh ground where it was first seen",
+   "is_beast": true,
+   "species": "crane king (hạc vương)",
+   "sex": "M",
+   "born": 880,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "root": {"elements": {}, "variants": {"phong": 82}},
+   "owner_id": "ung_hac_minh",
+   "loyalty": 95,
+   "home": 14,
+   "location_id": 14,
+   "tags": ["crane", "bird", "companion"],
+   "appearance": "A grey-crowned crane half again the height of the flock, wings broad as a boat's sail, with the founder's Green Field Bell tied to its leg.",
+   "combat": {
+    "strikes": "phong",
+    "power_share": 0.5,
+    "note": "A companion share under Formulas J: Wind strikes on the rider's basic_cooldown; it takes the rider's attack_pct [companion]; 'beside you' and allies counted (duel-readings R1) count it. A Crane for the Rider (crane-bond-rite) reads its hits through the `crane` tag, and Rider and King (cc-green-field-riders set) answers each evade with one of its Wind strikes."
+   },
+   "bond": {
+    "rider": "ung_hac_minh",
+    "since": 1197,
+    "event": "A097",
+    "rule": "It carries no other rider. A crane bonds once by shared breath and takes no other rider after its rider dies (cuu_cao.md section 4)."
+   },
+   "backstory": "The crane king of the nine marshes, which had thrown every rider who tried it for three centuries. In 1197 Ung Hạc Minh breathed with it on its first flight and it let her stay on (A097). It still throws anyone else, and has thrown the envoy Vi Thừa Phong twice.",
+   "status": "proposal",
+   "authored": "d32"
+  }
+ ]
+}

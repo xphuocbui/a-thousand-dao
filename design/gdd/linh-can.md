@@ -6,6 +6,7 @@
 > **Last Updated**: 2026-11-10 (design-review 2026-11-10 answers applied; see `reviews/linh-can-review-2026-11-10.md`)
 > **Last Verified**: 2026-11-10
 > **Revised 2026-11-10** (user decisions, `design/research/linh-can-proficiency-direction.md`): purity also powers element stacks (rule 8a, Formulas H) and may rise past 100 through rare sources.
+> **Amended 2026-11-25** (user rulings, world-depth pass: `design/world/depth/DECISIONS-2026-11-25.md` groups 1, 3 and 10; proposal `design/world/depth/rules-proposals.md` R1): **roots follow the birthplace's land.** A Fated birth reads its birthplace province's land qi (rule 2, Formulas A2) and its strongest variant land (Formulas D4). Measured on the fixed world: world totals stay flat, regions differ.
 > **Implements Pillar**: Pillar 1 (Your Dao, Your Name); touches Pillar 3 (Power Is Built, Not Given) and Pillar 4 (Every Season Counts)
 > **Archived 2026-11-09 (user): Void (Hư Không) and Blood (Huyết).** Both variant roots are out of the game for now. They no longer roll at birth, cannot be picked in Self-made, and get no element stacks (Combat economy revision #44). Their rules, rows, worked examples and acceptance criteria stay below, marked or unchanged, so they can return. **Not yet applied in code:** the build still rolls them (`innate_chance` huyet 0.015, hu_khong 0.005) and about 20 acceptance criteria (AC-LC-04 to AC-LC-51, among them 05, 11, 28 and 42) still test them; switching them off moves the innate share from 4.34 % to 2.5 % and needs those criteria and Realms' calibration rechecked (Open Question 13).
 
@@ -104,10 +105,22 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
    - **Fated birth (Thiên Định):**
      - the base element count is drawn from `count_weights`, 45 / 32 / 15 / 6.5 / 1.5 %
        for 1 to 5 elements;
-     - the elements are chosen uniformly at random;
-     - each purity is drawn from N(`purity_mean`, `purity_sd`), rounded and clamped to
-       `purity_min`–100;
-     - variants are then rolled (rules 9 and 10).
+     - **the elements are chosen by land weight** (amended 2026-11-25): each element's weight is its land
+       factor at the person's birthplace (Formulas A2). On even land every factor is 1 and the pick is uniform, as
+       before;
+     - each purity is drawn from N(`purity_mean`, `purity_sd`), **shifted by the land (+ `land_purity_shift` ×
+       (factor − 1), Formulas A2)**, rounded and clamped to `purity_min`–100;
+     - variants are then rolled (rules 9 and 10), **each variant's chance multiplied by its land boost
+       (Formulas D4)**.
+   - **Birthplace (new, 2026-11-25).** Every Fated birth reads a birthplace: a place, whose province supplies the
+     land (Provinces #48).
+     - The player's birthplace is the starting origin's place (World Generation, start by origin).
+     - An NPC's birthplace is set by whatever creates it: World Generation's fill or the Living World Tick's births.
+       Where the fill draws it is World Generation's rule; this system only reads it.
+     - A birth with no birthplace, or a birthplace in no province, reads even land: every factor 1 and no variant
+       boost.
+     - Why: the land shapes its people (user, 2026-11-24: "for a region to be strong in a linh khí type, the spawn
+       rate for that linh khí type should increase for new gens").
    - **Self-made birth (Tự Định):** the player picks the elements and their purities
      (10–100; values outside are rejected at input) and may pick any variant the root
      qualifies for (rule 9). A picked derived variant takes its formula purity (rule 10);
@@ -116,7 +129,8 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
      marked **declined** and are never rolled, not even by Mutation Awakening. A derived
      variant that did not qualify at birth rolls normally if a root change later makes it
      eligible. Picks are free: Self-made is the casual mode with achievements off, and Fated lives are the
-     competitive mode (user decision 2026-11-04, kept for the redesign).
+     competitive mode (user decision 2026-11-04, kept for the redesign). **The land is not read** in a Self-made
+     birth (2026-11-25).
    - **Birth perk.** After every birth roll, a destiny perk with `birth.purity_all` (Linh Căn
      Thuần Tịnh, +8) raises every owned base element, capped at 100, and derived variants'
      purities are recomputed. It makes no roll and writes no change record, because it is
@@ -329,7 +343,8 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
     There is no respec.
 15. **NPCs** roll and change their roots by the same rules, except Mutation Awakening:
     `breakthrough_succeeded` is player-only (Realms & Bottlenecks rule 9), so NPCs get no
-    Awakening passes. An archetype never changes a root (user decision 2026-11-05). An NPC
+    Awakening passes. Every NPC birth reads its birthplace's land like the player's (rule 2, 2026-11-25), so a
+    region's people look like its land. An archetype never changes a root (user decision 2026-11-05). An NPC
     whose root lacks any of its archetype's elements usually switches to an archetype that
     fits, and may keep it anyway with chance `archetype_keep_chance` (0.2, a guess), at the
     disadvantage of a poor match. NPC Builds owns that pick.
@@ -387,6 +402,8 @@ All four are saved.
 | World Database | out | root changes and variants formed | World Database |
 | Travel & Map | out | purities, owned and road-raised, for the element match of a root to the land (its Formulas A; unowned purity at half weight) | Travel & Map |
 | NPC Builds, World Generation | in / out | NPC roots rolled by the same rules; the owned elements, for the archetype fit (rule 15) | NPC Builds |
+| Provinces, World Generation, Living World Tick | in | the birthplace (World Generation, Living World Tick) and its province's land qi and strongest variant tiles (Provinces), read once at a Fated birth (rule 2, Formulas A2 and D4; 2026-11-25) | this GDD (the read); Provinces (the land data) |
+| Sects & Missions | out | the root, which a sect's admission reads (Sects R2, 2026-11-25: a sect admits only roots that can absorb its công pháp) | Sects |
 | Progression Edges | in / out | in: the birth perk's `birth.purity_all`, raising purity after the birth rolls (rule 2), for the player and a blessed NPC. Out: purities and the variant count, for the NPC edge score | Progression Edges |
 | Market, Combat, Achievements | out | the root as read-only input: stock bias (Market), artifact element match (Combat), `n_base` and the variant count (Achievements) | each system |
 | Codex & Karmic Carryover | out | variants discovered across lives | Codex |
@@ -427,8 +444,8 @@ gives the same root and tests can stub it.
 | Step | What | Uniform draws | Normal draws |
 |---|---|---|---|
 | 1. Count | Smallest n with u · Σw < the cumulative weight of n (half-open intervals [0, 45), [45, 77), [77, 92), [92, 98.5), [98.5, 100), the same convention as every variant roll) | 1 | 0 |
-| 2. Elements | Partial Fisher–Yates over [Wood, Fire, Earth, Metal, Water] (cycle order). For i = 0 … n_base−1, j = i + floor(u · (5 − i)); swap i and j | `n_base` (the last draw is still made when `n_base` = 5) | 0 |
-| 3. Purities | One per owned element, in cycle order (not shuffle order) | 0 | `n_base` |
+| 2. Elements | Partial **weighted** Fisher–Yates over [Wood, Fire, Earth, Metal, Water] (cycle order), weights `f_e` (Formulas A2; amended 2026-11-25). For i = 0 … n_base−1, let W = Σ_{k ≥ i} f(a_k); j is the smallest index ≥ i with u · W < Σ_{k = i..j} f(a_k); swap i and j. With all weights 1 this is exactly the old j = i + floor(u · (5 − i)), so even land gives the same roots as before | `n_base` (the last draw is still made when `n_base` = 5) | 0 |
+| 3. Purities | One per owned element, in cycle order (not shuffle order); the land shift (Formulas A2) is added to the normal draw before rounding and the clamp | 0 | `n_base` |
 | 4. Innate rolls | Wind, Blood, Void, in catalogue order. Each rolls `u < innate_chance[v]`. Void is eligible only when `n_base` ≤ `void_max_elements`, and **makes no draw otherwise** | 1 each for Wind and Blood; 1 for Void only if `n_base` ≤ 2 | 1 immediately after each success (that variant's purity); none after a failure |
 | 5. Derived rolls | Thunder, Darkness, Chaos, Light, Ice, in catalogue order. A variant rolls only if its requirement is met, **and makes no draw otherwise** | 1 per variant whose requirement is met | 0 (purity is a formula) |
 
@@ -453,6 +470,37 @@ the mean, clamped to 10.
 
 The root is a Triple root + Wind, Light. That is 8 uniform and 4 normal draws, and
 `n_eff` = 4.
+
+### A2. Land factor (new, 2026-11-25)
+
+A Fated birth reads its birthplace's land (rule 2). The land_factor formulas are defined as:
+
+`s'_e = s_e + variant_parts_tilt · Σ_{v : e ∈ req(v)} q_v` ; `f_e = clamp(1 + land_k · (s'_e − s̄_e) / s̄_e, land_factor_min, land_factor_max)` ; `purity_e = clamp(round(N(μ, σ) + land_purity_shift · (f_e − 1)), p_min, p_max)`
+
+**Variables:**
+| Variable | Type | Range | Source | Description |
+|----------|------|-------|--------|-------------|
+| s_e | float | 0–100 % | Provinces (#48): the birthplace province's land qi | The element's share of the province's qi: the mean over the province's land tiles of each tile's element share (the tile's biome parts mixed by their shares, Travel & Map) |
+| q_v | float | 0–100 | Provinces: the province's **strongest tile** of variant v | Variant land is local (a glacier peak, a lightning wood); a province mean dilutes it to ~2.5, so births read the strongest tile (user, 2026-11-25) |
+| req(v) | set | as Formulas D1 | data file | The variant's required elements: Thunder tilts Fire and Metal, Darkness Earth and Water, Ice Water, Light Fire; Wind and Chaos tilt nothing |
+| s̄_e | float | Wood 31.1, Fire 15.1, Earth 20.1, Metal 13.7, Water 20.0 | data file (`land_element_means`), computed at map export | The element's **world mean**: the population-weighted mean of s_e over the settlement provinces. Each element is measured against its own world mean, not a flat 20 % (user, 2026-11-25), so world totals stay flat |
+| land_k | float | 1.0 | data file | How hard the land pulls ("strong lean", user 2026-11-24) |
+| land_factor_min, land_factor_max | float | 0.25, 3 | data file | The factor's bounds: any element can still be born anywhere |
+| land_purity_shift | float | 6 | data file | Purity points per unit of factor above or below 1 (−4.5 at the floor, +12 at the cap) |
+| variant_parts_tilt | float | 0.5 | data file | Share points added to a variant's required elements per point of that variant's land (user, 2026-11-25) |
+| f_e | float | 0.25–3 | calculated | The element's weight in step 2 and its purity shift in step 3 |
+
+**Output Range (measured on the fixed world, 468 settlement provinces, 2026-11-25):**
+- Every element is held by **about 37 % of people world-wide**, unchanged from the uniform roll (a flat 20 % baseline
+  would have made Wood 51 %, Fire 31 %, Metal 30 %).
+- Each element has home regions: provinces with f ≥ 1.5 number Wood 61, Fire 40, Earth 73, Metal 61, Water 69; with
+  f ≥ 2, Fire 5, Earth 23, Metal 23, Water 25.
+- Mean element purity 50.1 → **50.9**; the share of purities ≥ 85 is 4.1 % → **4.8 %**.
+
+**Example:** a frost-coast province with Water 40 % and Ice land 22 (its strongest tile). s'_Water = 40 + 0.5 × 22 =
+51, so f_Water = 1 + (51 − 20.0) / 20.0 = **2.55**. A single root there is Water with weight 2.55 against the others'
+factors. With Wood 25 % (f = 0.80), Fire 10 % (0.66), Earth 15 % (0.75) and Metal 10 % (0.73), Water's share of single
+roots is 2.55 / 5.49 = **46 %** (20 % on even land). A Water purity draw of 50 becomes 50 + 6 × 1.55 = **59**.
 
 ### B. Effective count and the element-count curve
 
@@ -680,6 +728,34 @@ round(55.3) = **55** (parent purity; it was 44).
 Nascent Soul breakthrough gives a second roll at the same purities and forms it with
 probability 20.6 %. The chance it is owned after both passes is 1 − 0.794³ = **50 %**.
 
+### D4. Land boost (new, 2026-11-25)
+
+A variant's birth chance rises on its own land (rule 2). The land_boost formula is defined as:
+
+`b_v = clamp(1 + variant_land_k · q_v / 10, 1, variant_land_max)` ; `chance'_v = min(1, chance_v · b_v)`
+
+**Variables:**
+| Variable | Type | Range | Source | Description |
+|----------|------|-------|--------|-------------|
+| q_v | float | 0–100 | Provinces: the birthplace province's strongest tile of variant v (Formulas A2) | Ice, Thunder, Darkness, Light and Wind each read their own land; Chaos and the archived Blood and Void read none (q = 0) |
+| variant_land_k | float | 1.0 | data file | Boost per 10 points of variant land |
+| variant_land_max | float | 5 | data file | The boost's cap |
+| chance_v | float | 0–1 | Formulas D1 | The chance at birth, before the boost |
+| b_v | float | 1–5 | calculated | Land never lowers a variant's odds |
+
+**Rules:**
+- The boost applies to the **birth roll only**; Mutation Awakening (D3) and root changes read no land.
+- It changes no draw: a variant still rolls only when its requirement is met (or, for Wind, always), with the same one
+  uniform draw, so the draw order and counts of Formulas A are unchanged.
+- The parts tilt of Formulas A2 makes the requirement likelier to be met on variant land; the boost then makes the
+  roll likelier to succeed. Both are intended: variant land should breed its variant.
+
+**Output Range (measured 2026-11-25):** Ice is born in **2.2 % → 2.4 %** of births world-wide; only provinces that
+contain real variant land boost it (strongest tile ≥ 10: Ice 4, Thunder 4, Light 5, Wind 2, Darkness 22).
+
+**Example:** Water 50 on the frost coast with Ice land 22: chance_Ice = 0.12 × 0.50 = 0.06; b = 1 + 22 / 10 = 3.2;
+chance' = **0.192**.
+
 ### E. Variant power
 
 The variant_power formulas are defined as:
@@ -849,6 +925,12 @@ Water 70 has Ice 70: both stacks ×1.14.
 | `awakening_max_passes` | 2 **(new)** | Mutation Awakening passes per life. Structural, not a limit the code enforces: only CF→NS and NS→DT can fire it, and no pass counter is saved |
 | `variant_power_band` | [10, 30] W **(replaces `bien_di_power_band`)** | Common band: floor at purity 50, ceiling at purity 100 |
 | `variant_power_band_apex` | [60, 140] W **(revised 2026-11-19, was [20, 60])** | Chaos band |
+| `land_k` | 1.0 **(new, 2026-11-25)** | Formulas A2: how hard the birthplace's land pulls the element pick |
+| `land_factor_min`, `land_factor_max` | 0.25, 3 **(new)** | Formulas A2: the land factor's bounds |
+| `land_purity_shift` | 6 **(new)** | Formulas A2: purity points per unit of factor above or below 1 |
+| `variant_parts_tilt` | 0.5 **(new)** | Formulas A2: share points a variant's land adds to its required elements |
+| `variant_land_k`, `variant_land_max` | 1.0, 5 **(new)** | Formulas D4: the variant boost per 10 points of variant land, and its cap |
+| `land_element_means` | {moc 31.1, hoa 15.1, tho 20.1, kim 13.7, thuy 20.0} **(new; written by the map export)** | Formulas A2: each element's world mean share. Re-exported with the map; a fixed world keeps it fixed |
 
 Removed: `bien_di_chance_factor`, `bien_di_higher_order_factor`, `bien_di_power_band` (the
 four-value form), `herb_age_root_pct` (Time moved to the Way).
@@ -983,6 +1065,20 @@ production.
   Water, so a root can meet a requirement it never rolled; those variants are marked
   rolled and get no first roll, though Awakening can still roll them.
 
+**Birthplace and land (new, 2026-11-25):**
+- **If a birth has no birthplace** (an old save, a test, a person created without one): it reads even land. Every
+  factor is 1, there is no purity shift and no variant boost, and the roll is the old uniform roll draw for draw.
+- **If the birthplace is on water or in no province** (a lake place, a boat): Provinces' rule for a place on water
+  applies (the nearest land province within `lake_search_radius`); if none is found, even land.
+- **If an element has no share in the province** (s_e = 0): its factor is the floor, 0.25. It can still be born
+  there, just rarely. The land never forbids an element.
+- **If the parts tilt pushes a share past 100:** shares are not re-normalised; only the factor's cap (3) bounds it.
+- **If the purity shift goes below the floor:** the clamp to `purity_min` applies as for any draw.
+- **If a person moves after birth:** nothing changes. The land is read once, at birth.
+- **A Self-made birth** reads no land (the player picks everything).
+- **If the map is re-exported:** `land_element_means` and the province land qi are re-exported with it. A save made on
+  another map is already refused (World Generation's map version).
+
 ## Dependencies
 
 **Upstream:**
@@ -998,6 +1094,9 @@ production.
 |---|---|---|---|
 | 8 | Realms & Bottlenecks | The stage group for the curve lookup; the `breakthrough_succeeded` event | No curve position; Mutation Awakening never rolls |
 | 7 | Character Stats | The capability set (rule 16), to check whether #24 is held | Mutation Awakening never rolls |
+| 48 | Provinces | The birthplace's province, its land qi (mean element shares over its tiles) and its strongest variant tiles (Formulas A2, D4; new 2026-11-25) | Births read even land (the old uniform roll) |
+| 25 | Travel & Map | The tile qi the province land is computed from (at map export) | as above |
+| 27, 28 | World Generation, Living World Tick | The birthplace of each person they create (rule 2; new 2026-11-25) | Births read even land |
 
 **Downstream:**
 
@@ -1056,6 +1155,11 @@ systems split out of Combat depend on each other as follows.
 | `pair_bonus_pct` | 3 | 1–4.5; *derived* ceiling 4.5 (5 pairs under the 50 W keystone floor) | The pair bonus; at 2 four- and five-element roots tie, at 4+ five pulls ahead |
 | `stack_purity_factor` | 0.002 | 0.001–0.004 | How much purity strengthens element stacks (Formulas H) |
 | `n_cap` | 5 | 5 only, unless a sixth curve row is added (which reopens Realms' years table) | How far innate variants can push `n_eff` |
+| `land_k` | 1.0 | 0.5–1.5; above 2 regions turn into near-monocultures | How much a region's people look like its land (Formulas A2). World totals stay flat at any value, because each element is measured against its own world mean |
+| `land_factor_min`, `land_factor_max` | 0.25, 3 | min 0.1–0.5; max 2–4 | How rare an off-land element can get, and how dominant a home element can get |
+| `land_purity_shift` | 6 | 0–10 | How much stronger home-land roots are; at 6 world mean purity rises 0.8 points and the ≥ 85 share 4.1 → 4.8 % |
+| `variant_parts_tilt` | 0.5 | 0–1 | How much variant land breeds the variant's required elements (Thunder's Fire and Metal) |
+| `variant_land_k`, `variant_land_max` | 1.0, 5 | k 0.5–2; max 2–8 | How strongly variant land breeds its variant; world Ice stays near 2.4 % of births at these values |
 | `convergence_factor` | 0.6 | 0.4–0.8 | Thunder and Darkness, about 1.3–2.6 % of births each |
 | `transmutation_factor` | 0.12 | 0.08–0.16 | Light and Ice, about 1.5–3.0 % of births each |
 | `chaos_factor` | 5 | 2–8 | Chaos: about 6–25 % of five-element roots (0.09–0.38 % of births); the `min(1, …)` clamp binds sooner as it rises |
@@ -1468,6 +1572,33 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   - Chaos on {Wood 50, Fire 60, Earth 50, Metal 40, Water 30} is 45 and scales the Water land by 0.5 + 0.45 = 0.95
     (Water 30 alone would read 0.80).
   - Light and Darkness still read `variant_purity_factor`: Light on Fire 86 is 69.
+
+**Roots follow the land (2026-11-25):**
+- **AC-LC-59** [Logic · BLOCKING] Rule 2, even land. **GIVEN** a Fated birth with no birthplace, or a birthplace whose
+  province has every share at its world mean, **THEN** every factor is 1 and the root, purities and variants are
+  identical, draw for draw, to the uniform roll for the same seed (the existing birth-roll golden tests pass unchanged).
+- **AC-LC-60** [Logic · BLOCKING] Formulas A2, weighted pick. **GIVEN** factors {Wood 1, Fire 1, Earth 1, Metal 1,
+  Water 2} and a count draw giving `n_base` 1, **WHEN** the element draw u = 0.9, **THEN** W = 6, u · W = 5.4 falls in
+  Water's interval [4, 6), and the root is single Water; **WHEN** u = 0.6, **THEN** 3.6 falls in Metal's [3, 4).
+- **AC-LC-61** [Logic · BLOCKING] Formulas A2, purity shift. **GIVEN** f_Water 2.55 and a normal draw of exactly the
+  mean (50), **THEN** Water purity is 59; **GIVEN** f 0.25 and the same draw, **THEN** 46 (50 − 4.5, rounded);
+  **GIVEN** f 0.25 and a draw of 12, **THEN** 10 (the clamp).
+- **AC-LC-62** [Logic · BLOCKING] Formulas A2, the factor. **GIVEN** a province with Water 40 %, Ice land 22 and
+  `land_element_means` Water 20.0, **THEN** s'_Water = 51 and f_Water = 2.55; **GIVEN** an element with share 0, **THEN**
+  its factor is 0.25; **GIVEN** a share of 100 %, **THEN** 3 (the cap).
+- **AC-LC-63** [Logic · BLOCKING] Formulas D4. **GIVEN** a Water 50 root born where the strongest Ice tile is 22,
+  **THEN** the Ice chance is 0.12 × 0.50 × 3.2 = 0.192; **GIVEN** Ice land 60, **THEN** the boost is capped at 5 (0.30);
+  **GIVEN** no Ice land, **THEN** 0.06. The number of uniform draws in the birth is the same in all three cases.
+- **AC-LC-64** [Logic · BLOCKING] Formulas A2, parts tilt. **GIVEN** a province with Fire 15.1 %, Metal 13.7 % (both at
+  their world means) and Thunder land 40, **THEN** s'_Fire = 35.1 (f 2.32) and s'_Metal = 33.7 (f 2.46); Wood, Earth and
+  Water are not tilted.
+- **AC-LC-65** [Logic · BLOCKING] Rule 2. A Self-made birth reads no land: the same picks give the same root wherever
+  the origin is.
+- **AC-LC-66** [Integration · ADVISORY] World totals. **GIVEN** 100,000 Fated births drawn over the fixed world's
+  settlement provinces by population, **THEN** each element is held by 35-39 % of people, mean element purity is
+  50-52, the share of purities ≥ 85 is 4-6 %, and Ice is 2.0-2.8 % of births (measured 2026-11-25: 37 %, 50.9, 4.8 %,
+  2.4 %).
+
 **Not testable here, by design:**
 - Total lives holding a variant (about 12.4–13.5 %) depends on E_p, an unsourced estimate that needs a bot run (Open Question 1).
 - The years-per-realm table depends on the guessed rate factor.
@@ -1493,3 +1624,5 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 | 13 | Void and Blood are archived (user, 2026-11-09). To apply in code: set `innate_chance` huyet and hu_khong to 0 and reject them in Self-made; update the about 20 acceptance criteria that name them (AC-LC-04 to AC-LC-51) and their tests (scripted births, the 4.34 % innate share, Void picks); recheck Realms' calibration, which assumed about 4.3 % of lives move up a curve row. Decide whether the Đạo Đồ keeps their variant sectors | game-designer, gameplay-programmer | Code pass |
 | 14 | Price a point of purity in W for stack builds (+0.2 % stack power), with the #44 simulator (the Đạo Đồ guesses `purity_price` 0.3 W); set how much purity each rare source grants: roads are set (`road_purity` 0.5), the Linh Căn Quả raise is 8; rare items (Item DB) and Đạo nodes (the Way) are intended but undefined | systems-designer, Item DB, the Way | Đạo Đồ content pass |
 | 15 | Re-price the variant bands for purity above 100 (a derived variant now follows its parents, and variant lands grant purity; review D1, D4) | systems-designer | Formulas E |
+| 16 | Roots follow the land (2026-11-25) raise world mean purity by about 0.8 and the ≥ 85 share from 4.1 to 4.8 %. Re-check Realms & Bottlenecks' gate calibration (its Open Question 23) with the land roll before the next balance pass; a small shift, not expected to need a retune | systems-designer | Realms calibration |
+| 17 | Province land qi (the mean element shares over a province's tiles, and the strongest variant tile) must be exported per province with the map (Provinces data) and `land_element_means` with it; measured with `tools/design/map/land_birth_measure.py` | Provinces, map export | Formulas A2, D4 in code |

@@ -1,0 +1,45 @@
+{
+ "sect": "da_quang",
+ "_doc": "Dạ Quang Môn lineage (rules-proposals R5). Leans Fire, Metal (unchanged; the seat fits). Outer gate: red-sand-sabre-primer (Fire). Inner gate and above: night-glow-blood-sabre-canon (Fire + Metal, Earth tier). Secret arts: debt-ledger-blade (inner, existing), tearing-force-rites (elders, existing). Proposals are unpriced; the main method is ma đạo (it spends the cultivator's own blood).",
+ "lineage": {
+  "outer": "red-sand-sabre-primer",
+  "main": "night-glow-blood-sabre-canon",
+  "secret": [
+   {"id": "debt-ledger-blade", "rank": "noi_mon"},
+   {"id": "tearing-force-rites", "rank": "truong_lao"}
+  ],
+  "body": null,
+  "elements": ["hoa", "kim"],
+  "tree_route": [696, 2763],
+  "tree_route_note": "Warm Blood (Ôn Huyết) and Heated Steel (Xích Thiết): the blood the sabre is paid in and the Fire-tempered edge."
+ },
+ "techniques": [
+  {
+   "id": "red-sand-sabre-primer",
+   "name": "Red Sand Sabre Primer (Xích Sa Đao Quyết)",
+   "tier": 0, "tech_kind": "main", "names": ["hoa"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The raiders' first method, taught on horseback. The rider breathes the desert's heat into a Fire dantian and lets it out through a curved sabre in one long draw-cut from the saddle. It is fast to learn and wasteful of qi, which suits men who expect to die young. Its sixth layer teaches the cut that takes a horse's legs first.",
+   "arts": [{"new": "Cut the Horse (Trảm Mã)", "concept": "A riding draw-cut that deals Fire damage and slows the target heavily for a moment; doubled against a foe who is moving."}],
+   "lore": "Hạng Dạ Bôi wrote it down in 975 from what the caravan guards of Trường Vân already knew, because his raiders could not read and needed someone to read it to them.",
+   "status": "proposal"
+  },
+  {
+   "id": "night-glow-blood-sabre-canon",
+   "name": "Night-Glow Blood Sabre Canon (Dạ Quang Huyết Đao Kinh)",
+   "tier": 2, "tech_kind": "main", "names": ["hoa", "kim"], "layers": 12, "rank": "noi_mon",
+   "concept": "The blood sabre. The cultivator tempers a Metal edge with Fire and quenches it in their own blood, so that each art can be paid in health instead of linh lực, and each wound the sabre opens pays some of it back. It is a ma đạo method: the blade is fed, and a sabre long unfed makes its holder restless. At the higher layers the holder can drink the heat of a kill. Raiders say a kill tastes like grape wine from a night-glowing cup, and they mean it.",
+   "arts": [
+    {"new": "Pay in Blood (Huyết Thường)", "concept": "For a few seconds the holder's arts cost health instead of linh lực and deal more Fire damage."},
+    {"new": "Wine in the Night-Glow Cup (Dạ Quang Bôi Tửu)", "concept": "Each 5 % of your health you pay for arts or deal as Bleed fills the cup by one, to five; a Broken foe fills it at once. At five you drink: your next art is free and heals you for a fifth of the health you paid since the last drink.", "authored": "d19, a1"},
+    {"new": "Crescent of Red Sand (Xích Sa Nguyệt)", "concept": "A wide Metal-and-Fire sabre arc that bleeds every foe it touches; bleeding foes take more from the holder's next cut.", "tags": ["bleed"], "authored": "b11"}
+   ],
+   "lore": "Hạng Dạ Bôi learned its core from a blood-sabre manual taken off a ma đạo caravan in 981 and spent a century making it his own. Băng Tâm forbade it in 1121 and has not checked since (A126).",
+   "status": "proposal",
+   "passives": [
+    {"key": "status_duration_pct", "value": 15, "scope": ["bleed"]},
+    {"key": "attack_pct", "value": 10, "scope": ["bleed"]}
+   ],
+   "authored": "b11, d19, a1"
+  }
+ ]
+}

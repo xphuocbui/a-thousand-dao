@@ -1,0 +1,511 @@
+{
+ "sect": "nhan_van",
+ "people": [
+  {
+   "key": "thi_dam_tinh",
+   "name_hv": "Thi Đàm Tĩnh",
+   "name_han": "施潭靜",
+   "gloss": "Still pool",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "nhan_van",
+   "rank": "noi_mon",
+   "home": 37,
+   "birthplace": 72,
+   "role": "Pool House painter; paints sitters from their reflections",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Cautious",
+     "Compassionate"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A Triều Âm sail-maker's daughter who paints sitters from their reflections in the Pool House basin, the trade Tần Vãn Kính (tan_van_kinh) had before 1158; she lets no sitter look at the basin while she works, and Mễ Phù Vân (me_phu_van) charges double for it.",
+   "ties": [
+    {
+     "to": "me_phu_van",
+     "kind": "master",
+     "note": "keeper of the Pool House"
+    },
+    {
+     "to": "tan_dao_anh",
+     "kind": "friend",
+     "note": "watches over the dead painter's daughter"
+    }
+   ],
+   "master": "me_phu_van",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "idle-cloud-reflection-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "living-scroll-art",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 4
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "ham_nhat_van",
+   "name_hv": "Hàm Nhất Vân",
+   "name_han": "含一雲",
+   "gloss": "One cloud",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "nhan_van",
+   "rank": "noi_mon",
+   "home": 364,
+   "birthplace": 126,
+   "role": "Teaches the novices to grind ink at the abbey",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Content",
+     "Humble"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Nguyệt Loan fisher who came up the road in 1118 and ground ink a whole season before anyone spoke to him; he teaches the novices the one-breath stroke, and has painted one cloud a day for eighty years like Diệp Tố Quyên (diep_to_quyen), and kept none.",
+   "ties": [
+    {
+     "to": "diep_to_quyen",
+     "kind": "master",
+     "note": "the head"
+    },
+    {
+     "to": "man_tam_van",
+     "kind": "friend",
+     "note": "a novice from his own village"
+    }
+   ],
+   "master": "diep_to_quyen",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "idle-cloud-reflection-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "giai_thanh_nghien",
+   "name_hv": "Giải Thanh Nghiễn",
+   "name_han": "解青硯",
+   "gloss": "Green inkstone",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "nhan_van",
+   "rank": "ngoai_mon",
+   "home": 364,
+   "birthplace": 137,
+   "role": "Placed from Lạc Hà, 1199",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 42,
+     "thuy": 30,
+     "tho": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Trusting",
+     "Calm"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Ngân Than boy who carried silver-pine props for Mạch Ngân Sương (mach_ngan_suong) at Lạc Hà until he failed the dusk test a third time; placed with the abbey in 1199, he is still grinding ink, and Nghiêm Thu Lộ (nghiem_thu_lo) counts his brushes for him.",
+   "ties": [
+    {
+     "to": "khuong_tram_mac",
+     "kind": "master",
+     "note": "the ink-maker"
+    },
+    {
+     "to": "nghiem_thu_lo",
+     "kind": "friend",
+     "note": "the other placed child"
+    },
+    {
+     "to": "to_binh_chu",
+     "kind": "debt",
+     "note": "placed by him; owes Lạc Hà a tenth until 1229"
+    }
+   ],
+   "master": "khuong_tram_mac",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ink-grinding-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  },
+  {
+   "key": "liem_huan_huong",
+   "name_hv": "Liêm Huân Hương",
+   "name_han": "廉燻香",
+   "gloss": "Smoked incense",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "nhan_van",
+   "rank": "ngoai_mon",
+   "home": 456,
+   "birthplace": 456,
+   "role": "Burns agarwood soot at the ink house",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Content",
+     "Honest"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Trầm Hương agarwood-cutter's daughter who burns soot for Khương Trầm Mặc (khuong_tram_mac); her hair smells of the abbey's paintings, and Liễu Bạch Miêu (lieu_bach_mieu) teases her for it.",
+   "ties": [
+    {
+     "to": "khuong_tram_mac",
+     "kind": "master",
+     "note": "the ink-maker"
+    },
+    {
+     "to": "lieu_bach_mieu",
+     "kind": "friend",
+     "note": "her master's other disciple"
+    }
+   ],
+   "master": "khuong_tram_mac",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ink-grinding-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "doan_truc_nhi",
+   "name_hv": "Doãn Trục Nhi",
+   "name_han": "尹軸兒",
+   "gloss": "Scroll-rod child",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "nhan_van",
+   "rank": "noi_mon",
+   "home": 72,
+   "birthplace": 72,
+   "role": "Carries scrolls for Đới Kim Trục",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 28,
+     "kim": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Deceitful",
+     "Ambitious",
+     "Brave"
+    ],
+    "calling": "Merchant",
+    "upbringing": "street_orphan"
+   },
+   "backstory": "A Triều Âm dock boy who carries Đới Kim Trục's (doi_kim_truc) scrolls and has learned to forge his master's signature better than his master writes it; Mễ Phù Vân (me_phu_van) has begun paying him directly.",
+   "ties": [
+    {
+     "to": "doi_kim_truc",
+     "kind": "master",
+     "note": "the scroll peddler"
+    },
+    {
+     "to": "dinh_hong_thu",
+     "kind": "friend",
+     "note": "a Pool House painter"
+    }
+   ],
+   "master": "doi_kim_truc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "idle-cloud-reflection-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "cu_tieu_can",
+   "name_hv": "Cù Tiểu Can",
+   "name_han": "瞿小竿",
+   "gloss": "Little cane",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "nhan_van",
+   "rank": "ngoai_mon",
+   "home": 474,
+   "birthplace": 474,
+   "role": "Cuts canes for the paper mill; Cù Lục Trúc's grandson",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Humble",
+     "Loyal"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Cù Lục Trúc's (cu_luc_truc) grandson, who cuts the mill's canes in Vạn Can Lâm and beats pulp beside Mẫn Tầm Vân (man_tam_van); unlike his grandfather he paints well, and hides it so as not to be taken from the mill.",
+   "ties": [
+    {
+     "to": "cu_luc_truc",
+     "kind": "grandparent",
+     "note": "his grandfather and master; the mill steward"
+    },
+    {
+     "to": "man_tam_van",
+     "kind": "friend",
+     "note": "beats pulp beside him"
+    }
+   ],
+   "master": "cu_luc_truc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ink-grinding-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  },
+  {
+   "key": "bao_anh_nhi",
+   "name_hv": "Bào Ảnh Nhi",
+   "name_han": "鮑影兒",
+   "gloss": "Shadow child",
+   "sex": "F",
+   "born": 1177,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "nhan_van",
+   "rank": "noi_mon",
+   "home": 37,
+   "birthplace": 460,
+   "role": "Pool House painter; Đinh Hồng Thụ's cousin",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Honest",
+     "Paranoid"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born"
+   },
+   "backstory": "Đinh Hồng Thụ's (dinh_hong_thu) cousin from the mangroves and Tần Đảo Ảnh's (tan_dao_anh) first disciple; she has seen her master at the desk and at the pool in the same hour, and Đinh made her promise not to tell.",
+   "ties": [
+    {
+     "to": "tan_dao_anh",
+     "kind": "master",
+     "note": "the head's disciple"
+    },
+    {
+     "to": "dinh_hong_thu",
+     "kind": "cousin",
+     "note": "brought her to the Pool House"
+    }
+   ],
+   "master": "tan_dao_anh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "idle-cloud-reflection-canon",
+     "layer": 2
+    },
+    "aux": [
+     {
+      "tech": "living-scroll-art",
+      "layer": 1
+     }
+    ],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  }
+ ]
+}

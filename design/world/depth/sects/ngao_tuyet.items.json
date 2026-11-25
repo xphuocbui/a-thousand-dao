@@ -1,0 +1,175 @@
+{
+ "sect": "ngao_tuyet",
+ "_doc": "Ngạo Tuyết Phái signature items (rules-proposals R7; design/items record). Prefix ngt- (nt- would collide with nhan_tran). Unpriced proposals; modifier sizes follow catalogue-blade, catalogue-metal and catalogue-body grade 3. No set.",
+ "items": [
+  {
+   "id": "ngt-plum-in-snow-sword",
+   "name": "Plum in the Snow (Tuyết Trung Mai)",
+   "family": "blade",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 18,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 8,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "crit_damage_pct",
+     "value": 30,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 16,
+     "scope": [
+      "moc",
+      "debuff"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "one-flower-on-iron",
+     "name": "One Flower on Iron (Thiết Thượng Hoa)",
+     "rule": "Each Petal stack you hold makes your next critical hit with this sword leave a Wood bleed stack; at five Petals the bleed is doubled."
+    }
+   ],
+   "lore": "A grey sword of tiger-stripe iron from the mountain above Thạch Khẩu Trấn, forged by Trác Thiết Cán in 1163, the winter after the school took the empty ore town. A single plum blossom is etched where the blade meets the guard. Lăng Đạp Tuyết had carried a plain iron sword for ninety years before it.",
+   "build_use": "The founder's sword: critical thrusts and Wood bleeds, a Metal sword that flowers.",
+   "holder": "lang_dap_tuyet",
+   "made_by": "trac_thiet_can",
+   "made_year": 1163,
+   "set": "ngt-plum-and-snow",
+   "status": "proposal"
+  },
+  {
+   "id": "ngt-thach-khau-tiger-hide",
+   "name": "Hide of the Thạch Khẩu Tiger (Thạch Khẩu Hổ Bì Giáp)",
+   "family": "body",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "body_shield_pct",
+     "value": 18,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 12,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "the-tigers-weight",
+     "name": "The Tiger's Weight (Hổ Uy)",
+     "rule": "Beasts of Luyện Khí and Trúc Cơ strength hesitate before attacking the wearer: their first attack each fight is delayed by a second."
+    }
+   ],
+   "lore": "The striped hide of the spirit tiger that took the last miners of Thạch Khẩu Trấn (V053) and, a year later, Lăng Đạp Tuyết's daughter. Lăng killed it on Hổ Khiếu Cương in 1162 and would not touch the skin. Trác Thiết Cán, whose family were miners of the town, tanned it and wears it.",
+   "build_use": "The smith's armour: a heavy body and a hide that beasts remember.",
+   "holder": "trac_thiet_can",
+   "made_by": "trac_thiet_can",
+   "made_year": 1162,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "ngt-han-mai-snow-cloak",
+   "name": "Snow Cloak of Hàn Mai (Hàn Mai Tuyết Bào)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "crit_damage_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "White felt with a plum branch stitched on the back in iron thread. The village of Hàn Mai gave it to him the winter he founded the school, from the wool of every house.",
+   "build_use": "The branch under the blossom: health and heavier crits.",
+   "holder": "lang_dap_tuyet",
+   "made_by": "ngao_tuyet",
+   "made_year": 1105,
+   "set": "ngt-plum-and-snow",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "ngt-plum-and-snow",
+   "name": "Plum and Snow (Mai Tuyết Song Bảo)",
+   "pieces": [
+    "ngt-plum-in-snow-sword",
+    "ngt-han-mai-snow-cloak"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "crit_chance_pct",
+       "value": 3,
+       "scope": [
+        "sword"
+       ]
+      },
+      {
+       "key": "khi_huyet_pct",
+       "value": 5,
+       "scope": []
+      }
+     ],
+     "effect": "Bare Branch Blooms (Khô Chi Khai Hoa): while you fight alone (no companion, no Piece) and are below half health, each Petal you hold adds 6 % sword crit damage; when Last Blossom saves you, you gain five Petals."
+    }
+   ],
+   "story": "His sworn brother's sword and his village's cloak. Lăng Đạp Tuyết holds both.",
+   "authored": "a1"
+  }
+ ]
+}

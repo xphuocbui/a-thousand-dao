@@ -1,0 +1,178 @@
+{
+ "sect": "bach_vu",
+ "_doc": "Bách Vũ Các: named spirit beasts (linh thú). Proposal, unpriced (review/RANKED.md A7, 2026-11-25; form of sects/cuu_cao.beasts.json). An owned beast is a people record with is_beast and owner_id, and its owner lists it in `beasts` (src/gameplay/character/beast_keeper.gd, assets/data/creatures_linh_thu.json). Capacity is 1 + floor(effective thần hồn / 40). In a fight it is a companion: it adds power_share (0.5) of its chiến lực to its owner's offense, strikes every basic_cooldown, cannot be targeted and never leaves the fight (Combat rule 19). `combat` and `bond` are depth fields; `bond.rider` marks a mount, `bond.keeper` a beast that is not ridden. The owners' cast records do not list these beasts yet. Tạ Thanh Loan keeps three: her thần hồn 68 plus keen_soul tier 2 (+12, npc-traits-catalogue.md) is 80, capacity 3.",
+ "beasts": [
+  {
+   "key": "tieu_loan",
+   "name_hv": "Tiểu Loan",
+   "name_han": "小鸞",
+   "gloss": "Little Luan",
+   "is_beast": true,
+   "species": "blue luan (thanh loan)",
+   "sex": "F",
+   "born": 1104,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "root": {
+    "elements": {
+     "moc": 44,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "owner_id": "ta_thanh_loan",
+   "loyalty": 90,
+   "home": 330,
+   "location_id": 330,
+   "tags": [
+    "bird",
+    "luan",
+    "companion"
+   ],
+   "appearance": "A small blue-crested bird with a tail twice its length, the colour of the whistle at her owner's throat.",
+   "combat": {
+    "strikes": "moc",
+    "power_share": 0.5,
+    "note": "First of the three bonded birds that All Birds Bow (bvc-bird-mother) counts; Call of the Luan (bvc-blue-luan-whistle) answers through it."
+   },
+   "bond": {
+    "keeper": "ta_thanh_loan",
+    "since": 1105,
+    "event": null,
+    "rule": "Bonded by hand-rearing; it answers the bone whistle and no other note."
+   },
+   "backstory": "The chick of the blue-crested bird that died of age on Tạ Thanh Loan's arm in 1105, whose wing bone became her whistle. She reared it in her sleeve that winter and took her name from its mother.",
+   "status": "proposal",
+   "authored": "review-A7"
+  },
+  {
+   "key": "que_tuoc",
+   "name_hv": "Quế Tước",
+   "name_han": "桂雀",
+   "gloss": "Cinnamon Sparrow",
+   "is_beast": true,
+   "species": "cinnamon-wood spirit sparrow",
+   "sex": "M",
+   "born": 1128,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 3,
+   "root": {
+    "elements": {
+     "moc": 38,
+     "hoa": 22
+    },
+    "variants": {}
+   },
+   "owner_id": "ta_thanh_loan",
+   "loyalty": 90,
+   "home": 330,
+   "location_id": 330,
+   "tags": [
+    "bird",
+    "companion"
+   ],
+   "appearance": "A plump brown sparrow that smells of cinnamon bark and sleeps on her left shoulder.",
+   "combat": {
+    "strikes": "moc",
+    "power_share": 0.5,
+    "note": "Second of the three bonded birds (bvc-bird-mother)."
+   },
+   "bond": {
+    "keeper": "ta_thanh_loan",
+    "since": 1130,
+    "event": null,
+    "rule": "Bonded by hand-rearing."
+   },
+   "backstory": "Netted as a fledgling in the cinnamon woods of Nhục Quế Thôn, where the sisters learned to catch birds. It is the one that finds the others when they stray.",
+   "status": "proposal",
+   "authored": "review-A7"
+  },
+  {
+   "key": "mac_vu",
+   "name_hv": "Mặc Vũ",
+   "name_han": "墨羽",
+   "gloss": "Ink Feather",
+   "is_beast": true,
+   "species": "black spirit drongo",
+   "sex": "M",
+   "born": 1166,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "root": {
+    "elements": {
+     "hoa": 34,
+     "moc": 26
+    },
+    "variants": {}
+   },
+   "owner_id": "ta_thanh_loan",
+   "loyalty": 90,
+   "home": 330,
+   "location_id": 330,
+   "tags": [
+    "bird",
+    "companion"
+   ],
+   "appearance": "A fork-tailed black bird with a red eye, the only one of the three that is ever awake.",
+   "combat": {
+    "strikes": "hoa",
+    "power_share": 0.5,
+    "note": "Third of the three bonded birds (bvc-bird-mother); the one that dives first."
+   },
+   "bond": {
+    "keeper": "ta_thanh_loan",
+    "since": 1168,
+    "event": null,
+    "rule": "Bonded by hand-rearing."
+   },
+   "backstory": "She took it out of Huyền Viên Lâm in 1168, the winter the dark apes killed her sister's husband: it was mobbing them alone above the place he fell. It still dives at anything with fur.",
+   "status": "proposal",
+   "authored": "review-A7"
+  },
+  {
+   "key": "quy_thuoc",
+   "name_hv": "Quy Thước",
+   "name_han": "歸鵲",
+   "gloss": "The Magpie That Came Home",
+   "is_beast": true,
+   "species": "blue magpie (thanh thước)",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 3,
+   "root": {
+    "elements": {
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "owner_id": "ta_thanh_thuoc",
+   "loyalty": 90,
+   "home": 330,
+   "location_id": 330,
+   "tags": [
+    "bird",
+    "companion"
+   ],
+   "appearance": "A long-tailed blue magpie with one white primary, which perches on the lofts' sill and watches the road.",
+   "combat": {
+    "strikes": "moc",
+    "power_share": 0.5,
+    "note": "Her Beast Pen bird (her route's Lineage birds)."
+   },
+   "bond": {
+    "keeper": "ta_thanh_thuoc",
+    "since": 1168,
+    "event": null,
+    "rule": "It was Ổ Tùng Lâm's; it chose her after he died."
+   },
+   "backstory": "Ổ Tùng Lâm's magpie. It flew home alone from Huyền Viên Lâm in 1168, three days before the news did, and has not left the moulting lofts since.",
+   "status": "proposal",
+   "authored": "review-A7"
+  }
+ ]
+}

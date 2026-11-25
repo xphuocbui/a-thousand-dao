@@ -1,0 +1,1188 @@
+{
+ "sect": "minh_loan",
+ "people": [
+  {
+   "key": "yen_boi_ngoc",
+   "name_hv": "Yến Bội Ngọc",
+   "name_han": "晏佩玉",
+   "gloss": "Jade pendants beside the singing bells (Vương Bột: bội ngọc minh loan)",
+   "sex": "F",
+   "born": 910,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "minh_loan",
+   "rank": "tong_chu",
+   "home": 519,
+   "birthplace": 50,
+   "role": "A founder (960) and head of Minh Loan Các; casts the ward bells of Lạc Hà's ships, caravans and Cloud Bridge",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 70,
+     "tho": 54
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 58,
+    "than_hon": 62,
+    "khi_van": 60,
+    "dao_tam": 64,
+    "mi_luc": 72
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Pragmatic",
+     "Gregarious"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "forge_scarred"
+    ],
+    "lifestyle": "qin_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Grieving",
+     "Renowned"
+    ]
+   },
+   "appearance": "A stout, quick woman with burn-scarred forearms, three blue jade pendants at her throat and a laugh that carries across a market.",
+   "backstory": "Yến Bội Ngọc was born in 910 in Vật Hoa Thị, a bronze-dealer's daughter, and learned refining in the workshops of Thiên Bảo Trai under Phan Vật Hoa (phan_vat_hoa). There she met Hoa Minh Hòa (hoa_minh_hoa), a smith's son from Tử Điện Thành who cut jade. In 960 they cast and carved for their Dao-partner rite: she the luan bell, he the jade pendants. They founded the pavilion on the coast that year (V102) and made ward bells for ships, whose note drives off sea beasts and carries a warning. In the cold winter of 1121 (V100) the great bell Hoa was casting cracked in the pit and killed him (N-minh_loan-02). She has headed the pavilion alone since then. In 1183 Lạc Hà's array master Quách Tiếp Vân (quach_tiep_van) ordered forty bells for the Cloud Bridge (N-lac_ha-04). Her casting master cast them on the shoulder of Tằng Loan Phong, and they rang true there. In 1188 she moved the casting floor and the inner pavilion up the mountain and left the wharf to the ships (N-minh_loan-03).",
+   "wants": "To finish the Hundred-Bell Eaves on the mountain before she dies, and to learn what has been ringing the Cloud Bridge bells from below.",
+   "secret": "Hoa did not want to cast in the frost of 1121. She had promised Lạc Hà its harbour bell by the new year, and she made him pour. The pavilion believes the cold killed him. She made the rule against casting in winter herself, the next spring, so that no one would ask why.",
+   "ties": [
+    {
+     "to": "hoa_minh_hoa",
+     "kind": "dao_partner",
+     "note": "her Dao partner and co-founder; died in the pit in 1121"
+    },
+    {
+     "to": "phan_vat_hoa",
+     "kind": "former_master",
+     "note": "taught her refining at Thiên Bảo Trai; sells her the mountain's ore"
+    },
+    {
+     "to": "nguy_tram_am",
+     "kind": "friend",
+     "note": "Hoa's disciple and her casting master; the move was his idea"
+    },
+    {
+     "to": "tham_huong_nhi",
+     "kind": "disciple",
+     "note": "her last disciple, the bell-keeper on the Cloud Bridge"
+    },
+    {
+     "to": "ong_hai_linh",
+     "kind": "disciple",
+     "note": "keeps the wharf she left"
+    },
+    {
+     "to": "khang_vien_dac",
+     "kind": "disciple",
+     "note": "rides with the caravans"
+    },
+    {
+     "to": "quach_tiep_van",
+     "kind": "friend",
+     "note": "Lạc Hà's array master; ordered the bridge bells and has not answered her letter"
+    },
+    {
+     "to": "su_thu_thuy",
+     "kind": "friend",
+     "note": "Lạc Hà's warden of the bay; every ship in Tử Điện Thành carries a pavilion bell"
+    },
+    {
+     "to": "nhac_hai_am",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "chiem_thinh_ba",
+     "kind": "disciple",
+     "note": "clerk of the note ledger at the Bell Wharf"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "singing-luan-bell-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "unstruck-bell-canon",
+      "layer": 8
+     },
+     {
+      "tech": "hanging-bells-array",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "ml-luan-bell"
+     },
+     {
+      "named": "ml-jade-pendants"
+     },
+     {
+      "named": "ml-ringing-rite-robe"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 8,
+     "tran_phap": 5
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal stacks laid by ringing, Earth for health under them: every foe who moves pays a note, and the bell she becomes is rung by their blows.",
+     "targets": [
+      4299,
+      4303,
+      4307,
+      4489,
+      4487,
+      4106,
+      4110
+     ],
+     "targets_note": "Bell route, then the Vajra Body and the bell tolls: health under the bell; Metal stacks from ringing wait on wish targets-tl/metal-stacks."
+    },
+    "note": "The bell-caster: Metal stacks from motion, a ward from the peal."
+   },
+   "items": [
+    "ml-luan-bell",
+    "ml-jade-pendants",
+    "ml-ringing-rite-robe"
+   ],
+   "changed": "home 527 -> 519 with the seat (rules R4, N-minh_loan-03); birthplace 50 added; build written to the lineage."
+  },
+  {
+   "key": "nguy_tram_am",
+   "name_hv": "Ngụy Trầm Âm",
+   "name_han": "魏沈音",
+   "gloss": "The deep note",
+   "sex": "M",
+   "born": 1040,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "minh_loan",
+   "rank": "truong_lao",
+   "home": 519,
+   "birthplace": 532,
+   "role": "Elder and casting master on Tằng Loan Phong",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 58,
+     "tho": 50
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 68,
+    "can_cot": 60,
+    "than_hon": 62,
+    "khi_van": 42,
+    "dao_tam": 70,
+    "mi_luc": 34
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Reclusive",
+     "Diligent"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "forge_scarred"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A gaunt, silent man the colour of clay, deaf in his left ear from a bell he stood too close to.",
+   "backstory": "A red-earth farmer's son from Xích Thổ Thôn and Hoa Minh Hòa's (hoa_minh_hoa) last disciple. He was at the pit in 1121. He cast Lạc Hà's forty Cloud Bridge bells on the mountain's shoulder in 1183 because the coast's damp made them ring flat, and he talked Yến Bội Ngọc (yen_boi_ngoc) into the move. He strikes every new bell against the Winter Crack and has spent forty years trying to cast his master's unstruck bell in bronze.",
+   "ties": [
+    {
+     "to": "hoa_minh_hoa",
+     "kind": "master",
+     "note": "died in the pit beside him"
+    },
+    {
+     "to": "yen_boi_ngoc",
+     "kind": "friend",
+     "note": "his head; he knows about the deadline of 1121 and has never said so"
+    },
+    {
+     "to": "lo_hong_pham",
+     "kind": "disciple",
+     "note": "the mould master"
+    },
+    {
+     "to": "uong_lac_chuy",
+     "kind": "disciple",
+     "note": "swings the casting hammer"
+    },
+    {
+     "to": "dau_tieu_hoa",
+     "kind": "friend",
+     "note": "the servant boy who works his bellows"
+    },
+    {
+     "to": "uy_chu_dong",
+     "kind": "disciple",
+     "note": "first pourer of the casting floor"
+    },
+    {
+     "to": "chiem_thinh_ba",
+     "kind": "rival",
+     "note": "clerk of the note ledger at the Bell Wharf"
+    }
+   ],
+   "master": "hoa_minh_hoa",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "singing-luan-bell-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "unstruck-bell-canon",
+      "layer": 7
+     }
+    ],
+    "gear": [
+     {
+      "named": "ml-winter-crack"
+     },
+     {
+      "base": "an",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 3,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 8
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal and long stacks: he lets the foe ring him until the bell rings itself.",
+     "targets": [
+      4299,
+      4303,
+      4307,
+      4108,
+      4110
+     ],
+     "targets_note": "Bell route, then Dawn Toll and Great Bell Toll; long Metal stacks wait on wish targets-tl/metal-stacks."
+    },
+    "note": "Caster."
+   },
+   "items": [
+    "ml-winter-crack"
+   ]
+  },
+  {
+   "key": "tham_huong_nhi",
+   "name_hv": "Thẩm Hưởng Nhi",
+   "name_han": "沈響兒",
+   "gloss": "The child of the echo",
+   "sex": "F",
+   "born": 1160,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "minh_loan",
+   "rank": "noi_mon",
+   "home": 558,
+   "birthplace": 518,
+   "role": "Keeper of the forty bells on Lạc Hà's Cloud Bridge at Vân Kiều Trấn",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 52,
+     "tho": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 46,
+    "than_hon": 80,
+    "khi_van": 48,
+    "dao_tam": 58,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Diligent",
+     "Reclusive"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "array_bound"
+    ],
+    "lifestyle": "qin_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [
+     "Spirit-eyed"
+    ],
+    "gained": []
+   },
+   "appearance": "A small, round-shouldered woman with a hand bell at her belt who tilts her head to listen before she answers anything.",
+   "backstory": "Thẩm Hưởng Nhi was born in 1160 at Lam Ngọc Khoáng, the blue jade mine on the mountain, where her father cut stone for Thiên Bảo Trai. She could hear a crack in a bell before it was struck. Yến Bội Ngọc (yen_boi_ngoc) took her as her last disciple in 1176. In 1184 she hung the forty bells on Quách Tiếp Vân's (quach_tiep_van) Cloud Bridge Array (N-lac_ha-04) and stayed at Vân Kiều Trấn to keep them. She tunes them every dusk and has become friends with the array runner Miêu Thạch Lan (mieu_thach_lan), who tends the galleries under the seat. Since 1191 the bells at the bridge's foot have rung on new-moon nights with no wind. The note is low, and it comes from below. She reported it to her master, who wrote to Quách and told her to say nothing to anyone else.",
+   "wants": "To know what rings the bridge bells from below, and to be allowed to say so.",
+   "secret": "In 1197 she followed the note down to a locked door in the lowest silver gallery. On the new moon she heard someone behind it reading aloud, slowly, in the voice of Lạc Hà's head, and the bells answered every line. She has told no one, not even Miêu Thạch Lan.",
+   "ties": [
+    {
+     "to": "yen_boi_ngoc",
+     "kind": "master",
+     "note": "told her to say nothing"
+    },
+    {
+     "to": "quach_tiep_van",
+     "kind": "friend",
+     "note": "Lạc Hà's array master; she hung his bells"
+    },
+    {
+     "to": "mieu_thach_lan",
+     "kind": "friend",
+     "note": "Lạc Hà's array runner in the galleries; they compare what they hear"
+    },
+    {
+     "to": "phi_ngoc_thanh",
+     "kind": "disciple",
+     "note": "rings the dusk tuning with her"
+    },
+    {
+     "to": "ve_soc_linh",
+     "kind": "disciple",
+     "note": "Cloud Bridge ringer"
+    }
+   ],
+   "master": "yen_boi_ngoc",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "singing-luan-bell-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "hanging-bells-array",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "ml-answering-bell"
+     },
+     {
+      "named": "ml-lam-ngoc-chip"
+     }
+    ],
+    "skills": {
+     "tran_phap": 5,
+     "luyen_khi": 3
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal for the bells' stacks, toward the array: she fights inside a ring of bells and lets them do the striking.",
+     "targets": [
+      4299,
+      4303,
+      4307,
+      1469,
+      3094,
+      3096
+     ],
+     "targets_note": "Bell route, then across Earth and Metal to Guardian Array and Night Watch: a ring of bells as an array."
+    },
+    "note": "Bell-keeper of the bridge."
+   },
+   "items": [
+    "ml-answering-bell",
+    "ml-lam-ngoc-chip"
+   ]
+  },
+  {
+   "key": "ong_hai_linh",
+   "name_hv": "Ông Hải Linh",
+   "name_han": "翁海鈴",
+   "gloss": "Sea bell",
+   "sex": "F",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "minh_loan",
+   "rank": "chap_su",
+   "home": 527,
+   "birthplace": 135,
+   "role": "Steward of the Bell Wharf, the pavilion's old seat on the coast",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "thuy": 44
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 54,
+    "can_cot": 50,
+    "than_hon": 56,
+    "khi_van": 52,
+    "dao_tam": 50,
+    "mi_luc": 64
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Stubborn",
+     "Honest"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A loud, salt-tanned woman with a captain's ledger in one hand and a bell clapper in the other.",
+   "backstory": "A net-mender's daughter from Tân Khẩu Thôn, the harbour where Vô Định's refugees never speak of the plain (A182). She keeps the Bell Wharf, where ships and caravans are still fitted with ward bells, and she knows every captain on the bay by his bell's note. She refused to go up the mountain in 1188. Her friend Nhạc Hải Âm (nhac_hai_am) sailed on Lạc Hà's island warden Lận Viễn Phàm's (lan_vien_pham) first boat in 1158 and did not come back.",
+   "ties": [
+    {
+     "to": "yen_boi_ngoc",
+     "kind": "master",
+     "note": "left her the wharf"
+    },
+    {
+     "to": "nhac_hai_am",
+     "kind": "friend",
+     "note": "lost at sea in 1158"
+    },
+    {
+     "to": "lan_vien_pham",
+     "kind": "enemy",
+     "note": "Lạc Hà's island warden; his boat took her friend"
+    },
+    {
+     "to": "bui_phieu_binh",
+     "kind": "friend",
+     "note": "Bình Thủy Môn's head; every ferry of his carries one of her bells"
+    },
+    {
+     "to": "cam_thu_nguyen",
+     "kind": "friend",
+     "note": "the hermit who still listens for that boat's bell with her"
+    },
+    {
+     "to": "than_lac_am",
+     "kind": "disciple",
+     "note": "fits ward bells to ships at the Bell Wharf"
+    },
+    {
+     "to": "chiem_thinh_ba",
+     "kind": "friend",
+     "note": "clerk of the note ledger at the Bell Wharf"
+    }
+   ],
+   "master": "yen_boi_ngoc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "singing-luan-bell-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "hanging-bells-array",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 4
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal and Water: a ship's bell that keeps ringing in a storm.",
+     "targets": [
+      4299,
+      4303,
+      4307,
+      1475,
+      6653
+     ],
+     "targets_note": "Bell route, then Metal and Water and Dew on Steel: a ship's bell in a storm."
+    },
+    "note": "Wharf steward."
+   }
+  },
+  {
+   "key": "lo_hong_pham",
+   "name_hv": "Lỗ Hồng Phạm",
+   "name_han": "魯洪範",
+   "gloss": "The great mould",
+   "sex": "M",
+   "born": 1090,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "minh_loan",
+   "rank": "noi_mon",
+   "home": 519,
+   "birthplace": 530,
+   "role": "Mould master of the casting floor",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 60,
+     "kim": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Stubborn",
+     "Content"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A potter's son from Hà Khúc Thôn who packs the casting floor's moulds and said for forty years that the mountain's clay was better than the wharf's sand; Ngụy Trầm Âm (nguy_tram_am) finally listened in 1183.",
+   "ties": [
+    {
+     "to": "nguy_tram_am",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "bien_tieu_linh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "do_ne_huong",
+     "kind": "disciple",
+     "note": "packs moulds on the casting floor"
+    },
+    {
+     "to": "mao_tieu_huong",
+     "kind": "disciple",
+     "note": "placed from Lạc Hà in 1199; packs moulds"
+    },
+    {
+     "to": "uy_chu_dong",
+     "kind": "friend",
+     "note": "first pourer of the casting floor"
+    }
+   ],
+   "master": "nguy_tram_am",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "singing-luan-bell-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 5
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "Moulds."
+   }
+  },
+  {
+   "key": "khang_vien_dac",
+   "name_hv": "Khang Viễn Đạc",
+   "name_han": "康遠鐸",
+   "gloss": "A bell heard far off",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "minh_loan",
+   "rank": "noi_mon",
+   "home": 527,
+   "birthplace": 528,
+   "role": "Rides with the caravans and fits their ward bells",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Brave",
+     "Fickle"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A shepherd's son from Bạch Dương Thôn who rides with the wool caravans of Kim Vạn Lý (kim_van_ly) and fits their bells on the road; he has heard a ward bell drive off a steppe pack three times and fail once.",
+   "ties": [
+    {
+     "to": "yen_boi_ngoc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "friend",
+     "note": "rides with his caravans"
+    },
+    {
+     "to": "so_thanh_dac",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "kim_tich_phuc",
+     "kind": "friend",
+     "note": "the Kim merchant whose lead cart he rides beside"
+    },
+    {
+     "to": "tri_vien_lac",
+     "kind": "disciple",
+     "note": "rides with the wool caravans"
+    }
+   ],
+   "master": "yen_boi_ngoc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "singing-luan-bell-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "Caravan bells."
+   }
+  },
+  {
+   "key": "bien_tieu_linh",
+   "name_hv": "Biện Tiểu Linh",
+   "name_han": "卞小鈴",
+   "gloss": "Little bell",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "minh_loan",
+   "rank": "ngoai_mon",
+   "home": 519,
+   "birthplace": 532,
+   "role": "Outer disciple, mould girl",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 44,
+     "kim": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Diligent",
+     "Humble"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A red-earth farm girl from Xích Thổ Thôn who packs clay for Lỗ Hồng Phạm (lo_hong_pham) and has not yet been allowed to pour.",
+   "ties": [
+    {
+     "to": "lo_hong_pham",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "do_ne_huong",
+     "kind": "friend",
+     "note": "packs moulds on the casting floor"
+    },
+    {
+     "to": "mao_tieu_huong",
+     "kind": "friend",
+     "note": "placed from Lạc Hà in 1199; packs moulds"
+    }
+   ],
+   "master": "lo_hong_pham",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "clay-mould-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "Mould girl."
+   }
+  },
+  {
+   "key": "uong_lac_chuy",
+   "name_hv": "Uông Lạc Chùy",
+   "name_han": "汪落錘",
+   "gloss": "The falling hammer",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "minh_loan",
+   "rank": "noi_mon",
+   "home": 519,
+   "birthplace": 523,
+   "role": "Swings the casting floor's hammer",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "tho": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Impatient",
+     "Brave",
+     "Gregarious"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A ferry boy from Mã Độ Thôn who swings the hammer that knocks the moulds off; he wants to cast and Ngụy Trầm Âm (nguy_tram_am) wants him to wait a century.",
+   "ties": [
+    {
+     "to": "nguy_tram_am",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "nguy_tram_am",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "singing-luan-bell-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "Hammer."
+   }
+  },
+  {
+   "key": "so_thanh_dac",
+   "name_hv": "Sở Thanh Đạc",
+   "name_han": "楚清鐸",
+   "gloss": "A clear bell",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "minh_loan",
+   "rank": "ngoai_mon",
+   "home": 527,
+   "birthplace": 134,
+   "role": "Outer disciple; caravan boy",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 34,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Fickle",
+     "Gregarious",
+     "Lazy"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "From Hải Môn Thôn, where the tide runs through the rock arch twice a day (A178); he rides behind Khang Viễn Đạc (khang_vien_dac) and rings the caravan bells too early.",
+   "ties": [
+    {
+     "to": "khang_vien_dac",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tri_vien_lac",
+     "kind": "friend",
+     "note": "rides with the wool caravans"
+    }
+   ],
+   "master": "khang_vien_dac",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "clay-mould-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "Caravan boy."
+   }
+  },
+  {
+   "key": "phi_ngoc_thanh",
+   "name_hv": "Phí Ngọc Thanh",
+   "name_han": "費玉聲",
+   "gloss": "A jade voice",
+   "sex": "F",
+   "born": 1177,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "minh_loan",
+   "rank": "noi_mon",
+   "home": 558,
+   "birthplace": 525,
+   "role": "Rings the dusk tuning on the Cloud Bridge",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "tho": 34,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Loyal",
+     "Honest"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born"
+   },
+   "backstory": "A salt-boiler's daughter from Hàm Phong Thôn who rings the dusk tuning on the Cloud Bridge with Thẩm Hưởng Nhi (tham_huong_nhi); she sleeps through the new-moon ringing and is the only one who does.",
+   "ties": [
+    {
+     "to": "tham_huong_nhi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "than_lac_am",
+     "kind": "cousin",
+     "note": "her cousin; fits ward bells to ships at the Bell Wharf"
+    },
+    {
+     "to": "ve_soc_linh",
+     "kind": "friend",
+     "note": "Cloud Bridge ringer"
+    }
+   ],
+   "master": "tham_huong_nhi",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "singing-luan-bell-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "tran_phap": 1
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "Bridge ringer."
+   }
+  },
+  {
+   "key": "dau_tieu_hoa",
+   "name_hv": "Đậu Tiểu Hỏa",
+   "name_han": "竇小火",
+   "gloss": "Little fire",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "minh_loan",
+   "rank": "tap_dich",
+   "home": 519,
+   "birthplace": 526,
+   "role": "Bellows boy of the casting floor",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 42,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Content",
+     "Trusting"
+    ],
+    "calling": "Refiner",
+    "upbringing": "servant_born"
+   },
+   "backstory": "A spring-keeper's son from Kim Sa Tuyền who works the casting floor's bellows; his Fire keeps the furnaces hotter than anyone's, and Ngụy Trầm Âm (nguy_tram_am) will not let him near a mould.",
+   "ties": [
+    {
+     "to": "nguy_tram_am",
+     "kind": "friend",
+     "note": "works his bellows"
+    }
+   ],
+   "exception": "servant (tạp dịch) of the casting floor; a Fire root, taught only the mould primer",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "clay-mould-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire."
+    },
+    "note": "Bellows."
+   }
+  },
+  {
+   "key": "hoa_minh_hoa",
+   "name_hv": "Hoa Minh Hòa",
+   "name_han": "華鳴和",
+   "gloss": "The note in harmony",
+   "sex": "M",
+   "born": 880,
+   "died": 1121,
+   "cause": "killed when a great bell cracked in the casting pit in the cold winter of 1121, at 241",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "minh_loan",
+   "rank": "founder",
+   "home": 527,
+   "birthplace": 39,
+   "role": "Co-founder of Minh Loan Các (960); Yến Bội Ngọc's Dao partner",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Calm",
+     "Patient",
+     "Compassionate"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "path": [
+     "forge_scarred"
+    ]
+   },
+   "backstory": "A smith's son from Tử Điện Thành, Lạc Hà's armoury city, who cut jade better than he cast bronze. He met Yến Bội Ngọc (yen_boi_ngoc) in Thiên Bảo Trai's workshops, carved the jade pendants for their rite in 960, and founded the pavilion with her (V102). He believed the best bell is never struck. He died in the pit in the winter of 1121 when Lạc Hà's harbour bell cracked as it cooled (N-minh_loan-02).",
+   "ties": [
+    {
+     "to": "yen_boi_ngoc",
+     "kind": "dao_partner",
+     "note": ""
+    },
+    {
+     "to": "nguy_tram_am",
+     "kind": "disciple",
+     "note": "his last disciple"
+    }
+   ]
+  },
+  {
+   "key": "nhac_hai_am",
+   "name_hv": "Nhạc Hải Âm",
+   "name_han": "樂海音",
+   "gloss": "The sound of the sea",
+   "sex": "F",
+   "born": 1050,
+   "died": 1158,
+   "cause": "lost at sea aboard Lạc Hà's island warden's first boat, at 108",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "minh_loan",
+   "rank": "noi_mon",
+   "home": 527,
+   "birthplace": 135,
+   "role": "Ship-bell ringer; lost looking for Cô Phàm's fleet",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Trusting"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A ship-bell ringer who signed on with Lận Viễn Phàm's (lan_vien_pham) first boat in 1158 to ring it past the edge of Cô Phàm's charts; the boat did not come back, and Ông Hải Linh (ong_hai_linh) still listens for its bell.",
+   "ties": [
+    {
+     "to": "ong_hai_linh",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "yen_boi_ngoc",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "yen_boi_ngoc"
+  }
+ ]
+}

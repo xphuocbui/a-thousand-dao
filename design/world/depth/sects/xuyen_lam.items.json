@@ -1,0 +1,347 @@
+{
+ "sect": "xuyen_lam",
+ "_doc": "Xuyên Lâm Môn signature items (rules-proposals R7; design/items record). Prefix xl-. Unpriced proposals; sizes follow the body and general catalogues' grade 3-4 items. There is no staff base in design/items/bases.json: the founder's staff sits on the lôi trượng base (the head's old gear did the same), which is a base gap to note, not a Thunder item.",
+ "items": [
+  {
+   "id": "xl-bamboo-staff",
+   "name": "Founder's Bamboo Staff (Trúc Trượng)",
+   "family": "body",
+   "kind": "treasure",
+   "base": "loi_truong",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 22,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 15,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "rain-on-leaves",
+     "name": "Rain on the Leaves (Đả Diệp)",
+     "rule": "While you keep moving, each foe's art that hits you gives you one Walk Slowly stack, as if you had walked a second longer."
+    }
+   ],
+   "lore": "A plain staff of forest bamboo, worn pale at the grip, that Mạc Nhất Thoa carried on the road from before the Gate was founded (A289). It has been cut down and rebound three times, and every head of the Gate has walked a year of the road with it. Nhậm Bình Sinh left it to Úc Diệp Thanh in 1169.",
+   "build_use": "The Gate's staff: Physical damage, evasion and steadiness for a fight that keeps moving.",
+   "holder": "uc_diep_thanh",
+   "made_by": "mac_nhat_thoa",
+   "made_year": 688,
+   "set": "xl-calm-wind-and-waves",
+   "status": "proposal"
+  },
+  {
+   "id": "xl-straw-cape",
+   "name": "One Straw Cape (Nhất Thoa Y)",
+   "family": "body",
+   "kind": "treasure",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "status_resist_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The founder's straw rain cape. The straw has gone silver and no longer sheds water, and nothing that falls on it is felt. Nhậm Bình Sinh left it to Phí Thoa Y in 1169.",
+   "build_use": "Sustain and status resistance for a long road.",
+   "holder": "phi_thoa_y",
+   "made_by": "mac_nhat_thoa",
+   "made_year": 690,
+   "set": "xl-calm-wind-and-waves",
+   "status": "proposal"
+  },
+  {
+   "id": "xl-guide-lamp",
+   "name": "Guide's Lamp (Dẫn Lộ Đăng)",
+   "family": "general",
+   "kind": "artifact",
+   "base": "dang",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "accuracy_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "lamp-on-the-road",
+     "name": "Lamp on the Road (Lộ Đăng)",
+     "rule": "No foe within your reach can be unseen. Once per fight, you and one ally may leave a fight at no cost."
+    }
+   ],
+   "lore": "A horn lantern with a wick of bamboo pith, kept by the Road Mother for the night crossings. The Night Rain Edict lit no lamps (A274), and the Gate has carried this one through the Tower's forest every night since, which the Tower has never forgiven and never forbidden.",
+   "build_use": "A guide's utility piece: sight, evasion and a way out.",
+   "holder": "phi_thoa_y",
+   "made_by": "nham_binh_sinh",
+   "made_year": 908,
+   "set": "xl-lamp-and-road",
+   "status": "proposal"
+  },
+  {
+   "id": "xl-salt-carrier-jacket",
+   "name": "Salt-Carrier's Jacket (Bối Diêm Giáp)",
+   "family": "body",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "His father's carrying jacket from Thủ Lôi Bảo, padded at the shoulders for the salt and barley loads. It came out of the fort before Phượng Minh burned it in 1042 (V161).",
+   "build_use": "Still walking at the end of a long fight: health, guard and regeneration.",
+   "holder": "uc_diep_thanh",
+   "made_by": "his father, a porter of Thủ Lôi Bảo",
+   "made_year": 1000,
+   "set": "xl-thunder-fort",
+   "status": "proposal"
+  },
+  {
+   "id": "xl-pass-pendant",
+   "name": "Pendant of the Pass (Quan Ải Ngọc Bội)",
+   "family": "thunder",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "evade_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "resist_pct",
+     "value": 150,
+     "scope": [
+      "lightning"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "A guide's jade token, the kind every Xuyên Lâm guide carries. This one was his brother Úc Từ Hành's, sent down from Đan Sơn Mạch in 1156 by a Tower officer who did not know whose it was.",
+   "build_use": "The flash of the step and the crack of the staff.",
+   "holder": "uc_diep_thanh",
+   "made_by": "xuyen_lam",
+   "made_year": 1100,
+   "set": "xl-thunder-fort",
+   "status": "proposal"
+  },
+  {
+   "id": "xl-road-mother-jade",
+   "name": "Jade of the Road Mother (Lộ Mẫu Ngọc Bội)",
+   "family": "wood",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A green jade bead for every guide she has trained, strung on one cord. There are a hundred and twelve, and two are black, for the guides the road kept.",
+   "build_use": "She outlasts: regeneration and a guard.",
+   "holder": "phi_thoa_y",
+   "made_by": "phi_thoa_y",
+   "made_year": 1000,
+   "set": "xl-lamp-and-road",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "xl-calm-wind-and-waves",
+   "name": "Calming the Wind and Waves (Định Phong Ba)",
+   "pieces": [
+    "xl-bamboo-staff",
+    "xl-straw-cape"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "status_resist_pct",
+       "value": 10,
+       "scope": []
+      },
+      {
+       "key": "khi_huyet_pct",
+       "value": 6,
+       "scope": []
+      },
+      {
+       "key": "evade_pct",
+       "value": 4,
+       "scope": []
+      }
+     ]
+    }
+   ],
+   "story": "The founder's staff and cape, named for the song the guides sing on the road: bamboo staff and straw sandals, lighter than a horse; who is afraid? One straw cape in the misty rain, and let it be all my life. Nhậm Bình Sinh split them in 1169, the staff to the head and the cape to the Road Mother. The Gate reads the split as a division. Phí Thoa Y reads it as a balance. The set is whole only in one pair of hands."
+  },
+  {
+   "id": "xl-thunder-fort",
+   "name": "Son of Thủ Lôi Bảo (Lôi Bảo Song Bảo)",
+   "pieces": [
+    "xl-salt-carrier-jacket",
+    "xl-pass-pendant"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "evade_pct",
+       "value": 4,
+       "scope": []
+      },
+      {
+       "key": "khi_huyet_pct",
+       "value": 6,
+       "scope": []
+      }
+     ],
+     "effect": "Step Before the Strike (Tiên Bộ): each time you evade, your next staff strike deals 30 % of its damage as Lightning and cannot be blocked."
+    }
+   ],
+   "story": "His father's jacket and his brother's token: the fort that burned and the pass that was lost. He wears them beside the founder's staff, which is half of Calming the Wind and Waves and whole only when the cape comes back to it.",
+   "status": "proposal"
+  },
+  {
+   "id": "xl-lamp-and-road",
+   "name": "The Lamp and the Road (Đăng Lộ Song Bảo)",
+   "pieces": [
+    "xl-guide-lamp",
+    "xl-road-mother-jade"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "health_regen_inc_pct",
+       "value": 15,
+       "scope": []
+      },
+      {
+       "key": "evade_pct",
+       "value": 3,
+       "scope": []
+      }
+     ],
+     "effect": "The Lamp Does Not Go Out (Đăng Bất Diệt): each hit you evade keeps the lamp lit for 3 more seconds, and while it is lit you regenerate 1 % of your health each second. Below a quarter of your health the lamp lights itself, and the regeneration doubles."
+    }
+   ],
+   "story": "Her lamp and her beads, the Road Mother's own. She wears them beside the founder's straw cape, which is half of Calming the Wind and Waves. The guides say a Road Mother needs only these two. The founder's pair is a head's business.",
+   "status": "proposal"
+  }
+ ]
+}

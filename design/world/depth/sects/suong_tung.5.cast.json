@@ -1,0 +1,528 @@
+{
+ "sect": "suong_tung",
+ "people": [
+  {
+   "key": "thieu_hoa_tam",
+   "name_hv": "Thiệu Hoa Tâm",
+   "name_han": "邵樺心",
+   "gloss": "Birch heart",
+   "sex": "F",
+   "born": 1128,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "suong_tung",
+   "rank": "noi_mon",
+   "home": 948,
+   "birthplace": 959,
+   "role": "Keeper of the frost pans in the paper yards: melts the frost that presses the paper",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 55,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Diligent",
+     "Stubborn"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born"
+   },
+   "backstory": "A bark-tyer of Hệ Bì taught by the founder Chiêm Thư Sương (chiem_thu_suong) in her last twenty years; she agrees with Nhạc Hoa Bì (nhac_hoa_bi) that the head gives the lake villages too many lanterns, and says so less politely.",
+   "ties": [
+    {
+     "to": "chiem_thu_suong",
+     "kind": "master",
+     "note": "the founder, dead in 1170"
+    },
+    {
+     "to": "nhac_hoa_bi",
+     "kind": "friend",
+     "note": "from her village"
+    },
+    {
+     "to": "cau_ap_suong",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "chiem_thu_suong",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "frost-pine-ward-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "thorn-and-ink-verses",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wards laid in advance that root whoever crosses them."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "duong_mac_chieu",
+   "name_hv": "Đường Mặc Chiếu",
+   "name_han": "唐墨照",
+   "gloss": "Lit ink",
+   "sex": "M",
+   "born": 1138,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "suong_tung",
+   "rank": "noi_mon",
+   "home": 948,
+   "birthplace": 953,
+   "role": "Writer of the lantern papers: the ward sheets the lantern-walker carries round the lake",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Calm",
+     "Patient"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hồ Khẩu boy like the head, he writes the ward sheets that go inside Khổng Dạ Hành's (khong_da_hanh) lanterns, and lets Hạng Băng Tường (hang_bang_tuong) sit beside him with drafts of a ward against a wall of ice.",
+   "ties": [
+    {
+     "to": "chiem_thu_suong",
+     "kind": "master",
+     "note": "the founder, dead in 1170"
+    },
+    {
+     "to": "khong_da_hanh",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "van_han_dang",
+     "kind": "friend",
+     "note": "from the same village"
+    },
+    {
+     "to": "lien_bich_phu",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "chiem_thu_suong",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "frost-pine-ward-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "thorn-and-ink-verses",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wards that heal the ward-holder's side."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "cau_ap_suong",
+   "name_hv": "Cầu Áp Sương",
+   "name_han": "裘壓霜",
+   "gloss": "Presses frost",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "suong_tung",
+   "rank": "ngoai_mon",
+   "home": 948,
+   "birthplace": 959,
+   "role": "Outer disciple; presses paper in her first of three years",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 42,
+     "thuy": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Content"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born"
+   },
+   "backstory": "In her first year of three in the paper yards she presses sheets beside Bùi Tố Chỉ (bui_to_chi) and keeps the spoiled ones under her mat to practise strokes on, which no first-year may do.",
+   "ties": [
+    {
+     "to": "thieu_hoa_tam",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "bui_to_chi",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "thieu_hoa_tam",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "pine-paper-talisman-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood ink."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "o_tieu_mac",
+   "name_hv": "Ô Tiểu Mặc",
+   "name_han": "烏小墨",
+   "gloss": "Little ink",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "suong_tung",
+   "rank": "noi_mon",
+   "home": 932,
+   "birthplace": 932,
+   "role": "Inner disciple at the ink hut; burns pine soot at the charcoal kilns",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "hoa": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Reclusive",
+     "Diligent"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born"
+   },
+   "backstory": "A charcoal-burner's son of Thán Diêu with soot in every crease, he grinds ink for Quản Sương Thư (quan_suong_thu) and is the one scribe the kiln village still calls its own; Nghê Tùng Yên (nghe_tung_yen) is his cousin.",
+   "ties": [
+    {
+     "to": "quan_suong_thu",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nghe_tung_yen",
+     "kind": "cousin",
+     "note": ""
+    }
+   ],
+   "master": "quan_suong_thu",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "frost-pine-ward-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood ink that bites."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "banh_tieu_dang",
+   "name_hv": "Bành Tiểu Đăng",
+   "name_han": "彭小燈",
+   "gloss": "Little lantern",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "suong_tung",
+   "rank": "ngoai_mon",
+   "home": 948,
+   "birthplace": 974,
+   "role": "Outer disciple from the north shore; carries lanterns",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Brave",
+     "Fickle"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "One of the north-shore boys Khổng Dạ Hành (khong_da_hanh) brought back on his pole with too little Wood for the inner gate; he carries the unlit lanterns down to the shore with Cao Hàn Chúc (cao_han_chuc) and wants to light them.",
+   "ties": [
+    {
+     "to": "khong_da_hanh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "cao_han_chuc",
+     "kind": "friend",
+     "note": "the other north-shore boy"
+    }
+   ],
+   "master": "khong_da_hanh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "pine-paper-talisman-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water wards."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "lien_bich_phu",
+   "name_hv": "Liên Bích Phù",
+   "name_han": "連碧符",
+   "gloss": "Jade talisman",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "suong_tung",
+   "rank": "noi_mon",
+   "home": 948,
+   "birthplace": 940,
+   "role": "Inner disciple of the lantern papers",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 47,
+     "thuy": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Honest",
+     "Impatient"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born"
+   },
+   "backstory": "A raft-village girl of Phóng Phiệt whose first ward held two nights instead of one; she helps Hạng Băng Tường (hang_bang_tuong) with his ice-wall drafts, and Đường Mặc Chiếu (duong_mac_chieu) lets them both.",
+   "ties": [
+    {
+     "to": "duong_mac_chieu",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "hang_bang_tuong",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "duong_mac_chieu",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "frost-pine-ward-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood wards on Water."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "tat_hanh_chi",
+   "name_hv": "Tất Hành Chỉ",
+   "name_han": "畢行紙",
+   "gloss": "Paper on the road",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "suong_tung",
+   "rank": "noi_mon",
+   "home": 948,
+   "birthplace": 958,
+   "role": "Inner disciple of the paper road; carries the pavilion's paper to the palace",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Temperate",
+     "Cautious"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Each year he walks the paper road to Tùng Đào Cung, a season and more each way, with Nhạc Hoa Bì's (nhac_hoa_bi) bundles and the pines' paper-maker Lư Chỉ Mặc (lu_chi_mac), and has never once been let past the palace's paper store.",
+   "ties": [
+    {
+     "to": "nhac_hoa_bi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "lu_chi_mac",
+     "kind": "friend",
+     "note": "the pines' paper-maker"
+    }
+   ],
+   "master": "nhac_hoa_bi",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "frost-pine-ward-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood wards."
+    },
+    "note": ""
+   }
+  }
+ ]
+}

@@ -1,0 +1,1173 @@
+{
+ "group": "hermits-sages",
+ "sect": "",
+ "_doc": "Hermits and sages, batch 2: the people around the great ones (servants, disciples, seekers). Living: Kết Đan 3, Trúc Cơ 6, Luyện Khí 4. Methods marked as stand-ins in build.note run the group's proposals in hermits-sages.techniques.json, which the checker does not read.",
+ "people": [
+  {
+   "key": "thu_van_trieu",
+   "name_hv": "Thư Vấn Triều",
+   "name_han": "舒問潮",
+   "gloss": "He who asks the tide",
+   "sex": "M",
+   "born": 1010,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 198,
+   "birthplace": 1006,
+   "role": "Mạc Quy Khư's ferryman and keeper of the Book of Questions on Dục Nhật Đảo",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 68,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 62,
+    "than_hon": 64,
+    "khi_van": 52,
+    "dao_tam": 60,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Pragmatic",
+     "Patient"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A lean, sun-black boatman with a scholar's ink-stained fingers and a ledger wrapped in oilcloth at his belt.",
+   "backstory": "A boatman's son from Thiên Nhai Trấn, the last town before the open sea, Thư Vấn Triều has rowed every pilgrim to Dục Nhật Đảo since 1110. Since Mạc Quy Khư (mac_quy_khu) began answering one question a year (A311) he has kept the Book of Questions: who came, what they asked, and what they were told. For three years the old man has slept through the spring. Thư has answered the last two questions himself, in Mạc's words, from ninety years of listening, and no pilgrim has noticed.",
+   "ties": [
+    {
+     "to": "mac_quy_khu",
+     "kind": "friend",
+     "note": "ninety years at his oar; he answers in his name now"
+    },
+    {
+     "to": "thu_tieu_chu",
+     "kind": "grandchild",
+     "note": "rows the small boat"
+    },
+    {
+     "to": "trau_vong_bang",
+     "kind": "friend",
+     "note": "takes salt and rice out to Đồ Nam Đảo"
+    },
+    {
+     "to": "cam_thu_nguyen",
+     "kind": "friend",
+     "note": "rows her across every year and has never once put her name first"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "returning-wake-verse",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain and the wake that answers twice: a ferryman's long breath, not a fighter's.",
+     "targets": [
+      5374,
+      5379,
+      5003,
+      5012,
+      4947
+     ],
+     "targets_note": "Rain on Bamboo for the ferryman's long breath, Moon over the Tide for the wake's rise and fall, Mirror Lake's counter-strike for the wake that answers twice."
+    },
+    "note": "The ferryman: a Water caster who keeps the boat and himself afloat and lets the wake strike back."
+   }
+  },
+  {
+   "key": "khuyet_van_ha",
+   "name_hv": "Khuyết Vãn Hà",
+   "name_han": "闕晚霞",
+   "gloss": "Evening glow, the name her master gave her from her own",
+   "sex": "F",
+   "born": 885,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 328,
+   "birthplace": 1025,
+   "role": "Cao Đan Hà's herb girl, now a hermit alchemist at Đào Hoa Thang; the one who sealed her master's abode",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 66,
+     "hoa": 50
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 50,
+    "than_hon": 62,
+    "khi_van": 44,
+    "dao_tam": 52,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Cautious",
+     "Humble"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "pill_master_tongue"
+    ],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": "obsessive_training",
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A small grey woman with cassia-brown hands and a basket on her back, who smells of every herb on the mountain at once.",
+   "backstory": "Born in the cassia village of Quế Viên Thôn, Khuyết Vãn Hà went up to the southern mountains at ten to pick herbs for Cao Đan Hà (cao_dan_ha), who renamed her after herself. She sorted the herbs for the last pill. In 920, after Úy Thanh Diễm (uy_thanh_diem) found their master dead (C022) and left, she came back alone and sealed the abode with the Purple Smoke Furnace inside. She has grown her master's herbs at Đào Hoa Thang for 280 years and sells her pills at Đan Kiều Trấn to a buyer of Lạc Đan Thanh's (lac_dan_thanh). She has never told anyone that she changed one herb in the last pill without asking: the cassia of her own village, for a root she thought too weak.",
+   "ties": [
+    {
+     "to": "cao_dan_ha",
+     "kind": "master",
+     "note": "renamed her; died of the pill she sorted"
+    },
+    {
+     "to": "uy_thanh_diem",
+     "kind": "rival",
+     "note": "her senior apprentice; both mean to finish the pill, and only she knows the recipe as written was right"
+    },
+    {
+     "to": "lac_dan_thanh",
+     "kind": "friend",
+     "note": "his buyer takes her pills at Đan Kiều Trấn twice a year, and he takes a third"
+    },
+    {
+     "to": "phan_do_nhuoc",
+     "kind": "disciple",
+     "note": "grinds her herbs"
+    },
+    {
+     "to": "bao_tieu_que",
+     "kind": "disciple",
+     "note": "her herb boy"
+    },
+    {
+     "to": "gian_thu_dich",
+     "kind": "friend",
+     "note": "the other keeper of a shut door in the southern mountains; they trade herbs for songs"
+    }
+   ],
+   "master": "cao_dan_ha",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "purple-smoke-furnace-canon",
+     "layer": 10
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 3,
+      "element": "hoa"
+     },
+     {
+      "base": "ho_lo",
+      "grade": 3,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 8,
+     "linh_thuc": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing and sustain, then Fire for the furnace's heat; she fights from behind her pills.",
+     "targets": [
+      5713,
+      5720,
+      5591,
+      2601,
+      2348
+     ],
+     "targets_note": "The Hundred-Herb Garden idea and Deep Roots for healing and sustain, then Dry Kindling and Pill Pouch for the furnace's heat behind her pills."
+    },
+    "note": "Stand-in dia_hoa for the Purple Smoke Furnace Canon (purple-smoke-furnace-canon, hermits-sages.techniques.json), her master's method. A healer who outlasts."
+   },
+   "authored": "e2"
+  },
+  {
+   "key": "gian_thu_dich",
+   "name_hv": "Giản Thu Địch",
+   "name_han": "簡秋笛",
+   "gloss": "An autumn flute",
+   "sex": "F",
+   "born": 835,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 386,
+   "birthplace": 603,
+   "role": "Lương Lạc Mai's last disciple, a Wind-rooted flute hermit on Minh Cầm Phong who has kept her master's abode shut for 340 years",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 48,
+     "kim": 40
+    },
+    "variants": {
+     "phong": 64
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 76,
+    "can_cot": 54,
+    "than_hon": 80,
+    "khi_van": 40,
+    "dao_tam": 58,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Reclusive",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "qin_player",
+    "health": null,
+    "coping": "buried_in_seclusion",
+    "fate_given": [],
+    "gained": [
+     "Grieving",
+     "Shaken"
+    ]
+   },
+   "appearance": "A long-boned woman in mine-grey with a bamboo flute through her belt like a sword, who stops talking whenever the wind changes.",
+   "backstory": "A miner's girl from Tập Trận Khoáng, where the wind never stops, Giản Thu Địch was fifteen when the swordswoman Lương Lạc Mai (luong_lac_mai) heard her whistle down a shaft and took her south in 850. Ten years later her master sealed herself in to break through to Nguyên Anh, and in spring Giản opened the door and found her dead (C020). As the door opened, two flutes were playing, and one of them stopped. She closed the door again with the flute inside and has told no one. She is 365 now, a Kết Đan at the same wall her master died at, and she has not dared to try it.",
+   "ties": [
+    {
+     "to": "luong_lac_mai",
+     "kind": "master",
+     "note": "found her dead in 860; keeps her door shut"
+    },
+    {
+     "to": "khuyet_van_ha",
+     "kind": "friend",
+     "note": "herbs for songs"
+    },
+    {
+     "to": "cao_dan_ha",
+     "kind": "friend",
+     "note": "her master's sworn sister, who taught her to read a pulse"
+    }
+   ],
+   "master": "luong_lac_mai",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "gale-courier-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "slow-hour-scripture",
+      "layer": 10
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "tho"
+     },
+     {
+      "named": "hs-between-the-notes-flute"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "phong",
+     "intent": "The Wind land's speed and evasion, then the slow-hour stretch of a single breath; tunes that slow, cuts that land between notes.",
+     "targets": [
+      797,
+      808,
+      6145,
+      6151,
+      6433
+     ],
+     "targets_note": "Light Feet, Wind Rider and Swaying Bamboo for speed and evasion, Bamboo Flute and Whistling Wind for the cuts in the rests; her flute tunes have no song piece yet (wish W8-song-scope)."
+    },
+    "note": "A flute duelist on Wind: she plays the falling-plum tune (falling-plum-flute-canon, a proposal) on her own bamboo flute and cuts in the rests."
+   },
+   "items": [
+    "hs-between-the-notes-flute"
+   ],
+   "authored": "b2"
+  },
+  {
+   "key": "ke_thinh_dao",
+   "name_hv": "Kê Thính Đào",
+   "name_han": "嵇聽濤",
+   "gloss": "She listens to the waves",
+   "sex": "F",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 37,
+   "birthplace": 126,
+   "role": "Đoạn Thương Hải's only disciple; a fisher girl the lightning struck in the strait",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "hoa": 34,
+     "kim": 32
+    },
+    "variants": {
+     "loi": 40
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 66,
+    "than_hon": 58,
+    "khi_van": 70,
+    "dao_tam": 56,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "thunder_struck"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Life-debt"
+    ]
+   },
+   "appearance": "A wiry woman with salt-cracked lips and a fern of lightning scars down one arm, who describes the sea out loud whether anyone is listening or not.",
+   "backstory": "A fisher's daughter of Nguyệt Loan Thôn, Kê Thính Đào was fifteen when lightning split her father's boat in the strait in 1150. Đoạn Thương Hải (doan_thuong_hai) heard the bolt from the pool, walked into the sea and carried her out. Her father was never found. She came ashore with Thunder in a root that had been plain Water, and the blind man, who had sworn after his master's death (C180) to take no disciple, took her. She is his eyes on the boats Lận Viễn Phàm (lan_vien_pham) sends west.",
+   "ties": [
+    {
+     "to": "doan_thuong_hai",
+     "kind": "master",
+     "note": "carried her out of the strait; she owes him her life"
+    },
+    {
+     "to": "lan_vien_pham",
+     "kind": "friend",
+     "note": "sails on his boats to look for the fleet"
+    },
+    {
+     "to": "tan_dao_anh",
+     "kind": "rival",
+     "note": "both want to be the one who finds the sail he heard"
+    }
+   ],
+   "master": "doan_thuong_hai",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Her master's tide first, then the Thunder branch the bolt gave her.",
+     "targets": [
+      5003,
+      5012,
+      4947,
+      843
+     ],
+     "targets_note": "Her master's tide first (Moon over the Tide idea), his Mirror Lake for the listening bell's soul guard and counter, then his Storm Heart in the Thunder land for the bolt of 1150."
+    },
+    "note": "The blind man's eyes: his tide method, a bell to listen with, and a temper the lightning left her. Her Thunder is a root change from the bolt of 1150, not from her land (Nguyệt Loan Thôn: 30 % Water, no Thunder)."
+   }
+  },
+  {
+   "key": "dau_tien_xuan",
+   "name_hv": "Đậu Tiễn Xuân",
+   "name_han": "竇餞春",
+   "gloss": "She sees the spring off",
+   "sex": "F",
+   "born": 1090,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 48,
+   "birthplace": 48,
+   "role": "Keeper of the Farewell Cup tavern in Tống Khách Thị, who pours the cup for the traveller of 900",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 54,
+    "can_cot": 50,
+    "than_hon": 52,
+    "khi_van": 56,
+    "dao_tam": 48,
+    "mi_luc": 70
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Generous",
+     "Honest"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A round, quick woman with resin on her sleeves and a laugh that carries across the market square.",
+   "backstory": "The fourth of her family to keep the Farewell Cup, the tavern beside the market's farewell pavilion, Đậu Tiễn Xuân pours the cup for the traveller seen off in 900 (A138) on the first dawn of every spring, as her great-grandmother began. Since 1130 the sword sage Tư Không Hạc Niên (tu_khong_hac_nien) has sat at her corner table, and on that one dawn each year he stands, takes the cup from her and drinks it. She has never asked him who it was for. She brews spirit wine from the market's pine resin.",
+   "ties": [
+    {
+     "to": "tu_khong_hac_nien",
+     "kind": "friend",
+     "note": "her corner table for seventy years"
+    },
+    {
+     "to": "boc_tuyet_nha",
+     "kind": "friend",
+     "note": "lets the girl sleep in the loft for washing cups"
+    },
+    {
+     "to": "sai_mo_kiem",
+     "kind": "friend",
+     "note": "a market son who still sends for her wine from the north"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "dan_dao": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood mending and health: a tavern-keeper who can throw out a drunk cultivator and patch him up after.",
+     "targets": [
+      6278,
+      6304,
+      6371,
+      5591
+     ],
+     "targets_note": "Seedling, Green Grove and Spirit Spring for mending, Deep Roots for health: a tavern-keeper who throws out a drunk and patches him up."
+    },
+    "note": "A wine-brewer, not a fighter."
+   }
+  },
+  {
+   "key": "phan_do_nhuoc",
+   "name_hv": "Phàn Đỗ Nhược",
+   "name_han": "樊杜若",
+   "gloss": "Đỗ nhược, a fragrant marsh herb",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 328,
+   "birthplace": 145,
+   "role": "Khuyết Vãn Hà's disciple, who grinds her herbs and carries her pills down the mountain",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Greedy",
+     "Cautious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "path": []
+   },
+   "backstory": "A farmer's son of Đào Khê Thôn whom Khuyết Vãn Hà (khuyet_van_ha) took in 1150 for his nose; he carries her pills down to Đan Kiều Trấn for Lạc Đan Thanh's buyer and skims a little each trip.",
+   "ties": [
+    {
+     "to": "khuyet_van_ha",
+     "kind": "master",
+     "note": "took him for his nose"
+    }
+   ],
+   "master": "khuyet_van_ha",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing."
+    },
+    "note": "A herb grinder."
+   }
+  },
+  {
+   "key": "nhiem_han_chau",
+   "name_hv": "Nhiễm Hàn Châu",
+   "name_han": "冉寒舟",
+   "gloss": "A cold boat",
+   "sex": "M",
+   "born": 1125,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 66,
+   "birthplace": 121,
+   "role": "A Frost-Test failure of Băng Tâm Các who hunts the cold light on the southern massif with a bought map",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "kim": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Stubborn",
+     "Impatient"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "path": [
+     "flawed_foundation"
+    ],
+    "gained": [
+     "Disgraced"
+    ]
+   },
+   "backstory": "A fisher's son of Lô Hoa Thôn who sat the Frost Test three winters and failed three times, until Đỗ Sương Nhi (do_suong_nhi) offered him the road. He bought a copy of Tầm Kiếm's map from Hách Tùng (hach_tung) and means to find Hoắc Hàn Quang's sword, because a man holding Sóc Khí would not need Ice.",
+   "ties": [
+    {
+     "to": "hach_tung",
+     "kind": "debt",
+     "note": "owes half the map's price"
+    },
+    {
+     "to": "do_suong_nhi",
+     "kind": "rival",
+     "note": "she sent him off kindly, and he has not forgiven the kindness"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "clear-frost-breath",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water and a sword: everything the Pavilion taught him, short of Ice."
+    },
+    "note": "Băng Tâm's outer method, carried out of the gate."
+   }
+  },
+  {
+   "key": "hac_tan_dang",
+   "name_hv": "Hác Tẫn Đăng",
+   "name_han": "郝燼燈",
+   "gloss": "An ember lamp",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 245,
+   "birthplace": 264,
+   "role": "A vent-sitter of Tuyết Hỏa Giác who believes Cung Hỏa Vân's fire still burns in the cape",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 60,
+     "thuy": 42
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Patient",
+     "Devout"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "path": [
+     "fire_tempered"
+    ]
+   },
+   "backstory": "Born at the volcanic mine of Kê Quan Khoáng, she left Hồng Lô Cốc's outer gate in 1150 because it would not teach the old fire, and has sat in the spring of Tuyết Để Tuyền for fifty years reading the vents for Cung Hỏa Vân's (cung_hoa_van) abode before Ngụy Đan Chu (nguy_dan_chu) finds it.",
+   "ties": [
+    {
+     "to": "nguy_dan_chu",
+     "kind": "rival",
+     "note": "both want the old fire of the cape"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 7
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire chains, with Water to keep from burning out."
+    },
+    "note": "A bought sun chant; she wants the fan in the abode."
+   }
+  },
+  {
+   "key": "trau_vong_bang",
+   "name_hv": "Trâu Vọng Bằng",
+   "name_han": "鄒望鵬",
+   "gloss": "He watches for the Bằng",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 199,
+   "birthplace": 998,
+   "role": "A beast tamer alone on Đồ Nam Đảo, waiting for the great Bằng to come back",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Content",
+     "Reclusive"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "path": [
+     "beast_bonded"
+    ]
+   },
+   "backstory": "A boy of Bằng Trình Thôn raised on the tale that the great Bằng rests on Đồ Nam Đảo before it flies south (A302). In 1150 Mạc Quy Khư (mac_quy_khu) answered his question: south, and it does not come back. He moved to the island the next spring anyway and keeps its seabirds.",
+   "ties": [
+    {
+     "to": "mac_quy_khu",
+     "kind": "friend",
+     "note": "answered his question in 1150"
+    },
+    {
+     "to": "thu_van_trieu",
+     "kind": "friend",
+     "note": "brings him salt and rice"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "co",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Beast bonds and sustain; the birds fight, he keeps them alive."
+    },
+    "note": "A seabird keeper."
+   }
+  },
+  {
+   "key": "thu_tieu_chu",
+   "name_hv": "Thư Tiểu Chu",
+   "name_han": "舒小舟",
+   "gloss": "A little boat",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 198,
+   "birthplace": 1006,
+   "role": "Thư Vấn Triều's granddaughter, who rows the pilgrims' boat",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Impatient",
+     "Honest"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Thư Vấn Triều's (thu_van_trieu) granddaughter, who rows the small boat now and has noticed that the old man on the rocks has not moved since the autumn.",
+   "ties": [
+    {
+     "to": "thu_van_trieu",
+     "kind": "grandparent",
+     "note": "taught her the oar"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water basics."
+    },
+    "note": "A ferry girl."
+   }
+  },
+  {
+   "key": "boc_tuyet_nha",
+   "name_hv": "Bốc Tuyết Nha",
+   "name_han": "卜雪芽",
+   "gloss": "A shoot through the snow",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 48,
+   "birthplace": 109,
+   "role": "A girl of Hàn Mai turned away at the plum gate for having no Metal, come to ask the sword sage for what he gave Lăng Đạp Tuyết",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Brave",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Turned away at Ngạo Tuyết's plum gate in 1199 for having no Metal, as Ninh Hàn Chi (ninh_han_chi) was, she heard in Hàn Mai that the founder Lăng Đạp Tuyết (lang_dap_tuyet) had learned the sword from a wandering sage who now sits in Tống Khách Thị, and walked there to ask the sage for Metal.",
+   "ties": [
+    {
+     "to": "tu_khong_hac_nien",
+     "kind": "friend",
+     "note": "refuses her every morning"
+    },
+    {
+     "to": "lang_dap_tuyet",
+     "kind": "rival",
+     "note": "turned her away for what he once was"
+    },
+    {
+     "to": "dau_tien_xuan",
+     "kind": "friend",
+     "note": "washes her cups for the loft"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Whatever a sword can do without Metal."
+    },
+    "note": "A girl with a village sword."
+   }
+  },
+  {
+   "key": "bao_tieu_que",
+   "name_hv": "Bao Tiểu Quế",
+   "name_han": "包小桂",
+   "gloss": "Little cassia",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 328,
+   "birthplace": 769,
+   "role": "Khuyết Vãn Hà's herb boy",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Trusting",
+     "Gregarious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "servant_born"
+   },
+   "backstory": "A cinnamon-grower's boy from Nhục Quế Thôn who picks for Khuyết Vãn Hà (khuyet_van_ha) and is the only person she lets near the cassia bed.",
+   "ties": [
+    {
+     "to": "khuyet_van_ha",
+     "kind": "master",
+     "note": "picks her herbs"
+    }
+   ],
+   "master": "khuyet_van_ha",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing."
+    },
+    "note": "An herb boy."
+   }
+  },
+  {
+   "key": "cam_thu_nguyen",
+   "name_hv": "Cam Thủ Nguyện",
+   "name_han": "甘守願",
+   "gloss": "She keeps her wish",
+   "sex": "F",
+   "born": 1120,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 1006,
+   "birthplace": 470,
+   "role": "A widow of Cô Vụ Đảo who crosses to Dục Nhật Đảo every year to ask where her son's boat went",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Devout",
+     "Stubborn"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "coping": "vengeance_vow"
+   },
+   "backstory": "Her son sailed west in 1158 on the first boat Lận Viễn Phàm (lan_vien_pham) sent after Cô Phàm's fleet, and it did not come back. For forty years she has crossed to Dục Nhật Đảo to ask Mạc Quy Khư (mac_quy_khu) where it went, and she has never been chosen.",
+   "ties": [
+    {
+     "to": "lan_vien_pham",
+     "kind": "enemy",
+     "note": "his boat, her son"
+    },
+    {
+     "to": "ong_hai_linh",
+     "kind": "friend",
+     "note": "the other one who still listens for that boat's bell"
+    },
+    {
+     "to": "thu_van_trieu",
+     "kind": "friend",
+     "note": "rows her across every year"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood basics."
+    },
+    "note": "A pilgrim."
+   }
+  }
+ ]
+}

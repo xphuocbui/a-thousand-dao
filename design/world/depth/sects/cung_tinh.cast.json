@@ -1,0 +1,1199 @@
+{
+ "sect": "cung_tinh",
+ "people": [
+  {
+   "key": "tham_bac_than",
+   "name_hv": "Thẩm Bắc Thần",
+   "name_han": "沈北辰",
+   "gloss": "Bắc thần is the pole star that keeps its place while the stars bow to it (Luận Ngữ)",
+   "sex": "M",
+   "born": 480,
+   "alive": true,
+   "realm": "nguyen_anh",
+   "stage": 2,
+   "sect": "cung_tinh",
+   "rank": "tong_chu",
+   "home": 22,
+   "birthplace": 569,
+   "role": "Head of Củng Tinh Quán since 560, formations and star divination; keeper of the armillary Tuyền Cơ Nghi",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "tho": 82,
+     "kim": 62,
+     "hoa": 32
+    },
+    "variants": {
+     "quang": 44
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 84,
+    "can_cot": 52,
+    "than_hon": 82,
+    "khi_van": 64,
+    "dao_tam": 80,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Devout",
+     "Honest"
+    ],
+    "calling": "Formation master",
+    "upbringing": "temple_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 3
+     },
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "formation_mind",
+     "long_seclusion"
+    ],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": "cold_detachment",
+    "fate_given": [
+     "Spirit-eyed"
+    ],
+    "gained": [
+     "Embittered"
+    ]
+   },
+   "appearance": "A small, bald, very old Daoist with a face like a dried river bed, who looks at people as if they were a little out of focus and the sky behind them were not.",
+   "backstory": "Thẩm Bắc Thần was born in 480 at Khuy Thiên Các, the rival abbey on the ridge, to its lamp-keeper, and was sold to Củng Tinh at nine for a chart. The first night he looked into Tinh Lạc Hồ, Light woke in him, and the founder Lệnh Hồ Chiêm (lenh_ho_chiem) taught him to read the lake. In 501, at twenty-one, he was the one who saw the Dipper's handle turned toward the heart on the armillary; the founder carried the warning to the Pivot and no one listened, and the War of the Pivot came the next year (C102). He has been head since 560. In 650 the blind head of Khuy Thiên brought his charts to Củng Tinh (V110), and Thẩm took in the house he was born in. In 789 the armillary went dark for a whole night, and he burned incense and sent word, and no one listened again (C156). Since then he has sent the Pivot star charts, which his friend Thiện Thừa Củ (thien_thua_cu) values, and no warnings at all. He is the finest formation master alive and, at 720, the oldest man in the heartland.",
+   "wants": "To be heeded once before he dies, or to stop caring whether he is.",
+   "secret": "In 1188, on the night Doãn Ngọc Hành held the Bắc Thần Ấn and the Weight in one hand (N-thien_xu-09), the Pole Star went out in the lake. He saw it in the mirror and told no one, because the omen is about the Pivot itself.",
+   "ties": [
+    {
+     "to": "lenh_ho_chiem",
+     "kind": "master",
+     "note": "the founder, who taught him to read the lake"
+    },
+    {
+     "to": "to_tinh_nghi",
+     "kind": "disciple",
+     "note": "his prioress and keeper of the armillary"
+    },
+    {
+     "to": "dong_tinh_ho",
+     "kind": "disciple",
+     "note": "the lake watcher, who saw the same thing in 1188"
+    },
+    {
+     "to": "thien_thua_cu",
+     "kind": "friend",
+     "note": "the Pivot's array master; they trade star charts"
+    },
+    {
+     "to": "ve_van_co",
+     "kind": "former_disciple",
+     "note": "the boy from the harbour sand, who left in 1100 to sell formations"
+    },
+    {
+     "to": "uc_tri_vi",
+     "kind": "friend",
+     "note": "the blind head of Khuy Thiên, who came over with his charts in 650"
+    },
+    {
+     "to": "doan_ngoc_hanh",
+     "kind": "rival",
+     "note": "the Pivot's head, whose night of 1188 he saw in the water"
+    },
+    {
+     "to": "bui_thien_do",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "tieu_tinh_anh",
+     "kind": "disciple",
+     "note": "steward of the dusk walk, who keeps its register"
+    }
+   ],
+   "master": "lenh_ho_chiem",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "bowing-stars-canon",
+     "layer": 12
+    },
+    "aux": [
+     {
+      "tech": "star-lake-mirror",
+      "layer": 10
+     },
+     {
+      "tech": "armillary-array-canon",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "earth-mountain-pressing-seal"
+     },
+     {
+      "named": "ct-star-lake-mirror"
+     },
+     {
+      "named": "ct-dipper-array-flag"
+     }
+    ],
+    "skills": {
+     "tran_phap": 9
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth stacks and arrays first, Light second for the mirror: he stands at the centre and lets the field turn around him.",
+     "targets": [
+      3357,
+      3151,
+      3131,
+      3740,
+      3736,
+      3019,
+      3839,
+      6977
+     ],
+     "targets_note": "The abbey's road (Heavy as a Mountain, Array Foundation, Gazing Peak), Falling Star and Heavy Star for the slow star-weight, Formation Within a Formation and Earth Vein Tap for the armillary field, and Reading Heaven's Secrets on the Light side for the mirror."
+    },
+    "note": "The star-reader of Củng Tinh: the finest formation master alive, who reads heaven's secrets before every choice."
+   },
+   "items": [
+    "earth-mountain-pressing-seal",
+    "ct-star-lake-mirror",
+    "ct-dipper-array-flag"
+   ],
+   "changed": "build: main dia_tho (stand-in) -> bowing-stars-canon (the lineage main, Earth tier); aux deep-vein-scripture -> star-lake-mirror and armillary-array-canon (the Deep Vein Scripture is the Pivot's head-only secret); gear kinh -> his named mirror; tree targets -> intent; birthplace 569 added."
+  },
+  {
+   "key": "to_tinh_nghi",
+   "name_hv": "Tô Tinh Nghi",
+   "name_han": "蘇星儀",
+   "gloss": "The star instrument",
+   "sex": "F",
+   "born": 900,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "cung_tinh",
+   "rank": "truong_lao",
+   "home": 22,
+   "birthplace": 604,
+   "role": "Prioress of the abbey and keeper of the armillary Tuyền Cơ Nghi",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "tho": 62,
+     "kim": 44
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 50,
+    "than_hon": 70,
+    "khi_van": 52,
+    "dao_tam": 68,
+    "mi_luc": 56
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Impatient",
+     "Honest"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "formation_mind"
+    ],
+    "lifestyle": "calligrapher",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A tall, upright Daoist with ink-stained cuffs and a star-iron ring she turns while she talks.",
+   "backstory": "A farmer's daughter from the stone fields of Thạch Điền Thôn, Tô Tinh Nghi came to the abbey at ten and walked the courtyard pattern for forty years before Thẩm Bắc Thần (tham_bac_than) gave her the armillary to keep. She winds the Ring of the Armillary every dusk and writes down what the Tuyền Cơ Nghi shows, as the keepers have since 180 (C055). She has read the keepers' books for 501 and 789 (C102, C156) and believes the abbey failed both times because it warned too politely. She does not believe in a third failure. She has noticed that since 1188 the head has not let her write the lake's reading into the book, and that the lake watcher Đổng Tịnh Hồ (dong_tinh_ho) goes quiet when she asks why.",
+   "wants": "To carry the next warning to the Pivot herself, at the Bridge Court, in open session, so that this time it is written down.",
+   "secret": "She has kept a second book of readings since 1188, in which she writes what she guesses the head will not tell her.",
+   "ties": [
+    {
+     "to": "tham_bac_than",
+     "kind": "master",
+     "note": "her head; she loves him and thinks he has given up"
+    },
+    {
+     "to": "pho_cuong_dau",
+     "kind": "disciple",
+     "note": "the array master"
+    },
+    {
+     "to": "an_chieu_nguyet",
+     "kind": "disciple",
+     "note": "her young inner disciple"
+    },
+    {
+     "to": "dong_tinh_ho",
+     "kind": "rival",
+     "note": "the head's favourite, who keeps his secret"
+    },
+    {
+     "to": "phuong_truc_ngon",
+     "kind": "friend",
+     "note": "the Pivot's Chief Judge; they have written to each other about the stars for a century"
+    },
+    {
+     "to": "sam_lac_thiet",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "bo_kim_quy",
+     "kind": "disciple",
+     "note": "outer disciple from the angelica village, who wipes the armillary's rings"
+    },
+    {
+     "to": "thuong_cu_luan",
+     "kind": "disciple",
+     "note": "journeyman of the array hall, who keeps its silver book"
+    }
+   ],
+   "master": "tham_bac_than",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "bowing-stars-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "armillary-array-canon",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "named": "ct-armillary-ring"
+     },
+     {
+      "named": "ct-ecliptic-flag"
+     },
+     {
+      "named": "ct-prioress-robe"
+     }
+    ],
+    "skills": {
+     "tran_phap": 7
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Arrays and Earth stacks: she locks a foe in rings and keeps them there.",
+     "targets": [
+      3357,
+      3151,
+      3131,
+      3236,
+      3133,
+      3094,
+      3019
+     ],
+     "targets_note": "Abbey route, then Array Gate and Array Lines for ring damage, Guardian Array, and Formation Within a Formation for the second ring on the first; Earth stacks unscaled (wish W1-earth-weight)."
+    },
+    "note": "The keeper of the armillary."
+   },
+   "items": [
+    "ct-armillary-ring",
+    "ct-ecliptic-flag",
+    "ct-prioress-robe"
+   ]
+  },
+  {
+   "key": "pho_cuong_dau",
+   "name_hv": "Phó Cương Đẩu",
+   "name_han": "傅罡斗",
+   "gloss": "The Dipper's handle",
+   "sex": "M",
+   "born": 1060,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "cung_tinh",
+   "rank": "truong_lao",
+   "home": 22,
+   "birthplace": 639,
+   "role": "Master of the array hall, which lays formations for hire across the plateau",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 58,
+     "kim": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 68,
+    "can_cot": 54,
+    "than_hon": 60,
+    "khi_van": 50,
+    "dao_tam": 56,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Greedy",
+     "Diligent"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "formation_mind"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A busy, round man with a measuring cord around his neck and a cart of star-iron discs behind him.",
+   "backstory": "A craftsman's son from Xảo Tượng Thôn, he runs the abbey's one paying trade: ward rings for granaries, mines and caravan camps. He has lost the ward rings of the Pivot's mines at Song Kiều and Huyền Thiết to the freelance Vệ Văn Cơ (ve_van_co) twice, and tells Tô Tinh Nghi (to_tinh_nghi), his master, that the abbey would be richer if it read fewer stars.",
+   "ties": [
+    {
+     "to": "to_tinh_nghi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "trinh_tieu_dau",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "ve_van_co",
+     "kind": "rival",
+     "note": "the abbey's runaway, who underbids him"
+    },
+    {
+     "to": "uong_thach_linh",
+     "kind": "disciple",
+     "note": "inner disciple of the array hall, sent on paid jobs"
+    },
+    {
+     "to": "thuong_cu_luan",
+     "kind": "friend",
+     "note": "journeyman of the array hall, who keeps its silver book"
+    }
+   ],
+   "master": "to_tinh_nghi",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "bowing-stars-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "armillary-array-canon",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 6
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Arrays, laid fast and cheap.",
+     "targets": [
+      3357,
+      3151,
+      3131,
+      3145,
+      3148
+     ],
+     "targets_note": "Abbey route, then Quicksand Array and Array Drill for formation speed: arrays laid fast and cheap."
+    },
+    "note": "The paying trade."
+   }
+  },
+  {
+   "key": "dong_tinh_ho",
+   "name_hv": "Đổng Tịnh Hồ",
+   "name_han": "董靜湖",
+   "gloss": "A still lake",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "cung_tinh",
+   "rank": "noi_mon",
+   "home": 192,
+   "birthplace": 192,
+   "role": "Watcher of Tinh Lạc Hồ, who reads the Dipper in the lake each night",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 54,
+     "thuy": 32
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 44,
+    "than_hon": 72,
+    "khi_van": 48,
+    "dao_tam": 66,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Loyal",
+     "Reclusive"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "poet",
+    "health": null,
+    "coping": null,
+    "fate_given": [
+     "Spirit-eyed"
+    ],
+    "gained": []
+   },
+   "appearance": "A pale, quiet woman who lives in a reed hut on the lake shore and is never seen by day.",
+   "backstory": "A fisher's daughter of the lake that holds the Dipper (A205), she has sat on its shore every clear night since 1150. In 1188 she saw the pole star go out in the water and ran to the abbey; Thẩm Bắc Thần (tham_bac_than) told her it was cloud and asked her to say so. She did.",
+   "ties": [
+    {
+     "to": "tham_bac_than",
+     "kind": "master",
+     "note": "she keeps his secret"
+    },
+    {
+     "to": "ngo_hoang_thao",
+     "kind": "disciple",
+     "note": "the yak girl who brings her food"
+    },
+    {
+     "to": "to_tinh_nghi",
+     "kind": "rival",
+     "note": "who asks her every month"
+    },
+    {
+     "to": "khau_bac_hanh",
+     "kind": "disciple",
+     "note": "outer disciple from the yak village, the lake watcher's lamp-bearer"
+    },
+    {
+     "to": "tieu_tinh_anh",
+     "kind": "friend",
+     "note": "steward of the dusk walk, who keeps its register"
+    }
+   ],
+   "master": "tham_bac_than",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "bowing-stars-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth and soul resistance; she watches.",
+     "targets": [
+      3357,
+      3151,
+      3131,
+      3824,
+      3829
+     ],
+     "targets_note": "Abbey route, then Valley Echo and Bronze Bell from the Temple Bell idea: soul resistance for the one who watches."
+    },
+    "note": "The lake."
+   }
+  },
+  {
+   "key": "sam_lac_thiet",
+   "name_hv": "Sầm Lạc Thiết",
+   "name_han": "岑落鐵",
+   "gloss": "Fallen iron",
+   "sex": "M",
+   "born": 1090,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "cung_tinh",
+   "rank": "chap_su",
+   "home": 172,
+   "birthplace": 172,
+   "role": "Keeper of Vẫn Tinh Khoáng, the abbey's mine of true star iron",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "tho": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 54,
+    "can_cot": 64,
+    "than_hon": 52,
+    "khi_van": 46,
+    "dao_tam": 60,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Stubborn",
+     "Temperate"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A heavy, slow man who hums along with the array discs when they ring.",
+   "backstory": "Born at Vẫn Tinh, where iron from a star that fell on the plateau has been dug since 160 (A206), he cuts it into array discs for the abbey and sells none of it. He knows star iron rings under lightning. He has heard that Thối Tinh's \"star iron\" is bought by the Pivot for blades, and that the smiths never send any to Củng Tinh to be compared, which he finds odd. He is Tô Tinh Nghi's (to_tinh_nghi) disciple.",
+   "ties": [
+    {
+     "to": "to_tinh_nghi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "vu_duong_quy",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "hau_thiet_anh",
+     "kind": "rival",
+     "note": "the smiths' mine overseer, who will not trade ingots for a comparison"
+    },
+    {
+     "to": "lo_tinh_sa",
+     "kind": "disciple",
+     "note": "inner disciple at Vẫn Tinh Khoáng, who sorts the star iron"
+    }
+   ],
+   "master": "to_tinh_nghi",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "bowing-stars-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "armillary-array-canon",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3,
+     "luyen_khi": 3
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal and Earth weight.",
+     "targets": [
+      3357,
+      3151,
+      3131,
+      4140
+     ],
+     "targets_note": "Abbey route walked from the Metal start, then Three-Pointed Blade for the star iron's Metal: Metal and Earth weight."
+    },
+    "note": "True star iron."
+   }
+  },
+  {
+   "key": "bui_thien_do",
+   "name_hv": "Bùi Thiên Đồ",
+   "name_han": "裴天圖",
+   "gloss": "Chart of heaven",
+   "sex": "M",
+   "born": 1080,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "cung_tinh",
+   "rank": "noi_mon",
+   "home": 22,
+   "birthplace": 639,
+   "role": "Keeper of the star charts, including Khuy Thiên's",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 50,
+     "kim": 28,
+     "hoa": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Paranoid",
+     "Humble"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "lifestyle": "chronicler"
+   },
+   "backstory": "He keeps the abbey's chart room, half of it the charts the blind head of Khuy Thiên brought in 650 (V110), and has found that Khuy Thiên's charts disagree with the abbey's about one star near the pole.",
+   "ties": [
+    {
+     "to": "tham_bac_than",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "phan_khac_luan",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "o_do_nam",
+     "kind": "disciple",
+     "note": "outer disciple of the chart room, who mixes its inks"
+    }
+   ],
+   "master": "tham_bac_than",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "bowing-stars-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth arrays."
+    },
+    "note": "The charts."
+   }
+  },
+  {
+   "key": "trinh_tieu_dau",
+   "name_hv": "Trịnh Tiểu Đẩu",
+   "name_han": "鄭小斗",
+   "gloss": "Little Dipper",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "cung_tinh",
+   "rank": "noi_mon",
+   "home": 22,
+   "birthplace": 588,
+   "role": "Inner disciple of the array hall",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 56,
+     "kim": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Gregarious",
+     "Impatient"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born"
+   },
+   "backstory": "A yak-herder's son from Mao Ngưu Thôn who lays ward rings for Phó Cương Đẩu (pho_cuong_dau) and wants to be paid for it.",
+   "ties": [
+    {
+     "to": "pho_cuong_dau",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "uong_thach_linh",
+     "kind": "rival",
+     "note": "inner disciple of the array hall, sent on paid jobs"
+    }
+   ],
+   "master": "pho_cuong_dau",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "bowing-stars-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 2
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "Rings for hire."
+   }
+  },
+  {
+   "key": "an_chieu_nguyet",
+   "name_hv": "Ân Chiếu Nguyệt",
+   "name_han": "殷照月",
+   "gloss": "Moonlit",
+   "sex": "F",
+   "born": 1175,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "cung_tinh",
+   "rank": "noi_mon",
+   "home": 22,
+   "birthplace": 22,
+   "role": "Inner disciple and the prioress's copyist",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 48,
+     "kim": 30,
+     "hoa": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Diligent",
+     "Trusting"
+    ],
+    "calling": "Steward",
+    "upbringing": "sect_raised",
+    "lifestyle": "calligrapher"
+   },
+   "backstory": "Born at the abbey to a lay cook, she copies the armillary book for Tô Tinh Nghi (to_tinh_nghi) and has seen that there are two of them.",
+   "ties": [
+    {
+     "to": "to_tinh_nghi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "bo_kim_quy",
+     "kind": "friend",
+     "note": "outer disciple from the angelica village, who wipes the armillary's rings"
+    }
+   ],
+   "master": "to_tinh_nghi",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "bowing-stars-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 2
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "Copyist."
+   }
+  },
+  {
+   "key": "ngo_hoang_thao",
+   "name_hv": "Ngô Hoàng Thảo",
+   "name_han": "吳黃草",
+   "gloss": "Yellow grass",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "cung_tinh",
+   "rank": "ngoai_mon",
+   "home": 192,
+   "birthplace": 588,
+   "role": "Outer disciple from the yak village who serves the lake watcher",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 52,
+     "hoa": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Brave",
+     "Gregarious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "She walks butter tea out to Đổng Tịnh Hồ's (dong_tinh_ho) hut every evening and sleeps there when it snows.",
+   "ties": [
+    {
+     "to": "dong_tinh_ho",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "khau_bac_hanh",
+     "kind": "friend",
+     "note": "outer disciple from the yak village, the lake watcher's lamp-bearer"
+    }
+   ],
+   "master": "dong_tinh_ho",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "star-pacing-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "Butter tea."
+   }
+  },
+  {
+   "key": "vu_duong_quy",
+   "name_hv": "Vu Đương Quy",
+   "name_han": "于當歸",
+   "gloss": "Should return (also the herb angelica)",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "cung_tinh",
+   "rank": "ngoai_mon",
+   "home": 172,
+   "birthplace": 630,
+   "role": "Outer disciple at the star-iron mine",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 40,
+     "tho": 34,
+     "moc": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Lazy",
+     "Forgiving",
+     "Content"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "An angelica gatherer's son from Đương Quy Thôn who cuts array discs at Vẫn Tinh for Sầm Lạc Thiết (sam_lac_thiet) and sleeps through the ringing.",
+   "ties": [
+    {
+     "to": "sam_lac_thiet",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "lo_tinh_sa",
+     "kind": "friend",
+     "note": "inner disciple at Vẫn Tinh Khoáng, who sorts the star iron"
+    }
+   ],
+   "master": "sam_lac_thiet",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "star-pacing-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "Discs."
+   }
+  },
+  {
+   "key": "phan_khac_luan",
+   "name_hv": "Phan Khắc Luân",
+   "name_han": "潘刻輪",
+   "gloss": "Carves the wheel",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "cung_tinh",
+   "rank": "ngoai_mon",
+   "home": 22,
+   "birthplace": 639,
+   "role": "Outer disciple from the craftsmen's village, who carves armillary rings",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 42,
+     "kim": 30,
+     "moc": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Cautious",
+     "Humble"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A wheelwright's son of Xảo Tượng Thôn, he copies Khuy Thiên's charts for Bùi Thiên Đồ (bui_thien_do) and has drawn the disputed star a hundred times.",
+   "ties": [
+    {
+     "to": "bui_thien_do",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "o_do_nam",
+     "kind": "friend",
+     "note": "outer disciple of the chart room, who mixes its inks"
+    }
+   ],
+   "master": "bui_thien_do",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "star-pacing-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 1
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "Rings."
+   }
+  },
+  {
+   "key": "lenh_ho_chiem",
+   "name_hv": "Lệnh Hồ Chiêm",
+   "name_han": "令狐瞻",
+   "gloss": "Gazing up",
+   "sex": "M",
+   "born": 90,
+   "died": 560,
+   "cause": "a failed breakthrough to Nguyên Anh at the armillary, at 470",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "cung_tinh",
+   "rank": "founder",
+   "home": 22,
+   "birthplace": 588,
+   "role": "Founder of Củng Tinh Quán (150), maker of the armillary Tuyền Cơ Nghi",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Patient",
+     "Devout",
+     "Humble"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "path": [
+     "formation_mind"
+    ]
+   },
+   "backstory": "A yak herder who watched the sky for fifty years before he cultivated. He founded the abbey on the high plain under the Pivot in 150, found that Tinh Lạc Hồ holds the Dipper (A205), opened the star-iron mine of Vẫn Tinh (A206), finished the Tuyền Cơ Nghi in 180 (C055), and carried the omen of 501 to the Pivot himself (C102). He taught Thẩm Bắc Thần (tham_bac_than) to read the lake.",
+   "ties": [
+    {
+     "to": "tham_bac_than",
+     "kind": "disciple",
+     "note": "his successor"
+    }
+   ]
+  },
+  {
+   "key": "uc_tri_vi",
+   "name_hv": "Úc Tri Vi",
+   "name_han": "郁知微",
+   "gloss": "Knows the faint",
+   "sex": "M",
+   "born": 300,
+   "died": 690,
+   "cause": "a foundation cracked by a forced breakthrough gave way at 390, blind, in the abbey's chart room",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "cung_tinh",
+   "rank": "truong_lao",
+   "home": 22,
+   "birthplace": 569,
+   "role": "Last head of Khuy Thiên Các, who went blind and brought his charts to Củng Tinh in 650",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Honest",
+     "Reclusive"
+    ],
+    "calling": "Formation master",
+    "upbringing": "temple_raised"
+   },
+   "backstory": "Head of the rival abbey on the ridge, Khuy Thiên Các, for two centuries. When he went blind in 650 he led its star-readers to Củng Tinh with their charts (V110) and lived forty years more as an elder of his rivals, arguing with Thẩm Bắc Thần (tham_bac_than) about one star near the pole.",
+   "ties": [
+    {
+     "to": "tham_bac_than",
+     "kind": "friend",
+     "note": "his old rival and host; Thẩm was born in his abbey"
+    }
+   ]
+  }
+ ]
+}

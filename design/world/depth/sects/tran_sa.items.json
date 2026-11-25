@@ -1,0 +1,165 @@
+{
+ "sect": "tran_sa",
+ "_doc": "Trấn Sa Đường signature items (rules-proposals R7). Unpriced proposals; modifier sizes follow the earth and metal catalogues' grade 3 items. The sect's forge also made Băng Tâm's bt-ice-hole-blade (1180) and many of the Pavilion's swords.",
+ "items": [
+  {
+   "id": "ts-lone-smoke-sabre",
+   "name": "Lone Smoke (Cô Yên Đao)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "block_rating",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 20,
+     "scope": [
+      "tho",
+      "debuff"
+     ]
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "smoke-on-the-road",
+     "name": "Smoke on the Road (Đạo Thượng Yên)",
+     "rule": "When an ally within your Hold the Sand ring is struck, your next Answering Cut against that attacker cannot miss."
+    }
+   ],
+   "lore": "A broad sabre with a hilt of grey horn. Tống Thối Kim forged it in 1125 for the founding of the hall, from the sabre Viên Trường Hà was carrying the day Dạ Quang's raiders killed him.",
+   "build_use": "The guard's sabre: block, defence and Earth slow, for a counter-cutter.",
+   "holder": "vien_co_yen",
+   "made_by": "tong_thoi_kim",
+   "made_year": 1125,
+   "set": "ts-fathers-road",
+   "status": "proposal"
+  },
+  {
+   "id": "ts-quench-hammer",
+   "name": "Quenching Hammer (Thối Kim Chùy)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "an",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "kim",
+      "buff"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "fire"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "A square iron seal-hammer with a face worn smooth by sixty years of blades. Tống Thối Kim fights with it the way he forges: one stroke, then the quench.",
+   "build_use": "The smith's slam: temper stacks and health for a slow Metal fighter.",
+   "holder": "tong_thoi_kim",
+   "made_by": "tong_thoi_kim",
+   "made_year": 1140,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "ts-caravan-shield",
+   "name": "Caravan Shield (Thương Đội Thuẫn)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "thuan",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The tailboard of her father's last wagon, faced with sand-iron at Trấn Sa's first forge in 1125.",
+   "build_use": "The guard who waits: block and defence.",
+   "holder": "vien_co_yen",
+   "made_by": "tran_sa",
+   "made_year": 1125,
+   "set": "ts-fathers-road",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "ts-fathers-road",
+   "name": "Father's Road (Phụ Lộ)",
+   "pieces": [
+    "ts-lone-smoke-sabre",
+    "ts-caravan-shield"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "block_rating",
+       "value": 8,
+       "scope": []
+      },
+      {
+       "key": "attack_pct",
+       "value": 6,
+       "scope": [
+        "physical"
+       ]
+      }
+     ],
+     "effect": "The Rider Comes In (Kỵ Tự Lai): after you block, the attacker gains an Earth slow stack, and your next counter-cut deals 25 % more to a slowed foe."
+    }
+   ],
+   "story": "Both made from what was left on the road below Viên Đề Hạp in 1100: her father's sabre and his wagon. She wears them on every caravan."
+  }
+ ]
+}

@@ -1,0 +1,55 @@
+{
+ "sect": "chan_kim",
+ "_doc": "Chân Kim Các lineage (rules-proposals R5), a no-lean house (R3): leans Metal, Earth -> none. The seat (427) is the most mixed in the Pivot's vassal lands (Earth 32 %, Metal 23 %, Fire 20 %, Wood 18 %), and so is the town it serves, Song Kiều (82). An assay house recruits by the eye (thần hồn) and by kin, not by root. Outer gate: touchstone-primer (proposal, Yellow, element-free). Inner gate and above: true-gold-canon (proposal, Profound, element-free soul method). Secret art: hundred-refinings-art (proposal, the head's refining art; elders). Unpriced.",
+ "lineage": {
+  "outer": "touchstone-primer",
+  "main": "true-gold-canon",
+  "secret": [
+   {"id": "hundred-refinings-art", "rank": "truong_lao", "note": "the head's own refining art; taught to the furnace masters"}
+  ],
+  "body": null,
+  "elements": [],
+  "tree_route": [4241, 4128, 4114],
+  "tree_route_note": "The assayers' road: Sifting Gold (refining and accuracy, the touchstone's streak), then Lake Trigram and Soul-Calming Jade for the steady spirit sense the True Gold Canon asks for. Element-free stats, so any root can use them; off-Metal roots take the spirit-sense pair only."
+ },
+ "techniques": [
+  {
+   "id": "touchstone-primer",
+   "name": "Touchstone Primer (Thí Kim Quyết)",
+   "tier": 0, "tech_kind": "main", "names": [], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The apprentice assayer's method. It draws no element: it trains the cultivator's spirit sense (thần thức) to feel the weight and purity of whatever they touch, as a streak on a touchstone shows the gold. Qi is gathered from the cultivator's own root, whatever it is, and spent on sense rather than force. In a fight the holder reads the foe and finds where they are weakest.",
+   "arts": [{"new": "Streak on the Stone (Hoa Thạch)", "concept": "Marks a foe after the holder's first hit: for a few seconds the holder's strikes against the marked foe ignore part of their resistances."}],
+   "lore": "The founders' teaching for the boys and girls of Song Kiều who come to sweep the assay floor. An apprentice is not taught to weigh until they can tell nine silvers apart with their eyes shut.",
+   "status": "proposal"
+  },
+  {
+   "id": "true-gold-canon",
+   "name": "True Gold Canon (Chân Kim Kinh)",
+   "tier": 1, "tech_kind": "main", "names": [], "layers": 9, "rank": "noi_mon",
+   "concept": "From the proverb: true gold does not fear the furnace (chân kim bất phạ hỏa luyện). The cultivator refines their own qi by testing it, layer by layer, against the furnace of their spirit until only the true part is left; the method takes any root and asks only for a steady soul. In a fight it assays the foe: wards, buffs and borrowed strength are shown for what they are and burned off.",
+   "arts": [
+    {"new": "Assay (Thí Kim)", "concept": "Strips one buff or a share of the ward from a foe; if the foe has none, the holder's next strike is critical."},
+    {"new": "The Furnace Shows (Lô Hiện)", "concept": "For a few seconds every foe near the holder loses a part of their defence and cannot gain new buffs."},
+    {"new": "True Gold Does Not Fear the Furnace (Chân Kim Bất Phạ Hỏa)", "concept": "A passive art. Each buff stack you strip from the foe, and each ward share your Assay strips, restores 1.5 % of your maximum linh lực and adds one Part the Dross stack.", "effect": "true-gold-does-not-fear-the-furnace", "unlock_layer": 4, "authored": "d31"}
+   ],
+   "lore": "Written down by Tưởng Bách Luyện and Hạng Thử Kim in the first decade of the house (V127), from the assayers' craft of the Pivot's mint at Bạch Ngân, where both had worked.",
+   "status": "proposal",
+   "passives": [
+    {"key": "stack_effect_pct", "value": 12, "scope": ["kim", "debuff"]},
+    {"key": "stack_duration_pct", "value": 16, "scope": ["kim", "debuff"]},
+    {"key": "status_resist_pct", "value": 20, "scope": ["poison"]},
+    {"key": "khi_huyet_pct", "value": 6.6, "scope": []}
+   ],
+   "authored": "b3, b5, d31"
+  },
+  {
+   "id": "hundred-refinings-art",
+   "name": "Hundred Refinings (Bách Luyện Pháp)",
+   "tier": 1, "tech_kind": "secret", "names": [], "layers": 9, "rank": "truong_lao",
+   "concept": "The refiner's art: spirit ore is melted and parted a hundred times, each time by the refiner's spirit sense, until it is pure. It needs no element of the refiner's own; the furnace provides the heat. In a fight the holder parts a foe's strength from them a little at each hit.",
+   "arts": [{"new": "Part the Dross (Phân Tra)", "concept": "Each of the holder's hits lowers the foe's attack slightly and adds it to the holder's; each stack lasts 4 s."}],
+   "lore": "The head's own art, for which he is named. He has refined the Pivot's silver, the Dawn Charioteer (thien_xu items, 1168) and the smiths' ingots by it.",
+   "status": "proposal"
+  }
+ ]
+}

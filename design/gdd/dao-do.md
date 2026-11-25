@@ -848,6 +848,10 @@ depend on the capability set, not on this system; NPC Builds depends on it in on
 dependencies (with the hidden clusters): World Database (unseal events), Item DB (Dao Seal keys), Cultivation
 Techniques (seal lists), LLM Game Master (fills), Progression Edges (NPC unseals).
 
+**Back-link written 2026-11-25** (world-depth rulings): **Sects & Missions** (#26, rule 20b) gives each sect lineage a
+`tree_route` of 2–4 notable ids that NPC build generation prefers for that sect's members. It reads node ids only; the
+tree is unchanged (ruling group 4: wishes that add nodes go onto items, sets and techniques instead).
+
 ## Tuning Knobs
 
 Every knob is a data key (see Parameter keys). Ranges marked *derived* follow from other numbers in this GDD; ranges

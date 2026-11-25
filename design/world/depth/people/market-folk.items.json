@@ -1,0 +1,274 @@
+{"group": "market-folk", "_doc": "Market folk signature items and one set (rules-proposals R7; design/items record). Unpriced proposals: modifier sizes follow the element catalogues' grade 3-4 items; Effects are hand-written rules, unpriced.",
+ "items": [
+  {"id": "mf-vermilion-azure-censer", "name": "Vermilion-Azure Censer (Đan Thanh Lô)", "family": "fire", "kind": "artifact", "base": "huong_lo", "grade": 4,
+   "modifiers": [{"key": "attack_pct", "value": 20, "scope": ["over_time"]}, {"key": "stack_effect_pct", "value": 26, "scope": ["hoa", "debuff"]}, {"key": "healing_pct", "value": 12, "scope": []}, {"key": "linh_luc_regen_inc_pct", "value": 14, "scope": []}],
+   "effects": [{"new": true, "id": "ground-like-paint", "name": "Ground Like Paint (Nghiền Như Thuốc Vẽ)", "rule": "A pill taken in a fight works a second time at half strength three seconds later; once a fight, a pill that would fail gives half its effect instead."}], "arts": [{"new": "Pill Smoke (Đan Yên)", "concept": "A puff of censer smoke: a small Chaos hit. If a pill is prepared in your pill slot, the censer burns it: you get its effect at half strength, and the foe takes a cloud of 4 debuff stacks per pill grade, for 6 s, of the pill's element (Fire Burn, Wood Poison, Water or Ice the Ice stacks, Metal, Earth, Thunder and Wind their own; a pill with no element smokes as Poison). A pill that would fail gives you nothing, but its smoke lays in full. With no pill it is only the puff.", "id": "pill-smoke", "tags": ["smoke", "pill", "censer", "over_time"], "record": "builds/authored/auth-tech.json (e2)", "authored": "e2"}],
+   "lore": "A painter's bronze mortar that Lạc Đan Thanh had lidded and vented into a censer in 1112; the cinnabar and azurite of his father's trade are still in its grain, and the smoke comes out two colours.",
+   "build_use": "The alchemist's sustain piece: burns over time, and pills that work twice.",
+   "holder": "lac_dan_thanh", "made_by": "lac_dan_thanh", "made_year": 1112, "set": "mf-vermilion-azure", "status": "proposal", "authored": "e2"},
+  {"id": "mf-peach-spring-painting", "name": "Peach Spring Painting (Đào Nguyên Đồ)", "family": "wood", "kind": "treasure", "base": null, "grade": 4,
+   "modifiers": [{"key": "khi_van", "value": 1, "scope": []}],
+   "effects": [{"new": true, "id": "the-way-in", "name": "The Way In (Nhập Lộ)", "rule": "On an opening night of Đào Nguyên Cảnh, whoever unrolls the painting beside the forest stream on the cape is shown the way in. Whoever goes in comes out without the memory of the road."}],
+   "lore": "A hand scroll of a fisherman following peach petals up a stream into a cave. Painted around 600 by no one the chronicle names; bought by Lạc Đan Thanh at Thiên Bảo's auction in 1105 for a pill (C183). Legendary item dao_nguyen_do. Thúy Vi's port house wants it.",
+   "build_use": "Not a combat piece: a key to a secret realm.",
+   "holder": "lac_dan_thanh", "made_by": null, "made_year": 600, "set": null, "legendary_key": "dao_nguyen_do", "status": "proposal"},
+  {"id": "mf-second-spring-needles", "name": "Second Spring Needles (Hồi Xuân Châm)", "family": "wood", "kind": "artifact", "base": "cham", "grade": 4,
+   "modifiers": [{"key": "healing_pct", "value": 16, "scope": []}, {"key": "health_regen_inc_pct", "value": 30, "scope": []}, {"key": "status_resist_pct", "value": 12, "scope": []}, {"key": "dan_doc_resist_pct", "value": 20, "scope": []}],
+   "effects": [{"new": true, "id": "second-spring", "name": "Second Spring (Hồi Xuân)", "rule": "Once a fight, while you are below a quarter of your health, the next poison batch or curse placed on you lands at half strength.", "authored": "a1"}],
+   "lore": "Nine apricot-wood needles cut from the clinic's tree, hardened in its sap; Mẫn Tế Thế used them last in 1110, and Giả Hồi Xuân has used nothing else since.",
+   "build_use": "The healer's piece: healing, regeneration and poison resistance; it takes the poison for the patient.",
+   "holder": "gia_hoi_xuan", "made_by": "man_te_the", "made_year": 960, "set": "mf-apricot-clinic", "status": "proposal", "authored": "a1"},
+  {"id": "mf-losing-hand-ring", "name": "Ring of the Losing Hand (Thua Thủ Hoàn)", "family": "metal", "kind": "artifact", "base": "nhan", "grade": 3,
+   "modifiers": [{"key": "khi_van", "value": 1, "scope": []}, {"key": "crit_chance_pct", "value": 6, "scope": ["physical"]}, {"key": "linh_luc_pct", "value": 8, "scope": []}, {"key": "khi_huyet_pct", "value": 10, "scope": []}],
+   "effects": [{"new": true, "id": "the-losing-hand", "name": "The Losing Hand (Thua Thủ)", "rule": "The first time each fight a critical hit lands on you, your next three hits cannot miss."}],
+   "lore": "A plain red-gold ring from Xích Kim's tailings, the first thing Kim Vạn Lý ever had made; he turns it on his finger when he places a bet he means to lose.",
+   "build_use": "Luck and a little sustain: the gambler's ring.",
+   "holder": "kim_van_ly", "made_by": "kim_van_ly", "made_year": 900, "set": "mf-losing-hand", "status": "proposal"},
+  {"id": "mf-loom-of-letters-seal", "name": "Loom of Letters Seal (Văn Cơ Ấn)", "family": "earth", "kind": "artifact", "base": "an", "grade": 4,
+   "modifiers": [{"key": "attack_pct", "value": 18, "scope": ["art"]}, {"key": "stack_effect_pct", "value": 30, "scope": ["tho", "debuff"]}, {"key": "ward_efficiency_pct", "value": 10, "scope": []}, {"key": "than_thuc_pct", "value": 4, "scope": []}],
+   "effects": [{"new": true, "id": "carried-array", "name": "Carried Array (Huề Trận)", "rule": "A formation you have laid before in the same fight is laid again in half the time; once a fight, your array Field's duration is refreshed.", "authored": "a1"}],
+   "lore": "A square seal of harbour stone from Tinh Hán Thành, its face cut with a grid of star-script that Vệ Văn Cơ reworks for each contract. Củng Tinh's array hall calls it stolen craft.",
+   "build_use": "The formation master's seal: art damage, Earth stacks and wards that travel.",
+   "holder": "ve_van_co", "made_by": "ve_van_co", "made_year": 1101, "set": "mf-carried-array", "status": "proposal", "authored": "a1"},
+  {"id": "mf-golden-valley-coin", "name": "Golden Valley Counting Coin (Kim Cốc Toán Tiền)", "family": "metal", "kind": "artifact", "base": "tien_tieu", "grade": 4,
+   "modifiers": [{"key": "attack_pct", "value": 18, "scope": ["physical"]}, {"key": "crit_damage_pct", "value": 30, "scope": []}, {"key": "art_speed_pct", "value": 10, "scope": ["kim"]}, {"key": "linh_luc_pct", "value": 8, "scope": []}],
+   "effects": [],
+   "lore": "The counting house's weight-coin, against which Kim Cốc Viên's clerks checked every scale. Quản Doanh Hư sold it with one copy of the canon in 1004; the Từ house has kept it since.",
+   "build_use": "The banker's offence: crit damage and Metal art speed.",
+   "holder": "tu_binh_quyen", "made_by": "kim_coc", "made_year": 770, "set": "mf-golden-valley-suite", "status": "proposal"},
+  {"id": "mf-golden-valley-seal", "name": "Golden Valley Ledger Seal (Kim Cốc Trướng Ấn)", "family": "earth", "kind": "artifact", "base": "an", "grade": 3,
+   "modifiers": [{"key": "stack_effect_pct", "value": 24, "scope": ["tho", "debuff"]}, {"key": "stack_duration_pct", "value": 30, "scope": ["tho", "debuff"]}, {"key": "khi_huyet_pct", "value": 10, "scope": []}, {"key": "status_duration_pct", "value": 12, "scope": []}],
+   "effects": [{"new": true, "id": "paid-in-full", "name": "Paid in Full (Thanh Toán)", "rule": "A debuff you apply cannot be cleansed until half its duration has run."}],
+   "lore": "The seal that closed Kim Cốc Viên's ledgers, pledged to Quản Doanh Hư with the manuals in 1002 and never redeemed. His granddaughter stamps her own collections with it.",
+   "build_use": "A collector's seal: long, uncleansable Earth debuffs.",
+   "holder": "quan_phuc_thu", "made_by": "kim_coc", "made_year": 770, "set": "mf-golden-valley-suite", "status": "proposal"},
+  {"id": "mf-green-pearl", "name": "Green Pearl (Lục Châu)", "family": "general", "kind": "treasure", "base": "ngoc_boi", "grade": 4,
+   "modifiers": [{"key": "khi_van", "value": 1, "scope": []}, {"key": "linh_luc_pct", "value": 12, "scope": []}, {"key": "soul_res_pct", "value": 10, "scope": []}, {"key": "cultivation_speed_pct", "value": 2, "scope": []}],
+   "effects": [],
+   "lore": "Kim Cốc Viên's great pearl, after which the garden's story is told; lost in the ashes of Kim Cốc Thành in 1003 (C174). Legendary item luc_chau. Thiên Bảo's clerks still sift the ash for it.",
+   "build_use": "Sustain and luck; the third piece of the Golden Valley Suite.",
+   "holder": null, "made_by": "kim_coc", "made_year": 780, "set": "mf-golden-valley-suite", "legendary_key": "luc_chau", "where": "in the ash of Kim Cốc Thành (219)", "status": "proposal"},
+  {"id": "mf-sea-crossing-anchor", "name": "Sea-Crossing Anchor (Tế Hải Mao)", "family": "water", "kind": "artifact", "base": "mao", "grade": 4,
+   "modifiers": [{"key": "attack_pct", "value": 20, "scope": ["thuy"]}, {"key": "linh_luc_regen_inc_pct", "value": 18, "scope": []}, {"key": "khi_huyet_pct", "value": 10, "scope": []}, {"key": "block_rating", "value": 10, "scope": []}],
+   "effects": [{"new": true, "id": "heavy-keel", "name": "Heavy Keel (Trọng Cốt)", "rule": "While you stand still you cannot be knocked back or moved."}],
+   "lore": "The bower anchor of the first deep-keeled hull of Yên Ba, which Bào Tế Hải took off her when she was broken up and refined in the yard's furnace.",
+   "build_use": "A captain's anchor: Water damage, linh lực sustain, and footing.",
+   "holder": "bao_te_hai", "made_by": "bao_te_hai", "made_year": 1110, "set": "mf-bao-hull", "status": "proposal"},
+  {"id": "mf-listening-bronze-mirror", "name": "Listening Bronze Mirror (Thính Kim Kính)", "family": "metal", "kind": "artifact", "base": "kinh", "grade": 3,
+   "modifiers": [{"key": "soul_res_pct", "value": 12, "scope": []}, {"key": "crit_chance_pct", "value": 6, "scope": []}, {"key": "pierce_pct", "value": 8, "scope": []}, {"key": "than_thuc_pct", "value": 4, "scope": []}],
+   "effects": [{"new": true, "id": "hear-the-flaw", "name": "Hear the Flaw (Thính Hà)", "rule": "Your first hit on each foe in a fight strikes against its lowest resistance."}],
+   "lore": "A bronze mirror the farmers of Thê Ngô Lĩnh ploughed up; it rings when a flawed thing is held before it. Liêu Thính Kim would not sell it to the palace.",
+   "build_use": "The appraiser's piece: soul resistance and one true first blow.",
+   "holder": "lieu_thinh_kim", "made_by": null, "made_year": 300, "set": null, "status": "proposal"},
+  {"id": "mf-scorched-cloud-seal", "name": "Scorched Cloud Seal (Tiêu Vân Ấn)", "family": "wood", "kind": "artifact", "base": "an", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 14, "scope": ["talisman"]}, {"key": "art_speed_pct", "value": 12, "scope": ["talisman"]}, {"key": "stack_effect_pct", "value": 18, "scope": ["moc", "debuff"]}, {"key": "resist_pct", "value": 100, "scope": ["fire"]}],
+   "effects": [{"new": true, "id": "unstamped", "name": "Unstamped (Vô Ấn)", "rule": "Talismans painted under this seal cost a third less to paint, and one in ten fails."}],
+   "lore": "Trịnh Chu Sa's stall seal, pulled out of the ashes of Đào Sa in 1173 with half its face burned off; it prints a cloud that is not Nam Phố's.",
+   "build_use": "A talisman seller's seal: cheap talismans, fast.",
+   "holder": "trinh_chu_sa", "made_by": "trinh_chu_sa", "made_year": 1121, "set": null, "status": "proposal"},
+  {
+   "id": "mf-pigment-gourd", "name": "Gourd of Ground Vermilion (Chu Phấn Hồ)", "family": "fire", "kind": "artifact", "base": "ho_lo", "grade": 3,
+   "modifiers": [{"key": "stack_effect_pct", "value": 22, "scope": ["hoa", "debuff"]}, {"key": "healing_pct", "value": 10, "scope": []}, {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}, {"key": "khi_huyet_pct", "value": 8, "scope": []}],
+   "effects": [],
+   "lore": "His father's pigment gourd, still red inside; he keeps his failed pills in it, and they come out as pills.",
+   "build_use": "Burn stacks and pill-fed sustain.",
+   "holder": "lac_dan_thanh", "made_by": "a pigment-grinder of Vật Hoa Thị", "made_year": 920, "set": "mf-vermilion-azure", "status": "proposal"
+  },
+  {
+   "id": "mf-azure-ring", "name": "Azure Ring (Thanh Hoàn)", "family": "wood", "kind": "artifact", "base": "nhan", "grade": 3,
+   "modifiers": [{"key": "health_regen_inc_pct", "value": 24, "scope": []}, {"key": "healing_pct", "value": 8, "scope": []}, {"key": "attack_pct", "value": 12, "scope": ["over_time"]}, {"key": "khi_huyet_pct", "value": 8, "scope": []}],
+   "effects": [],
+   "lore": "A ring of ground azurite set in green bronze, the other colour of his father's trade.",
+   "build_use": "Wood regrowth for a long fight.",
+   "holder": "lac_dan_thanh", "made_by": "lac_dan_thanh", "made_year": 1010, "set": "mf-vermilion-azure", "status": "proposal"
+  },
+  {
+   "id": "mf-apricot-gourd", "name": "Apricot-Wood Gourd (Hạnh Mộc Hồ)", "family": "wood", "kind": "artifact", "base": "ho_lo", "grade": 3,
+   "modifiers": [{"key": "healing_pct", "value": 12, "scope": []}, {"key": "dan_doc_resist_pct", "value": 10, "scope": []}, {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}, {"key": "khi_huyet_pct", "value": 10, "scope": []}],
+   "effects": [],
+   "lore": "Turned from a limb the clinic's great apricot tree dropped in the storm of 1150.",
+   "build_use": "Healing and poison resistance: the healer who outlasts the poison.",
+   "holder": "gia_hoi_xuan", "made_by": "gia_hoi_xuan", "made_year": 1150, "set": "mf-apricot-clinic", "status": "proposal"
+  },
+  {
+   "id": "mf-clinic-pendant", "name": "Clinic Jade (Y Quán Ngọc)", "family": "water", "kind": "artifact", "base": "ngoc_boi", "grade": 3,
+   "modifiers": [{"key": "status_resist_pct", "value": 15, "scope": []}, {"key": "health_regen_inc_pct", "value": 20, "scope": []}, {"key": "soul_res_pct", "value": 10, "scope": []}, {"key": "linh_luc_pct", "value": 8, "scope": []}],
+   "effects": [],
+   "lore": "A cheap green jade every patient she has saved has touched on the way out; it has gone dark with it.",
+   "build_use": "Slow cures and status resistance.",
+   "holder": "gia_hoi_xuan", "made_by": "gia_hoi_xuan", "made_year": 1060, "set": "mf-apricot-clinic", "status": "proposal"
+  },
+  {
+   "id": "mf-vault-robe", "name": "Robe of the Buried Vault (Mai Khố Bào)", "family": "earth", "kind": "artifact", "base": "dao_bao", "grade": 3,
+   "modifiers": [{"key": "khi_huyet_pct", "value": 14, "scope": []}, {"key": "defense_pct", "value": 10, "scope": []}, {"key": "block_rating", "value": 12, "scope": []}, {"key": "linh_luc_pct", "value": 8, "scope": []}],
+   "effects": [],
+   "lore": "Plain brown wool with a vault key sewn into every seam; no one knows which key is real.",
+   "build_use": "Earth's health and buried wards.",
+   "holder": "kim_van_ly", "made_by": "kim_van_ly", "made_year": 1050, "set": "mf-losing-hand", "status": "proposal"
+  },
+  {
+   "id": "mf-carried-array-flag", "name": "Flag of the Carried Array (Huề Trận Kỳ)", "family": "earth", "kind": "artifact", "base": "ky", "grade": 3,
+   "modifiers": [{"key": "stack_effect_pct", "value": 24, "scope": ["tho", "buff"]}, {"key": "attack_pct", "value": 14, "scope": ["tho"]}, {"key": "than_thuc_pct", "value": 4, "scope": []}, {"key": "defense_pct", "value": 6, "scope": []}],
+   "effects": [],
+   "lore": "Củng Tinh's ecliptic pattern on cheap cloth, in his own hand; the abbey says it is stolen, and it is.",
+   "build_use": "Array damage and the wards of a formation he carries.",
+   "holder": "ve_van_co", "made_by": "ve_van_co", "made_year": 1100, "set": "mf-carried-array", "status": "proposal"
+  },
+  {
+   "id": "mf-paid-shield", "name": "Shield of the Paid Stand (Thuê Thủ Thuẫn)", "family": "metal", "kind": "artifact", "base": "thuan", "grade": 3,
+   "modifiers": [{"key": "block_rating", "value": 18, "scope": []}, {"key": "khi_huyet_pct", "value": 12, "scope": []}, {"key": "defense_pct", "value": 8, "scope": []}, {"key": "resist_pct", "value": 100, "scope": ["physical"]}],
+   "effects": [],
+   "lore": "A round shield he has stood behind at a hundred hired gates; the inside is scratched with every client's name.",
+   "build_use": "Guard while he stands in his array.",
+   "holder": "ve_van_co", "made_by": "thoi_tinh", "made_year": 1110, "set": "mf-carried-array", "status": "proposal"
+  },
+  {
+   "id": "mf-tu-house-ring", "name": "Ring of Fair Weights (Công Xứng Hoàn)", "family": "metal", "kind": "artifact", "base": "nhan", "grade": 3,
+   "modifiers": [{"key": "crit_chance_pct", "value": 6, "scope": ["physical"]}, {"key": "crit_damage_pct", "value": 24, "scope": ["physical"]}, {"key": "linh_luc_pct", "value": 8, "scope": []}, {"key": "khi_van", "value": 1, "scope": []}],
+   "effects": [],
+   "lore": "The Từ house's ring of office, a tiny balance in gold; it tilts when someone in the room is cheating.",
+   "build_use": "Coin arts and crit for the banker.",
+   "holder": "tu_binh_quyen", "made_by": "the Từ counting house", "made_year": 1010, "set": "mf-fair-weights", "status": "proposal"
+  },
+  {
+   "id": "mf-tu-house-robe", "name": "Robe of the Counting House (Toán Phòng Bào)", "family": "earth", "kind": "artifact", "base": "dao_bao", "grade": 3,
+   "modifiers": [{"key": "khi_huyet_pct", "value": 12, "scope": []}, {"key": "defense_pct", "value": 10, "scope": []}, {"key": "block_rating", "value": 10, "scope": []}, {"key": "status_resist_pct", "value": 10, "scope": []}],
+   "effects": [],
+   "lore": "Earth-brown, heavy and plain; the counting house sends every head to the Pivot in one so the Pivot knows whom it is lending to.",
+   "build_use": "Earthen Gate's ward behind the coin.",
+   "holder": "tu_binh_quyen", "made_by": "the Từ counting house", "made_year": 1050, "set": "mf-fair-weights", "status": "proposal"
+  },
+  {
+   "id": "mf-hull-armour", "name": "Hull-Plank Armour (Thuyền Bản Giáp)", "family": "water", "kind": "artifact", "base": "giap", "grade": 3,
+   "modifiers": [{"key": "khi_huyet_pct", "value": 16, "scope": []}, {"key": "defense_pct", "value": 10, "scope": []}, {"key": "block_rating", "value": 12, "scope": []}, {"key": "health_regen_inc_pct", "value": 12, "scope": []}],
+   "effects": [],
+   "lore": "Ironwood plates from the first hull the Bào house launched, tarred and laced; it floats.",
+   "build_use": "Heavy and slow: the captain who outlasts the storm.",
+   "holder": "bao_te_hai", "made_by": "the Bào ship-house", "made_year": 1090, "set": "mf-bao-hull", "status": "proposal"
+  },
+  {
+   "id": "mf-fog-bell", "name": "Fog Bell of Yên Ba (Yên Ba Vụ Chung)", "family": "water", "kind": "artifact", "base": "chuong", "grade": 3,
+   "modifiers": [{"key": "linh_luc_regen_inc_pct", "value": 14, "scope": []}, {"key": "stack_effect_pct", "value": 22, "scope": ["thuy", "buff"]}, {"key": "than_thuc_pct", "value": 4, "scope": []}, {"key": "linh_luc_pct", "value": 8, "scope": []}],
+   "effects": [],
+   "lore": "The bell from the ship-house's breakwater; ships come home to its sound in fog.",
+   "build_use": "Linh lực sustain and tide stacks.",
+   "holder": "bao_te_hai", "made_by": "the Bào ship-house", "made_year": 1060, "set": "mf-bao-hull", "status": "proposal"
+  },
+  {
+   "id": "mf-pledge-coin", "name": "Coin Bought at a Tenth (Thập Nhất Tiền)", "family": "earth", "kind": "artifact", "base": "tien_tieu", "grade": 2,
+   "modifiers": [{"key": "stack_effect_pct", "value": 16, "scope": ["tho", "debuff"]}, {"key": "stack_duration_pct", "value": 20, "scope": ["tho", "debuff"]}, {"key": "khi_huyet_pct", "value": 6, "scope": []}],
+   "effects": [],
+   "lore": "The first bad debt she ever bought, at a tenth of its face, struck into a coin when she collected it in full.",
+   "build_use": "Binding Earth stacks that she collects on.",
+   "holder": "quan_phuc_thu", "made_by": "quan_phuc_thu", "made_year": 1170, "set": "mf-collected-in-full", "status": "proposal"
+  },
+  {
+   "id": "mf-surety-jade", "name": "Surety Jade (Bảo Chứng Ngọc)", "family": "water", "kind": "artifact", "base": "ngoc_boi", "grade": 2,
+   "modifiers": [{"key": "health_regen_inc_pct", "value": 16, "scope": []}, {"key": "crit_chance_pct", "value": 4, "scope": ["physical"]}, {"key": "soul_res_pct", "value": 15, "scope": []}],
+   "effects": [],
+   "lore": "A pale jade her grandfather pledged in 1003 and she bought back in 1180; she wears it so no one can pledge it again.",
+   "build_use": "The stone's sustain and Metal's crit.",
+   "holder": "quan_phuc_thu", "made_by": "the Quản house", "made_year": 960, "set": "mf-collected-in-full", "status": "proposal"
+  },
+  {
+   "id": "mf-way-out-knot",
+   "name": "Way-Out Knot (Xuất Lộ Kết)",
+   "family": "general",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "evade_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "know-the-way-out",
+     "name": "Know the Way Out (Thức Lộ)",
+     "rule": "Each escape you fail this fight makes your next escape 10 % likelier; a success clears it."
+    }
+   ],
+   "lore": "A cord knotted the way ferrymen and carriers knot a rope they mean to undo in the dark. Sold by the dozen at the market gates; people who travel for a living buy one each year.",
+   "build_use": "The escaper's second chance: each failed flight teaches the next.",
+   "carriers": [
+    "phong_bach_ke",
+    "hua_thanh_diem",
+    "hoang_phu_duyen",
+    "nham_do_han"
+   ],
+   "holder": null,
+   "made_by": null,
+   "set": null,
+   "status": "proposal",
+   "authored": "d2"
+  }
+ ],
+ "sets": [
+  {"id": "mf-golden-valley-suite", "name": "Golden Valley Suite (Kim Cốc Tam Bảo)", "pieces": ["mf-golden-valley-coin", "mf-golden-valley-seal", "mf-green-pearl"],
+   "bonuses": [{"pieces": 2, "modifiers": [{"key": "crit_chance_pct", "value": 4, "scope": []}, {"key": "linh_luc_pct", "value": 6, "scope": []}]},
+               {"pieces": 3, "effect": "The Books Balance (Bình Trướng): while all three are worn, a debuff you applied that is cleansed returns a quarter of its remaining damage to the one who cleansed it."}],
+   "story": "Kim Cốc Viên's three treasures, split by its fall: the coin sold to the Từ house in 1004, the seal kept by the Quản as surety, the pearl lost in the ash. Quản Phục Thu wants all three, and Từ Bỉnh Quyền will not sell."},
+  {
+   "id": "mf-vermilion-azure", "name": "Vermilion and Azure (Đan Thanh Tam Bảo)", "pieces": ["mf-vermilion-azure-censer", "mf-pigment-gourd", "mf-azure-ring"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "healing_pct", "value": 6, "scope": []}, {"key": "stack_effect_pct", "value": 10, "scope": ["hoa", "debuff"]}]},
+    {"pieces": 3, "effect": "Even Failures Are Pills (Bại Diệc Đan): each pill you take in a fight lays two Fire stacks on every foe near you, and heals you 1 % for each Fire stack you hold on foes; each pill after the third in a fight costs you 2 % of your health."}
+   ],
+   "story": "The two colours of his father's trade and the censer he made his name with. He calls it a joke; it is the only thing he owns that he will not sell."
+  },
+  {
+   "id": "mf-apricot-clinic", "name": "Apricot Clinic (Hạnh Hoa Y Cụ)", "pieces": ["mf-second-spring-needles", "mf-apricot-gourd", "mf-clinic-pendant"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "healing_pct", "value": 6, "scope": []}, {"key": "status_resist_pct", "value": 6, "scope": []}]},
+    {"pieces": 3, "effect": "Second Spring (Hồi Xuân): a poison or curse the Needles draw into you heals you over its duration instead of harming you, at half its strength."}
+   ],
+   "story": "Her old master Mẫn Tế Thế's needles, and the gourd and jade she added to them. Her heir Nhiêu Tử Uyển uses the needles when she is away, and gives them back."
+  },
+  {
+   "id": "mf-losing-hand", "name": "The Losing Hand (Thua Thủ Song Bảo)", "pieces": ["mf-losing-hand-ring", "mf-vault-robe"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "crit_chance_pct", "value": 4, "scope": ["physical"]}, {"key": "khi_huyet_pct", "value": 6, "scope": []}], "effect": "Lose to Win (Dĩ Thua Vi Thắng): each crit that lands on you puts a coin in the vault, and the coins fall by one every 4 s; your next coin art spends them, gaining 10 % crit chance per coin and a buried ward worth 3 % of your health per coin."}
+   ],
+   "story": "Ring and robe of a man who bets badly on purpose, made for himself three centuries apart; he throws the Heaven-Minted Coin from inside them."
+  },
+  {
+   "id": "mf-carried-array", "name": "The Carried Array (Huề Trận Tam Bảo)", "pieces": ["mf-loom-of-letters-seal", "mf-carried-array-flag", "mf-paid-shield"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "stack_effect_pct", "value": 10, "scope": ["tho", "buff"]}, {"key": "block_rating", "value": 6, "scope": []}]},
+    {"pieces": 3, "effect": "The Array Comes With Me (Trận Tùy Thân): your diagram is laid even in an ambush or a blind fight (paying its fuel); while your array field is up, each foe hit on you is answered once by your array's damage, at most once a second."}
+   ],
+   "story": "Seal, flag and shield of a runaway formation master: the seal he cut the year he left the abbey, the flag he copied from its pattern, the shield he bought with his first fee. Củng Tinh wants the flag back more than it wants him.",
+   "authored": "d45"
+  },
+  {
+   "id": "mf-fair-weights", "name": "Fair Weights (Công Xứng Song Bảo)", "pieces": ["mf-tu-house-ring", "mf-tu-house-robe"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "crit_chance_pct", "value": 3, "scope": ["physical"]}, {"key": "defense_pct", "value": 4, "scope": []}], "effect": "Change Expected (Đòi Tiền Thối): each time a foe strikes you, it owes: your next hit on it deals extra damage equal to a fifth of what it dealt you (once every 2 s per foe)."}
+   ],
+   "story": "The Từ house's ring and robe of office, which pass to its head. She wears them beside the Golden Valley coin, whose suite is not hers to complete."
+  },
+  {
+   "id": "mf-bao-hull", "name": "The Bào Hull (Bào Gia Thuyền Cụ)", "pieces": ["mf-sea-crossing-anchor", "mf-hull-armour", "mf-fog-bell"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "linh_luc_regen_inc_pct", "value": 8, "scope": []}, {"key": "block_rating", "value": 6, "scope": []}]},
+    {"pieces": 3, "effect": "Ride Out the Storm (Đạp Phong Ba): while you stand still, each second you regain 2 % of your linh lực and gain one Water buff stack; each stack makes you take 1 % less damage, and the stacks fall away one a second once you move."}
+   ],
+   "story": "Anchor, armour and bell of the Bào ship-house, made from its first hull and its breakwater. They pass to the master of the house; his daughter would take them to sea with Diêm Hải Tảo."
+  },
+  {
+   "id": "mf-collected-in-full", "name": "Collected in Full (Thu Túc Song Bảo)", "pieces": ["mf-pledge-coin", "mf-surety-jade"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "stack_effect_pct", "value": 8, "scope": ["tho", "debuff"]}, {"key": "health_regen_inc_pct", "value": 8, "scope": []}], "effect": "Paid Back (Hoàn Trái): a foe carrying 5 of your Earth stacks is collected: its stacks cannot be cleansed, and each second it loses 1 % of its health and you heal that much."}
+   ],
+   "story": "Her own pair: a coin from her first collection and the jade she bought back. The Golden Valley seal she holds as surety stays in its box: it is a pledge, not hers to wear."
+  }
+ ]}

@@ -1,0 +1,1118 @@
+{
+ "sect": "van_hac",
+ "people": [
+  {
+   "key": "ha_thinh_tung",
+   "name_hv": "Hà Thính Tùng",
+   "name_han": "何聽松",
+   "gloss": "Listens to the pines (Lý Bạch: như thính vạn hác tùng)",
+   "sex": "M",
+   "born": 830,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "van_hac",
+   "rank": "tong_chu",
+   "home": 11,
+   "birthplace": 107,
+   "role": "Head of Vạn Hác Viện, the zither academy of the ravines; the one living player who has played its canon to the end",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 74
+    },
+    "variants": {
+     "phong": 60
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 76,
+    "can_cot": 48,
+    "than_hon": 78,
+    "khi_van": 56,
+    "dao_tam": 74,
+    "mi_luc": 68
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Calm",
+     "Content"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 3
+     }
+    ],
+    "path": [
+     "long_seclusion"
+    ],
+    "lifestyle": "qin_player",
+    "health": "waning_years",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A long, thin old man with nails grown hard as plectra and a habit of tapping out the rhythm of whoever is speaking to him.",
+   "backstory": "Hà Thính Tùng was born in Tùng Phong Thôn in 830, in the hamlet where the academy's students have practised since 622 and the villagers learned to sleep through anything (A056). He did not sleep. He listened, and at nine he walked up the ravine and played the first movement back on a borrowed zither. He has been head since 980. He keeps the monk's Pine-Wind Zither (C130) and plays it once a year. In 1060 he chose a zither from the dead makers' stock for a girl of the pines, Vi Thanh Âm (vi_thanh_am), and taught her the academy's tablature so she could keep her own scores. In 1080 his student Khương Lạc Huyền (khuong_lac_huyen) played for Thiên Xu's envoy Bách Vong Ngôn (bach_vong_ngon), who did not deliver his message (A062), and has learned the zither from Hà by letter ever since. He has outlived every player who could follow him to the twelfth movement. He has a century left, perhaps less, and the movement takes a whole night.",
+   "wants": "To hear one student play the canon's twelfth movement to the end before he dies.",
+   "secret": "In 1162 Vi Thanh Âm played him a piece in the academy's tablature that was not music. He recognised the rhythm of the pines' unwritten canon and understood what she was writing. He has told no one, and he has not decided whether that was kindness or a crime against his lord.",
+   "ties": [
+    {
+     "to": "quan_tich_am",
+     "kind": "disciple",
+     "note": "his true disciple and heir"
+    },
+    {
+     "to": "khuong_lac_huyen",
+     "kind": "disciple",
+     "note": "the student who played for the envoy"
+    },
+    {
+     "to": "han_thanh_huong",
+     "kind": "disciple",
+     "note": "the one who plays for soldiers"
+    },
+    {
+     "to": "cu_dong_moc",
+     "kind": "former_disciple",
+     "note": "taught him the canon before the boy went back to the workshop; now an equal"
+    },
+    {
+     "to": "vi_thanh_am",
+     "kind": "friend",
+     "note": "he chose her zither and taught her tablature; he knows what she writes in it"
+    },
+    {
+     "to": "bach_vong_ngon",
+     "kind": "friend",
+     "note": "Thiên Xu's envoy, his student by letter since 1080"
+    },
+    {
+     "to": "khong_hac",
+     "kind": "ancestor",
+     "note": "the monk who left the zither (lineage)"
+    },
+    {
+     "to": "tham_du_van",
+     "kind": "disciple",
+     "note": "player of the seventh movement; teaches pilgrims on the rim to listen"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ten-thousand-ravines-zither-canon",
+     "layer": 11
+    },
+    "aux": [
+     {
+      "tech": "the-monks-rest",
+      "layer": 9
+     },
+     {
+      "tech": "thorn-and-ink-verses",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "named": "vh-tung-phong-cam"
+     },
+     {
+      "named": "vh-held-rest-beads"
+     },
+     {
+      "named": "vh-ravine-wind-robe"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "phong",
+     "intent": "Wind for art speed and the echo, Wood second for the lulling verses: he fights by making a foe listen until it has nothing left.",
+     "targets": [
+      4219,
+      4223,
+      4216,
+      803,
+      6451,
+      6455,
+      5782
+     ],
+     "targets_note": "Gong route from Wind, then Open Sky Breath and Riding the Wind for art speed, then Clinging Tendril for the lulling verses."
+    },
+    "note": "The zither master of ten thousand ravines: songs that march and lull, and a silence that ends them."
+   },
+   "items": [
+    "vh-tung-phong-cam",
+    "vh-held-rest-beads",
+    "vh-ravine-wind-robe"
+   ],
+   "changed": "build: main verdant-cycle-scripture -> ten-thousand-ravines-zither-canon (the academy's own lineage; Vạn Hác goes no-lean under R3); aux + the-monks-rest; chuong -> vh-tung-phong-cam (the legendary tung_phong_cam he already held); tree targets -> intent, start moc -> phong; birthplace 107 added."
+  },
+  {
+   "key": "cu_dong_moc",
+   "name_hv": "Cù Đồng Mộc",
+   "name_han": "瞿桐木",
+   "gloss": "Paulownia wood (the zither's soundboard)",
+   "sex": "M",
+   "born": 960,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "van_hac",
+   "rank": "truong_lao",
+   "home": 11,
+   "birthplace": 1491,
+   "role": "Master of the instrument rooms on the ravine rim; the last zither-maker of Cầm Tượng Trấn",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 58,
+     "moc": 40
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 60,
+    "than_hon": 62,
+    "khi_van": 38,
+    "dao_tam": 58,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Stubborn",
+     "Paranoid"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "path": [
+     "forge_scarred"
+    ],
+    "lifestyle": "collector",
+    "coping": "obsessive_training",
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A heavy man with sawdust in his eyebrows and two fingers of his left hand crushed flat.",
+   "backstory": "A zither-maker's son of Cầm Tượng Trấn whom Hà Thính Tùng (ha_thinh_tung) taught the canon as a boy. He went home to the workshop and was there in 1012 when the ravine wall buried half the town (V041). His father Cù Cổ Đồng (cu_co_dong) died under it. He dug the Stringless Zither out of the rubble and led the makers up to the academy's rim. He keeps his father's ledger of every zither the town made, with the weight of each.",
+   "ties": [
+    {
+     "to": "cu_co_dong",
+     "kind": "parent",
+     "note": "his father, the master maker, dead 1012"
+    },
+    {
+     "to": "ha_thinh_tung",
+     "kind": "former_master",
+     "note": "taught him the canon; equals now"
+    },
+    {
+     "to": "man_ti_truc",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "vi_thanh_am",
+     "kind": "friend",
+     "note": "his father made her zither in 1011; he restrings it every forty years"
+    },
+    {
+     "to": "phuong_tung_ban",
+     "kind": "disciple",
+     "note": "board-drier of the instrument rooms: storm-felled pine at Bích Hác Sâm for the soundboards"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ten-thousand-ravines-zither-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "the-monks-rest",
+      "layer": 7
+     }
+    ],
+    "gear": [
+     {
+      "named": "vh-stringless-zither"
+     },
+     {
+      "base": "giap",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 3,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 6
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal for the ringing notes and a hard body; songs that cost him nothing after a silence.",
+     "targets": [
+      4219,
+      4223,
+      4216,
+      4489,
+      4487
+     ],
+     "targets_note": "Gong route, then the Vajra Body: a maker's hard body under the bare-wood notes."
+    },
+    "note": "A maker who plays on bare wood."
+   },
+   "items": [
+    "vh-stringless-zither"
+   ]
+  },
+  {
+   "key": "quan_tich_am",
+   "name_hv": "Quan Tịch Âm",
+   "name_han": "關寂音",
+   "gloss": "Silent sound",
+   "sex": "F",
+   "born": 1080,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "van_hac",
+   "rank": "chan_truyen",
+   "home": 11,
+   "birthplace": 11,
+   "role": "The head's true disciple and heir; the academy's best player of the Monk's Rest",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 55,
+     "moc": 30
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 46,
+    "than_hon": 74,
+    "khi_van": 44,
+    "dao_tam": 66,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Patient",
+     "Humble"
+    ],
+    "calling": "Teacher",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "long_seclusion"
+    ],
+    "lifestyle": "qin_player",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A small woman who has not raised her voice in a hundred years and whose rests make other players stop.",
+   "backstory": "Born on the ravine rim to two of the makers who came up after 1012 (V041), she has never been further from the academy than Tùng Phong Thôn. Hà Thính Tùng (ha_thinh_tung) chose her as heir for her silences: she can hold the Monk's Rest until a room forgets to breathe. She has played the canon to the ninth movement. She is afraid of the twelfth.",
+   "ties": [
+    {
+     "to": "ha_thinh_tung",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "yen_to_huyen",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "khuong_lac_huyen",
+     "kind": "rival",
+     "note": "the famous one, passed over for her"
+    },
+    {
+     "to": "cat_minh_huyen",
+     "kind": "disciple",
+     "note": "inner student of the heir; tunes her zither before dawn"
+    },
+    {
+     "to": "ton_thinh_ha",
+     "kind": "rival",
+     "note": "inner student of the third movement; wants to be the first after the heir"
+    }
+   ],
+   "master": "ha_thinh_tung",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ten-thousand-ravines-zither-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "the-monks-rest",
+      "layer": 7
+     }
+    ],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal notes and long silences; she wins by stopping.",
+     "targets": [
+      4219,
+      4223,
+      4216,
+      4234,
+      4128
+     ],
+     "targets_note": "Gong route, then Chime Bells and Lake Trigram: soul resistance and long silences."
+    },
+    "note": "The heir: rests before notes."
+   }
+  },
+  {
+   "key": "khuong_lac_huyen",
+   "name_hv": "Khương Lạc Huyền",
+   "name_han": "姜落弦",
+   "gloss": "The falling string",
+   "sex": "M",
+   "born": 1058,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "van_hac",
+   "rank": "truong_lao",
+   "home": 11,
+   "birthplace": 107,
+   "role": "Elder of the outer gate; the student whose playing made Thiên Xu's envoy forget his message in 1080",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "hoa": 30
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 50,
+    "than_hon": 70,
+    "khi_van": 62,
+    "dao_tam": 48,
+    "mi_luc": 76
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Arrogant",
+     "Indulgent"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 2
+     }
+    ],
+    "lifestyle": "drinker",
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A handsome old student in a scarlet sash, who still tells the envoy story at every banquet.",
+   "backstory": "A Tùng Phong Thôn boy who played under the pines in 1080 so well that Thiên Xu's envoy forgot his message (A062). The continent told the story, and he has lived on it for 120 years. He does not know the envoy, Bách Vong Ngôn (bach_vong_ngon), only pretended to forget. He expected to be heir. Hà Thính Tùng (ha_thinh_tung) chose the quiet Quan Tịch Âm (quan_tich_am) instead, and he teaches the outer gate.",
+   "ties": [
+    {
+     "to": "ha_thinh_tung",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "quan_tich_am",
+     "kind": "rival",
+     "note": "the heir"
+    },
+    {
+     "to": "au_tieu_mien",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "te_tieu_van",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "manh_tieu_ca",
+     "kind": "disciple",
+     "note": "outer student from the woodcutters' village of Tiều Phu"
+    },
+    {
+     "to": "tham_du_van",
+     "kind": "friend",
+     "note": "player of the seventh movement; teaches pilgrims on the rim to listen"
+    }
+   ],
+   "master": "ha_thinh_tung",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ten-thousand-ravines-zither-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood lullabies and charm; status duration over damage.",
+     "targets": [
+      4219,
+      4223,
+      4216,
+      5780,
+      5782,
+      6045
+     ],
+     "targets_note": "Gong route from Wood, then Binding Vine's status duration and Zither Song's charm: the famous player's lullabies."
+    },
+    "note": "The famous player."
+   }
+  },
+  {
+   "key": "man_ti_truc",
+   "name_hv": "Mẫn Ti Trúc",
+   "name_han": "閔絲竹",
+   "gloss": "Silk and bamboo (music)",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "van_hac",
+   "rank": "noi_mon",
+   "home": 11,
+   "birthplace": 11,
+   "role": "String-maker of the instrument rooms",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "tho": 30
+    }
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Honest",
+     "Cautious"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "lifestyle": "tea_master"
+   },
+   "backstory": "Born on the ravine rim, granddaughter of a maker who survived 1012 (V041); she twists the strings from silk and the thin malachite wire of Thạch Lục Khoáng, and is the only one Cù Đồng Mộc (cu_dong_moc) lets weigh a zither.",
+   "ties": [
+    {
+     "to": "cu_dong_moc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "co_minh_thach",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "phuong_tung_ban",
+     "kind": "rival",
+     "note": "board-drier of the instrument rooms: storm-felled pine at Bích Hác Sâm for the soundboards"
+    }
+   ],
+   "master": "cu_dong_moc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ten-thousand-ravines-zither-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 4
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal notes."
+    },
+    "note": "Strings and wire."
+   }
+  },
+  {
+   "key": "han_thanh_huong",
+   "name_hv": "Hàn Thanh Hưởng",
+   "name_han": "韓清響",
+   "gloss": "A clear echo",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "van_hac",
+   "rank": "noi_mon",
+   "home": 11,
+   "birthplace": 46,
+   "role": "Inner disciple who plays the marching songs for Tùng Đào's patrols",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "kim": 28
+    }
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Warlike",
+     "Loyal"
+    ],
+    "calling": "Strategist",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A Tùng Hạ Thị chandler's son who plays the canon's marching movement for the Coiled Root Hall's patrols, and who thinks Hà Thính Tùng (ha_thinh_tung) wastes the academy on lullabies.",
+   "ties": [
+    {
+     "to": "ha_thinh_tung",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dich_kinh_lam",
+     "kind": "friend",
+     "note": "the patrol captain he plays for"
+    },
+    {
+     "to": "bang_thach_khanh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "khuc_hanh_ca",
+     "kind": "disciple",
+     "note": "outer student who drums for the marching movement"
+    }
+   ],
+   "master": "ha_thinh_tung",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ten-thousand-ravines-zither-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Marching songs: allies' attack speed."
+    },
+    "note": "A war zither."
+   }
+  },
+  {
+   "key": "au_tieu_mien",
+   "name_hv": "Âu Tiểu Miên",
+   "name_han": "歐小眠",
+   "gloss": "Little sleeper",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "van_hac",
+   "rank": "ngoai_mon",
+   "home": 11,
+   "birthplace": 107,
+   "role": "Outer disciple from Tùng Phong Thôn who falls asleep to his own playing",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "thuy": 26
+    }
+   },
+   "traits": {
+    "personality": [
+     "Lazy",
+     "Content",
+     "Forgiving"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Born in the village that learned to sleep through the academy's students (A056); his lullaby is the only song Khương Lạc Huyền (khuong_lac_huyen) admits he cannot play better.",
+   "ties": [
+    {
+     "to": "khuong_lac_huyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "doan_tieu_cam",
+     "kind": "friend",
+     "note": "a girl from the same village, now in the pines"
+    },
+    {
+     "to": "manh_tieu_ca",
+     "kind": "friend",
+     "note": "outer student from the woodcutters' village of Tiều Phu"
+    }
+   ],
+   "master": "khuong_lac_huyen",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "pine-wind-fingering",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Lullabies."
+    },
+    "note": "A sleepy zither."
+   }
+  },
+  {
+   "key": "yen_to_huyen",
+   "name_hv": "Yên Tố Huyền",
+   "name_han": "燕素弦",
+   "gloss": "A plain string",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "van_hac",
+   "rank": "noi_mon",
+   "home": 11,
+   "birthplace": 11,
+   "role": "Inner disciple of the heir",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "moc": 33
+    }
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Diligent",
+     "Impatient"
+    ],
+    "calling": "Duelist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Born on the rim to makers' parents; Quan Tịch Âm (quan_tich_am) is teaching her the Monk's Rest, and she keeps playing through it.",
+   "ties": [
+    {
+     "to": "quan_tich_am",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "te_tieu_van",
+     "kind": "rival",
+     "note": ""
+    },
+    {
+     "to": "cat_minh_huyen",
+     "kind": "friend",
+     "note": "inner student of the heir; tunes her zither before dawn"
+    }
+   ],
+   "master": "quan_tich_am",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ten-thousand-ravines-zither-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Cutting notes."
+    },
+    "note": "Plays too fast."
+   }
+  },
+  {
+   "key": "co_minh_thach",
+   "name_hv": "Cổ Minh Thạch",
+   "name_han": "古鳴石",
+   "gloss": "A ringing stone",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "van_hac",
+   "rank": "ngoai_mon",
+   "home": 11,
+   "birthplace": 167,
+   "role": "Outer disciple from the malachite mine, all Metal",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 52,
+     "moc": 30
+    }
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Patient",
+     "Trusting"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A miner's boy of Thạch Lục Khoáng who could tell the ore by the ring of the pick; the pines would not have him, but the academy asks only for an ear, and his cousin Cổ Hôi Thiết (co_hoi_thiet) still digs below.",
+   "ties": [
+    {
+     "to": "man_ti_truc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "co_hoi_thiet",
+     "kind": "cousin",
+     "note": "in Tùng Đào's outer gate at the mine"
+    },
+    {
+     "to": "thoi_luc_linh",
+     "kind": "friend",
+     "note": "outer student from the malachite mine; winds strings for the instrument rooms"
+    }
+   ],
+   "master": "man_ti_truc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "pine-wind-fingering",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Ringing Metal."
+    },
+    "note": "A miner's ear."
+   }
+  },
+  {
+   "key": "te_tieu_van",
+   "name_hv": "Tề Tiêu Vân",
+   "name_han": "齊簫雲",
+   "gloss": "A flute among clouds",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "van_hac",
+   "rank": "noi_mon",
+   "home": 11,
+   "birthplace": 1210,
+   "role": "Inner disciple; a flute-player in a zither school",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 47,
+     "kim": 30
+    }
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Gregarious",
+     "Fickle"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Tùng Hoa Thôn girl who came up the ravine with a bamboo flute and refuses to give it up; Khương Lạc Huyền (khuong_lac_huyen) lets her play the canon on it to annoy the heir.",
+   "ties": [
+    {
+     "to": "khuong_lac_huyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "yen_to_huyen",
+     "kind": "rival",
+     "note": ""
+    },
+    {
+     "to": "ton_thinh_ha",
+     "kind": "friend",
+     "note": "inner student of the third movement; wants to be the first after the heir"
+    }
+   ],
+   "master": "khuong_lac_huyen",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ten-thousand-ravines-zither-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood songs."
+    },
+    "note": "A flute."
+   }
+  },
+  {
+   "key": "bang_thach_khanh",
+   "name_hv": "Bàng Thạch Khánh",
+   "name_han": "龐石磬",
+   "gloss": "A stone chime",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "van_hac",
+   "rank": "ngoai_mon",
+   "home": 11,
+   "birthplace": 1191,
+   "role": "Outer disciple from the quarrymen's village of Lạc Thạch",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "tho": 32
+    }
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Loyal",
+     "Brave"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born"
+   },
+   "backstory": "His grandparents came down to Lạc Thạch after the avalanche buried Hàn Thạch Trấn (V042), and he learned rhythm from the quarry hammers; Hàn Thanh Hưởng (han_thanh_huong) is teaching him to march.",
+   "ties": [
+    {
+     "to": "han_thanh_huong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "khuc_hanh_ca",
+     "kind": "friend",
+     "note": "outer student who drums for the marching movement"
+    }
+   ],
+   "master": "han_thanh_huong",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "pine-wind-fingering",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "co",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "A drummer's rhythm."
+    },
+    "note": "A hand drum."
+   }
+  },
+  {
+   "key": "khong_hac",
+   "name_hv": "Không Hác",
+   "name_han": "空壑",
+   "gloss": "Empty ravine (a monk's name)",
+   "sex": "M",
+   "born": 520,
+   "died": 641,
+   "cause": "withered with his tree when his own art turned on him, at 121 (V039)",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "van_hac",
+   "rank": "founder",
+   "home": 1205,
+   "birthplace": 1205,
+   "role": "Abbot of Khô Mộc Tự; the monk whose zither the academy was founded round (620)",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Calm",
+     "Devout"
+    ],
+    "calling": "Teacher",
+    "upbringing": "temple_raised",
+    "path": [
+     "buddhist_path"
+    ]
+   },
+   "backstory": "The abbot of Khô Mộc Tự, the Temple of the Withered Tree. In 620 he came down into the ravines of Thâm Tùng Hải and played under the pines until they sounded like ten thousand ravines. He left his zither with the woodcutters and charcoal-burners who had listened, and they founded the academy round it (C130). He went back to his temple. In 641 his own art turned on him and he withered with his tree (V039). The academy does not say what he was trying to do (N-van_hac-01).",
+   "ties": [
+    {
+     "to": "ha_thinh_tung",
+     "kind": "descendant",
+     "note": "the academy's heads after him (lineage)"
+    }
+   ]
+  },
+  {
+   "key": "cu_co_dong",
+   "name_hv": "Cù Cổ Đồng",
+   "name_han": "瞿古桐",
+   "gloss": "Old paulownia",
+   "sex": "M",
+   "born": 900,
+   "died": 1012,
+   "cause": "buried when the ravine wall fell on Cầm Tượng Trấn, at 112 (V041)",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "van_hac",
+   "rank": "khach_khanh",
+   "home": 1491,
+   "birthplace": 1491,
+   "role": "Master zither-maker of Cầm Tượng Trấn and the academy's guest craftsman; made Vi Thanh Âm's zither",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Content",
+     "Generous"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "Made the academy's zithers for eighty years, the last of them for the pines in 1011 (Vi Thanh Âm's), and died under the ravine wall the next spring (V041).",
+   "ties": [
+    {
+     "to": "cu_dong_moc",
+     "kind": "child",
+     "note": "his son, who dug out the stringless zither"
+    }
+   ]
+  }
+ ]
+}

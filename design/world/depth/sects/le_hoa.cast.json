@@ -1,0 +1,1185 @@
+{
+ "sect": "le_hoa",
+ "people": [
+  {
+   "key": "thai_le_tuyet",
+   "name_hv": "Thái Lê Tuyết",
+   "name_han": "蔡梨雪",
+   "gloss": "Snow like pear blossom",
+   "sex": "F",
+   "born": 760,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "le_hoa",
+   "rank": "tong_chu",
+   "home": 184,
+   "birthplace": 66,
+   "role": "Abbess of Lê Hoa Am since 1020; keeper of the seal on Hoắc Hàn Quang's cave",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 74
+    },
+    "variants": {
+     "bang": 76
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 56,
+    "than_hon": 70,
+    "khi_van": 54,
+    "dao_tam": 82,
+    "mi_luc": 60
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Reclusive",
+     "Calm"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "frost_veined",
+     "buddhist_path"
+    ],
+    "lifestyle": "teacher_at_heart",
+    "health": "waning_years",
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A small, straight old woman with a shaved head under a white hood, whose hands are always cold and whose voice is always warm.",
+   "backstory": "Thái Lê Tuyết was born in Hòe Âm in 760, the same spring as her playmate Tiết Hàn Mai (tiet_han_mai), and the two girls sat under the Tiêu family's locust trees and argued about which of them the ice would take. The Pavilion took Tiết. The nuns took Thái, at eleven, when the second abbess Liêu Thanh Nhu (lieu_thanh_nhu) found her sitting in the snow at the Gate Hermitage. She became abbess in 1020 (A109) and has kept the hermitage for 180 years by the founder's two rules: pray for the dead under the ice, and let no one who seeks the sword pass the gate. In 1150 the Tiêu clan sent its first son to that gate (A110). The hermitage remembers that she turned him away because he was a boy. In fact the twelve-year-old Tiêu Vấn Phong (tieu_van_phong) asked her, before he asked anything else, where the cold light on the mountain was. In 1152 she walked to the seal with her prioress Mạnh Tĩnh Chi (manh_tinh_chi) and sat against it for a season. The next walk falls in 1202, and she does not expect to live much past it. Since Chúc Long Sơn rumbled in 1199 (A111) she has rung the bell every night.",
+   "wants": "To choose the right nun to walk to the seal with her in 1202, and to teach her the Sutra before she dies.",
+   "secret": "The founder's vow forbids the sword, not men. She let the hermitage believe she turned the Tiêu boy away for his sex, and she has never told him why.",
+   "ties": [
+    {
+     "to": "lieu_thanh_nhu",
+     "kind": "master",
+     "note": "the second abbess, who found her in the snow"
+    },
+    {
+     "to": "ung_le_am",
+     "kind": "disciple",
+     "note": "her true disciple and bell-ringer; the walker she would choose"
+    },
+    {
+     "to": "gian_to_y",
+     "kind": "disciple",
+     "note": "the widow she took in at forty"
+    },
+    {
+     "to": "manh_tinh_chi",
+     "kind": "friend",
+     "note": "her prioress for 180 years; they walked to the seal together in 1152 and have disagreed about it since"
+    },
+    {
+     "to": "tiet_han_mai",
+     "kind": "friend",
+     "note": "childhood friend from Hòe Âm, born the same spring; they write each other at the solstice"
+    },
+    {
+     "to": "tieu_van_phong",
+     "kind": "debt",
+     "note": "she turned him away in 1150 for a reason she never gave him"
+    },
+    {
+     "to": "ky_hoa_anh",
+     "kind": "ancestor",
+     "note": "the founder, whose vow she keeps (lineage, not blood)"
+    },
+    {
+     "to": "tieu_thua_am",
+     "kind": "feud",
+     "note": "the Tiêu patriarch whose grandson she would not keep; unsigned locust honey reaches her every solstice"
+    },
+    {
+     "to": "thai_truong_thanh",
+     "kind": "niece_nephew",
+     "note": "her great-nephew, at Tầm Kiếm's outer gate"
+    },
+    {
+     "to": "ton_han_y",
+     "kind": "disciple",
+     "note": "white nun who lays the hermitage's dead in the glacier, facing north"
+    }
+   ],
+   "master": "lieu_thanh_nhu",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "sealed-cold-sutra",
+      "layer": 10
+     },
+     {
+      "tech": "pear-blossom-snow-sword",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "ice-moonrime-sword"
+     },
+     {
+      "named": "lh-bolt-ice-bell"
+     },
+     {
+      "named": "lh-snow-veil-robe"
+     }
+    ],
+    "skills": {
+     "tran_phap": 5
+    },
+    "tree": {
+     "start": "bang",
+     "intent": "Ice first for the bell's stacks and the seal's stilling, Water second for linh lực: she fights by holding a foe still until it stops wanting to fight.",
+     "targets": [
+      768,
+      4272,
+      5437,
+      5203,
+      5202,
+      9001,
+      4912
+     ],
+     "targets_note": "Ice Ring Seal and Snow Lotus stack duration for the bell's toll, the Frost Seal that keeps the foe still, Black Abyss linh lực."
+    },
+    "note": "The abbess of the pear-blossom hermitage: a bell, a seal and a moonlit sword."
+   },
+   "items": [
+    "ice-moonrime-sword",
+    "lh-bolt-ice-bell",
+    "lh-snow-veil-robe"
+   ],
+   "changed": "build: aux stilled-hour-sutra -> sealed-cold-sutra and pear-blossom-snow-sword (the Stilled Hour Sutra is Băng Tâm's Keeper-only secret); dao_bao and ngoc_boi gear -> her two named items; tree targets -> intent; home 15 -> 184 with the seat (rules R4); birthplace 66 added."
+  },
+  {
+   "key": "manh_tinh_chi",
+   "name_hv": "Mạnh Tĩnh Chi",
+   "name_han": "孟靜枝",
+   "gloss": "A still branch",
+   "sex": "F",
+   "born": 980,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "le_hoa",
+   "rank": "truong_lao",
+   "home": 15,
+   "birthplace": 15,
+   "role": "Prioress of the Gate Hermitage (the old seat) and captain of its law; the only other living person who has seen the seal",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "kim": 52
+    },
+    "variants": {
+     "bang": 48
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 64,
+    "than_hon": 72,
+    "khi_van": 44,
+    "dao_tam": 58,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Stubborn",
+     "Just"
+    ],
+    "calling": "Duelist",
+    "upbringing": "temple_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "sword_heart"
+    ],
+    "lifestyle": "calligrapher",
+    "health": null,
+    "coping": "obsessive_training",
+    "fate_given": [],
+    "gained": [
+     "Oath-bound"
+    ]
+   },
+   "appearance": "Tall and grey-robed, with a face like a closed door and a pear-wood sword she has drawn eleven times in two hundred years.",
+   "backstory": "Mạnh Tĩnh Chi was left on the step of the Gate Hermitage as a newborn in the winter of 980, wrapped in a miner's coat, and the grey sisters raised her. She has never lived anywhere but the gate. She took the white robe at forty when Ice woke in her on the glacier, studied under the second abbess Liêu Thanh Nhu (lieu_thanh_nhu), and has been prioress of the gate since Thái Lê Tuyết (thai_le_tuyet) became abbess in 1020. Every man who has come up the mountain since then has met her first, and none has passed. She copies the founder's vow each morning in her own hand and believes every word of the version she was taught. In 1152 she walked with Thái to the seal and sat beside her against it for a season. She heard something behind it that Thái did not. She expects to walk again in 1202 and to be abbess after it, and she cannot understand why Thái hesitates.",
+   "wants": "To walk to the seal in 1202 and to be named abbess after Thái.",
+   "secret": "Since 1152 she has dreamed of the sword behind the seal every winter, and it speaks to her in a man's voice. The keeper of the gate is the one who wants to open it.",
+   "ties": [
+    {
+     "to": "lieu_thanh_nhu",
+     "kind": "master",
+     "note": "taught her the white robe"
+    },
+    {
+     "to": "thai_le_tuyet",
+     "kind": "friend",
+     "note": "her abbess; loyal, and lately afraid of her doubts"
+    },
+    {
+     "to": "huong_thiet_lan",
+     "kind": "disciple",
+     "note": "captain of the grey sisters, her right hand at the gate"
+    },
+    {
+     "to": "uc_han_chan",
+     "kind": "disciple",
+     "note": "her one white-robed disciple"
+    },
+    {
+     "to": "ung_le_am",
+     "kind": "rival",
+     "note": "the girl Thái would take to the seal instead of her"
+    },
+    {
+     "to": "tieu_van_phong",
+     "kind": "enemy",
+     "note": "she stood beside Thái at the gate in 1150; he has never forgiven either of them"
+    },
+    {
+     "to": "dinh_ngan_cau",
+     "kind": "disciple",
+     "note": "grey sister of the mine-road watch at the Gate Hermitage"
+    },
+    {
+     "to": "ton_han_y",
+     "kind": "rival",
+     "note": "white nun who lays the hermitage's dead in the glacier, facing north"
+    }
+   ],
+   "master": "lieu_thanh_nhu",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "pear-blossom-snow-sword",
+      "layer": 9
+     },
+     {
+      "tech": "gate-sword-primer",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "lh-pear-branch-sword"
+     },
+     {
+      "named": "lh-miners-gate-coat"
+     },
+     {
+      "named": "lh-grey-sisters-beads"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal for the sword and the block, Ice behind it: a doorway that cannot be passed.",
+     "targets": [
+      768,
+      4272,
+      734,
+      4299,
+      4307,
+      4787
+     ],
+     "targets_note": "Tempered Bone and Golden Bell block and ward, then Unyielding Breath: a doorway that cannot be passed."
+    },
+    "note": "The gate: blocks, holds, and thrusts once."
+   },
+   "items": [
+    "lh-pear-branch-sword",
+    "lh-miners-gate-coat",
+    "lh-grey-sisters-beads"
+   ]
+  },
+  {
+   "key": "ung_le_am",
+   "name_hv": "Ứng Lê Âm",
+   "name_han": "應梨音",
+   "gloss": "Answering the pear blossom's sound (the bell)",
+   "sex": "F",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "le_hoa",
+   "rank": "chan_truyen",
+   "home": 184,
+   "birthplace": 268,
+   "role": "The abbess's true disciple and bell-ringer of the Upper Hermitage",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "kim": 40
+    },
+    "variants": {
+     "bang": 56
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 48,
+    "than_hon": 66,
+    "khi_van": 56,
+    "dao_tam": 74,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Humble",
+     "Cautious"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "frost_veined"
+    ],
+    "lifestyle": "qin_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A round-faced woman with jade dust still in the creases of her knuckles, who hums the bell's note without knowing it.",
+   "backstory": "A jade-cutter's daughter from the Cold Jade Mine, where Ice woke in her at nine in the deepest shaft. Thái Lê Tuyết (thai_le_tuyet) took her as her last true disciple and gave her the bell cast from the frozen bolt (A105). She has rung it every night since the mountain rumbled (A111). Thái means to take her to the seal in 1202. Ứng does not know this, and Mạnh Tĩnh Chi (manh_tinh_chi) does.",
+   "ties": [
+    {
+     "to": "thai_le_tuyet",
+     "kind": "master",
+     "note": "her master"
+    },
+    {
+     "to": "diep_quang_nhi",
+     "kind": "friend",
+     "note": "another girl from the Cold Jade Mine"
+    },
+    {
+     "to": "manh_tinh_chi",
+     "kind": "rival",
+     "note": "the prioress resents her without saying why"
+    }
+   ],
+   "master": "thai_le_tuyet",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "pear-blossom-snow-sword",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "bang",
+     "intent": "Ice stacks by the canon's toll; soul resistance for the seal.",
+     "targets": [
+      768,
+      4272,
+      5437,
+      5203,
+      4106
+     ],
+     "targets_note": "Her abbess's Ice Ring Seal and Frost Bloom, Ritual Bell soul resistance: the bell's voice."
+    },
+    "note": "The bell's voice."
+   }
+  },
+  {
+   "key": "huong_thiet_lan",
+   "name_hv": "Hướng Thiết Lan",
+   "name_han": "向鐵蘭",
+   "gloss": "Iron orchid",
+   "sex": "F",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "le_hoa",
+   "rank": "ngoai_mon",
+   "home": 15,
+   "birthplace": 1369,
+   "role": "Captain of the grey sisters at the Gate Hermitage; a Metal root with no Ice",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 62,
+     "tho": 30,
+     "thuy": 28
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 52,
+    "can_cot": 70,
+    "than_hon": 48,
+    "khi_van": 50,
+    "dao_tam": 60,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Brave",
+     "Impatient"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Lovestruck"
+    ]
+   },
+   "appearance": "Broad in the shoulder, sunburnt from standing in the gate's glare, with a miner's short grey sword.",
+   "backstory": "A silver-miner's daughter who will never wear the white: her root has no Water deep enough for Ice. She has made the grey robe a trade instead, and leads the twenty sisters who hold the Gate Hermitage under Mạnh Tĩnh Chi (manh_tinh_chi). Thirty years ago she turned a hunter of Tầm Kiếm Đường, Tịch Lang Tung (tich_lang_tung), away from the gate. He comes back every spring with a basket of larch mushrooms, and she takes the basket.",
+   "ties": [
+    {
+     "to": "manh_tinh_chi",
+     "kind": "master",
+     "note": "her prioress"
+    },
+    {
+     "to": "tich_lang_tung",
+     "kind": "lover",
+     "note": "across the gate; nothing has ever been said"
+    },
+    {
+     "to": "banh_tieu_thien",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "khau_ngan_linh",
+     "kind": "disciple",
+     "note": "a girl from her own mine"
+    },
+    {
+     "to": "tuan_tuyet_lien",
+     "kind": "friend",
+     "note": "the lotus-seller she lets through the gate paths"
+    },
+    {
+     "to": "doan_han_bich",
+     "kind": "disciple",
+     "note": "Cold Jade miner's daughter in the grey gate"
+    },
+    {
+     "to": "tieu_ngoc_khe",
+     "kind": "disciple",
+     "note": "Tiêu-clan daughter in the grey gate; carries letters to the Tầm Kiếm lodge"
+    },
+    {
+     "to": "dinh_ngan_cau",
+     "kind": "friend",
+     "note": "grey sister of the mine-road watch at the Gate Hermitage"
+    }
+   ],
+   "master": "manh_tinh_chi",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "gate-sword-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal block and health: she holds a doorway.",
+     "targets": [
+      768,
+      4272,
+      734,
+      4299
+     ],
+     "targets_note": "Tempered Bone block and the Golden Bell idea's Bell Rim: the gate's grey wall."
+    },
+    "note": "The gate's grey wall."
+   }
+  },
+  {
+   "key": "uc_han_chan",
+   "name_hv": "Úc Hàn Chân",
+   "name_han": "郁寒真",
+   "gloss": "Cold and true",
+   "sex": "F",
+   "born": 1060,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "le_hoa",
+   "rank": "noi_mon",
+   "home": 184,
+   "birthplace": 1368,
+   "role": "Herbalist of the hermitage, who treats the valley's miners for nothing",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "moc": 36
+    },
+    "variants": {
+     "bang": 40
+    }
+   },
+   "traits": {
+    "personality": [
+     "Generous",
+     "Patient",
+     "Content"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "lifestyle": "gardener"
+   },
+   "backstory": "Mạnh Tĩnh Chi's (manh_tinh_chi) only white-robed disciple; she grows snow lotus in the glacier's cracks and goes down to the mines every month with a basket of salves.",
+   "ties": [
+    {
+     "to": "manh_tinh_chi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "mac_lien_suong",
+     "kind": "disciple",
+     "note": "herb nun who goes down to the miners with Úc Hàn Chân"
+    }
+   ],
+   "master": "manh_tinh_chi",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 4,
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water healing."
+    },
+    "note": "Salves and snow lotus."
+   }
+  },
+  {
+   "key": "gian_to_y",
+   "name_hv": "Giản Tố Y",
+   "name_han": "簡素衣",
+   "gloss": "Plain robe",
+   "sex": "F",
+   "born": 1050,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "le_hoa",
+   "rank": "noi_mon",
+   "home": 184,
+   "birthplace": 66,
+   "role": "Keeper of the hermitage's register of the dead",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "moc": 30
+    },
+    "variants": {
+     "bang": 38
+    }
+   },
+   "traits": {
+    "personality": [
+     "Forgiving",
+     "Calm",
+     "Diligent"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "lifestyle": "chronicler"
+   },
+   "backstory": "An ice hunter's widow from Hòe Âm who came up the mountain at forty; Ice woke in her at seventy, and Thái Lê Tuyết (thai_le_tuyet) gave her the book in which the nuns write every name they pray for.",
+   "ties": [
+    {
+     "to": "thai_le_tuyet",
+     "kind": "master",
+     "note": "took her in"
+    },
+    {
+     "to": "thuong_suong_mi",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "chu_tuyet_thanh",
+     "kind": "disciple",
+     "note": "white novice who copies names into the book of the dead"
+    },
+    {
+     "to": "ton_han_y",
+     "kind": "friend",
+     "note": "white nun who lays the hermitage's dead in the glacier, facing north"
+    }
+   ],
+   "master": "thai_le_tuyet",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water and Ice, slowly."
+    },
+    "note": "The book of the dead."
+   }
+  },
+  {
+   "key": "tieu_ngoc_hoe",
+   "name_hv": "Tiêu Ngọc Hòe",
+   "name_han": "蕭玉槐",
+   "gloss": "Jade locust tree",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "le_hoa",
+   "rank": "ngoai_mon",
+   "home": 15,
+   "birthplace": 66,
+   "role": "A Tiêu-clan daughter among the grey sisters",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "kim": 32,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Ambitious",
+     "Gregarious"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "The Tiêu clan sends its daughters to the hermitage that turned away its son; she is Tiêu Vấn Phong's (tieu_van_phong) cousin and carries his letters to no one.",
+   "ties": [
+    {
+     "to": "tieu_van_phong",
+     "kind": "cousin",
+     "note": "she thinks the feud is foolish"
+    },
+    {
+     "to": "tieu_bach_lo",
+     "kind": "cousin",
+     "note": "in the Pavilion's outer gate"
+    },
+    {
+     "to": "tieu_thua_am",
+     "kind": "grandparent",
+     "note": "her grandfather, who asks after the hermitage in every letter"
+    },
+    {
+     "to": "tieu_thu_tuyen",
+     "kind": "parent",
+     "note": "her father"
+    },
+    {
+     "to": "tieu_uyen_am",
+     "kind": "sibling",
+     "note": "her sister at home"
+    },
+    {
+     "to": "tieu_ngoc_khe",
+     "kind": "cousin",
+     "note": "her cousin; Tiêu-clan daughter in the grey gate; carries letters to the Tầm Kiếm lodge"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "gate-sword-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "A grey novice."
+   }
+  },
+  {
+   "key": "banh_tieu_thien",
+   "name_hv": "Bành Tiểu Thiền",
+   "name_han": "彭小嬋",
+   "gloss": "Little graceful one",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "le_hoa",
+   "rank": "ngoai_mon",
+   "home": 15,
+   "birthplace": 115,
+   "role": "Grey novice from the oriole valley",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Fickle",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "She came up from Hoàng Oanh Thôn singing like the orioles (A107) and has been told to stop by Hướng Thiết Lan (huong_thiet_lan) every day for two years.",
+   "ties": [
+    {
+     "to": "huong_thiet_lan",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "huong_thiet_lan",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "gate-sword-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water, hoping for Ice."
+    },
+    "note": "Hopes for the white."
+   }
+  },
+  {
+   "key": "diep_quang_nhi",
+   "name_hv": "Diệp Quang Nhi",
+   "name_han": "葉光兒",
+   "gloss": "Little light",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "le_hoa",
+   "rank": "ngoai_mon",
+   "home": 184,
+   "birthplace": 268,
+   "role": "Novice in whom Light woke on the peak instead of Ice",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 40,
+     "hoa": 34
+    },
+    "variants": {
+     "quang": 22
+    }
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Diligent",
+     "Paranoid"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "fate_given": [
+     "Spirit-eyed"
+    ]
+   },
+   "backstory": "On her first dawn on Lăng Tuyệt Phong the sunrise went into her and stayed; she is the first Light root the hermitage has had, and no nun knows what to teach her. Ứng Lê Âm (ung_le_am) is her one friend.",
+   "ties": [
+    {
+     "to": "ung_le_am",
+     "kind": "friend",
+     "note": "from the same mine"
+    },
+    {
+     "to": "doan_han_bich",
+     "kind": "friend",
+     "note": "Cold Jade miner's daughter in the grey gate"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "gate-sword-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "quang",
+     "intent": "Light, untaught."
+    },
+    "note": "A Light root in an Ice house."
+   }
+  },
+  {
+   "key": "thuong_suong_mi",
+   "name_hv": "Thường Sương Mi",
+   "name_han": "常霜眉",
+   "gloss": "Frost eyebrows",
+   "sex": "F",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "le_hoa",
+   "rank": "noi_mon",
+   "home": 184,
+   "birthplace": 114,
+   "role": "The newest white nun",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "kim": 26
+    },
+    "variants": {
+     "bang": 34
+    }
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Temperate",
+     "Humble"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "From Đỗ Quyên Thôn, where the azaleas are the eruption's dead (A104); she took the white robe last winter and prays for them by name in Giản Tố Y's (gian_to_y) book.",
+   "ties": [
+    {
+     "to": "gian_to_y",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "chu_tuyet_thanh",
+     "kind": "friend",
+     "note": "white novice who copies names into the book of the dead"
+    }
+   ],
+   "master": "gian_to_y",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "winter-toll-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "bang",
+     "intent": "Ice."
+    },
+    "note": "New white robe."
+   }
+  },
+  {
+   "key": "khau_ngan_linh",
+   "name_hv": "Khâu Ngân Linh",
+   "name_han": "邱銀鈴",
+   "gloss": "Silver bell",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "le_hoa",
+   "rank": "ngoai_mon",
+   "home": 15,
+   "birthplace": 1369,
+   "role": "Youngest of the grey sisters",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Loyal",
+     "Content"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "A silver-miner's girl sent up by Hướng Thiết Lan's (huong_thiet_lan) own family, who sweeps the gate step and counts the men who come to it.",
+   "ties": [
+    {
+     "to": "huong_thiet_lan",
+     "kind": "master",
+     "note": "from the same mine"
+    },
+    {
+     "to": "khuong_thach_luu",
+     "kind": "rival",
+     "note": "grey novice who sharpens the gate's swords"
+    }
+   ],
+   "master": "huong_thiet_lan",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "gate-sword-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "Sweeps the step."
+   }
+  },
+  {
+   "key": "ky_hoa_anh",
+   "name_hv": "Kỷ Hoa Ảnh",
+   "name_han": "紀花影",
+   "gloss": "The blossom's shadow",
+   "sex": "F",
+   "born": 330,
+   "died": 790,
+   "cause": "died in seclusion against the seal, at 460",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "le_hoa",
+   "rank": "founder",
+   "home": 184,
+   "birthplace": 1345,
+   "role": "Founder of Lê Hoa Am (600); last disciple of Hoắc Hàn Quang; sealed his cave in 702",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Patient",
+     "Compassionate"
+    ],
+    "calling": "Teacher",
+    "upbringing": "temple_raised",
+    "path": [
+     "buddhist_path"
+    ]
+   },
+   "backstory": "The last disciple of the wandering ice swordsman Hoắc Hàn Quang (hoac_han_quang), sent away before his tribulation. She came back to the foot of his mountain on the night in 600 when snow fell like pear blossom (A103) and opened a hermitage for the widows of the ice villages. In 700 his tribulation failed in the north (C014, C039). In 702 she cut the frozen lightning, cast the bell, sealed his empty cave with his sword inside, and wrote the vow: let no one who seeks the sword pass this gate.",
+   "ties": [
+    {
+     "to": "hoac_han_quang",
+     "kind": "former_master",
+     "note": "her master; she guards his sword"
+    },
+    {
+     "to": "lieu_thanh_nhu",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "thai_le_tuyet",
+     "kind": "descendant",
+     "note": "a later head of her line (lineage, not blood)"
+    }
+   ]
+  },
+  {
+   "key": "lieu_thanh_nhu",
+   "name_hv": "Liêu Thanh Nhu",
+   "name_han": "廖清柔",
+   "gloss": "Clear and gentle",
+   "sex": "F",
+   "born": 580,
+   "died": 1020,
+   "cause": "end of her years (440), the winter she handed on the bell",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "le_hoa",
+   "rank": "last_head",
+   "home": 184,
+   "birthplace": 66,
+   "role": "Second abbess of Lê Hoa Am (790-1020)",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Forgiving",
+     "Calm",
+     "Humble"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born"
+   },
+   "backstory": "The founder Kỷ Hoa Ảnh's (ky_hoa_anh) disciple and the hermitage's abbess for 230 years. She walked to the seal four times, made the women-only custom of the gate into a rule because the men who came up the mountain all asked about the sword, and found Thái Lê Tuyết (thai_le_tuyet) sitting in the snow at the gate in 771.",
+   "ties": [
+    {
+     "to": "ky_hoa_anh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "thai_le_tuyet",
+     "kind": "disciple",
+     "note": "her successor (A109)"
+    },
+    {
+     "to": "manh_tinh_chi",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "ky_hoa_anh"
+  }
+ ]
+}

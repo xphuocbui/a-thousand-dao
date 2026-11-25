@@ -1,0 +1,30 @@
+{
+ "sect": "binh_thuy",
+ "_doc": "Bình Thủy Môn lineage (rules-proposals R5). Leans Water, Wood (unchanged); the seat moves 11 tiles to the tide shoal Cự Ngao Chử (302). Outer gate: duckweed-drift-primer (proposal, Yellow, Water or Wood). Inner gate and above: still-moon-tide-scripture (existing Earth-tier Water main; Bình Thủy's copy came with Phiêu Bồng Quán's books in 1102, V093). Secret arts: returning-wake-verse (existing; inner), undertow-litany (existing; elders). Proposals are unpriced.",
+ "lineage": {
+  "outer": "duckweed-drift-primer",
+  "main": "still-moon-tide-scripture",
+  "secret": [
+   {"id": "returning-wake-verse", "rank": "noi_mon"},
+   {"id": "undertow-litany", "rank": "truong_lao"}
+  ],
+  "body": null,
+  "elements": ["thuy", "moc"],
+  "tree_route": [5369, 5361],
+  "tree_route_note": "Misty Rain and Cardinal Points: the strait crossing, travel and escape; the head's own opening."
+ },
+ "techniques": [
+  {
+   "id": "duckweed-drift-primer",
+   "name": "Duckweed Drift Primer (Phù Bình Quyết)",
+   "tier": 0, "tech_kind": "main", "names": ["thuy", "moc"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The founders' own method, the only one the sect had for six hundred years. The disciple floats on the shallows at slack water and lets the qi of whatever is under them come up: Water from the sea, Wood from the weed and the mangrove roots. It takes either element, because the strangers who wrote it had both. In a fight it does not hold ground. It drifts out of reach, closes again, and heals a little each time it is struck, the way duckweed closes over a dropped stone.",
+   "arts": [
+    {"new": "Close Over the Stone (Bình Hợp)", "concept": "After the holder is hit, a light heal over 3 s and a step back out of reach; once per few seconds."},
+    {"new": "Chance Meeting (Tương Phùng)", "concept": "A quick strike that deals Water or Wood damage, the holder's stronger element, and grants a stack of that element as a buff."}
+   ],
+   "lore": "Written down in 524 by the founder Doãn Bình Sơ from what the castaways of the first winter taught each other on Tình Sa beach. The first page says: we are all far from home here.",
+   "status": "proposal"
+  }
+ ]
+}

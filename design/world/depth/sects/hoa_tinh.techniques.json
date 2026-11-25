@@ -1,0 +1,50 @@
+{
+ "sect": "hoa_tinh",
+ "_doc": "Họa Tinh Đường lineage (rules-proposals R5). Re-leaned Wood, Metal -> Wood, Water: the seat (1328) is Wood 51 %, Water 16 %, Metal 9 %; Metal fails in any order, and the Wood/Metal candidates in Dao Quang Lĩnh are Cửu Cao's veins or the cranes' roost forest beside its seat. Water is the truer second lean: the Hall's craft is talismans that will not run in the rain (V059). Outer gate: ink-grinding-breath (proposal, Yellow, Wood or Water). Inner gate and above: painted-dipper-canon (proposal, Profound, Wood). Secret: rainfast-ink-art (proposal, inner gate). Kept, not taught: thorn-and-ink-verses (existing, catalogue-soul-song-seal), a song art the Pivot forbids; the founder's copy is sealed in the head's room. Unpriced.",
+ "lineage": {
+  "outer": "ink-grinding-breath",
+  "main": "painted-dipper-canon",
+  "secret": [
+   {"id": "rainfast-ink-art", "rank": "noi_mon", "note": "taught the night a disciple's first talisman survives a night in the rain"}
+  ],
+  "kept": [{"id": "thorn-and-ink-verses", "note": "the founder's copy, sealed; its blood-ink writ is where the rain-fast ink came from. Not taught: the Pivot forbids song arts on the mind (thien_xu §5)"}],
+  "body": null,
+  "elements": ["moc", "thuy"],
+  "tree_route": [780, 4898, 4902],
+  "tree_route_note": "The painters' road: Young Branch for the steady Wood hand, then over to the Water land's Ink Pool and Cursive Script for talisman damage and speed. Water-start painters reach the ink first and the branch after."
+ },
+ "techniques": [
+  {
+   "id": "ink-grinding-breath",
+   "name": "Ink-Grinding Breath (Ma Mặc Tức)",
+   "tier": 0, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The apprentice grinds the pine-soot ink stick on a wet stone for an hour each morning, and breathes with the stroke: Wood qi from the soot or Water qi from the stone, whichever the root takes. It is a patient method that teaches the hand to be steady. In a fight it lays ink on the holder's blade or fist; ink-marked foes are slowed.",
+   "arts": [{"new": "Wet Ink (Thấp Mặc)", "concept": "The holder's next strikes leave an ink mark; a marked foe is slowed and the holder's talismans home on them."}],
+   "lore": "The founder Kỷ Thu Tịch's rule: no brush is touched before a thousand mornings of grinding.",
+   "status": "proposal"
+  },
+  {
+   "id": "painted-dipper-canon",
+   "name": "Painted Dipper Canon (Họa Đẩu Kinh)",
+   "tier": 1, "tech_kind": "main", "names": ["moc"], "layers": 9, "rank": "noi_mon",
+   "concept": "The talisman method of the Hall. The cultivator paints the seven stars of the Dipper on their own meridians in qi, one star a layer, and draws on them to charge a talisman with one stroke. In a fight the holder throws Dipper talismans: each star painted in sequence strengthens the next, and the seventh completes the figure.",
+   "arts": [
+    {"new": "Seven-Star Talisman (Thất Tinh Phù)", "concept": "Throws a talisman that deals Wood damage and paints one star on the foe it hits. A cleanse wipes the stars, unless they were painted while The Rain Does Not Take It holds. The seventh star on one foe detonates the whole figure on it.", "authored": "d22"},
+    {"new": "Handle Points (Bính Chỉ)", "concept": "A talisman that binds a foe where they stand for a moment and makes the holder's next talisman strike them twice."}
+   ],
+   "lore": "Written by the founder after she watched the Pivot's watchmen on Trích Tinh Phong (A084) and painted what they saw. The Pivot buys its Dipper talismans from the Hall; its own disciples cannot paint them.",
+   "status": "proposal",
+   "authored": "d22"
+  },
+  {
+   "id": "rainfast-ink-art",
+   "name": "Rain-Fast Ink Art (Vũ Bất Hóa Mặc Pháp)",
+   "tier": 1, "tech_kind": "secret", "names": ["thuy", "moc"], "layers": 9, "rank": "noi_mon",
+   "concept": "The Hall's secret: the painter binds the ink to the paper with their own Water qi, so that water cannot loosen what Water holds. Talismans painted by it do not run in rain, river or blood (V059). In a fight the holder's talismans last longer and cannot be washed off by a foe's cleansing.",
+   "arts": [{"new": "The Rain Does Not Take It (Vũ Bất Hóa)", "concept": "For a while the holder's debuffs and talisman marks cannot be cleansed, and each one a foe tries to remove deals them light Water damage instead."}, {"new": "Rainfast Ink (Vũ Bất Thoát)", "concept": "A passive art. Your talisman marks, and the debuff stacks and curses your talismans lay, cannot be cleansed; a cleanse that would remove them removes nothing of yours.", "effect": "rainfast-ink", "unlock_layer": 1, "authored": "d35"}],
+   "lore": "The Hall says the founder found it by painting in the rain for a year. The truth is in the sealed book: it is the blood-ink writ of Thorn and Ink Verses, with the blood taken out and the painter's Water put in.",
+   "status": "proposal",
+   "authored": "d35"
+  }
+ ]
+}

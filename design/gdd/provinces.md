@@ -6,6 +6,7 @@
 > **Author**: user + Claude (/design-system)
 > **Last Updated**: 2026-11-23 (design-review round 6 revisions)
 > **Last Verified**: 2026-11-23
+> **Amended 2026-11-25** (user rulings, world-depth pass: `design/world/depth/DECISIONS-2026-11-25.md` groups 1, 2 and 10): a province exports its **land qi for births** (rule 3a; Linh Căn rule 2), and **moved sect seats** change their seat provinces; Phượng Minh's court moves into Phần Vũ's province, which becomes Phượng Minh's seat province (rule 2a).
 > **Implements Pillar**: Pillar 2 (the numbers are visible) and the fixed, living world (design/gdd/game-concept.md)
 > **Creative Director Review (CD-GDD-ALIGN)**: CONCERNS (accepted) 2026-11-23 — anti-pillar scale stated in rule 13;
 > Pillar 3 for the player waits on their own ground (Open Question 6); no Player Fantasy at the standard tier
@@ -69,6 +70,17 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
 2. **Holder.** A province belongs to its region's great sect, because a region is held whole (Sects rule 3). A minor
    sect whose seat lies in a province is that province's **local lord**: it builds there and draws its income from it,
    inside the great sect's territory. War moves regions, and their provinces move with them.
+2a. **Seat provinces follow the seat (new, 2026-11-25).** A sect's **seat province** is the province its seat place
+   lies in. The world-depth seat moves (World Generation, seats on fitting land; user ruling 2026-11-25) move five
+   great sects' seats (Băng Tâm → place 214, Thúy Vi → 1110, Thính Vũ → 874, Lạc Hà → 558, Phượng Minh → 449) and some
+   minor sects', so their seat provinces are the provinces of the new seats. Province keys do not change (a key is a
+   stable name, `prov_<old seat key>`). The old seat's province keeps its buildings; the old seat becomes the place the
+   sect's page names (an outer hall, a market, a court).
+   - **A great seat and a minor seat in one province** (Phượng Minh's Hỏa Ti Trấn, 449, lies in `prov_phan_vu`, user
+     ruling "lord takes the province"): the province is the **great sect's seat province**. The great sect is its
+     builder and payer, and it gains the great seat's starting buildings and seat halls (rule 10). The minor sect keeps
+     its seat inside as a vassal, keeps its local-lord income from the province, and builds there only through its
+     lord. Rule 10's starting-level and hall rules read the province as the great sect's seat province.
 
 **The record**
 
@@ -83,6 +95,13 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
    - **Local price** per good, written by Regional Economy & Trade.
 
    A wilderness province has land, resources and buildings, and no people.
+
+3a. **Land qi for births (new, 2026-11-25).** At map export each province records its **land qi**: the mean element
+   share over its land tiles (each tile's biome parts mixed by their shares, Travel & Map), and its **strongest tile**
+   of each variant (Ice, Thunder, Darkness, Light, Wind). The export also writes `land_element_means`: each element's
+   population-weighted mean share over the settlement provinces (Wood 31.1, Fire 15.1, Earth 20.1, Metal 13.7, Water
+   20.0 %). Linh Căn reads them once at every Fated birth (its rule 2, Formulas A2 and D4); nothing in this system's
+   season step reads them. Measured with `tools/design/map/land_birth_measure.py`.
 
    The panel (user decisions 2026-11-24): its spec is `design/ux/province-panel.md` (draft). **Development** is a
    display summary (built levels plus population units) that nothing reads. **Population** is shown as people, 1 unit
@@ -528,6 +547,10 @@ other province gets `infra_old` 0.
 | Modifier System, Effects System | Hard | The grammar for province modifiers (rule 12) |
 | Regional Economy & Trade (#43) | Soft (one season late) | Last season's own demand `D_loc` (base value) and the market's staple cover; before the first season, zero demand and full cover (the price itself no longer enters Provinces) |
 | Event Engine (#23) | Soft | Shocks as province modifiers (blight, raid, beast tide) |
+| World Generation (#27) | Hard | The sect seats after the seat moves (rule 2a; 2026-11-25) |
+
+**Downstream, added 2026-11-25:** Spiritual Roots (Linh Căn, #6) reads each province's land qi, strongest variant tiles
+and `land_element_means` at every Fated birth (rule 3a; its rule 2, Formulas A2 and D4).
 | Spirit Herbs (#14) | Soft, through Travel & Map | Herb site outputs by element |
 
 **Downstream (these read Provinces)**
@@ -704,6 +727,15 @@ No GDD yet: World Database (#3) and Market (#20), referenced by system number.
   icon and access is readable without colour alone.
 - **AC-PV-27** `[P]` **GIVEN** a 20-season playtest, **WHEN** the player looks for a trade, **THEN** they can name at
   least one under-connected province with a price gap worth a trip, from the panel alone.
+- **AC-PV-28** `[L]` rule 2a (2026-11-25): **GIVEN** the world built with Phượng Minh's seat at place 449 in
+  `prov_phan_vu`, **WHEN** starting buildings are placed, **THEN** `prov_phan_vu` gets the great seat's starting set and
+  Phượng Minh's seat halls, its payer is Phượng Minh Cung, and Phần Vũ Đường keeps its seat there with its local-lord
+  income; **GIVEN** Băng Tâm's seat at place 214, **THEN** Băng Tâm's seat province is the province of 214, not
+  `prov_bang_tam`.
+- **AC-PV-29** `[L]` rule 3a (2026-11-25): **GIVEN** the exported map, **WHEN** a province's land qi is read, **THEN**
+  its element shares sum to 100 % (± 0.5), each equals the mean over its land tiles, its variant maxima equal its
+  strongest tiles, and `land_element_means` equals the population-weighted means (Wood 31.1, Fire 15.1, Earth 20.1,
+  Metal 13.7, Water 20.0 ± 0.1 on the current map).
 
 Rule 14's "cannot change its goods" has no player action to test and has no criterion.
 
@@ -718,6 +750,8 @@ Rule 14's "cannot change its goods" has no player action to test and has no crit
 | 5 | The season budget for the province step (AC-PV-24's 5 ms inside `T_map` is a guess) | Claude | Regional Economy & Trade revision |
 | 6 | Whether the player's own ground (later) can hold province buildings, or only home works (Travel & Map rule 32) | User | When player holdings are designed |
 | 7 | Does a struck or famine province raise the event odds for bandits, migration and sect missions (Event Engine hooks named, weights not set) | Claude | Event Engine content pass |
+| 11 | **Code effects of rule 2a (2026-11-25), noted for the provinces runtime:** `ProvinceBuildings.payer` must read the seat province from the seat place (a great seat in a minor sect's province makes the great sect the payer), and `place_start`'s seat-province test must use the new seats. Re-run the starting-level census after the seat moves land in data | Claude (provinces runtime) | When the world-depth export lands in data |
+| 12 | Land qi export (rule 3a): add province `land_qi` and `variant_max` and the world `land_element_means` to the map export (`tools/design/map/`), and keep them in step when the map is re-exported | Claude | With Linh Căn's land roll in code |
 | 8 | New rules the 2026-11-23 review raised and the design does not yet decide: staff pooled across a province's buildings (at P 10–16 and many levels, per-building staff may starve); upkeep priority (logistics first) and a grace after a holder change; one building per kind per province; slot priority between a local lord and the great sect; whether access limits imports; where building costs go; carry arbitrage out of under-connected provinces; whether access limits how fed a province is (`cover_st` times `acc`); rule 12 stats with no formula term yet (infrastructure, growth, capacity); per-settlement population for places in a multi-settlement province (`P_set · P / P0`); the `(1 − acc)` share of output is destroyed, where Victoria 3 keeps it in the local market (L1's `bal_r` uses the full `value_lt`); who pays the unpaid remainder of a player-funded building after a holder change (AC-PV-20); staff is per building, not pooled, so population does not bound total output | User, with the balance pass | Regional Economy & Trade revision |
 | 9 | Owed in Travel & Map: say that a province building's site gain counts once, in `G_f` of Formula H (F4's `out[b]` is the non-site part only); owed in Travel & Map: layer-2 works under province buildings follow Provinces' Unpaid and Ruined states, not Formula J's fade (rule 31, Formula J, AC-TM-106); owed in Regional Economy & Trade: `D_loc` (base value) and the staple cover (`cover_st` = the market's mean `c[m,k]` of herbs and beast parts, F3, read at the yearly step) are last season's values; the contract's `value_lt` is `prod · val`, and Provinces' `acc[v]` is RET's `inf_v` (RET A's `acc_v` adds the safety term; AC-PV-22 and 29 are written against `acc_v` in peace); the `(1 − acc)` share of production is lost in carriage (AC-PV-22); Formulas A and L1 name the price tolerance and seasons for AC-PV-23; owed in Regional Economy & Trade (user decision 2026-11-23, imports count in usage): rule 16's note, the Formula L1 asymmetry and example lines and the poor-region famine edge case still say a province short of a good, with no surplus, trades at P in peace; they become: it is under-connected, has access below 1 and its local price is above P in peace (RET A's `inf_v` uses F6's usage with imports) | Claude | Next amendment of those GDDs |
 | 10 | Rule 9 mapping gaps the 2026-11-23 round 2 found: *(partly answered 2026-11-24: "pavilions" dropped; granary under Holdings and great-project stages under Institutions kept; tracks now price levels instead of capping them, rule 9)* which tracks cap a local lord (assumed: the minor sect's own); two minor seats in one province (assumed: the sect on the seat settlement, else the lowest sect id) | User | Before the province step is built |

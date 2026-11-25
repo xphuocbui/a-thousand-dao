@@ -1,0 +1,1107 @@
+{
+ "sect": "phat_y",
+ "people": [
+  {
+   "key": "thach_tang_danh",
+   "name_hv": "Thạch Tàng Danh",
+   "name_han": "石藏名",
+   "gloss": "Hides his name (Lý Bạch: thâm tàng thân dữ danh)",
+   "sex": "M",
+   "born": 900,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "phat_y",
+   "rank": "tong_chu",
+   "home": 24,
+   "birthplace": 236,
+   "role": "Head of Phất Y Cốc since 1090, sword cultivation and swordsmen for hire; the valley's one Wind root",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 86
+    },
+    "variants": {
+     "phong": 56
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 76,
+    "can_cot": 66,
+    "than_hon": 68,
+    "khi_van": 52,
+    "dao_tam": 80,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Humble",
+     "Brave"
+    ],
+    "calling": "Duelist",
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "sword_heart"
+    ],
+    "lifestyle": "pilgrim",
+    "health": null,
+    "coping": "cold_detachment",
+    "fate_given": [],
+    "gained": [
+     "Renowned",
+     "Humbled"
+    ]
+   },
+   "appearance": "A tall, quiet man in an old grey robe with one long sleeve, who stands sideways to everyone as if he were about to leave.",
+   "backstory": "Thạch Tàng Danh was a hawk-catcher's son on Thương Ưng Đài, the windy terrace of the Pivot's plateau, and the wind went into him there. He came to the valley at fifteen to sell a hawk and stayed for the sword. The second head Liễu Hành Vân (lieu_hanh_van) had kept the founder's grey sleeve and its Wind art closed for three centuries because no one could read it; he read it. He became head in 1090 and has hired out the valley's swords ever since, to the Pivot's war hall, the camel trains and the mines, by the founder's rule that a sword leaves when the deed is done. In 1130 the sword sage Tư Không Hạc Niên (tu_khong_hac_nien) came to the valley, and the two fought on Cùng Mục Phong for three days (C186). The chronicle calls it a draw. Thạch has never spoken of it (A232), and his disciples climb the peak to read the sword marks. He is three hundred, he has no Wind-rooted heir, and Cửu Cao Phái takes every Wind child born on the plateau before he hears of them.",
+   "wants": "A Wind root to give the Brushed Sleeve Step to before he walks out of the valley as the founder did.",
+   "secret": "He lost. On the third day Tư Không cut his left sleeve through and then lowered his sword, called it even and walked away without a sect, so that the valley would keep its head. The mended seam is under his arm.",
+   "ties": [
+    {
+     "to": "lieu_hanh_van",
+     "kind": "master",
+     "note": "the second head, who gave him the grey sleeve"
+    },
+    {
+     "to": "tu_khong_hac_nien",
+     "kind": "debt",
+     "note": "the draw that was not one (C186)"
+    },
+    {
+     "to": "lam_khe_ngon",
+     "kind": "disciple",
+     "note": "his first disciple, keeper of the contracts, who wants the valley"
+    },
+    {
+     "to": "khuc_liet_duong",
+     "kind": "disciple",
+     "note": "the swordswoman back from the Desert Road"
+    },
+    {
+     "to": "lo_khinh_tran",
+     "kind": "disciple",
+     "note": "a boy with a breath of Wind, whom he took before Cửu Cao's riders arrived"
+    },
+    {
+     "to": "ung_hac_minh",
+     "kind": "rival",
+     "note": "her riders carry off the plateau's Wind children"
+    },
+    {
+     "to": "quach_vo_tich",
+     "kind": "ancestor",
+     "note": "the founder, whose art he alone holds (lineage, not blood)"
+    },
+    {
+     "to": "cu_van_ly",
+     "kind": "enemy",
+     "note": "the Cửu Cao elder who takes the plateau's Wind children for his cranes"
+    },
+    {
+     "to": "au_duong_kien",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "kieu_tinh_son",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "thoi_an_thu",
+     "kind": "disciple",
+     "note": "paymaster of the contract house"
+    },
+    {
+     "to": "tiet_hoanh_sa",
+     "kind": "disciple",
+     "note": "road sword, Khúc Liệt Dương's second on the western roads"
+    }
+   ],
+   "master": "lieu_hanh_van",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "ten-paces-sword-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "afterimage-sword-canon",
+      "layer": 9
+     },
+     {
+      "tech": "brushed-sleeve-step",
+      "layer": 7
+     }
+    ],
+    "gear": [
+     {
+      "named": "blade-thousand-cut-sword"
+     },
+     {
+      "named": "py-grey-sleeve"
+     },
+     {
+      "named": "py-sleeve-token"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Pure Metal crits and speed for the ten-pace cut, Wind behind it for the step out of reach: he strikes once and is gone.",
+     "targets": [
+      725,
+      1441,
+      4280,
+      4278,
+      4032,
+      4677,
+      808
+     ],
+     "targets_note": "The hired sword's road (Edge of Autumn, Sword Spine, Sword Bow), Piercing the Willow for the tenth pace's reach, Twin Arms in Harmony and Ten Thousand Swords Return, then Wind Rider in the Wind land for the step out of reach."
+    },
+    "note": "The silent sword of Phất Y: a pure blade who held Tư Không Hạc Niên for three days with the same afterimage art."
+   },
+   "items": [
+    "blade-thousand-cut-sword",
+    "py-grey-sleeve",
+    "py-sleeve-token"
+   ],
+   "changed": "build: main dia_kim (stand-in) -> ten-paces-sword-canon (the lineage main); aux adds brushed-sleeve-step; gear dao_bao -> his named robe; tree targets -> intent; birthplace 236 added."
+  },
+  {
+   "key": "lam_khe_ngon",
+   "name_hv": "Lam Khế Ngôn",
+   "name_han": "藍契言",
+   "gloss": "A word given in a contract",
+   "sex": "F",
+   "born": 1080,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "phat_y",
+   "rank": "truong_lao",
+   "home": 24,
+   "birthplace": 662,
+   "role": "Keeper of the contracts: she decides where the valley's swords are hired",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 58,
+     "hoa": 40,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 56,
+    "than_hon": 60,
+    "khi_van": 62,
+    "dao_tam": 48,
+    "mi_luc": 72
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Pragmatic",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "go_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A neat woman in a grey coat with ink on two fingers, who reads a client's hands before their letter.",
+   "backstory": "Lam Khế Ngôn grew up among the camel drivers of Đà Đội Thôn, where her mother hired guards for the trains, and she came to the valley at sixteen with a better head for terms than for swords. Thạch Tàng Danh (thach_tang_danh) took her as his first disciple and in 1150 gave her the valley's Contract Seal. She has made Phất Y rich: the Pivot's war hall pays a standing fee for forty swords, the mines of Ngọc Hành hire their guards from her, and the camel trains will not cross the steppe without a grey sleeve. She has never been on a long hire herself. The head will not live another two hundred years, and she will be a Trúc Cơ for some time yet, which is the problem. She plays go with the Pivot's drillmaster Đái Hổ Thần (dai_ho_than) when he comes to sign the year's contract.",
+   "wants": "To be head after Thạch, and to hire the valley's swords to anyone who pays, not only to the Pivot's friends.",
+   "secret": "Since 1190 she has hired a company, under a camel-train name, to guard caravans of Thính Vũ Lâu's iron on the southern road.",
+   "ties": [
+    {
+     "to": "thach_tang_danh",
+     "kind": "master",
+     "note": "her head, whom she loves and finds slow"
+    },
+    {
+     "to": "khuc_liet_duong",
+     "kind": "rival",
+     "note": "the swordswoman the valley would choose over a clerk"
+    },
+    {
+     "to": "giang_bich_sa",
+     "kind": "disciple",
+     "note": "a camel-train girl like her"
+    },
+    {
+     "to": "dai_ho_than",
+     "kind": "friend",
+     "note": "the Pivot's drillmaster; they play go over the contract each spring"
+    },
+    {
+     "to": "thoi_an_thu",
+     "kind": "creditor",
+     "note": "paymaster of the contract house; owes her"
+    },
+    {
+     "to": "manh_thu_cam",
+     "kind": "disciple",
+     "note": "inner disciple of the contract house, who presses the Seal"
+    },
+    {
+     "to": "tiet_hoanh_sa",
+     "kind": "rival",
+     "note": "road sword, Khúc Liệt Dương's second on the western roads"
+    }
+   ],
+   "master": "thach_tang_danh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "ten-paces-sword-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "debt-ledger-blade",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "py-contract-seal"
+     },
+     {
+      "named": "py-contract-blade"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal and sustain: a guard who survives the hire rather than one who wins it.",
+     "targets": [
+      725,
+      1441,
+      4280,
+      4484,
+      4535,
+      4412
+     ],
+     "targets_note": "Valley sword route, then Iron Blood and Blood Spring for health and regeneration and Ten-Year Grinding for linh lực on crit: a guard who survives the hire."
+    },
+    "note": "The valley's purse."
+   },
+   "items": [
+    "py-contract-seal",
+    "py-contract-blade"
+   ]
+  },
+  {
+   "key": "khuc_liet_duong",
+   "name_hv": "Khúc Liệt Dương",
+   "name_han": "曲烈陽",
+   "gloss": "The blazing sun",
+   "sex": "F",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "phat_y",
+   "rank": "noi_mon",
+   "home": 24,
+   "birthplace": 666,
+   "role": "Swordswoman back from twenty years on the caravan roads",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "hoa": 58,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 70,
+    "than_hon": 50,
+    "khi_van": 46,
+    "dao_tam": 64,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Wrathful",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "fire_tempered"
+    ],
+    "lifestyle": "duel_seeker",
+    "health": "old_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Battle-hardened"
+    ]
+   },
+   "appearance": "Burnt dark by the road, with a scar that pulls one corner of her mouth into a smile she does not mean.",
+   "backstory": "Born at the horse-drinking spring of Mã Ẩm Tuyền, where the ground is warm in winter, she went out on her first hire at thirty and came back at fifty. She guarded the trains of the merchant Kim Vạn Lý (kim_van_ly) across the western plains, and he still owes her a year's pay. Thạch Tàng Danh (thach_tang_danh) is her master. The swords of the valley would follow her before Lam Khế Ngôn (lam_khe_ngon), and both women know it.",
+   "ties": [
+    {
+     "to": "thach_tang_danh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "creditor",
+     "note": "owes her a year's pay from the western road"
+    },
+    {
+     "to": "lam_khe_ngon",
+     "kind": "rival",
+     "note": "the contract keeper who has never been on a hire"
+    },
+    {
+     "to": "vien_tich_chieu",
+     "kind": "disciple",
+     "note": "a hot-spring girl like her"
+    },
+    {
+     "to": "dieu_thiet_tien",
+     "kind": "friend",
+     "note": "rode the western road with her"
+    },
+    {
+     "to": "quan_phuc_thu",
+     "kind": "friend",
+     "note": "the woman who has offered to buy her claim on Kim's year's pay"
+    },
+    {
+     "to": "tu_ban_kiem",
+     "kind": "rival",
+     "note": "the half-trained swordsman she beat on the caravan road"
+    },
+    {
+     "to": "hoac_ngo_lo",
+     "kind": "disciple",
+     "note": "outer disciple from the hot steppe, one contract sealed"
+    },
+    {
+     "to": "tiet_hoanh_sa",
+     "kind": "friend",
+     "note": "road sword, Khúc Liệt Dương's second on the western roads"
+    }
+   ],
+   "master": "thach_tang_danh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "ten-paces-sword-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "debt-ledger-blade",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 3,
+      "element": "hoa"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire and health: a hot, heavy road sword that trades blows and lives.",
+     "targets": [
+      2511,
+      2465,
+      2763,
+      2767
+     ],
+     "targets_note": "Exempt from the valley's sword route, which sits 38 points away across the tree from his Fire start: Cinder Petals and Warm Ash for health, then the Burning Blade idea, the sword reached through Fire."
+    },
+    "note": "The road."
+   }
+  },
+  {
+   "key": "au_duong_kien",
+   "name_hv": "Âu Dương Kiên",
+   "name_han": "歐陽堅",
+   "gloss": "Firm",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "phat_y",
+   "rank": "chap_su",
+   "home": 175,
+   "birthplace": 175,
+   "role": "Warden of Can Tương Khoáng, the ore the valley's swords are made of",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 64,
+     "thuy": 22,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 52,
+    "can_cot": 68,
+    "than_hon": 50,
+    "khi_van": 48,
+    "dao_tam": 58,
+    "mi_luc": 42
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Loyal",
+     "Temperate"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A square, slow-spoken miner with a sword he uses mostly to point at ore.",
+   "backstory": "He keeps the mine of Can Tương (A225) and sends its ore to Thối Tinh Môn's forge, where the valley's swords are made from it. He trusts the smiths and has noticed that Can Tương ore comes back as blades that ring more clearly than any star iron Hầu Thiết Anh (hau_thiet_anh) sells. He has not wondered why.",
+   "ties": [
+    {
+     "to": "thach_tang_danh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "hua_ngan_son",
+     "kind": "disciple",
+     "note": "a miner's boy"
+    },
+    {
+     "to": "hau_thiet_anh",
+     "kind": "friend",
+     "note": "they trade ore and gossip at the smiths' gate"
+    },
+    {
+     "to": "au_duong_tuyen",
+     "kind": "child",
+     "note": "his son; inner disciple at Can Tương Khoáng, who carries the ore to Thối Tinh Môn"
+    },
+    {
+     "to": "au_duong_tuyen",
+     "kind": "disciple",
+     "note": "inner disciple at Can Tương Khoáng, who carries the ore to Thối Tinh Môn"
+    }
+   ],
+   "master": "thach_tang_danh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "ten-paces-sword-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Heavy Metal and armour.",
+     "targets": [
+      725,
+      1441,
+      4280,
+      3879,
+      4329,
+      4017
+     ],
+     "targets_note": "Valley sword route, then Iron Shirt, Golden Armour and Bronze Shield: heavy Metal and armour."
+    },
+    "note": "The ore."
+   }
+  },
+  {
+   "key": "kieu_tinh_son",
+   "name_hv": "Kiều Tĩnh Sơn",
+   "name_han": "喬靜山",
+   "gloss": "A quiet mountain",
+   "sex": "M",
+   "born": 1060,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "phat_y",
+   "rank": "chap_su",
+   "home": 24,
+   "birthplace": 24,
+   "role": "Master of the outer gate and its dry-road primer",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 52,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Content",
+     "Just"
+    ],
+    "calling": "Teacher",
+    "upbringing": "sect_raised",
+    "lifestyle": "teacher_at_heart"
+   },
+   "backstory": "Born in the valley and never hired out, he has taught the Dry Road Sword Primer to every outer disciple since 1100; he counts Thạch Tàng Danh (thach_tang_danh) as a brother and climbs Cùng Mục Phong with the new disciples each spring to show them the marks.",
+   "ties": [
+    {
+     "to": "thach_tang_danh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ta_bat_luu",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "lieu_vong_phong",
+     "kind": "disciple",
+     "note": "outer disciple from the plateau mine, who came with Lộ Khinh Trần"
+    },
+    {
+     "to": "yen_lac_tu",
+     "kind": "disciple",
+     "note": "outer disciple who sweeps the hall of sleeves"
+    }
+   ],
+   "master": "thach_tang_danh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "ten-paces-sword-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal and a steady guard."
+    },
+    "note": "The gate's teacher."
+   }
+  },
+  {
+   "key": "lo_khinh_tran",
+   "name_hv": "Lộ Khinh Trần",
+   "name_han": "路輕塵",
+   "gloss": "Light dust on the road",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "phat_y",
+   "rank": "noi_mon",
+   "home": 24,
+   "birthplace": 603,
+   "role": "Inner disciple with a breath of Wind, born at the windy mine on the plateau",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "tho": 34
+    },
+    "variants": {
+     "phong": 18
+    }
+   },
+   "traits": {
+    "personality": [
+     "Fickle",
+     "Brave",
+     "Gregarious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "fate_given": [
+     "Spirit-eyed"
+    ]
+   },
+   "backstory": "A miner's son from Tập Trận Khoáng, where the wind never stops; Thạch Tàng Danh (thach_tang_danh) heard of him from a hawk-catcher and fetched him a week before Cửu Cao's riders came.",
+   "ties": [
+    {
+     "to": "thach_tang_danh",
+     "kind": "master",
+     "note": "the head's hope for the sleeve"
+    },
+    {
+     "to": "cu_van_ly",
+     "kind": "rival",
+     "note": "the Cửu Cao rider who came for him a week late"
+    },
+    {
+     "to": "lo_phi_suong",
+     "kind": "cousin",
+     "note": "his cousin; rider from Tập Trận Khoáng, Lộ Khinh Trần's cousin, at the roc camp"
+    },
+    {
+     "to": "lieu_vong_phong",
+     "kind": "friend",
+     "note": "outer disciple from the plateau mine, who came with Lộ Khinh Trần"
+    }
+   ],
+   "master": "thach_tang_danh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "ten-paces-sword-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "phong",
+     "intent": "Wind for the step, Metal for the cut."
+    },
+    "note": "Maybe the next sleeve."
+   }
+  },
+  {
+   "key": "vien_tich_chieu",
+   "name_hv": "Viên Tịch Chiếu",
+   "name_han": "袁夕照",
+   "gloss": "Evening glow",
+   "sex": "F",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phat_y",
+   "rank": "noi_mon",
+   "home": 24,
+   "birthplace": 645,
+   "role": "Inner disciple from the sand-eye hot spring",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "hoa": 40,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Wrathful",
+     "Diligent"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Khúc Liệt Dương's (khuc_liet_duong) disciple, she is waiting for her first hire and has asked for the Desert Road every month.",
+   "ties": [
+    {
+     "to": "khuc_liet_duong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "yen_lac_tu",
+     "kind": "friend",
+     "note": "outer disciple who sweeps the hall of sleeves"
+    }
+   ],
+   "master": "khuc_liet_duong",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "ten-paces-sword-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire and Metal."
+    },
+    "note": "Wants the road."
+   }
+  },
+  {
+   "key": "giang_bich_sa",
+   "name_hv": "Giang Bích Sa",
+   "name_han": "江碧沙",
+   "gloss": "Green sand",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "phat_y",
+   "rank": "ngoai_mon",
+   "home": 24,
+   "birthplace": 662,
+   "role": "Outer disciple from the camel-train village",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "hoa": 34,
+     "kim": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Greedy",
+     "Honest"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "From Đà Đội Thôn like her master Lam Khế Ngôn (lam_khe_ngon), she copies the valley's contracts and has noticed that one of them is written for a train that does not exist.",
+   "ties": [
+    {
+     "to": "lam_khe_ngon",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "manh_thu_cam",
+     "kind": "rival",
+     "note": "inner disciple of the contract house, who presses the Seal"
+    }
+   ],
+   "master": "lam_khe_ngon",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "dry-road-sword-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire."
+    },
+    "note": "Copies contracts."
+   }
+  },
+  {
+   "key": "ta_bat_luu",
+   "name_hv": "Tạ Bất Lưu",
+   "name_han": "謝不留",
+   "gloss": "Leaves nothing behind",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phat_y",
+   "rank": "ngoai_mon",
+   "home": 24,
+   "birthplace": 682,
+   "role": "Outer disciple from the dog-herding village",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 36,
+     "kim": 34,
+     "hoa": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Reclusive",
+     "Patient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "lifestyle": "hunter"
+   },
+   "backstory": "A shepherd from Mục Khuyển Thôn who walks the valley's hires with two dogs; Kiều Tĩnh Sơn (kieu_tinh_son) says he is the only outer disciple who has understood the verse on the cliff.",
+   "ties": [
+    {
+     "to": "kieu_tinh_son",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "kieu_tinh_son",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "dry-road-sword-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "Two dogs."
+   }
+  },
+  {
+   "key": "hua_ngan_son",
+   "name_hv": "Hứa Ngân Sơn",
+   "name_han": "許銀山",
+   "gloss": "Silver mountain",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "phat_y",
+   "rank": "ngoai_mon",
+   "home": 175,
+   "birthplace": 175,
+   "role": "Outer disciple at Can Tương Khoáng",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 44,
+     "thuy": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Trusting",
+     "Lazy"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Can Tương miner's boy who joined the valley to get out of the shaft and was sent straight back to it by Âu Dương Kiên (au_duong_kien).",
+   "ties": [
+    {
+     "to": "au_duong_kien",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "au_duong_tuyen",
+     "kind": "friend",
+     "note": "inner disciple at Can Tương Khoáng, who carries the ore to Thối Tinh Môn"
+    }
+   ],
+   "master": "au_duong_kien",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "dry-road-sword-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "Back in the shaft."
+   }
+  },
+  {
+   "key": "quach_vo_tich",
+   "name_hv": "Quách Vô Tích",
+   "name_han": "郭無跡",
+   "gloss": "Leaves no trace",
+   "sex": "M",
+   "born": 470,
+   "died": 900,
+   "cause": "walked out of the valley in 790 and was never seen there again (the valley counts his death from that day); seen off from Tống Khách Thị in 900 (A138) and went to die alone, age 430",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "phat_y",
+   "rank": "founder",
+   "home": 24,
+   "birthplace": 236,
+   "role": "Founder of Phất Y Cốc (560); a Wind-rooted swordsman who brushed his sleeve and left after every deed",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Just",
+     "Fickle"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "wild_raised",
+    "path": [
+     "sword_heart"
+    ]
+   },
+   "backstory": "A wandering Wind-rooted swordsman who hired his sword for one deed at a time and left before he could be thanked. In 560 he settled the grassland valley under the Pivot, dug the ore of Can Tương for his students' swords (A225), and cut the verse of the hired sword into the cliff. In 790 he hung his grey robe in the hall, with his Wind art folded in the sleeve, and walked out. His disciple Liễu Hành Vân (lieu_hanh_van) kept the valley. He did not die then: on the ore road he took a ninety-year-old miner, Tư Không Hạc Niên (tu_khong_hac_nien), as his one disciple, gave him Cô Hạc, and was seen off from Tống Khách Thị in 900 (A138).",
+   "ties": [
+    {
+     "to": "lieu_hanh_van",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "tu_khong_hac_nien",
+     "kind": "former_disciple",
+     "note": "the old miner who followed him from 790 to 900 and was given Cô Hạc"
+    },
+    {
+     "to": "thach_tang_danh",
+     "kind": "descendant",
+     "note": "a later head of his line (lineage, not blood)"
+    }
+   ],
+   "changed": "cross-sect pass: died 790 -> 900: hermits-sages (N-hermits_sages-03, -05) has him teach Tư Không Hạc Niên on the road from 790 and leave as the traveller of A138 in 900; the valley still counts 790. Tie to tu_khong_hac_nien added."
+  },
+  {
+   "key": "lieu_hanh_van",
+   "name_hv": "Liễu Hành Vân",
+   "name_han": "柳行雲",
+   "gloss": "A drifting cloud",
+   "sex": "F",
+   "born": 640,
+   "died": 1090,
+   "cause": "a failed breakthrough to Nguyên Anh at 450, the year she handed the valley to Thạch",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "phat_y",
+   "rank": "last_head",
+   "home": 24,
+   "birthplace": 662,
+   "role": "Second head of Phất Y Cốc (790-1090), who turned a hermit's valley into a house of hired swords",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Patient",
+     "Loyal"
+    ],
+    "calling": "Strategist",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "The founder Quách Vô Tích's (quach_vo_tich) disciple, who had no Wind and could not read his art. She kept it closed and built the valley a living instead: she made the Contract Seal, wrote the Dry Road Sword Primer for the camel-train companies, and sent the valley's swords to the Pivot under its writ in the War of Broken Halberds (C016). She gave the grey sleeve to Thạch Tàng Danh (thach_tang_danh) when he opened the book.",
+   "ties": [
+    {
+     "to": "quach_vo_tich",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "thach_tang_danh",
+     "kind": "disciple",
+     "note": "her successor"
+    }
+   ],
+   "master": "quach_vo_tich"
+  }
+ ]
+}

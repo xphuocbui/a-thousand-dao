@@ -1,0 +1,136 @@
+{"group": "loose-north", "sect": "", "items": [
+ {
+  "id": "ln-pine-felling-axe", "name": "Pine-Felling Axe (Phạt Tùng Phủ)", "family": "body", "kind": "artifact",
+  "base": "phu", "grade": 2,
+  "modifiers": [
+   {"key": "attack_pct", "value": 10, "scope": []},
+   {"key": "khi_huyet_pct", "value": 6, "scope": []},
+   {"key": "body_shield_pct", "value": 6, "scope": []}
+  ],
+  "effects": [],
+  "lore": "A woodcutter's axe of Tùng Hạ Thị with a haft of fallen pine, the only wood the Lâm carvers of Lộc Minh will cut. Lâm Dã Hạc's father felled pines with it for the market for forty years; it held the Tùng Hạ road on the three nights of 1190 (A064), and a wolf's tooth is still in the haft.",
+  "build_use": "A body cultivator's weapon: attack, health and a body shield.",
+  "holder": "lam_da_hac", "made_by": "a smith of Tùng Hạ Thị", "made_year": 1120, "set": "ln-woodcutter-pair", "status": "proposal"
+ },
+ {
+  "id": "ln-old-bronze-lamp", "name": "Old Bronze Lamp (Cổ Đồng Đăng)", "family": "general", "kind": "artifact",
+  "base": "dang", "grade": 3,
+  "modifiers": [
+   {"key": "than_thuc_pct", "value": 10, "scope": []},
+   {"key": "soul_res_pct", "value": 12, "scope": []},
+   {"key": "status_resist_pct", "value": 10, "scope": []},
+   {"key": "ward_efficiency_pct", "value": 6, "scope": []}
+  ],
+  "effects": ["In a sealed or buried place, the lamp's flame leans toward the nearest hollow or door, and it gutters before a live ward or trap array is touched."],
+  "lore": "A temple lamp of green bronze dug out of the ice of Lẫm Đông Thành (V079) by Phàn Cổ Đăng when she was a girl. It has burned on seal fat for 180 years and has never gone out in a ruin. Thiệu Tàn Đăng carried its twin into Băng Hỏa Môn's fire hall in 1171 (N-loose_north-01); that one went out.",
+  "build_use": "Soul sense and resistances for a digger who must see a ward before it sees her.",
+  "holder": "phan_co_dang", "made_by": "unknown (a temple of Lẫm Đông Thành)", "made_year": 600, "set": "ln-digger-kit", "status": "proposal"
+ },
+ {
+  "id": "ln-lynx-bone-axe", "name": "Lynx-Bone Axe (Linh Miêu Cốt Phủ)", "family": "wood", "kind": "artifact",
+  "base": "phu", "grade": 3,
+  "modifiers": [
+   {"key": "attack_pct", "value": 16, "scope": ["moc"]},
+   {"key": "crit_damage_pct", "value": 15, "scope": []},
+   {"key": "leech_health_pct", "value": 30, "scope": []},
+   {"key": "khi_huyet_pct", "value": 8, "scope": []}
+  ],
+  "effects": [],
+  "lore": "One of two woodsmen's axes the old chief Tề Đoản Vĩ re-hafted in the shin bones of a lynx for the two boys he raised on the Bobtail ridge. Its twin is the Bobtail Axe Triều Ngũ Lang carried into the mist in 1081 (N-vu_an-02). Khấu Thiên Tứ has kept the edge and the old chief's notches on the haft, and added none of his own.",
+  "build_use": "Wood attack, crit damage and leech for a fighter with no healer.",
+  "holder": "khau_thien_tu", "made_by": "te_doan_vi (re-hafted)", "made_year": 1060, "set": "ln-bobtail-gear", "status": "proposal"
+ },
+ {
+  "id": "ln-thawing-brazier", "name": "Thawing Brazier (Giải Băng Lô)", "family": "fire", "kind": "artifact",
+  "base": "huong_lo", "grade": 1,
+  "modifiers": [
+   {"key": "attack_pct", "value": 6, "scope": ["hoa"]},
+   {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}
+  ],
+  "effects": ["Fed with the holder's Fire qi, it thaws a hand's depth of old ice an hour and keeps a frozen hall's air breathable while it burns.", {"new": true, "id": "thaw", "name": "Thaw (Giải Băng)", "rule": "Each Fire hit you land removes one Ice stack from you; each stack removed heals you 0.5 % of your maximum health and gives you one Fire buff stack for 5 s.", "authored": "d48"}],
+  "lore": "A copper censer from a Tống Khách Thị stall that Phàn Cổ Đăng bought Dư Chúc Nhi in 1195 with the Scorch Fist Primer. The girl cut its vents wider herself so it would burn hotter.",
+  "build_use": "A small Fire attack and linh lực recovery for a Luyện Khí fist fighter.",
+  "holder": "du_chuc_nhi", "made_by": "a coppersmith of Tống Khách Thị", "made_year": 1190, "set": "ln-thaw-girl-fire", "status": "proposal",
+  "authored": "d48"
+ },
+  {
+   "id": "ln-bark-hide-vest", "name": "Bark-Hide Vest (Thụ Bì Giáp)", "family": "body", "kind": "artifact", "base": "giap", "grade": 2,
+   "modifiers": [{"key": "khi_huyet_pct", "value": 10, "scope": []}, {"key": "body_shield_pct", "value": 12, "scope": []}, {"key": "health_regen_inc_pct", "value": 16, "scope": []}],
+   "effects": [],
+   "lore": "Pine bark laced over elk hide by his mother; it has been split by three axes and stitched three times.",
+   "build_use": "Wood's health and recovery under the iron bones.",
+   "holder": "lam_da_hac", "made_by": "his mother, a woodcutter's wife of the pine sea", "made_year": 1175, "set": "ln-woodcutter-pair", "status": "proposal"
+  },
+  {
+   "id": "ln-lock-breaker-seal", "name": "Seal for Old Locks (Phá Tỏa Ấn)", "family": "water", "kind": "artifact", "base": "an", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 12, "scope": ["seal"]}, {"key": "than_thuc_pct", "value": 6, "scope": []}, {"key": "linh_luc_regen_inc_pct", "value": 12, "scope": []}, {"key": "status_duration_pct", "value": 10, "scope": []}],
+   "effects": [],
+   "lore": "A seal with no characters on its face, only grooves that fit the old Pavilion locks; she had it cut from the first door she opened.",
+   "build_use": "Seal arts that break old locks.",
+   "holder": "phan_co_dang", "made_by": "phan_co_dang", "made_year": 1110, "set": "ln-digger-kit", "status": "proposal"
+  },
+  {
+   "id": "ln-frost-digger-coat", "name": "Frost-Digger's Coat (Quật Sương Bào)", "family": "water", "kind": "artifact", "base": "dao_bao", "grade": 3,
+   "modifiers": [{"key": "khi_huyet_pct", "value": 12, "scope": []}, {"key": "defense_pct", "value": 8, "scope": []}, {"key": "resist_pct", "value": 120, "scope": ["cold"]}, {"key": "linh_luc_pct", "value": 8, "scope": []}],
+   "effects": [],
+   "lore": "Sealskin over quilted silk, the coast diggers' coat; hers has the Hall of Cold Law's licence stitched inside the collar.",
+   "build_use": "Wards and linh lực in a cold dead hall.",
+   "holder": "phan_co_dang", "made_by": "the coat-makers of the frost coast", "made_year": 1120, "set": "ln-digger-kit", "status": "proposal"
+  },
+  {
+   "id": "ln-lynx-pelt-armour", "name": "Lynx-Pelt Armour (Linh Miêu Bì Giáp)", "family": "wood", "kind": "artifact", "base": "giap", "grade": 3,
+   "modifiers": [{"key": "khi_huyet_pct", "value": 16, "scope": []}, {"key": "defense_pct", "value": 8, "scope": []}, {"key": "health_regen_inc_pct", "value": 20, "scope": []}, {"key": "body_shield_pct", "value": 12, "scope": []}],
+   "effects": [],
+   "lore": "The pelt of the lynx whose bone made his axe, over iron rings from a Pivot surveyor's mail.",
+   "build_use": "Wood's health under the axe.",
+   "holder": "khau_thien_tu", "made_by": "khau_thien_tu", "made_year": 1150, "set": "ln-bobtail-gear", "status": "proposal"
+  },
+  {
+   "id": "ln-robber-ring", "name": "Ring of the Bobtail Chief (Đoản Vĩ Trại Hoàn)", "family": "metal", "kind": "artifact", "base": "nhan", "grade": 3,
+   "modifiers": [{"key": "crit_chance_pct", "value": 6, "scope": ["physical"]}, {"key": "crit_damage_pct", "value": 24, "scope": ["physical"]}, {"key": "leech_health_pct", "value": 20, "scope": []}],
+   "effects": [],
+   "lore": "An iron ring passed from chief to chief of the Bobtail band; each chief files a notch in it, and there are nine.",
+   "build_use": "Axe crits and leech.",
+   "holder": "khau_thien_tu", "made_by": "the Bobtail band", "made_year": 1000, "set": "ln-bobtail-gear", "status": "proposal"
+  },
+  {
+   "id": "ln-ember-pendant", "name": "Ember Pendant (Hỏa Tẫn Bội)", "family": "fire", "kind": "artifact", "base": "ngoc_boi", "grade": 1,
+   "modifiers": [{"key": "attack_pct", "value": 6, "scope": ["physical"]}, {"key": "khi_huyet_pct", "value": 4, "scope": []}],
+   "effects": [],
+   "lore": "A live coal from the brazier sealed in a glass bead by the crew's lamp-boss; it is warm to the touch in any frost.",
+   "build_use": "Hot fists, for the day she can wear two things.",
+   "holder": "du_chuc_nhi", "made_by": "phan_co_dang", "made_year": 1196, "set": "ln-thaw-girl-fire", "status": "proposal"
+  }
+ ], "sets": [
+  {
+   "id": "ln-woodcutter-pair", "name": "Woodcutter's Pair (Tiều Phu Song Bảo)", "pieces": ["ln-pine-felling-axe", "ln-bark-hide-vest"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "khi_huyet_pct", "value": 5, "scope": []}, {"key": "body_shield_pct", "value": 6, "scope": []}], "effect": "Will Not Fall (Bất Đảo): once a fight, a hit that would drop you leaves you standing at 1 health with your body shield full; your next axe hit within 3 s heals you for half its damage."}
+   ],
+   "story": "His father's axe and his mother's vest. Tuần Tùng Đường offered him a sword for the axe; he has not answered."
+  },
+  {
+   "id": "ln-digger-kit", "name": "The Digger's Kit (Quật Phu Tam Cụ)", "pieces": ["ln-old-bronze-lamp", "ln-lock-breaker-seal", "ln-frost-digger-coat"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "than_thuc_pct", "value": 4, "scope": []}, {"key": "linh_luc_regen_inc_pct", "value": 8, "scope": []}, {"key": "attack_pct", "value": 6, "scope": ["seal"]}]},
+    {"pieces": 3, "effect": "The Way Out (Xuất Lộ): the Lamp's flame also leans toward the way out in a fight. Once a fight, below a third of your health, you may leave at once; while you stand inside a foe's array, each of your seal hits breaks one of its nodes."}
+   ],
+   "story": "Lamp, seal and coat of the boss of the ruin-diggers, gathered over eighty years of dead halls. She means to leave them to whoever outlives her on the coast.",
+   "authored": "b8"
+  },
+  {
+   "id": "ln-bobtail-gear", "name": "Bobtail Chief's Gear (Đoản Vĩ Tam Kiện)", "pieces": ["ln-lynx-bone-axe", "ln-lynx-pelt-armour", "ln-robber-ring"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "leech_health_pct", "value": 10, "scope": []}, {"key": "crit_damage_pct", "value": 12, "scope": ["physical"]}]},
+    {"pieces": 3, "effect": "Never Had a Healer (Vô Y Giả): health your leech would waste on full health becomes a body shield instead, and the shield loses a tenth of itself each second; while that shield holds, your axe crits deal 25 % more damage."}
+   ],
+   "story": "One lynx made the axe and the armour; the ring came with the band. Whole since 1150; Triều Ngũ Lang knows where Khấu would leave them."
+  },
+  {
+   "id": "ln-thaw-girl-fire", "name": "Thaw-Girl's Fire (Giải Băng Song Hỏa)", "pieces": ["ln-thawing-brazier", "ln-ember-pendant"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "attack_pct", "value": 4, "scope": ["physical"]}, {"key": "linh_luc_regen_inc_pct", "value": 4, "scope": []}], "effect": "Hot Hands (Nhiệt Thủ): your fist hits lay one Fire stack, and two on a foe that carries Ice stacks or is slowed."}
+   ],
+   "story": "The brazier Phàn Cổ Đăng bought her in 1195 and the coal the lamp-boss sealed from it a year later. A Luyện Khí wears one thing, so the pendant waits on a cord in her pack until her Trúc Cơ."
+  }
+ ]}

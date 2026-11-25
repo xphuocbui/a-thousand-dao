@@ -1,0 +1,78 @@
+{
+ "sect": "hoa_cai",
+ "_doc": "Hoa Cái Đường signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow the earth, metal and general catalogues' grade 3-4 items. Prefix hc-.",
+ "items": [
+  {
+   "id": "hc-nine-cycle-gourd", "name": "Nine-Cycle Gourd (Cửu Chuyển Hồ Lô)", "family": "metal", "kind": "treasure", "base": "ho_lo", "grade": 4,
+   "modifiers": [{"key": "stack_effect_pct", "value": 30, "scope": ["kim", "debuff"]}, {"key": "stack_duration_pct", "value": 30, "scope": ["kim", "debuff"]}, {"key": "dan_doc_resist_pct", "value": 30, "scope": []}, {"key": "healing_pct", "value": 10, "scope": []}, {"key": "than_thuc_pct", "value": 4, "scope": []}],
+   "effects": [{"new": true, "id": "the-unfinished-pill", "name": "The Unfinished Pill (Vị Thành Đan)", "rule": "Once a fight, drink from the gourd: heal a third of your health and gain a large share of attack for ten seconds, then take a lingering mercury poison you cannot cleanse until the fight ends."}],
+   "lore": "The founder's refining gourd of bronze and red lacquer. It holds the last turn of the Canopy Pill that Úy Đan Dương spent a century refining and never finished; the fumes of its eighth turn blinded him in 1150. It is in his sealed room, and his successor has a key.",
+   "build_use": "The founder's piece: heavy Mercury stacks, pill-poison resistance, and one dangerous drink.",
+   "holder": "uy_dan_duong", "made_by": "uy_dan_duong", "made_year": 1062, "set": "hc-blind-founder", "status": "proposal"
+  },
+  {
+   "id": "hc-canopy-furnace", "name": "Canopy Furnace (Hoa Cái Lô)", "family": "earth", "kind": "artifact", "base": "huong_lo", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 16, "scope": ["tho"]}, {"key": "stack_duration_pct", "value": 30, "scope": ["tho", "debuff"]}, {"key": "ward_efficiency_pct", "value": 10, "scope": []}, {"key": "khi_huyet_pct", "value": 10, "scope": []}],
+   "effects": [{"new": true, "id": "nine-stars-over-the-fire", "name": "Nine Stars over the Fire (Cửu Tinh Phúc Hỏa)", "rule": "Pills you refine while carrying the furnace come out one grade steadier: a failed batch is kept as a lower grade instead of lost. In a fight, your wards last longer while a foe carries your debuffs."}],
+   "lore": "The small bronze furnace with nine stars cast on its lid that the Hall's head carries to the market at Thiên Quyền Thị, where its pills are weighed like everything else (V117). La Tử Vi took it from the founder's hands in 1150, when he could no longer see the lid.",
+   "build_use": "The head's furnace: Earth debuffs that last, a ward, and steadier pills.",
+   "holder": "la_tu_vi", "made_by": "uy_dan_duong", "made_year": 1060, "set": "hc-canopy-and-lid", "status": "proposal"
+  },
+  {
+   "id": "hc-sulphur-fan", "name": "Sulphur Fan (Lưu Hoàng Phiến)", "family": "fire", "kind": "artifact", "base": "phien", "grade": 2,
+   "modifiers": [{"key": "stack_effect_pct", "value": 18, "scope": ["kim", "debuff"]}, {"key": "attack_pct", "value": 10, "scope": ["over_time"]}, {"key": "khi_huyet_pct", "value": 6, "scope": []}],
+   "effects": [],
+   "lore": "A stained palm-leaf fan for stoking the furnace; the Mistress learned to fan fume at a foe before she learned to fan a fire.",
+   "build_use": "Mercury stacks she fans under the lid.",
+   "holder": "la_tu_vi", "made_by": "la_tu_vi", "made_year": 1150, "set": "hc-canopy-and-lid", "status": "proposal"
+  },
+  {
+   "id": "hc-fume-censer", "name": "Censer of the Sealed Room (Phong Thất Lô)", "family": "metal", "kind": "artifact", "base": "huong_lo", "grade": 3,
+   "modifiers": [{"key": "stack_effect_pct", "value": 26, "scope": ["kim", "debuff"]}, {"key": "attack_pct", "value": 12, "scope": ["over_time"]}, {"key": "dan_doc_resist_pct", "value": 10, "scope": []}, {
+    "key": "stack_duration_pct",
+    "value": 20,
+    "scope": [
+     "kim",
+     "debuff"
+    ]
+   }],
+   "effects": [],
+   "lore": "The censer that has burned in the founder's sealed room since 1150; the fume in it is what is left of the pill that blinded him.",
+   "build_use": "Mercury stacks from the fume that fills the room.",
+   "holder": "uy_dan_duong", "made_by": "uy_dan_duong", "made_year": 1150, "set": "hc-blind-founder", "status": "proposal",
+   "authored": "b3"
+  },
+  {
+   "id": "hc-cinnabar-robe", "name": "Cinnabar-Stained Robe (Chu Sa Bào)", "family": "earth", "kind": "artifact", "base": "dao_bao", "grade": 3,
+   "modifiers": [{"key": "khi_huyet_pct", "value": 14, "scope": []}, {"key": "defense_pct", "value": 8, "scope": []}, {
+    "key": "status_resist_pct",
+    "value": 30,
+    "scope": [
+     "poison"
+    ]
+   }, {"key": "health_regen_inc_pct", "value": 16, "scope": []}],
+   "effects": [],
+   "lore": "Red to the elbow with a century of cinnabar; nothing that lives in a pill house will touch it.",
+   "build_use": "Resistance in the fume and the long sit.",
+   "holder": "uy_dan_duong", "made_by": "hoa_cai", "made_year": 1060, "set": "hc-blind-founder", "status": "proposal",
+   "authored": "b5"
+  }
+ ],
+ "sets": [
+  {
+   "id": "hc-canopy-and-lid", "name": "Canopy and Lid (Hoa Cái Song Bảo)", "pieces": ["hc-canopy-furnace", "hc-sulphur-fan"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "stack_duration_pct", "value": 12, "scope": ["tho", "debuff"]}, {"key": "ward_efficiency_pct", "value": 3, "scope": []}], "effect": "Under the Lid (Cái Hạ): while a foe carries both your Earth and your Mercury stacks, your ward regains 3 % each second, and each fan art adds one more Mercury stack to it."}
+   ],
+   "story": "The founder's furnace and the fan the Mistress took up the year he went blind. She says the two were always meant to be used together; he says he never had a fan."
+  },
+  {
+   "id": "hc-blind-founder", "name": "The Sealed Room (Phong Thất Tam Bảo)", "pieces": ["hc-nine-cycle-gourd", "hc-fume-censer", "hc-cinnabar-robe"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "stack_effect_pct", "value": 10, "scope": ["kim", "debuff"]}, {"key": "dan_doc_resist_pct", "value": 8, "scope": []}]},
+    {"pieces": 3, "effect": "A Room Full of Fume (Mãn Thất Yên): each second, every foe near you gains one Mercury stack; the Gourd's lingering poison no longer stays on you but is shared among the foes near you when you drink."}
+   ],
+   "story": "What the founder kept when he gave the Hall away: his gourd, his robe, and the censer lit the day he went blind. He has not let the Mistress take any of it out of the room."
+  }
+ ]
+}

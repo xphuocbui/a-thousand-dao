@@ -1,0 +1,2083 @@
+{
+ "sect": "thien_xu",
+ "_doc": "Thiên Xu Tông cast, batch 2: tier B elders and notable inner disciples.",
+ "people": [
+  {
+   "key": "thien_thua_cu",
+   "name_hv": "Thiện Thừa Củ",
+   "name_han": "單承矩",
+   "gloss": "Keeps to the carpenter's square",
+   "sex": "M",
+   "born": 930,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "thien_xu",
+   "rank": "truong_lao",
+   "home": 5,
+   "birthplace": 1480,
+   "role": "Master of the Thiên Cơ Hall: the seat's Seven-Star Array and the 129 boundary steles of the Compact",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 66,
+     "kim": 54
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 60,
+    "than_hon": 70,
+    "khi_van": 46,
+    "dao_tam": 64,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Stubborn",
+     "Calm"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "formation_mind"
+    ],
+    "lifestyle": "collector",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Grey dust in every crease of his hands, a carpenter's square tucked in his belt, and the patience of a man who measures twice.",
+   "backstory": "Born at Trận Thạch Khoáng, the Array Stone Mine, Thiện Thừa Củ was cutting array stones at nine when Doãn Ngọc Hành (doan_ngoc_hanh), then a Kết Đan, bought a year's output and the boy with it. He keeps the seat's Seven-Star Array and leads the stele walk along the Compact's 129 boundary steles every ten years (N-thien_xu-02). He knows the stele moved below Thủ Bi Trại in 1006 (V129) put a kink in the great array, and he has never been allowed to mend it, because mending it means redrawing a border. He despises the freelance Vệ Văn Cơ (ve_van_co), who turned the hall down.",
+   "ties": [
+    {
+     "to": "doan_ngoc_hanh",
+     "kind": "master",
+     "note": "bought him with a year of array stones"
+    },
+    {
+     "to": "long_thu_chuan",
+     "kind": "disciple",
+     "note": "keeps the Seven-Star Array day to day"
+    },
+    {
+     "to": "ta_khac_thach",
+     "kind": "disciple",
+     "note": "warden of the western steles"
+    },
+    {
+     "to": "thinh_ham_quang",
+     "kind": "disciple",
+     "note": "his array keeper on the vein"
+    },
+    {
+     "to": "cong_ton_duan",
+     "kind": "friend",
+     "note": "his candidate for the Seal"
+    },
+    {
+     "to": "ve_van_co",
+     "kind": "rival",
+     "note": "the formation master who would not join"
+    },
+    {
+     "to": "tham_bac_than",
+     "kind": "friend",
+     "note": "Củng Tinh Quán's head; they trade star charts"
+    },
+    {
+     "to": "an_tac_van",
+     "kind": "disciple",
+     "note": "steward of the array-stone quarry at Trận Thạch Khoáng, who cuts the stele blanks"
+    }
+   ],
+   "master": "doan_ngoc_hanh",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "heavenly-pivot-true-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "boundary-stele-array-canon",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "named": "tx-square-and-compass"
+     },
+     {
+      "base": "ky",
+      "grade": 3,
+      "element": "tho"
+     },
+     {
+      "base": "giap",
+      "grade": 3,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 7
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "The Earth land toward anchors and wards that last.",
+     "targets": [
+      3461,
+      4141,
+      723,
+      3151,
+      3214,
+      3105
+     ],
+     "targets_note": "Pivot route from the Earth end, then the stele warden's arrays: Array Foundation, Array Flag (his master's), Array Keeper's ward around three planted steles."
+    },
+    "note": "Plants three steles and lets the foe come to the line."
+   },
+   "items": [
+    "tx-square-and-compass"
+   ]
+  },
+  {
+   "key": "dang_quan_binh",
+   "name_hv": "Đặng Quân Bình",
+   "name_han": "鄧均平",
+   "gloss": "Evenly level",
+   "sex": "F",
+   "born": 960,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "thien_xu",
+   "rank": "truong_lao",
+   "home": 52,
+   "birthplace": 176,
+   "role": "Master of the Ngọc Hành Hall: weights and measures, the assayers, the coin and the treasury",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 72,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 50,
+    "than_hon": 64,
+    "khi_van": 56,
+    "dao_tam": 62,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Temperate",
+     "Paranoid"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "collector",
+    "health": null,
+    "coping": "hoarding",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Neat and colourless, with a black touchstone at her throat; she weighs a coin on her fingertip while she talks.",
+   "backstory": "A silver-miner's daughter from Bạch Ngân, where the Pivot's coin is struck (A224), Đặng Quân Bình was meant for the bench; Phương Trực Ngôn (phuong_truc_ngon) sent her to the scales instead, saying she weighed people too exactly to judge them. She keeps the Ngọc Hành Hall: the open scales of Song Kiều (A219), the weights of Thiên Quyền Thị, the mint and the treasury of ninety thousand stones. She has twice caught Chân Kim Các's assayers shaving the Pivot's standard weight, and Tưởng Bách Luyện (tuong_bach_luyen) has twice denied it.",
+   "ties": [
+    {
+     "to": "phuong_truc_ngon",
+     "kind": "master",
+     "note": "sent her to the scales"
+    },
+    {
+     "to": "hong_chuan_binh",
+     "kind": "disciple",
+     "note": "her assayer at Song Kiều"
+    },
+    {
+     "to": "mach_ngan_tru",
+     "kind": "disciple",
+     "note": "master of the mint"
+    },
+    {
+     "to": "tong_binh_hanh",
+     "kind": "disciple",
+     "note": "keeper of the market scales"
+    },
+    {
+     "to": "nguu_trong_dinh",
+     "kind": "disciple",
+     "note": "overseer of the black-iron mine"
+    },
+    {
+     "to": "tuong_bach_luyen",
+     "kind": "rival",
+     "note": "his assayers shave the weights"
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "creditor",
+     "note": "the merchant owes the treasury forty years of silver tolls"
+    },
+    {
+     "to": "on_trong_luong",
+     "kind": "enemy",
+     "note": "the Ôn patriarch who refuses the toll every spring"
+    },
+    {
+     "to": "tuong_ngoc_can",
+     "kind": "enemy",
+     "note": "the Chân Kim smuggler she has caught twice and will catch a third time"
+    },
+    {
+     "to": "tu_binh_quyen",
+     "kind": "friend",
+     "note": "the lender who checks her weights against the Pivot's every spring"
+    },
+    {
+     "to": "cu_luyen_thach",
+     "kind": "disciple",
+     "note": "deputy overseer of the black-iron mine at Huyền Thiết, who picks the miners' children for the outer gate"
+    },
+    {
+     "to": "hau_can_luong",
+     "kind": "disciple",
+     "note": "clerk of the open scales at Thiên Quyền Thị"
+    },
+    {
+     "to": "mach_tue_kim",
+     "kind": "disciple",
+     "note": "coin striker at the Bạch Ngân mint"
+    }
+   ],
+   "master": "phuong_truc_ngon",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "heavenly-pivot-true-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "hundred-blades-canon",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "tx-touchstone"
+     },
+     {
+      "base": "an",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 3
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "The Metal land toward thần thức and linh lực; a steward's guard.",
+     "targets": [
+      723,
+      4141,
+      3461,
+      4368,
+      4370,
+      4725
+     ],
+     "targets_note": "Pivot route, then the steward's linh lực (Dew Drop, Autumn Dew) and Bronze Mirror's thần thức: few arts, each paid for."
+    },
+    "note": "Fights like she counts: few arts, none wasted."
+   },
+   "items": [
+    "tx-touchstone"
+   ]
+  },
+  {
+   "key": "hinh_thu_tinh",
+   "name_hv": "Hình Thủ Tinh",
+   "name_han": "邢守星",
+   "gloss": "Keeps the star",
+   "sex": "M",
+   "born": 1040,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "thien_xu",
+   "rank": "chap_su",
+   "home": 205,
+   "birthplace": 1311,
+   "role": "Warden of Tinh Tủy Mạch, the Star Marrow Vein, whose guard was doubled in 1189",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 70,
+     "tho": 40,
+     "hoa": 32
+    },
+    "variants": {
+     "quang": 26
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 74,
+    "than_hon": 60,
+    "khi_van": 50,
+    "dao_tam": 70,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Reclusive",
+     "Brave"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Snow-burnt, with pale eyes narrowed from a life on bright stone, in a fur-lined coat over his armour.",
+   "backstory": "Hình Thủ Tinh was born at the snow-jade diggings of Tuyết Ngọc Khoáng, where the light off the stone is bright enough to blind, and the land put Light into his root. He has kept the watch on Tinh Tủy Mạch since 1170. After Băng Tâm's petition the guard was doubled (A096), and he now commands sixty men and Cửu Cao's cranes, which circle the vein day and night; Ung Hạc Minh (ung_hac_minh) flies the night circuit herself once a month. He has read in the posting book that the watch has never been withdrawn (A087). He believes it.",
+   "ties": [
+    {
+     "to": "ngu_tran_bac",
+     "kind": "master",
+     "note": "the hawk, who gave him the vein"
+    },
+    {
+     "to": "hac_thu_nhai",
+     "kind": "disciple",
+     "note": "his guard captain"
+    },
+    {
+     "to": "mo_vien_son",
+     "kind": "disciple",
+     "note": "a young guard who watches the wrong border"
+    },
+    {
+     "to": "ung_hac_minh",
+     "kind": "friend",
+     "note": "flies the night circuit with him"
+    },
+    {
+     "to": "thinh_ham_quang",
+     "kind": "friend",
+     "note": "the array keeper on his peak"
+    },
+    {
+     "to": "nghe_tuan_dang",
+     "kind": "disciple",
+     "note": "keeper of the watch book on Tinh Tủy Mạch"
+    }
+   ],
+   "master": "ngu_tran_bac",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "heavenly-pivot-true-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "The Metal land toward block and health: a wall that holds a peak.",
+     "targets": [
+      723,
+      4141,
+      3461,
+      4490,
+      4487,
+      4017
+     ],
+     "targets_note": "Pivot route, then Vajra Bones and Vajra Body for health and Bronze Shield for block: the guard who stands on the vein."
+    },
+    "note": "A guard: stands on the vein and does not move."
+   }
+  },
+  {
+   "key": "trong_khac_ky",
+   "name_hv": "Trọng Khắc Kỷ",
+   "name_han": "仲克己",
+   "gloss": "One who masters himself",
+   "sex": "M",
+   "born": 1060,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "thien_xu",
+   "rank": "truong_lao",
+   "home": 81,
+   "birthplace": 81,
+   "role": "Junior judge of the Bridge Court, who sits on the river and toll cases",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "tho": 48,
+     "hoa": 34
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 46,
+    "than_hon": 58,
+    "khi_van": 62,
+    "dao_tam": 44,
+    "mi_luc": 78
+   },
+   "traits": {
+    "personality": [
+     "Arbitrary",
+     "Greedy",
+     "Gregarious"
+    ],
+    "calling": "Schemer",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "gambler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Plump, smiling, in a bench robe of better cloth than the Chief Judge's, with a jade ring he turns while he listens.",
+   "backstory": "The son of a Thạch Kiều salt factor, Trọng Khắc Kỷ came to the bench late and charming, and Phương Trực Ngôn (phuong_truc_ngon) gave him the river and toll cases no one else wanted. Since the Ferry War between Tùng Đào and Lạc Hà, those cases have been worth a great deal. He has ruled for Lạc Hà's toll-keepers four times in six and lives better than a judge should. His clerk Từ Tri Tiết (tu_tri_tiet) keeps his calendar, and he has begun to keep her away from his letters.",
+   "ties": [
+    {
+     "to": "phuong_truc_ngon",
+     "kind": "master",
+     "note": "gave him the cases"
+    },
+    {
+     "to": "tu_tri_tiet",
+     "kind": "disciple",
+     "note": "his clerk, who sees too much"
+    },
+    {
+     "to": "tram_tich_duong",
+     "kind": "debt",
+     "note": "takes Lạc Hà's silver; owes it rulings"
+    },
+    {
+     "to": "nguyen_hao_khach",
+     "kind": "friend",
+     "note": "the witness-house keeper, his dice partner"
+    },
+    {
+     "to": "gian_thu_han",
+     "kind": "rival",
+     "note": "second clerk of the Bridge Court, who keeps the hearing record"
+    }
+   ],
+   "master": "phuong_truc_ngon",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "heavenly-pivot-true-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "nine-seal-ledger",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "The Metal land toward linh lực and escape; a judge who has never fought.",
+     "targets": [
+      723,
+      4141,
+      3461,
+      4368,
+      4372,
+      4334
+     ],
+     "targets_note": "Pivot route, then Dew Drop and Cold Dawn for linh lực and Hidden Edge's stealth to slip away; seals unscaled (wish W4-seal-scope)."
+    },
+    "note": "Seals well enough; has never needed to."
+   }
+  },
+  {
+   "key": "nhiep_minh_tien",
+   "name_hv": "Nhiếp Minh Tiễn",
+   "name_han": "聶鳴箭",
+   "gloss": "The whistling arrow that announces war",
+   "sex": "F",
+   "born": 1070,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "thien_xu",
+   "rank": "truong_lao",
+   "home": 5,
+   "birthplace": 620,
+   "role": "Writ officer of the Dao Quang Hall, keeper of the writ ledger",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 62,
+     "tho": 40,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 68,
+    "can_cot": 60,
+    "than_hon": 58,
+    "khi_van": 52,
+    "dao_tam": 64,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Warlike",
+     "Diligent",
+     "Honest"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Lean and weathered, a falconer's leather guard still on her left wrist, ink on her right.",
+   "backstory": "A falconer's daughter from Liệp Ưng Thôn, Nhiếp Minh Tiễn keeps the writ ledger of the Dao Quang Hall: every war licensed under the Compact, from the first writ of 584 against Xích Thành Môn (C118) to the Cold Ford writ of 901 (C165), with the terms each side swore and broke. She drafts Ngũ Trấn Bắc's (ngu_tran_bac) yearly writ against Thính Vũ and files the head's silence beside it. She lets Doãn Hi Hòa (doan_hi_hoa) into the office at night, because she thinks the heir should know what the Pivot is for.",
+   "ties": [
+    {
+     "to": "ngu_tran_bac",
+     "kind": "master",
+     "note": "her hall master"
+    },
+    {
+     "to": "phan_truyen_phong",
+     "kind": "disciple",
+     "note": "relights the beacons"
+    },
+    {
+     "to": "doan_hi_hoa",
+     "kind": "friend",
+     "note": "lets her read the writs"
+    },
+    {
+     "to": "mau_tri_vien",
+     "kind": "rival",
+     "note": "the envoy who buries her drafts"
+    },
+    {
+     "to": "thuong_hai_dong",
+     "kind": "friend",
+     "note": "the outer boy from her village she pretends not to know"
+    },
+    {
+     "to": "canh_lenh_ham",
+     "kind": "disciple",
+     "note": "copy clerk of the writ ledger, Dao Quang Hall"
+    }
+   ],
+   "master": "ngu_tran_bac",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "heavenly-pivot-true-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "army-breaker-spear",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "The Metal land toward formation damage and pierce, the hawk's road.",
+     "targets": [
+      723,
+      4141,
+      3461,
+      4384,
+      4379,
+      3236
+     ],
+     "targets_note": "Pivot route, then Spear Thrust and Long Spear for the hall's spear and its pierce, and Array Gate in the Earth land for the war array."
+    },
+    "note": "A war array and a spear's patience she does not quite have."
+   }
+  },
+  {
+   "key": "quy_thu_luy",
+   "name_hv": "Quý Thủ Lũy",
+   "name_han": "季守壘",
+   "gloss": "Keeps the rampart",
+   "sex": "F",
+   "born": 800,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "thien_xu",
+   "rank": "truong_lao",
+   "home": 582,
+   "birthplace": 582,
+   "role": "Keeper of the barrow watch at the edge of Chiết Kích Nguyên; Quý Trường Kích's granddaughter",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 56,
+     "tho": 60
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 58,
+    "than_hon": 66,
+    "khi_van": 40,
+    "dao_tam": 78,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Stubborn",
+     "Content"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "war_orphan",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": "lingering_poison",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "Grey-skinned from the miasma, with a cough she does not apologise for and a lamp-pole she uses as a staff.",
+   "backstory": "Born in 800 in the signal post of Lang Yên Trại while her father and grandfather held Cố Lũy (A212), Quý Thủ Lũy was three when both went down onto Chiết Kích Nguyên and did not come back (C017). Đỗ Tinh Hà (do_tinh_ha) raised her at the seat. For three centuries she has kept the barrow watch at the plain's edge, lighting the lamp on the Vạn Cốt Trủng each night and growing miasma-root in the poisoned soil to cure the herders who stray in. The miasma is in her lungs now. She believes Lôi Vô Danh (loi_vo_danh) left her family to die.",
+   "ties": [
+    {
+     "to": "do_tinh_ha",
+     "kind": "master",
+     "note": "raised her; she would die for him"
+    },
+    {
+     "to": "quy_truong_kich",
+     "kind": "grandparent",
+     "note": "lies under the barrow she keeps"
+    },
+    {
+     "to": "quy_bat_hoi",
+     "kind": "parent",
+     "note": "her father, beside him"
+    },
+    {
+     "to": "loi_vo_danh",
+     "kind": "enemy",
+     "note": "the deserter"
+    },
+    {
+     "to": "ngu_tran_bac",
+     "kind": "friend",
+     "note": "visits every autumn"
+    },
+    {
+     "to": "hinh_lac_nhan",
+     "kind": "rival",
+     "note": "the Lạc Hà girl who walks the same miasma edge from the other side and went three hundred paces in in 1196"
+    },
+    {
+     "to": "chuc_dan_sa",
+     "kind": "friend",
+     "note": "sends her miasma-root"
+    },
+    {
+     "to": "khau_bach_thu",
+     "kind": "friend",
+     "note": "she found him at the edge in 900; he brings the Pivot's bones out of the grey, she sends him miasma-root"
+    },
+    {
+     "to": "tang_kien",
+     "kind": "friend",
+     "note": "the outer boy she gives tea to at the barrow"
+    },
+    {
+     "to": "ve_van_co",
+     "kind": "friend",
+     "note": "the formation master she hired for the barrow wards in 1198; he gave back half the fee"
+    },
+    {
+     "to": "cat_thoi_phong",
+     "kind": "rival",
+     "note": "the guest smith she will not let near the barrow"
+    },
+    {
+     "to": "tiet_han_bia",
+     "kind": "disciple",
+     "note": "sentry of the barrow watch at Lang Yên Trại"
+    }
+   ],
+   "master": "do_tinh_ha",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "heavenly-pivot-true-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 3,
+      "element": "tho"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "tho"
+     },
+     {
+      "named": "tx-miasma-root-charm"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 6,
+     "dan_dao": 3
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "The Earth land toward health and poison resistance; she has outlived the miasma by standing in it.",
+     "targets": [
+      3461,
+      4141,
+      723,
+      3449,
+      3379,
+      3569
+     ],
+     "targets_note": "Pivot route from the Earth end, then Blessed Basin's health and Steady Steps and Warding Stone's status resistance for the miasma (wish W5-earth-poison-resist)."
+    },
+    "note": "Slow, stubborn, hard to kill."
+   },
+   "items": [
+    "tx-miasma-root-charm"
+   ],
+   "authored": "b5"
+  },
+  {
+   "key": "boc_tram_chu",
+   "name_hv": "Bộc Trầm Chu",
+   "name_han": "濮沉舟",
+   "gloss": "The sunk boat (phá phủ trầm chu: sink the boats and break the pots)",
+   "sex": "M",
+   "born": 745,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "thien_xu",
+   "rank": "truong_lao",
+   "home": 40,
+   "birthplace": 144,
+   "role": "Harbour master of Tinh Hán Thành; captain in the Pirate Purge",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "thuy": 58,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 70,
+    "than_hon": 54,
+    "khi_van": 60,
+    "dao_tam": 50,
+    "mi_luc": 72
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Wrathful",
+     "Generous"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "drinker",
+    "health": "waning_years",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Battle-hardened"
+    ]
+   },
+   "appearance": "A barrel of a man gone soft, burn-scarred down one arm, with a voice that fills a tavern.",
+   "backstory": "A pearl diver's son from Châu Bạng Thôn (A223), Bộc Trầm Chu sailed as Đỗ Tinh Hà's (do_tinh_ha) captain in the Pirate Purge (C152) and was in the burning hold on Thôn Hải's islet when Ô Kình Hải died and his sabre Kình Nha went into the water (C153). He has kept the harbour of Tinh Hán Thành since 790, and he is dying of age now, loudly, in its taverns. He tells a different story of where Kình Nha sank every night, and one of them is true. Thúy Vi's port keeper Diêm Hải Tảo (diem_hai_tao) has bought him a great deal of wine.",
+   "ties": [
+    {
+     "to": "do_tinh_ha",
+     "kind": "master",
+     "note": "his admiral in the Purge"
+    },
+    {
+     "to": "sa_dinh_ba",
+     "kind": "disciple",
+     "note": "his sea patrol; she will have the harbour"
+    },
+    {
+     "to": "o_kinh_hai",
+     "kind": "enemy",
+     "note": "saw him die"
+    },
+    {
+     "to": "diem_hai_tao",
+     "kind": "friend",
+     "note": "buys his wine to hear the sabre story"
+    },
+    {
+     "to": "lich_minh_chau",
+     "kind": "friend",
+     "note": "the outer girl from his village he sends pearls to"
+    },
+    {
+     "to": "lu_kiem_pham",
+     "kind": "disciple",
+     "note": "steward of the harbour scales at Tinh Hán Thành"
+    }
+   ],
+   "master": "do_tinh_ha",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "heavenly-pivot-true-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "hundred-blades-canon",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 3,
+      "element": "thuy"
+     },
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "The Water land toward linh lực and health, then the Metal blades of a deck fight.",
+     "targets": [
+      723,
+      4141,
+      3461,
+      5493,
+      5340,
+      3983
+     ],
+     "targets_note": "Pivot route walked out of the Water start, then Lingering Ripples and Moonlit Rain for linh lực and health, and Hundred Swords for the deck fight's flying edges."
+    },
+    "note": "A hundred flying edges and a gourd of wine."
+   }
+  },
+  {
+   "key": "bach_vong_ngon",
+   "name_hv": "Bách Vong Ngôn",
+   "name_han": "柏忘言",
+   "gloss": "Forget the words once the meaning is got (Trang Tử)",
+   "sex": "M",
+   "born": 1020,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "thien_xu",
+   "rank": "truong_lao",
+   "home": 5,
+   "birthplace": 140,
+   "role": "Envoy of the Khai Dương Hall to the Tùng Đào lands; the envoy who forgot his message in 1080",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 54,
+     "moc": 42,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 44,
+    "than_hon": 70,
+    "khi_van": 58,
+    "dao_tam": 66,
+    "mi_luc": 68
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Honest",
+     "Indulgent"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "qin_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Humbled"
+    ]
+   },
+   "appearance": "Mild and round-shouldered, with long fingers he keeps in his sleeves and calluses on their tips that he says are from the brush.",
+   "backstory": "Bách Vong Ngôn grew up in Mộc Hương Thôn, the village whose scented wood burns in the Pivot's hall (A211), and his parents named him out of Trang Tử. In 1080 he carried a message to Vạn Hác Viện, heard a student play under the pines, and forgot it (A062). The sect has told the story against him for 120 years. He did not forget it. He chose not to deliver a summons he thought unjust, and let the music take the blame. Since then he has learned the zither from Hà Thính Tùng (ha_thinh_tung) by letter, in a sect that has forbidden music since the War of the Nine Shao (C005).",
+   "ties": [
+    {
+     "to": "doan_ngoc_hanh",
+     "kind": "master",
+     "note": "knows about the zither and says nothing"
+    },
+    {
+     "to": "ngac_tri_am",
+     "kind": "disciple",
+     "note": "carries his letters and hears him play"
+    },
+    {
+     "to": "ha_thinh_tung",
+     "kind": "friend",
+     "note": "his teacher by letter for a century"
+    },
+    {
+     "to": "mau_tri_vien",
+     "kind": "friend",
+     "note": "his hall master, who covers for him"
+    }
+   ],
+   "master": "doan_ngoc_hanh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "heavenly-pivot-true-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "hundred-blades-canon",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "tx-hidden-string-zither"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "The Metal land toward art speed and thần thức; he fights with the strings and hides it in the blades.",
+     "targets": [
+      723,
+      4141,
+      3461,
+      4103,
+      4219,
+      3214
+     ],
+     "targets_note": "Pivot route, then Fan Edge's art speed, Gong Stroke for the zither hidden in the blades, and his master's Array Flag for thần thức; song damage has no piece yet (wish W8-song-scope)."
+    },
+    "note": "A zither among the flying edges; the sect thinks it is a lute case for documents."
+   },
+   "items": [
+    "tx-hidden-string-zither"
+   ],
+   "authored": "b2"
+  },
+  {
+   "key": "do_vo_cuu",
+   "name_hv": "Đồ Vô Cữu",
+   "name_han": "屠無咎",
+   "gloss": "Without blame (the I Ching's 'no fault')",
+   "sex": "M",
+   "born": 920,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "thien_xu",
+   "rank": "khach_khanh",
+   "home": 5,
+   "birthplace": 702,
+   "role": "Guest elder and the Pivot's hound: hunter of deserters, rogues and the ma đạo",
+   "tier": "B",
+   "exception": "khách khanh (R2): a rogue of Hắc Phong Trại spared in 940 and kept as a hunter; Fire-Metal with Thunder, never taught the lineage",
+   "root": {
+    "elements": {
+     "hoa": 62,
+     "kim": 58
+    },
+    "variants": {
+     "loi": 48
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 76,
+    "than_hon": 60,
+    "khi_van": 44,
+    "dao_tam": 52,
+    "mi_luc": 30
+   },
+   "traits": {
+    "personality": [
+     "Callous",
+     "Loyal",
+     "Paranoid"
+    ],
+    "calling": "Duelist",
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "thunder_struck"
+    ],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Life-debt"
+    ]
+   },
+   "appearance": "Wiry and scarred with lightning-tree burns, he wears no sect colours and sits with his back to the wall.",
+   "backstory": "Đồ Vô Cữu was born among the rogue cultivators of Hắc Phong Trại, who robbed the ore trains for sixty years, and was the youngest of them when Thiên Xu cleared the stockade in 940 (V126). Đỗ Tinh Hà (do_tinh_ha) spared him for his age and kept him as a hunter (N-thien_xu-07). He has hunted for the Pivot since: deserters, rogues, the ma đạo. In 1090 he tracked Mặc Huyết Sinh to his cave abode (C024), and it was he who let the last disciple, Triệu Huyết Y (trieu_huyet_y), get past him in the smoke. He has not stopped looking for her.",
+   "ties": [
+    {
+     "to": "do_tinh_ha",
+     "kind": "debt",
+     "note": "owes him his life"
+    },
+    {
+     "to": "trieu_huyet_y",
+     "kind": "enemy",
+     "note": "the one who got past him"
+    },
+    {
+     "to": "mac_huyet_sinh",
+     "kind": "enemy",
+     "note": "the master he tracked"
+    },
+    {
+     "to": "ngu_tran_bac",
+     "kind": "rival",
+     "note": "the hawk wants him to hunt Lôi's trail; he answers only to Đỗ"
+    },
+    {
+     "to": "biet_tri_phan",
+     "kind": "creditor",
+     "note": "the bounty broker who sells him ma đạo heads at the Pivot's price; he is owed for the last two"
+    },
+    {
+     "to": "loc_bat_quy",
+     "kind": "enemy",
+     "note": "the Pivot deserter of Đan Sơn Mạch he has hunted for forty years"
+    },
+    {
+     "to": "mac_kinh_trap",
+     "kind": "friend",
+     "note": "the only other Thunder at the seat; he watches over her"
+    },
+    {
+     "to": "do_thiet_hong",
+     "kind": "parent",
+     "note": "his father, of Hắc Phong Trại; the son was taken and spared in 940"
+    },
+    {
+     "to": "do_liet_co",
+     "kind": "sibling",
+     "note": "his elder sister, who cut him loose in 940; he has never come for her"
+    },
+    {
+     "to": "khoai_thiet_ung",
+     "kind": "sworn_sibling",
+     "note": "the other stockade boy, spared and fled; he has let him go twice"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "thousand-bolt-scripture",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "tearing-force-rites",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "ls-white-wind-hook"
+     },
+     {
+      "base": "loi_truong",
+      "grade": 3,
+      "element": "hoa"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "loi",
+     "intent": "The Thunder land toward speed and crit: a hunter ends it quickly.",
+     "targets": [
+      7959,
+      7956,
+      7965,
+      7973,
+      8048
+     ],
+     "targets_note": "Outside the lineage: the Thunder land's Thunder Step and Flashing Feet for the first strike, the Branching Bolt idea for Lightning crit, Struck Bones from the bolt that marked him."
+    },
+    "note": "Outside the lineage on purpose: the Pivot does not teach its hound its arts."
+   },
+   "items": [
+    "dm-blood-seal",
+    "ls-white-wind-hook"
+   ],
+   "changed": "cross-sect pass: dm-blood-seal and ls-white-wind-hook added to items (their item records name him holder). Gear: the grade 3 Metal phi_kiem -> ls-white-wind-hook (same base and grade; loose-south asked for it in his gear)."
+  },
+  {
+   "key": "hoang_phu_tich",
+   "name_hv": "Hoàng Phủ Tịch",
+   "name_han": "皇甫籍",
+   "gloss": "The register",
+   "sex": "M",
+   "born": 1105,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thien_xu",
+   "rank": "noi_mon",
+   "home": 5,
+   "birthplace": 687,
+   "role": "Senior archivist of Tàng Ước Các, who expects the archive",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 62,
+     "tho": 38
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 46,
+    "than_hon": 60,
+    "khi_van": 50,
+    "dao_tam": 52,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Diligent",
+     "Paranoid"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Tall and stooped from the low shelves, with a clerk's habit of sniffing paper.",
+   "backstory": "A copper miner's son from Đồng Tỉnh Khoáng, Hoàng Phủ Tịch has been Sử Ngưng Mặc's (su_ngung_mac) senior disciple for sixty years and expects the archive when she dies. He has noticed that Thích Minh Thư (thich_minh_thu) went to Thạch Kiều in 1196 on no errand of the archive's, and that she has asked twice since whether the guest-house ledgers are kept. He has not decided whether to tell the keeper, the head, or no one, and what each would be worth.",
+   "ties": [
+    {
+     "to": "su_ngung_mac",
+     "kind": "master",
+     "note": "the keeper whose chair he wants"
+    },
+    {
+     "to": "thich_minh_thu",
+     "kind": "rival",
+     "note": "the better hand; he watches her"
+    },
+    {
+     "to": "giai_do_nam",
+     "kind": "friend",
+     "note": "they share a room and little else"
+    },
+    {
+     "to": "bang_tinh_bien",
+     "kind": "friend",
+     "note": "indexer of the archive's letters, Hoàng Phủ Tịch's eyes in Tàng Ước Các"
+    }
+   ],
+   "master": "su_ngung_mac",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "dipper-handle-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "hundred-blades-canon",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "phu_luc": 4
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "The Metal land toward linh lực and soul guard.",
+     "targets": [
+      723,
+      4141,
+      3461,
+      4368,
+      4219,
+      4216
+     ],
+     "targets_note": "Pivot route, then Dew Drop (his master's linh lực road) and the Clear Gong idea for soul guard."
+    },
+    "note": "Has finished the Dipper Handle and waits for the founder's method."
+   }
+  },
+  {
+   "key": "tu_tri_tiet",
+   "name_hv": "Từ Tri Tiết",
+   "name_han": "徐知節",
+   "gloss": "Knows the measure",
+   "sex": "F",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thien_xu",
+   "rank": "noi_mon",
+   "home": 81,
+   "birthplace": 81,
+   "role": "Clerk of the Bridge Court and the junior judge's disciple",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "tho": 44,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 44,
+    "than_hon": 62,
+    "khi_van": 48,
+    "dao_tam": 66,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Cautious",
+     "Diligent"
+    ],
+    "calling": "Steward",
+    "upbringing": "scholar_family",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Plainly dressed, with a ledger always open on her forearm and a pencil of lead behind her ear.",
+   "backstory": "Từ Tri Tiết keeps the Bridge Court's calendar and the junior judge's correspondence, or did until this year, when Trọng Khắc Kỷ (trong_khac_ky) began to answer his own letters. She has copied enough of his rulings on the Ferry War tolls to see the pattern. She has told no one, because the only person to tell is the Chief Judge, Phương Trực Ngôn (phuong_truc_ngon), and a clerk who accuses her own master is finished whatever the truth.",
+   "ties": [
+    {
+     "to": "trong_khac_ky",
+     "kind": "master",
+     "note": "her master, who takes Lạc Hà's silver"
+    },
+    {
+     "to": "sai_thiet_dien",
+     "kind": "friend",
+     "note": "the bailiff, the one person she might tell"
+    },
+    {
+     "to": "gian_thu_han",
+     "kind": "friend",
+     "note": "second clerk of the Bridge Court, who keeps the hearing record"
+    }
+   ],
+   "master": "trong_khac_ky",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "dipper-handle-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "hundred-blades-canon",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "The Metal land toward soul guard.",
+     "targets": [
+      723,
+      4141,
+      3461,
+      4106,
+      4114
+     ],
+     "targets_note": "Pivot route, then Ritual Bell and Soul-Calming Jade: a clerk's soul guard."
+    },
+    "note": "A clerk's guard and a seal she has never used."
+   }
+  },
+  {
+   "key": "phong_bach_ke",
+   "name_hv": "Phòng Bách Kế",
+   "name_han": "房百計",
+   "gloss": "A hundred counts",
+   "sex": "M",
+   "born": 1095,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thien_xu",
+   "rank": "noi_mon",
+   "home": 7,
+   "birthplace": 384,
+   "role": "The Pivot's resident envoy at Thính Vũ Lâu, who makes the yearly count",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 58,
+     "tho": 36,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 44,
+    "than_hon": 64,
+    "khi_van": 52,
+    "dao_tam": 58,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Deceitful",
+     "Cautious"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": "cold_detachment",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A forgettable man in a rain cape, counting under his breath.",
+   "backstory": "Phòng Bách Kế has lived at Thính Vũ Lâu as the Pivot's envoy since 1165 and has made the count every year since (C200): the Tower's disciples by realm, its forges, its stores of thunder stone from Kinh Lôi Mạch. He sends one count to Mâu Tri Viễn (mau_tri_vien) and a second, which no one has asked for, to Ngũ Trấn Bắc (ngu_tran_bac). The Tower knows he counts and lets him. He suspects some of what he is shown is shown to him on purpose.",
+   "ties": [
+    {
+     "to": "mau_tri_vien",
+     "kind": "master",
+     "note": "his hall master"
+    },
+    {
+     "to": "ngu_tran_bac",
+     "kind": "friend",
+     "note": "gets the second count"
+    },
+    {
+     "to": "le_tieu_hon",
+     "kind": "rival",
+     "note": "the vault master who shows him the stores"
+    }
+   ],
+   "master": "mau_tri_vien",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "dipper-handle-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "hundred-blades-canon",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "The Metal land toward evasion; an envoy in an enemy house.",
+     "targets": [
+      723,
+      4141,
+      3461,
+      4334,
+      5308
+     ],
+     "targets_note": "Pivot route, then Hidden Edge's stealth and the Water land's Dry in the Rain for the envoy's evasion (his master's road)."
+    },
+    "note": "Has never drawn a blade at the Tower; would not get far."
+   },
+   "items": [
+    "mf-way-out-knot"
+   ],
+   "authored": "d2"
+  },
+  {
+   "key": "cuu_bat_ngu",
+   "name_hv": "Cừu Bất Ngữ",
+   "name_han": "仇不語",
+   "gloss": "Says nothing",
+   "sex": "M",
+   "born": 1145,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thien_xu",
+   "rank": "noi_mon",
+   "home": 5,
+   "birthplace": 174,
+   "role": "Đỗ Tinh Hà's last disciple, a spearman of the Dao Quang Hall",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 76,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 84,
+    "than_hon": 50,
+    "khi_van": 46,
+    "dao_tam": 74,
+    "mi_luc": 30
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Loyal",
+     "Wrathful"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A heavy, silent young man with black-iron dust ground into his knuckles for good.",
+   "backstory": "A mute boy from the black-iron diggings of Huyền Thiết, the same seam Đỗ Tinh Hà (do_tinh_ha) came out of 640 years ago (A220). Đỗ found him in 1160 sitting on an ingot no one else could lift and took him as his last disciple. He has never spoken. He trains the Army-Breaker Spear on Xu Trụ Phong before dawn, waits longer between thrusts than anyone in the hall, and follows his master everywhere at three paces.",
+   "ties": [
+    {
+     "to": "do_tinh_ha",
+     "kind": "master",
+     "note": "his master, whom he follows at three paces"
+    },
+    {
+     "to": "nhiem_thua_nghiep",
+     "kind": "rival",
+     "note": "beat him at the inner-gate trial and was not forgiven"
+    },
+    {
+     "to": "nguu_trong_dinh",
+     "kind": "friend",
+     "note": "the overseer who sent him up the mountain"
+    }
+   ],
+   "master": "do_tinh_ha",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "dipper-handle-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "army-breaker-spear",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "The Metal land toward crit damage; the master's road, walked slower.",
+     "targets": [
+      723,
+      4141,
+      3461,
+      4384,
+      4407
+     ],
+     "targets_note": "Pivot route, then Spear Thrust and Plum Blossom Spear: his master Đỗ Tinh Hà's spear and crit damage, walked slower."
+    },
+    "note": "Taught the hall's spear early, by his master's word."
+   }
+  },
+  {
+   "key": "ta_khac_thach",
+   "name_hv": "Tả Khắc Thạch",
+   "name_han": "左刻石",
+   "gloss": "Carves the stone",
+   "sex": "M",
+   "born": 1060,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thien_xu",
+   "rank": "chap_su",
+   "home": 669,
+   "birthplace": 669,
+   "role": "Stele warden of Giới Bi Phong, keeper of the western boundary steles",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 60,
+     "tho": 44
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 64,
+    "than_hon": 56,
+    "khi_van": 46,
+    "dao_tam": 70,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Honest",
+     "Stubborn"
+    ],
+    "calling": "Formation master",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "calligrapher",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Weatherbeaten, chisel in his belt, his palms grey with stone dust he never fully washes out.",
+   "backstory": "Tả Khắc Thạch's family has kept the steles of Giới Bi Phong for five generations, and he recut the inscriptions of the western line by hand in 1150. His father carried the stele of Thủ Bi Trại down the mountain after the avalanche of 1006 (V129) and set it where the Thiên Cơ Hall told him, forty paces lower and to the east. Tả has measured the difference every year since and written it in a book Thiện Thừa Củ (thien_thua_cu) has never asked to see. His son Tả Tiểu Bi (ta_tieu_bi) is in the inner gate.",
+   "ties": [
+    {
+     "to": "thien_thua_cu",
+     "kind": "master",
+     "note": "his hall master"
+    },
+    {
+     "to": "ta_tieu_bi",
+     "kind": "child",
+     "note": "his son, in the inner gate"
+    },
+    {
+     "to": "an_lang_thach",
+     "kind": "friend",
+     "note": "inner disciple of the Thiên Cơ Hall, stone-cutter at the quarry"
+    },
+    {
+     "to": "an_tac_van",
+     "kind": "friend",
+     "note": "steward of the array-stone quarry at Trận Thạch Khoáng, who cuts the stele blanks"
+    }
+   ],
+   "master": "thien_thua_cu",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "dipper-handle-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "boundary-stele-array-canon",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "tran_phap": 4
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "The Earth land toward anchors that hold.",
+     "targets": [
+      3461,
+      4141,
+      723,
+      3151,
+      3214
+     ],
+     "targets_note": "Pivot route from the Earth end, then his master's Array Foundation and Array Flag: steles that hold."
+    },
+    "note": "Plants steles for a living; fights the same way."
+   }
+  },
+  {
+   "key": "chu_binh_quan",
+   "name_hv": "Chử Bình Quân",
+   "name_han": "褚平鈞",
+   "gloss": "Level weight (a quân is thirty cân)",
+   "sex": "F",
+   "born": 1075,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thien_xu",
+   "rank": "chap_su",
+   "home": 385,
+   "birthplace": 588,
+   "role": "Master of the outer gate on Thạch Quyền Phong, keeper of the Level Beam",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "tho": 70
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 72,
+    "than_hon": 54,
+    "khi_van": 44,
+    "dao_tam": 76,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Just",
+     "Stubborn"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "teacher_at_heart",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Short, broad, yak-wool coat over the sect grey, with forearms like a herder's; she lifts the heaviest weights on the rack one-handed.",
+   "backstory": "A yak herder's daughter from Mao Ngưu Thôn, where the soil is nearly all Earth, Chử Bình Quân passed the Level Beam on her ninth try with a Metal root of exactly forty-six, one more than the inner gate needs. She has kept the outer gate on Thạch Quyền Phong since 1150 and sets the weights for every Level Beam. Most of her outer disciples are plateau children like her, and most will never go further. She holds the beam steady for no one, and Hạ Hầu Thạch (ha_hau_thach), who has failed it eleven times, says she is right.",
+   "ties": [
+    {
+     "to": "cong_ton_duan",
+     "kind": "master",
+     "note": "gave her the outer gate"
+    },
+    {
+     "to": "ha_hau_thach",
+     "kind": "friend",
+     "note": "the old man who has failed eleven times and still teaches the weights"
+    },
+    {
+     "to": "ke_thanh_khoa",
+     "kind": "disciple",
+     "note": "a plateau girl like her"
+    },
+    {
+     "to": "doan_thuong_hi",
+     "kind": "disciple",
+     "note": "the head's kin, who will get no help from her"
+    },
+    {
+     "to": "xa_da_linh",
+     "kind": "disciple",
+     "note": "she sets her weights"
+    },
+    {
+     "to": "yen_luu_huy",
+     "kind": "rival",
+     "note": "the girl who held the beam steady and left"
+    },
+    {
+     "to": "au_thien_tuoc",
+     "kind": "disciple",
+     "note": "outer disciple who herds the outer gate's goats"
+    },
+    {
+     "to": "bo_tra_nhi",
+     "kind": "disciple",
+     "note": "the youngest outer disciple, who churns the butter tea"
+    },
+    {
+     "to": "dat_da_lan",
+     "kind": "disciple",
+     "note": "outer disciple, a yak herder's daughter"
+    },
+    {
+     "to": "dat_kien_nguu",
+     "kind": "disciple",
+     "note": "outer disciple at the primer's sixth layer, who failed the Level Beam once"
+    },
+    {
+     "to": "ha_hau_dien_van",
+     "kind": "disciple",
+     "note": "outer disciple, Hạ Hầu Thạch's great-niece"
+    },
+    {
+     "to": "khuong_thanh_ngoa",
+     "kind": "disciple",
+     "note": "outer disciple, a mason's daughter"
+    },
+    {
+     "to": "lien_thanh_de",
+     "kind": "disciple",
+     "note": "outer disciple, Liên Phi Mã's cousin"
+    },
+    {
+     "to": "sach_truc_thuy",
+     "kind": "disciple",
+     "note": "outer disciple whose Metal stands at thirty-six"
+    },
+    {
+     "to": "sam_luy",
+     "kind": "disciple",
+     "note": "gate guard of the outer gate on Thạch Quyền Phong"
+    },
+    {
+     "to": "thac_bat_lu",
+     "kind": "disciple",
+     "note": "outer disciple from the yurt village"
+    },
+    {
+     "to": "uc_ky_sinh",
+     "kind": "disciple",
+     "note": "outer disciple who gathers milkvetch for the seat's pill-maker"
+    }
+   ],
+   "master": "cong_ton_duan",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "dipper-handle-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 2
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "The Earth land toward block and health: a gate that does not move.",
+     "targets": [
+      3461,
+      4141,
+      723,
+      3724,
+      3051
+     ],
+     "targets_note": "Pivot route from the Earth end, then Earthen Gate and Five Peaks for block and health: the outer gate's wall."
+    },
+    "note": "The outer gate's wall; Earth carries her, the Metal barely lets her in."
+   }
+  }
+ ]
+}

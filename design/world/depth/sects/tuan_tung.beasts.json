@@ -1,0 +1,51 @@
+{
+ "sect": "tuan_tung",
+ "_doc": "Tuần Tùng Đường: named spirit beasts (linh thú). Proposal, unpriced (review/RANKED.md A7, 2026-11-25; form of sects/cuu_cao.beasts.json). An owned beast is a people record with is_beast and owner_id, and its owner lists it in `beasts` (src/gameplay/character/beast_keeper.gd, assets/data/creatures_linh_thu.json). Capacity is 1 + floor(effective thần hồn / 40). In a fight it is a companion: it adds power_share (0.5) of its chiến lực to its owner's offense, strikes every basic_cooldown, cannot be targeted and never leaves the fight (Combat rule 19). `combat` and `bond` are depth fields; `bond.rider` marks a mount, `bond.keeper` a beast that is not ridden. The owners' cast records do not list these beasts yet.",
+ "beasts": [
+  {
+   "key": "thuong_muc",
+   "name_hv": "Thương Mục",
+   "name_han": "蒼目",
+   "gloss": "Grey Eye",
+   "is_beast": true,
+   "species": "northern spirit eagle",
+   "sex": "F",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 3,
+   "root": {
+    "elements": {
+     "moc": 20
+    },
+    "variants": {
+     "phong": 38
+    }
+   },
+   "owner_id": "diem_lac_nhan",
+   "loyalty": 90,
+   "home": 376,
+   "location_id": 376,
+   "tags": [
+    "eagle",
+    "bird",
+    "companion"
+   ],
+   "appearance": "A grey-backed eagle on her shoulder, hooded indoors.",
+   "combat": {
+    "strikes": "phong",
+    "power_share": 0.5,
+    "note": "The eagle that spots for her bow (her Beast Pen node)."
+   },
+   "bond": {
+    "keeper": "diem_lac_nhan",
+    "since": 1180,
+    "event": "A064",
+    "rule": "Taken from the nest in the northern forest and raised by her."
+   },
+   "backstory": "Taken as an eyas above Liệp Hộ Thôn. It followed her south after the wolf pack in the winter of 1190 and spotted for her on the third night (A064).",
+   "status": "proposal",
+   "authored": "review-A7"
+  }
+ ]
+}

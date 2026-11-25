@@ -1,0 +1,301 @@
+{
+ "sect": "van_khoi",
+ "_doc": "Vân Khởi Quán signature items (rules-proposals R7). Unpriced proposals; modifier sizes follow the soul-song-seal catalogue's grade 2-4 items. Prefix vk-. The abbot also carries the catalogue's soul-song-seal-ninth-vigil-heart-lamp, whose catalogue holder line ('the abbot of a Soul sect's mountain temple') this abbey now fills. No set.",
+ "items": [
+  {
+   "id": "vk-rising-cloud-robe",
+   "name": "Robe of the Rising Clouds (Vân Khởi Bào)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "soul_res_pct",
+     "value": 24,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "sit-and-watch",
+     "name": "Sit and Watch (Tọa Khán)",
+     "rule": "While you have not moved for 3 s, you take 12 % less damage, and each status that ends on you returns 2 % of your thần thức."
+    }
+   ],
+   "lore": "Grey hemp, patched at the knees with Không Sơn cypress-bark cloth. Tống Tọa Vân wore it when he walked out of Thúy Vi in 540 to find where the water ends (C114), and he has worn it at every sitting since. The novices say clouds come out of the sleeves on a still morning. They do: it is the haze of Thủy Cùng Phong.",
+   "build_use": "The abbot's sitting: soul and status resistance, and less damage while he holds still.",
+   "holder": "tong_toa_van",
+   "made_by": "tong_toa_van",
+   "made_year": 540,
+   "set": "vk-empty-mountain",
+   "status": "proposal"
+  },
+  {
+   "id": "vk-cloud-mother-mirror",
+   "name": "Cloud Mother Mirror (Vân Mẫu Kính)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "kinh",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "ward_efficiency_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "cast_ward_duration_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A disc of the last clear mica from Vân Mẫu Khoáng, cut in 1080, the year the abbot said that clouds, too, pass (A046). Every Cloud Mother Seal stamped since has been stamped through it.",
+   "build_use": "Wards that last and hold: the seal-keeper's defence.",
+   "holder": "lanh_xuan_gian",
+   "made_by": "lanh_xuan_gian",
+   "made_year": 1080,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "vk-empty-hall-bell",
+   "name": "Bell of the Empty Hall (Không Đường Linh)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "chuong",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A hand bell no bigger than a plum, rung once at the door of Không Sơn Viện before each reading so that the empty rooms know someone has come. Thôi Bất Kiến gave it to the boy Tống Tọa Vân in 460. Tống gave it to the Reader in 1180.",
+   "build_use": "The Reader's bell: thần thức and soul resistance for long nights reading aloud.",
+   "holder": "van_nhan_huong",
+   "made_by": "khong_son",
+   "made_year": 400,
+   "set": "vk-readers-pair",
+   "status": "proposal"
+  },
+  {
+   "id": "vk-thoi-censer",
+   "name": "Censer of the Empty Mountain (Không Sơn Hương Lô)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "huong_lo",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 15,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Thôi Bất Kiến's plain clay censer from Không Sơn Viện, which Tống swept around for thirty years before he was allowed to light it.",
+   "build_use": "The sitter's sustain: thần thức, linh lực and health.",
+   "holder": "tong_toa_van",
+   "made_by": "thoi_bat_kien",
+   "made_year": 400,
+   "set": "vk-empty-mountain",
+   "status": "proposal"
+  },
+  {
+   "id": "vk-hundred-echo-seal",
+   "name": "Hundred-Echo Seal (Bách Hưởng Ấn)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "an",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "soul"
+     ]
+    },
+    {
+     "key": "x_soul",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "soul"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A seal with a hundred hollow characters cut into its base; struck on the palm, it rings a hundred times. Tống cut it in 540, the year he left Thúy Vi.",
+   "build_use": "The answer he gives only if he must: the hundred-echo palm.",
+   "holder": "tong_toa_van",
+   "made_by": "tong_toa_van",
+   "made_year": 540,
+   "set": "vk-empty-mountain",
+   "status": "proposal"
+  },
+  {
+   "id": "vk-mica-reader-robe",
+   "name": "Reader's Mica Robe (Vân Mẫu Độc Bào)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A robe sewn with flakes of the last mica from Vân Mẫu Khoáng, where she was born; it catches the lamplight while she reads.",
+   "build_use": "The reader's voice: thần thức and soul guard.",
+   "holder": "van_nhan_huong",
+   "made_by": "van_khoi",
+   "made_year": 1180,
+   "set": "vk-readers-pair",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "vk-empty-mountain",
+   "name": "The Empty Mountain (Không Sơn Tam Kiện)",
+   "pieces": [
+    "vk-rising-cloud-robe",
+    "vk-thoi-censer",
+    "vk-hundred-echo-seal"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "soul_res_pct",
+       "value": 12,
+       "scope": []
+      },
+      {
+       "key": "health_regen_inc_pct",
+       "value": 15,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Sit as Thôi Sat (Như Thôi Tọa): every 5 s you are Still, you bank a Cloud; when you hold 5 Clouds, the next hit on you is answered by a free hundred-echo palm that echoes once for each Cloud you spend."
+    }
+   ],
+   "story": "His master's censer, the robe he walked out of Thúy Vi in and the seal he cut that year: the empty mountain's teaching and its last student. Tống wears them and keeps the Heart-Lamp lit on the altar instead.",
+   "authored": "a1"
+  },
+  {
+   "id": "vk-readers-pair",
+   "name": "The Reader's Pair (Độc Giả Song Kiện)",
+   "pieces": [
+    "vk-empty-hall-bell",
+    "vk-mica-reader-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "than_thuc_pct",
+       "value": 3,
+       "scope": []
+      },
+      {
+       "key": "soul_res_pct",
+       "value": 8,
+       "scope": []
+      }
+     ],
+     "effect": "Read Aloud (Lãng Độc): each soul art you cast within 6 s of ringing the bell lasts 1 s longer; after three such arts, your next soul art is cast at once."
+    }
+   ],
+   "story": "The academy's door bell and a robe from her own mine: what the abbey gave the one who reads the Sutra aloud."
+  }
+ ]
+}

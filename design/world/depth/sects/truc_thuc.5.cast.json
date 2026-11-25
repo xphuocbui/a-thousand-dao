@@ -1,0 +1,463 @@
+{
+ "sect": "truc_thuc",
+ "people": [
+  {
+   "key": "dao_luong_khe",
+   "name_hv": "Đào Lương Khê",
+   "name_han": "陶梁溪",
+   "gloss": "Brook by the dam",
+   "sex": "F",
+   "born": 1115,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "truc_thuc",
+   "rank": "noi_mon",
+   "home": 25,
+   "birthplace": 147,
+   "role": "Sluice-keeper of the flood terraces; keeps the rain book's copy",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Honest",
+     "Stubborn"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Keeps the sluices on the flood terraces and the second copy of Úy Thương Điền's (uy_thuong_dien) rain book; her own measures say what her master's do, and she has begun sending them to the head with no name on them.",
+   "ties": [
+    {
+     "to": "uy_thuong_dien",
+     "kind": "master",
+     "note": "the Water Fields"
+    },
+    {
+     "to": "dieu_lang_nhi",
+     "kind": "disciple",
+     "note": "terrace hand from Bích Lãng"
+    }
+   ],
+   "master": "uy_thuong_dien",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "flooded-field-verse",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Flooded fields."
+    }
+   }
+  },
+  {
+   "key": "chiem_da_tuan",
+   "name_hv": "Chiêm Dạ Tuần",
+   "name_han": "詹夜巡",
+   "gloss": "Night patrol",
+   "sex": "M",
+   "born": 1128,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "truc_thuc",
+   "rank": "noi_mon",
+   "home": 1488,
+   "birthplace": 727,
+   "role": "Walks the rat fence at night",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "kim": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Pragmatic",
+     "Reclusive"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "lifestyle": "hunter"
+   },
+   "backstory": "Walks the rat fence at night with Khuất Liệp Nguyên (khuat_liep_nguyen) and dug out three tunnels under the brook toward Bích Lãng this winter; he has stopped telling the coast villages how many.",
+   "ties": [
+    {
+     "to": "ninh_truc_thuc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "khuat_liep_nguyen",
+     "kind": "friend",
+     "note": "the rat fence"
+    }
+   ],
+   "master": "ninh_truc_thuc",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal guard for a hunter."
+    }
+   }
+  },
+  {
+   "key": "pho_tong_thuc",
+   "name_hv": "Phó Tống Thực",
+   "name_han": "傅送實",
+   "gloss": "Carries the seed",
+   "sex": "M",
+   "born": 1177,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "truc_thuc",
+   "rank": "ngoai_mon",
+   "home": 25,
+   "birthplace": 725,
+   "role": "Drives the seed cart on the tribute road",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Content",
+     "Gregarious"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Drives the seed cart up the road to Hoàng Vân Thành behind Sầm Đạo Hương (sam_dao_huong) and has never once eaten seed before it left; he is the garden's best singer of road songs and its worst at sums.",
+   "ties": [
+    {
+     "to": "sam_dao_huong",
+     "kind": "master",
+     "note": "the seed road"
+    }
+   ],
+   "master": "sam_dao_huong",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "rain-on-bamboo-breath",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood health for the road."
+    }
+   }
+  },
+  {
+   "key": "ung_so_hoa",
+   "name_hv": "Ứng Sơ Hoa",
+   "name_han": "應初花",
+   "gloss": "First flower",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "truc_thuc",
+   "rank": "noi_mon",
+   "home": 25,
+   "birthplace": 25,
+   "role": "The heir's only disciple; carries his harvest knives",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 34,
+     "hoa": 11
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Diligent",
+     "Cautious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Mẫn Tiết Thanh's (man_tiet_thanh) only disciple, who carries his harvest knives; she has a little Fire, eleven parts, and he has asked her twice this year whether it has grown.",
+   "ties": [
+    {
+     "to": "man_tiet_thanh",
+     "kind": "master",
+     "note": "the heir with no Fire"
+    }
+   ],
+   "master": "man_tiet_thanh",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Sow and harvest."
+    }
+   }
+  },
+  {
+   "key": "dieu_lang_nhi",
+   "name_hv": "Diêu Lãng Nhi",
+   "name_han": "姚浪兒",
+   "gloss": "Child of the waves",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "truc_thuc",
+   "rank": "ngoai_mon",
+   "home": 25,
+   "birthplace": 147,
+   "role": "Terrace hand from Bích Lãng",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Honest",
+     "Brave"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Bích Lãng fisher's girl who came in through the flood terraces and means to stay on them; she has seen rats swim the brook at night and told only her master.",
+   "ties": [
+    {
+     "to": "dao_luong_khe",
+     "kind": "master",
+     "note": "the sluices"
+    },
+    {
+     "to": "ly_bich_ba",
+     "kind": "friend",
+     "note": "another Bích Lãng girl"
+    }
+   ],
+   "master": "dao_luong_khe",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "rain-on-bamboo-breath",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain."
+    }
+   }
+  },
+  {
+   "key": "ngo_le_thach",
+   "name_hv": "Ngô Lê Thạch",
+   "name_han": "吳犁石",
+   "gloss": "Plough stone",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "truc_thuc",
+   "rank": "tap_dich",
+   "home": 25,
+   "birthplace": 736,
+   "role": "Servant ploughman from the ridge",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Patient",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Ploughs beside Phí Đông Canh (phi_dong_canh) and believes him about the new bamboo in the old clumps; the two of them have notched old culms to see whether they stand unchanged next spring.",
+   "ties": [
+    {
+     "to": "phi_dong_canh",
+     "kind": "friend",
+     "note": "the other ploughman"
+    }
+   ],
+   "exception": "servant (tạp dịch): Metal-rooted ridge ploughman, not taught the lineage",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_kim",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "A ploughman's Metal body."
+    }
+   }
+  },
+  {
+   "key": "chu_thu_dien",
+   "name_hv": "Chu Thu Điền",
+   "name_han": "周秋田",
+   "gloss": "Autumn field",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "truc_thuc",
+   "rank": "ngoai_mon",
+   "home": 25,
+   "birthplace": 83,
+   "role": "Hand on the lower rows",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "thuy": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Gregarious",
+     "Diligent"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A grain town's son who works the lower rows for Kha Tùng Canh (kha_tung_canh) and asks every traveller the garden feeds whether bamboo seeds every year where they come from; none has said yes.",
+   "ties": [
+    {
+     "to": "kha_tung_canh",
+     "kind": "master",
+     "note": "the lower rows"
+    }
+   ],
+   "master": "kha_tung_canh",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "rain-on-bamboo-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood growth."
+    }
+   }
+  }
+ ]
+}

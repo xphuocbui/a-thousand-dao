@@ -1,0 +1,519 @@
+{
+ "sect": "hoa_tinh",
+ "_doc": "Wave 3 tier C fill (2026-11-25): the soot kilns, the painting hall, the village dyes and the archive's ink at the Pivot's seat.",
+ "people": [
+  {
+   "key": "diep_tung_yen",
+   "name_hv": "Diệp Tùng Yên",
+   "name_han": "葉松煙",
+   "gloss": "Pine smoke",
+   "sex": "F",
+   "born": 1118,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "hoa_tinh",
+   "rank": "chap_su",
+   "home": 1327,
+   "birthplace": 1327,
+   "role": "Steward of the pine-tappers at the Mặc Yên kilns",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 55,
+     "thuy": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Cautious",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Runs the pine-tappers of Chu Tùng Lâm for Lăng Mặc Khanh (lang_mac_khanh) and counts the vermilion pines; she has told him that at Lạc Tố Bình's (lac_to_binh) price for selling ink to every sect, the forest would last forty years.",
+   "ties": [
+    {
+     "to": "ky_ngan_chuc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "lang_mac_khanh",
+     "kind": "friend",
+     "note": "the kilns"
+    },
+    {
+     "to": "lac_to_binh",
+     "kind": "rival",
+     "note": "selling the ink"
+    },
+    {
+     "to": "ho_bach_yen",
+     "kind": "disciple",
+     "note": "outer disciple at the soot kilns, Hồ Mặc Nhi's elder brother"
+    }
+   ],
+   "master": "ky_ngan_chuc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "painted-dipper-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "rainfast-ink-art",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood talismans; pine soot."
+    }
+   }
+  },
+  {
+   "key": "nhiep_to_han",
+   "name_hv": "Nhiếp Tố Hàn",
+   "name_han": "聶素翰",
+   "gloss": "Plain brush",
+   "sex": "M",
+   "born": 1122,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "hoa_tinh",
+   "rank": "noi_mon",
+   "home": 1328,
+   "birthplace": 34,
+   "role": "Painter of the Dipper's middle stars, a Khai Dương scribe's son",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 42
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Stubborn",
+     "Loyal"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "scholar_family",
+    "lifestyle": "calligrapher"
+   },
+   "backstory": "A Khai Dương scribe's son who paints the Dipper's middle stars; he and Hàn Thủy Mặc (han_thuy_mac) grew up three streets apart, and he sides with him against Lạc Tố Bình (lac_to_binh) because he has seen what the ink already fetches at the Pivot.",
+   "ties": [
+    {
+     "to": "ky_ngan_chuc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "han_thuy_mac",
+     "kind": "friend",
+     "note": "from Khai Dương"
+    },
+    {
+     "to": "lac_to_binh",
+     "kind": "rival",
+     "note": "selling the ink"
+    }
+   ],
+   "master": "ky_ngan_chuc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "painted-dipper-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "rainfast-ink-art",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and Water talismans in one stroke."
+    }
+   }
+  },
+  {
+   "key": "ho_bach_yen",
+   "name_hv": "Hồ Bạch Yên",
+   "name_han": "胡白煙",
+   "gloss": "White smoke",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "hoa_tinh",
+   "rank": "ngoai_mon",
+   "home": 1327,
+   "birthplace": 1327,
+   "role": "Outer disciple at the soot kilns, Hồ Mặc Nhi's elder brother",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Patient",
+     "Paranoid"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born"
+   },
+   "backstory": "Hồ Mặc Nhi's (ho_mac_nhi) elder brother, who tends the kiln mouths at night; his talisman has run in the rain twice, and he grinds for a third year, half sure the fault is in the soot and not his hand.",
+   "ties": [
+    {
+     "to": "diep_tung_yen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ho_mac_nhi",
+     "kind": "sibling",
+     "note": ""
+    }
+   ],
+   "master": "diep_tung_yen",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ink-grinding-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood; slow ink."
+    }
+   }
+  },
+  {
+   "key": "thai_huyen_nhung",
+   "name_hv": "Thái Huyền Nhung",
+   "name_han": "蔡玄絨",
+   "gloss": "Black floss",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "hoa_tinh",
+   "rank": "ngoai_mon",
+   "home": 1329,
+   "birthplace": 1329,
+   "role": "Outer disciple at the fungus-dye vats of Huyền Chi Thôn",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "tho": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Humble",
+     "Reclusive"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Dyes cord black with the village fungus for Lục Thanh Chi (luc_thanh_chi), and is the one disciple in the Hall who has asked to be left at the vats and never taught to paint.",
+   "ties": [
+    {
+     "to": "luc_thanh_chi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ho_mac_nhi",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "luc_thanh_chi",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ink-grinding-breath",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood; dyer's quiet."
+    }
+   }
+  },
+  {
+   "key": "te_thu_anh",
+   "name_hv": "Tề Thu Ảnh",
+   "name_han": "齊秋影",
+   "gloss": "Autumn shadow",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "hoa_tinh",
+   "rank": "noi_mon",
+   "home": 1328,
+   "birthplace": 1328,
+   "role": "Inner disciple who paints the fourth star, Lạc Tố Bình's disciple",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Arrogant",
+     "Diligent"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Lạc Tố Bình's (lac_to_binh) inner disciple, who paints the fourth star and would paint it for any sect her master sells to; she resents that Tân Cức Hoa (tan_cuc_hoa) is taught by the Silver Candle and she is not.",
+   "ties": [
+    {
+     "to": "lac_to_binh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tan_cuc_hoa",
+     "kind": "rival",
+     "note": ""
+    },
+    {
+     "to": "ma_tinh_but",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "lac_to_binh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "painted-dipper-canon",
+     "layer": 3
+    },
+    "aux": [
+     {
+      "tech": "rainfast-ink-art",
+      "layer": 1
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood talismans."
+    }
+   }
+  },
+  {
+   "key": "nham_thanh_luu",
+   "name_hv": "Nhậm Thanh Lưu",
+   "name_han": "任清流",
+   "gloss": "Clear stream",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "hoa_tinh",
+   "rank": "ngoai_mon",
+   "home": 5,
+   "birthplace": 34,
+   "role": "Outer disciple at the Pivot's seat, grinding the archive's ink",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Trusting",
+     "Diligent"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "scholar_family"
+   },
+   "backstory": "The second boy Hàn Thủy Mặc (han_thuy_mac) brought to the Pivot's seat to grind ink for the archive; he copies the archive's ink orders into the Hall's book, and once his master took the book from him to turn back to a page of 1195.",
+   "ties": [
+    {
+     "to": "han_thuy_mac",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "phu_vu_sinh",
+     "kind": "friend",
+     "note": "the other apprentice"
+    }
+   ],
+   "master": "han_thuy_mac",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ink-grinding-breath",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water; ink that holds."
+    }
+   }
+  },
+  {
+   "key": "liem_an_loc",
+   "name_hv": "Liêm Ẩn Lộc",
+   "name_han": "廉隱鹿",
+   "gloss": "Hidden deer",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "hoa_tinh",
+   "rank": "ngoai_mon",
+   "home": 1329,
+   "birthplace": 113,
+   "role": "Outer disciple from the deer meadow of Lộc Uyển",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Cautious",
+     "Just"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "From the deer meadow of Lộc Uyển, where his father keeps the Pivot's deer; he knows which painters in the Hall have asked him, quietly, for a little deer glue, and has given it to none of them yet.",
+   "ties": [
+    {
+     "to": "luc_thanh_chi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "quan_loc_nhi",
+     "kind": "friend",
+     "note": "from the same meadow"
+    }
+   ],
+   "master": "luc_thanh_chi",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ink-grinding-breath",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood; a meadow boy's care."
+    }
+   }
+  }
+ ]
+}

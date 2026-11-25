@@ -1,0 +1,1156 @@
+{
+ "sect": "le_tuyen",
+ "people": [
+  {
+   "key": "mai_le_tuyen",
+   "name_hv": "Mai Lễ Tuyền",
+   "name_han": "梅醴泉",
+   "gloss": "The sweet spring (Trang Tử)",
+   "sex": "F",
+   "born": 850,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "le_tuyen",
+   "rank": "tong_chu",
+   "home": 193,
+   "birthplace": 87,
+   "role": "Head of Lễ Tuyền Phái since 930; healer of the plain, and the midwife who delivered the palace's head",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 76,
+     "moc": 62
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 58,
+    "than_hon": 62,
+    "khi_van": 64,
+    "dao_tam": 56,
+    "mi_luc": 80
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Gregarious",
+     "Indulgent"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "pill_master_tongue"
+    ],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": "drowns_in_wine",
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A round, laughing old woman with plum blossom pinned in white hair, a gourd on one hip and a roll of needles on the other, who smells faintly of wine at every hour.",
+   "backstory": "Mai Lễ Tuyền was born in Lục Dã Trấn in 850, and the meadow people say her first cry made the spring flow sweeter (A260). The founder Liêm Cam Lộ (liem_cam_lo) took her at nine. She learned that the school had come too late to Cựu Khê in 812 and that half the town had died before its healers arrived (V136), and she has gone to every fever since on the first day. In 950, gathering herbs on the shore of Triêu Hà Hồ, she found a woman in labour and delivered a girl at dawn as the clouds turned red: Hoa Triêu Dương (hoa_trieu_duong), now head of Phượng Minh (A261). She became head in 930. In 1140 the Pivot ordered a hundred jars of the school's wine a year (A263), and in 1141 she built the Dawn Hall on that same shore with the palace head's gift and moved the healers down to it (N-le_tuyen-03). She trades wine for rice with Điền Phong Niên (dien_phong_nien) every autumn and always wins. She drinks more than a healer should and says it is research.",
+   "wants": "For the school to be remembered for its healers, not its wine.",
+   "secret": "The sweet spring cannot give a hundred jars a year. Since 1141 the cellars have cut it with lake water carted a week's road up from Triêu Hà Hồ in barrels sealed as the healers' tinctures, and the Pivot's wine is half lake. She allowed it, because the other choice was telling the Pivot no. That, not the healers' qi, is why she moved the hall to the lake: the barrels are filled where the healers live, and nobody asks what a sick-hall sends.",
+   "ties": [
+    {
+     "to": "liem_cam_lo",
+     "kind": "master",
+     "note": "the founder"
+    },
+    {
+     "to": "ha_thanh_to",
+     "kind": "disciple",
+     "note": "her true disciple, keeper of the sick-hall"
+    },
+    {
+     "to": "nhac_thuan_nhuong",
+     "kind": "friend",
+     "note": "her wine-master; she trusts him with the cellars and the cutting"
+    },
+    {
+     "to": "hoa_trieu_duong",
+     "kind": "friend",
+     "note": "she delivered her on the lake shore in 950; the palace head still calls her aunt"
+    },
+    {
+     "to": "dien_phong_nien",
+     "kind": "friend",
+     "note": "rice for wine every autumn; he has never won the bargain"
+    },
+    {
+     "to": "tu_cam_tuyen",
+     "kind": "friend",
+     "note": "the spring-born healer she taught and lent to the palace's granary city"
+    },
+    {
+     "to": "ninh_truc_thuc",
+     "kind": "friend",
+     "note": "seed and wine at New Year; she laughs at his caution"
+    },
+    {
+     "to": "binh_vien_khach",
+     "kind": "friend",
+     "note": "the palace's woman born at her hall"
+    },
+    {
+     "to": "can_tri_vi",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "nhac_thuan_nhuong",
+     "kind": "former_disciple",
+     "note": "her wine-master; she trusts him with the cellars and the cutting"
+    },
+    {
+     "to": "phuong_kim_cham",
+     "kind": "disciple",
+     "note": "road healer, second on the fever roads"
+    }
+   ],
+   "master": "liem_cam_lo",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "hundred-herb-mending-scripture",
+      "layer": 9
+     },
+     {
+      "tech": "sweet-spring-wine-rite",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "named": "ltp-sweet-dew-needles"
+     },
+     {
+      "named": "ltp-red-dawn-robe"
+     },
+     {
+      "named": "ltp-sweet-spring-cup"
+     }
+    ],
+    "skills": {
+     "dan_dao": 6,
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water for the tide that fills her before it breaks, Wood for the hundred herbs: she keeps her side standing longer than anyone else can.",
+     "targets": [
+      4805,
+      5374,
+      5338,
+      5157,
+      6619
+     ],
+     "targets_note": "The school's healing route (Brimming Cup, Nourishing Rain, Full Moon), then Water Wears Stone and Sun and Rain: both pools refill, her side stands longest."
+    },
+    "note": "The healer of the sweet spring: a brimming cup of spirit wine, gentle rain and endless regeneration."
+   },
+   "items": [
+    "water-still-pool-gourd",
+    "ltp-sweet-dew-needles",
+    "ltp-red-dawn-robe",
+    "ltp-sweet-spring-cup"
+   ],
+   "changed": "home 26 -> 193 with the healing hall's move (R4, 1141); birthplace 87 added (A260); build aux [] -> the lineage's main method and wine rite (R5); gear chuong -> her named needles; tree targets -> intent. Root kept: she holds the main method's Wood at 62."
+  },
+  {
+   "key": "nhac_thuan_nhuong",
+   "name_hv": "Nhạc Thuần Nhưỡng",
+   "name_han": "樂醇釀",
+   "gloss": "A mellow brew",
+   "sex": "M",
+   "born": 1030,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "le_tuyen",
+   "rank": "truong_lao",
+   "home": 26,
+   "birthplace": 26,
+   "role": "Wine-master of the Spring House at the old seat (place 26): the sweet spring, the cellars and the Pivot's hundred jars",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "moc": 48
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 56,
+    "than_hon": 58,
+    "khi_van": 70,
+    "dao_tam": 44,
+    "mi_luc": 64
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Greedy",
+     "Cautious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "pill_master_tongue"
+    ],
+    "lifestyle": "collector",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A heavy, soft-spoken man in a stained leather apron, with a cellar's chill on his skin and a seal on a cord round his neck.",
+   "backstory": "Nhạc Thuần Nhưỡng was born in the cellars at the spring in 1030 to a family of wine-masters, and has run them since 1100. When the Pivot's order came in 1140 (A263) he had the Seal of the Hundred Jars cut, and when the spring could not fill them he was the one who first carried lake water up from Triêu Hà Hồ, with Mai Lễ Tuyền's (mai_le_tuyen) leave. He is married to the school's taster Cận Tri Vị (can_tri_vi) and their son Nhạc Dư Hương (nhac_du_huong) works under him. He sells wine to Kim Vạn Lý (kim_van_ly), the merchant of the western plains, which the palace's treasurer does not know, and he has put the school's profit into old casks and older manuals. He would like to be head after Mai and thinks the school's future is in the cellars.",
+   "wants": "To be named heir, and to double the jars.",
+   "secret": "The cut jars go to the Pivot and the palace. The pure spring wine goes to Kim Vạn Lý, at three times the price, and Kim owes him for the last forty jars.",
+   "ties": [
+    {
+     "to": "mai_le_tuyen",
+     "kind": "former_master",
+     "note": "taught him the wine rite; his head, who allowed the cutting and does not know where the pure jars go"
+    },
+    {
+     "to": "can_tri_vi",
+     "kind": "spouse",
+     "note": "his wife, the taster, who knows every cut jar"
+    },
+    {
+     "to": "nhac_du_huong",
+     "kind": "child",
+     "note": "his son"
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "creditor",
+     "note": "the merchant owes him for forty jars of pure spring"
+    },
+    {
+     "to": "ha_thanh_to",
+     "kind": "rival",
+     "note": "the healers' heir against the cellars'"
+    },
+    {
+     "to": "khau_dai_ung",
+     "kind": "friend",
+     "note": "the servant he employs"
+    },
+    {
+     "to": "gia_tuyen_phong",
+     "kind": "disciple",
+     "note": "seals the Pivot's hundred jars at the Spring House"
+    },
+    {
+     "to": "phuong_kim_cham",
+     "kind": "rival",
+     "note": "road healer, second on the fever roads"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "hundred-herb-mending-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "sweet-spring-wine-rite",
+      "layer": 9
+     },
+     {
+      "tech": "still-moon-tide-scripture",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "named": "ltp-hundred-jar-seal"
+     },
+     {
+      "named": "ltp-cut-wine-cask"
+     },
+     {
+      "named": "ltp-cellar-leather"
+     }
+    ],
+    "skills": {
+     "dan_dao": 5
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water stacks and a wine mist: he wins by making the other side slow and careless.",
+     "targets": [
+      4805,
+      5374,
+      5338,
+      5003,
+      5055,
+      5053,
+      9003
+     ],
+     "targets_note": "Lineage, Rising Tide for Water stacks, the Endless Knot for the drunk foe, then Rising Tide's keystone: a full cask makes every stack count double."
+    },
+    "note": "The cellar master: a drunk foe and a full cask."
+   },
+   "items": [
+    "ltp-hundred-jar-seal",
+    "ltp-cut-wine-cask",
+    "ltp-cellar-leather"
+   ]
+  },
+  {
+   "key": "ha_thanh_to",
+   "name_hv": "Hà Thanh Tô",
+   "name_han": "何青蘇",
+   "gloss": "Green perilla",
+   "sex": "F",
+   "born": 1105,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "le_tuyen",
+   "rank": "chan_truyen",
+   "home": 193,
+   "birthplace": 87,
+   "role": "Mai Lễ Tuyền's true disciple; keeper of the sick-hall at the Dawn Hall and leader of the road healers",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 64,
+     "thuy": 50
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 56,
+    "than_hon": 60,
+    "khi_van": 48,
+    "dao_tam": 66,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Brave",
+     "Impatient"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "pilgrim",
+    "fate_given": [],
+    "gained": [
+     "Battle-hardened"
+    ]
+   },
+   "appearance": "A thin woman with cropped hair and herb-stained cuffs, always half-packed for the road.",
+   "backstory": "A meadow girl of Lục Dã taken by Mai Lễ Tuyền (mai_le_tuyen) in 1115, Hà Thanh Tô runs the sick-hall at the Dawn Hall and leads the road healers who go out at the first word of fever. She trained the palace's healer Từ Cam Tuyền (tu_cam_tuyen) during her two years here. Her first road was the marsh fever at Hàm Trạch in 1131, and she has not stopped since. She thinks the cellars are eating the school.",
+   "ties": [
+    {
+     "to": "mai_le_tuyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tu_cam_tuyen",
+     "kind": "friend",
+     "note": "taught her, and still writes"
+    },
+    {
+     "to": "trac_linh_tuyen",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "nhac_thuan_nhuong",
+     "kind": "rival",
+     "note": "the cellars' man"
+    },
+    {
+     "to": "lien_que_chi",
+     "kind": "friend",
+     "note": "the road healer who buys her bark"
+    },
+    {
+     "to": "sa_au_lan",
+     "kind": "creditor",
+     "note": "the outer girl whose mother she saved"
+    },
+    {
+     "to": "ngai_bach_chi",
+     "kind": "friend",
+     "note": "the herb-grower whose herbs she uses on the road"
+    },
+    {
+     "to": "phuong_kim_cham",
+     "kind": "friend",
+     "note": "road healer, second on the fever roads"
+    }
+   ],
+   "master": "mai_le_tuyen",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "hundred-herb-mending-scripture",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "sweet-spring-wine-rite",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "dan_dao": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood heals over time; she keeps a whole road party alive.",
+     "targets": [
+      6093,
+      5595,
+      5713,
+      6673
+     ],
+     "targets_note": "From Wood: Weeping Willow, Spreading Canopy and Healing Herbs for the road party, Bending Reed toward her master's Water."
+    },
+    "note": "The road healer."
+   }
+  },
+  {
+   "key": "can_tri_vi",
+   "name_hv": "Cận Tri Vị",
+   "name_han": "靳知味",
+   "gloss": "One who knows the taste",
+   "sex": "F",
+   "born": 1095,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "le_tuyen",
+   "rank": "noi_mon",
+   "home": 26,
+   "birthplace": 26,
+   "role": "The school's taster: every cask, every pill, every poison; blind since 1150",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "moc": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 48,
+    "than_hon": 72,
+    "khi_van": 40,
+    "dao_tam": 56,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Calm",
+     "Loyal"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "pill_master_tongue"
+    ],
+    "health": "blind",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A still woman with milky eyes who turns her head toward a cask before anyone has opened it.",
+   "backstory": "Cận Tri Vị lost her sight in 1150 to a cask of wine that had gone wrong, and found her tongue sharper for it. She tastes every jar the cellars seal and every pill the healers make. She is married to the wine-master Nhạc Thuần Nhưỡng (nhac_thuan_nhuong) and knows by taste which jars are cut with lake water. She says nothing, because Mai Lễ Tuyền (mai_le_tuyen) allowed it. She does not know where the pure jars go, and she has begun to count.",
+   "ties": [
+    {
+     "to": "nhac_thuan_nhuong",
+     "kind": "spouse",
+     "note": "her husband"
+    },
+    {
+     "to": "nhac_du_huong",
+     "kind": "child",
+     "note": "her son"
+    },
+    {
+     "to": "mai_le_tuyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "bac_trieu_am",
+     "kind": "disciple",
+     "note": "taster's apprentice from the salt marsh"
+    },
+    {
+     "to": "gia_tuyen_phong",
+     "kind": "friend",
+     "note": "seals the Pivot's hundred jars at the Spring House"
+    }
+   ],
+   "master": "mai_le_tuyen",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "hundred-herb-mending-scripture",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "sweet-spring-wine-rite",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 6
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water and the soul's sense; she fights by knowing what is in the cup.",
+     "targets": [
+      4805,
+      5374,
+      5338,
+      5456,
+      4943
+     ],
+     "targets_note": "Lineage, Water Eye and Still Pond: she knows what is in the cup."
+    },
+    "note": "The taster."
+   }
+  },
+  {
+   "key": "nhac_du_huong",
+   "name_hv": "Nhạc Dư Hương",
+   "name_han": "樂餘香",
+   "gloss": "The lingering scent",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "le_tuyen",
+   "rank": "noi_mon",
+   "home": 26,
+   "birthplace": 26,
+   "role": "The wine-master's son; leads the lake carts, which leave by night",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Fickle",
+     "Gregarious",
+     "Trusting"
+    ],
+    "calling": "Merchant",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "He leads the carters who take lake water the week's road from the Dawn Hall up to the spring, leaving by night, believes his father Nhạc Thuần Nhưỡng (nhac_thuan_nhuong) that it is for the vats' cooling, and writes to the palace envoy Bình Viễn Khách (binh_vien_khach), who grew up in the same cellars.",
+   "ties": [
+    {
+     "to": "nhac_thuan_nhuong",
+     "kind": "parent",
+     "note": "his father and master"
+    },
+    {
+     "to": "can_tri_vi",
+     "kind": "parent",
+     "note": "his mother"
+    },
+    {
+     "to": "binh_vien_khach",
+     "kind": "friend",
+     "note": "cellar children together"
+    },
+    {
+     "to": "lu_tieu_khuc",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "truong_ham_chuoc",
+     "kind": "disciple",
+     "note": "vat-stirrer at the Spring House"
+    }
+   ],
+   "master": "nhac_thuan_nhuong",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "hundred-herb-mending-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and wine."
+    },
+    "note": "Leads the night carts."
+   }
+  },
+  {
+   "key": "ngai_bach_chi",
+   "name_hv": "Ngải Bạch Chỉ",
+   "name_han": "艾白芷",
+   "gloss": "Mugwort and angelica root",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "le_tuyen",
+   "rank": "noi_mon",
+   "home": 87,
+   "birthplace": 152,
+   "role": "Herb master of the school's gardens at Lục Dã Trấn",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 55,
+     "thuy": 30,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Reclusive",
+     "Temperate"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "An ox-herd's son from Hoàng Ngưu who keeps the meadows the palace gave the school in 662 (A257) and has sent the survivors' children of Thạch Ma Trấn (V142) to Hà Thanh Tô (ha_thanh_to) for thirty years.",
+   "ties": [
+    {
+     "to": "ha_thanh_to",
+     "kind": "friend",
+     "note": "she uses his herbs on the road"
+    },
+    {
+     "to": "nhu_tri_thu",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "loc_thao_nhi",
+     "kind": "disciple",
+     "note": "weeds the meadow gardens at Lục Dã"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hundred-herb-mending-scripture",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 5,
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood growth."
+    },
+    "note": "The meadows."
+   }
+  },
+  {
+   "key": "trac_linh_tuyen",
+   "name_hv": "Trác Linh Tuyền",
+   "name_han": "卓靈泉",
+   "gloss": "Spirit spring",
+   "sex": "F",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "le_tuyen",
+   "rank": "noi_mon",
+   "home": 193,
+   "birthplace": 26,
+   "role": "Inner disciple of the sick-hall; a road healer",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Brave",
+     "Fickle"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Born at the spring to a cooper, she followed Hà Thanh Tô (ha_thanh_to) to her first fever town at sixteen and has been on every road since.",
+   "ties": [
+    {
+     "to": "ha_thanh_to",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "ha_thanh_to",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "hundred-herb-mending-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water heals."
+    },
+    "note": "On the road."
+   }
+  },
+  {
+   "key": "lu_tieu_khuc",
+   "name_hv": "Lư Tiểu Khúc",
+   "name_han": "盧小麴",
+   "gloss": "Little yeast",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "le_tuyen",
+   "rank": "ngoai_mon",
+   "home": 26,
+   "birthplace": 26,
+   "role": "Cellar boy of the Spring House",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Lazy",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Turns the mash and steals a cup a night; he once saw the lake carts and was given a jar by Nhạc Dư Hương (nhac_du_huong) to forget them.",
+   "ties": [
+    {
+     "to": "nhac_du_huong",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "nhac_du_huong",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "dew-gathering-breath",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "dan_dao": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "A cup a night."
+   }
+  },
+  {
+   "key": "sa_au_lan",
+   "name_hv": "Sa Ấu Lan",
+   "name_han": "沙幼蘭",
+   "gloss": "Young orchid on the sand",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "le_tuyen",
+   "rank": "ngoai_mon",
+   "home": 193,
+   "birthplace": 779,
+   "role": "Outer disciple of the Dawn Hall, from the salt marsh",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "tho": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Patient",
+     "Compassionate"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A salt-marsh girl from Hàm Trạch whose mother Hà Thanh Tô (ha_thanh_to) saved from marsh fever; she came to the lake to learn the same hands, and her Wood may never be enough.",
+   "ties": [
+    {
+     "to": "ha_thanh_to",
+     "kind": "debt",
+     "note": "saved her mother"
+    },
+    {
+     "to": "bac_trieu_am",
+     "kind": "friend",
+     "note": "taster's apprentice from the salt marsh"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "dew-gathering-breath",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Hopes for Wood."
+   }
+  },
+  {
+   "key": "nhu_tri_thu",
+   "name_hv": "Nhữ Tri Thu",
+   "name_han": "汝知秋",
+   "gloss": "Knows the autumn",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "le_tuyen",
+   "rank": "noi_mon",
+   "home": 87,
+   "birthplace": 87,
+   "role": "Inner disciple of the herb gardens at Lục Dã",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 47,
+     "tho": 33
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Cautious",
+     "Honest"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Born in the meadow town like the head, he keeps a calendar of every herb's flowering for Ngải Bạch Chỉ (ngai_bach_chi) and has noticed the spring's mint dying back.",
+   "ties": [
+    {
+     "to": "ngai_bach_chi",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "ngai_bach_chi",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hundred-herb-mending-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "The calendar."
+   }
+  },
+  {
+   "key": "khau_dai_ung",
+   "name_hv": "Khấu Đại Úng",
+   "name_han": "寇大甕",
+   "gloss": "Big jar",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "le_tuyen",
+   "rank": "tap_dich",
+   "home": 26,
+   "birthplace": 793,
+   "role": "Servant porter who takes the hundred jars to the Pivot each year",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 50,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Content",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "servant_born"
+   },
+   "backstory": "A well-digger's son from Thâm Tỉnh Thôn with an Earth root the school cannot teach; he drives the Pivot's jars north every spring for Nhạc Thuần Nhưỡng (nhac_thuan_nhuong) and has never lost one.",
+   "ties": [
+    {
+     "to": "nhac_thuan_nhuong",
+     "kind": "friend",
+     "note": "his employer"
+    },
+    {
+     "to": "khau_nhi_dam",
+     "kind": "sibling",
+     "note": "his brother; night carter: carts lake water the week's road up to the spring"
+    }
+   ],
+   "exception": "servant (tạp dịch): Earth-Fire root, not taught the lineage",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth for a strong back on the road."
+    },
+    "note": "Servant; a stand-in Yellow Earth method."
+   }
+  },
+  {
+   "key": "liem_cam_lo",
+   "name_hv": "Liêm Cam Lộ",
+   "name_han": "廉甘露",
+   "gloss": "Sweet dew",
+   "sex": "F",
+   "born": 600,
+   "died": 930,
+   "cause": "died at 330 in the cellars, sitting by the spring",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "le_tuyen",
+   "rank": "founder",
+   "home": 26,
+   "birthplace": 148,
+   "role": "Founder of Lễ Tuyền Phái (660); healer and brewer",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Temperate",
+     "Compassionate",
+     "Just"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A paddy healer from Thủy Điền Thôn who found the sweet spring on the plain and brewed its water into a wine that mended fevers. In 660 she founded the school with five other healers (A256), took the meadows of Lục Dã in 662 (A257), and wrote the rule that the school drinks only from its own spring, after the phoenix. She trained Mai Lễ Tuyền (mai_le_tuyen) and died by the spring in 930.",
+   "ties": [
+    {
+     "to": "mai_le_tuyen",
+     "kind": "disciple",
+     "note": "her heir"
+    },
+    {
+     "to": "trong_te_the",
+     "kind": "former_disciple",
+     "note": "died at Cựu Khê"
+    }
+   ]
+  },
+  {
+   "key": "trong_te_the",
+   "name_hv": "Trọng Tế Thế",
+   "name_han": "仲濟世",
+   "gloss": "Aid the world",
+   "sex": "M",
+   "born": 740,
+   "died": 812,
+   "cause": "died of the fever at Cựu Khê Trấn (V136)",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "le_tuyen",
+   "rank": "noi_mon",
+   "home": 26,
+   "birthplace": 26,
+   "role": "The healer who went into Cựu Khê first in 812 and died there",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Compassionate",
+     "Impatient"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "He went ahead of the school's healers into Cựu Khê in 812 when half the town was already dead (V136) and died of the fever a week later; Liêm Cam Lộ (liem_cam_lo) wrote his name over the sick-hall door.",
+   "ties": [
+    {
+     "to": "liem_cam_lo",
+     "kind": "former_master",
+     "note": ""
+    }
+   ]
+  }
+ ]
+}

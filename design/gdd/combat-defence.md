@@ -1012,6 +1012,10 @@ marks a derived price, **G** a guess.
 | NPC Builds | Soft | The same profile rules, including a soul defence by realm (rule 14) | Implemented | Not yet |
 | Game UI (#37), Debug Terminal | Soft | Bars, ward states, Breakdown lines | Not started; built | Not yet |
 
+**Back-link written 2026-11-25** (world-depth rulings): **Combat** (#21, rule 25; Formulas I, L): body payloads given
+to "allies" (heal, ward, shield, linh lực, cleanse, evade) land on you once; while **Rooted** a target's evade is 0;
+"take root" (Planted) also sets your evade to 0 for its time.
+
 ## Visual/Audio Requirements
 
 > `art-director` not consulted — Lean mode, and the current client is the text Debug Terminal. Review

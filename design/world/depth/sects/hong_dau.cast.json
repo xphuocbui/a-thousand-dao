@@ -1,0 +1,1276 @@
+{
+ "sect": "hong_dau",
+ "people": [
+  {
+   "key": "nghe_hong_dau",
+   "name_hv": "Nghê Hồng Đậu",
+   "name_han": "倪紅豆",
+   "gloss": "The red bean of longing (Vương Duy)",
+   "sex": "F",
+   "born": 800,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "hong_dau",
+   "rank": "tong_chu",
+   "home": 263,
+   "birthplace": 42,
+   "role": "Mistress of Hồng Đậu Trang since 910: poisons and charms behind a gracious door (ma đạo); holder of Phi Hồng",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 82,
+     "thuy": 44
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 52,
+    "than_hon": 68,
+    "khi_van": 60,
+    "dao_tam": 54,
+    "mi_luc": 88
+   },
+   "traits": {
+    "personality": [
+     "Deceitful",
+     "Gregarious",
+     "Vengeful"
+    ],
+    "calling": "Schemer",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 3
+     }
+    ],
+    "path": [
+     "poison_proof"
+    ],
+    "lifestyle": "tea_master",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A tall woman in red silk with a voice like warm water, who pours tea with both hands and has not aged a day in three hundred years.",
+   "backstory": "Nghê Hồng Đậu was born in Thu Trì Thành in 800, and red beans grew from the cracks in her mother's doorstep that spring (A273). Her mother kept a teahouse on the autumn pools, two doors from the inn where Kiều Mãn Lâu (kieu_man_lau) would be born. The Tower's elders drank there, and the girl who poured for them learned what cultivators say in front of furniture. Her Wood root was strong, and no one at the Tower asked for it. In 910 she found Phi Hồng in the rain forest, where Diệp Phi Hồng (diep_phi_hong) had left it to wait for an heir (C133, C168). She could not open its art. She planted beans around it instead, built a manor with a gracious door on the forest road, and opened that door to every sect (A275). She wrote her own canon so as not to need the sword's. In 1012 she took the Tower's toad-wood alchemist Ô Thiềm Tử (o_thiem_tu) as a lover for one season. Every winter she pours one cup of tea for the Tower's first elder Quan Vũ Thanh (quan_vu_thanh), and never a second. In 1110 she moved her own rooms back from the door to the vein garden at Tiêu Âm Mạch (N-hong_dau-03).",
+   "wants": "Tàn Hồng, the other sword. With both she could call herself heir of Lạc Anh Phái, and with that name claim the forest that the Pivot gave the Tower in 620.",
+   "secret": "Her daughter's father is Ô Thiềm Tử, and he has never been told. And the guests who stay too long are not dead: they tend the beans in the back garden, under the charm of the second cup.",
+   "ties": [
+    {
+     "to": "nghe_xuan_chi",
+     "kind": "child",
+     "note": "her daughter, mistress of the back garden"
+    },
+    {
+     "to": "o_thiem_tu",
+     "kind": "lover",
+     "note": "one season in 1012; they still trade recipes; he does not know about the girl"
+    },
+    {
+     "to": "quan_vu_thanh",
+     "kind": "friend",
+     "note": "tea every winter at the door, and never a second cup"
+    },
+    {
+     "to": "kieu_man_lau",
+     "kind": "friend",
+     "note": "the innkeeper's boy from two doors down; her poisons have his best stall"
+    },
+    {
+     "to": "la_to_y",
+     "kind": "rival",
+     "note": "the courier who ate at the manor and lived, and boasts of it"
+    },
+    {
+     "to": "lieu_da_thai",
+     "kind": "disciple",
+     "note": "her door"
+    },
+    {
+     "to": "han_tu_quan",
+     "kind": "enemy",
+     "note": "her first disciple, who tried to take the sword; she gave him a bean"
+    },
+    {
+     "to": "an_thanh_linh",
+     "kind": "rival",
+     "note": "the bell-caster whose bells hear what her charms say"
+    },
+    {
+     "to": "ly_han_bich",
+     "kind": "friend",
+     "note": "the other ma đạo mistress; beans for the graves, grave-earth for the garden"
+    },
+    {
+     "to": "diep_lac_phuong",
+     "kind": "debt",
+     "note": "the outer boy whose blood she wants something from"
+    },
+    {
+     "to": "nghe_xuan_chi",
+     "kind": "former_disciple",
+     "note": "her daughter, mistress of the back garden"
+    },
+    {
+     "to": "han_tu_quan",
+     "kind": "disciple",
+     "note": "her first disciple, who tried to take the sword; she gave him a bean"
+    },
+    {
+     "to": "to_boi_ngam",
+     "kind": "disciple",
+     "note": "the hand that pours the second cup at the Gracious Door"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "canon-of-longing",
+     "layer": 11
+    },
+    "aux": [
+     {
+      "tech": "rotting-canopy-canon",
+      "layer": 9
+     },
+     {
+      "tech": "thorn-and-ink-verses",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "named": "hd-phi-hong"
+     },
+     {
+      "named": "hd-red-bean-robe"
+     },
+     {
+      "named": "hd-second-cup-pot"
+     }
+    ],
+    "skills": {
+     "dan_dao": 6,
+     "linh_thuc": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood toward poison stacks that ripen and strangle, with charm and stalling on the way: she wins by making the foe stay.",
+     "targets": [
+      6375,
+      6199,
+      6388,
+      6386,
+      9015,
+      6618
+     ],
+     "targets_note": "The manor's route (Venom Surge, Serpent Fang, Bitter Leaf), then Venom Leaf, Strangling Vines and Ten Thousand Poisons: poison that ripens and holds the foe."
+    },
+    "note": "The red-bean mistress: charming at the door and pure poison behind it; the sword at her side is half asleep."
+   },
+   "items": [
+    "hd-phi-hong",
+    "wood-venom-drinker-pendant",
+    "hd-red-bean-robe",
+    "hd-second-cup-pot"
+   ],
+   "changed": "build: main dia_moc (a stand-in) -> canon-of-longing (the manor's lineage, R5); aux thorn-and-ink-verses added; gear cham 3 -> Phi Hồng (her legendary, as a named item); home 27 -> 263 (the seat moves to the vein garden, R4); tree targets -> intent; root, thien_phu and stage lifted out of build; birthplace 42 added (A273)."
+  },
+  {
+   "key": "nghe_xuan_chi",
+   "name_hv": "Nghê Xuân Chi",
+   "name_han": "倪春枝",
+   "gloss": "A branch in spring (Vương Duy: xuân lai phát kỷ chi)",
+   "sex": "F",
+   "born": 1013,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "hong_dau",
+   "rank": "truong_lao",
+   "home": 263,
+   "birthplace": 263,
+   "role": "Mistress of the back garden at Tiêu Âm Mạch: the bean trellises, the poison beds and the gardeners who do not leave",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 68,
+     "thuy": 50
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 54,
+    "than_hon": 60,
+    "khi_van": 48,
+    "dao_tam": 62,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Diligent",
+     "Pragmatic"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "poison_proof"
+    ],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A thin woman with earth under her nails and a hat of banana leaf, who looks at people the way she looks at a trellis that needs cutting back.",
+   "backstory": "Nghê Xuân Chi was born in the vein garden at Tiêu Âm Mạch in 1013, and the manor was told she was a foundling from the bean beds. She was raised among the trellises and has never cared for the front door. She took the garden from her mother at Trúc Cơ, and in 1101 she reached Kết Đan among the vines. At forty she ate a toad-wood venom that should have killed her and felt only warm. That, her root and the shape of her hands told her who her father was. Since then she has bought every new poison Ô Thiềm Tử (o_thiem_tu) makes through his apprentice Mai Độc Ca (mai_doc_ca), and sends him her own through the market under no name. She thinks the gracious door is a vanity. The beans grow without guests. Every guest kept in the garden is a sect that will one day come looking. She has told her mother so (nghe_hong_dau), and her mother laughed.",
+   "wants": "To be mistress after her mother, to close the second cup, and to send the gardeners home before someone comes for them.",
+   "secret": "She knows her father is Ô Thiềm Tử, and she has been answering his poisons with hers for a hundred and fifty years. He thinks his rival is a stranger in the market.",
+   "ties": [
+    {
+     "to": "nghe_hong_dau",
+     "kind": "parent",
+     "note": "her mother, who says she is a foundling"
+    },
+    {
+     "to": "nghe_hong_dau",
+     "kind": "former_master",
+     "note": "taught her the canon in the garden"
+    },
+    {
+     "to": "o_thiem_tu",
+     "kind": "parent",
+     "note": "her father, who does not know; they answer each other's poisons"
+    },
+    {
+     "to": "mai_doc_ca",
+     "kind": "friend",
+     "note": "her father's apprentice, through whom she buys"
+    },
+    {
+     "to": "lieu_da_thai",
+     "kind": "rival",
+     "note": "the door, who loves the guest game"
+    },
+    {
+     "to": "tien_kho_dang",
+     "kind": "disciple",
+     "note": "her poison-cook"
+    },
+    {
+     "to": "quan_song_dau",
+     "kind": "disciple",
+     "note": "her courier"
+    },
+    {
+     "to": "te_vong_quy",
+     "kind": "friend",
+     "note": "the gardener she would send home first"
+    },
+    {
+     "to": "ha_cuc_thi",
+     "kind": "disciple",
+     "note": "charm-singer of the back garden; keeps the gardeners under the Thorn and Ink Verses"
+    },
+    {
+     "to": "to_boi_ngam",
+     "kind": "rival",
+     "note": "the hand that pours the second cup at the Gracious Door"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "canon-of-longing",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "rotting-canopy-canon",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "named": "hd-longing-gourd"
+     },
+     {
+      "named": "hd-trellis-needles"
+     },
+     {
+      "named": "hd-toadwood-ring"
+     }
+    ],
+    "skills": {
+     "dan_dao": 7,
+     "linh_thuc": 6
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood toward long-lasting poison and the grove's sustain, Water behind it for linh lực: a gardener's fight, slow and certain.",
+     "targets": [
+      6375,
+      6199,
+      6388,
+      6203,
+      6215,
+      6221,
+      6170,
+      6618
+     ],
+     "targets_note": "Lineage poisons, Slow Venom, Black Seeds and Poison Bloom to ripen them, Pine Needle Tea for the grove's sustain, then Ten Thousand Poisons: they last until the fight ends."
+    },
+    "note": "Plants, waits, and harvests."
+   },
+   "items": [
+    "hd-longing-gourd",
+    "hd-trellis-needles",
+    "hd-toadwood-ring"
+   ]
+  },
+  {
+   "key": "lieu_da_thai",
+   "name_hv": "Liễu Đa Thải",
+   "name_han": "柳多採",
+   "gloss": "Gather more (Vương Duy: nguyện quân đa thải hiệt)",
+   "sex": "F",
+   "born": 1090,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "hong_dau",
+   "rank": "chap_su",
+   "home": 27,
+   "birthplace": 818,
+   "role": "Mistress of the gracious door at the manor house (27): she greets the guests and pours the tea",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "moc": 48
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 42,
+    "than_hon": 56,
+    "khi_van": 52,
+    "dao_tam": 40,
+    "mi_luc": 84
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Deceitful",
+     "Cruel"
+    ],
+    "calling": "Schemer",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "qin_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Round-faced and laughing, in rose silk, with a fan she never opens all the way.",
+   "backstory": "A fishmonger's girl from Lạc Triều Thôn whom Nghê Hồng Đậu (nghe_hong_dau) took for her face and kept for her nerve. For sixty years she has kept the manor house on the forest road: the gracious door, the tea, and the choice of who is poured a second cup. In 1150 she poured one for a Phượng Minh spy, Tề Vong Quy (te_vong_quy), and he has gardened for the manor ever since. She thinks Nghê Xuân Chi would close the door, and she means to be at the mistress's side when the succession comes.",
+   "ties": [
+    {
+     "to": "nghe_hong_dau",
+     "kind": "master",
+     "note": "her mistress"
+    },
+    {
+     "to": "nghe_xuan_chi",
+     "kind": "rival",
+     "note": "would close the door"
+    },
+    {
+     "to": "te_vong_quy",
+     "kind": "creditor",
+     "note": "she poured him the second cup in 1150"
+    },
+    {
+     "to": "sam_van_huong",
+     "kind": "disciple",
+     "note": "the girl who will pour after her"
+    },
+    {
+     "to": "kha_tieu_dau",
+     "kind": "disciple",
+     "note": "the bean-picker"
+    },
+    {
+     "to": "la_to_y",
+     "kind": "friend",
+     "note": "let the Tower's courier eat and live, to see what she would say"
+    },
+    {
+     "to": "sam_van_huong",
+     "kind": "cousin",
+     "note": "her cousin from the same fishing village, the girl who will pour after her"
+    },
+    {
+     "to": "cung_hong_to",
+     "kind": "disciple",
+     "note": "door girl who gives no beans"
+    },
+    {
+     "to": "to_boi_ngam",
+     "kind": "friend",
+     "note": "the hand that pours the second cup at the Gracious Door"
+    },
+    {
+     "to": "ha_cuc_thi",
+     "kind": "rival",
+     "note": "charm-singer of the back garden; keeps the gardeners under the Thorn and Ink Verses"
+    }
+   ],
+   "master": "nghe_hong_dau",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "canon-of-longing",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "thorn-and-ink-verses",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "hd-gracious-door-fan"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "dan_dao": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water for linh lực and long charms, then Wood for the poison the charm holds in place.",
+     "targets": [
+      5493,
+      5055,
+      6679,
+      6375
+     ],
+     "targets_note": "From Water: Lingering Ripples for linh lực, Tangled Current for long charms, Reed Spear into Wood, Venom Surge for the poison the charm holds."
+    },
+    "note": "Charms first, poisons second, and never a fair fight."
+   },
+   "items": [
+    "hd-gracious-door-fan"
+   ]
+  },
+  {
+   "key": "tien_kho_dang",
+   "name_hv": "Tiền Khổ Đằng",
+   "name_han": "錢苦藤",
+   "gloss": "A bitter vine",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "hong_dau",
+   "rank": "noi_mon",
+   "home": 263,
+   "birthplace": 821,
+   "role": "Poison-cook of the back garden",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 60,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 50,
+    "than_hon": 48,
+    "khi_van": 40,
+    "dao_tam": 46,
+    "mi_luc": 30
+   },
+   "traits": {
+    "personality": [
+     "Callous",
+     "Patient",
+     "Greedy"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "wild_raised",
+    "talent": [],
+    "path": [
+     "poison_proof"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A squat, silent man with toad-skin gloves and stained teeth.",
+   "backstory": "Raised by toad-catchers in Độc Thiềm Lâm, the wood that bred Ô Thiềm Tử (o_thiem_tu) a hundred and seventy years before him, and sold to the manor at twelve for a jar of venom. He renders the red beans into the manor's longing poison in the garden at Tiêu Âm Mạch and does not ask whom it is for. He resents that the Tower's market buys Ô's poisons at twice the price of his.",
+   "ties": [
+    {
+     "to": "nghe_xuan_chi",
+     "kind": "master",
+     "note": "the garden mistress"
+    },
+    {
+     "to": "o_thiem_tu",
+     "kind": "rival",
+     "note": "the other toad-wood poisoner, better paid"
+    },
+    {
+     "to": "diep_lac_phuong",
+     "kind": "disciple",
+     "note": "the boy who came for the sword"
+    },
+    {
+     "to": "te_niem_quy",
+     "kind": "disciple",
+     "note": "the gardener's daughter"
+    },
+    {
+     "to": "doan_thai_dau",
+     "kind": "disciple",
+     "note": "bean picker in the back garden, raised as a foundling"
+    },
+    {
+     "to": "khong_vu_kieu",
+     "kind": "friend",
+     "note": "poison-kitchen hand; grinds the beans for the pastes"
+    }
+   ],
+   "master": "nghe_xuan_chi",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "canon-of-longing",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "red-bean-primer",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood poison duration and strength: everything ripens.",
+     "targets": [
+      6375,
+      6199,
+      6388,
+      6203,
+      6215,
+      6380
+     ],
+     "targets_note": "Lineage, his teacher's Slow Venom and Black Seeds, Withering: everything ripens."
+    },
+    "note": "A cook, not a fighter; his fights are long and quiet."
+   }
+  },
+  {
+   "key": "quan_song_dau",
+   "name_hv": "Quản Song Đậu",
+   "name_han": "管雙豆",
+   "gloss": "Two beans",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "hong_dau",
+   "rank": "noi_mon",
+   "home": 42,
+   "birthplace": 42,
+   "role": "The manor's courier to the Night Rain Market in Thu Trì",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 44
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Greedy",
+     "Cautious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "street_orphan",
+    "talent": [],
+    "path": [],
+    "lifestyle": "gambler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A Thu Trì street boy who carries the manor's lacquer boxes to Kiều Mãn Lâu's (kieu_man_lau) stall on rainy nights and owes the stall a season's rent at dice.",
+   "ties": [
+    {
+     "to": "nghe_xuan_chi",
+     "kind": "master",
+     "note": "the garden mistress"
+    },
+    {
+     "to": "kieu_man_lau",
+     "kind": "debt",
+     "note": "a season's stall rent, lost at dice"
+    },
+    {
+     "to": "ho_yen_do",
+     "kind": "disciple",
+     "note": "the bridge watcher"
+    },
+    {
+     "to": "banh_tri_hap",
+     "kind": "disciple",
+     "note": "carries the manor's poison boxes to the Night Rain Market"
+    }
+   ],
+   "master": "nghe_xuan_chi",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "canon-of-longing",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood needles and escape."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "te_vong_quy",
+   "name_hv": "Tề Vong Quy",
+   "name_han": "齊忘歸",
+   "gloss": "Forgets to go home",
+   "sex": "M",
+   "born": 1080,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "hong_dau",
+   "rank": "tap_dich",
+   "home": 263,
+   "birthplace": 93,
+   "role": "A Phượng Minh disciple who came to the gracious door in 1150 and has gardened there since",
+   "tier": "B",
+   "exception": "servant (tạp dịch), held by the manor's charm since 1150; a Phượng Minh disciple, never taught the lineage",
+   "root": {
+    "elements": {
+     "hoa": 56,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 64,
+    "than_hon": 38,
+    "khi_van": 42,
+    "dao_tam": 44,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Trusting",
+     "Calm"
+    ],
+    "calling": "Duelist",
+    "upbringing": "sect_raised",
+    "talent": [],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": "soul_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Lovestruck"
+    ]
+   },
+   "appearance": "A tall man in a gardener's apron with a Fire sword's calluses on his right hand and a red bean on a string at his throat.",
+   "backstory": "In 1150, the year the Tower went to war for Đan Sơn Mạch (C188), Phượng Minh sent him down the forest road to learn what the Tower's poisons were. He knocked at the gracious door, and Liễu Đa Thải (lieu_da_thai) poured him a second cup. He has tended the bean trellises at Tiêu Âm Mạch for fifty years and believes he loves her. He had a daughter by a garden servant, Tề Niệm Quy (te_niem_quy), who has spent her life trying to wake him.",
+   "ties": [
+    {
+     "to": "lieu_da_thai",
+     "kind": "lover",
+     "note": "poured him the second cup; he believes he loves her"
+    },
+    {
+     "to": "te_niem_quy",
+     "kind": "child",
+     "note": "his daughter, who wants him home"
+    },
+    {
+     "to": "nghe_xuan_chi",
+     "kind": "friend",
+     "note": "the garden mistress, kind to him"
+    },
+    {
+     "to": "lieu_da_thai",
+     "kind": "debt",
+     "note": "she poured him the second cup in 1150; he believes he loves her"
+    },
+    {
+     "to": "ha_cuc_thi",
+     "kind": "friend",
+     "note": "charm-singer of the back garden; keeps the gardeners under the Thorn and Ink Verses"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "huyen_hoa",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire sword toward crits, as Phượng Minh taught him; he has not drawn it since 1150.",
+     "targets": [
+      2201,
+      2205,
+      2765,
+      2767
+     ],
+     "targets_note": "Not the lineage: Phượng Minh's Fire sword half remembered, the Sun Disc and the Burning Blade."
+    },
+    "note": "A Phượng Minh sword in a gardener's hands; his own sect's method, half forgotten."
+   }
+  },
+  {
+   "key": "kha_tieu_dau",
+   "name_hv": "Kha Tiểu Đậu",
+   "name_han": "柯小豆",
+   "gloss": "Little bean",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "hong_dau",
+   "rank": "ngoai_mon",
+   "home": 263,
+   "birthplace": 822,
+   "role": "Bean-picker with the best fingers in the garden",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Trusting"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A water-chestnut girl from Lăng Đường Thôn who can sort ripe from poison in the dark, and has never once been wrong.",
+   "ties": [
+    {
+     "to": "lieu_da_thai",
+     "kind": "master",
+     "note": "the door"
+    },
+    {
+     "to": "banh_tri_hap",
+     "kind": "friend",
+     "note": "carries the manor's poison boxes to the Night Rain Market"
+    },
+    {
+     "to": "uong_le_tra",
+     "kind": "rival",
+     "note": "door girl at the manor house; pours the first cup"
+    }
+   ],
+   "master": "lieu_da_thai",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-bean-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water linh lực for long sorting."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "te_niem_quy",
+   "name_hv": "Tề Niệm Quy",
+   "name_han": "齊念歸",
+   "gloss": "Longing for home",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "hong_dau",
+   "rank": "ngoai_mon",
+   "home": 263,
+   "birthplace": 263,
+   "role": "The charmed gardener's daughter, who scatters red beans on the forest path",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 38,
+     "hoa": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Brave",
+     "Deceitful"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "servant_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Since 1197 she has scattered red beans on the forest path to the manor so that travellers step around them and turn back (A279); no one at the manor has caught her yet.",
+   "ties": [
+    {
+     "to": "te_vong_quy",
+     "kind": "parent",
+     "note": "her father, who gardens and does not remember home"
+    },
+    {
+     "to": "tien_kho_dang",
+     "kind": "master",
+     "note": "the poison-cook"
+    },
+    {
+     "to": "gia_hoi_xuan",
+     "kind": "friend",
+     "note": "the apricot healer she went to about her father"
+    },
+    {
+     "to": "doan_thai_dau",
+     "kind": "friend",
+     "note": "bean picker in the back garden, raised as a foundling"
+    }
+   ],
+   "master": "tien_kho_dang",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-bean-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and a little Fire from her father."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "ho_yen_do",
+   "name_hv": "Hồ Yên Độ",
+   "name_han": "胡煙渡",
+   "gloss": "A crossing in the mist",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "hong_dau",
+   "rank": "ngoai_mon",
+   "home": 156,
+   "birthplace": 156,
+   "role": "Road-watcher at the misty bridge of Yên Kiều",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "hoa": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Fickle",
+     "Gregarious"
+    ],
+    "calling": "Schemer",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Sits by the bridge at Yên Kiều that vanishes in the rain (A272) and sends word to the door of every guest coming up the road, and what they carry.",
+   "ties": [
+    {
+     "to": "quan_song_dau",
+     "kind": "master",
+     "note": "the courier"
+    },
+    {
+     "to": "khong_vu_kieu",
+     "kind": "friend",
+     "note": "poison-kitchen hand; grinds the beans for the pastes"
+    }
+   ],
+   "master": "quan_song_dau",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-bean-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and speed."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "sam_van_huong",
+   "name_hv": "Sầm Vãn Hương",
+   "name_han": "岑晚香",
+   "gloss": "An evening fragrance",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "hong_dau",
+   "rank": "ngoai_mon",
+   "home": 27,
+   "birthplace": 818,
+   "role": "The door's apprentice, who will pour the first cup after Liễu",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "moc": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Deceitful",
+     "Indulgent"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Liễu Đa Thải's (lieu_da_thai) cousin from Lạc Triều Thôn, learning which guests to smile at; she has not yet been allowed to pour a second cup.",
+   "ties": [
+    {
+     "to": "lieu_da_thai",
+     "kind": "master",
+     "note": "her cousin and teacher"
+    },
+    {
+     "to": "lieu_da_thai",
+     "kind": "cousin",
+     "note": "from the same fishing village"
+    }
+   ],
+   "master": "lieu_da_thai",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-bean-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water charms."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "diep_lac_phuong",
+   "name_hv": "Diệp Lạc Phương",
+   "name_han": "葉落芳",
+   "gloss": "Fallen fragrance",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "hong_dau",
+   "rank": "ngoai_mon",
+   "home": 263,
+   "birthplace": 89,
+   "role": "A boy who says he is Diệp Phi Hồng's descendant and came for the sword's art",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Brave",
+     "Impatient"
+    ],
+    "calling": "Duelist",
+    "upbringing": "mortal_noble",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Came from Xuân Thảo Thành in 1199 with a family tree that ends in Diệp Phi Hồng (diep_phi_hong), asking to see Phi Hồng; the mistress took him in at once, which frightens everyone but him.",
+   "ties": [
+    {
+     "to": "diep_phi_hong",
+     "kind": "ancestor",
+     "note": "claimed, on a family tree"
+    },
+    {
+     "to": "tien_kho_dang",
+     "kind": "master",
+     "note": "the poison-cook"
+    },
+    {
+     "to": "nghe_hong_dau",
+     "kind": "creditor",
+     "note": "she wants something from his blood"
+    }
+   ],
+   "master": "tien_kho_dang",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "red-bean-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood sword, hoping for the petals."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "han_tu_quan",
+   "name_hv": "Hàn Tư Quân",
+   "name_han": "韓思君",
+   "gloss": "Thinking of you",
+   "sex": "M",
+   "born": 880,
+   "died": 1062,
+   "cause": "one red bean in a cup of tea",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "hong_dau",
+   "rank": "noi_mon",
+   "home": 27,
+   "birthplace": 42,
+   "role": "Nghê Hồng Đậu's first disciple and lover, who tried to take Phi Hồng",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Faithless",
+     "Gregarious"
+    ],
+    "calling": "Duelist",
+    "upbringing": "street_orphan",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A Thu Trì boy who followed Nghê Hồng Đậu (nghe_hong_dau) into the forest in 910 and stayed as her disciple and lover for a hundred and fifty years. In 1062 he tried to carry Phi Hồng to Lạc Hà, where Lạc Anh's claim on the Petal Shore would have bought him a seat. She caught him at the door and poured him a cup with one red bean in it (N-hong_dau-02). He is buried under the first trellis.",
+   "ties": [
+    {
+     "to": "nghe_hong_dau",
+     "kind": "master",
+     "note": "his mistress, who killed him"
+    }
+   ],
+   "master": "nghe_hong_dau"
+  }
+ ]
+}

@@ -1,0 +1,1188 @@
+{
+ "sect": "ham_nguyet",
+ "people": [
+  {
+   "key": "kieu_nguyet_chau",
+   "name_hv": "Kiều Nguyệt Châu",
+   "name_han": "喬月珠",
+   "gloss": "Moon pearl",
+   "sex": "F",
+   "born": 870,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "ham_nguyet",
+   "rank": "tong_chu",
+   "home": 260,
+   "birthplace": 8,
+   "role": "Mistress of Hàm Nguyệt Trang since 1150: the moon pool, the spirit fish and the pearl beds of Hạo Nguyệt Hồ",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 78
+    },
+    "variants": {
+     "bang": 40
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 54,
+    "than_hon": 64,
+    "khi_van": 72,
+    "dao_tam": 58,
+    "mi_luc": 74
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Greedy",
+     "Gregarious"
+    ],
+    "calling": "Steward",
+    "upbringing": "clan_heir",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "frost_veined"
+    ],
+    "lifestyle": "collector",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A broad, unhurried woman with a diver's shoulders and a pearl in each ear the size of a quail's egg, who laughs before she says no.",
+   "backstory": "Kiều Nguyệt Châu was born in the shore house in 870 with frost in her root, as every child of her grandmother Kiều Băng Liên's (kieu_bang_lien) line has been since the winter of 748, when the old woman sat on the frozen pool and kept the spirit fish alive (C146). The manor has no Ice method to give her, and she has never asked the pines for one. In 942, at seventy-two, she rowed the manor's own boats out from the shore house one by one and sank them, so that Băng Tâm's raiding skiffs would find nothing to take (A013). One of those skiffs was steered by a boy of twenty, Lục Hàn Chu (luc_han_chu). She became mistress when her grandmother died in 1150 and doubled the harvest in twenty years (A015). Everyone on the lake knows how she did half of it: patient beds, better divers. The Lake Hall's tallier Phương Ngọc Sa (phuong_ngoc_sa) has spent forty years on the other half. Kiều drinks with the Lake Warden Thiều Lăng Ba (thieu_lang_ba), sends her grand-niece Kiều Hàn Nguyệt (kieu_han_nguyet) to the pines as the manor's pledge, and pays her tithe a little late every year.",
+   "wants": "To find someone who will teach her grand-niece Ice before the girl's frost goes to waste in the pines, and to keep the manor a manor, not a room of the Lake Hall.",
+   "secret": "Half of the doubled harvest comes from beds off the north shore that Băng Tâm may fish since 944 (C171). Since 1152 Lục Hàn Chu's skiffs have left them alone, and he takes one pearl in ten. That is why the manor's numbers never match the Lake Hall's.",
+   "ties": [
+    {
+     "to": "kieu_bang_lien",
+     "kind": "grandparent",
+     "note": "her grandmother and master, mistress before her"
+    },
+    {
+     "to": "lam_ham_suong",
+     "kind": "disciple",
+     "note": "her true disciple and heir, who has no frost"
+    },
+    {
+     "to": "kha_toan_chau",
+     "kind": "disciple",
+     "note": "keeps her two ledgers"
+    },
+    {
+     "to": "muc_tiem_uyen",
+     "kind": "friend",
+     "note": "the keeper of the pool; her grandmother's last disciple and her oldest quarrel"
+    },
+    {
+     "to": "kieu_han_nguyet",
+     "kind": "niece_nephew",
+     "note": "her grand-niece, the manor's pledge at the Lake Hall"
+    },
+    {
+     "to": "kieu_vong_thiem",
+     "kind": "niece_nephew",
+     "note": "the grand-nephew with no frost"
+    },
+    {
+     "to": "thieu_lang_ba",
+     "kind": "friend",
+     "note": "the Lake Warden; once a year, when she takes her pearls to the Lake Hall, they drink and count each other's numbers"
+    },
+    {
+     "to": "phuong_ngoc_sa",
+     "kind": "rival",
+     "note": "the Lake Hall's tallier, who knows the books are wrong"
+    },
+    {
+     "to": "luc_han_chu",
+     "kind": "debt",
+     "note": "the Băng Tâm skiff boy who raided her beds in 942; since 1152 his skiffs leave her north beds alone and she pays him one pearl in ten"
+    },
+    {
+     "to": "van_han_dang",
+     "kind": "friend",
+     "note": "Sương Tùng's head; ward lanterns for the beds, paid in pearl dust"
+    },
+    {
+     "to": "nghiem_linh_chi",
+     "kind": "friend",
+     "note": "pearl powder for Thải Chi's cold-sickness pills, every winter since 1150"
+    },
+    {
+     "to": "phan_tinh_ba",
+     "kind": "disciple",
+     "note": "weigher of the Shore House: the first ledger and the pearl scales at the Nguyệt Tân market"
+    }
+   ],
+   "master": "kieu_bang_lien",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "moon-holding-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "nacre-over-grit-canon",
+      "layer": 8
+     },
+     {
+      "tech": "undertow-litany",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "hn-tuyet-loc-fist-pearl"
+     },
+     {
+      "named": "hn-nacre-robe"
+     },
+     {
+      "named": "hn-frost-lotus-pin"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain and wards first, then Water damage: she fights the way she bargains, letting the other side spend itself before she throws the pearl.",
+     "targets": [
+      4907,
+      5289,
+      4940,
+      5012,
+      4978
+     ],
+     "targets_note": "The manor's Deep Pearl and Hidden Pearl, then Reflected Moon for the evade, Moon over the Tide for Water buff stacks and Joy of the Fish for linh lực: she lets the other side spend itself, then throws the pearl."
+    },
+    "note": "The pearl mistress of the moon lake: a reflection that takes the blow, nacre that wraps it, and a fist pearl to finish."
+   },
+   "items": [
+    "hn-tuyet-loc-fist-pearl",
+    "water-moon-well-pendant",
+    "hn-nacre-robe",
+    "hn-frost-lotus-pin"
+   ],
+   "changed": "home 8 -> 260 with the seat (rules R4: the halls on Trầm Bích Đàm become the seat record; 8 stays the shore house); main dia_thuy -> moon-holding-scripture (the lineage, R5); aux + nacre-over-grit-canon; gear chuong -> hn-tuyet-loc-fist-pearl; tree targets -> intent; birthplace 8 added. cross-sect pass: tie to luc_han_chu creditor -> debt: since 1152 she pays him one pearl in ten (her secret), so she is the one who owes."
+  },
+  {
+   "key": "muc_tiem_uyen",
+   "name_hv": "Mục Tiềm Uyên",
+   "name_han": "穆潛淵",
+   "gloss": "Diving into the deep pool",
+   "sex": "M",
+   "born": 990,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "ham_nguyet",
+   "rank": "truong_lao",
+   "home": 260,
+   "birthplace": 930,
+   "role": "Keeper of the moon pool and the spirit fish; the elder who lights the false moon",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 70,
+     "moc": 38
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 58,
+    "than_hon": 68,
+    "khi_van": 40,
+    "dao_tam": 72,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Reclusive",
+     "Stubborn"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "path": [
+     "beast_bonded",
+     "long_seclusion"
+    ],
+    "lifestyle": "gardener",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A thin, stooped man whose hands are always wet and whose robe smells of the pool.",
+   "backstory": "A Backwater Village boy whom Kiều Băng Liên (kieu_bang_lien) took as her last disciple in 1006 because the spirit fish came to his hand. He has kept them ever since and has lit the Moon-Fish Lantern over the pool on every dark night for a hundred and fifty years, since the freeze of 748 taught the manor what the fish need (C146). He thinks Kiều Nguyệt Châu (kieu_nguyet_chau) sells too many pearls and breeds too few fish, and he has said so at every new year for fifty years.",
+   "ties": [
+    {
+     "to": "kieu_bang_lien",
+     "kind": "master",
+     "note": "his master, dead 1150"
+    },
+    {
+     "to": "kieu_nguyet_chau",
+     "kind": "friend",
+     "note": "his mistress; they have argued about fish and pearls since 1150"
+    },
+    {
+     "to": "quach_bat_tram",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "dao_nguyet_lan",
+     "kind": "disciple",
+     "note": "the girl who will keep the fish after him"
+    },
+    {
+     "to": "dam_thiem_dang",
+     "kind": "disciple",
+     "note": "lamp-trimmer of the pool: fills and trims the shell false moon and feeds the spirit fish"
+    }
+   ],
+   "master": "kieu_bang_lien",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "moon-holding-scripture",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "nacre-over-grit-canon",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "hn-moon-fish-lantern"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 3,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 7
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Healing and linh lực regeneration; he fights beside his fish and outlasts what comes to the pool.",
+     "targets": [
+      4907,
+      5289,
+      5167,
+      5351
+     ],
+     "targets_note": "Pearl route, then Bubble Shield for the fish and Timely Rain: a keeper who outlasts."
+    },
+    "note": "A keeper, not a fighter, with a lantern that lies to fish."
+   },
+   "items": [
+    "hn-moon-fish-lantern"
+   ]
+  },
+  {
+   "key": "lam_ham_suong",
+   "name_hv": "Lam Hàm Sương",
+   "name_han": "藍含霜",
+   "gloss": "Holding frost (a name her mother hoped for)",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "ham_nguyet",
+   "rank": "chan_truyen",
+   "home": 260,
+   "birthplace": 926,
+   "role": "The mistress's true disciple and chosen heir; the first heir in four hundred years without the Kiều frost",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 64,
+     "moc": 33
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 52,
+    "than_hon": 60,
+    "khi_van": 50,
+    "dao_tam": 66,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Honest",
+     "Ambitious"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "perfect_foundation"
+    ],
+    "lifestyle": "go_player",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A tall net-maker's daughter with a calm face and ink on her fingers from Kha Toán Châu's ledgers.",
+   "backstory": "Born in Ngư Đăng Thôn, where the fishers hang lamps on their nets, and named Hàm Sương by a mother who hoped the manor would see frost in her. It saw none. Kiều Nguyệt Châu (kieu_nguyet_chau) took her anyway in 1128 and has meant her to be mistress since she laid a flawless foundation at sixty. The old shore families say a mistress of Hàm Nguyệt should carry the frost, and they look at the Kiều children. She has begun to read Kha Toán Châu's (kha_toan_chau) second ledger and does not yet understand it.",
+   "ties": [
+    {
+     "to": "kieu_nguyet_chau",
+     "kind": "master",
+     "note": "her master, who chose her over her own blood"
+    },
+    {
+     "to": "kha_toan_chau",
+     "kind": "friend",
+     "note": "he lets her read the ledgers; not all of them"
+    },
+    {
+     "to": "dinh_luu_ly",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "kieu_vong_thiem",
+     "kind": "disciple",
+     "note": "the Kiều boy she was chosen over"
+    },
+    {
+     "to": "vien_tiem_nhi",
+     "kind": "disciple",
+     "note": "inner disciple of the heir; the second-best young diver, and sure she is the first"
+    }
+   ],
+   "master": "kieu_nguyet_chau",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "moon-holding-scripture",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "undertow-litany",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water wards and the reflection first; she has not yet learned to wait as her master does.",
+     "targets": [
+      4907,
+      5289,
+      4943,
+      4940
+     ],
+     "targets_note": "Pearl route, then the Mirror Lake's Still Pond and Reflected Moon: wards and the reflection, her master's half."
+    },
+    "note": "The heir: a clean foundation and no frost."
+   }
+  },
+  {
+   "key": "kha_toan_chau",
+   "name_hv": "Kha Toán Châu",
+   "name_han": "柯算珠",
+   "gloss": "Counting pearls",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "ham_nguyet",
+   "rank": "chap_su",
+   "home": 8,
+   "birthplace": 934,
+   "role": "Steward of the shore house: the pearl ledgers, the market at Nguyệt Tân and the tithe to the pines",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "tho": 34
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 68,
+    "can_cot": 44,
+    "than_hon": 58,
+    "khi_van": 52,
+    "dao_tam": 48,
+    "mi_luc": 56
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Loyal",
+     "Deceitful"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "lifestyle": "go_player",
+    "coping": "hoarding",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A neat, small man with an abacus of pearl beads and two brushes behind one ear.",
+   "backstory": "A pearl broker's son from Nguyệt Tân Trấn who came to the manor to count and stayed to cultivate. He keeps two ledgers in the shore house: one for the Lake Hall's tallier Phương Ngọc Sa (phuong_ngoc_sa), one for Kiều Nguyệt Châu (kieu_nguyet_chau). Only he and the mistress know what the north beds pay and to whom. He sleeps with the second ledger under his pillow and has never once added it up wrong.",
+   "ties": [
+    {
+     "to": "kieu_nguyet_chau",
+     "kind": "master",
+     "note": "his mistress; he would go to the roots for her"
+    },
+    {
+     "to": "phuong_ngoc_sa",
+     "kind": "rival",
+     "note": "forty years of numbers that do not match"
+    },
+    {
+     "to": "la_tu_chau",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "lam_ham_suong",
+     "kind": "friend",
+     "note": "the heir, who has started to ask questions"
+    },
+    {
+     "to": "phan_tinh_ba",
+     "kind": "friend",
+     "note": "weigher of the Shore House: the first ledger and the pearl scales at the Nguyệt Tân market"
+    }
+   ],
+   "master": "kieu_nguyet_chau",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "moon-holding-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "tran_phap": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water wards and Earth defence; he would rather not be hit at all.",
+     "targets": [
+      4907,
+      5289,
+      5283,
+      5498
+     ],
+     "targets_note": "Pearl route, then Clam Shell and Water Ring Step: evasion and defence for a man who would rather not be hit."
+    },
+    "note": "A counter of pearls with a seal for a paperweight."
+   }
+  },
+  {
+   "key": "quach_bat_tram",
+   "name_hv": "Quách Bất Trầm",
+   "name_han": "郭不沉",
+   "gloss": "Does not sink",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "ham_nguyet",
+   "rank": "noi_mon",
+   "home": 8,
+   "birthplace": 95,
+   "role": "Chief diver of the pearl beds",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "moc": 28
+    }
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Gregarious",
+     "Indulgent"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "lifestyle": "drinker"
+   },
+   "backstory": "A Tuyết Lộc herder's son who can stay under for two incense sticks; he leads the divers on the north beds and drinks with Băng Tâm's fishers on the shore, which Mục Tiềm Uyên (muc_tiem_uyen) has told him not to do.",
+   "ties": [
+    {
+     "to": "muc_tiem_uyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "mong_loc_nhi",
+     "kind": "disciple",
+     "note": "a girl from his own village"
+    },
+    {
+     "to": "nguy_tieu_ngu",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "khong_da_hanh",
+     "kind": "friend",
+     "note": "Sương Tùng's lantern-walker"
+    },
+    {
+     "to": "dao_nguyet_lan",
+     "kind": "friend",
+     "note": "an inner-gate friend"
+    },
+    {
+     "to": "la_tieu_boi",
+     "kind": "disciple",
+     "note": "outer diver; Lã Tư Châu's cousin and his oyster-carrier"
+    },
+    {
+     "to": "mong_bach_giac",
+     "kind": "disciple",
+     "note": "outer diver from Tuyết Lộc; Mông Lộc Nhi's younger brother"
+    }
+   ],
+   "master": "muc_tiem_uyen",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "moon-holding-scripture",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "undertow-litany",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water pull and linh lực; a diver's endurance."
+    },
+    "note": "A diver's anchor on a line."
+   }
+  },
+  {
+   "key": "dao_nguyet_lan",
+   "name_hv": "Đào Nguyệt Lân",
+   "name_han": "陶月鱗",
+   "gloss": "Moon scale",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "ham_nguyet",
+   "rank": "noi_mon",
+   "home": 260,
+   "birthplace": 930,
+   "role": "Breeder of the spirit fish under the keeper of the pool",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "moc": 40
+    }
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Compassionate",
+     "Reclusive"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "path": [
+     "beast_bonded"
+    ]
+   },
+   "backstory": "From the same Backwater Village as her master Mục Tiềm Uyên (muc_tiem_uyen); she knows each of the four hundred spirit fish by its scales and has named them all after the mistresses.",
+   "ties": [
+    {
+     "to": "muc_tiem_uyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "quach_bat_tram",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "la_tu_chau",
+     "kind": "friend",
+     "note": "an inner-gate friend"
+    },
+    {
+     "to": "dam_thiem_dang",
+     "kind": "friend",
+     "note": "lamp-trimmer of the pool: fills and trims the shell false moon and feeds the spirit fish"
+    },
+    {
+     "to": "thu_anh_dam",
+     "kind": "friend",
+     "note": "inner disciple at the pool; knows the four hundred spirit fish by their dead names"
+    }
+   ],
+   "master": "muc_tiem_uyen",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "moon-holding-scripture",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Healing over time, Wood second."
+    },
+    "note": "Keeps the fish."
+   }
+  },
+  {
+   "key": "kieu_vong_thiem",
+   "name_hv": "Kiều Vọng Thiềm",
+   "name_han": "喬望蟾",
+   "gloss": "Gazing at the moon-toad (the moon)",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "ham_nguyet",
+   "rank": "ngoai_mon",
+   "home": 8,
+   "birthplace": 8,
+   "role": "Outer disciple; Kiều Hàn Nguyệt's elder brother, born without the frost",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 35
+    }
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Wrathful",
+     "Diligent"
+    ],
+    "calling": "Duelist",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "The Kiều boy who should have been heir if the frost had come to him; it went to his little sister Kiều Hàn Nguyệt (kieu_han_nguyet), and the manor sent her to the pines and gave the succession to Lam Hàm Sương (lam_ham_suong), who now teaches him.",
+   "ties": [
+    {
+     "to": "kieu_han_nguyet",
+     "kind": "sibling",
+     "note": "his younger sister, the manor's pledge"
+    },
+    {
+     "to": "kieu_nguyet_chau",
+     "kind": "aunt_uncle",
+     "note": "his great-aunt"
+    },
+    {
+     "to": "lam_ham_suong",
+     "kind": "master",
+     "note": "the heir he resents"
+    },
+    {
+     "to": "dinh_luu_ly",
+     "kind": "rival",
+     "note": "the inner girl he competes with for the heir's favour"
+    }
+   ],
+   "master": "lam_ham_suong",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "pearl-diver-breath",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water damage; he wants to win a duel, not a pearl."
+    },
+    "note": "A clan heir with nothing to inherit."
+   }
+  },
+  {
+   "key": "mong_loc_nhi",
+   "name_hv": "Mông Lộc Nhi",
+   "name_han": "蒙鹿兒",
+   "gloss": "Little deer",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "ham_nguyet",
+   "rank": "noi_mon",
+   "home": 8,
+   "birthplace": 95,
+   "role": "Diver of the north beds; descendant of the fisher who found the fist pearl",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "tho": 26
+    }
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Honest",
+     "Impatient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Her family of Tuyết Lộc herders says its grandfather of eight hundred years ago sold the manor the fist pearl for a winter's grain (A007); she dives the north beds for Quách Bất Trầm (quach_bat_tram) and has seen Băng Tâm skiffs sit on the water and not come in.",
+   "ties": [
+    {
+     "to": "quach_bat_tram",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nguy_tieu_ngu",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "cao_han_chuc",
+     "kind": "friend",
+     "note": "a north-shore boy at Sương Tùng"
+    },
+    {
+     "to": "mong_bach_giac",
+     "kind": "sibling",
+     "note": "her brother; outer diver from Tuyết Lộc; Mông Lộc Nhi's younger brother"
+    }
+   ],
+   "master": "quach_bat_tram",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "moon-holding-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water linh lực and a quick strike."
+    },
+    "note": "A diver's knife."
+   }
+  },
+  {
+   "key": "la_tu_chau",
+   "name_hv": "Lã Tư Châu",
+   "name_han": "呂思珠",
+   "gloss": "Remembering the pearls",
+   "sex": "M",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "ham_nguyet",
+   "rank": "noi_mon",
+   "home": 8,
+   "birthplace": 8,
+   "role": "Inner disciple of the shore house; wants the dead beds of Cựu Châu Trấn seeded again",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "moc": 31
+    }
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Stubborn",
+     "Content"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "lifestyle": "chronicler"
+   },
+   "backstory": "His family left Cựu Châu Trấn when the freeze killed its beds in 749 (V002), and he has spent three summers carrying young oysters back to the old town's shallows behind Kha Toán Châu's (kha_toan_chau) back.",
+   "ties": [
+    {
+     "to": "kha_toan_chau",
+     "kind": "master",
+     "note": "who does not know about the oysters"
+    },
+    {
+     "to": "dao_nguyet_lan",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "la_tieu_boi",
+     "kind": "cousin",
+     "note": "his cousin; outer diver; Lã Tư Châu's cousin and his oyster-carrier"
+    },
+    {
+     "to": "nhan_bich_thuy",
+     "kind": "friend",
+     "note": "inner disciple of the Shore House; sorts pearls at the Nguyệt Tân market"
+    }
+   ],
+   "master": "kha_toan_chau",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "moon-holding-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water healing."
+    },
+    "note": "A bucket of oysters."
+   }
+  },
+  {
+   "key": "nguy_tieu_ngu",
+   "name_hv": "Ngụy Tiểu Ngư",
+   "name_han": "魏小魚",
+   "gloss": "Little fish",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "ham_nguyet",
+   "rank": "ngoai_mon",
+   "home": 8,
+   "birthplace": 936,
+   "role": "Outer disciple and net-mender from Sái Võng Thôn",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "moc": 36
+    }
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Lazy",
+     "Generous"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A net-drying village boy who failed the pines' Wood test at the Lake Hall and walked round the shore to the manor, whose gate asks only for Water; Quách Bất Trầm (quach_bat_tram) took him for his laugh.",
+   "ties": [
+    {
+     "to": "quach_bat_tram",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "mong_loc_nhi",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "quach_bat_tram",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "pearl-diver-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water linh lực."
+    },
+    "note": "Nets and a grapnel."
+   }
+  },
+  {
+   "key": "dinh_luu_ly",
+   "name_hv": "Đinh Lưu Ly",
+   "name_han": "丁琉璃",
+   "gloss": "Glaze; clear as glass",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "ham_nguyet",
+   "rank": "noi_mon",
+   "home": 260,
+   "birthplace": 976,
+   "role": "Inner disciple of the heir; the manor's best young diver",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "moc": 30
+    }
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Calm",
+     "Faithless"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Băng Võng Thôn girl whose village nets the ice every winter; she brought Lam Hàm Sương (lam_ham_suong) a black pearl from the north beds in her first year and has been watching where the rest of them go.",
+   "ties": [
+    {
+     "to": "lam_ham_suong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "kieu_vong_thiem",
+     "kind": "rival",
+     "note": "for the heir's favour"
+    },
+    {
+     "to": "vien_tiem_nhi",
+     "kind": "rival",
+     "note": "inner disciple of the heir; the second-best young diver, and sure she is the first"
+    }
+   ],
+   "master": "lam_ham_suong",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "moon-holding-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water wards."
+    },
+    "note": "Quick eyes."
+   }
+  },
+  {
+   "key": "doi_thiem_quang",
+   "name_hv": "Đới Thiềm Quang",
+   "name_han": "戴蟾光",
+   "gloss": "The moon-toad's light (moonlight)",
+   "sex": "F",
+   "born": 290,
+   "died": 600,
+   "cause": "walked out onto the lake at the full moon and was not found, at 310",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "ham_nguyet",
+   "rank": "founder",
+   "home": 260,
+   "birthplace": 95,
+   "role": "Founder of Hàm Nguyệt Trang (410); a Tuyết Lộc diver who said the moon in the lake is easier to catch",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Patient",
+     "Content",
+     "Gregarious"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "path": [
+     "long_seclusion"
+    ]
+   },
+   "backstory": "A diver of Tuyết Lộc who grew up on the fishers' story of the man who walked over the lake into the moon (A001). She founded the manor in 410 (A006), raised its halls on piles over the still pool of Trầm Bích Đàm (N-ham_nguyet-01), and bought the fist pearl in 470 (A007). In 600 she walked out onto the lake at the full moon. The divers say she caught it.",
+   "ties": [
+    {
+     "to": "kieu_bang_lien",
+     "kind": "descendant",
+     "note": "the line of mistresses after her (lineage, not blood)"
+    }
+   ]
+  },
+  {
+   "key": "kieu_bang_lien",
+   "name_hv": "Kiều Băng Liên",
+   "name_han": "喬冰蓮",
+   "gloss": "Ice lotus (the name she was given after 748)",
+   "sex": "F",
+   "born": 650,
+   "died": 1150,
+   "cause": "died of age in the pool hall, at 500",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "ham_nguyet",
+   "rank": "last_head",
+   "home": 260,
+   "birthplace": 8,
+   "role": "Mistress of Hàm Nguyệt Trang (820-1150); kept the spirit fish alive through the freeze of 748; sank the boats in 942",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Brave",
+     "Patient"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "clan_heir",
+    "path": [
+     "frost_veined"
+    ]
+   },
+   "backstory": "In the winter of 748, when Hạo Nguyệt Hồ froze to its bed (C146), she sat on the ice over the pool for three months and fed the spirit fish the moon's reflection with the manor's method. She came back with frost in her root (N-ham_nguyet-02), and every child of her line since has carried it. She was mistress for three hundred and thirty years, ordered the boats sunk in 942 (A013), made the Nacre canon after the war, and died the year her granddaughter Kiều Nguyệt Châu (kieu_nguyet_chau) took the manor (A015).",
+   "ties": [
+    {
+     "to": "kieu_nguyet_chau",
+     "kind": "grandchild",
+     "note": "and her successor"
+    },
+    {
+     "to": "muc_tiem_uyen",
+     "kind": "disciple",
+     "note": "her last disciple"
+    },
+    {
+     "to": "doi_thiem_quang",
+     "kind": "ancestor",
+     "note": "the founder (lineage)"
+    }
+   ],
+   "changed": "fix pass A 2026-11-25: born 700 -> 650, so a death at the end of the years falls at the Kết Đan lifespan (500)"
+  }
+ ]
+}

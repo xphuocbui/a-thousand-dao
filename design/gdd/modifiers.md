@@ -5,6 +5,7 @@
 > **Last Updated**: 2026-11-11 (`ward_more` and `body_more`: defence layers on par with damage `more`, Combat Defence & Healing Formulas A0). Earlier: 2026-11-10 (#44 part 4 accepted; dampened op `D`; resistance in points; re-review fixes)
 > **Last Verified**: 2026-11-10 (confirming re-review)
 > **Implements Pillar**: Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2); Your Dao, Your Name (1)
+> **Amended 2026-11-25** (user rulings, world-depth pass: `design/world/depth/DECISIONS-2026-11-25.md` group 11; `design/world/depth/builds/engine-wishes.md`): the L4, W4 and B4 preparation sources no longer include the `own_abode` or `vein` place bonuses (the abode's case is your own laid arrays), and rule 9's form family gains `song`, `bow` and `mist`.
 > **Scope**: Modifiers only, meaning plain numbers on a stat ("+X" or "X % increased / more"), optionally narrowed by tags. Effects (conditions, scaling, triggers, conditional conversion, keystones, enablers) are a separate system with their own GDD (user decision 2026-11-07). A plain conversion share is a modifier (`convert_pct`, user decision 2026-11-08).
 > **Reference only**: `design/quick-specs/modifier-inventory.md`. This GDD is designed from scratch, and inventory entries are adopted only where they pass this design's rules.
 
@@ -120,7 +121,10 @@ system. An Effect grants modifiers from this catalogue as its payload.
 **Scope**
 
 8. **Scope narrows a modifier by required tags.** A scoped modifier applies to a thing only when every
-   scope tag is among that thing's tags (Combat rule 6). Which thing is matched depends on the stat's
+   scope tag is among that thing's tags (Combat rule 6). **`own_top_element` (new, 2026-11-25):** a placeholder scope,
+   resolved at compile to the holder's strongest owned element (ties by the element cycle order), used by traits that
+   read the person's own element (NPC Traits catalogue, One-element devotee; ruling group 12). **`creature`** (the foe
+   tag Hunter reads) stays Pending until the foe tag goes live. Which thing is matched depends on the stat's
    *target* (Stat List):
    - **outgoing hit**: damage and resistance penetration match the hit part's tags:
      its damage type and earlier types (Combat Damage Types rule 6) and the art's element, form, mode and
@@ -183,7 +187,7 @@ system. An Effect grants modifiers from this catalogue as its payload.
    |---|---|---|
    | damage type | physical, force, fire, cold, lightning, light, chaos, soul | Combat Damage Types rule 1 (replaces Combat's kind family) |
    | element | kim, moc, thuy, hoa, tho (Metal, Wood, Water, Fire, Earth) and the root variants. Art tags only: never defence | Combat rule 6; Combat Damage Types rule 2 |
-   | form | sword, palm, seal, beast, formation | Combat rule 6 |
+   | form | sword, palm, seal, beast, formation, song, bow, mist (the last three new, 2026-11-25) | Combat rule 6 |
    | mode | hit, over_time, curse, ward | Combat rule 6 |
    | source | art, artifact, talisman, formation, companion | Combat rule 6 |
    | effect | pierce, lock, poison, cleanse, escape, bleed, seal (cleanse tags, Combat revision D17) | Combat rule 6 |
@@ -198,6 +202,16 @@ system. An Effect grants modifiers from this catalogue as its payload.
    | domain | combat, cultivation, crafting, travel, social | this GDD |
 
 A tag listed in two families is one tag; its tier is the same in both.
+
+   **Form tags added 2026-11-25** (new, 2026-11-25; the depth content uses them, `design/world/depth/builds/engine-wishes.md`):
+   - `song` (new, 2026-11-25): an art played on a zither, pipe, drum or bell, including soul songs; scopes `[song]`
+     modifiers (the library bells and the music lineages' arts carry it).
+   - `bow` (new, 2026-11-25): a bow or arrow art; scopes `[bow]` modifiers (Tuần Tùng's bow arts and items, the library
+     `pinning-arrow` and `nocked-arrow`).
+   - `mist` (new, 2026-11-25): a mist art, and the mist Fields and states it lays, so a modifier or an Effect can
+     find them ("a foe's Wind art lifts your mist"; Vụ Ẩn's road-mist arts).
+   - `palm` and `seal` were already in the form family; `seal` is also an effect tag, and by the line above it is one
+     tag.
 
 10. **Derived art tags** let a modifier key off what an art is like without a condition. Combat adopted them
     (Combat revision D5, 2026-11-08): Combat owns them and assigns them when an art is compiled. The thresholds are
@@ -487,7 +501,7 @@ and are not here.
 | Damage, increased (`attack_pct`) | source: art | broad | +1.5 % | +10.0 % | Designed | 1 |
 | Damage, increased (`attack_pct`) | type: fire, cold, lightning, light, chaos | family | +1.8 % | +12.0 % | Designed | 5 |
 | Damage, increased (`attack_pct`) | element (art tag): kim, moc, thuy, hoa, tho | family | +1.8 % | +12.0 % | Designed | 5 |
-| Damage, increased (`attack_pct`) | form: sword, palm, seal, beast, formation | family | +1.8 % | +12.0 % | Designed | 5 |
+| Damage, increased (`attack_pct`) | form: sword, palm, seal, beast, formation, song, bow, mist (the last three new, 2026-11-25) | family | +1.8 % | +12.0 % | Designed | 5 |
 | Damage, increased (`attack_pct`) | source: artifact, talisman, formation, companion | family | +1.8 % | +12.0 % | Designed | 4 |
 | Damage, increased (`attack_pct`) | mode: over_time (ticks) | family | +1.8 % | +12.0 % | Designed | 1 |
 | Damage, increased (`attack_pct`) | derived: basic, quick, slow | family | +1.8 % | +12.0 % | Designed | 3 |
@@ -681,11 +695,11 @@ have no grade sizes here.
 | Modifier | Scope | Sources | Typical points | Status |
 |---|---|---|---|---|
 | Damage, more L2 (`damage_more`) | arts and their tags: damage type, element, form, art | techniques, arts, Way art nodes | 5–50 per piece; a build's typical L2 is +40, the cap 300 | Designed |
-| Damage, more L4 (`damage_more`) | preparation: formation, talisman, pill coating, ground tags | formations, talismans, pills, coatings | a build's typical L4 is +20, the cap 150 | Designed |
+| Damage, more L4 (`damage_more`) | preparation: formation, talisman, pill coating, your own laid arrays and carried ground (never the place; Combat rule 26, 2026-11-25; amended 2026-11-25, ruling group 11: the `own_abode` and `vein` place bonuses are removed, the abode's case is your own laid arrays, Combat rule 12) | formations, talismans, pills, coatings | a build's typical L4 is +20, the cap 150 | Designed |
 | Ward strength, more W2 (`ward_more`) | wards: ward kind, element, ward art | ward techniques, ward arts, Way ward nodes | 5–50 per piece; a build's typical W2 is +40, the cap 300 | Designed (2026-11-11) |
-| Ward strength, more W4 (`ward_more`) | preparation: formation, talisman, ground tags | formations, talismans | a build's typical W4 is +20, the cap 150 | Designed (2026-11-11) |
+| Ward strength, more W4 (`ward_more`) | preparation: formation, talisman, your own laid arrays and carried ground (never the place; Combat rule 26; amended 2026-11-25, ruling group 11: no `own_abode` or `vein` bonus) | formations, talismans | a build's typical W4 is +20, the cap 150 | Designed (2026-11-11) |
 | Body, more B2 (`body_more`) | — | body techniques, body arts, Way body nodes | 5–50 per piece; a typical-level thể tu is about +40, the cap 300 | Designed (2026-11-11) |
-| Body, more B4 (`body_more`) | preparation: pill, tempering, ground tags | pills, tempering | about +20 for a typical-level thể tu, the cap 150 | Designed (2026-11-11) |
+| Body, more B4 (`body_more`) | preparation: pill, tempering, your own laid arrays and carried ground (never the place; Combat rule 26; amended 2026-11-25, ruling group 11: no `own_abode` or `vein` bonus) | pills, tempering | about +20 for a typical-level thể tu, the cap 150 | Designed (2026-11-11) |
 
 **Rare.** Counts come one unit each; rare-by-row stats are sized by Formulas C from the source's budget. Only on sources whose budget covers the price (rule 13).
 
@@ -1018,6 +1032,16 @@ measures the drift first, and no deflator is applied until it has.
 | Effects System (#41) | Soft (reads this) | Effects grant catalogue modifiers; the four flag and scaling keys move there | Needs revision | Yes |
 | NPC Builds | Soft (reads this) | The same catalogue and prices | Implemented | Not yet |
 | Market (#20), Time & Turn, Realms, Spirit Herbs, Sects, Travel | Soft (read this) | Their Stat List rows; Market and Time & Turn owe keys for Pending rows | Various | Not yet (re-review MD 8) |
+
+**Back-links written 2026-11-25** (world-depth rulings, `design/world/depth/DECISIONS-2026-11-25.md`):
+- **Combat** (#21, rules 25, 26) and **Effects** (#41, rule 17): the `[companion]` scope, `timer_resist_pct` against
+  Displace and Rooted, and nine reading tags (`field` … `pinned`, Combat's Dependencies row) are owed to rule 9's
+  vocabulary; "ground tags" on L4, W4 and B4 are a side's own laid or carried ground only (since group 11: "your own
+  laid arrays and carried ground"; `own_abode` and `vein` removed, Combat Open Question 30).
+- **Combat** (#21, rule 6) owes the form tags `song`, `bow` and `mist` (rule 9, new 2026-11-25) in its own form list.
+- **Item Database** (#13, rule 22, Formulas J): set bonus lines are catalogue modifiers with source `set:<id>`.
+- **NPC Traits** (#42, F1b): v2 trait combat rows and talent tiers (`talent_tier_add` 6 / 12 / 20) are catalogue
+  modifiers on the sheet.
 
 ## Visual/Audio Requirements
 

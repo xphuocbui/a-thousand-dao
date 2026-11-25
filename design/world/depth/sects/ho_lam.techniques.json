@@ -1,0 +1,58 @@
+{
+ "sect": "ho_lam",
+ "_doc": "Hộ Lâm Đường lineage (rules-proposals R5). Re-leans Wood/Earth -> Wood/Water (R4: the seat is Wood 48 %, Water 17 %, Earth 14 %; Earth fails by one point, and the candidates are the lord's seat, its herb terraces and a fort the lord left empty). Elements Wood first, then Water: inner disciples and above hold Wood at 45 or more; the outer gate takes Wood or Water at 30. Outer gate: raft-and-root-primer (proposal, Yellow; Lục Thanh Sam's, 1162, replacing Thúy Vi's seed-and-soil-primer). Inner gate and above: verdant-cycle-scripture (existing, Profound Wood; taught by the lord's leave, as Thúy Vi teaches it to its own inner gate). Secret arts: night-beside-the-tree (proposal, Profound Wood; the rite of asking), spring-flood-raft-art (proposal, Profound Water; the raft masters). Unpriced.",
+ "lineage": {
+  "outer": "raft-and-root-primer",
+  "main": "verdant-cycle-scripture",
+  "secret": [
+   {"id": "night-beside-the-tree", "rank": "noi_mon"},
+   {"id": "spring-flood-raft-art", "rank": "chap_su", "note": "the raft masters and their crews"}
+  ],
+  "body": null,
+  "elements": ["moc", "thuy"],
+  "old_outer": "seed-and-soil-primer (Thúy Vi's; taught here 910-1162; one Earth-rooted warden still runs on it)",
+  "tree_route": [6403, 6312],
+  "tree_route_note": "Taproot (Chủ Căn) and Climbing Vine (Phan Đằng): the warden's rooted health and regeneration from a night beside the tree."
+ },
+ "techniques": [
+  {
+   "id": "raft-and-root-primer",
+   "name": "Raft-and-Root Primer (Phiệt Căn Quyết)",
+   "tier": 0, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The wardens' first method, practised on the job. A Wood root breathes with a standing tree, palm on the bark, until its slow pulse is felt. A Water root breathes with the river that will carry the tree once it is felled. Either carries a disciple through six layers. The sixth is the First Raft: the disciple rides one spirit log down from the hall to the seasoning boom at Tân Cư Thôn without letting it touch a bank.",
+   "arts": [
+    "rooted-form",
+    {"new": "Log on the Current (Mộc Tùy Lưu)", "concept": "A heavy Wood hit that Displaces the foe; if a Water stack is on you, the hit carries on and strikes the foe again at half.", "authored": "a1"}
+   ],
+   "lore": "Lục Thanh Sam wrote it in 1162, the spring after a flood took half the year's rafts (N-ho_lam-04). He replaced the Seed and Soil Primer he had learned in Thúy Vi's outer gate. 'The seed is the lord's business,' he said. 'Ours is the tree and the river.'",
+   "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "night-beside-the-tree",
+   "name": "Night Beside the Tree (Túc Thụ Quyết)",
+   "tier": 1, "tech_kind": "secret", "names": ["moc"], "layers": 9, "rank": "noi_mon",
+   "concept": "Thúy Vi's rite of asking made into a method. Before a spirit tree is felled, a warden spends a night beside it with a palm on the bark and listens until the tree's qi slows into an answer. Wardens who have sat many nights hear the whole forest this way. In a fight the holder reads where a foe is about to move, and Wood closes round the holder's allies like a grove.",
+   "arts": [
+    "second-spring",
+    {"new": "The Forest Listens (Lâm Thính)", "concept": "For 6 s your next art against each foe cannot miss, and any foe who moves while it lasts takes a Wood stack."},
+    {"new": "Bark Closes (Bì Hợp)", "concept": "Wraps you in bark for 4 s: you take 25 % less damage, heal a little each second and are Planted; your evade is 0 and you cannot be Moving.", "authored": "a1"}
+   ],
+   "lore": "The rite is older than the hall. Phùng Yên Hà set it down as a taboo at Thúy Vi: spirit wood is never felled without a night spent asking. The wardens turned the night into a method in the 920s. Mi Túc Thụ has sat more nights than anyone living, about four thousand.",
+   "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "spring-flood-raft-art",
+   "name": "Spring Flood Raft Art (Xuân Lũ Phiệt Pháp)",
+   "tier": 1, "tech_kind": "secret", "names": ["thuy"], "layers": 9, "rank": "chap_su",
+   "concept": "The raft masters' art. They ride the spring flood with a raft of spirit logs lashed together and steer it by pressing Water qi into the current ahead. In a fight it is a method of carried force: the holder rides the momentum of their own Water hits, each one faster than the last, and can throw a foe into the current to be swept off.",
+   "arts": [
+    "swelling-tide-palm",
+    {"new": "The Flood Takes It (Lũ Quyển)", "concept": "A Water hit that sweeps the foe a short way and lays 2 Slowed Time; if you have struck with Water three times in a row, it also breaks the foe's guard."}
+   ],
+   "lore": "Đằng Bích Lưu brought it from the raftsmen of Thủy Ma Thôn when she joined the hall in 960. It is why the year's wood goes down on the spring flood to the seasoning boom at Tân Cư Thôn (1101), ready for the autumn rafts to the lord's stores, and why the hall has needed Water as much as Wood since then.",
+   "status": "proposal"
+  }
+ ]
+}

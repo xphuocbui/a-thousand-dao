@@ -1,0 +1,517 @@
+{
+ "sect": "van_hac",
+ "people": [
+  {
+   "key": "phuong_tung_ban",
+   "name_hv": "Phương Tùng Bản",
+   "name_han": "方松板",
+   "gloss": "Pine board",
+   "sex": "M",
+   "born": 1125,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "van_hac",
+   "rank": "noi_mon",
+   "home": 11,
+   "birthplace": 1195,
+   "role": "Board-drier of the instrument rooms: storm-felled pine at Bích Hác Sâm for the soundboards",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "kim": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Stubborn",
+     "Reclusive"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "He dries storm-felled pine at Bích Hác Sâm for ten years before it becomes a soundboard, weighs every board into Cù Đồng Mộc's (cu_dong_moc) ledger, and asks too often when the pines' zither of 1011 is due to be restrung.",
+   "ties": [
+    {
+     "to": "cu_dong_moc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "man_ti_truc",
+     "kind": "rival",
+     "note": "strings against boards: which one makes the note"
+    },
+    {
+     "to": "thoi_luc_linh",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "cu_dong_moc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ten-thousand-ravines-zither-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Resonance from a sturdy body; plays slow and long."
+    },
+    "note": "Knocks on every board he passes."
+   }
+  },
+  {
+   "key": "tham_du_van",
+   "name_hv": "Thẩm Dư Vận",
+   "name_han": "沈餘韻",
+   "gloss": "Lingering resonance",
+   "sex": "F",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "van_hac",
+   "rank": "noi_mon",
+   "home": 11,
+   "birthplace": 107,
+   "role": "Player of the seventh movement; teaches pilgrims on the rim to listen",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 47,
+     "thuy": 25
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Loyal",
+     "Content"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "lifestyle": "qin_player"
+   },
+   "backstory": "She has played the seventh movement to the echo walls for twenty years and does not want the eighth; she laughs loudest at Khương Lạc Huyền's (khuong_lac_huyen) envoy story and thinks less of anyone who doubts it.",
+   "ties": [
+    {
+     "to": "ha_thinh_tung",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "khuong_lac_huyen",
+     "kind": "friend",
+     "note": "she believes the envoy story"
+    },
+    {
+     "to": "ton_thinh_ha",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "ha_thinh_tung",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ten-thousand-ravines-zither-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "the-monks-rest",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Resonance on everything that hears; a teacher's patience."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "thoi_luc_linh",
+   "name_hv": "Thôi Lục Linh",
+   "name_han": "崔綠鈴",
+   "gloss": "Green bell",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "van_hac",
+   "rank": "ngoai_mon",
+   "home": 11,
+   "birthplace": 167,
+   "role": "Outer student from the malachite mine; winds strings for the instrument rooms",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "moc": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Cautious"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A miner's daughter of Thạch Lục Khoáng who sang back the pines' phrase on her first try and the miners' work song on her second; Cổ Minh Thạch (co_minh_thach) walked her up from the mine.",
+   "ties": [
+    {
+     "to": "phuong_tung_ban",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "co_minh_thach",
+     "kind": "friend",
+     "note": "the other mine child"
+    }
+   ],
+   "master": "phuong_tung_ban",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "pine-wind-fingering",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Ringing Metal notes."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "manh_tieu_ca",
+   "name_hv": "Mạnh Tiều Ca",
+   "name_han": "孟樵歌",
+   "gloss": "Woodcutter's song",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "van_hac",
+   "rank": "ngoai_mon",
+   "home": 107,
+   "birthplace": 1176,
+   "role": "Outer student from the woodcutters' village of Tiều Phu",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 42,
+     "tho": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Impatient",
+     "Honest"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "He came to the academy to get out of Tiều Phu Thôn, not for the music, and plays louder than the walls answer; Khương Lạc Huyền (khuong_lac_huyen) keeps him because he reminds him of himself.",
+   "ties": [
+    {
+     "to": "khuong_lac_huyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "au_tieu_mien",
+     "kind": "friend",
+     "note": "the one his playing keeps awake"
+    }
+   ],
+   "master": "khuong_lac_huyen",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "pine-wind-fingering",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Loud Wood notes."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "ton_thinh_ha",
+   "name_hv": "Tôn Thính Hà",
+   "name_han": "孫聽霞",
+   "gloss": "Listening to the clouds at dawn",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "van_hac",
+   "rank": "noi_mon",
+   "home": 11,
+   "birthplace": 1210,
+   "role": "Inner student of the third movement; wants to be the first after the heir",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Diligent",
+     "Arrogant"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "lifestyle": "qin_player"
+   },
+   "backstory": "She sings back any phrase heard once and passed the third movement at sixteen; she counts how far behind Quan Tịch Âm (quan_tich_am) she is, and her master Thẩm Dư Vận (tham_du_van) tells her it is the wrong count.",
+   "ties": [
+    {
+     "to": "tham_du_van",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "te_tieu_van",
+     "kind": "friend",
+     "note": "the flute-player"
+    },
+    {
+     "to": "quan_tich_am",
+     "kind": "rival",
+     "note": "the heir she measures herself against"
+    }
+   ],
+   "master": "tham_du_van",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ten-thousand-ravines-zither-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Resonance, fast."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "cat_minh_huyen",
+   "name_hv": "Cát Minh Huyền",
+   "name_han": "葛鳴絃",
+   "gloss": "Ringing string",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "van_hac",
+   "rank": "noi_mon",
+   "home": 11,
+   "birthplace": 1201,
+   "role": "Inner student of the heir; tunes her zither before dawn",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 44,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Honest",
+     "Cautious"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born"
+   },
+   "backstory": "He tunes Quan Tịch Âm's (quan_tich_am) zither before dawn and has heard her stop at the end of the ninth movement every night this winter; he thinks she is resting.",
+   "ties": [
+    {
+     "to": "quan_tich_am",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "yen_to_huyen",
+     "kind": "friend",
+     "note": "his elder in the heir's room"
+    }
+   ],
+   "master": "quan_tich_am",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ten-thousand-ravines-zither-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Ringing Metal resonance."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "khuc_hanh_ca",
+   "name_hv": "Khúc Hành Ca",
+   "name_han": "曲行歌",
+   "gloss": "Marching song",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "van_hac",
+   "rank": "ngoai_mon",
+   "home": 107,
+   "birthplace": 106,
+   "role": "Outer student who drums for the marching movement",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 45,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Warlike",
+     "Loyal"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born"
+   },
+   "backstory": "He wants to march with the pines' patrols like his master Hàn Thanh Hưởng (han_thanh_huong) and has twice been reminded of the academy's one rule; Bàng Thạch Khánh (bang_thach_khanh) beats time with him on the lower terraces.",
+   "ties": [
+    {
+     "to": "han_thanh_huong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "bang_thach_khanh",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "master": "han_thanh_huong",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "pine-wind-fingering",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "co",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood notes that carry."
+    },
+    "note": ""
+   }
+  }
+ ]
+}

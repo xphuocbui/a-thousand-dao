@@ -1,0 +1,1320 @@
+{
+"_doc": "Input slice for the depth writer of nhan_tran (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "nhan_tran",
+"name": "Nhạn Trận Môn",
+"name_han": "雁陣門",
+"gloss": "Gate of the Goose Formation",
+"alignment": "chính đạo",
+"leans": [
+"Metal",
+"Earth"
+],
+"craft": "battle formations (chiến trận) for disciple squads; drills the plain's levies",
+"lord": "lac_ha",
+"region": 11,
+"seat": 367,
+"founded": 806,
+"kind": "minor"
+},
+"start_state": {
+"key": "nhan_tran",
+"name": "Nhạn Trận Môn",
+"name_han": "雁陣門",
+"gloss": "Gate of the Goose Formation",
+"kind": "minor",
+"alignment": "chinh",
+"leans": [
+"Metal",
+"Earth"
+],
+"seat": 367,
+"levels": {
+"holdings": 2,
+"institutions": 3,
+"military": 4,
+"trade": 2
+},
+"treasury": 7000,
+"founded": 806,
+"specialty": "tran_su",
+"lord": "lac_ha",
+"loyalty": 55,
+"craft": "battle formations (chiến trận) for disciple squads; drills the plain's levies",
+"region": 11,
+"leader": "muc_han_nhan"
+},
+"lord": "lac_ha",
+"vassals": [],
+"seat": {
+"id": 367,
+"name": "Nhạn Trận Môn",
+"gloss": "Gate of the Goose Formation",
+"kind": "minor_seat",
+"region": 11,
+"biome": "steppe",
+"elev_km": 0.07,
+"qi": {
+"moc": 9,
+"hoa": 16,
+"tho": 24,
+"kim": 13,
+"thuy": 38
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+"seat_audit": "## MOVE Nhạn Trận Môn (nhan_tran; leans Metal/Earth)\nSeat: Nhạn Trận Môn (id 367, minor_seat, region 11, steppe), density 0.80\nSeat qi: Metal 13%, Earth 24%\nCandidates: none in its own ground; re-lean the sect to its land, or move it to a fitting place nearby (see rules-proposals R4).\n",
+"ground": [
+{
+"id": 196,
+"name": "Tịch Chiếu Đảo",
+"gloss": "Isle of the Evening Glow",
+"kind": "island",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.05,
+"qi": {
+"moc": 14,
+"hoa": 12,
+"tho": 13,
+"kim": 12,
+"thuy": 49
+},
+"variants": {},
+"density": 1.53,
+"note": "The westernmost island, last to see the sunset of Lạc Hà"
+},
+{
+"id": 19,
+"name": "Mục Vân Trang",
+"gloss": "",
+"kind": "minor_seat",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.04,
+"qi": {
+"moc": 16,
+"hoa": 13,
+"tho": 15,
+"kim": 10,
+"thuy": 46
+},
+"variants": {},
+"density": 1.3,
+"note": ""
+},
+{
+"id": 414,
+"name": "Di Hà Trấn",
+"gloss": "Town of the Moved River",
+"kind": "ruin",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 24,
+"hoa": 15,
+"tho": 17,
+"kim": 10,
+"thuy": 33
+},
+"variants": {},
+"density": 1.2,
+"note": ""
+},
+{
+"id": 195,
+"name": "Phù Chử Đảo",
+"gloss": "Isle of the Wild Ducks",
+"kind": "island",
+"region": 11,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 17,
+"hoa": 10,
+"tho": 11,
+"kim": 10,
+"thuy": 52
+},
+"variants": {},
+"density": 1.19,
+"note": "Vương Bột: hạc đinh phù chử (crane shoals and wild-duck isles)"
+},
+{
+"id": 311,
+"name": "Triều Một Trấn",
+"gloss": "Town the Tide Took",
+"kind": "ruin",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 26,
+"hoa": 16,
+"tho": 20,
+"kim": 10,
+"thuy": 28
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 417,
+"name": "Dã Độ Trấn",
+"gloss": "Town of the Untended Ferry",
+"kind": "ruin",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 22,
+"hoa": 15,
+"tho": 17,
+"kim": 10,
+"thuy": 37
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 499,
+"name": "Ngư Hỏa Trấn",
+"gloss": "Town of the Fishing Lights",
+"kind": "ruin",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.2,
+"qi": {
+"moc": 21,
+"hoa": 16,
+"tho": 18,
+"kim": 10,
+"thuy": 35
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 416,
+"name": "Bảo Thụ Lâm",
+"gloss": "Wood of the Jewel Trees",
+"kind": "forest",
+"region": 11,
+"biome": "temperate forest",
+"elev_km": 0.1,
+"qi": {
+"moc": 35,
+"hoa": 19,
+"tho": 23,
+"kim": 10,
+"thuy": 13
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 366,
+"name": "Lạc Nhạn Hồ",
+"gloss": "Lake Where the Geese Alight",
+"kind": "lake",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 19,
+"hoa": 20,
+"tho": 30,
+"kim": 12,
+"thuy": 18
+},
+"variants": {},
+"density": 1.02,
+"note": ""
+},
+{
+"id": 270,
+"name": "Trì Vân Mạch",
+"gloss": "Vein of the Galloping Clouds",
+"kind": "spirit_vein",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.07,
+"qi": {
+"moc": 20,
+"hoa": 14,
+"tho": 16,
+"kim": 10,
+"thuy": 40
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 496,
+"name": "Phù Dao Quán",
+"gloss": "Abbey of the Whirlwind",
+"kind": "ruin",
+"region": 11,
+"biome": "steppe",
+"elev_km": 0.18,
+"qi": {
+"moc": 22,
+"hoa": 24,
+"tho": 35,
+"kim": 14,
+"thuy": 6
+},
+"variants": {},
+"density": 0.96,
+"note": ""
+},
+{
+"id": 418,
+"name": "Bạch Du Lâm",
+"gloss": "White Elm Wood",
+"kind": "forest",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.06,
+"qi": {
+"moc": 31,
+"hoa": 17,
+"tho": 21,
+"kim": 10,
+"thuy": 21
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 489,
+"name": "Hắc Thứu Đài",
+"gloss": "Black Vulture Terrace",
+"kind": "beast_lair",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.12,
+"qi": {
+"moc": 16,
+"hoa": 24,
+"tho": 36,
+"kim": 15,
+"thuy": 9
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 492,
+"name": "Liệt Mã Cương",
+"gloss": "Ridge of the Wild Stallions",
+"kind": "beast_lair",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.32,
+"qi": {
+"moc": 28,
+"hoa": 20,
+"tho": 25,
+"kim": 10,
+"thuy": 17
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 502,
+"name": "Thảo Lang Nguyên",
+"gloss": "Grass Wolf Plain",
+"kind": "beast_lair",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.29,
+"qi": {
+"moc": 27,
+"hoa": 24,
+"tho": 32,
+"kim": 12,
+"thuy": 6
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 73,
+"name": "Thanh Điền Trấn",
+"gloss": "Green Fields Town",
+"kind": "town",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 29,
+"hoa": 16,
+"tho": 19,
+"kim": 10,
+"thuy": 27
+},
+"variants": {},
+"density": 0.91,
+"note": ""
+},
+{
+"id": 129,
+"name": "Chu Tân Thôn",
+"gloss": "Boat Ford Village",
+"kind": "village",
+"region": 11,
+"biome": "grassland",
+"elev_km": -0.05,
+"qi": {
+"moc": 23,
+"hoa": 14,
+"tho": 17,
+"kim": 10,
+"thuy": 36
+},
+"variants": {},
+"density": 0.88,
+"note": ""
+},
+{
+"id": 308,
+"name": "Ôn Tân Trì",
+"gloss": "Warm Ford Pool",
+"kind": "hot_spring",
+"region": 11,
+"biome": "grassland",
+"elev_km": -0.01,
+"qi": {
+"moc": 26,
+"hoa": 15,
+"tho": 17,
+"kim": 10,
+"thuy": 32
+},
+"variants": {},
+"density": 0.87,
+"note": ""
+},
+{
+"id": 498,
+"name": "Thán Ổ Thôn",
+"gloss": "Charcoal Hollow Village",
+"kind": "village",
+"region": 11,
+"biome": "temperate forest",
+"elev_km": 0.09,
+"qi": {
+"moc": 29,
+"hoa": 21,
+"tho": 29,
+"kim": 12,
+"thuy": 9
+},
+"variants": {},
+"density": 0.87,
+"note": ""
+},
+{
+"id": 307,
+"name": "Yến Ngữ Thang",
+"gloss": "Spring of Swallow Chatter",
+"kind": "hot_spring",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 29,
+"hoa": 14,
+"tho": 17,
+"kim": 10,
+"thuy": 30
+},
+"variants": {},
+"density": 0.86,
+"note": ""
+},
+{
+"id": 309,
+"name": "Hàn Thú Thang",
+"gloss": "Spring of the Cold Watch",
+"kind": "hot_spring",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.08,
+"qi": {
+"moc": 32,
+"hoa": 18,
+"tho": 22,
+"kim": 10,
+"thuy": 17
+},
+"variants": {},
+"density": 0.86,
+"note": ""
+},
+{
+"id": 310,
+"name": "Hàm Thủy Thang",
+"gloss": "Brine Spring",
+"kind": "hot_spring",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 32,
+"hoa": 19,
+"tho": 24,
+"kim": 10,
+"thuy": 14
+},
+"variants": {},
+"density": 0.86,
+"note": ""
+},
+{
+"id": 367,
+"name": "Nhạn Trận Môn",
+"gloss": "Gate of the Goose Formation",
+"kind": "minor_seat",
+"region": 11,
+"biome": "steppe",
+"elev_km": 0.07,
+"qi": {
+"moc": 9,
+"hoa": 16,
+"tho": 24,
+"kim": 13,
+"thuy": 38
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 501,
+"name": "Di Tân Trấn",
+"gloss": "Town of the Crowded Ford",
+"kind": "town",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.04,
+"qi": {
+"moc": 21,
+"hoa": 15,
+"tho": 17,
+"kim": 10,
+"thuy": 36
+},
+"variants": {},
+"density": 0.77,
+"note": ""
+},
+{
+"id": 483,
+"name": "Ẩm Câu Tuyền",
+"gloss": "Spring of the Drinking Colts",
+"kind": "hot_spring",
+"region": 11,
+"biome": "steppe",
+"elev_km": 0.12,
+"qi": {
+"moc": 20,
+"hoa": 22,
+"tho": 31,
+"kim": 13,
+"thuy": 14
+},
+"variants": {},
+"density": 0.77,
+"note": ""
+},
+{
+"id": 74,
+"name": "Thảo Đường Thành",
+"gloss": "Grass Pond City",
+"kind": "city",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 26,
+"hoa": 16,
+"tho": 19,
+"kim": 10,
+"thuy": 29
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 128,
+"name": "Yến Quy Thôn",
+"gloss": "Swallows' Return Village",
+"kind": "village",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 24,
+"hoa": 14,
+"tho": 16,
+"kim": 10,
+"thuy": 36
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 130,
+"name": "Lô Cảng Thôn",
+"gloss": "Reed Harbour Village",
+"kind": "village",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 26,
+"hoa": 16,
+"tho": 19,
+"kim": 10,
+"thuy": 29
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 131,
+"name": "Diêm Điền Thôn",
+"gloss": "Salt Pans Village",
+"kind": "village",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 30,
+"hoa": 19,
+"tho": 23,
+"kim": 11,
+"thuy": 18
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 488,
+"name": "Song Tỉnh Thôn",
+"gloss": "Twin Wells Village",
+"kind": "village",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.07,
+"qi": {
+"moc": 14,
+"hoa": 25,
+"tho": 40,
+"kim": 16,
+"thuy": 5
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 495,
+"name": "Hòa Lũng Thôn",
+"gloss": "Rice Ridge Village",
+"kind": "village",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 22,
+"hoa": 20,
+"tho": 25,
+"kim": 11,
+"thuy": 22
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 503,
+"name": "Mục Địch Thôn",
+"gloss": "Herdsman's Flute Village",
+"kind": "village",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.18,
+"qi": {
+"moc": 25,
+"hoa": 24,
+"tho": 33,
+"kim": 12,
+"thuy": 6
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 505,
+"name": "Phùng Nghênh Trấn",
+"gloss": "Town of Welcomes",
+"kind": "town",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.04,
+"qi": {
+"moc": 18,
+"hoa": 17,
+"tho": 20,
+"kim": 11,
+"thuy": 34
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 75,
+"name": "Ngư Lương Trấn",
+"gloss": "Fish Weir Town",
+"kind": "town",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 28,
+"hoa": 15,
+"tho": 17,
+"kim": 10,
+"thuy": 30
+},
+"variants": {},
+"density": 0.74,
+"note": ""
+},
+{
+"id": 127,
+"name": "Điền Viên Thôn",
+"gloss": "Fields and Gardens Village",
+"kind": "village",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 22,
+"hoa": 14,
+"tho": 16,
+"kim": 10,
+"thuy": 38
+},
+"variants": {},
+"density": 0.74,
+"note": ""
+},
+{
+"id": 490,
+"name": "Vãn Chu Thôn",
+"gloss": "Evening Boat Village",
+"kind": "village",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 14,
+"hoa": 18,
+"tho": 25,
+"kim": 13,
+"thuy": 30
+},
+"variants": {},
+"density": 0.74,
+"note": ""
+},
+{
+"id": 500,
+"name": "Thanh Vân Mạch",
+"gloss": "Vein of the Blue Clouds",
+"kind": "spirit_vein",
+"region": 11,
+"biome": "temperate forest",
+"elev_km": 0.43,
+"qi": {
+"moc": 31,
+"hoa": 21,
+"tho": 26,
+"kim": 10,
+"thuy": 11
+},
+"variants": {},
+"density": 0.74,
+"note": ""
+},
+{
+"id": 415,
+"name": "Thanh Miêu Mạch",
+"gloss": "Vein of the Green Sprouts",
+"kind": "spirit_vein",
+"region": 11,
+"biome": "temperate forest",
+"elev_km": 0.07,
+"qi": {
+"moc": 39,
+"hoa": 17,
+"tho": 21,
+"kim": 10,
+"thuy": 13
+},
+"variants": {},
+"density": 0.73,
+"note": ""
+},
+{
+"id": 306,
+"name": "Ẩn Canh Mạch",
+"gloss": "Vein of the Hidden Ploughman",
+"kind": "spirit_vein",
+"region": 11,
+"biome": "temperate forest",
+"elev_km": 0.03,
+"qi": {
+"moc": 28,
+"hoa": 15,
+"tho": 17,
+"kim": 10,
+"thuy": 30
+},
+"variants": {},
+"density": 0.73,
+"note": ""
+},
+{
+"id": 38,
+"name": "Nhạn Thanh Thành",
+"gloss": "City of the Wild Geese's Cry",
+"kind": "city",
+"region": 11,
+"biome": "steppe",
+"elev_km": 0.0,
+"qi": {
+"moc": 17,
+"hoa": 15,
+"tho": 23,
+"kim": 11,
+"thuy": 34
+},
+"variants": {},
+"density": 0.71,
+"note": "Vương Bột: nhạn trận kinh hàn (the wild geese in formation, startled by the cold)"
+},
+{
+"id": 484,
+"name": "Bạch Thảo Thôn",
+"gloss": "White Grass Village",
+"kind": "village",
+"region": 11,
+"biome": "steppe",
+"elev_km": 0.01,
+"qi": {
+"moc": 14,
+"hoa": 18,
+"tho": 26,
+"kim": 13,
+"thuy": 30
+},
+"variants": {},
+"density": 0.66,
+"note": ""
+},
+{
+"id": 493,
+"name": "Bình Sa Thôn",
+"gloss": "Level Sands Village",
+"kind": "village",
+"region": 11,
+"biome": "steppe",
+"elev_km": -0.02,
+"qi": {
+"moc": 20,
+"hoa": 16,
+"tho": 19,
+"kim": 10,
+"thuy": 34
+},
+"variants": {},
+"density": 0.66,
+"note": ""
+},
+{
+"id": 486,
+"name": "Thanh Phong Trấn",
+"gloss": "Clear Breeze Town",
+"kind": "town",
+"region": 11,
+"biome": "steppe",
+"elev_km": 0.01,
+"qi": {
+"moc": 15,
+"hoa": 19,
+"tho": 26,
+"kim": 13,
+"thuy": 28
+},
+"variants": {},
+"density": 0.66,
+"note": ""
+},
+{
+"id": 491,
+"name": "Chung Phàm Trấn",
+"gloss": "Town of the Last Sail",
+"kind": "town",
+"region": 11,
+"biome": "steppe",
+"elev_km": 0.1,
+"qi": {
+"moc": 10,
+"hoa": 11,
+"tho": 11,
+"kim": 10,
+"thuy": 58
+},
+"variants": {},
+"density": 0.66,
+"note": ""
+},
+{
+"id": 485,
+"name": "Nhất Sắc Mạch",
+"gloss": "Vein of the One Colour",
+"kind": "spirit_vein",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 20,
+"hoa": 22,
+"tho": 32,
+"kim": 13,
+"thuy": 13
+},
+"variants": {},
+"density": 0.62,
+"note": ""
+},
+{
+"id": 494,
+"name": "Bình Vu Mạch",
+"gloss": "Vein of the Level Grass",
+"kind": "spirit_vein",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.12,
+"qi": {
+"moc": 29,
+"hoa": 24,
+"tho": 29,
+"kim": 11,
+"thuy": 7
+},
+"variants": {},
+"density": 0.62,
+"note": ""
+},
+{
+"id": 504,
+"name": "Trường Phong Mạch",
+"gloss": "Vein of the Long Wind",
+"kind": "spirit_vein",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.22,
+"qi": {
+"moc": 23,
+"hoa": 20,
+"tho": 25,
+"kim": 11,
+"thuy": 21
+},
+"variants": {},
+"density": 0.62,
+"note": ""
+},
+{
+"id": 487,
+"name": "Khoáng Dã Mạch",
+"gloss": "Vein of the Open Wilds",
+"kind": "spirit_vein",
+"region": 11,
+"biome": "steppe",
+"elev_km": 0.22,
+"qi": {
+"moc": 13,
+"hoa": 25,
+"tho": 41,
+"kim": 16,
+"thuy": 5
+},
+"variants": {},
+"density": 0.53,
+"note": ""
+},
+{
+"id": 497,
+"name": "Thiên Cao Mạch",
+"gloss": "Vein of the High Heaven",
+"kind": "spirit_vein",
+"region": 11,
+"biome": "steppe",
+"elev_km": 0.2,
+"qi": {
+"moc": 24,
+"hoa": 23,
+"tho": 33,
+"kim": 13,
+"thuy": 7
+},
+"variants": {},
+"density": 0.52,
+"note": ""
+}
+],
+"ground_place_count": 49,
+"events": [
+{
+"id": "A159",
+"tier": "annal",
+"year": 200,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Salt pans dug at Diêm Điền on the west coast make the continent's first sea salt.",
+"place": 131,
+"region": 11
+},
+{
+"id": "A160",
+"tier": "annal",
+"year": 300,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Swallows return to the same farm every spring for a hundred years; the village becomes Yến Quy.",
+"place": 128,
+"region": 11
+},
+{
+"id": "A161",
+"tier": "annal",
+"year": 430,
+"kind": "settlement",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà's rule brings fishing weirs to the plain's rivers; Ngư Lương Trấn grows around the largest.",
+"place": 75,
+"region": 11
+},
+{
+"id": "C092",
+"tier": "landmark",
+"year": 450,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà Tông founds Nhạn Thanh Thành on the western plain, where the wild geese fly in formation.",
+"place": 38
+},
+{
+"id": "A162",
+"tier": "annal",
+"year": 470,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Wild ducks crowd the isle of Phù Chử so thickly that boats must wait for them to move.",
+"place": 195,
+"region": 11
+},
+{
+"id": "A163",
+"tier": "annal",
+"year": 520,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "A ford on the plain's widest river becomes Chu Tân Thôn.",
+"place": 129,
+"region": 11
+},
+{
+"id": "A164",
+"tier": "annal",
+"year": 600,
+"kind": "tale",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "The westernmost island, Tịch Chiếu, is the last land to see the sunset; Lạc Hà's elders go there to die.",
+"place": 196,
+"region": 11
+},
+{
+"id": "A165",
+"tier": "annal",
+"year": 680,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The green fields around Thanh Điền stretch so far that its farmers ride to their work.",
+"place": 73,
+"region": 11
+},
+{
+"id": "C137",
+"tier": "landmark",
+"year": 680,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà Tông founds Thảo Đường Thành among the farms of the western plain.",
+"place": 74
+},
+{
+"id": "V094",
+"tier": "annal",
+"year": 712,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "Its ferrymen drawn away by the trade of Thảo Đường Thành, the landing of Dã Độ Trấn silts up, and only the ferry boat is left.",
+"place": 417,
+"region": 11
+},
+{
+"id": "A166",
+"tier": "annal",
+"year": 740,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"muc_van",
+"lac_ha"
+],
+"text_en": "Herders of the open plain found Mục Vân Trang to raise spirit horses that run like clouds.",
+"place": 19,
+"region": 11
+},
+{
+"id": "A167",
+"tier": "annal",
+"year": 800,
+"kind": "settlement",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "A reed harbour at Lô Cảng shelters the coast boats; Lạc Hà builds its western watch there.",
+"place": 130,
+"region": 11
+},
+{
+"id": "V095",
+"tier": "annal",
+"year": 803,
+"kind": "festival",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "In the year of Chiết Kích Nguyên the fishers of Vãn Chu Thôn stay ashore at dusk; they still stay ashore on that dusk every year.",
+"place": 490,
+"region": 11
+},
+{
+"id": "V096",
+"tier": "annal",
+"year": 806,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"nhan_tran",
+"lac_ha"
+],
+"text_en": "Survivors of Chiết Kích Nguyên found Nhạn Trận Môn under Lạc Hà Tông, swearing its disciples will never again fight in loose order.",
+"place": 367,
+"region": 11
+},
+{
+"id": "V097",
+"tier": "annal",
+"year": 860,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "The river has wandered away from Di Hà Trấn; its quay faces only grass, and the last boatmen leave.",
+"place": 414,
+"region": 11
+},
+{
+"id": "V098",
+"tier": "annal",
+"year": 870,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "A great storm breaks the sea wall of Ngư Hỏa Trấn and sinks its lamp-fishing fleet in the harbour; the survivors move to Di Tân.",
+"place": 499,
+"region": 11
+},
+{
+"id": "A168",
+"tier": "annal",
+"year": 890,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The gardens and fields of Điền Viên feed the scholars of Nhạn Thanh Thành, who retire there to farm.",
+"place": 127,
+"region": 11
+},
+{
+"id": "A169",
+"tier": "annal",
+"year": 940,
+"kind": "birth",
+"people": [
+"khau_muc_van"
+],
+"sects": [],
+"text_en": "Khấu Mục Vân is born in Thanh Điền; a spirit foal is born the same night and will let no one else ride it.",
+"place": 73,
+"region": 11
+},
+{
+"id": "V099",
+"tier": "annal",
+"year": 988,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "A storm surge breaks the sea wall of Triều Một Trấn and drowns its lower streets; the salt traders move up the coast to Diêm Điền.",
+"place": 311,
+"region": 11
+},
+{
+"id": "A170",
+"tier": "annal",
+"year": 1040,
+"kind": "trade",
+"people": [
+"kim_van_ly"
+],
+"sects": [],
+"text_en": "Kim Vạn Lý buys the wool of the whole plain in one season and becomes the richest merchant of the west.",
+"place": 38,
+"region": 11
+},
+{
+"id": "A171",
+"tier": "annal",
+"year": 1120,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Wild geese fly so low over Nhạn Thanh Thành in a cold year that archers shoot them from the walls; the city forbids it ever after.",
+"place": 38,
+"region": 11
+},
+{
+"id": "V100",
+"tier": "annal",
+"year": 1121,
+"kind": "tale",
+"people": [],
+"sects": [
+"lac_ha",
+"muc_van"
+],
+"text_en": "The cold year has killed the herds and the old master of Phù Dao Quán, and its few disciples go to serve Mục Vân Trang.",
+"place": 496,
+"region": 11
+},
+{
+"id": "A172",
+"tier": "annal",
+"year": 1185,
+"kind": "festival",
+"people": [
+"kim_van_ly"
+],
+"sects": [
+"muc_van",
+"lac_ha"
+],
+"text_en": "Mục Vân Trang's horses win every race at the Lạc Hà festival; Kim Vạn Lý bets on them and loses anyway.",
+"place": 19,
+"region": 11
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "muc_han_nhan",
+"name": "Mục Hàn Nhạn",
+"name_han": "穆寒雁",
+"gloss": "Wild geese in the cold",
+"sex": "M",
+"born": 900,
+"alive": true,
+"sect": "nhan_tran",
+"rank": "tong_chu",
+"role": "Head of Nhạn Trận Môn, battle formations for disciple squads; drills the plain's levies every spring",
+"realm": "ket_dan",
+"home": 367,
+"traits": {
+"personality": [
+"Diligent",
+"Loyal",
+"Cautious"
+],
+"calling": "Strategist",
+"fate_given": []
+},
+"vassal_of": "lac_ha"
+}
+],
+"legendary_items": []
+}

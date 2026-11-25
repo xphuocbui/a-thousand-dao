@@ -1,0 +1,210 @@
+{
+ "sect": "trac_anh",
+ "_doc": "Trạc Anh Đài signature items (rules-proposals R7). Unpriced proposals; modifier sizes follow the body and water catalogues' grade 3 items.",
+ "items": [
+  {
+   "id": "ta-canglang-harpoon",
+   "name": "Canglang Harpoon (Thương Lãng Lao)",
+   "family": "body",
+   "kind": "artifact",
+   "base": "mao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "crit_damage_pct",
+     "value": 20,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "the-line-holds",
+     "name": "The Line Holds (Tác Bất Đoạn)",
+     "rule": "While a target is pinned by your Whale-Line Harpoon, your hits on it heal you for 3 % of the damage dealt."
+    }
+   ],
+   "lore": "The founder's harpoon, its line woven from the sinew of the first whale Trạc Anh Đài ever took (830). Đoàn Thanh Lãng has carried it since 1080 and never thrown it at a man.",
+   "build_use": "The sea hunter's pin-and-drag: physical damage, longer pins, sustain on a pinned foe.",
+   "holder": "doan_thanh_lang",
+   "made_by": "khuat_thanh_anh",
+   "made_year": 830,
+   "set": "ta-old-ivory-hunt",
+   "status": "proposal"
+  },
+  {
+   "id": "ta-white-whale-coat",
+   "name": "Coat of the Old Ivory (Lão Nha Kình Bì Giáp)",
+   "family": "body",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "body_shield_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Cut from a strip of hide the white whale the hunters call the Old Ivory left on the harpoon the night it took the founder (1080). Đoàn wears it to remember which whale he owes.",
+   "build_use": "A body cultivator's long fight in cold water: health, shield, regeneration.",
+   "holder": "doan_thanh_lang",
+   "made_by": "doan_thanh_lang",
+   "made_year": 1081,
+   "set": "ta-old-ivory-hunt",
+   "status": "proposal"
+  },
+  {
+   "id": "ta-goose-bone-beads",
+   "name": "Roosting Geese Beads (Tê Nhạn Châu)",
+   "family": "body",
+   "kind": "treasure",
+   "base": "ngoc_boi",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "attack_pct",
+     "value": 10,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "One hundred and eight beads of marsh-goose bone, the prayer string of the last abbot of Tê Nhạn Quán, who brought his disciples to the terrace in 1095 (V086).",
+   "build_use": "The palm monk's rhythm: steadier linh lực for the Hundred Echo Palm.",
+   "holder": "phi_nhan_tam",
+   "made_by": "chung_quy_nhan",
+   "made_year": 900,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "ta-sworn-ice-ring",
+   "name": "Sworn-Ice Ring (Thệ Băng Giới)",
+   "family": "body",
+   "kind": "artifact",
+   "base": "nhan",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 10,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "An iron ring set with a chip of the river ice he went through at sixteen; Thẩm Hàn Giang cut it out of the hole the night he pulled him out.",
+   "build_use": "A hunter's ring: weight on the line and the health to hold it.",
+   "holder": "doan_thanh_lang",
+   "made_by": "tham_han_giang",
+   "made_year": 1006,
+   "set": "ta-old-ivory-hunt",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "ta-old-ivory-hunt",
+   "name": "Old Ivory Hunt (Lão Nha Liệp)",
+   "pieces": [
+    "ta-canglang-harpoon",
+    "ta-white-whale-coat",
+    "ta-sworn-ice-ring"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "khi_huyet_pct",
+       "value": 6,
+       "scope": []
+      },
+      {
+       "key": "attack_pct",
+       "value": 6,
+       "scope": [
+        "physical"
+       ]
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Drag It to the Ice (Duệ Thượng Băng): a foe pinned by your harpoon cannot leave the line; each second it stays on it you heal 1 % of your health and it takes 4 % more Physical damage from you; the bonus lasts while the pin holds and is lost when it ends."
+    }
+   ],
+   "story": "The founder's harpoon, the coat cut from the strip of hide the Old Ivory left on it, and his sworn brother's ring. Đoàn wears all three on every hunt; he says he will take them off when the whale is dead."
+  }
+ ]
+}

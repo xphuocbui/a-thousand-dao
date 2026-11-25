@@ -1,0 +1,1583 @@
+{
+ "sect": "thinh_vu",
+ "_doc": "Thính Vũ Lâu signature items and sets (rules-proposals R7; design/items record). Unpriced proposals: modifier sizes follow the metal, thunder and water catalogues' grade 3-4 items. Effects are hand-written rules, unpriced. Prefix tvl- (Thính Vũ Lâu), because tv- is already Thúy Vi's. Gaps: there is no umbrella base (the Tương Phi Tán uses thuan, the nearest ward gear) and no scope tag for Thunder stacks on items (the catalogue uses lightning for damage), so Thunder stack edges are written as effects.",
+ "items": [
+  {
+   "id": "tvl-tuong-phi-tan",
+   "name": "Spotted-Bamboo Umbrella (Tương Phi Tán)",
+   "family": "water",
+   "kind": "treasure",
+   "base": "phi_kiem",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 150,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "under-the-umbrella",
+     "name": "Under the Umbrella (Tán Hạ)",
+     "rule": "While the umbrella is open, the first Lightning hit each 10 s that would strike you or an ally beside you runs off its rim instead, and you gain linh lực equal to a tenth of the damage it would have dealt."
+    }
+   ],
+   "lore": "Spotted bamboo from Tương Phi Đảo and oiled paper, made for Phó Tiêu Tương in 380 (legendary tuong_phi_tan). The spots on the ribs are said to be tears. Mạnh Dạ Vũ took it in 880 (C164) and proclaimed the Night Rain Edict under it in 905 (C167). On the ridge it is the only thing the lightning will not touch. Its spotted-bamboo spine sheathes a blade as thin as a rib, the blade his master never drew: the umbrella's rule stands while it is open, and the blade is drawn for the one cut.",
+   "build_use": "The head's guard: defence, evasion and linh lực, and the umbrella turns the Thunder that his own root cannot hold; the blade in its spine is his one late cut (a flying sword, base phi_kiem).",
+   "holder": "manh_da_vu",
+   "made_by": "pho_tieu_tuong",
+   "made_year": 380,
+   "set": "tvl-night-rain-regalia",
+   "legendary_key": "tuong_phi_tan",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-night-rain-seal",
+   "name": "Seal of the Night Rain Edict (Dạ Vũ Lệnh Ấn)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "an",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "kim"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "kim"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 20,
+     "scope": [
+      "kim",
+      "debuff"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": [
+      "curse"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Black iron from Tử Kim Khoáng (178), cut in 905 for the Edict. Its face reads 雨不擇屋, the rain does not choose the roof. Every guest who came at the Edict signed under its stamp (C196).",
+   "build_use": "The head's offence: Metal damage and longer Metal debuffs.",
+   "holder": "manh_da_vu",
+   "made_by": "manh_da_vu",
+   "made_year": 905,
+   "set": "tvl-night-rain-regalia",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-founders-rain-chain",
+   "name": "The Founder's Rain-Chain (Tổ Sư Vũ Liên)",
+   "family": "metal",
+   "kind": "treasure",
+   "base": "loi_truong",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "resist_pct",
+     "value": 200,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "nine-cups",
+     "name": "Nine Cups (Cửu Bôi)",
+     "rule": "Each time you are hit, one of nine bronze cups fills. When all nine are full, your next art is cast at once and costs no linh lực, and the cups empty."
+    }
+   ],
+   "lore": "Nine bronze cups on a chain, the first rain-chain, hung by the founder from the eaves of her tower on the cone in 380 (N-thinh_vu-01). It has never been taken down. Quan Vũ Thanh wears its spare links at her belt and calls the chain itself hers to keep, not to carry. The Tower says the chain is where the founder listens.",
+   "build_use": "The first elder's sustain and her claim: the third piece of the Regalia.",
+   "holder": "quan_vu_thanh",
+   "made_by": "pho_tieu_tuong",
+   "made_year": 380,
+   "set": "tvl-night-rain-regalia",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-soul-vault-lamp",
+   "name": "Lamp of the Soul Vaults (Hồn Khố Đăng)",
+   "family": "soul",
+   "kind": "artifact",
+   "base": "dang",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 18,
+     "scope": [
+      "soul"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 20,
+     "scope": [
+      "curse"
+     ]
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": [
+      "lightning"
+     ]
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "every-lamp-has-a-name",
+     "name": "Every Lamp Has a Name (Đăng Đăng Hữu Danh)",
+     "rule": "A foe you have cursed cannot hide: concealment and evasion do not work against your arts while your curse is on them, and each time it ticks they lose a little linh lực to you."
+    }
+   ],
+   "lore": "The master lamp of the soul vaults, the only lamps the Tower has lit since 906 (A274). One small lamp burns in the vaults for every sworn member, holding a thread of their soul. This one burns for all of them. Lệ Tiêu Hồn's father made the bronze in Thanh Đăng Trấn before the lamp-makers left (V148).",
+   "build_use": "The vault master's curses, with soul damage and sight.",
+   "holder": "le_tieu_hon",
+   "made_by": "le_tieu_hon",
+   "made_year": 1010,
+   "set": "tvl-soul-vault-pair",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-snuffing-shears",
+   "name": "Wick Shears of the Vaults (Hồn Khố Tiễn)",
+   "family": "soul",
+   "kind": "artifact",
+   "base": "cham",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "soul"
+     ]
+    },
+    {
+     "key": "pierce_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 14,
+     "scope": [
+      "curse"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Bronze wick shears from the same casting as the master lamp. The vault keeper trims every life lamp with them on the first night of each month.",
+   "build_use": "The keeper's needles: soul damage and curses at range.",
+   "holder": "ninh_tich_dang",
+   "made_by": "le_tieu_hon",
+   "made_year": 1010,
+   "set": "tvl-soul-vault-pair",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-night-far-gone",
+   "name": "Dạ Lan, the Sword of the Late Night (Dạ Lan Kiếm)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 22,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "crit_damage_pct",
+     "value": 30,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "pierce_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "never-the-second-cut",
+     "name": "No Second Cut (Bất Nhị Kiếm)",
+     "rule": "Your first sword hit on each foe in a fight is a guaranteed crit and pierces their guard; your later hits on that foe deal a little less."
+    }
+   ],
+   "lore": "Forged at Kinh Điện Khoáng in a storm in 656 by Cố Dạ Lan's father, the year she left home, and named for her. It has been drawn in four hundred duels and has never been drawn twice in one.",
+   "build_use": "The war elder's sword: one cut, very hard.",
+   "holder": "co_da_lan",
+   "made_by": "co_da_lan",
+   "made_year": 656,
+   "set": "tvl-dalan-suite",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-glass-flying-sword",
+   "name": "Coloured-Glass Flying Sword (Lưu Ly Phi Kiếm)",
+   "family": "thunder",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 8,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "crit_damage_pct",
+     "value": 30,
+     "scope": [
+      "lightning"
+     ]
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "glass-rings",
+     "name": "Glass Rings (Lưu Ly Minh)",
+     "rule": "When this sword is used as a lightning rod, the bolt it draws strikes twice, and you take a twentieth of your health as Lightning damage each time."
+    }
+   ],
+   "lore": "Thunder-glass from Tử Tinh Khoáng's amethyst seams, made by Thạch Liên Hoàn in 1150 to Mạnh Lưu Ly's drawing. It is thin enough to see through and it hums before a storm. Her mother told her it was too fragile; she has broken it twice and had it remade.",
+   "build_use": "Speed and Lightning crits for a disciple with no defence.",
+   "holder": "manh_luu_ly",
+   "made_by": "thach_lien_hoan",
+   "made_year": 1150,
+   "set": "tvl-glass-storm",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-eaves-listening-bell",
+   "name": "Bell Under the Eaves (Thính Diêm Linh)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "chuong",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "evade_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "the-bell-hears-first",
+     "name": "The Bell Hears First (Linh Tiên Văn)",
+     "rule": "An ambush cannot surprise you: an unseen foe is revealed when they come within reach, and your first art against them is cast at once."
+    }
+   ],
+   "lore": "A small bronze bell that rings only when someone is listening at a door. Cast by Ân Thanh Linh of Vũ Linh Đường for the Nhiếp family in 1030, a hundred years after her school was founded on the bells it cast for the Tower (V149).",
+   "build_use": "The spymaster's ward: sight, evasion and no surprises.",
+   "holder": "nhiep_vo_thanh",
+   "made_by": "an_thanh_linh",
+   "made_year": 1030,
+   "set": "tvl-hall-of-echoes",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-gate-drumstick",
+   "name": "Drumstick of the Gate (Khải Lôi Cổ Chùy)",
+   "family": "thunder",
+   "kind": "treasure",
+   "base": "loi_truong",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 150,
+     "scope": [
+      "lightning"
+     ]
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "it-hums",
+     "name": "It Hums (Chùy Minh)",
+     "rule": "Each Thunder stack you apply also gives you one charge, and each charge fades after 4 s. At four or more, your next Thunder art spends them all, sounds like a drum and stuns the foe for half a second, and a tenth of a second longer for each charge past four."
+    }
+   ],
+   "lore": "A drumstick of thunder-struck peach wood, kept by a miner's family at Tử Tinh Khoáng for seven hundred years and said to be Hầu Xuân Lôi's. It hums near the sealed realm (C035). Hầu Vọng Xuân has carried it since 1092.",
+   "build_use": "Thunder damage and the claim of Khải Lôi's blood.",
+   "holder": "hau_vong_xuan",
+   "made_by": "khai_loi",
+   "made_year": 300,
+   "set": "tvl-gate-drum",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-storm-forge-hammer",
+   "name": "Storm-Forge Hammer (Lôi Lô Chùy)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "phu",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "crit_damage_pct",
+     "value": 30,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "lightning"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "Khải Lôi's smiths forged in the storm at Kinh Điện (A281). This is one of their hammers, found in the mine's spoil in 1001 and rehafted by Thạch Liên Hoàn.",
+   "build_use": "The forge master's weapon when he must have one.",
+   "holder": "thach_lien_hoan",
+   "made_by": "khai_loi",
+   "made_year": 240,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-night-market-abacus",
+   "name": "Abacus of the Night Market (Dạ Thị Toán Bàn)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "tien_tieu",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "kim"
+     ]
+    },
+    {
+     "key": "khi_van",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "accuracy_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Black iron beads on bronze rods; Kiều Mãn Lâu throws the beads as coins when an argument goes badly. Made for the opening of the Night Rain Market in 1000 (C198).",
+   "build_use": "A merchant's thrown weapon and his luck.",
+   "holder": "kieu_man_lau",
+   "made_by": "thach_lien_hoan",
+   "made_year": 1000,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-umbrella-bearer-sword",
+   "name": "Umbrella-Bearer's Sword (Chấp Tán Kiếm)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 18,
+     "scope": [
+      "thuy",
+      "buff"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "A long, light sword the founder gave the girl who carried her umbrella onto the plain at Chiết Kích Nguyên (C017). Quan Vũ Thanh has drawn it in anger twice in four hundred years.",
+   "build_use": "A patient rain sword: linh lực back, evasion and Water buff stacks to spend on the late cut.",
+   "holder": "quan_vu_thanh",
+   "made_by": "pho_tieu_tuong",
+   "made_year": 803,
+   "set": "tvl-old-tower-pair",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-truce-jade",
+   "name": "Jade of the Truce (Hòa Ước Ngọc Bội)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 15,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Half of the jade tally the founder broke at the truce of Chiết Kích (C018, C161). The other half went to the Pivot. In her sleeve it lies against Vu Ngô Đồng's terms of 1185.",
+   "build_use": "Sustain and steadiness: linh lực, status and soul resistance for the one who would rather talk.",
+   "holder": "quan_vu_thanh",
+   "made_by": "pho_tieu_tuong",
+   "made_year": 803,
+   "set": "tvl-old-tower-pair",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-vein-keeper-brand",
+   "name": "Vein-Keeper's Brand (Thủ Mạch Lạc Thiết)",
+   "family": "thunder",
+   "kind": "artifact",
+   "base": "lac_thiet",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 18,
+     "scope": [
+      "curse"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "An iron cast from the first rail of the Iron Rain array along Thạch Liên Hoàn's chain (N-thinh_vu-10), with which the vault master brands the Tower's traitors before the Hall of Echoes sends them down.",
+   "build_use": "The curse half of his engine: longer curses and Lightning crits from the brand.",
+   "holder": "le_tieu_hon",
+   "made_by": "thach_lien_hoan",
+   "made_year": 1170,
+   "set": "tvl-vein-keeper",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-iron-rain-bell",
+   "name": "Iron Rain Bell (Thiết Vũ Chung)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "chuong",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "soul_res_pct",
+     "value": 25,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 12,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A squat iron bell hung where the vein meets the vaults. Lightning that runs the vein rings it, and the vault master hears every bolt the ridge takes.",
+   "build_use": "The bell he binds and brands from behind: soul resistance and linh lực.",
+   "holder": "le_tieu_hon",
+   "made_by": "thach_lien_hoan",
+   "made_year": 1170,
+   "set": "tvl-vein-keeper",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-kinh-dien-mail",
+   "name": "Mail of Kinh Điện (Kinh Điện Giáp)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 150,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "evade_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Forged by Thạch Liên Hoàn from Kinh Điện ore when the halls came up the ridge in 1166, in the same storm forge her father used. She wore it through the ridge forts and asked for nothing else.",
+   "build_use": "The one guard a duelist needs: health, Lightning resistance and a little evasion.",
+   "holder": "co_da_lan",
+   "made_by": "thach_lien_hoan",
+   "made_year": 1166,
+   "set": "tvl-dalan-suite",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-amethyst-rod",
+   "name": "Amethyst Rod (Tử Tinh Lôi Trượng)",
+   "family": "thunder",
+   "kind": "artifact",
+   "base": "loi_truong",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A rod of raw amethyst from Tử Tinh Khoáng that she carried back from the mine in 1191 and had bound in copper. It draws the storm a breath sooner than iron.",
+   "build_use": "Speed and Lightning crits: the other half of the glass sword.",
+   "holder": "manh_luu_ly",
+   "made_by": "thach_lien_hoan",
+   "made_year": 1191,
+   "set": "tvl-glass-storm",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-glass-thread-robe",
+   "name": "Glass-Thread Robe (Lưu Ly Ti Bào)",
+   "family": "thunder",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": [
+      "lightning"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "A thin robe with glass thread woven through it, so that it rings when lightning passes near. Quan Vũ Thanh had it made when the girl broke the glass sword for the second time.",
+   "build_use": "No guard at all: linh lực, evasion and more speed.",
+   "holder": "manh_luu_ly",
+   "made_by": "quan_vu_thanh",
+   "made_year": 1185,
+   "set": "tvl-glass-storm",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-echo-hall-mirror",
+   "name": "Mirror of the Hall of Echoes (Hồi Âm Kính)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "kinh",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A bronze mirror that shows not faces but the room behind the one you stand in. The Nhiếp have passed it from Hall mistress to Hall mistress since Nhiếp Văn Lôi.",
+   "build_use": "A second sense: thần thức and soul defence for the Hall's judge.",
+   "holder": "nhiep_vo_thanh",
+   "made_by": "nhiep_van_loi",
+   "made_year": 890,
+   "set": "tvl-hall-of-echoes",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-innkeeper-robe",
+   "name": "Innkeeper's Grey Robe (Khách Điếm Hôi Bào)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "evade_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 12,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A plain grey robe of the kind every innkeeper in Thu Trì wears. Nobody remembers the woman inside it, which is the point.",
+   "build_use": "Fights only when cornered: evasion and a guard.",
+   "holder": "nhiep_vo_thanh",
+   "made_by": "nhiep_vo_thanh",
+   "made_year": 1010,
+   "set": "tvl-hall-of-echoes",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-miners-drum",
+   "name": "Miners' Drum of Tử Tinh (Tử Tinh Khoáng Cổ)",
+   "family": "thunder",
+   "kind": "artifact",
+   "base": "co",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": [
+      "lightning"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "A small hide drum the Hầu family beat to call the shifts out of the mine before a storm. He had it rebuilt in 1178 to take the peach-wood stick, and it is the nearest thing to the Xuân Lôi Cổ he holds.",
+   "build_use": "The drum the stick was made for: storm stacks and longer slows.",
+   "holder": "hau_vong_xuan",
+   "made_by": "the Hầu family of Tử Tinh Khoáng",
+   "made_year": 1178,
+   "set": "tvl-gate-drum",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-peach-lightning-sword",
+   "name": "Peach-Wood Lightning Sword (Đào Mộc Lôi Kiếm)",
+   "family": "thunder",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "lightning"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "A flying sword with a core of the same thunder-struck peach as the drumstick, cut from the branch the stick was taken from. He holds it up to the cloud on Liệt Khuyết Phong every Kinh Trập.",
+   "build_use": "The raised sword: draws bolts and keeps him standing.",
+   "holder": "hau_vong_xuan",
+   "made_by": "thach_lien_hoan",
+   "made_year": 1178,
+   "set": "tvl-gate-drum",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-gold-sand-sword",
+   "name": "Gold-Sand Sword (Sa Kim Kiếm)",
+   "family": "thunder",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Forged from gold-sand iron washed out of the stream below Thần Cổ Phong. Her father brought the ore to the forge himself in 1192, and nobody asked where the money came from.",
+   "build_use": "The raised sword and its chained hits.",
+   "holder": "khuc_thanh_dien",
+   "made_by": "thach_lien_hoan",
+   "made_year": 1192,
+   "set": "tvl-gold-sand-pair",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-washers-leather",
+   "name": "Washer's Leather (Đãi Sa Giáp)",
+   "family": "thunder",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 100,
+     "scope": [
+      "lightning"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "Her mother's stream apron of oiled leather, cut down and riveted into a jerkin. It was on the girl in the washing shed when the lightning struck.",
+   "build_use": "A cheap guard and Lightning resistance for a sword that stands under the storm.",
+   "holder": "khuc_thanh_dien",
+   "made_by": "her mother, a gold-washer of Sa Kim Khoáng",
+   "made_year": 1156,
+   "set": "tvl-gold-sand-pair",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-apricot-rain-sword",
+   "name": "Apricot Rain (Hạnh Vũ Kiếm)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "evade_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 5,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A plain sword the head had made for his blind disciple in 1186, with a grip carved in apricot blossom so that he would know it by touch.",
+   "build_use": "The counter-cut after the first blow is heard.",
+   "holder": "ung_thinh_thien",
+   "made_by": "manh_da_vu",
+   "made_year": 1186,
+   "set": "tvl-spring-rain-pair",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-market-night-bell",
+   "name": "Bell of the Market Night (Thị Dạ Chung)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "chuong",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A stall bell from Hạnh Hoa Thị, which rang all through the night of spring rain the head sat beside the boy. The head bought it the next morning.",
+   "build_use": "Hearing: thần thức and evasion for a man who cannot see the blow.",
+   "holder": "ung_thinh_thien",
+   "made_by": "a stall-keeper of Hạnh Hoa Thị",
+   "made_year": 1150,
+   "set": "tvl-spring-rain-pair",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-charcoal-sword",
+   "name": "Charcoal-Burner's Sword (Thán Kiếm)",
+   "family": "thunder",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 1,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 9,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 6,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A cheap outer-gate sword she blackened in her mother's kiln on the cone, so that it would look like the cone's and not the ridge's.",
+   "build_use": "A Thunder student's first sword: speed and the first bolt.",
+   "holder": "nhieu_ha_loi",
+   "made_by": "the Tower's outer gate",
+   "made_year": 1196,
+   "set": "tvl-cone-thunder",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-cone-ash-ring",
+   "name": "Ring of Cone Ash (Sơn Tro Nhẫn)",
+   "family": "fire",
+   "kind": "artifact",
+   "base": "nhan",
+   "grade": 1,
+   "modifiers": [
+    {
+     "key": "resist_pct",
+     "value": 100,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "attack_pct",
+     "value": 6,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 3,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A ring of fired cone ash that Quan Vũ Thanh sent east with her letter in 1196. The letter asked the ridge to look at the girl's Thunder, not her Metal.",
+   "build_use": "Waits for Trúc Cơ: Fire damage and Lightning resistance for the second slot.",
+   "holder": "nhieu_ha_loi",
+   "made_by": "quan_vu_thanh",
+   "made_year": 1196,
+   "set": "tvl-cone-thunder",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "tvl-night-rain-regalia",
+   "name": "Night Rain Regalia (Dạ Vũ Tam Bảo)",
+   "pieces": [
+    "tvl-tuong-phi-tan",
+    "tvl-night-rain-seal",
+    "tvl-founders-rain-chain"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "linh_luc_pct",
+       "value": 8,
+       "scope": []
+      },
+      {
+       "key": "evade_pct",
+       "value": 4,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "The Rain Answers (Vũ Ứng): while your rain field (The Night Is Long) stands or the umbrella is open, every hit you evade rings the chain; at three rings a bolt falls on the foe who struck at you, dealing Lightning damage scaled by your Metal. A holder whose root has no Thunder can still call this bolt; it is the only Thunder the Regalia gives."
+    }
+   ],
+   "story": "The founder held all three, and so did Mạnh Dạ Vũ until 1166. When the halls moved to Thần Cổ Phong, the chain stayed on the eaves of the old tower over Tàn Hà Hồ, because nobody would take it down, and Quan Vũ Thanh keeps it there. The Regalia has not been whole since. The head says a chain is not a thing one carries. Mạnh Lưu Ly says a head who cannot take it down is not the founder's heir."
+  },
+  {
+   "id": "tvl-soul-vault-pair",
+   "name": "Lamp and Shears of the Vaults (Hồn Khố Song Bảo)",
+   "pieces": [
+    "tvl-soul-vault-lamp",
+    "tvl-snuffing-shears"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "status_duration_pct",
+       "value": 10,
+       "scope": [
+        "curse"
+       ]
+      },
+      {
+       "key": "than_thuc_pct",
+       "value": 4,
+       "scope": []
+      }
+     ],
+     "effect": "The Wick Is Cut (Tiễn Hoa): once a fight, a cursed foe below a quarter of their health has their curse turned into a seal: they cannot cast arts for 2 s."
+    }
+   ],
+   "story": "By the vault law of 1010, a life lamp can be put out from afar only by the master lamp and the shears together, in two hands. Lệ Tiêu Hồn holds the lamp and gave the shears to his niece Ninh Tịch Đăng, so that he could never do it alone. She has refused him once."
+  },
+  {
+   "id": "tvl-old-tower-pair",
+   "name": "Keeper of the Old Tower (Cựu Lâu Thủ)",
+   "pieces": [
+    "tvl-umbrella-bearer-sword",
+    "tvl-truce-jade"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "linh_luc_regen_inc_pct",
+       "value": 10,
+       "scope": []
+      },
+      {
+       "key": "evade_pct",
+       "value": 4,
+       "scope": []
+      }
+     ],
+     "effect": "Words Before Blades (Tiên Ngôn Hậu Kiếm): for the first 5 s of each fight you take 25 % less damage while you cast no damaging art; each hit you evade in that time stores one Water buff stack, and your first sword art after it spends them all for 8 % more damage each."
+    }
+   ],
+   "story": "The sword and the half-tally are both from 803, the year of the truce, and Quan has carried them together since the founder died. She wears them beside the founder's rain-chain, which belongs to the Night Rain Regalia, not to her. The pair is whole on her; the Regalia is not.",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-vein-keeper",
+   "name": "Keeper of Kinh Lôi Mạch (Kinh Lôi Mạch Thủ)",
+   "pieces": [
+    "tvl-vein-keeper-brand",
+    "tvl-iron-rain-bell"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "status_duration_pct",
+       "value": 10,
+       "scope": [
+        "curse"
+       ]
+      },
+      {
+       "key": "attack_pct",
+       "value": 8,
+       "scope": [
+        "lightning"
+       ]
+      }
+     ],
+     "effect": "Branded to the Vein (Lạc Mạch): a foe carrying two or more of your curses is branded. Your chained Lightning bolts always jump to a branded foe first, and each bolt that lands on them adds 1 s to every curse they carry (the curse duration clamp still holds)."
+    }
+   ],
+   "story": "Cast together in 1170, when Lệ moved the vaults into the vein. The master lamp is not part of it: by the vault law of 1010 the lamp is half of a pair kept in two hands, and it stays burning in the vaults while he goes out with the brand, the bell and the Ninth Tribulation seal. He made this pair so as to have something whole of his own.",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-dalan-suite",
+   "name": "The Undefeated (Bất Bại Song Kiện)",
+   "pieces": [
+    "tvl-night-far-gone",
+    "tvl-kinh-dien-mail"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "crit_damage_pct",
+       "value": 15,
+       "scope": [
+        "sword"
+       ]
+      },
+      {
+       "key": "pierce_pct",
+       "value": 5,
+       "scope": []
+      }
+     ],
+     "effect": "One Cut Drawn Out (Nhất Kiếm Trì Xuất): each second you go without attacking adds 12 % crit damage to your next sword art. The first sword art of each fight cannot be evaded. Return to the Scabbard (Quy Vỏ): after 3 s in which you fire no damaging art, the foe counts as unstruck again: No Second Cut and the first-art clause re-arm."
+    }
+   ],
+   "story": "Both come from Kinh Điện: the sword her father forged in 656 and the mail the Tower forged her in 1166 from the same mine. She wears them with the catalogue's Unbroken Edge ring, which keeps her drawn-out cut whole between strikes. Phượng Minh's right wing fan hangs in her room as a trophy and is not part of it.",
+   "status": "proposal",
+   "authored": "d29"
+  },
+  {
+   "id": "tvl-glass-storm",
+   "name": "Glass Storm (Lưu Ly Phong Lôi)",
+   "pieces": [
+    "tvl-glass-flying-sword",
+    "tvl-amethyst-rod",
+    "tvl-glass-thread-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "art_speed_pct",
+       "value": 8,
+       "scope": [
+        "lightning"
+       ]
+      },
+      {
+       "key": "crit_chance_pct",
+       "value": 4,
+       "scope": [
+        "lightning"
+       ]
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Thin as Glass (Bạc Như Lưu Ly): while you are above half health, each Lightning crit chains one more bolt. Each time a single hit takes more than a tenth of your health, your next Lightning art fires at once. Healing on you is 20 % weaker, because the glass does not mend."
+    }
+   ],
+   "story": "Made around her by the two people who raised her: the forge master's glass sword, Quan's robe and the rod she cut herself. She keeps all three, and the Tower watches what she does with them.",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-hall-of-echoes",
+   "name": "Ears of the Hall (Hồi Âm Tam Bảo)",
+   "pieces": [
+    "tvl-eaves-listening-bell",
+    "tvl-echo-hall-mirror",
+    "tvl-innkeeper-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "than_thuc_pct",
+       "value": 4,
+       "scope": []
+      },
+      {
+       "key": "evade_pct",
+       "value": 4,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Heard Before It Falls (Văn Thanh Tiên Giác): you always evade the first art a foe casts at you each fight, and the bell rings a ward on you worth 8 % of your health. A foe you have heard is marked, and your seals on a marked foe last 2 s longer."
+    }
+   ],
+   "story": "The bell Ân Thanh Linh cast in 1030, the mirror of the Hall's founder and the robe of the trade. All three belong to the Hall of Echoes, not to the Tower, and pass with the Hall from mother to daughter.",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-gate-drum",
+   "name": "Drum of the Gate (Lôi Môn Cổ Bảo)",
+   "pieces": [
+    "tvl-gate-drumstick",
+    "tvl-miners-drum",
+    "tvl-peach-lightning-sword"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "attack_pct",
+       "value": 8,
+       "scope": [
+        "lightning"
+       ]
+      },
+      {
+       "key": "khi_huyet_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "The Gate Drums (Lôi Môn Cổ Vang): every fourth storm stack you lay beats the drum. The raised sword draws one bolt onto the foe, and the foe gains 2 Slowed Time stacks. Each beat in the same fight adds one more Slowed Time stack."
+    }
+   ],
+   "story": "Stick, drum and sword are all of one peach tree on Tử Tinh, if the Hầu family is right. Hầu Vọng Xuân holds all three. He says the Xuân Lôi Cổ would make it four, and his master hears him say it.",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-gold-sand-pair",
+   "name": "Gold Sand and Lightning (Sa Kim Lôi)",
+   "pieces": [
+    "tvl-gold-sand-sword",
+    "tvl-washers-leather"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "crit_damage_pct",
+       "value": 15,
+       "scope": [
+        "lightning"
+       ]
+      },
+      {
+       "key": "art_speed_pct",
+       "value": 5,
+       "scope": [
+        "lightning"
+       ]
+      }
+     ],
+     "effect": "The Struck Shed (Lôi Kích Lều): while your sword is raised to the cloud, each bolt it draws that crits chains to one more hit."
+    }
+   ],
+   "story": "Both come from Sa Kim Khoáng: her mother's leather and her father's ore. She wears both, and she does not ask how the forge was paid.",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-spring-rain-pair",
+   "name": "Hearing the Spring Rain (Thính Xuân Vũ)",
+   "pieces": [
+    "tvl-apricot-rain-sword",
+    "tvl-market-night-bell"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "evade_pct",
+       "value": 4,
+       "scope": []
+      },
+      {
+       "key": "crit_chance_pct",
+       "value": 4,
+       "scope": [
+        "sword"
+       ]
+      }
+     ],
+     "effect": "After the First Blow (Hậu Phát): the first hit each foe aims at you is heard. If you evade it, your next sword art at that foe is a sure crit."
+    }
+   ],
+   "story": "The head gave him both in 1186, the year he took him, the first gift he had made a disciple in a century. The Tower reads more into it than the boy does.",
+   "status": "proposal"
+  },
+  {
+   "id": "tvl-cone-thunder",
+   "name": "Thunder on the Cone (Sơn Hỏa Lôi)",
+   "pieces": [
+    "tvl-charcoal-sword",
+    "tvl-cone-ash-ring"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "attack_pct",
+       "value": 6,
+       "scope": [
+        "lightning"
+       ]
+      },
+      {
+       "key": "attack_pct",
+       "value": 4,
+       "scope": [
+        "fire"
+       ]
+      }
+     ],
+     "effect": "Formed in a Storm (Phong Lôi Thành): each Fire hit you land counts as half a Lightning hit for your Thunder arts' stacks and chains."
+    }
+   ],
+   "story": "One piece from the outer gate and one from the old tower. At Luyện Khí she can wear only the sword; the ring waits in her box for the day she reaches Trúc Cơ, by the inner gate's rule or against it.",
+   "status": "proposal"
+  }
+ ]
+}

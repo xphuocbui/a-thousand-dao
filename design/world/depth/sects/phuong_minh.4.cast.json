@@ -1,0 +1,2991 @@
+{
+ "sect": "phuong_minh",
+ "people": [
+  {
+   "key": "nhan_quy_vu",
+   "name_hv": "Nhan Quy Vũ",
+   "name_han": "顏歸羽",
+   "gloss": "Returning feather",
+   "sex": "F",
+   "born": 1085,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "chap_su",
+   "home": 6,
+   "birthplace": 41,
+   "role": "Keeper of the red feathers of the dead at the Wutong Court (Hall of Rites)",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 50,
+     "moc": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Patient",
+     "Compassionate"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Keeps one red feather for each of the palace's dead in the Wutong Court and sews the newest in herself; Thương Tẫn Quy (thuong_tan_quy) brings her the names down from the long road.",
+   "ties": [
+    {
+     "to": "lien_thieu_nghi",
+     "kind": "master",
+     "note": "master of the Hall of Rites"
+    },
+    {
+     "to": "thuong_tan_quy",
+     "kind": "friend",
+     "note": "steward of funerals"
+    }
+   ],
+   "master": "lien_thieu_nghi",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "shao-remnant-score",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood music that steadies the hall."
+    }
+   }
+  },
+  {
+   "key": "duong_ho_thu",
+   "name_hv": "Dương Hộ Thụ",
+   "name_han": "楊護樹",
+   "gloss": "Guards the tree",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "noi_mon",
+   "home": 6,
+   "birthplace": 162,
+   "role": "Tender of the great wutong at the Wutong Court",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 48,
+     "moc": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Cautious",
+     "Loyal"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Climbs the great wutong each month to count the fallen leaves for Vu Ngô Đồng (vu_ngo_dong), and has begun to count them twice; he has not told An Thúy Vũ (an_thuy_vu) the number.",
+   "ties": [
+    {
+     "to": "vu_ngo_dong",
+     "kind": "master",
+     "note": "the first elder"
+    },
+    {
+     "to": "an_thuy_vu",
+     "kind": "friend",
+     "note": "bird keeper of the Wutong Court"
+    }
+   ],
+   "master": "vu_ngo_dong",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood that feeds a tree and a fire."
+    }
+   }
+  },
+  {
+   "key": "khang_kien_duc",
+   "name_hv": "Khang Kiên Dực",
+   "name_han": "康堅翼",
+   "gloss": "Steadfast wing",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "noi_mon",
+   "home": 6,
+   "birthplace": 736,
+   "role": "Holds the gate of the Wutong Court under Nhậm Cương Thủ",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "hoa": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Wrathful",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "One of the few ridge children born with Fire, like his captain Nhậm Cương Thủ (nham_cuong_thu), he says when he has drunk that the head ran from the Tower in 1162; Hách Chu Lăng (hach_chu_lang), who trained him, has told him twice to stop.",
+   "ties": [
+    {
+     "to": "hach_chu_lang",
+     "kind": "master",
+     "note": "trained him at the vein fort"
+    },
+    {
+     "to": "nham_cuong_thu",
+     "kind": "friend",
+     "note": "his captain, also ridge-born"
+    }
+   ],
+   "master": "hach_chu_lang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "A Metal guard lit by Fire."
+    }
+   }
+  },
+  {
+   "key": "sam_liet_duc",
+   "name_hv": "Sầm Liệt Dực",
+   "name_han": "岑烈翼",
+   "gloss": "Fierce wing",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "phuong_minh",
+   "rank": "noi_mon",
+   "home": 449,
+   "birthplace": 449,
+   "role": "Ash-born fan duelist of the Hall of Righteousness",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 62,
+     "moc": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Arrogant",
+     "Brave"
+    ],
+    "calling": "Duelist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Ash-born and loud about it, he has challenged Đằng Phi Diễm (dang_phi_diem) for the top step of the Fire Court's stair three times and lost three times, each time a little closer.",
+   "ties": [
+    {
+     "to": "thich_hong_linh",
+     "kind": "master",
+     "note": "fan master of the inner gate"
+    },
+    {
+     "to": "dang_phi_diem",
+     "kind": "rival",
+     "note": "holds the top step of the stair"
+    },
+    {
+     "to": "co_hong_phien",
+     "kind": "disciple",
+     "note": "practises the fan forms before dawn on the Fire Court's stair"
+    }
+   ],
+   "master": "thich_hong_linh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "morning-sun-feather-fan",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire fans that press."
+    }
+   }
+  },
+  {
+   "key": "cu_chan_uy",
+   "name_hv": "Cù Chấn Uy",
+   "name_han": "瞿振威",
+   "gloss": "Shakes with might",
+   "sex": "M",
+   "born": 1105,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "noi_mon",
+   "home": 449,
+   "birthplace": 94,
+   "role": "Veteran of the Cinnabar Vein War in the Hall of Righteousness",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 54,
+     "kim": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Warlike",
+     "Vengeful",
+     "Loyal"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Was on Đan Sơn Mạch when Cố Dạ Lan killed Dụ Đan Huỳnh (du_dan_huynh) in 1154 (N-phuong_minh-10) and carried her body down without its fan; he wants the war Sử Hoành Dực (su_hoanh_duc) wants, and would follow him to the ridge.",
+   "ties": [
+    {
+     "to": "su_hoanh_duc",
+     "kind": "master",
+     "note": "the war elder"
+    },
+    {
+     "to": "du_dan_huynh",
+     "kind": "friend",
+     "note": "fell on Đan Sơn Mạch in 1154; he carried her down"
+    }
+   ],
+   "master": "su_hoanh_duc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "morning-sun-feather-fan",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire fans for the line of battle."
+    }
+   }
+  },
+  {
+   "key": "ma_pha_lang",
+   "name_hv": "Mã Phá Lãng",
+   "name_han": "馬破浪",
+   "gloss": "Breaks the waves",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "noi_mon",
+   "home": 93,
+   "birthplace": 93,
+   "role": "Helmsman of the palace fleet's flagship",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 50,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Diligent",
+     "Paranoid"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Steers the flagship and keeps a list of every pirate keel sighted since the Purge (C152); Can Hải Trì (can_hai_tri) says the list is longer than the fleet.",
+   "ties": [
+    {
+     "to": "phan_vong_hai",
+     "kind": "master",
+     "note": "the admiral"
+    },
+    {
+     "to": "can_hai_tri",
+     "kind": "friend",
+     "note": "first mate of the fleet"
+    },
+    {
+     "to": "giang_trieu_sinh",
+     "kind": "disciple",
+     "note": "deck hand of the palace fleet"
+    }
+   ],
+   "master": "phan_vong_hai",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water under Fire, for the sea."
+    }
+   }
+  },
+  {
+   "key": "hach_dan_tam",
+   "name_hv": "Hách Đan Tâm",
+   "name_han": "郝丹心",
+   "gloss": "Red heart",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "phuong_minh",
+   "rank": "noi_mon",
+   "home": 211,
+   "birthplace": 449,
+   "role": "Night watch of the vein fort at Đan Sơn Mạch",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 52,
+     "kim": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Patient",
+     "Honest"
+    ],
+    "calling": "Strategist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Hách Chu Lăng's (hach_chu_lang) niece, she stands the night watch facing Thính Vũ's ridge and has learned to tell rain from thunder by ear, which no one in the palace values.",
+   "ties": [
+    {
+     "to": "hach_chu_lang",
+     "kind": "master",
+     "note": "the warden"
+    },
+    {
+     "to": "hach_chu_lang",
+     "kind": "aunt_uncle",
+     "note": "her father's sister"
+    }
+   ],
+   "master": "hach_chu_lang",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire banners on a wall."
+    }
+   }
+  },
+  {
+   "key": "khong_te_dan",
+   "name_hv": "Khổng Tế Dân",
+   "name_han": "孔濟民",
+   "gloss": "Helps the people",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "noi_mon",
+   "home": 85,
+   "birthplace": 148,
+   "role": "Rides the famine roads with the granary carts of the Hall of Benevolence",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 48,
+     "moc": 42,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Generous",
+     "Honest",
+     "Impatient"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Opened the granary carts on the southern roads in a bad year and has been thanked in ceremony by eleven villages; he dislikes ceremonies, and Điền Phong Niên (dien_phong_nien) makes him attend them.",
+   "ties": [
+    {
+     "to": "dien_phong_nien",
+     "kind": "master",
+     "note": "master of the Hall of Benevolence"
+    },
+    {
+     "to": "tu_cam_tuyen",
+     "kind": "friend",
+     "note": "the healer who rides with him"
+    },
+    {
+     "to": "luong_dao_tue",
+     "kind": "disciple",
+     "note": "granary cart hand of the Hall of Benevolence"
+    },
+    {
+     "to": "tuan_le_chinh",
+     "kind": "friend",
+     "note": "keeps the audience roll of the Hall of Virtue"
+    }
+   ],
+   "master": "dien_phong_nien",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 7
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire for a body that carries."
+    }
+   }
+  },
+  {
+   "key": "lu_chu_hong",
+   "name_hv": "Lữ Chu Hống",
+   "name_han": "呂朱汞",
+   "gloss": "Cinnabar mercury",
+   "sex": "F",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "noi_mon",
+   "home": 248,
+   "birthplace": 41,
+   "role": "Grinds cinnabar at the furnace on Chu Sa Tuyền",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 56,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Diligent",
+     "Impatient"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Grinds cinnabar for Kế Chu Sa (ke_chu_sa) and wants Kiều Đan Lô's (kieu_dan_lo) place at the furnace mouth; she has the better hands, and he has the older seat.",
+   "ties": [
+    {
+     "to": "ke_chu_sa",
+     "kind": "master",
+     "note": "the palace's alchemist"
+    },
+    {
+     "to": "kieu_dan_lo",
+     "kind": "rival",
+     "note": "holds the furnace mouth"
+    },
+    {
+     "to": "tien_hoa_hau",
+     "kind": "disciple",
+     "note": "watches the furnace fire through the night at Chu Sa Tuyền"
+    }
+   ],
+   "master": "ke_chu_sa",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "dan_dao": 4
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire for the furnace."
+    }
+   }
+  },
+  {
+   "key": "man_tin_van",
+   "name_hv": "Mẫn Tín Văn",
+   "name_han": "閔信文",
+   "gloss": "Letter of trust",
+   "sex": "M",
+   "born": 1115,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "noi_mon",
+   "home": 449,
+   "birthplace": 41,
+   "role": "Counts the vassals' tribute for the Hall of Trust",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 50,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Paranoid",
+     "Diligent"
+    ],
+    "calling": "Steward",
+    "upbringing": "scholar_family"
+   },
+   "backstory": "Counts the tribute the six vassals bring at New Year; Phần Vũ Đường's has come short more than once, and he has written it down each time for Vưu Cẩm Thư (vuu_cam_thu).",
+   "ties": [
+    {
+     "to": "vuu_cam_thu",
+     "kind": "master",
+     "note": "master of the Hall of Trust"
+    },
+    {
+     "to": "boi_tang_ngon",
+     "kind": "friend",
+     "note": "keeps the Hall of Spoils' inventory"
+    }
+   ],
+   "master": "vuu_cam_thu",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire seals."
+    }
+   }
+  },
+  {
+   "key": "sai_tan_nhien",
+   "name_hv": "Sài Tẫn Nhiên",
+   "name_han": "柴燼然",
+   "gloss": "Embers alight",
+   "sex": "M",
+   "born": 1125,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "noi_mon",
+   "home": 253,
+   "birthplace": 449,
+   "role": "Tends the Ash Seat's coals at the Nest between breakthroughs",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 58,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Reclusive",
+     "Trusting"
+    ],
+    "calling": "Steward",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Sweeps the vent's lip after each breakthrough and found his nephew Dư Tân Hỏa (du_tan_hoa) the Nest's errand post; he has noticed the boy has money lately.",
+   "ties": [
+    {
+     "to": "du_tan_hoa",
+     "kind": "niece_nephew",
+     "note": "his sister's son"
+    },
+    {
+     "to": "vi_tich_hoi",
+     "kind": "friend",
+     "note": "attendant of the Ash Seat"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire that the body bears."
+    }
+   }
+  },
+  {
+   "key": "tuan_le_chinh",
+   "name_hv": "Tuân Lễ Chính",
+   "name_han": "荀禮正",
+   "gloss": "Right rites",
+   "sex": "M",
+   "born": 1080,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "chap_su",
+   "home": 449,
+   "birthplace": 83,
+   "role": "Keeps the audience roll of the Hall of Virtue",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 52,
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Deceitful",
+     "Generous"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "scholar_family"
+   },
+   "backstory": "Sets the order in which petitioners see the head and has been bribed in every order he has set; he gives the money to the granaries and keeps the order he meant to keep.",
+   "ties": [
+    {
+     "to": "thi_van_binh",
+     "kind": "friend",
+     "note": "clerk of the Hall of Virtue"
+    },
+    {
+     "to": "khong_te_dan",
+     "kind": "friend",
+     "note": "takes the bribes to the granaries"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 8
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire seals for a court."
+    }
+   }
+  },
+  {
+   "key": "han_ngoc_tieu",
+   "name_hv": "Hàn Ngọc Tiêu",
+   "name_han": "韓玉簫",
+   "gloss": "Jade flute",
+   "sex": "F",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "noi_mon",
+   "home": 53,
+   "birthplace": 162,
+   "role": "Tunes the flutes sold at Thiều Âm Thị",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 46,
+     "moc": 44
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Trusting",
+     "Honest"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born"
+   },
+   "backstory": "Plays each flute before Thiều Âm Thị sells it; Lộ Văn Khánh (lo_van_khanh) sends her home early on the nights he walks to Kích Khánh Đường, and she has stopped asking why.",
+   "ties": [
+    {
+     "to": "lo_van_khanh",
+     "kind": "master",
+     "note": "steward of the music market"
+    },
+    {
+     "to": "liem_to_cam",
+     "kind": "disciple",
+     "note": "strings the qin sold at Thiều Âm Thị"
+    },
+    {
+     "to": "luc_minh_sanh",
+     "kind": "disciple",
+     "note": "shop boy of the music market"
+    }
+   ],
+   "master": "lo_van_khanh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood music behind Fire."
+    }
+   }
+  },
+  {
+   "key": "lieu_nhung_hoa",
+   "name_hv": "Liêu Nhung Hỏa",
+   "name_han": "廖絨火",
+   "gloss": "Downy fire",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "chap_su",
+   "home": 449,
+   "birthplace": 161,
+   "role": "Gathers the vent birds' down for the Feather Kindling",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 48,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Patient",
+     "Loyal"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born"
+   },
+   "backstory": "The Cúc Viên Thôn child of her generation (A303), she saves the softest down for whoever came from her village; this year that is Thành Dã Cúc (thanh_da_cuc).",
+   "ties": [
+    {
+     "to": "dien_phong_nien",
+     "kind": "master",
+     "note": "the Hall of Benevolence runs the outer gate"
+    },
+    {
+     "to": "mao_khai_dan",
+     "kind": "friend",
+     "note": "holds the Feather Kindling"
+    },
+    {
+     "to": "thanh_da_cuc",
+     "kind": "friend",
+     "note": "this generation's Cúc Viên child"
+    },
+    {
+     "to": "quach_tieu_dao",
+     "kind": "disciple",
+     "note": "new outer disciple from Tang Âm Thôn"
+    }
+   ],
+   "master": "dien_phong_nien",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire coaxed from feathers."
+    }
+   }
+  },
+  {
+   "key": "hoan_vong_linh",
+   "name_hv": "Hoàn Vọng Lĩnh",
+   "name_han": "桓望嶺",
+   "gloss": "Watches the ridge",
+   "sex": "M",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "noi_mon",
+   "home": 6,
+   "birthplace": 148,
+   "role": "Rides the western march with the Wutong Court's hawks",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 48,
+     "kim": 44
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Stubborn",
+     "Loyal"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Has watched Thính Vũ's new seat rise on Thần Cổ Phong since 1166 from the western march; he reports to Vu Ngô Đồng (vu_ngo_dong), who sends the reports on to the Fire Court a day late.",
+   "ties": [
+    {
+     "to": "vu_ngo_dong",
+     "kind": "master",
+     "note": "the first elder"
+    },
+    {
+     "to": "nham_cuong_thu",
+     "kind": "friend",
+     "note": "captain of the Wutong Court's guard"
+    }
+   ],
+   "master": "vu_ngo_dong",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 7
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal sight and a hawk's dive."
+    }
+   }
+  },
+  {
+   "key": "lac_tuoc_ca",
+   "name_hv": "Lạc Tước Ca",
+   "name_han": "駱雀歌",
+   "gloss": "Sparrow song",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 6,
+   "birthplace": 330,
+   "role": "Feeds the spirit birds of the Wutong Court",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Compassionate",
+     "Fickle"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A bird keeper's daughter from Bách Vũ Các who whistles the birds down for Ổ Linh Tước (o_linh_tuoc) and has named every one of them.",
+   "ties": [
+    {
+     "to": "o_linh_tuoc",
+     "kind": "master",
+     "note": "second bird keeper"
+    },
+    {
+     "to": "tran_tuoc_nhi",
+     "kind": "friend",
+     "note": "the aviary girl"
+    }
+   ],
+   "master": "o_linh_tuoc",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and birds."
+    }
+   }
+  },
+  {
+   "key": "do_thanh_duan",
+   "name_hv": "Đỗ Thanh Duẩn",
+   "name_han": "杜青筍",
+   "gloss": "Green bamboo shoot",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 6,
+   "birthplace": 331,
+   "role": "Cuts the bamboo shoots that feed the Wutong Court",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "hoa": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Humble",
+     "Pragmatic"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Sat the Feather Kindling eight times; then Vu Ngô Đồng (vu_ngo_dong) told him the tree needs Wood more than the palace needs Fire, and he has not sat it since.",
+   "ties": [
+    {
+     "to": "an_thuy_vu",
+     "kind": "master",
+     "note": "bird keeper of the Wutong Court"
+    },
+    {
+     "to": "vu_ngo_dong",
+     "kind": "friend",
+     "note": "the elder who spoke to him"
+    }
+   ],
+   "master": "an_thuy_vu",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood that grows."
+    }
+   }
+  },
+  {
+   "key": "ong_truc_thanh",
+   "name_hv": "Ông Trúc Thanh",
+   "name_han": "翁竹聲",
+   "gloss": "Bamboo voice",
+   "sex": "M",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 6,
+   "birthplace": 147,
+   "role": "Plays the second part of the dawn flute at the Wutong Court",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "hoa": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Stubborn",
+     "Content"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born"
+   },
+   "backstory": "Plays a half beat behind Bạc Địch Thanh (bac_dich_thanh) on purpose; he says the dawn call sounds wider with two.",
+   "ties": [
+    {
+     "to": "bac_dich_thanh",
+     "kind": "master",
+     "note": "flautist of the Hall of Rites"
+    },
+    {
+     "to": "dong_luc_y",
+     "kind": "friend",
+     "note": "cuts his flutes"
+    }
+   ],
+   "master": "bac_dich_thanh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood music."
+    }
+   }
+  },
+  {
+   "key": "tri_quy_lo",
+   "name_hv": "Trì Quy Lộ",
+   "name_han": "遲歸路",
+   "gloss": "Slow road home",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 6,
+   "birthplace": 736,
+   "role": "Carries the urns up the long road to Quy Vũ Lĩnh",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Patient",
+     "Humble"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Has scattered more of the palace's dead from the wutong grove than any living disciple, walking behind Thương Tẫn Quy (thuong_tan_quy); he asks each urn its name on the road.",
+   "ties": [
+    {
+     "to": "thuong_tan_quy",
+     "kind": "master",
+     "note": "steward of funerals"
+    }
+   ],
+   "master": "thuong_tan_quy",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood for the long road."
+    }
+   }
+  },
+  {
+   "key": "nguu_dai_huu",
+   "name_hv": "Ngưu Đại Hữu",
+   "name_han": "牛大有",
+   "gloss": "Great plenty",
+   "sex": "M",
+   "born": 1110,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "tap_dich",
+   "home": 6,
+   "birthplace": 6,
+   "role": "Water carrier (tạp dịch) of the Wutong Court's kitchens",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 38,
+     "kim": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Generous",
+     "Gregarious",
+     "Loyal"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Has hauled water to the Wutong Court's kitchens since before the head's court went down to the Fire Court; he still sets ninety bowls at New Year and clears forty.",
+   "ties": [
+    {
+     "to": "bi_thuan",
+     "kind": "friend",
+     "note": "sweeper of the bird courts"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth for carrying."
+    }
+   },
+   "exception": "servant (tạp dịch): ridge-born, an Earth root with no Fire or Wood"
+  },
+  {
+   "key": "khuong_linh_mai",
+   "name_hv": "Khương Lĩnh Mai",
+   "name_han": "姜嶺梅",
+   "gloss": "Ridge plum",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 6,
+   "birthplace": 703,
+   "role": "Sword in the Wutong Court's guard, admitted on Wood",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Stubborn",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Lưu Kim miner's daughter in Nhậm Cương Thủ's (nham_cuong_thu) guard, admitted on Wood 32 and kept for her sword arm; she will never pass the Feather Kindling and does not mean to try.",
+   "ties": [
+    {
+     "to": "nham_cuong_thu",
+     "kind": "master",
+     "note": "captain of the guard"
+    },
+    {
+     "to": "nguy_bach_thach",
+     "kind": "friend",
+     "note": "the other ridge-born outer disciple"
+    }
+   ],
+   "master": "nham_cuong_thu",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "A Metal sword."
+    }
+   }
+  },
+  {
+   "key": "chu_nhien_tam",
+   "name_hv": "Chu Nhiên Tâm",
+   "name_han": "朱燃心",
+   "gloss": "Burning heart",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "noi_mon",
+   "home": 449,
+   "birthplace": 449,
+   "role": "Ash-born inner disciple of the fan forms",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 54,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Impatient",
+     "Brave"
+    ],
+    "calling": "Duelist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Passed the Feather Kindling at nineteen and has waited four years for Foundation; Cảnh Vũ Ca (canh_vu_ca) says she fans too hard.",
+   "ties": [
+    {
+     "to": "canh_vu_ca",
+     "kind": "master",
+     "note": "inner-gate fan duelist"
+    },
+    {
+     "to": "ung_liet_tam",
+     "kind": "friend",
+     "note": "ash-born like her"
+    }
+   ],
+   "master": "canh_vu_ca",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire fans."
+    }
+   }
+  },
+  {
+   "key": "ton_xich_minh",
+   "name_hv": "Tôn Xích Minh",
+   "name_han": "孫赤明",
+   "gloss": "Red bright",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "noi_mon",
+   "home": 449,
+   "birthplace": 449,
+   "role": "Runner of the Hall of Righteousness",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 50,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Gregarious",
+     "Trusting"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Runs the Hall's orders across the Fire Court for Đái Liệt Dương (dai_liet_duong) word for word, including, once, a curse Sử Hoành Dực (su_hoanh_duc) had not meant to be carried.",
+   "ties": [
+    {
+     "to": "dai_liet_duong",
+     "kind": "master",
+     "note": "adjutant of the Hall of Righteousness"
+    }
+   ],
+   "master": "dai_liet_duong",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire, quick."
+    }
+   }
+  },
+  {
+   "key": "quach_tieu_dao",
+   "name_hv": "Quách Tiểu Đào",
+   "name_han": "郭小桃",
+   "gloss": "Little peach",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 449,
+   "birthplace": 162,
+   "role": "New outer disciple from Tang Âm Thôn",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 34,
+     "moc": 32,
+     "tho": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Trusting",
+     "Gregarious",
+     "Impatient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Came down from Tang Âm with the spring recruiters and has burned two down feathers already; Liêu Nhung Hỏa (lieu_nhung_hoa) keeps giving her more.",
+   "ties": [
+    {
+     "to": "lieu_nhung_hoa",
+     "kind": "master",
+     "note": "gathers the down for the Kindling"
+    }
+   ],
+   "master": "lieu_nhung_hoa",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire, just kindled."
+    }
+   }
+  },
+  {
+   "key": "luong_dao_tue",
+   "name_hv": "Lương Đạo Tuệ",
+   "name_han": "梁稻穗",
+   "gloss": "Ear of rice",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 85,
+   "birthplace": 148,
+   "role": "Granary cart hand of the Hall of Benevolence",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 38,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Content",
+     "Generous"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Thủy Điền rice farmer's son who rides the granary carts with Khổng Tế Dân (khong_te_dan) and sleeps under them.",
+   "ties": [
+    {
+     "to": "khong_te_dan",
+     "kind": "master",
+     "note": "rides the famine roads"
+    }
+   ],
+   "master": "khong_te_dan",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth under Fire."
+    }
+   }
+  },
+  {
+   "key": "lam_anh_hong",
+   "name_hv": "Lam Ánh Hồng",
+   "name_han": "藍映紅",
+   "gloss": "Reflected red",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 449,
+   "birthplace": 41,
+   "role": "Copies petitions in the Hall of Virtue",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 42,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Cautious",
+     "Ambitious"
+    ],
+    "calling": "Steward",
+    "upbringing": "scholar_family"
+   },
+   "backstory": "Copies the petitions that reach the Hall of Virtue for Thì Văn Bính (thi_van_binh) and will sit the Feather Kindling this year on Fire 42, which is not quite enough.",
+   "ties": [
+    {
+     "to": "thi_van_binh",
+     "kind": "master",
+     "note": "clerk of the Hall of Virtue"
+    }
+   ],
+   "master": "thi_van_binh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire seals."
+    }
+   }
+  },
+  {
+   "key": "giang_trieu_sinh",
+   "name_hv": "Giang Triều Sinh",
+   "name_han": "江潮生",
+   "gloss": "Born of the tide",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 93,
+   "birthplace": 93,
+   "role": "Deck hand of the palace fleet",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 40,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Indulgent",
+     "Gregarious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Climbs the flagship's mast for Mã Phá Lãng (ma_pha_lang) and spends his pay in Thạch Cơ's harbour; Trạm Ba Thanh (tram_ba_thanh) drags him back aboard.",
+   "ties": [
+    {
+     "to": "ma_pha_lang",
+     "kind": "master",
+     "note": "the helmsman"
+    },
+    {
+     "to": "tram_ba_thanh",
+     "kind": "friend",
+     "note": "deck hand"
+    }
+   ],
+   "master": "ma_pha_lang",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire at sea."
+    }
+   }
+  },
+  {
+   "key": "ho_ngan_lan",
+   "name_hv": "Hồ Ngân Lân",
+   "name_han": "胡銀鱗",
+   "gloss": "Silver scale",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 93,
+   "birthplace": 149,
+   "role": "Diver of the palace fleet",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Calm",
+     "Reclusive"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Born at Âu Lộ on the jungle coast, she dives for Ô Trầm Châu (o_tram_chau) and can hold her breath longer than he can, which he resents.",
+   "ties": [
+    {
+     "to": "o_tram_chau",
+     "kind": "master",
+     "note": "the fleet's diver"
+    }
+   ],
+   "master": "o_tram_chau",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water under Fire."
+    }
+   }
+  },
+  {
+   "key": "phan_thinh_dao",
+   "name_hv": "Phàn Thính Đào",
+   "name_han": "樊聽濤",
+   "gloss": "Hears the billows",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 93,
+   "birthplace": 93,
+   "role": "The admiral's grandson, put to the oars",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 36,
+     "thuy": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Brave",
+     "Impatient"
+    ],
+    "calling": "Duelist",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "Phàn Vọng Hải's (phan_vong_hai) grandson, put to the oars by his grandfather's order like any deck hand; Can Hải Trì (can_hai_tri) has been told to work him harder than the rest, and does.",
+   "ties": [
+    {
+     "to": "can_hai_tri",
+     "kind": "master",
+     "note": "first mate"
+    },
+    {
+     "to": "phan_vong_hai",
+     "kind": "grandparent",
+     "note": "the admiral"
+    }
+   ],
+   "master": "can_hai_tri",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire, raw."
+    }
+   }
+  },
+  {
+   "key": "vo_chu_thach",
+   "name_hv": "Võ Chu Thạch",
+   "name_han": "武朱石",
+   "gloss": "Red stone",
+   "sex": "M",
+   "born": 1177,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 211,
+   "birthplace": 772,
+   "role": "Cinnabar miner's son at the vein fort",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 44,
+     "hoa": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Warlike",
+     "Loyal",
+     "Stubborn"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Grew up in the cinnabar shafts of Đan Sa Quật and walls the vein fort for Mông Chu Tiêu (mong_chu_tieu); he has never seen a Thính Vũ sword and wants to.",
+   "ties": [
+    {
+     "to": "mong_chu_tieu",
+     "kind": "master",
+     "note": "lieutenant of the vein fort"
+    }
+   ],
+   "master": "mong_chu_tieu",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal under Fire."
+    }
+   }
+  },
+  {
+   "key": "diep_dan_sa",
+   "name_hv": "Diệp Đan Sa",
+   "name_han": "葉丹砂",
+   "gloss": "Cinnabar leaf",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 211,
+   "birthplace": 772,
+   "role": "Signal girl of the vein fort",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 40,
+     "hoa": 30,
+     "thuy": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Peaceable",
+     "Honest",
+     "Cautious"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born"
+   },
+   "backstory": "Sử Niệm Huỳnh (su_niem_huynh) has taught her to read the Pivot's and the Tower's banners across the vein, and to wish, as her teacher does, that they never meant war.",
+   "ties": [
+    {
+     "to": "su_niem_huynh",
+     "kind": "master",
+     "note": "second at the vein fort"
+    }
+   ],
+   "master": "su_niem_huynh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal banners."
+    }
+   }
+  },
+  {
+   "key": "tran_bach_thao",
+   "name_hv": "Trần Bách Thảo",
+   "name_han": "陳百草",
+   "gloss": "Hundred herbs",
+   "sex": "F",
+   "born": 1175,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 85,
+   "birthplace": 85,
+   "role": "Herb girl for the healers of Hoàng Vân Thành",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Diligent",
+     "Humble"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Gathers and dries the healers' herbs for Từ Cam Tuyền (tu_cam_tuyen) and knows the fevers of the rice plain by smell.",
+   "ties": [
+    {
+     "to": "tu_cam_tuyen",
+     "kind": "master",
+     "note": "healer of the Hall of Benevolence"
+    }
+   ],
+   "master": "tu_cam_tuyen",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood for healing."
+    }
+   }
+  },
+  {
+   "key": "dinh_tich_coc",
+   "name_hv": "Đinh Tích Cốc",
+   "name_han": "丁積穀",
+   "gloss": "Stores grain",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 85,
+   "birthplace": 152,
+   "role": "Granary hand at Hoàng Vân Thành for fifty years",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 42,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Content",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Has turned the grain in the Hoàng Vân granaries for half a century under Cốc Thu Thành (coc_thu_thanh) and can tell a damp bin by knocking on it.",
+   "ties": [
+    {
+     "to": "coc_thu_thanh",
+     "kind": "master",
+     "note": "granary steward"
+    },
+    {
+     "to": "hoa_thien_khe",
+     "kind": "friend",
+     "note": "the other granary hand"
+    }
+   ],
+   "master": "coc_thu_thanh",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood for a long life."
+    }
+   }
+  },
+  {
+   "key": "liem_to_cam",
+   "name_hv": "Liêm Tố Cầm",
+   "name_han": "廉素琴",
+   "gloss": "Plain qin",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 53,
+   "birthplace": 53,
+   "role": "Strings the qin sold at Thiều Âm Thị",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 40,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Diligent",
+     "Reclusive"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A luthier's daughter from Thiều Âm Thị who strings the qin for Hàn Ngọc Tiêu (han_ngoc_tieu) and tunes them by the dawn flute.",
+   "ties": [
+    {
+     "to": "han_ngoc_tieu",
+     "kind": "master",
+     "note": "tunes the market's flutes"
+    }
+   ],
+   "master": "han_ngoc_tieu",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood music."
+    }
+   }
+  },
+  {
+   "key": "luc_minh_sanh",
+   "name_hv": "Lục Minh Sanh",
+   "name_han": "陸鳴笙",
+   "gloss": "Singing reed-organ",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 53,
+   "birthplace": 53,
+   "role": "Shop boy of the music market",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 36,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Fickle",
+     "Gregarious",
+     "Lazy"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Sweeps Hàn Ngọc Tiêu's (han_ngoc_tieu) shop at Thiều Âm Thị and plays the stock when she is out.",
+   "ties": [
+    {
+     "to": "han_ngoc_tieu",
+     "kind": "master",
+     "note": "his teacher at the market"
+    }
+   ],
+   "master": "han_ngoc_tieu",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood music."
+    }
+   }
+  },
+  {
+   "key": "tien_hoa_hau",
+   "name_hv": "Tiền Hỏa Hậu",
+   "name_han": "錢火候",
+   "gloss": "Fire timing",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 248,
+   "birthplace": 94,
+   "role": "Watches the furnace fire through the night at Chu Sa Tuyền",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 44,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Diligent",
+     "Calm"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Sits up with the furnace through the night for Lữ Chu Hống (lu_chu_hong) and wakes her at the colour change; she pays him in cracked pills.",
+   "ties": [
+    {
+     "to": "lu_chu_hong",
+     "kind": "master",
+     "note": "grinds cinnabar for the furnace"
+    }
+   ],
+   "master": "lu_chu_hong",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "dan_dao": 1
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire for the furnace."
+    }
+   }
+  },
+  {
+   "key": "khuc_que_diep",
+   "name_hv": "Khúc Quế Diệp",
+   "name_han": "曲桂葉",
+   "gloss": "Cassia leaf",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 248,
+   "birthplace": 1025,
+   "role": "Carries herbs up to the furnace",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "hoa": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Trusting",
+     "Humble",
+     "Content"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Quế Viên girl who carries cassia and herbs up to the furnace for Kiều Đan Lô (kieu_dan_lo), and is on his side against Lữ Chu Hống (lu_chu_hong) without being asked.",
+   "ties": [
+    {
+     "to": "kieu_dan_lo",
+     "kind": "master",
+     "note": "alchemist's apprentice"
+    }
+   ],
+   "master": "kieu_dan_lo",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood for herbs."
+    }
+   }
+  },
+  {
+   "key": "thai_hoa_linh",
+   "name_hv": "Thái Hỏa Linh",
+   "name_han": "蔡火鈴",
+   "gloss": "Fire bell",
+   "sex": "F",
+   "born": 1177,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "noi_mon",
+   "home": 253,
+   "birthplace": 449,
+   "role": "Rings the bell at the Ash Seat",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 52,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Calm",
+     "Loyal"
+    ],
+    "calling": "Steward",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Rings the bronze bell on the vent's lip when an elder sits the Ash Seat and again when they rise; she has rung the second bell eleven times and the third, for a death, twice.",
+   "ties": [
+    {
+     "to": "vi_tich_hoi",
+     "kind": "master",
+     "note": "attendant of the Ash Seat"
+    }
+   ],
+   "master": "vi_tich_hoi",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire wards."
+    }
+   }
+  },
+  {
+   "key": "luu_tu_nuong",
+   "name_hv": "Lưu Tứ Nương",
+   "name_han": "劉四娘",
+   "gloss": "Fourth daughter",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "tap_dich",
+   "home": 449,
+   "birthplace": 93,
+   "role": "Cook (tạp dịch) of the Fire Court's kitchens",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 34,
+     "thuy": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Generous",
+     "Arbitrary",
+     "Gregarious"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Cooks the Fire Court's rice beside Bào Lạc Hải (bao_lac_hai) and seats guests nearest the fire; she has watched three envoys refuse the seat and remembers each by name.",
+   "ties": [
+    {
+     "to": "bao_lac_hai",
+     "kind": "friend",
+     "note": "cook of the Fire Court"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth for kitchen work."
+    }
+   },
+   "exception": "servant (tạp dịch): an Earth root with no Fire or Wood"
+  },
+  {
+   "key": "hung_liet_nha",
+   "name_hv": "Hùng Liệt Nha",
+   "name_han": "熊烈牙",
+   "gloss": "Fierce tooth",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 449,
+   "birthplace": 29,
+   "role": "Phần Vũ Đường's second surety at the palace",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 44,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Deceitful",
+     "Brave"
+    ],
+    "calling": "Duelist",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "Hùng Diễm Nhi's (hung_diem_nhi) cousin, sent from Phần Vũ Đường as a second surety; he keeps her company and, the Hall of Trust suspects, her secrets.",
+   "ties": [
+    {
+     "to": "hung_diem_nhi",
+     "kind": "master",
+     "note": "his cousin teaches him"
+    },
+    {
+     "to": "hung_diem_nhi",
+     "kind": "cousin",
+     "note": "the first surety"
+    }
+   ],
+   "master": "hung_diem_nhi",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire in the body."
+    }
+   }
+  },
+  {
+   "key": "vuong_thanh_dang",
+   "name_hv": "Vương Thanh Đằng",
+   "name_han": "王青藤",
+   "gloss": "Green vine",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 449,
+   "birthplace": 988,
+   "role": "Miêu Trúc Sinh's first pupil",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "hoa": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Humble",
+     "Diligent"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Miêu Trúc Sinh (mieu_truc_sinh) took her the year he passed the Feather Kindling at last, and tells her she has seventy years if she needs them.",
+   "ties": [
+    {
+     "to": "mieu_truc_sinh",
+     "kind": "master",
+     "note": "took seventy years to pass"
+    }
+   ],
+   "master": "mieu_truc_sinh",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood that will one day burn."
+    }
+   }
+  },
+  {
+   "key": "bui_thanh_ha",
+   "name_hv": "Bùi Thanh Hà",
+   "name_han": "裴青荷",
+   "gloss": "Green lotus",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 6,
+   "birthplace": 146,
+   "role": "Outer disciple of the Hall of Rites at the Wutong Court",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Trusting",
+     "Content"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born"
+   },
+   "backstory": "From Bạc Địch Thanh's (bac_dich_thanh) own village of Hà Loan; he heard her whistle at the spring fair and asked for her.",
+   "ties": [
+    {
+     "to": "bac_dich_thanh",
+     "kind": "master",
+     "note": "flautist of the Hall of Rites"
+    }
+   ],
+   "master": "bac_dich_thanh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood music."
+    }
+   }
+  },
+  {
+   "key": "an_tri_le",
+   "name_hv": "Ân Tri Lễ",
+   "name_han": "殷知禮",
+   "gloss": "Knows the rites",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 449,
+   "birthplace": 26,
+   "role": "Rides with the palace's envoy to the vassals",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 40,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Honest",
+     "Peaceable"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "temple_raised"
+   },
+   "backstory": "Born at Lễ Tuyền Phái among the sweet spring's keepers, he rides with Bình Viễn Khách (binh_vien_khach) to the vassals and carries the palace's gifts in both hands.",
+   "ties": [
+    {
+     "to": "binh_vien_khach",
+     "kind": "master",
+     "note": "envoy to the vassals"
+    }
+   ],
+   "master": "binh_vien_khach",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire wards."
+    }
+   }
+  },
+  {
+   "key": "co_hong_phien",
+   "name_hv": "Cổ Hồng Phiến",
+   "name_han": "古紅扇",
+   "gloss": "Red fan",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 449,
+   "birthplace": 83,
+   "role": "Practises the fan forms before dawn on the Fire Court's stair",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 44,
+     "moc": 30,
+     "thuy": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Ambitious",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Watches Sầm Liệt Dực's (sam_liet_duc) challenges on the stair and tells him afterwards where he lost; he asks her before he asks his master.",
+   "ties": [
+    {
+     "to": "sam_liet_duc",
+     "kind": "master",
+     "note": "ash-born fan duelist"
+    }
+   ],
+   "master": "sam_liet_duc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire fans."
+    }
+   }
+  },
+  {
+   "key": "van_truc_y",
+   "name_hv": "Văn Trúc Y",
+   "name_han": "文竹衣",
+   "gloss": "Bamboo robe",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "phuong_minh",
+   "rank": "ngoai_mon",
+   "home": 6,
+   "birthplace": 25,
+   "role": "Wood girl of the Wutong Court, Kha Thanh Miêu's bunk-mate",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "hoa": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Cautious",
+     "Compassionate"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Came from Trúc Thực Viên with Kha Thanh Miêu (kha_thanh_mieu) and sleeps beside her; she thinks the great wutong sheds fewer leaves on her friend's side of the court, and has told no one, since she cannot prove it.",
+   "ties": [
+    {
+     "to": "an_thuy_vu",
+     "kind": "master",
+     "note": "bird keeper"
+    },
+    {
+     "to": "kha_thanh_mieu",
+     "kind": "friend",
+     "note": "came from the same vassal"
+    }
+   ],
+   "master": "an_thuy_vu",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood that grows."
+    }
+   }
+  }
+ ]
+}

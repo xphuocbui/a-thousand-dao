@@ -1,0 +1,1569 @@
+{
+"_doc": "Input slice for the depth writer of cung_tinh (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "cung_tinh",
+"name": "Củng Tinh Quán",
+"name_han": "拱星觀",
+"gloss": "Abbey of the Bowing Stars",
+"alignment": "trung lập",
+"leans": [
+"Earth",
+"Metal"
+],
+"craft": "formations (trận pháp) and star divination",
+"lord": "thien_xu",
+"region": 14,
+"seat": 22,
+"kind": "minor"
+},
+"start_state": {
+"key": "cung_tinh",
+"name": "Củng Tinh Quán",
+"name_han": "拱星觀",
+"gloss": "Abbey of the Bowing Stars",
+"kind": "minor",
+"alignment": "trung",
+"leans": [
+"Earth",
+"Metal"
+],
+"seat": 22,
+"levels": {
+"holdings": 3,
+"institutions": 4,
+"military": 2,
+"trade": 2
+},
+"treasury": 7000,
+"founded": 150,
+"specialty": "tran_su",
+"lord": "thien_xu",
+"loyalty": 65,
+"craft": "formations (trận pháp) and star divination",
+"region": 14,
+"leader": "tham_bac_than"
+},
+"lord": "thien_xu",
+"vassals": [],
+"seat": {
+"id": 22,
+"name": "Củng Tinh Quán",
+"gloss": "",
+"kind": "minor_seat",
+"region": 14,
+"biome": "highland",
+"elev_km": 1.36,
+"qi": {
+"moc": 12,
+"hoa": 12,
+"tho": 45,
+"kim": 21,
+"thuy": 9
+},
+"variants": {},
+"density": 1.44,
+"note": ""
+},
+"seat_audit": "## OK  Củng Tinh Quán (cung_tinh; leans Earth/Metal)\nSeat: Củng Tinh Quán (id 22, minor_seat, region 14, highland), density 1.44\nSeat qi: Earth 45%, Metal 21%\n",
+"ground": [
+{
+"id": 5,
+"name": "Thiên Xu Tông",
+"gloss": "",
+"kind": "great_seat",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 2.07,
+"qi": {
+"moc": 16,
+"hoa": 12,
+"tho": 33,
+"kim": 29,
+"thuy": 11
+},
+"variants": {},
+"density": 2.11,
+"note": ""
+},
+{
+"id": 564,
+"name": "Tinh Kính Khoáng",
+"gloss": "Crystal Lens Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 2.05,
+"qi": {
+"moc": 15,
+"hoa": 13,
+"tho": 36,
+"kim": 27,
+"thuy": 10
+},
+"variants": {},
+"density": 1.89,
+"note": ""
+},
+{
+"id": 632,
+"name": "Thái Nhất Phong",
+"gloss": "Peak of the Great One",
+"kind": "peak",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 2.24,
+"qi": {
+"moc": 13,
+"hoa": 12,
+"tho": 33,
+"kim": 32,
+"thuy": 10
+},
+"variants": {},
+"density": 1.88,
+"note": ""
+},
+{
+"id": 565,
+"name": "Hoa Cái Đường",
+"gloss": "Hall of the Canopy Star",
+"kind": "minor_seat",
+"region": 14,
+"biome": "temperate forest",
+"elev_km": 1.73,
+"qi": {
+"moc": 16,
+"hoa": 12,
+"tho": 37,
+"kim": 25,
+"thuy": 10
+},
+"variants": {},
+"density": 1.84,
+"note": ""
+},
+{
+"id": 1481,
+"name": "Xu Trụ Phong",
+"gloss": "Pivot Pillar Peak",
+"kind": "peak",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 2.05,
+"qi": {
+"moc": 14,
+"hoa": 12,
+"tho": 32,
+"kim": 32,
+"thuy": 11
+},
+"variants": {},
+"density": 1.83,
+"note": ""
+},
+{
+"id": 566,
+"name": "Tây Quan Bảo",
+"gloss": "West Pass Fort",
+"kind": "ruin",
+"region": 14,
+"biome": "temperate forest",
+"elev_km": 1.55,
+"qi": {
+"moc": 14,
+"hoa": 13,
+"tho": 42,
+"kim": 22,
+"thuy": 9
+},
+"variants": {},
+"density": 1.82,
+"note": ""
+},
+{
+"id": 631,
+"name": "Kim Tinh Khoáng",
+"gloss": "Gold Essence Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.62,
+"qi": {
+"moc": 12,
+"hoa": 13,
+"tho": 32,
+"kim": 33,
+"thuy": 10
+},
+"variants": {},
+"density": 1.7,
+"note": ""
+},
+{
+"id": 1480,
+"name": "Trận Thạch Khoáng",
+"gloss": "Array Stone Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.38,
+"qi": {
+"moc": 14,
+"hoa": 13,
+"tho": 32,
+"kim": 31,
+"thuy": 10
+},
+"variants": {},
+"density": 1.63,
+"note": ""
+},
+{
+"id": 385,
+"name": "Thạch Quyền Phong",
+"gloss": "Stone Weight Peak",
+"kind": "peak",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.24,
+"qi": {
+"moc": 16,
+"hoa": 13,
+"tho": 30,
+"kim": 30,
+"thuy": 11
+},
+"variants": {},
+"density": 1.55,
+"note": ""
+},
+{
+"id": 574,
+"name": "Cửu Diệu Phong",
+"gloss": "Peak of the Nine Luminaries",
+"kind": "peak",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 2.18,
+"qi": {
+"moc": 13,
+"hoa": 14,
+"tho": 34,
+"kim": 29,
+"thuy": 9
+},
+"variants": {},
+"density": 1.54,
+"note": ""
+},
+{
+"id": 22,
+"name": "Củng Tinh Quán",
+"gloss": "",
+"kind": "minor_seat",
+"region": 14,
+"biome": "highland",
+"elev_km": 1.36,
+"qi": {
+"moc": 12,
+"hoa": 12,
+"tho": 45,
+"kim": 21,
+"thuy": 9
+},
+"variants": {},
+"density": 1.44,
+"note": ""
+},
+{
+"id": 635,
+"name": "Tị Xà Khoáng",
+"gloss": "Snake-Ward Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.8,
+"qi": {
+"moc": 20,
+"hoa": 11,
+"tho": 28,
+"kim": 28,
+"thuy": 12
+},
+"variants": {},
+"density": 1.42,
+"note": ""
+},
+{
+"id": 576,
+"name": "Phong Toại Bảo",
+"gloss": "Beacon Fort",
+"kind": "ruin",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 0.73,
+"qi": {
+"moc": 9,
+"hoa": 15,
+"tho": 33,
+"kim": 34,
+"thuy": 9
+},
+"variants": {},
+"density": 1.4,
+"note": ""
+},
+{
+"id": 257,
+"name": "Phong Văn Hồ",
+"gloss": "Lake of the Wind Ripples",
+"kind": "lake",
+"region": 14,
+"biome": "highland",
+"elev_km": 1.34,
+"qi": {
+"moc": 12,
+"hoa": 11,
+"tho": 47,
+"kim": 15,
+"thuy": 15
+},
+"variants": {},
+"density": 1.4,
+"note": ""
+},
+{
+"id": 384,
+"name": "Hoàng Đồng Khoáng",
+"gloss": "Yellow Copper Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.11,
+"qi": {
+"moc": 13,
+"hoa": 14,
+"tho": 31,
+"kim": 33,
+"thuy": 10
+},
+"variants": {},
+"density": 1.36,
+"note": ""
+},
+{
+"id": 569,
+"name": "Khuy Thiên Các",
+"gloss": "Pavilion That Peers at Heaven",
+"kind": "ruin",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.1,
+"qi": {
+"moc": 11,
+"hoa": 19,
+"tho": 38,
+"kim": 26,
+"thuy": 7
+},
+"variants": {},
+"density": 1.36,
+"note": ""
+},
+{
+"id": 614,
+"name": "Lục Hợp Thành",
+"gloss": "City of the Six Directions",
+"kind": "ruin",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.23,
+"qi": {
+"moc": 6,
+"hoa": 20,
+"tho": 36,
+"kim": 30,
+"thuy": 7
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 582,
+"name": "Lang Yên Trại",
+"gloss": "Wolf-Smoke Stockade",
+"kind": "ruin",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 0.47,
+"qi": {
+"moc": 8,
+"hoa": 15,
+"tho": 37,
+"kim": 32,
+"thuy": 9
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 626,
+"name": "Liên Hoa Phong",
+"gloss": "Lotus Peak",
+"kind": "peak",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.42,
+"qi": {
+"moc": 12,
+"hoa": 14,
+"tho": 34,
+"kim": 30,
+"thuy": 10
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 573,
+"name": "Thiết Sa Khoáng",
+"gloss": "Iron Sand Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.39,
+"qi": {
+"moc": 11,
+"hoa": 15,
+"tho": 33,
+"kim": 31,
+"thuy": 9
+},
+"variants": {},
+"density": 1.26,
+"note": ""
+},
+{
+"id": 192,
+"name": "Tinh Lạc Hồ",
+"gloss": "Lake Where the Stars Fall",
+"kind": "lake",
+"region": 14,
+"biome": "lake",
+"elev_km": 1.18,
+"qi": {
+"moc": 13,
+"hoa": 11,
+"tho": 49,
+"kim": 8,
+"thuy": 19
+},
+"variants": {},
+"density": 1.25,
+"note": "A high lake, 1.2 km up, that holds the Dipper at night; beside Củng Tinh Quán"
+},
+{
+"id": 1199,
+"name": "Tỏa Thiết Khoáng",
+"gloss": "Chain Iron Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.22,
+"qi": {
+"moc": 22,
+"hoa": 11,
+"tho": 25,
+"kim": 29,
+"thuy": 13
+},
+"variants": {},
+"density": 1.25,
+"note": ""
+},
+{
+"id": 636,
+"name": "Bách Tuế Mạch",
+"gloss": "Vein of a Hundred Years",
+"kind": "spirit_vein",
+"region": 14,
+"biome": "temperate forest",
+"elev_km": 2.17,
+"qi": {
+"moc": 22,
+"hoa": 12,
+"tho": 33,
+"kim": 22,
+"thuy": 12
+},
+"variants": {},
+"density": 1.21,
+"note": ""
+},
+{
+"id": 590,
+"name": "Lão Mã Bảo",
+"gloss": "Old Horse Fort",
+"kind": "ruin",
+"region": 14,
+"biome": "highland",
+"elev_km": 1.51,
+"qi": {
+"moc": 7,
+"hoa": 17,
+"tho": 59,
+"kim": 12,
+"thuy": 5
+},
+"variants": {},
+"density": 1.19,
+"note": ""
+},
+{
+"id": 638,
+"name": "Tẩy Tâm Tuyền",
+"gloss": "Heart-Washing Spring",
+"kind": "hot_spring",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.02,
+"qi": {
+"moc": 20,
+"hoa": 13,
+"tho": 29,
+"kim": 26,
+"thuy": 12
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 563,
+"name": "Bán Nguyệt Hồ",
+"gloss": "Half-Moon Lake",
+"kind": "lake",
+"region": 14,
+"biome": "highland",
+"elev_km": 1.34,
+"qi": {
+"moc": 12,
+"hoa": 12,
+"tho": 51,
+"kim": 9,
+"thuy": 16
+},
+"variants": {},
+"density": 1.12,
+"note": ""
+},
+{
+"id": 637,
+"name": "Tầm Dược Thôn",
+"gloss": "Herb Seekers' Village",
+"kind": "village",
+"region": 14,
+"biome": "temperate forest",
+"elev_km": 1.58,
+"qi": {
+"moc": 16,
+"hoa": 10,
+"tho": 30,
+"kim": 35,
+"thuy": 9
+},
+"variants": {},
+"density": 1.11,
+"note": ""
+},
+{
+"id": 172,
+"name": "Vẫn Tinh Khoáng",
+"gloss": "Fallen Star Mine",
+"kind": "mine",
+"region": 14,
+"biome": "highland",
+"elev_km": 1.42,
+"qi": {
+"moc": 10,
+"hoa": 10,
+"tho": 38,
+"kim": 36,
+"thuy": 6
+},
+"variants": {},
+"density": 1.06,
+"note": "Iron from a star that fell on the high plain, for Củng Tinh Quán, whose stars bow to the Pivot."
+},
+{
+"id": 580,
+"name": "Đồn Điền Trại",
+"gloss": "Garrison Farm Stockade",
+"kind": "ruin",
+"region": 14,
+"biome": "grassland",
+"elev_km": 1.31,
+"qi": {
+"moc": 11,
+"hoa": 21,
+"tho": 39,
+"kim": 23,
+"thuy": 6
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 236,
+"name": "Thương Ưng Đài",
+"gloss": "Grey Hawk Terrace",
+"kind": "beast_lair",
+"region": 14,
+"biome": "highland",
+"elev_km": 1.71,
+"qi": {
+"moc": 12,
+"hoa": 18,
+"tho": 42,
+"kim": 20,
+"thuy": 8
+},
+"variants": {
+"phong": 20.3
+},
+"density": 1.04,
+"note": "The high plateau of Thiên Tuyền Nguyên, hunting ground of the grey hawks, near Chiết Kích Nguyên."
+},
+{
+"id": 619,
+"name": "Sương Đầu Phong",
+"gloss": "Frost-Head Peak",
+"kind": "peak",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 2.0,
+"qi": {
+"moc": 6,
+"hoa": 15,
+"tho": 32,
+"kim": 41,
+"thuy": 6
+},
+"variants": {},
+"density": 1.03,
+"note": ""
+},
+{
+"id": 571,
+"name": "Kim Sa Khoáng",
+"gloss": "Gold Sand Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.39,
+"qi": {
+"moc": 15,
+"hoa": 12,
+"tho": 30,
+"kim": 32,
+"thuy": 11
+},
+"variants": {},
+"density": 1.0,
+"note": ""
+},
+{
+"id": 621,
+"name": "Hồng Ngọc Khoáng",
+"gloss": "Ruby Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.81,
+"qi": {
+"moc": 8,
+"hoa": 13,
+"tho": 31,
+"kim": 39,
+"thuy": 9
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 578,
+"name": "Đới Văn Khoáng",
+"gloss": "Banded Stone Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.12,
+"qi": {
+"moc": 13,
+"hoa": 21,
+"tho": 39,
+"kim": 22,
+"thuy": 6
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 587,
+"name": "Tẩy Giáp Trì",
+"gloss": "Pool Where Armour Was Washed",
+"kind": "hot_spring",
+"region": 14,
+"biome": "highland",
+"elev_km": 1.58,
+"qi": {
+"moc": 8,
+"hoa": 16,
+"tho": 58,
+"kim": 12,
+"thuy": 6
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 322,
+"name": "Khô Tỉnh Trấn",
+"gloss": "Dry Well Town",
+"kind": "ruin",
+"region": 14,
+"biome": "steppe",
+"elev_km": 0.38,
+"qi": {
+"moc": 8,
+"hoa": 21,
+"tho": 40,
+"kim": 26,
+"thuy": 6
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 628,
+"name": "Huyền Cương Khoáng",
+"gloss": "Dark Steel Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.65,
+"qi": {
+"moc": 18,
+"hoa": 12,
+"tho": 33,
+"kim": 25,
+"thuy": 11
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 617,
+"name": "Tiêu Thạch Khoáng",
+"gloss": "Saltpetre Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.13,
+"qi": {
+"moc": 9,
+"hoa": 19,
+"tho": 40,
+"kim": 26,
+"thuy": 7
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 605,
+"name": "Ngân Sa Khoáng",
+"gloss": "Silver Sand Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.13,
+"qi": {
+"moc": 7,
+"hoa": 21,
+"tho": 45,
+"kim": 21,
+"thuy": 6
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 589,
+"name": "Thanh Kim Khoáng",
+"gloss": "Lapis Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.65,
+"qi": {
+"moc": 9,
+"hoa": 19,
+"tho": 51,
+"kim": 15,
+"thuy": 6
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 596,
+"name": "Tử Thạch Khoáng",
+"gloss": "Amethyst Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.7,
+"qi": {
+"moc": 7,
+"hoa": 17,
+"tho": 39,
+"kim": 30,
+"thuy": 7
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 608,
+"name": "Lục Ngọc Khoáng",
+"gloss": "Green Jade Mine",
+"kind": "mine",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.65,
+"qi": {
+"moc": 9,
+"hoa": 17,
+"tho": 36,
+"kim": 30,
+"thuy": 7
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 622,
+"name": "Thọ Tinh Phong",
+"gloss": "Peak of the Longevity Star",
+"kind": "peak",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 2.27,
+"qi": {
+"moc": 8,
+"hoa": 13,
+"tho": 31,
+"kim": 38,
+"thuy": 9
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 52,
+"name": "Thiên Quyền Thị",
+"gloss": "Market of the Heavenly Balance",
+"kind": "market",
+"region": 14,
+"biome": "grassland",
+"elev_km": 0.44,
+"qi": {
+"moc": 11,
+"hoa": 15,
+"tho": 32,
+"kim": 32,
+"thuy": 9
+},
+"variants": {},
+"density": 0.98,
+"note": "Thiên Quyền (Megrez), the Dipper star of authority and measure; below Thiên Xu Tông's seat"
+},
+{
+"id": 613,
+"name": "Thạch Chung Phong",
+"gloss": "Stone Bell Peak",
+"kind": "peak",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.87,
+"qi": {
+"moc": 7,
+"hoa": 20,
+"tho": 37,
+"kim": 29,
+"thuy": 7
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 575,
+"name": "Câu Trần Phong",
+"gloss": "Peak of the Hooked Array",
+"kind": "peak",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.08,
+"qi": {
+"moc": 7,
+"hoa": 17,
+"tho": 37,
+"kim": 31,
+"thuy": 8
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 625,
+"name": "Bạch Trâm Phong",
+"gloss": "White Hairpin Peak",
+"kind": "peak",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.43,
+"qi": {
+"moc": 22,
+"hoa": 12,
+"tho": 28,
+"kim": 26,
+"thuy": 13
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 579,
+"name": "Xa Luân Phong",
+"gloss": "Wheel Peak",
+"kind": "peak",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.42,
+"qi": {
+"moc": 11,
+"hoa": 19,
+"tho": 38,
+"kim": 25,
+"thuy": 7
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 610,
+"name": "Thứu Chủy Phong",
+"gloss": "Vulture-Beak Peak",
+"kind": "peak",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.4,
+"qi": {
+"moc": 20,
+"hoa": 11,
+"tho": 28,
+"kim": 29,
+"thuy": 12
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 1200,
+"name": "Đoạn Liên Phong",
+"gloss": "Peak of the Broken Chain",
+"kind": "peak",
+"region": 14,
+"biome": "high mountain",
+"elev_km": 1.57,
+"qi": {
+"moc": 20,
+"hoa": 12,
+"tho": 26,
+"kim": 30,
+"thuy": 12
+},
+"variants": {},
+"density": 0.97,
+"note": ""
+}
+],
+"ground_place_count": 103,
+"events": [
+{
+"id": "C002",
+"tier": "landmark",
+"year": 120,
+"kind": "sect_founded",
+"people": [
+"chung_hoai_cuc"
+],
+"sects": [
+"thien_xu"
+],
+"text_en": "Chung Hoài Cực, at 80, founds Thiên Xu Tông under the stars of the Northern Dipper; the ground around his seat grows rich as the sect gathers, and becomes the Bắc Thần Phúc Địa.",
+"place": 5
+},
+{
+"id": "C051",
+"tier": "landmark",
+"year": 150,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Under Thiên Xu Tông's protection the traders' crossing grows into Thạch Kiều Thành, the first city of the heart.",
+"place": 81
+},
+{
+"id": "A205",
+"tier": "annal",
+"year": 155,
+"kind": "discovery",
+"people": [],
+"sects": [
+"cung_tinh"
+],
+"text_en": "Củng Tinh Quán's star-readers find that the high lake Tinh Lạc Hồ holds the Dipper at night as clearly as the sky.",
+"place": 192,
+"region": 14
+},
+{
+"id": "A206",
+"tier": "annal",
+"year": 160,
+"kind": "mine",
+"people": [],
+"sects": [
+"cung_tinh"
+],
+"text_en": "Iron from a fallen star is dug at Vẫn Tinh; Củng Tinh Quán keeps the mine.",
+"place": 172,
+"region": 14
+},
+{
+"id": "C055",
+"tier": "landmark",
+"year": 180,
+"kind": "item_made",
+"people": [],
+"sects": [
+"cung_tinh"
+],
+"text_en": "The star-readers of Củng Tinh Quán finish the Tuyền Cơ Nghi, an armillary that follows the Northern Dipper through the year.",
+"place": 22,
+"item": "tuyen_co_nghi"
+},
+{
+"id": "A207",
+"tier": "annal",
+"year": 200,
+"kind": "settlement",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "A market of weight and measure opens beside Thiên Xu Tông; it is called Thiên Quyền Thị, and its scales are the fairest on the continent.",
+"place": 52,
+"region": 14
+},
+{
+"id": "C070",
+"tier": "landmark",
+"year": 270,
+"kind": "meeting",
+"people": [
+"ky_tung_an",
+"chung_hoai_cuc"
+],
+"sects": [
+"tung_dao",
+"thien_xu"
+],
+"text_en": "Kỳ Tùng Ẩn and Chung Hoài Cực meet at Thạch Kiều Thành and drink for three days; the Pine and the Pivot keep the peace for two centuries.",
+"place": 81
+},
+{
+"id": "A208",
+"tier": "annal",
+"year": 300,
+"kind": "mine",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Cinnabar is found in the red badlands; Thiên Xu's alchemists open Thần Sa Khoáng.",
+"place": 170,
+"region": 14
+},
+{
+"id": "A209",
+"tier": "annal",
+"year": 420,
+"kind": "mine",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Sulphur crusts at Lưu Hoàng make the badlands smell of eggs for twenty li; Thiên Xu mines them for fire powders.",
+"place": 171,
+"region": 14
+},
+{
+"id": "C102",
+"tier": "landmark",
+"year": 501,
+"kind": "omen",
+"people": [],
+"sects": [
+"cung_tinh"
+],
+"text_en": "The Tuyền Cơ Nghi shows the Dipper's handle turned toward the heart; Củng Tinh Quán warns of war, and no one listens.",
+"place": 22,
+"item": "tuyen_co_nghi"
+},
+{
+"id": "V036",
+"tier": "annal",
+"year": 508,
+"kind": "tale",
+"people": [],
+"sects": [
+"tung_dao"
+],
+"text_en": "The iron chain breaks below a bare peak on the river road; the peak is called Đoạn Liên Phong from that day.",
+"place": 1200,
+"region": 4
+},
+{
+"id": "A210",
+"tier": "annal",
+"year": 510,
+"kind": "omen",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "On the day the Compact is signed, every bell in Thạch Kiều Thành rings without being struck.",
+"place": 81,
+"region": 14
+},
+{
+"id": "C107",
+"tier": "landmark",
+"year": 510,
+"kind": "compact",
+"people": [
+"chung_hoai_cuc"
+],
+"sects": [
+"thien_xu",
+"tung_dao",
+"lac_ha",
+"thinh_vu",
+"bang_tam",
+"phuong_minh",
+"thuy_vi"
+],
+"text_en": "In Thạch Kiều Thành, Chung Hoài Cực sets the North Star Compact before the seven sects and stamps it with the Bắc Thần Ấn: land changes hands only by a fall, a gift, an oath or a war the Pivot licenses by writ, and Thiên Xu Tông will enforce it.",
+"place": 81,
+"item": "bac_than_an"
+},
+{
+"id": "V108",
+"tier": "annal",
+"year": 520,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "With the Compact set, the garrison of Tây Quan Bảo stands down, and its stones are carried off to build Thanh Khoa.",
+"place": 566,
+"region": 14
+},
+{
+"id": "V109",
+"tier": "annal",
+"year": 530,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Unpaid since the Compact, the last soldier-farmers of Đồn Điền Trại leave their fields for Thạch Kiều.",
+"place": 580,
+"region": 14
+},
+{
+"id": "A211",
+"tier": "annal",
+"year": 600,
+"kind": "trade",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Scented wood from the groves of Mộc Hương Thôn is burned in the hall of the Pivot.",
+"place": 140,
+"region": 14
+},
+{
+"id": "V110",
+"tier": "annal",
+"year": 650,
+"kind": "tale",
+"people": [],
+"sects": [
+"cung_tinh"
+],
+"text_en": "The head of Khuy Thiên Các goes blind, and its star-readers join their old rivals at Củng Tinh Quán, carrying their charts with them.",
+"place": 569,
+"region": 14
+},
+{
+"id": "C147",
+"tier": "landmark",
+"year": 760,
+"kind": "headship",
+"people": [
+"chung_hoai_cuc",
+"do_tinh_ha"
+],
+"sects": [
+"thien_xu"
+],
+"text_en": "Chung Hoài Cực dies at 720; Đỗ Tinh Hà, then 200, becomes the second head of Thiên Xu Tông.",
+"place": 5
+},
+{
+"id": "C148",
+"tier": "landmark",
+"year": 760,
+"kind": "birth",
+"people": [
+"doan_ngoc_hanh"
+],
+"sects": [
+"thien_xu"
+],
+"text_en": "The night the founder dies, a boy is born in Thạch Kiều Thành under the fifth star of the Dipper; he is named Doãn Ngọc Hành.",
+"place": 81
+},
+{
+"id": "C154",
+"tier": "landmark",
+"year": 785,
+"kind": "appointment",
+"people": [
+"do_tinh_ha",
+"quy_truong_kich"
+],
+"sects": [
+"thien_xu"
+],
+"text_en": "Đỗ Tinh Hà names Quý Trường Kích war marshal of Thiên Xu, and gives him the Thiết Mã banner and its tally.",
+"place": 5,
+"item": "thiet_ma_ky"
+},
+{
+"id": "C156",
+"tier": "landmark",
+"year": 789,
+"kind": "omen",
+"people": [],
+"sects": [
+"cung_tinh"
+],
+"text_en": "The Tuyền Cơ Nghi goes dark for a whole night; Củng Tinh Quán's star-readers burn incense and wait for war.",
+"place": 22,
+"item": "tuyen_co_nghi"
+},
+{
+"id": "V111",
+"tier": "annal",
+"year": 805,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "No one has come to relieve Lang Yên Trại since the battle on Chiết Kích Nguyên, and at the truce the signal outpost is abandoned.",
+"place": 582,
+"region": 14
+},
+{
+"id": "V112",
+"tier": "annal",
+"year": 806,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "After the truce the Pivot stands down its beacon line, and Phong Toại Bảo is left with its fire basket cold.",
+"place": 576,
+"region": 14
+},
+{
+"id": "V113",
+"tier": "annal",
+"year": 806,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "No riders came back from the battle to claim their remounts; the herds of Lão Mã Bảo are sold and the fort is left.",
+"place": 590,
+"region": 14
+},
+{
+"id": "V114",
+"tier": "annal",
+"year": 893,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "After three centuries of digging out their halls, the last disciples of Minh Sa Các give the pavilion to the dunes and go to Thạch Kiều.",
+"place": 424,
+"region": 14
+},
+{
+"id": "A214",
+"tier": "annal",
+"year": 900,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "A boy of Thụ Âm Thôn follows his goat into the miasma and walks out three days later, grey-haired and calm.",
+"place": 141,
+"region": 14
+},
+{
+"id": "V115",
+"tier": "annal",
+"year": 912,
+"kind": "disaster",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "An earthquake splits the cistern of the caravan city Lục Hợp Thành and dries its springs; its people move to Thạch Kiều.",
+"place": 614,
+"region": 14
+},
+{
+"id": "V116",
+"tier": "annal",
+"year": 940,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "The well of Khô Tỉnh Trấn fails in the drought, and the caravan town's people leave for the river.",
+"place": 322,
+"region": 14
+},
+{
+"id": "A216",
+"tier": "annal",
+"year": 1050,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Thạch Kiều Thành's stone bridge, the oldest thing in the heart, is widened for the first time; the old stones are kept in the Pivot's hall.",
+"place": 81,
+"region": 14
+},
+{
+"id": "V117",
+"tier": "annal",
+"year": 1060,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"hoa_cai",
+"thien_xu"
+],
+"text_en": "Pill refiners using the cinnabar of the red badlands found Hoa Cái Đường under Thiên Xu; their pills are weighed at Thiên Quyền Thị like everything else.",
+"place": 565,
+"region": 14
+},
+{
+"id": "A217",
+"tier": "annal",
+"year": 1130,
+"kind": "birth",
+"people": [
+"doan_hi_hoa",
+"doan_ngoc_hanh"
+],
+"sects": [
+"thien_xu"
+],
+"text_en": "Doãn Hi Hòa is born in Thạch Kiều Thành at sunrise; Doãn Ngọc Hành takes her as his disciple when she is five.",
+"place": 81,
+"region": 14
+},
+{
+"id": "C187",
+"tier": "landmark",
+"year": 1150,
+"kind": "headship",
+"people": [
+"do_tinh_ha",
+"doan_ngoc_hanh"
+],
+"sects": [
+"thien_xu"
+],
+"text_en": "Đỗ Tinh Hà steps down after 390 years; his disciple Doãn Ngọc Hành becomes head of Thiên Xu Tông and keeper of the Bắc Thần Ấn.",
+"place": 5,
+"item": "bac_than_an"
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "tham_bac_than",
+"name": "Thẩm Bắc Thần",
+"name_han": "沈北辰",
+"gloss": "Bắc thần is the pole star that keeps its place while the stars bow to it (Luận Ngữ)",
+"sex": "M",
+"born": 480,
+"alive": true,
+"sect": "cung_tinh",
+"rank": "tong_chu",
+"role": "Head of Củng Tinh Quán, formations and star divination",
+"realm": "nguyen_anh",
+"home": 22,
+"traits": {
+"personality": [
+"Patient",
+"Devout",
+"Honest"
+],
+"calling": "Formation master",
+"fate_given": []
+},
+"vassal_of": "thien_xu",
+"build": {
+"root": {
+"elements": {
+"tho": 82,
+"kim": 62,
+"hoa": 32
+},
+"variants": {
+"quang": 44
+}
+},
+"thien_phu": {
+"ngo_tinh": 84,
+"can_cot": 52,
+"than_hon": 82,
+"khi_van": 64,
+"dao_tam": 80,
+"mi_luc": 54
+},
+"archetype": "tran_su",
+"stage": 2,
+"main": {
+"tech": "dia_tho",
+"layer": 12
+},
+"aux": [
+{
+"tech": "deep-vein-scripture",
+"layer": 10
+}
+],
+"gear": [
+{
+"named": "earth-mountain-pressing-seal"
+},
+{
+"base": "ky",
+"grade": 4,
+"element": "kim"
+},
+{
+"base": "kinh",
+"grade": 3,
+"element": "tho"
+}
+],
+"tree": {
+"start": "tho",
+"targets": [
+3151,
+3131,
+3740,
+3736,
+3019,
+3839,
+6977
+]
+},
+"skills": {
+"tran_phap": 9
+},
+"note": "The star-reader of Củng Tinh: the finest formation master alive, who reads heaven's secrets before every choice"
+}
+}
+],
+"legendary_items": [
+{
+"key": "tuyen_co_nghi",
+"kind": "divining instrument",
+"role": "treasure",
+"made_by": "cung_tinh",
+"made_year": 180,
+"story": "Reads the Dipper. It foretold the War of the Pivot, and no one listened.",
+"status": "held",
+"name": "Tuyền Cơ Nghi",
+"name_han": "璇璣儀",
+"gloss": "The Armillary",
+"element": "Earth",
+"holder": "tham_bac_than"
+}
+]
+}

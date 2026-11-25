@@ -1,0 +1,120 @@
+{
+ "sect": "thinh_vu",
+ "_doc": "Thính Vũ Lâu lineage (rules-proposals R5). Elements Metal first, then Fire: Thunder (lôi) is the convergence of the two (Linh Căn rule 9), so the outer gate takes either half at purity 30, and inner disciples and above hold Metal at 45 or more. Thunder is not in `elements`: it is the lineage's secret line, carried by the main canon's second half and by the Thunder arts, open only to roots that formed it. The head's own sutra runs on Water and Metal, the founder's root. Outer gate: rain-on-bronze-primer. Inner gate: rain-chain-sword-scripture. True disciples and elders: thunder-in-the-rain-canon (Earth). Secret arts by rank: hundred-blades-canon (existing, inner gate), lightning-rod-sword (inner gate, Thunder roots only), nine-seal-ledger (existing, the soul vaults), heavenly-tribulation-scripture (existing, the Thunder Hall's elders), listening-rain-sutra (head). Body: hundred-echo-palm-scripture (existing). Forbidden: opening-thunder-canon (Khải Lôi Môn's own method). Proposals are unpriced.",
+ "lineage": {
+  "outer": "rain-on-bronze-primer",
+  "inner": "rain-chain-sword-scripture",
+  "main": "thunder-in-the-rain-canon",
+  "secret": [
+   {"id": "hundred-blades-canon", "rank": "noi_mon", "note": "existing (catalogue-metal); its first art is Needle Rain, which is why the founder chose it"},
+   {"id": "lightning-rod-sword", "rank": "noi_mon", "note": "Thunder roots only"},
+   {"id": "nine-seal-ledger", "rank": "truong_lao", "note": "existing (catalogue-soul-song-seal); the soul vaults' art, brought by a guest at the Night Rain Edict (906)"},
+   {"id": "heavenly-tribulation-scripture", "rank": "truong_lao", "note": "existing (catalogue-thunder; a main method there); the Tower teaches it to the Thunder Hall's elders as a second method, from the copy found in Khải Lôi's storm camp (862) in 481"},
+   {"id": "listening-rain-sutra", "rank": "tong_chu", "note": "the founder's own; runs on Water and Metal"}
+  ],
+  "body": "hundred-echo-palm-scripture",
+  "elements": ["kim", "hoa"],
+  "forbidden": ["opening-thunder-canon"],
+  "tree_route": [725, 4270, 4280],
+  "tree_route_note": "The Rain-Chain Sword waits and cuts once, where the next drop falls: every Metal-start member opens the sword's attack (Edge of Autumn) and its crit (Sword Rainbow, Sword Bow), as the War Hall's elder Cố Dạ Lan did. Water and Thunder roots climb their own summits from their own starts."
+ },
+ "techniques": [
+  {
+   "id": "rain-on-bronze-primer",
+   "name": "Rain on Bronze Primer (Vũ Đả Đồng Quyết)",
+   "tier": 0, "tech_kind": "main", "names": ["kim", "hoa"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The outer gate's method, practised sitting under a bronze rain-chain in the rain. A Metal root breathes as the bronze and rings with each drop; a Fire root breathes as the warmth that keeps the bronze from cracking in the cold. Either half carries a disciple through the six layers. A root that holds both feels, at the sixth layer, the hum that comes before a storm, and that is the first sign of Thunder. The primer teaches no sword. It teaches the disciple to sit still and count the drops.",
+   "arts": [
+    "whetstone-pass",
+    {"new": "Bell-Struck Palm (Kích Chung Chưởng)", "concept": "An open palm that rings the foe like a struck bell: one Metal stack, and the foe's next art is cast a little slower while the ringing lasts. The outer gate's only fighting art."}
+   ],
+   "lore": "Phó Tiêu Tương wrote it in 381, the year after she hung the first rain-chain from the eaves of her tower on the cone (N-thinh_vu-01). Fire was added in 485, when the Tower took Khải Lôi's ground and found that the cone's children were Fire-rooted and the ridge's were Metal (C008).",
+   "status": "proposal"
+  },
+  {
+   "id": "rain-chain-sword-scripture",
+   "name": "Rain-Chain Sword Scripture (Vũ Liên Kiếm Kinh)",
+   "tier": 1, "tech_kind": "main", "names": ["kim"], "layers": 9, "rank": "noi_mon",
+   "concept": "The inner gate's method. A rain-chain is a string of bronze cups that leads water from the eaves to the ground without a splash. The scripture makes the meridians a chain of the same kind: qi is led down link by link and never spills. The sword it teaches waits. The practitioner listens to the foe's qi the way the founder listened to rain on the lotus, and cuts once, where the next drop will fall. It is slow to start and very hard to interrupt.",
+   "arts": [
+    "sheathed-edge",
+    "blood-quench-blade",
+    {"new": "Where the Drop Falls (Trích Lạc Kiếm)", "concept": "Mark a foe for 3 s; the first art the foe casts inside the mark is answered by one cut that cannot miss and deals more for each Metal stack on them."},
+    {"new": "Not a Drop Spilled (Bất Lậu Nhất Trích)", "concept": "A passive art. Each second in which you fire no art fills a bronze cup (your linh lực returns faster for each); your next cutting art spends every cup for more damage.", "effect": "not-a-drop-spilled", "authored": "d10"},
+    {"new": "Return to the Scabbard (Quy Vỏ)", "concept": "A passive art. After 3 s in which you fire no damaging art, the foe counts as unstruck again: your pieces that read your first hit on a foe, or your first sword art of the fight, re-arm, and any later-hit penalty they carry clears. Your first sword art on an unstruck foe cannot be evaded.", "effect": "return-to-the-scabbard", "unlock_layer": 6, "authored": "d29"}
+   ],
+   "lore": "The founder's own sword, written down by her first disciples after the War of the Petal Shore (C126-C128), in which the Tower's swordsmen learned that waiting wins orchards.",
+   "status": "proposal",
+   "passives": [
+    {"key": "attack_pct", "value": 6, "scope": ["loi"]},
+    {"key": "resist_pct", "value": 150, "scope": ["lightning"]}
+   ],
+   "authored": "b6, d10, d29"
+  },
+  {
+   "id": "thunder-in-the-rain-canon",
+   "name": "Canon of the Thunder Heard in the Rain (Văn Lôi Kinh)",
+   "tier": 2, "tech_kind": "main", "names": ["kim", "loi"], "layers": 12, "rank": "chan_truyen",
+   "concept": "The Tower's main method. Its first half is Metal: the body is made into a rain-chain from crown to heel, and the sword strikes once, late and hard. Its second half is Thunder, and only a root that has formed Thunder can open it. Once the chain is whole, the storm comes down it. The practitioner's cut draws the lightning after it, and every Metal stack the cut leaves becomes a path for the next bolt. A Metal-only root cultivates the canon to the twelfth layer on the first half alone, at a little over half its power. That is the head's limit, and he knows it.",
+   "arts": [
+    "answering-peal",
+    "chain-arc",
+    "sundering-wedge",
+    {"new": "The Chain Carries It Down (Liên Dẫn Lôi)", "concept": "Thunder roots only. After a Metal cut lands, the next 2 s of Lightning hits on the foe chain once more onto it at half, if it carries a Metal stack; each chained hit deals more for each Metal stack.", "authored": "a1"},
+    {"new": "Rain Before the Peal (Lôi Tiền Vũ)", "concept": "Stand still: each half-second you stay still gives a stack of Gathering Rain, and moving or casting any other art loses them all. The next Metal art spends them for a heavy cut, heavier for each; a Thunder root's cut also lands a delayed bolt."},
+    {"new": "Bronze Answers (Đồng Ứng)", "concept": "Open only to a root that has not formed Thunder. A Metal cut. Each crit, and each counter-cut of Where the Drop Falls, adds a Peal that lasts 8 s; at 3 Peals your next Metal crit fires your last Metal art again at 60 % and clears them. The cut itself hits 3 times as hard with 3 Peals and either 4 Metal stacks on the foe or another art of the canon fired that pulse. The bronze rings, but no bolt comes.", "id": "bronze-answers", "tags": ["metal", "sword", "peal", "echo"], "unlock_layer": 4, "record": "builds/authored/auth-tech.json (e1)", "authored": "e1"}
+   ],
+   "lore": "Nhiếp Văn Lôi wrote it on Văn Lôi Đài, two li from the founder's tower, between 540 and 560 (N-thinh_vu-03). He had come up the cone as a drummer's boy of Kích Cổ Đường after Khải Lôi fell (V153, N-thinh_vu-02), carrying the Gate's storm notes in his head. The founder gave him her chain and let him add the thunder.",
+   "status": "proposal",
+   "passives": [
+    {"key": "attack_pct", "value": 6, "scope": ["kim"]},
+    {"key": "attack_pct", "value": 6, "scope": ["loi"]},
+    {"key": "resist_pct", "value": 150, "scope": ["lightning"]},
+    {"key": "can_cot", "value": 1.33, "scope": []}
+   ],
+   "authored": "b6, a1, e1"
+  },
+  {
+   "id": "lightning-rod-sword",
+   "name": "Lightning-Rod Sword Method (Dẫn Lôi Kiếm Quyết)",
+   "tier": 1, "tech_kind": "secret", "names": ["loi"], "layers": 9, "rank": "noi_mon",
+   "concept": "Taught only to inner disciples whose root has formed Thunder. The flying sword is thrown high and held there as a lightning rod, and the bolt comes down the sword into the foe beneath it. The method is drilled on Liệt Khuyết Phong in real storms (A316), because nothing else teaches the timing. Each year it scars somebody.",
+   "arts": [
+    "overload-form",
+    "capacitor-palm",
+    {"new": "Sword Raised to the Cloud (Cử Kiếm Dẫn Vân)", "concept": "Throw the flying sword above the foe: after 1 s a bolt falls, dealing Lightning damage and a Thunder stack; if the foe acted in that second, the bolt misses and this art's next timer is 2 s longer.", "authored": "a1"}
+   ],
+   "lore": "From the storm camp Nghênh Lôi Trại (862), where Khải Lôi's disciples waited for the lightning (A283, V151). The Tower's first Thunder disciples rewrote it in 600 so that the sword, not the swordsman, takes the bolt. Khải Lôi's version did not.",
+   "status": "proposal",
+   "authored": "a1"
+  },
+  {
+   "id": "listening-rain-sutra",
+   "name": "Sutra of Listening to the Rain (Thính Vũ Chân Kinh)",
+   "tier": 3, "tech_kind": "secret", "names": ["thuy", "kim"], "layers": 15, "rank": "tong_chu",
+   "concept": "The founder's sutra, taught only to the head. Water hears and Metal answers. The holder's senses spread like rain over everything near them, and they know where each blow will fall a breath before it falls. In a fight this means evasion, counters and the first strike. Out of a fight it means the head knows who is lying in a room. It needs both Water and Metal. A Thunder root without Water cannot hold it, and a Water root without Thunder cannot open the canon's second half. In five generations only one disciple has held all three, and she is the head's.",
+   "arts": [
+    "deep-lake-stance",
+    "echo-of-the-dodge",
+    {"new": "Rain on the Withered Lotus (Khô Hà Thính Vũ)", "concept": "For 6 s the holder hears every foe nearby: the next hit from each foe is foreseen and evaded, and each evasion gives a stack of Heard. The holder's next Metal art spends them all, dealing more for each."},
+    {"new": "The Night Is Long (Dạ Vũ Miên Miên)", "concept": "A lasting field of rain around the holder: foes inside cast more slowly and their linh lực regenerates less; the holder regenerates linh lực for each foe inside."}
+   ],
+   "lore": "Phó Tiêu Tương wrote it on the shore of Tàn Hà Hồ, where she kept the withered lotus to hear the rain on it (A266). It is copied once for each head, and the copy is burned when the head dies.",
+   "status": "proposal"
+  },
+  {
+   "id": "opening-thunder-canon",
+   "name": "Canon of Opening the Thunder (Khải Lôi Kinh)",
+   "tier": 2, "tech_kind": "main", "names": ["loi"], "layers": 12, "rank": "forbidden",
+   "concept": "Khải Lôi Môn's own main method. It teaches the cultivator to invite the lightning (C052) and, at its end, to call their own tribulation early, while they are strong, instead of waiting for heaven to choose the hour. It is very fast. It killed its last master, Hầu Xuân Lôi, in 480 (C008). The Tower forbids it, and keeps the fragments it found in the soul vaults under Lệ Tiêu Hồn's seal.",
+   "arts": [
+    "stormcloud-familiar",
+    "storm-bank",
+    {"new": "Open the Sky (Khai Thiên)", "concept": "Call a bolt on yourself: take Lightning damage equal to a fifth of your health, and for 8 s every Thunder art you cast is cast twice.", "authored": "a1"}
+   ],
+   "lore": "Lý Thiên Cổ's method (C052, C057). Hầu Xuân Lôi sealed the whole copy with the Xuân Lôi Cổ inside the mountains in 470 (C035). The Tower has a third of it, from the storm camp. Hầu Vọng Xuân believes the rest is with the drum.",
+   "status": "proposal",
+   "authored": "a1"
+  }
+ ]
+}

@@ -1,0 +1,1366 @@
+{
+ "sect": "",
+ "group": "loose-south",
+ "_doc": "Loose cultivators (tán tu) of regions 10-20: tier C. Page: loose-south.md.",
+ "people": [
+  {
+   "key": "mao_dinh_lang",
+   "name_hv": "Mao Đinh Lang",
+   "name_han": "茅釘郎",
+   "gloss": "The nail boy",
+   "sex": "M",
+   "born": 1167,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 139,
+   "birthplace": 47,
+   "role": "River runner and hemp smuggler on the split-toll border; cuts the Thủy Khẩu toll chain when it suits him",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Brave",
+     "Deceitful"
+    ],
+    "calling": "Merchant",
+    "upbringing": "war_orphan",
+    "gained": [
+     "Grudge"
+    ]
+   },
+   "backstory": "A gold-washer's orphan of Đào Sa who fished nails from the river beside Lữ Tẫn Chu (lu_tan_chu) in 1173 (A080); he brings Tang Ma hemp down to the water by night for the Đào Sa smuggler Đinh Vạn Tác (dinh_van_tac), who carries it to Lãng Đào's rope master Sài Kết Lãm.",
+   "ties": [
+    {
+     "to": "lu_tan_chu",
+     "kind": "friend",
+     "note": "fished the nails together; one went to Lạc Hà, one to the river"
+    },
+    {
+     "to": "dinh_van_tac",
+     "kind": "friend",
+     "note": "the far-bank smuggler; they have never stood on the same bank"
+    },
+    {
+     "to": "vi_lan_chau",
+     "kind": "enemy",
+     "note": "the toll pilot who has chased him twice"
+    },
+    {
+     "to": "pho_ket_thang",
+     "kind": "debt",
+     "note": "a season's hemp on credit"
+    },
+    {
+     "to": "yen_hoi_do",
+     "kind": "friend",
+     "note": "the toll pilot who looks the other way when he runs the hemp"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water speed and slows; he cuts the rope and is gone."
+    },
+    "note": "Nail needles ground from Đào Sa iron."
+   }
+  },
+  {
+   "key": "pho_ket_thang",
+   "name_hv": "Phó Kết Thằng",
+   "name_han": "傅結繩",
+   "gloss": "She ties the rope",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 80,
+   "birthplace": 80,
+   "role": "Rope-weaver of Tang Ma Thành who wove the last bridge of 1174 and hung Lô Tiểu Ca's lamp from it",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "tho": 28,
+     "thuy": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Forgiving"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "lifestyle": "gardener"
+   },
+   "backstory": "Wove the new Ngư Ca bridge in a month after Tùng Đào cut the old ones (A202) and hung Lô Tiểu Ca's (lo_tieu_ca) stern lamp from it; she sells rope to Lạc Hà's Dịch Bách Lý (dich_bach_ly) and to the smuggler, and knows where both go.",
+   "ties": [
+    {
+     "to": "lo_tieu_ca",
+     "kind": "friend",
+     "note": "she keeps the lamp lit"
+    },
+    {
+     "to": "dich_bach_ly",
+     "kind": "friend",
+     "note": "buys her rope for Lạc Hà"
+    },
+    {
+     "to": "mao_dinh_lang",
+     "kind": "creditor",
+     "note": "owes for a season's hemp"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood binding and slows."
+    },
+    "note": "Spirit hemp woven with qi."
+   }
+  },
+  {
+   "key": "trinh_tieu_do",
+   "name_hv": "Trịnh Tiểu Độ",
+   "name_han": "鄭小渡",
+   "gloss": "Little crossing",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 139,
+   "birthplace": 501,
+   "role": "Deckhand of the free ferry at Thủy Khẩu",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "moc": 30,
+     "tho": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Ambitious",
+     "Honest"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A descendant of the last ferry family of silted Dã Độ Trấn (V094); Yến Hồi Độ (yen_hoi_do) took him on at twelve, and he hopes to be placed with Bình Thủy one day.",
+   "ties": [
+    {
+     "to": "yen_hoi_do",
+     "kind": "master",
+     "note": "the ferryman"
+    }
+   ],
+   "master": "yen_hoi_do",
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "ferry-pole-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water health."
+    },
+    "note": "The pole primer, as his master learned it."
+   }
+  },
+  {
+   "key": "man_bo_vong",
+   "name_hv": "Mẫn Bổ Võng",
+   "name_han": "閔補網",
+   "gloss": "She mends nets",
+   "sex": "F",
+   "born": 1138,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 135,
+   "birthplace": 135,
+   "role": "Net-mender of Tân Khẩu; mother of Đồ Tiểu Liên and of the boy the miasma took",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 38,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Stubborn",
+     "Compassionate"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "backstory": "Learned to mend from Hình Lạc Nhạn's mother; since her son walked into the miasma in 1196 (A188) she breaks the village's silence about the plain and walks bread to the Watch every season, and her daughter Đồ Tiểu Liên (do_tieu_lien) joined Lạc Hà to go after him.",
+   "ties": [
+    {
+     "to": "do_tieu_lien",
+     "kind": "child",
+     "note": "joined the outer gate for her brother"
+    },
+    {
+     "to": "khau_bach_thu",
+     "kind": "friend",
+     "note": "asked him to look for her son's bones"
+    },
+    {
+     "to": "hinh_lac_nhan",
+     "kind": "friend",
+     "note": "brought back the shoe"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water healing."
+    },
+    "note": "A net needle and a village breathing method."
+   }
+  },
+  {
+   "key": "khoi_thao_nhi",
+   "name_hv": "Khôi Thảo Nhi",
+   "name_han": "灰草兒",
+   "gloss": "Grey grass girl",
+   "sex": "F",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 223,
+   "birthplace": 507,
+   "role": "Gatherer of the grey moss that grows only at the miasma's edge",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 42,
+     "thuy": 30,
+     "hoa": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Diligent",
+     "Greedy"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "path": [
+     "poison_proof"
+    ]
+   },
+   "backstory": "Niece of the Watch's scout Hàm Tú Sa (ham_tu_sa), she would not join the sect; Khâu Bạch Thủ (khau_bach_thu) taught her the edge instead, and she sells the grey moss to Yên Quang's carrier Khổng Ích Mẫu (khong_ich_mau) for the evening-herb tincture.",
+   "ties": [
+    {
+     "to": "khau_bach_thu",
+     "kind": "master",
+     "note": "taught her which grey moves"
+    },
+    {
+     "to": "khong_ich_mau",
+     "kind": "friend",
+     "note": "buys her moss for the tincture"
+    },
+    {
+     "to": "ham_tu_sa",
+     "kind": "aunt_uncle",
+     "note": "her aunt, who maps the edge for the Watch"
+    }
+   ],
+   "master": "khau_bach_thu",
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth wards and poison resistance."
+    },
+    "note": "Her master's canon, three layers in."
+   }
+  },
+  {
+   "key": "cuu_quy_hoa",
+   "name_hv": "Cừu Quỷ Hỏa",
+   "name_han": "仇鬼火",
+   "gloss": "Ghost fire",
+   "sex": "M",
+   "born": 1158,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 222,
+   "birthplace": 132,
+   "role": "Digger of burned Hồng Vũ Thành, who follows the spring ghost lights",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "tho": 32,
+     "hoa": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Impatient",
+     "Greedy"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "lifestyle": "gambler"
+   },
+   "backstory": "Digs the ruin that burned in 618 and believes the ghost lights seen each spring when the peaches bloom (A187) mark where the dead elders' rings fell; he undersells Khâu Bạch Thủ (khau_bach_thu) at Vật Hoa Thị.",
+   "ties": [
+    {
+     "to": "khau_bach_thu",
+     "kind": "rival",
+     "note": "the old digger he undersells"
+    },
+    {
+     "to": "gian_van_lo",
+     "kind": "debt",
+     "note": "owes for a map of Hồng Vũ's cellars"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood strikes with a digging axe."
+    },
+    "note": "A ruin-digger's axe."
+   }
+  },
+  {
+   "key": "moc_tau_vu",
+   "name_hv": "Mộc Tẩu Vũ",
+   "name_han": "木走雨",
+   "gloss": "Runs in the rain",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 42,
+   "birthplace": 158,
+   "role": "Runner of the Night Rain Market; failed the Tower's Bell Test in 1194",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "kim": 26,
+     "thuy": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Trusting",
+     "Diligent"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Failed the Bell Test on a Metal of twenty-six beside Thiều Mộ Canh (thieu_mo_canh) and went to the market instead of the terraces; he carries buyers' parcels to the ferry inn in the rain for Lục Nhĩ Thính (luc_nhi_thinh), and tells her what they said.",
+   "ties": [
+    {
+     "to": "thieu_mo_canh",
+     "kind": "friend",
+     "note": "failed with him"
+    },
+    {
+     "to": "luc_nhi_thinh",
+     "kind": "friend",
+     "note": "pays him to carry; he does not know she is the Tower's ear"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood speed and evasion."
+    },
+    "note": "Quick feet on wet stone."
+   }
+  },
+  {
+   "key": "me_thiem_nhi",
+   "name_hv": "Mễ Thiềm Nhi",
+   "name_han": "米蟾兒",
+   "gloss": "Little toad",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 821,
+   "birthplace": 820,
+   "role": "Toad-catcher of Độc Thiềm Lâm who sells venom to the market's alchemist",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "moc": 36,
+     "hoa": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Greedy",
+     "Reclusive"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "wild_raised",
+    "path": [
+     "poison_proof"
+    ]
+   },
+   "backstory": "Catches poison toads in the wood where Ô Thiềm Tử (o_thiem_tu) was raised and sells him the venom; his apprentice Mai Độc Ca (mai_doc_ca) comes for it and stays too long.",
+   "ties": [
+    {
+     "to": "o_thiem_tu",
+     "kind": "creditor",
+     "note": "owes her for a season's venom"
+    },
+    {
+     "to": "mai_doc_ca",
+     "kind": "lover",
+     "note": "the apprentice who comes for the venom"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood poisons on needles."
+    },
+    "note": "Venom needles."
+   }
+  },
+  {
+   "key": "tu_ban_kiem",
+   "name_hv": "Từ Bán Kiếm",
+   "name_han": "徐半劍",
+   "gloss": "Half a sword",
+   "sex": "M",
+   "born": 1165,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 42,
+   "birthplace": 682,
+   "role": "Sell-sword out of the Night Rain Market; failed Phất Y Cốc's inner gate",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "kim": 34,
+     "hoa": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Brave",
+     "Fickle"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "lifestyle": "duel_seeker"
+   },
+   "backstory": "Ten years on Phất Y's dry-road primer never lifted his Metal to the inner gate, so he sold his sword south for better pay; Lộc Bất Quy (loc_bat_quy) teaches him the steps the valley would not.",
+   "ties": [
+    {
+     "to": "loc_bat_quy",
+     "kind": "master",
+     "note": "the deserter"
+    },
+    {
+     "to": "khuc_liet_duong",
+     "kind": "rival",
+     "note": "the Phất Y swordswoman who beat him on the caravan road"
+    },
+    {
+     "to": "phu_hoa_sinh",
+     "kind": "rival",
+     "note": "the young man he met on the road with a sword out"
+    }
+   ],
+   "master": "loc_bat_quy",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "dry-road-sword-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Sword crit."
+    },
+    "note": "Five of the valley's ten paces."
+   }
+  },
+  {
+   "key": "banh_nhi_ho",
+   "name_hv": "Bành Nhị Hổ",
+   "name_han": "彭二虎",
+   "gloss": "Second tiger",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 880,
+   "birthplace": 880,
+   "role": "Ridge hunter of Ô Diêu who would sell his niece to the Tower",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 40,
+     "tho": 30,
+     "moc": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Indulgent",
+     "Wrathful"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "lifestyle": "drinker"
+   },
+   "backstory": "Bành Liệp Hổ's (banh_liep_ho) younger brother, who drinks the stipend he hasn't got yet: the Thunder Hall pays well for a Thunder child, and Sầm Vãn Nương (sam_van_nuong) will not hear of it.",
+   "ties": [
+    {
+     "to": "banh_liep_ho",
+     "kind": "sibling",
+     "note": "his dead brother"
+    },
+    {
+     "to": "sam_van_nuong",
+     "kind": "in_law",
+     "note": "his brother's widow"
+    },
+    {
+     "to": "banh_tieu_dien",
+     "kind": "niece_nephew",
+     "note": "the girl he would sell"
+    },
+    {
+     "to": "an_thu_son",
+     "kind": "rival",
+     "note": "his brother's partner, who stands in his way"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hunters-reach-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal pins."
+    },
+    "note": "A family hunting canon, half learned."
+   }
+  },
+  {
+   "key": "truong_da_dao",
+   "name_hv": "Trương Dã Đạo",
+   "name_han": "張野道",
+   "gloss": "Wild road",
+   "sex": "M",
+   "born": 1160,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 389,
+   "birthplace": 885,
+   "role": "Lieutenant of the Thạch Môn camp; a Xuyên Lâm guide struck from the road books",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Faithless",
+     "Brave",
+     "Pragmatic"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "gained": [
+     "Disgraced"
+    ]
+   },
+   "backstory": "Took a caravan's silver in 1188 to lead it onto Đồ Liệt Cơ's (do_liet_co) road and could not go home; Phí Thoa Y (phi_thoa_y) struck his name from the road books.",
+   "ties": [
+    {
+     "to": "do_liet_co",
+     "kind": "master",
+     "note": "the camp's mistress"
+    },
+    {
+     "to": "phi_thoa_y",
+     "kind": "former_master",
+     "note": "the Road Mother, who struck his name"
+    }
+   ],
+   "master": "do_liet_co",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "straw-sandal-step-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "loi_truong",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Footwork and staff."
+    },
+    "note": "The Gate's sandal primer, a guide's staff."
+   }
+  },
+  {
+   "key": "lo_tam_chuy",
+   "name_hv": "Lỗ Tam Chùy",
+   "name_han": "魯三錘",
+   "gloss": "Three hammers",
+   "sex": "M",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 389,
+   "birthplace": 873,
+   "role": "Runaway contract miner in the Thạch Môn camp, with a thread of Thunder",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "tho": 32,
+     "hoa": 18
+    },
+    "variants": {
+     "loi": 10
+    }
+   },
+   "traits": {
+    "personality": [
+     "Wrathful",
+     "Loyal",
+     "Content"
+    ],
+    "calling": "Refiner",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Born at the Sa Kim mine, he broke a mine guard's jaw in 1196 and walked to the only door on the ridge that would open, Đồ Liệt Cơ's (do_liet_co).",
+   "ties": [
+    {
+     "to": "do_liet_co",
+     "kind": "debt",
+     "note": "took him in"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_kim",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Heavy Metal blows."
+    },
+    "note": "A miner's hammer."
+   }
+  },
+  {
+   "key": "quan_thap_nhat",
+   "name_hv": "Quản Thập Nhất",
+   "name_han": "管十一",
+   "gloss": "Eleven",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 389,
+   "birthplace": 54,
+   "role": "Quartermaster of the Thạch Môn camp; fences its loot through the apricot market",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "kim": 36,
+     "thuy": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Patient",
+     "Honest"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "lifestyle": "collector"
+   },
+   "backstory": "An apricot-market clerk's daughter who keeps the camp's books and sells its loot to Kiều Mãn Lâu's (kieu_man_lau) buyers through Hạnh Hoa Thị, taking one stone in eleven.",
+   "ties": [
+    {
+     "to": "do_liet_co",
+     "kind": "friend",
+     "note": "the mistress; forty years of honest books"
+    },
+    {
+     "to": "kieu_man_lau",
+     "kind": "friend",
+     "note": "the market's buyer"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth wards."
+    },
+    "note": "Coins and an abacus."
+   }
+  },
+  {
+   "key": "phu_hoa_sinh",
+   "name_hv": "Phù Hỏa Sinh",
+   "name_han": "符火生",
+   "gloss": "Born of the fire charm",
+   "sex": "M",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 389,
+   "birthplace": 793,
+   "role": "Caravan guard of Lai Nghi taken by the camp in 1191, who stayed",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 42,
+     "hoa": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Cautious",
+     "Faithless"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Taken with his caravan in 1191, he found the camp paid better than the plain's merchants and stayed; his mother in Thâm Tỉnh Thôn thinks he is dead, and Đồ Liệt Cơ (do_liet_co) spared him on a whim.",
+   "ties": [
+    {
+     "to": "do_liet_co",
+     "kind": "debt",
+     "note": "spared him"
+    },
+    {
+     "to": "tu_ban_kiem",
+     "kind": "rival",
+     "note": "met him on the road with a sword out"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_hoa",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "A shield on the road."
+    },
+    "note": "A caravan guard's shield."
+   }
+  },
+  {
+   "key": "yen_thuy_hoa",
+   "name_hv": "Yên Thủy Hoa",
+   "name_han": "燕水花",
+   "gloss": "Water flower",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 776,
+   "birthplace": 149,
+   "role": "Pearl diver on the unlit boats, from the village that swore never to dive",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Trusting"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "An Âu Lộ girl whose forebears swore never to dive again after Châu Lệ burned (A259); Trạm Châu Nhi (tram_chau_nhi) taught her anyway, and she dives for Biện Ám Phàm (bien_am_pham).",
+   "ties": [
+    {
+     "to": "bien_am_pham",
+     "kind": "master",
+     "note": "the smuggler"
+    },
+    {
+     "to": "tram_chau_nhi",
+     "kind": "friend",
+     "note": "taught her to dive"
+    }
+   ],
+   "master": "bien_am_pham",
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water breath and evasion."
+    },
+    "note": "A diver's knife-needle."
+   }
+  },
+  {
+   "key": "lan_bat_nhien",
+   "name_hv": "Lan Bất Nhiên",
+   "name_han": "蘭不燃",
+   "gloss": "The orchid that would not burn",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 988,
+   "birthplace": 1000,
+   "role": "Failed outer disciple of Phượng Minh Cung; now gathers spice herbs at Hương Liệu",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "moc": 30,
+     "hoa": 14
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Diligent",
+     "Fickle"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "gained": [
+     "Humbled"
+    ]
+   },
+   "backstory": "A pepper-village girl who entered the palace's outer gate on her Wood and failed the Feather Kindling three times, as her friend Phục Lâm Sinh (phuc_lam_sinh) has; she left in 1198 and gathers herbs with Liên Quế Chi.",
+   "ties": [
+    {
+     "to": "phuc_lam_sinh",
+     "kind": "friend",
+     "note": "failed beside her"
+    },
+    {
+     "to": "lien_que_chi",
+     "kind": "friend",
+     "note": "took her in"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "wutong-dawn-breath",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing."
+    },
+    "note": "The palace's outer breath; the Fire never came."
+   }
+  },
+  {
+   "key": "dan_tan_lao",
+   "name_hv": "Đan Tẫn Lão",
+   "name_han": "丹燼老",
+   "gloss": "Old man of the red cinders",
+   "sex": "M",
+   "born": 1135,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 215,
+   "birthplace": 980,
+   "role": "Picker of the Xích Thành Môn ruin, selling its red stone and what is carved on it",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 38,
+     "hoa": 32,
+     "tho": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Deceitful",
+     "Content"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "lifestyle": "collector"
+   },
+   "backstory": "A quarryman's grandson of Thạch Tượng who sold the ruin's red stone for Thạch Cơ's jetty (A312) and sold Hùng Phần Vũ (hung_phan_vu) a wall-stone carved with a line of fire canon, which Hùng bought to keep a story true.",
+   "ties": [
+    {
+     "to": "hung_phan_vu",
+     "kind": "creditor",
+     "note": "still owes for the carved wall-stone"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_hoa",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire strikes off red stone."
+    },
+    "note": "A stone-cutter's axe; the cinders taught him Fire more than his birth did."
+   }
+  },
+  {
+   "key": "lien_que_chi",
+   "name_hv": "Liên Quế Chi",
+   "name_han": "連桂枝",
+   "gloss": "Cinnamon branch",
+   "sex": "F",
+   "born": 1160,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 988,
+   "birthplace": 1025,
+   "role": "Spice-herb gatherer of the Hương Liệu jungle",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "hoa": 28,
+     "thuy": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Generous",
+     "Calm",
+     "Stubborn"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "lifestyle": "gardener"
+   },
+   "backstory": "Cuts spirit cinnamon in the jungle behind the spice port that replaced burned Hương Phàm (V169) and sells it to Hà Thanh Tô's (ha_thanh_to) road healers.",
+   "ties": [
+    {
+     "to": "ha_thanh_to",
+     "kind": "friend",
+     "note": "the road healers buy her bark"
+    },
+    {
+     "to": "lan_bat_nhien",
+     "kind": "friend",
+     "note": "the girl the palace sent back"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing."
+    },
+    "note": "A gourd of bark tea."
+   }
+  },
+  {
+   "key": "tuyen_dang_nhi",
+   "name_hv": "Tuyên Đằng Nhi",
+   "name_han": "宣藤兒",
+   "gloss": "Little vine",
+   "sex": "F",
+   "born": 1174,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 454,
+   "birthplace": 454,
+   "role": "Vine-climber and herb gatherer of Cô Vụ Đảo's jungle canopy",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "hoa": 26,
+     "thuy": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Gregarious",
+     "Impatient"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "wild_raised"
+   },
+   "backstory": "Climbs the canopy above Thanh Đằng for spirit herbs, sells them to Chử Hồng Diệp's (chu_hong_diep) Maple Hall, and means to sail west on the third boat with Uông Tầm Phàm.",
+   "ties": [
+    {
+     "to": "uong_tam_pham",
+     "kind": "lover",
+     "note": "the wreck-diver"
+    },
+    {
+     "to": "chu_hong_diep",
+     "kind": "friend",
+     "note": "buys her herbs"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood speed."
+    },
+    "note": "Vine-climbing hands."
+   }
+  }
+ ]
+}

@@ -1,0 +1,505 @@
+{
+ "sect": "muc_van",
+ "people": [
+  {
+   "key": "lu_truy_phong",
+   "name_hv": "Lư Truy Phong",
+   "name_han": "盧追風",
+   "gloss": "Chasing the wind",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "muc_van",
+   "rank": "noi_mon",
+   "home": 19,
+   "birthplace": 503,
+   "role": "Rides the herds' south string at Liệt Mã Cương",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 46,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Brave",
+     "Pragmatic"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Mục Địch herder who keeps the south string at Liệt Mã Cương for Tần Thiên Lý (tan_thien_ly) and wants the white bear gone as much as his chief; twice he has found its straw melting in midwinter and said nothing.",
+   "ties": [
+    {
+     "to": "khau_muc_van",
+     "kind": "master",
+     "note": "took him on the long ride"
+    },
+    {
+     "to": "tan_thien_ly",
+     "kind": "friend",
+     "note": "the herd master he rides for"
+    },
+    {
+     "to": "hua_tich_cau",
+     "kind": "rival",
+     "note": "over the bear"
+    }
+   ],
+   "master": "khau_muc_van",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "cloud-herd-body-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "herd-call",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth for a body that rides behind the herd all night."
+    }
+   }
+  },
+  {
+   "key": "trinh_luc_phan",
+   "name_hv": "Trình Lục Phân",
+   "name_han": "程六分",
+   "gloss": "Six parts",
+   "sex": "F",
+   "born": 1155,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "muc_van",
+   "rank": "chap_su",
+   "home": 19,
+   "birthplace": 129,
+   "role": "Clerk of the steward's room; carries the tribute account to Lạc Hà",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Patient",
+     "Cautious"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Chu Tân ferry clerk's daughter who carries Khấu Thanh Thảo's (khau_thanh_thao) corrected account to the Hall of Scales each spring and watches Từ Bình Hành (tu_binh_hanh) read it; she thinks the joke has run long enough, and has not said so.",
+   "ties": [
+    {
+     "to": "khau_muc_van",
+     "kind": "master",
+     "note": "the head"
+    },
+    {
+     "to": "khau_thanh_thao",
+     "kind": "friend",
+     "note": "the steward she clerks for"
+    },
+    {
+     "to": "tu_binh_hanh",
+     "kind": "rival",
+     "note": "reads her account each spring and cannot fault it"
+    }
+   ],
+   "master": "khau_muc_van",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "cloud-herd-body-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "ngai_dap_sa",
+   "name_hv": "Ngải Đạp Sa",
+   "name_han": "艾踏沙",
+   "gloss": "Treading sand",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "muc_van",
+   "rank": "ngoai_mon",
+   "home": 19,
+   "birthplace": 488,
+   "role": "Placed rider from Lạc Hà, 1198",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 42,
+     "hoa": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Brave",
+     "Impatient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Song Tỉnh salt-carter's son who rode his father's mule to each of the three dusk tests he failed; Tô Bình Chu (to_binh_chu) placed him with the manor in 1198, and the herd let him into the stable on the second night.",
+   "ties": [
+    {
+     "to": "mac_khien_phong",
+     "kind": "master",
+     "note": "teaches the outer yard"
+    },
+    {
+     "to": "tiet_bo_van",
+     "kind": "friend",
+     "note": "the other placed boy"
+    },
+    {
+     "to": "to_binh_chu",
+     "kind": "debt",
+     "note": "placed by him; owes Lạc Hà a tenth until 1228"
+    }
+   ],
+   "master": "mac_khien_phong",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-bone-body-art",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    }
+   }
+  },
+  {
+   "key": "ngao_tuyet_nhi",
+   "name_hv": "Ngao Tuyết Nhi",
+   "name_han": "敖雪兒",
+   "gloss": "Snow child",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "muc_van",
+   "rank": "ngoai_mon",
+   "home": 19,
+   "birthplace": 127,
+   "role": "Stable girl of the north paddock",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "moc": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Stubborn",
+     "Compassionate"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "An Điền Viên farm girl whom the mares would not let near them all her first year; the white bear would, and she sleeps in its paddock with Hứa Tịch Câu (hua_tich_cau) while the herd makes up its mind.",
+   "ties": [
+    {
+     "to": "mac_khien_phong",
+     "kind": "master",
+     "note": "teaches the outer yard"
+    },
+    {
+     "to": "hua_tich_cau",
+     "kind": "friend",
+     "note": "the groom of the bear"
+    },
+    {
+     "to": "khau_tieu_cau",
+     "kind": "friend",
+     "note": "the other one the bear comes to"
+    }
+   ],
+   "master": "mac_khien_phong",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-bone-body-art",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "thong_truy_dien",
+   "name_hv": "Thông Truy Điện",
+   "name_han": "通追電",
+   "gloss": "Chasing lightning",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "muc_van",
+   "rank": "noi_mon",
+   "home": 19,
+   "birthplace": 74,
+   "role": "Second rider of the race string",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 38,
+     "moc": 32,
+     "kim": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Brave",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "upbringing": "servant_born"
+   },
+   "backstory": "A Thảo Đường groom's daughter who rides second in Dư Bôn Vân's (du_bon_van) race string and has beaten her once, in rain; she wants to race the Geese Hall cadets too, and to be the one who wins.",
+   "ties": [
+    {
+     "to": "du_bon_van",
+     "kind": "master",
+     "note": "leads the race string"
+    },
+    {
+     "to": "me_dich_am",
+     "kind": "friend",
+     "note": "pipes the string home"
+    }
+   ],
+   "master": "du_bon_van",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "cloud-herd-body-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "tan_muc_so",
+   "name_hv": "Tần Mục Sơ",
+   "name_han": "秦牧初",
+   "gloss": "First herding",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "muc_van",
+   "rank": "noi_mon",
+   "home": 19,
+   "birthplace": 503,
+   "role": "Herd boy of the long ride; Tần Thiên Lý's nephew",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 44,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Loyal",
+     "Fickle"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Tần Thiên Lý's (tan_thien_ly) nephew from Mục Địch, who rode his first long ride last autumn and came back an hour late; he wants to be the one who takes Đạp Vân out when the old horse's time comes.",
+   "ties": [
+    {
+     "to": "tan_thien_ly",
+     "kind": "aunt_uncle",
+     "note": "his father's brother and master"
+    },
+    {
+     "to": "khau_tieu_cau",
+     "kind": "rival",
+     "note": "both want Đạp Vân"
+    }
+   ],
+   "master": "tan_thien_ly",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "cloud-herd-body-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    }
+   }
+  },
+  {
+   "key": "nghieu_thu_nhan",
+   "name_hv": "Nghiêu Thư Nhạn",
+   "name_han": "堯書雁",
+   "gloss": "Letter goose",
+   "sex": "F",
+   "born": 1177,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "muc_van",
+   "rank": "ngoai_mon",
+   "home": 19,
+   "birthplace": 73,
+   "role": "Copies the Wind room's letters",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Loyal",
+     "Reclusive"
+    ],
+    "calling": "Steward",
+    "upbringing": "scholar_family"
+   },
+   "backstory": "A Thanh Điền schoolmaster's daughter with a clean hand who copies Thôi Dương Giác's (thoi_duong_giac) letters to the Pivot's Wind sects; she has read the offer of the Phù Dao book and knows what Lạc Hà's Vassal Hall would call it.",
+   "ties": [
+    {
+     "to": "thoi_duong_giac",
+     "kind": "master",
+     "note": "the Wind room's elder"
+    }
+   ],
+   "master": "thoi_duong_giac",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-bone-body-art",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  }
+ ]
+}

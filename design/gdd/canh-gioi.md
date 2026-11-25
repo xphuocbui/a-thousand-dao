@@ -6,6 +6,7 @@
 > **Last Updated**: 2026-11-10
 > **Last Verified**: 2026-11-10
 > **Implements Pillar**: Pillar 3 (Power Is Built, Not Given), Pillar 4 (Every Season Counts); touches Pillar 2 (Every Number Is Bounded and Visible)
+> **Amended 2026-11-25** (user rulings, world-depth pass: `design/world/depth/DECISIONS-2026-11-25.md` group 11): the world floor `people.world_cultivators_min` rises from 3,000 to 5,000, because the authored cast needs 4,947 (rule 12 world odds and intake, the Tuning Knobs row, Open Question 21; World Generation Open Question 8).
 
 ## Summary
 
@@ -236,7 +237,7 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
     about 12 seasons on average; otherwise it stays until death.
     - **World odds** (user decision 2026-11-05). On average 1 NPC in 8 crosses QR→FE, 1 in
       12 FE→CF, 1 in 15 CF→NS and 1 in 20 NS→DT, so a world of 5,000 simulated cultivators
-      (never fewer than 3,000) holds about 27 Nascent Soul and 3 Deity Transformation. An
+      (never fewer than 5,000; 2026-11-25: floor 5,000, was 3,000) holds about 27 Nascent Soul and 3 Deity Transformation. An
       NPC with e ≥ 1 matches the player's edge odds, so true rivals exist.
     - **Mortals are not simulated.** The world's mortal population is far larger, but it
       is background only. NPC counts here mean cultivators.
@@ -576,8 +577,9 @@ would give about 74 Nascent Soul and 11 Deity Transformation.
 
 With old-age deaths only and a world held at 5,000, the solved model gives about 3,936 Qi
 Refining, 844 Foundation Establishment, 191 Core Formation, 27 Nascent Soul and 3 Deity
-Transformation. Every count scales with world size: at the 3,000 minimum, about 16 Nascent
-Soul and 1.7 Deity Transformation. The same model predicted an earlier run's counts, so it
+Transformation. Every count scales with world size. (2026-11-25: floor 5,000, was 3,000; World Generation Open
+Question 8.) The minimum world is now the 5,000 above, so the old floor's figures (about 16 Nascent Soul and 1.7
+Deity Transformation at 3,000) no longer occur in a shipped world. The same model predicted an earlier run's counts, so it
 matches the game; the counts in play come from `world_census.gd` (AC-CG-69).
 
 **Example:** CF→NS, e = 0.5: 0.5^6 = 0.015625, so p_step = 0.059 + 0.015625 × 0.241 =
@@ -1137,7 +1139,7 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
 **Other files:**
 - `character_attributes.json`: `tam_ma_natural_decay` 0.25.
 - `character_edges.json`: new `npc.gate_steps`, four `{base, max, edge_power}` entries (Formulas C2). `npc.base_step` and `npc.max_step` stay as the Đạo Đồ's edge curve (its Formulas G).
-- `world_generation.json`: new `people.world_cultivators` 5,000 and `people.world_cultivators_min` 3,000, `realm_distribution` becomes the settled shares of about 79 / 17 / 4 / 0.5 / 0.06 % (**change**, was 55 / 28 / 12 / 4 / 1; Open Question 21).
+- `world_generation.json`: new `people.world_cultivators` 5,000 and `people.world_cultivators_min` 3,000 (2026-11-25: floor 5,000; the data file still holds 3,000 and must change), `realm_distribution` becomes the settled shares of about 79 / 17 / 4 / 0.5 / 0.06 % (**change**, was 55 / 28 / 12 / 4 / 1; Open Question 21).
 - `character_edges.json`: new `npc.intake_sect_share` 0.9 (the share of new cultivators who join a sect) and `npc.intake_rank_shares` (elder 0.06, inner 0.30, the rest outer; a new cultivator is never a leader).
 - `cultivation_realms.json`, `cultivation` block: `closed_door_efficiency` 1.2 (rule 3).
 - `session_actions.json`: `closed_door.max_years` 50 (rule 3).
@@ -1390,6 +1392,14 @@ systems split out of Combat depend on each other as follows.
 - **Modifier System (#40):** prices `breakthrough_chance`, `cultivation_speed_pct` and lifespan in W, with realm drift; owns the Stat List rows for them.
 - **Combat Defence & Healing (#21a):** free ward slots grow by realm (1 / 1 / 2 / 2 / 3, its Formulas D).
 
+**Back-links written 2026-11-25** (world-depth rulings, `design/world/depth/DECISIONS-2026-11-25.md`):
+- **World Generation** (#27, Formula B): the ~1,900 authored people need a world of at least `N_cast` = 4,947
+  cultivators (Nguyên Anh binds). (2026-11-25: floor 5,000.) World Generation Open Question 8 is answered: this
+  GDD's floor `world_cultivators_min` rises from 3,000 to 5,000 (ruling group 11), above `N_cast`, so every shipped
+  world holds the cast.
+- **NPC Traits** (#42, rule 11a): a heart demon slain, a deviation survived or a forced breakthrough may grant a path
+  trait (Heart-demon victor, Deviation survivor, Cracked foundation) through the Event Engine's grant.
+
 ## Tuning Knobs
 
 Every knob is a data key (Formulas, Parameter keys). Ranges marked *derived* follow from
@@ -1406,7 +1416,7 @@ other numbers in this GDD; ranges marked *guess* wait for a bot run.
 | `stage_power_step` | 0.15 | 0.10–0.20; derived ceiling 0.24, above which divine sense's great-breakthrough jump becomes smaller than the realm's own ladder | Stat rise per small breakthrough |
 | `pill_chance` | 0.04 / 0.045 / 0.02 / 0.0225 (**change** after 04g: failure insight and the NS/DT recipes; 04f had 0.06 at every gate) | each gate ±0.01 (*derived* in the entry-age model: mean success 0.27–0.33; about 0.021 per 0.01 at QR→FE and FE→CF and 0.024 at CF→NS and NS→DT; −0.02 gives 0.25–0.26 and +0.02 gives 0.34–0.35) | **The fine baseline lever** (04f): per-attempt odds. It moves the edge too, but gift pills absorb that. AC-CG-30 sets the final value |
 | `gate_factor` | 1 / 1 / 0.32 / 0.20 (**new** 2026-11-05) | CF→NS 0.30–0.33 and NS→DT 0.19–0.21 hold the edge within about 0.02 of 0.30 and 0.20 (*derived*, entry-age model) | How hard the last two gates are for the player |
-| `people.world_cultivators` (World Generation) | 5,000, and `world_cultivators_min` 3,000 (**new**, user decision 2026-11-05) | at least 3,000; a smaller size is raised to it. Every realm's headcount scales with it: at 3,000, Nascent Soul is about 16 and Deity Transformation about 1.7 (*derived*) | Every realm's headcount |
+| `people.world_cultivators` (World Generation) | 5,000, and `world_cultivators_min` 5,000 (**new**, user decision 2026-11-05; 2026-11-25: floor 5,000, was 3,000, ruling group 11: the authored cast needs 4,947) | at least 5,000; a smaller size is raised to it. Every realm's headcount scales with it: at 8,000, Nascent Soul is about 43 and Deity Transformation about 4.8 (*derived*; the old floor's 16 and 1.7 at 3,000 no longer occur) | Every realm's headcount |
 | `closed_door_efficiency` | 1.2 | 1.0–1.3; at 1.2 the gates hold at 0.30–0.31 baseline and 0.32 / 0.21 edge (*derived*) | What a season of seclusion is worth |
 | `npc.gate_steps` (`base`, `max`, `edge_power`) | 0.123 / 0.078 / 0.059 / 0.032, 0.70 / 0.70 / 0.30 / 0.20, and 6 at every gate (**new** 2026-11-05) | re-solve `base` with `world_census.gd --edges` if any edge source changes, keeping each gate's arrival mean within about 0.02 of 1 in 8 / 12 / 15 / 20. `edge_power` below 4 needs a negative base at the last gate (*derived*) | How often NPCs cross, and how rare a true rival is |
 | `base_chance` | 0.004 / 0.0037 / 0.0037 / 0.003 | jointly with `bare_attempt_cap`: 1 − (1 − base_chance)^cap ≤ 0.03 (derived), so at most 0.0101 at cap 3 and 0.0061 at cap 5 | Hope for bare attempts; must stay near-hopeless |
@@ -2019,7 +2029,7 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 | 18 | Time & Turn's one-click "retreat until ripe" (cross-GDD review 04g, F2, accepted as partial): at a full bar the years waiting for herbs stay at 54 % (CF→NS) and 57 % (NS→DT) of W for a root-free 3-element life at the median W (48 % and 41 % at QR→FE and FE→CF). The wait must cost no attention: one action advances seasons until the next brew can be made or an event, attack or warning needs the player. What interrupts it, and how it shows the years skipped? | Time & Turn, Guidance Layer | Pillar 4 at the CF and NS bottlenecks |
 | 19 | ~~Does #22 and #23's +0.10 guard swamp the last two gates?~~ **Answered 2026-11-05 (independent review):** no. E2 works on suppressed values, so its 2q term holds the lift to about +0.06 and +0.04 (Formulas H) | — | — |
 | 20 | ~~Core Formation pile-up~~ **Answered 2026-11-05 (user decision):** NPC odds of 1 in 8 / 12 / 15 / 20 settle Core Formation at about 4 % of cultivators | — | — |
-| 21 | The world of 5,000 simulated cultivators (never fewer than 3,000) is built: world generation places them from the settled realm shares, and the season tick runs at about 60–90 ms. ~~Sect leaders' realm~~ **Answered 2026-11-10:** Nascent Soul leads great sects and Core Formation may lead lesser ones, so `leader_realm_min` stays Core Formation; sect tiers come with the Sects system (#26) | World Generation, Living World Tick | Sect leaders' realm |
+| 21 | The world of 5,000 simulated cultivators (never fewer than 3,000; 2026-11-25: floor 5,000) is built: world generation places them from the settled realm shares, and the season tick runs at about 60–90 ms. ~~Sect leaders' realm~~ **Answered 2026-11-10:** Nascent Soul leads great sects and Core Formation may lead lesser ones, so `leader_realm_min` stays Core Formation; sect tiers come with the Sects system (#26) | World Generation, Living World Tick | Sect leaders' realm |
 | 22 | `gate_factor` 0.32 / 0.20 comes from a scratch model; AC-CG-31 sets its final value. `npc.gate_steps` is solved from the game's own edge scores and checked by AC-CG-69 | Balance Simulation Harness | The late-gate targets |
 | 23 | **Herb equivalents (2026-11-20):** recipes now count equivalents (Item Database Formula B), so bought mature herbs stand in for aged ones; Formulas D's plot-year supply (Y = Σ q · min_age) no longer bounds pill supply alone: market supply and price do. Re-check in the balance pass. **Measured 2026-11-20 on continent 11** (`production/qa/evidence/continent-world/05-balance.txt`): with the land match, Formula B's layers, herb fit and wild herb grounds, autoplay lives with the edge cross 66 / 52 / 22 % per gate (targets 70 / 71 / 33 / 23; on the random world before: 77 / 73 / 37 / 20). Per-attempt odds match; the later gates get fewer rare-herb pills. The user accepted the gap until the rare-herb pills are tuned. The census (seed 202) settles Nguyên Anh at 21–26 and Hóa Thần at 7–8 (target about 3; to re-check over several seeds). **Re-run the gate calibration under the 2026-11-10 changes:** the entry-age model and AC-CG-30 / AC-CG-60 with Character Stats' curves (herb growth, lifespan) and dampened alchemy, uncapped purity and plots as build levers, the Đạo Đồ's curved tree share and drawn map, and the Way's breakthrough Effects (q_way). Every "provisional, pre-curves" figure in Formulas D and E is replaced from it; Character Stats then retunes only the curve scales | systems-designer, Balance Harness | `bonus_ceiling_target` figures; implementation sign-off |
 | 24 | **Hand-off from Regional Economy & Trade (#43, 2026-11-14), pending:** Formulas I gains (a) a **stone term**: cultivators absorb linh thạch for tu vi at `spt` 1 / 4 / 20 / 150 / 1,000 stones per tu vi by realm, adding at most `absorb_cap` 0.5 of the season's normal rate (#43 Formula J); and (b) a **provisioned factor** `(1 + prov)`, prov 0 to `prov_max` 0.15 by basket fill, never a penalty (#43 Formula L2). The bot then re-runs the NPC targets (1 in 8 / 12 / 15 / 20; about 27 Nascent Soul, about 3 Hóa Thần) and the player edge with both (#43 Open Questions 2 and 12) | systems-designer, Balance Harness | The Realms revision |

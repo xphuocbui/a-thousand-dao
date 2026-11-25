@@ -288,7 +288,7 @@
   },
   "people": {
     "world_cultivators": 5000,
-    "world_cultivators_min": 3000,
+    "world_cultivators_min": 5000,
     "age_min_by_realm": [
       16,
       30,

@@ -408,6 +408,10 @@ then a follow-up
 H), which this GDD now fills. Sects, Regional Economy & Trade, Combat, Power Rankings, Travel & Map, Công Pháp and the
 World Database do not name #30; their rows are small and listed in Open Questions rather than edited now.
 
+**Back-link written 2026-11-25** (world-depth rulings, group 5: dialogue verbs are the first `opens` consumer): **NPC
+Traits** (#42, rule 8a; F3) opens 19 `verb:` hooks with a proposed side (self, other, either; catalogue § Hooks by
+consumer), each needing its record here (requirements, `b_v`, cooldown, line keys); opinion gains the likes term `lk`.
+
 ## Visual/Audio Requirements
 
 `art-director` not consulted (Lean mode; no art bible yet). Review before production.

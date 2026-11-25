@@ -1,0 +1,1494 @@
+{
+"_doc": "Input slice for the depth writer of phat_y (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "phat_y",
+"name": "Phất Y Cốc",
+"name_han": "拂衣谷",
+"gloss": "Valley of the Brushed Sleeve",
+"alignment": "chính đạo",
+"leans": [
+"Metal",
+"Wind"
+],
+"craft": "sword cultivation; wandering swordsmen for hire",
+"lord": "thien_xu",
+"region": 15,
+"seat": 24,
+"kind": "minor"
+},
+"start_state": {
+"key": "phat_y",
+"name": "Phất Y Cốc",
+"name_han": "拂衣谷",
+"gloss": "Valley of the Brushed Sleeve",
+"kind": "minor",
+"alignment": "chinh",
+"leans": [
+"Metal",
+"Wind"
+],
+"seat": 24,
+"levels": {
+"holdings": 3,
+"institutions": 2,
+"military": 4,
+"trade": 2
+},
+"treasury": 7000,
+"founded": 560,
+"specialty": "kiem_tu",
+"lord": "thien_xu",
+"loyalty": 55,
+"craft": "sword cultivation; wandering swordsmen for hire",
+"region": 15,
+"leader": "thach_tang_danh"
+},
+"lord": "thien_xu",
+"vassals": [],
+"seat": {
+"id": 24,
+"name": "Phất Y Cốc",
+"gloss": "",
+"kind": "minor_seat",
+"region": 15,
+"biome": "grassland",
+"elev_km": 1.02,
+"qi": {
+"moc": 8,
+"hoa": 16,
+"tho": 33,
+"kim": 34,
+"thuy": 10
+},
+"variants": {},
+"density": 1.3,
+"note": ""
+},
+"seat_audit": "## MOVE Phất Y Cốc (phat_y; leans Metal/Wind)\nSeat: Phất Y Cốc (id 24, minor_seat, region 15, grassland), density 1.30\nSeat qi: Metal 34%, Wind 0\nCandidates: none in its own ground; re-lean the sect to its land, or move it to a fitting place nearby (see rules-proposals R4).\n",
+"ground": [
+{
+"id": 702,
+"name": "Hắc Phong Trại",
+"gloss": "Black Wind Stockade",
+"kind": "ruin",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 2.27,
+"qi": {
+"moc": 8,
+"hoa": 10,
+"tho": 28,
+"kim": 45,
+"thuy": 10
+},
+"variants": {
+"loi": 36.9
+},
+"density": 1.91,
+"note": ""
+},
+{
+"id": 23,
+"name": "Thối Tinh Môn",
+"gloss": "",
+"kind": "minor_seat",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 0.88,
+"qi": {
+"moc": 5,
+"hoa": 9,
+"tho": 25,
+"kim": 53,
+"thuy": 9
+},
+"variants": {},
+"density": 1.7,
+"note": ""
+},
+{
+"id": 204,
+"name": "Vạn Trùng Hạp",
+"gloss": "Gorge of Ten Thousand Mountains",
+"kind": "gorge",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 0.67,
+"qi": {
+"moc": 12,
+"hoa": 16,
+"tho": 28,
+"kim": 27,
+"thuy": 18
+},
+"variants": {},
+"density": 1.48,
+"note": "Lý Bạch: khinh chu dĩ quá vạn trùng sơn (the light boat has passed ten thousand mountains)"
+},
+{
+"id": 176,
+"name": "Bạch Ngân Khoáng",
+"gloss": "Silver Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 0.34,
+"qi": {
+"moc": 10,
+"hoa": 10,
+"tho": 21,
+"kim": 52,
+"thuy": 7
+},
+"variants": {},
+"density": 1.46,
+"note": "Silver below the cinnabar mountain of Đan Sơn Mạch."
+},
+{
+"id": 670,
+"name": "Ngân Thuyền Bảo",
+"gloss": "Silver Ship Fort",
+"kind": "ruin",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 0.79,
+"qi": {
+"moc": 8,
+"hoa": 11,
+"tho": 21,
+"kim": 28,
+"thuy": 31
+},
+"variants": {},
+"density": 1.45,
+"note": ""
+},
+{
+"id": 644,
+"name": "Thủ Hỏa Bảo",
+"gloss": "Fire-Warden Fort",
+"kind": "ruin",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 0.55,
+"qi": {
+"moc": 5,
+"hoa": 46,
+"tho": 15,
+"kim": 20,
+"thuy": 14
+},
+"variants": {},
+"density": 1.44,
+"note": ""
+},
+{
+"id": 649,
+"name": "Thanh Đăng Tự",
+"gloss": "Temple of the Blue Lamp",
+"kind": "ruin",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.08,
+"qi": {
+"moc": 8,
+"hoa": 22,
+"tho": 29,
+"kim": 29,
+"thuy": 12
+},
+"variants": {},
+"density": 1.44,
+"note": ""
+},
+{
+"id": 660,
+"name": "Tuần Hải Bảo",
+"gloss": "Sea Patrol Fort",
+"kind": "ruin",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 0.45,
+"qi": {
+"moc": 5,
+"hoa": 39,
+"tho": 16,
+"kim": 23,
+"thuy": 16
+},
+"variants": {},
+"density": 1.42,
+"note": ""
+},
+{
+"id": 654,
+"name": "Thiết Môn Bảo",
+"gloss": "Iron Gate Fort",
+"kind": "ruin",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.99,
+"qi": {
+"moc": 5,
+"hoa": 14,
+"tho": 31,
+"kim": 41,
+"thuy": 9
+},
+"variants": {},
+"density": 1.37,
+"note": ""
+},
+{
+"id": 646,
+"name": "Khổ Tu Viện",
+"gloss": "Academy of Austerities",
+"kind": "ruin",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 0.88,
+"qi": {
+"moc": 4,
+"hoa": 28,
+"tho": 37,
+"kim": 25,
+"thuy": 6
+},
+"variants": {},
+"density": 1.36,
+"note": ""
+},
+{
+"id": 701,
+"name": "Hạp Khẩu Trại",
+"gloss": "Gorge-Mouth Stockade",
+"kind": "ruin",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.5,
+"qi": {
+"moc": 11,
+"hoa": 13,
+"tho": 30,
+"kim": 36,
+"thuy": 9
+},
+"variants": {},
+"density": 1.36,
+"note": ""
+},
+{
+"id": 175,
+"name": "Can Tương Khoáng",
+"gloss": "Gan Jiang's Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.0,
+"qi": {
+"moc": 5,
+"hoa": 16,
+"tho": 16,
+"kim": 46,
+"thuy": 16
+},
+"variants": {},
+"density": 1.35,
+"note": "Can Tương, the swordsmith of legend; Phất Y Cốc's swords are forged from its ore."
+},
+{
+"id": 687,
+"name": "Đồng Tỉnh Khoáng",
+"gloss": "Copper Well Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.21,
+"qi": {
+"moc": 8,
+"hoa": 11,
+"tho": 28,
+"kim": 43,
+"thuy": 10
+},
+"variants": {},
+"density": 1.32,
+"note": ""
+},
+{
+"id": 669,
+"name": "Giới Bi Phong",
+"gloss": "Boundary Stone Peak",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.79,
+"qi": {
+"moc": 5,
+"hoa": 13,
+"tho": 18,
+"kim": 49,
+"thuy": 16
+},
+"variants": {},
+"density": 1.32,
+"note": ""
+},
+{
+"id": 1484,
+"name": "Thiết Châm Phong",
+"gloss": "Anvil Peak",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 3.07,
+"qi": {
+"moc": 4,
+"hoa": 7,
+"tho": 20,
+"kim": 58,
+"thuy": 10
+},
+"variants": {},
+"density": 1.31,
+"note": ""
+},
+{
+"id": 24,
+"name": "Phất Y Cốc",
+"gloss": "",
+"kind": "minor_seat",
+"region": 15,
+"biome": "grassland",
+"elev_km": 1.02,
+"qi": {
+"moc": 8,
+"hoa": 16,
+"tho": 33,
+"kim": 34,
+"thuy": 10
+},
+"variants": {},
+"density": 1.3,
+"note": ""
+},
+{
+"id": 173,
+"name": "Thiên Ngoại Khoáng",
+"gloss": "Mine of the Iron from Beyond the Sky",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 0.69,
+"qi": {
+"moc": 4,
+"hoa": 7,
+"tho": 20,
+"kim": 57,
+"thuy": 11
+},
+"variants": {},
+"density": 1.24,
+"note": "Thối Tinh Môn forges star iron, and says this is where it comes from."
+},
+{
+"id": 658,
+"name": "Ngân Giáp Phong",
+"gloss": "Silver Armour Peak",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 4.6,
+"qi": {
+"moc": 5,
+"hoa": 8,
+"tho": 22,
+"kim": 53,
+"thuy": 12
+},
+"variants": {
+"bang": 10.3
+},
+"density": 1.23,
+"note": ""
+},
+{
+"id": 695,
+"name": "Hắc Ưng Phong",
+"gloss": "Black Hawk Peak",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 2.42,
+"qi": {
+"moc": 4,
+"hoa": 8,
+"tho": 20,
+"kim": 58,
+"thuy": 10
+},
+"variants": {
+"am": 25.5
+},
+"density": 1.21,
+"note": ""
+},
+{
+"id": 688,
+"name": "Thanh Loa Phong",
+"gloss": "Green Conch Peak",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 2.11,
+"qi": {
+"moc": 10,
+"hoa": 11,
+"tho": 29,
+"kim": 41,
+"thuy": 10
+},
+"variants": {},
+"density": 1.2,
+"note": ""
+},
+{
+"id": 1483,
+"name": "Thạch Thán Khoáng",
+"gloss": "Coal Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 0.77,
+"qi": {
+"moc": 5,
+"hoa": 7,
+"tho": 18,
+"kim": 56,
+"thuy": 15
+},
+"variants": {},
+"density": 1.2,
+"note": ""
+},
+{
+"id": 450,
+"name": "Lệ Thạch Khoáng",
+"gloss": "Whetstone Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 0.86,
+"qi": {
+"moc": 7,
+"hoa": 21,
+"tho": 36,
+"kim": 29,
+"thuy": 7
+},
+"variants": {},
+"density": 1.18,
+"note": ""
+},
+{
+"id": 659,
+"name": "Huân Yên Phong",
+"gloss": "Smoke-Stained Peak",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 2.93,
+"qi": {
+"moc": 4,
+"hoa": 16,
+"tho": 20,
+"kim": 47,
+"thuy": 13
+},
+"variants": {},
+"density": 1.17,
+"note": ""
+},
+{
+"id": 665,
+"name": "Tích Lương Trại",
+"gloss": "Grain Store Stockade",
+"kind": "ruin",
+"region": 15,
+"biome": "highland",
+"elev_km": 1.01,
+"qi": {
+"moc": 4,
+"hoa": 29,
+"tho": 38,
+"kim": 24,
+"thuy": 5
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 692,
+"name": "Thủ Bi Trại",
+"gloss": "Stockade of the Boundary Stele",
+"kind": "ruin",
+"region": 15,
+"biome": "temperate forest",
+"elev_km": 1.65,
+"qi": {
+"moc": 9,
+"hoa": 12,
+"tho": 30,
+"kim": 39,
+"thuy": 9
+},
+"variants": {},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 673,
+"name": "Vọng Phàm Phong",
+"gloss": "Sail-Watching Peak",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 2.21,
+"qi": {
+"moc": 7,
+"hoa": 12,
+"tho": 30,
+"kim": 42,
+"thuy": 10
+},
+"variants": {},
+"density": 1.11,
+"note": ""
+},
+{
+"id": 186,
+"name": "Cùng Mục Phong",
+"gloss": "Peak of the Farthest Sight",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 2.62,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 28,
+"kim": 45,
+"thuy": 10
+},
+"variants": {
+"loi": 40.0
+},
+"density": 1.11,
+"note": "Vương Chi Hoán: dục cùng thiên lý mục, cánh thướng nhất tầng lâu (to see a thousand li further, climb one storey more)"
+},
+{
+"id": 674,
+"name": "Quải Vân Phong",
+"gloss": "Peak Where Clouds Hang",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 4.52,
+"qi": {
+"moc": 5,
+"hoa": 7,
+"tho": 17,
+"kim": 54,
+"thuy": 16
+},
+"variants": {
+"bang": 10.0
+},
+"density": 1.1,
+"note": ""
+},
+{
+"id": 174,
+"name": "Huyền Thiết Khoáng",
+"gloss": "Black Iron Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 0.65,
+"qi": {
+"moc": 6,
+"hoa": 7,
+"tho": 17,
+"kim": 54,
+"thuy": 17
+},
+"variants": {},
+"density": 1.09,
+"note": "Dark heavy iron under Ngọc Hành Sơn."
+},
+{
+"id": 655,
+"name": "Hoàng Thiết Khoáng",
+"gloss": "Pyrite Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.78,
+"qi": {
+"moc": 6,
+"hoa": 9,
+"tho": 24,
+"kim": 53,
+"thuy": 8
+},
+"variants": {},
+"density": 1.08,
+"note": ""
+},
+{
+"id": 250,
+"name": "Xích Viêm Khẩu",
+"gloss": "Red Flame Mouth",
+"kind": "lava_vent",
+"region": 15,
+"biome": "volcano",
+"elev_km": 1.2,
+"qi": {
+"moc": 3,
+"hoa": 51,
+"tho": 15,
+"kim": 21,
+"thuy": 9
+},
+"variants": {},
+"density": 1.07,
+"note": "A vent of the volcano in Ngọc Hành Sơn."
+},
+{
+"id": 706,
+"name": "Trấn Sơn Phong",
+"gloss": "Mountain-Pinning Peak",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 2.06,
+"qi": {
+"moc": 8,
+"hoa": 9,
+"tho": 21,
+"kim": 47,
+"thuy": 15
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 684,
+"name": "Ngọc Lâu Phong",
+"gloss": "Jade Tower Peak",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 2.52,
+"qi": {
+"moc": 8,
+"hoa": 12,
+"tho": 30,
+"kim": 41,
+"thuy": 10
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 656,
+"name": "Thạch Kính Phong",
+"gloss": "Stone Mirror Peak",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 2.54,
+"qi": {
+"moc": 4,
+"hoa": 9,
+"tho": 24,
+"kim": 55,
+"thuy": 8
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 712,
+"name": "Hoành Đao Môn",
+"gloss": "Gate of the Levelled Blade",
+"kind": "ruin",
+"region": 15,
+"biome": "grassland",
+"elev_km": 0.77,
+"qi": {
+"moc": 17,
+"hoa": 19,
+"tho": 35,
+"kim": 21,
+"thuy": 9
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 238,
+"name": "Thiết Bối Cốc",
+"gloss": "Iron-Back Valley",
+"kind": "beast_lair",
+"region": 15,
+"biome": "highland",
+"elev_km": 1.09,
+"qi": {
+"moc": 6,
+"hoa": 33,
+"tho": 40,
+"kim": 17,
+"thuy": 4
+},
+"variants": {},
+"density": 1.04,
+"note": "Beasts with iron backs feed on the ore of Ngọc Hành Sơn."
+},
+{
+"id": 700,
+"name": "Ưng Sào Phong",
+"gloss": "Hawk's Nest Peak",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.92,
+"qi": {
+"moc": 9,
+"hoa": 11,
+"tho": 29,
+"kim": 41,
+"thuy": 10
+},
+"variants": {
+"loi": 6.1
+},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 651,
+"name": "Ỷ Thiên Phong",
+"gloss": "Peak Leaning on Heaven",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 2.12,
+"qi": {
+"moc": 6,
+"hoa": 14,
+"tho": 30,
+"kim": 41,
+"thuy": 9
+},
+"variants": {},
+"density": 1.03,
+"note": ""
+},
+{
+"id": 642,
+"name": "Lục Đồng Khoáng",
+"gloss": "Green Copper Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 0.99,
+"qi": {
+"moc": 5,
+"hoa": 13,
+"tho": 31,
+"kim": 42,
+"thuy": 9
+},
+"variants": {},
+"density": 1.02,
+"note": ""
+},
+{
+"id": 704,
+"name": "Ngọc Nữ Phong",
+"gloss": "Jade Maiden Peak",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 2.52,
+"qi": {
+"moc": 8,
+"hoa": 10,
+"tho": 28,
+"kim": 43,
+"thuy": 10
+},
+"variants": {
+"loi": 14.3
+},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 657,
+"name": "Lô Cam Khoáng",
+"gloss": "Calamine Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 0.52,
+"qi": {
+"moc": 9,
+"hoa": 10,
+"tho": 26,
+"kim": 41,
+"thuy": 14
+},
+"variants": {},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 675,
+"name": "Hắc Sa Khoáng",
+"gloss": "Black Sand Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.04,
+"qi": {
+"moc": 14,
+"hoa": 12,
+"tho": 27,
+"kim": 38,
+"thuy": 10
+},
+"variants": {},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 667,
+"name": "Ải Ngọc Khoáng",
+"gloss": "Haze Jade Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.82,
+"qi": {
+"moc": 7,
+"hoa": 10,
+"tho": 28,
+"kim": 44,
+"thuy": 10
+},
+"variants": {},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 650,
+"name": "Ô Ngân Khoáng",
+"gloss": "Black Silver Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.69,
+"qi": {
+"moc": 5,
+"hoa": 13,
+"tho": 30,
+"kim": 43,
+"thuy": 9
+},
+"variants": {},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 668,
+"name": "Hành Vân Phong",
+"gloss": "Drifting Cloud Peak",
+"kind": "peak",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.87,
+"qi": {
+"moc": 7,
+"hoa": 11,
+"tho": 29,
+"kim": 44,
+"thuy": 10
+},
+"variants": {},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 685,
+"name": "Cẩm Thạch Khoáng",
+"gloss": "Brocade Stone Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.18,
+"qi": {
+"moc": 11,
+"hoa": 10,
+"tho": 27,
+"kim": 41,
+"thuy": 10
+},
+"variants": {},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 693,
+"name": "Hoàng Ngọc Khoáng",
+"gloss": "Topaz Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.21,
+"qi": {
+"moc": 11,
+"hoa": 10,
+"tho": 27,
+"kim": 41,
+"thuy": 10
+},
+"variants": {},
+"density": 1.01,
+"note": ""
+},
+{
+"id": 699,
+"name": "Xích Ngân Khoáng",
+"gloss": "Red Silver Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.48,
+"qi": {
+"moc": 10,
+"hoa": 12,
+"tho": 29,
+"kim": 39,
+"thuy": 10
+},
+"variants": {},
+"density": 1.0,
+"note": ""
+},
+{
+"id": 714,
+"name": "Thanh Thiết Khoáng",
+"gloss": "Blue Iron Mine",
+"kind": "mine",
+"region": 15,
+"biome": "high mountain",
+"elev_km": 1.07,
+"qi": {
+"moc": 15,
+"hoa": 16,
+"tho": 28,
+"kim": 28,
+"thuy": 13
+},
+"variants": {},
+"density": 1.0,
+"note": ""
+},
+{
+"id": 427,
+"name": "Chân Kim Các",
+"gloss": "Pavilion of True Gold",
+"kind": "minor_seat",
+"region": 15,
+"biome": "temperate forest",
+"elev_km": 0.43,
+"qi": {
+"moc": 18,
+"hoa": 20,
+"tho": 32,
+"kim": 23,
+"thuy": 7
+},
+"variants": {},
+"density": 1.0,
+"note": ""
+}
+],
+"ground_place_count": 99,
+"events": [
+{
+"id": "A219",
+"tier": "annal",
+"year": 235,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Thiên Xu's assayers weigh the miners' ore on open scales in the square of Song Kiều; no miner of Ngọc Hành has rebelled since.",
+"place": 82,
+"region": 15
+},
+{
+"id": "V118",
+"tier": "annal",
+"year": 236,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Now that Thiên Xu's assayers weigh ore in public at Song Kiều, the miners stop coming to the bosses' gate, and Thiết Môn Bảo is left.",
+"place": 654,
+"region": 15
+},
+{
+"id": "C067",
+"tier": "landmark",
+"year": 260,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Thiên Xu Tông founds Tinh Hán Thành, its port on the inland sea, on the reef of the old sea-serpent's bones.",
+"place": 40
+},
+{
+"id": "A220",
+"tier": "annal",
+"year": 280,
+"kind": "mine",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Black iron is found deep under the mountain at Huyền Thiết; it is so heavy that a cart carries only one ingot.",
+"place": 174,
+"region": 15
+},
+{
+"id": "A221",
+"tier": "annal",
+"year": 330,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"thoi_tinh",
+"thien_xu"
+],
+"text_en": "Smiths who quench star iron in the mountain river found Thối Tinh Môn under Thiên Xu.",
+"place": 23,
+"region": 15
+},
+{
+"id": "A222",
+"tier": "annal",
+"year": 335,
+"kind": "mine",
+"people": [],
+"sects": [
+"thoi_tinh"
+],
+"text_en": "Thối Tinh Môn claims the Mine of the Iron from Beyond the Sky and says its ore fell with the stars.",
+"place": 173,
+"region": 15
+},
+{
+"id": "A223",
+"tier": "annal",
+"year": 400,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Pearl oysters in the shallows of the inland sea give Châu Bạng Thôn its name and Tinh Hán Thành its pearl trade.",
+"place": 144,
+"region": 15
+},
+{
+"id": "A224",
+"tier": "annal",
+"year": 450,
+"kind": "mine",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Silver is found below the cinnabar slopes at Bạch Ngân; Thiên Xu's coin is struck from it.",
+"place": 176,
+"region": 15
+},
+{
+"id": "A225",
+"tier": "annal",
+"year": 560,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"phat_y",
+"thien_xu"
+],
+"text_en": "A swordsman who brushes his sleeve and leaves after every deed founds Phất Y Cốc, and digs the ore of Can Tương for its swords.",
+"place": 24,
+"region": 15
+},
+{
+"id": "C124",
+"tier": "landmark",
+"year": 600,
+"kind": "item_made",
+"people": [
+"quy_truong_kich"
+],
+"sects": [
+"thoi_tinh",
+"thien_xu"
+],
+"text_en": "Thối Tinh Môn forges the halberd Trầm Sa Kích from star iron for a young officer of Thiên Xu, Quý Trường Kích.",
+"place": 23,
+"item": "tram_sa_kich"
+},
+{
+"id": "A226",
+"tier": "annal",
+"year": 620,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Boats in the gorge of Vạn Trùng Hạp pass ten thousand mountains in a day; the river is the fastest road to the sea.",
+"place": 204,
+"region": 15
+},
+{
+"id": "V119",
+"tier": "annal",
+"year": 640,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The grain road moves to Song Kiều, and the miners' granary stockade of Tích Lương Trại is left.",
+"place": 665,
+"region": 15
+},
+{
+"id": "A227",
+"tier": "annal",
+"year": 700,
+"kind": "trade",
+"people": [],
+"sects": [],
+"text_en": "The water mills at Thủy Đối grind the wheat of Thanh Mạch for all of Tinh Hán Thành.",
+"place": 142,
+"region": 15
+},
+{
+"id": "V120",
+"tier": "annal",
+"year": 718,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "A landslide buries the toll stockade of Hạp Khẩu Trại, and the ore road is moved to the other bank.",
+"place": 701,
+"region": 15
+},
+{
+"id": "V121",
+"tier": "annal",
+"year": 760,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The last abbot of Thanh Đăng Tự dies with no disciple, and the lamp the monks kept for travellers goes out.",
+"place": 649,
+"region": 15
+},
+{
+"id": "V122",
+"tier": "annal",
+"year": 790,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "With Thôn Hải destroyed in the Purge, Thiên Xu stands down the sea patrol fort of Tuần Hải Bảo.",
+"place": 660,
+"region": 15
+},
+{
+"id": "V124",
+"tier": "annal",
+"year": 872,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Two years after its head left on a journey and never returned, the sabre fighters of Hoành Đao Môn have scattered.",
+"place": 712,
+"region": 15
+},
+{
+"id": "V125",
+"tier": "annal",
+"year": 880,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Fewer and fewer take up the hard life, and the last desert cells of Khổ Tu Viện stand empty.",
+"place": 646,
+"region": 15
+},
+{
+"id": "A229",
+"tier": "annal",
+"year": 900,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The Ôn clan builds the twin bridges of Song Kiều over the river road, and keeps the tolls.",
+"place": 82,
+"region": 15
+},
+{
+"id": "V126",
+"tier": "annal",
+"year": 940,
+"kind": "siege",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "Thiên Xu clears Hắc Phong Trại, where rogue cultivators (tán tu) have robbed the ore trains for sixty years.",
+"place": 702,
+"region": 15
+},
+{
+"id": "A230",
+"tier": "annal",
+"year": 980,
+"kind": "birth",
+"people": [
+"ve_van_co"
+],
+"sects": [],
+"text_en": "Vệ Văn Cơ is born in Tinh Hán Thành and draws formations in the harbour sand before he can talk.",
+"place": 40,
+"region": 15
+},
+{
+"id": "V127",
+"tier": "annal",
+"year": 980,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"chan_kim",
+"thien_xu"
+],
+"text_en": "Assayers and refiners of spirit ore found Chân Kim Các beside Song Kiều's open scales, sworn to Thiên Xu.",
+"place": 427,
+"region": 15
+},
+{
+"id": "V128",
+"tier": "annal",
+"year": 1003,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The harbour of Ngân Thuyền Bảo has silted up; the silver goes overland to Song Kiều, and the fort is left.",
+"place": 670,
+"region": 15
+},
+{
+"id": "V129",
+"tier": "annal",
+"year": 1006,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "An avalanche buries Thủ Bi Trại, which guarded a boundary stele of the Compact; the stele is moved lower.",
+"place": 692,
+"region": 15
+},
+{
+"id": "V130",
+"tier": "annal",
+"year": 1040,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_xu"
+],
+"text_en": "The warding pillars are raised over the vent, and the Pivot withdraws the garrison that has watched it from Thủ Hỏa Bảo.",
+"place": 644,
+"region": 15
+},
+{
+"id": "A231",
+"tier": "annal",
+"year": 1050,
+"kind": "headship",
+"people": [
+"cat_luu_quang"
+],
+"sects": [
+"thoi_tinh"
+],
+"text_en": "Cát Lưu Quang becomes head of Thối Tinh Môn and forges a blade from the star that fell near Thanh Bách.",
+"place": 23,
+"region": 15
+},
+{
+"id": "C186",
+"tier": "landmark",
+"year": 1130,
+"kind": "duel",
+"people": [
+"tu_khong_hac_nien",
+"thach_tang_danh"
+],
+"sects": [
+"phat_y"
+],
+"text_en": "Tư Không Hạc Niên duels Thạch Tàng Danh of Phất Y Cốc on Cùng Mục Phong for three days; neither wins, and he leaves without a sect.",
+"place": 186,
+"item": "co_hac"
+},
+{
+"id": "A232",
+"tier": "annal",
+"year": 1131,
+"kind": "tale",
+"people": [
+"thach_tang_danh"
+],
+"sects": [
+"phat_y"
+],
+"text_en": "After the duel on Cùng Mục Phong, Thạch Tàng Danh will not speak of it; Phất Y Cốc's disciples climb the peak to see the sword marks.",
+"place": 186,
+"region": 15
+},
+{
+"id": "A233",
+"tier": "annal",
+"year": 1180,
+"kind": "omen",
+"people": [],
+"sects": [],
+"text_en": "The blue haze on Thanh Ải Phong lifts for a day for the first time in memory; a temple is seen on the summit, and by evening it is gone.",
+"place": 185,
+"region": 15
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "thach_tang_danh",
+"name": "Thạch Tàng Danh",
+"name_han": "石藏名",
+"gloss": "Hides his name (Lý Bạch: thâm tàng thân dữ danh)",
+"sex": "M",
+"born": 900,
+"alive": true,
+"sect": "phat_y",
+"rank": "tong_chu",
+"role": "Head of Phất Y Cốc, sword cultivation and swordsmen for hire",
+"realm": "ket_dan",
+"home": 24,
+"traits": {
+"personality": [
+"Reclusive",
+"Humble",
+"Brave"
+],
+"calling": "Duelist",
+"fate_given": []
+},
+"vassal_of": "thien_xu",
+"build": {
+"root": {
+"elements": {
+"kim": 86
+},
+"variants": {
+"phong": 56
+}
+},
+"thien_phu": {
+"ngo_tinh": 76,
+"can_cot": 66,
+"than_hon": 68,
+"khi_van": 52,
+"dao_tam": 80,
+"mi_luc": 44
+},
+"archetype": "kiem_tu",
+"stage": 1,
+"main": {
+"tech": "dia_kim",
+"layer": 9
+},
+"aux": [
+{
+"tech": "afterimage-sword-canon",
+"layer": 9
+}
+],
+"gear": [
+{
+"named": "blade-thousand-cut-sword"
+},
+{
+"base": "phi_kiem",
+"grade": 3,
+"element": "kim"
+},
+{
+"base": "dao_bao",
+"grade": 3,
+"element": "kim"
+}
+],
+"tree": {
+"start": "kim",
+"targets": [
+725,
+1441,
+4278,
+4280,
+4032,
+4677
+]
+},
+"skills": {},
+"note": "The silent sword of Phất Y: a pure blade who held Tư Không Hạc Niên to a draw for three days with the same afterimage art"
+}
+}
+],
+"legendary_items": []
+}

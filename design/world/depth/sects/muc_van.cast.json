@@ -1,0 +1,1241 @@
+{
+ "sect": "muc_van",
+ "people": [
+  {
+   "key": "khau_muc_van",
+   "name_hv": "Khấu Mục Vân",
+   "name_han": "寇牧雲",
+   "gloss": "Herds the clouds",
+   "sex": "M",
+   "born": 940,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "muc_van",
+   "rank": "tong_chu",
+   "home": 19,
+   "birthplace": 73,
+   "role": "Head of Mục Vân Trang since 1060; horse lord of the western plain",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "tho": 70,
+     "moc": 40
+    },
+    "variants": {
+     "phong": 64
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 74,
+    "than_hon": 64,
+    "khi_van": 60,
+    "dao_tam": 66,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Patient",
+     "Honest"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "beast_bonded",
+     "body_tempered"
+    ],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A big, slow, sun-creased man in a felt coat that smells of horse, who looks at people the way he looks at colts, for a long time before he decides.",
+   "backstory": "Khấu Mục Vân was born in Thanh Điền in 940, and a spirit foal was born in the manor's stable the same night; it has let no one else ride it (A169). He called it Đạp Vân, Cloud-Treader. His father Khấu Thường Thanh (khau_thuong_thanh) was a herder of the manor, the one Lạc Hà's treasurer Trầm Tịch Dương (tram_tich_duong) shorted three stones at the horse fair of 901, the day the market girl Tô Vãn Chiếu said so in front of them both. The founder Mẫn Bạch Câu (man_bach_cau) taught Khấu the long ride and left him the manor in 1060. In the cold year of 1121 the herds died in the snow (A171, V100), and Lạc Hà's Counting House would not delay the tribute. Since then Khấu has paid it every year less three stones and three hundred years of interest at Lạc Hà's own posted rate, citing Lạc Hà's own contract law. The Hall of Scales calls the tribute late. He has had its collector Cận Thủ Chuyết (can_thu_chuyet) thrown off the ranch twice. His horses win every race at the lord's festival (A172).",
+   "wants": "To have the three stones paid back, with interest, by Trầm Tịch Dương's own hand, at a festival, in front of a herder. After that, nothing much.",
+   "secret": "Đạp Vân is failing. Thôi Dương Giác's book told him why a spirit foal born on his night answers only him: the horse's Wind and his are one thread. He expects that when the horse dies, he will not be long behind it, and he has told no one, not even his daughter.",
+   "ties": [
+    {
+     "to": "man_bach_cau",
+     "kind": "master",
+     "note": "the founder, who left him the manor"
+    },
+    {
+     "to": "khau_thuong_thanh",
+     "kind": "parent",
+     "note": "his father, the herder shorted in 901"
+    },
+    {
+     "to": "khau_thanh_thao",
+     "kind": "child",
+     "note": "his daughter and steward"
+    },
+    {
+     "to": "khau_tieu_cau",
+     "kind": "grandchild",
+     "note": "who cannot ride Đạp Vân and minds"
+    },
+    {
+     "to": "tan_thien_ly",
+     "kind": "disciple",
+     "note": "his herd master"
+    },
+    {
+     "to": "thoi_duong_giac",
+     "kind": "friend",
+     "note": "took her in in the cold year; she reads his horse better than he does"
+    },
+    {
+     "to": "tram_tich_duong",
+     "kind": "creditor",
+     "note": "owes his family three stones since 901, with interest"
+    },
+    {
+     "to": "can_thu_chuyet",
+     "kind": "enemy",
+     "note": "the Hall of Scales' collector, thrown off the ranch twice"
+    },
+    {
+     "to": "hua_tich_cau",
+     "kind": "friend",
+     "note": "the groom he gave the bear to"
+    },
+    {
+     "to": "hach_anh_ha",
+     "kind": "friend",
+     "note": "Lạc Hà's envoy; she bets on his horses"
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "friend",
+     "note": "bets on the horses and loses anyway (A172); his grandson is in the stables"
+    },
+    {
+     "to": "to_van_chieu",
+     "kind": "friend",
+     "note": "the head who saw the three stones shorted, and has never said she disagrees"
+    },
+    {
+     "to": "ho_tam_ky",
+     "kind": "rival",
+     "note": "the Thiên Bảo harpooner whose buyer he outbid for the white bear"
+    },
+    {
+     "to": "lu_truy_phong",
+     "kind": "disciple",
+     "note": "rides the herds' south string at Liệt Mã Cương"
+    },
+    {
+     "to": "trinh_luc_phan",
+     "kind": "disciple",
+     "note": "clerk of the steward's room; carries the tribute account to Lạc Hà"
+    }
+   ],
+   "master": "man_bach_cau",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "cloud-herd-body-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "herd-call",
+      "layer": 9
+     },
+     {
+      "tech": "gale-courier-scripture",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "mv-dap-van-bridle-ring"
+     },
+     {
+      "named": "mv-cloud-herding-lance"
+     },
+     {
+      "named": "mv-herder-felt-armour"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth for a body that does not break, with his own Wind for the gallop: he and the horse hit the same thing at the same moment.",
+     "targets": [
+      707,
+      6487,
+      6495,
+      6580,
+      6542
+     ],
+     "targets_note": "The rider's route (Solid Ground, Beast Pen), then Swift Hound, Ten Thousand Beasts One Heart and Beast Soul Union: horse and rider as one body."
+    },
+    "note": "The horse lord of the plain: a sturdy body, a lance, and a herd that runs on the wind, his spirit horse first among them."
+   },
+   "items": [
+    "mv-cloud-herding-lance",
+    "wood-packmate-collar",
+    "mv-dap-van-bridle-ring",
+    "mv-herder-felt-armour"
+   ],
+   "changed": "build: main mountain-heart-canon (Lạc Hà's inner-gate Earth method) -> cloud-herd-body-canon (the manor's own body lineage; the sect becomes no-lean, R3); aux mountain-bone-body-art -> herd-call and gale-courier-scripture; giap/thuan gear -> the founder's lance and the armour; tree targets -> intent; root, thien_phu, stage moved to the top level; birthplace 73 added (A169)."
+  },
+  {
+   "key": "thoi_duong_giac",
+   "name_hv": "Thôi Dương Giác",
+   "name_han": "崔羊角",
+   "gloss": "The ram's-horn whirlwind (Zhuangzi)",
+   "sex": "F",
+   "born": 1050,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "muc_van",
+   "rank": "truong_lao",
+   "home": 19,
+   "birthplace": 488,
+   "role": "Elder of the manor; the last disciple of Phù Dao Quán, keeper of its Wind book",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "tho": 42,
+     "hoa": 26
+    },
+    "variants": {
+     "phong": 72
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 48,
+    "than_hon": 68,
+    "khi_van": 50,
+    "dao_tam": 70,
+    "mi_luc": 44
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Calm",
+     "Ambitious"
+    ],
+    "calling": "Teacher",
+    "upbringing": "temple_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "pure_root_devotee"
+    ],
+    "lifestyle": "pilgrim",
+    "health": "old_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A narrow, weathered woman who stands facing into the wind out of habit, with a frostbitten left hand she keeps in her sleeve.",
+   "backstory": "Thôi Dương Giác was a well-digger's girl from Song Tỉnh Thôn whom the masters of Phù Dao Quán, the Abbey of the Whirlwind on the steppe, took at seven because she had Wind, the only thing they taught. The abbey had six people left by 1100. In the cold year the herds died, the geese flew low over Nhạn Thanh Thành (A171), and the old master died in his cell with the shutters open to the wind (V100). Thôi, seventy-one and at Trúc Cơ, buried him, took the pennant off the pole and walked three juniors and the abbey's book to the one house on the plain that would feed them. Khấu Mục Vân (khau_muc_van) fed them. Two of the juniors have died since. The third is Mạc Khiên Phong (mac_khien_phong), who has no Wind. She made Kết Đan at the manor in 1160 and has taught the abbey's book to no one, because no one at the manor but its head has Wind, and he has a herd to run.",
+   "wants": "To light the abbey on the steppe again with Wind-born disciples. Lạc Hà looked at Phù Dao Quán for its new seat and passed it over as the vassal's; she wants it given to her in writing.",
+   "secret": "She has written to Phất Y Cốc and Cửu Cao Phái, the Wind sects of the Pivot's lands, offering the abbey's book in exchange for three Wind-born disciples. Selling a vassal's art to the Pivot's vassals without leave is a breach of the manor's oath to Lạc Hà.",
+   "ties": [
+    {
+     "to": "khau_muc_van",
+     "kind": "friend",
+     "note": "fed the abbey's last four in 1121"
+    },
+    {
+     "to": "mac_khien_phong",
+     "kind": "disciple",
+     "note": "the last junior she brought down; no Wind"
+    },
+    {
+     "to": "du_bon_van",
+     "kind": "disciple",
+     "note": "the race rider; she teaches her to read wind on the course"
+    },
+    {
+     "to": "khau_thanh_thao",
+     "kind": "friend",
+     "note": "the steward who pays for the abbey's roof out of the herd money"
+    },
+    {
+     "to": "nghieu_thu_nhan",
+     "kind": "disciple",
+     "note": "copies the Wind room's letters"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "gale-courier-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "mv-ram-horn-pennant"
+     },
+     {
+      "named": "mv-whirlwind-abbey-habit"
+     },
+     {
+      "named": "mv-well-digger-plumb"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "phong",
+     "intent": "Wind first and almost only: evasion, speed and a breath held for the next step; Earth a little, for the body the manor taught her.",
+     "targets": [
+      797,
+      808,
+      803,
+      6451,
+      6455,
+      6479
+     ],
+     "targets_note": "Outside method (Gale Courier), no herd route: the Wind start ring, Riding the Wind and Wind Escape; almost only Wind."
+    },
+    "note": "The whirlwind abbey's last teacher. Outside the lineage on purpose (R5): she came with her own book."
+   },
+   "items": [
+    "mv-ram-horn-pennant",
+    "mv-whirlwind-abbey-habit",
+    "mv-well-digger-plumb"
+   ]
+  },
+  {
+   "key": "tan_thien_ly",
+   "name_hv": "Tần Thiên Lý",
+   "name_han": "秦千里",
+   "gloss": "A thousand li",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "muc_van",
+   "rank": "truong_lao",
+   "home": 19,
+   "birthplace": 503,
+   "role": "Herd master: the breeding herds, the remounts and the long ride",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 52,
+     "moc": 38
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 50,
+    "can_cot": 70,
+    "than_hon": 46,
+    "khi_van": 48,
+    "dao_tam": 58,
+    "mi_luc": 42
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Stubborn",
+     "Loyal"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": null,
+    "gained": [
+     "Scarred"
+    ]
+   },
+   "appearance": "A bow-legged herder with a split lip from a mare's hoof and hands like saddle leather.",
+   "backstory": "A flute-village herder's son from Mục Địch Thôn who rode the long ride at sixteen and never got off. He saw the herds die in the snow of 1121 (A171) and has built them back colt by colt. Khấu Mục Vân (khau_muc_van) means him to run the herds after him. Tần believes the white bear in the north paddock is upsetting the mares, and he is right.",
+   "ties": [
+    {
+     "to": "khau_muc_van",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "khau_tieu_cau",
+     "kind": "disciple",
+     "note": "the head's grandson"
+    },
+    {
+     "to": "kim_dac_loc",
+     "kind": "disciple",
+     "note": "a rich man's grandson, learning to lose bets slower"
+    },
+    {
+     "to": "hua_tich_cau",
+     "kind": "rival",
+     "note": "the groom keeps the bear he wants gone"
+    },
+    {
+     "to": "lu_truy_phong",
+     "kind": "friend",
+     "note": "rides the herds' south string at Liệt Mã Cương"
+    },
+    {
+     "to": "tan_muc_so",
+     "kind": "niece_nephew",
+     "note": "his nephew and disciple; herd boy of the long ride"
+    }
+   ],
+   "master": "khau_muc_van",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "cloud-herd-body-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "herd-call",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth for a body that rides all night.",
+     "targets": [
+      707,
+      6487,
+      3051,
+      3299
+     ],
+     "targets_note": "Herd route, then Five Peaks and Five Grains: a body that rides all night."
+    },
+    "note": "A lance and a felt coat."
+   }
+  },
+  {
+   "key": "khau_thanh_thao",
+   "name_hv": "Khấu Thanh Thảo",
+   "name_han": "寇青草",
+   "gloss": "Green grass",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "muc_van",
+   "rank": "chap_su",
+   "home": 19,
+   "birthplace": 19,
+   "role": "Steward of the manor; keeps the herd books and the tribute ledger",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 46,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 52,
+    "than_hon": 54,
+    "khi_van": 50,
+    "dao_tam": 50,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Patient",
+     "Pragmatic"
+    ],
+    "calling": "Steward",
+    "upbringing": "sect_raised",
+    "path": [],
+    "lifestyle": "go_player"
+   },
+   "appearance": "A broad, quiet woman with ink on her cuffs and a reed pen behind her ear.",
+   "backstory": "Khấu Mục Vân's (khau_muc_van) daughter, born in the stables, and the one who worked out the sum: three stones shorted in 901 at Lạc Hà's posted rate for late debts come to nearly five thousand by 1200, more than a year's tribute. She sends the Hall of Scales a corrected account every spring, signed and sealed at sunset as Lạc Hà's law requires. Từ Bình Hành has not yet found the error, because there is none.",
+   "ties": [
+    {
+     "to": "khau_muc_van",
+     "kind": "parent",
+     "note": "her father and master"
+    },
+    {
+     "to": "khau_tieu_cau",
+     "kind": "child",
+     "note": "her son"
+    },
+    {
+     "to": "tu_binh_hanh",
+     "kind": "rival",
+     "note": "Lạc Hà's law-master, who reads her account every spring"
+    },
+    {
+     "to": "thoi_duong_giac",
+     "kind": "friend",
+     "note": "the abbey elder whose roof she pays for out of the herd money"
+    },
+    {
+     "to": "trinh_luc_phan",
+     "kind": "friend",
+     "note": "clerk of the steward's room; carries the tribute account to Lạc Hà"
+    }
+   ],
+   "master": "khau_muc_van",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "cloud-herd-body-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "tran_phap": 2
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth, for a steward who rides out to count the herds herself.",
+     "targets": [
+      707,
+      6487,
+      3724
+     ],
+     "targets_note": "Herd route, then Earthen Gate: a steward who rides out herself."
+    },
+    "note": "The ledger and the seal."
+   }
+  },
+  {
+   "key": "mac_khien_phong",
+   "name_hv": "Mạc Khiên Phong",
+   "name_han": "莫牽風",
+   "gloss": "Do not tether the wind",
+   "sex": "M",
+   "born": 1095,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "muc_van",
+   "rank": "noi_mon",
+   "home": 19,
+   "birthplace": 497,
+   "role": "Teaches the outer gate the bone art; the last junior of Phù Dao Quán",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 44,
+     "hoa": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Patient",
+     "Content"
+    ],
+    "calling": "Teacher",
+    "upbringing": "temple_raised"
+   },
+   "backstory": "The youngest of the four Thôi Dương Giác (thoi_duong_giac) walked down from the Whirlwind abbey in 1121; he has no Wind, never had, and is happier teaching stable boys to stand like a mountain than he ever was at the abbey.",
+   "ties": [
+    {
+     "to": "thoi_duong_giac",
+     "kind": "master",
+     "note": "brought him down in the cold year"
+    },
+    {
+     "to": "tiet_bo_van",
+     "kind": "disciple",
+     "note": "the placed boy"
+    },
+    {
+     "to": "ngai_dap_sa",
+     "kind": "disciple",
+     "note": "placed rider from Lạc Hà, 1198"
+    },
+    {
+     "to": "ngao_tuyet_nhi",
+     "kind": "disciple",
+     "note": "stable girl of the north paddock"
+    }
+   ],
+   "master": "thoi_duong_giac",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-bone-body-art",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "The outer gate's teacher."
+   }
+  },
+  {
+   "key": "du_bon_van",
+   "name_hv": "Dư Bôn Vân",
+   "name_han": "余奔雲",
+   "gloss": "Racing the clouds",
+   "sex": "F",
+   "born": 1165,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "muc_van",
+   "rank": "noi_mon",
+   "home": 19,
+   "birthplace": 74,
+   "role": "The manor's race rider; won every race at the lord's festival in 1185",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "kim": 34,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 66,
+    "than_hon": 48,
+    "khi_van": 70,
+    "dao_tam": 46,
+    "mi_luc": 64
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Brave",
+     "Impatient"
+    ],
+    "calling": "Duelist",
+    "upbringing": "street_orphan",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "duel_seeker",
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A wiry, grinning rider of thirty-five with a broken nose and a festival ribbon braided into her hair every day of the year.",
+   "backstory": "A Thảo Đường Thành stable orphan who came to the manor to muck out and stayed to ride. At twenty she won every race at the lord's festival of 1185 (A172), and Kim Vạn Lý (kim_van_ly) lost his bet anyway, because he bet on her losing one. She wants to race Lạc Hà's Geese Hall cadets on their own drill field, and Thôi Dương Giác (thoi_duong_giac) has been teaching her to read the wind on the course.",
+   "ties": [
+    {
+     "to": "thoi_duong_giac",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "rival",
+     "note": "bet against her once"
+    },
+    {
+     "to": "me_dich_am",
+     "kind": "disciple",
+     "note": "the flute girl"
+    },
+    {
+     "to": "thinh_thieu_hang",
+     "kind": "rival",
+     "note": "the Geese Hall's best cadet, who will not race a vassal"
+    },
+    {
+     "to": "dai_song_luc",
+     "kind": "friend",
+     "note": "the market man who bet on her in 1185 and won"
+    },
+    {
+     "to": "thong_truy_dien",
+     "kind": "disciple",
+     "note": "second rider of the race string"
+    }
+   ],
+   "master": "thoi_duong_giac",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "cloud-herd-body-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "herd-call",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth and a little Metal: fast, first and hard to unseat.",
+     "targets": [
+      707,
+      6487,
+      6495
+     ],
+     "targets_note": "Herd route, then Swift Hound: the race rider's speed."
+    },
+    "note": "The race rider."
+   }
+  },
+  {
+   "key": "kim_dac_loc",
+   "name_hv": "Kim Đắc Lộc",
+   "name_han": "金得祿",
+   "gloss": "Gains a fortune",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "muc_van",
+   "rank": "ngoai_mon",
+   "home": 19,
+   "birthplace": 38,
+   "role": "Outer disciple; grandson of the merchant Kim Vạn Lý",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 42,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Gregarious",
+     "Lazy"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Kim Vạn Lý (kim_van_ly) sent him to the stables to learn which horse will win; he has learned that the herders do not know either, and is learning to ride instead.",
+   "ties": [
+    {
+     "to": "kim_van_ly",
+     "kind": "grandparent",
+     "note": "pays his keep"
+    },
+    {
+     "to": "tan_thien_ly",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "kim_tich_phuc",
+     "kind": "parent",
+     "note": "his father, the Kim merchant"
+    }
+   ],
+   "master": "tan_thien_ly",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-bone-body-art",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "A rich boy in the stables."
+   }
+  },
+  {
+   "key": "tiet_bo_van",
+   "name_hv": "Tiết Bộ Vân",
+   "name_han": "薛步雲",
+   "gloss": "Walks on clouds",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "muc_van",
+   "rank": "ngoai_mon",
+   "home": 19,
+   "birthplace": 523,
+   "role": "Outer disciple placed from Lạc Hà's outer gate as a rider",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 40,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Wrathful",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Mã Độ ford boy with Fire and no Wood, placed with the manor this spring; his old teacher Xa Cổ Đạo (xa_co_dao) said he rode better than he rowed.",
+   "ties": [
+    {
+     "to": "xa_co_dao",
+     "kind": "former_master",
+     "note": "taught him the oar at Cựu Hà Viện"
+    },
+    {
+     "to": "mac_khien_phong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ngai_dap_sa",
+     "kind": "friend",
+     "note": "placed rider from Lạc Hà, 1198"
+    }
+   ],
+   "master": "mac_khien_phong",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-bone-body-art",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire."
+    },
+    "note": "A placed rider."
+   }
+  },
+  {
+   "key": "me_dich_am",
+   "name_hv": "Mễ Địch Âm",
+   "name_han": "米笛音",
+   "gloss": "The sound of a flute",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "muc_van",
+   "rank": "ngoai_mon",
+   "home": 503,
+   "birthplace": 503,
+   "role": "Outer disciple; plays the herd home on the flute",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Reclusive",
+     "Compassionate"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Mục Địch flute-maker's daughter whose reed pipe the mares answer before they answer the herd call; Dư Bôn Vân (du_bon_van) took her for it.",
+   "ties": [
+    {
+     "to": "du_bon_van",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "thong_truy_dien",
+     "kind": "friend",
+     "note": "second rider of the race string"
+    }
+   ],
+   "master": "du_bon_van",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-bone-body-art",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "A flute."
+   }
+  },
+  {
+   "key": "khau_tieu_cau",
+   "name_hv": "Khấu Tiểu Câu",
+   "name_han": "寇小駒",
+   "gloss": "Little colt",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "muc_van",
+   "rank": "noi_mon",
+   "home": 19,
+   "birthplace": 19,
+   "role": "Inner disciple; the head's grandson",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 44,
+     "moc": 36,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Impatient",
+     "Trusting"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "Khấu Thanh Thảo's (khau_thanh_thao) son, who has tried to mount Đạp Vân every birthday since he was six; the white bear in the north paddock is the only beast on the manor that comes when he calls.",
+   "ties": [
+    {
+     "to": "khau_thanh_thao",
+     "kind": "parent",
+     "note": "his mother"
+    },
+    {
+     "to": "khau_muc_van",
+     "kind": "grandparent",
+     "note": ""
+    },
+    {
+     "to": "tan_thien_ly",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ngao_tuyet_nhi",
+     "kind": "friend",
+     "note": "stable girl of the north paddock"
+    },
+    {
+     "to": "tan_muc_so",
+     "kind": "rival",
+     "note": "herd boy of the long ride; Tần Thiên Lý's nephew"
+    }
+   ],
+   "master": "tan_thien_ly",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "cloud-herd-body-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "The grandson."
+   }
+  },
+  {
+   "key": "hua_tich_cau",
+   "name_hv": "Hứa Tịch Câu",
+   "name_han": "許夕駒",
+   "gloss": "The evening colt",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "muc_van",
+   "rank": "tap_dich",
+   "home": 19,
+   "birthplace": 129,
+   "role": "Groom (tạp dịch); keeps the white bear",
+   "tier": "C",
+   "exception": "servant (tạp dịch): a hired groom, not taught the lineage",
+   "root": {
+    "elements": {
+     "thuy": 36,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Stubborn",
+     "Reclusive"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "servant_born"
+   },
+   "backstory": "A Chu Tân ferry hand's son who has groomed the manor's horses for thirty years; since the head bought the white bear at Thiên Bảo Trai's auction in 1181 he has slept in its paddock, and he packs its straw with ice from the river every summer.",
+   "ties": [
+    {
+     "to": "khau_muc_van",
+     "kind": "friend",
+     "note": "the head who bought the bear and gave it to him"
+    },
+    {
+     "to": "ho_tam_ky",
+     "kind": "enemy",
+     "note": "the buyer who took the bear out of the north"
+    },
+    {
+     "to": "tan_thien_ly",
+     "kind": "rival",
+     "note": "the elder who wants gone the bear he keeps"
+    },
+    {
+     "to": "doan_tri_lung",
+     "kind": "friend",
+     "note": "cage-keeper of the living lots"
+    },
+    {
+     "to": "ngao_tuyet_nhi",
+     "kind": "friend",
+     "note": "stable girl of the north paddock"
+    },
+    {
+     "to": "lu_truy_phong",
+     "kind": "rival",
+     "note": "rides the herds' south string at Liệt Mã Cương"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "A groom; a stand-in method."
+   }
+  },
+  {
+   "key": "man_bach_cau",
+   "name_hv": "Mẫn Bạch Câu",
+   "name_han": "閔白駒",
+   "gloss": "The white colt (time passing a crack)",
+   "sex": "M",
+   "born": 560,
+   "died": 1060,
+   "cause": "end of his years (500), on the long ride",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "muc_van",
+   "rank": "founder",
+   "home": 19,
+   "birthplace": 73,
+   "role": "Founder of Mục Vân Trang (740); wrote the Cloud-Herding Body Canon",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Patient",
+     "Content",
+     "Generous"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Thanh Điền herder who gathered the plain's horse families into one manor in 740 to breed spirit horses that run like clouds (A166), and wrote the body canon from the way they broke colts. He gave Lạc Hà remounts for Chiết Kích Nguyên and lost most of them there (N-muc_van-01). He rode out on his last long ride in 1060 and the horse came back without him. He left the manor to Khấu Mục Vân (khau_muc_van).",
+   "ties": [
+    {
+     "to": "khau_muc_van",
+     "kind": "disciple",
+     "note": "his heir"
+    },
+    {
+     "to": "khau_thuong_thanh",
+     "kind": "friend",
+     "note": "his herder"
+    }
+   ],
+   "changed": "fix pass A 2026-11-25: born 690 -> 560, so a death at the end of the years falls at the Kết Đan lifespan (500)"
+  },
+  {
+   "key": "khau_thuong_thanh",
+   "name_hv": "Khấu Thường Thanh",
+   "name_han": "寇常青",
+   "gloss": "Evergreen",
+   "sex": "M",
+   "born": 865,
+   "died": 985,
+   "cause": "end of his years (120)",
+   "alive": false,
+   "peak_realm": "luyen_khi",
+   "sect": "muc_van",
+   "rank": "ngoai_mon",
+   "home": 19,
+   "birthplace": 73,
+   "role": "Herder of the manor; the head's father; shorted three stones in 901",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Honest",
+     "Forgiving",
+     "Humble"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "The herder Lạc Hà's treasurer Trầm Tịch Dương (tram_tich_duong) shorted three stones at the horse fair of 901; he forgave it the same day, and his son never has.",
+   "ties": [
+    {
+     "to": "khau_muc_van",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "tram_tich_duong",
+     "kind": "creditor",
+     "note": "three stones"
+    },
+    {
+     "to": "man_bach_cau",
+     "kind": "friend",
+     "note": "the founder he herded for"
+    }
+   ],
+   "changed": "fix pass A 2026-11-25: born 870 -> 865, so a death at the end of the years falls at the Luyện Khí lifespan (120)"
+  }
+ ]
+}

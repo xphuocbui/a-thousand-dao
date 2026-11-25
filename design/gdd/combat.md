@@ -6,6 +6,7 @@
 > **Last Updated**: 2026-11-11 (top-end defence on par with offence: ward and body layers in Combat Defence & Healing Formulas A0; rule 18 and Formulas B notes). Earlier: 2026-11-10 (third review round: tick formula in points, heal-versus-fatigue note, start-maximum art costs, `ward_cap` retired). Earlier: 2026-11-10 (review sweep `reviews/combat-review-2026-11-10/combat.md`: flat n² fatigue, `time_limit` and stalemate retired, soul resistance without a floor, no tick floor (user decisions); stale ACs re-based; resistance in points throughout). Earlier: 2026-11-10 (#44 follow-ups: resistance in points, regeneration curve, re-review fixes)
 > **Last Verified**: 2026-11-10 (fifth confirming review: **approved**, `reviews/combat-review-2026-11-10/round5/`; its notes applied)
 > **Implements Pillar**: Power Is Built, Not Given (3); Your Dao, Your Name (1); Every Number Is Bounded and Visible (2)
+> **Amended 2026-11-25** (user rulings, world-depth pass: `design/world/depth/DECISIONS-2026-11-25.md` groups 1, 6, 8, 9 and 11; proposals `design/world/depth/builds/duel-readings.md` and `builds/engine-wishes.md`): **duel readings and no environment.** Words such as ally, alone, still, moving, knocked back, rooted, at range and "on a kill" get one fixed reading each in a fight of one fighter plus companions with no positions (rule 25, Formulas L), fight rules never read terrain, ground, weather, place, time of day or season (rule 26), and the 24 engine features the authored Effects need are listed for the combat port (Open Question 29). Group 11: the `own_abode` and `vein` place bonuses are removed; the abode's case becomes the side's own laid arrays, and `tribulation` stays as a request tag, a kind of fight (rules 12, 26; Open Question 30 answered).
 
 ## Summary
 
@@ -27,7 +28,7 @@ shows which layers of the build produced it, so a player can see why a build won
 (Pillar 2). The fight itself is auto-resolved: the choices that decide it are made before it
 starts, in the build (spiritual root, techniques, Đạo Đồ, the Way [Đạo], artifacts [pháp bảo],
 spirit beasts [linh thú]) and in the preparation (formations [trận pháp] laid, talismans [phù lục] drawn, poison
-applied, ground chosen, arts slotted). This replaces today's single power-ratio duel, which
+applied, carried ground brought, arts slotted; the fight's place is never read, rule 26, amended 2026-11-25). This replaces today's single power-ratio duel, which
 cannot host skills or the Way's arts.
 
 Four ideas shape the design, all committed by the user on 2026-11-06, with the defence model reworked
@@ -63,7 +64,7 @@ author's reading and wait for confirmation (see Open Questions).
 
 1. **A fight is two sides and a seeded timeline.** A side is one combatant (a cultivator or a
    creature) plus its attached companions (rule 19). A fight is resolved from its inputs alone: the
-   two compiled profiles (rule 2), the preparation (rule 12), the ground tags, any starting shares (rule 3), the request's `no_heal` flag (Combat Defence & Healing rule 19; Heavenly Tribulation sets it on every wave) and one seed. The same
+   two compiled profiles (rule 2), the preparation (rule 12), the ground tags (amended 2026-11-25: never a tag of the place, terrain, biome, weather, time of day or season, rule 26), any starting shares (rule 3), the request's `no_heal` flag (Combat Defence & Healing rule 19; Heavenly Tribulation sets it on every wave) and one seed. The same
    inputs always give the same result and the same log. Nothing is saved mid-fight; a fight is
    atomic.
 2. **Every combatant compiles to a combat profile.** `compile(character or creature, preparation)`
@@ -102,7 +103,7 @@ author's reading and wait for confirmation (see Open Questions).
    granted only as an Effect's payload (Modifier System rule 6; Effects System).
 6. **Tags decide what a modifier touches.** Every art, hit, status, modifier and piece of ground has a tag set:
    - **element**: the five elements and the root variants; art tags only, never defence;
-   - **form**: sword, palm, seal, beast, formation;
+   - **form**: sword, palm, seal, beast, formation; **song, bow, mist** (new, 2026-11-25: the world-depth content's art forms, Modifier System rule 9);
    - **damage type**: physical, force, fire, cold, lightning, light, chaos, soul (owned by Combat Damage Types);
    - **mode**: hit, over_time, curse, ward;
    - **source**: art, artifact, talisman, formation, companion;
@@ -211,7 +212,8 @@ author's reading and wait for confirmation (see Open Questions).
       or below at that point, the fleeing side wins by knockout. Otherwise the fight ends in flight with no winner,
       whether one side fled or both did, and the result names the side or sides that left (the caller treats it as
       the failure branch for the side that needed the win). A failed escape ends nothing and the fight
-      goes on.
+      goes on. **A Pinned side's escape fails** (amended 2026-11-25, rule 25): if Pinned holds when its channel
+      ends, the escape fails with no draw (a chance of 0, Formulas I), and its cost and cooldown stay paid.
     - **Defeat check.** After every instant, once all of its damage is in. A side with no health first runs the
       Down step (Effects System rule 11, Formulas C): a refusal may set it to 1, and its last acts resolve once,
       entering a follow-up check at the same t. A last act's damage counts toward its target's overkill for the
@@ -272,7 +274,7 @@ author's reading and wait for confirmation (see Open Questions).
 
     | Situation | What can be prepared |
     |---|---|
-    | **Foreseen** (a challenge, a hunt, a planned raid, a tribulation) | Everything: a formation laid on the ground, talismans slotted, a poison or coating applied, pills taken, wards placed in ward slots and art slots and standing wards switched on or off, the slot order set, the ground chosen where there is a choice |
+    | **Foreseen** (a challenge, a hunt, a planned raid, a tribulation) | Everything: a formation laid on the ground, talismans slotted, a poison or coating applied, pills taken, wards placed in ward slots and art slots and standing wards switched on or off, the slot order set, a carried ground brought (amended 2026-11-25: "the ground chosen" is retired, since no fight rule reads the place, rule 26) |
     | **Ambush** (an event fight with little warning) | What is carried and what a standing formation already holds: talismans, pills with a ready dose, the slot order |
     | **Blind** (a sudden attack) | Only the loadout, including its wards and any talisman already slotted, and the saved slot order |
 
@@ -292,9 +294,13 @@ author's reading and wait for confirmation (see Open Questions).
     blind** (`carried_ground_share`), so preparing still pays. The Domain (Vực Đạo) is the one carried ground that
     unfolds mid-fight, at a time or event its record names.
 
-    **Formations on one ground** (build-run suggestion 5, 2026-11-11). Away from home each side counts one formation:
-    its laid formation or its carried ground, whichever is stronger. At your own abode every standing home formation
-    counts. When both sides lay one, both count unless an Effect says otherwise.
+    **Formations on one ground** (build-run suggestion 5, 2026-11-11; amended 2026-11-25). Each side counts one
+    formation: its laid formation or its carried ground, whichever is stronger. **Your own laid arrays** are the one
+    exception: when a side fights among standing arrays it laid itself (its cave abode's arrays, Formations), every
+    one of them counts for that side. The caller passes them as that side's preparation, never as a ground tag. This
+    replaces the `own_abode` place bonus, which is removed (user ruling 2026-11-25, DECISIONS group 11: remove the
+    `own_abode` bonus, "or move them to what is built, e.g. the abode's arrays"). The place adds nothing; only what
+    the side built there counts. When both sides lay one, both count unless an Effect says otherwise.
     **Combat formation diagrams** (Formations #17, 2026-11-21). A side's combat diagram is its loadout
     (`design/gdd/formations.md` rules 3, 9, 10): laid in a foreseen fight at 100 %, otherwise carried at
     `carried_ground_share`; its node rules, links, fuel and reservation are Formations'. The diagram never competes
@@ -392,7 +398,8 @@ author's reading and wait for confirmation (see Open Questions).
     (Spirit Beasts) as one more attack source every `basic_cooldown`, with its own tags and a simple fixed art whose damage type is
     authored, like every damaging art (Combat Damage Types rule 1).
     A companion cannot be targeted in this version, and cannot be removed from the fight except by its
-    owner's defeat (user decision 2026-11-06).
+    owner's defeat (user decision 2026-11-06). A companion is an ally (amended 2026-11-25, rule 25): it takes an
+    ally's strike payloads at `companion_share` (half) and no body payload, since it has no pools.
 20. **Fighting above one's realm (vượt cấp) is paid for by the build.** A side whose realm is lower
     than its enemy's by `g` major realms has the damage it deals reduced by a suppression
     factor that grows with `g`, on top of the gap in fight power (damage × effective health, Combat Defence & Healing Formulas G) of about ×10
@@ -434,6 +441,122 @@ author's reading and wait for confirmation (see Open Questions).
     thần thức, soul resistance (from the Way, rare items and soul wards; it raises the defender's side of rho) and
     soul shields, which soak a share of each loss from their own bar (Combat Defence & Healing rule 14, Formulas B). Its balance waits on the technique
     content (Open Question 16).
+25. **Duel readings (Đấu Giải)** (new, 2026-11-25; user rulings, `design/world/depth/DECISIONS-2026-11-25.md`
+    group 9; proposal `design/world/depth/builds/duel-readings.md` sections 1–2). A side is one fighter plus
+    companions (rule 1), and a fight has no positions: no distance, no ground and no file. So the words art and
+    Effect rules use for allies, movement, range and kills each have **one fixed reading**, which is what the
+    engine checks. A capitalised word in a rule (Still, Moving, Displaced and the rest) is the engine term, and
+    content is reworded to use it (Open Question 31). The numbers are Formulas L; the readable keys, tags and
+    statuses are the Effects System's (its rule 17 and Status Catalogue).
+    - **Field and field Piece.**
+      - A **Field** (a cloud, rain, haze, mist, glow, ring, a song held) is a timed self-state of your side: an
+        Effects R29 state tagged `field`. While it is up you and your allies are "in it", and the foe is "inside" or
+        "under" it.
+      - A **field Piece** (a stele, flag, bell, banner, lantern, seal or ward laid out) is a **counted field charge
+        from an art or formation**: one charge of an Effects self-counter tagged `field_piece`. Each has its own
+        duration and, if its record says so, a number of foe hits that land before it burns out.
+      - The term is always "field Piece", never "piece" alone: a **build piece** is an item, node or technique a
+        build is made of, and is a different thing.
+      - "Your own formation" or "your array" means an array Field of yours is up, or your combat diagram is laid
+        (Formations rule 9, read only).
+      - Field Pieces are only a reading. Formations' diagrams, nodes, links and the art loadout are unchanged.
+    - **Ally.** Your allies are **you, your companions and your field Pieces** (user ruling, group 9). **Allies
+      counted** = 1 + companions + field Pieces up. A payload given to allies is routed by its kind:
+      - **body payloads** (heal, ward, shield, linh lực, cleanse, damage taken, evade) land on **you, once**: "you
+        and your allies heal 8 %" heals you 8 %, and "the ally lowest on health" is you. A body payload meant only
+        for another ally does nothing;
+      - **strike payloads** (damage, art speed, fury stacks, "strikes once") go to you in full and to each
+        companion at `companion_share` (half), through the `[companion]` scope;
+      - **field Pieces count but receive nothing**.
+
+      **You are always the point.** Every foe hit lands on you (rule 19), so "while you are nearest the foe" is
+      always true, "draws the foe's attacks" adds nothing, and "the ally behind you" is you.
+    - **Alone.** Allies counted is 1: **no companion and no field Piece of your own** (user ruling, group 9). A
+      companion-less build that lays no field Piece is Alone in every fight; that is intended.
+    - **The foe, every foe, a spread.** "Every foe", "all foes", "foes near you" and "foes inside the field" mean
+      **the one foe, once**; its companions cannot be targeted (rule 19). "Foes who enter it" means the foe, once,
+      when the Field rises. A **spread** ("spreads to a nearby foe", "passes to the nearest foe") lands again on the
+      same foe, once, at `spread_share` (half).
+    - **Foe moves.** The foe **moved** if it fired a damaging or movement art, or evaded one of your hits, within the
+      last `act_window` (1 s). Its basic attack, wards and heals are not moves. "Each second a foe moves" counts the
+      pulses in which it moved. "Crosses between two field Pieces" means it moved while two or more of yours stood;
+      "crosses one" means it moved while one stood, and that field Piece is spent.
+    - **Still.** You are Still while a still stance is up (an R29 state tagged `still`), or once `still_after` (2 s)
+      has passed since you last fired a damaging or movement art or evaded.
+      - **Still ends** on a damaging or movement art, an evade or a Displace (a still stance ends only with the stance
+        or a Displace, an assumption in Formulas L). Wards, heals and the basic attack do
+        not end it (user ruling, group 9), since otherwise a ward-sitter could never be Still (duel-readings.md
+        section 4, the recommendation the user took).
+      - A **held stance** ("casts nothing") suppresses your damaging arts until its written release condition: a ward
+        reaching X % of your health, N s held, or the foe at N stacks. The art lint rejects a held stance with none.
+      - The same reading applies to the foe: "a foe who stands still for 3 s" is the foe Still for 3 s.
+    - **Moving.** You are Moving while a footwork stance is up (tag `footwork`), or for `moving_after` (1 s) after
+      you evade or fire a movement art (tag `movement`; the escape art counts).
+      - Moving and Still never hold together.
+      - **Stopping** is becoming Displaced or Rooted, or the footwork stance ending.
+      - "Each step toward a foe" is each pulse Moving in which you fired no damaging art.
+    - **Displace** (knock back, push, pull, drag, haul, sweep, off balance). Two things happen, and nothing moves:
+      - the target's art with the least time left is delayed `displace_delay` (0.3 s; 0.5 s for a Displace tagged
+        `heavy`) through Effects rule 6's Move a timer, so the delay falloff and `timer_resist_pct` apply;
+      - the target is **Displaced** for `displaced_time` (2 s): it is not Still and cannot become Still, it stops
+        Moving, and a stance that bills a "step out of the centre" pays its written price.
+
+      A pull or drag also ends the target's At range; a push away gives the pusher At range for `range_refresh`.
+      Why a delay and not a place: the user ruled "no positions" (group 9), since positions would need a distance
+      model in a fight that has none.
+    - **Planted (Trụ).** **Immune to Displace**: neither the delay nor Displaced applies, and the log writes "Planted:
+      refused". It is a flag a state or a conditional Effect sets (Effects rule 16, R28, open at every tier).
+      - "Take root" on yourself is Planted, not Moving, with evade 0 for its time (the price).
+      - "Moved one step aside" as flavour on your own defence is not a Displace.
+      - It is named Planted, not Unmoved, because the Effect Unmoved Stance (Bất Động Thế) already exists.
+    - **Rooted, Pinned.**
+      - **Rooted** lasts N s; "a moment" or "a breath" is `rooted_moment` (1 s). While it holds, the target's evade is
+        0 (Formulas I) and it is not Moving. When it lands, the target's art with the least time left is delayed
+        N × `rooted_delay_share` (half), by the same Move a timer and falloff.
+      - **Pinned** (pinned, hooked, bound, cannot leave the line) is Rooted that **also blocks escape**: a Pinned
+        side's escape fails while Pinned holds (rule 10).
+    - **At range.** You are At range for the fight's first `range_open` (3 s), and for `range_refresh` (1 s) after
+      you evade, fire a movement art or push the foe away.
+      - A pull or drag on you ends it.
+      - An art that "closes" or "crosses the distance" spends it: At range ends when that art fires.
+      - "Close range" and "at arm's length" mean not At range.
+    - **Broken, Wounded.**
+      - The foe is **Broken** the first time this fight its health falls to `broken_threshold` (25 %) or below (the
+        pool-crossing event, rule 9). It fires once a fight per Effect (user ruling, group 9: 25 %, not 15 %, so the
+        payoff comes before the knockout and stays clear of the cull threshold, 8 %).
+      - "On a kill", "after you kill a foe" and "when the foe dies" read as Broken. "If it kills" means this art's
+        hit made the crossing.
+      - A payoff that outlives the fight (cultivation base, heart demon) keeps the knockout event and is reported
+        (Effects rule 10).
+      - **Wounded** is the mirror: your own first fall to 25 % or below. "When an ally falls" reads as Wounded. "A
+        blow that would kill you" is the Down step and needs no reading.
+    - **Other words, no new state.** "Stunned N s" or "cannot act for N s": the foe's arts that come ready within
+      N s wait until the N s end (Move a timer; the falloff applies). "Slowed": Slowed Time. "Silenced for a moment":
+      Silence. "Unseen", "ambush" and "foreseen" stay with rule 12's situations.
+
+    Where the source left a case open, Formulas L states the reading taken, marked **(assumption)** (Open Question
+    32).
+26. **No environment conditions** (new, 2026-11-25; user rulings, DECISIONS groups 1 and 6). **A fight rule never
+    reads terrain, biome, ground, weather, place, time of day or season.** That covers every fight record: an art,
+    an Effect, a status, an item, a set, a technique, a formation record and an enemy profile.
+    - Fight rules read only the two fighters' own state: their pools, timers, statuses, stances, companions and
+      field Pieces, the fight's own clock (fight time, pulses), and each side's own preparation (laid formations,
+      carried ground, the combat diagram, talismans, pills, coatings).
+    - Images of land, weather and the hour stay as lore and in names. "Autumn Grave", "Moon Lake" and "dusk" may
+      name a piece; they may not gate it.
+    - Why: the user, 2026-11-25: **"this is stupid, remove conditions like this"**. The sweep then removed time and
+      season conditions the same way (group 6).
+    - **Ground** in this GDD now means a side's own laid or carried ground object only. The request's ground tags
+      (rule 1) carry no place-derived tag. One that reaches a fight applies nothing, and the log notes it once as
+      ignored. **Answered 2026-11-25** (ruling group 11, Open Question 30): `tribulation` stays as a request tag,
+      because it names a kind of fight, not a place (Heavenly Tribulation's waves), and a rule may read it. `own_abode` and `vein` are
+      removed. The abode's case becomes the side's own laid arrays (rule 12, "Formations on one ground"). A vein gives
+      nothing in a fight. A vein as an economic site or a cultivation density is not a fight rule, and this rule
+      leaves it alone.
+    - The data lint rejects a fight record that reads one of these.
+    - Outside fights the rule does not apply. Life Effects may read the season and the place (Effects rule 5), and
+      season-paced cultivation rules may stay, since seasons are turns. Time-of-day rules in cultivation methods
+      become flavour (group 6).
 
 ### States and Transitions
 
@@ -452,6 +575,20 @@ A fight has these states; a combatant has the sub-states under it.
 | Down: mortal wound | Health is still empty after the Down step at an instant's defeat check (Effects System rule 11) | The caller finishes or spares it |
 | Fled | Its escape art succeeds | The fight ends |
 
+**Duel reading states** (new, 2026-11-25; rule 25, Formulas L). Each is per side and read by Effects (Effects rule
+17). A guard (rule 13) can read only those that are statuses (Displaced, Rooted, Pinned); its vocabulary is
+unchanged. None is saved, and none changes the fight states above.
+
+| Reading state | Entered when | Leaves when |
+|---|---|---|
+| Still | A still stance rises, or `still_after` passes with no damaging art, movement art or evade, and the side is not Displaced | It fires a damaging or movement art, evades, or is Displaced (a still stance ends only with the stance or a Displace) |
+| Moving | A footwork stance rises, or it evades or fires a movement art | `moving_after` passes with no footwork stance, the stance ends, or it is Displaced or Rooted |
+| Displaced | A Displace lands and the side is not Planted | `displaced_time` passes (a new Displace restarts it) |
+| Rooted / Pinned | A Rooted or Pinned status lands | Its N s pass |
+| Planted | A state or conditional Effect sets the flag | The state or condition ends |
+| At range | t = 0; or it evades, fires a movement art or pushes the foe away | `range_open` or `range_refresh` passes; a pull or drag on it; or an art spends it |
+| Broken / Wounded (latch) | Its health first falls to `broken_threshold` or below | Never in this fight |
+
 A Down side acts no more. Ward states (Off, Waiting, Up, Down, Broken, Expired) are Combat Defence & Healing's, and
 the default ward is Up for any hit part no other ward covers. Effect states (Idle, Active, Fired, On cooldown, Spent)
 are the Effects System's.
@@ -467,7 +604,7 @@ this GDD expects, to be matched when those systems are designed.
 | Combat Defence & Healing (#21a) | in / out | In: the defence path, wards and their payments, resistance, block, shields, healing, ward slots, soul and status defence, effective health (its Formulas G, for Formulas K). Out: the timeline, hit parts after offence, art slots for cast wards, the defeat check | Combat Defence & Healing (defence and healing); Combat (the timeline and offence) |
 | Combat Damage Types (#21b) | in | The eight damage types, the conversion rules and steps, which damage types pass which shields | Combat Damage Types |
 | Modifier System (#40) | in | Modifier records, operations (flat, increased, more), scopes, W prices and the Stat List keys Combat reads | Modifier System (records, prices); Combat (what each layer does) |
-| Effects System (#41) | in / out | In: the status catalogue, trigger Effects and their actions, the Down step, counted chance, reported life costs. Out: events, readable quantities, the timeline and the defeat check | Effects System (records, the Down step); Combat (events, the timeline) |
+| Effects System (#41) | in / out | In: the status catalogue, trigger Effects and their actions, the Down step, counted chance, reported life costs; since 2026-11-25 the duel-reading keys, the `field`, `field_piece`, `still`, `footwork`, `movement`, `heavy` tags, the Displaced, Rooted and Pinned rows and the Planted immunity (Effects rule 17). Out: events, readable quantities, the timeline and the defeat check; the duel readings' definitions (rule 25) | Effects System (records, the Down step, the reading keys); Combat (events, the timeline, what each reading means) |
 | Character Stats (#7) | in / out | In: vitality, spiritual power and divine sense, `attack_pct`, `defense_pct` (ward strength, which scales ward payloads), `khi_huyet_pct`, `linh_luc_pct`, `than_thuc_pct`, `artifact_power_pct`, the artifact-local keys, `single_artifact`, the defence and offence keys of Parameter keys, the realm term of power, the vitality factor floor. Out: vitality loss after a fight, `+2` heart demon on a cultivator knockout with capability #9, and the life costs Effects report (applied by the caller) | Character Stats (keys, units); Combat (what each key does in the fight) |
 | Realms & Bottlenecks (#8) | in / out | In: realm, stage multiplier, the realm gap `g`. Out: defeats for capability #9, and the result for a tribulation | Realms |
 | Cultivation Techniques (#9) | in | `tech_power` (through spiritual power), the unlocked divine abilities with their unlock layer, and body techniques' block, body shield and resistance (Combat Defence & Healing rule 12, Formulas H) | Cultivation Techniques (which and when); Combat (what they do) |
@@ -475,11 +612,11 @@ this GDD expects, to be matched when those systems are designed.
 | The Way (#39) | in | Stat lines through Character Stats; Effects on notables; rare art nodes in rule 13's format (dao.md rules 3 and 10) | The Way; Combat (art format) |
 | Item Database (#13) | in | Equipped pieces with their role tags (weapon, ward_gear, body_gear, utility; D2), attack, defence and affixes; the equipped set limited by thần thức; consumable arts' items (item-database.md rules 6, 11) | Item Database (what an item is, its roles and whether it counts); Combat (what a piece adds) |
 | Artifact Refining (#16) | in | Equipped artifacts: attack; defence (ward gear feeds ws, we and block up to a = 1; body gear gives 12 block and 0.60 body shield per a_b, Combat Defence & Healing Formulas A0, A2, B); affixes, thần thức cost, an optional active effect (**provisional**) | Artifact Refining; Combat (how they act) |
-| Formations (#17) | in | The combat diagram (node rules, links, strength-scaled magnitudes, share, `reserve_share`) and, at the abode, the standing arrays' modifiers (designed 2026-11-21, `design/gdd/formations.md`) | Formations |
+| Formations (#17) | in | The combat diagram (node rules, links, strength-scaled magnitudes, share, `reserve_share`) and, at the abode, the standing arrays' modifiers (designed 2026-11-21, `design/gdd/formations.md`); since 2026-11-25, whether the diagram is laid, which rule 25 reads for "your own formation" (read only: nothing about diagrams or the loadout changes) | Formations |
 | Talismans (#18) | in | Consumable arts and their tags (**provisional**) | Talismans |
 | Spirit Beasts (#19) | in / out | In: the companion power share and fixed art. Out: a beaten creature offered for taming (the Event Engine hook) (**provisional**) | Spirit Beasts |
 | Alchemy (#15) | in | Pills with timed buff or cleanse effects taken in preparation | Alchemy |
-| Event Engine (#23) | in / out | In: a fight request with the enemy, the situation (foreseen, ambush, blind), the ground tags and an optional `no_heal`. Out: the result, with the life costs and wounds that run on for the caller to apply | Event Engine (requests, consequences); Combat (the result) |
+| Event Engine (#23) | in / out | In: a fight request with the enemy, the situation (foreseen, ambush, blind), the ground tags (no place-derived tag since 2026-11-25, rule 26; `own_abode` and `vein` removed, the abode's own laid arrays come as preparation, Open Question 30 answered) and an optional `no_heal`. Out: the result, with the life costs and wounds that run on for the caller to apply | Event Engine (requests, consequences); Combat (the result) |
 | NPC Builds (#24) | in | An NPC's compiled profile, art list, slot order and guards | NPC Builds |
 | Living World Tick (#28) | in | Mass battles via the rating profile. It must keep NPC-against-NPC duels rare | Living World; Combat (rating profile) |
 | Heavenly Tribulation (#22) | in / out | In: starting shares for each wave after the first, and `no_heal` on every wave. Out: the fight engine and its result, with a tribulation boss as an enemy profile | Heavenly Tribulation |
@@ -639,7 +776,7 @@ The layer_total formula is defined as:
 | L1 | Increased | The increased sum of damage modifiers: `attack_pct` and its scoped rows (Modifier System rule 5; Đạo Đồ and Way W, 1 W = +1). **W fills only this layer** |
 | L2 | Art "more" | `damage_more` points on techniques, arts and Way art nodes (Modifier System rule 6, Formulas D); typical +40, up to the cap |
 | L3 | Gear | `100 · Σ artifact attack / (B_p · stage_mult)`, with each artifact's attack after `artifact_power_pct` and its other multipliers, as built |
-| L4 | Preparation and ground | `damage_more` on L4 from formations, talismans, pills, coatings and ground tags (rule 12); typical +20. When blind, x4 holds ground tags only |
+| L4 | Preparation and ground | `damage_more` on L4 from formations, carried ground, talismans, pills and coatings (rule 12); typical +20. When blind, x4 holds only carried ground at its blind share (amended 2026-11-25: place ground tags no longer fill L4, rule 26) |
 | L5 | Effects | `damage_more` on L5, granted only as an Effect's payload (Modifier System rule 6), applied only while active |
 
 **Layer writes** (Đạo shared rule R15d, 2026-11-11). Effects may read layer totals freely, each total before its cap
@@ -961,6 +1098,11 @@ flight with no winner. If the other side's health is 0 or below at that point, t
 **Example:** evade 0.25, accuracy 0.05, defender one realm up: **0.22**. A 30-point fortune lead
 adds 0.03 to it, so **0.25**. Escape art 0.55, one realm below a locking pursuer: **0.30**.
 
+**Duel readings** (amended 2026-11-25, rule 25, Formulas L). A **Rooted** or Pinned defender, or one that took root
+itself, has `p_evade = 0` for that hit, the realm step included (assumption: "evade counts as 0" zeroes the whole
+chance, Open Question 32); a chance of 0 takes no draw and fortune does not shift it. A **Pinned** side's escape is
+`p_escape = 0` at its channel's end, below the 0.05 floor, with no draw.
+
 ### J. Companions and creatures
 
 The companion_hit formula is defined as:
@@ -1046,6 +1188,89 @@ pairs with R of 0.5–2.0, the mean |P_rating − P_full| ≤ 0.10, and for R ou
 more than 0.20. Outside 0.5–2.0 the two pick the same winner in at least 97 % of pairs. The point where the
 wards run out makes this harder near R = 1.
 
+### L. Duel readings (new, 2026-11-25)
+
+Rule 25's readings as the engine computes them. All times are whole milliseconds on the fight clock (rule 10), and a
+reading used as a condition is read at instant start (Effects rule 8). Values are the proposal's
+(`design/world/depth/builds/duel-readings.md` section 2, knobs table) unless marked guess; none is measured.
+
+The duel_readings formulas are defined as:
+
+`allies = 1 + n_comp + n_fp` ; `alone = (allies = 1)` ; `strike_comp = companion_share · x` ; `spread = spread_share · x`
+
+`foe_moved(t) = (t_act,foe ≠ none) ∧ (t − t_act,foe < act_window)`
+
+`still(t) = stance_still ∨ (¬displaced(t) ∧ t − (t_act ?? 0) ≥ still_after)` ; `still_time(t) = t − max((t_act ?? 0) + still_after, t_disp_end)` while timed Still holds (from the stance's start while a still stance holds), else 0
+
+`moving(t) = ¬still(t) ∧ ¬displaced(t) ∧ ¬rooted(t) ∧ (stance_footwork ∨ t − t_move < moving_after)`
+
+`at_range(t) = (t < range_open ∧ t_end = none) ∨ (t_range > t_end ∧ t − t_range < range_refresh)`, where `t_end` is the time At range was last spent by an art or ended by a pull on you (none if never)
+
+`d_displace = (heavy ? displace_delay_heavy : displace_delay) · 0.5^k · (1 − timer_resist_pct / 100)` (0 if Planted) ; `d_root = N · rooted_delay_share · 0.5^k · (1 − timer_resist_pct / 100)`
+
+`broken` = rule 9's pool-crossing event the first time `H_foe / H_max,foe ≤ broken_threshold`, resolved right after the hit or tick that crossed (that hit's art is the one that "kills"), then latched for the fight ; `wounded` the same on your own pool
+
+**Variables:**
+
+| Variable | Type | Range | Source | Description |
+|---|---|---|---|---|
+| n_comp | int | ≥ 0 | profile (rule 19) | Your companions in the fight; one per source, no total cap (Effects R31) |
+| n_fp | int | ≥ 0 | live, Effects self-counters tagged `field_piece` | Your field Pieces up now; each has its own duration and blows |
+| x | float | any | the payload | A strike payload's value (a damage bonus, art speed, stacks) or a spread's hit |
+| companion_share | float | 0.5 (safe 0.25–1.0) | data file | The share of an ally strike payload each companion takes. Not Formulas J's `share` (the beast's power share) |
+| spread_share | float | 0.5 (safe 0.25–0.75; guess, the source fixes "half" with no key) | data file | What a spread lands again for, on the same foe |
+| t_act | ms or none | ≥ 0 | live, per side | Time of the side's last damaging art, movement art or evade; none before the first |
+| t_move | ms or none | ≥ 0 | live, per side | Time of the side's last evade or movement art |
+| t_range | ms or none | ≥ 0 | live, per side | Time of the side's last evade, movement art or push away |
+| t_disp_end | ms | ≥ 0 | live | When the side's latest Displaced ended (0 if never) |
+| act_window | s | 1 (safe 0.5–2) | data file | How long a foe counts as moving after it acts |
+| still_after | s | 2 (safe 1–3) | data file | Seconds with no damaging or movement art or evade before you are Still |
+| moving_after | s | 1 (safe 0.5–2; guess, unnamed in the source) | data file | How long an evade or movement art keeps you Moving |
+| range_open | s | 3 (safe 2–5) | data file | The opening At range window |
+| range_refresh | s | 1 (safe 0.5–2; guess, unnamed in the source) | data file | At range after an evade, movement art or push away |
+| displace_delay, displace_delay_heavy | s | 0.3, 0.5 (safe 0.2–0.5, 0.3–0.8) | data file | One Displace's delay before falloff and resistance |
+| displaced_time | s | 2 (safe 1–3) | data file | How long Displaced denies Still and breaks stances |
+| rooted_delay_share | float | 0.5 (safe 0.25–0.75; guess, the source fixes N/2 with no key) | data file | The share of Rooted's N s taken as a delay when it lands |
+| rooted_moment | s | 1 (safe 0.5–1.5) | data file | What "a moment" or "a breath" of Rooted lasts |
+| N | s | > 0 | the art or Effect record | Rooted's or Pinned's duration |
+| k | int | ≥ 0 | live | Earlier delays on the same target within `delay_falloff_window` (3 s, Effects Formulas D) |
+| timer_resist_pct | float | ≥ 0 | Modifier System | The target's timer resistance |
+| broken_threshold | float | 0.25 (safe 0.15–0.30) | data file | The health share at which Broken and Wounded fire; above the cull threshold (8 %) |
+
+**Settled by assumption** (Open Question 32):
+- **Fight start.** No side has acted, so `foe_moved` is false until the foe's first move, and timed Still counts from
+  t = 0: a side that has not acted is Still from t = `still_after` (2.000 s).
+- **A still stance holds** through your own evades and arts. Only a Displace or the stance's own end stops it, and
+  while it is up you are not Moving.
+- **Displace on a side with every art ready.** A ready art counts as 0 s left, so it is the one delayed. A side with no
+  slotted art delays its basic attack's timer. Ties go to slot order (Effects rule 7).
+- **Starting at or below 25 %** (starting shares, rule 3). That side is Broken (or Wounded) from the start, and the
+  event fires at the first pulse.
+- **A new Displace while Displaced** restarts `displaced_time` from the new landing. It still delays a timer, with the
+  falloff.
+
+**Output Range:**
+- `allies` runs from 1 with no upper bound.
+- One Displace moves a timer by at most 0.3 s (0.5 s heavy). Within one falloff window the total delay from Displaces
+  stays below 0.6 s (1.0 s heavy).
+- Rooted's delay is at most N / 2.
+- Broken and Wounded fire at most once a fight per Effect.
+- A companion takes 0.5 × each ally strike payload, and a spread lands for 0.5 × its hit.
+
+**Example.** At t = 4.000 s you Displace the foe. Its slotted arts are a cast ward with 1.200 s left and a damaging
+art with 4.000 s left, it has `timer_resist_pct` 20, and its last damaging art fired at 3.100 s.
+1. The delay is 0.3 × 0.5⁰ × 0.8 = 0.240 s on the ward (the least time left), which is rescheduled from 5.200 s to
+   5.440 s.
+2. The foe is Displaced until 6.000 s.
+3. At t = 5.000 s a heavy Displace lands (k = 1): 0.5 × 0.5 × 0.8 = 0.200 s on the ward again (0.440 s left), which
+   is rescheduled to 5.640 s and fires once there. Displaced restarts and ends at 7.000 s.
+4. The ward firing is not an act, so the foe's last act is still 3.100 s, and 3.100 + 2 = 5.100 s has passed. It is
+   not Still while Displaced, and becomes Still at 7.000 s. It stays Still until its damaging art fires at 8.000 s.
+
+Allies: you, a crane companion and two steles up count 4. Geese Line's "+8 block per ally beyond yourself" gives
++24 block. "+20 % damage for you and your allies" gives you +20 % and the crane +10 %. "You and your allies heal 8 %"
+heals you 8 %, once.
+
 ### Parameter keys
 
 New in `combat_rules.json`: every `data file` value above. Defence keys (`default_resist`, `default_drain`,
@@ -1068,6 +1293,12 @@ and `curse_reapply_lockout` (Formulas F). From the Combat economy revision (#44)
 `trig_ward_strength` and `trig_ward_seconds`; `hit_cost_share` moves onto ward records, and `upkeep_share` is gone with upkeep wards (#44). Kept:
 `duel.injured_power_floor`, `duel.khi_van_per_point`, `duel.min_win_chance`, `duel.max_win_chance` (the
 last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
+
+**New with the duel readings (2026-11-25, Formulas L)**, in a `readings` section of `combat_rules.json`:
+`companion_share` 0.5, `spread_share` 0.5, `act_window` 1, `still_after` 2, `moving_after` 1, `range_open` 3,
+`range_refresh` 1, `displace_delay` 0.3, `displace_delay_heavy` 0.5, `displaced_time` 2, `rooted_delay_share` 0.5,
+`rooted_moment` 1, `broken_threshold` 0.25 (seconds unless a share). The time keys are rounded to milliseconds at load,
+like the other time keys (rule 10).
 
 ## Edge Cases
 
@@ -1149,8 +1380,11 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 
 **Preparation and setup**
 
-- **If a fight is blind:** x4 holds ground tags only, even when a prepared item is in the bag.
-- **If the ground has several tags:** each applies independently through rule 6.
+- **If a fight is blind:** x4 holds only carried ground at its blind share, even when a prepared item is in the bag
+  (amended 2026-11-25: place ground tags no longer count, rule 26).
+- **If the request carries several ground tags:** each allowed tag applies independently through rule 6. A
+  place-derived tag (terrain, biome, weather, place, time of day, season) applies nothing, and the log notes it once
+  as ignored (amended 2026-11-25, rule 26).
 - **If a pill is taken in preparation and the player then leaves before confirming:** nothing is spent.
   The preparation step consumes pills on confirm, and the caller decrements talismans the result lists.
 - **If a fight is reloaded and repeated with the same setup:** it gives the same result, because the
@@ -1166,6 +1400,35 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 - **If the actor's realm is higher than its target's:** `g` is 0, and there is no bonus beyond its
   own larger fight unit.
 - **If the owner of a companion goes Down:** the companion stops acting and takes no injury in this version.
+
+**Duel readings and environment (new, 2026-11-25; rule 25, 26, Formulas L)**
+
+- **If a body payload names an ally by position or state** ("the ally behind you", "the ally lowest on health"): it
+  goes to you, since you are the point and the only ally with pools. If it names an ally other than you ("heal
+  every ally but yourself", "heal your companion"), it does nothing, and the lint flags the record for rewording.
+- **If an ally strike payload meets a side with no companion:** you take it in full and nothing else happens.
+- **If field Pieces are counted while one burns out in the same instant:** a field Piece that burns out in an instant
+  counts until that instant ends, like a ward that expires (rule 10).
+- **If a Planted side is Displaced:** nothing is delayed, no Displaced applies, and the log writes "Planted: refused".
+  The refused Displace does not count toward the falloff's k.
+- **If a Rooted status lands on a Planted side:** Rooted applies (Planted refuses only Displace). Its delay applies
+  too, because it is Rooted's, not a Displace.
+- **If a side is Rooted and has an evade ward:** evade is 0 for every hit while Rooted holds. The ward's other
+  payloads stand.
+- **If a Pinned side's escape channel ends after Pinned ran out:** the escape rolls as usual. Only Pinned holding at
+  the channel's end fails it.
+- **If a stance is both still and footwork:** the data lint rejects the record. A side holding a still stance that
+  raises a footwork stance drops the still stance (the later state replaces it).
+- **If At range is spent at t = 1 s:** it stays off until an evade, movement art or push away gives `range_refresh`.
+  The first `range_open` window does not return.
+- **If the foe is Broken and later healed above 25 %:** Broken does not fire again this fight (a once-a-fight latch).
+  Each Effect that reads Broken fires once on that one crossing.
+- **If both sides cross 25 % in the same instant:** each side's Broken and Wounded fire in that instant's trigger
+  order (rule 9), the requesting side first.
+- **If a spread lands on a foe that is Down in that instant:** it still lands and adds to the overkill, like any
+  damage in the instant (rule 10).
+- **If a fight record reads terrain, biome, ground, weather, place, time of day or season:** the data lint rejects it
+  before any fight (rule 26). A life Effect that reads the season or the place outside fights is accepted.
 
 **Degenerate strategies watched for**
 
@@ -1183,9 +1446,8 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 |---|---|---|---|
 | Combat Defence & Healing (#21a) | Hard | The defence path, wards, shields, block, healing and effective health; owns old rule 22, rule 23 and Formulas D | GDD approved 2026-11-08; lists Combat |
 | Combat Damage Types (#21b) | Hard | Damage types and conversion | GDD approved 2026-11-08; lists Combat |
-| Modifier System (#40) | Hard | Modifier operations, scope, W prices, the Stat List | GDD approved 2026-11-08; lists Combat |
-| Effects System (#41) | Hard | The status catalogue, trigger Effects, the Down step, counted chance, reported costs | GDD approved 2026-11-08; lists Combat |
-| Character Stats (#7) | Hard | Pool stats, stat keys, resistances, vitality | GDD in review. 11 stat keys, the fortune line and the `defense_pct` meaning added 2026-11-06; the new defence and offence keys of Parameter keys are still to add (consistency C14) |
+| Modifier System (#40) | Hard | Modifier operations, scope, W prices, the Stat List; since 2026-11-25 the `[companion]` scope for ally strike payloads, `timer_resist_pct` for Displace and Rooted, and the tags `field`, `field_piece`, `still`, `footwork`, `movement`, `displace`, `heavy`, `rooted`, `pinned` (its rule 9) | GDD approved 2026-11-08; lists Combat. The new tags are not in its vocabulary yet (back-link owed) |
+| Effects System (#41) | Hard | The status catalogue, trigger Effects, the Down step, counted chance, reported costs; since 2026-11-25 the duel-reading keys and tags, Displaced, Rooted and Pinned, and the Planted immunity (Effects rule 17) | GDD approved 2026-11-08; lists Combat (rule 17 cites rule 25, 2026-11-25) || Character Stats (#7) | Hard | Pool stats, stat keys, resistances, vitality | GDD in review. 11 stat keys, the fortune line and the `defense_pct` meaning added 2026-11-06; the new defence and offence keys of Parameter keys are still to add (consistency C14) |
 | Realms (#8) | Hard | Realm, `stage_mult`, `power_base`, gap `g` | GDD in review |
 | Cultivation Techniques (#9) | Hard | `tech_power`, unlocked divine abilities | GDD in review. Its Open Question 3 is answered here once abilities are authored |
 | Time & Turn (#4) | Soft | A fight takes no seasons; preparation time belongs to the preparing system | Built, no GDD |
@@ -1194,7 +1456,7 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 | The Way (#39) | Soft | Stat lines, Effects and rare art nodes | GDD in review (2026-11-10). Arts need no W price: the Way's slot table bounds them (dao.md Open Question 3, closed) |
 | Item Database (#13) | Soft | Equipped pieces with role tags, attack, defence and affixes; consumable arts' items | GDD complete (item-database.md rules 6, 11); lists Combat |
 | Artifact Refining (#16) | Soft | Equipped artifacts, ward-gear and body-gear defence, active effects | Quick spec only; **provisional** |
-| Formations (#17) | Soft | The combat diagram (the loadout's arrangement) and home arrays | GDD designed 2026-11-21 (`design/gdd/formations.md`), pending review; lists Combat |
+| Formations (#17) | Soft | The combat diagram (the loadout's arrangement) and home arrays; since 2026-11-25, whether the diagram is laid, which rule 25 reads (read only) | GDD designed 2026-11-21 (`design/gdd/formations.md`), pending review; lists Combat |
 | Talismans (#18), Alchemy (#15) | Soft | Consumable arts, timed pills | Quick spec or no GDD; **provisional** |
 | Spirit Beasts (#19) | Soft | Power share, companion art | Quick spec only; **provisional** |
 
@@ -1202,10 +1464,10 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 
 | System | Type | Interface | State |
 |---|---|---|---|
-| Heavenly Tribulation (#22) | Hard | The fight engine, a tribulation as an enemy profile | GDD approved for rules (design/gdd/thien-kiep.md); build on hold with the full fight |
+| Heavenly Tribulation (#22) | Hard | The fight engine, a tribulation as an enemy profile, and the request tag `tribulation` (a kind of fight, kept 2026-11-25); the `vein` bonus is removed and the place's tags it sends (`vein`, Travel & Map's biome) apply nothing in the fight (rule 26, Open Question 30 answered; AC-TK-23 owes the change) | GDD approved for rules (design/gdd/thien-kiep.md); build on hold with the full fight |
 | Quests (#31) | Soft | A `defeat` stage opens a fight and reads the result; fight power F for the fight ratio | GDD designed (`design/gdd/quests.md`), in review; `defeat` waits on the full fight |
 | Travel & Map (#25) | Soft | Travel encounters open fights; a flier arrives with a drained linh lực pool (its Formulas D, E) | GDD designed (`design/gdd/travel-map.md`), pending review |
-| Event Engine (#23) | Hard | Fight request, result | Built, no GDD; today's `duel` callers move to the result |
+| Event Engine (#23) | Hard | Fight request, result; since 2026-11-25 the request's ground tags carry no place-derived tag, and a fight at the side's abode passes its own laid arrays as preparation instead of `own_abode` (rules 12, 26; Open Question 30 answered) | Built; GDD in design (`design/gdd/event-engine.md`), whose rule 17 still sends `own_abode` (back-link owed); today's `duel` callers move to the result |
 | NPC Builds (#24) | Hard | Compiled profile, slot order and guards | Built, no GDD |
 | Living World Tick (#28) | Hard | Rating clash; keeps NPC duels rare | Built, no GDD |
 | Sects & Missions (#26) | Soft | Trials for the head seat and mission fights use the fight engine as built; sect wars stay abstract and do not (`design/gdd/sects.md`, Interactions; added 2026-11-14) | GDD designed 2026-11-14, pending review |
@@ -1219,6 +1481,13 @@ already list Combat, and so do the four sub-systems (Combat Defence & Healing, C
 System and the Effects System); Combat lists them above. No circular dependency is added:
 the assets expose read-only contributions, and hooks such as taming stay with the Event Engine
 (systems index, circular dependency 2).
+
+**Back-links written 2026-11-25** (world-depth rulings, `design/world/depth/DECISIONS-2026-11-25.md`):
+- **Item Database** (#13, rule 22, Formulas J): loadout compile reads the worn set pieces and adds their set bonus
+  lines (`set:<id>`; 2 pieces plain Modifiers, the full set an Effect); a piece counts only while worn.
+- **NPC Traits** (#42, rule 8a, F1b): a fighter's `stance:` hooks (4: `dirty_fighting`, `sword_intent`,
+  `take_the_blow`, `song`; `design/world/depth/builds/duel-readings.md`) and v2 trait combat rows, which reach the
+  fight sheet through the Modifier System. Each stance's record is owed here (NPC Traits Open Question 15).
 
 ## Tuning Knobs
 
@@ -1256,6 +1525,22 @@ elsewhere, such as `power_base` and `attack_pct` prices, stay in their own GDDs.
 | `advisor_min_ehp_ratio` (1.25) | When the Advisor warns about a build with no defence once its linh lực is spent |
 | `boss_pool_mult` (per enemy) | Boss toughness |
 
+**Duel reading knobs** (new, 2026-11-25; Formulas L). These carry the proposal's safe ranges
+(`design/world/depth/builds/duel-readings.md` section 2), unlike the table above. They are proposed, not measured.
+
+| Knob | Default | Safe range | What it moves |
+|---|---|---|---|
+| `still_after` | 2 s | 1–3 s | How often a fast build is Still between casts |
+| `act_window` | 1 s | 0.5–2 s | How long a foe counts as moving after it acts |
+| `moving_after` | 1 s (guess) | 0.5–2 s | How long an evade or movement art keeps you Moving |
+| `displace_delay`, `displace_delay_heavy` | 0.3 s, 0.5 s | 0.2–0.5 s, 0.3–0.8 s | What a push or pull is worth on the timeline |
+| `displaced_time` | 2 s | 1–3 s | How long a push denies Still and breaks stances |
+| `rooted_delay_share`, `rooted_moment` | 0.5, 1 s (guess) | 0.25–0.75, 0.5–1.5 s | Rooted's opening delay; how long "a moment" of Rooted lasts |
+| `range_open`, `range_refresh` | 3 s, 1 s (guess) | 2–5 s, 0.5–2 s | Ranged builds' opening, and how often evasive builds get it back |
+| `broken_threshold` | 0.25 | 0.15–0.30 | When "on a kill" and "an ally falls" pay; keep it above `cull_threshold` (8 %) |
+| `companion_share` | 0.5 | 0.25–1.0 | How much an ally strike payload gives each companion; beast builds' share of ally Effects |
+| `spread_share` | 0.5 (guess) | 0.25–0.75 | What a spread is worth in a duel |
+
 **Knobs that move together.**
 
 - `fight_unit_exponent`, `layer_caps`, `suppression`, `health_units` and `qi_units` jointly set the
@@ -1263,6 +1548,8 @@ elsewhere, such as `power_base` and `attack_pct` prices, stay in their own GDDs.
 - `fatigue_start`, `fatigue_units` and `fatigue_pow` must start after the 30–60 s band typical fights end in and
   end a typical fight from full health by about 70 s (66 s at the defaults); the largest legal pool falls by 90 s.
 - After a change to the tree's W totals, re-measure the anchors in Formulas B.
+- `still_after` and `displaced_time` move together: with `displaced_time` ≥ `still_after`, one Displace always costs
+  a resting foe a full Still window (2026-11-25).
 
 ## Visual/Audio Requirements
 
@@ -1332,6 +1619,9 @@ Defence & Healing Formulas G with x = 0; Guidance, #35; a data knob, Combat revi
 | Rule 5; Formulas B; Parameter keys | modifiers.md | Operations, scope, W prices, `damage_more` layer points, the Stat List | Read |
 | Rules 7–10, 14, 15; Formulas F, I | effects.md | Status catalogue, trigger Effects, the Down step, counted chance, reported costs | Read; the status catalogue moved there |
 | Formulas J | design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | Beast power share | Provisional |
+| Rules 25, 26; Formulas L | design/world/depth/builds/duel-readings.md sections 1–2, 4; DECISIONS-2026-11-25.md groups 1, 6, 9 | The reading table, hooks, knobs and the answered questions | Adopted 2026-11-25; section 3's 87 content fixes wait on the catalogue pass (Open Question 31) |
+| Rule 25 | effects.md rule 17, Status Catalogue, rule 16 (R28) | Reading keys, tags, Displaced, Rooted, Pinned, Planted | Read |
+| Open Question 29 | design/world/depth/builds/engine-wishes.md | 24 engine features for the authored Effects | Listed for the combat port |
 | Rule 12 | design/quick-specs/luyen-khi-and-tran-phap.md | Formation and artifact inputs | Provisional |
 
 ## Acceptance Criteria
@@ -1395,7 +1685,7 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
 - **AC-CB-15** [Logic] Formulas B. x1 200 gives L1 3.00; x1 293 gives 3.465; x1 1,000 gives 5.00; x1 −120 gives 0.1 and a positive hit; all layers over their caps give M 350.
 - **AC-CB-16** [Logic] Formulas B anchors. **GIVEN** x1 at 25 % of W for 106 / 248 / 447 / 739 / 1,172 W and L2–L5 at 1.4, 1.4, 1.2, 1.1, **THEN** M is 3.27 / 4.19 / 5.48 / 7.37 / 8.96. **GIVEN** 45 % of W and L2–L5 at 4.0, 3.5, 2.5, 2.0, **THEN** M is 103.4 / 148.1 / 210.4 / 256.4 / 324.6.
 - **AC-CB-17** [Logic] Formulas B, L3. **GIVEN** Σ artifact attack 40 at B_p 100, **THEN** x3 is 40 at stage 1.00 and 27.59 at stage 1.45. **GIVEN** a W-priced key, **WHEN** compiled, **THEN** it fills L1 and leaves L2–L5 unchanged.
-- **AC-CB-18** [Logic] Rules 6, 12. Scope matching (a modifier scoped [sword, hoa] applies to a sword art of element hoa only) is tested by AC-MD-09. **GIVEN** ground with two tags, **THEN** each applies independently, and each shows as its own line in the opening Breakdown.
+- **AC-CB-18** [Logic] Rules 6, 12. Scope matching (a modifier scoped [sword, hoa] applies to a sword art of element hoa only) is tested by AC-MD-09. **GIVEN** a request with two allowed ground tags, **THEN** each applies independently, and each shows as its own line in the opening Breakdown. **GIVEN** a request that also carries a place tag (a biome), **THEN** that tag applies nothing and the log notes it once as ignored (amended 2026-11-25, rule 26; AC-CB-102).
 - **AC-CB-19** Pointer. Conversion totals (146 against 130): AC-DT-14. Offence modifiers on a part's earlier types: AC-DT-18. Resistance by final type: AC-DT-08. Element tags never meet defence: AC-DT-11, AC-CD-11.
 - **AC-CB-20** Pointer. Over-100 % scaling: AC-DT-16. Conversion back into the history, and to or from Soul: AC-DT-17. A third conversion ignored and logged: AC-DT-21. Order and same-step chains: AC-DT-27, AC-DT-28. A part at share 0: AC-DT-29.
 - **AC-CB-21** [Logic] Formulas C. **GIVEN** FX-T's art against FX-T, **THEN** base is 12.62, D 41.30 and dealt 6.59. **GIVEN** the Common Ward switched off (the default ward covers the hit), **THEN** 24.87 is dealt. **GIVEN** linh lực 0 (no ward up), **THEN** 40.35 is dealt. **GIVEN** g 2 and P 0.5 with the Common Ward, **THEN** 5.65 is dealt.
@@ -1473,11 +1763,27 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
 
 - **AC-CB-85** [Logic] Rule 11, heart demon pool. **GIVEN** a covered art costing 7.5 % of maximum linh lực and a heart demon pool of 40, **WHEN** it fires, **THEN** the pool pays 7.5, linh lực is untouched, the pool never regenerates, and the result reports 7.5 heart demon spent.
 - **AC-CB-86** [Logic] Rule 11, thần thức pool. **GIVEN** a side that has spent 30 % of its thần thức on covered arts, **WHEN** a soul hit lands on it, **THEN** `divine_sense_def` is 70 % of its start value.
-- **AC-CB-87** [Logic] Rule 12, carried ground. **GIVEN** a +20 L4 carried ground, **THEN** it gives +14 in an ambush and +10 blind. **GIVEN** away from home a laid +20 formation and a +15 carried ground on one side, **THEN** only +20 counts.
+- **AC-CB-87** [Logic] Rule 12, carried ground. **GIVEN** a +20 L4 carried ground, **THEN** it gives +14 in an ambush and +10 blind. **GIVEN**, outside the side's own laid arrays (amended 2026-11-25, was "away from home"), a laid +20 formation and a +15 carried ground on one side, **THEN** only +20 counts.
 - **AC-CB-88** [Logic] Formulas A2, opening haste. **GIVEN** a 4 s art with +50 % art speed and +100 % opening haste, **THEN** it first fires at 1.333 s and then every 2.667 s.
 - **AC-CB-89** [Logic] Rule 13, kind-locked slots. **GIVEN** `free_slots[talisman]` 1 and a full art pool, **THEN** a talisman fits the extra slot and a damage art cannot use it.
 - **AC-CB-90** [Logic] Formulas E2, added Soul part. **GIVEN** a c_art 2.0 art with a 30 % added Soul part against soul resistance +50, **THEN** that part is dealt at ÷ 1.5 past no other defence, the other 70 % meets the normal defence path, and the art starts the side's `soul_lockout`.
 - **AC-CB-91** [Logic] Rule 10, curse start. **GIVEN** a curse placed at t = 2.4 s, **THEN** its rule applies at 2.4 s and its duration first falls at t = 3 s.
+
+**Added 2026-11-25 (duel readings and no environment; rules 25, 26, Formulas L)**
+
+- **AC-CB-92** [Logic] Rule 25, allies and routing. **GIVEN** a side with one companion and two field Pieces up, **THEN** `allies` reads 4 and `alone` is false. **GIVEN** an Effect "you and your allies heal 8 %" firing once, **THEN** you are healed 8 % of `health_max` once and nothing else changes. **GIVEN** "+20 % damage for you and your allies", **THEN** your hits get +20 % and the companion's hits +10 % (`companion_share` 0.5), and field Pieces receive nothing. **GIVEN** a body payload meant only for another ally, **THEN** it does nothing and the log says so.
+- **AC-CB-93** [Logic] Rule 25, Alone. **GIVEN** a side with no companion and no field Piece, **THEN** `alone` is true at every instant. **GIVEN** the same side laying one field Piece at t = 5 s that lasts 4 s, **THEN** `alone` is false from the first instant after 5.000 s and true again after the Piece ends at 9.000 s.
+- **AC-CB-94** [Logic] Rule 25, foe moves. **GIVEN** a foe that fires a damaging art at 3.000 s and only basic attacks, wards and heals afterwards, **THEN** `foe_moved` is true at instants from 3.000 s up to 3.999 s and false from 4.000 s. **GIVEN** the foe evades one of your hits at 6.200 s, **THEN** it is true until 7.199 s. **GIVEN** no move yet, **THEN** it is false at t = 0.5 s.
+- **AC-CB-95** [Logic] Rule 25, Still. **GIVEN** a side that fires nothing but wards, heals and the basic attack, **THEN** it is Still from 2.000 s and `still_time` reads 3.000 at t = 5.000 s. **GIVEN** it fires a damaging art at 5.000 s, **THEN** Still ends and returns at 7.000 s. **GIVEN** an evade at 8.000 s, **THEN** Still ends and returns at 10.000 s. **GIVEN** a still stance up, **WHEN** the side evades, **THEN** it stays Still; **WHEN** it is Displaced, **THEN** Still ends.
+- **AC-CB-96** [Logic] Rule 25, Moving. **GIVEN** an evade at 4.000 s with no footwork stance, **THEN** the side is Moving until 4.999 s and not Still. **GIVEN** a footwork stance, **THEN** it is Moving for as long as the stance holds, until it is Displaced or Rooted. **GIVEN** a record that is both a still and a footwork stance, **THEN** the data lint rejects it.
+- **AC-CB-97** [Logic] Rule 25, Formulas L, Displace. **GIVEN** the Formulas L example (a cast ward at 1.200 s left and a damaging art at 4.000 s left, `timer_resist_pct` 20, last act at 3.100 s, Displace at 4.000 s, heavy Displace at 5.000 s), **THEN** the ward is rescheduled to 5.440 s and then 5.640 s and fires once, at 5.640 s; the damaging art is untouched and fires at 8.000 s; Displaced ends at 7.000 s; and the foe is Still from 7.000 s until 8.000 s. **GIVEN** a Planted foe, **THEN** no timer moves, no Displaced applies, the log line reads "Planted: refused", and the next Displace on it within 3 s has k = 0.
+- **AC-CB-98** [Logic] Rule 25, rules 10 and Formulas I, Rooted and Pinned. **GIVEN** Rooted for 2 s landing on a foe with 20 % evade and one art at 1.000 s left, **THEN** that art is delayed 1.000 s (at `timer_resist_pct` 0), every hit on the foe for 2 s has `p_evade` 0 with no draw, and the foe is not Moving. **GIVEN** "rooted for a moment", **THEN** it lasts 1.000 s. **GIVEN** a Pinned side whose escape channel ends while Pinned holds, **THEN** the escape fails with no draw and its cost stays paid; **GIVEN** Pinned ended before the channel ends, **THEN** the escape rolls as usual.
+- **AC-CB-99** [Logic] Rule 25, At range. **GIVEN** a side that never evades, **THEN** it is At range from 0 to 2.999 s and not from 3.000 s. **GIVEN** an evade at 6.000 s, **THEN** it is At range until 6.999 s. **GIVEN** an art that closes the distance fired at 1.500 s, **THEN** At range ends at that firing and stays off until the next evade, movement art or push away. **GIVEN** a pull on the side, **THEN** its At range ends.
+- **AC-CB-100** [Logic] Rule 25, Broken and Wounded. **GIVEN** a foe at 100 % health taken to 24 % by a hit, **THEN** Broken fires once in that instant, and "if it kills" is true for that art only. **GIVEN** the foe is healed to 40 % and falls to 20 % again, **THEN** Broken does not fire again. **GIVEN** a side whose starting share is 0.20, **THEN** it is Broken from the start and the Broken event fires at the first pulse. **GIVEN** your own health crossing 25 %, **THEN** Wounded fires once. A knockout still fires the knockout event for payoffs that outlive the fight.
+- **AC-CB-101** [Logic] Rule 25, every foe and spread. **GIVEN** an art that "hits every foe in reach" against a foe with a companion, **THEN** it hits the foe once and the companion never. **GIVEN** a status that "spreads to a nearby foe", **THEN** it lands again on the same foe once at half strength, and does not spread again from that landing.
+- **AC-CB-102** [Config/Data] Rule 26. **GIVEN** the shipped fight data (arts, Effects, statuses, items, sets, techniques, formation records, enemy profiles), **WHEN** the data lint runs, **THEN** it reports how many records it scanned and rejects, by name, any record whose condition, guard or scaling reads terrain, biome, ground (other than the side's own laid or carried ground), weather, place, time of day or season. **GIVEN** a test record reading `season = autumn` in a fight rule, **THEN** it is rejected; **GIVEN** a life Effect reading the season outside fights, **THEN** it is accepted. **GIVEN** a fight request carrying the tag `forest`, **THEN** no layer or Effect reads it and the log notes it once as ignored.
+- **AC-CB-103** [Config/Data] Parameter keys, readings. `combat_rules.json` has a `readings` section with the 13 keys of Parameter keys at their defaults, and each time key is a whole number of milliseconds after load.
+- **AC-CB-104** [Logic] Rule 12, own laid arrays (new, 2026-11-25; ruling group 11). **GIVEN** a side fighting among three standing arrays it laid itself (+10, +8, +5 L4) passed as its preparation, **THEN** all three count (L4 1.23); **GIVEN** the same request with an `own_abode` or `vein` tag and no arrays passed, **THEN** the tag applies nothing and the log notes it once as ignored; **GIVEN** a request carrying the tag `tribulation`, **THEN** it is not ignored, and a rule that reads it sees it.
 
 **Cross-system integration**
 
@@ -1546,3 +1852,8 @@ Results go to `production/qa/evidence/balance/[date]-combat-performance.md`.
 | 26 | ~~Planned revision (systems-index #44): a sustain-first economy~~ **Decided 2026-11-09:** every item answered in `design/research/economy-revision-44-decisions.md` (fights of 30–60 s, fatigue from 60 s, health ×4 with ward resistance ×1.4, halved costs, regeneration 3.5 % with diminishing returns, no healing decay, no upkeep wards, no heal or tick caps, element stacks). Part 1 applied here; parts 2–5 apply it to Combat Defence & Healing, the Effects System, the Modifier System and Character Stats | — | — |
 | 27 | **Future extension (recorded 2026-11-10, Way review D-03):** fights with allies, a party, mounts, disciples, troops, a taunt or world followers. Combat is one fighter plus attached companions today. The Way's facets that need them are archived (dao.md Catalogue, marked ◇): Vũ Đạo's Hội, Thú Đạo's Tọa Kỵ, Hiếu Đạo's Gia Tộc, Sư Đạo's Đệ Tử, Hoàng Đạo's Thần Dân, Thủ Đạo's Hộ Vệ and Khiêu Khích, Thần Đạo's Tín Đồ, Mị Đạo's Ngưỡng Mộ, Cô Đạo's Khắc Thân, and all of Binh Đạo (mass battle) | user, game-designer | Those facets and Binh Đạo |
 | 28 | **From NPC Relationships (2026-11-20):** a person as a companion source (a companion, an answering sworn sibling) needs a power share for Formula J, which today reads Spirit Beasts' `BeastKeeper.power_shares`. Proposal: the person's power number against the owner's, through the same share curve, owned here | Combat, systems-designer | NPC Relationships rule 15a (companion and help call) |
+| 29 | **Engine features for the authored Effects (2026-11-25, DECISIONS group 8: keep the Effects, list the features).** `design/world/depth/builds/engine-wishes.md` lists 24, each with the Effects that need it and the simplest hook. **Fight-state actions (9):** held (delayed) damage; immunity to timer delays; a tick taken turned into healing; stopping one side's clock; a status that holds its caster's arts (Charmed, Sleep); a diagram laid in an ambush or blind fight; an extended last act after Down; the overflow-healing amount; upkeep per standing field Piece. **Readables and events (8):** lost in the last N s; a pill burned in a fight; linh lực drained; healed and leech events; an element batch running out; a ward absorbing a hit; the fight hour a field Piece was laid in; a failed escape. **Tags and statuses (7):** Charmed, Drunk and Sleep rows; `mist`; `song` and `bow`; `fan`; `crane` and `bird` on companions; talisman source on stacks and marks; Light with an added Soul part. Its sections 4 (art DSL words) and 5 (three engine checks) are separate and not counted. **Three conflict with standing text and need a ruling, not just code:** "an element batch running out" as an event contradicts Effects R20 ("a batch expired is not an event"); the extended last act's double-knockout draw changes the defeat check (rule 10) and Effects Formulas C; "diagram laid in an ambush" overrides Formations rule 9 (Formations' call; this GDD does not change it) | user, gameplay-programmer, Formations owner | The combat port |
+| 30 | **Answered 2026-11-25** (ruling group 11): keep `tribulation` as a request tag (a kind of fight, not a place); remove the `own_abode` and `vein` bonuses. The abode's case is now the side's own laid arrays, passed as preparation (rule 12); a vein gives nothing in a fight (rule 26). Modifiers' L4, W4 and B4 sources already read own laid or carried ground only. **Owed elsewhere:** Event Engine rule 17 stops sending `own_abode`; Heavenly Tribulation AC-TK-23 stops expecting a `vein` tag. ~~**Ground tags after rule 26.** No place-derived tag reaches a fight now. Decide whether the request keeps a ground-tag field at all, and where these go: `own_abode` (Event Engine rule 17; home formations counting is a side's own preparation, Effects R34 "home ground counts as foreseen"), `tribulation` (a fight kind, not a place), and Heavenly Tribulation's place tags (`vein`, AC-TK-23) with Travel & Map's biome and element shares. The Modifier System's L4, W4 and B4 source lists still name "ground tags"~~ | user, Event Engine, Heavenly Tribulation, Modifier System | Event Engine, thien-kiep.md, travel-map.md, modifiers.md |
+| 31 | **Content reworded to the readings.** `duel-readings.md` section 3 lists 87 fixes (3a 40, 3b 9, 3c 12, 3d 15, 3e 10, 3f 1) and the clauses that read correctly as written. Two lint notes go with them: an art written for "every foe" is worth one target, and Alone is on in every fight for a companion-less build with no field Piece (Ngạo Tuyết's Lone Branch; user ruling, group 9, keeping the reading), as "while you are the point" is always on (Take the Wind). `linh_luc_on_kill_pct` fires once, on Broken (a flag, not a reprice) | catalogue pass | Content pass |
+| 32 | **Readings settled by assumption** (Formulas L): Still counts from t = 0 and `foe_moved` is false before the first move; a still stance holds through your own evades and arts; a Displace with every art ready delays a ready art, or the basic attack if no art is slotted; a side starting at or below 25 % is Broken from the start; "evade counts as 0" zeroes the realm step too; a refused Displace does not count toward the falloff. Also open: whether Displaced and Rooted can be cleansed (Effects Status Catalogue, assumption: no). Confirm or change | user | Rule 25 |
+| 33 | **The 24 features' order.** The authored Effects that need them stay proposals until their features exist. Decide whether the combat port builds all of Open Question 29 or only the features its first content uses | user, producer | The combat port |

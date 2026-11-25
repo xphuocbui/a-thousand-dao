@@ -1,0 +1,1258 @@
+{
+ "sect": "thien_bao",
+ "people": [
+  {
+   "key": "phan_vat_hoa",
+   "name_hv": "Phan Vật Hoa",
+   "name_han": "潘物華",
+   "gloss": "The riches of the land are the treasures of heaven (Vương Bột)",
+   "sex": "F",
+   "born": 600,
+   "alive": true,
+   "realm": "nguyen_anh",
+   "stage": 1,
+   "sect": "thien_bao",
+   "rank": "tong_chu",
+   "home": 20,
+   "birthplace": 50,
+   "role": "Mistress of Thiên Bảo Trai since 1050 (A185); holds the season auction, the red gold mine and Lạc Hà's debt of 1179",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 84,
+     "tho": 66
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 58,
+    "than_hon": 76,
+    "khi_van": 80,
+    "dao_tam": 62,
+    "mi_luc": 72
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Arrogant",
+     "Ambitious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "long_seclusion"
+    ],
+    "lifestyle": "collector",
+    "health": null,
+    "coping": "hoarding",
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A small, upright woman who looks forty, dressed in plain grey with a single red-gold pin, whose eyes go to what you are carrying before they go to your face.",
+   "backstory": "Phan Vật Hoa was born in 600 above a crier's stall in Vật Hoa Thị, the market beside the studio (A179). At nine she priced a broken sword on the auction floor to within a stone, and the second head Ung Thiên Kim (ung_thien_kim) took her for it. In 750 she set a grain of Xích Kim's red gold in her own dantian and has fed it ever since. In 1004, when Kim Cốc Viên had burned (C174), she hired the beggared merchants who could still count (A184), and the studio took Kim Cốc's trade. She has been mistress since 1050 and holds an auction every season (A185). She sold Lạc Đan Thanh (lac_dan_thanh) the Đào Nguyên Đồ for a pill no one else could make (C183), and her buyer Hồ Tầm Kỳ (ho_tam_ky) brings her the north's beasts (A142). In 1179 Lạc Hà's head came to borrow for a new seat. Phan named the interest (N-lac_ha-03). The head named the surety in private: the Lone Duck Ring, the founder's ring and the key to Lạc Hà's treasury, which now lies in Phan's vault. She is older than anyone in her lord's sect.",
+   "wants": "To own the Lone Duck Ring outright when the loan's term runs out, and with it the key to her lord's treasury; after that, to be the one house in the west that no sect can afford to quarrel with.",
+   "secret": "She knows everything about the debt that her lord does not. Kim Vạn Lý has been buying a third of the notes for Trầm Tịch Dương; she sold them to him at a premium and lets him think she does not know whose they are. Her steward Tiền Ngũ Phân sold Hách Ánh Hà the name of the surety; she kept him on, because a steward with a known price is useful. And in 1190 she had her first refiner cut a second key from the ring. Khang Thiên Chùy told her the copy failed. She believes him.",
+   "ties": [
+    {
+     "to": "ung_thien_kim",
+     "kind": "master",
+     "note": "the second head, who took her off the auction floor"
+    },
+    {
+     "to": "khang_thien_chuy",
+     "kind": "disciple",
+     "note": "her first refiner"
+    },
+    {
+     "to": "tien_ngu_phan",
+     "kind": "disciple",
+     "note": "her steward, whose price she knows"
+    },
+    {
+     "to": "nguy_minh_giam",
+     "kind": "disciple",
+     "note": "the girl with the eye; the only heir she has looked at twice"
+    },
+    {
+     "to": "ho_tam_ky",
+     "kind": "disciple",
+     "note": "her buyer of living lots"
+    },
+    {
+     "to": "an_toan_chau",
+     "kind": "disciple",
+     "note": "keeps the vault book and asks no questions"
+    },
+    {
+     "to": "to_van_chieu",
+     "kind": "creditor",
+     "note": "Lạc Hà's head owes her the loan of 1179; the Lone Duck Ring is the surety"
+    },
+    {
+     "to": "tram_tich_duong",
+     "kind": "rival",
+     "note": "the only person in the west as tight with a stone as she is"
+    },
+    {
+     "to": "hach_anh_ha",
+     "kind": "rival",
+     "note": "Lạc Hà's envoy, who bargains the interest down a little every year and thinks Phan does not know why"
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "friend",
+     "note": "the debt broker who buys her notes for someone else"
+    },
+    {
+     "to": "lac_dan_thanh",
+     "kind": "friend",
+     "note": "sold him the Đào Nguyên Đồ in 1105; his stall rents from her"
+    },
+    {
+     "to": "lo_hanh_sa",
+     "kind": "rival",
+     "note": "Lạc Hà's caravan steward, who knows each of her stewards by their price"
+    },
+    {
+     "to": "yen_boi_ngoc",
+     "kind": "former_disciple",
+     "note": "learned refining in her workshops; buys her bronze at her prices"
+    },
+    {
+     "to": "tong_thu_tin",
+     "kind": "friend",
+     "note": "learned his numbers in her auction hall as a clerk's son; one of the four who know where the ring is"
+    },
+    {
+     "to": "khau_bach_thu",
+     "kind": "friend",
+     "note": "sells her his lots at the season auction; she never asks where in the ash"
+    },
+    {
+     "to": "lieu_thinh_kim",
+     "kind": "rival",
+     "note": "the appraiser who left her auction floor before she could keep her"
+    },
+    {
+     "to": "tu_binh_quyen",
+     "kind": "rival",
+     "note": "the other great lender, who wants Kim's paper"
+    },
+    {
+     "to": "phong_tu_gia",
+     "kind": "disciple",
+     "note": "appraiser of the auction floor"
+    }
+   ],
+   "master": "ung_thien_kim",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "heaven-treasure-refining-canon",
+     "layer": 12
+    },
+    "aux": [
+     {
+      "tech": "warm-nurtured-treasure-sutra",
+      "layer": 12
+     },
+     {
+      "tech": "appraisers-eye",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "general-heaven-purchasing-coin"
+     },
+     {
+      "named": "tb-land-riches-seal"
+     },
+     {
+      "named": "tb-grown-red-pearl"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 8,
+     "tran_phap": 6
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal first and deepest, for refining, treasures and heavy Metal stacks; Earth beneath for the body that has carried a pearl for 450 years. Every point bought for refining and treasure.",
+     "targets": [
+      3860,
+      4085,
+      4071,
+      4074,
+      9012,
+      4423,
+      4463,
+      4296
+     ],
+     "targets_note": "The studio's route (Spirit Coin, Bronze Spade, Silver Ingot), Treasury Seal, the Hundred Refinements keystone, then Nurtured Treasure, Treasure Nurtured Within and Buried Vault: every point for refining and the pearl she carries."
+    },
+    "note": "The treasure-market mistress: a hammer-seal, a bought fate and a pearl grown inside her."
+   },
+   "items": [
+    "general-heaven-purchasing-coin",
+    "tb-land-riches-seal",
+    "tb-grown-red-pearl",
+    "lh-lone-duck-ring",
+    "tb-third-price-mirror"
+   ],
+   "changed": "build: main thien_tho (a Heaven-tier stand-in) -> heaven-treasure-refining-canon (the studio's Earth-tier canon; a minor lineage's main is Profound or Earth, R5); aux kim_cang_the (not a technique) -> warm-nurtured-treasure-sutra and appraisers-eye; an/nhan grade 4 gear -> her seal and grown pearl; tree targets -> intent; root, thien_phu, stage moved to the top level; birthplace 50 added; holds lh-lone-duck-ring (lac_ha.items.json)."
+  },
+  {
+   "key": "khang_thien_chuy",
+   "name_hv": "Khang Thiên Chùy",
+   "name_han": "康千錘",
+   "gloss": "A thousand hammer strokes",
+   "sex": "M",
+   "born": 960,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "thien_bao",
+   "rank": "truong_lao",
+   "home": 169,
+   "birthplace": 169,
+   "role": "First refiner of Thiên Bảo Trai, master of the red gold furnace at Xích Kim",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "kim": 72,
+     "tho": 52,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 66,
+    "than_hon": 58,
+    "khi_van": 44,
+    "dao_tam": 72,
+    "mi_luc": 38
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Diligent",
+     "Stubborn"
+    ],
+    "calling": "Refiner",
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "forge_scarred"
+    ],
+    "lifestyle": "teacher_at_heart",
+    "health": "old_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Oath-bound"
+    ]
+   },
+   "appearance": "A heavy, bald smith with a burn-glazed scalp and forearms like furnace bars, who speaks as little as the hammer allows.",
+   "backstory": "Khang Thiên Chùy was born at the red gold mine of Xích Kim, a sorter's son, and carried ore to the studio's furnace until Phan Vật Hoa (phan_vat_hoa) saw him read a crucible's colour at twelve. He has run the furnace since 1080 and refined every lot of grade three and above that the auction has sold for a century. He trains the studio's refiners at the mine, not at the hall, because he says gold should be worked where it comes out of the ground. In 1190 the mistress had the Lone Duck Ring brought to the furnace from the vault and asked him to cut a second key from it. He worked on it for nine years. He takes a vow at every new furnace that he will make nothing he would be ashamed to sign, and he keeps it.",
+   "wants": "To make one thing in his life that will never go to auction, and to see the ring go home to its owners whole.",
+   "secret": "The second key works. He finished it in 1199 and told the mistress it had failed. It sits in the furnace's ash-pit in a lump of slag, and he means to give it to whoever brings the ring back to Lạc Hà, so that the ring is the only key again.",
+   "ties": [
+    {
+     "to": "phan_vat_hoa",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "vien_hong_kim",
+     "kind": "disciple",
+     "note": "his furnace hand"
+    },
+    {
+     "to": "cat_kim_sa",
+     "kind": "disciple",
+     "note": "the mine boy"
+    },
+    {
+     "to": "vuu_chuoc_kim",
+     "kind": "rival",
+     "note": "Lạc Hà's guest armourer at Tử Điện Thành; they argue about quenching across the bay"
+    },
+    {
+     "to": "quach_tiep_van",
+     "kind": "friend",
+     "note": "the Bridge Hall master; Khang refined the array's flag-poles at cost"
+    },
+    {
+     "to": "quan_tay_ngoc",
+     "kind": "friend",
+     "note": "the servant girl who washes the lots he brings"
+    },
+    {
+     "to": "thuong_toi_kim",
+     "kind": "disciple",
+     "note": "refiner of the red gold furnace"
+    }
+   ],
+   "master": "phan_vat_hoa",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "heaven-treasure-refining-canon",
+     "layer": 10
+    },
+    "aux": [
+     {
+      "tech": "warm-nurtured-treasure-sutra",
+      "layer": 6
+     },
+     {
+      "tech": "nine-temper-scripture",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "tb-furnace-apron"
+     },
+     {
+      "named": "tb-red-gold-furnace-sword"
+     },
+     {
+      "named": "tb-crucible-lid"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 9
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal for the artifacts and the strike, Earth for the body at the furnace: a refiner who fights with what he made.",
+     "targets": [
+      3860,
+      4085,
+      4071,
+      4428,
+      4427,
+      4423,
+      4463
+     ],
+     "targets_note": "Treasure route, then the Spirit Furnace to Treasure Nurtured Within: the furnace master."
+    },
+    "note": "The furnace."
+   },
+   "items": [
+    "tb-furnace-apron",
+    "tb-red-gold-furnace-sword",
+    "tb-crucible-lid"
+   ],
+   "changed": "fix pass A 2026-11-25: archetype tran_su -> kiem_tu: he fights with the furnace sword"
+  },
+  {
+   "key": "tien_ngu_phan",
+   "name_hv": "Tiền Ngũ Phân",
+   "name_han": "錢五分",
+   "gloss": "Five parts in a hundred",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "thien_bao",
+   "rank": "chap_su",
+   "home": 50,
+   "birthplace": 219,
+   "role": "Steward of the auction at Vật Hoa Thị; the man who sold the surety's name",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "tho": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 40,
+    "than_hon": 52,
+    "khi_van": 46,
+    "dao_tam": 34,
+    "mi_luc": 66
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Gregarious",
+     "Cautious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "path": [],
+    "lifestyle": "gambler",
+    "coping": null,
+    "gained": [
+     "Hunted"
+    ]
+   },
+   "appearance": "A plump, smiling man in a good silk coat with frayed cuffs, who calls every buyer by name and every name by its price.",
+   "backstory": "The grandson of a Kim Cốc merchant the studio hired in 1004 (A184), he runs the auction floor, the stewards and the lot book. He owed Kim Vạn Lý's (kim_van_ly) table more than his stipend. In 1180 Hách Ánh Hà (hach_anh_ha) paid the debt, and he told her what the surety was. Lạc Hà's caravan steward Lộ Hành Sa (lo_hanh_sa) knows his price to the stone. He does not know that the mistress knows.",
+   "ties": [
+    {
+     "to": "phan_vat_hoa",
+     "kind": "master",
+     "note": "his mistress, who knows what he did"
+    },
+    {
+     "to": "hach_anh_ha",
+     "kind": "debt",
+     "note": "she paid his gambling debt in 1180 for the surety's name"
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "debt",
+     "note": "still plays at his table"
+    },
+    {
+     "to": "lo_hanh_sa",
+     "kind": "rival",
+     "note": "Lạc Hà's caravan steward, who haggles him down every season"
+    },
+    {
+     "to": "khong_linh_thanh",
+     "kind": "disciple",
+     "note": "his crier"
+    },
+    {
+     "to": "tong_thach_mach",
+     "kind": "disciple",
+     "note": "the placed boy"
+    },
+    {
+     "to": "bi_tieu_tho",
+     "kind": "friend",
+     "note": "the street runner who sells him the bidders' names"
+    },
+    {
+     "to": "quan_phuc_thu",
+     "kind": "friend",
+     "note": "another grandchild of the Kim Cốc ruin"
+    },
+    {
+     "to": "an_toan_chau",
+     "kind": "rival",
+     "note": "the steward who thinks he lies about the lot book"
+    },
+    {
+     "to": "ta_thuc_bao",
+     "kind": "disciple",
+     "note": "inner disciple of the auction floor; copies the lot book"
+    },
+    {
+     "to": "phong_tu_gia",
+     "kind": "rival",
+     "note": "appraiser of the auction floor"
+    }
+   ],
+   "master": "phan_vat_hoa",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "heaven-treasure-refining-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "appraisers-eye",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 3
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal: the eye and the coin; he would rather not fight at all.",
+     "targets": [
+      3860,
+      4085,
+      4071,
+      4241
+     ],
+     "targets_note": "Treasure route, then Sifting Gold: the eye and the coin."
+    },
+    "note": "The auction steward."
+   },
+   "changed": "fix pass A 2026-11-25: archetype tran_su -> phap_tu: a coin-thrower with no array gear"
+  },
+  {
+   "key": "ho_tam_ky",
+   "name_hv": "Hồ Tầm Kỳ",
+   "name_han": "胡尋奇",
+   "gloss": "Seeks the rare",
+   "sex": "F",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thien_bao",
+   "rank": "noi_mon",
+   "home": 20,
+   "birthplace": 135,
+   "role": "Buyer of living lots: beasts and beast parts for the season auction",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 60,
+    "than_hon": 50,
+    "khi_van": 64,
+    "dao_tam": 40,
+    "mi_luc": 56
+   },
+   "traits": {
+    "personality": [
+     "Callous",
+     "Brave",
+     "Ambitious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "war_orphan",
+    "path": [
+     "poison_proof"
+    ],
+    "lifestyle": "hunter",
+    "gained": [
+     "Scarred"
+    ]
+   },
+   "appearance": "A lean, travel-browned woman in a fur collar from the north, with a scar through one eyebrow from a bear's paw.",
+   "backstory": "A Tân Khẩu girl whose village never speaks of the plain (A182), she has travelled the whole continent buying what the auction calls living lots. In 1180 she bought a white bear out of Vô Tung Lâm in Mộc Lan Thành (A142) for a buyer who wanted its gall; Khấu Mục Vân (khau_muc_van) outbid him at the spring auction of 1181 and keeps it alive on his ranch. She now wants the tusk of the Old Ivory, the white whale of the frost coast, and has offered Trạc Anh's harpooners more stones than their terrace holds.",
+   "ties": [
+    {
+     "to": "phan_vat_hoa",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "khau_muc_van",
+     "kind": "rival",
+     "note": "outbid her buyer for the white bear"
+    },
+    {
+     "to": "hua_tich_cau",
+     "kind": "enemy",
+     "note": "the groom who sleeps in the bear's paddock"
+    },
+    {
+     "to": "ngac_hai_tieu",
+     "kind": "rival",
+     "note": "Trạc Anh's harpoon captain; she wants the Old Ivory's tusk"
+    },
+    {
+     "to": "doan_tri_lung",
+     "kind": "disciple",
+     "note": "cage-keeper of the living lots"
+    }
+   ],
+   "master": "phan_vat_hoa",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "heaven-treasure-refining-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "nine-temper-scripture",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal: a spear and a net for things that bite.",
+     "targets": [
+      3860,
+      4085,
+      4071,
+      4141,
+      4384
+     ],
+     "targets_note": "Treasure route, then Serpent Spear and Spear Thrust: a spear for things that bite."
+    },
+    "note": "The beast buyer."
+   },
+   "changed": "fix pass A 2026-11-25: archetype kiem_tu -> the_tu: a beast buyer with an anchor and armour, no sword"
+  },
+  {
+   "key": "an_toan_chau",
+   "name_hv": "Ân Toán Châu",
+   "name_han": "殷算珠",
+   "gloss": "Abacus bead",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thien_bao",
+   "rank": "chap_su",
+   "home": 20,
+   "birthplace": 78,
+   "role": "Clerk of the vault and the loan books",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Honest",
+     "Paranoid"
+    ],
+    "calling": "Steward",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A Kim Cốc counter's granddaughter who keeps the vault book; on her days off she sifts the ash of Kim Cốc Thành for the pearl Lục Châu, lost in the fire of 1003 (C174).",
+   "ties": [
+    {
+     "to": "phan_vat_hoa",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tien_ngu_phan",
+     "kind": "rival",
+     "note": "she thinks he lies about the lot book"
+    },
+    {
+     "to": "nguy_minh_giam",
+     "kind": "friend",
+     "note": "the young prodigy who keeps asking her a question she will not answer"
+    },
+    {
+     "to": "tuyen_thach_nha",
+     "kind": "disciple",
+     "note": "placed from Lạc Hà this spring; weighs ore for the vault book"
+    }
+   ],
+   "master": "phan_vat_hoa",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "heaven-treasure-refining-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "The vault clerk."
+   }
+  },
+  {
+   "key": "vien_hong_kim",
+   "name_hv": "Viên Hồng Kim",
+   "name_han": "袁紅金",
+   "gloss": "Red gold",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thien_bao",
+   "rank": "noi_mon",
+   "home": 169,
+   "birthplace": 169,
+   "role": "Furnace hand at the red gold mine",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 56,
+     "hoa": 34,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Loyal"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "Khang Thiên Chùy's (khang_thien_chuy) furnace hand for forty years, the only person besides his master who saw the ring at the furnace in 1190, and who has been told to forget it.",
+   "ties": [
+    {
+     "to": "khang_thien_chuy",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "mau_hong_sa",
+     "kind": "disciple",
+     "note": "ore sorter at the red gold mine"
+    },
+    {
+     "to": "thuong_toi_kim",
+     "kind": "friend",
+     "note": "refiner of the red gold furnace"
+    }
+   ],
+   "master": "khang_thien_chuy",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "heaven-treasure-refining-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 5
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "Furnace hand."
+   }
+  },
+  {
+   "key": "nguy_minh_giam",
+   "name_hv": "Ngụy Minh Giám",
+   "name_han": "魏明鑑",
+   "gloss": "A clear appraisal",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "thien_bao",
+   "rank": "noi_mon",
+   "home": 20,
+   "birthplace": 50,
+   "role": "The mistress's youngest disciple, an appraiser on the auction floor",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 58,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 76,
+    "can_cot": 44,
+    "than_hon": 70,
+    "khi_van": 58,
+    "dao_tam": 52,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Arrogant",
+     "Just"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": []
+   },
+   "appearance": "A tall, sharp-chinned girl of eighteen who squints at everything as though it were a coin of doubtful weight.",
+   "backstory": "A Vật Hoa Thị crier's girl, like the mistress before her. At eleven she called a forged lot false in front of its seller, and Phan Vật Hoa (phan_vat_hoa) took her the same afternoon. She has the Appraiser's Eye at eighteen. She has noticed that the vault book lists one object with no price at all, and she has asked Ân Toán Châu (an_toan_chau) what it is.",
+   "ties": [
+    {
+     "to": "phan_vat_hoa",
+     "kind": "master",
+     "note": "the mistress"
+    },
+    {
+     "to": "an_toan_chau",
+     "kind": "friend",
+     "note": "the vault clerk, who will not answer her question"
+    },
+    {
+     "to": "to_mo_van",
+     "kind": "rival",
+     "note": "Lạc Hà's prodigy; the auction floor compares them"
+    },
+    {
+     "to": "lieu_thinh_kim",
+     "kind": "rival",
+     "note": "the old appraiser who calls her the studio's young eyes"
+    },
+    {
+     "to": "ta_thuc_bao",
+     "kind": "rival",
+     "note": "inner disciple of the auction floor; copies the lot book"
+    }
+   ],
+   "master": "phan_vat_hoa",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "appraisers-eye",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal and the eye: she sees the flaw first and hits it.",
+     "targets": [
+      3860,
+      4085,
+      727
+     ],
+     "targets_note": "Luyện Khí: the first two of the treasure route, then Fine Steel's crit for the flaw."
+    },
+    "note": "The appraiser."
+   }
+  },
+  {
+   "key": "cat_kim_sa",
+   "name_hv": "Cát Kim Sa",
+   "name_han": "葛金砂",
+   "gloss": "Gold sand",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "thien_bao",
+   "rank": "ngoai_mon",
+   "home": 169,
+   "birthplace": 169,
+   "role": "Outer disciple; ore sorter at Xích Kim",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 44,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Content",
+     "Trusting"
+    ],
+    "calling": "Refiner",
+    "upbringing": "servant_born"
+   },
+   "backstory": "A sorter's son at the red gold mine, as Khang Thiên Chùy (khang_thien_chuy) was; he found a lump of slag in the ash-pit too heavy for its size and put it back.",
+   "ties": [
+    {
+     "to": "khang_thien_chuy",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "mau_hong_sa",
+     "kind": "cousin",
+     "note": "his cousin; ore sorter at the red gold mine"
+    }
+   ],
+   "master": "khang_thien_chuy",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "Ore sorter."
+   }
+  },
+  {
+   "key": "tong_thach_mach",
+   "name_hv": "Tống Thạch Mạch",
+   "name_han": "宋石脈",
+   "gloss": "A vein in the stone",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "thien_bao",
+   "rank": "ngoai_mon",
+   "home": 20,
+   "birthplace": 530,
+   "role": "Outer disciple placed from Lạc Hà's outer gate, 1199",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 46,
+     "kim": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Humble",
+     "Patient"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hà Khúc well-digger's son whose Earth came up just short at Lạc Hà's dusk test three times; Ngạc Viễn Sơn (ngac_vien_son) sent him on to the studio with a letter on Placement Day.",
+   "ties": [
+    {
+     "to": "ngac_vien_son",
+     "kind": "former_master",
+     "note": "taught him at Cựu Hà Viện"
+    },
+    {
+     "to": "tien_ngu_phan",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "tien_ngu_phan",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "A placed boy."
+   }
+  },
+  {
+   "key": "khong_linh_thanh",
+   "name_hv": "Khổng Linh Thanh",
+   "name_han": "孔令清",
+   "gloss": "A clear call",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "thien_bao",
+   "rank": "ngoai_mon",
+   "home": 50,
+   "birthplace": 50,
+   "role": "Outer disciple; crier of the season auction",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 36,
+     "hoa": 30,
+     "tho": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Fickle",
+     "Ambitious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A crier's daughter whose voice carries across the whole of Vật Hoa Thị; Tiền Ngũ Phân (tien_ngu_phan) pays her by the lot and she cries every price he gives her, true or not.",
+   "ties": [
+    {
+     "to": "tien_ngu_phan",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "tien_ngu_phan",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "The crier."
+   }
+  },
+  {
+   "key": "quan_tay_ngoc",
+   "name_hv": "Quan Tẩy Ngọc",
+   "name_han": "關洗玉",
+   "gloss": "Washes the jade",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "thien_bao",
+   "rank": "tap_dich",
+   "home": 132,
+   "birthplace": 132,
+   "role": "Washer (tạp dịch) who rinses the finest refinings in the brook at Khê Thanh",
+   "tier": "C",
+   "exception": "servant (tạp dịch): hired to wash refinings at Khê Thanh, not taught the lineage",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Content",
+     "Honest"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Khê Thanh brook girl whose family has washed the studio's finest refinings in the clear water since 700 (A181); she has no Metal and wants none, and Khang Thiên Chùy (khang_thien_chuy) trusts her hands more than any refiner's.",
+   "ties": [
+    {
+     "to": "khang_thien_chuy",
+     "kind": "friend",
+     "note": "brings her the lots to wash"
+    },
+    {
+     "to": "quan_tay_lan",
+     "kind": "sibling",
+     "note": "her sister; brook washer (hired); Quan Tẩy Ngọc's younger sister"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "dan_dao": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "A washer; a stand-in method."
+   }
+  },
+  {
+   "key": "diem_hoa_kim",
+   "name_hv": "Diêm Hóa Kim",
+   "name_han": "閻化金",
+   "gloss": "Turns things to gold",
+   "sex": "M",
+   "born": 260,
+   "died": 760,
+   "cause": "end of his years (500), at the furnace",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "thien_bao",
+   "rank": "founder",
+   "home": 20,
+   "birthplace": 532,
+   "role": "Founder of Thiên Bảo Trai (350); a refiner who bought a mine before his lord heard of it",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Pragmatic",
+     "Diligent"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Xích Thổ smith who opened a refiners' workshop by the bay in 350 under a sign that said the riches of the land are heaven's treasures (A175). When red gold was found at Xích Kim in 360 he bought the mine before Lạc Hà's stewards heard of it (A176), and wrote the canon on the back of the sign. He left the studio to Ung Thiên Kim (ung_thien_kim).",
+   "ties": [
+    {
+     "to": "ung_thien_kim",
+     "kind": "disciple",
+     "note": "his successor"
+    }
+   ],
+   "changed": "fix pass A 2026-11-25: born 290 -> 260, so a death at the end of the years falls at the Kết Đan lifespan (500)"
+  },
+  {
+   "key": "ung_thien_kim",
+   "name_hv": "Ung Thiên Kim",
+   "name_han": "雍千金",
+   "gloss": "A thousand in gold",
+   "sex": "F",
+   "born": 450,
+   "died": 1050,
+   "cause": "died in the vault furnace refining the studio's ingot; the furnace burst",
+   "alive": false,
+   "peak_realm": "nguyen_anh",
+   "sect": "thien_bao",
+   "rank": "last_head",
+   "home": 20,
+   "birthplace": 50,
+   "role": "Second mistress of Thiên Bảo Trai (760-1050); made Vật Hoa Thị the west's treasure market",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Patient",
+     "Calm"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "The founder Diêm Hóa Kim's (diem_hoa_kim) disciple, who brought the Warm-Nurtured Treasure Sutra to the studio and made Vật Hoa Thị the west's treasure market. She took a crier's girl off the floor in 609 and left her the studio when the vault furnace burst in 1050 (A185). Phan Vật Hoa melted her gear into the Ancestor Ingot herself.",
+   "ties": [
+    {
+     "to": "diem_hoa_kim",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "phan_vat_hoa",
+     "kind": "disciple",
+     "note": "her heir"
+    }
+   ],
+   "master": "diem_hoa_kim"
+  }
+ ]
+}

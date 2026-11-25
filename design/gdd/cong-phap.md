@@ -885,6 +885,14 @@ systems split out of Combat depend on each other as follows.
 - **Modifier System (#40):** technique modifiers come from its catalogue, including `more` on L2.
 - **Effects System (#41):** technique and art Effects are its records.
 
+**Back-links written 2026-11-25** (world-depth rulings, `design/world/depth/DECISIONS-2026-11-25.md`):
+- **Sects & Missions** (#26, rule 20b): every sect has a công pháp lineage (methods, tiers, teaching ranks) built from
+  this catalogue; the 180 proposed lineage techniques (`design/world/depth/sects/*.techniques.json`) wait for this
+  GDD's catalogue pass to be priced and linted.
+- **Combat** (#21, rule 26) and **Effects** (#41, rule 18): no technique fight rule reads terrain, place, weather, time
+  of day or season; time-of-day cultivation rules become flavour, place-gated cultivation gates are removed (the
+  land-match speed carries them), and season-paced rules stay (ruling group 6).
+
 ## Tuning Knobs
 
 All keys are in `items_cong_phap.json` unless noted.

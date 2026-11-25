@@ -1,0 +1,1003 @@
+{
+ "sect": "chuc_ha",
+ "people": [
+  {
+   "key": "than_van_cam",
+   "name_hv": "Thân Vân Cẩm",
+   "name_han": "申雲錦",
+   "gloss": "Cloud brocade",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "chuc_ha",
+   "rank": "tong_chu",
+   "home": 1013,
+   "birthplace": 94,
+   "role": "Founder (1150) and head of Chức Hà Các; weaves fire-silk without the vents",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 55,
+     "hoa": 52
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 50,
+    "than_hon": 58,
+    "khi_van": 54,
+    "dao_tam": 50,
+    "mi_luc": 68
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Gregarious",
+     "Impatient"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "forge_scarred"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Lovestruck"
+    ]
+   },
+   "appearance": "A tall, quick woman with burn-pale fingertips and a red shuttle stuck through her hair like a pin.",
+   "backstory": "Thân Vân Cẩm was born in 1110 to a weaving house of Tang Điền, where the mulberry has fed the south's silkworms since 200 (A300). The town's weavers descend from the reelers who fled Hỏa Ti Trấn when it burned in 590 (V165), and they have never stopped wanting the fire-silk back. Her mother Hầu Tố Cẩm (hau_to_cam) tried to put fire into silk with her own Fire, burned her hands to the bone, and died in 1148. Thân made a method of it and in 1150 founded the pavilion with weavers sworn to the palace (V172): fire-silk from Tang Điền's worms, woven without the vents, keeping the letter of the founder's vow. It holds a season, then chars. The palace's treasurer Vưu Cẩm Thư (vuu_cam_thu) buys it at a price that hurts, and her factor Chiêm Lợi Châu (chiem_loi_chau) beats the price down further. The array keeper Tang Kế Ti (tang_ke_ti) splices it into the Nest Array in secret and owes her for it. Tang's son Tang Tục Lạc (tang_tuc_lac) carries it, and Thân loves him.",
+   "wants": "Silk that lasts: a banner to equal the Xích Hà Kỳ, hung in the palace's Hall of Virtue with her name on it.",
+   "secret": "Last winter Tang Tục Lạc brought her one strand of his mother's new silk to compare. It was reeled at the vent, against the founder's vow, and it is better than anything she has woven. She has kept the strand and knows what it means.",
+   "ties": [
+    {
+     "to": "tang_tuc_lac",
+     "kind": "lover",
+     "note": "the array keeper's son, who rides to the pavilion every month"
+    },
+    {
+     "to": "tang_ke_ti",
+     "kind": "creditor",
+     "note": "the palace's array keeper owes her for silk the treasury has not been told about"
+    },
+    {
+     "to": "vuu_cam_thu",
+     "kind": "rival",
+     "note": "the treasurer who sets the price"
+    },
+    {
+     "to": "chiem_loi_chau",
+     "kind": "rival",
+     "note": "the palace's factor at Tang Điền who beats her prices"
+    },
+    {
+     "to": "hau_to_cam",
+     "kind": "parent",
+     "note": "her mother, who burned her hands trying"
+    },
+    {
+     "to": "tang_mong_kien",
+     "kind": "friend",
+     "note": "her worm-keeper and oldest weaver"
+    },
+    {
+     "to": "dau_hong_ti",
+     "kind": "disciple",
+     "note": "the best young fire-setter"
+    },
+    {
+     "to": "doi_lang_y",
+     "kind": "friend",
+     "note": "the Đới girl she lets watch the loom"
+    },
+    {
+     "to": "doi_tam_nuong",
+     "kind": "friend",
+     "note": "her best buyer"
+    },
+    {
+     "to": "nhiem_thanh_lam",
+     "kind": "friend",
+     "note": "the guest elder she employs"
+    },
+    {
+     "to": "thanh_kim_toa",
+     "kind": "friend",
+     "note": "her steward"
+    },
+    {
+     "to": "tich_diem_ti",
+     "kind": "disciple",
+     "note": "would-be fire-setter at the looms"
+    },
+    {
+     "to": "co_chuc_viem",
+     "kind": "friend",
+     "note": "weaves the season's charring robes"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "unbroken-thread-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "fire-in-the-thread",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "chc-red-cloud-shuttle"
+     },
+     {
+      "named": "chc-season-woven-robe"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 6
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood threads that bind, Fire that runs along them: she ties a foe up and sets the knots alight.",
+     "targets": [
+      5780,
+      5784,
+      6227,
+      5778,
+      6239,
+      6241,
+      1457
+     ],
+     "targets_note": "Lineage thread, Strangler Vine, Broad Leaf and Dry Leaf for the fire along it, Wood and Fire."
+    },
+    "note": "The weaver: binding threads that burn."
+   },
+   "items": [
+    "chc-red-cloud-shuttle",
+    "chc-season-woven-robe"
+   ],
+   "changed": "new record fields for an existing person (tier A): root, build, birthplace 94, ties. Key, name, birth, realm, sect and rank kept."
+  },
+  {
+   "key": "nhiem_thanh_lam",
+   "name_hv": "Nhiễm Thanh Lam",
+   "name_han": "冉青藍",
+   "gloss": "Blue from indigo",
+   "sex": "F",
+   "born": 1020,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "chuc_ha",
+   "rank": "khach_khanh",
+   "home": 1013,
+   "birthplace": 1020,
+   "role": "Guest elder: the indigo dyer of Lam Điện, hired for the pavilion's colours",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 62,
+     "moc": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 52,
+    "than_hon": 60,
+    "khi_van": 48,
+    "dao_tam": 64,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Content",
+     "Reclusive"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "gardener",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "An old woman with hands dyed blue to the wrist, who smells of indigo vats.",
+   "backstory": "The dyers of Lam Điện are the grandchildren of Kim Sa Trấn, which a storm tide drowned in 913 (V171). Nhiễm Thanh Lam is the best of them and the only Kết Đan. Thân Vân Cẩm (than_van_cam) hired her in 1152 to give the pavilion's silk colours that hold. She takes no part in the pavilion's quarrels, is never taught its methods, and outranks its head by a realm.",
+   "ties": [
+    {
+     "to": "than_van_cam",
+     "kind": "friend",
+     "note": "her employer"
+    },
+    {
+     "to": "mau_tu_linh",
+     "kind": "friend",
+     "note": "colours for the embroiderer"
+    },
+    {
+     "to": "mac_lam_y",
+     "kind": "friend",
+     "note": "vat-stirrer for the guest dyer"
+    }
+   ],
+   "exception": "guest elder (khách khanh): Water root, hired dyer, not taught the lineage",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 8
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 3,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 5,
+     "dan_dao": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Plain Water and long patience.",
+     "targets": [
+      748,
+      5493,
+      4909,
+      4912,
+      5304
+     ],
+     "targets_note": "Not the lineage: Calm Pool, Lingering Ripples, the Black Abyss and Mill Race: plain Water, long patience."
+    },
+    "note": "Guest; a stand-in Profound Water method from Lam Điện."
+   }
+  },
+  {
+   "key": "tang_mong_kien",
+   "name_hv": "Tang Mộng Kiển",
+   "name_han": "桑夢繭",
+   "gloss": "Dreams of the cocoon",
+   "sex": "F",
+   "born": 1095,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "chuc_ha",
+   "rank": "truong_lao",
+   "home": 1013,
+   "birthplace": 94,
+   "role": "Elder of the worm sheds; cousin of the palace's array keeper",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 58,
+     "hoa": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 50,
+    "than_hon": 54,
+    "khi_van": 44,
+    "dao_tam": 62,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Devout",
+     "Cautious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "gardener",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A small, careful woman who carries silkworms in her sleeve to keep them warm.",
+   "backstory": "Of the Tang reeler family of Tang Điền, cousin of the palace's array keeper Tang Kế Ti (tang_ke_ti), whose line went up to the Fire Court with Tang Sơ Ti in 592 while hers stayed with the worms. She keeps the pavilion's sheds and reweaves the Robe of the First Weave every season. She will not go near the vents, because of the founder's vow, and she would be the first to know if her cousin had.",
+   "ties": [
+    {
+     "to": "tang_ke_ti",
+     "kind": "cousin",
+     "note": "the palace branch of the family"
+    },
+    {
+     "to": "than_van_cam",
+     "kind": "friend",
+     "note": "her head"
+    },
+    {
+     "to": "la_tieu_tam",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "luong_kien_sinh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "nguu_thai_diep",
+     "kind": "friend",
+     "note": "the servant woman she trusts"
+    },
+    {
+     "to": "van_diep_tang",
+     "kind": "disciple",
+     "note": "feeds the worms and works the reels"
+    },
+    {
+     "to": "trinh_to_am",
+     "kind": "friend",
+     "note": "reeler in the worm sheds; judges the year's bolts"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "unbroken-thread-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "chc-first-weave-robe"
+     },
+     {
+      "base": "cham",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 5,
+     "luyen_khi": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood threads, slow and sure.",
+     "targets": [
+      5780,
+      5784,
+      6227,
+      5782
+     ],
+     "targets_note": "Lineage thread, Clinging Tendril: slow and sure."
+    },
+    "note": "The worm sheds."
+   },
+   "items": [
+    "chc-first-weave-robe"
+   ]
+  },
+  {
+   "key": "thanh_kim_toa",
+   "name_hv": "Thành Kim Toa",
+   "name_han": "成金梭",
+   "gloss": "Golden shuttle",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "chuc_ha",
+   "rank": "chap_su",
+   "home": 94,
+   "birthplace": 94,
+   "role": "The pavilion's factor at the Tang Điền silk market",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "hoa": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Gregarious",
+     "Vengeful"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "He sells the pavilion's silk at Tang Điền across the table from the palace's factor Chiêm Lợi Châu (chiem_loi_chau), loses every year, and has begun selling a few bolts quietly to caravans going north.",
+   "ties": [
+    {
+     "to": "chiem_loi_chau",
+     "kind": "rival",
+     "note": ""
+    },
+    {
+     "to": "than_van_cam",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "quan_bo_hanh",
+     "kind": "disciple",
+     "note": "loads the bolts at the market table in Tang Điền"
+    },
+    {
+     "to": "co_chuc_viem",
+     "kind": "friend",
+     "note": "weaves the season's charring robes"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "unbroken-thread-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Threads."
+    },
+    "note": "The market table."
+   }
+  },
+  {
+   "key": "mau_tu_linh",
+   "name_hv": "Mâu Tú Linh",
+   "name_han": "牟繡靈",
+   "gloss": "Spirit of embroidery",
+   "sex": "F",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "chuc_ha",
+   "rank": "noi_mon",
+   "home": 1013,
+   "birthplace": 1015,
+   "role": "Embroiderer of the pavilion's banners",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "hoa": 44
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Arrogant",
+     "Patient"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Trúc Lâu Thôn girl who embroiders the pavilion's banners in Nhiễm Thanh Lam's (nhiem_thanh_lam) colours and is drafting, in secret, the pattern of the banner Thân Vân Cẩm wants to weave.",
+   "ties": [
+    {
+     "to": "nhiem_thanh_lam",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "phung_tieu_toa",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "luu_cam_ho",
+     "kind": "disciple",
+     "note": "stretches silk on the banner frames"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "unbroken-thread-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "fire-in-the-thread",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Fine threads."
+    },
+    "note": "The banner pattern."
+   }
+  },
+  {
+   "key": "dau_hong_ti",
+   "name_hv": "Đậu Hồng Ti",
+   "name_han": "竇紅絲",
+   "gloss": "Red silk",
+   "sex": "F",
+   "born": 1174,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "chuc_ha",
+   "rank": "noi_mon",
+   "home": 1013,
+   "birthplace": 162,
+   "role": "The pavilion's best young fire-setter",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 52,
+     "moc": 46
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Brave",
+     "Impatient"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A caravan-inn daughter of Tang Âm whose Fire runs hotter than her head's; Thân Vân Cẩm (than_van_cam) lets her set the fire in the best bolts, and she wants to try a vent.",
+   "ties": [
+    {
+     "to": "than_van_cam",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tich_diem_ti",
+     "kind": "rival",
+     "note": "would-be fire-setter at the looms"
+    }
+   ],
+   "master": "than_van_cam",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "unbroken-thread-canon",
+     "layer": 2
+    },
+    "aux": [
+     {
+      "tech": "fire-in-the-thread",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Burning thread."
+    },
+    "note": "Hot hands."
+   }
+  },
+  {
+   "key": "la_tieu_tam",
+   "name_hv": "Lã Tiểu Tàm",
+   "name_han": "呂小蠶",
+   "gloss": "Little silkworm",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "chuc_ha",
+   "rank": "ngoai_mon",
+   "home": 1013,
+   "birthplace": 1015,
+   "role": "Outer disciple of the worm sheds",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Compassionate",
+     "Humble"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A bamboo-house girl who feeds the worms for Tang Mộng Kiển (tang_mong_kien) and names the cocoons.",
+   "ties": [
+    {
+     "to": "tang_mong_kien",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "tang_mong_kien",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "mulberry-leaf-breath",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "The sheds."
+   }
+  },
+  {
+   "key": "luong_kien_sinh",
+   "name_hv": "Lương Kiển Sinh",
+   "name_han": "梁繭生",
+   "gloss": "Born of the cocoon",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "chuc_ha",
+   "rank": "noi_mon",
+   "home": 1013,
+   "birthplace": 94,
+   "role": "Inner disciple; boils and reels the cocoons",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 47,
+     "hoa": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Calm",
+     "Honest"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A Tang Điền reeler's boy who can draw a cocoon's thread a mile without a break, and is the one Tang Mộng Kiển (tang_mong_kien) would send to check a strand for vent fire.",
+   "ties": [
+    {
+     "to": "tang_mong_kien",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "van_diep_tang",
+     "kind": "friend",
+     "note": "feeds the worms and works the reels"
+    }
+   ],
+   "master": "tang_mong_kien",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "unbroken-thread-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Long threads."
+    },
+    "note": "The reel."
+   }
+  },
+  {
+   "key": "phung_tieu_toa",
+   "name_hv": "Phùng Tiểu Toa",
+   "name_han": "馮小梭",
+   "gloss": "Little shuttle",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "chuc_ha",
+   "rank": "ngoai_mon",
+   "home": 1013,
+   "birthplace": 163,
+   "role": "Outer disciple at the looms",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Trusting",
+     "Fickle",
+     "Gregarious"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hồ Tâm fisher girl who came to weave on her thin Wood and threads Mâu Tú Linh's (mau_tu_linh) needles faster than anyone.",
+   "ties": [
+    {
+     "to": "mau_tu_linh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "luu_cam_ho",
+     "kind": "friend",
+     "note": "stretches silk on the banner frames"
+    }
+   ],
+   "master": "mau_tu_linh",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "mulberry-leaf-breath",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water, for now."
+    },
+    "note": "The looms."
+   }
+  },
+  {
+   "key": "nguu_thai_diep",
+   "name_hv": "Ngưu Thải Diệp",
+   "name_han": "牛採葉",
+   "gloss": "Picks the leaves",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "chuc_ha",
+   "rank": "tap_dich",
+   "home": 1013,
+   "birthplace": 1015,
+   "role": "Servant leaf-picker of the mulberry rows",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 46,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Lazy",
+     "Forgiving"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "An Earth-rooted villager who has picked the pavilion's mulberry since its founding and gossips with Tang Mộng Kiển (tang_mong_kien) about every rider from the Fire Court.",
+   "ties": [
+    {
+     "to": "tang_mong_kien",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "exception": "servant (tạp dịch): Earth-Water root, not taught the lineage",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Plain Earth."
+    },
+    "note": "Servant; a stand-in Yellow Earth method."
+   }
+  },
+  {
+   "key": "hau_to_cam",
+   "name_hv": "Hầu Tố Cẩm",
+   "name_han": "侯素錦",
+   "gloss": "Plain brocade",
+   "sex": "F",
+   "born": 1060,
+   "died": 1148,
+   "cause": "died of burns from weaving fire into silk with her own Fire",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "chuc_ha",
+   "rank": "",
+   "home": 94,
+   "birthplace": 94,
+   "role": "A Tang Điền weaver; Thân Vân Cẩm's mother, who tried first",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Ambitious",
+     "Brave"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A weaver of Tang Điền who spent forty years trying to weave fire-silk without the vents, running her own Fire into the thread with no method to guide it. She burned her hands to the bone in 1146 and died of the burns two years later. Her daughter Thân Vân Cẩm (than_van_cam) made the method from her notes and founded the pavilion in 1150 (V172).",
+   "ties": [
+    {
+     "to": "than_van_cam",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "nhan_ti_nuong",
+     "kind": "ancestor",
+     "note": "the reeler of Hỏa Ti the family descends from"
+    },
+    {
+     "to": "trinh_to_am",
+     "kind": "former_disciple",
+     "note": "reeler in the worm sheds; judges the year's bolts"
+    }
+   ]
+  },
+  {
+   "key": "nhan_ti_nuong",
+   "name_hv": "Nhan Ti Nương",
+   "name_han": "顏絲娘",
+   "gloss": "Silk woman",
+   "sex": "F",
+   "born": 545,
+   "died": 590,
+   "cause": "burned with Hỏa Ti Trấn (V165, N-phuong_minh-01)",
+   "alive": false,
+   "peak_realm": "luyen_khi",
+   "sect": "",
+   "rank": "",
+   "home": 449,
+   "birthplace": 449,
+   "role": "Master reeler of Hỏa Ti Trấn; the ancestor of Tang Điền's weaving houses",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Brave",
+     "Loyal"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "The master reeler who taught Tang Sơ Ti (tang_so_ti) and barred the road with her reelers in 590; she burned with the town, and her daughters fled to Tang Điền with the reeling songs.",
+   "ties": [
+    {
+     "to": "tang_so_ti",
+     "kind": "former_disciple",
+     "note": "the girl who saved the last silk"
+    },
+    {
+     "to": "hau_to_cam",
+     "kind": "descendant",
+     "note": "her descendant"
+    }
+   ]
+  }
+ ]
+}

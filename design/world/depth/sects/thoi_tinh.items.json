@@ -1,0 +1,57 @@
+{
+ "sect": "thoi_tinh",
+ "_doc": "Thối Tinh Môn signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow the metal catalogue's grade 3-4 items. Prefix tht- (tt- would collide with other sects' initials). The head also keeps the catalogue's metal-hundred-edge-flying-sword (unchanged).",
+ "items": [
+  {
+   "id": "tht-three-years-tax", "name": "Three Years' Tax (Tam Niên Thuế)", "family": "metal", "kind": "artifact", "base": "phi_kiem", "grade": 4,
+   "modifiers": [{"key": "attack_pct", "value": 22, "scope": ["sword"]}, {"key": "crit_damage_pct", "value": 30, "scope": ["physical"]}, {"key": "art_speed_pct", "value": 10, "scope": ["kim"]}, {"key": "stack_effect_pct", "value": 20, "scope": ["kim", "debuff"]}, {"key": "pierce_pct", "value": 10, "scope": []}],
+   "effects": [{"new": true, "id": "sky-iron-sings", "name": "Sky Iron Sings (Thiên Thiết Minh)", "rule": "When a Thunder art strikes you or your blade, the sword rings: your next three Metal hits deal extra Thunder damage. Iron that did not fall from the sky does not ring."}],
+   "lore": "Forged in 1050 by Cát Lưu Quang from the star that fell near Thanh Bách Thành in 980 and was sold to the gate for three years of the city's taxes (A093, A231). It took him a winter of the Rite of the Fallen Star, because no coal fire on the mountain would soften it. The smiths named it for its price. In 1160 Vưu Chước Kim struck it with lightning and it sang, and then he struck an ingot of Thiên Ngoại iron and it did not (N-thoi_tinh-01).",
+   "build_use": "The head's flying sword: heavy Metal crits that pierce, and a Thunder rider if a Thunder foe obliges.",
+   "holder": "cat_luu_quang", "made_by": "cat_luu_quang", "made_year": 1050, "set": "tht-fallen-star-forge", "status": "proposal"
+  },
+  {
+   "id": "tht-river-tongs", "name": "River Tongs (Hà Kiềm)", "family": "metal", "kind": "treasure", "base": "lac_thiet", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 14, "scope": ["kim"]}, {"key": "stack_duration_pct", "value": 30, "scope": ["kim", "debuff"]}, {"key": "khi_huyet_pct", "value": 12, "scope": []}, {"key": "block_rating", "value": 15, "scope": []}],
+   "effects": [{"new": true, "id": "drawn-from-the-river", "name": "Drawn from the River (Xuất Hà)", "rule": "Once a fight, when you fall below a third of your health, you plunge your own wounds in cold: lose all burns and gain a ward equal to your block rating times ten for a few seconds."}],
+   "lore": "The founder's tongs, iron gone black and smooth from nine centuries of hands. Every star-iron blade of the gate has been carried in them from the anvil to the snow-melt pool. The quench-keeper holds them, not the head, by the founder's rule: the one who strikes does not quench.",
+   "build_use": "A quench-keeper's piece: longer Quench marks, a guard, and one cold rescue.",
+   "holder": "bang_lanh_toi", "made_by": "dieu_lac_tinh", "made_year": 330, "set": null, "status": "proposal"
+  },
+  {
+   "id": "tht-coal-black-apron", "name": "Coal-Black Apron (Hắc Thán Vi)", "family": "metal", "kind": "artifact", "base": "giap", "grade": 3,
+   "modifiers": [{"key": "khi_huyet_pct", "value": 18, "scope": []}, {"key": "defense_pct", "value": 10, "scope": []}, {"key": "resist_pct", "value": 120, "scope": ["fire"]}, {"key": "health_regen_inc_pct", "value": 20, "scope": []}],
+   "effects": [],
+   "lore": "A smith's apron of iron-thread felt, made by Cát Lưu Quang for his first son's Trúc Cơ in 1130. Cát Đoán Nhạc wears it at the anvil and in the hall, as if to remind his father whose son he is.",
+   "build_use": "Heavy forge armour: health, defence and fire resistance for a smith who cannot make his own fire.",
+   "holder": "cat_doan_nhac", "made_by": "cat_luu_quang", "made_year": 1130, "set": null, "status": "proposal"
+  },
+  {
+   "id": "tht-star-brand", "name": "Star-Brand (Tinh Lạc Thiết)", "family": "fire", "kind": "artifact", "base": "lac_thiet", "grade": 3,
+   "modifiers": [{"key": "attack_pct", "value": 14, "scope": ["fire"]}, {"key": "stack_effect_pct", "value": 20, "scope": ["hoa", "buff"]}, {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}, {"key": "khi_huyet_pct", "value": 8, "scope": []}],
+   "effects": [],
+   "lore": "The branding iron that marks every star-iron blade of the gate; heated in the Rite's fire, it never quite cools.",
+   "build_use": "The Rite's Fire behind the blade: heat he lays on his own sword.",
+   "holder": "cat_luu_quang", "made_by": "cat_luu_quang", "made_year": 1050, "set": "tht-fallen-star-forge", "status": "proposal"
+  },
+  {
+   "id": "tht-quench-robe", "name": "Robe of Quenched Iron (Tôi Thiết Bào)", "family": "metal", "kind": "artifact", "base": "giap", "grade": 3,
+   "modifiers": [{"key": "khi_huyet_pct", "value": 16, "scope": []}, {"key": "defense_pct", "value": 10, "scope": []}, {"key": "resist_pct", "value": 120, "scope": ["lightning"]}, {"key": "health_regen_inc_pct", "value": 14, "scope": []}],
+   "effects": [],
+   "lore": "Iron rings sewn on felt soaked in quench water; it hisses when lightning strikes it, which is what he wants.",
+   "build_use": "Health and Thunder resistance for a smith who stands under the bolt.",
+   "holder": "cat_luu_quang", "made_by": "bang_lanh_toi", "made_year": 1060, "set": "tht-fallen-star-forge", "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "tht-fallen-star-forge", "name": "Fallen Star Forge (Tinh Lạc Lô Cụ)", "pieces": ["tht-three-years-tax", "tht-star-brand", "tht-quench-robe"],
+   "bonuses": [
+    {"pieces": 2, "modifiers": [{"key": "pierce_pct", "value": 5, "scope": []}, {"key": "attack_pct", "value": 8, "scope": ["sword"]}]},
+    {"pieces": 3, "effect": "Heat the Edge (Tôi Phong): each Fire art you fire heats your sword one step, each step giving your Metal sword arts 4 % pierce; each step fades after 3 s unless you fire another Fire art. At 5 steps or more your next sword art quenches it: a certain crit that counts as a Thunder strike on your blade (Sky Iron Sings wakes), and the steps clear."}
+   ],
+   "story": "Made in his first years as head: the star sword of 1050, the brand that marked it, and the robe the quench-keeper sewed for him in 1060. Whole since then.",
+   "authored": "d43"
+  }
+ ]
+}

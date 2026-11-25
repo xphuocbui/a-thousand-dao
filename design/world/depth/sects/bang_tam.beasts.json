@@ -1,0 +1,94 @@
+{
+ "sect": "bang_tam",
+ "_doc": "Băng Tâm Các: named spirit beasts (linh thú). Proposal, unpriced (review/RANKED.md A7, 2026-11-25; form of sects/cuu_cao.beasts.json). An owned beast is a people record with is_beast and owner_id, and its owner lists it in `beasts` (src/gameplay/character/beast_keeper.gd, assets/data/creatures_linh_thu.json). Capacity is 1 + floor(effective thần hồn / 40). In a fight it is a companion: it adds power_share (0.5) of its chiến lực to its owner's offense, strikes every basic_cooldown, cannot be targeted and never leaves the fight (Combat rule 19). `combat` and `bond` are depth fields; `bond.rider` marks a mount, `bond.keeper` a beast that is not ridden. The owners' cast records do not list these beasts yet.",
+ "beasts": [
+  {
+   "key": "ngoc_dieu",
+   "name_hv": "Ngọc Điêu",
+   "name_han": "玉貂",
+   "gloss": "Jade Sable",
+   "is_beast": true,
+   "species": "white ice sable",
+   "sex": "F",
+   "born": 1014,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "root": {
+    "elements": {
+     "thuy": 40
+    },
+    "variants": {
+     "bang": 52
+    }
+   },
+   "owner_id": "lam_tuyet_dieu",
+   "loyalty": 90,
+   "home": 239,
+   "location_id": 239,
+   "tags": [
+    "sable",
+    "companion"
+   ],
+   "appearance": "A white sable draped across her shoulders, so still it is taken for a fur.",
+   "combat": {
+    "strikes": "bang",
+    "power_share": 0.5,
+    "note": "Her Ice companion; her build's Ice stacks and companion nodes serve it and the wolf."
+   },
+   "bond": {
+    "keeper": "lam_tuyet_dieu",
+    "since": 1014,
+    "event": null,
+    "rule": "Raised from a kit inside her coat."
+   },
+   "backstory": "The sable kit Lam Tuyết Điêu carried inside her coat when she came to the Pavilion. It has grown with her into a Kết Đan beast, which no other sable of the Beast Hall has done.",
+   "status": "proposal",
+   "authored": "review-A7"
+  },
+  {
+   "key": "han_tich",
+   "name_hv": "Hàn Tích",
+   "name_han": "寒脊",
+   "gloss": "Cold Spine",
+   "is_beast": true,
+   "species": "frost wolf, leader of the Beast Hall pack",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "root": {
+    "elements": {
+     "thuy": 46
+    },
+    "variants": {
+     "bang": 40
+    }
+   },
+   "owner_id": "lam_tuyet_dieu",
+   "loyalty": 90,
+   "home": 239,
+   "location_id": 239,
+   "tags": [
+    "wolf",
+    "companion"
+   ],
+   "appearance": "A big grey-white wolf with a black stripe down its spine and frost in its ruff.",
+   "combat": {
+    "strikes": "bang",
+    "power_share": 0.5,
+    "note": "The frost-wolf pack leader her build's companion health and power nodes are for."
+   },
+   "bond": {
+    "keeper": "lam_tuyet_dieu",
+    "since": 1152,
+    "event": null,
+    "rule": "Raised at the Beast Hall from a pup."
+   },
+   "backstory": "Grandson of the tundra wolf that came with her from Tuyết Lang Nguyên. It leads the Beast Hall's frost-wolf pack, and it was the first to grow restless when the vein began to warm.",
+   "status": "proposal",
+   "authored": "review-A7"
+  }
+ ]
+}

@@ -1,0 +1,2525 @@
+{
+ "group": "clans",
+ "_doc": "Cultivating clans (thế gia) part 1: Tiêu of Hòe Âm, Ôn of Song Kiều, Tạ of Phong Lâm. Story: clans.md.",
+ "people": [
+  {
+   "key": "tieu_chung_hoe",
+   "name_hv": "Tiêu Chủng Hòe",
+   "name_han": "蕭種槐",
+   "gloss": "He who plants the locust",
+   "sex": "M",
+   "born": 470,
+   "alive": false,
+   "died": 655,
+   "cause": "old age at 185",
+   "peak_realm": "truc_co",
+   "sect": "",
+   "rank": "",
+   "home": 66,
+   "birthplace": null,
+   "role": "Founder of the Tiêu of Hòe Âm; planted the locust road in 520 (A102)",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Patient",
+     "Generous",
+     "Diligent"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Tiêu Chủng Hòe came up the coast road in 515, a hunter who sold herbs, and stayed where the road turns inland toward the mountains. In 520 he planted locust trees along it so that travellers would walk to the passes in shade (A102), and the hamlet that grew around his house took the trees' name. He made the clan's two rules: every Tiêu child plants a locust on the road the year it is born, and every Tiêu is buried under the tree they planted. He reached Foundation late and died at 185 under the first tree.",
+   "ties": [
+    {
+     "to": "tieu_thua_am",
+     "kind": "descendant",
+     "note": "head of the clan"
+    },
+    {
+     "to": "tieu_kien_quang",
+     "kind": "descendant",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "key": "tieu_thua_am",
+   "name_hv": "Tiêu Thừa Âm",
+   "name_han": "蕭承蔭",
+   "gloss": "Heir to the shade",
+   "sex": "M",
+   "born": 952,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 66,
+   "birthplace": 66,
+   "role": "Head of the Tiêu of Hòe Âm: the locust road, the dye works and the post inn",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 62,
+     "moc": 48,
+     "kim": 24
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 66,
+    "than_hon": 60,
+    "khi_van": 54,
+    "dao_tam": 62,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Patient",
+     "Deceitful"
+    ],
+    "calling": "Strategist",
+    "upbringing": "clan_heir",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Grudge"
+    ]
+   },
+   "appearance": "A broad old man with a hunter's stoop and locust pollen in his beard every summer, who walks the road with a pruning hook and greets each tree by the name of the child who planted it.",
+   "backstory": "Tiêu Thừa Âm is the son of Tiêu Kiến Quang (tieu_kien_quang), the hunter who saw a sword's cold light behind a seal on the mountain in 930 and ran (A108). He grew up carrying his father's rope on eighty years of searches that found nothing, and at his father's grave under the locusts in 1010 he promised to finish them. He did not search. He waited. He formed his core at 130 on the clan's own breathing, took the locust road, the dye works and the inn where the Pavilion's envoys change horses, and made the Tiêu the first house of Hòe Âm. In 1150 he sent his eldest grandson, Tiêu Vấn Phong (tieu_van_phong), twelve years old, up to the gate of Lê Hoa Am (A110). He told the clan it was for the nuns' learning. When the boy came down refused, Thừa Âm made the refusal the clan's grievance: since then Tiêu daughters go to the hermitage and Tiêu sons go anywhere else. In 1162 he gave his grandson the hunters' lodge below the massif for Tầm Kiếm Đường (V069), and he has never once visited it.",
+   "wants": "To stand in the cave his father saw before he dies, and to have a Tiêu be the one who opens it.",
+   "secret": "He told the twelve-year-old Vấn Phong to ask the abbess about the cold light before anything else. He suspects that question, not the boy's sex, shut the gate, and for fifty years he has let his grandson build a hall on the other story.",
+   "ties": [
+    {
+     "to": "tieu_kien_quang",
+     "kind": "parent",
+     "note": "his father, who saw the cold light in 930"
+    },
+    {
+     "to": "tieu_chung_hoe",
+     "kind": "ancestor",
+     "note": "planted the road; Thừa Âm prunes his tree himself"
+    },
+    {
+     "to": "tieu_thu_dao",
+     "kind": "child",
+     "note": "his heir, who keeps the inn"
+    },
+    {
+     "to": "tieu_thu_tuyen",
+     "kind": "child",
+     "note": "the dye works"
+    },
+    {
+     "to": "tieu_thu_tan",
+     "kind": "child",
+     "note": "the boats"
+    },
+    {
+     "to": "tieu_van_phong",
+     "kind": "grandchild",
+     "note": "sent up the mountain in 1150 with a question to ask"
+    },
+    {
+     "to": "tieu_ngoc_hoe",
+     "kind": "grandchild",
+     "note": "his eyes inside the hermitage, though she does not know it"
+    },
+    {
+     "to": "tieu_bach_lo",
+     "kind": "grandchild",
+     "note": "in the Pavilion's outer gate"
+    },
+    {
+     "to": "tieu_hoe_sinh",
+     "kind": "descendant",
+     "note": "great-grandson at the hall"
+    },
+    {
+     "to": "tieu_minh_khe",
+     "kind": "descendant",
+     "note": "the next boy for the gate"
+    },
+    {
+     "to": "thai_le_tuyet",
+     "kind": "feud",
+     "note": "refused his grandson; he has sent her a jar of locust honey every solstice since, unsigned"
+    },
+    {
+     "to": "tieu_uyen_am",
+     "kind": "grandchild",
+     "note": "his granddaughter, whom he has not forgiven"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 9
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "cl-old-locust-seal"
+     },
+     {
+      "named": "cl-fathers-rope-knot"
+     },
+     {
+      "named": "cl-locust-dye-robe"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain and wards first, then Wood regrowth: an old man who outlasts.",
+     "targets": [
+      748,
+      744,
+      4349,
+      4357,
+      5374,
+      6299
+     ],
+     "targets_note": "Calm Pool, Flowing Thought, Golden Bell wards, Nourishing Rain, then Growth Rings: an old man who outlasts."
+    },
+    "note": "Runs the clan's Locust Shade Breathing (clans.techniques.json); the id is a stand-in. Wards up under the seal and waits."
+   },
+   "items": [
+    "cl-old-locust-seal",
+    "cl-fathers-rope-knot",
+    "cl-locust-dye-robe"
+   ]
+  },
+  {
+   "key": "tieu_thu_dao",
+   "name_hv": "Tiêu Thủ Đạo",
+   "name_han": "蕭守道",
+   "gloss": "He who keeps the road",
+   "sex": "M",
+   "born": 1098,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 66,
+   "birthplace": 66,
+   "role": "Keeper of the locust road and the post inn; Tiêu Vấn Phong's father",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "moc": 40,
+     "kim": 26
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 48,
+    "can_cot": 58,
+    "than_hon": 50,
+    "khi_van": 52,
+    "dao_tam": 54,
+    "mi_luc": 56
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Content",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": "tea_master",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Humbled"
+    ]
+   },
+   "appearance": "A quiet innkeeper with a ledger under one arm and a locust twig behind his ear.",
+   "backstory": "The eldest son of Tiêu Thừa Âm (tieu_thua_am), Thủ Đạo keeps the locust road and the inn at its foot, where the Pavilion's envoys change horses and Tầm Kiếm's guides wait for clients. He wanted his first son to keep the inn after him. Tiêu Vấn Phong (tieu_van_phong) went up the mountain instead, came down refused, and since he founded the hall in 1162 has spoken to his father at the New Year and at no other time. Thủ Đạo blames the hermitage aloud and his own father in private.",
+   "ties": [
+    {
+     "to": "tieu_thua_am",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "ha_thu_dinh",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "tieu_van_phong",
+     "kind": "child",
+     "note": "estranged since 1162; they speak at the New Year"
+    },
+    {
+     "to": "tieu_van_canh",
+     "kind": "child",
+     "note": "the son who stayed"
+    },
+    {
+     "to": "nguy_thanh_han",
+     "kind": "friend",
+     "note": "the Pavilion's envoy has slept at his inn on every journey south for a century"
+    },
+    {
+     "to": "tieu_thu_tan",
+     "kind": "sibling",
+     "note": "his brother"
+    },
+    {
+     "to": "tieu_thu_tuyen",
+     "kind": "sibling",
+     "note": "his brother"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain: an innkeeper who can hold a door.",
+     "targets": [
+      748,
+      744,
+      5374,
+      4349
+     ],
+     "targets_note": "Water linh lực and regeneration, Bell Rim block: holds a door."
+    },
+    "note": "Runs the clan's Locust Shade Breathing (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "ha_thu_dinh",
+   "name_hv": "Hà Thu Đình",
+   "name_han": "何秋庭",
+   "gloss": "Autumn courtyard",
+   "sex": "F",
+   "born": 1112,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 66,
+   "birthplace": 1368,
+   "role": "Wife of Tiêu Thủ Đạo; Tiêu Vấn Phong's mother",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 32,
+     "kim": 18
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Patient",
+     "Humble"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A miller's daughter of Hàn Khê Thôn who married into the inn and bore Tiêu Vấn Phong (tieu_van_phong); every winter she sews him a fur cape and sends it up to the lodge with his sworn brother Tịch Lang Tung (tich_lang_tung).",
+   "ties": [
+    {
+     "to": "tieu_thu_dao",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "tieu_van_phong",
+     "kind": "child",
+     "note": "the capes"
+    },
+    {
+     "to": "tieu_van_canh",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "tich_lang_tung",
+     "kind": "friend",
+     "note": "carries the capes"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing for a household."
+    },
+    "note": "Runs the clan's Locust Shade Breathing (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "tieu_thu_tuyen",
+   "name_hv": "Tiêu Thủ Tuyền",
+   "name_han": "蕭守泉",
+   "gloss": "He who keeps the spring",
+   "sex": "M",
+   "born": 1121,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 66,
+   "birthplace": 66,
+   "role": "Master of the clan's dye works and the locust-bud trade; Tiêu Ngọc Hòe's father",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "kim": 34,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 52,
+    "can_cot": 54,
+    "than_hon": 48,
+    "khi_van": 60,
+    "dao_tam": 44,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Gregarious",
+     "Fickle"
+    ],
+    "calling": "Merchant",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": "gambler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Yellow to the wrists from the vats, loud, and always about to make a wager.",
+   "backstory": "Thừa Âm's second son runs the clan's dye works, where locust buds are dried and boiled for the yellow that Hòe Âm's boats carry south, and sells the same buds to stop bleeding. His best customer is the Pavilion's guest alchemist Viên Chước (vien_chuoc), who has owed him for three harvests and plays dice with him to settle it. He sent his daughter Tiêu Ngọc Hòe (tieu_ngoc_hoe) to the hermitage by the clan rule and reads each of her letters twice.",
+   "ties": [
+    {
+     "to": "tieu_thua_am",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "tieu_thu_dao",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "tieu_ngoc_hoe",
+     "kind": "child",
+     "note": "at the hermitage"
+    },
+    {
+     "to": "tieu_uyen_am",
+     "kind": "child",
+     "note": "who refused it"
+    },
+    {
+     "to": "vien_chuoc",
+     "kind": "creditor",
+     "note": "owes him for three harvests of locust buds"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain and a little Wood healing; he would rather pay someone else to fight.",
+     "targets": [
+      748,
+      744,
+      5351
+     ],
+     "targets_note": "Water linh lực and Timely Rain healing."
+    },
+    "note": "Runs the clan's Locust Shade Breathing (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "tieu_van_canh",
+   "name_hv": "Tiêu Vấn Canh",
+   "name_han": "蕭問耕",
+   "gloss": "He who asks after the plough",
+   "sex": "M",
+   "born": 1144,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 66,
+   "birthplace": 66,
+   "role": "Farms the clan's valley fields; Tiêu Vấn Phong's younger brother",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 38,
+     "kim": 16
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Humble",
+     "Diligent"
+    ],
+    "calling": "Steward",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Tiêu Vấn Phong's (tieu_van_phong) younger brother, who stayed to farm the valley fields and has never been up to the hall; his son Tiêu Hòe Sinh (tieu_hoe_sinh) went anyway.",
+   "ties": [
+    {
+     "to": "tieu_thu_dao",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "ha_thu_dinh",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "tieu_van_phong",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "tieu_hoe_sinh",
+     "kind": "child",
+     "note": "went to the hall"
+    },
+    {
+     "to": "tieu_minh_khe",
+     "kind": "child",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water and Wood: a farmer's endurance."
+    },
+    "note": "Runs the clan's Locust Shade Breathing (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "tieu_thu_tan",
+   "name_hv": "Tiêu Thủ Tân",
+   "name_han": "蕭守津",
+   "gloss": "He who keeps the landing",
+   "sex": "M",
+   "born": 1132,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 66,
+   "birthplace": 66,
+   "role": "Keeps the clan's boats at Hòe Âm's landing; Tiêu Bạch Lộ's father",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 36,
+     "kim": 14
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Gregarious",
+     "Impatient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Thừa Âm's youngest son keeps the clan's two boats at Hòe Âm's landing, which carry dye and furs down the frost coast; he sent his son Tiêu Bạch Lộ (tieu_bach_lo) to the Pavilion's outer gate rather than to the hall.",
+   "ties": [
+    {
+     "to": "tieu_thua_am",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "tieu_thu_dao",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "tieu_bach_lo",
+     "kind": "child",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water on the water: a boatman's arts."
+    },
+    "note": "Runs the clan's Locust Shade Breathing (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "tieu_uyen_am",
+   "name_hv": "Tiêu Uyển Âm",
+   "name_han": "蕭婉蔭",
+   "gloss": "Gentle shade",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 66,
+   "birthplace": 66,
+   "role": "Runs the dye vats; the Tiêu daughter who refused the hermitage",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "kim": 30,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Brave",
+     "Honest"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Tiêu Ngọc Hòe's (tieu_ngoc_hoe) younger sister, due at the hermitage in 1195, who said no to her grandfather's face; she runs the dye vats for her father and has the yellow hands to prove it.",
+   "ties": [
+    {
+     "to": "tieu_thu_tuyen",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "tieu_ngoc_hoe",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "tieu_thua_am",
+     "kind": "grandparent",
+     "note": "has not forgiven her"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water and Wood brewing."
+    },
+    "note": "Runs the clan's Locust Shade Breathing (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "tieu_minh_khe",
+   "name_hv": "Tiêu Minh Khê",
+   "name_han": "蕭鳴溪",
+   "gloss": "Singing brook",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 66,
+   "birthplace": 66,
+   "role": "Sixteen; the next Tiêu son the head means to send to Lê Hoa Am's gate",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "moc": 36,
+     "kim": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Trusting",
+     "Ambitious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Tiêu Vấn Canh's younger son, sixteen, whom his great-grandfather means to send up to Lê Hoa Am's gate in 1202, the year of the abbess's walk, as Tiêu Vấn Phong (tieu_van_phong) was sent; he has been told what to ask.",
+   "ties": [
+    {
+     "to": "tieu_van_canh",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "tieu_hoe_sinh",
+     "kind": "sibling",
+     "note": "wants him at the hall instead"
+    },
+    {
+     "to": "tieu_thua_am",
+     "kind": "ancestor",
+     "note": "has told him what to ask"
+    },
+    {
+     "to": "tieu_van_phong",
+     "kind": "aunt_uncle",
+     "note": "his uncle the head"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Not yet decided; Water for now."
+    },
+    "note": "Runs the clan's Locust Shade Breathing (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "on_gia_hong",
+   "name_hv": "Ôn Giá Hồng",
+   "name_han": "溫架虹",
+   "gloss": "He who spans the rainbow",
+   "sex": "M",
+   "born": 850,
+   "alive": false,
+   "died": 1112,
+   "cause": "drowned holding the north bridge's pillar in the flood of 1112 (age 262)",
+   "peak_realm": "ket_dan",
+   "sect": "",
+   "rank": "",
+   "home": 82,
+   "birthplace": null,
+   "role": "Builder of the twin bridges of Song Kiều (900, A229)",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Patient",
+     "Stubborn",
+     "Diligent"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Ôn Giá Hồng was a mason's son of Song Kiều who spent forty years learning to sink a pillar in moving water. In 900 he built the twin bridges over the river road, one for the ore carts and one for everyone else, and kept the toll (A229). Every load of Ngọc Hành ore weighed on the Pivot's open scales (A219) has crossed one of his bridges first. In the flood of 1112 he went into the river to hold the north bridge's eastern pillar, and the pillar stood.",
+   "ties": [
+    {
+     "to": "on_trong_luong",
+     "kind": "child",
+     "note": "his heir"
+    }
+   ]
+  },
+  {
+   "key": "on_trong_luong",
+   "name_hv": "Ôn Trọng Lương",
+   "name_han": "溫重梁",
+   "gloss": "The heavy beam",
+   "sex": "M",
+   "born": 1010,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 82,
+   "birthplace": 82,
+   "role": "Head of the Ôn of Song Kiều: the twin bridges and their tolls",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "tho": 56,
+     "moc": 50,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 72,
+    "than_hon": 50,
+    "khi_van": 58,
+    "dao_tam": 60,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Greedy",
+     "Calm"
+    ],
+    "calling": "Merchant",
+    "upbringing": "clan_heir",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": "go_player",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "Heavy, square and slow, with mason's hands and a toll-keeper's habit of looking at a cart's axles before its driver's face.",
+   "backstory": "Ôn Trọng Lương was born in the north bridge's toll house in 1010, the son of Ôn Giá Hồng (on_gia_hong), who built the twin bridges of Song Kiều in 900 and kept the tolls (A229). He was a hundred and two when his father went into the flood of 1112 to hold the eastern pillar and did not come out, and he has held the bridges since. The Pivot weighs the miners' ore on its open scales in the square (A219); the Ôn take their toll on the way there, and the miners pay twice. In 1095 he married his daughter Ôn Thục Hà (on_thuc_ha) to the son of Tưởng Bách Luyện (tuong_bach_luyen), and Chân Kim Các became kin and partner in the tolls. His granddaughter Tưởng Ngọc Cân (tuong_ngoc_can) keeps the house's scales across the square, and his granddaughter Ôn Song Ngọc (on_song_ngoc) settles which ore pays on which bridge. Each spring he asks the Pivot to let him raise the ore toll by a tenth, and each spring Đặng Quân Bình (dang_quan_binh) refuses.",
+   "wants": "The ore toll raised by a tenth, and a third bridge with an Ôn toll on it before the Pivot thinks to build one of its own.",
+   "secret": "The north bridge's eastern pillar has been cracked since the flood that killed his father. He has had it faced over twice, and the raised toll would pay to rebuild it before a loaded ore cart finds the crack.",
+   "ties": [
+    {
+     "to": "on_gia_hong",
+     "kind": "parent",
+     "note": "drowned holding the pillar"
+    },
+    {
+     "to": "on_thuc_ha",
+     "kind": "child",
+     "note": "married into the Tưởng"
+    },
+    {
+     "to": "on_the_hoanh",
+     "kind": "child",
+     "note": "his heir and toll-master"
+    },
+    {
+     "to": "on_song_ngoc",
+     "kind": "grandchild",
+     "note": "the one who knows both sides"
+    },
+    {
+     "to": "tuong_ngoc_can",
+     "kind": "grandchild",
+     "note": "through his daughter"
+    },
+    {
+     "to": "on_lap_tru",
+     "kind": "grandchild",
+     "note": "the mason"
+    },
+    {
+     "to": "on_huu_toan",
+     "kind": "grandchild",
+     "note": ""
+    },
+    {
+     "to": "on_tieu_kieu",
+     "kind": "descendant",
+     "note": "great-grandson at Chân Kim"
+    },
+    {
+     "to": "tuong_bach_luyen",
+     "kind": "in_law",
+     "note": "the marriage of 1095"
+    },
+    {
+     "to": "dang_quan_binh",
+     "kind": "enemy",
+     "note": "refuses the toll every spring"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-heart-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "cl-keystone-toll-seal"
+     },
+     {
+      "named": "cl-east-pillar-shield"
+     },
+     {
+      "named": "cl-flood-year-coat"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth bulwark and health: the man is a pillar.",
+     "targets": [
+      715,
+      3724,
+      3051,
+      3250,
+      3258,
+      3838
+     ],
+     "targets_note": "Earth Root, Earthen Gate, Five Peaks, the Bulwark, then Immovable Mountain: the man is a pillar."
+    },
+    "note": "Learned the clan's Twin Span Pillar Method first (clans.techniques.json); bought the Mountain Heart Canon in 1080 and formed his core on it."
+   },
+   "items": [
+    "cl-keystone-toll-seal",
+    "cl-east-pillar-shield",
+    "cl-flood-year-coat"
+   ]
+  },
+  {
+   "key": "on_thuc_ha",
+   "name_hv": "Ôn Thục Hà",
+   "name_han": "溫淑河",
+   "gloss": "Gentle river",
+   "sex": "F",
+   "born": 1072,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 82,
+   "birthplace": 82,
+   "role": "Keeper of the toll ledgers; Tưởng Ngọc Cân's mother, married into the Tưởng of Chân Kim",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "tho": 38,
+     "hoa": 24
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 50,
+    "than_hon": 58,
+    "khi_van": 50,
+    "dao_tam": 56,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Just",
+     "Patient"
+    ],
+    "calling": "Steward",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A neat grey woman with ink on her right sleeve and toll tokens on a cord at her wrist.",
+   "backstory": "Ôn Trọng Lương's (on_trong_luong) daughter, married in 1095 to the son of Tưởng Bách Luyện (tuong_bach_luyen) to make the assay house kin to the tolls. She raised Tưởng Ngọc Cân (tuong_ngoc_can) on the square between the miners and the assayers, and when her daughter took the house's scales in 1160 she came home to the north toll house to keep her father's ledgers. She is the only Ôn who has seen both houses' books, and she has told neither what is in the other's.",
+   "ties": [
+    {
+     "to": "on_trong_luong",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "on_the_hoanh",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "tuong_ngoc_can",
+     "kind": "child",
+     "note": "keeps the scales"
+    },
+    {
+     "to": "tuong_bach_luyen",
+     "kind": "in_law",
+     "note": "her father-in-law"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and Earth wards; she has never needed more.",
+     "targets": [
+      782,
+      6263,
+      6252
+     ],
+     "targets_note": "Wood Grain, Leaf Shield, Thorn Hedge: block and resistance."
+    },
+    "note": "Learned on the clan's Twin Span Pillar Method (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "on_the_hoanh",
+   "name_hv": "Ôn Thế Hoành",
+   "name_han": "溫世衡",
+   "gloss": "The world's balance-beam",
+   "sex": "M",
+   "born": 1084,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 82,
+   "birthplace": 82,
+   "role": "Toll-master of the twin bridges; Ôn Song Ngọc's father and the head's heir",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 40,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 54,
+    "can_cot": 56,
+    "than_hon": 48,
+    "khi_van": 52,
+    "dao_tam": 50,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Impatient",
+     "Greedy",
+     "Loyal"
+    ],
+    "calling": "Merchant",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A tall man in a toll-keeper's oilcloth coat who counts axles under his breath.",
+   "backstory": "The head's son and toll-master of both bridges, Ôn Thế Hoành sent his daughter Ôn Song Ngọc (on_song_ngoc) to Chân Kim Các to learn the eye, and she learned the tolls instead, better than he knows them. He wants her home to take the toll houses after him, and she has not answered. Every morning he and the Pivot's assayer Hồng Chuẩn Bình (hong_chuan_binh) meet at the bridge foot and disagree about the weight of the first cart.",
+   "ties": [
+    {
+     "to": "on_trong_luong",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "on_thuc_ha",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "on_song_ngoc",
+     "kind": "child",
+     "note": "wants her home"
+    },
+    {
+     "to": "on_lap_tru",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "on_huu_toan",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "hong_chuan_binh",
+     "kind": "rival",
+     "note": "the first cart, every morning"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain behind Earth wards.",
+     "targets": [
+      748,
+      5374,
+      4349,
+      4357
+     ],
+     "targets_note": "Calm Pool and Nourishing Rain behind the Golden Bell's ward."
+    },
+    "note": "Learned on the clan's Twin Span Pillar Method (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "on_lap_tru",
+   "name_hv": "Ôn Lập Trụ",
+   "name_han": "溫立柱",
+   "gloss": "He who sets a pillar",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 82,
+   "birthplace": 82,
+   "role": "The clan's bridge mason",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "tho": 36,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Diligent",
+     "Brave"
+    ],
+    "calling": "Steward",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Ôn Song Ngọc's (on_song_ngoc) younger brother and the clan's bridge mason, who dives under the north bridge every spring and is the only one besides his grandfather who has put his hand on the crack.",
+   "ties": [
+    {
+     "to": "on_the_hoanh",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "on_song_ngoc",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "lo_hanh_nuong",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "on_tieu_kieu",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "on_thanh_luu",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "on_trong_luong",
+     "kind": "grandparent",
+     "note": "sworn to silence about the pillar"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Health and bulwark: a diver's body."
+    },
+    "note": "Learned on the clan's Twin Span Pillar Method (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "lo_hanh_nuong",
+   "name_hv": "Lỗ Hạnh Nương",
+   "name_han": "魯杏娘",
+   "gloss": "Apricot girl",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 82,
+   "birthplace": 708,
+   "role": "Rope-maker's daughter married into the Ôn; checks the bridges' hawsers",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 34,
+     "moc": 30,
+     "tho": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Calm",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A rope-maker's daughter of Thằng Ma Thôn, whose family twists the hemp hawsers that moor the bridges' barges; she married Ôn Lập Trụ (on_lap_tru) and still checks every rope herself.",
+   "ties": [
+    {
+     "to": "on_lap_tru",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "on_tieu_kieu",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "on_thanh_luu",
+     "kind": "child",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire and Earth, a little of each."
+    },
+    "note": "Learned on the clan's Twin Span Pillar Method (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "on_thanh_luu",
+   "name_hv": "Ôn Thanh Lưu",
+   "name_han": "溫清流",
+   "gloss": "Clear current",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 82,
+   "birthplace": 82,
+   "role": "Poles the toll ferry when floods close the bridges",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 38,
+     "thuy": 32,
+     "tho": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Gregarious",
+     "Greedy"
+    ],
+    "calling": "Merchant",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Ôn Tiểu Kiều's (on_tieu_kieu) elder sister, who poles the toll ferry across when floods close the bridges and charges double, as the clan rule says.",
+   "ties": [
+    {
+     "to": "on_lap_tru",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "on_tieu_kieu",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "lo_hanh_nuong",
+     "kind": "parent",
+     "note": "her mother"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and Water: a ferrywoman's reach."
+    },
+    "note": "Learned on the clan's Twin Span Pillar Method (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "on_huu_toan",
+   "name_hv": "Ôn Hữu Toán",
+   "name_han": "溫有算",
+   "gloss": "He who has the count",
+   "sex": "M",
+   "born": 1160,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 82,
+   "birthplace": 82,
+   "role": "Toll clerk of the twin bridges",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "thuy": 34,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Diligent",
+     "Paranoid"
+    ],
+    "calling": "Merchant",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Ôn Thế Hoành's younger son and the toll clerk, who expected to inherit the toll houses until his sister Ôn Song Ngọc (on_song_ngoc) came back from Chân Kim knowing more than he does.",
+   "ties": [
+    {
+     "to": "on_the_hoanh",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "on_song_ngoc",
+     "kind": "sibling",
+     "note": "and his rival for the toll houses"
+    },
+    {
+     "to": "on_bich_de",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "on_trong_luong",
+     "kind": "grandparent",
+     "note": "his grandfather"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth wards."
+    },
+    "note": "Learned on the clan's Twin Span Pillar Method (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "on_bich_de",
+   "name_hv": "Ôn Bích Đê",
+   "name_han": "溫碧堤",
+   "gloss": "Green embankment",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 82,
+   "birthplace": 82,
+   "role": "Next in the clan's line for Chân Kim's outer gate",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 38,
+     "moc": 30,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Patient",
+     "Trusting"
+    ],
+    "calling": "Merchant",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Ôn Hữu Toán's daughter, seventeen, who counts carts from the toll-house roof and is the Ôn child Chân Kim's outer gate will take next year; her cousin Ôn Tiểu Kiều (on_tieu_kieu) has told her to learn the eye, not the tolls.",
+   "ties": [
+    {
+     "to": "on_huu_toan",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "on_tieu_kieu",
+     "kind": "cousin",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_tho",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth, and a good eye."
+    },
+    "note": "Learned on the clan's Twin Span Pillar Method (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "ta_bat_vong",
+   "name_hv": "Tạ Bất Vong",
+   "name_han": "謝不忘",
+   "gloss": "He who does not forget",
+   "sex": "M",
+   "born": 425,
+   "alive": false,
+   "died": 611,
+   "cause": "old age at 186",
+   "peak_realm": "truc_co",
+   "sect": "",
+   "rank": "",
+   "home": 79,
+   "birthplace": null,
+   "role": "Led the Tạ to Phong Lâm in 470 (A193)",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Patient",
+     "Stubborn",
+     "Devout"
+    ],
+    "calling": "Teacher",
+    "upbringing": "scholar_family",
+    "talent": [],
+    "path": [],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Tạ Bất Vong led what was left of the Tạ to Phong Lâm in 470, a family once great in another land, with nothing but their name, a swallow manual and the swallows of their old hall, which followed them (A193). He would never say which land, or what had fallen. He set the clan's rules: every Tạ child is named for a bird that returns, the swallows' nests under the eaves are never touched, and a Tạ answers every letter, however long it takes.",
+   "ties": [
+    {
+     "to": "ta_cuu_duong",
+     "kind": "descendant",
+     "note": "the eleventh head"
+    }
+   ]
+  },
+  {
+   "key": "ta_cuu_duong",
+   "name_hv": "Tạ Cựu Đường",
+   "name_han": "謝舊堂",
+   "gloss": "The old hall",
+   "sex": "M",
+   "born": 1018,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 79,
+   "birthplace": 79,
+   "role": "Head of the Tạ of Phong Lâm: the hall, the school and the letters",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 58,
+     "thuy": 46,
+     "tho": 20
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 46,
+    "than_hon": 66,
+    "khi_van": 40,
+    "dao_tam": 64,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Arrogant",
+     "Loyal"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "scholar_family",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "calligrapher",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A thin, upright old scholar in a robe mended so finely the mends look like embroidery, with a swallow's nest over his study door that no one may clean.",
+   "backstory": "Tạ Cựu Đường is the eleventh head of the Tạ since Tạ Bất Vong (ta_bat_vong) brought the family to Phong Lâm with nothing but its name (A193). The Vương, the clan's old rivals in the land the Tạ left, first wrote in 1000 (A200), eighteen years before he was born, and he has answered every letter since he could hold a brush, in a hand the clan uses for nothing else. The Tạ own a hall, a school and a maple grove. They teach the town's children their letters, carve its seals and write its petitions to Nam Phố Đường and Lạc Hà, and they are poor in the way only an old name can afford. He formed his core at a hundred and fifty on the swallow manual, the one thing the clan carried out of its old hall. He wants a Tạ in a great sect's inner gate again. His grandson Tạ Quy Yến (ta_quy_yen) has failed Lạc Hà's dusk test three times and will be placed with a vassal this spring, and Châu Phi Vân (chau_phi_van) of Nam Phố has asked for him by name. He has written to Lạc Hà's head Tô Vãn Chiếu (to_van_chieu) and had no answer.",
+   "wants": "A Tạ in a great sect's inner gate again, which has not happened since the clan came to Phong Lâm.",
+   "secret": "The Vương stopped writing in 1160. For forty years he has written both sides of the correspondence, in two hands, so that the clan does not learn its only rival may be gone and the Tạ may be the last of the old houses.",
+   "ties": [
+    {
+     "to": "ta_bat_vong",
+     "kind": "ancestor",
+     "note": ""
+    },
+    {
+     "to": "ta_tri_xuan",
+     "kind": "child",
+     "note": "the schoolmaster"
+    },
+    {
+     "to": "ta_tri_thu",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "ta_quy_yen",
+     "kind": "grandchild",
+     "note": "the one he means for Lạc Hà"
+    },
+    {
+     "to": "ta_quy_hong",
+     "kind": "grandchild",
+     "note": "at Nam Phố"
+    },
+    {
+     "to": "ta_quy_hac",
+     "kind": "grandchild",
+     "note": ""
+    },
+    {
+     "to": "ta_quy_nhan",
+     "kind": "grandchild",
+     "note": "the next for Lạc Hà"
+    },
+    {
+     "to": "ta_quy_hoc",
+     "kind": "grandchild",
+     "note": "reads the letters first"
+    },
+    {
+     "to": "chau_phi_van",
+     "kind": "rival",
+     "note": "wants his grandson for a vassal hall"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_moc",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "thorn-and-ink-verses",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "cl-swallow-hall-fan"
+     },
+     {
+      "named": "cl-ta-hall-seal"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood art speed and soul ink: a scholar who fights with brush and fan.",
+     "targets": [
+      780,
+      6340,
+      6145,
+      6142,
+      2827,
+      2811
+     ],
+     "targets_note": "Young Branch and Whirling Leaves Wood art speed, the Bamboo Grove, then the Soul-Burning Lamp for the soul ink."
+    },
+    "note": "Runs the clan's Returning Swallow Breath (clans.techniques.json); the id is a stand-in."
+   },
+   "items": [
+    "cl-swallow-hall-fan",
+    "cl-ta-hall-seal"
+   ]
+  },
+  {
+   "key": "ta_tri_xuan",
+   "name_hv": "Tạ Tri Xuân",
+   "name_han": "謝知春",
+   "gloss": "He who knows spring",
+   "sex": "M",
+   "born": 1085,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 79,
+   "birthplace": 79,
+   "role": "Schoolmaster of Phong Lâm and of the Tạ; Tạ Quy Yến's father",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "thuy": 42,
+     "tho": 22
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 48,
+    "than_hon": 60,
+    "khi_van": 44,
+    "dao_tam": 56,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Humble",
+     "Patient"
+    ],
+    "calling": "Teacher",
+    "upbringing": "scholar_family",
+    "talent": [],
+    "path": [],
+    "lifestyle": "teacher_at_heart",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A soft-spoken man with ink-stained cuffs and a child's slate always under his arm.",
+   "backstory": "Tạ Cựu Đường's (ta_cuu_duong) elder son keeps the clan school, where the town's children learn their letters and the Tạ children learn the swallow breath. He sat in Lạc Hà's outer gate as a young man and never got past it, on the same thin Earth as his son Tạ Quy Yến (ta_quy_yen), and he would rather the boy went to Nam Phố Đường and was happy. He has not said so to his father. He wears the Returning Ink Pendant, half of the old hall's pair.",
+   "ties": [
+    {
+     "to": "ta_cuu_duong",
+     "kind": "parent",
+     "note": "has not told him"
+    },
+    {
+     "to": "dieu_nhu_lan",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "ta_quy_yen",
+     "kind": "child",
+     "note": "wants him happy, not great"
+    },
+    {
+     "to": "ta_quy_nhan",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "ta_tri_thu",
+     "kind": "sibling",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_moc",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "cl-returning-ink-pendant"
+     },
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood arts and soul ward: a teacher, not a fighter.",
+     "targets": [
+      780,
+      6340,
+      6151
+     ],
+     "targets_note": "Young Branch, Whirling Leaves, Bamboo Flute soul resistance."
+    },
+    "note": "Runs the clan's Returning Swallow Breath (clans.techniques.json); the id is a stand-in."
+   },
+   "items": [
+    "cl-returning-ink-pendant"
+   ]
+  },
+  {
+   "key": "dieu_nhu_lan",
+   "name_hv": "Diêu Như Lan",
+   "name_han": "姚如蘭",
+   "gloss": "Like an orchid",
+   "sex": "F",
+   "born": 1128,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 79,
+   "birthplace": 136,
+   "role": "Wife of Tạ Tri Xuân; keeps the swallows' nests and the clan's accounts",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Generous",
+     "Calm"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A flower-grower's daughter of Hoa Khê Thôn who married Tạ Tri Xuân (ta_tri_xuan) for his letters and found he wrote as well as he spoke; she keeps the swallows' nests and the clan's thin accounts.",
+   "ties": [
+    {
+     "to": "ta_tri_xuan",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "ta_quy_yen",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "ta_quy_nhan",
+     "kind": "child",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "huyen_moc",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood growth."
+    },
+    "note": "Runs the clan's Returning Swallow Breath (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "ta_tri_thu",
+   "name_hv": "Tạ Tri Thu",
+   "name_han": "謝知秋",
+   "gloss": "He who knows autumn",
+   "sex": "M",
+   "born": 1105,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 79,
+   "birthplace": 79,
+   "role": "The clan's only trader: the maple grove's sap and timber",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Pragmatic",
+     "Content"
+    ],
+    "calling": "Merchant",
+    "upbringing": "scholar_family",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Tạ Cựu Đường's younger son and the clan's only trader, who rents out the maple grove's sap and timber and says he keeps the old name fed; his son Tạ Quy Hồng (ta_quy_hong) is at Nam Phố Đường.",
+   "ties": [
+    {
+     "to": "ta_cuu_duong",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "ta_tri_xuan",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "van_bich_thu",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "ta_quy_hong",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "ta_quy_hac",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "ta_quy_hoc",
+     "kind": "child",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_moc",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood, and a fan for show."
+    },
+    "note": "Runs the clan's Returning Swallow Breath (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "van_bich_thu",
+   "name_hv": "Văn Bích Thu",
+   "name_han": "文碧秋",
+   "gloss": "Jade-green autumn",
+   "sex": "F",
+   "born": 1140,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 79,
+   "birthplace": 75,
+   "role": "Wife of Tạ Tri Thu",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Honest",
+     "Impatient"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A fish-weir keeper's daughter of Ngư Lương Trấn, wife of Tạ Tri Thu (ta_tri_thu), who thinks the old name is a fine thing to eat off and would like a new roof.",
+   "ties": [
+    {
+     "to": "ta_tri_thu",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "ta_quy_hong",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "ta_quy_hoc",
+     "kind": "child",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_moc",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain."
+    },
+    "note": "Runs the clan's Returning Swallow Breath (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "ta_quy_hac",
+   "name_hv": "Tạ Quy Hạc",
+   "name_han": "謝歸鶴",
+   "gloss": "The returning crane",
+   "sex": "M",
+   "born": 1168,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 79,
+   "birthplace": 79,
+   "role": "Teaches in the clan school; the heir nobody asks about",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Humble",
+     "Loyal"
+    ],
+    "calling": "Teacher",
+    "upbringing": "scholar_family",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Tạ Tri Thu's eldest son, who stayed to teach in the clan school and is the heir no one asks about; he writes to his cousin Tạ Quy Yến (ta_quy_yen) every week.",
+   "ties": [
+    {
+     "to": "ta_tri_thu",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "ta_quy_hong",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "ta_quy_yen",
+     "kind": "cousin",
+     "note": "a letter a week"
+    },
+    {
+     "to": "ta_cuu_duong",
+     "kind": "grandparent",
+     "note": "his grandfather"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_moc",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood arts."
+    },
+    "note": "Runs the clan's Returning Swallow Breath (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "ta_quy_nhan",
+   "name_hv": "Tạ Quy Nhạn",
+   "name_han": "謝歸雁",
+   "gloss": "The returning wild goose",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 79,
+   "birthplace": 79,
+   "role": "Sixteen; the next Tạ the head means for Lạc Hà",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 36,
+     "tho": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Diligent",
+     "Stubborn"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "scholar_family",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Tạ Quy Yến's (ta_quy_yen) sister, sixteen, whose Earth is a little stronger than his; her grandfather is already writing to Lạc Hà about her.",
+   "ties": [
+    {
+     "to": "ta_tri_xuan",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "ta_quy_yen",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "ta_cuu_duong",
+     "kind": "grandparent",
+     "note": "his next hope"
+    },
+    {
+     "to": "dieu_nhu_lan",
+     "kind": "parent",
+     "note": "her mother"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_moc",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood, with an eye on Earth."
+    },
+    "note": "Runs the clan's Returning Swallow Breath (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "ta_quy_hoc",
+   "name_hv": "Tạ Quy Hộc",
+   "name_han": "謝歸鵠",
+   "gloss": "The returning swan",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 79,
+   "birthplace": 79,
+   "role": "Reads the hall's letters before the head does",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Paranoid",
+     "Honest"
+    ],
+    "calling": "Strategist",
+    "upbringing": "scholar_family",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Tạ Tri Thu's daughter, who reads every letter that comes to the hall before her grandfather Tạ Cựu Đường (ta_cuu_duong) does, and has noticed that the Vương's hand changed forty years ago.",
+   "ties": [
+    {
+     "to": "ta_tri_thu",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "ta_quy_hong",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "ta_cuu_duong",
+     "kind": "grandparent",
+     "note": "she suspects him"
+    },
+    {
+     "to": "van_bich_thu",
+     "kind": "parent",
+     "note": "her mother"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_moc",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water and Wood; a reader."
+    },
+    "note": "Runs the clan's Returning Swallow Breath (clans.techniques.json); the id is a stand-in."
+   }
+  }
+ ]
+}

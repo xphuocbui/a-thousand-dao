@@ -1,0 +1,1740 @@
+{
+ "sect": "",
+ "group": "demonic",
+ "_doc": "Batch 2: the Trúc Cơ and Luyện Khí of the demonic group (people/demonic.md).",
+ "people": [
+  {
+   "key": "khang_lang_sa",
+   "name_hv": "Khang Lãng Sa",
+   "name_han": "康浪沙",
+   "gloss": "Sand under the waves",
+   "sex": "M",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 47,
+   "birthplace": 47,
+   "role": "Triệu Huyết Y's disciple and letter-carrier; Khang Tẩy Kim's nephew",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "moc": 44,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 52,
+    "than_hon": 56,
+    "khi_van": 50,
+    "dao_tam": 58,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Cautious",
+     "Gregarious"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "demonic_path"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Life-debt"
+    ]
+   },
+   "appearance": "A sunburned river man with a gold-washer's pan on his back and three letters sewn into his coat at any time.",
+   "backstory": "At sixteen Khang Lãng Sa's Water root flooded his meridians, and the River Hall's healers could not drain it. His aunt Khang Tẩy Kim (khang_tay_kim) wrote to the only person she knew who could take qi out of a body: the woman in the red robe who had pulled her out of the flood. Triệu Huyết Y (trieu_huyet_y) came in 1151, drained him with the Hollow Tide and kept him. He carries her letters to his aunt, to the desert and to the lake. He has never killed anyone, and he knows that she will ask.",
+   "ties": [
+    {
+     "to": "trieu_huyet_y",
+     "kind": "master",
+     "note": "drained the flood out of him and kept him"
+    },
+    {
+     "to": "khang_tay_kim",
+     "kind": "aunt_uncle",
+     "note": "asked Triệu to save him, and has regretted it every year"
+    },
+    {
+     "to": "cung_mac_suong",
+     "kind": "friend",
+     "note": "carries the letters across the lake ice; half in love with her"
+    },
+    {
+     "to": "xa_tieu_sa",
+     "kind": "friend",
+     "note": "the gold-washer girl who wants to be the woman in the robe"
+    }
+   ],
+   "master": "trieu_huyet_y",
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hollow-tide-scripture",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "undertow-litany",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water drain and escape: a courier who must outlast pursuit.",
+     "targets": [
+      5342,
+      5348,
+      4962,
+      5312
+     ],
+     "targets_note": "Water Reflection and Flower in the Mirror to escape, Whirling Step and Palm for drain."
+    },
+    "note": "Has never fed the Hollow Tide on a person; it is stalled for it."
+   }
+  },
+  {
+   "key": "ngu_mong_te",
+   "name_hv": "Ngư Mộng Tê",
+   "name_han": "魚夢棲",
+   "gloss": "Where dreams roost",
+   "sex": "F",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 547,
+   "birthplace": 551,
+   "role": "Eldest of the U Lan children; the first of them to kill",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "tho": 38,
+     "moc": 36
+    },
+    "variants": {
+     "am": 42
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 46,
+    "than_hon": 70,
+    "khi_van": 34,
+    "dao_tam": 40,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Impatient",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "demonic_path"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": "rage_flares",
+    "fate_given": [],
+    "gained": [
+     "Demon-tainted"
+    ]
+   },
+   "appearance": "A raftsman's daughter with heavy-lidded eyes who is never tired, and who has stopped going down to Phóng Mộc on market days.",
+   "backstory": "A raftsman's daughter of Phóng Mộc Thôn, she came up to U Lan Cốc at twelve when her Darkness woke, and was the first of Sào Ẩn Lan's (sao_an_lan) children to pass the fourth layer. In 1193 she drank too long through the wall of a raftsman's hut and he did not wake. Sào buried him in the gorge. Ngư wants to go south to the Tower, where Darkness is fed openly, and Triệu Huyết Y (trieu_huyet_y) has told her she need not go so far.",
+   "ties": [
+    {
+     "to": "sao_an_lan",
+     "kind": "master",
+     "note": "buried the raftsman for her"
+    },
+    {
+     "to": "an_tieu_mac",
+     "kind": "disciple",
+     "note": "teaches her the fourth layer Sào left out"
+    },
+    {
+     "to": "sung_ngoc_khe",
+     "kind": "rival",
+     "note": "who will not drink and looks at her as if she had"
+    },
+    {
+     "to": "trieu_huyet_y",
+     "kind": "friend",
+     "note": "the woman who says there is a canon for what she is"
+    }
+   ],
+   "master": "sao_an_lan",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_am",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 2,
+      "element": "am"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "am",
+     "intent": "Darkness that drinks: sleep and drain.",
+     "targets": [
+      859,
+      7205,
+      7206,
+      7536,
+      7626
+     ],
+     "targets_note": "Her teacher's Shadow Seed and Moth Wings, then Devouring Mouth and Hunger: Darkness that drinks."
+    },
+    "note": "Stand-in for the Shade Orchid Breathing (proposal shade-orchid-breath), at its top layer and pushing past it."
+   }
+  },
+  {
+   "key": "sung_ngoc_khe",
+   "name_hv": "Sung Ngọc Khê",
+   "name_han": "充玉溪",
+   "gloss": "Jade stream",
+   "sex": "M",
+   "born": 1162,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 547,
+   "birthplace": 549,
+   "role": "The U Lan child who will not drink; keeps the gorge's records",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 42,
+     "thuy": 40,
+     "moc": 34
+    },
+    "variants": {
+     "am": 24
+    }
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Stubborn",
+     "Humble"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A lime-burner's son of Hôi Diêu Thôn who reached Trúc Cơ on the gorge's own Darkness alone, without drinking, and writes down every night the others go out, for Sào Ẩn Lan (sao_an_lan) to read or not.",
+   "ties": [
+    {
+     "to": "sao_an_lan",
+     "kind": "master",
+     "note": "his teacher"
+    },
+    {
+     "to": "ngu_mong_te",
+     "kind": "rival",
+     "note": "he wrote the raftsman's name down"
+    }
+   ],
+   "master": "sao_an_lan",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hoang_am",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth and cave herbs; Darkness only as far as the gorge gives it."
+    },
+    "note": "Stand-in for the Shade Orchid Breathing, stalled at layer 3 by choice."
+   }
+  },
+  {
+   "key": "khoai_hong_ngac",
+   "name_hv": "Khoái Hồng Ngạc",
+   "name_han": "蒯紅萼",
+   "gloss": "Red calyx",
+   "sex": "F",
+   "born": 1095,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 40,
+   "birthplace": 174,
+   "role": "Khoái Thiết Ưng's foundling daughter; sells his blood pills in Tinh Hán Thành",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 52,
+     "thuy": 30,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Loyal",
+     "Greedy"
+    ],
+    "calling": "Merchant",
+    "upbringing": "wild_raised",
+    "talent": [],
+    "path": [
+     "demonic_path"
+    ],
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Found as a baby on an ore cart from Huyền Thiết Khoáng and raised on Hắc Ưng Phong by Khoái Thiết Ưng (khoai_thiet_ung), she sells the blood pills he makes from his duels to caravan guards in the Pivot's own city.",
+   "ties": [
+    {
+     "to": "khoai_thiet_ung",
+     "kind": "parent",
+     "note": "raised her"
+    },
+    {
+     "to": "khoai_thiet_ung",
+     "kind": "master",
+     "note": "taught her the sabre"
+    }
+   ],
+   "master": "khoai_thiet_ung",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "huyen_kim",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "debt-ledger-blade",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal blade with leech."
+    },
+    "note": "Stand-in for the Black Wind Blood Sabre."
+   }
+  },
+  {
+   "key": "tong_bich_linh",
+   "name_hv": "Tòng Bích Linh",
+   "name_han": "從碧鈴",
+   "gloss": "Jade-green bell",
+   "sex": "F",
+   "born": 1085,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 54,
+   "birthplace": 1056,
+   "role": "Keeper of Hám Tàn Chung's ledger; frees one soul a year",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "moc": 40,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 40,
+    "than_hon": 72,
+    "khi_van": 46,
+    "dao_tam": 66,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Diligent",
+     "Deceitful"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "demonic_path"
+    ],
+    "lifestyle": "calligrapher",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A neat woman with ink on her cuffs and a small green bell on her wrist that she rings once a year.",
+   "backstory": "The last child born in Đồng Sơn Trấn before it emptied, she was twelve when Hám Tàn Chung (ham_tan_chung) sat with her grandmother at the end. He took the orphan with him and taught her to write. She keeps his ledger in a clear hand. Every Hungry Ghost festival she takes one breath from the lamp and rings it free over a river, and she enters it as spoiled. He reads the ledger every night and has never asked. She means to free Mật Thu Ninh's (mat_thu_ninh) son next.",
+   "ties": [
+    {
+     "to": "ham_tan_chung",
+     "kind": "master",
+     "note": "took her from the dying town"
+    },
+    {
+     "to": "mat_thu_ninh",
+     "kind": "friend",
+     "note": "means to free her son's breath, whether she wants it or not"
+    }
+   ],
+   "master": "ham_tan_chung",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hollow-bell-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Soul seals and wards; a bell that releases rather than holds.",
+     "targets": [
+      4106,
+      4219,
+      4303,
+      4307
+     ],
+     "targets_note": "His master's bells: Ritual Bell, Gong Stroke, Golden Hum and Golden Bell, rung to release."
+    },
+    "note": "Learning the Sutra of the Borrowed Wick (proposal borrowed-wick-sutra) backwards, to let go."
+   }
+  },
+  {
+   "key": "biet_tri_phan",
+   "name_hv": "Biệt Tri Phản",
+   "name_han": "別知返",
+   "gloss": "Knows the way back",
+   "sex": "M",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 42,
+   "birthplace": 42,
+   "role": "A former blood-pill seller of the Night Rain Market who sells ma đạo heads to the Pivot's hound",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "moc": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 54,
+    "than_hon": 58,
+    "khi_van": 44,
+    "dao_tam": 50,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Paranoid",
+     "Pragmatic"
+    ],
+    "calling": "Schemer",
+    "upbringing": "street_orphan",
+    "talent": [],
+    "path": [],
+    "lifestyle": "gambler",
+    "health": null,
+    "coping": "vengeance_vow",
+    "fate_given": [],
+    "gained": [
+     "Embittered",
+     "Hunted"
+    ]
+   },
+   "appearance": "A thin man in a good rain cloak who sits with his back to walls and carries a ledger of faces.",
+   "backstory": "Born under the inns of Thu Trì Thành, Biệt Tri Phản sold blood pills at the Night Rain Market for forty years. In 1170 his younger brother took one he had sold and bled out of his eyes. Since then he has sold the people who make such pills to Đồ Vô Cữu (do_vo_cuu), at the Pivot's price per head. He knows every ma đạo house on the continent because he used to buy from them. Kiều Mãn Lâu (kieu_man_lau) would pay well for his.",
+   "ties": [
+    {
+     "to": "do_vo_cuu",
+     "kind": "debt",
+     "note": "the Pivot's hound; pays per head, and Biệt owes him for the last two"
+    },
+    {
+     "to": "kieu_man_lau",
+     "kind": "enemy",
+     "note": "the market that sold his brother the pill"
+    },
+    {
+     "to": "trieu_huyet_y",
+     "kind": "enemy",
+     "note": "the head the Pivot pays most for"
+    },
+    {
+     "to": "khoai_thiet_ung",
+     "kind": "enemy",
+     "note": "climbed the peak for him once and came down without"
+    },
+    {
+     "to": "cu_tieu_lang",
+     "kind": "disciple",
+     "note": "an inn boy he is teaching to watch"
+    }
+   ],
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "undertow-litany",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water and poison resistance; a tracker who knows what he is walking into.",
+     "targets": [
+      5456,
+      5361,
+      6673,
+      6170
+     ],
+     "targets_note": "Water Eye and Cardinal Points for a tracker, Bending Reed into Wood, Pine Needle Tea against poison."
+    },
+    "note": "Gave up the blood pills, not the knowledge of them."
+   },
+   "changed": "cross-sect pass: tie to do_vo_cuu creditor -> debt: its note says Biệt owes Đồ for the last two heads."
+  },
+  {
+   "key": "duong_kho_chi",
+   "name_hv": "Dưỡng Khô Chi",
+   "name_han": "養枯枝",
+   "gloss": "Tends the withered branch",
+   "sex": "M",
+   "born": 1060,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 821,
+   "birthplace": 1149,
+   "role": "An alchemist expelled from Thúy Vi's Furnace Hall; heals by moving sickness into something else",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 60,
+     "tho": 34,
+     "thuy": 30
+    },
+    "variants": {
+     "am": 18
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 38,
+    "than_hon": 60,
+    "khi_van": 36,
+    "dao_tam": 48,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Arrogant",
+     "Arbitrary"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "demonic_path",
+     "poison_proof"
+    ],
+    "lifestyle": null,
+    "health": "waning_years",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Disgraced"
+    ]
+   },
+   "appearance": "An old man with green-stained hands who keeps a dead tree for every patient in a grove behind his hut.",
+   "backstory": "A lime-burner's son of Thiêu Hôi Thôn, he was Úy Thanh Diễm's (uy_thanh_diem) inner disciple in the Furnace Hall until 1120, when he was found reading the sealed Rotting Canopy Canon and writing in its margins. The margins are still there, and Tề Tử Tô (te_tu_to) reads them now. He lives in Độc Thiềm Lâm and cures what Giả Hồi Xuân (gia_hoi_xuan) cannot, by moving it into a tree or a goat. He has sixty years left, and his last patients have been people.",
+   "ties": [
+    {
+     "to": "uy_thanh_diem",
+     "kind": "former_master",
+     "note": "expelled him and tastes every batch he never will"
+    },
+    {
+     "to": "gia_hoi_xuan",
+     "kind": "rival",
+     "note": "she cures; he moves"
+    },
+    {
+     "to": "tien_hoi_nhi",
+     "kind": "friend",
+     "note": "a boy from his home village; he sent him to the gorge"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "huyen_moc",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "rotting-canopy-canon",
+      "layer": 7
+     },
+     {
+      "tech": "withered-branch-method",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "base": "huong_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "dan_dao": 6,
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Rot and healing as one craft: blight on the foe, cure on the friend.",
+     "targets": [
+      6380,
+      6383,
+      6359,
+      5713,
+      6170
+     ],
+     "targets_note": "Withering and Deep Rot for the blight, Bitter Berries and Healing Herbs for the cure, Pine Needle Tea."
+    },
+    "note": "His own art is the Withered Branch Method (proposal withered-branch-method, demonic.techniques.json)."
+   },
+   "authored": "e8"
+  },
+  {
+   "key": "cao_sa_lang",
+   "name_hv": "Cáo Sa Lang",
+   "name_han": "郜沙狼",
+   "gloss": "Sand wolf",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 1418,
+   "birthplace": 1404,
+   "role": "A rider expelled from Dạ Quang Môn for drinking a caravan guard's blood; rides alone for hire",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 50,
+     "tho": 42,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Warlike",
+     "Indulgent",
+     "Faithless"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [
+     "demonic_path"
+    ],
+    "fate_given": [],
+    "gained": [
+     "Demon-tainted"
+    ]
+   },
+   "backstory": "Hạng Dạ Bôi (hang_da_boi) put him out of the camp in 1190 after he drank an escort's blood on the road; he sells his sabre in Đà Linh Trấn and sends Cừu Lạc Nhật (cuu_lac_nhat) word of what the taint does next.",
+   "ties": [
+    {
+     "to": "do_xich_linh",
+     "kind": "former_master",
+     "note": "taught him to feed the sabre"
+    },
+    {
+     "to": "hang_da_boi",
+     "kind": "enemy",
+     "note": "put him out"
+    },
+    {
+     "to": "cuu_lac_nhat",
+     "kind": "friend",
+     "note": "the next one, and he tells him so"
+    },
+    {
+     "to": "viet_da_nhi",
+     "kind": "creditor",
+     "note": "owes him for the cups"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "night-glow-blood-sabre-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire sabre on blood."
+    },
+    "note": "Dạ Quang's canon, taken with him."
+   }
+  },
+  {
+   "key": "mat_thu_ninh",
+   "name_hv": "Mật Thu Ninh",
+   "name_han": "宓秋寧",
+   "gloss": "Autumn calm",
+   "sex": "F",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 66,
+   "birthplace": 66,
+   "role": "A widow of Hòe Âm who keeps her dead son's breath in a lamp and feeds it her blood",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "moc": 38
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 52,
+    "can_cot": 44,
+    "than_hon": 54,
+    "khi_van": 30,
+    "dao_tam": 70,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Stubborn",
+     "Devout"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "mortal_noble",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": null,
+    "health": "lingering_poison",
+    "coping": "faith_found",
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A pale, upright woman of a good Hòe Âm house with a bandaged left wrist and a clay lamp she carries in both hands.",
+   "backstory": "A loose cultivator of a Hòe Âm family that wrote talismans for the lake sects, she lost her only son in 1182 to a qi deviation at twenty. Hám Tàn Chung (ham_tan_chung) came to the house the night he died and offered to keep his last breath, for the price of his debts. She has fed the lamp from her wrist every night since. For a year now it has spoken, and the voice is not quite her son's.",
+   "ties": [
+    {
+     "to": "ham_tan_chung",
+     "kind": "debt",
+     "note": "still owes for the lamp"
+    },
+    {
+     "to": "tong_bich_linh",
+     "kind": "friend",
+     "note": "the ledger woman who visits too often"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "dm-sons-lamp"
+     },
+     {
+      "base": "phu",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 4
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water talismans and wards; her cultivation has stopped since the lamp.",
+     "targets": [
+      4851,
+      4836,
+      4806
+     ],
+     "targets_note": "Ink Trace and Ink Stick for talismans, Water Film for a ward."
+    },
+    "note": "Not ma đạo by her own lights. The lamp is."
+   },
+   "items": [
+    "dm-sons-lamp"
+   ]
+  },
+  {
+   "key": "ngao_tam_phu",
+   "name_hv": "Ngao Tầm Phủ",
+   "name_han": "敖尋府",
+   "gloss": "Seeker of abodes",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 66,
+   "birthplace": 66,
+   "role": "An abode-robber of Hòe Âm who buys maps and sells what he finds",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 36,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Brave",
+     "Fickle"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "street_orphan",
+    "talent": [],
+    "path": [],
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "He buys Hách Tùng's (hach_tung) maps of the massif in Hòe Âm, opens the dead masters' caves they show, and sold the third map to Triệu Huyết Y; in the last cave he found a ma đạo jade slip and has been reading it at night.",
+   "ties": [
+    {
+     "to": "hach_tung",
+     "kind": "debt",
+     "note": "owes for two maps"
+    },
+    {
+     "to": "trieu_huyet_y",
+     "kind": "creditor",
+     "note": "she has not paid for the third map"
+    }
+   ],
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Enough array craft to open a sealed door."
+    },
+    "note": "Learning a ma đạo slip he cannot yet name."
+   }
+  },
+  {
+   "key": "chi_da_hanh",
+   "name_hv": "Chi Dạ Hành",
+   "name_han": "支夜行",
+   "gloss": "Walks at night",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 547,
+   "birthplace": 546,
+   "role": "U Lan child from Hầu Đầu Thôn; sleepwalks toward the village",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "tho": 36,
+     "moc": 34
+    },
+    "variants": {
+     "am": 30
+    }
+   },
+   "traits": {
+    "personality": [
+     "Trusting",
+     "Content",
+     "Gregarious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "At layer 3 of the Shade Orchid Breathing, he wakes some mornings at the edge of Hầu Đầu Thôn, his home, and Sào Ẩn Lan (sao_an_lan) has started tying his ankle at night.",
+   "ties": [
+    {
+     "to": "sao_an_lan",
+     "kind": "master",
+     "note": "from her own village"
+    }
+   ],
+   "master": "sao_an_lan",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_am",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "am",
+     "intent": "Darkness primer."
+    },
+    "note": "Stand-in for shade-orchid-breath."
+   }
+  },
+  {
+   "key": "an_tieu_mac",
+   "name_hv": "Ấn Tiểu Mặc",
+   "name_han": "印小墨",
+   "gloss": "Little ink",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 547,
+   "birthplace": 551,
+   "role": "Youngest U Lan cultivator; Ngư Mộng Tê's pupil",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "tho": 34,
+     "moc": 30
+    },
+    "variants": {
+     "am": 36
+    }
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Loyal",
+     "Impatient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A Phóng Mộc girl of sixteen who reached layer 4 in two years because Ngư Mộng Tê (ngu_mong_te) taught her how, and who does not yet know about the raftsman.",
+   "ties": [
+    {
+     "to": "ngu_mong_te",
+     "kind": "master",
+     "note": "worships her"
+    }
+   ],
+   "master": "ngu_mong_te",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_am",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "am"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "am",
+     "intent": "Darkness that drinks."
+    },
+    "note": "Stand-in for shade-orchid-breath, past the fourth layer."
+   }
+  },
+  {
+   "key": "tien_hoi_nhi",
+   "name_hv": "Tiển Hôi Nhi",
+   "name_han": "冼灰兒",
+   "gloss": "Child of the ash",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 547,
+   "birthplace": 1149,
+   "role": "A Darkness child who walked from the Thúy Vi karst to U Lan Cốc",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "tho": 36,
+     "thuy": 32
+    },
+    "variants": {
+     "am": 20
+    }
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Cautious",
+     "Diligent"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Born in Thiêu Hôi Thôn, he was sent across the west to the gorge by Dưỡng Khô Chi (duong_kho_chi) when his Darkness woke, with a letter Sào Ẩn Lan has not shown anyone.",
+   "ties": [
+    {
+     "to": "sao_an_lan",
+     "kind": "master",
+     "note": "took him in"
+    },
+    {
+     "to": "duong_kho_chi",
+     "kind": "friend",
+     "note": "sent him"
+    }
+   ],
+   "master": "sao_an_lan",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Cave herbs; the Darkness is still thin."
+    },
+    "note": "Wood primer stand-in; the orchid breathing is beyond his Darkness so far."
+   }
+  },
+  {
+   "key": "hanh_lien_y",
+   "name_hv": "Hạnh Liên Y",
+   "name_han": "幸蓮衣",
+   "gloss": "Lotus robe",
+   "sex": "F",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 48,
+   "birthplace": 48,
+   "role": "Triệu Huyết Y's second disciple; a fur-seller who carries news from the Pavilion's lake",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 38,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Deceitful",
+     "Patient",
+     "Ambitious"
+    ],
+    "calling": "Schemer",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [
+     "demonic_path"
+    ],
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A fur-seller's daughter of the farewell market who takes furs up the frost road each winter and tells Triệu Huyết Y (trieu_huyet_y) when Cung Mặc Sương walks on Phiến Băng Hồ alone, and wears a pink robe she hopes will darken.",
+   "ties": [
+    {
+     "to": "trieu_huyet_y",
+     "kind": "master",
+     "note": "pays her in layers"
+    },
+    {
+     "to": "cung_mac_suong",
+     "kind": "rival",
+     "note": "jealous of the one her master really wants"
+    }
+   ],
+   "master": "trieu_huyet_y",
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hollow-tide-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water drain, early."
+    },
+    "note": "Taught the Hollow Tide's first layers as a wage."
+   }
+  },
+  {
+   "key": "khich_tieu_chung",
+   "name_hv": "Khích Tiểu Chung",
+   "name_han": "郗小鐘",
+   "gloss": "Little bell",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 54,
+   "birthplace": 42,
+   "role": "Hám Tàn Chung's runner: finds the dying and brings word",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 40,
+     "thuy": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Greedy",
+     "Brave"
+    ],
+    "calling": "Merchant",
+    "upbringing": "street_orphan",
+    "talent": [],
+    "path": [],
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A Thu Trì street boy who earns a stone for every deathbed he finds for Hám Tàn Chung (ham_tan_chung) and has begun to wonder how one might hurry a deathbed along.",
+   "ties": [
+    {
+     "to": "ham_tan_chung",
+     "kind": "master",
+     "note": "pays by the deathbed"
+    }
+   ],
+   "master": "ham_tan_chung",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hollow-bell-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "chuong",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Bell primer."
+    },
+    "note": "Hollow Bell, first layers."
+   }
+  },
+  {
+   "key": "bo_thiet_sinh",
+   "name_hv": "Bộ Thiết Sinh",
+   "name_han": "步鐵生",
+   "gloss": "Born of iron",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 695,
+   "birthplace": 174,
+   "role": "A Huyền Thiết miner's son who climbed Hắc Ưng Phong to duel and stayed",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "thuy": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Honest",
+     "Impatient"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "He climbed the peak at twenty to win a name off Khoái Thiết Ưng (khoai_thiet_ung), lost, and woke with his blood still in him and a broom in his hand.",
+   "ties": [
+    {
+     "to": "khoai_thiet_ung",
+     "kind": "master",
+     "note": "did not drink him"
+    }
+   ],
+   "master": "khoai_thiet_ung",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal sword."
+    },
+    "note": "A miners' Metal method; not yet taught the blood."
+   }
+  },
+  {
+   "key": "cu_tieu_lang",
+   "name_hv": "Cư Tiểu Lang",
+   "name_han": "居小狼",
+   "gloss": "Little wolf",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 42,
+   "birthplace": 42,
+   "role": "Biệt Tri Phản's apprentice; watches the Night Rain Market's doors",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Paranoid",
+     "Diligent",
+     "Loyal"
+    ],
+    "calling": "Schemer",
+    "upbringing": "street_orphan",
+    "talent": [],
+    "path": [],
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "An inn boy of Thu Trì whom Biệt Tri Phản (biet_tri_phan) pays to count who goes in at the Night Rain Market's door, and whose cousin sells there.",
+   "ties": [
+    {
+     "to": "biet_tri_phan",
+     "kind": "master",
+     "note": "pays him to watch"
+    }
+   ],
+   "master": "biet_tri_phan",
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "tien_tieu",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water, for running."
+    },
+    "note": "Yellow Water stand-in."
+   }
+  },
+  {
+   "key": "viet_da_nhi",
+   "name_hv": "Việt Đà Nhi",
+   "name_han": "越駝兒",
+   "gloss": "Camel child",
+   "sex": "F",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 1418,
+   "birthplace": 1418,
+   "role": "A caravan hand of Đà Linh Trấn who buys Cáo Sa Lang's blood to ride harder",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 38,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Indulgent",
+     "Brave",
+     "Trusting"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "fate_given": [],
+    "gained": [
+     "Demon-tainted"
+    ]
+   },
+   "backstory": "She drinks a cup of Cáo Sa Lang's (cao_sa_lang) sabre-blood before every desert crossing because it lets her ride three days without sleep, and Trấn Sa's watcher Nhiếp Cô Đăng (nhiep_co_dang) has noticed her eyes.",
+   "ties": [
+    {
+     "to": "cao_sa_lang",
+     "kind": "debt",
+     "note": "owes for the cups"
+    },
+    {
+     "to": "nhiep_co_dang",
+     "kind": "enemy",
+     "note": "watches her"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_hoa",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Endurance."
+    },
+    "note": "Yellow Fire stand-in; the taint is not a method."
+   }
+  },
+  {
+   "key": "dung_tinh_nhi",
+   "name_hv": "Dung Tỉnh Nhi",
+   "name_han": "容井兒",
+   "gloss": "Child of the well",
+   "sex": "M",
+   "born": 1175,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 37,
+   "birthplace": 37,
+   "role": "A well-digger's boy of Đàm Ảnh Thành; Tra Hàm Tuyền's pupil",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Honest",
+     "Cautious"
+    ],
+    "calling": "Formation master",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "He digs the wells Tra Hàm Tuyền (tra_ham_tuyen) later drinks from, and believes the old man is a water-finder.",
+   "ties": [
+    {
+     "to": "tra_ham_tuyen",
+     "kind": "master",
+     "note": "the water-finder"
+    }
+   ],
+   "master": "tra_ham_tuyen",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "hollow-tide-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "tran_phap": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water finding."
+    },
+    "note": "Taught the Hollow Tide's first layers as a well-finding method."
+   }
+  },
+  {
+   "key": "xa_tieu_sa",
+   "name_hv": "Xá Tiểu Sa",
+   "name_han": "厙小沙",
+   "gloss": "Little sand",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 47,
+   "birthplace": 47,
+   "role": "A gold-washer girl of Đào Sa Thị who wants to be the woman in the red robe",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Ambitious",
+     "Trusting"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "She has heard Khang Tẩy Kim (khang_tay_kim) tell of the woman who came out of the reeds a hundred times, and follows Khang Lãng Sa (khang_lang_sa) to the landing whenever a letter comes.",
+   "ties": [
+    {
+     "to": "khang_lang_sa",
+     "kind": "friend",
+     "note": "follows him to the landing"
+    },
+    {
+     "to": "khang_tay_kim",
+     "kind": "friend",
+     "note": "tells her the story"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water primer."
+    },
+    "note": "Not ma đạo yet."
+   }
+  }
+ ]
+}

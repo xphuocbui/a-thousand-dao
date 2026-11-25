@@ -1,0 +1,910 @@
+{
+ "sect": "bach_vu",
+ "people": [
+  {
+   "key": "ta_thanh_loan",
+   "name_hv": "Tạ Thanh Loan",
+   "name_han": "謝青鸞",
+   "gloss": "The blue luan bird, messenger of the immortals",
+   "sex": "F",
+   "born": 1072,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "bach_vu",
+   "rank": "tong_chu",
+   "home": 330,
+   "birthplace": 769,
+   "role": "A founder (1110) and head of Bách Vũ Các; raises the palace's post birds and gathers the feathers for its fans",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 64,
+     "hoa": 50
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 54,
+    "than_hon": 68,
+    "khi_van": 56,
+    "dao_tam": 52,
+    "mi_luc": 66
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Gregarious",
+     "Loyal"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "beast_bonded"
+    ],
+    "lifestyle": "collector",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A quick, bright-eyed woman in a cloak of moulted feathers, with three small birds asleep along her shoulders and a bone whistle on a cord.",
+   "backstory": "Tạ Thanh Loan grew up netting birds with her sister Tạ Thanh Thước (ta_thanh_thuoc) in the cinnamon woods of Nhục Quế Thôn, under an old catcher, Tuyên Bách Minh (tuyen_bach_minh), who told them all birds bow to the phoenix. In 1110 the three of them founded the pavilion to raise messenger birds for the palace (V137). Tuyên would not lead, so she did. The pavilion's birds now carry the palace's ordinary post, its fan-makers supply the inner gate, and its catchers bring down the vent-bird feathers for the Feather Kindling. The palace's writs still fly on the red-crested birds of the Wutong Court, which Vu Ngô Đồng (vu_ngo_dong) keeps and lends her and never asks back. In 1180 she sent her nephew Ổ Linh Tước (o_linh_tuoc) to the Wutong Court to learn them. She is 128, Trúc Cơ, and has seventy years to reach Kết Đan.",
+   "wants": "Kết Đan before her years run out, and the pavilion's birds carrying the palace's writs.",
+   "secret": "In a hidden loft she has nine red-crested writ birds, hatched from eggs her nephew carried out of the Wutong aviary without Vu Ngô Đồng's leave. She means to present them to the palace head as proof that Bách Vũ can raise writ birds. If Vu learns how she got them, it shames him, her nephew and her.",
+   "ties": [
+    {
+     "to": "ta_thanh_thuoc",
+     "kind": "sibling",
+     "note": "her elder sister and co-founder"
+    },
+    {
+     "to": "o_linh_tuoc",
+     "kind": "niece_nephew",
+     "note": "her sister's son, at the Wutong Court; he sends the eggs"
+    },
+    {
+     "to": "vu_ngo_dong",
+     "kind": "friend",
+     "note": "lends her birds and forgets to ask them back"
+    },
+    {
+     "to": "tuyen_bach_minh",
+     "kind": "former_master",
+     "note": "the old catcher who taught the sisters"
+    },
+    {
+     "to": "nhieu_tieu_yen",
+     "kind": "disciple",
+     "note": "the only one allowed in the hidden loft"
+    },
+    {
+     "to": "ninh_truc_thuc",
+     "kind": "friend",
+     "note": "his seed feeds her birds; her hawks eat his rats"
+    },
+    {
+     "to": "giai_van_tieu",
+     "kind": "friend",
+     "note": "her falconer"
+    },
+    {
+     "to": "que_hoang_oanh",
+     "kind": "friend",
+     "note": "an outer girl of her lofts"
+    },
+    {
+     "to": "o_tieu_sao",
+     "kind": "disciple",
+     "note": "carries grubs to the hidden loft"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "roosting-branch-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "moulted-feather-fan",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "bvc-blue-luan-whistle"
+     },
+     {
+      "named": "bvc-moulted-feather-fan"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood for the branches her birds roost on, a little Fire for the fan: she fights through her flock.",
+     "targets": [
+      6487,
+      6491,
+      6537,
+      6547,
+      6552,
+      1457
+     ],
+     "targets_note": "Lineage birds, Carved Faces and Ancestor Beast for the flock, Wood and Fire for the fan."
+    },
+    "note": "The bird mother: three bonded birds, a whistle, and a fan of moulted feathers."
+   },
+   "items": [
+    "bvc-blue-luan-whistle",
+    "bvc-moulted-feather-fan"
+   ],
+   "changed": "new record fields for an existing person (tier A): root, build, birthplace 769, ties. Key, name, birth, realm, sect and rank kept."
+  },
+  {
+   "key": "ta_thanh_thuoc",
+   "name_hv": "Tạ Thanh Thước",
+   "name_han": "謝青鵲",
+   "gloss": "The blue magpie",
+   "sex": "F",
+   "born": 1068,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "bach_vu",
+   "rank": "truong_lao",
+   "home": 330,
+   "birthplace": 769,
+   "role": "Co-founder; keeper of the moulting lofts, where the hundred feathers are gathered",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 58,
+     "hoa": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 50,
+    "than_hon": 62,
+    "khi_van": 44,
+    "dao_tam": 66,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Devout",
+     "Honest"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "beast_bonded"
+    ],
+    "lifestyle": "collector",
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A stooped, soft-voiced woman with feathers in her hair she has forgotten are there.",
+   "backstory": "The elder Tạ sister, Tạ Thanh Thước keeps the lofts where the pavilion's birds moult and gathers every shed feather by kind. She has ninety-nine kinds in her fan and an empty socket for the hundredth. Her husband Ổ Tùng Lâm (o_tung_lam) was killed by the dark apes of Huyền Viên Lâm in 1168. She believes the red-crested eggs her son Ổ Linh Tước (o_linh_tuoc) sends home are Vu Ngô Đồng's gift.",
+   "ties": [
+    {
+     "to": "ta_thanh_loan",
+     "kind": "sibling",
+     "note": "her younger sister and head"
+    },
+    {
+     "to": "o_linh_tuoc",
+     "kind": "child",
+     "note": "her son at the Wutong Court"
+    },
+    {
+     "to": "o_tung_lam",
+     "kind": "spouse",
+     "note": "killed by dark apes, 1168"
+    },
+    {
+     "to": "tuyen_bach_minh",
+     "kind": "former_master",
+     "note": ""
+    },
+    {
+     "to": "hang_thai_vu",
+     "kind": "friend",
+     "note": "the woman who gets her feathers from her lofts"
+    },
+    {
+     "to": "khau_tinh_minh",
+     "kind": "disciple",
+     "note": "keeps a daily record of the birds' moods"
+    },
+    {
+     "to": "kieu_thuy_nhi",
+     "kind": "disciple",
+     "note": "catcher's daughter from the cinnamon woods"
+    },
+    {
+     "to": "phu_vu_to",
+     "kind": "friend",
+     "note": "keeper of the moulting lofts' feather rolls"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "roosting-branch-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "moulted-feather-fan",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "named": "bvc-ninety-nine-feather-fan"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and long Fire stacks from the fan.",
+     "targets": [
+      6487,
+      6491,
+      6537,
+      6227,
+      6239
+     ],
+     "targets_note": "Lineage birds, Wutong Perch and Broad Leaf: long Fire stacks from the fan."
+    },
+    "note": "The lofts."
+   },
+   "items": [
+    "bvc-ninety-nine-feather-fan"
+   ]
+  },
+  {
+   "key": "giai_van_tieu",
+   "name_hv": "Giải Vân Tiêu",
+   "name_han": "解雲霄",
+   "gloss": "Clouds of the high sky",
+   "sex": "M",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "bach_vu",
+   "rank": "noi_mon",
+   "home": 330,
+   "birthplace": 146,
+   "role": "Master of the post birds; flies the palace's ordinary letters",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "hoa": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 52,
+    "than_hon": 64,
+    "khi_van": 58,
+    "dao_tam": 44,
+    "mi_luc": 60
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Fickle",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "beast_bonded"
+    ],
+    "lifestyle": "gambler",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A wiry, grinning man with bird droppings on both shoulders and a dozen seal impressions in his memory.",
+   "backstory": "Born at Hà Loan the year the pavilion was founded, Giải Vân Tiêu trains and flies the post birds that carry the palace's ordinary letters to every vassal. He knows every seal by sight. For forty years the palace's guest elder Chử Trì Âm (chu_tri_am) has sent letters north by his birds to Thính Vũ Lâu, and Giải has noticed that the replies come back with a second seal under the first. He has told only Tạ Thanh Loan (ta_thanh_loan), and she told him to forget it.",
+   "ties": [
+    {
+     "to": "ta_thanh_loan",
+     "kind": "friend",
+     "note": "his head"
+    },
+    {
+     "to": "chu_tri_am",
+     "kind": "friend",
+     "note": "the palace guest elder whose letters to the Tower he flies"
+    },
+    {
+     "to": "phong_tieu_cuu",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "ma_tin_phi",
+     "kind": "disciple",
+     "note": "post rider for the pavilion's ordinary letters"
+    },
+    {
+     "to": "lam_the_ngo",
+     "kind": "friend",
+     "note": "Former Wutong Court aviary hand, home to roost his own birds"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "roosting-branch-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "hoa"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Fast birds and a fan.",
+     "targets": [
+      6487,
+      6491,
+      6537,
+      6495
+     ],
+     "targets_note": "Lineage birds, Swift Hound: fast post birds."
+    },
+    "note": "The post."
+   }
+  },
+  {
+   "key": "hang_thai_vu",
+   "name_hv": "Hàng Thải Vũ",
+   "name_han": "杭彩羽",
+   "gloss": "Coloured feathers",
+   "sex": "F",
+   "born": 1125,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "bach_vu",
+   "rank": "noi_mon",
+   "home": 330,
+   "birthplace": 145,
+   "role": "Fan-maker; supplies Phượng Minh's inner gate with practice fans",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "hoa": 50
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Arrogant",
+     "Temperate"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A peach farmer's daughter from Đào Khê who makes every practice fan the palace's inner gate burns through, and complains to its fan master Thích Hồng Linh (thich_hong_linh) that they burn them too fast.",
+   "ties": [
+    {
+     "to": "thich_hong_linh",
+     "kind": "friend",
+     "note": "her best customer"
+    },
+    {
+     "to": "ta_thanh_thuoc",
+     "kind": "friend",
+     "note": "gets her feathers from the lofts"
+    },
+    {
+     "to": "ky_hong_phien",
+     "kind": "disciple",
+     "note": "binds practice fans at the fan bench"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "roosting-branch-canon",
+     "layer": 3
+    },
+    "aux": [
+     {
+      "tech": "moulted-feather-fan",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 4
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire fans."
+    },
+    "note": "The fan bench."
+   }
+  },
+  {
+   "key": "tran_da_minh",
+   "name_hv": "Trần Dã Minh",
+   "name_han": "陳野鳴",
+   "gloss": "A wild call",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "bach_vu",
+   "rank": "ngoai_mon",
+   "home": 330,
+   "birthplace": 769,
+   "role": "Outer catcher of the jungle; father of Trần Tước Nhi at the Wutong Court",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 42,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Humble",
+     "Cautious"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "wild_raised"
+   },
+   "backstory": "A lime-stick catcher who never passed to the inner gate and sent his daughter Trần Tước Nhi (tran_tuoc_nhi) to the palace's aviary instead; she names every chick and writes him their names.",
+   "ties": [
+    {
+     "to": "tran_tuoc_nhi",
+     "kind": "child",
+     "note": "his daughter, aviary girl of the Wutong Court"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hundred-call-breath",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Calls."
+    },
+    "note": "Lime sticks."
+   }
+  },
+  {
+   "key": "nhieu_tieu_yen",
+   "name_hv": "Nhiêu Tiểu Yến",
+   "name_han": "饒小燕",
+   "gloss": "Little swallow",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "bach_vu",
+   "rank": "noi_mon",
+   "home": 330,
+   "birthplace": 146,
+   "role": "The head's inner disciple; keeps the hidden loft",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "hoa": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Reclusive",
+     "Honest"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Tạ Thanh Loan (ta_thanh_loan) gave her the key to a loft no one else may enter and nine red-crested birds to feed, and she is sure it is an honour.",
+   "ties": [
+    {
+     "to": "ta_thanh_loan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "hoan_truc_lung",
+     "kind": "friend",
+     "note": "the old servant she keeps company"
+    },
+    {
+     "to": "o_tieu_sao",
+     "kind": "friend",
+     "note": "carries grubs to the hidden loft"
+    }
+   ],
+   "master": "ta_thanh_loan",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "roosting-branch-canon",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "The hidden loft."
+   }
+  },
+  {
+   "key": "que_hoang_oanh",
+   "name_hv": "Quế Hoàng Oanh",
+   "name_han": "桂黃鶯",
+   "gloss": "Oriole in the cinnamon",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "bach_vu",
+   "rank": "ngoai_mon",
+   "home": 330,
+   "birthplace": 769,
+   "role": "Outer disciple; sings the birds in",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Fickle",
+     "Compassionate"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A cinnamon picker's girl who sings the post birds home at dusk; on the day in 1195 when every bird on the ridge fell silent (A248), hers stopped too, and Tạ Thanh Loan (ta_thanh_loan) asked her for the tune.",
+   "ties": [
+    {
+     "to": "ta_thanh_loan",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "khau_tinh_minh",
+     "kind": "friend",
+     "note": "keeps a daily record of the birds' moods"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hundred-call-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Calls."
+    },
+    "note": "Dusk song."
+   }
+  },
+  {
+   "key": "phong_tieu_cuu",
+   "name_hv": "Phòng Tiểu Cưu",
+   "name_han": "房小鳩",
+   "gloss": "Little dove",
+   "sex": "M",
+   "born": 1174,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "bach_vu",
+   "rank": "noi_mon",
+   "home": 330,
+   "birthplace": 145,
+   "role": "Inner disciple of the post",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "hoa": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Trusting",
+     "Cautious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "Giải Vân Tiêu's (giai_van_tieu) disciple, who rides the post road to the vassals when the birds cannot fly and is learning seals.",
+   "ties": [
+    {
+     "to": "giai_van_tieu",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "giai_van_tieu",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "roosting-branch-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Birds."
+    },
+    "note": "The post road."
+   }
+  },
+  {
+   "key": "hoan_truc_lung",
+   "name_hv": "Hoàn Trúc Lung",
+   "name_han": "桓竹籠",
+   "gloss": "Bamboo cage",
+   "sex": "M",
+   "born": 1125,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "bach_vu",
+   "rank": "tap_dich",
+   "home": 330,
+   "birthplace": 727,
+   "role": "Servant cage-maker, the only one the pavilion allows",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 44,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Patient",
+     "Pragmatic"
+    ],
+    "calling": "Refiner",
+    "upbringing": "servant_born"
+   },
+   "backstory": "A raft-village man with a Metal root who weaves the few training cages the pavilion permits; he made nine new ones last year for Nhiêu Tiểu Yến (nhieu_tieu_yen) and was told not to ask.",
+   "ties": [
+    {
+     "to": "nhieu_tieu_yen",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "exception": "servant (tạp dịch): Metal-Earth root, not taught the lineage",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_kim",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Plain Metal."
+    },
+    "note": "Servant; a stand-in Yellow Metal method."
+   }
+  },
+  {
+   "key": "tuyen_bach_minh",
+   "name_hv": "Tuyên Bách Minh",
+   "name_han": "宣百鳴",
+   "gloss": "A hundred calls",
+   "sex": "M",
+   "born": 1010,
+   "died": 1160,
+   "cause": "fell from Triều Phượng Đỉnh at dawn, at 150 (N-bach_vu-02)",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "bach_vu",
+   "rank": "founder",
+   "home": 330,
+   "birthplace": 769,
+   "role": "The old catcher who founded Bách Vũ Các with the Tạ sisters (1110) and refused to lead it",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Devout",
+     "Humble",
+     "Brave"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "wild_raised"
+   },
+   "backstory": "A bird catcher of the cinnamon woods who believed all birds bow to the phoenix (V137) and taught the two Tạ girls (ta_thanh_loan, ta_thanh_thuoc) a hundred calls. He would not be head. Every spring he climbed Triều Phượng Đỉnh, the Summit Where the Birds Pay Homage, to watch the dawn and see if they bowed. In 1160 he did not come down.",
+   "ties": [
+    {
+     "to": "ta_thanh_loan",
+     "kind": "former_disciple",
+     "note": ""
+    },
+    {
+     "to": "ta_thanh_thuoc",
+     "kind": "former_disciple",
+     "note": ""
+    },
+    {
+     "to": "phu_vu_to",
+     "kind": "former_disciple",
+     "note": "keeper of the moulting lofts' feather rolls"
+    }
+   ]
+  },
+  {
+   "key": "o_tung_lam",
+   "name_hv": "Ổ Tùng Lâm",
+   "name_han": "鄔松林",
+   "gloss": "Pine wood",
+   "sex": "M",
+   "born": 1075,
+   "died": 1168,
+   "cause": "killed by the dark apes of Huyền Viên Lâm while netting",
+   "alive": false,
+   "peak_realm": "luyen_khi",
+   "sect": "bach_vu",
+   "rank": "noi_mon",
+   "home": 330,
+   "birthplace": 146,
+   "role": "Tạ Thanh Thước's husband; father of Ổ Linh Tước",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Content",
+     "Trusting"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hà Loan netter who married Tạ Thanh Thước (ta_thanh_thuoc) and went into the dark ape forest once too often for its parrots in 1168.",
+   "ties": [
+    {
+     "to": "ta_thanh_thuoc",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "o_linh_tuoc",
+     "kind": "child",
+     "note": ""
+    }
+   ]
+  }
+ ]
+}

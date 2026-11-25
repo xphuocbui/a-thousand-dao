@@ -1,0 +1,51 @@
+{
+ "sect": "van_hac",
+ "_doc": "Vạn Hác Viện lineage (rules-proposals R5). NO-LEAN (R3): Wood, Wind -> leans []. Its công pháp are song arts that run on no element: the player's qi is carried by the sound, and the sound takes the colour of whatever root plays it. Outer gate: pine-wind-fingering (Yellow, song). Inner gate and above: ten-thousand-ravines-zither-canon (Earth, song). Secret arts: the-monks-rest (inner gate, song), thorn-and-ink-verses (existing, Wood soul-song, for Wood-rooted elders). Recruits by ear (thần hồn). Proposals are unpriced.",
+ "lineage": {
+  "outer": "pine-wind-fingering",
+  "main": "ten-thousand-ravines-zither-canon",
+  "secret": [
+   {"id": "the-monks-rest", "rank": "noi_mon"},
+   {"id": "thorn-and-ink-verses", "rank": "truong_lao", "note": "existing (catalogue-soul-song-seal, Wood); taught only to Wood-rooted elders, from the scores of the 700s"}
+  ],
+  "body": null,
+  "elements": [],
+  "tree_route": [4219, 4223, 4216],
+  "tree_route_note": "The Clear Gong idea (Gong Stroke, Woken Mind, Clear Gong): soul and timer resistance, the ear that hears the rest between notes. The lineage has no element; priced from Metal, the start of most of its A/B members (24; Wind 37, Wood 47)."
+ },
+ "techniques": [
+  {
+   "id": "pine-wind-fingering",
+   "name": "Pine Wind Fingering (Tùng Phong Chỉ Pháp)",
+   "tier": 0, "tech_kind": "main", "names": [], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The outer gate's method. A student sits in the ravine with an unstrung zither and learns to hear the wind in the pines as eight pitches, then strings it and plays them back. Qi is drawn in on the breath with each plucked note and settles in the fingertips. It runs on no element: a Metal child's notes ring and a Wood child's notes hum, and the method does not care which.",
+   "arts": ["thorn-lullaby", {"new": "Plucked Pitch (Câu Huyền)", "concept": "A single note thrown at a foe as Force damage; the next note within a second strikes harder."}],
+   "lore": "The founder's listeners wrote it down in 621 in the zither tablature the academy still uses, the year after the monk left them his zither (C130).",
+   "status": "proposal"
+  },
+  {
+   "id": "ten-thousand-ravines-zither-canon",
+   "name": "Ten Thousand Ravines Zither Canon (Vạn Hác Cầm Kinh)",
+   "tier": 2, "tech_kind": "main", "names": [], "layers": 12, "rank": "noi_mon",
+   "concept": "The academy's canon: one long piece in twelve movements, each a layer, played until it sounds like wind in ten thousand ravines. The player's qi goes out with the sound and comes back from every wall of the ravine, and what returns is drawn in. In a fight it is a song cultivator's method: lulling, marching and cutting notes that stack a Resonance on everything that hears them, and a final movement that sets every Resonance ringing at once.",
+   "arts": ["marching-dirge", {"new": "Ten Thousand Ravines (Vạn Hác)", "concept": "The foe takes Force damage for each Resonance stack it carries; then half its stacks (rounded down) are laid on it again as a new batch.", "tags": ["song"], "authored": "b2, a1"}, {"new": "Echo Wall (Hồi Hưởng Bích)", "concept": "For a few seconds each art cast at the holder returns a soft echo that heals her for a part of its damage.", "tags": ["song"], "authored": "b2"}],
+   "lore": "Played first by the monk under the pines in 620 (C130) and written down by his listeners in tablature. The twelfth movement takes a whole night to play; Hà Thính Tùng is the only living person who has played it to the end.",
+   "status": "proposal",
+   "passives": [
+    {"key": "soul_res_pct", "value": 8.3, "scope": []},
+    {"key": "status_resist_pct", "value": 7.5, "scope": []}
+   ],
+   "authored": "b1, b2, a1"
+  },
+  {
+   "id": "the-monks-rest",
+   "name": "The Monk's Rest (Tăng Hưu Khúc)",
+   "tier": 1, "tech_kind": "secret", "names": [], "layers": 9, "rank": "noi_mon",
+   "concept": "The rest between notes, studied as a piece of its own. The holder stops playing, and the silence that follows is so complete that a foe's arts falter in it: their casting slows and their next art may fail. It is taught to inner disciples after they can play the canon's third movement, because silence must be earned by sound.",
+   "arts": [{"new": "The Held Rest (Đình Âm)", "concept": "For two seconds after your song ends, the foe casts more slowly; after a Marching Dirge finale the rest lasts 0.5 s per Measure spent (each later one half as long), and the foe's arts cost more while it holds (The Earned Rest).", "authored": "d28, b2", "tags": ["song"]}, {"new": "Empty Ravine (Không Hác)", "concept": "Removes all buffs on one foe that were given by a song, drum or bell."}, {"new": "The Earned Rest (Đắc Hưu)", "concept": "A passive art. When your Marching Dirge finale ends a march, The Held Rest starts at once and lasts 0.5 s for each Measure the finale spent instead of 2 s, and each later finale's rest this fight is half as long as the one before; while it holds, the foe carries one Heavy Breath stack (its arts cost 25 % more).", "effect": "earned-rest", "unlock_layer": 4, "authored": "d28"}],
+   "lore": "Named for the monk who left the zither in 620 and walked back to his temple. The academy says he taught only one thing, which was when to stop.",
+   "status": "proposal",
+   "authored": "d28, b2"
+  }
+ ]
+}

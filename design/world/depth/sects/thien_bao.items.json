@@ -1,0 +1,354 @@
+{
+ "sect": "thien_bao",
+ "_doc": "Thiên Bảo Trai signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow the metal and earth catalogues' grade 3-4 items. The mistress also carries the catalogue's Heaven-Purchasing Coin (general-heaven-purchasing-coin) and holds Lạc Hà's Lone Duck Ring in her vault (lh-lone-duck-ring, defined in lac_ha.items.json).",
+ "items": [
+  {
+   "id": "tb-land-riches-seal",
+   "name": "Seal of the Land's Riches (Vật Hoa Ấn)",
+   "family": "metal",
+   "kind": "treasure",
+   "base": "an",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 22,
+     "scope": [
+      "kim"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 30,
+     "scope": [
+      "kim",
+      "debuff"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 30,
+     "scope": [
+      "kim",
+      "debuff"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "sold",
+     "name": "Sold (Thành Giao)",
+     "rule": "When you spend ten or more Metal stacks on a foe with Hammer Price, the seal strikes the foe's ward as well: it loses a quarter of what it holds, and you gain a ward of that size."
+    }
+   ],
+   "lore": "The auction's hammer and seal in one: a red-gold block cut from the first Xích Kim nugget (A176). Every lot sold at Vật Hoa Thị since 1050 has been sealed with it at the fall of the hammer (A185). Buyers say a lot it has sealed cannot be stolen without the thief's luck turning.",
+   "build_use": "The mistress's Metal engine: heavy, lasting Metal stacks spent all at once.",
+   "holder": "phan_vat_hoa",
+   "made_by": "diem_hoa_kim",
+   "made_year": 362,
+   "set": "tb-hammer-pearl-eye",
+   "status": "proposal"
+  },
+  {
+   "id": "tb-grown-red-pearl",
+   "name": "The Grown Red Pearl (Ôn Dưỡng Xích Châu)",
+   "family": "metal",
+   "kind": "treasure",
+   "base": "ngoc_boi",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 24,
+     "scope": [
+      "kim",
+      "buff"
+     ]
+    },
+    {
+     "key": "cultivation_speed_pct",
+     "value": 2,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "grown-not-made",
+     "name": "Grown, Not Made (Dưỡng Nhi Bất Tạo)",
+     "rule": "The pearl cannot be stolen, sold or broken while its keeper lives. Once a fight, a blow that would kill you is taken by the pearl; it cracks for the rest of the fight and its modifiers are lost until then."
+    }
+   ],
+   "lore": "A grain of Xích Kim red gold that Phan Vật Hoa set in her own dantian in 750 with the Warm-Nurtured Treasure Sutra and has fed for 450 years. It is the size of a plum now and has never been out of her. It is the one thing in Thiên Bảo Trai that has no price. No one has seen it.",
+   "build_use": "Health, thần thức and one bought death.",
+   "holder": "phan_vat_hoa",
+   "made_by": "phan_vat_hoa",
+   "made_year": 750,
+   "set": "tb-hammer-pearl-eye",
+   "status": "proposal"
+  },
+  {
+   "id": "tb-furnace-apron",
+   "name": "Red Gold Furnace Apron (Xích Kim Lô Giáp)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 150,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "block_rating",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A smith's apron of linked red-gold scale, worn at the Xích Kim furnace by three generations of the studio's first refiners. It is scorched black at the hem and has never let a spark through.",
+   "build_use": "A refiner's armour: health, fire resistance and a slow, steady guard.",
+   "holder": "khang_thien_chuy",
+   "made_by": "diem_hoa_kim",
+   "made_year": 380,
+   "set": "tb-xich-kim-furnace",
+   "status": "proposal"
+  },
+  {
+   "id": "tb-third-price-mirror",
+   "name": "Mirror of the Third Price (Đệ Tam Giá Kính)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "kinh",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "than_thuc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 24,
+     "scope": [
+      "kim",
+      "debuff"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "kim"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The appraiser's mirror of the auction floor, polished red gold that shows a thing's flaw as a dark thread. Ung Thiên Kim gave it to her the day she priced the broken sword.",
+   "build_use": "The eye: Metal stacks and the crit that finds a flaw.",
+   "holder": "phan_vat_hoa",
+   "made_by": "ung_thien_kim",
+   "made_year": 609,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "tb-red-gold-furnace-sword",
+   "name": "Red Gold Furnace Sword (Xích Kim Lô Kiếm)",
+   "family": "metal",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "artifact_attack_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "kim"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "artifact"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 5,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A flying sword of red gold he refined for himself in 1100 and never put up for auction. The mistress has asked its price three times.",
+   "build_use": "A refiner's strike: artifact damage from a thing he made.",
+   "holder": "khang_thien_chuy",
+   "made_by": "khang_thien_chuy",
+   "made_year": 1100,
+   "set": "tb-xich-kim-furnace",
+   "status": "proposal"
+  },
+  {
+   "id": "tb-crucible-lid",
+   "name": "Crucible Lid Shield (Dã Lô Cái Thuẫn)",
+   "family": "earth",
+   "kind": "artifact",
+   "base": "thuan",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "block_rating",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 100,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The lid of the great crucible of Xích Kim, cracked in 1088 and kept as a shield. He lifts it off the furnace with his bare arm.",
+   "build_use": "The furnace body: block and fire kept out.",
+   "holder": "khang_thien_chuy",
+   "made_by": "khang_thien_chuy",
+   "made_year": 1088,
+   "set": "tb-xich-kim-furnace",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "tb-hammer-pearl-eye",
+   "name": "Hammer, Pearl and Coin (Chùy Châu Tiền)",
+   "pieces": [
+    "tb-land-riches-seal",
+    "tb-grown-red-pearl",
+    "general-heaven-purchasing-coin"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "stack_effect_pct",
+       "value": 12,
+       "scope": [
+        "kim",
+        "debuff"
+       ]
+      },
+      {
+       "key": "defense_pct",
+       "value": 5,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Going Once, Going Twice (Nhất Phách Nhị Phách): when Hammer Price spends ten or more Metal stacks, you keep a third of them; the Coin's Bought Fate is paid from the ward the Seal has taken from foes instead of from your spirit stones, and may flip twice a fight; and while you still hold such a ward, the Pearl's saving of a killing blow is ready once more, spending that ward instead of cracking."
+    }
+   ],
+   "story": "The auction's seal, the pearl grown in her and the coin that buys fate. Phan Vật Hoa holds all three. The coin is a catalogue piece (general-heaven-purchasing-coin) with no set field of its own; this set names it as the third piece, and her master's Mirror of the Third Price stays in her keeping, unworn. A set that cannot be sold is the studio's only joke."
+  },
+  {
+   "id": "tb-xich-kim-furnace",
+   "name": "The Xích Kim Furnace (Xích Kim Lô Cụ)",
+   "pieces": [
+    "tb-furnace-apron",
+    "tb-red-gold-furnace-sword",
+    "tb-crucible-lid"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "artifact_attack_pct",
+       "value": 6,
+       "scope": []
+      },
+      {
+       "key": "khi_huyet_pct",
+       "value": 6,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Fights With What He Made (Dĩ Sở Tạo Chiến): when you block with the Lid, the Sword's next strike comes hot from the furnace: it deals 30 % more, ignores 20 % of the target's defence and adds 2 Metal stacks."
+    }
+   ],
+   "story": "Three generations' apron, the lid he cracked and the sword he would not sell. Khang Thiên Chùy holds all three, and they are the one set in Thiên Bảo Trai that has never been in the auction book."
+  }
+ ]
+}

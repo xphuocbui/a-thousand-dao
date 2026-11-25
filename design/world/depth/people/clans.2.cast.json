@@ -1,0 +1,2623 @@
+{
+ "group": "clans",
+ "_doc": "Cultivating clans part 2: Lục of Phong Đăng, the Hỗ house of Yên Ba, the Đới silk house of Tang Điền. Story: clans.md.",
+ "people": [
+  {
+   "key": "luc_da_coc",
+   "name_hv": "Lục Đa Cốc",
+   "name_han": "陸多穀",
+   "gloss": "Much grain",
+   "sex": "M",
+   "born": 540,
+   "alive": false,
+   "died": 702,
+   "cause": "marsh fever, caught clearing the last of the flooded paddies; died at 162",
+   "peak_realm": "truc_co",
+   "sect": "",
+   "rank": "",
+   "home": 92,
+   "birthplace": null,
+   "role": "Cleared the first Lục paddies; the harvest of 600 (A288)",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Content",
+     "Generous"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Lục Đa Cốc cleared the first paddies of Phong Đăng and in 600 brought in a harvest so rich that the Tower took its grain tax from the Lục first, as it has every year since (A288).",
+   "ties": [
+    {
+     "to": "luc_thuong_lam",
+     "kind": "descendant",
+     "note": "head of the family"
+    }
+   ]
+  },
+  {
+   "key": "luc_thuong_lam",
+   "name_hv": "Lục Thương Lẫm",
+   "name_han": "陸倉廩",
+   "gloss": "Granaries",
+   "sex": "M",
+   "born": 1012,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 92,
+   "birthplace": 92,
+   "role": "Head of the Lục of Phong Đăng: the paddies, the granaries and three hundred tenant households",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 60,
+     "thuy": 44,
+     "kim": 18
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 50,
+    "can_cot": 70,
+    "than_hon": 46,
+    "khi_van": 62,
+    "dao_tam": 48,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Greedy",
+     "Diligent"
+    ],
+    "calling": "Steward",
+    "upbringing": "clan_heir",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "pill_fed"
+    ],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A big, sun-darkened farmer in a straw cape over a silk robe, who weighs a handful of rice by eye and is never wrong.",
+   "backstory": "Lục Thương Lẫm holds the paddies of Phong Đăng and the three hundred tenant households who plant them, the Thiều among them. Since Lục Đa Cốc's (luc_da_coc) harvest of 600 the Tower has taken its grain tax from the Lục first, in kind, before any other farm in the south (A288), and the Lục call it an honour in public. He formed his core at a hundred and forty on pills bought with that surplus. He has three sons. Lục Kế Điền (luc_ke_dien), the heir, is a hundred and forty and still at Foundation. Lục Nhị Hòa keeps the tallies beside the Tower's counters. The third, Lục Đạo Hoa (luc_dao_hoa), left the fields at twenty for Cốc Vũ Quán's spirit-rice terraces. The abbess there, Dương Hảo Vũ (duong_hao_vu), was born on his grandfather's tenancy in a drought year, and he has sent her rice every autumn for a hundred and fifty years. No Lục has ever been taken into the Tower, whose gate wants Metal, because Metal is not in the family.",
+   "wants": "A Lục inside the Tower, so that the family is counted by the Tower instead of counted first.",
+   "secret": "In the drought of 1171 he paid the abbey's prior Thời Tri Tiết to bring rain to his own paddies only. The tenants' fields across the river stayed dry, and three Thiều children died that winter. The payment is in the prior's second receipt book.",
+   "ties": [
+    {
+     "to": "luc_da_coc",
+     "kind": "ancestor",
+     "note": ""
+    },
+    {
+     "to": "luc_ke_dien",
+     "kind": "child",
+     "note": "the heir who may not outlive him"
+    },
+    {
+     "to": "luc_nhi_hoa",
+     "kind": "child",
+     "note": "the tallies"
+    },
+    {
+     "to": "luc_dao_hoa",
+     "kind": "child",
+     "note": "left for the abbey's terraces"
+    },
+    {
+     "to": "luc_mach_thu",
+     "kind": "grandchild",
+     "note": "married a tenant against his word"
+    },
+    {
+     "to": "luc_uong_nhi",
+     "kind": "grandchild",
+     "note": ""
+    },
+    {
+     "to": "luc_man_thuong",
+     "kind": "grandchild",
+     "note": ""
+    },
+    {
+     "to": "luc_ha_mieu",
+     "kind": "descendant",
+     "note": ""
+    },
+    {
+     "to": "duong_hao_vu",
+     "kind": "friend",
+     "note": "born on his grandfather's tenancy; he sends her rice every autumn"
+    },
+    {
+     "to": "thoi_tri_tiet",
+     "kind": "friend",
+     "note": "the prior who sold him the rain of 1171"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 9
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "cl-first-sheaf-bell"
+     },
+     {
+      "named": "cl-granary-seal"
+     },
+     {
+      "named": "cl-seed-store-gourd"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 7,
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood regrowth and health: he outlasts a fight as he outlasts a drought.",
+     "targets": [
+      6299,
+      9002,
+      6371,
+      5591,
+      5597
+     ],
+     "targets_note": "Growth Rings, Ageless Pine, Spirit Spring, World Tree: he outlasts a fight as he outlasts a drought."
+    },
+    "note": "Learned the clan's Seed Store Method first (clans.techniques.json); bought the Verdant Cycle Scripture in 1150 and formed his core on it."
+   },
+   "items": [
+    "cl-first-sheaf-bell",
+    "cl-granary-seal",
+    "cl-seed-store-gourd"
+   ]
+  },
+  {
+   "key": "luc_ke_dien",
+   "name_hv": "Lục Kế Điền",
+   "name_han": "陸繼田",
+   "gloss": "Heir to the fields",
+   "sex": "M",
+   "born": 1060,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 92,
+   "birthplace": 92,
+   "role": "Heir of the Lục; runs the paddies",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 46,
+    "can_cot": 58,
+    "than_hon": 44,
+    "khi_van": 40,
+    "dao_tam": 60,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Humble",
+     "Diligent"
+    ],
+    "calling": "Steward",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": "waning_years",
+    "coping": "obsessive_training",
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A patient, greying man with mud to the knee, who looks older than his father.",
+   "backstory": "The eldest son and heir of Lục Thương Lẫm (luc_thuong_lam), Lục Kế Điền has run the paddies for a hundred years and has sixty left to live unless he forms a core. His father, a Kết Đan with three centuries ahead of him, will outlive him by two hundred years. Every pill the family buys goes to the tax first and to him second. His wife Tống Thanh Miêu (tong_thanh_mieu) has started buying them for him herself.",
+   "ties": [
+    {
+     "to": "luc_thuong_lam",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "tong_thanh_mieu",
+     "kind": "spouse",
+     "note": "buys his pills"
+    },
+    {
+     "to": "luc_mach_thu",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "luc_uong_nhi",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "luc_nhi_hoa",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "luc_dao_hoa",
+     "kind": "sibling",
+     "note": "the brother who got away"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood health and regrowth; he sits the Seed Store breath every night.",
+     "targets": [
+      6299,
+      6278,
+      6371
+     ],
+     "targets_note": "Growth Rings, Seedling, Spirit Spring: the Seed Store's health."
+    },
+    "note": "Runs the clan's Seed Store Method (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "tong_thanh_mieu",
+   "name_hv": "Tống Thanh Miêu",
+   "name_han": "宋青苗",
+   "gloss": "Green shoots",
+   "sex": "F",
+   "born": 1070,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 92,
+   "birthplace": 54,
+   "role": "Wife of the Lục heir; brought the family its only Metal",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 42,
+     "thuy": 38,
+     "moc": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Loyal",
+     "Deceitful"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A Hạnh Hoa merchant's daughter who married the Lục heir Lục Kế Điền (luc_ke_dien), brought the family its only Metal, and buys core pills for her husband behind her father-in-law's back.",
+   "ties": [
+    {
+     "to": "luc_ke_dien",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "luc_uong_nhi",
+     "kind": "child",
+     "note": "has her Metal, two points short"
+    },
+    {
+     "to": "luc_mach_thu",
+     "kind": "child",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_kim",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal edge with Water sustain."
+    },
+    "note": "A Metal method her father bought her before the marriage; the id is a stand-in."
+   }
+  },
+  {
+   "key": "luc_nhi_hoa",
+   "name_hv": "Lục Nhị Hòa",
+   "name_han": "陸二禾",
+   "gloss": "Second sheaf",
+   "sex": "M",
+   "born": 1078,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 92,
+   "birthplace": 92,
+   "role": "Keeps the Lục tallies beside the Tower's counters",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 38,
+     "kim": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Loyal",
+     "Cautious"
+    ],
+    "calling": "Steward",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Lục Thương Lẫm's (luc_thuong_lam) second son, who keeps the Lục tallies beside the Tower's counters at every harvest and admires them more than his father would like.",
+   "ties": [
+    {
+     "to": "luc_thuong_lam",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "luc_ke_dien",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "luc_man_thuong",
+     "kind": "child",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood wards."
+    },
+    "note": "Runs the clan's Seed Store Method (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "luc_mach_thu",
+   "name_hv": "Lục Mạch Thu",
+   "name_han": "陸麥秋",
+   "gloss": "Wheat autumn",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 92,
+   "birthplace": 92,
+   "role": "Farms the far bank's paddies; married a tenant",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 32,
+     "kim": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Stubborn",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Lục Kế Điền's son, who married the tenant woman Thiều Xuân Nương (thieu_xuan_nuong) against his grandfather's word and was given the far bank's paddies, the ones that stayed dry in 1171.",
+   "ties": [
+    {
+     "to": "luc_ke_dien",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "thieu_xuan_nuong",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "luc_ha_mieu",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "luc_thuong_lam",
+     "kind": "grandparent",
+     "note": "gave him the dry bank"
+    },
+    {
+     "to": "luc_man_thuong",
+     "kind": "cousin",
+     "note": "his cousin"
+    },
+    {
+     "to": "tong_thanh_mieu",
+     "kind": "parent",
+     "note": "his mother"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood endurance."
+    },
+    "note": "Runs the clan's Seed Store Method (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "thieu_xuan_nuong",
+   "name_hv": "Thiều Xuân Nương",
+   "name_han": "韶春娘",
+   "gloss": "Spring girl",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 92,
+   "birthplace": 92,
+   "role": "A Thiều tenant's daughter married into the Lục",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Vengeful",
+     "Diligent"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A Thiều tenant's daughter married into the landlord's house and aunt to Thiều Mộ Canh (thieu_mo_canh) and Thiều Mộ Vũ (thieu_mo_vu); she buried two of her sister's children in the dry winter of 1171 and has wondered since why only one bank of the river had rain.",
+   "ties": [
+    {
+     "to": "luc_mach_thu",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "luc_ha_mieu",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "thieu_mo_canh",
+     "kind": "niece_nephew",
+     "note": ""
+    },
+    {
+     "to": "thieu_mo_vu",
+     "kind": "niece_nephew",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood healing."
+    },
+    "note": "Runs the clan's Seed Store Method (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "luc_ha_mieu",
+   "name_hv": "Lục Hạ Miêu",
+   "name_han": "陸夏苗",
+   "gloss": "Summer seedling",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 92,
+   "birthplace": 92,
+   "role": "Half tenant, half landlord",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Trusting",
+     "Gregarious",
+     "Loyal"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Lục Mạch Thu's son, half tenant and half landlord, who walked his cousin Thiều Mộ Vũ (thieu_mo_vu) up to the Tower's gate when it took her and carries her letters home each season.",
+   "ties": [
+    {
+     "to": "luc_mach_thu",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "thieu_xuan_nuong",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "thieu_mo_vu",
+     "kind": "cousin",
+     "note": "her letters"
+    },
+    {
+     "to": "luc_thuong_lam",
+     "kind": "ancestor",
+     "note": "his ancestor"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "Runs the clan's Seed Store Method (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "luc_uong_nhi",
+   "name_hv": "Lục Ương Nhi",
+   "name_han": "陸秧兒",
+   "gloss": "Rice seedling",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 92,
+   "birthplace": 92,
+   "role": "Refused at the Tower's gate by two points of Metal",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 36,
+     "kim": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Wrathful",
+     "Stubborn"
+    ],
+    "calling": "Duelist",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Lục Kế Điền's late daughter, who has her mother's Metal at 28 and was refused at the Tower's gate by two points in the year the tenant girl Thiều Mộ Vũ (thieu_mo_vu) was admitted on exactly 30.",
+   "ties": [
+    {
+     "to": "luc_ke_dien",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "tong_thanh_mieu",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "thieu_mo_vu",
+     "kind": "rival",
+     "note": "admitted where she was refused"
+    },
+    {
+     "to": "luc_thuong_lam",
+     "kind": "grandparent",
+     "note": "her grandfather"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal edge she is not supposed to have."
+    },
+    "note": "Runs the clan's Seed Store Method (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "luc_man_thuong",
+   "name_hv": "Lục Mãn Thương",
+   "name_han": "陸滿倉",
+   "gloss": "Full granary",
+   "sex": "M",
+   "born": 1158,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 92,
+   "birthplace": 92,
+   "role": "Steward of the Lục granaries",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Greedy",
+     "Calm"
+    ],
+    "calling": "Steward",
+    "upbringing": "clan_heir",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Lục Nhị Hòa's son and steward of the granaries, who knows to the sack how much rice the Tower's counters never see.",
+   "ties": [
+    {
+     "to": "luc_nhi_hoa",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "luc_mach_thu",
+     "kind": "cousin",
+     "note": ""
+    },
+    {
+     "to": "luc_thuong_lam",
+     "kind": "grandparent",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood wards."
+    },
+    "note": "Runs the clan's Seed Store Method (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "ho_do_hai",
+   "name_hv": "Hỗ Độ Hải",
+   "name_han": "扈渡海",
+   "gloss": "He who crosses the sea",
+   "sex": "M",
+   "born": 990,
+   "alive": false,
+   "died": 1120,
+   "cause": "lost at sea with three ships, 1120 (age 130)",
+   "peak_realm": "truc_co",
+   "sect": "",
+   "rank": "",
+   "home": 30,
+   "birthplace": null,
+   "role": "Hỗ captain who married the Thẩm daughter of Bạch Sa (A029)",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Ambitious",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A Hỗ captain of Yên Ba who married a daughter of the Thẩm of Bạch Sa in 1040 and built the jetty that made the white sands a trading town (A029); he was lost with three low-riding ships off the cape in 1120.",
+   "ties": [
+    {
+     "to": "ho_te_xuyen",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "ho_truong_pham",
+     "kind": "grandchild",
+     "note": "his grandson"
+    }
+   ]
+  },
+  {
+   "key": "ho_te_xuyen",
+   "name_hv": "Hỗ Tế Xuyên",
+   "name_han": "扈濟川",
+   "gloss": "He who crosses the river",
+   "sex": "M",
+   "born": 1046,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 30,
+   "birthplace": 30,
+   "role": "Head of the Hỗ house of Yên Ba: a coasting fleet and the port's warehouses",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "moc": 44
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 50,
+    "than_hon": 54,
+    "khi_van": 76,
+    "dao_tam": 48,
+    "mi_luc": 66
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Gregarious",
+     "Patient"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "pill_fed"
+    ],
+    "lifestyle": "collector",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "Small, quick and plainly dressed, with a counting-rod case at his belt and a sailor's habit of watching the sky while he bargains.",
+   "backstory": "Hỗ Tế Xuyên is the son of a Hỗ sea captain, Hỗ Độ Hải (ho_do_hai), and a Thẩm girl of Bạch Sa, whose marriage in 1040 made the white sands a trading town (A029). His mother never cultivated and died at seventy. He took the house at seventy-four, when his father was lost with three ships off the cape in 1120. The Hỗ fleet carries Thúy Vi's pills for the port house at Yên Ba under Diêm Hải Tảo (diem_hai_tao), and the cape's salt, tea and timber for anyone who pays. The house has no method of its own and does not want one. Everything a Hỗ cultivates was bought, and he formed his core at a hundred and fifty on bought pills. He trusts his mother's kinsman Thẩm Tịnh Sa (tham_tinh_sa), who keeps the port house's books, more than any of his captains. In 1170 Kim Vạn Lý (kim_van_ly) offered to buy the fleet. Tế Xuyên sent him a sandalwood model of it and no reply. He sent his great-grandson Hỗ Kinh Điểu (ho_kinh_dieu) up to Vân Khởi Quán's school to be made calm.",
+   "wants": "A Hỗ child in Thúy Vi's inner gate, which the sect does not sell and he has never stopped trying to buy.",
+   "secret": "One ship in ten of his fleet has a second hold, and the pills in it are Lạc Đan Thanh's copies under Thúy Vi's seal. If his cousin's books are ever weighed against the cargo, the port house will know.",
+   "ties": [
+    {
+     "to": "ho_do_hai",
+     "kind": "parent",
+     "note": "lost at sea"
+    },
+    {
+     "to": "ho_truong_pham",
+     "kind": "child",
+     "note": "the admiral"
+    },
+    {
+     "to": "ho_quan_lan",
+     "kind": "grandchild",
+     "note": ""
+    },
+    {
+     "to": "ho_trao_ca",
+     "kind": "grandchild",
+     "note": ""
+    },
+    {
+     "to": "ho_kinh_dieu",
+     "kind": "descendant",
+     "note": "sent to be made calm"
+    },
+    {
+     "to": "ho_yen_thuy",
+     "kind": "descendant",
+     "note": "keeps the ledgers"
+    },
+    {
+     "to": "ho_ngan_trieu",
+     "kind": "descendant",
+     "note": ""
+    },
+    {
+     "to": "tham_tinh_sa",
+     "kind": "cousin",
+     "note": "his mother's kinsman; the only books he trusts"
+    },
+    {
+     "to": "diem_hai_tao",
+     "kind": "friend",
+     "note": "the port house's keeper; his best cargo"
+    },
+    {
+     "to": "kim_van_ly",
+     "kind": "rival",
+     "note": "offered to buy the fleet in 1170"
+    },
+    {
+     "to": "bao_te_hai",
+     "kind": "friend",
+     "note": "builds the Hỗ junks at Bạch Sa"
+    },
+    {
+     "to": "lac_dan_thanh",
+     "kind": "friend",
+     "note": "the alchemist whose copied pills ride in the second holds"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "still-moon-tide-scripture",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "returning-wake-verse",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "named": "cl-misty-wave-mirror"
+     },
+     {
+      "named": "cl-captains-ring"
+     },
+     {
+      "named": "cl-white-sand-robe"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain and evasion: a merchant who leaves every fight he did not start.",
+     "targets": [
+      748,
+      5498,
+      5361,
+      5365,
+      5570,
+      5574
+     ],
+     "targets_note": "Calm Pool, Water Ring Step, Cardinal Points and Blink Mark, the Water Trigram's evasion: a merchant who leaves."
+    },
+    "note": "Bought the Still Moon Tide Scripture from a Tùng Đào exile in 1150; the house has no method of its own."
+   },
+   "items": [
+    "cl-misty-wave-mirror",
+    "cl-captains-ring",
+    "cl-white-sand-robe"
+   ]
+  },
+  {
+   "key": "ho_truong_pham",
+   "name_hv": "Hỗ Trường Phàm",
+   "name_han": "扈長帆",
+   "gloss": "Long sail",
+   "sex": "M",
+   "born": 1092,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 30,
+   "birthplace": 30,
+   "role": "Admiral of the Hỗ fleet; the head's son",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 50,
+    "can_cot": 62,
+    "than_hon": 46,
+    "khi_van": 58,
+    "dao_tam": 52,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Honest",
+     "Wrathful"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A weathered captain with a salt-white beard and a voice for the masthead.",
+   "backstory": "Hỗ Tế Xuyên's (ho_te_xuyen) son and admiral of the Hỗ fleet, who has sailed every coast of the cape and knows which ships carry the second hold. He hates it. His grandfather Hỗ Độ Hải (ho_do_hai) was lost in a storm with ships that rode too low, and he has twice asked his father to tear the second holds out. His wife Mẫn Tú Chi (man_tu_chi) keeps the warehouses and says nothing.",
+   "ties": [
+    {
+     "to": "ho_te_xuyen",
+     "kind": "parent",
+     "note": "the second holds"
+    },
+    {
+     "to": "man_tu_chi",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "ho_quan_lan",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "ho_do_hai",
+     "kind": "grandparent",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_thuy",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain and a flying sword: a deck fighter.",
+     "targets": [
+      748,
+      750,
+      5374,
+      3849
+     ],
+     "targets_note": "Calm Pool, Water Root, Nourishing Rain, Small Sword for the flying sword."
+    },
+    "note": "The house has no method of its own; a bought method, the id a stand-in."
+   }
+  },
+  {
+   "key": "man_tu_chi",
+   "name_hv": "Mẫn Tú Chi",
+   "name_han": "閔秀芝",
+   "gloss": "Fine fungus",
+   "sex": "F",
+   "born": 1105,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 30,
+   "birthplace": 1143,
+   "role": "Keeps the Hỗ warehouses",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "kim": 30,
+     "thuy": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Diligent",
+     "Loyal"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A pine-soot maker's daughter of Tùng Yên Thôn, wife of Hỗ Trường Phàm (ho_truong_pham), who runs the Hỗ warehouses and has never asked what the second holds carry.",
+   "ties": [
+    {
+     "to": "ho_truong_pham",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "ho_quan_lan",
+     "kind": "child",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "huyen_moc",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood wards."
+    },
+    "note": "The house has no method of its own; a bought method, the id a stand-in."
+   }
+  },
+  {
+   "key": "ho_quan_lan",
+   "name_hv": "Hỗ Quan Lan",
+   "name_han": "扈觀瀾",
+   "gloss": "He who watches the waves",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 30,
+   "birthplace": 30,
+   "role": "A poet who gave the ledgers to his daughter",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 34,
+     "kim": 18
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Lazy",
+     "Calm",
+     "Gregarious"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": "poet",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Hỗ Trường Phàm's son and Hỗ Kinh Điểu's (ho_kinh_dieu) father, a poet who was meant to inherit the ledgers and gave them to his daughter when she was sixteen.",
+   "ties": [
+    {
+     "to": "ho_truong_pham",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "trinh_hai_au",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "ho_kinh_dieu",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "ho_yen_thuy",
+     "kind": "child",
+     "note": "has his ledgers"
+    },
+    {
+     "to": "ho_ngan_trieu",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "ho_trao_ca",
+     "kind": "cousin",
+     "note": "his cousin"
+    },
+    {
+     "to": "ho_te_xuyen",
+     "kind": "grandparent",
+     "note": "his grandfather"
+    },
+    {
+     "to": "man_tu_chi",
+     "kind": "parent",
+     "note": "his mother"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water and verse."
+    },
+    "note": "The house has no method of its own; a bought method, the id a stand-in."
+   }
+  },
+  {
+   "key": "trinh_hai_au",
+   "name_hv": "Trịnh Hải Âu",
+   "name_han": "鄭海鷗",
+   "gloss": "Sea gull",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 30,
+   "birthplace": 30,
+   "role": "A harbour pilot's daughter; Hỗ Kinh Điểu's mother",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Brave",
+     "Impatient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A harbour pilot's daughter of Yên Ba and wife of Hỗ Quan Lan (ho_quan_lan), who once brought her son Hỗ Kinh Điểu (ho_kinh_dieu) home from Vân Khởi Quán and was made to take him back.",
+   "ties": [
+    {
+     "to": "ho_quan_lan",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "ho_kinh_dieu",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "ho_yen_thuy",
+     "kind": "child",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "The house has no method of its own; a bought method, the id a stand-in."
+   }
+  },
+  {
+   "key": "ho_yen_thuy",
+   "name_hv": "Hỗ Yên Thủy",
+   "name_han": "扈煙水",
+   "gloss": "Misty water",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 30,
+   "birthplace": 30,
+   "role": "Keeps the Hỗ ledgers",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 30,
+     "kim": 16
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Honest",
+     "Ambitious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Hỗ Kinh Điểu's (ho_kinh_dieu) elder sister, who has kept the house's ledgers since she was sixteen, sends the cargo figures to Thẩm Tịnh Sa (tham_tinh_sa) each season, and has begun to wonder why they never quite match.",
+   "ties": [
+    {
+     "to": "ho_quan_lan",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "ho_kinh_dieu",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "tham_tinh_sa",
+     "kind": "friend",
+     "note": "ledger letters"
+    },
+    {
+     "to": "ho_te_xuyen",
+     "kind": "ancestor",
+     "note": "her ancestor"
+    },
+    {
+     "to": "trinh_hai_au",
+     "kind": "parent",
+     "note": "her mother"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "The house has no method of its own; a bought method, the id a stand-in."
+   }
+  },
+  {
+   "key": "ho_trao_ca",
+   "name_hv": "Hỗ Trạo Ca",
+   "name_han": "扈棹歌",
+   "gloss": "Oar song",
+   "sex": "M",
+   "born": 1165,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 30,
+   "birthplace": 30,
+   "role": "Captain of the Bạch Sa run",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Brave",
+     "Indulgent"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A grandson of Hỗ Tế Xuyên (ho_te_xuyen) by a younger son lost at sea, who captains the Bạch Sa run and sings the oar songs of the white sands, where his great-grandmother's Thẩm kin still live.",
+   "ties": [
+    {
+     "to": "ho_te_xuyen",
+     "kind": "grandparent",
+     "note": ""
+    },
+    {
+     "to": "ho_quan_lan",
+     "kind": "cousin",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water on deck."
+    },
+    "note": "The house has no method of its own; a bought method, the id a stand-in."
+   }
+  },
+  {
+   "key": "ho_ngan_trieu",
+   "name_hv": "Hỗ Ngân Triều",
+   "name_han": "扈銀潮",
+   "gloss": "Silver tide",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 30,
+   "birthplace": 30,
+   "role": "Wants her brother's place at Vân Khởi Quán's school",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Patient",
+     "Humble"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Hỗ Kinh Điểu's (ho_kinh_dieu) younger sister, sixteen, who wants the place at Vân Khởi Quán's school that her brother keeps running away from.",
+   "ties": [
+    {
+     "to": "ho_quan_lan",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "ho_kinh_dieu",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "ho_te_xuyen",
+     "kind": "ancestor",
+     "note": "her ancestor"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_thuy",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "The house has no method of its own; a bought method, the id a stand-in."
+   }
+  },
+  {
+   "key": "nhan_du_ti",
+   "name_hv": "Nhan Dư Ti",
+   "name_han": "顏餘絲",
+   "gloss": "The thread that remains",
+   "sex": "F",
+   "born": 575,
+   "alive": false,
+   "died": 742,
+   "cause": "the reeling-house damp settled in her lungs; died at 167",
+   "peak_realm": "truc_co",
+   "sect": "",
+   "rank": "",
+   "home": 94,
+   "birthplace": null,
+   "role": "A Hỏa Ti reeler's daughter who taught the Đới to reel (N-chuc_ha-01)",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Patient",
+     "Diligent",
+     "Calm"
+    ],
+    "calling": "Teacher",
+    "upbringing": "war_orphan",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "backstory": "Nhan Dư Ti was fifteen when Hỏa Ti Trấn burned in 590 and the reelers' daughters fled to Tang Điền with the reeling songs (N-chuc_ha-01). She married a Đới cocoon-buyer and taught his house to reel. The Đới method, the Reeling Thread Breath, is her songs written down by her grandson: a breath drawn as fine and unbroken as a thread from a cocoon. She reached Foundation at sixty and never went back up the mountain.",
+   "ties": [
+    {
+     "to": "doi_tam_nuong",
+     "kind": "descendant",
+     "note": "the best reeler since her"
+    }
+   ]
+  },
+  {
+   "key": "doi_van_ti",
+   "name_hv": "Đới Vạn Ti",
+   "name_han": "戴萬絲",
+   "gloss": "Ten thousand threads",
+   "sex": "M",
+   "born": 1015,
+   "alive": false,
+   "died": 1150,
+   "cause": "a summer fever at 135",
+   "peak_realm": "truc_co",
+   "sect": "",
+   "rank": "",
+   "home": 94,
+   "birthplace": null,
+   "role": "Silk trader of Tang Điền; father of Đới Tàm Nương and Đới Liệt Cương",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Gregarious",
+     "Diligent"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "The silk trader who bought cocoons from every picker in Tang Điền for a century and fathered Đới Tàm Nương (doi_tam_nuong) and, at a hundred and five, Đới Liệt Cương (doi_liet_cuong).",
+   "ties": [
+    {
+     "to": "doi_tam_nuong",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "doi_liet_cuong",
+     "kind": "child",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "key": "doi_tam_nuong",
+   "name_hv": "Đới Tàm Nương",
+   "name_han": "戴蠶娘",
+   "gloss": "Silkworm mother",
+   "sex": "F",
+   "born": 1068,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 94,
+   "birthplace": 94,
+   "role": "Head of the Đới silk house of Tang Điền; its best reeler",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "hoa": 50,
+     "tho": 46,
+     "kim": 26
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 52,
+    "than_hon": 56,
+    "khi_van": 50,
+    "dao_tam": 58,
+    "mi_luc": 54
+   },
+   "traits": {
+    "personality": [
+     "Wrathful",
+     "Diligent",
+     "Pragmatic"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "fire_tempered"
+    ],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Embittered"
+    ]
+   },
+   "appearance": "A small, burn-scarred woman with a reeler's quick fingers and a voice that carries across the whole silk market.",
+   "backstory": "Đới Tàm Nương is the best reeler in Tang Điền and the head of the Đới, a silk house that passes to its best reeler, son or daughter, and takes her husband into its name. The house buys cocoons from the mulberry pickers, reels them on the Reeling Thread Breath that her ancestress Nhan Dư Ti (nhan_du_ti) carried out of burning Hỏa Ti, and sells raw silk at the Tang Điền market. Two buyers matter. Chức Hà Các's weavers need Tang Điền thread for the fire-silk Thân Vân Cẩm (than_van_cam) weaves without the vents. The palace's factor Chiêm Lợi Châu (chiem_loi_chau) buys first and cheapest for Phượng Minh, and since the palace moved its seat to Hỏa Ti in 1162 he has set the price for the whole market. Her younger brother Đới Liệt Cương (doi_liet_cuong) left the house for Phần Vũ's vents to stop being a silk trader's son, and now captains the levy that guards the palace's road through the Đới mulberry fields. She has not forgiven him, and she uses him all the same.",
+   "wants": "To sell every thread to Chức Hà and none to the palace's factor, and to live to see the factor beg.",
+   "secret": "In her cellar she has reeled three bolts of true fire-silk, thread with fire set into it as Hỏa Ti once made it, from the old songs. The palace holds that the last fire-silk was given to its founder in 592 (N-phuong_minh-04). If it learns the Đới can make more, it will want the house, or the songs.",
+   "ties": [
+    {
+     "to": "nhan_du_ti",
+     "kind": "ancestor",
+     "note": "the reeling songs"
+    },
+    {
+     "to": "doi_van_ti",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "doi_liet_cuong",
+     "kind": "sibling",
+     "note": "guards the palace's road through her fields"
+    },
+    {
+     "to": "doi_hau_cam",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "doi_thu_kien",
+     "kind": "grandchild",
+     "note": "the only other one in the cellar"
+    },
+    {
+     "to": "doi_so_cuong",
+     "kind": "niece_nephew",
+     "note": "raised him when his father went to the vents"
+    },
+    {
+     "to": "chiem_loi_chau",
+     "kind": "enemy",
+     "note": "the palace's factor who sets her price"
+    },
+    {
+     "to": "than_van_cam",
+     "kind": "friend",
+     "note": "her best buyer"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "red-sun-scripture",
+     "layer": 7
+    },
+    "aux": [],
+    "gear": [
+     {
+      "named": "cl-golden-reeling-needle"
+     },
+     {
+      "named": "cl-mulberry-thimble"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 3
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire threads and Earth patience: debuffs drawn out fine, then pulled tight.",
+     "targets": [
+      2610,
+      2417,
+      2647,
+      5824,
+      5828
+     ],
+     "targets_note": "Incense Flame and Clinging Embers, Burning Fields duration, then the Binding Vine's status duration: threads drawn out, then pulled tight."
+    },
+    "note": "Cultivates on the house's Reeling Thread Breath (clans.techniques.json); fights with the Red Sun Scripture bought at the market."
+   },
+   "items": [
+    "cl-golden-reeling-needle",
+    "cl-mulberry-thimble"
+   ]
+  },
+  {
+   "key": "doi_hau_cam",
+   "name_hv": "Đới Hậu Cẩm",
+   "name_han": "戴厚錦",
+   "gloss": "Heavy brocade",
+   "sex": "M",
+   "born": 1095,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 94,
+   "birthplace": 94,
+   "role": "Keeps the house's table at the Tang Điền silk market",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "hoa": 46,
+     "tho": 40,
+     "thuy": 24
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 50,
+    "than_hon": 48,
+    "khi_van": 52,
+    "dao_tam": 46,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Cautious",
+     "Deceitful"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": "tea_master",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A soft, round man in good brocade who never raises his voice and never lowers his price first.",
+   "backstory": "Đới Tàm Nương's (doi_tam_nuong) son keeps the house's table at the Tang Điền market and has haggled with the palace's factor Chiêm Lợi Châu (chiem_loi_chau) every season for forty years. He thinks his mother's war with the palace will cost the house everything, and each year he sells the factor a little more than she knows. He married a mulberry picker's daughter, Long Tang Chi (long_tang_chi), and the pickers trust the Đới because of it.",
+   "ties": [
+    {
+     "to": "doi_tam_nuong",
+     "kind": "parent",
+     "note": "sells behind her back"
+    },
+    {
+     "to": "long_tang_chi",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "doi_thu_kien",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "doi_hoa_tam",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "doi_lang_y",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "doi_liet_cuong",
+     "kind": "aunt_uncle",
+     "note": "his uncle in the levy"
+    },
+    {
+     "to": "chiem_loi_chau",
+     "kind": "rival",
+     "note": "forty years of haggling"
+    },
+    {
+     "to": "doi_tan_tam",
+     "kind": "grandchild",
+     "note": "his grandson"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_hoa",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire and Earth wards.",
+     "targets": [
+      700,
+      2579,
+      2586
+     ],
+     "targets_note": "Fire Root, Molten Shell and Molten Core: Fire with a ward."
+    },
+    "note": "Runs the house's Reeling Thread Breath (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "long_tang_chi",
+   "name_hv": "Long Tang Chi",
+   "name_han": "龍桑枝",
+   "gloss": "Mulberry branch",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 94,
+   "birthplace": 94,
+   "role": "A mulberry picker's daughter married into the Đới; keeps the pickers' tallies",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 44,
+     "moc": 34,
+     "hoa": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Generous",
+     "Calm",
+     "Honest"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "A mulberry picker's daughter who married into the Đới and keeps the pickers' tallies; Long Chước Sinh (long_chuoc_sinh), who has sat five sittings at the vents, is her brother's grandson.",
+   "ties": [
+    {
+     "to": "doi_hau_cam",
+     "kind": "spouse",
+     "note": ""
+    },
+    {
+     "to": "doi_thu_kien",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "long_chuoc_sinh",
+     "kind": "niece_nephew",
+     "note": "her brother's grandson"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hoang_hoa",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth and Wood: a picker's hands."
+    },
+    "note": "Runs the house's Reeling Thread Breath (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "doi_thu_kien",
+   "name_hv": "Đới Thu Kiển",
+   "name_han": "戴秋繭",
+   "gloss": "Autumn cocoon",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 94,
+   "birthplace": 94,
+   "role": "The house's best reeler after its head",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 44,
+     "tho": 38,
+     "thuy": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Loyal",
+     "Reclusive"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Đới Hậu Cẩm's daughter and the house's best reeler after her grandmother Đới Tàm Nương (doi_tam_nuong), whose husband took the Đới name; she is the only other person who has been in the cellar.",
+   "ties": [
+    {
+     "to": "doi_hau_cam",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "doi_tam_nuong",
+     "kind": "grandparent",
+     "note": "the cellar"
+    },
+    {
+     "to": "doi_tan_tam",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "long_tang_chi",
+     "kind": "parent",
+     "note": "her mother"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_hoa",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire threads."
+    },
+    "note": "Runs the house's Reeling Thread Breath (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "doi_hoa_tam",
+   "name_hv": "Đới Hỏa Tằm",
+   "name_han": "戴火蠶",
+   "gloss": "Fire silkworm",
+   "sex": "M",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "",
+   "rank": "",
+   "home": 94,
+   "birthplace": 94,
+   "role": "Wants to ride in his great-uncle's levy",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 48,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Warlike"
+    ],
+    "calling": "Duelist",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Đới Hậu Cẩm's son, who wants to ride in his great-uncle Đới Liệt Cương's (doi_liet_cuong) levy on the Fire Court road and has been told by his grandmother that one is enough.",
+   "ties": [
+    {
+     "to": "doi_hau_cam",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "doi_liet_cuong",
+     "kind": "aunt_uncle",
+     "note": "his great-uncle and hero"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_hoa",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire and fists."
+    },
+    "note": "Runs the house's Reeling Thread Breath (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "doi_lang_y",
+   "name_hv": "Đới Lăng Y",
+   "name_han": "戴綾衣",
+   "gloss": "Gauze robe",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 94,
+   "birthplace": 94,
+   "role": "Carries the house's samples to Chức Hà Các",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 40,
+     "tho": 36,
+     "moc": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Trusting",
+     "Fickle"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Đới Hậu Cẩm's youngest, who carries the house's samples up to Chức Hà Các and has fallen in with its weavers; Thân Vân Cẩm (than_van_cam) lets her watch the loom.",
+   "ties": [
+    {
+     "to": "doi_hau_cam",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "than_van_cam",
+     "kind": "friend",
+     "note": "lets her watch the loom"
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_hoa",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire."
+    },
+    "note": "Runs the house's Reeling Thread Breath (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "doi_so_cuong",
+   "name_hv": "Đới Sơ Cương",
+   "name_han": "戴初剛",
+   "gloss": "First hardness",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "",
+   "rank": "",
+   "home": 94,
+   "birthplace": 94,
+   "role": "Keeps the reeling sheds; Đới Liệt Cương's son",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 46,
+     "tho": 42,
+     "kim": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Reclusive",
+     "Diligent"
+    ],
+    "calling": "Steward",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Đới Liệt Cương's (doi_liet_cuong) son, left at the silk house as a boy when his father went to the vents and raised by his aunt; he keeps the reeling sheds and does not go out to watch the levy ride past.",
+   "ties": [
+    {
+     "to": "doi_liet_cuong",
+     "kind": "parent",
+     "note": "does not watch him ride past"
+    },
+    {
+     "to": "doi_tam_nuong",
+     "kind": "aunt_uncle",
+     "note": "raised him"
+    },
+    {
+     "to": "doi_hong_kien",
+     "kind": "child",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "hoang_hoa",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire and Earth endurance."
+    },
+    "note": "Runs the house's Reeling Thread Breath (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "doi_hong_kien",
+   "name_hv": "Đới Hồng Kiển",
+   "name_han": "戴紅繭",
+   "gloss": "Red cocoon",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 94,
+   "birthplace": 94,
+   "role": "Breeds the red-cocoon worms",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 44,
+     "tho": 36,
+     "kim": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Ambitious",
+     "Gregarious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Đới Sơ Cương's daughter, who breeds red-cocoon worms on racks warmed by a vent stone and visits her grandfather Đới Liệt Cương (doi_liet_cuong) at the levy's camp when her father is not looking.",
+   "ties": [
+    {
+     "to": "doi_so_cuong",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "doi_liet_cuong",
+     "kind": "grandparent",
+     "note": "visits him secretly"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hoang_hoa",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire growth."
+    },
+    "note": "Runs the house's Reeling Thread Breath (clans.techniques.json); the id is a stand-in."
+   }
+  },
+  {
+   "key": "doi_tan_tam",
+   "name_hv": "Đới Tân Tằm",
+   "name_han": "戴新蠶",
+   "gloss": "New silkworm",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "",
+   "rank": "",
+   "home": 94,
+   "birthplace": 94,
+   "role": "Has just reeled his first unbroken thread",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 42,
+     "tho": 34,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Trusting"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": null,
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "backstory": "Đới Thu Kiển's (doi_thu_kien) son, sixteen, who has just reeled his first unbroken thread on the house breath and been let into the reeling shed.",
+   "ties": [
+    {
+     "to": "doi_thu_kien",
+     "kind": "parent",
+     "note": ""
+    },
+    {
+     "to": "doi_hau_cam",
+     "kind": "grandparent",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "hoang_hoa",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire."
+    },
+    "note": "Runs the house's Reeling Thread Breath (clans.techniques.json); the id is a stand-in."
+   }
+  }
+ ]
+}

@@ -1,0 +1,548 @@
+{
+ "sect": "thoi_tinh",
+ "_doc": "Wave 3 tier C fill (2026-11-25): the coal road, the anvil hall's hammers, the polishing house and the star mine.",
+ "people": [
+  {
+   "key": "phan_lo_kien",
+   "name_hv": "Phàn Lô Kiên",
+   "name_han": "樊爐堅",
+   "gloss": "Steady furnace",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thoi_tinh",
+   "rank": "chap_su",
+   "home": 1483,
+   "birthplace": 1483,
+   "role": "Steward of the coal road from Thạch Thán Khoáng to the forge, under Hầu Thiết Anh",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 52,
+     "thuy": 30,
+     "tho": 18
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Stubborn",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Keeps the coal road from Thạch Thán Khoáng to the forge and counts every basket that goes up it; he has told Hầu Thiết Anh (hau_thiet_anh) twice that the upper gallery will slide in a wet winter, and twice been told to dig faster.",
+   "ties": [
+    {
+     "to": "cat_luu_quang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "kha_than_sinh",
+     "kind": "niece_nephew",
+     "note": "his sister's son"
+    },
+    {
+     "to": "kha_o_lan",
+     "kind": "niece_nephew",
+     "note": "his sister's daughter"
+    },
+    {
+     "to": "hau_thiet_anh",
+     "kind": "rival",
+     "note": "the gallery quarrel"
+    }
+   ],
+   "master": "cat_luu_quang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "star-quench-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "iron-hide-manual",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal body with Water under it; carries the forge's weight."
+    }
+   }
+  },
+  {
+   "key": "nghe_bach_doan",
+   "name_hv": "Nghê Bách Đoán",
+   "name_han": "倪百鍛",
+   "gloss": "A hundred forgings",
+   "sex": "M",
+   "born": 1095,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thoi_tinh",
+   "rank": "chap_su",
+   "home": 23,
+   "birthplace": 23,
+   "role": "Second hammer of the anvil hall and the heir's sworn brother",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 61,
+     "tho": 33
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Stubborn",
+     "Diligent"
+    ],
+    "calling": "Refiner",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Has struck the second hammer to Cát Đoán Nhạc's (cat_doan_nhac) first for eighty years and says a rite that skips the heir for a steppe boy's fire is no rite at all; he has begun counting Đinh Hỏa Lân's (dinh_hoa_lan) folds, waiting for one short of nine.",
+   "ties": [
+    {
+     "to": "cat_luu_quang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "cat_doan_nhac",
+     "kind": "sworn_sibling",
+     "note": "first and second hammer"
+    },
+    {
+     "to": "dinh_hoa_lan",
+     "kind": "rival",
+     "note": "the Rite should go to the heir"
+    },
+    {
+     "to": "ong_thiet_xuyen",
+     "kind": "disciple",
+     "note": "outer apprentice and third hammer of the anvil hall, a star-mine boy"
+    }
+   ],
+   "master": "cat_luu_quang",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "star-quench-canon",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "iron-hide-manual",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 4
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal hide that hardens under blows."
+    }
+   }
+  },
+  {
+   "key": "cat_tinh_chuy",
+   "name_hv": "Cát Tĩnh Chùy",
+   "name_han": "葛靜錘",
+   "gloss": "Quiet hammer",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "thoi_tinh",
+   "rank": "noi_mon",
+   "home": 23,
+   "birthplace": 23,
+   "role": "Inner disciple of the anvil hall, Cát Thối Phong's son, raised by his uncle",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 52,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Humble",
+     "Reclusive"
+    ],
+    "calling": "Refiner",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "Cát Thối Phong's (cat_thoi_phong) son, left on the mountain with his uncle while his father keeps the Pivot's forge; he answers his father's letters about the halberd with news of the anvil, and has no Fire, which is the one thing his grandfather ever asks him about.",
+   "ties": [
+    {
+     "to": "cat_doan_nhac",
+     "kind": "master",
+     "note": "his uncle"
+    },
+    {
+     "to": "cat_doan_nhac",
+     "kind": "aunt_uncle",
+     "note": ""
+    },
+    {
+     "to": "cat_thoi_phong",
+     "kind": "parent",
+     "note": "at the Pivot's seat"
+    },
+    {
+     "to": "cat_luu_quang",
+     "kind": "grandparent",
+     "note": ""
+    },
+    {
+     "to": "cat_thanh_diem",
+     "kind": "cousin",
+     "note": ""
+    }
+   ],
+   "master": "cat_doan_nhac",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "star-quench-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal, slow and sure."
+    }
+   }
+  },
+  {
+   "key": "doan_ma_kinh",
+   "name_hv": "Doãn Ma Kính",
+   "name_han": "尹磨鏡",
+   "gloss": "Mirror polisher",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "thoi_tinh",
+   "rank": "ngoai_mon",
+   "home": 23,
+   "birthplace": 657,
+   "role": "Outer apprentice of the polishing house, from the calamine camp",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 40,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Impatient",
+     "Gregarious"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Came up from the calamine camp at Lô Cam Khoáng a year behind Đàm Kính Nguyệt (dam_kinh_nguyet) and polishes the blades the gate sells to Phất Y Cốc; she would rather carry one on a hire, and mutters the valley's verse at the wheel.",
+   "ties": [
+    {
+     "to": "bang_lanh_toi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dam_kinh_nguyet",
+     "kind": "friend",
+     "note": "from the same camp"
+    }
+   ],
+   "master": "bang_lanh_toi",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal edge; wants a sword more than a wheel."
+    }
+   }
+  },
+  {
+   "key": "kha_o_lan",
+   "name_hv": "Kha Ô Lan",
+   "name_han": "柯烏蘭",
+   "gloss": "Black orchid",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "thoi_tinh",
+   "rank": "ngoai_mon",
+   "home": 23,
+   "birthplace": 1483,
+   "role": "Outer apprentice, a coal-carrier's daughter who wants the pool",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 38,
+     "thuy": 30,
+     "tho": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Brave",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Kha Thán Sinh's (kha_than_sinh) younger sister, who carried coal before she could count; the saying is that quench-keepers are coal-carriers' sons, and every week she asks Bàng Lãnh Tôi (bang_lanh_toi) to let a daughter carry the tongs.",
+   "ties": [
+    {
+     "to": "phan_lo_kien",
+     "kind": "master",
+     "note": "her mother's brother"
+    },
+    {
+     "to": "phan_lo_kien",
+     "kind": "aunt_uncle",
+     "note": ""
+    },
+    {
+     "to": "kha_than_sinh",
+     "kind": "sibling",
+     "note": ""
+    },
+    {
+     "to": "bang_lanh_toi",
+     "kind": "friend",
+     "note": "he has not said no"
+    }
+   ],
+   "master": "phan_lo_kien",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal with Water under it; a quench-keeper's root."
+    }
+   }
+  },
+  {
+   "key": "tat_kim_thanh",
+   "name_hv": "Tất Kim Thanh",
+   "name_han": "畢金聲",
+   "gloss": "The ring of metal",
+   "sex": "M",
+   "born": 1173,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "thoi_tinh",
+   "rank": "noi_mon",
+   "home": 173,
+   "birthplace": 173,
+   "role": "Inner disciple and seller at the gate of Thiên Ngoại Khoáng",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 55,
+     "tho": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Greedy",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born"
+   },
+   "backstory": "Hầu Thiết Anh's (hau_thiet_anh) best seller at the mine gate, who can tell a buyer how star iron sings without ever having heard it; he thinks Mẫn Hắc Châu's (man_hac_chau) weighing is jealousy and says so.",
+   "ties": [
+    {
+     "to": "hau_thiet_anh",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "man_hac_chau",
+     "kind": "rival",
+     "note": "her questions spoil his sales"
+    },
+    {
+     "to": "ong_thiet_xuyen",
+     "kind": "friend",
+     "note": "outer apprentice and third hammer of the anvil hall, a star-mine boy"
+    }
+   ],
+   "master": "hau_thiet_anh",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "star-quench-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal spear; a seller's ease."
+    }
+   }
+  },
+  {
+   "key": "ong_thiet_xuyen",
+   "name_hv": "Ông Thiết Xuyên",
+   "name_han": "翁鐵川",
+   "gloss": "Iron river",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "thoi_tinh",
+   "rank": "ngoai_mon",
+   "home": 23,
+   "birthplace": 173,
+   "role": "Outer apprentice and third hammer of the anvil hall, a star-mine boy",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "tho": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Wrathful",
+     "Brave"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A star-mine boy who swings the third hammer under Nghê Bách Đoán (nghe_bach_doan); he heard so often that the Rite belongs to the heir that he said it to Đinh Hỏa Lân's (dinh_hoa_lan) face, and carried coal for a month for it.",
+   "ties": [
+    {
+     "to": "nghe_bach_doan",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tat_kim_thanh",
+     "kind": "friend",
+     "note": "from the star mine"
+    },
+    {
+     "to": "dinh_hoa_lan",
+     "kind": "rival",
+     "note": ""
+    }
+   ],
+   "master": "nghe_bach_doan",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal hammer arm."
+    }
+   }
+  }
+ ]
+}

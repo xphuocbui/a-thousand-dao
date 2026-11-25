@@ -1,0 +1,266 @@
+{
+ "sect": "lanh_giang",
+ "_doc": "Lãnh Giang Phái signature items (rules-proposals R7). Unpriced proposals; modifier sizes follow the water catalogue's grade 3 items.",
+ "items": [
+  {
+   "id": "lg-ice-hook",
+   "name": "Ice Hook (Băng Câu)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "cham",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "thuy"
+     ]
+    },
+    {
+     "key": "leech_linh_luc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 14,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "a-bite-on-the-line",
+     "name": "A Bite on the Line (Ngư Thượng Câu)",
+     "rule": "While your Line Through the Ice holds a foe, your Sitting in the Snow stance also drains them: each second you sit, they lose 1 % of their linh lực to you, banked as Catch for Landing the Fish.",
+     "authored": "e5"
+    }
+   ],
+   "lore": "A bone-white fishhook on a line of river-silk that Lư Độc Điếu has dropped through the ice every winter since 1120. It is the first thing the school made, and the license of 1140 was signed with it lying on the table.",
+   "build_use": "The sitter's drain: linh lực sustain and long holds for a patient Water fighter.",
+   "holder": "lu_doc_dieu",
+   "made_by": "lu_doc_dieu",
+   "made_year": 1120,
+   "set": "lg-lone-line",
+   "status": "proposal",
+   "authored": "e5"
+  },
+  {
+   "id": "lg-snow-cape",
+   "name": "Snow Cape of the Old Sitter (Tuyết Thoa)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A straw rain cape gone white with three hundred winters of frost, in the shape of the cape and hat of Hàn Giang's founder Liễu Thoa Lạp (C073). Bồ Tọa Tuyết has worn it on the river since before the school existed.",
+   "build_use": "Cold resistance and linh lực for a long sit.",
+   "holder": "bo_toa_tuyet",
+   "made_by": "bo_toa_tuyet",
+   "made_year": 900,
+   "set": "lg-heap-of-snow",
+   "status": "proposal"
+  },
+  {
+   "id": "lg-sitting-robe",
+   "name": "Ice-Hole Sitting Robe (Băng Huyệt Tọa Bào)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "linh_luc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 100,
+     "scope": [
+      "cold"
+     ]
+    }
+   ],
+   "effects": [],
+   "lore": "A quilted fisher's robe with a hole worn through the seat by twenty years on the ice; he will not have it mended.",
+   "build_use": "Linh lực for the sit that never moves.",
+   "holder": "lu_doc_dieu",
+   "made_by": "lu_doc_dieu",
+   "made_year": 1120,
+   "set": "lg-lone-line",
+   "status": "proposal"
+  },
+  {
+   "id": "lg-old-sitter-gourd",
+   "name": "Old Sitter's Gourd (Lão Tọa Hồ)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "ho_lo",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The gourd the old men of the river passed down the line of sitters, one to the next as each died; Bồ was the last one left to take it.",
+   "build_use": "Deep linh lực and health for a sitter.",
+   "holder": "bo_toa_tuyet",
+   "made_by": "lanh_giang",
+   "made_year": 600,
+   "set": "lg-heap-of-snow",
+   "status": "proposal"
+  },
+  {
+   "id": "lg-river-bottom-stone",
+   "name": "River-Bottom Stone (Giang Để Thạch)",
+   "family": "water",
+   "kind": "artifact",
+   "base": "ngoc_boi",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "ward_efficiency_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A black pebble from under the Liên Giang ice, worn smooth by seven hundred years of water; he found it in his hand the morning he reached Kết Đan.",
+   "build_use": "A ward that grows while he sits.",
+   "holder": "bo_toa_tuyet",
+   "made_by": "bo_toa_tuyet",
+   "made_year": 1060,
+   "set": "lg-heap-of-snow",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "lg-lone-line",
+   "name": "Lone Line (Cô Tuyến)",
+   "pieces": [
+    "lg-ice-hook",
+    "lg-sitting-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "leech_linh_luc_pct",
+       "value": 2,
+       "scope": []
+      },
+      {
+       "key": "linh_luc_regen_inc_pct",
+       "value": 6,
+       "scope": []
+      }
+     ],
+     "effect": "The Line Is Patient (Tuyến Năng Nhẫn): while you hold the sitting stance, your linh lực leech also heals you for half as much, and every 5 s you hold it your next hook art is a sure hit."
+    }
+   ],
+   "story": "The bone hook that was the school's first made thing and the robe he wore while he pieced the method back together."
+  },
+  {
+   "id": "lg-heap-of-snow",
+   "name": "Heap of Snow (Tuyết Đôi)",
+   "pieces": [
+    "lg-snow-cape",
+    "lg-old-sitter-gourd",
+    "lg-river-bottom-stone"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "linh_luc_pct",
+       "value": 6,
+       "scope": []
+      },
+      {
+       "key": "health_regen_inc_pct",
+       "value": 10,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Answers Twice (Lưỡng Ứng): while you sit, your ward gains 2 % of its value each second; when a foe breaks it, your next counter art fires twice."
+    }
+   ],
+   "story": "The straw cape, the old men's gourd and a stone from under the ice: the river's own set, made by no smith. Bồ means them to go to the first disciple who reaches the ninth layer."
+  }
+ ]
+}

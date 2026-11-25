@@ -1,0 +1,1188 @@
+{
+ "sect": "ho_lam",
+ "people": [
+  {
+   "key": "luc_thanh_sam",
+   "name_hv": "Lục Thanh Sam",
+   "name_han": "陸青杉",
+   "gloss": "The green fir",
+   "sex": "M",
+   "born": 850,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "ho_lam",
+   "rank": "tong_chu",
+   "home": 1105,
+   "birthplace": 1113,
+   "role": "Founder and head of Hộ Lâm Đường (910): forest wardens; spirit wood for Thúy Vi's furnaces",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 68,
+     "thuy": 42,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 70,
+    "than_hon": 62,
+    "khi_van": 50,
+    "dao_tam": 74,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Patient",
+     "Honest"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     },
+     {
+      "id": "steady_heart",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": "old_wound",
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Sworn sibling"
+    ]
+   },
+   "appearance": "A big, slow, grey-bearded man in a warden's bark-brown coat, with an axe on his back and a disc of pale heartwood on a cord at his throat.",
+   "backstory": "Lục Thanh Sam was a chandler's son from Bạch Lạp Thôn, the white-wax village of the northern woods. Phùng Yên Hà took him into Thúy Vi's outer gate at eleven, and he dug spirit fields beside Quyền Thanh Lam (quyen_thanh_lam), who was ten years older and already patient. He passed the First Leaf in 880 and asked to stay in the woods with the sect's wardens instead of walking up to the inner gate, and the founder let him. In 910, with the Cold Ford home again and the northern roads quiet (V027), she made the wardens a hall of their own on the edge of the forest. She gave it to him and his sworn brother Sư Tuyết Tùng (su_tuyet_tung) to keep the woods and send the furnaces their spirit wood (V028). The brown bears of Tông Hùng Lâm killed Sư in 990 over a felled log, and Lục still carries the scar of that night. In 960 he took the raft master Đằng Bích Lưu (dang_bich_luu) as his Dao partner. Since then the wood has gone down on the spring flood to the boom at Tân Cư Thôn, and on to the lord in autumn. In 1162 he wrote the hall's own primer, and the hall's Earth half lapsed (N-ho_lam-04). He loads Sầm Ngưu Tất's (sam_nguu_tat) rafts himself. He has refused three times to sell wood to Hồng Lô, and every time to anyone but the lord.",
+   "wants": "To see the Forest of First Light put up a spirit seedling again before he dies, and to hand the hall on still sending the wood.",
+   "secret": "In 1150 Úy Thanh Diễm needed a great spirit tree for the night of his breakthrough over the Green Furnace. Lục sat the night of asking beside the Grandmother Fir of Sơ Hiểu Lâm, and the tree gave no answer. He felled it at dawn anyway and told the hall it had said yes. No spirit seedling has come up in that forest since. The only other person who sat that night is Mi Túc Thụ.",
+   "ties": [
+    {
+     "to": "quyen_thanh_lam",
+     "kind": "friend",
+     "note": "outer disciples together; Lục founded Hộ Lâm Đường in 910 and still sends the wood"
+    },
+    {
+     "to": "phung_yen_ha",
+     "kind": "former_master",
+     "note": "took him at eleven and let him stay in the woods"
+    },
+    {
+     "to": "su_tuyet_tung",
+     "kind": "sworn_sibling",
+     "note": "co-founder, killed by the brown bears in 990"
+    },
+    {
+     "to": "dang_bich_luu",
+     "kind": "dao_partner",
+     "note": "since 960"
+    },
+    {
+     "to": "luc_luu_moc",
+     "kind": "child",
+     "note": "their son, who is dying of old age"
+    },
+    {
+     "to": "sam_nguu_tat",
+     "kind": "friend",
+     "note": "loads the raftsman's son's rafts himself"
+    },
+    {
+     "to": "uy_thanh_diem",
+     "kind": "creditor",
+     "note": "felled the Grandmother Fir for his breakthrough"
+    },
+    {
+     "to": "mi_tuc_thu",
+     "kind": "disciple",
+     "note": "the Listener; she sat the night of 1150 with him"
+    },
+    {
+     "to": "lai_hoanh_chi",
+     "kind": "disciple",
+     "note": "the warden who thinks the hall is underpaid"
+    },
+    {
+     "to": "binh_thiet_phu",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "phu_hau_tho",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "luc_tieu_sam",
+     "kind": "grandchild",
+     "note": "his granddaughter"
+    },
+    {
+     "to": "luc_luu_moc",
+     "kind": "disciple",
+     "note": "he taught him the wardens' method; the son never formed a core"
+    },
+    {
+     "to": "thieu_tung_lam",
+     "kind": "disciple",
+     "note": "warden of the poacher watch at Việt Quất Thôn"
+    },
+    {
+     "to": "hong_moc_huong",
+     "kind": "friend",
+     "note": "steward of the rite of asking, before a spirit tree is felled"
+    },
+    {
+     "to": "luc_huong_phu",
+     "kind": "niece_nephew",
+     "note": "his niece; Hộ Lâm Đường's head's niece in the outer gate"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "night-beside-the-tree",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "hlm-asking-axe"
+     },
+     {
+      "named": "hlm-first-light-heart"
+     },
+     {
+      "named": "hlm-white-wax-robe"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 8,
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood land toward health regeneration and rooted defence, with a reach into Water for a long fight.",
+     "targets": [
+      6403,
+      6312,
+      6299,
+      9002,
+      5591,
+      5597,
+      6263,
+      5379
+     ],
+     "targets_note": "Growth Rings and Ageless Pine, the World Tree's health and regeneration, Leaf Shield, and Rain on Bamboo from Water: rooted, slow, hard to kill."
+    },
+    "note": "Rooted, slow and hard to kill: one stroke of the axe, then the forest closes round him."
+   },
+   "items": [
+    "hlm-asking-axe",
+    "hlm-first-light-heart",
+    "hlm-white-wax-robe"
+   ],
+   "changed": "root, thien_phu, build and birthplace (1113, Bạch Lạp Thôn) added; he had none. Hộ Lâm Đường re-leans Wood/Earth -> Wood/Water (R4); his Earth is from the Thúy Vi outer gate's field years."
+  },
+  {
+   "key": "dang_bich_luu",
+   "name_hv": "Đằng Bích Lưu",
+   "name_han": "滕碧流",
+   "gloss": "Jade-green current",
+   "sex": "F",
+   "born": 900,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "ho_lam",
+   "rank": "truong_lao",
+   "home": 1105,
+   "birthplace": 1106,
+   "role": "Raft master; rides the spring flood with the year's wood",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "moc": 52
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 66,
+    "than_hon": 54,
+    "khi_van": 62,
+    "dao_tam": 60,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Gregarious",
+     "Impatient"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "drinker",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A loud, weathered woman with river-scarred hands and a green banner rolled under her arm.",
+   "backstory": "A raftsman's daughter from the river village of Thủy Ma Thôn who brought the Spring Flood Raft Art to the hall in 960. In the same year she became Lục Thanh Sam's (luc_thanh_sam) Dao partner. She has ridden the lead raft down every spring flood since. Their son Lục Lưu Mộc (luc_luu_moc) is 190 and has ten years left, and she is not taking it well.",
+   "ties": [
+    {
+     "to": "luc_thanh_sam",
+     "kind": "dao_partner",
+     "note": "since 960"
+    },
+    {
+     "to": "luc_luu_moc",
+     "kind": "child",
+     "note": "their son"
+    },
+    {
+     "to": "tac_ha_thang",
+     "kind": "disciple",
+     "note": "her best raftsman"
+    },
+    {
+     "to": "nghe_hoang_phong",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "sam_nguu_tat",
+     "kind": "friend",
+     "note": "the Thúy Vi raftsman's son; she taught him to read white water"
+    },
+    {
+     "to": "do_xuan_trieu",
+     "kind": "disciple",
+     "note": "banner man of the spring-flood rafts"
+    },
+    {
+     "to": "sam_lang_nhi",
+     "kind": "disciple",
+     "note": "Raftswoman; Sầm Ngưu Tất's sister"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "spring-flood-raft-art",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "hlm-lead-raft-banner"
+     },
+     {
+      "base": "giap",
+      "grade": 3,
+      "element": "thuy"
+     },
+     {
+      "base": "mao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water toward art speed and momentum, crossing to Wood for health.",
+     "targets": [
+      6403,
+      6312,
+      5304,
+      5302,
+      5272
+     ],
+     "targets_note": "Mill Race, Turning Paddles and Curling Wave: Water art speed for riding her own hits; the momentum is the Spring-Flood Raft Art's."
+    },
+    "note": "Rides her own Water hits like a flood."
+   },
+   "items": [
+    "hlm-lead-raft-banner"
+   ]
+  },
+  {
+   "key": "lai_hoanh_chi",
+   "name_hv": "Lại Hoành Chi",
+   "name_han": "賴橫枝",
+   "gloss": "The branch that grows sideways",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "ho_lam",
+   "rank": "noi_mon",
+   "home": 1105,
+   "birthplace": 1099,
+   "role": "Warden of the eastern woods; thinks the hall is underpaid",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 62,
+     "thuy": 36
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 62,
+    "than_hon": 52,
+    "khi_van": 48,
+    "dao_tam": 44,
+    "mi_luc": 60
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Pragmatic",
+     "Callous"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "gambler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A handsome, restless warden with a merchant's rings under his bark gloves.",
+   "backstory": "A raftsman's son from Phiệt Công Thôn who reckons the hall's wood keeps Thúy Vi's whole alchemy alive and is paid like firewood. He quarrels with the lord's wood-keeper Phí Tùng Chi (phi_tung_chi) over every tally. In 1186 he caught a poacher felling a spirit tree and handed him to the lord's Hall of Rules; the man's son is now in the outer gate. In 1199 he sold one spirit log to a Phượng Minh buyer at Lam Yên Thị, and nobody has missed it yet.",
+   "ties": [
+    {
+     "to": "luc_thanh_sam",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "phi_tung_chi",
+     "kind": "rival",
+     "note": "every tally a quarrel"
+    },
+    {
+     "to": "binh_thiet_phu",
+     "kind": "enemy",
+     "note": "the poacher's son; Lại turned his father in"
+    },
+    {
+     "to": "mi_tuc_thu",
+     "kind": "rival",
+     "note": "the steward who sees him sit the night as briefly as the rule allows"
+    },
+    {
+     "to": "phan_tieu_ho",
+     "kind": "disciple",
+     "note": "Lại Hoành Chi's newest disciple; Bỉnh Thiết Phủ's friend"
+    },
+    {
+     "to": "thieu_tung_lam",
+     "kind": "friend",
+     "note": "warden of the poacher watch at Việt Quất Thôn"
+    },
+    {
+     "to": "tu_ke_chi",
+     "kind": "rival",
+     "note": "carries the hall's tallies for the dying Lục Lưu Mộc"
+    }
+   ],
+   "master": "luc_thanh_sam",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 6
+    },
+    "aux": [
+     {
+      "tech": "night-beside-the-tree",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood toward damage and poison.",
+     "targets": [
+      6403,
+      6312,
+      6375,
+      5604,
+      5608
+     ],
+     "targets_note": "Venom Surge, then the Autumn Maple idea's crit damage and damage over time: Wood damage and poison."
+    },
+    "note": "Sits the night of asking as briefly as the rule allows."
+   }
+  },
+  {
+   "key": "mi_tuc_thu",
+   "name_hv": "Mi Túc Thụ",
+   "name_han": "糜宿樹",
+   "gloss": "Sleeps beside the tree",
+   "sex": "F",
+   "born": 1062,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "ho_lam",
+   "rank": "chap_su",
+   "home": 1105,
+   "birthplace": 1118,
+   "role": "The Listener: keeps the rite of asking",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 64,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 48,
+    "than_hon": 72,
+    "khi_van": 42,
+    "dao_tam": 66,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Honest",
+     "Devout"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "long_seclusion"
+    ],
+    "lifestyle": "pilgrim",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A thin woman with moss on her sleeves who speaks so quietly that people lean in, and who looks at trees as if they were talking.",
+   "backstory": "A herb-gatherer's daughter from Tử Tô Thôn who has sat about four thousand nights beside spirit trees for the rite of asking. In 1150 she sat beside the Grandmother Fir with Lục Thanh Sam (luc_thanh_sam) on the night before it was felled for Úy Thanh Diễm's (uy_thanh_diem) breakthrough. Since then she has gone back to Sơ Hiểu Lâm every spring to look for seedlings.",
+   "ties": [
+    {
+     "to": "luc_thanh_sam",
+     "kind": "master",
+     "note": "she sat the night of 1150 beside him"
+    },
+    {
+     "to": "truc_linh_lo",
+     "kind": "disciple",
+     "note": "the dew-gatherer"
+    },
+    {
+     "to": "lai_hoanh_chi",
+     "kind": "rival",
+     "note": "he sits the night as briefly as the rule allows"
+    },
+    {
+     "to": "to_mieu_nhi",
+     "kind": "disciple",
+     "note": "works the seedbeds with old Phú Hậu Thổ"
+    }
+   ],
+   "master": "luc_thanh_sam",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "night-beside-the-tree",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 6,
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood toward healing and accuracy; the forest listens for her.",
+     "targets": [
+      6403,
+      6312,
+      6093,
+      6142,
+      6131
+     ],
+     "targets_note": "Weeping Willow healing, Bamboo Grove and Bamboo Staff accuracy: the forest listens."
+    },
+    "note": "Reads where the foe will move through the roots."
+   }
+  },
+  {
+   "key": "nghe_hoang_phong",
+   "name_hv": "Nghệ Hoàng Phong",
+   "name_han": "羿黃蜂",
+   "gloss": "Yellow hornet",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "ho_lam",
+   "rank": "noi_mon",
+   "home": 1104,
+   "birthplace": 1161,
+   "role": "Keeper of the poison hornets of Độc Phong Cốc",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 56,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Arbitrary",
+     "Reclusive"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "path": [
+     "poison_proof"
+    ]
+   },
+   "backstory": "A Việt Quất Thôn boy who walked into the Valley of the Poison Hornets at twelve and came out stung and calm; he keeps the hornets that guard the spirit groves from poachers, and Đằng Bích Lưu (dang_bich_luu) taught him the river.",
+   "ties": [
+    {
+     "to": "dang_bich_luu",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "binh_thiet_phu",
+     "kind": "friend",
+     "note": "the poacher's son likes the hornets"
+    },
+    {
+     "to": "canh_lac_phong",
+     "kind": "disciple",
+     "note": "takes the spirit honey at night in the hornet valley"
+    }
+   ],
+   "master": "dang_bich_luu",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood poison."
+    },
+    "note": "His hornets guard the groves."
+   }
+  },
+  {
+   "key": "luc_luu_moc",
+   "name_hv": "Lục Lưu Mộc",
+   "name_han": "陸流木",
+   "gloss": "Driftwood",
+   "sex": "M",
+   "born": 1010,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "ho_lam",
+   "rank": "chap_su",
+   "home": 1105,
+   "birthplace": 1105,
+   "role": "Keeper of the hall's tallies; the head's son, with ten years left",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 54,
+     "thuy": 48
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Honest",
+     "Temperate"
+    ],
+    "calling": "Steward",
+    "upbringing": "sect_raised",
+    "health": "waning_years"
+   },
+   "backstory": "The son of Lục Thanh Sam (luc_thanh_sam) and Đằng Bích Lưu, who never formed a core and keeps the tally of every log sent to the lord; at 190 he is the first in the hall to be dying of age while both his parents live.",
+   "ties": [
+    {
+     "to": "luc_thanh_sam",
+     "kind": "master",
+     "note": "taught him the wardens' method"
+    },
+    {
+     "to": "luc_thanh_sam",
+     "kind": "parent",
+     "note": "his father"
+    },
+    {
+     "to": "dang_bich_luu",
+     "kind": "parent",
+     "note": "his mother"
+    },
+    {
+     "to": "luc_tieu_sam",
+     "kind": "child",
+     "note": "his daughter"
+    },
+    {
+     "to": "phi_tung_chi",
+     "kind": "friend",
+     "note": "they keep the two ends of the same tally"
+    },
+    {
+     "to": "luc_tieu_sam",
+     "kind": "disciple",
+     "note": "he teaches her the log tally"
+    },
+    {
+     "to": "tu_ke_chi",
+     "kind": "disciple",
+     "note": "carries the hall's tallies for the dying Lục Lưu Mộc"
+    },
+    {
+     "to": "do_xuan_trieu",
+     "kind": "friend",
+     "note": "banner man of the spring-flood rafts"
+    }
+   ],
+   "master": "luc_thanh_sam",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 7
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "The tally."
+   }
+  },
+  {
+   "key": "luc_tieu_sam",
+   "name_hv": "Lục Tiểu Sam",
+   "name_han": "陸小杉",
+   "gloss": "Little fir",
+   "sex": "F",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "ho_lam",
+   "rank": "noi_mon",
+   "home": 1105,
+   "birthplace": 1105,
+   "role": "The head's granddaughter",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 58,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Stubborn",
+     "Loyal"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Lục Lưu Mộc's (luc_luu_moc) daughter, who has decided to find a spirit seedling in Sơ Hiểu Lâm for her grandfather before her father dies.",
+   "ties": [
+    {
+     "to": "luc_luu_moc",
+     "kind": "master",
+     "note": "teaches her the log tally"
+    },
+    {
+     "to": "luc_luu_moc",
+     "kind": "parent",
+     "note": "her father"
+    },
+    {
+     "to": "luc_thanh_sam",
+     "kind": "grandparent",
+     "note": ""
+    }
+   ],
+   "master": "luc_luu_moc",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "Looking for a seedling."
+   }
+  },
+  {
+   "key": "binh_thiet_phu",
+   "name_hv": "Bỉnh Thiết Phủ",
+   "name_han": "邴鐵斧",
+   "gloss": "Iron axe",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "ho_lam",
+   "rank": "ngoai_mon",
+   "home": 1105,
+   "birthplace": 1101,
+   "role": "Outer disciple; a poacher's son",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Diligent",
+     "Humble"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "street_orphan"
+   },
+   "backstory": "His father felled a spirit tree without asking in 1186 and was handed to Thúy Vi by Lại Hoành Chi (lai_hoanh_chi); Lục Thanh Sam took the boy in and gave him an axe to learn the right way.",
+   "ties": [
+    {
+     "to": "luc_thanh_sam",
+     "kind": "master",
+     "note": "took him in"
+    },
+    {
+     "to": "lai_hoanh_chi",
+     "kind": "enemy",
+     "note": "turned his father in"
+    },
+    {
+     "to": "nghe_hoang_phong",
+     "kind": "friend",
+     "note": "the hornet-keeper whose hornets he likes"
+    },
+    {
+     "to": "phan_tieu_ho",
+     "kind": "friend",
+     "note": "Lại Hoành Chi's newest disciple; Bỉnh Thiết Phủ's friend"
+    }
+   ],
+   "master": "luc_thanh_sam",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "raft-and-root-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Learning to ask first."
+   }
+  },
+  {
+   "key": "phu_hau_tho",
+   "name_hv": "Phú Hậu Thổ",
+   "name_han": "富厚土",
+   "gloss": "Thick soil",
+   "sex": "M",
+   "born": 1095,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "ho_lam",
+   "rank": "ngoai_mon",
+   "home": 1105,
+   "birthplace": 1125,
+   "role": "The oldest outer disciple; an Earth root from before the re-lean",
+   "tier": "C",
+   "exception": "R4 re-lean: an Earth root admitted in 1120 under the hall's old Wood/Earth lean and Thúy Vi's Seed and Soil Primer; kept by the head's word after 1162",
+   "root": {
+    "elements": {
+     "tho": 50,
+     "moc": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Patient",
+     "Loyal"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "health": "waning_years"
+   },
+   "backstory": "A farmer from Hoa Mạch Thôn who came in on his Earth in 1120, eighty years ago, and digs the seedbeds no one else wants; when the hall's primer changed in 1162, Lục Thanh Sam (luc_thanh_sam) said he would stay as long as he liked.",
+   "ties": [
+    {
+     "to": "luc_thanh_sam",
+     "kind": "master",
+     "note": "kept him on in 1162"
+    },
+    {
+     "to": "to_mieu_nhi",
+     "kind": "friend",
+     "note": "works the seedbeds with old Phú Hậu Thổ"
+    }
+   ],
+   "master": "luc_thanh_sam",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "seed-and-soil-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 5
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "Outside method (R5): Thúy Vi's Seed and Soil Primer, the hall's old outer method."
+   }
+  },
+  {
+   "key": "tac_ha_thang",
+   "name_hv": "Tác Hà Thằng",
+   "name_han": "索河繩",
+   "gloss": "River rope",
+   "sex": "M",
+   "born": 1175,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "ho_lam",
+   "rank": "ngoai_mon",
+   "home": 1105,
+   "birthplace": 1099,
+   "role": "Raftsman",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Brave",
+     "Indulgent"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Phiệt Công Thôn raftsman who lashes the spring rafts with Sầm Ngưu Tất (sam_nguu_tat) and wants to ride the lead raft one day.",
+   "ties": [
+    {
+     "to": "dang_bich_luu",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "sam_nguu_tat",
+     "kind": "friend",
+     "note": "grew up on the same river"
+    },
+    {
+     "to": "sam_lang_nhi",
+     "kind": "friend",
+     "note": "Raftswoman; Sầm Ngưu Tất's sister"
+    }
+   ],
+   "master": "dang_bich_luu",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "raft-and-root-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Wants the lead raft."
+   }
+  },
+  {
+   "key": "truc_linh_lo",
+   "name_hv": "Trúc Linh Lộ",
+   "name_han": "竺靈露",
+   "gloss": "Spirit dew",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "ho_lam",
+   "rank": "ngoai_mon",
+   "home": 1105,
+   "birthplace": 1113,
+   "role": "Gathers spirit dew at Linh Lộ Tuyền",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Compassionate",
+     "Trusting"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A chandler's girl from Bạch Lạp Thôn, the head's own village, who gathers dew at the Spring of Spirit Dew before dawn and is learning the night of asking from Mi Túc Thụ (mi_tuc_thu).",
+   "ties": [
+    {
+     "to": "mi_tuc_thu",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "mi_tuc_thu",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "raft-and-root-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "Dew before dawn."
+   }
+  },
+  {
+   "key": "su_tuyet_tung",
+   "name_hv": "Sư Tuyết Tùng",
+   "name_han": "師雪松",
+   "gloss": "Snow pine",
+   "sex": "M",
+   "born": 860,
+   "died": 990,
+   "cause": "killed by the brown bears of Tông Hùng Lâm guarding a felled spirit log (N-ho_lam-02)",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "ho_lam",
+   "rank": "truong_lao",
+   "home": 1105,
+   "birthplace": 1113,
+   "role": "Co-founder of Hộ Lâm Đường (910); Lục Thanh Sam's sworn brother",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Loyal",
+     "Gregarious"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "gained": [
+     "Sworn sibling"
+    ]
+   },
+   "backstory": "A boy of Bạch Lạp Thôn who went into Thúy Vi's outer gate with Lục Thanh Sam (luc_thanh_sam) and swore brotherhood with him on the first night they spent beside a spirit tree. He co-founded the hall in 910 (V028). In the winter of 990 the brown bears of Tông Hùng Lâm came for a felled spirit log, which smells of qi, and he stood over it until Lục came. Lục came too late.",
+   "ties": [
+    {
+     "to": "luc_thanh_sam",
+     "kind": "sworn_sibling",
+     "note": ""
+    }
+   ]
+  }
+ ]
+}

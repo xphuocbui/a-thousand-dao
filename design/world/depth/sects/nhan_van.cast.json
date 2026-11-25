@@ -1,0 +1,1251 @@
+{
+ "sect": "nhan_van",
+ "people": [
+  {
+   "key": "diep_to_quyen",
+   "name_hv": "Diệp Tố Quyên",
+   "name_han": "葉素絹",
+   "gloss": "Plain silk, the scroll before the painting",
+   "sex": "F",
+   "born": 860,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 2,
+   "sect": "nhan_van",
+   "rank": "tong_chu",
+   "home": 364,
+   "birthplace": 80,
+   "role": "A founder (905) and head of Nhàn Vân Quán; paints the sky the pool holds, one cloud a day",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 72,
+     "moc": 58
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 78,
+    "can_cot": 44,
+    "than_hon": 74,
+    "khi_van": 52,
+    "dao_tam": 80,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Reclusive",
+     "Patient"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "long_seclusion"
+    ],
+    "lifestyle": "calligrapher",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A slight woman with ink in the creases of her fingers and a grey topknot pinned with a worn brush, who looks at the sky more often than at the person speaking to her.",
+   "backstory": "Diệp Tố Quyên was born in 860 in Tang Ma Thành, a silk-weaver's daughter who wove the plain silk painters buy. At twenty she carried a bolt of her own silk across the strait to Đàm Ảnh Thành, where the mainland painters were painting the sky upside down in the pool (A152). One of them, the old Kha Đạm Mặc (kha_dam_mac), had found that ink ground with qi went on moving after the brush stopped. She became his disciple. In 905 Lạc Hà granted the two of them a dry steppe west of the city that no one wanted, and they founded the abbey there (V092, N-nhan_van-01). In 1010 Kha walked into the pool at dusk with his brush and was found drowned in the morning. She believes he went into the reflection, and she has led the abbey since. In 1062 the blind master Đoạn Thương Hải (doan_thuong_hai) settled at the pool (A155). Since then she paints for him what the water shows, and he tells her what he hears in it. She pays Lạc Hà's tribute in unsigned scrolls and lets its envoy Hách Ánh Hà (hach_anh_ha) set the price.",
+   "wants": "To finish the painting Kha left half-done at the pool's edge, the sky of the morning in 705 when Cô Phàm's fleet sailed, and to choose a successor who will not try to finish it.",
+   "secret": "In 1062 she painted the morning of 705 out of the pool for Đoạn, using the founder's art. In the reflected sky the fleet did not sink. Its sails went into a fog bank west of Tịch Chiếu Đảo that is on no chart and was not there the day before. She burned the painting and has told no one, because the founder died painting that sky and because she thinks the fog is still there.",
+   "ties": [
+    {
+     "to": "kha_dam_mac",
+     "kind": "master",
+     "note": "the founder; she believes he is in the pool"
+    },
+    {
+     "to": "tan_dao_anh",
+     "kind": "disciple",
+     "note": "her last true disciple, who is trying the founder's art untaught"
+    },
+    {
+     "to": "cu_luc_truc",
+     "kind": "disciple",
+     "note": "keeps the paper mill; paints badly and knows it"
+    },
+    {
+     "to": "khuong_tram_mac",
+     "kind": "disciple",
+     "note": "makes the abbey's ink"
+    },
+    {
+     "to": "me_phu_van",
+     "kind": "rival",
+     "note": "her fellow disciple, who sells what she gives away"
+    },
+    {
+     "to": "doan_thuong_hai",
+     "kind": "friend",
+     "note": "the blind master at the pool; she paints for him what he cannot see"
+    },
+    {
+     "to": "hach_anh_ha",
+     "kind": "friend",
+     "note": "Lạc Hà's envoy, who prices the tribute scrolls and is the one person Diệp lets haggle"
+    },
+    {
+     "to": "lan_vien_pham",
+     "kind": "friend",
+     "note": "the island warden asks every year for the fleet's sky; she says no"
+    },
+    {
+     "to": "tan_van_kinh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "ham_nhat_van",
+     "kind": "disciple",
+     "note": "teaches the novices to grind ink at the abbey"
+    }
+   ],
+   "master": "kha_dam_mac",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "idle-cloud-reflection-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "old-reflection-art",
+      "layer": 8
+     },
+     {
+      "tech": "living-scroll-art",
+      "layer": 9
+     }
+    ],
+    "gear": [
+     {
+      "named": "nv-plain-silk-scroll"
+     },
+     {
+      "named": "nv-cloud-washing-brush"
+     },
+     {
+      "named": "nv-one-cloud-robe"
+     }
+    ],
+    "skills": {
+     "phu_luc": 8,
+     "tran_phap": 3
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water for linh lực and the double's ward, Wood behind it for the scroll guardians: she lets the double take the fight while she paints the foe back a few seconds.",
+     "targets": [
+      4820,
+      4943,
+      4947,
+      4940,
+      4909,
+      4912,
+      5186,
+      5508
+     ],
+     "targets_note": "Reflection route, Reflected Moon, the Black Abyss's linh lực, Paper Puppets for the scroll guardians and the Still Water keystone: the idle cloud, very hard to wear down."
+    },
+    "note": "The idle cloud: never hurried, very hard to wear down."
+   },
+   "items": [
+    "nv-plain-silk-scroll",
+    "nv-cloud-washing-brush",
+    "nv-one-cloud-robe"
+   ],
+   "changed": "home 364 kept; birthplace 80 added; build written to the lineage (rules R5); Talisman maker kept as her calling (the abbey's scrolls are painted talismans)."
+  },
+  {
+   "key": "me_phu_van",
+   "name_hv": "Mễ Phù Vân",
+   "name_han": "米浮雲",
+   "gloss": "Floating clouds",
+   "sex": "M",
+   "born": 960,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "nhan_van",
+   "rank": "truong_lao",
+   "home": 37,
+   "birthplace": 72,
+   "role": "Elder and keeper of the Pool House at Đàm Ảnh Thành; runs the abbey's scroll trade",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 64,
+     "moc": 42,
+     "kim": 24
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 50,
+    "than_hon": 58,
+    "khi_van": 62,
+    "dao_tam": 44,
+    "mi_luc": 70
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Gregarious",
+     "Pragmatic"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "collector",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A handsome, well-fed man in a grey silk robe of better cut than the abbey allows, with a jade weight on his scroll-case.",
+   "backstory": "A ship-chandler's son from Triều Âm Thành, taken by the founder Kha Đạm Mặc (kha_dam_mac) as his last disciple in 990. Kha taught him the old reflection art and he has never once used it. He keeps the Pool House by the water at Đàm Ảnh Thành, teaches the painters there and sells the abbey's door scrolls in Triều Âm and Tương Phùng Thị (A148). He thinks Diệp Tố Quyên (diep_to_quyen) gives the abbey away, and Lạc Hà's Counting House agrees with him.",
+   "ties": [
+    {
+     "to": "kha_dam_mac",
+     "kind": "master",
+     "note": "his master; taught him an art he is afraid of"
+    },
+    {
+     "to": "diep_to_quyen",
+     "kind": "rival",
+     "note": "his elder in the art; she gives away what he could sell"
+    },
+    {
+     "to": "doi_kim_truc",
+     "kind": "disciple",
+     "note": "carries the scrolls to market"
+    },
+    {
+     "to": "dinh_hong_thu",
+     "kind": "disciple",
+     "note": "paints mangroves at the Pool House"
+    },
+    {
+     "to": "tong_thu_tin",
+     "kind": "friend",
+     "note": "Lạc Hà's Counting House master, who likes a vassal that prices its goods"
+    },
+    {
+     "to": "o_lao_nghien",
+     "kind": "friend",
+     "note": "the servant who keeps him and does not take him seriously"
+    },
+    {
+     "to": "tan_dao_anh",
+     "kind": "rival",
+     "note": "the painter who skips his Pool House lesson"
+    },
+    {
+     "to": "thi_dam_tinh",
+     "kind": "disciple",
+     "note": "Pool House painter; paints sitters from their reflections"
+    }
+   ],
+   "master": "kha_dam_mac",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "idle-cloud-reflection-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "living-scroll-art",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "named": "nv-pool-house-mirror"
+     },
+     {
+      "base": "ky",
+      "grade": 3,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 7
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water for the double and Wood for the door guardians: he sells his fights the way he sells scrolls, by letting the painted things do the work.",
+     "targets": [
+      4820,
+      4943,
+      4947,
+      5186,
+      5189
+     ],
+     "targets_note": "Reflection route, then the Paper Army: the painted door guardians do the work."
+    },
+    "note": "A merchant with a brush."
+   },
+   "items": [
+    "nv-pool-house-mirror"
+   ]
+  },
+  {
+   "key": "tan_dao_anh",
+   "name_hv": "Tần Đảo Ảnh",
+   "name_han": "秦倒影",
+   "gloss": "The upside-down reflection",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "nhan_van",
+   "rank": "chan_truyen",
+   "home": 37,
+   "birthplace": 37,
+   "role": "The head's last true disciple; paints the blind master's days at the Pool House and hunts for the sail in the pool",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 66,
+     "moc": 48
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 84,
+    "can_cot": 40,
+    "than_hon": 70,
+    "khi_van": 60,
+    "dao_tam": 50,
+    "mi_luc": 62
+   },
+   "traits": {
+    "personality": [
+     "Impatient",
+     "Brave",
+     "Stubborn"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "poet",
+    "health": null,
+    "coping": "obsessive_training",
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A thin woman with her sleeves tied back and a smear of blue ink along one jaw, who paints standing up and never sits until she is told to.",
+   "backstory": "Tần Đảo Ảnh was born in 1150 at the Pool House in Đàm Ảnh Thành. Her mother, the painter Tần Vãn Kính (tan_van_kinh), painted her own reflection-double to sit for her portraits, and in the winter of 1158 she could not take her face back from it (N-nhan_van-03). The head Diệp Tố Quyên (diep_to_quyen) raised the girl and made her a true disciple. Tần paints faster than anyone in the abbey and finishes almost nothing. At the Pool House she paints the blind master Đoạn Thương Hải's (doan_thuong_hai) days for him: she tells him what the pool shows, and he tells her what he hears in it. In 1199 he told her he had heard a sail in the pool. Since then she has worked at night on an art she has not been taught, the founder's way of painting an old sky back out of the water. The island warden Lận Viễn Phàm (lan_vien_pham) has offered to pay for any sail she finds.",
+   "wants": "To paint the sail Đoạn heard out of the pool, and to learn where her mother's face went.",
+   "secret": "She has painted a reflection-double of herself, as her mother did, to sit in her place at the morning lesson while she sleeps off her nights at the pool. The double is getting better at sitting still than she is. Last month Mễ Phù Vân corrected its brushwork for an hour and did not notice.",
+   "ties": [
+    {
+     "to": "diep_to_quyen",
+     "kind": "master",
+     "note": "raised her; will not teach her the old reflection art"
+    },
+    {
+     "to": "tan_van_kinh",
+     "kind": "parent",
+     "note": "her mother, lost to her own double in 1158"
+    },
+    {
+     "to": "doan_thuong_hai",
+     "kind": "friend",
+     "note": "she paints his days for him; he heard the sail"
+    },
+    {
+     "to": "lan_vien_pham",
+     "kind": "friend",
+     "note": "Lạc Hà's island warden; will pay for any sail she finds"
+    },
+    {
+     "to": "giang_vong_pham",
+     "kind": "friend",
+     "note": "Cô Phàm's last blood, in Lạc Hà's island hall; they trade what each has heard about the fleet"
+    },
+    {
+     "to": "me_phu_van",
+     "kind": "rival",
+     "note": "teaches the Pool House lesson she skips"
+    },
+    {
+     "to": "dinh_hong_thu",
+     "kind": "friend",
+     "note": "the one painter at the Pool House she talks to"
+    },
+    {
+     "to": "ke_thinh_dao",
+     "kind": "rival",
+     "note": "the hermit who wants to be the one who finds the sail she heard"
+    },
+    {
+     "to": "doi_kim_truc",
+     "kind": "rival",
+     "note": "the stall-keeper who sells signed scrolls; she paints better and signs nothing"
+    },
+    {
+     "to": "bao_anh_nhi",
+     "kind": "disciple",
+     "note": "Pool House painter; Đinh Hồng Thụ's cousin"
+    },
+    {
+     "to": "thi_dam_tinh",
+     "kind": "friend",
+     "note": "Pool House painter; paints sitters from their reflections"
+    }
+   ],
+   "master": "diep_to_quyen",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "idle-cloud-reflection-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "living-scroll-art",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "named": "nv-upside-down-sky-scroll"
+     },
+     {
+      "named": "nv-mothers-portrait-brush"
+     }
+    ],
+    "skills": {
+     "phu_luc": 5
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water first, for the double and the reflection arts; she wants the old sky before she wants a fight.",
+     "targets": [
+      4820,
+      4943,
+      4947,
+      4940,
+      5532,
+      5545
+     ],
+     "targets_note": "Reflection route, Reflected Moon, then the Star Chart: she wants the old sky."
+    },
+    "note": "A fast painter who keeps her double up too long."
+   },
+   "items": [
+    "nv-upside-down-sky-scroll",
+    "nv-mothers-portrait-brush"
+   ]
+  },
+  {
+   "key": "cu_luc_truc",
+   "name_hv": "Cù Lục Trúc",
+   "name_han": "瞿綠竹",
+   "gloss": "Green bamboo",
+   "sex": "M",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "nhan_van",
+   "rank": "chap_su",
+   "home": 474,
+   "birthplace": 476,
+   "role": "Steward of the abbey's paper mill at Lục Trúc Thôn and the canes of Vạn Can Lâm",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 56
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 40,
+    "can_cot": 62,
+    "than_hon": 46,
+    "khi_van": 44,
+    "dao_tam": 60,
+    "mi_luc": 42
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Honest",
+     "Reclusive"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A broad, stooped man with pulp to the elbows and a straw hat he wears indoors.",
+   "backstory": "A cane-cutter's son from Phù Can Thôn who has kept the abbey's paper mill at Lục Trúc Thôn for sixty years and cuts its canes in Vạn Can Lâm. Every sheet the abbey paints on has passed through his hands. He was Diệp Tố Quyên's (diep_to_quyen) disciple for forty years and knows he paints badly. Lạc Hà assesses the abbey's tribute in sheets, and every autumn he argues the count with its collector Cận Thủ Chuyết (can_thu_chuyet).",
+   "ties": [
+    {
+     "to": "diep_to_quyen",
+     "kind": "master",
+     "note": "she let him stop painting and make paper instead"
+    },
+    {
+     "to": "man_tam_van",
+     "kind": "disciple",
+     "note": "beats the pulp"
+    },
+    {
+     "to": "can_thu_chuyet",
+     "kind": "rival",
+     "note": "Lạc Hà's tribute collector; they argue the sheet count every autumn"
+    },
+    {
+     "to": "cu_tieu_can",
+     "kind": "grandchild",
+     "note": "his grandson and disciple; cuts canes for the paper mill"
+    }
+   ],
+   "master": "diep_to_quyen",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "idle-cloud-reflection-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 3,
+     "linh_thuc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood for health and stamina; he fights like a man cutting cane.",
+     "targets": [
+      4820,
+      4943,
+      4947,
+      6278,
+      6281
+     ],
+     "targets_note": "Reflection route from Wood, then Seedling and Strong Sapling: health and stamina, a cane-cutter."
+    },
+    "note": "Papermaker."
+   }
+  },
+  {
+   "key": "khuong_tram_mac",
+   "name_hv": "Khương Trầm Mặc",
+   "name_han": "姜沈墨",
+   "gloss": "Deep ink",
+   "sex": "F",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "nhan_van",
+   "rank": "noi_mon",
+   "home": 456,
+   "birthplace": 456,
+   "role": "The abbey's ink-maker at Trầm Hương Trấn",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Temperate",
+     "Humble"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "She burns Kỳ Nam agarwood for soot in her home town of Trầm Hương Trấn and grinds the abbey's ink, and Diệp Tố Quyên (diep_to_quyen) says the abbey's paintings smell of her town.",
+   "ties": [
+    {
+     "to": "diep_to_quyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "lieu_bach_mieu",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "nghiem_thu_lo",
+     "kind": "disciple",
+     "note": "the placed girl"
+    },
+    {
+     "to": "giai_thanh_nghien",
+     "kind": "disciple",
+     "note": "placed from Lạc Hà, 1199"
+    },
+    {
+     "to": "liem_huan_huong",
+     "kind": "disciple",
+     "note": "burns agarwood soot at the ink house"
+    }
+   ],
+   "master": "diep_to_quyen",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "idle-cloud-reflection-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 3,
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Ink."
+   }
+  },
+  {
+   "key": "doi_kim_truc",
+   "name_hv": "Đới Kim Trục",
+   "name_han": "戴金軸",
+   "gloss": "Golden scroll-roller",
+   "sex": "M",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "nhan_van",
+   "rank": "noi_mon",
+   "home": 72,
+   "birthplace": 72,
+   "role": "Carries the abbey's door scrolls to the island markets; signs some of them",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "kim": 34,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 52,
+    "can_cot": 48,
+    "than_hon": 44,
+    "khi_van": 64,
+    "dao_tam": 36,
+    "mi_luc": 66
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Gregarious",
+     "Fickle"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child",
+    "talent": [],
+    "path": [],
+    "lifestyle": "gambler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A quick young-looking man with gilt scroll-ends on his pack and a different hat in every market.",
+   "backstory": "Mễ Phù Vân's (me_phu_van) disciple, a Triều Âm Thành dock child, who carries the abbey's door scrolls to Triều Âm and Tương Phùng Thị (A148). He signs a few of them, which the abbey forbids, because a signed scroll sells for three times as much. Lạc Hà's Tăng Vân Tiêu (tang_van_tieu) buys the signed ones for his stalls on the mainland and knows exactly what they are.",
+   "ties": [
+    {
+     "to": "me_phu_van",
+     "kind": "master",
+     "note": "taught him to price a scroll"
+    },
+    {
+     "to": "tang_van_tieu",
+     "kind": "friend",
+     "note": "Lạc Hà's stall-keeper, who buys the signed scrolls"
+    },
+    {
+     "to": "tan_dao_anh",
+     "kind": "rival",
+     "note": "she would never sign anything, and paints better"
+    },
+    {
+     "to": "doan_truc_nhi",
+     "kind": "disciple",
+     "note": "carries scrolls for Đới Kim Trục"
+    }
+   ],
+   "master": "me_phu_van",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "idle-cloud-reflection-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "living-scroll-art",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "phu_luc": 4
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water, and the door guardian between him and anyone who asks about the signatures.",
+     "targets": [
+      4820,
+      4943,
+      4947,
+      5186
+     ],
+     "targets_note": "Reflection route, then Paper Puppets: the door guardian between him and questions."
+    },
+    "note": "Peddler."
+   }
+  },
+  {
+   "key": "lieu_bach_mieu",
+   "name_hv": "Liễu Bạch Miêu",
+   "name_han": "柳白描",
+   "gloss": "The plain outline drawing",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "nhan_van",
+   "rank": "noi_mon",
+   "home": 364,
+   "birthplace": 124,
+   "role": "Inner disciple who draws only outlines",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Patient",
+     "Content"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born"
+   },
+   "backstory": "A willow-planter's daughter from Dương Liễu Thôn (A151) who draws only outlines and fills nothing in; Diệp Tố Quyên (diep_to_quyen) told her that this is the whole art, and she believed it.",
+   "ties": [
+    {
+     "to": "khuong_tram_mac",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "liem_huan_huong",
+     "kind": "friend",
+     "note": "burns agarwood soot at the ink house"
+    }
+   ],
+   "master": "khuong_tram_mac",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "idle-cloud-reflection-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Outlines."
+   }
+  },
+  {
+   "key": "man_tam_van",
+   "name_hv": "Mẫn Tầm Vân",
+   "name_han": "閔尋雲",
+   "gloss": "Looking for clouds",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "nhan_van",
+   "rank": "ngoai_mon",
+   "home": 474,
+   "birthplace": 126,
+   "role": "Outer disciple at the paper mill",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 38,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Lazy",
+     "Gregarious",
+     "Forgiving"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A fisher boy from Nguyệt Loan Thôn (A153) who came to the abbey to paint clouds and was sent to beat bamboo pulp for Cù Lục Trúc (cu_luc_truc) instead.",
+   "ties": [
+    {
+     "to": "cu_luc_truc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "cu_tieu_can",
+     "kind": "friend",
+     "note": "cuts canes for the paper mill; Cù Lục Trúc's grandson"
+    },
+    {
+     "to": "ham_nhat_van",
+     "kind": "friend",
+     "note": "teaches the novices to grind ink at the abbey"
+    }
+   ],
+   "master": "cu_luc_truc",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ink-grinding-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Pulp-beater."
+   }
+  },
+  {
+   "key": "dinh_hong_thu",
+   "name_hv": "Đinh Hồng Thụ",
+   "name_han": "丁紅樹",
+   "gloss": "Mangrove",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "nhan_van",
+   "rank": "noi_mon",
+   "home": 37,
+   "birthplace": 460,
+   "role": "Painter of the Pool House; Tần Đảo Ảnh's one friend there",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Brave",
+     "Honest"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born"
+   },
+   "backstory": "A girl from the mangroves of Hồng Thụ Thôn who paints roots standing in water. She has noticed that her friend Tần Đảo Ảnh (tan_dao_anh) is in two places in the mornings, and has said nothing yet.",
+   "ties": [
+    {
+     "to": "me_phu_van",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "tan_dao_anh",
+     "kind": "friend",
+     "note": "has seen the double"
+    },
+    {
+     "to": "bao_anh_nhi",
+     "kind": "cousin",
+     "note": "her cousin; Pool House painter; Đinh Hồng Thụ's cousin"
+    },
+    {
+     "to": "doan_truc_nhi",
+     "kind": "friend",
+     "note": "carries scrolls for Đới Kim Trục"
+    }
+   ],
+   "master": "me_phu_van",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "idle-cloud-reflection-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Mangrove painter."
+   }
+  },
+  {
+   "key": "nghiem_thu_lo",
+   "name_hv": "Nghiêm Thu Lộ",
+   "name_han": "嚴秋露",
+   "gloss": "Autumn dew",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "nhan_van",
+   "rank": "ngoai_mon",
+   "home": 364,
+   "birthplace": 73,
+   "role": "Outer disciple placed from Lạc Hà on Placement Day",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 34,
+     "tho": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Diligent",
+     "Paranoid"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "She failed Lạc Hà's dusk test three times and was placed with the abbey in 1198 by Tô Bình Chu (to_binh_chu). Lạc Hà takes a tenth of what she earns until 1228, so she counts every brush she is given.",
+   "ties": [
+    {
+     "to": "khuong_tram_mac",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "to_binh_chu",
+     "kind": "debt",
+     "note": "placed her; Lạc Hà's tenth until 1228"
+    },
+    {
+     "to": "giai_thanh_nghien",
+     "kind": "friend",
+     "note": "placed from Lạc Hà, 1199"
+    }
+   ],
+   "master": "khuong_tram_mac",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ink-grinding-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ky",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood, and some Water if the abbey lets her in."
+    },
+    "note": "Placed child."
+   }
+  },
+  {
+   "key": "o_lao_nghien",
+   "name_hv": "Ô Lão Nghiễn",
+   "name_han": "烏老硯",
+   "gloss": "The old black inkstone",
+   "sex": "M",
+   "born": 1112,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "nhan_van",
+   "rank": "tap_dich",
+   "home": 37,
+   "birthplace": 37,
+   "role": "Servant of the Pool House; grinds its ink and tells the blind master the colour of the clouds",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 34,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Honest",
+     "Content"
+    ],
+    "calling": "Steward",
+    "upbringing": "servant_born"
+   },
+   "backstory": "The Pool House's servant for seventy years. He grinds its ink and every evening walks to the pool to tell the blind Đoạn Thương Hải (doan_thuong_hai) what colour the clouds were.",
+   "ties": [
+    {
+     "to": "doan_thuong_hai",
+     "kind": "friend",
+     "note": "tells him the clouds"
+    },
+    {
+     "to": "me_phu_van",
+     "kind": "friend",
+     "note": "his keeper, whom he does not take seriously"
+    }
+   ],
+   "exception": "servant (tạp dịch) of the Pool House; any root, taught only the grinding primer",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "ink-grinding-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Inkstone."
+   }
+  },
+  {
+   "key": "kha_dam_mac",
+   "name_hv": "Kha Đạm Mặc",
+   "name_han": "柯淡墨",
+   "gloss": "Pale ink",
+   "sex": "M",
+   "born": 760,
+   "died": 1010,
+   "cause": "walked into the pool of Đàm Ảnh Thành at dusk with his brush and was found drowned in the morning, at 250",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "nhan_van",
+   "rank": "founder",
+   "home": 364,
+   "birthplace": 79,
+   "role": "Founder of Nhàn Vân Quán (905); first to paint with qi in the ink",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Patient",
+     "Reclusive",
+     "Devout"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "scholar_family",
+    "path": [
+     "long_seclusion"
+    ]
+   },
+   "backstory": "A scholar's son from Phong Lâm Trấn on the mainland who came to Đàm Ảnh Thành in 800 to paint the sky upside down in the pool (A152). He found that ink ground with qi went on moving after the brush stopped. With his disciple Diệp Tố Quyên (diep_to_quyen) he founded the abbey in 905 (V092). In his last years he painted only old reflections, skies the pool had held before he was born. He died in 1010 with half the sky of 705 on his silk (N-nhan_van-02).",
+   "ties": [
+    {
+     "to": "diep_to_quyen",
+     "kind": "disciple",
+     "note": "his heir"
+    },
+    {
+     "to": "me_phu_van",
+     "kind": "disciple",
+     "note": "his last disciple"
+    }
+   ]
+  },
+  {
+   "key": "tan_van_kinh",
+   "name_hv": "Tần Vãn Kính",
+   "name_han": "秦晚鏡",
+   "gloss": "The evening mirror",
+   "sex": "F",
+   "born": 1060,
+   "died": 1158,
+   "cause": "qi deviation: her reflection-double kept her face, at 98",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "nhan_van",
+   "rank": "noi_mon",
+   "home": 37,
+   "birthplace": 37,
+   "role": "Painter of the Pool House; Tần Đảo Ảnh's mother",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Impatient",
+     "Compassionate"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "A Pool House painter who painted her own reflection to sit for her portraits and, in the winter of 1158, could not take her face back from it (N-nhan_van-03); her daughter Tần Đảo Ảnh (tan_dao_anh) was eight.",
+   "ties": [
+    {
+     "to": "tan_dao_anh",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "diep_to_quyen",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "diep_to_quyen"
+  }
+ ]
+}

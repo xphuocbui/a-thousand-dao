@@ -515,6 +515,22 @@ GDD's dependencies (2026-11-15).
 - `events_templates.json` must be rekeyed to the fixed world's place kinds, and `dao_an_co_vat` (retired Đạo Ấn)
   removed or rewritten (rule 4).
 
+**Back-links written 2026-11-25** (world-depth rulings, `design/world/depth/DECISIONS-2026-11-25.md`):
+- **World Generation** (#27, rules 3a, 16a): each moved seat's founder's array is a hook (breaking it sets
+  `seat_array_density` to 0; who can break it and how is this GDD's and the Living World Tick's), and the ~260 dated
+  `N-` events join the chronicle and annals as story anchors.
+- **Combat** (#21, rule 26): a fight request's ground tags carry no place-derived tag; one that reaches a fight
+  applies nothing. **Answered 2026-11-25** (Combat Open Question 30, user ruling): the `own_abode` bonus is removed from fights; what counts at home is the defender's own laid arrays (Combat AC-CB-104). Rule 17 may still send `own_abode` as a request tag for the event's text, and the fight reads nothing from it.
+- **NPC Traits** (#42, rules 8a, 11a): 60 `event:` hooks over 54 tags (catalogue § Hooks by consumer) as option show
+  conditions or event weights, each needing a template here (NPC Traits Open Question 15); outcomes may grant or
+  remove path, lifestyle, health and coping traits, and coping traits name their trigger ids. *(Group 12, 2026-11-25:)*
+  since v2 paths, coping and some lifestyle and upbringing traits now carry choice-tag weights (NPC Traits rule 8), an
+  NPC's pick among this engine's choices reads them like v1 weights; nothing changes here but the inputs.
+- **World Generation** (#27, rule 3a; ruling group 12): a chronicle event of kind **`hidden`** (4 today:
+  N-lang_dao-03, N-suong_tung-02, N-thai_chi-04, N-van_hac-03) is in the World Database's log but in neither public
+  tier. An outcome here may **uncover** one by naming its id; from then on it shows in the annals with its secret flag
+  cleared (World Generation Open Question 15). The outcome record that does this is owed here.
+
 ## Visual/Audio Requirements
 
 `art-director` not consulted (Lean mode; events are read as text, not watched). There is no art bible yet, and the map

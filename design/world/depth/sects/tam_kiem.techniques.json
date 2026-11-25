@@ -1,0 +1,48 @@
+{
+ "sect": "tam_kiem",
+ "_doc": "Tầm Kiếm Đường lineage (rules-proposals R5), a no-lean sword school (R3): leans Metal, Water -> none. Outer gate: tracker-sword-primer (proposal, element-free). Inner gate and above: asking-blade-canon (proposal, Profound, element-free blade). Secret arts: mountain-bone-body-art (existing body; the climbers), seal-listening-art (the head). Note: every catalogue blade technique runs on Metal, so an element-free sword lineage needs new proposals. Unpriced.",
+ "lineage": {
+  "outer": "tracker-sword-primer",
+  "main": "asking-blade-canon",
+  "secret": [
+   {"id": "mountain-bone-body-art", "rank": "noi_mon"},
+   {"id": "seal-listening-art", "rank": "tong_chu"}
+  ],
+  "body": "mountain-bone-body-art",
+  "elements": [],
+  "tree_route": [4246, 4250],
+  "tree_route_note": "Sword Heart (Kiếm Tâm) and Sword Intent (Kiếm Ý): the Asking Blade is element-free, so the hall opens the sword's own crit and damage, whatever the root."
+ },
+ "techniques": [
+  {
+   "id": "tracker-sword-primer",
+   "name": "Tracker's Sword Primer (Tầm Tung Kiếm Quyết)",
+   "tier": 0, "tech_kind": "main", "names": [], "layers": 6, "rank": "ngoai_mon",
+   "concept": "A hunter's method: read the track, then the quarry. The student learns to still the breath and follow the faint disturbance any living thing leaves in the world's qi, then to strike where the track says the quarry will be. It cultivates no element, only attention, so a hunter of any root can learn it. It is the hall's first gate and the reason its men are the best guides on the massif.",
+   "arts": [{"new": "Where It Will Be (Tiên Tri Kiếm)", "concept": "A cut aimed at the foe's next position: against a moving foe it cannot miss and deals extra Physical damage."}],
+   "lore": "Tiêu Vấn Phong bought a water-stained tracking manual of Tầm Tung Viện, the Academy of Track Seekers whose masters walked into Vô Tung Lâm in 1040 and did not come back (V085), from a stall in Tống Khách Thị in 1160, and built the hall's first lessons on it.",
+   "status": "proposal"
+  },
+  {
+   "id": "asking-blade-canon",
+   "name": "Asking the Blade Canon (Vấn Phong Kiếm Kinh)",
+   "tier": 1, "tech_kind": "main", "names": [], "layers": 9, "rank": "noi_mon",
+   "concept": "The hall's sword, named for its founder's name: to ask after the blade. The swordsman does not push qi into the sword; he asks it where the opening is and lets it answer, so the cut follows understanding (ngộ tính) rather than an element. Each exchange reads the foe a little more, and the reading becomes damage. It is slow against a crowd and terrible against one opponent in a long fight.",
+   "arts": [
+    {"new": "Ask (Vấn)", "concept": "A light probing cut that marks the foe; each mark raises the holder's crit chance against them."},
+    {"new": "The Blade Answers (Phong Ứng)", "concept": "Consumes all marks for one cut whose damage and pierce grow with the marks spent."}
+   ],
+   "lore": "Made between 1165 and 1190 by Tiêu Vấn Phong and the guest elder Sài Mộ Kiếm, who had lost a duel to Tư Không Hạc Niên (A141) and spent seventy years asking himself why.",
+   "status": "proposal"
+  },
+  {
+   "id": "seal-listening-art",
+   "name": "Listening at the Seal (Thính Ấn Thuật)",
+   "tier": 1, "tech_kind": "secret", "names": [], "layers": 9, "rank": "tong_chu",
+   "concept": "A seal-reading art the head made for the hall's purpose: to find a sealed place by the silence it makes. The listener lays a palm on rock or ice and hears where qi does not flow. In a fight it reads wards and seals: the listener sees how much a ward has left and strikes its weakest point.",
+   "arts": [{"new": "The Silent Place (Tịch Xứ)", "concept": "Reveals the foe's ward and seals; the holder's next hit ignores part of the ward."}],
+   "lore": "Tiêu Vấn Phong has taught it to no one. He has listened at every cliff of the massif except those the grey sisters guard.",
+   "status": "proposal"
+  }
+ ]
+}

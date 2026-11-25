@@ -1,0 +1,328 @@
+{
+ "sect": "thu_phan",
+ "_doc": "Thu Phần Các signature items (rules-proposals R7; design/items record). Prefix tp-. Unpriced proposals; sizes follow the soul-song-seal catalogue's grade 3-4 items. The head also wears the catalogue's soul-song-seal-mourning-robe (unchanged).",
+ "items": [
+  {
+   "id": "tp-autumn-grave-bell",
+   "name": "Bell of the Autumn Graves (Thu Phần Chung)",
+   "family": "soul-song-seal",
+   "kind": "treasure",
+   "base": "chuong",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "x_soul",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "song"
+     ]
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "toll-for-the-dead",
+     "name": "Toll for the Dead (Táng Hưởng)",
+     "rule": "When the foe is Broken, or you are first Wounded, the bell tolls: your next soul art comes ready at once (never sooner than `cooldown_min`), and its soul damage is raised by 30 %.",
+     "authored": "d7"
+    }
+   ],
+   "lore": "A small bronze bell cast by Ân Thanh Linh of Vũ Linh Đường in 1062, to Lý Hận Bích's measure, from bronze that had lain a year in the oldest grave. It rings when no one moves, and the Pavilion says that is when the dead do. The head wears it at her wrist.",
+   "build_use": "The head's ward bell: soul resistance, and a free soul art when someone falls.",
+   "holder": "ly_han_bich",
+   "made_by": "an_thanh_linh",
+   "made_year": 1062,
+   "set": "tp-autumn-graves",
+   "status": "proposal",
+   "authored": "b2, d7"
+  },
+  {
+   "id": "tp-resentment-jade-seal",
+   "name": "Seal of the Jade of Resentment (Hận Bích Ấn)",
+   "family": "soul-song-seal",
+   "kind": "treasure",
+   "base": "an",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "seal"
+     ]
+    },
+    {
+     "key": "x_soul",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 15,
+     "scope": [
+      "curse"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "blood-turns-to-jade",
+     "name": "Blood Turns to Jade (Huyết Hóa Bích)",
+     "rule": "Each curse you lay that runs its full length leaves a jade mark on the foe. At five or more, your next seal art spends them all: it stuns the foe for 1 second and deals a light soul hit for each mark past five."
+    }
+   ],
+   "lore": "Carved by the head from the first fleck of grave jade the beds gave up, in 1000: green, small and very hard, with a dead man's thumbprint in it. It is the Pavilion's seal, and the proof of its teaching.",
+   "build_use": "Curse and seal: the long hold that ends in a stun.",
+   "holder": "ly_han_bich",
+   "made_by": "ly_han_bich",
+   "made_year": 1000,
+   "set": "tp-autumn-graves",
+   "status": "proposal"
+  },
+  {
+   "id": "tp-nine-graves-zither",
+   "name": "Zither of the Nine Graves (Cửu Phần Cầm)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "cam",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "x_soul",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "song"
+     ]
+    },
+    {
+     "key": "healing_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A zither of tribulation bamboo strung with nine strings, one for each of the oldest graves by the river. Lương Thanh Mộ made it and played it at the graves for a hundred years. She left it at the grave's mouth in 1110, and Bào Thu Xướng has played it since.",
+   "build_use": "The singing master's instrument: faster soul songs and a little healing for a long chant.",
+   "holder": "bao_thu_xuong",
+   "made_by": "luong_thanh_mo",
+   "made_year": 990,
+   "set": null,
+   "status": "proposal",
+   "authored": "b2"
+  },
+  {
+   "id": "tp-barred-door-robe",
+   "name": "Robe of the Barred Door (Bế Môn Bào)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "soul_res_pct",
+     "value": 25,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": [
+      "curse"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "Undyed hemp with the hunters' bar painted across the back in grave ash. She wove it the year she founded the Pavilion, from the cloth she wore the night the cave door was barred behind her.",
+   "build_use": "A grave-ward mistress's guard, and longer curses.",
+   "holder": "ly_han_bich",
+   "made_by": "ly_han_bich",
+   "made_year": 960,
+   "set": "tp-autumn-graves",
+   "status": "proposal"
+  },
+  {
+   "id": "tp-grave-drum",
+   "name": "Grave Drum (Phần Cổ)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "co",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "x_soul",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": [
+      "song"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 3,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A small drum of tribulation bamboo and goat hide that the singers beat at the oldest graves. He has played the drum passages' cadence on it once, and something under the ridge answered.",
+   "build_use": "Sings what he has written: soul damage and faster soul arts.",
+   "holder": "co_ky_am",
+   "made_by": "luong_thanh_mo",
+   "made_year": 1000,
+   "set": "tp-second-copy",
+   "status": "proposal",
+   "authored": "b2"
+  },
+  {
+   "id": "tp-lined-winter-robe",
+   "name": "Lined Winter Robe (Lót Đông Bào)",
+   "family": "soul-song-seal",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "soul_res_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A copyist's quilted winter robe. The second copy of the drum passages is sewn into its lining.",
+   "build_use": "A scholar's guard, careful and long.",
+   "holder": "co_ky_am",
+   "made_by": "co_ky_am",
+   "made_year": 1190,
+   "set": "tp-second-copy",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "tp-autumn-graves",
+   "name": "The Autumn Graves (Thu Phần Tam Bảo)",
+   "pieces": [
+    "tp-autumn-grave-bell",
+    "tp-resentment-jade-seal",
+    "tp-barred-door-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "x_soul",
+       "value": 5,
+       "scope": []
+      },
+      {
+       "key": "status_duration_pct",
+       "value": 8,
+       "scope": [
+        "curse"
+       ]
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "The Dead Sing Along (Quỷ Họa Ca): each curse you lay rings the bell and adds a Resentment mark to the foe. At seven marks the jade seal presses: the foe's highest layer is Sealed Meridian, and they take soul damage scaled by your Darkness. Each press in the same fight needs one more mark."
+    }
+   ],
+   "story": "The bell Ân Thanh Linh cast in 1062, the seal of the first grave jade, and the robe of the barred door. The head holds all three. The Pavilion says the set is not hers but the graves', lent to whoever hears them.",
+   "status": "proposal"
+  },
+  {
+   "id": "tp-second-copy",
+   "name": "The Second Copy (Phó Bản)",
+   "pieces": [
+    "tp-grave-drum",
+    "tp-lined-winter-robe"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "x_soul",
+       "value": 3,
+       "scope": []
+      },
+      {
+       "key": "than_thuc_pct",
+       "value": 3,
+       "scope": []
+      }
+     ],
+     "effect": "The Cadence Like a Drum (Cổ Điệu): every third soul song you sing falls into the drum's cadence and repeats once at half power. Against a foe carrying one of your curses, the repeat is at full power."
+    }
+   ],
+   "story": "The drum and the robe that hides the second copy. The head does not know they make a set, because she does not know what is in the lining.",
+   "status": "proposal"
+  }
+ ]
+}

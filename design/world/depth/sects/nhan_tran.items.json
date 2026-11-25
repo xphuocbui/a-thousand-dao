@@ -1,0 +1,308 @@
+{
+ "sect": "nhan_tran",
+ "_doc": "Nhạn Trận Môn signature items (rules-proposals R7; design/items record). Unpriced proposals; modifier sizes follow the metal, earth and general catalogues' grade 2-4 items. Element-free sect: the items carry no element scope. No set.",
+ "items": [
+  {
+   "id": "nt-first-file-banner",
+   "name": "Banner of the First File (Đầu Hàng Kỳ)",
+   "family": "general",
+   "kind": "treasure",
+   "base": "ky",
+   "grade": 4,
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [
+    {
+     "new": true,
+     "id": "one-goose",
+     "name": "One Goose (Nhất Nhạn)",
+     "rule": "While the banner is planted (a Piece) and you count three or more allies, the damage you take is multiplied by (1 − X) for each ally beyond yourself, and the banner's first share is yours.",
+     "authored": "a1"
+    },
+    {
+     "new": true,
+     "id": "geese-line",
+     "name": "Geese Line (Nhạn Hàng)",
+     "rule": "While you count two or more allies (you, companions and Pieces), you gain 8 block for each ally beyond yourself.",
+     "authored": "d17"
+    }
+   ],
+   "lore": "A long grey felt banner with one goose stitched on it in undyed wool, carried at the head of Thạch Liệt Hàng's file when it walked out of Chiết Kích Nguyên in 803 (N-nhan_tran-01). It has been mended so often that hardly any of the felt is the felt of 803. Every head of the gate has carried it at the spring levy.",
+   "build_use": "The head's banner: a file that shares its damage.",
+   "holder": "muc_han_nhan",
+   "made_by": "the levy of Nhạn Thanh Thành, for Lạc Hà's war of 790",
+   "made_year": 795,
+   "set": "nt-out-of-the-grey",
+   "status": "proposal",
+   "authored": "a1, d17"
+  },
+  {
+   "id": "nt-breath-cloth",
+   "name": "The Founder's Breath Cloth (Hoán Tức Cân)",
+   "family": "general",
+   "kind": "artifact",
+   "base": "dao_bao",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "dan_doc_resist_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The wet hemp cloth Thạch Liệt Hàng's file breathed through in turns, one breath each, as it walked out of the grey (N-nhan_tran-01). It was sewn into the lining of the head's robe in 1040. Mục Hàn Nhạn wears it and says it still tastes of the plain.",
+   "build_use": "Poison resistance and sustain for a long file fight.",
+   "holder": "muc_han_nhan",
+   "made_by": "thach_liet_hang",
+   "made_year": 803,
+   "set": "nt-out-of-the-grey",
+   "status": "proposal"
+  },
+  {
+   "id": "nt-lake-drum",
+   "name": "Drum of Lạc Nhạn Hồ (Lạc Nhạn Cổ)",
+   "family": "general",
+   "kind": "artifact",
+   "base": "co",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 12,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The gate has drummed the levy on the lake shore every spring since 807, and on this drum since 860, when Quản Tề Phong had the frame cut from a lightning-struck elm. The head is buffalo hide from the rice farms of Hòa Lũng Thôn, re-skinned eleven times. Đổng Kiên Lũy will not let anyone else carry it.",
+   "build_use": "Pace for the file: attack and art speed.",
+   "holder": "dong_kien_luy",
+   "made_by": "quan_te_phong",
+   "made_year": 860,
+   "set": null,
+   "status": "proposal"
+  },
+  {
+   "id": "nt-point-sword",
+   "name": "Point of the File (Hàng Đầu Kiếm)",
+   "family": "general",
+   "kind": "artifact",
+   "base": "phi_kiem",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 12,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 4,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "block_rating",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "A plain short flying sword given to whoever holds the point of the first file. It has had nine holders. Mục Tân Vũ is the first to use it at night.",
+   "build_use": "The point's sword: strike and block at the head of the line.",
+   "holder": "muc_tan_vu",
+   "made_by": "Lạc Hà's armoury at Tử Điện Thành",
+   "made_year": 1050,
+   "set": "nt-point-of-file",
+   "status": "proposal"
+  },
+  {
+   "id": "nt-rear-guard-shield",
+   "name": "Shield of the Rear Guard (Hậu Vệ Thuẫn)",
+   "family": "general",
+   "kind": "artifact",
+   "base": "thuan",
+   "grade": 3,
+   "modifiers": [
+    {
+     "key": "block_rating",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The levy shield the last man of Thạch Liệt Hàng's file carried facing back as the file walked out of the grey. Its face is still stained green.",
+   "build_use": "The file's last share: block and health.",
+   "holder": "muc_han_nhan",
+   "made_by": "nhan_tran",
+   "made_year": 803,
+   "set": "nt-out-of-the-grey",
+   "status": "proposal"
+  },
+  {
+   "id": "nt-point-felt-coat",
+   "name": "Felt Coat of the Point (Hàng Đầu Chiên Giáp)",
+   "family": "general",
+   "kind": "artifact",
+   "base": "giap",
+   "grade": 2,
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "lore": "The heavy felt coat the point of the first file wears into the wind. It has been cut down for each of its nine holders; hers is the smallest.",
+   "build_use": "The point takes the wind: health and block.",
+   "holder": "muc_tan_vu",
+   "made_by": "nhan_tran",
+   "made_year": 1050,
+   "set": "nt-point-of-file",
+   "status": "proposal"
+  }
+ ],
+ "sets": [
+  {
+   "id": "nt-out-of-the-grey",
+   "name": "Out of the Grey (Xuất Hôi Tam Bảo)",
+   "pieces": [
+    "nt-first-file-banner",
+    "nt-breath-cloth",
+    "nt-rear-guard-shield"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "khi_huyet_pct",
+       "value": 6,
+       "scope": []
+      },
+      {
+       "key": "block_rating",
+       "value": 8,
+       "scope": []
+      }
+     ]
+    },
+    {
+     "pieces": 3,
+     "effect": "Last Man in the File (Mạt Hàng Nhân): while the Banner's spread holds, your hits taken are blocked as though you had raised the shield, and each blocked hit lets you shed one poison or miasma stack (once every 3 s)."
+    }
+   ],
+   "story": "The banner, the cloth and the shield of the file of forty. Mục Hàn Nhạn holds all three. The shared-damage half is the closest line until targets-tl/geese-line exists.",
+   "authored": "a1"
+  },
+  {
+   "id": "nt-point-of-file",
+   "name": "Point of the File (Hàng Đầu Song Bảo)",
+   "pieces": [
+    "nt-point-sword",
+    "nt-point-felt-coat"
+   ],
+   "bonuses": [
+    {
+     "pieces": 2,
+     "modifiers": [
+      {
+       "key": "block_rating",
+       "value": 6,
+       "scope": []
+      },
+      {
+       "key": "khi_huyet_pct",
+       "value": 5,
+       "scope": []
+      }
+     ],
+     "effect": "Take the Wind (Đương Phong): you take 10 % less damage, and each block you make gives you a small ward."
+    }
+   ],
+   "story": "The sword and the coat of the point, handed to each holder in turn. Mục Tân Vũ is the tenth to hold both.",
+   "authored": "a1"
+  }
+ ]
+}

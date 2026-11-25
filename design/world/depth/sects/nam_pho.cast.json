@@ -1,0 +1,1301 @@
+{
+ "sect": "nam_pho",
+ "people": [
+  {
+   "key": "chau_phi_van",
+   "name_hv": "Châu Phi Vân",
+   "name_han": "周飛雲",
+   "gloss": "Flying clouds (Vương Bột: họa đống triêu phi Nam Phố vân)",
+   "sex": "F",
+   "born": 930,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 1,
+   "sect": "nam_pho",
+   "rank": "tong_chu",
+   "home": 21,
+   "birthplace": 80,
+   "role": "Hall-mistress of Nam Phố Đường since 1100; the west's talisman maker",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 76,
+     "moc": 66
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 76,
+    "can_cot": 50,
+    "than_hon": 78,
+    "khi_van": 58,
+    "dao_tam": 76,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Honest",
+     "Devout"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 2
+     },
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "calligrapher",
+    "health": null,
+    "coping": "faith_found",
+    "fate_given": [],
+    "gained": [
+     "Grudge"
+    ]
+   },
+   "appearance": "A slight woman with ink-grey fingertips and her hair pinned with a brush, who rises before the birds and has not missed a dawn in two hundred years.",
+   "backstory": "Châu Phi Vân was born in Tang Ma Thành in 930 among the mulberry and hemp, and at four drew her first talisman in mulberry juice on a hemp rag (A199). The founder Nghiêm Họa Đống (nghiem_hoa_dong) took her at eight and taught her to paint the morning cloud. She has kept the hall since 1100. Its scribes held the prize seal of the talisman contest at Hạc Đinh Thị for eleven contests, until a girl of fourteen from Lạc Hà, Tô Mộ Vân (to_mo_van), took it in 1190 (A203). Châu was glad. She has asked the lord twice to lend her the girl for a season, and this spring she asked for the placed boy Tạ Quy Yến (ta_quy_yen) by name. In 1173 the hall painted a hundred fire talismans on a Lạc Hà order for clearing the reed beds at Thủy Khẩu. Châu painted the master sheet herself. Lô Xướng Vãn's (lo_xuong_van) raiders burned Lãng Đào's boats at Đào Sa with them (A080). She has painted no fire talisman since, and the hall's loyalty to its lord has not recovered.",
+   "wants": "To find an heir who can hold both halves of the founders' art, and to paint the whole Painted Beams talisman once, dawn and dusk together, before she dies.",
+   "secret": "Every year since 1175 she has sent Lãng Đào's head Giang Cửu Khúc an unsigned bundle of ward talismans for his rebuilt ferries, stamped with no seal. Lạc Hà's enemy's boats sail under her wards. She has also 'lost' four of Lạc Hà's war orders since the Ferry War, and her elder Kha Triêu Phi has noticed.",
+   "ties": [
+    {
+     "to": "nghiem_hoa_dong",
+     "kind": "master",
+     "note": "the founder, who taught her the morning cloud"
+    },
+    {
+     "to": "ninh_hoa_van",
+     "kind": "disciple",
+     "note": "the scribe who lost the seal in 1190"
+    },
+    {
+     "to": "ly_khe_thu",
+     "kind": "disciple",
+     "note": "her youngest, from Hoa Khê"
+    },
+    {
+     "to": "van_tang_chi",
+     "kind": "disciple",
+     "note": "the paper master"
+    },
+    {
+     "to": "kha_trieu_phi",
+     "kind": "rival",
+     "note": "the dusk line's elder, who wants the hall closer to the lord"
+    },
+    {
+     "to": "to_mo_van",
+     "kind": "rival",
+     "note": "the girl who took the seal; Châu wants to teach her"
+    },
+    {
+     "to": "ta_quy_yen",
+     "kind": "friend",
+     "note": "asked for him on Placement Day"
+    },
+    {
+     "to": "lo_xuong_van",
+     "kind": "enemy",
+     "note": "burned the Đào Sa boats with her talismans"
+    },
+    {
+     "to": "giang_cuu_khuc",
+     "kind": "debt",
+     "note": "she owes him for the boats; she pays in wards"
+    },
+    {
+     "to": "to_van_chieu",
+     "kind": "rival",
+     "note": "the head who signed the 1173 order"
+    },
+    {
+     "to": "sao_an_lan",
+     "kind": "creditor",
+     "note": "the demonic girl she let go in 1097 and told no one"
+    },
+    {
+     "to": "gian_van_lo",
+     "kind": "former_disciple",
+     "note": "the disciple she turned out in 1168"
+    },
+    {
+     "to": "trinh_chu_sa",
+     "kind": "former_disciple",
+     "note": "the disciple she sent away in 1120 for selling unstamped talismans"
+    },
+    {
+     "to": "ta_cuu_duong",
+     "kind": "rival",
+     "note": "the Tạ patriarch, whose grandson she wants for her hall"
+    },
+    {
+     "to": "doi_huyen_nghien",
+     "kind": "creditor",
+     "note": "the disciple whose gloves she paid for, asking no questions"
+    },
+    {
+     "to": "chuc_hieu_ha",
+     "kind": "disciple",
+     "note": "inner disciple of the Dawn Hall; grinds the mistress's ink"
+    },
+    {
+     "to": "ung_trieu_hong",
+     "kind": "disciple",
+     "note": "dawn-line scribe; Ninh Họa Vân's second at the talisman contest"
+    }
+   ],
+   "master": "nghiem_hoa_dong",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "southern-shore-cloud-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "thorn-and-ink-verses",
+      "layer": 7
+     },
+     {
+      "tech": "painted-beams-dawn-flight",
+      "layer": 8
+     }
+    ],
+    "gear": [
+     {
+      "named": "np-dawn-cloud-brush"
+     },
+     {
+      "named": "np-southern-cloud-seal"
+     },
+     {
+      "named": "np-mulberry-hemp-robe"
+     }
+    ],
+    "skills": {
+     "phu_luc": 8
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood for the cloud talismans' stacks and the canon's binding, Water behind it for the linh lực a long paper fight needs: she fights with nothing but talismans, and rarely spends one.",
+     "targets": [
+      5780,
+      5782,
+      5784,
+      6383,
+      4836,
+      4838,
+      5586
+     ],
+     "targets_note": "Binding route, Deep Rot's Wood stacks, then across to Water's Brush and Inkstone and the Thousand Talismans keystone: nothing but talismans. Wood talisman notables would fit better (wish targets-tl/wood-talisman)."
+    },
+    "note": "The hall-mistress of scribes: a devout talisman maker who lays her paper at dawn and waits."
+   },
+   "items": [
+    "general-talisman-bearer-ring",
+    "np-southern-cloud-seal",
+    "np-dawn-cloud-brush",
+    "np-mulberry-hemp-robe"
+   ],
+   "changed": "build: main dia_thuy (a Water stand-in) -> southern-shore-cloud-canon (the hall's Wood canon; the lineage's main element is Wood, which she holds at 66, R2/R5); aux painted-beams-dawn-flight added; an grade 3 gear -> her seal; tree start thuy -> moc and targets -> intent; root, thien_phu, stage moved to the top level; birthplace 80 added (A199)."
+  },
+  {
+   "key": "kha_trieu_phi",
+   "name_hv": "Kha Triêu Phi",
+   "name_han": "柯朝飛",
+   "gloss": "Flying at dawn",
+   "sex": "M",
+   "born": 1040,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "nam_pho",
+   "rank": "truong_lao",
+   "home": 21,
+   "birthplace": 79,
+   "role": "First elder; head of the dusk line and the hall's dealings with Lạc Hà",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "moc": 58,
+     "thuy": 44
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 52,
+    "than_hon": 60,
+    "khi_van": 56,
+    "dao_tam": 48,
+    "mi_luc": 70
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Pragmatic",
+     "Deceitful"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "scholar_family",
+    "talent": [
+     {
+      "id": "comely",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "poet",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A handsome, grey-temple scholar in a dusk-violet robe a shade too close to Lạc Hà's, who quotes Vương Bột in every second sentence.",
+   "backstory": "Kha Triêu Phi was born to a family of failed examination scholars in Phong Lâm Trấn, among the maples the Lạc Hà founder planted (A190), and grew up looking up the river at the great sect's hall. Ôn Châu Liêm (on_chau_liem), the founder's partner, took him as his last disciple in 1055 and taught him the dusk half of the founders' art, the half that rolls up the western hills' rain. Ôn died at Châu Liêm Trấn in 1060 with most of the dusk half still in his head. Kha has kept the dusk line since, and keeps the hall's accounts with Lạc Hà. He likes Lạc Hà, and it likes him. In 1173 he took the Counting House's order for a hundred fire talismans and wrote 'for the reed beds of Thủy Khẩu' on the order slip himself. He watched the hall's loyalty fall after Đào Sa (A080) and thinks Châu Phi Vân (chau_phi_van) has cost the hall a century of trade over a fire it did not light.",
+   "wants": "To be hall-master after Châu, to take the prize seal back from Lạc Hà's prodigy at the next contest, and to bring the hall back into its lord's favour.",
+   "secret": "He knew what the fire talismans were for. The Boat Hall's master Lô Xướng Vãn told him in 1173, and Kha wrote the reed beds on the slip so that Châu would paint them. He has kept a record of the four war orders she has 'lost', and means to give it to Lạc Hà's Vassal Hall if she names anyone but him.",
+   "ties": [
+    {
+     "to": "on_chau_liem",
+     "kind": "master",
+     "note": "the founders' dusk half"
+    },
+    {
+     "to": "chau_phi_van",
+     "kind": "rival",
+     "note": "his hall-mistress; he thinks she is a saint and a bad steward"
+    },
+    {
+     "to": "doi_huyen_nghien",
+     "kind": "disciple",
+     "note": "the ink-grinder"
+    },
+    {
+     "to": "trac_thu_lan",
+     "kind": "disciple",
+     "note": "runs the hall's stall at Hạc Đinh Thị"
+    },
+    {
+     "to": "lo_xuong_van",
+     "kind": "friend",
+     "note": "told him what the fire talismans were for"
+    },
+    {
+     "to": "hach_anh_ha",
+     "kind": "friend",
+     "note": "Lạc Hà's envoy; they trade poems and favours"
+    },
+    {
+     "to": "to_mo_van",
+     "kind": "rival",
+     "note": "the girl he means to beat at the next contest, by proxy"
+    },
+    {
+     "to": "sao_an_lan",
+     "kind": "friend",
+     "note": "ground ink beside him at the outer gate, before she went"
+    },
+    {
+     "to": "trinh_chu_sa",
+     "kind": "rival",
+     "note": "the expelled disciple who believes he knew what the 1173 order was for"
+    },
+    {
+     "to": "ninh_hoa_van",
+     "kind": "friend",
+     "note": "the woman he has promised a rematch"
+    },
+    {
+     "to": "ly_khe_thu",
+     "kind": "rival",
+     "note": "the girl who wants the dusk half's fragments he will not teach"
+    },
+    {
+     "to": "doanh_mo_vu",
+     "kind": "disciple",
+     "note": "dusk-line scribe; copies the lord's war orders for Kha Triêu Phi"
+    },
+    {
+     "to": "chuc_hieu_ha",
+     "kind": "friend",
+     "note": "inner disciple of the Dawn Hall; grinds the mistress's ink"
+    }
+   ],
+   "master": "on_chau_liem",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "southern-shore-cloud-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "painted-beams-dawn-flight",
+      "layer": 6
+     },
+     {
+      "tech": "thorn-and-ink-verses",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "np-painted-beam-banner"
+     },
+     {
+      "named": "np-dusk-rain-seal"
+     },
+     {
+      "named": "np-maple-scholar-robe"
+     }
+    ],
+    "skills": {
+     "phu_luc": 7
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood for the banner's stacks, Water for the dusk half's rain: he binds a foe and then washes his own side clean.",
+     "targets": [
+      5780,
+      5782,
+      5784,
+      6375,
+      5351,
+      5374
+     ],
+     "targets_note": "Binding route, Venom Surge's Wood stacks, then the dusk half's rain: Timely Rain, Nourishing Rain."
+    },
+    "note": "The dusk line: a banner and half an art."
+   },
+   "items": [
+    "np-painted-beam-banner",
+    "np-dusk-rain-seal",
+    "np-maple-scholar-robe"
+   ]
+  },
+  {
+   "key": "ninh_hoa_van",
+   "name_hv": "Ninh Họa Vân",
+   "name_han": "寧畫雲",
+   "gloss": "Paints the clouds",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "nam_pho",
+   "rank": "noi_mon",
+   "home": 21,
+   "birthplace": 136,
+   "role": "The hall's champion scribe; lost the prize seal to Tô Mộ Vân in 1190",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 46,
+    "than_hon": 62,
+    "khi_van": 38,
+    "dao_tam": 50,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Vengeful",
+     "Arrogant"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born",
+    "path": [],
+    "lifestyle": "calligrapher",
+    "coping": "obsessive_training",
+    "gained": [
+     "Humbled"
+    ]
+   },
+   "appearance": "A tight-mouthed woman of fifty with a callus on her brush finger the size of a pea.",
+   "backstory": "A Hoa Khê girl who won the talisman contest at Hạc Đinh Thị twice for the hall, and in 1190 lost it to a fourteen-year-old from Lạc Hà, Tô Mộ Vân (to_mo_van), in front of the whole market (A203). She has painted the same cloud talisman every dawn since, some three thousand sheets. She took it badly that her mistress Châu Phi Vân (chau_phi_van) then asked to borrow the girl.",
+   "ties": [
+    {
+     "to": "chau_phi_van",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "to_mo_van",
+     "kind": "rival",
+     "note": "took the prize seal from her in 1190"
+    },
+    {
+     "to": "ta_quy_hong",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "kha_trieu_phi",
+     "kind": "friend",
+     "note": "promises her a rematch"
+    },
+    {
+     "to": "ly_khe_thu",
+     "kind": "friend",
+     "note": "her junior sister-disciple, whom she frightens"
+    },
+    {
+     "to": "dai_diep_thu",
+     "kind": "disciple",
+     "note": "placed from Lạc Hà's Maple Hall this spring"
+    },
+    {
+     "to": "ung_trieu_hong",
+     "kind": "friend",
+     "note": "dawn-line scribe; Ninh Họa Vân's second at the talisman contest"
+    }
+   ],
+   "master": "chau_phi_van",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "southern-shore-cloud-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "thorn-and-ink-verses",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 6
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood: one cloud talisman, perfected.",
+     "targets": [
+      5780,
+      5782,
+      5784,
+      6154
+     ],
+     "targets_note": "Binding route, then Hollow Bamboo: one cloud talisman, cheap; Wood talisman notables wait on wish targets-tl/wood-talisman."
+    },
+    "note": "The champion who lost."
+   }
+  },
+  {
+   "key": "doi_huyen_nghien",
+   "name_hv": "Đới Huyền Nghiên",
+   "name_han": "戴玄硯",
+   "gloss": "The dark inkstone",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "nam_pho",
+   "rank": "noi_mon",
+   "home": 249,
+   "birthplace": 546,
+   "role": "Ink-grinder at the Jade Milk spring; makes the hall's ink",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "thuy": 40,
+     "tho": 32
+    },
+    "variants": {
+     "am": 20
+    }
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 48,
+    "than_hon": 66,
+    "khi_van": 42,
+    "dao_tam": 44,
+    "mi_luc": 36
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Patient",
+     "Paranoid"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born",
+    "path": [],
+    "lifestyle": "tea_master",
+    "health": null
+   },
+   "appearance": "A pale, careful man who smells of wet stone and wears gloves to keep the ink off his skin, and lately to keep it in.",
+   "backstory": "A Hầu Đầu Thôn mushroom-picker's son from the karst, Kha Triêu Phi's (kha_trieu_phi) disciple, he grinds the hall's ink in the Jade Milk spring among the stone pillars, where the water carries a dark qi. For ten years the talismans painted with his ink have held longer than any others. For three years they have come out a shade darker each season. He has a thread of Darkness he did not have when he joined, and he has told no one.",
+   "ties": [
+    {
+     "to": "kha_trieu_phi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "han_tieu_chuc",
+     "kind": "disciple",
+     "note": "the lamp boy, who carries his ink"
+    },
+    {
+     "to": "chau_phi_van",
+     "kind": "debt",
+     "note": "she paid for his gloves and asked no questions"
+    },
+    {
+     "to": "gian_van_lo",
+     "kind": "friend",
+     "note": "the boy next door in Hầu Đầu; he is the one man at the hall who writes to him"
+    },
+    {
+     "to": "sao_an_lan",
+     "kind": "friend",
+     "note": "the girl from the outer gate who went demonic; she wrote him one letter and he has not answered"
+    },
+    {
+     "to": "nhieu_thach_nhu",
+     "kind": "disciple",
+     "note": "apprentice at the ink-house of the Jade Milk spring"
+    }
+   ],
+   "master": "kha_trieu_phi",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "southern-shore-cloud-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "thorn-and-ink-verses",
+      "layer": 4
+     }
+    ],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "phu_luc": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood, and the Darkness he has not admitted, for curses that hold.",
+     "targets": [
+      5780,
+      5782,
+      5784,
+      5796,
+      5810
+     ],
+     "targets_note": "Binding route, then Cursed Vine and Witch Knot: curses that hold."
+    },
+    "note": "The ink-grinder; a Darkness thread grown at the spring."
+   }
+  },
+  {
+   "key": "van_tang_chi",
+   "name_hv": "Văn Tang Chỉ",
+   "name_han": "文桑紙",
+   "gloss": "Mulberry paper",
+   "sex": "M",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "nam_pho",
+   "rank": "chap_su",
+   "home": 80,
+   "birthplace": 80,
+   "role": "Paper master of the hall's mill at Tang Ma Thành",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Content",
+     "Generous"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Tang Ma bark-beater who makes the hall's mulberry paper and, in 1174, made the paper for the new rope bridges' blessing talismans when Tùng Đào cut the old ones (A202); Châu Phi Vân (chau_phi_van) taught him the canon.",
+   "ties": [
+    {
+     "to": "chau_phi_van",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "van_tieu_tang",
+     "kind": "child",
+     "note": "his son, at the mill"
+    },
+    {
+     "to": "tho_ma_tu",
+     "kind": "disciple",
+     "note": "bark-beater at the paper mill"
+    }
+   ],
+   "master": "chau_phi_van",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "southern-shore-cloud-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "The paper mill."
+   }
+  },
+  {
+   "key": "trac_thu_lan",
+   "name_hv": "Trác Thư Lan",
+   "name_han": "卓書蘭",
+   "gloss": "An orchid of letters",
+   "sex": "F",
+   "born": 1160,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "nam_pho",
+   "rank": "noi_mon",
+   "home": 51,
+   "birthplace": 138,
+   "role": "Keeps the hall's talisman stall at Hạc Đinh Thị",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Pragmatic",
+     "Fickle"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A Phương Thảo mat-weaver's daughter and Kha Triêu Phi's (kha_trieu_phi) disciple, who sells the hall's talismans below Lạc Hà's old seat and hears everything the Counting House clerks say over lunch.",
+   "ties": [
+    {
+     "to": "kha_trieu_phi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "phung_luc_y",
+     "kind": "disciple",
+     "note": "the placed girl"
+    },
+    {
+     "to": "ta_mac_tru",
+     "kind": "friend",
+     "note": "the Counting House clerk at Hạc Đinh Thị"
+    },
+    {
+     "to": "trinh_chu_sa",
+     "kind": "rival",
+     "note": "the expelled disciple who once sold where she keeps the hall's stall"
+    },
+    {
+     "to": "mac_tieu_trien",
+     "kind": "niece_nephew",
+     "note": "her nephew and disciple; stall boy at Hạc Đinh Thị; stamps the cloud seal"
+    }
+   ],
+   "master": "kha_trieu_phi",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "southern-shore-cloud-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     },
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "The stall."
+   }
+  },
+  {
+   "key": "ly_khe_thu",
+   "name_hv": "Lý Khê Thư",
+   "name_han": "李溪書",
+   "gloss": "Writing on the brook",
+   "sex": "F",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "nam_pho",
+   "rank": "noi_mon",
+   "home": 21,
+   "birthplace": 136,
+   "role": "The hall-mistress's youngest disciple; writes talismans on petals",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "thuy": 36
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 40,
+    "than_hon": 68,
+    "khi_van": 54,
+    "dao_tam": 70,
+    "mi_luc": 56
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Honest",
+     "Humble"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": []
+   },
+   "appearance": "A round-faced girl of sixteen with petal stains on her sleeves and a habit of humming while she paints.",
+   "backstory": "In Hoa Khê lovers drop their names into the brook on the spring petals (A194). At ten Lý Khê Thư wrote a name on a petal so well that it would not sink, and the couple it named came to the hall to complain. Châu Phi Vân (chau_phi_van) took her that day. She paints at dawn like her mistress and has asked twice to be taught the dusk half too, which no one at the hall can teach her.",
+   "ties": [
+    {
+     "to": "chau_phi_van",
+     "kind": "master",
+     "note": "the hall-mistress"
+    },
+    {
+     "to": "ninh_hoa_van",
+     "kind": "friend",
+     "note": "her elder sister-disciple, who frightens her"
+    },
+    {
+     "to": "kha_trieu_phi",
+     "kind": "rival",
+     "note": "the elder who holds the dusk half's fragments and will not teach her"
+    },
+    {
+     "to": "doanh_mo_vu",
+     "kind": "friend",
+     "note": "dusk-line scribe; copies the lord's war orders for Kha Triêu Phi"
+    },
+    {
+     "to": "chuc_hieu_ha",
+     "kind": "rival",
+     "note": "inner disciple of the Dawn Hall; grinds the mistress's ink"
+    }
+   ],
+   "master": "chau_phi_van",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "southern-shore-cloud-canon",
+     "layer": 2
+    },
+    "aux": [
+     {
+      "tech": "mulberry-ink-primer",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood first and Water close behind: the girl who might hold both halves.",
+     "targets": [
+      780,
+      784,
+      790
+     ],
+     "targets_note": "Luyện Khí: the Wood start ring only, the binding route is 18 away; petal talismans wait on wish targets-tl/wood-talisman."
+    },
+    "note": "The heir the mistress hopes for."
+   }
+  },
+  {
+   "key": "ta_quy_hong",
+   "name_hv": "Tạ Quy Hồng",
+   "name_han": "謝歸鴻",
+   "gloss": "The returning wild goose",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "nam_pho",
+   "rank": "ngoai_mon",
+   "home": 21,
+   "birthplace": 79,
+   "role": "Outer disciple of the Tạ family of Phong Lâm",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 42,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Humble",
+     "Loyal"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "A Tạ of Phong Lâm, the family that came with nothing but its name (A193), and cousin to Tạ Quy Yến (ta_quy_yen), whom the hall-mistress asked for; he hopes his cousin comes, and fears he will be better.",
+   "ties": [
+    {
+     "to": "ta_quy_yen",
+     "kind": "cousin",
+     "note": "in Lạc Hà's outer gate, due to be placed"
+    },
+    {
+     "to": "ninh_hoa_van",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ta_cuu_duong",
+     "kind": "grandparent",
+     "note": "his grandfather, the Tạ patriarch"
+    },
+    {
+     "to": "ta_tri_thu",
+     "kind": "parent",
+     "note": "his father"
+    },
+    {
+     "to": "van_bich_thu",
+     "kind": "parent",
+     "note": "his mother"
+    },
+    {
+     "to": "ta_quy_hac",
+     "kind": "sibling",
+     "note": "his elder brother"
+    },
+    {
+     "to": "ta_quy_hoc",
+     "kind": "sibling",
+     "note": "his younger sister"
+    }
+   ],
+   "master": "ninh_hoa_van",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "mulberry-ink-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "A Tạ cousin."
+   }
+  },
+  {
+   "key": "han_tieu_chuc",
+   "name_hv": "Hàn Tiểu Chúc",
+   "name_han": "韓小燭",
+   "gloss": "Little candle",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "nam_pho",
+   "rank": "ngoai_mon",
+   "home": 21,
+   "birthplace": 555,
+   "role": "Outer disciple who paints the stern-lamp talismans for Vãn Đăng's boats",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Devout",
+     "Patient"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Vãn Đăng fisher boy whose village lights its lamps on the dusk of 803 but does not put out (V104); he paints the lamp charms and carries Đới Huyền Nghiên's (doi_huyen_nghien) ink, and has noticed it stains darker than it used to.",
+   "ties": [
+    {
+     "to": "doi_huyen_nghien",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nhieu_thach_nhu",
+     "kind": "friend",
+     "note": "apprentice at the ink-house of the Jade Milk spring"
+    }
+   ],
+   "master": "doi_huyen_nghien",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "mulberry-ink-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "Lamp charms."
+   }
+  },
+  {
+   "key": "phung_luc_y",
+   "name_hv": "Phùng Lục Ý",
+   "name_han": "馮綠意",
+   "gloss": "A green thought",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "nam_pho",
+   "rank": "ngoai_mon",
+   "home": 51,
+   "birthplace": 139,
+   "role": "Outer disciple placed from Lạc Hà's outer gate, 1196",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Gregarious",
+     "Impatient"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Thủy Khẩu girl who failed the dusk test three times and was placed with the hall in 1196; the outer gate's steward Tô Bình Chu (to_binh_chu) wrote her letter, and she means to be back at Lạc Hà's stall as a seller, not a disciple.",
+   "ties": [
+    {
+     "to": "to_binh_chu",
+     "kind": "former_master",
+     "note": "the outer gate's steward at Cựu Hà Viện"
+    },
+    {
+     "to": "trac_thu_lan",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "trac_thu_lan",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "mulberry-ink-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "A placed girl."
+   }
+  },
+  {
+   "key": "van_tieu_tang",
+   "name_hv": "Văn Tiểu Tang",
+   "name_han": "文小桑",
+   "gloss": "Little mulberry",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "nam_pho",
+   "rank": "ngoai_mon",
+   "home": 80,
+   "birthplace": 80,
+   "role": "Outer disciple at the paper mill",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Lazy",
+     "Content",
+     "Trusting"
+    ],
+    "calling": "Steward",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "The paper master Văn Tang Chỉ's (van_tang_chi) son, who would rather weave hemp for Tang Ma's rope bridges than beat bark for the hall.",
+   "ties": [
+    {
+     "to": "van_tang_chi",
+     "kind": "parent",
+     "note": "his father and master"
+    },
+    {
+     "to": "tho_ma_tu",
+     "kind": "friend",
+     "note": "bark-beater at the paper mill"
+    }
+   ],
+   "master": "van_tang_chi",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "mulberry-ink-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    },
+    "note": "The mill boy."
+   }
+  },
+  {
+   "key": "nghiem_hoa_dong",
+   "name_hv": "Nghiêm Họa Đống",
+   "name_han": "嚴畫棟",
+   "gloss": "The painted beams",
+   "sex": "F",
+   "born": 600,
+   "died": 1100,
+   "cause": "end of her years (500), at dawn, with a brush in her hand",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "nam_pho",
+   "rank": "founder",
+   "home": 21,
+   "birthplace": 79,
+   "role": "Founder of Nam Phố Đường (880); the dawn half of the founders' art",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Devout",
+     "Calm"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "scholar_family"
+   },
+   "backstory": "A Phong Lâm scholar's daughter who painted the clouds of the southern shore at dawn and found the paintings held qi. In 880 she and Ôn Châu Liêm (on_chau_liem) founded the hall under Lạc Hà (A198) on the forest shore below the old seat. She wrote the canon in the margins of her paintings and died at dawn in 1100 with a brush in her hand, leaving the hall to Châu Phi Vân (chau_phi_van).",
+   "ties": [
+    {
+     "to": "on_chau_liem",
+     "kind": "dao_partner",
+     "note": "the dusk half"
+    },
+    {
+     "to": "chau_phi_van",
+     "kind": "disciple",
+     "note": "her heir"
+    }
+   ],
+   "changed": "fix pass A 2026-11-25: born 820 -> 600, so a death at the end of the years falls at the Kết Đan lifespan (500)"
+  },
+  {
+   "key": "on_chau_liem",
+   "name_hv": "Ôn Châu Liêm",
+   "name_han": "溫珠簾",
+   "gloss": "The pearl curtain",
+   "sex": "M",
+   "born": 560,
+   "died": 1060,
+   "cause": "end of his years (500) at Châu Liêm Trấn, before he had written the dusk half down",
+   "alive": false,
+   "peak_realm": "ket_dan",
+   "sect": "nam_pho",
+   "rank": "truong_lao",
+   "home": 514,
+   "birthplace": 514,
+   "role": "Co-founder of Nam Phố Đường; the dusk half of the founders' art",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Lazy",
+     "Forgiving"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A pearl-curtain merchant's son from Châu Liêm Trấn on the bay who painted the western hills' rain at dusk while Nghiêm Họa Đống (nghiem_hoa_dong) painted the dawn. He never wrote anything down. He went home to the bay to die in 1060 and took most of the dusk half with him; Kha Triêu Phi (kha_trieu_phi) has the fragments.",
+   "ties": [
+    {
+     "to": "nghiem_hoa_dong",
+     "kind": "dao_partner",
+     "note": ""
+    },
+    {
+     "to": "kha_trieu_phi",
+     "kind": "disciple",
+     "note": "his last"
+    }
+   ],
+   "changed": "fix pass A 2026-11-25: born 830 -> 560, so a death at the end of the years falls at the Kết Đan lifespan (500)"
+  }
+ ]
+}

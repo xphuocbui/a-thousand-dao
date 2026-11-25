@@ -1,0 +1,479 @@
+{
+ "sect": "phan_vu",
+ "people": [
+  {
+   "key": "ngac_tri_hoa",
+   "name_hv": "Ngạc Trì Hỏa",
+   "name_han": "鄂馳火",
+   "gloss": "Running fire",
+   "sex": "M",
+   "born": 1122,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "phan_vu",
+   "rank": "noi_mon",
+   "home": 29,
+   "birthplace": 94,
+   "role": "Levy captain on the palace road, Tang Điền to the Fire Court",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 50,
+     "tho": 42
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Stubborn",
+     "Just"
+    ],
+    "calling": "Strategist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Holds the road posts between Tang Điền and the Fire Court for Đới Liệt Cương (doi_liet_cuong); the palace's envoy counts his men's days as tribute, and he has started counting them as days lent.",
+   "ties": [
+    {
+     "to": "hung_phan_vu",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "doi_liet_cuong",
+     "kind": "friend",
+     "note": "the levy"
+    },
+    {
+     "to": "binh_vien_khach",
+     "kind": "rival",
+     "note": "the envoy who counts the levy's days"
+    },
+    {
+     "to": "lanh_nham_nuong",
+     "kind": "disciple",
+     "note": "keeps the cooled lava where the hall's dead stand"
+    }
+   ],
+   "master": "hung_phan_vu",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "burning-feather-body-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Burn, then stand."
+    }
+   }
+  },
+  {
+   "key": "sai_tinh_lan",
+   "name_hv": "Sài Tĩnh Lan",
+   "name_han": "柴靜蘭",
+   "gloss": "Quiet orchid",
+   "sex": "F",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "phan_vu",
+   "rank": "noi_mon",
+   "home": 253,
+   "birthplace": 162,
+   "role": "Keeps the sitting rolls at the Lower Mouth",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 48,
+     "tho": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Loyal",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Writes down every sitting at the Lower Mouth for Tào Tẫn Kiên (tao_tan_kien), and has seen him read the stubs of the Red Wall Rebirth's burned pages by lamplight; she thinks he means to sit it.",
+   "ties": [
+    {
+     "to": "tao_tan_kien",
+     "kind": "master",
+     "note": "the first elder"
+    },
+    {
+     "to": "trang_hoi_y",
+     "kind": "friend",
+     "note": "keeps the cord"
+    }
+   ],
+   "master": "tao_tan_kien",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "burning-feather-body-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire and Earth rebuilt."
+    }
+   }
+  },
+  {
+   "key": "do_lang_quyen",
+   "name_hv": "Đồ Lãng Quyền",
+   "name_han": "屠浪拳",
+   "gloss": "Fist of the waves",
+   "sex": "M",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phan_vu",
+   "rank": "ngoai_mon",
+   "home": 29,
+   "birthplace": 44,
+   "role": "Wharf brawler in the road levy",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Wrathful",
+     "Content",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "upbringing": "street_orphan"
+   },
+   "backstory": "A Ngũ Thải wharf brawler who has sat on the vent rock for twenty years and stopped at the fourth layer; he guards the road in Đới Liệt Cương's (doi_liet_cuong) levy and has never lost a fight on the hot rock.",
+   "ties": [
+    {
+     "to": "doi_liet_cuong",
+     "kind": "master",
+     "note": "the levy"
+    },
+    {
+     "to": "nguy_hong_tao",
+     "kind": "friend",
+     "note": "from the same docks"
+    }
+   ],
+   "master": "doi_liet_cuong",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "vent-sitting-breath",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth guard."
+    }
+   }
+  },
+  {
+   "key": "khanh_mac_thach",
+   "name_hv": "Khánh Mặc Thạch",
+   "name_han": "慶墨石",
+   "gloss": "Ink stone",
+   "sex": "F",
+   "born": 1177,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "phan_vu",
+   "rank": "ngoai_mon",
+   "home": 180,
+   "birthplace": 180,
+   "role": "Weighs the stone sent to the Fire Court",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 40,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Honest",
+     "Paranoid"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Weighs the stone that goes up to the Fire Court for Hác Đan Thạch (hac_dan_thach) and keeps a second tally of what the palace's clerks write as tribute; the two have not matched since 1190.",
+   "ties": [
+    {
+     "to": "hac_dan_thach",
+     "kind": "master",
+     "note": "the steward"
+    }
+   ],
+   "master": "hac_dan_thach",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "vent-sitting-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth body."
+    }
+   }
+  },
+  {
+   "key": "cat_xich_van",
+   "name_hv": "Cát Xích Vân",
+   "name_han": "葛赤雲",
+   "gloss": "Red cloud",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "phan_vu",
+   "rank": "noi_mon",
+   "home": 29,
+   "birthplace": 29,
+   "role": "Keeps watch at the Lower Mouth on moonless nights",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 48,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Brave",
+     "Trusting"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Walks behind Bao Viêm Nương (bao_viem_nuong) on moonless nights to keep watch at the Lower Mouth, and has seen the palace's ward come out of the vent with fresh burns; she has been told the ward is a dream.",
+   "ties": [
+    {
+     "to": "bao_viem_nuong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "hung_diem_nhi",
+     "kind": "friend",
+     "note": "the ward she was told is a dream"
+    }
+   ],
+   "master": "bao_viem_nuong",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "burning-feather-body-canon",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire burst, then stand."
+    }
+   }
+  },
+  {
+   "key": "nhiep_hoi_sinh",
+   "name_hv": "Nhiếp Hôi Sinh",
+   "name_han": "聶灰生",
+   "gloss": "Born of ash",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "phan_vu",
+   "rank": "ngoai_mon",
+   "home": 29,
+   "birthplace": 449,
+   "role": "Ash-born boy who left the palace's outer gate for the hall",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "hoa": 52,
+     "tho": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Fickle",
+     "Gregarious"
+    ],
+    "calling": "Duelist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Left the palace's outer gate for the hall in 1198 after Thượng Quy Vũ (thuong_quy_vu), who vouched for him; the palace has not asked for him back, which worries him more than if it had.",
+   "ties": [
+    {
+     "to": "trang_hoi_y",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "thuong_quy_vu",
+     "kind": "friend",
+     "note": "who vouched for him"
+    }
+   ],
+   "master": "trang_hoi_y",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "vent-sitting-breath",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "hoa",
+     "intent": "Fire."
+    }
+   }
+  },
+  {
+   "key": "lanh_nham_nuong",
+   "name_hv": "Lãnh Nham Nương",
+   "name_han": "冷巖娘",
+   "gloss": "Woman of the rock",
+   "sex": "F",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "phan_vu",
+   "rank": "ngoai_mon",
+   "home": 29,
+   "birthplace": 162,
+   "role": "Keeps the cooled lava where the hall's dead stand",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 46,
+     "hoa": 20
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Content",
+     "Stubborn"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "Her Fire never came; she keeps the cooled lava at the vent's foot where the hall's dead stand and knows each by name. Long Chước Sinh (long_chuoc_sinh) spars with her because she will not hold back.",
+   "ties": [
+    {
+     "to": "ngac_tri_hoa",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "long_chuoc_sinh",
+     "kind": "friend",
+     "note": "her sparring partner"
+    }
+   ],
+   "master": "ngac_tri_hoa",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "vent-sitting-breath",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth that rebuilds."
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,1552 @@
+{
+"_doc": "Input slice for the depth writer of hong_dau (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "hong_dau",
+"name": "Hồng Đậu Trang",
+"name_han": "紅豆莊",
+"gloss": "Manor of the Red Beans",
+"alignment": "ma đạo",
+"leans": [
+"Poison",
+"Wood"
+],
+"craft": "poisons and charms behind a gracious door",
+"lord": "thinh_vu",
+"region": 18,
+"seat": 27,
+"kind": "minor"
+},
+"start_state": {
+"key": "hong_dau",
+"name": "Hồng Đậu Trang",
+"name_han": "紅豆莊",
+"gloss": "Manor of the Red Beans",
+"kind": "minor",
+"alignment": "ma",
+"leans": [
+"Poison",
+"Wood"
+],
+"seat": 27,
+"levels": {
+"holdings": 2,
+"institutions": 3,
+"military": 4,
+"trade": 2
+},
+"treasury": 7000,
+"founded": 910,
+"specialty": "dan_su",
+"lord": "thinh_vu",
+"loyalty": 65,
+"craft": "poisons and charms behind a gracious door",
+"region": 18,
+"leader": "nghe_hong_dau"
+},
+"lord": "thinh_vu",
+"vassals": [],
+"seat": {
+"id": 27,
+"name": "Hồng Đậu Trang",
+"gloss": "",
+"kind": "minor_seat",
+"region": 18,
+"biome": "jungle",
+"elev_km": 0.04,
+"qi": {
+"moc": 23,
+"hoa": 18,
+"tho": 17,
+"kim": 9,
+"thuy": 33
+},
+"variants": {},
+"density": 1.5,
+"note": ""
+},
+"seat_audit": "## MOVE Hồng Đậu Trang (hong_dau; leans Poison/Wood)\nSeat: Hồng Đậu Trang (id 27, minor_seat, region 18, jungle), density 1.50\nSeat qi: Poison 0, Wood 23%\nCandidates: none in its own ground; re-lean the sect to its land, or move it to a fitting place nearby (see rules-proposals R4).\n",
+"ground": [
+{
+"id": 7,
+"name": "Thính Vũ Lâu",
+"gloss": "",
+"kind": "great_seat",
+"region": 18,
+"biome": "volcano",
+"elev_km": 2.19,
+"qi": {
+"moc": 4,
+"hoa": 53,
+"tho": 17,
+"kim": 15,
+"thuy": 10
+},
+"variants": {
+"bang": 6.1
+},
+"density": 2.36,
+"note": ""
+},
+{
+"id": 798,
+"name": "Hưởng Lôi Bảo",
+"gloss": "Fort of the Answering Thunder",
+"kind": "ruin",
+"region": 18,
+"biome": "high mountain",
+"elev_km": 1.08,
+"qi": {
+"moc": 5,
+"hoa": 20,
+"tho": 37,
+"kim": 31,
+"thuy": 7
+},
+"variants": {},
+"density": 2.06,
+"note": ""
+},
+{
+"id": 1482,
+"name": "Lâm Linh Đỉnh",
+"gloss": "Summit of the Long-Rain Bell",
+"kind": "peak",
+"region": 18,
+"biome": "high mountain",
+"elev_km": 1.1,
+"qi": {
+"moc": 4,
+"hoa": 48,
+"tho": 21,
+"kim": 18,
+"thuy": 10
+},
+"variants": {
+"bang": 2.0
+},
+"density": 1.87,
+"note": ""
+},
+{
+"id": 833,
+"name": "Dạ Ngọc Khoáng",
+"gloss": "Night Jade Mine",
+"kind": "mine",
+"region": 18,
+"biome": "high mountain",
+"elev_km": 0.77,
+"qi": {
+"moc": 5,
+"hoa": 20,
+"tho": 38,
+"kim": 30,
+"thuy": 7
+},
+"variants": {},
+"density": 1.61,
+"note": ""
+},
+{
+"id": 27,
+"name": "Hồng Đậu Trang",
+"gloss": "",
+"kind": "minor_seat",
+"region": 18,
+"biome": "jungle",
+"elev_km": 0.04,
+"qi": {
+"moc": 23,
+"hoa": 18,
+"tho": 17,
+"kim": 9,
+"thuy": 33
+},
+"variants": {},
+"density": 1.5,
+"note": ""
+},
+{
+"id": 834,
+"name": "Thụy Ngưu Sơn",
+"gloss": "Sleeping Ox Mountain",
+"kind": "peak",
+"region": 18,
+"biome": "high mountain",
+"elev_km": 1.61,
+"qi": {
+"moc": 6,
+"hoa": 19,
+"tho": 39,
+"kim": 30,
+"thuy": 7
+},
+"variants": {},
+"density": 1.49,
+"note": ""
+},
+{
+"id": 796,
+"name": "Ngân Lộ Khoáng",
+"gloss": "Silver Dew Mine",
+"kind": "mine",
+"region": 18,
+"biome": "high mountain",
+"elev_km": 0.94,
+"qi": {
+"moc": 5,
+"hoa": 19,
+"tho": 38,
+"kim": 30,
+"thuy": 7
+},
+"variants": {},
+"density": 1.35,
+"note": ""
+},
+{
+"id": 262,
+"name": "Lan Tân Trấn",
+"gloss": "Orchid Ford Town",
+"kind": "ruin",
+"region": 18,
+"biome": "temperate forest",
+"elev_km": 0.0,
+"qi": {
+"moc": 20,
+"hoa": 16,
+"tho": 15,
+"kim": 9,
+"thuy": 40
+},
+"variants": {},
+"density": 1.33,
+"note": ""
+},
+{
+"id": 436,
+"name": "Trúc Ẩn Viện",
+"gloss": "Academy Hidden in the Bamboo",
+"kind": "ruin",
+"region": 18,
+"biome": "bamboo forest",
+"elev_km": 0.21,
+"qi": {
+"moc": 38,
+"hoa": 19,
+"tho": 22,
+"kim": 13,
+"thuy": 8
+},
+"variants": {},
+"density": 1.26,
+"note": ""
+},
+{
+"id": 194,
+"name": "Tàn Hà Hồ",
+"gloss": "Lake of the Last Lotus",
+"kind": "lake",
+"region": 18,
+"biome": "lake",
+"elev_km": 0.12,
+"qi": {
+"moc": 18,
+"hoa": 17,
+"tho": 29,
+"kim": 18,
+"thuy": 18
+},
+"variants": {},
+"density": 1.25,
+"note": "Lý Thương Ẩn: lưu đắc khô hà thính vũ thanh (keep the withered lotus, to listen to the rain); beside Thính Vũ Lâu"
+},
+{
+"id": 828,
+"name": "Hôi Lang Cương",
+"gloss": "Grey Wolf Ridge",
+"kind": "beast_lair",
+"region": 18,
+"biome": "high mountain",
+"elev_km": 0.46,
+"qi": {
+"moc": 5,
+"hoa": 22,
+"tho": 43,
+"kim": 24,
+"thuy": 6
+},
+"variants": {},
+"density": 1.24,
+"note": ""
+},
+{
+"id": 437,
+"name": "Thanh Hoàng Lâm",
+"gloss": "Green Bamboo Grove",
+"kind": "forest",
+"region": 18,
+"biome": "bamboo forest",
+"elev_km": 0.08,
+"qi": {
+"moc": 43,
+"hoa": 15,
+"tho": 13,
+"kim": 13,
+"thuy": 16
+},
+"variants": {},
+"density": 1.18,
+"note": ""
+},
+{
+"id": 821,
+"name": "Độc Thiềm Lâm",
+"gloss": "Poison Toad Wood",
+"kind": "beast_lair",
+"region": 18,
+"biome": "jungle",
+"elev_km": 0.08,
+"qi": {
+"moc": 30,
+"hoa": 18,
+"tho": 10,
+"kim": 8,
+"thuy": 34
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 806,
+"name": "Phi Anh Quán",
+"gloss": "Abbey of the Flying Petals",
+"kind": "ruin",
+"region": 18,
+"biome": "temperate forest",
+"elev_km": 0.3,
+"qi": {
+"moc": 32,
+"hoa": 18,
+"tho": 26,
+"kim": 14,
+"thuy": 10
+},
+"variants": {},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 835,
+"name": "Hạn Tỉnh Thôn",
+"gloss": "Drought Well Village",
+"kind": "village",
+"region": 18,
+"biome": "steppe",
+"elev_km": 0.43,
+"qi": {
+"moc": 5,
+"hoa": 22,
+"tho": 39,
+"kim": 28,
+"thuy": 6
+},
+"variants": {},
+"density": 1.14,
+"note": ""
+},
+{
+"id": 832,
+"name": "Thụ Lôi Đỉnh",
+"gloss": "Summit That Takes the Thunder",
+"kind": "peak",
+"region": 18,
+"biome": "high mountain",
+"elev_km": 1.35,
+"qi": {
+"moc": 6,
+"hoa": 18,
+"tho": 37,
+"kim": 31,
+"thuy": 7
+},
+"variants": {},
+"density": 1.1,
+"note": ""
+},
+{
+"id": 263,
+"name": "Tiêu Âm Mạch",
+"gloss": "Vein in the Banana Shade",
+"kind": "spirit_vein",
+"region": 18,
+"biome": "jungle",
+"elev_km": 0.04,
+"qi": {
+"moc": 29,
+"hoa": 20,
+"tho": 17,
+"kim": 9,
+"thuy": 25
+},
+"variants": {},
+"density": 1.1,
+"note": ""
+},
+{
+"id": 342,
+"name": "Ôn Vũ Thang",
+"gloss": "Warm Rain Spring",
+"kind": "hot_spring",
+"region": 18,
+"biome": "jungle",
+"elev_km": 0.14,
+"qi": {
+"moc": 39,
+"hoa": 22,
+"tho": 19,
+"kim": 11,
+"thuy": 10
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 371,
+"name": "Quế Hương Thang",
+"gloss": "Cinnamon-Scented Spring",
+"kind": "hot_spring",
+"region": 18,
+"biome": "jungle",
+"elev_km": 0.08,
+"qi": {
+"moc": 36,
+"hoa": 23,
+"tho": 16,
+"kim": 8,
+"thuy": 18
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 237,
+"name": "Hắc Hùng Lĩnh",
+"gloss": "Black Bear Ridge",
+"kind": "beast_lair",
+"region": 18,
+"biome": "highland",
+"elev_km": 1.06,
+"qi": {
+"moc": 16,
+"hoa": 21,
+"tho": 35,
+"kim": 20,
+"thuy": 8
+},
+"variants": {},
+"density": 1.05,
+"note": "Highland of Tiêu Vũ Lâm where the black bears den."
+},
+{
+"id": 805,
+"name": "Dã Trư Cương",
+"gloss": "Wild Boar Ridge",
+"kind": "beast_lair",
+"region": 18,
+"biome": "temperate forest",
+"elev_km": 0.37,
+"qi": {
+"moc": 41,
+"hoa": 16,
+"tho": 19,
+"kim": 13,
+"thuy": 11
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 435,
+"name": "Mãng Đằng Lâm",
+"gloss": "Python Vine Wood",
+"kind": "beast_lair",
+"region": 18,
+"biome": "temperate forest",
+"elev_km": 0.13,
+"qi": {
+"moc": 42,
+"hoa": 16,
+"tho": 19,
+"kim": 14,
+"thuy": 9
+},
+"variants": {},
+"density": 1.03,
+"note": ""
+},
+{
+"id": 826,
+"name": "Lôi Cốt Phong",
+"gloss": "Thunder Bone Peak",
+"kind": "peak",
+"region": 18,
+"biome": "high mountain",
+"elev_km": 1.36,
+"qi": {
+"moc": 9,
+"hoa": 16,
+"tho": 37,
+"kim": 30,
+"thuy": 8
+},
+"variants": {},
+"density": 0.99,
+"note": ""
+},
+{
+"id": 830,
+"name": "Vũ Giác Phong",
+"gloss": "Rain Horn Peak",
+"kind": "peak",
+"region": 18,
+"biome": "high mountain",
+"elev_km": 1.26,
+"qi": {
+"moc": 6,
+"hoa": 18,
+"tho": 40,
+"kim": 29,
+"thuy": 7
+},
+"variants": {},
+"density": 0.98,
+"note": ""
+},
+{
+"id": 827,
+"name": "Hồi Lôi Phong",
+"gloss": "Peak of the Echoing Thunder",
+"kind": "peak",
+"region": 18,
+"biome": "high mountain",
+"elev_km": 1.45,
+"qi": {
+"moc": 13,
+"hoa": 15,
+"tho": 34,
+"kim": 29,
+"thuy": 9
+},
+"variants": {
+"phong": 13.6
+},
+"density": 0.97,
+"note": ""
+},
+{
+"id": 820,
+"name": "Da Âm Thôn",
+"gloss": "Coconut Shade Village",
+"kind": "village",
+"region": 18,
+"biome": "jungle",
+"elev_km": -0.03,
+"qi": {
+"moc": 30,
+"hoa": 19,
+"tho": 10,
+"kim": 8,
+"thuy": 33
+},
+"variants": {},
+"density": 0.96,
+"note": ""
+},
+{
+"id": 810,
+"name": "Thanh Đăng Trấn",
+"gloss": "Town of the Blue Lamps",
+"kind": "ruin",
+"region": 18,
+"biome": "steppe",
+"elev_km": 0.36,
+"qi": {
+"moc": 27,
+"hoa": 21,
+"tho": 30,
+"kim": 14,
+"thuy": 8
+},
+"variants": {},
+"density": 0.95,
+"note": ""
+},
+{
+"id": 341,
+"name": "Long Nhãn Lâm",
+"gloss": "Longan Grove",
+"kind": "forest",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.12,
+"qi": {
+"moc": 41,
+"hoa": 21,
+"tho": 16,
+"kim": 11,
+"thuy": 12
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 343,
+"name": "Tân Lang Lâm",
+"gloss": "Areca Grove",
+"kind": "forest",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.09,
+"qi": {
+"moc": 39,
+"hoa": 23,
+"tho": 17,
+"kim": 8,
+"thuy": 13
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 817,
+"name": "Dung Thụ Lâm",
+"gloss": "Banyan Wood",
+"kind": "forest",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 35,
+"hoa": 21,
+"tho": 12,
+"kim": 8,
+"thuy": 25
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 819,
+"name": "Hương Lệ Lâm",
+"gloss": "Forest of the Fragrant Tears",
+"kind": "forest",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.12,
+"qi": {
+"moc": 37,
+"hoa": 23,
+"tho": 17,
+"kim": 8,
+"thuy": 15
+},
+"variants": {},
+"density": 0.94,
+"note": ""
+},
+{
+"id": 801,
+"name": "Kính Thủy Đàm",
+"gloss": "Mirror Water Pool",
+"kind": "lake",
+"region": 18,
+"biome": "steppe",
+"elev_km": 0.38,
+"qi": {
+"moc": 20,
+"hoa": 18,
+"tho": 30,
+"kim": 17,
+"thuy": 15
+},
+"variants": {},
+"density": 0.92,
+"note": ""
+},
+{
+"id": 372,
+"name": "Vũ Linh Đường",
+"gloss": "Hall of the Rain Bells",
+"kind": "minor_seat",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.27,
+"qi": {
+"moc": 36,
+"hoa": 23,
+"tho": 22,
+"kim": 10,
+"thuy": 9
+},
+"variants": {},
+"density": 0.9,
+"note": ""
+},
+{
+"id": 818,
+"name": "Lạc Triều Thôn",
+"gloss": "Ebb Tide Village",
+"kind": "village",
+"region": 18,
+"biome": "temperate forest",
+"elev_km": 0.0,
+"qi": {
+"moc": 32,
+"hoa": 18,
+"tho": 11,
+"kim": 7,
+"thuy": 33
+},
+"variants": {},
+"density": 0.88,
+"note": ""
+},
+{
+"id": 804,
+"name": "Chương Thụ Thôn",
+"gloss": "Camphor Tree Village",
+"kind": "village",
+"region": 18,
+"biome": "temperate forest",
+"elev_km": 0.13,
+"qi": {
+"moc": 30,
+"hoa": 17,
+"tho": 27,
+"kim": 16,
+"thuy": 10
+},
+"variants": {},
+"density": 0.86,
+"note": ""
+},
+{
+"id": 813,
+"name": "Trúc Căn Huyệt",
+"gloss": "Bamboo Root Hollow",
+"kind": "spirit_vein",
+"region": 18,
+"biome": "bamboo forest",
+"elev_km": 0.49,
+"qi": {
+"moc": 40,
+"hoa": 19,
+"tho": 18,
+"kim": 13,
+"thuy": 10
+},
+"variants": {},
+"density": 0.82,
+"note": ""
+},
+{
+"id": 154,
+"name": "Bình Độ Thôn",
+"gloss": "Calm Ferry Village",
+"kind": "village",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.1,
+"qi": {
+"moc": 39,
+"hoa": 18,
+"tho": 14,
+"kim": 9,
+"thuy": 20
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 89,
+"name": "Xuân Thảo Thành",
+"gloss": "Spring Grass City",
+"kind": "city",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.04,
+"qi": {
+"moc": 44,
+"hoa": 13,
+"tho": 11,
+"kim": 13,
+"thuy": 20
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 155,
+"name": "Hoa Điền Thôn",
+"gloss": "Flower Fields Village",
+"kind": "village",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.07,
+"qi": {
+"moc": 39,
+"hoa": 17,
+"tho": 15,
+"kim": 10,
+"thuy": 19
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 42,
+"name": "Thu Trì Thành",
+"gloss": "City of the Autumn Pools",
+"kind": "city",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 28,
+"hoa": 15,
+"tho": 11,
+"kim": 7,
+"thuy": 40
+},
+"variants": {},
+"density": 0.8,
+"note": "Lý Thương Ẩn: Ba Sơn dạ vũ trướng thu trì (night rain on the mountain swells the autumn pools)"
+},
+{
+"id": 153,
+"name": "Kiều Bạn Thôn",
+"gloss": "Bridgeside Village",
+"kind": "village",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 37,
+"hoa": 16,
+"tho": 19,
+"kim": 11,
+"thuy": 17
+},
+"variants": {},
+"density": 0.8,
+"note": ""
+},
+{
+"id": 88,
+"name": "Bình Dã Trấn",
+"gloss": "Open Plain Town",
+"kind": "town",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.09,
+"qi": {
+"moc": 41,
+"hoa": 14,
+"tho": 17,
+"kim": 13,
+"thuy": 16
+},
+"variants": {},
+"density": 0.79,
+"note": ""
+},
+{
+"id": 156,
+"name": "Yên Kiều Thôn",
+"gloss": "Misty Bridge Village",
+"kind": "village",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.05,
+"qi": {
+"moc": 37,
+"hoa": 21,
+"tho": 15,
+"kim": 7,
+"thuy": 20
+},
+"variants": {},
+"density": 0.79,
+"note": ""
+},
+{
+"id": 802,
+"name": "Thảo Lư Thôn",
+"gloss": "Grass Hut Village",
+"kind": "village",
+"region": 18,
+"biome": "steppe",
+"elev_km": 0.38,
+"qi": {
+"moc": 14,
+"hoa": 20,
+"tho": 35,
+"kim": 22,
+"thuy": 10
+},
+"variants": {},
+"density": 0.79,
+"note": ""
+},
+{
+"id": 807,
+"name": "Trúc Chỉ Thôn",
+"gloss": "Bamboo Paper Village",
+"kind": "village",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.11,
+"qi": {
+"moc": 42,
+"hoa": 15,
+"tho": 18,
+"kim": 14,
+"thuy": 10
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 809,
+"name": "Mộc Miên Thôn",
+"gloss": "Kapok Village",
+"kind": "village",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.31,
+"qi": {
+"moc": 40,
+"hoa": 17,
+"tho": 21,
+"kim": 13,
+"thuy": 10
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 812,
+"name": "Vũ Tiền Thôn",
+"gloss": "Before-the-Rain Village",
+"kind": "village",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.16,
+"qi": {
+"moc": 39,
+"hoa": 18,
+"tho": 21,
+"kim": 14,
+"thuy": 8
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 814,
+"name": "Tượng Lộ Thôn",
+"gloss": "Elephant Road Village",
+"kind": "village",
+"region": 18,
+"biome": "grassland",
+"elev_km": 0.19,
+"qi": {
+"moc": 39,
+"hoa": 20,
+"tho": 19,
+"kim": 12,
+"thuy": 10
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 822,
+"name": "Lăng Đường Thôn",
+"gloss": "Water Chestnut Pond Village",
+"kind": "village",
+"region": 18,
+"biome": "grassland",
+"elev_km": -0.01,
+"qi": {
+"moc": 25,
+"hoa": 16,
+"tho": 9,
+"kim": 8,
+"thuy": 42
+},
+"variants": {},
+"density": 0.76,
+"note": ""
+},
+{
+"id": 831,
+"name": "Vũ Đồng Khoáng",
+"gloss": "Rain Copper Mine",
+"kind": "mine",
+"region": 18,
+"biome": "badlands",
+"elev_km": 1.08,
+"qi": {
+"moc": 6,
+"hoa": 19,
+"tho": 38,
+"kim": 30,
+"thuy": 7
+},
+"variants": {},
+"density": 0.74,
+"note": ""
+}
+],
+"ground_place_count": 62,
+"events": [
+{
+"id": "C006",
+"tier": "landmark",
+"year": 380,
+"kind": "sect_founded",
+"people": [
+"pho_tieu_tuong"
+],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Phó Tiêu Tương founds Thính Vũ Lâu in the rain forests, a tower from which one listens to the rain.",
+"place": 7
+},
+{
+"id": "V143",
+"tier": "annal",
+"year": 380,
+"kind": "tale",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "When the Tower is raised on this ground, the garrison of Khải Lôi's Hưởng Lôi Bảo goes home to the Gate, and the Tower never mans it again.",
+"place": 798,
+"region": 18
+},
+{
+"id": "A266",
+"tier": "annal",
+"year": 382,
+"kind": "tale",
+"people": [
+"pho_tieu_tuong"
+],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Phó Tiêu Tương keeps the withered lotus on the lake below her tower, to listen to the rain on it; the lake is named Tàn Hà Hồ.",
+"place": 194,
+"region": 18
+},
+{
+"id": "C085",
+"tier": "landmark",
+"year": 400,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Thính Vũ Lâu founds Thu Trì Thành, where night rain on the mountain swells the autumn pools.",
+"place": 42
+},
+{
+"id": "A267",
+"tier": "annal",
+"year": 410,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "An open plain in the forest's heart becomes Bình Dã Trấn, the only place in the south where it rarely rains.",
+"place": 88,
+"region": 18
+},
+{
+"id": "A268",
+"tier": "annal",
+"year": 460,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The ferry across the forest river at Bình Độ is so calm that sleeping passengers are carried over without waking.",
+"place": 154,
+"region": 18
+},
+{
+"id": "A269",
+"tier": "annal",
+"year": 540,
+"kind": "trade",
+"people": [],
+"sects": [],
+"text_en": "The flower fields of Hoa Điền feed the bees of the rain forest; their honey is sold in Thu Trì Thành.",
+"place": 155,
+"region": 18
+},
+{
+"id": "V144",
+"tier": "annal",
+"year": 619,
+"kind": "tale",
+"people": [],
+"sects": [
+"lac_ha",
+"thinh_vu"
+],
+"text_en": "Lạc Hà and Thính Vũ disciples pass through Phi Anh Quán in the Petal Shore fighting, and when they have gone the abbey is empty.",
+"place": 806,
+"region": 18
+},
+{
+"id": "C131",
+"tier": "landmark",
+"year": 640,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Thính Vũ Lâu founds Xuân Thảo Thành on the forest land the Pivot gave it.",
+"place": 89
+},
+{
+"id": "A271",
+"tier": "annal",
+"year": 680,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "A village grows where the forest road crosses the river; it is called Kiều Bạn.",
+"place": 153,
+"region": 18
+},
+{
+"id": "A272",
+"tier": "annal",
+"year": 760,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The misty bridge at Yên Kiều vanishes in the rain; travellers who cross it say it is longer than it looks.",
+"place": 156,
+"region": 18
+},
+{
+"id": "V145",
+"tier": "annal",
+"year": 779,
+"kind": "raid",
+"people": [],
+"sects": [],
+"text_en": "Thôn Hải's raiders burn Lan Tân Trấn, the little port of orchids and resin; no one comes back after the Purge.",
+"place": 262,
+"region": 18
+},
+{
+"id": "A273",
+"tier": "annal",
+"year": 800,
+"kind": "birth",
+"people": [
+"nghe_hong_dau"
+],
+"sects": [],
+"text_en": "Nghê Hồng Đậu is born in Thu Trì Thành; red beans grow from the cracks in her mother's doorstep.",
+"place": 42,
+"region": 18
+},
+{
+"id": "C164",
+"tier": "landmark",
+"year": 880,
+"kind": "headship",
+"people": [
+"pho_tieu_tuong",
+"manh_da_vu"
+],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Phó Tiêu Tương dies at 640; Mạnh Dạ Vũ, then 180, becomes head of Thính Vũ Lâu and takes the Tương Phi Tán.",
+"place": 7,
+"item": "tuong_phi_tan"
+},
+{
+"id": "C167",
+"tier": "landmark",
+"year": 905,
+"kind": "edict",
+"people": [
+"manh_da_vu"
+],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Under the Tương Phi Tán, Mạnh Dạ Vũ proclaims the Night Rain Edict: the Tower opens to the ma đạo arts.",
+"place": 7,
+"item": "tuong_phi_tan"
+},
+{
+"id": "A274",
+"tier": "annal",
+"year": 906,
+"kind": "tale",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "A year after the Night Rain Edict, the first ma đạo masters come to Thính Vũ Lâu by night, and the Tower's lamps are never lit again.",
+"place": 7,
+"region": 18
+},
+{
+"id": "C196",
+"tier": "landmark",
+"year": 906,
+"kind": "tale",
+"people": [
+"co_da_lan",
+"manh_da_vu"
+],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Answering the Night Rain Edict, ma đạo masters from every corner of the continent come to Thính Vũ Lâu; among them is Cố Dạ Lan, who has never lost a duel.",
+"place": 7
+},
+{
+"id": "V146",
+"tier": "annal",
+"year": 906,
+"kind": "tale",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "When the Night Rain Edict opens the Tower to the ma đạo arts, the masters of Trúc Ẩn Viện pack their books and walk north.",
+"place": 436,
+"region": 18
+},
+{
+"id": "V147",
+"tier": "annal",
+"year": 906,
+"kind": "tale",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "The herders of Thảo Lư Thôn begin to keep their lamp shutters closed on the side facing the Tower's cone, though no one has told them to.",
+"place": 802,
+"region": 18
+},
+{
+"id": "A313",
+"tier": "annal",
+"year": 908,
+"kind": "tale",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Strangers in black come up the forest road at night for a whole year; the innkeepers of Thu Trì Thành learn not to ask their names.",
+"place": 42,
+"region": 18
+},
+{
+"id": "C168",
+"tier": "landmark",
+"year": 910,
+"kind": "sect_founded",
+"people": [
+"nghe_hong_dau"
+],
+"sects": [
+"hong_dau",
+"thinh_vu"
+],
+"text_en": "Nghê Hồng Đậu finds Phi Hồng in the rain forest, where Diệp Phi Hồng left it, and founds Hồng Đậu Trang around it.",
+"place": 27,
+"item": "phi_hong"
+},
+{
+"id": "A275",
+"tier": "annal",
+"year": 912,
+"kind": "tale",
+"people": [],
+"sects": [
+"hong_dau"
+],
+"text_en": "Hồng Đậu Trang's gracious door opens to guests from every sect; those who stay too long do not leave.",
+"place": 27,
+"region": 18
+},
+{
+"id": "V148",
+"tier": "annal",
+"year": 930,
+"kind": "city_abandoned",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "With the Tower's lamps dark since the Edict, the last lamp-makers of Thanh Đăng Trấn move to Hạnh Hoa Thị.",
+"place": 810,
+"region": 18
+},
+{
+"id": "V149",
+"tier": "annal",
+"year": 930,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"vu_linh",
+"thinh_vu"
+],
+"text_en": "A smith who cast rain-chains for the Tower founds Vũ Linh Đường, a school of bell-and-chain warning arrays, above Thu Trì.",
+"place": 372,
+"region": 18
+},
+{
+"id": "C198",
+"tier": "landmark",
+"year": 1000,
+"kind": "trade",
+"people": [
+"manh_da_vu"
+],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Thính Vũ Lâu opens the Night Rain Market in Thu Trì Thành, selling ma đạo pills, poisons and arts that no other city allows; its treasury doubles in fifty years.",
+"place": 42
+},
+{
+"id": "A315",
+"tier": "annal",
+"year": 1005,
+"kind": "trade",
+"people": [],
+"sects": [
+"thinh_vu"
+],
+"text_en": "The Night Rain Market of Thu Trì Thành opens only after dark and only in rain; buyers come from as far as the desert.",
+"place": 42,
+"region": 18
+},
+{
+"id": "A276",
+"tier": "annal",
+"year": 1060,
+"kind": "birth",
+"people": [
+"manh_luu_ly",
+"manh_da_vu"
+],
+"sects": [
+"thinh_vu"
+],
+"text_en": "Mạnh Lưu Ly is born in Thu Trì Thành; Mạnh Dạ Vũ takes her as his disciple.",
+"place": 42,
+"region": 18
+},
+{
+"id": "A277",
+"tier": "annal",
+"year": 1158,
+"kind": "tale",
+"people": [
+"manh_da_vu"
+],
+"sects": [
+"thinh_vu"
+],
+"text_en": "After Thính Vũ's defeat at Đan Sơn Mạch, Mạnh Dạ Vũ does not leave the Tower for a year; the rain on Tàn Hà Hồ never stops.",
+"place": 194,
+"region": 18
+},
+{
+"id": "C200",
+"tier": "landmark",
+"year": 1165,
+"kind": "tale",
+"people": [
+"doan_ngoc_hanh"
+],
+"sects": [
+"thinh_vu",
+"thien_xu"
+],
+"text_en": "Seven years after Đan Sơn Mạch, Thính Vũ Lâu has rebuilt its strength twice over; the Pivot's envoys count its disciples and do not like the number.",
+"place": 7
+},
+{
+"id": "A278",
+"tier": "annal",
+"year": 1185,
+"kind": "tale",
+"people": [
+"quan_vu_thanh"
+],
+"sects": [
+"thinh_vu",
+"phuong_minh"
+],
+"text_en": "Quan Vũ Thanh, first elder of Thính Vũ, travels to Phượng Minh in secret to talk of peace, and comes back without an answer.",
+"place": 7,
+"region": 18
+},
+{
+"id": "A279",
+"tier": "annal",
+"year": 1197,
+"kind": "omen",
+"people": [],
+"sects": [
+"hong_dau"
+],
+"text_en": "Travellers on the forest road find red beans scattered on the path to Hồng Đậu Trang, and step around them.",
+"place": 27,
+"region": 18
+}
+],
+"territory": {
+"land_changes": [],
+"wars": [],
+"vassal_lord_changes": [],
+"grudges": [],
+"other_events": []
+},
+"cast": [
+{
+"key": "nghe_hong_dau",
+"name": "Nghê Hồng Đậu",
+"name_han": "倪紅豆",
+"gloss": "The red bean of longing (Vương Duy)",
+"sex": "F",
+"born": 800,
+"alive": true,
+"sect": "hong_dau",
+"rank": "tong_chu",
+"role": "Mistress of Hồng Đậu Trang, poisons and charms behind a gracious door (ma đạo)",
+"realm": "ket_dan",
+"home": 27,
+"traits": {
+"personality": [
+"Deceitful",
+"Gregarious",
+"Vengeful"
+],
+"calling": "Schemer",
+"fate_given": []
+},
+"vassal_of": "thinh_vu",
+"build": {
+"root": {
+"elements": {
+"moc": 82,
+"thuy": 44
+}
+},
+"thien_phu": {
+"ngo_tinh": 70,
+"can_cot": 52,
+"than_hon": 68,
+"khi_van": 60,
+"dao_tam": 54,
+"mi_luc": 88
+},
+"archetype": "dan_su",
+"stage": 2,
+"main": {
+"tech": "dia_moc",
+"layer": 9
+},
+"aux": [
+{
+"tech": "rotting-canopy-canon",
+"layer": 9
+}
+],
+"gear": [
+{
+"named": "wood-venom-drinker-pendant"
+},
+{
+"base": "cham",
+"grade": 3,
+"element": "moc"
+},
+{
+"base": "dao_bao",
+"grade": 3,
+"element": "moc"
+}
+],
+"tree": {
+"start": "moc",
+"targets": [
+6375,
+6199,
+6386,
+6388,
+9015,
+6618
+]
+},
+"skills": {
+"dan_dao": 6
+},
+"note": "The red-bean mistress: charming at the door and pure poison behind it, every stack of venom made to ripen and strangle"
+}
+}
+],
+"legendary_items": [
+{
+"key": "phi_hong",
+"kind": "sword",
+"role": "weapon",
+"made_by": "lac_anh",
+"made_year": 240,
+"story": "Half of Lạc Anh's twin swords; the school split over them in 610.",
+"status": "held",
+"name": "Phi Hồng",
+"name_han": "飛紅",
+"gloss": "Flying Red",
+"element": "Wood",
+"holder": "nghe_hong_dau",
+"pair": "tan_hong"
+}
+]
+}

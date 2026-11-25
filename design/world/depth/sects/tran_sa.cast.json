@@ -1,0 +1,1009 @@
+{
+ "sect": "tran_sa",
+ "people": [
+  {
+   "key": "vien_co_yen",
+   "name_hv": "Viên Cô Yên",
+   "name_han": "袁孤煙",
+   "gloss": "A lone column of smoke over the desert (Vương Duy: đại mạc cô yên trực)",
+   "sex": "F",
+   "born": 1085,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "tran_sa",
+   "rank": "tong_chu",
+   "home": 359,
+   "birthplace": 35,
+   "role": "A founder (1125) and head of Trấn Sa Đường, the caravan guards of Trường Vân",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "tho": 58,
+     "kim": 50
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 68,
+    "than_hon": 58,
+    "khi_van": 46,
+    "dao_tam": 66,
+    "mi_luc": 52
+   },
+   "traits": {
+    "personality": [
+     "Paranoid",
+     "Brave",
+     "Just"
+    ],
+    "calling": "Duelist",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "body_tempered"
+    ],
+    "lifestyle": "go_player",
+    "health": null,
+    "coping": "vengeance_vow",
+    "fate_given": [],
+    "gained": [
+     "Grieving"
+    ]
+   },
+   "appearance": "A square, sun-darkened woman in a dust cloak who sits with her back to a wall in every room and counts the doors.",
+   "backstory": "Viên Cô Yên was fifteen in 1100 when Dạ Quang's raiders hit her father's caravan on the road below Viên Đề Hạp. She found Viên Trường Hà (vien_truong_ha) in the sand with a night-glowing cup set on his chest, the raiders' mark (A121). She rode guard for the next twenty-five years. In 1121 the Pavilion made the raiders guard the road (A123), and the guard families of Trường Vân saw their trade handed to the men who had killed them. In 1125 Viên and the guard captains founded Trấn Sa Đường (V075). The Pavilion licensed it to guard caravans and buys its blades from the forge of Tống Thối Kim (tong_thoi_kim). Its true purpose is to watch Dạ Quang, and Viên has never pretended otherwise. To her, Hạng Dạ Bôi (hang_da_boi) is a guard who turned, and she is waiting for him to turn again. She married her captain Bàng Trấn Nhạc (bang_tran_nhac) late, and she raises her dead brother's daughter. In seventy-five years she has not slept with a door unbarred.",
+   "wants": "Proof that Dạ Quang means to raid again, put in front of the Pavilion, so that it finishes what it began in 1121.",
+   "secret": "Tất Dạ Lang did not desert in 1196: she sent him. He sells Đồ Xích Linh false routes and sends Viên the camp's talk.",
+   "ties": [
+    {
+     "to": "vien_truong_ha",
+     "kind": "parent",
+     "note": "her father, killed by Dạ Quang in 1100"
+    },
+    {
+     "to": "bang_tran_nhac",
+     "kind": "spouse",
+     "note": "her caravan captain"
+    },
+    {
+     "to": "vien_tieu_yen",
+     "kind": "niece_nephew",
+     "note": "her dead brother's daughter, whom she raises"
+    },
+    {
+     "to": "hang_da_boi",
+     "kind": "enemy",
+     "note": "the guard who turned"
+    },
+    {
+     "to": "tat_da_lang",
+     "kind": "creditor",
+     "note": "her spy, posted as a deserter"
+    },
+    {
+     "to": "tong_thoi_kim",
+     "kind": "friend",
+     "note": "the smith who would not be head"
+    },
+    {
+     "to": "on_sa_ngoc",
+     "kind": "friend",
+     "note": "the Desert Pavilion's keeper, who licensed the hall"
+    },
+    {
+     "to": "ho_dien_liet",
+     "kind": "rival",
+     "note": "the loose rider she wants in her hall or off her road"
+    },
+    {
+     "to": "vi_sa_yen",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "nhiep_co_dang",
+     "kind": "friend",
+     "note": "the inner disciple who rides her caravans"
+    },
+    {
+     "to": "vien_tieu_yen",
+     "kind": "disciple",
+     "note": "she teaches her the guard herself"
+    },
+    {
+     "to": "khuc_dang_ha",
+     "kind": "disciple",
+     "note": "Trường Vân lamp-seller's son who dusts the cup shelf"
+    },
+    {
+     "to": "la_doan_cuong",
+     "kind": "rival",
+     "note": "second smith of the forge at Tẩy Kiếm Tuyền"
+    },
+    {
+     "to": "ninh_ha_vien",
+     "kind": "rival",
+     "note": "caravan lieutenant to Bàng Trấn Nhạc on the Hồi Lan road"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "sand-holding-sabre-canon",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "iron-hide-manual",
+      "layer": 5
+     }
+    ],
+    "gear": [
+     {
+      "named": "ts-lone-smoke-sabre"
+     },
+     {
+      "named": "ts-caravan-shield"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth block and slow first, Metal counter-cuts second: a guard who waits for the rider to come in.",
+     "targets": [
+      715,
+      1469,
+      3724,
+      3324,
+      3327,
+      4272
+     ],
+     "targets_note": "Earthen Gate block, the Millstone's slow, Crossguard for the counter-cut."
+    },
+    "note": "The guard who waits: holds the sand, then answers."
+   },
+   "items": [
+    "ts-lone-smoke-sabre",
+    "ts-caravan-shield"
+   ],
+   "changed": "root, thien_phu and build added (she had none); birthplace 35 added."
+  },
+  {
+   "key": "tong_thoi_kim",
+   "name_hv": "Tống Thối Kim",
+   "name_han": "宋淬金",
+   "gloss": "Quenched gold",
+   "sex": "M",
+   "born": 1010,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "tran_sa",
+   "rank": "truong_lao",
+   "home": 255,
+   "birthplace": 35,
+   "role": "Master smith of Trấn Sa Đường and the Pavilion's sword-smith; keeps the forge at Tẩy Kiếm Tuyền",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 66,
+     "tho": 48,
+     "hoa": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 72,
+    "than_hon": 52,
+    "khi_van": 50,
+    "dao_tam": 64,
+    "mi_luc": 40
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Content",
+     "Stubborn"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "forge_scarred"
+    ],
+    "lifestyle": "tea_master",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "appearance": "A short, burn-speckled old smith with forearms like temple bells and no eyebrows.",
+   "backstory": "A smith of Trường Vân's quarter who forged for the guard families for a century before there was a hall. When Viên Cô Yên (vien_co_yen) founded it in 1125 he joined and refused to head it: he holds hammers, not men. He outranks the head and obeys her. The Pavilion buys its swords from his forge on the spirit spring. In 1180 he reforged a fisher's ice-cutter into Thẩm Hàn Giang's (tham_han_giang) Ice-Hole Blade. He is the only Trấn Sa man the Pavilion's elders know by name.",
+   "ties": [
+    {
+     "to": "vien_co_yen",
+     "kind": "friend",
+     "note": "his head, whom he will not replace"
+    },
+    {
+     "to": "tham_han_giang",
+     "kind": "friend",
+     "note": "forged his sword in 1180"
+    },
+    {
+     "to": "me_tieu_chuy",
+     "kind": "disciple",
+     "note": "his apprentice"
+    },
+    {
+     "to": "vo_kinh_son",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "la_doan_cuong",
+     "kind": "disciple",
+     "note": "second smith of the forge at Tẩy Kiếm Tuyền"
+    }
+   ],
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "sword-washing-temper",
+     "layer": 8
+    },
+    "aux": [
+     {
+      "tech": "sand-holding-sabre-canon",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "ts-quench-hammer"
+     },
+     {
+      "base": "giap",
+      "grade": 3,
+      "element": "tho"
+     },
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 8
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal temper stacks, Earth health: one stroke, then the quench.",
+     "targets": [
+      715,
+      1469,
+      4424,
+      4427,
+      9012
+     ],
+     "targets_note": "Spirit Furnace artifact power, then Hundred Refinements: one heavy stroke, with the temper stacks on his Quenching Hammer."
+    },
+    "note": "The Pavilion's smith."
+   },
+   "items": [
+    "ts-quench-hammer"
+   ]
+  },
+  {
+   "key": "bang_tran_nhac",
+   "name_hv": "Bàng Trấn Nhạc",
+   "name_han": "龐鎮岳",
+   "gloss": "Holding the mountain",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "tran_sa",
+   "rank": "chap_su",
+   "home": 359,
+   "birthplace": 35,
+   "role": "Caravan captain of the hall; the head's husband",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "tho": 56,
+     "kim": 42
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 52,
+    "can_cot": 74,
+    "than_hon": 48,
+    "khi_van": 56,
+    "dao_tam": 60,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Loyal",
+     "Generous"
+    ],
+    "calling": "Strategist",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "sturdy_frame",
+      "tier": 2
+     }
+    ],
+    "path": [],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Battle-hardened"
+    ]
+   },
+   "appearance": "A big, slow-spoken man who never draws his sabre first and always draws it second.",
+   "backstory": "Born to a guard family in Trường Vân the year Dạ Quang killed Viên Trường Hà (vien_truong_ha), he grew up riding behind the dead man's daughter Viên Cô Yên (vien_co_yen) and married her in 1150. He leads the hall's caravans from Trường Vân to Hồi Lan. He is the calm half of the hall. He thinks his wife's watch on Dạ Quang has become a war she is waiting to start, and he has started to fear she will start it herself.",
+   "ties": [
+    {
+     "to": "vien_co_yen",
+     "kind": "spouse",
+     "note": "his wife and head"
+    },
+    {
+     "to": "cam_thiet_binh",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "o_liet_phong",
+     "kind": "friend",
+     "note": "they share the road and a pot of tea at Đà Linh"
+    },
+    {
+     "to": "o_sa_ho",
+     "kind": "disciple",
+     "note": "night-watch caravan guard; Ổ Sa Nhi's brother"
+    },
+    {
+     "to": "ninh_ha_vien",
+     "kind": "friend",
+     "note": "caravan lieutenant to Bàng Trấn Nhạc on the Hồi Lan road"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "sand-holding-sabre-canon",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "thuan",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth guard and a counter-cut.",
+     "targets": [
+      715,
+      1469,
+      3705,
+      3051
+     ],
+     "targets_note": "River Pebble block and the Five Peaks idea's health and block: draws second."
+    },
+    "note": "Draws second."
+   }
+  },
+  {
+   "key": "nhiep_co_dang",
+   "name_hv": "Nhiếp Cô Đăng",
+   "name_han": "聶孤燈",
+   "gloss": "Lone lamp",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "tran_sa",
+   "rank": "noi_mon",
+   "home": 1418,
+   "birthplace": 1418,
+   "role": "The hall's watcher on Dạ Quang's escorts",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "tho": 46
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 56,
+    "than_hon": 62,
+    "khi_van": 50,
+    "dao_tam": 58,
+    "mi_luc": 48
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Reclusive",
+     "Honest"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "keen_soul",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "chronicler",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A thin rider who travels alone with one lamp and a book of every camp Dạ Quang's escorts have made since 1125.",
+   "backstory": "From the camel-bell town, she has ridden behind Ô Liệt Phong's (o_liet_phong) escorts for seventy years at a lamp's distance and written down every stop. She has found nothing. Ô has started leaving her tea, and she has started drinking it. If the night-glow cups on the road mean a raid, she will be the first to know (A126).",
+   "ties": [
+    {
+     "to": "o_liet_phong",
+     "kind": "rival",
+     "note": "she watches him; the tea"
+    },
+    {
+     "to": "vien_co_yen",
+     "kind": "friend",
+     "note": "her head"
+    },
+    {
+     "to": "dam_tri_ma",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "viet_da_nhi",
+     "kind": "enemy",
+     "note": "the demonic girl who watches her on the road"
+    },
+    {
+     "to": "ho_dien_liet",
+     "kind": "friend",
+     "note": "the loose rider she shares a fire with at the stops"
+    },
+    {
+     "to": "nghiem_sa_lo",
+     "kind": "disciple",
+     "note": "outrider of the watch at Đà Linh"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "sand-holding-sabre-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "dang",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal, a watcher's quick cut.",
+     "targets": [
+      715,
+      1469,
+      727,
+      3898
+     ],
+     "targets_note": "Fine Steel crit and Chasing the Moon speed: a watcher's quick cut."
+    },
+    "note": "A lamp on the road."
+   }
+  },
+  {
+   "key": "vo_kinh_son",
+   "name_hv": "Võ Kình Sơn",
+   "name_han": "武擎山",
+   "gloss": "Lifting the mountain",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "tran_sa",
+   "rank": "noi_mon",
+   "home": 255,
+   "birthplace": 35,
+   "role": "Striker at the forge; cousin of a Pavilion outer disciple",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 50,
+     "kim": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Gregarious",
+     "Wrathful"
+    ],
+    "calling": "Refiner",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "He swings the big hammer for Tống Thối Kim (tong_thoi_kim) and teases his cousin Võ Băng Kiên (vo_bang_kien) for wasting good winters on the Pavilion's Frost Test.",
+   "ties": [
+    {
+     "to": "tong_thoi_kim",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "vo_bang_kien",
+     "kind": "cousin",
+     "note": "in the Pavilion's outer gate"
+    }
+   ],
+   "master": "tong_thoi_kim",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "sand-holding-sabre-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "tho"
+     },
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 3
+    },
+    "tree": {
+     "start": "tho",
+     "intent": "Earth health."
+    },
+    "note": "The big hammer."
+   },
+   "changed": "fix pass A: gear + phi_kiem (a member on the sabre canon wears a blade); the sabre rides on a phi_kiem base until the item bases gain a sabre (Item DB open question)"
+  },
+  {
+   "key": "me_tieu_chuy",
+   "name_hv": "Mễ Tiểu Chùy",
+   "name_han": "米小錘",
+   "gloss": "Little hammer",
+   "sex": "M",
+   "born": 1170,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "tran_sa",
+   "rank": "ngoai_mon",
+   "home": 255,
+   "birthplace": 1414,
+   "role": "The master smith's apprentice",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 42,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Cautious"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A timber-bridge boy who walked to the spring forge at twelve and asked Tống Thối Kim (tong_thoi_kim) for nothing but the bellows.",
+   "ties": [
+    {
+     "to": "tong_thoi_kim",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "la_tinh_nhi",
+     "kind": "rival",
+     "note": "Lã Đoán Cương's daughter; works the forge bellows"
+    }
+   ],
+   "master": "tong_thoi_kim",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "sand-wall-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "The bellows."
+   }
+  },
+  {
+   "key": "vi_sa_yen",
+   "name_hv": "Vi Sa Yến",
+   "name_han": "韋沙燕",
+   "gloss": "Sand swallow",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "tran_sa",
+   "rank": "noi_mon",
+   "home": 359,
+   "birthplace": 1421,
+   "role": "Inner guard from the sheep sheds",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 48,
+     "hoa": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Just",
+     "Impatient",
+     "Brave"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Her village pays Dạ Quang's riders to leave its sheep alone; she joined Viên Cô Yên (vien_co_yen) to stop paying.",
+   "ties": [
+    {
+     "to": "vien_co_yen",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "vien_co_yen",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "sand-holding-sabre-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "Stop paying."
+   }
+  },
+  {
+   "key": "vien_tieu_yen",
+   "name_hv": "Viên Tiểu Yên",
+   "name_han": "袁小煙",
+   "gloss": "Little smoke",
+   "sex": "F",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "tran_sa",
+   "rank": "noi_mon",
+   "home": 359,
+   "birthplace": 35,
+   "role": "The head's niece and ward",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 46,
+     "kim": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Trusting",
+     "Compassionate",
+     "Fickle"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "Raised by her aunt Viên Cô Yên (vien_co_yen) on stories of the cup on her grandfather's chest; she has been writing to Hạng Lưu Hỏa (hang_luu_hoa) of Dạ Quang, and neither aunt nor mother knows.",
+   "ties": [
+    {
+     "to": "vien_co_yen",
+     "kind": "master",
+     "note": "teaches her the guard herself"
+    },
+    {
+     "to": "hang_luu_hoa",
+     "kind": "friend",
+     "note": "secret letters"
+    },
+    {
+     "to": "vien_co_yen",
+     "kind": "aunt_uncle",
+     "note": "her aunt, who raises her"
+    }
+   ],
+   "master": "vien_co_yen",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "sand-holding-sabre-canon",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "Letters across the road."
+   }
+  },
+  {
+   "key": "cam_thiet_binh",
+   "name_hv": "Cam Thiết Bình",
+   "name_han": "甘鐵屏",
+   "gloss": "Iron screen",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "tran_sa",
+   "rank": "ngoai_mon",
+   "home": 359,
+   "birthplace": 1406,
+   "role": "Outer guard from the salt-boiling village",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Loyal",
+     "Lazy"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A salt-boiler's son, like the Pavilion's caravan captain Tôn Hàn Thạch (ton_han_thach), who carries Bàng Trấn Nhạc's (bang_tran_nhac) shield and hopes never to use it.",
+   "ties": [
+    {
+     "to": "bang_tran_nhac",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "cam_diem_nhi",
+     "kind": "sibling",
+     "note": "his sister; Cam Thiết Bình's sister; cooks at the long table"
+    }
+   ],
+   "master": "bang_tran_nhac",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "sand-wall-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "The shield."
+   },
+   "changed": "fix pass A: archetype kiem_tu -> the_tu (the Sand Wall Primer is a guard method, no blade)"
+  },
+  {
+   "key": "dam_tri_ma",
+   "name_hv": "Đàm Trì Mã",
+   "name_han": "譚馳馬",
+   "gloss": "Galloping horse",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "tran_sa",
+   "rank": "ngoai_mon",
+   "home": 1418,
+   "birthplace": 118,
+   "role": "Outrider for the watcher",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 44,
+     "hoa": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Brave",
+     "Fickle",
+     "Gregarious"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "From the horse village that moved three li east for its wells (A122); he rides ahead of Nhiếp Cô Đăng (nhiep_co_dang) and talks too much at caravan stops.",
+   "ties": [
+    {
+     "to": "nhiep_co_dang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nghiem_sa_lo",
+     "kind": "friend",
+     "note": "outrider of the watch at Đà Linh"
+    }
+   ],
+   "master": "nhiep_co_dang",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "sand-wall-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    },
+    "note": "Rides ahead."
+   }
+  },
+  {
+   "key": "vien_truong_ha",
+   "name_hv": "Viên Trường Hà",
+   "name_han": "袁長河",
+   "gloss": "The long river (Vương Duy: trường hà lạc nhật viên)",
+   "sex": "M",
+   "born": 1040,
+   "died": 1100,
+   "cause": "killed by Dạ Quang raiders below Viên Đề Hạp, a night-glow cup left on his chest, at 60",
+   "alive": false,
+   "peak_realm": "truc_co",
+   "sect": "",
+   "rank": "",
+   "home": 35,
+   "birthplace": 35,
+   "role": "Caravan-guard captain of Trường Vân; father of Viên Cô Yên",
+   "tier": "B",
+   "traits": {
+    "personality": [
+     "Brave",
+     "Honest",
+     "Stubborn"
+    ],
+    "calling": "Duelist",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A guard captain of the Viên family who rode the caravan road for forty years and was the best sabre in Trường Vân. In 1100 Dạ Quang's raiders under Cổ Mạc Phong (co_mac_phong) hit his caravan in the gorge of crying gibbons (A117). He held the camels long enough for the drivers to run and died with a night-glowing cup on his chest (A121). His daughter Viên Cô Yên (vien_co_yen) found him.",
+   "ties": [
+    {
+     "to": "vien_co_yen",
+     "kind": "child",
+     "note": ""
+    },
+    {
+     "to": "co_mac_phong",
+     "kind": "enemy",
+     "note": "led the raid that killed him"
+    }
+   ]
+  }
+ ]
+}

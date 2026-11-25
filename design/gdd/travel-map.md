@@ -1156,6 +1156,15 @@ late in life; that shifts how many reach Nascent Soul and Hóa Thần (about 27 
 **Spiritual Roots, Combat and the Item Database do not**, so a back-reference row is added to each when this GDD is
 finished (with the user's approval). Realms' existing rows also need wording for the layer stack and the match.
 
+**Back-links written 2026-11-25** (world-depth rulings, `design/world/depth/DECISIONS-2026-11-25.md`):
+- **Sects & Missions** (#26, rule 3a, F22) and **World Generation** (#27, rule 16a, Formula G): a moved seat's founder's
+  array, `seat_array_density` (authored per seat, 0–0.65), is a permanent shared work and joins Formula B as part of
+  `ΔD2p`; breaking the array (a hook) sets it to 0.
+- **Spiritual Roots** (#6, Formulas A2, D4): province land qi is computed at map export from this system's tile qi
+  (mean element shares over a province's tiles; its strongest variant tile).
+- **Combat** (#21, rule 26): place-derived tags (biome, `vein`) sent with a fight request apply nothing in the fight
+  (Combat Open Question 30, answered 2026-11-25: place tags never act in fights; `tribulation` is a kind of fight).
+
 ## Visual/Audio Requirements
 
 - **The terminal map, built first:** the tile grid drawn in characters, one glyph and colour per tile from its main

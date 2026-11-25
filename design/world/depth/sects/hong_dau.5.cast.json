@@ -1,0 +1,512 @@
+{
+ "sect": "hong_dau",
+ "people": [
+  {
+   "key": "ha_cuc_thi",
+   "name_hv": "Hạ Cức Thi",
+   "name_han": "夏棘詩",
+   "gloss": "Thorn verse",
+   "sex": "F",
+   "born": 1105,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "hong_dau",
+   "rank": "noi_mon",
+   "home": 263,
+   "birthplace": 818,
+   "role": "Charm-singer of the back garden; keeps the gardeners under the Thorn and Ink Verses",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Compassionate",
+     "Cautious"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born"
+   },
+   "backstory": "Sings the gardeners to sleep each night with the Thorn and Ink Verses and has begun to wonder which of them would leave if she stopped; she has not tried it.",
+   "ties": [
+    {
+     "to": "nghe_xuan_chi",
+     "kind": "master",
+     "note": "the garden's mistress"
+    },
+    {
+     "to": "lieu_da_thai",
+     "kind": "rival",
+     "note": "the door's charms against the garden's"
+    },
+    {
+     "to": "te_vong_quy",
+     "kind": "friend",
+     "note": "the charmed swordsman, who talks to her when the verse is thin"
+    },
+    {
+     "to": "khong_vu_kieu",
+     "kind": "disciple",
+     "note": "poison-kitchen hand; grinds the beans for the pastes"
+    }
+   ],
+   "master": "nghe_xuan_chi",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "canon-of-longing",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "thorn-and-ink-verses",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "cam",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood charms that hold a foe in place."
+    }
+   }
+  },
+  {
+   "key": "to_boi_ngam",
+   "name_hv": "Tô Bôi Ngâm",
+   "name_han": "蘇杯吟",
+   "gloss": "Cup song",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "hong_dau",
+   "rank": "chap_su",
+   "home": 27,
+   "birthplace": 27,
+   "role": "The hand that pours the second cup at the Gracious Door",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 45
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Deceitful",
+     "Gregarious",
+     "Loyal"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "street_orphan"
+   },
+   "backstory": "Has poured the second cup forty-one times in fifty years, each on Liễu Đa Thải's (lieu_da_thai) nod; she keeps the guests' names in a book Nghê Xuân Chi would like to burn.",
+   "ties": [
+    {
+     "to": "nghe_hong_dau",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "lieu_da_thai",
+     "kind": "friend",
+     "note": "the door's mistress"
+    },
+    {
+     "to": "nghe_xuan_chi",
+     "kind": "rival",
+     "note": "who would end the second cup"
+    },
+    {
+     "to": "uong_le_tra",
+     "kind": "disciple",
+     "note": "door girl at the manor house; pours the first cup"
+    }
+   ],
+   "master": "nghe_hong_dau",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "canon-of-longing",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water charms poured, not cast."
+    }
+   }
+  },
+  {
+   "key": "doan_thai_dau",
+   "name_hv": "Doãn Thải Đậu",
+   "name_han": "尹采豆",
+   "gloss": "Picks beans",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "hong_dau",
+   "rank": "ngoai_mon",
+   "home": 263,
+   "birthplace": 263,
+   "role": "Bean picker in the back garden, raised as a foundling",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 42,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Honest",
+     "Reclusive"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "Born in the garden and told she was a foundling; she sorts the beans by touch in the dark faster than anyone, and has noticed one gardener look at her as if he knew her.",
+   "ties": [
+    {
+     "to": "tien_kho_dang",
+     "kind": "master",
+     "note": "the poison kitchen"
+    },
+    {
+     "to": "te_niem_quy",
+     "kind": "friend",
+     "note": "who scatters beans on the path"
+    }
+   ],
+   "master": "tien_kho_dang",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "red-bean-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood poisons that ripen."
+    }
+   }
+  },
+  {
+   "key": "uong_le_tra",
+   "name_hv": "Uông Lệ Trà",
+   "name_han": "汪麗茶",
+   "gloss": "Lovely tea",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "hong_dau",
+   "rank": "ngoai_mon",
+   "home": 27,
+   "birthplace": 822,
+   "role": "Door girl at the manor house; pours the first cup",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Ambitious",
+     "Fickle"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Lăng Đường fisher's daughter taken because she can pour for a killer and smile; she cannot yet pour for a pretty one.",
+   "ties": [
+    {
+     "to": "to_boi_ngam",
+     "kind": "master",
+     "note": "the second cup's hand"
+    },
+    {
+     "to": "kha_tieu_dau",
+     "kind": "rival",
+     "note": "the door's two youngest"
+    }
+   ],
+   "master": "to_boi_ngam",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "red-bean-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water charms at the tea table."
+    }
+   }
+  },
+  {
+   "key": "banh_tri_hap",
+   "name_hv": "Bành Tri Hạp",
+   "name_han": "彭知盒",
+   "gloss": "Knows the boxes",
+   "sex": "M",
+   "born": 1177,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "hong_dau",
+   "rank": "ngoai_mon",
+   "home": 42,
+   "birthplace": 42,
+   "role": "Carries the manor's poison boxes to the Night Rain Market",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Cautious",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "upbringing": "street_orphan"
+   },
+   "backstory": "Carries the boxes to Quản Song Đậu's (quan_song_dau) stall at the Night Rain Market; a buyer in toad-skin gloves has twice paid him extra to say which boxes came from the garden's own beds.",
+   "ties": [
+    {
+     "to": "quan_song_dau",
+     "kind": "master",
+     "note": "the market boxes"
+    },
+    {
+     "to": "kha_tieu_dau",
+     "kind": "friend",
+     "note": "brings him the door's gossip"
+    }
+   ],
+   "master": "quan_song_dau",
+   "build": {
+    "archetype": "tan_tu",
+    "main": {
+     "tech": "red-bean-primer",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "nhan",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "A runner's Water sustain."
+    }
+   }
+  },
+  {
+   "key": "khong_vu_kieu",
+   "name_hv": "Khổng Vụ Kiều",
+   "name_han": "孔霧橋",
+   "gloss": "Misty bridge",
+   "sex": "M",
+   "born": 1172,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "hong_dau",
+   "rank": "noi_mon",
+   "home": 263,
+   "birthplace": 156,
+   "role": "Poison-kitchen hand; grinds the beans for the pastes",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "hoa": 28,
+     "thuy": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Paranoid",
+     "Loyal"
+    ],
+    "calling": "Alchemist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Came from the misty bridge with Hồ Yên Độ (ho_yen_do) and rose to the garden while his friend stayed on watch; he grinds beans for Tiền Khổ Đằng's (tien_kho_dang) pastes and wears gloves in his sleep.",
+   "ties": [
+    {
+     "to": "ha_cuc_thi",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ho_yen_do",
+     "kind": "friend",
+     "note": "the bridge watch"
+    },
+    {
+     "to": "tien_kho_dang",
+     "kind": "friend",
+     "note": "the kitchen's head"
+    }
+   ],
+   "master": "ha_cuc_thi",
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "canon-of-longing",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "dan_dao": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood poisons."
+    }
+   }
+  },
+  {
+   "key": "cung_hong_to",
+   "name_hv": "Cung Hồng Tố",
+   "name_han": "宮紅素",
+   "gloss": "Red and plain",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "hong_dau",
+   "rank": "ngoai_mon",
+   "home": 27,
+   "birthplace": 818,
+   "role": "Door girl who gives no beans",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Honest",
+     "Patient"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born",
+    "gained": [
+     "Lovestruck"
+    ]
+   },
+   "backstory": "Gives red beans by hand to no one, which the door finds strange; she is saving one for a Xuyên Lâm guide who drinks one cup each month and never asks for a second.",
+   "ties": [
+    {
+     "to": "lieu_da_thai",
+     "kind": "master",
+     "note": "the door's mistress"
+    },
+    {
+     "to": "manh_hoi_lo",
+     "kind": "lover",
+     "note": "the Gate's deserter"
+    }
+   ],
+   "master": "lieu_da_thai",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "red-bean-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood charms, unused."
+    }
+   }
+  }
+ ]
+}

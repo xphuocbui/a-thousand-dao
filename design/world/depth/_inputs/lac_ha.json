@@ -1,0 +1,3141 @@
+{
+"_doc": "Input slice for the depth writer of lac_ha (tools/design/world/depth_inputs.py). Read world.json too.",
+"sect": {
+"key": "lac_ha",
+"name": "Lạc Hà Tông",
+"name_han": "落霞宗",
+"gloss": "Sect of the Drifting Sunset Clouds",
+"tier": 1,
+"leans": [
+"Earth",
+"Wood"
+],
+"regions": [
+10,
+11,
+12,
+13
+],
+"seat_region": 13,
+"seat": 4,
+"kind": "great"
+},
+"start_state": {
+"key": "lac_ha",
+"name": "Lạc Hà Tông",
+"name_han": "落霞宗",
+"gloss": "Sect of the Drifting Sunset Clouds",
+"kind": "great",
+"alignment": "trung",
+"leans": [
+"Earth",
+"Wood"
+],
+"seat": 4,
+"levels": {
+"holdings": 9,
+"institutions": 8,
+"military": 8,
+"trade": 12
+},
+"treasury": 60000,
+"founded": 290,
+"specialty": "phap_tu",
+"tier": 1,
+"regions": [
+10,
+11,
+12,
+13
+],
+"leader": "to_van_chieu"
+},
+"lord": "",
+"vassals": [
+"binh_thuy",
+"muc_van",
+"thien_bao",
+"nam_pho",
+"nhan_van",
+"nhan_tran",
+"minh_loan",
+"yen_quang"
+],
+"seat": {
+"id": 4,
+"name": "Lạc Hà Tông",
+"gloss": "",
+"kind": "great_seat",
+"region": 13,
+"biome": "steppe",
+"elev_km": 0.25,
+"qi": {
+"moc": 8,
+"hoa": 24,
+"tho": 45,
+"kim": 17,
+"thuy": 5
+},
+"variants": {},
+"density": 1.72,
+"note": ""
+},
+"seat_audit": "## MOVE Lạc Hà Tông (lac_ha; leans Earth/Wood)\nSeat: Lạc Hà Tông (id 4, great_seat, region 13, steppe), density 1.72\nSeat qi: Earth 45%, Wood 8%\nCandidates:\n- Phù Dao Quán (id 496, ruin, region 11, steppe, elev 0.18 km): Earth 35%, Wood 22%; density 0.96\n- Thảo Lang Nguyên (id 502, beast_lair, region 11, grassland, elev 0.29 km): Earth 32%, Wood 27%; density 0.94\n- Vân Kiều Trấn (id 558, ruin, region 13, high mountain, elev 0.60 km): Earth 26%, Wood 21%; density 1.36\n- Lạc Nhạn Hồ (id 366, lake, region 11, grassland, elev 0.00 km): Earth 30%, Wood 19%; density 1.02\n- Hào Trư Lĩnh (id 467, beast_lair, region 10, temperate forest, elev 0.32 km): Earth 29%, Wood 30%; density 1.04\n- Thiên Cao Mạch (id 497, spirit_vein, region 11, steppe, elev 0.20 km): Earth 33%, Wood 24%; density 0.52\n",
+"ground": [
+{
+"id": 4,
+"name": "Lạc Hà Tông",
+"gloss": "",
+"kind": "great_seat",
+"region": 13,
+"biome": "steppe",
+"elev_km": 0.25,
+"qi": {
+"moc": 8,
+"hoa": 24,
+"tho": 45,
+"kim": 17,
+"thuy": 5
+},
+"variants": {},
+"density": 1.72,
+"note": ""
+},
+{
+"id": 207,
+"name": "Trường Hà Mạch",
+"gloss": "Vein of the Long River",
+"kind": "spirit_vein",
+"region": 12,
+"biome": "high mountain",
+"elev_km": 1.22,
+"qi": {
+"moc": 6,
+"hoa": 20,
+"tho": 38,
+"kim": 29,
+"thuy": 7
+},
+"variants": {},
+"density": 1.63,
+"note": "Vương Duy: trường hà lạc nhật viên, the long river and the round setting sun. On the border with Thính Vũ."
+},
+{
+"id": 196,
+"name": "Tịch Chiếu Đảo",
+"gloss": "Isle of the Evening Glow",
+"kind": "island",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.05,
+"qi": {
+"moc": 14,
+"hoa": 12,
+"tho": 13,
+"kim": 12,
+"thuy": 49
+},
+"variants": {},
+"density": 1.53,
+"note": "The westernmost island, last to see the sunset of Lạc Hà"
+},
+{
+"id": 249,
+"name": "Ngọc Nhũ Tuyền",
+"gloss": "Jade Milk Spring",
+"kind": "hot_spring",
+"region": 13,
+"biome": "karst",
+"elev_km": 0.22,
+"qi": {
+"moc": 17,
+"hoa": 22,
+"tho": 18,
+"kim": 12,
+"thuy": 31
+},
+"variants": {
+"am": 25.8
+},
+"density": 1.44,
+"note": "Warm water among the stone pillars of Ngư Ca Xuyên's karst."
+},
+{
+"id": 21,
+"name": "Nam Phố Đường",
+"gloss": "",
+"kind": "minor_seat",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.06,
+"qi": {
+"moc": 34,
+"hoa": 12,
+"tho": 17,
+"kim": 11,
+"thuy": 26
+},
+"variants": {},
+"density": 1.42,
+"note": ""
+},
+{
+"id": 558,
+"name": "Vân Kiều Trấn",
+"gloss": "Cloud Bridge Town",
+"kind": "ruin",
+"region": 13,
+"biome": "high mountain",
+"elev_km": 0.6,
+"qi": {
+"moc": 21,
+"hoa": 13,
+"tho": 26,
+"kim": 27,
+"thuy": 12
+},
+"variants": {},
+"density": 1.36,
+"note": ""
+},
+{
+"id": 18,
+"name": "Bình Thủy Môn",
+"gloss": "",
+"kind": "minor_seat",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 26,
+"hoa": 19,
+"tho": 22,
+"kim": 11,
+"thuy": 22
+},
+"variants": {},
+"density": 1.31,
+"note": ""
+},
+{
+"id": 19,
+"name": "Mục Vân Trang",
+"gloss": "",
+"kind": "minor_seat",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.04,
+"qi": {
+"moc": 16,
+"hoa": 13,
+"tho": 15,
+"kim": 10,
+"thuy": 46
+},
+"variants": {},
+"density": 1.3,
+"note": ""
+},
+{
+"id": 520,
+"name": "Hoàng Tích Cương",
+"gloss": "Yellow Lizard Ridge",
+"kind": "beast_lair",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.23,
+"qi": {
+"moc": 6,
+"hoa": 24,
+"tho": 47,
+"kim": 18,
+"thuy": 5
+},
+"variants": {},
+"density": 1.3,
+"note": ""
+},
+{
+"id": 271,
+"name": "Cẩm Kê Nguyên",
+"gloss": "Golden Pheasant Meadow",
+"kind": "beast_lair",
+"region": 13,
+"biome": "grassland",
+"elev_km": 0.09,
+"qi": {
+"moc": 30,
+"hoa": 10,
+"tho": 20,
+"kim": 14,
+"thuy": 26
+},
+"variants": {},
+"density": 1.29,
+"note": ""
+},
+{
+"id": 543,
+"name": "Oanh Hồi Hạp",
+"gloss": "Winding Gorge",
+"kind": "gorge",
+"region": 13,
+"biome": "karst",
+"elev_km": 0.41,
+"qi": {
+"moc": 24,
+"hoa": 15,
+"tho": 22,
+"kim": 14,
+"thuy": 25
+},
+"variants": {
+"am": 25.2
+},
+"density": 1.25,
+"note": ""
+},
+{
+"id": 20,
+"name": "Thiên Bảo Trai",
+"gloss": "",
+"kind": "minor_seat",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.4,
+"qi": {
+"moc": 4,
+"hoa": 21,
+"tho": 41,
+"kim": 30,
+"thuy": 4
+},
+"variants": {},
+"density": 1.25,
+"note": ""
+},
+{
+"id": 548,
+"name": "Hãm Thạch Trấn",
+"gloss": "Sunken Stone Town",
+"kind": "ruin",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.08,
+"qi": {
+"moc": 36,
+"hoa": 10,
+"tho": 21,
+"kim": 14,
+"thuy": 19
+},
+"variants": {
+"am": 25.8
+},
+"density": 1.24,
+"note": ""
+},
+{
+"id": 535,
+"name": "Sơn Tiêu Nhai",
+"gloss": "Cliff of the Mountain Apes",
+"kind": "beast_lair",
+"region": 13,
+"biome": "high mountain",
+"elev_km": 0.45,
+"qi": {
+"moc": 15,
+"hoa": 16,
+"tho": 32,
+"kim": 26,
+"thuy": 10
+},
+"variants": {},
+"density": 1.24,
+"note": ""
+},
+{
+"id": 223,
+"name": "Vô Định Thành",
+"gloss": "City of the Vô Định River",
+"kind": "ruin",
+"region": 12,
+"biome": "steppe",
+"elev_km": 0.23,
+"qi": {
+"moc": 5,
+"hoa": 22,
+"tho": 46,
+"kim": 21,
+"thuy": 6
+},
+"variants": {},
+"density": 1.2,
+"note": "Trần Đào: the bones by the Vô Định river that wives still dream of. Burned in the battle of 803 and left to the miasma."
+},
+{
+"id": 453,
+"name": "Long Tu Lâm",
+"gloss": "Forest of the Dragon's Whiskers",
+"kind": "forest",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.27,
+"qi": {
+"moc": 50,
+"hoa": 21,
+"tho": 5,
+"kim": 7,
+"thuy": 17
+},
+"variants": {},
+"density": 1.2,
+"note": ""
+},
+{
+"id": 414,
+"name": "Di Hà Trấn",
+"gloss": "Town of the Moved River",
+"kind": "ruin",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 24,
+"hoa": 15,
+"tho": 17,
+"kim": 10,
+"thuy": 33
+},
+"variants": {},
+"density": 1.2,
+"note": ""
+},
+{
+"id": 195,
+"name": "Phù Chử Đảo",
+"gloss": "Isle of the Wild Ducks",
+"kind": "island",
+"region": 11,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 17,
+"hoa": 10,
+"tho": 11,
+"kim": 10,
+"thuy": 52
+},
+"variants": {},
+"density": 1.19,
+"note": "Vương Bột: hạc đinh phù chử (crane shoals and wild-duck isles)"
+},
+{
+"id": 422,
+"name": "Phong Kiêu Lâm",
+"gloss": "Maple Owl Wood",
+"kind": "beast_lair",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 35,
+"hoa": 12,
+"tho": 15,
+"kim": 10,
+"thuy": 29
+},
+"variants": {},
+"density": 1.17,
+"note": ""
+},
+{
+"id": 475,
+"name": "Vạn Can Lâm",
+"gloss": "Forest of Ten Thousand Canes",
+"kind": "forest",
+"region": 10,
+"biome": "bamboo forest",
+"elev_km": 0.11,
+"qi": {
+"moc": 48,
+"hoa": 13,
+"tho": 11,
+"kim": 17,
+"thuy": 11
+},
+"variants": {},
+"density": 1.17,
+"note": ""
+},
+{
+"id": 459,
+"name": "Phi Hồ Lâm",
+"gloss": "Flying Fox Wood",
+"kind": "beast_lair",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.02,
+"qi": {
+"moc": 33,
+"hoa": 18,
+"tho": 8,
+"kim": 7,
+"thuy": 34
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 265,
+"name": "Tề Phi Mạch",
+"gloss": "Vein Where They Fly Together",
+"kind": "spirit_vein",
+"region": 13,
+"biome": "steppe",
+"elev_km": 0.04,
+"qi": {
+"moc": 10,
+"hoa": 24,
+"tho": 44,
+"kim": 17,
+"thuy": 5
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 241,
+"name": "Vụ Báo Lâm",
+"gloss": "Mist Leopard Forest",
+"kind": "beast_lair",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.11,
+"qi": {
+"moc": 34,
+"hoa": 19,
+"tho": 7,
+"kim": 7,
+"thuy": 33
+},
+"variants": {},
+"density": 1.16,
+"note": "Jungle of Cô Vụ Đảo, the lonely misty island, where leopards hunt in the mist."
+},
+{
+"id": 413,
+"name": "Ngạc Bối Chử",
+"gloss": "Shoal of the Crocodile Backs",
+"kind": "beast_lair",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.03,
+"qi": {
+"moc": 37,
+"hoa": 19,
+"tho": 11,
+"kim": 9,
+"thuy": 24
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 473,
+"name": "Bích Lân Lâm",
+"gloss": "Wood of the Jade Scales",
+"kind": "beast_lair",
+"region": 10,
+"biome": "bamboo forest",
+"elev_km": 0.09,
+"qi": {
+"moc": 45,
+"hoa": 13,
+"tho": 15,
+"kim": 18,
+"thuy": 9
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 461,
+"name": "Nịch Tùng Lâm",
+"gloss": "Wood of the Drowned Pines",
+"kind": "forest",
+"region": 10,
+"biome": "jungle",
+"elev_km": -0.03,
+"qi": {
+"moc": 39,
+"hoa": 20,
+"tho": 7,
+"kim": 6,
+"thuy": 28
+},
+"variants": {},
+"density": 1.16,
+"note": ""
+},
+{
+"id": 547,
+"name": "U Lan Cốc",
+"gloss": "Valley of Hidden Orchids",
+"kind": "gorge",
+"region": 13,
+"biome": "karst",
+"elev_km": 0.18,
+"qi": {
+"moc": 38,
+"hoa": 10,
+"tho": 19,
+"kim": 14,
+"thuy": 18
+},
+"variants": {
+"am": 25.9
+},
+"density": 1.15,
+"note": ""
+},
+{
+"id": 243,
+"name": "Thiên Chu Lâm",
+"gloss": "Thousand Spider Wood",
+"kind": "beast_lair",
+"region": 12,
+"biome": "jungle",
+"elev_km": 0.05,
+"qi": {
+"moc": 25,
+"hoa": 20,
+"tho": 22,
+"kim": 10,
+"thuy": 22
+},
+"variants": {},
+"density": 1.14,
+"note": "Jungle of Thu Thủy Loan webbed by poison spiders."
+},
+{
+"id": 315,
+"name": "Quần Hầu Lĩnh",
+"gloss": "Ridge of the Monkey Troops",
+"kind": "beast_lair",
+"region": 12,
+"biome": "bamboo forest",
+"elev_km": 0.17,
+"qi": {
+"moc": 38,
+"hoa": 21,
+"tho": 20,
+"kim": 12,
+"thuy": 9
+},
+"variants": {},
+"density": 1.14,
+"note": ""
+},
+{
+"id": 455,
+"name": "Kỳ Nam Lâm",
+"gloss": "Forest of the Kỳ Nam Agarwood",
+"kind": "forest",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.12,
+"qi": {
+"moc": 37,
+"hoa": 19,
+"tho": 8,
+"kim": 8,
+"thuy": 29
+},
+"variants": {},
+"density": 1.14,
+"note": ""
+},
+{
+"id": 256,
+"name": "Tha Hương Tuyền",
+"gloss": "Spring of the Far-Off Home",
+"kind": "hot_spring",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 30,
+"hoa": 20,
+"tho": 24,
+"kim": 12,
+"thuy": 14
+},
+"variants": {},
+"density": 1.12,
+"note": ""
+},
+{
+"id": 79,
+"name": "Phong Lâm Trấn",
+"gloss": "Maple Wood Town",
+"kind": "town",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.0,
+"qi": {
+"moc": 32,
+"hoa": 11,
+"tho": 13,
+"kim": 8,
+"thuy": 36
+},
+"variants": {},
+"density": 1.1,
+"note": ""
+},
+{
+"id": 545,
+"name": "Cuồng Trư Lâm",
+"gloss": "Wood of the Raging Boars",
+"kind": "beast_lair",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.32,
+"qi": {
+"moc": 36,
+"hoa": 10,
+"tho": 21,
+"kim": 14,
+"thuy": 19
+},
+"variants": {},
+"density": 1.07,
+"note": ""
+},
+{
+"id": 550,
+"name": "Tằng Thúy Lâm",
+"gloss": "Forest of Layered Green",
+"kind": "forest",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.24,
+"qi": {
+"moc": 43,
+"hoa": 11,
+"tho": 17,
+"kim": 13,
+"thuy": 17
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 318,
+"name": "Sảng Lại Lâm",
+"gloss": "Forest of the Clear Pipes",
+"kind": "forest",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.3,
+"qi": {
+"moc": 42,
+"hoa": 14,
+"tho": 18,
+"kim": 12,
+"thuy": 13
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 317,
+"name": "Lạc Mai Lâm",
+"gloss": "Wood of the Falling Plums",
+"kind": "forest",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.04,
+"qi": {
+"moc": 43,
+"hoa": 12,
+"tho": 15,
+"kim": 10,
+"thuy": 20
+},
+"variants": {},
+"density": 1.06,
+"note": ""
+},
+{
+"id": 219,
+"name": "Kim Cốc Thành",
+"gloss": "City of the Golden Valley",
+"kind": "ruin",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 21,
+"hoa": 17,
+"tho": 21,
+"kim": 12,
+"thuy": 29
+},
+"variants": {},
+"density": 1.05,
+"note": "Kim Cốc Viên's merchant city, burned in the crash of 1003."
+},
+{
+"id": 222,
+"name": "Hồng Vũ Thành",
+"gloss": "City of the Red Rain",
+"kind": "ruin",
+"region": 12,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 35,
+"hoa": 20,
+"tho": 25,
+"kim": 13,
+"thuy": 7
+},
+"variants": {},
+"density": 1.05,
+"note": "Lý Hạ: peach petals falling like red rain. Lạc Anh's city on the Petal Shore, burned in the war over its land."
+},
+{
+"id": 226,
+"name": "Bích Không Cảng",
+"gloss": "Harbour of the Blue Sky",
+"kind": "ruin",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 23,
+"hoa": 16,
+"tho": 19,
+"kim": 12,
+"thuy": 30
+},
+"variants": {},
+"density": 1.05,
+"note": "Lý Bạch: the lone sail vanishes into the blue sky. Cô Phàm's harbour, emptied when the fleet was lost."
+},
+{
+"id": 311,
+"name": "Triều Một Trấn",
+"gloss": "Town the Tide Took",
+"kind": "ruin",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.02,
+"qi": {
+"moc": 26,
+"hoa": 16,
+"tho": 20,
+"kim": 10,
+"thuy": 28
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 417,
+"name": "Dã Độ Trấn",
+"gloss": "Town of the Untended Ferry",
+"kind": "ruin",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.01,
+"qi": {
+"moc": 22,
+"hoa": 15,
+"tho": 17,
+"kim": 10,
+"thuy": 37
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 464,
+"name": "Hải Khúc Trấn",
+"gloss": "Sea-Bend Town",
+"kind": "ruin",
+"region": 10,
+"biome": "grassland",
+"elev_km": 0.29,
+"qi": {
+"moc": 21,
+"hoa": 15,
+"tho": 18,
+"kim": 10,
+"thuy": 36
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 499,
+"name": "Ngư Hỏa Trấn",
+"gloss": "Town of the Fishing Lights",
+"kind": "ruin",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.2,
+"qi": {
+"moc": 21,
+"hoa": 16,
+"tho": 18,
+"kim": 10,
+"thuy": 35
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 552,
+"name": "Quần Lang Lĩnh",
+"gloss": "Ridge of the Wolf Packs",
+"kind": "beast_lair",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.58,
+"qi": {
+"moc": 37,
+"hoa": 14,
+"tho": 21,
+"kim": 14,
+"thuy": 14
+},
+"variants": {},
+"density": 1.05,
+"note": ""
+},
+{
+"id": 319,
+"name": "Yển Tùng Lâm",
+"gloss": "Wood of the Bowed Pines",
+"kind": "forest",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 33,
+"hoa": 15,
+"tho": 17,
+"kim": 10,
+"thuy": 25
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 467,
+"name": "Hào Trư Lĩnh",
+"gloss": "Porcupine Ridge",
+"kind": "beast_lair",
+"region": 10,
+"biome": "temperate forest",
+"elev_km": 0.32,
+"qi": {
+"moc": 30,
+"hoa": 24,
+"tho": 29,
+"kim": 11,
+"thuy": 7
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 423,
+"name": "Dã Tang Lâm",
+"gloss": "Wild Mulberry Wood",
+"kind": "forest",
+"region": 13,
+"biome": "temperate forest",
+"elev_km": 0.01,
+"qi": {
+"moc": 39,
+"hoa": 17,
+"tho": 21,
+"kim": 10,
+"thuy": 14
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 416,
+"name": "Bảo Thụ Lâm",
+"gloss": "Wood of the Jewel Trees",
+"kind": "forest",
+"region": 11,
+"biome": "temperate forest",
+"elev_km": 0.1,
+"qi": {
+"moc": 35,
+"hoa": 19,
+"tho": 23,
+"kim": 10,
+"thuy": 13
+},
+"variants": {},
+"density": 1.04,
+"note": ""
+},
+{
+"id": 366,
+"name": "Lạc Nhạn Hồ",
+"gloss": "Lake Where the Geese Alight",
+"kind": "lake",
+"region": 11,
+"biome": "grassland",
+"elev_km": 0.0,
+"qi": {
+"moc": 19,
+"hoa": 20,
+"tho": 30,
+"kim": 12,
+"thuy": 18
+},
+"variants": {},
+"density": 1.02,
+"note": ""
+},
+{
+"id": 482,
+"name": "Phong Sào Thôn",
+"gloss": "Beehive Village",
+"kind": "village",
+"region": 10,
+"biome": "jungle",
+"elev_km": 0.04,
+"qi": {
+"moc": 46,
+"hoa": 23,
+"tho": 6,
+"kim": 5,
+"thuy": 20
+},
+"variants": {},
+"density": 1.02,
+"note": ""
+}
+],
+"ground_place_count": 205,
+"events": [
+{
+"id": "A159",
+"tier": "annal",
+"year": 200,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Salt pans dug at Diêm Điền on the west coast make the continent's first sea salt.",
+"place": 131,
+"region": 11
+},
+{
+"id": "A144",
+"tier": "annal",
+"year": 230,
+"kind": "trade",
+"people": [],
+"sects": [],
+"text_en": "Islanders gather shells on the white beach of Bối Sa to trade as coins on the mainland.",
+"place": 122,
+"region": 10
+},
+{
+"id": "C063",
+"tier": "landmark",
+"year": 240,
+"kind": "item_made",
+"people": [
+"dao_tan_phan"
+],
+"sects": [
+"lac_anh"
+],
+"text_en": "Đào Tân Phân forges the twin swords Phi Hồng and Tàn Hồng from one peach branch hardened by a thousand springs, and decrees that whoever holds both leads the school.",
+"place": 222,
+"item": "phi_hong"
+},
+{
+"id": "C069",
+"tier": "landmark",
+"year": 260,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_anh"
+],
+"text_en": "Lạc Anh Phái builds Hồng Vũ Thành on the Petal Shore.",
+"place": 222
+},
+{
+"id": "C004",
+"tier": "landmark",
+"year": 290,
+"kind": "sect_founded",
+"people": [
+"nhan_co_vu"
+],
+"sects": [
+"lac_ha"
+],
+"text_en": "Nhan Cô Vụ founds Lạc Hà Tông in the western lands where the sun goes down.",
+"place": 4
+},
+{
+"id": "A190",
+"tier": "annal",
+"year": 295,
+"kind": "settlement",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà's founder plants maples around the first hall; Phong Lâm Trấn grows among them.",
+"place": 79,
+"region": 13
+},
+{
+"id": "A160",
+"tier": "annal",
+"year": 300,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Swallows return to the same farm every spring for a hundred years; the village becomes Yến Quy.",
+"place": 128,
+"region": 11
+},
+{
+"id": "A191",
+"tier": "annal",
+"year": 320,
+"kind": "settlement",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "A market grows below Lạc Hà's seat among crane shoals and wild-duck isles; it is called Hạc Đinh Thị.",
+"place": 51,
+"region": 13
+},
+{
+"id": "A145",
+"tier": "annal",
+"year": 330,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The first mainland traders name the red cliffs of the island's east coast Xích Ngạn.",
+"place": 70,
+"region": 10
+},
+{
+"id": "C078",
+"tier": "landmark",
+"year": 330,
+"kind": "claim",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà Tông takes the bay of Thu Thủy Loan, all but Lạc Anh Phái's Petal Shore.",
+"region": 12
+},
+{
+"id": "C079",
+"tier": "landmark",
+"year": 330,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà Tông founds Tang Ma Thành among the mulberry and hemp fields of Ngư Ca Xuyên.",
+"place": 80
+},
+{
+"id": "A175",
+"tier": "annal",
+"year": 350,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"thien_bao",
+"lac_ha"
+],
+"text_en": "Thiên Bảo Trai is founded beside the bay as a refiners' workshop; its sign says the riches of the land are heaven's treasures.",
+"place": 20,
+"region": 12
+},
+{
+"id": "A176",
+"tier": "annal",
+"year": 360,
+"kind": "mine",
+"people": [],
+"sects": [
+"thien_bao"
+],
+"text_en": "Red gold is found at Xích Kim; Thiên Bảo Trai buys the mine before Lạc Hà's stewards hear of it.",
+"place": 169,
+"region": 12
+},
+{
+"id": "C082",
+"tier": "landmark",
+"year": 360,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_anh"
+],
+"text_en": "Lạc Anh Phái founds a city on the bay side of the Petal Shore; it will bear another name before it bears its last.",
+"place": 39
+},
+{
+"id": "C083",
+"tier": "landmark",
+"year": 360,
+"kind": "item_made",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà Tông forges twin swords for its armoury, Tử Điện and Thanh Sương, after the purple lightning and blue frost of an old general's blades.",
+"place": 4,
+"item": "tu_dien"
+},
+{
+"id": "A192",
+"tier": "annal",
+"year": 400,
+"kind": "trade",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Silver glints in the river shallows at Ngân Than; Lạc Hà pans it for its coin.",
+"place": 137,
+"region": 13
+},
+{
+"id": "A177",
+"tier": "annal",
+"year": 410,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Willows planted on the bank at Liễu Ngạn hold the river where it floods.",
+"place": 76,
+"region": 12
+},
+{
+"id": "C087",
+"tier": "landmark",
+"year": 410,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"co_pham"
+],
+"text_en": "Cô Phàm Các builds Đàm Ảnh Thành, and below it the harbour of Bích Không Cảng, from which its sails vanish into the blue.",
+"place": 37
+},
+{
+"id": "C088",
+"tier": "landmark",
+"year": 420,
+"kind": "claim",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà Tông extends its rule over the open grassland of Trường Thiên Nguyên.",
+"region": 11
+},
+{
+"id": "C089",
+"tier": "landmark",
+"year": 420,
+"kind": "item_made",
+"people": [
+"giang_bich_khong"
+],
+"sects": [
+"co_pham"
+],
+"text_en": "Giang Bích Không makes the Viễn Ảnh Châm, a needle that always points to the last ship to leave port.",
+"place": 226,
+"item": "vien_anh_cham"
+},
+{
+"id": "A161",
+"tier": "annal",
+"year": 430,
+"kind": "settlement",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà's rule brings fishing weirs to the plain's rivers; Ngư Lương Trấn grows around the largest.",
+"place": 75,
+"region": 11
+},
+{
+"id": "A178",
+"tier": "annal",
+"year": 450,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The Sea Gate at Hải Môn Thôn is a rock arch the tide runs through twice a day.",
+"place": 134,
+"region": 12
+},
+{
+"id": "C092",
+"tier": "landmark",
+"year": 450,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà Tông founds Nhạn Thanh Thành on the western plain, where the wild geese fly in formation.",
+"place": 38
+},
+{
+"id": "A162",
+"tier": "annal",
+"year": 470,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Wild ducks crowd the isle of Phù Chử so thickly that boats must wait for them to move.",
+"place": 195,
+"region": 11
+},
+{
+"id": "A193",
+"tier": "annal",
+"year": 470,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The Tạ family, once great in another land, come to Phong Lâm with nothing but their name, and the swallows of their old hall follow them.",
+"place": 79,
+"region": 13
+},
+{
+"id": "A179",
+"tier": "annal",
+"year": 500,
+"kind": "settlement",
+"people": [],
+"sects": [
+"thien_bao"
+],
+"text_en": "A market for the land's riches grows beside Thiên Bảo Trai; it is called Vật Hoa Thị.",
+"place": 50,
+"region": 12
+},
+{
+"id": "C101",
+"tier": "landmark",
+"year": 500,
+"kind": "oath",
+"people": [
+"giang_bich_khong",
+"nhan_co_vu"
+],
+"sects": [
+"co_pham",
+"lac_ha"
+],
+"text_en": "In the Strait Oath, Giang Bích Không swears Cô Phàm Các to Lạc Hà Tông; Cô Vụ Đảo becomes Lạc Hà's land.",
+"region": 10
+},
+{
+"id": "C103",
+"tier": "landmark",
+"year": 502,
+"kind": "war_start",
+"people": [
+"ky_tung_an",
+"nhan_co_vu",
+"chung_hoai_cuc"
+],
+"sects": [
+"tung_dao",
+"lac_ha",
+"thien_xu"
+],
+"text_en": "Tùng Đào Cung and Lạc Hà Tông march together on the heart of the continent; Kỳ Tùng Ẩn breaks the peace of the three days.",
+"region": 14,
+"war": "pivot"
+},
+{
+"id": "C104",
+"tier": "landmark",
+"year": 503,
+"kind": "fort_built",
+"people": [],
+"sects": [
+"tung_dao",
+"lac_ha"
+],
+"text_en": "The allies raise Thiết Tỏa Quan and stretch an iron chain across the river road to the heart.",
+"place": 229,
+"war": "pivot"
+},
+{
+"id": "C105",
+"tier": "landmark",
+"year": 508,
+"kind": "battle",
+"people": [
+"chung_hoai_cuc"
+],
+"sects": [
+"thien_xu",
+"tung_dao",
+"lac_ha"
+],
+"text_en": "Thiên Xu Tông breaks Thiết Tỏa Quan; the thousand-fathom chain sinks to the river bed.",
+"place": 229,
+"war": "pivot"
+},
+{
+"id": "C106",
+"tier": "landmark",
+"year": 509,
+"kind": "war_end",
+"people": [
+"chung_hoai_cuc",
+"ky_tung_an",
+"nhan_co_vu"
+],
+"sects": [
+"thien_xu",
+"tung_dao",
+"lac_ha"
+],
+"text_en": "The War of the Pivot ends: Thiên Xu Tông has beaten Tùng Đào and Lạc Hà together, and takes no land.",
+"region": 14,
+"war": "pivot"
+},
+{
+"id": "C107",
+"tier": "landmark",
+"year": 510,
+"kind": "compact",
+"people": [
+"chung_hoai_cuc"
+],
+"sects": [
+"thien_xu",
+"tung_dao",
+"lac_ha",
+"thinh_vu",
+"bang_tam",
+"phuong_minh",
+"thuy_vi"
+],
+"text_en": "In Thạch Kiều Thành, Chung Hoài Cực sets the North Star Compact before the seven sects and stamps it with the Bắc Thần Ấn: land changes hands only by a fall, a gift, an oath or a war the Pivot licenses by writ, and Thiên Xu Tông will enforce it.",
+"place": 81,
+"item": "bac_than_an"
+},
+{
+"id": "A147",
+"tier": "annal",
+"year": 520,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"binh_thuy",
+"lac_ha"
+],
+"text_en": "Strangers far from home, meeting on the island like duckweed on water, found Bình Thủy Môn.",
+"place": 18,
+"region": 10
+},
+{
+"id": "A163",
+"tier": "annal",
+"year": 520,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "A ford on the plain's widest river becomes Chu Tân Thôn.",
+"place": 129,
+"region": 11
+},
+{
+"id": "A148",
+"tier": "annal",
+"year": 525,
+"kind": "settlement",
+"people": [],
+"sects": [
+"binh_thuy"
+],
+"text_en": "A market of chance meetings grows beside Bình Thủy Môn; it is called Tương Phùng Thị.",
+"place": 49,
+"region": 10
+},
+{
+"id": "C113",
+"tier": "landmark",
+"year": 540,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà Tông founds Triều Âm Thành on the western shore of Cô Vụ Đảo.",
+"place": 72
+},
+{
+"id": "A194",
+"tier": "annal",
+"year": 560,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Petals float down the brook at Hoa Khê every spring; lovers drop their names into it.",
+"place": 136,
+"region": 13
+},
+{
+"id": "A149",
+"tier": "annal",
+"year": 600,
+"kind": "trade",
+"people": [],
+"sects": [],
+"text_en": "Sea swallows nest so thickly under the eaves of Hải Yến Trấn that its people sell the nests to alchemists.",
+"place": 71,
+"region": 10
+},
+{
+"id": "A164",
+"tier": "annal",
+"year": 600,
+"kind": "tale",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "The westernmost island, Tịch Chiếu, is the last land to see the sunset; Lạc Hà's elders go there to die.",
+"place": 196,
+"region": 11
+},
+{
+"id": "C122",
+"tier": "landmark",
+"year": 600,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà Tông builds Vô Định Thành on the river where three lands meet.",
+"place": 223
+},
+{
+"id": "C126",
+"tier": "landmark",
+"year": 612,
+"kind": "war_start",
+"people": [
+"nhan_co_vu",
+"pho_tieu_tuong"
+],
+"sects": [
+"lac_ha",
+"thinh_vu"
+],
+"text_en": "Lạc Hà Tông and Thính Vũ Lâu both claim the empty Petal Shore; their disciples fight in the burning orchards.",
+"region": 12,
+"war": "petal_shore"
+},
+{
+"id": "C127",
+"tier": "landmark",
+"year": 618,
+"kind": "city_ruined",
+"people": [],
+"sects": [
+"lac_ha",
+"thinh_vu"
+],
+"text_en": "Hồng Vũ Thành burns in the fighting; its petals and its ashes fall together like red rain.",
+"place": 222,
+"war": "petal_shore"
+},
+{
+"id": "V101",
+"tier": "annal",
+"year": 618,
+"kind": "siege",
+"people": [],
+"sects": [
+"lac_ha",
+"thinh_vu"
+],
+"text_en": "In the fighting between Lạc Hà and Thính Vũ over the empty Petal Shore, Hoa Ổ Viện burns with its peach orchards and is never rebuilt.",
+"place": 312,
+"region": 12
+},
+{
+"id": "V144",
+"tier": "annal",
+"year": 619,
+"kind": "tale",
+"people": [],
+"sects": [
+"lac_ha",
+"thinh_vu"
+],
+"text_en": "Lạc Hà and Thính Vũ disciples pass through Phi Anh Quán in the Petal Shore fighting, and when they have gone the abbey is empty.",
+"place": 806,
+"region": 18
+},
+{
+"id": "A180",
+"tier": "annal",
+"year": 620,
+"kind": "discovery",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà finds the Long River vein on its new border with Thính Vũ and names it Trường Hà Mạch.",
+"place": 207,
+"region": 12
+},
+{
+"id": "C128",
+"tier": "landmark",
+"year": 620,
+"kind": "war_end",
+"people": [
+"chung_hoai_cuc",
+"nhan_co_vu",
+"pho_tieu_tuong"
+],
+"sects": [
+"thien_xu",
+"lac_ha",
+"thinh_vu"
+],
+"text_en": "The Pivot's judgement divides the Petal Shore, the bay to Lạc Hà and the forest to Thính Vũ; Lạc Hà renames the bay city Tử Điện Thành, for its armoury.",
+"place": 39,
+"war": "petal_shore",
+"judgement": true
+},
+{
+"id": "A195",
+"tier": "annal",
+"year": 640,
+"kind": "trade",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Fragrant grass from Phương Thảo Thôn is woven into the mats of Lạc Hà's meditation halls.",
+"place": 138,
+"region": 13
+},
+{
+"id": "A165",
+"tier": "annal",
+"year": 680,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The green fields around Thanh Điền stretch so far that its farmers ride to their work.",
+"place": 73,
+"region": 11
+},
+{
+"id": "C137",
+"tier": "landmark",
+"year": 680,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà Tông founds Thảo Đường Thành among the farms of the western plain.",
+"place": 74
+},
+{
+"id": "A181",
+"tier": "annal",
+"year": 700,
+"kind": "trade",
+"people": [],
+"sects": [
+"thien_bao"
+],
+"text_en": "The brooks at Khê Đầu and Khê Thanh run so clear that Thiên Bảo Trai washes its finest refinings in them.",
+"place": 132,
+"region": 12
+},
+{
+"id": "C015",
+"tier": "landmark",
+"year": 705,
+"kind": "sect_fall",
+"people": [
+"ma_vien_anh"
+],
+"sects": [
+"co_pham",
+"lac_ha"
+],
+"text_en": "A storm sinks the whole fleet of Cô Phàm Các with its head Mã Viễn Ảnh; the Pavilion of the Lone Sail is lost at sea, and only its empty grounds remain.",
+"slot": "V-4"
+},
+{
+"id": "A150",
+"tier": "annal",
+"year": 706,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "A year after the fleet is lost, the widows of Bích Không Cảng leave the harbour; the empty quays face the blue.",
+"place": 226,
+"region": 10
+},
+{
+"id": "V089",
+"tier": "annal",
+"year": 708,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Three years after Cô Phàm's fleet was lost, the last watchers of Vọng Phàm Quán end their vigil and go down to Xích Ngạn.",
+"place": 411,
+"region": 10
+},
+{
+"id": "V094",
+"tier": "annal",
+"year": 712,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "Its ferrymen drawn away by the trade of Thảo Đường Thành, the landing of Dã Độ Trấn silts up, and only the ferry boat is left.",
+"place": 417,
+"region": 11
+},
+{
+"id": "A196",
+"tier": "annal",
+"year": 720,
+"kind": "disaster",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "The river mouth at Thủy Khẩu silts up; Lạc Hà's disciples dig it out by hand in one winter.",
+"place": 139,
+"region": 13
+},
+{
+"id": "A166",
+"tier": "annal",
+"year": 740,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"muc_van",
+"lac_ha"
+],
+"text_en": "Herders of the open plain found Mục Vân Trang to raise spirit horses that run like clouds.",
+"place": 19,
+"region": 11
+},
+{
+"id": "V090",
+"tier": "annal",
+"year": 748,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "Storm after storm has blown the beach sand into its wells and lanes, and the last families leave Hải Khúc Trấn.",
+"place": 464,
+"region": 10
+},
+{
+"id": "A151",
+"tier": "annal",
+"year": 750,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Willows planted on the dunes at Dương Liễu Thôn hold the island's sand against the storms.",
+"place": 124,
+"region": 10
+},
+{
+"id": "C149",
+"tier": "landmark",
+"year": 760,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"kim_coc",
+"lac_ha"
+],
+"text_en": "Merchants of Thu Thủy Loan found Kim Cốc Viên, a garden of trade under Lạc Hà Tông, and build Kim Cốc Thành around it.",
+"place": 219
+},
+{
+"id": "C152",
+"tier": "landmark",
+"year": 776,
+"kind": "war_start",
+"people": [
+"do_tinh_ha",
+"ngo_the_dong",
+"nhan_co_vu",
+"o_kinh_hai"
+],
+"sects": [
+"thien_xu",
+"phuong_minh",
+"lac_ha",
+"thon_hai"
+],
+"text_en": "Đỗ Tinh Hà calls the Pirate Purge; Phượng Minh's and Lạc Hà's fleets sail under the Pivot's writ, and Thạch Cơ Thành rises around their stone jetty.",
+"place": 93,
+"war": "pirate_purge",
+"writ": true
+},
+{
+"id": "C153",
+"tier": "landmark",
+"year": 781,
+"kind": "war_end",
+"people": [
+"o_kinh_hai"
+],
+"sects": [
+"thien_xu",
+"phuong_minh",
+"lac_ha",
+"thon_hai"
+],
+"text_en": "The Purge ends at Thôn Hải Môn: Ô Kình Hải dies on his islet and his sabre Kình Nha is lost in the burning hold.",
+"place": 217,
+"item": "kinh_nha",
+"war": "pirate_purge"
+},
+{
+"id": "C155",
+"tier": "landmark",
+"year": 788,
+"kind": "pact",
+"people": [
+"nhan_co_vu",
+"pho_tieu_tuong"
+],
+"sects": [
+"lac_ha",
+"thinh_vu"
+],
+"text_en": "Nhan Cô Vụ and Phó Tiêu Tương meet on the Petal Shore they once fought over, and swear to end the Pivot's oversight.",
+"region": 12
+},
+{
+"id": "C016",
+"tier": "landmark",
+"year": 790,
+"kind": "sect_war",
+"people": [
+"quy_truong_kich",
+"do_tinh_ha",
+"loi_vo_danh",
+"nhan_co_vu",
+"pho_tieu_tuong"
+],
+"sects": [
+"thien_xu",
+"lac_ha",
+"thinh_vu"
+],
+"text_en": "War breaks out on the border plain where three sects' lands meet: Thiên Xu Tông, under its war marshal Quý Trường Kích, against Lạc Hà Tông and Thính Vũ Lâu, whose founders Nhan Cô Vụ and Phó Tiêu Tương take the field.",
+"feature": "Chiết Kích Nguyên",
+"tile": [
+244,
+211
+]
+},
+{
+"id": "A152",
+"tier": "annal",
+"year": 800,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Đàm Ảnh Thành's still pool mirrors the clouds so clearly that painters come from the mainland to paint the sky upside down.",
+"place": 37,
+"region": 10
+},
+{
+"id": "A167",
+"tier": "annal",
+"year": 800,
+"kind": "settlement",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "A reed harbour at Lô Cảng shelters the coast boats; Lạc Hà builds its western watch there.",
+"place": 130,
+"region": 11
+},
+{
+"id": "A197",
+"tier": "annal",
+"year": 803,
+"kind": "tale",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "News of the battle reaches Lạc Hà's seat; the fishing boats do not sing that dusk, for the first time in six hundred years.",
+"place": 4,
+"region": 13
+},
+{
+"id": "C017",
+"tier": "landmark",
+"year": 803,
+"kind": "battle",
+"people": [
+"quy_truong_kich",
+"loi_vo_danh",
+"do_tinh_ha",
+"nhan_co_vu",
+"pho_tieu_tuong"
+],
+"sects": [
+"thien_xu",
+"lac_ha",
+"thinh_vu"
+],
+"text_en": "At Chiết Kích Nguyên the war ends in one day. Quý Trường Kích falls and ten thousand die with him; the plain is poisoned with miasma, and the Vạn Cốt Trủng rises over the dead. His lieutenant Lôi Vô Danh escapes and is never seen in the sect again.",
+"feature": "Chiết Kích Nguyên",
+"tile": [
+244,
+211
+]
+},
+{
+"id": "C158",
+"tier": "landmark",
+"year": 803,
+"kind": "city_ruined",
+"people": [],
+"sects": [
+"lac_ha",
+"thien_xu",
+"thinh_vu"
+],
+"text_en": "Vô Định Thành burns in the battle on the plain, and the miasma takes what is left; its dead are still dreamed of in the river towns.",
+"place": 223,
+"war": "broken_halberds"
+},
+{
+"id": "C159",
+"tier": "landmark",
+"year": 803,
+"kind": "item_lost",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Lạc Hà's sword Thanh Sương falls from its bearer's hand on Chiết Kích Nguyên; no one dares go back for it.",
+"feature": "Chiết Kích Nguyên",
+"tile": [
+244,
+211
+],
+"item": "thanh_suong",
+"war": "broken_halberds"
+},
+{
+"id": "V091",
+"tier": "annal",
+"year": 803,
+"kind": "festival",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "When the boats fall silent after Chiết Kích Nguyên, Xướng Vãn Thôn keeps silent for a year; it still sings one verse fewer than its neighbours.",
+"place": 458,
+"region": 10
+},
+{
+"id": "V095",
+"tier": "annal",
+"year": 803,
+"kind": "festival",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "In the year of Chiết Kích Nguyên the fishers of Vãn Chu Thôn stay ashore at dusk; they still stay ashore on that dusk every year.",
+"place": 490,
+"region": 11
+},
+{
+"id": "V103",
+"tier": "annal",
+"year": 803,
+"kind": "festival",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "The reed flutes of Lô Địch Thôn fall silent with the boats; the village still plays one tune less on that dusk.",
+"place": 538,
+"region": 13
+},
+{
+"id": "V104",
+"tier": "annal",
+"year": 803,
+"kind": "festival",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "The fishers of Vãn Đăng Thôn light their stern lamps but do not put out; they keep this mourning on the same dusk ever after.",
+"place": 555,
+"region": 13
+},
+{
+"id": "A182",
+"tier": "annal",
+"year": 805,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "Refugees from Vô Định Thành found Tân Khẩu Thôn at the harbour mouth and never speak of the plain.",
+"place": 135,
+"region": 12
+},
+{
+"id": "C018",
+"tier": "landmark",
+"year": 805,
+"kind": "truce",
+"people": [
+"nhan_co_vu",
+"pho_tieu_tuong",
+"do_tinh_ha"
+],
+"sects": [
+"thien_xu",
+"lac_ha",
+"thinh_vu"
+],
+"text_en": "The three sects sign a truce and leave the poisoned plain empty between their lands.",
+"feature": "Chiết Kích Nguyên",
+"tile": [
+244,
+211
+]
+},
+{
+"id": "C161",
+"tier": "landmark",
+"year": 805,
+"kind": "compact",
+"people": [
+"do_tinh_ha",
+"nhan_co_vu",
+"pho_tieu_tuong"
+],
+"sects": [
+"thien_xu",
+"lac_ha",
+"thinh_vu"
+],
+"text_en": "At the truce the North Star Compact is sworn again; Lạc Hà and Thính Vũ set their seals beside the Bắc Thần Ấn.",
+"feature": "Chiết Kích Nguyên",
+"tile": [
+244,
+211
+],
+"item": "bac_than_an"
+},
+{
+"id": "V096",
+"tier": "annal",
+"year": 806,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"nhan_tran",
+"lac_ha"
+],
+"text_en": "Survivors of Chiết Kích Nguyên found Nhạn Trận Môn under Lạc Hà Tông, swearing its disciples will never again fight in loose order.",
+"place": 367,
+"region": 11
+},
+{
+"id": "V097",
+"tier": "annal",
+"year": 860,
+"kind": "city_abandoned",
+"people": [],
+"sects": [],
+"text_en": "The river has wandered away from Di Hà Trấn; its quay faces only grass, and the last boatmen leave.",
+"place": 414,
+"region": 11
+},
+{
+"id": "A153",
+"tier": "annal",
+"year": 870,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "The moon-shaped cove at Nguyệt Loan shelters the island's fishing fleet from the great storm of 870.",
+"place": 126,
+"region": 10
+},
+{
+"id": "V098",
+"tier": "annal",
+"year": 870,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "A great storm breaks the sea wall of Ngư Hỏa Trấn and sinks its lamp-fishing fleet in the harbour; the survivors move to Di Tân.",
+"place": 499,
+"region": 11
+},
+{
+"id": "A198",
+"tier": "annal",
+"year": 880,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"nam_pho",
+"lac_ha"
+],
+"text_en": "Talisman scribes who painted the clouds of the southern shore found Nam Phố Đường under Lạc Hà.",
+"place": 21,
+"region": 13
+},
+{
+"id": "A168",
+"tier": "annal",
+"year": 890,
+"kind": "settlement",
+"people": [],
+"sects": [],
+"text_en": "The gardens and fields of Điền Viên feed the scholars of Nhạn Thanh Thành, who retire there to farm.",
+"place": 127,
+"region": 11
+},
+{
+"id": "A183",
+"tier": "annal",
+"year": 900,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "A gentle sea breeze keeps Hòa Phong Trấn free of fever in the year of the southern plague.",
+"place": 77,
+"region": 12
+},
+{
+"id": "V092",
+"tier": "annal",
+"year": 905,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"nhan_van",
+"lac_ha"
+],
+"text_en": "Painters drawn to the pool of Đàm Ảnh Thành found Nhàn Vân Quán under Lạc Hà Tông and learn to paint with qi in the ink.",
+"place": 364,
+"region": 10
+},
+{
+"id": "V105",
+"tier": "annal",
+"year": 912,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "The ground under the market of Hãm Thạch Trấn falls into a cave; the lime-burners leave within a year and never build on bare karst again.",
+"place": 548,
+"region": 13
+},
+{
+"id": "A199",
+"tier": "annal",
+"year": 930,
+"kind": "birth",
+"people": [
+"chau_phi_van"
+],
+"sects": [],
+"text_en": "Châu Phi Vân is born in Tang Ma Thành; at four she draws her first talisman in mulberry juice.",
+"place": 80,
+"region": 13
+},
+{
+"id": "A169",
+"tier": "annal",
+"year": 940,
+"kind": "birth",
+"people": [
+"khau_muc_van"
+],
+"sects": [],
+"text_en": "Khấu Mục Vân is born in Thanh Điền; a spirit foal is born the same night and will let no one else ride it.",
+"place": 73,
+"region": 11
+},
+{
+"id": "C169",
+"tier": "landmark",
+"year": 940,
+"kind": "headship",
+"people": [
+"nhan_co_vu",
+"tram_tich_duong"
+],
+"sects": [
+"lac_ha"
+],
+"text_en": "Nhan Cô Vụ dies at 790; Trầm Tịch Dương becomes the second head of Lạc Hà Tông.",
+"place": 4
+},
+{
+"id": "A154",
+"tier": "annal",
+"year": 960,
+"kind": "discovery",
+"people": [],
+"sects": [],
+"text_en": "Wave Rock at Lãng Thạch Thôn splits in a storm, and a sea cave full of old Cô Phàm charts is found inside.",
+"place": 123,
+"region": 10
+},
+{
+"id": "V102",
+"tier": "annal",
+"year": 960,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"minh_loan",
+"lac_ha"
+],
+"text_en": "Bell-casters found Minh Loan Các under Lạc Hà Tông and cast ward bells whose note drives off beasts and warns of attack.",
+"place": 527,
+"region": 12
+},
+{
+"id": "V099",
+"tier": "annal",
+"year": 988,
+"kind": "disaster",
+"people": [],
+"sects": [],
+"text_en": "A storm surge breaks the sea wall of Triều Một Trấn and drowns its lower streets; the salt traders move up the coast to Diêm Điền.",
+"place": 311,
+"region": 11
+},
+{
+"id": "A200",
+"tier": "annal",
+"year": 1000,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "The Tạ and the Vương, old rival clans now far apart, exchange letters for the first time in four hundred years.",
+"place": 79,
+"region": 13
+},
+{
+"id": "C174",
+"tier": "landmark",
+"year": 1003,
+"kind": "sect_fall",
+"people": [],
+"sects": [
+"kim_coc",
+"lac_ha"
+],
+"text_en": "Kim Cốc Viên collapses in a market crash and a great fire; Kim Cốc Thành burns, and the pearl Lục Châu is lost in the ashes.",
+"place": 219,
+"item": "luc_chau"
+},
+{
+"id": "A184",
+"tier": "annal",
+"year": 1004,
+"kind": "tale",
+"people": [],
+"sects": [
+"thien_bao",
+"kim_coc"
+],
+"text_en": "A year after Kim Cốc burns, its merchants beg in Vật Hoa Thị; Thiên Bảo Trai hires the ones who can still count.",
+"place": 50,
+"region": 12
+},
+{
+"id": "C176",
+"tier": "landmark",
+"year": 1010,
+"kind": "city_founded",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "Ngũ Cốc Thành grows rich on the trade Kim Cốc lost.",
+"place": 78
+},
+{
+"id": "A170",
+"tier": "annal",
+"year": 1040,
+"kind": "trade",
+"people": [
+"kim_van_ly"
+],
+"sects": [],
+"text_en": "Kim Vạn Lý buys the wool of the whole plain in one season and becomes the richest merchant of the west.",
+"place": 38,
+"region": 11
+},
+{
+"id": "V106",
+"tier": "annal",
+"year": 1040,
+"kind": "city_abandoned",
+"people": [],
+"sects": [
+"lac_ha"
+],
+"text_en": "The silver of Vân Kiều Trấn is gone, and its miners move down to Vân Gian; the cloud bridge breaks in a storm a few years later.",
+"place": 558,
+"region": 13
+},
+{
+"id": "A185",
+"tier": "annal",
+"year": 1050,
+"kind": "headship",
+"people": [
+"phan_vat_hoa"
+],
+"sects": [
+"thien_bao"
+],
+"text_en": "Phan Vật Hoa becomes mistress of Thiên Bảo Trai and holds a treasure auction every season.",
+"place": 20,
+"region": 12
+},
+{
+"id": "C180",
+"tier": "landmark",
+"year": 1060,
+"kind": "tribulation_death",
+"people": [
+"doan_thuong_hai"
+],
+"sects": [],
+"text_en": "A Hóa Thần tribulation over the island sea kills the master of Đoạn Thương Hải; he survives it, blind, holding the Thương Tang Kính.",
+"place": 37,
+"item": "thuong_tang_kinh"
+},
+{
+"id": "A155",
+"tier": "annal",
+"year": 1062,
+"kind": "tale",
+"people": [
+"doan_thuong_hai"
+],
+"sects": [],
+"text_en": "Blind after the tribulation, Đoạn Thương Hải settles in Đàm Ảnh Thành and listens to the pool instead of looking at it.",
+"place": 37,
+"region": 10
+},
+{
+"id": "V107",
+"tier": "annal",
+"year": 1065,
+"kind": "sect_founded",
+"people": [],
+"sects": [
+"yen_quang",
+"lac_ha"
+],
+"text_en": "Alchemists sworn to Lạc Hà Tông found Yên Quang Các and pick their herbs only in the hour of the evening glow.",
+"place": 537,
+"region": 13
+},
+{
+"id": "A201",
+"tier": "annal",
+"year": 1100,
+"kind": "trade",
+"people": [],
+"sects": [
+"lang_dao"
+],
+"text_en": "Tang Ma Thành's hemp ropes are so strong that Lãng Đào's ferrymen will buy no other.",
+"place": 80,
+"region": 13
+},
+{
+"id": "V093",
+"tier": "annal",
+"year": 1102,
+"kind": "tale",
+"people": [],
+"sects": [
+"binh_thuy"
+],
+"text_en": "The last master of Phiêu Bồng Quán dies with no disciple willing to stay, and leaves its books to Bình Thủy Môn.",
+"place": 380,
+"region": 10
+},
+{
+"id": "C183",
+"tier": "landmark",
+"year": 1105,
+"kind": "tale",
+"people": [
+"lac_dan_thanh"
+],
+"sects": [],
+"text_en": "Lạc Đan Thanh buys the Đào Nguyên Đồ at Vật Hoa Thị for a pill no one else could make.",
+"place": 50,
+"item": "dao_nguyen_do"
+},
+{
+"id": "A156",
+"tier": "annal",
+"year": 1110,
+"kind": "headship",
+"people": [
+"bui_phieu_binh"
+],
+"sects": [
+"binh_thuy"
+],
+"text_en": "Bùi Phiêu Bình becomes head of Bình Thủy Môn; under him the strait crossing runs every day of the year.",
+"place": 18,
+"region": 10
+},
+{
+"id": "A186",
+"tier": "annal",
+"year": 1110,
+"kind": "trade",
+"people": [
+"lac_dan_thanh"
+],
+"sects": [],
+"text_en": "Lạc Đan Thanh sets up his pill stall in Vật Hoa Thị and charges whatever he likes.",
+"place": 50,
+"region": 12
+},
+{
+"id": "A171",
+"tier": "annal",
+"year": 1120,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Wild geese fly so low over Nhạn Thanh Thành in a cold year that archers shoot them from the walls; the city forbids it ever after.",
+"place": 38,
+"region": 11
+},
+{
+"id": "V100",
+"tier": "annal",
+"year": 1121,
+"kind": "tale",
+"people": [],
+"sects": [
+"lac_ha",
+"muc_van"
+],
+"text_en": "The cold year has killed the herds and the old master of Phù Dao Quán, and its few disciples go to serve Mục Vân Trang.",
+"place": 496,
+"region": 11
+},
+{
+"id": "C191",
+"tier": "landmark",
+"year": 1160,
+"kind": "headship",
+"people": [
+"tram_tich_duong",
+"to_van_chieu"
+],
+"sects": [
+"lac_ha"
+],
+"text_en": "Trầm Tịch Dương steps down; his disciple Tô Vãn Chiếu becomes head of Lạc Hà Tông and takes the sword Tử Điện.",
+"place": 4,
+"item": "tu_dien"
+},
+{
+"id": "C192",
+"tier": "landmark",
+"year": 1172,
+"kind": "war_start",
+"people": [
+"dam_tung_lai",
+"to_van_chieu",
+"giang_cuu_khuc"
+],
+"sects": [
+"tung_dao",
+"lac_ha",
+"lang_dao"
+],
+"text_en": "Tùng Đào and Lạc Hà fight over the river tolls on the Ngư Ca border; Lãng Đào Môn's ferries burn.",
+"region": 13,
+"war": "ferry"
+},
+{
+"id": "A080",
+"tier": "annal",
+"year": 1173,
+"kind": "raid",
+"people": [],
+"sects": [
+"lac_ha",
+"lang_dao"
+],
+"text_en": "In the Ferry War, Lạc Hà raiders burn Lãng Đào's boats at the Đào Sa landing; the gold-washers fish nails from the river for years.",
+"place": 47,
+"region": 5
+},
+{
+"id": "A202",
+"tier": "annal",
+"year": 1174,
+"kind": "raid",
+"people": [],
+"sects": [
+"tung_dao",
+"lac_ha"
+],
+"text_en": "In the Ferry War, Tùng Đào raiders cut every rope bridge on the Ngư Ca border; Tang Ma weaves new ones in a month.",
+"place": 80,
+"region": 13
+},
+{
+"id": "C193",
+"tier": "landmark",
+"year": 1175,
+"kind": "war_end",
+"people": [
+"dam_tung_lai",
+"to_van_chieu"
+],
+"sects": [
+"tung_dao",
+"lac_ha"
+],
+"text_en": "The Ferry War ends with the tolls split and no land changed; neither side forgives.",
+"region": 13,
+"war": "ferry"
+},
+{
+"id": "C194",
+"tier": "landmark",
+"year": 1176,
+"kind": "birth",
+"people": [
+"to_mo_van"
+],
+"sects": [
+"lac_ha"
+],
+"text_en": "A girl is born in Lạc Hà Tông on the day the evening glow fills the whole sky; she is named Tô Mộ Vân.",
+"place": 4
+},
+{
+"id": "A187",
+"tier": "annal",
+"year": 1180,
+"kind": "omen",
+"people": [],
+"sects": [],
+"text_en": "Ghost lights are seen on the ruins of Hồng Vũ Thành every spring when the peach trees bloom.",
+"place": 222,
+"region": 12
+},
+{
+"id": "A172",
+"tier": "annal",
+"year": 1185,
+"kind": "festival",
+"people": [
+"kim_van_ly"
+],
+"sects": [
+"muc_van",
+"lac_ha"
+],
+"text_en": "Mục Vân Trang's horses win every race at the Lạc Hà festival; Kim Vạn Lý bets on them and loses anyway.",
+"place": 19,
+"region": 11
+},
+{
+"id": "A157",
+"tier": "annal",
+"year": 1190,
+"kind": "beast",
+"people": [],
+"sects": [],
+"text_en": "On the sunny sands of Tình Sa a stranded whale lives for three days; the island gives it back to the sea.",
+"place": 125,
+"region": 10
+},
+{
+"id": "A203",
+"tier": "annal",
+"year": 1190,
+"kind": "tale",
+"people": [
+"to_mo_van"
+],
+"sects": [
+"lac_ha",
+"nam_pho"
+],
+"text_en": "Tô Mộ Vân, fourteen, wins the talisman contest at Hạc Đinh Thị against the scribes of Nam Phố Đường.",
+"place": 51,
+"region": 13
+},
+{
+"id": "A188",
+"tier": "annal",
+"year": 1196,
+"kind": "tale",
+"people": [],
+"sects": [],
+"text_en": "Children of Tân Khẩu dare each other to touch the edge of the miasma by Vô Định Thành; one doesn't come back.",
+"place": 223,
+"region": 12
+}
+],
+"territory": {
+"land_changes": [
+{
+"year": 290,
+"land": 13,
+"from": null,
+"to": "lac_ha",
+"how": "founding",
+"chronicle_event": "C004"
+},
+{
+"year": 330,
+"land": 12,
+"from": null,
+"to": "lac_ha",
+"how": "claim",
+"except": "part:petal_shore",
+"chronicle_event": "C078"
+},
+{
+"year": 420,
+"land": 11,
+"from": null,
+"to": "lac_ha",
+"how": "claim",
+"chronicle_event": "C088"
+},
+{
+"year": 500,
+"land": 10,
+"from": "co_pham",
+"to": "lac_ha",
+"how": "oath",
+"event": "strait_oath",
+"chronicle_event": "C101"
+},
+{
+"year": 620,
+"land": "part:petal_shore_bay",
+"parts_of": [
+12
+],
+"from": null,
+"to": "lac_ha",
+"how": "judgement",
+"war": "petal_shore",
+"chronicle_event": "C128"
+}
+],
+"wars": [
+{
+"key": "pivot",
+"years": [
+502,
+509
+],
+"name": "War of the Pivot",
+"name_hv": "Tranh Xu Chi Chiến",
+"sides": [
+[
+"tung_dao",
+"lac_ha"
+],
+[
+"thien_xu"
+]
+],
+"outcome": "Tùng Đào and Lạc Hà try to take the heart of the continent, the crossroads of every route. Thiên Xu beats both, takes no land, and imposes the North Star Compact in 510."
+},
+{
+"key": "petal_shore",
+"years": [
+612,
+620
+],
+"name": "War of the Petal Shore",
+"name_hv": "Lạc Anh Chi Chiến",
+"sides": [
+[
+"thinh_vu"
+],
+[
+"lac_ha"
+]
+],
+"outcome": "The two fight over the land of the vanished Lạc Anh Phái; the Pivot's judgement of 620 splits it, the bay to Lạc Hà and the forest to Thính Vũ."
+},
+{
+"key": "pirate_purge",
+"years": [
+776,
+781
+],
+"name": "The Pirate Purge",
+"name_hv": "Thanh Hải Chi Dịch",
+"sides": [
+[
+"thien_xu",
+"phuong_minh",
+"lac_ha"
+],
+[
+"thon_hai"
+]
+],
+"outcome": "Called and led by Thiên Xu with Phượng Minh's and Lạc Hà's fleets; the ma đạo pirates of Thôn Hải Môn are destroyed."
+},
+{
+"key": "broken_halberds",
+"years": [
+790,
+805
+],
+"name": "War of Broken Halberds",
+"name_hv": "Chiết Kích Chi Chiến",
+"sides": [
+[
+"lac_ha",
+"thinh_vu"
+],
+[
+"thien_xu"
+]
+],
+"outcome": "Lạc Hà and Thính Vũ break the Compact together. The war ends in one day at Chiết Kích Nguyên in 803; Thiên Xu holds but loses its marshal and ten thousand dead; the 805 truce renews the Compact and leaves the poisoned plain empty.",
+"approved_event": "C016, C017, C018"
+},
+{
+"key": "ferry",
+"years": [
+1172,
+1175
+],
+"name": "Ferry War",
+"name_hv": "Độ Khẩu Chi Chiến",
+"sides": [
+[
+"tung_dao"
+],
+[
+"lac_ha"
+]
+],
+"outcome": "Over river tolls on the Ngư Ca border; no land changes."
+}
+],
+"vassal_lord_changes": [
+{
+"sect": "co_pham",
+"year": 500,
+"from": null,
+"to": "lac_ha",
+"how": "the Strait Oath"
+}
+],
+"grudges": [
+{
+"pair": [
+"thien_xu",
+"lac_ha"
+],
+"g": -10,
+"from": [
+"broken_halberds"
+]
+},
+{
+"pair": [
+"tung_dao",
+"lac_ha"
+],
+"g": -10,
+"from": [
+"ferry"
+]
+}
+],
+"other_events": [
+{
+"key": "strait_oath",
+"year": 500,
+"text": "Cô Phàm Các swears to Lạc Hà Tông; Cô Vụ Đảo becomes Lạc Hà's and the sea sect its vassal until it is lost at sea in 705 (C015)."
+}
+]
+},
+"cast": [
+{
+"key": "to_van_chieu",
+"name": "Tô Vãn Chiếu",
+"name_han": "蘇晚照",
+"gloss": "Vãn chiếu is the glow of the evening sun",
+"sex": "F",
+"born": 890,
+"alive": true,
+"sect": "lac_ha",
+"rank": "tong_chu",
+"role": "Head of Lạc Hà Tông",
+"realm": "nguyen_anh",
+"home": 4,
+"traits": {
+"personality": [
+"Gregarious",
+"Pragmatic",
+"Diligent"
+],
+"calling": "Merchant",
+"fate_given": []
+},
+"master": "tram_tich_duong",
+"build": {
+"root": {
+"elements": {
+"tho": 80,
+"moc": 60,
+"kim": 52
+}
+},
+"thien_phu": {
+"ngo_tinh": 74,
+"can_cot": 62,
+"than_hon": 68,
+"khi_van": 70,
+"dao_tam": 70,
+"mi_luc": 80
+},
+"archetype": "phap_tu",
+"stage": 0,
+"main": {
+"tech": "thien_tho",
+"layer": 10
+},
+"aux": [
+{
+"tech": "hundred-blades-canon",
+"layer": 9
+}
+],
+"gear": [
+{
+"base": "tien_tieu",
+"grade": 4,
+"element": "kim"
+},
+{
+"base": "giap",
+"grade": 3,
+"element": "tho"
+},
+{
+"base": "ngoc_boi",
+"grade": 3,
+"element": "moc"
+}
+],
+"tree": {
+"start": "tho",
+"targets": [
+3432,
+3860,
+4296,
+4270,
+9012
+]
+},
+"skills": {},
+"note": "Lạc Hà's merchant head: Earth for standing, a purse of coins and a rain of blades for business, the sword Tử Điện at her hip"
+}
+},
+{
+"key": "nhan_co_vu",
+"name": "Nhan Cô Vụ",
+"name_han": "顏孤鶩",
+"gloss": "The lone wild duck (Vương Bột: lạc hà dữ cô vụ tề phi)",
+"sex": "M",
+"born": 150,
+"alive": false,
+"sect": "lac_ha",
+"rank": "founder",
+"role": "Founder of Lạc Hà Tông (year 290, at 140)",
+"peak_realm": "nguyen_anh",
+"died": 940,
+"cause": "old age at 790",
+"record": true
+},
+{
+"key": "tram_tich_duong",
+"name": "Trầm Tịch Dương",
+"name_han": "沈夕陽",
+"gloss": "The setting sun",
+"sex": "M",
+"born": 650,
+"alive": true,
+"sect": "lac_ha",
+"rank": "truong_lao",
+"role": "First elder of Lạc Hà Tông (age 550); its second head, 940-1160, who stepped down for his disciple, the head Tô Vãn Chiếu",
+"realm": "nguyen_anh",
+"home": 4,
+"traits": {
+"personality": [
+"Stubborn",
+"Greedy",
+"Cautious"
+],
+"calling": "Merchant",
+"fate_given": []
+},
+"build": {
+"root": {
+"elements": {
+"tho": 86,
+"moc": 56
+}
+},
+"thien_phu": {
+"ngo_tinh": 72,
+"can_cot": 78,
+"than_hon": 66,
+"khi_van": 62,
+"dao_tam": 80,
+"mi_luc": 58
+},
+"archetype": "phap_tu",
+"stage": 2,
+"main": {
+"tech": "thien_tho",
+"layer": 14
+},
+"aux": [
+{
+"tech": "ruin-ledger-scripture",
+"layer": 9
+}
+],
+"gear": [
+{
+"named": "general-mirror-of-second-seat"
+},
+{
+"base": "giap",
+"grade": 4,
+"element": "tho"
+},
+{
+"base": "thuan",
+"grade": 4,
+"element": "tho"
+}
+],
+"tree": {
+"start": "tho",
+"targets": [
+8999,
+3724,
+3838,
+9010,
+3177
+]
+},
+"skills": {},
+"note": "The retired head in the second seat: a stubborn, greedy wall of Earth who never moves and keeps a ledger of every debt"
+}
+},
+{
+"key": "to_mo_van",
+"name": "Tô Mộ Vân",
+"name_han": "蘇暮雲",
+"gloss": "Clouds at dusk",
+"sex": "F",
+"born": 1176,
+"alive": true,
+"sect": "lac_ha",
+"rank": "noi_mon",
+"role": "The head's youngest disciple, age 24: the world's brightest young talent",
+"realm": "luyen_khi",
+"home": 4,
+"traits": {
+"personality": [
+"Brave",
+"Diligent",
+"Forgiving"
+],
+"calling": "Talisman maker",
+"fate_given": [
+"Wise-born"
+]
+},
+"master": "to_van_chieu",
+"build": {
+"root": {
+"elements": {
+"tho": 78,
+"moc": 70,
+"thuy": 64
+}
+},
+"thien_phu": {
+"ngo_tinh": 96,
+"can_cot": 60,
+"than_hon": 76,
+"khi_van": 82,
+"dao_tam": 70,
+"mi_luc": 68
+},
+"archetype": "tran_su",
+"stage": 2,
+"main": {
+"tech": "mountain-heart-canon",
+"layer": 3
+},
+"aux": [],
+"gear": [
+{
+"base": "an",
+"grade": 2,
+"element": "thuy"
+}
+],
+"tree": {
+"start": "thuy",
+"targets": [
+4851,
+4830,
+4848
+]
+},
+"skills": {
+"phu_luc": 5
+},
+"note": "The world's brightest young talent: three good roots, a talisman hand that beat Nam Phố's scribes at fourteen"
+}
+}
+],
+"legendary_items": [
+{
+"key": "tu_dien",
+"kind": "sword",
+"role": "weapon",
+"made_by": "lac_ha",
+"made_year": 360,
+"story": "One of Vương Bột's twin swords of General Vương's armoury, after which Tử Điện Thành is named. Its twin was lost in 803.",
+"status": "held",
+"name": "Tử Điện",
+"name_han": "紫電",
+"gloss": "Purple Lightning",
+"element": "Thunder",
+"holder": "to_van_chieu",
+"pair": "thanh_suong"
+},
+{
+"key": "thanh_suong",
+"kind": "sword",
+"role": "weapon",
+"made_by": "lac_ha",
+"made_year": 360,
+"story": "Tử Điện's twin, dropped on the plain in 803.",
+"status": "lost",
+"name": "Thanh Sương",
+"name_han": "青霜",
+"gloss": "Blue Frost",
+"element": "Ice",
+"feature": "Chiết Kích Nguyên",
+"tile": [
+244,
+211
+],
+"pair": "tu_dien"
+}
+]
+}

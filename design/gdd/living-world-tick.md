@@ -5,6 +5,7 @@
 > **Last Updated**: 2026-11-15
 > **Last Verified**: 2026-11-15
 > **Implements Pillar**: A World That Remembers; Every Season Counts (game-concept.md § Game Pillars); anti-pillar: not a granular world simulation
+> **Amended 2026-11-25** (user rulings, world-depth pass: `design/world/depth/DECISIONS-2026-11-25.md` group 11): the intake floor `world_cultivators_min` is 5,000, was 3,000 (Formulas C, Edge Cases, AC-LW-09, AC-LW-27).
 
 ## Summary
 
@@ -148,7 +149,7 @@ A person's life state, owned by World DB, changes here only as **Alive → Dead*
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | world_cultivators | int | 5,000 | data file (`world_generation.json` people) | The headcount target |
-| world_cultivators_min | int | 3,000 | data file | The floor; the target is the larger of the two |
+| world_cultivators_min | int | 5,000 (2026-11-25: floor 5,000, was 3,000; World Generation Open Question 8) | data file | The floor; the target is the larger of the two |
 | C | int | 0 – ∞ | calculated | Non-beast living non-player people after this season's deaths |
 | spawn | int | ≥ 0 | calculated | New Qi Refining cultivators this season |
 
@@ -268,7 +269,7 @@ A bulk run of *n* seasons (rule 18) costs `n · T_tick`; a century (400 seasons)
 
 ## Edge Cases
 
-- **If the world has fewer than the floor (3,000) cultivators after a season** (mass death, a long bulk run): intake spawns `target − C` in one tick, so the floor holds at once; the spawn can exceed 10 and the extra people are claimed or loose by rule 6.
+- **If the world has fewer than the floor (5,000; 2026-11-25: floor 5,000, was 3,000) cultivators after a season** (mass death, a long bulk run): intake spawns `target − C` in one tick, so the floor holds at once; the spawn can exceed 10 and the extra people are claimed or loose by rule 6.
 - **If a leader dies and the sect has no eligible successor**: Sects' succession returns none; the tick logs no `tick_succession`, the sect is leaderless and enters Sects' Strained state at S5 the same season. The tick never invents a leader.
 - **If a person dies who is both a sect leader and holds items and a purse**: order is rule 9 a–d; the heir may be the successor; the purse goes to the heir first, never to the sect when an heir exists.
 - **If `heir_of` names a dead or non-existent person**: treated as no heir (Item Database rule 14 and Inheritance already skip the dead); the purse goes to the sect or `W_dead`.
@@ -320,6 +321,15 @@ A bulk run of *n* seasons (rule 18) costs `n · T_tick`; a century (400 seasons)
 
 Back-links owed (not written; other files are being edited elsewhere): Sects (F17 note: demand is a claim on the tick's pool; succession called by the tick), Canh-gioi rule 12 (intake share retired; NPC stage chance now scaled by Formulas H, which reopens an approved rule), World Generation (authored `fates` per cast member), Event Engine rule 20 (the tick uses the same news test), Regional Economy (`W_dead` source row: this GDD), Power Rankings ("Still owed" line), Travel & Map (tick row: GDD exists), Quests OQ 9, Event Engine rule 19, NPC Traits Dependencies row, World Generation row (#28).
 
+**Back-links written 2026-11-25** (world-depth rulings, `design/world/depth/DECISIONS-2026-11-25.md`):
+- **Sects & Missions** (#26, rule 20c, F21): sects fill their Formulas D claims only with pool members whose roots pass
+  their outer test, own-ground births first; a child born to a member (rule 5) joins the parent's sect only if it
+  passes that test, else it enters the pool like any newcomer.
+- **Spiritual Roots** (#6, rule 2, Formulas A2, D4): a birth's root reads its birthplace **province's** land qi (the
+  whole province, wild land included) and the province's strongest variant tile.
+- **NPC Traits** (#42, F4b, F5b, F6b): each birth calls the v2 creation roll and talent inheritance with drift; the
+  season step runs coping fade (20 seasons, hardening after 3 refreshes) and Waning years (`waning_share` 0.10).
+
 ## Visual/Audio Requirements
 
 Narrative systems need this section; the tick has almost no presentation of its own.
@@ -345,7 +355,7 @@ A season must pass without a visible stall: the main thread finishes the tick wi
 
 | This GDD says | Source |
 |---|---|
-| Headcount 5,000, floor 3,000, intake by target not population | canh-gioi.md rule 12 |
+| Headcount 5,000, floor 5,000 (2026-11-25: floor 5,000, was 3,000), intake by target not population | canh-gioi.md rule 12 |
 | Stage chance 1/12 as built; fate rolled once per realm | canh-gioi.md, `world_ticker.gd` |
 | Sect tick order (great, then vassals), F17 intake, succession rule 15 | sects.md (season tick, F17, rule 15) |
 | Economy tick after the Sects tick and Travel & Map production; `W_dead` | regional-economy-trade.md rule 19, Formulas |
@@ -372,7 +382,7 @@ A season must pass without a visible stall: the main thread finishes the tick wi
 - **AC-LW-06** [Logic] Rule 4, B. **GIVEN** an unfated person at the bình cảnh, **WHEN** 400 ticks run, **THEN** they never change realm.
 - **AC-LW-07** [Logic] Rule 4. **GIVEN** an ownerless beast, **WHEN** a tick runs, **THEN** it ages and may die but its stage and realm are unchanged, and it is not counted in `C`.
 - **AC-LW-08** [Logic] Rule 5, C. **GIVEN** target 5,000 and 4,988 living cultivators after deaths, **WHEN** a tick runs, **THEN** 12 new Qi Refining people of age 16 exist afterwards; **GIVEN** 5,000 or more, **THEN** none.
-- **AC-LW-09** [Logic] Rule 5, C. **GIVEN** 2,000 cultivators and a floor of 3,000 with a target of 5,000, **WHEN** a tick runs, **THEN** the tick spawns up to the larger of the two, 3,000.
+- **AC-LW-09** [Logic] Rule 5, C. **GIVEN** 2,000 cultivators and a floor of 3,000 (an injected fixture floor; the shipped floor is 5,000 since 2026-11-25) with a target of 5,000, **WHEN** a tick runs, **THEN** the tick spawns up to the larger of the two, 3,000; **GIVEN** the shipped floor 5,000 and a target of 4,000, **THEN** it spawns 3,000 (5,000 − 2,000).
 - **AC-LW-10** [Integration] Rules 5, 6, D. **GIVEN** a pool of 10 and sect demands 30, 20, 10, **WHEN** the Sects step runs, **THEN** the sects receive 5, 3 and 2 and 0 are loose; with demands 3, 2, 1, they receive 3, 2, 1 and 4 are loose; `Σ claims + loose = P` in both.
 - **AC-LW-11** [Integration] Rule 6. **GIVEN** a Strained sect with demand, **WHEN** the pool is allocated, **THEN** its claim is 0.
 - **AC-LW-12** [Logic] Rule 7. **GIVEN** `event_chance_per_season` 1.0 and two living fighters with ratings 1450 and 1400, **WHEN** a tick runs, **THEN** 0 fights run, the session stream advances by the world-fight draws only, and a `tick_duel` news line names both; with fewer than two living fighters, no news and no draw.
@@ -390,7 +400,7 @@ A season must pass without a visible stall: the main thread finishes the tick wi
 - **AC-LW-24** [Logic] Rule 13. **GIVEN** the authored chronicle, **WHEN** 40 ticks run, **THEN** no authored event is changed or removed.
 - **AC-LW-25** [Integration] Edge. **GIVEN** a save taken at any season boundary, **WHEN** it is loaded and ticked, **THEN** the world equals the world of an uninterrupted run with the same seed (stream and DB restored).
 - **AC-LW-26** [Performance] Formulas G. **GIVEN** a 5,000-cultivator world, **WHEN** 400 seasons run with every built step, **THEN** the main-thread tick has a mean ≤ 150 ms and p99 ≤ 250 ms (provisional guess, Open Questions 2), and the people step alone is reported separately.
-- **AC-LW-27** [Integration] Realms headcount. **GIVEN** 400 seasons from the shipped world, **THEN** the cultivator count is ≥ 3,000 after every season, equals the target after the intake step, and the realm shares stay within the tolerance Realms states for its solved counts (Open Questions 3).
+- **AC-LW-27** [Integration] Realms headcount. **GIVEN** 400 seasons from the shipped world, **THEN** the cultivator count is ≥ 5,000 (2026-11-25: floor 5,000, was 3,000) after every season, equals the target after the intake step, and the realm shares stay within the tolerance Realms states for its solved counts (Open Questions 3).
 - **AC-LW-28** [Integration] Rule 12. **GIVEN** a season with deaths, breakthroughs and a duel, **THEN** the session shows at most 3 `[tin đồn]` lines and the full list is in the event log.
 - **AC-LW-29** [Logic] Rule 12. **GIVEN** in one season a stranger's Foundation breakthrough, a stranger's Nascent Soul breakthrough, the old-age death of a Qi Refining person the player met, and a stranger's Qi Refining death, **THEN** the second and third are `news: true`, the first and fourth are logged with `news: false`.
 - **AC-LW-30** [Logic] Rule 4. **GIVEN** an NPC at vitality 0.5, **WHEN** one tick runs, **THEN** vitality is 0.75; after two more, 1.0 and never above.

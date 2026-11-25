@@ -1,0 +1,1105 @@
+{
+ "sect": "tam_kiem",
+ "people": [
+  {
+   "key": "tieu_van_phong",
+   "name_hv": "Tiêu Vấn Phong",
+   "name_han": "蕭問鋒",
+   "gloss": "Asks after the blade",
+   "sex": "M",
+   "born": 1138,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "tam_kiem",
+   "rank": "tong_chu",
+   "home": 406,
+   "birthplace": 66,
+   "role": "Founder and head of Tầm Kiếm Đường (1162); the Tiêu son turned away from Lê Hoa Am's gate",
+   "tier": "A",
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "moc": 40,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 62,
+    "than_hon": 60,
+    "khi_van": 48,
+    "dao_tam": 56,
+    "mi_luc": 58
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Ambitious",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "clan_heir",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 2
+     }
+    ],
+    "path": [
+     "sword_heart"
+    ],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": "obsessive_training",
+    "fate_given": [],
+    "gained": [
+     "Embittered"
+    ]
+   },
+   "appearance": "A lean, sharp-faced man in a hunter's leathers, with a sword whose guard is filed with hundreds of small notches.",
+   "backstory": "Tiêu Vấn Phong grew up on a story. His great-grandfather Tiêu Kiến Quang (tieu_kien_quang), a hunter of Hòe Âm, found a sealed cave on the mountain in 930 with a sword's cold light behind the seal, ran, and never found it again (A108). In 1150 the clan sent its first son, twelve years old, to the gate of Lê Hoa Am (A110). The family said it was for the nuns' learning. He went for the cave. The abbess Thái Lê Tuyết (thai_le_tuyet) looked at him, with the prioress Mạnh Tĩnh Chi (manh_tinh_chi) beside her, and sent him down the mountain for being a boy. He became a hunter and a guide. In 1162, at twenty-four, he founded Tầm Kiếm Đường for the men the hermitage will not take, to search for the sealed sword cave (V069). He learned the sword late, from the guest elder Sài Mộ Kiếm (sai_mo_kiem), and built the hall's canon with him. In thirty-eight years he has searched 412 caves and filed a notch for each in his sword's guard.",
+   "wants": "To stand in front of the abbess with the sword from the cave and make her tell him to his face why she turned him away.",
+   "secret": "He stopped believing he would find the cave twenty years ago. He keeps searching because the hall has no other reason to exist, and because he wants the abbess to have to refuse him once more.",
+   "ties": [
+    {
+     "to": "thai_le_tuyet",
+     "kind": "feud",
+     "note": "Lê Hoa Am's head, who turned him away at twelve and owes him the reason"
+    },
+    {
+     "to": "manh_tinh_chi",
+     "kind": "enemy",
+     "note": "she stood at the gate beside the abbess"
+    },
+    {
+     "to": "sai_mo_kiem",
+     "kind": "master",
+     "note": "taught him the sword at twenty-seven"
+    },
+    {
+     "to": "tich_lang_tung",
+     "kind": "sworn_sibling",
+     "note": "co-founder; they hunted together as boys"
+    },
+    {
+     "to": "tieu_kien_quang",
+     "kind": "ancestor",
+     "note": "his great-grandfather, who saw the cold light"
+    },
+    {
+     "to": "tieu_ngoc_hoe",
+     "kind": "cousin",
+     "note": "his cousin among the grey sisters; she brings him news"
+    },
+    {
+     "to": "tieu_bach_lo",
+     "kind": "cousin",
+     "note": "a younger cousin in the Pavilion's outer gate"
+    },
+    {
+     "to": "tieu_hoe_sinh",
+     "kind": "niece_nephew",
+     "note": "his brother's son"
+    },
+    {
+     "to": "phan_co_dang",
+     "kind": "friend",
+     "note": "the loose stall-keeper who sold him the Tầm Tung manual in 1160"
+    },
+    {
+     "to": "tieu_thua_am",
+     "kind": "grandparent",
+     "note": "his grandfather, who sent him up the mountain in 1150 with a question"
+    },
+    {
+     "to": "tieu_minh_khe",
+     "kind": "niece_nephew",
+     "note": "his nephew, the next Tiêu son meant for Lê Hoa Am"
+    },
+    {
+     "to": "ha_thu_dinh",
+     "kind": "parent",
+     "note": "his mother, who carries the capes"
+    },
+    {
+     "to": "tieu_thu_dao",
+     "kind": "parent",
+     "note": "his father; estranged since 1162, they speak at the New Year"
+    },
+    {
+     "to": "tieu_van_canh",
+     "kind": "sibling",
+     "note": "his brother, at home in Hòe Âm"
+    },
+    {
+     "to": "lu_hoi_lo",
+     "kind": "friend",
+     "note": "an inner disciple he trusts"
+    },
+    {
+     "to": "lac_tam_chan",
+     "kind": "friend",
+     "note": "keeper of the map wall"
+    }
+   ],
+   "master": "sai_mo_kiem",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "asking-blade-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "seal-listening-art",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "named": "tk-asking-blade"
+     },
+     {
+      "named": "tk-map-coat"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Element-free sword: crit and pierce built from marks, with Water sustain from his root for a long fight.",
+     "targets": [
+      4246,
+      4250,
+      4248,
+      9000,
+      5374,
+      5379
+     ],
+     "targets_note": "Point of the Blade, then Keen Edge pierce and crit damage for the answering cut, and Rain on Bamboo for the long fight his root wants."
+    },
+    "note": "The man who asks: marks, then one answering cut."
+   },
+   "items": [
+    "tk-asking-blade",
+    "tk-map-coat"
+   ],
+   "changed": "root, thien_phu and build added (he had none); birthplace 66 added. Tầm Kiếm re-founded as a no-lean sword school (R3)."
+  },
+  {
+   "key": "sai_mo_kiem",
+   "name_hv": "Sài Mộ Kiếm",
+   "name_han": "柴暮劍",
+   "gloss": "Evening sword",
+   "sex": "M",
+   "born": 1000,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "sect": "tam_kiem",
+   "rank": "khach_khanh",
+   "home": 406,
+   "birthplace": 48,
+   "role": "Guest elder and sword teacher of the hall; the man Tư Không Hạc Niên beat in 1130",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "kim": 56,
+     "thuy": 40
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 60,
+    "than_hon": 58,
+    "khi_van": 40,
+    "dao_tam": 50,
+    "mi_luc": 46
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Diligent",
+     "Vengeful"
+    ],
+    "calling": "Duelist",
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "quick_minded",
+      "tier": 1
+     }
+    ],
+    "path": [
+     "sword_heart"
+    ],
+    "lifestyle": "duel_seeker",
+    "health": null,
+    "coping": "drowns_in_wine",
+    "fate_given": [],
+    "gained": [
+     "Humbled"
+    ]
+   },
+   "appearance": "A tall, grey, beautifully dressed swordsman gone to seed, who drinks with his left hand so that his right stays steady.",
+   "backstory": "A market son of Tống Khách Thị who was the finest loose sword in the north-east for a century. In 1130 he challenged the wandering sage Tư Không Hạc Niên (tu_khong_hac_nien) in his own market and lost in three passes. The sage handed his sword back and settled in the market to teach no one (A141). Sài left. In 1165 the young Tiêu Vấn Phong (tieu_van_phong) hired him to teach the hall, and he has stayed because the hunters ask better questions than duelists. He wants a second duel before one of them dies.",
+   "exception": "R2/R3: guest elder (khách khanh), hired to teach; the hall has no lean, so no exception is strictly needed",
+   "ties": [
+    {
+     "to": "tu_khong_hac_nien",
+     "kind": "rival",
+     "note": "beat him in 1130 and gave his sword back"
+    },
+    {
+     "to": "tieu_van_phong",
+     "kind": "disciple",
+     "note": "his pupil since 1165"
+    },
+    {
+     "to": "tich_lang_tung",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "thang_phuc_tuyet",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "dau_tien_xuan",
+     "kind": "friend",
+     "note": "the hermit who still sends north for the wine he likes"
+    },
+    {
+     "to": "cat_linh_hanh",
+     "kind": "disciple",
+     "note": "guide of the eastern passes; once a Pavilion mine guard"
+    },
+    {
+     "to": "lac_tam_chan",
+     "kind": "disciple",
+     "note": "keeper of the map wall"
+    },
+    {
+     "to": "quach_do_anh",
+     "kind": "disciple",
+     "note": "Sài Mộ Kiếm's best pupil in the sword yard"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "asking-blade-canon",
+     "layer": 9
+    },
+    "aux": [
+     {
+      "tech": "afterimage-sword-canon",
+      "layer": 7
+     }
+    ],
+    "gear": [
+     {
+      "named": "tk-evening-sword"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 3,
+      "element": "kim"
+     },
+     {
+      "base": "nhan",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal crit and speed: a duelist's single target.",
+     "targets": [
+      4246,
+      4250,
+      3985,
+      3990,
+      9000
+     ],
+     "targets_note": "Ten Thousand Edges sword speed, then Keen Edge: pierce and crit damage for a duelist's single target, block given up."
+    },
+    "note": "Wants the second duel."
+   },
+   "items": [
+    "tk-evening-sword"
+   ]
+  },
+  {
+   "key": "tich_lang_tung",
+   "name_hv": "Tịch Lang Tung",
+   "name_han": "席狼蹤",
+   "gloss": "Wolf tracks",
+   "sex": "M",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "tam_kiem",
+   "rank": "chan_truyen",
+   "home": 406,
+   "birthplace": 1368,
+   "role": "Co-founder and chief guide of the hall",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 40,
+     "kim": 28
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 66,
+    "than_hon": 56,
+    "khi_van": 54,
+    "dao_tam": 62,
+    "mi_luc": 60
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Loyal",
+     "Gregarious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "lucky",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "hunter",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Lovestruck"
+    ]
+   },
+   "appearance": "A cheerful, bow-legged mountain guide who carries a basket on his back in every season.",
+   "backstory": "A woodcutter's son from Hàn Khê Thôn who hunted with Tiêu Vấn Phong (tieu_van_phong) as boys and founded the hall with him in 1162. He guides caravans and Pavilion envoys over the passes and knows every path on the massif. Thirty years ago he went up to the Gate Hermitage to ask about a cave and was turned away by the grey sister Hướng Thiết Lan (huong_thiet_lan). He goes back every spring with a basket of larch mushrooms, and she takes it.",
+   "ties": [
+    {
+     "to": "tieu_van_phong",
+     "kind": "sworn_sibling",
+     "note": ""
+    },
+    {
+     "to": "huong_thiet_lan",
+     "kind": "lover",
+     "note": "across the gate"
+    },
+    {
+     "to": "sai_mo_kiem",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "nguu_pha_son",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "ha_thu_dinh",
+     "kind": "friend",
+     "note": "the head's mother, who carries the capes up the hill"
+    },
+    {
+     "to": "van_kien_boi",
+     "kind": "disciple",
+     "note": "porter for the guides' envoy parties"
+    },
+    {
+     "to": "cat_linh_hanh",
+     "kind": "friend",
+     "note": "guide of the eastern passes; once a Pavilion mine guard"
+    },
+    {
+     "to": "quach_do_anh",
+     "kind": "friend",
+     "note": "Sài Mộ Kiếm's best pupil in the sword yard"
+    }
+   ],
+   "master": "sai_mo_kiem",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "asking-blade-canon",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood and Water endurance on the mountain.",
+     "targets": [
+      4246,
+      4250,
+      6403,
+      6312
+     ],
+     "targets_note": "Taproot and Climbing Vine: endurance on the mountain."
+    },
+    "note": "The basket."
+   }
+  },
+  {
+   "key": "thang_phuc_tuyet",
+   "name_hv": "Thang Phục Tuyết",
+   "name_han": "湯伏雪",
+   "gloss": "Lies in the snow",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "tam_kiem",
+   "rank": "noi_mon",
+   "home": 406,
+   "birthplace": 1346,
+   "role": "A Pavilion outer disciple who failed the Frost Test three times",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 66,
+    "can_cot": 58,
+    "than_hon": 54,
+    "khi_van": 42,
+    "dao_tam": 64,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Wrathful",
+     "Diligent",
+     "Just"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "steady_heart",
+      "tier": 1
+     }
+    ],
+    "path": [],
+    "lifestyle": "teacher_at_heart",
+    "health": null,
+    "coping": null,
+    "fate_given": [],
+    "gained": [
+     "Embittered"
+    ]
+   },
+   "appearance": "A stiff, careful man who still sits like a Băng Tâm disciple and hates that he does.",
+   "backstory": "From the ice-hole village of the far north, he sat three solstice nights on Phiến Băng Hồ under Đỗ Sương Nhi (do_suong_nhi) and felt nothing but cold. He refused the Desert Pavilion and the vassals the Pavilion offered him, walked south, and found Tầm Kiếm in 1185. He teaches the outer gate here with the patience the Pavilion taught him. He is angry at it for teaching him that and nothing else.",
+   "ties": [
+    {
+     "to": "do_suong_nhi",
+     "kind": "former_master",
+     "note": "kept the Frost Test he failed"
+    },
+    {
+     "to": "sai_mo_kiem",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "hach_tung",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "duong_tieu_kiem",
+     "kind": "disciple",
+     "note": ""
+    },
+    {
+     "to": "khong_vong_bang",
+     "kind": "friend",
+     "note": "the other boy who failed the Frost Test; they walked back across the lake together"
+    },
+    {
+     "to": "au_da_loc",
+     "kind": "disciple",
+     "note": "hunter's boy from the oriole valley; Hách Tùng's runner"
+    },
+    {
+     "to": "ngo_han_dac",
+     "kind": "disciple",
+     "note": "Pavilion Frost Test failure who followed Thang Phục Tuyết to the lodge"
+    }
+   ],
+   "master": "sai_mo_kiem",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "asking-blade-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "clear-frost-breath",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water sustain under an element-free sword.",
+     "targets": [
+      4246,
+      4250,
+      5374,
+      744
+     ],
+     "targets_note": "Nourishing Rain and Flowing Thought under the sword."
+    },
+    "note": "Three solstice nights."
+   }
+  },
+  {
+   "key": "lu_hoi_lo",
+   "name_hv": "Lữ Hồi Lộ",
+   "name_han": "呂迴路",
+   "gloss": "The winding road",
+   "sex": "M",
+   "born": 1120,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "tam_kiem",
+   "rank": "noi_mon",
+   "home": 406,
+   "birthplace": 66,
+   "role": "Guide of Hồi Lộ Phong's ice stair",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "kim": 36,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Reclusive",
+     "Honest"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born",
+    "lifestyle": "pilgrim"
+   },
+   "backstory": "The only man alive who can take a party up Hồ Thiên's winding ice stair on Hồi Lộ Phong without losing anyone (A099); Tiêu Vấn Phong (tieu_van_phong) thinks the cave may be near its top.",
+   "ties": [
+    {
+     "to": "tieu_van_phong",
+     "kind": "friend",
+     "note": ""
+    },
+    {
+     "to": "mong_thach_sinh",
+     "kind": "disciple",
+     "note": "miner's son who cuts steps on the ice stair of Hồi Lộ Phong"
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "tracker-sword-primer",
+     "layer": 6
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water endurance."
+    },
+    "note": "The stair."
+   }
+  },
+  {
+   "key": "tieu_hoe_sinh",
+   "name_hv": "Tiêu Hòe Sinh",
+   "name_han": "蕭槐生",
+   "gloss": "Born under the locust trees",
+   "sex": "M",
+   "born": 1175,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "tam_kiem",
+   "rank": "noi_mon",
+   "home": 406,
+   "birthplace": 66,
+   "role": "The head's nephew",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Brave",
+     "Impatient"
+    ],
+    "calling": "Duelist",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "Tiêu Vấn Phong's (tieu_van_phong) brother's son, who will lead the hall if his uncle ever stops searching, and hopes he will.",
+   "ties": [
+    {
+     "to": "tieu_van_phong",
+     "kind": "aunt_uncle",
+     "note": "his uncle"
+    },
+    {
+     "to": "tieu_thua_am",
+     "kind": "ancestor",
+     "note": "his great-grandfather, who sent him to the hall"
+    },
+    {
+     "to": "tieu_van_canh",
+     "kind": "parent",
+     "note": "his father"
+    },
+    {
+     "to": "tieu_minh_khe",
+     "kind": "sibling",
+     "note": "his younger brother, meant for Lê Hoa Am; he wants him at the hall"
+    },
+    {
+     "to": "thai_truong_thanh",
+     "kind": "friend",
+     "note": "an outer-gate friend"
+    },
+    {
+     "to": "tieu_ngoc_khe",
+     "kind": "cousin",
+     "note": "his cousin; Tiêu-clan daughter in the grey gate; carries letters to the Tầm Kiếm lodge"
+    }
+   ],
+   "master": "tieu_van_phong",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "asking-blade-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "The nephew."
+   }
+  },
+  {
+   "key": "nguu_pha_son",
+   "name_hv": "Ngưu Phá Sơn",
+   "name_han": "牛破山",
+   "gloss": "Breaks the mountain",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "tam_kiem",
+   "rank": "ngoai_mon",
+   "home": 406,
+   "birthplace": 1368,
+   "role": "Porter and climber",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Content",
+     "Loyal",
+     "Gregarious"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A huge woodcutter's boy who carries Tịch Lang Tung's (tich_lang_tung) mushroom basket up to the gate every spring and pretends not to understand why.",
+   "ties": [
+    {
+     "to": "tich_lang_tung",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "van_kien_boi",
+     "kind": "friend",
+     "note": "porter for the guides' envoy parties"
+    }
+   ],
+   "master": "tich_lang_tung",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "mountain-bone-body-art",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood health."
+    },
+    "note": "Carries the basket."
+   }
+  },
+  {
+   "key": "duong_tieu_kiem",
+   "name_hv": "Đường Tiểu Kiếm",
+   "name_han": "唐小劍",
+   "gloss": "Little sword",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "tam_kiem",
+   "rank": "ngoai_mon",
+   "home": 406,
+   "birthplace": 1369,
+   "role": "A silver-miner's son in the outer gate",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 44,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Paranoid"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "His sisters went to the grey sisters; he was not allowed to, so he came here and learns the sword from Thang Phục Tuyết (thang_phuc_tuyet).",
+   "ties": [
+    {
+     "to": "thang_phuc_tuyet",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "mong_thach_sinh",
+     "kind": "friend",
+     "note": "miner's son who cuts steps on the ice stair of Hồi Lộ Phong"
+    }
+   ],
+   "master": "thang_phuc_tuyet",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "tracker-sword-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    },
+    "note": "Not allowed."
+   }
+  },
+  {
+   "key": "hach_tung",
+   "name_hv": "Hách Tùng",
+   "name_han": "郝松",
+   "gloss": "Pine",
+   "sex": "M",
+   "born": 1168,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "tam_kiem",
+   "rank": "noi_mon",
+   "home": 406,
+   "birthplace": 115,
+   "role": "Inner disciple from the oriole valley",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Pragmatic",
+     "Faithless"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born"
+   },
+   "backstory": "He joined to guide paying travellers, not to hunt caves, and sells maps of the massif in Hòe Âm that Tiêu Vấn Phong (tieu_van_phong) would not like to see.",
+   "ties": [
+    {
+     "to": "thang_phuc_tuyet",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "ngao_tam_phu",
+     "kind": "creditor",
+     "note": "the demonic buyer who owes him for two maps"
+    },
+    {
+     "to": "nhiem_han_chau",
+     "kind": "creditor",
+     "note": "the seeker who owes him half a map's price"
+    },
+    {
+     "to": "gia_chi_lo",
+     "kind": "friend",
+     "note": "the map-seller who buys his honest copies and spoils them with a cross"
+    },
+    {
+     "to": "au_da_loc",
+     "kind": "friend",
+     "note": "hunter's boy from the oriole valley; Hách Tùng's runner"
+    },
+    {
+     "to": "lac_tam_chan",
+     "kind": "rival",
+     "note": "keeper of the map wall"
+    }
+   ],
+   "master": "thang_phuc_tuyet",
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "asking-blade-canon",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Sells maps."
+   }
+  },
+  {
+   "key": "thai_truong_thanh",
+   "name_hv": "Thái Trường Thanh",
+   "name_han": "蔡長青",
+   "gloss": "Evergreen",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "tam_kiem",
+   "rank": "ngoai_mon",
+   "home": 406,
+   "birthplace": 66,
+   "role": "The abbess's grand-nephew, among the men she will not take",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Honest",
+     "Forgiving",
+     "Trusting"
+    ],
+    "calling": "Diplomat",
+    "upbringing": "village_born"
+   },
+   "backstory": "Thái Lê Tuyết's (thai_le_tuyet) brother's grandson from Hòe Âm; the hall teases him for it, and he is the one man in it who thinks the abbess has a reason.",
+   "ties": [
+    {
+     "to": "thai_le_tuyet",
+     "kind": "aunt_uncle",
+     "note": "his great-aunt"
+    },
+    {
+     "to": "tieu_hoe_sinh",
+     "kind": "friend",
+     "note": ""
+    }
+   ],
+   "build": {
+    "archetype": "kiem_tu",
+    "main": {
+     "tech": "tracker-sword-primer",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    },
+    "note": "Thinks she has a reason."
+   }
+  },
+  {
+   "key": "tieu_kien_quang",
+   "name_hv": "Tiêu Kiến Quang",
+   "name_han": "蕭見光",
+   "gloss": "Saw the light",
+   "sex": "M",
+   "born": 905,
+   "died": 1010,
+   "cause": "old age (105), still searching the mountain for the cave",
+   "alive": false,
+   "peak_realm": "luyen_khi",
+   "sect": "",
+   "rank": "",
+   "home": 66,
+   "birthplace": 66,
+   "role": "The Hòe Âm hunter who found the sealed sword cave in 930 (A108); great-grandfather of Tiêu Vấn Phong",
+   "tier": "C",
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Honest",
+     "Stubborn"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "clan_heir"
+   },
+   "backstory": "He found a sealed cave with a sword's cold light behind the seal in 930, ran, and spent eighty years failing to find it again (A108); his great-grandson Tiêu Vấn Phong (tieu_van_phong) grew up on the story.",
+   "ties": [
+    {
+     "to": "tieu_van_phong",
+     "kind": "descendant",
+     "note": "his great-grandson"
+    },
+    {
+     "to": "tieu_chung_hoe",
+     "kind": "ancestor",
+     "note": "the clan's founder"
+    },
+    {
+     "to": "tieu_thua_am",
+     "kind": "child",
+     "note": "his son, who saw the cold light in 930"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "sect": "tran_sa",
+ "_doc": "Trấn Sa Đường lineage (rules-proposals R5). Re-leaned Metal, Earth -> Earth, Metal (order only; the seat passes with Earth first). Outer gate: sand-wall-primer (Earth). Inner gate and above: sand-holding-sabre-canon (Earth + Metal). Secret arts: iron-hide-manual (inner, existing), sword-washing-temper (the smiths, elders). Proposals are unpriced.",
+ "lineage": {
+  "outer": "sand-wall-primer",
+  "main": "sand-holding-sabre-canon",
+  "secret": [
+   {"id": "iron-hide-manual", "rank": "noi_mon"},
+   {"id": "sword-washing-temper", "rank": "truong_lao"}
+  ],
+  "body": null,
+  "elements": ["tho", "kim"],
+  "tree_route": [715, 1469],
+  "tree_route_note": "Earth Root (Thổ Căn) and Earth and Metal (Thổ Kim): Earth to hold with a block, Metal to cut, the sect's name in two notables."
+ },
+ "techniques": [
+  {
+   "id": "sand-wall-primer",
+   "name": "Sand Wall Primer (Sa Tường Quyết)",
+   "tier": 0, "tech_kind": "main", "names": ["tho"], "layers": 6, "rank": "ngoai_mon",
+   "concept": "The caravan guard's first method. The guard roots their feet in the sand, draws the steppe's heavy Earth qi up through the legs, and learns to make a wall of their body and a shield beside a camel. Every form is a guard position around something that must not be taken. It is slow and dull, and it keeps caravans alive.",
+   "arts": [{"new": "Hold the Line (Thủ Tuyến)", "concept": "A planted guard: the holder and one ally beside them take less damage while the holder does not move."}],
+   "lore": "The guard families of Trường Vân taught it to their children long before there was a sect. Viên Cô Yên wrote it down in 1125 so the deserters' sons could not claim they had never been taught.",
+   "status": "proposal"
+  },
+  {
+   "id": "sand-holding-sabre-canon",
+   "name": "Sand-Holding Sabre Canon (Trấn Sa Đao Kinh)",
+   "tier": 1, "tech_kind": "main", "names": ["tho", "kim"], "layers": 9, "rank": "noi_mon",
+   "concept": "The sect's name and method: Earth to hold, Metal to cut. The cultivator packs Earth qi into the body as a weight that cannot be moved, and lets it out through a broad sabre in short, heavy cuts from a standing guard. It is built to answer raiders on horseback: it does not chase, it waits, and when a rider comes in, it cuts the horse and holds the ground. Its higher layers lay sand qi around the guard that slows any foe who crosses it.",
+   "arts": [
+    {"new": "Hold the Sand (Trấn Sa)", "concept": "Lays a ring of heavy sand around the holder: foes inside are slowed and their charges stopped."},
+    {"new": "Answering Cut (Ứng Đao)", "concept": "A counter: after the holder blocks a hit, their next sabre cut deals extra Physical damage and breaks the attacker's guard."}
+   ],
+   "lore": "Viên Cô Yên and the guard captains made it together in 1125-1140 from their families' guard forms and the Pavilion's old caravan drills. Tống Thối Kim forged the first sabres for it.",
+   "status": "proposal"
+  },
+  {
+   "id": "sword-washing-temper",
+   "name": "Sword-Washing Spring Temper (Tẩy Kiếm Thối Pháp)",
+   "tier": 1, "tech_kind": "secret", "names": ["kim", "tho"], "layers": 9, "rank": "truong_lao",
+   "concept": "The smiths' method, practised at the forge on Tẩy Kiếm Tuyền. The smith drives qi into a blade with each hammer stroke and quenches it in the spirit spring, so that the blade keeps some of the spring's weight. In a fight it is a tempering art: each hit taken hardens the smith's skin and each hit landed adds a temper stack to their weapon.",
+   "arts": [{"new": "Quench (Thối)", "concept": "Consumes the weapon's temper stacks for one heavy Metal cut that pierces armour."}],
+   "lore": "Tống Thối Kim's own method, brought from the smiths' quarter of Trường Vân. Every blade Băng Tâm has bought from Trấn Sa was quenched in the spring by it, among them Thẩm Hàn Giang's Ice-Hole Blade (1180).",
+   "status": "proposal"
+  }
+ ]
+}

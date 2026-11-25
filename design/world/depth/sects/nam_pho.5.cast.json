@@ -1,0 +1,522 @@
+{
+ "sect": "nam_pho",
+ "people": [
+  {
+   "key": "doanh_mo_vu",
+   "name_hv": "Doanh Mộ Vũ",
+   "name_han": "嬴暮雨",
+   "gloss": "Dusk rain",
+   "sex": "M",
+   "born": 1135,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "nam_pho",
+   "rank": "noi_mon",
+   "home": 21,
+   "birthplace": 79,
+   "role": "Dusk-line scribe; copies the lord's war orders for Kha Triêu Phi",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 42
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Cautious",
+     "Patient"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "scholar_family"
+   },
+   "backstory": "A Phong Lâm scribe's son of the dusk line who copies the lord's war orders for Kha Triêu Phi (kha_trieu_phi) and knows which ones were lost; he wears violet at the hem and wants the dusk half restored more than he wants Kha to be heir.",
+   "ties": [
+    {
+     "to": "kha_trieu_phi",
+     "kind": "master",
+     "note": "the first elder"
+    },
+    {
+     "to": "ly_khe_thu",
+     "kind": "friend",
+     "note": "shows her the dusk fragments he may see"
+    }
+   ],
+   "master": "kha_trieu_phi",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "southern-shore-cloud-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "thorn-and-ink-verses",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood bindings with Water behind them, toward the dusk half."
+    }
+   }
+  },
+  {
+   "key": "ung_trieu_hong",
+   "name_hv": "Ứng Triêu Hồng",
+   "name_han": "應朝虹",
+   "gloss": "Morning rainbow",
+   "sex": "F",
+   "born": 1162,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "nam_pho",
+   "rank": "noi_mon",
+   "home": 21,
+   "birthplace": 136,
+   "role": "Dawn-line scribe; Ninh Họa Vân's second at the talisman contest",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Humble",
+     "Pragmatic"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hoa Khê bark-beater's daughter and Ninh Họa Vân's (ninh_hoa_van) second at every contest since 1180; she grinds Ninh's ink before her own, and thinks the seal is lost to Tô Mộ Vân (to_mo_van) for good, which she will not say.",
+   "ties": [
+    {
+     "to": "chau_phi_van",
+     "kind": "master",
+     "note": "the hall-mistress"
+    },
+    {
+     "to": "ninh_hoa_van",
+     "kind": "friend",
+     "note": "she seconds her at the contest"
+    },
+    {
+     "to": "to_mo_van",
+     "kind": "rival",
+     "note": "took the seal in 1190"
+    }
+   ],
+   "master": "chau_phi_van",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "southern-shore-cloud-canon",
+     "layer": 3
+    },
+    "aux": [
+     {
+      "tech": "thorn-and-ink-verses",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 4
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  },
+  {
+   "key": "dai_diep_thu",
+   "name_hv": "Đái Diệp Thư",
+   "name_han": "戴葉書",
+   "gloss": "Leaf letter",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "nam_pho",
+   "rank": "ngoai_mon",
+   "home": 21,
+   "birthplace": 557,
+   "role": "Placed from Lạc Hà's Maple Hall this spring",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "tho": 32,
+     "thuy": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Trusting",
+     "Content"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Lăng Hoa girl who swept Bạc Hy Vân's (bac_hy_van) drying floors at Lạc Hà and failed the dusk test three times by a point of Earth; placed with the hall this spring, she has started rising before dawn without being told.",
+   "ties": [
+    {
+     "to": "ninh_hoa_van",
+     "kind": "master",
+     "note": "the champion scribe"
+    },
+    {
+     "to": "bac_hy_van",
+     "kind": "friend",
+     "note": "she swept her floors"
+    },
+    {
+     "to": "to_binh_chu",
+     "kind": "debt",
+     "note": "placed by him; owes Lạc Hà a tenth until 1230"
+    }
+   ],
+   "master": "ninh_hoa_van",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "mulberry-ink-primer",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  },
+  {
+   "key": "nhieu_thach_nhu",
+   "name_hv": "Nhiêu Thạch Nhũ",
+   "name_han": "饒石乳",
+   "gloss": "Stone milk",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "nam_pho",
+   "rank": "ngoai_mon",
+   "home": 249,
+   "birthplace": 546,
+   "role": "Apprentice at the ink-house of the Jade Milk spring",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 38,
+     "thuy": 32,
+     "tho": 26
+    },
+    "variants": {
+     "am": 6
+    }
+   },
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Loyal",
+     "Cautious"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Hầu Đầu mushroom-picker's boy from Đới Huyền Nghiên's (doi_huyen_nghien) village and his apprentice at the spring; since last winter his own ink has begun to stain dark too, and he hides the sheets among the stone pillars.",
+   "ties": [
+    {
+     "to": "doi_huyen_nghien",
+     "kind": "master",
+     "note": "the ink-grinder"
+    },
+    {
+     "to": "han_tieu_chuc",
+     "kind": "friend",
+     "note": "both carry the dark ink"
+    }
+   ],
+   "master": "doi_huyen_nghien",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "mulberry-ink-primer",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  },
+  {
+   "key": "mac_tieu_trien",
+   "name_hv": "Mạc Tiểu Triện",
+   "name_han": "莫小篆",
+   "gloss": "Little seal script",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "nam_pho",
+   "rank": "ngoai_mon",
+   "home": 51,
+   "birthplace": 138,
+   "role": "Stall boy at Hạc Đinh Thị; stamps the cloud seal",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 38,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Ambitious",
+     "Honest"
+    ],
+    "calling": "Merchant",
+    "upbringing": "village_born"
+   },
+   "backstory": "Trác Thư Lan's (trac_thu_lan) sister's son from Phương Thảo, who stamps the cloud seal on every talisman at the stall and listens with her to the Counting House clerks at lunch; he has started writing down what they say.",
+   "ties": [
+    {
+     "to": "trac_thu_lan",
+     "kind": "aunt_uncle",
+     "note": "his mother's sister and master; keeps the stall"
+    }
+   ],
+   "master": "trac_thu_lan",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "mulberry-ink-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "phu_luc": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water."
+    }
+   }
+  },
+  {
+   "key": "chuc_hieu_ha",
+   "name_hv": "Chúc Hiểu Hà",
+   "name_han": "祝曉霞",
+   "gloss": "Dawn glow",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "nam_pho",
+   "rank": "noi_mon",
+   "home": 21,
+   "birthplace": 553,
+   "role": "Inner disciple of the Dawn Hall; grinds the mistress's ink",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "thuy": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Deceitful",
+     "Diligent"
+    ],
+    "calling": "Talisman maker",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Sơn Trà tea-picker's girl who grinds ink beside the hall-mistress every dawn and has heard her say Lý Khê Thư's (ly_khe_thu) name as heir; she told Kha Triêu Phi (kha_trieu_phi), who thanked her and asked her to listen again.",
+   "ties": [
+    {
+     "to": "chau_phi_van",
+     "kind": "master",
+     "note": "the hall-mistress"
+    },
+    {
+     "to": "ly_khe_thu",
+     "kind": "rival",
+     "note": "the likely heir"
+    },
+    {
+     "to": "kha_trieu_phi",
+     "kind": "friend",
+     "note": "she reports to him"
+    }
+   ],
+   "master": "chau_phi_van",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "southern-shore-cloud-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  },
+  {
+   "key": "tho_ma_tu",
+   "name_hv": "Thọ Ma Tử",
+   "name_han": "壽麻子",
+   "gloss": "Hemp seed",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "nam_pho",
+   "rank": "ngoai_mon",
+   "home": 80,
+   "birthplace": 80,
+   "role": "Bark-beater at the paper mill",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 42,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Content",
+     "Forgiving"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Tang Ma rope-maker's son who beats bark at the mill beside Văn Tiểu Tang (van_tieu_tang); they mean to swap work, his bark for Văn's hemp, as soon as both their masters look the other way.",
+   "ties": [
+    {
+     "to": "van_tang_chi",
+     "kind": "master",
+     "note": "the paper master"
+    },
+    {
+     "to": "van_tieu_tang",
+     "kind": "friend",
+     "note": "the mill boy"
+    }
+   ],
+   "master": "van_tang_chi",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "mulberry-ink-primer",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "thuan",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "phu_luc": 1
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  }
+ ]
+}

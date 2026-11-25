@@ -1,0 +1,511 @@
+{
+ "sect": "ham_nguyet",
+ "people": [
+  {
+   "key": "phan_tinh_ba",
+   "name_hv": "Phan Tĩnh Ba",
+   "name_han": "潘靜波",
+   "gloss": "Still waves",
+   "sex": "F",
+   "born": 1132,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "ham_nguyet",
+   "rank": "chap_su",
+   "home": 8,
+   "birthplace": 974,
+   "role": "Weigher of the Shore House: the first ledger and the pearl scales at the Nguyệt Tân market",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 55,
+     "tho": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Honest",
+     "Stubborn"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Bắc Ngạn fisher's daughter who has weighed every pearl sold at Nguyệt Tân for thirty years; she keeps the first ledger for Kha Toán Châu (kha_toan_chau) and has begun to wonder why the north beds always pay in round numbers.",
+   "ties": [
+    {
+     "to": "kieu_nguyet_chau",
+     "kind": "master",
+     "note": "took her from the shore market"
+    },
+    {
+     "to": "kha_toan_chau",
+     "kind": "friend",
+     "note": "the steward she keeps the first ledger for"
+    },
+    {
+     "to": "nhan_bich_thuy",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "kieu_nguyet_chau",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "moon-holding-scripture",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water wards and patience; a steward who outlasts a quarrel."
+    },
+    "note": "Counts twice, says it once."
+   }
+  },
+  {
+   "key": "dam_thiem_dang",
+   "name_hv": "Đàm Thiềm Đăng",
+   "name_han": "譚蟾燈",
+   "gloss": "Moon-toad lamp",
+   "sex": "M",
+   "born": 1145,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "ham_nguyet",
+   "rank": "noi_mon",
+   "home": 260,
+   "birthplace": 930,
+   "role": "Lamp-trimmer of the pool: fills and trims the shell false moon and feeds the spirit fish",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Calm",
+     "Reclusive"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "He has trimmed and filled the false moon for thirty years so that his master Mục Tiềm Uyên (muc_tiem_uyen) can light it on every dark night, and he says what his master says: the manor sells too many pearls and breeds too few fish.",
+   "ties": [
+    {
+     "to": "muc_tiem_uyen",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dao_nguyet_lan",
+     "kind": "friend",
+     "note": "they keep the pool between them"
+    },
+    {
+     "to": "thu_anh_dam",
+     "kind": "disciple",
+     "note": ""
+    }
+   ],
+   "master": "muc_tiem_uyen",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "moon-holding-scripture",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "undertow-litany",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 2,
+      "element": "thuy"
+     },
+     {
+      "base": "dao_bao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Healing Water and wards; he keeps things alive."
+    },
+    "note": "The shell lantern on a pole."
+   }
+  },
+  {
+   "key": "mong_bach_giac",
+   "name_hv": "Mông Bạch Giác",
+   "name_han": "蒙白角",
+   "gloss": "White antler",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "ham_nguyet",
+   "rank": "ngoai_mon",
+   "home": 8,
+   "birthplace": 95,
+   "role": "Outer diver from Tuyết Lộc; Mông Lộc Nhi's younger brother",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "moc": 22
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Impatient",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "backstory": "He failed the Lake Hall's Wood test at fourteen and walked round the lake to his sister Mông Lộc Nhi (mong_loc_nhi); he still herds the family's reindeer half the year and dives the other half.",
+   "ties": [
+    {
+     "to": "mong_loc_nhi",
+     "kind": "sibling",
+     "note": "his elder sister, a diver of the north beds"
+    },
+    {
+     "to": "quach_bat_tram",
+     "kind": "master",
+     "note": "a man of his own village"
+    }
+   ],
+   "master": "quach_bat_tram",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "pearl-diver-breath",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water endurance; long breaths."
+    },
+    "note": "Smells of reindeer."
+   }
+  },
+  {
+   "key": "nhan_bich_thuy",
+   "name_hv": "Nhan Bích Thủy",
+   "name_han": "顏碧水",
+   "gloss": "Jade water",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "ham_nguyet",
+   "rank": "noi_mon",
+   "home": 8,
+   "birthplace": 934,
+   "role": "Inner disciple of the Shore House; sorts pearls at the Nguyệt Tân market",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 47,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Cautious",
+     "Loyal"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A pearl broker's daughter of Nguyệt Tân who carries oyster spat in her market basket to Lã Tư Châu (la_tu_chau) for the dead beds of Cựu Châu Trấn, and has not told her master Phan Tĩnh Ba (phan_tinh_ba).",
+   "ties": [
+    {
+     "to": "phan_tinh_ba",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "la_tu_chau",
+     "kind": "friend",
+     "note": "she carries the spat"
+    }
+   ],
+   "master": "phan_tinh_ba",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "moon-holding-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water wards."
+    },
+    "note": "A basket with a false bottom."
+   }
+  },
+  {
+   "key": "thu_anh_dam",
+   "name_hv": "Thư Ảnh Đàm",
+   "name_han": "舒影潭",
+   "gloss": "Shadow in the pool",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "ham_nguyet",
+   "rank": "noi_mon",
+   "home": 260,
+   "birthplace": 926,
+   "role": "Inner disciple at the pool; knows the four hundred spirit fish by their dead names",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Humble",
+     "Honest",
+     "Stubborn"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "lifestyle": "chronicler"
+   },
+   "backstory": "She knows every spirit fish by its dead name and wants the next fry named for her grandmother, a Ngư Đăng diver who drowned on a moonless night; Đàm Thiềm Đăng (dam_thiem_dang) says the manor does not name fish for the careless.",
+   "ties": [
+    {
+     "to": "dam_thiem_dang",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dao_nguyet_lan",
+     "kind": "friend",
+     "note": "the breeder lets her name the fry"
+    }
+   ],
+   "master": "dam_thiem_dang",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "moon-holding-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dang",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 1
+    },
+    "tree": {
+     "start": "thuy",
+     "intent": "Water healing."
+    },
+    "note": ""
+   }
+  },
+  {
+   "key": "la_tieu_boi",
+   "name_hv": "Lã Tiểu Bối",
+   "name_han": "呂小貝",
+   "gloss": "Little shell",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "ham_nguyet",
+   "rank": "ngoai_mon",
+   "home": 8,
+   "birthplace": 8,
+   "role": "Outer diver; Lã Tư Châu's cousin and his oyster-carrier",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 38,
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Fickle",
+     "Gregarious",
+     "Generous"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "He rows oysters to the shallows of Cựu Châu Trấn at night for his cousin Lã Tư Châu (la_tu_chau) because he thinks it is a game, and he has twice nearly told the outer gate.",
+   "ties": [
+    {
+     "to": "la_tu_chau",
+     "kind": "cousin",
+     "note": "the cousin he rows for"
+    },
+    {
+     "to": "quach_bat_tram",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "quach_bat_tram",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "pearl-diver-breath",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "cham",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water pull."
+    },
+    "note": "Cannot keep a secret."
+   }
+  },
+  {
+   "key": "vien_tiem_nhi",
+   "name_hv": "Viên Tiềm Nhi",
+   "name_han": "袁潛兒",
+   "gloss": "The one who dives",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "ham_nguyet",
+   "rank": "noi_mon",
+   "home": 260,
+   "birthplace": 976,
+   "role": "Inner disciple of the heir; the second-best young diver, and sure she is the first",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Brave",
+     "Impatient"
+    ],
+    "calling": "Duelist",
+    "upbringing": "village_born"
+   },
+   "backstory": "A net-maker's girl of Băng Võng who says she stays down one breath longer than Đinh Lưu Ly (dinh_luu_ly), and is sent to the south beds while Đinh dives the north ones; she has asked Lam Hàm Sương (lam_ham_suong) why.",
+   "ties": [
+    {
+     "to": "lam_ham_suong",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "dinh_luu_ly",
+     "kind": "rival",
+     "note": "the manor's best young diver"
+    }
+   ],
+   "master": "lam_ham_suong",
+   "build": {
+    "archetype": "phap_tu",
+    "main": {
+     "tech": "moon-holding-scripture",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "thuy",
+     "intent": "Water damage and breath."
+    },
+    "note": ""
+   }
+  }
+ ]
+}

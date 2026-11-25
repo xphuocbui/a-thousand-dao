@@ -1,0 +1,506 @@
+{
+ "sect": "thien_bao",
+ "people": [
+  {
+   "key": "thuong_toi_kim",
+   "name_hv": "Thương Tôi Kim",
+   "name_han": "商淬金",
+   "gloss": "Quenched gold",
+   "sex": "M",
+   "born": 1145,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "thien_bao",
+   "rank": "noi_mon",
+   "home": 169,
+   "birthplace": 169,
+   "role": "Refiner of the red gold furnace",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 54,
+     "tho": 36,
+     "hoa": 24
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Just",
+     "Paranoid"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Xích Kim sorter's son who refines beside Viên Hồng Kim (vien_hong_kim) and renews the signing vow at every new furnace; he noticed that Khang Thiên Chùy (khang_thien_chuy) skipped it in 1199, the year the second key failed.",
+   "ties": [
+    {
+     "to": "khang_thien_chuy",
+     "kind": "master",
+     "note": "the first refiner"
+    },
+    {
+     "to": "vien_hong_kim",
+     "kind": "friend",
+     "note": "shares the furnace"
+    }
+   ],
+   "master": "khang_thien_chuy",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "heaven-treasure-refining-canon",
+     "layer": 4
+    },
+    "aux": [
+     {
+      "tech": "nine-temper-scripture",
+      "layer": 6
+     }
+    ],
+    "gear": [
+     {
+      "base": "phi_kiem",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "giap",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 5
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal through his own blades; he fights the way he quenches."
+    }
+   }
+  },
+  {
+   "key": "phong_tu_gia",
+   "name_hv": "Phòng Tứ Giá",
+   "name_han": "房四價",
+   "gloss": "Four prices",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "thien_bao",
+   "rank": "noi_mon",
+   "home": 50,
+   "birthplace": 50,
+   "role": "Appraiser of the auction floor",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 48,
+     "tho": 42
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Calm",
+     "Greedy"
+    ],
+    "calling": "Merchant",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "A Vật Hoa Thị money-changer's daughter whose hammer comes closer to the fourth price than anyone's but the mistress's; she has watched Tiền Ngũ Phân (tien_ngu_phan) lose at Kim Vạn Lý's (kim_van_ly) table and would like his floor.",
+   "ties": [
+    {
+     "to": "phan_vat_hoa",
+     "kind": "master",
+     "note": "the mistress"
+    },
+    {
+     "to": "tien_ngu_phan",
+     "kind": "rival",
+     "note": "she wants the auction floor"
+    }
+   ],
+   "master": "phan_vat_hoa",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "heaven-treasure-refining-canon",
+     "layer": 3
+    },
+    "aux": [
+     {
+      "tech": "appraisers-eye",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 2,
+      "element": "kim"
+     },
+     {
+      "base": "tien_tieu",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 2
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    }
+   }
+  },
+  {
+   "key": "tuyen_thach_nha",
+   "name_hv": "Tuyên Thạch Nha",
+   "name_han": "宣石芽",
+   "gloss": "Stone sprout",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "thien_bao",
+   "rank": "ngoai_mon",
+   "home": 20,
+   "birthplace": 521,
+   "role": "Placed from Lạc Hà this spring; weighs ore for the vault book",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 40,
+     "kim": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Pragmatic",
+     "Humble"
+    ],
+    "calling": "Steward",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Liên Chu well-digger's girl, Lục Tiểu Tinh's (luc_tieu_tinh) neighbour, who failed the dusk test her friend passed; placed with the studio this spring, she weighs ore for the vault book and keeps a list of what she will buy when Lạc Hà's tenth ends in 1230.",
+   "ties": [
+    {
+     "to": "an_toan_chau",
+     "kind": "master",
+     "note": "the vault clerk"
+    },
+    {
+     "to": "luc_tieu_tinh",
+     "kind": "friend",
+     "note": "from the next well over"
+    },
+    {
+     "to": "to_binh_chu",
+     "kind": "debt",
+     "note": "placed by him; owes Lạc Hà a tenth until 1230"
+    }
+   ],
+   "master": "an_toan_chau",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "an",
+      "grade": 1,
+      "element": "tho"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    }
+   }
+  },
+  {
+   "key": "mau_hong_sa",
+   "name_hv": "Mâu Hồng Sa",
+   "name_han": "牟紅砂",
+   "gloss": "Red sand",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "thien_bao",
+   "rank": "ngoai_mon",
+   "home": 169,
+   "birthplace": 169,
+   "role": "Ore sorter at the red gold mine",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 46,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Deceitful",
+     "Brave"
+    ],
+    "calling": "Refiner",
+    "upbringing": "village_born"
+   },
+   "backstory": "Cát Kim Sa's (cat_kim_sa) cousin and the other sorter at the ash-pit; he saw Cát weigh a lump of slag in his hand and put it back, and has been looking for the same lump since.",
+   "ties": [
+    {
+     "to": "cat_kim_sa",
+     "kind": "cousin",
+     "note": "the other sorter"
+    },
+    {
+     "to": "vien_hong_kim",
+     "kind": "master",
+     "note": "the furnace hand"
+    }
+   ],
+   "master": "vien_hong_kim",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phu",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    }
+   }
+  },
+  {
+   "key": "ta_thuc_bao",
+   "name_hv": "Tả Thức Bảo",
+   "name_han": "左識寶",
+   "gloss": "Knows treasure",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "thien_bao",
+   "rank": "noi_mon",
+   "home": 50,
+   "birthplace": 20,
+   "role": "Inner disciple of the auction floor; copies the lot book",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "kim": 50,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Diligent",
+     "Deceitful"
+    ],
+    "calling": "Merchant",
+    "upbringing": "sect_raised"
+   },
+   "backstory": "A studio steward's son who learned the Appraiser's Eye two years before Ngụy Minh Giám (nguy_minh_giam) and sees half as much with it; he copies Tiền Ngũ Phân's (tien_ngu_phan) lot book and has noticed which names Tiền leaves out.",
+   "ties": [
+    {
+     "to": "tien_ngu_phan",
+     "kind": "master",
+     "note": "the auction steward"
+    },
+    {
+     "to": "nguy_minh_giam",
+     "kind": "rival",
+     "note": "has the better eye"
+    }
+   ],
+   "master": "tien_ngu_phan",
+   "build": {
+    "archetype": "tran_su",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 5
+    },
+    "aux": [
+     {
+      "tech": "appraisers-eye",
+      "layer": 2
+     }
+    ],
+    "gear": [
+     {
+      "base": "kinh",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "kim",
+     "intent": "Metal."
+    }
+   }
+  },
+  {
+   "key": "quan_tay_lan",
+   "name_hv": "Quan Tẩy Lan",
+   "name_han": "關洗蘭",
+   "gloss": "Washing orchid",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "thien_bao",
+   "rank": "tap_dich",
+   "home": 132,
+   "birthplace": 132,
+   "role": "Brook washer (hired); Quan Tẩy Ngọc's younger sister",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 42,
+     "thuy": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Honest",
+     "Gregarious"
+    ],
+    "calling": "Herbalist",
+    "upbringing": "village_born"
+   },
+   "backstory": "Quan Tẩy Ngọc's (quan_tay_ngoc) younger sister, who washes the studio's refinings in the clear brook and wants, unlike her sister, to be taught the canon; she has no Metal either.",
+   "ties": [
+    {
+     "to": "quan_tay_ngoc",
+     "kind": "sibling",
+     "note": "her elder sister"
+    }
+   ],
+   "build": {
+    "archetype": "dan_su",
+    "main": {
+     "tech": "hoang_moc",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ho_lo",
+      "grade": 1,
+      "element": "thuy"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood."
+    }
+   }
+  },
+  {
+   "key": "doan_tri_lung",
+   "name_hv": "Đoan Tri Lung",
+   "name_han": "端知籠",
+   "gloss": "Knows cages",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "thien_bao",
+   "rank": "ngoai_mon",
+   "home": 20,
+   "birthplace": 507,
+   "role": "Cage-keeper of the living lots",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "tho": 38,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Brave",
+     "Reclusive"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born"
+   },
+   "backstory": "A Thu Tân trapper's daughter who keeps the cages when Hồ Tầm Kỳ (ho_tam_ky) travels; she fed the white bear for a winter before it was sold in 1181, and still sends its groom ice.",
+   "ties": [
+    {
+     "to": "ho_tam_ky",
+     "kind": "master",
+     "note": "buyer of living lots"
+    },
+    {
+     "to": "hua_tich_cau",
+     "kind": "friend",
+     "note": "the bear's groom at Mục Vân Trang"
+    }
+   ],
+   "master": "ho_tam_ky",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "nine-temper-scripture",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "mao",
+      "grade": 1,
+      "element": "kim"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "tho",
+     "intent": "Earth."
+    }
+   },
+   "changed": "fix pass A 2026-11-25: archetype kiem_tu -> the_tu: a cage-keeper with an anchor, no sword"
+  }
+ ]
+}
