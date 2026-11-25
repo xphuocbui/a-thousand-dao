@@ -1,0 +1,274 @@
+[
+ {
+  "key": "dang_tieu_van",
+  "file": "design/world/depth/art/portraits/p02/lac_ha.json"
+ },
+ {
+  "key": "hinh_thu_tinh",
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json"
+ },
+ {
+  "key": "mac_kinh_trap",
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json"
+ },
+ {
+  "key": "sai_thiet_dien",
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json"
+ },
+ {
+  "key": "dai_ho_than",
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json"
+ },
+ {
+  "key": "mo_vien_son",
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json"
+ },
+ {
+  "key": "sa_dinh_ba",
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json"
+ },
+ {
+  "key": "coc_hieu_tinh",
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json"
+ },
+ {
+  "key": "canh_lenh_ham",
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json"
+ },
+ {
+  "key": "sach_truc_thuy",
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json"
+ },
+ {
+  "key": "lo_tinh_thiet",
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json"
+ },
+ {
+  "key": "la_doan_cuong",
+  "file": "design/world/depth/art/portraits/p03/tran_sa.json"
+ },
+ {
+  "key": "nhiep_co_dang",
+  "file": "design/world/depth/art/portraits/p03/tran_sa.json"
+ },
+ {
+  "key": "vien_tieu_yen",
+  "file": "design/world/depth/art/portraits/p03/tran_sa.json"
+ },
+ {
+  "key": "mac_chiet_chi",
+  "file": "design/world/depth/art/portraits/p04/ngao_tuyet.json"
+ },
+ {
+  "key": "doan_mai_cot",
+  "file": "design/world/depth/art/portraits/p04/ngao_tuyet.json"
+ },
+ {
+  "key": "dam_van_chung",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "boc_thu_chung",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "luc_nhi_thinh",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "thach_vu_lien",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "muc_trap_sinh",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "phan_tich_lich",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "quach_tu_tinh",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "ong_vu_hoa",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "lang_ngan_lo",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "tu_van_ha",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "ta_ke_tru",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "nghiem_to_to",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "tran_sau_vu",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "dang_tieu_hoa",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "ma_thiet_cau",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "lu_ngan_xuyen",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "van_diem_trich",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "khuc_tieu_thach",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "chu_ngoc_trich",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "luu_thach_khe",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "than_thu_nhat",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "au_tieu_linh",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "kim_tieu_sa",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "bi_thiet_nha",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "tong_loi_nhi",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "hau_tieu_co",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "lu_ha_tinh",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "banh_chu_thiet",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "dinh_an_thanh",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "cung_tram_van",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "nguy_thach_hoa",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "au_hanh_van",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "quan_minh_tuyen",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "phung_toi_hoa",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "duong_lac_dong",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "dong_vu_thach",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "mac_tieu_dien",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "thoi_an_phong",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "lac_kim_bang",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "pham_tich_lien",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "la_tieu_hanh",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "ha_mach_tue",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "tuong_lau_thanh",
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json"
+ },
+ {
+  "key": "khau_ngan_linh",
+  "file": "design/world/depth/art/portraits/p06/le_hoa.json"
+ },
+ {
+  "key": "ngac_thiem_hong",
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json"
+ },
+ {
+  "key": "nguy_bach_thach",
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json"
+ },
+ {
+  "key": "lieu_vong_phong",
+  "file": "design/world/depth/art/portraits/p10/phat_y.json"
+ },
+ {
+  "key": "au_duong_tuyen",
+  "file": "design/world/depth/art/portraits/p10/phat_y.json"
+ },
+ {
+  "key": "kieu_tinh_son",
+  "file": "design/world/depth/art/portraits/p10/phat_y.json"
+ },
+ {
+  "key": "lo_khinh_tran",
+  "file": "design/world/depth/art/portraits/p10/phat_y.json"
+ },
+ {
+  "key": "cat_da_binh",
+  "file": "design/world/depth/art/portraits/p10/phat_y.json"
+ },
+ {
+  "key": "hua_ngan_son",
+  "file": "design/world/depth/art/portraits/p10/phat_y.json"
+ }
+]

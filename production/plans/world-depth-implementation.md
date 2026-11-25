@@ -1,7 +1,6 @@
 # World depth in the running game: plan (2026-11-25)
 
-**Status:** PLAN, not started. Stage 3's export details stay provisional until the content review (below) is done and
-its fixes are in.
+**Status:** PLAN. The content review and its fixes are done (below); Stage 0 is next.
 
 **Asked:** the user, 2026-11-25: "before the implementation work, could you please first mark down the plan, then
 before the plan execution, do a full review of the casts, events, builds that we did tonight, content-wise".
@@ -18,16 +17,53 @@ before the plan execution, do a full review of the casts, events, builds that we
 
 The content is in `design/world/depth/` (`SUMMARY-2026-11-25.md`).
 
-## Where things stand
+## Start here (for a new session)
 
-- **Content:** 1,889 people (1,747 living) in 50 sects and 6 outside groups. 7,203 ties, both sides written. 490
-  items in 166 sets. 180 proposed techniques. 264 new dated events. 434 hand-picked Đạo Đồ routes. The checker
-  (`tools/design/world/depth_check.py`) is clean.
-- **Game data:** none of it is in `assets/data` yet. `world_history.json` still holds the old 106 people and 54
-  authored builds. Only `world_cultivators_min` (now 5000) has changed.
-- **Uncommitted:** everything from the night and the day. Most of the content is untracked files under
-  `design/world/depth/`; the GDDs, the registry, `design/arts/part-b/c.json`, `world_generation.json` and four tools are
-  modified.
+1. **Read these, in order:**
+   - this plan;
+   - `design/world/depth/README.md` and `SUMMARY-2026-11-25.md` (what the content is);
+   - `design/world/depth/DECISIONS-2026-11-25.md`, groups 1-14 (every user ruling);
+   - `design/world/depth/schema.md` (record fields);
+   - `design/world/depth/art/README.md` (the art method), only if you touch the art.
+2. **Checkers to keep green:**
+   - `python -I tools/design/world/depth_check.py` (content: roots, admission, bands, opposite traits, routes, ties);
+   - `python -I tools/design/world/art_prompt_check.py` (art prompts).
+3. **Commits so far (all on main, not pushed):**
+   - 7a5d139f: the content and GDD amendments;
+   - 4f89c796: the Phất Y rename and the builds folder;
+   - 5ababc91: story pass B;
+   - 4f5305a2: depth and tone;
+   - 251d240e: the art prompts.
+
+   The later art fixes are uncommitted. **Commit only your own paths** (`git commit -- <paths>`). Another session owns
+   the "Formation teaching" bullet in `design/gdd/sects.md`: never stage that hunk.
+4. **Do not touch** `design/world/depth/art/` or `tools/asset-pipeline/portraits/` while the paint run (started
+   2026-11-25 evening in the content session) is going. Check `production/session-state/active.md` for its state.
+
+## Where things stand (updated 2026-11-25, late)
+
+- **Content:** 1,891 people (1,748 living) in 50 sects and 6 outside groups; 490 items in 166 sets; 180 proposed
+  techniques; ~264 new dated events; 435 hand-picked Đạo Đồ routes. The content review is done (below), and
+  `depth_check.py` reports no findings.
+- **Keys renamed during the fixes**, so the export must use the new keys:
+  - `thach_tang_danh` became `thang_vo_ta`, already changed in `assets/data` too;
+  - the founder `quach_vo_tich` became `quach_linh_thu`;
+  - `ta_bat_luu` became `cat_da_binh`;
+  - Thải Chi's five Nghiêm herb names became `nghiem_kim_ngan`, `nghiem_bac_ha`, `nghiem_ha_kho`, `nghiem_hoi_huong`
+    and `nghiem_ngu_vi`.
+- **New people:** `ha_tinh_can` (Cốc Vũ, tier B) and `mac_thang_kieu` (Tùng Đào, tier C, held in Lô Niệm Ca's cellar).
+  **Removed:** none.
+- **Chronicle data already changed in `assets/data/world_history.json`** (user approved): A225's text, the Phất Y
+  founding with no poem; and C023, Lôi Vô Danh dies of the miasma.
+- **Game data otherwise unchanged:** `world_history.json` still holds the old 106 people and 54 authored builds. Only
+  `world_cultivators_min` (5000) and the two chronicle texts have changed.
+- **Art (DECISIONS group 14):** a portrait for every authored person (1,891) and a picture for 311 story sites,
+  painted at low quality from prompts authored per person and place (`design/world/depth/art/`). The painted images
+  sit outside git:
+  - portraits in `tools/asset-pipeline/portraits/out/authored/<batch>/`;
+  - places in `design/world/depth/art/places/out/<batch>/`.
+
+  The review gallery is https://claude.ai/artifact/H45zDrK7quF8PusDZGKAPE. Install is Stage 2b below.
 
 Facts checked 2026-11-25 that shape the stages:
 - **Unknown technique ids are dropped silently.** `CastBuilds._learn` matches only templates in
@@ -44,8 +80,7 @@ Facts checked 2026-11-25 that shape the stages:
 ## Stages
 
 ### Stage 0: decisions and one ADR
-- **D1:** a commit checkpoint for the night's and day's work, before any code: commit our own paths only, as in the
-  memory rule. Ask the user.
+- **D1:** DONE. Checkpoints committed (7a5d139f and the three after it).
 - **ADR-0009:** the world-depth export, covering how `design/world/depth/` folds into `world_history.json` and the
   data files, the merge with `cast_builds` (keep authored targets, add the new), the data-version bump (a save on the
   old cast is refused), and the stand-in rule for uncatalogued techniques.
@@ -63,6 +98,13 @@ Facts checked 2026-11-25 that shape the stages:
   pair; ket_nghia covers sworn_sibling; dao_lu covers dao_partner and spouse; lover is soft). Overflow is checked
   against rule 5's authored exception.
 - The trait trim for over-band people (NPC Traits rule 2a): 30 people, 36 traits.
+- Fields added by the content fixes that the export must carry:
+  - `appearance` for every tier;
+  - `wants` and `secret` for tier B;
+  - talent flaws (with `thien_phu` to match);
+  - a `beasts` list on tamers, with records in `**/*.beasts.json`;
+  - `changed` notes, which are design-only and not exported.
+- Over-band people grew in pass C: about 21 tier B and 20 tier C sit one trait over their band, which the export trims.
 
 ### Stage 2: the map (seats move)
 - `world_continent.json`: each moved seat place becomes `great_seat` / `minor_seat` with the sect's key. The old seat
@@ -72,7 +114,24 @@ Facts checked 2026-11-25 that shape the stages:
   OQ 11). Re-run the starting-level census.
 - Art: moved seats show PlaceholderArt until painted (memory rule; low quality by default when painted).
 
-### Stage 3: one sect end to end (Băng Tâm Các), provisional until the review's fixes
+### Stage 2b: install the authored art (after the user reviews the gallery)
+- **Portraits.**
+  - Copy each `out/authored/<batch>/<key>.png` to `assets/portraits/cast/<key>.webp` at 400x600, as
+    `gen_portraits.install` does.
+  - The 10 pilot people use `out/authored/pilot/<key>.png`; this replaces the old 88 cast portraits too.
+  - Then rebuild `assets/portraits/portraits.json`, whose `cast` list must hold every authored key.
+  - A key without a picture keeps PlaceholderArt (memory rule).
+- **Places.**
+  - Copy each `places/out/<batch>/paint_<id>.png` to `assets/art/places/<id>.webp`, the window banner, at 1536x864
+    for seats and 960x540 for the rest (as `tools/asset-pipeline/places/install_place_paintings.py` does).
+  - Replace the old 254 banners.
+  - The map's miniatures (`assets/map/places/`) are NOT changed.
+- **Check:** open the character window and a sect window, and keep screenshots in `production/qa/evidence/`
+  (run-and-observe). Measure the import size; 1,891 webp portraits come to about 60 MB.
+- **Open:** batch p07 has 41 flagged portraits the user may want fixed and repainted, for about $0.40 (ask). Retry
+  any refused or failed images from the paint logs.
+
+### Stage 3: one sect end to end (Băng Tâm Các)
 - `tools/design/world/export_world.py` reads `design/world/depth/` for one sect: people, merged builds, lineage,
   items, sets, events and ties (mapped), and writes `world_history.json` plus the item, set and technique stand-ins.
 - Load the world, open the sect window and person cards, and keep a screenshot in `production/qa/evidence/`
@@ -113,11 +172,16 @@ Facts checked 2026-11-25 that shape the stages:
   (Linh Căn OQ 16).
 - The one design review over everything (the user's rule: one pass at the end).
 
-## Before Stage 0: the content review (in progress)
+## Before Stage 0: the content review (DONE 2026-11-25)
 
-A full review of the cast, events and builds, content-wise. Scripts come first: repeated plot shapes, date
-clustering, voice tics, timeline, build coherence and trait spread. Readers come second, for judgement. Findings go to
-`design/world/depth/review/`. Nothing is rewritten until the user picks what to fix.
+Review: `design/world/depth/review/RANKED.md`. The user chose to fix all groups but the voice pass. Commits:
+- 7a5d139f: the checkpoint and sweep A;
+- 4f89c796: the Phất Y rename and the builds folder;
+- 5ababc91: story pass B;
+- 4f5305a2: depth and tone passes C and C2.
+
+The checker is clean. Content after the fixes: 1,891 people; 41 % carry a dark trait, each with a deed; tier B has
+wants and secrets; tier C has looks.
 
 ## Risks
 
