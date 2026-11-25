@@ -33,9 +33,10 @@ The content is in `design/world/depth/` (`SUMMARY-2026-11-25.md`).
    - 4f89c796: the Phất Y rename and the builds folder;
    - 5ababc91: story pass B;
    - 4f5305a2: depth and tone;
-   - 251d240e: the art prompts.
+   - 251d240e: the art prompts;
+   - e2ce0d41: the prompt fixes and this plan.
 
-   The later art fixes are uncommitted. **Commit only your own paths** (`git commit -- <paths>`). Another session owns
+   **Commit only your own paths** (`git commit -- <paths>`). Another session owns
    the "Formation teaching" bullet in `design/gdd/sects.md`: never stage that hunk.
 4. **Do not touch** `design/world/depth/art/` or `tools/asset-pipeline/portraits/` while the paint run (started
    2026-11-25 evening in the content session) is going. Check `production/session-state/active.md` for its state.
