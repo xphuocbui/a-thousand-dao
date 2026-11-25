@@ -184,7 +184,7 @@
     "personality": [
      "Diligent",
      "Stubborn",
-     "Just"
+     "Greedy"
     ],
     "calling": "Talisman maker",
     "upbringing": "village_born",
@@ -194,6 +194,8 @@
    },
    "appearance": "A tall woman with resin-stained hands and a birch-bark hat, who can tell a sheet's maker by its smell.",
    "backstory": "A Hệ Bì Thôn girl from the bark-tying village, taken by the founder Chiêm Thư Sương (chiem_thu_suong) in 1126 for her hands. She has pressed the pavilion's paper ever since and takes it to the palace herself, where Lư Chỉ Mặc (lu_chi_mac) checks it sheet by sheet. She is loyal to Văn Hàn Đăng (van_han_dang) and thinks him too soft on the lake villages' debts. This summer she sold the first forty wall lanterns to Băng Tâm's north-shore villages for silver, through Cao Hàn Chúc (cao_han_chuc), and has not told Văn the count.",
+   "wants": "To buy next winter's bark with the north shore's silver and clear the lake villages' old debts from the ledger.",
+   "secret": "She is training Bùi Tố Chỉ (bui_to_chi) to smell a sheet's maker in secret, against the founder's rule that first-years learn no craft, because the girl's hands are better than her own.",
    "ties": [
     {
      "to": "chiem_thu_suong",
@@ -319,6 +321,8 @@
    },
    "appearance": "A long-legged man with a pole of unlit lanterns over his shoulder and a different village's scarf every week.",
    "backstory": "A Backwater Village fisherman's son who walks the lake's whole shore every autumn with a pole of lanterns, from Hồ Khẩu round to the north shore where Băng Tâm's fishers live, and hangs one in every village whether it can pay or not. This autumn he carries the new wall lanterns: in the villages that owe he takes them down before dawn, hangs last year's in their place, and sells them on to north-shore headmen for a silver apiece. The founder Chiêm Thư Sương (chiem_thu_suong) taught him. He knows every headman on the lake and drinks with Quách Bất Trầm (quach_bat_tram) of Hàm Nguyệt.",
+   "wants": "To drink free in every village on the lake, and to sell one more wall lantern before he is stopped.",
+   "secret": "He keeps the lanterns he has taken down in a stable at Hồ Khẩu and relights them for headmen who ask, so that each post shows a light when Văn Hàn Đăng counts.",
    "ties": [
     {
      "to": "chiem_thu_suong",
@@ -423,13 +427,14 @@
    "traits": {
     "personality": [
      "Reclusive",
-     "Patient",
+     "Cruel",
      "Paranoid"
     ],
     "calling": "Talisman maker",
-    "upbringing": "village_born"
+    "upbringing": "hermit_taught"
    },
-   "backstory": "A charcoal-burner's daughter of Thán Diêu Thôn who makes the pavilion's pine-soot ink in a stone hut set apart from the trees, because the pines forbid open fire under the canopy; she was the founder Chiêm Thư Sương's (chiem_thu_suong) last disciple.",
+   "appearance": "Soot-black to the elbow with a white stripe where the sleeve ends; her stare never leaves your hands.",
+   "backstory": "A charcoal-burner's daughter of Thán Diêu Thôn who makes the pavilion's pine-soot ink in a stone hut set apart from the trees, because the pines forbid open fire under the canopy; she was the founder Chiêm Thư Sương's (chiem_thu_suong) last disciple. She makes her pupils sit beside the kiln all night to prove their calm, and Nghê Tùng Yên (nghe_tung_yen) still bears the burn.",
    "ties": [
     {
      "to": "chiem_thu_suong",
@@ -514,6 +519,7 @@
     "upbringing": "sect_raised",
     "lifestyle": "calligrapher"
    },
+   "appearance": "Ink-dot freckles on the left cheek; she holds her breath when she writes.",
    "backstory": "Born at the pavilion to two of its papermakers, she writes the best plain ward of her generation; Văn Hàn Đăng (van_han_dang) is teaching her to read the founder's hand, and has not told her why.",
    "ties": [
     {
@@ -581,9 +587,10 @@
      "Diligent"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "His grandparents' harbour at Nghênh Nguyệt Trấn was flattened by the ice wall of 1033 (V006), and this summer Văn Hàn Đăng (van_han_dang) made a wall ward from his drafts. On the lantern road he saw Khổng Dạ Hành (khong_da_hanh) take the new lantern from his family's village, Tịch Ba, and he is writing it a ward of his own on Cầu Áp Sương's (cau_ap_suong) spoiled sheets.",
+   "appearance": "Wind-bitten ears; ink under the nails even after washing.",
+   "backstory": "His harbourmaster grandparents' harbour at Nghênh Nguyệt Trấn was flattened by the ice wall of 1033 (V006), and this summer Văn Hàn Đăng (van_han_dang) made a wall ward from his drafts. On the lantern road he saw Khổng Dạ Hành (khong_da_hanh) take the new lantern from his family's village, Tịch Ba, and he is writing it a ward of his own on Cầu Áp Sương's (cau_ap_suong) spoiled sheets.",
    "ties": [
     {
      "to": "khong_da_hanh",
@@ -657,6 +664,7 @@
     "calling": "Talisman maker",
     "upbringing": "village_born"
    },
+   "appearance": "Pulp-soft palms; a bark curl always stuck in her hair.",
    "backstory": "From the same bark-tying village as Nhạc Hoa Bì (nhac_hoa_bi), she has pressed paper for three years and not yet been taught a stroke, as the founder intended.",
    "ties": [
     {
@@ -721,12 +729,19 @@
     "personality": [
      "Gregarious",
      "Fickle",
-     "Brave"
+     "Greedy"
     ],
     "calling": "Diplomat",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Bắc Ngạn Thôn boy who grew up beside Băng Tâm's fishers on the north shore and speaks their dialect; Khổng Dạ Hành (khong_da_hanh) brought him back with the empty lantern pole one autumn. This summer he carried Nhạc Hoa Bì's (nhac_hoa_bi) order for forty wall lanterns to the north-shore headmen, and he carries their silver back on Khổng's road.",
+   "appearance": "Talks in a north-shore dialect; his feet never rest.",
+   "backstory": "A Bắc Ngạn Thôn boy who grew up beside Băng Tâm's fishers on the north shore and speaks their dialect; Khổng Dạ Hành (khong_da_hanh) brought him back on the lantern pole. He carried Nhạc Hoa Bì's (nhac_hoa_bi) order for forty wall lanterns to the headmen, pocketed Tịch Ba's silver and swore it came short; Tịch Ba lost its lantern.",
    "ties": [
     {
      "to": "khong_da_hanh",
@@ -800,6 +815,7 @@
     "calling": "Talisman maker",
     "upbringing": "village_born"
    },
+   "appearance": "Dark-ringed eyes that never droop; a faint burn scar on one wrist.",
    "backstory": "Another charcoal village girl, sent up to Quản Sương Thư (quan_suong_thu) because she was the only child in Thán Diêu who could sit by a kiln all night without sleeping.",
    "ties": [
     {
@@ -872,6 +888,7 @@
      "array_bound"
     ]
    },
+   "appearance": "Remembered as a small stern woman with a quill-callus on every finger and pine resin in her white hair.",
    "backstory": "Raised in the pines' Array Hall, she could not learn a ward by ear as fast as she could write it, which the palace forbade. After the ice wall flattened Nghênh Nguyệt in 1033 (V006) she made the Lantern Ward. In 1060 the head let her found a sworn house in the high pines to write the wards the palace needed (V007). In 1135 she copied the wards an old singer of the Array Hall had laid with three songs she never heard, the year before he died with them (N-tung_dao-05), and sealed the copies in a box for her disciple Văn Hàn Đăng (van_han_dang).",
    "ties": [
     {

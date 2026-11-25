@@ -392,6 +392,8 @@
    },
    "appearance": "Her father's height and her mother's smile, in a riding coat with a night-glow cup sewn on the breast.",
    "backstory": "Born after the knee, she never raided until her mother gave her a band. In 1194 she was the first to drink from the night-glowing cups again (A126), and half the young blades of Dạ Quang now follow her past Dương Bằng with wrapped faces. Her mother Đồ Xích Linh (do_xich_linh) gave her the road, and she likes what it pays. She has never met her half-brother Hạng Minh Sa (hang_minh_sa), and every year she writes to him that the road is quiet.",
+   "wants": "To ride at the head of the road before her mother is finished with it, and once to see her half-brother and learn whether the hostage is soft.",
+   "secret": "She skims a tenth of every toll her mother's band takes into a jar buried behind the cup tent, to buy riders who will follow her and not Đồ Xích Linh.",
    "ties": [
     {
      "to": "hang_da_boi",
@@ -519,7 +521,7 @@
      "Temperate"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [
      {
       "id": "sturdy_frame",
@@ -536,7 +538,9 @@
     ]
    },
    "appearance": "A weathered, tidy rider from the camel-bell town who keeps the escort's ledgers in a hand better than his master's.",
-   "backstory": "He rode in the raids as a young man and was made escort captain when the raiders were set to guarding the caravans they had robbed (A123). To everyone's surprise he is good at it, and likes being paid. He posts his legs on the board at the Đà Linh well so that small traders can join his train for a share of the fee, and he does not know who else reads it. Trấn Sa Đường's watcher Nhiếp Cô Đăng (nhiep_co_dang) follows every escort he rides. He is the one Dạ Quang man the merchants of Hồi Lan Thành trust.",
+   "backstory": "A camel-bell trader's son of Đà Linh Trấn, he rode in the raids as a young man and was made escort captain when the raiders were set to guarding the caravans they had robbed (A123). To everyone's surprise he is good at it, and likes being paid. He posts his legs on the board at the Đà Linh well so that small traders can join his train for a share of the fee, and he does not know who else reads it. Trấn Sa Đường's watcher Nhiếp Cô Đăng (nhiep_co_dang) follows every escort he rides. He is the one Dạ Quang man the merchants of Hồi Lan Thành trust.",
+   "wants": "A road where any small trader can join his train without fear, and enough saved to retire to Đà Linh Trấn with a ledger-house of his own.",
+   "secret": "He has begun posting false legs on the Đà Linh board, routes his escort never rides, to see whether wrapped riders come for them; the day they do, he will know whose band it is, and Đồ Xích Linh reads that board.",
    "ties": [
     {
      "to": "hang_da_boi",
@@ -640,7 +644,7 @@
      "Loyal"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "path": [
      "demonic_path"
     ],
@@ -648,7 +652,8 @@
      "Demon-tainted"
     ]
    },
-   "backstory": "A sheep-shed boy who has fed his sabre more than the Canon asks. In the band's night camps Đồ Xích Linh (do_xich_linh) gives him the drivers the band takes, and he feeds the blade on them with Triệu Huyết Y's art; she tells him the taint is strength.",
+   "backstory": "A hired herd-boy who has fed his sabre more than the Canon asks. In the band's night camps Đồ Xích Linh (do_xich_linh) gives him the drivers the band takes, and he feeds the blade on them with Triệu Huyết Y's art; the Hồi Lan driver whose dice won Mãn Xích Câu's (man_xich_cau) cup took three nights to die. She tells him the taint is strength.",
+   "appearance": "Black stains in the knuckles of his sabre hand that he has stopped scrubbing.",
    "ties": [
     {
      "to": "do_xich_linh",
@@ -724,9 +729,16 @@
      "Gregarious"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Đồ Xích Linh's (do_xich_linh) cousin's girl from Chiên Trướng Thôn, who rides better than she cuts.",
+   "backstory": "Đồ Xích Linh's (do_xich_linh) cousin's girl from Chiên Trướng Thôn, who rides better than she cuts. Three horses have thrown her in a year; the riders call it her luck.",
+   "appearance": "A saddle-sore limp she hides by riding faster.",
    "ties": [
     {
      "to": "do_xich_linh",
@@ -791,10 +803,11 @@
      "Indulgent"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "street_orphan",
     "lifestyle": "gambler"
    },
-   "backstory": "He lost his first night-glow cup at dice to a Hồi Lan camel driver the night Hạng Lưu Hỏa (hang_luu_hoa) poured it. He found the man in the first train the band struck, took the cup back, and gave him to Cừu Lạc Nhật (cuu_lac_nhat). He drinks from it at every fire.",
+   "backstory": "An alley orphan of Đà Linh Trấn, he lost his first night-glow cup at dice to a Hồi Lan camel driver the night Hạng Lưu Hỏa (hang_luu_hoa) poured it. He found the man in the first train the band struck, took the cup back, and gave him to Cừu Lạc Nhật (cuu_lac_nhat). He drinks from it at every fire.",
+   "appearance": "A chipped front tooth and a laugh that starts before the joke.",
    "ties": [
     {
      "to": "cuu_lac_nhat",
@@ -860,13 +873,14 @@
    "traits": {
     "personality": [
      "Honest",
-     "Diligent",
+     "Lazy",
      "Peaceable"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "He rides behind Ô Liệt Phong (o_liet_phong) on the escort, the one train the band never touches, and has never seen a raid, only heard the old men boast.",
+   "backstory": "He rides behind Ô Liệt Phong (o_liet_phong) on the escort, the one train the band never touches, and has never seen a raid, only heard the old men boast. A camel that knows the road carries him, and he sleeps through half of each leg.",
+   "appearance": "The weave of a saddle blanket pressed into one cheek.",
    "ties": [
     {
      "to": "o_liet_phong",
@@ -931,7 +945,8 @@
     "calling": "Schemer",
     "upbringing": "merchant_child"
    },
-   "backstory": "He left Trấn Sa Đường's outer gate in 1196 for the cups and the stories; Viên Cô Yên (vien_co_yen) has posted his face at every caravan stop, and Đồ Xích Linh (do_xich_linh) pays him for the guards' routes. She keeps him off her band, so he can tell Trấn Sa only that it rides.",
+   "backstory": "He left Trấn Sa Đường's outer gate in 1196 for the cups and the stories; Viên Cô Yên (vien_co_yen) has posted his face at every caravan stop. Đồ Xích Linh (do_xich_linh) pays him for the guards' routes, which he gets by writing to the gate friend who vouched for him, who has been flogged twice for the leaks. She keeps him off her band.",
+   "appearance": "A neat wedge of beard he trims with a knife he swears was his father's.",
    "ties": [
     {
      "to": "do_xich_linh",
@@ -1004,6 +1019,7 @@
     "upbringing": "sect_raised"
    },
    "backstory": "Born at the gate to a raider who died in the Taming, she worships Hạng Lưu Hỏa (hang_luu_hoa) and has a cup of her own already.",
+   "appearance": "Hair singed short on one side where a cup-lamp caught it.",
    "ties": [
     {
      "to": "hang_luu_hoa",

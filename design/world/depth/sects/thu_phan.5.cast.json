@@ -28,12 +28,13 @@
     "personality": [
      "Devout",
      "Calm",
-     "Patient"
+     "Arbitrary"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born"
+    "upbringing": "sect_raised"
    },
-   "backstory": "Has sung beside Bào Thu Xướng (bao_thu_xuong) every autumn for sixty years and hears the new voice in the chorus as clearly as he does; he thinks it is a woman's, and Lương Thanh Mộ's (luong_thanh_mo).",
+   "appearance": "Pale cord of scar across his throat; tilts his head left when he listens.",
+   "backstory": "Has sung beside Bào Thu Xướng (bao_thu_xuong) every autumn for sixty years and hears the new voice in the chorus as clearly as he does; he thinks it is a woman's, and Lương Thanh Mộ's (luong_thanh_mo). He seats the chorus by his mood, and struck Thường Địch Âm (thuong_dich_am) off the roll for a cough, so that she plays the grove's flutes instead of singing at the graves.",
    "ties": [
     {
      "to": "bao_thu_xuong",
@@ -100,12 +101,13 @@
     "personality": [
      "Pragmatic",
      "Greedy",
-     "Cautious"
+     "Faithless"
     ],
     "calling": "Formation master",
     "upbringing": "village_born"
    },
-   "backstory": "Lays the seal-lines over the jade beds for Thẩm Thổ Bích (tham_tho_bich). For three autumns she laid a forcing seal over one of the oldest graves by the river, and her fifth of the stone's price is coming back from Thu Trì with the pills.",
+   "appearance": "Chalk dust ground into the lines of her palms; a single silver seal-ring on a string at her neck.",
+   "backstory": "Lays the seal-lines on the jade beds for Thẩm Thổ Bích (tham_tho_bich). For three autumns she laid a forcing seal over one of the oldest graves by the river, behind her teacher's back, and her fifth of the stone's price is coming back from Thu Trì with the pills; the grave sang nothing last autumn, and Lý Hận Bích (ly_han_bich) thinks its ward failed of age.",
    "ties": [
     {
      "to": "ly_han_bich",
@@ -181,13 +183,14 @@
    "traits": {
     "personality": [
      "Deceitful",
-     "Ambitious",
+     "Greedy",
      "Cautious"
     ],
     "calling": "Wanderer",
     "upbringing": "wild_raised"
    },
-   "backstory": "Ôn Tịch Nhai (on_tich_nhai) shut him in the cave of Khải Lôi's dead on the Kinh Trập of 1196, and he came out singing with the ridge's Darkness awake in him. He sells the hunters the names their dead call in the cave, and makes up the ones he cannot hear.",
+   "appearance": "Eyes that go milk-pale in lamplight; he sells the teeth of his own necklace one by one.",
+   "backstory": "Ôn Tịch Nhai (on_tich_nhai) shut him in the cave of Khải Lôi's dead on the Kinh Trập of 1196, and he came out singing with the ridge's Darkness awake in him. He sells the hunters the names their dead call in the cave, a sack of millet each, and invents the ones he cannot hear; a bear-hunter's widow paid three for one and lays her offerings to the wrong dead.",
    "ties": [
     {
      "to": "on_tich_nhai",
@@ -254,6 +257,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
+   "appearance": "Broad bare feet that leave wet prints on dry stone; a fishhook scar through one eyebrow.",
    "backstory": "Followed her cousin Cam Võng Nhi (cam_vong_nhi) up from Mãn Võng because she too heard the graves from the boats; she sings the sweeping chant off-key on purpose, so that the dead will know her voice.",
    "ties": [
     {
@@ -321,6 +325,7 @@
     "calling": "Talisman maker",
     "upbringing": "scholar_family"
    },
+   "appearance": "Hair parted tidy at dawn, undone by noon in the copy room's draught; a ruling-stick tucked behind his ear.",
    "backstory": "Ruled the lines for Cơ Ký Âm's (co_ky_am) grave books and sewed the second copy into the lining of his winter robe for him; when Thẩm Thổ Bích (tham_tho_bich) comes up to the copy room, he is the one who keeps her talking at the door.",
    "ties": [
     {
@@ -379,13 +384,20 @@
    "traits": {
     "personality": [
      "Impatient",
-     "Gregarious",
+     "Lazy",
      "Fickle"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Cuts flutes from tribulation bamboo with Nhan Thu Mặc (nhan_thu_mac) and plays the grave songs on them, which is taboo away from the Pavilion; she says the grove counts as the Pavilion.",
+   "appearance": "Drums her fingers on any surface; a bamboo-splinter scar runs down her lower lip.",
+   "backstory": "Cuts flutes from tribulation bamboo with Nhan Thu Mặc (nhan_thu_mac) and plays the grave songs on them, which is taboo away from the Pavilion; she says the grove counts as the Pavilion. She lets Nhan Thu Mặc (nhan_thu_mac) cut her share of the canes and plays the credit, and cannot sit through a whole song.",
    "ties": [
     {
      "to": "hoac_tich_ca",
@@ -450,8 +462,15 @@
      "Stubborn"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Left sleeve grey to the elbow with grave dust; the third broom this year snapped in his hand.",
    "backstory": "His family has farmed the hamlet on the ruin of Lôi Trạch for generations and claims kin among the city's dead; he sweeps his own forebears' graves, he says, and the chorus is quieter where he sweeps.",
    "ties": [
     {

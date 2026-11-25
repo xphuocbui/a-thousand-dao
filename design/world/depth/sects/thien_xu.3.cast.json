@@ -37,7 +37,7 @@
     "personality": [
      "Ambitious",
      "Loyal",
-     "Impatient"
+     "Cruel"
     ],
     "calling": "Duelist",
     "upbringing": "village_born",
@@ -57,7 +57,9 @@
     ]
    },
    "appearance": "Square-jawed and restless, always half a step ahead of his master in a corridor.",
-   "backstory": "Born at Thiên Ngoại Khoáng, where Thối Tinh Môn digs the iron it says fell with the stars (A222), Nhiễm Thừa Nghiệp is Công Tôn Duẫn's (cong_ton_duan) disciple and believes his master has been robbed of the Seal by a girl from the head's own family. He has fought Doãn Hi Hòa (doan_hi_hoa) on the training floor eleven times and lost seven. He also lost the inner-gate trial to Cừu Bất Ngữ, who cannot speak, and he is still angry about that.",
+   "backstory": "Born at Thiên Ngoại Khoáng, where Thối Tinh Môn digs the iron it says fell with the stars (A222), Nhiễm Thừa Nghiệp is Công Tôn Duẫn's (cong_ton_duan) disciple and believes his master has been robbed of the Seal by a girl from the head's own family. He has fought Doãn Hi Hòa (doan_hi_hoa) on the training floor eleven times and lost seven. He also lost the inner-gate trial to Cừu Bất Ngữ, who cannot speak, and he is still angry about that. He has twice broken a junior's wrist on the floor for laughing at his master's name.",
+   "wants": "The Seal for his master, and Doãn Hi Hòa laid flat in front of the whole floor.",
+   "secret": "He has greased the third rung of the heir's practice ladder to drop her in the next trial, and Cừu Bất Ngữ saw him do it and, being mute, cannot say.",
    "ties": [
     {
      "to": "cong_ton_duan",
@@ -156,7 +158,7 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Pragmatic",
+     "Greedy",
      "Arrogant"
     ],
     "calling": "Refiner",
@@ -178,6 +180,8 @@
    },
    "appearance": "Burn-flecked forearms, a leather apron over guest's blue, and a laugh that carries from the forge to the gate.",
    "backstory": "The second son of Cát Lưu Quang (cat_luu_quang), head of the vassal smiths of Thối Tinh Môn (A231), Cát Thối Phong has kept the seat's forge since 1170 as a guest of the Pivot. He reforges the guard's blades, sharpens the hawk's spear and drinks with the vein guard. Slowly and without permission, he is working on drawings of the halberd Trầm Sa Kích that his sect forged for Quý Trường Kích in 600 (C124), which lies under the barrow.",
+   "wants": "To reforge Trầm Sa Kích in his own name, and to be a head's son who is also a master.",
+   "secret": "He sells the guard's worn blade-steel back to the smelters at the seat's price and draws the credit twice; his father Cát Lưu Quang's accounts show the ingots both ways.",
    "ties": [
     {
      "to": "cat_luu_quang",
@@ -306,6 +310,8 @@
    },
    "appearance": "Round-faced and cheerful, in a borrowed yak-wool coat, with the Doãn ledger-keeper's ink stain already on her finger.",
    "backstory": "Doãn Thường Hi is Doãn Hi Hòa's (doan_hi_hoa) brother's daughter, the second of the bridge-ledger house to come up the mountain in a generation. She has an Earth root and a Metal root of forty, five short of the inner gate. She sits in the outer gate on Thạch Quyền Phong with the herders' children and lets no one call her by her surname, because Chử Bình Quân (chu_binh_quan) has made it plain that the beam will not tip for family.",
+   "wants": "To pass the Level Beam on her own weight, under her own name.",
+   "secret": "She has filed a pebble to the weight of a Metal forty and means to ask Uất Trì Thu to swap it in at the solstice, and has not understood what it would do to Chử Bình Quân.",
    "ties": [
     {
      "to": "chu_binh_quan",
@@ -389,7 +395,7 @@
     "personality": [
      "Brave",
      "Impatient",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Duelist",
     "upbringing": "village_born",
@@ -406,8 +412,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "Small and sharp, hair that stands up in dry weather, a burn on one palm from a stone she picked up as a child.",
+   "appearance": "Small and sharp, hair standing up in dry weather, a burn on one palm from a stone she picked up as a child, and her left foot never still.",
    "backstory": "A herder's girl from the slopes of Cùng Mục Phong, the thunder peak where Tư Không Hạc Niên and Thang Vô Tạ fought for three days (C186), Mặc Kinh Trập has Thunder in her root from the land. In 1198 the Tower's vault master Lệ Tiêu Hồn (le_tieu_hon), who heads its Thunder Hall, offered the Pivot's envoy a thunder-stone forge in exchange for her. The envoy said no without asking her. Đái Hổ Thần (dai_ho_than) told her, to see her face, and she wants to know what Lệ would teach.",
+   "wants": "To learn what Lệ Tiêu Hồn would teach, and then to say no to his face.",
+   "secret": "She writes to Lệ Tiêu Hồn through a herder boy of Cùng Mục Phong under a false name, asking only about thunder-stone, and Đái Hổ Thần reads the replies first.",
    "ties": [
     {
      "to": "dai_ho_than",
@@ -480,11 +488,11 @@
    "traits": {
     "personality": [
      "Calm",
-     "Honest",
+     "Deceitful",
      "Reclusive"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "scholar_family",
     "lifestyle": "chronicler",
     "talent": [],
     "path": [],
@@ -493,7 +501,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Keeps the Compact's great map in Tàng Ước Các; he has noticed the stele below Thủ Bi Trại sits forty paces off its line (V129), and he guesses what Thích Minh Thư (thich_minh_thu) found.",
+   "appearance": "Map-roller callus on one shoulder; his eyes flick to the door before he answers anything.",
+   "backstory": "Keeps the Compact's great map in Tàng Ước Các; he has noticed the stele below Thủ Bi Trại sits forty paces off its line (V129), and he guesses what Thích Minh Thư (thich_minh_thu) found. He keeps two copies of the great map and shows every visitor the older, Thích Minh Thư (thich_minh_thu) among them, who has twice measured a border from the wrong lines.",
    "ties": [
     {
      "to": "su_ngung_mac",
@@ -564,11 +573,11 @@
    "traits": {
     "personality": [
      "Just",
-     "Callous",
+     "Cruel",
      "Loyal"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -577,7 +586,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "A sulphur-miner's son from Lưu Hoàng who still smells faintly of eggs (A209); he serves the Bridge Court's summonses and has carried Phương Trực Ngôn's (phuong_truc_ngon) verdicts to the gates of four great sects.",
+   "appearance": "Coughs like a mine-shaft; the club hangs from his belt on a loop worn shiny.",
+   "backstory": "A sulphur-miner's son from Lưu Hoàng who still smells faintly of eggs (A209); he serves the Bridge Court's summonses and has carried Phương Trực Ngôn's (phuong_truc_ngon) verdicts to the gates of four great sects. He serves summonses with the club, and once beat the runner Trì Truyền Thanh (tri_truyen_thanh) with it for a late summons, so that the boy carried the next one with a bound hand.",
    "ties": [
     {
      "to": "phuong_truc_ngon",
@@ -655,7 +665,7 @@
     "personality": [
      "Gregarious",
      "Indulgent",
-     "Pragmatic"
+     "Greedy"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child",
@@ -667,7 +677,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Keeps the seven guest-houses where each great sect's Compact witness lodges at Thạch Kiều (N-thien_xu-03), dices with the junior judge Trọng Khắc Kỷ (trong_khac_ky), and keeps the guest ledgers Thích Minh Thư asked about.",
+   "appearance": "Rings on all ten fingers; his smile reaches the table a moment before the guest's purse does.",
+   "backstory": "Keeps the seven guest-houses where the great sects' Compact witnesses lodge at Thạch Kiều (N-thien_xu-03), dices with the junior judge Trọng Khắc Kỷ (trong_khac_ky), keeps the ledgers Thích Minh Thư asked about. He rents spare beds to merchants; last Compact day the Lạc Hà witness slept on Bùi Kiến Chứng's (bui_kien_chung) floor. His brother, who keeps a guest-house on the road, has not walked since Đồ Vô Cữu (do_vo_cuu) called.",
    "ties": [
     {
      "to": "mau_tri_vien",
@@ -744,10 +755,10 @@
     "personality": [
      "Calm",
      "Patient",
-     "Pragmatic"
+     "Faithless"
     ],
     "calling": "Diplomat",
-    "upbringing": "village_born",
+    "upbringing": "mortal_noble",
     "talent": [
      {
       "id": "comely",
@@ -761,7 +772,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Lives at Lạc Hà Tông as the Pivot's envoy and writes the monthly letter on the Ferry War tolls; Lạc Hà's head Tô Vãn Chiếu (to_van_chieu) is courteous to her and tells her nothing.",
+   "appearance": "Back as straight as a drawn bow; she keeps her laugh for letters.",
+   "backstory": "Lives at Lạc Hà Tông as the Pivot's envoy and writes the monthly letter on the Ferry War tolls; Lạc Hà's head Tô Vãn Chiếu (to_van_chieu) is courteous to her and tells her nothing. She tells the Lake's secretary which of the Pivot's letters are bluffs, for a seat nearer the table; it was her word that let Lạc Hà call Mâu Tri Viễn's (mau_tri_vien) toll bluff last year.",
    "ties": [
     {
      "to": "mau_tri_vien",
@@ -831,15 +843,21 @@
      "Impatient"
     ],
     "calling": "Diplomat",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "lifestyle": "pilgrim",
-    "talent": [],
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ],
     "path": [],
     "health": null,
     "coping": null,
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Rubs a bruised hip when he thinks no one is watching; feathers always caught in his hair.",
    "backstory": "Carries the Pivot's letters to its seven vassals on a borrowed crane of Cửu Cao Phái (A091), and has been thrown twice by the crane king Ung Hạc Minh (ung_hac_minh) tamed in 1197 (A097).",
    "ties": [
     {
@@ -917,7 +935,7 @@
     "personality": [
      "Warlike",
      "Loyal",
-     "Wrathful"
+     "Cruel"
     ],
     "calling": "Strategist",
     "upbringing": "village_born",
@@ -936,7 +954,8 @@
      "Battle-hardened"
     ]
    },
-   "backstory": "Born under Thiết Châm Phong, the Anvil Peak, he fought at Đan Sơn Mạch in 1158 (C190) under Ngũ Trấn Bắc (ngu_tran_bac) and has drilled the seat guard every dawn since as if the next war starts tomorrow.",
+   "appearance": "A whistle on a cord, frost-cracked lips, two fingers gone from the left hand.",
+   "backstory": "Born under Thiết Châm Phong, the Anvil Peak, he fought at Đan Sơn Mạch in 1158 (C190) under Ngũ Trấn Bắc (ngu_tran_bac) and has drilled the seat guard every dawn since as if the next war starts tomorrow. He drills the guard until it vomits, and left Cung Trực (cung_truc), who fainted, lying in the snow until his ears blackened with frost.",
    "ties": [
     {
      "to": "ngu_tran_bac",
@@ -1031,7 +1050,7 @@
      "Brave"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "sect_raised",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -1040,6 +1059,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Soot to the elbows; turns a flint-striker over as other people fidget.",
    "backstory": "Has spent ten years putting fire baskets back on the beacon forts the Pivot stood down after the truce, Phong Toại Bảo first (V112), on Nhiếp Minh Tiễn's (nhiep_minh_tien) orders and no one else's.",
    "ties": [
     {
@@ -1118,6 +1138,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Never seen sitting; candle wax scars her palms and her eyelids hang heavy.",
    "backstory": "Born on Xu Trụ Phong, where the Dipper Handle Canon is cut in seven columns, she relights the seven anchors of the seat's array each dusk and has not slept away from it in forty years; Thiện Thừa Củ (thien_thua_cu) calls her the array's eighth star.",
    "ties": [
     {
@@ -1203,7 +1224,7 @@
      "Reclusive"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born",
+    "upbringing": "temple_raised",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -1214,6 +1235,7 @@
     ],
     "gained": []
    },
+   "appearance": "Pale lashes, bright eyes, bad knees she walks off slowly.",
    "backstory": "Born on the pilgrims' thousand steps of Trích Tinh Phong (A095) with Light in her root, she keeps the warding array over Tinh Tủy Mạch beside Hình Thủ Tinh (hinh_thu_tinh), and its anchor stones remember three years when no one fed them.",
    "ties": [
     {
@@ -1295,6 +1317,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Voice worn to a rasp by the morning shouting; a ledger-pad strapped to his forearm.",
    "backstory": "Weighs the miners' ore in the open square of Song Kiều as the Pivot has since 235 (A219). Since 1198 his side has weighed almost nothing, and his tallies go four months up the road to Đặng Quân Bình (dang_quan_binh). Ôn Song Ngọc (on_song_ngoc) has asked him what the Pivot would pay to have the miners back.",
    "ties": [
     {
@@ -1395,12 +1418,12 @@
    },
    "traits": {
     "personality": [
-     "Temperate",
+     "Greedy",
      "Paranoid",
      "Diligent"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born",
+    "upbringing": "scholar_family",
     "talent": [],
     "path": [
      "forge_scarred"
@@ -1411,7 +1434,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Strikes the Pivot's silver coin at Bạch Ngân below the cinnabar slopes (A224) and counts every blank twice; he has found three forged dies in forty years and traced none of them.",
+   "appearance": "Bites every coin he is handed, even the ones he struck himself; a die-stamp bruise on the heel of one thumb.",
+   "backstory": "Strikes the Pivot's silver coin at Bạch Ngân below the cinnabar slopes (A224) and counts every blank twice; he has found three forged dies in forty years and traced none of them. He skims one coin in a thousand into his own sleeve and counts that twice too; his niece Mạch Tuệ Kim (mach_tue_kim) has been docked twice for the shortfall.",
    "ties": [
     {
      "to": "dang_quan_binh",
@@ -1497,6 +1521,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "A beam-balance tattooed small inside one wrist; the tallest woman at the market, she stoops to the scale.",
    "backstory": "Keeps the standard weights of Thiên Quyền Thị, the fairest scales on the continent (A207), and checks every merchant's weights against the Pivot's at each new moon. Three seasons running Hoa Cái's cinnabar baskets from the diggings have come in light, and she wrote it up to Đặng Quân Bình (dang_quan_binh); the treasury now proposes to take the lease back.",
    "ties": [
     {
@@ -1591,6 +1616,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Shoulders like a cart-yoke; black-iron rime in the creases of his neck.",
    "backstory": "Oversees Huyền Thiết, where a cart carries one ingot (A220); he once carried two for a bet, and in 1160 he found a mute boy sitting on a third and sent him up to Đỗ Tinh Hà.",
    "ties": [
     {
@@ -1681,7 +1707,7 @@
      "Callous"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "sect_raised",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -1690,7 +1716,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Has captained the doubled guard on Tinh Tủy Mạch since 1189 (A096); an ancestor of his served on the vein and died on Chiết Kích Nguyên in 803, which no one in the family has thought strange.",
+   "appearance": "Heavy brows, a notched ear; he says nothing for a long time before he speaks.",
+   "backstory": "Has captained the doubled guard on Tinh Tủy Mạch since 1189 (A096); an ancestor of his served on the vein and died on Chiết Kích Nguyên in 803, which no one in the family has thought strange. He kept Mộ Viễn Sơn (mo_vien_son) on the wall all one night with a frozen foot rather than relieve him, and the boy limps.",
    "ties": [
     {
      "to": "hinh_thu_tinh",
@@ -1786,6 +1813,7 @@
      "Lovestruck"
     ]
    },
+   "appearance": "A thin boy with a sentry's squint; his hand half-lifts in a wave before he remembers.",
    "backstory": "Until 1189 he waved each evening to a Băng Tâm watcher on the walls of Khuy Tinh Bảo across the valley; Băng Tâm barred the doors after the petition (V070), and he still watches the shut gate.",
    "ties": [
     {
@@ -1857,11 +1885,11 @@
    "traits": {
     "personality": [
      "Calm",
-     "Devout",
+     "Greedy",
      "Diligent"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "temple_raised",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -1870,7 +1898,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Keeps the seat's stores, burns the scented wood of Mộc Hương Thôn in the Pivot's hall (A211) and dusts the old stones of Thạch Kiều's bridge that have been kept there since 1050 (A216).",
+   "appearance": "Smells of scented wood; a prim bun, a pinch of ash on one cheek.",
+   "backstory": "Keeps the seat's stores, burns the scented wood of Mộc Hương Thôn in the Pivot's hall (A211) and dusts the old stones of Thạch Kiều's bridge that have been kept there since 1050 (A216). She sells the hall's spent incense ash in Thạch Kiều as a charm, and docks Ổ Tiểu Đàn's (o_tieu_dan) rice whenever the ash comes up short.",
    "ties": [
     {
      "to": "cong_ton_duan",
@@ -1952,7 +1981,7 @@
     "personality": [
      "Brave",
      "Impatient",
-     "Generous"
+     "Greedy"
     ],
     "calling": "Strategist",
     "upbringing": "merchant_child",
@@ -1964,7 +1993,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Born in Tinh Hán Thành on the reef of the sea-serpent's bones (C067), she runs the Pivot's three patrol boats on the inland sea and will have the harbour when Bộc Trầm Chu (boc_tram_chu) dies, which he keeps not doing.",
+   "appearance": "A gold hoop in one ear; she walks with a harbour roll, as if the deck were still moving.",
+   "backstory": "Born in Tinh Hán Thành on the reef of the sea-serpent's bones (C067), she runs the Pivot's three patrol boats on the inland sea and will have the harbour when Bộc Trầm Chu (boc_tram_chu) dies, which he keeps not doing. She takes a tithe from each smuggler's boat she lets pass, and put the blame for the missing tithe on Lư Kiểm Phàm (lu_kiem_pham), who was fined for it.",
    "ties": [
     {
      "to": "boc_tram_chu",
@@ -2043,6 +2073,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "A lantern scar in the shape of a crescent on his forearm; the stoop of a man who has leaned on one gate for forty years.",
    "backstory": "Keeps the gate of Khai Dương Thành that was rebuilt to face the morning star (A092), and opens it before dawn so the city can wake before the sun.",
    "ties": [
     {
@@ -2105,11 +2136,11 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Compassionate",
+     "Callous",
      "Reclusive"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [],
     "path": [
      "pill_master_tongue"
@@ -2120,7 +2151,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Born at the cinnabar diggings of Thần Sa Khoáng (A208), she brews the seat's wound pills from cinnabar bought from La Tử Vi (la_tu_vi) of Hoa Cái Đường, and the herb sleeping pills the Hall, which brews only from minerals, sends home with its sick washers, by the pouch and at a discount.",
+   "appearance": "Cinnabar-red at the wrists; her cheeks flush every time she lifts a lid.",
+   "backstory": "Born at the cinnabar diggings of Thần Sa Khoáng (A208), she brews the seat's wound pills from cinnabar bought from La Tử Vi (la_tu_vi) of Hoa Cái Đường, and buys at a discount the sleeping pills the Hall sends home with its sick washers. She knows what the pouches are for and asks for the discount; the washers who take them home are the ones Mễ Hòa Thu (me_hoa_thu) buries.",
    "ties": [
     {
      "to": "la_tu_vi",
@@ -2206,6 +2238,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Thin calves; her fingers drum a tune on her satchel when she thinks no one hears.",
    "backstory": "Carries Bách Vong Ngôn's (bach_vong_ngon) letters to Vạn Hác Viện and back, is the only person at the seat who has heard him play, and has begun, in secret, to learn.",
    "ties": [
     {
@@ -2273,7 +2306,7 @@
    "traits": {
     "personality": [
      "Humble",
-     "Diligent",
+     "Lazy",
      "Trusting"
     ],
     "calling": "Steward",
@@ -2286,7 +2319,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Came up from Mộc Hương Thôn with the cartload of scented wood the hall burns (A211) and stayed to tend the fires; his Wood root has no place in the lineage.",
+   "appearance": "Sandalwood smoke in his clothes; eyelids that droop by noon.",
+   "backstory": "Came up from Mộc Hương Thôn with the cartload of scented wood the hall burns (A211) and stayed to tend the fires; his Wood root has no place in the lineage. He naps behind the censers when the hall empties; last winter the fire died on his watch and Hà Khắc Thủy (ha_khac_thuy) was blamed and went without supper.",
    "ties": [
     {
      "to": "lau_tinh_huong",
@@ -2346,7 +2380,7 @@
      "Reclusive"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born",
+    "upbringing": "hermit_taught",
     "health": "waning_years",
     "talent": [],
     "path": [],
@@ -2355,6 +2389,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Antler-velvet stains on his sleeves; a gentle voice for deer, none for people.",
    "backstory": "Has kept the deer meadow of Lộc Uyển, where the Pivot forbade hunting in 380 (A086), for seventy years; he never built a foundation and never wanted to.",
    "ties": [
     {
@@ -2430,6 +2465,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Barley-awn nicks across her wrists, sunburnt ears, a square chin.",
    "backstory": "A barley farmer's daughter from Thanh Khoa Thôn, a village built from the stones of Tây Quan Bảo (V108); she has an Earth root and almost no Metal, and she trains on the Level Beam twice as long as anyone.",
    "ties": [
     {
@@ -2500,7 +2536,7 @@
      "Brave"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [],
     "path": [],
     "lifestyle": "gambler",
@@ -2509,7 +2545,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "A carter's son from Xa Ngưu Thôn who joined the outer gate for the meals and stays for the betting on who will tip the beam.",
+   "appearance": "Spread cart-boy's toes; a pocket that rattles with betting knucklebones.",
+   "backstory": "A carter's son from Xa Ngưu Thôn who joined the outer gate for the meals and stays for the betting on who will tip the beam. He sends Thác Bạt Lư (thac_bat_lu) to haul his share of the weights while he bets.",
    "ties": [
     {
      "to": "mi_kim_bao",
@@ -2592,6 +2629,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Flour to the elbows; a round curd-pale face that goes pink over the stove.",
    "backstory": "Raised on butter and curd in Tô Du Thôn, she cooks for the outer gate and practises the weights in the kitchen with the cooking pots.",
    "ties": [
     {
@@ -2666,7 +2704,7 @@
     "personality": [
      "Brave",
      "Arrogant",
-     "Impatient"
+     "Cruel"
     ],
     "calling": "Beast tamer",
     "upbringing": "village_born",
@@ -2678,7 +2716,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "A falconer's son from Liệp Ưng Thôn, Nhiếp Minh Tiễn's (nhiep_minh_tien) village, who brought his falcon into the outer gate and was told to keep it outside.",
+   "appearance": "A leather gauntlet he never takes off; a talon scar under the left eye.",
+   "backstory": "A falconer's son from Liệp Ưng Thôn, Nhiếp Minh Tiễn's (nhiep_minh_tien) village, who brought his falcon into the outer gate and was told to keep it outside. He sets the falcon on the gate's pigeons for sport, and once on Hoàng Phiêu Bồng's (hoang_phieu_bong) goat kid, which did not live.",
    "ties": [
     {
      "to": "nhiep_minh_tien",
@@ -2739,10 +2778,10 @@
     "personality": [
      "Gregarious",
      "Fickle",
-     "Generous"
+     "Greedy"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -2751,7 +2790,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "From Mã Nãi Thôn, he sells mare's-milk wine to the outer gate, and half of it owes him money.",
+   "appearance": "A broad steppe grin missing a canine; a wine-skin worn like a second belt.",
+   "backstory": "From Mã Nãi Thôn, he sells mare's-milk wine to the outer gate, and half of it owes him money. He charges interest in wine and waters what he pours; Phục Ngưu Nhi (phuc_nguu_nhi) has drunk three months of debt into a fourth.",
    "ties": [
     {
      "to": "phuc_nguu_nhi",
@@ -2829,6 +2869,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Wind-chapped lips, an eagle-bone charm braided into her hair, eyes that look past the wall.",
    "backstory": "A nomad girl from Du Mục Thôn who joined because her clan's yurts move every spring and she wanted one place to stay.",
    "ties": [
     {
@@ -2899,7 +2940,7 @@
      "Humble"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -2908,6 +2949,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Taps every wall he leans on and listens; his hands are mortar-grey.",
    "backstory": "A stone-house builder's son from Thạch Ốc Thôn at the primer's sixth layer, who failed the Level Beam once because his Metal will not carry the right pan; Hạ Hầu Thạch (ha_hau_thach) is teaching him to fail better.",
    "ties": [
     {
@@ -2976,7 +3018,7 @@
     "personality": [
      "Brave",
      "Wrathful",
-     "Honest"
+     "Arbitrary"
     ],
     "calling": "Duelist",
     "upbringing": "village_born",
@@ -2988,7 +3030,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "From the desert-poplar village of Hồ Dương Thôn on the steppe's dry edge, with more Fire in her root than the lineage has any use for.",
+   "appearance": "Fire-red cheeks; singed ends to her plait.",
+   "backstory": "From the desert-poplar village of Hồ Dương Thôn on the steppe's dry edge, with more Fire in her root than the lineage has any use for. She picks her sparring partners by the weather, and in a north wind it is always Thượng Hải Đông (thuong_hai_dong), whose wrist has been set twice.",
    "ties": [
     {
      "to": "thuong_hai_dong",
@@ -3056,6 +3099,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "A rolling goatherd's gait; he sweeps with a broom he oils like a blade.",
    "backstory": "A goatherd from Thạch Dương Thôn, the war marshal Quý Trường Kích's (quy_truong_kich) village, who sweeps the barrow steps each autumn when the sect goes down to the plain.",
    "ties": [
     {
@@ -3126,7 +3170,7 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Pragmatic",
+     "Greedy",
      "Brave"
     ],
     "calling": "Merchant",
@@ -3139,7 +3183,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "A camel-train girl from Đà Đội Thôn whose Metal grows a point a year; Chử Bình Quân (chu_binh_quan) has started setting her heavier weights.",
+   "appearance": "Cracked heels; a string of copper cash around her neck clicks when she walks.",
+   "backstory": "A camel-train girl from Đà Đội Thôn whose Metal grows a point a year; Chử Bình Quân (chu_binh_quan) has started setting her heavier weights. She lends her extra rice to Thác Bạt Lư (thac_bat_lu) at two grains for one, against the next pass of the beam.",
    "ties": [
     {
      "to": "chu_binh_quan",
@@ -3208,7 +3253,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "A shepherd from Mục Khuyển Thôn who brought his dog and was allowed to keep it because it guards the weight rack at night.",
+   "appearance": "Dog hair on his coat that never stops shedding; a staff callus on one palm.",
+   "backstory": "A shepherd from Mục Khuyển Thôn who brought his dog and was allowed to keep it because it guards the weight rack at night. He leaves the dog on the rack while he sleeps, and Cung Trực (cung_truc) walks his night rounds for him.",
    "ties": [
     {
      "to": "hoang_phieu_bong",
@@ -3272,7 +3318,7 @@
      "Reclusive"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -3281,6 +3327,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Rope-burn rings on her fingers; braided cords knotted into her cuffs.",
    "backstory": "A rope-maker's daughter from Thằng Ma Thôn who counts her breaths in knotted cords; Thích Minh Thư (thich_minh_thu) has asked to see the knots.",
    "ties": [
     {
@@ -3340,8 +3387,13 @@
      "Indulgent"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
-    "talent": [],
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ],
     "path": [],
     "lifestyle": null,
     "health": null,
@@ -3349,6 +3401,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "A knee that jiggles under every table; a laugh too loud for any room.",
    "backstory": "A ferryman's son of Mã Đầu Thôn who shot the gorge of Vạn Trùng Hạp in a day for a bet (A226) and came to the sect to learn how to stop.",
    "ties": [
     {
@@ -3417,6 +3470,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Needle-pricked fingertips; felt-white fuzz on her sleeves.",
    "backstory": "A felt-maker's daughter from Chiên Mao Thôn in Dao Quang Lĩnh who stitches the outer gate's winter coats and is behind in the primer because of it.",
    "ties": [
     {
@@ -3491,6 +3545,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Files his nails to a point; his eyes move faster than the rest of him.",
    "backstory": "From Hàn Mạch Thôn; twice he bought the Level Beam's weights in advance and failed, because knowing a weight does not lift it. In 1199 he filed one of the master's weights a hair light and lent it to Hạ Hầu Thạch (ha_hau_thach), and the beam held. He wants it for himself at this solstice, or the seat hears that Chử Bình Quân (chu_binh_quan) passed an altered weight.",
    "ties": [
     {
@@ -3567,7 +3622,12 @@
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child",
-    "talent": [],
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ],
     "path": [],
     "lifestyle": null,
     "health": null,
@@ -3575,7 +3635,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "A Thạch Kiều merchant's son whose father paid for his place in the outer gate in silver and was handed the silver back by Chử Bình Quân (chu_binh_quan).",
+   "appearance": "Moves his lips when he reads; wears a silk cord on a cheap wooden token.",
+   "backstory": "A Thạch Kiều merchant's son whose father paid for his place in the outer gate in silver and was handed the silver back by Chử Bình Quân (chu_binh_quan). He pays Phục Ngưu Nhi (phuc_nguu_nhi) in promises to carry his weights, and being slow with sums has not yet noticed that none is kept.",
    "ties": [
     {
      "to": "phuc_nguu_nhi",
@@ -3639,7 +3700,7 @@
      "Reclusive"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -3648,6 +3709,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "A salt-white streak in one eyebrow; ears that pop when she laughs; the long breath of a diver.",
    "backstory": "A pearl diver's daughter from Châu Bạng Thôn, Bộc Trầm Chu's (boc_tram_chu) village, with Water in her root and barely enough Metal for the outer gate.",
    "ties": [
     {
@@ -3707,7 +3769,7 @@
      "Diligent"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
       "id": "sturdy_frame",
@@ -3721,6 +3783,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Nose broken across the bridge more than once; the neck of a man who has hauled ore.",
    "backstory": "A miner's son from Thiên Ngoại Khoáng who passed the Level Beam at nineteen; he wants the Dao Quang Hall and the war it is waiting for, and Nhiễm Thừa Nghiệp (nhiem_thua_nghiep) has told him it is coming.",
    "ties": [
     {
@@ -3791,7 +3854,7 @@
      "Paranoid"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -3800,6 +3863,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Gold flecks in her freckles; she cocks her head at anything that hums.",
    "backstory": "From the gold-essence diggings of Kim Tinh Khoáng, she learns the Seven-Star Array from Long Thủ Chuẩn (long_thu_chuan) and can already feel when one anchor dims.",
    "ties": [
     {
@@ -3864,7 +3928,7 @@
     "personality": [
      "Gregarious",
      "Impatient",
-     "Honest"
+     "Faithless"
     ],
     "calling": "Formation master",
     "upbringing": "sect_raised",
@@ -3876,7 +3940,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Tả Khắc Thạch's (ta_khac_thach) son, who grew up among the steles of Giới Bi Phong and is bored by them.",
+   "appearance": "Chalk-white sleeves; the bored, drooping mouth of a boy raised among stones.",
+   "backstory": "Tả Khắc Thạch's (ta_khac_thach) son, who grew up among the steles of Giới Bi Phong and is bored by them. He tells the Thiên Cơ apprentices where his father hides his measuring book, for a drink.",
    "ties": [
     {
      "to": "ta_khac_thach",
@@ -3945,6 +4010,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Wheat-straw beard at a hundred and seven; his shoulders still lift when a heavy weight is named.",
    "backstory": "A stone-field farmer from Thạch Điền Thôn who failed the Level Beam eleven times in eighty years. At the solstice of 1199 it held level for him on a weight Uất Trì Thu (uat_tri_thu) had filed, and Chử Bình Quân (chu_binh_quan) signed him in. His Metal of thirty cannot carry the Dipper Handle Canon, and he still teaches the new outer disciples to hold the weights.",
    "ties": [
     {

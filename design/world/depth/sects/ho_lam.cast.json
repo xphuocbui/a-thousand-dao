@@ -40,7 +40,7 @@
      "Honest"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [
      {
       "id": "sturdy_frame",
@@ -251,8 +251,10 @@
      "Grieving"
     ]
    },
-   "appearance": "A loud, weathered woman with river-scarred hands and a green banner rolled under her arm.",
+   "appearance": "A loud, weathered woman, river-scarred hands, a green banner rolled under her arm.",
    "backstory": "A raftsman's daughter from the river village of Thủy Ma Thôn who brought the Spring Flood Raft Art to the hall in 960. In the same year she became Lục Thanh Sam's (luc_thanh_sam) Dao partner. She has ridden the lead raft down every spring flood since. Their son Lục Lưu Mộc (luc_luu_moc) is 190 and has ten years left, and she is not taking it well.",
+   "wants": "To keep her son alive past this spring's flood, and to ride one more lead raft with him aboard.",
+   "secret": "She is paying Nghệ Hoàng Phong (nghe_hoang_phong) in river pearls for a jar of the spirit honey meant for the lord, hoping it buys Lục Lưu Mộc a year; the hall's tally is a jar short each autumn.",
    "ties": [
     {
      "to": "luc_thanh_sam",
@@ -373,10 +375,10 @@
     "personality": [
      "Greedy",
      "Callous",
-     "Pragmatic"
+     "Deceitful"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [
      {
       "id": "quick_minded",
@@ -392,6 +394,8 @@
    },
    "appearance": "A handsome, restless warden with a merchant's rings under his bark gloves.",
    "backstory": "A raftsman's son from Phiệt Công Thôn who reckons the hall's wood keeps Thúy Vi's whole alchemy alive and is paid like firewood. He quarrels with the lord's wood-keeper Phí Tùng Chi (phi_tung_chi) over every tally. In 1186 a poacher of Tân Cư Thôn was felling a spirit tree for him; when Phí began counting stumps, Lại handed his own feller to the lord's Hall of Rules, took the reward for the catch, and sold the log anyway. The man's four-year-old son sat on it in the cart and is now in the hall's outer gate. In 1199 he sold another log to a Phượng Minh buyer at Lam Yên Thị, and this spring he means to cut a second loose at the boom.",
+   "wants": "To be paid what the hall's wood is worth, and to be the man Thúy Vi's furnaces ask for by name.",
+   "secret": "He is hand-picking Thiệu Tùng Lâm's (thieu_tung_lam) poacher watch to look away on the night of the second log, paying them out of the first log's price; the notch he forged in the 1199 tally is the only thing that would show it.",
    "ties": [
     {
      "to": "luc_thanh_sam",
@@ -527,8 +531,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A thin woman with moss on her sleeves who speaks so quietly that people lean in, and who looks at trees as if they were talking.",
+   "appearance": "A thin woman with moss on her sleeves, who speaks so quietly that people lean in and looks at trees as if they were talking.",
    "backstory": "A herb-gatherer's daughter from Tử Tô Thôn who has sat about four thousand nights beside spirit trees for the rite of asking. In 1150 she sat beside the Grandmother Fir with Lục Thanh Sam (luc_thanh_sam) on the night before it was felled for Úy Thanh Diễm's (uy_thanh_diem) breakthrough. Since then she has gone back to Sơ Hiểu Lâm every spring to look for seedlings.",
+   "wants": "To find one living spirit seedling in Sơ Hiểu Lâm before Lục Thanh Sam dies, so he can stop pretending the Grandmother Fir said yes.",
+   "secret": "Each spring she plants a seedling she raised in a sleeve-pot at the edge of Sơ Hiểu Lâm and swears it was found there, so that Lục may believe the forest forgives him; Tô Miêu Nhi (to_mieu_nhi) carries the pot and thinks it is an offering.",
    "ties": [
     {
      "to": "luc_thanh_sam",
@@ -620,17 +626,18 @@
    },
    "traits": {
     "personality": [
-     "Calm",
+     "Cruel",
      "Arbitrary",
      "Reclusive"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born",
+    "upbringing": "wild_raised",
     "path": [
      "poison_proof"
     ]
    },
-   "backstory": "A Việt Quất Thôn boy who walked into the Valley of the Poison Hornets at twelve and came out stung and calm; he keeps the hornets that guard the spirit groves from poachers, and Đằng Bích Lưu (dang_bich_luu) taught him the river.",
+   "appearance": "Hornet welts run in a string of beads up his neck, and birds go quiet around him.",
+   "backstory": "A Việt Quất Thôn boy who walked into the Valley of the Poison Hornets at twelve and came out stung and smiling; Đằng Bích Lưu (dang_bich_luu) taught him the river. He keeps the hornets that guard the spirit groves, and in 1190 he staked a poacher beside their boughs for a night so the others would hear of it; the man lived and never spoke clearly again.",
    "ties": [
     {
      "to": "dang_bich_luu",
@@ -711,6 +718,7 @@
     "upbringing": "sect_raised",
     "health": "waning_years"
    },
+   "appearance": "Rests his shaking hands flat on his knees over the tally-sticks to hide them.",
    "backstory": "The son of Lục Thanh Sam (luc_thanh_sam) and Đằng Bích Lưu, who never formed a core and keeps the tally of every log sent to the lord; at 190 he is the first in the hall to be dying of age while both his parents live.",
    "ties": [
     {
@@ -816,6 +824,7 @@
     "calling": "Herbalist",
     "upbringing": "sect_raised"
    },
+   "appearance": "Mud to the knee in every season, and her grandfather's grey eyes.",
    "backstory": "Lục Lưu Mộc's (luc_luu_moc) daughter, who has decided to find a spirit seedling in Sơ Hiểu Lâm for her grandfather before her father dies.",
    "ties": [
     {
@@ -891,6 +900,7 @@
     "calling": "Wanderer",
     "upbringing": "street_orphan"
    },
+   "appearance": "An axe-callus on his right hand only.",
    "backstory": "His father felled a spirit tree for Lại Hoành Chi (lai_hoanh_chi) in 1186, and Lại handed him to Thúy Vi's Hall of Rules and sold the log, with the boy of four sitting on it in the cart. Lục Thanh Sam took him in and gave him an axe; this spring he has asked to ride the rafts to the boom.",
    "ties": [
     {
@@ -971,6 +981,7 @@
     "upbringing": "village_born",
     "health": "waning_years"
    },
+   "appearance": "His back has bent to the shape of a hoe.",
    "backstory": "A farmer from Hoa Mạch Thôn who came in on his Earth in 1120, eighty years ago, and digs the seedbeds no one else wants; when the hall's primer changed in 1162, Lục Thanh Sam (luc_thanh_sam) said he would stay as long as he liked.",
    "ties": [
     {
@@ -1035,13 +1046,14 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Brave",
+     "Lazy",
      "Indulgent"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A Phiệt Công Thôn raftsman who lashes the spring rafts with Sầm Ngưu Tất (sam_nguu_tat) and wants to ride the lead raft one day.",
+   "appearance": "A nap-flattened tuft of hair at every hour of the day.",
+   "backstory": "A Phiệt Công Thôn raftsman who lashes the spring rafts with Sầm Ngưu Tất (sam_nguu_tat) and wants to ride the lead raft one day. He sleeps through the lashing call and lets Sầm Ngưu Tất tie his knots, and last spring a raft lost a log at the boom for it.",
    "ties": [
     {
      "to": "dang_bich_luu",
@@ -1112,8 +1124,9 @@
      "Trusting"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
+   "appearance": "Dew always on her lashes, and a hem always wet from the spring.",
    "backstory": "A chandler's girl from Bạch Lạp Thôn, the head's own village, who gathers dew at the Spring of Spirit Dew before dawn and is learning the night of asking from Mi Túc Thụ (mi_tuc_thu).",
    "ties": [
     {

@@ -36,7 +36,7 @@
    },
    "traits": {
     "personality": [
-     "Gregarious",
+     "Callous",
      "Pragmatic",
      "Diligent"
     ],
@@ -440,7 +440,7 @@
      "Peaceable"
     ],
     "calling": "Strategist",
-    "upbringing": "village_born",
+    "upbringing": "wild_raised",
     "talent": [
      {
       "id": "sturdy_frame",
@@ -591,7 +591,7 @@
      "Callous"
     ],
     "calling": "Diplomat",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
       "id": "comely",
@@ -769,7 +769,7 @@
      "Reclusive"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
       "id": "quick_minded",
@@ -932,7 +932,7 @@
     "personality": [
      "Wrathful",
      "Vengeful",
-     "Loyal"
+     "Faithless"
     ],
     "calling": "Strategist",
     "upbringing": "village_born",
@@ -956,7 +956,7 @@
    "appearance": "A square, weathered man in ash-grey hemp who smells of lamp oil and keeps the Watch's green-flamed lantern at his belt.",
    "backstory": "Hình Trọng Sơn was born in 860 in Hà Khúc Thôn, a steppe village whose men had gone to Chiết Kích Nguyên fifty years before and not come home. He is Trầm Tịch Dương's (tram_tich_duong) eldest disciple, and he has kept the Miasma Watch at the ruin of Vô Định Thành since 1060. He refills the lantern each night, turns back treasure seekers, and buries what the miasma gives back. He fought the Ferry War from its first raid (C192) and called the peace of 1175 (C193) a sale. In 1177 he voted against the move (N-lac_ha-06): a sect that sits on a mountain, he said, has turned its back on its dead. In 1196 a Tân Khẩu child walked into the miasma on his watch (A188), and his daughter Hình Lạc Nhạn (hinh_lac_nhan) went in after him.",
    "wants": "To break the Compact that Thiên Xu wrote over Lạc Hà's dead and take the river tolls back from Tùng Đào, with the Watch ready to call the plain to war the night the pact is signed.",
-   "secret": "Since 1190 he has met Thính Vũ's war elder Cố Dạ Lan three times at the edge of the miasma. They are drafting a second pact like the founders' oath of 788 (C155). He has told no one: not his master, not his daughter, not the head. Since last spring he has bought war bells for the Watch from Minh Loan Các, alarms tuned to frighten men, which the head has not ordered. He pays Yến Bội Ngọc (yen_boi_ngoc) in the bronze the miasma gives back, which the Watch used to bury.",
+   "secret": "Since 1190 he has met Thính Vũ's war elder Cố Dạ Lan three times at the edge of the miasma. They are drafting a second pact like the founders' oath of 788 (C155). He has told no one: not his master, not his daughter, not the head. Since last spring he has bought war bells for the Watch from Minh Loan Các, alarms tuned to frighten men, which the head has not ordered. He pays Yến Bội Ngọc (yen_boi_ngoc) in the bronze the miasma gives back, which the Watch used to bury. And since last spring he has signed a night truce with the Tùng Đào captain at the Watch to keep the river quiet until the pact is ready: the lantern burns green on the nights the captain's ferries pass, so Lô Xướng Vãn (lo_xuong_van) sends his patrol boats out into an empty river and begins to think they are cursed.",
    "changed": "fix pass B 2026-11-25 (fixB-5): want no longer his daughter as head; secret adds the Minh Loan war bells paid in grave bronze; tie to yen_boi_ngoc",
    "ties": [
     {
@@ -1132,6 +1132,8 @@
    },
    "appearance": "A thin, ink-fingered man with spectacles of polished crystal and a voice that never rises.",
    "backstory": "A Vật Hoa Thị clerk's son who learned his numbers in Thiên Bảo Trai's auction hall (A179). Trầm Tịch Dương (tram_tich_duong) took him for his honest books, and he has kept the Counting House since 1060. He is one of four who know the Lone Duck Ring sits in Thiên Bảo Trai's vault (N-lac_ha-03). Every new moon he gives the head the true figures. This spring he is quietly sending each family on the envoy's list of thirty the price of its child's buy-out, worked at the old rate before the lot raises it. In 1199 he raised the Nhàn Vân tribute by a tenth on Mễ Phù Vân's (me_phu_van) figures and lodged Cận Thủ Chuyết (can_thu_chuyet) at its Pool House to count sheets for the year.",
+   "wants": "To keep the books clean one more year without anyone asking what the vault holds.",
+   "secret": "Each week he pays a Hà Khúc widow, whose husband's wage chit he lost years ago, a copper from his own purse and enters it as rope waste; Uông Bình Trù (uong_binh_tru) has found the entry and thinks it is a bribe.",
    "changed": "fix pass B 2026-11-25 (fixB-5): the 1199 Nhàn Vân tribute raise and the assessor's year",
    "ties": [
     {
@@ -1289,6 +1291,8 @@
    },
    "appearance": "A barrel-chested riverman with a singer's deep voice and soot that never quite washes out of his beard.",
    "backstory": "Born in Vãn Chu Thôn, where the fishers stay ashore on the dusk of 803 every year (V095), Lô Xướng Vãn knows all nine verses of the boats' song and has sung the ninth over thirty of the sect's dead. In 1173 he led the raid that burned Lãng Đào's boats at Đào Sa (A080) on the head's order. On the burned landing he picked up a ferryman's orphan, Lữ Tẫn Chu (lu_tan_chu), and kept him (N-lac_ha-08). The next year Tùng Đào cut the rope bridges, and his daughter Lô Tiểu Ca (lo_tieu_ca) fell with one (A202). As master of the Boat Hall he kept the passes Lạc Hà's boats were stamped at Ngư Ca for Giang's unset toll (1162-1172), and showed them to Lữ on his fifteenth birthday.",
+   "wants": "To teach the ninth verse to someone before he dies.",
+   "secret": "On the river at night he is teaching Thương Ngư Ca (thuong_ngu_ca) the ninth verse, the one the sect cut from the boats' song in 805.",
    "changed": "fix pass B 2026-11-25 (fixB-5): the Ngư Ca passes, per the fixB-6 row",
    "ties": [
     {
@@ -1460,6 +1464,8 @@
    },
    "appearance": "A wiry woman with sap-stained palms and a red maple leaf pressed in the clasp of her robe each autumn.",
    "backstory": "A camellia-picker's daughter from Sơn Trà Thôn, Chử Hồng Diệp has the strongest Wood in the inner sect and only just enough Earth to have entered it. For a century she kept the founder's maples at the old seat and watched them die one by one in the dry years. She boiled the last one's sap in 1131 (N-lac_ha-02) and argued for the move for forty years after. At the new seat she planted the Maple Hall's fields at Phong Ảnh Mạch. The sect's pills now sell against Thúy Vi's (uy_thanh_diem) in the west. She means the Maple Hall to make every pill Lạc Hà needs, breakthrough pills too, and this spring she sent Diêm Tử Tô (diem_tu_to) one to check, built from the pill book he left in Lạc Hà's library.",
+   "wants": "To see one maple standing on the new seat.",
+   "secret": "She is grafting cuttings of the last maple's stump onto a mountain birch behind the Maple Hall, and Ngụy Thụ Căn (nguy_thu_can) carries the cuttings up from the old seat in his oil can.",
    "changed": "fix pass B 2026-11-25 (fixB-5): the Maple Hall's ambition and the spring recipe to Diêm",
    "ties": [
     {
@@ -1613,6 +1619,8 @@
    },
    "appearance": "A bent old man in a reed rain-cape who speaks very little and counts on his fingers when he does.",
    "backstory": "Bồ Tàn Chiếu was born in 720 in Bạch Thảo Thôn on the steppe and sent at ten to the reed harbour at Lô Cảng Thôn, before it became the western watch (A167). Since 900 he has kept the Evening Isle, Tịch Chiếu Đảo, where the sect's elders go to die (A164). In 940 he rowed the founder Nhan Cô Vụ (nhan_co_vu) out to it, and he has dropped the anchor off its beach four hundred and twelve times since. He is 480. His lifespan ends in twenty years, and he has not decided who will row him.",
+   "wants": "To choose his own rower.",
+   "secret": "He is teaching Khúc Tịch Ba (khuc_tich_ba) to hold the boat in the surf, so that she and not her grandfather takes the oars on his last crossing, since Khúc Lão Điếu's hands shake.",
    "ties": [
     {
      "to": "nhan_te_phi",
@@ -1733,7 +1741,12 @@
     ],
     "calling": "Refiner",
     "upbringing": "sect_raised",
-    "talent": [],
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ],
     "path": [
      "forge_scarred"
     ],
@@ -1743,8 +1756,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A big, burn-scarred smith with a lightning-shaped scar down one forearm, who talks to blades more politely than to people.",
+   "appearance": "A big, burn-scarred, homely smith with a lightning-shaped scar down one forearm, who talks to blades more politely than to people.",
    "backstory": "A Thối Tinh Môn smith who quarrelled with Cát Lưu Quang (cat_luu_quang) over a star-iron blade and left to work for hire. Lạc Hà took him as guest elder in 1162 to keep the armoury of Tử Điện Thành, the city named for the sword (C128). He is the only elder in the sect with Thunder in his root. He has held Tử Điện once, to clean it, and the blade woke in his hand. The head watched it happen, and she has not let him clean it since.",
+   "wants": "To hold Tử Điện once more and finish cleaning it.",
+   "secret": "He is forging a star-iron blade in the forge's back room as the apology he has owed Cát Lưu Quang (cat_luu_quang) for thirty years, and Cổ Tiểu Thiết (co_tieu_thiet) carries the whetstone and keeps it quiet.",
    "ties": [
     {
      "to": "cat_luu_quang",
@@ -1885,6 +1900,8 @@
    },
    "appearance": "A sharp-eyed woman in a sea-grey coat who reads every letter twice and every face once.",
    "backstory": "Born in Thu Tân Thôn on the bay Lạc Hà won in 620 (C128), Sử Thu Thủy keeps the city, the bay and the Long River vein Trường Hà Mạch (A180) on the Thính Vũ border. Her grandmother's people lost their orchards in the Petal Shore war (V101). She still settles fishing quarrels with Thính Vũ's forest side along the line the Pivot drew. She trusts the guest smith Vưu Chước Kim (vuu_chuoc_kim), her disciple Nhiếp Ngọc Âm (nhiep_ngoc_am) and no one in Thính Vũ.",
+   "wants": "To see Thính Vũ's lamps counted at last, and one of them put out.",
+   "secret": "She pays a Thính Vũ orchardist in Lạc Hà silver to keep her grandmother's lost orchard from the axe, and Sử Thanh Lâm (su_thanh_lam) thinks the silver goes to a tutor.",
    "ties": [
     {
      "to": "nhiep_ngoc_am",
@@ -2022,6 +2039,8 @@
    },
    "appearance": "A square-bearded man who carries a grain-weigher's brass scale and sets it on the table before any hearing.",
    "backstory": "A steppe grain-weigher's son from Mã Độ Thôn who weighed for Ngũ Cốc Thành, the city that grew rich on the trade Kim Cốc lost (C176), Từ Bình Hành keeps the Hall of Scales, which is the sect's law. Lạc Hà's law is contract law. A disciple's oath of entry is a written agreement, and a breach is tried as a broken bargain. He has read every contract the sect has sealed since 1100 except one: the loan of 1179, which the head sealed herself (N-lac_ha-03). He has asked to read it twice.",
+   "wants": "To be shown one case where the Hall of Scales was wrong, and to rule on it.",
+   "secret": "For eleven years he has quietly filed the left pan of his grain scale down by a grain so that defendants win the ties; Mộ Hành Vân (mo_hanh_van), who has broken no rule in sixty years, has not noticed.",
    "ties": [
     {
      "to": "mo_hanh_van",
@@ -2149,7 +2168,7 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Brave",
+     "Deceitful",
      "Fickle"
     ],
     "calling": "Wanderer",
@@ -2169,6 +2188,8 @@
    },
    "appearance": "A sunburnt islander with a sailor's squint and a roll of old sea charts always under one arm.",
    "backstory": "Born in Mộ Sơn Thôn on Cô Vụ Đảo, Lận Viễn Phàm keeps the island for the sect from Triều Âm Thành (C113). He also keeps what is left of Cô Phàm Các: its empty grounds, its harbour at Bích Không Cảng (A150) and the charts found in Wave Rock in 960 (A154). He believes Mã Viễn Ảnh's (ma_vien_anh) fleet did not sink in 705 but sailed past the edge of its own charts. He has spent his stipend on boats to prove it, and two have not come back.",
+   "wants": "To see the Rudder drawn on a sea chart that sails.",
+   "secret": "He is selling shares in the third boat to the island's fishwives, more shares than the boat has ribs, and Lục Bồng Sa (luc_bong_sa) keeps the second book.",
    "ties": [
     {
      "to": "giang_vong_pham",
@@ -2348,6 +2369,8 @@
    },
    "appearance": "A tall, straight-backed man who walks in step with whoever is beside him without meaning to.",
    "backstory": "A well-digger's son from Song Tỉnh Thôn on the steppe, Thịnh Kinh Hàn is Cảnh Trường Thiên's (canh_truong_thien) true disciple and the Geese Hall's drill master. He spent ten years drilling with Nhạn Trận Môn under Mục Hàn Nhạn (muc_han_nhan) and came back believing a field of disciples should move like one goose. He has never been in a real war. Quietly, he wants one, to find out whether he is any good.",
+   "wants": "To learn, once, whether he is any good in a real war.",
+   "secret": "At night he fights the shadows of his own file in the Cloud Bridge's lower gallery to learn what he would do, and Thịnh Thiếu Hàng (thinh_thieu_hang) has twice watched from the dark.",
    "ties": [
     {
      "to": "canh_truong_thien",

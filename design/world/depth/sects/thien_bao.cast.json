@@ -397,7 +397,7 @@
    "traits": {
     "personality": [
      "Greedy",
-     "Gregarious",
+     "Faithless",
      "Cautious"
     ],
     "calling": "Merchant",
@@ -411,6 +411,8 @@
    },
    "appearance": "A plump, smiling man in a good silk coat with frayed cuffs, who calls every buyer by name and every name by its price.",
    "backstory": "The grandson of a Kim Cốc merchant the studio hired in 1004 (A184), he runs the auction floor, the stewards and the lot book. He owed Kim Vạn Lý's (kim_van_ly) table more than his stipend. In 1180 Hách Ánh Hà (hach_anh_ha) paid the debt, and he told her what the surety was. Lộ Hành Sa (lo_hanh_sa) knows his price to the stone. At this spring's auction he is selling Hách the mistress's top price for the thirty contracts, piece by piece, and after it he rides to Cựu Hà Viện to price the children by root, like lots. He does not know that the mistress knows, or that she chose the figure.",
+   "wants": "To clear his table debts to Kim Vạn Lý and one day to call the auction floor his own.",
+   "secret": "In the lot he is selling Hách Ánh Hà he shaves a stone off each child's price and pockets the difference in a silk lining, to pay Kim Vạn Lý's table before the autumn auction.",
    "ties": [
     {
      "to": "phan_vat_hoa",
@@ -559,7 +561,9 @@
     ]
    },
    "appearance": "A lean, travel-browned woman in a fur collar from the north, with a scar through one eyebrow from a bear's paw.",
-   "backstory": "A Tân Khẩu girl whose village never speaks of the plain (A182), she has travelled the whole continent buying what the auction calls living lots. In 1180 she bought a white bear out of Vô Tung Lâm in Mộc Lan Thành (A142) for a buyer who wanted its gall; Khấu Mục Vân (khau_muc_van) outbid him at the spring auction of 1181 and keeps it alive on his ranch. This winter she is on the frost coast again. A pearl diver sold her news of the Old Ivory's calf, and a client of hers wants a living spirit-whale calf. She has paid Trạc Anh's harpoon captain half the price, more stones than the terrace's treasury, and waits at Mộc Lan with a sea pen for the rest.",
+   "backstory": "A Tân Khẩu girl whose village never speaks of the plain (A182), she buys what the auction calls living lots. In 1180 she bought a white bear out of Vô Tung Lâm in Mộc Lan Thành (A142) for a buyer who wanted its gall; Khấu Mục Vân (khau_muc_van) outbid him at the spring auction of 1181 and keeps it alive on his ranch. This winter she is on the frost coast again. A pearl diver sold her news of the Old Ivory's calf, and a client of hers wants a living spirit-whale calf. She has paid Trạc Anh's harpoon captain half the price, more stones than the terrace's treasury, and waits at Mộc Lan with a sea pen for the rest. She sells half-dead lots under a forged bill of health, and never goes back to see them die.",
+   "wants": "A living lot no one has ever seen at auction, and her own name on the lot-book beside it.",
+   "secret": "She is forging bills of health for sickly beasts in Mộc Lan, and one of them, a fire-eyed mule, will die within the week in a rich man's stable.",
    "ties": [
     {
      "to": "lo_chau_nuong",
@@ -664,9 +668,16 @@
      "Paranoid"
     ],
     "calling": "Steward",
-    "upbringing": "merchant_child"
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Kim Cốc counter's granddaughter who keeps the vault book; on her days off she sifts the ash of Kim Cốc Thành for the pearl Lục Châu, lost in the fire of 1003 (C174).",
+   "backstory": "A Kim Cốc counter's granddaughter who keeps the vault book; on her days off she sifts the ash of Kim Cốc Thành for the pearl Lục Châu, lost in the fire of 1003 (C174). She wheezes in the ash.",
+   "appearance": "Grey ash worked into the creases of her knuckles and a wheeze she muffles in a sleeve.",
    "ties": [
     {
      "to": "phan_vat_hoa",
@@ -744,13 +755,14 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Humble",
+     "Cruel",
      "Loyal"
     ],
     "calling": "Refiner",
     "upbringing": "village_born"
    },
-   "backstory": "Khang Thiên Chùy's (khang_thien_chuy) furnace hand for forty years, the only person besides his master who saw the ring at the furnace in 1190, and who has been told to forget it.",
+   "backstory": "Khang Thiên Chùy's (khang_thien_chuy) furnace hand for forty years, the only person besides his master who saw the ring at the furnace in 1190, and who has been told to forget it. He teaches new hands respect by holding their wrists to the furnace door, and the newest, a Xích Kim boy, left the mine inside a week with a branded wrist.",
+   "appearance": "Eyelashes burned off at the furnace door.",
    "ties": [
     {
      "to": "khang_thien_chuy",
@@ -847,6 +859,8 @@
    },
    "appearance": "A tall, sharp-chinned girl of eighteen who squints at everything as though it were a coin of doubtful weight.",
    "backstory": "A Vật Hoa Thị crier's girl, like the mistress before her. At eleven she called a forged lot false in front of its seller, and Phan Vật Hoa (phan_vat_hoa) took her the same afternoon. She has the Appraiser's Eye at eighteen. She has noticed that the vault book lists one object with no price at all, and she has asked Ân Toán Châu (an_toan_chau) what it is.",
+   "wants": "The mistress's floor and the mistress's eye, and to learn what the unpriced line in the vault book means.",
+   "secret": "At the back of the lot book she grades the mistress's own lots in red ink, a stone high or low, to prove she can; Tả Thức Bảo copies the book and has not yet seen the pages.",
    "ties": [
     {
      "to": "phan_vat_hoa",
@@ -935,14 +949,15 @@
    },
    "traits": {
     "personality": [
-     "Diligent",
+     "Lazy",
      "Content",
      "Trusting"
     ],
     "calling": "Refiner",
     "upbringing": "servant_born"
    },
-   "backstory": "A sorter's son at the red gold mine, as Khang Thiên Chùy (khang_thien_chuy) was; he found a lump of slag in the ash-pit too heavy for its size and put it back.",
+   "backstory": "A sorter's son at the red gold mine, as Khang Thiên Chùy (khang_thien_chuy) was; he found a lump of slag in the ash-pit too heavy for its size and put it back. He told no one about the slag; the walk to the office was long.",
+   "appearance": "Red-gold dust glitter on his cheekbones that no wash removes.",
    "ties": [
     {
      "to": "khang_thien_chuy",
@@ -1010,9 +1025,16 @@
      "Patient"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Hà Khúc well-digger's son whose Earth came up just short at Lạc Hà's dusk test three times; Ngạc Viễn Sơn (ngac_vien_son) sent him on to the studio with a letter on Placement Day.",
+   "backstory": "A Hà Khúc well-digger's son whose Earth came up just short at Lạc Hà's dusk test three times; Ngạc Viễn Sơn (ngac_vien_son) sent him on to the studio with a letter on Placement Day. Three times the test failed him by a hair.",
+   "appearance": "A new bruise on one shin every week.",
    "ties": [
     {
      "to": "ngac_vien_son",
@@ -1075,13 +1097,14 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Fickle",
+     "Deceitful",
      "Ambitious"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "A crier's daughter whose voice carries across the whole of Vật Hoa Thị; Tiền Ngũ Phân (tien_ngu_phan) pays her by the lot and she cries every price he gives her, true or not.",
+   "backstory": "A crier's daughter whose voice carries across the whole of Vật Hoa Thị; Tiền Ngũ Phân (tien_ngu_phan) pays her by the lot and she cries every price he gives her, true or not. At the last auction she cried a false second price over Ngụy Minh Giám's (nguy_minh_giam) true one, and the mistress docked him for the lot.",
+   "appearance": "A silk scarf wound round her throat to save the voice.",
    "ties": [
     {
      "to": "tien_ngu_phan",
@@ -1143,9 +1166,10 @@
      "Honest"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
    "backstory": "A Khê Thanh brook girl whose family has washed the studio's finest refinings in the clear water since 700 (A181); she has no Metal and wants none, and Khang Thiên Chùy (khang_thien_chuy) trusts her hands more than any refiner's.",
+   "appearance": "Water-wrinkled fingertips and bare, cold-reddened feet.",
    "ties": [
     {
      "to": "khang_thien_chuy",

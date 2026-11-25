@@ -16,6 +16,7 @@
    "home": 372,
    "birthplace": 372,
    "role": "Pours the second crucible at the furnace",
+   "appearance": "Laughs with his whole mouth open, showing the front tooth a crucible lid cracked.",
    "tier": "C",
    "root": {
     "elements": {
@@ -27,13 +28,13 @@
    "traits": {
     "personality": [
      "Wrathful",
-     "Honest",
+     "Arbitrary",
      "Ambitious"
     ],
     "calling": "Refiner",
     "upbringing": "sect_raised"
    },
-   "backstory": "Pours the second crucible beside his cousin Chung Hồng Lô (chung_hong_lo) and says aloud what she only thinks: that the castings should carry the furnace's mark, not the mistress's.",
+   "backstory": "Pours the second crucible beside his cousin Chung Hồng Lô (chung_hong_lo) and says aloud what she only thinks: that the castings should carry the furnace's mark, not the mistress's. He hands out the bellows shifts by who flatters him, and Giang Phong Lô (giang_phong_lo) has pumped two nights running.",
    "ties": [
     {
      "to": "chung_tan_huong",
@@ -90,6 +91,7 @@
    "home": 435,
    "birthplace": 807,
    "role": "Hangs and tunes the warning lines in Mãng Đằng Lâm",
+   "appearance": "A red bean rolled against her lip while she thinks.",
    "tier": "C",
    "root": {
     "elements": {
@@ -100,14 +102,14 @@
    },
    "traits": {
     "personality": [
-     "Patient",
+     "Cruel",
      "Vengeful",
      "Reclusive"
     ],
     "calling": "Formation master",
     "upbringing": "village_born"
    },
-   "backstory": "Hangs the lines through the python vine wood with Đằng Quải Linh (dang_quai_linh); since 1190 two of her bells on the Hồng Đậu road have been cut each spring, and she keeps a red bean from the cut place in her purse.",
+   "backstory": "Hangs the lines through the python vine wood with Đằng Quải Linh (dang_quai_linh); since 1190 two of her bells on the Hồng Đậu road have been cut each spring. She has strung hair-wire at neck height across that road where the cut bells hung, and a hunter's boy of the road lost two fingers to it.",
    "ties": [
     {
      "to": "an_thanh_linh",
@@ -164,6 +166,7 @@
    "home": 372,
    "birthplace": 812,
    "role": "Bellows boy at the furnace",
+   "appearance": "Rags on both wrists, and the smell of singed hair follows him.",
    "tier": "C",
    "root": {
     "elements": {
@@ -176,12 +179,12 @@
     "personality": [
      "Diligent",
      "Impatient",
-     "Humble"
+     "Greedy"
     ],
     "calling": "Refiner",
     "upbringing": "village_born"
    },
-   "backstory": "Works the bellows for Chung Hồng Lô (chung_hong_lo) from the first pour to the last and has burned both hands to the wrist; he wants to cast his own bell this year and has been told to wait.",
+   "backstory": "Works the bellows for Chung Hồng Lô (chung_hong_lo) from the first pour to the last and has burned both hands to the wrist; he wants to cast his own bell this year and has been told to wait. He sells the bronze dross from the sweepings at the ferry inn, and Thang Tiểu Hỏa (thang_tieu_hoa) was docked for the missing dross.",
    "ties": [
     {
      "to": "chung_hong_lo",
@@ -231,6 +234,7 @@
    "home": 42,
    "birthplace": 42,
    "role": "Keeps the warding bells on the walls of Thu Trì",
+   "appearance": "Sunburnt on one side of the face only, from the cart seat.",
    "tier": "C",
    "root": {
     "elements": {
@@ -243,12 +247,12 @@
     "personality": [
      "Cautious",
      "Honest",
-     "Diligent"
+     "Lazy"
     ],
     "calling": "Formation master",
     "upbringing": "merchant_child"
    },
-   "backstory": "A bronze guild's son from Thu Trì who came with a letter and keeps the wall bells for Trịnh Thủ Linh (trinh_thu_linh); since last autumn he carts the walls' old bells up to the furnace, forty days each way.",
+   "backstory": "A bronze guild's son from Thu Trì who keeps the wall bells for Trịnh Thủ Linh (trinh_thu_linh); since last autumn he carts the walls' old bells up to the furnace, forty days each way. He lets the oxen choose the road and sleeps on the bench, so the bells come a week late and Trịnh walks the deaf stretches longer.",
    "ties": [
     {
      "to": "trinh_thu_linh",
@@ -301,6 +305,7 @@
    "home": 372,
    "birthplace": 372,
    "role": "Holds the bells while the true disciple tries the listening seal",
+   "appearance": "Ears pierced seven times for bell-studs, six of them empty.",
    "tier": "C",
    "root": {
     "elements": {
@@ -363,6 +368,7 @@
    "home": 371,
    "birthplace": 371,
    "role": "Bath-keepers' girl at Quế Hương Thang",
+   "appearance": "Her laugh goes through walls; the bath-keepers use it to find her.",
    "tier": "C",
    "root": {
     "elements": {
@@ -430,6 +436,7 @@
    "home": 435,
    "birthplace": 809,
    "role": "Climber on the forest lines",
+   "appearance": "Reties his bootlace three times before he trusts it.",
    "tier": "C",
    "root": {
     "elements": {
@@ -445,9 +452,15 @@
      "Gregarious"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Climbs the forest lines for Đằng Quải Linh (dang_quai_linh); the Xuyên Lâm night guides leave a rice ball in the fork of his ladder tree, and he has not missed one crossing's bells in four years.",
+   "backstory": "Climbs the forest lines for Đằng Quải Linh (dang_quai_linh); the Xuyên Lâm night guides leave a rice ball in the fork of his ladder tree, and he has not missed one crossing's bells in four years. He is slow with knots and ties every one twice.",
    "ties": [
     {
      "to": "dang_quai_linh",

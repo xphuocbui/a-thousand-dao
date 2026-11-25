@@ -219,11 +219,11 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Reclusive",
+     "Deceitful",
      "Stubborn"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
       "id": "keen_soul",
@@ -240,7 +240,7 @@
     "gained": []
    },
    "appearance": "A silent man in a cloak of crane down who smells of wind and felt, and squints even indoors.",
-   "backstory": "A miner's son from Tập Trận Khoáng, where the wind never stops. Ung Hạc Minh (ung_hac_minh) found him on her first winter on the plateau and he has kept the flock's winter terrace on Thương Ưng Đài ever since. Every winter he walks the hawk-catchers' camps and the mine for Wind-born children. In 1195 he came a week too late for Lộ Khinh Trần (lo_khinh_tran), whom Phất Y's head had already taken.",
+   "backstory": "A miner's son from Tập Trận Khoáng, where the wind never stops. Ung Hạc Minh (ung_hac_minh) found him on her first winter on the plateau and he has kept the flock's winter terrace on Thương Ưng Đài ever since. Every winter he walks the hawk-catchers' camps and the mine for Wind-born children. In 1195 he came a week too late for Lộ Khinh Trần (lo_khinh_tran), whom Phất Y's head had already taken. Few of the children he takes come home before the second winter.",
    "ties": [
     {
      "to": "ung_hac_minh",
@@ -308,7 +308,9 @@
    },
    "items": [
     "cc-winter-terrace-cloak"
-   ]
+   ],
+   "wants": "A Wind-born child from the mine this winter, found before Phất Y's head can reach the family.",
+   "secret": "Each winter he tells the families of the children he takes that they will be home by spring, and keeps a tin of the children's toys in his terrace hut, sending one back every year so that it seems true. Mộ Cao Yến (mo_cao_yen) has begun to ask why her mother's toy never came."
   },
   {
    "key": "mai_lo_tuyet",
@@ -436,7 +438,9 @@
      "targets_note": "Only Beast Den of the riders' route (her root has no Wind), then Reed Shoot, Creeping Vine for the marsh's binding, Willow Dance to walk away."
     },
     "note": "The mother of the flock."
-   }
+   },
+   "wants": "To bring the old cranes home from the circuit to die on the reeds, not the road.",
+   "secret": "She has hidden the three most worn-out cranes in a reed bed no one else knows, so the circuit cannot ask for them again, and Ngụy Hà Lô (nguy_ha_lo), who keeps the second ledger, has written them down as buried."
   },
   {
    "key": "tong_phi_thu",
@@ -478,7 +482,7 @@
      "Trusting"
     ],
     "calling": "Diplomat",
-    "upbringing": "village_born",
+    "upbringing": "wild_raised",
     "talent": [],
     "path": [
      "beast_bonded"
@@ -554,7 +558,9 @@
     },
     "note": "The post."
    },
-   "changed": "Fix pass A (2026-11-25): Wind raised from 36 to 48; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b)."
+   "changed": "Fix pass A (2026-11-25): Wind raised from 36 to 48; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b).",
+   "wants": "Khổng Tường Vũ on the same crane as him for one flight, before the roc eats her.",
+   "secret": "At every vassal's gate where he drinks he repeats what the gate said to Vi Thừa Phong (vi_thua_phong), who has begun to write it up for the Pivot's records as the school's own report."
   },
   {
    "key": "khong_tuong_vu",
@@ -585,7 +591,7 @@
     "personality": [
      "Ambitious",
      "Brave",
-     "Impatient"
+     "Callous"
     ],
     "calling": "Beast tamer",
     "upbringing": "village_born",
@@ -593,7 +599,7 @@
      "beast_bonded"
     ]
    },
-   "backstory": "Another child of the windy mine, she has camped under Bằng Sào Nhai for six years feeding the roc goats and waiting for it to let her near; Ung Hạc Minh (ung_hac_minh) thinks it will eat her, and has not forbidden it.",
+   "backstory": "Another child of the windy mine, she has camped under Bằng Sào Nhai for six years feeding the roc goats and waiting for it to let her near; Ung Hạc Minh (ung_hac_minh) thinks it will eat her, and has not forbidden it. She sent her disciple Lộ Phi Sương (lo_phi_suong) into the roc's shadow to feed it first, to see whether it would eat him.",
    "ties": [
     {
      "to": "ung_hac_minh",
@@ -638,7 +644,8 @@
     },
     "note": "Wants the roc."
    },
-   "changed": "Fix pass A (2026-11-25): Wind raised from 30 to 45; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b)."
+   "changed": "Fix pass A (2026-11-25): Wind raised from 30 to 45; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b).",
+   "appearance": "Roc-goat hair on her sleeves, and one eye narrowed against the cliff."
   },
   {
    "key": "ninh_van_tuoc",
@@ -669,12 +676,12 @@
     "personality": [
      "Gregarious",
      "Brave",
-     "Fickle"
+     "Arbitrary"
     ],
     "calling": "Beast tamer",
     "upbringing": "wild_raised"
    },
-   "backstory": "Cừ Vân Lý (cu_van_ly) found her on the windy terrace catching hawk chicks barehanded; she rode her first crane north to the marsh at twelve and cried the whole way, from joy.",
+   "backstory": "Cừ Vân Lý (cu_van_ly) found her on the windy terrace catching hawk chicks barehanded; she rode her first crane north to the marsh at twelve and cried the whole way, from joy. She renames her crane every dawn and sulks if the grooms do not use the day's name; Phạm Thanh Lô (pham_thanh_lo) was kept from the dawn feed for saying the old one.",
    "ties": [
     {
      "to": "cu_van_ly",
@@ -709,7 +716,8 @@
     },
     "note": "Skylark."
    },
-   "changed": "Fix pass A (2026-11-25): Wind raised from 26 to 47; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b)."
+   "changed": "Fix pass A (2026-11-25): Wind raised from 26 to 47; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b).",
+   "appearance": "Hawk-claw scars up both forearms, and a crane feather braided into her hair."
   },
   {
    "key": "lu_thuy_dien",
@@ -736,14 +744,14 @@
    },
    "traits": {
     "personality": [
-     "Content",
+     "Lazy",
      "Patient",
      "Loyal"
     ],
     "calling": "Beast tamer",
     "upbringing": "village_born"
    },
-   "backstory": "Born in Hạc Quy like the head, without her Wind; Mai Lô Tuyết (mai_lo_tuyet) has made him the best groom of his year, and he has stopped asking to ride.",
+   "backstory": "Born in Hạc Quy like the head, without her Wind; Mai Lô Tuyết (mai_lo_tuyet) has made him the best groom of his year, and he has stopped asking to ride. He sleeps through the dawn feed three days in seven, and Phạm Thanh Lô (pham_thanh_lo) covers for him and is scolded for the short feed.",
    "ties": [
     {
      "to": "mai_lo_tuyet",
@@ -779,7 +787,8 @@
      "intent": "Wood."
     },
     "note": "Groom."
-   }
+   },
+   "appearance": "Soft-handed for a groom, and yawning before the sun is fully up."
   },
   {
    "key": "ha_tri_han",
@@ -809,12 +818,12 @@
     "personality": [
      "Reclusive",
      "Vengeful",
-     "Cautious"
+     "Deceitful"
     ],
     "calling": "Strategist",
     "upbringing": "war_orphan"
    },
-   "backstory": "His great-grandmother fled Phá Quân's mining town to Cự Môn when the rebel gate fell (V058) and kept a spearhead and a name she made him promise to hide: Hạ, the Wolf Star's own (ha_lang_tinh).",
+   "backstory": "His great-grandmother fled Phá Quân's mining town to Cự Môn when the rebel gate fell (V058) and kept a spearhead and a name she made him promise to hide: Hạ, the Wolf Star's own (ha_lang_tinh). He tells the grooms his family were rope-makers, and when Đậu Quang Lãng (dau_quang_lang) heard the Hạ name from a drunk and asked, he swore the boy had dreamed it.",
    "ties": [
     {
      "to": "mai_lo_tuyet",
@@ -848,7 +857,8 @@
      "intent": "Water and Wood."
     },
     "note": "A hidden name."
-   }
+   },
+   "appearance": "Never sets his kit-bag down; an old spearhead wrapped in rag lies at the bottom of it."
   },
   {
    "key": "pham_thanh_lo",
@@ -880,7 +890,7 @@
      "Trusting"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
    "backstory": "A log-rafter's daughter from Mộc Phiệt Thôn who came for the cranes and was handed a bucket by Đồng Dược Hương (dong_duoc_huong) on her first morning.",
    "ties": [
@@ -923,7 +933,8 @@
      "intent": "Wood."
     },
     "note": "Bucket."
-   }
+   },
+   "appearance": "Still smells of river pine, with raft-rope blisters on both hands."
   },
   {
    "key": "dong_duoc_huong",
@@ -955,7 +966,7 @@
      "Just"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born",
+    "upbringing": "scholar_family",
     "lifestyle": "gardener"
    },
    "backstory": "She sets the cranes' broken wings and has buried eleven old birds worn out by the vein circuit since 1189; she blames the Pivot, loudly, and Mai Lô Tuyết (mai_lo_tuyet) lets her.",
@@ -1005,7 +1016,8 @@
      "intent": "Wood healing."
     },
     "note": "Crane doctor."
-   }
+   },
+   "appearance": "Crane blood on her apron, and a reed splint tucked behind each ear."
   },
   {
    "key": "tan_minh_cao",
@@ -1048,7 +1060,8 @@
      "kind": "disciple",
      "note": "the rider lost in 872"
     }
-   ]
+   ],
+   "appearance": "Remembered as a lean hawk-catcher with a crane feather braided into his beard."
   },
   {
    "key": "nhan_tuyet_linh",
@@ -1092,7 +1105,8 @@
      "note": "his spears brought her down"
     }
    ],
-   "master": "tan_minh_cao"
+   "master": "tan_minh_cao",
+   "appearance": "Remembered as a young woman in a slate-grey riding cap, her crane's neck-ring sewn to her cuff."
   }
  ]
 }

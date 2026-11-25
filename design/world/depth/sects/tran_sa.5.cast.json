@@ -32,9 +32,10 @@
      "Honest"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "Tống Thối Kim's (tong_thoi_kim) senior striker for sixty years, he would be master smith if Tống left. He fears the head's war will empty the forge of strikers, and says so at the long table.",
+   "backstory": "A forge-hand's son, he has been Tống Thối Kim's (tong_thoi_kim) senior striker for sixty years, he would be master smith if Tống left. He fears the head's war will empty the forge of strikers, and says so at the long table.",
+   "appearance": "Missing the last two fingers of his left hand, which he calls his tithe.",
    "ties": [
     {
      "to": "tong_thoi_kim",
@@ -119,13 +120,14 @@
    "traits": {
     "personality": [
      "Cautious",
-     "Loyal",
+     "Faithless",
      "Honest"
     ],
     "calling": "Strategist",
     "upbringing": "sect_raised"
    },
-   "backstory": "Bàng Trấn Nhạc's (bang_tran_nhac) lieutenant on the Hồi Lan road, he keeps the cup shelf counted. He has seen Tất Dạ Lang's horse at the hall's back gate twice, long after the man deserted to Dạ Quang, and has told no one but his own file; he does not know that Viên Cô Yên (vien_co_yen) let it in.",
+   "backstory": "Bàng Trấn Nhạc's (bang_tran_nhac) lieutenant on the Hồi Lan road. He has twice seen Tất Dạ Lang's horse at the back gate, long after the man deserted, and told only his file; he does not know Viên Cô Yên (vien_co_yen) let it in. When Bàng asked who had read the route book he named a night-watch boy, and the boy was sent to the salt road for it.",
+   "appearance": "He counts under his breath, even the steps of a stair.",
    "ties": [
     {
      "to": "bang_tran_nhac",
@@ -206,9 +208,16 @@
      "Stubborn"
     ],
     "calling": "Refiner",
-    "upbringing": "sect_raised"
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Her father Lã Đoán Cương (la_doan_cuong) lets her work the bellows but not the quench. She has shaved her eyebrows like the smiths, and argues with Mễ Tiểu Chùy (me_tieu_chuy) over who strikes next.",
+   "backstory": "Her father Lã Đoán Cương (la_doan_cuong) lets her work the bellows but not the quench. She has shaved her eyebrows like the smiths, and argues with Mễ Tiểu Chùy (me_tieu_chuy) over who strikes next. The bellows tire her arms, and she works them anyway.",
+   "appearance": "Eyebrows shaved to stubble, one nicked into a permanent question.",
    "ties": [
     {
      "to": "la_doan_cuong",
@@ -277,13 +286,14 @@
    "traits": {
     "personality": [
      "Loyal",
-     "Calm",
+     "Callous",
      "Honest"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "He and his sister Ổ Sa Nhi (o_sa_nhi) were tested in the same felt tent. She rode to Dạ Quang and he walked to Trấn Sa, and on the Đà Linh road they pretend not to know each other.",
+   "backstory": "He and his sister Ổ Sa Nhi (o_sa_nhi) were tested in the same felt tent. She rode to Dạ Quang and he walked to Trấn Sa, and on the Đà Linh road they pretend not to know each other. When she was thrown at a halt with her foot caught in the stirrup he rode past without turning his head, and she has limped since.",
+   "appearance": "A nose broken twice, set once.",
    "ties": [
     {
      "to": "o_sa_nhi",
@@ -346,12 +356,13 @@
     "personality": [
      "Diligent",
      "Paranoid",
-     "Just"
+     "Arbitrary"
     ],
     "calling": "Strategist",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan"
    },
-   "backstory": "Nhiếp Cô Đăng (nhiep_co_dang) taught her to read hoofprints and then stopped asking her to. She writes up Ô Liệt Phong's escorts in the watch book anyway, and hers are the only pages still full.",
+   "backstory": "Nhiếp Cô Đăng (nhiep_co_dang) taught her to read hoofprints and then stopped asking her to. She writes up Ô Liệt Phong's escorts in the watch book anyway, and hers are the only pages still full. A foundling left at the Đà Linh well, she strikes a rider's name out on a whim, and Na Lạc Linh (na_lac_linh) rode a week of the Hồi Lan road unpaid on one such stroke.",
+   "appearance": "Chewed pen-ends tucked behind both ears.",
    "ties": [
     {
      "to": "nhiep_co_dang",
@@ -421,6 +432,7 @@
     "upbringing": "merchant_child"
    },
    "backstory": "His Water should have sent him to the Desert Pavilion; he chose the hall for its Earth. Viên Cô Yên (vien_co_yen) set him to dusting the 312 cups, and he has noticed the last eleven were found on roads Ô Liệt Phong did not ride.",
+   "appearance": "Wax-yellow fingertips from the lamp trade.",
    "ties": [
     {
      "to": "vien_co_yen",
@@ -485,6 +497,7 @@
     "upbringing": "village_born"
    },
    "backstory": "She followed her brother Cam Thiết Bình (cam_thiet_binh) from the salt pans and cooks at the long table, where she sets Viên Trường Hà's empty place each night without being asked.",
+   "appearance": "Salt-white scars across both palms from the pans.",
    "ties": [
     {
      "to": "cam_thiet_binh",

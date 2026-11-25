@@ -335,6 +335,7 @@
    "home": 193,
    "birthplace": 87,
    "role": "Mai Lễ Tuyền's true disciple; keeper of the sick-hall at the Dawn Hall and leader of the road healers",
+   "appearance": "A thin woman with cropped hair and herb-stained cuffs, always half-packed for the road.",
    "tier": "B",
    "root": {
     "elements": {
@@ -372,8 +373,9 @@
      "Battle-hardened"
     ]
    },
-   "appearance": "A thin woman with cropped hair and herb-stained cuffs, always half-packed for the road.",
    "backstory": "A meadow girl of Lục Dã taken by Mai Lễ Tuyền (mai_le_tuyen) in 1115, Hà Thanh Tô runs the sick-hall at the Dawn Hall and leads the road healers who go out at the first word of fever. She trained the palace's healer Từ Cam Tuyền (tu_cam_tuyen) during her two years here. Her first road was the marsh fever at Hàm Trạch in 1131, and she has not stopped since. She thinks the cellars are eating the school. Since Kim's factor named the sick-hall as his surety she treats the fevers in the road camps instead, and the sick-hall's beds stand half empty, worth less to pledge.",
+   "wants": "A second sick-hall at Hàm Trạch, paid from the cellars' money.",
+   "secret": "One night a week she carries cots and medicine stock to a rented barn at Hàm Trạch, so that if the factor takes the Dawn Hall as surety for Kim Vạn Lý (kim_van_ly) the fever beds are not in it.",
    "ties": [
     {
      "to": "mai_le_tuyen",
@@ -473,6 +475,7 @@
    "home": 26,
    "birthplace": 26,
    "role": "The school's taster: every cask, every pill, every poison; blind since 1150",
+   "appearance": "A still woman with milky eyes who turns her head toward a cask before anyone has opened it.",
    "tier": "B",
    "root": {
     "elements": {
@@ -491,7 +494,7 @@
    },
    "traits": {
     "personality": [
-     "Calm",
+     "Cruel",
      "Vengeful",
      "Deceitful"
     ],
@@ -510,8 +513,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A still woman with milky eyes who turns her head toward a cask before anyone has opened it.",
    "backstory": "Cận Tri Vị lost her sight in 1150 to a cask of wine that had gone wrong, and found her tongue sharper for it. She tastes every jar the cellars seal and every pill the healers make. She is married to the wine-master Nhạc Thuần Nhưỡng (nhac_thuan_nhuong) and knows by taste which jars are cut with lake water; the cutting was Mai Lễ Tuyền's (mai_le_tuyen) order, and she holds the Pivot's fine for it unjust. So she waters the fine jars herself, a cup of lake in every ten. Her apprentice Bạc Triều Âm (bac_trieu_am) tasted it, and Cận put the girl's name on the seal beside her own.",
+   "wants": "The cutting acknowledged as Mai's order, in writing, before the Pivot's steward dies.",
+   "secret": "She is teaching her apprentice Bạc Triều Âm (bac_trieu_am) to taste poison by slipping a drop of foxglove into the girl's tea each month and telling her to find it. The girl has been sick for a week each time and does not know why.",
    "ties": [
     {
      "to": "nhac_thuan_nhuong",
@@ -598,6 +602,7 @@
    "home": 26,
    "birthplace": 26,
    "role": "The wine-master's son; leads the lake carts, which leave by night",
+   "appearance": "Right palm callused by the cart whip, left palm soft as a merchant's.",
    "tier": "C",
    "root": {
     "elements": {
@@ -683,6 +688,7 @@
    "home": 87,
    "birthplace": 152,
    "role": "Herb master of the school's gardens at Lục Dã Trấn",
+   "appearance": "Smells of crushed mint, with one eye clouded white by a thorn.",
    "tier": "C",
    "root": {
     "elements": {
@@ -696,12 +702,12 @@
     "personality": [
      "Diligent",
      "Reclusive",
-     "Temperate"
+     "Arbitrary"
     ],
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
-   "backstory": "An ox-herd's son from Hoàng Ngưu who keeps the meadows the palace gave the school in 662 (A257) and has sent the survivors' children of Thạch Ma Trấn (V142) to Hà Thanh Tô (ha_thanh_to) for thirty years.",
+   "backstory": "An ox-herd's son from Hoàng Ngưu who keeps the meadows the palace gave the school in 662 (A257) and has sent the survivors' children of Thạch Ma Trấn (V142) to Hà Thanh Tô (ha_thanh_to) for thirty years. Last winter he turned back the carter bringing foxglove for the fever beds because the man had called his meadows the palace's weeds, and Hà Thanh Tô's road healers went out short.",
    "ties": [
     {
      "to": "ha_thanh_to",
@@ -759,6 +765,7 @@
    "home": 193,
    "birthplace": 26,
    "role": "Inner disciple of the sick-hall; a road healer",
+   "appearance": "Her cooper father's mark, a ring of staves, is burned on her forearm.",
    "tier": "C",
    "root": {
     "elements": {
@@ -824,6 +831,7 @@
    "home": 26,
    "birthplace": 26,
    "role": "Cellar boy of the Spring House",
+   "appearance": "Hiccups at dawn and blames the mash.",
    "tier": "C",
    "root": {
     "elements": {
@@ -841,7 +849,7 @@
     "calling": "Merchant",
     "upbringing": "servant_born"
    },
-   "backstory": "Turns the mash and steals a cup a night; he once saw the lake carts and was given a jar by Nhạc Dư Hương (nhac_du_huong) to forget them.",
+   "backstory": "Steals a cup of mash a night and sleeps through the turning, so a batch soured and Nhạc Dư Hương (nhac_du_huong) took the blame; Nhạc gave him a jar to forget the lake carts, and he drank it.",
    "ties": [
     {
      "to": "nhac_du_huong",
@@ -889,6 +897,7 @@
    "home": 193,
    "birthplace": 779,
    "role": "Outer disciple of the Dawn Hall, from the salt marsh",
+   "appearance": "Hands cracked from salt, a white seam along every cuticle.",
    "tier": "C",
    "root": {
     "elements": {
@@ -904,9 +913,15 @@
      "Compassionate"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A salt-marsh girl from Hàm Trạch whose mother Hà Thanh Tô (ha_thanh_to) saved from marsh fever; she came to the lake to learn the same hands, and her Wood may never be enough.",
+   "backstory": "A salt-marsh girl from Hàm Trạch whose mother Hà Thanh Tô (ha_thanh_to) saved from marsh fever; she came to the lake to learn the same hands, and her Wood may never be enough. She has been frail since the fever.",
    "ties": [
     {
      "to": "ha_thanh_to",
@@ -956,6 +971,7 @@
    "home": 87,
    "birthplace": 87,
    "role": "Inner disciple of the herb gardens at Lục Dã",
+   "appearance": "Chews the corner of a page when he thinks.",
    "tier": "C",
    "root": {
     "elements": {
@@ -966,14 +982,14 @@
    },
    "traits": {
     "personality": [
-     "Diligent",
+     "Lazy",
      "Cautious",
      "Honest"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
-   "backstory": "Born in the meadow town like the head, he keeps a calendar of every herb's flowering for Ngải Bạch Chỉ (ngai_bach_chi), and writes the spring's mint into it from the cellar boys' letters; this year the letters say it is dying back.",
+   "backstory": "Born in the meadow town like the head, he keeps a calendar of every herb's flowering for Ngải Bạch Chỉ (ngai_bach_chi). This year the cellar boys' letters say the mint is dying back, and he copies last year's pages and writes it in by guess; Ngải replanted by those pages and lost two seasons.",
    "ties": [
     {
      "to": "ngai_bach_chi",
@@ -1021,6 +1037,7 @@
    "home": 26,
    "birthplace": 793,
    "role": "Servant porter who takes the hundred jars to the Pivot each year",
+   "appearance": "One shoulder a hand wider than the other, from the yoke.",
    "tier": "C",
    "root": {
     "elements": {

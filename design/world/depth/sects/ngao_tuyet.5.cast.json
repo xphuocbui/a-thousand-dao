@@ -31,7 +31,7 @@
      "Stubborn"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "street_orphan",
     "lifestyle": "duel_seeker"
    },
    "backstory": "He came to the plum gate in 1150 to duel the founder, lost in two petals and asked to be taught; Lăng Đạp Tuyết (lang_dap_tuyet) taught him the canon for ten years, then gave him the inner-gate test on the tailings ice after the move.",
@@ -82,7 +82,8 @@
      "intent": "Hard Metal first, the blossom late."
     },
     "note": ""
-   }
+   },
+   "appearance": "A frost-split lip; he sits with his left foot a hand's width forward."
   },
   {
    "key": "duong_tam_mach",
@@ -110,13 +111,13 @@
    "traits": {
     "personality": [
      "Patient",
-     "Cautious",
+     "Greedy",
      "Diligent"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "Trác Thiết Cán (trac_thiet_can) taught her the forge when she was a Luyện Khí miner's girl of Ngân Tuyết Khoáng, then sent her into Hổ Văn Khoáng and the old shafts to look for a new seam; he has never told her why it is urgent.",
+   "backstory": "Trác Thiết Cán (trac_thiet_can) taught her the forge when she was a Luyện Khí miner's girl of Ngân Tuyết Khoáng, then sent her into the old shafts of Hổ Văn Khoáng for a new seam, and never told her why it is urgent. She hoards the best samples in a locked tin under her bunk; Trác forges from the lumps she leaves and cannot tell why the blades chip.",
    "ties": [
     {
      "to": "trac_thiet_can",
@@ -161,7 +162,8 @@
      "intent": "Metal and Earth toughness; she outlasts a collapsed shaft."
     },
     "note": "Wears a sword, as the plum gate's canon asks."
-   }
+   },
+   "appearance": "Lamp-soot in the lines of her face, and a miner's squint she keeps even in daylight."
   },
   {
    "key": "ha_tuyet_nhan",
@@ -190,12 +192,12 @@
     "personality": [
      "Ambitious",
      "Wrathful",
-     "Diligent"
+     "Faithless"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "She passed the five thrusts on the tailings ice on her second try, which Chung Thiết Tuyền (chung_thiet_tuyen) says nobody does, and has wanted to beat Cung Hàn Nhạn (cung_han_nhan) to the fifth petal since.",
+   "backstory": "She passed the five thrusts on the tailings ice on her second try, which Chung Thiết Tuyền (chung_thiet_tuyen) says nobody does, and has wanted to beat Cung Hàn Nhạn (cung_han_nhan) to the fifth petal since. She copies Chung's drill notes for Phó Ngạo Sương's disciples, to buy a place in their yard, and Chung Thiết Tuyền (chung_thiet_tuyen) found his own drill turned against his pupils on the tailings ice.",
    "ties": [
     {
      "to": "chung_thiet_tuyen",
@@ -229,7 +231,8 @@
      "intent": "Metal hits."
     },
     "note": ""
-   }
+   },
+   "appearance": "A bruise shaped like a plum petal on one cheek, which she says she earned."
   },
   {
    "key": "doan_mai_cot",
@@ -257,14 +260,20 @@
    "traits": {
     "personality": [
      "Humble",
-     "Patient",
+     "Lazy",
      "Content"
     ],
     "calling": "Steward",
     "upbringing": "village_born",
-    "lifestyle": "gardener"
+    "lifestyle": "gardener",
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Ma Bố boy with chilblains to the knee who would rather tend the grave plums than duel; he and Phí Tầm Mai (phi_tam_mai) keep Lăng Nhược Mai's (lang_nhuoc_mai) tree, and he has never broken a branch.",
+   "backstory": "A Ma Bố boy with chilblains to the knee who would rather tend the grave plums than duel; he and Phí Tầm Mai (phi_tam_mai) keep Lăng Nhược Mai's (lang_nhuoc_mai) tree, and he has never broken a branch. He prunes nothing, so the grave plums are a thicket.",
    "ties": [
     {
      "to": "mac_chiet_chi",
@@ -298,7 +307,8 @@
      "intent": "Metal, slowly."
     },
     "note": ""
-   }
+   },
+   "appearance": "Walks as if every step were on ice, with a pruning knife he never uses."
   },
   {
    "key": "truong_luyen_phong",
@@ -326,13 +336,13 @@
    "traits": {
     "personality": [
      "Wrathful",
-     "Diligent",
+     "Cruel",
      "Arrogant"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "mortal_noble"
    },
-   "backstory": "He quenches every blade the forge makes in meltwater from the tailings and thinks he should be the smith's heir, not Dư Hổ Văn (du_ho_van), whose only claim is that his family mined the town.",
+   "backstory": "A petty magistrate's son, he quenches every blade the forge makes in meltwater from the tailings and thinks he should be the smith's heir, not Dư Hổ Văn (du_ho_van), whose only claim is that his family mined the town. Dư Hổ Văn's left palm is shiny where he held it over the quench steam for a laugh.",
    "ties": [
     {
      "to": "trac_thiet_can",
@@ -368,7 +378,8 @@
      "intent": "Metal body."
     },
     "note": "Wears a sword, as the plum gate's canon asks."
-   }
+   },
+   "appearance": "Forearms speckled with scald scars from the quench, and a neck as thick as a post."
   },
   {
    "key": "hau_thach_nhan",
@@ -400,7 +411,7 @@
      "Patient"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
    "backstory": "A quiet boy born at the last diggings of Hổ Văn Khoáng who goes down the dead shafts of Hổ Văn Khoáng behind Dương Tầm Mạch (duong_tam_mach) with the lamp, and can tell iron from tiger-stripe ore by the sound of a hammer.",
    "ties": [
@@ -436,7 +447,8 @@
      "intent": "Metal and Earth."
     },
     "note": "Wears a sword, as the plum gate's canon asks."
-   }
+   },
+   "appearance": "A tin lamp-cap tied under his chin, and eyes slow to take the daylight."
   },
   {
    "key": "so_bang_chi",
@@ -463,14 +475,14 @@
    },
    "traits": {
     "personality": [
-     "Honest",
+     "Deceitful",
      "Brave",
      "Impatient"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
-   "backstory": "She asked Phó Ngạo Sương (pho_ngao_suong) once what happened on the mountain road in 1162 and was sent to train barefoot until dark; she has not asked again, and asks An Lãnh Phong (an_lanh_phong) instead.",
+   "backstory": "She asked Phó Ngạo Sương (pho_ngao_suong) once what happened on the mountain road in 1162 and was sent to train barefoot until dark; she has not asked again, and asks Ân Lãnh Phong (an_lanh_phong) instead. She tells Ân Lãnh Phong that Phó has already answered her, to draw out what he knows; he repeated it to Phó and was sent to train barefoot for it.",
    "ties": [
     {
      "to": "pho_ngao_suong",
@@ -504,7 +516,8 @@
      "intent": "Metal hits, Wood bleeds."
     },
     "note": ""
-   }
+   },
+   "appearance": "Braid hacked off at the nape, bare feet horn-hard."
   }
  ]
 }

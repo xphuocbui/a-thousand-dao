@@ -93,6 +93,7 @@ village, a Phượng Minh cook's son.
 | 1172-1175 | **Ferry War** with Lạc Hà over the Ngư Ca tolls; Lãng Đào's ferries burn; the rope bridges are cut, and Nhiếp Thừa Phong dies on the last; tolls split, nothing forgiven | C192, A080, A202, C193, **N-tung_dao-06** |
 | 1190-1191 | Wolves follow the caravans to Tùng Hạ Thị; Tuần Tùng Đường founded | A064, V043 |
 | 1198 | A woodcutter's boy in the outer gate says the pines go on past the primer | **N-tung_dao-07** |
+| 1199 | A Coiled Root Hall rope-hand crosses to the Ngư Ca bank on an unsigned word and does not come back; the roll carries him on long patrol | **N-tung_dao-08** |
 
 **New chronicle proposals** (for `chronicle_proposal.json` once approved):
 - **N-tung_dao-01** (508, `death`): "When Thiên Xu breaks Thiết Tỏa Quan, the smith Vưu Liên Hoàn is standing on his chain,
@@ -109,6 +110,8 @@ village, a Phượng Minh cook's son.
   killed on the last; Lạc Hà sends his flying blade back without him."
 - **N-tung_dao-07** (1198, `tale`): "An outer disciple of Tùng Đào, a woodcutter's son, says the pines above Tùng Hạ
   Thị are chanting something longer than the primer."
+- **N-tung_dao-08** (1199, `tale`): "A rope-hand of Tùng Đào's Coiled Root Hall, who held the windlass line on the night
+  of the last Ngư Ca bridge, crosses to the Lạc Hà bank on an unsigned word in spring and does not come back."
 
 ## 4. Doctrine and customs
 
@@ -250,6 +253,10 @@ spoke it. An unwritten lineage cannot recover it from a book.
 - **The fifteenth layer.** Thôi Khinh Hồng has listened for it for five hundred years. A woodcutter's boy in the outer
   gate, Trình Văn Thanh, says the pines go on past the primer. No one has told her.
 - **The river's secret.** Dụ Tĩnh Lưu knows the flood of 700 was sent onto her abbey's bank to save a city.
+- **The rope-hand on the Ngư Ca bank.** In spring 1199 Nhiếp Cô Tân sent Mạc Thằng Kiều, who held the windlass line the
+  night his son cut the last bridge, over to the Lạc Hà bank to see how the new bridge was hung. He did not come back.
+  The roll carries him on long patrol, and the 1175 peace would not survive the word that Tùng Đào had a man on that
+  bank. Mạnh Kiên Căn asks after him at the Ngư Ca ferries.
 - **The letter of 906.** Nhiếp holds the letter Đàm wrote to Ngu Lam Sơn and never sent, saying the Cold Ford was
   never the sect's to keep.
 
@@ -326,6 +333,7 @@ spoke it. An unwritten lineage cannot recover it from a book.
 | thi_moc_huong | Thi Mộc Hương | nội môn | Trúc Cơ | C | Wood 61, Fire 28 | Incense maker at Lãnh Hương Viện |
 | hau_thien_ke | Hầu Thiện Kế | chấp sự | Trúc Cơ | C | Wood 46, Earth 35, Water 30 | Resin clerk in Tùng Gian Thành |
 | tran_bach_xuyen | Trần Bách Xuyên | nội môn | Trúc Cơ | C | Wood 60, Water 26 | Patrol captain of the pine-sea roads |
+| mac_thang_kieu | Mạc Thằng Kiều | nội môn | Luyện Khí | C | Wood 57, Water 28 | Rope-hand of the Coiled Root Hall; held the windlass line on the last Ngư Ca bridge in 1174; missing since spring 1199 |
 | tong_ngon_hoa | Tống Ngôn Hòa | chấp sự | Trúc Cơ | C | Wood 50, Water 44 | Letter-carrier to the vassals |
 | hach_moc_sinh | Hách Mộc Sinh | nội môn | Trúc Cơ | C | Wood 57, Metal 28 | Coiled Root Hall patrolman |
 | cat_linh_thao | Cát Linh Thảo | nội môn | Trúc Cơ | C | Wood 56, Fire 33 | Pill Room inner disciple |

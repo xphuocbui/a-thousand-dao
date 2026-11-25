@@ -240,6 +240,8 @@
    },
    "appearance": "A plump, pleasant monk with an abacus in his sleeve and the soft hands of a man who keeps the books.",
    "backstory": "A rice merchant's son from Thu Trì who came to the abbey at twenty and never quite stopped counting. Since 1010 he has sold the abbey's rain in dry years to Kiều Mãn Lâu (kieu_man_lau) and to any landlord who pays, and since 1150 the money has bought the pills that keep the abbess (duong_hao_vu) breathing. In 1180 Hà Tĩnh Cần (ha_tinh_can) told the valley, and half the abbey walked out with her. He posted the price on the gate the next morning. Now he pays the grove's pole-cutter Sở Lôi Duẩn (so_loi_duan) to cut the hermitage's poles a hand short, so that its free rites call drizzle and the farmers come back to pay.",
+   "wants": "The abbey's granary full and its pills paid for, and Hà Tĩnh Cần's grove crawling back to the gate for a bowl of rice.",
+   "secret": "He has taken a Thu Trì buyer's deposit for the rain of the next great drought, to be called by Dương Hảo Vũ, who does not know and who may not live through it.",
    "ties": [
     {
      "to": "duong_hao_vu",
@@ -374,6 +376,8 @@
    },
    "appearance": "A tall, sunburnt man with a landlord's good boots and a farmer's hands.",
    "backstory": "The third son of the Lục family, whose harvests at Phong Đăng the Tower taxes first (A288). He gave up the farms for the terraces at twenty, and the spirit rice of the abbey is better for it. His family's tenants send their children to the Tower's Bell Test first and to him when they fail, as the Thiều boy came. He does not mind being second.",
+   "wants": "A terrace harvest no tax can reach, and a place for every boy the Bell Test turned away.",
+   "secret": "He is paying his family's tithe on the terraces out of his own seed rice and telling the abbess the harvest covered it; the sacks will run out by autumn.",
    "ties": [
     {
      "to": "duong_hao_vu",
@@ -482,12 +486,12 @@
    },
    "traits": {
     "personality": [
-     "Calm",
+     "Deceitful",
      "Pragmatic",
      "Reclusive"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "street_orphan",
     "talent": [],
     "path": [],
     "lifestyle": "drinker",
@@ -496,8 +500,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A tall woman in a black rain cloak over the abbey's grey, who is seen in Thu Trì only on dry nights.",
-   "backstory": "Born in Yên Vũ Trấn, the town of misty rain, she has the best rain hands in the abbey. In dry years the prior Thời Tri Tiết (thoi_tri_tiet) sends her to Thu Trì to call rain at dusk so that Kiều Mãn Lâu's (kieu_man_lau) market can open, and she stays to drink in it. In the dry year of 1179 Hà Tĩnh Cần (ha_tinh_can) called it beside her. Since 1180 everyone knows what the rain is for, and she goes on calling it.",
+   "appearance": "Tall, in a black rain cloak over the abbey's grey, seen in Thu Trì only on dry nights.",
+   "backstory": "Born an orphan on the wet stones of Yên Vũ Trấn, the town of misty rain, she has the best rain hands in the abbey. In dry years the prior Thời Tri Tiết (thoi_tri_tiet) sends her to Thu Trì to call rain at dusk so that Kiều Mãn Lâu's (kieu_man_lau) market can open, and she stays to drink in it. In the dry year of 1179 Hà Tĩnh Cần (ha_tinh_can) called it beside her. Since 1180 everyone knows what the rain is for, and she goes on calling it.",
+   "wants": "A room above the market with a window on the rain, and no grey robe to wear in it.",
+   "secret": "Each dry night she sells the rain to a Thu Trì dyer as well as to Kiều Mãn Lâu, and the second water comes thinner every time; the market's measure will tell within a month.",
    "ties": [
     {
      "to": "thoi_tri_tiet",
@@ -592,7 +598,7 @@
      "Patient"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [],
     "path": [],
     "lifestyle": "gardener",
@@ -601,6 +607,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Sniffs every hand she shakes, as if reading it.",
    "backstory": "A flower-field girl from Hoa Điền who grows the abbey's herbs and takes the hard cases down the road to Giả Hồi Xuân (gia_hoi_xuan) at the apricot market.",
    "ties": [
     {
@@ -690,7 +697,7 @@
    },
    "thien_phu": {
     "ngo_tinh": 58,
-    "can_cot": 44,
+    "can_cot": 36,
     "than_hon": 60,
     "khi_van": 42,
     "dao_tam": 70,
@@ -704,7 +711,12 @@
     ],
     "calling": "Teacher",
     "upbringing": "village_born",
-    "talent": [],
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 2
+     }
+    ],
     "path": [],
     "lifestyle": "gardener",
     "health": "waning_years",
@@ -712,8 +724,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A small, sun-dark woman in grey hemp gone white at the knees, with the pale mark of a rite bell's cord still on her wrist.",
+   "appearance": "A small, sun-dark, frail woman in grey hemp gone white at the knees, with the pale mark of a rite bell's cord still on her wrist.",
    "backstory": "Born in 1040 to Lục tenants at Phong Đăng, she went up the bamboo hill at her first planting. Dương Hảo Vũ (duong_hao_vu) made her master of the rite's callers. In the dry year of 1179 the prior Thời Tri Tiết (thoi_tri_tiet) sent her to Thu Trì to call the Night Rain Market's rain beside Lã Tiềm Dạ (la_tiem_da). She came home in the spring of 1180 to Phong Đăng's dead seedbeds, and at that planting she told the valley where she had been and what it was paid. Half the abbey walked with her to Lôi Trúc Lâm. She gave the abbess back her rite bell, and from the grove she calls rain for any farmer for nothing. This year three of her rites have come down as mist, and she now holds each one twice.",
+   "wants": "To see the free rain come down as rain again, and to learn why her rites fail.",
+   "secret": "She no longer thinks the failing is hers: she sleeps out in the grove by night to catch whoever is cutting the poles short, and the man she watches most is her friend Sở Lôi Duẩn.",
    "ties": [
     {
      "to": "duong_hao_vu",
@@ -826,7 +840,7 @@
      "Faithless"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born",
+    "upbringing": "hermit_taught",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -835,7 +849,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Walked out to the grove with Hà Tĩnh Cần (ha_tinh_can) in 1180 and cuts the struck canes into rite poles for both houses; since the spring he has cut the hermitage's a hand short for the prior's money (thoi_tri_tiet). He will not say why the struck ones work better.",
+   "appearance": "Smells of green cane smoke; the ring finger of his left hand is gone at the knuckle.",
+   "backstory": "Walked out to the grove with Hà Tĩnh Cần (ha_tinh_can) in 1180 and cuts the struck canes into rite poles for both houses; since the spring he has cut the hermitage's a hand short for the prior's money (thoi_tri_tiet), so that her free rites come down as mist and she must hold each one twice, in years she cannot spare. He will not say why the struck ones work better.",
    "ties": [
     {
      "to": "thoi_tri_tiet",
@@ -924,7 +939,12 @@
     ],
     "calling": "Herbalist",
     "upbringing": "village_born",
-    "talent": [],
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ],
     "path": [],
     "lifestyle": null,
     "health": null,
@@ -932,6 +952,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Squints from staring at the Bell the day it stopped; wears a bandage on the shin for the third dropped pole this month.",
    "backstory": "Failed the Tower's outer gate on his Metal in 1194 and walked to the abbey instead; his sister Thiều Mộ Vũ (thieu_mo_vu) passed on a Metal of exactly 30, and he keeps a terrace ready for her.",
    "ties": [
     {
@@ -1011,7 +1032,7 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Brave",
+     "Cruel",
      "Stubborn"
     ],
     "calling": "Teacher",
@@ -1024,7 +1045,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Sings the oldest song in the south at Ương Ca's planting (A287), loudest of all, to drown the graves (A314); the boy from her village who went to the graves sang beside her once.",
+   "appearance": "Two back teeth missing from a fall at a planting dance, which she shows when she laughs.",
+   "backstory": "Sings the oldest song in the south at Ương Ca's planting (A287), loudest of all, to drown the graves (A314); the boy from her village who went to the graves sang beside her once. Each planting she holds Vi Hòa Ca's (vi_hoa_ca) head under the paddy water to clear the rasp from her voice, and the girl now only mouths the planting song.",
    "ties": [
     {
      "to": "lam_nhuan_chi",
@@ -1099,6 +1121,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Eyes that drift to the horizon in mid-sentence; rope scars across both knuckles.",
    "backstory": "Watched the isle rise out of the river at Hà Châu in 1199 (A297) and thinks the Tower and the Gate are both wrong: it is good rice mud. The hermitage at the grove eats what the farmers leave it, and he wants the isle planted for it.",
    "ties": [
     {
@@ -1184,6 +1207,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Sunburn line across the nose that has never faded; shoulders wide from a ferry pole.",
    "backstory": "Her grandmother saw Phượng Minh's raiders at the upper ferry in 1045 (A295); she follows Lã Tiềm Dạ to Thu Trì on dry nights and does not like the market.",
    "ties": [
     {
@@ -1254,7 +1278,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "From Xuân Duẩn Thôn below the hill; the laziest novice on the terraces and the best at finding bamboo shoots, which the abbess forgives.",
+   "appearance": "One trouser leg rolled higher than the other; bamboo-sheath fuzz on his sleeves.",
+   "backstory": "From Xuân Duẩn Thôn below the hill; the laziest novice on the terraces and the best at finding bamboo shoots, which the abbess forgives. He leaves his rows to Thiều Mộ Canh (thieu_mo_canh), who is too polite to refuse, and takes the praise for the full terrace.",
    "ties": [
     {
      "to": "luc_dao_hoa",

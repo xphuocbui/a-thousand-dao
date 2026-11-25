@@ -31,8 +31,9 @@
      "Stubborn"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
+   "appearance": "Speaks with a lisp on her sibilants; a sluice key hangs on a cord at her neck.",
    "backstory": "Keeps the sluices on the flood terraces and the second copy of Úy Thương Điền's (uy_thuong_dien) rain book; her own measures say what her master's do, and she has begun sending them to the head with no name on them.",
    "ties": [
     {
@@ -100,7 +101,7 @@
    },
    "traits": {
     "personality": [
-     "Brave",
+     "Faithless",
      "Pragmatic",
      "Reclusive"
     ],
@@ -108,7 +109,8 @@
     "upbringing": "village_born",
     "lifestyle": "hunter"
    },
-   "backstory": "Walks the rat fence at night with Khuất Liệp Nguyên (khuat_liep_nguyen) and dug out three tunnels under the brook toward Bích Lãng this winter; he has stopped telling the coast villages how many.",
+   "appearance": "Eyes that stay wide open in daylight; a rat-bite scar across the back of his left hand.",
+   "backstory": "Walks the rat fence at night with Khuất Liệp Nguyên (khuat_liep_nguyen) and dug out three tunnels under the brook toward Bích Lãng this winter; he has stopped telling the coast villages how many. He sells the fence-walk hours to the Bích Lãng pelt-poachers, behind Ninh Trúc Thực (ninh_truc_thuc), who trained him, and the fence now stands unwalked three nights in seven.",
    "ties": [
     {
      "to": "ninh_truc_thuc",
@@ -169,13 +171,20 @@
    "traits": {
     "personality": [
      "Honest",
-     "Content",
+     "Lazy",
      "Gregarious"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Drives the seed cart up the road to Hoàng Vân Thành behind Sầm Đạo Hương (sam_dao_huong) and has never once eaten seed before it left; he is the garden's best singer of road songs and its worst at sums.",
+   "appearance": "Road song always half-hummed; counts the carts on his fingers and loses the count by the fourth.",
+   "backstory": "Drives the seed cart up the road to Hoàng Vân Thành behind Sầm Đạo Hương (sam_dao_huong) and has never once eaten seed before it left; he is the garden's best singer of road songs and its worst at sums. He sleeps on the cart and lets the ox pick the road, which has added a day to the tribute and left Sầm to answer for it at the palace gate.",
    "ties": [
     {
      "to": "sam_dao_huong",
@@ -238,6 +247,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
+   "appearance": "Soot-dark fingertips from her Fire practice; the satchel of knives clinks at every step.",
    "backstory": "Mẫn Tiết Thanh's (man_tiet_thanh) only disciple, who carries his harvest knives; she has a little Fire, eleven parts, and he has asked her twice this year whether it has grown.",
    "ties": [
     {
@@ -300,6 +310,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "Salt-cracked heels; squints at the horizon like a girl still waiting for a boat.",
    "backstory": "A Bích Lãng fisher's girl who came in through the flood terraces and means to stay on them; she has seen rats swim the brook at night and told only her master.",
    "ties": [
     {
@@ -367,6 +378,7 @@
     "calling": "Steward",
     "upbringing": "servant_born"
    },
+   "appearance": "Limps from an ox-kick; mud caked in one ear.",
    "backstory": "Ploughs beside Phí Đông Canh (phi_dong_canh) and believes him about the new bamboo in the old clumps; the two of them have notched old culms to see whether they stand unchanged next spring.",
    "ties": [
     {
@@ -429,6 +441,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
+   "appearance": "Ledger pencil behind his ear; he pats his grain-town belly before every question.",
    "backstory": "A grain town's son who works the lower rows for Kha Tùng Canh (kha_tung_canh) and asks every traveller the garden feeds whether bamboo seeds every year where they come from; none has said yes.",
    "ties": [
     {

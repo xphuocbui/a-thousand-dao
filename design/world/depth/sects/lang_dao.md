@@ -144,7 +144,7 @@ gate's inner disciples beside its own since the rebuilding of 1175.
 - **The free crossing.** This spring Lữ answered at last, and not to Giang. He sent one pass back inside the letters
   Giang Tiểu Loan carries home, addressed to her grandmother Thương Bạch Phàm, who poled nine children off the burning
   landing. Thương has said nothing to her Dao partner. She has put the Ngư Ca boats on a free crossing for Lạc Hà's
-  hulls until ten years of that toll are paid back, and Tiết An Thủy stamps the passes at no charge and writes the
+  hulls until ten years of that toll are paid back, and Tiết Ấn Thủy stamps the passes at no charge and writes the
   order into the toll book in her name. Giang cannot ask her why without telling her.
 - **War or letters.** The heir, Giang Hồi Lan, wants the war fought again. His father writes to Lạc Hà's foster son.
   His daughter, Giang Tiểu Loan, carries the letters to the Ngư Ca landing and writes her own on the back of each.
@@ -185,8 +185,8 @@ gate's inner disciples beside its own since the rebuilding of 1175.
 
 1. **The free crossing.** At next spring's landing the fleet hears that Ngư Ca has carried Lạc Hà's hulls free all
    season on the boat-mistress's order. Giang can stop her and say why, let his richest landing carry its enemies for
-   nothing, or have Tiết An Thủy lose the order, and Lạc Hà's boatmen want to know what the gate is paying for. (Thương
-   Bạch Phàm, Giang Cửu Khúc, Tiết An Thủy, Dụ Tĩnh Lưu; place 13.)
+   nothing, or have Tiết Ấn Thủy lose the order, and Lạc Hà's boatmen want to know what the gate is paying for. (Thương
+   Bạch Phàm, Giang Cửu Khúc, Tiết Ấn Thủy, Dụ Tĩnh Lưu; place 13.)
 2. **The son across the river.** Lữ Tẫn Chu asks Thương Bạch Phàm to meet him on the Ngư Ca landing, and to bring the
    ferry master. The meeting brings the boy's sister from Thải Chi and the Lạc Hà elder who raised him, with the rest
    of the passes, to the same place. (Giang Cửu Khúc, Giang Tiểu Loan, Lữ Tẫn Chu, Lữ Niệm Hà, Lô Xướng Vãn.)

@@ -26,14 +26,15 @@
    },
    "traits": {
     "personality": [
-     "Just",
+     "Arbitrary",
      "Stubborn",
      "Diligent"
     ],
     "calling": "Alchemist",
     "upbringing": "servant_born"
    },
-   "backstory": "Valley-born to a furnace-man and a cook, she argues in council that a Water root from the boats should be let through the furnace door, as Tần Tuyết Thán (tan_tuyet_than) wants. Ngụy Đan Chu (nguy_dan_chu) has stopped speaking to her.",
+   "appearance": "Hands scarred pink by the jackets' hot copper; spare mittens stuffed in her coat.",
+   "backstory": "Valley-born to a furnace-man and a cook, she argues in council that a Water root from the boats should pass the furnace door, as Tần Tuyết Thán (tan_tuyet_than) wants; Ngụy Đan Chu (nguy_dan_chu) no longer speaks to her. She draws apprentices' places at the warm end of the jacket rack from a bag holding two black stones, and Bế Diễm Sương (be_diem_suong) has drawn the cold end all week.",
    "ties": [
     {
      "to": "tan_tuyet_than",
@@ -101,13 +102,14 @@
    "traits": {
     "personality": [
      "Calm",
-     "Humble",
+     "Lazy",
      "Brave"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "He sails the fire-jade boat to Hỏa Ngọc Mạch in a smoking year and has been outer for eighty years, like Nghiêu Vọng Kình (nghieu_vong_kinh). The crews want him to be the first Water root through the furnace door; he does not.",
+   "appearance": "Sun-creased boatman's neck; an unlit pipe between his teeth.",
+   "backstory": "He sails the fire-jade boat to Hỏa Ngọc Mạch in a smoking year and has been outer for eighty years, like Nghiêu Vọng Kình (nghieu_vong_kinh). The crews want him to be the first Water root through the furnace door; he does not. He lets Nhan Đới Nhi (nhan_doi_nhi) do the rowing and the reckoning and signs the log.",
    "ties": [
     {
      "to": "nghieu_vong_kinh",
@@ -172,13 +174,14 @@
    "traits": {
     "personality": [
      "Content",
-     "Loyal",
+     "Faithless",
      "Gregarious"
     ],
     "calling": "Steward",
     "upbringing": "servant_born"
    },
-   "backstory": "Dương Bát Oản's (duong_bat_oan) daughter keeps the broth pot at the furnace mouth day and night. Her brother Dương Lô (duong_lo) tends Viên Chước's furnace at Băng Tâm, and she has decided she will not follow him.",
+   "appearance": "Broth splashes down her apron; a lopsided braid tied with kitchen twine.",
+   "backstory": "Dương Bát Oản's (duong_bat_oan) daughter keeps the broth pot at the furnace mouth day and night. Her brother Dương Lô (duong_lo) tends Viên Chước's furnace at Băng Tâm, and she has decided she will not follow him. She burns the letters Dương Lô sends from Băng Tâm and gives their father (duong_bat_oan) only the first.",
    "ties": [
     {
      "to": "duong_bat_oan",
@@ -241,13 +244,14 @@
    "traits": {
     "personality": [
      "Arrogant",
-     "Diligent",
+     "Cruel",
      "Loyal"
     ],
     "calling": "Alchemist",
     "upbringing": "servant_born"
    },
-   "backstory": "Ngụy Đan Chu (nguy_dan_chu) chose him from the kitchens for his Fire and teaches him that the snow is a crutch. He copies the furnace roster for Phòng Tẫn Thủ (phong_tan_thu), who has never let him see the page for a night in 1144.",
+   "appearance": "Narrow handsome face, burn-line across the chin, cinnabar on the thumb.",
+   "backstory": "Ngụy Đan Chu (nguy_dan_chu) chose him from the kitchens for his Fire and teaches him that the snow is a crutch. He copies the furnace roster for Phòng Tẫn Thủ (phong_tan_thu), who has never let him see the page for a night in 1144. He holds new snow-shovel boys' hands over the vent mouth, Lại Tiểu Thán's (lai_tieu_than) first, to show them what the jackets spare.",
    "ties": [
     {
      "to": "nguy_dan_chu",
@@ -311,12 +315,13 @@
     "personality": [
      "Ambitious",
      "Brave",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "She came in through the kitchens from Hải Đới Thôn on her Water and kept her Winter Coal alive until the thaw. Cao Hải Mặc (cao_hai_mac) took her onto the fire-jade boat; she means to be the Water root the furnace door opens for.",
+   "appearance": "Thick rower's forearms; a gold fire-jade chip sewn into her collar.",
+   "backstory": "She came in through the kitchens from Hải Đới Thôn on her Water and kept her Winter Coal alive until the thaw. Cao Hải Mặc (cao_hai_mac) took her onto the fire-jade boat; she means to be the Water root the furnace door opens for. She pockets chips of fire jade from the ballast, and Cao took the blame at council.",
    "ties": [
     {
      "to": "cao_hai_mac",
@@ -378,13 +383,14 @@
     "personality": [
      "Fickle",
      "Gregarious",
-     "Deceitful"
+     "Honest"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "street_orphan",
     "lifestyle": "gambler"
    },
-   "backstory": "He rows the ash boats for Nghiêu Vọng Kình (nghieu_vong_kinh) and lost his pay at the dice tables of Hàn Tân Thành until the ash rush of 1200 brought the dice to the snow house; now he loses it to Ngụy Đan Chu (nguy_dan_chu) without leaving the valley.",
+   "appearance": "Hat pulled over one ear; fingers that cannot stay off a die.",
+   "backstory": "A Hàn Tân Thành street orphan, he rows the ash boats for Nghiêu Vọng Kình (nghieu_vong_kinh) and lost his pay at the dice tables of Hàn Tân Thành until the ash rush of 1200 brought the dice to the snow house; now he loses it to Ngụy Đan Chu (nguy_dan_chu) without leaving the valley, and pays every debt on the day.",
    "ties": [
     {
      "to": "nghieu_vong_kinh",
@@ -446,6 +452,7 @@
     "calling": "Alchemist",
     "upbringing": "village_born"
    },
+   "appearance": "Small coal-coloured birthmark on her neck; hums under her breath while she stirs.",
    "backstory": "Valley-born, she kept her Winter Coal alive under her coat a whole winter at nine. Lương Hỏa Tuyền (luong_hoa_tuyen) teaches her the jackets, and Ôn Noãn Tuyết (on_noan_tuyet) has warned her the quarrel with Ngụy will cost her.",
    "ties": [
     {

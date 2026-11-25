@@ -420,7 +420,7 @@
     "personality": [
      "Diligent",
      "Vengeful",
-     "Arrogant"
+     "Cruel"
     ],
     "calling": "Talisman maker",
     "upbringing": "village_born",
@@ -432,7 +432,7 @@
     ]
    },
    "appearance": "A tight-mouthed woman of fifty with a callus on her brush finger the size of a pea.",
-   "backstory": "A Hoa Khê girl who won the talisman contest at Hạc Đinh Thị twice for the hall, and in 1190 lost it to a fourteen-year-old from Lạc Hà, Tô Mộ Vân (to_mo_van), in front of the whole market (A203). She has painted the same cloud talisman every dawn since, some three thousand sheets. She took it badly that her mistress Châu Phi Vân (chau_phi_van) then asked to borrow the girl.",
+   "backstory": "A Hoa Khê girl who won the talisman contest at Hạc Đinh Thị twice for the hall, and in 1190 lost it to a fourteen-year-old from Lạc Hà, Tô Mộ Vân (to_mo_van), in front of the whole market (A203). She has painted the same cloud talisman every dawn since, some three thousand sheets. She took it badly that her mistress Châu Phi Vân (chau_phi_van) then asked to borrow the girl. Her ruler has cracked the knuckles of Tạ Quy Hồng (ta_quy_hong), who now paints in gloves, and she has not asked him whether it hurts.",
    "ties": [
     {
      "to": "chau_phi_van",
@@ -510,7 +510,9 @@
      "targets_note": "Binding route, then Hollow Bamboo: one cloud talisman, cheap; Wood talisman notables wait on wish targets-tl/wood-talisman."
     },
     "note": "The champion who lost."
-   }
+   },
+   "wants": "The prize seal back from Tô Mộ Vân at the next contest, won by her own hand and not by a rematch her mistress arranged.",
+   "secret": "She pays Ứng Triêu Hồng (ung_trieu_hong) to sit by Tô Mộ Vân's stall at Hạc Đinh Thị and copy the girl's stroke in her sleeve notebook, so that Kha's promised rematch is won before it is fought. Hồng has begun to fill the notebook with what she admires."
   },
   {
    "key": "doi_huyen_nghien",
@@ -667,7 +669,7 @@
      "Generous"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
    "backstory": "A Tang Ma bark-beater who makes the hall's mulberry paper and, in 1174, made the paper for the new rope bridges' blessing talismans when Tùng Đào cut the old ones (A202); Châu Phi Vân (chau_phi_van) taught him the canon.",
    "ties": [
@@ -715,7 +717,8 @@
      "intent": "Wood."
     },
     "note": "The paper mill."
-   }
+   },
+   "appearance": "Dusted white with paper pulp; he sneezes in threes."
   },
   {
    "key": "trac_thu_lan",
@@ -744,12 +747,12 @@
     "personality": [
      "Gregarious",
      "Pragmatic",
-     "Fickle"
+     "Arbitrary"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "A Phương Thảo mat-weaver's daughter and Kha Triêu Phi's (kha_trieu_phi) disciple, who sells the hall's talismans below Lạc Hà's old seat and hears everything the Counting House clerks say over lunch.",
+   "backstory": "A Phương Thảo mat-weaver's daughter and Kha Triêu Phi's (kha_trieu_phi) disciple, who sells the hall's talismans below Lạc Hà's old seat and hears everything the Counting House clerks say over lunch. She prices by the buyer's face, and sent Văn Tang Chỉ (van_tang_chi), the hall's own paper master, away from the stall for sneezing, so the hall's paper went unsold that day.",
    "ties": [
     {
      "to": "kha_trieu_phi",
@@ -805,7 +808,8 @@
      "intent": "Wood."
     },
     "note": "The stall."
-   }
+   },
+   "appearance": "Six rings on her counting hand, and a laugh she turns on and off at the till."
   },
   {
    "key": "ly_khe_thu",
@@ -917,7 +921,9 @@
      "targets_note": "Luyện Khí: the Wood start ring only, the binding route is 18 away; petal talismans wait on wish targets-tl/wood-talisman."
     },
     "note": "The mistress's youngest; petal talismans."
-   }
+   },
+   "wants": "To be taught the dusk half by anyone at all, before Kha's fragments are lost with him.",
+   "secret": "She writes dusk-ward petals at night from the fragments Doanh Mộ Vũ (doanh_mo_vu) lent her, and floats them in the brook to see whether they answer. One has begun to sink slowly instead of floating."
   },
   {
    "key": "ta_quy_hong",
@@ -946,12 +952,12 @@
     "personality": [
      "Calm",
      "Humble",
-     "Loyal"
+     "Faithless"
     ],
     "calling": "Talisman maker",
     "upbringing": "clan_heir"
    },
-   "backstory": "A Tạ of Phong Lâm, the family that came with nothing but its name (A193), and cousin to Tạ Quy Yến (ta_quy_yen), whom the hall-mistress asked for; he hopes his cousin comes, and fears he will be better.",
+   "backstory": "A Tạ of Phong Lâm, the family that came with nothing but its name (A193), and cousin to Tạ Quy Yến (ta_quy_yen), whom the hall-mistress asked for; he hopes his cousin comes, and fears he will be better; he has written home that Tạ Quy Yến (ta_quy_yen) is unwell, so that she will not be sent.",
    "ties": [
     {
      "to": "ta_quy_yen",
@@ -1012,7 +1018,8 @@
      "intent": "Wood."
     },
     "note": "A Tạ cousin."
-   }
+   },
+   "appearance": "A good Tạ-family coat let out at the hem; he straightens his brush case whenever anyone looks at it."
   },
   {
    "key": "han_tieu_chuc",
@@ -1084,7 +1091,8 @@
     "note": "Lamp charms."
    },
    "wants": "Charms that keep Vãn Đăng's boats lit through the winter storms.",
-   "secret": "The lamp charms on his village's boats are painted in the dark ink, and his own hands show what it does."
+   "secret": "The lamp charms on his village's boats are painted in the dark ink, and his own hands show what it does.",
+   "appearance": "Salt-burnt, with grey hands he keeps tucked in his sleeves."
   },
   {
    "key": "phung_luc_y",
@@ -1113,12 +1121,12 @@
     "personality": [
      "Ambitious",
      "Gregarious",
-     "Impatient"
+     "Greedy"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "A Thủy Khẩu girl who failed the dusk test three times and was placed with the hall in 1196; the outer gate's steward Tô Bình Chu (to_binh_chu) wrote her letter, and she means to be back at Lạc Hà's stall as a seller, not a disciple.",
+   "backstory": "A Thủy Khẩu girl who failed the dusk test three times and was placed with the hall in 1196; the outer gate's steward Tô Bình Chu (to_binh_chu) wrote her letter, and she means to be back at Lạc Hà's stall as a seller, not a disciple. She keeps back a copper in every ten of the stall's takings, and the stall's sweeper girl is docked for the shortfall.",
    "ties": [
     {
      "to": "to_binh_chu",
@@ -1154,7 +1162,8 @@
      "intent": "Water."
     },
     "note": "A placed girl."
-   }
+   },
+   "appearance": "An abacus bead on a string at her throat; she looks at a visitor's purse before the face."
   },
   {
    "key": "van_tieu_tang",
@@ -1186,7 +1195,13 @@
      "Trusting"
     ],
     "calling": "Steward",
-    "upbringing": "sect_raised"
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "The paper master Văn Tang Chỉ's (van_tang_chi) son, who would rather weave hemp for Tang Ma's rope bridges than beat bark for the hall.",
    "ties": [
@@ -1222,7 +1237,8 @@
      "intent": "Wood."
     },
     "note": "The mill boy."
-   }
+   },
+   "appearance": "Rope-burn across both palms; he weaves a hemp bracelet as he walks, and stops to rest every twenty steps."
   },
   {
    "key": "nghiem_hoa_dong",
@@ -1263,7 +1279,8 @@
      "note": "her heir"
     }
    ],
-   "changed": "fix pass A 2026-11-25: born 820 -> 600, so a death at the end of the years falls at the Kết Đan lifespan (500)"
+   "changed": "fix pass A 2026-11-25: born 820 -> 600, so a death at the end of the years falls at the Kết Đan lifespan (500)",
+   "appearance": "Remembered in the hall's dawn scroll as a woman with a brush in each fist and the sky behind her head."
   },
   {
    "key": "on_chau_liem",
@@ -1304,7 +1321,8 @@
      "note": "his last"
     }
    ],
-   "changed": "fix pass A 2026-11-25: born 830 -> 560, so a death at the end of the years falls at the Kết Đan lifespan (500)"
+   "changed": "fix pass A 2026-11-25: born 830 -> 560, so a death at the end of the years falls at the Kết Đan lifespan (500)",
+   "appearance": "Remembered as a heavy, laughing man in a bay merchant's pearl-beaded cap, looking at the hills rather than the page."
   }
  ]
 }

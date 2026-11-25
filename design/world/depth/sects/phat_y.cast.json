@@ -458,7 +458,9 @@
      "targets_note": "Exempt from the valley's sword route, which sits 38 points away across the tree from his Fire start: Cinder Petals and Warm Ash for health, then the Burning Blade idea, the sword reached through Fire."
     },
     "note": "The road."
-   }
+   },
+   "wants": "To ride south and see for herself that the company's contract is kept, and a first hire for Viên Tịch Chiếu.",
+   "secret": "She is collecting the names of the nine southern dead from the drivers' talk at the valley mouth, over the wine Yên Lạc Tụ (yen_lac_tu) buys, and has seven in a list in her saddle bag."
   },
   {
    "key": "au_duong_kien",
@@ -574,7 +576,9 @@
      "targets_note": "Valley sword route, then Iron Shirt, Golden Armour and Bronze Shield: heavy Metal and armour."
     },
     "note": "The ore."
-   }
+   },
+   "wants": "Hứa Ngân Sơn out of the shaft before the roof goes, and his son wed to a polisher.",
+   "secret": "He keeps back one sack in twenty from the Thối Tinh Môn cart, in a hollow he cut in the old shaft, and tests it with a pestle. The lump he rang this spring sang a clear note, which he has told no one. His son Âu Dương Tuyền (au_duong_tuyen), who loads the carts, has noticed the loads run light."
   },
   {
    "key": "kieu_tinh_son",
@@ -658,7 +662,8 @@
      "intent": "Metal and a steady guard."
     },
     "note": "The gate's teacher."
-   }
+   },
+   "appearance": "Chalk to the elbows of his robe, and a voice that never rises."
   },
   {
    "key": "lo_khinh_tran",
@@ -692,7 +697,7 @@
      "Gregarious"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "fate_given": [
      "Spirit-eyed"
     ]
@@ -741,7 +746,8 @@
      "intent": "Wind for the step, Metal for the cut."
     },
     "note": "Maybe the next sleeve."
-   }
+   },
+   "appearance": "A red crust under one nostril; he turns his head toward every draught."
   },
   {
    "key": "vien_tich_chieu",
@@ -769,14 +775,14 @@
    },
    "traits": {
     "personality": [
-     "Loyal",
+     "Faithless",
      "Wrathful",
      "Diligent"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Khúc Liệt Dương's (khuc_liet_duong) disciple, she is waiting for her first hire and has asked for the Desert Road every month.",
+   "backstory": "Khúc Liệt Dương's (khuc_liet_duong) disciple, she is waiting for her first hire and has asked for the Desert Road every month. She has put her own name on Lam Khế Ngôn's list for it, behind her master's back, and Khúc Liệt Dương (khuc_liet_duong), who has asked for it for twenty years, was told the hire was filled.",
    "ties": [
     {
      "to": "khuc_liet_duong",
@@ -810,7 +816,8 @@
      "intent": "Fire and Metal."
     },
     "note": "Wants the road."
-   }
+   },
+   "appearance": "A scabbard that has never been scuffed, and a half-packed kit under her bed."
   },
   {
    "key": "giang_bich_sa",
@@ -880,7 +887,8 @@
      "intent": "Fire."
     },
     "note": "Copies contracts."
-   }
+   },
+   "appearance": "Ink in the grain of her nails, and a cloth for every blot."
   },
   {
    "key": "cat_da_binh",
@@ -914,7 +922,7 @@
      "Patient"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "wild_raised",
     "lifestyle": "hunter"
    },
    "backstory": "A shepherd from Mục Khuyển Thôn who walks the valley's hires with two dogs; Kiều Tĩnh Sơn (kieu_tinh_son) says he is the only outer disciple who has understood the saying on the lintel.",
@@ -946,7 +954,8 @@
      "intent": "Metal."
     },
     "note": "Two dogs."
-   }
+   },
+   "appearance": "Two rough-coated dogs at his heels, sunburnt to the neck."
   },
   {
    "key": "hua_ngan_son",
@@ -978,7 +987,13 @@
      "Lazy"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "A Can Tương miner's boy who joined the valley to get out of the shaft and was sent straight back to it by Âu Dương Kiên (au_duong_kien).",
    "ties": [
@@ -1014,7 +1029,8 @@
      "intent": "Metal."
     },
     "note": "Back in the shaft."
-   }
+   },
+   "appearance": "Miner's cough, a lamp scar on his forehead; in any gallery the one lamp that goes out is his."
   },
   {
    "key": "quach_linh_thu",
@@ -1063,7 +1079,8 @@
      "note": "a later head of his line (lineage, not blood)"
     }
    ],
-   "changed": "cross-sect pass: died 790 -> 900: hermits-sages (N-hermits_sages-03, -05) has him teach Tư Không Hạc Niên on the road from 790 and leave as the traveller of A138 in 900; the valley still counts 790. Tie to tu_khong_hac_nien added. fixB-apply 2026-11-25: renamed (was quach_vo_tich, Quách Vô Tích 郭無跡, 'Leaves no trace': the removed verse's 千里不留行 moved into a name); role no longer paraphrases the verse."
+   "changed": "cross-sect pass: died 790 -> 900: hermits-sages (N-hermits_sages-03, -05) has him teach Tư Không Hạc Niên on the road from 790 and leave as the traveller of A138 in 900; the valley still counts 790. Tie to tu_khong_hac_nien added. fixB-apply 2026-11-25: renamed (was quach_vo_tich, Quách Vô Tích 郭無跡, 'Leaves no trace': the removed verse's 千里不留行 moved into a name); role no longer paraphrases the verse.",
+   "appearance": "Remembered as a lean swordsman of the grass with a hawk's pinion in his hair, said never to have been seen hurrying."
   },
   {
    "key": "lieu_hanh_van",
@@ -1104,7 +1121,8 @@
      "note": "her successor"
     }
    ],
-   "master": "quach_linh_thu"
+   "master": "quach_linh_thu",
+   "appearance": "Remembered as a short, brisk woman with a seal cord round her neck and a ledger under her arm."
   }
  ]
 }

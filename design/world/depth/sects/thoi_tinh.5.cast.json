@@ -85,7 +85,8 @@
      "start": "kim",
      "intent": "Metal body with Water under it; carries the forge's weight."
     }
-   }
+   },
+   "appearance": "A basket-strap groove worn into each shoulder, and a tally cord knotted round his wrist."
   },
   {
    "key": "nghe_bach_doan",
@@ -114,12 +115,12 @@
     "personality": [
      "Loyal",
      "Stubborn",
-     "Diligent"
+     "Cruel"
     ],
     "calling": "Refiner",
     "upbringing": "sect_raised"
    },
-   "backstory": "Has struck the second hammer to Cát Đoán Nhạc's (cat_doan_nhac) first for eighty years and says a rite taught to a steppe boy will leave the mountain with him; he counts Đinh Hỏa Lân's (dinh_hoa_lan) folds at the anvil, waiting for one short of nine.",
+   "backstory": "Has struck the second hammer to Cát Đoán Nhạc's (cat_doan_nhac) first for eighty years and says a rite taught to a steppe boy will leave the mountain with him; he counts Đinh Hỏa Lân's (dinh_hoa_lan) folds at the anvil, waiting for one short of nine. He has cracked two third-hammer boys' wrists for missing the beat; Ông Thiết Xuyên (ong_thiet_xuyen) is the second.",
    "ties": [
     {
      "to": "cat_luu_quang",
@@ -169,7 +170,8 @@
      "start": "kim",
      "intent": "Metal hide that hardens under blows."
     }
-   }
+   },
+   "appearance": "His beard is singed to a flat line along the jaw, and the hammer has deafened his left ear."
   },
   {
    "key": "cat_tinh_chuy",
@@ -253,7 +255,8 @@
      "start": "kim",
      "intent": "Metal, slow and sure."
     }
-   }
+   },
+   "appearance": "No scars at all, which the hall thinks improper."
   },
   {
    "key": "doan_ma_kinh",
@@ -285,9 +288,15 @@
      "Gregarious"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Came up from the calamine camp at Lô Cam Khoáng a year behind Đàm Kính Nguyệt (dam_kinh_nguyet) and polishes the blades the gate sells to Phất Y Cốc; she would rather carry one on a hire, and mutters the valley's verse at the wheel.",
+   "backstory": "An orphan of the calamine camp at Lô Cam Khoáng, she came up a year behind Đàm Kính Nguyệt (dam_kinh_nguyet) and polishes the blades the gate sells to Phất Y Cốc; she would rather carry one on a hire, and mutters the valley's verse at the wheel.",
    "ties": [
     {
      "to": "bang_lanh_toi",
@@ -320,7 +329,8 @@
      "start": "kim",
      "intent": "Metal edge; wants a sword more than a wheel."
     }
-   }
+   },
+   "appearance": "A polishing-paste stain across one cheek that she wears like a seal; her heel taps the treadle out of time."
   },
   {
    "key": "kha_o_lan",
@@ -398,7 +408,8 @@
      "start": "kim",
      "intent": "Metal with Water under it; a quench-keeper's root."
     }
-   }
+   },
+   "appearance": "Coal ground so deep into her palms that the creases look inked."
   },
   {
    "key": "tat_kim_thanh",
@@ -427,12 +438,12 @@
     "personality": [
      "Arrogant",
      "Greedy",
-     "Gregarious"
+     "Deceitful"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "Hầu Thiết Anh's (hau_thiet_anh) best seller at the mine gate, who can tell a buyer how star iron sings without ever having heard it; he thinks Mẫn Hắc Châu's (man_hac_chau) weighing is jealousy and says so.",
+   "backstory": "A mine factor's son and Hầu Thiết Anh's (hau_thiet_anh) best seller at the mine gate, who can tell a buyer how star iron sings without ever having heard it; he thinks Mẫn Hắc Châu's (man_hac_chau) weighing is jealousy and says so, and has twice sold buyers her weighed lots under his own tally and kept her gate tip.",
    "ties": [
     {
      "to": "hau_thiet_anh",
@@ -470,7 +481,8 @@
      "start": "kim",
      "intent": "Metal spear; a seller's ease."
     }
-   }
+   },
+   "appearance": "A gap-toothed grin, a too-fine blue coat, and a little bell sewn at the cuff to announce himself."
   },
   {
    "key": "ong_thiet_xuyen",
@@ -502,9 +514,9 @@
      "Brave"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A star-mine boy who swings the third hammer under Nghê Bách Đoán (nghe_bach_doan); he heard so often that the Rite would leave the mountain with the steppe boy that he said it to Đinh Hỏa Lân's (dinh_hoa_lan) face, and carried coal for a month for it.",
+   "backstory": "A bonded digger's boy from the star mine who swings the third hammer under Nghê Bách Đoán (nghe_bach_doan); he heard so often that the Rite would leave the mountain with the steppe boy that he said it to Đinh Hỏa Lân's (dinh_hoa_lan) face, and carried coal for a month for it.",
    "ties": [
     {
      "to": "nghe_bach_doan",
@@ -542,7 +554,8 @@
      "start": "kim",
      "intent": "Metal hammer arm."
     }
-   }
+   },
+   "appearance": "Swings left-handed; the right wrist is wrapped in a strip of red cloth."
   }
  ]
 }

@@ -26,14 +26,15 @@
    },
    "traits": {
     "personality": [
-     "Pragmatic",
+     "Arbitrary",
      "Diligent",
      "Stubborn"
     ],
     "calling": "Talisman maker",
     "upbringing": "village_born"
    },
-   "backstory": "A bark-tyer of Hệ Bì taught by the founder Chiêm Thư Sương (chiem_thu_suong) in her last twenty years; she agrees with Nhạc Hoa Bì (nhac_hoa_bi) that the head gives the lake villages too many lanterns, and says so less politely.",
+   "appearance": "Frost-pink fingers wrapped in birch strips; a voice roughened by the pans' steam.",
+   "backstory": "A bark-tyer of Hệ Bì taught by the founder Chiêm Thư Sương (chiem_thu_suong) in her last twenty years; she agrees with Nhạc Hoa Bì (nhac_hoa_bi) that the head gives the lake villages too many lanterns. She decides each dawn by the frost on the pans which girl may melt it, and Cầu Áp Sương (cau_ap_suong) has been sent off four days running.",
    "ties": [
     {
      "to": "chiem_thu_suong",
@@ -116,9 +117,10 @@
      "Patient"
     ],
     "calling": "Talisman maker",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "A Hồ Khẩu boy like the head, he writes the ward sheets that go inside Khổng Dạ Hành's (khong_da_hanh) lanterns, and lets Hạng Băng Tường (hang_bang_tuong) sit beside him with drafts of a ward against a wall of ice.",
+   "appearance": "Slow scribe's blink; a brush tucked in the belt like a sword.",
+   "backstory": "A Hồ Khẩu chandler's boy like the head, he writes the ward sheets that go inside Khổng Dạ Hành's (khong_da_hanh) lanterns, and lets Hạng Băng Tường (hang_bang_tuong) sit beside him with drafts of a ward against a wall of ice.",
    "ties": [
     {
      "to": "chiem_thu_suong",
@@ -206,8 +208,15 @@
      "Content"
     ],
     "calling": "Talisman maker",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Broad plain face freckled with pulp; a paper cut on every fingertip.",
    "backstory": "In her first year of three in the paper yards she presses sheets beside Bùi Tố Chỉ (bui_to_chi) and keeps the spoiled ones under her mat to practise strokes on, which no first-year may do.",
    "ties": [
     {
@@ -283,6 +292,7 @@
     "calling": "Talisman maker",
     "upbringing": "village_born"
    },
+   "appearance": "Eyelashes grey with kiln ash; a voice that seldom rises above a murmur.",
    "backstory": "A charcoal-burner's son of Thán Diêu with soot in every crease, he grinds ink for Quản Sương Thư (quan_suong_thu) and is the one scribe the kiln village still calls its own; Nghê Tùng Yên (nghe_tung_yen) is his cousin.",
    "ties": [
     {
@@ -347,13 +357,14 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Brave",
+     "Lazy",
      "Fickle"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan"
    },
-   "backstory": "One of the north-shore boys Khổng Dạ Hành (khong_da_hanh) brought back on his pole with too little Wood for the inner gate; he carries the unlit lanterns down to the shore with Cao Hàn Chúc (cao_han_chuc) and wants to light them.",
+   "appearance": "Lantern-pole callus on one shoulder; grin full of broken teeth.",
+   "backstory": "One of the north-shore orphans Khổng Dạ Hành (khong_da_hanh) brought back on his pole with too little Wood for the inner gate; he naps on the shore with the unlit lanterns across his knees while Cao Hàn Chúc (cao_han_chuc) carries both loads, and he wants to light them.",
    "ties": [
     {
      "to": "khong_da_hanh",
@@ -415,13 +426,14 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Honest",
+     "Deceitful",
      "Impatient"
     ],
     "calling": "Talisman maker",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
-   "backstory": "A raft-village girl of Phóng Phiệt whose first ward held two nights instead of one; she helps Hạng Băng Tường (hang_bang_tuong) with his ice-wall drafts, and Đường Mặc Chiếu (duong_mac_chieu) lets them both.",
+   "appearance": "Wet heels; a raft-rope scar around one ankle.",
+   "backstory": "A raft-village girl of Phóng Phiệt who grew up half on the water; she helps Hạng Băng Tường (hang_bang_tuong) with his ice-wall drafts, and copies his wall-ward line for line into her own sheet for Đường Mặc Chiếu (duong_mac_chieu), who praises her and thanks him for the paper.",
    "ties": [
     {
      "to": "duong_mac_chieu",
@@ -489,9 +501,10 @@
      "Cautious"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
-   "backstory": "Each year he walks the paper road to Tùng Đào Cung, a season and more each way, with Nhạc Hoa Bì's (nhac_hoa_bi) bundles and the pines' paper-maker Lư Chỉ Mặc (lu_chi_mac), and has never once been let past the palace's paper store.",
+   "appearance": "Wiry road-walker's calves; permits rolled under his arm.",
+   "backstory": "A clerk's son, he walks the paper road to Tùng Đào Cung, a season and more each way, with Nhạc Hoa Bì's (nhac_hoa_bi) bundles and the pines' paper-maker Lư Chỉ Mặc (lu_chi_mac), and has never once been let past the palace's paper store.",
    "ties": [
     {
      "to": "nhac_hoa_bi",

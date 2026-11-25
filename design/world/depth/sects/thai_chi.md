@@ -74,7 +74,7 @@ terraces as mortals. The valley has never sent a child away for its root.
   each meridian, watered, harvested. Nothing in the valley is bought that can be grown, and nothing grown is wasted.
 - **The orphans.** Any child carried up the river is kept. They live in the long houses on the lower terraces, weed in
   the mornings and sing the pickers' song in the afternoons. The mistress names each one for a herb and gives them the
-  surname Nghiêm, so the valley is full of Nghiêm Đương Quy and Nghiêm Phục Linh. A child old enough to refuse may keep
+  surname Nghiêm, so the valley is full of Nghiêm Hồi Hương and Nghiêm Phục Linh. A child old enough to refuse may keep
   their own name, as Lữ Niệm Hà did. Since 1176 the oldest of them dig the River Hall's dikes by the day (section 9).
 - **The hundred herbs.** Every inner disciple tastes the hundred herbs of the valley, poisons first. Most are sick for
   a year. It is the inner gate's only rite.
@@ -146,7 +146,7 @@ blow. The tasting method makes the valley hard to poison. The Grain Rain heals w
 - **The dike list.** Lữ Niệm Hà, who keeps the long houses, picks the names each flood season, oldest first, and walks
   them down to the dike herself. Mai Thủ Điền loses his best weeders to it and says so at every meal. Last flood season
   a boy of fourteen went into the river with a dike section, and Ông billed the River Hall for the full day. Nghiêm
-  Hoàng Kỳ sets the dike children's torn hands in the sick-houses and sends Ông's bill for the pills back every season.
+  Kim Ngân sets the dike children's torn hands in the sick-houses and sends Ông's bill for the pills back every season.
   Lữ is still waiting for her brother to answer a letter.
 - **The raiders in the lower field.** The whole river knows that in the winter of 1174 the mistress treated Lạc Hà's
   wounded raiders from the Đào Sa burning and sent them home. Giang Cửu Khúc buys her pills every month anyway, and
@@ -176,10 +176,10 @@ blow. The tasting method makes the valley hard to poison. The Grain Rain heals w
 | mai_thu_dien | Mai Thủ Điền | trưởng lão | Trúc Cơ | B | Wood 62, Water 40 | field-warden |
 | phung_luc_ngac | Phùng Lục Ngạc | nội môn | Trúc Cơ | C | Wood 54, Fire 32 | alchemist |
 | ong_kho_sam | Ông Khổ Sâm | chấp sự | Trúc Cơ | C | Wood 50, Earth 30 | trade steward |
-| nghiem_duong_quy | Nghiêm Đương Quy | nội môn | Luyện Khí | C | Wood 50, Water 36 | flood orphan |
+| nghiem_hoi_huong | Nghiêm Hồi Hương | nội môn | Luyện Khí | C | Wood 50, Water 36 | flood orphan |
 | nghiem_phuc_linh | Nghiêm Phục Linh | ngoại môn | Luyện Khí | C | Wood 44, Earth 28 | terrace boy |
 | nghiem_tuc_doan | Nghiêm Tục Đoạn | nội môn | Luyện Khí | C | Wood 46, Water 30 | bone-setter |
-| nghiem_cam_thao | Nghiêm Cam Thảo | nội môn | Luyện Khí | C | Wood 47, Water 34 | carries pills down the river |
+| nghiem_ngu_vi | Nghiêm Ngũ Vị | nội môn | Luyện Khí | C | Wood 47, Water 34 | carries pills down the river |
 | dau_sa_nhi | Đậu Sa Nhi | ngoại môn | Luyện Khí | C | Water 46, Wood 32 | gold-washer's daughter |
 | tan_tu_chi | Tần Tử Chi | founder (dead) | Kết Đan | B | | founder, grew the gourd |
 | co_hoai_son | Cố Hoài Sơn | last head (dead) | Kết Đan | C | | carried the mistress out of the flood |
@@ -187,10 +187,10 @@ blow. The tasting method makes the valley hard to poison. The Grain Rain heals w
 ## 12. Story hooks
 
 1. **The brother's letter.** Lữ Tẫn Chu answers at last and asks to meet on the Ngư Ca border. Lữ Niệm Hà wants the
-   player there in case it is a trap, or in case it is not. (Lữ Niệm Hà, Lữ Tẫn Chu, Nghiêm Đương Quy, Giang Cửu Khúc.)
+   player there in case it is a trap, or in case it is not. (Lữ Niệm Hà, Lữ Tẫn Chu, Nghiêm Hồi Hương, Giang Cửu Khúc.)
 2. **The raider at the gate.** A Lạc Hà raider the mistress treated in 1174 comes back to the valley dying, on the day
    Giang Cửu Khúc's ferrymen bring the orphans up. The valley's rule says treat him; the ferrymen say they will not
-   carry another child up the river if she does. (Nghiêm Linh Chi, Giang Cửu Khúc, Nghiêm Hoàng Kỳ, Ông Khổ Sâm;
+   carry another child up the river if she does. (Nghiêm Linh Chi, Giang Cửu Khúc, Nghiêm Kim Ngân, Ông Khổ Sâm;
    place 12.)
 3. **The coal.** The scattered alchemists of Lăng Tiêu Các find Diêu Tẫn Đan and want the coal back, or want to know
    whose furnace it came from. (Diêu Tẫn Đan, Phùng Lục Ngạc, Nghiêm Linh Chi; places 12, 1252.)
@@ -198,7 +198,7 @@ blow. The tasting method makes the valley hard to poison. The Grain Rain heals w
    fields while its long houses fill with new orphans. Mai Thủ Điền's knee says it is coming. (Mai Thủ Điền, Nghiêm Linh
    Chi, Dụ Tĩnh Lưu; places 12, 33, 1233.)
 5. **The rich valley.** Ông Khổ Sâm sells a recipe to a Lạc Hà merchant without leave. The valley stays out of wars by
-   being needed; a valley that is rich is worth taking. (Ông Khổ Sâm, Nghiêm Cam Thảo, Nghiêm Linh Chi.)
+   being needed; a valley that is rich is worth taking. (Ông Khổ Sâm, Nghiêm Ngũ Vị, Nghiêm Linh Chi.)
 6. **The tribute boy.** Bồ Hạnh Lâm, now old, asks his mistress for a herb only the Purple Lingzhi Gourd has kept, to
    save someone at the palace. (Bồ Hạnh Lâm, Nghiêm Linh Chi, Đàm Thanh Giang.)
 7. **The season alone.** The mistress goes into seclusion and leaves the valley to Lữ Niệm Hà for a flood season. A
@@ -209,4 +209,4 @@ blow. The tasting method makes the valley hard to poison. The Grain Rain heals w
    place 1174.)
 9. **The contract read aloud.** A dike section goes again with Nghiêm children on it, and the River Hall's flood warden
    asks for twice the crew to close the breach before nightfall. Someone has to open the contract the mistress sealed
-   and read out what the valley agreed to. (Nghiêm Linh Chi, Ông Khổ Sâm, Hoàng Đê Sinh, Nghiêm Hoàng Kỳ; place 12.)
+   and read out what the valley agreed to. (Nghiêm Linh Chi, Ông Khổ Sâm, Hoàng Đê Sinh, Nghiêm Kim Ngân; place 12.)

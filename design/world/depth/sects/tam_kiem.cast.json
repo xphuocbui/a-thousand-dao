@@ -221,7 +221,7 @@
    "traits": {
     "personality": [
      "Arrogant",
-     "Diligent",
+     "Lazy",
      "Vengeful"
     ],
     "calling": "Duelist",
@@ -245,6 +245,8 @@
    },
    "appearance": "A tall, grey, beautifully dressed swordsman gone to seed, who drinks with his left hand so that his right stays steady.",
    "backstory": "A market son of Tống Khách Thị who was the finest loose sword in the north-east for a century. In 1130 he challenged the wandering sage Tư Không Hạc Niên (tu_khong_hac_nien) in his own market and lost in three passes. The sage handed his sword back and settled in the market to teach no one (A141). Sài left. In 1165 the young Tiêu Vấn Phong (tieu_van_phong) hired him to teach the hall, and he has stayed because the hunters ask better questions than duelists. He wants a second duel before one of them dies.",
+   "wants": "A second duel with Tư Không Hạc Niên before one of them dies.",
+   "secret": "For a year he has sent the sage unsigned insults under Quách Độ Ảnh's (quach_do_anh) name, so that Tư Không comes for the pupil and takes him away from the hall.",
    "exception": "R2/R3: guest elder (khách khanh), hired to teach; the hall has no lean, so no exception is strictly needed",
    "ties": [
     {
@@ -391,6 +393,8 @@
    },
    "appearance": "A cheerful, bow-legged mountain guide who carries a basket on his back in every season.",
    "backstory": "A woodcutter's son from Hàn Khê Thôn who hunted with Tiêu Vấn Phong (tieu_van_phong) as boys and founded the hall with him in 1162. He guides caravans and Pavilion envoys over the passes and knows every path on the massif. Thirty years ago he went up to the Gate Hermitage to ask about a cave and was turned away by the grey sister Hướng Thiết Lan (huong_thiet_lan). He goes back every spring with a basket of larch mushrooms, and she takes it. In 1199 he would not swear for the hall's suit against her gate, the first thing he has ever refused his sworn brother.",
+   "wants": "To get Hướng Thiết Lan off the Hall of Cold Law's oath without making her lie.",
+   "secret": "Every spring he builds a hut a little higher in the larches above the gate, where neither the hermitage nor the lodge may go, and Ngưu Phá Sơn (nguu_pha_son) carries the planks up in the mushroom basket.",
    "ties": [
     {
      "to": "tieu_van_phong",
@@ -502,7 +506,7 @@
     "ngo_tinh": 66,
     "can_cot": 58,
     "than_hon": 54,
-    "khi_van": 42,
+    "khi_van": 40,
     "dao_tam": 64,
     "mi_luc": 50
    },
@@ -510,13 +514,13 @@
     "personality": [
      "Wrathful",
      "Diligent",
-     "Just"
+     "Arbitrary"
     ],
     "calling": "Teacher",
     "upbringing": "village_born",
     "talent": [
      {
-      "id": "steady_heart",
+      "id": "unlucky",
       "tier": 1
      }
     ],
@@ -531,6 +535,8 @@
    },
    "appearance": "A stiff, careful man who still sits like a Băng Tâm disciple and hates that he does.",
    "backstory": "From the ice-hole village of the far north, he sat three solstice nights on the frozen mere of Hàn Giao Chử under Đỗ Sương Nhi (do_suong_nhi) and felt nothing but cold. He refused the Desert Pavilion and the vassals the Pavilion offered him, walked south, and found Tầm Kiếm in 1185. He teaches the outer gate here with the patience the Pavilion taught him. He is angry at it for teaching him that and nothing else.",
+   "wants": "To prove that a Pavilion reject can make a swordsman.",
+   "secret": "Each solstice night he sits his pupils through a Frost Test of his own on the lodge pond and fails whom he likes, so that none can leave him for the Pavilion. Ngô Hàn Đạc (ngo_han_dac) has now failed it twice here too.",
    "ties": [
     {
      "to": "do_suong_nhi",
@@ -639,10 +645,11 @@
      "Honest"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "hermit_taught",
     "lifestyle": "pilgrim"
    },
-   "backstory": "The only man alive who can take a party up Hồ Thiên's winding ice stair on Hồi Lộ Phong without losing anyone (A099); Tiêu Vấn Phong (tieu_van_phong) thinks the cave may be near its top.",
+   "appearance": "Hands like rope; a pilgrim's bead string worn smooth.",
+   "backstory": "Taught the stair by a hermit, he is the only man alive who can take a party up Hồ Thiên's winding ice stair on Hồi Lộ Phong without losing anyone (A099); Tiêu Vấn Phong (tieu_van_phong) thinks the cave may be near its top.",
    "ties": [
     {
      "to": "tieu_van_phong",
@@ -704,11 +711,12 @@
     "personality": [
      "Greedy",
      "Ambitious",
-     "Impatient"
+     "Deceitful"
     ],
     "calling": "Duelist",
     "upbringing": "clan_heir"
    },
+   "appearance": "Neat clan sideburns; a purse that clinks when he sits.",
    "backstory": "Tiêu Vấn Phong's (tieu_van_phong) brother's son, who wants the passes, not the cave, and will swear at Hòe Âm that the old stair above Lê Hoa Am's gate cuts a fortnight off the salt road. He has already sold next summer's first crossing to the Hòe Âm salt carters and spent the deposit, and he means to charge the grey sisters the carters' toll on their own path.",
    "ties": [
     {
@@ -800,9 +808,16 @@
      "Gregarious"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A huge woodcutter's boy who carries Tịch Lang Tung's (tich_lang_tung) mushroom basket up to the gate every spring and pretends not to understand why.",
+   "appearance": "Taller than the lodge doorway; counts planks on his fingers and still carries one too many.",
+   "backstory": "A huge woodcutter's boy raised among the larches, who carries Tịch Lang Tung's (tich_lang_tung) mushroom basket up to the gate every spring and pretends not to understand why. He cannot hold a count past ten, so Tịch counts the planks for him.",
    "ties": [
     {
      "to": "tich_lang_tung",
@@ -864,13 +879,14 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Humble",
+     "Callous",
      "Paranoid"
     ],
     "calling": "Refiner",
     "upbringing": "village_born"
    },
-   "backstory": "His sisters went to the grey sisters; he was not allowed to, so he came here and learns the sword from Thang Phục Tuyết (thang_phuc_tuyet).",
+   "appearance": "Silver dust still in his hair; ears that stick out.",
+   "backstory": "His sisters went to the grey sisters; he was not allowed to, so he came here and learns the sword from Thang Phục Tuyết (thang_phuc_tuyet). He keeps the coin his mother left for his sisters at the gate and tells them she left none.",
    "ties": [
     {
      "to": "thang_phuc_tuyet",
@@ -936,9 +952,10 @@
      "Faithless"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "He joined to guide paying travellers, not to hunt caves, and sells maps of the massif in Hòe Âm that Tiêu Vấn Phong (tieu_van_phong) would not like to see. Since the hall's suit was posted at Hòe Âm in 1199 his copies sell for twice the price, with the hermitage's ground left blank, and he lets buyers think the blank is where the sword lies.",
+   "appearance": "Cheerful as a shopfront; a map tube slung across his back.",
+   "backstory": "A trader's son, he joined to guide paying travellers, not to hunt caves, and sells maps of the massif in Hòe Âm that Tiêu Vấn Phong (tieu_van_phong) would not like to see. He walked a Hòe Âm buyer up the eastern pass behind Cát Lĩnh Hành's (cat_linh_hanh) back and let the man think the guide was his; Cát lost the fee and a client for the first time.",
    "ties": [
     {
      "to": "thang_phuc_tuyet",
@@ -1024,9 +1041,10 @@
      "Trusting"
     ],
     "calling": "Diplomat",
-    "upbringing": "village_born"
+    "upbringing": "mortal_noble"
    },
-   "backstory": "Thái Lê Tuyết's (thai_le_tuyet) brother's grandson from Hòe Âm; the hall teases him for it, and he is the one man in it who thinks the abbess has a reason.",
+   "appearance": "The abbess's long jaw on a boy's face, which is why the hall teases him.",
+   "backstory": "Thái Lê Tuyết's (thai_le_tuyet) brother's grandson, from a Hòe Âm gentry house; the hall teases him for it, and he is the one man in it who thinks the abbess has a reason.",
    "ties": [
     {
      "to": "thai_le_tuyet",
@@ -1087,6 +1105,7 @@
     "calling": "Wanderer",
     "upbringing": "clan_heir"
    },
+   "appearance": "Remembered as a short, wiry hunter with one white eyebrow where the cave's cold light singed it.",
    "backstory": "He found a sealed cave with a sword's cold light behind the seal in 930, ran, and spent eighty years failing to find it again (A108); his great-grandson Tiêu Vấn Phong (tieu_van_phong) grew up on the story.",
    "ties": [
     {

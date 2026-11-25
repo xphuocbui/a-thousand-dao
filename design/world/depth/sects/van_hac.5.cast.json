@@ -28,12 +28,13 @@
     "personality": [
      "Diligent",
      "Stubborn",
-     "Reclusive"
+     "Greedy"
     ],
     "calling": "Refiner",
     "upbringing": "village_born"
    },
-   "backstory": "He dries storm-felled pine at Bích Hác Sâm for ten years before it becomes a soundboard, weighs every board in his hands the way Cù Đồng Mộc (cu_dong_moc) taught him, and asks too often when the pines' zither of 1011 is due to be restrung.",
+   "appearance": "Counts his boards aloud in sixes, and the whole workshop has learned to count with him.",
+   "backstory": "He dries storm-felled pine at Bích Hác Sâm for ten years before it becomes a soundboard and weighs every board in his hands the way Cù Đồng Mộc (cu_dong_moc) taught him. He sells the best-seasoned board of each ten to a Tùng Hạ Thị lute-maker and writes it off as split, so Cù's own copy of the 1011 zither is being carved from the second best.",
    "ties": [
     {
      "to": "cu_dong_moc",
@@ -114,6 +115,7 @@
     "upbringing": "village_born",
     "lifestyle": "qin_player"
    },
+   "appearance": "Rattles a pine cone on a cord when she wants quiet, and the echo walls rattle back.",
    "backstory": "She has played the seventh movement to the echo walls for twenty years and does not want the eighth; she laughs loudest at Khương Lạc Huyền's (khuong_lac_huyen) envoy story and thinks less of anyone who doubts it.",
    "ties": [
     {
@@ -197,6 +199,7 @@
     "calling": "Refiner",
     "upbringing": "village_born"
    },
+   "appearance": "A grey streak in her braid that came in at twelve.",
    "backstory": "A miner's daughter of Thạch Lục Khoáng who sang back the pines' phrase on her first try and the miners' work song on her second; Cổ Minh Thạch (co_minh_thach) walked her up from the mine.",
    "ties": [
     {
@@ -265,9 +268,16 @@
      "Honest"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "He came to the academy to get out of Tiều Phu Thôn, not for the music, and plays louder than the walls answer; Khương Lạc Huyền (khuong_lac_huyen) keeps him because he reminds him of himself.",
+   "appearance": "Shifts in his seat through every movement; his belt is notched with a tally of lessons he left early.",
+   "backstory": "He came to the academy to get out of Tiều Phu Thôn, not for the music, and plays louder than the walls answer; Khương Lạc Huyền (khuong_lac_huyen) keeps him because he reminds him of himself. Raised in the pines by a charcoal-burner uncle, he cannot sit through a whole movement without shifting.",
    "ties": [
     {
      "to": "khuong_lac_huyen",
@@ -329,14 +339,15 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Diligent",
+     "Cruel",
      "Arrogant"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "scholar_family",
     "lifestyle": "qin_player"
    },
-   "backstory": "She sings back any phrase heard once and passed the third movement at sixteen; she counts how far behind Quan Tịch Âm (quan_tich_am) she is, and her master Thẩm Dư Vận (tham_du_van) tells her it is the wrong count.",
+   "appearance": "Bites the inside of her cheek whenever another player errs.",
+   "backstory": "She sings back any phrase heard once and passed the third movement at sixteen; she counts how far behind Quan Tịch Âm (quan_tich_am) she is, and her master Thẩm Dư Vận (tham_du_van) tells her it is the wrong count. She plays the shrill overtone at beginners until they weep and calls it ear-training; Âu Tiểu Miên (au_tieu_mien) has not returned to the third movement since.",
    "ties": [
     {
      "to": "tham_du_van",
@@ -407,9 +418,16 @@
      "Cautious"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born"
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "He tunes Quan Tịch Âm's (quan_tich_am) zither before dawn and has heard her stop at the end of the ninth movement every night this winter; he thinks she is resting.",
+   "appearance": "Tilts his head a beat late when addressed, as if the words had to be tuned first.",
+   "backstory": "He tunes Quan Tịch Âm's (quan_tich_am) zither before dawn and has heard her stop at the end of the ninth movement every night this winter; he thinks she is resting. A steward's boy, slow to follow a joke but never a string.",
    "ties": [
     {
      "to": "quan_tich_am",
@@ -475,9 +493,10 @@
      "Loyal"
     ],
     "calling": "Strategist",
-    "upbringing": "village_born"
+    "upbringing": "war_orphan"
    },
-   "backstory": "He wants to march with the pines' patrols like his master Hàn Thanh Hưởng (han_thanh_huong) and has twice been reminded of the academy's one rule; Bàng Thạch Khánh (bang_thach_khanh) beats time with him on the lower terraces.",
+   "appearance": "Drums on tables, rails and his own knees; a dead soldier's green cord is knotted round his wrist.",
+   "backstory": "He wants to march with the pines' patrols like his master Hàn Thanh Hưởng (han_thanh_huong) and has twice been reminded of the academy's one rule; Bàng Thạch Khánh (bang_thach_khanh) beats time with him on the lower terraces. An orphan of the border levies, he drums as though a patrol were behind him.",
    "ties": [
     {
      "to": "han_thanh_huong",

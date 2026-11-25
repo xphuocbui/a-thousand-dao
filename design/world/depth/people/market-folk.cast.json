@@ -1337,7 +1337,7 @@
    },
    "traits": {
     "personality": [
-     "Honest",
+     "Deceitful",
      "Calm",
      "Arrogant"
     ],
@@ -1358,6 +1358,8 @@
    },
    "appearance": "Tall, with long ears weighted by bronze rings; she taps every object handed to her with a fingernail before she looks at it.",
    "backstory": "Born in 1060 among the instrument stalls of Thiều Âm Thị, the market of the Shao music that Phượng Minh's founder opened (A238), Liêu Thính Kim can name a bronze's foundry and century by the note it gives. She appraises what the farmers of Thê Ngô Lĩnh plough up from Cửu Thiều Cung's age for a tenth of the price, and Vưu Cẩm Thư (vuu_cam_thu) buys most of it for the palace's Hall of Spoils. She worked three seasons on Thiên Bảo's auction floor as a hired hand and left before Phan Vật Hoa (phan_vat_hoa) could make her an offer.",
+   "wants": "One complete bell-set of Cửu Thiều Cung's age, and to hear it rung once in one room.",
+   "secret": "She tells the farmers of Thê Ngô Lĩnh that their best finds are cracked, buys them at a tenth and sells them whole to Vưu Cẩm Thư. This season the farmer whose field gave up the great bell has begun asking for a second opinion.",
    "ties": [
     {
      "to": "vuu_cam_thu",
@@ -1450,7 +1452,7 @@
    },
    "traits": {
     "personality": [
-     "Pragmatic",
+     "Greedy",
      "Wrathful",
      "Loyal"
     ],
@@ -1468,6 +1470,8 @@
    },
    "appearance": "Red-faced and burn-scarred down one arm, with cinnabar ground into the creases of his knuckles.",
    "backstory": "A Phong Lâm boatman's son, Trịnh Chu Sa was an inner disciple of Nam Phố Đường until 1120, when he sold unstamped talismans at Hạc Đinh Thị and the hall-mistress Châu Phi Vân (chau_phi_van) sent him down the river. He opened a stall at Đào Sa Thị and sold wards to the river boats at half the hall's price. In 1173 Lạc Hà's raiders burned Lãng Đào's boats at Đào Sa with fire talismans painted at Nam Phố (A080, N-nam_pho-03), and his stall burned with them. He keeps a scorched slip with the cloud stamp on it.",
+   "wants": "The cloud stamp back, or the hall-mistress to say she was wrong.",
+   "secret": "He sells his daughter Trịnh Hồng Tiên's finest wards under his own name at double the price, and tells her that he gave them to the boatmen.",
    "ties": [
     {
      "to": "chau_phi_van",

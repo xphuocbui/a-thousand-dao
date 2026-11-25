@@ -27,7 +27,7 @@
    "traits": {
     "personality": [
      "Loyal",
-     "Cautious",
+     "Callous",
      "Stubborn"
     ],
     "calling": "Merchant",
@@ -36,7 +36,8 @@
      "Grieving"
     ]
    },
-   "backstory": "A Hồng Thụ mangrove girl like her captain Kiều Vọng Hải (kieu_vong_hai), and Tôn Viễn Hàng's (ton_vien_hang) mate until a fever put her ashore the week he sailed west in 1187 (N-binh_thuy-06). She sides with Kiều against lending Lận another hull, and has told Tôn Niệm Triều (ton_niem_trieu) she will not crew the third boat.",
+   "backstory": "A Hồng Thụ mangrove girl like her captain Kiều Vọng Hải (kieu_vong_hai), and Tôn Viễn Hàng's (ton_vien_hang) mate until a fever put her ashore the week he sailed west in 1187 (N-binh_thuy-06). She sides with Kiều against lending Lận a hull. She kicked over the soup pot Khuất Độ Sinh (khuat_do_sinh) set out for the quay's beggars, and the Strangers' Hall fed forty fewer that week.",
+   "appearance": "A mate's whistle on a bleached cord, never blown since the fever.",
    "ties": [
     {
      "to": "luong_bach_tan",
@@ -122,9 +123,10 @@
      "Gregarious"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A Lô Cảng reed-cutter's son who failed Lạc Hà's dusk test three times; Ngạc Viễn Sơn (ngac_vien_son) placed him with the ferry in 1176, and his Water passed the Tide Hall's gate. Bùi named him heir in 1180 and unnamed him in 1188, when he could not get past the third layer's turn. He feeds every newcomer at the Strangers' Hall before Cù Bối Ngân (cu_boi_ngan) writes them down.",
+   "backstory": "A Lô Cảng hired reed-cutter's son who failed Lạc Hà's dusk test three times; Ngạc Viễn Sơn (ngac_vien_son) placed him with the ferry in 1176, and his Water passed the Tide Hall's gate. Bùi named him heir in 1180 and unnamed him in 1188, when he could not get past the third layer's turn. He feeds every newcomer at the Strangers' Hall before Cù Bối Ngân (cu_boi_ngan) writes them down.",
+   "appearance": "Reed cuts healed white across both forearms.",
    "ties": [
     {
      "to": "bui_phieu_binh",
@@ -207,6 +209,7 @@
     "upbringing": "village_born"
    },
    "backstory": "A Xướng Vãn fisher girl who rows the night crossing beside Ông Tiểu Phàm (ong_tieu_pham); when he talks of going somewhere else, she tells him the ferry already goes everywhere twice a day.",
+   "appearance": "Wind-chapped lips she seals with wax.",
    "ties": [
     {
      "to": "ong_te_do",
@@ -272,9 +275,10 @@
      "Cautious"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A Vãn Chu fisher's son who sang beside Thương Ngư Ca (thuong_ngu_ca) in Lạc Hà's outer gate and was placed with the ferry in 1199 when his Earth fell short; he planes the planks of Hầu Bách Chu's (hau_bach_chu) third hull and has not asked who it is for.",
+   "backstory": "A Vãn Chu hired-net fisher's son who sang beside Thương Ngư Ca (thuong_ngu_ca) in Lạc Hà's outer gate and was placed with the ferry in 1199 when his Earth fell short; he planes the planks of Hầu Bách Chu's (hau_bach_chu) third hull and has not asked who it is for.",
+   "appearance": "Plane curls caught in his hair.",
    "ties": [
     {
      "to": "hau_bach_chu",
@@ -346,9 +350,10 @@
      "Diligent"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "A Nam Minh mangrove girl who keeps the coast traders' shell till for Kiều Vọng Hải (kieu_vong_hai) and has sworn with her never to lend Lận another hull; she cannot forgive the head's heir Sa Kình Nhi (sa_kinh_nhi) for wanting to sail the third boat.",
+   "backstory": "A Nam Minh mangrove trader's girl who keeps the coast traders' shell till for Kiều Vọng Hải (kieu_vong_hai) and has sworn with her never to lend Lận another hull; she cannot forgive the head's heir Sa Kình Nhi (sa_kinh_nhi) for wanting to sail the third boat.",
+   "appearance": "A shell-button necklace she counts when she is angry.",
    "ties": [
     {
      "to": "kieu_vong_hai",
@@ -409,13 +414,14 @@
    "traits": {
     "personality": [
      "Patient",
-     "Humble",
-     "Trusting"
+     "Deceitful",
+     "Humble"
     ],
     "calling": "Steward",
     "upbringing": "sect_raised"
    },
-   "backstory": "Her parents came off a burning boat from Đào Sa in 1173 and slept their first night in the Strangers' Hall; she was born there three years later, and copies the Book of Meetings for Cù Bối Ngân (cu_boi_ngan).",
+   "backstory": "Her parents came off a burning boat from Đào Sa in 1173 and slept their first night in the Strangers' Hall; she was born there three years later, and copies the Book of Meetings for Cù Bối Ngân (cu_boi_ngan). For a copper she writes a better home into a stranger's line, and when Cù found a forged line she blamed the night porter, who lost his place at the Hall.",
+   "appearance": "Ink on her lip from chewing the pen.",
    "ties": [
     {
      "to": "cu_boi_ngan",
@@ -480,9 +486,10 @@
      "Loyal"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "war_orphan"
    },
-   "backstory": "Ngô Tần Tần's (ngo_tan_tan) elder brother from Phù Can, who poles freight rafts from the crossing to the shoal; he knows the songs she sings mean something, because their grandmother cried at them.",
+   "backstory": "Ngô Tần Tần's (ngo_tan_tan) elder brother from Phù Can, who poles freight rafts from the crossing to the shoal; he knows the songs she sings mean something, because their grandmother cried at them. Their grandmother raised them after the war.",
+   "appearance": "A ridge of raft-pole callus across both palms.",
    "ties": [
     {
      "to": "ngo_tan_tan",

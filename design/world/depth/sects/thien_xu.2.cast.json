@@ -40,7 +40,7 @@
      "Calm"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
       "id": "keen_soul",
@@ -58,6 +58,8 @@
    },
    "appearance": "Grey dust in every crease of his hands, a carpenter's square tucked in his belt, and the patience of a man who measures twice.",
    "backstory": "Born at Trận Thạch Khoáng, the Array Stone Mine, Thiện Thừa Củ was cutting array stones at nine when Doãn Ngọc Hành (doan_ngoc_hanh), then a Kết Đan, bought a year's output and the boy with it. He keeps the seat's Seven-Star Array and leads the stele walk along the Compact's 129 boundary steles every ten years (N-thien_xu-02). He knows the stele moved below Thủ Bi Trại in 1006 (V129) put a kink in the great array, and he has never been allowed to mend it, because mending it means redrawing a border. Since Luân Hải Yến's 1196 sea chart put the Rudder star near the pole in the Pivot's markets, he has asked Củng Tinh, for the Pivot, for a correction under the abbey's seal, printed for the western quays.",
+   "wants": "To mend the kink in the Seven-Star Array before the next stele walk, whoever's border it touches.",
+   "secret": "In his cellar he is redrawing the kink-patch plates of the great array with the border drawn the old way, so that on the night he is finally allowed he can swap them in before dawn; only Tả Khắc Thạch's yearly measuring book would prove the stele ever moved.",
    "ties": [
     {
      "to": "doan_ngoc_hanh",
@@ -204,6 +206,8 @@
    },
    "appearance": "Neat and colourless, with a black touchstone at her throat; she weighs a coin on her fingertip while she talks.",
    "backstory": "A silver-miner's daughter from Bạch Ngân, where the Pivot's coin is struck (A224), Đặng Quân Bình was meant for the bench; Phương Trực Ngôn (phuong_truc_ngon) sent her to the scales instead, saying she weighed people too exactly to judge them. She keeps the Ngọc Hành Hall: the open scales of Song Kiều (A219), the weights of Thiên Quyền Thị, the mint and the treasury of ninety thousand stones. She has twice caught Chân Kim Các's assayers shaving the Pivot's standard weight, and Tưởng Bách Luyện (tuong_bach_luyen) has twice denied it. Since 1198 the Pivot's side of the square at Song Kiều has weighed almost nothing, and the treasury has asked her why. Hồng Chuẩn Bình's (hong_chuan_binh) tallies reach her four months late. She is drafting an order that the mint will buy only ore weighed on the Pivot's scale.",
+   "wants": "To catch Chân Kim Các's swap in the act and see the open scales honest again.",
+   "secret": "A Song Kiều porter carries one basket of ore across both squares each dawn at her silver, and she reads his weights herself, to catch Quản Thập Thù's swap with her own eyes before she writes it to the treasury.",
    "ties": [
     {
      "to": "phuong_truc_ngon",
@@ -362,7 +366,7 @@
      "Brave"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
       "id": "sturdy_frame",
@@ -378,6 +382,8 @@
    },
    "appearance": "Snow-burnt, with pale eyes narrowed from a life on bright stone, in a fur-lined coat over his armour.",
    "backstory": "Hình Thủ Tinh was born at the snow-jade diggings of Tuyết Ngọc Khoáng, where the light off the stone is bright enough to blind, and the land put Light into his root. He has kept the watch on Tinh Tủy Mạch since 1170. After Băng Tâm's petition the guard was doubled (A096), and he now commands sixty men and Cửu Cao's cranes, which circle the vein day and night; Ung Hạc Minh (ung_hac_minh) flies the night circuit herself once a month. He has read in the posting book that the watch has never been withdrawn (A087). He believes it.",
+   "wants": "To hear the vein's watch order read aloud once, so that he can stop wondering whether it still stands.",
+   "secret": "Once a month he sends Ung Hạc Minh's night crane down to Quý Thủ Lũy's barrow lamp with a flask of oil, against orders, because the old woman's lamp has been going out.",
    "ties": [
     {
      "to": "ngu_tran_bac",
@@ -512,6 +518,8 @@
    },
    "appearance": "Plump, smiling, in a bench robe of better cloth than the Chief Judge's, with a jade ring he turns while he listens.",
    "backstory": "The son of a Thạch Kiều salt factor, Trọng Khắc Kỷ came to the bench late and charming, and Phương Trực Ngôn (phuong_truc_ngon) gave him the river and toll cases no one else wanted. Since the Ferry War between Tùng Đào and Lạc Hà, those cases have been worth a great deal. He has ruled for Lạc Hà's toll-keepers four times in six and lives better than a judge should. His clerk Từ Tri Tiết (tu_tri_tiet) keeps his calendar, and he has begun to keep her away from his letters.",
+   "wants": "A house in Thạch Kiều with a river view and a bench seat that is his own.",
+   "secret": "He has pre-sold the autumn ruling on the Hà ford to Lạc Hà and to Tùng Đào and will give it to whichever pays second; his clerk Từ Tri Tiết has seen both receipts.",
    "ties": [
     {
      "to": "phuong_truc_ngon",
@@ -622,7 +630,7 @@
     "personality": [
      "Warlike",
      "Diligent",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Strategist",
     "upbringing": "village_born",
@@ -641,6 +649,8 @@
    },
    "appearance": "Lean and weathered, a falconer's leather guard still on her left wrist, ink on her right.",
    "backstory": "A falconer's daughter from Liệp Ưng Thôn, Nhiếp Minh Tiễn keeps the writ ledger of the Dao Quang Hall: every war licensed under the Compact, from the first writ of 584 against Xích Thành Môn (C118) to the Cold Ford writ of 901 (C165), with the terms each side swore and broke. She drafts Ngũ Trấn Bắc's (ngu_tran_bac) yearly writ against Thính Vũ and files the head's silence beside it. She lets Doãn Hi Hòa (doan_hi_hoa) into the office at night, because she thinks the heir should know what the Pivot is for.",
+   "wants": "A ledger the Pivot can read without shame, and the heir briefed before the heir is crowned.",
+   "secret": "She is rewriting the broken-terms columns of the old writs so that the Pivot looks the wronged party in each, and Ngũ Trấn Bắc quotes her figures in this spring's draft.",
    "ties": [
     {
      "to": "ngu_tran_bac",
@@ -747,7 +757,7 @@
    },
    "thien_phu": {
     "ngo_tinh": 60,
-    "can_cot": 58,
+    "can_cot": 38,
     "than_hon": 66,
     "khi_van": 40,
     "dao_tam": 78,
@@ -765,6 +775,10 @@
      {
       "id": "steady_heart",
       "tier": 1
+     },
+     {
+      "id": "frail_frame",
+      "tier": 2
      }
     ],
     "path": [],
@@ -776,8 +790,10 @@
      "Grieving"
     ]
    },
-   "appearance": "Grey-skinned from the miasma, with a cough she does not apologise for and a lamp-pole she uses as a staff.",
+   "appearance": "Grey-skinned and frail from the miasma, with a cough she does not apologise for and a lamp-pole she uses as a staff.",
    "backstory": "Born in 800 in the signal post of Lang Yên Trại while her father and grandfather held Cố Lũy (A212), Quý Thủ Lũy was three when both went down onto Chiết Kích Nguyên and did not come back (C017). Đỗ Tinh Hà (do_tinh_ha) raised her at the seat. For three centuries she has kept the barrow watch at the plain's edge, lighting the lamp on the Vạn Cốt Trủng each night and growing miasma-root in the poisoned soil to cure the herders who stray in. The miasma is in her lungs now. She believes Lôi Vô Danh (loi_vo_danh) left her family to die.",
+   "wants": "To learn why her family went down onto the plain, and to be laid beside them.",
+   "secret": "She is digging into the barrow's flank a handspan a night toward a banner-pole she believes lies there, and Ngũ Trấn Bắc has promised to send a stonecutter's boy to help.",
    "ties": [
     {
      "to": "do_tinh_ha",
@@ -928,10 +944,10 @@
     "personality": [
      "Gregarious",
      "Wrathful",
-     "Generous"
+     "Greedy"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [],
     "path": [],
     "lifestyle": "drinker",
@@ -943,7 +959,9 @@
     ]
    },
    "appearance": "A barrel of a man gone soft, burn-scarred down one arm, with a voice that fills a tavern.",
-   "backstory": "A pearl diver's son from Châu Bạng Thôn (A223), Bộc Trầm Chu sailed as Đỗ Tinh Hà's (do_tinh_ha) captain in the Pirate Purge (C152) and was in the burning hold on Thôn Hải's islet when Ô Kình Hải died and his sabre Kình Nha went into the water (C153). He has kept the harbour of Tinh Hán Thành since 790, and he is dying of age now, loudly, in its taverns. He tells a different story of where Kình Nha sank every night, and one of them is true. Thúy Vi's port keeper Diêm Hải Tảo (diem_hai_tao) has bought him a great deal of wine.",
+   "backstory": "A pearl diver's son from Châu Bạng Thôn (A223), Bộc Trầm Chu sailed as Đỗ Tinh Hà's (do_tinh_ha) captain in the Pirate Purge (C152) and was in the burning hold on Thôn Hải's islet when Ô Kình Hải died and his sabre Kình Nha went into the water (C153). He has kept the harbour of Tinh Hán Thành since 790, and he is dying of age now, loudly, in its taverns. He tells a different story of where Kình Nha sank every night, and one of them is true. Thúy Vi's port keeper Diêm Hải Tảo (diem_hai_tao) has bought him a great deal of wine. He sells each night's story of where Kình Nha sank to whoever pays for the wine.",
+   "wants": "One last good winter of wine and a ship's bell named for him.",
+   "secret": "He has sold the true place of Kình Nha to three collectors, each for a cask, and all three have hired boats; the first sails at the full moon, and Diêm Hải Tảo's agent is one of them.",
    "ties": [
     {
      "to": "do_tinh_ha",
@@ -1080,6 +1098,8 @@
    },
    "appearance": "Mild and round-shouldered, with long fingers he keeps in his sleeves and calluses on their tips that he says are from the brush.",
    "backstory": "Bách Vong Ngôn grew up in Mộc Hương Thôn, the village whose scented wood burns in the Pivot's hall (A211), and his parents named him out of Trang Tử. In 1080 he carried a message to Vạn Hác Viện, heard a student play under the pines, and forgot it (A062). The sect has told the story against him for 120 years. He did not forget it. He chose not to deliver a summons he thought unjust, and let the music take the blame. Since then he has learned the zither from Hà Thính Tùng (ha_thinh_tung) by letter, in a sect that has forbidden music since the War of the Nine Shao (C005).",
+   "wants": "To play one whole air under the open sky inside the seat's walls.",
+   "secret": "He is teaching Ngạc Tri Âm a second melody of his own composing, with one of the Shao's airs hidden in its fifth bar, to see whether the head's ear will find it in the dusk bell.",
    "ties": [
     {
      "to": "doan_ngoc_hanh",
@@ -1187,7 +1207,7 @@
    },
    "traits": {
     "personality": [
-     "Callous",
+     "Cruel",
      "Loyal",
      "Paranoid"
     ],
@@ -1211,7 +1231,9 @@
     ]
    },
    "appearance": "Wiry and scarred with lightning-tree burns, he wears no sect colours and sits with his back to the wall.",
-   "backstory": "Đồ Vô Cữu was born among the rogue cultivators of Hắc Phong Trại, who robbed the ore trains for sixty years, and was the youngest of them when Thiên Xu cleared the stockade in 940 (V126). Đỗ Tinh Hà (do_tinh_ha) spared him for his age and kept him as a hunter (N-thien_xu-07). He has hunted for the Pivot since: deserters, rogues, the ma đạo. In 1090 he tracked Mặc Huyết Sinh to his cave abode (C024), and it was he who let the last disciple, Triệu Huyết Y (trieu_huyet_y), get past him in the smoke. He has not stopped looking for her.",
+   "backstory": "Đồ Vô Cữu was born among the rogue cultivators of Hắc Phong Trại, who robbed the ore trains for sixty years, and was the youngest of them when Thiên Xu cleared the stockade in 940 (V126). Đỗ Tinh Hà (do_tinh_ha) spared him for his age and kept him as a hunter (N-thien_xu-07). He has hunted for the Pivot since: deserters, rogues, the ma đạo. In 1090 he tracked Mặc Huyết Sinh to his cave abode (C024), and it was he who let the last disciple, Triệu Huyết Y (trieu_huyet_y), get past him in the smoke. He has not stopped looking for her. He broke the knees of the innkeeper, Nguyên Hảo Khách's (nguyen_hao_khach) brother, who gave her a room for a night, and left him lying in the road.",
+   "wants": "Triệu Huyết Y's name struck through on his hunting roll.",
+   "secret": "He has stopped filing his reports with the head and keeps them sewn in his coat lining: a woman who matches Triệu Huyết Y has taken a room in Thạch Kiều, and he means to take her himself, alone.",
    "ties": [
     {
      "to": "do_tinh_ha",
@@ -1346,11 +1368,11 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Diligent",
+     "Faithless",
      "Paranoid"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
       "id": "quick_minded",
@@ -1365,7 +1387,9 @@
     "gained": []
    },
    "appearance": "Tall and stooped from the low shelves, with a clerk's habit of sniffing paper.",
-   "backstory": "A copper miner's son from Đồng Tỉnh Khoáng, Hoàng Phủ Tịch has been Sử Ngưng Mặc's (su_ngung_mac) senior disciple for sixty years and expects the archive when she dies. He has noticed that Thích Minh Thư (thich_minh_thu) went to Thạch Kiều in 1196 on no errand of the archive's, and that she has asked twice since whether the guest-house ledgers are kept. He has not decided whether to tell the keeper, the head, or no one, and what each would be worth.",
+   "backstory": "A copper miner's son from Đồng Tỉnh Khoáng, Hoàng Phủ Tịch has been Sử Ngưng Mặc's (su_ngung_mac) senior disciple for sixty years and expects the archive when she dies. He has noticed that Thích Minh Thư (thich_minh_thu) went to Thạch Kiều in 1196 on no errand of the archive's, and that she has asked twice since whether the guest-house ledgers are kept. He has not decided whether to tell the keeper, the head, or no one, and what each would be worth. He is already planning what he will do the night she dies.",
+   "wants": "The archive, and the keeper's key-cord at his own neck.",
+   "secret": "While Sử Ngưng Mặc naps he presses her keys into soft wax, so that he can open her shelf on the night she dies without waiting to be given the cord.",
    "ties": [
     {
      "to": "su_ngung_mac",
@@ -1487,6 +1511,8 @@
    },
    "appearance": "Plainly dressed, with a ledger always open on her forearm and a pencil of lead behind her ear.",
    "backstory": "Từ Tri Tiết keeps the Bridge Court's calendar and the junior judge's correspondence, or did until this year, when Trọng Khắc Kỷ (trong_khac_ky) began to answer his own letters. She has copied enough of his rulings on the Ferry War tolls to see the pattern. She has told no one, because the only person to tell is the Chief Judge, Phương Trực Ngôn (phuong_truc_ngon), and a clerk who accuses her own master is finished whatever the truth.",
+   "wants": "To leave the junior judge's service with her own name clean.",
+   "secret": "She copies one of Trọng Khắc Kỷ's bought rulings each week into a second ledger hidden in the Court's rice jar, with the date the money came.",
    "ties": [
     {
      "to": "trong_khac_ky",
@@ -1600,6 +1626,8 @@
    },
    "appearance": "A forgettable man in a rain cape, counting under his breath.",
    "backstory": "Phòng Bách Kế has lived at Thính Vũ Lâu as the Pivot's envoy since 1165 and has made the count every year since (C200): the Tower's disciples by realm, its forges, its stores of thunder stone from Kinh Lôi Mạch. He sends one count to Mâu Tri Viễn (mau_tri_vien) and a second, which no one has asked for, to Ngũ Trấn Bắc (ngu_tran_bac). The Tower knows he counts and lets him. He suspects some of what he is shown is shown to him on purpose.",
+   "wants": "To be believed by one person at the seat before he is old.",
+   "secret": "He has sent a third count, half true, to Thính Vũ's spymaster Nhiếp Vô Thanh to see whether she answers; she has, once, on a pressed leaf.",
    "ties": [
     {
      "to": "mau_tri_vien",
@@ -1700,7 +1728,7 @@
      "Wrathful"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "street_orphan",
     "talent": [
      {
       "id": "sturdy_frame",
@@ -1718,6 +1746,8 @@
    },
    "appearance": "A heavy, silent young man with black-iron dust ground into his knuckles for good.",
    "backstory": "A mute boy from the black-iron diggings of Huyền Thiết, the same seam Đỗ Tinh Hà (do_tinh_ha) came out of 640 years ago (A220). Đỗ found him in 1160 sitting on an ingot no one else could lift and took him as his last disciple. He has never spoken. He trains the Army-Breaker Spear on Xu Trụ Phong before dawn, waits longer between thrusts than anyone in the hall, and follows his master everywhere at three paces.",
+   "wants": "To hear his master's last order before it is spoken.",
+   "secret": "Each night he scratches one more letter into the black-iron ingot he was found on, learning to write Đỗ Tinh Hà's name, and means to lay it in his hands at the barrow.",
    "ties": [
     {
      "to": "do_tinh_ha",
@@ -1830,6 +1860,8 @@
    },
    "appearance": "Weatherbeaten, chisel in his belt, his palms grey with stone dust he never fully washes out.",
    "backstory": "Tả Khắc Thạch's family has kept the steles of Giới Bi Phong for five generations, and he recut the inscriptions of the western line by hand in 1150. His father carried the stele of Thủ Bi Trại down the mountain after the avalanche of 1006 (V129) and set it where the Thiên Cơ Hall told him, forty paces lower and to the east. Tả has measured the difference every year since and written it in a book Thiện Thừa Củ (thien_thua_cu) has never asked to see. His son Tả Tiểu Bi (ta_tieu_bi) is in the inner gate.",
+   "wants": "A border that agrees with his book.",
+   "secret": "He has begun to ease the Thủ Bi stele back toward its old place, a rope's length a night, and has told his son Tả Tiểu Bi to say nothing if the Thiên Cơ Hall's men ask.",
    "ties": [
     {
      "to": "thien_thua_cu",
@@ -1949,6 +1981,8 @@
    },
    "appearance": "Short, broad, yak-wool coat over the sect grey, with forearms like a herder's; she lifts the heaviest weights on the rack one-handed.",
    "backstory": "A yak herder's daughter from Mao Ngưu Thôn, where the soil is nearly all Earth, Chử Bình Quân passed the Level Beam on her ninth try with a Metal root of exactly forty-six, one more than the inner gate needs. She has kept the outer gate on Thạch Quyền Phong since 1150 and sets the weights for every Level Beam. She holds the beam steady for no one. At the solstice of 1199 Hạ Hầu Thạch (ha_hau_thach), at 107, held it level on a weight Uất Trì Thu (uat_tri_thu) had filed, and she saw the file mark and signed the old man into the inner gate anyway. Uất wants the same weight at this solstice.",
+   "wants": "A beam that no one can file and no one can pity.",
+   "secret": "She teaches Hạ Hầu Thạch his letters at night in her gate office, because his Metal of thirty cannot carry the Canon but his eyes might read it.",
    "ties": [
     {
      "to": "cong_ton_duan",

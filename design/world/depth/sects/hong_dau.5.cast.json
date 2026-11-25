@@ -16,6 +16,7 @@
    "home": 263,
    "birthplace": 818,
    "role": "Charm-singer of the back garden; keeps the gardeners under the Thorn and Ink Verses",
+   "appearance": "Hums half a tone flat when she thinks no one is listening.",
    "tier": "C",
    "root": {
     "elements": {
@@ -27,13 +28,13 @@
    "traits": {
     "personality": [
      "Calm",
-     "Compassionate",
+     "Callous",
      "Cautious"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
-   "backstory": "Sings the gardeners to sleep each night with the Thorn and Ink Verses and has begun to wonder which of them would leave if she stopped; she has not tried it.",
+   "backstory": "Sings the gardeners to sleep each night with the Thorn and Ink Verses and has begun to wonder which of them would leave if she stopped; she has not tried it. She refused a dying gardener one night off to sit by Doãn Thải Đậu (doan_thai_dau), the foundling he never named as his own; he has not looked at the singer since and watches the girl from the trellis.",
    "ties": [
     {
      "to": "nghe_xuan_chi",
@@ -98,6 +99,7 @@
    "home": 27,
    "birthplace": 27,
    "role": "The hand that pours the second cup at the Gracious Door",
+   "appearance": "Her left earlobe is gone, so she turns her right side to every guest.",
    "tier": "C",
    "root": {
     "elements": {
@@ -110,12 +112,12 @@
     "personality": [
      "Deceitful",
      "Gregarious",
-     "Loyal"
+     "Faithless"
     ],
     "calling": "Diplomat",
     "upbringing": "street_orphan"
    },
-   "backstory": "Has poured the second cup forty-one times in fifty years, each on Liễu Đa Thải's (lieu_da_thai) nod; she keeps the guests' names in a book Nghê Xuân Chi would like to burn.",
+   "backstory": "Has poured the second cup forty-one times in fifty years, each on Liễu Đa Thải's (lieu_da_thai) nod; she keeps the guests' names in a book Nghê Xuân Chi would like to burn. She told Lục Nhĩ Thính (luc_nhi_thinh) of the Tower's ear which night a cloth-seller from the book would walk the forest road alone; he did not reach the bridge, and his wife still writes to the door.",
    "ties": [
     {
      "to": "nghe_hong_dau",
@@ -175,6 +177,7 @@
    "home": 263,
    "birthplace": 263,
    "role": "Bean picker in the back garden, raised as a foundling",
+   "appearance": "Holds her hands over the lamp and feels nothing; the red on her fingertips never washes out.",
    "tier": "C",
    "root": {
     "elements": {
@@ -244,6 +247,7 @@
    "home": 27,
    "birthplace": 822,
    "role": "Door girl at the manor house; pours the first cup",
+   "appearance": "Smiles a beat late, after her eyes have finished weighing the guest.",
    "tier": "C",
    "root": {
     "elements": {
@@ -256,12 +260,12 @@
     "personality": [
      "Gregarious",
      "Ambitious",
-     "Fickle"
+     "Cruel"
     ],
     "calling": "Diplomat",
     "upbringing": "village_born"
    },
-   "backstory": "A Lăng Đường fisher's daughter taken because she can pour for a killer and smile; she cannot yet pour for a pretty one.",
+   "backstory": "A Lăng Đường fisher's daughter taken because she can pour for a killer and smile; she cannot yet pour for a pretty one. She slipped a poisoned bean into Kha Tiểu Đậu's (kha_tieu_dau) basket to see whether the famous fingers would catch it; they did not, and Kha has felt nothing in two fingertips since and told no one.",
    "ties": [
     {
      "to": "to_boi_ngam",
@@ -311,6 +315,7 @@
    "home": 42,
    "birthplace": 42,
    "role": "Carries the manor's poison boxes to the Night Rain Market",
+   "appearance": "Gold-edged front tooth, which he covers with his hand whenever he hears a price.",
    "tier": "C",
    "root": {
     "elements": {
@@ -321,14 +326,14 @@
    },
    "traits": {
     "personality": [
-     "Greedy",
+     "Generous",
      "Cautious",
      "Gregarious"
     ],
     "calling": "Merchant",
     "upbringing": "street_orphan"
    },
-   "backstory": "Carries the boxes to Quản Song Đậu's (quan_song_dau) stall at the Night Rain Market; a buyer in toad-skin gloves has twice paid him extra to say which boxes came from the garden's own beds.",
+   "backstory": "Carries the boxes to Quản Song Đậu's (quan_song_dau) stall at the Night Rain Market; a buyer in toad-skin gloves has twice offered him silver to say which boxes came from the garden's own beds, and he took the offer to Quản both times and shared the silver among the carriers.",
    "ties": [
     {
      "to": "quan_song_dau",
@@ -378,6 +383,7 @@
    "home": 263,
    "birthplace": 156,
    "role": "Poison-kitchen hand; grinds the beans for the pastes",
+   "appearance": "Smells of clove from ten paces, and has never been seen to touch bread with a bare hand.",
    "tier": "C",
    "root": {
     "elements": {
@@ -396,7 +402,7 @@
     "calling": "Alchemist",
     "upbringing": "village_born"
    },
-   "backstory": "Came from the misty bridge with Hồ Yên Độ (ho_yen_do) and rose to the garden while his friend stayed on watch; he grinds beans for Tiền Khổ Đằng's (tien_kho_dang) pastes and wears gloves in his sleep.",
+   "backstory": "Came from the misty bridge with Hồ Yên Độ (ho_yen_do) and rose to the garden while his friend stayed on watch; he grinds beans for Tiền Khổ Đằng's (tien_kho_dang) pastes and sleeps with cloth wraps on both hands.",
    "ties": [
     {
      "to": "ha_cuc_thi",
@@ -453,6 +459,7 @@
    "home": 27,
    "birthplace": 818,
    "role": "Door girl who gives no beans",
+   "appearance": "A single red bean on a thread knotted at her nape.",
    "tier": "C",
    "root": {
     "elements": {
@@ -468,7 +475,7 @@
      "Patient"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born",
+    "upbringing": "hermit_taught",
     "gained": [
      "Lovestruck"
     ]

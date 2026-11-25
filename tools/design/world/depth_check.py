@@ -59,6 +59,7 @@ def main():
     old = {p["key"]: p for p in hist["people"]}
     t1 = load(ROOT / "assets/data/traits.json")
     v1 = {k: {x["name"] for x in t1[k]} for k in ["personality", "callings", "fate", "gained"]}
+    pers_set = {x["name"]: x.get("set") for x in t1["personality"]}  # same set = opposites (traits.json)
     t2 = load(D / "traits-v2.json")
     v2 = {k: {x["id"] for x in t2[k]} for k in t2["kinds"]}
     techs = set()
@@ -185,6 +186,9 @@ def main():
             band["A_no_talent"] += 1
         if len(tr.get("personality", [])) != 3:
             f("trait", "%s: %d personality traits" % (where, len(tr.get("personality", []))))
+        sets = [pers_set.get(x) for x in tr.get("personality", []) if x in pers_set]
+        if len(set(sets)) < len(sets):
+            f("trait", "%s: opposite personality traits %s" % (where, tr.get("personality")))
         for x in tr.get("personality", []):
             if x not in v1["personality"]:
                 f("trait", "%s: personality %s unknown" % (where, x))

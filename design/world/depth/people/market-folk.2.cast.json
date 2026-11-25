@@ -37,7 +37,7 @@
    "traits": {
     "personality": [
      "Cautious",
-     "Content",
+     "Deceitful",
      "Loyal"
     ],
     "calling": "Merchant",
@@ -55,8 +55,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "His father's frame without the laugh, in a herder's felt coat; his wife says he counts sheep in his sleep.",
+   "appearance": "His father's frame without the laugh, in a herder's felt coat; rain finds his bales on the one dry day of the month.",
    "backstory": "Kim Vạn Lý's (kim_van_ly) only son was born with a Water root in a house of gold, and the steppe has never let him forget it. He runs the wool caravans from Nhạn Thanh Thành across the steppe and down to Vật Hoa Thị, with Minh Loan's bell-fitter Khang Viễn Đạc (khang_vien_dac) riding beside the lead cart. He has never placed a bet. His father sent his son Kim Đắc Lộc (kim_dac_loc) to Mục Vân Trang's stables, and Tích Phúc did not argue. He does not know what the house owes.",
+   "wants": "A house with no gold in it, and a road that does not end at his father's door.",
+   "secret": "He is forty bales short this year and is making up the weight by cutting the lead cart's wool with sheep-tail fur. Khang Viễn Đạc has smelled it and said nothing yet.",
    "ties": [
     {
      "to": "kim_van_ly",
@@ -148,7 +150,7 @@
     "personality": [
      "Patient",
      "Paranoid",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child",
@@ -167,6 +169,8 @@
    },
    "appearance": "A small dry man behind a counter of shell, silver and stone, who bites every coin.",
    "backstory": "He has changed shell coin, mortal silver and spirit stones at the same counter in Hạc Đinh Thị for a hundred and twenty years. His son Tăng Vân Tiêu (tang_van_tieu) went up to Lạc Hà in 1112, has stood at the peak of Trúc Cơ for forty years, and spends every stone he earns on Lạc Đan Thanh's (lac_dan_thanh) breakthrough pills. Since the third pill failed, Tăng Bách Thông has been buying his son's notes back from Lạc at the price of the pills, and has not told him.",
+   "wants": "To stop paying for Tăng Vân Tiêu's pills, or to see him pass the wall once.",
+   "secret": "He gives change a stone light, one in forty, and banks the difference to buy back his son's failed-pill notes quietly so that the boy never knows. Tăng Phân Ly has found the strongbox.",
    "ties": [
     {
      "to": "tang_van_tieu",
@@ -258,7 +262,7 @@
     "personality": [
      "Deceitful",
      "Diligent",
-     "Calm"
+     "Faithless"
     ],
     "calling": "Alchemist",
     "upbringing": "street_orphan",
@@ -277,6 +281,8 @@
    },
    "appearance": "Neat, quiet and ink-stained, with a seal-cutter's loupe on a ribbon round her neck.",
    "backstory": "A mist-market orphan whom Lạc Đan Thanh (lac_dan_thanh) took in and named for a pigment, as he names all his apprentices. She buys Thúy Vi's pills at Đậu Tam Thất's (dau_tam_that) shop, cuts the seals in soapstone at night, and sends the copies and the formulas she guesses from the ash down the road to Vật Hoa Thị. Đậu knows, and charges her a little more each year.",
+   "wants": "To be given her own name by Lạc Đan Thanh, not another pigment's.",
+   "secret": "She has begun to sell the copied seals to a second buyer, a Thúy Vi lay brother who pays double, and Đậu Tam Thất has noticed that the copies now arrive a day late.",
    "ties": [
     {
      "to": "lac_dan_thanh",
@@ -385,6 +391,8 @@
    },
    "appearance": "A farm girl's shoulders and a healer's clean hands; she rolls her sleeves to the elbow before anyone asks.",
    "backstory": "She was ten at Ương Ca in the drought of 1150, when Dương Hảo Vũ (duong_hao_vu) held the Grain Rain rite for nine days over the valley, and she carried water to the abbess. Lam Nhuận Chi (lam_nhuan_chi) brought her to Giả Hồi Xuân (gia_hoi_xuan) the next spring with a cough no one at home could cure, and she stayed. She refuses to taste poisons, and Giả has never asked her to.",
+   "wants": "To be Giả Hồi Xuân's heir and to cure her first poison, on herself.",
+   "secret": "She swore never to taste poisons, and she has been taking a grain of each of Ô Thiềm Tử's venoms behind the screen at night, after the antidote, to learn them. Vu Ngân Kiều keeps count for her.",
    "ties": [
     {
      "to": "gia_hoi_xuan",
@@ -478,7 +486,7 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Diligent",
+     "Faithless",
      "Impatient"
     ],
     "calling": "Formation master",
@@ -500,6 +508,8 @@
    },
    "appearance": "Sunburnt and quick, with a surveyor's cord wound round his forearm.",
    "backstory": "A Tinh Hán Thành dock orphan whom Vệ Văn Cơ (ve_van_co) found drawing in the harbour sand in 1152, as the abbey once found Vệ. He knows the Star-Pacing Primer, which Vệ had no right to teach him, and wants Củng Tinh's Armillary Array Canon, which Vệ will not. He bids against Bành Chẩm Thạch (banh_cham_thach) for the granaries of Thạch Kiều Thành.",
+   "wants": "Củng Tinh's Armillary Array Canon, by any door.",
+   "secret": "He has copied Vệ Văn Cơ's wards onto the granary rings of Thạch Kiều Thành under his own name, and sells them to Bành Chẩm Thạch's clients at half the price.",
    "ties": [
     {
      "to": "ve_van_co",
@@ -589,6 +599,7 @@
      "formation_mind"
     ]
    },
+   "appearance": "Forearms plaster-white to the elbow. Raps every wall he passes, listening.",
    "backstory": "A bridge-mason's grandson of Thạch Kiều Thành who sells wards cheaper than Vệ Văn Cơ (ve_van_co) and lays them twice as thick, because he cannot lay them as true.",
    "ties": [
     {
@@ -659,7 +670,7 @@
    },
    "traits": {
     "personality": [
-     "Gregarious",
+     "Callous",
      "Deceitful",
      "Patient"
     ],
@@ -680,6 +691,8 @@
    },
    "appearance": "Plump and smiling, in a ferry-blue robe, with a book of names in her sleeve that no one has seen open.",
    "backstory": "Tương Phùng Thị grew beside Bình Thủy Môn's crossing (A148), and every traveller off Ông Tế Độ's (ong_te_do) ferry passes Hoàng Phủ Duyên's teahouse. She has arranged three hundred marriages and a thousand hires, and takes a tenth of the first year. In 1190 she found Kim Vạn Lý (kim_van_ly) a clerk, Quản Thận Ngôn (quan_than_ngon), and did not ask why a Quản wanted to work for a Kim.",
+   "wants": "A match for her son that he will not run from.",
+   "secret": "She is arranging a fourth marriage for Hoàng Phủ Chu with the daughter of a family that owes her, and has not asked the girl either; the wedding is set for the first rain.",
    "ties": [
     {
      "to": "ong_te_do",
@@ -764,14 +777,15 @@
    "traits": {
     "personality": [
      "Patient",
-     "Callous",
+     "Compassionate",
      "Honest"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child",
     "lifestyle": "collector"
    },
-   "backstory": "He keeps the pawn shop by the farewell pavilion of Tống Khách Thị, where the market pours a cup each year for the traveller who never came back (A138), and holds the swords of Băng Tâm's failed outer disciples against road money; Ôn Sa Ngọc (on_sa_ngoc) redeems one or two a year.",
+   "appearance": "Pawnbroker's loupe on a string; he screws it into one eye to look at your face too.",
+   "backstory": "He keeps the pawn shop by the farewell pavilion of Tống Khách Thị (A138), holding the swords of Băng Tâm's failed outer disciples against road money; Ôn Sa Ngọc (on_sa_ngoc) redeems one or two a year, and he kept the sword of a boy who froze on the road ten years past its term, until Ôn paid it out for the boy's mother.",
    "ties": [
     {
      "to": "on_sa_ngoc",
@@ -828,13 +842,14 @@
     "personality": [
      "Ambitious",
      "Gregarious",
-     "Fickle"
+     "Loyal"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "lifestyle": "gardener"
    },
-   "backstory": "She buys cassia and pepper in the jungle market of the far south and has shipped it north on Kim Vạn Lý's (kim_van_ly) account for thirty years; she has begun to ship on Vưu Cẩm Thư's (vuu_cam_thu) instead, because the palace pays in advance.",
+   "appearance": "Her fur collar has gone brown with cassia. A gold ring on every finger but the thumbs.",
+   "backstory": "She buys cassia and pepper in the jungle market of the far south and has shipped it north on Kim Vạn Lý's (kim_van_ly) account for thirty years, and has twice turned down Vưu Cẩm Thư's (vuu_cam_thu) offer of pay in advance.",
    "ties": [
     {
      "to": "kim_van_ly",
@@ -899,11 +914,18 @@
      "Trusting"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born",
+    "upbringing": "sect_raised",
     "path": [
      "pill_fed"
+    ],
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
     ]
    },
+   "appearance": "A long, pitted horse-face the road watch jokes about. Resin-amber hands.",
    "backstory": "A Tùng Đào outer disciple who was not taken inward and went down to the pine market with the Listening Pine Primer; since the wolves of 1190 (A064) he sells the road watch its wound pills at cost, and sells against Lạc Đan Thanh's (lac_dan_thanh) copied pills at a loss.",
    "ties": [
     {
@@ -962,16 +984,17 @@
    "traits": {
     "personality": [
      "Brave",
-     "Temperate",
-     "Greedy"
+     "Arbitrary",
+     "Generous"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born",
+    "upbringing": "wild_raised",
     "path": [
      "body_tempered"
     ]
    },
-   "backstory": "A desert-born caravan master who runs Kim Vạn Lý's (kim_van_ly) trains along Băng Tâm's caravan road and pays Ôn Sa Ngọc's (on_sa_ngoc) Desert Pavilion its toll in well-salt; Kiều Mãn Lâu's (kieu_man_lau) buyers have twice tried to hire him away.",
+   "appearance": "Camel-bite scar on the left shoulder, shown to strangers before he gives his name.",
+   "backstory": "A desert-born caravan master who runs Kim Vạn Lý's (kim_van_ly) trains along Băng Tâm's caravan road and pays Ôn Sa Ngọc's (on_sa_ngoc) Desert Pavilion its toll in well-salt; Kiều Mãn Lâu's (kieu_man_lau) buyers have twice tried to hire him away. He doubles the toll on days he is out of temper, and turned a rival's camel-boy from the well at noon for the shape of his nose.",
    "ties": [
     {
      "to": "kim_van_ly",
@@ -1070,6 +1093,8 @@
    },
    "appearance": "A soft-spoken young man with an abacus of jade beads and a better memory than the abacus.",
    "backstory": "Hoàng Phủ Duyên (hoang_phu_duyen) placed him with Kim Vạn Lý (kim_van_ly) in 1190, and in ten years he has become the clerk Kim trusts with the house's real books. He copies them for his sister Quản Phục Thu (quan_phuc_thu) every new moon. He has begun to like the old man, and has not told her.",
+   "wants": "To be Kim Vạn Lý's clerk for the rest of the old man's life, and to give his sister a reason to forgive it.",
+   "secret": "Once a month now he leaves one page out of the copy he sends to Quản Phục Thu, always the one that shows what Kim gives his old clerks.",
    "ties": [
     {
      "to": "quan_phuc_thu",
@@ -1150,7 +1175,7 @@
     "personality": [
      "Brave",
      "Impatient",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Wanderer",
     "upbringing": "merchant_child",
@@ -1169,6 +1194,8 @@
    },
    "appearance": "Tall like her father, with salt-whitened braids and rope-burned palms.",
    "backstory": "Raised in the yards of Yên Ba, she has sailed every coasting hull her father Bào Tế Hải (bao_te_hai) built, and spends her evenings at Thúy Vi's port house listening to Diêm Hải Tảo (diem_hai_tao) and the weather-reader Khuất Phong Phàm (khuat_phong_pham) argue about the southern sea. She has asked Diêm three times to take her on the next ship.",
+   "wants": "To sail south with Diêm Hải Tảo and not come back to the yard.",
+   "secret": "She forged her father's seal on a passage letter for Diêm Hải Tảo's next ship, and has twice rowed out at night to check that the berth is hers.",
    "ties": [
     {
      "to": "bao_te_hai",
@@ -1240,14 +1267,15 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Fickle",
+     "Honest",
      "Indulgent"
     ],
     "calling": "Schemer",
     "upbringing": "street_orphan",
     "lifestyle": "gambler"
    },
-   "backstory": "He places Kim Vạn Lý's (kim_van_ly) bets at Lạc Hà's festival and has noticed that the old man only ever loses to people who matter; in 1185 he bet his own stones on Dư Bôn Vân (du_bon_van) and won.",
+   "appearance": "Dice tinkle in his purse. One eye always half shut, as if about to wink.",
+   "backstory": "He places Kim Vạn Lý's (kim_van_ly) bets at Lạc Hà's festival, has noticed that the old man only ever loses to people who matter, and told him so to his face; in 1185 he bet his own stones on Dư Bôn Vân (du_bon_van) and won.",
    "ties": [
     {
      "to": "kim_van_ly",
@@ -1312,9 +1340,10 @@
      "Reclusive"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "health": "old_wound"
    },
+   "appearance": "Plank-straight back; three fingertips gone, which he still counts on.",
    "backstory": "A Bạch Sa net-mender's son who has shaped every keel of the Bào yards since 1180 and knows, as Bào Tế Hải (bao_te_hai) does, what the three copper-sheathed hulls were built for.",
    "ties": [
     {
@@ -1379,6 +1408,7 @@
     "calling": "Alchemist",
     "upbringing": "street_orphan"
    },
+   "appearance": "Chin pocked with burns, not an eyelash left.",
    "backstory": "A Vật Hoa Thị foundling whom Lạc Đan Thanh (lac_dan_thanh) named for the green his own father used to grind; he keeps the furnace, and is the only one who has seen the last peach stone.",
    "ties": [
     {
@@ -1442,14 +1472,21 @@
    },
    "traits": {
     "personality": [
-     "Compassionate",
+     "Callous",
      "Gregarious",
      "Impatient"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Song Khê farm girl who came down to Hạnh Hoa Thị with a fever in 1192 and was nursed by Nhiêu Tử Uyển (nhieu_tu_uyen); she grinds roots for Giả Hồi Xuân (gia_hoi_xuan) and wants to learn the needles.",
+   "appearance": "Thin as a reed, cheeks fever-bright; she sits down mid-sentence, gets up apologising.",
+   "backstory": "A Song Khê farm girl who came down to Hạnh Hoa Thị with a fever in 1192 and was nursed by Nhiêu Tử Uyển (nhieu_tu_uyen); she grinds roots for Giả Hồi Xuân (gia_hoi_xuan) and wants to learn the needles, and let a feverish carter's child wait in the rain at the door while she finished her practice roll.",
    "ties": [
     {
      "to": "nhieu_tu_uyen",
@@ -1514,13 +1551,20 @@
     "personality": [
      "Loyal",
      "Brave",
-     "Content"
+     "Diligent"
     ],
     "calling": "Wanderer",
     "upbringing": "street_orphan",
-    "health": "lingering_poison"
+    "health": "lingering_poison",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Thu Trì Thành porter who drank one of Ô Thiềm Tử's (o_thiem_tu) new poisons by accident and was cured by Giả Hồi Xuân (gia_hoi_xuan); he has carried the poisons and the answers between them ever since, sealed, and has never opened a box again.",
+   "appearance": "Bowed porter's legs, a face blotched yellow where the poison ran. Every road he takes has a bridge washed out.",
+   "backstory": "A Thu Trì Thành porter who drank one of Ô Thiềm Tử's (o_thiem_tu) new poisons by accident and was cured by Giả Hồi Xuân (gia_hoi_xuan); he has carried the poisons and the answers between them ever since, sealed, and has never opened a box again or missed a day, whatever the bridges do.",
    "ties": [
     {
      "to": "o_thiem_tu",
@@ -1587,6 +1631,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
+   "appearance": "Her father's spectacles, a size too big, slide down her nose. She pushes them up with a knuckle.",
    "backstory": "Tăng Bách Thông's (tang_bach_thong) late daughter, seventy years younger than her brother Tăng Vân Tiêu (tang_van_tieu); she found the bought-back pill notes in the strongbox and has not decided whom to tell.",
    "ties": [
     {
@@ -1649,7 +1694,7 @@
     "personality": [
      "Ambitious",
      "Arrogant",
-     "Diligent"
+     "Callous"
     ],
     "calling": "Steward",
     "upbringing": "merchant_child",
@@ -1660,7 +1705,8 @@
      }
     ]
    },
-   "backstory": "Từ Bỉnh Quyền's (tu_binh_quyen) grandson and heir, who keeps the house's ledgers on the Golden Valley Ledger Canon and thinks his grandmother too patient with Kim Vạn Lý.",
+   "appearance": "Hair oiled flat. A jade ring too big for his thumb, turned while someone else talks.",
+   "backstory": "Từ Bỉnh Quyền's (tu_binh_quyen) grandson and heir, who keeps the house's ledgers on the Golden Valley Ledger Canon and thinks his grandmother too patient with Kim Vạn Lý. He had the house's old copy-clerk put out in the rain, with her rooms, for an error that was his own.",
    "ties": [
     {
      "to": "tu_binh_quyen",
@@ -1722,12 +1768,13 @@
     "personality": [
      "Brave",
      "Gregarious",
-     "Stubborn"
+     "Arbitrary"
     ],
     "calling": "Formation master",
     "upbringing": "village_born"
    },
-   "backstory": "Vệ Văn Cơ (ve_van_co) found her drawing ward figures in the harbour sand at Tinh Hán Thành in 1195, the second child he has found that way; Phong Kính Sa (phong_kinh_sa) teaches her when Vệ is away.",
+   "appearance": "Salt-cracked heels. A fish-scale glitter on her wrist that never washes off.",
+   "backstory": "Vệ Văn Cơ (ve_van_co) found her drawing ward figures in the harbour sand at Tinh Hán Thành in 1195, the second child he has found that way; Phong Kính Sa (phong_kinh_sa) teaches her when Vệ is away, and she rubs out the figures he lays when she wakes in a temper.",
    "ties": [
     {
      "to": "ve_van_co",
@@ -1791,12 +1838,13 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Lazy",
+     "Diligent",
      "Honest"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
+   "appearance": "Round, good-natured face; sleep in the corner of one eye; collar rumpled by running.",
    "backstory": "His mother Hoàng Phủ Duyên (hoang_phu_duyen) has arranged three marriages for him, and he has run from all three on Ông Tế Độ's (ong_te_do) ferry.",
    "ties": [
     {
@@ -1859,6 +1907,7 @@
     "calling": "Talisman maker",
     "upbringing": "merchant_child"
    },
+   "appearance": "Mulberry ink to the second joint of every finger.",
    "backstory": "Born on the stall at Đào Sa Thị, she was five when it burned in 1173 (A080); she paints her father Trịnh Chu Sa's (trinh_chu_sa) wards on the Mulberry Ink Primer he should not have taught her, and wants to sit Nam Phố's contest at Hạc Đinh Thị under her own name.",
    "ties": [
     {
@@ -1922,8 +1971,9 @@
      "Wrathful"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
+   "appearance": "Caravan brand tattooed on the sword hand. He hardly speaks; his mouth turns down.",
    "backstory": "A Đà Đội camel-boy who left Phất Y Cốc's outer gate with its Dry Road Sword Primer and rode Kim Vạn Lý's (kim_van_ly) trains beside Khúc Liệt Dương (khuc_liet_duong); he was paid and she was not, and he has not forgiven himself for not asking why.",
    "ties": [
     {
@@ -1984,14 +2034,15 @@
    },
    "traits": {
     "personality": [
-     "Deceitful",
+     "Honest",
      "Gregarious",
-     "Brave"
+     "Loyal"
     ],
     "calling": "Schemer",
     "upbringing": "street_orphan"
    },
-   "backstory": "He sells Tiền Ngũ Phân (tien_ngu_phan) the names of who is bidding before the hammer, and sells the bidders Tiền's lot book after it; Lạc Đan Thanh (lac_dan_thanh) pays him in pills to say nothing at all.",
+   "appearance": "Cowlick, black nails, eyes that count the coins at your belt.",
+   "backstory": "He tells Tiền Ngũ Phân (tien_ngu_phan) the names of who is bidding before the hammer, for what Tiền can afford, and has refused the bidders every time they offered him double for Tiền's lot book; Lạc Đan Thanh (lac_dan_thanh) pays him in pills to say nothing at all.",
    "ties": [
     {
      "to": "tien_ngu_phan",
@@ -2058,6 +2109,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
+   "appearance": "Ledger under one arm like a child; tea stains on every cuff.",
    "backstory": "Granddaughter of the Hồi Lan merchant who brought the first southern rice through the desert in 1160 (A124), she buys the south's tea for Kim Vạn Lý (kim_van_ly) and is outbid each spring by Vưu Cẩm Thư (vuu_cam_thu), who pays in advance.",
    "ties": [
     {

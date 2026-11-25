@@ -17,6 +17,7 @@
    "home": 449,
    "birthplace": 25,
    "role": "An outer disciple of pure Wood whom the great wutong answers",
+   "appearance": "A round-faced girl of eighteen with green under her fingernails, who talks to the potted wutong saplings in the outer court.",
    "tier": "B",
    "root": {
     "elements": {
@@ -54,8 +55,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A round-faced girl of eighteen with green under her fingernails, who talks to the potted wutong saplings in the outer court.",
    "backstory": "A bamboo farmer's daughter from Trúc Thực Viên's fields, Kha Thanh Miêu came in on her Wood. In 1198 she walked the long road to the ridge with the funeral steward's ash train, and An Thúy Vũ (an_thuy_vu) saw the great wutong's leaves turn toward her as she passed under it. Vu Ngô Đồng has asked the outer gate to send her to the Wutong Court for good, to feed the tree as he does. Mao Khải Đán (mao_khai_dan) has held the order back a year, because the tree stalled Vu's Kết Đan and would stall her.",
+   "wants": "To not be the tree's food.",
+   "secret": "She goes to the great wutong at night and asks it questions, and it answers; she has begun answering back, telling it the court's news. An Thúy Vũ (an_thuy_vu) has seen her footprints in the dew.",
    "ties": [
     {
      "to": "mao_khai_dan",
@@ -140,6 +142,7 @@
    "home": 449,
    "birthplace": 148,
    "role": "Outer disciple from the rice plain",
+   "appearance": "Rice-straw hat pushed back, whatever the weather.",
    "tier": "C",
    "root": {
     "elements": {
@@ -151,14 +154,14 @@
    },
    "traits": {
     "personality": [
-     "Diligent",
+     "Lazy",
      "Content",
      "Honest"
     ],
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "A Thủy Điền paddy girl whom Điền Phong Niên's granary clerks sent down to the Fire Court because she could count a field by looking at it.",
+   "backstory": "A Thủy Điền paddy girl whom Điền Phong Niên's granary clerks sent down to the Fire Court because she could count a field by looking at it. She judged a hamlet's paddy by eye from the road and ruled the wrong row, and the farmer's son Lương Đạo Tuệ's (luong_dao_tue) father lost a strip he had tilled for thirty years.",
    "ties": [
     {
      "to": "mao_khai_dan",
@@ -207,6 +210,7 @@
    "home": 449,
    "birthplace": 980,
    "role": "Outer disciple from the stonemasons' village",
+   "appearance": "Forge-burn freckles up one arm.",
    "tier": "C",
    "root": {
     "elements": {
@@ -269,6 +273,7 @@
    "home": 449,
    "birthplace": 449,
    "role": "Inner disciple, ash-born",
+   "appearance": "His mentor's tilt of the head, copied a half-inch too far.",
    "tier": "C",
    "root": {
     "elements": {
@@ -340,6 +345,7 @@
    "home": 449,
    "birthplace": 449,
    "role": "Apprentice to the dawn flute",
+   "appearance": "Thin lips held in a flute-embouchure even when she is not playing.",
    "tier": "C",
    "root": {
     "elements": {
@@ -401,6 +407,7 @@
    "home": 449,
    "birthplace": 161,
    "role": "This generation's child from Cúc Viên Thôn",
+   "appearance": "Wears a fresh chrysanthemum behind one ear every day.",
    "tier": "C",
    "root": {
     "elements": {
@@ -472,6 +479,7 @@
    "home": 93,
    "birthplace": 149,
    "role": "Deck hand of the palace fleet (outer gate)",
+   "appearance": "Sun-bleached eyebrows, white against a brown face.",
    "tier": "C",
    "root": {
     "elements": {
@@ -489,7 +497,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "An Âu Lộ fisher boy of the outer gate, from the same diving families as his admiral, who would rather mend nets on the Thạch Cơ jetty than cultivate, and whom Can Hải Trì (can_hai_tri) keeps on for his knots.",
+   "backstory": "An Âu Lộ fisher boy of the outer gate, from the same diving families as his admiral, who would rather mend nets on the Thạch Cơ jetty than cultivate, and whom Can Hải Trì (can_hai_tri) keeps on for his knots. He left Giang Triều Sinh (giang_trieu_sinh) to haul the line alone the night it parted, and Giang's palm still shows the rope-burn.",
    "ties": [
     {
      "to": "can_hai_tri",
@@ -538,6 +546,7 @@
    "home": 449,
    "birthplace": 1023,
    "role": "Outer disciple, a jungle hunter's son",
+   "appearance": "A sleeve that moves on its own, with a small snout at the cuff.",
    "tier": "C",
    "root": {
     "elements": {
@@ -550,12 +559,18 @@
     "personality": [
      "Reclusive",
      "Brave",
-     "Pragmatic"
+     "Callous"
     ],
     "calling": "Beast tamer",
-    "upbringing": "wild_raised"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A hunter's son from the Valley of the Flying Foxes who has failed the Feather Kindling three times and keeps a fox kit in his sleeve against the rules.",
+   "backstory": "A hunter's son from the Valley of the Flying Foxes who has failed the Feather Kindling three times and keeps a fox kit in his sleeve against the rules. He left the kit's mother in a snare to bleed, where Trần Tước Nhi (tran_tuoc_nhi) found her still breathing.",
    "ties": [
     {
      "to": "mao_khai_dan",
@@ -609,6 +624,7 @@
    "home": 449,
    "birthplace": 151,
    "role": "Outer disciple from the plum village",
+   "appearance": "Feather-down clings to her hair; she turns her head away when a bird is carried past.",
    "tier": "C",
    "root": {
     "elements": {
@@ -619,14 +635,20 @@
    },
    "traits": {
     "personality": [
-     "Fickle",
+     "Compassionate",
      "Gregarious",
      "Indulgent"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "thin_soul",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "From Lý Hoa Thôn, where the plum blossom fools the snow geese (A255); she sells the outer court's spare feathers to the Tang Điền market and splits the take with Ma Tiểu Hòa (ma_tieu_hoa).",
+   "backstory": "From Lý Hoa Thôn, where the plum blossom fools the snow geese (A255); she sells the outer court's spare feathers to the Tang Điền market and splits the take with Ma Tiểu Hòa (ma_tieu_hoa). She cannot watch the plucking and pays a boy to do it.",
    "ties": [
     {
      "to": "ma_tieu_hoa",
@@ -670,6 +692,7 @@
    "home": 6,
    "birthplace": 53,
    "role": "Copyist of the Hall of Rites (outer gate)",
+   "appearance": "Mismatched sleeves, one ink-dark and one white.",
    "tier": "C",
    "root": {
     "elements": {
@@ -736,6 +759,7 @@
    "home": 85,
    "birthplace": 152,
    "role": "Granary hand at Hoàng Vân Thành",
+   "appearance": "Whistles through the gap in his teeth when he counts sacks.",
    "tier": "C",
    "root": {
     "elements": {
@@ -748,13 +772,13 @@
    "traits": {
     "personality": [
      "Content",
-     "Generous",
+     "Greedy",
      "Lazy"
     ],
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "An ox-herd's son from Hoàng Ngưu Thôn, twenty-five years in the outer gate and happy there, who carries sacks for Cốc Thu Thành (coc_thu_thanh) and has noticed the sack that goes missing.",
+   "backstory": "An ox-herd's son from Hoàng Ngưu Thôn, twenty-five years in the outer gate, who carries sacks for Cốc Thu Thành (coc_thu_thanh) and has noticed the sack that goes missing; he takes a share in rice each month, and naps on the sacks, so Lương Đạo Tuệ's (luong_dao_tue) cart goes unloaded.",
    "ties": [
     {
      "to": "coc_thu_thanh",
@@ -803,6 +827,7 @@
    "home": 6,
    "birthplace": 736,
    "role": "Outer disciple of the Wutong Court, ridge-born",
+   "appearance": "Taps his knuckles on whatever is nearest.",
    "tier": "C",
    "root": {
     "elements": {
@@ -820,7 +845,7 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "A buckwheat boy from the ridge who got in on Wood 32 and wants a Metal art the palace will never teach him; he listens hard when Nhậm Cương Thủ (nham_cuong_thu) talks about the Tower.",
+   "backstory": "A buckwheat boy from the ridge who got in on Wood 32 and wants a Metal art the palace will never teach him; he listens hard when Nhậm Cương Thủ (nham_cuong_thu) talks about the Tower, and repeats it to Chử Trì Âm (chu_tri_am), which cost Nhậm his night captaincy.",
    "ties": [
     {
      "to": "nham_cuong_thu",
@@ -869,6 +894,7 @@
    "home": 449,
    "birthplace": 44,
    "role": "Outer disciple from Ngũ Thải Thành",
+   "appearance": "A magistrate's daughter's lacquered nails, chipped only on the thumb.",
    "tier": "C",
    "root": {
     "elements": {
@@ -887,7 +913,7 @@
     "calling": "Schemer",
     "upbringing": "mortal_noble"
    },
-   "backstory": "A harbour magistrate's daughter from the old Xích Thành city of Ngũ Thải, who joined for the palace's name and knows her Fire will never carry her inward.",
+   "backstory": "A harbour magistrate's daughter from the old Xích Thành city of Ngũ Thải, who joined for the palace's name and knows her Fire will never carry her inward. She won Quách Tiểu Đào's (quach_tieu_dao) first month's allowance with loaded dice, and Lương Diệp Nhi (luong_diep_nhi) made her give half of it back.",
    "ties": [
     {
      "to": "mao_khai_dan",
@@ -936,6 +962,7 @@
    "home": 449,
    "birthplace": 93,
    "role": "Cook of the Fire Court's kitchens (servant)",
+   "appearance": "Wears the wooden spoon like a sword.",
    "tier": "C",
    "root": {
     "elements": {
@@ -948,12 +975,12 @@
     "personality": [
      "Gregarious",
      "Indulgent",
-     "Generous"
+     "Greedy"
     ],
     "calling": "Steward",
     "upbringing": "servant_born"
    },
-   "backstory": "A jetty cook's son who feeds the Fire Court and cooks over the Nest's heat, which he calls the best stove south of the Pivot; he gives Vi Tịch Hôi (vi_tich_hoi) her meals at the vent.",
+   "backstory": "A jetty cook's son who feeds the Fire Court and cooks over the Nest's heat, which he calls the best stove south of the Pivot; he gives Vi Tịch Hôi (vi_tich_hoi) her meals at the vent. He keeps a corner of the envoys' meal-silver, and her vent meals have been thin since.",
    "ties": [
     {
      "to": "vi_tich_hoi",
@@ -1007,6 +1034,7 @@
    "home": 6,
    "birthplace": 330,
    "role": "Aviary girl of the Wutong Court",
+   "appearance": "Names every feather quill in her braid, and has buried six of the chicks she named.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1022,7 +1050,13 @@
      "Impatient"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "A bird-catcher's daughter from Bách Vũ Các's jungle, sixteen, who feeds the red-crested chicks for Ổ Linh Tước (o_linh_tuoc) and names every one.",
    "ties": [
@@ -1078,6 +1112,7 @@
    "home": 211,
    "birthplace": 772,
    "role": "Runner of the vein fort (outer gate)",
+   "appearance": "Sits on the ridge stones to breathe between posts, cinnabar crescents under every nail.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1093,9 +1128,15 @@
      "Fickle"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A cinnabar miner's girl from Đan Sa Quật with too little Fire for the inner gate, who carries Mông Chu Tiêu's (mong_chu_tieu) reports down the ridge and knows every Thính Vũ scout's path.",
+   "backstory": "A cinnabar miner's girl from Đan Sa Quật with too little Fire for the inner gate, who carries Mông Chu Tiêu's (mong_chu_tieu) reports down the ridge and knows every Thính Vũ scout's path; she cannot carry a full pack, so she carries the paper.",
    "ties": [
     {
      "to": "mong_chu_tieu",
@@ -1139,6 +1180,7 @@
    "home": 6,
    "birthplace": 6,
    "role": "Old sweeper of the bird courts (servant)",
+   "appearance": "Bent nearly double over a broom, with a leaf forever stuck in his collar.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1205,6 +1247,7 @@
    "home": 449,
    "birthplace": 1025,
    "role": "Outer disciple from the longan village",
+   "appearance": "Pushes her jaw forward like a ram before she argues.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1271,6 +1314,7 @@
    "home": 449,
    "birthplace": 449,
    "role": "Inner disciple, ash-born",
+   "appearance": "A fire-scar fan across the back of his left hand, shown on purpose.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1282,12 +1326,12 @@
     "personality": [
      "Wrathful",
      "Brave",
-     "Vengeful"
+     "Compassionate"
     ],
     "calling": "Duelist",
     "upbringing": "war_orphan"
    },
-   "backstory": "His father died on Đan Sơn Mạch in 1156, the year he was born; pure Fire and angry, at forty-four he wants to go to the vein fort and will not be sent until he passes Trúc Cơ.",
+   "backstory": "His father died on Đan Sơn Mạch in 1156, the year he was born; pure Fire and angry, at forty-four he wants to go to the vein fort and will not be sent until he passes Trúc Cơ. He tells the new outer boys the story of his scar to harden them, and tends their burns himself afterwards.",
    "ties": [
     {
      "to": "dang_phi_diem",
@@ -1341,6 +1385,7 @@
    "home": 253,
    "birthplace": 449,
    "role": "Errand boy of the Nest",
+   "appearance": "New boots a size too good for a charcoal carrier.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1352,13 +1397,13 @@
    "traits": {
     "personality": [
      "Cautious",
-     "Humble",
+     "Greedy",
      "Diligent"
     ],
     "calling": "Steward",
     "upbringing": "servant_born"
    },
-   "backstory": "Carries charcoal and water up to the Ash Seat for Vi Tịch Hôi (vi_tich_hoi), and has seen the array keeper at the vent's mouth at night with a reel.",
+   "backstory": "Carries charcoal and water up to the Ash Seat for Vi Tịch Hôi (vi_tich_hoi), and has seen the array keeper Tang Kế Ti (tang_ke_ti) at the vent's mouth at night with a reel. He asked her for a second pay-bag before he would forget, and his uncle Sài Tẫn Nhiên (sai_tan_nhien) has noticed the money.",
    "ties": [
     {
      "to": "vi_tich_hoi",
@@ -1412,6 +1457,7 @@
    "home": 6,
    "birthplace": 331,
    "role": "Flute-cutter of the Hall of Rites",
+   "appearance": "Cuts flutes for the whole Hall and has never been heard to play one.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1424,12 +1470,12 @@
     "personality": [
      "Reclusive",
      "Patient",
-     "Content"
+     "Lazy"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "hermit_taught"
    },
-   "backstory": "Cuts the bamboo for the Hall of Rites' flutes in Tử Trúc Lâm and carries ashes up Quy Vũ Lĩnh behind Thương Tẫn Quy (thuong_tan_quy).",
+   "backstory": "Cuts the bamboo for the Hall of Rites' flutes in Tử Trúc Lâm and carries ashes up Quy Vũ Lĩnh behind Thương Tẫn Quy (thuong_tan_quy). She cut the autumn flutes a season late, and Bạc Địch Thanh (bac_dich_thanh) played a cracked one at the festival.",
    "ties": [
     {
      "to": "thuong_tan_quy",
@@ -1478,6 +1524,7 @@
    "home": 449,
    "birthplace": 84,
    "role": "Letter runner of the Hall of Trust (outer gate)",
+   "appearance": "Sleeps on his feet, leaning on a lantern pole.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1490,12 +1537,12 @@
     "personality": [
      "Gregarious",
      "Honest",
-     "Impatient"
+     "Lazy"
     ],
     "calling": "Wanderer",
     "upbringing": "merchant_child"
    },
-   "backstory": "A lantern-maker's son from Thanh Khê Thành, whose lanterns burned all year for the wounded of 1157 (A247); he runs letters for Thư Ngạn Hành (thu_ngan_hanh).",
+   "backstory": "A lantern-maker's son from Thanh Khê Thành, whose lanterns burned all year for the wounded of 1157 (A247); he runs letters for Thư Ngạn Hành (thu_ngan_hanh). He lets the letters ride in his pouch until it is full; Thư's letter to the Pivot sat there nineteen days, and the Pivot answered the wrong offer.",
    "ties": [
     {
      "to": "thu_ngan_hanh",
@@ -1539,6 +1586,7 @@
    "home": 93,
    "birthplace": 163,
    "role": "Net crew of the palace fleet",
+   "appearance": "One ear swollen shut by sea water, a long time ago.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1600,6 +1648,7 @@
    "home": 449,
    "birthplace": 162,
    "role": "New outer disciple",
+   "appearance": "Giggles whenever something simmers.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1615,9 +1664,15 @@
      "Trusting"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Tang Âm mulberry girl who wants to brew pills for Kế Chu Sa (ke_chu_sa) and has already burned the outer court's kitchen trying.",
+   "backstory": "A Tang Âm mulberry girl who wants to brew pills for Kế Chu Sa (ke_chu_sa) and has already burned the outer court's kitchen trying. She cannot sit still while a pot boils.",
    "ties": [
     {
      "to": "mao_khai_dan",

@@ -249,7 +249,10 @@
       "tier": 3
      }
     ],
-    "path": ["long_seclusion", "array_bound"],
+    "path": [
+     "long_seclusion",
+     "array_bound"
+    ],
     "lifestyle": null,
     "health": null,
     "coping": "buried_in_seclusion",
@@ -1023,12 +1026,12 @@
    },
    "traits": {
     "personality": [
-     "Generous",
+     "Greedy",
      "Pragmatic",
      "Gregarious"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [
      {
       "id": "lucky",
@@ -1043,7 +1046,9 @@
     "gained": []
    },
    "appearance": "Sun-browned, the only elder who smiles in public, with sand always in the folds of her white robe.",
-   "backstory": "Born at the oasis fish ponds of Ngư Đàm Thôn (A115), Ôn Sa Ngọc is proof that the desert can grow ice: she passed the Frost Test on her third try. She runs the old seat as the Pavilion's door to the desert and the caravan road, keeps peace with Dạ Quang's escorts, and sends the Frost Test the oasis children nobody else would look for, among them Hồ Tiểu Đàm (ho_tieu_dam). The ice-born elders call her post an exile, and she has come to love it. She pays Dạ Quang's escorts by loads delivered, and while night-glow cups keep turning up at the caravan stops she will not send the hostage home.",
+   "backstory": "Born to a fish-pond trader at the oasis of Ngư Đàm Thôn (A115), Ôn Sa Ngọc is proof that the desert can grow ice: she passed the Frost Test on her third try. She runs the old seat as the Pavilion's door to the desert and the caravan road, keeps peace with Dạ Quang's escorts, and sends the Frost Test the oasis children nobody else would look for, among them Hồ Tiểu Đàm (ho_tieu_dam). The ice-born elders call her post an exile, and she has come to love it. She pays Dạ Quang's escorts by loads delivered, and while night-glow cups keep turning up at the caravan stops she will not send the hostage home.",
+   "wants": "To keep the Desert Pavilion alive as the Pavilion's door to the desert, and to be buried in the sand, not the glacier.",
+   "secret": "She is skimming a tenth of the caravan toll into sealed jars under her cellar floor, against the day the seat calls the old hall home. Phí Thanh Sa (phi_thanh_sa) keeps the books and has begun counting the jars.",
    "ties": [
     {
      "to": "ho_tieu_dam",
@@ -1229,6 +1234,8 @@
    },
    "appearance": "A quiet man whose left arm twitches when storms come; the scar of a lightning lash runs from his shoulder to his wrist.",
    "backstory": "From Kê Minh Trấn, where the cock crows in winter dark (A129), Kha Tĩnh Ba has watched the Ice Soul vein for sixty years. The vein's qi is two-thirds thunder, poison to Ice, and it lashed him in his first year; he stayed. He knows that ice beasts gather when the vein runs hot, and that it ran hot the winter Thủ Tuyết Bảo fell (V068). He reports to Thẩm Hàn Giang (tham_han_giang), whom he admires, and to Lam Tuyết Điêu (lam_tuyet_dieu), whom he loves.",
+   "wants": "To make the seat believe the vein is warming without being asked what he did to it.",
+   "secret": "Each night he opens a vent-sluice on Băng Phách Mạch by a hand's width to bleed the heat, which the Array Hall forbids. Quan Lăng Ba (quan_lang_ba) logs the drop and has told no one.",
    "ties": [
     {
      "to": "lam_tuyet_dieu",
@@ -1365,6 +1372,8 @@
    },
    "appearance": "Wiry and wind-burned, a white sable usually draped across her shoulders, smelling of hide and snow.",
    "backstory": "Raised by wolf-hunters on Tuyết Lang Nguyên, Lam Tuyết Điêu came to the Pavilion with a sable kit inside her coat and a tundra wolf at her heel. She keeps the Beast Hall at Hàn Giao Chử, where the sect's ice beasts are bred and its mounts trained, and she is the first to know when the beasts grow restless. Lately they have been restless. Her Dao partner Kha Tĩnh Ba (kha_tinh_ba) says the vein is warming.",
+   "wants": "To breed a white sable pair that will not flee the vein's heat.",
+   "secret": "She has been feeding the oldest wolf from her own plate and telling the hall it died in spring; it sleeps in the lamp-room under Diêu Hàn Đàm's (dieu_han_dam) bed, and the two women have not spoken of it.",
    "ties": [
     {
      "to": "kha_tinh_ba",
@@ -1487,6 +1496,8 @@
    },
    "appearance": "Neat, soft-spoken, ink on his cuff; he bows exactly as deep as each listener's rank and never deeper.",
    "backstory": "A Hồi Lan Thành merchant's son, Ngụy Thanh Hàn wrote the Pavilion's 1188 petition for Tinh Tủy Mạch (C195) and watched Doãn Ngọc Hành (doan_ngoc_hanh) refuse it in front of the seven sects. He has never forgiven himself, and since then he has collected records of the vein's boundary stones, an old surveyor's map and the Pivot's own land rolls. He means to bring a second claim the Pivot cannot refuse.",
+   "wants": "A second claim to Tinh Tủy Mạch that the Pivot cannot refuse.",
+   "secret": "He is paying a Pivot land clerk in Pavilion silver to copy the rolls, and his aide Vương Thanh Lẫm (vuong_thanh_lam) has begun selling copies of the copies to the treasurer Quách Lẫm (quach_lam). Over wine he also lets the Hall of Trust's courier Thư Ngạn Hành (thu_ngan_hanh) read him each letter before it is delivered, paying in northern pepper, and files whatever names Cô Thành for the day the Pivot needs a lever.",
    "ties": [
     {
      "to": "doan_ngoc_hanh",
@@ -2177,7 +2188,7 @@
    },
    "traits": {
     "personality": [
-     "Diligent",
+     "Cruel",
      "Wrathful",
      "Loyal"
     ],
@@ -2200,6 +2211,8 @@
    },
    "appearance": "Sharp-featured, a guard captain's daughter's bearing, red ink on her fingers from copying her master's manual.",
    "backstory": "The daughter of Trường Vân Thành's caravan magistrate, Hạ Lăng Hàn came to the Pavilion with a temper and left it at the gate of the Plum Sword Hall. Phó Ám Hương (pho_am_huong) chose her because she was the only disciple who had ever asked about Cô Thành. She means to bring the red plum home for him, by duel if she has to.",
+   "wants": "To bring the red plum home to Phó Ám Hương by duel, before Tưởng Hàn Phong's side can challenge her.",
+   "secret": "She is breaking Bùi Hàn's (bui_han) sword wrist a little each practice bout, out of sight, so that he cannot call her out before she rides for Cô Thành. Phó Ám Hương (pho_am_huong) has not looked at the boy's hand.",
    "ties": [
     {
      "to": "pho_am_huong",
@@ -2332,6 +2345,8 @@
    },
    "appearance": "A desert man with a sabre scar and a ready laugh, the only warm-coloured robe in the Vessel Hall.",
    "backstory": "Hạng Dạ Bôi's (hang_da_boi) son was sent to the Pavilion at twenty-one as surety for his father's knee (C185, N-bang_tam-05). He has been taught nothing and has watched everything for 79 years. He drinks with the frost-coast disciples, plays go with Ôn Sa Ngọc (on_sa_ngoc), and loves Cung Mặc Sương (cung_mac_suong) in secret. He is Dạ Quang's heir, and his father is old.",
+   "wants": "To go home to Dạ Quang before his father dies, with Cung Mặc Sương beside him.",
+   "secret": "After the lamps are out he spars with Liễu Ngư Ca (lieu_ngu_ca) in the Vessel Hall's back yard to learn the sword forms hostages may not be taught.",
    "exception": "R2: hostage, held outside the lineage (Dạ Quang member living at the Băng Tâm seat)",
    "ties": [
     {
@@ -2456,6 +2471,8 @@
    },
    "appearance": "Round-faced and kind, with frostbitten earlobes from a hundred solstice nights on the lake.",
    "backstory": "Đỗ Sương Nhi failed the Frost Test twice before Ice answered her on the third night. A rushed foundation left a crack she will carry to the end of her life, and she has given that life to the outer gate. She sits the solstice night on the mere at Hàn Giao Chử beside every candidate and remembers every one who walked back. Hồ Tiểu Đàm (ho_tieu_dam) is her current worry.",
+   "wants": "To get Trương Lãnh Hà (truong_lanh_ha) through the inner gate before she is too old to argue for him.",
+   "secret": "Each solstice she pays Trác Ôn Tuyền (trac_on_tuyen) to keep a kettle warm behind the reeds for sitters who wet themselves, and signs the bill as repairs.",
    "ties": [
     {
      "to": "ho_tieu_dam",
@@ -2604,6 +2621,8 @@
    },
    "appearance": "Brown and freckled from the oasis sun, the warmest-looking face on the lake, wrapped in three borrowed furs.",
    "backstory": "From the fish ponds of Ngư Đàm Thôn, brought to the Desert Pavilion by Ôn Sa Ngọc (on_sa_ngoc), Hồ Tiểu Đàm has sat on the frozen mere at Hàn Giao Chử two solstice nights and felt nothing but cold. One more failure and she will be offered the Desert Pavilion or the road. Đỗ Sương Nhi (do_suong_nhi) thinks she will pass. Hồ grows a little oasis reed in a pot by her bed and talks to it.",
+   "wants": "To pass the third Frost Test before the Desert Pavilion is offered to her.",
+   "secret": "She is teaching her pot reed to grow in ice water, and is afraid the reed blooms only when she sits close, so that it is the reed and not she that answers.",
    "ties": [
     {
      "to": "on_sa_ngoc",
@@ -2744,6 +2763,7 @@
      "Renowned"
     ]
    },
+   "appearance": "Remembered as a slight scholar in southern grey, a jade vessel hung at her waist and ink on her wrist.",
    "backstory": "Tần Ngưng Sương came out of a scholar's family in the warm south carrying one line of poetry, a piece of ice in a jade vessel, and a method she had written to keep a heart that clear. She crossed the desert in 440 and founded the Pavilion at its edge, facing ice she could not yet take (C007), and made the desert well run cold (A114). In 470 she claimed the empty ice of Ngọc Hồ Sơn (C095), moved the sect onto the ruin of Hồ Thiên Phái (N-bang_tam-01) and laid the Jade Vessel Array over the vent that had buried it (N-bang_tam-02). She won the Frost Coast (C099) and lost the Desert Road (C143), and she ruled 570 years. At the end she gave the hall to Sở Ngọc Hồ (so_ngoc_ho) and the watch to Cố Lăng Sương (co_lang_suong), told neither, and had herself laid inside the Array, which some say she still keeps.",
    "ties": [
     {
@@ -2799,6 +2819,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Remembered as a lean man in plum-red sleeves with a sword scar through his left eyebrow.",
    "backstory": "The best sword of Lãnh Hương Các, the small plum-blossom sect at the edge of the desert, Phó Thanh Mai rode out with all his brothers to break Phượng Minh's siege of Cô Thành in 724 (V071) and did not come back. He sewed the Snow Plum manual into his son's cape the night before, as if he knew. His son Phó Ám Hương (pho_am_huong) still has the cape.",
    "ties": [
     {

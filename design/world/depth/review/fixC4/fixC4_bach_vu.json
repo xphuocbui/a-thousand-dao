@@ -1,0 +1,20 @@
+{
+"ta_thanh_thuoc": {"wants":"The hundredth feather for her fan, and her son home to see the socket filled.",
+ "secret":"In the dark of each moon she sells her duplicate feathers by kind to the fan-maker Hàng Thải Vũ, to pay a stone-cutter for a marker for Ổ Tùng Lâm, whom the apes never gave back."},
+"giai_van_tieu": {"pers":["Gregarious","Deceitful","Brave"],"wants":"A post-house of his own in Hà Loan with a roof of birds, and every seal on the road one he can read.",
+ "secret":"He opens the second-sealed letters, copies the seal into a wax tablet, and closes them again with a spoon-heated knife; Chử Trì Âm has not yet noticed the replies arriving a day late.",
+ "add":"Since the head told him to forget it, he has begun to open and reseal them."},
+"hang_thai_vu": {"pers":["Diligent","Arrogant","Arbitrary"],"add":"She returns a whole bundle for one crooked rib and passes the next unseen.","app":"Rows of old burn blisters along both forearms, one per inner-gate season."},
+"tran_da_minh": {"pers":["Content","Humble","Lazy"],"add":"He sleeps in the shade while his lime-sticks dry.","app":"Lime-stick stain on every fingertip."},
+"nhieu_tieu_yen": {"app":"Grub-juice stains on her sleeves and a whistle's red dent in her lower lip."},
+"que_hoang_oanh": {"pers":["Gregarious","Fickle","Callous"],"add":"When the stall's post bird died in her hand she sang on, and fetched another the next day.","app":"A cinnamon-picker's cracked brown palms and a voice louder than her body."},
+"phong_tieu_cuu": {"pers":["Diligent","Faithless","Cautious"],"add":"He reads over his master's shoulder and sells the gist of the letters at the Hà Loan well.","app":"A rider's squint and a left ear sunburnt permanently pink."},
+"hoan_truc_lung": {"app":"Split-cane cuts across every finger and a raft-village sway on dry land."},
+"phu_vu_to": {"up":"hermit_taught","app":"An ink-stained thumb from marking the feather rolls."},
+"lam_the_ngo": {"up":"servant_born","app":"Hands steady as a perch, and one eye clouded white."},
+"kieu_thuy_nhi": {"up":"wild_raised","app":"Fine peck-scars on her hands, and birds that sit on her head unasked."},
+"ma_tin_phi": {"pers":["Diligent","Greedy","Gregarious"],"up":"merchant_child","add":"He has learned to look away from the second seal for the price of a meal.","app":"A paunch he blames on the road, and a horn he blows at no one."},
+"ky_hong_phien": {"up":"servant_born","talent_add":[{"id":"unlucky","tier":1}],"add":"Every fan she binds scorches.","app":"Singed fingertips and a grey streak where a spark took her fringe."},
+"o_tieu_sao": {"talent_add":[{"id":"slow_witted","tier":1}],"app":"Grub-meal flecks on his sleeves and a boy's too-wide grin."},
+"khau_tinh_minh": {"up":"scholar_family","app":"Ink to the second knuckle and a notebook cord around her neck."}
+}

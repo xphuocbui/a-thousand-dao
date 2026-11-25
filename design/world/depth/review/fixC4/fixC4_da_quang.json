@@ -1,0 +1,20 @@
+{
+"hang_luu_hoa": {"wants":"To ride at the head of the road before her mother is finished with it, and once to see her half-brother and learn whether the hostage is soft.",
+ "secret":"She skims a tenth of every toll her mother's band takes into a jar buried behind the cup tent, to buy riders who will follow her and not Đồ Xích Linh."},
+"o_liet_phong": {"up":"merchant_child","sub":[["He rode in the raids as a young man","A camel-bell trader's son of Đà Linh Trấn, he rode in the raids as a young man"]],
+ "wants":"A road where any small trader can join his train without fear, and enough saved to retire to Đà Linh Trấn with a ledger-house of his own.",
+ "secret":"He has begun posting false legs on the Đà Linh board, routes his escort never rides, to see whether wrapped riders come for them; the day they do, he will know whose band it is, and Đồ Xích Linh reads that board."},
+"cuu_lac_nhat": {"up":"servant_born","sub":[["A sheep-shed boy","A hired herd-boy"]],"app":"Black stains in the knuckles of his sabre hand that he has stopped scrubbing."},
+"o_sa_nhi": {"talent_add":[{"id":"unlucky","tier":1}],"add":"Three horses have thrown her in a year; the riders call it her luck.","app":"A saddle-sore limp she hides by riding faster."},
+"man_xich_cau": {"up":"street_orphan","sub":[["He lost his first","An alley orphan of Đà Linh Trấn, he lost his first"]],"app":"A chipped front tooth and a laugh that starts before the joke."},
+"hung_da_linh": {"pers":["Honest","Lazy","Peaceable"],"up":"merchant_child","add":"A camel that knows the road carries him, and he sleeps through half of each leg.","app":"The weave of a saddle blanket pressed into one cheek."},
+"tat_da_lang": {"app":"A neat wedge of beard he trims with a knife he swears was his father's."},
+"liem_hoa_nhi": {"app":"Hair singed short on one side where a cup-lamp caught it."},
+"thoi_kim_doi": {"pers":["Ambitious","Paranoid","Faithless"],"sub":[["she left in 1197 when","she left in 1197 with her father's guard rota copied into her sleeve, when"]],"app":"A guard's blue sash cut down to a wristband she never takes off."},
+"trac_hong_da": {"app":"A horse-kick dent in his shin and one ear half lost to frost."},
+"co_xich_nguyet": {"app":"A cup-shaped scar between thumb and finger where her grandfather's jade cup split."},
+"na_lac_linh": {"app":"A voice cracked by shouting over camel bells, and a bell tied into her braid."},
+"dan_muc_lang": {"talent_add":[{"id":"homely","tier":1}],"app":"Mare hair on every sleeve, and a face only the grey mare praises."},
+"kieu_liet_ca": {"pers":["Callous","Warlike","Loyal"],"add":"When a driver stumbles on the rope he cuts him loose and lets the others step over him.","app":"Black veins climbing the back of the hand that holds the rope."},
+"dieu_luu_ly": {"pers":["Greedy","Diligent","Pragmatic"],"add":"She charges the poorer riders double for a cup that cracks, and calls it the heat.","app":"Burn-pitted forearms and glass beads she counts when no one watches."}
+}

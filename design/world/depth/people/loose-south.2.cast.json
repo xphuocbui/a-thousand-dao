@@ -30,7 +30,7 @@
     "personality": [
      "Vengeful",
      "Brave",
-     "Deceitful"
+     "Honest"
     ],
     "calling": "Merchant",
     "upbringing": "war_orphan",
@@ -38,6 +38,7 @@
      "Grudge"
     ]
    },
+   "appearance": "Answers to Nail: the scar on his thumb is shaped like one, shown to anyone who asks about the river.",
    "backstory": "A gold-washer's orphan of Đào Sa who fished nails from the river beside Lữ Tẫn Chu (lu_tan_chu) in 1173 (A080); he brings Tang Ma hemp down to the water by night for the Đào Sa smuggler Đinh Vạn Tác (dinh_van_tac), who carries it to Lãng Đào's rope master Sài Kết Lãm.",
    "ties": [
     {
@@ -114,15 +115,16 @@
    },
    "traits": {
     "personality": [
-     "Diligent",
-     "Humble",
+     "Lazy",
+     "Generous",
      "Forgiving"
     ],
     "calling": "Refiner",
     "upbringing": "village_born",
     "lifestyle": "gardener"
    },
-   "backstory": "Wove the new Ngư Ca bridge in a month after Tùng Đào cut the old ones (A202) and hung Lô Tiểu Ca's (lo_tieu_ca) stern lamp from it; she sells rope to Lạc Hà's Dịch Bách Lý (dich_bach_ly) and to the smuggler, and knows where both go.",
+   "appearance": "Rope-weaver's forearms. Two fingertips worn smooth as pebbles; she signs with a knot.",
+   "backstory": "Wove the new Ngư Ca bridge in a month after Tùng Đào cut the old ones (A202) and hung Lô Tiểu Ca's (lo_tieu_ca) stern lamp from it; she has not tested a knot since, and a carter's boy went through its planking last spring. She sells rope to Lạc Hà's Dịch Bách Lý (dich_bach_ly) and to the smuggler at one price.",
    "ties": [
     {
      "to": "lo_tieu_ca",
@@ -192,12 +194,13 @@
     "personality": [
      "Gregarious",
      "Ambitious",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A descendant of the last ferry family of silted Dã Độ Trấn (V094); Yến Hồi Độ (yen_hoi_do) took him on at twelve, and he hopes to be placed with Bình Thủy one day.",
+   "appearance": "Beard of eleven hairs, combed with his fingers; a nose that peels all year.",
+   "backstory": "A descendant of the last ferry family of silted Dã Độ Trấn (V094); Yến Hồi Độ (yen_hoi_do) took him on at twelve, and he hopes to be placed with Bình Thủy one day, so he tells the captains that Yến drinks on duty, which has cost the free ferry two of its three regular crossings.",
    "ties": [
     {
      "to": "yen_hoi_do",
@@ -263,6 +266,7 @@
      "Grieving"
     ]
    },
+   "appearance": "Smells of tarred twine. Her left thumb has a groove you could lay a reed in.",
    "backstory": "Learned to mend from Hình Lạc Nhạn's mother; since her son walked into the miasma in 1196 (A188) she breaks the village's silence about the plain and walks bread to the Watch every season, and her daughter Đồ Tiểu Liên (do_tieu_lien) joined Lạc Hà to go after him.",
    "ties": [
     {
@@ -330,16 +334,17 @@
    "traits": {
     "personality": [
      "Cautious",
-     "Diligent",
-     "Greedy"
+     "Lazy",
+     "Generous"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born",
+    "upbringing": "wild_raised",
     "path": [
      "poison_proof"
     ]
    },
-   "backstory": "Niece of the Watch's scout Hàm Tú Sa (ham_tu_sa), she would not join the sect; Khâu Bạch Thủ (khau_bach_thu) taught her the edge instead, and she sells the grey moss to Yên Quang's carrier Khổng Ích Mẫu (khong_ich_mau) for the evening-herb tincture.",
+   "appearance": "Grey-green to the wrists. A white band on one arm where a bracelet sat; she never says whose.",
+   "backstory": "Niece of the Watch's scout Hàm Tú Sa (ham_tu_sa), she would not join the sect; Khâu Bạch Thủ (khau_bach_thu) taught her the edge instead, and she sells the grey moss to Yên Quang's carrier Khổng Ích Mẫu (khong_ich_mau) for the evening-herb tincture. She sleeps through her turn at the edge, so that her aunt Hàm Tú Sa walks it for her.",
    "ties": [
     {
      "to": "khau_bach_thu",
@@ -409,14 +414,21 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Impatient",
-     "Greedy"
+     "Compassionate",
+     "Generous"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
-    "lifestyle": "gambler"
+    "upbringing": "street_orphan",
+    "lifestyle": "gambler",
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Digs the ruin that burned in 618 and believes the ghost lights seen each spring when the peaches bloom (A187) mark where the dead elders' rings fell; he undersells Khâu Bạch Thủ (khau_bach_thu) at Vật Hoa Thị.",
+   "appearance": "Ash in his hair. Market children cross the road rather than look at the lopsided face under it; his right foot drags.",
+   "backstory": "Digs the ruin that burned in 618 and believes the ghost lights seen each spring when the peaches bloom (A187) mark where the dead elders' rings fell; he sells at Khâu Bạch Thủ's (khau_bach_thu) price at Vật Hoa Thị, and the limp is from the wall that came down on him while he dug a hired boy out from under it.",
    "ties": [
     {
      "to": "khau_bach_thu",
@@ -478,12 +490,19 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Trusting",
+     "Loyal",
      "Diligent"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan",
+    "talent": [
+     {
+      "id": "thin_soul",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Startles at a dropped cup. Pats the pockets of a coat he does not own.",
    "backstory": "Failed the Bell Test on a Metal of twenty-six beside Thiều Mộ Canh (thieu_mo_canh) and went to the market instead of the terraces; he carries buyers' parcels to the ferry inn in the rain for Lục Nhĩ Thính (luc_nhi_thinh), and tells her what they said.",
    "ties": [
     {
@@ -545,7 +564,7 @@
    },
    "traits": {
     "personality": [
-     "Calm",
+     "Cruel",
      "Greedy",
      "Reclusive"
     ],
@@ -555,7 +574,8 @@
      "poison_proof"
     ]
    },
-   "backstory": "Catches poison toads in the wood where Ô Thiềm Tử (o_thiem_tu) was raised and sells him the venom; his apprentice Mai Độc Ca (mai_doc_ca) comes for it and stays too long.",
+   "appearance": "A green sheen at the wrists. She keeps a wall at her left side, moving so nobody can stand there.",
+   "backstory": "Catches poison toads in the wood where Ô Thiềm Tử (o_thiem_tu) was raised and sells him the venom; his apprentice Mai Độc Ca (mai_doc_ca) comes for it and stays too long; she tests each batch on a village tramp she pays in rice, and three of them have not come back.",
    "ties": [
     {
      "to": "o_thiem_tu",
@@ -620,13 +640,20 @@
     "personality": [
      "Arrogant",
      "Brave",
-     "Fickle"
+     "Lazy"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
-    "lifestyle": "duel_seeker"
+    "upbringing": "sect_raised",
+    "lifestyle": "duel_seeker",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Ten years on Phất Y's dry-road primer never lifted his Metal to the inner gate, so he sold his sword south for better pay; Lộc Bất Quy (loc_bat_quy) teaches him the steps the valley would not.",
+   "appearance": "A good sword in a bad sheath. Says the scorch on his collar came from a duel; drifts toward the door whenever anyone sits down.",
+   "backstory": "Ten years on Phất Y's dry-road primer never lifted his Metal to the inner gate, so he sold his sword south for better pay; Lộc Bất Quy (loc_bat_quy) teaches him the steps the valley would not, and he cannot sit through a whole lesson, so the practice is never done and the stable boy sweeps the yard he scuffs and takes the rebuke.",
    "ties": [
     {
      "to": "loc_bat_quy",
@@ -681,7 +708,7 @@
    "rank": "",
    "home": 880,
    "birthplace": 880,
-   "role": "Ridge hunter of Ô Diêu who would sell his niece to the Tower",
+   "role": "Ridge hunter of Ô Diêu who sold his niece's hair and the pottery's map to the Tower, then wept at her false grave",
    "tier": "C",
    "root": {
     "elements": {
@@ -695,13 +722,14 @@
     "personality": [
      "Greedy",
      "Indulgent",
-     "Wrathful"
+     "Cruel"
     ],
     "calling": "Beast tamer",
     "upbringing": "village_born",
     "lifestyle": "drinker"
    },
-   "backstory": "Bành Liệp Hổ's (banh_liep_ho) younger brother, who drinks the stipend he hasn't got yet: the Thunder Hall pays well for a Thunder child, and Sầm Vãn Nương (sam_van_nuong) will not hear of it.",
+   "appearance": "Rice-wine breath at any hour. A thick red neck the dogs keep away from.",
+   "backstory": "Bành Liệp Hổ's (banh_liep_ho) younger brother, who drinks the stipend he hasn't got yet. The autumn before Sầm Vãn Nương (sam_van_nuong) buried an empty grave he sold the Thunder Hall a lock of the girl's hair and a map of the pottery; he sent condolence silver and wept at the stone. He kicked his dead brother's hound to death, and strikes the potter's boy when the wine comes short.",
    "ties": [
     {
      "to": "banh_liep_ho",
@@ -773,15 +801,16 @@
     "personality": [
      "Faithless",
      "Brave",
-     "Pragmatic"
+     "Arbitrary"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "wild_raised",
     "gained": [
      "Disgraced"
     ]
    },
-   "backstory": "Took a caravan's silver in 1188 to lead it onto Đồ Liệt Cơ's (do_liet_co) road and could not go home; Phí Thoa Y (phi_thoa_y) struck his name from the road books.",
+   "appearance": "A road-book brand on the left wrist, scratched through with a nail.",
+   "backstory": "Took a caravan master's silver in 1188 to lead him home and led him onto Đồ Liệt Cơ's (do_liet_co) road instead, where the master lost three wagons and a hand; he now charges the caravans whatever his temper says and once seized a Lai Nghi carter's whole load for greeting him late. Phí Thoa Y (phi_thoa_y) struck his name from the road books.",
    "ties": [
     {
      "to": "do_liet_co",
@@ -847,12 +876,13 @@
     "personality": [
      "Wrathful",
      "Loyal",
-     "Content"
+     "Diligent"
     ],
     "calling": "Refiner",
     "upbringing": "servant_born"
    },
-   "backstory": "Born at the Sa Kim mine, he broke a mine guard's jaw in 1196 and walked to the only door on the ridge that would open, Đồ Liệt Cơ's (do_liet_co).",
+   "appearance": "Hair stands on end in dry weather. The mine's grey is still in the creases of his hands.",
+   "backstory": "Born at the Sa Kim mine, he broke a mine guard's jaw in 1196 and walked to the only door on the ridge that would open, Đồ Liệt Cơ's (do_liet_co), where he hauls the camp's water and hay and will not touch a pick.",
    "ties": [
     {
      "to": "do_liet_co",
@@ -912,13 +942,14 @@
     "personality": [
      "Greedy",
      "Patient",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child",
     "lifestyle": "collector"
    },
-   "backstory": "An apricot-market clerk's daughter who keeps the camp's books and sells its loot to Kiều Mãn Lâu's (kieu_man_lau) buyers through Hạnh Hoa Thị, taking one stone in eleven.",
+   "appearance": "Spectacles on a string. The riders call her the Eleventh; nobody argues the count.",
+   "backstory": "An apricot-market clerk's daughter who keeps the camp's books and sells its loot to Kiều Mãn Lâu's (kieu_man_lau) buyers through Hạnh Hoa Thị, taking one stone in eleven; she keeps two sets of books, the real one in her sleeve, and docked the false one against Lỗ Tam Chùy (lo_tam_chuy) a month's pay for an ore load she had sold herself.",
    "ties": [
     {
      "to": "do_liet_co",
@@ -985,7 +1016,8 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Taken with his caravan in 1191, he found the camp paid better than the plain's merchants and stayed; his mother in Thâm Tỉnh Thôn thinks he is dead, and Đồ Liệt Cơ (do_liet_co) spared him on a whim.",
+   "appearance": "A pale band on one finger. Sits where he can see both doors.",
+   "backstory": "Taken with his caravan in 1191, he found the camp paid better than the plain's merchants and stayed; his mother in Thâm Tỉnh Thôn thinks he is dead and he has sent her neither word nor a coin in nine years, and Đồ Liệt Cơ (do_liet_co) spared him on a whim.",
    "ties": [
     {
      "to": "do_liet_co",
@@ -1052,6 +1084,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
+   "appearance": "Lips blue even in summer. A voice too loud for the room, because her ears ring.",
    "backstory": "An Âu Lộ girl whose forebears swore never to dive again after Châu Lệ burned (A259); Trạm Châu Nhi (tram_chau_nhi) taught her anyway, and she dives for Biện Ám Phàm (bien_am_pham).",
    "ties": [
     {
@@ -1119,11 +1152,18 @@
      "Fickle"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "gained": [
      "Humbled"
+    ],
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
     ]
    },
+   "appearance": "Pepper-stained fingers. A shelf, ladder or stool breaks under her about once a month.",
    "backstory": "A pepper-village girl who entered the palace's outer gate on her Wood and failed the Feather Kindling three times, as her friend Phục Lâm Sinh (phuc_lam_sinh) has; she left in 1198 and gathers herbs with Liên Quế Chi.",
    "ties": [
     {
@@ -1186,14 +1226,15 @@
    "traits": {
     "personality": [
      "Patient",
-     "Deceitful",
+     "Honest",
      "Content"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "lifestyle": "collector"
    },
-   "backstory": "A quarryman's grandson of Thạch Tượng who sold the ruin's red stone for Thạch Cơ's jetty (A312) and sold Hùng Phần Vũ (hung_phan_vu) a wall-stone carved with a line of fire canon, which Hùng bought to keep a story true.",
+   "appearance": "One cloudy eye; red dust ground into the creases of his knuckles.",
+   "backstory": "A quarryman's grandson of Thạch Tượng who sold the ruin's red stone for Thạch Cơ's jetty (A312) and told Hùng Phần Vũ (hung_phan_vu) plainly that the wall-stone carved with a line of fire canon was worth nothing, which Hùng bought anyway to keep a story true.",
    "ties": [
     {
      "to": "hung_phan_vu",
@@ -1254,9 +1295,10 @@
      "Stubborn"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born",
+    "upbringing": "wild_raised",
     "lifestyle": "gardener"
    },
+   "appearance": "Smells of cinnamon. Whistles through the gap in her teeth.",
    "backstory": "Cuts spirit cinnamon in the jungle behind the spice port that replaced burned Hương Phàm (V169) and sells it to Hà Thanh Tô's (ha_thanh_to) road healers.",
    "ties": [
     {
@@ -1322,12 +1364,13 @@
     "personality": [
      "Brave",
      "Gregarious",
-     "Impatient"
+     "Arbitrary"
     ],
     "calling": "Herbalist",
     "upbringing": "wild_raised"
    },
-   "backstory": "Climbs the canopy above Thanh Đằng for spirit herbs, sells them to Chử Hồng Diệp's (chu_hong_diep) Maple Hall, and means to sail west on the third boat with Uông Tầm Phàm.",
+   "appearance": "Barefoot always, toes that grip a rope like fingers.",
+   "backstory": "Climbs the canopy above Thanh Đằng for spirit herbs and means to sail west on the third boat with Uông Tầm Phàm. She sells to Chử Hồng Diệp's (chu_hong_diep) Maple Hall or burns the bundle by her mood, and once threw a whole season's cuttings off the canopy because she disliked the buyer's tone.",
    "ties": [
     {
      "to": "uong_tam_pham",

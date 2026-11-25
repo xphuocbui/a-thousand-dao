@@ -30,13 +30,13 @@
    "traits": {
     "personality": [
      "Brave",
-     "Callous",
+     "Cruel",
      "Loyal"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "Leads the night riders over Tinh Tủy Mạch for the head and has flown his own crane past its twentieth winter; Đồng Dược Hương (dong_duoc_huong) has buried two cranes from his flights and tells every rider whose they were.",
+   "backstory": "Leads the night riders over Tinh Tủy Mạch for the head and has flown his own crane past its twentieth winter; Đồng Dược Hương (dong_duoc_huong) has buried two cranes from his flights and tells every rider whose they were. He flogs a lagging crane with the reins.",
    "ties": [
     {
      "to": "ung_hac_minh",
@@ -82,7 +82,8 @@
      "intent": "Wind speed on an Earth root; long night flights."
     }
    },
-   "changed": "Fix pass A (2026-11-25): Wind raised from 40 to 50; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b)."
+   "changed": "Fix pass A (2026-11-25): Wind raised from 40 to 50; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b).",
+   "appearance": "A cracked riding glove on his left hand, a crane quill behind each ear, and a cropped grey beard."
   },
   {
    "key": "ha_vi_lang",
@@ -114,7 +115,13 @@
      "Compassionate"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "thin_soul",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "Keeps the breeding reeds at Hạc Quy and has raised from the egg every crane the riders now fly; he reached Trúc Cơ the same year as Mai Lô Tuyết (mai_lo_tuyet), and neither old groom has ever been taken up.",
    "ties": [
@@ -156,7 +163,8 @@
      "start": "moc",
      "intent": "Wood; a groom's long breath."
     }
-   }
+   },
+   "appearance": "A bent old man wading the reeds to the thigh; the chicks answer his grunt, the full-grown cranes never do."
   },
   {
    "key": "mo_cao_yen",
@@ -190,7 +198,13 @@
      "Trusting"
     ],
     "calling": "Beast tamer",
-    "upbringing": "wild_raised"
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "Taken off the hawk-catchers' terrace by Cừ Vân Lý (cu_van_ly) in 1196, the winter after Phất Y Cốc reached Lộ Khinh Trần (lo_khinh_tran) first; a crane came down to her on her third day, and she still sleeps better on the terrace than in the marsh.",
    "ties": [
@@ -226,7 +240,8 @@
      "intent": "Wind; first flights."
     }
    },
-   "changed": "Fix pass A (2026-11-25): Wind raised from 32 to 46; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b)."
+   "changed": "Fix pass A (2026-11-25): Wind raised from 32 to 46; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b).",
+   "appearance": "Sleeps with a hawk-catcher's glove under her cheek, and cannot stay in the marsh past the second bell."
   },
   {
    "key": "lo_phi_suong",
@@ -255,15 +270,15 @@
    },
    "traits": {
     "personality": [
-     "Honest",
+     "Greedy",
      "Gregarious",
      "Loyal"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "Lộ Khinh Trần's (lo_khinh_tran) cousin from Tập Trận Khoáng; Cửu Cao's rider came for one boy in 1195, found him gone, and took the cousin. The two write by the post, and the riders carry the letters unopened. The boy's latest, three months on the road, says Phất Y's head holds the founder's robe open for him; Lộ means to carry it to Cừ Vân Lý (cu_van_ly).",
-   "changed": "fixB-apply 2026-11-25: he will be Cừ's way of knowing that the boy is being taught the Step (phat_y hook 6); the letter is still on the post road",
+   "backstory": "Lộ Khinh Trần's (lo_khinh_tran) cousin from Tập Trận Khoáng; Cửu Cao's rider took him in 1195 instead. They write by the post; he reads the letters aloud to the grooms for a pinch of tea, and those who cannot pay hear only the dull parts. The latest: Phất Y's head holds the founder's robe open; he will tell Cừ Vân Lý (cu_van_ly).",
+   "changed": "fixB-apply 2026-11-25: he will be Cừ's way of knowing that the boy is being taught the Step (phat_y hook 6); the letter is still on the post road | Fix pass A (2026-11-25): Wind raised from 28 to 46; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b).",
    "ties": [
     {
      "to": "khong_tuong_vu",
@@ -297,7 +312,7 @@
      "intent": "Wind; a courier's legs."
     }
    },
-   "changed": "Fix pass A (2026-11-25): Wind raised from 28 to 46; R2 needs Wind 45 for the inner riders, and plateau births carry it (R1b)."
+   "appearance": "A satchel strap rubbed thin, and his cousin's family nose."
   },
   {
    "key": "nguy_ha_lo",
@@ -367,7 +382,8 @@
      "start": "moc",
      "intent": "Wood; a groom's hands."
     }
-   }
+   },
+   "appearance": "Mud in her braid, and shovel calluses across both palms."
   },
   {
    "key": "dau_quang_lang",
@@ -396,12 +412,12 @@
     "personality": [
      "Ambitious",
      "Diligent",
-     "Trusting"
+     "Faithless"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "A fisherman's son from Ba Quang who rows the grooms' feed boats; every spring he asks Hà Vi Lăng (ha_vi_lang) whether a groom can grow Wind, and every spring he is told that the crane chooses.",
+   "backstory": "A fisherman's son from Ba Quang who rows the grooms' feed boats; every spring he asks Hà Vĩ Lăng (ha_vi_lang) whether a groom can grow Wind, and every spring he is told that the crane chooses. He tells a Phất Y rider when the crane flights go out, for a word about a Wind teacher.",
    "ties": [
     {
      "to": "ha_vi_lang",
@@ -434,7 +450,8 @@
      "start": "thuy",
      "intent": "Water with Wood; marsh work."
     }
-   }
+   },
+   "appearance": "Net-scarred fingers, and he looks up at every passing crane."
   },
   {
    "key": "su_man_thanh",
@@ -463,14 +480,14 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Honest",
+     "Greedy",
      "Reclusive"
     ],
     "calling": "Steward",
     "upbringing": "sect_raised",
     "lifestyle": "chronicler"
    },
-   "backstory": "Copies the flight ledger into fair hand for the marsh hall, a decade of it each year; she has reached the 790s, and the chest that holds the next pages is the only one in the hall with a lock.",
+   "backstory": "Copies the flight ledger into fair hand for the marsh hall, a decade of it each year; she has reached the 790s, and the chest that holds the next pages is the only one in the hall with a lock. She sells fair copies of the old pages to a Hạc Quy fortune-teller, and Mai Lô Tuyết (mai_lo_tuyet), who asked for them, was told they were not fair yet.",
    "ties": [
     {
      "to": "ung_hac_minh",
@@ -503,7 +520,8 @@
      "start": "moc",
      "intent": "Wood; a copyist's stillness."
     }
-   }
+   },
+   "appearance": "Ink-blacked fingers, and a key on a string round her neck."
   }
  ]
 }

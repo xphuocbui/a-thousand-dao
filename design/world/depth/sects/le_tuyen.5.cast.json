@@ -16,6 +16,7 @@
    "home": 193,
    "birthplace": 87,
    "role": "Road healer, second on the fever roads",
+   "appearance": "A stoop from carrying the sick on her back.",
    "tier": "C",
    "root": {
     "elements": {
@@ -95,6 +96,7 @@
    "home": 26,
    "birthplace": 26,
    "role": "Seals the Pivot's hundred jars at the Spring House",
+   "appearance": "Checks each door twice and the jar-seals three times.",
    "tier": "C",
    "root": {
     "elements": {
@@ -105,14 +107,14 @@
    },
    "traits": {
     "personality": [
-     "Loyal",
+     "Faithless",
      "Pragmatic",
      "Cautious"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "Seals the Pivot's jars for Nhạc Thuần Nhưỡng (nhac_thuan_nhuong) and reads the spring's gauge each dawn for the Pivot's cellar steward, who pays him for it; the spring gives less every year.",
+   "backstory": "Seals the Pivot's jars for Nhạc Thuần Nhưỡng (nhac_thuan_nhuong) and reads the spring's gauge each dawn for the Pivot's cellar steward, who pays him for it; the spring gives less every year. He gave the steward the gauge first, so the school was fined four jars before Nhạc Thuần Nhưỡng had read it.",
    "ties": [
     {
      "to": "nhac_thuan_nhuong",
@@ -169,6 +171,7 @@
    "home": 26,
    "birthplace": 793,
    "role": "Night carter: carts lake water the fortnight's road up to the spring",
+   "appearance": "Scarf wound twice across his mouth against the lake damp.",
    "tier": "C",
    "root": {
     "elements": {
@@ -179,14 +182,14 @@
    },
    "traits": {
     "personality": [
-     "Honest",
+     "Deceitful",
      "Patient",
      "Paranoid"
     ],
     "calling": "Steward",
     "upbringing": "servant_born"
    },
-   "backstory": "Carts the lake water the fortnight's road up to the spring, leaving the Dawn Hall by night, with his brother Khấu Đại Úng (khau_dai_ung); since 1192 the Pivot's cellar steward has paid him to tell him the count of the trips as well.",
+   "backstory": "Carts the lake water the fortnight's road up to the spring, leaving the Dawn Hall by night, with his brother Khấu Đại Úng (khau_dai_ung); since 1192 the Pivot's cellar steward has paid him to tell him the count of the trips as well. He reports two trips for each one he makes, and Nhạc Dư Hương (nhac_du_huong), who leads the carts, is blamed when the casks run short.",
    "ties": [
     {
      "to": "khau_dai_ung",
@@ -231,6 +234,7 @@
    "home": 87,
    "birthplace": 152,
    "role": "Weeds the meadow gardens at Lục Dã",
+   "appearance": "Hums to the herbs, and to nothing else.",
    "tier": "C",
    "root": {
     "elements": {
@@ -242,13 +246,13 @@
    "traits": {
     "personality": [
      "Content",
-     "Compassionate",
+     "Callous",
      "Calm"
     ],
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
-   "backstory": "Weeds the meadow gardens at Lục Dã for Ngải Bạch Chỉ (ngai_bach_chi) and lays out the herb cloth for the dead buried there; she says the herbs over the graves grow best, and she is right.",
+   "backstory": "Weeds the meadow gardens at Lục Dã for Ngải Bạch Chỉ (ngai_bach_chi) and lays out the herb cloth for the dead buried there; she says the herbs over the graves grow best, and she is right. She plants her seed rows in new graves before the families have left; a drover's widow watched her husband's grave sown.",
    "ties": [
     {
      "to": "ngai_bach_chi",
@@ -295,6 +299,7 @@
    "home": 26,
    "birthplace": 779,
    "role": "Taster's apprentice from the salt marsh",
+   "appearance": "Her tongue is stained blue and she will not say from what.",
    "tier": "C",
    "root": {
     "elements": {
@@ -310,9 +315,9 @@
      "Deceitful"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
-   "backstory": "A salt-marsh girl who came with Sa Ấu Lan (sa_au_lan) and has the better tongue; Cận Tri Vị (can_tri_vi) took her as a taster's apprentice. At the spring count she tasted the lake in the Pivot's fine jars, and now her name stands on their seal beside her mistress's.",
+   "backstory": "A salt-marsh girl raised wild on the flats, who came with Sa Ấu Lan (sa_au_lan); Cận Tri Vị (can_tri_vi) took her as taster's apprentice. At the spring count she tasted the lake in the fine jars and swore she had not, so that Sa Ấu Lan was blamed for the sour batch; her name stands on the seal beside her mistress's.",
    "ties": [
     {
      "to": "can_tri_vi",
@@ -363,6 +368,7 @@
    "home": 193,
    "birthplace": 193,
    "role": "Boatman of the Dawn Hall; rows the healers out to the villages",
+   "appearance": "White nick through one eyebrow where an oar caught him.",
    "tier": "C",
    "root": {
     "elements": {
@@ -373,14 +379,14 @@
    },
    "traits": {
     "personality": [
-     "Trusting",
+     "Greedy",
      "Gregarious",
      "Brave"
     ],
     "calling": "Wanderer",
     "upbringing": "sect_raised"
    },
-   "backstory": "Born at the Dawn Hall in 1170 and named for the lake; he rows the healers out, and has seen the porters' boats on the lake at night with full barrels going the wrong way.",
+   "backstory": "Born at the Dawn Hall in 1170 and named for the lake; he rows the healers out, and has seen the porters' boats on the lake at night with full barrels going the wrong way. Given a bag of silver to forget them, he rowed two of the barrels himself while Phương Kim Châm (phuong_kim_cham) waited on the shore for her boat.",
    "ties": [
     {
      "to": "phuong_kim_cham",
@@ -425,6 +431,7 @@
    "home": 26,
    "birthplace": 26,
    "role": "Vat-stirrer at the Spring House",
+   "appearance": "A tongue-tip scalded pink; he tastes with the back of his mouth.",
    "tier": "C",
    "root": {
     "elements": {
@@ -440,9 +447,15 @@
      "Cautious"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Stirs the vats under Nhạc Dư Hương (nhac_du_huong), who tells him the lake water cools them; he has started to taste the difference and does not know whom to tell.",
+   "backstory": "Stirs the vats under Nhạc Dư Hương (nhac_du_huong), who tells him the lake water cools them; he has started to taste the difference and does not know whom to tell. Slow to say what he has noticed, he has been a vat-stirrer since birth.",
    "ties": [
     {
      "to": "nhac_du_huong",

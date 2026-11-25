@@ -373,6 +373,8 @@
    },
    "appearance": "A brown, wiry woman in a straw cape, always kneeling, with a gourd at her hip and grass seeds in her hair.",
    "backstory": "A girl from Hoa Khê Thôn, where lovers drop their names into the brook (A194). She took the herb name Đương Quy, 'ought to return', and has picked on the steppe at sunset for seventy years. When the furnaces moved in 1187 she stayed on the Dusk Field with Diêm Tử Tô (diem_tu_to). At ninety she is ready for Kết Đan. She will take a pill from no one but Diêm, and he will not light a furnace.",
+   "wants": "To pick one sunset on the steppe without being asked a question, and to see the dusk-wormwood seed itself.",
+   "secret": "Each dusk she wraps a pinch of the Dusk Field's best evening herb for a Tang Ma Thành mother whose son is wasting, and Tiền Tiểu Đồng (tien_tieu_dong) carries it into the city for her for nothing.",
    "ties": [
     {
      "to": "diem_tu_to",
@@ -482,13 +484,14 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Content",
+     "Arbitrary",
      "Gregarious"
     ],
     "calling": "Alchemist",
     "upbringing": "village_born"
    },
-   "backstory": "A charcoal-burner's son from Thán Ổ Thôn who keeps the new seat's furnaces and burns their charcoal from mulberry deadwood; Diêm Tử Tô (diem_tu_to) taught him, and Tào Mộ Tử works him harder.",
+   "appearance": "Pats his round belly while he thinks; charcoal blackens every knuckle.",
+   "backstory": "A charcoal-burner's son from Thán Ổ Thôn who keeps the new seat's furnaces and burns their charcoal from mulberry deadwood; Diêm Tử Tô (diem_tu_to) taught him, and Tào Mộ Tử works him harder. He draws the dawn-bank lots from a bag with the short sticks sewn into the lining, and Mộ Ngưu Tất (mo_nguu_tat) has banked the founder's coals eleven days running.",
    "ties": [
     {
      "to": "diem_tu_to",
@@ -595,6 +598,8 @@
    },
    "appearance": "A sharp-faced woman in a silk robe dyed the green of mulberry leaves, with a price list sewn inside her sleeve.",
    "backstory": "A Tang Ma Thành silk-dealer's daughter. She took the herb name Tang Ký in 1160 when she found mistletoe on the wild mulberries three tiles from her father's shop. It was she who told Tào Mộ Tử (tao_mo_tu) the wood was there. She keeps it now and sells the pavilion's pills in Tang Ma and to Lạc Hà. Since Lạc Hà's Maple Hall began selling against the pavilion, she has sold crates of its pills to a Thúy Vi buyer in Tang Ma Thành under Lạc Hà's posted price, and she fills them by cutting the wound salve the pavilion sells the city's rope-walkers.",
+   "wants": "A bench among the Thúy Vi guild's elders, as one of them and not as a supplier.",
+   "secret": "She is grafting wild mistletoe in a locked shed to sell the pavilion's rarest herb as her own stock; Cố Tằm Nhi (co_tam_nhi) is paid to water it and told it is for the head.",
    "changed": "fix pass B 2026-11-25 (fixB-5): Ambitious, Pragmatic -> Greedy, Callous (sells to Thúy Vi, fills the crates from the rope-walkers' salve)",
    "ties": [
     {
@@ -693,13 +698,14 @@
    "traits": {
     "personality": [
      "Forgiving",
-     "Gregarious",
+     "Deceitful",
      "Lazy"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A log-driver's son from Phóng Mộc Thôn who took the herb name Cam Thảo because licorice goes into every recipe and so, he says, does he; Tào Mộ Tử (tao_mo_tu) keeps him at the bellows.",
+   "appearance": "Chews a licorice twig; his log-driver's shoulders have gone soft.",
+   "backstory": "A log-driver's son from Phóng Mộc Thôn who took the herb name Cam Thảo because licorice goes into every recipe and so, he says, does he; Tào Mộ Tử (tao_mo_tu) keeps him at the bellows, where he swears he works all night and sleeps on the ash sacks while Mộ Ngưu Tất (mo_nguu_tat) banks his furnace so the head will not find it cold.",
    "ties": [
     {
      "to": "tao_mo_tu",
@@ -772,8 +778,9 @@
      "Honest"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
+   "appearance": "A grass-woven bracelet at each wrist, one for every journey north.",
    "backstory": "A grass-weaver's daughter from Phương Thảo Thôn (A195) who carries the evening-herb tincture up to the Miasma Watch once a year for Hình Lạc Nhạn (hinh_lac_nhan), three months each way; this year the head has kept her home to write his own weekly antidote doses and fits in the tasting book.",
    "changed": "fix pass B 2026-11-25 (fixB-5): no longer 'begun to wonder'; carries once a year (1,387 km), kept home to keep the count",
    "ties": [
@@ -856,6 +863,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
+   "appearance": "Keeps a reed flute in her braid and hums when she thinks she is alone.",
    "backstory": "A reed-flute girl from Lô Địch Thôn, the village that plays one tune fewer since 803 (V103). She picks on the Dusk Field under Văn Đương Quy (van_duong_quy) and hums a tune her grandmother told her never to play at dusk.",
    "ties": [
     {
@@ -925,13 +933,14 @@
    "traits": {
     "personality": [
      "Impatient",
-     "Greedy",
+     "Generous",
      "Brave"
     ],
     "calling": "Merchant",
     "upbringing": "street_orphan"
    },
-   "backstory": "A rope-walk orphan of Tang Ma Thành (A201) who followed the pavilion's carts into the wood in 1187 and stayed; he sells mistletoe cuttings in the city, and Lý Tang Ký (ly_tang_ky) pretends not to know.",
+   "appearance": "A grin with one eyetooth missing; he walks a cart rail like a rope.",
+   "backstory": "A rope-walk orphan of Tang Ma Thành (A201) who followed the pavilion's carts into the wood in 1187 and stayed; he sells mistletoe cuttings in the city to feed the rope-walk's smaller orphans, and Lý Tang Ký (ly_tang_ky) pretends not to know.",
    "ties": [
     {
      "to": "ly_tang_ky",
@@ -997,9 +1006,16 @@
      "Loyal"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "She failed Lạc Hà's dusk test three times and asked to be placed here, because the Dusk Field works the same hour. Tô Bình Chu (to_binh_chu) placed her in 1199, and Lạc Hà takes its tenth until 1229.",
+   "appearance": "A habit of tilting her head at every kind word, as though checking it for a flaw.",
+   "backstory": "She failed Lạc Hà's dusk test three times and asked to be placed here, because the Dusk Field works the same hour. Tô Bình Chu (to_binh_chu) placed her in 1199, and Lạc Hà takes its tenth until 1229. Her first bed of dusk-wormwood drowned in the spring's first rain, and her sandals went down the stream the same week.",
    "ties": [
     {
      "to": "van_duong_quy",
@@ -1111,7 +1127,7 @@
      "Devout"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
    "backstory": "He died in a grass fire in the dry summer of 1131, the summer the last of Lạc Hà's maples died (N-lac_ha-02), saving the last bed of dusk-wormwood; the pavilion still grows wormwood only from his seed, and Vi Ngưng Yên (vi_ngung_yen) buried him in it.",
    "ties": [

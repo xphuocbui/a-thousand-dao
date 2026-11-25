@@ -170,7 +170,7 @@ element-led art in the house.
 - **The scores**: five centuries of tablature in the head's cell, the academy's only library.
 - Details in `van_hac.items.json`.
 - Personal sets (cast-sets pass, 2026-11-25):
-  - **The Monk's Things (Không Hạc Di Vật)**, Hà Thính Tùng's three: the Pine-Wind Zither, the Beads of the Held Rest
+  - **The Monk's Things (Không Hác Di Vật)**, Hà Thính Tùng's three: the Pine-Wind Zither, the Beads of the Held Rest
     and the Robe of the Ravine Wind; echoes build Resonance, and his rest makes a resonant foe's next art fail.
 
 ## 11. Roster

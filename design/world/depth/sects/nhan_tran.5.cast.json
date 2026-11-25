@@ -33,6 +33,7 @@
     "calling": "Strategist",
     "upbringing": "village_born"
    },
+   "appearance": "Drills facing the sun, so he squints even indoors.",
    "backstory": "A Thảo Đường levy boy like his master Đổng Kiên Lũy (dong_kien_luy), who has stepped back from the point twice by the ten-year rule; he wants to be sent to war once before he steps back again, and witnesses Đổng's letters to Hình Trọng Sơn (hinh_trong_son).",
    "ties": [
     {
@@ -103,14 +104,15 @@
    },
    "traits": {
     "personality": [
-     "Just",
+     "Arbitrary",
      "Cautious",
      "Peaceable"
     ],
     "calling": "Strategist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A Nhạn Thanh Thành gate-guard's daughter who leads the file the gate hires out to Lạc Hà's caravans; like the head she would keep the gate out of Lạc Hà's quarrels, and has told Mục Tân Vũ (muc_tan_vu) that ten who drill at night without leave are loose order, however neatly they stand.",
+   "appearance": "Wears a leather thumb-guard even at table.",
+   "backstory": "A Nhạn Thanh Thành gate-guard's daughter who leads the file hired out to Lạc Hà's caravans; she would keep the gate out of Lạc Hà's quarrels, and has told Mục Tân Vũ (muc_tan_vu) that ten who drill at night are loose order. She draws the night-picket lots from a bag weighted against Mục's ten, so Thiều Vũ Hàng (thieu_vu_hang) and Lam Tề Vũ (lam_te_vu) have stood nine watches running.",
    "ties": [
     {
      "to": "muc_han_nhan",
@@ -187,12 +189,13 @@
     "personality": [
      "Brave",
      "Impatient",
-     "Honest"
+     "Greedy"
     ],
     "calling": "Strategist",
     "upbringing": "village_born"
    },
-   "backstory": "A Xích Thổ boy who marched in the Geese Hall's cadet line behind Đặng Liệt Hàng (dang_liet_hang) and failed the dusk test three times; placed with the gate this spring, he stood the levy line on his first day and was annoyed to find it easy.",
+   "appearance": "His nose was set crooked by a cadet's elbow, and he tells everyone whose.",
+   "backstory": "A Xích Thổ boy who marched in the Geese Hall's cadet line behind Đặng Liệt Hàng (dang_liet_hang) and failed the dusk test three times; placed with the gate this spring, he stood the levy line on his first day and sells his messmates' spare rice to the cook, so Cổ Thiết Liệt's (co_thiet_liet) second file ate thin all week.",
    "ties": [
     {
      "to": "ngo_bat_tan",
@@ -262,8 +265,9 @@
      "Loyal"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan"
    },
+   "appearance": "Breathes so slowly that the drill-master counts her twice.",
    "backstory": "A Yến Quy ferry girl and one of Mục Tân Vũ's (muc_tan_vu) ten, who holds the wet cloth in the night drill on Hắc Thứu Đài; she breathes slowest of the ten, and the point means to put her at the front in the grey.",
    "ties": [
     {
@@ -331,6 +335,7 @@
     "calling": "Strategist",
     "upbringing": "village_born"
    },
+   "appearance": "Carries the drum case against his chest, the way other men carry a child.",
    "backstory": "A Ngư Lương fisher's son and the one of Mục Tân Vũ's (muc_tan_vu) ten who keeps the founder's notes, which Lương Thủ Hàng (luong_thu_hang) took out of the Roll, rolled in his drum case; his master Cát Trì Cổ (cat_tri_co) has not looked inside it.",
    "ties": [
     {
@@ -397,13 +402,14 @@
    "traits": {
     "personality": [
      "Devout",
-     "Gregarious",
+     "Greedy",
      "Stubborn"
     ],
     "calling": "Steward",
     "upbringing": "sect_raised"
    },
-   "backstory": "Lương Thủ Hàng's (luong_thu_hang) grand-niece, born at the gate, who weeds the burial rows and asks him each spring whose gap is whose; the Roll of Files has no names, so he tells her by the file.",
+   "appearance": "Hums under her breath while she weeds, black crescents under every nail.",
+   "backstory": "Lương Thủ Hàng's (luong_thu_hang) grand-niece, born at the gate, who weeds the burial rows and asks him each spring whose gap is whose; the Roll has no names, so he tells her by the file. She pockets the copper the widows leave on the rows for the dead of 803, saying the dead have no use for it, and the widows have stopped coming.",
    "ties": [
     {
      "to": "luong_thu_hang",
@@ -463,8 +469,9 @@
      "Humble"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
+   "appearance": "Walks light on her left foot, a toe bound in grey cloth.",
    "backstory": "A Thanh Phong carter's daughter who stood last spring's levy line from dawn to dusk on a broken toe and said so only at evening; Ngô Bất Tán (ngo_bat_tan) took her in, and is teaching her to say so sooner.",
    "ties": [
     {

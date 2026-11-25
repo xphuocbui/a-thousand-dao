@@ -53,9 +53,9 @@ A person:
 | `root` | living | `{elements: {id: purity 10-100}, variants: {id: purity}}`; a variant's required elements in the root (Ice needs Water, Thunder Fire+Metal, Darkness Earth+Water, Light Fire, Chaos all five, Wind none) |
 | `thien_phu` | A, B | the six talents 1-100: ngo_tinh, can_cot, than_hon, khi_van, dao_tam, mi_luc |
 | `traits` | all | as `traits-v2.md` (personality 3 and calling 1 always; upbringing always; the rest by tier) |
-| `appearance` | A, B | one sentence |
+| `appearance` | all | A and B one sentence; C one short clause (pass C, 2026-11-25) |
 | `backstory` | all | A 120-250 words, B 50-100, C 1-2 sentences. Must name at least one other person (key) or one history event id (A and B). |
-| `wants`, `secret` | A | what they are after; what they hide |
+| `wants`, `secret` | A, B | what they are after; the secret is an act in progress, not a thing hidden (B since pass C, 2026-11-25) |
 | `ties` | all | `[{to: key, kind, note}]`; kinds: master, disciple, parent, child, spouse, dao_partner, sibling, sworn_sibling, friend, rival, enemy, debt (they owe), creditor (owed), lover, former_master, former_disciple, feud, grandparent, grandchild, cousin, ancestor, descendant, aunt_uncle, niece_nephew, in_law. Masters also go in `master: key`. **Direction:** a kind names what the *other* person is to you (`master`: they
 are your master; `parent`: they are your parent), except `debt` (you owe them) and `creditor` (they owe you). Ties may point to other sects' people (cross-sect pass fixes the far side). |
 | `master` | if any | the master's key: older, higher realm, same sect when taught (or `former_master` tie) |

@@ -28,12 +28,12 @@
     "personality": [
      "Stubborn",
      "Brave",
-     "Pragmatic"
+     "Faithless"
     ],
     "calling": "Beast tamer",
     "upbringing": "village_born"
    },
-   "backstory": "A Mục Địch herder who keeps the south string at Liệt Mã Cương for Tần Thiên Lý (tan_thien_ly) and wants the white bear gone as much as his chief; twice he has found its straw melting in midwinter and said nothing.",
+   "backstory": "A Mục Địch herder who keeps the south string at Liệt Mã Cương for Tần Thiên Lý (tan_thien_ly) and wants the white bear gone as much as his chief; twice he has found its straw melting in midwinter and said nothing to Tần Thiên Lý (tan_thien_ly), who spent that week blaming the mares' fodder.",
    "ties": [
     {
      "to": "khau_muc_van",
@@ -81,7 +81,8 @@
      "start": "tho",
      "intent": "Earth for a body that rides behind the herd all night."
     }
-   }
+   },
+   "appearance": "A wind-split lower lip, and a coil of rope that never leaves his shoulder."
   },
   {
    "key": "trinh_luc_phan",
@@ -113,7 +114,7 @@
      "Cautious"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
    "backstory": "A Chu Tân ferry clerk's daughter who carries Khấu Thanh Thảo's (khau_thanh_thao) corrected account to the Hall of Scales each spring and watches Từ Bình Hành (tu_binh_hanh) read it; she thinks the joke has run long enough, and has not said so.",
    "ties": [
@@ -158,7 +159,8 @@
      "start": "thuy",
      "intent": "Water."
     }
-   }
+   },
+   "appearance": "Carries the ledger case like a baby, and wears a ferry token for a hairpin."
   },
   {
    "key": "ngai_dap_sa",
@@ -186,13 +188,13 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Brave",
+     "Greedy",
      "Impatient"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "A Song Tỉnh salt-carter's son who rode his father's mule to each of the three dusk tests he failed; Tô Bình Chu (to_binh_chu) placed him with the manor in 1198, and the herd let him into the stable on the second night.",
+   "backstory": "A Song Tỉnh salt-carter's son who rode his father's mule to each of the three dusk tests he failed; Tô Bình Chu (to_binh_chu) placed him with the manor in 1198, and the herd let him into the stable on the second night. He sells the stable's spare oats to the salt-carters for coin, and Hứa Tịch Câu (hua_tich_cau) pays for the short feed out of his own pocket.",
    "ties": [
     {
      "to": "mac_khien_phong",
@@ -230,7 +232,8 @@
      "start": "tho",
      "intent": "Earth."
     }
-   }
+   },
+   "appearance": "Salt-white eyebrows, and one boot a size too large."
   },
   {
    "key": "ngao_tuyet_nhi",
@@ -262,7 +265,13 @@
      "Compassionate"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "An Điền Viên farm girl whom the mares would not let near them all her first year; the white bear would, and she sleeps in its paddock with Hứa Tịch Câu (hua_tich_cau) while the herd makes up its mind.",
    "ties": [
@@ -302,7 +311,8 @@
      "start": "thuy",
      "intent": "Water."
     }
-   }
+   },
+   "appearance": "Straw in her hair, and the print of a hoof on every apron she owns."
   },
   {
    "key": "thong_truy_dien",
@@ -332,12 +342,12 @@
     "personality": [
      "Ambitious",
      "Brave",
-     "Honest"
+     "Cruel"
     ],
     "calling": "Duelist",
     "upbringing": "servant_born"
    },
-   "backstory": "A Thảo Đường groom's daughter who rides second in Dư Bôn Vân's (du_bon_van) race string and has beaten her once, in rain; she wants to race the Geese Hall cadets too, and to be the one who wins.",
+   "backstory": "A Thảo Đường groom's daughter who rides second in Dư Bôn Vân's (du_bon_van) race string and has beaten her once, in rain; she wants to race the Geese Hall cadets too, and to be the one who wins. She has run two colts lame past mending and sold them to the knacker, and told Dư Bôn Vân (du_bon_van) they had been stolen from the paddock.",
    "ties": [
     {
      "to": "du_bon_van",
@@ -370,7 +380,8 @@
      "start": "thuy",
      "intent": "Water."
     }
-   }
+   },
+   "appearance": "Riding gloves cut off at the fingertips, and a ring of small bronze studs round her left ear."
   },
   {
    "key": "tan_muc_so",
@@ -398,13 +409,19 @@
    "traits": {
     "personality": [
      "Brave",
-     "Loyal",
+     "Faithless",
      "Fickle"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Tần Thiên Lý's (tan_thien_ly) nephew from Mục Địch, who rode his first long ride last autumn and came back an hour late; he wants to be the one who takes Đạp Vân out when the old horse's time comes.",
+   "backstory": "Tần Thiên Lý's (tan_thien_ly) nephew from Mục Địch, who came back an hour late from his first long ride and wants Đạp Vân when the old horse's time comes. He has sold that ride to Kim Đắc Lộc (kim_dac_loc) for a purse, and swore to ride the south string with Lư Truy Phong (lu_truy_phong) in the first snow, then sent word of a fever; Lư lost two fingertips to frost.",
    "ties": [
     {
      "to": "tan_thien_ly",
@@ -437,7 +454,8 @@
      "start": "tho",
      "intent": "Earth."
     }
-   }
+   },
+   "appearance": "Fidgets, rubbing the back of his neck, and has his uncle's bowed legs."
   },
   {
    "key": "nghieu_thu_nhan",
@@ -465,13 +483,13 @@
    "traits": {
     "personality": [
      "Cautious",
-     "Loyal",
+     "Deceitful",
      "Reclusive"
     ],
     "calling": "Steward",
     "upbringing": "scholar_family"
    },
-   "backstory": "A Thanh Điền schoolmaster's daughter with a clean hand who copies Thôi Dương Giác's (thoi_duong_giac) letters to the Pivot's Wind sects; she has read the offer of the Phù Dao book and knows what Lạc Hà's Vassal Hall would call it.",
+   "backstory": "A Thanh Điền schoolmaster's daughter with a clean hand who copies Thôi Dương Giác's (thoi_duong_giac) letters to the Pivot's Wind sects; she has read the offer of the Phù Dao book and knows what Lạc Hà's Vassal Hall would call it. She copies each letter twice, swears to Thôi Dương Giác (thoi_duong_giac) that she keeps only the one, and keeps the second in her bedding.",
    "ties": [
     {
      "to": "thoi_duong_giac",
@@ -499,7 +517,8 @@
      "start": "moc",
      "intent": "Wood."
     }
-   }
+   },
+   "appearance": "Ink-black thumb pad; her fine hand slants backward like a left-hander's."
   }
  ]
 }

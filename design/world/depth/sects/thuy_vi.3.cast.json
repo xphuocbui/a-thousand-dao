@@ -56,6 +56,8 @@
    },
    "appearance": "A broad, short girl with mud to the elbows and a city accent she cannot lose.",
    "backstory": "Mễ Điền Nhi is the daughter of a Pivot granary clerk in Thạch Kiều Thành who sold everything to send her north, because Thúy Vi takes Earth roots into its outer gate. Her Earth is strong and her Wood is not, and Phạm Thủ Điền (pham_thu_dien) has told her kindly that the inner gate will not open for her. In 1195 she dug a fourth plot on the slope beside the Heir's Garden without asking. She planted no seed in it. She has been building soil, and three kinds of spirit grass have come up in it that no one sowed.",
+   "wants": "A plot the sect will count as its own.",
+   "secret": "She sells a stalk a month of the fourth plot's three spirit grasses to a Thạch Kiều Thành broker to pay off her father's debts; Phạm Thủ Điền has not asked where the coin comes from.",
    "ties": [
     {
      "to": "pham_thu_dien",
@@ -182,6 +184,8 @@
    },
    "appearance": "A handsome, easy-smiling young man who learns everyone's name on the first day.",
    "backstory": "Phù Liên Kiều came from Tùng Hạ Thị, Tùng Đào's market, in 1194 with a good Wood root and a story about a dead father in the resin trade. The story is half true. Hồ Tùng Nguyệt (ho_tung_nguyet), Tùng Đào's first elder, paid his way. She says she wants the Haze Walk; what she asks him for in every letter is a list of what Thúy Vi's open shelves hold of the pines' canon, written down from the Cold Ford families. He is learning that the sect keeps nothing locked, and that this makes it harder to steal from, not easier.",
+   "wants": "To go home a hero of the pines with the canon's list complete, and to find a reason to stay.",
+   "secret": "He has begun to forge the lists he sends Hồ Tùng Nguyệt, because the shelves are open and nothing is worth stealing; the false pages are filled with names of Cold Ford children he has grown fond of.",
    "ties": [
     {
      "to": "ho_tung_nguyet",
@@ -282,6 +286,7 @@
     "upbringing": "village_born"
    },
    "backstory": "Hướng Dạ Đăng's (huong_da_dang) late son, who would rather fish than fight and has not dared to tell his father.",
+   "appearance": "A fish scale always stuck to his sleeve.",
    "ties": [
     {
      "to": "huong_da_dang",
@@ -351,7 +356,7 @@
     "personality": [
      "Vengeful",
      "Brave",
-     "Impatient"
+     "Cruel"
     ],
     "calling": "Duelist",
     "upbringing": "village_born",
@@ -359,7 +364,8 @@
      "Grudge"
     ]
    },
-   "backstory": "Her little sister was the child the sea eagle took from the oyster beds below Hải Điêu Nhai in 1170 (V020); she joined the sect to learn to kill eagles and has not yet been allowed to.",
+   "backstory": "Her little sister was the child the sea eagle took from the oyster beds below Hải Điêu Nhai in 1170 (V020); she joined the sect to learn to kill eagles and has not yet been allowed to. She nails eagle chicks alive to the oyster-bed posts, and made Lâu Mẫu Lệ (lau_mau_le) hold them still; he has not eaten sea-bird since.",
+   "appearance": "A white scar from an eagle's talon along her jaw.",
    "ties": [
     {
      "to": "diem_hai_tao",
@@ -418,13 +424,14 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Content",
+     "Arbitrary",
      "Stubborn"
     ],
     "calling": "Steward",
     "upbringing": "servant_born"
    },
-   "backstory": "Cook of the Cliff Hall for seventy years, a servant with a Metal root too thin for any sect; he feeds Cù Thúy Bách (cu_thuy_bach) and argues with her about salt.",
+   "backstory": "Cook of the Cliff Hall for seventy years, a servant with a Metal root too thin for any sect; he feeds Cù Thúy Bách (cu_thuy_bach) and argues with her about salt. He salts the soup by his mood of the day, and a bad one leaves her bowl bare of salt for a week.",
+   "appearance": "Carries his ladle like a sceptre.",
    "ties": [
     {
      "to": "bao_nham_tinh",
@@ -516,6 +523,7 @@
     "upbringing": "village_born"
    },
    "backstory": "Uông Mục Địch's (uong_muc_dich) grandson, a Mục Ca herder boy who joined the outer gate to be near the old man for his last spring.",
+   "appearance": "Dung-caked boots he no longer notices.",
    "ties": [
     {
      "to": "uong_muc_dich",
@@ -575,12 +583,13 @@
     "personality": [
      "Ambitious",
      "Diligent",
-     "Impatient"
+     "Deceitful"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "A rope-maker's son from Thằng Tác Thôn who braids the sect's herb-drying lines and wants the inner gate badly enough to sit for the First Leaf twice a year.",
+   "backstory": "A rope-maker's son from Thằng Tác Thôn who braids the sect's herb-drying lines and wants the inner gate badly enough to sit for the First Leaf twice a year. Twice he has forged Phạm Thủ Điền's (pham_thu_dien) nod on his petition, and Phạm lost the right to sign petitions for a year.",
+   "appearance": "Lifts his chin hopefully at every elder he passes.",
    "ties": [
     {
      "to": "me_dien_nhi",
@@ -643,9 +652,10 @@
      "Diligent"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "A lacquer-maker's daughter from Tất Thụ Thôn who lacquers the sect's red pill boxes; her hands are always stained and never itch.",
+   "appearance": "Lacquer-red stains on her hands that never itch.",
    "ties": [
     {
      "to": "dau_tam_that",
@@ -703,14 +713,15 @@
    },
    "traits": {
     "personality": [
-     "Loyal",
+     "Faithless",
      "Cautious",
      "Honest"
     ],
     "calling": "Alchemist",
     "upbringing": "village_born"
    },
-   "backstory": "From Úy Thanh Diễm's (uy_thanh_diem) own charcoal village, he tends the green furnaces' fires for Tề Tử Tô (te_tu_to) and has seen what she reads at night.",
+   "backstory": "From Úy Thanh Diễm's (uy_thanh_diem) own charcoal village, he tends the green furnaces' fires for Tề Tử Tô (te_tu_to) and has seen what she reads at night. He told Chiêm Đan Sâm (chiem_dan_sam) what she reads, for a place at the second cauldron, and her night-books were moved to a locked shelf.",
+   "appearance": "Smells of charcoal in every season.",
    "ties": [
     {
      "to": "te_tu_to",
@@ -777,6 +788,7 @@
     "upbringing": "village_born"
    },
    "backstory": "A poria-digger's girl from Thiệu Thanh Đài's (thieu_thanh_dai) own village, taken as her second disciple in 1199; Kiển Viễn Chí treats her as a rival, which she has not yet noticed.",
+   "appearance": "A pale scar on her chin.",
    "ties": [
     {
      "to": "thieu_thanh_dai",
@@ -853,6 +865,7 @@
     "upbringing": "village_born"
    },
    "backstory": "A kelp-gatherer from Hải Đới Thôn, whose village has let the cape's poor eat elm bark since the long winter of 860 (V012); he runs messages for the port house and gives his rations away.",
+   "appearance": "Wears a belt wrapped twice round a thin waist.",
    "ties": [
     {
      "to": "tham_tinh_sa",
@@ -915,9 +928,16 @@
      "Content"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A girl from Tân Cư Thôn who arrived with a jar of resin as a gift, as her village's old joke demands (V024); the outer gate kept the jar on its shelf.",
+   "backstory": "A girl from Tân Cư Thôn who arrived with a jar of resin as a gift, as her village's old joke demands (V024); the outer gate kept the jar on its shelf. She cannot sit still through a lesson.",
+   "appearance": "A little resin always sticky on her fingers.",
    "ties": [
     {
      "to": "vo_han_lo",
@@ -975,9 +995,10 @@
      "Stubborn"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "A stonecutter's son from Lạc Hà's Ngũ Cốc Thành with more Earth than Wood, who lays the field terraces' stone walls and has accepted the outer gate as his life.",
+   "appearance": "Fingers cut flat by stone.",
    "ties": [
     {
      "to": "me_dien_nhi",
@@ -1048,6 +1069,7 @@
     "upbringing": "village_born"
    },
    "backstory": "A raftsman's son from Phiệt Công Thôn who brings Hộ Lâm Đường's spirit wood down the river to the seat each autumn, and knows its warden Lục Thanh Sam (luc_thanh_sam) better than any elder does.",
+   "appearance": "A bow-legged raftsman's stance.",
    "ties": [
     {
      "to": "phi_tung_chi",
@@ -1133,6 +1155,7 @@
     "upbringing": "village_born"
    },
    "backstory": "The newest outer disciple, seventeen, from Bối Độ Thôn; she planted her life tree last spring and checks it every morning before breakfast.",
+   "appearance": "A thin braid with a life-tree leaf pinned in it.",
    "ties": [
     {
      "to": "pham_thu_dien",
@@ -1196,13 +1219,14 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Honest",
+     "Deceitful",
      "Gregarious"
     ],
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "Cảnh Bồ Anh's (canh_bo_anh) cousin from Hoa Mạch Thôn, who came to the fields because he did and turned out better at them.",
+   "backstory": "Cảnh Bồ Anh's (canh_bo_anh) cousin from Hoa Mạch Thôn, who came to the fields because he did and turned out better at them. He lists his cousin's rows in the ledger as his own, and Cảnh's seed-grain share was cut for it.",
+   "appearance": "A broad farmer's nose burnt red by spring sun.",
    "ties": [
     {
      "to": "canh_bo_anh",
@@ -1262,12 +1286,13 @@
     "personality": [
      "Diligent",
      "Reclusive",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
-   "backstory": "An inner Luyện Khí who helps Hàn Mộc Tê (han_moc_te) copy the Bách Thảo books, and who has begun to find recipes in them that the sect's own copies left out.",
+   "backstory": "An inner Luyện Khí who helps Hàn Mộc Tê (han_moc_te) copy the Bách Thảo books, and who has begun to find recipes in them that the sect's own copies left out. He copies those into his own book first and hands her the cut version, and she has twice blamed the damp paper. He learned his letters young.",
+   "appearance": "Fingertips dyed grey from old paper.",
    "ties": [
     {
      "to": "han_moc_te",
@@ -1321,14 +1346,15 @@
    },
    "traits": {
     "personality": [
-     "Pragmatic",
+     "Greedy",
      "Gregarious",
      "Patient"
     ],
     "calling": "Beast tamer",
     "upbringing": "village_born"
    },
-   "backstory": "A beekeeper's daughter from Dã Mật Thôn who keeps the seat's spirit bees and sells their honey to Đậu Tam Thất (dau_tam_that) for the pill shop.",
+   "backstory": "A beekeeper's daughter from Dã Mật Thôn who keeps the seat's spirit bees and sells their honey to Đậu Tam Thất (dau_tam_that) for the pill shop. She keeps the best comb back and sends the pill shop thin honey, so Đậu has twice been blamed for weak pills.",
+   "appearance": "Healed bee-sting welts like beads along her neck.",
    "ties": [
     {
      "to": "dau_tam_that",
@@ -1387,13 +1413,14 @@
    "traits": {
     "personality": [
      "Reclusive",
-     "Fickle",
-     "Honest"
+     "Deceitful",
+     "Fickle"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
-   "backstory": "From Ô Đề Thôn under the crows' ridge (A036); he feeds the crows at the seat and claims they bring him news from the Cliff Hall before the messengers do.",
+   "backstory": "From Ô Đề Thôn under the crows' ridge (A036); he feeds the crows at the seat and claims they bring him news from the Cliff Hall before the messengers do. He half grew up among the crows, and in spring he invented that Cù Thúy Bách (cu_thuy_bach) had died; Đinh Tiểu Tùng (dinh_tieu_tung) walked half a day up the ridge in the rain to see.",
+   "appearance": "A crow's feather stuck in his hair, always on the same side.",
    "ties": [
     {
      "to": "bao_nham_tinh",
@@ -1451,9 +1478,10 @@
      "Devout"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
-   "backstory": "From the red-leaf village whose bookmarks scholars of three sects buy (A047); she has more Water and Earth than Wood and reads the sect's scriptures aloud to the field workers at night.",
+   "backstory": "From the red-leaf village whose bookmarks scholars of three sects buy (A047); she has more Water and Earth than Wood and reads the sect's scriptures aloud to the field workers at night. Her family read.",
+   "appearance": "A red leaf pressed into the band of her cap.",
    "ties": [
     {
      "to": "lieu_tieu_do",
@@ -1514,6 +1542,7 @@
     "upbringing": "village_born"
    },
    "backstory": "A woodcutter's son from Tiều Ca Trấn, the town named when Không Sơn asked its singers to sing more quietly (A033); he sings in the fields, quietly.",
+   "appearance": "A mouth that hums even in his sleep, they say.",
    "ties": [
     {
      "to": "trinh_ma_thang",
@@ -1571,9 +1600,10 @@
      "Calm"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
-   "backstory": "From Lâm Tuyền Thôn, whose spring cured the coughing sickness of 760 (A042); she carries its water to the Healing House for the Green Door Day.",
+   "backstory": "From Lâm Tuyền Thôn, whose spring cured the coughing sickness of 760 (A042); she carries its water to the Healing House for the Green Door Day. The spring's keepers raised her.",
+   "appearance": "A limp from the spring's steps.",
    "ties": [
     {
      "to": "tien_ban_ha",
@@ -1639,6 +1669,7 @@
     "upbringing": "village_born"
    },
    "backstory": "A fisher girl from Hải Thúy Trấn with a strong Wood root, Diêm Hải Tảo's (diem_hai_tao) youngest disciple, who has been promised the first voyage when the old woman sails south.",
+   "appearance": "Hard, bare feet in every weather.",
    "ties": [
     {
      "to": "diem_hai_tao",
@@ -1702,9 +1733,10 @@
      "Brave"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "A sailor's son from Phong Phàm Thôn, whose people read the cape's winds so well their sails never go slack (A023); the port house uses him to read the weather for its pill ships.",
+   "appearance": "An earlobe pierced twice for luck.",
    "ties": [
     {
      "to": "khau_hai_doi",
@@ -1767,9 +1799,16 @@
      "Humble"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "A tung-oil presser from Đồng Du Thôn who oils the seat's wooden halls against the haze every autumn and is the slowest disciple to reach the First Leaf in thirty years.",
+   "appearance": "Blinks slowly, as if the answer were far off.",
    "ties": [
     {
      "to": "le_dan_tat",

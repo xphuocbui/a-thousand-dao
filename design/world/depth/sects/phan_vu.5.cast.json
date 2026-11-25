@@ -16,6 +16,7 @@
    "home": 29,
    "birthplace": 94,
    "role": "Levy captain on the palace road, Tang Điền to the Fire Court",
+   "appearance": "The lobe of his left ear is gone, and he says a pirate's hook took it.",
    "tier": "C",
    "root": {
     "elements": {
@@ -28,12 +29,12 @@
     "personality": [
      "Brave",
      "Stubborn",
-     "Just"
+     "Arbitrary"
     ],
     "calling": "Strategist",
     "upbringing": "village_born"
    },
-   "backstory": "Holds the road posts between Tang Điền and the Fire Court for Đới Liệt Cương (doi_liet_cuong); the palace's envoy counts his men's days as tribute, and since the rent set them against what the hall owes at a porter's wage he has pulled one post off the road for every porter's wage it does not pay.",
+   "backstory": "Holds the road posts between Tang Điền and the Fire Court for Đới Liệt Cương (doi_liet_cuong); since the rent he pulls a post off the road for every porter's wage the hall does not pay. He picks the unpaid porter with straws he holds himself and bends the short one to the man he dislikes; a widowed porter lost his wage last winter and sold his mule.",
    "ties": [
     {
      "to": "hung_phan_vu",
@@ -94,6 +95,7 @@
    "home": 253,
    "birthplace": 162,
    "role": "Keeps the sitting rolls at the Lower Mouth",
+   "appearance": "Coughs into her sleeve before she reads any name aloud.",
    "tier": "C",
    "root": {
     "elements": {
@@ -105,13 +107,13 @@
    "traits": {
     "personality": [
      "Cautious",
-     "Loyal",
+     "Faithless",
      "Honest"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
-   "backstory": "Writes down every sitting at the Lower Mouth for Tào Tẫn Kiên (tao_tan_kien), and has seen him read the stubs of the Red Wall Rebirth's burned pages by lamplight; she thinks he means to sit it.",
+   "backstory": "Writes down every sitting at the Lower Mouth for Tào Tẫn Kiên (tao_tan_kien), and has seen him read the stubs of the Red Wall Rebirth's burned pages by lamplight. She gives a second copy of each roll to the palace envoy Bình Viễn Khách (binh_vien_khach) for lamp oil, which is how the envoy's clerks knew which dead to count for rent; Lãnh Nham Nương (lanh_nham_nuong) had to name them.",
    "ties": [
     {
      "to": "tao_tan_kien",
@@ -161,6 +163,7 @@
    "home": 29,
    "birthplace": 44,
    "role": "Wharf brawler in the road levy",
+   "appearance": "Answers each question one behind, knuckles flat as river stones.",
    "tier": "C",
    "root": {
     "elements": {
@@ -172,13 +175,19 @@
    "traits": {
     "personality": [
      "Wrathful",
-     "Content",
+     "Callous",
      "Loyal"
     ],
     "calling": "Duelist",
-    "upbringing": "street_orphan"
+    "upbringing": "street_orphan",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Ngũ Thải wharf brawler who has sat on the vent rock for twenty years and stopped at the fourth layer; he guards the road in Đới Liệt Cương's (doi_liet_cuong) levy and has never lost a fight on the hot rock.",
+   "backstory": "A Ngũ Thải wharf brawler who has sat on the vent rock for twenty years and stopped at the fourth layer; he guards the road in Đới Liệt Cương's (doi_liet_cuong) levy and has never lost a fight on the hot rock. A slow learner, he left a fifteen-year-old levy boy lying two nights in the cinder ditch for refusing him a wager, and the boy's lungs still wheeze.",
    "ties": [
     {
      "to": "doi_liet_cuong",
@@ -228,6 +237,7 @@
    "home": 180,
    "birthplace": 180,
    "role": "Weighs the stone sent to the Fire Court",
+   "appearance": "Lead filings rattle in her pocket whenever she walks.",
    "tier": "C",
    "root": {
     "elements": {
@@ -243,9 +253,9 @@
      "Paranoid"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "Weighs the stone that goes up to the Fire Court for Hác Đan Thạch (hac_dan_thach) and keeps a second tally of what the palace's clerks write as tribute; the two have not matched since 1190.",
+   "backstory": "Weighs the stone that goes up to the Fire Court for Hác Đan Thạch (hac_dan_thach) and keeps a second tally of what the palace's clerks write as tribute; the two have not matched since 1190. She weighs true and writes it down, and the clerks blame her scale.",
    "ties": [
     {
      "to": "hac_dan_thach",
@@ -290,6 +300,7 @@
    "home": 253,
    "birthplace": 29,
    "role": "Keeps watch at the Lower Mouth on moonless nights",
+   "appearance": "Voice like gravel under a cart wheel.",
    "tier": "C",
    "root": {
     "elements": {
@@ -302,12 +313,12 @@
     "personality": [
      "Loyal",
      "Brave",
-     "Trusting"
+     "Greedy"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Keeps watch at the Lower Mouth on moonless nights for Bao Viêm Nương (bao_viem_nuong), and is paid in the palace ward's rice to call her a dream if anyone asks who came down the rock.",
+   "backstory": "Keeps watch at the Lower Mouth on moonless nights for Bao Viêm Nương (bao_viem_nuong), and is paid in the palace ward's rice to call her a dream if anyone asks who came down the rock. She has already asked for a second measure for the same lie, and the ash-born boys at the gate go without.",
    "ties": [
     {
      "to": "bao_viem_nuong",
@@ -358,6 +369,7 @@
    "home": 29,
    "birthplace": 449,
    "role": "Ash-born boy who left the palace's outer gate for the hall",
+   "appearance": "Packs and unpacks the same bundle each dusk, ash still grey in its folds.",
    "tier": "C",
    "root": {
     "elements": {
@@ -373,9 +385,15 @@
      "Gregarious"
     ],
     "calling": "Duelist",
-    "upbringing": "sect_raised"
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Left the palace's outer gate for the hall in 1198 after Thượng Quy Vũ (thuong_quy_vu), who vouched for him; the palace has not asked for him back, which worries him more than if it had.",
+   "backstory": "Left the palace's outer gate for the hall in 1198 after Thượng Quy Vũ (thuong_quy_vu), who vouched for him; the palace has not asked for him back, which worries him more than if it had. He has twice packed his bundle to go back.",
    "ties": [
     {
      "to": "trang_hoi_y",
@@ -425,6 +443,7 @@
    "home": 29,
    "birthplace": 162,
    "role": "Keeps the cooled lava where the hall's dead stand",
+   "appearance": "She taps each grave marker with a tin ladle as she passes.",
    "tier": "C",
    "root": {
     "elements": {
@@ -440,9 +459,9 @@
      "Stubborn"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
-   "backstory": "Her Fire never came; she keeps the cooled lava at the vent's foot where the hall's dead stand and knows each by name. This spring she walked the treasurer's clerks through it and named every one they counted for rent. Long Chước Sinh (long_chuoc_sinh) spars with her because she will not hold back.",
+   "backstory": "Raised by the vent village's shrine keeper, her Fire never came; she keeps the cooled lava at the vent's foot where the hall's dead stand and knows each by name. This spring she walked the treasurer's clerks through it and named every one they counted for rent. Long Chước Sinh (long_chuoc_sinh) spars with her because she will not hold back.",
    "ties": [
     {
      "to": "ngac_tri_hoa",

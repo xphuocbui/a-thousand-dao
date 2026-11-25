@@ -333,7 +333,7 @@
    "traits": {
     "personality": [
      "Reclusive",
-     "Patient",
+     "Arbitrary",
      "Stubborn"
     ],
     "calling": "Talisman maker",
@@ -349,7 +349,7 @@
     "gained": []
    },
    "appearance": "A black-handed old charcoal burner with burnt eyebrows and a cabinet of a thousand ink sticks, each labelled with its year.",
-   "backstory": "A charcoal burner's son from the dense pines of Mật Tùng Lâm, he keeps the Hall's soot kilns, the Mặc Yên, among the vermilion pines. They were built on the ash of the pitch town that burned in 712 (V055). He can tell the year an ink was made by its smell and the shine of a stroke. He keeps a stick from every year since 1100, and he has never been asked to use the gift on anything but forgeries. Kỷ Ngân Chúc (ky_ngan_chuc) is his master.",
+   "backstory": "A charcoal burner's son from the dense pines of Mật Tùng Lâm, he keeps the Hall's soot kilns, the Mặc Yên, among the vermilion pines. They were built on the ash of the pitch town that burned in 712 (V055). He can tell the year an ink was made by its smell and the shine of a stroke. He keeps a stick from every year since 1100, and he has never been asked to use the gift on anything but forgeries. Kỷ Ngân Chúc (ky_ngan_chuc) is his master. He throws out whole firings for a smell he will not name, and the tappers who cut the wood for them go unpaid that season.",
    "ties": [
     {
      "to": "ky_ngan_chuc",
@@ -403,7 +403,9 @@
      "targets_note": "Painters' route, then Creeping Vine and Strangler Vine from the Binding Vine idea: Wood debuffs, smoke and slow."
     },
     "note": "The soot."
-   }
+   },
+   "wants": "To make one ink in his last twenty years that no one, himself included, can date by its smell.",
+   "secret": "Each winter he burns one kiln on the ash of the old pitch town and bottles the soot as 'burnt-town ink' for a grave-seller in Khai Dương, so the Hall's pine count has run short since 1190. Diệp Tùng Yên (diep_tung_yen), who counts the pines, has begun asking where the wood goes."
   },
   {
    "key": "han_thuy_mac",
@@ -532,7 +534,9 @@
      "targets_note": "Painters' route from the Water end (ink first), then the Snow Lotus idea's stack duration for marks that last; uncleansable marks have no piece yet (wish W6-rainfast-marks)."
     },
     "note": "The archive's ink."
-   }
+   },
+   "wants": "To walk home to Khai Dương one day each month without the archive's eyes on his back.",
+   "secret": "He has begun a second copy of the ink-order book and keeps it at his mother's house in Khai Dương, in case the first is ever taken for the Pivot's questions. Nhậm Thanh Lưu (nham_thanh_luu) copies it for him at night and does not yet know why."
   },
   {
    "key": "luc_thanh_chi",
@@ -568,7 +572,7 @@
     "upbringing": "village_born",
     "lifestyle": "gardener"
    },
-   "backstory": "She grows the dark fungus that gives the Hall's paper its grey and its seal ink its violet, and runs Huyền Chi Thôn for Kỷ Ngân Chúc (ky_ngan_chuc). What the vats make beyond the Hall's need she sells at the dye market of Khai Dương Thành. This year one buyer took ten jars of the violet, the seal's colour, and she kept the price and asked nothing.",
+   "backstory": "She grows the dark fungus that gives the Hall's paper its grey and its seal ink its violet, and runs Huyền Chi Thôn for Kỷ Ngân Chúc (ky_ngan_chuc). What the vats make beyond the Hall's need she sells at Khai Dương Thành's dye market. This year one buyer took ten jars of the seal's violet; she docked Thái Huyền Nhung's (thai_huyen_nhung) dye ration to cover the count.",
    "ties": [
     {
      "to": "ky_ngan_chuc",
@@ -622,7 +626,8 @@
     "note": "Fungus dyes."
    },
    "wants": "A good price for the violet, and the granary of Huyền Chi Thôn full by the first snow.",
-   "secret": "She knows ten jars of seal violet are not for cloth, and she sold them anyway, because the dye pays for the village's winter."
+   "secret": "She knows ten jars of seal violet are not for cloth, and she sold them anyway, because the dye pays for the village's winter.",
+   "appearance": "Wears her purse inside her sash, where no one in the village has ever seen it open; violet to the second knuckle."
   },
   {
    "key": "tan_cuc_hoa",
@@ -654,9 +659,9 @@
      "Ambitious"
     ],
     "calling": "Talisman maker",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "Kỷ Ngân Chúc's (ky_ngan_chuc) last disciple, she sweeps the head's room, grinds the head's ink and is taught the rain-fast stroke by the Silver Candle itself, which no other disciple of her year is. Tề Thu Ảnh (te_thu_anh) has not forgiven her for it.",
+   "backstory": "A dye-vat servant's daughter and Kỷ Ngân Chúc's (ky_ngan_chuc) last disciple, she sweeps the head's room, grinds the head's ink and is taught the rain-fast stroke by the Silver Candle itself. Tề Thu Ảnh (te_thu_anh) has not forgiven her for it. She leaves the head's ink pots uncovered for Tề Thu Ảnh to be blamed, and Tề Thu Ảnh scrubbed the head's floor for a month for it.",
    "ties": [
     {
      "to": "ky_ngan_chuc",
@@ -692,7 +697,8 @@
      "intent": "Wood talismans."
     },
     "note": "The head's room."
-   }
+   },
+   "appearance": "Sweeps with a stoop and smiles a beat after everyone else has stopped."
   },
   {
    "key": "ma_tinh_but",
@@ -721,12 +727,12 @@
     "personality": [
      "Calm",
      "Humble",
-     "Patient"
+     "Lazy"
     ],
     "calling": "Talisman maker",
     "upbringing": "sect_raised"
    },
-   "backstory": "Born at the Hall to two of its painters, he paints only the seventh star on the Pivot's talismans, the hardest, for Lạc Tố Bình (lac_to_binh), and has never spoiled one.",
+   "backstory": "Born at the Hall to two of its painters, he paints only the seventh star on the Pivot's talismans, the hardest, for Lạc Tố Bình (lac_to_binh), and has never spoiled one. He pays Hồ Mặc Nhi (ho_mac_nhi) a pine-nut cake a day to grind his ink for him.",
    "ties": [
     {
      "to": "lac_to_binh",
@@ -762,7 +768,8 @@
      "intent": "Wood."
     },
     "note": "The seventh star."
-   }
+   },
+   "appearance": "Clean cuffs, in a hall where no one else has any."
   },
   {
    "key": "ho_mac_nhi",
@@ -794,7 +801,7 @@
      "Indulgent"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
    "backstory": "A pine-tapper's girl of the vermilion pines who scrapes soot from the kiln roofs for Lăng Mặc Khanh (lang_mac_khanh) and is black from hair to heel by noon.",
    "ties": [
@@ -835,7 +842,8 @@
      "intent": "Wood."
     },
     "note": "Soot."
-   }
+   },
+   "appearance": "Sings off-key at the kiln mouths; her teeth are the only white thing on her by noon."
   },
   {
    "key": "phu_vu_sinh",
@@ -863,13 +871,13 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Trusting",
+     "Faithless",
      "Fickle"
     ],
     "calling": "Steward",
     "upbringing": "scholar_family"
    },
-   "backstory": "A Khai Dương boy who grinds ink for Hàn Thủy Mặc (han_thuy_mac) at the Pivot's archive and has made friends with every copyist in Tàng Ước Các.",
+   "backstory": "A Khai Dương boy who grinds ink for Hàn Thủy Mặc (han_thuy_mac) at the Pivot's archive and has made friends with every copyist in Tàng Ước Các. He trades what the archive's ink orders say for a cup of wine at the copyists' stalls, though Hàn Thủy Mặc has told him twice that the book is the Hall's, and found his own order list quoted back to him.",
    "ties": [
     {
      "to": "han_thuy_mac",
@@ -905,7 +913,8 @@
      "intent": "Water."
     },
     "note": "Grinds ink."
-   }
+   },
+   "appearance": "Laughs loud enough to be heard across the archive courtyard, and one ear is always inked."
   },
   {
    "key": "quan_loc_nhi",
@@ -977,7 +986,8 @@
     "note": "No deer glue."
    },
    "wants": "For her uncle to shut his glue yard before the deer warden finds it.",
-   "secret": "The glue in the forged Dipper talismans is boiled in her uncle's yard at Lộc Uyển, and she has been paying him to stop."
+   "secret": "The glue in the forged Dipper talismans is boiled in her uncle's yard at Lộc Uyển, and she has been paying him to stop.",
+   "appearance": "Re-pins a twig of deer-grass in her hair every hour, dark-eyed and small."
   },
   {
    "key": "ky_thu_tich",
@@ -1012,7 +1022,8 @@
      "kind": "disciple",
      "note": "her grand-niece and successor"
     }
-   ]
+   ],
+   "appearance": "A short fungus-dyer's daughter with violet nails, shown on the Hall's screen with a brush in each hand."
   }
  ]
 }

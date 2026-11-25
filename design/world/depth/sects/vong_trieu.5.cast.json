@@ -16,6 +16,7 @@
    "home": 337,
    "birthplace": 791,
    "role": "Draws breakwater arrays for the storm wards",
+   "appearance": "Draws on every flat thing, including the table and his own cuff.",
    "tier": "C",
    "root": {
     "elements": {
@@ -31,7 +32,7 @@
      "Honest"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
    "backstory": "Has drawn three breakwater arrays for Chân Định Lan (chan_dinh_lan) that Lê Bạch Diêm (le_bach_diem) has costed and the head has refused; he keeps the plans in the founder's tower, where Ôn Thủ Đăng cannot miss them.",
    "ties": [
@@ -90,6 +91,7 @@
    "home": 788,
    "birthplace": 788,
    "role": "Keeper of the tide lamp at Nhật Xuất Thôn",
+   "appearance": "Her left hand is black to the wrist with lamp soot.",
    "tier": "C",
    "root": {
     "elements": {
@@ -102,12 +104,12 @@
     "personality": [
      "Loyal",
      "Devout",
-     "Calm"
+     "Arbitrary"
     ],
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "Born of the drowned keeper Dịch Thủy Thanh's (dich_thuy_thanh) family, five generations down, and sworn in his name; Ôn Thủ Đăng took her as his disciple the year she swore and has never said why he weeps at her lamp.",
+   "backstory": "Born of the drowned keeper Dịch Thủy Thanh's (dich_thuy_thanh) family, five generations down, and sworn in his name; Ôn Thủ Đăng took her as his disciple the year she swore and weeps at her lamp. Last winter she sent the newest keeper Thạch Hải Thệ (thach_hai_the) up the tower on the night of the ice for no reason she could name; the girl's hands have not healed.",
    "ties": [
     {
      "to": "on_thu_dang",
@@ -167,6 +169,7 @@
    "home": 788,
    "birthplace": 788,
    "role": "Carries oil up to the northern lamp",
+   "appearance": "Laughs loud enough to be heard across the cove, through a nose an oar broke flat.",
    "tier": "C",
    "root": {
     "elements": {
@@ -230,6 +233,7 @@
    "home": 337,
    "birthplace": 779,
    "role": "Salt boiler and oil clerk",
+   "appearance": "Counts on four fingers of her left hand and has never needed a fifth.",
    "tier": "C",
    "root": {
     "elements": {
@@ -242,12 +246,12 @@
     "personality": [
      "Pragmatic",
      "Honest",
-     "Gregarious"
+     "Generous"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "Boils salt at Hàm Trạch for the stores and keeps the oil ledgers for Lê Bạch Diêm (le_bach_diem); she can say what three relit towers would cost a year, and has said it to Kỳ Lam Sa (ky_lam_sa).",
+   "backstory": "Boils salt at Hàm Trạch for the stores and keeps the oil ledgers for Lê Bạch Diêm (le_bach_diem); she can say what three relit towers would cost a year, and has said it to Kỳ Lam Sa (ky_lam_sa). She sells the stores' salt to her Hàm Trạch cousins at the lamp price and shows the sum in the open margin for anyone to read.",
    "ties": [
     {
      "to": "le_bach_diem",
@@ -297,6 +301,7 @@
    "home": 228,
    "birthplace": 149,
    "role": "Learns to dive at the burned piers",
+   "appearance": "Coughs up a little seawater every dawn, though she has not dived in a week.",
    "tier": "C",
    "root": {
     "elements": {
@@ -312,9 +317,15 @@
      "Impatient"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A cousin's girl of Trạm Châu Nhi (tram_chau_nhi) who has learned to dive from her in the dark below the burned piers; the family vow forbids it, and the hall pretends it knows nothing of either of them.",
+   "backstory": "A cousin's girl of Trạm Châu Nhi (tram_chau_nhi) who has learned to dive from her in the dark below the burned piers; the family vow forbids it, and the hall pretends it knows nothing of either of them. The sea has already taken two of her boats.",
    "ties": [
     {
      "to": "tram_chau_nhi",
@@ -364,6 +375,7 @@
    "home": 164,
    "birthplace": 164,
    "role": "Wick-cutter at the southern lamp",
+   "appearance": "Reed-cuts on every finger, healed white.",
    "tier": "C",
    "root": {
     "elements": {
@@ -379,9 +391,9 @@
      "Reclusive"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "hermit_taught"
    },
-   "backstory": "Cuts reeds for the southern lamp's wicks under Vệ Lư Sinh (ve_lu_sinh) and has kept the lamp his full year without letting it go out; he thinks the oil would be better spent on walls, and says so only to the reeds.",
+   "backstory": "Cuts reeds for the southern lamp's wicks under Vệ Lư Sinh (ve_lu_sinh) and has kept the lamp his full year without letting it go out; he thinks the oil would be better spent on walls, and says so only to the reeds. A hermit reed-cutter taught him the wicks.",
    "ties": [
     {
      "to": "ve_lu_sinh",
@@ -426,6 +438,7 @@
    "home": 788,
    "birthplace": 788,
    "role": "Newly sworn keeper at the tide lamp",
+   "appearance": "Stares a breath too long and has stopped apologising for it.",
    "tier": "C",
    "root": {
     "elements": {
@@ -444,6 +457,12 @@
     "upbringing": "village_born",
     "gained": [
      "Grieving"
+    ],
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
     ]
    },
    "backstory": "Swore at the founder's tower in 1197 naming a fishing boat the storm took with her parents on it; she stood her night on the tower top without a lamp, awake, and has not slept well since.",

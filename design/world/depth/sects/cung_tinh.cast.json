@@ -356,12 +356,12 @@
    },
    "traits": {
     "personality": [
-     "Callous",
+     "Cruel",
      "Greedy",
      "Diligent"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [
      {
       "id": "quick_minded",
@@ -378,7 +378,9 @@
     "gained": []
    },
    "appearance": "A busy, round man with a measuring cord around his neck and a cart of star-iron discs behind him.",
-   "backstory": "A craftsman's son from Xảo Tượng Thôn, he runs the abbey's one paying trade: ward rings for granaries, mines and caravan camps. He has twice lost the Pivot's mine rings to the freelance Vệ Văn Cơ (ve_van_co). Since the sea chart stopped the pilgrims, his rings are all the abbey sells. At the first snow he turned the lay cooks and servants out onto the plain to save the barley for his ring-layers, and he now charges the Pivot's mines double. He pays Phan Khắc Luân's (phan_khac_luan) lamp-work for the head without asking what it is.",
+   "backstory": "A craftsman's son from Xảo Tượng Thôn, he runs the abbey's one paying trade: ward rings for granaries, mines and caravan camps. He has twice lost the Pivot's mine rings to the freelance Vệ Văn Cơ (ve_van_co). Since the sea chart stopped the pilgrims, his rings are all the abbey sells. At the first snow he turned the lay cooks and servants out onto the plain to save the barley for his ring-layers, and he now charges the Pivot's mines double. He pays Phan Khắc Luân's (phan_khac_luan) lamp-work for the head without asking what it is. Four of the turned-out cooks never reached the lake villages by the thaw; he has not asked their names.",
+   "wants": "To be the one trade the plateau cannot do without: every granary, mine and camp ringed by his crews, and Vệ Văn Cơ (ve_van_co) out of work.",
+   "secret": "He skims one disc in ten from the star iron Sầm Lạc Thiết (sam_lac_thiet) sends up and sells them at the Pivot's iron fair, and is lowering the count in Thường Cự Luân's (thuong_cu_luan) silver book to cover the gap.",
    "changed": "fix pass B 2026-11-25 (fixB-5): Pragmatic -> Callous (turns the lay cooks out at the first snow, charges the Pivot's mines double)",
    "ties": [
     {
@@ -506,6 +508,8 @@
    },
    "appearance": "A pale, quiet woman who lives in a reed hut on the lake shore and is never seen by day.",
    "backstory": "A fisher's daughter of the lake that holds the Dipper (A205), she has sat on its shore every clear night since 1150. In 1188 she saw the pole star go out in the water and ran to the abbey; Thẩm Bắc Thần (tham_bac_than) told her it was cloud and asked her to say so. She did.",
+   "wants": "To be told truthfully whether the pole star is gone from the lake, or to see it back in the water.",
+   "secret": "Each clear night she scratches the lake's true reading, pole gap and all, on a slate and buries it under her hut floor for whoever asks one day; Ngô Hoàng Thảo (ngo_hoang_thao) brings the tea and has seen the slates stacking.",
    "ties": [
     {
      "to": "tham_bac_than",
@@ -625,6 +629,8 @@
    },
    "appearance": "A heavy, slow man who hums along with the array discs when they ring.",
    "backstory": "Born at Vẫn Tinh, where iron from a star that fell on the plateau has been dug since 160 (A206), he cuts it into array discs for the abbey. He knows star iron rings under lightning. Since the pilgrims stopped coming in 1199 he has flown a sack of discs each spring to Thối Tinh's buyer at the Pivot's iron fair, against the abbey's taboo, to buy the barley the alms no longer pay for. He knows the smiths melt the discs into their own \"star iron\" so that it will pass that test. He is Tô Tinh Nghi's (to_tinh_nghi) disciple.",
+   "wants": "Barley enough that the mine is never hungry, and one honest seat at the abbey's table.",
+   "secret": "He is padding this spring's sack for Thối Tinh's buyer with plain iron painted dark, and Lỗ Tinh Sa (lo_tinh_sa), who weighs out the discs by hand, does not yet know why the heavy ones keep disappearing from her pile.",
    "changed": "fix pass B 2026-11-25 (fixB-5): Honest -> Deceitful (sells Vẫn Tinh discs to Thối Tinh's buyer to salt its ingots; hook 4's new turn)",
    "ties": [
     {
@@ -719,13 +725,14 @@
     "personality": [
      "Diligent",
      "Paranoid",
-     "Humble"
+     "Arbitrary"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "scholar_family",
     "lifestyle": "chronicler"
    },
-   "backstory": "He keeps the abbey's chart room, half of it the charts the blind head of Khuy Thiên brought in 650 (V110), which show one star near the pole that the abbey's do not. In 1199 he bought Luân Hải Yến's (luan_hai_yen) sea chart from a Lạc Hà caravan and hung it in the chart room beside Khuy Thiên's, where the head must pass it every night.",
+   "appearance": "One milky eye, which he squints through a lens of rock crystal.",
+   "backstory": "Keeps the chart room, half of it Khuy Thiên's charts from 650 (V110), which show a star near the pole the abbey's do not. In 1199 he bought Luân Hải Yến's (luan_hai_yen) sea chart and hung it beside them; he lets copyists touch the charts by a jar of marked tokens, and Ổ Đồ Nam (o_do_nam) drew black the week his copying was burned over a streak in the ink.",
    "changed": "fix pass B 2026-11-25 (fixB-5): no longer 'has found' the disputed star; hangs Luân Hải Yến's chart in the chart room",
    "ties": [
     {
@@ -800,13 +807,14 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Gregarious",
+     "Faithless",
      "Impatient"
     ],
     "calling": "Formation master",
     "upbringing": "village_born"
    },
-   "backstory": "A yak-herder's son from Mao Ngưu Thôn who lays ward rings for Phó Cương Đẩu (pho_cuong_dau) and wants to be paid for it.",
+   "appearance": "A laugh that startles the lake geese off the water.",
+   "backstory": "A yak-herder's son from Mao Ngưu Thôn who lays ward rings for Phó Cương Đẩu (pho_cuong_dau) and wants to be paid for it; twice he has walked off a half-laid ring when a richer camp sent for him, and the winter seed in his own village's barley store went to raiders while he laid the richer camp's ring and told the headman the ring had failed.",
    "ties": [
     {
      "to": "pho_cuong_dau",
@@ -878,6 +886,7 @@
     "upbringing": "sect_raised",
     "lifestyle": "calligrapher"
    },
+   "appearance": "Broad cook's forearms stick out of narrow copyist's sleeves.",
    "backstory": "Born at the abbey to a lay cook, she copies both armillary books for Tô Tinh Nghi (to_tinh_nghi). At the first snow Phó Cương Đẩu (pho_cuong_dau) turned her mother out onto the plain with the other lay servants.",
    "changed": "fix pass B 2026-11-25 (fixB-5): copies both books; her mother turned out by Phó; tie to pho_cuong_dau",
    "ties": [
@@ -950,6 +959,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
+   "appearance": "Talks low, as if the wind were listening, and has tea stains down one sleeve.",
    "backstory": "She walks butter tea out to Đổng Tịnh Hồ's (dong_tinh_ho) hut every evening and sleeps there when it snows.",
    "ties": [
     {
@@ -1017,9 +1027,16 @@
      "Content"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "An angelica gatherer's son from Đương Quy Thôn who cuts array discs at Vẫn Tinh for Sầm Lạc Thiết (sam_lac_thiet) and sleeps through the ringing.",
+   "appearance": "Lids droop mid-sentence, and his answer arrives a breath after the question.",
+   "backstory": "An angelica gatherer's son from Đương Quy Thôn who cuts array discs at Vẫn Tinh for Sầm Lạc Thiết (sam_lac_thiet) and sleeps through the ringing. He is slow with the discs' pitch and has never been trusted to tune one.",
    "ties": [
     {
      "to": "sam_lac_thiet",
@@ -1088,8 +1105,9 @@
      "Humble"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
+   "appearance": "Walks bow-legged, like the wheelwright carts he grew up under.",
    "backstory": "A wheelwright's son of Xảo Tượng Thôn who copies Khuy Thiên's charts for Bùi Thiên Đồ (bui_thien_do). This winter he turns a new inner ring for the armillary by day as a spare and, by lamplight, cuts 650 on its rim in the old hand for Thẩm Bắc Thần (tham_bac_than), paid from the array hall's silver.",
    "changed": "fix pass B 2026-11-25 (fixB-5): turns the ring dated 650 and cuts its numerals",
    "ties": [
@@ -1153,7 +1171,7 @@
      "Humble"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born",
+    "upbringing": "wild_raised",
     "path": [
      "formation_mind"
     ]

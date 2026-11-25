@@ -364,6 +364,7 @@
    "home": 28,
    "birthplace": 28,
    "role": "The Tower's deserter of 1177, now a staff of the Gate; his life lamp still burns in the Tower's soul vaults",
+   "appearance": "A quiet man with a bronze cup still hung at his throat, which he has never taken off.",
    "tier": "B",
    "root": {
     "elements": {
@@ -399,8 +400,9 @@
      "Life-debt"
     ]
    },
-   "appearance": "A quiet man with a bronze cup still hung at his throat, which he has never taken off.",
    "backstory": "Born below the gate in 1150, Nghiêm Quy Khứ passed the Tower's outer gate on his Metal and climbed the ridge in 1167. Ten years later he would not learn the Night Rain arts and walked home by night (N-thinh_vu-12). Lệ Tiêu Hồn (le_tieu_hon) wanted his lamp put out. Ninh Tịch Đăng (ninh_tich_dang) refused to cut the wick, and Phí Thoa Y (phi_thoa_y) hid him. He has taught the Gate's outer boys for twenty years. His sister went up the ridge in 1192 to find out why he lives.",
+   "wants": "To die when his own lamp goes out, not when the Tower's shears close.",
+   "secret": "He is teaching the outer boys a counting rhyme that is really the order of the Tower's lamp-shear cuts, so the Gate will know how to keep a lamp from the shears after him. Thôi Vọng Phàm (thoi_vong_pham) has learned the first verse and sells it to nobody yet.",
    "ties": [
     {
      "to": "phi_thoa_y",
@@ -503,6 +505,7 @@
    "home": 160,
    "birthplace": 160,
    "role": "Warden of the Gate's ferry post at Hà Châu, who planted its claim on the risen isle",
+   "appearance": "A thick-armed ferryman with a staff that doubles as a pole and a gourd of rice wine that never seems to empty.",
    "tier": "B",
    "root": {
     "elements": {
@@ -523,7 +526,7 @@
     "personality": [
      "Stubborn",
      "Diligent",
-     "Content"
+     "Greedy"
     ],
     "calling": "Steward",
     "upbringing": "village_born",
@@ -535,8 +538,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A thick-armed ferryman with a staff that doubles as a pole and a gourd of rice wine that never seems to empty.",
    "backstory": "Đinh Vãn Độ was born at Hà Châu on the forest river in 1085 and has run the Gate's ferry there for ninety years. When the earthquake of 1199 raised an isle in the river beside his landing (A297), he poled out to it before the water had settled and drove the Gate's staff into its mud. The Tower claims it too, and its envoy Hứa Thanh Diêm (hua_thanh_diem) has come to say so twice. Úc Diệp Thanh (uc_diep_thanh) taught him the staff and has not told him to pull it out.",
+   "wants": "The isle held in the Gate's name until the river changes again.",
+   "secret": "He is poling Tower stone-cutters out to the isle by night for a skin of rice wine a trip, while swearing at its envoy Hứa Thanh Diêm (hua_thanh_diem) by day.",
    "ties": [
     {
      "to": "uc_diep_thanh",
@@ -626,6 +630,7 @@
    "home": 873,
    "birthplace": 873,
    "role": "Warden of the Gate's mines around Thần Cổ Phong (Sa Kim, Tử Tinh, Thủ Lôi)",
+   "appearance": "A tally-cord knotted round one wrist, never taken off.",
    "tier": "C",
    "root": {
     "elements": {
@@ -641,7 +646,7 @@
      "Paranoid"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -716,6 +721,7 @@
    "home": 28,
    "birthplace": 885,
    "role": "The head's last disciple and the fastest guide on the forest road; the Gate's courier to its hostage",
+   "appearance": "Long-legged and sunburnt, with her sandals tied on with red thread and her staff across her shoulders like a yoke.",
    "tier": "B",
    "root": {
     "elements": {
@@ -755,8 +761,9 @@
      "Lovestruck"
     ]
    },
-   "appearance": "Long-legged and sunburnt, with her sandals tied on with red thread and her staff across her shoulders like a yoke.",
    "backstory": "A guide's daughter from Dẫn Lộ Thôn who outran the head's own pack-boys at twelve. Úc Diệp Thanh (uc_diep_thanh) took her as his last disciple in 1170, the year he sent his nephew up the ridge. She has carried the Gate's letters to Úc Đả Diệp (uc_da_diep) every season since she was twenty, and her own with them. She teaches his daughter the staff, and the girl does not know why she is so patient with her.",
+   "wants": "The hostage home, and one letter she may sign herself.",
+   "secret": "She is cutting a path to the ridge for Úc Yên Vũ (uc_yen_vu) in case her holding the girl back fails, one bend a season, each marked with a bit of red thread.",
    "ties": [
     {
      "to": "uc_diep_thanh",
@@ -835,6 +842,7 @@
    "home": 873,
    "birthplace": 873,
    "role": "Ore hauler at Sa Kim Khoáng and the Gate's informer below the Tower's seat",
+   "appearance": "Bowed forward, with the tump-line groove across his forehead.",
    "tier": "C",
    "root": {
     "elements": {
@@ -915,6 +923,7 @@
    "home": 885,
    "birthplace": 885,
    "role": "Lamp-carrier on the night crossings",
+   "appearance": "Lamp-wax spattered through her hair like a grey streak.",
    "tier": "C",
    "root": {
     "elements": {
@@ -930,7 +939,7 @@
      "Fickle"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "street_orphan",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -990,6 +999,7 @@
    "home": 160,
    "birthplace": 886,
    "role": "Bamboo-feller who cuts the Gate's staffs",
+   "appearance": "Bamboo splinters in his forearms like a pelt.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1062,6 +1072,7 @@
    "home": 91,
    "birthplace": 91,
    "role": "Coast guide at Vọng Hải Trấn",
+   "appearance": "A telescope of rolled paper he holds to his eye at nothing.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1073,11 +1084,11 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Impatient",
+     "Deceitful",
      "Gregarious"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -1086,7 +1097,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Grandson of the watchtower keepers at Vọng Hải who saw Thôn Hải's sails a day early (A291); guides on the coast road and wants a boat instead.",
+   "backstory": "Grandson of the watchtower keepers at Vọng Hải who saw Thôn Hải's sails a day early (A291); guides on the coast road and wants a boat instead. He quotes travellers a false rate and pockets the rest, and Khương Lãng Thư's (khuong_lang_thu) clients paid for it.",
    "ties": [
     {
      "to": "nghiem_quy_khu",
@@ -1137,6 +1148,7 @@
    "home": 28,
    "birthplace": 28,
    "role": "The hostage's daughter, raised at the gate",
+   "appearance": "Her father's staff, cut down to her height, never leaves her hand.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1147,7 +1159,7 @@
    },
    "traits": {
     "personality": [
-     "Stubborn",
+     "Cruel",
      "Vengeful",
      "Diligent"
     ],
@@ -1161,7 +1173,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Two years old when her father went up the ridge as surety, she has met him four times; she trains with the staff as if the Tower were on the other end of it.",
+   "backstory": "Two years old when her father went up the ridge as surety, she has met him four times; she trains with the staff as if the Tower were on the other end of it. She does not stop a bout when the other falls: she broke Cù Tiểu Thoa's (cu_tieu_thoa) wrist in the yard and stood over her while she cried.",
    "ties": [
     {
      "to": "uc_da_diep",

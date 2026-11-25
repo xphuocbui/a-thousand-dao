@@ -1731,7 +1731,9 @@
    },
    "items": [
     "tvl-storm-forge-hammer"
-   ]
+   ],
+   "wants": "One lightning rod that does not bring the strike to the man who holds it.",
+   "secret": "He is recasting Mạnh Lưu Ly's (manh_luu_ly) glass sword a third time, in a storm, and has not told her. It carries the flaw he put in the second on purpose, so that it breaks if she is ever made to raise it against the head."
   },
   {
    "key": "phuong_doan_vu",
@@ -1887,7 +1889,9 @@
      "targets_note": "Lineage sword, the Hundred-Sword Rack for Needle Rain's flying-sword volleys, Horse Stance for the drill's armour."
     },
     "note": "Needle Rain, then the late cut: the drill made into a fighter."
-   }
+   },
+   "wants": "To die on the climb of Liệt Khuyết Phong, not in the rain of the pass.",
+   "secret": "He is writing out Kỷ Vãn Tình's last order a line a month in a letter to Mạnh Lưu Ly (manh_luu_ly), and has stopped on the line that names the head."
   },
   {
    "key": "hua_thanh_diem",
@@ -1923,7 +1927,7 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Forgiving",
+     "Deceitful",
      "Temperate"
     ],
     "calling": "Diplomat",
@@ -1942,7 +1946,7 @@
     "gained": []
    },
    "appearance": "A round-faced woman in a green-lined rain cloak who carries her own tea and never drinks a host's.",
-   "backstory": "Hứa Thanh Diêm was born in 1010 in Không Mông Thành, like Quan Vũ Thanh (quan_vu_thanh), and like her she was taken for her ear for rain. Quan taught her; the record names the head. She is the Tower's envoy to the south and to the vassals, and she went with Quan to Phượng Minh in 1185 (A278). She was in the room when Vu Ngô Đồng gave his answer. She writes to him still, about tea.",
+   "backstory": "Hứa Thanh Diêm was born in 1010 in Không Mông Thành, like Quan Vũ Thanh (quan_vu_thanh), and like her she was taken for her ear for rain. Quan taught her; the record names the head. She is the Tower's envoy to the south and to the vassals, and she went with Quan to Phượng Minh in 1185 (A278). She was in the room when Vu Ngô Đồng gave his answer. She writes to him still, about tea. She still keeps his letters in a tea caddy.",
    "ties": [
     {
      "to": "quan_vu_thanh",
@@ -2057,7 +2061,9 @@
    "items": [
     "mf-way-out-knot"
    ],
-   "authored": "d2"
+   "authored": "d2",
+   "wants": "Vu Ngô Đồng's terms in writing, in the Tower's own hand, before Quan Vũ Thanh's span ends.",
+   "secret": "She passes Vu Ngô Đồng (vu_ngo_dong) the Rain faction's moods in her tea notes, a season at a time, under cover of talking about leaf, and he has begun to answer in the same code."
   },
   {
    "key": "tuong_lau_thanh",
@@ -2206,7 +2212,9 @@
      "targets_note": "Lineage sword, the Golden Bell for the judge's guard, and Earth and Metal toward the seal that pins."
     },
     "note": "Palms that echo and a seal that pins."
-   }
+   },
+   "wants": "The water clock never again to need a hand between its drops.",
+   "secret": "He keeps a second water clock, set a drop behind the first, to learn whether it is the Tower's rule or its clock that is slipping, and it has drifted by an hour a year. Thái Canh Lậu (thai_canh_lau), who tends the first, has not been told."
   },
   {
    "key": "lu_tan_ha",
@@ -2340,7 +2348,9 @@
      "targets_note": "Timely Rain and Rain on Bamboo for sustain, the Still Lake Lotus (the withered lotus she keeps) for calm, and Mirror Lake: very hard to surprise."
     },
     "note": "Old, slow, and very hard to surprise."
-   }
+   },
+   "wants": "To be put into the lake herself on a night of rain, with a lotus to hear it.",
+   "secret": "By night she has Lư Hà Tịnh (lu_ha_tinh) row out the ashes of the deserters the Tower's law refuses a burial, and lowers them beside the founder."
   },
   {
    "key": "o_thiem_tu",
@@ -2447,7 +2457,12 @@
      "tech": "huyen_moc",
      "layer": 8
     },
-    "aux": [{"tech": "censer-smoke-manual", "layer": 6}],
+    "aux": [
+     {
+      "tech": "censer-smoke-manual",
+      "layer": 6
+     }
+    ],
     "gear": [
      {
       "base": "ho_lo",
@@ -2482,7 +2497,9 @@
     },
     "note": "Poison clouds and a cheap death for whoever sits too close."
    },
-   "authored": "e2"
+   "authored": "e2",
+   "wants": "A poison no one will ever think to cure, and the quiet to finish tasting it.",
+   "secret": "He has brewed one pill that is not a poison, a cure for the Hollow Tide deviation, and is keeping it from Kiều Mãn Lâu because it would sell for too little. Mai Độc Ca (mai_doc_ca) has found the first batch and is selling it under the counter."
   },
   {
    "key": "ninh_tich_dang",
@@ -2638,7 +2655,9 @@
    },
    "items": [
     "tvl-snuffing-shears"
-   ]
+   ],
+   "wants": "Never again to be asked to cut a wick.",
+   "secret": "She writes the lamp roll twice, one for Lệ Tiêu Hồn and a true set kept by Giang Hạnh Hoa (giang_hanh_hoa), who keeps her own list of the lamps that have gone out."
   }
  ]
 }

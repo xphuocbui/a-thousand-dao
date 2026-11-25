@@ -191,8 +191,13 @@
      "Loyal"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
-    "talent": [],
+    "upbringing": "war_orphan",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ],
     "path": [],
     "lifestyle": null,
     "health": null,
@@ -201,7 +206,9 @@
     "gained": []
    },
    "appearance": "A thin, sunburnt girl who trains at dusk until the outer gate's steward sends her to bed.",
-   "backstory": "Đồ Tiểu Liên's younger brother was the Tân Khẩu boy who walked into the miasma by Vô Định Thành on a dare in 1196 (A188). Hình Lạc Nhạn (hinh_lac_nhan) brought back his shoe. Đồ joined the outer gate the next spring because the Miasma Watch is Lạc Hà's, and she has asked four times to be posted there. Her Earth is too thin for the inner gate, and she trains at dusk longer than anyone.",
+   "backstory": "Đồ Tiểu Liên's younger brother was the Tân Khẩu boy who walked into the miasma by Vô Định Thành on a dare in 1196 (A188). Hình Lạc Nhạn (hinh_lac_nhan) brought back his shoe. Đồ joined the outer gate the next spring because the Miasma Watch is Lạc Hà's, and she has asked four times to be posted there. Her Earth is too thin for the inner gate, and she trains at dusk longer than anyone. Her name has gone on the Watch roster four times, and four times the order came back with the wrong seal.",
+   "wants": "To be posted to the Miasma Watch, and to walk the plain behind Hình Lạc Nhạn when she goes back in.",
+   "secret": "She has been saving ration millet in a clay jar to pay a Tân Khẩu boatman to row her to the miasma's edge on the next dark moon, with or without leave; Hồ Đăng Sơn (ho_dang_son) keeps the jar.",
    "ties": [
     {
      "to": "hinh_lac_nhan",
@@ -288,7 +295,7 @@
     "personality": [
      "Humble",
      "Calm",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Talisman maker",
     "upbringing": "clan_heir",
@@ -302,6 +309,8 @@
    },
    "appearance": "A courteous young man in an old-fashioned clan robe, with swallows embroidered at the hem.",
    "backstory": "Tạ Quy Yến is of the Tạ family who came to Phong Lâm Trấn with nothing but their name (A193) and still trade letters with the Vương (A200). He has Wood enough for any sect and Earth too thin for Lạc Hà's inner gate. He has failed the dusk test three times. This spring the Placement Day will send him to a vassal, and Châu Phi Vân (chau_phi_van) of Nam Phố Đường has asked for him by name.",
+   "wants": "To be placed with a vassal that lets him write, not carry.",
+   "secret": "He practises Châu Phi Vân's (chau_phi_van) seal in the margins of his exercises, so that when Placement Day comes his name will reach Nam Phố already approved.",
    "ties": [
     {
      "to": "chau_phi_van",
@@ -413,6 +422,7 @@
     "calling": "Merchant",
     "upbringing": "sect_raised"
    },
+   "appearance": "People say he has his sister's forehead and none of her hurry.",
    "backstory": "Tô Mộ Vân's (to_mo_van) younger brother, tired of being asked about his sister. His name is on the envoy's list of thirty for Thiên Bảo Trai, and since he saw it he has stopped practising the primer so that no one can argue he will ever pass: he would rather haul ore in Vật Hoa Thị, where no one has heard of her.",
    "ties": [
     {
@@ -479,6 +489,7 @@
     "upbringing": "merchant_child",
     "lifestyle": "gardener"
    },
+   "appearance": "Madder-red to both elbows.",
    "backstory": "Tô Bình Chu's (to_binh_chu) wife, a Tang Ma weaver who re-dyes the sect's robes in the founder's madder pot and never joined the lineage.",
    "ties": [
     {
@@ -543,9 +554,16 @@
      "Loyal"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Mông Thiết Sơn's (mong_thiet_son) son, who wants to stand the Miasma Watch like his father and is not allowed near it.",
+   "appearance": "Stands on tiptoe near anyone taller, and the Watch's plate hangs off his shoulders.",
+   "backstory": "Mông Thiết Sơn's (mong_thiet_son) son, who wants to stand the Miasma Watch like his father and is not allowed near it. He is too slight for the Watch's plate.",
    "ties": [
     {
      "to": "mong_thiet_son",
@@ -610,7 +628,8 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "Phương Toán Ngọc's (phuong_toan_ngoc) niece, who sells her aunt's spare abacus beads in Hạc Đinh Thị on rest days.",
+   "appearance": "Her bead bracelet clicks when she lies, and she knows it.",
+   "backstory": "Phương Toán Ngọc's (phuong_toan_ngoc) niece, who sells her aunt's spare abacus beads in Hạc Đinh Thị on rest days; Phương found a row of beads missing from her own counting frame at the spring audit.",
    "ties": [
     {
      "to": "phuong_toan_ngoc",
@@ -673,8 +692,9 @@
      "Trusting"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
+   "appearance": "Leans toward every sunny wall, hopefully.",
    "backstory": "Sài Thanh Phong's (sai_thanh_phong) cousin, Wood-heavy like him, who hopes the new seat's Wood will do for her what it did for him.",
    "ties": [
     {
@@ -735,6 +755,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
+   "appearance": "One thumb bent for life from transplanting.",
    "backstory": "Điền Hòa Lũng's (dien_hoa_lung) sister, who plants spirit rice on the old seat's steppe plots and hopes to follow her brother inward.",
    "ties": [
     {
@@ -793,9 +814,10 @@
      "Lazy"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "Xa Cổ Đạo's (xa_co_dao) nephew, who rows for the one-handed man and makes the whole outer gate laugh.",
+   "appearance": "Laughs before the joke arrives.",
+   "backstory": "Xa Cổ Đạo's (xa_co_dao) nephew, who rows for the one-handed man, makes the whole outer gate laugh, and lets his uncle pull the heavier stroke.",
    "ties": [
     {
      "to": "xa_co_dao",
@@ -866,6 +888,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
+   "appearance": "Reed-cut shins and a level boatwoman's gaze.",
    "backstory": "Bồ Tàn Chiếu's (bo_tan_chieu) great-granddaughter, who means to row him to Tịch Chiếu Đảo herself when his time comes.",
    "ties": [
     {
@@ -936,6 +959,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
+   "appearance": "Runner's calves; wind has split her lips.",
    "backstory": "A Than Đầu Thôn boatman's daughter who passed the dusk test at nineteen and now runs messages to the Miasma Watch for Mông Thiết Sơn (mong_thiet_son).",
    "ties": [
     {
@@ -996,13 +1020,14 @@
    "traits": {
     "personality": [
      "Warlike",
-     "Brave",
+     "Cruel",
      "Arrogant"
     ],
     "calling": "Duelist",
     "upbringing": "scholar_family"
    },
-   "backstory": "Sử Thu Thủy's (su_thu_thuy) grandson, raised in Tử Điện Thành, who guards the Long River vein and hopes for a border quarrel with Thính Vũ.",
+   "appearance": "A scar through one eyebrow, and hands as clean as a scholar's.",
+   "backstory": "Sử Thu Thủy's (su_thu_thuy) grandson, raised in Tử Điện Thành, who guards the Long River vein and hopes for a border quarrel with Thính Vũ; twice he has sunk Thính Vũ fishing skiffs at night with their crews aboard, four drowned in all, and called it guarding.",
    "ties": [
     {
      "to": "su_thu_thuy",
@@ -1063,6 +1088,7 @@
     "calling": "Teacher",
     "upbringing": "village_born"
    },
+   "appearance": "A bird-thin chest with a voice that startles.",
    "backstory": "A Vãn Chu Thôn fisher boy whose family stays ashore on the dusk of 803 every year (V095); Lô Xướng Vãn (lo_xuong_van) heard him sing and brought him to the outer gate.",
    "ties": [
     {
@@ -1127,13 +1153,14 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Brave",
+     "Callous",
      "Impatient"
     ],
     "calling": "Strategist",
-    "upbringing": "sect_raised"
+    "upbringing": "village_born"
    },
-   "backstory": "Đặng Liệt Hàng's (dang_liet_hang) daughter, who climbs to the Cloud Bridge to drill with the Geese Hall's cadets without being asked.",
+   "appearance": "Bites her lower lip until it scabs.",
+   "backstory": "Đặng Liệt Hàng's (dang_liet_hang) daughter, born in a Nhạn Thanh Thành lane, who climbs to the Cloud Bridge to drill with the Geese Hall's cadets without being asked; she left Đổng Xuyên Vân (dong_xuyen_van) on the ground with a broken wrist and kept drilling, and he shot the spring trial with it splinted.",
    "ties": [
     {
      "to": "dang_liet_hang",
@@ -1187,13 +1214,14 @@
    "traits": {
     "personality": [
      "Generous",
-     "Wrathful",
+     "Arbitrary",
      "Stubborn"
     ],
     "calling": "Steward",
     "upbringing": "servant_born"
    },
-   "backstory": "Has cooked in the old seat's kitchen for forty years, feeds Ngạc Viễn Sơn (ngac_vien_son) and the outer gate, and would not climb the mountain.",
+   "appearance": "Flour in her eyebrows, a burn-shine on one cheek.",
+   "backstory": "Has cooked in the old seat's kitchen for forty years and feeds Ngạc Viễn Sơn (ngac_vien_son) and the outer gate; each winter she draws lots for the thick end of the pot from a jar she has emptied of white pebbles, so the same boys eat broth, and Âu Đẩu Sinh (au_dau_sinh) has not had the thick end since he laughed at her bun. She would not climb the mountain.",
    "ties": [
     {
      "to": "ngac_vien_son",
@@ -1259,6 +1287,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
+   "appearance": "Eyes the colour of river water in a bald brown head.",
    "backstory": "Rows with Bồ Tàn Chiếu (bo_tan_chieu) to Tịch Chiếu Đảo; he has carried more dying elders across than anyone but Bồ.",
    "ties": [
     {
@@ -1334,9 +1363,10 @@
      "Cautious"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "Mạch Ngân Sương's (mach_ngan_suong) niece from Ngân Than, who pans the river for silver flakes on her rest days as her family has since 400 (A192).",
+   "appearance": "Silver flakes glitter on her always-damp hands.",
+   "backstory": "Mạch Ngân Sương's (mach_ngan_suong) niece from Ngân Than, who pans the river for silver flakes on her rest days as her family has since 400 (A192) and sells them on the quiet, so her aunt's props go a season short.",
    "ties": [
     {
      "to": "mach_ngan_suong",
@@ -1390,13 +1420,14 @@
    "traits": {
     "personality": [
      "Lazy",
-     "Gregarious",
+     "Faithless",
      "Pragmatic"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "Tăng Vân Tiêu's (tang_van_tieu) niece, kept in the outer gate on his stipend, who would rather keep a stall in Hạc Đinh Thị.",
+   "appearance": "Stifles yawns badly.",
+   "backstory": "Tăng Vân Tiêu's (tang_van_tieu) niece, kept in the outer gate on his stipend, who would rather keep a stall in Hạc Đinh Thị; she swore to him she would learn the price lists, then sold them to a rival stall for a ring, and his stall lost its winter custom.",
    "ties": [
     {
      "to": "tang_van_tieu",
@@ -1456,6 +1487,7 @@
     "calling": "Strategist",
     "upbringing": "sect_raised"
    },
+   "appearance": "Cocks his head to listen, as his father does.",
    "backstory": "Thịnh Kinh Hàn's (thinh_kinh_han) son and the best cadet of the Geese Hall, who is afraid of his father's quiet wish for a war.",
    "ties": [
     {
@@ -1527,6 +1559,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
+   "appearance": "Lamp-oil on her sleeves; she does not blink.",
    "backstory": "A Vãn Đăng Thôn girl from the village whose boats light their lamps on the dusk of 803 and do not put out (V104); she lit the stern lamp the village gave Lô Xướng Vãn (lo_xuong_van) and followed it up the river.",
    "ties": [
     {
@@ -1581,13 +1614,14 @@
    "traits": {
     "personality": [
      "Just",
-     "Honest",
+     "Deceitful",
      "Reclusive"
     ],
     "calling": "Steward",
     "upbringing": "merchant_child"
    },
-   "backstory": "A Xích Thổ Thôn farmer's daughter who copies contracts for the Hall of Scales and has read more of them than Từ Bình Hành (tu_binh_hanh) thinks.",
+   "appearance": "A pencil behind one ear, ink-grey thumb pads.",
+   "backstory": "A Xích Thổ Thôn farmer's daughter who copies contracts for the Hall of Scales and has read more of them than Từ Bình Hành (tu_binh_hanh) thinks; twice she has altered a clause for a Nam Phố clerk who paid her in jade combs, and a Hà Khúc rope-maker lost his lot to the new wording.",
    "ties": [
     {
      "to": "tu_binh_hanh",
@@ -1655,6 +1689,7 @@
     "calling": "Refiner",
     "upbringing": "servant_born"
    },
+   "appearance": "Goes still whenever steel is near.",
    "backstory": "A miner's boy from Xích Kim Khoáng and now Vưu Chước Kim's (vuu_chuoc_kim) forge boy, who felt Tử Điện hum when he carried it to the whetstone and has told no one but his master.",
    "ties": [
     {
@@ -1720,8 +1755,15 @@
      "Fickle"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Cannot sit three breaths; a mat-weave pattern is printed in one palm.",
    "backstory": "A Phương Thảo Thôn mat-weaver's girl whose family weaves the meditation-hall mats (A195), and who cannot sit still on them; Tô Bình Chu (to_binh_chu) keeps moving her to the front row.",
    "ties": [
     {
@@ -1780,8 +1822,9 @@
      "Humble"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
+   "appearance": "Purple-stained to the wrist; no soap has ever lifted it.",
    "backstory": "A Tử Đồng Khoáng copper-miner's daughter whose purple-stained hands make the Maple Hall's pill moulds for Chử Hồng Diệp (chu_hong_diep).",
    "ties": [
     {

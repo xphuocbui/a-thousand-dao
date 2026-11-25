@@ -815,7 +815,9 @@
      "targets_note": "Lineage sword because the inner gate teaches it, then Spirit Coin for the stores and Bell Rim for a clerk's guard."
     },
     "note": "A clerk with a seal."
-   }
+   },
+   "wants": "To die in his bed in Thạch Kiều Thành with both his ledgers burned unread.",
+   "secret": "He pads the Tower's stores count by one sack in fifty so the Pivot's envoys never learn the exact number, and sends them a second copy each season. Tiết Thu Bạch (tiet_thu_bach), who tallies the stores, has found the padding."
   },
   {
    "key": "uc_da_diep",
@@ -954,7 +956,9 @@
     },
     "note": "Staff and footwork; very hard to knock down."
    },
-   "changed": "cross-sect pass: build main huyen_kim -> calm-wind-staff-canon: he is Xuyên Lâm's hostage, taught his own gate's staff and never the Tower's lineage (exception), so his main method is Xuyên Lâm's staff canon (xuyen_lam writer's request)."
+   "changed": "cross-sect pass: build main huyen_kim -> calm-wind-staff-canon: he is Xuyên Lâm's hostage, taught his own gate's staff and never the Tower's lineage (exception), so his main method is Xuyên Lâm's staff canon (xuyen_lam writer's request).",
+   "wants": "To go home to Xuyên Lâm when his son Úc Yên Vũ is grown, and not be thanked for staying.",
+   "secret": "Nights on the ridge road he teaches the outer gate's mine boys the Xuyên Lâm staff forms, against the rule that the surety be taught nothing back; Sa Bất Ngữ (sa_bat_ngu) keeps the door and listens to the road."
   },
   {
    "key": "dam_van_chung",
@@ -1068,7 +1072,9 @@
      "targets_note": "Lineage sword, Great Bell Toll and the Golden Bell for the evening bell's ward. Her master's Thunder is 48 points from Metal (wishlist: rain-chain-conductor)."
     },
     "note": "Guards her master's back."
-   }
+   },
+   "wants": "For her master to be head without the price coming out of her mother's grave.",
+   "secret": "She has copied Mạnh Lưu Ly's mother's letters in her own hand and hidden the copy in the evening bell's tongue-case, in case the originals are burned."
   },
   {
    "key": "boc_thu_chung",
@@ -1204,7 +1210,9 @@
      "targets_note": "Lineage sword, Dawn Toll for the Bell Test he rings, Earth and Metal for a teacher's guard."
     },
     "note": "Teaches more than he fights."
-   }
+   },
+   "wants": "For Nhạc Cửu Hương to hear the bell once more before the yard is closed to him.",
+   "secret": "For three springs he has rung the bell a hair louder for Nhiêu Hạ Lôi (nhieu_ha_loi), who has not reached Metal 45, to see whether the girl will walk in on it. Tưởng Lậu Thanh has begun to test his bronze."
   },
   {
    "key": "ton_tuyet_bich",
@@ -1244,7 +1252,7 @@
      "Vengeful"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
       "id": "sturdy_frame",
@@ -1327,7 +1335,9 @@
      "targets_note": "His master's road: lineage sword with Sword Bow, then Sword Intent for the one cut."
     },
     "note": "Waits, then one cut."
-   }
+   },
+   "wants": "A third loss he can learn from, to someone worth a red stitch.",
+   "secret": "He is writing to the two men who beat him to arrange a third duel on neutral ground, and has told Phương Đoạn Vũ (phuong_doan_vu), who would forbid it, that the letters are to a cousin."
   },
   {
    "key": "diep_an_thu",
@@ -1439,7 +1449,9 @@
      "targets_note": "Lineage sword, then Crossguard and Bell Rim: guard and disarming cuts, no killing notables beyond the lineage."
     },
     "note": "Disarms first."
-   }
+   },
+   "wants": "To teach a righteous sword to one student who will not be sent south as a weapon.",
+   "secret": "She leaves a copied page of the manual each week in the washing shed for Khúc Tiểu Thạch (khuc_tieu_thach), who has no Fire and nowhere to be a weapon, and checks that it has been turned."
   },
   {
    "key": "luc_nhi_thinh",
@@ -1540,7 +1552,8 @@
      "start": "thuy",
      "intent": "Water toward evasion and sight."
     }
-   }
+   },
+   "appearance": "Wears a rain-cap even under a roof, and her palms keep the grooves of ferry rope."
   },
   {
    "key": "kieu_tieu_vu",
@@ -1616,7 +1629,8 @@
      "start": "kim",
      "intent": "Metal toward the sword."
     }
-   }
+   },
+   "appearance": "Grins like a stall-keeper whenever he forgets himself; the thumb says swordsman."
   },
   {
    "key": "thach_vu_lien",
@@ -1699,7 +1713,8 @@
      "start": "kim",
      "intent": "Metal toward armour, a little Thunder for the forge."
     }
-   }
+   },
+   "appearance": "Tilts one ear toward the nearest bell as she walks."
   },
   {
    "key": "yen_trich_thuy",
@@ -1775,7 +1790,8 @@
      "start": "thuy",
      "intent": "Water toward sustain."
     }
-   }
+   },
+   "appearance": "Rain always in her sleeves; she stands as still as a heron."
   },
   {
    "key": "giang_hanh_hoa",
@@ -1858,7 +1874,8 @@
      "start": "hoa",
      "intent": "Fire into Thunder toward seals."
     }
-   }
+   },
+   "appearance": "Pale as lamp-wax; the vault boys swear she casts no shadow."
   },
   {
    "key": "mai_doc_ca",
@@ -1892,7 +1909,7 @@
     "calling": "Alchemist",
     "upbringing": "wild_raised"
    },
-   "backstory": "Ô Thiềm Tử's (o_thiem_tu) apprentice from the toad wood, who tastes his master's poisons second and has started selling his own under the market's counter.",
+   "backstory": "Ô Thiềm Tử's (o_thiem_tu) apprentice from the toad wood, who tastes his master's poisons second and has started selling his own under the market's counter, and a tanner's wife who bought a sleep draught of it buried her husband.",
    "ties": [
     {
      "to": "o_thiem_tu",
@@ -1938,7 +1955,8 @@
      "intent": "Wood toward poison stacks."
     }
    },
-   "exception": "servant (tạp dịch) to the guest alchemist; a Wood root outside the lineage"
+   "exception": "servant (tạp dịch) to the guest alchemist; a Wood root outside the lineage",
+   "appearance": "Sticks out a green-tinged tongue for customers as a guarantee."
   },
   {
    "key": "muc_trap_sinh",
@@ -1967,12 +1985,12 @@
     "personality": [
      "Wrathful",
      "Loyal",
-     "Diligent"
+     "Arbitrary"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "Born on the day of Kinh Trập at Kinh Điện Khoáng; Phương Đoạn Vũ's (phuong_doan_vu) sergeant, who leads the outer gate up the peak in the first storm (A316).",
+   "backstory": "Born on the day of Kinh Trập at Kinh Điện Khoáng; Phương Đoạn Vũ's (phuong_doan_vu) sergeant, who leads the outer gate up the peak in the first storm (A316). He flogs the last boy up the climb, or the third, as his drum decides that day, and the boy flogged last storm could not lift his bowl for a week.",
    "ties": [
     {
      "to": "phuong_doan_vu",
@@ -2034,7 +2052,8 @@
      "start": "kim",
      "intent": "Metal toward armour and volleys."
     }
-   }
+   },
+   "appearance": "A drum-skin tattooed round one forearm; you hear his voice before you see him."
   },
   {
    "key": "ha_lac_vu",
@@ -2066,7 +2085,7 @@
      "Forgiving"
     ],
     "calling": "Diplomat",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
    "backstory": "A Không Mông girl who chose to stay at the old tower in 1186 when her year went east, and sings the founder's chain-songs on the eaves in every rain.",
    "ties": [
@@ -2115,7 +2134,8 @@
      "start": "thuy",
      "intent": "Water toward wards."
     }
-   }
+   },
+   "appearance": "A green ribbon knotted round one wrist, and a clear voice that carries along the eaves."
   },
   {
    "key": "phan_tich_lich",
@@ -2146,12 +2166,12 @@
     "personality": [
      "Ambitious",
      "Brave",
-     "Fickle"
+     "Loyal"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "An amethyst miner's son who left Hầu Vọng Xuân's drills for Mạnh Lưu Ly's (manh_luu_ly) in 1195, and has not been forgiven by the Thunder Hall.",
+   "backstory": "An amethyst miner's son who left Hầu Vọng Xuân's drills for Mạnh Lưu Ly's (manh_luu_ly) in 1195, and has not been forgiven by the Thunder Hall. He still carries her whatever the Thunder Hall says over its wine.",
    "ties": [
     {
      "to": "manh_luu_ly",
@@ -2193,7 +2213,8 @@
      "start": "loi",
      "intent": "Thunder toward speed."
     }
-   }
+   },
+   "appearance": "Amethyst dust ground into his cuffs that no laundress has shifted."
   },
   {
    "key": "quach_tu_tinh",
@@ -2225,7 +2246,7 @@
      "Warlike"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "Keeps the seams of thunder-glass the Tower cuts at Tử Tinh Khoáng, a mine Xuyên Lâm holds, and has broken two Xuyên Lâm foremen's arms over the tally.",
    "ties": [
@@ -2274,7 +2295,8 @@
      "start": "kim",
      "intent": "Metal toward armour."
     }
-   }
+   },
+   "appearance": "A scar through one eyebrow, red knuckles, and a ledger that sticks out of his belt."
   },
   {
    "key": "hoang_tieu_diep",
@@ -2362,7 +2384,8 @@
     }
    },
    "wants": "The second half of the stroke next spring, and the glue buyer's trips north ended for good.",
-   "secret": "Three painters in the coast house forge the Dipper talismans of Họa Tinh Đường, the Pivot's vassal, in glue bought from a yard at Lộc Uyển, where the Pivot forbids anyone to hunt the deer (A086). Lạc Tố Bình thinks the Tower wants the stroke for its own writs."
+   "secret": "Three painters in the coast house forge the Dipper talismans of Họa Tinh Đường, the Pivot's vassal, in glue bought from a yard at Lộc Uyển, where the Pivot forbids anyone to hunt the deer (A086). Lạc Tố Bình thinks the Tower wants the stroke for its own writs.",
+   "appearance": "Salt in her hair, a coast-house key on a cord, and never a seat with her back to the window."
   },
   {
    "key": "ong_vu_hoa",
@@ -2391,12 +2414,12 @@
     "personality": [
      "Cautious",
      "Honest",
-     "Temperate"
+     "Callous"
     ],
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "Warden of the rain-flower mine (A286) since the guard moved up to it after the storm of 1102 (V162); he sends every pebble shaped like a flower to the old tower.",
+   "backstory": "Warden of the rain-flower mine (A286) since the guard moved up to it after the storm of 1102 (V162); he sends every pebble shaped like a flower to the old tower. He sends the youngest boys into the flooded seam first and counts the pebbles, not the boys; one came up with a drowned cough that has not left him.",
    "ties": [
     {
      "to": "co_da_lan",
@@ -2448,7 +2471,8 @@
      "start": "kim",
      "intent": "Metal toward guard."
     }
-   }
+   },
+   "appearance": "Holds each flower-stone up to the light before sorting it; pebble-dust on his sleeves."
   },
   {
    "key": "thai_canh_lau",
@@ -2480,7 +2504,7 @@
      "Reclusive"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
    "backstory": "Tưởng Lậu Thanh's (tuong_lau_thanh) night clerk, who sits by the water clock until dawn and reports every lamp he sees lit.",
    "ties": [
@@ -2529,7 +2553,8 @@
      "start": "kim",
      "intent": "Metal and Earth toward guard."
     }
-   }
+   },
+   "appearance": "Cocks his head at drips, and carries a bruise-coloured under-eye from the night watch."
   },
   {
    "key": "lang_ngan_lo",
@@ -2561,7 +2586,7 @@
      "Gregarious"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
    "backstory": "Born at Ngân Lộ Khoáng below the old tower and carried east in 1166; she runs messages between the Hall of Echoes and its ears along the ridge road.",
    "ties": [
@@ -2610,7 +2635,8 @@
      "start": "kim",
      "intent": "Metal toward speed and evasion."
     }
-   }
+   },
+   "appearance": "Blows a reed whistle on a thong before she turns a corner."
   },
   {
    "key": "tieu_ung_loi",
@@ -2644,9 +2670,9 @@
      "Calm"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan"
    },
-   "backstory": "A Hạnh Hoa boy whose Thunder formed on the cone; he walks the Iron Rain chain from the seat to the vein each night for Lệ Tiêu Hồn (le_tieu_hon).",
+   "backstory": "A Hạnh Hoa boy whose Thunder formed on the cone; he walks the Iron Rain chain from the seat to the vein each night for Lệ Tiêu Hồn (le_tieu_hon). He once hung a fellow guard out over the vein's edge for a night, to see if his Thunder would show.",
    "ties": [
     {
      "to": "le_tieu_hon",
@@ -2698,7 +2724,8 @@
      "start": "loi",
      "intent": "Thunder toward stuns."
     }
-   }
+   },
+   "appearance": "A lightning scar like a fern down one wrist; he does not blink when he is lied to."
   },
   {
    "key": "lo_tiem_tiem",
@@ -2779,7 +2806,8 @@
      "start": "thuy",
      "intent": "Water toward evasion."
     }
-   }
+   },
+   "appearance": "Leans on a boat-pole as if it were a staff, in a ferryman's wide-footed stance."
   },
   {
    "key": "bo_ngoc_cham",
@@ -2858,7 +2886,8 @@
      "start": "kim",
      "intent": "Metal toward sustain."
     }
-   }
+   },
+   "appearance": "Smells of camphor, and her apron carries every salve in the Tower."
   },
   {
    "key": "tu_van_ha",
@@ -2887,12 +2916,12 @@
     "personality": [
      "Ambitious",
      "Gregarious",
-     "Indulgent"
+     "Faithless"
     ],
     "calling": "Diplomat",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "Mạnh Lưu Ly's (manh_luu_ly) second disciple, a Không Mông girl who wants her master to be head and says so in the dining hall.",
+   "backstory": "Mạnh Lưu Ly's (manh_luu_ly) second disciple, a Không Mông girl who wants her master to be head and says so in the dining hall. She tells the Hall of Rules who in Lưu Ly's circle spoke against the head, and Phan Tích Lịch (phan_tich_lich) lost a season's stones for a remark over rice.",
    "ties": [
     {
      "to": "manh_luu_ly",
@@ -2929,7 +2958,8 @@
      "start": "thuy",
      "intent": "Water toward linh lực."
     }
-   }
+   },
+   "appearance": "Touches a silver pin whenever she wants to be believed."
   },
   {
    "key": "ta_ke_tru",
@@ -2963,7 +2993,7 @@
      "Humble"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "clan_heir"
    },
    "backstory": "Tạ Thiết Trụ's (ta_thiet_tru) grandson, who keeps the guardhouse on Thần Cổ Phong named for him and stands on its wall in storms as he did.",
    "ties": [
@@ -3012,7 +3042,8 @@
      "start": "loi",
      "intent": "Thunder and Metal toward guard."
     }
-   }
+   },
+   "appearance": "Stands bareheaded on the wall in storms, his grandfather's stance to the inch."
   },
   {
    "key": "la_to_y",
@@ -3098,7 +3129,8 @@
      "start": "thuy",
      "intent": "Water toward evasion."
     }
-   }
+   },
+   "appearance": "A courier's satchel worn through at one corner; she will tell you about the meal at Hồng Đậu Trang before you ask."
   },
   {
    "key": "doan_kim_sa",
@@ -3130,7 +3162,7 @@
      "Diligent"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
    "backstory": "Grew up beside Khúc Thanh Điện (khuc_thanh_dien) at the gold-sand mine; his root is Metal without Fire, and he cannot forgive her the lightning.",
    "ties": [
@@ -3179,7 +3211,8 @@
      "start": "kim",
      "intent": "Metal toward crits."
     }
-   }
+   },
+   "appearance": "Gold flecks in his teeth, and one eyebrow that never rests."
   },
   {
    "key": "vi_quan_van",
@@ -3213,7 +3246,7 @@
      "Patient"
     ],
     "calling": "Strategist",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
    "backstory": "Reads the sky for Phương Đoạn Vũ (phuong_doan_vu): he calls the drills up the peak when a storm will strike, and down when it will kill.",
    "ties": [
@@ -3262,7 +3295,8 @@
      "start": "loi",
      "intent": "Thunder toward the raised sword."
     }
-   }
+   },
+   "appearance": "Squints at the sky as if it owed him money, one wet finger raised."
   }
  ]
 }

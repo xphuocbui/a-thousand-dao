@@ -78,7 +78,8 @@
      "start": "moc",
      "intent": "Wood bindings with Water behind them, toward the dusk half."
     }
-   }
+   },
+   "appearance": "A violet thread sewn into each hem, and a scribe's stoop on the left."
   },
   {
    "key": "ung_trieu_hong",
@@ -162,7 +163,8 @@
      "start": "moc",
      "intent": "Wood."
     }
-   }
+   },
+   "appearance": "Bark-beater's forearms, and a plain face that gives nothing away at a contest."
   },
   {
    "key": "dai_diep_thu",
@@ -195,7 +197,13 @@
      "Content"
     ],
     "calling": "Talisman maker",
-    "upbringing": "village_born"
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "A Lăng Hoa girl who swept Bạc Hy Vân's (bac_hy_van) drying floors at Lạc Hà and failed the dusk test three times by a point of Earth; placed with the hall this spring, she has started rising before dawn without being told.",
    "ties": [
@@ -237,7 +245,8 @@
      "start": "moc",
      "intent": "Wood."
     }
-   }
+   },
+   "appearance": "Drying-floor sunburn to the elbows, a cowlick she wets flat each dawn, and she has never won a coin-toss."
   },
   {
    "key": "nhieu_thach_nhu",
@@ -272,9 +281,9 @@
      "Cautious"
     ],
     "calling": "Talisman maker",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
-   "backstory": "A Hầu Đầu mushroom-picker's boy from Đới Huyền Nghiên's (doi_huyen_nghien) village and his apprentice at the spring. His own ink stains dark too, and since spring the hall has bought his night sheets at half Đới's price; he sends the stones home.",
+   "backstory": "A Hầu Đầu mushroom-picker's boy raised half wild in the karst from Đới Huyền Nghiên's (doi_huyen_nghien) village and his apprentice at the spring. His own ink stains dark too, and since spring the hall has bought his night sheets at half Đới's price; he sends the stones home.",
    "ties": [
     {
      "to": "doi_huyen_nghien",
@@ -309,7 +318,8 @@
      "start": "moc",
      "intent": "Wood."
     }
-   }
+   },
+   "appearance": "Hands and neck blotched grey-brown from the ink; he studies the ground as he walks."
   },
   {
    "key": "mac_tieu_trien",
@@ -338,12 +348,12 @@
     "personality": [
      "Gregarious",
      "Ambitious",
-     "Honest"
+     "Faithless"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "Trác Thư Lan's (trac_thu_lan) sister's son from Phương Thảo, who stamps the cloud seal on every talisman at the stall and listens with her to the Counting House clerks at lunch; he has started writing down what they say.",
+   "backstory": "Trác Thư Lan's (trac_thu_lan) sister's son from Phương Thảo, who stamps the cloud seal at the stall and listens with her to the Counting House clerks at lunch; he has started writing down what they say. He sells the pages to Chúc Hiểu Hà (chuc_hieu_ha) behind his aunt's back, and when she asked who had been in her book he named the stall's sweeper boy, who lost the job.",
    "ties": [
     {
      "to": "trac_thu_lan",
@@ -373,7 +383,8 @@
      "start": "thuy",
      "intent": "Water."
     }
-   }
+   },
+   "appearance": "A pencil stub behind each ear, and ink on his cuffs that he swears is from the seal."
   },
   {
    "key": "chuc_hieu_ha",
@@ -407,7 +418,7 @@
     "calling": "Talisman maker",
     "upbringing": "village_born"
    },
-   "backstory": "A Sơn Trà tea-picker's girl who grinds ink beside the hall-mistress every dawn and reads the letters on her desk. She tells Kha Triêu Phi (kha_trieu_phi) each season how many dark sheets the mistress has ordered, and he pays her for it.",
+   "backstory": "A Sơn Trà tea-picker's girl who grinds ink beside the hall-mistress every dawn and reads the letters on her desk. She tells Kha Triêu Phi (kha_trieu_phi) each season how many dark sheets the mistress has ordered, and he pays her for it; when Lý Khê Thư (ly_khe_thu) found a letter's seal broken, she swore the desk had never been touched and let the girl take the scolding.",
    "ties": [
     {
      "to": "chau_phi_van",
@@ -447,7 +458,8 @@
      "start": "moc",
      "intent": "Wood."
     }
-   }
+   },
+   "appearance": "Her head tilts toward any whisper, and she keeps her ink-pot lid pressed shut with one finger."
   },
   {
    "key": "tho_ma_tu",
@@ -479,7 +491,7 @@
      "Forgiving"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "A Tang Ma rope-maker's son who beats bark at the mill beside Văn Tiểu Tang (van_tieu_tang); they mean to swap work, his bark for Văn's hemp, as soon as both their masters look the other way.",
    "ties": [
@@ -516,7 +528,8 @@
      "start": "moc",
      "intent": "Wood."
     }
-   }
+   },
+   "appearance": "Bark-stripped palms; he whistles two notes of every tune and never the third."
   }
  ]
 }

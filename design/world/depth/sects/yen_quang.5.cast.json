@@ -31,8 +31,9 @@
      "Reclusive"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
+   "appearance": "A singed thumb from lighting the grand elder's lamp every dusk.",
    "backstory": "A Than Đầu shepherd who took the herb name Viễn Chí in 1140 and stayed on the Dusk Field with Diêm Tử Tô (diem_tu_to) in 1187; he lights the grand elder's lamp at dusk and has never once seen him look at the cold furnace.",
    "ties": [
     {
@@ -112,11 +113,12 @@
      "Brave"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "path": [
      "poison_proof"
     ]
    },
+   "appearance": "Speaks in a flat, unhurried voice, her gums stained grey-green.",
    "backstory": "A Phóng Mộc log-driver's daughter and Phùng Cam Thảo's (phung_cam_thao) aunt, who works the Furnace House beside Sầm Bạch Chỉ (sam_bach_chi) and tastes every quarter dose; Diêm Tử Tô (diem_tu_to) taught her the canon and never once a recipe.",
    "ties": [
     {
@@ -194,14 +196,15 @@
    },
    "traits": {
     "personality": [
-     "Content",
+     "Faithless",
      "Pragmatic",
      "Gregarious"
     ],
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
-   "backstory": "A Hòa Lũng rice-planter's girl who planted the Maple Hall's spirit rice with Ôn Hòa Miêu (on_hoa_mieu) and failed the dusk test three times; placed on the Dusk Field this spring, she does the same hour's work for less pay.",
+   "appearance": "Goes barefoot wherever she can, her heels cracked like dry paddy.",
+   "backstory": "A Hòa Lũng rice-planter's girl who planted the Maple Hall's spirit rice with Ôn Hòa Miêu (on_hoa_mieu) and failed the dusk test three times; placed on the Dusk Field this spring, she does the same hour's work for less pay, and has sold Ôn's name to the Maple Hall's steward for a better row, so Ôn was moved to the flooded back rows for the season.",
    "ties": [
     {
      "to": "van_duong_quy",
@@ -269,13 +272,14 @@
    "traits": {
     "personality": [
      "Calm",
-     "Cautious",
-     "Honest"
+     "Cruel",
+     "Deceitful"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A Sơn Trà tea-picker's son who took the herb name Tri Mẫu and grinds the miasma-root Tào Mộ Tử (tao_mo_tu) takes in payment; he weighs out the head's weekly dose of the antidote, a little heavier each week.",
+   "appearance": "Stoops over every table as if reading its grain; mortar dust whitens his eyebrows.",
+   "backstory": "A Sơn Trà tea-picker's son who took the herb name Tri Mẫu and grinds the miasma-root Tào Mộ Tử (tao_mo_tu) takes in payment; he weighs out the head's weekly antidote dose a grain heavier than the tasting book says, to see where the fits stop, so the record Khổng Ích Mẫu (khong_ich_mau) keeps is a grain wrong every week and the head's night fits run longer than he knows.",
    "changed": "fix pass B 2026-11-25 (fixB-5): no longer 'worked out'; weighs the head's weekly dose",
    "ties": [
     {
@@ -346,6 +350,7 @@
     "calling": "Herbalist",
     "upbringing": "merchant_child"
    },
+   "appearance": "Scalded, shiny fingertips from her father's reeling vats.",
    "backstory": "A Tang Ma silk-reeler's girl whom Lý Tang Ký (ly_tang_ky) hired out of her father's shop to cut mistletoe; she carries Lý's letters to a Thúy Vi buyer in the city and has not opened one.",
    "ties": [
     {
@@ -413,8 +418,15 @@
      "Stubborn"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "A heavy-browed, plain face; he stands half a step ahead of his sister.",
    "backstory": "Trang Vãn Thảo's (trang_van_thao) elder brother, who picks beside her on the Dusk Field; he knows her tune is the one Lô Địch stopped playing after 803 (V103), and has asked her to stop before Lạc Hà's choir leader asks again.",
    "ties": [
     {
@@ -482,8 +494,9 @@
      "Paranoid"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
+   "appearance": "A ladder of burn scars up one forearm, lime-white in her hair.",
    "backstory": "A Hôi Diêu lime-burner's girl who took the herb name Ngưu Tất and banks Sầm Bạch Chỉ's (sam_bach_chi) furnaces at dawn; she has tended the founder's coals since the move and believes that if they go out, the pavilion goes too.",
    "ties": [
     {

@@ -2,10 +2,10 @@
  "sect": "thai_chi",
  "people": [
   {
-   "key": "nghiem_hoang_ky",
-   "name_hv": "Nghiêm Hoàng Kỳ",
-   "name_han": "嚴黃耆",
-   "gloss": "Astragalus",
+   "key": "nghiem_kim_ngan",
+   "name_hv": "Nghiêm Kim Ngân",
+   "name_han": "嚴金銀",
+   "gloss": "Honeysuckle (kim ngân)",
    "sex": "M",
    "born": 1105,
    "alive": true,
@@ -33,6 +33,7 @@
     "calling": "Herbalist",
     "upbringing": "sect_raised"
    },
+   "appearance": "Sleeves yellowed to the elbow by forty years of poultices.",
    "backstory": "A dike-village child carried up the river and given the valley's name, he has kept the sick-houses for forty years and treats whoever is carried to the gate, as the valley's rule says; since 1176 that has meant the dike children with their hands torn, and Ông Khổ Sâm (ong_kho_sam) sends him the bill for their pills every season, and he sends it back.",
    "ties": [
     {
@@ -112,7 +113,7 @@
    },
    "traits": {
     "personality": [
-     "Patient",
+     "Lazy",
      "Content",
      "Reclusive"
     ],
@@ -120,7 +121,8 @@
     "upbringing": "sect_raised",
     "lifestyle": "gardener"
    },
-   "backstory": "She took the valley's name at nine and has hardly left the Bối Dược terraces in forty years; Mai Thủ Điền (mai_thu_dien) says she is the only one who can tell a lingzhi's age by touch.",
+   "appearance": "Straw sandals mended with three kinds of twine; she tells the lingzhi the news.",
+   "backstory": "She took the valley's name at nine and has hardly left the Bối Dược terraces since; Mai Thủ Điền (mai_thu_dien) says she alone can tell a lingzhi's age by touch. She dozes in the lingzhi shade while Nghiêm Bạc Hà (nghiem_bac_ha) weeds her beds, signs the ledger as if she had, and let Bạc Hà stand in the rain for the short autumn count.",
    "ties": [
     {
      "to": "nghiem_linh_chi",
@@ -133,7 +135,7 @@
      "note": "the field-warden she works under"
     },
     {
-     "to": "nghiem_tu_to",
+     "to": "nghiem_bac_ha",
      "kind": "disciple",
      "note": ""
     }
@@ -169,10 +171,10 @@
    }
   },
   {
-   "key": "nghiem_tu_to",
-   "name_hv": "Nghiêm Tử Tô",
-   "name_han": "嚴紫蘇",
-   "gloss": "Perilla",
+   "key": "nghiem_bac_ha",
+   "name_hv": "Nghiêm Bạc Hà",
+   "name_han": "嚴薄荷",
+   "gloss": "Mint",
    "sex": "F",
    "born": 1183,
    "alive": true,
@@ -200,6 +202,7 @@
     "calling": "Herbalist",
     "upbringing": "street_orphan"
    },
+   "appearance": "The corner of her mouth is permanently green from the mint she chews.",
    "backstory": "A Bạch Thạch girl whose mother drowned at a crossing; Đậu Sa Nhi (dau_sa_nhi), the one outer child with a living mother, reads her the letters from Đào Sa, and she talks to the lingzhi, which Nghiêm Bạch Truật (nghiem_bach_truat) allows.",
    "ties": [
     {
@@ -252,7 +255,7 @@
    "rank": "noi_mon",
    "home": 12,
    "birthplace": 62,
-   "role": "Inner disciple of the sick-houses; Nghiêm Đương Quy's twin",
+   "role": "Inner disciple of the sick-houses; Nghiêm Hồi Hương's twin",
    "tier": "C",
    "root": {
     "elements": {
@@ -270,20 +273,21 @@
     "calling": "Herbalist",
     "upbringing": "street_orphan"
    },
-   "backstory": "He and his twin Nghiêm Đương Quy (nghiem_duong_quy) were found in one reed basket at Hà Bạn; she went to the long houses and he to the sick-houses, where Nghiêm Hoàng Kỳ (nghiem_hoang_ky) has him wash wounds and not ask questions.",
+   "appearance": "Looks at the ceiling while his hands work on a wound.",
+   "backstory": "He and his twin Nghiêm Hồi Hương (nghiem_hoi_huong) were found in one reed basket at Hà Bạn; she went to the long houses and he to the sick-houses, where Nghiêm Kim Ngân (nghiem_kim_ngan) has him wash wounds and not ask questions.",
    "ties": [
     {
-     "to": "nghiem_duong_quy",
+     "to": "nghiem_hoi_huong",
      "kind": "sibling",
      "note": "his twin"
     },
     {
-     "to": "nghiem_hoang_ky",
+     "to": "nghiem_kim_ngan",
      "kind": "master",
      "note": ""
     }
    ],
-   "master": "nghiem_hoang_ky",
+   "master": "nghiem_kim_ngan",
    "build": {
     "archetype": "dan_su",
     "main": {
@@ -340,7 +344,8 @@
     "calling": "Merchant",
     "upbringing": "street_orphan"
    },
-   "backstory": "Ông Khổ Sâm (ong_kho_sam) took him to the trade office for his quick sums; he has learned what a valley pill fetches in the River Hall's market and cannot understand why the mistress gives them away.",
+   "appearance": "Mouths sums under his breath and clicks a spare abacus bead against his teeth.",
+   "backstory": "Ông Khổ Sâm (ong_kho_sam) took him to the trade office for his quick sums; he has learned what a valley pill fetches in the River Hall's market and cannot see why the mistress gives them away. He sells the dike children's pill allowance at river price on the quay and keeps the difference in his boot, and twice Nghiêm Kim Ngân (nghiem_kim_ngan) has found their jars empty.",
    "ties": [
     {
      "to": "ong_kho_sam",
@@ -348,7 +353,7 @@
      "note": ""
     },
     {
-     "to": "nghiem_cam_thao",
+     "to": "nghiem_ngu_vi",
      "kind": "friend",
      "note": "they carry the pills downriver together"
     }
@@ -408,8 +413,15 @@
      "Patient"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Rests a hand on the rail at every landing; a net-knot is tied round her smallest finger.",
    "backstory": "A fisher's daughter of Điếu Đài whose father still lives, so she kept her name; she has asked Lữ Niệm Hà (lu_niem_ha) to put her on the dike list in a boy's place, because a season's wages would buy her father a new net, and Lữ will not.",
    "ties": [
     {
@@ -449,10 +461,10 @@
    }
   },
   {
-   "key": "nghiem_ich_mau",
-   "name_hv": "Nghiêm Ích Mẫu",
-   "name_han": "嚴益母",
-   "gloss": "Motherwort",
+   "key": "nghiem_ha_kho",
+   "name_hv": "Nghiêm Hạ Khô",
+   "name_han": "嚴夏枯",
+   "gloss": "Self-heal (prunella)",
    "sex": "F",
    "born": 1184,
    "alive": true,
@@ -474,13 +486,14 @@
    "traits": {
     "personality": [
      "Brave",
-     "Vengeful",
+     "Cruel",
      "Diligent"
     ],
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
-   "backstory": "Wolves took her mother on the Bạch Lang road in the wolf winter of 1190; she weeds beside Nghiêm Phục Linh (nghiem_phuc_linh) and asks every road warden who comes for pills whether the packs are back.",
+   "appearance": "Watches the road, not whoever is talking to her.",
+   "backstory": "Wolves took her mother on the Bạch Lang road in the wolf winter of 1190; she weeds beside Nghiêm Phục Linh (nghiem_phuc_linh) and asks every road warden who comes for pills whether the packs are back. She has laid wolf-bane at the packs' pools, and a shepherd's boy who drank there was sick for a month.",
    "ties": [
     {
      "to": "mai_thu_dien",

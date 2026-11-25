@@ -28,12 +28,13 @@
     "personality": [
      "Calm",
      "Cautious",
-     "Compassionate"
+     "Callous"
     ],
     "calling": "Talisman maker",
     "upbringing": "merchant_child"
    },
-   "backstory": "A Triều Âm sail-maker's daughter who paints sitters from their reflections in the Pool House basin, the trade Tần Vãn Kính (tan_van_kinh) had before 1158; she lets no sitter look at the basin while she works, and Mễ Phù Vân (me_phu_van) charges double for it.",
+   "appearance": "Never looks a sitter in the eye, only at the reflection beside them.",
+   "backstory": "A Triều Âm sail-maker's daughter who paints sitters from their reflections in the Pool House basin, the trade Tần Vãn Kính (tan_van_kinh) had before 1158; she lets no sitter look at the basin while she works, and Mễ Phù Vân (me_phu_van) charges double for it. She once told a rice-wife the basin showed her short years and took the fee, and the woman stopped eating.",
    "ties": [
     {
      "to": "me_phu_van",
@@ -107,12 +108,13 @@
     "personality": [
      "Patient",
      "Content",
-     "Humble"
+     "Arbitrary"
     ],
     "calling": "Teacher",
     "upbringing": "village_born"
    },
-   "backstory": "A Nguyệt Loan fisher who came up the road in 1118 and ground ink a whole season before anyone spoke to him; he teaches the novices the one-breath stroke, and has painted one cloud a day for eighty years like Diệp Tố Quyên (diep_to_quyen), and kept none.",
+   "appearance": "Ink so deep in his right palm that it reads as a tattoo.",
+   "backstory": "A Nguyệt Loan fisher who came up the road in 1118 and ground ink a whole season before anyone spoke to him; he teaches the novices the one-breath stroke, and has painted one cloud a day for eighty years like Diệp Tố Quyên (diep_to_quyen), and kept none. He stamps the novices' best clouds with his own seal; Giải Thanh Nghiễn's (giai_thanh_nghien) first good one went out as his.",
    "ties": [
     {
      "to": "diep_to_quyen",
@@ -185,9 +187,16 @@
      "Calm"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Ngân Than boy who carried silver-pine props for Mạch Ngân Sương (mach_ngan_suong) at Lạc Hà until he failed the dusk test a third time; placed with the abbey in 1199, he is still grinding ink, and Nghiêm Thu Lộ (nghiem_thu_lo) counts his brushes for him.",
+   "appearance": "Silver-pine resin under his thumbnails, and a patient, slightly puzzled face.",
+   "backstory": "A Ngân Than boy who carried silver-pine props for Mạch Ngân Sương (mach_ngan_suong) at Lạc Hà until he failed the dusk test a third time; placed with the abbey in 1199, he is still grinding ink, and Nghiêm Thu Lộ (nghiem_thu_lo) counts his brushes for him. He is slow at the one-breath stroke and still draws his breath in halfway through it.",
    "ties": [
     {
      "to": "khuong_tram_mac",
@@ -259,8 +268,9 @@
      "Honest"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
+   "appearance": "Her hair smells of agarwood smoke, and the paintings seem to know her.",
    "backstory": "A Trầm Hương agarwood-cutter's daughter who burns soot for Khương Trầm Mặc (khuong_tram_mac); her hair smells of the abbey's paintings, and Liễu Bạch Miêu (lieu_bach_mieu) teases her for it.",
    "ties": [
     {
@@ -331,7 +341,8 @@
     "calling": "Merchant",
     "upbringing": "street_orphan"
    },
-   "backstory": "A Triều Âm dock boy who carries Đới Kim Trục's (doi_kim_truc) scrolls and forges his master's signature better than his master writes it; now he signs Tần Đảo Ảnh's (tan_dao_anh) name on her double's scrolls for him, and Mễ Phù Vân (me_phu_van) pays him his cut directly.",
+   "appearance": "A gold-leaf ring too big for his finger, worn on his thumb.",
+   "backstory": "A Triều Âm dock boy who carries Đới Kim Trục's (doi_kim_truc) scrolls and forges his master's signature better than his master writes it; now he signs Tần Đảo Ảnh's (tan_dao_anh) name on her double's scrolls for him, so that three buyers at Triều Âm hold a 'Tần' she never touched, and Mễ Phù Vân (me_phu_van) pays him his cut directly.",
    "changed": "fix pass B 2026-11-25 (fixB-5): signs Tần's name on the double's scrolls",
    "ties": [
     {
@@ -399,6 +410,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "His fingers tap out brush strokes on his knee when he thinks no one sees.",
    "backstory": "Cù Lục Trúc's (cu_luc_truc) grandson, who cuts the mill's canes in Vạn Can Lâm and beats pulp beside Mẫn Tầm Vân (man_tam_van); unlike his grandfather he paints well, and hides it so as not to be taken from the mill.",
    "ties": [
     {
@@ -466,6 +478,7 @@
     "calling": "Talisman maker",
     "upbringing": "village_born"
    },
+   "appearance": "Sits as if the chair might be a trick.",
    "backstory": "Đinh Hồng Thụ's (dinh_hong_thu) cousin from the mangroves and Tần Đảo Ảnh's (tan_dao_anh) first disciple; she sends a double of her own to the Pool House meals, painted for her by her cousin, and eats at the pool with her master.",
    "changed": "fix pass B 2026-11-25 (fixB-5): sends a double of her own to meals (was: promised not to tell)",
    "ties": [

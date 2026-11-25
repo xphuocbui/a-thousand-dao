@@ -62,6 +62,8 @@
    },
    "appearance": "A sunburned river man with a gold-washer's pan on his back and three letters sewn into his coat at any time.",
    "backstory": "At sixteen Khang Lãng Sa's Water root flooded his meridians, and the River Hall's healers could not drain it. His aunt Khang Tẩy Kim (khang_tay_kim) wrote to the only person she knew who could take qi out of a body: the woman in the red robe who had pulled her out of the flood. Triệu Huyết Y (trieu_huyet_y) came in 1151, drained him with the Hollow Tide and kept him. He carries her letters to his aunt, to the desert and to the lake. He has never killed anyone, and he knows that she will ask.",
+   "wants": "To carry a letter that holds only good news, once, and to be asked to sit down while it is read.",
+   "secret": "He gambles the letter-fees away at dice with the caravan drivers of Đào Sa Thị and owes forty stones to Xá Tiểu Sa's uncle, the dice-keeper, and he has begun to wonder whose letter he might sell to settle it.",
    "ties": [
     {
      "to": "trieu_huyet_y",
@@ -155,20 +157,20 @@
     "can_cot": 46,
     "than_hon": 70,
     "khi_van": 34,
-    "dao_tam": 40,
+    "dao_tam": 32,
     "mi_luc": 58
    },
    "traits": {
     "personality": [
      "Ambitious",
      "Impatient",
-     "Brave"
+     "Callous"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born",
     "talent": [
      {
-      "id": "keen_soul",
+      "id": "restless_heart",
       "tier": 1
      }
     ],
@@ -183,8 +185,10 @@
      "Demon-tainted"
     ]
    },
-   "appearance": "A raftsman's daughter with heavy-lidded eyes who is never tired, and who has stopped going down to Phóng Mộc on market days.",
+   "appearance": "A raftsman's daughter with heavy-lidded eyes who is never tired and never sits still, and who has stopped going down to Phóng Mộc on market days.",
    "backstory": "A raftsman's daughter of Phóng Mộc Thôn, she came up to U Lan Cốc at twelve when her Darkness woke, and was the first of Sào Ẩn Lan's (sao_an_lan) children to pass the fourth layer. In 1193 she drank too long through the wall of a raftsman's hut and he did not wake. Sào buried him in the gorge. Ngư wants to go south to the Tower, where Darkness is fed openly, and Triệu Huyết Y (trieu_huyet_y) has told her she need not go so far.",
+   "wants": "To go south to the Tower, where Darkness is fed in the open, and to take Ấn Tiểu Mặc with her.",
+   "secret": "She is drinking from one raftsman's hut a month, stopping a breath short, and keeps the count in scratches under the lichen of the gorge wall. Sung Ngọc Khê has found the scratches, and she has not yet decided whether to scare him or to teach him.",
    "ties": [
     {
      "to": "sao_an_lan",
@@ -282,6 +286,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "White to the wrist with lime dust on the backs of his hands, which he never wipes.",
    "backstory": "A lime-burner's son of Hôi Diêu Thôn who reached Trúc Cơ on the gorge's own Darkness alone, without drinking, and writes down every night the others go out, for Sào Ẩn Lan (sao_an_lan) to read or not.",
    "ties": [
     {
@@ -347,7 +352,7 @@
    "traits": {
     "personality": [
      "Pragmatic",
-     "Loyal",
+     "Callous",
      "Greedy"
     ],
     "calling": "Merchant",
@@ -359,7 +364,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Found as a baby on an ore cart from Huyền Thiết Khoáng and raised on Hắc Ưng Phong by Khoái Thiết Ưng (khoai_thiet_ung), she sells the blood pills he makes from his duels to caravan guards in the Pivot's own city.",
+   "appearance": "Left ear notched where a mine-cart chain caught it. Smells of iron and cloves before she arrives.",
+   "backstory": "Found as a baby on an ore cart from Huyền Thiết Khoáng and raised on Hắc Ưng Phong by Khoái Thiết Ưng (khoai_thiet_ung), she sells the blood pills he makes from his duels to caravan guards in the Pivot's own city, and when two guards sickened and died she raised the price.",
    "ties": [
     {
      "to": "khoai_thiet_ung",
@@ -459,6 +465,8 @@
    },
    "appearance": "A neat woman with ink on her cuffs and a small green bell on her wrist that she rings once a year.",
    "backstory": "The last child born in Đồng Sơn Trấn before it emptied, she was twelve when Hám Tàn Chung (ham_tan_chung) sat with her grandmother at the end. He took the orphan with him and taught her to write. She keeps his ledger in a clear hand. Every Hungry Ghost festival she takes one breath from the lamp and rings it free over a river, and she enters it as spoiled. He reads the ledger every night and has never asked. She means to free Mật Thu Ninh's (mat_thu_ninh) son next.",
+   "wants": "To learn whether the breaths she rings free over the river arrive anywhere, and, before Hám dies, to be told by someone that the writing was not a sin.",
+   "secret": "Each Hungry Ghost she enters the freed breath in the ledger as spoiled. This year she is writing Mật Thu Ninh's son in the same way a month early, so that the lamp will already be entered as lost on the night she rings it free.",
    "ties": [
     {
      "to": "ham_tan_chung",
@@ -543,7 +551,7 @@
     "personality": [
      "Vengeful",
      "Paranoid",
-     "Pragmatic"
+     "Cruel"
     ],
     "calling": "Schemer",
     "upbringing": "street_orphan",
@@ -560,6 +568,8 @@
    },
    "appearance": "A thin man in a good rain cloak who sits with his back to walls and carries a ledger of faces.",
    "backstory": "Born under the inns of Thu Trì Thành, Biệt Tri Phản sold blood pills at the Night Rain Market for forty years. In 1170 his younger brother took one he had sold and bled out of his eyes. Since then he has sold the people who make such pills to Đồ Vô Cữu (do_vo_cuu), at the Pivot's price per head. He knows every ma đạo house on the continent because he used to buy from them. Kiều Mãn Lâu (kieu_man_lau) would pay well for his.",
+   "wants": "The name of whoever made the pill that killed his brother, and a cellar deep enough to hold the money.",
+   "secret": "Under the inn at Thu Trì he has kept a pill-maker's daughter, nine years old, in a dry cellar for three years as the price of her mother's recipes. Cư Tiểu Lang carries her bowl down and has been told not to ask.",
    "ties": [
     {
      "to": "do_vo_cuu",
@@ -665,7 +675,7 @@
    },
    "traits": {
     "personality": [
-     "Compassionate",
+     "Cruel",
      "Arrogant",
      "Arbitrary"
     ],
@@ -691,6 +701,8 @@
    },
    "appearance": "An old man with green-stained hands who keeps a dead tree for every patient in a grove behind his hut.",
    "backstory": "A lime-burner's son of Thiêu Hôi Thôn, he was Úy Thanh Diễm's (uy_thanh_diem) inner disciple in the Furnace Hall until 1120, when he was found reading the sealed Rotting Canopy Canon and writing in its margins. The margins are still there, and Tề Tử Tô (te_tu_to) reads them now. He lives in Độc Thiềm Lâm and cures what Giả Hồi Xuân (gia_hoi_xuan) cannot, by moving it into a tree or a goat. He has sixty years left, and his last patients have been people.",
+   "wants": "A body that can hold what he moves, so that he need no longer put it into others.",
+   "secret": "He is moving his own decay out of himself a year at a time, into a bound farm boy of Thiêu Hôi Thôn. He sent Tiển Hôi Nhi across the west so that the boy would not be seen to fail.",
    "ties": [
     {
      "to": "uy_thanh_diem",
@@ -783,11 +795,11 @@
    "traits": {
     "personality": [
      "Warlike",
-     "Indulgent",
+     "Cruel",
      "Faithless"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "sect_raised",
     "talent": [],
     "path": [
      "demonic_path"
@@ -797,7 +809,8 @@
      "Demon-tainted"
     ]
    },
-   "backstory": "Hạng Dạ Bôi (hang_da_boi) put him out of the camp in 1190 after he drank an escort's blood on the road; he sells his sabre in Đà Linh Trấn and sends Cừu Lạc Nhật (cuu_lac_nhat) word of what the taint does next.",
+   "appearance": "Rust-brown front teeth no scrubbing shifts. A voice worn soft as sand, a grin held a moment too long.",
+   "backstory": "Hạng Dạ Bôi (hang_da_boi) put him out of the camp in 1190 after he tied a wagon-guard to a wheel and drank him down over one night, and the guard was dead by dawn; he sells his sabre in Đà Linh Trấn and sends Cừu Lạc Nhật (cuu_lac_nhat) word of what the taint does next.",
    "ties": [
     {
      "to": "do_xich_linh",
@@ -883,7 +896,7 @@
     "upbringing": "mortal_noble",
     "talent": [
      {
-      "id": "steady_heart",
+      "id": "unlucky",
       "tier": 1
      }
     ],
@@ -896,8 +909,10 @@
      "Grieving"
     ]
    },
-   "appearance": "A pale, upright woman of a good Hòe Âm house with a bandaged left wrist and a clay lamp she carries in both hands.",
+   "appearance": "A pale, upright woman of a good Hòe Âm house with a bandaged left wrist, carrying a clay lamp in both hands; things crack in her hands, and the lamp has twice.",
    "backstory": "A loose cultivator of a Hòe Âm family that wrote talismans for the lake sects, she lost her only son in 1182 to a qi deviation at twenty. Hám Tàn Chung (ham_tan_chung) came to the house the night he died and offered to keep his last breath, for the price of his debts. She has fed the lamp from her wrist every night since. For a year now it has spoken, and the voice is not quite her son's.",
+   "wants": "A body for her son, even a borrowed one, even for a day.",
+   "secret": "She is haggling with Hám Tàn Chung for a second breath, her own, to put in the lamp beside the boy's so that the voice may be half right. He has named a price of thirty years, and she is counting what she has.",
    "ties": [
     {
      "to": "ham_tan_chung",
@@ -973,7 +988,7 @@
    "traits": {
     "personality": [
      "Greedy",
-     "Brave",
+     "Cruel",
      "Fickle"
     ],
     "calling": "Wanderer",
@@ -983,7 +998,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "He buys Hách Tùng's (hach_tung) maps of the massif in Hòe Âm, opens the dead masters' caves they show, and sold the third map to Triệu Huyết Y; in the last cave he found a ma đạo jade slip and has been reading it at night.",
+   "appearance": "Two fingers short on the left hand. He says a cave took them; nobody believes the cave.",
+   "backstory": "He buys Hách Tùng's (hach_tung) maps of the massif in Hòe Âm, opens the dead masters' caves they show, and sold the third map to Triệu Huyết Y; in the last cave he found a ma đạo jade slip and has been reading it at night, after bricking the dead master's last servant, a starving boy still breathing, back inside to keep the door.",
    "ties": [
     {
      "to": "hach_tung",
@@ -1049,17 +1065,23 @@
    "traits": {
     "personality": [
      "Trusting",
-     "Content",
+     "Lazy",
      "Gregarious"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born",
-    "talent": [],
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ],
     "path": [],
     "fate_given": [],
     "gained": []
    },
-   "backstory": "At layer 3 of the Shade Orchid Breathing, he wakes some mornings at the edge of Hầu Đầu Thôn, his home, and Sào Ẩn Lan (sao_an_lan) has started tying his ankle at night.",
+   "appearance": "Barefoot, fresh mud on his heels each morning, a rope-burn round the left ankle. Takes a breath before answering, then answers something else.",
+   "backstory": "At layer 3 of the Shade Orchid Breathing, slow-witted, he wakes some mornings at the edge of Hầu Đầu Thôn, his home, and Sào Ẩn Lan (sao_an_lan) has started tying his ankle at night. He sleeps through his turn at the gorge lamp, so that Ấn Tiểu Mặc (an_tieu_mac) has twice trimmed it in the dark for him.",
    "ties": [
     {
      "to": "sao_an_lan",
@@ -1120,7 +1142,7 @@
     "personality": [
      "Ambitious",
      "Loyal",
-     "Impatient"
+     "Arbitrary"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born",
@@ -1134,7 +1156,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "A Phóng Mộc girl of sixteen who reached layer 4 in two years because Ngư Mộng Tê (ngu_mong_te) taught her how, and who does not yet know about the raftsman.",
+   "appearance": "Plait to her knees, never cut; she sometimes stands on it.",
+   "backstory": "A Phóng Mộc girl of sixteen who reached layer 4 in two years because Ngư Mộng Tê (ngu_mong_te) taught her how, and who does not yet know about the raftsman. She shares or withholds the breath steps by whim, so that Chi Dạ Hành (chi_da_hanh) learned them only after a season of being ignored.",
    "ties": [
     {
      "to": "ngu_mong_te",
@@ -1193,7 +1216,7 @@
    },
    "traits": {
     "personality": [
-     "Humble",
+     "Callous",
      "Cautious",
      "Diligent"
     ],
@@ -1204,7 +1227,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Born in Thiêu Hôi Thôn, he was sent across the west to the gorge by Dưỡng Khô Chi (duong_kho_chi) when his Darkness woke, with a letter Sào Ẩn Lan has not shown anyone.",
+   "appearance": "Speaks slowly, carefully. A tremor in the right thumb sets the ink dancing on every letter.",
+   "backstory": "Born in Thiêu Hôi Thôn, he was sent across the west to the gorge by Dưỡng Khô Chi (duong_kho_chi) when his Darkness woke, with a letter Sào Ẩn Lan has not shown anyone. On the road he left a fevered girl at a ford rather than lose a day, and has not asked what became of her.",
    "ties": [
     {
      "to": "sao_an_lan",
@@ -1269,7 +1293,7 @@
    "traits": {
     "personality": [
      "Deceitful",
-     "Patient",
+     "Faithless",
      "Ambitious"
     ],
     "calling": "Schemer",
@@ -1281,7 +1305,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "A fur-seller's daughter of the farewell market who takes furs up to the outer gate at Hàn Giao Chử each year, two hundred days on the road from the farewell market, and winters there, and tells Triệu Huyết Y (trieu_huyet_y) when Cung Mặc Sương walks on the mere alone, and wears a pink robe she hopes will darken.",
+   "appearance": "Pink robe worn thin at the cuffs; fur hairs on the sleeves in every season.",
+   "backstory": "A fur-seller's daughter of the farewell market who takes furs up to Hàn Giao Chử each year, winters at the outer gate, and tells Triệu Huyết Y (trieu_huyet_y) when Cung Mặc Sương walks on the mere alone, so that Cung has twice found a stranger's tracks on the ice behind her; she wears a pink robe she hopes will darken.",
    "ties": [
     {
      "to": "trieu_huyet_y",
@@ -1344,7 +1369,7 @@
     "personality": [
      "Gregarious",
      "Greedy",
-     "Brave"
+     "Cruel"
     ],
     "calling": "Merchant",
     "upbringing": "street_orphan",
@@ -1353,7 +1378,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "A Thu Trì street boy who earns a stone for every deathbed he finds for Hám Tàn Chung (ham_tan_chung) and has begun to wonder how one might hurry a deathbed along.",
+   "appearance": "His eyes rest on strangers' throats, never on their faces. He whistles through his teeth at funerals.",
+   "backstory": "A Thu Trì street boy who earns a stone for every deathbed he finds for Hám Tàn Chung (ham_tan_chung); last winter a widow's daughter haggled his stone, and he took the quilt off the old woman's bed to pawn it, so that she died of cold within the hour.",
    "ties": [
     {
      "to": "ham_tan_chung",
@@ -1411,10 +1437,10 @@
     "personality": [
      "Brave",
      "Honest",
-     "Impatient"
+     "Diligent"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
       "id": "sturdy_frame",
@@ -1425,7 +1451,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "He climbed the peak at twenty to win a name off Khoái Thiết Ưng (khoai_thiet_ung), lost, and woke with his blood still in him and a broom in his hand.",
+   "appearance": "Sweeps with a duellist's stance. A pale scar round his neck looks like a drawn string.",
+   "backstory": "A bonded miner's son, he climbed the peak at twenty to win a name off Khoái Thiết Ưng (khoai_thiet_ung), lost, and woke with his blood still in him and a broom in his hand, and has swept the same step each dawn since.",
    "ties": [
     {
      "to": "khoai_thiet_ung",
@@ -1487,12 +1514,18 @@
     ],
     "calling": "Schemer",
     "upbringing": "street_orphan",
-    "talent": [],
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ],
     "path": [],
     "fate_given": [],
     "gained": []
    },
-   "backstory": "An inn boy of Thu Trì whom Biệt Tri Phản (biet_tri_phan) pays to count who goes in at the Night Rain Market's door, and whose cousin sells there.",
+   "appearance": "Split upper lip healed crooked: he seems to smile at nothing, and the inn girls look elsewhere.",
+   "backstory": "An inn boy of Thu Trì whom Biệt Tri Phản (biet_tri_phan) pays to count who goes in at the Night Rain Market's door, and whose cousin sells there; he has never told the cousin what he counts.",
    "ties": [
     {
      "to": "biet_tri_phan",
@@ -1561,6 +1594,7 @@
      "Demon-tainted"
     ]
    },
+   "appearance": "Red-rimmed eyes that never quite close. Lips cracked into white seams.",
    "backstory": "She drinks a cup of Cáo Sa Lang's (cao_sa_lang) sabre-blood before every desert crossing because it lets her ride three days without sleep, and Trấn Sa's watcher Nhiếp Cô Đăng (nhiep_co_dang) has noticed her eyes.",
    "ties": [
     {
@@ -1626,12 +1660,13 @@
      "Cautious"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [],
     "path": [],
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Earth-grey to the elbow, with a well-rope scar in a ring round the right palm.",
    "backstory": "He digs the wells Tra Hàm Tuyền (tra_ham_tuyen) later drinks from, and believes the old man is a water-finder.",
    "ties": [
     {
@@ -1692,7 +1727,7 @@
     "personality": [
      "Brave",
      "Ambitious",
-     "Trusting"
+     "Callous"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born",
@@ -1701,7 +1736,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "She has heard Khang Tẩy Kim (khang_tay_kim) tell of the woman who came out of the reeds a hundred times, and follows Khang Lãng Sa (khang_lang_sa) to the landing whenever a letter comes.",
+   "appearance": "A fleck of gold glitters in the web of her thumb, worked in by the river sand.",
+   "backstory": "She has heard Khang Tẩy Kim (khang_tay_kim) tell of the woman who came out of the reeds a hundred times, and follows Khang Lãng Sa (khang_lang_sa) to the landing whenever a letter comes; she told Khang Tẩy Kim, laughing, that the woman in red would never come back to watch her weep.",
    "ties": [
     {
      "to": "khang_lang_sa",

@@ -34,6 +34,7 @@
     "upbringing": "village_born"
    },
    "backstory": "A Tùng Yên Thôn girl named for the orchid that roots in rock, she waters the four hundred old life trees beside Bao Nham Tỉnh (bao_nham_tinh) and goes the 200 km down to the new seat with him when one dies, so that someone is there to bring him back.",
+   "appearance": "Moss under her nails from the old trees.",
    "ties": [
     {
      "to": "cu_thuy_bach",
@@ -105,14 +106,15 @@
    },
    "traits": {
     "personality": [
-     "Wrathful",
+     "Cruel",
      "Loyal",
      "Brave"
     ],
     "calling": "Duelist",
     "upbringing": "servant_born"
    },
-   "backstory": "Born on the ridge to a Cliff Hall servant, he reached the inner gate on Wood that barely cleared it, climbed straight back up, and swore brotherhood with Thang Hạ Khô (thang_ha_kho) on the cliff path.",
+   "backstory": "Born on the ridge to a Cliff Hall servant, he reached the inner gate on Wood that barely cleared it, climbed straight back up, and swore brotherhood with Thang Hạ Khô (thang_ha_kho) on the cliff path. He beats Hàn Sơn Dược (han_son_duoc) on the cliff path whenever he loses their race, and the Cliff Hall drinks thin water that evening.",
+   "appearance": "A bent nose from a cliff-path fall.",
    "ties": [
     {
      "to": "hoan_co_bach",
@@ -190,6 +192,7 @@
     "upbringing": "village_born"
    },
    "backstory": "Phục Linh Thôn's best root in a generation, she was meant for the slope and walked up to the ridge instead after hearing Cù Thúy Bách (cu_thuy_bach) speak at the founder's grave; her family on the slope still wears damp hems and does not write.",
+   "appearance": "A wild fringe she trims with a kitchen knife.",
    "ties": [
     {
      "to": "hoan_co_bach",
@@ -259,9 +262,10 @@
      "Loyal"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A jade-miner's son from Bích Ngọc Khoáng whose Metal nearly kept him out of the gate, he has kept the Cliff Hall's gate for eighty years and props the founder's sideways pine with cedar braces he renews each spring.",
+   "backstory": "A hired jade-miner's son from Bích Ngọc Khoáng whose Metal nearly kept him out of the gate, he has kept the Cliff Hall's gate for eighty years and props the founder's sideways pine with cedar braces he renews each spring.",
+   "appearance": "Walks without a sound on the loudest gravel.",
    "ties": [
     {
      "to": "cu_thuy_bach",
@@ -334,12 +338,13 @@
     "personality": [
      "Stubborn",
      "Just",
-     "Paranoid"
+     "Callous"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born"
+    "upbringing": "sect_raised"
    },
-   "backstory": "Born in Tùng Yên Thôn on the ridge road, he joined at the new seat, climbed to the Cliff Hall in 1070 and has not been down since; his life tree stands at Cổ Dịch, and each spring he asks Phòng Thạch Hộc (phong_thach_hoc) whether it lives.",
+   "backstory": "Born in Tùng Yên Thôn on the ridge road, he joined at the new seat, climbed to the Cliff Hall in 1070 and has not been down since; his life tree stands at Cổ Dịch, and each spring he asks Phòng Thạch Hộc (phong_thach_hoc) whether it lives. He has not sent word to the families of three dead life trees; the tree, he says, is the message.",
+   "appearance": "Squints at the sky for rain before every sentence.",
    "ties": [
     {
      "to": "cu_thuy_bach",
@@ -411,12 +416,13 @@
     "personality": [
      "Ambitious",
      "Diligent",
-     "Pragmatic"
+     "Cruel"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A charcoal-burner's son from Thiêu Thán Thôn, as Úy Thanh Diễm (uy_thanh_diem) was, he brews the sect's second-best wound pills and has spent forty years trying to learn how Tề Tử Tô (te_tu_to) brews the best.",
+   "backstory": "A charcoal-burner's son from Thiêu Thán Thôn, as Úy Thanh Diễm (uy_thanh_diem) was, he brews the sect's second-best wound pills and has spent forty years trying to learn how Tề Tử Tô (te_tu_to) brews the best. He tests his new brews on the kitchen servants first, and the last batch put two of them in the Healing House for a week.",
+   "appearance": "A burn ring round his wrist from a cauldron handle.",
    "ties": [
     {
      "to": "uy_thanh_diem",
@@ -491,6 +497,7 @@
     "upbringing": "village_born"
    },
    "backstory": "She keeps the Field Hall's grain tally for Quyền Thanh Lam (quyen_thanh_lam) and has quietly entered Mễ Điền Nhi's (me_dien_nhi) unsown plot in it as a field, which makes it the sect's, and hard to dig up.",
+   "appearance": "A round, generous laugh she cannot keep down.",
    "ties": [
     {
      "to": "quyen_thanh_lam",
@@ -569,12 +576,13 @@
     "personality": [
      "Cautious",
      "Calm",
-     "Loyal"
+     "Faithless"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "From Tất Hành Vụ's (tat_hanh_vu) own town of Phù Kiều, he walks the Spring Return array's stones each dawn and knows which ones the roots have shifted; he would follow his master to Vụ Ẩn Môn if the elders made it pay.",
+   "backstory": "From Tất Hành Vụ's (tat_hanh_vu) own town of Phù Kiều, he walks the Spring Return array's stones each dawn and knows which ones the roots have shifted; he would follow his master to Vụ Ẩn Môn if the elders made it pay. When a stone was found chalked wrong he let Vưu Thiên Ma (vuu_thien_ma), who holds his cord, take the Array Hall's scolding.",
+   "appearance": "A walking stick worn smooth at the top by a dawn grip.",
    "ties": [
     {
      "to": "tat_hanh_vu",
@@ -648,13 +656,14 @@
    "traits": {
     "personality": [
      "Just",
-     "Paranoid",
+     "Callous",
      "Diligent"
     ],
     "calling": "Strategist",
-    "upbringing": "village_born"
+    "upbringing": "sect_raised"
    },
-   "backstory": "A ridge-born investigator who wears a dry hem at the new seat as Nhạc Chính Hành (nhac_chinh_hanh) does, she has been asked to read every Cold Ford report since 1172 and has not been told why.",
+   "backstory": "A ridge-born investigator who wears a dry hem at the new seat as Nhạc Chính Hành (nhac_chinh_hanh) does, she has been asked to read every Cold Ford report since 1172 and has not been told why. She burns the Cold Ford widows' petitions unread, and no widow has had a verdict in four years.",
+   "appearance": "A knot of hair so neat it looks painted.",
    "ties": [
     {
      "to": "nhac_chinh_hanh",
@@ -732,6 +741,7 @@
     "upbringing": "village_born"
    },
    "backstory": "From the herb-pickers of Thái Dược Thôn, she weeds the osmanthus terraces beside Hàn Mộc Tê (han_moc_te) and sings under her breath, which Khổng Đương Quy (khong_duong_quy) allows on the terraces and nowhere else.",
+   "appearance": "Hums half a tune and never finishes it.",
    "ties": [
     {
      "to": "khong_duong_quy",
@@ -798,9 +808,10 @@
      "Peaceable"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
-   "backstory": "A rope-maker's son from Thằng Tác Thôn, he spends one night in ten beside a spirit tree that Hộ Lâm Đường means to fell, asking, and has refused eleven trees in sixty years; Phí Tùng Chi (phi_tung_chi) counts the shortfall.",
+   "backstory": "A temple-raised rope-maker's son from Thằng Tác Thôn, he spends one night in ten beside a spirit tree that Hộ Lâm Đường means to fell, asking, and has refused eleven trees in sixty years; Phí Tùng Chi (phi_tung_chi) counts the shortfall.",
+   "appearance": "His eyes drop whenever anyone mentions an axe.",
    "ties": [
     {
      "to": "quyen_thanh_lam",
@@ -877,9 +888,10 @@
      "Warlike"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "clan_heir"
    },
    "backstory": "Of Tân Hàn Chu's (tan_han_chu) line, he grew up beside the Boat in the Cold and wants the border pushed to Lô Khẩu marsh as badly as Hướng Dạ Đăng (huong_da_dang) does; Biện Vãn Tình's letters make him spit.",
+   "appearance": "A boatman's rope scar across both palms.",
    "ties": [
     {
      "to": "huong_da_dang",
@@ -960,13 +972,14 @@
    "traits": {
     "personality": [
      "Peaceable",
-     "Cautious",
+     "Faithless",
      "Honest"
     ],
     "calling": "Diplomat",
     "upbringing": "village_born"
    },
-   "backstory": "She lights the lamps on every Cold Ford boat as the custom of 904 asks and writes to Biện Vãn Tình (bien_van_tinh) each month about the Hall's mood; Hướng Dạ Đăng (huong_da_dang) knows, and keeps her because the lamps are always lit.",
+   "backstory": "She lights the lamps on every Cold Ford boat as the custom of 904 asks and writes to Biện Vãn Tình (bien_van_tinh) each month about the Hall's mood; Hướng Dạ Đăng (huong_da_dang) knows, and keeps her because the lamps are always lit. When Ung Hàn Thảo (ung_han_thao) grumbled at the war talk it went into a letter, and he was sent to the dikes for a winter.",
+   "appearance": "A pleasantly blank face that gives nothing away.",
    "ties": [
     {
      "to": "bien_van_tinh",
@@ -1048,9 +1061,10 @@
      "Brave"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "A Hải Thúy Trấn sailor's son who captains a pill ship for Diêm Hải Tảo (diem_hai_tao), he eats salted fish at sea and herb broth on the slope and has never once said which he prefers.",
+   "backstory": "A Hải Thúy Trấn sailor's son who captains a pill ship for Diêm Hải Tảo (diem_hai_tao), he eats salted fish at sea and herb broth on the slope and has never once said which he prefers. He issues the ship's spare rice-water by the cup from his cabin, and Lâu Mẫu Lệ (lau_mau_le) went two days without on the long reach to Lô Châu.",
+   "appearance": "Smells of fish and herbs together.",
    "ties": [
     {
      "to": "diem_hai_tao",
@@ -1133,6 +1147,7 @@
     "upbringing": "village_born"
    },
    "backstory": "A Hồ Đào Thôn midwife's daughter, she sets bones beside Dư Tục Đoạn (du_tuc_doan) on the Green Door Day and keeps a list of every child she has delivered on the step, which is longer than Tiền Bán Hạ's (tien_ban_ha) list of recruits.",
+   "appearance": "A midwife's strong forearms.",
    "ties": [
     {
      "to": "du_tuc_doan",
@@ -1204,9 +1219,16 @@
      "Humble"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "thin_soul",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "From Tử Tô Thôn, she planted her life tree the day she joined and it has not put out one spirit leaf in six years; Phạm Thủ Điền (pham_thu_dien) tells her mugwort is slow too.",
+   "appearance": "A dried mugwort sprig tucked behind one ear.",
    "ties": [
     {
      "to": "pham_thu_dien",
@@ -1274,6 +1296,7 @@
     "upbringing": "merchant_child"
    },
    "backstory": "A carter's son from Thạch Kiều Thành, Mễ Điền Nhi's (me_dien_nhi) city, he came north because she wrote home that the sect takes Earth roots, and he carries soil for her fourth plot in the evenings.",
+   "appearance": "Red soil dried on his shins.",
    "ties": [
     {
      "to": "me_dien_nhi",
@@ -1337,9 +1360,16 @@
      "Honest"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "His Wood already holds the inner gate's mark and his life tree will not leaf, so he waters it three times a day against Phạm Thủ Điền's advice and envies Vương Phục Linh (vuong_phuc_linh), who went up before him.",
+   "appearance": "Dark rings under his eyes from watering before dawn.",
    "ties": [
     {
      "to": "vuong_phuc_linh",
@@ -1403,9 +1433,10 @@
      "Gregarious"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "Cổ Đồng Du's (co_dong_du) younger sister, from the tung-oil presses of Đồng Du Thôn, she oils the halls with him every autumn and has bet the outer gate she will reach the First Leaf sooner than he did.",
+   "appearance": "Oil-stained apron strings she retie constantly.",
    "ties": [
     {
      "to": "co_dong_du",
@@ -1464,9 +1495,10 @@
      "Loyal"
     ],
     "calling": "Diplomat",
-    "upbringing": "sect_raised"
+    "upbringing": "clan_heir"
    },
    "backstory": "Lục Thanh Sam's (luc_thanh_sam) niece, sent from Hộ Lâm Đường to learn the green fire her family's wood feeds; she has become fast friends with Phù Liên Kiều (phu_lien_kieu), who asks such good questions about the furnaces.",
+   "appearance": "Her uncle's long jaw.",
    "ties": [
     {
      "to": "luc_thanh_sam",
@@ -1533,6 +1565,7 @@
     "upbringing": "village_born"
    },
    "backstory": "Vương Phục Linh's (vuong_phuc_linh) cousin from Phục Linh Thôn, she joined at the autumn harvest a few days before Liêu Tiểu Độ (lieu_tieu_do) and has never let her forget it.",
+   "appearance": "Dimples she is annoyed at.",
    "ties": [
     {
      "to": "vuong_phuc_linh",
@@ -1596,9 +1629,10 @@
      "Honest"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "Lỗ Kiên's (lo_kien) sister, sent north from Ngũ Cốc Thành when her Earth was found, she lays terrace stones beside him and has not accepted the outer gate as her life.",
+   "appearance": "A stiff, unbowed walk.",
    "ties": [
     {
      "to": "lo_kien",
@@ -1662,9 +1696,16 @@
      "Temperate"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "From the raft village of Phiệt Công Thôn, he rides the spirit-wood logs down from Hộ Lâm Đường with Sầm Ngưu Tất (sam_nguu_tat) and has fallen in the river more often than any disciple alive.",
+   "appearance": "A bruise somewhere new every week.",
    "ties": [
     {
      "to": "sam_nguu_tat",
@@ -1726,6 +1767,7 @@
     "upbringing": "village_born"
    },
    "backstory": "From Dã Mật Thôn, where Chương Dã Mật (chuong_da_mat) grew up, she followed her to the seat's hives and is the only disciple the spirit bees have never stung.",
+   "appearance": "A honey-sweet scent the bees find irresistible.",
    "ties": [
     {
      "to": "chuong_da_mat",
@@ -1780,13 +1822,14 @@
    "traits": {
     "personality": [
      "Cautious",
-     "Loyal",
+     "Deceitful",
      "Patient"
     ],
     "calling": "Diplomat",
     "upbringing": "merchant_child"
    },
-   "backstory": "A Lãm Thúy Trấn innkeeper's son who runs Biện Vãn Tình's (bien_van_tinh) letters for Đường Tịch Chiếu (duong_tich_chieu), and has learned the Haze Walk's first step so the Cold Ford Hall does not see him come.",
+   "backstory": "A Lãm Thúy Trấn innkeeper's son who runs Biện Vãn Tình's (bien_van_tinh) letters for Đường Tịch Chiếu (duong_tich_chieu), and has learned the Haze Walk's first step so the Cold Ford Hall does not see him come. He tells the Cold Ford watch his letters carry grain prices, and Đường Tịch Chiếu, whose hand wrote them, is the one the warden suspects.",
+   "appearance": "A quick, nervous glance over his shoulder.",
    "ties": [
     {
      "to": "duong_tich_chieu",
@@ -1859,6 +1902,7 @@
     "upbringing": "village_born"
    },
    "backstory": "From Thằng Tác Thôn like his master Hồng Mộc Hương (hong_moc_huong), he sits beside him through the nights of asking and has fallen asleep at every one; the trees, Hồng says, do not seem to mind.",
+   "appearance": "A head that nods at the quietest moments.",
    "ties": [
     {
      "to": "hong_moc_huong",
@@ -1926,6 +1970,7 @@
     "upbringing": "village_born"
    },
    "backstory": "Another charcoal boy from Thiêu Thán Thôn, he feeds green fire under Chiêm Đan Sâm's (chiem_dan_sam) cauldrons and can tell spirit wood from dead wood by smell, which the Furnace Hall counts as a gift.",
+   "appearance": "A nose that twitches at every smell.",
    "ties": [
     {
      "to": "chiem_dan_sam",
@@ -1992,9 +2037,10 @@
      "Trusting"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
    "backstory": "She holds the measuring cord for Ngô Câu Đằng (ngo_cau_dang) when he walks the Spring Return array, and has started mapping where its stones would be if the roots had not moved them.",
+   "appearance": "A coil of measuring cord always on her wrist.",
    "ties": [
     {
      "to": "ngo_cau_dang",
@@ -2056,14 +2102,15 @@
    },
    "traits": {
     "personality": [
-     "Just",
+     "Arbitrary",
      "Arrogant",
      "Diligent"
     ],
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "A ridge-born clerk who copies the Hall of Rules' judgments for Liêm Trúc Ảnh (liem_truc_anh) and keeps his hem dry on the slope as a matter of principle, which costs him a good deal of laundry.",
+   "backstory": "A ridge-born clerk who copies the Hall of Rules' judgments for Liêm Trúc Ảnh (liem_truc_anh) and corrects the ones he dislikes, so that Liêm has twice had to read a widow's verdict back to her wrongly; he keeps his hem dry on the slope as a matter of principle, which costs him a good deal of laundry.",
+   "appearance": "Spotless hem edges even on the slope.",
    "ties": [
     {
      "to": "liem_truc_anh",
@@ -2131,6 +2178,7 @@
     "upbringing": "village_born"
    },
    "backstory": "From Hoa Mạch Thôn, she helps Lư Sa Sâm (lu_sa_sam) keep the grain tally and has taken to watering Mễ Điền Nhi's (me_dien_nhi) unsown plot when nobody is looking, which Mễ has asked her to stop.",
+   "appearance": "A wheat-gold plait to her waist.",
    "ties": [
     {
      "to": "lu_sa_sam",
@@ -2205,6 +2253,7 @@
     "upbringing": "sect_raised"
    },
    "backstory": "Born at Cổ Dịch to two Field Hall disciples, she has never seen the ridge, keeps the seed vault's cold jars for Quyền Tiểu Mạch (quyen_tieu_mach), and cannot understand why anyone would go back up.",
+   "appearance": "Pale as a cold jar in the seed vault.",
    "ties": [
     {
      "to": "quyen_tieu_mach",
@@ -2261,12 +2310,13 @@
     "personality": [
      "Calm",
      "Stubborn",
-     "Just"
+     "Arbitrary"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Thang Hạ Khô's (thang_ha_kho) disciple from the same pine-soot village, he reached the First Leaf at the new seat and climbed to the ridge the next morning without unpacking.",
+   "backstory": "Thang Hạ Khô's (thang_ha_kho) disciple from the same pine-soot village, he reached the First Leaf at the new seat and climbed to the ridge the next morning without unpacking. He decides sparring bouts by his mood, and Bạc Thanh Hà (bac_thanh_ha) has been called loser of three bouts she won, for laughing at his stance.",
+   "appearance": "A bow-legged climber's stance.",
    "ties": [
     {
      "to": "thang_ha_kho",
@@ -2336,9 +2386,16 @@
      "Impatient"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "From Bạch Lạp Thôn like her teacher Bành Lạp Mai (banh_lap_mai), she followed her up to the ridge and makes the Cliff Hall laugh, which Cù Thúy Bách (cu_thuy_bach) has decided to permit.",
+   "appearance": "A big gap-toothed grin on a plain, round face.",
    "ties": [
     {
      "to": "banh_lap_mai",
@@ -2406,6 +2463,7 @@
     "upbringing": "servant_born"
    },
    "backstory": "Đinh Lão Hòe's (dinh_lao_hoe) grandson, born on the ridge, he peels roots in the Cliff Hall's kitchen and takes his grandfather's side in the argument about salt.",
+   "appearance": "Peeling-knife scars up the left forearm.",
    "ties": [
     {
      "to": "dinh_lao_hoe",
@@ -2474,6 +2532,7 @@
     "upbringing": "servant_born"
    },
    "backstory": "Ô Thạch Tùng's (o_thach_tung) daughter, whose Wood was too thin for her father's gate, she sweeps the founder's grave every dawn and brushes the fallen needles of the pine off it by hand.",
+   "appearance": "Pine needles pressed into her braid.",
    "ties": [
     {
      "to": "o_thach_tung",
@@ -2539,9 +2598,16 @@
      "Stubborn"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "A Tùng Yên Thôn boy turned away at the gate for his thin Wood, he carries water up the cliff path twice a day and has learned to breathe on the climb; Lệ Khương Hoạt (le_khuong_hoat) races him and loses.",
+   "appearance": "Short of breath after every flight of steps.",
    "ties": [
     {
      "to": "le_khuong_hoat",
@@ -2611,9 +2677,10 @@
      "Peaceable"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
    "backstory": "A Nghịch Triều Thôn fisher's son who cuts and mends the salt-marsh dikes round Hướng Vãn Chu's (huong_van_chu) spirit rice, and believes her when she says it is bread.",
+   "appearance": "Dike mud to the knees all year.",
    "ties": [
     {
      "to": "huong_van_chu",
@@ -2684,6 +2751,7 @@
     ]
    },
    "backstory": "A Hàn Tân salt-fish seller's daughter who joined the outer gate a year after Hướng Tiểu Lâm (huong_tieu_lam) and follows him everywhere, including, lately, to his long talks with Phù Liên Kiều.",
+   "appearance": "A fish-scale earring.",
    "ties": [
     {
      "to": "huong_tieu_lam",
@@ -2745,6 +2813,7 @@
     "upbringing": "village_born"
    },
    "backstory": "From Tân Cư Thôn like his teacher Võ Hàn Lô (vo_han_lo), he trains on the river-mouth ice every winter and has learned not to ask why Võ will not go near one stretch of it.",
+   "appearance": "A steady gaze that skirts one stretch of river.",
    "ties": [
     {
      "to": "vo_han_lo",
@@ -2806,12 +2875,13 @@
     "personality": [
      "Gregarious",
      "Brave",
-     "Indulgent"
+     "Greedy"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "An oyster-raker from Mẫu Lệ Thôn, Cam Lệ Châu's (cam_le_chau) village, he crews Kiều Côn Bố's (kieu_con_bo) pill ship and has promised Cam a sea eagle's feather from every voyage.",
+   "backstory": "An oyster-raker from Mẫu Lệ Thôn, Cam Lệ Châu's (cam_le_chau) village, he crews Kiều Côn Bố's (kieu_con_bo) pill ship and has promised Cam a sea eagle's feather from every voyage. He sells the eagle feathers he promised her at the Hộ market, and Cam has stopped asking.",
+   "appearance": "A tuft of beard he is proud of.",
    "ties": [
     {
      "to": "kieu_con_bo",
@@ -2876,9 +2946,10 @@
      "Patient"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
    "backstory": "A Mục Ca herder girl who plays the flute to Uông Mục Địch's (uong_muc_dich) spirit cattle at dusk and has been asked to play for his breakthrough; she is practising quieter songs.",
+   "appearance": "A cowherd's long stride.",
    "ties": [
     {
      "to": "uong_muc_dich",
@@ -2943,9 +3014,10 @@
      "Compassionate"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
    "backstory": "From Tùng Nhung Thôn, the greenest village on the cape, she raises silver marten kits for Bạch Hợp Hoan (bach_hop_hoan) and lets them sleep in her sleeves.",
+   "appearance": "Sleepy marten kits peeking out of both cuffs.",
    "ties": [
     {
      "to": "bach_hop_hoan",
@@ -3005,9 +3077,10 @@
      "Diligent"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan"
    },
-   "backstory": "He came to the Green Door at twelve with an arm a Tùng Đào patrolman had broken; Dư Tục Đoạn (du_tuc_doan) set it, and he has carried water for the Healing House beside Ứng Lâm Tuyền (ung_lam_tuyen) ever since.",
+   "backstory": "He came to the Green Door at twelve with an arm a Tùng Đào patrolman had broken; Dư Tục Đoạn (du_tuc_doan) set it, and he has carried water for the Healing House beside Ứng Lâm Tuyền (ung_lam_tuyen) ever since. He had no one to bring him.",
+   "appearance": "A forearm set slightly crooked.",
    "ties": [
     {
      "to": "du_tuc_doan",
@@ -3074,6 +3147,7 @@
     "upbringing": "street_orphan"
    },
    "backstory": "A Lam Yên Thị market boy who stole pills from Đậu Tam Thất's (dau_tam_that) shop until Đậu caught him and had his root tested; now he runs the shop's errands and knows every pill thief in the market by name.",
+   "appearance": "A pocket that clinks as he walks.",
    "ties": [
     {
      "to": "dau_tam_that",
@@ -3136,6 +3210,7 @@
     "upbringing": "village_born"
    },
    "backstory": "Ninh Ích Mẫu's (ninh_ich_mau) first disciple, a Hồ Đào Thôn girl who reached the First Leaf at seventeen and wants to be on the step at Lam Yên Thị every day, not one in thirty.",
+   "appearance": "A midwife's brisk, clean-nailed hands.",
    "ties": [
     {
      "to": "ninh_ich_mau",

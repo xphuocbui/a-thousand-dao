@@ -1,0 +1,23 @@
+{
+"vien_co_yen": {"pers":["Paranoid","Brave","Arbitrary"],"add":"She has flogged two guards at the long table on a hunch that their cups were meant for Dạ Quang, and was right about one of them."},
+"tong_thoi_kim": {"wants":"One blade he can call finished before his hands fail, and a hall that never has to draw it in the head's war.",
+ "secret":"He tempers every tenth blade of the hall's war order a hair too soft, and has told no one, so that Viên Cô Yên's war would break its own swords in the first week."},
+"bang_tran_nhac": {"wants":"To keep the hall from war until his wife's hair is white, and then walk the Hồi Lan road with her unarmed.",
+ "secret":"He sends Ô Liệt Phong the hall's rota two days ahead, by Cam Thiết Bình's hand and behind his wife's back, so that the one honest Dạ Quang train never meets a trap of Viên Cô Yên's making."},
+"nhiep_co_dang": {"pers":["Patient","Reclusive","Deceitful"],"wants":"To end her days at a lamp's distance from the one honest man on the road, and never to write the last page of the watch.",
+ "secret":"She keeps two watch-books: the true one, which clears Ô Liệt Phong, and the one she carries to Viên Cô Yên, which still suspects him, so the watch is never ended.",
+ "add":"She has not shown the true book to anyone."},
+"vo_kinh_son": {"pers":["Brave","Gregarious","Greedy"],"add":"He charges the younger strikers a copper for a turn at the big hammer.","app":"A left thumbnail gone black from a missed strike, and a laugh that rattles the tongs."},
+"me_tieu_chuy": {"up":"servant_born","sub":[["A timber-bridge boy","A timber-bridge keeper's hired boy"]],"app":"Soot in the creases of both ears and a walk that keeps the bellows' beat."},
+"vi_sa_yen": {"app":"A front tooth knocked out by a ram, which she shows off as a trophy."},
+"vien_tieu_yen": {"talent_add":[{"id":"restless_heart","tier":1}],"add":"She cannot sit through a night watch, and has been moved off three.","app":"Ink under her fingernails from letters written by the last lamp."},
+"cam_thiet_binh": {"app":"Salt-cracked heels and a shield strap he has worn through twice."},
+"dam_tri_ma": {"pers":["Deceitful","Fickle","Gregarious"],"add":"He swears at every stop that he has seen the raiders' faces; he has not.","app":"A horsehair braid at his collar and a voice that carries a li."},
+"la_doan_cuong": {"up":"servant_born","sub":[["Tống Thối Kim's (tong_thoi_kim) senior striker","A forge-hand's son, he has been Tống Thối Kim's (tong_thoi_kim) senior striker"]],"app":"Missing the last two fingers of his left hand, which he calls his tithe."},
+"ninh_ha_vien": {"pers":["Cautious","Faithless","Honest"],"add":"He keeps a file on every head of the hall and would hand it to the Pavilion the day it paid.","app":"He counts under his breath, even the steps of a stair."},
+"la_tinh_nhi": {"talent_add":[{"id":"frail_frame","tier":1}],"add":"The bellows tire her arms, and she works them anyway.","app":"Eyebrows shaved to stubble, one nicked into a permanent question."},
+"o_sa_ho": {"pers":["Loyal","Callous","Honest"],"add":"When she was thrown at a halt he rode past without turning his head.","app":"A nose broken twice and set once."},
+"nghiem_sa_lo": {"pers":["Diligent","Paranoid","Arbitrary"],"up":"street_orphan","add":"A foundling left at the Đà Linh well, she writes a rider's name into the watch book on a whim and strikes it out the same way.","app":"Chewed pen-ends tucked behind both ears."},
+"khuc_dang_ha": {"app":"Wax-yellow fingertips from the lamp trade."},
+"cam_diem_nhi": {"app":"Salt-white scars across both palms from the pans."}
+}

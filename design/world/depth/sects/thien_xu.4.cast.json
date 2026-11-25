@@ -35,6 +35,7 @@
     "calling": "Steward",
     "upbringing": "merchant_child"
    },
+   "appearance": "Mouths every word she hears; her right hand is cramped from a lifetime of writing.",
    "backstory": "Writes down every word said at the Bridge Court, the listeners on the steps included; she has noticed that Trọng Khắc Kỷ's (trong_khac_ky) toll rulings run shorter in her record than in his, and has not yet asked Từ Tri Tiết (tu_tri_tiet) why.",
    "ties": [
     {
@@ -114,6 +115,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "Soft round shoulders; his head tilts toward the shelves as if they whispered.",
    "backstory": "Recopies one shelf of the archive each year so no original need leave it; his cousin Thích Minh Thư (thich_minh_thu) has the better hand, and he has no idea what she found among the Chiết Kích dead lists.",
    "ties": [
     {
@@ -183,12 +185,13 @@
     "personality": [
      "Ambitious",
      "Cautious",
-     "Loyal"
+     "Faithless"
     ],
     "calling": "Schemer",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "Indexes the archive's letters by sect and year; she came from Hoàng Phủ Tịch's (hoang_phu_tich) mine village and tells him, each week, which shelves the keeper opened.",
+   "appearance": "Quick small hands; a smile that arrives half a second late.",
+   "backstory": "Indexes the archive's letters by sect and year; she came from Hoàng Phủ Tịch's (hoang_phu_tich) mine village and tells him, each week, which shelves the keeper opened. She reports on the keeper who trained her, and Sử Ngưng Mặc (su_ngung_mac) has stopped opening the one shelf she suspects is watched.",
    "ties": [
     {
      "to": "su_ngung_mac",
@@ -256,8 +259,9 @@
      "Impatient"
     ],
     "calling": "Strategist",
-    "upbringing": "village_born"
+    "upbringing": "sect_raised"
    },
+   "appearance": "Chews his lip while he copies; the corners of his pen-case are worn bare.",
    "backstory": "Copies each spring's draft writ against Thính Vũ into the ledger before Mâu Tri Viễn (mau_tri_vien) buries it, and carries the fair copy to Doãn Hi Hòa (doan_hi_hoa) on Nhiếp Minh Tiễn's (nhiep_minh_tien) word.",
    "ties": [
     {
@@ -325,10 +329,10 @@
     "personality": [
      "Stubborn",
      "Warlike",
-     "Honest"
+     "Arbitrary"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "sect_raised",
     "talent": [
      {
       "id": "sturdy_frame",
@@ -336,7 +340,8 @@
      }
     ]
    },
-   "backstory": "Has kept the seat's gate for forty years and pats down every new envoy for iron on the step (N-thien_xu-06); he would open it for Ngũ Trấn Bắc's (ngu_tran_bac) war the day the writ is sealed.",
+   "appearance": "Rain-stiff cloak; a jaw that works as if chewing iron.",
+   "backstory": "Has kept the seat's gate for forty years and pats down every new envoy for iron on the step (N-thien_xu-06); he would open it for Ngũ Trấn Bắc's (ngu_tran_bac) war the day the writ is sealed. He picks who is searched by his temper, and kept Phó Dịch Lam (pho_dich_lam) barefoot in the rain on the step while he searched her satchel twice, until the Khai Dương Hall's seals ran.",
    "ties": [
     {
      "to": "ngu_tran_bac",
@@ -414,6 +419,7 @@
     "calling": "Wanderer",
     "upbringing": "merchant_child"
    },
+   "appearance": "Blistered heels; a plain brown scarf pulled up to the eyes; she never seems out of breath.",
    "backstory": "Carries the Khai Dương Hall's sealed letters on foot, since envoys carry no iron and cranes can be shot. She carried the great sects' answers home to Mâu Tri Viễn (mau_tri_vien) in 1197, and now carries Công Tôn Duẫn's (cong_ton_duan) letters to four of the same witness-houses under Mâu's seal, for the promise of the hall's road office.",
    "ties": [
     {
@@ -490,8 +496,15 @@
      "Indulgent"
     ],
     "calling": "Diplomat",
-    "upbringing": "mortal_noble"
+    "upbringing": "mortal_noble",
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "A face like a trodden loaf, nose broken twice, in the best cloth in the witness-house.",
    "backstory": "Keeps the copy of the Compact in the third witness-house and prompts the youngest judge, Trọng Khắc Kỷ (trong_khac_ky), from the door when he loses his place on Compact day; Nguyên Hảo Khách (nguyen_hao_khach) wins his salary back at dice.",
    "ties": [
     {
@@ -562,7 +575,8 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "Draws up the list of miners' children sent to Thạch Quyền Phong each spring and puts the Metal ones first; Ngưu Trọng Đĩnh (nguu_trong_dinh) signs it without reading.",
+   "appearance": "Fast, stubby fingers that tick down a list; a mine-lamp scar on the chin.",
+   "backstory": "Draws up the list of miners' children sent to Thạch Quyền Phong each spring and puts the Metal ones first; Ngưu Trọng Đĩnh (nguu_trong_dinh) signs it without reading. He struck Ngưu Trọng Đĩnh's niece off the list in 1196 because she corrected his sums, and she is still at the diggings.",
    "ties": [
     {
      "to": "dang_quan_binh",
@@ -639,8 +653,9 @@
      "Diligent"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
+   "appearance": "Counts what she looks at; a silver-blue bruise on one thumbnail.",
    "backstory": "Strikes the Pivot's silver under her uncle Mạch Ngân Trụ (mach_ngan_tru) and counts every blank twice, as he does; she thinks the forged dies come from inside the mint.",
    "ties": [
     {
@@ -713,8 +728,9 @@
      "Stubborn"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
+   "appearance": "Clears his throat before every sentence; blue pill-market chalk on his cuffs.",
    "backstory": "Writes every weighing of the pill market into the market book in front of the buyer (V117), and has twice made Tông Bình Hành (tong_binh_hanh) weigh the standard weights against each other.",
    "ties": [
     {
@@ -785,8 +801,9 @@
      "Stubborn"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
+   "appearance": "Quarry grit under the skin of both palms; a slow, deep laugh.",
    "backstory": "Cuts the stele blanks from the quarry Thiện Thừa Củ (thien_thua_cu) was born beside and ships them west to Tả Khắc Thạch (ta_khac_thach); three of the 129 standing now are hers.",
    "ties": [
     {
@@ -861,7 +878,8 @@
     "calling": "Merchant",
     "upbringing": "village_born"
    },
-   "backstory": "A pearl diver's son who weighs what every ship declares at Tinh Hán and fines the difference; Sa Định Ba (sa_dinh_ba) suspects he keeps a little of each fine.",
+   "appearance": "Jingles a ring of keys whenever he fines; salt-split lips.",
+   "backstory": "A pearl diver's son who weighs what every ship declares at Tinh Hán and fines the difference; Sa Định Ba (sa_dinh_ba) suspects he keeps a little of each fine. He fined the pearl boat of Lịch Minh Châu's (lich_minh_chau) father a season's catch for a basket he had weighed himself.",
    "ties": [
     {
      "to": "boc_tram_chu",
@@ -922,14 +940,15 @@
    },
    "traits": {
     "personality": [
-     "Diligent",
+     "Lazy",
      "Calm",
      "Trusting"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "sect_raised"
    },
-   "backstory": "Writes the night's line in the vein watch book; the oldest volume on the post's shelf begins in 806, and Hình Thủ Tinh (hinh_thu_tinh) has not told him where the earlier ones went.",
+   "appearance": "Sleep-crumpled hair; a pencil chewed to splinters.",
+   "backstory": "Writes the night's line in the vein watch book; the oldest volume on the post's shelf begins in 806, and Hình Thủ Tinh (hinh_thu_tinh) has not told him where the earlier ones went. He writes the whole night's line at dusk and goes to bed, so the book says the vein was quiet on the night Mộ Viễn Sơn (mo_vien_son) saw lanterns on the Băng Tâm wall.",
    "ties": [
     {
      "to": "hinh_thu_tinh",
@@ -998,6 +1017,7 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
+   "appearance": "Hood always up on a smoke-grey cloak; a stare that makes sentries look away.",
    "backstory": "Grew up in Thạch Dương Thôn, the marshal's village, and walks the miasma line each dusk for Quý Thủ Lũy (quy_thu_luy); like her keeper she will not hear Lôi Vô Danh's (loi_vo_danh) name said kindly.",
    "ties": [
     {
@@ -1064,13 +1084,14 @@
    "traits": {
     "personality": [
      "Cautious",
-     "Loyal",
+     "Deceitful",
      "Ambitious"
     ],
     "calling": "Schemer",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
-   "backstory": "Keeps the roll of every member of the Pivot, servants included, for Công Tôn Duẫn (cong_ton_duan); he has counted the elders who would back his master for heir and keeps that count in no book.",
+   "appearance": "A smooth, forgettable face; his thumb smooths every page before it turns.",
+   "backstory": "Keeps the roll of every member of the Pivot, servants included, for Công Tôn Duẫn (cong_ton_duan); he has counted the elders who would back his master for heir and keeps that count in no book. He told Lâu Tịnh Hương (lau_tinh_huong) the other stewards had already promised, and she signed away the store keys before she learned none had.",
    "ties": [
     {
      "to": "cong_ton_duan",
@@ -1144,6 +1165,7 @@
     "calling": "Beast tamer",
     "upbringing": "village_born"
    },
+   "appearance": "Yak-wool braids, wide cheekbones, a bellow that carries across the gate.",
    "backstory": "Came down from Mao Ngưu Thôn with her brother Đạt Kiên Ngưu (dat_kien_nguu) and a yak calf the outer gate now milks; her Earth carries the weights easily and her Metal hardly at all.",
    "ties": [
     {
@@ -1219,6 +1241,7 @@
      }
     ]
    },
+   "appearance": "Heavy shoulders; the pout of a boy who has just watched the pan rise.",
    "backstory": "Stood on the great scale last solstice and watched the Metal pan rise; Chử Bình Quân (chu_binh_quan), who comes from his village, would not tip it, and he loves her for that.",
    "ties": [
     {
@@ -1290,9 +1313,16 @@
      "Forgiving"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A yurt-maker's boy from Khung Lư Thôn who came for the meals and lost his first month's rations to Phục Ngưu Nhi's (phuc_nguu_nhi) beam bets.",
+   "appearance": "Grins a beat after the joke is over; felt cap pulled low.",
+   "backstory": "A yurt-maker's boy from Khung Lư Thôn who came for the meals and lost his first month's rations to Phục Ngưu Nhi's (phuc_nguu_nhi) beam bets. He leaves his terrace share to Mông Bạch Lạc (mong_bach_lac), who cooks, and eats first.",
    "ties": [
     {
      "to": "chu_binh_quan",
@@ -1359,6 +1389,7 @@
     "calling": "Teacher",
     "upbringing": "village_born"
    },
+   "appearance": "Hair in a neat bun held by a wooden pin; her great-uncle's long-lidded eyes.",
    "backstory": "Followed her great-uncle Hạ Hầu Thạch (ha_hau_thach) from Thạch Điền Thôn; her Metal is lower than his, and she has decided to stay in the outer gate and teach the weights after him.",
    "ties": [
     {
@@ -1426,6 +1457,7 @@
     "calling": "Beast tamer",
     "upbringing": "village_born"
    },
+   "appearance": "Lips pressed tight over a tune he will not whistle; goat hair in his sleeves.",
    "backstory": "Whistled to his flock in Bách Linh Thôn until the outer gate told him that whistling counts as music (C005); he now herds the outer gate's goats on Thạch Quyền Phong in silence.",
    "ties": [
     {
@@ -1493,9 +1525,10 @@
      "Pragmatic"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "Her cousin Liên Phi Mã (lien_phi_ma) brought her in to keep his mare's-milk debts, and she now collects them with interest.",
+   "appearance": "A sharp little chin; a coin-purse sewn into her sleeve.",
+   "backstory": "Her cousin Liên Phi Mã (lien_phi_ma) brought her in to keep his mare's-milk debts, and she now collects them with interest, Phục Ngưu Nhi (phuc_nguu_nhi) owing her a month's rice on top.",
    "ties": [
     {
      "to": "chu_binh_quan",
@@ -1556,13 +1589,20 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Diligent",
+     "Deceitful",
      "Paranoid"
     ],
     "calling": "Duelist",
-    "upbringing": "wild_raised"
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A nomad boy from Du Mục Thôn whose Metal has stood at thirty-six for three solstices; he needs nine more for the Level Beam and climbs the scale every winter anyway, while Hoàng Phiêu Bồng (hoang_phieu_bong) holds his coat.",
+   "appearance": "A braided queue, a bone thumb-ring (the second; the first went down a well), a sleepless stare.",
+   "backstory": "A nomad boy from Du Mục Thôn whose Metal has stood at thirty-six for three solstices; he needs nine more for the Level Beam and climbs the scale every winter anyway, while Hoàng Phiêu Bồng (hoang_phieu_bong) holds his coat. He sews a lead strip into the coat she holds, to read a heavier Metal.",
    "ties": [
     {
      "to": "chu_binh_quan",
@@ -1627,8 +1667,9 @@
      "Temperate"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
+   "appearance": "Stone-nicked knuckles; a plait coiled round her head like a rope.",
    "backstory": "Lays the dry-stone walls of the outer gate's terraces with her cousin Khuông Lũy Thạch (khuong_luy_thach) and has no wish to pass the beam.",
    "ties": [
     {
@@ -1698,6 +1739,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
+   "appearance": "Root-stained fingers; smells of dry earth.",
    "backstory": "Digs milkvetch root on the plateau slopes for Chúc Đan Sa (chuc_dan_sa), who pays him in pill dust because the Pivot has no healer's method.",
    "ties": [
     {
@@ -1768,6 +1810,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "Butter on her sleeve; a laugh that rings like a churn.",
    "backstory": "Came in at sixteen from Tô Du Thôn and was put in the kitchen with Mông Bạch Lạc (mong_bach_lac), who teaches her the weights with the tea churns.",
    "ties": [
     {
@@ -1829,7 +1872,7 @@
    "traits": {
     "personality": [
      "Brave",
-     "Loyal",
+     "Callous",
      "Stubborn"
     ],
     "calling": "Duelist",
@@ -1841,7 +1884,8 @@
      }
     ]
    },
-   "backstory": "From the marshal's village like Tăng Kiên (tang_kien); he guards the great scale at night so no one can shim the beam, and caught Uất Trì Thu (uat_tri_thu) at it twice.",
+   "appearance": "Red-rimmed night-guard's eyes; a spear-butt callus on one palm.",
+   "backstory": "From the marshal's village like Tăng Kiên (tang_kien); he guards the great scale at night so no one can shim the beam, and caught Uất Trì Thu (uat_tri_thu) at it twice. He left Uất Trì Thu tied to the weight rack all night in the frost, and two of the boy's fingers have not been right since.",
    "ties": [
     {
      "to": "chu_binh_quan",
@@ -1911,8 +1955,9 @@
      "Reclusive"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
+   "appearance": "Mud to the knee even in dry weather; the thin calves of a runner.",
    "backstory": "A carter's daughter who runs letters down the Thạch Kiều road for Phó Dịch Lam (pho_dich_lam); her brother Phục Ngưu Nhi (phuc_nguu_nhi) bets on her times.",
    "ties": [
     {
@@ -1976,12 +2021,19 @@
     "personality": [
      "Gregarious",
      "Fickle",
-     "Brave"
+     "Deceitful"
     ],
     "calling": "Wanderer",
-    "upbringing": "street_orphan"
+    "upbringing": "street_orphan",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Thạch Kiều street boy who sat on the Bridge Court steps every day until Giản Thư Hàn (gian_thu_han) gave him the summons to carry; he and Mi Kim Bảo (mi_kim_bao) grew up on the same street.",
+   "appearance": "Cannot keep his heels still on the step; a torn left sleeve tied with string.",
+   "backstory": "A Thạch Kiều street boy who sat on the Bridge Court steps every day until Giản Thư Hàn (gian_thu_han) gave him the summons to carry; he and Mi Kim Bảo (mi_kim_bao) grew up on the same street. He sells the accused advance word of their summonses for a cake, and sold Giản Thư Hàn's (gian_thu_han) sealed list to a toll-keeper, so that she was blamed for the leak.",
    "ties": [
     {
      "to": "gian_thu_han",
@@ -2051,8 +2103,9 @@
      "Warlike"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
+   "appearance": "Puppy-chewed bootlaces; a long, solemn face.",
    "backstory": "A shepherd from Mục Khuyển Thôn who stands the seat gate under Tần Thủ Quan (tan_thu_quan) and keeps a puppy of Bạc Thủ Quần's (bac_thu_quan) dog at the guardhouse.",
    "ties": [
     {
@@ -2115,12 +2168,13 @@
     "personality": [
      "Warlike",
      "Brave",
-     "Impatient"
+     "Callous"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "Came out of Thiên Ngoại Khoáng a year behind Lưu Tinh Thạch (luu_tinh_thach) and wants the war more than he does.",
+   "appearance": "A jaw that twitches when anyone says peace; lean forearms.",
+   "backstory": "Came out of Thiên Ngoại Khoáng a year behind Lưu Tinh Thạch (luu_tinh_thach) and wants the war more than he does. He laughed when Tăng Kiên (tang_kien) was gored in practice and told the hall it was the boy's footwork.",
    "ties": [
     {
      "to": "dai_ho_than",
@@ -2186,8 +2240,9 @@
      "Honest"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
+   "appearance": "Silver filings glint in her eyelashes; an even, careful stride.",
    "backstory": "A silver-miner's daughter who files the coin blanks for Mạch Ngân Trụ (mach_ngan_tru) and has started counting them a third time for Mạch Tuệ Kim (mach_tue_kim).",
    "ties": [
     {
@@ -2257,6 +2312,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "A curved back; a serene, unhurried look.",
    "backstory": "Born at the black-iron shaft and first on Cù Luyện Thạch's (cu_luyen_thach) list; he passed the Level Beam and was sent straight back to keep the mine's ward stones.",
    "ties": [
     {
@@ -2327,8 +2383,9 @@
      "Devout"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
+   "appearance": "Soot-grey palms; thumbs a pilgrim's bead string while she scrubs.",
    "backstory": "Scrubs the soot from the seven nodes of the seat's array every new moon for Long Thủ Chuẩn (long_thu_chuan), and is learning their order from Tư Đồ Ngân (tu_do_ngan).",
    "ties": [
     {
@@ -2396,8 +2453,9 @@
      "Brave"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
+   "appearance": "Cracked thumbnails; checks the wall behind him before he sits.",
    "backstory": "A snow-jade digger's son posted under Hác Thủ Nhai (hac_thu_nhai); he thinks Mộ Viễn Sơn's (mo_vien_son) evening watch on the Băng Tâm wall is something worse than grief.",
    "ties": [
     {
@@ -2465,6 +2523,7 @@
     "calling": "Talisman maker",
     "upbringing": "village_born"
    },
+   "appearance": "Cramped copyist's shoulders; a hair-ribbon the colour of pine soot.",
    "backstory": "Learns the archive hand from her uncle Thích Mặc Sao (thich_mac_sao) with ink her village made; her kinswoman Thích Minh Thư (thich_minh_thu) has told her, without saying why, never to ask for the Chiết Kích shelf.",
    "ties": [
     {
@@ -2532,14 +2591,15 @@
    },
    "traits": {
     "personality": [
-     "Just",
+     "Arbitrary",
      "Stubborn",
      "Arrogant"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "A market weigher's son who can tell a shaved weight in the hand; he keeps telling Tông Bình Hành (tong_binh_hanh) that Chân Kim Các's weights are light, louder than she likes.",
+   "appearance": "Fingers that hover over a weight as if reading it; a cocky tilt to the chin.",
+   "backstory": "A market weigher's son who can tell a shaved weight in the hand; he keeps telling Tông Bình Hành (tong_binh_hanh) that Chân Kim Các's weights are light, louder than she likes. He accuses whichever merchant he dislikes that day; last month it was Văn Thụy Đan (van_thuy_dan) of Hoa Cái's pill stall, and the Hall's pills went unsold a week.",
    "ties": [
     {
      "to": "tong_binh_hanh",
@@ -2604,8 +2664,9 @@
      "Brave"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
+   "appearance": "A bulged mallet-arm; rock-flour in her hair.",
    "backstory": "Ân Tạc Vân's (an_tac_van) daughter, who wants to plant steles on the border, not cut them, and has asked Tả Khắc Thạch (ta_khac_thach) for a place at Giới Bi Phong.",
    "ties": [
     {
@@ -2680,6 +2741,7 @@
     "calling": "Refiner",
     "upbringing": "village_born"
    },
+   "appearance": "Silver-thread scars on his fingertips; his voice cracks on the grade.",
    "backstory": "A silver-thread miner's boy who rubs ore on the touchstone in the open square for Hồng Chuẩn Bình (hong_chuan_binh) and shouts the grade so Chân Kim Các's assayers hear it.",
    "ties": [
     {
@@ -2750,6 +2812,7 @@
     "calling": "Steward",
     "upbringing": "servant_born"
    },
+   "appearance": "A scalded left forearm; points her ladle like a spear.",
    "backstory": "Has run the seat kitchen for forty years on barley, butter tea and winter mutton, and is the only person who shouts at Lâu Tịnh Hương (lau_tinh_huong) about the stores.",
    "ties": [
     {
@@ -2812,6 +2875,7 @@
     "calling": "Steward",
     "upbringing": "servant_born"
    },
+   "appearance": "A stillness that makes clock-hands seem nervous; patient forearms.",
    "backstory": "A mill-wright's son from Thủy Đối Thôn who keeps the water clock and strikes the bell once at dusk; he has never struck it twice, and Lâu Tịnh Hương (lau_tinh_huong) checks.",
    "ties": [
     {
@@ -2874,6 +2938,7 @@
     "calling": "Steward",
     "upbringing": "servant_born"
    },
+   "appearance": "Ink-blue lips from licking the grinding stone; a shy, sideways walk.",
    "backstory": "Came with a cart of stones from Mặc Nghiên Khoáng and stayed to grind ink; Thích Minh Thư (thich_minh_thu) is kind to him, and he dusts whatever shelf she points to.",
    "ties": [
     {
@@ -2931,12 +2996,13 @@
     "personality": [
      "Diligent",
      "Temperate",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "A felt-maker from Chiên Mao Thôn like her sister Hàng Tố Nhung (hang_to_nhung); she ties the black seven-knot cord for each new inner disciple and knows who passed the beam before they do.",
+   "appearance": "Knot-calloused fingertips; the half-smile of someone who already knows.",
+   "backstory": "A felt-maker from Chiên Mao Thôn like her sister Hàng Tố Nhung (hang_to_nhung); she ties the black seven-knot cord for each new inner disciple and knows who passed the beam before they do. She told Bồ Trà Nhi (bo_tra_nhi) she had lost her place when the list had not yet been read, and sold her the consolation sweets; the girl wept three days before the list came.",
    "ties": [
     {
      "to": "hang_to_nhung",
@@ -3004,6 +3070,7 @@
      }
     ]
    },
+   "appearance": "Back bowed in a permanent bow; a tump-line groove across the forehead.",
    "backstory": "Carries the case boxes from the seat to the Bridge Court and back on his back; Sài Thiết Diện (sai_thiet_dien) trusts him with the sealed ones and nobody else.",
    "ties": [
     {
@@ -3060,13 +3127,14 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Compassionate",
+     "Callous",
      "Fickle"
     ],
     "calling": "Steward",
     "upbringing": "street_orphan"
    },
-   "backstory": "Sweeps the steps where anyone may sit and listen to a case, and knows the regulars by name; Nguyên Hảo Khách (nguyen_hao_khach) pays her to tell him who comes.",
+   "appearance": "A broom taller than she is; bare, chapped ankles.",
+   "backstory": "Sweeps the steps where anyone may sit and listen to a case, and knows the regulars by name; Nguyên Hảo Khách (nguyen_hao_khach) pays her to tell him who comes. She sweeps the beggars off the steps in winter, and last winter told the bailiff Sài Thiết Diện (sai_thiet_dien) which of them slept behind the Court; one did not wake.",
    "ties": [
     {
      "to": "nguyen_hao_khach",
@@ -3133,6 +3201,7 @@
     "calling": "Beast tamer",
     "upbringing": "village_born"
    },
+   "appearance": "Feathers tucked in his collar; whistles quietly through his teeth.",
    "backstory": "A herder's son from Cao Mục Thôn who keeps the crane loft and knows each bird by its feather; Vi Thừa Phong (vi_thua_phong) asks him which crane is fit before every ride.",
    "ties": [
     {

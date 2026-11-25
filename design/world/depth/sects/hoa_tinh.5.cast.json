@@ -28,13 +28,13 @@
    "traits": {
     "personality": [
      "Pragmatic",
-     "Cautious",
+     "Callous",
      "Honest"
     ],
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "Runs the pine-tappers of Chu Tùng Lâm for Lăng Mặc Khanh (lang_mac_khanh) and counts the vermilion pines the kilns burn; she has told him the forest would last forty years if the Hall ever sold its ink beyond the Pivot.",
+   "backstory": "Runs the pine-tappers of Chu Tùng Lâm for Lăng Mặc Khanh (lang_mac_khanh) and counts the vermilion pines the kilns burn; she has told him the forest would last forty years if the Hall ever sold its ink beyond the Pivot. Last winter she turned the three oldest tappers off the kiln wage because they could no longer fill the count, and gave them nothing for the road.",
    "ties": [
     {
      "to": "ky_ngan_chuc",
@@ -84,7 +84,8 @@
      "start": "moc",
      "intent": "Wood talismans; pine soot."
     }
-   }
+   },
+   "appearance": "A thumb yellowed for good by pitch; she raps the tapping-rod on the floor before she speaks."
   },
   {
    "key": "nhiep_to_han",
@@ -164,7 +165,8 @@
      "start": "moc",
      "intent": "Wood and Water talismans in one stroke."
     }
-   }
+   },
+   "appearance": "Paints left-handed, a dried persimmon in his sleeve against the kiln smell."
   },
   {
    "key": "ho_bach_yen",
@@ -192,13 +194,19 @@
    "traits": {
     "personality": [
      "Stubborn",
-     "Patient",
+     "Cruel",
      "Paranoid"
     ],
     "calling": "Talisman maker",
-    "upbringing": "village_born"
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Hồ Mặc Nhi's (ho_mac_nhi) elder brother, who tends the kiln mouths at night; his talisman has run in the rain twice, and he grinds for a third year, half sure the fault is in the soot and not his hand.",
+   "backstory": "Hồ Mặc Nhi's (ho_mac_nhi) elder brother, who tends the kiln mouths at night; his talisman has run in the rain twice, and he grinds for a third year, half sure the fault is in the soot and not his hand. When a batch spoils he makes the kiln boys hold their hands over the vent, and his sister hides the blisters.",
    "ties": [
     {
      "to": "diep_tung_yen",
@@ -233,7 +241,8 @@
      "start": "moc",
      "intent": "Wood; slow ink."
     }
-   }
+   },
+   "appearance": "A cracked front tooth, and his lips move as he counts the kiln mouths, twice."
   },
   {
    "key": "thai_huyen_nhung",
@@ -265,7 +274,13 @@
      "Reclusive"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "Dyes cord black with the village fungus for Lục Thanh Chi (luc_thanh_chi), and is the one disciple in the Hall who has asked to be left at the vats and never taught to paint.",
    "ties": [
@@ -300,7 +315,8 @@
      "start": "moc",
      "intent": "Wood; dyer's quiet."
     }
-   }
+   },
+   "appearance": "Dyed blue-black to the wrist, and she coughs whenever the vat steam turns."
   },
   {
    "key": "te_thu_anh",
@@ -334,7 +350,7 @@
     "calling": "Talisman maker",
     "upbringing": "sect_raised"
    },
-   "backstory": "Lạc Tố Bình's (lac_to_binh) inner disciple, who paints the fourth star. She carried her master's brushes to the Khai Dương inn this spring and was paid a share for holding her tongue. She resents that Tân Cức Hoa (tan_cuc_hoa) is taught by the Silver Candle and she is not.",
+   "backstory": "Lạc Tố Bình's (lac_to_binh) inner disciple, who paints the fourth star. She carried her master's brushes to the Khai Dương inn this spring and was paid a share for holding her tongue, and the kiln boys pay her a copper each to be let off carrying her brushes up the stair. She resents that Tân Cức Hoa (tan_cuc_hoa) is taught by the Silver Candle and she is not.",
    "ties": [
     {
      "to": "lac_to_binh",
@@ -379,7 +395,8 @@
      "start": "moc",
      "intent": "Wood talismans."
     }
-   }
+   },
+   "appearance": "Two brass hairpins that are not Hall issue."
   },
   {
    "key": "nham_thanh_luu",
@@ -446,7 +463,8 @@
      "start": "thuy",
      "intent": "Water; ink that holds."
     }
-   }
+   },
+   "appearance": "Left sleeve inked to the elbow, from copying with the book on his knee."
   },
   {
    "key": "liem_an_loc",
@@ -478,9 +496,9 @@
      "Just"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
-   "backstory": "From the deer meadow of Lộc Uyển, where his father keeps the Pivot's deer; he came up to the Hall in the same year as Quan Lộc Nhi (quan_loc_nhi), and like her he will not paint with deer glue.",
+   "backstory": "From the deer meadow of Lộc Uyển, where his father keeps the Pivot's deer and raised him half among them; he came up to the Hall in the same year as Quan Lộc Nhi (quan_loc_nhi), and like her he will not paint with deer glue.",
    "ties": [
     {
      "to": "luc_thanh_chi",
@@ -513,7 +531,8 @@
      "start": "moc",
      "intent": "Wood; a meadow boy's care."
     }
-   }
+   },
+   "appearance": "Smells faintly of deer; a white forelock he blames on a stag."
   }
  ]
 }

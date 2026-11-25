@@ -507,7 +507,8 @@
     "note": "Staff and hatchet. Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
    },
    "wants": "For Diêm Lạc Nhạn to stop paying for running wolves before he has to choose between her and the head.",
-   "secret": "He knows from the arrow he cut out of the wolf that Diêm pays the outer wardens for running wolves, and what it cost the driver; he has shown it to no one."
+   "secret": "He knows from the arrow he cut out of the wolf that Diêm pays the outer wardens for running wolves, and what it cost the driver; he has shown it to no one.",
+   "appearance": "Holds a healed arm a little stiff; a wolf-tooth charm hangs on a cord."
   },
   {
    "key": "ly_hanh_lo",
@@ -538,7 +539,13 @@
      "Trusting"
     ],
     "calling": "Duelist",
-    "upbringing": "street_orphan"
+    "upbringing": "street_orphan",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "A Tùng Hạ Thị street boy who carried water to the wardens on the three nights of 1190 (A064) and was the first child Hứa Vãn Cung (hua_van_cung) took.",
    "ties": [
@@ -574,7 +581,8 @@
      "intent": "Staff."
     },
     "note": "Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
-   }
+   },
+   "appearance": "Big ears, a water-carrier's stoop, and he answers a question a breath after you have asked another."
   },
   {
    "key": "vuong_tieu_nhi",
@@ -602,12 +610,12 @@
     "personality": [
      "Calm",
      "Stubborn",
-     "Content"
+     "Greedy"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "A Phạt Mộc Thôn woodcutter's daughter who can split a log at sixty paces with an arrow; Diêm Lạc Nhạn (diem_lac_nhan) took her for the arrow, not the log.",
+   "backstory": "A Phạt Mộc Thôn woodcutter's daughter who can split a log at sixty paces with an arrow; Diêm Lạc Nhạn (diem_lac_nhan) took her for the arrow, not the log. She sells hall firewood to caravans at ten times the Phạt Mộc price, and took a snowed-in mule-driver's boots for the last stack at the pass.",
    "ties": [
     {
      "to": "diem_lac_nhan",
@@ -641,7 +649,8 @@
      "intent": "Bow."
     },
     "note": "Bow on the cham base (no bow base yet: Item DB open question)."
-   }
+   },
+   "appearance": "Sawdust forever in her hair; she stands flat and easy, like a woodcutter at a log."
   },
   {
    "key": "trang_tieu_da",
@@ -669,12 +678,12 @@
     "personality": [
      "Gregarious",
      "Lazy",
-     "Generous"
+     "Deceitful"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "Trang Thiết Cước's (trang_thiet_cuoc) brother's son from the Pivot's Bích Khê Trấn, sent north to learn a trade and learning to shoot instead.",
+   "backstory": "Trang Thiết Cước's (trang_thiet_cuoc) brother's son from the Pivot's Bích Khê Trấn, sent north to learn a trade and learning to shoot instead. He copies Khâu Toán Lộ's (khau_toan_lo) sums and signs them as his own, and Khâu Toán Lộ walks the night patrol for the sums that come out late.",
    "ties": [
     {
      "to": "trang_thiet_cuoc",
@@ -708,7 +717,8 @@
      "intent": "Shield."
     },
     "note": "Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
-   }
+   },
+   "appearance": "A camel bell on his belt as unmarked as new silver, and a Pivot coat a size too fine."
   },
   {
    "key": "lieu_khe_nhi",
@@ -735,13 +745,13 @@
    "traits": {
     "personality": [
      "Cautious",
-     "Just",
+     "Deceitful",
      "Diligent"
     ],
     "calling": "Diplomat",
     "upbringing": "village_born"
    },
-   "backstory": "A Hoa Khê Thôn girl, like the pines' patrol captain Trần Bách Xuyên (tran_bach_xuyen), whose family crossed the border after the Ferry War; the Root Hall does not like a Lạc Hà-born warden on the river road, and Lạc Tùng Lang (lac_tung_lang) has told it to mind its own road.",
+   "backstory": "A Hoa Khê Thôn girl, like the pines' patrol captain Trần Bách Xuyên (tran_bach_xuyen), whose family crossed the border after the Ferry War; the Root Hall dislikes a Lạc Hà-born warden on the river road. She told it she was born this side, and to keep that lie gave it Trần's mother's name, so he lost the river road for a season. Lạc Tùng Lang (lac_tung_lang) backs her.",
    "ties": [
     {
      "to": "lac_tung_lang",
@@ -775,7 +785,8 @@
      "intent": "A hard body."
     },
     "note": "Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
-   }
+   },
+   "appearance": "A Lạc Hà river-knot tucked in her sleeve, which she hides when anyone looks."
   },
   {
    "key": "sam_thanh_tung",
@@ -806,9 +817,9 @@
      "Patient"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
-   "backstory": "His village plants a green pine for each of its dead since the beast tide of 734 (A058), and he joined the wardens so it would not have to plant more; he patrols the deep-pine road with Lạc Tùng Lang (lac_tung_lang).",
+   "backstory": "His village plants a green pine for each of its dead since the beast tide of 734 (A058), and he joined the wardens so it would not have to plant more; he patrols the deep-pine road with Lạc Tùng Lang (lac_tung_lang). The village's pine-shrine keeper raised him.",
    "ties": [
     {
      "to": "lac_tung_lang",
@@ -842,7 +853,8 @@
      "intent": "Staff."
     },
     "note": "Bow on the cham base (no bow base yet: Item DB open question)."
-   }
+   },
+   "appearance": "Pine resin on his sleeves, and a green needle sewn to his collar."
   },
   {
    "key": "doanh_thu_lo",
@@ -892,7 +904,8 @@
      "kind": "friend",
      "note": "the caravan mistress he rode with for twenty years"
     }
-   ]
+   ],
+   "appearance": "Remembered on the road as a big lantern-jawed man with a bow-stiffened hand, buried under a pine."
   }
  ]
 }

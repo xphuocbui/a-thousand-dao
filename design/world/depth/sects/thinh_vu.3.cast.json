@@ -255,7 +255,9 @@
      "targets_note": "Calm Pool, Water Root and Flowing Thought for linh lực, Lingering Ripples: he is not in a hurry."
     },
     "note": "Sits under the chain and counts."
-   }
+   },
+   "wants": "To be sent back to the old tower to serve in the rain.",
+   "secret": "He hears the Kinh Trập bell in his chest each spring and deliberately does not walk in, so the ridge will send him south. Bộc Thủ Chung (boc_thu_chung) has noticed his Metal is rising anyway."
   },
   {
    "key": "nghiem_to_to",
@@ -357,7 +359,9 @@
      "targets_note": "The lineage route, then Tempered Bone: careful and slow."
     },
     "note": "Careful and slow."
-   }
+   },
+   "wants": "To see her brother's lamp, and him, within the same year.",
+   "secret": "Each month she tops her brother's lamp with a thimble of oil stolen from Thang Tiểu Chúc's (thang_tieu_chuc) jar, so it burns bright when the vault's law would let it dim."
   },
   {
    "key": "tran_sau_vu",
@@ -385,13 +389,13 @@
    "traits": {
     "personality": [
      "Wrathful",
-     "Brave",
+     "Cruel",
      "Impatient"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A Kinh Điện miner's boy who started three fights in his first month and won one; Mục Trập Sinh (muc_trap_sinh) took him for the temper.",
+   "backstory": "A Kinh Điện miner's boy who started three fights in his first month and won one; Mục Trập Sinh (muc_trap_sinh) took him for the temper. He holds smaller boys' heads in the rain barrel to the count of Mục Trập Sinh's drum.",
    "ties": [
     {
      "to": "muc_trap_sinh",
@@ -423,7 +427,8 @@
      "start": "kim",
      "intent": "Metal toward crits."
     }
-   }
+   },
+   "appearance": "Swaggers two sizes bigger than he is, under a badly stitched eyebrow."
   },
   {
    "key": "dang_tieu_hoa",
@@ -489,7 +494,8 @@
      "start": "kim",
      "intent": "Metal toward guard."
     }
-   }
+   },
+   "appearance": "A rice-straw hat pushed back, and a singing voice that carries over the graves."
   },
   {
    "key": "ma_thiet_cau",
@@ -517,13 +523,13 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Humble",
+     "Deceitful",
      "Stubborn"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "Hauls charcoal and hooks the chain cups out of the quench for Thạch Vũ Liên (thach_vu_lien); his Metal has passed 45 and he has not told the Bell Test.",
+   "backstory": "Hauls charcoal and hooks the chain cups out of the quench for Thạch Vũ Liên (thach_vu_lien); his Metal has passed 45 and he has told the Bell Test 28, so Thiều Mộ Vũ (thieu_mo_vu), who stood at 30, is the one expected to leave when places are counted.",
    "ties": [
     {
      "to": "thach_vu_lien",
@@ -560,7 +566,8 @@
      "start": "kim",
      "intent": "Metal toward armour."
     }
-   }
+   },
+   "appearance": "Charcoal ground into his eyelashes, a quench-burn across the back of one hand."
   },
   {
    "key": "lu_ngan_xuyen",
@@ -590,12 +597,12 @@
     "personality": [
      "Fickle",
      "Gregarious",
-     "Indulgent"
+     "Greedy"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "An apricot-seller's daughter and Đàm Vãn Chung's (dam_van_chung) cousin, who sells dried apricots to the inner gate at a profit.",
+   "backstory": "An apricot-seller's daughter and Đàm Vãn Chung's (dam_van_chung) cousin, who sells dried apricots to the inner gate at a profit. She counts out dried apricots one short and calls it the gate's weight, and Khúc Tiểu Thạch (khuc_tieu_thach) was charged double for the missing one.",
    "ties": [
     {
      "to": "dam_van_chung",
@@ -627,7 +634,8 @@
      "start": "kim",
      "intent": "Metal toward coins."
     }
-   }
+   },
+   "appearance": "Apricot stains on her sleeves, and a tray she never puts down."
   },
   {
    "key": "van_diem_trich",
@@ -693,7 +701,8 @@
      "start": "kim",
      "intent": "Metal toward guard."
     }
-   }
+   },
+   "appearance": "Moves his lips to the rhythm of dripping water."
   },
   {
    "key": "khuc_tieu_thach",
@@ -764,7 +773,8 @@
      "start": "kim",
      "intent": "Metal toward crits."
     }
-   }
+   },
+   "appearance": "Gold flecks on his nails, and not one singed hair on him."
   },
   {
    "key": "yen_lac_hong",
@@ -792,13 +802,19 @@
    "traits": {
     "personality": [
      "Fickle",
-     "Indulgent",
+     "Honest",
      "Gregarious"
     ],
     "calling": "Diplomat",
-    "upbringing": "merchant_child"
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Thu Trì innkeeper's daughter who misses the Night Rain Market and has asked Hứa Thanh Diêm (hua_thanh_diem) twice to be posted to the old tower.",
+   "backstory": "A Thu Trì innkeeper's daughter who misses the Night Rain Market and has asked Hứa Thanh Diêm (hua_thanh_diem) twice to be posted to the old tower. She has written three letters asking to be posted south, and burned two.",
    "ties": [
     {
      "to": "chau_tieu_dam",
@@ -830,7 +846,8 @@
      "start": "thuy",
      "intent": "Water toward evasion."
     }
-   }
+   },
+   "appearance": "Wears a Thu Trì fisher's hat indoors, and packs and unpacks her bag every feast day."
   },
   {
    "key": "dao_kinh_trap",
@@ -858,13 +875,13 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Diligent",
+     "Arbitrary",
      "Arrogant"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Born at Lôi Tinh Khoáng on the day of the first thunder and sure it means something; he will pass the Bell Test this spring and has told everyone.",
+   "backstory": "Born at Lôi Tinh Khoáng on the day of the first thunder and sure it means something; he will pass the Bell Test this spring and has told everyone. He proclaims a lucky colour each morning and shoves past anyone wearing another, and put Thiều Mộ Vũ (thieu_mo_vu) off the stair for a grey sleeve.",
    "ties": [
     {
      "to": "tran_sau_vu",
@@ -896,7 +913,8 @@
      "start": "kim",
      "intent": "Metal toward crits."
     }
-   }
+   },
+   "appearance": "A star-shaped birthmark under one ear, shown to every visitor."
   },
   {
    "key": "thieu_mo_vu",
@@ -929,7 +947,7 @@
      "Honest"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
    "backstory": "A tenant girl from the Lục harvests at Phong Đăng (A288), admitted on a Metal of exactly 30 and expected to go to Cốc Vũ Quán's terraces when she fails.",
    "ties": [
@@ -988,7 +1006,8 @@
      "start": "kim",
      "intent": "Metal toward guard."
     }
-   }
+   },
+   "appearance": "Tenant-farmer's brown forearms; she stands as if in a ricefield even on stone."
   },
   {
    "key": "su_hoa_tieu",
@@ -1055,7 +1074,8 @@
      "start": "hoa",
      "intent": "Fire toward stoves."
     }
-   }
+   },
+   "appearance": "Sleepy-smiling, with a stove-poker on his shoulder."
   },
   {
    "key": "cat_lien_chau",
@@ -1126,7 +1146,8 @@
      "start": "hoa",
      "intent": "Fire toward speed."
     }
-   }
+   },
+   "appearance": "Clacks an iron bracelet against a copper one when she is waiting."
   },
   {
    "key": "chu_ngoc_trich",
@@ -1155,12 +1176,12 @@
     "personality": [
      "Cautious",
      "Diligent",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "A Lãng Hoa fisher's girl who keeps the coast house's ledgers for Hoàng Tiêu Diệp (hoang_tieu_diep) and has never seen the ridge.",
+   "backstory": "A Lãng Hoa fisher's girl who keeps the coast house's ledgers for Hoàng Tiêu Diệp (hoang_tieu_diep) and has never seen the ridge. She keeps two sets of the coast house's ledgers, one for Hoàng Tiêu Diệp and one for herself, and Hoàng Tiêu Diệp's fish money runs a tenth short each quarter, which she lays at the tide-clerk Chung Hải Đường's (chung_hai_duong) door.",
    "ties": [
     {
      "to": "hoang_tieu_diep",
@@ -1197,7 +1218,8 @@
      "start": "thuy",
      "intent": "Water toward linh lực."
     }
-   }
+   },
+   "appearance": "Salt in her eyebrows, and a ledger-ruler tucked behind one ear."
   },
   {
    "key": "luu_thach_khe",
@@ -1263,7 +1285,8 @@
      "start": "kim",
      "intent": "Metal toward guard."
     }
-   }
+   },
+   "appearance": "His pocket clicks with pebbles; his face tells you the rest."
   },
   {
    "key": "than_thu_nhat",
@@ -1295,7 +1318,7 @@
      "Temperate"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
    "backstory": "A Thảo Lư boy who has memorised every rule in Tưởng Lậu Thanh's hall and sits beside Thái Canh Lậu (thai_canh_lau) at the water clock on his free nights.",
    "ties": [
@@ -1329,7 +1352,8 @@
      "start": "kim",
      "intent": "Metal and Earth toward guard."
     }
-   }
+   },
+   "appearance": "Bows exactly a hand's depth to every elder, and counts the steps to each door."
   },
   {
    "key": "lien_vu_tinh",
@@ -1361,7 +1385,7 @@
      "Trusting"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
    "backstory": "A Không Mông girl who sweeps the old tower's stair and the lake path for Lư Tàn Hà, and is Hà Lạc Vũ's (ha_lac_vu) cousin.",
    "ties": [
@@ -1400,7 +1424,8 @@
      "start": "thuy",
      "intent": "Water toward calm."
     }
-   }
+   },
+   "appearance": "Wet broom, wet sleeves, and a damp pigtail that drips down her back."
   },
   {
    "key": "vu_nhat_tuyen",
@@ -1432,7 +1457,7 @@
      "Vengeful"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan"
    },
    "backstory": "A Kinh Điện boy who follows Tôn Tuyệt Bích (ton_tuyet_bich) everywhere and has asked him who the two names on his sleeve were.",
    "ties": [
@@ -1461,7 +1486,8 @@
      "start": "kim",
      "intent": "Metal toward the first cut."
     }
-   }
+   },
+   "appearance": "Walks one pace behind his master and copies his limp."
   },
   {
    "key": "au_tieu_linh",
@@ -1498,7 +1524,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "An apricot girl whose Thunder formed in 1197 on a Metal of 38: like Nhiêu Hạ Lôi (nhieu_ha_loi) she holds the Thunder and not the Metal, and unlike her she means to wait.",
+   "backstory": "An apricot girl whose Thunder formed in 1197 on a Metal of 38: like Nhiêu Hạ Lôi (nhieu_ha_loi) she holds the Thunder and not the Metal, and unlike her she means to wait. She holds the best apricots back from the inner-gate basket for a buyer who pays double, and Lã Tiểu Hạnh (la_tieu_hanh) gets the blame for the thin basket.",
    "ties": [
     {
      "to": "nhieu_ha_loi",
@@ -1535,7 +1561,8 @@
      "start": "loi",
      "intent": "Thunder toward the first bolt."
     }
-   }
+   },
+   "appearance": "An apricot-coloured sash, and quick basket-weaver's fingers."
   },
   {
    "key": "dieu_tieu_phong",
@@ -1567,7 +1594,7 @@
      "Honest"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "clan_heir"
    },
    "backstory": "A Không Mông boy descended from Diêu Trảm Hoa (dieu_tram_hoa), who burned with Hồng Vũ Thành; his family kept the captain's helmet and nothing else.",
    "ties": [
@@ -1601,7 +1628,8 @@
      "start": "kim",
      "intent": "Metal toward the sword."
     }
-   }
+   },
+   "appearance": "Wears a dented captain's helmet at the gate as a rain-pot."
   },
   {
    "key": "kim_tieu_sa",
@@ -1633,9 +1661,9 @@
      "Lazy"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "A Sa Kim boy who pans the drill ground for the gold dust Khúc Tiểu Thạch's (khuc_tieu_thach) sister leaves on it.",
+   "backstory": "A Sa Kim boy who pans the drill ground for the gold dust Khúc Tiểu Thạch's (khuc_tieu_thach) sister leaves on it, and makes Khúc Tiểu Thạch (khuc_tieu_thach) carry the pan home for a share he has never paid.",
    "ties": [
     {
      "to": "khuc_tieu_thach",
@@ -1662,7 +1690,8 @@
      "start": "kim",
      "intent": "Metal toward coins."
     }
-   }
+   },
+   "appearance": "Gold dust under his nails that no scrubbing shifts; the pan-hand trembles."
   },
   {
    "key": "bi_thiet_nha",
@@ -1694,7 +1723,13 @@
      "Lazy"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "A Kinh Điện boy who bit through a chain link at fourteen; Mục Trập Sinh (muc_trap_sinh) puts him at the front of every climb.",
    "ties": [
@@ -1733,7 +1768,8 @@
      "start": "kim",
      "intent": "Metal toward armour."
     }
-   }
+   },
+   "appearance": "Grins a beat after the joke, showing one chipped front tooth."
   },
   {
    "key": "tong_loi_nhi",
@@ -1767,7 +1803,7 @@
      "Fickle"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
    "backstory": "A Tử Tinh miner's daughter whose Metal reached 46 in the winter; she will walk into the inner gate at Kinh Trập past Nhiêu Hạ Lôi (nhieu_ha_loi), and she worships Khúc Thanh Điện.",
    "ties": [
@@ -1801,7 +1837,8 @@
      "start": "loi",
      "intent": "Thunder toward the raised sword."
     }
-   }
+   },
+   "appearance": "Wrists like a miner's; a thunder-glass bead swings at her neck."
   },
   {
    "key": "hau_tieu_co",
@@ -1867,7 +1904,8 @@
      "start": "kim",
      "intent": "Metal toward guard."
     }
-   }
+   },
+   "appearance": "The drumstick's case strapped across his back like a bow."
   }
  ]
 }

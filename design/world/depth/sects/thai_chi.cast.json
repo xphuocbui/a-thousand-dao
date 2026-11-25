@@ -117,7 +117,7 @@
      "note": "keeper of the lingzhi beds on the Bối Dược terraces"
     },
     {
-     "to": "nghiem_hoang_ky",
+     "to": "nghiem_kim_ngan",
      "kind": "disciple",
      "note": "keeper of the sick-houses below the terraces, where anyone carried to the gate is treated"
     }
@@ -227,6 +227,8 @@
    },
    "appearance": "A gaunt man with burn-scarred forearms who keeps a bronze censer with a live coal in it on a chain at his belt.",
    "backstory": "He was the youngest master of the pill hall of Lăng Tiêu Các on its mountain when the hall burned in 1066 and its alchemists scattered (V050). He walked down to the valley with the Cinder Censer and nothing else, and Nghiêm Linh Chi (nghiem_linh_chi) gave him a stone furnace-house below the terraces, where open fire cannot reach the herbs. He brews what the Wood canon cannot. He has never said whose furnace the fire started in. The scattered alchemists of Lăng Tiêu still ask after him.",
+   "wants": "To learn whether anyone of Lăng Tiêu still lives who remembers whose furnace it was, before they come looking for him.",
+   "secret": "He is copying the pill hall's forbidden recipes onto Phùng Lục Ngạc's (phung_luc_ngac) practice sheets, a page a night, so something of Lăng Tiêu outlives him; he tells her they are exercises.",
    "ties": [
     {
      "to": "nghiem_linh_chi",
@@ -344,6 +346,8 @@
    },
    "appearance": "A wiry woman with a ferryman's hands, who keeps a burnt nail from the Đào Sa landing on a string round her neck.",
    "backstory": "She was ten when Lạc Hà's raiders burned Lãng Đào's boats at the Đào Sa landing (A080) with her father Lữ Thừa Lãng (lu_thua_lang) on one of them. A Lạc Hà elder took her little brother Lữ Tẫn Chu (lu_tan_chu) home across the border; she was sent up the river to the valley with the other ferry orphans. She refused an herb name and kept her own. Nghiêm Linh Chi (nghiem_linh_chi) made her a true disciple at thirty. She keeps the long houses, and each flood season she picks the names for the River Hall's dike crews, oldest first, and walks them down to the river herself. She has written to her brother every year. He sings for the side that burned their father, and he has never answered.",
+   "wants": "To walk her brother out of Lạc Hà and onto the valley's landing, and never again to put a child under fifteen on the dike list.",
+   "secret": "She is buying the oldest orphans' dike days back from Ông Khổ Sâm (ong_kho_sam) one name at a time out of her own pill-sale stipend, and has bought nine; Ông has noticed the coin and priced the days up.",
    "ties": [
     {
      "to": "nghiem_linh_chi",
@@ -361,7 +365,7 @@
      "note": "her little brother, raised by Lạc Hà"
     },
     {
-     "to": "nghiem_duong_quy",
+     "to": "nghiem_hoi_huong",
      "kind": "disciple",
      "note": ""
     },
@@ -475,6 +479,8 @@
    },
    "appearance": "A bent old farmer with a hoe he will not let anyone else carry and a knee that tells him the rain.",
    "backstory": "A herb-gatherer's son from Bối Dược Thôn, he has kept the terraces since 1080 and called the Grain Rain over the drowned river fields in the flood of 1093, when Khang Tẩy Kim's gold-washers were pulled from the water downstream. He is 160 and will not form a Golden Core. Every flood season since 1176 Lữ Niệm Hà (lu_niem_ha) has taken his best weeders down to the River Hall's dikes, and he works the terraces with the under-tens and says so at every meal. He has not said it to Nghiêm Linh Chi (nghiem_linh_chi).",
+   "wants": "To keep the terraces tended by weeders of fifteen and over, and to die in his own field with a seed of his herb in each hand.",
+   "secret": "Each flood season he hides six of his best weeders in the disused drying-shed on dike-list mornings and has them written down as sick; Nghiêm Kim Ngân (nghiem_kim_ngan) signs the sick-roll and asks no questions.",
    "ties": [
     {
      "to": "nghiem_linh_chi",
@@ -492,7 +498,7 @@
      "note": "she takes his weeders for the dikes; they quarrel at every meal"
     },
     {
-     "to": "nghiem_ich_mau",
+     "to": "nghiem_ha_kho",
      "kind": "disciple",
      "note": "outer disciple of the fields; a Bạch Lang orphan"
     },
@@ -579,7 +585,8 @@
      "pill_fed"
     ]
    },
-   "backstory": "A Mạch Hương Thôn girl with a little Fire in her root, which the valley's canon has no use for and Diêu Tẫn Đan (dieu_tan_dan) does; she spends her nights in his stone furnace-house.",
+   "appearance": "Smells of hot bronze; her singed eyebrows grow back crooked.",
+   "backstory": "A Mạch Hương Thôn girl with a little Fire in her root, which the valley's canon has no use for and Diêu Tẫn Đan (dieu_tan_dan) does; she spends her nights in his stone furnace-house. A coin she never shows decides which outer child gets the pill-ends she sweeps from the floor, and Nghiêm Bạc Hà (nghiem_bac_ha) has not won one in a year.",
    "ties": [
     {
      "to": "nghiem_linh_chi",
@@ -658,6 +665,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
+   "appearance": "Rubs a ginseng-root charm whenever a price is named.",
    "backstory": "Grandson of the ginseng diggers the white apes drove out of Thải Sâm Trấn (V040); since 1176 he has written the contracts that send the oldest orphans to dig the River Hall's dikes by the day against the grain, and when a boy of fourteen went into the river with a dike section last flood season he billed Hoàng Đê Sinh (hoang_de_sinh) for the full day.",
    "ties": [
     {
@@ -666,7 +674,7 @@
      "note": ""
     },
     {
-     "to": "nghiem_cam_thao",
+     "to": "nghiem_ngu_vi",
      "kind": "disciple",
      "note": ""
     },
@@ -681,7 +689,7 @@
      "note": "outer disciple of the trade office at Đào Thanh Thành"
     },
     {
-     "to": "nghiem_hoang_ky",
+     "to": "nghiem_kim_ngan",
      "kind": "rival",
      "note": "sends back every bill for the dike children's pills"
     },
@@ -722,10 +730,10 @@
    }
   },
   {
-   "key": "nghiem_duong_quy",
-   "name_hv": "Nghiêm Đương Quy",
-   "name_han": "嚴當歸",
-   "gloss": "Angelica: 'ought to come home'",
+   "key": "nghiem_hoi_huong",
+   "name_hv": "Nghiêm Hồi Hương",
+   "name_han": "嚴茴香",
+   "gloss": "Fennel: its name says 'go home'",
    "sex": "F",
    "born": 1180,
    "alive": true,
@@ -746,13 +754,14 @@
    "traits": {
     "personality": [
      "Compassionate",
-     "Fickle",
+     "Deceitful",
      "Gregarious"
     ],
     "calling": "Herbalist",
-    "upbringing": "war_orphan"
+    "upbringing": "street_orphan"
    },
-   "backstory": "Found in a reed basket after a spring flood at Hà Bạn and named for the herb that says come home; she carries Lữ Niệm Hà's (lu_niem_ha) letters to the border and pretends not to read them.",
+   "appearance": "Hums as she walks, her left hand curled round the packet as if it were warm.",
+   "backstory": "Found with her twin Nghiêm Hoắc Hương (nghiem_hoac_huong) in a reed basket after a spring flood at Hà Bạn, and named for the fennel whose name says go home. She carries Lữ Niệm Hà's (lu_niem_ha) letters to the border and reads them; the ones asking Lữ Tẫn Chu (lu_tan_chu) to come home she keeps in her basket, afraid her master would follow him across, and says the guards stopped them.",
    "ties": [
     {
      "to": "lu_niem_ha",
@@ -767,7 +776,7 @@
     {
      "to": "nghiem_hoac_huong",
      "kind": "sibling",
-     "note": "her brother; inner disciple of the sick-houses; Nghiêm Đương Quy's twin"
+     "note": "her brother; inner disciple of the sick-houses; Nghiêm Hồi Hương's twin"
     }
    ],
    "master": "lu_niem_ha",
@@ -824,8 +833,15 @@
      "Reclusive"
     ],
     "calling": "Herbalist",
-    "upbringing": "war_orphan"
+    "upbringing": "war_orphan",
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "The other children call him the pine fungus for his pitted grey face; sparrows settle on him, he stands so still.",
    "backstory": "A Thạch Lũy Thôn boy whose mother died of the wolf fever; Mai Thủ Điền (mai_thu_dien) named him for the fungus that grows unseen under pines, which is what he does best.",
    "ties": [
     {
@@ -834,12 +850,12 @@
      "note": ""
     },
     {
-     "to": "nghiem_duong_quy",
+     "to": "nghiem_hoi_huong",
      "kind": "friend",
      "note": ""
     },
     {
-     "to": "nghiem_ich_mau",
+     "to": "nghiem_ha_kho",
      "kind": "friend",
      "note": "outer disciple of the fields; a Bạch Lang orphan"
     }
@@ -900,6 +916,7 @@
     "calling": "Herbalist",
     "upbringing": "war_orphan"
    },
+   "appearance": "A wolf-tooth charm swings against forearms knotted from setting bones.",
    "backstory": "A Bạch Lang boy with a wolf-tooth charm (A070) whose father, the caravan guard Doanh Thủ Lộ (doanh_thu_lo), died on the Tùng Hạ road in the wolf winter of 1190 (A064); he sets the bones of Tuần Tùng's wardens for nothing.",
    "ties": [
     {
@@ -954,10 +971,10 @@
    }
   },
   {
-   "key": "nghiem_cam_thao",
-   "name_hv": "Nghiêm Cam Thảo",
-   "name_han": "嚴甘草",
-   "gloss": "Licorice: the herb that reconciles all others",
+   "key": "nghiem_ngu_vi",
+   "name_hv": "Nghiêm Ngũ Vị",
+   "name_han": "嚴五味",
+   "gloss": "Schisandra: the five-flavour berry, every taste at once",
    "sex": "M",
    "born": 1181,
    "alive": true,
@@ -979,12 +996,13 @@
     "personality": [
      "Forgiving",
      "Peaceable",
-     "Trusting"
+     "Faithless"
     ],
     "calling": "Diplomat",
     "upbringing": "war_orphan"
    },
-   "backstory": "An Điếu Đài Thôn orphan named for the herb that makes every other herb agree; Ông Khổ Sâm (ong_kho_sam) uses him to sell to people who dislike each other, and to carry the sealed dike contracts back down the river each spring.",
+   "appearance": "Pockets full of dried schisandra berries; he smiles slightly before he names a price.",
+   "backstory": "An Điếu Đài Thôn orphan named for the five-flavour berry that holds every taste at once; Ông Khổ Sâm (ong_kho_sam) uses him to sell to people who dislike each other. For a clerk's seat he whispered Ông's lowest price to Hoàng Đê Sinh (hoang_de_sinh) before Ông named it, and the valley sold the season's pills a tenth short.",
    "ties": [
     {
      "to": "ong_kho_sam",
@@ -1053,7 +1071,8 @@
     "calling": "Alchemist",
     "upbringing": "village_born"
    },
-   "backstory": "Her mother washes gold at Đào Sa and her father is alive, which makes her the only child of the outer gate who is not an orphan; Phùng Lục Ngạc (phung_luc_ngac) is teaching her the furnace.",
+   "appearance": "Gold-flecked dust under her nails that no washing shifts.",
+   "backstory": "Her mother washes gold at Đào Sa and her father is alive, which makes her the only child of the outer gate who is not an orphan; Phùng Lục Ngạc (phung_luc_ngac) is teaching her the furnace. She lends the outer children pine nuts two for one, and called in Nghiêm Bạc Hà's (nghiem_bac_ha) debt at the memorial for Bạc Hà's drowned mother.",
    "ties": [
     {
      "to": "phung_luc_ngac",
@@ -1066,7 +1085,7 @@
      "note": "from the same landing"
     },
     {
-     "to": "nghiem_tu_to",
+     "to": "nghiem_bac_ha",
      "kind": "friend",
      "note": "outer disciple; weeds the lingzhi terraces"
     }

@@ -35,6 +35,7 @@
     "upbringing": "village_born"
    },
    "backstory": "He rode with Hạng Dạ Bôi (hang_da_boi) before 1121 and knelt beside him. He keeps the horse lines now, and tells the young blades that a debt you cannot collect is better carried than paid twice.",
+   "appearance": "Left ear half gone to frost; he tilts his head to hide it.",
    "ties": [
     {
      "to": "hang_da_boi",
@@ -129,6 +130,7 @@
     "upbringing": "sect_raised"
    },
    "backstory": "Granddaughter of Cổ Mạc Phong (co_mac_phong), she carries his jade cup and pours for Hạng Lưu Hỏa's (hang_luu_hoa) young blades. She left the first taunting cup at a caravan stop in 1194, and since then she has left one each season on Đồ Xích Linh's orders, always at a stop the Pavilion's riders use.",
+   "appearance": "A cup-shaped scar between thumb and finger where her grandfather's jade cup split.",
    "ties": [
     {
      "to": "co_mac_phong",
@@ -207,6 +209,7 @@
     "upbringing": "merchant_child"
    },
    "backstory": "A camel-bell maker's daughter of Đà Linh Trấn, she rides behind Ô Liệt Phong (o_liet_phong) on the Hồi Lan road and waves each morning to Trấn Sa's watcher Nhiếp Cô Đăng (nhiep_co_dang), who rides one dune behind.",
+   "appearance": "A camel bell tied into her braid, ringing at every step.",
    "ties": [
     {
      "to": "o_liet_phong",
@@ -267,9 +270,16 @@
      "Loyal"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "A shepherd's son of Dương Bằng Thôn with more Earth than Fire, he knows he will be an escort for life and does not mind. Trác Hồng Đà (trac_hong_da) has given him the head's grey mare to keep.",
+   "appearance": "A long plain face that only the grey mare seems to admire.",
    "ties": [
     {
      "to": "trac_hong_da",
@@ -325,14 +335,15 @@
    },
    "traits": {
     "personality": [
-     "Wrathful",
+     "Callous",
      "Warlike",
      "Loyal"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Cừu Lạc Nhật (cuu_lac_nhat) taught him to feed the sabre before he could hold it steady. On the band's rides he holds the rope the drivers walk on. His cuts bleed black now, and Đồ Xích Linh calls that progress.",
+   "backstory": "Cừu Lạc Nhật (cuu_lac_nhat) taught him to feed the sabre before he could hold it steady, and his cuts bleed black now. On the band's rides he holds the rope the drivers walk on; when Trác Hồng Đà's (trac_hong_da) nephew, a hired driver, stumbled on it he cut him loose and let the rest step over, and the nephew walks on a crutch now.",
+   "appearance": "Black veins climbing the back of the hand that holds the rope.",
    "ties": [
     {
      "to": "cuu_lac_nhat",
@@ -395,12 +406,13 @@
     "personality": [
      "Ambitious",
      "Paranoid",
-     "Brave"
+     "Faithless"
     ],
     "calling": "Duelist",
     "upbringing": "sect_raised"
    },
-   "backstory": "Raised at Trấn Sa's long table, she left in 1197 when Viên Cô Yên (vien_co_yen) refused her a sabre, and was welcomed loudly. Tất Dạ Lang (tat_da_lang) is the one deserter in the camp she does not trust.",
+   "backstory": "Raised at Trấn Sa's long table, she left in 1197 with her father's guard rota copied into her sleeve, when Viên Cô Yên (vien_co_yen) refused her a sabre, and was welcomed loudly. The rota surfaced in a raid and her father, a Trấn Sa gate guard, took the flogging for the leak; Tất Dạ Lang (tat_da_lang) is the one deserter in the camp she does not trust.",
+   "appearance": "A guard's blue sash cut down to a wristband she never takes off.",
    "ties": [
     {
      "to": "hang_luu_hoa",
@@ -460,14 +472,15 @@
    },
    "traits": {
     "personality": [
-     "Cautious",
+     "Greedy",
      "Diligent",
      "Pragmatic"
     ],
     "calling": "Refiner",
     "upbringing": "village_born"
    },
-   "backstory": "She blows the glass cups the poorer riders drink from, and since 1194 she has been asked for three times as many. She sells the spares to the Đà Linh inns as lamp glasses, and the inns put them in the windows.",
+   "backstory": "She blows the glass cups the poorer riders drink from, and since 1194 she has been asked for three times as many. She sells the spares to the Đà Linh inns as lamp glasses, and when Ổ Sa Nhi's (o_sa_nhi) cup cracked at the fire she kept the half-paid glass and charged her the full price again.",
+   "appearance": "Counts glass beads in her pocket when she thinks no one is watching.",
    "ties": [
     {
      "to": "trac_hong_da",

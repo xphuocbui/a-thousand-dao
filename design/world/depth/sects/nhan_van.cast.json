@@ -205,7 +205,7 @@
     "personality": [
      "Greedy",
      "Gregarious",
-     "Pragmatic"
+     "Cruel"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child",
@@ -224,6 +224,8 @@
    },
    "appearance": "A handsome, well-fed man in a grey silk robe of better cut than the abbey allows, with a jade weight on his scroll-case.",
    "backstory": "A ship-chandler's son from Triều Âm Thành, taken by the founder Kha Đạm Mặc (kha_dam_mac) as his last disciple in 990. Kha taught him the old reflection art and he has never once used it. He keeps the Pool House by the water at Đàm Ảnh Thành, teaches the painters there and sells the abbey's door scrolls in Triều Âm and Tương Phùng Thị (A148). He thinks Diệp Tố Quyên (diep_to_quyen) gives the abbey away, and Lạc Hà's Counting House agrees with him. In 1199 he showed the Counting House what the scrolls fetch, and Lạc Hà raised the tribute by a tenth. He resents paying it and has taken it out of the Pool House servants' rice.",
+   "wants": "To sell the abbey's scrolls at the Counting House's own rate with himself named steward of the trade, and Diệp Tố Quyên out of its way.",
+   "secret": "He has the servants' rice store locked and doles it out by the ladle at dusk to make up the tenth; when Ô Lão Nghiễn (o_lao_nghien) asked for the old measure, he was moved to the boat shed for the first frost.",
    "changed": "fix pass B 2026-11-25 (fixB-5): Ambitious -> Greedy (caused the 1199 tribute raise and takes it out of the servants' rice); no longer the obvious head",
    "ties": [
     {
@@ -509,7 +511,7 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Honest",
+     "Deceitful",
      "Reclusive"
     ],
     "calling": "Steward",
@@ -529,6 +531,8 @@
    },
    "appearance": "A broad, stooped man with pulp to the elbows and a straw hat he wears indoors.",
    "backstory": "A cane-cutter's son from Phù Can Thôn who has kept the abbey's paper mill at Lục Trúc Thôn for sixty years and cuts its canes in Vạn Can Lâm. Every sheet the abbey paints on has passed through his hands. He was Diệp Tố Quyên's (diep_to_quyen) disciple for forty years and knows he paints badly. Lạc Hà assesses the abbey's tribute in sheets, and for sixty years he argued the count with its collector Cận Thủ Chuyết (can_thu_chuyet) every autumn. Since the raise of 1199 the count runs all year at the Pool House, so he sends down a double he painted himself, rolled in the sheet cart. He paints badly, and it can only nod.",
+   "wants": "One honest sheet-count year, and his grandson Cù Tiểu Can (cu_tieu_can) given a brush instead of the mill.",
+   "secret": "He has ground a quarter of the abbey's finest silver-pine inkstick into the mill's size so his sheets take ink better than any other; Khương Trầm Mặc (khuong_tram_mac) counts her stock each month and blames her apprentices.",
    "changed": "fix pass B 2026-11-25 (fixB-5): sends a double that can only nod to the year-long count",
    "ties": [
     {
@@ -621,8 +625,9 @@
      "Humble"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
+   "appearance": "Tucks her burnt fingertips into her sleeves whenever anyone looks.",
    "backstory": "She burns Kỳ Nam agarwood for soot in her home town of Trầm Hương Trấn and grinds the abbey's ink, and Diệp Tố Quyên (diep_to_quyen) says the abbey's paintings smell of her town.",
    "ties": [
     {
@@ -722,7 +727,12 @@
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child",
-    "talent": [],
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ],
     "path": [],
     "lifestyle": "gambler",
     "health": null,
@@ -731,7 +741,9 @@
     "gained": []
    },
    "appearance": "A quick young-looking man with gilt scroll-ends on his pack and a different hat in every market.",
-   "backstory": "Mễ Phù Vân's (me_phu_van) disciple, a Triều Âm Thành dock child, who carries the abbey's door scrolls to Triều Âm and Tương Phùng Thị (A148). He signs a few of them, which the abbey forbids, because a signed scroll sells for three times as much. Lạc Hà's Tăng Vân Tiêu (tang_van_tieu) buys the signed ones for his stalls on the mainland and knows exactly what they are. Since last year he has taken the scrolls Tần Đảo Ảnh's (tan_dao_anh) double paints by itself with each load he collects at the Pool House, had them signed in her hand at Triều Âm, and sold them through Tăng; Tần does not know.",
+   "backstory": "Mễ Phù Vân's (me_phu_van) disciple, a Triều Âm Thành dock child, who carries the abbey's door scrolls to Triều Âm and Tương Phùng Thị (A148). He signs a few of them, which the abbey forbids, because a signed scroll sells for three times as much. Lạc Hà's Tăng Vân Tiêu (tang_van_tieu) buys the signed ones for his stalls on the mainland and knows exactly what they are. Since last year he has taken the scrolls Tần Đảo Ảnh's (tan_dao_anh) double paints by itself with each load he collects at the Pool House, had them signed in her hand at Triều Âm, and sold them through Tăng; Tần does not know. He cannot stay in one market a season.",
+   "wants": "A stall on the mainland with his own name on the sign, and no master above it.",
+   "secret": "He is selling a copy of the abbey's island route book, the tides and customs days, to a Triều Âm smuggler, and Doãn Trục Nhi (doan_truc_nhi), who carries his scrolls, rides along and keeps the price.",
    "changed": "fix pass B 2026-11-25 (fixB-5): sells the double's self-painted scrolls signed in Tần's hand",
    "ties": [
     {
@@ -829,6 +841,7 @@
     "calling": "Talisman maker",
     "upbringing": "village_born"
    },
+   "appearance": "The outline of a brush is inked on the inside of her wrist.",
    "backstory": "A willow-planter's daughter from Dương Liễu Thôn (A151) who draws only outlines and fills nothing in; Diệp Tố Quyên (diep_to_quyen) told her that this is the whole art, and she believed it.",
    "ties": [
     {
@@ -899,7 +912,8 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "A fisher boy from Nguyệt Loan Thôn (A153) who came to the abbey to paint clouds and was sent to beat bamboo pulp for Cù Lục Trúc (cu_luc_truc) instead.",
+   "appearance": "His sleeves are always wet with pulp.",
+   "backstory": "A fisher boy from Nguyệt Loan Thôn (A153) who came to the abbey to paint clouds and was sent to beat bamboo pulp for Cù Lục Trúc (cu_luc_truc) instead; he naps in the vat's shade while Cù Tiểu Can (cu_tieu_can) beats his share.",
    "ties": [
     {
      "to": "cu_luc_truc",
@@ -969,12 +983,13 @@
     "personality": [
      "Loyal",
      "Brave",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Talisman maker",
     "upbringing": "village_born"
    },
-   "backstory": "A girl from the mangroves of Hồng Thụ Thôn who paints roots standing in water. She sits beside her friend Tần Đảo Ảnh's (tan_dao_anh) double at the Pool House count and answers for it, and she is teaching it to talk so that it can sit the next count alone.",
+   "appearance": "Mangrove-root lines inked up both forearms, and her hems are always wet.",
+   "backstory": "A girl from the mangroves of Hồng Thụ Thôn who paints roots standing in water. She sits beside her friend Tần Đảo Ảnh's (tan_dao_anh) double at the Pool House count and swears to Cận Thủ Chuyết that it is Tần; Cận, who cannot make it answer, has docked Bào Ảnh Nhi's (bao_anh_nhi) sheets a tenth for the silence. She is teaching it to talk.",
    "changed": "fix pass B 2026-11-25 (fixB-5): no longer 'has noticed' the double: answers for it and is teaching it to talk",
    "ties": [
     {
@@ -1050,13 +1065,14 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Diligent",
+     "Faithless",
      "Paranoid"
     ],
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "She failed Lạc Hà's dusk test three times and was placed with the abbey in 1198 by Tô Bình Chu (to_binh_chu). Lạc Hà takes a tenth of what she earns until 1228, so she counts every brush she is given.",
+   "appearance": "Chews her fingernails to the quick, and counts brushes under her breath.",
+   "backstory": "She failed Lạc Hà's dusk test three times and was placed with the abbey in 1198 by Tô Bình Chu (to_binh_chu). Lạc Hà takes a tenth of what she earns until 1228, so she counts every brush, and sells Giải Thanh Nghiễn's (giai_thanh_nghien) counts to the collector for a rebate; counted short, Giải has lost his ink ration twice.",
    "ties": [
     {
      "to": "khuong_tram_mac",
@@ -1131,6 +1147,7 @@
     "calling": "Steward",
     "upbringing": "servant_born"
    },
+   "appearance": "Ink-black rims to his ears from leaning over the stone.",
    "backstory": "The Pool House's servant for seventy years. He grinds its ink and every evening walks to the pool to tell the blind Đoạn Thương Hải (doan_thuong_hai) what colour the clouds were.",
    "ties": [
     {

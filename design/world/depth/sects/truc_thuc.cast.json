@@ -39,7 +39,7 @@
      "Generous"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born",
+    "upbringing": "sect_raised",
     "talent": [
      {
       "id": "quick_minded",
@@ -375,8 +375,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A quiet man with green-stained fingers who stands with his weight on one leg like a heron.",
+   "appearance": "Quiet, with green-stained fingers, he stands with his weight on one leg like a heron.",
    "backstory": "Born in the garden in 1090 and given to Ninh Trúc Thực (ninh_truc_thuc) at six, Mẫn Tiết Thanh has learned every row, every rain and every seed count the head knows. He runs the harvest that goes up to the palace each autumn. He has asked twice to carry the censer into the grove in spring, and twice the head has held it a moment and then taken it back. He thinks he has failed a test. He has no Fire, and no one has told him that is the whole of it.",
+   "wants": "The censer in his own hands one spring, and to learn what test he failed.",
+   "secret": "Nights, he warms a seedbed in the lower rows with hot kitchen bricks, trying to seed bamboo without Fire; three rows have sprouted, and Ứng Sơ Hoa, who carries his knives, has seen the ash.",
    "ties": [
     {
      "to": "ninh_truc_thuc",
@@ -472,11 +474,11 @@
     "than_hon": 58,
     "khi_van": 44,
     "dao_tam": 50,
-    "mi_luc": 38
+    "mi_luc": 30
    },
    "traits": {
     "personality": [
-     "Pragmatic",
+     "Greedy",
      "Brave",
      "Reclusive"
     ],
@@ -485,6 +487,10 @@
     "talent": [
      {
       "id": "sturdy_frame",
+      "tier": 1
+     },
+     {
+      "id": "homely",
       "tier": 1
      }
     ],
@@ -496,8 +502,10 @@
      "Scarred"
     ]
    },
-   "appearance": "A wiry man in a rat-skin cloak, missing the tip of his nose to a bamboo rat the size of a dog.",
-   "backstory": "A raft-maker's son from Trúc Phiệt Thôn, Khuất Liệp Nguyên has lived on Trúc Thử Nguyên since 1140 and keeps the garden's fences against the bamboo rats. He sells their pelts at Bích Lãng and their meat to Bách Vũ Các for its hawks. He counts them every winter and gives the count to Úy Thương Điền (uy_thuong_dien), because the head only nods. There were nine hundred in 1150; this winter he stopped counting at four thousand. Last month he found their runs under the brook toward Bích Lãng's paddies.",
+   "appearance": "Wiry and homely in a rat-skin cloak, missing the tip of his nose to a bamboo rat the size of a dog.",
+   "backstory": "A raft-maker's son from Trúc Phiệt Thôn, Khuất Liệp Nguyên has lived on Trúc Thử Nguyên since 1140 and keeps the garden's fences against the bamboo rats. He sells their pelts at Bích Lãng and their meat to Bách Vũ Các for its hawks. He counts them every winter and gives the count to Úy Thương Điền (uy_thuong_dien), because the head only nods. There were nine hundred in 1150; this winter he stopped counting at four thousand. Last month he found their runs under the brook toward Bích Lãng's paddies. He has begun to sell hawks' meat by the sack, and a bigger count is a bigger sack.",
+   "wants": "A count of rats the head must answer to, and the hawk-keeper's debt cleared by spring.",
+   "secret": "He is not culling the northern runs: the hawk-keeper of Bách Vũ pays by the sack, so he hands Úy Thương Điền the alarming count and keeps the rats fat.",
    "ties": [
     {
      "to": "uy_thuong_dien",
@@ -594,7 +602,7 @@
     "personality": [
      "Gregarious",
      "Ambitious",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Diplomat",
     "upbringing": "merchant_child",
@@ -609,8 +617,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A tidy woman in a blue travelling coat who always smells of cooked rice and knows everyone's name at the granary gate.",
-   "backstory": "A grain-broker's daughter from Mạch Điền Trấn, Sầm Đạo Hương joined the garden for its Water fields and stayed for its roads. Every autumn she drives the seed carts to Điền Phong Niên (dien_phong_nien) at Hoàng Vân Thành and then up the ridge to Vu Ngô Đồng's aviary (vu_ngo_dong). She drinks with the palace's healer Từ Cam Tuyền (tu_cam_tuyen) and hears everything first. She would like a seat in the palace's Hall of Benevolence and knows that a Fire root is the price.",
+   "appearance": "A tidy woman in a blue travelling coat, always smelling of cooked rice, who knows everyone's name at the granary gate.",
+   "backstory": "A grain-broker's daughter from Mạch Điền Trấn, Sầm Đạo Hương joined the garden for its Water fields and stayed for its roads. Every autumn she drives the seed carts to Điền Phong Niên (dien_phong_nien) at Hoàng Vân Thành and then up the ridge to Vu Ngô Đồng's aviary (vu_ngo_dong). She drinks with the palace's healer Từ Cam Tuyền (tu_cam_tuyen) and hears everything first. She would like a seat in the palace's Hall of Benevolence and knows that a Fire root is the price. She tells the palace what it likes to hear, and is paid for it.",
+   "wants": "A seat in the Hall of Benevolence, and to be the one the palace hears the garden's news from.",
+   "secret": "She has told Từ Cam Tuyền at the palace that the head's seed will fail, and is selling the rest of the story one cart at a time to find what the palace will pay to hear it first.",
    "ties": [
     {
      "to": "dien_phong_nien",
@@ -695,14 +705,15 @@
    },
    "traits": {
     "personality": [
-     "Content",
+     "Greedy",
      "Trusting",
      "Diligent"
     ],
     "calling": "Steward",
     "upbringing": "sect_raised"
    },
-   "backstory": "Kha Tùng Canh sent his daughter Kha Thanh Miêu (kha_thanh_mieu) up to the palace on her Wood and tells every visitor she will be an elder; her letters say the great wutong turns its leaves to her, and that the first elder wants her at the Wutong Court for the tree.",
+   "appearance": "Brass ring of row keys at his belt; his chin lifts whenever his daughter is named.",
+   "backstory": "Kha Tùng Canh sent his daughter Kha Thanh Miêu (kha_thanh_mieu) up to the palace on her Wood and tells every visitor she will be an elder; her letters say the great wutong turns its leaves to her. He sells the lower rows' second picking to the carters as a steward's due, and docks Chu Thu Điền (chu_thu_dien), who works the rows, the share that should have been his.",
    "ties": [
     {
      "to": "kha_thanh_mieu",
@@ -777,6 +788,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
+   "appearance": "Moss-green sleeves; stops dead mid-step to listen to something no one else hears.",
    "backstory": "Úy Thương Điền (uy_thuong_dien) sends him to the purple bamboo forest every month to weed a grove no one else in the garden knows about, and he has never asked why.",
    "ties": [
     {
@@ -837,12 +849,13 @@
     "personality": [
      "Impatient",
      "Brave",
-     "Gregarious"
+     "Callous"
     ],
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
-   "backstory": "A zither-string maker's girl from Cầm Huyền Hương who wants to be the first disciple Mẫn Tiết Thanh (man_tiet_thanh) ever made an elder, and works the rows twice as fast as anyone to prove it.",
+   "appearance": "Zither-string grooves cut across both index fingers; a ponytail pulled tight enough to lift her eyebrows.",
+   "backstory": "A zither-string maker's girl from Cầm Huyền Hương who wants to be the first disciple Mẫn Tiết Thanh (man_tiet_thanh) ever made an elder, and works the rows twice as fast as anyone to prove it. She shoves slower hands off her row, and Diêu Lãng Nhi (dieu_lang_nhi) lost her place at the harvest for it and was sent back to the sluices.",
    "ties": [
     {
      "to": "man_tiet_thanh",
@@ -907,6 +920,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "Brick-red from the terrace sun; white sluice-rope scars circle both wrists.",
    "backstory": "A fisher girl from Úy Thương Điền's (uy_thuong_dien) own village who came for the sluices, not the bamboo; her Wood is too thin for the inner gate and she does not mind.",
    "ties": [
     {
@@ -971,13 +985,14 @@
    "traits": {
     "personality": [
      "Vengeful",
-     "Diligent",
+     "Cruel",
      "Paranoid"
     ],
     "calling": "Beast tamer",
     "upbringing": "street_orphan"
    },
-   "backstory": "Her family's winter store in Trúc Phiệt Thôn was eaten to the last grain by bamboo rats in 1191, and Khuất Liệp Nguyên (khuat_liep_nguyen) found her on the plain setting snares with her bare hands.",
+   "appearance": "Rat-bite scars up one forearm; a stare that never leaves a trap.",
+   "backstory": "Her family's winter store in Trúc Phiệt Thôn was eaten by bamboo rats in 1191, and Khuất Liệp Nguyên (khuat_liep_nguyen) found her on the plain setting snares with her bare hands. She nails trapped rats alive to the fence posts where the brook children can see; she once nailed the tame rat that slept in Khuất's hood, and he did not speak to her for a month.",
    "ties": [
     {
      "to": "khuat_liep_nguyen",
@@ -1042,7 +1057,8 @@
     "calling": "Steward",
     "upbringing": "servant_born"
    },
-   "backstory": "A buckwheat farmer's son from the ridge with a Metal root no Wood method can use; he has ploughed the garden's rows since 1126 and is the only one who has noticed that the head's new bamboo stands in the same clumps as the old, culm for culm (ninh_truc_thuc).",
+   "appearance": "One milky eye; a plough-handle callus the size of an egg.",
+   "backstory": "A buckwheat farmer's son from the ridge with a Metal root no Wood method can use; he has ploughed the garden's rows since 1126, leaving the far furrows to Ngô Lê Thạch (ngo_le_thach) whenever the ground is hard, and is the only one who has noticed that the head's new bamboo stands in the same clumps as the old, culm for culm (ninh_truc_thuc).",
    "ties": [
     {
      "to": "ninh_truc_thuc",

@@ -211,7 +211,7 @@
     "personality": [
      "Stubborn",
      "Loyal",
-     "Patient"
+     "Callous"
     ],
     "calling": "Teacher",
     "upbringing": "servant_born",
@@ -234,7 +234,7 @@
     ]
    },
    "appearance": "Tall and bony, with hands cracked like bark and grey hair cut at the jaw; she wears the old ridge robe of undyed hemp, and it is dry, because she will not stand in the haze.",
-   "backstory": "Cù Thúy Bách was born in 610 to a jade-cutter's family that served the sect on its ridge, and she is the oldest person Thúy Vi has. Phùng Yên Hà (phung_yen_ha) took her in 626, the first ridge child to survive three winters in the founder's school. For nearly four hundred years Cù was the founder's hands. She planted the cypress walk on the ridge, held the inner gate through both wars with Tùng Đào (C135, C165), and nursed the founder through her last century. When Phùng died in 1000 (C173), the sect expected Cù to take the whisk. She refused it and named Ngu Lam Sơn (ngu_lam_son), the quiet one, because she wanted to stay on the ridge with the founder's tree. His first order was to leave it. She did not go down. Since 1006 the old seat has been the Cliff Hall (N-thuy_vi-03). She keeps it with a few dozen people: the founder's grave, the founder's pine that grows sideways out of the rock, and the life trees of every disciple who joined before the move. She also keeps a teaching that the sect calls harsh and she calls honest. She is the last of the founder's first disciples. She trains her disciples hard and sends them down to win.",
+   "backstory": "Cù Thúy Bách was born in 610 to a jade-cutter's family that served the sect on its ridge, and she is the oldest person Thúy Vi has. Phùng Yên Hà (phung_yen_ha) took her in 626, the first ridge child to survive three winters in the founder's school. For nearly four hundred years Cù was the founder's hands. She planted the cypress walk on the ridge, held the inner gate through both wars with Tùng Đào (C135, C165), and nursed the founder through her last century. When Phùng died in 1000 (C173), the sect expected Cù to take the whisk. She refused it and named Ngu Lam Sơn (ngu_lam_son), the quiet one, because she wanted to stay on the ridge with the founder's tree. His first order was to leave it. She did not go down. Since 1006 the old seat has been the Cliff Hall (N-thuy_vi-03). She keeps it with a few dozen people: the founder's grave, the founder's pine that grows sideways out of the rock, and the life trees of every disciple who joined before the move. She also keeps a teaching that the sect calls harsh and she calls honest. She is the last of the founder's first disciples. She trains her disciples hard and sends them down to win. She made the boy Hoàn Cô Bách sleep on stone through three winters, and let the fever take two of his year-mates because the rule said to harden them.",
    "wants": "To see her disciple Hoàn Cô Bách named heir, so the sect remembers what the ridge made it. Failing that, to be buried beside the founder and never moved.",
    "secret": "She nursed the founder's last century and watched her stiffen like bark, a Wood root starved on Metal ground. She believes the ridge shortened Phùng's life, and she has never said it, because saying it would mean the move was right.",
    "ties": [
@@ -937,7 +937,7 @@
     "personality": [
      "Gregarious",
      "Brave",
-     "Pragmatic"
+     "Greedy"
     ],
     "calling": "Merchant",
     "upbringing": "sect_raised",
@@ -955,7 +955,7 @@
     "gained": []
    },
    "appearance": "Short, brown and salt-cracked, with a sailor's rolling walk, a whale-cast brass lock on a cord at her throat and a laugh that carries across a harbour.",
-   "backstory": "When the Pivot's fleets broke Thôn Hải in 781, the pirates who had wintered in the cove below Ẩn Loan Thôn vanished in one night. They left a chest of salt and a three-year-old girl (A026). The villagers fed her and said nothing, as they had fed the pirates (A025). Ngu Lam Sơn (ngu_lam_son), then a Kết Đan carrying pills down the cape, found her eating kelp on the beach and took her up to the ridge (N-thuy_vi-04). The sect names its foundlings from the herb book. It named her Hải Tảo for the seaweed and Diêm, by a pun, for the salt. She grew up the sect's sailor. She keeps the port house at Yên Ba Thành, which ships Thúy Vi's pills down the coast and up the strait. She has more friends among the boatwrights and smugglers of the cape than any elder has in the halls. She is 422 and has perhaps eighty years left. In those years she means to learn whose daughter she is. She is fairly sure she knows already: the pirate lord Ô Kình Hải (o_kinh_hai), who died in the Purge the year she was left.",
+   "backstory": "When the Pivot's fleets broke Thôn Hải in 781, the pirates who had wintered in the cove below Ẩn Loan Thôn vanished in one night. They left a chest of salt and a three-year-old girl (A026). The villagers fed her and said nothing, as they had fed the pirates (A025). Ngu Lam Sơn (ngu_lam_son), then a Kết Đan carrying pills down the cape, found her eating kelp on the beach and took her up to the ridge (N-thuy_vi-04). The sect names its foundlings from the herb book. It named her Hải Tảo for the seaweed and Diêm, by a pun, for the salt. She grew up the sect's sailor. She keeps the port house at Yên Ba Thành, which ships Thúy Vi's pills down the coast and up the strait. She has more friends among the boatwrights and smugglers of the cape than any elder has in the halls. She is 422 and has perhaps eighty years left. In those years she means to learn whose daughter she is. She is fairly sure she knows already: the pirate lord Ô Kình Hải (o_kinh_hai), who died in the Purge the year she was left. The port house takes a tenth of every smuggler's cargo that lands under its lamp, and she calls it a lamp fee.",
    "wants": "To find her father's sabre Kình Nha at the ruin of Thôn Hải Môn far in the south (place 217), and to learn whether the chest was left for her or only with her.",
    "secret": "The chest of salt had a false bottom. Inside was a sea chart of the southern islands in Ô Kình Hải's hand. She has kept it for four hundred years and never sailed it.",
    "ties": [
@@ -1446,6 +1446,8 @@
    },
    "appearance": "A wiry old man who walks fast and talks faster, with array chalk on his cuffs.",
    "backstory": "Born in the river mists of Phù Kiều Trấn, Tất Hành Vụ took to formations because the haze already looked to him like an array. He laid the new seat's Lotus Throne and Spring Return arrays in 1006, and he alone can read the Haze Walk's ninth layer. In 1048 he taught the walk to his sworn brother, a road guard, who took it to the cape and founded Vụ Ẩn Môn on it (N-thuy_vi-07). Half the elders call it theft. He calls it the only good the walk has ever done. His granddaughter Tất Quế Lạc (tat_que_lac) is his disciple.",
+   "wants": "To hear the Haze Walk's ninth layer read correctly by someone other than himself before he dies.",
+   "secret": "He is teaching the ninth layer in pieces to his granddaughter Tất Quế Lạc, folded into her chalk drills, and has told the Array Hall it is only a game.",
    "ties": [
     {
      "to": "phung_yen_ha",
@@ -1603,6 +1605,8 @@
    },
    "appearance": "Small and stooped, always smelling of angelica root, with a burn scar along one cheek from 932.",
    "backstory": "Khổng Đương Quy was twelve and a servant orphan of Bách Thảo Viện when its fire cauldron burst in 932 (V029). Âu Dương Thanh Lô (au_duong_thanh_lo) threw her out of the hall with the academy's seed gourd in her arms before the roof came down on him. Thúy Vi carried the academy's herb books to the seat, and her with them. She has kept the books and the sect's herb gardens ever since. She still means to rebuild Bách Thảo Viện one day, as her herb name says. She married Quyền Thanh Lam (quyen_thanh_lam) in 1100.",
+   "wants": "A shed of Bách Thảo Viện rebuilt, with its books under one roof.",
+   "secret": "She replants the academy's lost herbs in rows across Quyền Thanh Lam's fields, among what he takes for weeds, and he has begun to plough around them without a word.",
    "ties": [
     {
      "to": "phung_yen_ha",
@@ -1750,6 +1754,8 @@
    },
    "appearance": "Square, unsmiling and grey at the temples; he stands very straight and speaks in the fewest words he can.",
    "backstory": "Nhạc Chính Hành was nineteen and a Luyện Khí outer disciple, home for the New Year, when the avalanche buried the upper street of Vân Gian Trấn and his family in it (V031). He dug for nine days. Afterwards Cù Thúy Bách (cu_thuy_bach) took him up to the ridge, and the Cliff Hall made him hard and exact. He has kept the Hall of Rules at the new seat since 1150 and judges as the ridge would: by the rule, not the person. Since 1190 he has bought Vụ Ẩn Môn's head's pages on what passes under the mist, paid in patrols on the Đồng Sơn road and in his silence whenever the tithe is raised.",
+   "wants": "A sect where no exception is left to renew.",
+   "secret": "Every decade he signs the Hall's exception for Quản Ảnh Hồ without reading it, the one rule he bends, because he cannot bring himself to ask what her mirror method does.",
    "ties": [
     {
      "to": "bang_yen_toa",
@@ -1877,7 +1883,7 @@
    "traits": {
     "personality": [
      "Reclusive",
-     "Honest",
+     "Deceitful",
      "Greedy"
     ],
     "calling": "Beast tamer",
@@ -1893,7 +1899,9 @@
     "gained": []
    },
    "appearance": "Sharp-faced and quick, with a fur collar that turns out to be a live silver marten asleep.",
-   "backstory": "Lô Dã Hương grew up hunting matsutake under the pines of Tùng Nhung Thôn with a tame marten on her shoulder. Ngu Lam Sơn (ngu_lam_son) took her as his disciple in 1010 for her nose. She runs the sect's Marten Yard on Ngân Điêu Đài, where silver martens are bred to sniff out spirit herbs. She trusts animals over people and says so. Her martens find a hundred-year ginseng in a season, and she sells their pups to Hồng Lô Cốc for more than the ginseng is worth.",
+   "backstory": "Lô Dã Hương grew up hunting matsutake under the pines of Tùng Nhung Thôn with a tame marten on her shoulder. Ngu Lam Sơn (ngu_lam_son) took her as his disciple in 1010 for her nose. She runs the sect's Marten Yard on Ngân Điêu Đài, where silver martens are bred to sniff out spirit herbs. She trusts animals over people and says so. Her martens find a hundred-year ginseng in a season, and she sells their pups to Hồng Lô Cốc for more than the ginseng is worth. Every pup she sells to the vassal will never breed.",
+   "wants": "A pup in her line that finds a ginseng a thousand years old.",
+   "secret": "She sells Hồng Lô Cốc pups she has quietly spayed, so that no vassal ever breeds its own silver marten line.",
    "ties": [
     {
      "to": "ngu_lam_son",
@@ -2001,7 +2009,7 @@
    },
    "traits": {
     "personality": [
-     "Gregarious",
+     "Faithless",
      "Pragmatic",
      "Patient"
     ],
@@ -2021,7 +2029,9 @@
     "gained": []
    },
    "appearance": "Elegant and quick-eyed, in a robe cut in the Tùng Đào fashion and dyed Thúy Vi green.",
-   "backstory": "Biện Vãn Tình was born in Tùng Hạ Thị, Tùng Đào's market under the pines, to a Thúy Vi pill trader and a local scribe, and she speaks both sects' courtesies without an accent. Úy Thanh Diễm (uy_thanh_diem) trained her in the Furnace Hall until it was clear she sold a pill better than she brewed one. Since 1140 she has carried the sect's letters to the Pivot, the vassals and across the border. She has kept the Cold Ford quiet through four of Hướng Dạ Đăng's (huong_da_dang) winters. She thinks the warden will start a war and that the head will let him finish it.",
+   "backstory": "Biện Vãn Tình was born in Tùng Hạ Thị, Tùng Đào's market under the pines, to a Thúy Vi pill trader and a local scribe, and she speaks both sects' courtesies without an accent. Úy Thanh Diễm (uy_thanh_diem) trained her in the Furnace Hall until it was clear she sold a pill better than she brewed one. Since 1140 she has carried the sect's letters to the Pivot, the vassals and across the border. She has kept the Cold Ford quiet through four of Hướng Dạ Đăng's (huong_da_dang) winters. She thinks the warden will start a war and that the head will let him finish it. She tells Tùng Đào when the warden drills, and calls it courtesy.",
+   "wants": "A peace so long that her letters are the only thing crossing the border.",
+   "secret": "She tells Hồ Tùng Nguyệt the dates of the warden's winter drills so that Tùng Đào's patrols stay off the ice, and calls it keeping the peace.",
    "ties": [
     {
      "to": "uy_thanh_diem",
@@ -2164,6 +2174,8 @@
    },
    "appearance": "Grey with stone dust and thick in the wrist, missing the last finger of his left hand to a jade saw.",
    "backstory": "Lã Trác Thạch was born at the green jade mine below the old seat (A037), where the rock is half Metal, and his root came out Metal and Earth with no Wood in it at all. Thúy Vi could not take him into its lineage, so it hired him. He has been the sect's guest elder for refining since 1030. He cuts the jade for its seals, forges its pill needles and mends the iron bands of its green furnaces. He lives at the mine, not the seat, and goes up to the Cliff Hall to drink with Hoàn Cô Bách (hoan_co_bach), whose father worked his seam.",
+   "wants": "A jade seam without a flaw, and one seal cut from it that he would never sell.",
+   "secret": "He is slipping jade pill needles, which bend, in among the steel ones to see whether the Furnace Hall notices; Úy Thanh Diễm tastes every batch and has so far said nothing.",
    "ties": [
     {
      "to": "hoan_co_bach",
@@ -2273,6 +2285,8 @@
    },
    "appearance": "A long-armed, gentle man with a healer's satchel and green-stained fingertips.",
    "backstory": "Dư Tục Đoạn was raised at Thanh Nang Đường, the healers' hall in the forest, and was twenty-one when its last head died in seclusion without naming an heir (V018). The other healers took their satchels to Hồng Lô Cốc. He walked the other way, to Thúy Vi, because he had heard its pills were cleaner, and Úy Thanh Diễm (uy_thanh_diem) took him into the Furnace Hall. He is the sect's bone-setter. Once a month, on the Green Door Day, he sits at the sect's door in Lam Yên Thị and treats anyone for nothing. That is how the sect found the foundling Kiển Viễn Chí (kien_vien_chi).",
+   "wants": "A Green Door Day every day of the month.",
+   "secret": "He fills the poor's satchels on the Green Door Day with the Furnace Hall's wound pills from his own stock, and Tề Tử Tô has begun to count the shortfall in her batches.",
    "ties": [
     {
      "to": "uy_thanh_diem",

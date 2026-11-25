@@ -346,6 +346,7 @@
    "home": 253,
    "birthplace": 29,
    "role": "Keeper of the Lower Mouth, the hall's sitting places on the vent's flank below the palace's Nest",
+   "appearance": "A grey-dusted woman who smells of sulphur and keeps a knotted cord with one knot for every disciple now in the vent.",
    "tier": "B",
    "root": {
     "elements": {
@@ -369,7 +370,7 @@
      "Just"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "temple_raised",
     "talent": [
      {
       "id": "steady_heart",
@@ -383,8 +384,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A grey-dusted woman who smells of sulphur and keeps a knotted cord with one knot for every disciple now in the vent.",
-   "backstory": "Trang Hôi Y counts who goes into the vent and who comes out, and ties and unties a knot for each. In 1162 she untied none for Tuân Hà Y (tuan_ha_y) and carried out what was left. She keeps the hall's sitting places on the lower flank of Chúc Dung Khẩu, a hundred paces below the palace's Nest, and settles the line between them every season with the Ash Seat's attendant Vi Tịch Hôi (vi_tich_hoi). At each dark of the moon she lets Tuân's daughter sit, and ties no knot for her.",
+   "backstory": "Trang Hôi Y counts who goes into the vent and who comes out, and ties and unties a knot for each. In 1162 she untied none for Tuân Hà Y (tuan_ha_y) and carried out what was left. She keeps the hall's sitting places on the lower flank of Chúc Dung Khẩu, a hundred paces below the palace's Nest, and settles the line between them every season with the Ash Seat's attendant Vi Tịch Hôi (vi_tich_hoi). At each dark of the moon she lets Tuân's daughter sit, and ties no knot for her. She learned her knots from the vent village's shrine keeper.",
+   "wants": "Every knot kept tied for one more year, and one sitter of each year's class past the sixth layer.",
+   "secret": "She is writing a second roll in her own hand of every sitter who burned in the vent since 1162, with the cause, to put in the Hall of Spoils' book as proof that the palace's rent counts the hall's dead as structures. Three of the names are men Tào Tẫn Kiên (tao_tan_kien) sent in, and she has not told him she is writing it.",
    "ties": [
     {
      "to": "tao_tan_kien",
@@ -468,6 +470,7 @@
    "home": 29,
    "birthplace": 94,
    "role": "Captain of the hall's levy; guards the road between Tang Điền and the Fire Court",
+   "appearance": "A loud silk-trader's son with a broken nose who wears the hall's red sash over a merchant's coat.",
    "tier": "B",
    "root": {
     "elements": {
@@ -507,8 +510,9 @@
      "Battle-hardened"
     ]
    },
-   "appearance": "A loud silk-trader's son with a broken nose who wears the hall's red sash over a merchant's coat.",
    "backstory": "A silk trader's son from Tang Điền who came to the vents to stop being a silk trader's son, Đới Liệt Cương leads the hall's levy, the strongest of any vassal of the palace. Since 1162 its work has been guarding the road to the Fire Court, and he hates it. He hates the palace's envoy Bình Viễn Khách (binh_vien_khach) more, because she counts the levy as tribute. Hùng Phần Vũ (hung_phan_vu) trained him and keeps him away from the Fire Court's gate.",
+   "wants": "The levy off the palace road, and one duel on the Fire Court's stair.",
+   "secret": "He is forging the tribute stubs to show his levy at half strength, so the envoy Bình Viễn Khách (binh_vien_khach) counts fewer days, and his silk-trader father in Tang Điền ties the forged bundles. The envoy's own clerk has begun to count the road posts.",
    "ties": [
     {
      "to": "hung_phan_vu",
@@ -622,6 +626,7 @@
    "home": 29,
    "birthplace": 980,
    "role": "Steward of the hall: red stone and charcoal for the Fire Court, and the tribute ledger",
+   "appearance": "His eyebrows are white with stone dust in every season.",
    "tier": "C",
    "root": {
     "elements": {
@@ -639,7 +644,7 @@
     "calling": "Merchant",
     "upbringing": "village_born"
    },
-   "backstory": "A stonemason's son from Thạch Tượng who sells the Fire Court its red Đan Thạch stone and its charcoal, and keeps a second ledger of what the palace's envoy Bình Viễn Khách (binh_vien_khach) counts as tribute that he counts as sales. This spring the treasurer's clerks set rent on his charcoal pits too.",
+   "backstory": "A stonemason's son from Thạch Tượng who sells the Fire Court its red Đan Thạch stone and its charcoal, and keeps a second ledger of what the palace's envoy Bình Viễn Khách (binh_vien_khach) counts as tribute that he counts as sales. He weighs the charcoal sacks with his thumb on the beam, and the vent village's widows pay the extra weight.",
    "ties": [
     {
      "to": "tao_tan_kien",
@@ -700,6 +705,7 @@
    "home": 253,
    "birthplace": 29,
    "role": "Hùng Diễm Nhi's milk sister; holds the cord for her at the Lower Mouth at the dark of the moon",
+   "appearance": "Shows the milk-white cord scar across her left palm to anyone who doubts her.",
    "tier": "C",
    "root": {
     "elements": {
@@ -715,9 +721,9 @@
      "Deceitful"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "Nursed at the same breast as Hùng Diễm Nhi (hung_diem_nhi) in 1150, she keeps the cord at the Lower Mouth under Trang Hôi Y (trang_hoi_y), and at each dark of the moon holds it for her friend, who climbs down from the palace's Nest to temper with the hall.",
+   "backstory": "A nurse's daughter, nursed at the same breast as Hùng Diễm Nhi (hung_diem_nhi) in 1150, she keeps the cord at the Lower Mouth under Trang Hôi Y (trang_hoi_y), and at each dark of the moon holds it for her friend, who climbs down from the palace's Nest. She tells Trang the girl sits a quarter of the time she does; Trang counts the knots and says nothing.",
    "ties": [
     {
      "to": "hung_diem_nhi",
@@ -779,6 +785,7 @@
    "home": 29,
    "birthplace": 94,
    "role": "Inner disciple of the levy",
+   "appearance": "A chin scar he says a palace fan gave him; a mulberry ladder did.",
    "tier": "C",
    "root": {
     "elements": {
@@ -791,12 +798,12 @@
     "personality": [
      "Brave",
      "Arrogant",
-     "Impatient"
+     "Cruel"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "A mulberry picker's son from Tang Điền who has sat five sittings and wants Đới Liệt Cương (doi_liet_cuong) to let him fight a palace fan duelist on the Fire Court's stair.",
+   "backstory": "A mulberry picker's son from Tang Điền who has sat five sittings and wants Đới Liệt Cương (doi_liet_cuong) to let him fight a palace fan duelist on the Fire Court's stair. He held Kinh Tiểu Hỏa's (kinh_tieu_hoa) bare arm on the hot rock a breath too long, to see him stand; the arm still blisters in rain.",
    "ties": [
     {
      "to": "doi_liet_cuong",
@@ -857,6 +864,7 @@
    "home": 29,
    "birthplace": 162,
    "role": "Outer disciple on the cooled lava",
+   "appearance": "Sits down on every landing to catch his breath, in a blue caravan shirt a size too large.",
    "tier": "C",
    "root": {
     "elements": {
@@ -872,9 +880,15 @@
      "Patient"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A caravan boy from Tang Âm who sits on the cold rock at the fourth layer, watches Long Chước Sinh (long_chuoc_sinh) go in deeper, and does not envy him.",
+   "backstory": "A caravan boy from Tang Âm who sits on the cold rock at the fourth layer, watches Long Chước Sinh (long_chuoc_sinh) go in deeper, and does not envy him. His wrists are thin and he has not sat beside Long Chước Sinh since the hot rock.",
    "ties": [
     {
      "to": "long_chuoc_sinh",
@@ -919,6 +933,7 @@
    "home": 29,
    "birthplace": 44,
    "role": "Outer disciple from Ngũ Thải Thành, the head's own city",
+   "appearance": "A front tooth chipped on a harbour bollard, shown when she grins.",
    "tier": "C",
    "root": {
     "elements": {
@@ -987,6 +1002,7 @@
    "home": 29,
    "birthplace": 449,
    "role": "Inner disciple; an ash-born boy who left the palace's outer gate for the vents",
+   "appearance": "Will not wash the palace soot from his fingertips, and nobody has asked why.",
    "tier": "C",
    "root": {
     "elements": {
@@ -999,12 +1015,12 @@
     "personality": [
      "Fickle",
      "Brave",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Duelist",
     "upbringing": "servant_born"
    },
-   "backstory": "Born at the Fire Court to its servants, he passed the palace's Feather Kindling and walked out the same week to sit in the vents instead; the palace counts him a deserter, and his old classmate Địch Tiểu Chước (dich_tieu_chuoc) still writes to him.",
+   "backstory": "Born at the Fire Court to its servants, he passed the palace's Feather Kindling and walked out the same week to sit in the vents; the palace counts him a deserter, and his old classmate Địch Tiểu Chước (dich_tieu_chuoc) still writes to him. He tells her the hall is starving; she sends palace rice, he sells it at the Lower Mouth, and she is the one reprimanded.",
    "ties": [
     {
      "to": "trang_hoi_y",
@@ -1060,6 +1076,7 @@
    "home": 29,
    "birthplace": 980,
    "role": "Servant charcoal burner",
+   "appearance": "His snore carries across the charcoal pit.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1077,7 +1094,7 @@
     "calling": "Steward",
     "upbringing": "servant_born"
    },
-   "backstory": "A Wood-rooted charcoal burner from Thạch Tượng who will never sit in the vent and burns the wood the Fire Court's kitchens eat for Hác Đan Thạch (hac_dan_thach).",
+   "backstory": "A Wood-rooted charcoal burner from Thạch Tượng who will never sit in the vent and burns the wood the Fire Court's kitchens eat for Hác Đan Thạch (hac_dan_thach). He naps in the pit while the kitchens run short, and the cooks' youngest boy took the ladle for the short load.",
    "ties": [
     {
      "to": "hac_dan_thach",

@@ -581,7 +581,7 @@
     "personality": [
      "Pragmatic",
      "Stubborn",
-     "Generous"
+     "Greedy"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born",
@@ -597,6 +597,8 @@
    },
    "appearance": "A tall woman of eighty-eight who looks fifty, with a bowyer's bow from her home village and a staff worn white at the grip.",
    "backstory": "A bowyer's daughter from Cung Tiễn Thôn, Thư Phiêu Bình has guarded caravans on the pine-sea roads for seventy years and sworn to no one. In 1164 she took on a fourteen-year-old magistrate's son who had failed the pines' chant, Hứa Vãn Cung (hua_van_cung), as her wagon boy, and Doanh Thủ Lộ (doanh_thu_lo) joined them later. The three rode as one company until a quarrel over pay in 1188. In the wolf winter (A064) she was on the southern road with a Pivot column. Hứa held the road without her, and Doanh died on it. She sends Doanh's son in the herb valley, Nghiêm Tục Đoạn (nghiem_tuc_doan), half of every fee.",
+   "wants": "To be asked to guard a caravan that is not taking a road she has already seen.",
+   "secret": "She has kept the pay of the last wolf-winter run in her boot since 1188, and Hứa Vãn Cung and Doanh Thủ Lộ each think the other drew it; she is waiting for one of them to ask.",
    "ties": [
     {
      "to": "doanh_thu_lo",
@@ -692,11 +694,11 @@
    "traits": {
     "personality": [
      "Calm",
-     "Patient",
+     "Lazy",
      "Reclusive"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
       "id": "steady_heart",
@@ -712,6 +714,8 @@
    },
    "appearance": "A stooped man in a reed rain-cape who poles without a lantern and has never been seen to hurry.",
    "backstory": "Nhâm Độ Hàn's family has poled boats across the Cold Ford river mouth since the fishers paid the pines' resin tax in fish (A041). His Water root would have taken him into Tùng Đào across the water, and his grandmother would have drowned him first; Thúy Vi, which took the coast back in 905 (C166), wanted Wood and Earth. So he ferries. He crosses at night, takes a fish or a stone, asks no name and keeps no face. His daughter Nhâm Liễu Ngạn (nham_lieu_ngan) went up to Thúy Vi and carries letters over his river; he poles her and does not ask whose they are.",
+   "wants": "One night in a bed that does not rock, and for Cù Lô Nhi to take the dawn crossings without being told why.",
+   "secret": "With every fare he scratches a tally on the keel board of the boat, and the board is nearly full; Cù Lô Nhi has seen it and has begun to read the marks.",
    "ties": [
     {
      "to": "nham_lieu_ngan",
@@ -801,7 +805,7 @@
    "traits": {
     "personality": [
      "Greedy",
-     "Gregarious",
+     "Callous",
      "Deceitful"
     ],
     "calling": "Schemer",
@@ -816,6 +820,8 @@
    },
    "appearance": "A plump old woman with a pearl in each ear, one real and one glass, who never says which.",
    "backstory": "A pearl broker's daughter of Quy Điểu Trấn, where the market is held on the lake ice (A011), Cát Châu Nương came to Hàn Tân Thành in 1120 and opened a dice house on the quay. Her family brokered pearls beside the family of Tùng Đào's first elder, Hồ Tùng Nguyệt (ho_tung_nguyet), and since 1139 Hồ has paid her for what the quay says. She keeps a ledger of every debt on the Cold Ford coast and remembers every loser; the one she likes best is a young Hồng Lô alchemist of 1144. In 1192 she bought the debts of a Phù Kiều gambler, Luyện Đắc Bảo (luyen_dac_bao), on Hồ's silver, and named the price to his sister.",
+   "wants": "The Cold Ford's every debt in one ledger, and the first elder owing her a seat.",
+   "secret": "She has taken Luyện Đắc Bảo's last rooms as pledge and means to turn him out at first frost, whatever his sister Luyện Tố Y offers; she has told Hồ Tùng Nguyệt that it is the sister's key she wants, which is a lie.",
    "ties": [
     {
      "to": "ho_tung_nguyet",
@@ -930,6 +936,8 @@
    },
    "appearance": "A bow-legged rider with a sabre on each hip, one from each of his parents' sides, and a face the sand has worn smooth.",
    "backstory": "Hô Diên Liệt's father rode with Dạ Quang and died in the Taming in 1120 (C184); his mother was a guard's daughter of Trường Vân whose brothers helped found Trấn Sa Đường five years later (V075). Neither side would have him. He took his father's sabre and his mother's and rides for the Hồi Lan merchants who will pay a man who belongs to no one. When a night-glow cup turns up at a stop, they hire him first. In 1194 he came back alone out of the sandstorm that buried his road partner Hà Khổ Hàn (ha_kho_han), and he has paid the widow's pond rent since.",
+   "wants": "To be chosen by one side, and to refuse them on the day it happens.",
+   "secret": "He pays Hà Khổ Hàn's widow's pond rent out of the Hồi Lan merchants' hazard money and has told the merchants he keeps it, so that Mông Thủy Hương will never learn it is anyone's charity.",
    "ties": [
     {
      "to": "ha_kho_han",
@@ -1040,11 +1048,11 @@
    "traits": {
     "personality": [
      "Greedy",
-     "Patient",
+     "Cruel",
      "Paranoid"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born",
+    "upbringing": "wild_raised",
     "talent": [],
     "path": [
      "beast_bonded"
@@ -1057,6 +1065,8 @@
    },
    "appearance": "A lean man in a white fox cape with a tame lynx at his heel and a string of wolf teeth he no longer wears.",
    "backstory": "Quản Tuyết Tung grew up in Liệp Hộ Thôn, the hunters' village, and hunted the northern forest beside the girl next door, Diêm Lạc Nhạn (diem_lac_nhan), until she went south. He sells live beasts and cores at Quy Điểu Trấn's ice market to whoever pays: the pearl manor, Pivot merchants, a buyer for Thiên Bảo Trai. In the autumn of 1189 he and the old trapper Nhung Tử Điêu (nhung_tu_dieu) dug a wolf-king's cub out of its den in Quần Lang Lâm and sold it to a buyer riding south with a Pivot caravan. That winter the pack followed the caravans to Tùng Hạ (A064). He has never said so, and he bought his foundation pill with the money.",
+   "wants": "A buyer in Mộc Lan for a second cub, and the name of whoever shot his dog last winter.",
+   "secret": "The wolf-king's mate still lives in a pit behind his hut at Liệp Hộ Thôn, starved by degrees so that her howl brings the pack down to his snares. Nhung Tử Điêu feeds her at night and is going soft.",
    "ties": [
     {
      "to": "diem_lac_nhan",
@@ -1156,13 +1166,13 @@
     "personality": [
      "Deceitful",
      "Gregarious",
-     "Fickle"
+     "Faithless"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child",
     "talent": [
      {
-      "id": "comely",
+      "id": "frail_frame",
       "tier": 1
      }
     ],
@@ -1175,8 +1185,10 @@
      "Disgraced"
     ]
    },
-   "appearance": "A smiling man in scholar's grey with ink on every finger and a map case on each shoulder, one for buyers and one he never opens.",
+   "appearance": "A smiling man in scholar's grey with ink on every finger and a map case on each shoulder, one for buyers and one he never opens; he stops to catch his breath on every stair, and his clients carry the cases the last stretch.",
    "backstory": "Giả Chỉ Lộ sells the walk, not the paper. He walks buyers to the ruins his maps name: the sword cave a Hòe Âm hunter found and lost (A108), the Peach Spring whose only true map Lạc Đan Thanh (lac_dan_thanh) keeps, Mặc Huyết Sinh's abode, Cung Hỏa Vân's vent. He takes half the fee at Tùng Hạ Thị or Lam Yên Thị, half at the foot of the climb, and leaves them at the last turn. He buys Hách Tùng's (hach_tung) honest copies of Tầm Kiếm's massif to learn the passes down. Lâm Dã Hạc (lam_da_hac) followed him up Ngọc Hồ Sơn, was left at the last turn, and came back with frostbite and a laugh. In 1197 a buyer he had left went on alone, came back and paid him double. Giả does not know what the man found.",
+   "wants": "A map of one ruin he has actually climbed to the top of.",
+   "secret": "This month he has sold the Peach Spring walk to three parties who all set out on the same morning, and Lạc Đan Thanh's man has found out.",
    "ties": [
     {
      "to": "lac_dan_thanh",
@@ -1285,6 +1297,8 @@
    },
    "appearance": "A small brown woman with fish-scale silver on her sleeves from the ponds and her dead husband's undyed sash tied at her waist.",
    "backstory": "Mông Thủy Hương keeps the fish ponds of Ngư Đàm Thôn (A115), as her mother did. Her husband Hà Khổ Hàn (ha_kho_han) sat the Pavilion's Frost Test three winters, felt nothing, took the road, and guarded salt caravans until a sandstorm buried him in 1194. Their daughter Hà Tiểu Băng (ha_tieu_bang) has more Water in her than the oasis has ever bred, and Ôn Sa Ngọc (on_sa_ngoc) has come every spring since to ask for her. Mông says no every spring. The village girl Hồ Tiểu Đàm (ho_tieu_dam) is about to sit her own third test, and Mông is watching that too.",
+   "wants": "Her daughter's Water in a safe place, and her husband's grave tended.",
+   "secret": "She has written ahead to Ôn Sa Ngọc to bring Hà Tiểu Băng home from the frozen mere, and then written again, in secret, asking the Pavilion's gate to let the girl in.",
    "ties": [
     {
      "to": "ha_kho_han",
@@ -1375,12 +1389,12 @@
    },
    "traits": {
     "personality": [
-     "Gregarious",
+     "Deceitful",
      "Fickle",
      "Brave"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "wild_raised",
     "talent": [
      {
       "id": "keen_soul",
@@ -1396,6 +1410,8 @@
    },
    "appearance": "A gangling young man who tilts his head at walls the way a dog does, with a strip of silk tied to his wrist that stirs when nothing else does.",
    "backstory": "Chiêm Thính Phong was born on a seal-oil boat in a gale off Kê Minh Trấn (A129), and his mother said the wind came in with his first breath. No sect on the frost coast teaches Wind; the Pavilion's recruiters tested him for Water and walked on. Phàn Cổ Đăng (phan_co_dang) found him in 1192 at the wall of a net shed, telling the fishers where the rats' tunnel ran. He feels air move through stone. He has found four sealed halls for the crew, and the 1198 dig at Sóc Phương Thành gave up the Gale Courier Scripture, which Phàn let him keep.",
+   "wants": "To be paid for the draught he feels, and for it to be a small one.",
+   "secret": "For months he has felt a great draught under Phàn Cổ Đăng's own cellar and told no one, afraid it is a hall she wants and that she will stop paying him for small ones.",
    "ties": [
     {
      "to": "phan_co_dang",

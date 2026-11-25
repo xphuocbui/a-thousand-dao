@@ -194,6 +194,7 @@
    "home": 372,
    "birthplace": 810,
    "role": "Grand elder; the founder's son, head 1060-1128, who gave the hall to Ân Thanh Linh",
+   "appearance": "A huge, slow old caster with one ear gone to a cracked pour, who keeps an unlit blue lamp on his tea table.",
    "tier": "B",
    "root": {
     "elements": {
@@ -231,8 +232,9 @@
      "Humbled"
     ]
    },
-   "appearance": "A huge, slow old caster with one ear gone to a cracked pour, who keeps an unlit blue lamp on his tea table.",
    "backstory": "Born at Thanh Đăng Trấn, the town of the blue lamps, in the year the Night Rain Edict put the Tower's lamps out (C167). He walked south at twenty-five behind his father Chung Thiết Liên (chung_thiet_lien) and learned to cast bells instead. He led the hall for sixty-eight years after his father died at the pour, and in 1128 he gave it to Ân Thanh Linh (an_thanh_linh), who could hear what he could not. He has not lit his father's last lamp since 905.",
+   "wants": "To light his father's lamp once, in front of someone who can see its colour.",
+   "secret": "He is buying a measure of blue lamp oil from Lục Nhĩ Thính (luc_nhi_thinh) with his tea-table silver, and means to light the lamp the night the hidden line comes down.",
    "ties": [
     {
      "to": "chung_thiet_lien",
@@ -325,6 +327,7 @@
    "home": 42,
    "birthplace": 42,
    "role": "Keeper of the warding bells on the walls of Thu Trì Thành",
+   "appearance": "A tidy man in a grey coat with a ring of small keys at his belt, one for each bell tower on the wall.",
    "tier": "B",
    "root": {
     "elements": {
@@ -345,7 +348,7 @@
     "personality": [
      "Diligent",
      "Cautious",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Steward",
     "upbringing": "merchant_child",
@@ -357,8 +360,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A tidy man in a grey coat with a ring of small keys at his belt, one for each bell tower on the wall.",
    "backstory": "A Thu Trì chandler's son who has walked the city walls every night for sixty years, oiling the bells and listening. He drinks with the Tower's ear at the ferry inn, Lục Nhĩ Thính (luc_nhi_thinh), and each knows what the other is. Last autumn Ân Thanh Linh (an_thanh_linh) ordered every third old bell on the walls taken down for her furnace. He takes them down, and walks the deaf stretches himself after dark with a hand bell.",
+   "wants": "Every deaf stretch walked until the bells come back, and no one asking what he told the ear.",
+   "secret": "He tells Lục Nhĩ Thính (luc_nhi_thinh) one old bell a month, the ones due for the furnace, so the Tower's ear can buy them first and hang them at the ferry inn.",
    "ties": [
     {
      "to": "an_thanh_linh",
@@ -433,6 +437,7 @@
    "home": 372,
    "birthplace": 372,
    "role": "Mistress of the furnace: the hall's master caster at the pour",
+   "appearance": "Broad and red-armed, with her hair burned short and a leather apron black with bronze.",
    "tier": "B",
    "root": {
     "elements": {
@@ -473,8 +478,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "Broad and red-armed, with her hair burned short and a leather apron black with bronze.",
    "backstory": "The founder's great-granddaughter, raised at the furnace. Every bell the hall has cast in fifty years has been poured by her hands, and the castings are still called Ân Thanh Linh's (an_thanh_linh). She writes the technical half of the letters to the Tower's forge, and Thạch Liên Hoàn (thach_lien_hoan) is the only man alive she thinks pours as well as she does. This spring, after a year without copper, she wrote back to him that she would pour the Thunder Hall's lightning bell at his storm forge if the copper came.",
+   "wants": "The lightning bell poured, and her own mark stamped on a casting.",
+   "secret": "She has cast a plain bell in her own mark and buried it under the furnace floor with Chung Tàn Hưởng's (chung_tan_huong) cracked bell beside it, to be found when the hall's castings are finally counted.",
    "ties": [
     {
      "to": "an_thanh_linh",
@@ -570,6 +576,7 @@
    "home": 372,
    "birthplace": 435,
    "role": "Bell-hanger: climbs the canopy to hang and tend the bell lines",
+   "appearance": "Elbows scarred white from a hundred branch falls.",
    "tier": "C",
    "root": {
     "elements": {
@@ -667,6 +674,7 @@
    "home": 372,
    "birthplace": 372,
    "role": "The mistress's true disciple, who has tried nine times to cast a listening bell",
+   "appearance": "A quick young woman with nine small cracked bells on a cord round her neck.",
    "tier": "B",
    "root": {
     "elements": {
@@ -687,7 +695,7 @@
     "personality": [
      "Ambitious",
      "Impatient",
-     "Honest"
+     "Faithless"
     ],
     "calling": "Formation master",
     "upbringing": "sect_raised",
@@ -704,8 +712,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A quick young woman with nine small cracked bells on a cord round her neck.",
    "backstory": "Born at the hall to two casters. Ân Thanh Linh (an_thanh_linh) took her as her true disciple at twenty-five, and she has spent fifteen years trying to cast a bell like the one the mistress made at twenty. Nine have cracked in the pour, and she wears them all. The mistress has not taught her the whole seal, and has told her the tenth will be poured from the first of the walls' old bells to reach the furnace.",
+   "wants": "A bell that listens, poured before the mistress does it for her.",
+   "secret": "She copies one line a night from the mistress's letter chest, where the last words of the listening seal are kept, and means to pour the tenth bell without leave before the next wall bell reaches the furnace. Ân Thanh Linh (an_thanh_linh) counts the chest's seals each dusk.",
    "ties": [
     {
      "to": "an_thanh_linh",
@@ -786,6 +795,7 @@
    "home": 372,
    "birthplace": 371,
    "role": "Bellows boy at the furnace",
+   "appearance": "Eyebrows still whole, which the others tease.",
    "tier": "C",
    "root": {
     "elements": {
@@ -868,6 +878,7 @@
    "home": 372,
    "birthplace": 807,
    "role": "Flies paper kites to carry the bell lines across gorges",
+   "appearance": "A kite string always on her wrist, tied to nothing.",
    "tier": "C",
    "root": {
     "elements": {
@@ -884,7 +895,12 @@
     ],
     "calling": "Wanderer",
     "upbringing": "village_born",
-    "talent": [],
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ],
     "path": [],
     "lifestyle": null,
     "health": null,
@@ -892,7 +908,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "From Trúc Chỉ Thôn, the bamboo-paper village; she flies the first cord of each new bell line over a gorge on a kite of her own paper.",
+   "backstory": "From Trúc Chỉ Thôn, the bamboo-paper village; she flies the first cord of each new bell line over a gorge on a kite of her own paper. She never finishes a kite she starts.",
    "ties": [
     {
      "to": "dang_quai_linh",
@@ -938,6 +954,7 @@
    "home": 372,
    "birthplace": 809,
    "role": "Stuffs and tunes the clappers of the bell lines",
+   "appearance": "Kapok fluff in his hair that no comb removes.",
    "tier": "C",
    "root": {
     "elements": {
@@ -949,7 +966,7 @@
    "traits": {
     "personality": [
      "Calm",
-     "Patient",
+     "Callous",
      "Reclusive"
     ],
     "calling": "Formation master",
@@ -962,7 +979,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "A kapok-picker's son from Mộc Miên Thôn who packs each bell's clapper with kapok so that it rings only for what it is tuned to and not for the rain.",
+   "backstory": "A kapok-picker's son from Mộc Miên Thôn who packs each bell's clapper with kapok so that it rings only for what it is tuned to and not for the rain. He once left a hired clapper-boy tied under the test bell through a cold night to see if it would ring for rain; the boy has not climbed since.",
    "ties": [
     {
      "to": "dang_quai_linh",
@@ -1010,6 +1027,7 @@
    "home": 42,
    "birthplace": 42,
    "role": "Runner on the walls of Thu Trì",
+   "appearance": "His purse clinks only when he wants it heard.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1022,7 +1040,7 @@
     "personality": [
      "Greedy",
      "Ambitious",
-     "Deceitful"
+     "Honest"
     ],
     "calling": "Schemer",
     "upbringing": "merchant_child",
@@ -1034,7 +1052,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "An innkeeper's son from Thu Trì who runs messages between the wall towers and sells what he overhears in the Night Rain Market. In the winter of 1197 he sold the place of a hidden bell to Lục Nhĩ Thính (luc_nhi_thinh) at the ferry inn. Now he tells Trịnh Thủ Linh (trinh_thu_linh) which wall bells ring least, and names the stretches smugglers pay him to name.",
+   "backstory": "An innkeeper's son who runs messages between the wall towers and sells what he overhears in the Night Rain Market. In the winter of 1197 he sold the place of a hidden bell in the wall line to Lục Nhĩ Thính (luc_nhi_thinh), and the Tower hung its own ear beside it, so the mistress lost a listener. Now he tells Trịnh Thủ Linh (trinh_thu_linh) which bells ring least.",
    "ties": [
     {
      "to": "trinh_thu_linh",
@@ -1091,6 +1109,7 @@
    "home": 372,
    "birthplace": 372,
    "role": "Deafened at a pour; feels the bell lines through her feet",
+   "appearance": "She walks with her toes spread and her head tilted, watching nothing.",
    "tier": "C",
    "root": {
     "elements": {

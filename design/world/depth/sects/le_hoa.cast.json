@@ -367,7 +367,7 @@
      "Cautious"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
       "id": "keen_soul",
@@ -384,7 +384,8 @@
     "gained": []
    },
    "appearance": "A round-faced woman with jade dust still in the creases of her knuckles, who hums the bell's note without knowing it.",
-   "backstory": "A jade-cutter's daughter from the Cold Jade Mine, where Ice woke in her at nine in the deepest shaft. Thái Lê Tuyết (thai_le_tuyet) took her as her last true disciple and gave her the bell cast from the frozen bolt (A105). She has rung it every night since the mountain rumbled (A111). Since Tầm Kiếm's suit came in 1199 Thái has been teaching her the Sealed Cold Sutra after the evening bell, so that someone can sit against the seal if the court goes wrong. Mạnh Tĩnh Chi (manh_tinh_chi), who walked with Thái in 1152, has not been asked.",
+   "backstory": "A jade-cutter's daughter from the Cold Jade Mine, born into the mine owner's service, where Ice woke in her at nine in the deepest shaft. Thái Lê Tuyết (thai_le_tuyet) took her as her last true disciple and gave her the bell cast from the frozen bolt (A105). She has rung it every night since the mountain rumbled (A111). Since Tầm Kiếm's suit came in 1199 Thái has been teaching her the Sealed Cold Sutra after the evening bell, so that someone can sit against the seal if the court goes wrong. Mạnh Tĩnh Chi (manh_tinh_chi), who walked with Thái in 1152, has not been asked.",
+   "secret": "After the evening bell she teaches Diệp Quang Nhi (diep_quang_nhi) the bell's note on the quiet side of the wall, the one novice the hermitage does not know how to teach, and tells no one.",
    "ties": [
     {
      "to": "thai_le_tuyet",
@@ -500,6 +501,8 @@
    },
    "appearance": "Broad in the shoulder, sunburnt from standing in the gate's glare, with a miner's short grey sword.",
    "backstory": "A silver-miner's daughter who will never wear the white: her root has no Water deep enough for Ice. She has made the grey robe a trade instead, and leads the twenty sisters who hold the Gate Hermitage under Mạnh Tĩnh Chi (manh_tinh_chi). Thirty years ago she turned a hunter of Tầm Kiếm Đường, Tịch Lang Tung (tich_lang_tung), away from the gate. He comes back every spring with a basket of larch mushrooms, and she takes the basket. The Hall of Cold Law has summoned her to Hòe Âm this autumn to swear that no man has passed the gate in her thirty years on it. Tịch would not swear against her gate for his own hall.",
+   "wants": "To be let off the Hall of Cold Law's oath without swearing that no man has passed her gate in thirty years.",
+   "secret": "Night by night she scrapes the spring entries out of the gate tally, one page at a time, so that no basket of larch mushrooms from Tịch Lang Tung (tich_lang_tung) shows in the book. Khâu Ngân Linh (khau_ngan_linh) is the sister who counts.",
    "ties": [
     {
      "to": "manh_tinh_chi",
@@ -609,10 +612,11 @@
      "Content"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born",
+    "upbringing": "temple_raised",
     "lifestyle": "gardener"
    },
-   "backstory": "Mạnh Tĩnh Chi's (manh_tinh_chi) only white-robed disciple; she grows snow lotus in the glacier's cracks and goes down to the mines every month with a basket of salves.",
+   "appearance": "Smells of crushed snow lotus; her sleeves are patched in the colour of every salve she makes.",
+   "backstory": "Raised in the hermitage from a foundling's age, Mạnh Tĩnh Chi's (manh_tinh_chi) only white-robed disciple; she grows snow lotus in the glacier's cracks and goes down to the mines every month with a basket of salves.",
    "ties": [
     {
      "to": "manh_tinh_chi",
@@ -683,10 +687,11 @@
      "Diligent"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "lifestyle": "chronicler"
    },
-   "backstory": "An ice hunter's widow from Hòe Âm who came up the mountain at forty; Ice woke in her at seventy, and Thái Lê Tuyết (thai_le_tuyet) gave her the book in which the nuns write every name they pray for.",
+   "appearance": "Neck bent from forty years over a book; eyes the washed blue of old ink.",
+   "backstory": "A fur-dealer's daughter from Hòe Âm and an ice hunter's widow who came up the mountain at forty; Ice woke in her at seventy, and Thái Lê Tuyết (thai_le_tuyet) gave her the book in which the nuns write every name they pray for.",
    "ties": [
     {
      "to": "thai_le_tuyet",
@@ -758,14 +763,15 @@
    },
    "traits": {
     "personality": [
-     "Honest",
+     "Deceitful",
      "Ambitious",
      "Gregarious"
     ],
     "calling": "Diplomat",
     "upbringing": "clan_heir"
    },
-   "backstory": "The Tiêu clan sends its daughters to the hermitage that turned away its son; she is Tiêu Vấn Phong's (tieu_van_phong) cousin and carries his letters to no one.",
+   "appearance": "Cowlick on the crown that no grey headscarf will flatten.",
+   "backstory": "The Tiêu clan sends its daughters to the hermitage that turned away its son; she is Tiêu Vấn Phong's (tieu_van_phong) cousin and carries his letters to no one. She swears she writes to no one, and pays the carter's boy two coppers a month to take a scrap down for the clan, so that her cousin Tiêu Ngọc Khê (tieu_ngoc_khe) is the one questioned at the gate.",
    "ties": [
     {
      "to": "tieu_van_phong",
@@ -847,12 +853,19 @@
     "personality": [
      "Gregarious",
      "Fickle",
-     "Brave"
+     "Lazy"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "She came up from Hoàng Oanh Thôn singing like the orioles (A107) and has been told to stop by Hướng Thiết Lan (huong_thiet_lan) every day for two years.",
+   "appearance": "Her throat visibly bobs when she holds back a tune.",
+   "backstory": "She came up from Hoàng Oanh Thôn half-wild, a goatherd who sang like the orioles (A107), and Hướng Thiết Lan (huong_thiet_lan) has told her to stop every day for two years. She hides in the loft with a tune when the gate step wants sweeping, and Khâu Ngân Linh (khau_ngan_linh) sweeps it.",
    "ties": [
     {
      "to": "huong_thiet_lan",
@@ -920,6 +933,7 @@
      "Spirit-eyed"
     ]
    },
+   "appearance": "Pupils go gold at dawn; she squints at the east all morning.",
    "backstory": "On her first dawn on Lăng Tuyệt Phong the sunrise went into her and stayed; she is the first Light root the hermitage has had, and no nun knows what to teach her. Ứng Lê Âm (ung_le_am) is her one friend.",
    "ties": [
     {
@@ -987,8 +1001,15 @@
      "Humble"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Flat plain face, a mole like a dropped seed on one cheek; the white robe a size too large.",
    "backstory": "From Đỗ Quyên Thôn, where the azaleas are the eruption's dead (A104); she took the white robe last winter and prays for them by name in Giản Tố Y's (gian_to_y) book.",
    "ties": [
     {
@@ -1051,13 +1072,14 @@
    "traits": {
     "personality": [
      "Cautious",
-     "Loyal",
+     "Faithless",
      "Content"
     ],
     "calling": "Steward",
     "upbringing": "servant_born"
    },
-   "backstory": "A silver-miner's girl sent up by Hướng Thiết Lan's (huong_thiet_lan) own family, who sweeps the gate step and counts the men who come to it.",
+   "appearance": "Broom handle worn to the shape of her palm; a stare that counts.",
+   "backstory": "A silver-miner's girl sent up by Hướng Thiết Lan's (huong_thiet_lan) own family, who sweeps the gate step and counts the men who come to it. She told the prioress about Khương Thạch Lựu's (khuong_thach_luu) dawn sparring in the forbidden yard to win the sword-sharpening post, and got it.",
    "ties": [
     {
      "to": "huong_thiet_lan",
@@ -1122,6 +1144,7 @@
      "buddhist_path"
     ]
    },
+   "appearance": "Remembered as a woman whose hair turned white on the night of the pear-blossom snow; her portrait in the hall has no mouth.",
    "backstory": "The last disciple of the wandering ice swordsman Hoắc Hàn Quang (hoac_han_quang), sent away before his tribulation. She came back to the foot of his mountain on the night in 600 when snow fell like pear blossom (A103) and opened a hermitage for the widows of the ice villages. In 700 his tribulation failed in the north (C014, C039). In 702 she cut the frozen lightning, cast the bell, sealed his empty cave with his sword inside, and wrote the vow: let no one who seeks the sword pass this gate.",
    "ties": [
     {
@@ -1162,12 +1185,13 @@
     "personality": [
      "Forgiving",
      "Calm",
-     "Humble"
+     "Deceitful"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
-   "backstory": "The founder Kỷ Hoa Ảnh's (ky_hoa_anh) disciple and the hermitage's abbess for 230 years. She walked to the seal four times, made the women-only custom of the gate into a rule because the men who came up the mountain all asked about the sword, and found Thái Lê Tuyết (thai_le_tuyet) sitting in the snow at the gate in 771.",
+   "appearance": "Remembered as broad-faced and slow of speech, with one eyelid that never fully closed.",
+   "backstory": "The founder Kỷ Hoa Ảnh's (ky_hoa_anh) disciple and the hermitage's abbess for 230 years. She walked to the seal four times, made the women-only custom of the gate into a rule because the men who came up the mountain all asked about the sword, and found Thái Lê Tuyết (thai_le_tuyet) sitting in the snow at the gate in 771. She taught the women the vow as no men, though she knew it barred only the sword.",
    "ties": [
     {
      "to": "ky_hoa_anh",

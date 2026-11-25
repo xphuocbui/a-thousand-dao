@@ -31,8 +31,15 @@
      "Cautious"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "thin_soul",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Sits so still that sparrows land on her knees; you must say her name three times before she looks up.",
    "backstory": "Turned back at the Pavilion's Frost Test in 1150, she came to sit beside Bồ Tọa Tuyết (bo_toa_tuyet) and is nearing the eighth layer. She suspects the grand elder knows why, and has not said so to Lư Độc Điếu (lu_doc_dieu).",
    "ties": [
     {
@@ -104,9 +111,10 @@
      "Honest"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "war_orphan"
    },
-   "backstory": "Sử Phá Băng's (su_pha_bang) oarsman for thirty years and now his second, out on the water he tells the whalers what no one says at the school: that Thẩm Hàn Giang (tham_han_giang) must be made Keeper.",
+   "appearance": "Broad flat whaler's hands; a voice that carries across a hundred oars.",
+   "backstory": "A smuggler-raid orphan, Sử Phá Băng's (su_pha_bang) oarsman for thirty years and now his second, he tells the whalers what no one says at the school: that Thẩm Hàn Giang (tham_han_giang) must be made Keeper. He sat his disciple Chiêm Đống Nhi (chiem_dong_nhi) on spring ice, which Lư forbids, to cure her grief.",
    "ties": [
     {
      "to": "bo_toa_tuyet",
@@ -181,8 +189,15 @@
      "Content"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Chubby, earnest, moves his lips as he counts on his fingers.",
    "backstory": "His aunt Phương Lô Hoa (phuong_lo_hoa) brought him from Lô Hoa Thôn to count fish at the boats. Ngải Hàn Tịch (ngai_han_tich) has started teaching him the abacus, and he has not worked out why.",
    "ties": [
     {
@@ -250,12 +265,13 @@
     "personality": [
      "Gregarious",
      "Pragmatic",
-     "Patient"
+     "Greedy"
     ],
     "calling": "Merchant",
     "upbringing": "street_orphan"
    },
-   "backstory": "Tiền Ngân Lân (tien_ngan_lan) hired her to gut fish at the stall before he found she had a root. She still guts fish, and listens hard when the Liễu family's servants come to buy for the house.",
+   "appearance": "Fish scales glitter on her forearms to the elbow; she smells of brine.",
+   "backstory": "Tiền Ngân Lân (tien_ngan_lan) hired her to gut fish at the stall before he found she had a root. She still guts fish, and listens hard when the Liễu family's servants come to buy for the house. She pockets the change the servants forget and tells Tiền the net-boys took it; their day-wage was docked.",
    "ties": [
     {
      "to": "tien_ngan_lan",
@@ -315,12 +331,13 @@
      "Humble"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "wild_raised",
     "gained": [
      "Lovestruck"
     ]
    },
-   "backstory": "Lư Độc Điếu (lu_doc_dieu) set his hole beside Liễu Thoa Nhi's (lieu_thoa_nhi) and told him to watch how she sits. He has fallen for her instead, and watches nothing else.",
+   "appearance": "Reed-cutter's long arms; goes red whenever Liễu Thoa Nhi passes.",
+   "backstory": "Raised half-wild in the reed beds, he was set by Lư Độc Điếu (lu_doc_dieu) with his hole beside Liễu Thoa Nhi's (lieu_thoa_nhi) and told him to watch how she sits. He has fallen for her instead, and watches nothing else.",
    "ties": [
     {
      "to": "lu_doc_dieu",
@@ -381,13 +398,14 @@
    "traits": {
     "personality": [
      "Calm",
-     "Humble",
+     "Cruel",
      "Patient"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "He failed the Pavilion's Frost Test in 1198 and chose to fish rather than walk the road. Sử Phá Băng (su_pha_bang) took him onto the escort and teases him for sitting too long at the oar.",
+   "appearance": "Wind-split lips; he folds his hands whenever he is not rowing.",
+   "backstory": "He failed the Pavilion's Frost Test in 1198 and chose to fish rather than walk the road; Sử Phá Băng (su_pha_bang) took him onto the escort. He keeps the Pavilion's habit of making the weak sitter kneel, and held Mạch Tiểu Điếu's (mach_tieu_dieu) face above the ice-hole until the boy stopped crying.",
    "ties": [
     {
      "to": "su_pha_bang",
@@ -454,6 +472,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "Tally cord of knotted hemp wound round her wrist, thick as a bracelet.",
    "backstory": "Her father drowned under spring ice in 1190 and she cut his last hole. She keeps a tally of every hole cut for the dead since, and wants Bồ Tọa Tuyết (bo_toa_tuyet) to tell her why the old sitters' holes were cut in pairs.",
    "ties": [
     {

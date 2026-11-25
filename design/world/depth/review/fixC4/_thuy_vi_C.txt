@@ -1,0 +1,264 @@
+thang_ha_kho|M|noi_mon|bp1143|['Brave', 'Wrathful', 'Loyal']|Duelist|village_born|[]
+  role:Cliff Hall fighter
+  bs:A pine-soot boy from Tùng Yên Thôn who climbed to the Cliff Hall because the slope's disciples laughed at his Metal; Hoàn Cô Bách (hoan_co_bach) has made him the hardest fighter on the ridge.
+tien_ban_ha|F|noi_mon|bp80|['Compassionate', 'Diligent', 'Gregarious']|Herbalist|merchant_child|[]
+  role:Keeper of the Green Door list
+  bs:A cloth-seller's daughter from Tang Ma Thành in Lạc Hà's river land who came north for the healers; she keeps the Green Door Day's list for Dư Tục Đoạn (du_tuc_doan) and has never forgotten a face on it.
+han_moc_te|F|noi_mon|bp1044|['Patient', 'Humble', 'Honest']|Herbalist|village_born|[]
+  role:Keeper of the osmanthus terraces at Thương Thúy Lâm; copyist of the Bách Thảo books
+  bs:An herb-gatherer's daughter from Thái Dược Thôn who keeps the osmanthus terraces at Thương Thúy Lâm and has been quietly copying the Bách Thảo books for Khổng Đương Quy (khong_duong_quy) before the paper rots.
+canh_bo_anh|M|noi_mon|bp1125|['Content', 'Diligent', 'Humble']|Steward|village_born|[]
+  role:Field Hall disciple
+  bs:A wheat farmer's son from Hoa Mạch Thôn who broke through to Trúc Cơ in a field, behind a plough; Quyền Thanh Lam (quyen_thanh_lam) took him as a disciple for it the same day.
+vo_han_lo|M|noi_mon|bp1101|['Warlike', 'Loyal', 'Callous']|Duelist|village_born|[]
+  role:The Cold Ford Hall's best fighter on ice
+  bs:Born in Tân Cư Thôn, where every door has a jar of resin as a joke on the old tax (V024), he is the Cold Ford Hall's best fighter on ice and the disciple Hướng Dạ Đăng (huong_da_dang) took with him onto the river mouth in 1172.
+nham_lieu_ngan|F|noi_mon|bp31|['Loyal', 'Honest', 'Cautious']|Wanderer|village_born|[]
+  role:Ferry disciple of the Cold Ford Hall
+  bs:A Hàn Tân ferryman's daughter and Hướng Vãn Chu's (huong_van_chu) oldest friend, who carries her letters across the river mouth and does not read them.
+bach_hop_hoan|F|noi_mon|bp61|['Compassionate', 'Gregarious', 'Fickle']|Beast tamer|village_born|[]
+  role:Marten Yard disciple
+  bs:She came from Tùng Đào's Cổ Độ Thành with a marten she had stolen from a hunter; now she is Lô Dã Hương's (lo_da_huong) disciple at the Marten Yard, names every pup and cries when they are sold to Hồng Lô.
+phi_tung_chi|M|chap_su|bp1032|['Cautious', 'Diligent', 'Paranoid']|Steward|village_born|[]
+  role:Steward of the spirit-wood stores
+  bs:Pulled from the burning resin stores of Tùng Chi Trấn at three (V016), he now keeps the spirit wood Hộ Lâm Đường sends down for the green furnaces, and he will not let a lamp inside the sheds.
+duong_tich_chieu|F|noi_mon|bp30|['Calm', 'Honest', 'Diligent']|Diplomat|merchant_child|[]
+  role:The envoy's letter-writer
+  bs:Born in the port of Yên Ba, she rides the envoy road beside Biện Vãn Tình (bien_van_tinh) and writes the sect's letters in a hand the Pivot's clerks admire.
+khang_thach_tuyen|M|noi_mon|bp34|['Diligent', 'Calm', 'Trusting']|Formation master|village_born|[]
+  role:Array runner of the Array Hall
+  bs:A Pivot stonemason's son from Khai Dương Thành who came north to learn arrays from the man who gave the Haze Walk away, Tất Hành Vụ (tat_hanh_vu); he walks the Spring Return array's stones every dawn and knows which one hums wrong.
+tuan_van_mau|F|noi_mon|bp166|['Stubborn', 'Patient', 'Humble']|Formation master|village_born|[]
+  role:Array Hall mica-grinder
+  bs:A mica-miner's daughter from Vân Mẫu Khoáng (A039), whose Metal makes her clumsy with Wood and very good with array stones; she grinds the mica that makes the seat's haze arrays shine.
+ngai_thanh_hao|M|noi_mon|bp1068|['Honest', 'Compassionate', 'Stubborn']|Herbalist|sect_raised|[]
+  role:Healing House disciple; keeps Thanh Nang Đường's own method
+  bs:A six-year-old child of Thanh Nang Đường's healers who came to Thúy Vi with Dư Tục Đoạn (du_tuc_doan) in 1101 (V018); he still practises the hall's own healing method rather than the lineage, under an exception.
+thi_tra_yen|F|noi_mon|bp1075|['Calm', 'Content', 'Temperate']|Herbalist|village_born|[]
+  role:Grower of the sect's spirit tea at Trà Viên Thôn
+  bs:She grows the sect's spirit tea at Trà Viên Thôn and brews the head's tea when he walks that way; she is the only disciple Ngu Lam Sơn (ngu_lam_son) asks for by name.
+banh_lap_mai|F|noi_mon|bp1113|['Stubborn', 'Brave', 'Impatient']|Duelist|village_born|[]
+  role:Cliff Hall disciple
+  bs:A white-wax girl from Bạch Lạp Thôn who chose the Cliff Hall because the slope felt too easy; she regrets it every winter and admits it only to Âu Dương Tân Di (au_duong_tan_di).
+dong_ho_dao|M|noi_mon|bp1103|['Patient', 'Content', 'Stubborn']|Steward|village_born|[]
+  role:Field Hall disciple
+  bs:A walnut grower's son from Hồ Đào Thôn who has been building Quyền Thanh Lam (quyen_thanh_lam) a second nine-square field in the forest for forty years, and is nearly done.
+liem_truc_anh|M|noi_mon|bp33|['Just', 'Cautious', 'Honest']|Steward|scholar_family|[]
+  role:Clerk of the Hall of Rules
+  bs:Born in Tùng Đào's Đào Thanh Thành, he crossed the border at sixteen because Thúy Vi's rules were written down; as Nhạc Chính Hành's (nhac_chinh_hanh) clerk he records every judgment, and he keeps a second book of the ones he thinks were wrong.
+ke_lang_hoa|F|noi_mon|bp1073|['Brave', 'Fickle', 'Trusting']|Wanderer|village_born|[]
+  role:Port house disciple; the one who followed the peach petals
+  bs:A water-chestnut girl from Lăng Giác Thôn who followed a stream of peach petals up a forest stream in the spring of 1180 and came back three days later with no memory of them (N-thuy_vi-09).
+tat_que_lac|F|noi_mon|bp1110|['Gregarious', 'Honest', 'Ambitious']|Formation master|sect_raised|[]
+  role:Array Hall disciple; Tất Hành Vụ's granddaughter
+  bs:Tất Hành Vụ's (tat_hanh_vu) granddaughter and disciple, born at the new seat; she lays haze arrays as well as he does and argues with him about Vụ Ẩn Môn at dinner.
+dau_tam_that|M|chap_su|bp45|['Pragmatic', 'Gregarious', 'Greedy']|Merchant|merchant_child|[]
+  role:Steward of the sect's pill shop in Lam Yên Thị
+  bs:He keeps the sect's pill shop in Lam Yên Thị, where he was born, and sells to merchants from three sects; Lạc Đan Thanh's (lac_dan_thanh) agents buy from him and copy the seals.
+thuong_doc_hoat|M|noi_mon|bp1111|['Reclusive', 'Content', 'Calm']|Wanderer|sect_raised|[]
+  role:The head's oldest living disciple; a hermit on Thủy Cùng Phong
+  bs:The head's oldest living disciple, who never rose past Trúc Cơ and stopped trying; he lives alone on Thủy Cùng Phong, where the water ends, and walks with the abbot Tống Tọa Vân (tong_toa_van) of the abbey below.
+huong_tieu_lam|M|ngoai_mon|bp31|['Peaceable', 'Content', 'Lazy']|Wanderer|village_born|[]
+  role:The warden's son
+  bs:Hướng Dạ Đăng's (huong_da_dang) late son, who would rather fish than fight and has not dared to tell his father.
+cam_le_chau|F|ngoai_mon|bp1066|['Vengeful', 'Brave', 'Impatient']|Duelist|village_born|[]
+  role:Port house outer disciple
+  bs:Her little sister was the child the sea eagle took from the oyster beds below Hải Điêu Nhai in 1170 (V020); she joined the sect to learn to kill eagles and has not yet been allowed to.
+dinh_lao_hoe|M|tap_dich|bp1|['Gregarious', 'Content', 'Stubborn']|Steward|servant_born|[]
+  role:Cook of the Cliff Hall
+  bs:Cook of the Cliff Hall for seventy years, a servant with a Metal root too thin for any sect; he feeds Cù Thúy Bách (cu_thuy_bach) and argues with her about salt.
+uong_tieu_nguu|M|ngoai_mon|bp56|['Loyal', 'Gregarious', 'Lazy']|Beast tamer|village_born|[]
+  role:Herder boy of the outer gate
+  bs:Uông Mục Địch's (uong_muc_dich) grandson, a Mục Ca herder boy who joined the outer gate to be near the old man for his last spring.
+trinh_ma_thang|M|ngoai_mon|bp1061|['Ambitious', 'Diligent', 'Impatient']|Steward|village_born|[]
+  role:Outer disciple; braids the herb-drying lines
+  bs:A rope-maker's son from Thằng Tác Thôn who braids the sect's herb-drying lines and wants the inner gate badly enough to sit for the First Leaf twice a year.
+le_dan_tat|F|ngoai_mon|bp1051|['Patient', 'Humble', 'Diligent']|Refiner|village_born|[]
+  role:Lacquers the sect's pill boxes
+  bs:A lacquer-maker's daughter from Tất Thụ Thôn who lacquers the sect's red pill boxes; her hands are always stained and never itch.
+truong_mac_than|M|noi_mon|bp1033|['Loyal', 'Cautious', 'Honest']|Alchemist|village_born|[]
+  role:Fire-tender of the green furnaces
+  bs:From Úy Thanh Diễm's (uy_thanh_diem) own charcoal village, he tends the green furnaces' fires for Tề Tử Tô (te_tu_to) and has seen what she reads at night.
+vuong_phuc_linh|F|noi_mon|bp1111|['Trusting', 'Gregarious', 'Diligent']|Herbalist|village_born|[]
+  role:Thiệu Thanh Đài's second disciple
+  bs:A poria-digger's girl from Thiệu Thanh Đài's (thieu_thanh_dai) own village, taken as her second disciple in 1199; Kiển Viễn Chí treats her as a rival, which she has not yet noticed.
+khau_hai_doi|M|ngoai_mon|bp1042|['Generous', 'Gregarious', 'Honest']|Wanderer|village_born|[]
+  role:Port house runner
+  bs:A kelp-gatherer from Hải Đới Thôn, whose village has let the cape's poor eat elm bark since the long winter of 860 (V012); he runs messages for the port house and gives his rations away.
+nguyen_man_diep|F|ngoai_mon|bp1101|['Gregarious', 'Fickle', 'Content']|Wanderer|village_born|[]
+  role:New outer disciple
+  bs:A girl from Tân Cư Thôn who arrived with a jar of resin as a gift, as her village's old joke demands (V024); the outer gate kept the jar on its shelf.
+lo_kien|M|ngoai_mon|bp78|['Content', 'Humble', 'Stubborn']|Steward|village_born|[]
+  role:Builds the field terraces' stone walls
+  bs:A stonecutter's son from Lạc Hà's Ngũ Cốc Thành with more Earth than Wood, who lays the field terraces' stone walls and has accepted the outer gate as his life.
+sam_nguu_tat|M|ngoai_mon|bp1099|['Brave', 'Honest', 'Gregarious']|Wanderer|village_born|[]
+  role:Raftsman of the spirit wood
+  bs:A raftsman's son from Phiệt Công Thôn who brings Hộ Lâm Đường's spirit wood down the river to the seat each autumn, and knows its warden Lục Thanh Sam (luc_thanh_sam) better than any elder does.
+lieu_tieu_do|F|ngoai_mon|bp1115|['Trusting', 'Diligent', 'Cautious']|Herbalist|village_born|[]
+  role:The newest outer disciple
+  bs:The newest outer disciple, seventeen, from Bối Độ Thôn; she planted her life tree last spring and checks it every morning before breakfast.
+doi_hoa_mach|F|ngoai_mon|bp1125|['Ambitious', 'Honest', 'Gregarious']|Steward|village_born|[]
+  role:Field worker of the outer gate
+  bs:Cảnh Bồ Anh's (canh_bo_anh) cousin from Hoa Mạch Thôn, who came to the fields because he did and turned out better at them.
+trac_bach_truat|M|noi_mon|bp1044|['Diligent', 'Reclusive', 'Honest']|Herbalist|village_born|[]
+  role:Inner disciple of the herb gardens; copyist
+  bs:An inner Luyện Khí who helps Hàn Mộc Tê (han_moc_te) copy the Bách Thảo books, and who has begun to find recipes in them that the sect's own copies left out.
+chuong_da_mat|F|ngoai_mon|bp1038|['Pragmatic', 'Gregarious', 'Patient']|Beast tamer|village_born|[]
+  role:Keeper of the seat's spirit bees
+  bs:A beekeeper's daughter from Dã Mật Thôn who keeps the seat's spirit bees and sells their honey to Đậu Tam Thất (dau_tam_that) for the pill shop.
+phong_han_nha|M|ngoai_mon|bp102|['Reclusive', 'Fickle', 'Honest']|Beast tamer|village_born|[]
+  role:Outer disciple who keeps crows
+  bs:From Ô Đề Thôn under the crows' ridge (A036); he feeds the crows at the seat and claims they bring him news from the Cliff Hall before the messengers do.
+tich_thu_diep|F|ngoai_mon|bp104|['Humble', 'Patient', 'Devout']|Teacher|village_born|[]
+  role:Outer disciple who reads to the field workers
+  bs:From the red-leaf village whose bookmarks scholars of three sects buy (A047); she has more Water and Earth than Wood and reads the sect's scriptures aloud to the field workers at night.
+van_tieu_ca|M|ngoai_mon|bp59|['Content', 'Gregarious', 'Lazy']|Wanderer|village_born|[]
+  role:Outer disciple who sings in the fields
+  bs:A woodcutter's son from Tiều Ca Trấn, the town named when Không Sơn asked its singers to sing more quietly (A033); he sings in the fields, quietly.
+ung_lam_tuyen|F|ngoai_mon|bp103|['Compassionate', 'Devout', 'Calm']|Herbalist|village_born|[]
+  role:Water-carrier of the Healing House
+  bs:From Lâm Tuyền Thôn, whose spring cured the coughing sickness of 760 (A042); she carries its water to the Healing House for the Green Door Day.
+thoi_hai_thuy|F|noi_mon|bp1059|['Brave', 'Loyal', 'Impatient']|Wanderer|village_born|[]
+  role:Diêm Hải Tảo's youngest disciple
+  bs:A fisher girl from Hải Thúy Trấn with a strong Wood root, Diêm Hải Tảo's (diem_hai_tao) youngest disciple, who has been promised the first voyage when the old woman sails south.
+khuat_phong_pham|M|ngoai_mon|bp99|['Calm', 'Honest', 'Brave']|Wanderer|village_born|[]
+  role:Weather-reader for the pill ships
+  bs:A sailor's son from Phong Phàm Thôn, whose people read the cape's winds so well their sails never go slack (A023); the port house uses him to read the weather for its pill ships.
+co_dong_du|M|ngoai_mon|bp1147|['Patient', 'Content', 'Humble']|Steward|village_born|[]
+  role:Oils the seat's halls against the haze
+  bs:A tung-oil presser from Đồng Du Thôn who oils the seat's wooden halls against the haze every autumn and is the slowest disciple to reach the First Leaf in thirty years.
+phong_thach_hoc|F|noi_mon|bp1143|['Patient', 'Compassionate', 'Reclusive']|Herbalist|village_born|[]
+  role:Cliff Hall disciple who tends the old life trees with Bao Nham Tỉnh
+  bs:A Tùng Yên Thôn girl named for the orchid that roots in rock, she waters the four hundred old life trees beside Bao Nham Tỉnh (bao_nham_tinh) and goes the 200 km down to the new seat with him when one dies, so that someone is there to bring him back.
+le_khuong_hoat|M|noi_mon|bp1|['Wrathful', 'Loyal', 'Brave']|Duelist|servant_born|[]
+  role:Cliff Hall fighter; Thang Hạ Khô's sworn brother
+  bs:Born on the ridge to a Cliff Hall servant, he reached the inner gate on Wood that barely cleared it, climbed straight back up, and swore brotherhood with Thang Hạ Khô (thang_ha_kho) on the cliff path.
+vien_son_thu|F|noi_mon|bp1111|['Stubborn', 'Devout', 'Honest']|Herbalist|village_born|[]
+  role:Forest-born disciple who chose the Cliff Hall
+  bs:Phục Linh Thôn's best root in a generation, she was meant for the slope and walked up to the ridge instead after hearing Cù Thúy Bách (cu_thuy_bach) speak at the founder's grave; her family on the slope still wears damp hems and does not write.
+o_thach_tung|M|noi_mon|bp165|['Reclusive', 'Patient', 'Loyal']|Steward|village_born|[]
+  role:Gatekeeper of the Cliff Hall; props the founder's pine
+  bs:A jade-miner's son from Bích Ngọc Khoáng whose Metal nearly kept him out of the gate, he has kept the Cliff Hall's gate for eighty years and props the founder's sideways pine with cedar braces he renews each spring.
+bo_do_trong|M|noi_mon|bp1143|['Stubborn', 'Just', 'Paranoid']|Teacher|village_born|[]
+  role:Oldest of the Cliff Hall's inner disciples
+  bs:Born in Tùng Yên Thôn on the ridge road, he joined at the new seat, climbed to the Cliff Hall in 1070 and has not been down since; his life tree stands at Cổ Dịch, and each spring he asks Phòng Thạch Hộc (phong_thach_hoc) whether it lives.
+chiem_dan_sam|M|noi_mon|bp1033|['Ambitious', 'Diligent', 'Pragmatic']|Alchemist|village_born|[]
+  role:Furnace Hall brewer, second to Tề Tử Tô
+  bs:A charcoal-burner's son from Thiêu Thán Thôn, as Úy Thanh Diễm (uy_thanh_diem) was, he brews the sect's second-best wound pills and has spent forty years trying to learn how Tề Tử Tô (te_tu_to) brews the best.
+lu_sa_sam|F|noi_mon|bp1125|['Generous', 'Honest', 'Patient']|Steward|village_born|[]
+  role:Field Hall disciple who keeps the grain tally
+  bs:She keeps the Field Hall's grain tally for Quyền Thanh Lam (quyen_thanh_lam) and has quietly entered Mễ Điền Nhi's (me_dien_nhi) unsown plot in it as a field, which makes it the sect's, and hard to dig up.
+ngo_cau_dang|M|noi_mon|bp1064|['Cautious', 'Calm', 'Loyal']|Formation master|village_born|[]
+  role:Array Hall disciple who walks the Spring Return array each dawn
+  bs:From Tất Hành Vụ's (tat_hanh_vu) own town of Phù Kiều, he walks the Spring Return array's stones each dawn and knows which ones the roots have shifted; he would follow his master to Vụ Ẩn Môn if the elders made it pay.
+su_te_tan|F|noi_mon|bp1143|['Just', 'Paranoid', 'Diligent']|Strategist|village_born|[]
+  role:Investigator of the Hall of Rules
+  bs:A ridge-born investigator who wears a dry hem at the new seat as Nhạc Chính Hành (nhac_chinh_hanh) does, she has been asked to read every Cold Ford report since 1172 and has not been told why.
+van_tu_uyen|F|noi_mon|bp1044|['Gregarious', 'Content', 'Compassionate']|Herbalist|village_born|[]
+  role:Keeper of the osmanthus terraces at Thương Thúy Lâm
+  bs:From the herb-pickers of Thái Dược Thôn, she weeds the osmanthus terraces beside Hàn Mộc Tê (han_moc_te) and sings under her breath, which Khổng Đương Quy (khong_duong_quy) allows on the terraces and nowhere else.
+hong_moc_huong|M|chap_su|bp1061|['Devout', 'Patient', 'Peaceable']|Steward|village_born|[]
+  role:Steward of the rite of asking, before a spirit tree is felled
+  bs:A rope-maker's son from Thằng Tác Thôn, he spends one night in ten beside a spirit tree that Hộ Lâm Đường means to fell, asking, and has refused eleven trees in sixty years; Phí Tùng Chi (phi_tung_chi) counts the shortfall.
+tan_thuong_truat|M|noi_mon|bp31|['Vengeful', 'Brave', 'Warlike']|Duelist|village_born|[]
+  role:Cold Ford Hall fighter of Tân Hàn Chu's line
+  bs:Of Tân Hàn Chu's (tan_han_chu) line, he grew up beside the Boat in the Cold and wants the border pushed to Lô Khẩu marsh as badly as Hướng Dạ Đăng (huong_da_dang) does; Biện Vãn Tình's letters make him spit.
+chu_hoai_son|F|chap_su|bp1155|['Peaceable', 'Cautious', 'Honest']|Diplomat|village_born|[]
+  role:Steward of the Cold Ford Hall's stores and boat lamps
+  bs:She lights the lamps on every Cold Ford boat as the custom of 904 asks and writes to Biện Vãn Tình (bien_van_tinh) each month about the Hall's mood; Hướng Dạ Đăng (huong_da_dang) knows, and keeps her because the lamps are always lit.
+kieu_con_bo|M|noi_mon|bp1059|['Gregarious', 'Greedy', 'Brave']|Merchant|village_born|[]
+  role:Captain of a port-house pill ship
+  bs:A Hải Thúy Trấn sailor's son who captains a pill ship for Diêm Hải Tảo (diem_hai_tao), he eats salted fish at sea and herb broth on the slope and has never once said which he prefers.
+ninh_ich_mau|F|noi_mon|bp1103|['Compassionate', 'Patient', 'Calm']|Herbalist|village_born|[]
+  role:Healer of the Green Door Day
+  bs:A Hồ Đào Thôn midwife's daughter, she sets bones beside Dư Tục Đoạn (du_tuc_doan) on the Green Door Day and keeps a list of every child she has delivered on the step, which is longer than Tiền Bán Hạ's (tien_ban_ha) list of recruits.
+ha_ngai_diep|F|ngoai_mon|bp1118|['Cautious', 'Diligent', 'Humble']|Herbalist|village_born|[]
+  role:Outer disciple whose life tree is slow
+  bs:From Tử Tô Thôn, she planted her life tree the day she joined and it has not put out one spirit leaf in six years; Phạm Thủ Điền (pham_thu_dien) tells her mugwort is slow too.
+cung_hoang_tinh|M|ngoai_mon|bp81|['Generous', 'Gregarious', 'Humble']|Steward|merchant_child|[]
+  role:Earth-rooted outer disciple from the Pivot's Thạch Kiều Thành
+  bs:A carter's son from Thạch Kiều Thành, Mễ Điền Nhi's (me_dien_nhi) city, he came north because she wrote home that the sect takes Earth roots, and he carries soil for her fourth plot in the evenings.
+ta_kinh_gioi|M|ngoai_mon|bp1113|['Impatient', 'Ambitious', 'Honest']|Herbalist|village_born|[]
+  role:Outer disciple waiting on his First Leaf
+  bs:His Wood already holds the inner gate's mark and his life tree will not leaf, so he waters it three times a day against Phạm Thủ Điền's advice and envies Vương Phục Linh (vuong_phuc_linh), who went up before him.
+co_thien_mon|F|ngoai_mon|bp1147|['Content', 'Patient', 'Gregarious']|Steward|village_born|[]
+  role:Oils the seat's halls with her brother
+  bs:Cổ Đồng Du's (co_dong_du) younger sister, from the tung-oil presses of Đồng Du Thôn, she oils the halls with him every autumn and has bet the outer gate she will reach the First Leaf sooner than he did.
+luc_huong_phu|F|ngoai_mon|bp1105|['Trusting', 'Gregarious', 'Loyal']|Diplomat|sect_raised|[]
+  role:Hộ Lâm Đường's head's niece in the outer gate
+  bs:Lục Thanh Sam's (luc_thanh_sam) niece, sent from Hộ Lâm Đường to learn the green fire her family's wood feeds; she has become fast friends with Phù Liên Kiều (phu_lien_kieu), who asks such good questions about the furnaces.
+khuong_mach_mon|F|ngoai_mon|bp1111|['Humble', 'Trusting', 'Diligent']|Herbalist|village_born|[]
+  role:Vương Phục Linh's cousin in the outer gate
+  bs:Vương Phục Linh's (vuong_phuc_linh) cousin from Phục Linh Thôn, she joined at the autumn harvest a few days before Liêu Tiểu Độ (lieu_tieu_do) and has never let her forget it.
+lo_tieu_dien|F|ngoai_mon|bp78|['Stubborn', 'Diligent', 'Honest']|Steward|village_born|[]
+  role:Lỗ Kiên's sister; Earth-rooted, from Lạc Hà's Ngũ Cốc Thành
+  bs:Lỗ Kiên's (lo_kien) sister, sent north from Ngũ Cốc Thành when her Earth was found, she lays terrace stones beside him and has not accepted the outer gate as her life.
+dong_to_moc|M|ngoai_mon|bp1099|['Brave', 'Content', 'Temperate']|Wanderer|village_born|[]
+  role:Spirit-wood raftsman
+  bs:From the raft village of Phiệt Công Thôn, he rides the spirit-wood logs down from Hộ Lâm Đường with Sầm Ngưu Tất (sam_nguu_tat) and has fallen in the river more often than any disciple alive.
+ton_ngan_hoa|F|ngoai_mon|bp1038|['Calm', 'Patient', 'Generous']|Beast tamer|village_born|[]
+  role:Helps keep the seat's spirit bees
+  bs:From Dã Mật Thôn, where Chương Dã Mật (chuong_da_mat) grew up, she followed her to the seat's hives and is the only disciple the spirit bees have never stung.
+do_hoang_lien|M|noi_mon|bp1128|['Cautious', 'Loyal', 'Patient']|Diplomat|merchant_child|[]
+  role:The envoy's letter-runner
+  bs:A Lãm Thúy Trấn innkeeper's son who runs Biện Vãn Tình's (bien_van_tinh) letters for Đường Tịch Chiếu (duong_tich_chieu), and has learned the Haze Walk's first step so the Cold Ford Hall does not see him come.
+ke_tang_chi|M|ngoai_mon|bp1061|['Trusting', 'Calm', 'Lazy']|Herbalist|village_born|[]
+  role:Sits the nights of asking beside Hồng Mộc Hương
+  bs:From Thằng Tác Thôn like his master Hồng Mộc Hương (hong_moc_huong), he sits beside him through the nights of asking and has fallen asleep at every one; the trees, Hồng says, do not seem to mind.
+sai_que_chi|M|noi_mon|bp1033|['Diligent', 'Humble', 'Loyal']|Alchemist|village_born|[]
+  role:Furnace Hall fire-tender
+  bs:Another charcoal boy from Thiêu Thán Thôn, he feeds green fire under Chiêm Đan Sâm's (chiem_dan_sam) cauldrons and can tell spirit wood from dead wood by smell, which the Furnace Hall counts as a gift.
+vuu_thien_ma|F|noi_mon|bp1064|['Diligent', 'Cautious', 'Trusting']|Formation master|village_born|[]
+  role:Array Hall junior
+  bs:She holds the measuring cord for Ngô Câu Đằng (ngo_cau_dang) when he walks the Spring Return array, and has started mapping where its stones would be if the roots had not moved them.
+hinh_hoang_ba|M|noi_mon|bp1143|['Just', 'Arrogant', 'Diligent']|Steward|village_born|[]
+  role:Junior clerk of the Hall of Rules
+  bs:A ridge-born clerk who copies the Hall of Rules' judgments for Liêm Trúc Ảnh (liem_truc_anh) and keeps his hem dry on the slope as a matter of principle, which costs him a good deal of laundry.
+luong_coc_nha|F|noi_mon|bp1125|['Generous', 'Patient', 'Content']|Herbalist|village_born|[]
+  role:Field Hall inner disciple
+  bs:From Hoa Mạch Thôn, she helps Lư Sa Sâm (lu_sa_sam) keep the grain tally and has taken to watering Mễ Điền Nhi's (me_dien_nhi) unsown plot when nobody is looking, which Mễ has asked her to stop.
+tri_kim_anh|F|noi_mon|bp1110|['Calm', 'Honest', 'Reclusive']|Herbalist|sect_raised|[]
+  role:Seed vault junior, born at the new seat
+  bs:Born at Cổ Dịch to two Field Hall disciples, she has never seen the ridge, keeps the seed vault's cold jars for Quyền Tiểu Mạch (quyen_tieu_mach), and cannot understand why anyone would go back up.
+tao_phong_phong|M|noi_mon|bp1143|['Calm', 'Stubborn', 'Just']|Duelist|village_born|[]
+  role:Cliff Hall disciple
+  bs:Thang Hạ Khô's (thang_ha_kho) disciple from the same pine-soot village, he reached the First Leaf at the new seat and climbed to the ridge the next morning without unpacking.
+bac_thanh_ha|F|noi_mon|bp1113|['Gregarious', 'Honest', 'Impatient']|Herbalist|village_born|[]
+  role:Cliff Hall disciple
+  bs:From Bạch Lạp Thôn like her teacher Bành Lạp Mai (banh_lap_mai), she followed her up to the ridge and makes the Cliff Hall laugh, which Cù Thúy Bách (cu_thuy_bach) has decided to permit.
+dinh_tieu_tung|M|tap_dich|bp1|['Gregarious', 'Impatient', 'Honest']|Steward|servant_born|[]
+  role:Kitchen servant of the Cliff Hall; the cook's grandson
+  bs:Đinh Lão Hòe's (dinh_lao_hoe) grandson, born on the ridge, he peels roots in the Cliff Hall's kitchen and takes his grandfather's side in the argument about salt.
+o_ngoc_truc|F|tap_dich|bp1|['Devout', 'Patient', 'Reclusive']|Steward|servant_born|[]
+  role:Sweeps the founder's grave; the gatekeeper's daughter
+  bs:Ô Thạch Tùng's (o_thach_tung) daughter, whose Wood was too thin for her father's gate, she sweeps the founder's grave every dawn and brushes the fallen needles of the pine off it by hand.
+han_son_duoc|M|tap_dich|bp1143|['Temperate', 'Humble', 'Stubborn']|Steward|village_born|[]
+  role:Water-carrier of the cliff path
+  bs:A Tùng Yên Thôn boy turned away at the gate for his thin Wood, he carries water up the cliff path twice a day and has learned to breathe on the climb; Lệ Khương Hoạt (le_khuong_hoat) races him and loses.
+ve_lo_can|M|ngoai_mon|bp1155|['Diligent', 'Honest', 'Peaceable']|Steward|village_born|[]
+  role:Cold Ford outer disciple who cuts the salt-marsh dikes
+  bs:A Nghịch Triều Thôn fisher's son who cuts and mends the salt-marsh dikes round Hướng Vãn Chu's (huong_van_chu) spirit rice, and believes her when she says it is bread.
+nhieu_lo_hoa|F|ngoai_mon|bp31|['Gregarious', 'Fickle', 'Brave']|Wanderer|merchant_child|[]
+  role:Cold Ford outer disciple
+  bs:A Hàn Tân salt-fish seller's daughter who joined the outer gate a year after Hướng Tiểu Lâm (huong_tieu_lam) and follows him everywhere, including, lately, to his long talks with Phù Liên Kiều.
+ung_han_thao|M|noi_mon|bp1101|['Loyal', 'Cautious', 'Honest']|Duelist|village_born|[]
+  role:Võ Hàn Lô's disciple at the Cold Ford Hall
+  bs:From Tân Cư Thôn like his teacher Võ Hàn Lô (vo_han_lo), he trains on the river-mouth ice every winter and has learned not to ask why Võ will not go near one stretch of it.
+lau_mau_le|M|ngoai_mon|bp1066|['Gregarious', 'Brave', 'Indulgent']|Wanderer|village_born|[]
+  role:Deck hand on a port-house pill ship
+  bs:An oyster-raker from Mẫu Lệ Thôn, Cam Lệ Châu's (cam_le_chau) village, he crews Kiều Côn Bố's (kieu_con_bo) pill ship and has promised Cam a sea eagle's feather from every voyage.
+gia_muc_tuc|F|ngoai_mon|bp56|['Calm', 'Loyal', 'Patient']|Beast tamer|village_born|[]
+  role:Herder at the spirit cattle station
+  bs:A Mục Ca herder girl who plays the flute to Uông Mục Địch's (uong_muc_dich) spirit cattle at dusk and has been asked to play for his breakthrough; she is practising quieter songs.
+mo_bach_cap|F|noi_mon|bp1049|['Reclusive', 'Patient', 'Compassionate']|Beast tamer|village_born|[]
+  role:Marten Yard junior
+  bs:From Tùng Nhung Thôn, the greenest village on the cape, she raises silver marten kits for Bạch Hợp Hoan (bach_hop_hoan) and lets them sleep in her sleeves.
+lam_cat_canh|M|ngoai_mon|bp1101|['Loyal', 'Humble', 'Diligent']|Herbalist|village_born|[]
+  role:Came through the Green Door with a broken arm
+  bs:He came to the Green Door at twelve with an arm a Tùng Đào patrolman had broken; Dư Tục Đoạn (du_tuc_doan) set it, and he has carried water for the Healing House beside Ứng Lâm Tuyền (ung_lam_tuyen) ever since.
+chu_moc_qua|M|ngoai_mon|bp45|['Gregarious', 'Greedy', 'Fickle']|Merchant|street_orphan|[]
+  role:Runner of the sect's pill shop in Lam Yên Thị
+  bs:A Lam Yên Thị market boy who stole pills from Đậu Tam Thất's (dau_tam_that) shop until Đậu caught him and had his root tested; now he runs the shop's errands and knows every pill thief in the market by name.
+tieu_hoac_huong|F|noi_mon|bp1103|['Compassionate', 'Diligent', 'Impatient']|Herbalist|village_born|[]
+  role:Healing House junior
+  bs:Ninh Ích Mẫu's (ninh_ich_mau) first disciple, a Hồ Đào Thôn girl who reached the First Leaf at seventeen and wants to be on the step at Lam Yên Thị every day, not one in thirty.

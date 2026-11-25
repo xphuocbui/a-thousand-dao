@@ -188,6 +188,7 @@
    "home": 1013,
    "birthplace": 1020,
    "role": "Guest elder: the indigo dyer of Lam Điện, hired for the pavilion's colours",
+   "appearance": "An old woman with hands dyed blue to the wrist, who smells of indigo vats.",
    "tier": "B",
    "root": {
     "elements": {
@@ -211,7 +212,7 @@
      "Reclusive"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born",
+    "upbringing": "hermit_taught",
     "talent": [
      {
       "id": "steady_heart",
@@ -223,8 +224,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "An old woman with hands dyed blue to the wrist, who smells of indigo vats.",
-   "backstory": "The dyers of Lam Điện are the grandchildren of Kim Sa Trấn, which a storm tide drowned in 913 (V171). Nhiễm Thanh Lam is the best of them and the only Kết Đan. Thân Vân Cẩm (than_van_cam) hired her in 1152 to give the pavilion's silk colours that hold. She takes no part in the pavilion's quarrels, is never taught its methods, and outranks its head by a realm.",
+   "backstory": "The dyers of Lam Điện are the grandchildren of Kim Sa Trấn, which a storm tide drowned in 913 (V171). Nhiễm Thanh Lam is the best of them and the only Kết Đan. Thân Vân Cẩm (than_van_cam) hired her in 1152 to give the pavilion's silk colours that hold. She takes no part in the pavilion's quarrels, is never taught its methods, and outranks its head by a realm. She learned the vats from a lake-shore hermit.",
+   "wants": "Indigo for Lam Điện's children for one more year, and a dye of hers that outlasts the banner it colours.",
+   "secret": "She is dyeing a bolt in a fast red she has told no one she can make, the red that would let the pavilion's silk be told from the palace's. She is waiting to see which way Thân Vân Cẩm (than_van_cam) answers the dowry before she hands it over.",
    "ties": [
     {
      "to": "than_van_cam",
@@ -301,6 +303,7 @@
    "home": 1013,
    "birthplace": 94,
    "role": "Elder of the worm sheds; cousin of the palace's array keeper",
+   "appearance": "A small, careful woman who carries silkworms in her sleeve to keep them warm.",
    "tier": "B",
    "root": {
     "elements": {
@@ -336,8 +339,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A small, careful woman who carries silkworms in her sleeve to keep them warm.",
    "backstory": "Of the Tang reeler family of Tang Điền, cousin of the palace's array keeper Tang Kế Ti (tang_ke_ti), whose line went up to the Fire Court with Tang Sơ Ti in 592 while hers stayed with the worms. She keeps the pavilion's sheds, reweaves the Robe of the First Weave every season, and keeps the founder's vow stricter than anyone. Since her cousin named the dowry she has packed the northern bolts under the leaf-pickers' baskets herself, because sixty years at the palace's price would starve her sheds.",
+   "wants": "The sheds fed through the sixty years she will not sign for, and her cousin's line out of the pavilion's cellars.",
+   "secret": "She is raising a second brood of worms in a shed corner on Hồ Tâm bank mulberry, a strain that spins a thicker thread, and has told the shed girls it is a sick brood. Tang Kế Ti (tang_ke_ti) would pay a bride's price for it.",
    "ties": [
     {
      "to": "tang_ke_ti",
@@ -434,6 +438,7 @@
    "home": 94,
    "birthplace": 94,
    "role": "The pavilion's factor at the Tang Điền silk market",
+   "appearance": "Wears a ring on every finger, one a size too small, and twists it when haggling.",
    "tier": "C",
    "root": {
     "elements": {
@@ -451,7 +456,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "He sells the pavilion's silk at Tang Điền across the table from the palace's factor Chiêm Lợi Châu (chiem_loi_chau) and loses every year. The few bolts he once sold quietly to caravans going north are now the whole pavilion's second trade; they come down under the palace's bolts on the season's cart.",
+   "backstory": "He sells the pavilion's silk at Tang Điền across the table from the palace's factor Chiêm Lợi Châu (chiem_loi_chau) and loses every year. The bolts he once sold quietly to northern caravans are now the pavilion's second trade, sent down under the palace's bolts. He takes a tenth of them into a purse his mother's cousins hold, and Tang Mộng Kiển (tang_mong_kien) pays the leaf-pickers the difference.",
    "ties": [
     {
      "to": "chiem_loi_chau",
@@ -518,6 +523,7 @@
    "home": 1013,
    "birthplace": 1015,
    "role": "Embroiderer of the pavilion's banners",
+   "appearance": "Looks at a stranger's hands before their face; a silver needle through her lapel.",
    "tier": "C",
    "root": {
     "elements": {
@@ -530,12 +536,12 @@
     "personality": [
      "Diligent",
      "Arrogant",
-     "Patient"
+     "Arbitrary"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
-   "backstory": "A Trúc Lâu Thôn girl who embroiders the pavilion's banners in Nhiễm Thanh Lam's (nhiem_thanh_lam) colours and is drafting, in secret, the pattern of the banner Thân Vân Cẩm wants to weave.",
+   "backstory": "A scholar's daughter from Trúc Lâu Thôn who embroiders the pavilion's banners in Nhiễm Thanh Lam's (nhiem_thanh_lam) colours and is drafting, in secret, the banner Thân Vân Cẩm wants to weave. She burned Phùng Tiểu Toa's (phung_tieu_toa) best week of work for a thread colour she disliked.",
    "ties": [
     {
      "to": "nhiem_thanh_lam",
@@ -597,6 +603,7 @@
    "home": 1013,
    "birthplace": 162,
    "role": "The pavilion's best young fire-setter",
+   "appearance": "Eyebrows singed to stubble on one side.",
    "tier": "C",
    "root": {
     "elements": {
@@ -672,6 +679,7 @@
    "home": 1013,
    "birthplace": 1015,
    "role": "Outer disciple of the worm sheds",
+   "appearance": "A cocoon's name written on a thread around her wrist.",
    "tier": "C",
    "root": {
     "elements": {
@@ -687,9 +695,15 @@
      "Humble"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "thin_soul",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A bamboo-house girl who feeds the worms for Tang Mộng Kiển (tang_mong_kien) and names the cocoons.",
+   "backstory": "A bamboo-house girl who feeds the worms for Tang Mộng Kiển (tang_mong_kien) and names the cocoons. She cries at the pit and cannot stay for the boiling.",
    "ties": [
     {
      "to": "tang_mong_kien",
@@ -737,6 +751,7 @@
    "home": 1013,
    "birthplace": 94,
    "role": "Inner disciple; boils and reels the cocoons",
+   "appearance": "Fingertips boiled smooth, with no prints left.",
    "tier": "C",
    "root": {
     "elements": {
@@ -807,6 +822,7 @@
    "home": 1013,
    "birthplace": 163,
    "role": "Outer disciple at the looms",
+   "appearance": "A fish-scale glitter on one cheek that she swears is not paint.",
    "tier": "C",
    "root": {
     "elements": {
@@ -877,6 +893,7 @@
    "home": 1013,
    "birthplace": 1015,
    "role": "Servant leaf-picker of the mulberry rows",
+   "appearance": "Whistles through the gap where a front tooth was.",
    "tier": "C",
    "root": {
     "elements": {
@@ -892,9 +909,15 @@
      "Forgiving"
     ],
     "calling": "Steward",
-    "upbringing": "servant_born"
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "An Earth-rooted villager who has picked the pavilion's mulberry since its founding; since spring the northern bolts leave the worm sheds before dawn under her leaf baskets, and she gossips with Tang Mộng Kiển (tang_mong_kien) about every rider from the Fire Court.",
+   "backstory": "An Earth-rooted villager who has picked the pavilion's mulberry since its founding; since spring the northern bolts leave the worm sheds before dawn under her leaf baskets, and she gossips with Tang Mộng Kiển (tang_mong_kien) about every rider from the Fire Court. She left the high rows unpicked all last week, and Lã Tiểu Tàm's (la_tieu_tam) brood went hungry two nights; whichever row she picks, the frost takes first.",
    "ties": [
     {
      "to": "tang_mong_kien",

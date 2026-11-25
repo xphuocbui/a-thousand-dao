@@ -325,6 +325,7 @@
    "home": 795,
    "birthplace": 788,
    "role": "Keeper of the northern lamp in the crumbling fort of Liệu Phàm Bảo",
+   "appearance": "A gaunt man in a seal-skin coat whose eyes have gone pale from staring at the dark sea.",
    "tier": "B",
    "root": {
     "elements": {
@@ -360,8 +361,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A gaunt man in a seal-skin coat whose eyes have gone pale from staring at the dark sea.",
    "backstory": "A Sunrise Village fisher's son who has kept the lamp in Liệu Phàm Bảo alone since 1150. The palace withdrew the fort's garrison in 790 (V140), the year the hall was founded, and the hall has kept a lamp in its tower ever since. Twice last winter he saw sails pass south at night with no lamp lit. He wrote to Ôn Thủ Đăng (on_thu_dang), and no one has answered.",
+   "wants": "A relief posted before another winter, and an answer to his letters.",
+   "secret": "He is trimming the fort lamp's wick short so it burns dim and the unlit sails think the fort empty. He is also drawing their hulls on the tower stair, to send to the palace admiral Phàn Vọng Hải (phan_vong_hai) himself when he is sure.",
    "ties": [
     {
      "to": "on_thu_dang",
@@ -442,6 +444,7 @@
    "home": 337,
    "birthplace": 779,
    "role": "Steward of the hall: lamp oil, salt and laver, and the accounts",
+   "appearance": "A brisk woman with salt-cracked hands and an abacus at her belt.",
    "tier": "B",
    "root": {
     "elements": {
@@ -461,7 +464,7 @@
    "traits": {
     "personality": [
      "Pragmatic",
-     "Honest",
+     "Deceitful",
      "Temperate"
     ],
     "calling": "Steward",
@@ -477,8 +480,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A brisk woman with salt-cracked hands and an abacus at her belt.",
    "backstory": "Her people at Hàm Trạch are the grandchildren of Hải Diêm Trấn's salt makers, burned out by Thôn Hải in 764 (V139). She keeps the hall's money, which is salt, laver and a small palace stipend, and spends most of it on lamp oil. She has shown Chân Định Lan (chan_dinh_lan) that the oil for one year would build a furlong of breakwater.",
+   "wants": "A furlong of breakwater built from one year's oil.",
+   "secret": "She buys lamp oil at a quiet price from Biện Ám Phàm's (bien_am_pham) boats 'because oil is oil', and writes it down as burned, to put a year's oil aside for walls. She is paying the people who run the poisons past the fort.",
    "ties": [
     {
      "to": "chan_dinh_lan",
@@ -553,6 +557,7 @@
    "home": 228,
    "birthplace": 149,
    "role": "Keeper of the lamp at the burned piers of Châu Lệ Cảng; dives for pearls against her family's vow",
+   "appearance": "Ear-lobes pierced through for pearls she has already sold.",
    "tier": "C",
    "root": {
     "elements": {
@@ -565,12 +570,12 @@
     "personality": [
      "Brave",
      "Fickle",
-     "Indulgent"
+     "Greedy"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "An Âu Lộ pearl diver's great-granddaughter who broke the family vow never to dive again (A259); she dives at Châu Lệ by day and keeps its lamp by night, and sometimes dives with the palace's Ô Trầm Châu (o_tram_chau) for the lost sabre.",
+   "backstory": "An Âu Lộ pearl diver's great-granddaughter who broke the family vow never to dive again (A259); she dives at Châu Lệ by day and keeps its lamp by night, and sometimes dives with the palace's Ô Trầm Châu (o_tram_chau) for the lost sabre. The pearls go to the Night Rain Market, not to the lamp's oil, and Vệ Lư Sinh (ve_lu_sinh) trims a thinner wick.",
    "ties": [
     {
      "to": "chan_dinh_lan",
@@ -648,6 +653,7 @@
    "home": 164,
    "birthplace": 164,
    "role": "Keeper of the southern lamp at Lô Châu Thôn; the hall's best ward-layer",
+   "appearance": "Forearms thin as reeds; he keeps one eye shut against a sun that is not there.",
    "tier": "C",
    "root": {
     "elements": {
@@ -660,12 +666,12 @@
     "personality": [
      "Calm",
      "Loyal",
-     "Humble"
+     "Callous"
     ],
     "calling": "Formation master",
     "upbringing": "village_born"
    },
-   "backstory": "Born in the reed village that Thôn Hải carried off whole in 765 and the freed captives rebuilt reed by reed (A306, A307); Ôn Thủ Đăng (on_thu_dang) taught him the wards, and he keeps the last tower on the southern coast.",
+   "backstory": "Born in the reed village that Thôn Hải carried off whole in 765 and the freed captives rebuilt reed by reed (A306, A307); Ôn Thủ Đăng (on_thu_dang) taught him the wards, and he keeps the last tower on the southern coast. He hauls up the rope ladder on oil-boat men who come late; Ngư Dạ Phàm (ngu_da_pham) lost two fingers to the cold last winter.",
    "ties": [
     {
      "to": "on_thu_dang",
@@ -718,6 +724,7 @@
    "home": 337,
    "birthplace": 791,
    "role": "Outer watchman",
+   "appearance": "A pirate's mark inked on his own forearm in lamp soot, smudged.",
    "tier": "C",
    "root": {
     "elements": {
@@ -730,12 +737,12 @@
     "personality": [
      "Impatient",
      "Brave",
-     "Gregarious"
+     "Cruel"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "A Hải Mục herder's son who joined to see a pirate and has seen only gulls; Lê Bạch Diêm (le_bach_diem) has him carrying oil.",
+   "backstory": "A Hải Mục herder's son who joined to see a pirate and has seen only gulls; Lê Bạch Diêm (le_bach_diem) has him carrying oil. He nails the gulls he catches to the fort wall, and once chained a twelve-year-old oil-boy beside them for a night to show him a pirate's dark.",
    "ties": [
     {
      "to": "le_bach_diem",
@@ -781,6 +788,7 @@
    "home": 228,
    "birthplace": 149,
    "role": "Outer watchwoman at the burned piers",
+   "appearance": "Her hair dries salt-white within an hour of any wetting.",
    "tier": "C",
    "root": {
     "elements": {
@@ -849,6 +857,7 @@
    "home": 795,
    "birthplace": 788,
    "role": "Lamp-lighter at Liệu Phàm Bảo",
+   "appearance": "A harelip scar he hides behind a wisp of beard.",
    "tier": "C",
    "root": {
     "elements": {
@@ -859,14 +868,20 @@
    },
    "traits": {
     "personality": [
-     "Honest",
+     "Deceitful",
      "Cautious",
      "Reclusive"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Kiển Mục Hải's (kien_muc_hai) only companion in the crumbling fort. He lights the lamp and cooks, and on the nights Kiển climbs the broken seaward tower to watch the gulf he keeps the lamp alone; he has asked twice to be posted south, and been told to wait.",
+   "backstory": "Kiển Mục Hải's (kien_muc_hai) only companion in the crumbling fort. He lights the lamp and cooks, and keeps it alone on the nights Kiển climbs the seaward tower; he has asked twice to be posted south. He tells Kiển the oil has spoiled so the lamp burns less, and trades the saved oil on the coast, so Kiển takes the blame for the dim light.",
    "ties": [
     {
      "to": "kien_muc_hai",
@@ -915,6 +930,7 @@
    "home": 337,
    "birthplace": 777,
    "role": "Inner disciple of the storm wards",
+   "appearance": "Laver-green stains in the seams of her nails.",
    "tier": "C",
    "root": {
     "elements": {
@@ -927,12 +943,12 @@
     "personality": [
      "Ambitious",
      "Just",
-     "Stubborn"
+     "Faithless"
     ],
     "calling": "Formation master",
     "upbringing": "village_born"
    },
-   "backstory": "A laver gatherer's daughter from Tử Thái Thôn who sides with Chân Định Lan (chan_dinh_lan) on the sea-walls and says so to the head.",
+   "backstory": "A laver gatherer's daughter from Tử Thái Thôn who sides with Chân Định Lan (chan_dinh_lan) on the sea-walls and says so to the head. She promised Bàng Trấn Lãng (bang_tran_lang) her name beside his on the breakwater plans, then signed her own alone and sent a copy to the admiral's clerk for a place on the next convoy.",
    "ties": [
     {
      "to": "chan_dinh_lan",
@@ -985,6 +1001,7 @@
    "home": 337,
    "birthplace": 793,
    "role": "Servant who boils the lamp oil",
+   "appearance": "Smells of fish oil in any season, and the gulls follow him.",
    "tier": "C",
    "root": {
     "elements": {
@@ -997,12 +1014,12 @@
     "personality": [
      "Content",
      "Lazy",
-     "Loyal"
+     "Greedy"
     ],
     "calling": "Steward",
     "upbringing": "servant_born"
    },
-   "backstory": "A Deep Well villager who renders fish oil for every lamp on the coast and tells Ôn Thủ Đăng (on_thu_dang) each year that the oil costs more.",
+   "backstory": "A Deep Well villager who renders fish oil for every lamp on the coast and tells Ôn Thủ Đăng (on_thu_dang) each year that the oil costs more. He adds a cask in six to the cost he reports, sleeps through the second boil, and sends the southern lamp the thin end, so Vệ Lư Sinh (ve_lu_sinh) trims a dimmer flame.",
    "ties": [
     {
      "to": "on_thu_dang",

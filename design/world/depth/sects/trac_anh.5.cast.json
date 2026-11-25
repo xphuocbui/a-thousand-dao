@@ -29,12 +29,13 @@
     "personality": [
      "Brave",
      "Greedy",
-     "Loyal"
+     "Faithless"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "His third boat leaks and its irons are older than he is. He took Ngạc Hải Tiêu's (ngac_hai_tieu) new iron first, and has promised his crew that the calf's second half will buy a new hull.",
+   "backstory": "His third boat leaks and its irons are older than he is. He promised his crew that the calf's second half will buy a new hull, swore his boat to the head, and took Ngạc Hải Tiêu's (ngac_hai_tieu) new iron before the council could meet, leaving Bào Thiết Thủ (bao_thiet_thu), who had waited beside him, the only captain still sworn to the old iron.",
+   "appearance": "Shouts as if over a gale, even indoors.",
    "ties": [
     {
      "to": "doan_thanh_lang",
@@ -117,6 +118,7 @@
     "upbringing": "village_born"
    },
    "backstory": "She dives beside Đoàn Tố Ba (doan_to_ba) and swore to her that the inlet's seals will not be hunted while she lives. She pulls an oar in the sixth boat. Phí Nhạn Tâm (phi_nhan_tam) teaches her the Tê Nhạn palm; she is the only one who rows out to the ruin with him.",
+   "appearance": "Seal-fur gloves she wears even in summer.",
    "ties": [
     {
      "to": "phi_nhan_tam",
@@ -183,12 +185,13 @@
     "personality": [
      "Brave",
      "Gregarious",
-     "Impatient"
+     "Lazy"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "His father Bốc Kình Thăng (boc_kinh_thang) put him in the third boat at twelve. He came up from the winter dive on the second try, and Bào Thiết Thủ (bao_thiet_thu) still calls him the one who asked twice.",
+   "backstory": "His father Bốc Kình Thăng (boc_kinh_thang) put him in the third boat at twelve. He came up from the winter dive on the second try, and Bào Thiết Thủ (bao_thiet_thu) still calls him the one who asked twice. He bails only when his father is watching.",
+   "appearance": "A notched ear where the winter dive caught him.",
    "ties": [
     {
      "to": "boc_kinh_thang",
@@ -254,13 +257,14 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Humble",
+     "Greedy",
      "Ambitious"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "war_orphan"
    },
-   "backstory": "Her family boiled seal oil at Sóc Phương Thành before it fell (V078). She renders the terrace's oil for the Pavilion tax and wants to dive for Đoàn Tố Ba (doan_to_ba), who has not asked her yet.",
+   "backstory": "Her family boiled seal oil at Sóc Phương Thành before it fell (V078). She renders the terrace's oil for the Pavilion tax and wants to dive for Đoàn Tố Ba (doan_to_ba), who has not asked her yet. She skims a cup from every jar she renders for the tax, and the short count is docked from the youngest boiler, a Sóc Phương boy who cannot read the tally.",
+   "appearance": "The smell of rendered oil follows her through every door.",
    "ties": [
     {
      "to": "vu_bich_trieu",
@@ -324,9 +328,16 @@
      "Humble"
     ],
     "calling": "Steward",
-    "upbringing": "temple_raised"
+    "upbringing": "temple_raised",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Phí Nhạn Tâm (phi_nhan_tam) found him a foundling in the reeds by Tê Nhạn Quán and taught him the monastery's chant before the dive. He sweeps the palm hall and keeps a list of what the rebuilding would cost.",
+   "backstory": "Phí Nhạn Tâm (phi_nhan_tam) found him a foundling in the reeds by Tê Nhạn Quán and taught him the monastery's chant before the dive. He sweeps the palm hall and keeps a list of what the rebuilding would cost. He chants the palm's verses a season behind the others.",
+   "appearance": "Duck down clings to his hair from the ruin.",
    "ties": [
     {
      "to": "phi_nhan_tam",
@@ -388,12 +399,13 @@
     "personality": [
      "Ambitious",
      "Warlike",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan"
    },
-   "backstory": "Ngạc Hải Tiêu (ngac_hai_tieu) took her into his boat because she threw farther than Nghê Tiểu Lãng (nghe_tieu_lang). She wants the bow seat on the day they go for the Old Ivory's calf.",
+   "backstory": "Ngạc Hải Tiêu (ngac_hai_tieu) took her into his boat because she threw farther than Nghê Tiểu Lãng (nghe_tieu_lang). She wants the bow seat on the day they go for the Old Ivory's calf. Before a throw-off she frayed Nghê Tiểu Lãng's line a hair, and he lost the throw and his share of that kill.",
+   "appearance": "Her throwing arm is a hand's width thicker than the other.",
    "ties": [
     {
      "to": "ngac_hai_tieu",
@@ -463,9 +475,10 @@
      "Cautious"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "She mends the harpoon lines in the boat shed for Bào Thiết Thủ (bao_thiet_thu), who lets no one else check a line he has spliced. Her brother Đổng Võng (dong_vong) knots the nets.",
+   "appearance": "A splicing callus on her thumb as big as a coin.",
    "ties": [
     {
      "to": "bao_thiet_thu",

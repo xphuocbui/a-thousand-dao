@@ -223,6 +223,8 @@
    },
    "appearance": "A thin, stooped man whose hands are always wet and whose robe smells of the pool.",
    "backstory": "A Backwater Village boy whom Kiều Băng Liên (kieu_bang_lien) took as her last disciple in 1006 because the spirit fish came to his hand. He has kept them ever since and has lit the Moon-Fish Lantern over the pool on every dark night for a hundred and fifty years, since the freeze of 748 taught the manor what the fish need (C146). He thinks Kiều Nguyệt Châu (kieu_nguyet_chau) sells too many pearls and breeds too few fish, and he has said so at every new year for fifty years. This year the manor overseeded the shallows below the stilt-halls to make the tenth and the tithe both, and every morning he carries the night's dead fish up to the mistress's door in a basket and counts them aloud.",
+   "wants": "To see the shallows below the stilt-halls left fallow before spring, and to die with more fish in the pool than he found there.",
+   "secret": "He is carrying the spirit fish fry out of the overseeded shallows by night, a hundred in a basket each week, to a pond he dug behind Backwater Village; Đào Nguyệt Lân (dao_nguyet_lan) names each one on the way and says nothing to the mistress.",
    "ties": [
     {
      "to": "kieu_bang_lien",
@@ -349,8 +351,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A tall net-maker's daughter with a calm face and ink on her fingers from Kha Toán Châu's ledgers.",
+   "appearance": "A tall net-maker's daughter with a calm face; Kha Toán Châu's ledgers have inked her fingers.",
    "backstory": "Born in Ngư Đăng Thôn, where the fishers hang lamps on their nets, and named Hàm Sương by a mother who hoped the manor would see frost in her. It saw none. Kiều Nguyệt Châu (kieu_nguyet_chau) took her anyway in 1128 and has meant her to be mistress since she laid a flawless foundation at sixty. The old shore families say a mistress of Hàm Nguyệt should carry the frost, and they look at the Kiều children. Kiều has put her to the first ledger to learn the manor's sums, and Lam now writes the north beds' pearls into it herself, as lots from the patient beds. She knows what Kha Toán Châu's (kha_toan_chau) second ledger holds because she makes the first one agree with it.",
+   "wants": "To be mistress without the frost, and to hear the shore families say her name before a Kiều child's.",
+   "secret": "She is teaching herself the Ice method from scrolls she copied at the Lake Hall's market, and freezes a bowl of pool water every night to see whether the frost will take in a root that has none.",
    "ties": [
     {
      "to": "kieu_nguyet_chau",
@@ -463,8 +467,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A neat, small man with an abacus of pearl beads and two brushes behind one ear.",
+   "appearance": "A neat, small man with an abacus of pearl beads, two brushes behind one ear.",
    "backstory": "A pearl broker's son from Nguyệt Tân Trấn who came to the manor to count and stayed to cultivate. He keeps two ledgers in the shore house: one for the Lake Hall's tallier Phương Ngọc Sa (phuong_ngoc_sa), one for Kiều Nguyệt Châu (kieu_nguyet_chau). Only he, the mistress and the heir, who writes the first ledger now, know what the north beds pay and to whom. Since last winter he has also paid the diver Đinh Lưu Ly (dinh_luu_ly) a share of the tenth, because she hands the black pearls up into the boat and can count. He sleeps with the second ledger under his pillow and has never once added it up wrong.",
+   "wants": "To die with both ledgers added up right, and to know before Kiều Nguyệt Châu does whether the north beds will be found.",
+   "secret": "He shaves one pearl in a hundred from the tenth into a third, unwritten pouch buried under the shore house's third stair, against the day both ledgers are read aloud.",
    "ties": [
     {
      "to": "kieu_nguyet_chau",
@@ -559,14 +565,15 @@
    "traits": {
     "personality": [
      "Brave",
-     "Gregarious",
+     "Callous",
      "Indulgent"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born",
     "lifestyle": "drinker"
    },
-   "backstory": "A Tuyết Lộc herder's son who can stay under for two incense sticks; he leads the divers on the north beds and drinks with Băng Tâm's fishers on the shore, which Mục Tiềm Uyên (muc_tiem_uyen) has told him not to do.",
+   "appearance": "A rope of white scar runs round his ribs where an air-line once cut him.",
+   "backstory": "A Tuyết Lộc herder's son who can stay under for two incense sticks; he leads the divers on the north beds and drinks with Băng Tâm's fishers on the shore, which Mục Tiềm Uyên (muc_tiem_uyen) has told him not to do. He once fished out a boy who did not come up and sent the clothes to the boy's mother with no word.",
    "ties": [
     {
      "to": "muc_tiem_uyen",
@@ -671,6 +678,7 @@
      "beast_bonded"
     ]
    },
+   "appearance": "Hums to the fish, a scale always stuck to her sleeve.",
    "backstory": "From the same Backwater Village as her master Mục Tiềm Uyên (muc_tiem_uyen); she knows each of the four hundred spirit fish by its scales and has named them all after the mistresses.",
    "ties": [
     {
@@ -760,6 +768,7 @@
     "calling": "Duelist",
     "upbringing": "clan_heir"
    },
+   "appearance": "Keeps his dry, unfrosted hand in his sleeve.",
    "backstory": "Kiều Hàn Nguyệt's (kieu_han_nguyet) elder brother, born without the frost that went to her; he has written to the Lake Hall twice offering to stand pledge in his sister's place so that she can come home, and Kiều Nguyệt Châu (kieu_nguyet_chau) tore up the second letter before it left the shore house.",
    "ties": [
     {
@@ -835,8 +844,9 @@
      "Impatient"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
+   "appearance": "Reindeer-fur cuffs on a diver's arms; salt keeps her eyes red-rimmed.",
    "backstory": "Her family of Tuyết Lộc herders says its grandfather of eight hundred years ago sold the manor the fist pearl for a winter's grain (A007); she dives the north beds for Quách Bất Trầm (quach_bat_tram) and has seen Băng Tâm skiffs sit on the water and not come in.",
    "ties": [
     {
@@ -912,9 +922,10 @@
      "Content"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born",
+    "upbringing": "scholar_family",
     "lifestyle": "chronicler"
    },
+   "appearance": "Oyster shells clink in his pockets at every step.",
    "backstory": "His family left Cựu Châu Trấn when the freeze killed its beds in 749 (V002), and he has spent three summers carrying young oysters back to the old town's shallows behind Kha Toán Châu's (kha_toan_chau) back.",
    "ties": [
     {
@@ -992,8 +1003,15 @@
      "Generous"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Laughs a beat after the joke, loudest of all, with a net needle behind his ear.",
    "backstory": "A net-drying village boy who failed the pines' Wood test at the Lake Hall and walked round the shore to the manor, whose gate asks only for Water; Quách Bất Trầm (quach_bat_tram) took him for his laugh.",
    "ties": [
     {
@@ -1061,6 +1079,7 @@
     "calling": "Merchant",
     "upbringing": "village_born"
    },
+   "appearance": "Turns a coin over and over in her palm.",
    "backstory": "A Băng Võng Thôn girl whose village nets the ice every winter; she brought Lam Hàm Sương (lam_ham_suong) a black pearl from the north beds in her first year and hands the rest up into the boat, and since last winter Kha Toán Châu (kha_toan_chau) has paid her a diver's share of the tenth to keep diving them, and she asks for more each season.",
    "ties": [
     {

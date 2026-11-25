@@ -37,11 +37,11 @@
    "traits": {
     "personality": [
      "Loyal",
-     "Pragmatic",
+     "Greedy",
      "Patient"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [
      {
       "id": "sturdy_frame",
@@ -57,6 +57,8 @@
    },
    "appearance": "A lean, sun-black boatman with a scholar's ink-stained fingers and a ledger wrapped in oilcloth at his belt.",
    "backstory": "A boatman's son from Thiên Nhai Trấn, the last town before the open sea, Thư Vấn Triều has rowed every pilgrim to Dục Nhật Đảo since 1110. Since Mạc Quy Khư (mac_quy_khu) began answering one question a year (A311) he has kept the Book of Questions: who came, what they asked, and what they were told. For three years the old man has slept through the spring. Thư has answered the last two questions himself, in Mạc's words, from ninety years of listening, and no pilgrim has noticed.",
+   "wants": "To be asked a question himself, once, and to answer it in his own name.",
+   "secret": "He writes the year's answers in the old man's name and has sold the third one to a captain of Lận Viễn Phàm's boats for two hundred stones. He gave Cam Thủ Nguyện an answer about her son's boat that he invented, and cannot now bring himself to say that it was not Mạc's.",
    "ties": [
     {
      "to": "mac_quy_khu",
@@ -159,10 +161,10 @@
     "personality": [
      "Diligent",
      "Cautious",
-     "Humble"
+     "Callous"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
       "id": "quick_minded",
@@ -182,6 +184,8 @@
    },
    "appearance": "A small grey woman with cassia-brown hands and a basket on her back, who smells of every herb on the mountain at once.",
    "backstory": "Born in the cassia village of Quế Viên Thôn, Khuyết Vãn Hà went up to the southern mountains at ten to pick herbs for Cao Đan Hà (cao_dan_ha), who renamed her after herself. She sorted the herbs for the last pill. In 920, after Úy Thanh Diễm (uy_thanh_diem) found their master dead (C022) and left, she came back alone and sealed the abode with the Purple Smoke Furnace inside. She has grown her master's herbs at Đào Hoa Thang for 280 years and sells her pills at Đan Kiều Trấn to a buyer of Lạc Đan Thanh's (lac_dan_thanh). She has never told anyone that she changed one herb in the last pill without asking: the cassia of her own village, for a root she thought too weak.",
+   "wants": "To learn whether her village's cassia was what killed her master, and to be told so by someone who knows.",
+   "secret": "She has been dosing Phàn Đỗ Nhược's morning gruel with the cassia in small amounts, to see what it did to Cao Đan Hà. He does not know why he sleeps through noon, and she writes down how long.",
    "ties": [
     {
      "to": "cao_dan_ha",
@@ -289,7 +293,7 @@
     "can_cot": 54,
     "than_hon": 80,
     "khi_van": 40,
-    "dao_tam": 58,
+    "dao_tam": 36,
     "mi_luc": 62
    },
    "traits": {
@@ -299,11 +303,11 @@
      "Loyal"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
-      "id": "keen_soul",
-      "tier": 2
+      "id": "restless_heart",
+      "tier": 1
      }
     ],
     "path": [],
@@ -316,8 +320,10 @@
      "Shaken"
     ]
    },
-   "appearance": "A long-boned woman in mine-grey with a bamboo flute through her belt like a sword, who stops talking whenever the wind changes.",
+   "appearance": "A long-boned woman in mine-grey with a bamboo flute through her belt like a sword, who stops talking whenever the wind changes and has never slept two nights running in the same place on the peak.",
    "backstory": "A miner's girl from Tập Trận Khoáng, where the wind never stops, Giản Thu Địch was fifteen when the swordswoman Lương Lạc Mai (luong_lac_mai) heard her whistle down a shaft and took her south in 850. Ten years later her master sealed herself in to break through to Nguyên Anh, and in spring Giản opened the door and found her dead (C020). As the door opened, two flutes were playing, and one of them stopped. She closed the door again with the flute inside and has told no one. She is 365 now, a Kết Đan at the same wall her master died at, and she has not dared to try it.",
+   "wants": "To open the door once more and bury the flute with its player, and to be forgiven by a dead woman.",
+   "secret": "Each night she plays the second flute's part through the sealed door, and lately the flute inside has answered in a tune she never taught anyone.",
    "ties": [
     {
      "to": "luong_lac_mai",
@@ -420,7 +426,7 @@
    "traits": {
     "personality": [
      "Brave",
-     "Impatient",
+     "Greedy",
      "Loyal"
     ],
     "calling": "Duelist",
@@ -444,6 +450,8 @@
    },
    "appearance": "A wiry woman with salt-cracked lips and a fern of lightning scars down one arm, who describes the sea out loud whether anyone is listening or not.",
    "backstory": "A fisher's daughter of Nguyệt Loan Thôn, Kê Thính Đào was thirteen when lightning split her father's boat in the strait in 1148. Đoạn Thương Hải (doan_thuong_hai) heard the bolt from the pool, walked into the sea and carried her out. Her father was never found. She came ashore with Thunder in a root that had been plain Water, and the blind man, who had sworn after his master's death (C180) to take no disciple, took her. She is his eyes on the boats Lận Viễn Phàm (lan_vien_pham) sends west.",
+   "wants": "To cut the strait's storms to a price, and to out-sail Tần Đảo Ảnh before the blind man dies.",
+   "secret": "She sells the blind master's weather readings to Lận Viễn Phàm's boat captains by the bolt and keeps a third, and has not yet told Đoạn Thương Hải why the pool's debt to the boats has grown.",
    "ties": [
     {
      "to": "doan_thuong_hai",
@@ -531,7 +539,7 @@
     "personality": [
      "Gregarious",
      "Generous",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child",
@@ -550,6 +558,8 @@
    },
    "appearance": "A round, quick woman with resin on her sleeves and a laugh that carries across the market square.",
    "backstory": "The fourth of her family to keep the Farewell Cup, the tavern beside the market's farewell pavilion, Đậu Tiễn Xuân pours the cup for the traveller seen off in 900 (A138) on the first dawn of every spring, as her great-grandmother began. Since 1130 the sword sage Tư Không Hạc Niên (tu_khong_hac_nien) has sat at her corner table, and on that one dawn each year he stands, takes the cup from her and drinks it. She has never asked him who it was for. She brews spirit wine from the market's pine resin.",
+   "wants": "To pour the cup just once for someone who will tell her who it was for.",
+   "secret": "She has watered the Farewell Cup's wine by a third for twenty years and pocketed the difference, and she has begun to wonder whether Tư Không Hạc Niên can taste it.",
    "ties": [
     {
      "to": "tu_khong_hac_nien",
@@ -628,15 +638,16 @@
    },
    "traits": {
     "personality": [
-     "Diligent",
-     "Greedy",
+     "Lazy",
+     "Generous",
      "Cautious"
     ],
     "calling": "Herbalist",
     "upbringing": "village_born",
     "path": []
    },
-   "backstory": "A farmer's son of Đào Khê Thôn whom Khuyết Vãn Hà (khuyet_van_ha) took in 1150 for his nose; he carries her pills down to Đan Kiều Trấn for Lạc Đan Thanh's buyer and skims a little each trip.",
+   "appearance": "Wipes his flattened nose on the back of his wrist, then on his sleeve; the old break never set straight.",
+   "backstory": "A farmer's son of Đào Khê Thôn whom Khuyết Vãn Hà (khuyet_van_ha) took in 1150 for his nose; he sleeps through noon and leaves the grinding to the herb boy Bao Tiểu Quế (bao_tieu_que), who goes without supper when the pills are late. He carries her pills down to Đan Kiều Trấn for Lạc Đan Thanh's buyer and leaves a share with the sick at the foot.",
    "ties": [
     {
      "to": "khuyet_van_ha",
@@ -700,7 +711,7 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Stubborn",
+     "Faithless",
      "Impatient"
     ],
     "calling": "Duelist",
@@ -712,7 +723,8 @@
      "Disgraced"
     ]
    },
-   "backstory": "A fisher's son of Lô Hoa Thôn who sat the Frost Test three winters and failed three times, until Đỗ Sương Nhi (do_suong_nhi) offered him the road. He bought a copy of Tầm Kiếm's map from Hách Tùng (hach_tung) and means to find Hoắc Hàn Quang's sword, because a man holding Sóc Khí would not need Ice.",
+   "appearance": "Frost took the tips of three fingers; the nails left are white, ridged. He keeps the hand in his sleeve.",
+   "backstory": "A fisher's son of Lô Hoa Thôn who failed the Frost Test three winters, until Đỗ Sương Nhi (do_suong_nhi) offered him the road. He bought Tầm Kiếm's map from Hách Tùng (hach_tung), sold Đỗ Sương Nhi's name to a second buyer, who now waits for her on the frost road, and means to find Hoắc Hàn Quang's sword; a man holding Sóc Khí would not need Ice.",
    "ties": [
     {
      "to": "hach_tung",
@@ -777,17 +789,18 @@
    },
    "traits": {
     "personality": [
-     "Stubborn",
+     "Arbitrary",
      "Patient",
      "Devout"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "path": [
      "fire_tempered"
     ]
    },
-   "backstory": "Born at the volcanic mine of Kê Quan Khoáng, she left Hồng Lô Cốc's outer gate in 1145, the year it opened to Water and still would not teach the old fire, and has sat in the spring of Tuyết Để Tuyền for fifty-five years reading the vents for Cung Hỏa Vân's (cung_hoa_van) abode before Ngụy Đan Chu (nguy_dan_chu) finds it.",
+   "appearance": "Eyebrows singed to stubble. She looks at a pilgrim's face first, decides before they speak.",
+   "backstory": "Born at Kê Quan Khoáng's volcanic mine, she left Hồng Lô Cốc's outer gate in 1145 and has sat in the spring of Tuyết Để Tuyền fifty-five years reading the vents for Cung Hỏa Vân's (cung_hoa_van) abode before Ngụy Đan Chu (nguy_dan_chu) finds it; she drives off pilgrims whose faces she dislikes, and once sent a lame old woman of Cô Vụ Đảo down in sleet.",
    "ties": [
     {
      "to": "nguy_dan_chu",
@@ -848,7 +861,7 @@
    "traits": {
     "personality": [
      "Patient",
-     "Content",
+     "Lazy",
      "Reclusive"
     ],
     "calling": "Beast tamer",
@@ -857,7 +870,8 @@
      "beast_bonded"
     ]
    },
-   "backstory": "A boy of Bằng Trình Thôn raised on the tale that the great Bằng rests on Đồ Nam Đảo before it flies south (A302). In 1150 Mạc Quy Khư (mac_quy_khu) answered his question: south, and it does not come back. He moved to the island the next spring anyway and keeps its seabirds.",
+   "appearance": "Seabird droppings dried on his shoulders like epaulettes. A missing front tooth whistles when he talks.",
+   "backstory": "A boy of Bằng Trình Thôn raised on the tale that the great Bằng rests on Đồ Nam Đảo before it flies south (A302). In 1150 Mạc Quy Khư (mac_quy_khu) answered his question: south, and it does not come back. He moved to the island the next spring anyway, mostly sleeps, and lets the ferrywoman Thư Tiểu Chu (thu_tieu_chu) carry his water and mend his ledges.",
    "ties": [
     {
      "to": "mac_quy_khu",
@@ -923,13 +937,14 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Impatient",
+     "Arbitrary",
      "Honest"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "Thư Vấn Triều's (thu_van_trieu) granddaughter, who rows the small boat now and has noticed that the old man on the rocks has not moved since the autumn.",
+   "appearance": "Cropped hair always wet. Oar-callus wide as a coin on each palm.",
+   "backstory": "Thư Vấn Triều's (thu_van_trieu) granddaughter, who rows the small boat now and has noticed that the old man on the rocks has not moved since the autumn. She takes or refuses pilgrims by whim, and left a pilgrim boy on the rocks overnight because she disliked his mother's hat.",
    "ties": [
     {
      "to": "thu_van_trieu",
@@ -991,6 +1006,7 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
+   "appearance": "Coughs into her sleeve. Plum petals are still pressed in her hem.",
    "backstory": "Turned away at Ngạo Tuyết's plum gate in 1199 for having no Metal, as Ninh Hàn Chi (ninh_han_chi) was, she heard in Hàn Mai that the founder Lăng Đạp Tuyết (lang_dap_tuyet) had learned the sword from a wandering sage who now sits in Tống Khách Thị, and walked there to ask the sage for Metal.",
    "ties": [
     {
@@ -1063,6 +1079,7 @@
     "calling": "Herbalist",
     "upbringing": "servant_born"
    },
+   "appearance": "Bees follow him; his sleeves are cinnamon-brown.",
    "backstory": "A cinnamon-grower's boy from Nhục Quế Thôn who picks for Khuyết Vãn Hà (khuyet_van_ha) and is the only person she lets near the cassia bed.",
    "ties": [
     {
@@ -1127,8 +1144,15 @@
     ],
     "calling": "Wanderer",
     "upbringing": "village_born",
-    "coping": "vengeance_vow"
+    "coping": "vengeance_vow",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Back bent by forty crossings. A rope of white hair braided new each spring. Her hired boat has sprung a leak on three crossings in four.",
    "backstory": "Her son sailed west in 1158 on the first boat Lận Viễn Phàm (lan_vien_pham) sent after Cô Phàm's fleet, and it did not come back. For forty years she has crossed to Dục Nhật Đảo to ask Mạc Quy Khư (mac_quy_khu) where it went, and she has never been chosen.",
    "ties": [
     {

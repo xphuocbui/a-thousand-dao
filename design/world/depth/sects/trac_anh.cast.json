@@ -41,7 +41,7 @@
      "Humble"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [
      {
       "id": "sturdy_frame",
@@ -218,6 +218,8 @@
    },
    "appearance": "A bald, bony monk in a fisher's oilskin, who fingers goose-bone beads while gutting fish.",
    "backstory": "Raised in Tê Nhạn Quán on the marsh, he came to the terrace at ninety-five with his master Chung Quy Nhạn (chung_quy_nhan), the last abbot, when the abbey's disciples were too few to keep it (V086). The fishers took the monks in, and the monks gave them the Hundred Echo Palm. He is the abbey's last monk, and he sits on the terrace each dawn facing the marsh where the geese still roost in the empty halls.",
+   "wants": "The halls of Tê Nhạn Quán roofed again before he dies, and the geese left in them undisturbed.",
+   "secret": "He feeds the geese in the ruin three sacks of terrace grain a month, entered in the store book as seal feed, and the steward Bào Thiết Thủ has begun to wonder why the seals are so fat.",
    "ties": [
     {
      "to": "chung_quy_nhan",
@@ -333,7 +335,7 @@
    "traits": {
     "personality": [
      "Brave",
-     "Honest",
+     "Deceitful",
      "Impatient"
     ],
     "calling": "Beast tamer",
@@ -354,7 +356,9 @@
     "gained": []
    },
    "appearance": "Long-armed and sea-browned, with salt-white hair she has had since she was twenty.",
-   "backstory": "Born on the terrace, the daughter of Đoàn Thanh Lãng (doan_thanh_lang) and a seal-hunter's widow who drowned in 1130. She dives deeper than any man on the coast and has tamed two fur seals that fish for her. She rows the sixth boat with her divers and will not take Ngạc Hải Tiêu's (ngac_hai_tieu) iron, so the hunt cannot lawfully go out. Each dawn she sends her seals over the calf's ground to drive the Old Ivory north.",
+   "backstory": "Born on the terrace, the daughter of Đoàn Thanh Lãng (doan_thanh_lang) and a seal-hunter's widow who drowned in 1130. She dives deeper than any man on the coast and has tamed two fur seals that fish for her. She rows the sixth boat with her divers and will not take Ngạc Hải Tiêu's (ngac_hai_tieu) iron, so the hunt cannot lawfully go out. Each dawn she sends her seals over the calf's ground to drive the Old Ivory north. She tells the council the sixth boat's divers are all terrace-born, though she has taken in a Sóc Phương refugee against the old rule.",
+   "wants": "To dive under the ice shelf where no one has gone, and to make the sixth boat the only crew on the coast that is not for sale.",
+   "secret": "She has taken Kim Hải Yến into the dark-of-the-moon dives, against the old rule that the sixth boat's divers be terrace-born, and tells her father the crew is as it was.",
    "ties": [
     {
      "to": "doan_thanh_lang",
@@ -486,6 +490,8 @@
    },
    "appearance": "A big whaler from the Whale Bone Village with a harpoon scar from cheek to collarbone.",
    "backstory": "He was born in Kình Cốt Thôn the year the Old Ivory took the founder (N-trac_anh-02), and he is the best iron on the coast after Đoàn Thanh Lãng (doan_thanh_lang). He captains the six whaleboats and wants more for them than seal oil. This winter at Mộc Lan Thành he took the first half of Hồ Tầm Kỳ's (ho_tam_ky) price for the Old Ivory's calf and spent it on new irons, and every crew that takes one is bound to row. Four have. He tells each boat's table that a head who cut the founder's line cannot forbid the hunt.",
+   "wants": "A name on the coast above Đoàn Thanh Lãng's, and the head's seat before the calf is grown.",
+   "secret": "He has promised each captain a new hull from the calf's second half and is counting votes for the next council, where he means to put the head ashore for the cut line of 1080.",
    "ties": [
     {
      "to": "doan_thanh_lang",
@@ -600,10 +606,11 @@
      "Calm"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "lifestyle": "collector"
    },
-   "backstory": "A diver from the silver-fish village who sells ice-pearls in Mộc Lan Thành and learns the palm from Phí Nhạn Tâm (phi_nhan_tam) because it lets her hold her breath for an hour. In autumn she saw the Old Ivory and her calf over the pearl beds and sold the news to Hồ Tầm Kỳ (ho_tam_ky) for a share of the price, for the abbey's roof.",
+   "backstory": "A diver from the silver-fish village who sells ice-pearls in Mộc Lan Thành and learns the palm from Phí Nhạn Tâm (phi_nhan_tam) because it lets her hold her breath for an hour. In autumn she saw the Old Ivory and her calf over the pearl beds and sold the news to Hồ Tầm Kỳ (ho_tam_ky) for the abbey's roof, and told the old monk the coin was pearl money.",
+   "appearance": "One seed pearl in her left ear, the only one she has never sold.",
    "ties": [
     {
      "to": "ho_tam_ky",
@@ -675,14 +682,15 @@
    "traits": {
     "personality": [
      "Loyal",
-     "Content",
+     "Arbitrary",
      "Stubborn"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "health": null
    },
-   "backstory": "He was in the boat in 1080 when Đoàn Thanh Lãng (doan_thanh_lang) cut the line of the founder's second iron, and told the council it was cut for the crew. He mends every boat on the terrace, captains the fifth, and will not fit Ngạc's new iron in his shed.",
+   "backstory": "He was in the boat in 1080 when Đoàn Thanh Lãng (doan_thanh_lang) cut the line of the founder's second iron,, and told the council it was for the crew. He mends the boats he likes first and leaves the rest to leak: Bốc Kình Thăng's (boc_kinh_thang) third has waited two winters while Bốc Hải Đồng (boc_hai_dong) bails it. He captains the fifth and will not fit Ngạc's new iron.",
+   "appearance": "Tar-black fingernails and a forearm scarred by a hundred splinters.",
    "ties": [
     {
      "to": "doan_thanh_lang",
@@ -751,12 +759,13 @@
     "personality": [
      "Warlike",
      "Loyal",
-     "Impatient"
+     "Cruel"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A tide-village boy who carries Ngạc Hải Tiêu's (ngac_hai_tieu) new irons from boat to boat and tells each crew what the calf will pay.",
+   "backstory": "A tide-village boy who carries Ngạc Hải Tiêu's (ngac_hai_tieu) new irons from boat to boat and tells each crew what the calf will pay. At the ice edge he lets wounded seals die slowly, to teach the boat-boys not to flinch, and he made Ngạc's nephew Quản Tiểu Kình (quan_tieu_kinh) sit beside the last one until it stopped.",
+   "appearance": "Two toes lost to frostbite, which he shows to new crew.",
    "ties": [
     {
      "to": "ngac_hai_tieu",
@@ -819,12 +828,13 @@
     "personality": [
      "Vengeful",
      "Diligent",
-     "Honest"
+     "Callous"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "clan_heir"
    },
-   "backstory": "Her family fled Bạch Âu Đường when Thôn Hải's pirates burned it (V081); she keeps its gull banner in a chest and wants to raise the hall again.",
+   "backstory": "Her family fled Bạch Âu Đường when Thôn Hải's pirates burned it (V081); she keeps its gull banner in a chest and wants to raise the hall again. She once stood with the rope coiled while a Thôn Hải-born deckhand went under in the inlet and says the sea took him; his sister rows the fifth boat for Bào Thiết Thủ (bao_thiet_thu) and no longer speaks to her.",
+   "appearance": "A fresh gull feather in her braid each week.",
    "ties": [
     {
      "to": "doan_to_ba",
@@ -884,9 +894,10 @@
      "Content"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "He came for the free meals and stayed for Lỗ Châu Nương's (lo_chau_nuong) pearl stories. Ngạc has asked him for a net that will hold a whale calf, and he is knotting it slowly.",
+   "appearance": "Net-twine calluses and a yawn that never quite finishes.",
    "ties": [
     {
      "to": "lo_chau_nuong",
@@ -951,9 +962,16 @@
      "Peaceable"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "thin_soul",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "Ngạc Hải Tiêu's (ngac_hai_tieu) nephew, who is afraid of deep water and has not told his uncle.",
+   "appearance": "Flinches at every harpoon crack; keeps his pale hands out of the spray.",
    "ties": [
     {
      "to": "ngac_hai_tieu",
@@ -1013,9 +1031,10 @@
      "Diligent"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "war_orphan"
    },
    "backstory": "From the sail-watchers' village; she follows Đoàn Tố Ba (doan_to_ba) into the surf and feeds the tame seals.",
+   "appearance": "Freckles across her nose like seal whiskers.",
    "ties": [
     {
      "to": "doan_to_ba",

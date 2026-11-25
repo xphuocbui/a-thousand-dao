@@ -336,7 +336,8 @@
    "items": [
     "tht-coal-black-apron"
    ],
-   "wants": "The anvil hall's coal never short for the Pivot's blades, and the Rite kept from a steppe boy who will carry it down the mountain."
+   "wants": "The anvil hall's coal never short for the Pivot's blades, and the Rite kept from a steppe boy who will carry it down the mountain.",
+   "secret": "He is keeping ten sacks a month of the forge's coal in his own cellar under the anvil hall, so that when the old man falls Đinh Hỏa Lân will have none to learn by. Phàn Lô Kiên (phan_lo_kien), who counts every basket, has noticed the road weighs light."
   },
   {
    "key": "bang_lanh_toi",
@@ -454,7 +455,9 @@
    },
    "items": [
     "tht-river-tongs"
-   ]
+   ],
+   "wants": "Kha Ô Lan holding the River Tongs after him, and his pool kept by a coal-carrier's daughter.",
+   "secret": "He is already teaching Kha Ô Lan (kha_o_lan) the quench by night, knee-deep in the pool in the cold hours, so that whatever the head answers the girl will have it done."
   },
   {
    "key": "hau_thiet_anh",
@@ -489,7 +492,7 @@
    },
    "traits": {
     "personality": [
-     "Pragmatic",
+     "Arbitrary",
      "Gregarious",
      "Deceitful"
     ],
@@ -509,7 +512,7 @@
     "gained": []
    },
    "appearance": "A broad, laughing woman with iron dust in her hair, who carries the mine's tally sticks in her belt.",
-   "backstory": "A miner's daughter of Thiên Ngoại, she keeps the star mine and its two hundred diggers for Cát Lưu Quang (cat_luu_quang). She tells every buyer the ore fell with the stars (A222), and tells it well. She suspects what Vưu Chước Kim proved in 1160 and has decided it is not her business, as long as the Pivot's weighers at Song Kiều do not ask.",
+   "backstory": "A miner's daughter of Thiên Ngoại, she keeps the star mine and its two hundred diggers for Cát Lưu Quang (cat_luu_quang). She tells every buyer the ore fell with the stars (A222), and tells it well. She suspects what Vưu Chước Kim proved in 1160 and has decided it is not her business, as long as the Pivot's weighers at Song Kiều do not ask. She settles disputed tallies among her diggers by throwing dice, and the loser's share goes into the mine's purse.",
    "ties": [
     {
      "to": "cat_luu_quang",
@@ -593,7 +596,9 @@
      "targets_note": "Smiths' route, then Mine Gallery and Bone-Breaker: the miner's heavy, armour-breaking hit."
     },
     "note": "Sells the sky."
-   }
+   },
+   "wants": "The Pivot's weighers at Song Kiều never to ask, and one long run of good dice.",
+   "secret": "She skims one ingot in thirty off the mine's tally into a disused gallery, to buy her way out if the weighers ever come. Mẫn Hắc Châu (man_hac_chau) has found that the gallery's tally sticks do not match the count."
   },
   {
    "key": "dinh_hoa_lan",
@@ -726,7 +731,8 @@
     },
     "note": "The fire the mountain does not give."
    },
-   "wants": "The Rite whole, and one day a forge of his own on the hot steppe."
+   "wants": "The Rite whole, and one day a forge of his own on the hot steppe.",
+   "secret": "He copies each lesson of the Rite onto scraps in the steppe's fire-marks and sends them home to Thập Giáp Thôn in the coal baskets, by the road swords who pass the gate. Hoắc Ngọ Lộ (hoac_ngo_lo) carries the latest one."
   },
   {
    "key": "cat_thanh_diem",
@@ -818,7 +824,8 @@
     },
     "note": "Half a fire."
    },
-   "wants": "To be taught the Rite after Đinh, for her father's sake, though he would not thank her for it."
+   "wants": "To be taught the Rite after Đinh, for her father's sake, though he would not thank her for it.",
+   "appearance": "One eyebrow burned off and never grown back; her grandfather's square jaw."
   },
   {
    "key": "kha_than_sinh",
@@ -851,9 +858,15 @@
      "Lazy"
     ],
     "calling": "Steward",
-    "upbringing": "servant_born"
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Carries coal up from Thạch Thán Khoáng in two baskets on a pole, as his father and grandfather did, and has been promised the hammer by Đinh Hỏa Lân (dinh_hoa_lan) every spring for two years.",
+   "backstory": "Carries coal up from Thạch Thán Khoáng in two baskets on a pole, as his father and grandfather did, and has been promised the hammer by Đinh Hỏa Lân (dinh_hoa_lan) every spring for two years, and asks each spring what it was he was promised.",
    "ties": [
     {
      "to": "dinh_hoa_lan",
@@ -892,7 +905,8 @@
      "intent": "Metal."
     },
     "note": "Coal."
-   }
+   },
+   "appearance": "Pole-callus across the back of his neck; it takes him two tries to answer to his name, wearing a puzzled look."
   },
   {
    "key": "dam_kinh_nguyet",
@@ -968,7 +982,8 @@
      "intent": "Metal precision."
     },
     "note": "Polish."
-   }
+   },
+   "appearance": "Pumice-smoothed fingertips; she pitches her voice low so as not to disturb the blades."
   },
   {
    "key": "tao_bach_sinh",
@@ -998,12 +1013,12 @@
     "personality": [
      "Gregarious",
      "Ambitious",
-     "Fickle"
+     "Loyal"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "A tax clerk's grandson from Thanh Bách, where they still say the gate robbed the city of three years for one stone (A093); he came up the mountain to see the blade and stayed for the trade.",
+   "backstory": "A tax clerk's grandson from Thanh Bách, where they still say the gate robbed the city of three years for one stone (A093); he came up the mountain to see the blade and stayed for the trade. He carries the Thanh Bách factors' complaints to Hầu Thiết Anh (hau_thiet_anh) in person, a cup of wine at a time, and has twice been thanked for it.",
    "ties": [
     {
      "to": "hau_thiet_anh",
@@ -1032,7 +1047,8 @@
      "intent": "Metal, a city boy's mixed root."
     },
     "note": "A city root."
-   }
+   },
+   "appearance": "Good boots he is clearly still paying for, and a clerk's inked thumbnail."
   },
   {
    "key": "man_hac_chau",
@@ -1107,7 +1123,8 @@
      "intent": "Heavy Metal."
     },
     "note": "Weighs in the hand."
-   }
+   },
+   "appearance": "Black iron dust under every nail; she weighs her rice in her palm."
   },
   {
    "key": "dieu_lac_tinh",
@@ -1150,7 +1167,8 @@
      "kind": "descendant",
      "note": "a later head of his line (lineage, not blood)"
     }
-   ]
+   ],
+   "appearance": "Painted on the gate wall as a lean man with white eyebrows and snow melting off both shoulders."
   },
   {
    "key": "nhac_ba_chuy",
@@ -1194,7 +1212,8 @@
      "note": "the man he forged for"
     }
    ],
-   "master": "dieu_lac_tinh"
+   "master": "dieu_lac_tinh",
+   "appearance": "A stooped smith in the gate's portrait, one shoulder dropped lower after sixty years at the anvil."
   }
  ]
 }

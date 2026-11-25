@@ -37,7 +37,7 @@
     "personality": [
      "Arbitrary",
      "Cautious",
-     "Just"
+     "Calm"
     ],
     "calling": "Strategist",
     "upbringing": "scholar_family",
@@ -260,10 +260,10 @@
     "personality": [
      "Patient",
      "Vengeful",
-     "Loyal"
+     "Faithless"
     ],
     "calling": "Strategist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
       "id": "steady_heart",
@@ -834,7 +834,7 @@
    },
    "traits": {
     "personality": [
-     "Calm",
+     "Deceitful",
      "Pragmatic",
      "Arrogant"
     ],
@@ -1008,7 +1008,7 @@
    },
    "thien_phu": {
     "ngo_tinh": 74,
-    "can_cot": 44,
+    "can_cot": 34,
     "than_hon": 76,
     "khi_van": 48,
     "dao_tam": 70,
@@ -1021,11 +1021,15 @@
      "Paranoid"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "sect_raised",
     "talent": [
      {
       "id": "keen_soul",
       "tier": 2
+     },
+     {
+      "id": "frail_frame",
+      "tier": 1
      }
     ],
     "path": [
@@ -1037,7 +1041,7 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "Bent, sharp-eyed, black to the wrists from grinding ink; she keeps the archive's keys on a cord around her neck and touches them when she speaks.",
+   "appearance": "Bent and frail, sharp-eyed, black to the wrists from grinding ink; she keeps the archive's keys on a cord around her neck and touches them when she speaks.",
    "backstory": "Sử Ngưng Mặc was born at the foot of Chấp Bút Phong, the Peak of the Held Brush, where the slate for the sect's inkstones is cut, and was given at seven to Hề Văn Ước (he_van_uoc), who kept the archive as well as the bench in those years. She has kept Tàng Ước Các since 900: the Compact itself, every writ of war since the first in 584 (C118), every arbitration, the land rolls, the guard rolls and the rolls of the 129 boundary steles. She was twenty-eight in 803 and copied the dead lists of Chiết Kích Nguyên by hand for a year (C017). The seat's half of the Thiết Mã tally vanished from her shelves that year; it is the only thing she has ever lost (N-thien_xu-05). She grinds the archive's ink on the founder's inkstone herself and lets no one else touch it. Her disciples Thích Minh Thư (thich_minh_thu) and Hoàng Phủ Tịch (hoang_phu_tich) are the only people she lets past the second door.",
    "wants": "To find the tally's lost half before her years run out, and to leave the archive to a keeper who will keep it as she has.",
    "secret": "In 1188 the head came to the archive at night, took the guard roll of Tinh Tủy Mạch for 803, and she sealed the shelf behind him without asking why. She has forgotten that she herself copied a duplicate of it in 803, among the dead lists, without reading what she copied. She has also known since the first ink Họa Tinh Đường sold her archive that its rain-fast stroke is the blood-ink writ of Thorn and Ink Verses with the blood taken out: the copy the Pivot seized at Cửu Thiều Cung's fall (C005) is on her own shelves. She came north to the founder's burial in 1137 to tell Kỷ Ngân Chúc that she would go on buying the ink, and she does.",

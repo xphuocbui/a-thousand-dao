@@ -36,7 +36,7 @@
     "personality": [
      "Paranoid",
      "Brave",
-     "Just"
+     "Arbitrary"
     ],
     "calling": "Duelist",
     "upbringing": "merchant_child",
@@ -58,7 +58,7 @@
     ]
    },
    "appearance": "A square, sun-darkened woman in a dust cloak who sits with her back to a wall in every room and counts the doors.",
-   "backstory": "Viên Cô Yên was fifteen in 1100 when Dạ Quang's raiders hit her father's caravan on the road below Viên Đề Hạp. She found Viên Trường Hà (vien_truong_ha) in the sand with a night-glowing cup set on his chest, the raiders' mark (A121). She rode guard for the next twenty-five years. In 1121 the Pavilion made the raiders guard the road (A123), and the guard families of Trường Vân saw their trade handed to the men who had killed them. In 1125 Viên and the guard captains founded Trấn Sa Đường (V075). The Pavilion licensed it to guard caravans and buys its blades from the forge of Tống Thối Kim (tong_thoi_kim). Its true purpose is to watch Dạ Quang, and Viên has never pretended otherwise. To her, Hạng Dạ Bôi (hang_da_boi) is a guard who turned, and she is waiting for him to turn again. She married her captain Bàng Trấn Nhạc (bang_tran_nhac) late, and she raises her dead brother's daughter. In seventy-five years she has not slept with a door unbarred.",
+   "backstory": "Viên Cô Yên was fifteen in 1100 when Dạ Quang's raiders hit her father's caravan on the road below Viên Đề Hạp. She found Viên Trường Hà (vien_truong_ha) in the sand with a night-glowing cup set on his chest, the raiders' mark (A121). She rode guard for the next twenty-five years. In 1121 the Pavilion made the raiders guard the road (A123), and the guard families of Trường Vân saw their trade handed to the men who had killed them. In 1125 Viên and the guard captains founded Trấn Sa Đường (V075). The Pavilion licensed it to guard caravans and buys its blades from the forge of Tống Thối Kim (tong_thoi_kim). Its true purpose is to watch Dạ Quang, and Viên has never pretended otherwise. To her, Hạng Dạ Bôi (hang_da_boi) is a guard who turned, and she is waiting for him to turn again. She married her captain Bàng Trấn Nhạc (bang_tran_nhac) late, and she raises her dead brother's daughter. In seventy-five years she has not slept with a door unbarred. She has flogged two guards at the long table on a hunch that their cups were meant for Dạ Quang, and was right about one of them.",
    "wants": "Proof that Dạ Quang means to raid again, put in front of the Pavilion, so that it finishes what it began in 1121.",
    "secret": "Tất Dạ Lang did not desert in 1196: she sent him. He sells Đồ Xích Linh false routes and sends Viên the camp's talk.",
    "ties": [
@@ -239,6 +239,8 @@
    },
    "appearance": "A short, burn-speckled old smith with forearms like temple bells and no eyebrows.",
    "backstory": "A smith of Trường Vân's quarter who forged for the guard families for a century before there was a hall. When Viên Cô Yên (vien_co_yen) founded it in 1125 he joined and refused to head it: he holds hammers, not men. He outranks the head and obeys her. The Pavilion buys its swords from his forge on the spirit spring. In 1180 he reforged a fisher's ice-cutter into Thẩm Hàn Giang's (tham_han_giang) Ice-Hole Blade. He is the only Trấn Sa man the Pavilion's elders know by name.",
+   "wants": "One blade he can call finished before his hands fail, and a hall that never has to draw it in the head's war.",
+   "secret": "He tempers every tenth blade of the hall's war order a hair too soft, and has told no one, so that Viên Cô Yên's war would break its own swords in the first week.",
    "ties": [
     {
      "to": "vien_co_yen",
@@ -370,6 +372,8 @@
    },
    "appearance": "A big, slow-spoken man who never draws his sabre first and always draws it second.",
    "backstory": "Born to a guard family in Trường Vân the year Dạ Quang killed Viên Trường Hà (vien_truong_ha), he grew up riding behind the dead man's daughter Viên Cô Yên (vien_co_yen) and married her in 1150. He leads the hall's caravans from Trường Vân to Hồi Lan. He is the calm half of the hall. He thinks his wife's watch on Dạ Quang has become a war she is waiting to start, and he has started to fear she will start it herself.",
+   "wants": "To keep the hall from war until his wife's hair is white, and then walk the Hồi Lan road with her unarmed.",
+   "secret": "He sends Ô Liệt Phong the hall's rota two days ahead, by Cam Thiết Bình's hand and behind his wife's back, so that the one honest Dạ Quang train never meets a trap of Viên Cô Yên's making.",
    "ties": [
     {
      "to": "vien_co_yen",
@@ -466,7 +470,7 @@
     "personality": [
      "Patient",
      "Reclusive",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born",
@@ -484,7 +488,9 @@
     "gained": []
    },
    "appearance": "A thin rider who travels alone with one lamp and a book of every camp Dạ Quang's escorts have made since 1125.",
-   "backstory": "From the camel-bell town, she has ridden behind Ô Liệt Phong's (o_liet_phong) escorts for seventy years at a lamp's distance and written down every stop. She has found nothing. Ô has started leaving her tea, and she has started drinking it. If the night-glow cups on the road mean a raid, she will be the first to know (A126).",
+   "backstory": "From the camel-bell town, she has ridden behind Ô Liệt Phong's (o_liet_phong) escorts for seventy years at a lamp's distance and written down every stop. She has found nothing. Ô has started leaving her tea, and she has started drinking it. If the night-glow cups on the road mean a raid, she will be the first to know (A126). She has not shown the true book to anyone.",
+   "wants": "To end her days at a lamp's distance from the one honest man on the road, and never to write the last page of the watch.",
+   "secret": "She keeps two watch-books: the true one, which clears Ô Liệt Phong, and the one she carries to Viên Cô Yên, which still suspects him, so the watch is never ended.",
    "ties": [
     {
      "to": "o_liet_phong",
@@ -578,12 +584,13 @@
     "personality": [
      "Brave",
      "Gregarious",
-     "Wrathful"
+     "Greedy"
     ],
     "calling": "Refiner",
     "upbringing": "merchant_child"
    },
-   "backstory": "He swings the big hammer for Tống Thối Kim (tong_thoi_kim) and teases his cousin Võ Băng Kiên (vo_bang_kien) for wasting good winters on the Pavilion's Frost Test.",
+   "backstory": "He swings the big hammer for Tống Thối Kim (tong_thoi_kim) and teases his cousin Võ Băng Kiên (vo_bang_kien) for wasting good winters on the Pavilion's Frost Test. He charges the younger strikers a copper for a turn at the big hammer, and Mễ Tiểu Chùy (me_tieu_chuy) has paid it from his bellows pay since spring.",
+   "appearance": "Left thumbnail gone black from a missed strike.",
    "ties": [
     {
      "to": "tong_thoi_kim",
@@ -657,9 +664,10 @@
      "Cautious"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A timber-bridge boy who walked to the spring forge at twelve and asked Tống Thối Kim (tong_thoi_kim) for nothing but the bellows.",
+   "backstory": "A timber-bridge keeper's hired boy who walked to the spring forge at twelve and asked Tống Thối Kim (tong_thoi_kim) for nothing but the bellows.",
+   "appearance": "Walks to the beat of the bellows.",
    "ties": [
     {
      "to": "tong_thoi_kim",
@@ -730,6 +738,7 @@
     "upbringing": "village_born"
    },
    "backstory": "Her village pays Dạ Quang's riders to leave its sheep alone; she joined Viên Cô Yên (vien_co_yen) to stop paying.",
+   "appearance": "A front tooth knocked out by a ram, which she shows off as a trophy.",
    "ties": [
     {
      "to": "vien_co_yen",
@@ -790,9 +799,16 @@
      "Fickle"
     ],
     "calling": "Diplomat",
-    "upbringing": "clan_heir"
+    "upbringing": "clan_heir",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Raised by her aunt Viên Cô Yên (vien_co_yen) on stories of the cup on her grandfather's chest; she has been writing to Hạng Lưu Hỏa (hang_luu_hoa) of Dạ Quang, and neither aunt nor mother knows.",
+   "backstory": "Raised by her aunt Viên Cô Yên (vien_co_yen) on stories of the cup on her grandfather's chest; she has been writing to Hạng Lưu Hỏa (hang_luu_hoa) of Dạ Quang, and neither aunt nor mother knows. She cannot sit through a night watch, and has been moved off three.",
+   "appearance": "Ink under her fingernails from letters written by the last lamp.",
    "ties": [
     {
      "to": "vien_co_yen",
@@ -866,6 +882,7 @@
     "upbringing": "village_born"
    },
    "backstory": "A salt-boiler's son, like the Pavilion's caravan captain Tôn Hàn Thạch (ton_han_thach), who carries Bàng Trấn Nhạc's (bang_tran_nhac) shield and hopes never to use it.",
+   "appearance": "Salt-cracked heels and a shield strap he has worn through twice.",
    "ties": [
     {
      "to": "bang_tran_nhac",
@@ -927,14 +944,15 @@
    },
    "traits": {
     "personality": [
-     "Brave",
+     "Deceitful",
      "Fickle",
      "Gregarious"
     ],
     "calling": "Beast tamer",
     "upbringing": "village_born"
    },
-   "backstory": "From the horse village that moved three li east for its wells (A122); he rides ahead of Nhiếp Cô Đăng (nhiep_co_dang) and talks too much at caravan stops.",
+   "backstory": "From the horse village that moved three li east for its wells (A122); he rides ahead of Nhiếp Cô Đăng (nhiep_co_dang) and talks too much at caravan stops. He swears at every stop that he has seen the raiders' faces; he has not, and when the first search found nothing he named the stable boy who groomed his horse, who lost a season's pay.",
+   "appearance": "A horsehair braid at his collar and a voice that carries a li.",
    "ties": [
     {
      "to": "nhiep_co_dang",

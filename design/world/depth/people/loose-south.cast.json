@@ -653,11 +653,11 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Pragmatic",
+     "Deceitful",
      "Compassionate"
     ],
     "calling": "Diplomat",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
       "id": "keen_soul",
@@ -673,6 +673,8 @@
    },
    "appearance": "A round, cheerful woman who tilts her head before she answers, as if the wind had told her first.",
    "backstory": "A miner's daughter from the drill-mine of Tập Trận Khoáng, where the wind never stops. Wind woke in her at nine. She passed the Pivot's outer gate on her Earth and failed the Level Beam on a Metal of thirty, and the Pivot had no use for a root it could not weigh, so she went down to the music market below the old palace. She tells fortunes there and, in the rains, at the Night Rain Market beside Giản Vạn Lộ (gian_van_lo). She is right about the weather a day ahead every time, so people believe the rest. Her Wind carries sound to her from a day's flight off, and twice it has brought her a flute from the ridge of Kích Khánh Đường. She knows whose it is.",
+   "wants": "To be asked once what the weather will do and to be allowed to say she does not know.",
+   "secret": "She has no gift for weather at all. Her left knee, shattered at the Pivot's gate, aches before rain, and she pays the Thiều Âm Thị bell-ringer to tell her which way the pigeons fly.",
    "ties": [
     {
      "to": "gian_van_lo",
@@ -764,7 +766,7 @@
      "Stubborn"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "sect_raised",
     "talent": [],
     "path": [
      "formation_mind"
@@ -779,6 +781,8 @@
    },
    "appearance": "Grey at the temples, a Pivot sword with the Dipper filed off its guard, and a way of standing with his back to a wall.",
    "backstory": "A Pivot inner disciple from the steppe, he marched on Phượng Minh's side in the Cinnabar Vein War (C189). At the pass of Đan Sơn Mạch in 1156 he held one node of the array that closed on Kỷ Vãn Tình's rear guard (N-thinh_vu-08). He let it slip for as long as it took four of her people to carry the wounded out. Then he walked away from the Pivot. Đồ Vô Cữu (do_vo_cuu) has hunted him for forty years, and he lives where the Pivot's writ does not run.",
+   "wants": "To be hunted by someone who is not Đồ Vô Cữu, and to be recognised by someone who does not mind.",
+   "secret": "He teaches Từ Bán Kiếm the Pivot's steps for pay and leaves out the last pass on purpose, so that the boy cannot ever beat him.",
    "ties": [
     {
      "to": "do_vo_cuu",
@@ -872,7 +876,7 @@
    },
    "traits": {
     "personality": [
-     "Stubborn",
+     "Deceitful",
      "Paranoid",
      "Compassionate"
     ],
@@ -890,6 +894,8 @@
    },
    "appearance": "A potter's daughter's thick wrists, a hunter's knife she does not need, and clay always under one thumbnail.",
    "backstory": "A potter's daughter of Ô Diêu, she married the hunter Bành Liệp Hổ (banh_liep_ho) and bore their daughter in a lightning storm at the mine camp of Tử Tinh Khoáng in 1183. In 1195 the tiger-kind of Phục Hổ Cương, which took Thanh Thạch Bảo in 1041 (V160), killed her husband. The Tower's Thunder Hall has come for the girl twice. She has seen what a life lamp is for, and she would sooner give her daughter to the bandits on the road, which she will not do either.",
+   "wants": "A door that Bành Nhị Hổ cannot find, and a daughter who stops practising in the yard.",
+   "secret": "She has told her brother-in-law Bành Nhị Hổ that the girl died of fever, and dug a grave with a name on it behind the pottery. He has already sent condolence silver.",
    "ties": [
     {
      "to": "banh_liep_ho",
@@ -1019,6 +1025,8 @@
    },
    "appearance": "Seventeen, sunburnt and quick, her hair lifting a little whenever a storm is a day away.",
    "backstory": "Born in a lightning storm at the Tử Tinh mine camp, she learned the Thousand-Bolt Scripture from a copy her father Bành Liệp Hổ (banh_liep_ho) bought at the Night Rain Market the year before the tigers killed him. Her mother keeps her from the Tower. At the apricot market of Hạnh Hoa Thị she met Đồ Liệt Cơ (do_liet_co), who showed her how to hold a spark in her teeth, and her mother does not know.",
+   "wants": "To use her spark in a real duel before the Tower comes for her.",
+   "secret": "She slips out to the apricot market at night to trade spark-tricks to Đồ Liệt Cơ's riders for a bandit's blade, and the blade is under her bed.",
    "ties": [
     {
      "to": "sam_van_nuong",
@@ -1110,11 +1118,16 @@
     "personality": [
      "Brave",
      "Patient",
-     "Loyal"
+     "Faithless"
     ],
     "calling": "Beast tamer",
     "upbringing": "wild_raised",
-    "talent": [],
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ],
     "path": [
      "beast_bonded"
     ],
@@ -1126,8 +1139,10 @@
      "Sworn sibling"
     ]
    },
-   "appearance": "A broad, slow man missing two fingers of his left hand, a tiger-whisker charm at his throat and a grey hound that never barks.",
+   "appearance": "A broad, slow man with a face like a split gourd that children stare at, two fingers gone from his left hand, and a grey hound that never barks.",
    "backstory": "Born among the cave hunters of Thủ Động Trại, who keep their own order on Kinh Trập day (V152), he left the cave watch for the beast trails and is a cousin of Ôn Tịch Nhai (on_tich_nhai). He hunted the tiger-kind of Phục Hổ Cương with his sworn brother Bành Liệp Hổ (banh_liep_ho) for forty years and carried his body down in 1195. He sells cores at the Night Rain Market and pays Đồ Liệt Cơ's camp for the road. He has hunted the tiger king alone since.",
+   "wants": "To hold the tiger king's heart-core before the Tower hears there is one.",
+   "secret": "He has known for two years where the tiger king sleeps and has told Sầm Vãn Nương nothing, because the kill would end his reason to come to her door.",
    "ties": [
     {
      "to": "banh_liep_ho",
@@ -1229,7 +1244,7 @@
    },
    "traits": {
     "personality": [
-     "Cautious",
+     "Callous",
      "Ambitious",
      "Faithless"
     ],
@@ -1250,6 +1265,8 @@
    },
    "appearance": "Salt-cracked lips, a sailor's squint, and a coat dyed black with mangrove bark so that she is a shadow on the deck.",
    "backstory": "A reed-cutter's daughter of Lô Châu, the village Thôn Hải carried off in 765 (A306). A woman of her line came home from the pirates' hold in 782 (A307) knowing how to sail dark. Her grandfather, a wrecker, bought the Kim Sa lamp's winter oil from its keeper Ôn Thủ Đăng in 913 to burn in false lamps on the reefs; Ôn has paid the Biện in oil every autumn since, left at burned Hải Diêm, to keep their boats off his coast. Biện runs two unlit boats out of Hải Diêm Trấn (V139): pearls north to the Night Rain Market, and since last winter, when Kiều Mãn Lâu (kieu_man_lau) found buyers in Phượng Minh's ports, poisons south past the northern fort, though she still takes the oil, steering by Kiển Mục Hải's (kien_muc_hai) lamp at Liệu Phàm Bảo.",
+   "wants": "A second unlit boat, and Ôn Thủ Đăng's lamp dark for good.",
+   "secret": "She waters the Kim Sa lamp's winter oil with fish oil on its way up, so that the lamp smokes and some ship is wrecked each season, which keeps her prices high. Ôn Thủ Đăng has not yet noticed.",
    "ties": [
     {
      "to": "kieu_man_lau",
@@ -1358,10 +1375,10 @@
     "personality": [
      "Stubborn",
      "Reclusive",
-     "Diligent"
+     "Generous"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "street_orphan",
     "talent": [
      {
       "id": "sturdy_frame",
@@ -1377,6 +1394,8 @@
    },
    "appearance": "Long-limbed and hollow-chested from diving, ears scarred by the deep, a Cô Phàm bronze sail-ring on his thumb.",
    "backstory": "His father Uông Viễn Lãng (uong_vien_lang) signed onto the first deep-water boat Lận Viễn Phàm paid for in 1158 (N-binh_thuy-05), and it was not seen again. He was eight. He lives alone on the empty quays of Bích Không Cảng (A150) and dives the reefs where Cô Phàm's charts stop. He sold Lận the bronze sail-ring's twin and kept this one. He means to be on the third boat Hầu Bách Chu (hau_bach_chu) has built and told no one about.",
+   "wants": "A berth on the third boat, and the last chart of his father's course.",
+   "secret": "He leaves his best dive finds at Hầu Bách Chu's (hau_bach_chu) door for the third boat's hull, unsigned, and has told no one he is the one who sold Lận Viễn Phàm the bronze ring's twin.",
    "ties": [
     {
      "to": "uong_vien_lang",
@@ -1498,6 +1517,8 @@
    },
    "appearance": "Thin, with a flute-player's calluses and the habit of stopping mid-word when a bird sings.",
    "backstory": "Chúc Hiểu Nghi's (chuc_hieu_nghi) elder brother, a flute seller's son who never sat a gate. In 1195 he played a tune no one had taught him in the market, and every bird on the ridge fell silent (A248). The elders paid his passage away. Lộ Văn Khánh (lo_van_khanh) kept him instead in the ruined chime hall of Kích Khánh Đường, where the broken chimes ring when stepped on (V133). He believes he is hidden for his own safety and that his sister is told he is well. He plays every night, and Lộ writes it down.",
+   "wants": "To walk out of Kích Khánh Đường by the front gate in daylight, once.",
+   "secret": "He steps on the broken chimes in an order that spells a letter to his sister Chúc Hiểu Nghi, and Lộ Văn Khánh has begun to notice that the same chimes ring every night.",
    "ties": [
     {
      "to": "chuc_hieu_nghi",
@@ -1562,7 +1583,7 @@
    "traits": {
     "personality": [
      "Warlike",
-     "Greedy",
+     "Generous",
      "Loyal"
     ],
     "calling": "Strategist",

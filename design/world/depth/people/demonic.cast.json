@@ -625,7 +625,7 @@
    },
    "traits": {
     "personality": [
-     "Honest",
+     "Cruel",
      "Wrathful",
      "Brave"
     ],
@@ -650,6 +650,8 @@
    },
    "appearance": "A broad grey man with a sabre across his knees and a beard stained rust at the corners.",
    "backstory": "Khoái Thiết Ưng grew up in Hắc Phong Trại beside a boy four years younger, Đồ Vô Cữu (do_vo_cuu). When Thiên Xu cleared the stockade in 940 (V126), Đỗ Tinh Hà (do_tinh_ha) spared the youngest. Khoái, twenty-four, fled north along the ore range with the captain's sabre and the stockade's blood method. He lives on Hắc Ưng Phong, where the Darkness in the rock makes the Pivot's patrols short. He fights only those who climb up to duel him, and he drinks the loser's blood. Đồ has found him twice and gone back down twice.",
+   "wants": "To meet the climber who is still standing at the end, as none has been in forty years; until then to keep each loser bleeding on the rock until the stone has drunk him, while Bộ Thiết Sinh sweeps the blood off the step.",
+   "secret": "He cheats: a chip of the peak's Darkness stone sits in his sabre's hilt and clouds a challenger's eyes in the last exchange. Khoái Hồng Ngạc grinds the chips down and sells them in Tinh Hán Thành as luck charms, and the price has begun to draw buyers up the mountain.",
    "ties": [
     {
      "to": "do_vo_cuu",
@@ -774,7 +776,7 @@
     "personality": [
      "Vengeful",
      "Patient",
-     "Temperate"
+     "Cruel"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born",
@@ -792,6 +794,8 @@
    },
    "appearance": "A dry, tidy old man who carries a gourd and never drinks from anyone's well while they watch.",
    "backstory": "Tra Hàm Tuyền was a well-keeper's son of Tình Sa Thôn when Văn Hải Khô (van_hai_kho) drained the qi wells of three river towns in the west. In 885 his sister Tra Cam Tỉnh (tra_cam_tinh) went into the last well of Tình Sa with a bitter-root charm, and her qi turned the water so bitter that Văn could not drink it (N-demonic-01). Văn took the brother instead, as a disciple, and taught him the Hollow Tide. In 906 Văn went to the Tower and left him behind. In 951 the Tower said Văn died of a deviation. Tra has never believed it. He is one of three people alive who hold that scripture.",
+   "wants": "To drink one well of Tình Sa to the bottom and live, and then to walk to the Tower and ask its head what Văn Hải Khô ate on his last night.",
+   "secret": "He has had Dung Tỉnh Nhi dig a new well beside the bitter one at Tình Sa, and means to let the village drink from it for a season before he does. Last winter, in Dung's own village, he drank a well dry and sat on the lip for three days to watch what the children did.",
    "ties": [
     {
      "to": "van_hai_kho",

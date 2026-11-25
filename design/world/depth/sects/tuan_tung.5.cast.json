@@ -32,7 +32,7 @@
      "Temperate"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "He drove the fourth wagon of Trang Thiết Cước's (trang_thiet_cuoc) column in 1190, one of the drivers the hall kept, and joined to stay with the mules; he says they smelled wolf from the first night out of Tùng Hạ.",
    "ties": [
@@ -82,7 +82,8 @@
      "intent": "A body that walks all night; staff work."
     },
     "note": "Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
-   }
+   },
+   "appearance": "Whip scar round one wrist, a bell-clapper charm at his neck."
   },
   {
    "key": "tu_tien_suong",
@@ -110,14 +111,14 @@
    "traits": {
     "personality": [
      "Vengeful",
-     "Brave",
+     "Callous",
      "Reclusive"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "wild_raised",
     "lifestyle": "hunter"
    },
-   "backstory": "A hunter of Liệp Hộ who shot beside Diêm Lạc Nhạn (diem_lac_nhan) long before the hall; she found the new wolf sign on the Bạch Lang road this autumn and agrees with her friend that the head's mercy brought it.",
+   "backstory": "A hunter of Liệp Hộ who shot beside Diêm Lạc Nhạn (diem_lac_nhan) long before the hall; she found the new wolf sign on the Bạch Lang road this autumn and agrees with her friend that the head's mercy brought it. She sent Lâm Tiểu Tiễn (lam_tieu_tien) up the road alone at night to find sign, and never asked how it went.",
    "ties": [
     {
      "to": "diem_lac_nhan",
@@ -165,7 +166,8 @@
      "intent": "Arrows that pin; patience on a track."
     },
     "note": "Bow on the cham base (no bow base yet: Item DB open question)."
-   }
+   },
+   "appearance": "One ear missing its lobe; she crouches to smell the ground."
   },
   {
    "key": "doan_bat_mien",
@@ -193,13 +195,13 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Diligent",
+     "Just",
      "Brave"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan"
    },
-   "backstory": "He walked the recruitment night on the Tùng Hạ - Cổ Độ road and was still talking at dawn, which Cảnh Dạ Tuần (canh_da_tuan) counted in his favour; Vương Tiều Nhi (vuong_tieu_nhi) knew him in Phạt Mộc and pretends she did not.",
+   "backstory": "He walked the recruitment night on the Tùng Hạ - Cổ Độ road and was still talking at dawn, which Cảnh Dạ Tuần (canh_da_tuan) counted in his favour; Vương Tiều Nhi (vuong_tieu_nhi) knew him in Phạt Mộc and pretends she did not. He halts the night watch only when someone is lost on the road, and says why aloud.",
    "ties": [
     {
      "to": "canh_da_tuan",
@@ -233,7 +235,8 @@
      "intent": "Body first."
     },
     "note": "Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
-   }
+   },
+   "appearance": "Sunburnt nose, blister-hard right hand, and he talks to the dark."
   },
   {
    "key": "hua_tich_van",
@@ -296,7 +299,8 @@
      "intent": "Staff and bow."
     },
     "note": "Bow on the cham base (no bow base yet: Item DB open question)."
-   }
+   },
+   "appearance": "Her magistrate's good green silk is patched twice at the knee with hall cloth."
   },
   {
    "key": "lam_tieu_tien",
@@ -365,7 +369,8 @@
      "intent": "Body first."
     },
     "note": "Bow on the cham base (no bow base yet: Item DB open question)."
-   }
+   },
+   "appearance": "Keeps licking her chapped lips; the wolf's-tooth necklace is too big for her."
   },
   {
    "key": "khau_toan_lo",
@@ -393,13 +398,13 @@
    "traits": {
     "personality": [
      "Pragmatic",
-     "Honest",
+     "Faithless",
      "Cautious"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "A Tùng Hạ market boy who reckons fees in Trang Thiết Cước's (trang_thiet_cuoc) counting-house by day and walks the caravans he billed by night, because the hall's rule says he must; Trang Tiểu Đà (trang_tieu_da) copies his sums.",
+   "backstory": "A Tùng Hạ market boy who reckons fees in Trang Thiết Cước's (trang_thiet_cuoc) counting-house by day and walks the caravans he billed by night, because the hall's rule says he must; Trang Tiểu Đà (trang_tieu_da) copies his sums. Once a season he sells the caravan schedules to a Cổ Độ gang for a cut, and last season Cảnh Dạ Tuần (canh_da_tuan) lost two mules to it.",
    "ties": [
     {
      "to": "trang_thiet_cuoc",
@@ -433,7 +438,8 @@
      "intent": "Staff work."
     },
     "note": "Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
-   }
+   },
+   "appearance": "A bone abacus in his sleeve, and chalk dust on his boots."
   },
   {
    "key": "hoang_thiet_huyen",
@@ -466,7 +472,13 @@
     ],
     "calling": "Duelist",
     "upbringing": "village_born",
-    "lifestyle": "hunter"
+    "lifestyle": "hunter",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "A Thanh Tùng boy who strings his own bows and wants every wolf that ever followed a caravan dead, as his master Diêm Lạc Nhạn (diem_lac_nhan) does. She pays him a pelt for each running wolf, and he has four. This autumn, three days out of Tùng Hạ, he left a mule-driver at the wagons to run one down, and the pack took the driver's leg.",
    "ties": [
@@ -507,7 +519,8 @@
      "intent": "Body, then the bow."
     },
     "note": "Bow on the cham base (no bow base yet: Item DB open question)."
-   }
+   },
+   "appearance": "Bowstring grooves across two fingers, four wolf-tail tassels at his belt, and he cannot sit through a meal."
   }
  ]
 }

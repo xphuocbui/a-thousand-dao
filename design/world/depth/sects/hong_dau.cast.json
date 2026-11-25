@@ -357,6 +357,7 @@
    "home": 27,
    "birthplace": 818,
    "role": "Mistress of the gracious door at the manor house (27): she greets the guests and pours the tea",
+   "appearance": "Round-faced and laughing, in rose silk, with a fan she never opens all the way.",
    "tier": "B",
    "root": {
     "elements": {
@@ -394,8 +395,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "Round-faced and laughing, in rose silk, with a fan she never opens all the way.",
    "backstory": "A fishmonger's girl from Lạc Triều Thôn whom Nghê Hồng Đậu (nghe_hong_dau) took for her face and kept for her nerve. For sixty years she has kept the manor house on the forest road: the gracious door, the tea, and the choice of who is poured a second cup. In 1153 she poured one for a Phượng Minh spy, Tề Vong Quy (te_vong_quy), and he has gardened for the manor ever since. She thinks Nghê Xuân Chi would close the door, and she means to be at the mistress's side when the succession comes.",
+   "wants": "The second cup poured forever, and Nghê Xuân Chi's garden brought under her door.",
+   "secret": "She wets Tề Vong Quy's (te_vong_quy) night tea with a sleeping draught so he does not wander the guests' wing in the dark.",
    "ties": [
     {
      "to": "nghe_hong_dau",
@@ -506,6 +508,7 @@
    "home": 263,
    "birthplace": 821,
    "role": "Poison-cook of the back garden",
+   "appearance": "A squat, silent man with toad-skin gloves and stained teeth.",
    "tier": "B",
    "root": {
     "elements": {
@@ -540,8 +543,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A squat, silent man with toad-skin gloves and stained teeth.",
    "backstory": "Raised by toad-catchers in Độc Thiềm Lâm, the wood that bred Ô Thiềm Tử (o_thiem_tu) a hundred and seventy years before him, and sold to the manor at twelve for a jar of venom. He renders the red beans into the manor's longing poison in the garden at Tiêu Âm Mạch and does not ask whom it is for. He resents that the Tower's market buys Ô's poisons at twice the price of his.",
+   "wants": "Ô's price paid at his own stall, and the garden's pastes sold under his name.",
+   "secret": "He sells his pastes at the Night Rain Market under Ô Thiềm Tử's (o_thiem_tu) mark at Ô's price, thinned by a third with garden water.",
    "ties": [
     {
      "to": "nghe_xuan_chi",
@@ -633,6 +637,7 @@
    "home": 42,
    "birthplace": 42,
    "role": "The manor's courier to the Night Rain Market in Thu Trì",
+   "appearance": "The coin on his knuckles stops only when he is lying.",
    "tier": "C",
    "root": {
     "elements": {
@@ -644,8 +649,8 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Greedy",
-     "Cautious"
+     "Generous",
+     "Diligent"
     ],
     "calling": "Merchant",
     "upbringing": "street_orphan",
@@ -657,7 +662,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "A Thu Trì street boy who carries the manor's lacquer boxes to Kiều Mãn Lâu's (kieu_man_lau) stall on rainy nights and owes the stall a season's rent at dice.",
+   "backstory": "A Thu Trì street boy who carries the manor's lacquer boxes to Kiều Mãn Lâu's (kieu_man_lau) stall on rainy nights and owes the stall a season's rent at dice. He stands the carriers a round whenever he wins, so Bành Tri Hạp (banh_tri_hap) never goes short.",
    "ties": [
     {
      "to": "nghe_xuan_chi",
@@ -725,6 +730,7 @@
    "home": 263,
    "birthplace": 93,
    "role": "A Phượng Minh disciple who came to the gracious door in 1153 and has gardened there since",
+   "appearance": "A tall man in a gardener's apron with a Fire sword's calluses on his right hand and a red bean on a string at his throat.",
    "tier": "B",
    "exception": "servant (tạp dịch), held by the manor's charm since 1153; a Phượng Minh disciple, never taught the lineage",
    "root": {
@@ -760,8 +766,9 @@
      "Lovestruck"
     ]
    },
-   "appearance": "A tall man in a gardener's apron with a Fire sword's calluses on his right hand and a red bean on a string at his throat.",
    "backstory": "In 1153, the fourth year of the Tower's war for Đan Sơn Mạch (C188), Phượng Minh sent him down the forest road to learn what the Tower's poisons were. He knocked at the gracious door, and Liễu Đa Thải (lieu_da_thai) poured him a second cup. He has tended the bean trellises at Tiêu Âm Mạch for forty-seven years and believes he loves her. He had a daughter by a garden servant, Tề Niệm Quy (te_niem_quy), who has spent her life trying to wake him.",
+   "wants": "His daughter gone from the garden before anyone learns whose she is, and one night with his sword in the open.",
+   "secret": "He has found out Tề Niệm Quy (te_niem_quy) is the one scattering the beans, and walks the path behind her each night picking up the ones she drops; he tips Liễu Đa Thải's (lieu_da_thai) night tea into the trellis so that he can.",
    "ties": [
     {
      "to": "lieu_da_thai",
@@ -840,6 +847,7 @@
    "home": 263,
    "birthplace": 822,
    "role": "Bean-picker with the best fingers in the garden",
+   "appearance": "The dye-stall girls call her face a boiled turnip and her hands a gift.",
    "tier": "C",
    "root": {
     "elements": {
@@ -856,7 +864,12 @@
     ],
     "calling": "Herbalist",
     "upbringing": "village_born",
-    "talent": [],
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ],
     "path": [],
     "lifestyle": null,
     "health": null,
@@ -922,6 +935,7 @@
    "home": 263,
    "birthplace": 263,
    "role": "The charmed gardener's daughter, who scatters red beans on the forest path",
+   "appearance": "Her pocket is full of red beans that click like a dice-cup when she walks.",
    "tier": "C",
    "root": {
     "elements": {
@@ -946,7 +960,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Since 1197 she has scattered red beans on the forest path to the manor so that travellers step around them and turn back (A279); no one at the manor has caught her yet.",
+   "backstory": "Since 1197 she has scattered red beans on the forest path to the manor so that travellers step around them and turn back (A279); only her father has caught her, and he has said nothing. She tells the gardeners the beans are the pheasants' and lets Kha Tiểu Đậu (kha_tieu_dau) take the scolding for the mess.",
    "ties": [
     {
      "to": "te_vong_quy",
@@ -1009,6 +1023,7 @@
    "home": 156,
    "birthplace": 156,
    "role": "Road-watcher at the misty bridge of Yên Kiều",
+   "appearance": "Smells of wet wool; one boot is tied on with cord.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1019,7 +1034,7 @@
    },
    "traits": {
     "personality": [
-     "Cautious",
+     "Faithless",
      "Fickle",
      "Gregarious"
     ],
@@ -1033,7 +1048,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Sits by the bridge at Yên Kiều that vanishes in the rain (A272) and sends word to the door of every guest coming up the road, and what they carry.",
+   "backstory": "Sits by the bridge at Yên Kiều that vanishes in the rain (A272) and sends word to the door of every guest coming up the road, and what they carry. He sold a salt-factor's clerk's name to the buyer in toad-skin gloves for silver, and the clerk never reached the door.",
    "ties": [
     {
      "to": "quan_song_dau",
@@ -1084,6 +1099,7 @@
    "home": 27,
    "birthplace": 818,
    "role": "The door's apprentice, who will pour the first cup after Liễu",
+   "appearance": "Tugs her rose-silk cuff whenever a sentence is not true, and has not noticed.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1099,7 +1115,7 @@
      "Indulgent"
     ],
     "calling": "Diplomat",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [
      {
       "id": "comely",
@@ -1113,7 +1129,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Liễu Đa Thải's (lieu_da_thai) cousin from Lạc Triều Thôn, learning which guests to smile at; she has not yet been allowed to pour a second cup.",
+   "backstory": "Liễu Đa Thải's (lieu_da_thai) cousin, a fishmonger's daughter of Lạc Triều Thôn, learning which guests to smile at; she has not yet been allowed to pour a second cup. She waters Liễu's wine so the nod comes late, and Liễu has blamed the cellar boy for it.",
    "ties": [
     {
      "to": "lieu_da_thai",
@@ -1164,6 +1180,7 @@
    "home": 263,
    "birthplace": 89,
    "role": "A boy who says he is Diệp Phi Hồng's descendant and came for the sword's art",
+   "appearance": "A jade ring too big for him, worn on his thumb, and a habit of counting his family tree on his fingers and losing it at the fifth name.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1180,7 +1197,12 @@
     ],
     "calling": "Duelist",
     "upbringing": "mortal_noble",
-    "talent": [],
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ],
     "path": [],
     "lifestyle": null,
     "health": null,
@@ -1188,7 +1210,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Came from Xuân Thảo Thành in 1199 with a family tree that ends in Diệp Phi Hồng (diep_phi_hong), asking to see Phi Hồng; the mistress took him in at once, which frightens everyone but him.",
+   "backstory": "Came from Xuân Thảo Thành in 1199 with a family tree that ends in Diệp Phi Hồng (diep_phi_hong), asking to see Phi Hồng; the mistress took him in at once, which frightens everyone but him. Slow to see why she took him in so fast, he has not asked.",
    "ties": [
     {
      "to": "diep_phi_hong",

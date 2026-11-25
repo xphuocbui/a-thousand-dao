@@ -184,7 +184,7 @@
     "personality": [
      "Ambitious",
      "Diligent",
-     "Impatient"
+     "Deceitful"
     ],
     "calling": "Alchemist",
     "upbringing": "sect_raised",
@@ -204,7 +204,7 @@
     "gained": []
    },
    "appearance": "A thin young man with quick hands and a fixed look, who wears the plain inner-gate robe with a strip of older green silk sewn inside the collar.",
-   "backstory": "In 1166 a baby was left on the step of the sect's door in Lam Yên Thị on the Green Door Day, wrapped in a strip of green inner-gate silk. Dư Tục Đoạn (du_tuc_doan) found him, and the sect named him from the herb book: Viễn Chí, polygala, 'far ambition'. The name fits him too well. He passed the outer gate's First Leaf at nineteen, the youngest in two centuries, and reached Trúc Cơ at thirty-two, faster than any disciple since the move. Thiệu Thanh Đài (thieu_thanh_dai) took him as her first disciple. He studies her moss plot in the Heir's Garden and cannot understand why she planted something that will lose. He has begun to suspect she means to. He has also been asking quietly in the Furnace Hall whose robe the silk came from. He wants to be head of Thúy Vi, and he does not hide it.",
+   "backstory": "In 1166 a baby was left on the step of the sect's door in Lam Yên Thị on the Green Door Day, wrapped in a strip of green inner-gate silk. Dư Tục Đoạn (du_tuc_doan) found him, and the sect named him from the herb book: Viễn Chí, polygala, 'far ambition'. The name fits him too well. He passed the outer gate's First Leaf at nineteen, the youngest in two centuries, and reached Trúc Cơ at thirty-two, faster than any disciple since the move. Thiệu Thanh Đài (thieu_thanh_dai) took him as her first disciple. He studies her moss plot in the Heir's Garden and cannot understand why she planted something that will lose. He has begun to suspect she means to. He has also been asking quietly in the Furnace Hall whose robe the silk came from. He wants to be head of Thúy Vi, and he does not hide it. He has copied the sewing ledger and tells Thiệu Thanh Đài he has not.",
    "wants": "To be named heir in his master's place, and to learn who left him on the step.",
    "secret": "He has found the Furnace Hall's bolt of that silk. Its sewing ledger names the inner disciple Tề Tử Tô as the one who drew a robe from it in 1165.",
    "ties": [
@@ -317,7 +317,7 @@
     "personality": [
      "Patient",
      "Humble",
-     "Just"
+     "Arbitrary"
     ],
     "calling": "Teacher",
     "upbringing": "village_born",
@@ -335,7 +335,9 @@
     "gained": []
    },
    "appearance": "A slow, grey-bearded man who uses his hoe as a staff and as a pointer.",
-   "backstory": "A Pivot farmer's son from Thanh Bách Thành, Phạm Thủ Điền came north in 1080 because he had heard Thúy Vi took Earth roots into its outer gate. It does, and it kept him there for forty years before his Wood caught up. Quyền Thanh Lam (quyen_thanh_lam) made him master of the outer gate and its fields in 1150. He knows every outer disciple's root. He is also the one who tells the Earth-only disciples, kindly, that the inner gate will not open for them.",
+   "backstory": "A Pivot farmer's son from Thanh Bách Thành, Phạm Thủ Điền came north in 1080 because he had heard Thúy Vi took Earth roots into its outer gate. It does, and it kept him there for forty years before his Wood caught up. Quyền Thanh Lam (quyen_thanh_lam) made him master of the outer gate and its fields in 1150. He knows every outer disciple's root. He is also the one who tells the Earth-only disciples, kindly, that the inner gate will not open for them. He marks the disciples he likes a half-grade up in the gate ledger.",
+   "wants": "To see one Earth-only outer disciple pass the inner gate in his lifetime.",
+   "secret": "He has marked two Earth disciples a half-grade up in the gate ledger so that they may sit the inner test; if the Hall of Rules audits the ledger it will find his hand.",
    "ties": [
     {
      "to": "quyen_thanh_lam",
@@ -472,8 +474,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "Round-faced and freckled, with her father's slow walk.",
+   "appearance": "Round-faced and freckled, with her father's slow walk and a knee that jiggles through every meeting.",
    "backstory": "The only child of Quyền Thanh Lam (quyen_thanh_lam) and Khổng Đương Quy (khong_duong_quy), born at the new seat in 1120 and named for the wheat her father was sowing that week. She is a steady grower and a poor fighter. She keeps the seed vault. At eighty she is afraid she will never reach Kết Đan, and that her father will die waiting for it.",
+   "wants": "Kết Đan before her father dies, or the courage to stop trying.",
+   "secret": "She was told to burn the seed of the sect's first rice when it failed; instead she plants a single row of it each spring in her mother's herb garden.",
    "ties": [
     {
      "to": "quyen_thanh_lam",
@@ -593,6 +597,8 @@
    },
    "appearance": "A stooped, weathered man with two water buckets on a yoke and a voice he almost never uses.",
    "backstory": "Born to a servant of the Cliff Hall in 1050, Bao Nham Tỉnh has spent a hundred and fifty years on the ridge and gone down the mountain four times. He is its steward. He keeps the founder's grave, the founder's pine and the four hundred life trees of disciples who joined before the move, and he waters every one by hand. When one of those trees dies, he makes the 200 km journey down to the new seat, about two weeks on foot, to tell whoever it belonged to. Cù Thúy Bách (cu_thuy_bach) is the only person he calls by name.",
+   "wants": "To be buried among the life trees he waters.",
+   "secret": "He grafts cuttings from dead disciples' life trees onto living ones so that no one he walks down the mountain to tell will lose a tree; the Hall of Rules would call it fraud of the roll.",
    "ties": [
     {
      "to": "cu_thuy_bach",
@@ -718,6 +724,8 @@
    },
    "appearance": "A pale woman with burn-scarred hands who sits by water whenever she can.",
    "backstory": "Quản Ảnh Hồ was twenty-eight and the senior disciple of Minh Kính Đường when her master, Giản Chiếu Thanh (gian_chieu_thanh), brought his tribulation down on the hall in 1066 (V033). She came to the seat alone, with his method in her head: a still-water mirror method the lineage does not teach. She has practised it at the seat for 134 years under an exception the Hall of Rules renews every decade. She has sat at Trúc Cơ's late stage for a century and expects to die there.",
+   "wants": "To die by water, still at Trúc Cơ, with the mirror method taught to one person.",
+   "secret": "She is teaching the still-water method to the servant girl who fetches her water, against the exception that forbids her to teach it; the Hall renews the exception next year.",
    "ties": [
     {
      "to": "gian_chieu_thanh",
@@ -808,7 +816,7 @@
    "traits": {
     "personality": [
      "Content",
-     "Gregarious",
+     "Greedy",
      "Brave"
     ],
     "calling": "Beast tamer",
@@ -824,7 +832,9 @@
     ]
    },
    "appearance": "A white-haired, brown-faced herder with a bamboo flute through his belt and no teeth on one side.",
-   "backstory": "Uông Mục Địch was a ten-year-old flute student at Địch Thanh Viện when his master's flute drove a herd of spirit cattle mad and they trampled the halls (V014). He went home to the herders of Mục Ca, and then to Thúy Vi, where Tất Hành Vụ (tat_hanh_vu) taught him. He is 198. A Trúc Cơ's span is two hundred years, and he has failed Kết Đan three times. He plays to the sect's spirit cattle on the cape, and he says he will try once more in spring, with the herd listening.",
+   "backstory": "Uông Mục Địch was a ten-year-old flute student at Địch Thanh Viện when his master's flute drove a herd of spirit cattle mad and they trampled the halls (V014). He went home to the herders of Mục Ca, and then to Thúy Vi, where Tất Hành Vụ (tat_hanh_vu) taught him. He is 198. A Trúc Cơ's span is two hundred years, and he has failed Kết Đan three times. He plays to the sect's spirit cattle on the cape, and he says he will try once more in spring, with the herd listening. He charges the Mục Ca herders a copper to watch the lead cow bow to his tune.",
+   "wants": "Kết Đan in spring with the herd listening, or a quiet place under the cattle's tree.",
+   "secret": "He has taught the lead cow to bow to one tune and charges the Mục Ca herders a copper to watch.",
    "ties": [
     {
      "to": "tat_hanh_vu",
@@ -922,7 +932,7 @@
    },
    "traits": {
     "personality": [
-     "Pragmatic",
+     "Greedy",
      "Diligent",
      "Ambitious"
     ],
@@ -942,7 +952,9 @@
     "gained": []
    },
    "appearance": "A neat man with ink on his middle finger and an abacus in his sleeve.",
-   "backstory": "Thẩm Tịnh Sa is a grandson of the Thẩm clan of Bạch Sa, whose daughter married into a Yên Ba merchant house in 1040 and made the white sands a trading town (A029). He keeps the port house's books for Diêm Hải Tảo (diem_hai_tao) and knows the price of every pill in every port of the cape. He is the clan's first cultivator, and the clan reminds him of it in every letter.",
+   "backstory": "Thẩm Tịnh Sa is a grandson of the Thẩm clan of Bạch Sa, whose daughter married into a Yên Ba merchant house in 1040 and made the white sands a trading town (A029). He keeps the port house's books for Diêm Hải Tảo (diem_hai_tao) and knows the price of every pill in every port of the cape. He is the clan's first cultivator, and the clan reminds him of it in every letter. He skims two parts in a hundred from every pill price and sends it to the clan.",
+   "wants": "A clan hall in Bạch Sa with his name on the lintel, paid for with clean books.",
+   "secret": "He keeps a second set of the port house's books in which every pill price is two parts in a hundred high, and sends the difference home to the Thẩm clan; Diêm Hải Tảo has trusted his sums for thirty years.",
    "ties": [
     {
      "to": "diem_hai_tao",
@@ -1056,7 +1068,7 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Cautious",
+     "Callous",
      "Deceitful"
     ],
     "calling": "Alchemist",
@@ -1072,7 +1084,9 @@
     "gained": []
    },
    "appearance": "Thin, sharp-boned and very still, with perilla-purple stains on her fingers.",
-   "backstory": "From the perilla village of Tử Tô Thôn, Tề Tử Tô is the Furnace Hall's senior inner alchemist and Úy Thanh Diễm's (uy_thanh_diem) best brewer of wound pills. She is quick, cold and admired. In 1165 she went into a year's closed-door cultivation and came out thin. The next spring a baby was left at the sect's door in Lam Yên Thị (kien_vien_chi). She has never looked at him in a hall. In the Furnace Hall's sealed shelf she has found the Rotting Canopy Canon the sect forbids, and she reads it at night.",
+   "backstory": "From the perilla village of Tử Tô Thôn, Tề Tử Tô is the Furnace Hall's senior inner alchemist and Úy Thanh Diễm's (uy_thanh_diem) best brewer of wound pills. She is quick, cold and admired. In 1165 she went into a year's closed-door cultivation and came out thin. The next spring a baby was left at the sect's door in Lam Yên Thị (kien_vien_chi). She has never looked at him in a hall. In the Furnace Hall's sealed shelf she has found the Rotting Canopy Canon the sect forbids, and she reads it at night. One batch in forty of her wound pills carries a trace of the forbidden canon, and she does not tell the patients.",
+   "wants": "To finish reading the Rotting Canopy Canon before the sealed shelf is found open.",
+   "secret": "She is copying the forbidden canon into her wound-pill recipes a line at a time, and one batch in forty carries a trace of it; Dư Tục Đoạn's patients are drinking it.",
    "ties": [
     {
      "to": "uy_thanh_diem",
@@ -1178,7 +1192,7 @@
    "traits": {
     "personality": [
      "Impatient",
-     "Honest",
+     "Deceitful",
      "Fickle"
     ],
     "calling": "Herbalist",
@@ -1197,7 +1211,9 @@
     "gained": []
    },
    "appearance": "A slight young woman with the founder's long eyes, which everyone on the ridge tells her.",
-   "backstory": "A great-great-granddaughter of Phùng Yên Hà (phung_yen_ha) and Âu Dương Thanh Lô (au_duong_thanh_lo), born on the ridge and raised by Cù Thúy Bách (cu_thuy_bach), who sees the founder in her face. The Cliff Hall treats her as a relic, and she hates it. She wants to go down to the new seat and grow magnolias like any other disciple. Cù will not hear of it.",
+   "backstory": "A great-great-granddaughter of Phùng Yên Hà (phung_yen_ha) and Âu Dương Thanh Lô (au_duong_thanh_lo), born on the ridge and raised by Cù Thúy Bách (cu_thuy_bach), who sees the founder in her face. The Cliff Hall treats her as a relic, and she hates it. She wants to go down to the new seat and grow magnolias like any other disciple. Cù will not hear of it. She tells Cù Thúy Bách she sleeps early, and slips down the mountain.",
+   "wants": "To go down to the new seat and grow magnolias like any other disciple.",
+   "secret": "One night a month she walks down the mountain to the new seat and back before dawn, and Bành Lạp Mai lies in her bed to cover for her.",
    "ties": [
     {
      "to": "cu_thuy_bach",
@@ -1288,13 +1304,14 @@
    "traits": {
     "personality": [
      "Brave",
-     "Wrathful",
+     "Cruel",
      "Loyal"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "A pine-soot boy from Tùng Yên Thôn who climbed to the Cliff Hall because the slope's disciples laughed at his Metal; Hoàn Cô Bách (hoan_co_bach) has made him the hardest fighter on the ridge.",
+   "backstory": "A pine-soot boy from Tùng Yên Thôn who climbed to the Cliff Hall because the slope's disciples laughed at his Metal; Hoàn Cô Bách (hoan_co_bach) has made him the hardest fighter on the ridge. He broke a slope disciple's knee for laughing at his Metal, and the boy went home to Phục Linh Thôn lame.",
+   "appearance": "Pine soot ground into the lines of his palms that no wash lifts.",
    "ties": [
     {
      "to": "hoan_co_bach",
@@ -1381,6 +1398,7 @@
     "upbringing": "merchant_child"
    },
    "backstory": "A cloth-seller's daughter from Tang Ma Thành in Lạc Hà's river land who came north for the healers; she keeps the Green Door Day's list for Dư Tục Đoạn (du_tuc_doan) and has never forgotten a face on it.",
+   "appearance": "Quick cloth-seller's fingers that smooth every sleeve she passes.",
    "ties": [
     {
      "to": "du_tuc_doan",
@@ -1464,10 +1482,11 @@
      "Honest"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born",
+    "upbringing": "wild_raised",
     "lifestyle": "calligrapher"
    },
-   "backstory": "An herb-gatherer's daughter from Thái Dược Thôn who keeps the osmanthus terraces at Thương Thúy Lâm and has been quietly copying the Bách Thảo books for Khổng Đương Quy (khong_duong_quy) before the paper rots.",
+   "backstory": "An herb-gatherer's daughter from Thái Dược Thôn who keeps the osmanthus terraces at Thương Thúy Lâm and has been quietly copying the Bách Thảo books for Khổng Đương Quy (khong_duong_quy) before the paper rots. She grew up more in the hills than in the village.",
+   "appearance": "A copyist's right thumb cramped into a hook.",
    "ties": [
     {
      "to": "khong_duong_quy",
@@ -1544,6 +1563,7 @@
     "upbringing": "village_born"
    },
    "backstory": "A wheat farmer's son from Hoa Mạch Thôn who broke through to Trúc Cơ in a field, behind a plough; Quyền Thanh Lam (quyen_thanh_lam) took him as a disciple for it the same day.",
+   "appearance": "Smiles slowly, a beat after everyone else.",
    "ties": [
     {
      "to": "quyen_thanh_lam",
@@ -1627,7 +1647,8 @@
      "Battle-hardened"
     ]
    },
-   "backstory": "Born in Tân Cư Thôn, where every door has a jar of resin as a joke on the old tax (V024), he is the Cold Ford Hall's best fighter on ice and the disciple Hướng Dạ Đăng (huong_da_dang) took with him onto the river mouth in 1172.",
+   "backstory": "Born in Tân Cư Thôn, where every door has a jar of resin as a joke on the old tax (V024), he is the Cold Ford Hall's best fighter on ice and the disciple Hướng Dạ Đăng (huong_da_dang) took onto the river mouth in 1172. He keeps the only fur on the river-mouth watch and let Ung Hàn Thảo (ung_han_thao) lose two toes to frost rather than lend it.",
+   "appearance": "A hoarfrost-white patch in his left eyebrow.",
    "ties": [
     {
      "to": "huong_da_dang",
@@ -1711,9 +1732,10 @@
      "Cautious"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "A Hàn Tân ferryman's daughter and Hướng Vãn Chu's (huong_van_chu) oldest friend, who carries her letters across the river mouth and does not read them.",
+   "appearance": "A small dry cough she hides in her sleeve.",
    "ties": [
     {
      "to": "huong_da_dang",
@@ -1797,9 +1819,10 @@
      "Fickle"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan"
    },
-   "backstory": "She came from Tùng Đào's Cổ Độ Thành with a marten she had stolen from a hunter; now she is Lô Dã Hương's (lo_da_huong) disciple at the Marten Yard, names every pup and cries when they are sold to Hồng Lô.",
+   "backstory": "She came from Tùng Đào's Cổ Độ Thành with a marten she had stolen from a hunter; now she is Lô Dã Hương's (lo_da_huong) disciple at the Marten Yard, names every pup and cries when they are sold to Hồng Lô. An orphan, she lived by theft in Cổ Độ Thành.",
+   "appearance": "A marten-claw scratch on the back of one wrist, always fresh.",
    "ties": [
     {
      "to": "lo_da_huong",
@@ -1868,12 +1891,13 @@
      "Paranoid"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "war_orphan",
     "gained": [
      "Scarred"
     ]
    },
    "backstory": "Pulled from the burning resin stores of Tùng Chi Trấn at three (V016), he now keeps the spirit wood Hộ Lâm Đường sends down for the green furnaces, and he will not let a lamp inside the sheds.",
+   "appearance": "Sniffs every lamp he passes.",
    "ties": [
     {
      "to": "quyen_thanh_lam",
@@ -1971,6 +1995,7 @@
     "lifestyle": "calligrapher"
    },
    "backstory": "Born in the port of Yên Ba, she rides the envoy road beside Biện Vãn Tình (bien_van_tinh) and writes the sect's letters in a hand the Pivot's clerks admire.",
+   "appearance": "Sits so straight a ruler looks bent beside her.",
    "ties": [
     {
      "to": "bien_van_tinh",
@@ -2044,9 +2069,10 @@
      "Trusting"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "A Pivot stonemason's son from Khai Dương Thành who came north to learn arrays from the man who gave the Haze Walk away, Tất Hành Vụ (tat_hanh_vu); he walks the Spring Return array's stones every dawn and knows which one hums wrong.",
+   "appearance": "Taps each stone he passes with his ring.",
    "ties": [
     {
      "to": "tat_hanh_vu",
@@ -2115,9 +2141,10 @@
      "Humble"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
    "backstory": "A mica-miner's daughter from Vân Mẫu Khoáng (A039), whose Metal makes her clumsy with Wood and very good with array stones; she grinds the mica that makes the seat's haze arrays shine.",
+   "appearance": "Mica glitter dusting her cheekbones and sleeves.",
    "ties": [
     {
      "to": "tat_hanh_vu",
@@ -2199,6 +2226,7 @@
     "upbringing": "sect_raised"
    },
    "backstory": "A six-year-old child of Thanh Nang Đường's healers who came to Thúy Vi with Dư Tục Đoạn (du_tuc_doan) in 1101 (V018); he still practises the hall's own healing method rather than the lineage, under an exception.",
+   "appearance": "A child's round face on a grown frame.",
    "ties": [
     {
      "to": "du_tuc_doan",
@@ -2267,6 +2295,7 @@
     "lifestyle": "tea_master"
    },
    "backstory": "She grows the sect's spirit tea at Trà Viên Thôn and brews the head's tea when he walks that way; she is the only disciple Ngu Lam Sơn (ngu_lam_son) asks for by name.",
+   "appearance": "A slow, deep voice for so small a woman.",
    "ties": [
     {
      "to": "khong_duong_quy",
@@ -2343,6 +2372,7 @@
     "upbringing": "village_born"
    },
    "backstory": "A white-wax girl from Bạch Lạp Thôn who chose the Cliff Hall because the slope felt too easy; she regrets it every winter and admits it only to Âu Dương Tân Di (au_duong_tan_di).",
+   "appearance": "A scowl she puts on for company.",
    "ties": [
     {
      "to": "hoan_co_bach",
@@ -2429,6 +2459,7 @@
     "upbringing": "village_born"
    },
    "backstory": "A walnut grower's son from Hồ Đào Thôn who has been building Quyền Thanh Lam (quyen_thanh_lam) a second nine-square field in the forest for forty years, and is nearly done.",
+   "appearance": "A stoop from forty years under low branches.",
    "ties": [
     {
      "to": "quyen_thanh_lam",
@@ -2501,6 +2532,7 @@
     "lifestyle": "chronicler"
    },
    "backstory": "Born in Tùng Đào's Đào Thanh Thành, he crossed the border at sixteen because Thúy Vi's rules were written down; as Nhạc Chính Hành's (nhac_chinh_hanh) clerk he records every judgment, and he keeps a second book of the ones he thinks were wrong.",
+   "appearance": "A Tùng Đào cut to his collar, the only one in the Hall of Rules.",
    "ties": [
     {
      "to": "nhac_chinh_hanh",
@@ -2578,6 +2610,7 @@
     "health": "soul_wound"
    },
    "backstory": "A water-chestnut girl from Lăng Giác Thôn who followed a stream of peach petals up a forest stream in the spring of 1180 and came back three days later with no memory of them (N-thuy_vi-09).",
+   "appearance": "A peach-petal birthmark behind one ear that she says appeared the day she came back.",
    "ties": [
     {
      "to": "diem_hai_tao",
@@ -2649,6 +2682,7 @@
     "upbringing": "sect_raised"
    },
    "backstory": "Tất Hành Vụ's (tat_hanh_vu) granddaughter and disciple, born at the new seat; she lays haze arrays as well as he does and argues with him about Vụ Ẩn Môn at dinner.",
+   "appearance": "Her grandfather's quick, bent walk.",
    "ties": [
     {
      "to": "tat_hanh_vu",
@@ -2729,7 +2763,8 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "He keeps the sect's pill shop in Lam Yên Thị, where he was born, and sells to merchants from three sects; Lạc Đan Thanh's (lac_dan_thanh) agents buy from him and copy the seals.",
+   "backstory": "He keeps the sect's pill shop in Lam Yên Thị, where he was born, and sells to merchants from three sects; Lạc Đan Thanh's (lac_dan_thanh) agents buy from him and copy the seals. He keeps back the cheap pills Dư Tục Đoạn (du_tuc_doan) sends for the Green Door poor and sells them as Healing House stock, so the step runs short by winter.",
+   "appearance": "Turns a jade thumb ring whenever he lies.",
    "ties": [
     {
      "to": "bien_van_tinh",
@@ -2823,10 +2858,11 @@
      "Calm"
     ],
     "calling": "Wanderer",
-    "upbringing": "sect_raised",
+    "upbringing": "hermit_taught",
     "lifestyle": "pilgrim"
    },
    "backstory": "The head's oldest living disciple, who never rose past Trúc Cơ and stopped trying; he lives alone on Thủy Cùng Phong, where the water ends, and walks with the abbot Tống Tọa Vân (tong_toa_van) of the abbey below.",
+   "appearance": "Wind-grey hair down to his waist.",
    "ties": [
     {
      "to": "ngu_lam_son",

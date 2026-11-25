@@ -29,13 +29,14 @@
     "personality": [
      "Diligent",
      "Stubborn",
-     "Just"
+     "Arbitrary"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born",
+    "upbringing": "sect_raised",
     "health": "lingering_poison"
    },
-   "backstory": "Teaches the Sulphur Lung Breath in the washing shed and coughs through every lesson; he was Tôn Luyện Hà's (ton_luyen_ha) last disciple before the founder took him on, and wants the gourd broken as much as Thiệu Ngân Hống (thieu_ngan_hong) does.",
+   "appearance": "Coughs like a gourd of rattling seeds; his left hand is stained sulphur-yellow.",
+   "backstory": "Teaches the Sulphur Lung Breath in the washing shed and coughs through every lesson; he was Tôn Luyện Hà's (ton_luyen_ha) last disciple before the founder took him on, and wants the gourd broken as much as Thiệu Ngân Hống (thieu_ngan_hong) does. He seats the troughs by whim, and docked Mễ Thanh Mạch's (me_thanh_mach) rice for a week for a bad dream.",
    "ties": [
     {
      "to": "uy_dan_duong",
@@ -125,6 +126,7 @@
     "calling": "Alchemist",
     "upbringing": "merchant_child"
    },
+   "appearance": "Ash-grey hair pinned up with a brush-reed; the side of her right hand is inked from signing the Mistress's log.",
    "backstory": "Came up from Thạch Kiều Thành with La Tử Vi (la_tu_vi) as girls and keeps the Mistress's furnace log; her friend's hand has shaken since the pill, and Kỳ holds the brush steady for her when she signs the lease returns.",
    "ties": [
     {
@@ -197,8 +199,15 @@
      "Humble"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Chest puffed out at the word 'crusts'; moves his lips when told anything, and is told twice.",
    "backstory": "A sulphur miner's son from Lưu Hoàng whom Dư Hoàng Nhi (du_hoang_nhi) drilled on the crusts for a year so that he would not cough at his first breath in the washing shed; he did not, and he tells everyone so.",
    "ties": [
     {
@@ -271,6 +280,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
+   "appearance": "Face weathered brown before its time; hands gone square from the spade.",
    "backstory": "Mễ Thanh Mạch's (me_thanh_mach) younger sister from the barley village; she digs the Hall's graves in the fields of Thanh Khoa, and eleven of the last fourteen were for men who came home from the troughs shaking.",
    "ties": [
     {
@@ -343,7 +353,8 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "A market child of Thiên Quyền Thị who carries the Hall's pills to the Pivot's scales for Văn Thụy Đan (van_thuy_dan); La Khởi Minh (la_khoi_minh) wants his place at the stall, and he would rather keep it.",
+   "appearance": "Turns a pill-scale pendant between his fingers; grins at strangers like old friends.",
+   "backstory": "A market child of Thiên Quyền Thị who carries the Hall's pills to the Pivot's scales for Văn Thụy Đan (van_thuy_dan); La Khởi Minh (la_khoi_minh) wants his place at the stall, and he would rather keep it: he told La Khởi Minh (la_khoi_minh) the stall's weights ran light, so that the Mistress's nephew would be sent home to the furnace, and the boy still thinks it was true.",
    "ties": [
     {
      "to": "van_thuy_dan",
@@ -408,14 +419,15 @@
    },
    "traits": {
     "personality": [
-     "Loyal",
+     "Faithless",
      "Cautious",
-     "Brave"
+     "Honest"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "Mục Hồng Sa's (muc_hong_sa) niece from the cinnabar diggings, now masked in the mercury room under Thiệu Ngân Hống (thieu_ngan_hong); she writes to her aunt every season asking for the roasting to come back to the room.",
+   "appearance": "Mercury-room pallor around the eyes; a mask-strap line cut deep across both cheeks.",
+   "backstory": "Mục Hồng Sa's (muc_hong_sa) niece from the cinnabar diggings, now masked in the mercury room under Thiệu Ngân Hống (thieu_ngan_hong); she writes to her aunt every season asking for the roasting to come back to the room. She also sells her master's room log to La Tử Vi's clerk for a better mask, and the clerk now asks Thiệu where his gloves went.",
    "ties": [
     {
      "to": "thieu_ngan_hong",
@@ -493,7 +505,8 @@
     "calling": "Steward",
     "upbringing": "servant_born"
    },
-   "backstory": "Carries the founder's meals to the sealed room with Châu Dĩ An (chau_di_an); the blind man asks him each day what colour the sky is over the badlands, and he has started lying to make him laugh.",
+   "appearance": "Skinny, with tray-callused thumbs; his laugh arrives before his joke does.",
+   "backstory": "Carries the founder's meals to the sealed room with Châu Dĩ An (chau_di_an); the blind man asks him each day what colour the sky is over the badlands, and he has started making up colours to make him laugh; he once swore to the cook that Châu Dĩ An (chau_di_an) had spilled the founder's soup, which he had, and she went without a meal.",
    "ties": [
     {
      "to": "la_tu_vi",

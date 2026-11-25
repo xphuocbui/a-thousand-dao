@@ -27,14 +27,15 @@
    },
    "traits": {
     "personality": [
-     "Just",
+     "Arbitrary",
      "Patient",
      "Pragmatic"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "A wharf-born rigger's son who keeps the note ledger for Ông Hải Linh (ong_hai_linh) and found both stolen ships by their bells; he says the mountain's bells ring sharper than the old ones and the captains notice, which the casting floor does not want to hear.",
+   "appearance": "Walks with a rigger's roll, as if the quay still moved under him.",
+   "backstory": "A wharf-born rigger's son who keeps the note ledger for Ông Hải Linh (ong_hai_linh) and found both stolen ships by their bells; he draws the berth lots from a jar he has pulled the white pebbles from for captains he dislikes, and one who greeted him stiffly waited nine days and lost a tide. He says the mountain's bells ring sharper than the old ones.",
    "ties": [
     {
      "to": "yen_boi_ngoc",
@@ -111,12 +112,13 @@
     "personality": [
      "Brave",
      "Impatient",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A Xích Kim miner's daughter who left Thiên Bảo's red gold for the pavilion's bronze in 1170; she pours the big bells, and she will not pour the war bells, so Ngụy Trầm Âm (nguy_tram_am) pours them himself.",
+   "appearance": "A voice that cracks on the high notes, red-gold dust ground into her knuckles.",
+   "backstory": "A Xích Kim miner's daughter who left Thiên Bảo's red gold for the pavilion's bronze in 1170; she pours the big bells and will not pour the war bells. Twice she has cracked a war mould in the night and sworn to Lỗ Hồng Phạm (lo_hong_pham) that the clay failed, and Biện Tiểu Linh (bien_tieu_linh) and Đồ Nê Hương (do_ne_huong) were docked their rice for it.",
    "changed": "fix pass B 2026-11-25 (fixB-5): refuses to pour the war bells (was: asking about the winter rule)",
    "ties": [
     {
@@ -189,8 +191,9 @@
      "Trusting"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
+   "appearance": "A coil of wool cord always at her wrist, in case a sheep wanders in.",
    "backstory": "A Bạch Dương shepherd's girl who failed Lạc Hà's dusk test three times and heard the Cloud Bridge bells from the steppe; Tô Bình Chu (to_binh_chu) placed her where they were cast in 1199. When the head first rang a war bell at the pit she was the first to drop her tools and run, and she has not forgiven herself.",
    "changed": "fix pass B 2026-11-25 (fixB-5): ran first at the tuning",
    "ties": [
@@ -266,6 +269,7 @@
     "calling": "Formation master",
     "upbringing": "village_born"
    },
+   "appearance": "Sleeps in his boots, as though the bells might call him up in the night.",
    "backstory": "A Hà Khúc potter's son who rings the Cloud Bridge's dawn tuning with Phí Ngọc Thanh (phi_ngoc_thanh); on new-moon nights he lies awake while the forty bells answer something below, and his master has told him it is the wind.",
    "ties": [
     {
@@ -335,12 +339,13 @@
     "personality": [
      "Stubborn",
      "Cautious",
-     "Gregarious"
+     "Deceitful"
     ],
     "calling": "Refiner",
     "upbringing": "village_born"
    },
-   "backstory": "A Xích Thổ farm girl and Biện Tiểu Linh's (bien_tieu_linh) neighbour; the bell she cast at entry came out a half-tone flat, and she is saving bronze to recast it before anyone hears.",
+   "appearance": "A half-moon burn on her thumb from the bell she cast at entry.",
+   "backstory": "A Xích Thổ farm girl and Biện Tiểu Linh's (bien_tieu_linh) neighbour; the bell she cast at entry came out a half-tone flat, and she is saving bronze to recast it before anyone hears, shaving it off Biện's scrap pile so that Biện is docked a week's rice for the shortfall.",
    "ties": [
     {
      "to": "lo_hong_pham",
@@ -408,8 +413,9 @@
      "Loyal"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
+   "appearance": "The claw scar on his cheek tugs whenever he frowns, and a spear is never more than a step away.",
    "backstory": "A Liên Chu drover's son who rides the wool caravans with Khang Viễn Đạc (khang_vien_dac); he was there the one time a ward bell failed against a steppe pack, and has carried a spear since.",
    "ties": [
     {
@@ -476,9 +482,10 @@
      "Gregarious"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "A Hàm Phong salt-boiler's daughter and Phí Ngọc Thanh's (phi_ngoc_thanh) cousin, who fits ships at the wharf for Ông Hải Linh (ong_hai_linh); one day a month she buys the melt cart's false bells as scrap, pays her master not to ring them, and sells them polished to the small boats of the bay.",
+   "appearance": "Wears a gold hoop in one ear and says it was a gift.",
+   "backstory": "A Hàm Phong salt-boiler's daughter and Phí Ngọc Thanh's (phi_ngoc_thanh) cousin, who fits ships at the wharf for Ông Hải Linh (ong_hai_linh); once a month she buys the melt cart's false bells as scrap, pays her master not to ring them, and sells them polished to the bay's small boats. A salt-boat with one hanging mute in fog went onto a rock last winter, and two of its crew drowned.",
    "changed": "fix pass B 2026-11-25 (fixB-5): Loyal -> Greedy (sells the melt cart's false bells to the small boats)",
    "ties": [
     {

@@ -321,7 +321,7 @@
      "Ambitious"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [
      {
       "id": "quick_minded",
@@ -415,7 +415,8 @@
     },
     "note": "The school's best sword."
    },
-   "wants": "A master past Trúc Cơ, which the school cannot give her."
+   "wants": "A master past Trúc Cơ, which the school cannot give her.",
+   "secret": "Every month she slips Phí Tầm Mai (phi_tam_mai) a short sword-form to send with her letters to Ninh Hàn Chi in the pines, so the girl turned away at the plum gate is learning the plum blade by post."
   },
   {
    "key": "mac_chiet_chi",
@@ -441,14 +442,14 @@
    },
    "traits": {
     "personality": [
-     "Stubborn",
+     "Arbitrary",
      "Loyal",
      "Callous"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
-   "backstory": "He keeps the plum garden above Hàn Mai where the school began (V051), tests every child's root at the gate, and stood beside Lăng Đạp Tuyết (lang_dap_tuyet) when he turned Ninh Hàn Chi away.",
+   "backstory": "He keeps the plum garden above Hàn Mai where the school began (V051), tests every child's root at the gate, and stood beside Lăng Đạp Tuyết (lang_dap_tuyet) when he turned Ninh Hàn Chi away. Ninh Hàn Chi (ninh_han_chi) was one of the children he sent away in sleet who would have been taken in sun, and he keeps no record of which.",
    "ties": [
     {
      "to": "lang_dap_tuyet",
@@ -496,7 +497,8 @@
      "intent": "Metal guard."
     },
     "note": "Holds the gate."
-   }
+   },
+   "appearance": "A plum twig behind one ear; he sniffs the sky before he speaks."
   },
   {
    "key": "la_thiet_mai",
@@ -563,7 +565,8 @@
      "intent": "Sword crits."
     },
     "note": ""
-   }
+   },
+   "appearance": "Goes barefoot in the snow, and shows off the frostbite blister on each heel."
   },
   {
    "key": "cung_han_nhan",
@@ -594,7 +597,7 @@
      "Just"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "From Phó Ngạo Sương's (pho_ngao_suong) own village of weavers; she practises the five petals on the frozen ore tailings every dawn.",
    "ties": [
@@ -630,7 +633,8 @@
      "intent": "Sword."
     },
     "note": ""
-   }
+   },
+   "appearance": "Weaver's calluses across her right palm, and a pearl-grey sash she keeps spotless."
   },
   {
    "key": "du_ho_van",
@@ -662,7 +666,7 @@
      "Content"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
    "backstory": "His grandparents left Thạch Khẩu Trấn in 1161 (V053) for Thạch Lâu Thôn; he came back to the empty town to work Trác Thiết Cán's (trac_thiet_can) bellows.",
    "ties": [
@@ -705,7 +709,8 @@
      "intent": "A smith's body."
     },
     "note": "Wears a sword, as the plum gate's canon asks."
-   }
+   },
+   "appearance": "One shoulder higher than the other from the bellows, and ears that stick out through the soot."
   },
   {
    "key": "phi_tam_mai",
@@ -777,7 +782,8 @@
      "intent": "Wood bleeds."
     },
     "note": ""
-   }
+   },
+   "appearance": "Wears a plum petal pressed flat in a locket; her step startles easily."
   },
   {
    "key": "an_lanh_phong",
@@ -805,12 +811,18 @@
     "personality": [
      "Warlike",
      "Impatient",
-     "Gregarious"
+     "Arbitrary"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A terrace-farmer's son of Tầng Điền Thôn who walks a season to Tùng Hạ Thị every few autumns to pick fights with Tuần Tùng's wardens; Phó Ngạo Sương (pho_ngao_suong) has stopped paying his fines.",
+   "backstory": "A terrace-farmer's son of Tầng Điền Thôn who walks a season to Tùng Hạ Thị every few autumns to pick fights with Tuần Tùng's wardens, chosen by the colour of their sashes, and last time he wrecked a pie-seller's stall in the brawl; Phó Ngạo Sương (pho_ngao_suong) has stopped paying his fines.",
    "ties": [
     {
      "to": "pho_ngao_suong",
@@ -854,7 +866,8 @@
      "intent": "Sword."
     },
     "note": ""
-   }
+   },
+   "appearance": "A fresh cut under one eye every month, a crooked grin, and he cannot stand still in the queue for his fines."
   },
   {
    "key": "lang_nhuoc_mai",
@@ -880,7 +893,7 @@
      "Impatient"
     ],
     "calling": "Duelist",
-    "upbringing": "sect_raised"
+    "upbringing": "clan_heir"
    },
    "backstory": "She went up to the emptied ore town in the spring of 1162 to see if the tiger that drove the miners out (V053) had gone; it had not, and her father killed it on Hổ Khiếu Cương a month later (N-ngao_tuyet-01).",
    "ties": [
@@ -894,7 +907,8 @@
      "kind": "friend",
      "note": "with her on the road"
     }
-   ]
+   ],
+   "appearance": "Remembered as a girl with her father's frost-burned cheeks and a short sword worn on her back like a school satchel."
   }
  ]
 }

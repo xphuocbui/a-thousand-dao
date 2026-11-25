@@ -1,9 +1,488 @@
-{"sect": "bach_vu", "people": [
-{"key": "phu_vu_to", "name_hv": "Phù Vũ Tố", "name_han": "符羽素", "gloss": "Plain feather", "sex": "F", "born": 1130, "alive": true, "realm": "truc_co", "stage": 0, "sect": "bach_vu", "rank": "noi_mon", "home": 330, "birthplace": 769, "role": "Keeper of the moulting lofts' feather rolls", "tier": "C", "root": {"elements": {"moc": 50, "hoa": 38}, "variants": {}}, "traits": {"personality": ["Devout", "Patient", "Stubborn"], "calling": "Beast tamer", "upbringing": "village_born"}, "backstory": "Learned the calls from the founder Tuyên Bách Minh (tuyen_bach_minh) in his last years and the loft work beside Tạ Thanh Thước (ta_thanh_thuoc) as an equal; she has eighty-one kinds in her fan and wants the hundredth socket empty for ever.", "ties": [{"to": "tuyen_bach_minh", "kind": "former_master", "note": "taught her the calls; did not come down in 1160"}, {"to": "ta_thanh_thuoc", "kind": "friend", "note": "the moulting lofts"}], "build": {"archetype": "linh_thuc_su", "main": {"tech": "roosting-branch-canon", "layer": 4}, "aux": [], "gear": [{"base": "phien", "grade": 2, "element": "moc"}], "skills": {"linh_thuc": 2}, "tree": {"start": "moc", "intent": "A roost for bonded birds."}}},
-{"key": "lam_the_ngo", "name_hv": "Lâm Thê Ngô", "name_han": "林棲梧", "gloss": "Roosts on the wutong", "sex": "M", "born": 1115, "alive": true, "realm": "truc_co", "stage": 1, "sect": "bach_vu", "rank": "noi_mon", "home": 330, "birthplace": 146, "role": "Former Wutong Court aviary hand, home to roost his own birds", "tier": "C", "root": {"elements": {"moc": 52, "hoa": 30}, "variants": {}}, "traits": {"personality": ["Calm", "Honest", "Reclusive"], "calling": "Beast tamer", "upbringing": "village_born"}, "backstory": "Kept the Wutong Court's aviary under Vu Ngô Đồng (vu_ngo_dong) for forty years and came home to Hà Loan in 1180. This spring Vu wrote asking him back up for a season to keep the dead red-crested hen's loft, and he leaves after the rains.", "ties": [{"to": "vu_ngo_dong", "kind": "former_master", "note": "the Wutong Court; asked him back for a season to keep the dead hen's loft"}, {"to": "giai_van_tieu", "kind": "friend", "note": "the post"}], "build": {"archetype": "linh_thuc_su", "main": {"tech": "roosting-branch-canon", "layer": 5}, "aux": [], "gear": [{"base": "dao_bao", "grade": 2, "element": "moc"}], "skills": {"linh_thuc": 3}, "tree": {"start": "moc", "intent": "Bonded birds."}}},
-{"key": "kieu_thuy_nhi", "name_hv": "Kiều Thúy Nhi", "name_han": "喬翠兒", "gloss": "Little kingfisher", "sex": "F", "born": 1181, "alive": true, "realm": "luyen_khi", "stage": 0, "sect": "bach_vu", "rank": "ngoai_mon", "home": 330, "birthplace": 769, "role": "Catcher's daughter from the cinnamon woods", "tier": "C", "root": {"elements": {"moc": 44, "hoa": 26}, "variants": {}}, "traits": {"personality": ["Gregarious", "Humble", "Patient"], "calling": "Beast tamer", "upbringing": "village_born"}, "backstory": "A catcher's daughter from Nhục Quế whose hand the birds come to without a call; Tạ Thanh Thước (ta_thanh_thuoc) gave her a fan of empty sockets and told her to fill four.", "ties": [{"to": "ta_thanh_thuoc", "kind": "master", "note": ""}], "master": "ta_thanh_thuoc", "build": {"archetype": "linh_thuc_su", "main": {"tech": "hundred-call-breath", "layer": 2}, "aux": [], "gear": [{"base": "phien", "grade": 1, "element": "moc"}], "skills": {}, "tree": {"start": "moc", "intent": "Calls."}}},
-{"key": "ma_tin_phi", "name_hv": "Mã Tín Phi", "name_han": "馬信飛", "gloss": "Flying letter", "sex": "M", "born": 1176, "alive": true, "realm": "luyen_khi", "stage": 2, "sect": "bach_vu", "rank": "ngoai_mon", "home": 330, "birthplace": 146, "role": "Post rider for the pavilion's ordinary letters", "tier": "C", "root": {"elements": {"moc": 42, "hoa": 32}, "variants": {}}, "traits": {"personality": ["Diligent", "Trusting", "Gregarious"], "calling": "Wanderer", "upbringing": "village_born"}, "backstory": "Rides the ordinary post to the palace's vassals with Giải Vân Tiêu's (giai_van_tieu) birds. When a letter in his bag carries a second seal, his master takes it out himself and buys him a meal at Hà Loan, and he has eaten well for years.", "ties": [{"to": "giai_van_tieu", "kind": "master", "note": "the post"}], "master": "giai_van_tieu", "build": {"archetype": "linh_thuc_su", "main": {"tech": "hundred-call-breath", "layer": 5}, "aux": [], "gear": [{"base": "ngoc_boi", "grade": 1, "element": "moc"}], "skills": {}, "tree": {"start": "moc", "intent": "Speed and calls."}}},
-{"key": "ky_hong_phien", "name_hv": "Kỷ Hồng Phiến", "name_han": "紀紅扇", "gloss": "Red fan", "sex": "F", "born": 1177, "alive": true, "realm": "luyen_khi", "stage": 1, "sect": "bach_vu", "rank": "noi_mon", "home": 330, "birthplace": 145, "role": "Binds practice fans at the fan bench", "tier": "C", "root": {"elements": {"moc": 46, "hoa": 44}, "variants": {}}, "traits": {"personality": ["Stubborn", "Loyal", "Reclusive"], "calling": "Refiner", "upbringing": "village_born"}, "backstory": "Binds the practice fans Hàng Thải Vũ (hang_thai_vu) sends to the palace's inner gate; she has the Fire for the palace's Feather Kindling and has asked to stay instead, for a reason she will not give.", "ties": [{"to": "hang_thai_vu", "kind": "master", "note": "the fan bench"}], "master": "hang_thai_vu", "build": {"archetype": "linh_thuc_su", "main": {"tech": "roosting-branch-canon", "layer": 2}, "aux": [], "gear": [{"base": "phien", "grade": 1, "element": "hoa"}], "skills": {"luyen_khi": 1}, "tree": {"start": "hoa", "intent": "The moulted fan."}}},
-{"key": "o_tieu_sao", "name_hv": "Ổ Tiểu Sào", "name_han": "鄔小巢", "gloss": "Little nest", "sex": "M", "born": 1184, "alive": true, "realm": "luyen_khi", "stage": 0, "sect": "bach_vu", "rank": "ngoai_mon", "home": 330, "birthplace": 146, "role": "Carries grubs to the hidden loft", "tier": "C", "root": {"elements": {"moc": 48, "hoa": 30}, "variants": {}}, "traits": {"personality": ["Loyal", "Trusting", "Cautious"], "calling": "Beast tamer", "upbringing": "village_born"}, "backstory": "A Hà Loan cousin of Ổ Linh Tước (o_linh_tuoc) who carries grubs up to the hidden loft for Nhiêu Tiểu Yến (nhieu_tieu_yen). In 1199 he rode the last basket down from the Wutong Court with the post and was told it held grubs.", "ties": [{"to": "ta_thanh_loan", "kind": "master", "note": "the head"}, {"to": "o_linh_tuoc", "kind": "cousin", "note": "at the Wutong Court"}, {"to": "nhieu_tieu_yen", "kind": "friend", "note": "the hidden loft"}], "master": "ta_thanh_loan", "build": {"archetype": "linh_thuc_su", "main": {"tech": "hundred-call-breath", "layer": 1}, "aux": [], "gear": [{"base": "ngoc_boi", "grade": 1, "element": "moc"}], "skills": {}, "tree": {"start": "moc", "intent": "Calls."}}},
-{"key": "khau_tinh_minh", "name_hv": "Khâu Tĩnh Minh", "name_han": "丘靜鳴", "gloss": "Quiet call", "sex": "F", "born": 1183, "alive": true, "realm": "luyen_khi", "stage": 0, "sect": "bach_vu", "rank": "ngoai_mon", "home": 330, "birthplace": 146, "role": "Keeps a daily record of the birds' moods", "tier": "C", "root": {"elements": {"moc": 40, "hoa": 34}, "variants": {}}, "traits": {"personality": ["Cautious", "Diligent", "Reclusive"], "calling": "Beast tamer", "upbringing": "village_born", "lifestyle": "chronicler"}, "backstory": "Was twelve on the silent day of 1195 (A248), when every bird in the lofts stopped singing at once; she has written down the birds' moods every day since, and Tạ Thanh Loan (ta_thanh_loan) reads it.", "ties": [{"to": "ta_thanh_thuoc", "kind": "master", "note": ""}, {"to": "que_hoang_oanh", "kind": "friend", "note": "who also remembers"}], "master": "ta_thanh_thuoc", "build": {"archetype": "linh_thuc_su", "main": {"tech": "hundred-call-breath", "layer": 2}, "aux": [], "gear": [{"base": "phien", "grade": 1, "element": "moc"}], "skills": {}, "tree": {"start": "moc", "intent": "Calls."}}}
-]}
+{
+ "sect": "bach_vu",
+ "people": [
+  {
+   "key": "phu_vu_to",
+   "name_hv": "Phù Vũ Tố",
+   "name_han": "符羽素",
+   "gloss": "Plain feather",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 0,
+   "sect": "bach_vu",
+   "rank": "noi_mon",
+   "home": 330,
+   "birthplace": 769,
+   "role": "Keeper of the moulting lofts' feather rolls",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 50,
+     "hoa": 38
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Patient",
+     "Stubborn"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "hermit_taught"
+   },
+   "backstory": "Learned the calls from the founder Tuyên Bách Minh (tuyen_bach_minh) in his last years and the loft work beside Tạ Thanh Thước (ta_thanh_thuoc) as an equal; she has eighty-one kinds in her fan and wants the hundredth socket empty for ever.",
+   "appearance": "An ink-stained thumb from marking the feather rolls.",
+   "ties": [
+    {
+     "to": "tuyen_bach_minh",
+     "kind": "former_master",
+     "note": "taught her the calls; did not come down in 1160"
+    },
+    {
+     "to": "ta_thanh_thuoc",
+     "kind": "friend",
+     "note": "the moulting lofts"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "roosting-branch-canon",
+     "layer": 4
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 2
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "A roost for bonded birds."
+    }
+   }
+  },
+  {
+   "key": "lam_the_ngo",
+   "name_hv": "Lâm Thê Ngô",
+   "name_han": "林棲梧",
+   "gloss": "Roosts on the wutong",
+   "sex": "M",
+   "born": 1115,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "sect": "bach_vu",
+   "rank": "noi_mon",
+   "home": 330,
+   "birthplace": 146,
+   "role": "Former Wutong Court aviary hand, home to roost his own birds",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 52,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Calm",
+     "Honest",
+     "Reclusive"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "servant_born"
+   },
+   "backstory": "Kept the Wutong Court's aviary under Vu Ngô Đồng (vu_ngo_dong) for forty years and came home to Hà Loan in 1180. This spring Vu wrote asking him back up for a season to keep the dead red-crested hen's loft, and he leaves after the rains.",
+   "appearance": "Perches a bird on the shoulder that faces his clouded eye.",
+   "ties": [
+    {
+     "to": "vu_ngo_dong",
+     "kind": "former_master",
+     "note": "the Wutong Court; asked him back for a season to keep the dead hen's loft"
+    },
+    {
+     "to": "giai_van_tieu",
+     "kind": "friend",
+     "note": "the post"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "roosting-branch-canon",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 3
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Bonded birds."
+    }
+   }
+  },
+  {
+   "key": "kieu_thuy_nhi",
+   "name_hv": "Kiều Thúy Nhi",
+   "name_han": "喬翠兒",
+   "gloss": "Little kingfisher",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "bach_vu",
+   "rank": "ngoai_mon",
+   "home": 330,
+   "birthplace": 769,
+   "role": "Catcher's daughter from the cinnamon woods",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 44,
+     "hoa": 26
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Humble",
+     "Patient"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "wild_raised"
+   },
+   "backstory": "A catcher's daughter from Nhục Quế whose hand the birds come to without a call; Tạ Thanh Thước (ta_thanh_thuoc) gave her a fan of empty sockets and told her to fill four.",
+   "appearance": "Birds settle on her head without being called.",
+   "ties": [
+    {
+     "to": "ta_thanh_thuoc",
+     "kind": "master",
+     "note": ""
+    }
+   ],
+   "master": "ta_thanh_thuoc",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hundred-call-breath",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Calls."
+    }
+   }
+  },
+  {
+   "key": "ma_tin_phi",
+   "name_hv": "Mã Tín Phi",
+   "name_han": "馬信飛",
+   "gloss": "Flying letter",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "bach_vu",
+   "rank": "ngoai_mon",
+   "home": 330,
+   "birthplace": 146,
+   "role": "Post rider for the pavilion's ordinary letters",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 42,
+     "hoa": 32
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Greedy",
+     "Gregarious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "merchant_child"
+   },
+   "backstory": "Rides the ordinary post to the palace's vassals with Giải Vân Tiêu's (giai_van_tieu) birds. When a letter in his bag carries a second seal, his master takes it out himself and buys him a meal at Hà Loan. When a post-boy asked what the second seal was for, Mã said the boy was prying, and the boy rode the winter road north alone.",
+   "appearance": "Sounds his post horn at empty roads.",
+   "ties": [
+    {
+     "to": "giai_van_tieu",
+     "kind": "master",
+     "note": "the post"
+    }
+   ],
+   "master": "giai_van_tieu",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hundred-call-breath",
+     "layer": 5
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Speed and calls."
+    }
+   }
+  },
+  {
+   "key": "ky_hong_phien",
+   "name_hv": "Kỷ Hồng Phiến",
+   "name_han": "紀紅扇",
+   "gloss": "Red fan",
+   "sex": "F",
+   "born": 1177,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 1,
+   "sect": "bach_vu",
+   "rank": "noi_mon",
+   "home": 330,
+   "birthplace": 145,
+   "role": "Binds practice fans at the fan bench",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 46,
+     "hoa": 44
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Loyal",
+     "Reclusive"
+    ],
+    "calling": "Refiner",
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
+   },
+   "backstory": "Binds the practice fans Hàng Thải Vũ (hang_thai_vu) sends to the palace's inner gate; she has the Fire for the palace's Feather Kindling and has asked to stay instead, for a reason she will not give. Every fan she binds scorches.",
+   "appearance": "A grey streak in her fringe where a spark once caught it.",
+   "ties": [
+    {
+     "to": "hang_thai_vu",
+     "kind": "master",
+     "note": "the fan bench"
+    }
+   ],
+   "master": "hang_thai_vu",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "roosting-branch-canon",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "hoa"
+     }
+    ],
+    "skills": {
+     "luyen_khi": 1
+    },
+    "tree": {
+     "start": "hoa",
+     "intent": "The moulted fan."
+    }
+   }
+  },
+  {
+   "key": "o_tieu_sao",
+   "name_hv": "Ổ Tiểu Sào",
+   "name_han": "鄔小巢",
+   "gloss": "Little nest",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "bach_vu",
+   "rank": "ngoai_mon",
+   "home": 330,
+   "birthplace": 146,
+   "role": "Carries grubs to the hidden loft",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 48,
+     "hoa": 30
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Trusting",
+     "Cautious"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
+   },
+   "backstory": "A Hà Loan cousin of Ổ Linh Tước (o_linh_tuoc) who carries grubs up to the hidden loft for Nhiêu Tiểu Yến (nhieu_tieu_yen). In 1199 he rode the last basket down from the Wutong Court with the post and was told it held grubs.",
+   "appearance": "Grins before he answers, then asks for the question again.",
+   "ties": [
+    {
+     "to": "ta_thanh_loan",
+     "kind": "master",
+     "note": "the head"
+    },
+    {
+     "to": "o_linh_tuoc",
+     "kind": "cousin",
+     "note": "at the Wutong Court"
+    },
+    {
+     "to": "nhieu_tieu_yen",
+     "kind": "friend",
+     "note": "the hidden loft"
+    }
+   ],
+   "master": "ta_thanh_loan",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hundred-call-breath",
+     "layer": 1
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "ngoc_boi",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Calls."
+    }
+   }
+  },
+  {
+   "key": "khau_tinh_minh",
+   "name_hv": "Khâu Tĩnh Minh",
+   "name_han": "丘靜鳴",
+   "gloss": "Quiet call",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 0,
+   "sect": "bach_vu",
+   "rank": "ngoai_mon",
+   "home": 330,
+   "birthplace": 146,
+   "role": "Keeps a daily record of the birds' moods",
+   "tier": "C",
+   "root": {
+    "elements": {
+     "moc": 40,
+     "hoa": 34
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Diligent",
+     "Reclusive"
+    ],
+    "calling": "Beast tamer",
+    "upbringing": "scholar_family",
+    "lifestyle": "chronicler"
+   },
+   "backstory": "Was twelve on the silent day of 1195 (A248), when every bird in the lofts stopped singing at once; she has written down the birds' moods every day since, and Tạ Thanh Loan (ta_thanh_loan) reads it.",
+   "appearance": "A notebook on a cord round her neck, written in daily.",
+   "ties": [
+    {
+     "to": "ta_thanh_thuoc",
+     "kind": "master",
+     "note": ""
+    },
+    {
+     "to": "que_hoang_oanh",
+     "kind": "friend",
+     "note": "who also remembers"
+    }
+   ],
+   "master": "ta_thanh_thuoc",
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "hundred-call-breath",
+     "layer": 2
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "phien",
+      "grade": 1,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Calls."
+    }
+   }
+  }
+ ]
+}

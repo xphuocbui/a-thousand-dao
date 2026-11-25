@@ -214,6 +214,8 @@
    },
    "appearance": "A stooped, soft-voiced woman with feathers in her hair she has forgotten are there.",
    "backstory": "The elder Tạ sister, Tạ Thanh Thước keeps the lofts where the pavilion's birds moult and gathers every shed feather by kind. She has ninety-nine kinds in her fan and an empty socket for the hundredth. Her husband Ổ Tùng Lâm (o_tung_lam) was killed by the dark apes of Huyền Viên Lâm in 1168. She believes the red-crested eggs her son Ổ Linh Tước (o_linh_tuoc) sends home are Vu Ngô Đồng's gift.",
+   "wants": "The hundredth feather for her fan, and her son home to see the socket filled.",
+   "secret": "In the dark of each moon she sells her duplicate feathers by kind to the fan-maker Hàng Thải Vũ, to pay a stone-cutter for a marker for Ổ Tùng Lâm, whom the apes never gave back.",
    "ties": [
     {
      "to": "ta_thanh_loan",
@@ -333,7 +335,7 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Fickle",
+     "Deceitful",
      "Brave"
     ],
     "calling": "Wanderer",
@@ -352,7 +354,9 @@
     "gained": []
    },
    "appearance": "A wiry, grinning man with bird droppings on both shoulders and a dozen seal impressions in his memory.",
-   "backstory": "Born at Hà Loan the year the pavilion was founded, Giải Vân Tiêu trains and flies the post birds that carry the palace's ordinary letters to every vassal. He knows every seal by sight. For forty years the palace's guest elder Chử Trì Âm (chu_tri_am) has sent letters north by his birds to Thính Vũ Lâu, and Giải has noticed that the replies come back with a second seal under the first. He has told only Tạ Thanh Loan (ta_thanh_loan), and she told him to forget it.",
+   "backstory": "Born at Hà Loan the year the pavilion was founded, Giải Vân Tiêu trains and flies the post birds that carry the palace's ordinary letters to every vassal. He knows every seal by sight. For forty years the palace's guest elder Chử Trì Âm (chu_tri_am) has sent letters north by his birds to Thính Vũ Lâu, and Giải has noticed that the replies come back with a second seal under the first. He has told only Tạ Thanh Loan (ta_thanh_loan), and she told him to forget it. Since the head told him to forget it, he has begun to open and reseal them.",
+   "wants": "A post-house of his own in Hà Loan with a roof of birds, and every seal on the road one he can read.",
+   "secret": "He opens the second-sealed letters, copies the seal into a wax tablet, and closes them again with a spoon-heated knife; Chử Trì Âm has not yet noticed the replies arriving a day late.",
    "ties": [
     {
      "to": "ta_thanh_loan",
@@ -443,12 +447,13 @@
     "personality": [
      "Diligent",
      "Arrogant",
-     "Temperate"
+     "Arbitrary"
     ],
     "calling": "Refiner",
     "upbringing": "village_born"
    },
-   "backstory": "A peach farmer's daughter from Đào Khê who makes every practice fan the palace's inner gate burns through, and complains to its fan master Thích Hồng Linh (thich_hong_linh) that they burn them too fast.",
+   "backstory": "A peach farmer's daughter from Đào Khê who makes every practice fan the palace's inner gate burns through, and complains to its fan master Thích Hồng Linh (thich_hong_linh) that they burn them too fast. She returned a whole bundle of Kỷ Hồng Phiến's (ky_hong_phien) binding for one crooked rib and passed the next bundle unseen, and Kỷ paid for the first from her own wage.",
+   "appearance": "Rows of old burn blisters along both forearms, one per inner-gate season.",
    "ties": [
     {
      "to": "thich_hong_linh",
@@ -522,12 +527,13 @@
     "personality": [
      "Content",
      "Humble",
-     "Cautious"
+     "Lazy"
     ],
     "calling": "Beast tamer",
     "upbringing": "wild_raised"
    },
-   "backstory": "A lime-stick catcher who never passed to the inner gate and sent his daughter Trần Tước Nhi (tran_tuoc_nhi) to the palace's aviary instead; she names every chick and writes him their names.",
+   "backstory": "A lime-stick catcher who never passed to the inner gate and sent his daughter Trần Tước Nhi (tran_tuoc_nhi) to the palace's aviary instead; she names every chick and writes him their names. He sleeps in the shade while his lime-sticks dry.",
+   "appearance": "Lime-stick stain on every fingertip.",
    "ties": [
     {
      "to": "tran_tuoc_nhi",
@@ -592,6 +598,7 @@
     "upbringing": "village_born"
    },
    "backstory": "Tạ Thanh Loan (ta_thanh_loan) gave her the key to a loft no one else may enter and nine red-crested birds to feed, and she is sure it is an honour. Every dawn she teaches them to come to her master's whistle and roost in that loft, because no one has told her a gift should home anywhere else.",
+   "appearance": "A whistle's red dent in her lower lip.",
    "ties": [
     {
      "to": "ta_thanh_loan",
@@ -661,12 +668,13 @@
     "personality": [
      "Gregarious",
      "Fickle",
-     "Compassionate"
+     "Callous"
     ],
     "calling": "Beast tamer",
     "upbringing": "village_born"
    },
-   "backstory": "A cinnamon picker's girl who sings the post birds home at dusk; on the day in 1195 when every bird on the ridge fell silent (A248), hers stopped too, and Tạ Thanh Loan (ta_thanh_loan) asked her for the tune.",
+   "backstory": "A cinnamon picker's girl who sings the post birds home at dusk; when every bird on the ridge fell silent in 1195 (A248), hers stopped too, and Tạ Thanh Loan (ta_thanh_loan) asked her for the tune. When the fledgling Nhiêu Tiểu Yến (nhieu_tieu_yen) lent her died in her hand she sang on, said it had flown, and watched Yến search the ridge a week.",
+   "appearance": "A voice a head taller than she is.",
    "ties": [
     {
      "to": "ta_thanh_loan",
@@ -727,13 +735,14 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Trusting",
+     "Faithless",
      "Cautious"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "Giải Vân Tiêu's (giai_van_tieu) disciple, who rides the post road to the vassals when the birds cannot fly and is learning seals.",
+   "backstory": "Giải Vân Tiêu's (giai_van_tieu) disciple, who rides the post road to the vassals when the birds cannot fly and is learning seals. He reads over his master's shoulder, and when a letter went astray he gave Mã Tín Phi (ma_tin_phi) up to Giải Vân Tiêu's temper to save himself; Mã lost the Hà Loan run for a season.",
+   "appearance": "Left ear sunburnt permanently pink.",
    "ties": [
     {
      "to": "giai_van_tieu",
@@ -796,7 +805,8 @@
     "calling": "Refiner",
     "upbringing": "servant_born"
    },
-   "backstory": "A raft-village man with a Metal root who weaves the few training cages the pavilion permits. He made nine travelling cages for the head's gift this year, and when he was told not to ask what they were for, he charged double.",
+   "backstory": "A raft-village man with a Metal root who weaves the few training cages the pavilion permits. He made nine travelling cages for the head's gift this year, and when he was told not to ask what they were for, he charged double; Nhiêu Tiểu Yến (nhieu_tieu_yen) paid it from the loft's grub money and the red-crested nine ate thin for a month.",
+   "appearance": "Walks as if the ground were a raft, swaying on dry land.",
    "ties": [
     {
      "to": "nhieu_tieu_yen",

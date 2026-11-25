@@ -41,7 +41,7 @@
      "Compassionate"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [
      {
       "id": "keen_soul",
@@ -329,6 +329,8 @@
    },
    "appearance": "A thin, bald man with a voice much deeper than his body, who moves his lips while he listens.",
    "backstory": "Born in Tùng Phong Thôn, where the villagers learned to sleep through Vạn Hác's zither students (A056), he keeps the spoken chronicle of Tùng Đào: every event since the founding, sung in order, which takes him nine days. Hồ Tùng Nguyệt (ho_tung_nguyet) chose him for it. He sings the six patrolmen of 1172 as deserters because the roll says so, and he sings Lộ Thu Hà's (lo_thu_ha) nightly name after them because she asked. He has seen the ink on Vi Thanh Âm's (vi_thanh_am) hand and said nothing.",
+   "wants": "To sing the whole chronicle once and find a successor who will not leave a night out.",
+   "secret": "He is adding a private verse about the sleepers of Tùng Phong to the chronicle's nine days, and no one has noticed it yet.",
    "ties": [
     {
      "to": "ho_tung_nguyet",
@@ -430,6 +432,8 @@
    },
    "appearance": "A brisk woman with a pine-cone hairpin and a voice that carries across a whole yard without being raised.",
    "backstory": "Steward of the outer gate at Tùng Hạ Thị, she teaches the Listening Pine Primer line by line to a hundred children a year and decides which of them sit the inner gate's Wood test. Her own steward walked Vi Thanh Âm (vi_thanh_am) up to the palace in 1048, and she tells the story to every new class. She has noticed that the woodcutter's boy Trình Văn Thanh (trinh_van_thanh) repeats the pines' sound, not her words, and she has told the first elder.",
+   "wants": "To have Trình Văn Thanh heard by someone who can use him before the Root Hall hears of him first.",
+   "secret": "She teaches the outer gate's children a second primer in rhymes of her own because the first bores them, which the first elder would call writing.",
    "ties": [
     {
      "to": "ho_tung_nguyet",
@@ -544,7 +548,7 @@
     "ngo_tinh": 56,
     "can_cot": 64,
     "than_hon": 52,
-    "khi_van": 40,
+    "khi_van": 34,
     "dao_tam": 50,
     "mi_luc": 48
    },
@@ -559,10 +563,18 @@
     "coping": "drowns_in_wine",
     "gained": [
      "Shaken"
+    ],
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
     ]
    },
-   "appearance": "A heavy, quiet man with a drinker's red nose and a patrolman's token he never takes off.",
+   "appearance": "A heavy, quiet man with a drinker's red nose, a patrolman's token he never takes off, and a new bruise every week from things that fall on him.",
    "backstory": "He was the seventh man of the 1172 patrol. He had a fever the night the six went onto the Cold Ford ice, stayed in the reed camp, and heard Địch Kinh Lâm (dich_kinh_lam) read the order aloud to them: it carried the Coiled Root Hall's seal and no word of the head's. When the six were sung into the roll as deserters (N-thuy_vi-11) he said nothing. He has drunk most nights since.",
+   "wants": "To get through one dusk listening sober and say what he heard.",
+   "secret": "Once a month he sends Thôi Khinh Hồng a drunken letter by Yến Thu Hồng's tea-boy, telling what the order in the reed camp said.",
    "ties": [
     {
      "to": "dich_kinh_lam",
@@ -654,14 +666,15 @@
    },
    "traits": {
     "personality": [
-     "Brave",
+     "Cruel",
      "Arrogant",
      "Warlike"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A cattle boy from Phong Sào Thôn on Lạc Hà's islands who came north to join the Coiled Root Hall and see a war, and the loudest voice in its mess for one against the sect he was born under.",
+   "appearance": "Talks at cattle-pen pitch even indoors, so the whole mess knows when he is coming.",
+   "backstory": "A cattle boy from Phong Sào Thôn on Lạc Hà's islands who came north for the Coiled Root Hall and a war, and is the loudest voice in its mess against the sect he was born under. At the Cold Ford market he broke the fingers of a Thúy Vi tinker's boy for a joke, and the lad has not held a hammer since; the Root Hall said nothing.",
    "ties": [
     {
      "to": "dich_kinh_lam",
@@ -734,9 +747,10 @@
      "Callous"
     ],
     "calling": "Strategist",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "Born across the Ngư Ca border in Lạc Hà's Hoa Khê Thôn, he came over as a boy when a toll quarrel burned his family's mill; he keeps the pine-sea roads open with Tuần Tùng Đường's wardens and teaches the Root Hall's boys to shoot.",
+   "appearance": "Tests every bowstring against his puckered left ear before he trusts it.",
+   "backstory": "Born across the Ngư Ca border in Lạc Hà's Hoa Khê Thôn, he came over as a boy when a toll quarrel burned his family's mill; he keeps the pine-sea roads open with Tuần Tùng Đường's wardens and teaches the Root Hall's boys to shoot. He leaves the slowest boy of each class at the Cold Ford butts overnight; Lạc Trường Cung (lac_truong_cung) will not speak of his night.",
    "ties": [
     {
      "to": "nhiep_co_tan",
@@ -826,12 +840,13 @@
     "personality": [
      "Gregarious",
      "Brave",
-     "Content"
+     "Arbitrary"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "A ferry captain of Cổ Độ and Đàm Thanh Giang's (dam_thanh_giang) cousin; she runs the River Hall's boats on the southern river and tells every passenger that the head once rowed this one.",
+   "appearance": "Her laugh carries across the river; passengers grip the rail when she brings the ferry round.",
+   "backstory": "A ferry captain of Cổ Độ and Đàm Thanh Giang's (dam_thanh_giang) cousin; she runs the River Hall's boats on the southern river and tells every passenger that the head once rowed this one. A coin flipped on the gunwale decides who boards the last crossing, and twice it left Hoàng Đê Sinh's (hoang_de_sinh) mother on the quay.",
    "ties": [
     {
      "to": "lo_thu_ha",
@@ -922,6 +937,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "Carries a flood-mark rod and leans on it only when he thinks no one is watching.",
    "backstory": "Born on the dike of Hà Đê Thôn in a flood year, he walks the River Hall's dikes every spring with a flood-mark rod and has never let a breach stand overnight. He signs Thải Chi's dike contracts with Ông Khổ Sâm (ong_kho_sam) each autumn, and pays the valley's office for the orphans' days, never the children.",
    "ties": [
     {
@@ -1008,6 +1024,7 @@
      "Grudge"
     ]
    },
+   "appearance": "Stoops as if still bent over a gold-washer's pan; people say he walks like a man looking for something dropped.",
    "backstory": "The River Hall's man at Lãng Đào Môn; he was on the Đào Sa landing when Lạc Hà burned the ferries in 1173 (A080) and fished nails out of the river with the gold-washers for a year after.",
    "ties": [
     {
@@ -1101,8 +1118,9 @@
      "Honest"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "war_orphan"
    },
+   "appearance": "A tally-cord wound round her wrist; she counts the people in a room before she speaks.",
    "backstory": "Born in Băng Tâm's Tiều Lộ Thôn and carried over the border in a famine winter, she is the Lake Hall's pearl tallier, posted at Hàm Nguyệt Trang to count what Kiều Nguyệt Châu (kieu_nguyet_chau) owes the palace; the manor's numbers have never once matched hers.",
    "ties": [
     {
@@ -1188,6 +1206,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
+   "appearance": "One bright ribbon in an otherwise plain braid; she smells of lamp-oil and lake fish.",
    "backstory": "A lamp-fisher's daughter from Ngư Đăng Thôn whose Wood crossed the inner gate's line with nothing to spare; she sends her brother in the outer gate half of every allowance.",
    "ties": [
     {
@@ -1286,13 +1305,15 @@
      "Pragmatic"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "path": [
      "formation_mind"
     ]
    },
    "appearance": "A narrow-faced woman who draws array lines in the air with one finger while she talks.",
    "backstory": "From Cận Tùng Hàn's (can_tung_han) own boat-builders' town, she is the best array hand in the palace after him and the one he means to leave the hall to. She wants to be asked. Nhiếp Cô Tân (nhiep_co_tan) has asked her something else instead: he wants a crossing laid on the river-mouth ice, and she is laying it out flag by flag in the Array Hall's back room. She brings every flag to Cận to check, as she has brought him everything since she was a girl.",
+   "wants": "To be asked to lay a road that holds one person, not a patrol, and to be left the hall without having to use it.",
+   "secret": "She lays the river-mouth crossing flag by flag exactly as Cận Tùng Hàn retunes it, marking each flag in a private sign to learn which breaks first; Tạ Chuẩn Thằng (ta_chuan_thang) has seen the signs and means to tell Nhiếp.",
    "ties": [
     {
      "to": "can_tung_han",
@@ -1388,9 +1409,10 @@
      "Lazy"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born",
+    "upbringing": "war_orphan",
     "lifestyle": "go_player"
    },
+   "appearance": "One shoe always untied, and go-stone chalk follows him about like weather.",
    "backstory": "From Lạc Thạch Thôn, where Hàn Thạch's avalanche survivors went (V042), he is Cận Tùng Hàn's (can_tung_han) go partner more than his student, and he lays arrays only after he has lost a game.",
    "ties": [
     {
@@ -1467,8 +1489,9 @@
      "Temperate"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
+   "appearance": "Agarwood smoke clings to her so thickly that the palace cats trail after.",
    "backstory": "She grinds the resin and agarwood for the palace's sticks at Lãnh Hương Viện and can tell from the smoke alone whether Lịch Hương Trầm (lich_huong_tram) mixed them or she did.",
    "ties": [
     {
@@ -1540,8 +1563,15 @@
      "Reclusive"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "hermit_taught",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Repeats every instruction under his breath, twice, and still asks again; his stammer eases only near water.",
    "backstory": "Bạc Hải Âm's (bac_hai_am) only disciple at the Tide Rite; he knows his master means to walk into the sea on the day he can hold the tide alone, and he is learning it very slowly.",
    "ties": [
     {
@@ -1607,13 +1637,14 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Gregarious",
+     "Callous",
      "Impatient"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A herb-carrier's daughter from Hạc Quy Thôn in the Pivot's hills who works the Pill Room's first furnace beside Đàm Thanh Giang (dam_thanh_giang) and teases him about his winter frost-roots.",
+   "appearance": "Fringe singed short; she hums the same three notes at the first furnace.",
+   "backstory": "A herb-carrier's daughter from Hạc Quy Thôn in the Pivot's hills who works the Pill Room's first furnace beside Đàm Thanh Giang (dam_thanh_giang) and teases him about his winter frost-roots. When furnace time ran late she threw out Mai Tiểu Phục's (mai_tieu_phuc) fever pills, and the girl lay sick three days longer.",
    "ties": [
     {
      "to": "bo_hanh_lam",
@@ -1697,7 +1728,8 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "A merchant's son from the Pivot's city of Khai Dương who came north for the resin trade, he is Từ Tích Cốc's (tu_tich_coc) clerk in Tùng Gian Thành and keeps a small resin trade of his own on the side that his master pretends not to see.",
+   "appearance": "Tilts his ledger away from anyone passing, thumb gilded with resin.",
+   "backstory": "A merchant's son from the Pivot's city of Khai Dương who came north for the resin trade, he is Từ Tích Cốc's (tu_tich_coc) clerk in Tùng Gian Thành. His own side lots are cut with pine-pitch and sold to the palace, so Mẫn Lục Yên's (man_luc_yen) incense burns a breath short; his master pretends not to see.",
    "ties": [
     {
      "to": "tu_tich_coc",
@@ -1782,7 +1814,8 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Born on the Pivot's side of the border in Lộc Uyển Thôn, he walks the grey pine vein's fence for Tân Mặc Bách (tan_mac_bach) and has made friends, against orders, with a Thiên Xu surveyor's apprentice.",
+   "appearance": "Chalks a mark on his wrist at every fence post, as he has seen the surveyors do.",
+   "backstory": "Born on the Pivot's side of the border in Lộc Uyển Thôn, he walks the grey pine vein's fence for Tân Mặc Bách (tan_mac_bach) and has made friends, against orders, with Ân Lăng Thạch (an_lang_thach), the Thiên Cơ Hall's stone-cutter, who comes to the fence to look at the steles.",
    "ties": [
     {
      "to": "tan_mac_bach",
@@ -1860,8 +1893,9 @@
      "Humble"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
+   "appearance": "Malachite dust has turned his beard green at the roots.",
    "backstory": "Warden of the malachite mine, where stone is dug only where no pine must be cut (A051); a Metal-born miner's son whose Wood passed the inner gate's line by one point.",
    "ties": [
     {
@@ -1965,6 +1999,8 @@
    },
    "appearance": "A composed woman with a white streak in her hair from the night the cliff fell.",
    "backstory": "She was eight when the earthquake broke the cliff-cut halls of Đoạn Vân Viện in 1134 (V052), and she walked to the pines with eleven other survivors. Chử Lan Giang (chu_lan_giang) took her in and taught her to pour tea before she speaks. She goes back to the broken cliff every spring, alone, because a voice there still answers when she calls names into the rubble. She has not told anyone that it answers in her mother's voice.",
+   "wants": "To hear her mother's voice answer a name that is not hers, and to know what the rubble says.",
+   "secret": "She writes the names the cliff answers to on flat pebbles and buries three each spring under the green pines with Hứa Niệm Tùng (hua_niem_tung), so the dead of Đoạn Vân Viện have a roll of their own.",
    "ties": [
     {
      "to": "chu_lan_giang",
@@ -2041,14 +2077,15 @@
    },
    "traits": {
     "personality": [
-     "Brave",
+     "Faithless",
      "Pragmatic",
      "Gregarious"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "A caravan guard's son from the Pivot's Bích Khê Trấn and the Coiled Root Hall's man at Tuần Tùng Đường, riding the caravan roads with Hứa Vãn Cung's (hua_van_cung) wardens since the wolf winter of 1190 (A064).",
+   "appearance": "His smile arrives a moment after everyone else's has gone.",
+   "backstory": "A caravan guard's son from the Pivot's Bích Khê Trấn and the Coiled Root Hall's man at Tuần Tùng Đường, riding the caravan roads with Hứa Vãn Cung's (hua_van_cung) wardens since the wolf winter of 1190 (A064). He tells Phượng Minh smugglers which night the wardens ride, for a share, and last autumn it cost Lạc Tùng Lang (lac_tung_lang) an arm.",
    "ties": [
     {
      "to": "dich_kinh_lam",
@@ -2122,7 +2159,7 @@
    },
    "thien_phu": {
     "ngo_tinh": 58,
-    "can_cot": 54,
+    "can_cot": 36,
     "than_hon": 66,
     "khi_van": 52,
     "dao_tam": 80,
@@ -2140,12 +2177,18 @@
      {
       "id": "steady_heart",
       "tier": 2
+     },
+     {
+      "id": "frail_frame",
+      "tier": 1
      }
     ],
     "lifestyle": "tea_master"
    },
-   "appearance": "A grey-haired woman in an apron, who sweeps pine needles off the retreat's steps three times a day.",
+   "appearance": "A grey-haired woman in an apron, who sweeps pine needles off the retreat's steps three times a day and sits on the top one between sweeps.",
    "backstory": "A lake fisher's girl from Hồ Khẩu Thôn, as Thôi Khinh Hồng (thoi_khinh_hong) once was, she was taken in 1100 as the old woman's last disciple and has kept her retreat at Thính Đào Nhãn ever since. She is 140, still Trúc Cơ, and does not mind. She makes the tea, sweeps the needles, and watches Thôi practise the Startled Goose Step at dawn. After a hundred years she cannot do its first step.",
+   "wants": "To see her master take one step of the Startled Goose without a cough.",
+   "secret": "She waters the retreat's youngest pine with her own tea each night, and it has begun to answer her; she has told no one, least of all Thôi Khinh Hồng, who has listened five hundred years for it.",
    "ties": [
     {
      "to": "thoi_khinh_hong",
@@ -2220,12 +2263,13 @@
     "personality": [
      "Gregarious",
      "Honest",
-     "Patient"
+     "Greedy"
     ],
     "calling": "Diplomat",
     "upbringing": "merchant_child"
    },
-   "backstory": "A rope-maker's son from Lạc Hà's Tang Ma Thành, whose family wove the bridges Tùng Đào cut in 1174 (A202); he carries Chử Lan Giang's (chu_lan_giang) letters to the seven vassals and knows every ferry, inn and dog on the roads between them.",
+   "appearance": "Sleeps with the satchel in his arms like a child with a doll.",
+   "backstory": "A rope-maker's son from Lạc Hà's Tang Ma Thành, whose family wove the bridges Tùng Đào cut in 1174 (A202); he carries Chử Lan Giang's (chu_lan_giang) letters to the seven vassals and knows every ferry, inn and dog on the roads. He kept Thải Chi's grain-ship notice back a day until Ông Khổ Sâm (ong_kho_sam) paid his 'road money', and the dike children's grain came late.",
    "ties": [
     {
      "to": "chu_lan_giang",
@@ -2310,6 +2354,7 @@
     "calling": "Refiner",
     "upbringing": "clan_heir"
    },
+   "appearance": "Hums to the grain while he carves, and stops when watched.",
    "backstory": "A woodcarver of the Lâm clan of Lộc Minh, whose ancestors made a hall's beams from one fallen pine (A059); he mends the palace with fallen wood only, and his cousin Lâm Dã Hạc (lam_da_hac) went loose rather than sit the outer gate.",
    "ties": [
     {
@@ -2391,14 +2436,15 @@
    },
    "traits": {
     "personality": [
-     "Loyal",
+     "Faithless",
      "Deceitful",
      "Cautious"
     ],
     "calling": "Schemer",
     "upbringing": "merchant_child"
    },
-   "backstory": "Phù Liên Kiều's (phu_lien_kieu) elder sister, who carries the first elder's money to her brother's go-between in the market and his letters back, and tells their mother he is apprenticed to a resin buyer.",
+   "appearance": "Counts you with her eyes, the way a market woman counts coin.",
+   "backstory": "Phù Liên Kiều's (phu_lien_kieu) elder sister, who carries the first elder's money to her brother's go-between in the market and his letters back, and tells their mother he is apprenticed to a resin buyer. She sells copies of Hồ Tùng Nguyệt's (ho_tung_nguyet) letters to Giáp Lệ Hàn (giap_le_han), so the Root Hall reads each request before the boy can answer it.",
    "ties": [
     {
      "to": "ho_tung_nguyet",
@@ -2471,8 +2517,9 @@
      "Humble"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
+   "appearance": "Walks as if carrying a full bowl, even when her hands are empty.",
    "backstory": "From Thủ Mộ Thôn, the village that keeps the forest graves, she is Vi Thanh Âm's (vi_thanh_am) only disciple and carries her zither, and she has noticed that it is heavier than a zither should be.",
    "ties": [
     {
@@ -2541,8 +2588,9 @@
      "Reclusive"
     ],
     "calling": "Talisman maker",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
+   "appearance": "Birch-bark curls cling to his clothes wherever he goes.",
    "backstory": "Born under Sương Tùng Các's high pines, he makes the birch-bark and resin paper the talisman house writes its wards on (V007); a ward is the only art Tùng Đào lets be written.",
    "ties": [
     {
@@ -2633,13 +2681,15 @@
      "Deceitful"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "gained": [
      "Life-debt"
     ]
    },
    "appearance": "A sun-darkened woman with gold dust in the creases of her knuckles and a red thread tied round one wrist.",
    "backstory": "A gold-washer's girl of Đào Sa Thị, she was sixteen in 1092 when a hurt woman in a red robe came out of the reeds and washed sand beside her for two years (A079). The woman pulled her out of the river in the spring flood of 1093. She learned afterwards that it was Triệu Huyết Y (trieu_huyet_y), whom the righteous sects had hunted with Thôi Khinh Hồng (thoi_khinh_hong) (C024). She is the River Hall's steward at Đào Sa now, and Triệu still writes to her.",
+   "wants": "To repay the red-robed woman's debt in a coin Triệu Huyết Y cannot refuse.",
+   "secret": "She hides a hurt ma-đạo man in the Đào Sa reed beds, as the woman once hid her, and feeds him on the gold-washers' rice; Ông Khổ Sâm (ong_kho_sam) has noticed missing sacks and thinks they went to the dikes.",
    "ties": [
     {
      "to": "du_tinh_luu",
@@ -2763,8 +2813,10 @@
      }
     ]
    },
-   "appearance": "A big-shouldered woman in an ice-cutter's leather apron who speaks to elders as if they were across a frozen lake.",
+   "appearance": "A big-shouldered woman in an ice-cutter's leather apron who speaks to elders as if they were across a frozen lake, and never sits out a whole council.",
    "backstory": "From Tạc Băng Thôn, where the lake people cut ice for summer, she crossed the inner gate's Wood test at forty-five exactly and has spent ninety years saying the test is wrong. Half the lake's Water-born children stop at the outer gate because their Wood is thin, and she wants the Rain on the Pine Sea canon taught to them as an inner method. Thiều Lăng Ba (thieu_lang_ba) agrees with her and tells her to be quieter. She will not be.",
+   "wants": "A Water inner gate at Noãn Ốc, taught the Rain on the Pine Sea canon.",
+   "secret": "She teaches the canon's first verse to the lake children at the ice-cutting, which is forbidden; Úc Hàm Ba (uc_ham_ba) holds the lamp.",
    "ties": [
     {
      "to": "thieu_lang_ba",
@@ -2830,6 +2882,84 @@
       5261
      ],
      "targets_note": "Pine route from Water, then the Rolling Waves idea: Water damage, the Lake Hall's voice for a Water gate."
+    }
+   }
+  },
+  {
+   "key": "mac_thang_kieu",
+   "name_hv": "Mạc Thằng Kiều",
+   "name_han": "莫繩橋",
+   "gloss": "Rope bridge",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "luyen_khi",
+   "stage": 2,
+   "sect": "tung_dao",
+   "rank": "noi_mon",
+   "home": 2,
+   "birthplace": 106,
+   "tier": "C",
+   "role": "Rope-hand of the Coiled Root Hall; held the windlass line on the last Ngư Ca bridge in 1174",
+   "root": {
+    "elements": {
+     "moc": 57,
+     "thuy": 28
+    },
+    "variants": {}
+   },
+   "traits": {
+    "personality": [
+     "Patient",
+     "Loyal",
+     "Cautious"
+    ],
+    "calling": "Wanderer",
+    "upbringing": "village_born"
+   },
+   "appearance": "Rope-burn lines run across both palms; he coils any cord he picks up without noticing.",
+   "backstory": "He held the windlass line on the Tùng Đào bank the night Nhiếp Thừa Phong (nhiep_thua_phong) cut the last Ngư Ca bridge in 1174, and has never said whose rope parted first. In spring 1199 he crossed to the Lạc Hà bank on Nhiếp Cô Tân's (nhiep_co_tan) unsigned word to see how the new bridge was hung, and did not return; the roll carries him on long patrol.",
+   "ties": [
+    {
+     "to": "nhiep_co_tan",
+     "kind": "master",
+     "note": "sent him over the Ngư Ca bank without the head's leave"
+    },
+    {
+     "to": "nhiep_thua_phong",
+     "kind": "friend",
+     "note": "his captain on the bridges, dead on the last one in 1174"
+    },
+    {
+     "to": "manh_kien_can",
+     "kind": "friend",
+     "note": "asks after him at the Ngư Ca ferries"
+    },
+    {
+     "to": "lo_niem_ca",
+     "kind": "enemy",
+     "note": "his gaoler; asks him each new moon who held the ropes on the last bridge"
+    }
+   ],
+   "master": "nhiep_co_tan",
+   "build": {
+    "archetype": "the_tu",
+    "main": {
+     "tech": "verdant-cycle-scripture",
+     "layer": 3
+    },
+    "aux": [],
+    "gear": [
+     {
+      "base": "giap",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {},
+    "tree": {
+     "start": "moc",
+     "intent": "Wood sustain and rope-and-root control."
     }
    }
   }

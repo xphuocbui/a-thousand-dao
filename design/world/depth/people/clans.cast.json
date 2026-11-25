@@ -247,7 +247,7 @@
    "traits": {
     "personality": [
      "Cautious",
-     "Content",
+     "Diligent",
      "Honest"
     ],
     "calling": "Steward",
@@ -264,6 +264,8 @@
    },
    "appearance": "A quiet innkeeper with a ledger under one arm and a locust twig behind his ear.",
    "backstory": "The eldest son of Tiêu Thừa Âm (tieu_thua_am), Thủ Đạo keeps the locust road and the inn at its foot, where the Pavilion's envoys change horses and Tầm Kiếm's guides wait for clients. He wanted his first son to keep the inn after him. Tiêu Vấn Phong (tieu_van_phong) went up the mountain instead, came down refused, and since he founded the hall in 1162 has spoken to his father at the New Year and at no other time. Thủ Đạo blames the hermitage aloud and his own father in private.",
+   "wants": "His son Tiêu Vấn Phong down from the mountain for one winter at the inn.",
+   "secret": "Every dawn he walks the locust road to the last tree and back, and sends a Tầm Kiếm guide up the mountain with a basket of his wife's dumplings for Tiêu Vấn Phong, saying it is for the guides; he has told his own father he has not set foot on the road in three years.",
    "ties": [
     {
      "to": "tieu_thua_am",
@@ -366,7 +368,7 @@
      "Humble"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -375,6 +377,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Flour in the seams of her sleeves. A thimble on a ribbon that she turns while she listens.",
    "backstory": "A miller's daughter of Hàn Khê Thôn who married into the inn and bore Tiêu Vấn Phong (tieu_van_phong); every winter she sews him a fur cape and sends it up to the lodge with his sworn brother Tịch Lang Tung (tich_lang_tung).",
    "ties": [
     {
@@ -455,7 +458,7 @@
    "traits": {
     "personality": [
      "Pragmatic",
-     "Gregarious",
+     "Deceitful",
      "Fickle"
     ],
     "calling": "Merchant",
@@ -470,6 +473,8 @@
    },
    "appearance": "Yellow to the wrists from the vats, loud, and always about to make a wager.",
    "backstory": "Thừa Âm's second son runs the clan's dye works, where locust buds are dried and boiled for the yellow that Hòe Âm's boats carry south, and sells the same buds to stop bleeding. His best customer is the Pavilion's guest alchemist Viên Chước (vien_chuoc), who has owed him for three harvests and plays dice with him to settle it. He sent his daughter Tiêu Ngọc Hòe (tieu_ngoc_hoe) to the hermitage by the clan rule and reads each of her letters twice.",
+   "wants": "To be rid of the dyers' debts and to see his daughter Tiêu Ngọc Hòe married well.",
+   "secret": "He plays dice with Viên Chước on loaded dice, so that the guest alchemist's debt can never be settled and stays a hold over the Pavilion.",
    "ties": [
     {
      "to": "tieu_thua_am",
@@ -558,13 +563,18 @@
    },
    "traits": {
     "personality": [
-     "Content",
+     "Lazy",
      "Humble",
-     "Diligent"
+     "Content"
     ],
     "calling": "Steward",
     "upbringing": "clan_heir",
-    "talent": [],
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ],
     "path": [],
     "lifestyle": null,
     "health": null,
@@ -572,7 +582,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Tiêu Vấn Phong's (tieu_van_phong) younger brother, who stayed to farm the valley fields and has never been up to the hall; his son Tiêu Hòe Sinh (tieu_hoe_sinh) went anyway.",
+   "appearance": "Sniffs the air before he speaks. Answers a beat late, as if the words had to walk to him.",
+   "backstory": "Tiêu Vấn Phong's (tieu_van_phong) younger brother, who stayed to farm the valley fields and has never been up to the hall; his son Tiêu Hòe Sinh (tieu_hoe_sinh) went anyway. He has not mended the fence since spring, asks the same question twice, and lets his younger son Tiêu Minh Khê (tieu_minh_khe) take the headman's scolding when the cattle stray.",
    "ties": [
     {
      "to": "tieu_thu_dao",
@@ -650,7 +661,7 @@
     "personality": [
      "Brave",
      "Gregarious",
-     "Impatient"
+     "Arbitrary"
     ],
     "calling": "Wanderer",
     "upbringing": "clan_heir",
@@ -662,7 +673,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Thừa Âm's youngest son keeps the clan's two boats at Hòe Âm's landing, which carry dye and furs down the frost coast; he sent his son Tiêu Bạch Lộ (tieu_bach_lo) to the Pavilion's outer gate rather than to the hall.",
+   "appearance": "Rolls like a deck when he walks on dry land. A fish-hook scar lifts the left corner of his lip, so he always looks about to laugh.",
+   "backstory": "Thừa Âm's youngest son keeps the clan's two boats at Hòe Âm's landing, which carry dye and furs down the frost coast; he sent his son Tiêu Bạch Lộ (tieu_bach_lo) to the Pavilion's outer gate rather than to the hall. He sails or lies in harbour as the first gull flies, and docked a deckhand's whole season's wage when the gull said stay.",
    "ties": [
     {
      "to": "tieu_thua_am",
@@ -742,6 +754,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Yellow-dyed fringe she keeps tucking behind one ear. Her chin goes up before she says no.",
    "backstory": "Tiêu Ngọc Hòe's (tieu_ngoc_hoe) younger sister, due at the hermitage in 1195, who said no to her grandfather's face; she runs the dye vats for her father and has the yellow hands to prove it.",
    "ties": [
     {
@@ -822,6 +835,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "All wrist at sixteen; his voice breaks mid-sentence, then he clears it like a man announcing himself.",
    "backstory": "Tiêu Vấn Canh's younger son, sixteen, whom his great-grandfather means to send up to Lê Hoa Am's gate in 1202, the year of the abbess's walk, as Tiêu Vấn Phong (tieu_van_phong) was sent; he has been told what to ask.",
    "ties": [
     {
@@ -1121,6 +1135,8 @@
    },
    "appearance": "A neat grey woman with ink on her right sleeve and toll tokens on a cord at her wrist.",
    "backstory": "Ôn Trọng Lương's (on_trong_luong) daughter, married in 1095 to the son of Tưởng Bách Luyện (tuong_bach_luyen) to make the assay house kin to the tolls. She raised Tưởng Ngọc Cân (tuong_ngoc_can) on the square between the miners and the assayers, and when her daughter took the house's scales in 1160 she came home to the north toll house to keep her father's ledgers. She is the only Ôn who has seen both houses' books, and she has told neither what is in the other's.",
+   "wants": "To see Tưởng Ngọc Cân hold the scales of both houses.",
+   "secret": "She waives the toll for the miners' widows and writes it off as flood closures in the north toll book. Ôn Trọng Lương has begun to audit the closures.",
    "ties": [
     {
      "to": "on_trong_luong",
@@ -1212,7 +1228,7 @@
     "personality": [
      "Impatient",
      "Greedy",
-     "Loyal"
+     "Faithless"
     ],
     "calling": "Merchant",
     "upbringing": "clan_heir",
@@ -1226,6 +1242,8 @@
    },
    "appearance": "A tall man in a toll-keeper's oilcloth coat who counts axles under his breath.",
    "backstory": "The head's son and toll-master of both bridges, Ôn Thế Hoành sent his daughter Ôn Song Ngọc (on_song_ngoc) to Chân Kim Các to learn the eye, and she learned the tolls instead, better than he knows them. He wants her home to take the toll houses after him, and she has not answered. Every morning he and the Pivot's assayer Hồng Chuẩn Bình (hong_chuan_binh) meet at the bridge foot and disagree about the weight of the first cart.",
+   "wants": "To be named heir in his father's lifetime, and to bring his daughter home.",
+   "secret": "He is keeping a third toll book with the true figures, to bargain with Ôn Trọng Lương when the heir is named, and has told his clerk son Ôn Hữu Toán to copy it.",
    "ties": [
     {
      "to": "on_trong_luong",
@@ -1319,7 +1337,7 @@
    "traits": {
     "personality": [
      "Honest",
-     "Diligent",
+     "Lazy",
      "Brave"
     ],
     "calling": "Steward",
@@ -1334,7 +1352,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Ôn Song Ngọc's (on_song_ngoc) younger brother and the clan's bridge mason, who dives under the north bridge every spring and is the only one besides his grandfather who has put his hand on the crack.",
+   "appearance": "Smells of river mud. A cracked canine shows when he grins at the water.",
+   "backstory": "Ôn Song Ngọc's (on_song_ngoc) younger brother and the clan's bridge mason, who dives under the north bridge every spring and is the only one besides his grandfather who has put his hand on the crack. He leaves the other eleven months' pier-checking to his daughter Ôn Tiểu Kiều (on_tieu_kieu), who answers for any crack.",
    "ties": [
     {
      "to": "on_the_hoanh",
@@ -1420,7 +1439,7 @@
      "Honest"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -1429,6 +1448,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Hemp burns scar her forearms in neat parallel lines. Her laugh sounds like a rope snapping.",
    "backstory": "A rope-maker's daughter of Thằng Ma Thôn, whose family twists the hemp hawsers that moor the bridges' barges; she married Ôn Lập Trụ (on_lap_tru) and still checks every rope herself.",
    "ties": [
     {
@@ -1496,7 +1516,7 @@
    "traits": {
     "personality": [
      "Brave",
-     "Gregarious",
+     "Callous",
      "Greedy"
     ],
     "calling": "Merchant",
@@ -1509,7 +1529,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Ôn Tiểu Kiều's (on_tieu_kieu) elder sister, who poles the toll ferry across when floods close the bridges and charges double, as the clan rule says.",
+   "appearance": "Stoops like the pole she carries. The far bank hears her argue.",
+   "backstory": "Ôn Tiểu Kiều's (on_tieu_kieu) elder sister, who poles the toll ferry across when floods close the bridges and charges double, as the clan rule says. She once left a stranded family on the bank until they paid, and the youngest, a boy, took the lung fever.",
    "ties": [
     {
      "to": "on_lap_tru",
@@ -1576,7 +1597,7 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Diligent",
+     "Arbitrary",
      "Paranoid"
     ],
     "calling": "Merchant",
@@ -1589,7 +1610,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Ôn Thế Hoành's younger son and the toll clerk, who expected to inherit the toll houses until his sister Ôn Song Ngọc (on_song_ngoc) came back from Chân Kim knowing more than he does.",
+   "appearance": "Counts on his fingers while you speak. A pinched nose with an ink smear that is always on it.",
+   "backstory": "Ôn Thế Hoành's younger son and the toll clerk, who expected to inherit the toll houses until his sister Ôn Song Ngọc (on_song_ngoc) came back from Chân Kim knowing more than he does. He sets each cart's toll by his mood and writes the book afterward, and seized a miner widow's handcart for a toll she had paid, which Ôn Song Ngọc had to buy back.",
    "ties": [
     {
      "to": "on_the_hoanh",
@@ -1674,6 +1696,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Turns her head in quick birdlike jerks. Freckles at the corner of each eye; found on the roof more often than not.",
    "backstory": "Ôn Hữu Toán's daughter, seventeen, who counts carts from the toll-house roof and is the Ôn child Chân Kim's outer gate will take next year; her cousin Ôn Tiểu Kiều (on_tieu_kieu) has told her to learn the eye, not the tolls.",
    "ties": [
     {
@@ -1938,7 +1961,7 @@
    "traits": {
     "personality": [
      "Compassionate",
-     "Humble",
+     "Deceitful",
      "Patient"
     ],
     "calling": "Teacher",
@@ -1953,6 +1976,8 @@
    },
    "appearance": "A soft-spoken man with ink-stained cuffs and a child's slate always under his arm.",
    "backstory": "Tạ Cựu Đường's (ta_cuu_duong) elder son keeps the clan school, where the town's children learn their letters and the Tạ children learn the swallow breath. He sat in Lạc Hà's outer gate as a young man and never got past it, on the same thin Earth as his son Tạ Quy Yến (ta_quy_yen), and he would rather the boy went to Nam Phố Đường and was happy. He has not said so to his father. He wears the Returning Ink Pendant, half of the old hall's pair.",
+   "wants": "Tạ Quy Yến at Nam Phố Đường, away from the swallow breath.",
+   "secret": "He has been forging the Vương's replies to his father's letters in the Vương's own hand, softening the rude ones, and Tạ Quy Hộc has begun to notice that the hand keeps changing.",
    "ties": [
     {
      "to": "ta_cuu_duong",
@@ -2055,6 +2080,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Swallow feathers pinned in her hair. Mulberry pollen yellows the creases of her smile.",
    "backstory": "A flower-grower's daughter of Hoa Khê Thôn who married Tạ Tri Xuân (ta_tri_xuan) for his letters and found he wrote as well as he spoke; she keeps the swallows' nests and the clan's thin accounts.",
    "ties": [
     {
@@ -2122,7 +2148,7 @@
     "personality": [
      "Gregarious",
      "Pragmatic",
-     "Content"
+     "Greedy"
     ],
     "calling": "Merchant",
     "upbringing": "scholar_family",
@@ -2134,7 +2160,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Tạ Cựu Đường's younger son and the clan's only trader, who rents out the maple grove's sap and timber and says he keeps the old name fed; his son Tạ Quy Hồng (ta_quy_hong) is at Nam Phố Đường.",
+   "appearance": "Gold tooth that flashes whenever he calls a stranger friend. Maple sap stains both sleeves.",
+   "backstory": "Tạ Cựu Đường's younger son and the clan's only trader, who rents out the maple grove's sap and timber and says he keeps the old name fed; his son Tạ Quy Hồng (ta_quy_hong) is at Nam Phố Đường. He takes a fifth more than the rent from the widowed sap-boilers of the grove and pays the boy's school fees with it.",
    "ties": [
     {
      "to": "ta_cuu_duong",
@@ -2215,11 +2242,11 @@
    "traits": {
     "personality": [
      "Pragmatic",
-     "Honest",
+     "Deceitful",
      "Impatient"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -2228,7 +2255,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "A fish-weir keeper's daughter of Ngư Lương Trấn, wife of Tạ Tri Thu (ta_tri_thu), who thinks the old name is a fine thing to eat off and would like a new roof.",
+   "appearance": "Five rings on the left hand, none on the right; she never lets the left rest on the table.",
+   "backstory": "A fish-weir keeper's daughter of Ngư Lương Trấn, wife of Tạ Tri Thu (ta_tri_thu), who thinks the old name is a fine thing to eat off and would like a new roof. She has been selling the clan's silver spoons one at a time and blaming the swallows, and when the count came short she had the kitchen girl turned out into the rain for it.",
    "ties": [
     {
      "to": "ta_tri_thu",
@@ -2299,7 +2327,12 @@
     ],
     "calling": "Teacher",
     "upbringing": "scholar_family",
-    "talent": [],
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ],
     "path": [],
     "lifestyle": null,
     "health": null,
@@ -2307,6 +2340,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Chalk on the left sleeve. Chalk snaps in his hand; the school bench has collapsed under him twice.",
    "backstory": "Tạ Tri Thu's eldest son, who stayed to teach in the clan school and is the heir no one asks about; he writes to his cousin Tạ Quy Yến (ta_quy_yen) every week.",
    "ties": [
     {
@@ -2380,7 +2414,7 @@
     "personality": [
      "Ambitious",
      "Diligent",
-     "Stubborn"
+     "Arbitrary"
     ],
     "calling": "Diplomat",
     "upbringing": "scholar_family",
@@ -2392,7 +2426,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Tạ Quy Yến's (ta_quy_yen) sister, sixteen, whose Earth is a little stronger than his; her grandfather is already writing to Lạc Hà about her.",
+   "appearance": "Sits with a stiff back copied from her grandfather. Looks straight at whoever is speaking.",
+   "backstory": "Tạ Quy Yến's (ta_quy_yen) sister, sixteen, whose Earth is a little stronger than his; her grandfather is already writing to Lạc Hà about her. She praises or tears her cousin Tạ Quy Hộc's (ta_quy_hoc) copied pages by her mood that day, and once burned a finished week's work.",
    "ties": [
     {
      "to": "ta_tri_xuan",
@@ -2476,6 +2511,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Bitten nails. Ink on her lips from holding the pen in her teeth.",
    "backstory": "Tạ Tri Thu's daughter, who reads every letter that comes to the hall before her grandfather Tạ Cựu Đường (ta_cuu_duong) does, and has noticed that the Vương's hand changed forty years ago.",
    "ties": [
     {

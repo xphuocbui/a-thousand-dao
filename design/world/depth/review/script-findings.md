@@ -5,43 +5,43 @@ Observations to steer the readers' review; counts, not verdicts.
 ## 1. Plot shapes
 | Motif | sect pages (sections 9-12) | backstories |
 |---|---|---|
-| passed over for the headship | 2 of 50 | 1 of 1889 |
-| succession / heir quarrel | 37 of 50 | 48 of 1889 |
-| a secret kept from the sect | 6 of 50 | 15 of 1889 |
-| a hidden root or variant | 0 of 50 | 0 of 1889 |
-| the last of a fallen sect / line | 4 of 50 | 8 of 1889 |
-| a dying elder near lifespan's end | 1 of 50 | 3 of 1889 |
-| the one breakthrough pill | 3 of 50 | 6 of 1889 |
-| a hostage | 6 of 50 | 13 of 1889 |
-| a lost treasure to recover | 2 of 50 | 6 of 1889 |
-| a tempter from the demonic path | 8 of 50 | 14 of 1889 |
-| never forgiven | 0 of 50 | 5 of 1889 |
-| an old war grudge | 2 of 50 | 1 of 1889 |
+| passed over for the headship | 1 of 50 | 1 of 1891 |
+| succession / heir quarrel | 18 of 50 | 45 of 1891 |
+| a secret kept from the sect | 7 of 50 | 16 of 1891 |
+| a hidden root or variant | 0 of 50 | 0 of 1891 |
+| the last of a fallen sect / line | 5 of 50 | 9 of 1891 |
+| a dying elder near lifespan's end | 1 of 50 | 3 of 1891 |
+| the one breakthrough pill | 2 of 50 | 7 of 1891 |
+| a hostage | 7 of 50 | 13 of 1891 |
+| a lost treasure to recover | 2 of 50 | 6 of 1891 |
+| a tempter from the demonic path | 6 of 50 | 14 of 1891 |
+| never forgiven | 0 of 50 | 5 of 1891 |
+| an old war grudge | 2 of 50 | 1 of 1891 |
 
 ## 2. Dates
-New `N-` events by decade, busiest: 1150s 22, 1190s 16, 1170s 15, 1180s 14, 1160s 12, 800s 9, 1110s 6, 1060s 6, 1100s 5, 900s 5, 790s 5, 1010s 4
+New `N-` events by decade, busiest: 1190s 17, 1170s 15, 1180s 14, 1150s 13, 1160s 13, 800s 9, 1110s 6, 1060s 6, 1140s 6, 1130s 6, 1100s 5, 900s 5
 
-Seat-move years read from the pages' Seat rows: tam_kiem 406, chan_kim 427, coc_vu 441, phuong_minh 449, hoa_cai 565, thinh_vu 874, suong_tung 948, vu_an 1063, ho_lam 1105, thuy_vi 1110, binh_thuy 1116, le_tuyen 1141, ngao_tuyet 1162, lac_ha 1185, yen_quang 1187, minh_loan 1188
+Seat-move years read from the pages' Seat rows: tam_kiem 406, chan_kim 427, coc_vu 441, phuong_minh 449, hoa_cai 565, thu_phan 852, thinh_vu 874, suong_tung 948, vu_an 1063, ho_lam 1105, thuy_vi 1110, binh_thuy 1116, le_tuyen 1141, ngao_tuyet 1162, lac_ha 1185, yen_quang 1187, minh_loan 1188
 
 ## 3. Voice tics
 | Phrase | backstories |
 |---|---|
-| "has told no one" | 9 |
+| "has told no one" | 5 |
 | "never forgiven" | 5 |
-| "does not know" | 25 |
-| "has never" | 114 |
-| "the only one" | 19 |
-| "in secret" | 7 |
-| "quietly" | 10 |
+| "does not know" | 20 |
+| "has never" | 108 |
+| "the only one" | 16 |
+| "in secret" | 8 |
+| "quietly" | 9 |
 | "she has not" | 39 |
-| "he has not" | 62 |
+| "he has not" | 70 |
 | "not yet" | 21 |
-| "the last" | 57 |
-| "for forty years" | 32 |
+| "the last" | 72 |
+| "for forty years" | 33 |
 | "every winter" | 13 |
-| "every year" | 25 |
+| "every year" | 26 |
 
-Most repeated 4-word phrases (backstories containing them): "was born in in" 53; "was born in at" 21; "is the only one" 16; "the night rain market" 15; "and has begun to" 14; "he has kept the" 14; "for forty years and" 14; "and did not come" 13; "the night rain edict" 13; "đỗ tinh hà do" 13; "tinh hà do tinh" 13; "hà do tinh ha" 13; "and has never once" 13; "in the winter of" 13; "kim vạn lý kim" 12; "vạn lý kim van" 12; "lý kim van ly" 12; "tiêu vấn phong tieu" 12; "vấn phong tieu van" 12; "phong tieu van phong" 12; "was born in the" 12; "and is the only" 12; "dusk test three times" 12; "to the fire court" 12; "châu phi vân chau" 11
+Most repeated 4-word phrases (backstories containing them): "was born in in" 53; "was born in at" 21; "in the winter of" 16; "the night rain market" 15; "he has kept the" 15; "and did not come" 14; "for forty years and" 14; "the night rain edict" 13; "đỗ tinh hà do" 13; "tinh hà do tinh" 13; "hà do tinh ha" 13; "and has never once" 13; "tiêu vấn phong tieu" 12; "vấn phong tieu van" 12; "phong tieu van phong" 12; "was born in the" 12; "dusk test three times" 12; "châu phi vân chau" 12; "phi vân chau phi" 12; "vân chau phi van" 12; "did not come back" 12; "to the fire court" 12; "cù thúy bách cu" 12; "thúy bách cu thuy" 12; "bách cu thuy bach" 12
 
 ## 4. Timeline (2 observations)
 - quan_thap_thu: master tuong_ngoc_can less than 10 years older
@@ -53,12 +53,12 @@ Tier A/B builds whose gear carries none of their archetype's usual bases: dan_su
 Identical Đạo Đồ routes shared by more than one person in a sect: 0 groups, e.g. 
 
 ## 6. Trait spread
-Personality, most used: Diligent 452, Brave 424, Gregarious 380, Honest 370, Patient 349, Loyal 335, Stubborn 257, Calm 244, Cautious 224, Ambitious 223
+Personality, most used: Diligent 409, Brave 376, Gregarious 343, Patient 329, Loyal 294, Honest 284, Stubborn 242, Calm 226, Ambitious 220, Cautious 203
 
-Personality, least used: Lazy 57, Temperate 53, Warlike 52, Forgiving 39, Indulgent 34, Peaceable 31, Callous 21, Arbitrary 12, Faithless 10, Cruel 9
+Personality, least used: Fickle 77, Arrogant 76, Paranoid 74, Wrathful 58, Vengeful 56, Warlike 51, Temperate 47, Forgiving 37, Peaceable 31, Indulgent 26
 
-Callings: Steward 302, Wanderer 252, Duelist 225, Merchant 177, Herbalist 174, Refiner 127, Teacher 116, Beast tamer 99, Strategist 90, Formation master 90, Diplomat 74, Alchemist 71, Talisman maker 59, Schemer 33
+Callings: Steward 302, Wanderer 253, Duelist 225, Merchant 177, Herbalist 174, Refiner 127, Teacher 117, Beast tamer 99, Strategist 90, Formation master 90, Diplomat 74, Alchemist 71, Talisman maker 59, Schemer 33
 
-v2 traits never used: cracked_dantian, deviation_survivor, homely, reborn_soul, slow_witted, thin_soul
+v2 traits never used: cracked_dantian, deviation_survivor, reborn_soul
 
-v2 traits, most used: village_born 1191, merchant_child 230, sect_raised 136, sturdy_frame 94, quick_minded 92, keen_soul 80, servant_born 71, clan_heir 70, steady_heart 66, gardener 56, scholar_family 51, street_orphan 45
+v2 traits, most used: village_born 719, merchant_child 345, servant_born 203, sect_raised 151, sturdy_frame 94, wild_raised 94, scholar_family 93, quick_minded 92, clan_heir 81, keen_soul 78, street_orphan 78, steady_heart 64

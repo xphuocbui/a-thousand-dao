@@ -222,7 +222,7 @@
      "Deceitful"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [
      {
       "id": "keen_soul",
@@ -238,8 +238,10 @@
      "Grieving"
     ]
    },
-   "appearance": "A soft-spoken old man with a zither on his back and a voice that can fill a valley without being raised.",
+   "appearance": "A soft-spoken old man with a zither on his back, his voice able to fill a valley without being raised.",
    "backstory": "A drum-maker's son from the ruins of Kích Cổ Đường, where the last drummers scattered in 482 (V153). He heard the graves of Lôi Trạch sing at ten, seventeen tiles off, and walked to them. Lương Thanh Mộ (luong_thanh_mo) taught him the songs, and after she went into the deepest grave in 1110 Lý Hận Bích (ly_han_bich) finished his training. Every autumn he leads the chant and listens for one voice, and he sings her grave last and lightly. He also takes the rice Dương Hảo Vũ (duong_hao_vu) pays for the river's drowned, writes back that they lie at the edge, and lays them in the jade beds as the head orders.",
+   "wants": "To hear Lương Thanh Mộ's voice another autumn, and to have the river's drowned lie where the abbess's rice pays for them to lie.",
+   "secret": "On his watch nights he is leaving the censer of the jade beds unlit, so that a few of the drowned strangers' graves go unsung; the head counts the jade at the beds and not the smoke, and the count is due at the first cold wind.",
    "ties": [
     {
      "to": "luong_thanh_mo",
@@ -348,7 +350,7 @@
     "than_hon": 66,
     "khi_van": 50,
     "dao_tam": 48,
-    "mi_luc": 44
+    "mi_luc": 34
    },
    "traits": {
     "personality": [
@@ -358,7 +360,12 @@
     ],
     "calling": "Formation master",
     "upbringing": "sect_raised",
-    "talent": [],
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ],
     "path": [
      "array_bound"
     ],
@@ -368,8 +375,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A square-shouldered woman with a jade-cutter's lens on a cord and dirt to the elbows.",
+   "appearance": "A square-shouldered, plain-faced woman with a jade-cutter's lens on a cord and dirt to the elbows.",
    "backstory": "Born on the Pavilion's hill to a grave-digger and raised by the sect. Lý Hận Bích (ly_han_bich) made her keeper of the jade beds. In a hundred years the beds gave her three green flecks, and she thinks the head too patient. For three autumns Tiết Ấn Sương (tiet_an_suong) laid a forcing seal over one of the oldest graves by the river, and Thẩm sang it dry inside the chant; it gave out on the last night of last autumn, after the singers had gone up. At midsummer she dug a ripe stone out of it. Kiều Mãn Lâu's (kieu_man_lau) man is carrying it to Thu Trì in a fish basket, ten weeks on the road, for the pills that would make her Kết Đan.",
+   "wants": "One whole stone of grave jade for her Kết Đan, and the head's seat after the head.",
+   "secret": "She has promised Tiết Ấn Sương a fifth of the stone's price and is arranging, through Kiều Mãn Lâu's man, that the pills come back short and the fifth never does.",
    "ties": [
     {
      "to": "ly_han_bich",
@@ -498,7 +507,7 @@
      "Shaken"
     ]
    },
-   "appearance": "A thin, short-sighted man who writes with his left hand and holds his right over his ear, as if shading it from a wind.",
+   "appearance": "Thin and short-sighted, he writes with his left hand and holds his right over his ear, as if shading it from a wind.",
    "backstory": "Cơ Ký Âm was born in 1130 in Không Mông Thành, the valley city that Lôi Trạch's survivors moved up to a year after the tribulation burned their own (A285). His family have been copyists for six hundred years, and his grandmother told him their people came from the graves. He walked down to the Pavilion at twenty with a good ear and a box of brushes, and Lý Hận Bích (ly_han_bich) set him to write down the songs. For fifty autumns he has knelt at the graves and taken them down word by word. The new graves sing poems. The oldest, by the river where the lightning first struck, sing something else, in a cadence like a drum. In 1190 he understood it: the dead are chanting what their head chanted as his tribulation came down, the canon of Khải Lôi Môn (C008, C035). He showed the head. She sealed his copybooks in the ward and told him to tell no one. The Tower's vault master Lệ Tiêu Hồn (le_tieu_hon) has since asked twice to borrow a book of autumn songs.",
    "wants": "To finish the oldest song, and to have the dead's words read by someone who will not burn them.",
    "secret": "He kept a second copy of the drum passages, sewn into the lining of his winter robe, and he has played their cadence once on a grave drum. Something under the ridge answered.",
@@ -619,6 +628,7 @@
      "Grieving"
     ]
    },
+   "appearance": "Hoarse brook-water laugh; two white hairs she refuses to pull.",
    "backstory": "Drank from both brooks at Song Khê with a boy who drowned the next spring (A293); she came to the graves to keep the promise and sings to him in autumn.",
    "ties": [
     {
@@ -708,7 +718,7 @@
     "personality": [
      "Stubborn",
      "Loyal",
-     "Callous"
+     "Cruel"
     ],
     "calling": "Wanderer",
     "upbringing": "wild_raised",
@@ -725,8 +735,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A short, heavy hunter in ridge furs with a cave lamp on his belt that he never lights.",
-   "backstory": "Born in the hunters' village at Thủ Động Trại, the head's own, five generations down from her sister. On his own Kinh Trập night in the cave the Darkness the ridge gave him woke. Since 1185 he has kept the Pavilion's Cave Hall there (V152). Each Kinh Trập he shuts the likeliest hunters' child in the cave of Khải Lôi's dead by the hunters' own rule, as Lý Hận Bích (ly_han_bich) was shut in at twelve, and sends the ones who come out with nothing home with a fee for the family. He and Chử Ẩn Thạch (chu_an_thach) sing the cave's dead as the river singers sing the graves.",
+   "appearance": "Short, heavy, in ridge furs, with a cave lamp on his belt that he never lights.",
+   "backstory": "Born in the hunters' village at Thủ Động Trại, the head's own, five generations down from her sister. On his own Kinh Trập night in the cave the Darkness the ridge gave him woke. Since 1185 he has kept the Pavilion's Cave Hall there (V152). Each Kinh Trập he shuts the likeliest hunters' child in the cave of Khải Lôi's dead by the hunters' own rule, as Lý Hận Bích (ly_han_bich) was shut in at twelve, and sends the ones who come out with nothing home with a fee for the family. He and Chử Ẩn Thạch (chu_an_thach) sing the cave's dead as the river singers sing the graves. Last Kinh Trập he kept a child who sang half a note in the cave a second year, and told her parents she had gone up to the Pavilion.",
+   "wants": "A hunters' child who sings the cave's dead as well as Chử Ẩn Thạch does, and the Cave Hall's censers lit by hunters' fees.",
+   "secret": "The child he kept is still in the cave: the family sends the fee each season, and he feeds her through the door and listens to what she hums.",
    "ties": [
     {
      "to": "ly_han_bich",
@@ -828,6 +840,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Sways as though still keeping the planting beat; sunburnt neck.",
    "backstory": "Sang loudest at the Ương Ca planting to drown the graves (A314, A287), until one autumn the graves sang his own song back to him; his village has not forgiven him for going.",
    "ties": [
     {
@@ -900,7 +913,7 @@
    "traits": {
     "personality": [
      "Impatient",
-     "Honest",
+     "Deceitful",
      "Ambitious"
     ],
     "calling": "Talisman maker",
@@ -913,7 +926,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "From the ruin of Kích Cổ Đường, where her family still keeps one drum skin (V153); she taps the rhythm of the oldest graves on her knee without knowing what it is.",
+   "appearance": "Taps a drum rhythm on her knee without knowing it; fringe cut crooked with her own knife.",
+   "backstory": "From the ruin of Kích Cổ Đường, where her family still keeps one drum skin (V153); she taps the rhythm of the oldest graves on her knee without knowing what it is. She told Cơ Ký Âm she had begun to understand the drum, to be handed the copy room's key, and Hứa Tàng Thư (hua_tang_thu), who had kept it nine years, lost it.",
    "ties": [
     {
      "to": "co_ky_am",
@@ -983,6 +997,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "One dark curl hangs wet however dry the day; hands rough from the nets.",
    "backstory": "From Mãn Võng Thôn, the Pavilion's fishing village; sent up the hill when the nets came up with a singing skull in them.",
    "ties": [
     {
@@ -1049,7 +1064,7 @@
      "Reclusive"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born",
+    "upbringing": "hermit_taught",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -1058,6 +1073,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Lopsided from carrying canes; bore-nicks across both thumbs.",
    "backstory": "Cuts lightning-struck bamboo in Kiếp Trúc Lâm, three tiles from the hill, and bores it into the flutes the Pavilion plays at the graves.",
    "ties": [
     {
@@ -1140,6 +1156,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "One grey eye, one brown; hums a tune in his sleep that nobody taught him.",
    "backstory": "Found as a newborn in 1184 on the oldest grave by the river, wrapped in someone's cape; he hums the graves' songs in his sleep and has never been taught them.",
    "ties": [
     {

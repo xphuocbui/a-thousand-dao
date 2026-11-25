@@ -16,6 +16,7 @@
    "home": 6,
    "birthplace": 41,
    "role": "Keeper of the red feathers of the dead at the Wutong Court (Hall of Rites)",
+   "appearance": "Sews a red feather into her hem for every soul she keeps.",
    "tier": "C",
    "root": {
     "elements": {
@@ -31,7 +32,7 @@
      "Compassionate"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
    "backstory": "Keeps one red feather for each of the palace's dead in the Wutong Court and sews the newest in herself; Thương Tẫn Quy (thuong_tan_quy) brings her the names down from the long road.",
    "ties": [
@@ -88,6 +89,7 @@
    "home": 6,
    "birthplace": 162,
    "role": "Tender of the great wutong at the Wutong Court",
+   "appearance": "A counting-string round his wrist, knotted to a leaf-count he will not say.",
    "tier": "C",
    "root": {
     "elements": {
@@ -103,7 +105,7 @@
      "Loyal"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
    "backstory": "Climbs the great wutong each month to count the fallen leaves for Vu Ngô Đồng (vu_ngo_dong), and has begun to count them twice; he has not told An Thúy Vũ (an_thuy_vu) the number.",
    "ties": [
@@ -157,6 +159,7 @@
    "home": 6,
    "birthplace": 736,
    "role": "Holds the gate of the Wutong Court under Nhậm Cương Thủ",
+   "appearance": "The wine-flush climbs from his collar whenever the head is mentioned.",
    "tier": "C",
    "root": {
     "elements": {
@@ -224,6 +227,7 @@
    "home": 449,
    "birthplace": 449,
    "role": "Ash-born fan duelist of the Hall of Righteousness",
+   "appearance": "Two stair-challenge burns, one on each shoulder, which he calls medals.",
    "tier": "C",
    "root": {
     "elements": {
@@ -235,13 +239,13 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Arrogant",
+     "Cruel",
      "Brave"
     ],
     "calling": "Duelist",
     "upbringing": "sect_raised"
    },
-   "backstory": "Ash-born and loud about it, he has challenged Đằng Phi Diễm (dang_phi_diem) for the top step of the Fire Court's stair three times and lost three times, each time a little closer.",
+   "backstory": "Ash-born and loud about it, he has challenged Đằng Phi Diễm (dang_phi_diem) for the top step of the Fire Court's stair three times and lost three times, each time a little closer. He had a rival's practice fan soaked in oil and lit mid-bout to see the rival run; Địch Tiểu Chước (dich_tieu_chuoc) held the boy's hands under the well.",
    "ties": [
     {
      "to": "thich_hong_linh",
@@ -301,6 +305,7 @@
    "home": 449,
    "birthplace": 94,
    "role": "Veteran of the Cinnabar Vein War in the Hall of Righteousness",
+   "appearance": "Grey in his beard at forty, and a dead woman's fan-tassel sewn to his sleeve.",
    "tier": "C",
    "root": {
     "elements": {
@@ -312,13 +317,13 @@
    "traits": {
     "personality": [
      "Warlike",
-     "Vengeful",
+     "Cruel",
      "Loyal"
     ],
     "calling": "Strategist",
     "upbringing": "village_born"
    },
-   "backstory": "Was on Đan Sơn Mạch when Cố Dạ Lan killed Dụ Đan Huỳnh (du_dan_huynh) in 1154 (N-phuong_minh-10) and carried her body down without its fan; he wants the war Sử Hoành Dực (su_hoanh_duc) wants, and would follow him to the ridge.",
+   "backstory": "Was on Đan Sơn Mạch when Cố Dạ Lan killed Dụ Đan Huỳnh (du_dan_huynh) in 1154 (N-phuong_minh-10) and carried her body down without its fan; he wants the war Sử Hoành Dực (su_hoanh_duc) wants. He sent the junior who lost her fan back up the pass alone in the dark three times; the boy came back frostbitten, without it.",
    "ties": [
     {
      "to": "su_hoanh_duc",
@@ -373,6 +378,7 @@
    "home": 93,
    "birthplace": 93,
    "role": "Helmsman of the palace fleet's flagship",
+   "appearance": "The ear notched by a pirate's grapple turns to every shout.",
    "tier": "C",
    "root": {
     "elements": {
@@ -445,6 +451,7 @@
    "home": 211,
    "birthplace": 449,
    "role": "Night watch of the vein fort at Đan Sơn Mạch",
+   "appearance": "A thunder-charm in her left ear, tilted always toward the ridge.",
    "tier": "C",
    "root": {
     "elements": {
@@ -457,12 +464,12 @@
     "personality": [
      "Cautious",
      "Patient",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Strategist",
     "upbringing": "sect_raised"
    },
-   "backstory": "Hách Chu Lăng's (hach_chu_lang) niece, she stands the night watch facing Thính Vũ's ridge and has learned to tell rain from thunder by ear, which no one in the palace values.",
+   "backstory": "Hách Chu Lăng's (hach_chu_lang) niece, she stands the night watch facing Thính Vũ's ridge and has learned to tell rain from thunder by ear, which no one in the palace values. She calls thunder when it is rain so the wall is cleared, and rain when she wants her bed.",
    "ties": [
     {
      "to": "hach_chu_lang",
@@ -512,6 +519,7 @@
    "home": 85,
    "birthplace": 148,
    "role": "Rides the famine roads with the granary carts of the Hall of Benevolence",
+   "appearance": "Blushes to the neck at every thank-you.",
    "tier": "C",
    "root": {
     "elements": {
@@ -528,7 +536,7 @@
      "Impatient"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "mortal_noble"
    },
    "backstory": "Opened the granary carts on the southern roads in a bad year and has been thanked in ceremony by eleven villages; he dislikes ceremonies, and Điền Phong Niên (dien_phong_nien) makes him attend them.",
    "ties": [
@@ -590,6 +598,7 @@
    "home": 248,
    "birthplace": 41,
    "role": "Grinds cinnabar at the furnace on Chu Sa Tuyền",
+   "appearance": "Cinnabar-red dust in the part of her hair.",
    "tier": "C",
    "root": {
     "elements": {
@@ -602,12 +611,12 @@
     "personality": [
      "Ambitious",
      "Diligent",
-     "Impatient"
+     "Greedy"
     ],
     "calling": "Alchemist",
     "upbringing": "merchant_child"
    },
-   "backstory": "Grinds cinnabar for Kế Chu Sa (ke_chu_sa) and wants Kiều Đan Lô's (kieu_dan_lo) place at the furnace mouth; she has the better hands, and he has the older seat.",
+   "backstory": "Grinds cinnabar for Kế Chu Sa (ke_chu_sa) and wants Kiều Đan Lô's (kieu_dan_lo) place at the furnace mouth; she has the better hands, and he has the older seat. She skims a measure of cinnabar from each grinding for her own pills, so Kiều's batches run short and Kiều takes the blame.",
    "ties": [
     {
      "to": "ke_chu_sa",
@@ -664,6 +673,7 @@
    "home": 449,
    "birthplace": 41,
    "role": "Counts the vassals' tribute for the Hall of Trust",
+   "appearance": "Two tally-sticks behind his ears, one for coin and one for rice.",
    "tier": "C",
    "root": {
     "elements": {
@@ -674,14 +684,14 @@
    },
    "traits": {
     "personality": [
-     "Just",
+     "Arbitrary",
      "Paranoid",
      "Diligent"
     ],
     "calling": "Steward",
     "upbringing": "scholar_family"
    },
-   "backstory": "Counts the tribute the six vassals bring at New Year; Phần Vũ Đường's has come short more than once, and he has written it down each time for Vưu Cẩm Thư (vuu_cam_thu).",
+   "backstory": "Counts the tribute the six vassals bring at New Year; Phần Vũ Đường's has come short more than once, and he has written it down each time for Vưu Cẩm Thư (vuu_cam_thu). He entered Phần Vũ's tribute short one year because its carter did not bow, and Đới Liệt Cương (doi_liet_cuong) was dunned for the difference.",
    "ties": [
     {
      "to": "vuu_cam_thu",
@@ -731,6 +741,7 @@
    "home": 253,
    "birthplace": 449,
    "role": "Tends the Ash Seat's coals at the Nest between breakthroughs",
+   "appearance": "Looks at the sky before speaking, and says nothing if it is cloudy.",
    "tier": "C",
    "root": {
     "elements": {
@@ -797,6 +808,7 @@
    "home": 449,
    "birthplace": 83,
    "role": "Keeps the audience roll of the Hall of Virtue",
+   "appearance": "Gold thread at his cuff, never the same colour twice.",
    "tier": "C",
    "root": {
     "elements": {
@@ -807,14 +819,14 @@
    },
    "traits": {
     "personality": [
-     "Just",
+     "Arbitrary",
      "Deceitful",
      "Generous"
     ],
     "calling": "Diplomat",
     "upbringing": "scholar_family"
    },
-   "backstory": "Sets the order in which petitioners see the head and has been bribed in every order he has set; he gives the money to the granaries and keeps the order he meant to keep.",
+   "backstory": "Sets the order in which petitioners see the head by whichever bribe is largest that morning, and has been bribed in every order he set; he gives the money to the granaries and says he kept his own order. Khổng Tế Dân (khong_te_dan) waited three days behind a smaller bribe.",
    "ties": [
     {
      "to": "thi_van_binh",
@@ -863,6 +875,7 @@
    "home": 53,
    "birthplace": 162,
    "role": "Tunes the flutes sold at Thiều Âm Thị",
+   "appearance": "Plays a note in her head before she answers.",
    "tier": "C",
    "root": {
     "elements": {
@@ -878,7 +891,7 @@
      "Honest"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "Plays each flute before Thiều Âm Thị sells it; Lộ Văn Khánh (lo_van_khanh) sends her home early on the nights he walks to Kích Khánh Đường, and she has stopped asking why.",
    "ties": [
@@ -935,6 +948,7 @@
    "home": 449,
    "birthplace": 161,
    "role": "Gathers the vent birds' down for the Feather Kindling",
+   "appearance": "Knits bracelets of chrysanthemum fluff and gives them away.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1014,6 +1028,7 @@
    "home": 6,
    "birthplace": 148,
    "role": "Rides the western march with the Wutong Court's hawks",
+   "appearance": "A spyglass through his belt like a dagger.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1029,7 +1044,7 @@
      "Loyal"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
    "backstory": "Has watched Thính Vũ's new seat rise on Thần Cổ Phong since 1166 from the western march; he reports to Vu Ngô Đồng (vu_ngo_dong), who sends the reports on to the Fire Court a day late.",
    "ties": [
@@ -1083,6 +1098,7 @@
    "home": 6,
    "birthplace": 330,
    "role": "Feeds the spirit birds of the Wutong Court",
+   "appearance": "A whistle always curled in her cheek, so that she lisps.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1152,6 +1168,7 @@
    "home": 6,
    "birthplace": 331,
    "role": "Cuts the bamboo shoots that feed the Wutong Court",
+   "appearance": "Eight small scorch-lines on the left forearm, one per sitting.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1163,13 +1180,19 @@
    "traits": {
     "personality": [
      "Content",
-     "Humble",
+     "Deceitful",
      "Pragmatic"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Sat the Feather Kindling eight times; then Vu Ngô Đồng (vu_ngo_dong) told him the tree needs Wood more than the palace needs Fire, and he has not sat it since.",
+   "backstory": "Sat the Feather Kindling eight times; then Vu Ngô Đồng (vu_ngo_dong) told him the tree needs Wood more than the palace needs Fire, and he has not sat it since. He tells Vu so, and sits it in secret each year in the place of Thành Dã Cúc (thanh_da_cuc), who is told the roll is full.",
    "ties": [
     {
      "to": "an_thuy_vu",
@@ -1219,6 +1242,7 @@
    "home": 6,
    "birthplace": 147,
    "role": "Plays the second part of the dawn flute at the Wutong Court",
+   "appearance": "His eyes shut when he blows.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1234,7 +1258,7 @@
      "Content"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "Plays a half beat behind Bạc Địch Thanh (bac_dich_thanh) on purpose; he says the dawn call sounds wider with two.",
    "ties": [
@@ -1286,6 +1310,7 @@
    "home": 6,
    "birthplace": 736,
    "role": "Carries the urns up the long road to Quy Vũ Lĩnh",
+   "appearance": "A string of small urn-stoppers at his throat, clicking when he nods.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1301,7 +1326,7 @@
      "Humble"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
    "backstory": "Has scattered more of the palace's dead from the wutong grove than any living disciple, walking behind Thương Tẫn Quy (thuong_tan_quy); he asks each urn its name on the road.",
    "ties": [
@@ -1348,6 +1373,7 @@
    "home": 6,
    "birthplace": 6,
    "role": "Water carrier (tạp dịch) of the Wutong Court's kitchens",
+   "appearance": "Walks with the stoop of a yoke he put down years ago.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1410,6 +1436,7 @@
    "home": 6,
    "birthplace": 703,
    "role": "Sword in the Wutong Court's guard, admitted on Wood",
+   "appearance": "Goes grey and silent when the Feather Kindling is named, and leaves the room.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1425,9 +1452,15 @@
      "Honest"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "thin_soul",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Lưu Kim miner's daughter in Nhậm Cương Thủ's (nham_cuong_thu) guard, admitted on Wood 32 and kept for her sword arm; she will never pass the Feather Kindling and does not mean to try.",
+   "backstory": "A Lưu Kim miner's daughter in Nhậm Cương Thủ's (nham_cuong_thu) guard, admitted on Wood 32 and kept for her sword arm; she will never pass the Feather Kindling and does not mean to try. She cannot bear to be near the sitting.",
    "ties": [
     {
      "to": "nham_cuong_thu",
@@ -1477,6 +1510,7 @@
    "home": 449,
    "birthplace": 449,
    "role": "Ash-born inner disciple of the fan forms",
+   "appearance": "Rolls her sleeves to hide a worn cuff under a too-bright tassel.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1489,12 +1523,12 @@
     "personality": [
      "Ambitious",
      "Impatient",
-     "Brave"
+     "Deceitful"
     ],
     "calling": "Duelist",
     "upbringing": "sect_raised"
    },
-   "backstory": "Passed the Feather Kindling at nineteen and has waited four years for Foundation; Cảnh Vũ Ca (canh_vu_ca) says she fans too hard.",
+   "backstory": "Passed the Feather Kindling at nineteen and has waited four years for Foundation; Cảnh Vũ Ca (canh_vu_ca) says she fans too hard. She has told her master she passed her Foundation sitting; she has not, and her master has put her name on the Hall's list on that word.",
    "ties": [
     {
      "to": "canh_vu_ca",
@@ -1544,6 +1578,7 @@
    "home": 449,
    "birthplace": 449,
    "role": "Runner of the Hall of Righteousness",
+   "appearance": "Mouth half open, ready for the next word.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1606,6 +1641,7 @@
    "home": 449,
    "birthplace": 162,
    "role": "New outer disciple from Tang Âm Thôn",
+   "appearance": "Two burnt feather-ends in her hair, kept as charms.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1669,6 +1705,7 @@
    "home": 85,
    "birthplace": 148,
    "role": "Granary cart hand of the Hall of Benevolence",
+   "appearance": "Straw in his hair, even at the table.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1731,6 +1768,7 @@
    "home": 449,
    "birthplace": 41,
    "role": "Copies petitions in the Hall of Virtue",
+   "appearance": "Ink-blue lips from licking her pen.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1742,13 +1780,13 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Cautious",
+     "Deceitful",
      "Ambitious"
     ],
     "calling": "Steward",
     "upbringing": "scholar_family"
    },
-   "backstory": "Copies the petitions that reach the Hall of Virtue for Thì Văn Bính (thi_van_binh) and will sit the Feather Kindling this year on Fire 42, which is not quite enough.",
+   "backstory": "Copies the petitions that reach the Hall of Virtue for Thì Văn Bính (thi_van_binh) and will sit the Feather Kindling this year on Fire 42, which is not quite enough. She adds her own name to the petitions she thinks best; Dương Hộ Thụ's (duong_ho_thu) petition for the grove count went up as hers.",
    "ties": [
     {
      "to": "thi_van_binh",
@@ -1793,6 +1831,7 @@
    "home": 93,
    "birthplace": 93,
    "role": "Deck hand of the palace fleet",
+   "appearance": "Walks with a sailor's roll even on dry land.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1860,6 +1899,7 @@
    "home": 93,
    "birthplace": 149,
    "role": "Diver of the palace fleet",
+   "appearance": "Holds a drowned-bell pendant in her teeth when she dives.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1922,6 +1962,7 @@
    "home": 93,
    "birthplace": 93,
    "role": "The admiral's grandson, put to the oars",
+   "appearance": "Chin held high over raw oar-blisters.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1934,12 +1975,12 @@
     "personality": [
      "Arrogant",
      "Brave",
-     "Impatient"
+     "Cruel"
     ],
     "calling": "Duelist",
     "upbringing": "clan_heir"
    },
-   "backstory": "Phàn Vọng Hải's (phan_vong_hai) grandson, put to the oars by his grandfather's order like any deck hand; Can Hải Trì (can_hai_tri) has been told to work him harder than the rest, and does.",
+   "backstory": "Phàn Vọng Hải's (phan_vong_hai) grandson, put to the oars by his grandfather's order like any deck hand; Can Hải Trì (can_hai_tri) has been told to work him harder than the rest, and does. He had Giang Triều Sinh (giang_trieu_sinh) lashed to the oar until he fainted, and laughed.",
    "ties": [
     {
      "to": "can_hai_tri",
@@ -1989,6 +2030,7 @@
    "home": 211,
    "birthplace": 772,
    "role": "Cinnabar miner's son at the vein fort",
+   "appearance": "Rock-grey skin, and he sleeps with one hand on the wall.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2051,6 +2093,7 @@
    "home": 211,
    "birthplace": 772,
    "role": "Signal girl of the vein fort",
+   "appearance": "Banner dye on her fingertips, red on one hand and black on the other.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2067,7 +2110,7 @@
      "Cautious"
     ],
     "calling": "Diplomat",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
    "backstory": "Sử Niệm Huỳnh (su_niem_huynh) has taught her to read the Pivot's and the Tower's banners across the vein, and to wish, as her teacher does, that they never meant war.",
    "ties": [
@@ -2114,6 +2157,7 @@
    "home": 85,
    "birthplace": 85,
    "role": "Herb girl for the healers of Hoàng Vân Thành",
+   "appearance": "Her nose wrinkles at every smell, even good ones.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2178,6 +2222,7 @@
    "home": 85,
    "birthplace": 152,
    "role": "Granary hand at Hoàng Vân Thành for fifty years",
+   "appearance": "Knocks on every wall he passes, listening.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2193,7 +2238,7 @@
      "Honest"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
    "backstory": "Has turned the grain in the Hoàng Vân granaries for half a century under Cốc Thu Thành (coc_thu_thanh) and can tell a damp bin by knocking on it.",
    "ties": [
@@ -2245,6 +2290,7 @@
    "home": 53,
    "birthplace": 53,
    "role": "Strings the qin sold at Thiều Âm Thị",
+   "appearance": "Silk-string grooves in her fingertips, one for each string.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2307,6 +2353,7 @@
    "home": 53,
    "birthplace": 53,
    "role": "Shop boy of the music market",
+   "appearance": "Flute-reeds tucked behind each ear.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2324,7 +2371,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "Sweeps Hàn Ngọc Tiêu's (han_ngoc_tieu) shop at Thiều Âm Thị and plays the stock when she is out.",
+   "backstory": "Sweeps Hàn Ngọc Tiêu's (han_ngoc_tieu) shop at Thiều Âm Thị and plays the stock when she is out; he sleeps behind the counter, and she lost a buyer to the open door.",
    "ties": [
     {
      "to": "han_ngoc_tieu",
@@ -2369,6 +2416,7 @@
    "home": 248,
    "birthplace": 94,
    "role": "Watches the furnace fire through the night at Chu Sa Tuyền",
+   "appearance": "Eyelids red from the furnace glare.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2384,7 +2432,7 @@
      "Calm"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
    "backstory": "Sits up with the furnace through the night for Lữ Chu Hống (lu_chu_hong) and wakes her at the colour change; she pays him in cracked pills.",
    "ties": [
@@ -2433,6 +2481,7 @@
    "home": 248,
    "birthplace": 1025,
    "role": "Carries herbs up to the furnace",
+   "appearance": "Smells of cassia before she arrives.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2448,7 +2497,7 @@
      "Content"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "A Quế Viên girl who carries cassia and herbs up to the furnace for Kiều Đan Lô (kieu_dan_lo), and is on his side against Lữ Chu Hống (lu_chu_hong) without being asked.",
    "ties": [
@@ -2495,6 +2544,7 @@
    "home": 253,
    "birthplace": 449,
    "role": "Rings the bell at the Ash Seat",
+   "appearance": "A bronze bell at her wrist, silenced by a pinch of cloth.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2557,6 +2607,7 @@
    "home": 449,
    "birthplace": 93,
    "role": "Cook (tạp dịch) of the Fire Court's kitchens",
+   "appearance": "A ladle burn up the back of one hand, which she shows off like a medal.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2574,7 +2625,7 @@
     "calling": "Steward",
     "upbringing": "servant_born"
    },
-   "backstory": "Cooks the Fire Court's rice beside Bào Lạc Hải (bao_lac_hai) and seats guests nearest the fire; she has watched three envoys refuse the seat and remembers each by name.",
+   "backstory": "Cooks the Fire Court's rice beside Bào Lạc Hải (bao_lac_hai) and seats guests by her fancy; she put the envoy Bình Viễn Khách's (binh_vien_khach) clerk at the door in sleet, and remembers him by name.",
    "ties": [
     {
      "to": "bao_lac_hai",
@@ -2619,6 +2670,7 @@
    "home": 449,
    "birthplace": 29,
    "role": "Hùng Diễm Nhi's cousin at the Fire Court; writes Tào Tẫn Kiên what she does",
+   "appearance": "Smiles a beat late, after he has checked who is watching.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2629,12 +2681,12 @@
    },
    "traits": {
     "personality": [
-     "Greedy",
+     "Generous",
      "Deceitful",
      "Brave"
     ],
     "calling": "Duelist",
-    "upbringing": "clan_heir"
+    "upbringing": "sect_raised"
    },
    "backstory": "Hùng Diễm Nhi's (hung_diem_nhi) cousin, sent to the palace's outer gate from Phần Vũ Đường in 1197. He rides her where she needs to go, and writes Tào Tẫn Kiên (tao_tan_kien) what she does there, for a place Tào has promised him in the hall.",
    "ties": [
@@ -2687,6 +2739,7 @@
    "home": 449,
    "birthplace": 988,
    "role": "Miêu Trúc Sinh's first pupil",
+   "appearance": "Silver-fine hair already at twenty-six, tied in a bamboo ring.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2749,6 +2802,7 @@
    "home": 6,
    "birthplace": 146,
    "role": "Outer disciple of the Hall of Rites at the Wutong Court",
+   "appearance": "Whistles through the gap between her front teeth.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2811,6 +2865,7 @@
    "home": 449,
    "birthplace": 26,
    "role": "Rides with the palace's envoy to the vassals",
+   "appearance": "Bows a hand's width deeper than his rank requires.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2822,13 +2877,13 @@
    "traits": {
     "personality": [
      "Humble",
-     "Honest",
+     "Deceitful",
      "Peaceable"
     ],
     "calling": "Diplomat",
     "upbringing": "temple_raised"
    },
-   "backstory": "Born at Lễ Tuyền Phái among the sweet spring's keepers, he rides with Bình Viễn Khách (binh_vien_khach) to the vassals and carries the palace's gifts in both hands.",
+   "backstory": "Born at Lễ Tuyền Phái among the sweet spring's keepers, he rides with Bình Viễn Khách (binh_vien_khach) to the vassals and carries the palace's gifts in both hands. He bows deep to every host and tells each that the vassal across the hall spoke ill of them, which is why her circuit is so quarrelsome.",
    "ties": [
     {
      "to": "binh_vien_khach",
@@ -2873,6 +2928,7 @@
    "home": 449,
    "birthplace": 83,
    "role": "Practises the fan forms before dawn on the Fire Court's stair",
+   "appearance": "A cheek scar from a fan-edge, traced when she lies.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2886,12 +2942,12 @@
     "personality": [
      "Diligent",
      "Ambitious",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Watches Sầm Liệt Dực's (sam_liet_duc) challenges on the stair and tells him afterwards where he lost; he asks her before he asks his master.",
+   "backstory": "Watches Sầm Liệt Dực's (sam_liet_duc) challenges on the stair and tells him afterwards where he lost; he asks her before he asks his master. She tells his rivals where he lost as well.",
    "ties": [
     {
      "to": "sam_liet_duc",
@@ -2936,6 +2992,7 @@
    "home": 6,
    "birthplace": 25,
    "role": "Wood girl of the Wutong Court, Kha Thanh Miêu's bunk-mate",
+   "appearance": "Pauses under the great tree and looks up, every time.",
    "tier": "C",
    "root": {
     "elements": {

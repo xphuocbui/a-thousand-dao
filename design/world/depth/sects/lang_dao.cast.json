@@ -263,6 +263,8 @@
    },
    "appearance": "A tall helmsman's daughter with white hair cropped like a deckhand's and a burn across both palms.",
    "backstory": "Born in Đà Công Thôn, the helmsmen's village, she has been Giang Cửu Khúc's (giang_cuu_khuc) Dao partner since 1040 and mistress of the boats since 1100. On the night Lạc Hà fired the Đào Sa landing (A080) she cut one ferry loose and poled it into the current with nine children aboard, and its sail is her flag now. She rebuilt the fleet with the River Hall's timber in 1175. This spring Lữ Tẫn Chu (lu_tan_chu), whom Lạc Hà raised, sent her one of the passes from before the war inside her granddaughter's letters: the Nine Bends seal on a toll the pines never set. She has said nothing to Giang. She has put the Ngư Ca boats on a free crossing for Lạc Hà's hulls until ten years of that toll are paid back.",
+   "wants": "To see ten years of the Ngư Ca toll paid back to Lạc Hà in free crossings, and to tell Giang Cửu Khúc herself before he guesses.",
+   "secret": "She is building a second, unnamed ferry in the Đà Công yard from Đào Sa wreck timber, to carry Lữ Tẫn Chu (lu_tan_chu) across the river if he ever comes, and has charged the hull to the fleet's repair account.",
    "ties": [
     {
      "to": "giang_cuu_khuc",
@@ -387,7 +389,7 @@
     "personality": [
      "Wrathful",
      "Brave",
-     "Vengeful"
+     "Cruel"
     ],
     "calling": "Duelist",
     "upbringing": "clan_heir",
@@ -402,6 +404,8 @@
    },
    "appearance": "His father's build and his mother's burned hands, and a half-healed scar where a Lạc Hà oar took him in 1173.",
    "backstory": "He was on the Đào Sa landing in 1173 (A080) when the boats burned and has captained it since. He wants the Ferry War fought again and won, and he says so to Đặng Hoành Giang (dang_hoanh_giang), the pines' man at the gate, whenever the River Hall is listening. His daughter Giang Tiểu Loan (giang_tieu_loan) is his disciple. He thinks his father's letters to Lữ Tẫn Chu are weakness.",
+   "wants": "To fight the Ferry War again and win it, and to put the names of the men who fired the landing on a post at Đào Sa.",
+   "secret": "He keeps a Lạc Hà oarsman taken in 1173 in a flooded cellar under the gold-washers' sheds, and breaks one of the man's fingers each season until he gives up the names of the raiders; Thường Thiên Đào (thuong_thien_dao) holds the cellar key and has told no one.",
    "ties": [
     {
      "to": "giang_cuu_khuc",
@@ -511,12 +515,13 @@
     "personality": [
      "Cautious",
      "Reclusive",
-     "Devout"
+     "Callous"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
-   "backstory": "The only pilot who takes boats through the eighth bend, where the water serpent nested in 900 (A077); he rows out each spring with a pig, as the old boatmen of Đông Lưu fed their river spirit (A065), and the serpent lets the ferries pass.",
+   "appearance": "Never looks at the water directly while the boat is moving.",
+   "backstory": "The only pilot who takes boats through the eighth bend, where the water serpent nested in 900 (A077); he rows out each spring with a pig, as the old boatmen of Đông Lưu fed their river spirit (A065), and the serpent lets the ferries pass. He once left a deckhand clinging to a snag rather than risk the boat; the boy's mother still sends him a cake each year.",
    "ties": [
     {
      "to": "giang_cuu_khuc",
@@ -600,7 +605,8 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "Lãng Đào's ferrymen will buy no rope but Tang Ma Thành's hemp (A201), which grows in Lạc Hà's land; since the Ferry War he has bought it through a Đào Sa smuggler and tells the head it comes from somewhere else.",
+   "appearance": "Hemp fibre in his eyebrows; he sniffs every coil before he buys.",
+   "backstory": "Lãng Đào's ferrymen will buy no rope but Tang Ma Thành's hemp (A201), which grows in Lạc Hà's land; since the Ferry War he has bought it through a Đào Sa smuggler and bills Giang Cửu Khúc (giang_cuu_khuc) the dearer Bình Thủy price, pocketing the difference.",
    "ties": [
     {
      "to": "giang_cuu_khuc",
@@ -678,13 +684,14 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Honest",
+     "Arbitrary",
      "Wrathful"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "war_orphan"
    },
-   "backstory": "One of the nine children Thương Bạch Phàm (thuong_bach_pham) poled out of the fire at Đào Sa in 1173 (A080); she keeps the landing where it happened and the gold-washers' tally, and she still fishes nails out of the shallows.",
+   "appearance": "Carries a jar of rusted nails at her belt and rattles it when she is deciding.",
+   "backstory": "One of the nine children Thương Bạch Phàm (thuong_bach_pham) poled out of the fire at Đào Sa in 1173 (A080); she keeps the landing where it happened and the gold-washers' tally, and still fishes nails out of the shallows. She docked Bồ Tẩy Sa (bo_tay_sa) a month's tally on a grey morning and paid his rival in full, and says only that the weather was wrong.",
    "ties": [
     {
      "to": "thuong_bach_pham",
@@ -774,8 +781,15 @@
      "Impatient"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Bounces on her toes while she waits, and has never finished a meal sitting down.",
    "backstory": "A Hoành Độ Thôn girl from the same crossing as the head; Thường Thiên Đào (thuong_thien_dao) is teaching her the landing and she wants the river mouth.",
    "ties": [
     {
@@ -842,13 +856,14 @@
    "traits": {
     "personality": [
      "Calm",
-     "Content",
+     "Deceitful",
      "Loyal"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "A helmsman's son from Đà Công Thôn who rows the pig out to the eighth bend for Lại Bát Khúc (lai_bat_khuc) each spring and has once seen the serpent's eye open.",
+   "appearance": "A tuft of hair that will not lie down, and a story that grows each time.",
+   "backstory": "A helmsman's son from Đà Công Thôn who rows the pig out to the eighth bend for Lại Bát Khúc (lai_bat_khuc) each spring and swears he saw the serpent's eye open; it was Ngô Dạ Độ's (ngo_da_do) lamp, he knows it, and pilgrims at the landing pay him a copper to hear the tale while she is called a liar for saying so.",
    "ties": [
     {
      "to": "lai_bat_khuc",
@@ -908,14 +923,15 @@
    },
    "traits": {
     "personality": [
-     "Humble",
+     "Greedy",
      "Diligent",
      "Paranoid"
     ],
     "calling": "Refiner",
     "upbringing": "war_orphan"
    },
-   "backstory": "He was five when the landing burned (A080) and fished nails out of the river beside a Lạc Hà elder and a ferryman's boy for a whole morning; the boy went to Lạc Hà, and he stayed and makes the gate's rope fittings for Sài Kết Lãm (sai_ket_lam).",
+   "appearance": "Counts the coppers in his peg-hole hoard each night with a bent thumb.",
+   "backstory": "He was five when the landing burned (A080) and fished nails out of the river beside a Lạc Hà elder and a ferryman's boy for a whole morning; the boy went to Lạc Hà, and he stayed and makes the gate's rope fittings for Sài Kết Lãm (sai_ket_lam). He adds a copper to every fitting and Sài's accounts run short, which Sài blames on Úc Tiểu Bồng (uc_tieu_bong).",
    "ties": [
     {
      "to": "sai_ket_lam",
@@ -989,6 +1005,7 @@
     "calling": "Diplomat",
     "upbringing": "clan_heir"
    },
+   "appearance": "A white forelock coming in early, like her grandmother's.",
    "backstory": "Giang Hồi Lan's (giang_hoi_lan) daughter, who carries her grandfather's spring letters to the Ngư Ca landing and writes a note of her own to Lữ Tẫn Chu on the back of each; this spring she carried one folded pass home in the answer, for her grandmother.",
    "ties": [
     {
@@ -1072,6 +1089,7 @@
     "upbringing": "village_born",
     "lifestyle": "chronicler"
    },
+   "appearance": "Touches a splinter of gate-post wrapped in oilcloth before he speaks.",
    "backstory": "His family kept a gate-post of Phân Thủy Môn after its boats were sunk in the feud of 788 (V048); he thinks Lãng Đào was built on that feud's ashes and wants the old gate's name spoken at the spring landing.",
    "ties": [
     {

@@ -37,7 +37,7 @@
     "personality": [
      "Diligent",
      "Callous",
-     "Cautious"
+     "Deceitful"
     ],
     "calling": "Strategist",
     "upbringing": "sect_raised",
@@ -199,7 +199,7 @@
    "traits": {
     "personality": [
      "Warlike",
-     "Brave",
+     "Cruel",
      "Impatient"
     ],
     "calling": "Strategist",
@@ -220,7 +220,9 @@
     "gained": []
    },
    "appearance": "A huge farmer-built man with a drumstick through his belt and a laugh like a buffalo.",
-   "backstory": "A Thảo Đường farmer's son who came to the spring levy at sixteen and never went home. Quản Tề Phong (quan_te_phong) made him a disciple. He has drilled the plain's farmers on the lake shore for a century and believes a gate that drills for war and never goes is lying to them. He writes to Lạc Hà's Hình Trọng Sơn (hinh_trong_son), and the Watch's war party counts the gate's files as its army. He thinks the head a coward, and he has promised Hình the gate's second file, Cổ Thiết Liệt's (co_thiet_liet), on the day the pact is signed.",
+   "backstory": "A Thảo Đường farmer's son who came to the spring levy at sixteen and never went home. Quản Tề Phong (quan_te_phong) made him a disciple. He has drilled the plain's farmers on the lake shore for a century and believes a gate that drills for war and never goes is lying to them. He writes to Lạc Hà's Hình Trọng Sơn (hinh_trong_son), and the Watch's war party counts the gate's files as its army. He thinks the head a coward, and he has promised Hình the gate's second file, Cổ Thiết Liệt's (co_thiet_liet), on the day the pact is signed. In 1196 he kept the levy line standing a second day in the lake shallows to find the weak, and two boys went home without toes; La Nhất Hàng (la_nhat_hang) stood the first day and was spared the second.",
+   "wants": "To march the gate's files into a real war with his own drum at the front before he dies.",
+   "secret": "Each levy day he drinks the gate's wine to the lees and tops the casks up from the lake; Cát Trì Cổ (cat_tri_co) beats the drum on his bad mornings and keeps a tally of the casks.",
    "changed": "fix pass B 2026-11-25 (fixB-5): thinks the head a coward; has promised Hình the second file",
    "ties": [
     {
@@ -504,13 +506,18 @@
    },
    "traits": {
     "personality": [
-     "Honest",
+     "Deceitful",
      "Patient",
      "Devout"
     ],
     "calling": "Steward",
     "upbringing": "sect_raised",
-    "talent": [],
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ],
     "path": [],
     "lifestyle": "chronicler",
     "health": null,
@@ -518,8 +525,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A thin, bald man with a writing board on a cord round his neck and the names of the dead under his fingernails.",
+   "appearance": "A thin, bald, plain-faced man with a writing board on a cord round his neck and the names of the dead under his fingernails.",
    "backstory": "The great-grandson of a man in Thạch Liệt Hàng's file of forty (N-nhan_tran-01), born at the gate. He keeps the Roll of Files, which lists every disciple by the file they stood in and not by name, and the burial rows below the gate, where a gap is left in each row for the dead of 803 who were not brought off the plain. In 1198 he took the founder's notes out of the Roll for Mục Tân Vũ (muc_tan_vu) himself and told Mục Hàn Nhạn (muc_han_nhan) they were being rebound, because he wants the gaps in the burial rows filled.",
+   "wants": "To see every gap in the burial rows filled with a name, and the Roll of Files made to carry them.",
+   "secret": "In a second book hidden among the row markers he writes the real names the Roll refuses, and Lương Bổ Khuyết (luong_bo_khuyet), who asks each spring whose gap is whose, carries the ink up from the lake.",
    "changed": "fix pass B 2026-11-25 (fixB-5): no longer 'noticed' the notes gone: he took them out for Mục Tân Vũ; tie to muc_tan_vu",
    "ties": [
     {
@@ -608,13 +617,14 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Patient",
+     "Lazy",
      "Stubborn"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
-   "backstory": "A herdsman's daughter from Mục Địch Thôn who could keep a flute's time on a cooking pot at five; she beats the levy drum when Đổng Kiên Lũy's (dong_kien_luy) arms tire, which is less often than he says.",
+   "appearance": "Carries a drumstick through her hair like a pin.",
+   "backstory": "A herdsman's daughter from Mục Địch Thôn who could keep a flute's time on a cooking pot at five; she beats the levy drum when Đổng Kiên Lũy's (dong_kien_luy) arms tire, which is less often than he says, and twice let it fall silent for tea while the farmers stood on.",
    "ties": [
     {
      "to": "dong_kien_luy",
@@ -719,6 +729,8 @@
    },
    "appearance": "A short, heavy man who walks with a stiff left leg and stands in file even when he is alone.",
    "backstory": "A rice farmer's son from Hòa Lũng Thôn and the only man of Kiều Thiết Dực's (kieu_thiet_duc) file to come home from the Ferry War. Lạc Hà hired the file to hold the near end of a rope bridge on the Ngư Ca border in 1174. Tùng Đào's raiders cut the ropes (A202) and the file went down with the bridge. He came up downstream with his leg broken in three places. He teaches the outer gate to stand, and he has never once said Tùng Đào's name aloud.",
+   "wants": "To hear Tùng Đào's name said aloud at the gate once, and answered.",
+   "secret": "On rest days he walks the Ngư Ca bank counting the raiders' ferries, and has asked Lô Tiểu Ca (lo_tieu_ca) to hold a boat for him one night this autumn.",
    "ties": [
     {
      "to": "kieu_thiet_duc",
@@ -822,9 +834,16 @@
      "Honest"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Thảo Đường farm boy who came to the spring levy in 1196 and stood in the line from dawn to dusk without moving, which is the gate's whole test; Cát Trì Cổ (cat_tri_co) took him in that evening.",
+   "appearance": "Rarely blinks, and stands wherever he is put until someone moves him.",
+   "backstory": "A Thảo Đường farm boy who came to the spring levy in 1196 and stood in the line from dawn to dusk without moving, which is the gate's whole test; Cát Trì Cổ (cat_tri_co) took him in that evening. He is slow, and stood because he had not understood he could stop.",
    "ties": [
     {
      "to": "cat_tri_co",
@@ -885,8 +904,9 @@
      "Humble"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
+   "appearance": "Her fingertips are wrinkled as if she lived in the river, which she nearly does.",
    "backstory": "A ferryman's daughter from Chu Tân Thôn (A163) who learns to stand from Ngô Bất Tán (ngo_bat_tan) and to swim from no one, which he would like her to stop doing.",
    "ties": [
     {
@@ -949,13 +969,14 @@
    "traits": {
     "personality": [
      "Reclusive",
-     "Arrogant",
+     "Greedy",
      "Diligent"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A well-digger's son from Song Tỉnh Thôn, Thịnh Kinh Hàn's (thinh_kinh_han) village, placed with the gate on Placement Day in 1199 by Tô Bình Chu (to_binh_chu). He was a loner at Lạc Hà and is a loner here, which the gate finds funny.",
+   "appearance": "Stoops as if listening down a well shaft.",
+   "backstory": "A well-digger's son from Song Tỉnh Thôn, Thịnh Kinh Hàn's (thinh_kinh_han) village, placed with the gate in 1199 by Tô Bình Chu (to_binh_chu). A loner at Lạc Hà and here, he hoards the cooks' spare millet through the thin weeks and sells it back to the levy boys at a copper a bowl; Sách Bất Ngôn (sach_bat_ngon) paid her first stipend for one.",
    "ties": [
     {
      "to": "luong_thu_hang",
@@ -1026,9 +1047,16 @@
      "Fickle"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A reed-cutter's girl from Lô Cảng Thôn, where Lạc Hà keeps its western watch (A167); she would follow Mục Tân Vũ (muc_tan_vu) into the miasma and has said so twice.",
+   "appearance": "Re-ties her braid without noticing, and shifts from foot to foot on every post.",
+   "backstory": "A reed-cutter's girl from Lô Cảng Thôn, where Lạc Hà keeps its western watch (A167); she would follow Mục Tân Vũ (muc_tan_vu) into the miasma and has said so twice. She has walked off two midnight posts to stretch her legs, and cannot say why.",
    "ties": [
     {
      "to": "muc_tan_vu",
@@ -1089,14 +1117,15 @@
    },
    "traits": {
     "personality": [
-     "Calm",
+     "Faithless",
      "Warlike",
      "Pragmatic"
     ],
     "calling": "Strategist",
-    "upbringing": "sect_raised"
+    "upbringing": "village_born"
    },
-   "backstory": "Đổng Kiên Lũy's (dong_kien_luy) grandson, born in Bạch Thảo Thôn and raised on the lake shore; he drills with Mục Tân Vũ's ten at night and reports to his grandfather in the morning.",
+   "appearance": "Smiles half a second after the others, as if checking it first.",
+   "backstory": "Đổng Kiên Lũy's (dong_kien_luy) grandson, born in Bạch Thảo Thôn and raised on the lake shore; he drills with Mục Tân Vũ's ten at night, swearing to her he is hers, and reports every drill to his grandfather in the morning, so the night Thiều Vũ Hàng (thieu_vu_hang) coughed in the wet-cloth drill, Đổng knew whose voice it was.",
    "ties": [
     {
      "to": "dong_kien_luy",

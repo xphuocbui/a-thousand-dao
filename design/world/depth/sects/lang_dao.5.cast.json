@@ -31,8 +31,9 @@
      "Diligent"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
+   "appearance": "Stamps each pass after a small pause, as though weighing the traveller.",
    "backstory": "A Hoành Độ crossing-keeper's son who has stamped passes at the gate-house since the rebuilding of 1175 and fines his own cousins; he says a pass is Giang Cửu Khúc's (giang_cuu_khuc) word, and since this spring he has stamped the Ngư Ca passes for Lạc Hà's hulls at no charge on Thương Bạch Phàm's (thuong_bach_pham) order and written the order into the toll book in her name.",
    "ties": [
     {
@@ -116,6 +117,7 @@
     "calling": "Steward",
     "upbringing": "clan_heir"
    },
+   "appearance": "Her green headcloth has not been washed since her mother wore it.",
    "backstory": "Her family's boat is named for a mother who sailed with the side that sank Phân Thủy Môn in 788, and she will walk out of the spring landing if Đổng Cựu Môn (dong_cuu_mon) gets that name read.",
    "ties": [
     {
@@ -194,7 +196,8 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "Born on the Úc boat and stood for by his mother Úc Lãng Hoa (uc_lang_hoa), he splices rope for Sài Kết Lãm (sai_ket_lam) and has made friends with Đổng Cựu Môn (dong_cuu_mon), which his mother does not know.",
+   "appearance": "More often asleep against a coil of rope than awake, with its pattern printed on his cheek.",
+   "backstory": "Born on the Úc boat and stood for by his mother Úc Lãng Hoa (uc_lang_hoa), he splices rope for Sài Kết Lãm (sai_ket_lam) and has made friends with Đổng Cựu Môn (dong_cuu_mon), which his mother does not know. A mooring line he left half-spliced to nap parted in March and set the awning boat adrift with Sài's hemp aboard.",
    "ties": [
     {
      "to": "uc_lang_hoa",
@@ -269,6 +272,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "An iron stamp swings at her neck; she reads faces as if they were passes.",
    "backstory": "A helmsman's daughter of Đà Công who fined her own uncle a season's pay for an unstamped passenger; Tiết Ấn Thủy (tiet_an_thuy) says she is the first clerk he has trained who enjoys it.",
    "ties": [
     {
@@ -335,8 +339,15 @@
      "Loyal"
     ],
     "calling": "Duelist",
-    "upbringing": "war_orphan"
+    "upbringing": "war_orphan",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Two fingers crushed in a winch; ropes fray, tides turn and planks give way within a pace of him.",
    "backstory": "His parents burned with the Đào Sa landing in 1173 (A080) when he was two; he drills with the pole every night, spends each slack month at Lãng Đào Môn, a few days off by boat, drilling with Thạch Thập Đinh (thach_thap_dinh), and would follow Giang Hồi Lan (giang_hoi_lan) back across the river tomorrow.",
    "ties": [
     {
@@ -405,6 +416,7 @@
     "calling": "Beast tamer",
     "upbringing": "village_born"
    },
+   "appearance": "A small lamp in a tin hangs at her belt.",
    "backstory": "She rowed the pig to the serpent at this year's spring landing because Lại Bát Khúc (lai_bat_khuc) had a fever; she says Mã Trường Cao (ma_truong_cao) saw a lamp on the water, not an eye.",
    "ties": [
     {
@@ -467,13 +479,14 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Loyal",
+     "Faithless",
      "Warlike"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "A rope-maker's son of Lô Chu who wants the Ferry War fought again because his captain Giang Hồi Lan (giang_hoi_lan) does; he has seen Giang Tiểu Loan (giang_tieu_loan) add pages to her grandfather's letters and kept quiet.",
+   "appearance": "Grins when he lies, which his captain has never noticed.",
+   "backstory": "A rope-maker's son of Lô Chu who wants the Ferry War fought again because his captain Giang Hồi Lan (giang_hoi_lan) does; he has seen Giang Tiểu Loan (giang_tieu_loan) add pages to her grandfather's letters and kept quiet. He sold his captain's war talk to Đặng Hoành Giang (dang_hoanh_giang) for a bolt of cloth, and the plan to post the raiders' names was known a week early.",
    "ties": [
     {
      "to": "giang_hoi_lan",

@@ -50,6 +50,8 @@
    },
    "appearance": "A skinny woodcutter's boy with sap on his sleeves who turns his head toward the trees in the middle of a sentence.",
    "backstory": "A woodcutter's son from Tiều Phu Thôn, he came to the outer gate in 1198 and could not learn the Listening Pine Primer by its words, only by its sound. He says the pines on the hill above Tùng Hạ Thị are saying something longer than the primer, and that it goes on past where the steward stops. Tuyên Bích Hà (tuyen_bich_ha) told the first elder. Nobody has yet told Thôi Khinh Hồng (thoi_khinh_hong), who has been listening for exactly that for five hundred years.",
+   "wants": "To hear the pines say the whole of what they say, and to find someone who will write it down.",
+   "secret": "He hums the pines' longer phrase to himself on the hill each night and has begun to hear it answered from further up; Kha Lâm Đông (kha_lam_dong) follows him and swears he hears nothing.",
    "ties": [
     {
      "to": "tuyen_bich_ha",
@@ -130,6 +132,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
+   "appearance": "Wears a fish scale on one cheek like a beauty mark and has given up washing it off.",
    "backstory": "Lăng Ngư Đăng's (lang_ngu_dang) brother, a lamp-fisher's boy whose Wood is too thin for the inner gate; he spends her allowance on lake fish for the outer gate's kitchen.",
    "ties": [
     {
@@ -193,8 +196,9 @@
      "Honest"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
+   "appearance": "Keeps the low, slow miner's stoop even across open yards.",
    "backstory": "Cổ Lục Sơn's (co_luc_son) nephew from the mining village, all Metal and a little Wood; he will not pass the inner gate's test, and nobody has told him.",
    "ties": [
     {
@@ -259,13 +263,14 @@
    "traits": {
     "personality": [
      "Brave",
-     "Impatient",
+     "Deceitful",
      "Arrogant"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "clan_heir"
    },
-   "backstory": "Địch Kinh Lâm's (dich_kinh_lam) brother's grandson, who has never seen a tiger and tells everyone he will kill one.",
+   "appearance": "A tiger-claw charm hangs at his neck, and he taps it whenever he says the word tiger.",
+   "backstory": "Địch Kinh Lâm's (dich_kinh_lam) brother's grandson, who has never seen a tiger and tells everyone he will kill one. He claims he has seen a tiger; it was a dog.",
    "ties": [
     {
      "to": "tran_bach_xuyen",
@@ -330,12 +335,13 @@
     "personality": [
      "Gregarious",
      "Brave",
-     "Fickle"
+     "Greedy"
     ],
     "calling": "Merchant",
     "upbringing": "village_born"
    },
-   "backstory": "A ferry girl of the Đàm family of Cổ Độ who rows for her aunt Đàm Lưu Ba (dam_luu_ba) and means to be the second of the family to become head.",
+   "appearance": "Freckled to the hairline, and calls out the fare before anyone has asked.",
+   "backstory": "A ferry girl of the Đàm family of Cổ Độ who rows for her aunt Đàm Lưu Ba (dam_luu_ba) and means to be the second of the family to become head. For a month she charged a blind Cổ Độ net-mender double, until her aunt found out and made her pay it back from her own purse.",
    "ties": [
     {
      "to": "dam_luu_ba",
@@ -398,9 +404,16 @@
      "Loyal"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Hoàng Đê Sinh's (hoang_de_sinh) son, who carries the flood-mark rod behind his father and counts the rain.",
+   "appearance": "Long-jawed, blotchy, ears set too low; even his father's friends pat his shoulder and look elsewhere. He sniffs the air before rain, and is right.",
+   "backstory": "Hoàng Đê Sinh's (hoang_de_sinh) son, who carries the flood-mark rod behind his father and counts the rain; the village children call him Muddy Jaw and he answers to it.",
    "ties": [
     {
      "to": "hoang_de_sinh",
@@ -463,8 +476,9 @@
      "Gregarious"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
+   "appearance": "Smells faintly of agarwood since birth; a pale censer-spark mark on one cheek.",
    "backstory": "Thi Mộc Hương's (thi_moc_huong) daughter, born smelling of agarwood, who lights the dusk stick when her mother's hands shake.",
    "ties": [
     {
@@ -531,9 +545,10 @@
      "Reclusive"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
-   "backstory": "A coast boy who swims with the Tide Rite's two keepers every midwinter and does not seem to feel the cold.",
+   "appearance": "Does not shiver at midwinter; salt crusts his eyebrows.",
+   "backstory": "A coast boy who swims with the Tide Rite's two keepers every midwinter and does not seem to feel the cold. He swims out past the markers where the keepers turn back, the only boy who does.",
    "ties": [
     {
      "to": "nham_thu_lang",
@@ -593,12 +608,13 @@
     "personality": [
      "Diligent",
      "Humble",
-     "Cautious"
+     "Greedy"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan"
    },
-   "backstory": "A herb girl who came north from Thính Vũ's Song Khê Thôn with a caravan, she sweeps the Pill Room and has learned forty recipes by heart from listening at the door.",
+   "appearance": "A broom taller than she is; she wipes her hands on her hair.",
+   "backstory": "A herb girl who came north from Thính Vũ's Song Khê Thôn with a caravan, she sweeps the Pill Room and has learned forty recipes by heart from listening at the door. She keeps the jar for the Pill Room's scrap-pay and has twice let Cát Linh Thảo (cat_linh_thao) answer for a short count.",
    "ties": [
     {
      "to": "cat_linh_thao",
@@ -664,8 +680,15 @@
      "Content"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Answers every question a beat late, as though the words had to walk to him.",
    "backstory": "Trình Văn Thanh's (trinh_van_thanh) friend from Tiều Phu Thôn, who joined the outer gate because Văn Thanh did and is better at its chores than at its primer.",
    "ties": [
     {
@@ -731,6 +754,7 @@
     "calling": "Refiner",
     "upbringing": "clan_heir"
    },
+   "appearance": "Wood shavings in her hair at supper, and in bed.",
    "backstory": "A girl of the Lâm woodcarvers of Lộc Minh, apprenticed to Lâm Điêu Bách (lam_dieu_bach) to learn which fallen pines can still become a beam.",
    "ties": [
     {
@@ -791,12 +815,13 @@
     "personality": [
      "Content",
      "Lazy",
-     "Generous"
+     "Greedy"
     ],
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "A farm boy from the Pivot's Mộc Hương Thôn who guards the granaries at Lâm Hạ Trấn (A073) and knows every mouse in them by name.",
+   "appearance": "A nibbled crust always rides in his pocket; grain dust in his hair.",
+   "backstory": "A farm boy from the Pivot's Mộc Hương Thôn who guards the granaries at Lâm Hạ Trấn (A073) and knows every mouse in them by name. He naps on watch and sells the spilled grain by the sack, so the widows who used to gather it find the floor clean, and Tề Tiểu Mạch (te_tieu_mach) took the beating for the open door.",
    "ties": [
     {
      "to": "hau_thien_ke",
@@ -855,13 +880,14 @@
    "traits": {
     "personality": [
      "Brave",
-     "Wrathful",
+     "Cruel",
      "Loyal"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
-   "backstory": "A Bạch Lang boy who wears his village's wolf-tooth charm (A070) and rides the caravan roads with Vu Hành Lâm (vu_hanh_lam).",
+   "appearance": "Rides with the whip uncoiled across his saddle; a wolf-tooth charm at his throat.",
+   "backstory": "A Bạch Lang boy who wears his village's wolf-tooth charm (A070) and rides the caravan roads with Vu Hành Lâm (vu_hanh_lam). He dragged a Bạch Lang boy of fourteen, caught with a stolen bell, behind his horse for a mile as a warning, and Vu Hành Lâm has stopped riding beside him.",
    "ties": [
     {
      "to": "vu_hanh_lam",
@@ -921,12 +947,13 @@
     "personality": [
      "Stubborn",
      "Brave",
-     "Impatient"
+     "Deceitful"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "From Hàn Mai Thôn below Ngạo Tuyết Phái, she wanted the plum sword, but Lăng Đạp Tuyết (lang_dap_tuyet) turned her away for want of Metal, and she has come to the pines to prove him wrong.",
+   "appearance": "Touches the plum-blossom scar on her forearm whenever she is angry.",
+   "backstory": "From Hàn Mai Thôn below Ngạo Tuyết Phái, she wanted the plum sword, but Lăng Đạp Tuyết (lang_dap_tuyet) turned her away for want of Metal, and she has come to the pines to prove him wrong. She hid an iron sliver in her sleeve for the reading; the girl who sat beside her, who knew nothing, was put out with her.",
    "ties": [
     {
      "to": "tuyen_bich_ha",
@@ -999,8 +1026,9 @@
      "Compassionate"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born"
+    "upbringing": "war_orphan"
    },
+   "appearance": "A sapling cutting wrapped in damp cloth rides in his pack.",
    "backstory": "From Thanh Tùng Thôn, where a green pine stands for each of the dead of Hổ Khiếu (A058); every third spring he walks the ten weeks back to tend them, and Trịnh Ức Vân (trinh_uc_van), who understands, goes with him.",
    "ties": [
     {
@@ -1055,13 +1083,14 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Loyal",
+     "Faithless",
      "Arrogant"
     ],
     "calling": "Strategist",
     "upbringing": "clan_heir"
    },
-   "backstory": "A descendant of Giáp Tùng Chi (giap_tung_chi), the governor who died on the Cold Ford quay; the family left the coast in 905, named him 'the ford returns', and Nhiếp Vãn Đào (nhiep_van_dao) chose him for that.",
+   "appearance": "Wears the clan-seal ring turned inward; stands as if a roll were being read over him.",
+   "backstory": "A descendant of Giáp Tùng Chi (giap_tung_chi), the governor who died on the Cold Ford quay; the family left the coast in 905, named him 'the ford returns', and Nhiếp Vãn Đào (nhiep_van_dao) chose him for that. He reports each doubt she voices about the deserter roll to her grandfather.",
    "ties": [
     {
      "to": "nhiep_van_dao",
@@ -1130,13 +1159,14 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Content",
+     "Greedy",
      "Indulgent"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "Born beside the hot spring of Noãn Ốc (A014), she carries towels to the old cultivators who come to soak their bones there and hears everything they say.",
+   "appearance": "Towels over both shoulders, and a little steam always rising off her.",
+   "backstory": "Born beside the hot spring of Noãn Ốc (A014), she carries towels to the old cultivators who come to soak their bones there and hears everything they say. She sells the old soakers their own towels back by the hour, and Phương Ngọc Sa (phuong_ngoc_sa) has been told the towels are free.",
    "ties": [
     {
      "to": "phuong_ngoc_sa",
@@ -1190,13 +1220,14 @@
    "traits": {
     "personality": [
      "Calm",
-     "Patient",
+     "Deceitful",
      "Reclusive"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
-   "backstory": "A reindeer herder's son from Tuyết Lộc Thôn on the lake's north shore (A002), where Băng Tâm's fishers come every spring; he speaks their dialect and has two friends among them.",
+   "appearance": "Wears the antler-button coat everywhere, in the lowlands too.",
+   "backstory": "A reindeer herder's son from Tuyết Lộc Thôn on the lake's north shore (A002), where Băng Tâm's fishers come every spring; he speaks their dialect and has two friends among them. He tells the Lake Hall he has none, and let Lăng Ngư Đăng (lang_ngu_dang) think she was the only one he trusted.",
    "ties": [
     {
      "to": "lang_ngu_dang",
@@ -1262,7 +1293,8 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "A merchant's son from Thính Vũ's Xuân Thảo Thành, sent north at twelve, who learned the resin trade from Hầu Thiện Kế (hau_thien_ke), including the part his master does not show the steward.",
+   "appearance": "A pocket abacus on a cord, clicking as he walks.",
+   "backstory": "A merchant's son from Thính Vũ's Xuân Thảo Thành, sent north at twelve, who learned the resin trade from Hầu Thiện Kế (hau_thien_ke), including the part his master does not show the steward. He skims a tenth of the good lots, and lets Tiết Vân Huân (tiet_van_huan), who splits the resin, take the blame for the thin ones.",
    "ties": [
     {
      "to": "hau_thien_ke",
@@ -1316,13 +1348,20 @@
    "traits": {
     "personality": [
      "Brave",
-     "Fickle",
+     "Deceitful",
      "Gregarious"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A river-town boy who found the coins of a forgotten city on the dry bed of Đông Lưu Thành in 1198 (A081) and spent them on the road to the outer gate.",
+   "appearance": "Cannot stand still through a speech; a coin-sized hole is burned through his sleeve.",
+   "backstory": "A river-town boy who found the coins of a forgotten city on the dry bed of Đông Lưu Thành in 1198 (A081) and spent them on the road to the outer gate. He sells the rest to pilgrims as a king's tomb-silver at double, and Lã Truyền Thanh (la_truyen_thanh) paid him a month's allowance for three.",
    "ties": [
     {
      "to": "tuyen_bich_ha",
@@ -1377,12 +1416,13 @@
     "personality": [
      "Diligent",
      "Calm",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Teacher",
     "upbringing": "village_born"
    },
-   "backstory": "A Tùng Phong Thôn girl who grew up under Vạn Hác's zither students (A056) and is Ngô Tố Âm's (ngo_to_am) only disciple.",
+   "appearance": "Chews the end of her braid between sentences.",
+   "backstory": "A Tùng Phong Thôn girl who grew up under Vạn Hác's zither students (A056) and is Ngô Tố Âm's (ngo_to_am) only disciple. She told the outer gate that the heir's zither hums at night, which she made up, and the Root Hall has questioned Ngô Tố Âm twice since.",
    "ties": [
     {
      "to": "ngo_to_am",
@@ -1450,8 +1490,9 @@
      "Patient"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
+   "appearance": "A measuring rope round her waist like a belt.",
    "backstory": "A quarry girl from Lạc Thạch who carries the array stones Hồng Mặc Kỳ (hong_mac_ky) is too lazy to carry, and has started placing them better than he does.",
    "ties": [
     {
@@ -1518,8 +1559,15 @@
      "Humble"
     ],
     "calling": "Steward",
-    "upbringing": "servant_born"
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Something breaks within arm's reach of him most days: today a bowl, yesterday the ladle.",
    "backstory": "A Phượng Minh caravan cook's son left behind at Tùng Hạ Thị, he is the kitchen's stove boy, Fire-rooted in a sect that fears fire among its pines; he cooks for the outer gate and lends Trình Văn Thanh (trinh_van_thanh) his blanket.",
    "ties": [
     {
@@ -1587,6 +1635,7 @@
     "calling": "Wanderer",
     "upbringing": "clan_heir"
    },
+   "appearance": "Gloved in midsummer; her fingertips frost the cup she holds.",
    "backstory": "Kiều Nguyệt Châu's (kieu_nguyet_chau) grand-niece, sent from Hàm Nguyệt Trang to the Lake Hall as a pledge of the manor's loyalty; she carries Ice in her root, which the pines cannot teach and Băng Tâm would.",
    "ties": [
     {

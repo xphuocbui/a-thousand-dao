@@ -270,6 +270,7 @@
    "home": 211,
    "birthplace": 449,
    "role": "Sử Hoành Dực's daughter; second at the vein fort of Đan Sơn Mạch",
+   "appearance": "Her father's build and her mother's calm, with her mother's old hairpin worn every day.",
    "tier": "B",
    "root": {
     "elements": {
@@ -304,8 +305,9 @@
      "Grieving"
     ]
    },
-   "appearance": "Her father's build and her mother's calm, with her mother's old hairpin worn every day.",
    "backstory": "Born at the Fire Court and raised in the vein fort, Sử Niệm Huỳnh was twenty-six when Cố Dạ Lan killed her mother Dụ Đan Huỳnh (du_dan_huynh) on Đan Sơn Mạch (N-phuong_minh-10). Her father Sử Hoành Dực (su_hoanh_duc) has lived for the revenge since. She wants none of it. She serves under her mother's disciple Hách Chu Lăng (hach_chu_lang), and writes to Trình Hi Quang (trinh_hi_quang) about the peace, though she does not know how far his talks have gone.",
+   "wants": "Her father out of the war, and a peace letter written in her own hand.",
+   "secret": "She is writing to Cố Dạ Lan (co_da_lan), who killed her mother, asking to meet under a white banner on the pass. She has burned two drafts and sent none.",
    "ties": [
     {
      "to": "su_hoanh_duc",
@@ -388,6 +390,7 @@
    "home": 449,
    "birthplace": 980,
    "role": "Steward of the outer gate; plays the dawn flute and holds the Feather Kindling",
+   "appearance": "A bent, smiling old man with a stonemason's hands and a bamboo flute worn smooth at the holes.",
    "tier": "B",
    "root": {
     "elements": {
@@ -407,7 +410,7 @@
    "traits": {
     "personality": [
      "Patient",
-     "Humble",
+     "Arbitrary",
      "Compassionate"
     ],
     "calling": "Teacher",
@@ -420,8 +423,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A bent, smiling old man with a stonemason's hands and a bamboo flute worn smooth at the holes.",
    "backstory": "A stonemason's son from Thạch Tượng Thôn, the village the quarrymen built after Xích Thành fired their town (V164), Mao Khải Đán has played the dawn flute at the Fire Court for a hundred years and has held the Feather Kindling for every outer disciple since. He never reached Kết Đan and has sixty years left. Điền Phong Niên (dien_phong_nien) made him steward. Half the inner gate learned to breathe from him.",
+   "wants": "Kha Thanh Miêu kept out of the Wutong Court, and a flute-player to follow him.",
+   "secret": "He passes or fails each child at the Feather Kindling by the first note of the dawn flute: a flat note fails. He has never written the rule down, and Minh Tảo Hà (minh_tao_ha) has begun to play the flat note on purpose.",
    "ties": [
     {
      "to": "dien_phong_nien",
@@ -533,6 +537,7 @@
    "home": 6,
    "birthplace": 1025,
    "role": "Bird keeper of the Wutong Court",
+   "appearance": "A quiet woman in green with a blue-backed spirit bird that never leaves her collar.",
    "tier": "B",
    "root": {
     "elements": {
@@ -567,8 +572,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A quiet woman in green with a blue-backed spirit bird that never leaves her collar.",
    "backstory": "A longan farmer's daughter from Quế Viên Thôn, An Thúy Vũ has kept the red-crested messengers for Vu Ngô Đồng (vu_ngo_dong) for sixty years. She is the only one who has seen him at night with both palms on the great wutong's trunk and the bark warm under them, and she has worked out what it costs him. She has not said so. She is Ổ Linh Tước's (o_linh_tuoc) senior in the aviary.",
+   "wants": "Vu Ngô Đồng to take his palms off the tree for one night.",
+   "secret": "She is raising a red-crested chick on the great wutong's fallen seed, to see whether a bird can carry the tree's life. It is the seed Kế Chu Sa (ke_chu_sa) cannot brew without.",
    "ties": [
     {
      "to": "vu_ngo_dong",
@@ -663,6 +669,7 @@
    "home": 449,
    "birthplace": 94,
    "role": "Envoy of the Hall of Trust to the northern sects",
+   "appearance": "A long, courteous man with a port-city accent and the cleanest hand in the palace.",
    "tier": "B",
    "root": {
     "elements": {
@@ -683,7 +690,7 @@
     "personality": [
      "Gregarious",
      "Temperate",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Diplomat",
     "upbringing": "merchant_child",
@@ -695,8 +702,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A long, courteous man with a port-city accent and the cleanest hand in the palace.",
    "backstory": "A harbour clerk's son from the port of Tang Điền, Thư Ngạn Hành carries the Hall of Trust's letters north for Vưu Cẩm Thư (vuu_cam_thu): to the Pivot, to Băng Tâm, to the caravan towns of the Desert Road. He and Băng Tâm's envoy Ngụy Thanh Hàn (nguy_thanh_han) have shared inns for forty years and have never discussed Cô Thành. He has been told there is nothing in the Hall of Spoils that belongs to Băng Tâm.",
+   "wants": "A letter from Băng Tâm that names Cô Thành, in someone's hand.",
+   "secret": "He reads every Hall of Trust letter aloud to Ngụy Thanh Hàn (nguy_thanh_han) over wine before delivering it, and Ngụy pays in northern pepper.",
    "ties": [
     {
      "to": "vuu_cam_thu",
@@ -764,6 +772,7 @@
    "home": 449,
    "birthplace": 449,
    "role": "The inner gate's best fan; holds the top step of the stair",
+   "appearance": "Tall, red-haired from the vent and unsmiling, with not one burn on her sleeves.",
    "tier": "B",
    "root": {
     "elements": {
@@ -802,8 +811,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "Tall, red-haired from the vent and unsmiling, with not one burn on her sleeves.",
    "backstory": "Ash-born and pure Fire, Đằng Phi Diễm has held the top step of the Fire Court's stair for eleven years, and her sleeves have no burns on them. Thích Hồng Linh (thich_hong_linh) calls her the best fan she has taught. She thinks Du Diễm Ca (du_diem_ca) wastes his talent on poems and grudges that are not his, and she intends to go to Kết Đan before him.",
+   "wants": "Kết Đan before Du Diễm Ca.",
+   "secret": "She practises the Feather Fan at night against a post of black stone from the Ash Seat's lip, which is forbidden, and her sleeves have begun to scorch. Vi Tịch Hôi (vi_tich_hoi) has seen and says nothing.",
    "ties": [
     {
      "to": "thich_hong_linh",
@@ -887,6 +897,7 @@
    "home": 253,
    "birthplace": 29,
    "role": "Hùng Phần Vũ's daughter, the palace's ward since she asked to go at twelve; serves at the Nest on the vent's lip",
+   "appearance": "Thick-armed and short-haired, with the burn-mottled skin of the vents under her inner-gate red.",
    "tier": "B",
    "root": {
     "elements": {
@@ -926,8 +937,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "Thick-armed and short-haired, with the burn-mottled skin of the vents under her inner-gate red.",
    "backstory": "In 1161 her father's first elder Tào Tẫn Kiên (tao_tan_kien) sat her in the vent at eleven and burned her arm to the bone. When the palace asked Phần Vũ for a surety the next year, she asked to be sent. Thích Hồng Linh (thich_hong_linh) taught her the fan at the Fire Court. Since 1190 she has served at the palace's Nest, a hundred paces above Phần Vũ's sitting places, and at each dark of the moon she climbs down to temper with her father's disciples. This spring she offered the palace's treasurer the banner back, if the palace backs her and not Tào.",
+   "wants": "Her father's hall free, and the chair of it her own.",
+   "secret": "She feeds her cousin Hùng Liệt Nha (hung_liet_nha) small true things so he keeps writing Tào Tẫn Kiên that she trusts him, and writes the real ones to Trang Hôi Y (trang_hoi_y) down the hundred paces.",
    "ties": [
     {
      "to": "hung_phan_vu",
@@ -1037,6 +1049,7 @@
    "home": 449,
    "birthplace": 449,
    "role": "Tang Kế Ti's son; carries silk between the Nest and Chức Hà Các",
+   "appearance": "A good-looking, easy man who always has a fire-silk scarf that is not quite the palace's colour.",
    "tier": "B",
    "root": {
     "elements": {
@@ -1076,8 +1089,9 @@
      "Lovestruck"
     ]
    },
-   "appearance": "A good-looking, easy man who always has a fire-silk scarf that is not quite the palace's colour.",
    "backstory": "The array keeper's son, Tang Tục Lạc was meant to keep the Nest after his mother Tang Kế Ti (tang_ke_ti) and has no gift for it. What he has is a road: twice a year he rides the two months down to Chức Hà Các with the season's silk cart, for the vent-less silk his mother splices, and for its head Thân Vân Cẩm (than_van_cam). Last autumn he asked her to marry him, and his mother named the dowry. On the spring cart he saw the pavilion's northern bolts under the palace's, and paid the weight toll at Tang Điền from his own purse so that no one would ask.",
+   "wants": "Thân Vân Cẩm's yes, and a trade that is his own.",
+   "secret": "He practises the Nest's splice on a spare reel in the stable at night to prove to his mother Tang Kế Ti (tang_ke_ti) he can keep the array, and has ruined two reels.",
    "ties": [
     {
      "to": "than_van_cam",
@@ -1144,6 +1158,7 @@
    "home": 6,
    "birthplace": 146,
    "role": "Flautist of the Hall of Rites",
+   "appearance": "Tilts his head whenever a door creaks, as if it were a note.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1230,6 +1245,7 @@
    "home": 449,
    "birthplace": 449,
    "role": "Clerk of the Hall of Virtue",
+   "appearance": "Ink to the second knuckle of both hands.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1242,12 +1258,12 @@
     "personality": [
      "Diligent",
      "Paranoid",
-     "Loyal"
+     "Faithless"
     ],
     "calling": "Steward",
     "upbringing": "sect_raised"
    },
-   "backstory": "Copies every letter the head sends and has begun to notice that the ones Trình Hi Quang (trinh_hi_quang) carries himself never reach his desk.",
+   "backstory": "Copies every letter the head sends and has begun to notice that the ones Trình Hi Quang (trinh_hi_quang) carries himself never reach his desk. He keeps a second copy of each for Lộ Văn Khánh (lo_van_khanh), who pays in paper; the head's letter to Quan Vũ Thanh was read in Lộ's rooms before it reached the Tower.",
    "ties": [
     {
      "to": "trinh_hi_quang",
@@ -1301,6 +1317,7 @@
    "home": 248,
    "birthplace": 988,
    "role": "Alchemist's apprentice at Chu Sa Tuyền",
+   "appearance": "Yellow-stained fingertips from cassia and turmeric.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1375,6 +1392,7 @@
    "home": 93,
    "birthplace": 93,
    "role": "First mate of the palace fleet",
+   "appearance": "Rubs the rope scar on his wrist whenever a knot slips.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1390,9 +1408,15 @@
      "Temperate"
     ],
     "calling": "Strategist",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Thạch Cơ jetty boy who keeps the fleet running while Phàn Vọng Hải (phan_vong_hai) spends his summers diving for a pirate's sabre.",
+   "backstory": "A Thạch Cơ jetty boy who keeps the fleet running while Phàn Vọng Hải (phan_vong_hai) spends his summers diving for a pirate's sabre. Nothing he mends stays mended.",
    "ties": [
     {
      "to": "phan_vong_hai",
@@ -1461,6 +1485,7 @@
    "home": 93,
    "birthplace": 93,
    "role": "The fleet's diver",
+   "appearance": "Says the broken nose and heavy brows are his father's, and no one dares ask.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1476,9 +1501,15 @@
      "Ambitious"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "war_orphan",
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "His family came from Lô Châu, where a woman came home from Thôn Hải's hold carrying a child (A307), and they say the father was Ô Kình Hải (o_kinh_hai); born on the Thạch Cơ jetty, Ô Trầm Châu dives for Kình Nha with Phàn Vọng Hải (phan_vong_hai) and means to keep it if he finds it.",
+   "backstory": "His family came from Lô Châu, where a woman came home from Thôn Hải's hold carrying a child (A307), and they say the father was Ô Kình Hải (o_kinh_hai); born on the Thạch Cơ jetty, Ô Trầm Châu dives for Kình Nha with Phàn Vọng Hải (phan_vong_hai). He told Phàn the last wreck was empty so that he could dive it alone, and means to keep what he finds.",
    "ties": [
     {
      "to": "phan_vong_hai",
@@ -1542,6 +1573,7 @@
    "home": 211,
    "birthplace": 736,
    "role": "Lieutenant of the vein fort at Đan Sơn Mạch",
+   "appearance": "Shifts from post to post every hour, with a glove on one hand only and the other forearm flour-pale.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1554,12 +1586,18 @@
     "personality": [
      "Wrathful",
      "Loyal",
-     "Warlike"
+     "Cruel"
     ],
     "calling": "Strategist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A buckwheat farmer's son from the ridge with more Metal than Fire in him, Mông Chu Tiêu runs the vein fort's walls for Hách Chu Lăng (hach_chu_lang) and has asked three times to be sent against the Tower.",
+   "backstory": "A buckwheat farmer's son from the ridge with more Metal than Fire in him, Mông Chu Tiêu runs the vein fort's walls for Hách Chu Lăng (hach_chu_lang) and has asked three times to be sent against the Tower. He hung a Thính Vũ scout's pony-boy from the wall as a warning.",
    "ties": [
     {
      "to": "hach_chu_lang",
@@ -1628,6 +1666,7 @@
    "home": 449,
    "birthplace": 703,
    "role": "The vein fort's clerk at the Fire Court; pays for the Tower's thunder with the fort's watch rota",
+   "appearance": "His hair lifts before rain, a full hour before the sky agrees.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1647,7 +1686,7 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Born at the Lưu Kim mine, where the ore hums with thunder, he has Thunder the palace cannot teach and too little Fire to pass the Feather Kindling. Hách Chu Lăng (hach_chu_lang) made him her clerk at the Fire Court, and he keeps the vein fort's watch rota for the war hall. The guest elder Chử Trì Âm (chu_tri_am) teaches him thunder at night, and the price is the rota.",
+   "backstory": "Born at the Lưu Kim mine, where the ore hums with thunder, he has Thunder the palace cannot teach and too little Fire to pass the Feather Kindling. Hách Chu Lăng (hach_chu_lang) made him her clerk and rota-keeper. The guest elder Chử Trì Âm (chu_tri_am) teaches him thunder at night for the rota, and on the nights Chử walks the wall, Hách's posts stand a man short.",
    "ties": [
     {
      "to": "hach_chu_lang",
@@ -1697,6 +1736,7 @@
    "home": 6,
    "birthplace": 449,
    "role": "Steward of funerals: carries the ashes to Quy Vũ Lĩnh",
+   "appearance": "Walks slowly, as if the urns on her back were still full.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1773,6 +1813,7 @@
    "home": 6,
    "birthplace": 330,
    "role": "Second bird keeper of the Wutong Court",
+   "appearance": "Strokes the red-crested skin purse at his belt when he lies.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1784,11 +1825,11 @@
    "traits": {
     "personality": [
      "Callous",
-     "Lazy",
+     "Diligent",
      "Greedy"
     ],
     "calling": "Beast tamer",
-    "upbringing": "clan_heir"
+    "upbringing": "sect_raised"
    },
    "backstory": "Tạ Thanh Loan's (ta_thanh_loan) nephew, sent from Bách Vũ Các to learn the red-crested birds; since 1196 he has sent their eggs home a few at a time. In 1199 he wrung the breeding hen's neck on her last clutch, lined the egg basket with her down, and told Vu Ngô Đồng she died in the moult. His aunt has promised him Bách Vũ's writ loft.",
    "ties": [
@@ -1870,6 +1911,7 @@
    "home": 449,
    "birthplace": 162,
    "role": "Inner-gate fan duelist",
+   "appearance": "Smiles with her mouth closed over a stained, chipped tooth.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1882,12 +1924,12 @@
     "personality": [
      "Gregarious",
      "Brave",
-     "Fickle"
+     "Faithless"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "A mulberry-picker's daughter from Tang Âm Thôn and Du Diễm Ca's (du_diem_ca) sparring partner, who has read one of his letters over his shoulder and told two people.",
+   "backstory": "A mulberry-picker's daughter from Tang Âm Thôn and Du Diễm Ca's (du_diem_ca) sparring partner, who has read one of his letters over his shoulder and told two people. She sold the third telling, and Du Diễm Ca was laughed at in the Hall of Rites for it.",
    "ties": [
     {
      "to": "thich_hong_linh",
@@ -1946,6 +1988,7 @@
    "home": 85,
    "birthplace": 26,
    "role": "Healer of the Hall of Benevolence at Hoàng Vân Thành",
+   "appearance": "Smells of lavender before she is seen.",
    "tier": "C",
    "root": {
     "elements": {
@@ -1962,7 +2005,7 @@
      "Humble"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
    "backstory": "Born at Lễ Tuyền Phái's sweet spring and lent two years to its healers by Mai Lễ Tuyền (mai_le_tuyen), she runs the granary city's sick-hall for Điền Phong Niên (dien_phong_nien).",
    "ties": [
@@ -2036,6 +2079,7 @@
    "home": 85,
    "birthplace": 148,
    "role": "Granary steward of Hoàng Vân Thành",
+   "appearance": "Chalk tallies run down one sleeve, which he reads back to himself.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2053,7 +2097,7 @@
     "calling": "Steward",
     "upbringing": "merchant_child"
    },
-   "backstory": "A Thủy Điền grain-factor's son who counts every sack in Hoàng Vân Thành for Điền Phong Niên (dien_phong_nien) and skims a sack in a thousand for himself.",
+   "backstory": "A Thủy Điền grain-factor's son who counts every sack in Hoàng Vân Thành for Điền Phong Niên (dien_phong_nien) and skims a sack in a thousand for himself, so the hungry gate that Điền feeds goes short.",
    "ties": [
     {
      "to": "dien_phong_nien",
@@ -2107,6 +2151,7 @@
    "home": 449,
    "birthplace": 41,
    "role": "Keeper of the Hall of Spoils' inventory",
+   "appearance": "Pale from seventy years in the dim hall, with a cloth always in his fist.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2173,6 +2218,7 @@
    "home": 94,
    "birthplace": 94,
    "role": "The Hall of Trust's factor at Tang Điền's silk market",
+   "appearance": "A silk cuff pulled over a missing finger, rings on the rest.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2184,13 +2230,13 @@
    "traits": {
     "personality": [
      "Greedy",
-     "Gregarious",
+     "Faithless",
      "Pragmatic"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "Buys Chức Hà's fire-silk for Vưu Cẩm Thư (vuu_cam_thu) at the Tang Điền market, at prices the weavers curse him for.",
+   "backstory": "Buys Chức Hà's fire-silk for Vưu Cẩm Thư (vuu_cam_thu) at the Tang Điền market, at prices the weavers curse him for. He sold Vưu's price list to the northern caravans, which undercut Thành Kim Toa (thanh_kim_toa) at the next market and cost the pavilion a season's northern trade.",
    "ties": [
     {
      "to": "vuu_cam_thu",
@@ -2254,6 +2300,7 @@
    "home": 449,
    "birthplace": 449,
    "role": "Adjutant of the Hall of Righteousness",
+   "appearance": "Black armband worn to rags, never taken off.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2335,6 +2382,7 @@
    "home": 253,
    "birthplace": 449,
    "role": "Attendant of the Ash Seat at the Nest",
+   "appearance": "One eyebrow burnt away by the Ash Seat's fumes and never regrown.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2421,6 +2469,7 @@
    "home": 449,
    "birthplace": 162,
    "role": "Array apprentice of the Nest",
+   "appearance": "Silk-thread cuts across her fingertips, fine as hairs.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2485,6 +2534,7 @@
    "home": 449,
    "birthplace": 147,
    "role": "The outer disciple who took seventy years to pass the Feather Kindling",
+   "appearance": "Smiles a beat after the joke, carefully, as if checking it is safe.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2500,7 +2550,13 @@
      "Humble"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "hermit_taught",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "A Bích Lãng bamboo boy who came in on his Wood, sat the Feather Kindling every year for seventy years under Mao Khải Đán (mao_khai_dan), and passed it at ninety-two when his Fire finally reached the line.",
    "ties": [
@@ -2556,6 +2612,7 @@
    "home": 6,
    "birthplace": 6,
    "role": "Captain of the Wutong Court's guard",
+   "appearance": "The plum scar across his nose goes white in the cold.",
    "tier": "C",
    "root": {
     "elements": {
@@ -2573,7 +2630,7 @@
     "calling": "Strategist",
     "upbringing": "sect_raised"
    },
-   "backstory": "Ridge-born and Metal-heavy, he says the head ran from the Tower in 1162 and left the ridge to hold the west alone, and he says it to anyone from the Fire Court who climbs the stair.",
+   "backstory": "Ridge-born and Metal-heavy, he says the head ran from the Tower in 1162 and left the ridge to hold the west alone, and says it to anyone from the Fire Court who climbs the stair. He lets visitors up the ridge stair or turns them back by whim; Khang Kiên Dực's (khang_kien_duc) mother waited three days at the foot.",
    "ties": [
     {
      "to": "vu_ngo_dong",
@@ -2647,6 +2704,7 @@
    "home": 449,
    "birthplace": 26,
    "role": "Envoy to the palace's vassals",
+   "appearance": "A sash of wine-red thread, re-tied in each host's colour on arrival.",
    "tier": "C",
    "root": {
     "elements": {

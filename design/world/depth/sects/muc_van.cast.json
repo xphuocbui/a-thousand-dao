@@ -365,7 +365,7 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Stubborn",
+     "Callous",
      "Loyal"
     ],
     "calling": "Beast tamer",
@@ -379,7 +379,7 @@
     ]
    },
    "appearance": "A bow-legged herder with a split lip from a mare's hoof and hands like saddle leather.",
-   "backstory": "A flute-village herder's son from Mục Địch Thôn who rode the long ride at sixteen and never got off. He saw the herds die in the snow of 1121 (A171) and has built them back colt by colt. Khấu Mục Vân (khau_muc_van) means him to run the herds after him. Tần believes the white bear in the north paddock is upsetting the mares, and he is right.",
+   "backstory": "A flute-village herder's son from Mục Địch Thôn who rode the long ride at sixteen and never got off. He saw the herds die in the snow of 1121 (A171) and has built them back colt by colt. Khấu Mục Vân (khau_muc_van) means him to run the herds after him. Tần believes the white bear in the north paddock is upsetting the mares, and he is right. He does not watch the old mares go.",
    "ties": [
     {
      "to": "khau_muc_van",
@@ -453,7 +453,9 @@
    },
    "beasts": [
     "hong_tong"
-   ]
+   ],
+   "wants": "The white bear gone from the north paddock before the spring foaling.",
+   "secret": "Each autumn he has the oldest mares led down the south road to a knacker at Mã Độ and writes them into the book as winter deaths. Khấu Thanh Thảo (khau_thanh_thao), who keeps the herd books, has begun asking for the hides."
   },
   {
    "key": "khau_thanh_thao",
@@ -560,7 +562,9 @@
      "targets_note": "Herd route, then Earthen Gate: a steward who rides out herself."
     },
     "note": "The ledger and the seal."
-   }
+   },
+   "wants": "Her father paid back at a festival, and her son free of the horse's long shadow.",
+   "secret": "She is writing the manor's herds and debts into a second set of books in her son's hand, because she has seen her father's saddle restitched and has not asked why. Khấu Tiểu Câu (khau_tieu_cau) thinks it is practice."
   },
   {
    "key": "mac_khien_phong",
@@ -643,7 +647,8 @@
      "intent": "Earth."
     },
     "note": "The outer gate's teacher."
-   }
+   },
+   "appearance": "Shaven head, heavy shoulders, and a stance no push has ever shifted."
   },
   {
    "key": "du_bon_van",
@@ -680,7 +685,7 @@
    "traits": {
     "personality": [
      "Arrogant",
-     "Brave",
+     "Arbitrary",
      "Impatient"
     ],
     "calling": "Duelist",
@@ -698,7 +703,7 @@
     ]
    },
    "appearance": "A wiry, grinning rider of thirty-five with a broken nose and a festival ribbon braided into her hair every day of the year.",
-   "backstory": "A Thảo Đường Thành stable orphan who came to the manor to muck out and stayed to ride. At twenty she won every race at the lord's festival of 1185 (A172), and Kim Vạn Lý (kim_van_ly) lost his bet anyway, because he bet on her losing one. She wants to race Lạc Hà's Geese Hall cadets on their own drill field, and Thôi Dương Giác (thoi_duong_giac) has been teaching her to read the wind on the course.",
+   "backstory": "A Thảo Đường Thành stable orphan who came to the manor to muck out and stayed to ride. At twenty she won every race at the lord's festival of 1185 (A172), and Kim Vạn Lý (kim_van_ly) lost his bet anyway, because he bet on her losing one. She wants to race Lạc Hà's Geese Hall cadets on their own drill field, and Thôi Dương Giác (thoi_duong_giac) has been teaching her to read the wind on the course. She rules her own races, moving the finishing post a length after the heat when the wind turns, and Kim Vạn Lý has lost three bets to her rulings.",
    "ties": [
     {
      "to": "thoi_duong_giac",
@@ -768,7 +773,9 @@
      "targets_note": "Herd route, then Swift Hound: the race rider's speed."
     },
     "note": "The race rider."
-   }
+   },
+   "wants": "To race Lạc Hà's Geese Hall cadets on their own drill field and win on the third lap.",
+   "secret": "She takes Kim Vạn Lý's bets through his grandson Kim Đắc Lộc (kim_dac_loc) and splits the winnings with the boy, so the old merchant is paying for her festival ribbons."
   },
   {
    "key": "kim_dac_loc",
@@ -802,7 +809,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "Kim Vạn Lý (kim_van_ly) sent him to the stables to learn which horse will win; he has learned that the herders do not know either, and is learning to ride instead.",
+   "backstory": "Kim Vạn Lý (kim_van_ly) sent him to the stables to learn which horse will win; he has learned that the herders do not know either, and is learning to ride instead; he charges the stable boys a copper a day to saddle the horse he brags he picked, and Hứa Tịch Câu (hua_tich_cau) pays it for the youngest.",
    "ties": [
     {
      "to": "kim_van_ly",
@@ -841,7 +848,8 @@
      "intent": "Metal."
     },
     "note": "A rich boy in the stables."
-   }
+   },
+   "appearance": "Silk riding coat, rained on twice, not yet creased where the saddle goes."
   },
   {
    "key": "tiet_bo_van",
@@ -870,12 +878,12 @@
     "personality": [
      "Brave",
      "Wrathful",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "war_orphan"
    },
-   "backstory": "A Mã Độ ford boy with Fire and no Wood, placed with the manor this spring; his old teacher Xa Cổ Đạo (xa_co_dao) said he rode better than he rowed.",
+   "backstory": "A Mã Độ ford orphan with Fire and no Wood, placed with the manor this spring; his old teacher Xa Cổ Đạo (xa_co_dao) said he rode better than he rowed. He tells the stable boys he once beat Xa Cổ Đạo in a race; they never raced, and he took Ngao Tuyết Nhi's (ngao_tuyet_nhi) cheese ration as the prize he was owed.",
    "ties": [
     {
      "to": "xa_co_dao",
@@ -914,7 +922,8 @@
      "intent": "Fire."
     },
     "note": "A placed rider."
-   }
+   },
+   "appearance": "Rower's shoulders, freckles, and a burn-pink patch on his chin."
   },
   {
    "key": "me_dich_am",
@@ -946,7 +955,7 @@
      "Compassionate"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "A Mục Địch flute-maker's daughter whose reed pipe the mares answer before they answer the herd call; Dư Bôn Vân (du_bon_van) took her for it.",
    "ties": [
@@ -982,7 +991,8 @@
      "intent": "Wood."
     },
     "note": "A flute."
-   }
+   },
+   "appearance": "Her reed pipe hangs on a red thread round her neck, and she hums through her nose."
   },
   {
    "key": "khau_tieu_cau",
@@ -1012,12 +1022,12 @@
     "personality": [
      "Ambitious",
      "Impatient",
-     "Trusting"
+     "Cruel"
     ],
     "calling": "Beast tamer",
     "upbringing": "clan_heir"
    },
-   "backstory": "Khấu Thanh Thảo's (khau_thanh_thao) son, who has tried to mount Đạp Vân every birthday since he was six; the white bear in the north paddock is the only beast on the manor that comes when he calls.",
+   "backstory": "Khấu Thanh Thảo's (khau_thanh_thao) son, who has tried to mount Đạp Vân every birthday since he was six, and when the north paddock's grey mare threw him he laid a halter-rope across her flank until Ngao Tuyết Nhi (ngao_tuyet_nhi) pulled him off; the white bear in the north paddock is the only beast on the manor that comes when he calls.",
    "ties": [
     {
      "to": "khau_thanh_thao",
@@ -1066,7 +1076,8 @@
      "intent": "Earth."
     },
     "note": "The grandson."
-   }
+   },
+   "appearance": "A bandaged hand, and the head's own slow stare."
   },
   {
    "key": "hua_tich_cau",
@@ -1154,7 +1165,8 @@
      "intent": "Water."
     },
     "note": "A groom; a stand-in method."
-   }
+   },
+   "appearance": "Smells of river ice; his shoulders sit uneven from thirty summers of two buckets."
   },
   {
    "key": "man_bach_cau",
@@ -1195,7 +1207,8 @@
      "note": "his herder"
     }
    ],
-   "changed": "fix pass A 2026-11-25: born 690 -> 560, so a death at the end of the years falls at the Kết Đan lifespan (500)"
+   "changed": "fix pass A 2026-11-25: born 690 -> 560, so a death at the end of the years falls at the Kết Đan lifespan (500)",
+   "appearance": "Remembered as a tall herder with a cloud-white beard braided like a mane."
   },
   {
    "key": "khau_thuong_thanh",
@@ -1241,7 +1254,8 @@
      "note": "the founder he herded for"
     }
    ],
-   "changed": "fix pass A 2026-11-25: born 870 -> 865, so a death at the end of the years falls at the Luyện Khí lifespan (120)"
+   "changed": "fix pass A 2026-11-25: born 870 -> 865, so a death at the end of the years falls at the Luyện Khí lifespan (120)",
+   "appearance": "Remembered as a gaunt herder with a patient stoop and a mended felt cap."
   }
  ]
 }

@@ -33,7 +33,8 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "He keeps the trade office's books below the old seat and has twice carried Trầm Tịch Dương's (tram_tich_duong) sealed purchases to Kim Vạn Lý's counter without reading them; he has read the totals.",
+   "appearance": "Rubs the callus on his forefinger when he lies.",
+   "backstory": "He keeps the trade office's books below the old seat and has twice carried Trầm Tịch Dương's (tram_tich_duong) sealed purchases to Kim Vạn Lý's counter without reading them; he has read the totals, and told Kim's clerk for a cask of wine how many notes the old man buys, so Kim now charges him a tenth over.",
    "ties": [
     {
      "to": "tong_thu_tin",
@@ -115,6 +116,7 @@
     "calling": "Steward",
     "upbringing": "merchant_child"
    },
+   "appearance": "A rich carrying voice from a small dry frame.",
    "backstory": "A Vật Hoa Thị broker's daughter who reads every disciple's oath of entry aloud as the sun sets; she has asked Từ Bình Hành (tu_binh_hanh) why the 1179 loan is the one contract the Hall may not read.",
    "ties": [
     {
@@ -190,8 +192,9 @@
      "Brave"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
+   "appearance": "Rock dust ground into his knees.",
    "backstory": "The grandson of a Vân Gian miner who came down the mountain in 1040, he dug the footings of the Cloud Bridge Array for Quách Tiếp Vân (quach_tiep_van) and would bring the whole village up to build the outer ring if anyone paid them.",
    "ties": [
     {
@@ -266,12 +269,13 @@
     "personality": [
      "Warlike",
      "Brave",
-     "Loyal"
+     "Faithless"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "A Song Tỉnh well-digger's daughter who drills the Geese Hall's second line under Thịnh Kinh Hàn (thinh_kinh_han) and has signed the war party's petition for the tolls, which he has not.",
+   "appearance": "A dent in her brow where a well-rope slipped.",
+   "backstory": "A Song Tỉnh well-digger's daughter who drills the Geese Hall's second line under Thịnh Kinh Hàn (thinh_kinh_han) and signed the war party's petition for the tolls behind his back; Cảnh Trường Thiên (canh_truong_thien) now believes his drill master wants the Ferry War again, and Thịnh has not found a way to say otherwise.",
    "ties": [
     {
      "to": "thinh_kinh_han",
@@ -346,8 +350,9 @@
      "Pragmatic"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
+   "appearance": "A tea-grower's wide hat tied under her chin with a purple cord.",
    "backstory": "A Sơn Trà Thôn tea-grower's daughter who entered the inner gate by a single point of Earth, like her master Chử Hồng Diệp (chu_hong_diep), and prices her pills a tenth under Thúy Vi's at every market in the west.",
    "ties": [
     {
@@ -421,13 +426,14 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Brave",
+     "Faithless",
      "Impatient"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "clan_heir"
    },
-   "backstory": "Of the line of the fleet master Hạ Hầu Trường Phong (ha_hau_truong_phong), she pilots river boats for Lô Xướng Vãn (lo_xuong_van) and has asked Lận Viễn Phàm for a berth on his third boat.",
+   "appearance": "A pilot's finger, broken and badly set.",
+   "backstory": "Of the line of the fleet master Hạ Hầu Trường Phong (ha_hau_truong_phong), she pilots river boats for Lô Xướng Vãn (lo_xuong_van) and has asked Lận Viễn Phàm for a berth on his third boat, paying her way by selling the toll-barge counts she takes for Lô; his tolls come up short and Vi Lan Châu (vi_lan_chau) is blamed for the count.",
    "ties": [
     {
      "to": "lo_xuong_van",
@@ -509,6 +515,7 @@
     "calling": "Diplomat",
     "upbringing": "village_born"
    },
+   "appearance": "A satchel rubbed pale at the clasp.",
    "backstory": "He carries the eight vassals' tribute receipts for Hách Ánh Hà (hach_anh_ha), and this spring he carries her one list of thirty from Vật Hoa Thị down the steppe road to Cựu Hà Viện for Tô Bình Chu (to_binh_chu) to sign: a month and a half each way, with the children to walk it back by autumn.",
    "changed": "fix pass B 2026-11-25 (fixB-5): carries the one list from Vật Hoa Thị (read-pilot-B: no first-draft knowledge)",
    "ties": [
@@ -571,13 +578,14 @@
    "traits": {
     "personality": [
      "Warlike",
-     "Wrathful",
+     "Cruel",
      "Loyal"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
-   "backstory": "A Xích Thổ herder who left two fingers in the miasma's edge pulling a scout out, he stands with Hình Trọng Sơn (hinh_trong_son) for breaking the Compact and has raised his son to the same.",
+   "appearance": "Two fingers gone from the left hand; a grey patch on the wrist.",
+   "backstory": "A Xích Thổ herder who left two fingers in the miasma's edge pulling a scout out, he stands with Hình Trọng Sơn (hinh_trong_son) for breaking the Compact and has raised his son to the same; captured treasure-seekers he stakes out at the grey's edge to mark where it has crept, and Mông Thiết Sơn (mong_thiet_son) buries what is left at dawn.",
    "ties": [
     {
      "to": "hinh_trong_son",
@@ -647,8 +655,9 @@
      "Patient"
     ],
     "calling": "Strategist",
-    "upbringing": "village_born"
+    "upbringing": "clan_heir"
    },
+   "appearance": "The lamp-counters call him the Owl, for his sleepless face.",
    "backstory": "Of the house of Trương Ánh Đào (truong_anh_dao), who held Hồng Vũ Thành in the War of the Petal Shore, he watches Thính Vũ's side of the vein for Sử Thu Thủy (su_thu_thuy) and counts its lamps every night.",
    "ties": [
     {
@@ -715,13 +724,20 @@
    "traits": {
     "personality": [
      "Pragmatic",
-     "Honest",
+     "Callous",
      "Impatient"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Steppe-born at Liên Chu Thôn and seasick on every crossing, she keeps Lận Viễn Phàm's (lan_vien_pham) stores and his debts, and is the reason the third boat is not yet paid for.",
+   "appearance": "A greenish tinge to her face that never quite leaves it; one hand always finds a rail.",
+   "backstory": "Steppe-born at Liên Chu Thôn and frail and seasick on every crossing, she keeps Lận Viễn Phàm's (lan_vien_pham) stores and his debts, and is the reason the third boat is not yet paid for: she sold the deckhands' winter rice to cover the timber, and they ate boiled rope-weed until spring.",
    "ties": [
     {
      "to": "lan_vien_pham",
@@ -787,13 +803,14 @@
    "traits": {
     "personality": [
      "Arrogant",
-     "Diligent",
+     "Arbitrary",
      "Paranoid"
     ],
     "calling": "Refiner",
     "upbringing": "clan_heir"
    },
-   "backstory": "A descendant of the first armourer Thiệu Song Phong (thieu_song_phong), he works beside the hired smith Vưu Chước Kim (vuu_chuoc_kim) and resents that the sword his ancestor forged woke for a guest.",
+   "appearance": "Eats, sleeps and argues in his smith's apron.",
+   "backstory": "A descendant of the first armourer Thiệu Song Phong (thieu_song_phong), he works beside the hired smith Vưu Chước Kim (vuu_chuoc_kim) and resents that the sword his ancestor forged woke for a guest; he gives out the good steel to whichever smith brings him wine, and Cổ Tiểu Thiết (co_tieu_thiet) was barred a week for a bent nail.",
    "ties": [
     {
      "to": "su_thu_thuy",
@@ -865,8 +882,9 @@
      "Reclusive"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
+   "appearance": "A sailcloth cap tied under his chin; spade blisters on both palms.",
    "backstory": "He has buried thirty-one elders on the beach of Tịch Chiếu Đảo for Bồ Tàn Chiếu (bo_tan_chieu), and has already dug the keeper's grave and covered it with a sail.",
    "ties": [
     {
@@ -939,7 +957,8 @@
     "calling": "Teacher",
     "upbringing": "village_born"
    },
-   "backstory": "She watches the outer disciples' palms from sunset to full dark and writes down who lets the glow go; every name on Tô Bình Chu's (to_binh_chu) Placement Day list was written by her.",
+   "appearance": "A long dry braid, pale eyes narrowed against the sun.",
+   "backstory": "She watches the outer disciples' palms from sunset to full dark and writes down who lets the glow go; every name on Tô Bình Chu's (to_binh_chu) Placement Day list was written by her, and she wrote Uông Tú Ngân (uong_tu_ngan) onto it after one lapse though the girl had held the glow to full dark the week before.",
    "ties": [
     {
      "to": "tram_tich_duong",
@@ -1021,7 +1040,8 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "He has run the steppe caravans for sixty years and believes the Hạc Đinh road is his, not Lộ Hành Sa's (lo_hanh_sa); he sold mutton to both camps in 1175.",
+   "appearance": "A sheepskin vest over silk, a ring on every finger of the left hand.",
+   "backstory": "He has run the steppe caravans for sixty years and believes the Hạc Đinh road is his, not Lộ Hành Sa's (lo_hanh_sa); he sold mutton to both camps in 1175 at war prices, and bought up the hay at Hạc Đinh so that Lộ's ponies went to market lean.",
    "ties": [
     {
      "to": "tong_thu_tin",
@@ -1091,9 +1111,10 @@
      "Temperate"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
-   "backstory": "When a disciple wants to buy out the rest of a term, he works the price; he priced Tạ Quy Yến's (ta_quy_yen) at nothing, since Placement Day will sell him anyway.",
+   "appearance": "Taps an abacus bead before he speaks.",
+   "backstory": "When a disciple wants to buy out the rest of a term, he works the price; he priced Tạ Quy Yến's (ta_quy_yen) at nothing, since Placement Day will sell him anyway, and Tạ has not been able to save a coin toward it.",
    "ties": [
     {
      "to": "tu_binh_hanh",
@@ -1168,8 +1189,15 @@
      "Gregarious"
     ],
     "calling": "Merchant",
-    "upbringing": "merchant_child"
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Her leg jiggles under every desk.",
    "backstory": "Uông Bình Trù's (uong_binh_tru) daughter, who can add a caravan's manifest in her head and keeps letting the glow go at the dusk test because she cannot sit still till dark.",
    "ties": [
     {
@@ -1236,6 +1264,7 @@
     "calling": "Steward",
     "upbringing": "merchant_child"
    },
+   "appearance": "Sleeve cuffs gone grey with copying.",
    "backstory": "He copies the oath contracts that Kỷ Minh Ước (ky_minh_uoc) reads aloud and has noticed that the copy of the 1179 loan in the register is in the head's own hand.",
    "ties": [
     {
@@ -1301,8 +1330,9 @@
      "Generous"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
+   "appearance": "Walks with the wide careful steps of a man used to low roofs.",
    "backstory": "Hạng Kiều Sinh's (hang_kieu_sinh) nephew, who walked down from Vân Gian to the old seat to be tested and wants to come back up to dig the outer ring.",
    "ties": [
     {
@@ -1369,8 +1399,9 @@
      "Warlike"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
+   "appearance": "Chapped fisherman's hands that never miss.",
    "backstory": "A Mã Độ ferryman's son who has lost every archery trial to Thịnh Thiếu Hàng (thinh_thieu_hang) by a hand's width and says the drill master's grandson is judged by his name.",
    "ties": [
     {
@@ -1432,13 +1463,14 @@
    "traits": {
     "personality": [
      "Warlike",
-     "Wrathful",
+     "Cruel",
      "Loyal"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "From Song Tỉnh like Khấu Tịch Nhạn (khau_tich_nhan), she wears a goose pin and a Ferry War toll token on the same cord and wants the tolls back before she forms her foundation.",
+   "appearance": "A goose pin and a toll token swing together on one cord.",
+   "backstory": "From Song Tỉnh like Khấu Tịch Nhạn (khau_tich_nhan), she wears a goose pin and a Ferry War toll token on the same cord and wants the tolls back before she forms her foundation; last winter she chained a Tùng Đào toll clerk to the token post for a night of frost, and he lost two fingers to it.",
    "ties": [
     {
      "to": "dang_liet_hang",
@@ -1503,8 +1535,15 @@
      "Cautious"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "People forget her plain, kindly face as soon as she leaves.",
    "backstory": "Quản Đan Phong's (quan_dan_phong) niece, Wood-strong and Earth-thin, who knows she will go to a vassal on Placement Day unless her Earth rises twelve points.",
    "ties": [
     {
@@ -1569,6 +1608,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
+   "appearance": "Squats like a rice-planter even in the hall.",
    "backstory": "A Hòa Lũng farmer's boy who plants spirit rice behind Điền Hòa Lũng (dien_hoa_lung) and would gladly be placed with a vassal if they have fields.",
    "ties": [
     {
@@ -1638,6 +1678,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
+   "appearance": "A long thin throat that rings like a bell when she sings.",
    "backstory": "A Vãn Chu Thôn fisher girl who sings the Evening Song's fourth verse on Hạ Hầu Thanh Bích's (ha_hau_thanh_bich) boat and learned it from Thương Ngư Ca (thuong_ngu_ca) on the same jetty.",
    "ties": [
     {
@@ -1711,6 +1752,7 @@
     "calling": "Teacher",
     "upbringing": "village_born"
    },
+   "appearance": "Hums with her mouth closed, as her grandmother does.",
    "backstory": "Her grandmother in Xướng Vãn Thôn still hums a line of the verse the village stopped singing in 803, and Hồng Vãn Tình (hong_van_tinh) has taken her into the choir to get at it.",
    "ties": [
     {
@@ -1771,8 +1813,9 @@
      "Impatient"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan"
    },
+   "appearance": "Chart-ink smears on both ears.",
    "backstory": "A Triều Âm dock boy who copies Luân Hải Yến's (luan_hai_yen) charts by lamplight and means to be aboard the third boat when it sails for the lost fleet.",
    "ties": [
     {
@@ -1840,6 +1883,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
+   "appearance": "Bamboo-brown arms; she tries not to smile.",
    "backstory": "A bamboo-cutter's daughter of Phù Can Thôn with almost no Earth, she expects to be placed with Nhàn Vân Quán and has asked Mạc Triều Sinh (mac_trieu_sinh) to write to her.",
    "ties": [
     {
@@ -1901,6 +1945,7 @@
     "calling": "Duelist",
     "upbringing": "sect_raised"
    },
+   "appearance": "Draws a miasma scar on his wrist with charcoal each morning.",
    "backstory": "Đinh Thủ Hoang's (dinh_thu_hoang) son, who runs the Watch's messages with Vũ Tri Thu (vu_tri_thu) and repeats his father's talk of breaking the Compact word for word.",
    "ties": [
     {
@@ -1968,6 +2013,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
+   "appearance": "Squats to read the ground.",
    "backstory": "A Thu Tân shore girl who walks the miasma's edge behind Hàm Tú Sa (ham_tu_sa) and marks with stones where the grey moved each night; it has moved toward the old seat this year.",
    "ties": [
     {
@@ -2028,8 +2074,9 @@
      "Honest"
     ],
     "calling": "Strategist",
-    "upbringing": "village_born"
+    "upbringing": "clan_heir"
    },
+   "appearance": "Knotted cords at her belt, to count lamps by.",
    "backstory": "Trương Vọng Thành's (truong_vong_thanh) granddaughter, who counts Thính Vũ's lamps beside him and has begun to count the gaps where a lamp should be.",
    "ties": [
     {
@@ -2092,6 +2139,7 @@
     "calling": "Refiner",
     "upbringing": "servant_born"
    },
+   "appearance": "Singed eyelashes.",
    "backstory": "A Tử Điện dock girl who works the bellows beside Cổ Tiểu Thiết (co_tieu_thiet) and is the only one he told about the sword's hum.",
    "ties": [
     {
@@ -2162,6 +2210,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
+   "appearance": "Has her grandfather's slow, level stare.",
    "backstory": "Khúc Lão Điếu's (khuc_lao_dieu) granddaughter, who rows the elders to Tịch Chiếu Đảo with him on rest days and has promised Bồ Tiểu Lô (bo_tieu_lo) the second oar on the keeper's last row.",
    "ties": [
     {
@@ -2228,6 +2277,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "Blushes at praise.",
    "backstory": "A well-digger's son from Hà Khúc whose palms held the glow to full dark at his first try; Thường Thủ Hà (thuong_thu_ha) has told him not to boast of it to the river children.",
    "ties": [
     {
@@ -2300,6 +2350,7 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
+   "appearance": "Her forehead is pink from practising in the noon sun.",
    "backstory": "From the same steppe village as her master Thường Thủ Hà (thuong_thu_ha), she has heard that the examiner fails her own neighbours hardest and practises in the noon sun to prove it.",
    "ties": [
     {
@@ -2361,9 +2412,16 @@
      "Loyal"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Phong Lâm maple-tapper's son who has failed the dusk test twice and stands in this spring's Placement Day line beside Tạ Quy Yến (ta_quy_yen), hoping for Bình Thủy Môn; his name is on the envoy's list for Thiên Bảo Trai, a Metal house that will never teach him, and Tạ's is not.",
+   "appearance": "A hopeful smile and maple sap on his cuffs; things tend to fall near him.",
+   "backstory": "A Phong Lâm maple-tapper's son who has failed the dusk test twice and stands in this spring's Placement Day line beside Tạ Quy Yến (ta_quy_yen), hoping for Bình Thủy Môn; his name is on the envoy's list for Thiên Bảo Trai, a Metal house that will never teach him. The roster clerk has lost his name twice, and a cart axle broke at his feet.",
    "ties": [
     {
      "to": "ta_quy_yen",
@@ -2418,13 +2476,14 @@
    "traits": {
     "personality": [
      "Stubborn",
-     "Honest",
-     "Generous"
+     "Deceitful",
+     "Greedy"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "His father in Tang Ma Thành has already sent the coin to buy out his term, and he has asked Dịch Bách Lý (dich_bach_ly), who buys his father's rope, to keep it from reaching the Hall of Scales.",
+   "appearance": "A dice cup rattles in his sleeve.",
+   "backstory": "His father in Tang Ma Thành sold his loom to find the coin to buy out his term, and he has asked Dịch Bách Lý (dich_bach_ly), who buys his father's rope, to keep it from reaching the Hall of Scales, so that he can spend it on dice.",
    "ties": [
     {
      "to": "dich_bach_ly",
@@ -2485,6 +2544,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "Red dust on her sandals.",
    "backstory": "Lục Bồng Sa's (luc_bong_sa) niece, a Liên Chu well-digger's daughter, who holds the glow easily and would rather dig a well than sit in the inner gate.",
    "ties": [
     {
@@ -2554,8 +2614,9 @@
      "Trusting"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
+   "appearance": "Straw in his hair, eyelids at half-mast.",
    "backstory": "A cattle herder from the island grassland of Ngưu Đẩu, where Hách Ánh Hà was born, he sleeps through the dusk practice when Ngạc Viễn Sơn (ngac_vien_son) is not watching.",
    "ties": [
     {
@@ -2621,8 +2682,9 @@
      "Honest"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
+   "appearance": "Rolls his sleeves to the same fold every day.",
    "backstory": "He witnesses the sunset seals for Giản Bình Chương (gian_binh_chuong), and Hình Trọng Sơn's war party has asked him, twice and politely, which oaths the Compact can be said to have broken first.",
    "ties": [
     {
@@ -2695,7 +2757,8 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "She can tell a forged Thiên Bảo note by its weight in her palm, and Uông Bình Trù (uong_binh_tru) has her weigh every note Trầm's go-between brings.",
+   "appearance": "Holds one palm flat, as if weighing the air.",
+   "backstory": "She can tell a forged Thiên Bảo note by its weight in her palm, and Uông Bình Trù (uong_binh_tru) has her weigh every note Trầm's go-between brings; the short-weight ones she finds she pays out to the trade office's porters, and keeps the good ones.",
    "ties": [
     {
      "to": "uong_binh_tru",
@@ -2765,8 +2828,9 @@
      "Diligent"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
+   "appearance": "A limp from a gallery cave-in, lamp-soot in the corners of her eyes.",
    "backstory": "Quách Tiếp Vân's (quach_tiep_van) grand-niece from Vân Gian, who carries the lamps for Hạng Kiều Sinh's (hang_kieu_sinh) gallery crews and has seen the head's locked door with fresh dust on its sill.",
    "ties": [
     {
@@ -2841,7 +2905,8 @@
     "calling": "Steward",
     "upbringing": "servant_born"
    },
-   "backstory": "She brewed tea for Tô Vãn Chiếu (to_van_chieu) when the head was a merchant on the river road and carried the same kettle up the mountain in 1185; she hears everything said over it and repeats none of it.",
+   "appearance": "Stands very still, like someone who has heard everything.",
+   "backstory": "She brewed tea for Tô Vãn Chiếu (to_van_chieu) when the head was a merchant on the river road and carried the same kettle up the mountain in 1185; she tops the head's caddy with spent leaves and sells the good ones, and Trì Vãn Hương (tri_van_huong) is blamed for the thin tea.",
    "ties": [
     {
      "to": "to_van_chieu",
@@ -2903,7 +2968,8 @@
     "calling": "Schemer",
     "upbringing": "servant_born"
    },
-   "backstory": "A lamp-maker's daughter of Vãn Đăng Thôn who pours for the guests and tells Trì Vãn Hương (tri_van_huong) every word, who tells the envoy.",
+   "appearance": "A face guests forget, and a tray carried exactly at their elbow.",
+   "backstory": "A lamp-maker's daughter of Vãn Đăng Thôn who pours for the guests and tells Trì Vãn Hương (tri_van_huong) every word, adding a line of her own to please her; a Tang Ma buyer was taken for a spy and shut out of the guest house.",
    "ties": [
     {
      "to": "tri_van_huong",
@@ -2966,6 +3032,7 @@
     "calling": "Herbalist",
     "upbringing": "servant_born"
    },
+   "appearance": "Smells of maple oil.",
    "backstory": "Taken on as a servant boy at ten, before the last maple died in 1131, he has oiled its stump every autumn since and sits with Hồ Tứ Nương (ho_tu_nuong) in the old seat's kitchen.",
    "ties": [
     {
@@ -3028,9 +3095,10 @@
      "Arbitrary"
     ],
     "calling": "Diplomat",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "Hách Ánh Hà's (hach_anh_ha) grand-niece from Ngưu Đẩu, named for the dawn to her great-aunt's dusk, who tells the outer gate she will not be sold to the studio, because her great-aunt draws the list.",
+   "appearance": "A dawn-red ribbon in her braid.",
+   "backstory": "Hách Ánh Hà's (hach_anh_ha) grand-niece from Ngưu Đẩu, named for the dawn to her great-aunt's dusk, who tells the outer gate she will not be sold to the studio, because her great-aunt draws the list; she picks who shares her stove-side bench from a hat of names she has marked, and Cù Bích Trúc (cu_bich_truc) sat by the draughty door all winter.",
    "changed": "fix pass B 2026-11-25 (fixB-5): 'will not be sold to the studio' (read-pilot-B)",
    "ties": [
     {
@@ -3097,6 +3165,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
+   "appearance": "A rope burn across his left palm that has never closed.",
    "backstory": "He held the rope the day Đồ Tiểu Liên's (do_tieu_lien) brother walked into the grey, and felt it go slack; he has asked to go with her when she goes back in.",
    "ties": [
     {

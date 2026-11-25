@@ -367,6 +367,8 @@
    },
    "appearance": "A mild, round-faced man with chalk dust on his sleeves from the outer gate's slate boards.",
    "backstory": "A great-grandson of the head's brother, Tô Bình Chu is a plain steward who will never pass Trúc Cơ, and knows it. When the sect moved in 1185 (N-lac_ha-05) he stayed below to keep the outer gate at the old seat. His daughter Tô Mộ Vân (to_mo_van) is the west's brightest talent. His son Tô Hiểu Chu (to_hieu_chu) is ordinary and on the envoy's list of thirty for Thiên Bảo Trai. He must sign every placement and has signed none. He is offering a poor Hà Khúc family his stipend for ten years if their second child takes his son's place, and he has not told them that the child would be enrolled at the gate only to be sold.",
+   "wants": "To see his daughter reach Kết Đan and his son off the envoy's list, in that order.",
+   "secret": "Two hours each night he drills Tô Hiểu Chu (to_hieu_chu) in the sword forms the list-drawers test, so that the boy stops looking ordinary.",
    "changed": "fix pass B 2026-11-25 (fixB-5): Content -> Deceitful; the Hà Khúc child enrolled only to be sold (read-pilot-B)",
    "ties": [
     {
@@ -568,6 +570,8 @@
    },
    "appearance": "A well-fed man with a merchant's quick smile and three money pouches, one of them always empty.",
    "backstory": "The head's second disciple, a Hạc Đinh Thị money-changer's son who joined in 1112, Tăng Vân Tiêu runs the sect's caravans and its stalls in four markets. He has stood at the peak of Trúc Cơ for forty years. He spends what he earns on breakthrough pills from Lạc Đan Thanh (lac_dan_thanh), who charges whatever he likes (A186). He likes Hách Ánh Hà, whom he will never outrank. He resents Tô Mộ Vân, who will outrank him within ten years.",
+   "wants": "To touch the last stage of Trúc Cơ's peak once, before Tô Mộ Vân (to_mo_van) outranks him; he would sell a stall for it.",
+   "secret": "He pays his caravan drivers in paper chits redeemable only at his own stalls and sells the cash he saves to Lạc Đan Thanh (lac_dan_thanh) for pills; the drivers' wives sell the chits at half price in Hà Khúc.",
    "ties": [
     {
      "to": "to_van_chieu",
@@ -691,7 +695,12 @@
     ],
     "calling": "Formation master",
     "upbringing": "village_born",
-    "talent": [],
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ],
     "path": [
      "array_bound"
     ],
@@ -701,8 +710,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A small woman with a miner's lamp on a strap round her forehead and dust in every crease of her robe.",
+   "appearance": "A small, plain woman with a miner's lamp on a strap round her forehead and dust in every crease of her robe.",
    "backstory": "A Vân Gian miner's granddaughter whose family went down the mountain in 1040 (V106), Miêu Thạch Lan is Quách Tiếp Vân's (quach_tiep_van) array runner. Each new moon she goes down into the old galleries under the seat to tend the Cloud Bridge Array's lowest nodes. She knows the galleries better than anyone alive. She has noticed that one of them is always locked, and that the head comes out of it with dust on her sleeves.",
+   "wants": "To open the locked gallery once and learn what the head reads there.",
+   "secret": "On new moons she takes a wax impression of the locked door's lock to cut a copy of the key from silver-pine, and Mạch Ngân Sương (mach_ngan_suong), who shares her shifts, files the blanks.",
    "ties": [
     {
      "to": "quach_tiep_van",
@@ -804,7 +815,7 @@
     "personality": [
      "Deceitful",
      "Compassionate",
-     "Gregarious"
+     "Faithless"
     ],
     "calling": "Diplomat",
     "upbringing": "merchant_child",
@@ -818,6 +829,8 @@
    },
    "appearance": "A slender woman with a clear, carrying voice and a zither always half out of its bag.",
    "backstory": "Nhiếp Ngọc Âm sings the Evening Song at the bay festivals of Tử Điện Thành. Her mother was born on the Thính Vũ side of the Petal Shore line and still lives there. Since 1188 she has sent the sect's news across the line each month to a soul-vault keeper who serves Lệ Tiêu Hồn (le_tieu_hon), in return for her mother's safety. Her master Sử Thu Thủy (su_thu_thuy) trusts her more than anyone.",
+   "wants": "To bring her mother out across the Petal Shore line before the next war closes it.",
+   "secret": "Each month her packet to the soul-vault keeper grows a page longer, now padded with true news of who visits Sử Thu Thủy's (su_thu_thuy) rooms, the one thing her master never thought to keep from her.",
    "ties": [
     {
      "to": "su_thu_thuy",
@@ -931,6 +944,8 @@
    },
    "appearance": "A brisk woman who clicks an abacus in her sleeve while she talks.",
    "backstory": "A clerk of the Counting House, quick with an abacus and quicker with a contradiction. Phương Toán Ngọc found that the treasury vault has not been opened since 1179: every payment since has come from the trading purse, none from the vault. She took it to her master Tông Thủ Tín (tong_thu_tin), who told her to forget it. She has not.",
+   "wants": "To open the treasury vault with her own hands and count what is in it.",
+   "secret": "At night she copies the trading purse's payment book line by line into a second book kept in Tả Mặc Trù's (ta_mac_tru) desk, because he never looks in his own drawers.",
    "ties": [
     {
      "to": "tong_thu_tin",
@@ -1037,7 +1052,7 @@
      "Patient"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [],
     "path": [
      "long_seclusion"
@@ -1050,6 +1065,8 @@
    },
    "appearance": "A gangly man with green-stained nails who talks with his hands and his whole face.",
    "backstory": "A Wood-heavy lamp-maker's son from Vãn Đăng Thôn, Sài Thanh Phong passed the inner gate by one point of Earth in 1140. On the old seat he reached Trúc Cơ in 1158 and sat at its first stage for thirty years while steppe-born juniors passed him. Three years after the move (N-lac_ha-05) he broke through in a single season. He has become the move's loudest defender, and a bore about it. He writes to Ngạc Viễn Sơn (ngac_vien_son) to say so.",
+   "wants": "To be asked to speak for the move at the high table instead of in letters.",
+   "secret": "He sends his defences of the move to Ngạc Viễn Sơn (ngac_vien_son) under the name of an invented outer-gate steward, and Ngạc has answered the steward politely for two winters.",
    "ties": [
     {
      "to": "chu_hong_diep",
@@ -1151,7 +1168,7 @@
      "Gregarious"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "clan_heir",
     "talent": [],
     "path": [],
     "lifestyle": "pilgrim",
@@ -1162,6 +1179,8 @@
    },
    "appearance": "A weathered woman who stands facing the sea whenever she stops walking.",
    "backstory": "A descendant of Giang Bích Không (giang_bich_khong), Cô Phàm Các's founder, through a grandson who stayed ashore with a fever when the fleet sailed in 705. The family went down to Xích Ngạn with the last watchers of Vọng Phàm Quán (V089). They kept the founder's name and none of his arts. She joined Lạc Hà for Lận Viễn Phàm's (lan_vien_pham) boats. She was meant to sail on both of the boats that were lost, and both times her master took her off at the quay.",
+   "wants": "To sail on the third boat as more than ballast.",
+   "secret": "She sleeps in the third boat's hold some nights, to be found aboard on sailing day so that her master cannot take her off at the quay again; Luân Hải Yến (luan_hai_yen) brings her bread.",
    "ties": [
     {
      "to": "lan_vien_pham",
@@ -1270,7 +1289,7 @@
    "traits": {
     "personality": [
      "Vengeful",
-     "Wrathful",
+     "Cruel",
      "Loyal"
     ],
     "calling": "Duelist",
@@ -1287,6 +1306,8 @@
    },
    "appearance": "A thickset man with his grandfather's voice and none of his songs.",
    "backstory": "Lô Xướng Vãn's (lo_xuong_van) grandson was twenty-four when his mother Lô Tiểu Ca (lo_tieu_ca) fell from the last rope bridge on the Ngư Ca border in 1174 (A202). The year before, his grandfather had brought a ferryman's orphan home from Đào Sa. Lô Niệm Ca believes the boy was taken in to fill his mother's place. He wants the Ferry War fought again and won. He will not sing the ninth verse.",
+   "wants": "To fight the Ferry War again and win it.",
+   "secret": "He keeps a Tùng Đào raider, taken on the Ngư Ca bank last spring, in a drowned cellar under the old boathouse and asks him each new moon who held the ropes when his mother fell, since the man who cut them is dead and cannot be made to pay; Hình Trọng Sơn (hinh_trong_son) lends him lamp-oil from the Watch and asks nothing, which is a quiet breach of the 1175 peace.",
    "ties": [
     {
      "to": "lo_tieu_ca",
@@ -1307,6 +1328,11 @@
      "to": "lo_xuong_van",
      "kind": "grandparent",
      "note": "his grandfather and master"
+    },
+    {
+     "to": "mac_thang_kieu",
+     "kind": "enemy",
+     "note": "his prisoner in the drowned cellar under the old boathouse since spring 1199; held the windlass line in 1174"
     }
    ],
    "master": "lo_xuong_van",
@@ -1377,13 +1403,14 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Wrathful",
+     "Arbitrary",
      "Loyal"
     ],
     "calling": "Strategist",
     "upbringing": "village_born"
    },
-   "backstory": "Drills the Geese Hall's ranks at dawn on the Cloud Bridge, and has never forgiven Thịnh Kinh Hàn (thinh_kinh_han) for calling his line a flock of hens.",
+   "appearance": "A drill-ground rasp of a voice; he cannot slouch even asleep.",
+   "backstory": "Drills the Geese Hall's ranks at dawn on the Cloud Bridge and docks rice by a bean he draws from his pocket, so the same three boys of the left file have drawn black all autumn; he has never forgiven Thịnh Kinh Hàn (thinh_kinh_han) for calling his line a flock of hens.",
    "ties": [
     {
      "to": "thinh_kinh_han",
@@ -1469,6 +1496,7 @@
     "calling": "Teacher",
     "upbringing": "village_born"
    },
+   "appearance": "Wears a red scarf all summer, and her long arms conduct whether or not she means them to.",
    "backstory": "A Lô Địch Thôn girl from the village that plays one tune fewer since 803 (V103); every year she asks Lô Xướng Vãn (lo_xuong_van) to teach her the missing tune, and every year he says next year.",
    "ties": [
     {
@@ -1548,12 +1576,13 @@
      "Temperate"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "path": [
      "poison_proof"
     ]
    },
-   "backstory": "Has kept the Miasma Watch beside Hình Trọng Sơn (hinh_trong_son) for sixty years and has buried forty treasure seekers who did not listen to him.",
+   "appearance": "Smells of grave-lime; his grey beard is plaited with it.",
+   "backstory": "Has kept the Miasma Watch beside Hình Trọng Sơn (hinh_trong_son) for sixty years and has buried forty treasure seekers who did not listen to him; in 1196 he finished refilling the lantern before he ran after the Tân Khẩu boy, who was already a hundred paces into the grey, and Đồ Tiểu Liên's (do_tieu_lien) brother did not come out.",
    "ties": [
     {
      "to": "hinh_trong_son",
@@ -1633,7 +1662,7 @@
    "traits": {
     "personality": [
      "Humble",
-     "Honest",
+     "Greedy",
      "Patient"
     ],
     "calling": "Steward",
@@ -1642,7 +1671,8 @@
      "Lovestruck"
     ]
    },
-   "backstory": "Keeps the Counting House's books for Hạc Đinh Thị and is in love with his fellow clerk Phương Toán Ngọc (phuong_toan_ngoc), who has not noticed.",
+   "appearance": "His ears go red whenever a certain abacus clicks.",
+   "backstory": "Keeps the Counting House's books for Hạc Đinh Thị and is in love with his fellow clerk Phương Toán Ngọc (phuong_toan_ngoc), who has not noticed; he rounds the stallholders' tribute sums up a copper and pockets it for her engagement gift, and two Hạc Đinh widows paid the difference in rice.",
    "ties": [
     {
      "to": "tong_thu_tin",
@@ -1723,12 +1753,13 @@
     "personality": [
      "Calm",
      "Pragmatic",
-     "Brave"
+     "Greedy"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan"
    },
-   "backstory": "Pilots the toll boats at Thủy Khẩu, the river mouth the sect dug out by hand in 720 (A196), and counts Tùng Đào's toll barges for Lô Xướng Vãn (lo_xuong_van).",
+   "appearance": "Squints sidelong at every river, like a heron at a fish.",
+   "backstory": "Pilots the toll boats at Thủy Khẩu, the river mouth the sect dug out by hand in 720 (A196), counts Tùng Đào's toll barges for Lô Xướng Vãn (lo_xuong_van), and keeps a tithe of every toll she calls the river's; the boat crews' shares are docked to cover the gap.",
    "ties": [
     {
      "to": "lo_xuong_van",
@@ -1804,7 +1835,8 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "Runs the sect's caravans across the steppe to Vật Hoa Thị and knows each of Phan Vật Hoa's (phan_vat_hoa) stewards by their price.",
+   "appearance": "A tarnished silver whistle at his throat, blown to end arguments and never to call anyone.",
+   "backstory": "Runs the sect's caravans across the steppe to Vật Hoa Thị and knows each of Phan Vật Hoa's (phan_vat_hoa) stewards by their price; he pads his drivers' water and fodder bills and pockets the difference, so they carry the debt home.",
    "ties": [
     {
      "to": "tong_thu_tin",
@@ -1884,13 +1916,14 @@
    "traits": {
     "personality": [
      "Deceitful",
-     "Gregarious",
+     "Faithless",
      "Ambitious"
     ],
     "calling": "Diplomat",
     "upbringing": "scholar_family"
    },
-   "backstory": "Carries Hách Ánh Hà's (hach_anh_ha) letters to the eight vassals from Thảo Đường Thành to the island, and reads every one on the road.",
+   "appearance": "A pocket sewn inside her travel cloak, and the soft hands of a clerk.",
+   "backstory": "Carries Hách Ánh Hà's (hach_anh_ha) letters to the eight vassals from Thảo Đường Thành to the island, reads every one on the road, and sells copies to Nam Phố's steward, who has undercut Hách's price twice this year.",
    "ties": [
     {
      "to": "hach_anh_ha",
@@ -1959,9 +1992,10 @@
      "Forgiving"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "health": "maimed"
    },
+   "appearance": "An empty left sleeve pinned across his chest.",
    "backstory": "Lost his left hand at Đào Sa in 1173 (A080) under Lô Xướng Vãn (lo_xuong_van), and now teaches the outer gate's oarsmanship one-handed on the steppe ponds of the old seat.",
    "ties": [
     {
@@ -2036,8 +2070,9 @@
      "Honest"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
+   "appearance": "Silver flecks glitter in her eyelashes.",
    "backstory": "From the silver-panning family of Ngân Than (A192), she tends the Cloud Bridge Array's silver-pine props for Quách Tiếp Vân (quach_tiep_van) and shares the gallery shifts with Miêu Thạch Lan.",
    "ties": [
     {
@@ -2120,8 +2155,9 @@
      "Calm"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
+   "appearance": "Glances up at every ledge, nest-picker that she was.",
    "backstory": "A Hải Yến Trấn nest-picker's daughter (A149) who keeps Lận Viễn Phàm's (lan_vien_pham) charts. In 1196 she took the bearing of the star the island pilots call the Rudder from a hundred captains' logs, printed it beside the abbey's pole chart that the west's chart-sellers have copied for centuries, and sells it at every quay to pay for his third boat, as \"the sky Củng Tinh will not draw\".",
    "changed": "fix pass B 2026-11-25 (fixB-5): printed the Rudder star in 1196 (cung_tinh arc); tie to tham_bac_than",
    "ties": [
@@ -2195,12 +2231,13 @@
     "personality": [
      "Just",
      "Temperate",
-     "Humble"
+     "Callous"
     ],
     "calling": "Duelist",
     "upbringing": "sect_raised"
    },
-   "backstory": "Brings oath-breakers before Từ Bình Hành (tu_binh_hanh), and has broken no rule in sixty years, which worries his friends.",
+   "appearance": "The Hall's children say he is a door that walks.",
+   "backstory": "Brings oath-breakers before Từ Bình Hành (tu_binh_hanh), and has broken no rule in sixty years, which worries his friends; he once carried a nine-year-old before the Hall for her father's oath, did not look away at the sentence, and she worked the debt off seven years in the Hall's laundry.",
    "ties": [
     {
      "to": "tu_binh_hanh",
@@ -2274,9 +2311,16 @@
      "Content"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Keeps the Maple Hall's herb terraces at Phong Ảnh Mạch for Chử Hồng Diệp (chu_hong_diep), and sells their leaves in Thúy Vi's own markets under a false mark.",
+   "appearance": "Her smile arrives a moment before the thing it is for.",
+   "backstory": "Keeps the Maple Hall's herb terraces at Phong Ảnh Mạch for Chử Hồng Diệp (chu_hong_diep), and sells their leaves in Thúy Vi's own markets under a false mark. The false mark has been found out twice, each time for the wrong leaf, and each time Điền Hòa Lũng (dien_hoa_lung) took the blame and a month of field work.",
    "ties": [
     {
      "to": "chu_hong_diep",
@@ -2358,9 +2402,16 @@
      "Generous"
     ],
     "calling": "Merchant",
-    "upbringing": "merchant_child"
+    "upbringing": "merchant_child",
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Rewove four of the rope bridges Tùng Đào cut in 1174 (A202), sells Tang Ma rope to the ferrymen who once burned them (A201), and is cousin to Tiền Bán Hạ (tien_ban_ha), who went north to Thúy Vi.",
+   "appearance": "The rope-sellers say a bridge could fall on that face and not improve it.",
+   "backstory": "Rewove four of the rope bridges Tùng Đào cut in 1174 (A202), sells Tang Ma rope to the ferrymen who once burned them (A201), and is cousin to Tiền Bán Hạ (tien_ban_ha), who went north to Thúy Vi; the ferry girls will not sit across from him, and he pays the ropewalk's boys to carry his bids.",
    "ties": [
     {
      "to": "tong_thu_tin",
@@ -2446,6 +2497,7 @@
     "calling": "Steward",
     "upbringing": "sect_raised"
    },
+   "appearance": "Smells of camellia oil; one sleeve is eaten ragged by the old halls' moths.",
    "backstory": "Keeps the old seat's empty halls and the founder's maple stumps, which he oils every autumn on Trầm Tịch Dương's (tram_tich_duong) orders.",
    "ties": [
     {
@@ -2512,7 +2564,8 @@
     "calling": "Diplomat",
     "upbringing": "village_born"
    },
-   "backstory": "Keeps the guest house on the Cloud Bridge, where buyers get tea and the view, and reports their talk to Hách Ánh Hà (hach_anh_ha).",
+   "appearance": "Moves so softly that guests start when she speaks.",
+   "backstory": "Keeps the guest house on the Cloud Bridge, where buyers get tea and the view, and reports their talk to Hách Ánh Hà (hach_anh_ha); she tells each buyer that the one before him paid more, and a Tang Ma rope-buyer signed for a lot at twice its worth.",
    "ties": [
     {
      "to": "hach_anh_ha",
@@ -2581,14 +2634,15 @@
    },
    "traits": {
     "personality": [
-     "Callous",
+     "Cruel",
      "Honest",
      "Stubborn"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Collects the vassals' late tribute with the Ruin Ledger art; Khấu Mục Vân (khau_muc_van) has had him thrown off the Mục Vân ranch twice. Since 1199 he has lodged at Nhàn Vân's Pool House to count its sheets all year, and he finds the abbey unusually agreeable: he has been negotiating with Cù Lục Trúc's (cu_luc_truc) double, which can only nod.",
+   "appearance": "A ledger-case chained to his wrist; he is said to sleep with it.",
+   "backstory": "Collects the vassals' late tribute with the Ruin Ledger art; he broke the tally-boy's hand to make a Mục Vân ranch ledger agree, and Khấu Mục Vân (khau_muc_van) has had him thrown off twice. Since 1199 he has lodged at Nhàn Vân's Pool House counting sheets, negotiating with Cù Lục Trúc's (cu_luc_truc) double, which can only nod.",
    "changed": "fix pass B 2026-11-25 (fixB-5): home 558 -> 37: lodged at Nhàn Vân's Pool House for the year-long count since 1199",
    "ties": [
     {
@@ -2670,6 +2724,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
+   "appearance": "Squats to talk, as if to a seedling.",
    "backstory": "A rice farmer's son from Hòa Lũng Thôn who plants the Maple Hall's spirit rice for Chử Hồng Diệp (chu_hong_diep); his sister is in the outer gate.",
    "ties": [
     {
@@ -2749,6 +2804,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
+   "appearance": "A dry cough follows every sentence; one cheek is burnt dark by the Watch.",
    "backstory": "A Thu Tân Thôn ferryman's daughter who mapped the miasma's edge for Hình Trọng Sơn (hinh_trong_son) and found it has crept forty paces west since 1100.",
    "ties": [
     {
@@ -2819,13 +2875,14 @@
    "traits": {
     "personality": [
      "Calm",
-     "Patient",
+     "Lazy",
      "Peaceable"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "An archer from Nhạn Thanh Thành, where shooting the geese has been forbidden since the cold year (A171), who leads the Geese Hall's bows under Thịnh Kinh Hàn (thinh_kinh_han).",
+   "appearance": "One shoulder drawn higher than the other by years of the bow.",
+   "backstory": "An archer from Nhạn Thanh Thành, where shooting the geese has been forbidden since the cold year (A171), who leads the Geese Hall's bows under Thịnh Kinh Hàn (thinh_kinh_han) and lets his lieutenant run the dawn shoot while he sleeps in the butt-store.",
    "ties": [
     {
      "to": "thinh_kinh_han",
@@ -2891,9 +2948,16 @@
      "Honest"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Refused to climb to the new seat in 1185 (N-lac_ha-05) and teaches the outer gate at Cựu Hà Viện for Trầm Tịch Dương (tram_tich_duong); he and Sài Thanh Phong (sai_thanh_phong) argue the move by letter.",
+   "appearance": "Laughs at a joke a full minute after it is told.",
+   "backstory": "Refused to climb to the new seat in 1185 (N-lac_ha-05) and teaches the outer gate at Cựu Hà Viện for Trầm Tịch Dương (tram_tich_duong); he and Sài Thanh Phong (sai_thanh_phong) argue the move by letter, and his replies arrive a full season after the questions.",
    "ties": [
     {
      "to": "tram_tich_duong",

@@ -1,0 +1,22 @@
+{
+"trieu_ngu_lang": {"pers":["Brave","Loyal","Cruel"],"wants":"To die with his axe on a road he has made safe, and to see the boy he carried out of the caravan grow past his vengeance.",
+ "secret":"At night he is learning his letters from a child's primer borrowed from Tập Mính Nhi, and tells the camp he is checking the tally.",
+ "add":"Any robber he catches on the road he hangs by the boots from the nearest milestone and leaves for the carters to see."},
+"ham_thanh_dang": {"wants":"The founder's lantern out of Bàng Yên Tỏa's hands, and her father's name cleared of the theft.",
+ "secret":"She is teaching Hàm Tiểu Vụ the first steps of the Haze Walk in the lantern cellar, which the founder's oath reserved to the head, and Tất Hành Vụ lets it pass."},
+"luyen_to_y": {"wants":"To pay off her brother's debts and be a mist-layer who answers to no one.",
+ "secret":"She has two of the lantern's three turnings and is copying the third off Bàng Yên Tỏa's hands each spring while she holds the lantern; Hồ Tùng Nguyệt's agent comes for it at the autumn fair."},
+"thai_van_xa": {"app":"A carter's whip-callus ridge across one palm and a silver tooth he shows when he lies."},
+"ham_tieu_vu": {"talent_add":[{"id":"frail_frame","tier":1}],"add":"He coughs in the lantern smoke.","app":"Lamp soot ringed round his eyes like a badger's."},
+"tap_xuan_tra": {"pers":["Calm","Honest","Lazy"],"add":"She brews the road tea weak and sleeps through the second pot.","app":"Tea-leaf green under her nails and a yawn hidden in the steam."},
+"mao_dao_bi": {"pers":["Diligent","Reclusive","Arbitrary"],"up":"servant_born","sub":[["A stonecutter's son","A hired stonecutter's son"],[" under Thai Vãn Xa (thai_van_xa)."," under Thai Vãn Xa (thai_van_xa), recutting whichever stone he fancies and skipping the one he was told."]],"app":"Stone dust frosting his lashes and a permanent squint."},
+"ky_that_lo": {"pers":["Vengeful","Faithless","Paranoid"],"app":"A mace scar over one eyebrow and a boy's thin wrists."},
+"khuyet_lac_vu": {"pers":["Ambitious","Callous","Arrogant"],"up":"merchant_child","sub":[["A rope-maker's daughter","A rope-trader's daughter"]],"add":"She left Nhậm Tùng Ảnh lost in her mist for a night of frost.","app":"Fog-grey eyes and rope-burn scars along both palms."},
+"chuc_minh_lo": {"app":"A lamp-soot thumb and a twitch whenever a door shuts."},
+"bao_thuy_hanh": {"app":"Cart dust in the creases of his face and rice crumbs for strays in every pocket."},
+"dao_thach_an": {"talent_add":[{"id":"unlucky","tier":1}],"add":"His chisel slips on the days that matter.","app":"Chisel nicks healed pink across the heel of his hand."},
+"bien_ha_huong": {"app":"Blister-ringed lantern-girl fingers and a scar at the wrist."},
+"nham_tung_anh": {"pers":["Ambitious","Diligent","Deceitful"],"add":"At night he moves Khuyết Lạc Vụ's mist-pegs a hand's width.","app":"A neat parting he re-combs whenever he loses."},
+"quan_da_tu": {"app":"A boar-tusk charm he rubs when someone lies to him."},
+"tap_minh_nhi": {"pers":["Greedy","Patient","Honest"],"up":"mortal_noble","add":"She waters the guards' tea and sells the leaf saved.","app":"A tea-stained corner of the lip and a bright eye for coin."}
+}

@@ -192,7 +192,7 @@
      "Paranoid"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "path": [
      "forge_scarred"
     ],
@@ -205,6 +205,8 @@
    },
    "appearance": "A heavy man with sawdust in his eyebrows and two fingers of his left hand crushed flat.",
    "backstory": "A zither-maker's son of Cầm Tượng Trấn whom Hà Thính Tùng (ha_thinh_tung) taught the canon as a boy. He went home to the workshop and was there in 1012 when the ravine wall buried half the town (V041). His father Cù Cổ Đồng (cu_co_dong) died under it. He dug the Stringless Zither out of the rubble and led the makers up to the academy's rim. He knows every zither the town made by its weight in his hands, as his father did, and he restrings the one made in 1011 for the pines every forty years.",
+   "wants": "To carve one zither that sounds as the pines' own did in 1011, and to leave a maker's son on the rim who can weigh a board by hand.",
+   "secret": "He is carving a second zither at night from storm-pine in the instrument rooms, a copy of the 1011 zither, so that the copy goes up the ravine at the next restringing and the original is buried with him; Phương Tùng Bản (phuong_tung_ban) dries the boards for it and has been told they are for a spare.",
    "ties": [
     {
      "to": "cu_co_dong",
@@ -333,6 +335,8 @@
    },
    "appearance": "A small woman who has not raised her voice in a hundred years and whose rests make other players stop.",
    "backstory": "Born on the ravine rim to two of the makers who came up after 1012 (V041), she has never been further from the academy than Tùng Phong Thôn. Hà Thính Tùng (ha_thinh_tung) chose her as heir for her silences: she can hold the Monk's Rest until a room forgets to breathe. She has played the canon to the ninth movement. She is afraid of the twelfth, and Hà has set her night for this midwinter. In the day she teaches the pine children Khương Lạc Huyền (khuong_lac_huyen) brings up the ravine.",
+   "wants": "To reach midwinter without anyone learning that she dreads the twelfth movement, and to be the heir the pines remember for her silences.",
+   "secret": "She is teaching Cát Minh Huyền (cat_minh_huyen) the last page of the twelfth movement in the dark before dawn, so someone can finish it if she falls silent; he thinks it is a tuning exercise and has not asked why the page has no title.",
    "ties": [
     {
      "to": "ha_thinh_tung",
@@ -435,7 +439,7 @@
     "personality": [
      "Arrogant",
      "Callous",
-     "Gregarious"
+     "Deceitful"
     ],
     "calling": "Teacher",
     "upbringing": "village_born",
@@ -452,7 +456,9 @@
     ]
    },
    "appearance": "A handsome old student in a scarlet sash, who still tells the envoy story at every banquet.",
-   "backstory": "A Tùng Phong Thôn boy who played under the pines in 1080 so well that Thiên Xu's envoy forgot his message (A062). He has lived on the story for 120 years, and he does not know the envoy, Bách Vong Ngôn (bach_vong_ngon), only pretended to forget. He runs the outer gate at Tùng Phong Thôn for Hà Thính Tùng (ha_thinh_tung) and has made it the one gate in the pines that takes from its lord: he pays the village midwives in millet for word of every child who hums in its sleep, and tells families who ask about the pines what became of six Root Hall men on the Cold Ford ice. This winter the Root Hall's patrol tests the same children, and he pays twice what it pays.",
+   "backstory": "A Tùng Phong Thôn boy who played under the pines in 1080 so well that Thiên Xu's envoy forgot his message (A062). He has lived on the story for 120 years, tells banquets the envoy wept at the fifth note, and will not admit that Bách Vong Ngôn (bach_vong_ngon) only pretended to forget. He runs the outer gate for Hà Thính Tùng (ha_thinh_tung), paying the village midwives in millet for word of every child who hums in its sleep, and tells worried families what became of six Root Hall men on the Cold Ford ice. This winter the Root Hall's patrol tests the same children, and he pays twice what it pays.",
+   "wants": "To be remembered in the academy's scores as the player who made an envoy forget, and to hold the village families' trust before the Root Hall's patrol does.",
+   "secret": "He is writing the envoy story into the tablature as a thirteenth movement under his own name, in Hà Thính Tùng's (ha_thinh_tung) ink style, so that after Hà dies it reads as part of the canon.",
    "ties": [
     {
      "to": "ha_thinh_tung",
@@ -559,13 +565,14 @@
     "personality": [
      "Diligent",
      "Honest",
-     "Cautious"
+     "Greedy"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born",
+    "upbringing": "sect_raised",
     "lifestyle": "tea_master"
    },
-   "backstory": "Born on the ravine rim, granddaughter of a maker who survived 1012 (V041); she twists the strings from silk and the thin malachite wire of Thạch Lục Khoáng, and is the only one Cù Đồng Mộc (cu_dong_moc) lets weigh a zither.",
+   "appearance": "Hums a half-tone flat while she counts; silk dust has turned her fingertips the colour of old ivory.",
+   "backstory": "Born on the ravine rim, granddaughter of a maker who survived 1012 (V041); she twists the strings from silk and the thin malachite wire of Thạch Lục Khoáng, and is the only one Cù Đồng Mộc (cu_dong_moc) lets weigh a zither. One length of wire in five goes to a Tùng Hạ Thị chandler, so Cù's second zither rings a hair flat.",
    "ties": [
     {
      "to": "cu_dong_moc",
@@ -639,12 +646,13 @@
     "personality": [
      "Brave",
      "Warlike",
-     "Loyal"
+     "Faithless"
     ],
     "calling": "Strategist",
     "upbringing": "merchant_child"
    },
-   "backstory": "A Tùng Hạ Thị chandler's son who plays the canon's marching movement for the Coiled Root Hall's patrols, and who thinks Hà Thính Tùng (ha_thinh_tung) wastes the academy on lullabies; this winter he sounds the ear-test phrase for the patrol at Tùng Phong Thôn, and Khương Lạc Huyền (khuong_lac_huyen) has struck him from the festival rolls for it.",
+   "appearance": "Tucks the soldier's green cord into his sleeve when Hà Thính Tùng is near.",
+   "backstory": "A Tùng Hạ Thị chandler's son who plays the canon's marching movement for the Coiled Root Hall's patrols and thinks Hà Thính Tùng (ha_thinh_tung) wastes the academy on lullabies. He sounds the ear-test phrase at Tùng Phong Thôn, and Khương Lạc Huyền (khuong_lac_huyen) has struck him from the festival rolls; he also copied the marching tablature Hà never let leave the rim for the captain Địch Kinh Lâm (dich_kinh_lam).",
    "ties": [
     {
      "to": "ha_thinh_tung",
@@ -731,7 +739,8 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "Born in the village that learned to sleep through the academy's students (A056); his lullaby is the only song Khương Lạc Huyền (khuong_lac_huyen) admits he cannot play better.",
+   "appearance": "A pillow-crease on his cheek at every hour of the day.",
+   "backstory": "Born in the village that learned to sleep through the academy's students (A056); his lullaby is the only song Khương Lạc Huyền (khuong_lac_huyen) admits he cannot play better. He has slept through two festival dawns he was to open, and his bucket of pine nuts stays empty until the others fill it.",
    "ties": [
     {
      "to": "khuong_lac_huyen",
@@ -798,12 +807,13 @@
     "personality": [
      "Ambitious",
      "Diligent",
-     "Impatient"
+     "Arbitrary"
     ],
     "calling": "Duelist",
     "upbringing": "sect_raised"
    },
-   "backstory": "Born on the rim to makers' parents; Quan Tịch Âm (quan_tich_am) is teaching her the Monk's Rest, and she keeps playing through it.",
+   "appearance": "A different coloured thread knotted into her hair each day.",
+   "backstory": "Born on the rim to makers' parents; Quan Tịch Âm (quan_tich_am) is teaching her the Monk's Rest, and she keeps playing through it. She sets the heir's practice hours by a coin flipped behind her back, and Cát Minh Huyền (cat_minh_huyen) has waited a whole morning with the zither tuned for nothing.",
    "ties": [
     {
      "to": "quan_tich_am",
@@ -875,6 +885,7 @@
     "calling": "Refiner",
     "upbringing": "village_born"
    },
+   "appearance": "Knocks on every table before he sits at it, listening for the ring.",
    "backstory": "A miner's boy of Thạch Lục Khoáng who could tell the ore by the ring of the pick; the pines would not have him, but the academy asks only for an ear, and his cousin Cổ Hôi Thiết (co_hoi_thiet) still digs below.",
    "ties": [
     {
@@ -944,12 +955,13 @@
     "personality": [
      "Stubborn",
      "Gregarious",
-     "Fickle"
+     "Deceitful"
     ],
     "calling": "Diplomat",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan"
    },
-   "backstory": "A Tùng Hoa Thôn girl who came up the ravine with a bamboo flute and refuses to give it up; Khương Lạc Huyền (khuong_lac_huyen) lets her play the canon on it to annoy the heir.",
+   "appearance": "A bamboo flute thrust through her sash; a gap where a front tooth was knocked out.",
+   "backstory": "A foundling of Tùng Hoa Thôn, raised on the porches of the village inn, who came up the ravine with a bamboo flute and refuses to give it up; Khương Lạc Huyền (khuong_lac_huyen) lets her play the canon on it to annoy the heir. She sells copied pages of the heir's scores to pilgrims on the rim as the pines' lullaby, and swears Quan Tịch Âm blessed each page.",
    "ties": [
     {
      "to": "khuong_lac_huyen",
@@ -1021,6 +1033,7 @@
     "calling": "Strategist",
     "upbringing": "village_born"
    },
+   "appearance": "Taps the quarry-hammer beat on his thigh without knowing it.",
    "backstory": "His grandparents came down to Lạc Thạch after the avalanche buried Hàn Thạch Trấn (V042), and he learned rhythm from the quarry hammers; Hàn Thanh Hưởng (han_thanh_huong) is teaching him to march.",
    "ties": [
     {
@@ -1119,7 +1132,7 @@
      "Generous"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
    "backstory": "Made the academy's zithers for eighty years, the last of them for the pines in 1011 (Vi Thanh Âm's), and died under the ravine wall the next spring (V041).",
    "ties": [

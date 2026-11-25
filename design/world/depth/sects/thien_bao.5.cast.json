@@ -28,13 +28,14 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Just",
+     "Arbitrary",
      "Paranoid"
     ],
     "calling": "Refiner",
     "upbringing": "village_born"
    },
-   "backstory": "A Xích Kim sorter's son who refines beside Viên Hồng Kim (vien_hong_kim) and renews the signing vow at every new furnace; he noticed that Khang Thiên Chùy (khang_thien_chuy) skipped it in 1199, the year the second key failed.",
+   "backstory": "A Xích Kim sorter's son who refines beside Viên Hồng Kim (vien_hong_kim) and renews the signing vow at every new furnace; he noticed that Khang Thiên Chùy (khang_thien_chuy) skipped it in 1199, the year the second key failed. He sent a whole wash of Quan Tẩy Ngọc's (quan_tay_ngoc) brook-rinsed refinings back unread because of a bad dawn, and she rinsed them again by lamplight for three nights.",
+   "appearance": "A forearm tattooed with the furnace vow, one line scratched out.",
    "ties": [
     {
      "to": "khang_thien_chuy",
@@ -113,7 +114,8 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "A Vật Hoa Thị money-changer's daughter whose hammer comes closer to the fourth price than anyone's but the mistress's; she has watched Tiền Ngũ Phân (tien_ngu_phan) lose at Kim Vạn Lý's (kim_van_ly) table and would like his floor.",
+   "backstory": "A Vật Hoa Thị money-changer's daughter whose hammer comes closer to the fourth price than anyone's but the mistress's; she has watched Tiền Ngũ Phân (tien_ngu_phan) lose at Kim Vạn Lý's (kim_van_ly) table and would like his floor. She keeps the floor boys' tips in a tin for safety, and Khổng Linh Thanh (khong_linh_thanh) has never seen it opened.",
+   "appearance": "Heavy rings on every finger but the one she weighs with.",
    "ties": [
     {
      "to": "phan_vat_hoa",
@@ -187,12 +189,13 @@
     "personality": [
      "Patient",
      "Pragmatic",
-     "Humble"
+     "Greedy"
     ],
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "A Liên Chu well-digger's girl, Lục Tiểu Tinh's (luc_tieu_tinh) neighbour, who failed the dusk test her friend passed; placed with the studio this spring, she weighs ore for the vault book and keeps a list of what she will buy when Lạc Hà's tenth ends in 1230.",
+   "backstory": "A Liên Chu well-digger's girl, Lục Tiểu Tỉnh's (luc_tieu_tinh) neighbour, who failed the dusk test her friend passed; placed with the studio this spring, she weighs ore for the vault book and keeps a list of what she will buy when Lạc Hà's tenth ends in 1230. She lends Tống Thạch Mạch (tong_thach_mach) her spare brass weights for a copper a week, and he has paid since spring.",
+   "appearance": "A string of brass weights clinking at her belt.",
    "ties": [
     {
      "to": "an_toan_chau",
@@ -264,7 +267,8 @@
     "calling": "Refiner",
     "upbringing": "village_born"
    },
-   "backstory": "Cát Kim Sa's (cat_kim_sa) cousin and the other sorter at the ash-pit; he saw Cát weigh a lump of slag in his hand and put it back, and has been looking for the same lump since.",
+   "backstory": "Cát Kim Sa's (cat_kim_sa) cousin and the other sorter at the ash-pit; he saw Cát weigh a lump of slag in his hand and put it back, and has been looking for the same lump since. Meanwhile he has told the ash-pit overseer that Cát pockets slag, and Cát has lost his noon meal for a month.",
+   "appearance": "A gold-flecked front tooth, picked up in the pit.",
    "ties": [
     {
      "to": "cat_kim_sa",
@@ -333,7 +337,8 @@
     "calling": "Merchant",
     "upbringing": "sect_raised"
    },
-   "backstory": "A studio steward's son who learned the Appraiser's Eye two years before Ngụy Minh Giám (nguy_minh_giam) and sees half as much with it; he copies Tiền Ngũ Phân's (tien_ngu_phan) lot book and has noticed which names Tiền leaves out.",
+   "backstory": "A studio steward's son who learned the Appraiser's Eye two years before Ngụy Minh Giám (nguy_minh_giam) and sees half as much with it; he copies Tiền Ngũ Phân's (tien_ngu_phan) lot book and has noticed which names Tiền leaves out. When a lot was found mis-copied he swore the error was Quan Tẩy Lan's (quan_tay_lan), who had only carried the ink, and she lost the errand and its pay.",
+   "appearance": "A collar buttoned to the chin on the hottest days.",
    "ties": [
     {
      "to": "tien_ngu_phan",
@@ -403,9 +408,10 @@
      "Gregarious"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
    "backstory": "Quan Tẩy Ngọc's (quan_tay_ngoc) younger sister, who washes the studio's refinings in the clear brook and wants, unlike her sister, to be taught the canon; she has no Metal either.",
+   "appearance": "A strand of brook weed always tangled in her hair.",
    "ties": [
     {
      "to": "quan_tay_ngoc",
@@ -467,6 +473,7 @@
     "upbringing": "village_born"
    },
    "backstory": "A Thu Tân trapper's daughter who keeps the cages when Hồ Tầm Kỳ (ho_tam_ky) travels; she fed the white bear for a winter before it was sold in 1181, and still sends its groom ice.",
+   "appearance": "Bite-scar crescents up both arms, each one named.",
    "ties": [
     {
      "to": "ho_tam_ky",

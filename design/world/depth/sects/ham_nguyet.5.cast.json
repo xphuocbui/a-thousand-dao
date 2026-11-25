@@ -33,6 +33,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "Spectacles of polished pearl-shell, through which she weighs you as she would a pearl.",
    "backstory": "A Bắc Ngạn fisher's daughter who has weighed every pearl sold at Nguyệt Tân for thirty years; she keeps the first ledger for Kha Toán Châu (kha_toan_chau) and has begun to wonder why the north beds always pay in round numbers.",
    "ties": [
     {
@@ -105,13 +106,14 @@
    "traits": {
     "personality": [
      "Devout",
-     "Calm",
+     "Arbitrary",
      "Reclusive"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
-   "backstory": "He has trimmed and filled the false moon for thirty years so that his master Mục Tiềm Uyên (muc_tiem_uyen) can light it on every dark night, and he says what his master says: the manor sells too many pearls and breeds too few fish.",
+   "appearance": "His eyebrows were singed off by the shell lamp and never fully grew back.",
+   "backstory": "He has trimmed and filled the false moon for thirty years so that his master Mục Tiềm Uyên (muc_tiem_uyen) can light it on every dark night, and he says what his master says: the manor sells too many pearls and breeds too few fish. He grants or refuses a fry's name by how the shell moon flickers, and has refused Thư Ảnh Đàm's (thu_anh_dam) grandmother's name three times.",
    "ties": [
     {
      "to": "muc_tiem_uyen",
@@ -190,13 +192,14 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Impatient",
+     "Deceitful",
      "Brave"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
-   "backstory": "He failed the Lake Hall's Wood test at fourteen and walked round the lake to his sister Mông Lộc Nhi (mong_loc_nhi); he still herds the family's reindeer half the year and dives the other half.",
+   "appearance": "Reindeer-hide hat, and a boast ready for any silence.",
+   "backstory": "He failed the Lake Hall's Wood test at fourteen and walked round the lake to his sister Mông Lộc Nhi (mong_loc_nhi); he still herds the family's reindeer half the year and dives the other half. He sells reindeer horn to pilgrims as spirit-fish bone, and when a pilgrim's child sickened Đào Nguyệt Lân (dao_nguyet_lan), whose fish it was said to come from, was blamed.",
    "ties": [
     {
      "to": "mong_loc_nhi",
@@ -264,6 +267,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
+   "appearance": "Her basket smells of brine at all hours.",
    "backstory": "A pearl broker's daughter of Nguyệt Tân who carries oyster spat in her market basket to Lã Tư Châu (la_tu_chau) for the dead beds of Cựu Châu Trấn, and has not told her master Phan Tĩnh Ba (phan_tinh_ba).",
    "ties": [
     {
@@ -333,6 +337,7 @@
     "upbringing": "village_born",
     "lifestyle": "chronicler"
    },
+   "appearance": "Speaks to the fish by their dead names, under her breath.",
    "backstory": "She knows every spirit fish by its dead name and wants the next fry named for her grandmother, a Ngư Đăng diver who drowned on a moonless night; Đàm Thiềm Đăng (dam_thiem_dang) says the manor does not name fish for the careless.",
    "ties": [
     {
@@ -401,8 +406,15 @@
      "Generous"
     ],
     "calling": "Wanderer",
-    "upbringing": "sect_raised"
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Drums his heels on every step he sits on, and does not stay sat.",
    "backstory": "He rows oysters to the shallows of Cựu Châu Trấn at night for his cousin Lã Tư Châu (la_tu_chau) because he thinks it is a game, and he has twice nearly told the outer gate.",
    "ties": [
     {
@@ -465,13 +477,14 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Brave",
+     "Cruel",
      "Impatient"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A net-maker's girl of Băng Võng who says she stays down one breath longer than Đinh Lưu Ly (dinh_luu_ly), and is sent to the south beds while Đinh dives the north ones; she has asked Lam Hàm Sương (lam_ham_suong) why.",
+   "appearance": "Announces her breath-hold times unasked; the barrel chest comes from the diving.",
+   "backstory": "A net-maker's girl of Băng Võng who says she stays down one breath longer than Đinh Lưu Ly (dinh_luu_ly), and is sent to the south beds while Đinh dives the north ones; she has asked Lam Hàm Sương (lam_ham_suong) why. She once cut Đinh Lưu Ly's air-line to see how long she would last; Đinh came up blue and told no one.",
    "ties": [
     {
      "to": "lam_ham_suong",

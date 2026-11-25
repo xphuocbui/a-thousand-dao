@@ -231,12 +231,17 @@
    "traits": {
     "personality": [
      "Patient",
-     "Humble",
+     "Deceitful",
      "Diligent"
     ],
     "calling": "Steward",
     "upbringing": "clan_heir",
-    "talent": [],
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ],
     "path": [],
     "lifestyle": null,
     "health": "waning_years",
@@ -244,8 +249,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A patient, greying man with mud to the knee, who looks older than his father.",
+   "appearance": "A patient, greying man with mud to the knee, who looks older than his father and whose cart loses a wheel on the way to every pill-broker.",
    "backstory": "The eldest son and heir of Lục Thương Lẫm (luc_thuong_lam), Lục Kế Điền has run the paddies for a hundred years and has sixty left to live unless he forms a core. His father, a Kết Đan with three centuries ahead of him, will outlive him by two hundred years. Every pill the family buys goes to the tax first and to him second. His wife Tống Thanh Miêu (tong_thanh_mieu) has started buying them for him herself.",
+   "wants": "A core before his father's grain tax eats the pill money again.",
+   "secret": "He is forging the harvest tallies, a sack a week, to hide the family's real yield from the Tower's counters and pay for a pill. Lục Mãn Thương knows the figures to the sack and has not spoken.",
    "ties": [
     {
      "to": "luc_thuong_lam",
@@ -341,7 +348,7 @@
     "personality": [
      "Ambitious",
      "Loyal",
-     "Deceitful"
+     "Honest"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child",
@@ -353,6 +360,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Pearl earrings too fine for the house. She weighs each coin on her thumb before she pays, then pays too much.",
    "backstory": "A Hạnh Hoa merchant's daughter who married the Lục heir Lục Kế Điền (luc_ke_dien), brought the family its only Metal, and buys core pills for her husband behind her father-in-law's back.",
    "ties": [
     {
@@ -419,7 +427,7 @@
    },
    "traits": {
     "personality": [
-     "Diligent",
+     "Lazy",
      "Loyal",
      "Cautious"
     ],
@@ -433,7 +441,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Lục Thương Lẫm's (luc_thuong_lam) second son, who keeps the Lục tallies beside the Tower's counters at every harvest and admires them more than his father would like.",
+   "appearance": "Tally stick behind one ear; a reverent squint at every counter.",
+   "backstory": "Lục Thương Lẫm's (luc_thuong_lam) second son, who keeps the Lục tallies beside the Tower's counters at every harvest and admires them more than his father would like. He naps through the count and lets his son Lục Mãn Thương (luc_man_thuong) sign the tallies, then blames the boy when the sacks come out short.",
    "ties": [
     {
      "to": "luc_thuong_lam",
@@ -513,6 +522,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Cracked brown hands. The dry bank's dust sits grey in his eyebrows.",
    "backstory": "Lục Kế Điền's son, who married the tenant woman Thiều Xuân Nương (thieu_xuan_nuong) against his grandfather's word and was given the far bank's paddies, the ones that stayed dry in 1171.",
    "ties": [
     {
@@ -598,7 +608,7 @@
      "Diligent"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -607,6 +617,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Grey streaks she has not tried to hide. A stare that does not blink first.",
    "backstory": "A Thiều tenant's daughter married into the landlord's house and aunt to Thiều Mộ Canh (thieu_mo_canh) and Thiều Mộ Vũ (thieu_mo_vu); she buried two of her sister's children in the dry winter of 1171 and has wondered since why only one bank of the river had rain.",
    "ties": [
     {
@@ -691,6 +702,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "A tenant's callused feet in landlord's boots a size too small.",
    "backstory": "Lục Mạch Thu's son, half tenant and half landlord, who walked his cousin Thiều Mộ Vũ (thieu_mo_vu) up to the Tower's gate when it took her and carries her letters home each season.",
    "ties": [
     {
@@ -764,7 +776,7 @@
     "personality": [
      "Ambitious",
      "Wrathful",
-     "Stubborn"
+     "Faithless"
     ],
     "calling": "Duelist",
     "upbringing": "clan_heir",
@@ -776,7 +788,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Lục Kế Điền's late daughter, who has her mother's Metal at 28 and was refused at the Tower's gate by two points in the year the tenant girl Thiều Mộ Vũ (thieu_mo_vu) was admitted on exactly 30.",
+   "appearance": "A tight mouth. Her mother's Metal-grey eyes, which she will not look at in a mirror.",
+   "backstory": "Lục Kế Điền's (luc_ke_dien) late daughter, who has her mother's Metal at 28 and was refused at the Tower's gate by two points in the year the tenant girl Thiều Mộ Vũ (thieu_mo_vu) was admitted on exactly 30. She has written to the Pavilion offering her father's forged harvest tallies for a place, which would ruin him.",
    "ties": [
     {
      "to": "luc_ke_dien",
@@ -847,7 +860,7 @@
    "traits": {
     "personality": [
      "Cautious",
-     "Greedy",
+     "Generous",
      "Calm"
     ],
     "calling": "Steward",
@@ -860,7 +873,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Lục Nhị Hòa's son and steward of the granaries, who knows to the sack how much rice the Tower's counters never see.",
+   "appearance": "Rice-flour on his fingers; a lamplight squint. Counts sacks under his breath as other men hum.",
+   "backstory": "Lục Nhị Hòa's son and steward of the granaries, who knows to the sack how much rice the Tower's counters never see and writes the far-bank tenants' short sacks off as spoilage.",
    "ties": [
     {
      "to": "luc_nhi_hoa",
@@ -1146,7 +1160,7 @@
    "traits": {
     "personality": [
      "Brave",
-     "Honest",
+     "Deceitful",
      "Wrathful"
     ],
     "calling": "Wanderer",
@@ -1161,6 +1175,8 @@
    },
    "appearance": "A weathered captain with a salt-white beard and a voice for the masthead.",
    "backstory": "Hỗ Tế Xuyên's (ho_te_xuyen) son and admiral of the Hỗ fleet, who has sailed every coast of the cape and knows which ships carry the second hold. He hates it. His grandfather Hỗ Độ Hải (ho_do_hai) was lost in a storm with ships that rode too low, and he has twice asked his father to tear the second holds out. His wife Mẫn Tú Chi (man_tu_chi) keeps the warehouses and says nothing.",
+   "wants": "To tear out the second holds before another fleet goes down.",
+   "secret": "He sails a lightened ship on the Bạch Sa run, its second hold stripped, under Hỗ Trạo Ca's name with the weight written as full, and Hỗ Yên Thủy's figures no longer match.",
    "ties": [
     {
      "to": "ho_te_xuyen",
@@ -1248,7 +1264,7 @@
      "Loyal"
     ],
     "calling": "Steward",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [],
     "path": [],
     "lifestyle": null,
@@ -1257,6 +1273,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Pine-soot in the grooves of her palms. A shawl worn indoors.",
    "backstory": "A pine-soot maker's daughter of Tùng Yên Thôn, wife of Hỗ Trường Phàm (ho_truong_pham), who runs the Hỗ warehouses and has never asked what the second holds carry.",
    "ties": [
     {
@@ -1318,7 +1335,7 @@
    },
    "traits": {
     "personality": [
-     "Lazy",
+     "Diligent",
      "Calm",
      "Gregarious"
     ],
@@ -1332,7 +1349,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Hỗ Trường Phàm's son and Hỗ Kinh Điểu's (ho_kinh_dieu) father, a poet who was meant to inherit the ledgers and gave them to his daughter when she was sixteen.",
+   "appearance": "Ink on the cuffs, a loose poet's collar, eyes that settle on the ceiling halfway through a sentence.",
+   "backstory": "Hỗ Trường Phàm's (ho_truong_pham) son and Hỗ Kinh Điểu's (ho_kinh_dieu) father, a poet who writes a poem each dawn, was meant to inherit the ledgers and gave them to his daughter when she was sixteen.",
    "ties": [
     {
      "to": "ho_truong_pham",
@@ -1436,6 +1454,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Pilot's squint; a voice made to call across a harbour.",
    "backstory": "A harbour pilot's daughter of Yên Ba and wife of Hỗ Quan Lan (ho_quan_lan), who once brought her son Hỗ Kinh Điểu (ho_kinh_dieu) home from Vân Khởi Quán and was made to take him back.",
    "ties": [
     {
@@ -1516,6 +1535,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Ink smudge under the left eye. Reads ledgers upside down across the table.",
    "backstory": "Hỗ Kinh Điểu's (ho_kinh_dieu) elder sister, who has kept the house's ledgers since she was sixteen, sends the cargo figures to Thẩm Tịnh Sa (tham_tinh_sa) each season, and has begun to wonder why they never quite match.",
    "ties": [
     {
@@ -1605,6 +1625,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Barrel chest. His laugh clacks like a rowlock.",
    "backstory": "A grandson of Hỗ Tế Xuyên (ho_te_xuyen) by a younger son lost at sea, who captains the Bạch Sa run and sings the oar songs of the white sands, where his great-grandmother's Thẩm kin still live.",
    "ties": [
     {
@@ -1671,7 +1692,12 @@
     ],
     "calling": "Diplomat",
     "upbringing": "merchant_child",
-    "talent": [],
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ],
     "path": [],
     "lifestyle": null,
     "health": null,
@@ -1679,6 +1705,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Sixteen, plain as a post: long nose, a chin scar from a school bench. She stands very straight, as if someone might stop looking.",
    "backstory": "Hỗ Kinh Điểu's (ho_kinh_dieu) younger sister, sixteen, who wants the place at Vân Khởi Quán's school that her brother keeps running away from.",
    "ties": [
     {
@@ -1782,7 +1809,7 @@
    "tier": "C",
    "traits": {
     "personality": [
-     "Greedy",
+     "Generous",
      "Gregarious",
      "Diligent"
     ],
@@ -1985,7 +2012,7 @@
    "traits": {
     "personality": [
      "Pragmatic",
-     "Cautious",
+     "Faithless",
      "Deceitful"
     ],
     "calling": "Merchant",
@@ -2000,6 +2027,8 @@
    },
    "appearance": "A soft, round man in good brocade who never raises his voice and never lowers his price first.",
    "backstory": "Đới Tàm Nương's (doi_tam_nuong) son keeps the house's table at the Tang Điền market and has haggled with the palace's factor Chiêm Lợi Châu (chiem_loi_chau) every season for forty years. He thinks his mother's war with the palace will cost the house everything, and each year he sells the factor a little more than she knows. He married a mulberry picker's daughter, Long Tang Chi (long_tang_chi), and the pickers trust the Đới because of it.",
+   "wants": "A peace with the palace before his mother's war eats the house.",
+   "secret": "He sells Chiêm Lợi Châu one red cocoon a week from the cellar stock, to learn what the palace would pay. Đới Thu Kiển, the only other who has been in the cellar, has counted the shelves.",
    "ties": [
     {
      "to": "doi_tam_nuong",
@@ -2102,7 +2131,7 @@
    "traits": {
     "personality": [
      "Generous",
-     "Calm",
+     "Arbitrary",
      "Honest"
     ],
     "calling": "Herbalist",
@@ -2115,7 +2144,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "A mulberry picker's daughter who married into the Đới and keeps the pickers' tallies; Long Chước Sinh (long_chuoc_sinh), who has sat five sittings at the vents, is her brother's grandson.",
+   "appearance": "Mulberry-green stain on her hem; knuckles swollen like walnuts.",
+   "backstory": "A mulberry picker's daughter who married into the Đới and keeps the pickers' tallies, crediting or docking a bundle by the day's mood; she docked a widow's bundle to nothing for a sour word. Long Chước Sinh (long_chuoc_sinh), who has sat five sittings at the vents, is her brother's grandson.",
    "ties": [
     {
      "to": "doi_hau_cam",
@@ -2195,6 +2225,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Her fingers never stop moving, as if reeling thread from the air.",
    "backstory": "Đới Hậu Cẩm's daughter and the house's best reeler after her grandmother Đới Tàm Nương (doi_tam_nuong), whose husband took the Đới name; she is the only other person who has been in the cellar.",
    "ties": [
     {
@@ -2279,6 +2310,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Practises a soldier's moustache. A spear blister on each palm.",
    "backstory": "Đới Hậu Cẩm's son, who wants to ride in his great-uncle Đới Liệt Cương's (doi_liet_cuong) levy on the Fire Court road and has been told by his grandmother that one is enough.",
    "ties": [
     {
@@ -2342,7 +2374,7 @@
     "personality": [
      "Gregarious",
      "Trusting",
-     "Fickle"
+     "Faithless"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child",
@@ -2354,7 +2386,8 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Đới Hậu Cẩm's youngest, who carries the house's samples up to Chức Hà Các and has fallen in with its weavers; Thân Vân Cẩm (than_van_cam) lets her watch the loom.",
+   "appearance": "Silk-thread bracelets on both wrists, each from a different weaver.",
+   "backstory": "Đới Hậu Cẩm's youngest, who carries the house's samples up to Chức Hà Các and has fallen in with its weavers; Thân Vân Cẩm (than_van_cam) lets her watch the loom. She has begun to leave samples behind at the weavers' door, and when two went missing from the shed she let the shed boy take the blame from her grandmother.",
    "ties": [
     {
      "to": "doi_hau_cam",
@@ -2429,6 +2462,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Ducks at every doorway, even those he fits. A frown line is carved between his brows.",
    "backstory": "Đới Liệt Cương's (doi_liet_cuong) son, left at the silk house as a boy when his father went to the vents and raised by his aunt; he keeps the reeling sheds and does not go out to watch the levy ride past.",
    "ties": [
     {
@@ -2509,6 +2543,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Smells of boiled cocoons. Her hands are warm even in winter.",
    "backstory": "Đới Sơ Cương's daughter, who breeds red-cocoon worms on racks warmed by a vent stone and visits her grandfather Đới Liệt Cương (doi_liet_cuong) at the levy's camp when her father is not looking.",
    "ties": [
     {
@@ -2576,7 +2611,12 @@
     ],
     "calling": "Refiner",
     "upbringing": "merchant_child",
-    "talent": [],
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 1
+     }
+    ],
     "path": [],
     "lifestyle": null,
     "health": null,
@@ -2584,6 +2624,7 @@
     "fate_given": [],
     "gained": []
    },
+   "appearance": "Pale, thin, winded by a flight of steps; careful hands, as of a boy who has just reeled his first thread.",
    "backstory": "Đới Thu Kiển's (doi_thu_kien) son, sixteen, who has just reeled his first unbroken thread on the house breath and been let into the reeling shed.",
    "ties": [
     {

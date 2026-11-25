@@ -356,6 +356,8 @@
    },
    "appearance": "A square grey man with a jade-cutter's forearms who teaches letters with a stick and never uses it.",
    "backstory": "Born on Thúy Vi's ridge into the jade-cutters' family that served the sect, the family Cù Thúy Bách (cu_thuy_bach) came from. At twelve his Wood was too thin for the gate. Cù walked him up to the abbey herself. He has been prior since 1019, when Mâu Hành Đáo (mau_hanh_dao) died in the avalanche, and he runs the school that takes the ridge's turned-away children. He thinks the yearly reading puts the abbey at Thúy Vi's mercy.",
+   "wants": "To end the yearly reading before it puts the abbey wholly at Thúy Vi's mercy.",
+   "secret": "For a year he has covered the abbey's missing jars of lamp oil out of his own allowance, not knowing where they go, to spare Hàn Thanh Đài (han_thanh_dai) the blame.",
    "ties": [
     {
      "to": "mau_hanh_dao",
@@ -498,6 +500,8 @@
    },
    "appearance": "A pale woman who holds every stone up to the light before she speaks to the person who brought it.",
    "backstory": "A pine-village girl from Tùng Yên Thôn who came up to the abbey in 1022 and never went down. She cut the last clear pane of mica from Vân Mẫu Khoáng in 1080, the year the abbot said clouds also pass (A046), and made it into the mirror every seal is stamped through. She counts every pane. She trades seal-work with Thúy Vi's mica-grinder Tuân Vân Mẫu (tuan_van_mau) and will not say how much clear mica is left.",
+   "wants": "To keep the last clear mica hidden until the abbot dies.",
+   "secret": "She is selling the small clear panes to Tuân Vân Mẫu (tuan_van_mau) for Thúy Vi silver and writing them into the ledger as spoiled.",
    "ties": [
     {
      "to": "tong_toa_van",
@@ -625,6 +629,8 @@
    },
    "appearance": "A broad, quiet man who smells of lime and always has a white pebble in his hand.",
    "backstory": "A lime-burner's son from Thiêu Hôi Thôn, the village Quyền Thanh Lam (quyen_thanh_lam) came from, who spent thirty years in Thúy Vi's outer gate on his Earth. In 1150 Phạm Thủ Điền (pham_thu_dien) told him, kindly, that the inner gate would not open, and he walked up to the abbey the next spring. He reached Trúc Cơ there in 1176. Now he walks the novices up the hill streams each morning, and once a year leads them the five days (some 80 km) to the water's end at Thủy Cùng Phong. He writes every year to the Earth-rooted girl in Thúy Vi's outer gate, Mễ Điền Nhi (me_dien_nhi), to say the door here is open.",
+   "wants": "To see one of his turned-away novices sit as long as the abbot's master did.",
+   "secret": "For every novice he walks to the water's end he sets a white pebble on a cairn off the path, and the cairn now stands taller than he does.",
    "ties": [
     {
      "to": "kha_thuy_cung",
@@ -719,13 +725,14 @@
     "personality": [
      "Gregarious",
      "Patient",
-     "Just"
+     "Arbitrary"
     ],
     "calling": "Teacher",
     "upbringing": "scholar_family",
     "lifestyle": "calligrapher"
    },
-   "backstory": "She teaches the children of Bách Diệp Trấn their letters under the cypress groves Không Sơn planted as a lesson in patience (A034), and sends the stillest of them up the mountain.",
+   "appearance": "Chalk-white cuffs; she taps the desk twice before she speaks.",
+   "backstory": "She teaches the children of Bách Diệp Trấn their letters under the cypress groves Không Sơn planted as a lesson in patience (A034), and sends the stillest of them up the mountain. She sends up whichever child pleased her that week; Mai Ngữ Yến's (mai_ngu_yen) desk-mate, a stiller girl, has waited a year.",
    "ties": [
     {
      "to": "kha_thuy_cung",
@@ -811,11 +818,12 @@
      "Temperate"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "hermit_taught",
     "path": [],
     "lifestyle": "qin_player"
    },
-   "backstory": "An inkstone-cutter's son who has sat alone on Độc Tọa Phong for seventy years; travellers on the pass hear his qin on still nights, and Tống Tọa Vân (tong_toa_van) climbs up once a decade to listen.",
+   "appearance": "Long yellow nail on the plucking thumb; eyes that look through whoever stands in front of him.",
+   "backstory": "An inkstone-cutter's son taught by Tống Tọa Vân (tong_toa_van), he has sat alone on Độc Tọa Phong for seventy years; travellers on the pass hear his qin on still nights, and Tống Tọa Vân (tong_toa_van) climbs up once a decade to listen.",
    "ties": [
     {
      "to": "tong_toa_van",
@@ -877,13 +885,14 @@
    "traits": {
     "personality": [
      "Impatient",
-     "Gregarious",
+     "Deceitful",
      "Indulgent"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "A son of the Yên Ba merchant house a Thẩm daughter married into in 1040 (A029), sent up to be made calm; he has not been, and he writes to his cousin Thẩm Tịnh Sa (tham_tinh_sa) at Thúy Vi's port house to get him out.",
+   "appearance": "Round cheeks sticky with sweets; a tailor-made robe let out at the waist.",
+   "backstory": "A son of the Yên Ba merchant house a Thẩm daughter married into in 1040 (A029), sent up to be made calm; he has not been, and he writes to his cousin Thẩm Tịnh Sa (tham_tinh_sa) at Thúy Vi's port house to get him out. He forged a certificate of calm in Trang Thanh Tuyền's (trang_thanh_tuyen) hand for his father, and she was reproved for it.",
    "ties": [
     {
      "to": "trang_thanh_tuyen",
@@ -979,9 +988,10 @@
      "Content"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "From Thu Diệp Thôn, whose red leaves are sold as scripture bookmarks (A047); she sells them at Lam Yên Thị to keep the abbey in lamp oil, and was taught her letters by Trang Thanh Tuyền (trang_thanh_tuyen).",
+   "appearance": "Pocket of red leaves that rustles when she runs; toe-bandage under one sandal.",
+   "backstory": "A bookmark-seller's daughter from Thu Diệp Thôn, whose red leaves are sold as scripture bookmarks (A047); she sells them at Lam Yên Thị to keep the abbey in lamp oil, and was taught her letters by Trang Thanh Tuyền (trang_thanh_tuyen).",
    "ties": [
     {
      "to": "trang_thanh_tuyen",
@@ -1047,8 +1057,15 @@
      "Paranoid"
     ],
     "calling": "Refiner",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Mica glitter in his lashes; every lamp he lights gutters, every rope he trusts frays.",
    "backstory": "A miner's son of Vân Mẫu Khoáng and the nephew of Thúy Vi's mica-grinder Tuân Vân Mẫu (tuan_van_mau); he digs for clear mica in a vein everyone says is spent, and thinks he has found a new seam.",
    "ties": [
     {
@@ -1124,6 +1141,7 @@
     "calling": "Steward",
     "upbringing": "servant_born"
    },
+   "appearance": "Wide cook's forearm burn-scarred in a ladder of pale marks.",
    "backstory": "Nephew of the Cliff Hall's cook Đinh Lão Hòe (dinh_lao_hoe), born on Thúy Vi's ridge with a Metal root; he came up to the abbey at twelve and cooks millet for it as his uncle cooks for Cù.",
    "ties": [
     {
@@ -1197,9 +1215,10 @@
      "Trusting"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
-   "backstory": "A Tùng Yên Thôn girl who walked up Thủy Cùng Phong beside Thường Độc Hoạt (thuong_doc_hoat) on her first long walk and has guessed where the Reader goes once a year.",
+   "appearance": "Knees permanently scabbed; a braid cut short with a kitchen knife.",
+   "backstory": "A half-wild Tùng Yên Thôn girl who walked up Thủy Cùng Phong beside Thường Độc Hoạt (thuong_doc_hoat) on her first long walk and has guessed where the Reader goes once a year.",
    "ties": [
     {
      "to": "van_nhan_huong",
@@ -1259,12 +1278,13 @@
      "Diligent"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born",
+    "upbringing": "scholar_family",
     "gained": [
      "Renowned"
     ]
    },
-   "backstory": "Born in Vân Gian Trấn, the town among the clouds, and Tống Tọa Vân's (tong_toa_van) first disciple. She wrote down the novices' walk in 830 and ran the abbey for him for three centuries. In the winter of 1019 the avalanche buried her birthplace's upper street. She came down and dug for six days beside a nineteen-year-old Thúy Vi boy, Nhạc Chính Hành (nhac_chinh_hanh), whose family was under it, and the second slide took her (V031).",
+   "appearance": "Remembered as a tall woman, nose forever sunburnt, braid the grey of cloud.",
+   "backstory": "Born to a Vân Gian Trấn schoolteacher in the town among the clouds, and Tống Tọa Vân's (tong_toa_van) first disciple. She wrote down the novices' walk in 830 and ran the abbey for him for three centuries. In the winter of 1019 the avalanche buried her birthplace's upper street. She came down and dug for six days beside a nineteen-year-old Thúy Vi boy, Nhạc Chính Hành (nhac_chinh_hanh), whose family was under it, and the second slide took her (V031).",
    "ties": [
     {
      "to": "tong_toa_van",
@@ -1309,6 +1329,7 @@
     "calling": "Teacher",
     "upbringing": "temple_raised"
    },
+   "appearance": "Remembered as a bent old man who carried a dry gourd everywhere.",
    "backstory": "When the spring of Bão Nhất Quán dried in 488 he went down to Không Sơn Viện as a guest (V022), and spent his last years teaching the abbey Rule to Tống Tọa Vân (tong_toa_van).",
    "ties": [
     {

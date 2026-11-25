@@ -28,12 +28,13 @@
     "personality": [
      "Loyal",
      "Stubborn",
-     "Brave"
+     "Greedy"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "A miner's widow from Ngân Lũ Khoáng who took the grey robe after the shaft fall of 1158, she walks the mine road for Hướng Thiết Lan (huong_thiet_lan) and would follow the prioress Mạnh Tĩnh Chi (manh_tinh_chi) into any quarrel.",
+   "appearance": "Notched left ear, a shaft-fall scar; she knocks twice on any wall before leaning on it.",
+   "backstory": "A miner's widow from Ngân Lũ Khoáng who took the grey robe after the shaft fall of 1158, she walks the mine road for Hướng Thiết Lan (huong_thiet_lan) and would follow the prioress Mạnh Tĩnh Chi (manh_tinh_chi) into any quarrel. She hoards the sisters' candle ends and blankets in a hole by the mine road, and Khâu Ngân Linh (khau_ngan_linh) slept the winter without one.",
    "ties": [
     {
      "to": "manh_tinh_chi",
@@ -102,12 +103,13 @@
     "personality": [
      "Devout",
      "Calm",
-     "Brave"
+     "Arbitrary"
     ],
     "calling": "Teacher",
     "upbringing": "temple_raised"
    },
-   "backstory": "She lays the dead in the glacier facing Chúc Long Sơn. She has told the abbess she will walk to the seal in 1202 if Ứng Lê Âm (ung_le_am) is judged too young, and Mạnh Tĩnh Chi (manh_tinh_chi) has not forgiven her the offer.",
+   "appearance": "Two fingertips lost to frostbite on the left hand; she smells of cold lamp oil.",
+   "backstory": "She lays the dead in the glacier facing Chúc Long Sơn. She has told the abbess she will walk to the seal in 1202 if Ứng Lê Âm (ung_le_am) is judged too young, and Mạnh Tĩnh Chi (manh_tinh_chi) has not forgiven her the offer. She draws pebbles for the glacier berths and keeps the black one in her sleeve; Khương Thạch Lựu's (khuong_thach_luu) father went to the common pit.",
    "ties": [
     {
      "to": "thai_le_tuyet",
@@ -180,12 +182,13 @@
     "personality": [
      "Ambitious",
      "Impatient",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Her mother hauled jade out of Hàn Ngọc Khoáng beside Diệp Quang Nhi's (diep_quang_nhi) mother. She climbs toward the summit whenever she is let, hoping Ice will wake in her the way Light woke in her friend.",
+   "appearance": "Jade-green grit under every fingernail; her laugh arrives a breath late.",
+   "backstory": "Her mother hauled jade out of Hàn Ngọc Khoáng beside Diệp Quang Nhi's (diep_quang_nhi) mother. She climbs toward the summit whenever she is let, hoping Ice will wake in her the way Light woke in her friend. She tells the sisters she has a cough and slips above the gate, and when a footprint turned up in the snow she let Diệp Quang Nhi (diep_quang_nhi) take the kneeling.",
    "ties": [
     {
      "to": "huong_thiet_lan",
@@ -252,9 +255,10 @@
      "Humble"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
-   "backstory": "Ice woke in her on the glacier in 1196 and she was given the white robe that night. Giản Tố Y (gian_to_y) set her to copying the book of the dead, and she has begun adding the Silver Thread miners by name, which the book never did.",
+   "appearance": "Lips stained black from licking the brush; the new white robe is still stiff at the folds.",
+   "backstory": "A Hòe Âm scribe's daughter, she was taught her letters before Ice woke in her on the glacier in 1196 and she was given the white robe that night. Giản Tố Y (gian_to_y) set her to copying the book of the dead, and she has begun adding the Silver Thread miners by name, which the book never did.",
    "ties": [
     {
      "to": "gian_to_y",
@@ -322,6 +326,7 @@
     "calling": "Diplomat",
     "upbringing": "clan_heir"
    },
+   "appearance": "Clan-green ribbon sewn inside her sleeve where the grey cannot show it.",
    "backstory": "Sent up from Hòe Âm in 1199 after her cousin Tiêu Ngọc Hòe (tieu_ngoc_hoe), she carries letters down the mine road to Tiêu Hòe Sinh (tieu_hoe_sinh) at the Tầm Kiếm lodge. The prioress opens the bag at the gate before she leaves with it, and Tiêu Ngọc Khê thinks that is the rule.",
    "ties": [
     {
@@ -388,13 +393,14 @@
    "traits": {
     "personality": [
      "Wrathful",
-     "Brave",
+     "Callous",
      "Diligent"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Her father was lost in a shaft of Hàn Kim Quật and his name is in the book of the dead. She wants a sword more than a robe, and spars with Khâu Ngân Linh (khau_ngan_linh) at the gate every dawn.",
+   "appearance": "Whetstone sparks have nicked her forearms white; one front tooth is chipped on a sword hilt.",
+   "backstory": "Her father was lost in a shaft of Hàn Kim Quật and his name is in the book of the dead. She wants a sword more than a robe, and spars with Khâu Ngân Linh (khau_ngan_linh) at the gate every dawn. When Khâu Ngân Linh's (khau_ngan_linh) hand caught in the grindstone she finished the blade before she let go of the wheel.",
    "ties": [
     {
      "to": "dinh_ngan_cau",
@@ -461,9 +467,10 @@
      "Impatient"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "Úc Hàn Chân (uc_han_chan) takes her on the mine visits, and she has learned to set a crushed hand. She would rather stay below with the miners than ring the bell, and has said so aloud once.",
+   "appearance": "Bright chilblains on both ears; the satchel rattles with glass phials.",
+   "backstory": "A herb-dealer's daughter from the valley market, she goes on the mine visits with Úc Hàn Chân (uc_han_chan), and she has learned to set a crushed hand. She would rather stay below with the miners than ring the bell, and has said so aloud once.",
    "ties": [
     {
      "to": "uc_han_chan",

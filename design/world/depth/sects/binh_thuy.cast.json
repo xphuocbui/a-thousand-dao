@@ -352,7 +352,7 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Calm",
+     "Deceitful",
      "Loyal"
     ],
     "calling": "Steward",
@@ -364,7 +364,9 @@
     ]
    },
    "appearance": "A square, silent man with tar under his nails, who carries the stern lamp ashore every night like a lantern for a funeral.",
-   "backstory": "A Wave Rock fisher's son who learned to sail off Lãng Thạch's harbour, where the Cô Phàm charts were found (A154). Bùi Phiêu Bình (bui_phieu_binh) took him onto the ferry at fourteen and gave him the crossing in 1170. He has not missed a day in thirty years, including the storm day in 1187 when the news of Tôn Viễn Hàng's (ton_vien_hang) boat came in and he took the ferry out anyway. Kiều Vọng Hải has not spoken to him since.",
+   "backstory": "A Wave Rock fisher's son who learned to sail off Lãng Thạch's harbour, where the Cô Phàm charts were found (A154). Bùi Phiêu Bình (bui_phieu_binh) took him onto the ferry at fourteen and gave him the crossing in 1170. He has not missed a day in thirty years, including the storm day in 1187 when the news of Tôn Viễn Hàng's (ton_vien_hang) boat came in and he took the ferry out anyway. Kiều Vọng Hải has not spoken to him since. On the night crossing he plays a weighted die against strangers, and they never come back to ask.",
+   "wants": "To die at the stern lamp on a crossing, with no day missed in the log.",
+   "secret": "He wins his tea money off night passengers with a weighted die cut by Hầu Bách Chu from a keel off-cut, and Ba Lãng Nhi has begun to count the odds.",
    "ties": [
     {
      "to": "bui_phieu_binh",
@@ -478,7 +480,7 @@
     "personality": [
      "Vengeful",
      "Brave",
-     "Just"
+     "Arbitrary"
     ],
     "calling": "Merchant",
     "upbringing": "village_born",
@@ -490,7 +492,9 @@
     ]
    },
    "appearance": "A tall mangrove woman with a burnt-dark face who still wears her husband's oilskin, cut down to fit.",
-   "backstory": "A mangrove girl from Hồng Thụ Thôn and Lương Bạch Tần's (luong_bach_tan) inner disciple, she married the captain Tôn Viễn Hàng (ton_vien_hang) in 1170. In 1187 he took the second of the boats Lận Viễn Phàm (lan_vien_pham) paid for out past the charts to look for Cô Phàm's fleet, and did not come back (N-binh_thuy-06). Lận had taken his own disciple off that boat at the quay. Kiều has not forgiven him for it, or Bùi for lending the crew, and she sails the coast traders to every harbour that might have heard something.",
+   "backstory": "A mangrove girl from Hồng Thụ Thôn and Lương Bạch Tần's (luong_bach_tan) inner disciple, she married the captain Tôn Viễn Hàng (ton_vien_hang) in 1170. In 1187 he took the second of the boats Lận Viễn Phàm (lan_vien_pham) paid for out past the charts to look for Cô Phàm's fleet, and did not come back (N-binh_thuy-06). Lận had taken his own disciple off that boat at the quay. Kiều has not forgiven him for it, or Bùi for lending the crew, and she sails the coast traders to every harbour that might have heard something. She has refused a cargo, a crew and one wedding party on the strength of a face that reminded her of Lận.",
+   "wants": "To learn where Tôn Viễn Hàng's boat went down, and to see Lận Viễn Phàm answer for the lending.",
+   "secret": "She is paying a Lãng Thạch scrivener from the coast traders' shell till to copy Lận Viễn Phàm's own charts, and the till is short; Lãnh Triều Âm, who keeps it, has not yet said.",
    "ties": [
     {
      "to": "luong_bach_tan",
@@ -619,6 +623,8 @@
    },
    "appearance": "A stooped cane-raft man with sawdust in his eyebrows and three fingers on his left hand.",
    "backstory": "A Phù Can Thôn boy who poled cane rafts before he could swim, he came to the ferry in 1088 and has built every hull the sect has floated since, from agarwood out of Kỳ Nam Lâm. Lận Viễn Phàm (lan_vien_pham) paid him for two deep-water boats; neither came back. He says the hulls were sound. He has built a third on his own time, and has told no one who it is for.",
+   "wants": "One hull of his reaching the far shore and coming home with its paint dry.",
+   "secret": "He is carving the third boat's figurehead in the likeness of his dead wife, behind a tarred sail, and tells the yard it is a gull.",
    "ties": [
     {
      "to": "bui_phieu_binh",
@@ -715,13 +721,14 @@
    "traits": {
     "personality": [
      "Honest",
-     "Gregarious",
+     "Greedy",
      "Patient"
     ],
     "calling": "Steward",
     "upbringing": "merchant_child"
    },
-   "backstory": "A Bối Sa shell-trader's girl who taught herself sums on shell coin (A144); she takes every fare and writes every newcomer's home in the Book of Meetings, and Lương Bạch Tần (luong_bach_tan) taught her to read the tide tables.",
+   "backstory": "A Bối Sa shell-trader's girl who taught herself sums on shell coin (A144); she takes every fare and writes every newcomer's home in the Book of Meetings, and Lương Bạch Tần (luong_bach_tan) taught her to read the tide tables. She keeps the shells of strangers who die without kin in a book of her own, and the shells of Ba Lãng Nhi's (ba_lang_nhi) drowned uncle never reached his family.",
+   "appearance": "Taps coins on her teeth while she counts.",
    "ties": [
     {
      "to": "luong_bach_tan",
@@ -819,6 +826,8 @@
    },
    "appearance": "A small, sea-burnt girl of eighteen with pale eyes and a whale's tooth on a cord.",
    "backstory": "In 1190 a whale stranded on Tình Sa lived three days, and the island gave it back to the sea (A157). On the third day the villagers found a girl of about eight asleep against its side, speaking no tongue anyone knew. Bùi Phiêu Bình (bui_phieu_binh) took her, called her the whale-child and found Wind in her like his own. She now speaks like a Tương Phùng market girl and wants to sail the way the whale came. This spring she reached the close of the canon's third layer, and the tide has stopped coming.",
+   "wants": "To sail the way the whale came, and to learn what her first words were.",
+   "secret": "Every night she dives off Tình Sa to listen at the whale's grave for the tongue she lost, and has begun to understand a few words.",
    "ties": [
     {
      "to": "bui_phieu_binh",
@@ -910,9 +919,16 @@
      "Content"
     ],
     "calling": "Wanderer",
-    "upbringing": "sect_raised"
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
    "backstory": "Ông Tế Độ's (ong_te_do) son, who has crossed the strait six thousand times and would like, once, to go somewhere else.",
+   "appearance": "A rope-burn ring round one wrist, won by a bad bet.",
    "ties": [
     {
      "to": "ong_te_do",
@@ -974,13 +990,14 @@
    "traits": {
     "personality": [
      "Stubborn",
-     "Brave",
+     "Cruel",
      "Diligent"
     ],
     "calling": "Refiner",
     "upbringing": "sect_raised"
    },
-   "backstory": "She was four when her father Tôn Viễn Hàng (ton_vien_hang) sailed past the charts; she has learned the adze from Hầu Bách Chu (hau_bach_chu) so that she can finish the third boat herself.",
+   "backstory": "She was four when her father Tôn Viễn Hàng (ton_vien_hang) sailed past the charts; she has learned the adze from Hầu Bách Chu (hau_bach_chu) so that she can finish the third boat herself. She held Uông Tầm Phàm's (uong_tam_pham) hand in the hot tar for leaning on the third hull.",
+   "appearance": "A tarred apron stiff as bark, and an adze scar through one eyebrow.",
    "ties": [
     {
      "to": "kieu_vong_hai",
@@ -1066,12 +1083,19 @@
     "personality": [
      "Humble",
      "Patient",
-     "Cautious"
+     "Faithless"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "A Hoa Khê boy who failed Lạc Hà's dusk test three times; his old teacher Ngạc Viễn Sơn (ngac_vien_son) wrote to the ferry for him, and Lạc Hà takes a tenth of his pay for thirty years.",
+   "backstory": "A Hoa Khê boy who failed Lạc Hà's dusk test three times; his old teacher Ngạc Viễn Sơn (ngac_vien_son) wrote to the ferry for him, and Lạc Hà takes a tenth of his pay for thirty years. He sends the ferry's passenger lists to Lạc Hà's outer gate for a lower tithe, and Ba Lãng Nhi (ba_lang_nhi) was docked a month's pay for a leak she never made.",
+   "appearance": "Mouths every number of the passenger tally to himself, and is still wrong.",
    "ties": [
     {
      "to": "ngac_vien_son",
@@ -1137,9 +1161,10 @@
      "Generous"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "war_orphan"
    },
-   "backstory": "A Phù Can Thôn raft girl and Hầu Bách Chu's (hau_bach_chu) second apprentice, who sings in the old island tongue while she poles and does not know what the words mean.",
+   "backstory": "A Phù Can Thôn raft girl and Hầu Bách Chu's (hau_bach_chu) second apprentice, who sings in the old island tongue while she poles and does not know what the words mean. Her grandmother raised her after the war and cried at the songs.",
+   "appearance": "Bare feet stained green from raft moss.",
    "ties": [
     {
      "to": "hau_bach_chu",

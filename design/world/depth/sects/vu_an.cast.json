@@ -210,7 +210,7 @@
     "personality": [
      "Brave",
      "Loyal",
-     "Wrathful"
+     "Cruel"
     ],
     "calling": "Duelist",
     "upbringing": "street_orphan",
@@ -230,7 +230,9 @@
     ]
    },
    "appearance": "A heavy, scarred man with a lynx-bone axe and a laugh that carries further than the mist he lays.",
-   "backstory": "The fifth son of nobody, raised in the robbers' camp on the Ridge of the Bobtails. In 1081 a Thúy Vi road patrol ran him down on the Thạch Công road, and the founder Hàm Thủ Lộ (ham_thu_lo) hid him in mist and did not ask why (N-vu_an-02). He has guarded the road ever since. He formed his core in 1170, which puts him above his head in realm, and in thirty years nobody has asked him to lead the sect; a robber can guard a road, the cape says, but not own one. In 1190 his old band killed his friend Bối Trường Đình (boi_truong_dinh) on the Đồng Sơn road.",
+   "backstory": "The fifth son of nobody, raised in the robbers' camp on the Ridge of the Bobtails. In 1081 a Thúy Vi road patrol ran him down on the Thạch Công road, and the founder Hàm Thủ Lộ (ham_thu_lo) hid him in mist and did not ask why (N-vu_an-02). He has guarded the road ever since. He formed his core in 1170, which puts him above his head in realm, and in thirty years nobody has asked him to lead the sect; a robber can guard a road, the cape says, but not own one. In 1190 his old band killed his friend Bối Trường Đình (boi_truong_dinh) on the Đồng Sơn road. Any robber he catches on the road he hangs by the boots from the nearest milestone and leaves for the carters to see.",
+   "wants": "To die with his axe on a road he has made safe, and to see the boy he carried out of the caravan grow past his vengeance.",
+   "secret": "At night he is learning his letters from a child's primer borrowed from Tập Mính Nhi, and tells the camp he is checking the tally.",
    "ties": [
     {
      "to": "ham_thu_lo",
@@ -383,6 +385,8 @@
    },
    "appearance": "A tall woman with ink-stained fingers who carries a green-paned lantern and looks at every stranger twice.",
    "backstory": "Hàm Thủ Lộ's (ham_thu_lo) daughter, born at the seat. She was forty-six when he walked into the mist by Đồng Sơn Trấn and was not found (N-vu_an-03), and for fifty-two years she believed Thúy Vi's Hall of Rules had taken the art back and her father with it. In 1198 the frost cracked the gate's threshold and her son found the bones under it: her father had died of age in Bàng Yên Tỏa's arms and asked to lie there. She has not spoken to Bàng since. She keeps every crossroads lantern on the cape lit, and still keeps her ledger of everyone who has called the Haze Walk stolen. She wants the founder's lantern from Bàng.",
+   "wants": "The founder's lantern out of Bàng Yên Tỏa's hands, and her father's name cleared of the theft.",
+   "secret": "She is teaching Hàm Tiểu Vụ the first steps of the Haze Walk in the lantern cellar, which the founder's oath reserved to the head, and Tất Hành Vụ lets it pass.",
    "ties": [
     {
      "to": "ham_thu_lo",
@@ -505,7 +509,8 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "A carter's son from Yên Ba Thành who holds the mist over the port road for Diêm Hải Tảo's (diem_hai_tao) pill carts, and for silver over carts that are not hers, which he leaves off his tally. Bao Thủy Hành counts more carts than he does.",
+   "backstory": "A carter's son from Yên Ba Thành who holds the mist over the port road for Diêm Hải Tảo's (diem_hai_tao) pill carts, and for silver over carts that are not hers, which he leaves off his tally; the missing fees are charged to Bao Thủy Hành (bao_thuy_hanh), whose count is longer than his.",
+   "appearance": "Shows a silver tooth whenever he lies.",
    "ties": [
     {
      "to": "trieu_ngu_lang",
@@ -617,6 +622,8 @@
    },
    "appearance": "A neat woman in an undyed robe who smiles at everyone and remembers what they say.",
    "backstory": "Born in Phù Kiều Trấn, the river town the founder and Tất Hành Vụ (tat_hanh_vu) both came from. In 1192 her brother's gambling debts in Hàn Tân Thành were bought by an agent of Tùng Đào's first elder, Hồ Tùng Nguyệt (ho_tung_nguyet). The price of the debt is the Mist-Lock Lantern's key, the turning that lights any lantern on the cape, so that Tùng Đào's carts can lay the mist themselves. Each spring she holds the lantern while Bàng Yên Tỏa relays the gate's array, and she has learned two of its three turnings.",
+   "wants": "To pay off her brother's debts and be a mist-layer who answers to no one.",
+   "secret": "She has two of the lantern's three turnings and is copying the third off Bàng Yên Tỏa's hands each spring while she holds the lantern; Hồ Tùng Nguyệt's agent comes for it at the autumn fair.",
    "ties": [
     {
      "to": "trieu_ngu_lang",
@@ -726,9 +733,16 @@
      "Fickle"
     ],
     "calling": "Wanderer",
-    "upbringing": "sect_raised"
+    "upbringing": "sect_raised",
+    "talent": [
+     {
+      "id": "frail_frame",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "Hàm Thanh Đăng's (ham_thanh_dang) son, who trims the crossroads lanterns. In 1198 he found bone under the cracked threshold stone of the seat's gate where he used to play, and it was his grandfather.",
+   "backstory": "Hàm Thanh Đăng's (ham_thanh_dang) son, who trims the crossroads lanterns. In 1198 he found bone under the cracked threshold stone of the seat's gate where he used to play, and it was his grandfather. He coughs in the lantern smoke.",
+   "appearance": "Lamp soot ringed round his eyes like a badger's.",
    "ties": [
     {
      "to": "ham_thanh_dang",
@@ -798,12 +812,13 @@
     "personality": [
      "Calm",
      "Honest",
-     "Content"
+     "Lazy"
     ],
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
-   "backstory": "A tea-picker's daughter from Trà Viên Thôn whom her uncle Bàng Yên Tỏa (bang_yen_toa) took into the gate; she brews the road tea every guard carries.",
+   "backstory": "A tea-picker's daughter from Trà Viên Thôn whom her uncle Bàng Yên Tỏa (bang_yen_toa) took into the gate; she brews the road tea every guard carries. She brews the road tea weak and sleeps through the second pot.",
+   "appearance": "Yawns into the steam of her own pot.",
    "ties": [
     {
      "to": "bang_yen_toa",
@@ -873,12 +888,13 @@
     "personality": [
      "Diligent",
      "Reclusive",
-     "Stubborn"
+     "Arbitrary"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "A stonecutter's son from Thạch Công Thôn who carves the lantern-stones and milestones the Mist-Lock arrays are pinned to, under Thai Vãn Xa (thai_van_xa).",
+   "backstory": "A hired stonecutter's son from Thạch Công Thôn who carves the lantern-stones and milestones the Mist-Lock arrays are pinned to, under Thai Vãn Xa (thai_van_xa), recutting whichever stone he fancies and skipping the one he was told; Đào Thạch Ấn (dao_thach_an) is the one whose chisel is blamed for the gap.",
+   "appearance": "Stone dust frosting his lashes and a permanent squint.",
    "ties": [
     {
      "to": "thai_van_xa",
@@ -942,13 +958,14 @@
    "traits": {
     "personality": [
      "Vengeful",
-     "Diligent",
+     "Faithless",
      "Paranoid"
     ],
     "calling": "Duelist",
     "upbringing": "war_orphan"
    },
-   "backstory": "Six years old in the caravan the robbers of Đoản Vĩ Cương fell on in 1190 (N-vu_an-04); Triều Ngũ Lang (trieu_ngu_lang) carried him out. Posted this year on the Đồng Sơn road with Quan Dã Tử (quan_da_tu), he carries the head's pages to the milestone each new moon, has read them, and adds what Quan lets fall about the ridge.",
+   "backstory": "Six years old in the caravan the robbers of Đoản Vĩ Cương fell on in 1190 (N-vu_an-04); Triều Ngũ Lang (trieu_ngu_lang) carried him out. Posted this year on the Đồng Sơn road with Quan Dã Tử (quan_da_tu), he carries the head's pages to the milestone each new moon, has read them, and adds what Quan lets fall about the ridge, so his fire-mate is written down as the ridge's spy.",
+   "appearance": "A mace scar over one eyebrow and a boy's thin wrists.",
    "ties": [
     {
      "to": "bang_yen_toa",
@@ -1035,16 +1052,17 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Brave",
+     "Callous",
      "Arrogant"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "path": [
      "formation_mind"
     ]
    },
-   "backstory": "A rope-maker's daughter from Thằng Tác Thôn who lays mist in the Forest of Lost Mist until even Bàng Yên Tỏa (bang_yen_toa) loses his way in it.",
+   "backstory": "A rope-trader's daughter from Thằng Tác Thôn who lays mist in the Forest of Lost Mist until even Bàng Yên Tỏa (bang_yen_toa) loses his way in it. She left Nhậm Tùng Ảnh (nham_tung_anh) lost in her mist for a night of frost, and he lost two toes to it.",
+   "appearance": "Eyes the colour of fog.",
    "ties": [
     {
      "to": "bang_yen_toa",

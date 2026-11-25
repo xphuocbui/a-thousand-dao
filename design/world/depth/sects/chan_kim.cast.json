@@ -408,6 +408,8 @@
    },
    "appearance": "A stooped man with red-rimmed eyes and silver-grey skin from a century of furnace fumes.",
    "backstory": "A silver-miner's son from Bạch Ngân, like his master Tưởng Bách Luyện (tuong_bach_luyen). He did the hundred refinings of the Dawn Charioteer for the Pivot's heir in 1168 and keeps the house's three furnaces. He has refined Thối Tinh's Thiên Ngoại iron for silver inlay, and it melts like mountain iron in his furnace. He has no true star iron to set beside it, so it is a guess. He told the head, and the head said a refiner does not assay unasked, not even a guess.",
+   "wants": "A true piece of star iron to lay beside Thối Tinh's, and leave to say what he thinks of it aloud.",
+   "secret": "Nights, he is assaying Thối Tinh's iron on the sly: Tiền Phân Vi's knife is his sample, and the blade will come back pitted before the apprentice asks a fourth time.",
    "ties": [
     {
      "to": "tuong_bach_luyen",
@@ -543,6 +545,8 @@
    },
    "appearance": "Handsome and easy, with an Ôn jade at each wrist and a toll-ledger under her arm.",
    "backstory": "An Ôn of the bridge-keeping clan of Song Kiều (A229), cousin to Tưởng Ngọc Cân (tuong_ngoc_can). She settles which ore pays toll on which bridge, and every miner who stands in her cousin's line crosses the Ôn's north bridge to get there. Her grandfather Ôn Trọng Lương (on_trong_luong) wants a fifth of the good-side fee, or the toll on that bridge doubles. She carries his terms to the house, and she has asked the Pivot's Hồng Chuẩn Bình (hong_chuan_binh) what the Pivot would pay to have the miners back.",
+   "wants": "The Ôn's fifth, and a desk where the coin of both squares passes through her hands.",
+   "secret": "She is writing her own tenth into the doubled bridge toll she will announce at the quarter, and her grandfather Ôn Trọng Lương has not been told of it.",
    "ties": [
     {
      "to": "tuong_bach_luyen",
@@ -662,6 +666,7 @@
      "Spirit-eyed"
     ]
    },
+   "appearance": "Hoarse by noon, with ore dust smeared across the left cheek like a signature.",
    "backstory": "He assays the ore on the house's side of the square and shouts at the Pivot's Hồng Chuẩn Bình (hong_chuan_binh) every morning; he would be horrified to learn about the weight he works beside.",
    "ties": [
     {
@@ -743,7 +748,7 @@
     "personality": [
      "Diligent",
      "Arrogant",
-     "Just"
+     "Arbitrary"
     ],
     "calling": "Refiner",
     "upbringing": "village_born",
@@ -751,7 +756,8 @@
      "Spirit-eyed"
     ]
    },
-   "backstory": "A bath-keeper's daughter from the house's hot spring, she told nine silvers apart with her eyes shut at eleven; Tưởng Bách Luyện (tuong_bach_luyen) took her himself.",
+   "appearance": "Smells faintly of the spring's sulphur; wide dark eyes that never blink during a weighing.",
+   "backstory": "A bath-keeper's daughter from the house's hot spring, she told nine silvers apart with her eyes shut at eleven; Tưởng Bách Luyện (tuong_bach_luyen) took her himself. She grades her year's silvers by her mood and once failed Cù Tiểu Hành (cu_tieu_hanh) for a sneeze, which cost him a year.",
    "ties": [
     {
      "to": "tuong_bach_luyen",
@@ -821,7 +827,8 @@
     "calling": "Merchant",
     "upbringing": "village_born"
    },
-   "backstory": "A Bạch Ngân silver-beater's son who sweeps the assay floor and keeps the sweepings; Phùng Xích Kim (phung_xich_kim) lets him.",
+   "appearance": "Pockets that sag with sweepings; silver flecks glint in his cuffs.",
+   "backstory": "A Bạch Ngân silver-beater's son who sweeps the assay floor and keeps the sweepings and sells them back to the smelters by the thimble, and his sister Nghiêm Tuyết Ngân (nghiem_tuyet_ngan) is docked for the missing silver; Phùng Xích Kim (phung_xich_kim) lets him.",
    "ties": [
     {
      "to": "phung_xich_kim",
@@ -890,9 +897,16 @@
      "Lazy"
     ],
     "calling": "Merchant",
-    "upbringing": "clan_heir"
+    "upbringing": "clan_heir",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
-   "backstory": "An Ôn boy sent to the house to learn the eye and learning the tolls instead from Ôn Song Ngọc (on_song_ngoc).",
+   "appearance": "Jade thumb-ring too big for him; he cannot sit through a lesson without changing seats twice.",
+   "backstory": "An Ôn boy sent to the house to learn the eye and learning the tolls instead from Ôn Song Ngọc (on_song_ngoc). He leaves the toll-house sweeping to Ôn Bích Liên (on_bich_lien) and sleeps under the ledger.",
    "ties": [
     {
      "to": "on_song_ngoc",
@@ -986,6 +1000,7 @@
     "calling": "Refiner",
     "upbringing": "merchant_child"
    },
+   "appearance": "Crescent burn on the chin that she calls her second smile; palms calloused pink from the tongs.",
    "backstory": "A Song Kiều cook's daughter who keeps the furnaces alight for Phùng Xích Kim (phung_xich_kim) and is the only one in the house who can feel the heat change without a gauge.",
    "ties": [
     {
@@ -1058,7 +1073,8 @@
     "upbringing": "merchant_child",
     "health": "waning_years"
    },
-   "backstory": "Ninety-five and still at the sixth layer of the primer, he has carried weights across the square for Tưởng Ngọc Cân (tuong_ngoc_can) and her father before her. He keeps the true house weight in his sleeve and swaps it in whenever anyone tests her scale, and she pays him a share of the good-side fee for it.",
+   "appearance": "Bent, with one drooping eyelid; pats the bulge in his left sleeve whenever anyone comes near.",
+   "backstory": "Ninety-five and still at the sixth layer of the primer, he has carried weights across the square for Tưởng Ngọc Cân (tuong_ngoc_can) and her father before her. He keeps the true house weight in his sleeve and swaps it in whenever anyone tests her scale, for a share of the good-side fee; he lets Lã Minh Nhãn (la_minh_nhan) shout himself hoarse every morning for a scale he knows runs light.",
    "ties": [
     {
      "to": "tuong_ngoc_can",

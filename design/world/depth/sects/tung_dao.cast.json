@@ -1155,7 +1155,7 @@
      "Callous"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [],
     "path": [
      "formation_mind"
@@ -1404,6 +1404,8 @@
    },
    "appearance": "A short, wind-burned woman in a sealskin cloak with a bronze mirror at her hip.",
    "backstory": "Born in Hàn Yên Thôn, where the smoke once froze above the chimneys (A003), she was a skiff girl of ninety when the Long Lake War began (C170), and she ran the night signals across Hạo Nguyệt Hồ with a bronze mirror. She has kept the Lake Hall at Noãn Ốc since 1010, counts Băng Tâm's boats on the north shore every dawn, and once a year, when Kiều Nguyệt Châu (kieu_nguyet_chau) of Hàm Nguyệt Trang makes the long journey to the Lake Hall with her pearls, drinks with her while she counts them. She wants an inner gate for the lake's Water-rooted children, and the canon has none.",
+   "wants": "An inner gate at Noãn Ốc for the lake's Water-rooted children, and Băng Tâm's skiffs fishing only the north shore.",
+   "secret": "Every dusk she flashes three signals across the lake with the bronze mirror, and Mẫn Băng Hà (man_bang_ha), skiff captain of the frost coast, answers from the far shore; she is arranging a quiet truce for the ice-fishing season and has told neither the palace nor Kiều Nguyệt Châu.",
    "ties": [
     {
      "to": "du_tinh_luu",
@@ -1553,6 +1555,8 @@
    },
    "appearance": "A neat, round-faced man with an abacus of pine-nut beads that he works without looking.",
    "backstory": "A grain merchant's son from Tùng Gian Thành, he keeps the sect's granaries in the shade at Lâm Hạ Trấn (A073), its resin trade and its treasury, and he is the one man in the palace who knows exactly how poor seven vassals make it. He learned his figures from Dụ Tĩnh Lưu (du_tinh_luu) on the river toll books. Nhiếp Cô Tân (nhiep_co_tan) asks him every year what a winter war would cost. Every year he answers to the last stone, and the answer is too much.",
+   "wants": "To die with the treasury solvent and the Root's winter war never funded.",
+   "secret": "He is skimming one measure in a hundred from the Lâm Hạ granaries into a hidden famine store, so the sect can eat through a winter war it must not fight; Tôn Mạch Sinh (ton_mach_sinh) guards the door and thinks it is mouse-bait.",
    "ties": [
     {
      "to": "du_tinh_luu",
@@ -1684,6 +1688,8 @@
    },
    "appearance": "A lean, scarred man in a tiger-skin half-cape with the claw marks still in it.",
    "backstory": "His great-grandparents were among the survivors of Hổ Khiếu Trấn who planted a green pine for each of their dead at Thanh Tùng Thôn (A058), and he grew up among those trees. He hunts the tigers of the deep pines, leads the Coiled Root Hall's patrols, and has been Nhiếp Cô Tân's (nhiep_co_tan) right hand for eighty years. In 1172 he chose the six men for the river-mouth patrol and read the order aloud to them by the reed-camp fire without looking at the seal. He has started to look now. Since the naming of 1199 he has led the hall's searches of the heir's rooms, and twice he has lifted her zither off its stand and weighed it in his hands.",
+   "wants": "To put the six men's names on a post at the reed camp, and to learn whose order he really read.",
+   "secret": "Each night he carves six names on pine stakes and buries them under the green pines of Thanh Tùng Thôn, so that Hứa Niệm Tùng (hua_niem_tung) tends graves the roll says do not exist.",
    "ties": [
     {
      "to": "nhiep_co_tan",
@@ -1825,7 +1831,7 @@
      "Reclusive"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born",
+    "upbringing": "hermit_taught",
     "path": [
      "long_seclusion"
     ],
@@ -1834,6 +1840,8 @@
    },
    "appearance": "A gaunt man with salt in his beard, barefoot in all weathers.",
    "backstory": "The disciples of Vọng Triều Các came to the palace in 470, two years after their master walked into the winter sea to cultivate the tide (V035), and they kept his method alive inside Tùng Đào for 730 years as the Tide Rite. Bạc Hải Âm is the last of them who holds it whole. He lives at the empty pavilion on the coast and swims in the sea every midwinter. He has told Dụ Tĩnh Lưu (du_tinh_luu) that when Nhâm Thu Lãng (nham_thu_lang) can hold the method alone, he will walk out after the founder.",
+   "wants": "To hold the Tide Rite until Nhâm Thu Lãng can carry it, and then to walk out into the sea.",
+   "secret": "Each midwinter he teaches Phan Ba Sinh (phan_ba_sinh) the Rite's last tide in secret, because Nhâm Thu Lãng is too slow, and means to leave the method to the faster boy.",
    "ties": [
     {
      "to": "du_tinh_luu",
@@ -1951,6 +1959,8 @@
    },
    "appearance": "A tall woman whose sleeves smell of agarwood and cold plum, with soot under her nails.",
    "backstory": "Her family were the incense makers of Lãnh Hương Viện, taken in by the sect in 890 when the academy's last master died in seclusion without an heir (V004). She grows the herbs that still come up untended in its old courtyards and makes the one stick that burns at dawn and the one at dusk in the palace censer. Đàm Tùng Lại (dam_tung_lai) taught her the canon; her grandmother taught her the incense, by voice, as the sect teaches everything.",
+   "wants": "To make one stick that burns an extra breath, and to learn why the new resin burns short.",
+   "secret": "She has traced the thin resin to Hầu Thiện Kế's (hau_thien_ke) side trade and is quietly buying back the good lots with her own stipend.",
    "ties": [
     {
      "to": "dam_tung_lai",
@@ -2056,7 +2066,7 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Pragmatic",
+     "Greedy",
      "Vengeful"
     ],
     "calling": "Diplomat",
@@ -2071,6 +2081,8 @@
    },
    "appearance": "A handsome woman in river-blue silk who pours tea for everyone before she lets them speak.",
    "backstory": "Born in Đào Thanh Thành, she has the river town's gift for a long, pleasant meeting that ends with the other side paying. She carried the sect's complaint against Lạc Hà to Thiên Xu after the Ferry War (C193), and Doãn Ngọc Hành (doan_ngoc_hanh) set it aside with a smile; she has not forgiven the smile. She took in the earthquake orphan Trịnh Ức Vân (trinh_uc_van) in 1134 (V052) and has made her a better envoy than herself.",
+   "wants": "To make Doãn Ngọc Hành's smile cost the Pivot something, and to leave an envoy better than herself.",
+   "secret": "She keeps one meeting in ten for herself, a private tithe of tea-money from the vassals' gifts, which she calls the envoy's costs; Trịnh Ức Vân (trinh_uc_van) keeps the true accounts and has not yet asked.",
    "ties": [
     {
      "to": "dam_tung_lai",
@@ -2205,6 +2217,8 @@
    },
    "appearance": "A grey-haired woman with river silt on her boots and a patrolman's wooden token on a cord around her neck.",
    "backstory": "Dụ Tĩnh Lưu's (du_tinh_luu) second at the River Hall, she keeps the flood marks and the dikes from Đào Thanh Thành to Hà Bạn Trấn, where she was born. In 1172 her son Lộ Thanh Xuyên (lo_thanh_xuyen) went onto the Cold Ford ice with five others and did not come back, and the sect sang all six into its oral roll as deserters (N-thuy_vi-11). She has sung his name at the dusk listening every night since, which is forbidden for a deserter. Nobody has stopped her.",
+   "wants": "To hear her son's name sung in the roll with the others, and to learn who wrote the order.",
+   "secret": "She marks in the River Hall's dike-book every hour the Root Hall's patrols pass at night, to name the hour the six left; Lộ Thanh Ngạn (lo_thanh_ngan) walks the marks with her.",
    "ties": [
     {
      "to": "du_tinh_luu",
@@ -2350,6 +2364,8 @@
    },
    "appearance": "A dark, square man in a cloak the grey of the pines he guards.",
    "backstory": "Born in Thạch Tỉnh Thôn among the iron and malachite of the high pines, he has a Metal streak no other elder has, and he keeps the one vein of the sect's that a Metal root can use, Thương Tùng Mạch (A053), four tiles from Thiên Xu's border. Thiên Xu's surveyors walk past the fence every few years. Tân, who learned under Nhiếp Cô Tân (nhiep_co_tan), believes the Pivot wants the vein, keeps every survey token they drop, and sends Nhiếp a count of their footprints.",
+   "wants": "To keep the grey pine vein fenced and Thiên Xu's boots outside it.",
+   "secret": "He trades lumps of the vein's malachite to Ân Lăng Thạch (an_lang_thach), the Thiên Cơ Hall's stone-cutter, for their survey tokens; Đồng Kiên Thạch (dong_kien_thach) carries the lumps and thinks it is a friendship.",
    "ties": [
     {
      "to": "nhiep_co_tan",
@@ -2466,7 +2482,7 @@
      "Content"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born",
+    "upbringing": "sect_raised",
     "path": [
      "pill_master_tongue"
     ],
@@ -2474,6 +2490,8 @@
    },
    "appearance": "A stooped man with orange-stained fingertips and one eyebrow singed away.",
    "backstory": "Born in Thải Chi Cốc's herb valley, he was sent to the palace at nine as part of the vassal's tribute and stayed. He runs the Pill Room, which is small and poor, because a sect that writes nothing down must keep every recipe in somebody's head, and he holds about two hundred. He taught Đàm Thanh Giang (dam_thanh_giang) the furnace and thinks the boy is better than he is. He buys what he cannot brew from Nghiêm Linh Chi (nghiem_linh_chi).",
+   "wants": "To pass all two hundred recipes to Đàm Thanh Giang before his lingering poison takes his memory.",
+   "secret": "He has begun writing recipes inside his own sleeves in a cipher of herb names, the first written thing in the Pill Room in a thousand years; Khâu Hạnh Nhi (khau_hanh_nhi) has read three.",
    "ties": [
     {
      "to": "dam_tung_lai",

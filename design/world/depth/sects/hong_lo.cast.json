@@ -346,7 +346,7 @@
     "personality": [
      "Greedy",
      "Ambitious",
-     "Impatient"
+     "Deceitful"
     ],
     "calling": "Alchemist",
     "upbringing": "servant_born",
@@ -367,6 +367,8 @@
    },
    "appearance": "A lean young man with scorched forearms and a cinnabar-red robe he dyes himself, too bright for the valley.",
    "backstory": "A cook's son born in the kitchens, Ngụy Đan Chu tended Viên Chước's (vien_chuoc) furnace from the age of eight and learned more from him than from anyone. When Viên went to Băng Tâm in 1144, Đồng Hồng Lô (dong_hong_lo) took the boy as his true disciple. He means to be what Viên would have been. He thinks the snow jackets have made the Red Furnace timid, and he says so at council. He is the only disciple who still brews the old one-batch way. When the outside crews brought dice back in the ash rush of 1200 he took the table in the snow house, takes a coal's weight of every pot, and lends the outer boys their stakes against their ash shares.",
+   "wants": "To be named heir of the Red Furnace and strip the snow jackets off it.",
+   "secret": "He is cutting a Red Sun seal in the cellar to forge patents for the old one-batch way, and has Khổng Viêm Sinh (khong_viem_sinh) grind the cinnabar for the ink without saying what it is for.",
    "ties": [
     {
      "to": "dong_hong_lo",
@@ -504,6 +506,8 @@
    },
    "appearance": "A small grey woman with a green satchel across her chest, the only green thing in the valley.",
    "backstory": "Giải Bách Bộ was thirty-nine and the senior healer of Thanh Nang Đường when its last head, Thai Bạch Thược (thai_bach_thuoc), died in closed-door cultivation without naming an heir (V018). She led twenty-two healers north to Hồng Lô with their satchels. One of them, Dư Tục Đoạn (du_tuc_doan), twenty-one, walked the other way to Thúy Vi with a six-year-old. She runs the Satchel Hall, where herbs are brewed over spirit wood rather than the vent. She buys Lô Dã Hương's marten pups to find the herbs the tundra will not grow.",
+   "wants": "To keep the Satchel Hall's healers members of the sect, not a hired craft.",
+   "secret": "She hides a lame marten pup under her satchel table from the cooks, and has taught it to fetch her sleeping herbs.",
    "ties": [
     {
      "to": "thai_bach_thuoc",
@@ -618,6 +622,8 @@
    },
    "appearance": "A huge man in oiled seal-skin with a harpoon of whale rib across his back and salt in his beard.",
    "backstory": "Great-grandson of Nghiêu Phá Lãng (nghieu_pha_lang), born among the crews' families at Bồ Diệp Thôn. His Fire is too thin for the furnace hall, so he has been an outer disciple for a hundred years and captain of the boats for sixty. In 1185, when the isles smoked for a month, he took the alchemists out to gather the ash before the rain (A031). That month, through the clear water of the smoking year, he saw his great-grandfather's boat on the warm reef off Kình Cốt point, its hull full of fire jade, and he has sworn to raise it. Since 1145 he has taught the harpoon inside the gate.",
+   "wants": "To raise his great-grandfather's boat and its fire jade from the reef off Kình Cốt point.",
+   "secret": "He has drawn the reef's marks on a whale-rib chart and is paying an outside crew from Hàn Tân Thành out of his own ash share to meet him there, without telling Nghiêu Lãng Hoa (nghieu_lang_hoa).",
    "ties": [
     {
      "to": "nghieu_pha_lang",
@@ -717,14 +723,15 @@
     "personality": [
      "Loyal",
      "Patient",
-     "Honest"
+     "Greedy"
     ],
     "calling": "Steward",
     "upbringing": "sect_raised",
     "path": [],
     "lifestyle": "tea_master"
    },
-   "backstory": "He has kept the night watch on the Red Furnace for a hundred and fifty years, and in 1144 he relit the ember on Đồng Hồng Lô's (dong_hong_lo) belt before dawn without asking why it had gone out. In the ash rush Đồng gave him a pouch of fire jade to sell to the outside crews, and he sells it a piece at a time, still without asking.",
+   "appearance": "Grey queue singed short at the end; has not hurried in a century.",
+   "backstory": "He has kept the night watch on the Red Furnace for a hundred and fifty years, and in 1144 he relit the ember on Đồng Hồng Lô's (dong_hong_lo) belt before dawn without asking why it had gone out. He sells Đồng's pouch of fire jade to the outside crews a piece at a time, and one piece in five never reaches their scale.",
    "ties": [
     {
      "to": "dong_hong_lo",
@@ -803,8 +810,15 @@
      "Content"
     ],
     "calling": "Steward",
-    "upbringing": "servant_born"
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Face like a lumpy dumpling, flour in the eyebrows.",
    "backstory": "He let Viên Chước buy his son Dương Lô (duong_lo) out of the kitchens in 1188, because the boy would never leave them otherwise, and has had one letter from Băng Tâm since.",
    "ties": [
     {
@@ -878,13 +892,14 @@
    "traits": {
     "personality": [
      "Brave",
-     "Impatient",
+     "Callous",
      "Ambitious"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "Nghiêu Vọng Kình's (nghieu_vong_kinh) daughter, who rows the second ash boat in the rush of 1200 and will not take it to her father's reef while the ash is falling; what she wants is the fire-jade island whose chart Thúy Vi has kept sealed since 565 (A022).",
+   "appearance": "Salt-bleached hair cut with a knife; a harpoon-calloused right palm.",
+   "backstory": "Nghiêu Vọng Kình's (nghieu_vong_kinh) daughter rows the second ash boat in the rush of 1200 and has twice rowed past Kình Cốt point with her father begging at the bow, because she wants the fire-jade island whose chart Thúy Vi has kept sealed since 565 (A022).",
    "ties": [
     {
      "to": "nghieu_vong_kinh",
@@ -961,8 +976,15 @@
      "Trusting"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "slow_witted",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Wide willing face blackened to the eyes with snow-soot; answers a moment late.",
    "backstory": "A fisher's boy from Bồ Diệp Thôn who came in through the kitchens in 1200 and shovels snow into Tần Tuyết Thán's (tan_tuyet_than) jackets, hoping his Fire will grow if he stands near enough to it. In the ash rush he borrowed his dice stakes from Ngụy Đan Chu (nguy_dan_chu) against his shares, and owes two seasons.",
    "ties": [
     {
@@ -1030,7 +1052,7 @@
    },
    "traits": {
     "personality": [
-     "Calm",
+     "Deceitful",
      "Diligent",
      "Loyal"
     ],
@@ -1040,7 +1062,8 @@
      "pill_fed"
     ]
    },
-   "backstory": "Valley-born with her master's balance of fire and water; she has brewed two batches a season since she was twenty and has not spoiled one, which Ngụy Đan Chu (nguy_dan_chu) cannot say.",
+   "appearance": "Spotless sleeves; carries a cooling-paddle like a staff.",
+   "backstory": "Valley-born with her master's balance of fire and water; she has brewed two batches a season since she was twenty. Two of the spoiled batches the council blamed on Ngụy Đan Chu (nguy_dan_chu) were hers, tagged with his seal, and he cannot prove it.",
    "ties": [
     {
      "to": "tan_tuyet_than",
@@ -1109,14 +1132,15 @@
    },
    "traits": {
     "personality": [
-     "Compassionate",
+     "Patient",
      "Reclusive",
-     "Honest"
+     "Greedy"
     ],
     "calling": "Herbalist",
     "upbringing": "sect_raised"
    },
-   "backstory": "Born in Thái Dược Thôn, the herb-gatherers' village, to one of the healers who came north in 1101; Giải Bách Bộ (giai_bach_bo) is teaching him the satchel method so that it outlives her.",
+   "appearance": "Pollen in his hair; a sidelong herb-gatherer's step.",
+   "backstory": "Born in Thái Dược Thôn, the herb-gatherers' village, to one of the healers who came north in 1101; Giải Bách Bộ (giai_bach_bo) is teaching him the satchel method so that it outlives her. He keeps the best of each gathering in a locked tin under his cot, and Khổng Viêm Sinh's (khong_viem_sinh) burned hand waited a day for salve.",
    "ties": [
     {
      "to": "giai_bach_bo",
@@ -1181,6 +1205,7 @@
      "Renowned"
     ]
    },
+   "appearance": "Remembered as a tall woman with singed brows and a coal-box always on her hip.",
    "backstory": "A disciple of Thúy Vi's first Furnace Master, Âu Dương Thanh Lô (au_duong_thanh_lo), who would not settle for green fire. In 650 she sailed to the volcanic isles with the sect's leave and the chart it had sealed in 565 (A022), and brought back a coal in a jade box. She lit it on the valley's vent and founded Hồng Lô Cốc (A024). Her journal says she first came to the vents looking for the fire of Cung Hỏa Vân (cung_hoa_van), who had vanished there in 640 (C013). In 929 the island coal died in a blizzard, and she went down after the vent's own fire.",
    "ties": [
     {
@@ -1221,6 +1246,7 @@
     "calling": "Beast tamer",
     "upbringing": "village_born"
    },
+   "appearance": "Remembered as a giant, beard streaked white, a harpoon scar across the right shoulder.",
    "backstory": "He went out alone after the great spirit whale in 884 and never came back, and his hunters took their boats and their harpoon to Hồng Lô Cốc (V013).",
    "ties": [
     {
@@ -1261,6 +1287,7 @@
     "calling": "Herbalist",
     "upbringing": "sect_raised"
    },
+   "appearance": "Remembered as a tiny, severe woman in satchel green, a long unfinished braid down her back.",
    "backstory": "She went into seclusion in 1098 to break through and died there without naming an heir (V018); her senior healer Giải Bách Bộ (giai_bach_bo) took the satchels north.",
    "ties": [
     {

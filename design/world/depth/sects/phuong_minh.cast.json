@@ -1291,6 +1291,7 @@
    "home": 85,
    "birthplace": 148,
    "role": "Master of the Hall of Benevolence (Nhân Đường): granaries, healers, the outer gate's rice",
+   "appearance": "A short, sun-browned man who still rolls his trousers to the knee and walks the paddies before every council.",
    "tier": "B",
    "root": {
     "elements": {
@@ -1324,8 +1325,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A short, sun-browned man who still rolls his trousers to the knee and walks the paddies before every council.",
    "backstory": "A paddy farmer's son from Thủy Điền Thôn, Điền Phong Niên was the founder's (ngo_the_dong) last steward and has kept the Hall of Benevolence since 1100: the granaries of Hoàng Vân Thành, the outer gate's rice and the palace's healers. In 1060, a Trúc Cơ clerk of seventy, he opened the granaries to Băng Tâm's famine on his own seal (A262). The council fined him a year's stipend, and the founder paid it. He trades rice for Lễ Tuyền's wine with Mai Lễ Tuyền (mai_le_tuyen) and has never once won the bargain.",
+   "wants": "Granaries full to the next famine.",
+   "secret": "He keeps a sealed granary of four hundred sacks off the books at Hoàng Vân Thành for a famine the palace says will not come. Cốc Thu Thành (coc_thu_thanh) is the only other who knows.",
    "ties": [
     {
      "to": "ngo_the_dong",
@@ -1442,6 +1444,7 @@
    "home": 248,
    "birthplace": 449,
    "role": "The palace's alchemist, at the furnace on Chu Sa Tuyền",
+   "appearance": "A sharp-chinned woman whose lips are stained red from tasting cinnabar, with a fever flush she never loses.",
    "tier": "B",
    "root": {
     "elements": {
@@ -1462,7 +1465,7 @@
     "personality": [
      "Greedy",
      "Diligent",
-     "Arrogant"
+     "Callous"
     ],
     "calling": "Alchemist",
     "upbringing": "sect_raised",
@@ -1481,8 +1484,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A sharp-chinned woman whose lips are stained red from tasting cinnabar, with a fever flush she never loses.",
    "backstory": "Ash-born at the Fire Court and taught by Nhiếp Tẫn Sa (nhiep_tan_sa), Kế Chu Sa brews the palace's pills on Chu Sa Tuyền, where the jungle spring runs hot and red. Every breakthrough pill the Nest watches comes from her furnace. She has failed Vu Ngô Đồng's (vu_ngo_dong) Nguyên Anh pill twice, because its chief herb is the seed of a living wutong and the great tree on the ridge has not seeded in thirty years. She resents Đồng Hồng Lô (dong_hong_lo), who brews over a volcano for Thúy Vi and sells to Băng Tâm through Viên Chước (vien_chuoc).",
+   "wants": "Vu Ngô Đồng's Nguyên Anh pill, brewed without the dying tree.",
+   "secret": "She is trying a substitute for the pill on the outer gate's tea servants, a thimble at a time, and logs their headaches in her book. Kiều Đan Lô (kieu_dan_lo) has noticed the servants' cups.",
    "ties": [
     {
      "to": "nhiep_tan_sa",
@@ -1584,6 +1588,7 @@
    "home": 449,
    "birthplace": 41,
    "role": "Master of the Hall of Trust (Tín Đường): treasury, the Hall of Spoils, tribute and envoys",
+   "appearance": "A handsome, heavy-lidded woman in brocade the colour of old embers, who carries the Hall of Spoils' three keys on a red cord.",
    "tier": "B",
    "root": {
     "elements": {
@@ -1621,8 +1626,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A handsome, heavy-lidded woman in brocade the colour of old embers, who carries the Hall of Spoils' three keys on a red cord.",
    "backstory": "A Lai Nghi Thành silk-broker's daughter and the head's (hoa_trieu_duong) eldest disciple, Vưu Cẩm Thư keeps the palace's money: the vassals' tribute, the port dues of Thạch Cơ Thành, and the Hall of Spoils, where a red sword hangs unnamed beside the empty hook of the Xích Hà Kỳ. The banner was lent to Hùng Phần Vũ (hung_phan_vu) in 1020 (C177) and she has asked for it back three times. She buys Chức Hà Các's fire-silk at a price that hurts it. The Nest costs more each year, so this spring she set ground rent on Phần Vũ's vents and pits in the palace's own seat province, and counted its standing dead as structures.",
+   "wants": "The Nest paid for without a rent on the vents.",
+   "secret": "She keeps a private book pricing everything in the Hall of Spoils, the unnamed red sword included, in case the palace must sell to pay for the Nest. Bối Tàng Ngôn (boi_tang_ngon) dusts the sword and does not know.",
    "ties": [
     {
      "to": "hoa_trieu_duong",
@@ -1767,6 +1773,7 @@
    "home": 93,
    "birthplace": 93,
    "role": "Admiral of the palace fleet at Thạch Cơ Thành (Hall of Righteousness)",
+   "appearance": "Big-shouldered and salt-cracked, with a diver's slow breath and a laugh you hear before you see the ship.",
    "tier": "B",
    "root": {
     "elements": {
@@ -1804,8 +1811,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "Big-shouldered and salt-cracked, with a diver's slow breath and a laugh you hear before you see the ship.",
    "backstory": "Phàn Vọng Hải comes from the pearl divers of Châu Lệ Cảng, who fled Thôn Hải's fire to Âu Lộ and never dived again (C151, A259); his family went on down the coast to Thạch Cơ Thành, where he was born. He dives. Sử Hoành Dực (su_hoanh_duc) made him admiral of the fleet at Thạch Cơ Thành, whose jetty the palace rebuilt with Xích Thành stone in 1190 (A312). In every calm summer he sails to the burned islet of Thôn Hải Môn to look for Kình Nha, the pirate's sabre lost in the hold where Lâu Liệt Hà (lau_liet_ha) died (C153, N-phuong_minh-08). Ôn Thủ Đăng (on_thu_dang) of Vọng Triều Đường drinks with him and calls it a waste of good summers.",
+   "wants": "A coast with no unlit sails, and the pirate's sabre in his own hands.",
+   "secret": "He pays Ô Trầm Châu (o_tram_chau) to bring up the lost sabre for himself and not for the palace, and means to keep it if it is found.",
    "ties": [
     {
      "to": "su_hoanh_duc",
@@ -1904,6 +1912,7 @@
    "home": 211,
    "birthplace": 449,
    "role": "Warden of Đan Sơn Mạch, the cinnabar vein on the Pivot's border",
+   "appearance": "A square, red-handed woman with a thunder burn across her jaw and cinnabar dust in every seam of her armour.",
    "tier": "B",
    "root": {
     "elements": {
@@ -1940,8 +1949,9 @@
      "Scarred"
     ]
    },
-   "appearance": "A square, red-handed woman with a thunder burn across her jaw and cinnabar dust in every seam of her armour.",
    "backstory": "Born at the Fire Court to a cinnabar miner from Đan Sa Quật who cut the Nest's stone, Hách Chu Lăng was Dụ Đan Huỳnh's (du_dan_huynh) disciple and at her side on the vein in 1154 when Cố Dạ Lan (co_da_lan) killed her (N-phuong_minh-10). In 1156, when the Pivot's arrays closed on the Tower's rear guard at the pass, she and the vein watch took the Thính Vũ swordsman Chử Trì Âm (chu_tri_am) alive (N-phuong_minh-11) and has never decided whether she is sorry. She has held Đan Sơn Mạch since 1158, three tiles from the Pivot's border, and her garrison watches Thính Vũ's scouts and the Pivot's surveyors alike.",
+   "wants": "Cố Dạ Lan before the vein's snow.",
+   "secret": "She sends Mông Chu Tiêu (mong_chu_tieu) a dozen men a month under false names, off the palace's muster, to hold the vein wall if the palace stops paying.",
    "ties": [
     {
      "to": "du_dan_huynh",
@@ -2050,6 +2060,7 @@
    "home": 449,
    "birthplace": 875,
    "role": "Guest elder: a Thính Vũ swordsman taken in 1156 who stayed; writes to Quan Vũ Thanh for the head's disciple",
+   "appearance": "A grey, narrow man who sits with his back to walls and wears the Tower's blue under a guest's plain robe.",
    "tier": "B",
    "root": {
     "elements": {
@@ -2089,8 +2100,9 @@
      "Humbled"
     ]
    },
-   "appearance": "A grey, narrow man who sits with his back to walls and wears the Tower's blue under a guest's plain robe.",
    "backstory": "Chử Trì Âm was born in Thủ Lôi Bảo, the Tower's guard fort over Kinh Lôi Mạch, and was forty-two when Phượng Minh burned it (V161). He fought for Thính Vũ at Đan Sơn Mạch from 1150 and was in Kỷ Vãn Tình's (ky_van_tinh) rear guard in 1156, which the Tower's head ordered to hold the pass while the column escaped (N-thinh_vu-08). When the Pivot's arrays closed, Hách Chu Lăng (hach_chu_lang) took him alive (N-phuong_minh-11), and he refused the Tower's ransom. He has been the palace's guest since 1160: he teaches the Hall of Righteousness how thunder fights, and writes to Quan Vũ Thanh for Trình Hi Quang (trinh_hi_quang).",
+   "wants": "Word that someone at the Tower reads his letters.",
+   "secret": "He makes a small clay figure of Kỷ Vãn Tình (ky_van_tinh) each night and sets it in his window facing the pass, and has filled a shelf.",
    "ties": [
     {
      "to": "le_tieu_hon",
@@ -2197,6 +2209,7 @@
    "home": 449,
    "birthplace": 29,
    "role": "Fan master of the inner gate (Hall of Righteousness)",
+   "appearance": "Lean and burn-freckled, with both sleeves scorched to the elbow and a closed fan she uses as a pointer.",
    "tier": "B",
    "root": {
     "elements": {
@@ -2236,8 +2249,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "Lean and burn-freckled, with both sleeves scorched to the elbow and a closed fan she uses as a pointer.",
    "backstory": "Thích Hồng Linh grew up in the vent village where Phần Vũ Đường was founded in 1020 (C177), and as a girl she ran the vents with Hùng Phần Vũ's (hung_phan_vu) first disciples; she still has the burns. Sử Hoành Dực (su_hoanh_duc) took her for the fan. She teaches the inner gate the Morning Sun Feather Fan on the Fire Court's stair, where duels are counted in sleeve burns. She thinks the palace should take Phần Vũ in rather than lend it banners, and says so.",
+   "wants": "Her best fan to outlast the stair duels.",
+   "secret": "She writes to Tào Tẫn Kiên (tao_tan_kien) in the vent-village tongue, asking him not to sit the last sitting. She has sent it three times and he answers with weiqi moves.",
    "ties": [
     {
      "to": "su_hoanh_duc",
@@ -2342,6 +2356,7 @@
    "home": 53,
    "birthplace": 83,
    "role": "Steward of Thiều Âm Thị, the music market below the old palace (Hall of Rites)",
+   "appearance": "A tidy, smiling man with a clerk's ink-stained cuffs, who collects old scores and never plays in public.",
    "tier": "B",
    "root": {
     "elements": {
@@ -2365,7 +2380,7 @@
      "Ambitious"
     ],
     "calling": "Schemer",
-    "upbringing": "village_born",
+    "upbringing": "scholar_family",
     "talent": [],
     "path": [],
     "lifestyle": "collector",
@@ -2374,8 +2389,9 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A tidy, smiling man with a clerk's ink-stained cuffs, who collects old scores and never plays in public.",
    "backstory": "A Mạch Điền wheat-clerk's son and the head's (hoa_trieu_duong) disciple, Lộ Văn Khánh keeps the market of Thiều Âm Thị for the Hall of Rites. In 1195, when a market musician played a tune no one had taught him and every bird on the ridge fell silent, the elders paid his passage far away (A248), and Lộ arranged it. He tells Liên Thiều Nghi (lien_thieu_nghi) the Shao should stay buried. The boat never sailed: he keeps the young man in the ruined Kích Khánh Đường and writes down every tune he plays (N-phuong_minh-14).",
+   "wants": "The Shao played openly, and his name on the one who kept it.",
+   "secret": "He is hiding the musician of 1195 at Kích Khánh Đường and writing down his tunes, one a night, in a cipher of flute-fingerings.",
    "ties": [
     {
      "to": "hoa_trieu_duong",

@@ -34,6 +34,7 @@
     "calling": "Teacher",
     "upbringing": "village_born"
    },
+   "appearance": "Her breath smokes even in the warm hall; she carries the roll under one arm like a child.",
    "backstory": "Ice answered her at dawn of her third and last sitting, so she keeps the roll of every name that sits the mere and walks the line at midnight with qi-warmed stones for the sitters; Đỗ Sương Nhi (do_suong_nhi) pretends not to see them.",
    "ties": [
     {
@@ -106,14 +107,15 @@
    },
    "traits": {
     "personality": [
-     "Diligent",
+     "Cruel",
      "Arrogant",
      "Loyal"
     ],
     "calling": "Teacher",
     "upbringing": "village_born"
    },
-   "backstory": "Khương Lưu Ly's (khuong_luu_ly) man at the lake, he teaches the primer to the outer gate and tells them that the seat, not the frost coast, is the Pavilion; Nhiếp Lăng Tuyết (nhiep_lang_tuyet) has asked him twice to stop.",
+   "appearance": "That voice, trained to carry across lake wind.",
+   "backstory": "Khương Lưu Ly's (khuong_luu_ly) man at the lake, he teaches the primer to the outer gate and tells them that the seat, not the frost coast, is the Pavilion. He has the sitters' wrapped stones taken at the water's edge; Phù Sương Nguyên (phu_suong_nguyen) fainted on the ice and lay there until the count was done.",
    "ties": [
     {
      "to": "khuong_luu_ly",
@@ -187,12 +189,13 @@
     "personality": [
      "Gregarious",
      "Loyal",
-     "Impatient"
+     "Greedy"
     ],
     "calling": "Diplomat",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "Tuyết Đăng Trấn's lamp-maker's son, he carries Thẩm Hàn Giang's (tham_han_giang) letters between the coast towns in Lục Hàn Chu's (luc_han_chu) skiffs, and every harbour on the frost coast knows his whistle.",
+   "appearance": "Burn-spotted lamp-maker's fingers; a whistle every harbour knows.",
+   "backstory": "Tuyết Đăng Trấn's lamp-maker's son, he carries Thẩm Hàn Giang's (tham_han_giang) letters between the coast towns in Lục Hàn Chu's (luc_han_chu) skiffs. He charges the drowned divers' widows a copper to hand over their men's last letters, and the skiff-men have stopped sitting beside him.",
    "ties": [
     {
      "to": "luc_han_chu",
@@ -270,6 +273,7 @@
     "calling": "Steward",
     "upbringing": "merchant_child"
    },
+   "appearance": "Abacus beads click in her sleeve; she squints at anything not set in columns.",
    "backstory": "A fish-buyer's daughter from Triều Bình Thôn who counts the frost coast's tax for Thẩm Hàn Giang (tham_han_giang); her sums and the treasurer Quách Lẫm's (quach_lam) have never once agreed, and she suspects his.",
    "ties": [
     {
@@ -356,6 +360,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
+   "appearance": "His grandfather's wool cap; a three-fingered ice-fisher's mitten on the left hand.",
    "backstory": "He fishes through the ice off Lư Ngư Thôn the way his grandfather did before the Pavilion came, and wants no part of the succession; Mẫn Băng Hà (man_bang_ha) keeps trying to give him one.",
    "ties": [
     {
@@ -424,6 +429,7 @@
     "calling": "Strategist",
     "upbringing": "village_born"
    },
+   "appearance": "Salt-streaked braids, and a shout held back behind her teeth.",
    "backstory": "A sail-watcher's daughter from Vọng Phàm Thôn who says at the seat what Thẩm Hàn Giang (tham_han_giang) cannot say himself; the seat calls it shouting, and she has twice been one breath from striking Kỷ Hàn Bách (ky_han_bach).",
    "ties": [
     {
@@ -503,6 +509,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
+   "appearance": "Ledger powder has greened her fingertips; she weighs every coin on her palm before she takes it.",
    "backstory": "Born to the fish-pond traders of Ngư Đàm Thôn, she keeps Ôn Sa Ngọc's (on_sa_ngoc) caravan books and knows to the stone what the seat costs the desert; she does not say it at the seat.",
    "ties": [
     {
@@ -574,6 +581,7 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
+   "appearance": "His gaze always rests on the horizon; the lips are sun-split.",
    "backstory": "From the salt pans of Chử Diêm Thôn, he rides point on the caravan road for Tôn Hàn Thạch (ton_han_thach) and has crossed it a hundred and nine times; he has been to the seat twice and did not like the silence.",
    "ties": [
     {
@@ -648,6 +656,7 @@
     "calling": "Formation master",
     "upbringing": "scholar_family"
    },
+   "appearance": "Well-rope calluses on both hands; scribe's sleeves pinned neat.",
    "backstory": "A Hồi Lan scribe's daughter who believes the founder's cold well is the Pavilion's true heart; she draws its water each dawn beside Cát Ngọc Trì (cat_ngoc_tri) and would rather stay in the desert than be called up to the ice.",
    "ties": [
     {
@@ -724,6 +733,7 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
+   "appearance": "Upper tooth missing; stands bow-legged as a camel-driver.",
    "backstory": "A camel-driver's son from Đà Linh Trấn who felt Ice only at the dawn of his last sitting, he went back to the desert by choice and trains the caravan guards' sons for Tôn Hàn Thạch (ton_han_thach).",
    "ties": [
     {
@@ -796,9 +806,10 @@
      "Humble"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "temple_raised"
    },
-   "backstory": "He has cut every grave in the burial glacier for sixty years, standing and facing south, for Nhạc Băng Thiềm (nhac_bang_thiem), and keeps one niche cut and empty for himself.",
+   "appearance": "Chisel tucked behind his ear; grit in every knuckle crease.",
+   "backstory": "Raised by the burial keepers, he has cut every grave in the burial glacier for sixty years, standing and facing south, for Nhạc Băng Thiềm (nhac_bang_thiem), and keeps one niche cut and empty for himself.",
    "ties": [
     {
      "to": "nhac_bang_thiem",
@@ -870,9 +881,10 @@
      "Diligent"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "sect_raised"
    },
-   "backstory": "Kha Tĩnh Ba's (kha_tinh_ba) brother's daughter, brought up from Kê Minh Trấn to the vein watch, she counts the lightning strikes on Băng Phách Mạch each night and has lately had more of them to count.",
+   "appearance": "Tilts her head to the west when thunder is near.",
+   "backstory": "Kha Tĩnh Ba's (kha_tinh_ba) brother's daughter, raised in the vein watch since she left Kê Minh Trấn, she counts the lightning strikes on Băng Phách Mạch each night and has lately had more of them to count.",
    "ties": [
     {
      "to": "kha_tinh_ba",
@@ -951,9 +963,10 @@
      "Loyal"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "clan_heir"
    },
-   "backstory": "He took Tưởng Hàn Phong's (tuong_han_phong) side when Phó Ám Hương (pho_am_huong) chose Hạ Lăng Hàn, and has not crossed swords with her in practice since, which in the Plum Sword Hall is louder than a quarrel.",
+   "appearance": "Turns his clan's seal ring when he is slighted; boots too fine for the hall.",
+   "backstory": "A clan's heir, he took Tưởng Hàn Phong's (tuong_han_phong) side when Phó Ám Hương (pho_am_huong) chose Hạ Lăng Hàn, and has not crossed swords with her in practice since, which in the Plum Sword Hall is louder than a quarrel.",
    "ties": [
     {
      "to": "pho_am_huong",
@@ -1032,6 +1045,7 @@
     "calling": "Formation master",
     "upbringing": "village_born"
    },
+   "appearance": "Damp knees; the smell of lamp oil from the tunnels.",
    "backstory": "He walks the array's lid stones under the seat every tenth day for Tiết Hàn Mai (tiet_han_mai) and writes down what he finds; this year he has written 'warm' four times, and Tiết has read each of those pages twice.",
    "ties": [
     {
@@ -1107,13 +1121,14 @@
    "traits": {
     "personality": [
      "Brave",
-     "Gregarious",
+     "Greedy",
      "Stubborn"
     ],
     "calling": "Beast tamer",
     "upbringing": "village_born"
    },
-   "backstory": "Hồ Tiểu Đàm's (ho_tieu_dam) cousin from the same fish ponds, she passed the Frost Test on her first sitting, rides ice sables for Lam Tuyết Điêu (lam_tuyet_dieu), and writes to Hồ before every solstice.",
+   "appearance": "Sable's tail stitched to her cap.",
+   "backstory": "Hồ Tiểu Đàm's (ho_tieu_dam) cousin from the same fish ponds, she passed the Frost Test on her first sitting, rides ice sables for Lam Tuyết Điêu (lam_tuyet_dieu), and writes to Hồ before every solstice. She hoards the Beast Hall's good hay in a loft she rents to a Hồi Lan furrier and feeds Lam's old white mare the dust; the mare went lame at the thaw.",
    "ties": [
     {
      "to": "lam_tuyet_dieu",
@@ -1185,6 +1200,7 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
+   "appearance": "Speaks in the coast's sing-song; a fishing-line scar round one wrist.",
    "backstory": "From Lãnh Ngạn Thôn, where the coast still sings Hàn Giang's songs, he came to the lake because Tống Ngư Lan (tong_ngu_lan) told the village a coast child could rise.",
    "ties": [
     {
@@ -1249,8 +1265,15 @@
      "Calm"
     ],
     "calling": "Diplomat",
-    "upbringing": "clan_heir"
+    "upbringing": "clan_heir",
+    "talent": [
+     {
+      "id": "homely",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Powders her long plain face white; the clan's gloves are too small for her hands.",
    "backstory": "Tiêu Bạch Lộ's (tieu_bach_lo) elder sister, sent after him when the clan of Hòe Âm decided that one Tiêu at the Pavilion was a gamble and two were a policy; she sits the lake at the coming solstice.",
    "ties": [
     {
@@ -1309,8 +1332,15 @@
      "Patient"
     ],
     "calling": "Talisman maker",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "thin_soul",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Snow melting in his hair most mornings; goes blank mid-sentence, as if his voice had been blown out.",
    "backstory": "A raft-village boy who has failed the lake twice and practises sitting in a snowdrift every night; Nhiếp Lăng Tuyết (nhiep_lang_tuyet) brings him in before he freezes and says nothing to Đỗ Sương Nhi.",
    "ties": [
     {
@@ -1375,8 +1405,15 @@
      "Honest"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Crosses her fingers behind her back; trips on dry ground; net-mender's calluses.",
    "backstory": "Her mother failed three Frost Tests and went home to Ngân Ngư Thôn to mend nets; she sits her third at the coming solstice and has told Uông Tuyết Nhạn (uong_tuyet_nhan) she will not follow her to Lãnh Giang.",
    "ties": [
     {
@@ -1443,7 +1480,8 @@
     "calling": "Beast tamer",
     "upbringing": "village_born"
    },
-   "backstory": "Phan Đông Nhi's (phan_dong_nhi) neighbour from Hải Báo Thôn, he followed her to the lake and spends more time watching the Beast Hall's sables than breathing the primer.",
+   "appearance": "Wide, sleepy grin.",
+   "backstory": "Phan Đông Nhi's (phan_dong_nhi) neighbour from Hải Báo Thôn, he followed her to the lake and spends more time watching the Beast Hall's sables than breathing the primer. He sleeps in the hay through his feeding turns, and Phan has taken the strap for his empty buckets.",
    "ties": [
     {
      "to": "phan_dong_nhi",
@@ -1505,6 +1543,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "Fine pale hair that stands up when she is afraid.",
    "backstory": "From Băng Khổng Thôn like her teacher Kỷ Hàn Bách (ky_han_bach), she was tested with a thread of Ice in her root and is more afraid of the lake than anyone who has none.",
    "ties": [
     {
@@ -1570,8 +1609,15 @@
      "Brave"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Sits on a fishing hole as if it were a stool, heels drumming.",
    "backstory": "Hầu Ngư's (hau_ngu) little brother, who keeps open the fishing holes his brother cuts in the lake by sitting on them; between them they feed half the outer gate in winter.",
    "ties": [
     {
@@ -1633,6 +1679,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "Careful step with every cup.",
    "backstory": "Ông Tĩnh Hải (ong_tinh_hai) sent for his brother's granddaughter when her root was tested; she carries his qi-warmed tea down to the lake on Frost Test night, the one thing he has ever asked of the Pavilion.",
    "ties": [
     {
@@ -1699,6 +1746,7 @@
     "calling": "Formation master",
     "upbringing": "village_born"
    },
+   "appearance": "Chalk-white fingers from drawing patterns in the snow.",
    "backstory": "Đàm Tĩnh Thạch's (dam_tinh_thach) sister's daughter from the waterfall village, she draws the Array Hall's patterns in the snow and sits the lake for the first time at the coming solstice.",
    "ties": [
     {
@@ -1765,8 +1813,15 @@
      "Compassionate"
     ],
     "calling": "Teacher",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "thin_soul",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "One shoulder worn down by other people's bags; stops mid-word, blank, until someone says his name.",
    "backstory": "He failed his third Frost Test at twenty-six, refused the Desert Pavilion and the road, and stayed at the lake as the outer gate's unpaid elder brother; Trương Lãnh Hà (truong_lanh_ha) is the only one who calls it pride.",
    "ties": [
     {
@@ -1833,6 +1888,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "Grave-cutter's squint.",
    "backstory": "Điền Hàn Tạc's (dien_han_tac) son, raised in Hàn Trạch Thôn by his mother's people, he came to the lake knowing exactly where he will be buried and is in no hurry to pass.",
    "ties": [
     {
@@ -1894,13 +1950,14 @@
    "traits": {
     "personality": [
      "Brave",
-     "Loyal",
+     "Faithless",
      "Impatient"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "street_orphan"
    },
-   "backstory": "Mẫn Băng Hà's (man_bang_ha) bow-oar since she passed the Frost Test, she can read ice from a skiff by its colour and thinks the seat ought to be on the coast.",
+   "appearance": "Palms blistered at the bow oar; the eyes go pale grey when she judges ice.",
+   "backstory": "Mẫn Băng Hà's (man_bang_ha) bow-oar since she passed the Frost Test, a harbour orphan who reads ice from a skiff by its colour. When a floe split she rowed home without Lăng Hàn Sinh (lang_han_sinh) and said he had jumped; a net-boat fished him out days later, half drowned.",
    "ties": [
     {
      "to": "man_bang_ha",
@@ -1967,7 +2024,8 @@
     "calling": "Merchant",
     "upbringing": "village_born"
    },
-   "backstory": "From the skin-boat village of Bì Thuyền Thôn, he dives for ice-pearls with Lăng Hàn Sinh (lang_han_sinh) and sells the small ones in Liên Giang before the Hall of Cold Law can count them.",
+   "appearance": "Hair that never dries; a pearl-seller's smile.",
+   "backstory": "From the skin-boat village of Bì Thuyền Thôn, he dives for ice-pearls with Lăng Hàn Sinh (lang_han_sinh). He palms the best pearl of every dive into his cheek and swears the deep took it, and Lăng has been docked a season's share for the losses.",
    "ties": [
     {
      "to": "lang_han_sinh",
@@ -2023,14 +2081,15 @@
    },
    "traits": {
     "personality": [
-     "Honest",
+     "Deceitful",
      "Diligent",
      "Cautious"
     ],
     "calling": "Steward",
     "upbringing": "scholar_family"
    },
-   "backstory": "A Mộc Lan Thành scholar's daughter who copies the frost coast's tax rolls for Phạm Lãnh Vân (pham_lanh_van), sending one copy to the seat and one to Lạc Ngạn Băng (lac_ngan_bang), who checks them against the seat's.",
+   "appearance": "Covers the page with her sleeve as she writes.",
+   "backstory": "A Mộc Lan Thành scholar's daughter who copies the frost coast's tax rolls for Phạm Lãnh Vân (pham_lanh_van), sending one copy to the seat and one to Lạc Ngạn Băng (lac_ngan_bang). She trims the line that names Thẩm's second set from the seat's copy, and when the sums disagree Lạc takes the blame.",
    "ties": [
     {
      "to": "pham_lanh_van",
@@ -2108,6 +2167,7 @@
      "Disgraced"
     ]
    },
+   "appearance": "Knuckles still swollen from the fist that cost him the seat.",
    "backstory": "He answered Trịnh Lăng's (trinh_lang) joke about coast accents with his fist, the one thing the Pavilion does not forgive, and Lưu Hàn Ngạn (luu_han_ngan) took him to Liên Giang before the hearing could sit.",
    "ties": [
     {
@@ -2173,9 +2233,10 @@
      "Lazy"
     ],
     "calling": "Wanderer",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "Mạnh Triều Sương's (manh_trieu_suong) nephew, who cleared the gate on his Water and spends his outer-gate years bailing his uncle's skiff; he has never seen the seat.",
+   "appearance": "Forearms like bailing buckets.",
+   "backstory": "Mạnh Triều Sương's (manh_trieu_suong) nephew, who cleared the gate on his Water and spends his outer-gate years bailing his uncle's skiff, badly; last month he fell asleep on the bucket, and the catch Thái Hàn Ngư (thai_han_ngu) had trusted him with spoiled.",
    "ties": [
     {
      "to": "manh_trieu_suong",
@@ -2241,6 +2302,7 @@
     "calling": "Merchant",
     "upbringing": "village_born"
    },
+   "appearance": "Salt-white lashes; a laugh that comes out as a cough.",
    "backstory": "Mục Sa Hành's (muc_sa_hanh) cousin from the salt pans, she reached the Desert Pavilion on his saddle and means to sit the lake, though she has never seen ice outside a cup.",
    "ties": [
     {
@@ -2305,12 +2367,13 @@
      "Diligent"
     ],
     "calling": "Schemer",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "gained": [
      "Embittered"
     ]
    },
-   "backstory": "He failed his third Frost Test last winter and was sent back to Ôn Sa Ngọc (on_sa_ngoc) at the Desert Pavilion; he says the lake answers only ice-born children, and has started saying it in Hồi Lan's taverns.",
+   "appearance": "Rolls a coin across his knuckles, mouth twisted bitter.",
+   "backstory": "An inn-keeper's son, he failed his third Frost Test last winter and was sent back to Ôn Sa Ngọc (on_sa_ngoc) at the Desert Pavilion; he says the lake answers only ice-born children, and has started saying it in Hồi Lan's taverns.",
    "ties": [
     {
      "to": "on_sa_ngoc",
@@ -2378,6 +2441,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
+   "appearance": "Heavy harbour anklets that she refuses to take off.",
    "backstory": "The second Hồi Lan harbour child in a generation to pass the lake, she chose to come back to the Desert Pavilion under Giang Sương Lạc (giang_suong_lac) rather than be the seat's curiosity.",
    "ties": [
     {
@@ -2445,6 +2509,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
+   "appearance": "Reed cuts on both hands; she cannot hold a laugh in.",
    "backstory": "Cát Ngọc Trì's (cat_ngoc_tri) brother's youngest, she helps her aunt draw the founder's cold well and grows oasis reeds in its overflow, as Hồ Tiểu Đàm (ho_tieu_dam) taught her.",
    "ties": [
     {
@@ -2511,6 +2576,7 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
+   "appearance": "Camel dust in his eyebrows.",
    "backstory": "A camel-town boy whose Water only just cleared the gate, he trains with the caravan guard under Úc Hoàng Sa (uc_hoang_sa) and has no intention of ever sitting on a frozen lake.",
    "ties": [
     {
@@ -2576,9 +2642,10 @@
      "Loyal"
     ],
     "calling": "Beast tamer",
-    "upbringing": "village_born"
+    "upbringing": "wild_raised"
    },
-   "backstory": "Mã Đông Lâm's (ma_dong_lam) sister, with no Water at all, who came anyway to keep the Desert Pavilion's horses; the horse village still sends one child a century, and she says she does not count.",
+   "appearance": "Straw in her braid; a horse's patient stare.",
+   "backstory": "Mã Đông Lâm's (ma_dong_lam) sister, raised half-wild beside him, with no Water at all, who came anyway to keep the Desert Pavilion's horses; the horse village still sends one child a century, and she says she does not count.",
    "ties": [
     {
      "to": "ma_dong_lam",
@@ -2638,8 +2705,15 @@
      "Brave"
     ],
     "calling": "Alchemist",
-    "upbringing": "servant_born"
+    "upbringing": "servant_born",
+    "talent": [
+     {
+      "id": "restless_heart",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Eyebrows singed off once and never regrown; he cannot stand still.",
    "backstory": "Named for the one thing the Pavilion forbids, he tends the furnace at Hàn Giao Chử, outside the array where flame is allowed, and Dương Lô (duong_lo) has taught him enough Fire breathing to keep it lit.",
    "ties": [
     {
@@ -2710,6 +2784,7 @@
     "calling": "Steward",
     "upbringing": "servant_born"
    },
+   "appearance": "Hands bleached white, wrinkled to the wrist.",
    "backstory": "She washes four hundred undyed robes in water warmed by other people's qi; Âu Dương Tuyết (au_duong_tuyet) let her and her son Đào Hàn Mặc (dao_han_mac) sit in on the primer; it never took for either, but she found a Wood breath of her own in the washing steam.",
    "ties": [
     {
@@ -2777,6 +2852,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
+   "appearance": "Palms always warm, steaming faintly in winter air.",
    "backstory": "Sent up from Ngân Ngư Thôn at ten to carry water, he turned out to warm it in his hands; Ông Tĩnh Hải (ong_tinh_hai) uses him to heat the tea and has asked Đỗ Sương Nhi (do_suong_nhi) to test him at the spring intake.",
    "ties": [
     {
@@ -2840,12 +2916,13 @@
     "personality": [
      "Calm",
      "Arrogant",
-     "Diligent"
+     "Callous"
     ],
     "calling": "Strategist",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
-   "backstory": "She passed the Frost Test two winters ago and has taken the Ice Heart more literally than her teacher Tạ Ngân Sương (ta_ngan_suong) would like: she has not laughed since, and is proud of it.",
+   "appearance": "Perfectly still face; one tiny line between the brows she is proud of.",
+   "backstory": "A teacher's daughter, she passed the Frost Test two winters ago and has taken the Ice Heart more literally than her teacher Tạ Ngân Sương (ta_ngan_suong) would like: when her friend Chu Sương Linh (chu_suong_linh) wept at the lake she turned her back and has not spoken to her since.",
    "ties": [
     {
      "to": "ta_ngan_suong",
@@ -2912,9 +2989,10 @@
      "Patient"
     ],
     "calling": "Duelist",
-    "upbringing": "village_born"
+    "upbringing": "servant_born"
    },
-   "backstory": "Thân Ngưng Lam's (than_ngung_lam) only disciple, he grinds the red ink she copies with and has learned more of the Lãnh Hương forms from the margins than from the practice floor.",
+   "appearance": "Red-stained cuffs; the hunched back of a grinder.",
+   "backstory": "An ink-grinder's son and Thân Ngưng Lam's (than_ngung_lam) only disciple, he grinds the red ink she copies with and has learned more of the Lãnh Hương forms from the margins than from the practice floor.",
    "ties": [
     {
      "to": "than_ngung_lam",
@@ -2983,6 +3061,7 @@
     "calling": "Beast tamer",
     "upbringing": "wild_raised"
    },
+   "appearance": "Owl feathers tucked behind one ear; unblinking pale eyes.",
    "backstory": "Raised by snow-owl trappers on the tundra above Hàn Trạch Thôn, he rides behind Ninh Bạch Hồ (ninh_bach_ho) on patrol and talks more to the sables than to people.",
    "ties": [
     {
@@ -3055,6 +3134,7 @@
      "Scarred"
     ]
    },
+   "appearance": "Hair that stands on end near the rods; sets each foot down as if testing it.",
    "backstory": "A Kê Minh Trấn boy like his warden, he keeps the lightning rods on Băng Phách Mạch for Quan Lăng Ba (quan_lang_ba) and has twice been knocked flat by the vein, which is why he walks so carefully.",
    "ties": [
     {
@@ -3124,9 +3204,10 @@
      "Loyal"
     ],
     "calling": "Formation master",
-    "upbringing": "village_born"
+    "upbringing": "scholar_family"
    },
-   "backstory": "She holds the cold-light lamp for Văn Tuyết Khanh (van_tuyet_khanh) in the tunnels under the seat, and is the one who notices when Đàm Tĩnh Thạch (dam_tinh_thach) comes up with damp sleeves.",
+   "appearance": "Dark circles under the eyes; the lamp never trembles in her hand.",
+   "backstory": "A geomancer's daughter, she holds the cold-light lamp for Văn Tuyết Khanh (van_tuyet_khanh) in the tunnels under the seat, and is the one who notices when Đàm Tĩnh Thạch (dam_tinh_thach) comes up with damp sleeves.",
    "ties": [
     {
      "to": "van_tuyet_khanh",

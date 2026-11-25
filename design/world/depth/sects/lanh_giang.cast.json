@@ -332,10 +332,10 @@
     "personality": [
      "Pragmatic",
      "Gregarious",
-     "Generous"
+     "Deceitful"
     ],
     "calling": "Merchant",
-    "upbringing": "village_born",
+    "upbringing": "merchant_child",
     "talent": [
      {
       "id": "lucky",
@@ -350,7 +350,9 @@
     "gained": []
    },
    "appearance": "A brisk marsh woman with reed-flower pins in her hair and an abacus at her belt.",
-   "backstory": "From Lô Hoa Thôn, where reed flowers cover the marsh like snow in summer (A134). She married Lư Độc Điếu (lu_doc_dieu) in 1150 and has run everything in the school that does not involve sitting still: the boats, the ice-fish sales, the Pavilion's tax and its clerk Phạm Lãnh Vân (pham_lanh_van), who reads the books every spring. She thinks her husband's ninth layer is a fish that is not in the river.",
+   "backstory": "A marsh fish-dealer's daughter from Lô Hoa Thôn, where reed flowers cover the marsh like snow in summer (A134). She married Lư Độc Điếu (lu_doc_dieu) in 1150 and has run everything in the school that does not involve sitting still: the boats, the ice-fish sales, the Pavilion's tax and its clerk Phạm Lãnh Vân (pham_lanh_van), who reads the books every spring. She thinks her husband's ninth layer is a fish that is not in the river.",
+   "wants": "To keep the school solvent and her husband sitting, and to see the Pavilion's clerk leave her books alone.",
+   "secret": "Each spring she writes a tenth of the school's catch into the ledger as lost to ice, and sells it to Liên Giang for the boats' repairs. Phạm Lãnh Vân (pham_lanh_van) reads the books every spring and has begun to count the ice.",
    "ties": [
     {
      "to": "lu_doc_dieu",
@@ -454,11 +456,11 @@
    "traits": {
     "personality": [
      "Brave",
-     "Impatient",
+     "Greedy",
      "Gregarious"
     ],
     "calling": "Strategist",
-    "upbringing": "village_born",
+    "upbringing": "war_orphan",
     "talent": [
      {
       "id": "sturdy_frame",
@@ -475,7 +477,9 @@
     ]
    },
    "appearance": "A loud, red-faced boatman who breaks the morning ice in the harbour of Tuyết Đăng Trấn with his elbow.",
-   "backstory": "The one member of the school who cannot sit still, so Bồ Tọa Tuyết (bo_toa_tuyet) sent him to the boats. He leads the escort of the ice-fish fleet from Tuyết Đăng Trấn to Liên Giang alongside Trạc Anh's whalers, and he has fought off ice beasts and smugglers. He drinks with Ngạc Hải Tiêu (ngac_hai_tieu) and thinks the terrace should hunt its whale.",
+   "backstory": "A smuggler-raid orphan and the one member of the school who cannot sit still, so Bồ Tọa Tuyết (bo_toa_tuyet) sent him to the boats. He leads the escort of the ice-fish fleet from Tuyết Đăng Trấn to Liên Giang alongside Trạc Anh's whalers, and he has fought off ice beasts and smugglers. He drinks with Ngạc Hải Tiêu (ngac_hai_tieu) and thinks the terrace should hunt its whale.",
+   "wants": "To hunt a whale with the terrace crews before he is too old to hold the harpoon.",
+   "secret": "He sells every tenth sack of ice-fish roe to the smugglers he fights each season, and has Cù Băng Ngư (cu_bang_ngu) row the pay ashore.",
    "ties": [
     {
      "to": "bo_toa_tuyet",
@@ -582,7 +586,8 @@
     "upbringing": "merchant_child",
     "lifestyle": "collector"
    },
-   "backstory": "Born the year the school was licensed, he sells its ice-fish in Liên Giang Thành and counts every scale of the Pavilion's tax twice, and Bồ Tọa Tuyết (bo_toa_tuyet) taught him to sit anyway.",
+   "appearance": "Fish-scale stains on the thumb; one gold tooth he is proud of.",
+   "backstory": "Born the year the school was licensed, he sells its ice-fish in Liên Giang Thành and counts every scale of the Pavilion's tax twice, while weighing the drowned fishers' widows' catch light by a hair; Bồ Tọa Tuyết (bo_toa_tuyet) taught him to sit anyway.",
    "ties": [
     {
      "to": "bo_toa_tuyet",
@@ -655,7 +660,8 @@
     "calling": "Teacher",
     "upbringing": "village_born"
    },
-   "backstory": "Named, like every Liễu child, for something of Hàn Giang's founder; at night on the ice she sits the way her grandmother taught her brother Liễu Ngư Ca (lieu_ngu_ca), not the way Lư Độc Điếu (lu_doc_dieu) teaches her.",
+   "appearance": "The Liễu family's narrow chin; a half-smile she turns on whoever is teaching her.",
+   "backstory": "Named, like every Liễu child, for something of Hàn Giang's founder; at night on the ice she sits the way her grandmother taught her brother Liễu Ngư Ca (lieu_ngu_ca). Each morning she shows Lư Độc Điếu (lu_doc_dieu) a wrong posture on purpose, and he writes it down as the Hàn Giang method.",
    "ties": [
     {
      "to": "lieu_ngu_ca",
@@ -728,7 +734,8 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "A fisher's son who rows for Sử Phá Băng (su_pha_bang) and cultivates only on the pull of the oar.",
+   "appearance": "Oarsman's shoulders; a lazy, sun-slackened grin.",
+   "backstory": "A fisher's son who rows for Sử Phá Băng (su_pha_bang) and cultivates only on the pull of the oar. He ships his oar through the afternoon watch and lets Mã Hàn Chu (ma_han_chu) pull both sides; Mã's hands bled on the last run.",
    "ties": [
     {
      "to": "su_pha_bang",
@@ -795,9 +802,10 @@
      "Trusting"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "hermit_taught"
    },
-   "backstory": "He sits beside Bồ Tọa Tuyết (bo_toa_tuyet) on the ice every morning because the old man once said he had the patience for it.",
+   "appearance": "Small for his age; cracked net-mender's fingertips.",
+   "backstory": "Raised by a hermit net-mender, he sits beside Bồ Tọa Tuyết (bo_toa_tuyet) on the ice every morning because the old man once said he had the patience for it.",
    "ties": [
     {
      "to": "bo_toa_tuyet",
@@ -853,13 +861,14 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Diligent",
+     "Faithless",
      "Arbitrary"
     ],
     "calling": "Steward",
     "upbringing": "merchant_child"
    },
-   "backstory": "A Mộc Lan merchant's daughter who joined for the accounts and stays for Phương Lô Hoa (phuong_lo_hoa), whom she means to replace.",
+   "appearance": "Bright merchant's earrings she has not learned to take off for the ice.",
+   "backstory": "A Mộc Lan merchant's daughter who joined for the accounts and stays for Phương Lô Hoa (phuong_lo_hoa), whom she means to replace. She copies Phương's sealed ledger pages at night to carry to the Pavilion's clerk, and pays the boat crews in the order she draws their tallies from a bag; Cù Băng Ngư's (cu_bang_ngu) came last.",
    "ties": [
     {
      "to": "phuong_lo_hoa",
@@ -927,6 +936,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
+   "appearance": "Sail-cloth callus along the thumb; a sing-song coastal drawl.",
    "backstory": "Her cousin Uông Tuyết Nhạn (uong_tuyet_nhan) failed the Pavilion's Frost Test three times and is coming to Lãnh Giang; Hồng has already made up a bed for her.",
    "ties": [
     {
@@ -981,9 +991,10 @@
      "Gregarious"
     ],
     "calling": "Diplomat",
-    "upbringing": "village_born"
+    "upbringing": "merchant_child"
    },
-   "backstory": "The talker of the two founders: he carried the petition to the Pavilion in 1140 and won the licence (V088) with Thẩm Hàn Giang's (tham_han_giang) word behind it. Impatient for the next layer, he sat the seventh on thin spring ice in 1168, and the river took him. Lư Độc Điếu (lu_doc_dieu) has never let a disciple sit on spring ice since.",
+   "appearance": "Remembered as a broad, loud man with a gap-toothed laugh and fish-scale scars on both hands.",
+   "backstory": "A merchant's son and the talker of the two founders: he carried the petition to the Pavilion in 1140 and won the licence (V088) with Thẩm Hàn Giang's (tham_han_giang) word behind it. Impatient for the next layer, he sat the seventh on thin spring ice in 1168, and the river took him. Lư Độc Điếu (lu_doc_dieu) has never let a disciple sit on spring ice since.",
    "ties": [
     {
      "to": "lu_doc_dieu",

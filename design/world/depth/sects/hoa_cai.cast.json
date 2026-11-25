@@ -206,7 +206,7 @@
      "Reclusive"
     ],
     "calling": "Alchemist",
-    "upbringing": "village_born",
+    "upbringing": "servant_born",
     "talent": [
      {
       "id": "quick_minded",
@@ -372,8 +372,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A thin man in a leather mask with glass eyes, which he takes off only to eat.",
+   "appearance": "Thin, in a leather mask with glass eyes, which he takes off only to eat.",
    "backstory": "A sulphur miner's son from Lưu Hoàng, where the badlands smell of eggs for twenty li (A209). He joined the Hall ten years before La Tử Vi (la_tu_vi) and expected the furnace in 1141. He keeps the Nine-Cycle Mercury Art and teaches it slowly, because he carried Tôn Luyện Hà (ton_luyen_ha) out of the refining room himself. He wants the roasting at the diggings carted back to his masked room at the seat, which would cost the Hall a season's weight at the scale, and La refuses.",
+   "wants": "The roasting carted back to his masked room, and no second death like Tôn Luyện Hà's on his count.",
+   "secret": "Since winter he mails a pair of mercury-room leather gloves down in the herb crates to Mễ Thanh Mạch, the shaking boy, and the Mistress's clerk is counting the glove store short.",
    "ties": [
     {
      "to": "uy_dan_duong",
@@ -497,8 +499,10 @@
     "fate_given": [],
     "gained": []
    },
-   "appearance": "A big red-handed woman whose teeth are pink from cinnabar dust.",
+   "appearance": "Big and red-handed; her teeth are pink from cinnabar dust.",
    "backstory": "Born at the diggings like the founder, she runs the forty washers the Hall keeps at Thần Sa Khoáng under the Pivot's lease (A208): the Pivot owns the mine, the Hall digs and washes it, and every basket is weighed at Thiên Quyền Thị. To keep the baskets full she roasts the poor ore beside the troughs, and the washers who stand in them shake. She sends the sick home to Thanh Khoa with a third of the lease rate and a pouch of herb sleeping pills bought from the Pivot's pill-maker, and puts two new boys at the troughs in their place. La Tử Vi (la_tu_vi) is her friend and her mistress.",
+   "wants": "A full trough every day of the lease and a ten-year renewal signed in her name.",
+   "secret": "She is raising spirit-geese behind the drying sheds for the Pivot governor's table, on the washers' spilled rice; the diggings' drover has started charging her for his silence.",
    "ties": [
     {
      "to": "uy_dan_duong",
@@ -603,7 +607,8 @@
     "upbringing": "merchant_child",
     "lifestyle": "gambler"
    },
-   "backstory": "A Thạch Kiều pill-seller's son like his mistress La Tử Vi (la_tu_vi), he sells the Hall's pills at the Pivot's market and has them weighed in public, and has never once been caught short.",
+   "appearance": "Oiled seller's moustache; he pats his pill-purse the way other men pat a dog.",
+   "backstory": "A Thạch Kiều pill-seller's son like his mistress La Tử Vi (la_tu_vi), he sells the Hall's pills at the Pivot's market and has them weighed in public, and has never once been caught short; he takes a bite of every sale Chung Minh Hiến (chung_minh_hien) makes at the stall, which the boy pays from his own wage.",
    "ties": [
     {
      "to": "uy_dan_duong",
@@ -682,7 +687,7 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Calm",
+     "Cruel",
      "Paranoid"
     ],
     "calling": "Alchemist",
@@ -691,7 +696,8 @@
      "poison_proof"
     ]
    },
-   "backstory": "From Lưu Hoàng like her master Thiệu Ngân Hống (thieu_ngan_hong); she breathes the mercury room's air without a mask and does not shake, and the Mistress holds her up to the washing shed as proof that the Breath works.",
+   "appearance": "Rosy-cheeked in a room of grey faces; one fingernail has been dark for years.",
+   "backstory": "From Lưu Hoàng like her master Thiệu Ngân Hống (thieu_ngan_hong); she breathes the mercury room's air without a mask and does not shake, and the Mistress holds her up to the washing shed as proof that the Breath works. She once held Mễ Thanh Mạch's (me_thanh_mach) face over the trough's fume for a count of forty to teach him the Breath, and his hands have shaken harder since.",
    "ties": [
     {
      "to": "thieu_ngan_hong",
@@ -759,8 +765,15 @@
      "Patient"
     ],
     "calling": "Steward",
-    "upbringing": "village_born"
+    "upbringing": "village_born",
+    "talent": [
+     {
+      "id": "unlucky",
+      "tier": 1
+     }
+    ]
    },
+   "appearance": "Hands that tremble at rest, tucked under his arms; every ox he has led to the troughs has gone lame.",
    "backstory": "A barley farmer's boy from Thanh Khoa Thôn, where the stones of an old fort built the houses (V108); he walked three months to the troughs in 1198 and rocks the ore pans for Mục Hồng Sa (muc_hong_sa). His hands shake now, and he sends his pay home.",
    "ties": [
     {
@@ -825,12 +838,13 @@
     "personality": [
      "Gregarious",
      "Fickle",
-     "Generous"
+     "Greedy"
     ],
     "calling": "Herbalist",
-    "upbringing": "village_born"
+    "upbringing": "hermit_taught"
    },
-   "backstory": "An herb seeker's son who gathers the angelica and mountain roots the Hall mixes into its wound pills, and courts Châu Dĩ An (chau_di_an) with them.",
+   "appearance": "Mountain-root dirt under every nail; a scratched cheek from the last bramble.",
+   "backstory": "An herb seeker's son who gathers the angelica and mountain roots the Hall mixes into its wound pills, and courts Châu Dĩ An (chau_di_an) with them. He sells a third of each gathering to a Thu Trì drug dealer, and the Hall's pill-room blames Châu Dĩ An's (chau_di_an) shelves for the shortfall.",
    "ties": [
     {
      "to": "la_tu_vi",
@@ -900,6 +914,7 @@
     "calling": "Herbalist",
     "upbringing": "servant_born"
    },
+   "appearance": "Round washer's shoulders; a wrist-cord strung with her father's brass tags.",
    "backstory": "A washer's daughter born at the Hall, she brings Úy Đan Dương (uy_dan_duong) his meals and reads him the market prices, and he is teaching her the ninth turn of the Canopy Pill by smell.",
    "ties": [
     {
@@ -980,7 +995,8 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "La Tử Vi's (la_tu_vi) brother's son from Thạch Kiều, brought up the slope to the furnace and much more interested in the market stall.",
+   "appearance": "Pressed collar, town-clean among grey faces; fingers inked from counting other people's coin.",
+   "backstory": "La Tử Vi's (la_tu_vi) brother's son from Thạch Kiều, brought up the slope to the furnace and much more interested in the market stall, where he leaves the lifting to Chung Minh Hiến (chung_minh_hien) and signs the ledger himself.",
    "ties": [
     {
      "to": "la_tu_vi",
