@@ -1,0 +1,166 @@
+{
+ "people": [
+  {
+   "key": "tuong_bach_luyen",
+   "sex": "m",
+   "age": 72,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "Afternoon in the assay room. He has just been handed a cup of tea and holds it a long moment under his nose, weighing it as he weighs everything, the tips of his fingers silver with old burns. He wonders whether he will be thought honest when dead.",
+   "subject": "The moment: in the late afternoon he holds a small cup of tea in both hands at chest height and studies it with a weighing, sidelong look, in no hurry to drink. Face: a lean, long, grey old face, deeply lined, the skin dry and pale; narrow dark eyes under heavy lids, shrewd; thin grey brows; a long, thin, slightly hooked nose; a thin, tight mouth with a faint dry curl; a thin white goatee. Hair: silver-grey, thin, drawn back into a small tight knot with a plain silver pin. Body: lean, spare, a little stooped, narrow shoulders. Clothing: a short blue miners' jacket of heavy cotton, faded and clean, with the hem scorched and mended in silver thread; under it a robe of fine dove-grey silk with a high collar. Hands and objects: both hands wrap a small white porcelain tea cup; the fingertips of both hands are marked with small, shiny, silver-white burn scars, plainly visible against the white cup. Background: a blurred pale room, shelves of small weights and brass scales, a small clay crucible on a stand glowing red behind. Light: soft warm light from the upper left, a dull orange glow from the crucible. Expression: dry, weighing, courteous, guarded."
+  },
+  {
+   "key": "tuong_ngoc_can",
+   "sex": "f",
+   "age": 38,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "Bright morning at the open square. She stands at her side of the scale with a set of brass weights clicking in her palm, watching the miners' line grow longer than the Pivot's. She smiles very slightly. She has plans for the whole square.",
+   "subject": "The moment: at her scale in morning sun she rolls a small set of brass weights in her palm, the click audible in the pose, and gives a small, pleased, sidelong smile at the line of customers beyond the frame. Face: a small, quick, sharp-featured woman's face; warm tan skin; bright dark eyes, shrewd and amused; neatly arched thin brows; a small straight nose; full lips set in a pleased curl; a tiny mole at the corner of the mouth. Hair: glossy black, in a high neat knot pinned with a gold hairpin; one polished curl at each ear. Body: small, quick and compact, straight-backed. Clothing: a short blue miners' jacket of heavy cotton with rolled sleeves, clean and well cut; under it a merchant's silk robe in deep wine red with a fine pattern of small gold coins woven in; the collar standing neat. Hands and objects: in the right palm five little brass weights, cylinder-shaped, with a bright shine; the left hand rests on the edge of a brass balance with two shallow pans, partly in shot. Background: a blurred sunlit square, bridge rails, a line of miners with baskets. Light: strong bright morning light from the upper left, a glint on the brass. Expression: bright, shrewd, mildly pleased, avid beneath."
+  },
+  {
+   "key": "phung_xich_kim",
+   "sex": "m",
+   "age": 70,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "Night at the three furnaces. He stands in the red glow, the grey colour of his skin showing silver in the firelight, his eyes red-rimmed. He holds a bit of dark iron and wonders silently whether it is star iron.",
+   "subject": "The moment: standing before an open furnace mouth at night, he holds a small dark lump of iron in long tongs and examines it with red, narrowed eyes, silently wondering whether it is star iron. Face: most important, his skin is a dull silver-grey, like old pewter, all over face and neck, and the whites of his eyes are rimmed raw red. It is a stooped old man's long, hollow face, the cheeks fallen in and cut with deep lines, the heavy brows singed pale, the nose long, the mouth thin and colourless. Hair: sparse, short, iron-grey, cut close to the skull. Body: stooped and narrow-shouldered, with long arms that hang forward as if still reaching for the fire. Clothing: a short blue miners' jacket of heavy cotton, clean at the collar, one cuff burnt through and mended neatly in the same blue thread; under it a robe of dark mustard silk with a high collar; over the front a thick leather apron, dark with years of use. Hands and objects: both hands hold the iron tongs, gripping a small lump of dark grey metal with a faint glow in it; a thick leather glove covers the left hand. Background: the white-orange mouth of the furnace glowing, with a few drifting sparks, the dark roof timbers above. Light: intense orange-red firelight from the front and right, so the cool pewter grey of his skin shows through the glow. Expression: weary and intent, the brow drawn down, the mouth slack with patient, quiet doubt."
+  },
+  {
+   "key": "on_song_ngoc",
+   "sex": "f",
+   "age": 40,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "Midday on the north bridge. She leans easily on the rail, a jade bracelet on each wrist, a thick book of tolls under one arm, handsome and unhurried. She carries her grandfather's terms in her pocket and is in no hurry to deliver them.",
+   "subject": "The moment: leaning one elbow on a stone bridge rail at midday, she looks at the viewer with a relaxed, handsome smile, a thick book tucked under the other arm. Face: a handsome, easy face, oval, pale brown, with high cheekbones; large warm dark eyes, lightly amused and a little too knowing; arched brows; a straight fine nose; a wide mouth with a slight, easy smile; a beauty mark at the left temple. Hair: black, long, half bound up at the crown by two jade combs, the rest falling over one shoulder in a glossy sheet. Body: tall, easy, long-limbed, relaxed lean. Clothing: a short blue miners' jacket of heavy cotton worn open and loose over a robe of dove-blue silk with a wide soft collar, tailored perfectly; sleeves wide to the wrist. Hands and objects: on each wrist a wide pale-green jade bracelet, clear and bright, one on the visible left, one on the right; a thick bound book with a plain cloth cover under the left arm. Background: a blurred stone bridge, a bright river, the twin arches, sun glitter on water. Light: bright midday light from the upper left, a glow of jade at the wrist. Expression: easy, charming, calculating."
+  },
+  {
+   "key": "la_minh_nhan",
+   "sex": "m",
+   "age": 55,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "Noon on the square, voice gone. He has shouted across at the Pivot's assayer since dawn and is hoarse, with a smear of ore dust across the cheek. He bangs a sample of ore down on the table and glares. He would be horrified to know about the weight he works beside.",
+   "subject": "The moment: at the weighing table at noon, he slams a lump of grey ore down with a bang and glares across the square, mouth wide open in a hoarse shout. Face: most important, a long smear of grey-black ore dust runs across his left cheek like a signature, plainly visible. It is a broad, heavy, florid face with deep red cheeks and short grey stubble; the dark eyes are furious beneath thick bristling brows, the nose big and blunt, and the neck cords stand out as the voice cracks. Hair: thick grey-brown, cropped short and bristling like a brush. Body: broad and barrel-chested, with big hands, leaning hard forward over the table. Clothing: a short blue miners' jacket of heavy cotton, dusted with ore and the sleeves rolled to the elbow; under it a robe of dark green silk, the collar slightly crushed by shouting and shoving. Hands and objects: the right hand presses a fist-sized lump of dull grey ore onto the wooden table; the left hand points straight across the square, finger out; a small set of brass weights and a pair of tongs lie on the table. Background: a blurred sunlit square, the rival weighing table far across it, miners with baskets drifting between. Light: harsh bright noon light from the upper left, hard on his flushed skin. Expression: a red-faced, hoarse fury, honest and unhidden, the glare of a man sure he is being cheated."
+  },
+  {
+   "key": "tuong_tri_chuan",
+   "sex": "m",
+   "age": 36,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "Evening at a table in the new counter at the silver mine. He has set a small brass spirit-level on the table and watches the bubble settle. His left foot, dragging from the dropped ingot, is stretched out under the table.",
+   "subject": "The moment: seated at a table in the evening, he has set a small brass spirit-level on the tabletop and bends his head to watch the bubble settle, one hand steadying it. Face: a plain, honest, square face, tanned; a long, steady gaze of dark brown eyes, level; straight brows; a short straight nose; a firm mouth, slightly downturned; a clean-shaven chin with a faint shadow. A faint furrow stands between his brows, as if he is always checking something level in his mind. Hair: black, short and tidy, parted at the side. Body: sturdy, broad, seated square. Clothing: a short blue miners' jacket of heavy cotton, well kept, over a robe of fine mustard silk with a plain collar; at the cuffs, clean white linen. Hands and objects: a small polished brass spirit-level, the length of a hand with a glass vial in the middle, resting on a wooden table, his thumb on one end; his left boot, stretched out, held a little crookedly. On the table before him lies a flat steel straight-edge and a small plumb weight on a thread, set neatly parallel to the level. Background: a blurred plain counter room, a window with evening light, scales on a shelf. Light: warm evening light from the upper left, a bright gleam on the brass. Expression: steady, patient and exact."
+  },
+  {
+   "key": "khuong_tieu_kim",
+   "sex": "f",
+   "age": 19,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "Midday in the weighing room. She does not blink. Nine silvers lie in a row before her and she looks at them with her wide, dark, unblinking eyes. She decides a grade by her mood.",
+   "subject": "The moment: seated at a table at midday, she stares fixedly at a row of nine small silver bars with wide, unblinking dark eyes, about to give her verdict. Face: most important, her eyes are very wide and perfectly still, dark and glossy, with no blink, fixed on one point. It is a pale, delicate, serious oval face with faintly flushed cheekbones, thin high brows, a small straight nose and a small tight closed mouth; the chin lifts slightly, as if in judgement. Hair: black, gathered in two high buns tied with plain blue ribbons, not a strand loose. Body: small, upright and neat, with narrow shoulders held very square. Clothing: a short blue miners' jacket of heavy cotton, clean and crisp, over a robe of dark green silk; the sleeves are neatly turned back twice at the wrist. Hands and objects: both hands rest on either side of a black cloth, on which nine small silver bars lie in a straight row, each a slightly different shade; a pair of fine brass tongs is held in the right hand. Background: a blurred pale room, a shelf of weights, the faint white of a steaming bath-house door. Light: clear, flat light from the upper left, bright on the silver. Expression: severe and unblinking, absolute in its certainty, with a faint arrogance in the lifted chin."
+  },
+  {
+   "key": "tuong_tieu_quyen",
+   "sex": "f",
+   "age": 17,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "Dawn at the scale. She has just let out the morning shout across the square, her voice cracking on the last word, delighted with herself. A front tooth is coming in crooked. She is proud to be louder than the other side.",
+   "subject": "The moment: at dawn she stands on a box with both hands cupped at her mouth, shouting across the square, mouth wide open, voice cracking. Face: most important, a front tooth coming in crooked and sticking out slightly over the lower lip, visible in the wide-open mouth. A round, pink-cheeked, bright face; big dark eyes squeezed half closed with the effort; thick short brows; a button nose; flushed with pride; a few freckles. Hair: black, in two thick short braids sticking out sideways. Body: small, sturdy, tiptoe on the box. Clothing: a short blue miners' jacket of heavy cotton, a little too big, over a robe of rose-coloured silk; the sleeves rolled twice. The sleeve cuffs are stitched with tiny yellow thread chicks and one is coming loose, hanging at her wrist. Hands and objects: both hands cupped around her mouth; behind her on a wooden stand a brass balance with two pans. Background: a blurred pale dawn square, bridge rails in mist, tiny early figures. Far across the square, a small blue-jacketed figure with a rival's scale stands against the mist, and pigeons wheel above the bridge. Light: cool pink dawn light from the upper left. Expression: loud, proud and delighted."
+  },
+  {
+   "key": "nghiem_tuyet_ngan",
+   "sex": "f",
+   "age": 16,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "The furnace room. She has just pressed her brother's hand toward the crucible rim to teach him smoke and laughs at the blisters. One eyebrow was singed off long ago and never grew back. Her forearms are corded like rope.",
+   "subject": "The moment: at a furnace she gives a cold, amused smile at someone out of frame, her arm braced on the bellows rail, enjoying a cruel joke. Face: most important, her left eyebrow is entirely missing, only smooth skin above the eye, which gives the face an uneven, odd look; the other brow is thick and dark. It is a lean, sharp, narrow, tanned face with bright dark mocking eyes, a thin nose, and thin lips curved in a slight sneer. Hair: black, tied in a tight, high ponytail with a strip of leather, pulled so hard it lifts the corners of her eyes. Body: small and wiry, the forearms corded like rope with a vein standing on each. Clothing: a short blue miners' jacket of heavy cotton, clean, with the sleeves cut off at the elbow so the arms are free; under it a plain russet silk robe, and a leather apron tied at the chest. Hands and objects: the right arm rests on the wooden bellows handle, forearm bare and corded; the left hand holds a pair of tongs with a bit of grey metal that smokes. Background: the orange mouth of a furnace, soot on the wall, roof beams, all blurred. Light: orange firelight from the right and below, a colder light from the upper left on her sneering face. Expression: cold and proud, a little cruel, a half-smile of someone thoroughly enjoying herself."
+  },
+  {
+   "key": "nghiem_bac_sinh",
+   "sex": "m",
+   "age": 18,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "The assay floor, after hours. He sweeps the last of the silver dust into a pan, slides it into a pocket, and looks up with the soft, patient face of a boy who has done nothing. His pockets sag.",
+   "subject": "The moment: on the assay floor, broom in one hand, he slips a pinch of glittering sweepings into a pocket with the other and looks up with an innocent, patient face. Face: a soft, round, mild face with pale cheeks and a faint blush; large, patient, light-brown eyes, blinking; thin pale brows; a small, round nose; a small, shy half-smile; a little downy fuzz at the lip. A faint trace of fine silver dust sparkles in his eyebrows, and there is a little pink at the tips of his ears. Hair: brown, cropped short with a cowlick. Body: stocky, soft, rounded. Clothing: a short blue miners' jacket of heavy cotton, hanging crookedly because both pockets sag with weight; at the cuffs of the grey shirt below, small flecks of silver glitter plainly; a canvas apron. The canvas apron's pocket bulges square, and a brown paper twist of glittering sweepings sticks out of the jacket's pocket edge. Hands and objects: a straw broom in his left hand; his right hand dips into the sagging pocket; a small pan with silver dust on the floor by his foot, the dust bright. Background: a blurred plain floor, sunbeams and dust, a smelting stand. Light: dusty light from a window at the upper left. The sunbeam lights floating motes of dust around him, a few of which are bright as tiny stars. Expression: mild, patient, innocent, mildly watchful."
+  },
+  {
+   "key": "cu_tieu_hanh",
+   "sex": "m",
+   "age": 20,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "Morning at the writing desk on the square. He copies yesterday's tally, lips moving over every sum, and changes the date. A pen is stuck behind the wrong ear. He cannot hold today's sums in his head and will not say so.",
+   "subject": "The moment: seated at a low desk in the morning, he writes with a brush, lips moving silently over each figure, the thumb of his writing hand black with ink. Face: most important, his right thumb is blackened with ink to the knuckle, and a brush is stuck behind the wrong ear, the right one. A soft, fair, round face with a high forehead; heavy-lidded, vague brown eyes fixed on the page; faint brows; a short nose; lips moving as he counts. There is a faint ink smudge on his chin, and his eyes keep flicking up from the page as if to be sure no one is watching. Hair: black, hanging loosely to the collar. Body: slim, bent forward, narrow shoulders. Clothing: a short blue miners' jacket of heavy cotton, new and stiff, over a robe of peach silk with a pale collar; sleeves with bright white cuffs. Hands and objects: the right hand holds a thin ink brush over a long pale scroll, the thumb black; a stone ink block and a cup of water on the desk. Background: a blurred square at dawn, the other side's scale far off in mist. A wooden stand with a row of brushes in a jar stands on the desk, and beyond the window the other side's scale glimmers faintly. Light: soft light from the upper left. Expression: dreamy, careless and bluffing."
+  },
+  {
+   "key": "on_bich_lien",
+   "sex": "f",
+   "age": 18,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "A busy mid-morning at the bridge toll gate. She is collecting tolls with a bright smile; the brass toll tokens at her belt jingle at every step. She is much better at this than at the scale.",
+   "subject": "The moment: at a toll gate in mid-morning she holds out an open palm to a passer-by out of frame with a bright, expectant smile, and the brass tokens at her belt jingle. Face: a pretty, round, bright face, rosy and clear, with large sparkling dark eyes, neat arched brows, a small upturned nose, and a wide, charming mouth with dimples; a gold stud sits in one ear. Hair: black, in a high side tail tied with a brass ring, a string of small brass tokens woven through it. Body: small, plump and quick on her feet, always leaning toward the next customer. Clothing: a short blue miners' jacket of heavy cotton, cleverly taken in at the waist, over a robe of leaf-green silk; at her belt hangs a thick cluster of round brass toll tokens with square holes, heaped on a cord and clearly visible. Hands and objects: the right hand, palm up and open, with a few brass tokens lying in it; the left hand holds up a handful of the tokens strung on a cord. Background: a blurred stone bridge, a toll gate with a lowered pole, a short line of travellers. Light: bright morning light from the upper left, glinting on the brass. Expression: bright and friendly, a delighted, slightly greedy smile, the eyes already counting."
+  },
+  {
+   "key": "tien_phan_vi",
+   "sex": "m",
+   "age": 24,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "Late night at the crucible, just before dawn. His eyes squint at the first light through the door as though he were woken. A small black knife is at his hip, bought at the gate. He has asked three times to fire it and been told no.",
+   "subject": "The moment: standing at the door of a furnace shed at first light, he squints against the grey glow, one hand shading his eyes, a dark knife held loosely in the other. Face: most important, deep charcoal-black creases radiate round both eyes, as though drawn with a burnt stick, and the eyes are screwed up against the light. It is a lean, long, soot-smudged face with stubbled cheeks, narrow dark eyes, a broad nose and a wide stubborn mouth. Hair: black, matted with soot, with a leather thong tied round it. Body: tall and lanky, the shoulders stooped. Clothing: a short blue miners' jacket of heavy cotton, soot-grey at the cuffs and front, over a robe of rust-coloured silk whose cuffs are black to the elbow; a leather gauntlet on one hand, and a scorched leather apron over his front, its old burn marks in a pattern like stars, which is practical wear of the trade. Hands and objects: a small matte-black knife with a short blade, its edge dull, held loosely in the right hand; the left hand raised to shade his eyes. Background: a dark furnace shed, a glowing crucible, and through the open door a thin strip of pearl-grey dawn over a heap of charcoal sacks. Light: pale grey dawn light from the right and a dull orange glow from behind. Expression: tired and stubborn, the squint softened by a flicker of eagerness."
+  },
+  {
+   "key": "duong_noan_ha",
+   "sex": "f",
+   "age": 38,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "A steamy doorway of the bath-house. She has been laughing so loudly that three walls can hear her. Her hair curled for good by the steam. She has just looked at a coin and found it copper.",
+   "subject": "The moment: in a steamy bath-house doorway she tosses her head back in a huge laugh, one hand holding a small coin up between finger and thumb to the light. Face: most important, her black hair is a mass of tight, springy, steam-curled ringlets, springing out round her face. It is a round, rosy, glowing face with big laughing dark eyes, thin curved brows, a snub nose, a wide mouth open in a big laugh showing white teeth, and a dimple in each cheek. Hair: black and tightly curled, caught up in a cloth at the back, the front a halo of curls beaded with steam. Body: solid and round-shouldered, with a big bosom and a confident, planted stance. Clothing: a short blue miners' jacket of heavy cotton, worn open, over a robe of soft pink silk damp at the collar; the sleeves are rolled to the elbow and a cloth lies over one shoulder. Hands and objects: the right hand holds up a single small round coin of dull orange-brown copper between thumb and finger, catching the light; the left hand holds a wooden bucket handle. Background: swirls of white steam, the wooden slats of a door, warm blurred lamplight. Light: warm, soft, hazy light from the upper left, diffused through steam. Expression: a huge hearty laugh with a hard edge in the eyes, the delight of someone who has just seen that a coin is only copper."
+  },
+  {
+   "key": "luong_diem_chi",
+   "sex": "f",
+   "age": 21,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "The furnace room at night. She puts her palm out toward the crucible and feels the heat change before any gauge could say it. The crescent burn on her chin shows in the glow. She calls it her second smile.",
+   "subject": "The moment: at night beside a furnace she holds one open palm out over the glowing crucible, face turned toward the heat with a slight smile, eyes closed. Face: most important, a pale pink crescent-shaped burn scar on her chin curves like a second smile under her real one. A strong, square, ruddy face; closed eyes with thick lashes; strong dark brows; a straight nose; a wide mouth in a slight smile; sweat on the temples. The crescent burn is slightly paler pink than the rest of her chin, a half-moon with the curve upward like a smile. Hair: dark brown with a coppery tint in the firelight, tied up in a short tail under a cloth. A damp strand clings to her forehead, and a small wooden pin holds the tail knot in place. Body: strong, solid, shoulders square. Clothing: a short blue miners' jacket of heavy cotton, singed at the cuffs, over a robe of dull gold silk; a leather apron. Hands and objects: the right palm raised, held out over a glowing crucible, the pink calloused palm lit orange; a pair of long tongs in the left hand. Background: the white-orange glow of a furnace, dark roof beams, sparks. Light: bright orange firelight from the front and below, deep shadow behind. Expression: serene, absorbed, a quiet smile."
+  },
+  {
+   "key": "on_tieu_kieu",
+   "sex": "m",
+   "age": 17,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "A lesson he cannot sit through. He has changed seats twice and now twists a jade thumb-ring too big for him round and round. He is asleep on a ledger half the time.",
+   "subject": "The moment: slouched at a bench in a lesson, he twists a large jade thumb-ring round and round on his thumb, looking sideways at the viewer with a restless, bored face. Face: a round, fresh boy's face with sleepy dark eyes and a restless gaze; thin arched brows; a short nose; a sulky, full mouth with a half yawn; a faint downy moustache. A faint trace of last night's ink stain remains on his cheek where his head lay on a ledger. Hair: black, glossy, a lock across the forehead tied with a pale-green cord. Body: slight, slouching, one leg tucked under him. Clothing: a short blue miners' jacket of heavy cotton, unbuttoned and loose; under it a robe of sky-blue silk with the collar open; sleeves too long and rolled. Hands and objects: on his right thumb a pale green jade ring far too wide, a size too big, slipping; he twists it with the other hand; his head propped on his other fist. Background: a blurred classroom bench, a window, a long scroll. A neat row of shelves behind him holds weights of graded size, and a second boy at the end of the bench sits perfectly straight, out of focus. Light: soft light from the upper left. Expression: bored, restless, sleepy."
+  },
+  {
+   "key": "quan_thap_thu",
+   "sex": "m",
+   "age": 86,
+   "dress": "chan_kim",
+   "memorial": false,
+   "imagined": "The oldest outer disciple, bent over, in an afternoon doorway. One eyelid droops. When anyone comes near he pats the bulge in his left sleeve. He keeps the true weight there and has kept it for thirty years.",
+   "subject": "The moment: bent with age in a sunny doorway, he pats a hard round bulge in his left sleeve with his right hand, one eyelid drooping, and gives a mild nod. Face: most important, his left eyelid droops half closed over the eye, a heavy fold of skin, while the right eye is open and bright. A deeply wrinkled, round, brown face like an old walnut; white whiskers; a flat nose; a toothless, kindly mouth in a small smile; large ears. A small dewdrop gleams at the end of his nose, and his white whiskers are patchy and soft like cotton. Hair: sparse white wisps on a speckled scalp, a faded blue cloth tied over the top. Body: bent, small, shrunken, shoulders hunched. Clothing: a short blue miners' jacket of heavy cotton, faded almost to grey, well mended, clean; under it a robe of old mustard silk; the left sleeve held heavy, with a round heavy bulge showing at the cuff. Hands and objects: his right hand patting the bulge of the left sleeve, a rounded weight shape; a gnarled wooden stick in the other. Background: a blurred sunlit doorway, a square beyond, a bright scale. Behind him a young assayer is blurred in the act of lifting a basket, and a square tile floor leads out to the bridge. Light: bright afternoon light from the upper left. A strip of sun lights the bald top of his head and one side of his face, leaving the drooping eyelid in shadow. Expression: mild, wily, patient and kindly."
+  },
+  {
+   "key": "hang_thu_kim",
+   "sex": "m",
+   "age": 45,
+   "dress": "chan_kim",
+   "memorial": true,
+   "imagined": "A memorial portrait of the founder at the moment of the great weight, 980: standing beside the newly cast bronze standard weight, his hand upon it, swearing that the house would never weigh for itself. He is calm. The fumes will take him five years early.",
+   "subject": "The moment: a memorial portrait, faded and yellowed like an old silk painting, edges darkened, of a man standing with his hand flat on a heavy bronze weight, as if swearing on it. Face: an honest, calm, square face, pale brown, with a high forehead, steady level dark eyes, straight brows, a straight nose and a firm closed mouth; a short neat black beard with a few grey hairs. A faint furnace-fume pallor lies in pale blotches on the cheeks, and a slight greyness at the lips hints at what will take him. Hair: black, tied in a plain topknot with a silver pin. Body: sturdy and upright, plain in his bearing. Clothing: a short blue miners' jacket of heavy cotton over a robe of dark green silk, a scorched leather apron tied over it, the sleeves rolled to the elbow. Hands and objects: his right hand rests flat on the top of a large bronze weight shaped like a squat bell with a ring handle, the bronze a dull gold-green; his left hand hangs at his side in a fist. Background: a wash of pale grey and ochre, with the faint outline of a barred window and the pale shape of a balance beam hanging from the rafter. Light: faint, even and pale, as if seen through old silk. Expression: calm and stubborn, the quiet gravity of a man who has just sworn an oath and means it."
+  }
+ ]
+}

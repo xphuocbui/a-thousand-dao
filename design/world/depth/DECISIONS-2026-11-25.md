@@ -131,3 +131,39 @@ ACTION after the finishing pass: apply these to world-generation.md (floor), com
 
 - Fix all four before implementation: A (the mechanical sweep), the Phất Y IP rewrite, B (break the repeated story
   shapes), C (depth and tone).
+
+## Group 14: art for the authored world (asked 2026-11-25, timing still open)
+
+- **Portraits:** all ~1,800 authored people (living and dead) get their own portrait, painted at **low** quality like
+  the existing 106 cast portraits (gpt-image-2, 1024x1536). Estimate ~$16 + ~$4 repaints (unverified price table).
+  This widens the 2026-11-24 decision (type set + special characters): ordinary random NPCs keep the type set.
+- **Places:** about 100 story sites get an illustration in the existing place style (medium, 1536x864, painted into
+  the map): the 32 named places with none, the 10 moved seats (their paintings show the old place), and the other
+  places the content uses as story sites. Estimate ~$6 + repaints.
+- **When:** the user is still deciding (before Stage 0, or after the export at Stage 4). Nothing is painted yet.
+- Owed when it runs: gen_portraits.py reads the depth casts (now only world_history.json's people); Thang Vô Tạ's
+  stored prompt in assets/portraits/portraits.json still has the old Lý Bạch gloss and must be rewritten.
+- **Prompts are authored per person and per place** (user, 2026-11-25). A portrait prompt reads the whole record:
+  history, traits, sect, age (cultivators may look young), stats, techniques and arts, and build. It is a fixed style
+  block plus a hand-written subject paragraph: apparent age from realm and lifespan; qi colour from root and main
+  technique; gear and weapon from the build; dress from sect, rank, craft and upbringing; expression from traits and
+  talents (flaws shown); one or two concrete details from the backstory, hinting at a secret but never showing it.
+  A place prompt first knows where the place is (region, biome, terrain, height, coast and rivers, neighbours, qi,
+  province, owner), then its theme (the sect's craft, the events there, the story uses), and is painted into the
+  real map crop as before.
+- **Plan:** a pilot of ~10 people across tiers and 3 places. The user reads the prompts, then sees the 13 paintings
+  (~$0.25). Then 8 Sonnet batches write the rest. Estimate: about one pass C of Claude usage, ~1-1.5 h; images
+  unchanged (~$26). Timing still open.
+- **Pilot verdicts (user, 2026-11-25):**
+  - Portraits v4 ("this is okay"): the imagine-first, labelled, specific prompts, at **low quality for everyone**.
+    Cultivators dress well; rags only where the story calls for it. Prompts must be very specific.
+  - Places: keep the top-down view, but each place is **its own picture at true, grand scale, not a miniature on the
+    map**; prompts as detailed as the portraits'. Pilot v2 painted (`art/pilot-review/places-v2.jpg`); awaiting the
+    user's look.
+- **Full run (user, 2026-11-25):**
+  - Repaint the 88 old cast portraits too (yes).
+  - **Low quality on all**, places included.
+  - Restyle every existing place painting as well (read from "use low on all").
+  - Places are political entities: size each place first, since not everything is a sect headquarters, and keep its
+    own character ("really paint a sect").
+  - Rewrite all prompts now, and **give a cost estimate before generating any images**.

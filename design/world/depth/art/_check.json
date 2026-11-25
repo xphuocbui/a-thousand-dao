@@ -1,0 +1,3566 @@
+{
+ "luc_thanh_sam": {
+  "file": "design/world/depth/art/portraits/p01/ho_lam.json",
+  "flags": [
+   "traits listed: Honest, Patient"
+  ]
+ },
+ "binh_thiet_phu": {
+  "file": "design/world/depth/art/portraits/p01/ho_lam.json",
+  "flags": [
+   "traits listed: Diligent, Vengeful, Humble"
+  ]
+ },
+ "tac_ha_thang": {
+  "file": "design/world/depth/art/portraits/p01/ho_lam.json",
+  "flags": [
+   "traits listed: Lazy, Gregarious, Indulgent"
+  ]
+ },
+ "truc_linh_lo": {
+  "file": "design/world/depth/art/portraits/p01/ho_lam.json",
+  "flags": [
+   "traits listed: Calm, Trusting, Compassionate"
+  ]
+ },
+ "thieu_tung_lam": {
+  "file": "design/world/depth/art/portraits/p01/ho_lam.json",
+  "flags": [
+   "traits listed: Cautious, Pragmatic, Faithless"
+  ]
+ },
+ "to_mieu_nhi": {
+  "file": "design/world/depth/art/portraits/p01/ho_lam.json",
+  "flags": [
+   "traits listed: Patient, Devout, Compassionate"
+  ]
+ },
+ "sam_lang_nhi": {
+  "file": "design/world/depth/art/portraits/p01/ho_lam.json",
+  "flags": [
+   "traits listed: Brave, Content, Gregarious"
+  ]
+ },
+ "tu_ke_chi": {
+  "file": "design/world/depth/art/portraits/p01/ho_lam.json",
+  "flags": [
+   "traits listed: Cautious, Diligent, Honest"
+  ]
+ },
+ "phan_tieu_ho": {
+  "file": "design/world/depth/art/portraits/p01/ho_lam.json",
+  "flags": [
+   "traits listed: Wrathful, Greedy, Loyal"
+  ]
+ },
+ "la_tu_vi": {
+  "file": "design/world/depth/art/portraits/p01/hoa_cai.json",
+  "flags": [
+   "traits listed: Calm, Ambitious, Pragmatic"
+  ]
+ },
+ "uy_dan_duong": {
+  "file": "design/world/depth/art/portraits/p01/hoa_cai.json",
+  "flags": [
+   "traits listed: Reclusive, Patient, Stubborn"
+  ]
+ },
+ "thieu_ngan_hong": {
+  "file": "design/world/depth/art/portraits/p01/hoa_cai.json",
+  "flags": [
+   "traits listed: Cautious, Arrogant"
+  ]
+ },
+ "muc_hong_sa": {
+  "file": "design/world/depth/art/portraits/p01/hoa_cai.json",
+  "flags": [
+   "traits listed: Brave, Callous, Loyal"
+  ]
+ },
+ "du_hoang_nhi": {
+  "file": "design/world/depth/art/portraits/p01/hoa_cai.json",
+  "flags": [
+   "traits listed: Diligent, Paranoid, Cruel"
+  ]
+ },
+ "bien_lam_chau": {
+  "file": "design/world/depth/art/portraits/p01/hoa_cai.json",
+  "flags": [
+   "traits listed: Cautious, Honest, Faithless"
+  ]
+ },
+ "ngai_hoang_thach": {
+  "file": "design/world/depth/art/portraits/p01/hoa_cai.json",
+  "flags": [
+   "traits listed: Brave, Diligent, Humble"
+  ]
+ },
+ "me_thanh_mach": {
+  "file": "design/world/depth/art/portraits/p01/hoa_cai.json",
+  "flags": [
+   "traits listed: Brave, Content, Patient, Trusting"
+  ]
+ },
+ "me_hoa_thu": {
+  "file": "design/world/depth/art/portraits/p01/hoa_cai.json",
+  "flags": [
+   "traits listed: Honest, Patient, Devout"
+  ]
+ },
+ "la_khoi_minh": {
+  "file": "design/world/depth/art/portraits/p01/hoa_cai.json",
+  "flags": [
+   "traits listed: Ambitious, Lazy, Arrogant"
+  ]
+ },
+ "khanh_mac_thach": {
+  "file": "design/world/depth/art/portraits/p01/phan_vu.json",
+  "flags": [
+   "traits listed: Diligent, Honest"
+  ]
+ },
+ "lanh_nham_nuong": {
+  "file": "design/world/depth/art/portraits/p01/phan_vu.json",
+  "flags": [
+   "traits listed: Calm, Content, Stubborn"
+  ]
+ },
+ "long_chuoc_sinh": {
+  "file": "design/world/depth/art/portraits/p01/phan_vu.json",
+  "flags": [
+   "traits listed: Brave, Arrogant"
+  ]
+ },
+ "kinh_tieu_hoa": {
+  "file": "design/world/depth/art/portraits/p01/phan_vu.json",
+  "flags": [
+   "traits listed: Cautious, Humble, Patient"
+  ]
+ },
+ "thuong_quy_vu": {
+  "file": "design/world/depth/art/portraits/p01/phan_vu.json",
+  "flags": [
+   "traits listed: Brave, Fickle"
+  ]
+ },
+ "boc_than": {
+  "file": "design/world/depth/art/portraits/p01/phan_vu.json",
+  "flags": [
+   "traits listed: Content, Lazy, Forgiving"
+  ]
+ },
+ "ke_thu_liet": {
+  "file": "design/world/depth/art/portraits/p01/phan_vu.json",
+  "flags": [
+   "traits listed: Brave, Loyal"
+  ]
+ },
+ "tuan_ha_y": {
+  "file": "design/world/depth/art/portraits/p01/phan_vu.json",
+  "flags": [
+   "traits listed: Brave, Calm, Ambitious, Stubborn"
+  ]
+ },
+ "tuyen_bich_ha": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Gregarious, Just, Patient"
+  ]
+ },
+ "xa_trong_son": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Cautious, Honest, Loyal"
+  ]
+ },
+ "hach_moc_sinh": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Arrogant, Cruel, Warlike"
+  ]
+ },
+ "tran_bach_xuyen": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Calm, Diligent, Callous, Loyal"
+  ]
+ },
+ "dam_luu_ba": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Brave, Gregarious, Arbitrary"
+  ]
+ },
+ "thi_moc_huong": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Content, Temperate, Devout"
+  ]
+ },
+ "hau_thien_ke": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Cautious, Diligent, Greedy"
+  ]
+ },
+ "co_luc_son": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Content, Diligent, Humble"
+  ]
+ },
+ "trinh_uc_van": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Calm, Diligent, Forgiving"
+  ]
+ },
+ "tong_ngon_hoa": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Greedy, Gregarious, Honest"
+  ]
+ },
+ "lam_dieu_bach": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Content, Diligent, Stubborn"
+  ]
+ },
+ "phu_lien_chau": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Cautious, Deceitful, Faithless"
+  ]
+ },
+ "ngo_to_am": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Diligent, Humble, Loyal"
+  ]
+ },
+ "khang_tay_kim": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Cautious, Generous, Deceitful"
+  ]
+ },
+ "luong_tac_bang": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Ambitious, Just, Patient, Impatient"
+  ]
+ },
+ "lang_tieu_lang": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Content, Lazy, Gregarious"
+  ]
+ },
+ "dich_tieu_ho": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Brave, Deceitful, Arrogant"
+  ]
+ },
+ "hoang_thuy_ho": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Cautious, Patient, Loyal"
+  ]
+ },
+ "thi_uyen_yen": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Temperate, Devout"
+  ]
+ },
+ "phan_ba_sinh": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Brave, Calm, Content, Reclusive"
+  ]
+ },
+ "ma_lang_nha": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Brave, Calm, Cruel, Loyal"
+  ]
+ },
+ "hua_niem_tung": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Patient, Devout, Compassionate"
+  ]
+ },
+ "luc_tieu_tuyen": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Greedy, Gregarious, Indulgent"
+  ]
+ },
+ "tien_the_lam": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Ambitious, Greedy, Gregarious"
+  ]
+ },
+ "banh_tao_nhi": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Diligent, Gregarious, Humble"
+  ]
+ },
+ "kieu_han_nguyet": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Cautious, Reclusive, Loyal"
+  ]
+ },
+ "lieu_dinh_suong": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Arbitrary, Patient, Devout"
+  ]
+ },
+ "manh_kien_can": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Brave, Wrathful, Loyal"
+  ]
+ },
+ "lo_thanh_ngan": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Calm, Vengeful, Just"
+  ]
+ },
+ "uc_ham_ba": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Ambitious, Honest, Patient, Impatient"
+  ]
+ },
+ "ta_chuan_thang": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Diligent, Arrogant, Cruel"
+  ]
+ },
+ "vien_kho_sam": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Cautious, Diligent, Reclusive"
+  ]
+ },
+ "man_luc_yen": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Calm, Honest, Temperate"
+  ]
+ },
+ "phi_han_cham": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Arbitrary, Paranoid, Loyal"
+  ]
+ },
+ "doi_thach_tam": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Arbitrary, Patient, Stubborn"
+  ]
+ },
+ "te_thuong_man": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Greedy, Pragmatic, Callous"
+  ]
+ },
+ "ha_vong_tan": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Gregarious, Fickle, Faithless"
+  ]
+ },
+ "giap_le_han": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Diligent, Cruel, Loyal"
+  ]
+ },
+ "pho_tinh_ngon": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Cautious, Reclusive, Honest"
+  ]
+ },
+ "te_tieu_mach": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Lazy, Gregarious, Pragmatic"
+  ]
+ },
+ "tieu_khe_nhi": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Brave, Honest, Compassionate"
+  ]
+ },
+ "phung_que_chi": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Generous, Honest, Arbitrary"
+  ]
+ },
+ "sam_chuc_nuong": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Diligent, Greedy, Reclusive"
+  ]
+ },
+ "trac_thuy_boi": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Brave, Ambitious, Deceitful"
+  ]
+ },
+ "lo_niem_xuyen": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Calm, Vengeful, Patient"
+  ]
+ },
+ "muc_thu_duong": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Gregarious, Trusting, Loyal"
+  ]
+ },
+ "ung_ky_son": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Ambitious, Arrogant, Cruel"
+  ]
+ },
+ "ngai_luc_hao": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Ambitious, Diligent, Callous"
+  ]
+ },
+ "tat_tieu_phu": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Diligent, Humble, Peaceable"
+  ]
+ },
+ "cung_cau_chi": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Content, Generous, Patient"
+  ]
+ },
+ "nhiep_co_tan": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Stubborn, Warlike, Loyal"
+  ]
+ },
+ "tu_tich_coc": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Cautious, Honest, Temperate"
+  ]
+ },
+ "lich_huong_tram": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Patient, Temperate, Devout"
+  ]
+ },
+ "lo_thu_ha": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Patient, Stubborn, Compassionate"
+  ]
+ },
+ "tan_mac_bach": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Diligent, Paranoid, Loyal"
+  ]
+ },
+ "bo_hanh_lam": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Content, Diligent, Humble"
+  ]
+ },
+ "ky_tung_an": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Ambitious, Reclusive, Patient"
+  ]
+ },
+ "giap_tung_chi": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Stubborn, Callous, Loyal"
+  ]
+ },
+ "vuu_lien_hoan": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Brave, Diligent, Stubborn"
+  ]
+ },
+ "lo_thanh_xuyen": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Brave, Honest, Loyal"
+  ]
+ },
+ "chiem_hau_duc": {
+  "file": "design/world/depth/art/portraits/p01/tung_dao.json",
+  "flags": [
+   "traits listed: Diligent, Generous, Humble"
+  ]
+ },
+ "thieu_song_phong": {
+  "file": "design/world/depth/art/portraits/p02/lac_ha.json",
+  "flags": [
+   "traits listed: Brave, Stubborn"
+  ]
+ },
+ "can_thu_chuyet": {
+  "file": "design/world/depth/art/portraits/p02/lac_ha.json",
+  "flags": [
+   "traits listed: Stubborn, Cruel"
+  ]
+ },
+ "hoang_lan_chi": {
+  "file": "design/world/depth/art/portraits/p02/lac_ha.json",
+  "flags": [
+   "traits listed: Content, Generous, Patient"
+  ]
+ },
+ "dien_tieu_mach": {
+  "file": "design/world/depth/art/portraits/p02/lac_ha.json",
+  "flags": [
+   "traits listed: Content, Peaceable"
+  ]
+ },
+ "bo_tieu_lo": {
+  "file": "design/world/depth/art/portraits/p02/lac_ha.json",
+  "flags": [
+   "traits listed: Calm, Compassionate"
+  ]
+ },
+ "vu_tri_thu": {
+  "file": "design/world/depth/art/portraits/p02/lac_ha.json",
+  "flags": [
+   "traits listed: Diligent, Loyal"
+  ]
+ },
+ "dang_tieu_van": {
+  "file": "design/world/depth/art/portraits/p02/lac_ha.json",
+  "flags": [
+   "traits listed: Ambitious, Patient, Impatient, Callous"
+  ]
+ },
+ "khuc_lao_dieu": {
+  "file": "design/world/depth/art/portraits/p02/lac_ha.json",
+  "flags": [
+   "traits listed: Calm, Reclusive, Patient"
+  ]
+ },
+ "mach_tieu_ngan": {
+  "file": "design/world/depth/art/portraits/p02/lac_ha.json",
+  "flags": [
+   "traits listed: Cautious, Greedy, Patient"
+  ]
+ },
+ "nghe_tieu_thao": {
+  "file": "design/world/depth/art/portraits/p02/lac_ha.json",
+  "flags": [
+   "traits listed: Patient, Impatient"
+  ]
+ },
+ "ky_minh_uoc": {
+  "file": "design/world/depth/art/portraits/p02/lac_ha.json",
+  "flags": [
+   "traits listed: Honest, Just"
+  ]
+ },
+ "khau_tich_nhan": {
+  "file": "design/world/depth/art/portraits/p02/lac_ha.json",
+  "flags": [
+   "traits listed: Brave, Warlike"
+  ]
+ },
+ "thuong_thu_ha": {
+  "file": "design/world/depth/art/portraits/p02/lac_ha.json",
+  "flags": [
+   "traits listed: Just, Patient, Callous"
+  ]
+ },
+ "han_tieu_chuc": {
+  "file": "design/world/depth/art/portraits/p02/nam_pho.json",
+  "flags": [
+   "traits listed: Patient, Devout"
+  ]
+ },
+ "phu_vu_to": {
+  "file": "design/world/depth/art/portraits/p03/bach_vu.json",
+  "flags": [
+   "traits listed: Content, Devout, Stubborn"
+  ]
+ },
+ "lam_the_ngo": {
+  "file": "design/world/depth/art/portraits/p03/bach_vu.json",
+  "flags": [
+   "traits listed: Calm, Honest, Patient"
+  ]
+ },
+ "kieu_thuy_nhi": {
+  "file": "design/world/depth/art/portraits/p03/bach_vu.json",
+  "flags": [
+   "traits listed: Gregarious, Humble"
+  ]
+ },
+ "ky_hong_phien": {
+  "file": "design/world/depth/art/portraits/p03/bach_vu.json",
+  "flags": [
+   "traits listed: Stubborn, Loyal"
+  ]
+ },
+ "ta_thanh_thuoc": {
+  "file": "design/world/depth/art/portraits/p03/bach_vu.json",
+  "flags": [
+   "traits listed: Patient, Devout"
+  ]
+ },
+ "giai_van_tieu": {
+  "file": "design/world/depth/art/portraits/p03/bach_vu.json",
+  "flags": [
+   "traits listed: Brave, Gregarious"
+  ]
+ },
+ "co_xich_nguyet": {
+  "file": "design/world/depth/art/portraits/p03/da_quang.json",
+  "flags": [
+   "traits listed: Brave, Vengeful, Arrogant"
+  ]
+ },
+ "dan_muc_lang": {
+  "file": "design/world/depth/art/portraits/p03/da_quang.json",
+  "flags": [
+   "traits listed: Content, Peaceable, Loyal"
+  ]
+ },
+ "thoi_kim_doi": {
+  "file": "design/world/depth/art/portraits/p03/da_quang.json",
+  "flags": [
+   "traits listed: Ambitious, Paranoid, Faithless"
+  ]
+ },
+ "hang_da_boi": {
+  "file": "design/world/depth/art/portraits/p03/da_quang.json",
+  "flags": [
+   "traits listed: Wrathful, Greedy, Warlike"
+  ]
+ },
+ "do_xich_linh": {
+  "file": "design/world/depth/art/portraits/p03/da_quang.json",
+  "flags": [
+   "traits listed: Ambitious, Greedy, Cruel"
+  ]
+ },
+ "hang_luu_hoa": {
+  "file": "design/world/depth/art/portraits/p03/da_quang.json",
+  "flags": [
+   "traits listed: Ambitious, Gregarious, Deceitful"
+  ]
+ },
+ "o_sa_nhi": {
+  "file": "design/world/depth/art/portraits/p03/da_quang.json",
+  "flags": [
+   "traits listed: Brave, Gregarious, Fickle"
+  ]
+ },
+ "hung_da_linh": {
+  "file": "design/world/depth/art/portraits/p03/da_quang.json",
+  "flags": [
+   "traits listed: Lazy, Honest, Peaceable"
+  ]
+ },
+ "tat_da_lang": {
+  "file": "design/world/depth/art/portraits/p03/da_quang.json",
+  "flags": [
+   "traits listed: Ambitious, Deceitful, Paranoid"
+  ]
+ },
+ "lau_minh_chau": {
+  "file": "design/world/depth/art/portraits/p03/da_quang.json",
+  "flags": [
+   "traits listed: Cautious, Calm, Generous, Loyal"
+  ]
+ },
+ "thi_dam_tinh": {
+  "file": "design/world/depth/art/portraits/p03/nhan_van.json",
+  "flags": [
+   "traits listed: Cautious, Calm, Callous"
+  ]
+ },
+ "giai_thanh_nghien": {
+  "file": "design/world/depth/art/portraits/p03/nhan_van.json",
+  "flags": [
+   "traits listed: Calm, Patient, Trusting"
+  ]
+ },
+ "cu_tieu_can": {
+  "file": "design/world/depth/art/portraits/p03/nhan_van.json",
+  "flags": [
+   "traits listed: Reclusive, Humble, Loyal"
+  ]
+ },
+ "bao_anh_nhi": {
+  "file": "design/world/depth/art/portraits/p03/nhan_van.json",
+  "flags": [
+   "traits listed: Honest, Paranoid, Loyal"
+  ]
+ },
+ "diep_to_quyen": {
+  "file": "design/world/depth/art/portraits/p03/nhan_van.json",
+  "flags": [
+   "traits listed: Content, Reclusive, Patient"
+  ]
+ },
+ "lieu_bach_mieu": {
+  "file": "design/world/depth/art/portraits/p03/nhan_van.json",
+  "flags": [
+   "traits listed: Content, Humble, Patient"
+  ]
+ },
+ "man_tam_van": {
+  "file": "design/world/depth/art/portraits/p03/nhan_van.json",
+  "flags": [
+   "traits listed: Lazy, Forgiving, Gregarious"
+  ]
+ },
+ "nghiem_thu_lo": {
+  "file": "design/world/depth/art/portraits/p03/nhan_van.json",
+  "flags": [
+   "traits listed: Ambitious, Paranoid, Faithless"
+  ]
+ },
+ "kha_dam_mac": {
+  "file": "design/world/depth/art/portraits/p03/nhan_van.json",
+  "flags": [
+   "traits listed: Reclusive, Patient, Devout"
+  ]
+ },
+ "thien_thua_cu": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Calm, Diligent, Stubborn"
+  ]
+ },
+ "quy_thu_luy": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Content, Devout, Stubborn"
+  ]
+ },
+ "do_vo_cuu": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Paranoid, Cruel, Loyal"
+  ]
+ },
+ "ta_khac_thach": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Calm, Honest, Stubborn"
+  ]
+ },
+ "nhiem_thua_nghiep": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Ambitious, Patient, Impatient, Cruel, Loyal"
+  ]
+ },
+ "cat_thoi_phong": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Greedy, Gregarious, Arrogant"
+  ]
+ },
+ "doan_thuong_hi": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Cautious, Gregarious, Humble"
+  ]
+ },
+ "nguyen_hao_khach": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Greedy, Gregarious, Indulgent"
+  ]
+ },
+ "dai_ho_than": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Cruel, Warlike, Loyal"
+  ]
+ },
+ "long_thu_chuan": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Calm, Diligent, Reclusive"
+  ]
+ },
+ "hong_chuan_binh": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Gregarious, Honest, Stubborn"
+  ]
+ },
+ "sa_dinh_ba": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Brave, Greedy, Patient, Impatient"
+  ]
+ },
+ "ngac_tri_am": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Humble, Trusting, Loyal"
+  ]
+ },
+ "o_tieu_dan": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Lazy, Humble, Trusting"
+  ]
+ },
+ "thuong_hai_dong": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Brave, Arrogant, Cruel"
+  ]
+ },
+ "lien_phi_ma": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Greedy, Gregarious, Fickle"
+  ]
+ },
+ "xa_da_linh": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Brave, Greedy, Gregarious"
+  ]
+ },
+ "luu_tinh_thach": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Brave, Ambitious, Diligent"
+  ]
+ },
+ "ta_tieu_bi": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Gregarious, Patient, Impatient, Faithless"
+  ]
+ },
+ "ha_hau_thach": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Content, Humble, Patient"
+  ]
+ },
+ "gian_thu_han": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Cautious, Honest, Patient"
+  ]
+ },
+ "thich_mac_sao": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Content, Diligent, Trusting"
+  ]
+ },
+ "bang_tinh_bien": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Cautious, Ambitious, Faithless"
+  ]
+ },
+ "canh_lenh_ham": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Ambitious, Patient, Impatient, Loyal"
+  ]
+ },
+ "tan_thu_quan": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Arbitrary, Stubborn, Warlike"
+  ]
+ },
+ "pho_dich_lam": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Calm, Ambitious, Deceitful"
+  ]
+ },
+ "bui_kien_chung": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Gregarious, Just, Indulgent"
+  ]
+ },
+ "cu_luyen_thach": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Diligent, Arbitrary, Pragmatic"
+  ]
+ },
+ "mach_tue_kim": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Diligent, Honest, Paranoid"
+  ]
+ },
+ "an_tac_van": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Humble, Patient, Stubborn"
+  ]
+ },
+ "lu_kiem_pham": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Greedy, Gregarious, Pragmatic"
+  ]
+ },
+ "tiet_han_bia": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Brave, Vengeful, Loyal"
+  ]
+ },
+ "dat_da_lan": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Brave, Generous, Patient, Impatient"
+  ]
+ },
+ "thac_bat_lu": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Lazy, Forgiving, Gregarious"
+  ]
+ },
+ "ha_hau_dien_van": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Honest, Patient, Compassionate"
+  ]
+ },
+ "au_thien_tuoc": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Content, Reclusive, Peaceable"
+  ]
+ },
+ "sach_truc_thuy": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Ambitious, Deceitful, Paranoid"
+  ]
+ },
+ "khuong_thanh_ngoa": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Calm, Diligent, Temperate"
+  ]
+ },
+ "sam_luy": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Brave, Stubborn, Callous"
+  ]
+ },
+ "nhan_bach_cham": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Cautious, Diligent, Honest"
+  ]
+ },
+ "trang_tuyen_co": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Calm, Patient, Devout"
+  ]
+ },
+ "doanh_han_ngoc": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Brave, Trusting, Paranoid, Loyal"
+  ]
+ },
+ "thich_huyen_yen": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Diligent, Humble, Trusting"
+  ]
+ },
+ "co_hao_ly": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Arrogant, Arbitrary, Stubborn"
+  ]
+ },
+ "an_lang_thach": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Brave, Ambitious, Patient, Impatient"
+  ]
+ },
+ "doan_thi_ngan": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Diligent, Gregarious, Honest"
+  ]
+ },
+ "dong_to_huong": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Wrathful, Diligent, Generous"
+  ]
+ },
+ "ha_khac_thuy": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Reclusive, Patient, Devout"
+  ]
+ },
+ "hang_that_ket": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Diligent, Deceitful, Temperate"
+  ]
+ },
+ "phan_boi_son": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Calm, Content, Loyal"
+  ]
+ },
+ "vu_tinh_giai": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Gregarious, Fickle, Callous"
+  ]
+ },
+ "dieu_duong_hac": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Humble, Patient, Peaceable"
+  ]
+ },
+ "doan_ngoc_hanh": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Cautious, Calm, Arbitrary"
+  ]
+ },
+ "do_tinh_ha": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Vengeful, Patient, Faithless"
+  ]
+ },
+ "phuong_truc_ngon": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Reclusive, Just, Stubborn"
+  ]
+ },
+ "ngu_tran_bac": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Ambitious, Honest, Warlike"
+  ]
+ },
+ "mau_tri_vien": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Deceitful, Arrogant, Pragmatic"
+  ]
+ },
+ "cong_ton_duan": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Ambitious, Diligent, Callous"
+  ]
+ },
+ "doan_hi_hoa": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Brave, Ambitious, Diligent"
+  ]
+ },
+ "thich_minh_thu": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Brave, Honest, Just"
+  ]
+ },
+ "quy_truong_kich": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Brave, Wrathful, Loyal"
+  ]
+ },
+ "trinh_bach_tiet": {
+  "file": "design/world/depth/art/portraits/p03/thien_xu.json",
+  "flags": [
+   "traits listed: Brave, Honest, Peaceable"
+  ]
+ },
+ "la_doan_cuong": {
+  "file": "design/world/depth/art/portraits/p03/tran_sa.json",
+  "flags": [
+   "traits listed: Honest, Stubborn"
+  ]
+ },
+ "o_sa_ho": {
+  "file": "design/world/depth/art/portraits/p03/tran_sa.json",
+  "flags": [
+   "traits listed: Honest, Callous, Loyal"
+  ]
+ },
+ "cam_diem_nhi": {
+  "file": "design/world/depth/art/portraits/p03/tran_sa.json",
+  "flags": [
+   "traits listed: Content, Devout, Compassionate"
+  ]
+ },
+ "vien_co_yen": {
+  "file": "design/world/depth/art/portraits/p03/tran_sa.json",
+  "flags": [
+   "traits listed: Brave, Paranoid"
+  ]
+ },
+ "tong_thoi_kim": {
+  "file": "design/world/depth/art/portraits/p03/tran_sa.json",
+  "flags": [
+   "traits listed: Content, Diligent, Stubborn"
+  ]
+ },
+ "bang_tran_nhac": {
+  "file": "design/world/depth/art/portraits/p03/tran_sa.json",
+  "flags": [
+   "traits listed: Calm, Generous, Patient, Loyal"
+  ]
+ },
+ "vo_kinh_son": {
+  "file": "design/world/depth/art/portraits/p03/tran_sa.json",
+  "flags": [
+   "traits listed: Brave, Greedy, Gregarious"
+  ]
+ },
+ "dam_tri_ma": {
+  "file": "design/world/depth/art/portraits/p03/tran_sa.json",
+  "flags": [
+   "traits listed: Gregarious, Deceitful, Fickle"
+  ]
+ },
+ "tham_huong_nhi": {
+  "file": "design/world/depth/art/portraits/p04/minh_loan.json",
+  "flags": [
+   "traits listed: Just, Patient"
+  ]
+ },
+ "nhac_hai_am": {
+  "file": "design/world/depth/art/portraits/p04/minh_loan.json",
+  "flags": [
+   "traits listed: Brave, Trusting"
+  ]
+ },
+ "trac_thiet_can": {
+  "file": "design/world/depth/art/portraits/p04/ngao_tuyet.json",
+  "flags": [
+   "traits listed: Calm, Patient, Loyal"
+  ]
+ },
+ "chung_thiet_tuyen": {
+  "file": "design/world/depth/art/portraits/p04/ngao_tuyet.json",
+  "flags": [
+   "traits listed: Honest, Patient"
+  ]
+ },
+ "du_ho_van": {
+  "file": "design/world/depth/art/portraits/p04/ngao_tuyet.json",
+  "flags": [
+   "traits listed: Content, Humble"
+  ]
+ },
+ "truong_luyen_phong": {
+  "file": "design/world/depth/art/portraits/p04/ngao_tuyet.json",
+  "flags": [
+   "traits listed: Arrogant, Cruel"
+  ]
+ },
+ "ha_tuyet_nhan": {
+  "file": "design/world/depth/art/portraits/p04/ngao_tuyet.json",
+  "flags": [
+   "traits listed: Wrathful, Ambitious"
+  ]
+ },
+ "cung_han_nhan": {
+  "file": "design/world/depth/art/portraits/p04/ngao_tuyet.json",
+  "flags": [
+   "traits listed: Calm, Just, Patient"
+  ]
+ },
+ "lang_nhuoc_mai": {
+  "file": "design/world/depth/art/portraits/p04/ngao_tuyet.json",
+  "flags": [
+   "traits listed: Brave, Generous, Patient, Impatient"
+  ]
+ },
+ "thach_vu_lien": {
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json",
+  "flags": [
+   "traits listed: Calm, Content"
+  ]
+ },
+ "yen_trich_thuy": {
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json",
+  "flags": [
+   "traits listed: Humble, Devout"
+  ]
+ },
+ "muc_trap_sinh": {
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json",
+  "flags": [
+   "traits listed: Wrathful, Arbitrary"
+  ]
+ },
+ "nghiem_to_to": {
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json",
+  "flags": [
+   "traits listed: Patient, Loyal"
+  ]
+ },
+ "su_hoa_tieu": {
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json",
+  "flags": [
+   "traits listed: Content, Forgiving"
+  ]
+ },
+ "lien_vu_tinh": {
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json",
+  "flags": [
+   "traits listed: Calm, Content, Devout"
+  ]
+ },
+ "dieu_tieu_phong": {
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json",
+  "flags": [
+   "traits listed: Honest, Stubborn"
+  ]
+ },
+ "kim_tieu_sa": {
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json",
+  "flags": [
+   "traits listed: Lazy, Greedy"
+  ]
+ },
+ "hau_tieu_co": {
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json",
+  "flags": [
+   "traits listed: Humble, Loyal"
+  ]
+ },
+ "vien_thanh_lo": {
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json",
+  "flags": [
+   "traits listed: Calm, Stubborn"
+  ]
+ },
+ "cao_thua_phong": {
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json",
+  "flags": [
+   "traits listed: Ambitious, Patient, Impatient"
+  ]
+ },
+ "co_da_lan": {
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json",
+  "flags": [
+   "traits listed: Wrathful, Patient"
+  ]
+ },
+ "lu_tan_ha": {
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json",
+  "flags": [
+   "traits listed: Content, Patient, Devout"
+  ]
+ },
+ "o_thiem_tu": {
+  "file": "design/world/depth/art/portraits/p04/thinh_vu.json",
+  "flags": [
+   "traits listed: Calm, Indulgent, Callous"
+  ]
+ },
+ "ve_lu_sinh": {
+  "file": "design/world/depth/art/portraits/p04/vong_trieu.json",
+  "flags": [
+   "traits listed: Calm, Patient"
+  ]
+ },
+ "van_lao_du": {
+  "file": "design/world/depth/art/portraits/p04/vong_trieu.json",
+  "flags": [
+   "traits listed: Content, Lazy"
+  ]
+ },
+ "trinh_to_am": {
+  "file": "design/world/depth/art/portraits/p05/chuc_ha.json",
+  "flags": [
+   "traits listed: Reclusive, Patient"
+  ]
+ },
+ "luu_cam_ho": {
+  "file": "design/world/depth/art/portraits/p05/chuc_ha.json",
+  "flags": [
+   "traits listed: Calm, Content, Diligent"
+  ]
+ },
+ "van_diep_tang": {
+  "file": "design/world/depth/art/portraits/p05/chuc_ha.json",
+  "flags": [
+   "traits listed: Calm, Patient, Callous"
+  ]
+ },
+ "tang_mong_kien": {
+  "file": "design/world/depth/art/portraits/p05/chuc_ha.json",
+  "flags": [
+   "traits listed: Cautious, Patient, Devout"
+  ]
+ },
+ "thanh_kim_toa": {
+  "file": "design/world/depth/art/portraits/p05/chuc_ha.json",
+  "flags": [
+   "traits listed: Vengeful, Greedy, Gregarious"
+  ]
+ },
+ "mau_tu_linh": {
+  "file": "design/world/depth/art/portraits/p05/chuc_ha.json",
+  "flags": [
+   "traits listed: Diligent, Arrogant, Arbitrary"
+  ]
+ },
+ "la_tieu_tam": {
+  "file": "design/world/depth/art/portraits/p05/chuc_ha.json",
+  "flags": [
+   "traits listed: Humble, Compassionate"
+  ]
+ },
+ "phung_tieu_toa": {
+  "file": "design/world/depth/art/portraits/p05/chuc_ha.json",
+  "flags": [
+   "traits listed: Trusting, Fickle"
+  ]
+ },
+ "hau_to_cam": {
+  "file": "design/world/depth/art/portraits/p05/chuc_ha.json",
+  "flags": [
+   "traits listed: Brave, Ambitious, Stubborn"
+  ]
+ },
+ "trinh_luc_phan": {
+  "file": "design/world/depth/art/portraits/p05/muc_van.json",
+  "flags": [
+   "traits listed: Cautious, Honest, Patient"
+  ]
+ },
+ "ngai_dap_sa": {
+  "file": "design/world/depth/art/portraits/p05/muc_van.json",
+  "flags": [
+   "traits listed: Greedy, Gregarious"
+  ]
+ },
+ "thong_truy_dien": {
+  "file": "design/world/depth/art/portraits/p05/muc_van.json",
+  "flags": [
+   "traits listed: Brave, Ambitious"
+  ]
+ },
+ "tan_muc_so": {
+  "file": "design/world/depth/art/portraits/p05/muc_van.json",
+  "flags": [
+   "traits listed: Brave, Faithless"
+  ]
+ },
+ "nghieu_thu_nhan": {
+  "file": "design/world/depth/art/portraits/p05/muc_van.json",
+  "flags": [
+   "traits listed: Cautious, Deceitful"
+  ]
+ },
+ "khau_muc_van": {
+  "file": "design/world/depth/art/portraits/p05/muc_van.json",
+  "flags": [
+   "traits listed: Honest, Patient"
+  ]
+ },
+ "thoi_duong_giac": {
+  "file": "design/world/depth/art/portraits/p05/muc_van.json",
+  "flags": [
+   "traits listed: Calm, Ambitious, Reclusive"
+  ]
+ },
+ "tan_thien_ly": {
+  "file": "design/world/depth/art/portraits/p05/muc_van.json",
+  "flags": [
+   "traits listed: Diligent, Stubborn, Callous, Loyal"
+  ]
+ },
+ "tiet_bo_van": {
+  "file": "design/world/depth/art/portraits/p05/muc_van.json",
+  "flags": [
+   "traits listed: Brave, Wrathful, Deceitful"
+  ]
+ },
+ "me_dich_am": {
+  "file": "design/world/depth/art/portraits/p05/muc_van.json",
+  "flags": [
+   "traits listed: Calm, Reclusive, Compassionate"
+  ]
+ },
+ "man_bach_cau": {
+  "file": "design/world/depth/art/portraits/p05/muc_van.json",
+  "flags": [
+   "traits listed: Content, Generous, Patient"
+  ]
+ },
+ "khau_thuong_thanh": {
+  "file": "design/world/depth/art/portraits/p05/muc_van.json",
+  "flags": [
+   "traits listed: Forgiving, Honest, Humble"
+  ]
+ },
+ "thieu_hoa_tam": {
+  "file": "design/world/depth/art/portraits/p05/suong_tung.json",
+  "flags": [
+   "traits listed: Diligent, Arbitrary, Stubborn"
+  ]
+ },
+ "cau_ap_suong": {
+  "file": "design/world/depth/art/portraits/p05/suong_tung.json",
+  "flags": [
+   "traits listed: Diligent, Humble"
+  ]
+ },
+ "banh_tieu_dang": {
+  "file": "design/world/depth/art/portraits/p05/suong_tung.json",
+  "flags": [
+   "traits listed: Lazy, Gregarious"
+  ]
+ },
+ "lien_bich_phu": {
+  "file": "design/world/depth/art/portraits/p05/suong_tung.json",
+  "flags": [
+   "traits listed: Ambitious, Deceitful, Patient, Impatient"
+  ]
+ },
+ "tat_hanh_chi": {
+  "file": "design/world/depth/art/portraits/p05/suong_tung.json",
+  "flags": [
+   "traits listed: Cautious, Temperate, Loyal"
+  ]
+ },
+ "khong_da_hanh": {
+  "file": "design/world/depth/art/portraits/p05/suong_tung.json",
+  "flags": [
+   "traits listed: Gregarious, Indulgent, Callous"
+  ]
+ },
+ "hang_bang_tuong": {
+  "file": "design/world/depth/art/portraits/p05/suong_tung.json",
+  "flags": [
+   "traits listed: Brave, Diligent, Vengeful"
+  ]
+ },
+ "bui_to_chi": {
+  "file": "design/world/depth/art/portraits/p05/suong_tung.json",
+  "flags": [
+   "traits listed: Content, Ambitious, Humble, Patient"
+  ]
+ },
+ "chiem_thu_suong": {
+  "file": "design/world/depth/art/portraits/p05/suong_tung.json",
+  "flags": [
+   "traits listed: Diligent, Stubborn"
+  ]
+ },
+ "tiet_an_suong": {
+  "file": "design/world/depth/art/portraits/p05/thu_phan.json",
+  "flags": [
+   "traits listed: Honest, Pragmatic"
+  ]
+ },
+ "chu_an_thach": {
+  "file": "design/world/depth/art/portraits/p05/thu_phan.json",
+  "flags": [
+   "traits listed: Cautious, Greedy"
+  ]
+ },
+ "cam_thuy_ngam": {
+  "file": "design/world/depth/art/portraits/p05/thu_phan.json",
+  "flags": [
+   "traits listed: Gregarious, Devout"
+  ]
+ },
+ "hua_tang_thu": {
+  "file": "design/world/depth/art/portraits/p05/thu_phan.json",
+  "flags": [
+   "traits listed: Diligent, Loyal"
+  ]
+ },
+ "ton_du_tan": {
+  "file": "design/world/depth/art/portraits/p05/thu_phan.json",
+  "flags": [
+   "traits listed: Calm, Devout, Stubborn"
+  ]
+ },
+ "ly_han_bich": {
+  "file": "design/world/depth/art/portraits/p05/thu_phan.json",
+  "flags": [
+   "traits listed: Calm, Vengeful, Patient"
+  ]
+ },
+ "bao_thu_xuong": {
+  "file": "design/world/depth/art/portraits/p05/thu_phan.json",
+  "flags": [
+   "traits listed: Calm, Devout"
+  ]
+ },
+ "tham_tho_bich": {
+  "file": "design/world/depth/art/portraits/p05/thu_phan.json",
+  "flags": [
+   "traits listed: Ambitious, Greedy"
+  ]
+ },
+ "co_ky_am": {
+  "file": "design/world/depth/art/portraits/p05/thu_phan.json",
+  "flags": [
+   "traits listed: Reclusive, Honest, Patient"
+  ]
+ },
+ "bui_song_khe": {
+  "file": "design/world/depth/art/portraits/p05/thu_phan.json",
+  "flags": [
+   "traits listed: Content, Stubborn, Compassionate"
+  ]
+ },
+ "phung_co_am": {
+  "file": "design/world/depth/art/portraits/p05/thu_phan.json",
+  "flags": [
+   "traits listed: Ambitious, Deceitful, Patient, Impatient"
+  ]
+ },
+ "nhan_thu_mac": {
+  "file": "design/world/depth/art/portraits/p05/thu_phan.json",
+  "flags": [
+   "traits listed: Calm, Diligent, Reclusive, Patient"
+  ]
+ },
+ "tang_mo_sinh": {
+  "file": "design/world/depth/art/portraits/p05/thu_phan.json",
+  "flags": [
+   "traits listed: Calm, Content, Trusting"
+  ]
+ },
+ "luong_thanh_mo": {
+  "file": "design/world/depth/art/portraits/p05/thu_phan.json",
+  "flags": [
+   "traits listed: Brave, Devout, Compassionate"
+  ]
+ },
+ "huong_van_chu": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Brave, Honest, Peaceable"
+  ]
+ },
+ "uong_muc_dich": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Brave, Content, Greedy"
+  ]
+ },
+ "tham_tinh_sa": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Ambitious, Diligent, Greedy"
+  ]
+ },
+ "te_tu_to": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Ambitious, Callous"
+  ]
+ },
+ "tien_ban_ha": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Diligent, Generous, Gregarious"
+  ]
+ },
+ "han_moc_te": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Honest, Humble, Patient"
+  ]
+ },
+ "nham_lieu_ngan": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Cautious, Honest, Loyal"
+  ]
+ },
+ "duong_tich_chieu": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Calm, Diligent, Honest"
+  ]
+ },
+ "tuan_van_mau": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Humble, Patient, Stubborn"
+  ]
+ },
+ "dong_ho_dao": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Content, Patient, Stubborn"
+  ]
+ },
+ "liem_truc_anh": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Cautious, Honest, Just"
+  ]
+ },
+ "ke_lang_hoa": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Brave, Trusting"
+  ]
+ },
+ "tat_que_lac": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Ambitious, Gregarious, Honest"
+  ]
+ },
+ "me_dien_nhi": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Ambitious, Diligent, Stubborn"
+  ]
+ },
+ "phu_lien_kieu": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Ambitious, Deceitful"
+  ]
+ },
+ "huong_tieu_lam": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Content, Peaceable"
+  ]
+ },
+ "cam_le_chau": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Brave, Vengeful"
+  ]
+ },
+ "dinh_lao_hoe": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Gregarious, Arbitrary, Stubborn"
+  ]
+ },
+ "uong_tieu_nguu": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Lazy, Gregarious, Loyal"
+  ]
+ },
+ "trinh_ma_thang": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Ambitious, Diligent"
+  ]
+ },
+ "le_dan_tat": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Diligent, Humble, Patient"
+  ]
+ },
+ "vuong_phuc_linh": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Diligent, Gregarious, Trusting"
+  ]
+ },
+ "lo_kien": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Content, Humble, Stubborn"
+  ]
+ },
+ "chuong_da_mat": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Greedy, Gregarious, Patient"
+  ]
+ },
+ "thoi_hai_thuy": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Brave, Patient, Impatient, Loyal"
+  ]
+ },
+ "phong_thach_hoc": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Reclusive, Patient, Compassionate"
+  ]
+ },
+ "chiem_dan_sam": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Ambitious, Diligent, Cruel"
+  ]
+ },
+ "van_tu_uyen": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Content, Gregarious, Compassionate"
+  ]
+ },
+ "hong_moc_huong": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Devout, Peaceable"
+  ]
+ },
+ "ha_ngai_diep": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Brave, Patient"
+  ]
+ },
+ "cung_hoang_tinh": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Diligent, Loyal"
+  ]
+ },
+ "ton_ngan_hoa": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Calm, Content"
+  ]
+ },
+ "dinh_tieu_tung": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Stubborn, Loyal"
+  ]
+ },
+ "ngu_lam_son": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Content, Patient, Temperate, Peaceable"
+  ]
+ },
+ "cu_thuy_bach": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Stubborn, Loyal"
+  ]
+ },
+ "diem_hai_tao": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Brave, Greedy, Gregarious"
+  ]
+ },
+ "bien_van_tinh": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Pragmatic, Faithless"
+  ]
+ },
+ "huong_dong_lam": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Brave, Stubborn"
+  ]
+ },
+ "man_trieu_am": {
+  "file": "design/world/depth/art/portraits/p05/thuy_vi.json",
+  "flags": [
+   "traits listed: Brave, Stubborn"
+  ]
+ },
+ "huong_thiet_lan": {
+  "file": "design/world/depth/art/portraits/p06/le_hoa.json",
+  "flags": [
+   "traits listed: Patient, Impatient, Loyal"
+  ]
+ },
+ "gian_to_y": {
+  "file": "design/world/depth/art/portraits/p06/le_hoa.json",
+  "flags": [
+   "traits listed: Calm, Diligent, Forgiving"
+  ]
+ },
+ "ton_han_y": {
+  "file": "design/world/depth/art/portraits/p06/le_hoa.json",
+  "flags": [
+   "traits listed: Calm, Devout"
+  ]
+ },
+ "dinh_ngan_cau": {
+  "file": "design/world/depth/art/portraits/p06/le_hoa.json",
+  "flags": [
+   "traits listed: Stubborn, Loyal"
+  ]
+ },
+ "tieu_ngoc_hoe": {
+  "file": "design/world/depth/art/portraits/p06/le_hoa.json",
+  "flags": [
+   "traits listed: Ambitious, Gregarious"
+  ]
+ },
+ "doan_han_bich": {
+  "file": "design/world/depth/art/portraits/p06/le_hoa.json",
+  "flags": [
+   "traits listed: Ambitious, Patient, Impatient"
+  ]
+ },
+ "chu_tuyet_thanh": {
+  "file": "design/world/depth/art/portraits/p06/le_hoa.json",
+  "flags": [
+   "traits listed: Diligent, Humble, Compassionate"
+  ]
+ },
+ "khuong_thach_luu": {
+  "file": "design/world/depth/art/portraits/p06/le_hoa.json",
+  "flags": [
+   "traits listed: Wrathful, Callous"
+  ]
+ },
+ "thuong_suong_mi": {
+  "file": "design/world/depth/art/portraits/p06/le_hoa.json",
+  "flags": [
+   "traits listed: Humble, Devout"
+  ]
+ },
+ "ky_hoa_anh": {
+  "file": "design/world/depth/art/portraits/p06/le_hoa.json",
+  "flags": [
+   "traits listed: Patient, Compassionate, Loyal"
+  ]
+ },
+ "lieu_thanh_nhu": {
+  "file": "design/world/depth/art/portraits/p06/le_hoa.json",
+  "flags": [
+   "traits listed: Calm, Forgiving"
+  ]
+ },
+ "mao_khai_dan": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Arbitrary, Patient"
+  ]
+ },
+ "an_thuy_vu": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Cautious, Loyal"
+  ]
+ },
+ "dang_phi_diem": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Ambitious, Arrogant"
+  ]
+ },
+ "hung_diem_nhi": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Wrathful, Ambitious, Stubborn"
+  ]
+ },
+ "tang_tuc_lac": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Gregarious, Trusting"
+  ]
+ },
+ "bac_dich_thanh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Reclusive, Patient"
+  ]
+ },
+ "thi_van_binh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Diligent, Paranoid"
+  ]
+ },
+ "kieu_dan_lo": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Content, Diligent, Humble"
+  ]
+ },
+ "can_hai_tri": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Calm, Patient, Loyal"
+  ]
+ },
+ "mong_chu_tieu": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Wrathful, Cruel"
+  ]
+ },
+ "ngac_thiem_hong": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Patient, Impatient, Faithless"
+  ]
+ },
+ "thuong_tan_quy": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Calm, Temperate, Devout"
+  ]
+ },
+ "canh_vu_ca": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Brave, Gregarious"
+  ]
+ },
+ "tu_cam_tuyen": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Humble, Patient, Compassionate"
+  ]
+ },
+ "coc_thu_thanh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Cautious, Diligent"
+  ]
+ },
+ "boi_tang_ngon": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Reclusive, Honest"
+  ]
+ },
+ "dai_liet_duong": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Vengeful, Loyal"
+  ]
+ },
+ "vi_tich_hoi": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Calm, Humble, Patient"
+  ]
+ },
+ "trau_ket_tuyen": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Diligent, Just, Paranoid"
+  ]
+ },
+ "mieu_truc_sinh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Humble, Patient"
+  ]
+ },
+ "nham_cuong_thu": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Arbitrary, Stubborn, Loyal"
+  ]
+ },
+ "binh_vien_khach": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Forgiving, Gregarious"
+  ]
+ },
+ "kha_thanh_mieu": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Content, Reclusive, Compassionate"
+  ]
+ },
+ "ma_tieu_hoa": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Content, Lazy, Honest"
+  ]
+ },
+ "vu_thach_dau": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Brave, Patient, Impatient, Stubborn"
+  ]
+ },
+ "dich_tieu_chuoc": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Ambitious, Arrogant"
+  ]
+ },
+ "minh_tao_ha": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Calm, Patient, Devout"
+  ]
+ },
+ "thanh_da_cuc": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Gregarious, Trusting"
+  ]
+ },
+ "tram_ba_thanh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Calm, Lazy, Loyal"
+  ]
+ },
+ "phuc_lam_sinh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Brave, Reclusive, Callous"
+  ]
+ },
+ "ngu_lap_mai": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Indulgent, Compassionate"
+  ]
+ },
+ "boc_thu_dao": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Paranoid, Devout"
+  ]
+ },
+ "hoa_thien_khe": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Content, Lazy, Greedy"
+  ]
+ },
+ "nguy_bach_thach": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Ambitious, Patient, Impatient"
+  ]
+ },
+ "dieu_ngoc_xuyen": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Ambitious, Gregarious, Deceitful"
+  ]
+ },
+ "bao_lac_hai": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Greedy, Gregarious, Indulgent"
+  ]
+ },
+ "tran_tuoc_nhi": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Patient, Impatient, Trusting"
+  ]
+ },
+ "hoang_anh_sa": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Brave, Loyal"
+  ]
+ },
+ "bi_thuan": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Content, Humble, Loyal"
+  ]
+ },
+ "luong_diep_nhi": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Just, Stubborn"
+  ]
+ },
+ "ung_liet_tam": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Brave, Wrathful, Compassionate"
+  ]
+ },
+ "du_tan_hoa": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Cautious, Diligent, Greedy"
+  ]
+ },
+ "dong_luc_y": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Lazy, Reclusive, Patient"
+  ]
+ },
+ "thinh_phong_dang": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Gregarious, Honest"
+  ]
+ },
+ "xa_ngu_nuong": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Calm, Content, Honest"
+  ]
+ },
+ "luu_hoa_nha": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Ambitious, Trusting"
+  ]
+ },
+ "nhan_quy_vu": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Patient, Devout, Compassionate"
+  ]
+ },
+ "duong_ho_thu": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Cautious, Diligent"
+  ]
+ },
+ "khang_kien_duc": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Brave, Wrathful, Loyal"
+  ]
+ },
+ "sam_liet_duc": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Ambitious, Cruel"
+  ]
+ },
+ "cu_chan_uy": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Cruel, Warlike, Loyal"
+  ]
+ },
+ "ma_pha_lang": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Calm, Diligent"
+  ]
+ },
+ "hach_dan_tam": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Cautious, Deceitful, Patient"
+  ]
+ },
+ "khong_te_dan": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Generous, Honest"
+  ]
+ },
+ "lu_chu_hong": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Ambitious, Diligent, Greedy"
+  ]
+ },
+ "man_tin_van": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Diligent, Arbitrary, Paranoid"
+  ]
+ },
+ "sai_tan_nhien": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Reclusive, Patient"
+  ]
+ },
+ "tuan_le_chinh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Generous, Deceitful, Arbitrary"
+  ]
+ },
+ "han_ngoc_tieu": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Gregarious, Honest, Trusting"
+  ]
+ },
+ "lieu_nhung_hoa": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Patient, Compassionate, Loyal"
+  ]
+ },
+ "hoan_vong_linh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Cautious, Stubborn"
+  ]
+ },
+ "lac_tuoc_ca": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Gregarious, Fickle, Compassionate"
+  ]
+ },
+ "do_thanh_duan": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Content, Pragmatic"
+  ]
+ },
+ "ong_truc_thanh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Calm, Content, Stubborn"
+  ]
+ },
+ "tri_quy_lo": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Humble, Patient, Devout"
+  ]
+ },
+ "nguu_dai_huu": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Generous, Gregarious, Loyal"
+  ]
+ },
+ "khuong_linh_mai": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Brave, Stubborn"
+  ]
+ },
+ "chu_nhien_tam": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Ambitious, Deceitful, Patient, Impatient"
+  ]
+ },
+ "ton_xich_minh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Honest, Trusting"
+  ]
+ },
+ "quach_tieu_dao": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Patient, Impatient, Trusting"
+  ]
+ },
+ "luong_dao_tue": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Content, Diligent, Generous"
+  ]
+ },
+ "lam_anh_hong": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Ambitious, Diligent, Deceitful"
+  ]
+ },
+ "giang_trieu_sinh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Brave, Gregarious, Indulgent"
+  ]
+ },
+ "ho_ngan_lan": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Brave, Calm, Reclusive"
+  ]
+ },
+ "phan_thinh_dao": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Arrogant, Cruel"
+  ]
+ },
+ "vo_chu_thach": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Stubborn, Warlike, Loyal"
+  ]
+ },
+ "diep_dan_sa": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Cautious, Honest, Peaceable"
+  ]
+ },
+ "tran_bach_thao": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Diligent, Humble, Compassionate"
+  ]
+ },
+ "dinh_tich_coc": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Content, Honest, Patient"
+  ]
+ },
+ "liem_to_cam": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Calm, Diligent, Reclusive"
+  ]
+ },
+ "luc_minh_sanh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Lazy, Gregarious, Fickle"
+  ]
+ },
+ "tien_hoa_hau": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Calm, Diligent, Patient"
+  ]
+ },
+ "khuc_que_diep": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Content, Humble, Trusting"
+  ]
+ },
+ "thai_hoa_linh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Calm, Devout, Loyal"
+  ]
+ },
+ "luu_tu_nuong": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Generous, Arbitrary"
+  ]
+ },
+ "hung_liet_nha": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Generous, Deceitful"
+  ]
+ },
+ "vuong_thanh_dang": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Diligent, Humble, Patient"
+  ]
+ },
+ "bui_thanh_ha": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Content, Gregarious, Trusting"
+  ]
+ },
+ "an_tri_le": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Deceitful, Humble, Peaceable"
+  ]
+ },
+ "co_hong_phien": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Ambitious, Diligent, Deceitful"
+  ]
+ },
+ "van_truc_y": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Cautious, Loyal"
+  ]
+ },
+ "nhiep_tan_sa": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Honest, Patient, Stubborn"
+  ]
+ },
+ "su_hoanh_duc": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Vengeful, Loyal"
+  ]
+ },
+ "vu_ngo_dong": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Generous, Gregarious, Patient, Impatient"
+  ]
+ },
+ "tang_ke_ti": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Diligent, Callous"
+  ]
+ },
+ "lien_thieu_nghi": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Patient, Devout, Stubborn"
+  ]
+ },
+ "trinh_hi_quang": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Patient, Pragmatic"
+  ]
+ },
+ "ngo_the_dong": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Patient, Pragmatic, Compassionate"
+  ]
+ },
+ "dien_phong_nien": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Diligent, Generous, Honest"
+  ]
+ },
+ "ke_chu_sa": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Diligent, Greedy"
+  ]
+ },
+ "vuu_cam_thu": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Calm, Pragmatic"
+  ]
+ },
+ "phan_vong_hai": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Gregarious, Stubborn"
+  ]
+ },
+ "hach_chu_lang": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Brave, Forgiving, Just"
+  ]
+ },
+ "chu_tri_am": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Calm, Reclusive, Loyal"
+  ]
+ },
+ "thich_hong_linh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Brave, Patient, Impatient"
+  ]
+ },
+ "lo_van_khanh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Calm, Ambitious, Deceitful"
+  ]
+ },
+ "nguyen_chuoc_ly": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Brave, Wrathful, Just"
+  ]
+ },
+ "lien_khanh_dao": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Patient, Devout, Stubborn"
+  ]
+ },
+ "lau_liet_ha": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Wrathful, Arrogant, Loyal"
+  ]
+ },
+ "he_binh_hoa": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Brave, Patient, Impatient, Warlike"
+  ]
+ },
+ "du_dan_huynh": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Calm, Just, Compassionate"
+  ]
+ },
+ "tang_so_ti": {
+  "file": "design/world/depth/art/portraits/p06/phuong_minh.json",
+  "flags": [
+   "traits listed: Diligent, Forgiving, Humble"
+  ]
+ },
+ "ninh_truc_thuc": {
+  "file": "design/world/depth/art/portraits/p06/truc_thuc.json",
+  "flags": [
+   "traits listed: Content, Patient"
+  ]
+ },
+ "kha_tung_canh": {
+  "file": "design/world/depth/art/portraits/p06/truc_thuc.json",
+  "flags": [
+   "traits listed: Greedy, Trusting"
+  ]
+ },
+ "dao_luong_khe": {
+  "file": "design/world/depth/art/portraits/p06/truc_thuc.json",
+  "flags": [
+   "traits listed: Diligent, Honest"
+  ]
+ },
+ "pho_tong_thuc": {
+  "file": "design/world/depth/art/portraits/p06/truc_thuc.json",
+  "flags": [
+   "traits listed: Lazy, Gregarious"
+  ]
+ },
+ "ung_so_hoa": {
+  "file": "design/world/depth/art/portraits/p06/truc_thuc.json",
+  "flags": [
+   "traits listed: Diligent, Loyal"
+  ]
+ },
+ "dieu_lang_nhi": {
+  "file": "design/world/depth/art/portraits/p06/truc_thuc.json",
+  "flags": [
+   "traits listed: Content, Honest"
+  ]
+ },
+ "ngo_le_thach": {
+  "file": "design/world/depth/art/portraits/p06/truc_thuc.json",
+  "flags": [
+   "traits listed: Honest, Humble, Patient"
+  ]
+ },
+ "phi_dong_canh": {
+  "file": "design/world/depth/art/portraits/p06/truc_thuc.json",
+  "flags": [
+   "traits listed: Content, Humble"
+  ]
+ },
+ "chu_thu_dien": {
+  "file": "design/world/depth/art/portraits/p06/truc_thuc.json",
+  "flags": [
+   "traits listed: Gregarious, Pragmatic"
+  ]
+ },
+ "an_coc_vu": {
+  "file": "design/world/depth/art/portraits/p06/truc_thuc.json",
+  "flags": [
+   "traits listed: Reclusive, Loyal"
+  ]
+ },
+ "tan_tieu_duan": {
+  "file": "design/world/depth/art/portraits/p06/truc_thuc.json",
+  "flags": [
+   "traits listed: Brave, Patient, Impatient, Callous"
+  ]
+ },
+ "ly_bich_ba": {
+  "file": "design/world/depth/art/portraits/p06/truc_thuc.json",
+  "flags": [
+   "traits listed: Calm, Content, Honest"
+  ]
+ },
+ "yen_mach_nhi": {
+  "file": "design/world/depth/art/portraits/p06/truc_thuc.json",
+  "flags": [
+   "traits listed: Paranoid, Cruel"
+  ]
+ },
+ "ong_luc_tiet": {
+  "file": "design/world/depth/art/portraits/p06/truc_thuc.json",
+  "flags": [
+   "traits listed: Humble, Patient, Devout"
+  ]
+ },
+ "tat_man_thu": {
+  "file": "design/world/depth/art/portraits/p06/truc_thuc.json",
+  "flags": [
+   "traits listed: Calm, Reclusive, Just"
+  ]
+ },
+ "diem_lac_nhan": {
+  "file": "design/world/depth/art/portraits/p06/tuan_tung.json",
+  "flags": [
+   "traits listed: Calm, Patient"
+  ]
+ },
+ "hoang_thiet_huyen": {
+  "file": "design/world/depth/art/portraits/p06/tuan_tung.json",
+  "flags": [
+   "traits listed: Wrathful, Greedy, Patient, Impatient"
+  ]
+ },
+ "vuong_tieu_nhi": {
+  "file": "design/world/depth/art/portraits/p06/tuan_tung.json",
+  "flags": [
+   "traits listed: Calm, Stubborn"
+  ]
+ },
+ "sam_thanh_tung": {
+  "file": "design/world/depth/art/portraits/p06/tuan_tung.json",
+  "flags": [
+   "traits listed: Patient, Devout"
+  ]
+ },
+ "bao_thuy_hanh": {
+  "file": "design/world/depth/art/portraits/p06/vu_an.json",
+  "flags": [
+   "traits listed: Calm, Generous"
+  ]
+ },
+ "khuyet_lac_vu": {
+  "file": "design/world/depth/art/portraits/p06/vu_an.json",
+  "flags": [
+   "traits listed: Ambitious, Arrogant"
+  ]
+ },
+ "bien_ha_huong": {
+  "file": "design/world/depth/art/portraits/p06/vu_an.json",
+  "flags": [
+   "traits listed: Forgiving, Humble, Peaceable"
+  ]
+ },
+ "tap_minh_nhi": {
+  "file": "design/world/depth/art/portraits/p06/vu_an.json",
+  "flags": [
+   "traits listed: Gregarious, Honest"
+  ]
+ },
+ "tap_xuan_tra": {
+  "file": "design/world/depth/art/portraits/p06/vu_an.json",
+  "flags": [
+   "traits listed: Calm, Lazy"
+  ]
+ },
+ "ham_tieu_vu": {
+  "file": "design/world/depth/art/portraits/p06/vu_an.json",
+  "flags": [
+   "traits listed: Trusting, Fickle"
+  ]
+ },
+ "ham_thu_lo": {
+  "file": "design/world/depth/art/portraits/p06/vu_an.json",
+  "flags": [
+   "traits listed: Content, Forgiving, Generous"
+  ]
+ },
+ "boi_truong_dinh": {
+  "file": "design/world/depth/art/portraits/p06/vu_an.json",
+  "flags": [
+   "traits listed: Brave, Calm, Loyal"
+  ]
+ },
+ "nhac_bang_thiem": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Reclusive, Devout"
+  ]
+ },
+ "luc_han_chu": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Gregarious, Warlike"
+  ]
+ },
+ "nhac_thanh_suong": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Calm, Humble, Devout"
+  ]
+ },
+ "mac_ngung_bich": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Arrogant, Cruel, Loyal"
+  ]
+ },
+ "tuong_han_phong": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Wrathful, Ambitious"
+  ]
+ },
+ "ninh_bach_ho": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Lazy, Gregarious, Fickle"
+  ]
+ },
+ "quan_lang_ba": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Cautious, Content, Deceitful"
+  ]
+ },
+ "au_duong_tuyet": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Greedy, Gregarious, Pragmatic"
+  ]
+ },
+ "dieu_han_dam": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Reclusive, Patient, Compassionate"
+  ]
+ },
+ "man_bang_ha": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Brave, Patient, Impatient, Loyal"
+  ]
+ },
+ "giang_suong_lac": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Diligent, Humble, Trusting"
+  ]
+ },
+ "kieu_tuyet_ky": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Brave, Stubborn"
+  ]
+ },
+ "pham_lanh_van": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Honest, Arbitrary, Patient"
+  ]
+ },
+ "vuong_thanh_lam": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Ambitious, Deceitful, Faithless"
+  ]
+ },
+ "ha_han_lo": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Diligent, Paranoid, Loyal"
+  ]
+ },
+ "ta_ngan_suong": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Brave, Gregarious, Fickle"
+  ]
+ },
+ "luu_han_ngan": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Wrathful, Gregarious, Faithless"
+  ]
+ },
+ "dinh_tuyet_tung": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Reclusive, Devout, Stubborn"
+  ]
+ },
+ "cat_ngoc_tri": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Content, Patient, Compassionate"
+  ]
+ },
+ "truong_lanh_ha": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Brave, Ambitious, Stubborn"
+  ]
+ },
+ "bach_han_yen": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Brave, Calm, Reclusive"
+  ]
+ },
+ "ong_tinh_hai": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Content, Humble, Arbitrary"
+  ]
+ },
+ "duong_lo": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Diligent, Humble, Trusting"
+  ]
+ },
+ "than_ngung_lam": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Deceitful, Humble, Patient"
+  ]
+ },
+ "tieu_bach_lo": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Ambitious, Deceitful"
+  ]
+ },
+ "chu_suong_linh": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Diligent, Humble"
+  ]
+ },
+ "phan_dong_nhi": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Brave, Patient, Impatient, Callous"
+  ]
+ },
+ "khong_thiet_ngung": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Greedy, Paranoid, Stubborn"
+  ]
+ },
+ "bui_han": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Wrathful, Diligent, Loyal"
+  ]
+ },
+ "sam_bich_lan": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Content, Gregarious"
+  ]
+ },
+ "te_lac_bang": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Cautious, Humble, Patient"
+  ]
+ },
+ "han_tieu_bac": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Calm, Deceitful, Pragmatic"
+  ]
+ },
+ "to_lanh_nguyet": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Humble, Patient, Loyal"
+  ]
+ },
+ "thach_tieu_lo": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Lazy, Gregarious, Trusting"
+  ]
+ },
+ "hua_bang_nhi": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Reclusive, Patient, Compassionate"
+  ]
+ },
+ "yen_tuyet_ngung": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Calm, Patient, Stubborn"
+  ]
+ },
+ "lieu_tieu_giang": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Brave, Gregarious, Honest"
+  ]
+ },
+ "nhiep_lang_tuyet": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Just, Patient, Stubborn"
+  ]
+ },
+ "ky_han_bach": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Arrogant, Cruel, Loyal"
+  ]
+ },
+ "manh_trieu_suong": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Greedy, Gregarious, Loyal"
+  ]
+ },
+ "tong_ngu_lan": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Brave, Wrathful, Ambitious"
+  ]
+ },
+ "dien_han_tac": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Calm, Humble, Devout"
+  ]
+ },
+ "kha_lac_tuyet": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Cautious, Diligent, Loyal"
+  ]
+ },
+ "co_lang_suong": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Patient, Stubborn"
+  ]
+ },
+ "tham_han_giang": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Ambitious, Just"
+  ]
+ },
+ "tiet_han_mai": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Cautious, Honest"
+  ]
+ },
+ "pho_am_huong": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Vengeful, Patient"
+  ]
+ },
+ "khuong_luu_ly": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Diligent, Arrogant, Loyal"
+  ]
+ },
+ "on_sa_ngoc": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Gregarious, Pragmatic"
+  ]
+ },
+ "nguy_thanh_han": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Ambitious, Deceitful, Patient"
+  ]
+ },
+ "hang_minh_sa": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Vengeful, Gregarious, Patient"
+  ]
+ },
+ "ho_tieu_dam": {
+  "file": "design/world/depth/art/portraits/p07/bang_tam.json",
+  "flags": [
+   "traits listed: Diligent, Humble, Stubborn"
+  ]
+ },
+ "bo_tay_sa": {
+  "file": "design/world/depth/art/portraits/p07/lang_dao.json",
+  "flags": [
+   "traits listed: Wrathful, Loyal"
+  ]
+ },
+ "ngo_da_do": {
+  "file": "design/world/depth/art/portraits/p07/lang_dao.json",
+  "flags": [
+   "traits listed: Brave, Calm"
+  ]
+ },
+ "thuong_thien_dao": {
+  "file": "design/world/depth/art/portraits/p07/lang_dao.json",
+  "flags": [
+   "traits listed: Wrathful, Arbitrary"
+  ]
+ },
+ "le_tieu_pham": {
+  "file": "design/world/depth/art/portraits/p07/lang_dao.json",
+  "flags": [
+   "traits listed: Gregarious, Patient, Impatient"
+  ]
+ },
+ "ma_truong_cao": {
+  "file": "design/world/depth/art/portraits/p07/lang_dao.json",
+  "flags": [
+   "traits listed: Calm, Loyal"
+  ]
+ },
+ "thach_thap_dinh": {
+  "file": "design/world/depth/art/portraits/p07/lang_dao.json",
+  "flags": [
+   "traits listed: Greedy, Paranoid"
+  ]
+ },
+ "giang_tieu_loan": {
+  "file": "design/world/depth/art/portraits/p07/lang_dao.json",
+  "flags": [
+   "traits listed: Generous, Trusting"
+  ]
+ },
+ "uong_lien_chu": {
+  "file": "design/world/depth/art/portraits/p07/lang_dao.json",
+  "flags": [
+   "traits listed: Just, Patient"
+  ]
+ },
+ "lu_thua_lang": {
+  "file": "design/world/depth/art/portraits/p07/lang_dao.json",
+  "flags": [
+   "traits listed: Content, Loyal"
+  ]
+ },
+ "ngo_han_dac": {
+  "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
+  "flags": [
+   "traits listed: Humble, Stubborn"
+  ]
+ },
+ "van_kien_boi": {
+  "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
+  "flags": [
+   "traits listed: Content, Lazy, Loyal"
+  ]
+ },
+ "quach_do_anh": {
+  "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
+  "flags": [
+   "traits listed: Ambitious, Cruel, Loyal"
+  ]
+ },
+ "tieu_van_phong": {
+  "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
+  "flags": [
+   "traits listed: Brave, Ambitious, Stubborn"
+  ]
+ },
+ "sai_mo_kiem": {
+  "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
+  "flags": [
+   "traits listed: Lazy, Vengeful, Arrogant"
+  ]
+ },
+ "tich_lang_tung": {
+  "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
+  "flags": [
+   "traits listed: Patient, Loyal"
+  ]
+ },
+ "thang_phuc_tuyet": {
+  "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
+  "flags": [
+   "traits listed: Wrathful, Diligent, Arbitrary"
+  ]
+ },
+ "lu_hoi_lo": {
+  "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
+  "flags": [
+   "traits listed: Cautious, Honest"
+  ]
+ },
+ "tieu_hoe_sinh": {
+  "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
+  "flags": [
+   "traits listed: Ambitious, Greedy, Deceitful"
+  ]
+ },
+ "nguu_pha_son": {
+  "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
+  "flags": [
+   "traits listed: Content, Loyal"
+  ]
+ },
+ "duong_tieu_kiem": {
+  "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
+  "flags": [
+   "traits listed: Diligent, Paranoid, Callous"
+  ]
+ },
+ "hach_tung": {
+  "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
+  "flags": [
+   "traits listed: Calm, Pragmatic"
+  ]
+ },
+ "thai_truong_thanh": {
+  "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
+  "flags": [
+   "traits listed: Forgiving, Honest, Trusting"
+  ]
+ },
+ "doan_ma_kinh": {
+  "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
+  "flags": [
+   "traits listed: Ambitious, Patient, Impatient"
+  ]
+ },
+ "kha_o_lan": {
+  "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
+  "flags": [
+   "traits listed: Brave, Honest, Stubborn"
+  ]
+ },
+ "ong_thiet_xuyen": {
+  "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
+  "flags": [
+   "traits listed: Brave, Wrathful, Loyal"
+  ]
+ },
+ "cat_luu_quang": {
+  "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
+  "flags": [
+   "traits listed: Calm, Diligent, Stubborn"
+  ]
+ },
+ "cat_doan_nhac": {
+  "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
+  "flags": [
+   "traits listed: Arrogant, Callous"
+  ]
+ },
+ "dinh_hoa_lan": {
+  "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
+  "flags": [
+   "traits listed: Ambitious, Generous, Patient, Impatient"
+  ]
+ },
+ "cat_thanh_diem": {
+  "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
+  "flags": [
+   "traits listed: Brave, Honest, Stubborn"
+  ]
+ },
+ "dam_kinh_nguyet": {
+  "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
+  "flags": [
+   "traits listed: Calm, Humble, Patient"
+  ]
+ },
+ "tao_bach_sinh": {
+  "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
+  "flags": [
+   "traits listed: Ambitious, Gregarious, Loyal"
+  ]
+ },
+ "man_hac_chau": {
+  "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
+  "flags": [
+   "traits listed: Diligent, Just, Paranoid"
+  ]
+ },
+ "dieu_lac_tinh": {
+  "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
+  "flags": [
+   "traits listed: Devout, Stubborn"
+  ]
+ },
+ "nhac_ba_chuy": {
+  "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
+  "flags": [
+   "traits listed: Calm, Humble, Loyal"
+  ]
+ },
+ "lam_nhan_thanh": {
+  "file": "design/world/depth/art/portraits/p07/trac_anh.json",
+  "flags": [
+   "traits listed: Humble, Patient, Devout"
+  ]
+ },
+ "co_lang_hoa": {
+  "file": "design/world/depth/art/portraits/p07/trac_anh.json",
+  "flags": [
+   "traits listed: Ambitious, Warlike"
+  ]
+ },
+ "dong_thoa": {
+  "file": "design/world/depth/art/portraits/p07/trac_anh.json",
+  "flags": [
+   "traits listed: Cautious, Patient"
+  ]
+ },
+ "phi_nhan_tam": {
+  "file": "design/world/depth/art/portraits/p07/trac_anh.json",
+  "flags": [
+   "traits listed: Calm, Forgiving"
+  ]
+ },
+ "doan_to_ba": {
+  "file": "design/world/depth/art/portraits/p07/trac_anh.json",
+  "flags": [
+   "traits listed: Brave, Patient, Impatient"
+  ]
+ },
+ "ngac_hai_tieu": {
+  "file": "design/world/depth/art/portraits/p07/trac_anh.json",
+  "flags": [
+   "traits listed: Ambitious, Greedy"
+  ]
+ },
+ "lo_chau_nuong": {
+  "file": "design/world/depth/art/portraits/p07/trac_anh.json",
+  "flags": [
+   "traits listed: Calm, Patient"
+  ]
+ },
+ "bao_thiet_thu": {
+  "file": "design/world/depth/art/portraits/p07/trac_anh.json",
+  "flags": [
+   "traits listed: Arbitrary, Stubborn, Loyal"
+  ]
+ },
+ "nghe_tieu_lang": {
+  "file": "design/world/depth/art/portraits/p07/trac_anh.json",
+  "flags": [
+   "traits listed: Cruel, Warlike, Loyal"
+  ]
+ },
+ "tan_bach_au": {
+  "file": "design/world/depth/art/portraits/p07/trac_anh.json",
+  "flags": [
+   "traits listed: Diligent, Vengeful"
+  ]
+ },
+ "dong_vong": {
+  "file": "design/world/depth/art/portraits/p07/trac_anh.json",
+  "flags": [
+   "traits listed: Content, Lazy, Gregarious"
+  ]
+ },
+ "vu_bich_trieu": {
+  "file": "design/world/depth/art/portraits/p07/trac_anh.json",
+  "flags": [
+   "traits listed: Brave, Trusting"
+  ]
+ },
+ "khuat_thanh_anh": {
+  "file": "design/world/depth/art/portraits/p07/trac_anh.json",
+  "flags": [
+   "traits listed: Brave, Content, Generous"
+  ]
+ },
+ "chung_quy_nhan": {
+  "file": "design/world/depth/art/portraits/p07/trac_anh.json",
+  "flags": [
+   "traits listed: Humble, Patient, Compassionate"
+  ]
+ },
+ "doan_thuong_hai": {
+  "file": "design/world/depth/art/portraits/p08/hermits-sages.json",
+  "flags": [
+   "traits listed: Calm, Patient"
+  ]
+ },
+ "te_thu_anh": {
+  "file": "design/world/depth/art/portraits/p09/hoa_tinh.json",
+  "flags": [
+   "traits listed: Ambitious, Greedy"
+  ]
+ },
+ "quan_doanh_hu": {
+  "file": "design/world/depth/art/portraits/p09/market-folk.json",
+  "flags": [
+   "traits listed: Content, Generous, Trusting"
+  ]
+ },
+ "mong_loc_nhi": {
+  "file": "design/world/depth/art/portraits/p10/ham_nguyet.json",
+  "flags": [
+   "traits listed: Brave, Honest, Patient, Impatient"
+  ]
+ },
+ "phuong_diep_chu": {
+  "file": "design/world/depth/art/portraits/p10/lanh_giang.json",
+  "flags": [
+   "traits listed: Content, Diligent, Trusting"
+  ]
+ },
+ "bui_truong_tuyen": {
+  "file": "design/world/depth/art/portraits/p10/lanh_giang.json",
+  "flags": [
+   "traits listed: Humble, Trusting"
+  ]
+ },
+ "chiem_dong_nhi": {
+  "file": "design/world/depth/art/portraits/p10/lanh_giang.json",
+  "flags": [
+   "traits listed: Brave, Devout, Stubborn"
+  ]
+ },
+ "lieu_thoa_nhi": {
+  "file": "design/world/depth/art/portraits/p10/lanh_giang.json",
+  "flags": [
+   "traits listed: Cautious, Deceitful, Loyal"
+  ]
+ },
+ "cu_bang_ngu": {
+  "file": "design/world/depth/art/portraits/p10/lanh_giang.json",
+  "flags": [
+   "traits listed: Brave, Content, Lazy"
+  ]
+ },
+ "thu_phieu_binh": {
+  "file": "design/world/depth/art/portraits/p10/loose-north.json",
+  "flags": [
+   "traits listed: Pragmatic, Stubborn"
+  ]
+ },
+ "nham_do_han": {
+  "file": "design/world/depth/art/portraits/p10/loose-north.json",
+  "flags": [
+   "traits listed: Calm, Lazy"
+  ]
+ },
+ "quan_tuyet_tung": {
+  "file": "design/world/depth/art/portraits/p10/loose-north.json",
+  "flags": [
+   "traits listed: Greedy, Paranoid, Cruel"
+  ]
+ },
+ "mong_thuy_huong": {
+  "file": "design/world/depth/art/portraits/p10/loose-north.json",
+  "flags": [
+   "traits listed: Stubborn, Compassionate"
+  ]
+ },
+ "duong_tam_dao": {
+  "file": "design/world/depth/art/portraits/p10/loose-north.json",
+  "flags": [
+   "traits listed: Ambitious, Patient, Impatient, Cruel"
+  ]
+ },
+ "lieu_tay_sa": {
+  "file": "design/world/depth/art/portraits/p10/loose-north.json",
+  "flags": [
+   "traits listed: Cautious, Diligent"
+  ]
+ },
+ "khong_vong_bang": {
+  "file": "design/world/depth/art/portraits/p10/loose-north.json",
+  "flags": [
+   "traits listed: Humble, Patient, Stubborn"
+  ]
+ },
+ "tuan_tuyet_lien": {
+  "file": "design/world/depth/art/portraits/p10/loose-north.json",
+  "flags": [
+   "traits listed: Calm, Generous, Patient"
+  ]
+ },
+ "banh_nhi_ho": {
+  "file": "design/world/depth/art/portraits/p10/loose-south.json",
+  "flags": [
+   "traits listed: Greedy, Cruel"
+  ]
+ },
+ "truong_da_dao": {
+  "file": "design/world/depth/art/portraits/p10/loose-south.json",
+  "flags": [
+   "traits listed: Arbitrary, Faithless"
+  ]
+ },
+ "quan_thap_nhat": {
+  "file": "design/world/depth/art/portraits/p10/loose-south.json",
+  "flags": [
+   "traits listed: Greedy, Deceitful, Patient"
+  ]
+ },
+ "tuyen_dang_nhi": {
+  "file": "design/world/depth/art/portraits/p10/loose-south.json",
+  "flags": [
+   "traits listed: Brave, Gregarious"
+  ]
+ },
+ "yen_hoi_do": {
+  "file": "design/world/depth/art/portraits/p10/loose-south.json",
+  "flags": [
+   "traits listed: Cautious, Honest, Patient"
+  ]
+ },
+ "loc_bat_quy": {
+  "file": "design/world/depth/art/portraits/p10/loose-south.json",
+  "flags": [
+   "traits listed: Just, Stubborn"
+  ]
+ },
+ "an_thu_son": {
+  "file": "design/world/depth/art/portraits/p10/loose-south.json",
+  "flags": [
+   "traits listed: Brave, Patient"
+  ]
+ },
+ "bien_am_pham": {
+  "file": "design/world/depth/art/portraits/p10/loose-south.json",
+  "flags": [
+   "traits listed: Ambitious, Callous, Faithless"
+  ]
+ },
+ "yen_lac_tu": {
+  "file": "design/world/depth/art/portraits/p10/phat_y.json",
+  "flags": [
+   "traits listed: Patient, Devout"
+  ]
+ },
+ "kieu_tinh_son": {
+  "file": "design/world/depth/art/portraits/p10/phat_y.json",
+  "flags": [
+   "traits listed: Content, Just, Patient"
+  ]
+ },
+ "giang_bich_sa": {
+  "file": "design/world/depth/art/portraits/p10/phat_y.json",
+  "flags": [
+   "traits listed: Cautious, Greedy"
+  ]
+ },
+ "cat_da_binh": {
+  "file": "design/world/depth/art/portraits/p10/phat_y.json",
+  "flags": [
+   "traits listed: Calm, Reclusive, Patient"
+  ]
+ },
+ "hua_ngan_son": {
+  "file": "design/world/depth/art/portraits/p10/phat_y.json",
+  "flags": [
+   "traits listed: Content, Lazy, Trusting"
+  ]
+ },
+ "ta_thuc_bao": {
+  "file": "design/world/depth/art/portraits/p10/thien_bao.json",
+  "flags": [
+   "traits listed: Diligent, Arrogant"
+  ]
+ },
+ "doan_tri_lung": {
+  "file": "design/world/depth/art/portraits/p10/thien_bao.json",
+  "flags": [
+   "traits listed: Brave, Compassionate"
+  ]
+ },
+ "vien_hong_kim": {
+  "file": "design/world/depth/art/portraits/p10/thien_bao.json",
+  "flags": [
+   "traits listed: Cruel, Loyal"
+  ]
+ },
+ "nguy_minh_giam": {
+  "file": "design/world/depth/art/portraits/p10/thien_bao.json",
+  "flags": [
+   "traits listed: Honest, Arrogant, Just"
+  ]
+ },
+ "cat_kim_sa": {
+  "file": "design/world/depth/art/portraits/p10/thien_bao.json",
+  "flags": [
+   "traits listed: Content, Lazy, Trusting"
+  ]
+ },
+ "tong_thach_mach": {
+  "file": "design/world/depth/art/portraits/p10/thien_bao.json",
+  "flags": [
+   "traits listed: Cautious, Humble, Patient"
+  ]
+ },
+ "quan_tay_ngoc": {
+  "file": "design/world/depth/art/portraits/p10/thien_bao.json",
+  "flags": [
+   "traits listed: Calm, Content, Honest"
+  ]
+ },
+ "gian_tieu_dang": {
+  "file": "design/world/depth/art/portraits/p10/xuyen_lam.json",
+  "flags": [
+   "traits listed: Patient, Impatient"
+  ]
+ },
+ "man_thanh_truong": {
+  "file": "design/world/depth/art/portraits/p10/xuyen_lam.json",
+  "flags": [
+   "traits listed: Calm, Content"
+  ]
+ }
+}

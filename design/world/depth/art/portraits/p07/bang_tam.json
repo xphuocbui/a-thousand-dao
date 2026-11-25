@@ -1,0 +1,942 @@
+{
+ "people": [
+  {
+   "key": "ton_han_thach",
+   "sex": "m",
+   "age": 50,
+   "dress": "bang_tam",
+   "imagined": "Noon in the desert at the well. He measures the water in his cupped hand by the mouthful, squinting under a white hood, and has just noticed a rider.",
+   "subject": "The moment: noon in the desert at a stone well-head; the captain of the guard lets a thin stream of water pour from his cupped palm, counting it by the mouthful, and squints hard at the viewer over it, having just spotted a rider. Face: a hard, wind-cut face of fifty the colour of tanned saddle-leather; eyes narrowed to two dark slits, the squint carved into deep crow's-feet that run to the temples; a short broken nose; a thick grey-flecked moustache over a thin callous mouth; a salt-white crust at the corners of the lips; a sunburnt peeling scar across the forehead. Hair: iron-grey, cropped almost to the scalp, mostly hidden under a pale hood. Body: broad, square and heavy-shouldered, hardened by sun; stands with weight on his heels and arms loose. Clothing: an undyed white robe of fine cloth with a dusty hem, over which a pale-blue guard's sash is tied across the chest; a hooded white desert cloak thrown back from the head; leather arm-guards laced to the elbow; a wide belt; tall dust-grey boots; no ornament at all. Hands and objects: the left hand cupped, water trickling out between the fingers and falling in a bright thread; the right resting on the hilt of a plain straight sword, the leather grip dark from sweat. Background: white sand, a round stone well-head with a rope and bucket, one camel's long neck blurred, a thin wavering horizon. Light: hard white noon from the upper left, black shadow under the brow, the water a bright glint. Expression: callous, watchful and loyal; no smile, a man who has buried many raiders and counts water as treasure."
+  },
+  {
+   "key": "nhac_bang_thiem",
+   "sex": "f",
+   "age": 60,
+   "dress": "bang_tam",
+   "imagined": "Night in the burial glacier. She is speaking to the standing dead in a whisper so low that they seem to lean in; her cuffs are black from lamp soot.",
+   "subject": "The moment: night inside the burial glacier; she lifts a small brass lamp beside a row of standing dead sealed in ice, speaking in a whisper so low that they seem to lean in, and turns her face softly to the viewer, lips barely parted. Face: a small, old, pale, gentle face of sixty; deep fine wrinkles like cracks in porcelain; very large calm dark eyes; thin soft mouth; a straight small nose; frost crystals on her lashes and on a few wisps at her temples. Hair: white, parted in the middle and drawn into a low bun, held by a white-jade pin shaped like a thin icicle. Body: slight, narrow and a little bent, as if leaning to listen. Clothing: an inner robe of white silk with a crossed collar; over it a white elder's robe of fine cloth, wide-sleeved, unembroidered; a frost-silk sash that glitters and looks cold; both cuffs black with lamp soot, big and plain against the white; a shawl of white fur over the shoulders; felt slippers. Hands and objects: a small brass lamp with a pinpoint flame held at breast height in both hands, soot on the thumbs. Background: blurred pale figures frozen upright in blue ice, facing away to the south, in a row that recedes into dark. Light: cold blue light from the ice around her, the lamp's warm point lighting her chin from below. Expression: serene, devout and reclusive; the stillness of someone among friends."
+  },
+  {
+   "key": "quach_lam",
+   "sex": "m",
+   "age": 55,
+   "dress": "bang_tam",
+   "imagined": "Late at night at his desk, he has just found a bill in his own hand counted twice, and licks his thumb to check it again.",
+   "subject": "The moment: late at night at his desk, the treasurer has found a bill counted twice in his own hand; he licks a thumb to check the sum again, holds the page up to the lamp and looks sharply over its edge at the viewer. Face: a narrow, grey-yellow face of fifty-five with sunken cheeks; small sharp eyes set close together; a long thin nose; a pinched mouth drawn tight like a purse-string, the lips moving faintly as if tasting the total. Hair: thin grey hair scraped back flat into a tight knot, held by a plain bone pin. Body: thin, stooped and narrow in the chest, shoulders hunched over the desk. Clothing: a white treasurer's robe of fine cloth, spotless and exactly fitted, with a frost-silk sash knotted tight; fur-lined cuffs with the pelt cropped short and plain; a small bone abacus hanging from the sash on a cord; soft wool slippers. Hands and objects: a blank slip of paper held to the lamp between two thumbs and fingertips stained black with ink and counting, shown plainly in the foreground; a brush in a stand and a stone ink-slab on the desk before him. Background: a dark room, bundles of paper slips tied with cord stacked on a shelf, a brass lamp, a cold stove. Light: warm lamplight from the upper left against deep dark, catching the sharp bones of his face. Expression: a tight, suspicious, calculating stare, the brows pulled in and the mouth working silently, a man who trusts no figure, least of all his own."
+  },
+  {
+   "key": "luc_han_chu",
+   "sex": "m",
+   "age": 55,
+   "dress": "bang_tam",
+   "imagined": "On the harbour at dawn, laughing at something a boatman said, his flattened nose giving the laugh a wet, loud tone that carries across the water.",
+   "subject": "The moment: on the harbour at dawn he laughs at something a boatman said, and the flattened nose gives the laugh a wet, loud tone that carries across the water; he stands on the bow of a skiff, one hand on the mast, head thrown back, then looks down at the viewer with a bright cruel eye. Face: a heavy, square, red-brown face of fifty-five; a nose flattened flat against the face from an old blow, plain; a wide laughing mouth showing a gap; small hard blue eyes; a grey-stubbled jaw; deep laugh lines. Hair: grizzled grey-black, tied back in a short tail with a cord. Body: huge-chested, short-necked and very strong, legs apart on the boards. Clothing: a white outer robe cut short for the boat, tucked into a frost-silk sash bright with salt; a coast-blue lining flashing at the cuff; heavy sealskin boots turned over at the knee; a short sealskin cape. Hands and objects: one hand on a wet mast, knuckles scarred; the other holds a long dark boat-hook with an iron point. Background: a grey harbour, other skiffs with brown sails, shelves of ice at the edge. Light: cold bright dawn from the upper left, spray glitter. Expression: loud, gregarious and warlike; the laugh does not reach the eyes."
+  },
+  {
+   "key": "van_tuyet_khanh",
+   "sex": "f",
+   "age": 38,
+   "dress": "bang_tam",
+   "imagined": "Deep under the seat, she places her palm on a cold node and hums a single note until it answers; her left sleeve is pinned back.",
+   "subject": "The moment: deep under the seat, in a tunnel of the Jade Vessel Array, she places her bare left palm on a cold blue node and hums a single note until the stone answers; her left sleeve is pinned back; her eyes slide to the viewer. Face: a narrow, careful, pale face of thirty-eight; dark eyes that give nothing; thin level brows; a small straight nose; a slightly pursed mouth; a faint line between the brows; a trace of chalk on one cheek. Hair: black, in one tight braid pinned in a coil at the nape. Body: slim, composed and very still, leaning a little toward the node. Clothing: a white robe of fine cloth with the left sleeve pinned back above the elbow by a plain silver pin, big and plain; the pale-blue inner-disciple sash; a dusting of chalk on the hem; soft felt boots. Hands and objects: the bare left hand flat on a round pale-blue carved stone that glows faintly; a stub of white chalk in her right; a lamp at her foot. Background: a low stone tunnel with a ring of faint blue lights fading into the dark; a footprint brushed from the dust. Light: cold blue light from the stone beneath her hand, from below and the left. Expression: careful, patient and quietly hiding something."
+  },
+  {
+   "key": "nhac_thanh_suong",
+   "sex": "f",
+   "age": 32,
+   "dress": "bang_tam",
+   "imagined": "On the glacier path, she nods politely to empty air as the standing dead go by, frost forming on her pale lashes.",
+   "subject": "The moment: on the glacier path, she nods politely to empty air as the standing dead go by, with frost forming on her pale lashes; she stops and looks up at the viewer. Face: a pale, delicate face of thirty-two; large grey eyes with long lashes furred with frost, big and plain; a small, soft mouth; high cheekbones; a calm brow; a faint pink at the tip of the nose; the breath from her lips is a thin white plume, and a tiny crust of frost has formed on one eyebrow. Hair: long and black, loose down the back, tied with a pale-blue ribbon at the nape. Body: slender and upright, hands before her, the bow just finished. Clothing: a white robe of fine cloth with a high crossed collar and a pale-blue sash; a white wool shawl over the shoulders; no jewellery; white leggings and felt boots. Hands and objects: both hands folded in front of her, a small white lamp held in them with a thin flame; breath smoking from her lips. Background: blue ice walls and the faint shapes of standing figures sealed in ice, facing south. Light: soft blue light from the upper left, a warm point from the lamp. Expression: calm, devout and humble; she is at ease among the dead."
+  },
+  {
+   "key": "mac_ngung_bich",
+   "sex": "f",
+   "age": 36,
+   "dress": "bang_tam",
+   "imagined": "In the hall she touches the jade pin in her sleek braids, furious again, her eyes on a frost-coast disciple across the room.",
+   "subject": "The moment: in the hall she touches the jade pin in her sleek braids, furious again, her eyes fixed on a frost-coast disciple across the room; she raises two fingers to the pin and glares at the viewer, chin high. Face: a sharp, handsome, hard face of thirty-six; slanted dark eyes; thin, perfectly arched brows; a thin red-pink mouth set in contempt; a small sharp nose; flawless pale skin with high colour at the cheekbones. Hair: glossy black, plaited into two sleek braids coiled up and fixed with a long jade pin, big and plain, a few pale-blue silk threads in the plait. Body: tall, rigid and narrow-shouldered, held like a blade. Clothing: an inner robe of white silk with a high collar; over it a white robe of the finest cloth with a pale-blue sash, perfectly pressed; no embroidery; the cuffs exact and straight; pale slippers. Hands and objects: two fingers on the jade pin at her temple; a plain white sword at her left hip; fine nails. Background: a pale hall of white pillars, dim, with the shapes of other disciples at a distance. Light: cold light from the upper left, a glint on the jade. Expression: arrogant, cruel and loyal to one person only."
+  },
+  {
+   "key": "tuong_han_phong",
+   "sex": "m",
+   "age": 42,
+   "dress": "bang_tam",
+   "imagined": "Practice hall, late. He swings the white-wrapped palms in the Snow Plum forms again; the wraps have bled through by evening.",
+   "subject": "The moment: in the practice hall, late; he has just finished drilling the Snow Plum forms again, and he holds out both hands before him, palms up, wrapped in white strips with blood showing through, then looks at the viewer. Face: a long, grim, dark-browed face of forty-two; deep-set black eyes; a tight jaw clenched; a short stubbled chin; a vertical furrow in the forehead; sweat; a small white scar through the left eyebrow. Hair: black, tied in a tight topknot, a few loose strands stuck to his temples. Body: lean, upright and rigid with restraint; his shoulders are loose but his neck cords stand out. Clothing: a white sword-hall robe of fine cloth, sleeves cut narrow; a pale-blue sash; clean and well pressed apart from sweat at the collar; white leggings; plain shoes. Hands and objects: both palms wrapped in white cloth strips, the cloth stained rust-red through, in the foreground; a plain white-bladed sword on a rack behind; the blood on the wraps is dark at the centre of each palm and brighter at the edge; the sword rack behind holds one empty peg where a white-bladed sword is missing. Background: a plain sword hall with a polished floor, a rack of swords, a window of dusk; beside him on the polished floor a puddle of sweat has formed. Light: slanting evening light from the upper left. Expression: ambitious, wrathful and silent."
+  },
+  {
+   "key": "ninh_bach_ho",
+   "sex": "m",
+   "age": 40,
+   "dress": "bang_tam",
+   "imagined": "At the Beast Hall door a big white ice wolf leans on his hip; he is half asleep standing and takes the praise of the hall with a lazy grin.",
+   "subject": "The moment: at the Beast Hall door a big white-maned ice wolf leans on his hip; he is half asleep standing, and takes the praise of the hall with a lazy grin as he looks at the viewer. Face: a handsome, relaxed face of forty; half-lidded easy eyes; a lopsided grin; a day's stubble; fine laugh lines; a faint pink at the nose; the wolf's mane is as high as his ribs and its pale eyes half closed in pleasure. Hair: black, loose and a little unkempt to the shoulder, white wolf hairs caught in it; its coat is brushed to a silken shine by someone else's hand, and a brush with white hair in it lies on the step. Body: tall, loose-limbed and leaning, one knee clicking slightly as he shifts; his left knee is bent in the awkward way that clicks, and he leans his weight on the wolf instead. Clothing: a white riding robe, short in the skirt, with white wolf hair clinging to both sleeves in clear drifts; a pale-blue sash; fur-lined boots; leather riding gloves tucked in the belt. Hands and objects: one hand buried in the white wolf's thick ruff; the other holds a stirrup-cup; a younger rider in the doorway behind him, with owl feathers by his ear, is carrying a bucket. Background: a pale-blue stone yard, the wolf's flank, a barred door. Light: cold clear light from the upper left. Expression: lazy, gregarious and fickle; pleased at the credit."
+  },
+  {
+   "key": "quan_lang_ba",
+   "sex": "f",
+   "age": 32,
+   "dress": "bang_tam",
+   "imagined": "By the rod-house stove, writing in her thunder log with soot freckled on her nose; a second book under her sleeve.",
+   "subject": "The moment: by the rod-house stove, writing in her thunder log with soot freckled on her nose and a second book under her sleeve; she looks up with a flat polite smile. Face: a small round face of thirty-two with soot freckles across the nose and cheeks, big and plain; bright quick brown eyes; a small mouth; short brows; a dimple; a thin line of soot runs along her jaw where she has rubbed it, and her hand holding the brush is steady. Hair: brown, in two buns on top, tied with pale-blue ribbon. Body: small, neat, sitting straight; the trimmed log is in the book on her knee and the hidden one is tied with a red thread. Clothing: a white working robe of fine cloth, sleeves tied back; a pale-blue sash; a copper rod tucked in the sash; a leather apron with ash marks; a mug of tea steams on the stove top, and her felt slippers are scorched at the toes. Hands and objects: a brush in her right hand; a book open on her knee; the corner of a second book under her sleeve; fingers inked. Background: a small hut, a red stove glow, copper rods on the wall, a rain-streaked window; above the stove a row of three copper rods hangs, each tipped with a blue-black scorch. Light: warm stove glow from the lower left, cool light from the upper left. Expression: cautious, content and deceitful."
+  },
+  {
+   "key": "au_duong_tuyet",
+   "sex": "m",
+   "age": 45,
+   "dress": "bang_tam",
+   "imagined": "In the great kitchen of the glacier seat with four hundred bowls to fill and no flame to cook with; he counts barley under his breath and glances at a sack set aside.",
+   "subject": "The moment: in the great kitchen of the glacier seat with four hundred bowls to fill and no flame to cook with; he counts barley under his breath and glances at a sack set aside, then looks up cheerfully at the viewer. Face: a round, ruddy, jolly face of forty-five with a double chin; bright small shrewd eyes; a wide mouth; barley dust in his eyebrows; a flat nose; his chins wobble when he nods. Hair: thinning brown hair in a small knot. Body: stout, short and round-bellied; a steam-curl rises from the cauldron beside his left shoulder and a thin kitchen boy carries a ladle. Clothing: a white robe of fine cloth with a stained apron over it; a frost-silk sash straining at the middle; sleeves rolled to forearms; wooden clogs; the sack at his foot has a better grain, white and plump, and is tied with a green cord, and he has put one boot casually against it. Hands and objects: a wooden ladle in his right hand; the left counting on four fingers; a sack of barley set apart at his foot; four hundred wooden bowls are stacked in towers on a long table behind him. Background: a hall of steaming qi-heated cauldrons, rows of bowls, sacks; his big belly is dusted with barley flour in a pale handprint. Light: warm steamy light from the upper left. Expression: pragmatic, greedy and gregarious."
+  },
+  {
+   "key": "dieu_han_dam",
+   "sex": "f",
+   "age": 38,
+   "dress": "bang_tam",
+   "imagined": "In her warm hut at night with an injured sable on her lap, she smooths its fur; a crooked finger shows.",
+   "subject": "The moment: in her warm hut at night with an injured sable on her lap, she smooths its fur and looks up gently at the viewer. Face: a quiet, long, fine face of thirty-eight; soft dark eyes; a gentle mouth; one little scar on the chin; a pink flush from the warmth; its eyes are black beads; her sleeves are pushed up showing thin forearms with old bite-scars. Hair: long black hair in two braids with a few white sable hairs stuck in them; her hair has white wisps stuck to it with straw dust, and her braids hang forward over her shoulders. Body: slim, patient and bent over her work. Clothing: a white robe of fine cloth with a thick sable-fur collar, a pale-blue sash, sleeves loose; wool slippers. Hands and objects: her right hand strokes the sable; the little finger of that hand is crooked, bitten once, plainly shown; a bowl of warm milk. Background: a warm hut, straw, a small lamp, a row of small cages; the sable in her lap is a pale cream-white with a bandaged hind foot; two other kits sleep in a basket by the stove; a small jar of salve and a roll of clean bandage lie on the straw; the hut's roof is low and hung with dried herbs and furs. Light: warm lamplight from the upper left. Expression: compassionate, reclusive and patient."
+  },
+  {
+   "key": "man_bang_ha",
+   "sex": "m",
+   "age": 40,
+   "dress": "bang_tam",
+   "imagined": "At the skiff's tiller in a rising storm, a pale scar across his chin white with salt, grinning because he would row it into the storm if asked.",
+   "subject": "The moment: at the skiff's tiller in a rising storm, a pale scar across his chin white with salt; he grips the tiller in a spray-dashed skiff and grins at the viewer, braced against the wind. Face: a broad square face of forty; a salt-white scar across the chin, plain and bright; fearless light eyes; windburnt cheeks; wet black stubble; a wet black beard of spray drips from his chin; behind him the skiff's brown sail is half reefed, and a boy hauls on a line; a lantern lashed to the mast swings, unlit in the grey day; the salt scar on his chin shines whiter than his teeth, and his boots have iron cleats. Hair: black, short, plastered with spray. Body: shoulders as broad as a door, huge arms, braced on wide-set legs. Clothing: a white short outer robe soaked grey, a pale-blue sash, a sealskin cloak flung back; high waterproof boots; his forearms are knotted with ropy veins and his sleeves are pushed to the elbow. Hands and objects: both hands on a tiller, knuckles white; a coil of wet rope at his feet. Background: a heaving grey sea and ice, the black bows of two other skiffs; the tiller is of black oak scored with notches. Light: flat grey stormlight from the upper left, a hard white glint of spray. Expression: brave, impatient and loyal."
+  },
+  {
+   "key": "giang_suong_lac",
+   "sex": "f",
+   "age": 35,
+   "dress": "bang_tam",
+   "imagined": "In the Desert Pavilion's courtyard, receiving a caravan factor and noticing again the way the seat's disciples listen to her accent.",
+   "subject": "The moment: in the Desert Pavilion's courtyard, receiving a caravan factor and noticing again the way the seat's disciples listen to her accent; she bows politely toward the viewer with her sash sitting a little high at the waist, smiling humbly. Face: a round warm-brown face of thirty-five; large gentle dark eyes; a quick shy smile; a small gold stud in one nostril, big enough to see. Hair: black, parted and braided with a few bright harbour beads at the end; her hair beads are green and red glass. Body: short, sturdy and upright; behind her a young disciple glances over a shoulder and murmurs to another. Clothing: a white robe of fine cloth with a pale-blue sash tied a little higher than the Pavilion way; a thin desert veil at her neck; sandals; the sash's high knot is of pale-blue silk tied twice; a camel kneels at the edge of the frame with a woven saddle-cloth of harbour stripes. Hands and objects: hands folded in front of the sash; a small cloth purse at her wrist; she folds her hands as if used to being watched, and a small bronze bell on her wrist tinkles when she bows. Background: a sand-coloured courtyard, an awning, camels blurred; the awning throws a sharp-edged band of shade across her feet. Light: warm desert light from the upper left. Expression: humble, diligent and trusting."
+  },
+  {
+   "key": "kieu_tuyet_ky",
+   "sex": "m",
+   "age": 42,
+   "dress": "bang_tam",
+   "imagined": "On the caravan road, upright as his banner pole, with the white banner furled and dust-free; he checks its hem and a dent on his thumb shows.",
+   "subject": "The moment: on the caravan road, upright as his banner pole, with the white banner furled and dust-free; he checks its hem, then glances at the viewer. Face: a straight-nosed, correct, handsome face of forty-two; a thin neat moustache; narrow eyes with a hint of falseness; chin lifted; behind, a young guard with a split lip brushes dust from a different hem. Hair: black, oiled, neatly knotted. Body: straight as a post, shoulders squared. Clothing: a white guard's robe pressed and clean, a pale-blue sash; leather arm-guards; a plain cloak; boots polished against the dust; the white banner is wrapped in oilcloth and tied with three neat knots; the hem of the white banner, visible at the bottom, is pristine, with not a grain of sand on it; his boots are dusted pale to the ankle but his robe is spotless. Hands and objects: both hands on a pole with a brass cap; his right thumb has a dented pad where the cap rests, plain; the pole carries a furled plain white banner with no emblem; the brass cap on the pole has a thumb-sized worn dent, bright from his grip. Background: sand and a dim caravan wagon with a bundled cloth; behind him a baggage wagon has a bundled shape that is the banner's real resting place. Light: bright desert light from the upper left. Expression: brave, stubborn and vain."
+  },
+  {
+   "key": "pham_lanh_van",
+   "sex": "m",
+   "age": 48,
+   "dress": "bang_tam",
+   "imagined": "Writing the coast's judgements, a calligrapher's reed-pen in his hand, a cup of tea going cold at his elbow; he decides by mood and does not know it.",
+   "subject": "The moment: writing the coast's judgements with a calligrapher's pen, a cup of tea going cold at his elbow; he pauses with a long brush over a sheet and looks calmly at the viewer, ink to the second knuckle on his fingers. Face: a long, composed, scholarly face of forty-eight; patient half-lidded eyes; a thin moustache and a wisp of chin beard; fine smooth skin; the tea cup beside him has a skin on it and has been cold for an hour; a faint smile tightens one corner of his mouth as he decides on mood. Hair: grey-black, in a neat topknot with a dark wooden pin. Body: thin, upright and deliberate. Clothing: a white scholar's robe of fine cloth with long sleeves, a pale-blue sash; the right cuff black with ink; soft slippers. Hands and objects: a long brush in the right hand, fingers black with ink to the second knuckle, large and plain; a cup of tea; the writing sheet before him is blank, with a single stroke of ink just begun, a long clean curve; his long fingers are tipped with square pale nails, black at the first two knuckles; a bamboo brush-rest shows a row of seven brushes sorted by size; on the wall behind him hangs a scroll of plain pale paper with no writing. Background: a quiet study, a screen, a stack of sheets. Light: soft light from the upper left. Expression: arbitrary, patient and honest."
+  },
+  {
+   "key": "vuong_thanh_lam",
+   "sex": "f",
+   "age": 30,
+   "dress": "bang_tam",
+   "imagined": "Copying a letter at night in the envoy's study, ink at the corner of her mouth, she lifts her eyes at a footstep.",
+   "subject": "The moment: copying a letter at night in the envoy's study, ink at the corner of her mouth, she lifts her eyes at a footstep; she turns quickly over her shoulder from a desk with a brush in her hand, a heavy braid swinging. Face: a sharp, pretty, ambitious face of thirty; bright watchful eyes; a small smile that comes too fast; a smudge of ink at the corner of the mouth, plain; the ink on her lip is faintly wet. Hair: a very heavy black braid pinned over the left shoulder; a dark hair-pin of black wood holds the end of her braid, which swings as she turns. Body: slim and quick. Clothing: a white robe with a pale-blue sash, neat; narrow sleeves tied back; behind her a half-open door shows a dark corridor with a sliver of light, and a pair of slippers is just visible there; her sleeve covers the paper she has been copying. Hands and objects: a brush in her hand; a sheet of paper before her (no writing); the lamp is low and the oil is nearly gone. Background: a night study, one lamp; a second copy, a sheet already finished, lies half hidden under a blotter by her elbow. Light: lamplight from the upper left. Expression: ambitious, deceitful and faithless."
+  },
+  {
+   "key": "ha_han_lo",
+   "sex": "f",
+   "age": 38,
+   "dress": "bang_tam",
+   "imagined": "At the treasurer's table, reading a column of figures with a finger under each line, lips split and red from the cold.",
+   "subject": "The moment: at the treasurer's table, reading a column of figures with a finger under each line, lips split and red from the cold; she slides a finger under a line, then looks up to the viewer with a guarded, tired glance. Face: a thin tired face of thirty-eight; lips cracked and split by the cold, red at the seams, plain; small watchful eyes; wind-reddened cheeks; the cold has also cracked the skin on her knuckles, and a small piece of cloth is bound round the right forefinger; a brazier at her feet is nearly out, and a thin plume of breath rises from her lips. Hair: brown, tied in a tight bun with a plain cord. Body: thin, narrow and hunched slightly. Clothing: a white robe of fine cloth with a pale-blue sash; a clerk's cuff-guards. Hands and objects: one forefinger on a page of figures (no readable writing); a fur-lined glove half off. Background: a counting room, stacks of paper; her desk has a neat pile of green-bound ledgers and one that is out of line; she pushes the page a little away as if guarding a shameful number. Light: dim light from the upper left; behind her, a tall shelf of boxes casts a long shadow. Expression: diligent, paranoid, divided loyalty."
+  },
+  {
+   "key": "ta_ngan_suong",
+   "sex": "f",
+   "age": 22,
+   "dress": "bang_tam",
+   "imagined": "In the ringing hall she bursts into laughter, gap-toothed, as her master Khương Lưu Ly frowns in vain.",
+   "subject": "The moment: in the ringing hall she bursts into laughter, gap-toothed, as her master Khương Lưu Ly frowns in vain; she throws her head back in open laughter showing a gap between her front teeth, then catches the viewer's eye, still grinning. Face: a bright, freckled, fisher's-daughter face of twenty-two; a visible gap in the front teeth; sparkling dark eyes; apple cheeks; dark winged brows; a stern woman in a pressed robe stands blurred at the far end of the hall with her lips pressed together, shaking her head; her cheeks are flushed pink and her eyes crinkle shut at the corners. Hair: black, tied in a high ponytail with a pale-blue ribbon, flying; the laughter has jostled the pale-blue ribbon in her ponytail so one end flies. Body: slim, quick and mid-motion. Clothing: a white sword robe of fine cloth with a pale-blue sash, sleeves narrow. Hands and objects: one hand on the hilt of a plain white sword at the hip; the other half-raised mid-laugh; a faint chip on her sword's white scabbard shows she is not careful with it. Background: a white-pillared hall, ringing with echoes; the echo of her laugh seems to ring from the white pillars, and a pair of older disciples glance sideways. Light: bright light from the upper left. Expression: fickle, gregarious and brave."
+  },
+  {
+   "key": "luu_han_ngan",
+   "sex": "m",
+   "age": 42,
+   "dress": "bang_tam",
+   "imagined": "In the coast quarter's tavern, a white robe worn over the coast's blue lining; the drawl is thick as stew; he is telling a story.",
+   "subject": "The moment: in the coast quarter's tavern, a white robe worn over the coast's blue lining; the drawl is thick as stew; he leans back at a table, one hand raised mid-story, a glint in his eye. Face: a broad, ruddy, quick-grinning face of forty-two; flashing dark eyes; a wide mobile mouth; short stubble; a blue lining flash shows at both wrists and all along the robe's open front. Hair: black, cropped short. Body: stocky, expansive and easy. Clothing: a white inner-disciple robe of fine cloth, open, with the coast-blue lining flashing under it, big and plain; a pale-blue sash; behind him a table of coast disciples crowd round a fish stew in a clay pot with steam rising, one of them laughing; his sandals have salt rims. Hands and objects: one hand raised with the palm out; a cup of wine in the other; the lamp over the table is a paper lantern painted with plain blue waves; his hands are broad and warm and he waves one in a rolling gesture as he talks. Background: a lamplit tavern; a wine jug is tipped by his elbow. Light: warm lamplight from the upper left. Expression: faithless, wrathful and gregarious; a charming smile."
+  },
+  {
+   "key": "dinh_tuyet_tung",
+   "sex": "m",
+   "age": 50,
+   "dress": "bang_tam",
+   "imagined": "In the burial glacier, he has just finished a niche with a chisel; the dust has whitened his eyebrows.",
+   "subject": "The moment: in the burial glacier, he has just finished a niche with a chisel; the dust has whitened his eyebrows; he taps the chisel against an ice wall and turns his face slowly to the viewer. Face: a stern, deeply lined face of fifty; eyebrows white with chisel dust, big and plain; narrow, stubborn eyes; a heavy square jaw; a flat mouth; the niche beside him is a tall narrow arch cut in blue ice, with a smooth face-forward floor, and its twin stands empty for himself, a little longer and narrower. Hair: iron-grey, short, dusted white. Body: broad-backed and sturdy; fine white dust lies on his shoulders like snow and on the back of his neck. Clothing: a white robe of fine cloth, hem dusty, sleeves pushed up; a pale-blue sash; a leather apron. Hands and objects: a short iron chisel and a wooden mallet; his knuckles gritty with ice dust; his square hands show grit in every crease, and the mallet's head is worn to a dark polish. Background: a blue ice wall with half-cut niches; a drift of ice shavings curls on the floor at his feet like pale wood curls; a hooded lantern hangs on a hook at the wall. Light: cold blue light from the upper left. Expression: reclusive, devout and stubborn."
+  },
+  {
+   "key": "cat_ngoc_tri",
+   "sex": "f",
+   "age": 37,
+   "dress": "bang_tam",
+   "imagined": "At dawn at the founder's cold well with a bucket, her hem damp; a dried lily bulb pins her pale braid.",
+   "subject": "The moment: at dawn at the founder's cold well with a bucket, her hem damp; she lowers the bucket into a stone well and looks up to the viewer with a content smile. Face: a soft round oasis face of thirty-seven; warm brown skin; peaceful dark eyes; a gentle smile; freckles; the well's stone lip is dark with damp and a little ice-lily bloom shows at its foot, small white cups on thin stems; her sleeves are tucked up showing round forearms with a rope scar. Hair: pale-brown, in a braid pinned up with a dried white lily bulb, big and plain; the dried white lily bulb in her braid is shaped like a small pearl. Body: sturdy, gentle and stooped to the well. Clothing: a white robe of fine cloth with the hem and lower sleeves dark and damp; a pale-blue sash; her toes in sandals are wet and sandy. Hands and objects: both hands on a wet rope; ice lilies in a pot beside the well; a clay water jar stands next to the bucket. Background: a sandy courtyard with a well-head and small white flowers. Light: gentle dawn light from the upper left; the sun is just coming over a sand dune behind the well, a thin gold line. Expression: content, patient and compassionate."
+  },
+  {
+   "key": "truong_lanh_ha",
+   "sex": "m",
+   "age": 38,
+   "dress": "bang_tam",
+   "imagined": "By the frozen lake, a man five times failed, standing with arms crossed and head high; the crooked nose catches the light.",
+   "subject": "The moment: by the frozen lake, a man five times failed, standing with arms crossed and head high; the crooked nose catches the light as he faces the viewer in defiance. Face: a rough, stubborn face of thirty-eight; a nose broken and set crooked, plain; both ears carrying pale leaf-shaped scars from frostbite, plain; hard dark eyes; a clenched jaw; his feet are planted in the snow at the lake's edge, and his bare ears are red with leaf-shaped white scars, five of them, one for each failure; a thin plume of breath rises; the broken nose has a faint crooked highlight where the light strikes it. Hair: black, short, rough. Body: stocky, square and planted. Clothing: a white outer-disciple robe of fine cloth, clean, with no sash at all; his white robe has no sash and no collar-band, and the cloth looks fresh and of the better kind, as if someone had insisted on it. Hands and objects: arms crossed over the chest; behind him a reed hut and a line of pale lantern lights show where the test is held. Background: a white frozen lake, the grey horizon. Light: hard light from the upper left. Expression: stubborn, ambitious and brave."
+  },
+  {
+   "key": "bach_han_yen",
+   "sex": "f",
+   "age": 40,
+   "dress": "bang_tam",
+   "imagined": "At the vein watch, a blue web of burns climbs her neck; she holds up the right hand with two fingers gone and looks to the sky for thunder.",
+   "subject": "The moment: at the vein watch, a blue web of burns climbs her neck; she raises her right hand, two fingers missing, to shade her eyes against a stormy sky and glances toward the viewer. Face: a calm, lean, weathered face of forty; a faint blue web of lightning-burn scars climbing the right side of her neck to the jaw, plain; steady grey eyes; the blue web of burns is branched like a tree across her neck and the line of her jaw, glowing slightly paler than her skin; her grey eyes squint against the flash and her lips are slightly parted, counting the seconds before thunder. Hair: white-black mix, cropped short. Body: tall, lean and still. Clothing: a white robe of fine cloth, high-collared to the jaw, pale-blue sash; copper-wire cuffs; beneath the high collar the web continues into the dark; her robe's copper-wire cuffs gleam faintly. Hands and objects: the right hand with only the thumb, forefinger and middle finger: two fingers gone, plainly shown; the maimed hand is steady, with the stumps of two fingers healed smooth. Background: a stormy sky, copper rods; a tall copper rod behind her has a charred tip; a bank of clouds shows a violet-blue flicker. Light: flat stormlight from the upper left, blue flash at the back. Expression: calm, brave and reclusive."
+  },
+  {
+   "key": "ong_tinh_hai",
+   "sex": "m",
+   "age": 55,
+   "dress": "bang_tam",
+   "imagined": "In the tea kitchen at dawn, he pours first for the person he fancies; his hands are steam-pink and a stained apron shows under the robe.",
+   "subject": "The moment: in the tea kitchen at dawn, he pours first for the person he fancies; his hands are steam-pink and a stained apron shows under the robe; he pours steaming tea from a copper kettle held high and glances sideways at the viewer with a small shrug. Face: a round, mild face of fifty-five with pink cheeks; small content eyes; a snub nose; a wispy grey moustache; a double chin; the apron beneath the white robe is brown with tea stains and has a bright patch; his hands are pink and wrinkled, and a thin sheen of sweat covers his forehead. Hair: grey, thinning, in a small knot. Body: round-shouldered and stout; behind him a row of kettles sits on stone shelves, warmed by stored qi. Clothing: a white robe of fine cloth with a stained apron visible under it; a pale-blue sash. Hands and objects: both hands pink from steam; a copper kettle pouring into a pale cup; a tray of three pale porcelain cups stands in front of him, one set slightly apart, empty for someone who has gone three solstices without a hot cup. Background: a tea kitchen with steam; the copper kettle is dented on one side, and the steam it sheds smells faintly of pine. Light: soft steamy light from the upper left. Expression: arbitrary, humble and content."
+  },
+  {
+   "key": "la_bang_tuyen",
+   "sex": "f",
+   "age": 33,
+   "dress": "bang_tam",
+   "imagined": "On a windy ridge of the head's own peak, herder's beads at the wrist; she will not let the windburn heal and does not smile.",
+   "subject": "The moment: on a windy ridge of the head's own peak, she watches the viewer and does not smile, refusing to turn her face from the wind or let the windburn heal. Face: a strong-boned, weathered face of thirty-three; cheeks raw red with windburn, each patch the shape of a handprint; cool grey eyes narrowed against the gale, tears pulled from the corners; a stern, level mouth; her breath leaves in a short plume and she does not shiver. Hair: black, in one long braid that the wind lifts into a straight line behind her. Body: tall and wiry, planted square on the ridge with her weight low. Clothing: a white robe of fine cloth with a pale-blue sash; over it a heavy grey herder's wool cloak, clean and thick, pinned at the shoulder with a bone toggle; sturdy boots. Hands and objects: a string of herder's beads, small knuckle-bones strung on black thread, wound at her wrist; both hands rest on the front of the cloak. Background: a snowy ridge falling away behind her under a white sky, a single lamp-light twinkling far below at the sect seat. Light: cold white light from the upper left, flat and hard, with no warmth in it. Expression: a stern, still, closed look, the mouth a flat line and the eyes steady, a woman who keeps her pain on her face on purpose and will not be pitied."
+  },
+  {
+   "key": "duong_lo",
+   "sex": "m",
+   "age": 30,
+   "dress": null,
+   "imagined": "Last to take off his apron at night, he sits by the furnace at Hàn Giao Chử with the wolves lying round him; the only warm thing they like.",
+   "subject": "The moment: last to take off his apron at night, he sits by the furnace at Hàn Giao Chử with the wolves lying round him, the only warm thing they like; he looks up with an open smile. Face: a ruddy, open young face of thirty; soot on the forehead; warm brown eyes; round cheeks; his big hands are scarred with small burns and his forearms are freckled with soot; the grey wolf at his left leans its head on his thigh with its eyes shut, and another dozes with a paw over its nose; his apron strings are knotted in a double bow, and the last light on his face is red. Hair: short black hair tousled. Body: stocky and sturdy; a spoon and a jar of dark pill-paste sit on a ledge by his knee; a kettle sings on the furnace, and a basket of charcoal stands to the right. Clothing: an alchemist's apprentice's plain brown cloth tunic and a leather apron, still on, sleeves rolled; no white (he is a warm-coloured servant of a cold sect). Hands and objects: a poker in his right hand; a wolf's head under his left hand. Background: a furnace glow, wolves. Light: red furnace glow from the lower left. Expression: diligent, humble and trusting."
+  },
+  {
+   "key": "than_ngung_lam",
+   "sex": "f",
+   "age": 38,
+   "dress": "bang_tam",
+   "imagined": "At her desk, copying the Snow Plum manual in red ink, a red-stained thumbnail showing, a second sheet hidden beneath her.",
+   "subject": "The moment: at her desk, copying the Snow Plum manual in red ink, a red-stained thumbnail showing, a second sheet hidden beneath her; she holds a red-inked brush over a manual and looks up with a gentle, patient smile. Face: a scholarly, delicate oval face of thirty-eight; calm intelligent dark eyes; a small closed smile; ink-red thumbnail visible; her fingers are slender and long, the thumbnail stained red-brown; a lamp of pale paper throws soft light and her eyes are lowered, then lifted a fraction too late. Hair: black, in a neat low bun with a white pin. Body: slim and composed. Clothing: a white scholar's robe of fine cloth with pale-blue sash; the right cuff stained red; the right cuff of her robe has a long red streak where she has wiped the brush. Hands and objects: a brush dipped in red ink; her right thumbnail a stained red, plain; the red ink in the stone is the colour of dried plum; her desk holds a neat stack of copied leaves, each weighted with a pebble; a second sheet in black ink is half under the blotter, a corner visible. Background: a quiet room, a desk. Light: soft light from the upper left. Expression: patient, humble and deceitful."
+  },
+  {
+   "key": "lang_han_sinh",
+   "sex": "m",
+   "age": 35,
+   "dress": "bang_tam",
+   "imagined": "Hauling a pearl diver's net up in a skiff, he coughs like a barking seal and turns his good ear toward the viewer.",
+   "subject": "The moment: hauling a pearl diver's net up into a skiff, he coughs like a barking seal and turns his good ear toward the viewer with a broad, easy grin. Face: a weathered, generous face of thirty-five; kind squinting eyes; a wide grin showing white, uneven teeth; one ear scarred shut by the deep, a puckered knot of scar, the other whole and turned toward us. Hair: black, wet and tied back with a strip of seal-gut cord. Body: broad and barrel-chested, his chest heaving, a bubble of cough rattling in his throat. Clothing: a short white outer robe darkened by wet, with a pale-blue sash, clean and well fitted; a sealskin vest over it; a thin line of dried salt along the collar; sealskin boots. Hands and objects: a wet net hauled over the gunwale with a dozen small white pearls, pea-sized, caught in the mesh; at the bottom of the skiff a puddle and two spare dive-weights of black stone. Background: flat pewter sea and drifting ice, gulls circling, a boy at the oars behind him looking away. Light: cold clear light from the upper left, flat on the water. Expression: an open, generous, good-humoured grin with crinkled eyes, the look of a man who laughs at his own cough and would give a stranger half his catch."
+  },
+  {
+   "key": "tieu_bach_lo",
+   "sex": "m",
+   "age": 18,
+   "dress": "bang_tam",
+   "imagined": "A well-fed clan son at the outer gate, tucking silk laces into his boots before anyone sees; he smiles at a classmate while memorising her method.",
+   "subject": "The moment: a cold morning at the outer gate; a well-fed clan son bends to tuck a bright silk boot-lace out of sight before anyone sees it, and glances up with a friendly smile that comes a little too ready, as he thinks about the pot-reed method he will write home. Face: a plump, smooth, rosy face of eighteen with a soft double chin; sleek confident dark eyes; a small neat smile; clear skin that has never known a hungry winter; a small mole beside the nose. Hair: black, oiled, parted at the side and tied in a neat knot with a dark cord. Body: round-bellied, well fed, bent forward at the waist. Clothing: a white outer-disciple robe of fine cloth, no sash, new and unwrinkled, a little tight across the middle; under it a clan-silk shirt whose pale cuff shows; good leather boots with silk laces in clan colours, one half-tucked; a small embroidered purse hidden in the sleeve. Hands and objects: the fingers push a silk lace into the boot-top; a folded sheet of notes (no writing visible) pokes from the other sleeve. Background: a pale lake shore with reed huts, a few thin outer disciples sitting on the ice behind. Light: bright cold light from the upper left. Expression: ambitious, deceitful and friendly, a smile for everyone."
+  },
+  {
+   "key": "nghiem_tieu_tuyet",
+   "sex": "f",
+   "age": 17,
+   "dress": "bang_tam",
+   "imagined": "Homesick, sitting nearest the brazier in two pairs of mittens, wrists thin as reeds.",
+   "subject": "The moment: seventeen and homesick, she sits nearest the brazier in two pairs of mittens, hugs the small brazier to her knees and looks shyly at the viewer. Face: a small, pale, thin face; huge, trusting dark eyes; a red nose with a drip hanging unnoticed; chapped cheeks; a trembling lower lip held steady; a tiny snowflake of frost on the eyelashes. Hair: light brown, in two short braids tied with string, a woollen cap pulled low. Body: tiny, hunched and wrapped, knees drawn up to the chest. Clothing: a white outer-disciple robe of plain fine cloth with no sash, too big at the shoulders, clean; over it a thick grey scarf wound three times round her neck; padded leggings; fur-lined boots tied with twine. Hands and objects: two pairs of mittens, one over the other, the outer grey wool and the inner white, both visible; wrists like reeds poking from the cuffs; her fingers curled toward the brazier's heat. Background: the inside of a wooden hut, rough planks, a glowing iron brazier, a steaming kettle, other disciples bundled in the dark behind her. Light: warm brazier glow from below, cold blue light from the door. Expression: wide, wet, hopeful eyes and a lip held tight to keep from trembling, a child being brave about being cold and far from home."
+  },
+  {
+   "key": "hau_ngu",
+   "sex": "m",
+   "age": 20,
+   "dress": "bang_tam",
+   "imagined": "Asleep in the reed hut by the lake after cutting holes, an ice-pick still at his belt, a smell of brine; he opens one eye.",
+   "subject": "The moment: asleep in a reed hut by the lake after cutting ice-fishing holes, an ice-pick still at his belt and the smell of brine on him, he opens one eye, sees the viewer and smiles lazily. Face: a sunburnt, broad, easy face of twenty; sleepy half-open eyes; a wide gap-toothed smile; a fish-scale stuck to one cheek; chapped lips; a stubble of dark whisker. Hair: black, shaggy and sticking up, with a bit of reed in it. Body: stocky and relaxed, sprawled against a bundle of reeds. Clothing: a white outer-disciple robe of sturdy, clean cloth, stained with brine at the hem, no sash; sealskin boots; a thick scarf. Hands and objects: a short iron ice-pick tucked into his belt, its wooden handle polished pale by his palm; in one hand a string of small silver fish threaded through the gills; a tin cup of cold fish broth by his knee. Background: the reed wall of the hut, bright with sun through its gaps, and behind him through the doorway a frozen lake dotted with fishing holes, a small boy crouched on one with his heels drumming. Light: pale cold light from the upper left, with warm points of sun through the reeds. Expression: drowsy, comfortable and unbothered, one eye half open and a slow grin spreading, a man with no wish to be anywhere else."
+  },
+  {
+   "key": "chu_suong_linh",
+   "sex": "f",
+   "age": 24,
+   "dress": "bang_tam",
+   "imagined": "Just passed the Frost Test last solstice; her eyes are still red-rimmed and she touches her cheek where she wept, as if checking it.",
+   "subject": "The moment: dawn at the lake, a week after she passed the Frost Test; her eyes are still red-rimmed and she touches two fingers to her cheek where she wept, as if checking it, startled by her own tears, and looks at the viewer with wet eyes. Face: an earnest, soft face of twenty-four; eyes red-rimmed and bright, with a trace of frost at the lashes; a trembling smile; pale cheeks with two faint pink tear-tracks; a straight small nose; a single faint tear-track still shines on her left cheek; behind her on the ice a woman in white, round-faced and kind with reddened earlobes, is seen from the back, wiping her own eyes. Hair: black, in a single plait over the shoulder, a few damp strands on her cheek. Body: slim and upright, standing very straight as the newly chosen do. Clothing: a white inner-disciple robe of fine cloth with a new pale-blue sash, perfectly folded and not yet creased; a white collar; new felt boots; her new sash has the shop-crease of folded silk. Hands and objects: two fingers pressed against her cheek; the other hand holds a small warm stone wrapped in cloth. Background: a pale frozen lake at dawn, the thin figure of a round-faced woman in the distance, lantern light. Light: dawn light from the upper left, pink at the horizon. Expression: diligent, humble and moved."
+  },
+  {
+   "key": "ly_han_tam",
+   "sex": "m",
+   "age": 25,
+   "dress": "bang_tam",
+   "imagined": "A magistrate's son who looks freshly washed, as if his mother still packed his sleeves; he bows to his master.",
+   "subject": "The moment: a morning at the Pavilion's practice court; a magistrate's son, freshly washed as if his mother still packed his sleeves, bows slightly to his master and looks up politely at the viewer, hands in sleeves. Face: a clean, pleasant, symmetrical face of twenty-five; calm dark eyes; a smooth chin; a faint smile; skin kept soft by good soap; a tiny beauty-mark below one eye. Hair: black, glossy, in a neat topknot with a plain white-jade pin. Body: slender, tidy and well carried. Clothing: a white inner-disciple robe, immaculately pressed, with folded sleeves and a pale-blue sash tied in a flat symmetrical knot; white leggings; clean shoes without a mark of mud; a small sachet of dried herbs at the belt; his boots have the clean pale soles of a man who has never run in the mud, and a small tassel of green jade hangs from his sword hilt; a woman in pale robes, his master, stands slightly out of focus at the edge of the frame, turned away, looking at the sky. Hands and objects: both hands tucked into wide sleeves; a plain white sword hangs at his side. Background: a white courtyard with a plain pillar and a bare plum branch. Light: even light from the upper left. Expression: calm, loyal and patient, with the faint ease of one used to being courted."
+  },
+  {
+   "key": "phan_dong_nhi",
+   "sex": "f",
+   "age": 17,
+   "dress": "bang_tam",
+   "imagined": "Coming off the seal beach with seal oil in the creases of her knuckles, barking a laugh, a pup's soft cuff-fur in her pocket.",
+   "subject": "The moment: coming off the seal beach with seal oil in the creases of her knuckles, barking a laugh, a pup's soft cuff-fur in her pocket; she grins and shows the viewer her oil-grey knuckles. Face: a sturdy, freckled, windburnt round face of seventeen; sharp dark eyes; a gap-toothed grin; a flat nose; a fine rime of salt on the brow; her bark of laughter has opened her mouth wide on a missing canine; the apron is stiff with old oil, dark brown and shiny, and has a pocket of grey hide sewn on; her hands are red and chapped, the nails short and black-rimmed, and a thin white scar crosses the back of the left. Hair: black, in a rough knot with a seal-bone pin. Body: short, sturdy, strong arms. Clothing: a white outer-disciple robe, the hem greasy with oil, a leather apron over it; sealskin boots; the small bit of white fur in her pocket is the cuff of a seal pup, soft as swansdown. Hands and objects: knuckles shiny with seal oil; a small bit of soft white fur showing from a pocket; a short wooden club at her belt. Background: a grey beach, seals blurred in a long dark row, surf; the seals behind her are dark wet shapes among grey rocks, and a thin line of foam runs up the shingle to her bare toes. Light: cold light from the upper left. Expression: brave, impatient and callous."
+  },
+  {
+   "key": "khong_thiet_ngung",
+   "sex": "m",
+   "age": 21,
+   "dress": "bang_tam",
+   "imagined": "Asleep in his leather apron at the forge, forearms soot-black to the elbow; woken by a customer.",
+   "subject": "The moment: asleep in his leather apron at the forge of the Desert Pavilion, forearms soot-black to the elbow; a customer wakes him, and he looks up with a black-streaked face and a wary look. Face: a stubborn, narrow face of twenty-one smeared with soot; suspicious pale eyes; thin lips; a small notch in the left ear; he has dozed in the apron for so long that a crease of leather is pressed into his cheek; a half-forged sword blank glows dull red on the anvil, dropped when he fell asleep, and the water trough beside him has a skin of ash; his thick eyebrows meet in a frown, and the soot-line stops sharply at his elbows where his pale upper arms begin. Hair: black, greasy, in a rough tail. Body: wiry, hunched over the anvil. Clothing: a white outer-disciple robe covered by a leather apron, soot at the sleeves; scorched leather cuffs. Hands and objects: both forearms black to the elbow, plain; a short hammer in the right fist; three blades on a rack behind him, none finished; a coin pouch bulges under the apron and a faded receipt string hangs from it. Background: a camel-town forge glow, a sand-coloured wall, a clay water jar; behind him on the wall hang three notched sabres with paid-for tags. Light: red forge-glow from below. Expression: stubborn, greedy and paranoid."
+  },
+  {
+   "key": "uong_tuyet_nhan",
+   "sex": "f",
+   "age": 28,
+   "dress": "bang_tam",
+   "imagined": "On the lake shore, the third hat lost, a cough hidden behind her hand; she has decided to go to the fishers.",
+   "subject": "The moment: on the lake shore, having lost a third hat to the lake, she coughs politely into her fist and gives the viewer a calm, forgiving smile, having decided to go to the fishers. Face: a thin, pale, sensible face of twenty-eight; tired, kind eyes bright with a little fever; a pink tip of nose; chapped lips; hair-fine lines at the eyes. Hair: brown, tied in a knot with a strip of faded blue cloth in place of the lost hat. Body: slim, wrapped in a wool shawl, her shoulders drawn in against the cold. Clothing: a white outer-disciple robe of fine cloth with a grey wool shawl over it; wool leggings; sturdy shoes; at her feet a small bundle tied with cord holds a spare tunic and a cooking pot. Hands and objects: one fist raised to her mouth; the cord-tied bundle at her feet. Background: a frozen lake and a line of pale lanterns along the ice where the test is being sat, one thin figure in white walking away from it, snow dusting her shawl. Light: flat grey light from the upper left. Expression: a small, tired, gentle smile and a slight shrug, as if saying there is no shame in leaving, the look of someone who has weighed it and is at peace."
+  },
+  {
+   "key": "bui_han",
+   "sex": "m",
+   "age": 26,
+   "dress": "bang_tam",
+   "imagined": "In the sword hall, cropped head, wrist wrapped in a hand's width of cloth; glaring across the hall at a rival.",
+   "subject": "The moment: in the sword hall, a raid orphan with a cropped head and a wrist wrapped in a hand's width of cloth, glaring across the hall at his master's rival; he glares with his wrapped wrist raised on a sword hilt. Face: a hard young face of twenty-six, cropped scalp showing, scarred brow; hot dark eyes; a snarling mouth; a fresh bruise at the jaw; his cropped head shows a long old scar over one ear; across the hall a young woman in white with a sharp-featured face stands with her arms folded, small and out of focus; sweat darkens the back of his robe, and the muscles of his jaw stand out as he grinds his teeth. Hair: cropped to the scalp. Body: compact and tense. Clothing: a white inner-disciple robe of fine cloth, narrow sleeves, a pale-blue sash; leggings; plain shoes; the cloth on his wrist is a soiled grey, tied in a hard knot, with a rusty stain showing at the edge. Hands and objects: his right wrist wrapped in a wide band of cloth a hand's width, grey with sweat; the hand grips a white-hilted sword. Background: a sword hall with a polished floor and a distant white-robed figure; the practice hall's floor reflects his figure. Light: light from the upper left. Expression: diligent, loyal and wrathful."
+  },
+  {
+   "key": "sam_bich_lan",
+   "sex": "f",
+   "age": 19,
+   "dress": "bang_tam",
+   "imagined": "On the lake ice, writing a bird poem with a quill behind her ear; ink on her chin.",
+   "subject": "The moment: on the lake ice, writing a bird poem on a small book with a quill behind her ear and ink on her chin; she sits on the ice and looks up with a lazy happy smile. Face: a round, rosy face of nineteen with ink on the chin, plain; dreamy green-brown eyes; a wide smile; a dimple. Hair: brown, loose with a quill stuck behind the ear. Body: soft, comfortable and cross-legged. Clothing: a white outer-disciple robe of plain fine cloth, with slips of paper poking out of every pocket; a green scarf; fur-lined boots; her boots are lined with yellow fur and one lace is untied. Hands and objects: a quill; a small book; ink has dripped from the quill onto the ice in a small black star; a small stone ink-slab sits beside her knee, and a smear of ink dyes the heel of her hand; behind her a tidy herb bed lies under snow, and a thin quiet girl with dirt under her nails weeds it with a trowel. Background: a frozen lake, birds far off; the poem on her page is a set of small lines with a drawing of an oriole in the corner (no readable words). Light: soft light from the upper left. Expression: gregarious, content and dreamy."
+  },
+  {
+   "key": "te_lac_bang",
+   "sex": "m",
+   "age": 16,
+   "dress": "bang_tam",
+   "imagined": "Breathing the primer so slowly that his scarf hardly moves; eyes shut.",
+   "subject": "The moment: sixteen, in the reed marsh breathing the primer so slowly that his scarf hardly moves; he sits cross-legged with his eyes closed, one eye cracking to see the viewer. Face: a thin, serene boy's face; closed lids; a small calm mouth; a faint down on the lip; skin pale with cold; his scarf lies across his chest, perfectly flat; the single open eye is pale brown and calm; behind him the marsh reeds stand frosted and still, and a round-faced woman in white watches from a distance, nodding to herself; a small thread of breath rises from his nose, slow and thin; his lips are slightly parted and a thin breath-thread rises. Hair: black, in a short tail. Body: thin, folded and still. Clothing: a white outer-disciple robe with a plain grey scarf that does not move; thin cotton leggings; straw shoes; his sandals are set side by side on the ice, neatly, as though he had been told to. Hands and objects: hands on knees, palms up. Background: a reed marsh and pale sky, a distant hut; a small icicle hangs from a reed above his head and does not drip. Light: soft light from the upper left. Expression: cautious, humble and patient."
+  },
+  {
+   "key": "an_tieu_han",
+   "sex": "f",
+   "age": 20,
+   "dress": "bang_tam",
+   "imagined": "Selling a bit of gossip for a dried plum, her quick brown eyes never settling.",
+   "subject": "The moment: in a corridor, she sells a bit of gossip for a dried plum, offering one from a pouch and looking sideways at the viewer, her quick eyes never settling. Face: a sharp, quick, small face of twenty; restless brown eyes that dart left and right, checking the corridor behind the viewer; a cheerful, honest-seeming smile; a small mole at the corner of the mouth. Hair: brown, in a messy plait. Body: small and nimble, weight on the balls of her feet as if ready to slip away. Clothing: a white outer-disciple robe of fine cloth with the sleeve rolled once, a smudge of plum sugar on the cuff; neat leggings; a pouch of faded blue cloth with a drawstring swelling at her waist. Hands and objects: the plum, wrinkled, dark red and sugared, held out by the stem between finger and thumb; the other hand on the plump pouch. Background: a pale-painted corridor wall with a narrow window showing grey snow, a pair of white-robed disciples blurred in deep conversation at its end. Light: soft light from the upper left. Expression: a bright, easy, over-friendly smile with eyes that do not stay on you, the face of a quick girl who is pleasant to everyone and weighs what each is worth."
+  },
+  {
+   "key": "la_ngu_nhi",
+   "sex": "f",
+   "age": 18,
+   "dress": "bang_tam",
+   "imagined": "Wringing out her heavy wet hair before entering a room, a waterfall-village girl.",
+   "subject": "The moment: before entering a room, a waterfall-village girl wrings out her heavy wet hair, twisting a rope of black hair in both fists so that a stream of water falls, and looks up boldly at the viewer. Face: a bright, fierce face of eighteen; clear brave eyes; wet lashes beaded with spray; a determined mouth; droplets on the pale fuzz of her upper lip; a single drop falling from her chin. Hair: very long black hair, soaking, twisted in her fists, so heavy it drags her head back a little. Body: strong and sturdy, planted in the doorway with feet apart; behind her a waterfall glints through an open door, white and loud, and she grins as though about to run back into it. Clothing: a white outer-disciple robe of fine cloth, the shoulders soaked dark, the sleeves rolled to the elbow showing strong brown forearms; bare feet, wet. Hands and objects: both hands wringing the rope of wet hair, the water falling in a bright rope to a puddle on the stone threshold and splashing her bare toes. Background: a stone threshold with a wet footprint, the white blur of the waterfall through the door. Light: bright light from the upper left, with the spray glittering. Expression: a bold, challenging, half-laughing look, chin up, as if daring anyone to mind the water on the floor."
+  },
+  {
+   "key": "han_tieu_bac",
+   "sex": "m",
+   "age": 22,
+   "dress": "bang_tam",
+   "imagined": "Smiling sincerely at the teacher about the test, tar under his nails and a rope burn across his palm.",
+   "subject": "The moment: smiling sincerely at the teacher about the test, with tar under his nails and a rope burn across his palm; he smiles earnestly with both hands held open in front of him. Face: an honest-looking, calm, regular face of twenty-two; pleasant eyes; a practised smile; he smiles with his whole face, creasing both cheeks, and his eyes are friendly, but his open palms are held a little too still; his scarf is tied in a sailor's flat knot, and a good spot on the ice, marked with a small flag, lies in the middle distance. Hair: black, neat. Body: medium and easy. Clothing: a white outer-disciple robe, a plain scarf; his sleeves are rolled a precise fold, and one boot toe points toward the sea. Hands and objects: tar under every nail; a red rope-burn across the right palm, plain; the tar under his nails is black, the rope-burn is a long red welt that has blistered at one edge. Background: a lake edge and a boat; behind him a small boat is drawn up on the shingle with a family's mark painted on the bow, a simple blue fish. Light: light from the upper left. Expression: calm, pragmatic and deceitful."
+  },
+  {
+   "key": "to_lanh_nguyet",
+   "sex": "f",
+   "age": 28,
+   "dress": "bang_tam",
+   "imagined": "A clerk's daughter at the Desert Pavilion; practice characters inked in rows down her cuffs.",
+   "subject": "The moment: a clerk's daughter at the Desert Pavilion; practice characters inked in rows down her cuffs; she holds out one cuff to the viewer with a diligent smile. Face: a neat, patient face of twenty-eight; clever dark eyes; a small smile; the rows on her cuff are of small neat dark strokes, drill after drill, filling the whole inner face of the sleeve, repeated and crossed out; the sun is bright, her skin lightly tanned, and her cheeks round and calm. Hair: black, in a neat bun; a white clay inkpot is tucked in her sash and a ribbon bookmark hangs from her pocket. Body: slim and tidy; the courtyard behind her is pale sand with a low wall, a camel's knee at the frame's edge, and a veiled woman with a gold nostril stud is a pace away speaking to her. Clothing: a white inner-disciple robe, a pale-blue sash; the cuffs covered in rows of small black practice strokes (no readable letters); a small brush hangs from her sash. Hands and objects: one cuff held up; her fingers show ink on the right forefinger. Background: a sandy courtyard. Light: warm light from the upper left. Expression: patient, loyal and humble."
+  },
+  {
+   "key": "vo_bang_kien",
+   "sex": "m",
+   "age": 25,
+   "dress": "bang_tam",
+   "imagined": "Rolling like a caravan guard as he walks, one eyebrow split in two; he thinks the Frost Test a waste of a winter.",
+   "subject": "The moment: in a caravan yard he walks toward the viewer with a rolling swagger and a grin, one thumb hooked in his belt, as though the Frost Test were a waste of a winter. Face: a broad, tanned, cheerful face of twenty-five; bold eyes; a scar splitting the left eyebrow in two, each half at a different height so he looks permanently quizzical; a wide grin showing a chipped front tooth. Hair: black, cropped short, the bare head catching the hard sun. Body: broad and bandy-legged, a caravan guard's roll in his stance. Clothing: a white outer-disciple robe of fine cloth cut short at the thigh for riding, over thick leggings, sleeves folded to the elbow to show wide forearms tanned dark and sprinkled with sand; leather arm-guards; boots scuffed pale with dust. Hands and objects: a thumb hooked in a worn leather belt strap; a sword hanging low at his hip, its hilt wrapped in grubby white cloth. Background: a caravan yard, a line of kneeling camels chewing, a water-skin hanging from a wagon, an older guard in a pale-blue sash watching him walk. Light: bright hard sun from the upper left. Expression: a swaggering, cocky grin with the quizzical eyebrow raised, easy and loud and sure of himself."
+  },
+  {
+   "key": "que_han_chi",
+   "sex": "f",
+   "age": 17,
+   "dress": "bang_tam",
+   "imagined": "Digging in the ice-herb bed, a seed in every pocket, dirt under her nails.",
+   "subject": "The moment: seventeen, she kneels in the ice-herb bed with a seed in every pocket and dirt under her nails, and looks up from the small pale plants with soil on her hands and a closed face. Face: a quiet, narrow face; steady dark eyes; a still mouth that gives nothing away; a smear of soil on one cheek; her breath fogs gently in the cold. Hair: brown, braided and tucked up, with a small leaf caught in it. Body: small and bent, kneeling low over the bed. Clothing: a white outer-disciple robe of fine cloth with the sleeves pushed to the elbow and the knees stained brown with earth; a tiny cloth pouch of seeds tied at her waist, and more seeds peeping from every pocket. Hands and objects: a wooden trowel in one hand; the other open, full of earth, a small pale leaf curling in the palm and a seed packet showing between the fingers; the nails rimmed black and the knuckles chapped. Background: a low stone wall framing the herb bed with snow-dusted frames of woven reed, and in the distance a small round girl with reed-cut hands watering a row of seedlings. Light: soft, even light from the upper left, giving no hard shadow. Expression: a closed, patient, unreadable look, the eyes steady and the mouth shut, a girl who keeps her own counsel and will say only what she means to."
+  },
+  {
+   "key": "trinh_lang",
+   "sex": "m",
+   "age": 27,
+   "dress": "bang_tam",
+   "imagined": "A squire's son in much-resoled boots; he laughs a full breath late at a joke.",
+   "subject": "The moment: he laughs alone with his head back at his own joke, then looks at the viewer to see who is laughing with him. Face: a ruddy, square, boastful face of twenty-seven; bright blue eyes round with delight; a wide mouth still laughing after everyone else has stopped; a day's stubble; a faint blush of pleasure colouring his ears. Hair: brown, cropped short. Body: stocky and squared, chest out, planted with the swagger of a squire's son. Clothing: a white inner-disciple robe of fine cloth with a pale-blue sash tied in a loose bow, one end longer than the other, the sleeves rolled unevenly; old squire's boots, much resoled with three different leathers and polished to a hard black shine, creaking when he shifts. Hands and objects: both hands on his hips; a short squire's dagger thrust through the belt, its sheath old and creased. Background: a high hall with a polished floor, where a few disciples in white look away with careful politeness and a tall frost-coast disciple with a coast-blue lining shows a thin smile. Light: sunlight from a high window falls across the polished floor from the upper left, and his shadow is broad. Expression: a loud, delighted, self-pleased laugh with the head thrown back and the eyes bright, a man too sure of his own wit to notice the cold audience."
+  },
+  {
+   "key": "thach_tieu_lo",
+   "sex": "f",
+   "age": 19,
+   "dress": "bang_tam",
+   "imagined": "New from the log raft, counting on her fingers and losing the count at seven; starts again aloud.",
+   "subject": "The moment: she counts on her fingers and looks up at the viewer with a chatty smile. Face: a round, friendly face; blue-grey eyes; a smile; snub nose; her round cheeks are pink with cold and talk; the light is soft, her blue-grey eyes bright, her mouth shaping the next number aloud; her mouth is half open as she starts the count again, and her fingers wave in the air like small flags. Hair: brown, in a thick braid; a few strands of her thick brown braid have escaped and curl at her neck; a green hair ribbon trails in her braid, a small gift from her father, and a muddy line marks the hem of her too-large robe from the riverbank. Body: plump, easy. Clothing: a white outer-disciple robe, a bit too large; on her feet are rough log-raft sandals bound with river-reed. Hands and objects: fingers counting; the fingers of her right hand are lifted, counting to seven and stuck; behind her the riverbank slopes down to a muddy shore where a small log raft is drawn up, and a patient young man with a fisher's grin sits on a fishing hole and holds up a hand to correct her sequence. Background: a riverbank. Light: light from the upper left. Expression: trusting, gregarious, lazy."
+  },
+  {
+   "key": "ma_dong_lam",
+   "sex": "m",
+   "age": 24,
+   "dress": "bang_tam",
+   "imagined": "At the Desert Pavilion's paddock, a horse's mane braided into his belt, bow-legged.",
+   "subject": "The moment: at the Desert Pavilion's paddock he stands beside a horse with a hand on its neck and looks steadily at the viewer, a horse's mane braided into his belt. Face: a broad, brown, humble face of twenty-four; steady dark eyes with fine dust in the creases; sun-bleached hair at the fringe sticking up in front. Hair: black, thick, in a short tail. Body: short and bow-legged, the knees wide apart even standing still. Clothing: a white outer-disciple robe of fine cloth cut for riding, split at the sides, with leather knee-guards stitched on for the saddle; a belt made of a long black horse's mane plaited into a thick shining rope that hangs at his hip. Hands and objects: one broad, scarred hand resting on the neck of the horse, the nails short. Background: the horse beside him, a stocky dun with a white blaze and its ears pricked toward him; behind them a paddock fence of grey poles and a line of herd horses on a dry plain. Light: warm low light from the upper left. Expression: a mild, patient, honest look, the eyes steady and the mouth easy, a man who works without being asked and does not mind being overlooked."
+  },
+  {
+   "key": "hua_bang_nhi",
+   "sex": "f",
+   "age": 21,
+   "dress": "bang_tam",
+   "imagined": "Fur-pattern freckles; asleep in her boots against a sable's den; just woken.",
+   "subject": "The moment: she sits up from a straw nest with a small sable curled beside her, blinking. Face: a gentle face with fur-pattern freckles across the nose, plain; wide wild dark eyes; a small white sable curled beside her has one paw on her wrist and one eye open; on her wide-eyed face the fur-pattern freckles are a scatter of dark brown dots like paw prints. Hair: dark brown, tousled, straw in it; her hair, dark brown and tousled, has straw in it like a nest; behind her a warm hut shows a row of small wooden pens with sleeping white kits, a hanging lamp, jars of dried meat, and a woman with sable hairs in her braids mixing feed. Body: slight. Clothing: a white inner-disciple robe, rumpled; worn boots that she sleeps in; her rumpled white inner-disciple robe has straw clinging to the sleeve, and a pale-blue sash tied once only; her worn boots are on her feet though she sleeps, laced halfway. Hands and objects: hand on a white sable's back; the lamp light is amber and soft. Background: a warm hut; the straw nest is a ring of tawny stalks. Light: lamp light from the upper left. Expression: compassionate, patient, reclusive."
+  },
+  {
+   "key": "dao_han_mac",
+   "sex": "m",
+   "age": 18,
+   "dress": "bang_tam",
+   "imagined": "Sweeping the Vessel Hall; a white streak at the temple; a broom-callused palm.",
+   "subject": "The moment: he leans on his broom in the Vessel Hall and looks up quietly, as if he had not expected to be seen. Face: a thin, humble face of eighteen; gentle dark eyes; a clean jaw; chapped lips; one white streak at the left temple, glinting like a feather in the black. Hair: black, tied back plainly, with a single white lock at the temple. Body: thin, standing a little stooped, the broom taking half his weight. Clothing: a servant's undyed coarse white tunic, plain and clean, because the task asks for it and not for show; bare feet in straw sandals, the toes red with cold. Hands and objects: the broom is a bundle of dry reeds tied to a pole, worn pale at the grip; his right palm, held slightly open and turned toward the viewer, is hard with callus. Background: the Vessel Hall opening behind him in white pillars and a polished floor, with a long swept line across it and the dust of his sweeping hanging in the air. Light: a shaft of pale light from the upper left through the dust. Expression: a gentle, shy, uncomplaining look, the eyes lowered a little and the mouth soft, a boy content with plain work and willing to do more of it."
+  },
+  {
+   "key": "yen_tuyet_ngung",
+   "sex": "f",
+   "age": 20,
+   "dress": "bang_tam",
+   "imagined": "Sitting cross-legged in the queue as always, in the old Hàn Giang way.",
+   "subject": "The moment: she sits cross-legged in a line, still, and looks calmly at the viewer. Face: a calm, still, patient face; clear grey eyes; her face is calm and patient with clear grey eyes and fair brows, a small nose and a closed mouth, skin pale with cold; the light is flat and pale from the upper left, and her breath makes a slow even plume. Hair: white-blond, in a plain plait; white-blond hair in a plain plait lies over one shoulder. Body: small, composed; a grandmother's small wooden bead hangs at her neck on a cord; a faint dusting of snow lies on her knees and shoulders and has not melted. Clothing: a white outer-disciple robe; the white outer-disciple robe is clean and neatly folded round her knees, with no sash. Hands and objects: hands in lap; she sits cross-legged on a flat stone in a queue of other disciples, and no one has ever seen her sit down, so the picture shows her already seated, hands resting on her knees palm up, spine straight as a rule. Background: a frozen lake; behind her the frozen lake stretches white to a grey horizon, an old woman's footprints trailing; the old Hàn Giang way of sitting makes her feet tuck in a form no one in the queue copies. Light: light from the upper left. Expression: calm, patient, stubborn."
+  },
+  {
+   "key": "lieu_tieu_giang",
+   "sex": "m",
+   "age": 16,
+   "dress": "bang_tam",
+   "imagined": "Proud of his first moustache shadow, ears sunburnt, looking at his cousin as if at the best man alive.",
+   "subject": "The moment: he stands tall and looks adoringly toward the left of the frame, then at the viewer. Face: a boyish, sunburnt face; ears sticking out; a faint moustache shadow; bright eyes; he stands with chest out, proud of the first moustache shadow on his upper lip, which he has darkened a little with soot; his arms are bare to the elbow, thin and brown; he gazes slightly left of the frame with an expression of pure admiration for someone out of sight, then flicks his eyes to the viewer; a thread of soot on his lip is slightly smudged; he holds his chin high as he imagines a hero would. Hair: black, short. Body: gangly; at his hip hangs a small fisher's knife in a leather sheath. Clothing: a white outer-disciple robe; his white outer-disciple robe is clean and crisp, the collar turned up in imitation of his cousin's style; his sandals are new and stiff. Hands and objects: chest out. Background: a lake. Light: light from the upper left; his ears are sunburnt and stick out; behind him the frozen lake glints and a tall easy young man sitting on the ice with a gourd is a small distant shape; the light is bright and cold, and his smile is open and honest. Expression: brave, honest, gregarious."
+  },
+  {
+   "key": "nhiep_lang_tuyet",
+   "sex": "f",
+   "age": 40,
+   "dress": "bang_tam",
+   "imagined": "Midnight on the mere, walking the line with warm stones, the roll under one arm like a child.",
+   "subject": "The moment: she carries a thick roll against her chest and looks kindly yet firmly at the viewer, breath smoking. Face: a plain, serious face; her breath a visible white plume; clear grey eyes; firm mouth; her breath smokes in white clouds even though the air is mild, and a thin frost sparkles on the shoulders of her white robe; her plain, serious face has clear grey eyes, a firm mouth and slight lines at the corners; the lantern light from the lower left warms her chin. Hair: dark, in a tight bun; the bamboo roll she carries under one arm is as thick as a child, bound with a faded blue ribbon, and she cradles it with her forearm; her dark hair is in a tight bun with a bone pin. Body: sturdy. Clothing: a white robe of fine cloth with a pale-blue sash; the pale-blue sash is knotted at the side; in her other hand a warm stone wrapped in cloth steams faintly. Hands and objects: a bamboo roll carried like a baby; a warm stone in the other hand. Background: a night lake. Light: lantern light from the lower left; behind her the dark lake lies under a night sky and a long line of pale lantern lights marks the sitters, one small figure in white wrapped in a blanket she has just tucked. Expression: patient, just, stubborn."
+  },
+  {
+   "key": "ky_han_bach",
+   "sex": "m",
+   "age": 45,
+   "dress": "bang_tam",
+   "imagined": "Standing at the water's edge with a voice trained for the lake wind, taking the sitters' wrapped stones away.",
+   "subject": "The moment: he stands with arms folded, shouting in a trained carrying voice, then fixes the viewer with a cold stare. Face: a hard, cold, long face; narrow eyes; thin mouth open mid-command; his long cold face has narrow eyes the colour of slate, a thin mouth mid-command, a long straight nose and a clean-shaven jaw; behind him the lake's white surface stretches out, with small huddled figures on the ice and one fallen figure in white lying still. Hair: black, tight topknot; his black hair is in a tight topknot pinned with a bone pin. Body: tall, upright; his voice is imagined as huge, and the veins of his neck show as he calls. Clothing: a white robe of fine cloth, a pale-blue sash; his white robe of fine cloth is perfectly pressed, the pale-blue sash tied in a hard flat knot, and his sleeves are wide. Hands and objects: a wrapped warm stone held out in his hand; his tall figure stands at the water's edge with a wrapped warm stone held out in the right hand like something confiscated, and his left arm swings back. Background: a lake edge. Light: light from the upper left. Expression: cruel, arrogant, loyal."
+  },
+  {
+   "key": "manh_trieu_suong",
+   "sex": "m",
+   "age": 44,
+   "dress": "bang_tam",
+   "imagined": "On the skiff, a whistle every harbour knows; burn-spotted lamp-maker's fingers.",
+   "subject": "The moment: he puts two burn-spotted fingers to his lips mid-whistle and looks at the viewer. Face: a lean, jolly face; pitted burns on fingers; bright eyes; he puts two burn-spotted fingers to his lips and whistles the tune that every harbour knows; his lean cheeks are puffed, eyes bright; the white robe has a coast-blue lining flashing at the cuff, and the pale-blue sash is tied loose; his fingers are speckled with tiny pale burn scars from lamp-making, big and plain; behind him on the harbour a skiff rocks with its brown sail furled, a lantern on a pole at the dock, and two skiff-men sit apart from him on a net-pile with their backs turned; his mouth under the whistle is a little greedy. Hair: black, tied back; his hair is tied up in a short knot with a lamp-wick. Body: wiry. Clothing: a white robe with coast-blue lining; a pale-blue sash; a leather letter-satchel hangs at his hip with a flap of oiled cloth; a tin lamp hangs at his belt, spotted with old burns and warm from use. Hands and objects: two fingers at the lips, tiny burn marks. Background: a harbour; the whistle he makes echoes off the harbour wall. Light: light from the upper left; light is bright and grey from the upper left, and a gull has landed on the piling. Expression: gregarious, loyal, greedy."
+  },
+  {
+   "key": "lac_ngan_bang",
+   "sex": "f",
+   "age": 38,
+   "dress": "bang_tam",
+   "imagined": "Clicking the beads of an abacus in her sleeve, squinting at anything not set in columns.",
+   "subject": "The moment: she squints hard at the viewer as at an unbalanced sum, her small abacus clicking in one hand with the beads pushed to the left, squinting at anything not set in columns. Face: a plain, shrewd face of thirty-eight; narrowed eyes suspicious of someone else's sums; a straight nose; a firm mouth; fine lines between the brows. Hair: black, drawn into a plain bun held by a wooden pin, not a strand out of place. Body: neat and upright, narrow-shouldered, standing as precisely as a column of figures, her elbows tucked close to her sides. Clothing: a white robe of fine cloth with a pale-blue sash; a slit pocket in the right sleeve where the abacus lives, and a stub of brush sticking from her sash. Hands and objects: a small abacus of dark wood held in the right hand, the beads clicked to the left; the fingers ink-stained at the tips. Background: a counting room with shelves of rolled tax-sheets tied in blue string, and a small window showing a grey harbour. Light: flat, clear light from the upper left. Expression: a narrow, flinty squint and a firm, level mouth, honest and unforgiving, the look of a woman who has found an error and will not let it go."
+  },
+  {
+   "key": "thai_han_ngu",
+   "sex": "m",
+   "age": 32,
+   "dress": "bang_tam",
+   "imagined": "On the ice off his village, his grandfather's wool cap; a three-fingered mitten on his left hand.",
+   "subject": "The moment: he sits beside a fishing hole in the ice wearing his grandfather's brown wool cap and a three-fingered mitten, calm and unbothered by the skiff and the tall broad man with a scarred chin who wave an invitation behind him that he is ignoring. Face: a round, calm, weathered, friendly face of thirty-two; small blue eyes; a snub nose; a wide peaceful mouth, grey-stubbled, with a small unlit clay pipe set in one corner. Hair: black, showing at the edges of the cap. Body: stocky and still, settled onto the ice like a stone. Clothing: a white robe of fine cloth cut short and tucked into sealskin boots, with the pale-blue sash replaced by a plain rope; his grandfather's wool cap pulled low; the three-fingered mitten on his left hand. Hands and objects: a plain ice-fisher's hook in the right hand; a short gaff lying across his knees; a thin curl of smoke rising from the unlit pipe by habit. Background: white ice scratched by many boots, three small tidy holes cut in a row and a pail of silver fish, the skiff and its two figures small and far behind. Light: soft pale light from the upper left. Expression: a placid, contented, slow half-smile, eyes half-closed, a man in no hurry who has no quarrel with anyone."
+  },
+  {
+   "key": "tong_ngu_lan",
+   "sex": "f",
+   "age": 42,
+   "dress": "bang_tam",
+   "imagined": "Salt-streaked braids, a shout held behind her teeth, at the Pavilion's council door.",
+   "subject": "The moment: she stands rigid, jaw clenched, braids streaked with salt, and glares at the viewer. Face: a strong, flushed, angry face; flashing dark eyes; clenched teeth; she stands rigid in a doorway, jaw clenched, a shout held behind her teeth, one fist half-raised and trembling; her strong flushed face has flashing dark eyes, broad cheekbones and an angry full mouth; behind her a hall door opens onto a council room with elders in frost-silk sashes sitting in a row, and a cold-faced man at the lake's primer stands at the edge; light from the upper left is hard and white on her angry face. Hair: black braids streaked white with salt; her salt-streaked braids are thick as rope and hang to her waist, black with white lines where the sea has dried in them; the veins stand out at her wrist, and a single strand of black hair is stuck in the salt at her temple. Body: strong, broad; broad shoulders, thick forearms of a sail-watcher's daughter. Clothing: a white robe with coast-blue lining, a pale-blue sash; the white robe has a coast-blue lining at the collar and cuffs and the pale-blue sash is tied tight. Hands and objects: a fist half-raised; her fist trembles from the effort of holding back. Background: a hall door. Light: light from the upper left. Expression: ambitious, brave, wrathful."
+  },
+  {
+   "key": "phi_thanh_sa",
+   "sex": "f",
+   "age": 40,
+   "dress": "bang_tam",
+   "imagined": "Weighing a coin on her palm; greened fingertips from ledger powder.",
+   "subject": "The moment: in the caravan office she holds a coin up on her flat palm and bites her lower lip, weighing it, then glances over it at the viewer. Face: a shrewd, merry face of forty; quick dark eyes; round cheeks; a wide mouth caught between a grin and a calculation; the fingertips lifted near her face are tinted pale green from ledger powder. Hair: black, in a neat bun fixed with a bone pin. Body: stout and brisk, weight forward as if about to bargain. Clothing: a white robe of fine cloth with a pale-blue sash, and a thin desert veil of sand-coloured gauze round her neck; a row of small brass scale-weights hanging at the sash that click when she moves. Hands and objects: the coin on the flat palm, the pale green fingertips curled lightly beneath it. Background: the caravan office behind her, a table holding green-bound ledgers, a brass scale and a stack of bills with no legible marks, and a window showing a camel train arriving. Light: bright warm light from the upper left, flashing on the coin and the brass scale. Expression: a bright, shrewd, good-humoured look, the lip caught in her teeth and the eyes already guessing the weight, a woman who likes everyone and still counts the change."
+  },
+  {
+   "key": "muc_sa_hanh",
+   "sex": "m",
+   "age": 44,
+   "dress": "bang_tam",
+   "imagined": "His gaze always on the horizon, lips sun-split, a hundred and nine crossings behind him.",
+   "subject": "The moment: after a hundred and nine crossings of this road, he looks past the viewer at the horizon with narrowed eyes, the reins of a tall tawny camel in his hands. Face: a lean, sun-burnt, long face of forty-four; far-looking pale eyes narrowed in focus; sun-split lips; a hawk nose; grey-flecked stubble; lines at the eyes deep as cracks in a dry riverbed. Hair: black, hidden under a white headcloth wound round head and neck against the sand, its tail whipping in the wind. Body: lean and dry as a rope, standing loose and easy as one who walks all day. Clothing: a white desert robe of fine cloth with a pale-blue sash, clean at the shoulder though dusty below; the white headcloth; one hand gloved in leather against the rein. Hands and objects: both hands on the rein of the tall tawny camel at his shoulder, the gloved one closed round it, the other bare and brown. Background: a vast pale desert horizon flat under a bleached sky, a line of small camels trailing far behind. Light: hard white light from the upper left, no soft edges. Expression: a still, distant, patient gaze, the brows drawn slightly together against the glare, a man more at home with a far line than with any face near him."
+  },
+  {
+   "key": "yen_luc_tuyen",
+   "sex": "f",
+   "age": 50,
+   "dress": "bang_tam",
+   "imagined": "Drawing the founder's well at dawn; well-rope calluses; scribe's sleeves pinned.",
+   "subject": "The moment: at dawn she draws water from the founder's well, pulling the rope hand over hand, and looks up serenely at the viewer. Face: a calm, narrow face of fifty; deep, devout eyes; a straight nose; a firm, quiet mouth; a faint flush from the effort. Hair: grey-black, in a plain bun, a few strands loose at the temples. Body: slim, upright, strong forearms standing out as she pulls. Clothing: a white scribe's robe of fine cloth with the long sleeves pinned neat at the elbow with small bone pins; a pale-blue sash tied in a flat knot. Hands and objects: both palms ridged with calluses from the well-rope, gripping the taut rope; the bucket rising out of sight below. Background: the dark, damp stone well-head with a thin skin of ice, and behind it a sand dune glowing pale gold as the sun's first edge touches it; to one side a woman with a dried lily bulb in her braid scatters grain for a pair of sparrows. Light: cool gold dawn light from the upper left, with the first sun on the dune. Expression: a serene, patient, inward look, the eyes lifted and the mouth at rest, a woman for whom a morning chore is a kind of prayer."
+  },
+  {
+   "key": "uc_hoang_sa",
+   "sex": "m",
+   "age": 50,
+   "dress": "bang_tam",
+   "imagined": "A camel-driver's bow-legged stance, an upper tooth missing, training the guard's sons.",
+   "subject": "The moment: in the guard's training yard he stands bow-legged and grins at the viewer to show a missing upper tooth, correcting a young boy's grip on a wooden practice sword. Face: a lined, brown, cheerful face of fifty; a gap in the upper teeth on the left side; crow's-feet deepening round the eyes as he laughs. Hair: grey-black, tied under a sand-coloured headcloth. Body: wiry and bow-legged like a camel-driver, standing wide and easy. Clothing: a white robe of fine cloth cut for riding with a pale-blue sash, clean and well fitted; a long leather whip looped on the belt; sturdy riding boots. Hands and objects: a wooden practice sword held out toward a young boy half in the frame, correcting his grip; the hands broad and cracked. Background: a sandy training yard marked with a ring of stones and a row of wooden posts, a few young guards in white practising cuts, a camel tethered at a rail. Light: bright dry light from the upper left. Expression: a broad, gap-toothed, unhurried grin with deep laughter lines, kind and stubborn together, the look of a patient teacher who has said it a hundred times and will say it once more."
+  },
+  {
+   "key": "dien_han_tac",
+   "sex": "m",
+   "age": 55,
+   "dress": "bang_tam",
+   "imagined": "Chisel behind his ear, grit in every knuckle crease, one empty niche kept for himself.",
+   "subject": "The moment: he looks calmly at the viewer, a chisel behind his ear. Face: a calm, craggy face; ice dust on the brows; his craggy calm face has ice dust whitening the brows and lashes, deep-set eyes, a big nose, and a few days of grey stubble; the white robe is dusty at the hem, with a pale-blue sash, and he wears a leather apron slashed with pale scratches. Hair: grey, short; the grey hair is cropped. Body: broad, bent; he has cut every grave in the glacier for sixty years and keeps one empty niche, longer and narrower than the rest, for himself, visible at his shoulder. Clothing: a white robe, dusty, pale-blue sash; a thin shaving of ice sticks to his sleeve. Hands and objects: gritty knuckles; a mallet; he stands before a half-cut niche, a short iron chisel tucked behind his ear and a wooden mallet hanging in one hand; his hands are broad, every knuckle crease gritty with ice dust; the mallet's head is dark with years of use and has a worn hollow where his palm fits. Background: an ice niche. Light: blue light from the upper left; the blue ice walls glow around him, and standing figures in ice recede behind. Expression: calm, devout, humble."
+  },
+  {
+   "key": "kha_lac_tuyet",
+   "sex": "f",
+   "age": 43,
+   "dress": "bang_tam",
+   "imagined": "Tilting her head to the west when thunder is near on the vein watch.",
+   "subject": "The moment: she tilts her head toward the left, listening, then glances at the viewer. Face: a narrow, alert face; listening eyes; she tilts her head to the left, eyes half closed, listening, one hand raised to her ear; her narrow alert face has a long nose, dark attentive eyes and a thin mouth slightly open; behind her a stormy ridge shows tall copper rods against a purple-grey sky and a distant flash of blue lightning, with a line of small lights marking the vein watch; a thin silver chain at her neck carries a small copper whistle, and a faint pale freckle pattern dusts her nose. Hair: black, bun; black hair is in a bun pinned with a copper pin; a thin man with his hair standing on end tends a rod far off. Body: thin. Clothing: a white robe with copper-wire cuffs, a pale-blue sash; her white robe has copper-wire wound round the cuffs and a pale-blue sash, and a leather strap across her chest holds a small notebook. Hands and objects: hand lifted to her ear. Background: a stormy ridge; her figure is thin and tense. Light: light from the upper left; the light is flat and cold from the upper left, and she counts the seconds silently. Expression: cautious, loyal, diligent."
+  },
+  {
+   "key": "lam_ngung_phong",
+   "sex": "m",
+   "age": 45,
+   "dress": "bang_tam",
+   "imagined": "Turning his clan seal ring when slighted; boots too fine for the hall.",
+   "subject": "The moment: slighted in the sword hall, he turns his heavy clan seal ring round and round on his finger with his thumb and looks down his nose at the viewer. Face: a handsome, haughty face of forty-five with a lean, pale, well-kept complexion; a thin moustache; a high-bridged nose; cold eyes; a small tight mouth. Hair: black, oiled and combed back from the forehead, bound up high with a jewelled pin. Body: tall and straight, chin lifted, one shoulder turned slightly away, the posture lofty and wounded. Clothing: a white robe of the finest cloth, pressed and brilliant, with a pale-blue sash and a high collar embroidered white-on-white; boots of pale calf with silver stitching, far too fine for a sword hall. Hands and objects: a heavy seal ring turned with the thumb; a white-hilted sword hanging at the hip in a scabbard of pale lacquer; the other hand held stiffly at his side. Background: a sword hall of pale boards, where a white-robed woman with a sharp-featured face practises alone at the far end. Light: cool, bright light from the upper left, making the white cloth glare. Expression: a cold, supercilious look down the nose, the mouth small and tight, the cheek faintly tense, a man who feels the slight keenly and will not show how much."
+  },
+  {
+   "key": "dam_tinh_thach",
+   "sex": "m",
+   "age": 48,
+   "dress": "bang_tam",
+   "imagined": "Up from the tunnels with damp knees, a lamp that smells of oil, writing 'warm' again.",
+   "subject": "The moment: up from the tunnels with damp knees and a lamp that smells of oil, he stands at the tunnel mouth and looks at the viewer with a troubled frown, about to report the tunnels warm again. Face: a worried, honest, round face of forty-eight; anxious brown eyes; knitted brows; a mouth turned a little down. Hair: grey-brown, tied back in a short knot with a few loose strands stuck to his damp forehead. Body: stooped and a little pot-bellied, shoulders rounded by years of ducking under low stone, standing with his weight on his heels. Clothing: a white robe of fine cloth, dark with damp at the knees, with a pale-blue sash; a lump of chalk in one sleeve. Hands and objects: a small brass lamp in one hand; a roll of blank slips tucked under the other arm. Background: the tunnel mouth, a low stone arch with a faint blue glow deep within, and a woman with dark-circled eyes and a steady hand holding a second lamp at its edge. Light: warm lamp glow from the lower left, with a cold blue glimmer from the tunnel behind. Expression: a worried, conscientious look, the brows knit and the mouth downturned, an honest man who dreads the one word he must report and will report it anyway."
+  },
+  {
+   "key": "luong_sa_bang",
+   "sex": "f",
+   "age": 36,
+   "dress": "bang_tam",
+   "imagined": "A sable's tail stitched to her cap, hoarding hay in a rented loft.",
+   "subject": "The moment: in a rented stable loft she tips her fur cap with a sable's tail stitched to the back and grins at the viewer, a handful of golden hay sifting through her fist. Face: a bright, shrewd, tanned face of thirty-six; quick black eyes; high cheekbones; a wide, stubborn mouth. Hair: black, in a braid hanging over one shoulder. Body: strong and square, standing with the easy weight of a woman used to carrying feed. Clothing: a white riding robe of fine cloth with a leather harness and a pale-blue sash; a fur cap with a ringed white sable's tail stitched to the back; a pair of sable-lined gloves hanging from her belt. Hands and objects: one hand tipping the cap; the other fist closed on a handful of golden hay that she lets sift through her fingers. Background: a loft piled with yellow hay under a rough roof, a ladder, a fur-trader's lamp, and in the stall below a lame old white mare standing with its head low, dust in its manger. Light: warm, dusty light from the upper left, motes hanging in the beam. Expression: a wide, bold grin with a hard glint in the eyes, brave and stubborn and a little greedy, the look of a woman who has hoarded the winter's hay and is proud of it."
+  },
+  {
+   "key": "hoac_tuyet_ngan",
+   "sex": "m",
+   "age": 20,
+   "dress": "bang_tam",
+   "imagined": "Singing a coast song; a fishing-line scar round one wrist.",
+   "subject": "The moment: singing a coast song with his mouth wide open, he holds out his wrist toward the viewer to show a thin pale scar like a bracelet, left by a fishing line that once snared him. Face: a lean, bright, boyish face of twenty; fair brows; quick eyes; a sunburnt nose; the mouth open in song, the chin lifted. Hair: black, cropped short and stiff with salt. Body: wiry, with thin tanned arms and a narrow chest, leaning forward eagerly onto the balls of his feet, one shoulder lifted with the effort of the song. Clothing: a plain white outer-disciple robe, clean, with the sleeves pushed up; a bone fish-hook stuck through the cloth of the collar as a charm; boots two sizes too large, stuffed with straw. Hands and objects: the wrist held out, ringed by the thin scar; at his feet on the ice a coil of fishing line and a bone hook. Background: the lake glittering behind him, and on the shore a woman holding a shout back behind her teeth. Light: bright cold light from the upper left, glittering off the ice and the lake behind him. Expression: an eager, open-mouthed, impatient grin, the eyebrows lifted and the eyes darting to see who is listening, a boy bursting to be noticed."
+  },
+  {
+   "key": "tieu_lanh_thu",
+   "sex": "f",
+   "age": 22,
+   "dress": "bang_tam",
+   "imagined": "Powder-white face, clan gloves too small for her big hands, on the eve of the test.",
+   "subject": "The moment: on the eve of her first test she stands before a pillar in the Pavilion's outer court and holds up both hands in tight gloves, looking serenely at the viewer. Face: a long, plain face of twenty-two powdered chalk-white so that the features look carved; calm, clever dark eyes under level brows; a long straight nose; a composed mouth painted a faint rose. Hair: black, drawn up in the clan's high knot with two jade pins. Body: tall and straight, shoulders level, perfectly composed. Clothing: a white outer-disciple robe of very fine silk-cotton with a narrow pale-grey edging and a clan pattern woven into the cloth. Hands and objects: both hands raised in tight gloves of fine white kid a size too small, the wrists showing red between glove and cuff. Background: the outer court of the Pavilion; at the gate her brothers and servants of the Tiêu clan wait with a lacquered box, and a plump boy in silk-laced boots looks away. Light: bright, cool light from the upper left. Expression: a calm, level, appraising look with a faint, practised smile, the eyes steady and clever, a clan daughter who has decided in advance how the test will go."
+  },
+  {
+   "key": "phu_suong_nguyen",
+   "sex": "m",
+   "age": 24,
+   "dress": "bang_tam",
+   "imagined": "Snow melting in his hair, going blank mid-sentence.",
+   "subject": "The moment: at night he sits in a snowdrift with snow melting in his hair and the pale eyes gone blank in the middle of a sentence, as though the voice had been blown out of him, and looks at the viewer. Face: a thin, pale, patient face of twenty-four; the lips blue; the pale eyes blank and unfocused. Hair: black, plastered flat with snowmelt, drops glittering in it. Body: thin, sitting small in the snow with his back unwrapped. Clothing: a white outer-disciple robe of fine cloth stiff with frost at the shoulders, belted with a plain cord; a few small paper talismans, blank, tucked into the sleeve. Hands and objects: both hands resting open on his knees, bluish and cracked with cold. Background: the lake lying under stars with lantern points along it, and beside him a woman with her breath smoking, a roll under her arm and a warm stone in her hand, stepping toward him to bring him in. Light: cold blue starlight from the upper left, with a small warm glow from the lanterns. Expression: a blank, patient, hollow gaze, the mouth a little open and the brows slack, the look of a diligent man who has worked past the end of himself and has not noticed."
+  },
+  {
+   "key": "nhan_bich_tuyen",
+   "sex": "f",
+   "age": 25,
+   "dress": "bang_tam",
+   "imagined": "Fingers crossed behind her back, net-mender's calluses, tripping on dry ground.",
+   "subject": "The moment: on the eve of her third and last Frost Test she stands at the edge of the lake with her fingers crossed behind her back and gives the viewer a steady look; she has just tripped on dry ground and is righting herself, one foot slightly sideways. Face: a calm, plain, stubborn face of twenty-five; grey-brown eyes; a net-mender's wide mouth set firm; her breath leaves in a short plume. Hair: brown, in a thick plait pinned up. Body: sturdy and square, one foot turned awkwardly to catch her balance. Clothing: a white outer-disciple robe, clean and neat, a thin pale-blue sash; plain wool leggings and sturdy shoes. Hands and objects: both hands behind her back with the fingers crossed, the palms and fingers crossed with net-mender's calluses where they show at the side. Background: the grey lake with a thin gold thread of sunrise lying along it, and on a bench behind her a white-haired woman with a small bundle and a cough hidden behind her hand, watching and saying goodbye. Light: flat, pale light from the upper left. Expression: a steady, honest, dogged look, the jaw set and the eyes unflinching, a plain woman who has decided she will not look away from this."
+  },
+  {
+   "key": "dang_tieu_ha",
+   "sex": "m",
+   "age": 17,
+   "dress": "bang_tam",
+   "imagined": "Asleep in the hay in the sable shed with a wide sleepy grin.",
+   "subject": "The moment: seventeen, he lies full length in a heap of yellow hay in the sable shed and grins sleepily, an empty wooden bucket on its side beside him. Face: a wide, sleepy, freckled face; drooping eyelids with a few strands of hay caught in the lashes; a wide, slow grin. Hair: brown and tousled, with hay in it like a nest and a stray strand across his freckled forehead. Body: gangly, long limbs sprawled, one bare foot sticking out of the hay with a grey sock half off; a small white sable kit curled asleep on his chest. Clothing: a rumpled white outer-disciple robe of fine cloth with straw clinging to the sleeves and the collar half open. Hands and objects: an empty bucket beside him; one hand loose over the kit. Background: pens of straw and rows of other empty buckets showing a feeding turn missed, and a sturdy girl with seal oil on her knuckles standing in the doorway with a strap in her hand, sighing. Light: warm, dusty, golden light, as through the slats of the shed wall, from the upper left, motes in the beam. Expression: a wide, drowsy, unashamed grin, eyes half shut, a boy who has forgotten the whole world and is perfectly happy to be found."
+  },
+  {
+   "key": "nham_dong_tuyet",
+   "sex": "f",
+   "age": 19,
+   "dress": "bang_tam",
+   "imagined": "Fine pale hair standing up in fear as she looks at the lake.",
+   "subject": "The moment: she stands at the edge of the lake looking at it with terror, her fine pale hair lifted by fear, and then turns to the viewer; she has only a thread of Ice in her root and is more afraid than anyone who has none. Face: a pale, frightened, delicate face of nineteen; wide light eyes; a small mouth pressed tight; a faint blue vein at the temple; her breath comes in short white puffs. Hair: fine, pale and standing straight up from her scalp like thistledown. Body: small and slight, the shoulders shaking a little, the arms rigid. Clothing: a clean white outer-disciple robe of fine cloth a little large for her, belted with a plain cord. Hands and objects: both hands clenched at her sides. Background: the lake a flat white plate under a grey sky with lantern points across it, the first snow falling; at a distance her teacher, a sharp-faced man with a carrying voice, stands with arms folded. Light: cold, flat light from the upper left. Expression: wide, frightened eyes and a mouth pressed tight to hold the trembling in, the face of a careful girl who is afraid and is going to go in anyway."
+  },
+  {
+   "key": "hau_lang",
+   "sex": "m",
+   "age": 17,
+   "dress": "bang_tam",
+   "imagined": "Sitting on a fishing hole as if on a stool, heels drumming.",
+   "subject": "The moment: he sits on a round fishing hole cut in the lake ice as if it were a stool, heels drumming against the edge, and waves cheerfully at the viewer. Face: a cheeky, round, sunburnt face of seventeen; bright black eyes; a snub nose; a missing front milk-tooth in a wide grin. Hair: black, messy and sticking up. Body: small, thin-wristed and restless, bouncing on the spot, shoulders hunched up against the cold and the whole frame full of unspent energy. Clothing: a white outer-disciple robe of fine cloth in a boy's size, clean, with a knitted grey scarf wound twice round the neck; boots too big for him and stuffed with straw. Hands and objects: one hand waving; a tiny fish-hook on a line lying in his lap. Background: the frozen lake stretching white with other holes, a thin crust of ice forming at the rim of his own, and a stocky older brother asleep in a reed hut behind. Light: bright, cold light from the upper left, glaring off the white ice and making him squint. Expression: a cheerful, gap-toothed, cheeky grin, bright-eyed and unembarrassed, a boy who talks to everyone and is not afraid of any of them."
+  },
+  {
+   "key": "ong_tieu_tra",
+   "sex": "f",
+   "age": 18,
+   "dress": "bang_tam",
+   "imagined": "Carrying a tray of qi-warmed tea carefully down to the lake.",
+   "subject": "The moment: at the start of a night of the Frost Test she carries a steaming tray of qi-warmed tea down a lakeside path with her eyes on every cup, and then glances up with a small calm smile at the viewer. Face: a careful, content, round face of eighteen; soft brown eyes; a rounded chin; fine fair brows; a faint flush from the steam. Hair: black, in a neat bun. Body: small and slight, stepping with the short careful steps of someone entrusted with a single precious thing. Clothing: a clean white outer-disciple robe of fine cloth, a little too long, with the sleeves tied back by a cord and a pale grey apron over it. Hands and objects: a lacquer tray of six small cups, each one steaming, held level in both hands. Background: the lakeside path lined with small pale lanterns, a row of huddled figures out on the lake, and her round-shouldered great-uncle waving a kettle in the distance. Light: soft golden light rising from the cups and cool light from above and the upper left. Expression: a gentle, composed, contented half-smile and a steady gaze, the look of a girl who is quietly pleased to be trusted with something warm and means to deliver it without a spill."
+  },
+  {
+   "key": "tu_lac_suong",
+   "sex": "f",
+   "age": 21,
+   "dress": "bang_tam",
+   "imagined": "Drawing patterns in the snow, fingers chalk-white.",
+   "subject": "The moment: she kneels in the snow drawing a pattern with one chalk-white finger, tongue between her teeth, then looks up eagerly at the viewer. Face: an eager, round face of twenty-one flushed pink with cold; bright brown eyes; short brows; a wide, quick smile and a nose pink from the cold. Hair: black, in a high ponytail tied with a white cloth. Body: slim and light, kneeling and leaning over her drawing with her tongue caught between her teeth and her ponytail swinging forward over one shoulder. Clothing: a clean white outer-disciple robe of fine cloth, the knees dark with melted snow. Hands and objects: the fingers chalk-white to the second knuckle, a stub of white chalk clutched in the left hand; on the snow a ring of small interlocking circles and spokes, a formation diagram, and beside it a second smaller pattern half rubbed out by her sleeve, showing she has tried it twice. Background: open snow, a thin mist rising from the waterfall-village girl's spot behind her, and under an arch a stooped uncle with damp knees and a lamp. Light: bright soft light from the upper left on the snow. Expression: a bright, trusting, open-faced eagerness, the eyes wide and the smile ready, a girl certain that this time it will work."
+  },
+  {
+   "key": "vi_tu_han",
+   "sex": "m",
+   "age": 32,
+   "dress": "bang_tam",
+   "imagined": "The unpaid elder brother of the outer gate, one shoulder worn down by others' bags, stopping mid-word.",
+   "subject": "The moment: he stops mid-word and stands blank until the viewer says his name, one shoulder lowered by years of carrying other people's bags; he is the outer gate's unpaid elder brother, who failed three Frost Tests at twenty-six and stayed. Face: a mild, kind, tired face of thirty-two; soft grey eyes; laugh lines; a stubbled jaw; a long forgiving nose. Hair: black, tied in a plain knot with a few early grey hairs. Body: one shoulder lower than the other, standing a little crooked and easy. Clothing: a clean white outer-disciple robe of fine cloth, neatly mended at the elbow and cuff in the careful way of a man who has no one to do it for him, with someone's satchel strap still looped over the lowered shoulder. Hands and objects: a stranger's bag on the lower shoulder and another bag in his hand. Background: the frozen lake behind him and a line of younger disciples sitting on the ice in rows, one of them a scarred man with a crooked nose who looks away. Light: soft grey light from the upper left. Expression: a mild, patient, faintly puzzled look, the mouth a little open on the lost word and the eyes kind, a man who has made his peace with being the one who carries."
+  },
+  {
+   "key": "dien_tieu_thach",
+   "sex": "m",
+   "age": 19,
+   "dress": "bang_tam",
+   "imagined": "A grave-cutter's squint; he knows where he'll be buried.",
+   "subject": "The moment: he stands before a niche cut in the burial glacier and squints calmly at the viewer, the grave-cutter's squint exactly like his father's, calm in the knowledge of exactly where he will be buried. Face: a calm, squinting face of nineteen; a straight nose; thick black brows white at the tips with ice dust; a stubborn jaw; a mouth that gives nothing away; a faint rim of ice dust on the lower lashes. Hair: black, cut short. Body: sturdy and broad, planted square and still. Clothing: a clean white outer-disciple robe of fine cloth, the shoulders clean and the hem dusted white. Hands and objects: big hands holding a small hammer loosely at his side; at the wall behind him a lamp casting blue light on the ice. Background: the blue niche, a clear arch with a smooth interior, in the glacier wall; standing figures in ice receding beside him, and a little way off his father with a chisel behind his ear, his scarred chisel hand a blur at the edge of the frame. Light: cold blue light from the lamp and the ice, with a pale light from the upper left. Expression: a still, level, honest squint, the jaw set and the mouth shut, a young man who is stubbornly at peace with it."
+  },
+  {
+   "key": "mai_han_tich",
+   "sex": "f",
+   "age": 26,
+   "dress": "bang_tam",
+   "imagined": "Reading ice from a skiff by its colour; palms blistered at the bow oar.",
+   "subject": "The moment: she sits at the bow of a skiff reading the ice by its colour, her grey eyes gone pale as slate, then looks at the viewer. Face: a hard, lean, pale-eyed face of twenty-six; a thin straight nose; a thin mouth; wind-chapped cheeks; salt drying in pale lines along the jaw. Hair: black, cut short and wet at the ends. Body: wiry, sitting braced at the bow with her weight forward. Clothing: a short white skiff-hand's robe of fine cloth with a pale-blue sash, stiff with salt; sturdy boots. Hands and objects: both palms open on her knees, blistered at the heel from the bow oar, some of the blisters broken and weeping; a coil of wet rope and a boat-hook at her feet and the oar lying across the thwart. Background: the sea a plain of grey floes, a cracked floe and a net-boat far off, and a stocky captain with a salt-white scar standing at the tiller. Light: cold, flat light from the upper left. Expression: a hard, narrowed, impatient look, the pale eyes fixed on the colour of the floe and the lips thin, a woman who has stared at the same cold sea too long and will go out on it again."
+  },
+  {
+   "key": "bi_tieu_chu",
+   "sex": "m",
+   "age": 23,
+   "dress": "bang_tam",
+   "imagined": "Hair that never dries; a pearl-seller's smile; a pearl in his cheek.",
+   "subject": "The moment: he grins at the viewer with one cheek slightly bulging, a pearl-seller's smile, a pearl hidden in his cheek, hands held open and empty to show nothing. Face: a wide-mouthed, damp, grinning face of twenty-three; bright, shrewd eyes crinkled with the grin; one cheek puffed where the pearl hides; a trace of nacre gleaming at the corner of his mouth. Hair: black and always wet, plastered to his forehead and dripping at the ends, drops falling steadily onto his collar. Body: broad and strong in the chest, a diver's build. Clothing: a white outer-disciple robe of fine cloth, dark with water, the sleeves rolled to the elbow, over a sealskin vest; a net bag at the belt holding a few ordinary grey shells. Hands and objects: both hands held open and empty in front of him, palms up, to show he has nothing. Background: a skin-boat of stitched hides bobbing near the shore, and a deaf-eared diver beside it who coughs and looks away as the count of the share comes out short; the sea grey behind. Light: pale cold light from the upper left. Expression: a wide, innocent, wickedly pleased grin, the eyes crinkled and the cheek bulging, a lad who is delighted by his own cleverness and quite sure no one will check."
+  },
+  {
+   "key": "diep_lanh_thu",
+   "sex": "f",
+   "age": 28,
+   "dress": "bang_tam",
+   "imagined": "Covering the page with her sleeve as she writes.",
+   "subject": "The moment: she shields a page with her sleeve as she writes and looks up warily at the viewer. Face: a pale, cautious face of twenty-eight; quick dark eyes; a straight narrow nose; a thin mouth. Hair: black, drawn into a neat bun pinned with a plain wooden pin, every strand smoothed back. Body: slim and narrow-shouldered, the shoulders curved over the desk as if to hide it, her whole body turned a little away from the door. Clothing: a clean white inner-disciple robe of fine cloth with a pale-blue sash, the left sleeve held across the page like a screen. Hands and objects: the sleeve laid across the page; her slender right hand holding a fine brush with the tip dark with ink; on the desk two sheets, one longer, with a line trimmed neatly from its edge by a small knife that rests beside it. Background: the copy room with shelves of tied rolls, a stool, a lamp, and a tall quiet woman with abacus beads in her sleeve passing the door. Light: soft lamp glow from the upper left. Expression: a wary, guarded glance, the eyes lifted sideways over the sleeve and the lips pressed thin, a careful woman who is working on something she does not want seen."
+  },
+  {
+   "key": "lu_bang_trieu",
+   "sex": "m",
+   "age": 27,
+   "dress": "bang_tam",
+   "imagined": "Knuckles still swollen from the fist that cost him the seat.",
+   "subject": "The moment: knuckles still swollen from the fist that cost him his seat, he holds the bruised right hand up to the viewer, jaw set in anger, a bundle tied in cloth gripped in his left. Face: a square, young face of twenty-seven; brown, angry eyes; thick brows; a short nose; a split lip healing. Hair: black, short and rough. Body: broad with a fighter's thick neck, shoulders squared, weight forward. Clothing: a white inner-disciple robe of fine cloth pulled askew at one shoulder seam and a pale-blue sash hanging loose, a sign of a hearing he did not wait for. Hands and objects: the right hand held up, the knuckles skinned raw, red and purple and shiny, with a dark crust at the first joint and a fresh yellow-green bruise spreading up the forearm; the left hand gripping the cloth bundle. Background: a grey harbour town with boats and a quay, a skiff with a coast-blue lantern, and a coast disciple with a drawl pulling at his arm. Light: flat grey light from the upper left. Expression: a hot, scowling, defiant glare, the jaw clenched and the brows lowered, a loyal man who still believes the blow was right."
+  },
+  {
+   "key": "manh_tieu_ngu",
+   "sex": "m",
+   "age": 19,
+   "dress": "bang_tam",
+   "imagined": "Asleep on the bailing bucket, forearms like buckets.",
+   "subject": "The moment: he dozes on an upturned bailing bucket in a skiff and wakes to see the viewer, the huge forearms folded on his knees. Face: a round, trusting, sleepy face of nineteen; a snub nose; small bright eyes just opening; a drool-line at the corner of the mouth; a single silver scale shining on one cheek. Hair: black and messy, flattened on one side from the bucket's rim where he slept. Body: huge-forearmed and thick-set, slumped comfortably on the bucket. Clothing: a white outer-disciple robe of fine cloth, stained fishy at the front, the sleeves rolled to the shoulder. Hands and objects: the thick brown forearms folded on his knees, speckled with fish scales, a bailing bucket's rim leaving a red ring on one; beside him a basket of silver fish lying in the sun with gulls eyeing it. Background: the skiff's brown sail flapping, and on the dock his lean uncle with a whistle at his lips. Light: bright, warm light from the upper left, glittering on the water and gleaming on the fish scales. Expression: a slow, blinking, good-natured look just waking, the mouth a little open and the eyes soft, a trusting lad who expects the world to be kind and to bring him lunch."
+  },
+  {
+   "key": "phuong_diem_nhi",
+   "sex": "f",
+   "age": 21,
+   "dress": "bang_tam",
+   "imagined": "Salt-white lashes, a laugh that comes out as a cough; never seen ice outside a cup.",
+   "subject": "The moment: she laughs and coughs at once, holding a cup in which a single piece of ice floats, and looks happily at the viewer; it is the first ice she has ever seen outside a cup. Face: a round, merry face of twenty-one; salt-white lashes catching the sun like frost and making her eyes look pale; short dark brows; a wide, generous mouth; pink cheeks. Hair: black, in a thick plait under a sand-coloured scarf. Body: sturdy and sun-brown, broad in the hip and shoulder, the whole frame shaking with the laugh and the cough, her head tipped back. Clothing: a clean white outer-disciple robe of fine cloth with a thin desert veil at the neck; sandals with a rim of white salt crusted on them. Hands and objects: a cup of water held in both hands with one piece of ice floating in it, already melting and sparkling. Background: a sandy yard with a well, her salt-pan cousin's saddle a dark shape behind her, a camel peering over a wall. Light: bright, dry desert light from the upper left, sparkling in the ice and on the white lashes. Expression: an open, delighted, breathless laugh with wide eyes fixed on the ice, honest to the point of rudeness and quick to give the cup to anyone who asks."
+  },
+  {
+   "key": "nghe_kho_tuyen",
+   "sex": "m",
+   "age": 23,
+   "dress": "bang_tam",
+   "imagined": "Rolling a coin over his knuckles in a tavern, mouth twisted bitter.",
+   "subject": "The moment: in a tavern he rolls a coin across his knuckles and smirks bitterly at the viewer, having left the sect's whites behind. Face: a thin, sour, handsome face of twenty-three; narrow dark eyes; a straight nose; a mouth twisted to one side, with a faint line from nose to lip that deepens when he smirks. Hair: black, oiled and combed straight back from a high forehead, one lock fallen loose over the left eyebrow. Body: lean and long-limbed, slouched sideways in a rough wooden chair with one elbow on the table and one boot hooked on a rung, loose and deliberately careless. Clothing: a plain oasis tunic of good brown cloth, wide-sleeved, belted with a sash of dyed red wool, in place of the sect's white robe. Hands and objects: a bright copper coin walking over each knuckle in turn; a small clay cup of cheap wine at his other hand, barely touched; the sash's red wool bright against the brown cloth. Background: a tavern of the oasis town of Hồi Lan with low lamps, rugs and men in headcloths listening to him. Light: warm low lamplight from the upper left, with the coin glinting. Expression: a bitter, one-sided smirk, the eyes narrow and the brow arrogant, a man who nurses an old grievance patiently and enjoys the taste of it."
+  },
+  {
+   "key": "co_lang_suong",
+   "sex": "f",
+   "age": 30,
+   "dress": "bang_tam",
+   "imagined": "Inside her sealed cave on Băng Bích Nhai, 190 years into watching. She has just heard a step in the snow outside and turned only her head; her hair, never cut in two hundred years, is wrapped round her like a cloak and white with rime.",
+   "subject": "The moment: in a cave of blue glacier ice, she sits very upright and turns only her head toward the viewer; the rest of her stays frozen still. Face: a small, fine-boned, ageless young face, pale as candle wax; very large, still, dark eyes with rime on the lashes; a straight small nose; thin pale lips; a calm without warmth; a faint blue tint at the temples. Hair: black, uncut for two hundred years, wound round and round her body like a cloak, hanging in heavy ropes to the floor, white with rime at the tips, big and plain as the thing the eye sees first. Body: a small woman, sitting straight, shoulders narrow, hands hidden. Clothing: a robe of grey fur gone white with rime, over a white undyed inner robe; a frost-silk sash of long elder's cut gleaming with frost; no jewellery; her hair does most of the clothing. Hands and objects: a small black stone seal in one hand at her breast; at her side a leaning white silk banner with one frost lotus, no writing. Background: a cave of pale-blue glacier plates bound with silver wire; one lamp. Light: cold blue light from the upper left, a faint white glow from the ice. Expression: patient, stubborn, utterly still; a held breath."
+  },
+  {
+   "key": "tham_han_giang",
+   "sex": "m",
+   "age": 50,
+   "dress": "bang_tam",
+   "imagined": "A council hall at the seat; the one man who laughs there. He has just told a coast joke, his gourd of coast wine hanging from his wrist, and he laughs loud enough to rattle the pillars.",
+   "subject": "The moment: seated at a long table in a white-pillared hall, he throws back his head in a booming laugh, then turns his big weathered face to the viewer, grinning. Face: a broad, square, deeply weathered face; a wide laughing mouth; thick crows'-feet; small bright blue eyes, shrewd under heavy brows; a big red-brown nose; a short grey-streaked beard; his ice-hole blade, a broad fisher's cutter reforged into a sword, sits in a plain black scabbard, its hilt wrapped in grey sharkskin worn pale; his fisher's hands are huge, red-knuckled, with a pale scar along the left thumb, resting on the table beside a small cup; the light is warm on his face against the cool blue of the room. Hair: black shot with grey, tied in a plain topknot with a leather thong. Body: huge, broad, thick fisher's forearms, big-handed. Clothing: over a plain white elder's robe, a coat of sealskin boiled in its own oil, dark and glossy, open; a frost-silk elder's sash; coast-blue lining at the cuffs; behind him the councillors in white robes and frost-silk sashes look stiff and pained, one covering his ears, while a pale woman at the head of the table has the faintest smile; the hall's pale pillars rise in cold ranks behind him and his laugh seems to rattle them. Hands and objects: a fisher's wine gourd with a rope sling in his right hand, held up at shoulder height; an ice-cutter's broad blade in a black scabbard at his elbow. Background: white pillars of a hall, indistinct councillors. Light: warm light from the upper left; the gourd's rope sling is wound round his wrist and the wine slops slightly as he laughs. Expression: hearty, ambitious, just."
+  },
+  {
+   "key": "tiet_han_mai",
+   "sex": "f",
+   "age": 65,
+   "dress": "bang_tam",
+   "imagined": "Deep in the Array under the seat she walks by touch from node to node; thin and stooped, hands cold, a frost-silk sash knotted the old way; the pine tea smell clings to her.",
+   "subject": "The moment: in a blue-lit tunnel she presses a carved locust-wood seal to a glowing node, and turns her head to the viewer with a flicker of worry. Face: a thin, honest, deeply lined face, sunken cheeks, high cheekbones; sharp pale grey eyes; a long nose; thin colourless lips set in anxiety; skin like old paper; the locust-wood seal is dark red-brown and worn smooth, a ring of 108 tiny hollows carved round its face; behind her the tunnel's dark walls are scratched with fine chalk marks counting nodes, a lamp hanging, and the light shows her breath as a thin cloud. Hair: white, thin, drawn into a low bun fixed with a plain locust-wood pin. Body: thin, stooped, narrow, her hands bluish with cold; at her hip the polished disc of lake ice in a silver rim glints like a small moon. Clothing: a white elder's robe of fine cloth, frost-silk sash knotted in the old-fashioned way; a round locust-wood shield on her back like a lid, big and plain; woollen mittens under the cuffs. Hands and objects: in her right hand a round locust-wood seal carved with a ring of small nodes; the left laid on a blue stone node; a disc of polished lake ice in silver at her hip; her mittens are grey wool, with the fingers worn at the tips; she smells of pine tea, and a small clay cup of it stands on a ledge beside her, forgotten and cold. Background: a low stone tunnel with a ring of faint blue lights. Light: cold blue light from the stone, from below and left; the Array's node glows a faint steady blue, and as she presses the seal the glow brightens a shade. Expression: cautious, honest to rudeness, waning."
+  },
+  {
+   "key": "pho_am_huong",
+   "sex": "m",
+   "age": 60,
+   "dress": "bang_tam",
+   "imagined": "Evening, the anniversary of the fall of Cô Thành. He sits alone with a brush and a white sword on his knees, and he has just written his yearly poem; the plum-blossom scar on his left hand shows.",
+   "subject": "The moment: he sits upright with a white sword lying across his knees and looks up from a sheet of paper toward the viewer, brush in hand. Face: a long, lean, ascetic old face; high forehead; deep lines; sharp brown eyes burning with a low steady fire; a thin straight nose; thin lips pressed; a grey short beard; the plum-blossom scar on the back of his left hand is a perfect five-petalled mark in pale shiny skin. Hair: white, long, tied in a high topknot with a plain white-jade pin. Body: lean, straight, tall, thin-wristed; the cape folded over his shoulder is worn plum-red silk, scorched at one corner, with a lining where a manual was once sewn. Clothing: a plum-white sword robe of fine cloth with a faint plum-blossom pattern in the weave, a frost-silk elder's sash; a worn red-plum cape folded over one shoulder. Hands and objects: on the back of his left hand a scar shaped like a plum blossom, big and plain; a pale blade lying on his lap that gives a faint pink glow; a brush in the right hand; the sword on his lap is a pale blade the colour of milk-glass with a faint pink glow along its edge, and a thin scent of plum blossom is imagined in the air; his poem sheet is blank but for a few brush strokes and his brush is wet; a small clay cup of tea is cold at his knee. Background: a bare room, one lamp, a window of snow; the window behind him shows a dusk of grey snow and a single bare plum branch with one bud; he looks up as one who has been mourning for four hundred years. Light: low evening light from the upper left, a faint pink on the blade. Expression: vengeful, patient, a long mourning."
+  },
+  {
+   "key": "khuong_luu_ly",
+   "sex": "f",
+   "age": 30,
+   "dress": "bang_tam",
+   "imagined": "On the practice floor at the Vessel Hall, she has just finished a form with a sword so clear it looks glazed glass; she counts the five frost stars on her ring before a duel.",
+   "subject": "The moment: she stands with her glass-clear sword raised before her face and looks past the blade at the viewer, perfectly composed. Face: a beautiful, cold, exact face; high clear brow; long almond eyes the colour of lake ice; thin straight brows; a straight nose; a firm closed mouth with pale rose lips; her skin is flawless as porcelain; behind her the Vessel Hall's practice floor is polished white stone with a faint blue ring inlaid, and a few younger disciples in white stand in a row watching her with awe; the light is cold and clear, and her gaze is unwavering and without warmth. Hair: black with a blue sheen, in a high smooth knot with a pale ice hairpin. Body: tall, slender, straight; absolutely balanced. Clothing: a white robe of the finest cloth on which characters are brushed in faint frost-ink, fading and white, big and plain, a white sash; a pressed collar; the characters brushed on her white robe in frost-ink are fine and pale, running down the sleeve and across the chest and fading near the cuffs, unreadable as pattern. Hands and objects: a sword of clear glassy ice-like steel held upright; on the left hand a ring set with five tiny frost stars; the sword is clear as glazed glass, so that the white hall shows through it bent and small, the edge a bright line; the ring on her left hand has five tiny white stars set in a ring of ice, and her thumb rests on the fifth. Background: a white hall of pillars. Light: cold clear light from the upper left, the blade's edge glittering. Expression: arrogant, diligent, loyal; unaware of it."
+  },
+  {
+   "key": "on_sa_ngoc",
+   "sex": "f",
+   "age": 50,
+   "dress": "bang_tam",
+   "imagined": "At a go board at the Desert Pavilion, she smiles in public as the only elder who does; sand lies in the folds of her white robe.",
+   "subject": "The moment: she sits at a go board with a white stone between two fingers and smiles warmly at the viewer. Face: a sun-browned, round, kind-sharp face; laugh lines; smiling dark eyes; full lips; a small straight nose; her hands are broad and brown with short nails, and a thin silver ring on one finger; the warm light on her round brown face makes the laugh lines golden; her smile is easy, but her dark eyes are quick and weigh the viewer like a stone. Hair: brown with grey, in a thick plaited coil, a sand-coloured scarf; behind her the sunlit adobe room has a carved wooden screen, a camel-hair rug in red and cream, and a window showing a date palm and a white sky. Body: plump, comfortable, relaxed. Clothing: a white robe of fine cloth with a frost-silk elder's sash and sand caught in the folds of the lap; a light desert shawl; the go board between them is a plain wooden slab with a grid of fine lines and a scatter of black and white stones in an unfinished game, no markings but the lines; sand lies in the folds of her robe's lap in a pale fan and a few grains cling to her sleeve. Hands and objects: a white go stone held between two fingers; a go board with scattered stones before her (no marks); a bowl of black stones is at her elbow and a small porcelain cup of green tea. Background: a sunlit adobe room, the board, a camel rug. Light: warm desert light from the upper left. Expression: gregarious, pragmatic, shrewd."
+  },
+  {
+   "key": "kha_tinh_ba",
+   "sex": "m",
+   "age": 55,
+   "dress": "bang_tam",
+   "imagined": "On the vein ridge in a rising storm, a lightning lash scar from his shoulder to his wrist shows; his left arm twitches.",
+   "subject": "The moment: on the vein ridge in a rising storm he stands with a copper rod beside him and looks calmly at the viewer, the left sleeve pushed up to show a lightning scar from shoulder to wrist, the left arm trembling slightly. Face: a quiet, lined, calm face of fifty-five; deep-set, steady eyes; a short grey-streaked beard. Hair: grey-black, tied back with a leather thong. Body: tall and solid, planted still against the wind. Clothing: a plain white elder's robe of fine cloth belted with a frost-silk sash, the left sleeve pushed up to the shoulder; copper-wire cuffs. Hands and objects: the white branching lightning scar, a pale fern-pattern on tanned skin, running from shoulder to wrist in the foreground; the left hand shaking in a fine tremor that he holds still with the right on a short copper rod whose tip is blackened. Background: the ridge's snow streaked with black rocks, a line of copper rods against a violet-black storm sky, a blue flash briefly lighting the clouds. Light: cold flat storm light from the upper left with a blue flicker on the scarred arm. Expression: a calm, quiet, accepting look, the eyes steady and the mouth at ease, a man who loves the thing that hurts him."
+  },
+  {
+   "key": "lam_tuyet_dieu",
+   "sex": "f",
+   "age": 50,
+   "dress": "bang_tam",
+   "imagined": "With a white sable across her shoulders so still it is taken for a fur, and a frost wolf at her heel; wiry and wind-burned, smelling of hide and snow.",
+   "subject": "The moment: she strides across the snow with a white sable draped on her shoulders and a frost wolf at her hip, glancing back at the viewer with a quick, bright look. Face: a wiry, wind-burned, weathered face of fifty; bright, sharp eyes the colour of tea; a firm chin; a wide mouth with chapped lips. Hair: black and grey, in a tight braid bound with a leather thong. Body: lean and tough, the stride quick and the glance back impatient. Clothing: a white riding robe of fine cloth with a leather harness across it set with brass rings for leads, and a frost-silk sash; fur boots reaching to the knee; a white sable draped over the shoulders so still that it is taken for a fur, one black bead eye showing. Hands and objects: one hand resting on the head of a big grey-white wolf with a black stripe down its spine and frost in its ruff, amber eyes watching the viewer. Background: a vast snowfield under a pale sky with a line of footprints and a few distant white beasts. Light: cold bright light from the upper left. Expression: a quick, bright, impatient glance with a hint of warmth in the wide mouth, brave and kind, a woman who smells of hide and snow and prefers animals to speeches."
+  },
+  {
+   "key": "nguy_thanh_han",
+   "sex": "m",
+   "age": 50,
+   "dress": "bang_tam",
+   "imagined": "At court he bows exactly as deep as the listener's rank and never deeper; there is ink on his cuff.",
+   "subject": "The moment: he makes a precise, shallow bow toward the viewer and straightens, smiling softly. Face: a neat, smooth, pleasant face; soft brown eyes; a small trimmed moustache; a gentle smile. Hair: black with grey, in a neat scholar's knot; his neat grey-flecked hair is in a scholar's knot pinned with a lacquered pin. Body: medium, upright, well kept; behind him a pale gallery of carved wood and paper screens runs back, with a few envoys in other colours waiting. Clothing: a white envoy's robe of the finest cloth with a pale-blue sash; a black ink stain on the right cuff, small and plain; his white envoy's robe is of the finest cloth with a pale-blue sash tied in a perfect flat knot, and on his right cuff a small black ink stain the size of a coin shows plainly against the white; he carries a thin brush-case at the sash and a rolled map-case under the left arm. Hands and objects: hands folded; a thin brush case at the sash; he bows with his hands folded and his back straight, exactly as deep as the viewer's rank and no deeper; every detail of him is tidy, except the ink. Background: a court gallery; the smile is gentle and a little rehearsed. Light: soft light from the upper left. Expression: ambitious, deceitful, patient."
+  },
+  {
+   "key": "vien_chuoc",
+   "sex": "m",
+   "age": 45,
+   "dress": null,
+   "imagined": "At the Hàn Giao Chử furnace, red-cheeked and sweating in the cold, his robe hanging open; he is counting dice in his palm.",
+   "subject": "The moment: he stands by a roaring red furnace with his robe hanging open, rattling a pair of bone dice in a cupped palm, and grins at the viewer, red-cheeked and sweating in the cold. Face: a flushed, sweating, round face of forty-five; bright, greedy eyes; a bold grin; red cheeks shining with sweat. Hair: black with grey, tied back, loose strands stuck to the forehead, sweat running into the grey. Body: stout and hot-blooded, chest heaving, standing with his feet apart in the furnace glow. Clothing: a bright rust-red alchemist's robe worn open to the waist over a plain shirt soaked at the neck, the only warm colour in the Pavilion; a leather apron tied round his middle; at his belt a ring of small keys and a pouch of pills. Hands and objects: a pair of bone dice rattled in one cupped hand, the thick fingers stained orange and brown with furnace work and one nail black; a ladle in the other hand. Background: the furnace's red mouth roaring behind him, a row of clay pots on a shelf, a cold stone yard with a white fence and, beyond it, the pale slope of Hàn Giao Chử. Light: red furnace glow from the lower left against blue snow-light. Expression: a bold, greedy, sweaty grin with the eyes fixed on the dice, a man who works hard at the furnace and gambles harder."
+  },
+  {
+   "key": "so_han_y",
+   "sex": "f",
+   "age": 24,
+   "dress": "bang_tam",
+   "imagined": "In summer heat she wears the winter robe her name means; she stands in a stance copied from her master, perfectly still for a full day.",
+   "subject": "The moment: in summer heat she stands in the winter robe her name means, in a stance copied from her master, perfectly still for a full day, eyes level, meeting the viewer's gaze without moving. Face: a grave, pale, serious young face of twenty-four; level dark eyes; fine straight brows; a closed mouth; a single bead of sweat at the temple though she does not blink. Hair: black, long and straight, tied low with a white ribbon. Body: slender, tall and absolutely still. Clothing: the winter robe of undyed white spirit silk, heavy and plain, with a high collar, long sleeves and a faint quilted texture, worn in the heat of summer, with a pale-blue sash; at the sash a small frost seal of white jade carved in a plain pattern. Hands and objects: a plain narrow ice-blue sword held point down in both hands, the blade at rest. Background: a white hall whose wooden floor catches a bright block of summer sun from a window. Light: cold light from the upper left on her, and the summer sun on the floor with her shadow lying unmoving across it as she has stood a whole day. Expression: a calm, closed, stubborn stillness, the eyes unblinking and the mouth shut, a woman who would rather stand in the heat until she drops than move first."
+  },
+  {
+   "key": "cung_mac_suong",
+   "sex": "f",
+   "age": 26,
+   "dress": "bang_tam",
+   "imagined": "In the corridor, her frost leaves a faint grey stain where it melts; her black eyes do not reflect the lamps.",
+   "subject": "The moment: in a dim corridor she looks at the viewer with black eyes that reflect nothing, holding a needle of black-cored ice between two fingers. Face: a small, pale, delicate face of twenty-six; large pure black eyes that take in the lamp and give back nothing, with no highlight in them; thin dark brows; a small mouth with a faint smile. Hair: black, in a high bun pinned with a plain ice needle. Body: small and light, standing very straight. Clothing: a white robe of fine cloth with a pale-blue sash, a faint grey frost-stain along the left cuff where something melted. Hands and objects: the needle, a thin crystal with a dark thread at its heart, between two fingers, a faint grey stain spreading on the ice where her fingertips touch it like breath on glass; at the sash a small black-backed mirror that shows a white face on its front and none behind. Background: a dim corridor of white stone with lamp-niches that burn without reflecting in her eyes. Light: soft lamp light from the upper left, her eyes remaining dark. Expression: a faint, patient, secret smile with a level and unreflecting gaze, the look of someone quietly concealing a purpose and in no hurry to reveal it."
+  },
+  {
+   "key": "lieu_ngu_ca",
+   "sex": "m",
+   "age": 24,
+   "dress": "bang_tam",
+   "imagined": "On the lake ice sitting the old Hàn Giang way, singing a fisherman's song under his breath, badly.",
+   "subject": "The moment: he sits cross-legged on the lake ice in the old Hàn Giang way with his back straight, singing a fisherman's song under his breath, badly, an ice gourd in his hand, then grins at the viewer. Face: a tall, easy, sunburnt young face of twenty-four; a wide goofy grin; warm brown eyes; a crooked nose; a thin line of beard. Hair: black, tied back with a cord. Body: tall and long-limbed, sitting upright as an old man of the river would. Clothing: a white inner-disciple robe of fine cloth with a pale-blue sash; a fisher's sword in a plain scabbard laid across his knees. Hands and objects: an old gourd, dark with handling and bound at the neck with a thin cord, with a tiny stick figure of a lone fisher with a rod scratched on its side; the fisher's sword, an ice-cutter's blade ground down. Background: the frozen river stretching flat and white to a line of low cottages in Liên Giang with smoke rising. Light: clear, bright light from the upper left. Expression: a wide, open, goofy grin mid-song, the eyes warm and unselfconscious, a brave honest man who knows he is out of tune and does not care."
+  },
+  {
+   "key": "ha_lang_han",
+   "sex": "f",
+   "age": 32,
+   "dress": "bang_tam",
+   "imagined": "Copying her master's manual in red ink; her fingers are stained red; a duel in mind.",
+   "subject": "The moment: she looks up from copying her master's manual in red ink with a stare like a drawn blade, a duel already in mind. Face: a sharp-featured, handsome, hard face of thirty-two; fierce dark eyes; thin straight brows; a clean jaw; a thin mouth; a smear of red ink on one cheek. Hair: black, drawn up into a tight topknot held by a plain white pin, with no loose strand anywhere. Body: athletic and upright, with the bearing of a guard captain's daughter, straight-backed and square-shouldered. Clothing: a white sword robe of fine cloth with a plum-red cuff band and a pale-blue sash. Hands and objects: the fingertips stained red with ink; a brush in one hand; her white-hilted sword lying across the desk beside the brush and a small stone of red ink. Background: the plum sword hall, bare and bright, with a wall of racked swords and one empty peg for a red blade. Light: clear, bright light from the upper left, hard on her cheekbones and glinting on the red of the ink. Expression: a fierce, cold, unblinking glare, the jaw clenched and the thin mouth set, a woman who has been wronged and is counting how she will answer it."
+  },
+  {
+   "key": "hang_minh_sa",
+   "sex": "m",
+   "age": 28,
+   "dress": "da_quang",
+   "imagined": "A hostage in the Vessel Hall, a sabre scar and a ready laugh; the only warm-coloured robe.",
+   "subject": "The moment: he laughs and raises a drinking cup to the viewer. Face: a handsome, brown, scarred face; a sabre scar across the cheek; a bright laugh; his handsome brown face carries a sabre scar from cheekbone to jaw, whitened with age, and a ready wide laugh showing strong teeth; behind him the pale hall of the Pavilion looks cold, with white-robed disciples glancing at him with curiosity and a small woman with black eyes standing apart, whose gaze he seeks. Hair: black, long, tied back; his black hair is long and tied back with a red cord. Body: broad, relaxed. Clothing: a rich desert-red robe with a dark sash; his rich desert-red robe is the only warm colour in the Vessel Hall, with a dark sash and a gold-stitched collar, a little dusty at the hem. Hands and objects: a wine cup raised; a go stone in the other hand; he is broad and relaxed, sprawled in a seat with a wine cup raised toward the viewer and a white go stone held between the fingers of the other hand; the light is cool from the upper left with a warm gleam on his cup. Background: a hall; he has watched everything for seventy-nine years and smiles anyway. Light: light from the upper left. Expression: patient, vengeful, gregarious."
+  },
+  {
+   "key": "do_suong_nhi",
+   "sex": "f",
+   "age": 50,
+   "dress": "bang_tam",
+   "imagined": "A round, kind face with frostbitten earlobes, on a solstice night on the mere.",
+   "subject": "The moment: on a solstice night she sits on a folded blanket on the frozen mere beside a paper lantern and looks warmly at the viewer, her breath smoking, with the patient attention of a woman who has remembered every one who walked back. Face: a round, kind face of fifty; the earlobes red, thickened and frostbitten from a hundred solstice nights of cold; soft dark eyes; a gentle, tired smile. Hair: grey, in a low bun. Body: round and settled, sitting with her knees under the blanket. Clothing: a white robe of fine cloth with a pale-blue sash, and a thick grey wool shawl over it. Hands and objects: a paper lantern at her side; a basket of warm stones and a flask of hot ginger water; her short thick hands chapped from the cold. Background: the vast frozen lake dark under stars, with small figures in white sitting in rows on the ice, each with a lantern. Light: warm lantern glow from below against cold blue night. Expression: a patient, tender, steady smile with soft eyes, the face of a woman who never loses count of the people in her care and gives each of them the same unhurried look."
+  },
+  {
+   "key": "ho_tieu_dam",
+   "sex": "f",
+   "age": 21,
+   "dress": "bang_tam",
+   "imagined": "Brown, freckled, wrapped in three borrowed furs on the frozen mere, talking to a pot of reed.",
+   "subject": "The moment: she looks out of a mound of furs with a hopeful, stubborn face, a small reed pot in her hands. Face: a brown freckled warm face; wide hopeful dark eyes; a nose red with cold; the three furs round her are a grey wolf pelt, a brown goatskin and a white sable collar, borrowed from three different friends, piled to her ears; her warm brown face is freckled by the oasis sun, with wide hopeful dark eyes, a nose red with cold, round cheeks and a wobbling stubborn smile; she sits on the frozen mere of Hàn Giao Chử with her breath smoking and a lantern at her side; behind her a round-faced kind woman nods. Hair: black, braids; her black braids stick out under a fur hat too big for her. Body: small, bundled. Clothing: a white outer-disciple robe buried under three different furs. Hands and objects: a small pot with a green oasis reed in it; the oasis reed in its little clay pot is a single slender green stem with two leaves, fresh and bright against the white, held in both hands as if it were a bird. Background: a frozen lake. Light: light from the upper left; the light is a soft lantern glow and a cold blue dusk. Expression: diligent, stubborn, humble."
+  },
+  {
+   "key": "mong_sa_lien",
+   "sex": "f",
+   "age": 23,
+   "dress": "bang_tam",
+   "imagined": "Heavy harbour anklets she refuses to take off.",
+   "subject": "The moment: in a sunny sandstone yard of the Desert Pavilion she lifts her hem a little to show a heavy silver anklet engraved with small waves, one of a pair she refuses to take off, and smiles warmly at the viewer. Face: a warm, calm, round face of twenty-three; large, dark, gentle eyes; full lips in a warm, unhurried smile. Hair: black, in a plait threaded with bright beads of red and green glass. Body: sturdy and easy, standing with her weight settled, a small bronze bell chiming at her ankle with each breath she shifts. Clothing: a white inner-disciple robe of fine cloth with a pale-blue sash tied the harbour way, small bronze bells at the hem; bare brown feet with the toenails painted pale rose. Hands and objects: the hem held between finger and thumb to show the pair of heavy silver anklets, which jingle when she walks. Background: the sunny sandstone yard, a camel kneeling beside a trough, and a stout woman turning toward her in a lifted greeting. Light: warm bright light from the upper left. Expression: a gentle, unhurried, comfortable smile with soft eyes, a girl from the harbour who is at last at home and sure of being welcome."
+  },
+  {
+   "key": "cat_lo_chau",
+   "sex": "f",
+   "age": 18,
+   "dress": "bang_tam",
+   "imagined": "Reed cuts on both hands, laughing at the well.",
+   "subject": "The moment: at a stone well beside a bed of green oasis reeds she laughs out loud with her head thrown back and holds up both hands to show their palms and fingers criss-crossed with small red reed cuts. Face: a round, happy face of eighteen; bright brown eyes screwed up with laughter; a snub nose; a wide mouth; a smear of green reed-juice across the chin. Hair: brown, tied in a loose knot with a strip of reed. Body: small and quick, bare toes gripping the damp stone beside the well. Clothing: a white outer-disciple robe of fine cloth with green stains at the sleeves from reed juice, the hem tucked up. Hands and objects: both hands raised, cut by the reeds; a clay watering pot at her feet. Background: the well and the green reeds growing in its overflow, and her aunt with a dried lily in her braid drawing a bucket behind her; the sand beyond pale gold. Light: warm light of a sunlit afternoon from the upper left. Expression: a loud, uncontainable, delighted laugh, the eyes shut tight and the whole face open, a girl who cannot hold a laugh in and would share a cut finger as readily as a joke."
+  },
+  {
+   "key": "ngac_thiet_phong",
+   "sex": "m",
+   "age": 26,
+   "dress": "bang_tam",
+   "imagined": "Camel dust in his eyebrows, training with a wooden sword.",
+   "subject": "The moment: in a camel yard he swings a wooden practice sword with a grunt and glances at the viewer, dust in his eyebrows. Face: a blunt, brave face of twenty-six; a heavy jaw; small dark eyes; a broad nose; a faint clean line of sweat cutting through the dust on his temple. Hair: black, cropped close to the scalp and sandy with dust, a few dark curls stuck damp to the forehead. Body: broad and thick-armed, his sunburnt arms swelling with the swing, a stance that says he has no intention of ever sitting on a frozen lake. Clothing: a white riding robe of fine cloth cut short, grey with dust to the knee, tied with a leather belt. Hands and objects: a wooden sword notched along the edge by a hundred drills, gripped in both big hands with the knuckles pale and the wrists thick as a post. Background: a ring of trodden sand with wooden posts, a water barrel and a row of kneeling camels, with a bow-legged teacher with a missing tooth watching. Light: bright, hard light from the upper left with a haze of dust rising. Expression: a blunt, stubborn, eager look, the jaw set and the eyes narrowed with glee at the fight, a brave young man who loves a drill the way others love a feast."
+  },
+  {
+   "key": "ma_thao_nhi",
+   "sex": "f",
+   "age": 19,
+   "dress": "bang_tam",
+   "imagined": "Straw in her braid and a horse's patient stare.",
+   "subject": "The moment: she stands holding a horse's rope with straw in her braid, her patient face mirroring the horse's patient stare, as it nuzzles her shoulder. Face: a calm, plain, brown face of nineteen; calm dark eyes; a broad nose; a wide, quiet mouth; the bay's breath puffing warm at her neck as she stands unmoving. Hair: brown, in one long braid threaded with straw. Body: sturdy and broad in the hip, her weight settled evenly on both feet, standing very still as one does beside a horse that startles easily, shoulders loose. Clothing: a plain brown servant's tunic, clean and belted with a cord, the sleeves rolled to the elbow, smelling of hay and horse; old leather gloves tucked in at the waist. Hands and objects: the rope held loosely in one hand; the other resting on the horse's cheek; the horse a dusty bay with a white star. Background: a low mud-brick stable with an open door and a dim hayloft above, a bucket and a pitchfork leaning against the wall. Light: the long golden light of late afternoon from the upper left. Expression: a patient, calm, unassuming look, the eyes steady and the mouth quiet, a girl who has no Water at all and came anyway, says she does not count, and is simply glad to be among horses."
+  },
+  {
+   "key": "giai_tieu_hoa",
+   "sex": "m",
+   "age": 21,
+   "dress": "bang_tam",
+   "imagined": "Tending the furnace with his eyebrows singed off, unable to stand still.",
+   "subject": "The moment: he bounces on his toes by a roaring furnace and grins, one heel tapping, holding an iron poker in both hands like a spear. Face: a bright, eager, round face of twenty-one with no eyebrows, the brow bare where they were singed off once and never regrew, giving him a permanently startled look; bright eyes and a wide grin lit orange. Hair: black, spiky and tufted. Body: wiry and restless, unable to stand still, the snow outside blue behind him and himself in a pool of warm red light. Clothing: a plain brown furnace-boy's tunic and a leather apron, scorched at the hem and with a patch of ash on the chest, the sleeves rolled to the elbow. Hands and objects: an iron poker held across the body in both hands; a smear of ash on one forearm. Background: the furnace outside the array where flame is allowed roaring behind him, a pile of charcoal sacks beside it, and a thin quiet man in a leather apron feeding wood. Light: red furnace glow from below, with cold blue light at the doorway. Expression: an excited, startled-looking, wide grin with the bare brow lifted, a brave, talkative lad who is delighted by fire and by everyone who comes near it."
+  },
+  {
+   "key": "quy_to_nga",
+   "sex": "f",
+   "age": 40,
+   "dress": null,
+   "imagined": "Hands bleached white and wrinkled to the wrist; she washes four hundred robes in warmed water.",
+   "subject": "The moment: she lifts both white, wrinkled hands from a tub of steaming water and looks tiredly at the viewer, the hands bleached and wrinkled to the wrist like a drowned woman's; she has found a Wood breath of her own in the steam. Face: a patient, thin, tired face of forty; gentle dark eyes ringed with shadow; a small mouth; a faint flush of steam at the cheekbones. Hair: brown, tied up under a plain cloth with damp wisps curling at the temples from the steam. Body: thin and slightly bent from the tub, the shoulders rounded forward and the weight on one hip, standing the way someone does after bending over water for hours. Clothing: a servant's plain, coarse, undyed tunic, clean and dark with damp at the sleeves and lap, with a rough apron and bare red forearms. Hands and objects: both hands raised in the foreground, bleached white and wrinkled to the wrists, water running from the fingertips. Background: a washing yard with lines of white robes hanging in rows like pale ghosts, steam rising from tubs, and a thin young man sweeping. Light: bright snow-light of morning through steam from the upper left. Expression: a tired, gentle, uncomplaining look, the eyes soft and the mouth at rest, a woman humble and kind who has long since stopped expecting thanks."
+  },
+  {
+   "key": "trac_on_tuyen",
+   "sex": "m",
+   "age": 17,
+   "dress": null,
+   "imagined": "His palms are always warm and steam in the winter air.",
+   "subject": "The moment: he holds out both steaming hands to the viewer and smiles; he was sent up from the fishing village at ten to carry water and it turned out he could warm it with his hands. Face: a trusting, rosy, round-cheeked boy's face of seventeen; bright brown eyes; a wide, open smile; the cheeks pink from the warmth of his own hands. Hair: black, cut short and neat. Body: slight and narrow-shouldered, standing eagerly forward. Clothing: a servant's plain undyed tunic of coarse white cloth, clean and belted with a cord, the sleeves rolled up, with a grey cloth apron. Hands and objects: both palms red and steaming in thin curls in the cold air, held out toward the viewer; a thin curl of steam also rising from the sleeve ends. Background: a kitchen with a row of cauldrons, a copper kettle on a stone ledge beside him, a round-shouldered tea master pouring for someone he fancies, and a girl with a tray. Light: warm kitchen light from the upper left with steam catching it. Expression: a trusting, hopeful, wide-open smile with bright eyes, a diligent boy who is shyly proud of the one strange gift he has and eager to be of use."
+  },
+  {
+   "key": "hoa_tuyet_nghi",
+   "sex": "f",
+   "age": 18,
+   "dress": "bang_tam",
+   "imagined": "A perfectly still face with one tiny line between the brows she is proud of; she has turned her back on a weeping friend.",
+   "subject": "The moment: she has just turned her back on a friend who wept at the lake, and looks back over her shoulder at the viewer with no expression at all. Face: a smooth, pale face of eighteen; cool light eyes; a straight nose; a small closed mouth; a single tiny line between the brows that she is proud of. Hair: black, drawn into a neat bun pinned with a white pin, smooth and exact, with not a single hair out of line. Body: slim and upright, shoulders squared and the spine straight, the neck turned just far enough to look back and the rest of her turned decisively away. Clothing: a faultlessly pressed white inner-disciple robe of fine cloth with narrow sleeves and a pale-blue sash. Hands and objects: her slim hands folded before her, not a finger out of place. Background: the white hall of the Pavilion, with a weeping girl with red eyes small and blurred at the edge of the frame. Light: cold, even light from the upper left. Expression: a perfectly still, cool, smooth face with a tiny line between the brows and no feeling in the eyes, a girl who is taking the Ice Heart too literally and is proud of how well she does it."
+  },
+  {
+   "key": "vu_mai_suong",
+   "sex": "m",
+   "age": 25,
+   "dress": "bang_tam",
+   "imagined": "Grinding red ink, cuffs stained red, back hunched.",
+   "subject": "The moment: he grinds a stick of red ink on a dark stone slab and looks up; he has learned the forms from the margins. Face: a patient, mild, honest young face of twenty-five; brown eyes; a snub nose; an ink-smudged cheek. Hair: black, tied back with a plain cloth, a few stray strands falling over a brow where he has pushed it back with an inky wrist. Body: hunched, the back-line rounded from years of grinding, sitting low on a stool with his elbows close and his forearms moving in a slow, practised circle. Clothing: a clean white inner-disciple robe of fine cloth with cuffs stained red to the elbow. Hands and objects: slender fingers stained red under the nails, working the ink-stick on the stone; beside him a brush-rest and a small porcelain water-dropper. Background: the quiet hall with a long table of copied leaves of the manual drying under pebble weights, a woman with a red thumbnail writing at the end of it, and a plain wooden sword hanging on the wall. Light: soft warm light from the upper left, with a red tint on the ink. Expression: a mild, honest, patient look just lifted from his work, the eyes calm and the mouth soft, a diligent man who asks nothing and does the task before him."
+  },
+  {
+   "key": "loi_tuyet_hieu",
+   "sex": "m",
+   "age": 22,
+   "dress": "bang_tam",
+   "imagined": "Owl feathers behind one ear, unblinking pale eyes.",
+   "subject": "The moment: he stares unblinking at the viewer with a small white sable curled in the crook of his arm; he was raised by snow-owl trappers on the tundra and talks more to sables than to people. Face: a pale, still, lean face of twenty-two; pale unblinking eyes; a thin straight nose; a quiet mouth. Hair: dark, long and tied back, with two owl feathers, brown and cream barred, tucked behind one ear. Body: lean and tall, as still as a post, the shoulders narrow and the arms held close, standing with the patience of a man who has waited in snow for animals to come to him. Clothing: a white riding robe of fine cloth, plain, with a pale-blue sash and a leather harness. Hands and objects: the small white sable curled in the crook of one arm, stroked by two fingers of the other hand. Background: a vast, almost empty white tundra under a pale sky, and at its edge a big white-maned ice wolf with a lazy rider waiting. Light: cold, bright, flat light from the upper left. Expression: a pale, steady, unblinking gaze and a mouth at rest, a quiet young man who is brave without showing it and has little to say to anyone who is not furred."
+  },
+  {
+   "key": "thinh_han_loi",
+   "sex": "m",
+   "age": 26,
+   "dress": "bang_tam",
+   "imagined": "Hair standing on end near the rods, placing each foot as if testing it.",
+   "subject": "The moment: on the ridge he stands carefully with his hair on end, placing each foot as if testing it, and looks warily at the viewer; he has twice been knocked flat. Face: a wary, thin face of twenty-six; dark eyes ringed with sleeplessness; a pinched mouth; a long nose. Hair: black, every strand lifted straight from the scalp like the bristles of a brush, the ends faintly glowing blue where the air crackles. Body: thin and long-limbed, caught mid-stride on the balls of his feet with his weight held back, the shoulders drawn up around his ears as if the sky might fall. Clothing: a white inner-disciple robe of fine cloth with a pale-blue sash and the cuffs wound with copper wire. Hands and objects: a copper rod taller than himself held upright in one hand, with an oiled-cloth wrap round the grip. Background: the ridge crowded with copper rods against a black-violet sky with a branching blue fork of lightning, and a woman with her head tilted listening. Light: flat, cold light from the upper left with a blue flicker. Expression: a wary, tense, watchful look, the eyes wide and the mouth pinched, a careful man who has learned what the sky can do."
+  },
+  {
+   "key": "hoang_tuyet_tinh",
+   "sex": "f",
+   "age": 24,
+   "dress": "bang_tam",
+   "imagined": "Dark circles under her eyes; the lamp never trembles.",
+   "subject": "The moment: in a stone tunnel under the seat she holds a steady cold-light lamp, a small pale glass globe giving a blue-white glow that never trembles in her hand, and looks tiredly at the viewer, having noticed the damp sleeves. Face: a tired, careful face of twenty-four with dark circles under large, grave eyes; a straight small nose; a patient mouth. Hair: black, in a bun pinned with a plain pin, a few strands loosened by the long shift. Body: small and slight, standing very still so as not to shake the light. Clothing: a clean white junior disciple's robe of fine cloth belted with a plain cord, with chalk dust on the hem and one sleeve damp. Hands and objects: the cold-light globe held at chest height in one hand, steady, its glow lighting her fingers from below. Background: a stone tunnel receding under the seat with a ring of faint blue lights, and a stooped man with damp knees coming up out of a shaft. Light: cold blue-white light from the lamp, from below and the left. Expression: a tired, watchful, careful look, the eyes large and grave and the mouth patient, a humble girl who sees everything in the damp and says nothing until she is sure."
+  },
+  {
+   "key": "tan_ngung_suong",
+   "sex": "f",
+   "age": 60,
+   "dress": null,
+   "memorial": true,
+   "imagined": "A memorial portrait of the founder: a slight scholar in southern grey with a jade vessel at the waist and ink on her wrist.",
+   "subject": "The moment: a memorial portrait, faded and yellowed like an old silk painting with the edges darkened, of the founder standing in a desert pass holding a small jade vessel in both hands and looking quietly at the viewer. Face: a slight, scholarly, calm face of about sixty; thoughtful dark eyes; a fine nose; a small composed mouth with a faint look of poetry in it; the silk cracked in fine lines and browned at the corners. Hair: black streaked with grey, in a scholar's knot with a plain jade pin. Body: slight and upright. Clothing: a robe of southern grey silk with wide sleeves and a plain sash, a small jade vessel hung at the waist; ink on her right wrist. Hands and objects: a small jade vessel held in both hands, a piece of ice inside it that has not melted. Background: a pale desert falling away to a far horizon where a white line of distant ice shines, rendered in soft brown wash like the rest of the silk. Light: a soft faded gold, as of old pigment. Expression: a calm, patient, quietly ambitious look, the eyes level and the mouth composed, a scholar who has already seen the far ice and means to bring a piece of it home."
+  },
+  {
+   "key": "pho_thanh_mai",
+   "sex": "m",
+   "age": 35,
+   "dress": null,
+   "memorial": true,
+   "imagined": "A memorial portrait of a plum-blossom swordsman who rode out and did not return.",
+   "subject": "The moment: a memorial portrait, faded and yellowed like an old silk painting with the edges darkened: a plum-blossom swordsman who rode out and did not return stands looking at the viewer. Face: a lean, brave, honest face of about thirty-five; dark eyes; a straight nose; a firm mouth with a faint smile; a sword scar through the left eyebrow. Hair: black, tied up in a topknot, with a few loose strands at the temples. Body: lean and tall, upright, shoulders squared, one hand at his side as if the ride had not yet begun. Clothing: a plum-red sword robe of fine cloth with long sleeves, a plain sash, and a high collar, the red softened by age to a dusty rose. Hands and objects: a plum-blossom sword hanging at his side in its scabbard, the other hand resting easy. Background: faint in brown wash, a ruined fortress wall under a smoky sky and a line of riders far off; the silk cracked and marked with a brown water-ring. Light: faded, warm and soft like old pigment. Expression: a steady, brave, honest look with a small, loyal, slightly rueful smile, a man looking at the viewer as if he already knows the ride will not bring him home."
+  }
+ ]
+}

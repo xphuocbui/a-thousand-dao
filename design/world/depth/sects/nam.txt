@@ -1,0 +1,102 @@
+## chau_phi_van Châu Phi Vân F b 930 ALIVE ket_dan tong_chu A
+role: Hall-mistress of Nam Phố Đường since 1100; the west's talisman maker
+root: ['thuy', 'moc'] | ['Diligent', 'Callous', 'Devout'] Talisman maker ['keen_soul', 'steady_heart'] None faith_found
+app: A slight woman with ink-grey fingertips and her hair pinned with a brush, who rises before the birds and has not missed a dawn in two hundred years.
+story: Châu Phi Vân was born in Tang Ma Thành in 930 among the mulberry and hemp, and at four drew her first talisman in mulberry juice on a hemp rag (A199). The founder Nghiêm Họa Đống (nghiem_hoa_dong) took her at eight and taught her to paint the morning cloud. In 1097, not yet mistress, she found that the ink-grinder Sào Ẩn Lan (sao_an_lan) had darkened at the Jade Milk spring, gave her a year's stones and sent her up t
+wants: To meet the lord's war orders without painting another fire talisman, and to paint the whole Painted Beams talisman once
+gear: ["np-dawn-cloud-brush: The founder's morning brush, a mulberry stalk tipped with goat hair, used only between first light and sunrise. Nghiêm Họa Đống painted two hundred years of dawns with it.", 'np-southern-cloud-seal: A mulberry-wood seal cut by the founder Nghiêm Họa Đống, with a cloud on its face that she carved from the first morning she painted on the southern shore. Every talisman Nam Phố sells is stamped with', "np-mulberry-hemp-robe: A plain robe of Tang Ma Thành hemp dyed with mulberry, the same juice she drew her first talisman in. The hall's mistresses have each had one made at home."]
+tech: southern-shore-cloud-canon Nghiêm Họa Đống painted the clouds of the southern shore every dawn for two hundred years, and wrote the canon
+## kha_trieu_phi Kha Triêu Phi M b 1040 ALIVE ket_dan truong_lao A
+role: First elder; head of the dusk line and the hall's dealings with Lạc Hà
+root: ['moc', 'thuy'] | ['Ambitious', 'Pragmatic', 'Deceitful'] Diplomat ['comely'] None None
+app: A handsome, grey-temple scholar in a dusk-violet robe a shade too close to Lạc Hà's, who quotes Vương Bột in every second sentence.
+story: Kha Triêu Phi was born to a family of failed examination scholars in Phong Lâm Trấn, among the maples the Lạc Hà founder planted (A190), and grew up looking up the river at the great sect's hall. Ôn Châu Liêm (on_chau_liem), the founder's partner, took him as his last disciple in 1055 and taught him the dusk half of the founders' art, the half that rolls up the western hills' rain. Ôn died at Châu Liêm Trấn in 1060 w
+wants: To bring the hall back into its lord's favour, by Châu's war orders or by her fall, and to take the prize seal back from
+gear: ["np-painted-beam-banner: A long silk banner painted with a beam of the founders' hall, flown over the scribes when they paint the clouds at dawn. Ôn Châu Liêm painted it, and it passed to his disciple Kha Triêu Phi. It is the", "np-dusk-rain-seal: Ôn Châu Liêm's evening seal, cut with a curtain of rain on the western hills. The dusk line stamps its washing talismans with it.", "np-maple-scholar-robe: An examination candidate's blue robe from Phong Lâm Trấn, his grandfather's, worn to three failed examinations before Kha took it to the hall."]
+tech: southern-shore-cloud-canon Nghiêm Họa Đống painted the clouds of the southern shore every dawn for two hundred years, and wrote the canon
+## ninh_hoa_van Ninh Họa Vân F b 1150 ALIVE truc_co noi_mon B
+role: The hall's champion scribe; lost the prize seal to Tô Mộ Vân in 1190
+root: ['moc', 'thuy'] | ['Diligent', 'Vengeful', 'Cruel'] Talisman maker [] None obsessive_training
+app: A tight-mouthed woman of fifty with a callus on her brush finger the size of a pea.
+story: A Hoa Khê girl who won the talisman contest at Hạc Đinh Thị twice for the hall, and in 1190 lost it to a fourteen-year-old from Lạc Hà, Tô Mộ Vân (to_mo_van), in front of the whole market (A203). She has painted the same cloud talisman every dawn since, some three thousand sheets. She took it badly that her mistress Châu Phi Vân (chau_phi_van) then asked to borrow the girl. Her ruler has cracked the knuckles of Tạ Qu
+wants: The prize seal back from Tô Mộ Vân at the next contest, won by her own hand and not by a rematch her mistress arranged.
+gear: []
+tech: southern-shore-cloud-canon Nghiêm Họa Đống painted the clouds of the southern shore every dawn for two hundred years, and wrote the canon
+## doi_huyen_nghien Đới Huyền Nghiên M b 1120 ALIVE truc_co noi_mon B
+role: Ink-grinder at the Jade Milk spring; paints the hall's dark talismans at night, paid by the sheet
+root: ['moc', 'thuy', 'tho'] | ['Reclusive', 'Patient', 'Paranoid'] Talisman maker [] None None
+app: A pale, careful man who smells of wet stone and wears gloves to keep the ink off his skin, and lately to keep it in.
+story: A Hầu Đầu Thôn mushroom-picker's son from the karst, Kha Triêu Phi's (kha_trieu_phi) disciple, he grinds the hall's ink in the Jade Milk spring among the stone pillars, where the water carries a dark qi. For ten years the talismans painted with his ink have held longer than any others; for three they have come out a shade darker each season. A thread of Darkness has woken in him, and the whole hall knows it. Since th
+wants: Enough stones by the sheet to buy his mother a house below the karst, before he has to go up it.
+gear: []
+tech: southern-shore-cloud-canon Nghiêm Họa Đống painted the clouds of the southern shore every dawn for two hundred years, and wrote the canon
+## van_tang_chi Văn Tang Chỉ M b 1110 ALIVE truc_co chap_su C
+role: Paper master of the hall's mill at Tang Ma Thành
+root: ['moc', 'thuy'] | ['Diligent', 'Content', 'Generous'] Steward [] None None
+app: Dusted white with paper pulp; he sneezes in threes.
+story: A Tang Ma bark-beater who makes the hall's mulberry paper and, in 1174, made the paper for the new rope bridges' blessing talismans when Tùng Đào cut the old ones (A202); Châu Phi Vân (chau_phi_van) taught him the canon.
+wants: 
+gear: []
+tech: southern-shore-cloud-canon Nghiêm Họa Đống painted the clouds of the southern shore every dawn for two hundred years, and wrote the canon
+## trac_thu_lan Trác Thư Lan F b 1160 ALIVE truc_co noi_mon C
+role: Keeps the hall's talisman stall at Hạc Đinh Thị
+root: ['moc', 'thuy'] | ['Gregarious', 'Pragmatic', 'Arbitrary'] Merchant [] None None
+app: Six rings on her counting hand, and a laugh she turns on and off at the till.
+story: A Phương Thảo mat-weaver's daughter and Kha Triêu Phi's (kha_trieu_phi) disciple, who sells the hall's talismans below Lạc Hà's old seat and hears everything the Counting House clerks say over lunch. She prices by the buyer's face, and sent Văn Tang Chỉ (van_tang_chi), the hall's own paper master, away from the stall for sneezing, so the hall's paper went unsold that day.
+wants: 
+gear: []
+tech: southern-shore-cloud-canon Nghiêm Họa Đống painted the clouds of the southern shore every dawn for two hundred years, and wrote the canon
+## ly_khe_thu Lý Khê Thư F b 1184 ALIVE luyen_khi noi_mon B
+role: The hall-mistress's youngest disciple; writes talismans on petals
+root: ['moc', 'thuy'] | ['Compassionate', 'Honest', 'Humble'] Talisman maker ['keen_soul'] None None
+app: A round-faced girl of sixteen with petal stains on her sleeves and a habit of humming while she paints.
+story: In Hoa Khê lovers drop their names into the brook on the spring petals (A194). At ten Lý Khê Thư wrote a name on a petal so well that it would not sink, and the couple it named came to the hall to complain. Châu Phi Vân (chau_phi_van) took her that day. She paints at dawn like her mistress and has asked twice to be taught the dusk half too, which no one at the hall can teach her.
+wants: To be taught the dusk half by anyone at all, before Kha's fragments are lost with him.
+gear: []
+tech: southern-shore-cloud-canon Nghiêm Họa Đống painted the clouds of the southern shore every dawn for two hundred years, and wrote the canon
+## ta_quy_hong Tạ Quy Hồng M b 1179 ALIVE luyen_khi ngoai_mon C
+role: Outer disciple of the Tạ family of Phong Lâm
+root: ['moc', 'thuy'] | ['Calm', 'Humble', 'Faithless'] Talisman maker [] None None
+app: A good Tạ-family coat let out at the hem; he straightens his brush case whenever anyone looks at it.
+story: A Tạ of Phong Lâm, the family that came with nothing but its name (A193), and cousin to Tạ Quy Yến (ta_quy_yen), whom the hall-mistress asked for; he hopes his cousin comes, and fears he will be better; he has written home that Tạ Quy Yến (ta_quy_yen) is unwell, so that she will not be sent.
+wants: 
+gear: []
+tech: mulberry-ink-primer Written for the outer gate in 882 by the founder Nghiêm Họa Đống, who said a scribe who cannot grind ink canno
+## han_tieu_chuc Hàn Tiểu Chúc M b 1183 ALIVE luyen_khi ngoai_mon C
+role: Outer disciple who paints the stern-lamp talismans for Vãn Đăng's boats, in the dark ink
+root: ['moc', 'thuy'] | ['Cautious', 'Devout', 'Patient'] Talisman maker [] None None
+app: Salt-burnt, with grey hands he keeps tucked in his sleeves.
+story: A Vãn Đăng fisher boy whose village lights its lamps on the dusk of 803 but does not put out (V104). He carries Đới Huyền Nghiên's (doi_huyen_nghien) ink down from the spring, and since last year he has painted his own village's stern-lamp charms with it, because they hold three times as long. His hands are grey to the wrist.
+wants: Charms that keep Vãn Đăng's boats lit through the winter storms.
+gear: []
+tech: mulberry-ink-primer Written for the outer gate in 882 by the founder Nghiêm Họa Đống, who said a scribe who cannot grind ink canno
+## phung_luc_y Phùng Lục Ý F b 1180 ALIVE luyen_khi ngoai_mon C
+role: Outer disciple placed from Lạc Hà's outer gate, 1196
+root: ['thuy', 'moc'] | ['Ambitious', 'Gregarious', 'Greedy'] Merchant [] None None
+app: An abacus bead on a string at her throat; she looks at a visitor's purse before the face.
+story: A Thủy Khẩu girl who failed the dusk test three times and was placed with the hall in 1196; the outer gate's steward Tô Bình Chu (to_binh_chu) wrote her letter, and she means to be back at Lạc Hà's stall as a seller, not a disciple. She keeps back a copper in every ten of the stall's takings, and the stall's sweeper girl is docked for the shortfall.
+wants: 
+gear: []
+tech: mulberry-ink-primer Written for the outer gate in 882 by the founder Nghiêm Họa Đống, who said a scribe who cannot grind ink canno
+## van_tieu_tang Văn Tiểu Tang M b 1181 ALIVE luyen_khi ngoai_mon C
+role: Outer disciple at the paper mill
+root: ['moc', 'thuy'] | ['Lazy', 'Content', 'Trusting'] Steward ['frail_frame'] None None
+app: Rope-burn across both palms; he weaves a hemp bracelet as he walks, and stops to rest every twenty steps.
+story: The paper master Văn Tang Chỉ's (van_tang_chi) son, who would rather weave hemp for Tang Ma's rope bridges than beat bark for the hall.
+wants: 
+gear: []
+tech: mulberry-ink-primer Written for the outer gate in 882 by the founder Nghiêm Họa Đống, who said a scribe who cannot grind ink canno
+## nghiem_hoa_dong Nghiêm Họa Đống F b 600 DEAD None founder B
+role: Founder of Nam Phố Đường (880); the dawn half of the founders' art
+root: [] | ['Diligent', 'Devout', 'Calm'] Talisman maker [] None None
+app: Remembered in the hall's dawn scroll as a woman with a brush in each fist and the sky behind her head.
+story: A Phong Lâm scholar's daughter who painted the clouds of the southern shore at dawn and found the paintings held qi. In 880 she and Ôn Châu Liêm (on_chau_liem) founded the hall under Lạc Hà (A198) on the forest shore below the old seat. She wrote the canon in the margins of her paintings and died at dawn in 1100 with a brush in her hand, leaving the hall to Châu Phi Vân (chau_phi_van).
+wants: 
+gear: []
+## on_chau_liem Ôn Châu Liêm M b 560 DEAD None truong_lao B
+role: Co-founder of Nam Phố Đường; the dusk half of the founders' art
+root: [] | ['Gregarious', 'Lazy', 'Forgiving'] Talisman maker [] None None
+app: Remembered as a heavy, laughing man in a bay merchant's pearl-beaded cap, looking at the hills rather than the page.
+story: A pearl-curtain merchant's son from Châu Liêm Trấn on the bay who painted the western hills' rain at dusk while Nghiêm Họa Đống (nghiem_hoa_dong) painted the dawn. He never wrote anything down. He went home to the bay to die in 1060 and took most of the dusk half with him; Kha Triêu Phi (kha_trieu_phi) has the fragments.
+wants: 
+gear: []
