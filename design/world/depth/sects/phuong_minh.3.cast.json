@@ -16,7 +16,7 @@
    "rank": "ngoai_mon",
    "home": 449,
    "birthplace": 25,
-   "role": "An outer disciple of pure Wood in a Fire palace",
+   "role": "An outer disciple of pure Wood whom the great wutong answers",
    "tier": "B",
    "root": {
     "elements": {
@@ -55,12 +55,12 @@
     "gained": []
    },
    "appearance": "A round-faced girl of eighteen with green under her fingernails, who talks to the potted wutong saplings in the outer court.",
-   "backstory": "A bamboo farmer's daughter from Trúc Thực Viên's fields, Kha Thanh Miêu came in on her Wood and will never pass the Feather Kindling: her Fire is half what the inner gate asks. Mao Khải Đán (mao_khai_dan) worries about her, because the palace has no inner place for Wood. When she visited the ridge last spring, An Thúy Vũ (an_thuy_vu) saw the great wutong's leaves turn toward her as she passed under it.",
+   "backstory": "A bamboo farmer's daughter from Trúc Thực Viên's fields, Kha Thanh Miêu came in on her Wood. In 1198 she walked the long road to the ridge with the funeral steward's ash train, and An Thúy Vũ (an_thuy_vu) saw the great wutong's leaves turn toward her as she passed under it. Vu Ngô Đồng has asked the outer gate to send her to the Wutong Court for good, to feed the tree as he does. Mao Khải Đán (mao_khai_dan) has held the order back a year, because the tree stalled Vu's Kết Đan and would stall her.",
    "ties": [
     {
      "to": "mao_khai_dan",
      "kind": "master",
-     "note": "worries about her"
+     "note": "holds back the order that would send her to the tree"
     },
     {
      "to": "an_thuy_vu",
@@ -86,6 +86,11 @@
      "to": "van_truc_y",
      "kind": "friend",
      "note": "wood girl of the Wutong Court, Kha Thanh Miêu's bunk-mate"
+    },
+    {
+     "to": "vu_ngo_dong",
+     "kind": "friend",
+     "note": "the first elder who has asked for her, for the tree"
     }
    ],
    "master": "mao_khai_dan",
@@ -117,7 +122,8 @@
      "targets_note": "Green Root, Forest Floor and Rising Sap: growth and healing, the only roads in reach."
     },
     "note": "A gardener, not a fighter."
-   }
+   },
+   "changed": "pass B (fixB-1, 2026-11-25): wanted by the tree, not stuck at the gate (SHAPES-PLAN §4.3 phuong_minh); the ridge is 118 tiles from 449, so she went with the ash train"
   },
   {
    "key": "ma_tieu_hoa",

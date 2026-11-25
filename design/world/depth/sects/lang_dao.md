@@ -127,7 +127,8 @@ gate's inner disciples beside its own since the rebuilding of 1175.
 - **Lạc Hà Tông:** grudge with the lord (−10). Lô Xướng Vãn (`lo_xuong_van`) led the raid that burned the fleet at Đào
   Sa, and he raised the dead ferryman's son, Lữ Tẫn Chu (`lu_tan_chu`), in Lạc Hà's Boat Hall. Giang writes to the boy
   every spring and asks him home. The gate still buys Lạc Hà's hemp (A201) through a smuggler.
-- **Thải Chi Cốc:** the ferries bring the river's orphans up to the valley, and Giang buys the valley's pills monthly.
+- **Thải Chi Cốc:** the ferries bring the river's orphans up to the valley, and Giang buys the valley's pills monthly,
+  though the whole river knows the valley-mistress treated his boat-burners in 1174. His ferrymen spit on her landing.
   Lữ Thừa Lãng's daughter, Lữ Niệm Hà, is the valley-mistress's true disciple.
 - **The gold-washers of Đào Sa:** the gate's neighbours and its second landing. They fished the nails out of the river
   for years after 1173.
@@ -136,10 +137,17 @@ gate's inner disciples beside its own since the rebuilding of 1175.
 ## 9. Inside the sect
 
 - **Who started the war.** Giang's secret: ten years of an unset toll on Lạc Hà's boats at Ngư Ca made the quarrel
-  that became the Ferry War. Thương Bạch Phàm, his Dao partner, has started reading the old toll books because she wants
-  to know why her crews burned. Sài Kết Lãm's smuggler has heard the same story told from the other bank.
+  that became the Ferry War. Lữ Tẫn Chu has never answered the spring letters because Lô Xướng Vãn, the Lạc Hà elder
+  who raised him, kept the stamped passes for that toll, ten years of the Nine Bends seal on a toll the pines never
+  set, and showed them to him on his fifteenth birthday. Every one of Giang's letters offers the boy a boat of his
+  own. Sài Kết Lãm's smuggler has heard the same story told from the other bank.
+- **The free crossing.** This spring Lữ answered at last, and not to Giang. He sent one pass back inside the letters
+  Giang Tiểu Loan carries home, addressed to her grandmother Thương Bạch Phàm, who poled nine children off the burning
+  landing. Thương has said nothing to her Dao partner. She has put the Ngư Ca boats on a free crossing for Lạc Hà's
+  hulls until ten years of that toll are paid back, and Tiết An Thủy stamps the passes at no charge and writes the
+  order into the toll book in her name. Giang cannot ask her why without telling her.
 - **War or letters.** The heir, Giang Hồi Lan, wants the war fought again. His father writes to Lạc Hà's foster son.
-  His daughter, Giang Tiểu Loan, carries the letters and has begun to add her own.
+  His daughter, Giang Tiểu Loan, carries the letters to the Ngư Ca landing and writes her own on the back of each.
 - **The old gate.** Đổng Cựu Môn wants the name of Phân Thủy Môn, sunk in 788, read at the spring landing. The families
   descended from the side that sank it would rather it was not.
 - **The serpent.** Lại Bát Khúc feeds the serpent of the eighth bend every spring, and it has grown. Mã Trường Cao has
@@ -175,12 +183,13 @@ gate's inner disciples beside its own since the rebuilding of 1175.
 
 ## 12. Story hooks
 
-1. **The toll books.** Thương Bạch Phàm finds the unset toll in the old books. She can confront Giang, carry it to the
-   River Hall, or burn the books, and the gate does not burn things. (Thương Bạch Phàm, Giang Cửu Khúc, Dụ Tĩnh Lưu,
-   Đặng Hoành Giang; place 13.)
-2. **The son across the river.** Lữ Tẫn Chu answers one of the spring letters, perhaps Giang Tiểu Loan's. A meeting on
-   the Ngư Ca landing brings the ferry master, the boy's sister from Thải Chi, and the Lạc Hà elder who raised him to
-   one place. (Giang Cửu Khúc, Giang Tiểu Loan, Lữ Tẫn Chu, Lữ Niệm Hà, Lô Xướng Vãn.)
+1. **The free crossing.** At next spring's landing the fleet hears that Ngư Ca has carried Lạc Hà's hulls free all
+   season on the boat-mistress's order. Giang can stop her and say why, let his richest landing carry its enemies for
+   nothing, or have Tiết An Thủy lose the order, and Lạc Hà's boatmen want to know what the gate is paying for. (Thương
+   Bạch Phàm, Giang Cửu Khúc, Tiết An Thủy, Dụ Tĩnh Lưu; place 13.)
+2. **The son across the river.** Lữ Tẫn Chu asks Thương Bạch Phàm to meet him on the Ngư Ca landing, and to bring the
+   ferry master. The meeting brings the boy's sister from Thải Chi and the Lạc Hà elder who raised him, with the rest
+   of the passes, to the same place. (Giang Cửu Khúc, Giang Tiểu Loan, Lữ Tẫn Chu, Lữ Niệm Hà, Lô Xướng Vãn.)
 3. **The serpent grows.** It has been fed for 260 years. One spring it does not take the pig and takes the boat. Fight
    it, as the gate never has, or find what it wants. (Lại Bát Khúc, Mã Trường Cao, Giang Cửu Khúc; the eighth bend.)
 4. **The rope.** Lạc Hà finds out who buys Tang Ma Thành's hemp and stops the smuggler, or poisons the rope. A ferry

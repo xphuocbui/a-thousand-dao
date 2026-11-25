@@ -7150,8 +7150,8 @@
     "phat_y",
     "thien_xu"
    ],
-   "text_vi": "Một kiếm khách luôn phất áo ra đi sau mỗi việc làm lập Phất Y Cốc, và đào quặng Can Tương để rèn kiếm cho cốc.",
-   "text_en": "A swordsman who brushes his sleeve and leaves after every deed founds Phất Y Cốc, and digs the ore of Can Tương for its swords.",
+   "text_vi": "Kiếm khách thuê Quách Lĩnh Thù lập Phất Y Cốc dưới bóng Thiên Xu, khắc lên mi cửa câu \"tiền công là trọn lời cảm tạ\", và đào quặng Can Tương để rèn kiếm cho cốc.",
+   "text_en": "The hired swordsman Quách Lĩnh Thù founds Phất Y Cốc under Thiên Xu, cuts \"the fee is the whole of the thanks\" on its lintel, and digs the ore of Can Tương for its swords.",
    "place": 24,
    "region": 15
   },
@@ -10873,8 +10873,8 @@
     "loi_vo_danh"
    ],
    "sects": [],
-   "text_vi": "Lôi Vô Danh, người sống sót sau trận chiến trên bình nguyên, qua đời vì tuổi già trong một động phủ gần chiến trường, một trăm bốn mươi bảy năm sau trận chiến.",
-   "text_en": "Lôi Vô Danh, who survived the war on the plain, dies of old age in a cave abode near the battlefield, 147 years after the battle.",
+   "text_vi": "Lôi Vô Danh, người sống sót sau trận chiến trên bình nguyên, qua đời trong một động phủ gần chiến trường, một trăm bốn mươi bảy năm sau trận chiến, vì chướng khí y mang theo từ bình nguyên.",
+   "text_en": "Lôi Vô Danh, who survived the war on the plain, dies in a cave abode near the battlefield, 147 years after the battle, of the miasma he carried off the plain.",
    "slot": "A-3"
   },
   {

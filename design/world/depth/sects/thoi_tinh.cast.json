@@ -59,14 +59,14 @@
     ]
    },
    "appearance": "A short, thick man with a burnt beard and forearms speckled white with old spark scars, who listens to every blade he picks up before he looks at it.",
-   "backstory": "Cát Lưu Quang was born among the sulphur gatherers at Xích Viêm Khẩu, the one fire vent in Ngọc Hành Sơn, and came up to the gate at twelve with a Fire root the mountain had not seen in a generation. The smiths' saying is that the mountain gives iron and the coal gives fire, and that a smith who is his own fire is born once a century. He was twenty when the gate bought the star that fell near Thanh Bách for three years of the city's taxes (A093). It lay unworked for seventy years, because no coal fire would soften it. In 1050 he became head and forged it in one winter by the Rite of the Fallen Star (A231), and named the blade for its price. He has two sons. The elder, Cát Đoán Nhạc (cat_doan_nhac), has no Fire. The younger, Cát Thối Phong (cat_thoi_phong), has it, and in 1170 Cát lent him to the Pivot as its armourer (N-thoi_tinh-02). In 1160 he broke the hammer of his best smith, Vưu Chước Kim (vuu_chuoc_kim), and sent him down the mountain for something Vưu said about the iron (N-thoi_tinh-01).",
-   "wants": "To pass the Rite to a Fire root before his hands fail, without breaking his first son.",
+   "backstory": "Cát Lưu Quang was born among the sulphur gatherers at Xích Viêm Khẩu, the one fire vent in Ngọc Hành Sơn, and came up to the gate at twelve with a Fire root the mountain had not seen in a generation. The smiths' saying is that the mountain gives iron and the coal gives fire, and that a smith who is his own fire is born once a century. He was twenty when the gate bought the star that fell near Thanh Bách for three years of the city's taxes (A093). It lay unworked for seventy years, because no coal fire would soften it. In 1050 he became head and forged it in one winter by the Rite of the Fallen Star (A231), and named the blade for its price. He has two sons. The elder, Cát Đoán Nhạc (cat_doan_nhac), has no Fire. The younger, Cát Thối Phong (cat_thoi_phong), has it, and in 1170 Cát lent him to the Pivot as its armourer (N-thoi_tinh-02). In 1160 he broke the hammer of his best smith, Vưu Chước Kim (vuu_chuoc_kim), and sent him down the mountain for something Vưu said about the iron (N-thoi_tinh-01). He will not call Cát Thối Phong home for the Rite: the Pivot holds the loan, and the son wants the halberd under the barrow more than the forge. Since the spring he has taught the Rite to Đinh Hỏa Lân (dinh_hoa_lan) instead.",
+   "wants": "To put the Rite of the Fallen Star into Đinh Hỏa Lân's hands before his own fail, so that the forge fire outlives him, and to keep his first son at the anvil while he does it.",
    "secret": "Vưu was right. The sky seam of Thiên Ngoại Khoáng gave out in 790 (N-thoi_tinh-04), before he was born; the mine has given mountain iron since, and only the Thanh Bách star sings. The gate has sold the mountain iron to the Pivot as star iron, at star-iron prices, for four centuries, and he still does.",
    "ties": [
     {
      "to": "cat_doan_nhac",
      "kind": "child",
-     "note": "his first son and disciple, who has no Fire"
+     "note": "his first son, who has no Fire and has cut the coal to his forge"
     },
     {
      "to": "cat_thoi_phong",
@@ -76,7 +76,7 @@
     {
      "to": "dinh_hoa_lan",
      "kind": "disciple",
-     "note": "the Fire-born journeyman from the steppe he may choose for the Rite"
+     "note": "the Fire-born journeyman from the steppe he is teaching the Rite, on the forge's winter store since the coal was cut"
     },
     {
      "to": "bang_lanh_toi",
@@ -91,7 +91,7 @@
     {
      "to": "cat_thanh_diem",
      "kind": "grandchild",
-     "note": "Đoán Nhạc's daughter, in whom Fire came back"
+     "note": "Đoán Nhạc's daughter, in whom Fire came back; she carries him her coal"
     },
     {
      "to": "vuu_chuoc_kim",
@@ -111,12 +111,12 @@
     {
      "to": "cat_doan_nhac",
      "kind": "disciple",
-     "note": "his first son and disciple, who has no Fire"
+     "note": "his first son and disciple, master of the anvil hall"
     },
     {
      "to": "nghe_bach_doan",
      "kind": "disciple",
-     "note": "second hammer of the anvil hall and the heir's sworn brother"
+     "note": "second hammer of the anvil hall and Cát Đoán Nhạc's sworn brother"
     },
     {
      "to": "phan_lo_kien",
@@ -198,7 +198,7 @@
    "rank": "truong_lao",
    "home": 23,
    "birthplace": 23,
-   "role": "First son of the head and master of the anvil hall; the presumed heir, with no Fire",
+   "role": "First son of the head and master of the anvil hall; has no Fire, and signs for the coal",
    "tier": "B",
    "root": {
     "elements": {
@@ -219,7 +219,7 @@
     "personality": [
      "Diligent",
      "Arrogant",
-     "Loyal"
+     "Callous"
     ],
     "calling": "Refiner",
     "upbringing": "sect_raised",
@@ -239,7 +239,7 @@
     "gained": []
    },
    "appearance": "His father's frame without the scars, in a black felt apron that never comes off.",
-   "backstory": "Born at the gate and raised at the anvil by Cát Lưu Quang (cat_luu_quang), he is the best hammer on the mountain and he knows it. He forged the Plumb Line that the Pivot's head gave Công Tôn Duẫn (cong_ton_duan) in 1112, his finest work. He cannot hold the heat of the Rite of the Fallen Star, and every year his father looks longer at the Fire-born journeyman Đinh Hỏa Lân (dinh_hoa_lan).",
+   "backstory": "Born at the gate and raised at the anvil by Cát Lưu Quang (cat_luu_quang), he is the best hammer on the mountain and he knows it. He forged the Plumb Line that the Pivot's head gave Công Tôn Duẫn (cong_ton_duan) in 1112, his finest work. He cannot hold the heat of the Rite of the Fallen Star. Since the spring his father has been teaching it to the Fire-born journeyman Đinh Hỏa Lân (dinh_hoa_lan) when the hammers stop. Cát Đoán Nhạc signs for the coal that comes up from Thạch Thán Khoáng, and he has cut the head's forge to a day's ration, so that the lessons burn the forge's winter store.",
    "ties": [
     {
      "to": "cat_luu_quang",
@@ -254,12 +254,12 @@
     {
      "to": "cat_thanh_diem",
      "kind": "child",
-     "note": "his daughter and disciple"
+     "note": "his daughter, who carries her coal to his father against him"
     },
     {
      "to": "dinh_hoa_lan",
      "kind": "rival",
-     "note": "the steppe boy his father may give the Rite to"
+     "note": "the steppe boy his father is teaching the Rite"
     },
     {
      "to": "cong_ton_duan",
@@ -289,7 +289,7 @@
     {
      "to": "nghe_bach_doan",
      "kind": "sworn_sibling",
-     "note": "his sworn brother; second hammer of the anvil hall and the heir's sworn brother"
+     "note": "his sworn brother; second hammer of the anvil hall"
     }
    ],
    "master": "cat_luu_quang",
@@ -335,7 +335,8 @@
    },
    "items": [
     "tht-coal-black-apron"
-   ]
+   ],
+   "wants": "The anvil hall's coal never short for the Pivot's blades, and the Rite kept from a steppe boy who will carry it down the mountain."
   },
   {
    "key": "bang_lanh_toi",
@@ -371,7 +372,7 @@
    "traits": {
     "personality": [
      "Patient",
-     "Honest",
+     "Greedy",
      "Reclusive"
     ],
     "calling": "Refiner",
@@ -387,12 +388,12 @@
     "gained": []
    },
    "appearance": "A thin old man with blue-white hands who stands knee-deep in the pool from dawn and never seems to feel it.",
-   "backstory": "A coal-carrier's son from Thạch Thán Khoáng, with more Water in his root than a smith should have. Cát Lưu Quang (cat_luu_quang) gave him the founder's River Tongs, because by the founder's rule the one who strikes does not quench. He was standing in the pool in 1160 when Vưu Chước Kim (vuu_chuoc_kim) struck the ingots with lightning (N-thoi_tinh-01), and he is the one witness who has never said what he heard.",
+   "backstory": "A coal-carrier's son from Thạch Thán Khoáng, with more Water in his root than a smith should have. Cát Lưu Quang (cat_luu_quang) gave him the founder's River Tongs, because by the founder's rule the one who strikes does not quench. He was standing in the pool in 1160 when Vưu Chước Kim (vuu_chuoc_kim) struck the ingots with lightning (N-thoi_tinh-01), and he never said what he heard. This autumn he named his price to the head: the pool and the tongs for Kha Ô Lan, or a sealed letter goes to Vưu.",
    "ties": [
     {
      "to": "cat_luu_quang",
      "kind": "master",
-     "note": "his head; he holds his silence for him"
+     "note": "his head; he sells him his silence for the pool, and the head has not answered"
     },
     {
      "to": "dam_kinh_nguyet",
@@ -412,7 +413,7 @@
     {
      "to": "kha_o_lan",
      "kind": "friend",
-     "note": "outer apprentice, a coal-carrier's daughter who wants the pool"
+     "note": "outer apprentice, a coal-carrier's daughter who wants the pool; he is selling his silence to get it for her"
     }
    ],
    "master": "cat_luu_quang",
@@ -538,7 +539,7 @@
     {
      "to": "sam_lac_thiet",
      "kind": "rival",
-     "note": "the Củng Tinh steward she will not trade ingots with for a comparison"
+     "note": "Thối Tinh's buyer at the Pivot's iron fair buys his Vẫn Tinh discs each spring; the smiths salt their ingots with them so they ring true under lightning"
     },
     {
      "to": "tao_bach_sinh",
@@ -608,7 +609,7 @@
    "rank": "chan_truyen",
    "home": 23,
    "birthplace": 640,
-   "role": "Journeyman smith from Phất Y Cốc's steppe; the gate's best Fire root after the head",
+   "role": "Journeyman smith from Phất Y Cốc's steppe; the gate's best Fire root after the head, being taught the Rite",
    "tier": "B",
    "root": {
     "elements": {
@@ -650,17 +651,17 @@
     "gained": []
    },
    "appearance": "A lean, sun-dark man from the dry steppe who laughs at the snow and works the forge bare-chested in winter.",
-   "backstory": "Born in Thập Giáp Thôn on the hot steppe below Phất Y Cốc, where Fire runs in the soil, he walked up the mountain at twenty to learn a trade and found that Cát Lưu Quang (cat_luu_quang) had been waiting for a fire like his for a century. He is Metal enough to pass the gate and no more. Everyone at the forge knows he may get the Rite instead of Cát Đoán Nhạc (cat_doan_nhac); he is the only one who talks about it aloud.",
+   "backstory": "Born in Thập Giáp Thôn on the hot steppe below Phất Y Cốc, where Fire runs in the soil, he walked up the mountain at twenty to learn a trade and found that Cát Lưu Quang (cat_luu_quang) had been waiting for a fire like his for a century. He is Metal enough to pass the gate and no more. Since the spring the head has been teaching him the Rite of the Fallen Star in his own forge when the hammers stop, on less coal each month. Đinh talks aloud of taking the Rite home to the forges of Thập Giáp Thôn one day.",
    "ties": [
     {
      "to": "cat_luu_quang",
      "kind": "master",
-     "note": "the head who chose him"
+     "note": "the head who is teaching him the Rite"
     },
     {
      "to": "cat_doan_nhac",
      "kind": "rival",
-     "note": "the heir he may displace"
+     "note": "the head's son, who cut the coal to his lessons"
     },
     {
      "to": "kha_than_sinh",
@@ -680,7 +681,7 @@
     {
      "to": "nghe_bach_doan",
      "kind": "rival",
-     "note": "second hammer of the anvil hall and the heir's sworn brother"
+     "note": "second hammer of the anvil hall and Cát Đoán Nhạc's sworn brother"
     },
     {
      "to": "ong_thiet_xuyen",
@@ -724,7 +725,8 @@
      "targets_note": "Fire first, as his intent says (route order changed on purpose): the Burning Blade idea (Heated Steel, Burning Blade) to heat his own sword, then the smiths' route for the Rite's Metal."
     },
     "note": "The fire the mountain does not give."
-   }
+   },
+   "wants": "The Rite whole, and one day a forge of his own on the hot steppe."
   },
   {
    "key": "cat_thanh_diem",
@@ -759,7 +761,7 @@
     "upbringing": "clan_heir",
     "path": []
    },
-   "backstory": "Cát Đoán Nhạc's (cat_doan_nhac) daughter, she has her grandfather's Fire at half the strength and wants the Rite for her father's sake; Đinh Hỏa Lân teaches her the fire behind her father's back.",
+   "backstory": "Cát Đoán Nhạc's (cat_doan_nhac) daughter, she has her grandfather's Fire at half the strength. Đinh Hỏa Lân teaches her the fire behind her father's back, and since her father cut the head's coal she carries her own ration across the yard to her grandfather's forge.",
    "ties": [
     {
      "to": "cat_doan_nhac",
@@ -784,7 +786,7 @@
     {
      "to": "dinh_hoa_lan",
      "kind": "friend",
-     "note": "the true disciple who teaches her the fire though she wants the Rite too"
+     "note": "the true disciple who teaches her the fire; she wants the Rite after him"
     },
     {
      "to": "cat_tinh_chuy",
@@ -815,7 +817,8 @@
      "intent": "Metal, with a little Fire kept warm."
     },
     "note": "Half a fire."
-   }
+   },
+   "wants": "To be taught the Rite after Đinh, for her father's sake, though he would not thank her for it."
   },
   {
    "key": "kha_than_sinh",

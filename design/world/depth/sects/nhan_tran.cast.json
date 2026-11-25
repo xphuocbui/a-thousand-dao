@@ -15,7 +15,7 @@
    "rank": "tong_chu",
    "home": 367,
    "birthplace": 38,
-   "role": "Head of Nhạn Trận Môn since 1150; drills the plain's levies every spring and keeps the gate out of Lạc Hà's quarrels",
+   "role": "Head of Nhạn Trận Môn since 1142; drills the plain's levies every spring and keeps the gate out of Lạc Hà's quarrels",
    "tier": "A",
    "root": {
     "elements": {
@@ -36,7 +36,7 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Loyal",
+     "Callous",
      "Cautious"
     ],
     "calling": "Strategist",
@@ -60,9 +60,9 @@
     ]
    },
    "appearance": "A square, weathered man with a grey goose feather in his felt cap and a voice that carries the length of a lake shore without being raised.",
-   "backstory": "Mục Hàn Nhạn was born in 900 in Nhạn Thanh Thành, the grandson of a levy farmer who walked out of Chiết Kích Nguyên in Thạch Liệt Hàng's file (N-nhan_tran-01). Fever took his parents when he was six, and the founder Thạch Liệt Hàng (thach_liet_hang) took him into the gate. He learned the file from Quản Tề Phong (quan_te_phong) and has been head since she died in her breakthrough in 1150. In the cold year of 1120 the archers of Nhạn Thanh Thành shot the geese from the walls (A171). He walked the walls breaking bows until the city forbade it, which is how the plain came to call him the Cold Goose. He drills the farmers of Thảo Đường and Nhạn Thanh on the shore of Lạc Nhạn Hồ every spring, and he has sent Lạc Hà's Geese Hall its best drill master's training, ten years of Thịnh Kinh Hàn (thinh_kinh_han). He calls Lạc Hà's war elder Cảnh Trường Thiên (canh_truong_thien), who drilled the first squads for nine years without pay, the gate's second founder.",
-   "wants": "To keep the gate out of Hình Trọng Sơn's war without saying why, and to hand the banner to his daughter at a spring levy, not on a battlefield.",
-   "secret": "Before he died in 1040 the founder told him why the gate swears never to break file. In the grey of 803 a young Kết Đan of the One Colour field ran past Thạch's line alone and empty-handed, and did not stop when Thạch shouted. In 806 the same man came to drill the survivors for nothing. Thạch knew his face, said nothing, and took the nine unpaid years as the debt paid. On his deathbed he told Mục that the man who ran was Cảnh Trường Thiên. Mục has told no one, out of gratitude for the nine years.",
+   "backstory": "Mục Hàn Nhạn was born in 900 in Nhạn Thanh Thành, the grandson of a levy farmer who walked out of Chiết Kích Nguyên in Thạch Liệt Hàng's file (N-nhan_tran-01). Fever took his parents when he was six, and the founder Thạch Liệt Hàng (thach_liet_hang) took him into the gate. He learned the file from Quản Tề Phong (quan_te_phong) and has been head since she died in her breakthrough in 1142. In the cold year of 1120 the archers of Nhạn Thanh Thành shot the geese from the walls (A171). He walked the walls breaking bows until the city forbade it, which is how the plain came to call him the Cold Goose. He drills the farmers of Thảo Đường and Nhạn Thanh on the shore of Lạc Nhạn Hồ every spring, and he has sent Lạc Hà's Geese Hall its best drill master's training, ten years of Thịnh Kinh Hàn (thinh_kinh_han). He calls Lạc Hà's war elder Cảnh Trường Thiên (canh_truong_thien), who drilled the first squads for nine years without pay, the gate's second founder.",
+   "wants": "To keep Cảnh's word and the gate's files at home, and to make Lạc Hà pay at last for the file it lost on the bridge.",
+   "secret": "Before he died in 1040 the founder told him why the gate swears never to break file. In the grey of 803 a young Kết Đan of the One Colour field ran past Thạch's line alone and empty-handed, and on his deathbed Thạch named him: Cảnh Trường Thiên. Mục kept it out of gratitude for the nine unpaid years until Kiều Thiết Dực's file died on the bridge in 1174. In 1175 he went to Cảnh and sold his silence for Cảnh's word that Lạc Hà will never again call or hire the gate's files for a war. Each spring since, Cảnh has flown down to drill the levy for nothing, and Mục bills the cities for a Lạc Hà war elder's drill and keeps the fee in the gate's chest.",
    "ties": [
     {
      "to": "quan_te_phong",
@@ -91,8 +91,8 @@
     },
     {
      "to": "canh_truong_thien",
-     "kind": "friend",
-     "note": "Lạc Hà's war elder; the gate's second founder, and the man who ran"
+     "kind": "creditor",
+     "note": "Lạc Hà's war elder and the man who ran; since 1175 he pays for Mục's silence with his word and a spring's drill"
     },
     {
      "to": "thinh_kinh_han",
@@ -162,7 +162,7 @@
     "nt-breath-cloth",
     "nt-rear-guard-shield"
    ],
-   "changed": "leans Metal, Earth -> none (no-lean sect, rules R3); birthplace 38 added; build written to the lineage. Lạc Hà's cast notes call his gate 'her gate' (canh_truong_thien, thinh_kinh_han ties); his sex stays M as in world_history."
+   "changed": "leans Metal, Earth -> none (no-lean sect, rules R3); birthplace 38 added; build written to the lineage. Lạc Hà's cast notes call his gate 'her gate' (canh_truong_thien, thinh_kinh_han ties); his sex stays M as in world_history.; fix pass B 2026-11-25 (fixB-5): Loyal -> Callous (since 1175 sells his silence for Cảnh's word and bills the cities for Cảnh's unpaid drill); want no longer the banner for his daughter; tie to canh_truong_thien now creditor"
   },
   {
    "key": "dong_kien_luy",
@@ -220,7 +220,8 @@
     "gained": []
    },
    "appearance": "A huge farmer-built man with a drumstick through his belt and a laugh like a buffalo.",
-   "backstory": "A Thảo Đường farmer's son who came to the spring levy at sixteen and never went home. Quản Tề Phong (quan_te_phong) made him a disciple. He has drilled the plain's farmers on the lake shore for a century and believes a gate that drills for war and never goes is lying to them. He writes to Lạc Hà's Hình Trọng Sơn (hinh_trong_son), and the Watch's war party counts the gate's files as its army.",
+   "backstory": "A Thảo Đường farmer's son who came to the spring levy at sixteen and never went home. Quản Tề Phong (quan_te_phong) made him a disciple. He has drilled the plain's farmers on the lake shore for a century and believes a gate that drills for war and never goes is lying to them. He writes to Lạc Hà's Hình Trọng Sơn (hinh_trong_son), and the Watch's war party counts the gate's files as its army. He thinks the head a coward, and he has promised Hình the gate's second file, Cổ Thiết Liệt's (co_thiet_liet), on the day the pact is signed.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): thinks the head a coward; has promised Hình the second file",
    "ties": [
     {
      "to": "quan_te_phong",
@@ -377,7 +378,8 @@
    "appearance": "A tall, rangy woman with her father's square jaw, a grey feather in her braid and a point-sword worn high on the back.",
    "backstory": "Mục Tân Vũ was born in 1140 in Nhạn Thanh Thành to the head Mục Hàn Nhạn (muc_han_nhan) and a Thảo Đường grain-merchant's daughter who never cultivated and died in 1190. She has held the point of the first file since 1180, the youngest in the Roll of Files. She drills by day and duels by night where the gate cannot see, because the gate forbids single fights. She has never been in a war. Her friend in Lạc Hà, Hình Lạc Nhạn (hinh_lac_nhan), walked three hundred paces into the miasma of Chiết Kích Nguyên in 1196 (N-lac_ha-07) and came back with a boy's shoe. The two of them have the same question: whether the founders really walked out of that grey in file, and whether a file could walk back in.",
    "wants": "To lead a file into something real, and to prove that the founders' art works by walking it into the grey.",
-   "secret": "She has promised Hình Lạc Nhạn a file of ten to walk into the miasma with her, breathing in turns the way the founders did. For two years she has drilled the ten at night on Hắc Thứu Đài from Thạch Liệt Hàng's notes, which she took from the Roll of Files. Đổng Kiên Lũy knows and has said nothing.",
+   "secret": "She has promised Hình Lạc Nhạn a file of ten to walk into the miasma with her, breathing in turns the way the founders did. For two years she has drilled the ten at night on Hắc Thứu Đài from Thạch Liệt Hàng's notes, which Lương Thủ Hàng (luong_thu_hang) took out of the Roll of Files for her. Đổng Kiên Lũy knows and has said nothing.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): the notes came from Lương Thủ Hàng; tie to luong_thu_hang",
    "ties": [
     {
      "to": "muc_han_nhan",
@@ -402,7 +404,7 @@
     {
      "to": "thach_liet_hang",
      "kind": "ancestor",
-     "note": "the founder whose notes she took (lineage, not blood)"
+     "note": "the founder whose notes she drills from (lineage, not blood)"
     },
     {
      "to": "ninh_bac_hang",
@@ -423,7 +425,8 @@
      "to": "duong_thu_tuyen",
      "kind": "rival",
      "note": "leads the file hired out to Lạc Hà's caravans"
-    }
+    },
+    {"to": "luong_thu_hang", "kind": "friend", "note": "the keeper of the Roll, who took the founder's notes out for her"}
    ],
    "master": "muc_han_nhan",
    "build": {
@@ -516,12 +519,13 @@
     "gained": []
    },
    "appearance": "A thin, bald man with a writing board on a cord round his neck and the names of the dead under his fingernails.",
-   "backstory": "The great-grandson of a man in Thạch Liệt Hàng's file of forty (N-nhan_tran-01), born at the gate. He keeps the Roll of Files, which lists every disciple by the file they stood in and not by name, and the burial rows below the gate, where a gap is left in each row for the dead of 803 who were not brought off the plain. He noticed in 1198 that the founder's notes were gone from the Roll, and he told Mục Hàn Nhạn (muc_han_nhan) they were being rebound.",
+   "backstory": "The great-grandson of a man in Thạch Liệt Hàng's file of forty (N-nhan_tran-01), born at the gate. He keeps the Roll of Files, which lists every disciple by the file they stood in and not by name, and the burial rows below the gate, where a gap is left in each row for the dead of 803 who were not brought off the plain. In 1198 he took the founder's notes out of the Roll for Mục Tân Vũ (muc_tan_vu) himself and told Mục Hàn Nhạn (muc_han_nhan) they were being rebound, because he wants the gaps in the burial rows filled.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): no longer 'noticed' the notes gone: he took them out for Mục Tân Vũ; tie to muc_tan_vu",
    "ties": [
     {
      "to": "muc_han_nhan",
      "kind": "master",
-     "note": "he covers for the head's daughter without being asked"
+     "note": "he lied to him about the founder's notes"
     },
     {
      "to": "hang_co_nhan",
@@ -537,7 +541,8 @@
      "to": "luong_bo_khuyet",
      "kind": "niece_nephew",
      "note": "his niece and disciple; weeds the burial rows; a descendant of the 803 file"
-    }
+    },
+    {"to": "muc_tan_vu", "kind": "friend", "note": "he took the founder's notes out of the Roll for her"}
    ],
    "master": "muc_han_nhan",
    "build": {
@@ -1185,15 +1190,15 @@
    "gloss": "Even edges",
    "sex": "F",
    "born": 830,
-   "died": 1150,
-   "cause": "failed breakthrough to Nguyên Anh, at 320",
+   "died": 1142,
+   "cause": "failed breakthrough to Nguyên Anh, at 312",
    "alive": false,
    "peak_realm": "ket_dan",
    "sect": "nhan_tran",
    "rank": "last_head",
    "home": 367,
    "birthplace": 74,
-   "role": "Second head of Nhạn Trận Môn (1040-1150)",
+   "role": "Second head of Nhạn Trận Môn (1040-1142)",
    "tier": "B",
    "traits": {
     "personality": [
@@ -1204,7 +1209,7 @@
     "calling": "Teacher",
     "upbringing": "village_born"
    },
-   "backstory": "A Thảo Đường levy girl who came to the gate in 846 and rose under the founder Thạch Liệt Hàng (thach_liet_hang). She made the spring levy a contract with Lạc Hà's cities, had the lake drum built, and trained both Mục Hàn Nhạn (muc_han_nhan) and Đổng Kiên Lũy (dong_kien_luy). She went into seclusion in 1149 to break through to Nguyên Anh and did not come out.",
+   "backstory": "A Thảo Đường levy girl who came to the gate in 846 and rose under the founder Thạch Liệt Hàng (thach_liet_hang). She made the spring levy a contract with Lạc Hà's cities, had the lake drum built, and trained both Mục Hàn Nhạn (muc_han_nhan) and Đổng Kiên Lũy (dong_kien_luy). She went into seclusion in 1141 to break through to Nguyên Anh and did not come out.",
    "ties": [
     {
      "to": "thach_liet_hang",

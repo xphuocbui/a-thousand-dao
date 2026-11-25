@@ -59,7 +59,7 @@
    },
    "appearance": "A slight woman with ink in the creases of her fingers and a grey topknot pinned with a worn brush, who looks at the sky more often than at the person speaking to her.",
    "backstory": "Diệp Tố Quyên was born in 860 in Tang Ma Thành, a silk-weaver's daughter who wove the plain silk painters buy. At twenty she carried a bolt of her own silk across the strait to Đàm Ảnh Thành, where the mainland painters were painting the sky upside down in the pool (A152). One of them, the old Kha Đạm Mặc (kha_dam_mac), had found that ink ground with qi went on moving after the brush stopped. She became his disciple. In 905 Lạc Hà granted the two of them a dry steppe west of the city that no one wanted, and they founded the abbey there (V092, N-nhan_van-01). In 1010 Kha walked into the pool at dusk with his brush and was found drowned in the morning. She believes he went into the reflection, and she has led the abbey since. In 1062 the blind master Đoạn Thương Hải (doan_thuong_hai) settled at the pool (A155). Since then she paints for him what the water shows, and he tells her what he hears in it. She pays Lạc Hà's tribute in unsigned scrolls and lets its envoy Hách Ánh Hà (hach_anh_ha) set the price.",
-   "wants": "To finish the painting Kha left half-done at the pool's edge, the sky of the morning in 705 when Cô Phàm's fleet sailed, and to choose a successor who will not try to finish it.",
+   "wants": "To finish the painting Kha left half-done at the pool's edge, the sky of the morning in 705 when Cô Phàm's fleet sailed, and to see that no one after her tries to.",
    "secret": "In 1062 she painted the morning of 705 out of the pool for Đoạn, using the founder's art. In the reflected sky the fleet did not sink. Its sails went into a fog bank west of Tịch Chiếu Đảo that is on no chart and was not there the day before. She burned the painting and has told no one, because the founder died painting that sky and because she thinks the fog is still there.",
    "ties": [
     {
@@ -167,7 +167,7 @@
     "nv-cloud-washing-brush",
     "nv-one-cloud-robe"
    ],
-   "changed": "home 364 kept; birthplace 80 added; build written to the lineage (rules R5); Talisman maker kept as her calling (the abbey's scrolls are painted talismans)."
+   "changed": "home 364 kept; birthplace 80 added; build written to the lineage (rules R5); Talisman maker kept as her calling (the abbey's scrolls are painted talismans).; fix pass B 2026-11-25 (fixB-5): want no longer chooses a successor"
   },
   {
    "key": "me_phu_van",
@@ -203,7 +203,7 @@
    },
    "traits": {
     "personality": [
-     "Ambitious",
+     "Greedy",
      "Gregarious",
      "Pragmatic"
     ],
@@ -223,7 +223,8 @@
     "gained": []
    },
    "appearance": "A handsome, well-fed man in a grey silk robe of better cut than the abbey allows, with a jade weight on his scroll-case.",
-   "backstory": "A ship-chandler's son from Triều Âm Thành, taken by the founder Kha Đạm Mặc (kha_dam_mac) as his last disciple in 990. Kha taught him the old reflection art and he has never once used it. He keeps the Pool House by the water at Đàm Ảnh Thành, teaches the painters there and sells the abbey's door scrolls in Triều Âm and Tương Phùng Thị (A148). He thinks Diệp Tố Quyên (diep_to_quyen) gives the abbey away, and Lạc Hà's Counting House agrees with him.",
+   "backstory": "A ship-chandler's son from Triều Âm Thành, taken by the founder Kha Đạm Mặc (kha_dam_mac) as his last disciple in 990. Kha taught him the old reflection art and he has never once used it. He keeps the Pool House by the water at Đàm Ảnh Thành, teaches the painters there and sells the abbey's door scrolls in Triều Âm and Tương Phùng Thị (A148). He thinks Diệp Tố Quyên (diep_to_quyen) gives the abbey away, and Lạc Hà's Counting House agrees with him. In 1199 he showed the Counting House what the scrolls fetch, and Lạc Hà raised the tribute by a tenth. He resents paying it and has taken it out of the Pool House servants' rice.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): Ambitious -> Greedy (caused the 1199 tribute raise and takes it out of the servants' rice); no longer the obvious head",
    "ties": [
     {
      "to": "kha_dam_mac",
@@ -527,7 +528,8 @@
     "gained": []
    },
    "appearance": "A broad, stooped man with pulp to the elbows and a straw hat he wears indoors.",
-   "backstory": "A cane-cutter's son from Phù Can Thôn who has kept the abbey's paper mill at Lục Trúc Thôn for sixty years and cuts its canes in Vạn Can Lâm. Every sheet the abbey paints on has passed through his hands. He was Diệp Tố Quyên's (diep_to_quyen) disciple for forty years and knows he paints badly. Lạc Hà assesses the abbey's tribute in sheets, and every autumn he argues the count with its collector Cận Thủ Chuyết (can_thu_chuyet).",
+   "backstory": "A cane-cutter's son from Phù Can Thôn who has kept the abbey's paper mill at Lục Trúc Thôn for sixty years and cuts its canes in Vạn Can Lâm. Every sheet the abbey paints on has passed through his hands. He was Diệp Tố Quyên's (diep_to_quyen) disciple for forty years and knows he paints badly. Lạc Hà assesses the abbey's tribute in sheets, and for sixty years he argued the count with its collector Cận Thủ Chuyết (can_thu_chuyet) every autumn. Since the raise of 1199 the count runs all year at the Pool House, so he sends down a double he painted himself, rolled in the sheet cart. He paints badly, and it can only nod.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): sends a double that can only nod to the year-long count",
    "ties": [
     {
      "to": "diep_to_quyen",
@@ -542,7 +544,7 @@
     {
      "to": "can_thu_chuyet",
      "kind": "rival",
-     "note": "Lạc Hà's tribute collector; they argue the sheet count every autumn"
+     "note": "Lạc Hà's tribute collector; since 1199 Cù's double sits the count with him and nods"
     },
     {
      "to": "cu_tieu_can",
@@ -729,7 +731,8 @@
     "gained": []
    },
    "appearance": "A quick young-looking man with gilt scroll-ends on his pack and a different hat in every market.",
-   "backstory": "Mễ Phù Vân's (me_phu_van) disciple, a Triều Âm Thành dock child, who carries the abbey's door scrolls to Triều Âm and Tương Phùng Thị (A148). He signs a few of them, which the abbey forbids, because a signed scroll sells for three times as much. Lạc Hà's Tăng Vân Tiêu (tang_van_tieu) buys the signed ones for his stalls on the mainland and knows exactly what they are.",
+   "backstory": "Mễ Phù Vân's (me_phu_van) disciple, a Triều Âm Thành dock child, who carries the abbey's door scrolls to Triều Âm and Tương Phùng Thị (A148). He signs a few of them, which the abbey forbids, because a signed scroll sells for three times as much. Lạc Hà's Tăng Vân Tiêu (tang_van_tieu) buys the signed ones for his stalls on the mainland and knows exactly what they are. Since last year he has taken the scrolls Tần Đảo Ảnh's (tan_dao_anh) double paints by itself with each load he collects at the Pool House, had them signed in her hand at Triều Âm, and sold them through Tăng; Tần does not know.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): sells the double's self-painted scrolls signed in Tần's hand",
    "ties": [
     {
      "to": "me_phu_van",
@@ -744,7 +747,7 @@
     {
      "to": "tan_dao_anh",
      "kind": "rival",
-     "note": "she would never sign anything, and paints better"
+     "note": "he sells her double's scrolls under her name"
     },
     {
      "to": "doan_truc_nhi",
@@ -971,7 +974,8 @@
     "calling": "Talisman maker",
     "upbringing": "village_born"
    },
-   "backstory": "A girl from the mangroves of Hồng Thụ Thôn who paints roots standing in water. She has noticed that her friend Tần Đảo Ảnh (tan_dao_anh) is in two places in the mornings, and has said nothing yet.",
+   "backstory": "A girl from the mangroves of Hồng Thụ Thôn who paints roots standing in water. She sits beside her friend Tần Đảo Ảnh's (tan_dao_anh) double at the Pool House count and answers for it, and she is teaching it to talk so that it can sit the next count alone.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): no longer 'has noticed' the double: answers for it and is teaching it to talk",
    "ties": [
     {
      "to": "me_phu_van",

@@ -99,13 +99,13 @@
    "traits": {
     "personality": [
      "Pragmatic",
-     "Ambitious",
+     "Greedy",
      "Cautious"
     ],
     "calling": "Formation master",
     "upbringing": "village_born"
    },
-   "backstory": "Lays the seal-lines over the jade beds for Thẩm Thổ Bích (tham_tho_bich) and agrees with her that the sealed books should have been sold; she has not said so to the head.",
+   "backstory": "Lays the seal-lines over the jade beds for Thẩm Thổ Bích (tham_tho_bich). For three autumns she laid a forcing seal over one of the oldest graves by the river, and her fifth of the stone's price is coming back from Thu Trì with the pills.",
    "ties": [
     {
      "to": "ly_han_bich",
@@ -115,7 +115,7 @@
     {
      "to": "tham_tho_bich",
      "kind": "friend",
-     "note": "the jade beds"
+     "note": "keeper of the jade beds; a fifth of the stone is hers"
     },
     {
      "to": "co_ky_am",
@@ -164,9 +164,9 @@
    "stage": 0,
    "sect": "thu_phan",
    "rank": "ngoai_mon",
-   "home": 230,
+   "home": 852,
    "birthplace": 852,
-   "role": "A hunters' son from the ridge, brought down on the cave walk",
+   "role": "A hunters' son of the ridge; the Cave Hall's second dark singer",
    "tier": "C",
    "root": {
     "elements": {
@@ -174,7 +174,9 @@
      "kim": 34,
      "thuy": 30
     },
-    "variants": {}
+    "variants": {
+     "am": 47
+    }
    },
    "traits": {
     "personality": [
@@ -185,7 +187,7 @@
     "calling": "Wanderer",
     "upbringing": "wild_raised"
    },
-   "backstory": "Ôn Tịch Nhai (on_tich_nhai) walked him down from the ridge in 1196 because he has Earth and Water; the head looks at him each autumn for the Darkness, and he has started pretending it has woken.",
+   "backstory": "Ôn Tịch Nhai (on_tich_nhai) shut him in the cave of Khải Lôi's dead on the Kinh Trập of 1196, and he came out singing with the ridge's Darkness awake in him. He sells the hunters the names their dead call in the cave, and makes up the ones he cannot hear.",
    "ties": [
     {
      "to": "on_tich_nhai",
@@ -319,7 +321,7 @@
     "calling": "Talisman maker",
     "upbringing": "scholar_family"
    },
-   "backstory": "Ruled the lines for Cơ Ký Âm's (co_ky_am) grave books and knows the second copy exists, because he sewed its binding; he has told no one, and has begun to read it.",
+   "backstory": "Ruled the lines for Cơ Ký Âm's (co_ky_am) grave books and sewed the second copy into the lining of his winter robe for him; when Thẩm Thổ Bích (tham_tho_bich) comes up to the copy room, he is the one who keeps her talking at the door.",
    "ties": [
     {
      "to": "co_ky_am",

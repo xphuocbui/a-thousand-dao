@@ -89,7 +89,7 @@
     {
      "to": "gia_chi_lo",
      "kind": "friend",
-     "note": "followed one of his maps into Ngọc Hồ Sơn and came back laughing"
+     "note": "followed him up Ngọc Hồ Sơn, was left at the last turn, and came back laughing"
     },
     {
      "to": "ninh_han_chi",
@@ -243,7 +243,7 @@
     {
      "to": "gia_chi_lo",
      "kind": "rival",
-     "note": "sells maps to ruins she emptied fifty years ago"
+     "note": "walks buyers to ruins she emptied fifty years ago"
     }
    ],
    "build": {
@@ -351,7 +351,7 @@
     ]
    },
    "appearance": "A long-armed old man in a lynx-skin cap with the bob tail left on, the camp's badge, and an axe hafted in lynx bone through his belt.",
-   "backstory": "Khấu Thiên Tứ was a foundling of the robbers' camp on the Ridge of the Bobtails, raised beside another nobody's son, Triều Ngũ Lang (trieu_ngu_lang), by the old chief Tề Đoản Vĩ (te_doan_vi), who had two woodsmen's axes re-hafted in lynx bone for the two boys. In 1081 a Thúy Vi road patrol ran them down on the Thạch Công road. Khấu got away into the bracken. Triều did not, and a stranger's mist hid him (N-vu_an-02). Triều never came back, and Khấu has never forgiven the mist. When the old chief died under a patrol's swords in 1139 (N-loose_north-02), Khấu took the band. He is a Golden Core in a hill camp, the strongest thing on the cape's roads that answers to no sect. The band takes from carts that do not pay Vụ Ẩn Môn's road fee, carries grain to the charcoal and tea villages in bad winters, and is fed and hidden by them in return, as Ẩn Loan once fed its pirates (A025). In 1190 his lieutenant Dương Tam Đao (duong_tam_dao) fell on a caravan under the mist on the Đồng Sơn road, and Bối Trường Đình (boi_truong_dinh) died holding it (N-vu_an-04). Khấu let the raid stand rather than lose the band.",
+   "backstory": "Khấu Thiên Tứ was a foundling of the robbers' camp on the Ridge of the Bobtails, raised beside another nobody's son, Triều Ngũ Lang (trieu_ngu_lang), by the old chief Tề Đoản Vĩ (te_doan_vi), who had two woodsmen's axes re-hafted in lynx bone for the two boys. In 1081 a Thúy Vi road patrol ran them down on the Thạch Công road. Khấu got away into the bracken. Triều did not, and a stranger's mist hid him (N-vu_an-02). Triều never came back, and Khấu has never forgiven the mist. When the old chief died under a patrol's swords in 1139 (N-loose_north-02), Khấu took the band. He is a Golden Core in a hill camp, the strongest thing on the cape's roads that answers to no sect. The band takes from carts that do not pay Vụ Ẩn Môn's road fee, carries grain to the charcoal and tea villages in bad winters, and is fed and hidden by them in return, as Ẩn Loan once fed its pirates (A025). In 1190 his lieutenant Dương Tam Đao (duong_tam_dao) fell on a caravan under the mist on the Đồng Sơn road, and Bối Trường Đình (boi_truong_dinh) died holding it (N-vu_an-04). Khấu let the raid stand rather than lose the band. Since 1190 Thúy Vi's road patrols have come onto the Đồng Sơn road and the ridge's lower crossings as if they knew where the band would be.",
    "wants": "To keep the ridge free of every sect for as long as he lives, and to sit across a fire from Triều once more before one of them dies.",
    "secret": "In the 1190 raid he saw Triều carry a six-year-old boy out of the mist and lowered his own axe to let them pass. The boy is Ký Thất Lộ, who has sworn to kill the band, and Khấu would let him try.",
    "ties": [
@@ -815,12 +815,12 @@
     "gained": []
    },
    "appearance": "A plump old woman with a pearl in each ear, one real and one glass, who never says which.",
-   "backstory": "A pearl broker's daughter of Quy Điểu Trấn, where the market is held on the lake ice (A011), Cát Châu Nương came to Hàn Tân Thành in 1120 and opened a dice house on the quay. Her family brokered pearls beside the family of Tùng Đào's first elder, Hồ Tùng Nguyệt (ho_tung_nguyet), and since 1150 Hồ has paid her for what the quay says. She keeps a ledger of every debt on the Cold Ford coast and remembers every loser; the one she likes best is a young Hồng Lô alchemist of 1150. In 1192 she bought the debts of a Phù Kiều gambler, Luyện Đắc Bảo (luyen_dac_bao), on Hồ's silver, and named the price to his sister.",
+   "backstory": "A pearl broker's daughter of Quy Điểu Trấn, where the market is held on the lake ice (A011), Cát Châu Nương came to Hàn Tân Thành in 1120 and opened a dice house on the quay. Her family brokered pearls beside the family of Tùng Đào's first elder, Hồ Tùng Nguyệt (ho_tung_nguyet), and since 1139 Hồ has paid her for what the quay says. She keeps a ledger of every debt on the Cold Ford coast and remembers every loser; the one she likes best is a young Hồng Lô alchemist of 1144. In 1192 she bought the debts of a Phù Kiều gambler, Luyện Đắc Bảo (luyen_dac_bao), on Hồ's silver, and named the price to his sister.",
    "ties": [
     {
      "to": "ho_tung_nguyet",
      "kind": "friend",
-     "note": "her paymaster since 1150; their families brokered pearls side by side"
+     "note": "her paymaster since 1139; their families brokered pearls side by side"
     },
     {
      "to": "luyen_dac_bao",
@@ -830,7 +830,7 @@
     {
      "to": "luyen_to_y",
      "kind": "rival",
-     "note": "the sister she named the price to: the Haze Walk's ninth layer"
+     "note": "the sister she named the price to: the Mist-Lock Lantern's key"
     },
     {
      "to": "phu_lien_kieu",
@@ -1134,7 +1134,7 @@
    "rank": "",
    "home": 46,
    "birthplace": 45,
-   "role": "Seller of maps in the northern markets, most of them false",
+   "role": "Guide to ruins in the northern markets; leaves his clients at the last turn",
    "tier": "B",
    "root": {
     "elements": {
@@ -1176,22 +1176,22 @@
     ]
    },
    "appearance": "A smiling man in scholar's grey with ink on every finger and a map case on each shoulder, one for buyers and one he never opens.",
-   "backstory": "Giả Chỉ Lộ draws maps: to the sealed sword cave a Hòe Âm hunter found and lost (A108), to the Peach Spring whose only true map Lạc Đan Thanh (lac_dan_thanh) keeps, to Mặc Huyết Sinh's abode, to Cung Hỏa Vân's vent on the cape. He buys Hách Tùng's (hach_tung) honest copies of Tầm Kiếm's massif, adds a cross, and sells each three times at Tùng Hạ Thị and Lam Yên Thị. Lâm Dã Hạc (lam_da_hac) once followed one into Ngọc Hồ Sơn and came back with frostbite and a laugh. In 1197 a buyer came back from a map Giả had made up and paid him double. Giả does not know what the man found.",
+   "backstory": "Giả Chỉ Lộ sells the walk, not the paper. He walks buyers to the ruins his maps name: the sword cave a Hòe Âm hunter found and lost (A108), the Peach Spring whose only true map Lạc Đan Thanh (lac_dan_thanh) keeps, Mặc Huyết Sinh's abode, Cung Hỏa Vân's vent. He takes half the fee at Tùng Hạ Thị or Lam Yên Thị, half at the foot of the climb, and leaves them at the last turn. He buys Hách Tùng's (hach_tung) honest copies of Tầm Kiếm's massif to learn the passes down. Lâm Dã Hạc (lam_da_hac) followed him up Ngọc Hồ Sơn, was left at the last turn, and came back with frostbite and a laugh. In 1197 a buyer he had left went on alone, came back and paid him double. Giả does not know what the man found.",
    "ties": [
     {
      "to": "lac_dan_thanh",
      "kind": "enemy",
-     "note": "had him beaten for selling Peach Spring maps"
+     "note": "had him beaten for walking buyers toward the Peach Spring"
     },
     {
      "to": "hach_tung",
      "kind": "friend",
-     "note": "sells him the real maps he spoils"
+     "note": "sells him the passes; Giả walks paying fools up them"
     },
     {
      "to": "lam_da_hac",
      "kind": "friend",
-     "note": "the only buyer who came back and laughed"
+     "note": "the one he left at the last turn who came back laughing"
     },
     {
      "to": "bi_tu_nuong",

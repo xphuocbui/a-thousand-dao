@@ -138,8 +138,10 @@ fills twice a day. The Returning Wake Verse is the wake behind every boat, and t
 they steer with the other. The Undertow Litany is sung over the empty rafts. The head's own Gale Courier Scripture
 (`gale-courier-scripture`, Wind) is his, not the sect's. No one else on the shoal has Wind except the girl he found.
 
-**The missing fascicle.** The catalogue's Still Moon Tide has twelve layers. Phiêu Bồng's chest held only nine when
-it came down. The other three are under the Tide Hall's floor (Lương Bạch Tần's secret).
+**The one copy.** The catalogue's Still Moon Tide has twelve layers, and Phiêu Bồng's chest held all twelve when it
+came down. The sect's copy is the abbey's own, kept in the Tide Hall, and Lương Bạch Tần, who learned it from the
+abbey's last master, teaches it to the inner gate. The third layer closes at slack water, on a turn the tide must be let
+go of a breath before it turns.
 
 ## 6. Admission (R2)
 
@@ -190,11 +192,12 @@ it came down. The other three are under the Tide Hall's floor (Lương Bạch T�
   Vô Định Thành's tallies for 802. He has kept it for four hundred years because the woman who gave it to him died for
   those archives. If it reached the Pivot, the Compact would have to answer it. If it reached Trầm Tịch Dương, it would
   tell him how his wife spent her last hour.
-- **The fascicle under the floor.** The first elder is one layer past the head, and no one asks why. Bùi's heir Sa
-  Kình Nhi will need the tenth layer one day, and Lương will not give it to the girl the man she left her master for
-  found on a beach.
-- **The heir.** Bùi is Fickle. He has named four heirs in ninety years and unnamed three. The whale-child is the fifth.
-  The sect half believes she will be the one, because Bùi has stopped talking about the others.
+- **The wrong turn.** Lương Bạch Tần teaches the inner gate the Still Moon Tide every month, and the third layer's
+  slack-water turn she teaches true to all but one kind of child. To every heir Bùi names she teaches it held, not let
+  go, and a tide held at the turn goes nowhere. Four heirs in ninety years have stalled there. Bùi unnamed three, the
+  fourth walked off the ferry, and the sect calls him fickle; Khuất Độ Sinh, the third, keeps the Strangers' Hall. Sa
+  Kình Nhi, the fifth, reached the turn this spring. Lương left her master for Bùi in 1101 and he died alone that
+  winter; she will not give his canon to Bùi's beach children.
 - **The lost boats.** Kiều Vọng Hải wants the sect to stop lending to Lận. Hầu Bách Chu has built a third boat on his
   own time, and Tôn Niệm Triều and Sa Kình Nhi both mean to sail it.
 - **The ferryman who sailed.** Ông Tế Độ took the ferry out on the day the news of the second boat came in, because the
@@ -224,7 +227,7 @@ it came down. The other three are under the Tide Hall's floor (Lương Bạch T�
 | kieu_vong_hai | Kiều Vọng Hải | nội môn | Trúc Cơ | B | Water 54, Wood 36 | captain of the coast traders |
 | hau_bach_chu | Hầu Bách Chu | nội môn | Trúc Cơ | B | Wood 60, Water 46 | shipwright |
 | cu_boi_ngan | Cù Bối Ngân | chấp sự | Trúc Cơ | C | Water 48, Earth 30 | purser, Book of Meetings |
-| sa_kinh_nhi | Sa Kình Nhi | nội môn | Luyện Khí | B | Water 66, Wood 24, Wind 34 | the head's heir, the whale-child |
+| sa_kinh_nhi | Sa Kình Nhi | nội môn | Luyện Khí | B | Water 66, Wood 24, Wind 34 | the head's fifth heir, the whale-child |
 | ong_tieu_pham | Ông Tiểu Phàm | ngoại môn | Luyện Khí | C | Water 40, Wood 34 | ferry deckhand |
 | ton_niem_trieu | Tôn Niệm Triều | ngoại môn | Luyện Khí | C | Water 38, Wood 32 | shipwright's apprentice |
 | dam_thuy_sinh | Đàm Thủy Sinh | ngoại môn | Luyện Khí | C | Wood 44, Water 32, Earth 26 | placed from Lạc Hà |
@@ -241,8 +244,9 @@ it came down. The other three are under the Tide Hall's floor (Lương Bạch T�
 2. **The third boat.** Hầu Bách Chu's hull is finished. Tôn Niệm Triều and Sa Kình Nhi plan to sail it west past the
    charts without leave, and Lận Viễn Phàm offers to pay for the voyage. Kiều Vọng Hải will stop her daughter at any
    cost, or go with her. (Hầu, Tôn, Sa, Kiều, Lận; places 302, 123.)
-3. **The tenth layer.** Sa Kình Nhi reaches the ninth layer and stalls. Someone must ask Lương Bạch Tần why the canon
-   ends there, or search the Tide Hall's floor. (Lương, Sa, Bùi; place 302.)
+3. **Where the four stalled.** Sa Kình Nhi stalls at the close of the third layer, where the four stalled. Kiều Vọng
+   Hải turns the same tide the other way at every slack water, and Sa has only to watch her, but Kiều would rather Sa
+   never sailed. Khuất Độ Sinh remembers the month he stopped. (Sa, Lương, Kiều, Khuất Độ Sinh, Bùi; place 302.)
 4. **The cliff path.** Lương asks the player to climb with her to Phiêu Bồng Quán and light its lamp. The abbey has
    tenants now: beasts, or a hermit who claims the master's books were never hers to give. (Lương; place 380.)
 5. **No names on the water.** A passenger on the ferry is wanted by Lạc Hà's Hall of Scales. Ông Tế Độ will not give

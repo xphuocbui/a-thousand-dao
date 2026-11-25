@@ -395,7 +395,7 @@
     "gained": []
    },
    "appearance": "Round-faced and laughing, in rose silk, with a fan she never opens all the way.",
-   "backstory": "A fishmonger's girl from Lạc Triều Thôn whom Nghê Hồng Đậu (nghe_hong_dau) took for her face and kept for her nerve. For sixty years she has kept the manor house on the forest road: the gracious door, the tea, and the choice of who is poured a second cup. In 1150 she poured one for a Phượng Minh spy, Tề Vong Quy (te_vong_quy), and he has gardened for the manor ever since. She thinks Nghê Xuân Chi would close the door, and she means to be at the mistress's side when the succession comes.",
+   "backstory": "A fishmonger's girl from Lạc Triều Thôn whom Nghê Hồng Đậu (nghe_hong_dau) took for her face and kept for her nerve. For sixty years she has kept the manor house on the forest road: the gracious door, the tea, and the choice of who is poured a second cup. In 1153 she poured one for a Phượng Minh spy, Tề Vong Quy (te_vong_quy), and he has gardened for the manor ever since. She thinks Nghê Xuân Chi would close the door, and she means to be at the mistress's side when the succession comes.",
    "ties": [
     {
      "to": "nghe_hong_dau",
@@ -410,7 +410,7 @@
     {
      "to": "te_vong_quy",
      "kind": "creditor",
-     "note": "she poured him the second cup in 1150"
+     "note": "she poured him the second cup in 1153"
     },
     {
      "to": "sam_van_huong",
@@ -724,9 +724,9 @@
    "rank": "tap_dich",
    "home": 263,
    "birthplace": 93,
-   "role": "A Phượng Minh disciple who came to the gracious door in 1150 and has gardened there since",
+   "role": "A Phượng Minh disciple who came to the gracious door in 1153 and has gardened there since",
    "tier": "B",
-   "exception": "servant (tạp dịch), held by the manor's charm since 1150; a Phượng Minh disciple, never taught the lineage",
+   "exception": "servant (tạp dịch), held by the manor's charm since 1153; a Phượng Minh disciple, never taught the lineage",
    "root": {
     "elements": {
      "hoa": 56,
@@ -761,7 +761,7 @@
     ]
    },
    "appearance": "A tall man in a gardener's apron with a Fire sword's calluses on his right hand and a red bean on a string at his throat.",
-   "backstory": "In 1150, the year the Tower went to war for Đan Sơn Mạch (C188), Phượng Minh sent him down the forest road to learn what the Tower's poisons were. He knocked at the gracious door, and Liễu Đa Thải (lieu_da_thai) poured him a second cup. He has tended the bean trellises at Tiêu Âm Mạch for fifty years and believes he loves her. He had a daughter by a garden servant, Tề Niệm Quy (te_niem_quy), who has spent her life trying to wake him.",
+   "backstory": "In 1153, the fourth year of the Tower's war for Đan Sơn Mạch (C188), Phượng Minh sent him down the forest road to learn what the Tower's poisons were. He knocked at the gracious door, and Liễu Đa Thải (lieu_da_thai) poured him a second cup. He has tended the bean trellises at Tiêu Âm Mạch for forty-seven years and believes he loves her. He had a daughter by a garden servant, Tề Niệm Quy (te_niem_quy), who has spent her life trying to wake him.",
    "ties": [
     {
      "to": "lieu_da_thai",
@@ -781,7 +781,7 @@
     {
      "to": "lieu_da_thai",
      "kind": "debt",
-     "note": "she poured him the second cup in 1150; he believes he loves her"
+     "note": "she poured him the second cup in 1153; he believes he loves her"
     },
     {
      "to": "ha_cuc_thi",
@@ -813,7 +813,7 @@
     },
     "tree": {
      "start": "hoa",
-     "intent": "Fire sword toward crits, as Phượng Minh taught him; he has not drawn it since 1150.",
+     "intent": "Fire sword toward crits, as Phượng Minh taught him; he has not drawn it since 1153.",
      "targets": [
       2201,
       2205,

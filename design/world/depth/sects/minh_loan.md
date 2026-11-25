@@ -93,7 +93,8 @@ go to Lạc Hà's island vassals. The peak's Darkness (12) has woken nothing in 
 - **One's own bell.** Each disciple casts a small bell at entry and wears it. The pavilion knows its people by their
   notes. A disciple whose bell cracks recasts it before they may pour again. The dead's bells have their clappers taken
   out and hang in the **Silent Eaves**.
-- **No casting in winter.** Since 1121. The head made the rule (see section 9 for why).
+- **No casting in winter.** Since 1121: the head's own penance for the bell that killed Hoa (section 9), and the
+  pavilion knows it.
 - **The note ledger.** Every bell sold is entered by its note at the Bell Wharf. A captain who loses a bell can be
   found by it, and the pavilion has twice found a stolen ship this way.
 - **Dress.** Bronze-brown wool. Casters wear clay-grey leather aprons and the outer gate wears clay to the elbow. Each
@@ -144,10 +145,11 @@ bell is for. Lạc Hà buys its ward bells here rather than admit crafters off i
 
 - **Lạc Hà Tông (lord, loyalty 65):** the pavilion's best customer. Its bells hang on the Cloud Bridge (Quách Tiếp Vân,
   1184) and on the ships of the bay (Sử Thu Thủy). Lạc Hà buys its alarms rather than make them. Quách has not answered
-  the head's letter about the new-moon ringing.
+  the head's letter about the new-moon ringing. Hình Trọng Sơn's Miasma Watch buys war bells from the pavilion that
+  Lạc Hà's head has not ordered.
 - **Thiên Bảo Trai** (fellow vassal, refiners and the treasure market): where the founders learned their trade under
   Phan Vật Hoa, and the owner of every mine near the new seat. The pavilion buys its bronze and jade from Thiên Bảo at
-  Thiên Bảo's prices. The unfinished Hundred-Bell Eaves wait on its ore.
+  Thiên Bảo's prices. The second half of the Hundred-Bell Eaves is going up without its ore.
 - **Bình Thủy Môn** (fellow vassal, ferries): every ferry of Bùi Phiêu Bình's carries a pavilion bell.
 - **Kim Vạn Lý** (loose, the wool merchant): his caravans ride with Khang Viễn Đạc's bells.
 - **Lận Viễn Phàm** (Lạc Hà's island warden): Ông Hải Linh's enemy, because his first boat took the ringer Nhạc Hải Âm
@@ -157,17 +159,25 @@ bell is for. Lạc Hà buys its ward bells here rather than admit crafters off i
 
 ## 9. Inside the sect
 
-- **The deadline of 1121.** Hoa Minh Hòa did not want to pour in the frost. Yến had promised Lạc Hà its harbour bell
-  by the new year, and she made him pour. The bell cracked as it cooled and killed him. The pavilion blames the cold,
-  and the head made the winter rule herself. Ngụy Trầm Âm was at the pit and knows. He has never said so.
+- **War bells for the Watch.** The second half of the Hundred-Bell Eaves needs more bronze than the pavilion can buy
+  from Thiên Bảo. **Yến Bội Ngọc** gets it from the Miasma Watch: behind her lord's back she casts war bells for
+  **Hình Trọng Sơn**'s war party. A sect selling thirty children for its debts has no silver for a war, so Hình pays in
+  the bronze the miasma gives back at its edge, the fittings of 803's dead, which the Watch used to bury. The pavilion
+  sells war bells only to its lord, and Lạc Hà's head has not ordered these. They leave packed as caravan bells, and
+  **Khang Viễn Đạc** rides with every cart.
+- **The tuning.** A war bell is tuned against fear, and fear needs someone to be afraid. Yến tunes each one at the
+  edge of the casting pit by ringing it at the outer disciples packing clay below, and keeps the note that makes them
+  drop their tools and run. **Mao Tiểu Hưởng** ran first and has not forgiven herself. **Ngụy Trầm Âm** casts the
+  bells, because the grave bronze left over is enough at last for his master's unstruck bell. **Lỗ Hồng Phạm** packs
+  their moulds and sends his girls back down into the pit for each new bell.
+- **The penance of 1121.** Hoa Minh Hòa did not want to pour in the frost. Yến had promised Lạc Hà its harbour bell
+  by the new year, and she made him pour; the bell cracked as it cooled and killed him. Ngụy was at the pit and told
+  the casting floor the next spring, and the head did not deny it. She made the winter rule herself as her penance and
+  has kept it every winter since. The pavilion forgave her, and says so at every pour.
 - **The note from below.** Since 1191 the forty bells at the Cloud Bridge's foot ring on new-moon nights with no wind.
   Thẩm Hưởng Nhi followed the note down to a locked door in Lạc Hà's lowest gallery and heard the head of Lạc Hà
   reading aloud behind it, with the bells answering. She has told no one. Her master told her to say nothing and wrote
   to Quách.
-- **Mountain against wharf.** Ông Hải Linh would not go up the mountain. The wharf earns most of the money and the
-  mountain casts all the bells, and each thinks it carries the other.
-- **Who wears the pendants.** The set is whole on the head. When she dies the pavilion must choose whether a new head
-  wears the founders' rite pieces or whether they are hung silent.
 
 ## 10. Treasures and sets
 
@@ -207,19 +217,23 @@ bell is for. Lạc Hà buys its ward bells here rather than admit crafters off i
 1. **The note from below.** Thẩm Hưởng Nhi asks the player to come down to the lowest gallery under Vân Kiều Trấn on
    the new moon. The bells answer whoever is reading. (Thẩm Hưởng Nhi, Miêu Thạch Lan, Quách Tiếp Vân, Tô Vãn Chiếu;
    place 558.)
-2. **The Hundred-Bell Eaves.** The head needs bronze for the second half of the eaves, and Phan Vật Hoa names a price
-   that is not coin. (Yến Bội Ngọc, Phan Vật Hoa, Ngụy Trầm Âm; places 519, 518, 20.)
-3. **A bell rang false.** A ship sinks with a pavilion bell aboard, and the note ledger says the bell passed the Winter
-   Crack. Someone has been selling seconds from the wharf. (Ông Hải Linh, Sở Thanh Đạc, Khang Viễn Đạc, Sử Thu Thủy;
-   places 527, 39.)
+2. **The Hundred-Bell Eaves.** The second half of the eaves goes up in bronze no one bought from Thiên Bảo. Phan Vật
+   Hoa owns every mine near the mountain and sells every ingot that leaves them, and she wants to know whose bronze it
+   is. (Yến Bội Ngọc, Phan Vật Hoa, Ngụy Trầm Âm, Hình Trọng Sơn; places 519, 518, 20.)
+3. **A bell rang false.** A ship sinks with a pavilion bell aboard that rang false. Ông Hải Linh rings every bell that
+   leaves the Bell Wharf herself. The false ones got past her ear because one day a month, when the melt cart is
+   loaded, Thân Lạc Âm pays her not to listen, and the cart's old false bells go out polished to the small boats. (Ông
+   Hải Linh, Thân Lạc Âm, Chiêm Thính Ba, Sử Thu Thủy; places 527, 39.)
 4. **The ringer's bell.** A Bình Thủy ferryman hears a bell on the open sea at dusk whose note is in the ledger:
    Nhạc Hải Âm's, lost in 1158. Ông Hải Linh will go with Lận Viễn Phàm after all. (Ông Hải Linh, Lận Viễn Phàm, Bùi
    Phiêu Bình, Nhạc Hải Âm; places 527, 72, 196.)
-5. **The winter rule.** A great order from Lạc Hà comes in autumn with a new-year deadline. Ngụy Trầm Âm refuses to pour
-   in the frost and tells the head why in front of the casting floor. (Yến, Ngụy, Lỗ Hồng Phạm; place 519.)
+5. **The winter rule.** Hình Trọng Sơn wants another cart of war bells by the new year. Ngụy Trầm Âm refuses to pour
+   in the frost and holds the head to her own penance in front of the casting floor. (Yến, Ngụy, Hình, Lỗ Hồng Phạm;
+   places 519, 223.)
 6. **The unstruck bell.** Ngụy Trầm Âm thinks he can cast Hoa's unstruck bell at last, with jade from the Lam Ngọc
    mine's Darkness seam. It may ring before it is hung. (Ngụy, Uông Lạc Chùy, Đậu Tiểu Hỏa; places 519, 518.)
-7. **War bells.** Lạc Hà's war party orders alarm bells tuned to frighten men, for the Miasma Watch. The pavilion sells
-   them only to its lord, and this is not quite its lord. (Hình Trọng Sơn, Yến, Khang Viễn Đạc; places 223, 519.)
+7. **War bells at the Watch.** Lạc Hà's head hears that the Watch rings new bells that turn men, not beasts, and asks
+   her vassal who cast them. Khang Viễn Đạc rode with every cart, and Mao Tiểu Hưởng knows what the note was tuned on.
+   (Tô Vãn Chiếu, Hình Trọng Sơn, Yến, Khang Viễn Đạc, Mao Tiểu Hưởng; places 558, 223, 519.)
 8. **The wool road.** Khang Viễn Đạc's ward bell fails against a steppe pack for the second time in his life, and the
    bell rang true at the wharf. (Khang, Kim Vạn Lý, Sở Thanh Đạc; places 522, 38.)

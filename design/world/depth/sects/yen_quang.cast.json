@@ -58,8 +58,8 @@
    },
    "appearance": "A lean, unhurried man in a smoke-grey robe with his sleeves tied, whose lips are stained faintly purple from seventy years of tasting pills.",
    "backstory": "Tào Mộ Tử was left at the pavilion's steppe gate as a newborn in 1080, in the hour of the evening glow. The founder Vi Ngưng Yên (vi_ngung_yen) named him from the line the pavilion was named for, the purple of the evening hills. He is the one inner disciple without an herb name. He grew up among the furnaces and, by the pavilion's rule, tasted every pill he made. When Vi died in her breakthrough in 1150 (N-yen_quang-02), her Dao partner Diêm Tử Tô (diem_tu_to) refused the headship and would not light a furnace again. The pavilion made Tào head at seventy, a Trúc Cơ over a Kết Đan grand elder. After Lạc Hà moved its seat up the mountain in 1185, its Maple Hall under Chử Hồng Diệp (chu_hong_diep) began making the sect's own pills. Tào saw his best customer learning to grow its own. In 1187 he moved the furnaces and beds to the wild mulberry wood beside Tang Ma Thành and kept the steppe as the Dusk Field (N-yen_quang-03). In 1195 he made the veil and tincture with which Lạc Hà's Hình Lạc Nhạn (hinh_lac_nhan) walked into the miasma.",
-   "wants": "To reach Kết Đan before his years run out, by a pill the pavilion's rule will not let him make for himself, and to make an antidote to the miasma of Chiết Kích Nguyên.",
-   "secret": "He knows what Hình Lạc Nhạn's tincture is for. The strength she asked for in 1197 is enough for a thousand paces of the grey, not three hundred. He made it and took his fee in miasma-root from the grey's edge, which he needs for the antidote. He has told no one, least of all Cảnh Trường Thiên, who has forbidden her the plain.",
+   "wants": "To make the miasma antidote, the one pill the Maple Hall cannot make, before his lord stops needing the pavilion at all.",
+   "secret": "He knows what Hình Lạc Nhạn's tincture is for. The strength she asked for in 1197 is enough for a thousand paces of the grey, not three hundred. He made it and took his fee in miasma-root from the grey's edge, which he needs for the antidote. He has told no one, least of all Cảnh Trường Thiên, who has forbidden her the plain. Since the winter he has been testing the antidote on himself, a dose a week, and he has kept Khổng Ích Mẫu (khong_ich_mau) home from the Watch this year to write down every dose and every fit, so that if it kills him the next maker knows where to stop.",
    "ties": [
     {
      "to": "vi_ngung_yen",
@@ -69,7 +69,7 @@
     {
      "to": "diem_tu_to",
      "kind": "friend",
-     "note": "the grand elder who will not light a furnace, even for him"
+     "note": "the grand elder who will not light a furnace"
     },
     {
      "to": "hinh_lac_nhan",
@@ -156,7 +156,7 @@
     "yq-evening-glow-furnace",
     "yq-purple-haze-gourd"
    ],
-   "changed": "home 537 -> 423 with the seat (rules R4, N-yen_quang-03); birthplace 537 added; build written to the lineage."
+   "changed": "home 537 -> 423 with the seat (rules R4, N-yen_quang-03); birthplace 537 added; build written to the lineage.; fix pass B 2026-11-25 (fixB-5): want no longer the Kết Đan pill; secret adds the weekly self-test of the antidote"
   },
   {
    "key": "diem_tu_to",
@@ -217,7 +217,8 @@
    "appearance": "A tall old man with a perilla leaf pinned to his collar, who sits beside a cold bronze furnace on the steppe every evening and polishes it until the light goes.",
    "backstory": "Diêm Tử Tô was born in 1000 in Sơn Trà Thôn, a camellia-picker's son, and came to Lạc Hà's outer gate with Wood enough for any sect and just enough Earth for its inner one. There he met Vi Ngưng Yên (vi_ngung_yen), the gate's best herbalist. In 1065, with their lord's leave, the two of them founded the pavilion on the steppe below Lạc Hà's seat to make its pills (V107). He lit its first furnace and wrote the furnace art it still teaches. In 1150 he made the pill for Vi's breakthrough to Nguyên Anh. She died in it (N-yen_quang-02). He refused the headship, gave it to Vi's foundling Tào Mộ Tử (tao_mo_tu), and has not lit a furnace since. When the pavilion moved to the mulberry wood in 1187 he stayed on the steppe, where she is buried. He keeps the Dusk Field with Văn Đương Quy (van_duong_quy) and teaches anyone who walks out at sunset.",
    "wants": "To light a furnace once more before he dies, for Văn Đương Quy's Kết Đan, and to know why Vi changed the recipe.",
-   "secret": "Sorting her notes for the move in 1187, he found that Vi changed the recipe of her breakthrough pill the night before. She added a dusk herb she had bought at Lạc Đan Thanh's stall in Vật Hoa Thị (A186). He does not know whether Lạc sold her a bad herb or whether she asked him for one. He has never asked, because either answer would end something.",
+   "secret": "Sorting her notes for the move in 1187, he found that Vi changed the recipe of her breakthrough pill the night before. She added a dusk herb she had bought at Lạc Đan Thanh's stall in Vật Hoa Thị (A186), because the drought had thinned the bed grown from Hàn Thanh Cao's seed. He does not know whether Lạc sold her a bad herb or whether she asked him for one. He has never asked, because either answer would end something. This spring Lạc sent word that he will tell, for one pill brewed in the Cold Furnace, and Chử Hồng Diệp's (chu_hong_diep) letter came the same month with a recipe very like Vi's.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): secret adds Lạc Đan Thanh's price and Chử's recipe",
    "ties": [
     {
      "to": "vi_ngung_yen",
@@ -227,7 +228,7 @@
     {
      "to": "tao_mo_tu",
      "kind": "friend",
-     "note": "the head he chose; he will not make him a pill either"
+     "note": "Vi's foundling, whom the pavilion made head in 1150 when Diêm would not take it"
     },
     {
      "to": "van_duong_quy",
@@ -573,8 +574,8 @@
    },
    "traits": {
     "personality": [
-     "Ambitious",
-     "Pragmatic",
+     "Greedy",
+     "Callous",
      "Gregarious"
     ],
     "calling": "Merchant",
@@ -593,7 +594,8 @@
     "gained": []
    },
    "appearance": "A sharp-faced woman in a silk robe dyed the green of mulberry leaves, with a price list sewn inside her sleeve.",
-   "backstory": "A Tang Ma Thành silk-dealer's daughter. She took the herb name Tang Ký in 1160 when she found mistletoe on the wild mulberries three tiles from her father's shop. It was she who told Tào Mộ Tử (tao_mo_tu) the wood was there. She keeps it now and sells the pavilion's pills in Tang Ma and to Lạc Hà. She thinks the pavilion should sell to Thúy Vi as well, since Lạc Hà's Maple Hall is selling against it.",
+   "backstory": "A Tang Ma Thành silk-dealer's daughter. She took the herb name Tang Ký in 1160 when she found mistletoe on the wild mulberries three tiles from her father's shop. It was she who told Tào Mộ Tử (tao_mo_tu) the wood was there. She keeps it now and sells the pavilion's pills in Tang Ma and to Lạc Hà. Since Lạc Hà's Maple Hall began selling against the pavilion, she has sold crates of its pills to a Thúy Vi buyer in Tang Ma Thành under Lạc Hà's posted price, and she fills them by cutting the wound salve the pavilion sells the city's rope-walkers.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): Ambitious, Pragmatic -> Greedy, Callous (sells to Thúy Vi, fills the crates from the rope-walkers' salve)",
    "ties": [
     {
      "to": "diem_tu_to",
@@ -772,7 +774,8 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
-   "backstory": "A grass-weaver's daughter from Phương Thảo Thôn (A195) who carries the evening-herb tincture up to the Miasma Watch each season for Hình Lạc Nhạn (hinh_lac_nhan), and has begun to wonder why the doses keep growing.",
+   "backstory": "A grass-weaver's daughter from Phương Thảo Thôn (A195) who carries the evening-herb tincture up to the Miasma Watch once a year for Hình Lạc Nhạn (hinh_lac_nhan), three months each way; this year the head has kept her home to write his own weekly antidote doses and fits in the tasting book.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): no longer 'begun to wonder'; carries once a year (1,387 km), kept home to keep the count",
    "ties": [
     {
      "to": "tao_mo_tu",

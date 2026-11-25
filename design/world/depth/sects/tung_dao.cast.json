@@ -233,7 +233,7 @@
    },
    "appearance": "A tall, stooped man with a ferryman's hands, who tilts his head before he speaks as if to catch a sound behind him.",
    "backstory": "Đàm Tùng Lại was born in 520 in Cổ Độ Thành, the ferry town whose men had carried the iron chain of Thiết Tỏa Quan to the river link by link fourteen years before (A054). His father was one of them and never spoke of the war. Thôi Khinh Hồng (thoi_khinh_hong) took the boy at ten for his ear: he could name every boat on the river by the sound of its oars. She gave him the pine name Tùng Lại, the wind in the pines. He became head in 900 at 380 (C021), and within a year Thúy Vi marched under the Pivot's writ (C165). In 905 he ordered the sect off the Cold Ford rather than lose the inner gate on its quays; the governor Giáp Tùng Chi (giap_tung_chi) refused to leave and died there (C166). He fought the Long Lake War for Hàm Nguyệt Trang's pearls (C170) and the Ferry War for Lãng Đào's burned boats (C192), and took no land in either: he goes to war for vassals, never for ground. He has taught more of the living elders than anyone. Ngu Lam Sơn (ngu_lam_son) sends him tea every new year. He drinks it alone and does not answer.",
-   "wants": "To leave a sect that shelters what grows under it rather than one that spreads, and to name Vi Thanh Âm heir without splitting the palace.",
+   "wants": "To leave a sect that shelters what grows under it rather than one that spreads, and to see Vi Thanh Âm, whom he named heir in 1199, come through the Root Hall's searches whole.",
    "secret": "He answers none of Ngu's letters because he wrote one in 906, a long one, and the Coiled Root Hall's men took it before it left the palace. It has passed from master to master of that hall, and Nhiếp Cô Tân has held it since 1090. In it Đàm wrote that the Cold Ford was never Tùng Đào's to keep.",
    "ties": [
     {
@@ -249,7 +249,7 @@
     {
      "to": "vi_thanh_am",
      "kind": "disciple",
-     "note": "the heir he means to name"
+     "note": "the heir he named at the new-year listening of 1199"
     },
     {
      "to": "dam_thanh_giang",
@@ -424,8 +424,8 @@
     ]
    },
    "appearance": "A broad, weathered man who still walks like a fisher on a wet quay, with a governor's seal of green stone at his belt where a sword would hang.",
-   "backstory": "Nhiếp Cô Tân was born in 872 on the quays of Hàn Tân Thành, a fisher's son under Tùng Đào's rule, two doors from a family that kept the name of a dead Thúy Vi warden. When that family's boy, Hướng Dạ Đăng (huong_da_dang), swam the river mouth to Thúy Vi in 881, the governor Giáp Tùng Chi (giap_tung_chi) took the next boy on the street into the pines, to show the quay which side it stood on. That was Nhiếp. He has no pine name: Đàm gives none, and Nhiếp would not take one from him. He keeps his own, the lone ford. In 905 Đàm Tùng Lại (dam_tung_lai) ordered the sect off the coast. Giáp stayed on the quay, and Nhiếp, a Trúc Cơ of 33, carried his master's seal out of the town (C166). He has run the Coiled Root Hall since 1090 and formed his Nascent Soul in 1151. His son Nhiếp Thừa Phong (nhiep_thua_phong) died cutting the rope bridges of the Ngư Ca border in 1174 (A202), and the Ferry War ended with the tolls split and no land changed (C193). He has buried a master and a son for a head who gives everything back. He is raising his granddaughter Nhiếp Vãn Đào (nhiep_van_dao) to be the head the sect will need.",
-   "wants": "The Cold Ford back, by writ or without one, and a head after Đàm who will take it.",
+   "backstory": "Nhiếp Cô Tân was born in 872 on the quays of Hàn Tân Thành, a fisher's son under Tùng Đào's rule, two doors from a family that kept the name of a dead Thúy Vi warden. When that family's boy, Hướng Dạ Đăng (huong_da_dang), swam the river mouth to Thúy Vi in 881, the governor Giáp Tùng Chi (giap_tung_chi) took the next boy on the street into the pines, to show the quay which side it stood on. That was Nhiếp. He has no pine name: Đàm gives none, and Nhiếp would not take one from him. He keeps his own, the lone ford. In 905 Đàm Tùng Lại (dam_tung_lai) ordered the sect off the coast. Giáp stayed on the quay, and Nhiếp, a Trúc Cơ of 33, carried his master's seal out of the town (C166). He has run the Coiled Root Hall since 1090 and formed his Nascent Soul in 1151. His son Nhiếp Thừa Phong (nhiep_thua_phong) died cutting the rope bridges of the Ngư Ca border in 1174 (A202), and the Ferry War ended with the tolls split and no land changed (C193). He has buried a master and a son for a head who gives everything back. He raised his granddaughter Nhiếp Vãn Đào (nhiep_van_dao) to be the head the sect would need, and in 1199 Đàm named Vi Thanh Âm (vi_thanh_am) instead. Nhiếp did not argue the choice. He saw ink on the heir's hand that night, and his hall has searched her rooms ever since. Since last autumn one of his patrols has also wintered at Tùng Phong Thôn, testing the village children for ears before Vạn Hác's outer gate can reach them.",
+   "wants": "The Cold Ford back, by writ or without one, and the named heir's zither opened before the council while Đàm still sits.",
    "secret": "In 1172 he sent a patrol of six onto the river-mouth ice to map Thúy Vi's crossings for a winter war, without the head's leave. They never came back (N-thuy_vi-11). He let the sect list them as deserters rather than own the order, and one of them was Lộ Thu Hà's son. He also holds the letter Đàm wrote to Ngu Lam Sơn in 906 and never sent.",
    "ties": [
     {
@@ -441,7 +441,7 @@
     {
      "to": "nhiep_van_dao",
      "kind": "grandchild",
-     "note": "his son's daughter, whom he raised, and the true disciple he means for the headship"
+     "note": "his son's daughter, whom he raised to be a head the palace did not choose"
     },
     {
      "to": "dich_kinh_lam",
@@ -496,7 +496,7 @@
     {
      "to": "vi_thanh_am",
      "kind": "rival",
-     "note": "the head's heir, who has never seen a war"
+     "note": "the named heir; he saw ink on her hand at the naming and has had her rooms searched since"
     },
     {
      "to": "tu_tich_coc",
@@ -517,6 +517,11 @@
      "to": "giap_le_han",
      "kind": "disciple",
      "note": "keeps the Coiled Root Hall's roll of the Cold Ford families"
+    },
+    {
+     "to": "khuong_lac_huyen",
+     "kind": "rival",
+     "note": "the Vạn Hác elder who takes the pine villages' hummers before the spring walk"
     }
    ],
    "master": "giap_tung_chi",
@@ -625,7 +630,7 @@
     ]
    },
    "appearance": "A thin woman in a dark blue robe with river mud always drying on the hem, who carries a green glass lamp even at noon.",
-   "backstory": "Dụ Tĩnh Lưu was born in 690 at Tĩnh Thủy Quán, the Abbey of Still Water on the low bank of the Nine-Bend River, to a lay sister who kept its lamps. In 700 the great flood drowned three villages and the abbey with them (A074). She lived four days on the roof. Two years later the survivors walked to Tùng Đào (V046), and the girl carried the abbey's altar lamp, which she had dug out of the mud. The River Hall's master Hề Tùng Ba (he_tung_ba) taught her the river until Thôi Khinh Hồng (thoi_khinh_hong) took her as a disciple in 712. She has run the River Hall at Đào Thanh Thành since 840 and kept the river vassals, Lãng Đào Môn and Thải Chi Cốc, fed and quiet. In 1175 she sat across from Lạc Hà's envoys and split the river tolls (C193). Nhiếp Cô Tân (nhiep_co_tan) has never forgiven the split, and Lạc Hà has never forgiven the terms. In council she votes with whichever side will keep a quay above the flood line, and most of the River Hall's elders are her disciples.",
+   "backstory": "Dụ Tĩnh Lưu was born in 690 at Tĩnh Thủy Quán, the Abbey of Still Water on the low bank of the Nine-Bend River, to a lay sister who kept its lamps. In 700 the great flood drowned three villages and the abbey with them (A074). She lived four days on the roof. Two years later the survivors walked to Tùng Đào (V046), and the girl carried the abbey's altar lamp, which she had dug out of the mud. The River Hall's master Hề Tùng Ba (he_tung_ba) taught her the river until Thôi Khinh Hồng (thoi_khinh_hong) took her as a disciple in 712. She has run the River Hall at Đào Thanh Thành since 840 and kept the river vassals, Lãng Đào Môn and Thải Chi Cốc, fed and quiet. Since 1176, when the war had doubled the valley's orphans and halved her tolls, the grain she sends Thải Chi has been paid for in work: the valley's oldest orphans dig the River Hall's dikes on its own reach of the river by the day, and their wages are set against the grain. In 1175 she sat across from Lạc Hà's envoys and split the river tolls (C193). Nhiếp Cô Tân (nhiep_co_tan) has never forgiven the split, and Lạc Hà has never forgiven the terms. In council she votes with whichever side will keep a quay above the flood line, and most of the River Hall's elders are her disciples.",
    "wants": "A dike from Đào Thanh Thành to the river's last bend that no flood can top, and no head who would ever have to choose which bank drowns.",
    "secret": "Hề Tùng Ba told her on his deathbed in 840 that in 700 he opened the River Hall's sluice array to save Đào Thanh Thành's quays and sent the flood onto the abbey's bank. She has run his hall for 360 years so that no one else will make that choice, and she has never told the abbey's children.",
    "ties": [
@@ -697,7 +702,7 @@
     {
      "to": "nghiem_linh_chi",
      "kind": "friend",
-     "note": "Thải Chi's valley-mistress, who feeds the river orphans"
+     "note": "Thải Chi's valley-mistress; the River Hall feeds her orphans, and since 1176 the oldest of them dig its dikes against the grain"
     },
     {
      "to": "giang_cuu_khuc",
@@ -812,15 +817,15 @@
     ],
     "path": [],
     "lifestyle": "teacher_at_heart",
-    "health": "waning_years",
+    "health": null,
     "coping": null,
     "fate_given": [],
     "gained": []
    },
    "appearance": "A plump, quick woman in grey-green with a teaching fan always in her hand, who laughs before she answers and remembers what you told her forty years ago.",
-   "backstory": "Hồ Tùng Nguyệt was born in 800 in Quy Điểu Trấn on the long lake, where the pearl market is held on the ice (A011), to a family of pearl brokers. Đàm Tùng Lại (dam_tung_lai) took her at eleven, his first disciple, and in 890 Thôi Khinh Hồng (thoi_khinh_hong) gave her a pine name. She has run the Hall of Voices for two centuries. Every method in Tùng Đào is taught by voice, and more of the canon lives in her than in anyone but the two heads; there are inner disciples who have never heard it from another mouth. She is warm, she forgets nothing, and she forgives almost everything. She keeps the ten-yearly border talks with Thúy Vi civil across the table from Biện Vãn Tình (bien_van_tinh) and Hướng Dạ Đăng (huong_da_dang). She is also 400, at the last stage of Kết Đan, with a century to live. Since 1194 she has paid a young man named Phù Liên Kiều (phu_lien_kieu) to sit in Thúy Vi's outer gate and learn what its Green Furnace knows about the Nascent Soul.",
-   "wants": "A Nascent Soul before her lifespan runs out, so that the canon in her head does not die with her.",
-   "secret": "She pays the spy partly from the Coiled Root Hall's purse, telling Nhiếp Cô Tân the boy is learning Thúy Vi's Haze Walk for his winter crossing. She has no intention of giving Nhiếp the Walk. She wants the furnace.",
+   "backstory": "Hồ Tùng Nguyệt was born in 800 in Quy Điểu Trấn on the long lake, where the pearl market is held on the ice (A011), to a family of pearl brokers. Đàm Tùng Lại (dam_tung_lai) took her at eleven, his first disciple, and in 890 Thôi Khinh Hồng (thoi_khinh_hong) gave her a pine name. She has run the Hall of Voices for two centuries. Every method in Tùng Đào is taught by voice, and more of the canon lives in her than in anyone but the two heads; there are inner disciples who have never heard it from another mouth. She is warm, she forgets nothing, and she forgives almost everything. She keeps the ten-yearly border talks with Thúy Vi civil across the table from Biện Vãn Tình (bien_van_tinh) and Hướng Dạ Đăng (huong_da_dang). She is 400, at the last stage of Kết Đan and in good health. At the border talks of 1190 Hướng Dạ Đăng quoted the primer's fourth line to her across the table, word for word. Since 1194 she has paid a young man named Phù Liên Kiều (phu_lien_kieu) to sit in Thúy Vi's outer gate, where nothing is locked, and list what its shelves hold of the pines' canon.",
+   "wants": "To know how much of the pines' canon Thúy Vi has written down from the Cold Ford families, and to bring that book home or burn it.",
+   "secret": "She pays the spy from the Coiled Root Hall's purse, telling Nhiếp Cô Tân the boy is learning Thúy Vi's Haze Walk for his winter crossing. She has no intention of giving Nhiếp the Walk. What she asks the boy for, in every letter, is the shelf list.",
    "ties": [
     {
      "to": "dam_tung_lai",
@@ -855,7 +860,7 @@
     {
      "to": "phu_lien_kieu",
      "kind": "creditor",
-     "note": "she pays the spy; he owes her what he learns"
+     "note": "she pays the spy; he owes her the shelf list"
     },
     {
      "to": "bien_van_tinh",
@@ -865,7 +870,7 @@
     {
      "to": "huong_da_dang",
      "kind": "rival",
-     "note": "Thúy Vi's warden; they do not shake hands"
+     "note": "Thúy Vi's warden; they do not shake hands, and in 1190 he quoted the primer to her"
     },
     {
      "to": "nhiep_co_tan",
@@ -875,12 +880,12 @@
     {
      "to": "luyen_to_y",
      "kind": "creditor",
-     "note": "the Vụ Ẩn woman whose brother's debt she holds; she wants the ninth layer"
+     "note": "the Vụ Ẩn woman whose brother's debt she holds; she wants the Mist-Lock Lantern's key, so that Tùng Đào's carts can lay the cape's mist themselves"
     },
     {
      "to": "cat_chau_nuong",
      "kind": "friend",
-     "note": "her paymaster since 1150; their families brokered pearls side by side"
+     "note": "her paymaster since 1139; their families brokered pearls side by side"
     },
     {
      "to": "la_truyen_thanh",
@@ -948,7 +953,7 @@
     "td-quy-dieu-pearl",
     "td-hall-of-voices-robe"
    ],
-   "changed": "build main dia_thuy (stand-in) -> pine-wave-true-canon (R5); aux pine-rain-canon added; gear phien -> td-pine-rain-fan; master dam_tung_lai added; birthplace added (55); tree targets -> intent; root, thien_phu and stage moved to the top level"
+   "changed": "build main dia_thuy (stand-in) -> pine-wave-true-canon (R5); aux pine-rain-canon added; gear phien -> td-pine-rain-fan; master dam_tung_lai added; birthplace added (55); tree targets -> intent; root, thien_phu and stage moved to the top level; fix B 2026-11-25: waning_years removed and the century clock cut (read-great-1 item 1), the spying is now for the canon"
   },
   {
    "key": "vi_thanh_am",
@@ -965,7 +970,7 @@
    "home": 2,
    "birthplace": 46,
    "tier": "A",
-   "role": "The head's true disciple and chosen heir; holds the canon to its twelfth layer",
+   "role": "The head's true disciple, named heir in 1199; holds the canon to its twelfth layer",
    "root": {
     "elements": {
      "moc": 81,
@@ -1009,14 +1014,14 @@
     "gained": []
    },
    "appearance": "A slight young woman with ink on the side of her right hand, which she keeps in her sleeve, and a seven-string zither on her back.",
-   "backstory": "Vi Thanh Âm was born in 1040 above a lamp shop in Tùng Hạ Thị, the market that grew from the pilgrims' tents under the pines (A049). At eight she repeated the whole Listening Pine Primer back to the outer gate's steward after hearing it once, and the steward walked her up to the palace that night. Đàm Tùng Lại (dam_tung_lai) has taught her ever since. She formed her Golden Core in 1160, the youngest in the sect for three hundred years, and she holds the canon to its twelfth layer, every song of the Hall of Voices and a good part of what Vạn Hác Viện plays. Đàm means her to be head, and everyone knows it, including Nhiếp Cô Tân (nhiep_co_tan), who says the palace needs a head who has seen a war. She has not. She has seen arts die. In 1151 an old ward-singer of the Array Hall died in seclusion with three ward-songs no one else had heard, and they went with him. Since then she has been doing something no disciple of Tùng Đào has done in a thousand years.",
+   "backstory": "Vi Thanh Âm was born in 1040 above a lamp shop in Tùng Hạ Thị, the market that grew from the pilgrims' tents under the pines (A049). At eight she repeated the whole Listening Pine Primer back to the outer gate's steward after hearing it once, and the steward walked her up to the palace that night. Đàm Tùng Lại (dam_tung_lai) has taught her ever since. She formed her Golden Core in 1160, the youngest in the sect for three hundred years, and she holds the canon to its twelfth layer, every song of the Hall of Voices and a good part of what Vạn Hác Viện plays. At the new-year listening of 1199 Đàm named her heir, and the Coiled Root Hall did not argue. Its master Nhiếp Cô Tân (nhiep_co_tan), who says a head should have seen a war, saw the ink on her hand that night, and his hall has searched her rooms whenever she leaves them since. She has not seen a war. She has seen arts die. In 1136 an old ward-singer of the Array Hall died in seclusion with three ward-songs no one else had heard, and they went with him. Since then she has been doing something no disciple of Tùng Đào has done in a thousand years.",
    "wants": "To be worthy of the headship, and to keep any more of the canon from dying in one person's head.",
    "secret": "She is writing the canon down. Four hundred pages of it, in a cipher of zither tablature, are hidden inside the body of her zither. It is the gravest taboo the sect has.",
    "ties": [
     {
      "to": "dam_tung_lai",
      "kind": "master",
-     "note": "he means her for the headship"
+     "note": "named her heir in 1199"
     },
     {
      "to": "ngo_to_am",
@@ -1036,12 +1041,12 @@
     {
      "to": "nhiep_co_tan",
      "kind": "rival",
-     "note": "he says a head should have seen a war"
+     "note": "says a head should have seen a war; his hall searches her rooms"
     },
     {
      "to": "nhiep_van_dao",
      "kind": "rival",
-     "note": "the Coiled Root Hall's candidate"
+     "note": "Nhiếp's granddaughter, the inner gate's best duellist; she has never come with the searchers"
     },
     {
      "to": "ha_thinh_tung",
@@ -1057,6 +1062,11 @@
      "to": "cu_dong_moc",
      "kind": "friend",
      "note": "the Vạn Hác elder whose father made her zither in 1011; he restrings it every forty years"
+    },
+    {
+     "to": "dich_kinh_lam",
+     "kind": "rival",
+     "note": "the Root Hall captain who searches her rooms, and has twice lifted her zither"
     }
    ],
    "master": "dam_tung_lai",
@@ -1112,7 +1122,7 @@
    "name_han": "靳松寒",
    "gloss": "The pine in winter",
    "sex": "M",
-   "born": 760,
+   "born": 820,
    "alive": true,
    "realm": "ket_dan",
    "stage": 2,
@@ -1142,7 +1152,7 @@
     "personality": [
      "Diligent",
      "Stubborn",
-     "Honest"
+     "Callous"
     ],
     "calling": "Formation master",
     "upbringing": "village_born",
@@ -1151,7 +1161,7 @@
      "formation_mind"
     ],
     "lifestyle": "go_player",
-    "health": "waning_years",
+    "health": null,
     "coping": "cold_detachment",
     "fate_given": [],
     "gained": [
@@ -1159,9 +1169,9 @@
     ]
    },
    "appearance": "A long-boned old man with frost-white eyebrows and blue-stained fingers, who sits very still and counts under his breath.",
-   "backstory": "Cận Tùng Hàn was born in 760 in Lâu Thuyền Trấn, a boat-builders' town on the river, and learned to lay arrays the way his father laid keels, from the bottom up. Thôi Khinh Hồng (thoi_khinh_hong) took him in 775 and named him Tùng Hàn, the pine in winter, when he made elder in 870. In the Cold Ford War he held the river mouth. In the winter of 904 Thúy Vi's Tân Hàn Chu (tan_han_chu) led forty disciples across the ice at night, and his nine flags were waiting under it. The ice broke (N-thuy_vi-06). It was the sect's only victory of the war, and it changed nothing: the ford went back to Thúy Vi the next year (C166). The palace honours him for that night, and he has never once spoken of it. He keeps the palace wards and the River Hall's sluice arrays, plays go with the steward Từ Tích Cốc (tu_tich_coc), and has refused three times to lay a crossing on the river-mouth ice for Nhiếp Cô Tân (nhiep_co_tan).",
-   "wants": "To die in his bed with his flags still rolled, and to see Khuông Hàn Ly hold the Array Hall after him.",
-   "secret": "He heard them under the ice that night for most of an hour, and he did not open the array to let any of them up. He keeps every ward-song he knows in his own head, and he has begun to fear he will die before he has taught them, as the old ward-singer did in 1151.",
+   "backstory": "Cận Tùng Hàn was born in 760 in Lâu Thuyền Trấn, a boat-builders' town on the river, and learned to lay arrays the way his father laid keels, from the bottom up. Thôi Khinh Hồng (thoi_khinh_hong) took him in 835 and named him Tùng Hàn, the pine in winter, when he made elder in 900. In the Cold Ford War he held the river mouth. In the winter of 904 Thúy Vi's Tân Hàn Chu (tan_han_chu) led forty disciples across the ice at night, and his nine flags were waiting under it. The ice broke (N-thuy_vi-06). It was the sect's only victory of the war, and it changed nothing: the ford went back to Thúy Vi the next year (C166). The palace honours him for that night, and he has never once spoken of it. He keeps the palace wards and the River Hall's sluice arrays, plays go with the steward Từ Tích Cốc (tu_tich_coc), and has refused three times to lay a crossing on the river-mouth ice for Nhiếp Cô Tân (nhiep_co_tan).",
+   "wants": "To keep his flags rolled, and to see Khuông Hàn Ly hold the Array Hall after him without ever laying a road on that ice.",
+   "secret": "He heard them under the ice that night for most of an hour, and he did not open the array to let any of them up. Now Khuông Hàn Ly brings him every flag she makes for Nhiếp's crossing to check, and he retunes each one so that the road will hold a patrol and break under a company.",
    "ties": [
     {
      "to": "thoi_khinh_hong",
@@ -1171,7 +1181,7 @@
     {
      "to": "khuong_han_ly",
      "kind": "disciple",
-     "note": "the one he would leave the hall to"
+     "note": "the one he would leave the hall to; he checks every flag she makes"
     },
     {
      "to": "hong_mac_ky",
@@ -1196,7 +1206,7 @@
     {
      "to": "nhiep_co_tan",
      "kind": "rival",
-     "note": "asks him every winter to lay the ice again"
+     "note": "asks him every winter to lay the ice again, and now asks Khuông"
     },
     {
      "to": "van_han_dang",
@@ -1257,7 +1267,8 @@
     "td-broken-ice-flags",
     "td-ward-song-seal",
     "td-keel-board-shield"
-   ]
+   ],
+   "changed": "fix B 2026-11-25: born 760 -> 820 and waning_years removed, so he no longer shares a birth year and a lifespan clock with Tiết Hàn Mai (read-great-1 item 1); Honest -> Callous (item 10); taken 775 -> 835, elder 870 -> 900"
   },
   {
    "key": "ky_tung_an",
@@ -1672,7 +1683,7 @@
     "lifestyle": "hunter"
    },
    "appearance": "A lean, scarred man in a tiger-skin half-cape with the claw marks still in it.",
-   "backstory": "His great-grandparents were among the survivors of Hổ Khiếu Trấn who planted a green pine for each of their dead at Thanh Tùng Thôn (A058), and he grew up among those trees. He hunts the tigers of the deep pines, leads the Coiled Root Hall's patrols, and has been Nhiếp Cô Tân's (nhiep_co_tan) right hand for eighty years. In 1172 he chose the six men for the river-mouth patrol and read the order aloud to them by the reed-camp fire without looking at the seal. He has started to look now.",
+   "backstory": "His great-grandparents were among the survivors of Hổ Khiếu Trấn who planted a green pine for each of their dead at Thanh Tùng Thôn (A058), and he grew up among those trees. He hunts the tigers of the deep pines, leads the Coiled Root Hall's patrols, and has been Nhiếp Cô Tân's (nhiep_co_tan) right hand for eighty years. In 1172 he chose the six men for the river-mouth patrol and read the order aloud to them by the reed-camp fire without looking at the seal. He has started to look now. Since the naming of 1199 he has led the hall's searches of the heir's rooms, and twice he has lifted her zither off its stand and weighed it in his hands.",
    "ties": [
     {
      "to": "nhiep_co_tan",
@@ -1723,6 +1734,11 @@
      "to": "manh_kien_can",
      "kind": "disciple",
      "note": "Coiled Root Hall patrolman; rode the relief to the river-mouth ice in 1172"
+    },
+    {
+     "to": "vi_thanh_am",
+     "kind": "rival",
+     "note": "the named heir whose rooms he searches; her zither is heavier than a zither should be"
     }
    ],
    "master": "nhiep_co_tan",

@@ -57,9 +57,9 @@
     ]
    },
    "appearance": "A broad, plain man with a broken nose and a staff worn smooth, who stands between people and the door without seeming to.",
-   "backstory": "Hứa Vãn Cung was born in 1150 in Tùng Gian Thành, the younger son of a timber magistrate, and was meant for the pines. He failed the inner gate's chant at fourteen, could not sit still for the listening, and left to guard caravans on the pine-sea roads instead. He did it for thirty years, as a loose cultivator with a staff and a bowyer's bow from Cung Tiễn Thôn. In the winter of 1190 wolves came out of the deep pines after the caravans (A064). He held the Tùng Hạ road for three nights with Trang Thiết Cước's (trang_thiet_cuoc) wagons behind him. His sworn brother Doanh Thủ Lộ (doanh_thu_lo) died on the second night. On the third Hứa shot the grey wolf that led the pack, and the rest went back into the trees. In 1191 the pines gave him the hill above the market, and he founded the hall there with the men who had stood on the road (V043). The Coiled Root Hall sends him Vu Hành Lâm (vu_hanh_lam) and its patrol captain Trần Bách Xuyên (tran_bach_xuyen) rides with him. Nine years old, his hall has no canon worth the name, no Golden Core and no money, and it has not lost a caravan.",
-   "wants": "A hall that outlives him: a real canon, a Kết Đan elder, and the road from Tùng Hạ to Cổ Độ never closed again.",
-   "secret": "The wolves of 1190 did not come out of the pines by chance. Doanh Thủ Lộ told him on the second night, dying, that a caravan in the column was carrying a wolf-king's cub sold out of Quần Lang Lâm, and Hứa burned the cage on the third morning without telling anyone whose wagon it was.",
+   "backstory": "Hứa Vãn Cung was born in 1150 in Tùng Gian Thành, the younger son of a timber magistrate, and was meant for the pines. He failed the inner gate's chant at fourteen, could not sit still for the listening, and left to guard caravans on the pine-sea roads instead. He did it for thirty years, as a loose cultivator with a staff and a bowyer's bow from Cung Tiễn Thôn. In the winter of 1190 wolves came out of the deep pines after the caravans (A064). He held the Tùng Hạ road for three nights with Trang Thiết Cước's (trang_thiet_cuoc) wagons behind him. His sworn brother Doanh Thủ Lộ (doanh_thu_lo) died on the second night. On the third Hứa shot the grey wolf that led the pack, and the rest went back into the trees. In 1191 the pines gave him the hill above the market, and he founded the hall there with the men who had stood on the road (V043). The Coiled Root Hall sends him Vu Hành Lâm (vu_hanh_lam) and its patrol captain Trần Bách Xuyên (tran_bach_xuyen) rides with him. Nine years old, his hall has no canon worth the name and no Golden Core. It lives on wolf pelts and the pines' bounty on wolf ears, and it has not lost a caravan. Everyone on the road knows a wolf-king's cub rode in the column of 1190, because the burned cage lay on the Tùng Hạ road for a week; Hứa burned it, and he will not say whose wagon it was.",
+   "wants": "A hall that outlives him on its own pelts: a real canon, a Kết Đan elder, the rule against shooting a running beast kept, and the road from Tùng Hạ to Cổ Độ never closed again.",
+   "secret": "The cage of 1190 was in one of Trang Thiết Cước's own wagons, hired to a buyer riding south. Once this autumn he went out alone on the Bạch Lang road to find the wolf-king and shoot it standing, before Diêm Lạc Nhạn could; he came back without it, and means to go again.",
    "ties": [
     {
      "to": "doanh_thu_lo",
@@ -213,7 +213,7 @@
     ]
    },
    "appearance": "A stout, bow-legged trader in a Pivot coat, with a camel bell on his belt that he rings when he laughs.",
-   "backstory": "A caravan master of the Pivot's Bích Khê Trấn who had walked the pine-sea road for forty years when the wolves came in 1190 (A064). He rang his lead wagon's bell for three nights to keep the column together, while Hứa Vãn Cung (hua_van_cung) held the road. He lost every wagon and kept every driver. He put his silver into the hall the next spring and keeps its accounts at the market. His nephew Trang Tiểu Đà (trang_tieu_da) is its newest warden.",
+   "backstory": "A caravan master of the Pivot's Bích Khê Trấn who had walked the pine-sea road for forty years when the wolves came in 1190 (A064). He rang his lead wagon's bell for three nights to keep the column together, while Hứa Vãn Cung (hua_van_cung) held the road. He lost every wagon and kept every driver. He put his silver into the hall the next spring and keeps its accounts at the market. His nephew Trang Tiểu Đà (trang_tieu_da) is its newest warden. The burned cage of 1190 was in one of his own wagons, hired at Bích Khê to a buyer riding south; his hire book says so.",
    "ties": [
     {
      "to": "hua_van_cung",
@@ -279,7 +279,9 @@
    },
    "items": [
     "ttg-caravan-bell"
-   ]
+   ],
+   "wants": "The wagon of 1190 left unnamed, and the hall paying its own way before his silver runs out.",
+   "secret": "He pays the hall's shortfall each winter from his own silver. This autumn he paid a Pivot caravan for a driver's leg and wrote it down as a wolf bite, without asking how the wolves got near the wagons."
   },
   {
    "key": "diem_lac_nhan",
@@ -329,12 +331,12 @@
     ]
    },
    "appearance": "A small, weathered woman in wolfskin, with an eagle on her shoulder and three wolf ears on a cord at her belt.",
-   "backstory": "Raised in Liệp Hộ Thôn, the hunters' village of the northern forest, she followed the wolf pack south in the winter of 1190 to take its leader's pelt, and found Hứa Vãn Cung (hua_van_cung) holding a road against it. She shot beside him on the third night (A064). She teaches the wardens to shoot and has never forgiven him for letting the pack go back into the pines alive.",
+   "backstory": "Raised in Liệp Hộ Thôn, the hunters' village of the northern forest, she followed the wolf pack south in the winter of 1190 to take its leader's pelt, and found Hứa Vãn Cung (hua_van_cung) holding a road against it. She shot beside him on the third night (A064). She teaches the wardens to shoot, has never forgiven him for letting the pack go back into the pines alive, and says at every meal what his rule against shooting a running beast costs the hall in ears and pelts. She says his silence about the wagon of 1190 protects a paying customer.",
    "ties": [
     {
      "to": "hua_van_cung",
      "kind": "friend",
-     "note": "she wanted every wolf dead"
+     "note": "she wanted every wolf dead; she says his rule costs the hall half its winter"
     },
     {
      "to": "vuong_tieu_nhi",
@@ -354,7 +356,7 @@
     {
      "to": "hoang_thiet_huyen",
      "kind": "disciple",
-     "note": "outer warden in the shooting yard"
+     "note": "outer warden in the shooting yard; she has paid him four pelts for running wolves"
     },
     {
      "to": "tu_tien_suong",
@@ -402,7 +404,12 @@
      "targets_note": "Warden route, then Bamboo Staff's accuracy and Bamboo Joint's crits, then Beast Pen for the eagle."
     },
     "note": "Needle-arrows and an eagle. Bow on the cham base (no bow base yet: Item DB open question)."
-   }
+   },
+   "wants": "Every wolf of the new pack dead, the wolf-king's pelt on the hall's wall, and the head's rule gone.",
+   "secret": "She pays the outer wardens a pelt from her own share for every wolf they bring in shot from behind, against the head's rule. This autumn, three days out of Tùng Hạ on the Bạch Lang road, it cost a mule-driver his leg.",
+   "beasts": [
+    "thuong_muc"
+   ]
   },
   {
    "key": "lac_tung_lang",
@@ -435,12 +442,12 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "A Bạch Lang hunter with the wolf-tooth charm (A070) who broke his arm on a wolf in 1199 and had it set for nothing by a Thải Chi boy, Nghiêm Tục Đoạn (nghiem_tuc_doan), whose father died on the same road in 1190.",
+   "backstory": "A Bạch Lang hunter with the wolf-tooth charm (A070) who broke his arm on a wolf in 1199 and had it set for nothing by Nghiêm Tục Đoạn (nghiem_tuc_doan), whose father died on the same road in 1190. This autumn he carried a mule-driver with a torn leg back to Tùng Hạ and cut Hoàng Thiết Huyền's (hoang_thiet_huyen) arrow out of a running wolf. He keeps the arrow.",
    "ties": [
     {
      "to": "diem_lac_nhan",
      "kind": "friend",
-     "note": ""
+     "note": "the other hunter of the hall; he has the arrow that would break her with the head"
     },
     {
      "to": "nghiem_tuc_doan",
@@ -466,6 +473,11 @@
      "to": "tu_tien_suong",
      "kind": "friend",
      "note": "tracker of the Bạch Lang road; reads wolf sign"
+    },
+    {
+     "to": "hoang_thiet_huyen",
+     "kind": "rival",
+     "note": "left a driver at the wagons to run down a wolf for Diêm's pelt"
     }
    ],
    "build": {
@@ -493,7 +505,9 @@
      "intent": "A warden's body."
     },
     "note": "Staff and hatchet. Staff on the loi_truong base, like Xuyên Lâm's staff (no staff base yet: Item DB open question)."
-   }
+   },
+   "wants": "For Diêm Lạc Nhạn to stop paying for running wolves before he has to choose between her and the head.",
+   "secret": "He knows from the arrow he cut out of the wolf that Diêm pays the outer wardens for running wolves, and what it cost the driver; he has shown it to no one."
   },
   {
    "key": "ly_hanh_lo",

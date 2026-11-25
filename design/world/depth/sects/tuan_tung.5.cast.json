@@ -461,24 +461,29 @@
    "traits": {
     "personality": [
      "Wrathful",
-     "Diligent",
+     "Greedy",
      "Warlike"
     ],
     "calling": "Duelist",
     "upbringing": "village_born",
     "lifestyle": "hunter"
    },
-   "backstory": "A Thanh Tùng boy who strings his own bows and wants every wolf that ever followed a caravan dead, as his master Diêm Lạc Nhạn (diem_lac_nhan) does; the head's rule against shooting a running beast is the one he argues with.",
+   "backstory": "A Thanh Tùng boy who strings his own bows and wants every wolf that ever followed a caravan dead, as his master Diêm Lạc Nhạn (diem_lac_nhan) does. She pays him a pelt for each running wolf, and he has four. This autumn, three days out of Tùng Hạ, he left a mule-driver at the wagons to run one down, and the pack took the driver's leg.",
    "ties": [
     {
      "to": "diem_lac_nhan",
      "kind": "master",
-     "note": ""
+     "note": "pays him a pelt for each running wolf"
     },
     {
      "to": "sam_thanh_tung",
      "kind": "friend",
      "note": "from his village"
+    },
+    {
+     "to": "lac_tung_lang",
+     "kind": "rival",
+     "note": "the road's warden, who cut his arrow out of the wolf"
     }
    ],
    "master": "diem_lac_nhan",

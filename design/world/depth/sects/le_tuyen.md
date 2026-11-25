@@ -16,10 +16,11 @@
 | Size | about 70 people: 25 healers and brewers, 45 cellar hands, gardeners and porters; 11 named living, 2 dead |
 | Way of life | healers of the rice plain and brewers of the spirit wine the Pivot drinks |
 
-The second of the phoenix's Three Refusals made into a hall: the phoenix drinks only from the sweet spring. The school
-is two houses that do not quite agree. The **healers** at the Dawn Hall go out to every fever on the first day,
-because once, in 812, they came late. The **brewers** at the Spring House fill the hundred jars the Pivot orders each
-year. The world knows the wine. The plain knows the healers.
+The second of the phoenix's Three Refusals made into a hall: the phoenix drinks only from the sweet spring. The
+**healers** at the Dawn Hall go out to every fever on the first day, because once, in 812, they came late. The
+**brewers** at the Spring House fill the hundred jars the Pivot orders each year, and since 1192 the forty more it
+takes, without a word in public, as the fine for the lake water in the hundred. The world knows the wine. The plain
+knows the healers. Since 1198 the school's creditors have eaten at its table.
 
 ## 2. Land and seat
 
@@ -47,7 +48,7 @@ The spring house stayed with the brewers, which is why the cellars' people (Bìn
 1120, both now at the palace) are all born at place 26.
 
 **What the move costs (to do when approved).**
-- Chronicle: A256, A257 and A263 happen at the spring and stay true. Add N-le_tuyen-01 to -04.
+- Chronicle: A256, A257 and A263 happen at the spring and stay true. Add N-le_tuyen-01 to -05.
 - Art: a small painting at 193, a hall on stilts at the lake's edge with herb terraces behind it; place 26 keeps its
   art as the Spring House.
 - Routes: a track 193 → Lục Dã Trấn (87, 3.6 tiles, on the road), and 193 → 26.
@@ -83,6 +84,8 @@ cart drivers, and most of the school's servants are Earth-rooted.
 | 1140 | The school's wine at the Pivot's table; a hundred jars a year | A263 |
 | 1141 | The Dawn Hall raised on the lake shore; the healers move down | **N-03** |
 | 1141- | The cellars cut the spring with lake water (secret) | **N-04** |
+| 1192 | The Pivot learns of the cut and fines the school forty jars of pure wine a year, in silence | **N-05** |
+| 1198 | The spring falls short of the fine; the school borrows the silver from Kim Vạn Lý | |
 
 **New chronicle proposals:**
 - **N-le_tuyen-01** (812, `death`): "Trọng Tế Thế of Lễ Tuyền goes ahead of the school's healers into fevered Cựu Khê
@@ -90,8 +93,11 @@ cart drivers, and most of the school's servants are Earth-rooted.
 - **N-le_tuyen-02** (930, `headship`): "Liêm Cam Lộ dies sitting by the sweet spring; Mai Lễ Tuyền becomes head."
 - **N-le_tuyen-03** (1141, `seat_moved`): "Mai Lễ Tuyền raises the Dawn Hall on the shore of Triêu Hà Hồ, where she
   delivered Phượng Minh's head in 950, and moves the healers down from the spring; the brewers keep the Spring House."
-- **N-le_tuyen-04** (1141, `secret`): "The Spring House's porters begin to cart lake water from the Dawn Hall up to the sweet
-  spring, a week's road, in barrels sealed as the healers' tinctures." (hidden)
+- **N-le_tuyen-04** (1141, `secret`): "The Spring House's porters begin to cart lake water from the Dawn Hall up to
+  the sweet spring, a fortnight's road, in barrels sealed as the healers' tinctures." (hidden)
+- **N-le_tuyen-05** (1192, `fine`): "The Pivot's table tastes the lake in Lễ Tuyền's wine. Thiên Xu says nothing in
+  public, takes forty jars of pure spring a year as a fine, and sends a cellar steward to live at the Spring House."
+  (hidden)
 
 ## 4. Doctrine and customs
 
@@ -150,9 +156,11 @@ member (R5): the servant porter Khấu Đại Úng (Earth, stand-in). Every othe
   envoy Bình Viễn Khách (`binh_vien_khach`) was born in its cellars. The palace drinks the school's wine at funerals and
   New Year.
 - **Thiên Xu Tông (the Pivot):** the best customer. A hundred jars a year since 1140 (A263), carried north by the
-  porter Khấu Đại Úng. Half lake water since 1141.
+  porter Khấu Đại Úng. Half lake water since 1141. The Pivot has known since 1192 and takes forty jars of pure wine a
+  year as a fine it has never announced; its cellar steward lives at the Spring House.
 - **Kim Vạn Lý** (`kim_van_ly`), the merchant of the western plains: buys the pure spring wine from Nhạc Thuần Nhưỡng in
-  secret, against the school's rule and without the palace's knowledge, and owes him for forty jars.
+  secret, against the school's rule and without the palace's knowledge, and owes him for forty jars. Since 1198 he
+  also holds the school's note for the silver it paid the Pivot's steward, and his factor eats at the Dawn Hall.
 - **Trúc Thực Viên:** the other refusal-hall. Seed and wine at New Year; Mai laughs at Ninh Trúc Thực's caution.
 - **Vọng Triều Đường:** the coast's watch, 34 tiles east. The school's healers ride to its lamp towers when a keeper
   falls ill.
@@ -161,15 +169,27 @@ member (R5): the servant porter Khấu Đại Úng (Earth, stand-in). Every othe
 ## 9. Inside the sect
 
 - **The cut wine.** The sweet spring cannot give a hundred jars a year. Since 1141 lake water is drawn at the Dawn Hall,
-  sealed in barrels as the healers' tinctures and carted the week's road up to the Spring House, and the Pivot's jars
-  are half lake. Mai allowed it, and the hall she raised on the lake is why it works: the carts leave a sick-hall, and
-  nobody asks what a sick-hall sends. If it is ever known, the second refusal (drink only from the sweet spring) is broken at the Pivot's own table.
-- **Where the pure jars go.** Nhạc Thuần Nhưỡng sends the uncut wine to Kim Vạn Lý at three times the price. Mai does
-  not know. His blind wife Cận Tri Vị tastes every jar, knows the cut ones, and has begun to count the pure ones that
-  leave the cellar. Their son Nhạc Dư Hương leads the lake carts and believes the water cools the vats.
-- **Healers or cellars.** Hà Thanh Tô, the head's true disciple, wants the school's money in the roads and the
-  sick-hall. Nhạc wants the succession and the jars doubled. Mai is 350 and in no hurry, which suits Nhạc.
-- **The mint.** Nhữ Tri Thu has noticed the mint at the spring dying back. The spring is thinning on its own.
+  sealed in barrels as the healers' tinctures and carted the fortnight's road up to the Spring House, and the Pivot's
+  jars are half lake. Mai allowed it, and the hall she raised on the lake is why it worked: the carts leave a
+  sick-hall, and nobody on the plain asks what a sick-hall sends.
+- **Forty jars a year.** In 1192 the Pivot's table tasted the lake (N-le_tuyen-05). It said nothing in public. It takes
+  forty jars of pure spring a year on top of the hundred, as a fine, and its cellar steward lives at the Spring House
+  and counts the casks each spring. The spring cannot give a hundred and forty, and the gauge Giả Tuyền Phong reads for
+  the steward each dawn shows it giving less every year. In 1198 the fine fell short, and the steward took silver for
+  the missing jars.
+- **The creditors' table.** The silver came from Kim Vạn Lý's factor on the plain, on the school's note, lent on Kim's
+  account without asking the west, where a letter takes a year. The factor has eaten at the Dawn Hall since. Kim will
+  not pay Nhạc Thuần Nhưỡng for the last forty jars of pure wine Nhạc sold him in secret: he sets them against the
+  note's interest, and Nhạc cannot complain without saying he sold them. The factor wants a surety and has named the
+  healers' sick-hall. Nhạc has drawn up the pledge and means to put it before Mai on a drinking night, when she seals
+  what she is given.
+- **A cup in ten.** Cận Tri Vị holds the fine unjust, since the cutting was her head's order. She waters the Pivot's
+  fine jars herself, a cup of lake in every ten, so the Pivot's table drinks the lake twice over. Her apprentice Bạc
+  Triều Âm tasted it at the spring count. Cận put the girl's name beside her own on the taster's seal of every fine
+  jar, so the girl's tongue now answers to the steward as well.
+- **The founder's jars.** Where the silver and the spring both fall short, Mai pours from the last wine Liêm Cam Lộ
+  brewed, kept under the Spring House for the school's dead: two jars to the steward each short spring. Eleven are
+  left.
 
 ## 10. Treasures and sets
 
@@ -187,7 +207,7 @@ member (R5): the servant porter Khấu Đại Úng (Earth, stand-in). Every othe
 |---|---|---|---|---|---|---|
 | mai_le_tuyen | Mai Lễ Tuyền | tông chủ | Kết Đan | A | Water 76, Wood 62 | head; healer; delivered the palace's head |
 | nhac_thuan_nhuong | Nhạc Thuần Nhưỡng | trưởng lão | Kết Đan | A | Water 60, Wood 48 | wine-master of the Spring House |
-| ha_thanh_to | Hà Thanh Tô | chân truyền | Trúc Cơ | B | Wood 64, Water 50 | the head's heir-in-waiting; road healers |
+| ha_thanh_to | Hà Thanh Tô | chân truyền | Trúc Cơ | B | Wood 64, Water 50 | the head's true disciple; the sick-hall and the road healers |
 | can_tri_vi | Cận Tri Vị | nội môn | Trúc Cơ | B | Water 52, Wood 46 | blind taster; Nhạc's wife |
 | nhac_du_huong | Nhạc Dư Hương | nội môn | Trúc Cơ | C | Wood 48, Water 40 | the wine-master's son; leads the lake carts |
 | ngai_bach_chi | Ngải Bạch Chỉ | nội môn | Trúc Cơ | C | Wood 55, Water 30, Earth 30 | herb master at Lục Dã |
@@ -201,13 +221,16 @@ member (R5): the servant porter Khấu Đại Úng (Earth, stand-in). Every othe
 
 ## 12. Story hooks
 
-1. **The Pivot tastes the lake.** A Thiên Xu steward notices the wine is thinner than it was in 1140. The Pivot sends
-   someone to the spring. Mai must confess, blame the cellars, or let the spring be judged. (Mai, Nhạc Thuần Nhưỡng,
-   Khấu Đại Úng; places 26, 193.)
-2. **Forty jars.** Kim Vạn Lý will not pay for the last forty jars of pure wine, and Nhạc cannot complain without saying
-   he sold them. He asks the player to collect. (Nhạc, Kim Vạn Lý; places 26, 38.)
-3. **The taster's count.** Cận Tri Vị finishes her count and must decide whether to tell the head about her husband.
-   (Cận, Nhạc, Mai, Nhạc Dư Hương; place 26.)
+1. **The steward's count.** The Pivot's steward tastes a fine jar against the spring itself and finds a cup of lake in
+   ten. He can raise the fine, or take the taster to the Pivot, and the seal carries two names. (Cận Tri Vị, Bạc Triều
+   Âm, Mai, Nhạc Thuần Nhưỡng; places 26, 193.)
+2. **Forty jars.** Kim Vạn Lý will not pay for the last forty jars of pure wine, and his factor sets them against the
+   school's note. Nhạc asks the player to collect from Kim in the west, or to sell his claim to Quản Phục Thu, who is
+   buying Kim's small debts to call them all on one day. (Nhạc, Kim Vạn Lý, Quản Phục Thu; places 26, 193, 38.)
+3. **The pledge.** On a drinking night Nhạc sets the pledge of the sick-hall before Mai. If she seals it, the factor
+   can shut the sick-hall at the first missed payment; if she does not, he calls the note, and the Pivot's steward
+   hears why it was taken. Hà Thanh Tô is already emptying the sick-hall's beds into the road camps. (Mai, Nhạc, Hà
+   Thanh Tô, Nhạc Dư Hương; places 193, 26.)
 4. **The first day.** Fever breaks out in a coast village. Hà Thanh Tô leaves that hour; the player can go with her, and
    the school's rule is tested by a town that cannot pay. (Hà, Trác Linh Tuyền, Sa Ấu Lan; places 779, 149.)
 5. **The aunt's request.** Hoa Triêu Dương asks Mai for a wine that steadies the breath of someone who plays music
@@ -215,5 +238,6 @@ member (R5): the servant porter Khấu Đại Úng (Earth, stand-in). Every othe
 6. **The spring thins.** Nhữ Tri Thu's mint dies and the spring's flow drops by a third. The school must find the
    spring's source, which the founder's notes put under the ruins of Vân Môn Thành. (Nhữ, Ngải Bạch Chỉ, Mai; places
    26, 220.)
-7. **Healers or cellars.** Mai names an heir. Whoever she chooses, the other house takes its people elsewhere: the
-   healers to the palace, the brewers to Kim Vạn Lý. (Mai, Hà, Nhạc; places 193, 26.)
+7. **The founder's jars.** The last of Liêm Cam Lộ's eleven jars goes to the steward. At the next funeral the school
+   has nothing of the founder's to pour, and Mai must tell her healers where it went. (Mai, Hà Thanh Tô, Ngải Bạch Chỉ,
+   Lộc Thảo Nhi; places 26, 87.)

@@ -139,7 +139,7 @@ years old whose founder has not formed a Golden Core.
   Hứa Vãn Cung beat Ân Lãnh Phong with a staff in 1198, and the school has not forgiven it.
 - **Thải Chi Cốc:** sets the school's broken bones. The valley-mistress thinks the barefoot rule is cruel.
 - **The sword sage Tư Không Hạc Niên** (`tu_khong_hac_nien`), who taught the founder for three winters and gave him the
-  fruit that put Metal in his root. The founder has not seen him since 1088.
+  fruit that put Metal in his root. The founder has not seen him since 1088. This year the sage wrote for his price.
 
 ## 9. Inside the sect
 
@@ -147,8 +147,12 @@ years old whose founder has not formed a Golden Core.
   Căn Quả) on the third winter, and he raised the thread of Metal it left by marrow-washing over sixty years. He owes
   the sage the fruit and has told no one. Every child he turns away is the child he was. If it came out,
   his rule would fall. Phó Ngạo Sương would open the gate, and Ninh Hàn Chi would come back.
-- **The heir he will not name.** Phó Ngạo Sương reached Trúc Cơ in 1160 and has been his equal since. Trác Thiết Cán
-  says she should be heir. Lăng says no one is ready, meaning that no one is better than he is, and she is.
+- **The sage's price.** In 1088 the price of the fruit was the first disciple Lăng would ever make. At this new year
+  **Tư Không Hạc Niên** wrote from Tống Khách Thị for **Phó Ngạo Sương** by name. A Băng Tâm envoy flew the letter to
+  the pines' palace, and the pines' envoy brought it up in summer. **Lăng Đạp Tuyết** sent back that his first
+  disciple was his dead daughter, so the tiger has paid. He asked **Trác Thiết Cán** to recut the year on the tang of
+  Phó's first sword. Trác forged it in 1125 and refused, and is forging her a travelling sword from the last good iron
+  in the seam.
 - **The road of 1162.** Phó Ngạo Sương was with Lăng Nhược Mai when the tiger came, and lived. The founder has never
   asked her what happened, and she has never told him.
 - **The iron.** The mountain's ore is thin. Trác Thiết Cán knows the seam he forges from will last perhaps forty years.
@@ -168,10 +172,10 @@ years old whose founder has not formed a Golden Core.
 |---|---|---|---|---|---|---|
 | lang_dap_tuyet | Lăng Đạp Tuyết | tông chủ | Trúc Cơ | A | Wood 58, Metal 54 | founder and head |
 | trac_thiet_can | Trác Thiết Cán | trưởng lão | Trúc Cơ | B | Metal 60, Wood 32 | smith; sworn brother |
-| pho_ngao_suong | Phó Ngạo Sương | chân truyền | Trúc Cơ | B | Metal 56, Wood 44 | first disciple; the unnamed heir |
+| pho_ngao_suong | Phó Ngạo Sương | chân truyền | Trúc Cơ | B | Metal 56, Wood 44 | first disciple; the sage's price |
 | mac_chiet_chi | Mạc Chiết Chi | nội môn | Trúc Cơ | C | Metal 50, Wood 36 | keeper of the plum gate |
 | la_thiet_mai | La Thiết Mai | nội môn | Luyện Khí | C | Metal 52, Wood 34 | the founder's last disciple |
-| cung_han_nhan | Cung Hàn Nhạn | nội môn | Luyện Khí | C | Metal 46, Wood 40 | the heir's disciple |
+| cung_han_nhan | Cung Hàn Nhạn | nội môn | Luyện Khí | C | Metal 46, Wood 40 | Phó Ngạo Sương's disciple |
 | du_ho_van | Dư Hổ Văn | ngoại môn | Luyện Khí | C | Metal 40, Earth 30, Wood 28 | smith's boy, miner's grandson |
 | phi_tam_mai | Phí Tầm Mai | ngoại môn | Luyện Khí | C | Wood 46, Metal 34 | the Hàn Mai girl who passed |
 | an_lanh_phong | Ân Lãnh Phong | nội môn | Luyện Khí | C | Metal 48, Earth 30 | picks fights with the wardens |
@@ -185,10 +189,12 @@ who have reached his realm (`former_master` ties), so it stops at 9 named living
 1. **The child he was.** Ninh Hàn Chi learns, from a letter of Phí Tầm Mai's or from the sword sage, that the founder was
    born without Metal. She comes back to the plum gate with the truth. (Ninh Hàn Chi, Phí Tầm Mai, Lăng Đạp Tuyết, Mạc
    Chiết Chi; place 284.)
-2. **The sword sage.** Tư Không Hạc Niên passes through Cửu Khúc Xuyên. Lăng wants a Golden Core and the sage knows where
-   the fruit came from and what it is owed. (Lăng Đạp Tuyết, Tư Không Hạc Niên, Phó Ngạo Sương.)
+2. **The letter.** Lăng's answer reaches Tống Khách Thị, and Tư Không Hạc Niên leaves the market for the first time in
+   seventy years. He passes through Cửu Khúc Xuyên on his way to the plum gate, asking who the founder's first disciple
+   was. Phó has never been shown the letter that named her. The tang of her first sword says 1125. (Lăng Đạp Tuyết, Tư
+   Không Hạc Niên, Phó Ngạo Sương, Trác Thiết Cán.)
 3. **The road of 1162.** Phó Ngạo Sương finally tells what happened on the mountain road: Nhược Mai ran toward the tiger
-   to give her time. The founder must decide whether that makes her his heir or his enemy. (Phó Ngạo Sương, Lăng Đạp
+   to give her time. The founder must decide whether that makes her his debt or his enemy. (Phó Ngạo Sương, Lăng Đạp
    Tuyết, Trác Thiết Cán.)
 4. **The last seam.** Trác Thiết Cán's seam runs out, and the iron of Thạch Khẩu is gone. The school needs Metal ground,
    ore, or the chain links the Cổ Độ smiths drag from the river (A061). (Trác Thiết Cán, Dư Hổ Văn; places 1262, 61, 229.)

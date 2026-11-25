@@ -16,11 +16,10 @@
 | Size | about 35 people and some four hundred birds; 9 named living, 2 dead |
 | Way of life | bird catchers turned bird keepers: they raise the palace's post birds and gather the feathers its fans are made of |
 
-The youngest of the palace's vassals and the only one founded by people who were not cultivators first. Three bird
+The palace's second-youngest vassal, and the only one founded by people who were not cultivators first. Three bird
 catchers of the cinnamon woods, two sisters and an old man, built tree-lofts in the jungle in 1110 and offered the
 palace their birds. Their creed is one line: all birds bow to the phoenix. The pavilion is a family more than a sect.
-It has no Kết Đan, and its head is Trúc Cơ with seventy years left to change that. It wants more than it has, and
-its head has begun to take it.
+It has no Kết Đan. It wants more than it has, and its head is taking it.
 
 ## 2. Land and seat
 
@@ -57,7 +56,7 @@ give the Metal roots that make cages, which the pavilion barely uses.
 | 1168 | Ổ Tùng Lâm killed by the dark apes of Huyền Viên Lâm | **N-03** |
 | 1180 | Ổ Linh Tước sent to the Wutong Court to learn the red-crested birds | |
 | 1195 | Every bird on the ridge falls silent at a musician's tune in Thiều Âm Thị; the pavilion's birds stop too | A248 |
-| 1196-1199 | Nine red-crested writ birds hatch in a hidden loft | **N-04** (hidden) |
+| 1196-1199 | Nine red-crested writ birds hatch in a hidden loft; in 1199 the Wutong Court's red-crested hen dies on her nest | **N-04** (hidden) |
 
 **New chronicle proposals:**
 - **N-bach_vu-01** (1105, `tale`): "A blue-crested bird dies of age on the arm of a cinnamon-wood catcher, Tạ, who takes
@@ -111,7 +110,7 @@ palace's Morning Sun Feather Fan. Non-lineage member (R5): the servant cage-make
 | The moulting lofts (the hundred feathers) | 330 | Tạ Thanh Thước |
 | The post (the palace's ordinary letters) | 330 and every vassal | Giải Vân Tiêu |
 | The fan bench (practice fans for the palace's inner gate) | 330 | Hàng Thải Vũ |
-| The hidden loft | 330 | Nhiêu Tiểu Yến, under the head |
+| The hidden loft | 330 | Nhiêu Tiểu Yến, under the head (promised to Ổ Linh Tước on the day of the gift) |
 
 The pavilion has no Kết Đan. Its head and elder are Trúc Cơ, so its masters can teach only Luyện Khí disciples. The
 inner disciples of Trúc Cơ (Giải, Hàng) learned from the sisters before they were equals.
@@ -134,11 +133,19 @@ inner disciples of Trúc Cơ (Giải, Hàng) learned from the sisters before the
 ## 9. Inside the sect
 
 - **The nine birds.** Since 1196 nine red-crested writ birds have hatched in a hidden loft from eggs Ổ Linh Tước
-  carried out of the Wutong aviary. Tạ Thanh Loan means to present them to the palace head and ask for the writs.
-  Her disciple Nhiêu Tiểu Yến feeds them and thinks it an honour. Her sister believes the eggs were Vu Ngô Đồng's gift.
-  Vu has not counted his eggs, or has and said nothing.
-- **Seventy years.** The head is 128, Trúc Cơ at its peak, with no Kết Đan above her to learn from. Ambition and
-  loyalty pull her the same way, toward the palace, and she would trade much for a breakthrough pill from its furnace.
+  carried out of the Wutong Court's aviary, a few from each clutch of its one breeding hen. In 1199 the hen would not
+  leave her last clutch. Ổ wrung her neck on the nest, took the eggs, and told Vu Ngô Đồng she had died in the moult;
+  Vu wrote her off and has not counted his eggs. The last basket came down to the pavilion lined with her down, kept
+  warm for the road, plucked and bloody at the quills. Tạ Thanh Loan opened it, burned the down, and told her sister
+  the eggs were Vu's gift.
+- **The gift.** Tạ means to carry the nine to the Fire Court, give them to the palace head, and ask that the writs fly
+  on Bách Vũ's birds. It is the finest thing the pavilion has ever made, and everyone who touched it is guilty. Hoàn
+  Trúc Lung made nine travelling cages for it and charged double. Ổ's price for the hen is to come home as keeper of the
+  writ loft, and Tạ has promised it: when the head comes back from the Fire Court, Ổ comes home, and Nhiêu Tiểu Yến, who
+  has fed the nine for four years, hands him the key.
+- **Where the birds go home.** No one has told Nhiêu that a gift should home anywhere else. At dawn she teaches the
+  nine to come to the Blue Luan Whistle and to roost in the hidden loft, so on their first morning at the Fire Court the
+  palace's new writ birds will fly back to Bách Vũ.
 - **The second seal.** Giải Vân Tiêu flies the Tower's letters and has told only his head, who told him to forget it.
 - **The silent day.** In 1195 the pavilion's birds fell silent with the ridge's (A248). Quế Hoàng Oanh remembers the
   moment, and Tạ Thanh Loan wants to know what could do that to a bird.
@@ -169,13 +176,14 @@ inner disciples of Trúc Cơ (Giải, Hàng) learned from the sisters before the
 
 ## 12. Story hooks
 
-1. **Nine birds for the head.** Tạ Thanh Loan carries her writ birds to the Fire Court. The palace head is pleased.
-   Vu Ngô Đồng is asked where they came from, and Ổ Linh Tước must answer. (Tạ, Ổ Linh Tước, Vu, Hoa Triêu Dương,
-   Nhiêu Tiểu Yến; places 330, 6, 449.)
+1. **Nine birds for the head.** Tạ Thanh Loan carries her writ birds to the Fire Court. The palace head is pleased and
+   sends to the Wutong Court to ask where they came from. Lâm Thê Ngô has gone back up for a season to keep the dead
+   hen's loft, and he can count eggs. (Tạ, Ổ Linh Tước, Vu, Hoa Triêu Dương, Lâm Thê Ngô; places 330, 449, 6.)
 2. **The second seal.** The player carries the post for Giải Vân Tiêu and is asked by someone in the palace to open a
    letter to the Tower. (Giải, Chử Trì Âm, Trình Hi Quang, Quan Vũ Thanh; places 330, 449.)
-3. **A pill for seventy years.** Tạ Thanh Loan needs a Kết Đan pill. The palace's alchemist Kế Chu Sa wants one feather
-   in return, the kind for the hundredth socket. (Tạ, Tạ Thanh Thước, Kế Chu Sa; places 330, 248.)
+3. **The first morning.** The nine fly home from the Fire Court on their first morning, writs on their legs, and
+   Nhiêu Tiểu Yến wakes to nine sealed writs in the hidden loft. The player can carry them back before anyone reads
+   them, or open one. (Nhiêu, Tạ, Ổ Linh Tước, Giải Vân Tiêu; places 330, 449.)
 4. **The apes.** The dark apes of Huyền Viên Lâm come down to the lofts. The player can hunt them, bargain with them, or
    find out what drove them out of the jungle. (Tạ Thanh Thước, Trần Dã Minh; places 235, 330.)
 5. **The silent tune.** Quế Hoàng Oanh hums what the birds heard in 1195. Every bird in the pavilion stops singing. Tạ

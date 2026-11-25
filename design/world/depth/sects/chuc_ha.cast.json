@@ -35,7 +35,7 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Gregarious",
+     "Callous",
      "Impatient"
     ],
     "calling": "Refiner",
@@ -58,19 +58,19 @@
     ]
    },
    "appearance": "A tall, quick woman with burn-pale fingertips and a red shuttle stuck through her hair like a pin.",
-   "backstory": "Thân Vân Cẩm was born in 1110 to a weaving house of Tang Điền, where the mulberry has fed the south's silkworms since 200 (A300). The town's weavers descend from the reelers who fled Hỏa Ti Trấn when it burned in 590 (V165), and they have never stopped wanting the fire-silk back. Her mother Hầu Tố Cẩm (hau_to_cam) tried to put fire into silk with her own Fire, burned her hands to the bone, and died in 1148. Thân made a method of it and in 1150 founded the pavilion with weavers sworn to the palace (V172): fire-silk from Tang Điền's worms, woven without the vents, keeping the letter of the founder's vow. It holds a season, then chars. The palace's treasurer Vưu Cẩm Thư (vuu_cam_thu) buys it at a price that hurts, and her factor Chiêm Lợi Châu (chiem_loi_chau) beats the price down further. The array keeper Tang Kế Ti (tang_ke_ti) splices it into the Nest Array in secret and owes her for it. Tang's son Tang Tục Lạc (tang_tuc_lac) carries it, and Thân loves him.",
-   "wants": "Silk that lasts: a banner to equal the Xích Hà Kỳ, hung in the palace's Hall of Virtue with her name on it.",
-   "secret": "Last winter Tang Tục Lạc brought her one strand of his mother's new silk to compare. It was reeled at the vent, against the founder's vow, and it is better than anything she has woven. She has kept the strand and knows what it means.",
+   "backstory": "Thân Vân Cẩm was born in 1110 to a weaving house of Tang Điền, where the mulberry has fed the south's silkworms since 200 (A300). The town's weavers descend from the reelers who fled Hỏa Ti Trấn when it burned in 590 (V165), and they have never stopped wanting the fire-silk back. Her mother Hầu Tố Cẩm (hau_to_cam) tried to put fire into silk with her own Fire, burned her hands to the bone, and died in 1148. Thân made a method of it and in 1150 founded the pavilion with weavers sworn to the palace (V172): fire-silk from Tang Điền's worms, woven without the vents, keeping the letter of the founder's vow. It holds a season, then chars. The palace's treasurer Vưu Cẩm Thư (vuu_cam_thu) buys it at a price that hurts, and her factor Chiêm Lợi Châu (chiem_loi_chau) beats the price down further. The array keeper Tang Kế Ti (tang_ke_ti) splices it into the Nest Array in secret and owes her for it. Tang's son Tang Tục Lạc (tang_tuc_lac) carries it, and Thân loves him. Last autumn he asked her to marry him, and this spring his mother named the dowry.",
+   "wants": "Silk that lasts: a banner to equal the Xích Hà Kỳ, hung in the palace's Hall of Virtue with her name on it; and Tang Tục Lạc, on whatever terms his mother names.",
+   "secret": "Last winter Tang Tục Lạc brought her one strand of his mother's new silk to compare. It was reeled at the vent, against the founder's vow, and she has kept it, so she knows what the dowry is for. She means to say yes. Since spring she has cut the outer gate's rice by a third against the sixty dowry years, and tells the girls it is the palace's price.",
    "ties": [
     {
      "to": "tang_tuc_lac",
      "kind": "lover",
-     "note": "the array keeper's son, who rides to the pavilion every month"
+     "note": "the array keeper's son, who rides down with the silk cart twice a year; asked her to marry him last autumn"
     },
     {
      "to": "tang_ke_ti",
      "kind": "creditor",
-     "note": "the palace's array keeper owes her for silk the treasury has not been told about"
+     "note": "owes her for silk the treasury has not been told about, and has named the dowry for her son"
     },
     {
      "to": "vuu_cam_thu",
@@ -115,7 +115,7 @@
     {
      "to": "thanh_kim_toa",
      "kind": "friend",
-     "note": "her steward"
+     "note": "her factor at Tang Điền; she does not ask what the cart carries"
     },
     {
      "to": "tich_diem_ti",
@@ -171,7 +171,7 @@
     "chc-red-cloud-shuttle",
     "chc-season-woven-robe"
    ],
-   "changed": "new record fields for an existing person (tier A): root, build, birthplace 94, ties. Key, name, birth, realm, sect and rank kept."
+   "changed": "new record fields for an existing person (tier A): root, build, birthplace 94, ties. Key, name, birth, realm, sect and rank kept.; pass B (fixB-1, 2026-11-25): the dowry arc (SHAPES-PLAN §4.2 chuc_ha); traits Gregarious -> Callous (the cut rice); the strand stays as a fact"
   },
   {
    "key": "nhiem_thanh_lam",
@@ -337,12 +337,12 @@
     "gained": []
    },
    "appearance": "A small, careful woman who carries silkworms in her sleeve to keep them warm.",
-   "backstory": "Of the Tang reeler family of Tang Điền, cousin of the palace's array keeper Tang Kế Ti (tang_ke_ti), whose line went up to the Fire Court with Tang Sơ Ti in 592 while hers stayed with the worms. She keeps the pavilion's sheds and reweaves the Robe of the First Weave every season. She will not go near the vents, because of the founder's vow, and she would be the first to know if her cousin had.",
+   "backstory": "Of the Tang reeler family of Tang Điền, cousin of the palace's array keeper Tang Kế Ti (tang_ke_ti), whose line went up to the Fire Court with Tang Sơ Ti in 592 while hers stayed with the worms. She keeps the pavilion's sheds, reweaves the Robe of the First Weave every season, and keeps the founder's vow stricter than anyone. Since her cousin named the dowry she has packed the northern bolts under the leaf-pickers' baskets herself, because sixty years at the palace's price would starve her sheds.",
    "ties": [
     {
      "to": "tang_ke_ti",
      "kind": "cousin",
-     "note": "the palace branch of the family"
+     "note": "the palace branch of the family, whose dowry would starve her sheds"
     },
     {
      "to": "than_van_cam",
@@ -373,6 +373,11 @@
      "to": "trinh_to_am",
      "kind": "friend",
      "note": "reeler in the worm sheds; judges the year's bolts"
+    },
+    {
+     "to": "thanh_kim_toa",
+     "kind": "friend",
+     "note": "she packs the bolts he sells north"
     }
    ],
    "build": {
@@ -411,7 +416,8 @@
    },
    "items": [
     "chc-first-weave-robe"
-   ]
+   ],
+   "changed": "pass B (fixB-1, 2026-11-25): no longer the would-be noticer of the vent strand; she packs the northern bolts (SHAPES-PLAN §4.2 chuc_ha)"
   },
   {
    "key": "thanh_kim_toa",
@@ -445,7 +451,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "He sells the pavilion's silk at Tang Điền across the table from the palace's factor Chiêm Lợi Châu (chiem_loi_chau), loses every year, and has begun selling a few bolts quietly to caravans going north.",
+   "backstory": "He sells the pavilion's silk at Tang Điền across the table from the palace's factor Chiêm Lợi Châu (chiem_loi_chau) and loses every year. The few bolts he once sold quietly to caravans going north are now the whole pavilion's second trade; they come down under the palace's bolts on the season's cart.",
    "ties": [
     {
      "to": "chiem_loi_chau",
@@ -455,7 +461,7 @@
     {
      "to": "than_van_cam",
      "kind": "friend",
-     "note": ""
+     "note": "his head, who does not ask what the cart carries"
     },
     {
      "to": "quan_bo_hanh",
@@ -466,6 +472,11 @@
      "to": "co_chuc_viem",
      "kind": "friend",
      "note": "weaves the season's charring robes"
+    },
+    {
+     "to": "tang_mong_kien",
+     "kind": "friend",
+     "note": "packs the bolts he sells north"
     }
    ],
    "build": {
@@ -743,7 +754,7 @@
     "calling": "Refiner",
     "upbringing": "merchant_child"
    },
-   "backstory": "A Tang Điền reeler's boy who can draw a cocoon's thread a mile without a break, and is the one Tang Mộng Kiển (tang_mong_kien) would send to check a strand for vent fire.",
+   "backstory": "A Tang Điền reeler's boy who can draw a cocoon's thread a mile without a break; since spring he reels the extra cocoons for the northern bolts after the shed lamps are out, for Tang Mộng Kiển (tang_mong_kien).",
    "ties": [
     {
      "to": "tang_mong_kien",
@@ -883,7 +894,7 @@
     "calling": "Steward",
     "upbringing": "servant_born"
    },
-   "backstory": "An Earth-rooted villager who has picked the pavilion's mulberry since its founding and gossips with Tang Mộng Kiển (tang_mong_kien) about every rider from the Fire Court.",
+   "backstory": "An Earth-rooted villager who has picked the pavilion's mulberry since its founding; since spring the northern bolts leave the worm sheds before dawn under her leaf baskets, and she gossips with Tang Mộng Kiển (tang_mong_kien) about every rider from the Fire Court.",
    "ties": [
     {
      "to": "tang_mong_kien",

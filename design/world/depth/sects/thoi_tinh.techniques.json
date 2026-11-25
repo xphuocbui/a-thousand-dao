@@ -1,12 +1,12 @@
 {
  "sect": "thoi_tinh",
- "_doc": "Thối Tinh Môn lineage (rules-proposals R5). Re-leaned Metal, Fire -> Metal: the seat (23) is Metal 53 %, Fire 9 %, and no place the smiths hold has Fire above 10 %. Outer gate: nine-temper-scripture (existing, catalogue-metal; the hammer method, Cửu Luyện Kinh). Inner gate and above: star-quench-canon (proposal, Profound, Metal). Secret arts: iron-hide-manual (existing, inner gate: the forge hide), fallen-star-forging-rite (proposal, the head's rite; it needs a Fire root and is taught outside the admission rule). Proposals are unpriced.",
+ "_doc": "Thối Tinh Môn lineage (rules-proposals R5). Re-leaned Metal, Fire -> Metal: the seat (23) is Metal 53 %, Fire 9 %, and no place the smiths hold has Fire above 10 %. Outer gate: nine-temper-scripture (existing, catalogue-metal; the hammer method, Cửu Luyện Kinh). Inner gate and above: star-quench-canon (proposal, Profound, Metal). Secret arts: iron-hide-manual (existing, inner gate: the forge hide), fallen-star-forging-rite (proposal, the forge's rite, held by the head now; it needs a Fire root and is taught outside the admission rule). Proposals are unpriced.",
  "lineage": {
   "outer": "nine-temper-scripture",
   "main": "star-quench-canon",
   "secret": [
    {"id": "iron-hide-manual", "rank": "noi_mon"},
-   {"id": "fallen-star-forging-rite", "rank": "tong_chu", "note": "the head's rite; only a smith with Fire 40 or more can hold the heat it needs, so it passes to the best Fire root, not to the eldest son"}
+   {"id": "fallen-star-forging-rite", "rank": "tong_chu", "note": "held by the head now, but not a headship rite: only a smith with Fire 40 or more can hold the heat it needs, and it is what keeps the forge alight when the coal fails, so it is taught to whoever can hold it"}
   ],
   "body": null,
   "elements": ["kim"],
@@ -41,7 +41,7 @@
     {"new": "White Heat (Bạch Nhiệt)", "concept": "For a few seconds the holder's Metal arts also deal Fire damage and each hit applies a burn; a burning foe gains Quench marks twice as fast."},
     {"new": "The Maker's Fold (Tượng Chiết)", "concept": "Spends health to empower the holder's flying sword: its next strikes cannot be parried and leave a lasting mark."}
    ],
-   "lore": "Kept by each head since the founder. Cát Lưu Quang used it in 1050 to forge the star of Thanh Bách (A093, A231), which no coal fire on the mountain could soften. It is taught to one smith in a generation, the best Fire root in the halls.",
+   "lore": "Kept since the founder by one smith in a generation, the best Fire root in the halls, who is not always the head. When the coal road fails in winter, its holder keeps the forge fire alight on their own Fire. Cát Lưu Quang used it in 1050 to forge the star of Thanh Bách (A093, A231), which no coal fire on the mountain could soften.",
    "status": "proposal"
   }
  ]

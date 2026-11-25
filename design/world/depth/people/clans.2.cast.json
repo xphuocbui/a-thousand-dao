@@ -100,7 +100,7 @@
     "gained": []
    },
    "appearance": "A big, sun-darkened farmer in a straw cape over a silk robe, who weighs a handful of rice by eye and is never wrong.",
-   "backstory": "Lục Thương Lẫm holds the paddies of Phong Đăng and the three hundred tenant households who plant them, the Thiều among them. Since Lục Đa Cốc's (luc_da_coc) harvest of 600 the Tower has taken its grain tax from the Lục first, in kind, before any other farm in the south (A288), and the Lục call it an honour in public. He formed his core at a hundred and forty on pills bought with that surplus. He has three sons. Lục Kế Điền (luc_ke_dien), the heir, is a hundred and forty and still at Foundation. Lục Nhị Hòa keeps the tallies beside the Tower's counters. The third, Lục Đạo Hoa (luc_dao_hoa), left the fields at twenty for Cốc Vũ Quán's spirit-rice terraces. The abbess there, Dương Hảo Vũ (duong_hao_vu), was born on his grandfather's tenancy in a drought year, and he has sent her rice every autumn for a hundred and fifty years. No Lục has ever been taken into the Tower, whose gate wants Metal, because Metal is not in the family.",
+   "backstory": "Lục Thương Lẫm holds the paddies of Phong Đăng and the three hundred tenant households who plant them, the Thiều among them. Since Lục Đa Cốc's (luc_da_coc) harvest of 600 the Tower has taken its grain tax from the Lục first, in kind, before any other farm in the south (A288), and the Lục call it an honour in public. He formed his core at a hundred and forty on pills bought with that surplus, and on a scripture bought with a worse one: in the great drought of 1150 he sold the Lục granaries' old rice to the Tower at four times the price, and the Tower marched on Đan Sơn Mạch's cinnabar to pay him (C188). He has three sons. Lục Kế Điền (luc_ke_dien), the heir, is a hundred and forty and still at Foundation. Lục Nhị Hòa keeps the tallies beside the Tower's counters. The third, Lục Đạo Hoa (luc_dao_hoa), left the fields at twenty for Cốc Vũ Quán's spirit-rice terraces. The abbess there, Dương Hảo Vũ (duong_hao_vu), was born on his grandfather's tenancy in a drought year, and he has sent her rice every autumn for a hundred and fifty years. No Lục has ever been taken into the Tower, whose gate wants Metal, because Metal is not in the family.",
    "wants": "A Lục inside the Tower, so that the family is counted by the Tower instead of counted first.",
    "secret": "In the drought of 1171 he paid the abbey's prior Thời Tri Tiết to bring rain to his own paddies only. The tenants' fields across the river stayed dry, and three Thiều children died that winter. The payment is in the prior's second receipt book.",
    "ties": [
@@ -189,7 +189,7 @@
      ],
      "targets_note": "Growth Rings, Ageless Pine, Spirit Spring, World Tree: he outlasts a fight as he outlasts a drought."
     },
-    "note": "Learned the clan's Seed Store Method first (clans.techniques.json); bought the Verdant Cycle Scripture in 1150 and formed his core on it."
+    "note": "Learned the clan's Seed Store Method first (clans.techniques.json); bought the Verdant Cycle Scripture in the drought of 1150 with the profit on the Lục granaries' old rice, sold to the Tower at four times the price, and formed his core on it."
    },
    "items": [
     "cl-first-sheaf-bell",
@@ -1104,7 +1104,7 @@
      ],
      "targets_note": "Calm Pool, Water Ring Step, Cardinal Points and Blink Mark, the Water Trigram's evasion: a merchant who leaves."
     },
-    "note": "Bought the Still Moon Tide Scripture from a Tùng Đào exile in 1150; the house has no method of its own."
+    "note": "Bought a copy of the Still Moon Tide from Bào Tế Hải, who had his auction scripture copied for the man he builds junks for; the house has no method of its own."
    },
    "items": [
     "cl-misty-wave-mirror",
@@ -1771,8 +1771,8 @@
    "sex": "M",
    "born": 1015,
    "alive": false,
-   "died": 1150,
-   "cause": "a summer fever at 135",
+   "died": 1158,
+   "cause": "a summer fever at 143",
    "peak_realm": "truc_co",
    "sect": "",
    "rank": "",

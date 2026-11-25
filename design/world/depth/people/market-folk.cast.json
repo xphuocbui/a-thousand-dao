@@ -61,7 +61,7 @@
    },
    "appearance": "A round, cheerful man with vermilion under his fingernails that no washing removes, who wears a painter's smock over a silk robe worth a house.",
    "backstory": "Lạc Đan Thanh was born in 900 in Phong Sào Thôn on Cô Vụ Đảo, the son of a man who ground cinnabar and azurite for the island's painters. He learned fire from the mortar: cinnabar heated wrong turns to quicksilver and poisons the grinder, and that is how his father died. At twenty he sold the last of his father's pigments to a loose alchemist in Hạc Đinh Thị and stayed to keep his furnace. He has bought every method he uses, the Red Sun Scripture among them, and has never served a sect. In 1105 he paid Phan Vật Hoa (phan_vat_hoa) for the Peach Spring Painting at the season auction with a pill no one else could make (C183): the Vermilion-Azure Pill, ground like paint and fired like a pigment. In 1110 he opened his stall in Vật Hoa Thị on her ground and began charging whatever he likes (A186). He sells to every sect and to its enemies. Tăng Vân Tiêu (tang_van_tieu) owes him for three failed breakthrough pills. Vi Ngưng Yên (vi_ngung_yen) bought a dusk herb at his stall the year she died (N-yen_quang-02). His agents buy Thúy Vi's pills from Đậu Tam Thất (dau_tam_that) and copy the seals, and Úy Thanh Diễm (uy_thanh_diem) has not forgiven it. Hoa Cái Đường and half the west have asked for his recipes. He has sold none.",
-   "wants": "To go into the Peach Spring when it opens in 1200 and come out remembering the way; failing that, to sell the painting for more than any lot has ever fetched at Vật Hoa Thị.",
+   "wants": "To go into the Peach Spring when it opens in 1200 and come out remembering the way; failing that, to sell the painting for more than any lot has ever fetched at Vật Hoa Thị. This spring he sent Diêm Tử Tô word that he will tell him what Vi Ngưng Yên asked for in 1150, for one pill brewed in the Cold Furnace, for himself.",
    "secret": "He has been inside Đào Nguyên Cảnh once, at the opening of 1120, and came out with three peach stones and no memory of the road, as everyone does. The pill that made his name after 1120 is ground from those kernels, and one stone is left. His ledger of 1150 shows that Vi Ngưng Yên asked for the dusk herb by name, and that he wrote a warning beside the sale. He has never shown it, because it would clear him and shame her. The breakthrough pills he sells to cultivators who have already failed once hold a soul thread he buys each year from Hám Tàn Chung (ham_tan_chung) in the same market as the apricot clinic.",
    "ties": [
     {
@@ -87,7 +87,7 @@
     {
      "to": "diem_tu_to",
      "kind": "rival",
-     "note": "Vi's Dao partner, who has never asked him about the herb"
+     "note": "Vi's Dao partner; this spring Lạc sent him word that his 1150 ledger shows what she asked for, and named his price: one pill from the Cold Furnace"
     },
     {
      "to": "vi_ngung_yen",
@@ -137,7 +137,7 @@
     {
      "to": "gia_chi_lo",
      "kind": "enemy",
-     "note": "had him beaten for selling Peach Spring maps"
+     "note": "had him beaten for walking buyers toward the Peach Spring"
     },
     {
      "to": "bi_tieu_tho",
@@ -440,7 +440,12 @@
     {
      "to": "nhac_thuan_nhuong",
      "kind": "debt",
-     "note": "forty jars of pure spring wine"
+     "note": "forty jars of pure spring wine, which he will not pay: he sets them against the school's note"
+    },
+    {
+     "to": "mai_le_tuyen",
+     "kind": "creditor",
+     "note": "Lễ Tuyền's note of 1198: the silver it paid the Pivot's steward for the short fine jars; his factor eats at the Dawn Hall and wants the healers' sick-hall as surety"
     },
     {
      "to": "dang_quan_binh",
@@ -951,7 +956,7 @@
     "gained": []
    },
    "appearance": "Broad, bald and salt-burned, with one shoulder lower than the other since a mast fell on it in 1130; he smells of pine tar.",
-   "backstory": "Bào Tế Hải was born in 1042 at Bạch Sa Trấn, two years after the Hỗ captain's Thẩm marriage and his jetty made the white sands a trading town (A029). His father Bào Thừa Phong (bao_thua_phong) came for the jetty, built coasting junks on the beach and sold them up and down the cape, most of them to the Hỗ fleet that Hỗ Tế Xuyên (ho_te_xuyen) now runs. The son built the first deep-keeled hull of Yên Ba and moved the yards into the city's harbour. In 1150 he paid the price of four hulls at Phan Vật Hoa's (phan_vat_hoa) season auction for the Still Moon Tide Scripture, and reached Kết Đan on it at a hundred and twenty. When his father died in 1160 (N-market_folk-05) the house was in debt for the new yards, and Kim Vạn Lý (kim_van_ly) paid it off for a third of the house. Bào builds the hulls Kim lends to Diêm Hải Tảo (diem_hai_tao) of Thúy Vi's port house, and drinks with her on their decks. His shipwright Quan Liêm Chu (quan_liem_chu) has shaped every keel since 1180. His daughter Bào Thính Triều (bao_thinh_trieu) wants to sail with Diêm wherever she goes.",
+   "backstory": "Bào Tế Hải was born in 1042 at Bạch Sa Trấn, two years after the Hỗ captain's Thẩm marriage and his jetty made the white sands a trading town (A029). His father Bào Thừa Phong (bao_thua_phong) came for the jetty, built coasting junks on the beach and sold them up and down the cape, most of them to the Hỗ fleet that Hỗ Tế Xuyên (ho_te_xuyen) now runs. The son built the first deep-keeled hull of Yên Ba and moved the yards into the city's harbour. In the drought year of 1150 he paid the price of four hulls at Phan Vật Hoa's (phan_vat_hoa) season auction for the Still Moon Tide Scripture, had a copy made for Hỗ Tế Xuyên, and reached Kết Đan on it at a hundred and twenty. When his father died in 1160 (N-market_folk-05) the house was in debt for the new yards, and Kim Vạn Lý (kim_van_ly) paid it off for a third of the house. Bào builds the hulls Kim lends to Diêm Hải Tảo (diem_hai_tao) of Thúy Vi's port house, and drinks with her on their decks. His shipwright Quan Liêm Chu (quan_liem_chu) has shaped every keel since 1180. His daughter Bào Thính Triều (bao_thinh_trieu) wants to sail with Diêm wherever she goes.",
    "wants": "To build a hull that sails to the southern islands and comes back, which no ship of Yên Ba has done since Cô Phàm Các's fleet was lost in 705.",
    "secret": "In 1190 Kim Vạn Lý ordered the three hulls for Diêm deep-keeled and copper-sheathed for southern water, which means Kim knows she has a chart of the southern islands. Bào has not told her, because he wants to be on the ship when she sails it.",
    "ties": [
@@ -1090,7 +1095,7 @@
     ]
    },
    "appearance": "A narrow woman in mended grey who writes with her left hand and never sits with her back to a door.",
-   "backstory": "Quản Phục Thu was born in 1125 in Ngũ Cốc Thành, the city that grew rich on the trade Kim Cốc lost (C176), into the family that lost the most. Her grandfather Quản Doanh Hư (quan_doanh_hu) had lent Kim Cốc Viên its last year of credit against its manuals, and in 1002 he bought Kim Vạn Lý's (kim_van_ly) share of its notes, a month before the crash (N-market_folk-01). When Kim Cốc Thành burned (C174) he sold four copies of the Golden Valley Ledger Canon to pay his creditors (N-market_folk-02), paid eighty parts in a hundred, and died. Market custom closes a dead man's ledger. In 1150 she opened it (N-market_folk-06), and took on its last twenty parts. She has paid them down for fifty years by buying bad debts at a tenth and collecting them in full, and her name is spat in four markets. Her brother Quản Thận Ngôn (quan_than_ngon) keeps Kim Vạn Lý's books. Tiền Ngũ Phân (tien_ngu_phan), the grandson of another Kim Cốc ruin, drinks with her after the auction.",
+   "backstory": "Quản Phục Thu was born in 1125 in Ngũ Cốc Thành, the city that grew rich on the trade Kim Cốc lost (C176), into the family that lost the most. Her grandfather Quản Doanh Hư (quan_doanh_hu) had lent Kim Cốc Viên its last year of credit against its manuals, and in 1002 he bought Kim Vạn Lý's (kim_van_ly) share of its notes, a month before the crash (N-market_folk-01). When Kim Cốc Thành burned (C174) he sold four copies of the Golden Valley Ledger Canon to pay his creditors (N-market_folk-02), paid eighty parts in a hundred, and died. Market custom closes a dead man's ledger. In 1143, at eighteen, she opened it (N-market_folk-06), and took on its last twenty parts. She has paid them down for fifty-seven years by buying bad debts at a tenth and collecting them in full, and her name is spat in four markets. Her brother Quản Thận Ngôn (quan_than_ngon) keeps Kim Vạn Lý's books. Tiền Ngũ Phân (tien_ngu_phan), the grandson of another Kim Cốc ruin, drinks with her after the auction.",
    "wants": "To close her grandfather's ledger paid in full, to buy back the four copies of the canon, and to see Kim Vạn Lý owe a debt he cannot pay.",
    "secret": "Her brother copies Kim's ledgers for her every new moon. She knows the house runs on Từ Bỉnh Quyền's credit. She has been offering to buy the small debts Kim leaves unpaid, Khúc Liệt Dương's year's wages and Nhạc's forty jars among them, so that she can call them all on one day and make Từ choose.",
    "ties": [
@@ -1211,7 +1216,7 @@
     {
      "to": "quan_phuc_thu",
      "kind": "grandchild",
-     "note": "opened his ledger in 1150"
+     "note": "opened his ledger in 1143"
     }
    ]
   },

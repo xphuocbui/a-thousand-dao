@@ -181,7 +181,7 @@
    "name_han": "瞿翠柏",
    "gloss": "Green cypress",
    "sex": "F",
-   "born": 560,
+   "born": 610,
    "alive": true,
    "realm": "nguyen_anh",
    "stage": 2,
@@ -234,7 +234,7 @@
     ]
    },
    "appearance": "Tall and bony, with hands cracked like bark and grey hair cut at the jaw; she wears the old ridge robe of undyed hemp, and it is dry, because she will not stand in the haze.",
-   "backstory": "Cù Thúy Bách was born in 560 to a jade-cutter's family that served the sect on its ridge, and she is the oldest person Thúy Vi has. Phùng Yên Hà (phung_yen_ha) took her in 576, the first disciple she ever took. For four hundred years Cù was the founder's hands. She planted the cypress walk on the ridge, held the inner gate through both wars with Tùng Đào (C135, C165), and nursed the founder through her last century. When Phùng died in 1000 (C173), the sect expected Cù to take the whisk. She refused it and named Ngu Lam Sơn (ngu_lam_son), the quiet one, because she wanted to stay on the ridge with the founder's tree. His first order was to leave it. She did not go down. Since 1006 the old seat has been the Cliff Hall (N-thuy_vi-03). She keeps it with a few dozen people: the founder's grave, the founder's pine that grows sideways out of the rock, and the life trees of every disciple who joined before the move. She also keeps a teaching that the sect calls harsh and she calls honest. She is the last of the founder's first disciples. She trains her disciples hard and sends them down to win.",
+   "backstory": "Cù Thúy Bách was born in 610 to a jade-cutter's family that served the sect on its ridge, and she is the oldest person Thúy Vi has. Phùng Yên Hà (phung_yen_ha) took her in 626, the first ridge child to survive three winters in the founder's school. For nearly four hundred years Cù was the founder's hands. She planted the cypress walk on the ridge, held the inner gate through both wars with Tùng Đào (C135, C165), and nursed the founder through her last century. When Phùng died in 1000 (C173), the sect expected Cù to take the whisk. She refused it and named Ngu Lam Sơn (ngu_lam_son), the quiet one, because she wanted to stay on the ridge with the founder's tree. His first order was to leave it. She did not go down. Since 1006 the old seat has been the Cliff Hall (N-thuy_vi-03). She keeps it with a few dozen people: the founder's grave, the founder's pine that grows sideways out of the rock, and the life trees of every disciple who joined before the move. She also keeps a teaching that the sect calls harsh and she calls honest. She is the last of the founder's first disciples. She trains her disciples hard and sends them down to win.",
    "wants": "To see her disciple Hoàn Cô Bách named heir, so the sect remembers what the ridge made it. Failing that, to be buried beside the founder and never moved.",
    "secret": "She nursed the founder's last century and watched her stiffen like bark, a Wood root starved on Metal ground. She believes the ridge shortened Phùng's life, and she has never said it, because saying it would mean the move was right.",
    "ties": [
@@ -276,7 +276,7 @@
     {
      "to": "man_trieu_am",
      "kind": "sworn_sibling",
-     "note": "sworn sisters as the founder's first disciples; Mẫn died on the coast in 744"
+     "note": "sworn sisters on the ridge; Mẫn died on the coast in 744"
     },
     {
      "to": "quyen_thanh_lam",
@@ -369,7 +369,8 @@
     "tv-founders-seed-gourd",
     "tv-cliff-bark-shield",
     "tv-root-splitting-axe"
-   ]
+   ],
+   "changed": "fix pass B 2026-11-25: born 560 -> 610 and taken in 626, 'the first ridge child to survive three winters in the founder's school' (read-great-1 item 1: no longer born the same year as Cố Lăng Sương)"
   },
   {
    "key": "uy_thanh_diem",
@@ -1748,8 +1749,13 @@
     ]
    },
    "appearance": "Square, unsmiling and grey at the temples; he stands very straight and speaks in the fewest words he can.",
-   "backstory": "Nhạc Chính Hành was nineteen and a Luyện Khí outer disciple, home for the New Year, when the avalanche buried the upper street of Vân Gian Trấn and his family in it (V031). He dug for nine days. Afterwards Cù Thúy Bách (cu_thuy_bach) took him up to the ridge, and the Cliff Hall made him hard and exact. He has kept the Hall of Rules at the new seat since 1150 and judges as the ridge would: by the rule, not the person. The haze-born disciples fear him and call him the Avalanche.",
+   "backstory": "Nhạc Chính Hành was nineteen and a Luyện Khí outer disciple, home for the New Year, when the avalanche buried the upper street of Vân Gian Trấn and his family in it (V031). He dug for nine days. Afterwards Cù Thúy Bách (cu_thuy_bach) took him up to the ridge, and the Cliff Hall made him hard and exact. He has kept the Hall of Rules at the new seat since 1150 and judges as the ridge would: by the rule, not the person. Since 1190 he has bought Vụ Ẩn Môn's head's pages on what passes under the mist, paid in patrols on the Đồng Sơn road and in his silence whenever the tithe is raised.",
    "ties": [
+    {
+     "to": "bang_yen_toa",
+     "kind": "friend",
+     "note": "Vụ Ẩn's head, his informer since 1190: a page each new moon, left under the Đồng Sơn milestone"
+    },
     {
      "to": "cu_thuy_bach",
      "kind": "master",
@@ -1773,7 +1779,7 @@
     {
      "to": "ham_thanh_dang",
      "kind": "enemy",
-     "note": "the Vụ Ẩn woman who has put his name first on her list"
+     "note": "the Vụ Ẩn woman who has put his name first on her list, and does not know he buys her head's pages"
     },
     {
      "to": "mau_hanh_dao",
@@ -1850,6 +1856,9 @@
    "birthplace": 1049,
    "role": "Keeper of the Marten Yard on Ngân Điêu Đài, where silver martens are bred to find spirit herbs",
    "tier": "B",
+   "beasts": [
+    "ngan_ti"
+   ],
    "root": {
     "elements": {
      "moc": 76,
@@ -2414,7 +2423,7 @@
     {
      "to": "cu_thuy_bach",
      "kind": "disciple",
-     "note": "her first disciple, who nursed her last century"
+     "note": "the first ridge child to survive three winters in her school; nursed her last century"
     },
     {
      "to": "ngu_lam_son",
@@ -2733,7 +2742,7 @@
     {
      "to": "cu_thuy_bach",
      "kind": "sworn_sibling",
-     "note": "sworn sisters, born the same year"
+     "note": "sworn sisters on the ridge, fifty years apart in age"
     }
    ],
    "master": "phung_yen_ha"

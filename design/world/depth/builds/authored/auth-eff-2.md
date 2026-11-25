@@ -7,9 +7,9 @@ are in `auth-eff-2.json`; fight readings follow `duel-readings.md`. Nothing here
   Canon (on_thu_dang, kien_muc_hai, le_bach_diem).
 - **d28 The Earned Rest (Đắc Hưu):** a Marching Dirge finale makes The Held Rest last 0.5 s per Measure (each later finale's rest half as long), with
   Heavy Breath on the foe. Carried by The Monk's Rest (ha_thinh_tung, quan_tich_am, cu_dong_moc).
-- **d29 Return to the Scabbard (Quy Vỏ):** 3 s with no damaging art fired, and the foe counts as unstruck: first-hit
+- **d29 Return to the Scabbard (Quy Sao):** 3 s with no damaging art fired, and the foe counts as unstruck: first-hit
   pieces re-arm, and the next sword art cannot be evaded. This uses the same count as auth-eff-1's d10. Carried by the Rain-Chain Sword Scripture (ton_tuyet_bich), The Undefeated set (co_da_lan) and Grey Sleeve
-  and Ten Paces (thang_vo_ta, where it counts as a vanish).
+  and Seal (thang_vo_ta, The Last Step, where it counts as a vanish).
 - **d30 Brittle from Its Own Blow (Tự Kích Tự Thúy):** each blocked hit marks the foe with Quench, and Quench on a
   burning foe spends the Burn for more marks. Carried by the Star-Quench Canon (bang_lanh_toi, cat_luu_quang,
   dinh_hoa_lan).

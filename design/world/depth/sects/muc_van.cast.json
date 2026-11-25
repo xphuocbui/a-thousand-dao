@@ -190,7 +190,10 @@
     "mv-dap-van-bridle-ring",
     "mv-herder-felt-armour"
    ],
-   "changed": "build: main mountain-heart-canon (Lạc Hà's inner-gate Earth method) -> cloud-herd-body-canon (the manor's own body lineage; the sect becomes no-lean, R3); aux mountain-bone-body-art -> herd-call and gale-courier-scripture; giap/thuan gear -> the founder's lance and the armour; tree targets -> intent; root, thien_phu, stage moved to the top level; birthplace 73 added (A169)."
+   "changed": "build: main mountain-heart-canon (Lạc Hà's inner-gate Earth method) -> cloud-herd-body-canon (the manor's own body lineage; the sect becomes no-lean, R3); aux mountain-bone-body-art -> herd-call and gale-courier-scripture; giap/thuan gear -> the founder's lance and the armour; tree targets -> intent; root, thien_phu, stage moved to the top level; birthplace 73 added (A169).",
+   "beasts": [
+    "dap_van"
+   ]
   },
   {
    "key": "thoi_duong_giac",
@@ -447,7 +450,10 @@
      "targets_note": "Herd route, then Five Peaks and Five Grains: a body that rides all night."
     },
     "note": "A lance and a felt coat."
-   }
+   },
+   "beasts": [
+    "hong_tong"
+   ]
   },
   {
    "key": "khau_thanh_thao",

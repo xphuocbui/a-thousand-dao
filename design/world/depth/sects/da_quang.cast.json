@@ -36,7 +36,7 @@
     "personality": [
      "Warlike",
      "Wrathful",
-     "Arrogant"
+     "Greedy"
     ],
     "calling": "Duelist",
     "upbringing": "merchant_child",
@@ -60,7 +60,7 @@
     ]
    },
    "appearance": "A huge grey-bearded rider with a burn across one side of his face and a jade cup that glows on his belt at night.",
-   "backstory": "Hạng Dạ Bôi was born in 870 into the Hạng, a caravan-guard family of Trường Vân Thành (A120), and rode the Pavilion's caravan road for eighty years. In 968 a caravan of Băng Tâm's tax silver was lost to the sand, and the Desert Pavilion hanged his elder brother for it. Two years later Hạng took the guards the Pavilion had dismissed and became the thing they had guarded against: Dạ Quang Môn, bound to no lord (C172). For a century and a half his raiders drank grape wine from night-glowing cups after every raid and left one cup behind as their mark (A121). In 1119 Băng Tâm marched (C184). In 1121 it burned Huyết Đao Trại, where his loot was hidden and his first wife Lâu Minh Châu (lau_minh_chau) died (V074). He knelt to Sở Ngọc Hồ (so_ngoc_ho) and gave her his son Hạng Minh Sa (hang_minh_sa) as surety (C185). Since then his raiders have guarded the caravans they used to rob (A123). He is 330, and he has not forgiven anything. When his young blades began drinking from the cups again (A126), he poured the first one himself.",
+   "backstory": "Hạng Dạ Bôi was born in 870 into the Hạng, a caravan-guard family of Trường Vân Thành (A120), and rode the Pavilion's caravan road for eighty years. In 968 a caravan of Băng Tâm's tax silver was lost to the sand, and the Desert Pavilion hanged his elder brother for it. Two years later Hạng took the guards the Pavilion had dismissed and became the thing they had guarded against: Dạ Quang Môn, bound to no lord (C172). For a century and a half his raiders drank grape wine from night-glowing cups after every raid and left one cup behind as their mark (A121). In 1119 Băng Tâm marched (C184). In 1121 it burned Huyết Đao Trại, where his loot was hidden and his first wife Lâu Minh Châu (lau_minh_chau) died (V074). He knelt to Sở Ngọc Hồ (so_ngoc_ho) and gave her his son Hạng Minh Sa (hang_minh_sa) as surety (C185). Since then his riders have guarded the caravans they used to rob (A123), and since 1194 the Pavilion's silver for loads delivered has come in heavier every year. He takes it and does not ask his wife where her band rides. He is 330, and he has not forgiven anything. When his young blades began drinking from the cups again (A126), he poured the first one himself.",
    "wants": "His son home before he dies, and one day to watch the Keeper of the Vessel kneel.",
    "secret": "The Pavilion burned the wrong fort. Dạ Quang's real hoard lies under the sand at Mai Sa Bảo, buried in 1050 (V073): enough stones to hire a war.",
    "ties": [
@@ -77,7 +77,7 @@
     {
      "to": "do_xich_linh",
      "kind": "spouse",
-     "note": "his second wife since 1125"
+     "note": "his second wife since 1125; he takes the silver her road brings and asks nothing"
     },
     {
      "to": "hang_luu_hoa",
@@ -183,7 +183,7 @@
    "rank": "truong_lao",
    "home": 16,
    "birthplace": 1404,
-   "role": "Hạng Dạ Bôi's second wife and first blade; voice of the raiders who would break the knee",
+   "role": "Hạng Dạ Bôi's second wife and first blade; runs the Đà Linh road as a toll, and her band strikes the trains that ride without Dạ Quang",
    "tier": "A",
    "root": {
     "elements": {
@@ -204,8 +204,8 @@
    "traits": {
     "personality": [
      "Cruel",
-     "Ambitious",
-     "Brave"
+     "Greedy",
+     "Ambitious"
     ],
     "calling": "Schemer",
     "upbringing": "village_born",
@@ -227,10 +227,20 @@
     ]
    },
    "appearance": "A lean desert woman in red felt, with a hawk feather knotted to her sabre and a smile that the Pavilion's envoys do not like.",
-   "backstory": "Đồ Xích Linh grew up in the felt tents of Chiên Trướng Thôn and rode with Dạ Quang from the age of sixteen. By 1100 she led its fastest band. In the Taming (C184) she killed more Băng Tâm riders than anyone, and took the sabre of one of them, a hawk feather still on its hilt. She did not kneel in 1121; she was not asked, because the Pavilion did not know her name. She married Hạng Dạ Bôi (hang_da_boi) four years later, after Lâu Minh Châu (lau_minh_chau) burned, and gave him a daughter, Hạng Lưu Hỏa (hang_luu_hoa). She has never met Hạng Minh Sa (hang_minh_sa), and she prefers it that way. To her the knee was a pause, not an end. She has been writing to the ma đạo cultivator Triệu Huyết Y (trieu_huyet_y), who knows blood arts deeper than the Canon. She pays in stones from her own gambling.",
-   "wants": "Her daughter named heir, and Dạ Quang unbound from the Pavilion within her husband's lifetime or after it.",
-   "secret": "She is learning a blood art from Triệu Huyết Y, and she would let Băng Tâm keep the hostage forever if it clears her daughter's road.",
+   "backstory": "Đồ Xích Linh grew up in the felt tents of Chiên Trướng Thôn and rode with Dạ Quang from the age of sixteen. By 1100 she led its fastest band. In the Taming (C184) she killed more Băng Tâm riders than anyone, and took the sabre of one of them, a hawk feather still on its hilt. She did not kneel in 1121; she was not asked, because the Pavilion did not know her name. She married Hạng Dạ Bôi (hang_da_boi) four years later, after Lâu Minh Châu (lau_minh_chau) burned, and gave him a daughter, Hạng Lưu Hỏa (hang_luu_hoa). To her the knee was a pause, not an end. In 1194, when the young blades took up the cups again (A126), she found a better use for them than raiding: the Pavilion pays its escorts by loads delivered, so she made every load that did not hire Dạ Quang unsafe. Her band rides with wrapped faces and leaves no cup. She has never met her stepson Hạng Minh Sa (hang_minh_sa), and she means to keep it so. She buys a blood art layer by layer from the ma đạo cultivator Triệu Huyết Y (trieu_huyet_y) and pays in stones from her own gambling.",
+   "wants": "The road kept as it is: Dạ Quang's tally the highest the Pavilion pays, and every small train on it paying her for the privilege of arriving. The hostage kept at the Pavilion, because a son raised beside the keeper of the caravan road would ride with Ô Liệt Phong and end it. After that, Dạ Quang unbound, within her husband's lifetime or after it.",
+   "secret": "Her band strikes the trains that ride without Dạ Quang while Ô Liệt Phong is out on the long leg; she reads his legs off the board at the Đà Linh well, and buys Trấn Sa's routes from Tất Dạ Lang so that the band never meets a Trấn Sa guard (she does not know Viên Cô Yên makes them false). The drivers it takes are fed to Cừu Lạc Nhật's sabre with Triệu Huyết Y's art. And she has Cổ Xích Nguyệt leave a cup at a caravan stop each season, so that the Pavilion stays uneasy and keeps her stepson.",
    "ties": [
+    {
+     "to": "o_liet_phong",
+     "kind": "rival",
+     "note": "the honest captain; she reads his legs off the well board"
+    },
+    {
+     "to": "vien_co_yen",
+     "kind": "enemy",
+     "note": "Trấn Sa's head; her watcher follows the one clean escort, and her trains are the ones the band leaves alone"
+    },
     {
      "to": "hang_da_boi",
      "kind": "spouse",
@@ -244,17 +254,17 @@
     {
      "to": "hang_minh_sa",
      "kind": "rival",
-     "note": "her stepson, the heir in her daughter's way"
+     "note": "her stepson, who would end her road if he came home"
     },
     {
      "to": "trieu_huyet_y",
      "kind": "debt",
-     "note": "letters and a blood art, paid in stones"
+     "note": "a blood art, layer by layer, paid in stones; she feeds it drivers"
     },
     {
      "to": "cuu_lac_nhat",
      "kind": "disciple",
-     "note": "her favourite young blade"
+     "note": "her favourite young blade; she gives him the drivers"
     },
     {
      "to": "xa_linh_nhi",
@@ -274,12 +284,12 @@
     {
      "to": "tat_da_lang",
      "kind": "friend",
-     "note": "the outer boy she pays for what he knows"
+     "note": "the deserter she pays for Trấn Sa's routes, and keeps off the band"
     },
     {
      "to": "co_xich_nguyet",
      "kind": "disciple",
-     "note": "granddaughter of the first cup-bearer; pours for the young blades"
+     "note": "granddaughter of the first cup-bearer; leaves a cup at a caravan stop each season on her orders"
     }
    ],
    "build": {
@@ -342,7 +352,7 @@
    "rank": "chan_truyen",
    "home": 16,
    "birthplace": 16,
-   "role": "Hạng Dạ Bôi's daughter; leader of the young blades who drink from the cups again",
+   "role": "Hạng Dạ Bôi's daughter; leader of the young blades, who ride in her mother's band",
    "tier": "B",
    "root": {
     "elements": {
@@ -363,7 +373,7 @@
     "personality": [
      "Ambitious",
      "Gregarious",
-     "Impatient"
+     "Deceitful"
     ],
     "calling": "Strategist",
     "upbringing": "clan_heir",
@@ -381,7 +391,7 @@
     "gained": []
    },
    "appearance": "Her father's height and her mother's smile, in a riding coat with a night-glow cup sewn on the breast.",
-   "backstory": "Born after the knee, she has never raided. She has only heard about it. In 1194 she was the first to drink from the night-glowing cups again (A126), and half the young blades of Dạ Quang now follow her. Her mother Đồ Xích Linh (do_xich_linh) wants her named heir. She is not sure she wants her half-brother Hạng Minh Sa (hang_minh_sa) to stay a hostage. She has never met him and writes to him every year.",
+   "backstory": "Born after the knee, she never raided until her mother gave her a band. In 1194 she was the first to drink from the night-glowing cups again (A126), and half the young blades of Dạ Quang now follow her past Dương Bằng with wrapped faces. Her mother Đồ Xích Linh (do_xich_linh) gave her the road, and she likes what it pays. She has never met her half-brother Hạng Minh Sa (hang_minh_sa), and every year she writes to him that the road is quiet.",
    "ties": [
     {
      "to": "hang_da_boi",
@@ -396,7 +406,7 @@
     {
      "to": "hang_minh_sa",
      "kind": "sibling",
-     "note": "half-brother; letters, never met"
+     "note": "half-brother; letters, never met; she writes that the road is quiet"
     },
     {
      "to": "liem_hoa_nhi",
@@ -526,7 +536,7 @@
     ]
    },
    "appearance": "A weathered, tidy rider from the camel-bell town who keeps the escort's ledgers in a hand better than his master's.",
-   "backstory": "He rode in the raids as a young man and was made escort captain when the raiders were set to guarding the caravans they had robbed (A123). To everyone's surprise he is good at it, and likes being paid. Trấn Sa Đường's watcher Nhiếp Cô Đăng (nhiep_co_dang) follows every escort he rides. He is the one Dạ Quang man the merchants of Hồi Lan Thành trust.",
+   "backstory": "He rode in the raids as a young man and was made escort captain when the raiders were set to guarding the caravans they had robbed (A123). To everyone's surprise he is good at it, and likes being paid. He posts his legs on the board at the Đà Linh well so that small traders can join his train for a share of the fee, and he does not know who else reads it. Trấn Sa Đường's watcher Nhiếp Cô Đăng (nhiep_co_dang) follows every escort he rides. He is the one Dạ Quang man the merchants of Hồi Lan Thành trust.",
    "ties": [
     {
      "to": "hang_da_boi",
@@ -638,7 +648,7 @@
      "Demon-tainted"
     ]
    },
-   "backstory": "A sheep-shed boy who has fed his sabre more than the Canon asks; Đồ Xích Linh (do_xich_linh) tells him the taint is strength.",
+   "backstory": "A sheep-shed boy who has fed his sabre more than the Canon asks. In the band's night camps Đồ Xích Linh (do_xich_linh) gives him the drivers the band takes, and he feeds the blade on them with Triệu Huyết Y's art; she tells him the taint is strength.",
    "ties": [
     {
      "to": "do_xich_linh",
@@ -777,15 +787,20 @@
    "traits": {
     "personality": [
      "Arrogant",
-     "Impatient",
+     "Vengeful",
      "Indulgent"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born",
     "lifestyle": "gambler"
    },
-   "backstory": "He lost his first night-glow cup at dice the night Hạng Lưu Hỏa (hang_luu_hoa) poured it, and has been trying to win it back since.",
+   "backstory": "He lost his first night-glow cup at dice to a Hồi Lan camel driver the night Hạng Lưu Hỏa (hang_luu_hoa) poured it. He found the man in the first train the band struck, took the cup back, and gave him to Cừu Lạc Nhật (cuu_lac_nhat). He drinks from it at every fire.",
    "ties": [
+    {
+     "to": "cuu_lac_nhat",
+     "kind": "friend",
+     "note": "he gave him the driver who had won his cup"
+    },
     {
      "to": "hang_luu_hoa",
      "kind": "friend",
@@ -851,7 +866,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "He rides behind Ô Liệt Phong (o_liet_phong) on the escort and has never seen a raid, only heard the old men boast.",
+   "backstory": "He rides behind Ô Liệt Phong (o_liet_phong) on the escort, the one train the band never touches, and has never seen a raid, only heard the old men boast.",
    "ties": [
     {
      "to": "o_liet_phong",
@@ -916,7 +931,7 @@
     "calling": "Schemer",
     "upbringing": "merchant_child"
    },
-   "backstory": "He left Trấn Sa Đường's outer gate in 1196 for the cups and the stories; Viên Cô Yên (vien_co_yen) has posted his face at every caravan stop, and Đồ Xích Linh (do_xich_linh) uses what he knows of the guards' routes.",
+   "backstory": "He left Trấn Sa Đường's outer gate in 1196 for the cups and the stories; Viên Cô Yên (vien_co_yen) has posted his face at every caravan stop, and Đồ Xích Linh (do_xich_linh) pays him for the guards' routes. She keeps him off her band, so he can tell Trấn Sa only that it rides.",
    "ties": [
     {
      "to": "do_xich_linh",

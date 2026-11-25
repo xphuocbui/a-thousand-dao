@@ -47,7 +47,7 @@
     }
    ],
    "set": "hlo-ky-te",
-   "lore": "A bronze censer the size of two fists, holding one coal from the Red Furnace. Đồng Hồng Lô took the coal from the furnace mouth in 930, the winter his master died, and carried it on his belt through the nine years he kept the furnace lit (A028). He has never let it go out. He says so often. The vent warden Phòng Tẫn Thủ knows it went out once, in 1150.",
+   "lore": "A bronze censer the size of two fists, holding one coal from the Red Furnace. Đồng Hồng Lô took the coal from the furnace mouth in 930, the winter his master died, and carried it on his belt through the nine years he kept the furnace lit (A028). He has never let it go out. He says so often. The vent warden Phòng Tẫn Thủ knows it went out once, in 1144.",
    "build_use": "The head's Burn engine: longer Burn on the foe, linh lực to keep feeding it, and a shield against the Water that could put it out.",
    "holder": "dong_hong_lo",
    "made_by": "dong_hong_lo",
@@ -95,11 +95,11 @@
     }
    ],
    "set": "hlo-ky-te",
-   "lore": "A gourd of black spirit calabash, banded in copper, that fills itself with snow-melt overnight. Tần Tuyết Thán carved it in 1151 from a gourd the whale crews had carried since Kình Cốt Đường, and has poured from it into the furnace jackets every morning since.",
+   "lore": "A gourd of black spirit calabash, banded in copper, that fills itself with snow-melt overnight. Tần Tuyết Thán carved it in 1145 from a gourd the whale crews had carried since Kình Cốt Đường, and has poured from it into the furnace jackets every morning since.",
    "build_use": "Sustain for a Fire-Water alchemist who stands too close to her own fire.",
    "holder": "tan_tuyet_than",
    "made_by": "tan_tuyet_than",
-   "made_year": 1151,
+   "made_year": 1145,
    "status": "proposal"
   },
   {

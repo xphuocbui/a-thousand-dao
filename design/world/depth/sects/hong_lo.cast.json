@@ -34,9 +34,9 @@
    },
    "traits": {
     "personality": [
-     "Patient",
      "Diligent",
-     "Stubborn"
+     "Stubborn",
+     "Deceitful"
     ],
     "calling": "Alchemist",
     "upbringing": "sect_raised",
@@ -58,9 +58,9 @@
     ]
    },
    "appearance": "A short, broad old man with a burn-glazed face and no eyebrows, who carries a bronze censer on his belt and warms his hands on it while he talks.",
-   "backstory": "Đồng Hồng Lô was born in the valley in 760 to two of the founder's furnace-men, Fire-Wood alchemists who had followed Tiết Thừa Hỏa (tiet_thua_hoa) out of Thúy Vi. He was carrying coal in the kitchens at six. Tiết took him as her disciple at twelve because he would sit by a fire all night and not sleep. In 902 the Cold Ford War was fought along the coast to the east, and the furnace brewed its wound pills for no fee (N-hong_lo-02). In the winter of 929 the founder went down into the vent below Kê Quan Khoáng to bring up fire, and she did not come up (N-hong_lo-03). He became master in 930 and kept the furnace burning for nine years without letting it cool (A028). To do it he ran snow-melt through copper jackets around the furnace, which is where the valley's water half began. The habit became the Water Over Fire Canon, and it brews two batches in a season where Thúy Vi brews one. His best student was Viên Chước (vien_chuoc), who went to Băng Tâm in 1150. He still mentions it. In 1151 he opened the gate to Water roots (N-hong_lo-04). In 1185 the isles smoked, and at 425 he sailed out with the boats to gather the ash before the rain did (A031). He has about sixty years left.",
-   "wants": "To form his Nascent Soul over the Red Furnace before his years run out, as Úy Thanh Diễm did over the green one, and to name an heir only after that.",
-   "secret": "In 1150 Viên Chước lost the sect's whole year of ash money at the gaming tables of Hàn Tân Thành. Đồng sold the boy's contract to Băng Tâm's head, Sở Ngọc Hồ, to cover it, and he has told the cape ever since that Băng Tâm stole his best student. That night, for the first time in 220 years, the ember on his belt went out. Phòng Tẫn Thủ relit it before dawn.",
+   "backstory": "Đồng Hồng Lô was born in the valley in 760 to two of the founder's furnace-men, Fire-Wood alchemists who had followed Tiết Thừa Hỏa (tiet_thua_hoa) out of Thúy Vi. He was carrying coal in the kitchens at six. Tiết took him as her disciple at twelve because he would sit by a fire all night and not sleep. In 902 the Cold Ford War was fought along the coast to the east, and the furnace brewed its wound pills for no fee (N-hong_lo-02). In the winter of 929 the founder went down into the vent below Kê Quan Khoáng to bring up fire, and she did not come up (N-hong_lo-03). He became master in 930 and kept the furnace burning for nine years without letting it cool (A028). To do it he ran snow-melt through copper jackets around the furnace, which is where the valley's water half began. The habit became the Water Over Fire Canon, and it brews two batches in a season where Thúy Vi brews one. His best student was Viên Chước (vien_chuoc). In 1144 Viên lost the valley's year of ash money at the tables of Hàn Tân Thành, and Đồng sold his contract to Băng Tâm's head to cover it and called it theft. The valley knows. In 1145 he opened the gate to Water roots (N-hong_lo-04). In 1185 the isles smoked, and at 425 he sailed out with the boats to gather the ash before the rain did (A031). He has about sixty years left.",
+   "wants": "To form his Nascent Soul over the Red Furnace before his years run out, as Úy Thanh Diễm did over the green one.",
+   "secret": "The bill of sale he sealed in 1144 gives Băng Tâm one boat of ash at the 1144 price in every ten years. This season Viên Chước has come for a whole boat, and Đồng is making up the difference to the ash count from the fire jade he saved for his Nascent Soul pill. Phòng Tẫn Thủ sells it for him to the outside crews.",
    "ties": [
     {
      "to": "tiet_thua_hoa",
@@ -70,7 +70,7 @@
     {
      "to": "vien_chuoc",
      "kind": "former_disciple",
-     "note": "his best student, gone to Băng Tâm in 1150; he still mentions it"
+     "note": "his best student, whose contract he sold in 1144; back this season with the bill"
     },
     {
      "to": "tan_tuyet_than",
@@ -80,12 +80,12 @@
     {
      "to": "nguy_dan_chu",
      "kind": "disciple",
-     "note": "his true disciple since 1151"
+     "note": "his true disciple since 1144"
     },
     {
      "to": "phong_tan_thu",
      "kind": "disciple",
-     "note": "the vent warden, who relit the ember"
+     "note": "the vent warden, who relit the ember in 1144 and sells his fire jade for him now"
     },
     {
      "to": "uy_thanh_diem",
@@ -100,7 +100,7 @@
     {
      "to": "so_ngoc_ho",
      "kind": "rival",
-     "note": "Băng Tâm's head, who bought Viên's contract; Đồng calls it theft in public"
+     "note": "Băng Tâm's head, who bought Viên's contract; Đồng calls it theft in public, and she holds his sealed bill"
     },
     {
      "to": "ke_chu_sa",
@@ -217,14 +217,14 @@
     "gained": []
    },
    "appearance": "A tall woman in a seal-skin coat over red felt, with frost on her sleeves and soot on her hands, who never raises her voice in the furnace hall.",
-   "backstory": "Tần Tuyết Thán was born in the valley in 985. Her father fed the furnace, and her mother was a daughter of Nghiêu Phá Lãng (nghieu_pha_lang), the whale hunter who went out on the whale road in 884 and did not come back (V013). She was born with Fire and Water in almost equal measure. The founder's primer taught Fire roots only, so half her root went to waste. Đồng Hồng Lô (dong_hong_lo) took her as his disciple at fourteen and set her to the snow jackets, the copper sleeves of melt that keep the furnace from boiling over. She was the first to understand why they worked. She wrote down the last three layers of the Water Over Fire Canon, formed her core in 1120, and became first elder in 1140. In 1151 Đồng opened the gate to Water roots, and she wrote the Snow Hearth Primer for it in one winter (N-hong_lo-04). Since then the whale crews' children have come in through the kitchens, and the crews call her their elder. She keeps the sect's books and the ash ledger. Every morning she pours her gourd into the jackets herself.",
-   "wants": "To be named heir, and to see a Water root walk through the furnace hall's door as an inner disciple before she dies, which the rule forbids.",
-   "secret": "The ash ledger for 1150 shows a payment from Băng Tâm the week Viên Chước left. She knows the head sold the contract, and she has told no one. She is keeping it for the day he names his heir.",
+   "backstory": "Tần Tuyết Thán was born in the valley in 985. Her father fed the furnace, and her mother was a daughter of Nghiêu Phá Lãng (nghieu_pha_lang), the whale hunter who went out on the whale road in 884 and did not come back (V013). She was born with Fire and Water in almost equal measure. The founder's primer taught Fire roots only, so half her root went to waste. Đồng Hồng Lô (dong_hong_lo) took her as his disciple at fourteen and set her to the snow jackets, the copper sleeves of melt that keep the furnace from boiling over. She was the first to understand why they worked. She wrote down the last three layers of the Water Over Fire Canon, formed her core in 1120, and became first elder in 1140. In 1145 Đồng opened the gate to Water roots, and she wrote the Snow Hearth Primer for it in one winter (N-hong_lo-04). Since then the whale crews' children have come in through the kitchens, and the crews call her their elder. She keeps the sect's books and the ash ledger. Every morning she pours her gourd into the jackets herself.",
+   "wants": "To see a Water root walk through the furnace hall's door as an inner disciple before she dies, which the rule forbids.",
+   "secret": "She is writing a Water main method for the furnace hall. Her own share of this season's ash is paying for its test batches, and when it is done she means to put it before the council with a crew child already through its first layer.",
    "ties": [
     {
      "to": "dong_hong_lo",
      "kind": "former_master",
-     "note": "his disciple until she formed her core in 1120"
+     "note": "his disciple until she formed her core in 1120; she names the 1144 sale at every ash count"
     },
     {
      "to": "nghieu_pha_lang",
@@ -344,9 +344,9 @@
    },
    "traits": {
     "personality": [
-     "Impatient",
+     "Greedy",
      "Ambitious",
-     "Brave"
+     "Impatient"
     ],
     "calling": "Alchemist",
     "upbringing": "servant_born",
@@ -366,17 +366,17 @@
     "gained": []
    },
    "appearance": "A lean young man with scorched forearms and a cinnabar-red robe he dyes himself, too bright for the valley.",
-   "backstory": "A cook's son born in the kitchens, Ngụy Đan Chu tended Viên Chước's (vien_chuoc) furnace from the age of eight and learned more from him than from anyone. When Viên went to Băng Tâm in 1150, Đồng Hồng Lô (dong_hong_lo) took the boy as his true disciple. He means to be what Viên would have been. He thinks the snow jackets have made the Red Furnace timid, and he says so at council. He is the only disciple who still brews the old one-batch way.",
+   "backstory": "A cook's son born in the kitchens, Ngụy Đan Chu tended Viên Chước's (vien_chuoc) furnace from the age of eight and learned more from him than from anyone. When Viên went to Băng Tâm in 1144, Đồng Hồng Lô (dong_hong_lo) took the boy as his true disciple. He means to be what Viên would have been. He thinks the snow jackets have made the Red Furnace timid, and he says so at council. He is the only disciple who still brews the old one-batch way. When the outside crews brought dice back in the ash rush of 1200 he took the table in the snow house, takes a coal's weight of every pot, and lends the outer boys their stakes against their ash shares.",
    "ties": [
     {
      "to": "dong_hong_lo",
      "kind": "master",
-     "note": "his master since 1151"
+     "note": "his master since 1144"
     },
     {
      "to": "vien_chuoc",
      "kind": "former_master",
-     "note": "his first teacher, in the kitchens; they still write"
+     "note": "his first teacher, in the kitchens; they still write, and now Viên sits at his table"
     },
     {
      "to": "tan_tuyet_than",
@@ -402,6 +402,11 @@
      "to": "luong_hoa_tuyen",
      "kind": "rival",
      "note": "packs the snow jackets and keeps the two-batch timings under Tần Tuyết Thán"
+    },
+    {
+     "to": "lai_tieu_than",
+     "kind": "creditor",
+     "note": "the outer boy who owes him two seasons' ash shares for dice stakes"
     }
    ],
    "master": "dong_hong_lo",
@@ -593,7 +598,7 @@
    "traits": {
     "personality": [
      "Brave",
-     "Vengeful",
+     "Stubborn",
      "Gregarious"
     ],
     "calling": "Wanderer",
@@ -612,12 +617,12 @@
     "gained": []
    },
    "appearance": "A huge man in oiled seal-skin with a harpoon of whale rib across his back and salt in his beard.",
-   "backstory": "Great-grandson of Nghiêu Phá Lãng (nghieu_pha_lang), born among the crews' families at Bồ Diệp Thôn. His Fire is too thin for the furnace hall, so he has been an outer disciple for a hundred years and captain of the boats for sixty. In 1185, when the isles smoked for a month, he took the alchemists out to gather the ash before the rain (A031). He has sworn to find the spirit whale that took his great-grandfather. Since 1151 he has taught the harpoon inside the gate.",
+   "backstory": "Great-grandson of Nghiêu Phá Lãng (nghieu_pha_lang), born among the crews' families at Bồ Diệp Thôn. His Fire is too thin for the furnace hall, so he has been an outer disciple for a hundred years and captain of the boats for sixty. In 1185, when the isles smoked for a month, he took the alchemists out to gather the ash before the rain (A031). That month, through the clear water of the smoking year, he saw his great-grandfather's boat on the warm reef off Kình Cốt point, its hull full of fire jade, and he has sworn to raise it. Since 1145 he has taught the harpoon inside the gate.",
    "ties": [
     {
      "to": "nghieu_pha_lang",
      "kind": "ancestor",
-     "note": "his great-grandfather, lost on the whale road"
+     "note": "his great-grandfather, whose boat lies on the warm reef"
     },
     {
      "to": "tan_tuyet_than",
@@ -719,12 +724,12 @@
     "path": [],
     "lifestyle": "tea_master"
    },
-   "backstory": "He has kept the night watch on the Red Furnace for a hundred and fifty years, and in 1150 he relit the ember on Đồng Hồng Lô's (dong_hong_lo) belt before dawn without asking why it had gone out.",
+   "backstory": "He has kept the night watch on the Red Furnace for a hundred and fifty years, and in 1144 he relit the ember on Đồng Hồng Lô's (dong_hong_lo) belt before dawn without asking why it had gone out. In the ash rush Đồng gave him a pouch of fire jade to sell to the outside crews, and he sells it a piece at a time, still without asking.",
    "ties": [
     {
      "to": "dong_hong_lo",
      "kind": "master",
-     "note": "he keeps the head's secret without knowing it"
+     "note": "he relit the ember in 1144 and sells the head's fire jade now, without asking"
     },
     {
      "to": "duong_bat_oan",
@@ -879,7 +884,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "Nghiêu Vọng Kình's (nghieu_vong_kinh) daughter, who wants to sail past the smoking isles to the fire-jade island whose chart Thúy Vi has kept sealed since 565 (A022).",
+   "backstory": "Nghiêu Vọng Kình's (nghieu_vong_kinh) daughter, who rows the second ash boat in the rush of 1200 and will not take it to her father's reef while the ash is falling; what she wants is the fire-jade island whose chart Thúy Vi has kept sealed since 565 (A022).",
    "ties": [
     {
      "to": "nghieu_vong_kinh",
@@ -958,7 +963,7 @@
     "calling": "Alchemist",
     "upbringing": "village_born"
    },
-   "backstory": "A fisher's boy from Bồ Diệp Thôn who came in through the kitchens in 1200 and shovels snow into Tần Tuyết Thán's (tan_tuyet_than) jackets, hoping his Fire will grow if he stands near enough to it.",
+   "backstory": "A fisher's boy from Bồ Diệp Thôn who came in through the kitchens in 1200 and shovels snow into Tần Tuyết Thán's (tan_tuyet_than) jackets, hoping his Fire will grow if he stands near enough to it. In the ash rush he borrowed his dice stakes from Ngụy Đan Chu (nguy_dan_chu) against his shares, and owes two seasons.",
    "ties": [
     {
      "to": "tan_tuyet_than",
@@ -969,6 +974,11 @@
      "to": "nghieu_lang_hoa",
      "kind": "friend",
      "note": ""
+    },
+    {
+     "to": "nguy_dan_chu",
+     "kind": "debt",
+     "note": "two seasons' ash shares, borrowed for the snow-house dice"
     }
    ],
    "build": {

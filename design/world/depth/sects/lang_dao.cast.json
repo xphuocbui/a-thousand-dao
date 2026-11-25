@@ -57,9 +57,9 @@
     ]
    },
    "appearance": "A barrel of a man with a river-boatman's tan and a voice that carries across three bends, who wears the toll seal on a cord round his wrist.",
-   "backstory": "Giang Cửu Khúc was born on a ferry at Hoành Độ Thôn in 880 and named for the river. He poled boats before he could read, and learned the Nine Bends Art from the founder Uông Liên Chu (uong_lien_chu), who had made one gate out of the feuding boat families after Phá Chu Trấn burned (V047). He took the gate in 1010 and has kept the nine landings since. He made the gate rich on tolls. In 1172 the tolls on the Ngư Ca border started a war (C192). The next year Lạc Hà's raiders burned his fleet at the Đào Sa landing (A080), and his ferrymen burned with it, Lữ Thừa Lãng (lu_thua_lang) among them. The pines fought for him and took no land, and Dụ Tĩnh Lưu (du_tinh_luu) split the tolls with Lạc Hà in 1175 and rebuilt his boats with the River Hall's timber. Every spring since, he has written to Lữ's son, whom Lạc Hà raised, and asked him to come home. Lữ Tẫn Chu (lu_tan_chu) has not come.",
+   "backstory": "Giang Cửu Khúc was born on a ferry at Hoành Độ Thôn in 880 and named for the river. He poled boats before he could read, and learned the Nine Bends Art from the founder Uông Liên Chu (uong_lien_chu), who had made one gate out of the feuding boat families after Phá Chu Trấn burned (V047). He took the gate in 1010 and has kept the nine landings since. He made the gate rich on tolls. In 1172 the tolls on the Ngư Ca border started a war (C192). The next year Lạc Hà's raiders burned his fleet at the Đào Sa landing (A080), and his ferrymen burned with it, Lữ Thừa Lãng (lu_thua_lang) among them. The pines fought for him and took no land, and Dụ Tĩnh Lưu (du_tinh_luu) split the tolls with Lạc Hà in 1175 and rebuilt his boats with the River Hall's timber. Every spring since, he has written to Lữ's son, whom Lạc Hà raised, and asked him to come home. Lữ Tẫn Chu (lu_tan_chu) has not come. Giang buys Thải Chi's pills every month, though the whole river knows the valley-mistress treated the men who burned his boats, and he does not stop his ferrymen spitting on her landing. This spring his partner Thương Bạch Phàm (thuong_bach_pham) put the Ngư Ca boats on a free crossing for Lạc Hà's hulls, and she will not tell him why.",
    "wants": "Lữ Tẫn Chu home on a Lãng Đào ferry, the fleet back to its old size, and the Ngư Ca tolls whole again.",
-   "secret": "The toll quarrel that started the Ferry War was his. For ten years before 1172 he charged Lạc Hà's boats at the Ngư Ca landing a toll the pines never set, and kept it. The pines went to war for his greed and he let them believe it was for his honour.",
+   "secret": "The toll quarrel that started the Ferry War was his. For ten years before 1172 he charged Lạc Hà's boats at the Ngư Ca landing a toll the pines never set, and kept it. The pines went to war for his greed and he let them believe it was for his honour. Every spring letter he sends Lữ Tẫn Chu offers the boy a boat of his own, and Lữ has never answered one.",
    "ties": [
     {
      "to": "uong_lien_chu",
@@ -69,7 +69,7 @@
     {
      "to": "thuong_bach_pham",
      "kind": "dao_partner",
-     "note": "the boat-mistress; partners since 1040"
+     "note": "partners since 1040; this spring she put the Ngư Ca boats on a free crossing and will not say why"
     },
     {
      "to": "giang_hoi_lan",
@@ -94,7 +94,7 @@
     {
      "to": "lu_tan_chu",
      "kind": "friend",
-     "note": "Lữ's son, raised in Lạc Hà; he writes every spring"
+     "note": "Lữ's son, raised in Lạc Hà; he writes every spring and offers him a boat"
     },
     {
      "to": "lo_xuong_van",
@@ -119,7 +119,7 @@
     {
      "to": "nghiem_linh_chi",
      "kind": "friend",
-     "note": "he brings her the river's orphans and buys her pills"
+     "note": "he brings her the river's orphans and buys her pills; she treated his boat-burners in 1174, and his ferrymen spit on her landing"
     },
     {
      "to": "chau_phi_van",
@@ -159,7 +159,7 @@
     {
      "to": "tiet_an_thuy",
      "kind": "disciple",
-     "note": "toll clerk of the gate-house: stamps the passes and keeps the toll books"
+     "note": "toll clerk of the gate-house; now stamps the Ngư Ca passes free on Thương's order"
     }
    ],
    "master": "uong_lien_chu",
@@ -262,7 +262,7 @@
     ]
    },
    "appearance": "A tall helmsman's daughter with white hair cropped like a deckhand's and a burn across both palms.",
-   "backstory": "Born in Đà Công Thôn, the helmsmen's village, she has been Giang Cửu Khúc's (giang_cuu_khuc) Dao partner since 1040 and mistress of the boats since 1100. On the night Lạc Hà fired the Đào Sa landing (A080) she cut one ferry loose and poled it into the current with nine children aboard, and its sail is her flag now. She rebuilt the fleet with the River Hall's timber in 1175. She does not know why the war began, and she has started reading the old toll books.",
+   "backstory": "Born in Đà Công Thôn, the helmsmen's village, she has been Giang Cửu Khúc's (giang_cuu_khuc) Dao partner since 1040 and mistress of the boats since 1100. On the night Lạc Hà fired the Đào Sa landing (A080) she cut one ferry loose and poled it into the current with nine children aboard, and its sail is her flag now. She rebuilt the fleet with the River Hall's timber in 1175. This spring Lữ Tẫn Chu (lu_tan_chu), whom Lạc Hà raised, sent her one of the passes from before the war inside her granddaughter's letters: the Nine Bends seal on a toll the pines never set. She has said nothing to Giang. She has put the Ngư Ca boats on a free crossing for Lạc Hà's hulls until ten years of that toll are paid back.",
    "ties": [
     {
      "to": "giang_cuu_khuc",
@@ -288,6 +288,21 @@
      "to": "uc_lang_hoa",
      "kind": "disciple",
      "note": "helmswoman of the awning boats of Ô Bồng; head of the Úc boat family"
+    },
+    {
+     "to": "lu_tan_chu",
+     "kind": "friend",
+     "note": "the Đào Sa boy Lạc Hà raised; this spring he sent her a pass from the unset toll"
+    },
+    {
+     "to": "tiet_an_thuy",
+     "kind": "friend",
+     "note": "the toll clerk who stamps her free passes and writes the order in her name"
+    },
+    {
+     "to": "giang_tieu_loan",
+     "kind": "grandchild",
+     "note": "her son's daughter, who carried the pass home inside the letters"
     }
    ],
    "build": {
@@ -974,7 +989,7 @@
     "calling": "Diplomat",
     "upbringing": "clan_heir"
    },
-   "backstory": "Giang Hồi Lan's (giang_hoi_lan) daughter, who carries her grandfather's spring letters to the Ngư Ca landing and has started adding notes of her own to Lữ Tẫn Chu.",
+   "backstory": "Giang Hồi Lan's (giang_hoi_lan) daughter, who carries her grandfather's spring letters to the Ngư Ca landing and writes a note of her own to Lữ Tẫn Chu on the back of each; this spring she carried one folded pass home in the answer, for her grandmother.",
    "ties": [
     {
      "to": "giang_hoi_lan",
@@ -995,6 +1010,11 @@
      "to": "ky_chu_nhi",
      "kind": "friend",
      "note": "outer deck boy of the Đào Sa captain"
+    },
+    {
+     "to": "thuong_bach_pham",
+     "kind": "grandparent",
+     "note": "her grandmother, for whom she carried the pass home"
     }
    ],
    "master": "giang_hoi_lan",

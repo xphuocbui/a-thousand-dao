@@ -12,14 +12,15 @@
 | Leans | Metal, Water → **Wood, Fire** (re-leaned in place). Bronze is the hall's craft, not its root |
 | Lineage elements | Wood first, then Fire |
 | Seat | **stays** at Vũ Linh Đường (place 372), on the grass above Thu Trì |
-| Head | Ân Thanh Linh, Kết Đan, mistress since 1150 |
+| Head | Ân Thanh Linh, Kết Đan, mistress since 1128 |
 | Size | about 45 casters, hangers and wall-keepers: 11 named living, 1 dead |
 | Way of life | bell-casters. They cast bronze in charcoal fires, hang warning bells in living trees and on city walls, and listen to all of them |
 
 When the Tower put out its lamps in 905, the lamp-casters of Thanh Đăng Trấn lost their trade. One of them took his
 casters south in 930 and turned them to bells. If the Tower would not see at night, it would have to hear. Two hundred
 and seventy years on, his hall keeps the warding bells on the walls of Thu Trì and the bell lines along the forest roads. Its
-mistress cast the bell the Tower's spymaster wears. She hears more than the Tower knows, and she writes it down.
+mistress cast the bell the Tower's spymaster wears. She hears more than the Tower knows, and she writes it down. Since
+1198 the Tower knows that too, and since 1199 its copper has not come.
 
 ## 2. Land and seat
 
@@ -37,7 +38,8 @@ no Metal-Water land lies within reach of Thu Trì, whose walls it keeps.
 pours bronze with the Fire it draws from the kiln: that is the outer gate's primer. Then it hangs the bell in a living
 tree and joins it to the roots with Wood qi, so that one bell's ring travels the whole line. That is the canon. The old
 Metal, Water lean described the bronze and the rain, not the casters. The copper comes from the Tower's Rain Copper Mine
-(831) and the tin from Hắc Tích Khoáng (387), and that is a hook rather than a root.
+(831) and the tin from Hắc Tích Khoáng (387), and that is a hook rather than a root: since 1199 the copper has
+stopped (§9).
 
 **What it costs.** Nothing on the map. The sect record changes `leans`. Its specialty (trận sư) and craft stay. The
 argument with the Tower's forge master gains its content: he forges bronze in lightning (Metal, Thunder), and the hall
@@ -61,7 +63,7 @@ Trì are kept by its rare Wood-rooted sons (Trịnh Thủ Linh).
 | 1062 | The Bell of the Autumn Graves for Thu Phần Các | (item) |
 | 1105 | The first bell line over the forest road | **N-vu_linh-02** |
 | 1110 | Hồng Đậu's mistress moves her rooms out of the bells' reach | N-hong_dau-03 |
-| 1150 | Chung Tàn Hưởng gives the hall to Ân Thanh Linh | **N-vu_linh-03** |
+| 1128 | Chung Tàn Hưởng gives the hall to Ân Thanh Linh | **N-vu_linh-03** |
 
 **New chronicle proposals:**
 - **N-vu_linh-01** (1030, `craft`): "Ân Thanh Linh of Vũ Linh Đường, twenty years old, casts a bell for the Nhiếp family
@@ -69,7 +71,7 @@ Trì are kept by its rare Wood-rooted sons (Trịnh Thủ Linh).
   Đường dies at the pour under a bell that cracks.")
 - **N-vu_linh-02** (1105, `array_laid`): "Vũ Linh Đường hangs its first bell line in the canopy over the forest road from
   Thu Trì, one bell to a tree, joined by the roots."
-- **N-vu_linh-03** (1150, `headship`): "Chung Tàn Hưởng gives Vũ Linh Đường to Ân Thanh Linh, saying she hears bronze
+- **N-vu_linh-03** (1128, `headship`): "Chung Tàn Hưởng gives Vũ Linh Đường to Ân Thanh Linh, saying she hears bronze
   better than he does, and keeps his father's unlit lamp."
 
 ## 4. Doctrine and customs
@@ -85,7 +87,8 @@ Trì are kept by its rare Wood-rooted sons (Trịnh Thủ Linh).
   Bell Grove behind the hall. The grove rings in every wind, and the hall says the dead are talking.
 - **Silence at meals.** The hall eats without speaking, so that anyone can hear if a line rings.
 - **Taboos:** casting in lightning (the Tower's way, and the hall's oldest quarrel with it); ringing a bell for a lie;
-  silencing another's bell; **hanging a bell where it can hear a private room**. The mistress has broken the last one.
+  silencing another's bell; **hanging a bell where it can hear a private room**. The mistress has broken the last one,
+  and since 1198 the Tower knows it.
 - **How others see them.** Villages buy warning lines and are glad of them. The Tower relies on the walls of Thu Trì and
   wears the hall's bells. Hồng Đậu Trang hates the lines. Xuyên Lâm's guides walk under them at night and feel safer.
 
@@ -133,8 +136,9 @@ known in full only to the mistress.
   forest roads, and the Tower's spymaster Nhiếp Vô Thanh has worn its listening bell since 1030. The envoy Hứa Thanh
   Diêm visits the hall before any other vassal. The forge master Thạch Liên Hoàn has argued bronze with the mistress by
   letter for a century, lightning against a wood fire, and the furnace mistress Chung Hồng Lô writes the technical half.
-  The Tower supplies the copper (Vũ Đồng Khoáng, 831) and the tin (Hắc Tích Khoáng, 387) and could stop them. The Hall of
-  Echoes keeps ears in Thu Trì, Lục Nhĩ Thính's ferry inn among them. The mistress's hidden bells hear every one of them.
+  The Tower supplies the copper (Vũ Đồng Khoáng, 831) and the tin (Hắc Tích Khoáng, 387), and in 1199 it stopped the
+  copper. The Hall of Echoes keeps ears in Thu Trì, Lục Nhĩ Thính's ferry inn among them. The mistress's hidden bells
+  hear every one of them.
 - **Fellow vassals:**
   - **Hồng Đậu Trang** (Nghê Hồng Đậu): rivals. The bell lines ring when a charm is cast nearby. The manor's mistress
     moved her rooms out of their reach in 1110, and the door girls hate the bells.
@@ -149,19 +153,28 @@ known in full only to the mistress.
 ## 9. Inside the sect
 
 - **The hidden line.** Inside the walls of Thu Trì the mistress has hung a second line of bells, tuned to the Hall of
-  Echoes' listeners, against the hall's own taboo. For fifty years she has known every ear the Tower keeps in the south
-  and has written it all down. Her wall keeper does not know.
-- **The tenth bell.** Her true disciple Thiệu Văn Linh has cracked nine bells trying to make one that listens. She
-  suspects the mistress has not taught her the whole seal, and she is right. The mistress is Paranoid, and the seal is
-  the hall's most dangerous art.
-- **Whose casting.** Chung Hồng Lô has poured every bell in fifty years and resents that the castings are called the
-  mistress's. She is the founder's great-granddaughter, and some in the hall think the furnace should have been the head.
+  Echoes' listeners, against the hall's own taboo. For fifty years she has written down every ear the Tower keeps in
+  the south. In the winter of 1197 the wall runner Ngụy Tiểu Đạc heard one of those bells ring and sold its place to
+  Lục Nhĩ Thính at the ferry inn, who is one of the ears it rings for. Her report took half a year to reach the seat.
+- **The copper stops.** The Hall of Echoes answered with the carts. Since 1199 none have come from the Rain Copper
+  Mine, and Nhiếp Vô Thanh's price, which Hứa Thanh Diêm brings this year, is the hidden line taken down and the
+  mistress's book of ears sent to her. The mistress will not pay it. The Thunder Hall will sell copper through the
+  storm forge at Tử Kim Khoáng, if the hall's next line is cast there in lightning, its oldest taboo. Chung Hồng Lô,
+  who thinks Thạch Liên Hoàn the one caster alive as good as she is, has written back to him that she would pour it.
+- **The walls' bells.** Ân Thanh Linh will not stop pouring. Last autumn she ordered every third old bell taken down
+  from Thu Trì's walls and carted the forty days' road up to the furnace to be melted, and the city goes deaf in
+  stretches.
+  Trịnh Thủ Linh takes them down, and walks the deaf stretches himself after dark with a hand bell. Ngụy Tiểu Đạc tells
+  him which bells ring least, and names the stretches the Night Rain Market's smugglers have paid him to name.
+- **The tenth bell.** Her true disciple Thiệu Văn Linh has cracked nine bells trying to make one that listens. The
+  mistress has not taught her the whole seal, the hall's most dangerous art. The tenth is to be poured from the first
+  wall bell to reach the furnace.
 - **The unlit lamp.** Chung Tàn Hưởng has kept his father's last blue lamp unlit since 905. He is old, and he has said
   he would like to light it once.
 
 ## 10. Treasures and sets
 
-- **Clear Bell (Thanh Linh)**, the mistress's ward bell, cast in 1150 from the bronze of the bell that killed the
+- **Clear Bell (Thanh Linh)**, the mistress's ward bell, cast in 1128 from the bronze of the bell that killed the
   founder. Every line on the roads is tuned to it.
 - **Banner of the Root Line (Căn Tuyến Kỳ)**, the map of every bell the mistress has hung, some of them on no road.
 - **The Last Blue Lamp (Thanh Đăng)**, the founder's last lamp from Thanh Đăng, unlit since 905, kept by his son.
@@ -175,7 +188,7 @@ known in full only to the mistress.
 | Key | Name | Rank | Realm | Tier | Root | Role |
 |---|---|---|---|---|---|---|
 | an_thanh_linh | Ân Thanh Linh | tông chủ | Kết Đan | A | Wood 62, Fire 54, Earth 28 | Mistress of the hall; keeps the bells of Thu Trì |
-| chung_tan_huong | Chung Tàn Hưởng | thái thượng | Kết Đan | B | Wood 48, Fire 46, Earth 30 | Grand elder; the founder's son, head 1060-1150 |
+| chung_tan_huong | Chung Tàn Hưởng | thái thượng | Kết Đan | B | Wood 48, Fire 46, Earth 30 | Grand elder; the founder's son, head 1060-1128 |
 | trinh_thu_linh | Trịnh Thủ Linh | chấp sự | Trúc Cơ | B | Wood 46, Water 44 | Keeper of the warding bells on Thu Trì's walls |
 | chung_hong_lo | Chung Hồng Lô | nội môn | Trúc Cơ | B | Fire 60, Wood 46 | Mistress of the furnace |
 | dang_quai_linh | Đằng Quải Linh | nội môn | Trúc Cơ | C | Wood 54, Fire 28 | Bell-hanger of the forest lines |
@@ -189,18 +202,21 @@ known in full only to the mistress.
 
 ## 12. Story hooks
 
-1. **The hidden line.** A bell inside Thu Trì's walls rings for a listener no one has seen: a new ear, and not the
-   Tower's. The mistress must decide whether to tell the spymaster, which means telling her what else the bells have
-   heard. (Ân Thanh Linh, Nhiếp Vô Thanh, Lục Nhĩ Thính, Trịnh Thủ Linh; place 42.)
-2. **The runner's price.** Ngụy Tiểu Đạc has been selling what he overhears on the walls in the Night Rain Market, and
-   one night he overhears a hidden bell. (Ngụy Tiểu Đạc, Trịnh Thủ Linh, Kiều Mãn Lâu, Ân Thanh Linh; place 42.)
+1. **The hidden line.** Lục Nhĩ Thính comes to take the hidden bells down. One of them rings for a listener who is not
+   the Tower's. The mistress can trade that ear's name for the copper, which means telling the spymaster what else her
+   bells have heard. (Ân Thanh Linh, Nhiếp Vô Thanh, Lục Nhĩ Thính, Trịnh Thủ Linh; place 42.)
+2. **The deaf stretch.** A Night Rain boat lands under a stretch of Thu Trì's wall whose bells Ngụy Tiểu Đạc had taken
+   down. Trịnh Thủ Linh, walking it with his hand bell, meets the men who paid for the silence. (Ngụy Tiểu Đạc, Trịnh
+   Thủ Linh, Kiều Mãn Lâu, Âu Tường Thủ; place 42.)
 3. **The tenth bell.** Thiệu Văn Linh steals a look at the whole seal and pours a tenth bell. It does not crack, and it
    listens to the mistress's room. (Thiệu Văn Linh, Ân Thanh Linh, Chung Hồng Lô; place 372.)
-4. **Lightning or charcoal.** Thạch Liên Hoàn proposes to settle a century of letters with a casting: two bells, one
-   forged in a storm at Tử Kim Khoáng and one poured at the hall, hung side by side. Chung Hồng Lô wants to pour it, and
-   the mistress wants the credit. (Thạch Liên Hoàn, Chung Hồng Lô, Ân Thanh Linh, Thạch Vũ Liên; places 178, 372.)
-5. **The copper stops.** The Tower's carts from the Rain Copper Mine stop coming. Someone at the Tower wants the hall's
-   bells, or its ledger. (Ân Thanh Linh, Hứa Thanh Diêm, Nhiếp Vô Thanh; places 831, 387, 372.)
+4. **The price of copper.** The Thunder Hall's copper comes on Thạch Liên Hoàn's terms: the hall's next line forged in
+   a storm at Tử Kim Khoáng, and a century of letters settled in his favour. Chung Hồng Lô wants to go and pour it; the
+   mistress would rather melt the walls. (Thạch Liên Hoàn, Chung Hồng Lô, Ân Thanh Linh, Thạch Vũ Liên; places 178,
+   372.)
+5. **The book of ears.** Hứa Thanh Diêm, who visits the hall first of all the vassals, arrives with Nhiếp's terms. She
+   asks for the mistress's book and offers to carry it unread. (Ân Thanh Linh, Hứa Thanh Diêm, Nhiếp Vô
+   Thanh, Thiệu Văn Linh; places 372, 831.)
 6. **The last blue lamp.** Chung Tàn Hưởng wants to light his father's lamp once in Thu Trì at night, where the Tower
    lights none. (Chung Tàn Hưởng, Ân Thanh Linh, Tưởng Lậu Thanh; places 42, 372.)
 7. **A bell rings for nothing it was tuned to.** On the forest road a line rings at midnight for a weight no bell was

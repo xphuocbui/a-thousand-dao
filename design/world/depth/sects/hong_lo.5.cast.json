@@ -247,7 +247,7 @@
     "calling": "Alchemist",
     "upbringing": "servant_born"
    },
-   "backstory": "Ngụy Đan Chu (nguy_dan_chu) chose him from the kitchens for his Fire and teaches him that the snow is a crutch. He copies the furnace roster for Phòng Tẫn Thủ (phong_tan_thu), who has never let him see the page for a night in 1150.",
+   "backstory": "Ngụy Đan Chu (nguy_dan_chu) chose him from the kitchens for his Fire and teaches him that the snow is a crutch. He copies the furnace roster for Phòng Tẫn Thủ (phong_tan_thu), who has never let him see the page for a night in 1144.",
    "ties": [
     {
      "to": "nguy_dan_chu",
@@ -384,7 +384,7 @@
     "upbringing": "village_born",
     "lifestyle": "gambler"
    },
-   "backstory": "He rows the ash boats for Nghiêu Vọng Kình (nghieu_vong_kinh) and loses his pay at the dice tables of Hàn Tân Thành, where an old dealer told him a Hồng Lô man once lost a whole year's ash money there and was never made to pay.",
+   "backstory": "He rows the ash boats for Nghiêu Vọng Kình (nghieu_vong_kinh) and lost his pay at the dice tables of Hàn Tân Thành until the ash rush of 1200 brought the dice to the snow house; now he loses it to Ngụy Đan Chu (nguy_dan_chu) without leaving the valley.",
    "ties": [
     {
      "to": "nghieu_vong_kinh",

@@ -33,7 +33,7 @@
    },
    "traits": {
     "personality": [
-     "Diligent",
+     "Pragmatic",
      "Compassionate",
      "Patient"
     ],
@@ -57,9 +57,9 @@
     ]
    },
    "appearance": "A square, sun-browned woman in a field apron, with soil under her nails and a gourd at her hip that smells of every herb at once.",
-   "backstory": "Nghiêm Linh Chi was four when a spring flood took Hà Đê Thôn's dike and her parents with it in 924. A herb-picker of the valley, Cố Hoài Sơn (co_hoai_son), found her on a roof and carried her up the river in a basket. She grew up weeding his terraces and tasted the hundred herbs at sixty. When he died in his field in 1000 she became valley-mistress, and in her first spring she opened the herb fields to the river's orphans (A078). They have come ever since: flood children, ferry children, the children of the Ferry War. She names them after herbs and gives them her own surname. She sells the pines' Pill Room what Bồ Hạnh Lâm (bo_hanh_lam), whom the valley sent there at nine, cannot brew. The River Hall's mistress Dụ Tĩnh Lưu (du_tinh_luu) sends her grain for the children. She has kept the valley out of every war for two hundred years by being needed by both sides.",
-   "wants": "To name an heir who will keep the orphans' fields open, and to bring Lữ Niệm Hà's brother home from Lạc Hà before one of them dies.",
-   "secret": "In the winter of 1174 she treated Lạc Hà's wounded raiders from the Đào Sa burning by lamplight in the valley's lower field and sent them home. Giang Cửu Khúc (giang_cuu_khuc), whose boats they burned, buys her pills every month.",
+   "backstory": "Nghiêm Linh Chi was four when a spring flood took Hà Đê Thôn's dike and her parents with it in 924. A herb-picker of the valley, Cố Hoài Sơn (co_hoai_son), found her on a roof and carried her up the river in a basket. She grew up weeding his terraces and tasted the hundred herbs at sixty. When he died in his field in 1000 she became valley-mistress, and in her first spring she opened the herb fields to the river's orphans (A078). They have come ever since: flood children, ferry children, the children of the Ferry War. She names them after herbs and gives them her own surname. She sells the pines' Pill Room what Bồ Hạnh Lâm (bo_hanh_lam), whom the valley sent there at nine, cannot brew. The River Hall's mistress Dụ Tĩnh Lưu (du_tinh_luu) sends her grain for the children. She has kept the valley out of every war for two hundred years by being needed by both sides. In the winter of 1174 she treated Lạc Hà's wounded raiders from the Đào Sa burning in the lower field and sent them home, and the whole river knows it: Giang Cửu Khúc (giang_cuu_khuc) buys her pills anyway, and his ferrymen spit on her landing.",
+   "wants": "To keep every child carried up the river, and to bring Lữ Niệm Hà's brother home from Lạc Hà before one of them dies.",
+   "secret": "Since 1176 the River Hall's grain has been paid for with the oldest orphans' days on its dikes, and the valley keeps the wages left over. She read the first contract, in the autumn the grain ran short, and she has sealed every one since on the landing without opening it.",
    "ties": [
     {
      "to": "co_hoai_son",
@@ -84,7 +84,7 @@
     {
      "to": "ong_kho_sam",
      "kind": "disciple",
-     "note": "the steward"
+     "note": "the steward who writes the dike contracts she seals unread"
     },
     {
      "to": "du_tinh_luu",
@@ -99,7 +99,7 @@
     {
      "to": "giang_cuu_khuc",
      "kind": "friend",
-     "note": "the ferry lord who sends her orphans and buys her pills"
+     "note": "the ferry lord who sends her orphans and buys her pills, though his ferrymen spit on her landing"
     },
     {
      "to": "kieu_nguyet_chau",
@@ -343,7 +343,7 @@
     ]
    },
    "appearance": "A wiry woman with a ferryman's hands, who keeps a burnt nail from the Đào Sa landing on a string round her neck.",
-   "backstory": "She was ten when Lạc Hà's raiders burned Lãng Đào's boats at the Đào Sa landing (A080) with her father Lữ Thừa Lãng (lu_thua_lang) on one of them. A Lạc Hà elder took her little brother Lữ Tẫn Chu (lu_tan_chu) home across the border; she was sent up the river to the valley with the other ferry orphans. She refused an herb name and kept her own. Nghiêm Linh Chi (nghiem_linh_chi) made her a true disciple at thirty. She has written to her brother every year. He sings for the side that burned their father, and he has never answered.",
+   "backstory": "She was ten when Lạc Hà's raiders burned Lãng Đào's boats at the Đào Sa landing (A080) with her father Lữ Thừa Lãng (lu_thua_lang) on one of them. A Lạc Hà elder took her little brother Lữ Tẫn Chu (lu_tan_chu) home across the border; she was sent up the river to the valley with the other ferry orphans. She refused an herb name and kept her own. Nghiêm Linh Chi (nghiem_linh_chi) made her a true disciple at thirty. She keeps the long houses, and each flood season she picks the names for the River Hall's dike crews, oldest first, and walks them down to the river herself. She has written to her brother every year. He sings for the side that burned their father, and he has never answered.",
    "ties": [
     {
      "to": "nghiem_linh_chi",
@@ -378,7 +378,7 @@
     {
      "to": "mai_thu_dien",
      "kind": "friend",
-     "note": "the elder who backs her"
+     "note": "the field-warden; she takes his weeders for the dikes, and they quarrel at every meal"
     },
     {
      "to": "ung_lo_nhi",
@@ -427,7 +427,7 @@
      ],
      "targets_note": "Herb route from Water, then Timely Rain and Nourishing Rain: a field medic."
     },
-    "note": "The heir the mistress has not named."
+    "note": "The keeper of the long houses, who picks the dike list."
    }
   },
   {
@@ -474,7 +474,7 @@
     "gained": []
    },
    "appearance": "A bent old farmer with a hoe he will not let anyone else carry and a knee that tells him the rain.",
-   "backstory": "A herb-gatherer's son from Bối Dược Thôn, he has kept the terraces since 1080 and called the Grain Rain over the drowned river fields in the flood of 1093, when Khang Tẩy Kim's gold-washers were pulled from the water downstream. He is 160 and will not form a Golden Core. He says Nghiêm Linh Chi (nghiem_linh_chi) should name Lữ Niệm Hà (lu_niem_ha) heir and stop waiting for the girl to forgive anybody.",
+   "backstory": "A herb-gatherer's son from Bối Dược Thôn, he has kept the terraces since 1080 and called the Grain Rain over the drowned river fields in the flood of 1093, when Khang Tẩy Kim's gold-washers were pulled from the water downstream. He is 160 and will not form a Golden Core. Every flood season since 1176 Lữ Niệm Hà (lu_niem_ha) has taken his best weeders down to the River Hall's dikes, and he works the terraces with the under-tens and says so at every meal. He has not said it to Nghiêm Linh Chi (nghiem_linh_chi).",
    "ties": [
     {
      "to": "nghiem_linh_chi",
@@ -489,7 +489,7 @@
     {
      "to": "lu_niem_ha",
      "kind": "friend",
-     "note": "he backs her"
+     "note": "she takes his weeders for the dikes; they quarrel at every meal"
     },
     {
      "to": "nghiem_ich_mau",
@@ -641,7 +641,7 @@
    "rank": "chap_su",
    "home": 33,
    "birthplace": 1176,
-   "role": "Steward of the valley's trade at Đào Thanh Thành: pills down the river, grain up it",
+   "role": "Steward of the valley's trade at Đào Thanh Thành: pills down the river, grain up it, and the orphans' dike contracts",
    "tier": "C",
    "root": {
     "elements": {
@@ -651,14 +651,14 @@
    },
    "traits": {
     "personality": [
-     "Pragmatic",
+     "Callous",
      "Greedy",
      "Gregarious"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "Grandson of the ginseng diggers the white apes drove out of Thải Sâm Trấn (V040), born in the woodsmen's village they fled to; he sells the valley's pills to the River Hall and Hàm Nguyệt and thinks the mistress gives too many away.",
+   "backstory": "Grandson of the ginseng diggers the white apes drove out of Thải Sâm Trấn (V040); since 1176 he has written the contracts that send the oldest orphans to dig the River Hall's dikes by the day against the grain, and when a boy of fourteen went into the river with a dike section last flood season he billed Hoàng Đê Sinh (hoang_de_sinh) for the full day.",
    "ties": [
     {
      "to": "nghiem_linh_chi",
@@ -683,7 +683,12 @@
     {
      "to": "nghiem_hoang_ky",
      "kind": "rival",
-     "note": "keeper of the sick-houses below the terraces, where anyone carried to the gate is treated"
+     "note": "sends back every bill for the dike children's pills"
+    },
+    {
+     "to": "hoang_de_sinh",
+     "kind": "friend",
+     "note": "the River Hall's flood warden; they sign the dike contracts together each autumn"
     }
    ],
    "master": "nghiem_linh_chi",
@@ -979,7 +984,7 @@
     "calling": "Diplomat",
     "upbringing": "war_orphan"
    },
-   "backstory": "An Điếu Đài Thôn orphan named for the herb that makes every other herb agree; Ông Khổ Sâm (ong_kho_sam) uses him to sell to people who dislike each other.",
+   "backstory": "An Điếu Đài Thôn orphan named for the herb that makes every other herb agree; Ông Khổ Sâm (ong_kho_sam) uses him to sell to people who dislike each other, and to carry the sealed dike contracts back down the river each spring.",
    "ties": [
     {
      "to": "ong_kho_sam",

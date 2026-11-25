@@ -59,14 +59,14 @@
     ]
    },
    "appearance": "A lean, sharp-faced man in a hunter's leathers, with a sword whose guard is filed with hundreds of small notches.",
-   "backstory": "Tiêu Vấn Phong grew up on a story. His great-grandfather Tiêu Kiến Quang (tieu_kien_quang), a hunter of Hòe Âm, found a sealed cave on the mountain in 930 with a sword's cold light behind the seal, ran, and never found it again (A108). In 1150 the clan sent its first son, twelve years old, to the gate of Lê Hoa Am (A110). The family said it was for the nuns' learning. He went for the cave. The abbess Thái Lê Tuyết (thai_le_tuyet) looked at him, with the prioress Mạnh Tĩnh Chi (manh_tinh_chi) beside her, and sent him down the mountain for being a boy. He became a hunter and a guide. In 1162, at twenty-four, he founded Tầm Kiếm Đường for the men the hermitage will not take, to search for the sealed sword cave (V069). He learned the sword late, from the guest elder Sài Mộ Kiếm (sai_mo_kiem), and built the hall's canon with him. In thirty-eight years he has searched 412 caves and filed a notch for each in his sword's guard.",
-   "wants": "To stand in front of the abbess with the sword from the cave and make her tell him to his face why she turned him away.",
-   "secret": "He stopped believing he would find the cave twenty years ago. He keeps searching because the hall has no other reason to exist, and because he wants the abbess to have to refuse him once more.",
+   "backstory": "Tiêu Vấn Phong grew up on a story. His great-grandfather Tiêu Kiến Quang (tieu_kien_quang), a hunter of Hòe Âm, found a sealed cave on the mountain in 930 with a sword's cold light behind the seal, ran, and never found it again (A108). In 1150 the clan sent its first son, twelve years old, to the gate of Lê Hoa Am (A110). The family said it was for the nuns' learning. He went for the cave. The abbess Thái Lê Tuyết (thai_le_tuyet) looked at him, with the prioress Mạnh Tĩnh Chi (manh_tinh_chi) beside her, and sent him down the mountain for being a boy. He became a hunter and a guide. In 1162, at twenty-four, he founded Tầm Kiếm Đường for the men the hermitage will not take, to search for the sealed sword cave (V069). He learned the sword late, from the guest elder Sài Mộ Kiếm (sai_mo_kiem), and built the hall's canon with him. In thirty-eight years he has searched 412 caves and filed a notch for each in his sword's guard. In the spring of 1199 he asked the lord, Băng Tâm, for the hall's right to cross above the hermitage's gate, and the Hall of Cold Law will hear the suit at Hòe Âm in the autumn.",
+   "wants": "To make the abbess say under oath, before the lord, why the gate is shut to him, whether he wins the mountain or not.",
+   "secret": "He filed the suit because he stopped believing in the cave twenty years ago. He carries a sealed letter that hands the hall to his nephew as a guides' guild, and he means to send it the day the abbess swears the gate shut.",
    "ties": [
     {
      "to": "thai_le_tuyet",
      "kind": "feud",
-     "note": "Lê Hoa Am's head, who turned him away at twelve and owes him the reason"
+     "note": "Lê Hoa Am's head, who turned him away at twelve and owes him the reason; he has taken her to the lord's law"
     },
     {
      "to": "manh_tinh_chi",
@@ -101,7 +101,7 @@
     {
      "to": "tieu_hoe_sinh",
      "kind": "niece_nephew",
-     "note": "his brother's son"
+     "note": "his brother's son, the hall's witness at Hòe Âm"
     },
     {
      "to": "phan_co_dang",
@@ -390,12 +390,12 @@
     ]
    },
    "appearance": "A cheerful, bow-legged mountain guide who carries a basket on his back in every season.",
-   "backstory": "A woodcutter's son from Hàn Khê Thôn who hunted with Tiêu Vấn Phong (tieu_van_phong) as boys and founded the hall with him in 1162. He guides caravans and Pavilion envoys over the passes and knows every path on the massif. Thirty years ago he went up to the Gate Hermitage to ask about a cave and was turned away by the grey sister Hướng Thiết Lan (huong_thiet_lan). He goes back every spring with a basket of larch mushrooms, and she takes it.",
+   "backstory": "A woodcutter's son from Hàn Khê Thôn who hunted with Tiêu Vấn Phong (tieu_van_phong) as boys and founded the hall with him in 1162. He guides caravans and Pavilion envoys over the passes and knows every path on the massif. Thirty years ago he went up to the Gate Hermitage to ask about a cave and was turned away by the grey sister Hướng Thiết Lan (huong_thiet_lan). He goes back every spring with a basket of larch mushrooms, and she takes it. In 1199 he would not swear for the hall's suit against her gate, the first thing he has ever refused his sworn brother.",
    "ties": [
     {
      "to": "tieu_van_phong",
      "kind": "sworn_sibling",
-     "note": ""
+     "note": "hunted together as boys; he refused to be his witness against the gate"
     },
     {
      "to": "huong_thiet_lan",
@@ -530,7 +530,7 @@
     ]
    },
    "appearance": "A stiff, careful man who still sits like a Băng Tâm disciple and hates that he does.",
-   "backstory": "From the ice-hole village of the far north, he sat three solstice nights on Phiến Băng Hồ under Đỗ Sương Nhi (do_suong_nhi) and felt nothing but cold. He refused the Desert Pavilion and the vassals the Pavilion offered him, walked south, and found Tầm Kiếm in 1185. He teaches the outer gate here with the patience the Pavilion taught him. He is angry at it for teaching him that and nothing else.",
+   "backstory": "From the ice-hole village of the far north, he sat three solstice nights on the frozen mere of Hàn Giao Chử under Đỗ Sương Nhi (do_suong_nhi) and felt nothing but cold. He refused the Desert Pavilion and the vassals the Pavilion offered him, walked south, and found Tầm Kiếm in 1185. He teaches the outer gate here with the patience the Pavilion taught him. He is angry at it for teaching him that and nothing else.",
    "ties": [
     {
      "to": "do_suong_nhi",
@@ -691,7 +691,7 @@
    "rank": "noi_mon",
    "home": 406,
    "birthplace": 66,
-   "role": "The head's nephew",
+   "role": "The head's nephew; the hall's witness for the passes before the Hall of Cold Law",
    "tier": "C",
    "root": {
     "elements": {
@@ -702,19 +702,19 @@
    },
    "traits": {
     "personality": [
+     "Greedy",
      "Ambitious",
-     "Brave",
      "Impatient"
     ],
     "calling": "Duelist",
     "upbringing": "clan_heir"
    },
-   "backstory": "Tiêu Vấn Phong's (tieu_van_phong) brother's son, who will lead the hall if his uncle ever stops searching, and hopes he will.",
+   "backstory": "Tiêu Vấn Phong's (tieu_van_phong) brother's son, who wants the passes, not the cave, and will swear at Hòe Âm that the old stair above Lê Hoa Am's gate cuts a fortnight off the salt road. He has already sold next summer's first crossing to the Hòe Âm salt carters and spent the deposit, and he means to charge the grey sisters the carters' toll on their own path.",
    "ties": [
     {
      "to": "tieu_van_phong",
      "kind": "aunt_uncle",
-     "note": "his uncle"
+     "note": "his uncle, who filed the suit and half wants to lose it"
     },
     {
      "to": "tieu_thua_am",
@@ -739,7 +739,12 @@
     {
      "to": "tieu_ngoc_khe",
      "kind": "cousin",
-     "note": "his cousin; Tiêu-clan daughter in the grey gate; carries letters to the Tầm Kiếm lodge"
+     "note": "his cousin in the grey gate; her letters carry the unsigned pages about the stair"
+    },
+    {
+     "to": "manh_tinh_chi",
+     "kind": "debt",
+     "note": "the unsigned pages about the stair; only two women have climbed it, and the abbess would not write them"
     }
    ],
    "master": "tieu_van_phong",
@@ -933,7 +938,7 @@
     "calling": "Merchant",
     "upbringing": "village_born"
    },
-   "backstory": "He joined to guide paying travellers, not to hunt caves, and sells maps of the massif in Hòe Âm that Tiêu Vấn Phong (tieu_van_phong) would not like to see.",
+   "backstory": "He joined to guide paying travellers, not to hunt caves, and sells maps of the massif in Hòe Âm that Tiêu Vấn Phong (tieu_van_phong) would not like to see. Since the hall's suit was posted at Hòe Âm in 1199 his copies sell for twice the price, with the hermitage's ground left blank, and he lets buyers think the blank is where the sword lies.",
    "ties": [
     {
      "to": "thang_phuc_tuyet",
@@ -953,7 +958,7 @@
     {
      "to": "gia_chi_lo",
      "kind": "friend",
-     "note": "the map-seller who buys his honest copies and spoils them with a cross"
+     "note": "the guide who buys his honest copies to learn the passes, and walks paying fools up them"
     },
     {
      "to": "au_da_loc",

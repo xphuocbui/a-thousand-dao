@@ -1,9 +1,9 @@
 {
  "sect": "phat_y",
- "_doc": "Phất Y Cốc lineage (rules-proposals R5). Re-leaned Metal, Wind -> Metal, Fire: no place in Ngọc Hành Sơn has Wind qi, and the valley and its steppe holdings carry Fire 16-36 %. Wind stays as the founder's secret art, which only a Wind root can learn and which is outside the admission rule (as Thính Vũ keeps Thunder out of its lineage elements). Outer gate: dry-road-sword-primer (proposal, Yellow, Metal + Fire). Inner gate and above: ten-paces-sword-canon (proposal, Profound, Metal). Secret arts: debt-ledger-blade (existing, catalogue-blade; the hired sword's manual), afterimage-sword-canon (existing, catalogue-blade; elders), brushed-sleeve-step (proposal, the founder's Wind art). Unpriced.",
+ "_doc": "Phất Y Cốc lineage (rules-proposals R5). Re-leaned Metal, Wind -> Metal, Fire: no place in Ngọc Hành Sơn has Wind qi, and the valley and its steppe holdings carry Fire 16-36 %. Wind stays as the founder's secret art, which only a Wind root can learn and which is outside the admission rule (as Thính Vũ keeps Thunder out of its lineage elements). Outer gate: dry-road-sword-primer (proposal, Yellow, Metal + Fire). Inner gate and above: contract-sword-canon (proposal, Profound, Metal; id renamed in fix pass B). Secret arts: debt-ledger-blade (existing, catalogue-blade; the hired sword's manual), afterimage-sword-canon (existing, catalogue-blade; elders), brushed-sleeve-step (proposal, the founder's Wind art). Unpriced.",
  "lineage": {
   "outer": "dry-road-sword-primer",
-  "main": "ten-paces-sword-canon",
+  "main": "contract-sword-canon",
   "secret": [
    {"id": "debt-ledger-blade", "rank": "noi_mon", "note": "taught to every sword before its first contract"},
    {"id": "afterimage-sword-canon", "rank": "truong_lao"},
@@ -12,7 +12,7 @@
   "body": null,
   "elements": ["kim", "hoa"],
   "tree_route": [725, 1441, 4280],
-  "tree_route_note": "The hired sword's road: Edge of Autumn for the sword, Sword Spine and Sword Bow for the crit that the Tenth Pace grows into its killing cut."
+  "tree_route_note": "The hired sword's road: Edge of Autumn for the sword, Sword Spine and Sword Bow for the crit that the Final Count grows into its finishing cut."
  },
  "techniques": [
   {
@@ -26,15 +26,15 @@
    "authored": "a1"
   },
   {
-   "id": "ten-paces-sword-canon",
-   "name": "Ten Paces Sword Canon (Thập Bộ Kiếm Kinh)",
+   "id": "contract-sword-canon",
+   "name": "Contract Sword Canon (Khế Kiếm Kinh)",
    "tier": 1, "tech_kind": "main", "names": ["kim"], "layers": 9, "rank": "noi_mon",
-   "concept": "Named for the old verse the valley lives by: ten paces, one man; a thousand li, no trace (Lý Bạch, Hiệp Khách Hành). The cultivator counts steps instead of breaths. In a fight, each second you are Moving and strike nothing stores a Pace; at ten the next strike is a killing cut that spends them all, and the holder steps back out of reach. It is a method for finishing a contract, not for winning a war.",
+   "concept": "A hired sword's method: it counts a fight as a contract counts its terms to the fee. The cultivator counts terms instead of breaths. In a fight, each second you are Moving and strike nothing serves a Term (Khoản 款), and each hit you take strikes one Term off. It is a method for finishing a contract, not for winning a war.",
    "arts": [
-    {"new": "Tenth Pace (Thập Bộ)", "concept": "Spends all stored Paces on one Metal strike whose damage and crit chance grow with each Pace; at ten Paces it ignores part of the foe's defence."},
-    {"new": "No Trace (Bất Lưu Hành)", "concept": "After your hit makes the foe Broken or breaks a ward, you step away: you gain evade for a moment and are At range for 1 s.", "authored": "a1"}
+    {"new": "Final Count (Tận Số)", "concept": "Spends all served Terms on one Metal strike whose damage and crit chance grow with each Term; at five Terms or more it ignores part of the foe's defence."},
+    {"new": "Step Back (Thoái Bộ)", "concept": "After your hit makes the foe Broken or breaks a ward, you step away: you gain evade for a moment and are At range for 1 s.", "authored": "a1"}
    ],
-   "lore": "The founder Quách Vô Tích's method, the canon every inner disciple of the valley takes before their first contract. The founder cut the verse into the cliff above the valley mouth, where every hired sword passes it on the way out.",
+   "lore": "The founder Quách Lĩnh Thù's method, the canon every inner disciple of the valley takes before their first contract. The founder cut his saying on the lintel of the hall, where every hired sword passes under it on the way out: the fee is the whole of the thanks.",
    "status": "proposal",
    "authored": "a1"
   },
@@ -42,12 +42,12 @@
    "id": "brushed-sleeve-step",
    "name": "Brushed Sleeve Step (Phất Y Bộ)",
    "tier": 2, "tech_kind": "secret", "names": ["phong"], "layers": 12, "rank": "tong_chu",
-   "concept": "The founder's own art, from the other half of the verse: when the deed is done, brush your sleeve and go. It runs on Wind alone. The holder moves on the air between one step and the next, and a sleeve brushed across a blade turns it. Taught only to a Wind root; the valley has had two in six centuries.",
+   "concept": "The founder's own art, the valley's custom made into a step: a sleeve brushed across the hilt ends the hire. It runs on Wind alone. The holder moves on the air between one step and the next, and a sleeve brushed across a blade turns it. Taught only to a Wind root; the valley has had two in six centuries.",
    "arts": [
     {"new": "Brush the Sleeve (Phất Y)", "concept": "Turns the next attack aimed at the holder with a sweep of the sleeve and moves them a short distance on the wind; for a breath after, their Metal strikes are faster."},
-    {"new": "Hide the Name (Tàng Danh)", "concept": "For a few seconds the holder's strikes leave afterimages that strike again a moment later; while it lasts, foes cannot single them out."}
+    {"new": "A Thousand Sleeves (Thiên Tụ)", "concept": "For a few seconds the holder's strikes leave afterimages that strike again a moment later; while it lasts, foes cannot single them out."}
    ],
-   "lore": "Quách Vô Tích taught it to no one and left it in a sleeve of grey cloth in the valley's hall when he walked away in 790. Liễu Hành Vân, who had no Wind, kept the book closed for three centuries until a hawk-catcher's son from Thương Ưng Đài opened it: Thang Vô Tạ.",
+   "lore": "Quách Lĩnh Thù taught it to no one and left it folded into his grey robe in the valley's hall when he walked away in 790. The robe opens only to a Wind root. Liễu Hành Vân, who had no Wind, kept it closed for three centuries because no one had the Wind to open it, until a hawk-catcher's son from Thương Ưng Đài did: Thang Vô Tạ.",
    "status": "proposal"
   }
  ]

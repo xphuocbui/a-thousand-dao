@@ -19,7 +19,7 @@
 A manor of divers on the south shore of Hạo Nguyệt Hồ. Its people cultivate at the bottom of the lake and on the
 stilt-halls over a still pool where the moon lies on the water. It farms the biggest pearls on the continent, it keeps a
 shoal of spirit fish that cannot live without moonlight, and it owes the pines a tithe that it never quite pays in full.
-Everyone on the lake knows Hàm Nguyệt's numbers are wrong. Only two people know why.
+Everyone on the lake knows Hàm Nguyệt's numbers are wrong. Only a handful of the manor know why.
 
 ## 2. Land and seat
 
@@ -166,13 +166,15 @@ how to teach it since.
 ## 9. Inside the sect
 
 - **The north beds.** Kha Toán Châu keeps two ledgers. The second records what the north beds pay and what goes to Lục
-  Hàn Chu. Lam Hàm Sương has begun to read the first and to notice the second's shape. Đinh Lưu Ly, who dives the north
-  beds, is watching where the black pearls go and has not decided whom to tell.
-- **The frost and the heir.** The old shore families want a frosted Kiều as mistress. Kiều chose Lam Hàm Sương, who has
-  none, and sent the frosted girl to the pines as a pledge. Her brother Kiều Vọng Thiềm, without frost, is taught by the
-  heir and resents her.
-- **Fish against pearls.** Mục Tiềm Uyên says the manor sells too many pearls and breeds too few fish. He is the last
-  disciple of the old mistress and the one person Kiều cannot dismiss.
+  Hàn Chu. Kiều has put her heir, Lam Hàm Sương, to the first ledger to learn the manor's sums, and Lam now writes the
+  north beds' pearls into it herself, as lots from the patient beds. Đinh Lưu Ly dives the north beds and hands the
+  black pearls up into the boat, so she can count the tenth. Since last winter Kha has paid her a diver's share of it,
+  and she asks for more each season.
+- **Fish against pearls.** Mục Tiềm Uyên says the manor sells too many pearls and breeds too few fish, and now he has
+  the dead to show for it. To make the tenth and the tithe both, the manor has overseeded the shallows below the
+  stilt-halls, the seed lines strip the water, and the spirit fish that feed there die. Each morning Mục carries the
+  night's dead up to the mistress's door in a basket and counts them aloud. He is the last disciple of the old
+  mistress and the one person Kiều cannot dismiss, so she steps round the basket.
 - **The dead beds.** Lã Tư Châu is seeding Cựu Châu Trấn's shallows behind his master's back. If the beds live, the old
   town could be resettled, and the pines would want a tithe on it.
 
@@ -208,19 +210,20 @@ how to teach it since.
 
 ## 12. Story hooks
 
-1. **The tenth pearl.** Phương Ngọc Sa finally matches the ledgers, or Đinh Lưu Ly sells what she has seen. A vassal
-   paying a Băng Tâm raider is a scandal on both shores. The player can carry the second ledger to Thiều Lăng Ba, to
-   Băng Tâm, or back to Kiều for a price. (Kiều Nguyệt Châu, Kha Toán Châu, Phương Ngọc Sa, Đinh Lưu Ly, Lục Hàn Chu;
-   places 8, 190.)
+1. **The tenth pearl.** Phương Ngọc Sa finally matches the ledgers, or Đinh Lưu Ly's price grows past what Kha will pay
+   and she sells what she knows. A vassal paying a Băng Tâm raider is a scandal on both shores. The player can carry the
+   second ledger to Thiều Lăng Ba, to Băng Tâm, or back to Kiều for a price. (Kiều Nguyệt Châu, Kha Toán Châu, Phương
+   Ngọc Sa, Đinh Lưu Ly, Lục Hàn Chu; places 8, 190.)
 2. **Lục Hàn Chu wants his war.** He has taken the manor's tenth for fifty years and wanted another war for longer. If
    Băng Tâm's heir quarrel tips his way, the skiffs come in, and the manor learns what its pearls bought. (Lục Hàn Chu,
    Kiều Nguyệt Châu, Quách Bất Trầm, Mông Lộc Nhi; the north beds.)
 3. **Frost for the pledge.** Kiều wants someone to teach her grand-niece Ice. Băng Tâm would; the pines would call it
    treason. The player can carry the girl north, carry a method south, or tell the Lake Hall. (Kiều Nguyệt Châu, Kiều
    Hàn Nguyệt, Thiều Lăng Ba, Lục Hàn Chu; places 97, 8.)
-4. **The heir without frost.** The shore families back Kiều Vọng Thiềm against Lam Hàm Sương when the mistress goes into
-   seclusion. The heir needs a frost of her own, a reason the frost does not matter, or a sister-in-law. (Lam Hàm Sương,
-   Kiều Vọng Thiềm, Kiều Hàn Nguyệt.)
+4. **The white shallows.** The seed lines below the stilt-halls take the whole autumn's water, and Mục Tiềm Uyên asks
+   the player to cut them before the fish die out. Kha needs the harvest to make the tenth and the tithe. Cut, the
+   manor pays Lục Hàn Chu short; left, the pool is empty by spring. (Mục Tiềm Uyên, Kha Toán Châu, Kiều Nguyệt Châu,
+   Đào Nguyệt Lân; place 260.)
 5. **A dark night.** The false moon fails on a moonless night, through a broken lantern or a thief, and the spirit fish
    begin to die. Mục Tiềm Uyên needs shell, oil and a Sương Tùng ward before dawn. (Mục Tiềm Uyên, Đào Nguyệt Lân, Văn
    Hàn Đăng; places 260, 948.)

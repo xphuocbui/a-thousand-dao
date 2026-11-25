@@ -19,8 +19,8 @@
 Five refiners of the Pivot's mint left it in 980 to assay for anyone who would pay a fair fee, and built a house on
 a forest hill five tiles above Song Kiều, about a week's road, and a counter in the town by its twin bridges.
 Every morning the house's counter sets out its scales on one side of the open
-square where the Pivot has weighed the miners' ore since 235, and the Pivot's assayers set out theirs on the other. The
-miners prefer the house's side. They have their reasons, and so does the house.
+square where the Pivot has weighed the miners' ore since 235, and the Pivot's assayers set out theirs on the other. For
+two winters nearly every miner has stood in the house's line, and paid to stand there.
 
 ## 2. Land and seat
 
@@ -51,6 +51,7 @@ are Wood and Fire. The house's furnaces are coal and charcoal. The refiners' Fir
 | 1160 | Tưởng Ngọc Cân takes the house's scales on the square | |
 | 1168 | The house refines the Dawn Charioteer for the Pivot head's disciple Doãn Hi Hòa | (thien_xu items) |
 | 1170s, 1190s | The Pivot's master of weights twice finds the house weight a hair light; twice the head weighs it and finds it true | **N-chan_kim-02** |
+| 1198 | Tưởng Ngọc Cân begins charging the good-side fee; the Pivot's scale on the square loses its custom | |
 
 **New chronicle proposals.**
 - **N-chan_kim-01** (980, `oath`): "Hạng Thử Kim of Chân Kim Các casts the house's copy of the Pivot's standard weight
@@ -110,36 +111,46 @@ same scale. In a fight the lineage strips: it burns off wards and buffs and leav
 
 ## 8. Relations
 
-- **Thiên Xu Tông (lord, loyalty 65):** the house assays beside the Pivot at Song Kiều and shaves its weights
-  (thien_xu §8). **Đặng Quân Bình**, master of the Ngọc Hành Hall, has caught the house weight light twice, and **Tưởng
-  Bách Luyện** has twice denied it. **Hồng Chuẩn Bình** shouts at the house's assayers every morning. The house refined
+- **Thiên Xu Tông (lord, loyalty 65):** the house assays beside the Pivot at Song Kiều, shaves its weights (thien_xu
+  §8), and since 1198 has taken the square's custom from it. **Đặng Quân Bình**, master of the Ngọc Hành Hall, has
+  caught the house weight light twice, and **Tưởng Bách Luyện** has twice denied it. **Hồng Chuẩn Bình** shouts at the
+  house's assayers every morning, across an empty scale. The house refined
   **Doãn Hi Hòa**'s first sword in 1168, and the head asks after it.
-- **Thối Tinh Môn:** the house refines the smiths' iron for silver inlay. **Phùng Xích Kim** knows Thiên Ngoại iron melts
-  like mountain iron. The head forbade him to say so, because a refiner does not assay unasked.
+- **Thối Tinh Môn:** the house refines the smiths' iron for silver inlay. **Phùng Xích Kim** guesses that Thiên Ngoại
+  iron is mountain iron, because it melts like it. The head forbade him to say so, because a refiner does not assay
+  unasked.
 - **Củng Tinh Quán:** owns the only true star iron in the heartland and has never brought it to the square.
 - **The Ôn clan of Song Kiều:** the house's kin by marriage and its partner in the tolls (A229). **Ôn Song Ngọc** sits
   between them.
-- **The miners of Ngọc Hành:** the house's real constituency. They are paid a little more on its side of the square,
-  and they love it for reasons it cannot admit.
+- **The miners of Ngọc Hành:** the house's real constituency. Their ore weighs heavier on its side of the square, and
+  they pay a fee each morning for the privilege, a larger one each season.
 
 ## 9. Inside the sect
 
-- **The hair-light weight.** **Tưởng Ngọc Cân** shaves the house weight so that ore weighed on her side comes out
-  heavier and the miners are paid more than at the Pivot's scale. She swaps in a true copy when anyone tests it. Her
-  grandfather found out the second time and lied for her. The old outer disciple **Quản Thập Thù** carries both weights
-  and knows which is which. **Ôn Song Ngọc** suspects it from the tolls.
-- **The honest man's lie.** Tưởng Bách Luyện has told one lie in 280 years. The house's creed is that nothing false
-  survives the furnace. He is the furnace.
-- **The succession.** The head wants an heir who will keep the house honest. His granddaughter is the obvious heir and
-  the reason it is not.
-- **Unasked.** Phùng Xích Kim has known about Thối Tinh's iron for decades. The rule that a refiner does not assay
-  unasked protects the smiths and the house both.
+- **The good side of the square.** **Tưởng Ngọc Cân** shaves the house weight a hair light, so that ore weighed on her
+  side comes out heavier than at the Pivot's scale. Since 1198 she has charged the miners a good-side fee to stand in
+  her line. At first the fee was small and the whole square crossed over: the Pivot's assayer **Hồng Chuẩn Bình** has
+  weighed almost nothing for two winters. With no other scale left, she raises the fee each season, and it now takes
+  back most of what the light weight gives. The house's taboo is weighing for the house. She weighs for herself.
+- **The swap.** **Quản Thập Thù** keeps the true house weight in his sleeve and swaps it in whenever anyone tests her
+  scale, as Đặng Quân Bình did in the 1170s and 1190s. She pays him a share of the fee.
+- **The new silver.** **Tưởng Bách Luyện** found out at the second weighing, in 1194, and denied it to the Pivot to save
+  her. Since 1198 the house's take has tripled and he spends it. This spring he sent his grandson **Tưởng Tri Chuẩn**,
+  who tests the weights, back to keep the house's counter at Bạch Ngân, fifty-five days off. The fourth furnace is
+  going up with the good-side money.
+- **The Ôn's share.** Every miner in the house's line crosses the Ôn's north bridge to get there. **Ôn Trọng Lương**
+  wants a fifth of the fee, or the toll on that bridge doubles and the miners go back to the Pivot's scale. **Ôn Song
+  Ngọc** carries his terms to the house. She has also asked Hồng Chuẩn Bình what the Pivot would pay to have the miners
+  back.
+- **Unasked.** **Phùng Xích Kim** guesses that Thối Tinh's Thiên Ngoại iron is mountain iron: it melts like it in his
+  furnace. He has no true star iron to set beside it, so it stays a guess, and the head forbids him even that, because
+  a refiner does not assay unasked.
 
 ## 10. Treasures and sets
 
 - **Hundred-Fold Crucible (Bách Luyện Lô)**, the head's crucible since 980.
 - **The House Weight (Các Cân)**, the bronze copy of the Pivot's standard weight cast by Hạng Thử Kim in 980, and its
-  shaved twin, which is not in any record.
+  shaved twin, which is not in any record. Quản Thập Thù carries the true one in his sleeve.
 - The Pivot's **Assayer's Touchstone** (thien_xu items) is the thing the house most wants to rub its silver on.
 - **Personal sets** (world-depth items pass, 2026-11-25; details in `chan_kim.items.json`):
   - **Assayer's Tools (Thí Kim Tam Khí)**, a set of 3 (Tưởng Bách Luyện): Hundred-Fold Crucible, Hallmark Seal, Robe of the Refiner. Full set: Tried and Stamped (Thí Ấn), a foe your art hits while it carries a buff is stamped for 6 s; the next buff it gains burns off at once, and you gain a ward worth 5 % of your health.
@@ -160,22 +171,25 @@ Living 10: Kết Đan 1, Trúc Cơ 4, Luyện Khí 5; tier A 2, B 2, C 6; all ru
 | luong_diem_chi | Lương Diệm Chi | nội môn | Luyện Khí | C | Fire 46, Wood 28, Earth 22 | Furnace apprentice |
 | nghiem_bac_sinh | Nghiêm Bạc Sinh | ngoại môn | Luyện Khí | C | Metal 50, Earth 24 | Outer disciple from the silver mine |
 | on_tieu_kieu | Ôn Tiểu Kiều | ngoại môn | Luyện Khí | C | Wood 34, Water 30, Fire 20 | Outer disciple of the Ôn clan |
-| quan_thap_thu | Quản Thập Thù | ngoại môn | Luyện Khí | C | Earth 40, Metal 26, Wood 24 | The oldest outer disciple, who knows every weight |
+| quan_thap_thu | Quản Thập Thù | ngoại môn | Luyện Khí | C | Earth 40, Metal 26, Wood 24 | The oldest outer disciple, who carries the two weights and swaps them |
 | hang_thu_kim | Hạng Thử Kim | founder (dead 1120) | Trúc Cơ | B | | Co-founder (980), who cast the house weight |
 
 ## 12. Story hooks
 
-1. **The third weighing.** Đặng Quân Bình comes to Song Kiều with the Pivot's Assayer's Touchstone and a new test that
-   no swap can beat. Tưởng Ngọc Cân has a night to decide. (Đặng, Tưởng Ngọc Cân, Tưởng Bách Luyện, Hồng Chuẩn Bình;
+1. **The third weighing.** Đặng Quân Bình comes to Song Kiều, four months on the road, with the Pivot's Assayer's
+   Touchstone and a new test that no swap can beat. Tưởng Ngọc Cân has a night to decide. (Đặng, Tưởng Ngọc Cân, Tưởng
+   Bách Luyện, Hồng Chuẩn Bình; place 82.)
+2. **The old man's sleeve.** Hồng Chuẩn Bình offers Quản Thập Thù a Pivot pension for the weight in his sleeve. Quản
+   has carried both weights for forty years and been paid from the fee for two. (Quản, Hồng Chuẩn Bình, Tưởng Ngọc Cân;
    place 82.)
-2. **The old man's weights.** Quản Thập Thù is dying and wants to tell someone which weight is which. The player is the
-   one who sits with him. (Quản, Tưởng Ngọc Cân; place 82.)
-3. **The miners' side.** If the shaving is exposed, the miners of Ngọc Hành learn that the Pivot's fair scale paid them
-   less than the cheat's. A miners' petition, a riot on the square, or a new kind of loyalty. (Tưởng Ngọc Cân, Ôn
-   Song Ngọc, Lã Minh Nhãn, Đặng; places 82, 174, 176.)
+3. **The miners' side.** If the shaving is exposed, the miners of Ngọc Hành learn that the cheat's scale paid them more
+   than the Pivot's, and then charged them for it, more each season, once there was no other scale. A miners' petition,
+   a riot on the square, or a new kind of loyalty. (Tưởng Ngọc Cân, Ôn Song Ngọc, Lã Minh Nhãn, Đặng; places 82, 174,
+   176.)
 4. **Assaying unasked.** Someone finally asks the house to assay Thiên Ngoại iron: a Thính Vũ buyer, a Pivot judge, or
-   the player. Phùng Xích Kim already knows the answer. (Phùng, Tưởng Bách Luyện, Hầu Thiết Anh; places 427, 173.)
+   the player. Phùng Xích Kim has a guess and no proof. (Phùng, Tưởng Bách Luyện, Hầu Thiết Anh; places 427, 173.)
 5. **The nine silvers.** A loose-cultivator child sorts the nine silvers blindfold in front of the whole square. The
    house must take her; her family is wanted by the Pivot's hound. (Tưởng Bách Luyện, Khương Tiểu Kim, Đồ Vô Cữu.)
-6. **The Ôn tolls.** The Ôn clan wants the toll on ore raised, and only Ôn Song Ngọc can tell them how much the miners
-   can bear, because only she knows both sides of the square. (Ôn Song Ngọc, Ôn Tiểu Kiều; place 82.)
+6. **The Ôn tolls.** The Ôn want a fifth of the good-side fee, and Ôn Song Ngọc must tell the house how much the miners
+   can bear before her grandfather doubles the north bridge toll. (Ôn Song Ngọc, Ôn Trọng Lương, Tưởng Ngọc Cân, Ôn Tiểu
+   Kiều; place 82.)

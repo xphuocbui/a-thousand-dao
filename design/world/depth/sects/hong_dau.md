@@ -77,7 +77,7 @@ was born in Thu Trì (Water 40 %) with a Wood of 82, which the city never explai
 | 1012-1013 | One season with Ô Thiềm Tử; a daughter born in the garden | (cast) |
 | 1062 | Hàn Tư Quân tries to carry the sword to Lạc Hà and is poured a bean | **N-hong_dau-02** |
 | 1110 | The mistress moves her rooms back from the door to the vein garden | **N-hong_dau-03** |
-| 1150 | A Phượng Minh spy is poured the second cup and stays | C188, **N-hong_dau-04** |
+| 1153 | In the fourth year of the Cinnabar Vein War (C188, 1150), a Phượng Minh spy is poured the second cup and stays | **N-hong_dau-04** |
 | 1197 | Red beans scattered on the path to the door | A279 |
 
 **New chronicle proposals:**
@@ -87,7 +87,7 @@ was born in Thu Trì (Water 40 %) with a Wood of 82, which the city never explai
   The mistress meets him at the door with a cup of tea. He is buried under the first trellis."
 - **N-hong_dau-03** (1110, `seat_moved`): "The mistress of Hồng Đậu Trang moves her rooms from the manor on the forest
   road to the vein garden, where no bell line reaches. The house on the road keeps the gracious door."
-- **N-hong_dau-04** (1150, `tale`): "A Phượng Minh swordsman knocks at the gracious door, asks about the Tower's
+- **N-hong_dau-04** (1153, `tale`): "A Phượng Minh swordsman knocks at the gracious door, asks about the Tower's
   poisons, and is poured a second cup. He does not go home."
 
 ## 4. Doctrine and customs
@@ -168,7 +168,7 @@ the charm, who keeps his own sect's method.
 - **Lạc Hà Tông:** the old Lạc Anh claim. Lạc Hà holds the bay of the Petal Shore, the Tower holds its forest (C128),
   and Phi Hồng is half of the right to lead the school that once held both. Hàn Tư Quân died trying to sell that half to
   Lạc Hà in 1062.
-- **Phượng Minh Cung:** one of its swordsmen has gardened at the manor since 1150. Phượng Minh has not asked for him, or
+- **Phượng Minh Cung:** one of its swordsmen has gardened at the manor since 1153. Phượng Minh has not asked for him, or
   has not been told where he is.
 - **Fellow vassals:**
   - **Vũ Linh Đường** (Ân Thanh Linh): rivals. Her bell lines on the forest road hear what is said near them, and the
@@ -215,7 +215,7 @@ the charm, who keeps his own sect's method.
 | lieu_da_thai | Liễu Đa Thải | chấp sự | Trúc Cơ | B | Water 54, Wood 48 | Mistress of the gracious door |
 | tien_kho_dang | Tiền Khổ Đằng | nội môn | Trúc Cơ | B | Wood 60, Water 34 | Poison-cook of the garden |
 | quan_song_dau | Quản Song Đậu | nội môn | Trúc Cơ | C | Wood 46, Water 44 | Courier to the Night Rain Market |
-| te_vong_quy | Tề Vong Quy | tạp dịch | Trúc Cơ | B | Fire 56, Earth 40 | A Phượng Minh swordsman who has gardened since 1150 |
+| te_vong_quy | Tề Vong Quy | tạp dịch | Trúc Cơ | B | Fire 56, Earth 40 | A Phượng Minh swordsman who has gardened since 1153 |
 | kha_tieu_dau | Kha Tiểu Đậu | ngoại môn | Luyện Khí | C | Water 42, Wood 30 | Bean-picker |
 | te_niem_quy | Tề Niệm Quy | ngoại môn | Luyện Khí | C | Wood 38, Fire 34 | The gardener's daughter, who scatters the beans |
 | ho_yen_do | Hồ Yên Độ | ngoại môn | Luyện Khí | C | Wood 40, Fire 26 | Road-watcher at the misty bridge |
@@ -229,7 +229,7 @@ the charm, who keeps his own sect's method.
    gracious door and is poured one cup. The disciple is in the garden and will not come. Liễu Đa Thải wants to pour the
    master a second. (Liễu Đa Thải, Nghê Xuân Chi, Nghê Hồng Đậu; places 27, 263.)
 2. **The gardener's daughter.** Tề Niệm Quy wants her father woken and sent home to Phượng Minh. The cure is in the
-   garden, the Tower's market, or Giả Hồi Xuân's hands. Waking him wakes a Phượng Minh spy who has lived fifty years
+   garden, the Tower's market, or Giả Hồi Xuân's hands. Waking him wakes a Phượng Minh spy who has lived forty-seven years
    inside the Tower's vassal. (Tề Niệm Quy, Tề Vong Quy, Nghê Xuân Chi, Giả Hồi Xuân; places 263, 54.)
 3. **The father in the market.** Ô Thiềm Tử finally traces the nameless poisons that answer his. If he learns he has a
    daughter, the Tower's alchemist and the manor are joined, or at war. (Ô Thiềm Tử, Nghê Xuân Chi, Mai Độc Ca, Nghê

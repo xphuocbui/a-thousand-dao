@@ -115,14 +115,19 @@ sword school needs new proposals. R3 names "the blade" as a no-lean family, and 
 
 ## 9. Inside the sect
 
-- **The founder's doubt.** Tiêu Vấn Phong stopped believing he would find the cave twenty years ago. The hall would
-  have no purpose without the search, so he keeps searching, and part of him wants the abbess to refuse him once more.
+- **The suit.** Last spring Tiêu Vấn Phong asked the lord, Băng Tâm, for the hall's right to cross above Lê Hoa Am's
+  gate, and Thẩm Hàn Giang's Hall of Cold Law will hear it at Hòe Âm Trấn in the autumn. Tiêu stopped believing in the
+  cave twenty years ago. He filed because the abbess will have to answer him under oath, and part of him wants to
+  lose: a refusal sworn before the lord would let him close the map wall.
 - **The cave is real.** It is Hoắc Hàn Quang's sealed abode (slot A-1), above the hermitage's gate, and the sword inside
   carries a failed tribulation (le_hoa hook 5). If the hall finds it, the hall may be the first thing it kills.
-- **The heir.** Tiêu Hòe Sinh would lead the hall if his uncle stopped, and he hopes he will. He would turn it into a
-  guides' guild.
-- **The map-seller.** Hách Tùng sells copies of the map wall in Hòe Âm. Any one of them could lead a stranger to the
-  right cave first.
+- **The witness.** Tịch Lang Tung would not swear against the hermitage's gate, so the hall's witness is the head's
+  nephew Tiêu Hòe Sinh, who wants the passes, not the cave. He will swear that the old stair above the gate crosses the
+  high saddle and cuts a fortnight off the salt road from Hòe Âm. He has already sold next summer's first crossing to
+  the salt carters and spent the deposit, and he means to charge the grey sisters the carters' toll on their own path.
+  The stair reaches him as unsigned pages in his cousin's letters from the gate.
+- **The map-seller.** Hách Tùng sells copies of the map wall in Hòe Âm. Since the suit was posted they sell for twice
+  the price, with the hermitage's ground left blank, and he lets buyers think the blank is where the sword lies.
 - **The teacher's duel.** Sài Mộ Kiếm will leave the hall the day he hears Tư Không Hạc Niên will fight him again.
 
 ## 10. Treasures and sets
@@ -153,15 +158,18 @@ sword school needs new proposals. R3 names "the blade" as a no-lean family, and 
 
 1. **The 413th cave.** Lữ Hồi Lộ finds a cold silence near the top of Hồi Lộ Phong's stair. The head listens at it and
    cannot tell if it is the seal. (Tiêu Vấn Phong, Lữ Hồi Lộ; place 183.)
-2. **The letter.** The abbess, dying, writes to Tiêu Vấn Phong at last. Thái Trường Thanh carries it, and Mạnh Tĩnh Chi
-   tries to stop it. (Tiêu, Thái Lê Tuyết, Thái Trường Thanh, Mạnh.)
+2. **The letter.** Before the hearing the abbess writes to Tiêu Vấn Phong at last. Thái Trường Thanh carries it, and
+   Mạnh Tĩnh Chi tries to stop it. (Tiêu, Thái Lê Tuyết, Thái Trường Thanh, Mạnh.)
 3. **The map in a stranger's hands.** A map Hách Tùng sold turns up with Triệu Huyết Y, who hunts old masters' abodes.
    (Hách Tùng, Tiêu, Triệu Huyết Y.)
-4. **The mushroom basket.** Hướng Thiết Lan is ordered to bar the paths above the gate, and Tịch Lang Tung is leading the
-   search party up them. (Tịch, Hướng, Ngưu Phá Sơn.)
+4. **The mushroom basket.** If the Hall rules for the lodge, Hướng Thiết Lan is ordered to bar the paths above the gate,
+   and Tịch Lang Tung must lead the first party up them. (Tịch, Hướng, Ngưu Phá Sơn.)
 5. **The second duel.** Tư Không Hạc Niên passes through Hòe Âm. Sài Mộ Kiếm leaves the sword yard to challenge him, and
    the hall follows to watch. (Sài, Tư Không Hạc Niên; places 66, 48.)
 6. **The boy at the gate.** A new Tiêu son is sent up the mountain to the hermitage, as Tiêu Vấn Phong was. The player is
    asked to take him, by the clan, by the hall, and by the abbess. (Tiêu Hòe Sinh, Tiêu Ngọc Hòe, Thái Lê Tuyết.)
 7. **The Pavilion's sword.** The hall learns that Băng Tâm keeps a legendary ice sword, Phi Tuyết, under its own seat. Is
    that the cold light? It is not, and finding that out costs something. (Tiêu, Thang Phục Tuyết; place 214.)
+8. **The hearing at Hòe Âm.** The Hall of Cold Law sits in the autumn. The player can sit the bench for the lodge, carry
+   the salt carters' complaint when the deposit is gone, or show the founder whose hand wrote his nephew's stair.
+   (Tiêu Vấn Phong, Tiêu Hòe Sinh, Thẩm Hàn Giang, Thái Lê Tuyết; place 66.)

@@ -471,7 +471,7 @@ flag) · `S7 + rb-14` · **n 9**
 - Lives: The Monk's Rest. Who: ha_thinh_tung, quan_tich_am, cu_dong_moc (van_hac).
 - Why: a fixed 2 s rest with no defined end. Fun: play, rest, play.
 
-**d29. Return to the Scabbard (Quy Vỏ)** · Effect · `rb-08` · **n 3**
+**d29. Return to the Scabbard (Quy Sao)** · Effect · `rb-08` · **n 3**
 - AUTHORED: see authored/auth-eff-2.json
 - Rule: after 3 s without striking a foe, it counts as unstruck: first-hit and No Second Cut pieces re-arm.
 - Lives: Rain-Chain Sword Scripture or the Drawn-Out Edge Canon. Who: co_da_lan, ton_tuyet_bich (thinh_vu);
@@ -735,7 +735,7 @@ Sáo)** · Item bases · `sets-tl/bow-and-staff-bases + sets-tp/staff-base + S1`
 
 **g1. Partial manuals (Tàn Quyển)** · Item kind plus quest hooks · `ra-G4` · **n 12** · *waits on quests*
 - Rule: a manual naming a technique and a layer range caps cultivation; finding the rest raises the cap. Written gaps:
-  Lone Line Sitting Canon at 8, Still Moon Tide missing 3 of 12, Painted Beams' dusk half, Returning Swallow Breath
+  Lone Line Sitting Canon at 8, Painted Beams' dusk half, Returning Swallow Breath
   at 9, Hàm Nguyệt's Kiều frost.
 - Lives: Item Database (beside Cultivation Techniques rule 4), sect story hooks, Quests.
 - Who: lu_doc_dieu, bo_toa_tuyet (lanh_giang); lieu_ngu_ca, tham_han_giang (bang_tam); luong_bach_tan, bui_phieu_binh

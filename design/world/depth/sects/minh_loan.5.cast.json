@@ -116,7 +116,8 @@
     "calling": "Refiner",
     "upbringing": "village_born"
    },
-   "backstory": "A Xích Kim miner's daughter who left Thiên Bảo's red gold for the pavilion's bronze in 1170; she pours the big bells and has twice asked Ngụy Trầm Âm (nguy_tram_am) why the winter rule was made in the head's hand and not his.",
+   "backstory": "A Xích Kim miner's daughter who left Thiên Bảo's red gold for the pavilion's bronze in 1170; she pours the big bells, and she will not pour the war bells, so Ngụy Trầm Âm (nguy_tram_am) pours them himself.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): refuses to pour the war bells (was: asking about the winter rule)",
    "ties": [
     {
      "to": "nguy_tram_am",
@@ -190,7 +191,8 @@
     "calling": "Refiner",
     "upbringing": "village_born"
    },
-   "backstory": "A Bạch Dương shepherd's girl who failed Lạc Hà's dusk test three times and heard the Cloud Bridge bells from the steppe; she asked to be placed where they were cast, and Tô Bình Chu (to_binh_chu) placed her in 1199.",
+   "backstory": "A Bạch Dương shepherd's girl who failed Lạc Hà's dusk test three times and heard the Cloud Bridge bells from the steppe; Tô Bình Chu (to_binh_chu) placed her where they were cast in 1199. When the head first rang a war bell at the pit she was the first to drop her tools and run, and she has not forgiven herself.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): ran first at the tuning",
    "ties": [
     {
      "to": "lo_hong_pham",
@@ -469,14 +471,15 @@
    },
    "traits": {
     "personality": [
-     "Loyal",
+     "Greedy",
      "Stubborn",
      "Gregarious"
     ],
     "calling": "Merchant",
     "upbringing": "village_born"
    },
-   "backstory": "A Hàm Phong salt-boiler's daughter and Phí Ngọc Thanh's (phi_ngoc_thanh) cousin, who fits ships at the wharf for Ông Hải Linh (ong_hai_linh) and rings each new bell against the captain's old one; she has refused the mountain twice, as her master did.",
+   "backstory": "A Hàm Phong salt-boiler's daughter and Phí Ngọc Thanh's (phi_ngoc_thanh) cousin, who fits ships at the wharf for Ông Hải Linh (ong_hai_linh); one day a month she buys the melt cart's false bells as scrap, pays her master not to ring them, and sells them polished to the small boats of the bay.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): Loyal -> Greedy (sells the melt cart's false bells to the small boats)",
    "ties": [
     {
      "to": "ong_hai_linh",

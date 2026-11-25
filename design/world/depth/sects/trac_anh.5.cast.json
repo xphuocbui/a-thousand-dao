@@ -15,7 +15,7 @@
    "rank": "noi_mon",
    "home": 17,
    "birthplace": 1450,
-   "role": "Captain of the third whaleboat; the loudest voice for hunting the Old Ivory",
+   "role": "Captain of the third whaleboat; the first to take Ngạc's new iron",
    "tier": "C",
    "root": {
     "elements": {
@@ -28,13 +28,13 @@
    "traits": {
     "personality": [
      "Brave",
-     "Vengeful",
+     "Greedy",
      "Loyal"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "His grandfather's boat went down under the Old Ivory. He has promised his crew that the third boat will follow Ngạc Hải Tiêu (ngac_hai_tieu) the day he goes for the whale, whatever the head says.",
+   "backstory": "His third boat leaks and its irons are older than he is. He took Ngạc Hải Tiêu's (ngac_hai_tieu) new iron first, and has promised his crew that the calf's second half will buy a new hull.",
    "ties": [
     {
      "to": "doan_thanh_lang",
@@ -44,7 +44,7 @@
     {
      "to": "ngac_hai_tieu",
      "kind": "friend",
-     "note": "will follow him after the whale"
+     "note": "took his iron first; will row for the calf"
     },
     {
      "to": "boc_hai_dong",
@@ -116,7 +116,7 @@
     "calling": "Beast tamer",
     "upbringing": "village_born"
    },
-   "backstory": "She dives beside Đoàn Tố Ba (doan_to_ba) and swore to her that the inlet's seals will not be hunted while she lives. Phí Nhạn Tâm (phi_nhan_tam) teaches her the Tê Nhạn palm; she is the only one who rows out to the ruin with him.",
+   "backstory": "She dives beside Đoàn Tố Ba (doan_to_ba) and swore to her that the inlet's seals will not be hunted while she lives. She pulls an oar in the sixth boat. Phí Nhạn Tâm (phi_nhan_tam) teaches her the Tê Nhạn palm; she is the only one who rows out to the ruin with him.",
    "ties": [
     {
      "to": "phi_nhan_tam",
@@ -375,7 +375,7 @@
    "rank": "noi_mon",
    "home": 17,
    "birthplace": 1477,
-   "role": "Harpooner in Ngạc's boat; wants the bow seat for the whale",
+   "role": "Harpooner in Ngạc's boat; wants the bow seat on the day of the calf",
    "tier": "C",
    "root": {
     "elements": {
@@ -393,7 +393,7 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Ngạc Hải Tiêu (ngac_hai_tieu) took her into his boat because she threw farther than Nghê Tiểu Lãng (nghe_tieu_lang). She wants the bow seat on the day they go for the Old Ivory.",
+   "backstory": "Ngạc Hải Tiêu (ngac_hai_tieu) took her into his boat because she threw farther than Nghê Tiểu Lãng (nghe_tieu_lang). She wants the bow seat on the day they go for the Old Ivory's calf.",
    "ties": [
     {
      "to": "ngac_hai_tieu",

@@ -12,14 +12,15 @@
 | Leans | Wood, Metal → **Wood, Water** (re-leaned: the seat has no Metal, and the craft is ink that water cannot take) |
 | Lineage elements | Wood first, then Water |
 | Seat | **stays** at Họa Tinh Đường (place 1328, forest of Dao Quang Lĩnh): Wood 51 %, Water 16 %, Metal 9 %, density 1.08 |
-| Head | Kỷ Ngân Chúc, Kết Đan, Hall-mistress since 1150 |
+| Head | Kỷ Ngân Chúc, Kết Đan, Hall-mistress since 1137 |
 | Size | about 45 painters, ink-makers and fungus gatherers; 10 named living, 1 named dead |
 | Way of life | talisman painters: they paint the Pivot's Dipper talismans and grind the ink its archive writes in |
 
 A hall of painters in the northern pine forest. They paint the seven stars of the Dipper into talismans in soot from
 their own kilns, and since 910 their talismans have not run in the rain (V059). The Pivot's envoys carry them, and the
 Pivot's archive writes the Compact in their ink. The world knows the Hall for its stillness: painters who sit so long
-that moths settle on them. It does not know what is in the cedar box in the head's room.
+that moths settle on them. Only the head and the Pivot's archive keeper know what is in the cedar box in the head's
+room, and lately the Hall's Dipper is being sold in markets it has never sold to.
 
 ## 2. Land and seat
 
@@ -47,13 +48,13 @@ which is why the old Metal lean never had any people behind it.
 | 712 | The pitch yards of Chi Hương Trấn burn the town and its forest; no one rebuilds | V055 |
 | 910 | Talisman makers who paint the Dipper's stars found Họa Tinh Đường and swear to Thiên Xu; their talismans will not run in the rain | V059 |
 | 912 | The founder builds the Mặc Yên soot kilns in the vermilion pines on the ash of Chi Hương and lights the Silver Candle | **N-hoa_tinh-01** |
-| 1150 | The founder Kỷ Thu Tịch dies at the painting table; Kỷ Ngân Chúc takes the Hall, the key and the oath | **N-hoa_tinh-02** |
+| 1137 | The founder Kỷ Thu Tịch dies at the painting table; Kỷ Ngân Chúc takes the Hall, the key and the oath | **N-hoa_tinh-02** |
 | 1195 | The Pivot's copyist Thích Minh Thư asks the Hall's ink-maker for a night's ink "for a guard roll"; he logs it | **N-hoa_tinh-03** |
 
 **New chronicle proposals.**
 - **N-hoa_tinh-01** (912, `settlement`): "Họa Tinh Đường builds its soot kilns, the Mặc Yên, among the vermilion pines
   where Chi Hương Trấn burned, and burns pine pitch for ink."
-- **N-hoa_tinh-02** (1150, `headship`): "Kỷ Thu Tịch, founder of Họa Tinh Đường, dies at the painting table at 330; her
+- **N-hoa_tinh-02** (1137, `headship`): "Kỷ Thu Tịch, founder of Họa Tinh Đường, dies at the painting table at 317; her
   grand-niece Kỷ Ngân Chúc takes the Hall and swears an oath on a cedar box."
 - **N-hoa_tinh-03** (1195, `tale`, hidden): "Thích Minh Thư of the Pivot's archive asks Hàn Thủy Mặc for a night's
   ink, for a guard roll of Tinh Tủy Mạch." It is the ink of the guard-roll copy of N-thien_xu-10. The ink-maker
@@ -110,24 +111,40 @@ hidden root. The rain-fast art is its blood-ink writ with the blood taken out, a
 
 - **Thiên Xu Tông (lord, loyalty 55):** the Hall paints the Dipper into talismans that will not run in the rain
   (V059; thien_xu §8). The Pivot's envoys carry them. The archive Tàng Ước Các writes in the Hall's ink, and its keeper
-  **Sử Ngưng Mặc** trusts no other. The Hall's ink-maker **Hàn Thủy Mặc** lives at the Pivot's seat. In 1195 he ground
+  **Sử Ngưng Mặc** trusts no other, knowing what it is (§9). The Hall's ink-maker **Hàn Thủy Mặc** lives at the Pivot's seat. In 1195 he ground
   the copyist **Thích Minh Thư** a night's ink "for a guard roll" and logged it (N-hoa_tinh-03). The ink master **Lăng
   Mặc Khanh** can date any stroke of the Hall's ink to the year it was ground, so the Hall could prove when her copy of
   the 803 roll was made, and from whose ink.
 - **Cửu Cao Phái:** the crane school 34 tiles east. Its riders carry the Hall's talismans, and **Ung Hạc Minh** is the
   head's friend.
 - **Củng Tinh Quán:** reads what the Hall paints. The two houses have never compared their skies.
+- **Thính Vũ Lâu:** the Pivot's enemy, and now the Hall's forger. Its coast house at Lãng Hoa Thành (**Hoàng Tiêu
+  Diệp**) paints the Hall's Dipper in deer glue, and its Night Rain Market (**Kiều Mãn Lâu**) sells it (§9).
 - **Cửu Thiều Cung** (fallen, C005): the Hall's forbidden ancestor. Its book is in the cedar box.
 
 ## 9. Inside the sect
 
-- **The cedar box.** The founder bought a copy of Thorn and Ink Verses from a beggar in Khai Dương. The Hall's
-  rain-fast ink is its blood-ink writ with the blood removed. **Kỷ Ngân Chúc** swore never to open the box while the
-  Hall is the Pivot's. Every Compact copy the archive has made since 910 is written in a forbidden art's ink, and only she
-  knows it. Her last disciple **Tân Cức Hoa** has found a scrap of verse under the lid that matches the stroke she is
-  taught.
-- **Selling the ink.** **Lạc Tố Bình**, the expected heir, wants to sell the rain-fast ink to every sect on the
-  continent. **Hàn Thủy Mặc** says the Hall should sell to the Pivot only. Neither knows where the ink comes from.
+- **The forged Dipper.** Talismans under the Hall's seal are turning up in Khai Dương and at Thính Vũ's Night Rain
+  Market. They are cheaper and nearly as good, and they hold in the rain because they are painted in deer glue, boiled
+  from deer poached in the Pivot's meadow of Lộc Uyển (A086). The Tower's coast house at Lãng Hoa Thành paints them,
+  and **Kiều Mãn Lâu** sells them. The Pivot's envoys pass every gate on the Hall's Dipper, so a forged one in a Tower
+  courier's sleeve opens the Pivot's own doors.
+- **The stroke for sale.** **Lạc Tố Bình** has always wanted to sell the rain-fast ink to every sect. This spring, in
+  a Khai Dương inn, she sold the first half of its stroke to **Hoàng Tiêu Diệp** of the Tower's coast house, for more
+  stones than the Hall earns in a year, and kept them. Lạc believes the Tower wants the ink for its own writs. Its
+  painters want it for the Dipper: with the whole stroke they will need no glue, and nothing about a forgery will
+  smell wrong. The second half is promised for next spring.
+- **The glue.** **Quan Lộc Nhi** knew the first forgery by its smell. It is her uncle's yard at Lộc Uyển, where he
+  boils the hides. She sends him her stipend each season so that he will stop, and he takes it and boils them anyway.
+  Her master **Lục Thanh Chi** sells the village's violet fungus dye, the colour of the Hall's seal, at the Khai Dương
+  dye market. This year one buyer took ten jars, and Lục kept the price and asked nothing: the dye pays for the
+  village's winter.
+- **The box that was opened.** The founder bought Thorn and Ink Verses from a beggar in Khai Dương, and the Hall's
+  rain-fast ink is its blood-ink writ with the blood taken out. **Kỷ Ngân Chúc** swore on a cedar box never to open it
+  while the Hall is the Pivot's. **Sử Ngưng Mặc** keeps the copy the Pivot seized at Cửu Thiều Cung's fall (C005), knew
+  the stroke in the first ink the Hall sold her, and came north to the founder's burial in 1137 to tell Kỷ she would
+  go on buying it. Every Compact copy since 910 is written in it. To prove a forgery false, the two would have to say why
+  the true one holds.
 - **The night's ink of 1195.** Hàn Thủy Mặc wrote Thích Minh Thư's request in his book. If the Pivot ever asks who
   copied the guard roll and when, the Hall's book and its ink master are the answer.
 
@@ -148,31 +165,34 @@ Living 10: Kết Đan 1, Trúc Cơ 4, Luyện Khí 5; tier A 1, B 3, C 6; all ru
 
 | Key | Name | Rank | Realm | Tier | Root | Role |
 |---|---|---|---|---|---|---|
-| ky_ngan_chuc | Kỷ Ngân Chúc | tông chủ | Kết Đan | A | Wood 64, Water 48 | Hall-mistress since 1150; keeper of the cedar box |
-| lac_to_binh | Lạc Tố Bình | chân truyền | Trúc Cơ | B | Wood 56, Water 40 | Chief painter and expected heir |
+| ky_ngan_chuc | Kỷ Ngân Chúc | tông chủ | Kết Đan | A | Wood 64, Water 48 | Hall-mistress since 1137; keeper of the cedar box |
+| lac_to_binh | Lạc Tố Bình | chân truyền | Trúc Cơ | B | Wood 56, Water 40 | Chief painter; selling the stroke to the Tower |
 | lang_mac_khanh | Lăng Mặc Khanh | trưởng lão | Trúc Cơ | B | Wood 60, Water 30 | Ink master of the Mặc Yên soot kilns |
 | han_thuy_mac | Hàn Thủy Mặc | nội môn | Trúc Cơ | B | Wood 46, Water 44 | Resident ink-maker at the Pivot's archive |
 | luc_thanh_chi | Lục Thanh Chi | chấp sự | Trúc Cơ | C | Wood 58, Earth 26, Water 24 | Keeper of the village and the fungus dyes |
-| tan_cuc_hoa | Tân Cức Hoa | nội môn | Luyện Khí | C | Wood 50, Water 34 | The head's last disciple, who has noticed the box |
+| tan_cuc_hoa | Tân Cức Hoa | nội môn | Luyện Khí | C | Wood 50, Water 34 | The head's last disciple; sweeps the head's room |
 | ma_tinh_but | Mã Tinh Bút | nội môn | Luyện Khí | C | Wood 52, Water 26 | Paints the seventh star |
 | ho_mac_nhi | Hồ Mặc Nhi | ngoại môn | Luyện Khí | C | Wood 48, Water 22 | Outer disciple at the soot kilns |
 | phu_vu_sinh | Phù Vũ Sinh | ngoại môn | Luyện Khí | C | Water 44, Wood 30 | The ink-maker's apprentice at the Pivot's seat |
-| quan_loc_nhi | Quan Lộc Nhi | ngoại môn | Luyện Khí | C | Wood 40, Water 30 | Outer disciple from the deer meadow |
-| ky_thu_tich | Kỷ Thu Tịch | founder (dead 1150) | Kết Đan | B | | Founder (910); kept the forbidden book |
+| quan_loc_nhi | Quan Lộc Nhi | ngoại môn | Luyện Khí | C | Wood 40, Water 30 | Outer disciple from the deer meadow; knew the glue |
+| ky_thu_tich | Kỷ Thu Tịch | founder (dead 1137) | Kết Đan | B | | Founder (910); kept the forbidden book |
 
 ## 12. Story hooks
 
-1. **The scrap under the lid.** Tân Cức Hoa shows the player a verse that matches the rain-fast stroke. If she opens
-   the box, the Hall's ink becomes a heresy. (Tân, Kỷ Ngân Chúc; seat 1328.)
+1. **The blood stroke.** To paint a Dipper no forger can copy, Kỷ Ngân Chúc would have to open the box and put the
+   blood back into the stroke. Sử Ngưng Mặc would have to take that ink into the archive, and Tân Cức Hoa, who sweeps
+   the head's room, would be the first one taught it. (Kỷ, Tân, Sử; places 1328, 5.)
 2. **Dating the copy.** Băng Tâm brings the copy of the 803 guard roll to the Bridge Court. Lăng Mặc Khanh can
-   smell that its ink was ground in 1195 at the Pivot's own seat, and Hàn Thủy Mặc's book names who asked for it. (Lăng, Hàn Thủy Mặc, Thích Minh Thư, Sử
-   Ngưng Mặc, Ngụy Thanh Hàn; places 1327, 5, 81.)
+   smell that its ink was ground in 1195 at the Pivot's own seat, and Hàn Thủy Mặc's book names who asked for it.
+   (Lăng, Hàn Thủy Mặc, Thích Minh Thư, Sử Ngưng Mặc, Ngụy Thanh Hàn; places 1327, 5, 81.)
 3. **The candle.** The Silver Candle gutters for the first time since 912. The Hall believes the founder's oath is
    breaking. (Kỷ Ngân Chúc, Lạc Tố Bình.)
-4. **Selling the ink.** A Thính Vũ buyer offers Lạc Tố Bình a fortune for the rain-fast art. The Pivot would see a
-   vassal arming its rival's writs. (Lạc, Hàn Thủy Mặc, Phòng Bách Kế; places 1328, 7.)
+4. **The second half.** Next spring Lạc Tố Bình goes back to Khai Dương to sell the rest of the stroke. Stop her, buy
+   her off, or follow Hoàng Tiêu Diệp's painters south to the coast house. If the sale goes through, a forged Dipper
+   will hold in the rain with no glue in it. (Lạc, Hoàng Tiêu Diệp, Tề Thu Ảnh; places 34, 90.)
 5. **The Pivot's taboo.** The Pivot's envoy Bách Vong Ngôn, who learns the zither in secret, hears that a vassal
    keeps a Cửu Thiều book, and asks the zither master Hà Thính Tùng of Vạn Hác Viện whether it can be sung safely.
    (Kỷ Ngân Chúc, Bách Vong Ngôn, Hà Thính Tùng; places 34, 1328.)
-6. **The deer-glue forgery.** Talismans bearing the Hall's seal turn up in Khai Dương painted in deer-glue ink.
-   Quan Lộc Nhi smells it at once. (Quan, Lục Thanh Chi, Bồ Lộc Minh; places 34, 113.)
+6. **The uncle's yard.** Quan Lộc Nhi asks the player to go to Lộc Uyển and shut her uncle's glue yard before the deer
+   warden Bồ Lộc Minh finds it and the Pivot's law on its deer falls on her family. The yard's buyer comes north once
+   a year from the Tower's coast. (Quan, Bồ Lộc Minh, Hoàng Tiêu Diệp; places 113, 90.)

@@ -146,24 +146,37 @@ the mountain's girls, who will mostly never wear white. The Sealed Cold Sutra is
 - **Tầm Kiếm Đường:** the men she turned away. Its founder Tiêu Vấn Phong hates the gate and searches for what is
   behind the seal. The grey sisters and the Tầm Kiếm hunters meet on the mountain paths, and most of them get on;
   Hướng Thiết Lan and Tịch Lang Tung more than get on.
-- **The Tiêu clan of Hòe Âm:** sends its daughters here since 1150 (Tiêu Ngọc Hòe) and its sons to Tầm Kiếm or the
+- **The Tiêu clan of Hòe Âm:** sends its daughters here since 1151 (Tiêu Ngọc Hòe) and its sons to Tầm Kiếm or the
   Pavilion (Tiêu Bạch Lộ).
 - **The miners of the massif:** the hermitage's people. The Cold Jade and Silver Thread mines send most of its girls.
 - **Hoắc Hàn Quang** (dead, C014): the founder's master, whose name is not spoken on the mountain.
 
 ## 9. Inside the sect
 
-- **The walk of 1202.** Every fifty years the abbess and one nun climb to the seal and sit against it for a season. The
-  next walk is two years off, and Thái is 440. She wants to take her gentle disciple Ứng Lê Âm. Her prioress Mạnh Tĩnh
-  Chi walked with her in 1152 and expects to go again and to be abbess after it.
-- **The prioress's dream.** Since 1152 Mạnh has dreamed of the sword behind the seal. The keeper of the gate is the
-  person who most wants it opened. Thái half suspects it, and that is why she hesitates.
-- **What the vow says.** Thái knows the founder forbade the *sword*, not men. She turned the Tiêu boy away in 1150 because
-  the first thing he asked her about was the cold light. If she said so, the women-only rule would fall, and Mạnh would
-  fight her.
+- **The case of the mountain.** Last spring Tầm Kiếm Đường asked the lord for the right to cross above the Gate
+  Hermitage. Băng Tâm's Hall of Cold Law took the suit, and its master Thẩm Hàn Giang is riding five months south to
+  hear it at Hòe Âm Trấn in the autumn. A ruling for the lodge would put the massif's men behind him at the seat.
+  Khương Lưu Ly's party backs the nuns. The Hall will put one question to the abbess under oath: what does the
+  founder's vow bar?
+- **Two answers.** Thái Lê Tuyết knows the vow bars the sword, not men. She has sat against the seal, and the Tiêu boy
+  she sent down in 1150 had asked her first where the cold light was. If she swears to that, she wins, and she names
+  in open court the master whose name the mountain does not speak, and the sword he left above her gate. If she swears
+  the gate is for women, she lies to her lord, and Thẩm can rule that a women's rule does not close a road. If she
+  loses, carters and hunters walk up past a sword that kills whoever draws it. She has written both answers and
+  signed neither.
+- **The prioress's pages.** Mạnh Tĩnh Chi wants the seal opened: the sword has spoken to her in a man's voice every
+  winter since 1152. Tiêu Ngọc Khê carries the grey sisters' letters down to the Tầm Kiếm lodge, two months on the
+  mine road, and Mạnh opens the bag at the gate first. She adds an unsigned page to each letter for Tiêu Hòe Sinh, the
+  lodge's witness: the old stair above the gate, saddle by saddle, as she climbed it in 1152. She knows what waits at
+  the top.
+- **The walk of 1202.** Every fifty years the abbess and one nun sit against the seal for a season, and the next walk
+  is two years off. Thái is 440, and she would take Ứng Lê Âm. Since the suit came she has been teaching Ứng the Sealed
+  Cold Sutra after the evening bell, so that someone can sit against the seal if the court goes wrong. Mạnh walked
+  in 1152 and means to walk again.
+- **The grey and the white.** Grey sisters do the hermitage's work and seldom rise, and they follow Hướng Thiết Lan,
+  who follows Mạnh. The Hall has summoned Hướng to swear that no man has passed the gate in her thirty years on it.
+  The lodge's chief guide, Tịch Lang Tung, refused to swear against her gate, so she will face the head's nephew.
 - **The Light root.** Diệp Quang Nhi carries a Light the hermitage cannot teach. Some nuns say the summit chose her.
-- **The grey and the white.** Grey sisters do the hermitage's work and seldom rise. Hướng Thiết Lan is loyal to Mạnh,
-  and the grey sisters would follow Mạnh in any quarrel.
 
 ## 10. Treasures and sets
 
@@ -198,21 +211,23 @@ the mountain's girls, who will mostly never wear white. The Sealed Cold Sutra is
 
 ## 12. Story hooks
 
-1. **The walk of 1202.** Thái must choose who climbs with her to the seal: Ứng Lê Âm or Mạnh Tĩnh Chi. If she dies
-   first, the choice falls to whoever holds the Sealed Cold Sutra. (Thái, Ứng, Mạnh; the cave above place 15.)
-2. **The voice in the seal.** Mạnh Tĩnh Chi's dreams grow louder after the mountain rumbles. A player helping the
-   hermitage may notice the prioress climbing alone at night. (Mạnh, Hướng Thiết Lan.)
-3. **The truth of 1150.** Tiêu Vấn Phong learns why he was really turned away, from Thái's letter, from Tiêu Ngọc Hòe,
-   or from the player. Does he stop searching, or search harder? (Thái, Tiêu Vấn Phong, Tiêu Ngọc Hòe; place 406.)
-4. **The cold light.** Tầm Kiếm's hunters find the cave Tiêu Kiến Quang ran from in 930 (A108). The grey sisters are
-   sent to stop them, and Hướng Thiết Lan meets Tịch Lang Tung on the mountain with a sword in her hand. (Hướng, Tịch,
-   Tiêu; place 15 and above.)
+1. **The oath at Hòe Âm.** The Hall of Cold Law sits at Hòe Âm Trấn in the autumn, and the abbess must answer under
+   oath what the vow bars. The player can ride down with her, carry one of her two answers to the bench, or tell Khương
+   Lưu Ly's people what Thẩm means to rule. (Thái, Thẩm Hàn Giang, Khương Lưu Ly, Tiêu Vấn Phong; places 15, 66.)
+2. **The voice in the seal.** Mạnh Tĩnh Chi's dreams grow louder after the mountain rumbles. A player who carries the
+   grey sisters' letter bag down the mine road finds a page in it about a stair that no grey sister has climbed.
+   (Mạnh, Tiêu Ngọc Khê, Tiêu Hòe Sinh.)
+3. **The truth of 1150.** Tiêu Vấn Phong learns why he was really turned away, from Thái's oath, from Tiêu Ngọc Hòe, or
+   from the player. Does he stop searching, or search harder? (Thái, Tiêu Vấn Phong, Tiêu Ngọc Hòe; place 406.)
+4. **The cold light.** If the Hall rules for the lodge, Tầm Kiếm's first party goes up the stair to the cave Tiêu Kiến
+   Quang ran from in 930 (A108). The grey sisters are sent to stop them, and Hướng Thiết Lan meets Tịch Lang Tung on
+   the mountain with a sword in her hand. (Hướng, Tịch, Tiêu; place 15 and above.)
 5. **The sword's price.** Whoever draws Hoắc Hàn Quang's sword wakes the tribulation that killed him (proposal: the
    frozen lightning of C039 is the same storm). The bell is the only thing that has ever answered it. (Ứng Lê Âm, the
    bell.)
-6. **Two old girls of Hòe Âm.** Thái Lê Tuyết and Tiết Hàn Mai, both 440, both dying, meet once more. One holds the Sealed
-   Cold Sutra and the other the Array under the Pavilion. Each needs an heir she can trust with a lid. (Thái, Tiết Hàn Mai;
-   places 66, 214.)
+6. **The walk of 1202.** Thái must choose who climbs with her to the seal: Ứng Lê Âm, who is learning the Sutra, or Mạnh
+   Tĩnh Chi, who wants the seal opened. If she dies first, the choice falls to whoever holds the Sealed Cold Sutra.
+   (Thái, Ứng, Mạnh; the cave above place 15.)
 7. **The Light root.** Diệp Quang Nhi needs a Light method no nun has. The player can find her one, or a Light sect can
    take her away. (Diệp, Ứng.)
 8. **The dragon wakes.** If Chúc Long Sơn erupts, the nuns go north to pray over the new dead, and Thái Lê Tuyết may be

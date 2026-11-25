@@ -38,8 +38,8 @@
    "traits": {
     "personality": [
      "Vengeful",
-     "Diligent",
-     "Arbitrary"
+     "Arbitrary",
+     "Callous"
     ],
     "calling": "Formation master",
     "upbringing": "wild_raised",
@@ -62,8 +62,8 @@
    },
    "appearance": "A gaunt woman in undyed hemp mourning, with grave-earth in the hem and a small bronze bell at her wrist that rings when no one moves.",
    "backstory": "Lý Hận Bích was born in 830 among the cave hunters of Thủ Động Trại, high on the thunder ridge, where Khải Lôi once kept wardens over the cave in which it laid the disciples its storm climbs killed (A283, V152). Every Kinh Trập the hunters went in to sweep the dead and came out before the first thunder. At twelve she was too slow, and the door was barred behind her by the hunters' own rule. She spent the night among Khải Lôi's dead. Darkness formed in her root, and she heard them sing. She left the ridge at forty and learned soul arts and grave wards from whoever would teach a ma đạo girl. In 960 she came down to the graves of Lôi Trạch Thành, Khải Lôi's city, burned by its own head's tribulation in 480 (C053, C008). No dead on the continent had more cause, and they sang the loudest. She founded the Pavilion on the bamboo hill above them and swore it to the Tower (C197). Since then the villagers of Ương Ca have sung louder at planting to drown the graves out (A314). In 1110 her sworn sister Lương Thanh Mộ (luong_thanh_mo) went into the deepest grave and did not come back. Lý hears her voice among the singers every autumn.",
-   "wants": "To hear the oldest song of Lôi Trạch to its end, and to see a whole stone of grave jade ripen in her lifetime, not a fleck.",
-   "secret": "The oldest graves do not sing poems. They sing what their head was chanting when his tribulation burned the city: passages of Khải Lôi's own canon. Cơ Ký Âm has written them down. She has sealed his copybooks and told the Tower nothing.",
+   "wants": "To hear the oldest song of Lôi Trạch to its end before it is drunk dry, and to see a whole stone of grave jade ripen in her lifetime, not a fleck.",
+   "secret": "The oldest graves do not sing poems. They sing what their head was chanting when his tribulation burned the city: passages of Khải Lôi's own canon. Cơ Ký Âm has written them down. She has sealed his copybooks and told the Tower nothing. And she has the river's drowned and the hamlet's unclaimed dead laid in the jade beds to be sung, though the abbess of Cốc Vũ pays rice every autumn for them to lie at the edge; the rice buys her censers.",
    "ties": [
     {
      "to": "luong_thanh_mo",
@@ -88,7 +88,7 @@
     {
      "to": "on_tich_nhai",
      "kind": "disciple",
-     "note": "the cave hunters' son, the Pavilion's only other Darkness"
+     "note": "the cave hunters' son who keeps the Cave Hall; one of its two dark singers"
     },
     {
      "to": "le_tieu_hon",
@@ -98,7 +98,7 @@
     {
      "to": "duong_hao_vu",
      "kind": "rival",
-     "note": "born the same year; the abbess prays for the dead to rest"
+     "note": "born the same year; the abbess pays rice to let the river's dead rest, and Lý takes it"
     },
     {
      "to": "nghe_hong_dau",
@@ -123,7 +123,7 @@
     {
      "to": "on_tich_nhai",
      "kind": "niece_nephew",
-     "note": "her sister's line, the cave hunters' son; the Pavilion's only other Darkness"
+     "note": "her sister's line, five generations down"
     },
     {
      "to": "tiet_an_suong",
@@ -133,7 +133,7 @@
     {
      "to": "chu_an_thach",
      "kind": "friend",
-     "note": "a hunters' son from the ridge, brought down on the cave walk"
+     "note": "a hunters' son of the ridge who came out of the cave singing; the Cave Hall's second dark singer"
     }
    ],
    "build": {
@@ -218,8 +218,8 @@
    "traits": {
     "personality": [
      "Calm",
-     "Reclusive",
-     "Devout"
+     "Devout",
+     "Deceitful"
     ],
     "calling": "Teacher",
     "upbringing": "village_born",
@@ -239,7 +239,7 @@
     ]
    },
    "appearance": "A soft-spoken old man with a zither on his back and a voice that can fill a valley without being raised.",
-   "backstory": "A drum-maker's son from the ruins of Kích Cổ Đường, where the last drummers scattered in 482 (V153). He heard the graves of Lôi Trạch sing at ten, seventeen tiles off, and walked to them. Lương Thanh Mộ (luong_thanh_mo) taught him the songs, and after she went into the deepest grave in 1110 Lý Hận Bích (ly_han_bich) finished his training. Every autumn he leads the chant, and every autumn he listens for one voice.",
+   "backstory": "A drum-maker's son from the ruins of Kích Cổ Đường, where the last drummers scattered in 482 (V153). He heard the graves of Lôi Trạch sing at ten, seventeen tiles off, and walked to them. Lương Thanh Mộ (luong_thanh_mo) taught him the songs, and after she went into the deepest grave in 1110 Lý Hận Bích (ly_han_bich) finished his training. Every autumn he leads the chant and listens for one voice, and he sings her grave last and lightly. He also takes the rice Dương Hảo Vũ (duong_hao_vu) pays for the river's drowned, writes back that they lie at the edge, and lays them in the jade beds as the head orders.",
    "ties": [
     {
      "to": "luong_thanh_mo",
@@ -259,12 +259,17 @@
     {
      "to": "duong_hao_vu",
      "kind": "friend",
-     "note": "the abbess, who sends him rice each autumn and asks him to sing more softly"
+     "note": "the abbess, who pays him rice each autumn to let the river's dead rest; he writes back that they do"
     },
     {
      "to": "hoac_tich_ca",
      "kind": "disciple",
      "note": "leads the nightly autumn chant at the graves under Bào Thu Xướng"
+    },
+    {
+     "to": "cam_vong_nhi",
+     "kind": "disciple",
+     "note": "the fisher girl from Mãn Võng"
     }
    ],
    "master": "luong_thanh_mo",
@@ -348,7 +353,7 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Diligent",
+     "Greedy",
      "Callous"
     ],
     "calling": "Formation master",
@@ -364,7 +369,7 @@
     "gained": []
    },
    "appearance": "A square-shouldered woman with a jade-cutter's lens on a cord and dirt to the elbows.",
-   "backstory": "Born on the Pavilion's hill to a grave-digger and raised by the sect. Lý Hận Bích (ly_han_bich) made her keeper of the jade beds, where the ward holds the dead's resentment until it hardens. She has dug up three green flecks in a hundred years and thinks the head is too patient. She wants the ward, the beds and the Pavilion, and she thinks the copyist's books should have been sold.",
+   "backstory": "Born on the Pavilion's hill to a grave-digger and raised by the sect. Lý Hận Bích (ly_han_bich) made her keeper of the jade beds. In a hundred years the beds gave her three green flecks, and she thinks the head too patient. For three autumns Tiết Ấn Sương (tiet_an_suong) laid a forcing seal over one of the oldest graves by the river, and Thẩm sang it dry inside the chant; it gave out on the last night of last autumn, after the singers had gone up. At midsummer she dug a ripe stone out of it. Kiều Mãn Lâu's (kieu_man_lau) man is carrying it to Thu Trì in a fish basket, ten weeks on the road, for the pills that would make her Kết Đan.",
    "ties": [
     {
      "to": "ly_han_bich",
@@ -389,7 +394,12 @@
     {
      "to": "tiet_an_suong",
      "kind": "friend",
-     "note": "ward-setter at the jade beds"
+     "note": "laid the forcing seal over the river grave for her, for a fifth of the price"
+    },
+    {
+     "to": "kieu_man_lau",
+     "kind": "creditor",
+     "note": "the Night Rain master, who owes her Kết Đan pills for the stone"
     }
    ],
    "master": "ly_han_bich",
@@ -674,7 +684,7 @@
    "rank": "noi_mon",
    "home": 852,
    "birthplace": 852,
-   "role": "The cave hunters' son: keeps the Pavilion's watch at Thủ Động Trại, the only other Darkness in the sect",
+   "role": "The cave hunters' son: keeps the Pavilion's Cave Hall at Thủ Động Trại, one of its two dark singers",
    "tier": "B",
    "root": {
     "elements": {
@@ -683,7 +693,7 @@
      "thuy": 28
     },
     "variants": {
-     "am": 26
+     "am": 46
     }
    },
    "thien_phu": {
@@ -698,7 +708,7 @@
     "personality": [
      "Stubborn",
      "Loyal",
-     "Brave"
+     "Callous"
     ],
     "calling": "Wanderer",
     "upbringing": "wild_raised",
@@ -716,7 +726,7 @@
     "gained": []
    },
    "appearance": "A short, heavy hunter in ridge furs with a cave lamp on his belt that he never lights.",
-   "backstory": "Born in the hunters' village at Thủ Động Trại, the head's own, five generations down from her sister. He keeps the cave watch on Kinh Trập as his family always has (V152), and every few years he brings a hunters' child with Earth and Water in their root the two months' road down to the graves, because Lý Hận Bích (ly_han_bich) hopes the Darkness that woke in her will wake in one of them. It woke in him, a little. He is the only person at the Pavilion who has been inside the cave.",
+   "backstory": "Born in the hunters' village at Thủ Động Trại, the head's own, five generations down from her sister. On his own Kinh Trập night in the cave the Darkness the ridge gave him woke. Since 1185 he has kept the Pavilion's Cave Hall there (V152). Each Kinh Trập he shuts the likeliest hunters' child in the cave of Khải Lôi's dead by the hunters' own rule, as Lý Hận Bích (ly_han_bich) was shut in at twelve, and sends the ones who come out with nothing home with a fee for the family. He and Chử Ẩn Thạch (chu_an_thach) sing the cave's dead as the river singers sing the graves.",
    "ties": [
     {
      "to": "ly_han_bich",
@@ -726,12 +736,7 @@
     {
      "to": "ly_han_bich",
      "kind": "aunt_uncle",
-     "note": "his great-great-great-aunt, by her sister"
-    },
-    {
-     "to": "cam_vong_nhi",
-     "kind": "disciple",
-     "note": "the fisher girl"
+     "note": "his great-great-great-aunt, by her sister; she made him the Cave Hall's keeper"
     },
     {
      "to": "an_thu_son",
@@ -741,7 +746,7 @@
     {
      "to": "chu_an_thach",
      "kind": "disciple",
-     "note": "a hunters' son from the ridge, brought down on the cave walk"
+     "note": "the boy he shut in the cave in 1196, who came out singing"
     }
    ],
    "master": "ly_han_bich",
@@ -981,9 +986,9 @@
    "backstory": "From Mãn Võng Thôn, the Pavilion's fishing village; sent up the hill when the nets came up with a singing skull in them.",
    "ties": [
     {
-     "to": "on_tich_nhai",
+     "to": "bao_thu_xuong",
      "kind": "master",
-     "note": "the hunter"
+     "note": "the singing master"
     },
     {
      "to": "cam_thuy_ngam",
@@ -991,7 +996,7 @@
      "note": "her cousin; sweeper from Mãn Võng who heard the graves from the boats"
     }
    ],
-   "master": "on_tich_nhai",
+   "master": "bao_thu_xuong",
    "build": {
     "archetype": "phap_tu",
     "main": {

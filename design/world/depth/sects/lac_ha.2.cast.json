@@ -59,7 +59,8 @@
    "appearance": "A quiet young man with river-brown skin and a bandolier of black needles ground from old boat nails.",
    "backstory": "Lữ Tẫn Chu was born in 1166 at Đào Sa Thị, the gold-washers' market where Lãng Đào's ferries landed. His father was a ferryman. In 1173 Lạc Hà's raiders burned the boats at the landing (A080), and his father was on one. The boy spent the next morning fishing nails out of the shallows. A Lạc Hà elder with soot in his beard sat down beside him and helped (N-lac_ha-08). The elder was Lô Xướng Vãn (lo_xuong_van), and he took the boy home to the Boat Hall. Lữ grew up singing the boats' song in the villages of the side that burned his father's boat. He reached Trúc Cơ at thirty-two with needles he had ground from the Đào Sa nails. Lô's grandson Lô Niệm Ca (lo_niem_ca) has never called him brother.",
    "wants": "To learn who gave the order to burn the landing, and then to decide what he owes them.",
-   "secret": "He has known since he was fifteen that the elder who sat beside him led the raid. He stayed in Lạc Hà to decide whether to forgive Lô Xướng Vãn or kill him. Last year he learned from a Counting House receipt that the order came from the head.",
+   "secret": "He has known since he was fifteen that the elder who sat beside him led the raid. He stayed in Lạc Hà to decide whether to forgive Lô Xướng Vãn or kill him. Last year he learned from a Counting House receipt that the order came from the head. On his fifteenth birthday Lô Xướng Vãn showed him ten years of passes stamped with the Nine Bends seal for a toll the pines never set, and that is why he has never answered Giang Cửu Khúc's spring letters, which offer him a boat. This spring he sent one pass down the river inside Giang Tiểu Loan's letters, addressed to Thương Bạch Phàm (thuong_bach_pham).",
+   "changed": "fix pass B 2026-11-25 (fixB-5): secret appended and ties per the fixB-6 row (existing text unchanged)",
    "ties": [
     {
      "to": "lo_xuong_van",
@@ -74,7 +75,7 @@
     {
      "to": "giang_cuu_khuc",
      "kind": "friend",
-     "note": "Lãng Đào's head writes every year to ask him home"
+     "note": "Lãng Đào's head writes every spring, offering him a boat; he has never answered"
     },
     {
      "to": "nhiep_ngoc_am",
@@ -110,7 +111,8 @@
      "to": "dang_hoanh_giang",
      "kind": "friend",
      "note": "the River Hall man who fished the Đào Sa nails out of the shallows with him in 1173"
-    }
+    },
+    {"to": "thuong_bach_pham", "kind": "friend", "note": "the boat-mistress who poled nine children off the landing; he sent her a pass"}
    ],
    "master": "lo_xuong_van",
    "build": {
@@ -256,7 +258,7 @@
     {
      "to": "khong_ich_mau",
      "kind": "friend",
-     "note": "the Yến Quang girl who brings her the tincture"
+     "note": "the Yên Quang girl who brings her the tincture"
     },
     {
      "to": "man_bo_vong",
@@ -351,7 +353,7 @@
     "personality": [
      "Humble",
      "Patient",
-     "Content"
+     "Deceitful"
     ],
     "calling": "Teacher",
     "upbringing": "sect_raised",
@@ -364,7 +366,8 @@
     "gained": []
    },
    "appearance": "A mild, round-faced man with chalk dust on his sleeves from the outer gate's slate boards.",
-   "backstory": "A great-grandson of the head's brother, Tô Bình Chu is a plain steward who will never pass Trúc Cơ, and knows it. When the sect moved in 1185 (N-lac_ha-05) he stayed below to keep the outer gate at the old seat, where the steppe's Earth trains children best. His daughter Tô Mộ Vân (to_mo_van) is the brightest talent in the west. His son Tô Hiểu Chu (to_hieu_chu) is an ordinary outer disciple, and he worries more about the son.",
+   "backstory": "A great-grandson of the head's brother, Tô Bình Chu is a plain steward who will never pass Trúc Cơ, and knows it. When the sect moved in 1185 (N-lac_ha-05) he stayed below to keep the outer gate at the old seat. His daughter Tô Mộ Vân (to_mo_van) is the west's brightest talent. His son Tô Hiểu Chu (to_hieu_chu) is ordinary and on the envoy's list of thirty for Thiên Bảo Trai. He must sign every placement and has signed none. He is offering a poor Hà Khúc family his stipend for ten years if their second child takes his son's place, and he has not told them that the child would be enrolled at the gate only to be sold.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): Content -> Deceitful; the Hà Khúc child enrolled only to be sold (read-pilot-B)",
    "ties": [
     {
      "to": "tu_binh_hanh",
@@ -399,7 +402,7 @@
     {
      "to": "mai_tieu_ngai",
      "kind": "creditor",
-     "note": "placed at Yến Quang; owes Lạc Hà a tenth until 1229"
+     "note": "placed at Yên Quang; owes Lạc Hà a tenth until 1229"
     },
     {
      "to": "nghiem_thu_lo",
@@ -470,6 +473,11 @@
      "to": "thuong_thu_ha",
      "kind": "friend",
      "note": "holds the dusk test on the steppe at Cựu Hà Viện"
+    },
+    {
+     "to": "hach_anh_ha",
+     "kind": "rival",
+     "note": "the envoy who drew his son onto her list"
     }
    ],
    "master": "tu_binh_hanh",
@@ -1471,7 +1479,7 @@
     {
      "to": "trang_van_thao",
      "kind": "friend",
-     "note": "the Yến Quang girl whose humming she has asked about"
+     "note": "the Yên Quang girl whose humming she has asked about"
     },
     {
      "to": "lam_that_am",
@@ -2096,7 +2104,7 @@
    "rank": "noi_mon",
    "home": 72,
    "birthplace": 71,
-   "role": "Keeps the island warden's charts",
+   "role": "Keeps the island warden's charts; printed the Rudder star on a sea chart in 1196",
    "tier": "C",
    "root": {
     "elements": {
@@ -2114,7 +2122,8 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "A Hải Yến Trấn nest-picker's daughter (A149) who keeps Lận Viễn Phàm's (lan_vien_pham) charts and privately thinks his lost fleet is simply lost.",
+   "backstory": "A Hải Yến Trấn nest-picker's daughter (A149) who keeps Lận Viễn Phàm's (lan_vien_pham) charts. In 1196 she took the bearing of the star the island pilots call the Rudder from a hundred captains' logs, printed it beside the abbey's pole chart that the west's chart-sellers have copied for centuries, and sells it at every quay to pay for his third boat, as \"the sky Củng Tinh will not draw\".",
+   "changed": "fix pass B 2026-11-25 (fixB-5): printed the Rudder star in 1196 (cung_tinh arc); tie to tham_bac_than",
    "ties": [
     {
      "to": "lan_vien_pham",
@@ -2130,7 +2139,8 @@
      "to": "mac_trieu_sinh",
      "kind": "disciple",
      "note": "outer disciple of the island hall"
-    }
+    },
+    {"to": "tham_bac_than", "kind": "rival", "note": "Củng Tinh's head, whose abbey left the Rudder out of its book"}
    ],
    "master": "lan_vien_pham",
    "build": {
@@ -2276,7 +2286,7 @@
     {
      "to": "ly_tang_ky",
      "kind": "rival",
-     "note": "the Yến Quang terrace woman whose market her Maple Hall took"
+     "note": "the Yên Quang terrace woman whose market her Maple Hall took"
     },
     {
      "to": "dai_diep_thu",
@@ -2558,7 +2568,7 @@
    "stage": 1,
    "sect": "lac_ha",
    "rank": "noi_mon",
-   "home": 558,
+   "home": 37,
    "birthplace": 521,
    "role": "Collects the vassals' late tribute for the Hall of Scales",
    "tier": "C",
@@ -2578,7 +2588,8 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Collects the vassals' late tribute with the Ruin Ledger art; Khấu Mục Vân (khau_muc_van) has had him thrown off the Mục Vân ranch twice.",
+   "backstory": "Collects the vassals' late tribute with the Ruin Ledger art; Khấu Mục Vân (khau_muc_van) has had him thrown off the Mục Vân ranch twice. Since 1199 he has lodged at Nhàn Vân's Pool House to count its sheets all year, and he finds the abbey unusually agreeable: he has been negotiating with Cù Lục Trúc's (cu_luc_truc) double, which can only nod.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): home 558 -> 37: lodged at Nhàn Vân's Pool House for the year-long count since 1199",
    "ties": [
     {
      "to": "tu_binh_hanh",
@@ -2593,7 +2604,7 @@
     {
      "to": "cu_luc_truc",
      "kind": "rival",
-     "note": "the Nhàn Vân steward; they argue the sheet count every autumn"
+     "note": "the Nhàn Vân steward; argued the sheet count every autumn, and since 1199 agrees to everything"
     }
    ],
    "master": "tu_binh_hanh",

@@ -40,7 +40,7 @@ birthplace. The ridge and the rice plain have none.
 | Chúc Dung Khẩu (253), lava vent | volcano, 3 tiles from 449 | 57 % | 15 % | 1.18 | **the Nest**: the vent the seat draws on; the Ash Seat for breakthroughs; uninhabitable |
 | Hòa Miêu Mạch (333), spirit vein | steppe, rice plain | 28 % | 16 % | 0.55 | fits on paper; far too thin |
 | Luyện Vũ Huyệt (1007), Niết Hỏa Khẩu (251), Thải Phượng Phong (1028) | vents and a peak | 35-52 % | 5-9 % | 1.06-1.15 | Wood fails; Fire-only retreats |
-| Phần Vũ Đường (29) | grassland, 4 tiles from 449 | 24 % | 23 % | 1.35 | a vassal's seat; not available |
+| Phần Vũ Đường (29) | grassland, 5 tiles from 449 | 24 % | 23 % | 1.35 | a vassal's seat; not available |
 
 **The story.** Ngô Thê Đồng founded the palace in 480 on the ridge because it was the empty land of Cửu Thiều Cung,
 where he had been born (C009, V138), and because the wutong grows there. For a hundred years the palace's
@@ -66,9 +66,10 @@ ridge palace became the **Wutong Court (Ngô Đồng Đình)**.
 - **Routes.** Place 449 is off-road. Add a road to Tang Điền Trấn (94, about 6 tiles), which already has a road to
   Phần Vũ Đường (29), and a track up to Chúc Dung Khẩu (253, 3 tiles). The ridge keeps its trunks to Thiều Âm Thị (53)
   and 763.
-- **Province.** Place 449 lies in `prov_phan_vu`, the province of the palace's vassal Phần Vũ Đường, four tiles from its
-  hall. The palace seat record goes there. This is a decision for Provinces #48: either the province becomes the palace's
-  and Phần Vũ keeps only its hall, or a great seat sits inside its vassal's province, which is itself a story (§9).
+- **Province.** Place 449 lies in `prov_phan_vu`, the province of the palace's vassal Phần Vũ Đường, five tiles from its
+  hall. Ruled 2026-11-25 (Provinces rule 2a): `prov_phan_vu` becomes Phượng Minh's seat province, and Phần Vũ keeps its
+  hall inside it as a vassal. In the world this happened in 1162, with the court's move (N-phan_vu-06). The palace seat
+  record goes there; the vassal's tenancy is a story (§9, "Tenants on their own ground").
 - **Density.** Place 449's land density is 1.35. A great seat adds 0.10, so it would read about 1.45 against the old
   seat's 2.11. Proposal: `seat_array_density` +0.65 from the **Nest Array** (592), so the seat reads about 2.10. The
   array is wearing out (§9). If it fails, the seat thins to 1.45 and the halls go cold.
@@ -120,8 +121,8 @@ remember where it came from.
 | 1040-1046 | **Thunder Vein War**, no writ: Thủ Lôi Bảo burned, Hề Bính Hỏa killed in its lightning; the Pivot gives the vein to Thính Vũ | C178, V161, A295, C179, **N-09** |
 | 1060 | The granaries opened to Băng Tâm's famine on a clerk's seal | A262 |
 | 1100 | The founder dies on the ridge; Hoa Triêu Dương becomes head and receives the pipes | C181, C182 |
-| 1150-1158 | **Cinnabar Vein War**: Thính Vũ attacks Đan Sơn Mạch; Dụ Đan Huỳnh killed (1154); the Tower's rear guard lost at the pass and Chử Trì Âm taken (1156); the Pivot enters on the palace's side | C188-C190, A247, N-thinh_vu-08, **N-10, N-11** |
-| 1162 | The head's court moves to the Fire Court; the ridge becomes the Wutong Court | **N-12** |
+| 1150-1158 | **Cinnabar Vein War**: in the great drought the palace refuses Thính Vũ its grain, and the Tower attacks Đan Sơn Mạch for cinnabar to buy it elsewhere; Dụ Đan Huỳnh killed (1154); the Tower's rear guard lost at the pass and Chử Trì Âm taken (1156); the Pivot enters on the palace's side | C188-C190, A247, N-thinh_vu-08, **N-10, N-11** |
+| 1162 | The head's court moves to the Fire Court; the ridge becomes the Wutong Court; Phần Vũ's province becomes the seat province | **N-12**, N-phan_vu-06 |
 | 1185 | Quan Vũ Thanh's secret peace visit; Vu Ngô Đồng hands her the head's private terms; no reply comes | A278, **N-13** |
 | 1195 | The musician of Thiều Âm Thị; the elders pay his passage; he never sails | A248, **N-14** |
 
@@ -212,8 +213,8 @@ other named member runs a lineage method.
 ## 6. Admission (R2 as the palace applies it)
 
 - **Outer gate:** Fire or Wood at purity 30 or more. Recruiters walk the bamboo villages and the coast towns each spring.
-  Cúc Viên Thôn sends one child every generation, the debt of 586 (A303). The vassals send wards: Phần Vũ Đường sends
-  its head's child as surety (Hùng Diễm Nhi), and Bách Vũ Các sends bird keepers.
+  Cúc Viên Thôn sends one child every generation, the debt of 586 (A303). The vassals send wards: Phần Vũ Đường's head's
+  daughter came as surety in 1162, at her own asking (Hùng Diễm Nhi), and Bách Vũ Các sends bird keepers.
 - **The Feather Kindling.** At the sixth layer of the Wutong Dawn Breath the disciple holds a vent bird's down feather
   in the palm and runs the breath. If it catches without burning the hand, their Fire is ready (45+), and they go up the
   Fire Court's stair into the inner gate. It may be sat once a year, without limit. Miêu Trúc Sinh sat it for seventy
@@ -259,8 +260,9 @@ other named member runs a lineage method.
   and well fed. **Bách Vũ Các** raises the messenger birds (Tạ Thanh Loan and Vu Ngô Đồng trade birds). **Vọng Triều
   Đường** watches the coast that Thôn Hải burned (Ôn Thủ Đăng, Phàn Vọng Hải's friend). **Chức Hà Các** weaves fire-silk
   without the vents (V172). The palace has not decided whether that pleases it; its array keeper secretly depends on
-  it. **Phần Vũ Đường** sits four tiles from the Fire Court, revives Xích Thành's fire body arts in the same vents, holds
-  the palace's banner and sends its head's daughter as surety.
+  it. **Phần Vũ Đường** sits five tiles from the Fire Court inside the palace's seat province, revives Xích Thành's fire
+  body arts in the same vents, holds the palace's banner, and since this spring owes rent on its vents. Its head's
+  daughter asked to come to the palace as surety in 1162.
 - **Hồng Lô Cốc** (Thúy Vi's furnace vassal): the palace's alchemist's rival.
 
 ## 9. Inside the sect
@@ -273,18 +275,24 @@ other named member runs a lineage method.
 - **The ridge and the Fire Court.** The ridge says the head ran from the Tower in 1162. The Seal of the Wutong stayed
   with Vu Ngô Đồng, so the Five-Virtue Regalia is split between the courts. Vu is stalled at late Kết Đan because he has
   been feeding his Wood to the dying great wutong, and Kế Chu Sa cannot brew his breakthrough pill without that tree's
-  seed. A Wood girl in the outer gate, Kha Thanh Miêu, may be what the tree needs.
+  seed. Vu has asked the outer gate for Kha Thanh Miêu, the Wood girl the great wutong turns its leaves to, to feed the
+  tree as he does. Mao Khải Đán has held the order back a year, because the tree took Vu's Kết Đan and would take hers.
 - **The Shao.** The head plays eight movements in secret and once played them for Doãn Ngọc Hành. Liên Thiều Nghi wants
   the Shao restored openly, has rebuilt the eighth movement, and suspects the head. Lộ Văn Khánh hides the musician of
   1195 at Kích Khánh Đường and writes down his tunes. His sister Chúc Hiểu Nghi sleeps next to the head and hears the
   music in her breathing. She is the palace's only Light root, and the pipes are Light.
 - **The Nest's silk.** The Nest Array is fraying. Tang Kế Ti has broken the founder's vow and reeled new silk at the vent.
   Her apprentice Trâu Kết Tuyến has found a strand that is too new, and the errand boy Dư Tân Hỏa saw her at night and was
-  paid to forget. Her son buys Chức Hà's silk on the side.
+  paid to forget. Her son has asked Chức Hà's head to marry him, and she has named the dowry: sixty years of the
+  pavilion's silk to the Nest at the palace's price, so that any strand in the array that holds can be called Chức Hà's.
 - **The sword.** Nhiếp Tẫn Sa killed Phó Thanh Mai at Cô Thành and wants to return his sword and confess before Phó
   Ám Hương dies. The head will return it when it buys something. Du Diễm Ca has told Hạ Lăng Hàn where it hangs.
-- **Succession.** The head is 250 with three quarters of her life ahead of her, and has named no heir. Trình Hi Quang
-  means to earn it with the peace. Sử Hoành Dực would oppose him with the Hall.
+- **Tenants on their own ground.** Since 1162 Phần Vũ's province has been the palace's seat province, and the hall holds
+  its vents inside it as a vassal (N-phan_vu-06). This spring Vưu Cẩm Thư set ground rent on its sitting places, its
+  charcoal pits and its standing dead, to pay for the fraying Nest. Tào Tẫn Kiên has come up to settle the lease with
+  her promise of 1162 still owed to him. Hùng Phần Vũ's answer is one line about the canon given with the banner in
+  1020, which the Hall of Trust can neither seal nor strike out. The palace's own ward, Hùng Diễm Nhi, has made Vưu a
+  second bid for the hall (`phan_vu.md` §9).
 
 ## 10. Treasures and sets
 
@@ -345,7 +353,7 @@ other named member runs a lineage method.
 | an_thuy_vu | An Thúy Vũ | nội môn | Trúc Cơ | B | Wood 56, Fire 48 | Bird keeper of the Wutong Court |
 | thu_ngan_hanh | Thư Ngạn Hành | nội môn | Trúc Cơ | B | Fire 48, Water 42 | Envoy of the Hall of Trust to the northern sects |
 | dang_phi_diem | Đằng Phi Diễm | nội môn | Trúc Cơ | B | Fire 72 | The inner gate's best fan; holds the top step of the stair |
-| hung_diem_nhi | Hùng Diễm Nhi | nội môn | Trúc Cơ | B | Fire 58, Earth 42 | Hùng Phần Vũ's daughter, a ward of the palace since she was twelve |
+| hung_diem_nhi | Hùng Diễm Nhi | nội môn | Trúc Cơ | B | Fire 58, Earth 42 | Hùng Phần Vũ's daughter, the palace's ward since she asked to go at twelve; serves at the Nest |
 | tang_tuc_lac | Tang Tục Lạc | nội môn | Trúc Cơ | B | Fire 52, Wood 46 | Tang Kế Ti's son; carries silk between the Nest and Chức Hà Các |
 | bac_dich_thanh | Bạc Địch Thanh | nội môn | Trúc Cơ | C | Wood 60, Fire 46 | Flautist of the Hall of Rites |
 | thi_van_binh | Thì Văn Bính | nội môn | Trúc Cơ | C | Fire 54, Earth 34 | Clerk of the Hall of Virtue |
@@ -353,7 +361,7 @@ other named member runs a lineage method.
 | can_hai_tri | Can Hải Trì | nội môn | Trúc Cơ | C | Fire 50, Water 40 | First mate of the palace fleet |
 | o_tram_chau | Ô Trầm Châu | nội môn | Trúc Cơ | C | Water 50, Fire 46 | The fleet's diver |
 | mong_chu_tieu | Mông Chu Tiêu | nội môn | Trúc Cơ | C | Metal 52, Fire 46 | Lieutenant of the vein fort at Đan Sơn Mạch |
-| ngac_thiem_hong | Ngạc Thiểm Hồng | ngoại môn | Trúc Cơ | C | Metal 52, Fire 34, Thunder 22 | Outer disciple at the vein fort, with a Thunder root |
+| ngac_thiem_hong | Ngạc Thiểm Hồng | ngoại môn | Trúc Cơ | C | Metal 52, Fire 34, Thunder 22 | The vein fort's clerk at the Fire Court; sells its watch rota for thunder |
 | thuong_tan_quy | Thương Tẫn Quy | chấp sự | Trúc Cơ | C | Fire 48, Metal 40 | Steward of funerals: carries the ashes to Quy Vũ Lĩnh |
 | o_linh_tuoc | Ổ Linh Tước | nội môn | Trúc Cơ | C | Wood 50, Fire 46 | Second bird keeper of the Wutong Court |
 | canh_vu_ca | Cảnh Vũ Ca | nội môn | Trúc Cơ | C | Fire 58, Wood 30 | Inner-gate fan duelist |
@@ -367,7 +375,7 @@ other named member runs a lineage method.
 | mieu_truc_sinh | Miêu Trúc Sinh | nội môn | Trúc Cơ | C | Wood 64, Fire 45 | The outer disciple who took seventy years to pass the Feather Kindling |
 | nham_cuong_thu | Nhậm Cương Thủ | nội môn | Trúc Cơ | C | Metal 48, Fire 46 | Captain of the Wutong Court's guard |
 | binh_vien_khach | Bình Viễn Khách | nội môn | Trúc Cơ | C | Fire 46, Wood 40, Water 30 | Envoy to the palace's vassals |
-| kha_thanh_mieu | Kha Thanh Miêu | ngoại môn | Luyện Khí | B | Wood 58, Fire 24 | An outer disciple of pure Wood in a Fire palace |
+| kha_thanh_mieu | Kha Thanh Miêu | ngoại môn | Luyện Khí | B | Wood 58, Fire 24 | An outer disciple of pure Wood whom the great wutong answers |
 | ma_tieu_hoa | Ma Tiểu Hòa | ngoại môn | Luyện Khí | C | Wood 40, Fire 34, Earth 30 | Outer disciple from the rice plain |
 | vu_thach_dau | Vũ Thạch Đẩu | ngoại môn | Luyện Khí | C | Metal 40, Wood 36, Fire 32 | Outer disciple from the stonemasons' village |
 | dich_tieu_chuoc | Địch Tiểu Chước | nội môn | Luyện Khí | C | Fire 52, Wood 28 | Inner disciple, ash-born |
@@ -413,8 +421,9 @@ other named member runs a lineage method.
 4. **The musician at Kích Khánh Đường.** Chúc Hiểu Nghi learns her brother never sailed. Lộ Văn Khánh has written down
    tunes no living score has, and Liên Thiều Nghi wants them. (Chúc, Lộ, Liên, Bốc Thự Dao; places 724, 53.)
 5. **The Nest goes cold.** A strand fails in winter and the Fire Court's density drops. Tang Kế Ti must confess the new
-   silk or let the array fail; Chức Hà's vent-less silk is the other answer. (Tang Kế Ti, Tang Tục Lạc, Thân Vân Cẩm,
-   Trâu Kết Tuyến, Dư Tân Hỏa; places 449, 253, 1013.)
+   silk or let the array fail; Chức Hà's vent-less silk is the other answer, and the dowry she has named for her son's
+   marriage would bind it to the Nest for sixty years. (Tang Kế Ti, Tang Tục Lạc, Thân Vân Cẩm, Trâu Kết Tuyến, Dư Tân
+   Hỏa; places 449, 253, 1013.)
 6. **The dying tree.** The great wutong drops twice its leaves. Vu Ngô Đồng's Kết Đan has stopped, Kế Chu Sa needs a
    living seed, and a Wood girl from the outer gate is the one the tree answers. (Vu, An Thúy Vũ, Kha Thanh Miêu, Kế
    Chu Sa, Bì Thuần; place 6.)
@@ -422,10 +431,11 @@ other named member runs a lineage method.
    go back up to it. Either way the ridge decides what the move of 1162 meant. (Hoa, Vu, Nhậm Cương Thủ; places 6, 449.)
 8. **Kình Nha.** Phàn Vọng Hải's diver Ô Trầm Châu finds the pirate's sabre in Thôn Hải's hold and wants to keep it as his
    ancestor's. (Phàn, Ô Trầm Châu, Can Hải Trì; place 217.)
-9. **The surety in the vents.** Hùng Diễm Nhi is caught tempering in Phần Vũ's vents at night. The palace must punish
-   its ward, or admit that its vassal's arts are the ones it took from Xích Thành. (Hùng Diễm Nhi, Hùng Phần Vũ, Thích
-   Hồng Linh, Vưu Cẩm Thư; places 449, 29.)
+9. **The surety in the vents.** Hùng Diễm Nhi is caught tempering at Phần Vũ's Lower Mouth on a dark-moon night. The
+   palace must punish its ward, or admit that its vassal's arts are the ones it took from Xích Thành, in the season it
+   is asking that vassal for rent. (Hùng Diễm Nhi, Hùng Phần Vũ, Thích Hồng Linh, Vưu Cẩm Thư; places 253, 449, 29.)
 10. **The Feather Kindling.** The player sits the Feather Kindling at the Fire Court. A Wood root is offered the Wutong
     Court; a Light root draws the head's eye. (Mao Khải Đán, Minh Tảo Hà, Miêu Trúc Sinh; place 449.)
-11. **The Thunder boy.** Ngạc Thiểm Hồng learns the Tower's thunder from the guest elder at night. Sử finds out and calls
-    it treason. (Ngạc, Chử Trì Âm, Hách Chu Lăng, Sử; place 211.)
+11. **The Thunder boy.** Ngạc Thiểm Hồng pays the guest elder for the Tower's thunder with the vein fort's watch rota,
+    and Thính Vũ's scouts begin to cross on the nights the fort's watch is thin. Hách Chu Lăng must find the leak before
+    Sử does, because Sử will hang the guest elder for it. (Ngạc, Chử Trì Âm, Hách Chu Lăng, Sử; places 449, 211.)

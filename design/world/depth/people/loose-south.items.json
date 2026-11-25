@@ -43,9 +43,9 @@
    "modifiers": [{"key": "attack_pct", "value": 12, "scope": ["seal"]}, {"key": "status_duration_pct", "value": 14, "scope": ["curse"]},
                  {"key": "than_thuc_pct", "value": 4, "scope": []}],
    "effects": [{"new": true, "id": "stamp-of-trust", "name": "Stamp of Trust (Tín Ấn)", "rule": "A paper or map stamped with this seal passes for Nam Phố's work to anyone who does not hold the true Southern Shore Cloud Seal; to the one who does, it reads as a forgery at a glance."}],
-   "lore": "A pear-wood copy of Nam Phố Đường's cloud stamp that Giản Vạn Lộ carved from memory the winter he was turned out, 1168. It is very nearly right.",
+   "lore": "A pear-wood copy of Nam Phố Đường's cloud stamp that Giản Vạn Lộ carved from memory the winter he was turned out, 1174. It is very nearly right.",
    "build_use": "A forger's seal and a curse focus.",
-   "holder": "gian_van_lo", "made_by": "gian_van_lo", "made_year": 1168, "set": "ls-night-rain-stall", "status": "proposal"
+   "holder": "gian_van_lo", "made_by": "gian_van_lo", "made_year": 1174, "set": "ls-night-rain-stall", "status": "proposal"
   },
   {
    "id": "ls-unlit-sail", "name": "Unlit Sail (Vô Đăng Phàm)", "family": "water", "kind": "artifact", "base": "ky", "grade": 2,
@@ -110,7 +110,7 @@
    "effects": [],
    "lore": "A robe lined with forty maps, each a little wrong; he can tear any one out and burn it as a talisman.",
    "build_use": "Paper talismans and a way to leave while they burn.",
-   "holder": "gian_van_lo", "made_by": "gian_van_lo", "made_year": 1172, "set": "ls-night-rain-stall", "status": "proposal"
+   "holder": "gian_van_lo", "made_by": "gian_van_lo", "made_year": 1176, "set": "ls-night-rain-stall", "status": "proposal"
   },
   {
    "id": "ls-snare-wire-coins",

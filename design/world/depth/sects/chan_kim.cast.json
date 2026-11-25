@@ -35,9 +35,9 @@
    },
    "traits": {
     "personality": [
-     "Honest",
-     "Just",
-     "Diligent"
+     "Diligent",
+     "Arrogant",
+     "Deceitful"
     ],
     "calling": "Refiner",
     "upbringing": "village_born",
@@ -61,14 +61,14 @@
     ]
    },
    "appearance": "A lean, grey old man with silver burns on his fingertips, who holds every cup of tea a moment too long, as if weighing it.",
-   "backstory": "Tưởng Bách Luyện was a silver-washer's son at Bạch Ngân, where the Pivot strikes its coin (A224), and worked forty years as a refiner in the Pivot's mint without ever being taught its method. In 980 he and four other assayers of the mint founded Chân Kim Các beside the open scales of Song Kiều (V127), sworn to the Pivot, to assay and refine for anyone who would pay a fair fee. He wrote its rule: a house that weighs for others has no root of its own, and takes its apprentices by the eye, not by the element. He refined the flying sword Dawn Charioteer for the Pivot's head in 1168 from Bạch Ngân silver and Thiên Ngoại iron. The Pivot's master of weights, Đặng Quân Bình (dang_quan_binh), has twice caught the house's copy of the standard weight a hair light, and twice Tưởng weighed it himself and found it true, and said so. He believed it the first time.",
-   "wants": "To leave the house to someone who will keep it honest, and to be thought honest when he is dead.",
-   "secret": "The second time, he found out. His granddaughter Tưởng Ngọc Cân (tuong_ngoc_can) shaves the house weight and swaps a true copy in when he comes to test it. He denied it to the Pivot anyway, to save her, and it is the only lie he has told.",
+   "backstory": "Tưởng Bách Luyện was a silver-washer's son at Bạch Ngân, where the Pivot strikes its coin (A224), and worked forty years as a refiner in the Pivot's mint without ever being taught its method. In 980 he and four other assayers of the mint founded Chân Kim Các beside the open scales of Song Kiều (V127), sworn to the Pivot, to assay and refine for anyone who would pay a fair fee. He wrote its rule: a house that weighs for others has no root of its own, and takes its apprentices by the eye, not by the element. He refined the flying sword Dawn Charioteer for the Pivot's head in 1168 from Bạch Ngân silver and Thiên Ngoại iron. The Pivot's master of weights, Đặng Quân Bình (dang_quan_binh), has twice caught the house's copy of the standard weight a hair light, and twice Tưởng weighed it himself and found it true, and said so. He believed it the first time. Since 1198 the house's take has tripled, and he has spent it.",
+   "wants": "To leave the house rich and its name clean, and to be thought honest when he is dead.",
+   "secret": "The second time, in 1194, he found out. His granddaughter Tưởng Ngọc Cân (tuong_ngoc_can) shaves the house weight and swaps a true copy in when anyone tests it. He denied it to the Pivot anyway, and it is the only lie he has told aloud. This spring he sent his grandson Tưởng Tri Chuẩn (tuong_tri_chuan), who tests the weights, to keep the house's counter at Bạch Ngân, fifty-five days off, and he is building a fourth furnace with the good-side money.",
    "ties": [
     {
      "to": "tuong_ngoc_can",
      "kind": "grandchild",
-     "note": "the keeper of the house weight, whom he lied for"
+     "note": "the keeper of the house weight, whom he lied for and whose silver he spends"
     },
     {
      "to": "tuong_ngoc_can",
@@ -148,7 +148,7 @@
     {
      "to": "tuong_tri_chuan",
      "kind": "grandchild",
-     "note": "his grandson; the head's grandson from the silver mine, who tests the weights"
+     "note": "his grandson from the silver mine, who tested the weights until he was sent back there this spring"
     }
    ],
    "build": {
@@ -234,7 +234,7 @@
    },
    "traits": {
     "personality": [
-     "Compassionate",
+     "Greedy",
      "Deceitful",
      "Ambitious"
     ],
@@ -254,9 +254,9 @@
     "gained": []
    },
    "appearance": "A small, quick woman in a miner's blue jacket over a merchant's silk, with a set of brass weights she clicks in her palm.",
-   "backstory": "The head's granddaughter by his son and an Ôn of Song Kiều, the bridge-builders who keep the twin bridges' tolls (A229). She grew up on the square where the Pivot weighs the miners' ore (A219), on her mother's side among the miners and on her father's among the assayers. She has kept the house's scales since 1160. The miners prefer her side of the square, and the house's trade has doubled. Her grandfather (tuong_bach_luyen) thinks it is because she is honest and quick. The Pivot's assayer Hồng Chuẩn Bình (hong_chuan_binh) argues with her across the square every morning about everything except the weight.",
-   "wants": "To make the miners of Ngọc Hành rich enough that they never need the Pivot's fairness again, and to have the house after her grandfather.",
-   "secret": "She shaves the house weight a hair light so that ore weighed on her side comes out heavier and the miners are paid more than the Pivot's scale gives. She swaps a true copy in when anyone tests it. She knows her grandfather found out and lied for her.",
+   "backstory": "The head's granddaughter by his son and an Ôn of Song Kiều, the bridge-builders who keep the twin bridges' tolls (A229). She grew up on the square where the Pivot weighs the miners' ore (A219), on her mother's side among the miners and on her father's among the assayers. She has kept the house's scales since 1160. The miners prefer her side of the square, and since 1198 they have paid her for it. The Pivot's scale across the square has weighed almost nothing for two winters. Her grandfather (tuong_bach_luyen) spends what she brings in. The Pivot's assayer Hồng Chuẩn Bình (hong_chuan_binh) argues with her across the square every morning about everything except the weight.",
+   "wants": "The whole square: every basket of Ngọc Hành's ore weighed on her side and paying her fee, and the house after her grandfather.",
+   "secret": "She shaves the house weight a hair light, so that ore weighed on her side comes out heavier than at the Pivot's scale, and since 1198 she has charged the miners a good-side fee to stand in her line. With the Pivot's scale idle, she raises the fee each season, and it now takes back most of what the light weight gives them. Quản Thập Thù swaps the true weight in whenever anyone tests the scale, and she pays him from the fee.",
    "ties": [
     {
      "to": "tuong_bach_luyen",
@@ -276,7 +276,7 @@
     {
      "to": "hong_chuan_binh",
      "kind": "rival",
-     "note": "the Pivot's assayer across the square"
+     "note": "the Pivot's assayer across the square, whose scale has had no custom for two winters"
     },
     {
      "to": "dang_quan_binh",
@@ -286,7 +286,7 @@
     {
      "to": "quan_thap_thu",
      "kind": "disciple",
-     "note": "an old outer disciple who knows every weight"
+     "note": "the old weight-carrier who swaps the true weight in when the scale is tested, for a share of the fee"
     },
     {
      "to": "on_trong_luong",
@@ -407,7 +407,7 @@
     "gained": []
    },
    "appearance": "A stooped man with red-rimmed eyes and silver-grey skin from a century of furnace fumes.",
-   "backstory": "A silver-miner's son from Bạch Ngân, like his master Tưởng Bách Luyện (tuong_bach_luyen). He did the hundred refinings of the Dawn Charioteer for the Pivot's heir in 1168 and keeps the house's three furnaces. He has refined Thối Tinh's Thiên Ngoại iron for silver inlay and found it melts like any mountain iron. He told the head, and the head said a refiner does not assay unasked.",
+   "backstory": "A silver-miner's son from Bạch Ngân, like his master Tưởng Bách Luyện (tuong_bach_luyen). He did the hundred refinings of the Dawn Charioteer for the Pivot's heir in 1168 and keeps the house's three furnaces. He has refined Thối Tinh's Thiên Ngoại iron for silver inlay, and it melts like mountain iron in his furnace. He has no true star iron to set beside it, so it is a guess. He told the head, and the head said a refiner does not assay unasked, not even a guess.",
    "ties": [
     {
      "to": "tuong_bach_luyen",
@@ -542,7 +542,7 @@
     "gained": []
    },
    "appearance": "Handsome and easy, with an Ôn jade at each wrist and a toll-ledger under her arm.",
-   "backstory": "An Ôn of the bridge-keeping clan of Song Kiều (A229), cousin to Tưởng Ngọc Cân (tuong_ngoc_can). She settles which ore pays toll on which bridge and which side of the square it is weighed on, and so knows more than anyone how much the miners are paid on each side. She has not decided whose side she is on.",
+   "backstory": "An Ôn of the bridge-keeping clan of Song Kiều (A229), cousin to Tưởng Ngọc Cân (tuong_ngoc_can). She settles which ore pays toll on which bridge, and every miner who stands in her cousin's line crosses the Ôn's north bridge to get there. Her grandfather Ôn Trọng Lương (on_trong_luong) wants a fifth of the good-side fee, or the toll on that bridge doubles. She carries his terms to the house, and she has asked the Pivot's Hồng Chuẩn Bình (hong_chuan_binh) what the Pivot would pay to have the miners back.",
    "ties": [
     {
      "to": "tuong_bach_luyen",
@@ -552,7 +552,7 @@
     {
      "to": "tuong_ngoc_can",
      "kind": "cousin",
-     "note": "she knows about the weight"
+     "note": "she carries the Ôn's terms for a fifth of the good-side fee"
     },
     {
      "to": "on_tieu_kieu",
@@ -562,7 +562,7 @@
     {
      "to": "on_trong_luong",
      "kind": "grandparent",
-     "note": "her grandfather, the Ôn patriarch"
+     "note": "her grandfather, the Ôn patriarch, whose terms she carries"
     },
     {
      "to": "on_the_hoanh",
@@ -583,6 +583,11 @@
      "to": "on_bich_lien",
      "kind": "disciple",
      "note": "outer disciple of the Ôn clan, sent under the kin rule"
+    },
+    {
+     "to": "hong_chuan_binh",
+     "kind": "rival",
+     "note": "the Pivot's assayer she is sounding behind her cousin's back"
     }
    ],
    "master": "tuong_bach_luyen",
@@ -1033,7 +1038,7 @@
    "rank": "ngoai_mon",
    "home": 82,
    "birthplace": 82,
-   "role": "The oldest outer disciple, who knows every weight on the square",
+   "role": "The oldest outer disciple, who carries the house's two weights and swaps them",
    "tier": "C",
    "root": {
     "elements": {
@@ -1045,25 +1050,30 @@
    },
    "traits": {
     "personality": [
-     "Calm",
      "Loyal",
-     "Content"
+     "Greedy",
+     "Calm"
     ],
     "calling": "Steward",
     "upbringing": "merchant_child",
     "health": "waning_years"
    },
-   "backstory": "Ninety-five and still at the sixth layer of the primer, he has carried weights across the square for Tưởng Ngọc Cân (tuong_ngoc_can) and her father before her, and he knows which of the two house weights is which.",
+   "backstory": "Ninety-five and still at the sixth layer of the primer, he has carried weights across the square for Tưởng Ngọc Cân (tuong_ngoc_can) and her father before her. He keeps the true house weight in his sleeve and swaps it in whenever anyone tests her scale, and she pays him a share of the good-side fee for it.",
    "ties": [
     {
      "to": "tuong_ngoc_can",
      "kind": "master",
-     "note": "he carries her weights and her secret"
+     "note": "she pays him a share of the fee to swap the weights"
     },
     {
      "to": "cu_tieu_hanh",
      "kind": "friend",
      "note": "inner disciple who writes up the morning's weighings on the square"
+    },
+    {
+     "to": "hong_chuan_binh",
+     "kind": "rival",
+     "note": "the Pivot's assayer who watches his sleeve at every test"
     }
    ],
    "master": "tuong_ngoc_can",

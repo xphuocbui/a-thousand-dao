@@ -96,7 +96,7 @@
    "kind": "effect",
    "record": {
     "id": "return-to-the-scabbard",
-    "name": "Return to the Scabbard (Quy Vỏ)",
+    "name": "Return to the Scabbard (Quy Sao)",
     "group": "Rule change",
     "tier": "minor",
     "rule": "After 3 s in which you fire no damaging art, the foe counts as unstruck again: your pieces that read your first hit on a foe, or your first sword art of the fight, re-arm, and any later-hit penalty they carry clears. Your first sword art on an unstruck foe cannot be evaded.",
@@ -120,7 +120,7 @@
      "field": "arts",
      "action": "add",
      "note": "A new passive art from layer 6. ton_tuyet_bich's main (layer 9). He carries no first-hit piece of his own, so the rule's last sentence (the first sword art on an unstruck foe cannot be evaded) is his payoff.",
-     "text": "Return to the Scabbard (Quy Vỏ): a passive art. After 3 s in which you fire no damaging art, the foe counts as unstruck again: your pieces that read your first hit on a foe, or your first sword art of the fight, re-arm, and any later-hit penalty they carry clears. Your first sword art on an unstruck foe cannot be evaded."
+     "text": "Return to the Scabbard (Quy Sao): a passive art. After 3 s in which you fire no damaging art, the foe counts as unstruck again: your pieces that read your first hit on a foe, or your first sword art of the fight, re-arm, and any later-hit penalty they carry clears. Your first sword art on an unstruck foe cannot be evaded."
     },
     {
      "file": "design/world/depth/sects/thinh_vu.items.json",
@@ -128,20 +128,20 @@
      "field": "bonuses[pieces=2].effect",
      "action": "replace",
      "note": "co_da_lan holds neither the Rain-Chain Scripture nor a lineage piece that fits; his No Second Cut (tvl-night-far-gone) and One Cut Drawn Out are exactly the first-hit pieces that re-arm. Not wired on Drawn-Out Edge Canon: it is a shared catalogue technique and would change every holder.",
-     "text": "One Cut Drawn Out (Nhất Kiếm Trì Xuất): each second you go without attacking adds 12 % crit damage to your next sword art. The first sword art of each fight cannot be evaded. Return to the Scabbard (Quy Vỏ): after 3 s in which you fire no damaging art, the foe counts as unstruck again: No Second Cut and the first-art clause re-arm."
+     "text": "One Cut Drawn Out (Nhất Kiếm Trì Xuất): each second you go without attacking adds 12 % crit damage to your next sword art. The first sword art of each fight cannot be evaded. Return to the Scabbard (Quy Sao): after 3 s in which you fire no damaging art, the foe counts as unstruck again: No Second Cut and the first-art clause re-arm."
     },
     {
      "file": "design/world/depth/sects/phat_y.items.json",
-     "id": "py-ten-paces",
+     "id": "py-grey-seal",
      "field": "bonuses[pieces=2].effect",
      "action": "replace",
      "note": "thang_vo_ta holds neither named canon; his own set reads 'after you vanish or evade', so a sheathing counts as a vanish for it.",
-     "text": "Ten Paces, One Cut (Thập Bộ Nhất Trảm): after you vanish (The Deed Is Done) or evade an attack, your next sword art while you are At range ends your At range and deals 30 % more damage; if its hit makes the foe Broken, you vanish again. Return to the Scabbard (Quy Vỏ): after 3 s in which you fire no damaging art, the foe counts as unstruck again, and that counts as a vanish for this bonus."
+     "text": "The Last Step (Chung Bộ): after you vanish (Gone Before Thanks) or evade an attack, your next sword art while you are At range ends your At range and deals 30 % more damage; if its hit makes the foe Broken, you vanish again. Return to the Scabbard (Quy Sao): after 3 s in which you fire no damaging art, the foe counts as unstruck again, and that counts as a vanish for this bonus."
     }
    ],
    "fun": "Cut, step back, sheathe, wait three seconds, cut: the one-cut swordsman peaks every few seconds, not only in the first.",
    "status": "proposal",
-   "decisions": "Arts fire on their own timers (Combat rule 13), so the 3 s window opens through the loadout: a one-cut build slots few, slow arts. No hold is forced, matching auth-eff-1's d10 on the same scripture. The Ten Paces text starts from duel-readings 3e's wording (At range, Broken)."
+   "decisions": "Arts fire on their own timers (Combat rule 13), so the 3 s window opens through the loadout: a one-cut build slots few, slow arts. No hold is forced, matching auth-eff-1's d10 on the same scripture. The Last Step text starts from duel-readings 3e's wording (At range, Broken)."
   },
   {
    "wish": "d30 (rb-13)",

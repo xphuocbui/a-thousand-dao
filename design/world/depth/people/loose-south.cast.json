@@ -172,7 +172,7 @@
    "rank": "",
    "home": 389,
    "birthplace": 702,
-   "role": "Mistress of the bandit camp at Thạch Môn Trại on the Pivot road; the last of the Hắc Phong rogues (age 295)",
+   "role": "Mistress of the bandit camp at Thạch Môn Trại on the Pivot road; the last chief of the Hắc Phong rogues (age 295)",
    "tier": "A",
    "root": {
     "elements": {
@@ -486,7 +486,7 @@
    "rank": "",
    "home": 42,
    "birthplace": 546,
-   "role": "Seller of maps at the Night Rain Market in Thu Trì; a Nam Phố scribe turned out in 1168",
+   "role": "Seller of maps at the Night Rain Market in Thu Trì; a Nam Phố scribe turned out in 1174",
    "tier": "A",
    "root": {
     "elements": {
@@ -530,14 +530,14 @@
     ]
    },
    "appearance": "A soft-spoken man with ink to the second knuckle, eyes that do not narrow in the dark, and a rolled map behind each ear.",
-   "backstory": "Giản Vạn Lộ was born in 1132 in Hầu Đầu Thôn, a mushroom-pickers' village on the karst, and as a boy he could see in the caves as if it were noon. He told no one why, and the hall never tested for it. Đới Huyền Nghiên (doi_huyen_nghien) was the boy next door. He entered Nam Phố Đường on his Wood in 1146 and became its best copyist of maps and contracts. In 1168 Châu Phi Vân (chau_phi_van) turned him out for selling unstamped talismans at Hạc Đinh Thị. The hall said greed, and it was right. He walked south to Thu Trì, where the innkeepers ask no names (A313), and since 1170 he has sold maps in the Night Rain Market (A315): to Khải Lôi's sealed drum, to the dead masters' abodes, to the temple that showed on Thanh Ải Phong for a day in 1180 (A233). Nine in ten are false. He prices them all the same and never says which. Once a year he goes back into the karst under Hãm Thạch Trấn (V105) and draws what is really there. Đới still writes to him. The fortune-teller Đoan Mộc Thính (doan_moc_thinh) sings the treasure; he sells the road.",
+   "backstory": "Giản Vạn Lộ was born in 1132 in Hầu Đầu Thôn, a mushroom-pickers' village on the karst, and as a boy he could see in the caves as if it were noon. He told no one why, and the hall never tested for it. Đới Huyền Nghiên (doi_huyen_nghien) was the boy next door. He entered Nam Phố Đường on his Wood in 1146 and became its best copyist of maps and contracts. In 1174 Châu Phi Vân (chau_phi_van) turned him out for copying the hall's order book of 1173, the page that says \"for the reed beds\", and selling the copy at Hạc Đinh Thị. The hall said greed, and it was right. He walked south to Thu Trì, where the innkeepers ask no names (A313), and since 1175 he has sold maps in the Night Rain Market (A315): to Khải Lôi's sealed drum, to the dead masters' abodes, to the temple that showed on Thanh Ải Phong for a day in 1180 (A233). Nine in ten are false. He prices them all the same and never says which. Once a year he goes back into the karst under Hãm Thạch Trấn (V105) and draws what is really there. Đới still writes to him; his last letter says the hall now pays him by the sheet for dark talismans that go to Lạc Hà's war chest. The fortune-teller Đoan Mộc Thính (doan_moc_thinh) sings the treasure; he sells the road.",
    "wants": "Khâu Bạch Thủ's true map of Chiết Kích Nguyên, and one find under his own name that Nam Phố will have to hear about.",
-   "secret": "One of the three mountains to which Triệu Huyết Y has narrowed her master's abode is one he invented and sold her in 1171, with the False Cloud Seal on the map. She means to climb it, and he has seen what she does to a seller who lied.",
+   "secret": "One of the three mountains to which Triệu Huyết Y has narrowed her master's abode is one he invented and sold her in 1176, with the False Cloud Seal on the map. She means to climb it, and he has seen what she does to a seller who lied.",
    "ties": [
     {
      "to": "chau_phi_van",
      "kind": "former_master",
-     "note": "turned him out in 1168"
+     "note": "turned him out in 1174 for selling the reed-bed order"
     },
     {
      "to": "doi_huyen_nghien",
@@ -557,7 +557,7 @@
     {
      "to": "trieu_huyet_y",
      "kind": "enemy",
-     "note": "sold her an invented mountain for Mặc Huyết Sinh's abode in 1171"
+     "note": "sold her an invented mountain for Mặc Huyết Sinh's abode in 1176"
     },
     {
      "to": "luc_nhi_thinh",
@@ -1249,7 +1249,7 @@
     "gained": []
    },
    "appearance": "Salt-cracked lips, a sailor's squint, and a coat dyed black with mangrove bark so that she is a shadow on the deck.",
-   "backstory": "A reed-cutter's daughter of Lô Châu, the village Thôn Hải carried off in 765 (A306). A woman of her line came home from the pirates' hold in 782 (A307) knowing how they sailed with no lamp, and the family kept it as a fishers' trick. Biện runs two unlit boats out of burned Hải Diêm Trấn (V139): pearls north to the Night Rain Market, and since last winter, when Kiều Mãn Lâu (kieu_man_lau) found buyers in Phượng Minh's ports, poisons and pills south past the northern fort. On that run she steers by the one lamp on the coast that never goes out, Kiển Mục Hải's (kien_muc_hai) at Liệu Phàm Bảo.",
+   "backstory": "A reed-cutter's daughter of Lô Châu, the village Thôn Hải carried off in 765 (A306). A woman of her line came home from the pirates' hold in 782 (A307) knowing how to sail dark. Her grandfather, a wrecker, bought the Kim Sa lamp's winter oil from its keeper Ôn Thủ Đăng in 913 to burn in false lamps on the reefs; Ôn has paid the Biện in oil every autumn since, left at burned Hải Diêm, to keep their boats off his coast. Biện runs two unlit boats out of Hải Diêm Trấn (V139): pearls north to the Night Rain Market, and since last winter, when Kiều Mãn Lâu (kieu_man_lau) found buyers in Phượng Minh's ports, poisons south past the northern fort, though she still takes the oil, steering by Kiển Mục Hải's (kien_muc_hai) lamp at Liệu Phàm Bảo.",
    "ties": [
     {
      "to": "kieu_man_lau",
@@ -1260,6 +1260,11 @@
      "to": "kien_muc_hai",
      "kind": "rival",
      "note": "she steers by his lamp; he has seen her sails twice"
+    },
+    {
+     "to": "on_thu_dang",
+     "kind": "creditor",
+     "note": "Vọng Triều's head; pays her line in oil every autumn since 913 for its silence, and she has stopped keeping her side"
     },
     {
      "to": "tram_chau_nhi",
@@ -1552,7 +1557,7 @@
    "sect": "",
    "rank": "",
    "birthplace": 702,
-   "role": "Last chief of the Hắc Phong rogues, father of Đồ Liệt Cơ and Đồ Vô Cữu",
+   "role": "Chief of the Hắc Phong rogues until the stockade fell in 940, father of Đồ Liệt Cơ and Đồ Vô Cữu",
    "tier": "C",
    "traits": {
     "personality": [

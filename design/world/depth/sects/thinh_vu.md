@@ -128,7 +128,7 @@ them, holding the Thunder that the inner gate's rule cannot see.
 | 1000 | The Night Rain Market opens in Thu Trì | C198, A315 |
 | 1010 | Lệ Tiêu Hồn reaches Nguyên Anh in the soul vaults and keeps Kinh Lôi Mạch; the vault law of the lamps | C199, **N-thinh_vu-06** |
 | 1040-1046 | **Thunder Vein War** with Phượng Minh: Tạ Thiết Trụ burns with Thủ Lôi Bảo; the vein kept; the new guard on Thần Cổ Phong | C178, C179, V160, V161, **N-thinh_vu-07** |
-| 1150-1158 | **Cinnabar Vein War**: the Tower attacks Đan Sơn Mạch; the Pivot comes in; Kỷ Vãn Tình's rear guard is lost; the head shuts himself in the tower | C188-C190, **N-thinh_vu-08**, A277 |
+| 1150-1158 | **Cinnabar Vein War**: the great drought fails the Tower's rice, and it attacks Đan Sơn Mạch for cinnabar to pay for grain; the Pivot comes in; Kỷ Vãn Tình's rear guard is lost; the head shuts himself in the tower | C188-C190, **N-thinh_vu-08**, A277 |
 | 1165 | The Pivot's envoys count the Tower's disciples | C200 |
 | 1166-1170 | **The move to the ridge**: halls to Thần Cổ Phong; the Rain Tower; the Iron Rain array; Xuyên Lâm's hostage | A316, **N-thinh_vu-09, -10, -11** |
 | 1177 | A deserter's wick is not cut | **N-thinh_vu-12** |
@@ -283,8 +283,16 @@ method).
   - **Thu Phần Các** (Lý Hận Bích) keeps the singing graves of Lôi Trạch (A314). Its soul arts are the vaults' nearest
     kin.
   - **Vũ Linh Đường** (Ân Thanh Linh) casts the rain bells, and was founded by a smith who cast the Tower's rain-chains
-    (V149). Thạch Liên Hoàn has argued bronze with it by letter for a century.
+    (V149). Thạch Liên Hoàn has argued bronze with it by letter for a century. Since 1198 Nhiếp Vô Thanh knows
+    that Vũ Linh's mistress hangs bells inside Thu Trì tuned to the Hall of Echoes' own ears (a wall runner sold one
+    bell's place to Lục Nhĩ Thính). In 1199 she had the Rain Copper Mine's carts to the hall stopped until the line
+    comes down and the mistress's book of ears is sent to her. The Thunder Hall offers the hall copper through Thạch
+    Liên Hoàn's storm forge, for a bell line cast in lightning.
   - **Cốc Vũ Quán** (Dương Hảo Vũ) calls the rain for the farmers, and in a dry year for the Night Rain Market.
+- **Họa Tinh Đường (the Pivot's vassal):** the coast house at Lãng Hoa Thành is a copyhouse. Since 1198 Hoàng Tiêu
+  Diệp's painters have forged the Hall's Dipper talismans in glue from deer poached at Lộc Uyển, and Kiều Mãn Lâu sells
+  them at half the Hall's price. The Tower's couriers pass the Pivot's gates on them. This spring Hoàng bought half of
+  the Hall's rain-fast stroke from its chief painter (hoa_tinh §9).
 - **Băng Tâm Các, Thúy Vi Tông:** distant.
 
 ## 9. Inside the sect

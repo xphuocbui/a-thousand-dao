@@ -352,7 +352,7 @@
    "rank": "noi_mon",
    "home": 1105,
    "birthplace": 1099,
-   "role": "Warden of the eastern woods; thinks the hall is underpaid",
+   "role": "Warden of the eastern woods; sells spirit logs past the lord",
    "tier": "B",
    "root": {
     "elements": {
@@ -371,9 +371,9 @@
    },
    "traits": {
     "personality": [
-     "Ambitious",
-     "Pragmatic",
-     "Callous"
+     "Greedy",
+     "Callous",
+     "Pragmatic"
     ],
     "calling": "Merchant",
     "upbringing": "village_born",
@@ -391,7 +391,7 @@
     "gained": []
    },
    "appearance": "A handsome, restless warden with a merchant's rings under his bark gloves.",
-   "backstory": "A raftsman's son from Phiệt Công Thôn who reckons the hall's wood keeps Thúy Vi's whole alchemy alive and is paid like firewood. He quarrels with the lord's wood-keeper Phí Tùng Chi (phi_tung_chi) over every tally. In 1186 he caught a poacher felling a spirit tree and handed him to the lord's Hall of Rules; the man's son is now in the outer gate. In 1199 he sold one spirit log to a Phượng Minh buyer at Lam Yên Thị, and nobody has missed it yet.",
+   "backstory": "A raftsman's son from Phiệt Công Thôn who reckons the hall's wood keeps Thúy Vi's whole alchemy alive and is paid like firewood. He quarrels with the lord's wood-keeper Phí Tùng Chi (phi_tung_chi) over every tally. In 1186 a poacher of Tân Cư Thôn was felling a spirit tree for him; when Phí began counting stumps, Lại handed his own feller to the lord's Hall of Rules, took the reward for the catch, and sold the log anyway. The man's four-year-old son sat on it in the cart and is now in the hall's outer gate. In 1199 he sold another log to a Phượng Minh buyer at Lam Yên Thị, and this spring he means to cut a second loose at the boom.",
    "ties": [
     {
      "to": "luc_thanh_sam",
@@ -406,7 +406,7 @@
     {
      "to": "binh_thiet_phu",
      "kind": "enemy",
-     "note": "the poacher's son; Lại turned his father in"
+     "note": "the son of the feller he sold to the Hall of Rules; the boy sat on the log in the cart"
     },
     {
      "to": "mi_tuc_thu",
@@ -470,7 +470,8 @@
      "targets_note": "Venom Surge, then the Autumn Maple idea's crit damage and damage over time: Wood damage and poison."
     },
     "note": "Sits the night of asking as briefly as the rule allows."
-   }
+   },
+   "changed": "fix B 2026-11-25: Ambitious -> Greedy; the 1186 poacher was his own feller, sold to the Hall of Rules for the reward (read-minor-1 item 9, SHAPES-PLAN ho_lam)"
   },
   {
    "key": "mi_tuc_thu",
@@ -890,7 +891,7 @@
     "calling": "Wanderer",
     "upbringing": "street_orphan"
    },
-   "backstory": "His father felled a spirit tree without asking in 1186 and was handed to Thúy Vi by Lại Hoành Chi (lai_hoanh_chi); Lục Thanh Sam took the boy in and gave him an axe to learn the right way.",
+   "backstory": "His father felled a spirit tree for Lại Hoành Chi (lai_hoanh_chi) in 1186, and Lại handed him to Thúy Vi's Hall of Rules and sold the log, with the boy of four sitting on it in the cart. Lục Thanh Sam took him in and gave him an axe; this spring he has asked to ride the rafts to the boom.",
    "ties": [
     {
      "to": "luc_thanh_sam",
@@ -900,7 +901,7 @@
     {
      "to": "lai_hoanh_chi",
      "kind": "enemy",
-     "note": "turned his father in"
+     "note": "sold his father to the Hall of Rules, and the log too"
     },
     {
      "to": "nghe_hoang_phong",

@@ -43,7 +43,7 @@ Each line: who wants a tie to whom (keys), and why. The cross-sect pass writes b
 - Fixed: luc_han_chu born 1000 -> 922 (raided in the 942 war).
 
 ## From thien_xu
-- tram_tich_duong bribes the junior judge; co_da_lan offered a forge for Mặc Kinh Trập; nguy_thanh_han holds the 803
+- tram_tich_duong bribes the junior judge; le_tieu_hon offered a forge for Mặc Kinh Trập; nguy_thanh_han holds the 803
   roll; so_ngoc_ho and the Chief Judge correspond; cat_luu_quang has a son at the seat; le_tieu_hon, ha_thinh_tung,
   tuong_bach_luyen, kim_van_ly, diem_hai_tao, ung_hac_minh, la_tu_vi (named in the thien_xu page); Lạc Hà's miasma
   array at Chiết Kích (claim); keyless: a Băng Tâm watcher at Khuy Tinh Bảo; resident Compact witnesses from each sect.
@@ -163,12 +163,12 @@ Each line: who wants a tie to whom (keys), and why. The cross-sect pass writes b
   the karst (549) breeds Darkness roots.
 
 ## From hermits-sages
-- quach_vo_tich (Phất Y's founder, lived to 900, the traveller of A138) gets tu_khong_hac_nien as disciple (changes the
+- quach_linh_thu (was quach_vo_tich; Phất Y's founder, lived to 900, the traveller of A138) gets tu_khong_hac_nien as disciple (changes the
   phat_y page); far sides: lang_dap_tuyet, thang_vo_ta, sai_mo_kiem, co_da_lan, phan_co_dang (Tư Không); ky_hoa_anh
   (Hoắc); uy_thanh_diem (Cao, Khuyết); diep_to_quyen, tan_dao_anh, o_lao_nghien, lan_vien_pham, sa_kinh_nhi (Đoạn);
   thoi_khinh_hong (Mạc); lac_dan_thanh (Khuyết); ong_hai_linh (Cam); nhiem_han_chau ← hach_tung, do_suong_nhi;
   hac_tan_dang ← nguy_dan_chu.
-- Changes: Cô Hạc's maker (null) is now Quách Vô Tích, 760; soc_khi legendary says "sealed with him" but Lê Hoa Am's page
+- Changes: Cô Hạc's maker (null) is now Quách Lĩnh Thù, 760; soc_khi legendary says "sealed with him" but Lê Hoa Am's page
   has the cave empty with the sword alone (follow the page; legendary text to reword).
 - Nguyên Anh at the world cap 27 (no new one); bang_tam + thuy_vi wave 2 done (both at TC 45 / LK 55).
 

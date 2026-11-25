@@ -32,7 +32,7 @@ for: Ngọc Hồ Sơn (region 7: glacier, tundra, high mountain) and Hàn Sươn
 | Hồ Thiên Phái (214), ruin | tundra, 0 km | 61 % | 22 | 1.02 | **seat**: fits, and it has a story |
 | Băng Bích Nhai (1393), peak | glacier | 66 % | 40 | 0.77 | **the head's sanctum** (Ice is strongest here; too thin and cold for a sect) |
 | Băng Trụ Phong / Phong Tuyết Đỉnh | glacier | 67 % | 40 | 0.77 | the grand elder's seclusion peaks |
-| Hàn Giao Chử (239), beast lair | tundra | 59 % | 14 | 1.00 | the beast hall |
+| Hàn Giao Chử (239), beast lair | tundra | 59 % | 14 | 1.00 | beast hall, guest alchemist, outer gate |
 
 **The story.** The founder Tần Ngưng Sương reached the north-east in 440 and could not yet take the ice: Ngọc Hồ Sơn
 still steamed where Chúc Long Sơn had buried Hồ Thiên Phái fifteen years before, and no bird sang there (A100). She
@@ -103,9 +103,13 @@ desert-born. The sect's quiet prejudice is that only the first are truly its own
 - **White and pale blue.** Disciples wear undyed white; inner disciples add a pale-blue sash, elders a sash of frost
   silk that is cold to the touch. Only the Keeper wears the jade vessel at the belt.
 - **The Frost Test.** Each winter's solstice night, every outer disciple at the sixth layer of the Clear Frost
-  Breathing Primer sits on Phiến Băng Hồ until dawn. Those in whom Ice answers go north with the spring caravan to the inner
-  gate at the seat, some 3,000 km and two seasons on the road. The rest walk back to the outer gate on the shore, and may sit again next year. Three failures and they are offered the Desert
-  Pavilion, a vassal, or the road.
+  Breathing Primer sits on the frozen mere of Hàn Giao Chử until dawn, where the ice holds a little Ice of its own (14).
+  Those in whom Ice answers walk up to the inner gate at the seat when the spring opens the road, nine days. The rest
+  go back to the outer gate on the mere's shore and may sit again next year. Three failures and they are offered the
+  Desert Pavilion, a vassal, or the road.
+- **Phiến Băng Hồ.** The glass-clear lake of the frost coast (place 191) is the Pavilion's pilgrimage. Its frost-coast
+  disciples sit on it in winter to see their own hearts (A140), and an elder of the seat walks to it once in a life,
+  some two hundred days each way.
 - **No fire in the halls.** No open flame is lit inside the seat, because of the Array and the volcano under it. Pills
   are brewed in the guest alchemist's hall at Hàn Giao Chử, some 140 km from the seat, and carried in. Tea is made with water warmed by qi.
 - **The dead go to the ice.** The Pavilion buries its dead in the glacier above the seat, standing, facing south.
@@ -146,12 +150,12 @@ Fire alchemist (Viên Chước) and buys its blades from Trấn Sa Đường's f
 | The Vessel Hall (the head's court) | seat, 214 | Sở Ngọc Hồ |
 | The Array Hall (keeps the Jade Vessel Array) | under the seat | Tiết Hàn Mai, first elder |
 | The Plum Sword Hall (inner-gate sword) | seat | Phó Ám Hương |
-| The Hall of Cold Law (discipline, the frost-coast towns) | seat and Liên Giang Thành | Thẩm Hàn Giang |
+| The Hall of Cold Law (discipline, the frost-coast towns, the vassals' suits) | seat and Liên Giang Thành | Thẩm Hàn Giang |
 | The Ice Soul Vein watch | Băng Phách Mạch (209) | Kha Tĩnh Ba, steward |
 | The Beast Hall (ice beasts, the sect's mounts) | Hàn Giao Chử (239) | Lam Tuyết Điêu |
 | The guest alchemist's hall | Hàn Giao Chử, outside the array | Viên Chước, guest elder |
 | The Desert Pavilion (outer affairs, caravans, desert recruits) | old seat, 3 | Ôn Sa Ngọc |
-| The outer gate (Frost Test on Phiến Băng Hồ) | Phiến Băng Hồ (191) | Đỗ Sương Nhi, steward |
+| The outer gate (the Frost Test on the frozen mere) | Hàn Giao Chử (239), outside the array | Đỗ Sương Nhi, steward |
 | Envoys (the Pivot, the vassals) | travels | Ngụy Thanh Hàn |
 | Grand elder in seclusion | Băng Bích Nhai (1393) | Cố Lăng Sương |
 
@@ -175,6 +179,11 @@ Fire alchemist (Viên Chước) and buys its blades from Trấn Sa Đường's f
   her first disciple **Khương Lưu Ly** (Kết Đan, ice-born, the old Pavilion) and **Thẩm Hàn Giang** (Nguyên Anh, the
   frost-coast fisher's son who rose through the Hall of Cold Law, and who would be the first male Keeper). The
   frost-coast towns back Thẩm; the elders of the seat back Khương.
+- **The case at Hòe Âm.** Tầm Kiếm Đường has sued to cross above Lê Hoa Am's gate, and Thẩm has taken the suit into
+  his Hall of Cold Law. He is riding five months south to hear it at Hòe Âm Trấn this autumn, because a ruling for the
+  lodge would put the massif's men behind him. Khương's party backs the nuns and has asked the Keeper to read the
+  ruling before it is posted. The Keepers have all been women, by custom, and the seat hears a ruling that a women's
+  vow cannot close a mountain as a ruling on the Vessel.
 - **The pill.** Two old Kết Đan elders, **Tiết Hàn Mai** (440) and **Phó Ám Hương** (480), both near the end of their
   lifespans, need a Nguyên Anh breakthrough pill the sect can afford once in a generation. Tiết is the only one who
   knows the whole Array; Phó is the last of Lãnh Hương. Whoever gets the pill lives. Whoever doesn't, dies.
@@ -254,8 +263,8 @@ Fire alchemist (Viên Chước) and buys its blades from Trấn Sa Đường's f
    wants it back before he goes. (Phó, Hạ Lăng Hàn, Hoa Triêu Dương.)
 7. **The hostage comes of age.** Hạng Dạ Bôi is old; Dạ Quang wants its heir home; Băng Tâm will not let him go.
    (Hạng Minh Sa, Hạng Dạ Bôi, Ôn Sa Ngọc.)
-8. **The Frost Test.** The player, Water-rooted without Ice, sits the test on Phiến Băng Hồ. (Đỗ Sương Nhi, Hồ Tiểu
-   Đàm.)
+8. **The Frost Test.** The player, Water-rooted without Ice, sits the test on the frozen mere of Hàn Giao Chử. (Đỗ
+   Sương Nhi, Hồ Tiểu Đàm; place 239.)
 9. **The Mirror.** The Regalia is whole only in one pair of hands; Tiết Hàn Mai's death will decide who holds the
    Mirror. (Sở, Tiết, Khương.)
 10. **The vein petition again.** Ngụy Thanh Hàn wants to redeem 1188 with a new claim, this time with proof the Pivot

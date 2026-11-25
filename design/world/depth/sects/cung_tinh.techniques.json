@@ -1,12 +1,12 @@
 {
  "sect": "cung_tinh",
- "_doc": "Củng Tinh Quán lineage (rules-proposals R5). Leans Earth, Metal (unchanged; the seat passes, Earth 45 %, Metal 21 %). Outer gate: star-pacing-primer (proposal, Yellow, Earth or Metal). Inner gate and above: bowing-stars-canon (proposal, Earth tier, Earth). Secret arts: armillary-array-canon (proposal, inner gate; the abbey's formation craft), star-lake-mirror (proposal, the head's divination; it needs Light, which needs Fire). The head's old aux deep-vein-scripture is the Pivot's head-only secret and is replaced (see his 'changed' note). Unpriced.",
+ "_doc": "Củng Tinh Quán lineage (rules-proposals R5). Leans Earth, Metal (unchanged; the seat passes, Earth 45 %, Metal 21 %). Outer gate: star-pacing-primer (proposal, Yellow, Earth or Metal). Inner gate and above: bowing-stars-canon (proposal, Earth tier, Earth). Secret arts: armillary-array-canon (proposal, inner gate; the abbey's formation craft), star-lake-mirror (proposal, the head's divination; it reads by Earth and Metal, and Light, if the holder has it, reads further). The head's old aux deep-vein-scripture is the Pivot's head-only secret and is replaced (see his 'changed' note). Unpriced.",
  "lineage": {
   "outer": "star-pacing-primer",
   "main": "bowing-stars-canon",
   "secret": [
    {"id": "armillary-array-canon", "rank": "noi_mon", "note": "the abbey's formation craft, taught to every inner Daoist"},
-   {"id": "star-lake-mirror", "rank": "tong_chu", "note": "the head's divination; a Light root is needed to read the lake by it, and the abbey has had three in a thousand years"}
+   {"id": "star-lake-mirror", "rank": "tong_chu", "note": "the head's divination; it reads the lake by Earth and the star-iron rim, and a holder with Light reads further"}
   ],
   "body": null,
   "elements": ["tho", "kim"],
@@ -57,13 +57,13 @@
   {
    "id": "star-lake-mirror",
    "name": "Mirror of the Star-Fallen Lake (Tinh Lạc Kính Quyết)",
-   "tier": 2, "tech_kind": "secret", "names": ["tho", "quang"], "layers": 12, "rank": "tong_chu",
-   "concept": "The head's divination. The holder reads the Dipper in the water of Tinh Lạc Hồ by Light rather than by eye, and reads in it what the armillary only points at. In a fight it shows the holder the foe's next art a moment before it comes.",
+   "tier": 2, "tech_kind": "secret", "names": ["tho", "kim"], "layers": 12, "rank": "tong_chu",
+   "concept": "The head's divination. The holder reads the Dipper in the water of Tinh Lạc Hồ through a star-iron rim, by Earth and Metal rather than by eye, and reads in it what the armillary only points at. A holder with Light reads further in it. In a fight it shows the holder the foe's next art a moment before it comes.",
    "arts": [
     {"new": "Read the Water (Độc Thủy)", "concept": "For a few seconds the holder sees each foe's next art before it is cast: they evade or ward it far more easily, and their counter-strikes against it are critical."},
     {"new": "The Star Goes Out (Tinh Diệt)", "concept": "Names one foe: that foe's buffs are dimmed and their luck in the fight (khí vận) is lowered for a long while."}
    ],
-   "lore": "Taught by the founder to Thẩm Bắc Thần, the only Light root the abbey had in its first five centuries. It is how he saw the omen of 1188 that he has told no one.",
+   "lore": "Taught by the founder to Thẩm Bắc Thần. It needs only the abbey's Earth and the Metal of Vẫn Tinh's iron; Thẩm's thread of Light lets him read further in it than any head before him. It is how he saw the omen of 1188 that he has told no one.",
    "status": "proposal"
   }
  ]

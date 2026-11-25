@@ -53,7 +53,7 @@ terraces as mortals. The valley has never sent a child away for its root.
 | 1000 | Nghiêm Linh Chi becomes valley-mistress and opens the herb fields to the river's orphans | A078 |
 | 1066 | Lăng Tiêu Các's pill hall burns; its youngest master walks down to the valley with a live coal | V050, **N-thai_chi-03** |
 | 1093 | Spring flood: Mai Thủ Điền calls the Grain Rain on the drowned fields below Đào Sa | |
-| 1173-1174 | The Ferry War: the Đào Sa landing burns; the ferry orphans come up the river; that winter the mistress treats wounded raiders in her lower field | A080, **N-thai_chi-04** (kind `tale`, hidden: out of the chronicle and annals until the player uncovers it) |
+| 1173-1174 | The Ferry War: the Đào Sa landing burns; the ferry orphans come up the river; that winter the mistress treats wounded raiders in her lower field | A080, **N-thai_chi-04** (kind `tale`; no longer hidden: the whole river knows it) |
 
 **New chronicle proposals:**
 - **N-thai_chi-01** (482, `craft`): "The founder of Thải Chi Cốc grows a gourd on her own vine and cures it with lingzhi
@@ -62,7 +62,7 @@ terraces as mortals. The valley has never sent a child away for its root.
   basket. She will be the valley's mistress."
 - **N-thai_chi-03** (1066, `tale`): "The youngest master of Lăng Tiêu Các walks into Thải Chi Cốc with a bronze censer
   and a coal from the fire that burned his pavilion."
-- **N-thai_chi-04** (1174, `tale`, hidden): "By lamplight in Thải Chi's lower field, the valley-mistress treats Lạc Hà raiders
+- **N-thai_chi-04** (1174, `tale`): "By lamplight in Thải Chi's lower field, the valley-mistress treats Lạc Hà raiders
   wounded at Đào Sa and sends them home."
 
 ## 4. Doctrine and customs
@@ -75,7 +75,7 @@ terraces as mortals. The valley has never sent a child away for its root.
 - **The orphans.** Any child carried up the river is kept. They live in the long houses on the lower terraces, weed in
   the mornings and sing the pickers' song in the afternoons. The mistress names each one for a herb and gives them the
   surname Nghiêm, so the valley is full of Nghiêm Đương Quy and Nghiêm Phục Linh. A child old enough to refuse may keep
-  their own name, as Lữ Niệm Hà did.
+  their own name, as Lữ Niệm Hà did. Since 1176 the oldest of them dig the River Hall's dikes by the day (section 9).
 - **The hundred herbs.** Every inner disciple tastes the hundred herbs of the valley, poisons first. Most are sick for
   a year. It is the inner gate's only rite.
 - **Fire.** The valley lies under the pines' rule against open fire near living trees. All furnaces burn in the stone
@@ -124,10 +124,11 @@ blow. The tasting method makes the valley hard to poison. The Grain Rain heals w
 
 - **Tùng Đào Cung (lord):** the valley sent the pines its tribute boy Bồ Hạnh Lâm at nine, and he runs their Pill Room
   now and buys from his old mistress what he cannot brew. The River Hall's mistress Dụ Tĩnh Lưu has fed the orphans
-  since 1000, and the valley votes as the river does. The valley is the pines' quietest vassal and the one the Hall of
-  Voices trusts most.
-- **Lãng Đào Môn:** the ferries bring the orphans. Giang Cửu Khúc buys the valley's pills every month and does not know
-  that the mistress treated his boat-burners in 1174. Lữ Niệm Hà is the daughter of one of his dead ferrymen.
+  since 1000, and since 1176 the oldest of them have paid for the grain on her dikes. The valley votes as the river
+  does. The valley is the pines' quietest vassal and the one the Hall of Voices trusts most.
+- **Lãng Đào Môn:** the ferries bring the orphans. Giang Cửu Khúc buys the valley's pills every month, though the whole
+  river knows the mistress treated his boat-burners in 1174, and his ferrymen spit on her landing. Lữ Niệm Hà is the
+  daughter of one of his dead ferrymen.
 - **Lạc Hà Tông:** grudge with the lord (−10). Lữ Niệm Hà's brother Lữ Tẫn Chu (`lu_tan_chu`) was raised by the man who
   led the Đào Sa raid, and sings in Lạc Hà's Boat Hall. She writes to him every year.
 - **Hàm Nguyệt Trang:** pearl powder for cold-sickness pills, every winter since 1150.
@@ -136,14 +137,25 @@ blow. The tasting method makes the valley hard to poison. The Grain Rain heals w
 
 ## 9. Inside the sect
 
-- **The heir.** Nghiêm Linh Chi has not named one. Mai Thủ Điền says it should be Lữ Niệm Hà. The mistress is waiting
-  for the girl to stop hating Lạc Hà, because the valley's first rule is to treat anyone. Lữ is waiting for her brother
-  to answer a letter.
-- **The lower field.** If Giang Cửu Khúc learned the mistress treated the Đào Sa raiders, the ferries might stop
-  bringing orphans. Ông Khổ Sâm half knows.
+- **The orphans' wages.** The valley's first rule is never to send a child away, so since 1176 it has sent them out by
+  the day. The war had doubled the long houses and halved the River Hall's tolls, and the children's grain is now paid
+  for in work: the oldest orphans dig the River Hall's dikes on the valley's own reach of the river, and their wages are
+  set against the grain. Ông Khổ Sâm writes the contracts at Đào Thanh Thành and books the rest to the valley. Nghiêm
+  Linh Chi read the first one. She has sealed every one since on the landing, unopened, when it comes up with the autumn
+  grain.
+- **The dike list.** Lữ Niệm Hà, who keeps the long houses, picks the names each flood season, oldest first, and walks
+  them down to the dike herself. Mai Thủ Điền loses his best weeders to it and says so at every meal. Last flood season
+  a boy of fourteen went into the river with a dike section, and Ông billed the River Hall for the full day. Nghiêm
+  Hoàng Kỳ sets the dike children's torn hands in the sick-houses and sends Ông's bill for the pills back every season.
+  Lữ is still waiting for her brother to answer a letter.
+- **The raiders in the lower field.** The whole river knows that in the winter of 1174 the mistress treated Lạc Hà's
+  wounded raiders from the Đào Sa burning and sent them home. Giang Cửu Khúc buys her pills every month anyway, and
+  his ferrymen spit on her landing when they bring the orphans up. The valley calls it the four hermits' teaching.
+  Lãng Đào's crews call it the price of pills.
 - **The coal.** Diêu Tẫn Đan has never said whose furnace started the Lăng Tiêu fire. Phùng Lục Ngạc, who learns the
   furnace from him, has seen him wake from dreams of it.
-- **The steward.** Ông Khổ Sâm thinks the valley gives too many pills away and could be rich. He is right.
+- **The steward.** Ông Khổ Sâm thinks the valley gives too many pills away and could be rich. He is right, and the
+  dike wages are the first money it has ever kept.
 
 ## 10. Treasures and sets
 
@@ -176,8 +188,10 @@ blow. The tasting method makes the valley hard to poison. The Grain Rain heals w
 
 1. **The brother's letter.** Lữ Tẫn Chu answers at last and asks to meet on the Ngư Ca border. Lữ Niệm Hà wants the
    player there in case it is a trap, or in case it is not. (Lữ Niệm Hà, Lữ Tẫn Chu, Nghiêm Đương Quy, Giang Cửu Khúc.)
-2. **The lower field.** A Lạc Hà raider the mistress treated in 1174 comes back to the valley dying and asks for her
-   by name, in front of Giang Cửu Khúc's ferrymen. (Nghiêm Linh Chi, Giang Cửu Khúc, Ông Khổ Sâm; place 12.)
+2. **The raider at the gate.** A Lạc Hà raider the mistress treated in 1174 comes back to the valley dying, on the day
+   Giang Cửu Khúc's ferrymen bring the orphans up. The valley's rule says treat him; the ferrymen say they will not
+   carry another child up the river if she does. (Nghiêm Linh Chi, Giang Cửu Khúc, Nghiêm Hoàng Kỳ, Ông Khổ Sâm;
+   place 12.)
 3. **The coal.** The scattered alchemists of Lăng Tiêu Các find Diêu Tẫn Đan and want the coal back, or want to know
    whose furnace it came from. (Diêu Tẫn Đan, Phùng Lục Ngạc, Nghiêm Linh Chi; places 12, 1252.)
 4. **The flood.** A great flood comes down the Nine-Bend River, and the valley must call the Grain Rain over drowned
@@ -187,8 +201,12 @@ blow. The tasting method makes the valley hard to poison. The Grain Rain heals w
    being needed; a valley that is rich is worth taking. (Ông Khổ Sâm, Nghiêm Cam Thảo, Nghiêm Linh Chi.)
 6. **The tribute boy.** Bồ Hạnh Lâm, now old, asks his mistress for a herb only the Purple Lingzhi Gourd has kept, to
    save someone at the palace. (Bồ Hạnh Lâm, Nghiêm Linh Chi, Đàm Thanh Giang.)
-7. **The heir.** The mistress goes into seclusion and leaves the valley to Lữ Niệm Hà for a season, and a Lạc Hà boat
-   comes up the river with wounded aboard. (Lữ Niệm Hà, Mai Thủ Điền, Lữ Tẫn Chu.)
+7. **The season alone.** The mistress goes into seclusion and leaves the valley to Lữ Niệm Hà for a flood season. A
+   Lạc Hà boat comes up the river with wounded aboard while the ferrymen are at the landing, and the dike contract
+   waits for her seal. (Lữ Niệm Hà, Mai Thủ Điền, Lữ Tẫn Chu, Giang Cửu Khúc.)
 8. **The wolf fever.** A fever from the caravan roads runs through the long houses, and the only cure grows on the
    ridge where the white apes drove the ginseng diggers out (V040). (Nghiêm Phục Linh, Nghiêm Tục Đoạn, Ông Khổ Sâm;
    place 1174.)
+9. **The contract read aloud.** A dike section goes again with Nghiêm children on it, and the River Hall's flood warden
+   asks for twice the crew to close the breach before nightfall. Someone has to open the contract the mistress sealed
+   and read out what the valley agreed to. (Nghiêm Linh Chi, Ông Khổ Sâm, Hoàng Đê Sinh, Nghiêm Hoàng Kỳ; place 12.)

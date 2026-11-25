@@ -34,7 +34,7 @@
    },
    "traits": {
     "personality": [
-     "Diligent",
+     "Callous",
      "Pragmatic",
      "Gregarious"
     ],
@@ -59,9 +59,9 @@
     ]
    },
    "appearance": "A stout, quick woman with burn-scarred forearms, three blue jade pendants at her throat and a laugh that carries across a market.",
-   "backstory": "Yến Bội Ngọc was born in 910 in Vật Hoa Thị, a bronze-dealer's daughter, and learned refining in the workshops of Thiên Bảo Trai under Phan Vật Hoa (phan_vat_hoa). There she met Hoa Minh Hòa (hoa_minh_hoa), a smith's son from Tử Điện Thành who cut jade. In 960 they cast and carved for their Dao-partner rite: she the luan bell, he the jade pendants. They founded the pavilion on the coast that year (V102) and made ward bells for ships, whose note drives off sea beasts and carries a warning. In the cold winter of 1121 (V100) the great bell Hoa was casting cracked in the pit and killed him (N-minh_loan-02). She has headed the pavilion alone since then. In 1183 Lạc Hà's array master Quách Tiếp Vân (quach_tiep_van) ordered forty bells for the Cloud Bridge (N-lac_ha-04). Her casting master cast them on the shoulder of Tằng Loan Phong, and they rang true there. In 1188 she moved the casting floor and the inner pavilion up the mountain and left the wharf to the ships (N-minh_loan-03).",
-   "wants": "To finish the Hundred-Bell Eaves on the mountain before she dies, and to learn what has been ringing the Cloud Bridge bells from below.",
-   "secret": "Hoa did not want to cast in the frost of 1121. She had promised Lạc Hà its harbour bell by the new year, and she made him pour. The pavilion believes the cold killed him. She made the rule against casting in winter herself, the next spring, so that no one would ask why.",
+   "backstory": "Yến Bội Ngọc was born in 910 in Vật Hoa Thị, a bronze-dealer's daughter, and learned refining in the workshops of Thiên Bảo Trai under Phan Vật Hoa (phan_vat_hoa). There she met Hoa Minh Hòa (hoa_minh_hoa), a smith's son from Tử Điện Thành who cut jade. In 960 they cast and carved for their Dao-partner rite: she the luan bell, he the jade pendants. They founded the pavilion on the coast that year (V102) and made ward bells for ships, whose note drives off sea beasts and carries a warning. In the cold winter of 1121 (V100) the great bell Hoa was casting cracked in the pit and killed him (N-minh_loan-02). She had made him pour, the pavilion knows it, and the winter rule she made the next spring is her penance. In 1183 Lạc Hà's array master Quách Tiếp Vân (quach_tiep_van) ordered forty bells for the Cloud Bridge (N-lac_ha-04). Her casting master cast them on the shoulder of Tằng Loan Phong, and they rang true there. In 1188 she moved the casting floor and the inner pavilion up the mountain and left the wharf to the ships (N-minh_loan-03).",
+   "wants": "To finish the Hundred-Bell Eaves on the mountain before she dies, whatever bronze it takes, and to learn what has been ringing the Cloud Bridge bells from below.",
+   "secret": "Since last spring she has cast war bells for Hình Trọng Sơn's (hinh_trong_son) war party at the Miasma Watch, behind her lord's back, and taken his payment in the bronze the miasma gives back at its edge: the fittings of 803's dead. She tunes each bell by ringing it at the outer disciples in the casting pit and keeps the note that makes them run. The second half of the Hundred-Bell Eaves is going up in that bronze.",
    "ties": [
     {
      "to": "hoa_minh_hoa",
@@ -112,7 +112,8 @@
      "to": "chiem_thinh_ba",
      "kind": "disciple",
      "note": "clerk of the note ledger at the Bell Wharf"
-    }
+    },
+    {"to": "hinh_trong_son", "kind": "friend", "note": "Lạc Hà's Watch warden; buys her war bells and pays in grave bronze"}
    ],
    "build": {
     "archetype": "phap_tu",
@@ -166,7 +167,7 @@
     "ml-jade-pendants",
     "ml-ringing-rite-robe"
    ],
-   "changed": "home 527 -> 519 with the seat (rules R4, N-minh_loan-03); birthplace 50 added; build written to the lineage."
+   "changed": "home 527 -> 519 with the seat (rules R4, N-minh_loan-03); birthplace 50 added; build written to the lineage.; fix pass B 2026-11-25 (fixB-5): Diligent -> Callous (war bells for the Watch, tuned on the outer disciples, paid in grave bronze); 1121 now public, her penance; want and secret rewritten; tie to hinh_trong_son"
   },
   {
    "key": "nguy_tram_am",
@@ -223,7 +224,8 @@
     "gained": []
    },
    "appearance": "A gaunt, silent man the colour of clay, deaf in his left ear from a bell he stood too close to.",
-   "backstory": "A red-earth farmer's son from Xích Thổ Thôn and Hoa Minh Hòa's (hoa_minh_hoa) last disciple. He was at the pit in 1121. He cast Lạc Hà's forty Cloud Bridge bells on the mountain's shoulder in 1183 because the coast's damp made them ring flat, and he talked Yến Bội Ngọc (yen_boi_ngoc) into the move. He strikes every new bell against the Winter Crack and has spent forty years trying to cast his master's unstruck bell in bronze.",
+   "backstory": "A red-earth farmer's son from Xích Thổ Thôn and Hoa Minh Hòa's (hoa_minh_hoa) last disciple. He was at the pit in 1121, and the next spring he told the casting floor that the head had made his master pour. He cast Lạc Hà's forty Cloud Bridge bells on the mountain's shoulder in 1183 and talked Yến Bội Ngọc (yen_boi_ngoc) into the move. Now he casts her war bells for the Miasma Watch, because the grave bronze left over is enough at last for his master's unstruck bell.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): told the floor about 1121; casts the war bells for the leftover bronze",
    "ties": [
     {
      "to": "hoa_minh_hoa",
@@ -233,7 +235,7 @@
     {
      "to": "yen_boi_ngoc",
      "kind": "friend",
-     "note": "his head; he knows about the deadline of 1121 and has never said so"
+     "note": "his head; he told the floor about the deadline of 1121, and he casts her war bells"
     },
     {
      "to": "lo_hong_pham",
@@ -477,7 +479,7 @@
     "personality": [
      "Gregarious",
      "Stubborn",
-     "Honest"
+     "Pragmatic"
     ],
     "calling": "Merchant",
     "upbringing": "village_born",
@@ -492,7 +494,8 @@
     ]
    },
    "appearance": "A loud, salt-tanned woman with a captain's ledger in one hand and a bell clapper in the other.",
-   "backstory": "A net-mender's daughter from Tân Khẩu Thôn, the harbour where Vô Định's refugees never speak of the plain (A182). She keeps the Bell Wharf, where ships and caravans are still fitted with ward bells, and she knows every captain on the bay by his bell's note. She refused to go up the mountain in 1188. Her friend Nhạc Hải Âm (nhac_hai_am) sailed on Lạc Hà's island warden Lận Viễn Phàm's (lan_vien_pham) first boat in 1158 and did not come back.",
+   "backstory": "A net-mender's daughter from Tân Khẩu Thôn, the harbour where Vô Định's refugees never speak of the plain (A182). She keeps the Bell Wharf, where ships and caravans are still fitted with ward bells, and she knows every captain on the bay by his bell's note. She refused to go up the mountain in 1188. Her friend Nhạc Hải Âm (nhac_hai_am) sailed on Lạc Hà's island warden Lận Viễn Phàm's (lan_vien_pham) first boat in 1158 and did not come back. She rings every bell that leaves the wharf herself, except on one day a month: when the melt cart is loaded with old bells that rang false, her disciple Thân Lạc Âm (than_lac_am) pays her not to ring it, and she is saving the money for a boat of her own, to go after Nhạc's bell.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): Honest -> Pragmatic (paid by Thân Lạc Âm to be deaf on melt-cart day; hook 3 without the ledger)",
    "ties": [
     {
      "to": "yen_boi_ngoc",
@@ -605,7 +608,8 @@
     "calling": "Refiner",
     "upbringing": "village_born"
    },
-   "backstory": "A potter's son from Hà Khúc Thôn who packs the casting floor's moulds and said for forty years that the mountain's clay was better than the wharf's sand; Ngụy Trầm Âm (nguy_tram_am) finally listened in 1183.",
+   "backstory": "A potter's son from Hà Khúc Thôn who said for forty years that the mountain's clay was better than the wharf's sand, until Ngụy Trầm Âm (nguy_tram_am) listened in 1183; now he packs the war bells' moulds and sends his girls back down into the pit each time the head tunes one.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): packs the war bells' moulds",
    "ties": [
     {
      "to": "nguy_tram_am",
@@ -675,7 +679,7 @@
    "stage": 0,
    "sect": "minh_loan",
    "rank": "noi_mon",
-   "home": 527,
+   "home": 519,
    "birthplace": 528,
    "role": "Rides with the caravans and fits their ward bells",
    "tier": "C",
@@ -695,7 +699,8 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "A shepherd's son from Bạch Dương Thôn who rides with the wool caravans of Kim Vạn Lý (kim_van_ly) and fits their bells on the road; he has heard a ward bell drive off a steppe pack three times and fail once.",
+   "backstory": "A shepherd's son from Bạch Dương Thôn who rides with the wool caravans of Kim Vạn Lý (kim_van_ly) and fits their bells on the road; since last spring he has lived on the mountain and rides every cart of war bells from the casting floor to the Miasma Watch, packed as caravan bells, and back beside the grave bronze.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): rides the war-bell carts to the Watch; home 527 -> 519 (the wharf is 1,443 km from the floor)",
    "ties": [
     {
      "to": "yen_boi_ngoc",

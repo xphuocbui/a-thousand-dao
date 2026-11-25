@@ -6,7 +6,7 @@
    "id": "hc-nine-cycle-gourd", "name": "Nine-Cycle Gourd (Cửu Chuyển Hồ Lô)", "family": "metal", "kind": "treasure", "base": "ho_lo", "grade": 4,
    "modifiers": [{"key": "stack_effect_pct", "value": 30, "scope": ["kim", "debuff"]}, {"key": "stack_duration_pct", "value": 30, "scope": ["kim", "debuff"]}, {"key": "dan_doc_resist_pct", "value": 30, "scope": []}, {"key": "healing_pct", "value": 10, "scope": []}, {"key": "than_thuc_pct", "value": 4, "scope": []}],
    "effects": [{"new": true, "id": "the-unfinished-pill", "name": "The Unfinished Pill (Vị Thành Đan)", "rule": "Once a fight, drink from the gourd: heal a third of your health and gain a large share of attack for ten seconds, then take a lingering mercury poison you cannot cleanse until the fight ends."}],
-   "lore": "The founder's refining gourd of bronze and red lacquer. It holds the last turn of the Canopy Pill that Úy Đan Dương spent a century refining and never finished; the fumes of its eighth turn blinded him in 1150. It is in his sealed room, and his successor has a key.",
+   "lore": "The founder's refining gourd of bronze and red lacquer. It holds the last turn of the Canopy Pill that Úy Đan Dương spent eighty years refining and never finished; the fumes of its eighth turn blinded him in 1141. It is in his sealed room, and his successor has a key.",
    "build_use": "The founder's piece: heavy Mercury stacks, pill-poison resistance, and one dangerous drink.",
    "holder": "uy_dan_duong", "made_by": "uy_dan_duong", "made_year": 1062, "set": "hc-blind-founder", "status": "proposal"
   },
@@ -14,7 +14,7 @@
    "id": "hc-canopy-furnace", "name": "Canopy Furnace (Hoa Cái Lô)", "family": "earth", "kind": "artifact", "base": "huong_lo", "grade": 3,
    "modifiers": [{"key": "attack_pct", "value": 16, "scope": ["tho"]}, {"key": "stack_duration_pct", "value": 30, "scope": ["tho", "debuff"]}, {"key": "ward_efficiency_pct", "value": 10, "scope": []}, {"key": "khi_huyet_pct", "value": 10, "scope": []}],
    "effects": [{"new": true, "id": "nine-stars-over-the-fire", "name": "Nine Stars over the Fire (Cửu Tinh Phúc Hỏa)", "rule": "Pills you refine while carrying the furnace come out one grade steadier: a failed batch is kept as a lower grade instead of lost. In a fight, your wards last longer while a foe carries your debuffs."}],
-   "lore": "The small bronze furnace with nine stars cast on its lid that the Hall's head carries to the market at Thiên Quyền Thị, where its pills are weighed like everything else (V117). La Tử Vi took it from the founder's hands in 1150, when he could no longer see the lid.",
+   "lore": "The small bronze furnace with nine stars cast on its lid that the Hall's head carries to the market at Thiên Quyền Thị, where its pills are weighed like everything else (V117). La Tử Vi took it from the founder's hands in 1141, when he could no longer see the lid.",
    "build_use": "The head's furnace: Earth debuffs that last, a ward, and steadier pills.",
    "holder": "la_tu_vi", "made_by": "uy_dan_duong", "made_year": 1060, "set": "hc-canopy-and-lid", "status": "proposal"
   },
@@ -24,7 +24,7 @@
    "effects": [],
    "lore": "A stained palm-leaf fan for stoking the furnace; the Mistress learned to fan fume at a foe before she learned to fan a fire.",
    "build_use": "Mercury stacks she fans under the lid.",
-   "holder": "la_tu_vi", "made_by": "la_tu_vi", "made_year": 1150, "set": "hc-canopy-and-lid", "status": "proposal"
+   "holder": "la_tu_vi", "made_by": "la_tu_vi", "made_year": 1141, "set": "hc-canopy-and-lid", "status": "proposal"
   },
   {
    "id": "hc-fume-censer", "name": "Censer of the Sealed Room (Phong Thất Lô)", "family": "metal", "kind": "artifact", "base": "huong_lo", "grade": 3,
@@ -37,9 +37,9 @@
     ]
    }],
    "effects": [],
-   "lore": "The censer that has burned in the founder's sealed room since 1150; the fume in it is what is left of the pill that blinded him.",
+   "lore": "The censer that has burned in the founder's sealed room since 1141; the fume in it is what is left of the pill that blinded him.",
    "build_use": "Mercury stacks from the fume that fills the room.",
-   "holder": "uy_dan_duong", "made_by": "uy_dan_duong", "made_year": 1150, "set": "hc-blind-founder", "status": "proposal",
+   "holder": "uy_dan_duong", "made_by": "uy_dan_duong", "made_year": 1141, "set": "hc-blind-founder", "status": "proposal",
    "authored": "b3"
   },
   {

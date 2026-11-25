@@ -315,7 +315,7 @@
     {
      "to": "doan_hi_hoa",
      "kind": "aunt_uncle",
-     "note": "her aunt, the presumed heir"
+     "note": "her aunt, named heir in 1190"
     },
     {
      "to": "ke_thanh_khoa",
@@ -407,7 +407,7 @@
     "gained": []
    },
    "appearance": "Small and sharp, hair that stands up in dry weather, a burn on one palm from a stone she picked up as a child.",
-   "backstory": "A herder's girl from the slopes of Cùng Mục Phong, the thunder peak where Tư Không Hạc Niên and Thang Vô Tạ fought for three days (C186), Mặc Kinh Trập has Thunder in her root from the land. In 1198 Thính Vũ's war elder Cố Dạ Lan (co_da_lan) offered the Pivot's envoy a thunder-stone forge in exchange for her. The envoy said no without asking her. She has heard about it.",
+   "backstory": "A herder's girl from the slopes of Cùng Mục Phong, the thunder peak where Tư Không Hạc Niên and Thang Vô Tạ fought for three days (C186), Mặc Kinh Trập has Thunder in her root from the land. In 1198 the Tower's vault master Lệ Tiêu Hồn (le_tieu_hon), who heads its Thunder Hall, offered the Pivot's envoy a thunder-stone forge in exchange for her. The envoy said no without asking her. Đái Hổ Thần (dai_ho_than) told her, to see her face, and she wants to know what Lệ would teach.",
    "ties": [
     {
      "to": "dai_ho_than",
@@ -415,14 +415,14 @@
      "note": "her drillmaster"
     },
     {
-     "to": "co_da_lan",
-     "kind": "rival",
-     "note": "offered a forge for her; they have never met"
-    },
-    {
      "to": "do_vo_cuu",
      "kind": "friend",
      "note": "the only other Thunder at the seat; he watches her"
+    },
+    {
+     "to": "le_tieu_hon",
+     "kind": "rival",
+     "note": "offered a forge for her in 1198; she has heard about it and wants to know what he would teach"
     }
    ],
    "master": "dai_ho_than",
@@ -956,7 +956,7 @@
     {
      "to": "lam_khe_ngon",
      "kind": "friend",
-     "note": "Phất Y's contract-keeper; they play go over the contract each spring"
+     "note": "Phất Y's contract-keeper; he signs the valley's standing fee each spring over go with her, and he would be the one to read the southern contract aloud in the war hall"
     },
     {
      "to": "lo_tinh_thiet",
@@ -1295,7 +1295,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Weighs the miners' ore in the open square of Song Kiều as the Pivot has since 235 (A219), and argues with Chân Kim Các's assayers across the same square every morning.",
+   "backstory": "Weighs the miners' ore in the open square of Song Kiều as the Pivot has since 235 (A219). Since 1198 his side has weighed almost nothing, and his tallies go four months up the road to Đặng Quân Bình (dang_quan_binh). Ôn Song Ngọc (on_song_ngoc) has asked him what the Pivot would pay to have the miners back.",
    "ties": [
     {
      "to": "dang_quan_binh",
@@ -1325,12 +1325,22 @@
     {
      "to": "tuong_ngoc_can",
      "kind": "rival",
-     "note": "the Chân Kim assayer across the square"
+     "note": "the Chân Kim assayer across the square, whose line has all the custom"
     },
     {
      "to": "doan_thi_ngan",
      "kind": "disciple",
      "note": "inner disciple, assay apprentice at Song Kiều"
+    },
+    {
+     "to": "on_song_ngoc",
+     "kind": "rival",
+     "note": "the Ôn go-between who asked what the Pivot would pay to have the miners back"
+    },
+    {
+     "to": "quan_thap_thu",
+     "kind": "rival",
+     "note": "the old carrier who stands beside the house's pan whenever it is tested"
     }
    ],
    "master": "dang_quan_binh",
@@ -1487,7 +1497,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Keeps the standard weights of Thiên Quyền Thị, the fairest scales on the continent (A207), and checks every merchant's weights against the Pivot's at each new moon.",
+   "backstory": "Keeps the standard weights of Thiên Quyền Thị, the fairest scales on the continent (A207), and checks every merchant's weights against the Pivot's at each new moon. Three seasons running Hoa Cái's cinnabar baskets from the diggings have come in light, and she wrote it up to Đặng Quân Bình (dang_quan_binh); the treasury now proposes to take the lease back.",
    "ties": [
     {
      "to": "dang_quan_binh",
@@ -1497,7 +1507,7 @@
     {
      "to": "muc_hong_sa",
      "kind": "rival",
-     "note": "the Họa Cái steward whose baskets she weighs at Thiên Quyền Thị"
+     "note": "the Hoa Cái foreman whose baskets have come in light three seasons running"
     },
     {
      "to": "co_hao_ly",
@@ -2110,12 +2120,12 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Born at the cinnabar diggings of Thần Sa Khoáng that the Pivot's alchemists opened in 300 (A208), she brews the seat's wound pills from cinnabar bought from La Tử Vi (la_tu_vi) of Hoa Cái Đường, and is the only one at the seat who can.",
+   "backstory": "Born at the cinnabar diggings of Thần Sa Khoáng (A208), she brews the seat's wound pills from cinnabar bought from La Tử Vi (la_tu_vi) of Hoa Cái Đường, and the herb sleeping pills the Hall, which brews only from minerals, sends home with its sick washers, by the pouch and at a discount.",
    "ties": [
     {
      "to": "la_tu_vi",
      "kind": "friend",
-     "note": "sells her the cinnabar and her secrets"
+     "note": "sells her the cinnabar and her secrets; buys her sleeping pills by the pouch"
     },
     {
      "to": "quy_thu_luy",
@@ -3481,7 +3491,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "From Hàn Mạch Thôn; he has twice bought the Level Beam's weights in advance from the stores and failed both times, because the beam does not care.",
+   "backstory": "From Hàn Mạch Thôn; twice he bought the Level Beam's weights in advance and failed, because knowing a weight does not lift it. In 1199 he filed one of the master's weights a hair light and lent it to Hạ Hầu Thạch (ha_hau_thach), and the beam held. He wants it for himself at this solstice, or the seat hears that Chử Bình Quân (chu_binh_quan) passed an altered weight.",
    "ties": [
     {
      "to": "khuong_luy_thach",
@@ -3492,6 +3502,16 @@
      "to": "sam_luy",
      "kind": "rival",
      "note": "gate guard of the outer gate on Thạch Quyền Phong"
+    },
+    {
+     "to": "chu_binh_quan",
+     "kind": "rival",
+     "note": "the gate master who let his filed weight stand; he has her by it"
+    },
+    {
+     "to": "ha_hau_thach",
+     "kind": "friend",
+     "note": "the old man he lent the filed weight"
     }
    ],
    "build": {
@@ -3897,10 +3917,10 @@
    "realm": "luyen_khi",
    "stage": 2,
    "sect": "thien_xu",
-   "rank": "ngoai_mon",
+   "rank": "noi_mon",
    "home": 385,
    "birthplace": 604,
-   "role": "The oldest outer disciple, who teaches the weights",
+   "role": "The oldest disciple of the gate, admitted at 107 on a filed weight; teaches the weights",
    "tier": "C",
    "root": {
     "elements": {
@@ -3925,12 +3945,12 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "A stone-field farmer from Thạch Điền Thôn who has failed the Level Beam eleven times in eighty years and now teaches new outer disciples how to hold the weights; Chử Bình Quân (chu_binh_quan) says he holds them better than she does.",
+   "backstory": "A stone-field farmer from Thạch Điền Thôn who failed the Level Beam eleven times in eighty years. At the solstice of 1199 it held level for him on a weight Uất Trì Thu (uat_tri_thu) had filed, and Chử Bình Quân (chu_binh_quan) signed him in. His Metal of thirty cannot carry the Dipper Handle Canon, and he still teaches the new outer disciples to hold the weights.",
    "ties": [
     {
      "to": "chu_binh_quan",
      "kind": "friend",
-     "note": "the outer gate's master, who will not tip the beam for him"
+     "note": "the outer gate's master, who signed him into the inner gate"
     },
     {
      "to": "yen_luu_huy",
@@ -3951,6 +3971,11 @@
      "to": "ha_hau_dien_van",
      "kind": "niece_nephew",
      "note": "his niece; outer disciple, Hạ Hầu Thạch's great-niece"
+    },
+    {
+     "to": "uat_tri_thu",
+     "kind": "friend",
+     "note": "the young cheat who lent him the weight"
     }
    ],
    "build": {
@@ -3972,7 +3997,8 @@
      "start": "tho",
      "intent": "Earth health."
     }
-   }
+   },
+   "exception": "Admitted to the inner gate in 1199 on a filed weight at the Level Beam (thien_xu §9); his Metal of 30 cannot run the inner canon"
   }
  ]
 }

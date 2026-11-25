@@ -239,11 +239,11 @@
      "rule": "The lamp burns every soul thread you carry, one to a wick, and each lit wick reserves 1 % of your linh lực. While it holds at least one, you cannot be reduced below 1 health by a soul art; each time this saves you, one wick goes out."
     }
    ],
-   "lore": "A pedlar's lamp of black bronze with nine wick-holes, made for Hám Tàn Chung by Thạch Liên Hoàn's forge at the Tower's request in 1150, the year the Tower tried and failed to buy him. It is the stock he carries on the road: the threads he has not yet sold.",
+   "lore": "A pedlar's lamp of black bronze with nine wick-holes, made for Hám Tàn Chung by Thạch Liên Hoàn's forge at the Tower's request in 1138, the year the Tower tried and failed to buy him. It is the stock he carries on the road: the threads he has not yet sold.",
    "build_use": "Soul sustain and a guard against soul arts; the threads are also trade goods.",
    "holder": "ham_tan_chung",
    "made_by": "the Tower's storm forge (Thạch Liên Hoàn)",
-   "made_year": 1150,
+   "made_year": 1138,
    "set": "dm-soul-pedlar",
    "status": "proposal"
   },

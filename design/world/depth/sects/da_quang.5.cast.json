@@ -128,7 +128,7 @@
     "calling": "Duelist",
     "upbringing": "sect_raised"
    },
-   "backstory": "Granddaughter of Cổ Mạc Phong (co_mac_phong), she carries his jade cup and pours for Hạng Lưu Hỏa's (hang_luu_hoa) young blades. She left the first taunting cup at a caravan stop in 1194.",
+   "backstory": "Granddaughter of Cổ Mạc Phong (co_mac_phong), she carries his jade cup and pours for Hạng Lưu Hỏa's (hang_luu_hoa) young blades. She left the first taunting cup at a caravan stop in 1194, and since then she has left one each season on Đồ Xích Linh's orders, always at a stop the Pavilion's riders use.",
    "ties": [
     {
      "to": "co_mac_phong",
@@ -138,7 +138,7 @@
     {
      "to": "do_xich_linh",
      "kind": "master",
-     "note": ""
+     "note": "leaves the season's cup on her orders"
     },
     {
      "to": "hang_luu_hoa",
@@ -332,7 +332,7 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Cừu Lạc Nhật (cuu_lac_nhat) taught him to feed the sabre before he could hold it steady. His cuts have begun to bleed black, and Đồ Xích Linh calls that progress.",
+   "backstory": "Cừu Lạc Nhật (cuu_lac_nhat) taught him to feed the sabre before he could hold it steady. On the band's rides he holds the rope the drivers walk on. His cuts bleed black now, and Đồ Xích Linh calls that progress.",
    "ties": [
     {
      "to": "cuu_lac_nhat",
@@ -467,12 +467,12 @@
     "calling": "Refiner",
     "upbringing": "village_born"
    },
-   "backstory": "She blows the glass cups the poorer riders drink from, and since 1194 has been asked for three times as many. She counts them, and has told Trác Hồng Đà (trac_hong_da) how many the young blades have left on the road.",
+   "backstory": "She blows the glass cups the poorer riders drink from, and since 1194 she has been asked for three times as many. She sells the spares to the Đà Linh inns as lamp glasses, and the inns put them in the windows.",
    "ties": [
     {
      "to": "trac_hong_da",
      "kind": "friend",
-     "note": "she tells him the cup count"
+     "note": "the old rider of the horse lines; she sells him the spare glass for his lamps"
     }
    ],
    "build": {

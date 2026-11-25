@@ -124,12 +124,12 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "A Lô Cảng reed-cutter's son who failed Lạc Hà's dusk test three times; Ngạc Viễn Sơn (ngac_vien_son) placed him with the ferry in 1176, and his Water passed the Tide Hall's gate the first morning. He feeds every newcomer at the Strangers' Hall before Cù Bối Ngân (cu_boi_ngan) writes them into the Book of Meetings.",
+   "backstory": "A Lô Cảng reed-cutter's son who failed Lạc Hà's dusk test three times; Ngạc Viễn Sơn (ngac_vien_son) placed him with the ferry in 1176, and his Water passed the Tide Hall's gate. Bùi named him heir in 1180 and unnamed him in 1188, when he could not get past the third layer's turn. He feeds every newcomer at the Strangers' Hall before Cù Bối Ngân (cu_boi_ngan) writes them down.",
    "ties": [
     {
      "to": "bui_phieu_binh",
      "kind": "master",
-     "note": "took him into the Tide Hall"
+     "note": "took him into the Tide Hall; named him heir in 1180 and unnamed him in 1188"
     },
     {
      "to": "cu_boi_ngan",

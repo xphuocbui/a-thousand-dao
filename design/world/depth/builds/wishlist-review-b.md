@@ -18,7 +18,7 @@ adds to one, it says so and gives the new reason.
 
 1. **rb-21 Voices from the Ground (Địa Thanh).** Thu Phần's chorus gains a voice only when someone dies, so in a duel
    it barely grows. Voices should come from the foe's falling health and from fallen companions.
-2. **rb-07 Bronze Answers (Đồng Ứng) and rb-08 Return to the Scabbard (Quy Vỏ).** Ten of fifteen Thính Vũ holders
+2. **rb-07 Bronze Answers (Đồng Ứng) and rb-08 Return to the Scabbard (Quy Sao).** Ten of fifteen Thính Vũ holders
    have Metal and no Thunder, so they are locked out of two of their canon's three arts. Their one-cut swords also
    peak in the
    first second of a 60-second fight. Give them a Metal peal, and a sheath that re-arms the first cut.
@@ -47,7 +47,7 @@ Hồng Đậu, Vũ Linh, Lễ Tuyền and the hermits are reviewed and get no en
   It
   has no reading for the opposite verb, and my batch has two whole lineages built on it. Add:
   - **Moving** (the holder): while a step, dash or footwork art or stance is up, and for 1 s after each evade. "Each
-    second you keep moving" counts seconds Moving. Ten Paces' "each step toward a foe" counts seconds Moving in which
+    second you keep moving" counts seconds Moving. The Contract Sword Canon's "each second Moving" counts seconds Moving in which
     you strike nothing.
   - **The step out**: a knock-back, drag or sweep taken (ra-G1's delay) also ends the holder's stand-still for 2 s. A
     lineage that bills a step out of its centre then pays it: The Pivot Does Not Turn clears half its Weights, and
@@ -58,11 +58,11 @@ Hồng Đậu, Vũ Linh, Lễ Tuyền and the hermits are reviewed and get no en
   becomes a counter you can build for or against (Heavy Keel, Fixed Pole).
 - **Who needs it**:
   - Moving: `uc_diep_thanh`, `phi_thoa_y`, `ky_khinh_ma`, `nghiem_quy_khu` (xuyen_lam, Walk Slowly and Rain on the
-    Leaves); `thang_vo_ta`, `lam_khe_ngon` (phat_y, Paces).
+    Leaves); `thang_vo_ta`, `lam_khe_ngon` (phat_y, Terms).
   - The step out: `doan_ngoc_hanh`, `do_tinh_ha`, `phuong_truc_ngon` (thien_xu); `tham_bac_than`, `to_tinh_nghi`
     (cung_tinh).
   - The pushers who make it matter: `ung_hac_minh` (cuu_cao), `than_van_cam` (chuc_ha).
-- **Why**: without "Moving", Xuyên Lâm's canon and Phất Y's Ten Paces do nothing on the timeline. Without "the step
+- **Why**: without "Moving", Xuyên Lâm's canon and Phất Y's Contract Sword Canon do nothing on the timeline. Without "the step
   out", the Pivot's one stated price ("a step out of the orbit costs the Weights already laid") can never be paid, so
   its stance has no counter. ra-G1's ally reading also covers this batch's healers and lamp-keepers (Cốc Vũ's "most
   wounded ally", Lễ Tuyền's mist, Vọng Triều's Set the Lamp, The Flowering), so I add no separate ally wish.
@@ -174,7 +174,7 @@ sets-tl/bow-and-staff-bases. Add `cuu_bat_ngu`, `nhiep_minh_tien` (thien_xu) and
   those ten are locked out of two of the canon's three catalogue arts and fight it with Sundering Wedge and Rain Before
   the Peal alone. "A little over half its power" should mean a weaker canon, not a canon of one art.
 
-### rb-08 Return to the Scabbard (Quy Vỏ)
+### rb-08 Return to the Scabbard (Quy Sao)
 - **Kind**: Effect.
 - **Rule or line**: After 3 s in which you strike a foe with nothing, that foe counts as unstruck again. "First hit",
   "first sword hit on each foe" and "No Second Cut" pieces then re-arm, and Where the Drop Falls may mark again.
@@ -183,7 +183,7 @@ sets-tl/bow-and-staff-bases. Add `cuu_bat_ngu`, `nhiep_minh_tien` (thien_xu) and
 - **Fun**: the duel becomes a rhythm of draws: cut, step back, sheathe, wait, cut. The swordswoman who "has never lost
   a duel" looks like it.
 - **Who needs it**: `co_da_lan` (Dạ Lan's No Second Cut), `ton_tuyet_bich` (thinh_vu); `thang_vo_ta` (phat_y, the
-  Tenth Pace and No Trace).
+  Final Count and Step Back).
 - **Why**: these builds are one cut drawn out until it lands. In a 30-60 s fight they peak in the first second, then
   take "a little less" for the rest. That is the opposite of "waits, then one cut". The Undefeated set
   (`tvl-dalan-suite`, One Cut Drawn Out) is the closest piece: waiting adds crit damage to the next sword art, up to
@@ -537,8 +537,8 @@ sets-tl/bow-and-staff-bases. Add `cuu_bat_ngu`, `nhiep_minh_tien` (thien_xu) and
 
 ## Remaining vassals
 
-- *(Every vassal in the batch is reviewed. Phất Y's Tenth Pace is covered by rb-01 (Paces) and rb-08 (re-arming the
-  killing cut). Hồng Đậu and Vũ Linh are noted above as working.)*
+- *(Every vassal in the batch is reviewed. Phất Y's Final Count is covered by rb-01 (Terms) and rb-08 (re-arming the
+  finishing cut). Hồng Đậu and Vũ Linh are noted above as working.)*
 
 ---
 

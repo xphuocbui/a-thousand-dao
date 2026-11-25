@@ -34,9 +34,9 @@
    },
    "traits": {
     "personality": [
-     "Cautious",
      "Diligent",
-     "Stubborn"
+     "Faithless",
+     "Deceitful"
     ],
     "calling": "Formation master",
     "upbringing": "village_born",
@@ -58,9 +58,9 @@
     ]
    },
    "appearance": "A tall, salt-greyed man who never sits with his back to the sea and carries a lit bronze storm lamp even at noon.",
-   "backstory": "Ôn Thủ Đăng was born in 860 at Âu Lộ Thôn, where the pearl divers of burned Châu Lệ Cảng settled and never dived again (A259). The hall's founder Cơ Châu Lệ (co_chau_le) took him at twelve. He has kept its lamps for three hundred years: a chain of towers along the gulf coast, lit every night so that any sail is seen and passed from tower to tower to the palace fleet at Thạch Cơ Thành. No pirate has come since the Purge (C153). He has watched an empty sea for four centuries and will not let a lamp go out. He drinks with the palace admiral Phàn Vọng Hải (phan_vong_hai), who comes from the same pearl-diver stock, and calls his diving for the lost sabre a waste of good summers. In 914 he wrote the Last Lamp Vigil and has never said why that winter. In 1190 the palace asked the hall to ward the Thạch Cơ jetty against storms; he said the hall watches for sails.",
+   "backstory": "Ôn Thủ Đăng was born in 860 at Âu Lộ Thôn, where the pearl divers of burned Châu Lệ Cảng settled and never dived again (A259). The hall's founder Cơ Châu Lệ (co_chau_le) took him at twelve. He has kept its lamps for three hundred years: a chain of towers along the gulf coast, lit every night so that any sail is seen and passed from tower to tower to the palace fleet at Thạch Cơ Thành. No pirate has come since the Purge (C153). He has watched an empty sea all that time and will not let a lamp go out. He drinks with the palace admiral Phàn Vọng Hải (phan_vong_hai), who comes from the same pearl-diver stock, and calls his diving for the lost sabre a waste of good summers. In 914 he wrote the Last Lamp Vigil and has never said why that winter. In 1190 the palace asked the hall to ward the Thạch Cơ jetty against storms; he said the hall watches for sails.",
    "wants": "Every tower in the chain lit again: three have been dark for want of keepers.",
-   "secret": "In 913 he was keeper of the Kim Sa lamp. On the festival night he asked his sworn brother Dịch Thủy Thanh (dich_thuy_thanh) to keep it while he went to a girl in Lam Điện. The storm tide came that night, Kim Sa Trấn drowned (V171), and Dịch drowned at the lamp. Ôn has kept every lamp lit since then because of that one night, and he refuses storm wards because a storm took Dịch.",
+   "secret": "In 913 he was keeper of the Kim Sa lamp, and he sold its winter oil to a wrecker of the Lô Châu Biện, who burned it in false lamps on the reefs. On the festival night he asked his sworn brother Dịch Thủy Thanh (dich_thuy_thanh) to keep the lamp while he rowed the last casks out to the wrecker's boat. The storm tide came, Kim Sa Trấn drowned (V171), and Dịch drowned at a lamp with too little oil to last the night. Ôn still pays the wrecker's line. Each autumn he sails oil he renders himself down to the burned landing of Hải Diêm for Biện Ám Phàm (bien_am_pham), to keep her boats off his coast and 913 in her family, and he leaves the northern keeper's letter about her sails unanswered.",
    "ties": [
     {
      "to": "co_chau_le",
@@ -70,7 +70,7 @@
     {
      "to": "dich_thuy_thanh",
      "kind": "sworn_sibling",
-     "note": "drowned keeping Ôn's lamp at Kim Sa in 913"
+     "note": "drowned keeping Ôn's lamp at Kim Sa in 913, while Ôn sold its oil"
     },
     {
      "to": "phan_vong_hai",
@@ -85,7 +85,7 @@
     {
      "to": "kien_muc_hai",
      "kind": "disciple",
-     "note": "keeper of the northern lamp"
+     "note": "keeper of the northern lamp, whose letter about the sails he will not answer"
     },
     {
      "to": "ve_lu_sinh",
@@ -98,11 +98,6 @@
      "note": "the servant who keeps his house"
     },
     {
-     "to": "chan_dinh_lan",
-     "kind": "former_disciple",
-     "note": "his storm elder, who wants the lamps traded for sea-walls"
-    },
-    {
      "to": "dich_tan_chieu",
      "kind": "disciple",
      "note": "keeper of the tide lamp at Nhật Xuất Thôn"
@@ -111,6 +106,11 @@
      "to": "bang_tran_lang",
      "kind": "rival",
      "note": "draws breakwater arrays for the storm wards"
+    },
+    {
+     "to": "bien_am_pham",
+     "kind": "debt",
+     "note": "the wrecker's granddaughter; he has paid her line in oil every autumn since 913 for its silence"
     }
    ],
    "master": "co_chau_le",
@@ -165,7 +165,7 @@
     "vtd-kim-sa-seal",
     "vtd-pearl-diver-robe"
    ],
-   "changed": "new record fields for an existing person (tier A): root, build, birthplace 149, ties. The hall becomes no-lean (R3), so his root needs no lineage element."
+   "changed": "new record fields for an existing person (tier A): root, build, birthplace 149, ties. The hall becomes no-lean (R3), so his root needs no lineage element.; pass B (fixB-1, 2026-11-25): 913 made ugly (he sold the Kim Sa lamp's oil to a wrecker; SHAPES-PLAN §4.2 vong_trieu); the payments to Biện Ám Phàm added; traits Cautious, Stubborn -> Faithless, Deceitful (he pays the wreckers' line and lets its poison boats pass his lamps); 'four centuries' -> 'all that time' (read-minor-2 #18); duplicate tie to Chân merged"
   },
   {
    "key": "chan_dinh_lan",
@@ -866,7 +866,7 @@
     "calling": "Formation master",
     "upbringing": "village_born"
    },
-   "backstory": "Kiển Mục Hải's (kien_muc_hai) only companion in the crumbling fort; he saw the unlit sails too and has counted them.",
+   "backstory": "Kiển Mục Hải's (kien_muc_hai) only companion in the crumbling fort. He lights the lamp and cooks, and on the nights Kiển climbs the broken seaward tower to watch the gulf he keeps the lamp alone; he has asked twice to be posted south, and been told to wait.",
    "ties": [
     {
      "to": "kien_muc_hai",
@@ -897,7 +897,8 @@
      "intent": "Seals."
     },
     "note": "The fort tower."
-   }
+   },
+   "changed": "pass B (fixB-1, 2026-11-25): no longer a second witness of the sails (one witness per arc: Kiển)"
   },
   {
    "key": "ky_lam_sa",
@@ -1097,7 +1098,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "An Âu Lộ boy who swore brotherhood with Ôn Thủ Đăng (on_thu_dang) on the founder's tower. On the festival night of 913 he kept Ôn's lamp at Kim Sa Trấn so that Ôn could go to a girl in Lam Điện. The storm tide came that night and drowned the town (V171), and he drowned at the lamp with it still lit.",
+   "backstory": "An Âu Lộ boy who swore brotherhood with Ôn Thủ Đăng (on_thu_dang) on the founder's tower. On the festival night of 913 he kept Ôn's lamp at Kim Sa Trấn while Ôn rowed its winter oil out to a wrecker's boat. The storm tide came that night and drowned the town (V171), and he drowned at the lamp as it burned down to the last of its oil.",
    "ties": [
     {
      "to": "on_thu_dang",
@@ -1114,7 +1115,8 @@
      "kind": "niece_nephew",
      "note": "his niece; keeper of the tide lamp at Nhật Xuất Thôn"
     }
-   ]
+   ],
+   "changed": "pass B (fixB-1, 2026-11-25): Ôn was not with a girl; he was selling the lamp's oil (SHAPES-PLAN §4.2 vong_trieu)"
   }
  ]
 }

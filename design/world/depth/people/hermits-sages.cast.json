@@ -240,24 +240,24 @@
     ]
    },
    "appearance": "A tall, stooped man in a grey travelling coat with a crane on the sword guard at his back, who sits at the same corner table every day with one cup and does not drink from it until dusk.",
-   "backstory": "Tư Không Hạc Niên was a miner's son at Không Thanh Khoáng, born in 700 with a root of Metal and nothing else. In 790 a Wind-rooted swordsman who had just walked out of his own valley came down the ore road, and the miner, ninety years old and still a Trúc Cơ who had never left the mine road, followed him for a hundred and ten years. That man was Quách Vô Tích (quach_vo_tich), founder of Phất Y Cốc, whom the valley believes was never seen again. In 900 Quách gave him the Wind sword Cô Hạc at dawn in Tống Khách Thị and walked away (A138). From 1085 to 1088 Tư Không let a village boy, Lăng Đạp Tuyết (lang_dap_tuyet), follow him for three winters, and tempered Metal into a root that had none. He saw what it cost the boy, and he has taught no one since. In 1130 he went to his master's valley and fought its head Thang Vô Tạ (thang_vo_ta) on Cùng Mục Phong for three days (C186). On the third day he cut through the sleeve of his master's grey robe, lowered his sword and called it even. The same year Sài Mộ Kiếm (sai_mo_kiem) challenged him in Tống Khách Thị and lost in three passes. Tư Không handed the sword back and sat down in the market (A141). He has drunk the farewell cup there every year since.",
-   "wants": "To see Cô Hạc's wind woken once, in a Wind-rooted hand that deserves his master's sword, before he lays it down.",
+   "backstory": "Tư Không Hạc Niên was a miner's son at Không Thanh Khoáng, born in 700 with a root of Metal and nothing else. In 790 a Wind-rooted swordsman who had just walked out of his own valley came down the ore road, and the miner, ninety years old and still a Trúc Cơ who had never left the mine road, followed him for a hundred and ten years. That man was Quách Lĩnh Thù (quach_linh_thu), founder of Phất Y Cốc, whom the valley believes was never seen again. In 900 Quách gave him the Wind sword Cô Hạc at dawn in Tống Khách Thị and walked away (A138). From 1085 to 1088 Tư Không let a village boy, Lăng Đạp Tuyết (lang_dap_tuyet), follow him for three winters, and tempered Metal into a root that had none. He saw what it cost the boy, and he has taught no one since. In 1130 he went to his master's valley and fought its head Thang Vô Tạ (thang_vo_ta) on Cùng Mục Phong for three days (C186). On the third day he cut through the sleeve of his master's grey robe, lowered his sword and called it even. The same year Sài Mộ Kiếm (sai_mo_kiem) challenged him in Tống Khách Thị and lost in three passes. Tư Không handed the sword back and sat down in the market (A141). He has drunk the farewell cup there every year since.",
+   "wants": "To see Cô Hạc's wind woken once, in a Wind-rooted hand that deserves his master's sword, before he lays it down; and the fruit's price paid. In 1088 its price was the first disciple Lăng Đạp Tuyết would ever make, and at the new year of 1200 he wrote from the market for Phó Ngạo Sương by name, by way of a Băng Tâm envoy to the pines.",
    "secret": "The traveller the market toasts (A138) was his master, the founder of Phất Y Cốc, who lived 110 years past the day his valley counts as his death. On Cùng Mục Phong Tư Không won, by cutting his own master's sleeve. He also knows what the Metal he put into Lăng Đạp Tuyết's root cost the boy in years, which Lăng has told no one.",
    "ties": [
     {
-     "to": "quach_vo_tich",
+     "to": "quach_linh_thu",
      "kind": "former_master",
      "note": "followed him from 790 to 900; the traveller of Tống Khách Thị"
     },
     {
      "to": "lang_dap_tuyet",
      "kind": "former_disciple",
-     "note": "three winters, 1085-1088; the last person he taught, and the reason he stopped"
+     "note": "three winters, 1085-1088; the last person he taught, and the reason he stopped; owes him his first disciple for the fruit"
     },
     {
      "to": "thang_vo_ta",
      "kind": "creditor",
-     "note": "the draw he gave away on Cùng Mục Phong (C186); Thạch wears the sleeve he cut"
+     "note": "the draw he gave away on Cùng Mục Phong (C186); Thang Vô Tạ wears the sleeve he cut"
     },
     {
      "to": "sai_mo_kiem",
@@ -285,7 +285,7 @@
      "note": "the girl from Hàn Mai with no Metal, whom he refuses every morning and buys breakfast"
     }
    ],
-   "master": "quach_vo_tich",
+   "master": "quach_linh_thu",
    "build": {
     "archetype": "kiem_tu",
     "main": {
@@ -333,7 +333,7 @@
     "hs-threadbare-robe",
     "blade-sword-intent-jade"
    ],
-   "changed": "birthplace added (1457, a Metal mine of region 9: 46 % Metal, near the market he came home to); gear phi_kiem (Metal, grade 4) -> hs-lone-crane (the legendary co_hac he already holds); tree targets -> intent; new fact: his master is Phất Y's founder quach_vo_tich (far side added in the cross-sect pass)"
+   "changed": "birthplace added (1457, a Metal mine of region 9: 46 % Metal, near the market he came home to); gear phi_kiem (Metal, grade 4) -> hs-lone-crane (the legendary co_hac he already holds); tree targets -> intent; new fact: his master is Phất Y's founder quach_linh_thu (far side added in the cross-sect pass)"
   },
   {
    "key": "doan_thuong_hai",
@@ -402,7 +402,7 @@
     ]
    },
    "appearance": "A broad, still man with burn-white eyes and a lightning scar from crown to collarbone, who sits on the pool's stone lip with his head tilted as if someone were speaking very quietly.",
-   "backstory": "Đoạn Thương Hải was born in 720 at Xích Ngạn Trấn, a grandson of the last watchers who came down from Vọng Phàm Quán in 708 (V089). At sixteen he was taken by Yến Tang Điền (yen_tang_dien), the one disciple of Cô Phàm Các left ashore, who spent his life looking for the lost fleet (C015) in a mirror that shows a water as it was. His master named him so that their two names make one saying: the blue sea becomes mulberry fields. In 1059 Yến crossed to Dục Nhật Đảo to ask Mạc Quy Khư (mac_quy_khu) a question and came back with no answer. In 1060 he called down his Hóa Thần tribulation over the sea where the mirror last showed sails, sure that the lightning would open the way. It killed him. Đoạn, who stood beside him, woke blind on the shore holding the Thương Tang Kính, with Thunder in his root (C180). He settled by the pool at Đàm Ảnh Thành (A155), where the painters of Nhàn Vân Quán tell him what the water shows. In 1150 he heard lightning hit a boat in the strait and pulled a fisher girl, Kê Thính Đào (ke_thinh_dao), out alive. She is the only disciple he has taken. In 1199 he heard a sail in the pool.",
+   "backstory": "Đoạn Thương Hải was born in 720 at Xích Ngạn Trấn, a grandson of the last watchers who came down from Vọng Phàm Quán in 708 (V089). At sixteen he was taken by Yến Tang Điền (yen_tang_dien), the one disciple of Cô Phàm Các left ashore, who spent his life looking for the lost fleet (C015) in a mirror that shows a water as it was. His master named him so that their two names make one saying: the blue sea becomes mulberry fields. In 1059 Yến crossed to Dục Nhật Đảo to ask Mạc Quy Khư (mac_quy_khu) a question and came back with no answer. In 1060 he called down his Hóa Thần tribulation over the sea where the mirror last showed sails, sure that the lightning would open the way. It killed him. Đoạn, who stood beside him, woke blind on the shore holding the Thương Tang Kính, with Thunder in his root (C180). He settled by the pool at Đàm Ảnh Thành (A155), where the painters of Nhàn Vân Quán tell him what the water shows. In 1148 he heard lightning hit a boat in the strait and pulled a fisher girl, Kê Thính Đào (ke_thinh_dao), out alive. She is the only disciple he has taken. In 1199 he heard a sail in the pool.",
    "wants": "To hear the sail again, and to learn whether his master was right about where the fleet went.",
    "secret": "He knows how he lived: the mirror drank the strike meant for him, and he has guessed that something drank Mạc Quy Khư's. He has told no one, because every Nguyên Anh on the continent would come for the mirror. He also knows that Diệp Tố Quyên did paint the morning of 705 for him in 1062. He heard the paper burn, and he let her tell him it had failed.",
    "ties": [
@@ -414,7 +414,7 @@
     {
      "to": "ke_thinh_dao",
      "kind": "disciple",
-     "note": "the fisher girl he pulled out of the strait in 1150"
+     "note": "the fisher girl he pulled out of the strait in 1148"
     },
     {
      "to": "diep_to_quyen",

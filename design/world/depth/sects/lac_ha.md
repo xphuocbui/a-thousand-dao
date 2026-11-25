@@ -274,7 +274,8 @@ It was opened in 1181, during the array work. The head reads it alone. It is a d
 - **The plain against the mountain.** The head made a trade peace in 1175 and moved the sect off the plain. Hình
   Trọng Sơn's war party wants the tolls back and the Compact broken: his daughter, Lô Niệm Ca, the Watch, and quietly
   Thịnh Kinh Hàn, who has never been to war. Cảnh Trường Thiên, the war elder, will not make war. Trầm will not pay for
-  one. Hình's drafts with Cố Dạ Lan would put the sect back where it was in 788.
+  one. Hình's drafts with Cố Dạ Lan would put the sect back where it was in 788. The Watch already hangs Minh Loan war
+  bells that the head has not ordered, paid for in the bronze of the plain's dead.
 - **The sword on the plain.** Thanh Sương lies in the miasma (C159). The sect believes it fell with Nhan Tề Phi. Cảnh
   knows he dropped it and ran, and he knows the worse thing: the miasma was Lạc Hà's. In 802 the founder had an array
   of rot buried under the plain, to be sprung if the field broke, and Nhan Tề Phi sprang it. Ten thousand of the
@@ -282,13 +283,34 @@ It was opened in 1181, during the array work. The head reads it alone. It is a d
   down (Thiên Xu page). Hình Lạc Nhạn has seen something blue in the grey and has promised Đồ Tiểu Liên to go
   back in. The head wants it, because the twin swords together would wake for a head with no Thunder and no Ice.
   Bồ Tàn Chiếu, who saw Cảnh come home that night without it, has twenty years left.
+- **The war elder's spring.** Nhạn Trận's founder saw Cảnh run past his file in 803 and named him on his deathbed
+  to Mục Hàn Nhạn. Since 1175, the year after the gate lost a file on a rope bridge for Lạc Hà's hire fee, Mục has
+  sold that silence for Cảnh's word that Lạc Hà will never again call or hire the gate's files for a war. So Cảnh
+  will not make war, and each spring he flies a month down to Lạc Nhạn Hồ to drill the plain's levy for nothing.
+  Mục bills the cities for it.
 - **The locked gallery.** The head's secret art is carved under the seat. Quách knows because he found it. Miêu Thạch
   Lan has noticed the lock and the dust on the head's sleeves. Tô Mộ Vân read the first lines by the head's lamp and has
   them by heart.
 - **The orphan of Đào Sa.** Lữ Tẫn Chu was raised by the man who burned his father's boat. He has known for twenty years
   and has learned this year that the order was the head's.
-- **The heir.** The head is 310 of a thousand years and has named no one. Hách Ánh Hà wants it and has earned it. The
-  head's eye is on Tô Mộ Vân. Hình wants it for Hình Lạc Nhạn. No one is in a hurry except Hách.
+- **Thirty contracts for the ring.** The loan's term ends in 1209, and the head means to clear it with people. Over
+  and above this spring's placements, thirty outer disciples go to Thiên Bảo Trai in one lot, their fees and thirty
+  years of tenths struck off the debt. Only the Earth and Metal children will pass its gate. The rest serve until 1230
+  as hired hands at its furnace and brooks, in a Metal house that will never teach them the method their oath
+  promised. Phan Vật Hoa would rather take people than money. Her one condition, which Lạc Hà can barely meet: all
+  thirty delivered to the autumn auction at Vật Hoa Thị, or nothing is struck off.
+- **The list.** **Hách Ánh Hà** draws it at Vật Hoa Thị through the spring auction, and Thiên Bảo's steward Tiền Ngũ
+  Phân sells her his mistress's top price as the bidding goes. She has left off the children she means to place
+  herself: her grand-niece Hách Thần Hà, a herder boy from her village, and Tạ Quy Yến, promised to Nam Phố for a
+  favour. Children who have failed the dusk test only twice fill the count, and so do children who have not yet sat
+  it. **Tô Hiểu Chu**, the head's own blood, is on the list so that no one can say only the poor are sold. The head has
+  said the list is the list.
+- **The signer and the clerk.** Nhạc Trường Tín carries the one list down to the outer gate, a month and a half on the
+  steppe road, and the thirty must walk the same road back by autumn. **Tô Bình Chu** must sign every placement on it,
+  his son's among them, and has signed none. He is offering a poor family in Hà Khúc his stipend for ten years if
+  their second child takes his son's place: a child enrolled at the gate only to be sold. **Tông Thủ Tín** is sending
+  each family on the list the price of its child's buy-out at the old rate, and every child bought out is a hole Hách
+  must fill.
 - **The lightning.** Tử Điện has slept in every head's hand for 840 years. It woke for the guest smith Vưu Chước Kim
   the one time he cleaned it, and it hums for his forge boy Cổ Tiểu Thiết, who has a thread of Thunder no one has
   tested.
@@ -415,7 +437,8 @@ It was opened in 1181, during the array work. The head reads it alone. It is a d
    follow her or let her go, and the player may go with either. Whoever brings the sword out decides who holds both
    swords. (Hình Lạc Nhạn, Đồ Tiểu Liên, Cảnh, Hình Trọng Sơn, the head; Chiết Kích Nguyên, place 223.)
 3. **A second Broken Halberds.** The player finds Hình Trọng Sơn's draft pact with Cố Dạ Lan at the Watch. They can
-   take it to the head, to Cảnh, or to the Pivot, or keep it. (Hình Trọng Sơn, Cố Dạ Lan, Cảnh, Doãn Ngọc Hành; place 223.)
+   take it to the head, to Cảnh, or to the Pivot, or keep it. (Hình Trọng Sơn, Cố Dạ Lan, Cảnh, Doãn Ngọc Hành; place
+   223.)
 4. **The orphan's question.** On the Ferry War's anniversary Lữ Tẫn Chu asks the head to her face who gave the order.
    Lô Xướng Vãn steps between them, and Giang Cửu Khúc's yearly letter arrives the same week. (Lữ Tẫn Chu, Lô Xướng
    Vãn, Lô Niệm Ca, Tô Vãn Chiếu, Giang Cửu Khúc; places 139, 47.)
@@ -426,8 +449,9 @@ It was opened in 1181, during the array work. The head reads it alone. It is a d
    who could wake her sword, and Vưu Chước Kim, a guest, has a disciple the lineage would never have admitted. (Cổ
    Tiểu Thiết, Vưu Chước Kim, the head, Sử Thu Thủy; place 39.)
 7. **Placement Day.** The player, a Wood-rooted outer disciple, fails the dusk test a third time and is placed. Tạ Quy
-   Yến is in the same line, and Châu Phi Vân has come for him. (Tô Bình Chu, Tạ Quy Yến, Châu Phi Vân, Ngạc Viễn Sơn;
-   place 4.)
+   Yến is in the same line, and Châu Phi Vân has come for him. The same week Hách Ánh Hà's list of thirty for Thiên Bảo
+   Trai is read at the outer gate; the player's name is on it, and Tạ's is not. (Tô Bình Chu, Tạ Quy Yến, Châu Phi Vân,
+   Ngạc Viễn Sơn, Hách Ánh Hà; place 4.)
 8. **The last row.** Bồ Tàn Chiếu's lifespan is ending. Bồ Tiểu Lô means to row him herself. Before he goes he wants to
    tell someone what he saw on the night of 803: Cảnh coming home with the body and without the sword. (Bồ Tàn Chiếu,
    Bồ Tiểu Lô, Khúc Lão Điếu, Cảnh; place 196.)
@@ -445,3 +469,9 @@ It was opened in 1181, during the array work. The head reads it alone. It is a d
     and Lạc Hà learns that the Pivot's marshal was sent onto it knowingly. Cảnh Trường Thiên is the only living
     member who can say which is worse. (Cảnh, Hình Lạc Nhạn, Hình Trọng Sơn, Đỗ Tinh Hà, Quý Thủ Lũy; Chiết Kích
     Nguyên, place 223.)
+13. **The thirtieth signature.** Tô Bình Chu asks the player to find a family who will put a child in his son's place.
+    Tô Hiểu Chu asks the player to stop his father. Hách Ánh Hà wants the list signed before the head counts it, and
+    Phan Vật Hoa's condition voids the whole lot if one name is missing at the autumn auction. The player can carry the
+    substitute's papers, tell the Hall of Scales that the oath of entry owes each disciple a method and a Metal house
+    will never teach a Wood child one, or show the head the names Hách left off. (Tô Bình Chu, Tô Hiểu Chu, Hách Ánh
+    Hà, Từ Bình Hành, Tô Vãn Chiếu, Phan Vật Hoa; places 4, 558, 50.)

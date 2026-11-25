@@ -101,11 +101,12 @@ the fire vent and the journeyman Đinh Hỏa Lân from Phất Y's hot steppe (64
 | Outer gate | Nine-Temper Scripture (Cửu Luyện Kinh) | main, Yellow | Metal | existing (`catalogue-metal.json`) |
 | Inner gate and above | Star-Quench Canon (Thối Tinh Kinh) | main, Profound | Metal | proposal, the founder's |
 | Inner secret | Iron Hide Manual (Thiết Bì Quyết) | secret, Yellow | Metal | existing; the forge hide |
-| Head | Rite of the Fallen Star (Vẫn Tinh Đoán Pháp) | secret, Earth | Metal + Fire | proposal; needs a Fire root |
+| Fire roots, outside the ranks | Rite of the Fallen Star (Vẫn Tinh Đoán Pháp) | secret, Earth | Metal + Fire | proposal; needs a Fire root |
 
 **Why it fits.** The land is all Metal, and so is the lineage, from the hammer method of the outer gate to the
-quenching canon inside. The one rite that needs Fire is the head's, and that is the sect's trouble in one line: the
-rite passes to the best Fire root in the hall, not to the eldest son, and the mountain breeds almost none. The
+quenching canon inside. The one rite that needs Fire is the one that keeps the forge alight when the coal fails, and
+that is the sect's trouble in one line: the forge has burned since 330, and the mountain breeds almost no one who can
+hold the rite. The
 lineage is a smith's lineage in a fight too: it hardens with every hit and makes the foe brittle.
 
 ## 6. Admission
@@ -114,7 +115,8 @@ lineage is a smith's lineage in a fight too: it hardens with every hit and makes
   town of Thanh Bách sends the odd clerk's son who came to see the star.
 - **Inner gate and above:** Metal 45 or more, and a blade that rings: the apprentice forges a knife alone, and the
   quench-keeper listens to it.
-- **Fire:** no rank requires it. The head's rite does, and is taught outside the admission rule to whoever has it.
+- **Fire:** no rank requires it. The Rite of the Fallen Star does, and is taught outside the admission rule to whoever
+  can hold it.
 - **Exceptions:** none named. The gate lends rather than hires: its own son is the Pivot's guest armourer.
 
 ## 7. Ranks and halls
@@ -145,13 +147,18 @@ lineage is a smith's lineage in a fight too: it hardens with every hit and makes
 
 ## 9. Inside the sect
 
-- **The Rite and the son.** Cát Lưu Quang must pass the Rite of the Fallen Star to a Fire root. His heir, Cát Đoán
-  Nhạc, has none. The journeyman Đinh Hỏa Lân, a steppe boy, has plenty, and the granddaughter Cát Thanh Diệm has half
-  of her grandfather's. The head lent away the one son who could have taken it, and some at the forge think that was
-  the point.
+- **The Rite and the fire.** The Rite of the Fallen Star is not a headship rite. It is how a smith who is his own coal
+  keeps the forge alight when the coal road fails. **Cát Lưu Quang** is 240 and the only one who holds it, and his
+  Fire-rooted second son is the Pivot's armourer. Since spring he has taught it to **Đinh Hỏa Lân**, the steppe
+  journeyman, when the hammers stop. **Cát Đoán Nhạc**, who has no Fire, signs for the coal and has cut the head's
+  forge to a day's ration, so the lessons now burn the forge's winter store. **Cát Thanh Diệm** carries her own ration
+  across the yard, against her father.
 - **The iron that does not sing.** In 1160 Vưu Chước Kim proved that Thiên Ngoại's ore has been mountain iron
-  since the sky seam gave out in 790 (N-thoi_tinh-04). The head threw him out and has gone on selling it as star iron. Bàng Lãnh Tôi heard it in the pool and says nothing. Hầu
-  Thiết Anh guesses and sells harder. Mẫn Hắc Châu, who can weigh iron in her hand, is starting to ask.
+  since the sky seam gave out in 790 (N-thoi_tinh-04). The head threw him out and has gone on selling it as star
+  iron. Bàng Lãnh Tôi heard it in the pool and has named his price for
+  keeping quiet. Hầu Thiết Anh guesses, and salts the ingots with Vẫn Tinh
+  discs bought each spring from Củng Tinh's Sầm Lạc Thiết, so they ring true under lightning. Mẫn Hắc Châu, who can
+  weigh iron in her hand, is starting to ask.
 - **The halberd.** Cát Thối Phong wants to draw Trầm Sa Kích from the barrow and reforge it, as Nhạc Bá Chùy wanted
   before him. His father has not forbidden it.
 
@@ -173,10 +180,10 @@ Living 10: Kết Đan 1, Trúc Cơ 4, Luyện Khí 5; tier A 1, B 4, C 5; all ru
 | Key | Name | Rank | Realm | Tier | Root | Role |
 |---|---|---|---|---|---|---|
 | cat_luu_quang | Cát Lưu Quang | tông chủ | Kết Đan | A | Metal 80, Fire 62 | Head since 1050; the only smith who can hold the Rite of the Fallen Star |
-| cat_doan_nhac | Cát Đoán Nhạc | trưởng lão | Trúc Cơ | B | Metal 74, Earth 34 | First son and master of the anvil hall; the presumed heir, with no Fire |
+| cat_doan_nhac | Cát Đoán Nhạc | trưởng lão | Trúc Cơ | B | Metal 74, Earth 34 | First son and master of the anvil hall; no Fire; signs for the coal |
 | bang_lanh_toi | Bàng Lãnh Tôi | chấp sự | Trúc Cơ | B | Metal 58, Water 36 | Quench-keeper; holder of the founder's tongs |
 | hau_thiet_anh | Hầu Thiết Anh | chấp sự | Trúc Cơ | B | Metal 66, Earth 30 | Overseer of Thiên Ngoại Khoáng |
-| dinh_hoa_lan | Đinh Hỏa Lân | chân truyền | Trúc Cơ | B | Fire 56, Metal 48, Earth 30 | Journeyman from Phất Y's steppe; the best Fire root after the head |
+| dinh_hoa_lan | Đinh Hỏa Lân | chân truyền | Trúc Cơ | B | Fire 56, Metal 48, Earth 30 | Journeyman from Phất Y's steppe; being taught the Rite |
 | cat_thanh_diem | Cát Thanh Diệm | nội môn | Luyện Khí | C | Metal 50, Fire 32 | The head's granddaughter, in whom a little Fire came back |
 | man_hac_chau | Mẫn Hắc Châu | nội môn | Luyện Khí | C | Metal 56, Water 26 | Inner disciple at the star mine, born at the black-iron diggings |
 | kha_than_sinh | Kha Thán Sinh | ngoại môn | Luyện Khí | C | Metal 42, Water 24, Earth 22 | Outer apprentice, a coal-carrier's son |
@@ -191,12 +198,16 @@ Living 10: Kết Đan 1, Trúc Cơ 4, Luyện Khí 5; tier A 1, B 4, C 5; all ru
    buyer, the Pivot's hound Đồ Vô Cữu, or the player. Four centuries of the Pivot's "star iron" are mountain iron, and
    the Ngọc Hành Hall has been paying for sky. (Cát Lưu Quang, Hầu Thiết Anh, Đặng Quân Bình, Hồng Chuẩn Bình; places
    173, 82.)
-2. **The witness in the pool.** Bàng Lãnh Tôi is dying of the cold that has been in his hands for a century. He wants
-   to tell Vưu Chước Kim, by letter, that he heard it too. The player carries the letter to Tử Điện Thành. (Bàng, Vưu;
-   places 23, Tử Điện Thành.)
-3. **Who gets the Rite.** Cát Lưu Quang will teach the Rite of the Fallen Star once. Đinh Hỏa Lân, Cát Thanh Diệm, or
-   a call home for Cát Thối Phong from the Pivot. Whichever he chooses, Cát Đoán Nhạc is passed over. (The Cát
-   family, Đinh; seat 23, seat 5.)
+2. **The price of the pool.** This autumn Bàng Lãnh Tôi told Cát Lưu Quang that he heard the ingots in 1160 and will
+   say so to Vưu Chước Kim unless the pool and the founder's tongs go to Kha Ô Lan when he leaves it, over the head's
+   own pick. A sealed letter to Vưu waits in the pool-house. If the head stalls, the player is asked to carry it to Tử
+   Điện Thành, and Vưu, who drank tea with him for forty years, learns that his friend sold what he heard. (Bàng, Vưu,
+   Kha Ô Lan; places 23, Tử Điện Thành.)
+3. **Coal for the lessons.** Cát Thanh Diệm asks the player to bring coal up from Thạch Thán Khoáng for her
+   grandfather's forge, past her father's tally, or Cát Đoán Nhạc asks the player to see that none comes. With the
+   winter store spent on the lessons, the next slide on the coal road (hook 7) can put out a fire that has burned since
+   330 before Đinh Hỏa Lân holds the Rite. If Đinh holds it, he talks of taking it home to the steppe. (The Cát family, Đinh, Phan Lộ Kiến;
+   places 23, 1483.)
 4. **Drawing the halberd.** Cát Thối Phong asks the player to help him reach Trầm Sa Kích under the Vạn Cốt Trủng.
    Quý Thủ Lũy stands in the way, and the gate's own dead elder asked the same thing in 806. (Cát Thối Phong, Quý Thủ
    Lũy, Nhạc Bá Chùy; Chiết Kích Nguyên.)

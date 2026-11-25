@@ -45,7 +45,7 @@
     {
      "to": "ton_luyen_ha",
      "kind": "former_master",
-     "note": "died 1150"
+     "note": "died 1141"
     },
     {
      "to": "thieu_ngan_hong",
@@ -125,7 +125,7 @@
     "calling": "Alchemist",
     "upbringing": "merchant_child"
    },
-   "backstory": "Came up from Thạch Kiều Thành with La Tử Vi (la_tu_vi) as girls and keeps the Mistress's furnace log; lately her friend's hand shakes when she signs it, and Kỳ has started signing for her.",
+   "backstory": "Came up from Thạch Kiều Thành with La Tử Vi (la_tu_vi) as girls and keeps the Mistress's furnace log; her friend's hand has shaken since the pill, and Kỳ holds the brush steady for her when she signs the lease returns.",
    "ties": [
     {
      "to": "uy_dan_duong",
@@ -271,7 +271,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
-   "backstory": "Mễ Thanh Mạch's (me_thanh_mach) younger sister from the barley village; the Hall sends her home to bury its dead in the fields of Thanh Khoa, and she keeps a list of what each one died of.",
+   "backstory": "Mễ Thanh Mạch's (me_thanh_mach) younger sister from the barley village; she digs the Hall's graves in the fields of Thanh Khoa, and eleven of the last fourteen were for men who came home from the troughs shaking.",
    "ties": [
     {
      "to": "trac_dao_sa",
@@ -343,7 +343,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "A market child of Thiên Quyền Thị who carries the Hall's pills to the Pivot's scales for Văn Thụy Đan (van_thuy_dan); La Khởi Minh (la_khoi_minh) wants his place at the stall, he wants La's place as the Mistress's heir, and neither will say so.",
+   "backstory": "A market child of Thiên Quyền Thị who carries the Hall's pills to the Pivot's scales for Văn Thụy Đan (van_thuy_dan); La Khởi Minh (la_khoi_minh) wants his place at the stall, and he would rather keep it.",
    "ties": [
     {
      "to": "van_thuy_dan",
@@ -415,7 +415,7 @@
     "calling": "Alchemist",
     "upbringing": "village_born"
    },
-   "backstory": "Mục Hồng Sa's (muc_hong_sa) niece from the cinnabar diggings, now masked in the mercury room; she has noticed that Thiệu Ngân Hống (thieu_ngan_hong) looks toward the sealed room whenever he speaks of the founder's gourd, and that he speaks of it often.",
+   "backstory": "Mục Hồng Sa's (muc_hong_sa) niece from the cinnabar diggings, now masked in the mercury room under Thiệu Ngân Hống (thieu_ngan_hong); she writes to her aunt every season asking for the roasting to come back to the room.",
    "ties": [
     {
      "to": "thieu_ngan_hong",

@@ -129,7 +129,8 @@ piece of herself each time.
 ## 8. Relations
 
 - **Lạc Hà Tông (lord):** a loose rein and an honest ledger (loyalty 65). Tribute is assessed in sheets and scrolls.
-  Lạc Hà's collector Cận Thủ Chuyết argues the sheet count with Cù Lục Trúc every autumn. Its envoy Hách Ánh Hà
+  Since it rose by a tenth in 1199, Lạc Hà's collector Cận Thủ Chuyết has lodged at the Pool House to count sheets all
+  year. Its envoy Hách Ánh Hà
   prices the unsigned scrolls, the one haggle Diệp allows. The Counting House master Tông Thủ Tín likes Mễ Phù Vân,
   because he prices things. Placement Day sends Wood and Water children; Nghiêm Thu Lộ came in 1198, placed by Tô Bình
   Chu. The island warden Lận Viễn Phàm asks every year for the fleet's sky and is refused.
@@ -146,14 +147,25 @@ piece of herself each time.
 
 ## 9. Inside the sect
 
-- **Idle against priced.** Diệp gives the abbey's work away, or lets Lạc Hà price it. Mễ Phù Vân, the founder's other
-  disciple, runs the Pool House as a business, and Lạc Hà's Counting House prefers him. When Diệp dies Mễ is the obvious
-  head. He would make the abbey rich and stop it painting old skies, which is the part of the art he fears.
+- **The tenth.** In 1199 **Mễ Phù Vân** showed Lạc Hà's Counting House what the scrolls fetch, and Lạc Hà raised the
+  tribute by a tenth and lodged its collector **Cận Thủ Chuyết** at the Pool House to count sheets, every painter's,
+  every month. Counting now takes the whole year, and the painters would rather paint. Half the Pool House sends
+  reflection-doubles to the morning lesson, to meals and to the count, and Mễ teaches a room of them without knowing.
+  He caused the raise and resents paying it, and he has taken the tenth out of the Pool House servants' rice.
+- **An agreeable abbey.** **Cù Lục Trúc** argued the sheet count with Cận every autumn for sixty years. Now he sends a
+  double down from the mill, rolled in the sheet cart, and he paints badly: it can only nod. Cận has negotiated with it
+  for a year, finds the abbey unusually agreeable, and has written to Tông Thủ Tín that the island is learning
+  manners. Each nod has raised the count, and the mill now owes more sheets than its canes make.
+- **Teaching a double to talk.** **Tần Đảo Ảnh**'s double is the best painted in the abbey. It sits her lesson and her
+  count while she sleeps off her nights at the pool, and **Đinh Hồng Thụ** sits beside it and answers for it. Đinh is
+  teaching it to talk, so that it can sit the next count alone and argue the sheets back down. The double has started
+  to paint by itself, and its scrolls sell better than hers.
+- **Signed scrolls.** **Đới Kim Trục** takes the double's scrolls with each load of door scrolls he collects at the
+  Pool House, has Doãn Trục Nhi sign them in Tần's hand at Triều Âm, and sells them on the mainland through Tăng Vân
+  Tiêu at three times the price. Tần signs nothing and
+  does not know her name is on Lạc Hà's stalls. Mễ takes his cut without asking.
 - **The founder's half sky.** Kha died with half of 705's sky on his silk. Diệp has finished it once, secretly, in 1062,
   and burned it (see her secret). Tần Đảo Ảnh is trying the same art untaught, because Đoạn heard a sail.
-- **Two Tầns.** Tần keeps a reflection-double at her desk, as her mother did. Đinh Hồng Thụ has noticed. Mễ has not.
-- **Signed scrolls.** Đới Kim Trục signs some of the scrolls he sells, the abbey's one real crime. Mễ suspects it and
-  takes his cut without asking.
 - **The placed girl** counts every brush, because a tenth of her earnings is Lạc Hà's until 1228.
 
 ## 10. Treasures and sets
@@ -198,17 +210,19 @@ piece of herself each time.
 2. **The fog west of the Evening Isle.** If the player earns Diệp's trust she says what she saw in 1062: Cô Phàm's sails
    going into a fog bank west of Tịch Chiếu Đảo. Lạc Hà's elders go to that island to die. (Diệp, Lận Viễn Phàm, Bồ Tàn
    Chiếu; places 196, 226.)
-3. **Two at the desk.** Đinh Hồng Thụ asks the player whether a reflection-double can learn to want things. Tần's
-   double has started to paint by itself. (Tần, Đinh Hồng Thụ, Mễ Phù Vân; place 37.)
-4. **The founder's half sky.** Someone unrolls Kha's last silk at the pool's edge. The half sky finishes itself overnight.
-   (Diệp, Mễ, Tần; places 37, 364.)
+3. **Two at the desk.** Đinh Hồng Thụ asks the player to sit the next count beside Tần's double while it talks for the
+   first time, with Cận Thủ Chuyết across the table. She also asks whether a double that paints by itself can learn
+   to want things. (Tần, Đinh Hồng Thụ, Cận Thủ Chuyết, Mễ Phù Vân; place 37.)
+4. **The founder's half sky.** Someone unrolls Kha's last silk at the pool's edge. The half sky finishes itself
+   overnight. (Diệp, Mễ, Tần; places 37, 364.)
 5. **Signed scrolls.** Lạc Hà's Hall of Scales finds a signed Nhàn Vân scroll on Tăng Vân Tiêu's stall and calls it
-   fraud against the tribute. Đới Kim Trục needs the player to buy back the rest before Từ Bình Hành counts them.
+   fraud against the tribute. The name on it is Tần Đảo Ảnh's, who has never signed anything. Đới Kim Trục needs the
+   player to buy back the rest before Từ Bình Hành counts them.
    (Đới Kim Trục, Tăng Vân Tiêu, Từ Bình Hành, Mễ; places 72, 51.)
 6. **The notebook in Bình Thủy's library.** Diệp asks the player to fetch one book from the Phiêu Bồng books Bình Thủy
    Môn took in 1102 (V093), and Bùi Phiêu Bình wants a scroll in exchange. (Diệp, Bùi Phiêu Bình; places 18, 380.)
-7. **The sheet count.** Lạc Hà raises the tribute by a tenth after Mễ shows the Counting House what the scrolls fetch.
-   Cù Lục Trúc and Cận Thủ Chuyết argue it out at the mill, and the paper runs short. (Cù Lục Trúc, Cận Thủ Chuyết, Mễ,
-   Tông Thủ Tín; places 474, 364.)
+7. **The sheet count.** The mill cannot make the sheets Cù Lục Trúc's nodding double agreed to. Cù comes down to the
+   Pool House himself to argue the count back, and Cận Thủ Chuyết finds the abbey suddenly disagreeable and writes to
+   Tông Thủ Tín. (Cù Lục Trúc, Cận Thủ Chuyết, Mễ, Tông Thủ Tín; places 474, 37.)
 8. **Clouds against clouds.** A painting contest at Hạc Đinh Thị, like the talisman contest of 1190 (A203): Nam Phố's
    scribes against the abbey's painters, and Tô Mộ Vân asked to judge. (Châu Phi Vân, Tần, Diệp, Tô Mộ Vân; place 51.)

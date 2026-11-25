@@ -970,7 +970,7 @@
    },
    "appearance": "Heavy, square and slow, with mason's hands and a toll-keeper's habit of looking at a cart's axles before its driver's face.",
    "backstory": "Ôn Trọng Lương was born in the north bridge's toll house in 1010, the son of Ôn Giá Hồng (on_gia_hong), who built the twin bridges of Song Kiều in 900 and kept the tolls (A229). He was a hundred and two when his father went into the flood of 1112 to hold the eastern pillar and did not come out, and he has held the bridges since. The Pivot weighs the miners' ore on its open scales in the square (A219); the Ôn take their toll on the way there, and the miners pay twice. In 1095 he married his daughter Ôn Thục Hà (on_thuc_ha) to the son of Tưởng Bách Luyện (tuong_bach_luyen), and Chân Kim Các became kin and partner in the tolls. His granddaughter Tưởng Ngọc Cân (tuong_ngoc_can) keeps the house's scales across the square, and his granddaughter Ôn Song Ngọc (on_song_ngoc) settles which ore pays on which bridge. Each spring he asks the Pivot to let him raise the ore toll by a tenth, and each spring Đặng Quân Bình (dang_quan_binh) refuses.",
-   "wants": "The ore toll raised by a tenth, and a third bridge with an Ôn toll on it before the Pivot thinks to build one of its own.",
+   "wants": "The ore toll raised by a tenth, and a third bridge with an Ôn toll on it before the Pivot thinks to build one of its own, and a fifth of Chân Kim's good-side fee, since every miner in his granddaughter's line crosses his north bridge.",
    "secret": "The north bridge's eastern pillar has been cracked since the flood that killed his father. He has had it faced over twice, and the raised toll would pay to rebuild it before a loaded ore cart finds the crack.",
    "ties": [
     {
@@ -996,7 +996,7 @@
     {
      "to": "tuong_ngoc_can",
      "kind": "grandchild",
-     "note": "through his daughter"
+     "note": "through his daughter; he wants a fifth of her good-side fee or the north bridge toll doubles"
     },
     {
      "to": "on_lap_tru",

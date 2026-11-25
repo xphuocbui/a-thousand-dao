@@ -331,7 +331,8 @@
     "calling": "Merchant",
     "upbringing": "street_orphan"
    },
-   "backstory": "A Triều Âm dock boy who carries Đới Kim Trục's (doi_kim_truc) scrolls and has learned to forge his master's signature better than his master writes it; Mễ Phù Vân (me_phu_van) has begun paying him directly.",
+   "backstory": "A Triều Âm dock boy who carries Đới Kim Trục's (doi_kim_truc) scrolls and forges his master's signature better than his master writes it; now he signs Tần Đảo Ảnh's (tan_dao_anh) name on her double's scrolls for him, and Mễ Phù Vân (me_phu_van) pays him his cut directly.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): signs Tần's name on the double's scrolls",
    "ties": [
     {
      "to": "doi_kim_truc",
@@ -465,7 +466,8 @@
     "calling": "Talisman maker",
     "upbringing": "village_born"
    },
-   "backstory": "Đinh Hồng Thụ's (dinh_hong_thu) cousin from the mangroves and Tần Đảo Ảnh's (tan_dao_anh) first disciple; she has seen her master at the desk and at the pool in the same hour, and Đinh made her promise not to tell.",
+   "backstory": "Đinh Hồng Thụ's (dinh_hong_thu) cousin from the mangroves and Tần Đảo Ảnh's (tan_dao_anh) first disciple; she sends a double of her own to the Pool House meals, painted for her by her cousin, and eats at the pool with her master.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): sends a double of her own to meals (was: promised not to tell)",
    "ties": [
     {
      "to": "tan_dao_anh",

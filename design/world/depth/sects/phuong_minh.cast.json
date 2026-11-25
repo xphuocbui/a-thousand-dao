@@ -35,9 +35,9 @@
    },
    "traits": {
     "personality": [
+     "Arrogant",
      "Ambitious",
-     "Brave",
-     "Forgiving"
+     "Brave"
     ],
     "calling": "Diplomat",
     "upbringing": "village_born",
@@ -192,7 +192,7 @@
     "pm-five-colour-robe",
     "bt-red-plum"
    ],
-   "changed": "home 6 -> 449: the seat moves (phuong_minh.md §2); birthplace 193 (A261); build main thien_hoa (stand-in) -> five-virtue-phoenix-canon (the sect lineage, R5), aux adds nine-shao-advent; gear: the plain phien and dao_bao become the Regalia fan and robe; tree targets (node ids) -> intent"
+   "changed": "home 6 -> 449: the seat moves (phuong_minh.md §2); birthplace 193 (A261); build main thien_hoa (stand-in) -> five-virtue-phoenix-canon (the sect lineage, R5), aux adds nine-shao-advent; gear: the plain phien and dao_bao become the Regalia fan and robe; tree targets (node ids) -> intent; pass B (fixB-1, 2026-11-25): traits Forgiving -> Arrogant and reordered (read-great-2 #10; SHAPES-PLAN §4.3 says Proud, which is not a trait id)"
   },
   {
    "key": "nhiep_tan_sa",
@@ -296,6 +296,11 @@
      "to": "vi_tich_hoi",
      "kind": "disciple",
      "note": "keeps the Nest"
+    },
+    {
+     "to": "hung_diem_nhi",
+     "kind": "disciple",
+     "note": "took her for the Nest's watch in 1190, for an arm the fire had already tried"
     }
    ],
    "master": "lau_liet_ha",
@@ -474,7 +479,7 @@
     {
      "to": "trinh_hi_quang",
      "kind": "rival",
-     "note": "the heir whose peace he would cross"
+     "note": "the head's chief disciple, whose peace he would cross"
     },
     {
      "to": "cu_chan_uy",
@@ -655,12 +660,17 @@
     {
      "to": "lam_the_ngo",
      "kind": "former_disciple",
-     "note": "Former Wutong Court aviary hand, home to roost his own birds"
+     "note": "former Wutong Court aviary hand, home to roost his own birds; asked back for a season in 1200 to keep the dead red-crested hen's loft"
     },
     {
      "to": "do_thanh_duan",
      "kind": "friend",
      "note": "cuts the bamboo shoots that feed the Wutong Court"
+    },
+    {
+     "to": "kha_thanh_mieu",
+     "kind": "friend",
+     "note": "the Wood girl the tree turns to; he has asked for her at the Wutong Court"
     }
    ],
    "master": "ngo_the_dong",
@@ -702,7 +712,11 @@
     "pm-writ-bird-banner",
     "pm-wutong-leaf-robe"
    ],
-   "changed": "birthplace 331 added; build main thien_hoa (stand-in) -> five-virtue-phoenix-canon layer 8 (R5); gear nhan (Wood ring) -> pm-wutong-seal; tree targets (node ids) -> intent; home stays 6, which becomes the Wutong Court (phuong_minh.md §2)"
+   "changed": "birthplace 331 added; build main thien_hoa (stand-in) -> five-virtue-phoenix-canon layer 8 (R5); gear nhan (Wood ring) -> pm-wutong-seal; tree targets (node ids) -> intent; home stays 6, which becomes the Wutong Court (phuong_minh.md §2)",
+   "beasts": [
+    "xich_quan",
+    "tieu_vi"
+   ]
   },
   {
    "key": "tang_ke_ti",
@@ -738,7 +752,7 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Cautious",
+     "Callous",
      "Deceitful"
     ],
     "calling": "Formation master",
@@ -761,8 +775,8 @@
    },
    "appearance": "A thin woman with burn-calloused fingertips and a reel of grey thread always turning in one hand.",
    "backstory": "Tang Kế Ti is the ninth keeper of the Nest Array and the sixth from her family. In 590 the palace burned Hỏa Ti Trấn, the fire-silk town at the vent's foot (V165). In 592 a reeler's girl of twenty, Tang Sơ Ti (tang_so_ti), dug the last unburned hanks out of the sheds and gave them to the founder, who laid them as the array's threads from the mouth of Chúc Dung Khẩu to the Fire Court and vowed that no silk would be reeled at these vents again (N-phuong_minh-04). The silk has carried the vent's fire into the palace for six hundred years, and it is wearing out. Tang learned the array from Nhiếp Tẫn Sa (nhiep_tan_sa) and knows every strand by its heat; forty have charred through in her keeping. Since she may not reel new silk, she splices in the vent-less silk that Chức Hà Các weaves, which her son Tang Tục Lạc (tang_tuc_lac) brings home from its head Thân Vân Cẩm (than_van_cam). It holds a season, then chars.",
-   "wants": "To mend the Nest Array before it fails, without being the keeper who broke the founder's vow.",
-   "secret": "Last winter, alone at night, she reeled one hank of new fire-silk at the vent's mouth. It holds. She has told no one, and she means to reel more.",
+   "wants": "To mend the Nest Array before it fails, without being the keeper who broke the founder's vow; and Chức Hà's silk bound to the Nest by her son's marriage, at the palace's price, for sixty years.",
+   "secret": "Last winter, alone at night, she reeled one hank of new fire-silk at the vent's mouth. It holds. She has told no one, and she means to reel more. When her son asked Thân Vân Cẩm to marry him, she named the dowry: all the pavilion's silk to the Nest at the palace's set price for sixty years. With every bolt of Chức Hà's in her splices, any strand that holds can be written down as theirs.",
    "ties": [
     {
      "to": "nhiep_tan_sa",
@@ -782,7 +796,7 @@
     {
      "to": "than_van_cam",
      "kind": "debt",
-     "note": "owes Chức Hà for silk the treasury has not been told about"
+     "note": "owes Chức Hà for silk the treasury has not been told about; has named the dowry for her son's marriage"
     },
     {
      "to": "vuu_cam_thu",
@@ -792,7 +806,7 @@
     {
      "to": "tang_mong_kien",
      "kind": "cousin",
-     "note": "the Chức Hà branch of the family"
+     "note": "the Chức Hà branch of the family; the dowry would starve her sheds"
     },
     {
      "to": "du_tan_hoa",
@@ -803,11 +817,6 @@
      "to": "trau_ket_tuyen",
      "kind": "disciple",
      "note": "suspects her"
-    },
-    {
-     "to": "tang_tuc_lac",
-     "kind": "disciple",
-     "note": "her son, her go-between with Chức Hà"
     }
    ],
    "master": "nhiep_tan_sa",
@@ -857,7 +866,8 @@
     "pm-nest-thread-banner",
     "pm-nest-lattice-seal",
     "pm-first-silk-robe"
-   ]
+   ],
+   "changed": "pass B (fixB-1, 2026-11-25): traits Cautious -> Callous; the dowry added to wants and secret (SHAPES-PLAN §4.2 chuc_ha, §4.4); duplicate disciple tie to her son merged into the child tie"
   },
   {
    "key": "lien_thieu_nghi",
@@ -1068,7 +1078,7 @@
    },
    "appearance": "Neat, soft-spoken and handsome, with ink on his right hand and a go stone he turns over in his left.",
    "backstory": "Trình Hi Quang was born at the Fire Court in 1075 to two outer-gate stewards and became Hoa Triêu Dương's (hoa_trieu_duong) disciple at twelve. He reached Kết Đan in 1165 on a foundation the Nest calls flawless, and he has been her hands in the Hall of Virtue ever since: he drafts her letters, sits at her go board and beats her one game in three. In 1185, when Quan Vũ Thanh (quan_vu_thanh) came in secret (A278), he drafted the head's private terms, peace for a fifth of Kinh Lôi Mạch's yield, and Vu Ngô Đồng (vu_ngo_dong) handed them over at the Wutong Court (N-phuong_minh-13). No reply has come in fifteen years. The head reads the silence as a refusal. Trình does not: the guest elder Chử Trì Âm (chu_tri_am) writes to Quan, and her letters never mention the terms. Sử Hoành Dực (su_hoanh_duc) does not know there were any.",
-   "wants": "A peace with Thính Vũ signed in his hand, and to be named heir on the strength of it.",
+   "wants": "A peace with Thính Vũ signed in his hand, with the right wing fan returned in the same treaty.",
    "secret": "He has guessed that Quan Vũ Thanh never gave the terms to her head. He has not told his master, because she would send them by another road; he means to carry the next offer himself, with a clause he added on his own: the Tower returns the right wing fan.",
    "ties": [
     {
@@ -1146,7 +1156,8 @@
     "pm-dawn-plume-fan",
     "pm-virtue-hall-robe",
     "pm-dawn-jade"
-   ]
+   ],
+   "changed": "pass B (fixB-1, 2026-11-25): 'to be named heir on the strength of it' cut from wants (SHAPES-PLAN §4.3 phuong_minh: the succession bullet goes)"
   },
   {
    "key": "ngo_the_dong",
@@ -1611,7 +1622,7 @@
     "gained": []
    },
    "appearance": "A handsome, heavy-lidded woman in brocade the colour of old embers, who carries the Hall of Spoils' three keys on a red cord.",
-   "backstory": "A Lai Nghi Thành silk-broker's daughter and the head's (hoa_trieu_duong) eldest disciple, Vưu Cẩm Thư keeps the palace's money: the vassals' tribute, the port dues of Thạch Cơ Thành, and the Hall of Spoils, where a red sword hangs unnamed beside the empty hook of the Xích Hà Kỳ. The banner was lent to Hùng Phần Vũ (hung_phan_vu) in 1020 (C177) and she has asked for it back three times. She buys Chức Hà Các's fire-silk at a price that hurts it, and outbids Kim Vạn Lý (kim_van_ly) for the south's tea.",
+   "backstory": "A Lai Nghi Thành silk-broker's daughter and the head's (hoa_trieu_duong) eldest disciple, Vưu Cẩm Thư keeps the palace's money: the vassals' tribute, the port dues of Thạch Cơ Thành, and the Hall of Spoils, where a red sword hangs unnamed beside the empty hook of the Xích Hà Kỳ. The banner was lent to Hùng Phần Vũ (hung_phan_vu) in 1020 (C177) and she has asked for it back three times. She buys Chức Hà Các's fire-silk at a price that hurts it. The Nest costs more each year, so this spring she set ground rent on Phần Vũ's vents and pits in the palace's own seat province, and counted its standing dead as structures.",
    "ties": [
     {
      "to": "hoa_trieu_duong",
@@ -1626,7 +1637,7 @@
     {
      "to": "hung_phan_vu",
      "kind": "creditor",
-     "note": "the banner lent in 1020"
+     "note": "the banner lent in 1020; since this spring, the rent on his vents"
     },
     {
      "to": "kim_van_ly",
@@ -1636,12 +1647,12 @@
     {
      "to": "tang_ke_ti",
      "kind": "rival",
-     "note": "the array keeper's bills"
+     "note": "the array keeper's bills, which the rent is meant to pay"
     },
     {
      "to": "tao_tan_kien",
      "kind": "debt",
-     "note": "she promised him the Phần Vũ succession in 1162 and owes it still"
+     "note": "she promised him the Phần Vũ succession in 1162 and owes it still; he is settling her lease"
     },
     {
      "to": "binh_vien_khach",
@@ -1687,6 +1698,11 @@
      "to": "man_tin_van",
      "kind": "disciple",
      "note": "counts the vassals' tribute for the Hall of Trust"
+    },
+    {
+     "to": "hung_diem_nhi",
+     "kind": "friend",
+     "note": "the palace's ward, who has offered the banner back on the day she is head"
     }
    ],
    "master": "hoa_trieu_duong",
@@ -1733,7 +1749,8 @@
      "targets_note": "Lineage, Golden Feathers for the coin darts, Molten Shell and Fire and Earth for the guard."
     },
     "note": "Coin darts and a fan; she pays someone else to do the rest."
-   }
+   },
+   "changed": "pass B (fixB-1, 2026-11-25): the rent on Phần Vũ's vents (SHAPES-PLAN §4.4 phan_vu); Kim Vạn Lý line moved to the ties only"
   },
   {
    "key": "phan_vong_hai",
@@ -1954,7 +1971,7 @@
     {
      "to": "ngac_thiem_hong",
      "kind": "disciple",
-     "note": ""
+     "note": "her clerk at the Fire Court, who keeps the vein fort's watch rota for the war hall"
     },
     {
      "to": "hach_dan_tam",
@@ -2055,7 +2072,7 @@
    "traits": {
     "personality": [
      "Calm",
-     "Honest",
+     "Loyal",
      "Reclusive"
     ],
     "calling": "Duelist",
@@ -2118,7 +2135,7 @@
     {
      "to": "ngac_thiem_hong",
      "kind": "friend",
-     "note": "the outer disciple he teaches thunder in secret"
+     "note": "the vein fort's clerk he teaches thunder at night; the price is the fort's watch rota, folded into his letters north and flown by the Bách Vũ falconer"
     }
    ],
    "exception": "guest elder (khách khanh): a Thính Vũ swordsman taken at Đan Sơn Mạch in 1156, a guest since 1160; never taught the lineage (R2, R5)",
@@ -2162,7 +2179,8 @@
    "items": [
     "pm-tower-rain-chain-sword"
    ],
-   "authored": "b6"
+   "authored": "b6",
+   "changed": "pass B (fixB-1, 2026-11-25): trait Honest -> Loyal (to the Tower): he takes the vein fort's watch rota as the price of the thunder he teaches Ngạc Thiểm Hồng (SHAPES-PLAN §4.3 phuong_minh); nothing else changed"
   },
   {
    "key": "thich_hong_linh",
@@ -2254,7 +2272,7 @@
     {
      "to": "tao_tan_kien",
      "kind": "rival",
-     "note": "her childhood sweetheart, Phần Vũ's heir; she speaks for taking his hall in"
+     "note": "her childhood sweetheart, Phần Vũ's first elder; she speaks for taking his hall in"
     },
     {
      "to": "sam_liet_duc",

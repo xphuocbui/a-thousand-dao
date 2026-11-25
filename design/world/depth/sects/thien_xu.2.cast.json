@@ -57,7 +57,7 @@
     "gained": []
    },
    "appearance": "Grey dust in every crease of his hands, a carpenter's square tucked in his belt, and the patience of a man who measures twice.",
-   "backstory": "Born at Trận Thạch Khoáng, the Array Stone Mine, Thiện Thừa Củ was cutting array stones at nine when Doãn Ngọc Hành (doan_ngoc_hanh), then a Kết Đan, bought a year's output and the boy with it. He keeps the seat's Seven-Star Array and leads the stele walk along the Compact's 129 boundary steles every ten years (N-thien_xu-02). He knows the stele moved below Thủ Bi Trại in 1006 (V129) put a kink in the great array, and he has never been allowed to mend it, because mending it means redrawing a border. He despises the freelance Vệ Văn Cơ (ve_van_co), who turned the hall down.",
+   "backstory": "Born at Trận Thạch Khoáng, the Array Stone Mine, Thiện Thừa Củ was cutting array stones at nine when Doãn Ngọc Hành (doan_ngoc_hanh), then a Kết Đan, bought a year's output and the boy with it. He keeps the seat's Seven-Star Array and leads the stele walk along the Compact's 129 boundary steles every ten years (N-thien_xu-02). He knows the stele moved below Thủ Bi Trại in 1006 (V129) put a kink in the great array, and he has never been allowed to mend it, because mending it means redrawing a border. Since Luân Hải Yến's 1196 sea chart put the Rudder star near the pole in the Pivot's markets, he has asked Củng Tinh, for the Pivot, for a correction under the abbey's seal, printed for the western quays.",
    "ties": [
     {
      "to": "doan_ngoc_hanh",
@@ -92,7 +92,7 @@
     {
      "to": "tham_bac_than",
      "kind": "friend",
-     "note": "Củng Tinh Quán's head; they trade star charts"
+     "note": "Củng Tinh Quán's head; they trade star charts, and he asked him for the correction"
     },
     {
      "to": "an_tac_van",
@@ -203,7 +203,7 @@
     "gained": []
    },
    "appearance": "Neat and colourless, with a black touchstone at her throat; she weighs a coin on her fingertip while she talks.",
-   "backstory": "A silver-miner's daughter from Bạch Ngân, where the Pivot's coin is struck (A224), Đặng Quân Bình was meant for the bench; Phương Trực Ngôn (phuong_truc_ngon) sent her to the scales instead, saying she weighed people too exactly to judge them. She keeps the Ngọc Hành Hall: the open scales of Song Kiều (A219), the weights of Thiên Quyền Thị, the mint and the treasury of ninety thousand stones. She has twice caught Chân Kim Các's assayers shaving the Pivot's standard weight, and Tưởng Bách Luyện (tuong_bach_luyen) has twice denied it.",
+   "backstory": "A silver-miner's daughter from Bạch Ngân, where the Pivot's coin is struck (A224), Đặng Quân Bình was meant for the bench; Phương Trực Ngôn (phuong_truc_ngon) sent her to the scales instead, saying she weighed people too exactly to judge them. She keeps the Ngọc Hành Hall: the open scales of Song Kiều (A219), the weights of Thiên Quyền Thị, the mint and the treasury of ninety thousand stones. She has twice caught Chân Kim Các's assayers shaving the Pivot's standard weight, and Tưởng Bách Luyện (tuong_bach_luyen) has twice denied it. Since 1198 the Pivot's side of the square at Song Kiều has weighed almost nothing, and the treasury has asked her why. Hồng Chuẩn Bình's (hong_chuan_binh) tallies reach her four months late. She is drafting an order that the mint will buy only ore weighed on the Pivot's scale.",
    "ties": [
     {
      "to": "phuong_truc_ngon",
@@ -223,7 +223,7 @@
     {
      "to": "tong_binh_hanh",
      "kind": "disciple",
-     "note": "keeper of the market scales"
+     "note": "keeper of the market scales, who wrote up Hoa Cái's light baskets"
     },
     {
      "to": "nguu_trong_dinh",
@@ -248,7 +248,7 @@
     {
      "to": "tuong_ngoc_can",
      "kind": "enemy",
-     "note": "the Chân Kim smuggler she has caught twice and will catch a third time"
+     "note": "the Chân Kim assayer she has caught twice, whose side of the square now has all the custom"
     },
     {
      "to": "tu_binh_quyen",
@@ -1929,8 +1929,8 @@
    "traits": {
     "personality": [
      "Patient",
-     "Just",
-     "Stubborn"
+     "Stubborn",
+     "Compassionate"
     ],
     "calling": "Teacher",
     "upbringing": "village_born",
@@ -1948,7 +1948,7 @@
     "gained": []
    },
    "appearance": "Short, broad, yak-wool coat over the sect grey, with forearms like a herder's; she lifts the heaviest weights on the rack one-handed.",
-   "backstory": "A yak herder's daughter from Mao Ngưu Thôn, where the soil is nearly all Earth, Chử Bình Quân passed the Level Beam on her ninth try with a Metal root of exactly forty-six, one more than the inner gate needs. She has kept the outer gate on Thạch Quyền Phong since 1150 and sets the weights for every Level Beam. Most of her outer disciples are plateau children like her, and most will never go further. She holds the beam steady for no one, and Hạ Hầu Thạch (ha_hau_thach), who has failed it eleven times, says she is right.",
+   "backstory": "A yak herder's daughter from Mao Ngưu Thôn, where the soil is nearly all Earth, Chử Bình Quân passed the Level Beam on her ninth try with a Metal root of exactly forty-six, one more than the inner gate needs. She has kept the outer gate on Thạch Quyền Phong since 1150 and sets the weights for every Level Beam. She holds the beam steady for no one. At the solstice of 1199 Hạ Hầu Thạch (ha_hau_thach), at 107, held it level on a weight Uất Trì Thu (uat_tri_thu) had filed, and she saw the file mark and signed the old man into the inner gate anyway. Uất wants the same weight at this solstice.",
    "ties": [
     {
      "to": "cong_ton_duan",
@@ -1958,7 +1958,7 @@
     {
      "to": "ha_hau_thach",
      "kind": "friend",
-     "note": "the old man who has failed eleven times and still teaches the weights"
+     "note": "the old man who failed eleven times; she signed him in on a filed weight in 1199"
     },
     {
      "to": "ke_thanh_khoa",
@@ -2034,6 +2034,11 @@
      "to": "uc_ky_sinh",
      "kind": "disciple",
      "note": "outer disciple who gathers milkvetch for the seat's pill-maker"
+    },
+    {
+     "to": "uat_tri_thu",
+     "kind": "enemy",
+     "note": "filed the weight she let stand; he wants it for himself at this solstice"
     }
    ],
    "master": "cong_ton_duan",

@@ -119,7 +119,7 @@ Without this system the other systems have a map but no past, no population and 
    **Rewordings** (approved 2026-11-25, applied at the re-export): C007 (Băng Tâm founded "at the desert's edge, facing
    the ice fields"), A190 (Lạc Hà's founder's maples, `sects/lac_ha.md` §2), the `soc_khi` legendary text (sealed alone
    in his cave in 702 by his last disciple), the Thiết Mã tally split in two halves (`thiet_ma_phu`, `sects/thien_xu.md`
-   §3 and §10), Cô Hạc's maker (`co_hac` `made_by` Quách Vô Tích, 760), A188's distance (the Tân Khẩu diggers' camp at
+   §3 and §10), Cô Hạc's maker (`co_hac` `made_by` Quách Lĩnh Thù, 760), A188's distance (the Tân Khẩu diggers' camp at
    the miasma's edge), and A087 kept true as written through N-thien_xu-04 (`design/world/depth/cross-sect.md` §6).
    The pass also adds one fallen sect, `lanh_huong` (Lãnh Hương Các, ruin place 1412, destroyed at Cô Thành in 724;
    `sects/bang_tam.md`), to `fallen_sects`.

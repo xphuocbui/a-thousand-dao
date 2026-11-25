@@ -24,7 +24,7 @@ Checker at the end (`python -I tools/design/world/depth_check.py`): techniques k
   the name.
 - **Rows marked "…"** in duel-readings §3 change only the named clause. The rest of the text is unchanged.
 - **Concept edits** change one sentence each: `dipper-handle-canon` (d9), `army-breaker-spear` (d21, which keeps its
-  "weakest file" line and adds the new rule after it) and `ten-paces-sword-canon` (a1).
+  "weakest file" line and adds the new rule after it) and `contract-sword-canon` (a1).
 - **New items** go at the end of the owning file's `items` array. The holder wears the item in place of the generic
   piece that the wire note names, so the gear count does not change, and the item is added to the holder's `items`
   list.
@@ -47,7 +47,7 @@ applied through it. Those records carry both keys:
 - Heart in the Jade Vessel (d18, X = 25 %)
 - Wine in the Night-Glow Cup (d19)
 - The Called Blow on `tx-pha-quan-spear` (d21: "breaks a ward" in place of §3's "Broken")
-- Ten Paces, One Cut on `py-ten-paces` (d29)
+- The Last Step on `py-grey-seal` (d29)
 
 Other records got several wishes that stack:
 
@@ -271,9 +271,9 @@ Ung Hạc Minh lists it in `beasts`, the game's Character field, and the Cửu C
 - `sects/muc_van.items.json` mv-cloud-herding-lance / turn-the-herd: item Effect reworded (duel-readings 3a)
 - `sects/muc_van.items.json` mv-phu-dao-last (3 pieces): set bonus Effect reworded (duel-readings 3a)
 - `sects/phat_y.techniques.json` dry-road-sword-primer › Noon Guard: art reworded (duel-readings 3a)
-- `sects/phat_y.techniques.json` ten-paces-sword-canon: method concept reworded
-- `sects/phat_y.techniques.json` ten-paces-sword-canon › No Trace: art reworded (duel-readings 3e)
-- `sects/phat_y.items.json` py-ten-paces (2 pieces): set bonus Effect reworded (d29; covers duel-readings 3e)
+- `sects/phat_y.techniques.json` contract-sword-canon: method concept reworded (fixB-apply 2026-11-25: Steps at ten -> Terms, Khoản; Final Count's pierce at five)
+- `sects/phat_y.techniques.json` contract-sword-canon › Step Back: art reworded (duel-readings 3e)
+- `sects/phat_y.items.json` py-grey-seal (2 pieces): set bonus Effect reworded (d29; covers duel-readings 3e)
 - `sects/da_quang.techniques.json` night-glow-blood-sabre-canon › Wine in the Night-Glow Cup: art reworded (d19; covers duel-readings 3e)
 - `sects/da_quang.items.json` dq-night-glow-cup / drink-after-the-raid: item Effect reworded (duel-readings 3e)
 - `sects/phuong_minh.items.json` pm-tieu-thieu-quan / eight-of-nine: item Effect reworded (duel-readings 3b)
@@ -496,8 +496,8 @@ Ung Hạc Minh lists it in `beasts`, the game's Character field, and the Cửu C
 - `sects/van_hac.techniques.json` the-monks-rest › The Held Rest: art reworded
 
 ### d29
-- `sects/phat_y.items.json` py-ten-paces (2 pieces): set bonus Effect reworded (d29; covers duel-readings 3e)
-- `sects/thinh_vu.techniques.json` rain-chain-sword-scripture: new passive art: Return to the Scabbard (Quy Vỏ)
+- `sects/phat_y.items.json` py-grey-seal (2 pieces): set bonus Effect reworded (d29; covers duel-readings 3e)
+- `sects/thinh_vu.techniques.json` rain-chain-sword-scripture: new passive art: Return to the Scabbard (Quy Sao)
 - `sects/thinh_vu.items.json` tvl-dalan-suite (2 pieces): set bonus Effect reworded
 
 ### d30

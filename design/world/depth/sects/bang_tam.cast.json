@@ -132,7 +132,7 @@
     {
      "to": "dong_hong_lo",
      "kind": "rival",
-     "note": "Hồng Lô's head; sold her Viên Chước's contract in 1150 and calls it theft in public; she lets him"
+     "note": "Hồng Lô's head; sold her Viên Chước's contract in 1144 and calls it theft in public. She holds the bill with his seal and its ash clause, and in 1199 sent Viên south to take a whole boat if the isles smoked"
     },
     {
      "to": "nguy_thanh_han",
@@ -142,7 +142,7 @@
     {
      "to": "vien_chuoc",
      "kind": "debt",
-     "note": "the alchemist whose contract she bought; the sect owes him three years' fees"
+     "note": "the alchemist whose contract she bought; the sect owes him three years' fees, and he carries her bill of his sale"
     },
     {
      "to": "tham_han_giang",
@@ -392,7 +392,7 @@
    },
    "appearance": "Broad, weathered and loud for a Băng Tâm elder, with a fisher's hands and a laugh that the seat's halls are not built for.",
    "backstory": "Thẩm Hàn Giang was born in Liên Giang Thành in 900 to ice-fishers who had paid their tax in fish since the Frost Coast fell (A131), and grew up cutting holes in the river ice beside the old men who still sat cultivating there in Hàn Giang's way. He passed the Frost Test at fourteen and rose through the Hall of Cold Law, which judges the frost-coast towns, until he ran it. He reached Nguyên Anh in 1180, the first frost-coast man to do so in the Pavilion's history. He laughs in council, which no one else does, and the coast loves him for it; his sworn brother Đoàn Thanh Lãng (doan_thanh_lang) heads Trạc Anh Đài. He wants the Vessel. He believes, honestly, that the Pavilion has spent seven hundred years ruling the coast without ever belonging to it, and that a coast-born Keeper would end the quiet contempt of the ice-born for everyone else. His disciple Liễu Ngư Ca (lieu_ngu_ca) is closer to that cause than even Thẩm knows.",
-   "wants": "To be named heir, and to make the frost coast the Pavilion's equal rather than its tax.",
+   "wants": "To be named heir, to make the frost coast the Pavilion's equal rather than its tax, and to rule at Hòe Âm this autumn for the men's lodge of the massif, whose men would then stand behind him.",
    "secret": "He has quietly kept the frost-coast towns' tax books in two sets for forty years: one for the seat, one that shows what the coast really pays.",
    "ties": [
     {
@@ -897,7 +897,7 @@
    },
    "appearance": "Beautiful in the Pavilion's way, cold and exact, with a sword so clear it looks like a sliver of glazed glass.",
    "backstory": "Khương Lưu Ly was born inside the seat in 950 to two inner disciples, the first child of the Pavilion's own halls in a century, and was the head's first disciple from the day Sở Ngọc Hồ (so_ngoc_ho) took the Vessel. She has never known a teacher, a home or a cause other than the Pavilion. She is the most gifted Ice cultivator of her generation and has never failed at anything she tried, which makes her arrogant without her noticing. She took half of a single element and drove it to the bottom; the only thing in her root is Water and Ice. The seat's elders see in her the old Pavilion they love. She sees the frost-coast man Thẩm Hàn Giang (tham_han_giang) as a decent elder who has mistaken a tax quarrel for a Dao. She has waited 190 years for her master to name her and has begun, privately, to wonder whether her master's silence is a judgement on her.",
-   "wants": "To be named heir, and to know why she has not been.",
+   "wants": "To be named heir, to know why she has not been, and to see Lê Hoa Am's gate upheld at Hòe Âm, because the seat will read a ruling against a women's vow as a ruling against the Keepers.",
    "secret": "Since the 1188 petition she has written to the Pivot's young disciples under a false name to learn what Doãn Ngọc Hành said of her master.",
    "ties": [
     {
@@ -1043,7 +1043,7 @@
     "gained": []
    },
    "appearance": "Sun-browned, the only elder who smiles in public, with sand always in the folds of her white robe.",
-   "backstory": "Born at the oasis fish ponds of Ngư Đàm Thôn (A115), Ôn Sa Ngọc is proof that the desert can grow ice: she passed the Frost Test on her third try. She runs the old seat as the Pavilion's door to the desert and the caravan road, keeps peace with Dạ Quang's escorts, and sends the Frost Test the oasis children nobody else would look for, among them Hồ Tiểu Đàm (ho_tieu_dam). The ice-born elders call her post an exile, and she has come to love it.",
+   "backstory": "Born at the oasis fish ponds of Ngư Đàm Thôn (A115), Ôn Sa Ngọc is proof that the desert can grow ice: she passed the Frost Test on her third try. She runs the old seat as the Pavilion's door to the desert and the caravan road, keeps peace with Dạ Quang's escorts, and sends the Frost Test the oasis children nobody else would look for, among them Hồ Tiểu Đàm (ho_tieu_dam). The ice-born elders call her post an exile, and she has come to love it. She pays Dạ Quang's escorts by loads delivered, and while night-glow cups keep turning up at the caravan stops she will not send the hostage home.",
    "ties": [
     {
      "to": "ho_tieu_dam",
@@ -1624,7 +1624,9 @@
     "gained": []
    },
    "appearance": "Red-cheeked and sweating even in the Pavilion's cold, the only man at Hàn Giao Chử who wears his robe open.",
-   "backstory": "Trained at Hồng Lô Cốc, Thúy Vi's furnace vassal in the tundra, Viên Chước was bought away in 1150 by Băng Tâm, which cannot brew a pill without fire and will not light one inside the Array. He brews outside the seat at Hàn Giao Chử, charges like a pirate, and gambles the fees. Phó Ám Hương (pho_am_huong), who has hated every Fire cultivator since Cô Thành burned, will not eat a pill he makes. Viên alone could brew the breakthrough pill both old elders need, and he knows it.",
+   "backstory": "Trained at Hồng Lô Cốc, Thúy Vi's furnace vassal in the tundra, Viên Chước lost the valley's year of ash money at dice in 1144, and Đồng Hồng Lô (dong_hong_lo) sold his contract to Băng Tâm to cover it. He brews outside the seat at Hàn Giao Chử and charges like a pirate. Phó Ám Hương (pho_am_huong) will not eat a pill he makes. In 1199 the Keeper sent him south with the bill of his own sale, whose clause gives the Pavilion one boat of ash at the 1144 price in every ten years, and he reached the valley in the first month of the ash rain. Viên alone could brew the breakthrough pill both old elders need, and he knows it.",
+   "wants": "To take a whole boat of ash at the 1144 price, and to win at the valley's dice what he lost there.",
+   "secret": "He brings the Pavilion's ash purse to the snow-house table and has lost a fifth of it already.",
    "exception": "R2 guest elder (khách khanh): hired alchemist, never taught the lineage",
    "ties": [
     {
@@ -1660,12 +1662,12 @@
     {
      "to": "nguy_dan_chu",
      "kind": "former_disciple",
-     "note": "the kitchen boy he taught first at Hồng Lô; they still write"
+     "note": "the kitchen boy he taught first at Hồng Lô; now he sits at Ngụy's dice table"
     },
     {
      "to": "dong_hong_lo",
      "kind": "former_master",
-     "note": "his master at Hồng Lô, who sold his contract to cover the ash money he lost"
+     "note": "his master at Hồng Lô, who sold his contract to cover the ash money he lost; he holds Đồng's sealed bill"
     },
     {
      "to": "ke_chu_sa",
@@ -1778,7 +1780,7 @@
    "appearance": "A grave young woman in undyed white who wears the winter robe her name means even in summer.",
    "backstory": "Sở Hàn Y was left in the snow at the ruin of Bắc Đình Thành as a baby, with a winter robe around her and no name, and was brought to the Vessel Hall; Sở Ngọc Hồ (so_ngoc_ho) gave her her own surname, which she has given no one else, and named her for the robe. She learned her first cut from Khương Lưu Ly (khuong_luu_ly) and her stillness from her master, whom she copies so closely the seat jokes there are two Keepers. She has nothing yet but an ice sword and the frost seal, and she is not in a hurry. She is the one person in the Pavilion who would follow her master into the volcano without asking why.",
    "wants": "To be worthy of the surname.",
-   "secret": "She has seen the Keeper walk the Array alone at night with Tiết Hàn Mai, and has guessed something is wrong under the seat.",
+   "secret": "For three winters she has followed the Keeper and Tiết Hàn Mai under the seat and learned eleven of the 108 nodes by touch, more than anyone alive but Tiết. Tiết hears her behind them and walks slower.",
    "ties": [
     {
      "to": "so_ngoc_ho",
@@ -2360,7 +2362,7 @@
     {
      "to": "do_xich_linh",
      "kind": "rival",
-     "note": "his stepmother, who wants the heirship for her own daughter"
+     "note": "his stepmother, who wants him kept at the Pavilion: a son raised at the go board with the Desert Pavilion's keeper would ride the road as a Pavilion man and end her toll"
     },
     {
      "to": "hang_luu_hoa",
@@ -2414,9 +2416,9 @@
    "stage": 2,
    "sect": "bang_tam",
    "rank": "chap_su",
-   "home": 191,
+   "home": 239,
    "birthplace": 68,
-   "role": "Steward of the outer gate; keeper of the Frost Test on Phiến Băng Hồ",
+   "role": "Steward of the outer gate; keeper of the Frost Test on the frozen mere of Hàn Giao Chử",
    "tier": "B",
    "root": {
     "elements": {
@@ -2453,7 +2455,7 @@
     "gained": []
    },
    "appearance": "Round-faced and kind, with frostbitten earlobes from a hundred solstice nights on the lake.",
-   "backstory": "Đỗ Sương Nhi failed the Frost Test twice before Ice answered her on the third night. A rushed foundation left a crack she will carry to the end of her life, and she has given that life to the outer gate. She sits the solstice night on Phiến Băng Hồ (A140) beside every candidate and remembers every one who walked back. Hồ Tiểu Đàm (ho_tieu_dam) is her current worry.",
+   "backstory": "Đỗ Sương Nhi failed the Frost Test twice before Ice answered her on the third night. A rushed foundation left a crack she will carry to the end of her life, and she has given that life to the outer gate. She sits the solstice night on the mere at Hàn Giao Chử beside every candidate and remembers every one who walked back. Hồ Tiểu Đàm (ho_tieu_dam) is her current worry.",
    "ties": [
     {
      "to": "ho_tieu_dam",
@@ -2560,7 +2562,7 @@
    "stage": 2,
    "sect": "bang_tam",
    "rank": "ngoai_mon",
-   "home": 191,
+   "home": 239,
    "birthplace": 116,
    "role": "An oasis girl in the outer gate who has failed the Frost Test twice",
    "tier": "B",
@@ -2601,7 +2603,7 @@
     "gained": []
    },
    "appearance": "Brown and freckled from the oasis sun, the warmest-looking face on the lake, wrapped in three borrowed furs.",
-   "backstory": "From the fish ponds of Ngư Đàm Thôn, brought to the Desert Pavilion by Ôn Sa Ngọc (on_sa_ngoc), Hồ Tiểu Đàm has sat on Phiến Băng Hồ two solstice nights and felt nothing but cold. One more failure and she will be offered the Desert Pavilion or the road. Đỗ Sương Nhi (do_suong_nhi) thinks she will pass. Hồ grows a little oasis reed in a pot by her bed and talks to it.",
+   "backstory": "From the fish ponds of Ngư Đàm Thôn, brought to the Desert Pavilion by Ôn Sa Ngọc (on_sa_ngoc), Hồ Tiểu Đàm has sat on the frozen mere at Hàn Giao Chử two solstice nights and felt nothing but cold. One more failure and she will be offered the Desert Pavilion or the road. Đỗ Sương Nhi (do_suong_nhi) thinks she will pass. Hồ grows a little oasis reed in a pot by her bed and talks to it.",
    "ties": [
     {
      "to": "on_sa_ngoc",

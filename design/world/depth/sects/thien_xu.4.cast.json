@@ -407,14 +407,14 @@
    },
    "traits": {
     "personality": [
-     "Loyal",
+     "Ambitious",
      "Calm",
-     "Reclusive"
+     "Deceitful"
     ],
     "calling": "Wanderer",
     "upbringing": "merchant_child"
    },
-   "backstory": "Carries the Khai Dương Hall's sealed letters on foot, since envoys carry no iron and cranes can be shot; she knows the weight of Mâu Tri Viễn's (mau_tri_vien) sealed letter of answers and has never asked what is in it.",
+   "backstory": "Carries the Khai Dương Hall's sealed letters on foot, since envoys carry no iron and cranes can be shot. She carried the great sects' answers home to Mâu Tri Viễn (mau_tri_vien) in 1197, and now carries Công Tôn Duẫn's (cong_ton_duan) letters to four of the same witness-houses under Mâu's seal, for the promise of the hall's road office.",
    "ties": [
     {
      "to": "mau_tri_vien",
@@ -430,6 +430,11 @@
      "to": "phuc_do_lan",
      "kind": "disciple",
      "note": "foot courier of the Khai Dương Hall, Phục Ngưu Nhi's sister"
+    },
+    {
+     "to": "cong_ton_duan",
+     "kind": "creditor",
+     "note": "promised her the hall's road office for carrying his letters under Mâu's seal"
     }
    ],
    "master": "mau_tri_vien",

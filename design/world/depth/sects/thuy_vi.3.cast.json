@@ -181,12 +181,12 @@
     "gained": []
    },
    "appearance": "A handsome, easy-smiling young man who learns everyone's name on the first day.",
-   "backstory": "Phù Liên Kiều came from Tùng Hạ Thị, Tùng Đào's market, in 1194 with a good Wood root and a story about a dead father in the resin trade. The story is half true. Hồ Tùng Nguyệt (ho_tung_nguyet), Tùng Đào's first elder, paid his way, and she wants the Haze Walk and the Green Furnace's recipes. He is learning that the sect keeps nothing locked, and that this makes it harder to steal from, not easier.",
+   "backstory": "Phù Liên Kiều came from Tùng Hạ Thị, Tùng Đào's market, in 1194 with a good Wood root and a story about a dead father in the resin trade. The story is half true. Hồ Tùng Nguyệt (ho_tung_nguyet), Tùng Đào's first elder, paid his way. She says she wants the Haze Walk; what she asks him for in every letter is a list of what Thúy Vi's open shelves hold of the pines' canon, written down from the Cold Ford families. He is learning that the sect keeps nothing locked, and that this makes it harder to steal from, not easier.",
    "ties": [
     {
      "to": "ho_tung_nguyet",
      "kind": "debt",
-     "note": "paid his way north; wants the Haze Walk"
+     "note": "paid his way north; wants the shelf list"
     },
     {
      "to": "bien_van_tinh",

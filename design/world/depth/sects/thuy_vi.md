@@ -240,13 +240,16 @@ Ngải Thanh Hao (Thanh Nang Đường's healing method), the guest refiner and 
   trusts the Pivot's present head, Doãn Ngọc Hành, as far as its envoy can see him.
 - **Tùng Đào Cung:** the old enemy, grudge −5 (Cold Ford). Wood against Wood: pines against haze. Đàm Tùng Lại held the
   ford for Tùng Đào as its head from 900 and lost it in 905 (C166). The coast says Thôi Khinh Hồng retired in 900 so as
-  not to fight the war she could see coming. Hồ Tùng Nguyệt keeps the border talks civil with Biện Vãn Tình, and she also pays a spy in the
-  outer gate. The head's disciple Đàm Thanh Giang meets Hướng Vãn Chu on the river-mouth ice.
+  not to fight the war she could see coming. Hồ Tùng Nguyệt keeps the border talks civil with Biện Vãn Tình, and she
+  also pays a spy in the outer gate. At the 1190 talks Hướng Dạ Đăng quoted the Listening Pine Primer's fourth line to
+  her across the table, a line he learned on the Hàn Tân quay as a boy; since 905 the Cold Ford Hall has written down
+  the pines' songs from the Cold Ford families, and they sit on the open shelves. The head's disciple Đàm Thanh Giang
+  meets Hướng Vãn Chu on the river-mouth ice.
 - **Phượng Minh Cung:** Fire and Wood. Phượng Minh buys spirit wood and pills and sells nothing the sect needs.
   Courteous.
 - **Lạc Hà Tông:** Earth and Wood, a rival in the herb markets of the west. The loose alchemist Lạc Đan Thanh copies
   Thúy Vi's pill seals in Vật Hoa Thị and holds the only map of the Peach Spring.
-- **Băng Tâm Các:** distant. Hồng Lô Cốc's best student, Viên Chước, was bought away by Băng Tâm in 1150. Đồng Hồng Lô
+- **Băng Tâm Các:** distant. Hồng Lô Cốc's best student, Viên Chước, was bought away by Băng Tâm in 1144. Đồng Hồng Lô
   still mentions it.
 - **Vassals:** **Hồng Lô Cốc** (Đồng Hồng Lô) brews over volcano fire in a tundra valley on the cape's north coast (place 9): the sect's other furnace, and its
   rival inside the house. It took in the whale hunters of Kình Cốt Đường (V013) and the healers of Thanh Nang Đường
@@ -274,8 +277,9 @@ Ngải Thanh Hao (Thanh Nang Đường's healing method), the guest refiner and 
   them if he finds proof.
 - **The heretic in the Furnace Hall.** Tề Tử Tô, the Furnace Hall's best brewer of wound pills, reads the forbidden
   Rotting Canopy Canon at night. She is also the foundling Kiển Viễn Chí's mother, and he has found the sewing ledger.
-- **The Tùng Đào man.** Phù Liên Kiều came to the outer gate in 1194 on Hồ Tùng Nguyệt's money to learn the Haze Walk.
-  The sect locks nothing, and that is making him harder to keep honest with himself.
+- **The Tùng Đào man.** Phù Liên Kiều came to the outer gate in 1194 on Hồ Tùng Nguyệt's money to learn the Haze Walk,
+  she says; her letters ask for a list of what the open shelves hold of the pines' canon. The sect locks nothing, and
+  that is making him harder to keep honest with himself.
 - **The founder's last blood.** Âu Dương Tân Di is kept on the ridge as a relic and wants to go down. If she does, the
   Cliff Hall loses its strongest claim.
 
@@ -395,9 +399,11 @@ Ngải Thanh Hao (Thanh Nang Đường's healing method), the guest refiner and 
 2. **One secret, kept twice.** Whoever learns that both Ngu and Cù know why the founder died early can heal the Ridge
    or break it. The soil under the new hall is the proof that Cù never wanted the sect cut off from the ridge. (Ngu Lam
    Sơn, Cù Thúy Bách, Quyền Thanh Lam; places 1, 1110.)
-3. **What the thaw brings up.** A warm spring could bring the six Tùng Đào patrolmen up out of the river-mouth ice.
-   Đàm Thanh Giang is asking where they went, Nhạc Chính Hành wants proof, and Hướng Vãn Chu has to choose between her
-   father and her lover. (Hướng Dạ Đăng, Võ Hàn Lô, Nhạc Chính Hành, Hướng Vãn Chu, Đàm Thanh Giang; place 31.)
+3. **What the thaw brings up.** A warm spring could bring the six Tùng Đào patrolmen up out of the river-mouth ice. Đàm
+   Thanh Giang, who has brewed the Coiled Root Hall's winter wound pills one grade weak since 1190 so that no patrol can
+   hold the river-mouth ice for a night, is asking where they went; Nhạc Chính Hành wants proof, and Hướng Vãn Chu has
+   to choose between her father and her lover. (Hướng Dạ Đăng, Võ Hàn Lô, Nhạc Chính Hành, Hướng Vãn Chu, Đàm Thanh
+   Giang; place 31.)
 4. **The silk ledger.** Kiển Viễn Chí learns his mother is Tề Tử Tô. Then he learns what she reads at night. Trương
    Mặc Thán has seen the book. Exposing her ends her, and keeping quiet makes him her accomplice. (Kiển, Tề, Trương,
    Úy Thanh Diễm; places 1110, 45.)
@@ -412,9 +418,12 @@ Ngải Thanh Hao (Thanh Nang Đường's healing method), the guest refiner and 
    that killed her correctly: a pill to carry a Nguyên Anh through the Hóa Thần tribulation. He has not decided whom it
    is for. (Úy, Ngu Lam Sơn, Cù Thúy Bách; abode A-2.)
 8. **The man in the outer gate.** Phù Liên Kiều has the warden's son's friendship and the envoy's trust. Hồ Tùng
-   Nguyệt wants the Haze Walk by winter. (Phù Liên Kiều, Hướng Tiểu Lâm, Biện Vãn Tình, Hồ Tùng Nguyệt; places 1110, 31.)
-9. **Gift or theft.** The elders move to demand a tithe from Vụ Ẩn Môn for the Haze Walk. Tất Hành Vụ would rather
-   die than see his sworn brother's school pay for his gift. (Tất Hành Vụ, Tất Quế Lạc, Bàng Yên Tỏa; places 1110, 1063.)
+   Nguyệt wants the shelf list by winter. (Phù Liên Kiều, Hướng Tiểu Lâm, Biện Vãn Tình, Hồ Tùng Nguyệt; places 1110,
+   31.)
+9. **Gift or theft.** The elders move to demand a tithe from Vụ Ẩn Môn for the Haze Walk. Tất Hành Vụ would rather die
+   than see his sworn brother's school pay for his gift. Nhạc Chính Hành has kept the tithe off the table since 1190,
+   because Vụ Ẩn's head sells him a page each new moon on what passes under the mist, and this time he must vote. (Tất
+   Hành Vụ, Tất Quế Lạc, Bàng Yên Tỏa, Nhạc Chính Hành; places 1110, 1063.)
 10. **The herder's last spring.** Uông Mục Địch, 198, tries for Kết Đan on the cape with the spirit herd listening.
     The last time a flute played to spirit cattle at a breakthrough, they trampled Địch Thanh Viện (V014). (Uông Mục
     Địch, Uông Tiểu Ngưu, Tất Hành Vụ; places 56, 391.)

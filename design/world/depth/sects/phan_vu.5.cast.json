@@ -33,7 +33,7 @@
     "calling": "Strategist",
     "upbringing": "village_born"
    },
-   "backstory": "Holds the road posts between Tang Điền and the Fire Court for Đới Liệt Cương (doi_liet_cuong); the palace's envoy counts his men's days as tribute, and he has started counting them as days lent.",
+   "backstory": "Holds the road posts between Tang Điền and the Fire Court for Đới Liệt Cương (doi_liet_cuong); the palace's envoy counts his men's days as tribute, and since the rent set them against what the hall owes at a porter's wage he has pulled one post off the road for every porter's wage it does not pay.",
    "ties": [
     {
      "to": "hung_phan_vu",
@@ -76,7 +76,8 @@
      "start": "hoa",
      "intent": "Burn, then stand."
     }
-   }
+   },
+   "changed": "pass B (fixB-1, 2026-11-25): 'has started counting them as days lent' -> an act inside the rent arc"
   },
   {
    "key": "sai_tinh_lan",
@@ -286,7 +287,7 @@
    "stage": 1,
    "sect": "phan_vu",
    "rank": "noi_mon",
-   "home": 29,
+   "home": 253,
    "birthplace": 29,
    "role": "Keeps watch at the Lower Mouth on moonless nights",
    "tier": "C",
@@ -306,7 +307,7 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Walks behind Bao Viêm Nương (bao_viem_nuong) on moonless nights to keep watch at the Lower Mouth, and has seen the palace's ward come out of the vent with fresh burns; she has been told the ward is a dream.",
+   "backstory": "Keeps watch at the Lower Mouth on moonless nights for Bao Viêm Nương (bao_viem_nuong), and is paid in the palace ward's rice to call her a dream if anyone asks who came down the rock.",
    "ties": [
     {
      "to": "bao_viem_nuong",
@@ -316,7 +317,7 @@
     {
      "to": "hung_diem_nhi",
      "kind": "friend",
-     "note": "the ward she was told is a dream"
+     "note": "the ward whose rice pays for her silence"
     }
    ],
    "master": "bao_viem_nuong",
@@ -339,7 +340,8 @@
      "start": "hoa",
      "intent": "Fire burst, then stand."
     }
-   }
+   },
+   "changed": "home 29 -> 253 (pass B, fixB-1, 2026-11-25): she watches at the Lower Mouth, and no longer only witnesses the ward but is paid by her"
   },
   {
    "key": "nhiep_hoi_sinh",
@@ -440,7 +442,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "Her Fire never came; she keeps the cooled lava at the vent's foot where the hall's dead stand and knows each by name. Long Chước Sinh (long_chuoc_sinh) spars with her because she will not hold back.",
+   "backstory": "Her Fire never came; she keeps the cooled lava at the vent's foot where the hall's dead stand and knows each by name. This spring she walked the treasurer's clerks through it and named every one they counted for rent. Long Chước Sinh (long_chuoc_sinh) spars with her because she will not hold back.",
    "ties": [
     {
      "to": "ngac_tri_hoa",

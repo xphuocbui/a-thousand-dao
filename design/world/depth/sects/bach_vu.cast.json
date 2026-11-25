@@ -36,7 +36,7 @@
     "personality": [
      "Ambitious",
      "Gregarious",
-     "Loyal"
+     "Callous"
     ],
     "calling": "Beast tamer",
     "upbringing": "wild_raised",
@@ -56,9 +56,9 @@
     "gained": []
    },
    "appearance": "A quick, bright-eyed woman in a cloak of moulted feathers, with three small birds asleep along her shoulders and a bone whistle on a cord.",
-   "backstory": "Tạ Thanh Loan grew up netting birds with her sister Tạ Thanh Thước (ta_thanh_thuoc) in the cinnamon woods of Nhục Quế Thôn, under an old catcher, Tuyên Bách Minh (tuyen_bach_minh), who told them all birds bow to the phoenix. In 1110 the three of them founded the pavilion to raise messenger birds for the palace (V137). Tuyên would not lead, so she did. The pavilion's birds now carry the palace's ordinary post, its fan-makers supply the inner gate, and its catchers bring down the vent-bird feathers for the Feather Kindling. The palace's writs still fly on the red-crested birds of the Wutong Court, which Vu Ngô Đồng (vu_ngo_dong) keeps and lends her and never asks back. In 1180 she sent her nephew Ổ Linh Tước (o_linh_tuoc) to the Wutong Court to learn them. She is 128, Trúc Cơ, and has seventy years to reach Kết Đan.",
-   "wants": "Kết Đan before her years run out, and the pavilion's birds carrying the palace's writs.",
-   "secret": "In a hidden loft she has nine red-crested writ birds, hatched from eggs her nephew carried out of the Wutong aviary without Vu Ngô Đồng's leave. She means to present them to the palace head as proof that Bách Vũ can raise writ birds. If Vu learns how she got them, it shames him, her nephew and her.",
+   "backstory": "Tạ Thanh Loan grew up netting birds with her sister Tạ Thanh Thước (ta_thanh_thuoc) in the cinnamon woods of Nhục Quế Thôn, under an old catcher, Tuyên Bách Minh (tuyen_bach_minh), who told them all birds bow to the phoenix. In 1110 the three of them founded the pavilion to raise messenger birds for the palace (V137). Tuyên would not lead, so she did. The pavilion's birds now carry the palace's ordinary post, its fan-makers supply the inner gate, and its catchers bring down the vent-bird feathers for the Feather Kindling. The palace's writs still fly on the red-crested birds of the Wutong Court, which Vu Ngô Đồng (vu_ngo_dong) keeps and lends her and never asks back. In 1180 she sent her nephew Ổ Linh Tước (o_linh_tuoc) to the Wutong Court to learn them, and since 1196 he has sent their eggs home. In 1199 the last basket came down lined with the Court hen's plucked down, and she burned it before her sister could see. She is 128 and Trúc Cơ.",
+   "wants": "The palace's writs carried on the pavilion's birds, and the pavilion counted among the palace's halls rather than its servants.",
+   "secret": "In a hidden loft she has nine red-crested writ birds, hatched from eggs her nephew carried out of the Wutong aviary without Vu Ngô Đồng's leave. In 1199 he wrung the neck of the Court's breeding hen to take the last clutch, and the basket came lined with the hen's down; Tạ burned it and told her sister the eggs were Vu's gift. She is taking the nine to the Fire Court anyway, and she has promised Ổ the writ loft for his silence, over the girl who raised the birds.",
    "ties": [
     {
      "to": "ta_thanh_thuoc",
@@ -68,7 +68,7 @@
     {
      "to": "o_linh_tuoc",
      "kind": "niece_nephew",
-     "note": "her sister's son, at the Wutong Court; he sends the eggs"
+     "note": "her sister's son, at the Wutong Court; he killed the hen for the eggs, and she has promised him the writ loft"
     },
     {
      "to": "vu_ngo_dong",
@@ -83,7 +83,7 @@
     {
      "to": "nhieu_tieu_yen",
      "kind": "disciple",
-     "note": "the only one allowed in the hidden loft"
+     "note": "the only one allowed in the hidden loft; Tạ has promised the loft to someone else"
     },
     {
      "to": "ninh_truc_thuc",
@@ -148,6 +148,11 @@
     "bvc-blue-luan-whistle",
     "bvc-moulted-feather-fan"
    ],
+   "beasts": [
+    "tieu_loan",
+    "que_tuoc",
+    "mac_vu"
+   ],
    "changed": "new record fields for an existing person (tier A): root, build, birthplace 769, ties. Key, name, birth, realm, sect and rank kept."
   },
   {
@@ -166,6 +171,9 @@
    "birthplace": 769,
    "role": "Co-founder; keeper of the moulting lofts, where the hundred feathers are gathered",
    "tier": "B",
+   "beasts": [
+    "quy_thuoc"
+   ],
    "root": {
     "elements": {
      "moc": 58,
@@ -583,7 +591,7 @@
     "calling": "Beast tamer",
     "upbringing": "village_born"
    },
-   "backstory": "Tạ Thanh Loan (ta_thanh_loan) gave her the key to a loft no one else may enter and nine red-crested birds to feed, and she is sure it is an honour.",
+   "backstory": "Tạ Thanh Loan (ta_thanh_loan) gave her the key to a loft no one else may enter and nine red-crested birds to feed, and she is sure it is an honour. Every dawn she teaches them to come to her master's whistle and roost in that loft, because no one has told her a gift should home anywhere else.",
    "ties": [
     {
      "to": "ta_thanh_loan",
@@ -782,13 +790,13 @@
    "traits": {
     "personality": [
      "Reclusive",
-     "Patient",
+     "Greedy",
      "Pragmatic"
     ],
     "calling": "Refiner",
     "upbringing": "servant_born"
    },
-   "backstory": "A raft-village man with a Metal root who weaves the few training cages the pavilion permits; he made nine new ones last year for Nhiêu Tiểu Yến (nhieu_tieu_yen) and was told not to ask.",
+   "backstory": "A raft-village man with a Metal root who weaves the few training cages the pavilion permits. He made nine travelling cages for the head's gift this year, and when he was told not to ask what they were for, he charged double.",
    "ties": [
     {
      "to": "nhieu_tieu_yen",

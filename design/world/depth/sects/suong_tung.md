@@ -49,14 +49,14 @@ inner gate, and the north-shore boys who do not stay at the outer gate and carry
 | 1033 | A spring storm drives the breaking ice ashore and flattens half of Nghênh Nguyệt Trấn; Chiêm Thư Sương, a ward-writer of the pines' Array Hall, makes the Lantern Ward | V006, **N-suong_tung-01** |
 | 1060 | Talisman makers sworn to Tùng Đào found the pavilion in the high pines and write their wards on birch bark and resin | V007 |
 | 1116 | A lantern-maker's boy of Hồ Khẩu copies a pavilion ward onto his father's lantern; the founder takes him | |
-| 1150 | The founder copies the wards an old singer of the Array Hall lays with three songs, and seals the copies in a box | **N-suong_tung-02** (kind `craft`, hidden: out of the chronicle and annals until the player uncovers it) |
-| 1151 | The singer dies in seclusion; the songs are thought lost | N-tung_dao-05 |
+| 1135 | The founder copies the wards an old singer of the Array Hall lays with three songs, and seals the copies in a box | **N-suong_tung-02** (kind `craft`, hidden: out of the chronicle and annals until the player uncovers it) |
+| 1136 | The singer dies in seclusion; the songs are thought lost | N-tung_dao-05 |
 | 1170 | The founder dies at her desk; Văn Hàn Đăng becomes head | **N-suong_tung-03** |
 
 **New chronicle proposals:**
 - **N-suong_tung-01** (1033, `craft`): "After the ice wall at Nghênh Nguyệt, a ward-writer of Tùng Đào's Array Hall writes a
   ward inside a paper lantern that keeps the ice off a village for a winter."
-- **N-suong_tung-02** (1150, `craft`, hidden): "Sương Tùng's founder copies the wards an old singer of Tùng Đào's Array Hall
+- **N-suong_tung-02** (1135, `craft`, hidden): "Sương Tùng's founder copies the wards an old singer of Tùng Đào's Array Hall
   lays with his songs, and seals the copies in a box."
 - **N-suong_tung-03** (1170, `death`): "The founder of Sương Tùng Các dies at her desk with the brush in her hand; her
   disciple Văn Hàn Đăng, of Hồ Khẩu, becomes head."
@@ -115,7 +115,7 @@ tier because the founder would not write anything deeper.
 
 - **Tùng Đào Cung (lord):** the pavilion exists because Đàm Tùng Lại let a ward-writer of his Array Hall write (V007). It
   makes the palace's wards and the River Hall's sluice wards. The pines check its paper: Lư Chỉ Mặc counts every sheet.
-  Cận Tùng Hàn of the Array Hall orders its wards and is dying. His successor Khuông Hàn Ly wants the pavilion to write
+  Cận Tùng Hàn of the Array Hall orders its wards, and Khuông Hàn Ly of his hall wants the pavilion to write
   the songs the hall has lost. Văn does not tell him he may have three.
 - **Hàm Nguyệt Trang:** the pavilion's lanterns hang over the pearl beds, and Kiều Nguyệt Châu pays in pearl dust, which
   goes into the strongest wards. Its lantern-walker drinks with Hàm Nguyệt's divers.
@@ -126,17 +126,20 @@ tier because the founder would not write anything deeper.
 
 ## 9. Inside the sect
 
-- **The founder's box.** Three ward-scripts the founder copied in 1150 from the wards an old singer of the Array Hall laid
-  with three songs; she never heard the songs, and he died the next year with them (N-tung_dao-05). Written as wards they were allowed. Read as songs
-  they are the canon written down. Only Văn knows what is in the box. He is teaching his disciple Chu Ánh Tuyết to read
-  the founder's hand and has not told her why.
-- **No Golden Core.** The pavilion has been led by a Trúc Cơ for thirty years. Văn cannot teach a Trúc Cơ. Nhạc Hoa Bì,
-  who expected the headship in 1170, thinks the pavilion needs a stronger head. She does not want the post herself any
-  more.
-- **The debts.** Nhạc says Văn gives the lake villages too many lanterns and lets their debts stand. He has never refused
-  a lantern.
-- **The ice wall.** Hạng Băng Tường wants to write the ward that would have saved Nghênh Nguyệt. The Lantern Ward stops
-  ice drifting ashore. He wants one that would stop a wall of it.
+- **The spring of walls.** Last winter the ice-cutters of Tạc Băng Thôn cut blocks thicker than any since 1033 (V006),
+  and they say the coming spring will drive the ice ashore in walls. The Lantern Ward stops ice drifting ashore, not a
+  wall of it. This summer Văn Hàn Đăng finished a ward against a wall from Hạng Băng Tường's drafts. It has held a night
+  in the paper yards and never met a wall, and each sheet takes three of bark and a pinch of Hàm Nguyệt's pearl dust:
+  the yards have stock for about sixty. Văn has promised every village on the lake one.
+- **Silver first.** Nhạc Hoa Bì sold the first forty to Băng Tâm's north-shore villages, which pay in silver lent them
+  by the skiff master Lục Hàn Chu's captains. Cao Hàn Chúc carried the order up and carries the silver back. The pines'
+  villages pay in debts that have stood for years. Nhạc says the silver buys next winter's bark, and Văn has not been
+  told the count.
+- **The lantern road.** Khổng Dạ Hành carries the wall lanterns round the lake this autumn. In the villages that owe,
+  he takes the new lantern down before dawn and hangs last year's in its place, so the headman still sees a lantern on
+  his post. He carries the new one on to the north shore, where headmen who missed Nhạc's forty pay him a silver apiece.
+  Hạng Băng Tường walks the road with him and saw it done at Tịch Ba, his own family's village. He is writing Tịch Ba a
+  wall ward of his own on the paper yards' spoiled sheets.
 
 ## 10. Treasures and sets
 
@@ -167,19 +170,23 @@ The pavilion's Trúc Cơ were all the dead founder's disciples, so it stops at 9
 
 ## 12. Story hooks
 
-1. **The box.** Cận Tùng Hàn dies, and Khuông Hàn Ly comes to the pavilion asking for any ward that might hold a lost
-   song. Văn can open the founder's box and give the Array Hall its songs back, which would admit the pavilion wrote the
-   canon down, or he can lie to a dying hall. (Văn Hàn Đăng, Chu Ánh Tuyết, Khuông Hàn Ly, Cận Tùng Hàn; places 948, 2.)
+1. **The box.** Khuông Hàn Ly, laying a crossing for Nhiếp Cô Tân, comes to the pavilion asking for any ward that
+   might hold a lost song. Văn can open the founder's box and give the Array Hall its songs back, which would admit the
+   pavilion wrote the canon down, or he can lie to a hall that has asked for years. (Văn Hàn Đăng, Chu Ánh Tuyết, Khuông Hàn Ly, Cận Tùng Hàn; places 948, 2.)
 2. **Two written canons.** If Vi Thanh Âm's zither is opened (`tung_dao.md` hook 2), the pines search every house that
    writes. The founder's box is the next thing they will find. (Văn Hàn Đăng, Hà Thính Tùng, Sử Trường Ngâm.)
-3. **The wall comes back.** A spring storm drives the ice ashore in a wall again, this time at Tịch Ba Thôn. Hạng Băng
-   Tường and Khổng Dạ Hành have one night to write and hang a ward that has never held. (Hạng Băng Tường, Khổng Dạ Hành,
-   Văn Hàn Đăng; places 944, 943.)
-4. **The north-shore lanterns.** Băng Tâm's skiff master objects to Tùng Đào's vassal hanging lanterns on his side of the
-   arbitration line, or he wants them for his own villages. (Khổng Dạ Hành, Cao Hàn Chúc, Lục Hàn Chu; places 974, 976.)
+3. **The wall comes back.** A spring storm drives the ice ashore in a wall at Tịch Ba Thôn, where last year's lantern
+   hangs on the post. Hạng Băng Tường has one night to hang a ward on spoiled paper that has never held, and Khổng Dạ
+   Hành is a month up the shore. (Hạng Băng Tường, Khổng Dạ Hành, Văn Hàn Đăng; places 944, 943.)
+4. **The north-shore lanterns.** The north shore's wall lanterns were bought with Băng Tâm silver, and Lục Hàn Chu's
+   captains tell the fishers the Pavilion bought them. Tùng Đào's Lake Warden hears that its own vassal sells wards
+   across the arbitration line. (Khổng Dạ Hành, Cao Hàn Chúc, Lục Hàn Chu, Thiều Lăng Ba; places 974, 976.)
 5. **The pearl paper.** Hàm Nguyệt's pearl dust stops coming when the manor's books are opened. The palace's strongest
-   wards are due before winter. (Văn Hàn Đăng, Nhạc Hoa Bì, Kiều Nguyệt Châu.)
+   wards and the last wall lanterns are due before winter. (Văn Hàn Đăng, Nhạc Hoa Bì, Kiều Nguyệt Châu.)
 6. **The founder's last sheet.** The unfinished ward on the founder's desk begins to glow on the anniversary of her death.
    Chu Ánh Tuyết can read enough of the hand to see that it is not a ward. (Chu Ánh Tuyết, Văn Hàn Đăng, Quản Sương Thư.)
 7. **Fire at the kilns.** A kiln at Thán Diêu catches the pines, the gravest crime on the ground, and the Coiled Root Hall
    wants the ink-maker's name. (Quản Sương Thư, Nghê Tùng Yên, Nhiếp Cô Tân; place 932.)
+8. **The count.** Văn learns how many wall lanterns hang where, from Cao Hàn Chúc's silver, from Hạng, or from the
+   player. He can take the north shore's back, which the Pavilion paid for, or let the pines' villages wait. (Văn Hàn
+   Đăng, Nhạc Hoa Bì, Khổng Dạ Hành, Cao Hàn Chúc; places 948, 974.)

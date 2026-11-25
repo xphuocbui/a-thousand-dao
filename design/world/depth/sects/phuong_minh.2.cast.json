@@ -436,7 +436,7 @@
     {
      "to": "kha_thanh_mieu",
      "kind": "disciple",
-     "note": "the bamboo girl he worries about"
+     "note": "the Wood girl whose order to the ridge he has held back a year"
     },
     {
      "to": "dieu_ngoc_xuyen",
@@ -643,7 +643,10 @@
    "items": [
     "pm-wutong-twig-ring"
    ],
-   "authored": "d36"
+   "authored": "d36",
+   "beasts": [
+    "ngu_cau"
+   ]
   },
   {
    "key": "thu_ngan_hanh",
@@ -881,9 +884,9 @@
    "stage": 0,
    "sect": "phuong_minh",
    "rank": "noi_mon",
-   "home": 449,
+   "home": 253,
    "birthplace": 29,
-   "role": "Hùng Phần Vũ's daughter, a ward of the palace since she was twelve",
+   "role": "Hùng Phần Vũ's daughter, the palace's ward since she asked to go at twelve; serves at the Nest on the vent's lip",
    "tier": "B",
    "root": {
     "elements": {
@@ -903,7 +906,7 @@
    "traits": {
     "personality": [
      "Stubborn",
-     "Loyal",
+     "Ambitious",
      "Wrathful"
     ],
     "calling": "Duelist",
@@ -924,7 +927,7 @@
     "gained": []
    },
    "appearance": "Thick-armed and short-haired, with the burn-mottled skin of the vents under her inner-gate red.",
-   "backstory": "Hùng Phần Vũ (hung_phan_vu) sent his daughter to the palace at twelve, as every head of Phần Vũ Đường must, and the palace has kept her as a ward for thirty-eight years. Thích Hồng Linh (thich_hong_linh) teaches her the fan. At night she slips out to the vents four tiles away and tempers with her father's disciples, which the palace forbids its own people. She is the hall's surety, and she knows it.",
+   "backstory": "In 1161 her father's first elder Tào Tẫn Kiên (tao_tan_kien) sat her in the vent at eleven and burned her arm to the bone. When the palace asked Phần Vũ for a surety the next year, she asked to be sent. Thích Hồng Linh (thich_hong_linh) taught her the fan at the Fire Court. Since 1190 she has served at the palace's Nest, a hundred paces above Phần Vũ's sitting places, and at each dark of the moon she climbs down to temper with her father's disciples. This spring she offered the palace's treasurer the banner back, if the palace backs her and not Tào.",
    "ties": [
     {
      "to": "hung_phan_vu",
@@ -934,7 +937,7 @@
     {
      "to": "thich_hong_linh",
      "kind": "master",
-     "note": "her fan master, who looks the other way at night"
+     "note": "her fan master at the Fire Court until 1190"
     },
     {
      "to": "bao_viem_nuong",
@@ -949,22 +952,32 @@
     {
      "to": "tao_tan_kien",
      "kind": "rival",
-     "note": "her father's first elder, who had her sent to the palace in 1162 for a promise of the succession"
+     "note": "her father's first elder; he sat her in the vent at eleven, and was promised the succession in 1162"
     },
     {
      "to": "hung_liet_nha",
      "kind": "cousin",
-     "note": "her cousin; Phần Vũ Đường's second surety at the palace"
-    },
-    {
-     "to": "hung_liet_nha",
-     "kind": "disciple",
-     "note": "Phần Vũ Đường's second surety at the palace"
+     "note": "her cousin at the Fire Court; rides her to the Hall of Trust and writes Tào what she does, which she does not know"
     },
     {
      "to": "cat_xich_van",
      "kind": "friend",
      "note": "keeps watch at the Lower Mouth on moonless nights"
+    },
+    {
+     "to": "vuu_cam_thu",
+     "kind": "friend",
+     "note": "the treasurer she has offered the banner, for the palace's backing"
+    },
+    {
+     "to": "trang_hoi_y",
+     "kind": "friend",
+     "note": "lets her sit at the Lower Mouth and ties no knot for her"
+    },
+    {
+     "to": "nhiep_tan_sa",
+     "kind": "master",
+     "note": "the grand elder who took her for the Nest's watch in 1190"
     }
    ],
    "master": "thich_hong_linh",
@@ -1006,7 +1019,8 @@
      "targets_note": "Lineage, then her father's hall: Cinder Petals, Fire-Tempered Body, Fire and Earth."
     },
     "note": "A vent-tempered body under a palace fan."
-   }
+   },
+   "changed": "pass B (fixB-1, 2026-11-25): home 449 -> 253 (she serves at the Nest since 1190, so the Lower Mouth is a hundred paces below her, not 75 km); traits Loyal -> Ambitious; she asked to be the surety (M17, SHAPES-PLAN §4.2 phan_vu); duplicate disciple tie to her cousin merged"
   },
   {
    "key": "tang_tuc_lac",
@@ -1063,22 +1077,17 @@
     ]
    },
    "appearance": "A good-looking, easy man who always has a fire-silk scarf that is not quite the palace's colour.",
-   "backstory": "The array keeper's son, Tang Tục Lạc was meant to keep the Nest after his mother Tang Kế Ti (tang_ke_ti) and has no gift for it. What he has is a road: every month he rides to Chức Hà Các and comes back with vent-less silk for her splices and with the head of Chức Hà, Thân Vân Cẩm (than_van_cam), on his mind. The palace has not yet decided whether Chức Hà's silk pleases it (V172). He has decided.",
+   "backstory": "The array keeper's son, Tang Tục Lạc was meant to keep the Nest after his mother Tang Kế Ti (tang_ke_ti) and has no gift for it. What he has is a road: twice a year he rides the two months down to Chức Hà Các with the season's silk cart, for the vent-less silk his mother splices, and for its head Thân Vân Cẩm (than_van_cam). Last autumn he asked her to marry him, and his mother named the dowry. On the spring cart he saw the pavilion's northern bolts under the palace's, and paid the weight toll at Tang Điền from his own purse so that no one would ask.",
    "ties": [
-    {
-     "to": "tang_ke_ti",
-     "kind": "master",
-     "note": "his mother and master"
-    },
     {
      "to": "than_van_cam",
      "kind": "lover",
-     "note": "head of Chức Hà Các"
+     "note": "head of Chức Hà Các; he asked her to marry him last autumn"
     },
     {
      "to": "tang_ke_ti",
      "kind": "parent",
-     "note": "his mother and master"
+     "note": "his mother and master, who named the dowry"
     }
    ],
    "master": "tang_ke_ti",
@@ -1117,7 +1126,8 @@
      "targets_note": "Lineage, Dry Kindling and his mother's Molten Shell ward, Kindled Wood: her path walked badly."
     },
     "note": "A banner and a ward; he talks first."
-   }
+   },
+   "changed": "pass B (fixB-1, 2026-11-25): 'every month' -> twice a year (1013 is about 55 days from 449); the proposal promoted from chuc_ha hook 5 (SHAPES-PLAN §4.4); duplicate master tie merged into parent"
   },
   {
    "key": "bac_dich_thanh",
@@ -1615,9 +1625,9 @@
    "stage": 1,
    "sect": "phuong_minh",
    "rank": "ngoai_mon",
-   "home": 211,
+   "home": 449,
    "birthplace": 703,
-   "role": "Outer disciple at the vein fort, with a Thunder root",
+   "role": "The vein fort's clerk at the Fire Court; pays for the Tower's thunder with the fort's watch rota",
    "tier": "C",
    "root": {
     "elements": {
@@ -1631,23 +1641,23 @@
    "traits": {
     "personality": [
      "Impatient",
-     "Fickle",
+     "Faithless",
      "Brave"
     ],
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "Born at the Lưu Kim mine, where the ore hums with thunder, he has Thunder the palace cannot teach and too little Fire to pass the Feather Kindling, so he goes to the guest elder Chử Trì Âm (chu_tri_am) at night to learn the Tower's way.",
+   "backstory": "Born at the Lưu Kim mine, where the ore hums with thunder, he has Thunder the palace cannot teach and too little Fire to pass the Feather Kindling. Hách Chu Lăng (hach_chu_lang) made him her clerk at the Fire Court, and he keeps the vein fort's watch rota for the war hall. The guest elder Chử Trì Âm (chu_tri_am) teaches him thunder at night, and the price is the rota.",
    "ties": [
     {
      "to": "hach_chu_lang",
      "kind": "master",
-     "note": "his warden"
+     "note": "his warden, whose rota he sells"
     },
     {
      "to": "chu_tri_am",
      "kind": "friend",
-     "note": "teaches him thunder in secret"
+     "note": "teaches him thunder at night, for the vein fort's watch rota"
     }
    ],
    "master": "hach_chu_lang",
@@ -1669,7 +1679,8 @@
      "start": "loi",
      "intent": "Thunder strikes, which the palace does not teach."
     }
-   }
+   },
+   "changed": "pass B (fixB-1, 2026-11-25): home 211 -> 449 (the guest elder lives at the Fire Court, 2,900 km from the vein fort); traits Fickle -> Faithless; now the Tower's informer (SHAPES-PLAN §4.3 phuong_minh, read-great-2 #8)"
   },
   {
    "key": "thuong_tan_quy",
@@ -1772,14 +1783,14 @@
    },
    "traits": {
     "personality": [
-     "Gregarious",
+     "Callous",
      "Lazy",
-     "Generous"
+     "Greedy"
     ],
     "calling": "Beast tamer",
     "upbringing": "clan_heir"
    },
-   "backstory": "Tạ Thanh Loan's (ta_thanh_loan) nephew from Bách Vũ Các, sent to the palace to learn the red-crested birds and send their eggs home.",
+   "backstory": "Tạ Thanh Loan's (ta_thanh_loan) nephew, sent from Bách Vũ Các to learn the red-crested birds; since 1196 he has sent their eggs home a few at a time. In 1199 he wrung the breeding hen's neck on her last clutch, lined the egg basket with her down, and told Vu Ngô Đồng she died in the moult. His aunt has promised him Bách Vũ's writ loft.",
    "ties": [
     {
      "to": "vu_ngo_dong",
@@ -1789,7 +1800,7 @@
     {
      "to": "ta_thanh_loan",
      "kind": "aunt_uncle",
-     "note": "his aunt, head of Bách Vũ Các"
+     "note": "his aunt; she burned the hen's down and promised him the writ loft"
     },
     {
      "to": "tran_tuoc_nhi",
@@ -1841,7 +1852,8 @@
      "start": "moc",
      "intent": "Wood companion nodes."
     }
-   }
+   },
+   "changed": "pass B (fixB-1 applying fixB-4's row, 2026-11-25): the hen killed for the eggs (SHAPES-PLAN §4.2 bach_vu); traits Gregarious, Generous -> Callous, Greedy; the requested sentence condensed to fit a tier C backstory (70 words)"
   },
   {
    "key": "canh_vu_ca",

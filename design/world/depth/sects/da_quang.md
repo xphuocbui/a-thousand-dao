@@ -19,7 +19,8 @@
 A camp of felt and rammed earth on the steppe at the desert's edge, with a horse line longer than the camp. For 150
 years Dạ Quang's riders robbed the Pavilion's caravan road and drank from night-glowing cups after every raid. In 1121
 the Pavilion beat them, and their head knelt and gave his son. They now ride escort on the same road, for wages. Their
-young drink from the cups again, and the Pavilion's elders pretend not to see.
+young drink from the cups again, and the Pavilion's elders pretend not to see. The road has never been safer for a
+train that hires them.
 
 ## 2. Land and seat
 
@@ -47,7 +48,7 @@ which is why the Hạng are Metal-Fire.
 | 1119-1121 | **Taming of Dạ Quang**: Băng Tâm marches, burns Huyết Đao Trại; Lâu Minh Châu and Cổ Mạc Phong die there; Hạng kneels; his son Hạng Minh Sa goes to the Pavilion | C184, V074, C185, N-bang_tam-05 |
 | 1121 | The raiders are made to guard the caravans they robbed | A123 |
 | 1125 | Trấn Sa Đường is founded to watch the new escorts | V075 |
-| 1194 | The young blades drink from the cups again | A126 |
+| 1194 | The young blades drink from the cups again; Đồ Xích Linh's band begins to strike the trains that ride without Dạ Quang (§9) | A126 |
 
 **New chronicle proposals:**
 - **N-da_quang-01** (968, `execution`): "The Desert Pavilion hangs the caravan guard Hạng for a tax caravan lost to the
@@ -104,7 +105,8 @@ a library. It has what it took.
 ## 8. Relations
 
 - **Băng Tâm Các (lord):** a beaten vassal (loyalty 40). Sở Ngọc Hồ made Hạng kneel and keeps his son. Ôn Sa Ngọc of
-  the Desert Pavilion keeps the peace with the escorts and has been kind to the hostage for 79 years.
+  the Desert Pavilion keeps the peace with the escorts, pays them by loads delivered, and has been kind to the hostage
+  for 79 years.
 - **Trấn Sa Đường:** the guard families of Trường Vân, founded in 1125 to watch Dạ Quang's escorts (V075). To them Hạng
   is the guard who turned. Its head Viên Cô Yên lost her father to Dạ Quang raiders. Her watcher Nhiếp Cô Đăng rides
   behind every escort Ô Liệt Phong leads.
@@ -114,15 +116,34 @@ a library. It has what it took.
 
 ## 9. Inside the sect
 
-- **The heir.** Hạng Minh Sa has been at the Pavilion for 79 years and has been taught nothing. Đồ Xích Linh wants her
-  daughter Hạng Lưu Hỏa named heir instead and would leave the hostage where he is. Lưu Hỏa writes to her half-brother
-  every year and does not know what she wants.
-- **The knee.** The old riders who knelt (Hạng, Ô Liệt Phong) are tired and paid. The young who never knelt (Lưu Hỏa,
-  Cừu Lạc Nhật) want the cups and the road back. Hạng poured their first cup himself.
+- **The road that pays.** Since 1194 Đồ Xích Linh has run the Đà Linh road as a toll. A train that hires Dạ Quang's
+  escort at Đà Linh Trấn reaches Hồi Lan with every load. A small train that rides with its own hands meets "unknown
+  riders" on the empty steppe past Dương Bằng: Đồ's young blades, faces wrapped, no cup left behind. She leaves Trấn
+  Sa's trains alone, because one dead Trấn Sa guard would bring the Pavilion. The Pavilion pays its escorts by loads
+  delivered, and Dạ Quang's tally is the highest on the road. Hạng Dạ Bôi takes the silver and does not ask where the
+  band rides.
+- **The posted legs.** Ô Liệt Phong, the one honest captain in the camp, posts his legs on the board at the Đà Linh
+  well, so that small traders can join his train for a share of the fee. Đồ reads the same board. The band strikes while
+  his escort is out on the long leg, some hundred days of road each way to Hồi Lan. Trấn Sa's watcher Nhiếp Cô Đăng
+  rides one dune behind him, as she has for seventy years, so the hall's eyes are always on the one clean train.
+- **The sabre's feed.** The band keeps the drivers it takes, roped behind the camels. In the band's night camps Cừu
+  Lạc Nhật feeds his sabre on them with the art Triệu Huyết Y sold Đồ, and what is left goes into the sand without a
+  cup. Kiều Liệt Ca holds the rope. Đồ calls the taint strength. Mãn Xích Câu found the Hồi Lan driver who had won his
+  first cup at dice in the first train they struck, took the cup back, and gave the man to Cừu.
+- **The cups that keep the son.** Hạng wants his son home before he dies. Hạng Minh Sa has spent seventy-nine years at
+  the go board with the keeper of the Desert Pavilion; he would come home her friend and ride the road as a Pavilion
+  man. So Đồ keeps the Pavilion uneasy. On her orders Cổ Xích Nguyệt leaves a night-glow cup at a caravan stop each
+  season, and while cups turn up the Pavilion keeps its surety. The real strikes leave none. Hạng Lưu Hỏa rides with
+  the band and writes to her brother every year that the road is quiet.
+- **The knee.** The old riders who knelt (Hạng, Ô Liệt Phong, Trác Hồng Đà) are tired and paid. The young who never
+  knelt wanted the cups and the road back, and Đồ has given them both without anyone breaking the knee; the camp backs
+  her for it. Hạng poured their first cup himself.
 - **The hoard.** Under the sand of Mai Sa Bảo lies enough to hire a war. Only Hạng knows where; Lâu Minh Châu burned the
   ledgers so that the Pavilion would never find it.
-- **The taint.** Cừu Lạc Nhật has fed his sabre too long, and Đồ Xích Linh calls the taint strength.
-
+- **Across the road.** Trấn Sa hears of the unknown riders and cannot prove whose they are: no deserter rides with the
+  band, so Viên Cô Yên's spy Tất Dạ Lang hears only that it rides. Đồ buys Trấn Sa's routes from him to keep the band
+  clear of its trains and does not know Viên makes them false. She means to stage a raid in Dạ Quang's colours and put
+  it in front of the Pavilion (`tran_sa.md` §9). Each side is manufacturing the other's crime.
 ## 10. Treasures and sets
 
 - **The First Night-Glow Cup (Dạ Quang Bôi)**, from Hạng's first raid in 970, and **Night Sabre (Dạ Đao)**. Held by Hạng.
@@ -158,17 +179,24 @@ a library. It has what it took.
 ## 12. Story hooks
 
 1. **The hostage comes home.** Hạng Dạ Bôi asks the Pavilion for his son. Đồ Xích Linh works to make sure the answer is
-   no, and Hạng Lưu Hỏa must choose between her mother and a brother she has only written to. (Hạng, Đồ, Lưu Hỏa, Hạng
-   Minh Sa, Ôn Sa Ngọc; places 16, 214.)
+   no: more cups at the stops, and a word to the Desert Pavilion about the young blades. Hạng Lưu Hỏa must choose
+   between her mother and a brother she has only written to, and lied to. (Hạng, Đồ, Lưu Hỏa, Hạng Minh Sa, Ôn Sa
+   Ngọc; places 16, 214.)
 2. **The hoard under the sand.** A sandstorm uncovers a corner of Mai Sa Bảo. Trấn Sa's watchers, Dạ Quang's riders and
    the Desert Pavilion all ride for it. (Hạng, Nhiếp Cô Đăng, Ôn Sa Ngọc; place 1425.)
-3. **Cups at the caravan stops.** Night-glow cups begin to appear at stops on the road again. Is it the young blades'
-   taunt, or a real raid being planned? (Hạng Lưu Hỏa, Mãn Xích Câu, Viên Cô Yên; places 1418, 35.)
+3. **Cups at the caravan stops.** Night-glow cups turn up at the stops again, and Viên Cô Yên calls them a raid being
+   planned. A player who follows Cổ Xích Nguyệt learns they are a message for the Pavilion, and that the trains being
+   struck carry no cups at all. (Cổ Xích Nguyệt, Mãn Xích Câu, Viên Cô Yên; places 1418, 35.)
 4. **The blood art.** Đồ Xích Linh's letters to Triệu Huyết Y are found. Triệu is the disciple of the ma đạo master
-   Sở Ngọc Hồ killed (C024), so the Pavilion will not overlook it. (Đồ, Triệu Huyết Y, Cừu Lạc Nhật.)
-5. **The honest raider.** Ô Liệt Phong and Trấn Sa's Nhiếp Cô Đăng have ridden the same road for seventy years, one
-   guarding and one watching. When the young blades raid, which side does each take? (Ô, Nhiếp, Hùng Đà Linh.)
-6. **The turncoat's map.** Tất Dạ Lang sells Trấn Sa's caravan routes to Đồ Xích Linh. The player can catch him or ride
-   with him. (Tất, Viên Cô Yên, Đồ.)
+   Sở Ngọc Hồ killed (C024), so the Pavilion will not overlook it, and the letters say what the art is fed on. (Đồ,
+   Triệu Huyết Y, Cừu Lạc Nhật.)
+5. **The honest captain.** Ô Liệt Phong learns that the band strikes by the legs he posts at the well. He can stop
+   posting them, which ruins the small traders who ride with him, or tell Nhiếp Cô Đăng, who has watched him for
+   seventy years and found nothing. (Ô, Nhiếp, Đồ, Hùng Đà Linh; place 1418.)
+6. **The turncoat's map.** Tất Dạ Lang sells Trấn Sa's caravan routes to Đồ Xích Linh, and the band trusts them to keep
+   out of Trấn Sa's way; Viên makes them false. The player can catch him or ride with him. (Tất, Viên Cô Yên, Đồ.)
 7. **The old enemy's price.** A Phượng Minh envoy offers Dạ Quang stones for its sabres against the Pavilion. Hạng has
    never said no. (Hạng, Đồ; the Desert Road War grudge.)
+8. **A driver walks in.** A camel driver with a sabre cut that will not close reaches Hồi Lan Thành from a band's night
+   camp, and names a girl's voice and a rope. The merchants ask the player who rides past Dương Bằng. (Kiều Liệt Ca,
+   Cừu Lạc Nhật, Ô Liệt Phong; places 67, 1421.)

@@ -355,11 +355,6 @@
      "to": "hinh_trong_son",
      "kind": "friend",
      "note": "Lạc Hà's Watch warden and its war party; they meet at the miasma's edge"
-    },
-    {
-     "to": "mac_kinh_trap",
-     "kind": "rival",
-     "note": "the Pivot smith she offered a forge; they have never met"
     }
    ],
    "build": {
@@ -510,6 +505,11 @@
      "to": "manh_luu_ly",
      "kind": "rival",
      "note": "she holds the Water he lacks and will not bow to the Thunder Hall"
+    },
+    {
+     "to": "mac_kinh_trap",
+     "kind": "rival",
+     "note": "offered the Pivot a thunder-stone forge for her in 1198; the Thunder Hall wants a Thunder gate"
     },
     {
      "to": "ngo_the_dong",
@@ -1061,7 +1061,7 @@
     ]
    },
    "appearance": "A plain, heavy-lidded woman in grey who sits with her head tilted toward the nearest door, a small bronze bell sewn inside her collar.",
-   "backstory": "Nhiếp Vô Thanh was born in 880 in Hạnh Hoa Thị, the year the founder died (C164), into the family that has kept the Tower's Hall of Echoes since her grandfather Nhiếp Văn Lôi (nhiep_van_loi) began it. The Nhiếp are the Tower's ears: innkeepers, ferrymen and lamp-sellers across the south who repeat what they hear to one woman. The innkeepers of Thu Trì who learned not to ask a stranger's name (A313) learned it from her mother. She took the Hall in 1010 and swore the family oath to report to the head alone. She judges as well as listens. The Hall of Echoes tries the Tower's spies and traitors, and she has sent eleven of them to the soul vaults. Since the Pivot's count of 1165 (C200) she has known which of the Tower's clerks counts for Thiên Xu. She has done nothing about him, which the head takes for patience.",
+   "backstory": "Nhiếp Vô Thanh was born in 880 in Hạnh Hoa Thị, the year the founder died (C164), into the family that has kept the Tower's Hall of Echoes since her grandfather Nhiếp Văn Lôi (nhiep_van_loi) began it. The Nhiếp are the Tower's ears: innkeepers, ferrymen and lamp-sellers across the south who repeat what they hear to one woman. The innkeepers of Thu Trì who learned not to ask a stranger's name (A313) learned it from her mother. She took the Hall in 1010 and swore the family oath to report to the head alone. She judges as well as listens. The Hall of Echoes tries the Tower's spies and traitors, and she has sent eleven of them to the soul vaults. Since the Pivot's count of 1165 (C200) she has known which of the Tower's clerks counts for Thiên Xu. She has done nothing about him, which the head takes for patience. In 1199 she stopped the copper to Vũ Linh Đường, whose mistress's bells have heard her own listeners for fifty years; her price is the line and the book.",
    "wants": "To keep the Tower out of a war with the Pivot that it would lose, without breaking her oath to a head who wants that war.",
    "secret": "She has kept the Pivot's clerk Tào Mặc Toán alive since 1166 and uses him as a channel. For thirty years she has sent Doãn Ngọc Hành true numbers and true intentions, so that the Pivot never panics and never strikes first. By the letter of her oath it is treason.",
    "ties": [
@@ -1113,7 +1113,7 @@
     {
      "to": "an_thanh_linh",
      "kind": "rival",
-     "note": "Vũ Linh's head, whose bell she wears and whose hidden bells hear her ears"
+     "note": "Vũ Linh's head, whose bell she wears; since 1198 she knows the hidden bells hear her ears, and she has stopped the hall's copper"
     },
     {
      "to": "ninh_tich_dang",
@@ -1404,7 +1404,9 @@
     ]
    },
    "appearance": "A plump man in a black rain cloak lined with red silk, an iron abacus at his hip and a different ring on every finger.",
-   "backstory": "Kiều Mãn Lâu was born in 860 above his father's inn in Thu Trì Thành. When strangers in black came up the forest road at night after the Night Rain Edict (A313), the inn took their money and asked nothing, and Mạnh Dạ Vũ (manh_da_vu) noticed. He made Kiều master of the Night Rain Market when it opened (C198), and in fifty years the Tower's treasury doubled. Kiều sells ma đạo pills, poisons and arts under a roof that opens only after dark and only in rain (A315). In dry years he hires Cốc Vũ Quán to call rain.",
+   "backstory": "Kiều Mãn Lâu was born in 860 above his father's inn in Thu Trì Thành. When strangers in black came up the forest road at night after the Night Rain Edict (A313), the inn took their money and asked nothing, and Mạnh Dạ Vũ (manh_da_vu) noticed. He made Kiều master of the Night Rain Market when it opened (C198), and in fifty years the Tower's treasury doubled. Kiều sells ma đạo pills, poisons and arts under a roof that opens only after dark and only in rain (A315). In dry years he hires Cốc Vũ Quán to call rain. Since 1198 his best-selling paper has been Họa Tinh Đường's Dipper talisman, forged in deer glue at the Tower's coast house (hoang_tieu_diep): half the Hall's price, and the same gates.",
+   "wants": "The whole of Họa Tinh's rain-fast stroke by next spring, so that his Dipper needs no glue and no nose can tell it from the Hall's.",
+   "secret": "He gives the Tower's couriers their forged Dipper talismans for nothing, and this year they have passed three of the Pivot's gates on them.",
    "ties": [
     {
      "to": "manh_da_vu",
@@ -1459,7 +1461,7 @@
     {
      "to": "hoang_tieu_diep",
      "kind": "disciple",
-     "note": ""
+     "note": "keeps the coast house at Lãng Hoa, and its copyhouse"
     },
     {
      "to": "biet_tri_phan",
@@ -1499,7 +1501,7 @@
     {
      "to": "duong_hao_vu",
      "kind": "rival",
-     "note": "Cốc Vũ's head, who knows what her rain is bought for"
+     "note": "Cốc Vũ's head; since 1180 the abbey's rain has been sold at a price posted on its gate, and she knows what his buys"
     },
     {
      "to": "ho_dien_linh",
@@ -1510,6 +1512,11 @@
      "to": "hua_thanh_diem",
      "kind": "friend",
      "note": "the envoy he lends his couriers"
+    },
+    {
+     "to": "tham_tho_bich",
+     "kind": "debt",
+     "note": "owes her Kết Đan pills for a ripe stone of grave jade; his man is carrying it to Thu Trì"
     },
     {
      "to": "kieu_ngan_chau",
@@ -1648,7 +1655,7 @@
     {
      "to": "an_thanh_linh",
      "kind": "rival",
-     "note": "Vũ Linh Đường's bell-caster; they have argued bronze by letter for a century"
+     "note": "a century of letters about bronze; his forge now offers the Thunder Hall's copper if her next line is cast in lightning"
     },
     {
      "to": "manh_luu_ly",
@@ -1663,7 +1670,7 @@
     {
      "to": "chung_hong_lo",
      "kind": "rival",
-     "note": "Vũ Linh's forge mistress; he answers her technical letters"
+     "note": "Vũ Linh's furnace mistress, who has written that she would pour his lightning bell"
     },
     {
      "to": "hau_vong_xuan",
@@ -1960,7 +1967,7 @@
     {
      "to": "an_thanh_linh",
      "kind": "friend",
-     "note": "the vassal she visits first"
+     "note": "the vassal she visits first; this year she carries Nhiếp's terms for the copper"
     },
     {
      "to": "diep_an_thu",

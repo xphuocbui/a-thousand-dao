@@ -2618,7 +2618,7 @@
    "rank": "ngoai_mon",
    "home": 449,
    "birthplace": 29,
-   "role": "Phần Vũ Đường's second surety at the palace",
+   "role": "Hùng Diễm Nhi's cousin at the Fire Court; writes Tào Tẫn Kiên what she does",
    "tier": "C",
    "root": {
     "elements": {
@@ -2629,24 +2629,24 @@
    },
    "traits": {
     "personality": [
-     "Loyal",
+     "Greedy",
      "Deceitful",
      "Brave"
     ],
     "calling": "Duelist",
     "upbringing": "clan_heir"
    },
-   "backstory": "Hùng Diễm Nhi's (hung_diem_nhi) cousin, sent from Phần Vũ Đường as a second surety; he keeps her company and, the Hall of Trust suspects, her secrets.",
+   "backstory": "Hùng Diễm Nhi's (hung_diem_nhi) cousin, sent to the palace's outer gate from Phần Vũ Đường in 1197. He rides her where she needs to go, and writes Tào Tẫn Kiên (tao_tan_kien) what she does there, for a place Tào has promised him in the hall.",
    "ties": [
     {
      "to": "hung_diem_nhi",
-     "kind": "master",
-     "note": "his cousin teaches him"
+     "kind": "cousin",
+     "note": "his cousin; he rides for her and reports on her"
     },
     {
-     "to": "hung_diem_nhi",
-     "kind": "cousin",
-     "note": "the first surety"
+     "to": "tao_tan_kien",
+     "kind": "friend",
+     "note": "the first elder he writes to, who has promised him a place in the hall"
     }
    ],
    "master": "hung_diem_nhi",
@@ -2669,7 +2669,8 @@
      "start": "hoa",
      "intent": "Fire in the body."
     }
-   }
+   },
+   "changed": "pass B (fixB-1, 2026-11-25): no longer a second surety (read-great-2 #9); Tào's informer; traits Loyal -> Greedy; duplicate master tie merged"
   },
   {
    "key": "vuong_thanh_dang",

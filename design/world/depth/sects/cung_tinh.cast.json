@@ -39,7 +39,7 @@
     "personality": [
      "Patient",
      "Devout",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Formation master",
     "upbringing": "temple_raised",
@@ -69,8 +69,8 @@
    },
    "appearance": "A small, bald, very old Daoist with a face like a dried river bed, who looks at people as if they were a little out of focus and the sky behind them were not.",
    "backstory": "Thẩm Bắc Thần was born in 480 at Khuy Thiên Các, the rival abbey on the ridge, to its lamp-keeper, and was sold to Củng Tinh at nine for a chart. The first night he looked into Tinh Lạc Hồ, Light woke in him, and the founder Lệnh Hồ Chiêm (lenh_ho_chiem) taught him to read the lake. In 501, at twenty-one, he was the one who saw the Dipper's handle turned toward the heart on the armillary; the founder carried the warning to the Pivot and no one listened, and the War of the Pivot came the next year (C102). He has been head since 560. In 650 the blind head of Khuy Thiên brought his charts to Củng Tinh (V110), and Thẩm took in the house he was born in. In 789 the armillary went dark for a whole night, and he burned incense and sent word, and no one listened again (C156). Since then he has sent the Pivot star charts, which his friend Thiện Thừa Củ (thien_thua_cu) values, and no warnings at all. He is the finest formation master alive and, at 720, the oldest man in the heartland.",
-   "wants": "To be heeded once before he dies, or to stop caring whether he is.",
-   "secret": "In 1188, on the night Doãn Ngọc Hành held the Bắc Thần Ấn and the Weight in one hand (N-thien_xu-09), the Pole Star went out in the lake. He saw it in the mirror and told no one, because the omen is about the Pivot itself.",
+   "wants": "To have the new ring found at a dusk winding and the Rudder written into the book as the abbey's oldest knowledge, not its newest shame; and to be heeded once before he dies.",
+   "secret": "Úc Tri Vi (uc_tri_vi) showed him in 650 that Khuy Thiên's star near the pole is real, and he kept it out of the book for 550 years rather than correct the founder's sky and the Pivot's. Since Luân Hải Yến's (luan_hai_yen) sea chart came east he has been recutting the armillary at night: a new inner ring with the star on it and 650 cut on its rim in the old hand, turned by day by Phan Khắc Luân (phan_khac_luan) as a spare. In 1188, on the night Doãn Ngọc Hành held the Bắc Thần Ấn and the Weight in one hand (N-thien_xu-09), the Pole Star went out in the lake. He saw it in the mirror and told no one, because the omen is about the Pivot itself.",
    "ties": [
     {
      "to": "lenh_ho_chiem",
@@ -100,7 +100,7 @@
     {
      "to": "uc_tri_vi",
      "kind": "friend",
-     "note": "the blind head of Khuy Thiên, who came over with his charts in 650"
+     "note": "the blind head of Khuy Thiên, who came over with his charts in 650 and was right about the star"
     },
     {
      "to": "doan_ngoc_hanh",
@@ -116,7 +116,8 @@
      "to": "tieu_tinh_anh",
      "kind": "disciple",
      "note": "steward of the dusk walk, who keeps its register"
-    }
+    },
+    {"to": "luan_hai_yen", "kind": "rival", "note": "Lạc Hà's chart-keeper, who printed the star he left out"}
    ],
    "master": "lenh_ho_chiem",
    "build": {
@@ -171,7 +172,7 @@
     "ct-star-lake-mirror",
     "ct-dipper-array-flag"
    ],
-   "changed": "build: main dia_tho (stand-in) -> bowing-stars-canon (the lineage main, Earth tier); aux deep-vein-scripture -> star-lake-mirror and armillary-array-canon (the Deep Vein Scripture is the Pivot's head-only secret); gear kinh -> his named mirror; tree targets -> intent; birthplace 569 added."
+   "changed": "build: main dia_tho (stand-in) -> bowing-stars-canon (the lineage main, Earth tier); aux deep-vein-scripture -> star-lake-mirror and armillary-array-canon (the Deep Vein Scripture is the Pivot's head-only secret); gear kinh -> his named mirror; tree targets -> intent; birthplace 569 added.; fix pass B 2026-11-25 (fixB-5): Honest -> Deceitful (he recuts the armillary with a ring dated 650); want and secret now the Rudder star he kept out of the book; tie to luan_hai_yen"
   },
   {
    "key": "to_tinh_nghi",
@@ -355,7 +356,7 @@
    },
    "traits": {
     "personality": [
-     "Pragmatic",
+     "Callous",
      "Greedy",
      "Diligent"
     ],
@@ -377,7 +378,8 @@
     "gained": []
    },
    "appearance": "A busy, round man with a measuring cord around his neck and a cart of star-iron discs behind him.",
-   "backstory": "A craftsman's son from Xảo Tượng Thôn, he runs the abbey's one paying trade: ward rings for granaries, mines and caravan camps. He has lost the ward rings of the Pivot's mines at Song Kiều and Huyền Thiết to the freelance Vệ Văn Cơ (ve_van_co) twice, and tells Tô Tinh Nghi (to_tinh_nghi), his master, that the abbey would be richer if it read fewer stars.",
+   "backstory": "A craftsman's son from Xảo Tượng Thôn, he runs the abbey's one paying trade: ward rings for granaries, mines and caravan camps. He has twice lost the Pivot's mine rings to the freelance Vệ Văn Cơ (ve_van_co). Since the sea chart stopped the pilgrims, his rings are all the abbey sells. At the first snow he turned the lay cooks and servants out onto the plain to save the barley for his ring-layers, and he now charges the Pivot's mines double. He pays Phan Khắc Luân's (phan_khac_luan) lamp-work for the head without asking what it is.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): Pragmatic -> Callous (turns the lay cooks out at the first snow, charges the Pivot's mines double)",
    "ties": [
     {
      "to": "to_tinh_nghi",
@@ -602,7 +604,7 @@
    },
    "traits": {
     "personality": [
-     "Honest",
+     "Deceitful",
      "Stubborn",
      "Temperate"
     ],
@@ -622,7 +624,8 @@
     "gained": []
    },
    "appearance": "A heavy, slow man who hums along with the array discs when they ring.",
-   "backstory": "Born at Vẫn Tinh, where iron from a star that fell on the plateau has been dug since 160 (A206), he cuts it into array discs for the abbey and sells none of it. He knows star iron rings under lightning. He has heard that Thối Tinh's \"star iron\" is bought by the Pivot for blades, and that the smiths never send any to Củng Tinh to be compared, which he finds odd. He is Tô Tinh Nghi's (to_tinh_nghi) disciple.",
+   "backstory": "Born at Vẫn Tinh, where iron from a star that fell on the plateau has been dug since 160 (A206), he cuts it into array discs for the abbey. He knows star iron rings under lightning. Since the pilgrims stopped coming in 1199 he has flown a sack of discs each spring to Thối Tinh's buyer at the Pivot's iron fair, against the abbey's taboo, to buy the barley the alms no longer pay for. He knows the smiths melt the discs into their own \"star iron\" so that it will pass that test. He is Tô Tinh Nghi's (to_tinh_nghi) disciple.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): Honest -> Deceitful (sells Vẫn Tinh discs to Thối Tinh's buyer to salt its ingots; hook 4's new turn)",
    "ties": [
     {
      "to": "to_tinh_nghi",
@@ -637,7 +640,7 @@
     {
      "to": "hau_thiet_anh",
      "kind": "rival",
-     "note": "the smiths' mine overseer, who will not trade ingots for a comparison"
+     "note": "the smiths' mine overseer, whose ingots are salted with the discs Sầm sells"
     },
     {
      "to": "lo_tinh_sa",
@@ -722,7 +725,8 @@
     "upbringing": "village_born",
     "lifestyle": "chronicler"
    },
-   "backstory": "He keeps the abbey's chart room, half of it the charts the blind head of Khuy Thiên brought in 650 (V110), and has found that Khuy Thiên's charts disagree with the abbey's about one star near the pole.",
+   "backstory": "He keeps the abbey's chart room, half of it the charts the blind head of Khuy Thiên brought in 650 (V110), which show one star near the pole that the abbey's do not. In 1199 he bought Luân Hải Yến's (luan_hai_yen) sea chart from a Lạc Hà caravan and hung it in the chart room beside Khuy Thiên's, where the head must pass it every night.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): no longer 'has found' the disputed star; hangs Luân Hải Yến's chart in the chart room",
    "ties": [
     {
      "to": "tham_bac_than",
@@ -874,7 +878,8 @@
     "upbringing": "sect_raised",
     "lifestyle": "calligrapher"
    },
-   "backstory": "Born at the abbey to a lay cook, she copies the armillary book for Tô Tinh Nghi (to_tinh_nghi) and has seen that there are two of them.",
+   "backstory": "Born at the abbey to a lay cook, she copies both armillary books for Tô Tinh Nghi (to_tinh_nghi). At the first snow Phó Cương Đẩu (pho_cuong_dau) turned her mother out onto the plain with the other lay servants.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): copies both books; her mother turned out by Phó; tie to pho_cuong_dau",
    "ties": [
     {
      "to": "to_tinh_nghi",
@@ -885,7 +890,8 @@
      "to": "bo_kim_quy",
      "kind": "friend",
      "note": "outer disciple from the angelica village, who wipes the armillary's rings"
-    }
+    },
+    {"to": "pho_cuong_dau", "kind": "enemy", "note": "turned her mother out at the first snow"}
    ],
    "master": "to_tinh_nghi",
    "build": {
@@ -1084,7 +1090,8 @@
     "calling": "Refiner",
     "upbringing": "village_born"
    },
-   "backstory": "A wheelwright's son of Xảo Tượng Thôn, he copies Khuy Thiên's charts for Bùi Thiên Đồ (bui_thien_do) and has drawn the disputed star a hundred times.",
+   "backstory": "A wheelwright's son of Xảo Tượng Thôn who copies Khuy Thiên's charts for Bùi Thiên Đồ (bui_thien_do). This winter he turns a new inner ring for the armillary by day as a spare and, by lamplight, cuts 650 on its rim in the old hand for Thẩm Bắc Thần (tham_bac_than), paid from the array hall's silver.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): turns the ring dated 650 and cuts its numerals",
    "ties": [
     {
      "to": "bui_thien_do",

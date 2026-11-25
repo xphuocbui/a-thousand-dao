@@ -51,6 +51,7 @@ gate's lanterns. The sect hardly ever turns anyone away.
 | 1146 | The founder walks into his own mist by Đồng Sơn Trấn and is not found; his lantern is | **N-vu_an-03** |
 | 1190 | The robbers fall on a caravan on the Đồng Sơn road; Bối Trường Đình dies holding the mist | **N-vu_an-04** |
 | 1192 | Tùng Đào's first elder buys a Vụ Ẩn mist-layer's brother's debts | **N-vu_an-05** |
+| 1198 | A frost heave cracks the seat's threshold stone; the founder's bones are found under it | (§9) |
 
 **New chronicle proposals:**
 - **N-vu_an-01** (1050, `custom`): "Hàm Thủ Lộ hangs the first mist lantern at the Trà Viên crossroads; travellers who
@@ -58,7 +59,7 @@ gate's lanterns. The sect hardly ever turns anyone away.
 - **N-vu_an-02** (1081, `tale`): "Vụ Ẩn Môn's founder hides a robber of Đoản Vĩ Cương from a Thúy Vi road patrol in his
   mist and does not ask why. The robber becomes his road guard."
 - **N-vu_an-03** (1146, `tale`): "Hàm Thủ Lộ walks into his own mist on the road by empty Đồng Sơn Trấn and is not
-  found. His lantern is found on the road, still burning." (The truth is in section 9.)
+  found. His lantern is found on the road, still burning." (The truth came out in 1198: section 9.)
 - **N-vu_an-04** (1190, `raid`): "Robbers from the Ridge of the Bobtails fall on a caravan on the Đồng Sơn road. The
   guard Bối Trường Đình dies holding the mist over it, and one child lives."
 - **N-vu_an-05** (1192, `trade`): "An agent of Tùng Đào's first elder buys up a Phù Kiều gambler's debts in Hàn Tân
@@ -129,8 +130,8 @@ mist it lays. Members on the lineage: 10 of 10.
   and she pays in salt fish. Loyalty is the lowest of Thúy Vi's vassals because the sect is neutral and hides people
   Thúy Vi would like to find.
 - **Tùng Đào Cung:** Hồ Tùng Nguyệt, Tùng Đào's first elder, already pays one spy in Thúy Vi's outer gate for the Haze
-  Walk (Phù Liên Kiều). In 1192 her agent bought the debts of Luyện Tố Y's brother. The price is the walk's ninth
-  layer, which only Tất can read.
+  Walk (Phù Liên Kiều). In 1192 her agent bought the debts of Luyện Tố Y's brother. The price is the Mist-Lock
+  Lantern's key, so that Tùng Đào's carts can lay the cape's mist themselves.
 - **Hồng Lô Cốc:** the ash carts come south on the mist roads; Bàng's guards are paid in red pills.
 - **Hộ Lâm Đường, Vân Khởi Quán:** far away in the north; friendly by letter.
 - **The robbers of Đoản Vĩ Cương (1043):** the sect's reason to exist and its road captain's old band. They killed Bối
@@ -138,20 +139,31 @@ mist it lays. Members on the lineage: 10 of 10.
 
 ## 9. Inside the sect
 
-- **What is under the gate.** The founder did not vanish in 1146. He died of old age in Bàng's arms on the Đồng Sơn
-  road, at 198, and asked to be buried under the threshold of the seat's gate. He also asked Bàng to let the cape think
-  the mist had taken him, so that robbers would believe it could take a man. Bàng left the lantern burning on the road
-  and carried the body home in mist. Every spring when he relays the hidden-gate array, he lays it over the grave as well.
-  The founder's grandson plays on the threshold stone.
-- **The daughter's ledger.** Hàm Thanh Đăng believes Thúy Vi's Hall of Rules took the Haze Walk back in 1146 and her
-  father with it. She keeps a list of everyone who has called the walk a theft, and Nhạc Chính Hành, who has kept that hall since 1150, is at the top of it. She wants the founder's lantern, and she suspects Bàng of something without knowing what.
+- **The pages.** After the band killed Bối Trường Đình in 1190, Bàng Yên Tỏa went to Thúy Vi's Hall of Rules for
+  patrols. Nhạc Chính Hành's price was a list of what passes under the mist. Since then Bàng has asked each road's
+  keepers, when they bring in the season's fees, what each fee paid for: a cart of salt fish, two men in Tùng Đào boots.
+  The oath says a guard tells no one, and no guard has thought the head was anyone. He writes up what the Hall wants.
+  Its patrols ride the Đồng Sơn road, and the tithe has not reached the elders' table.
+- **The milestone.** Each new moon a page goes under the cap stone of the milestone by empty Đồng Sơn Trấn, and a Thúy
+  Vi road patrol lifts it; it reaches the Hall a season later. The carrier is Ký Thất Lộ, posted on that road this year
+  with his friend Quan Dã Tử. He has read the pages and carries them gladly, because the patrols ride on where the band
+  crosses, and he adds what Quan lets fall about the ridge. The spring page put a runaway Furnace Hall girl, who paid
+  her fee in rice, in the Hall's cells. Triều Ngũ Lang, who carried Ký out of the 1190 caravan, does not know.
+- **The next page.** Thai Vãn Xa holds the mist over carts on the port road that are not Diêm Hải Tảo's, for silver, and
+  leaves them off his tally. Bao Thủy Hành counts the carts in at Yên Ba, and his count is longer than Thai's. Bàng has
+  both counts, and the other carts are on the next page.
+- **The threshold.** The frost heave of 1198 cracked the gate's threshold stone, and Hàm Tiểu Vụ found his grandfather's
+  bones under it. The founder had died of age in Bàng's arms on the Đồng Sơn road in 1146, at 198, and asked to lie
+  there while the cape believed the mist had taken him. His daughter Hàm Thanh Đăng knows now that Bàng let her think
+  him murdered for fifty-two years, and she has not spoken to Bàng since. She still keeps her list of everyone who has
+  called the Haze Walk a theft. Nhạc Chính Hành is still at the top of it.
 - **The road captain.** Triều Ngũ Lang was a robber of the Bobtail ridge until the founder hid him in 1081. He is the
-  sect's only Kết Đan and will not be head. The boy he carried out of the 1190 caravan, Ký Thất Lộ, has sworn to kill
-  the men who did it, and those men are Triều's old band.
-- **The ninth layer.** Luyện Tố Y owes Tùng Đào her brother's debts. The price is a layer she cannot get unless Tất
-  Hành Vụ teaches it to her, and Tất trusts her because she is from his town.
-- **The next head.** Bàng is 115 and a late Trúc Cơ with no core in sight. The candidates are the founder's daughter,
-  the robber, and a proud girl of twenty-one who can lose him in his own mist.
+  sect's only Kết Đan, and no one has ever asked him to lead it. The boy he carried out of the 1190 caravan, Ký Thất Lộ,
+  has sworn to kill the men who did it, and those men are Triều's old band.
+- **The lantern's key.** Luyện Tố Y owes Tùng Đào her brother's debts, and the price is the Mist-Lock Lantern's key: the
+  turning that lights any lantern on the cape, so that Tùng Đào's carts can lay the mist themselves and pass with no
+  guard to see them. Each spring, when Bàng relays the gate's array, she holds the lantern for him, and she has two of
+  its three turnings.
 
 ## 10. Treasures and sets
 
@@ -185,21 +197,23 @@ mist it lays. Members on the lineage: 10 of 10.
 
 1. **The tithe.** Thúy Vi's elders send an envoy to Vụ Ẩn Môn for a tithe on the Haze Walk. Bàng will not refuse and
    will not pay, Tất Hành Vụ would rather die than see it paid, and Hàm Thanh Đăng sees her chance to accuse the Hall of
-   Rules. (Bàng Yên Tỏa, Tất Hành Vụ, Hàm Thanh Đăng, Biện Vãn Tình, Nhạc Chính Hành; places 1063, 1110.)
-2. **Under the threshold.** A frost heave cracks the gate's threshold stone. Hàm Tiểu Vụ finds bone under it, and his
-   mother finds out what her father asked for and who kept it from her. (Hàm Tiểu Vụ, Hàm Thanh Đăng, Bàng Yên Tỏa;
-   place 1063.)
-3. **The ninth layer.** Luyện Tố Y asks Tất Hành Vụ to teach her the Haze Walk's ninth layer. Tùng Đào's agent waits
-   at Hàn Tân with her brother's debts, and Phù Liên Kiều in Thúy Vi's outer gate is after the same thing. (Luyện Tố Y,
-   Tất Hành Vụ, Hồ Tùng Nguyệt, Phù Liên Kiều; places 1064, 31, 1110.)
-4. **The Bobtail ridge.** Ký Thất Lộ learns who carried him out of the 1190 caravan and where Triều Ngũ Lang came from.
-   The robbers are raiding the Đồng Sơn road again. (Ký Thất Lộ, Triều Ngũ Lang; places 1043, 1056.)
+   Rules. Nhạc Chính Hành, who has kept the tithe off the table since 1190, has to decide whether the pages are worth a
+   vote. (Bàng Yên Tỏa, Tất Hành Vụ, Hàm Thanh Đăng, Biện Vãn Tình, Nhạc Chính Hành; places 1063, 1110.)
+2. **Under the cap stone.** Hàm Thanh Đăng relights the lantern at the dead town's milestone and finds a page under the
+   cap stone in the head's hand, naming travellers her own lanterns hid. (Hàm Thanh Đăng, Bàng Yên Tỏa, Ký Thất Lộ;
+   places 1056, 1063.)
+3. **The third turning.** Luyện Tố Y needs the last turning of the lantern's key before her brother's deadline, and Bàng
+   relays the gate's array this spring. Tùng Đào's agent waits at Hàn Tân with the debts. (Luyện Tố Y, Bàng Yên Tỏa, Hồ
+   Tùng Nguyệt, Luyện Đắc Bảo; places 1064, 31, 1063.)
+4. **The Bobtail ridge.** The Hall's patrols ride onto the ridge with the band's crossings in hand. Ký Thất Lộ learns
+   where the man who carried him out of the 1190 caravan came from, and Quan Dã Tử learns where the patrols got his
+   father's paths. (Ký Thất Lộ, Triều Ngũ Lang, Quan Dã Tử; places 1043, 1056.)
 5. **The cart that is not hers.** Thai Vãn Xa holds the mist over a cart on the port road that is not Diêm Hải Tảo's,
-   and it is carrying something Thúy Vi's Hall of Rules is looking for. The mist does not ask, and the player may.
-   (Thai Vãn Xa, Diêm Hải Tảo; places 30, 1063.)
+   and it is carrying something Thúy Vi's Hall of Rules is looking for. It is on the next page. The mist does not ask,
+   and the player may. (Thai Vãn Xa, Diêm Hải Tảo, Bàng Yên Tỏa; places 30, 1063.)
 6. **The dry gale.** A summer gale off the sea lifts every mist on the cape for three days, and every caravan is in the
    open. The robbers know. (Bàng Yên Tỏa, Triều Ngũ Lang, Khuyết Lạc Vụ; the cape's roads.)
 7. **Lost in the Forest of Lost Mist.** Khuyết Lạc Vụ lays a mist in Mê Vụ Lâm that she cannot lift, and a traveller
    is inside it. (Khuyết Lạc Vụ, Bàng Yên Tỏa; place 1050.)
 8. **The lantern.** Hàm Thanh Đăng asks the player to steal the Mist-Lock Lantern from the head. It is the founder's,
-   and it is also the array's key. (Hàm Thanh Đăng, Bàng Yên Tỏa; place 1063.)
+   it is the array's key, and Luyện Tố Y wants it too. (Hàm Thanh Đăng, Bàng Yên Tỏa, Luyện Tố Y; place 1063.)

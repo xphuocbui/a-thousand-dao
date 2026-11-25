@@ -509,7 +509,8 @@
     "calling": "Diplomat",
     "upbringing": "village_born"
    },
-   "backstory": "He carries the eight vassals' tribute receipts for Hách Ánh Hà (hach_anh_ha) and knows, from what she does not say on the road, that she wants the succession more than anything she has been sent to buy.",
+   "backstory": "He carries the eight vassals' tribute receipts for Hách Ánh Hà (hach_anh_ha), and this spring he carries her one list of thirty from Vật Hoa Thị down the steppe road to Cựu Hà Viện for Tô Bình Chu (to_binh_chu) to sign: a month and a half each way, with the children to walk it back by autumn.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): carries the one list from Vật Hoa Thị (read-pilot-B: no first-draft knowledge)",
    "ties": [
     {
      "to": "hach_anh_ha",
@@ -2362,7 +2363,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
-   "backstory": "A Phong Lâm maple-tapper's son who has failed the dusk test twice and stands in this spring's Placement Day line beside Tạ Quy Yến (ta_quy_yen), hoping for Bình Thủy Môn.",
+   "backstory": "A Phong Lâm maple-tapper's son who has failed the dusk test twice and stands in this spring's Placement Day line beside Tạ Quy Yến (ta_quy_yen), hoping for Bình Thủy Môn; his name is on the envoy's list for Thiên Bảo Trai, a Metal house that will never teach him, and Tạ's is not.",
    "ties": [
     {
      "to": "ta_quy_yen",
@@ -3029,7 +3030,8 @@
     "calling": "Diplomat",
     "upbringing": "village_born"
    },
-   "backstory": "Hách Ánh Hà's (hach_anh_ha) grand-niece from Ngưu Đẩu, named for the dawn to her great-aunt's dusk, who tells the outer gate the envoy will be the next head.",
+   "backstory": "Hách Ánh Hà's (hach_anh_ha) grand-niece from Ngưu Đẩu, named for the dawn to her great-aunt's dusk, who tells the outer gate she will not be sold to the studio, because her great-aunt draws the list.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): 'will not be sold to the studio' (read-pilot-B)",
    "ties": [
     {
      "to": "hach_anh_ha",

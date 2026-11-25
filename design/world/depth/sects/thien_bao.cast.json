@@ -59,8 +59,8 @@
    },
    "appearance": "A small, upright woman who looks forty, dressed in plain grey with a single red-gold pin, whose eyes go to what you are carrying before they go to your face.",
    "backstory": "Phan Vật Hoa was born in 600 above a crier's stall in Vật Hoa Thị, the market beside the studio (A179). At nine she priced a broken sword on the auction floor to within a stone, and the second head Ung Thiên Kim (ung_thien_kim) took her for it. In 750 she set a grain of Xích Kim's red gold in her own dantian and has fed it ever since. In 1004, when Kim Cốc Viên had burned (C174), she hired the beggared merchants who could still count (A184), and the studio took Kim Cốc's trade. She has been mistress since 1050 and holds an auction every season (A185). She sold Lạc Đan Thanh (lac_dan_thanh) the Đào Nguyên Đồ for a pill no one else could make (C183), and her buyer Hồ Tầm Kỳ (ho_tam_ky) brings her the north's beasts (A142). In 1179 Lạc Hà's head came to borrow for a new seat. Phan named the interest (N-lac_ha-03). The head named the surety in private: the Lone Duck Ring, the founder's ring and the key to Lạc Hà's treasury, which now lies in Phan's vault. She is older than anyone in her lord's sect.",
-   "wants": "To own the Lone Duck Ring outright when the loan's term runs out, and with it the key to her lord's treasury; after that, to be the one house in the west that no sect can afford to quarrel with.",
-   "secret": "She knows everything about the debt that her lord does not. Kim Vạn Lý has been buying a third of the notes for Trầm Tịch Dương; she sold them to him at a premium and lets him think she does not know whose they are. Her steward Tiền Ngũ Phân sold Hách Ánh Hà the name of the surety; she kept him on, because a steward with a known price is useful. And in 1190 she had her first refiner cut a second key from the ring. Khang Thiên Chùy told her the copy failed. She believes him.",
+   "wants": "To own the Lone Duck Ring outright when the loan's term runs out, and with it the key to her lord's treasury. If she must be paid instead, to be paid in people: thirty Lạc Hà contracts that run to 1230, so that her lord's children work her furnace and her floor for a generation after the ring goes home. After that, to be the one house in the west that no sect can afford to quarrel with.",
+   "secret": "She is writing the terms of the thirty-contract lot now, and its one condition is a trap: all thirty signed and delivered by this year's autumn auction, a date the fifty-day road to Cựu Hà Viện barely allows, or nothing is struck off and the term runs on to the ring. She has had Tiền Ngũ Phân price Tô Hiểu Chu, the head's blood, highest of the thirty, so that Lạc Hà keeps him on the list and his father has to sign him away; and she lets Tiền sell Hách Ánh Hà her top price, because it is the price she wants Hách to hear. She knows everything about the debt that her lord does not. Kim Vạn Lý has been buying a third of the notes for Trầm Tịch Dương; she sold them to him at a premium and lets him think she does not know whose they are. Tiền sold Hách the name of the surety in 1180; she kept him on, because a steward with a known price is useful. And in 1190 she had her first refiner cut a second key from the ring. Khang Thiên Chùy told her the copy failed. She believes him.",
    "ties": [
     {
      "to": "ung_thien_kim",
@@ -80,7 +80,7 @@
     {
      "to": "nguy_minh_giam",
      "kind": "disciple",
-     "note": "the girl with the eye; the only heir she has looked at twice"
+     "note": "the girl with the eye; a crier's girl off the floor, as she was"
     },
     {
      "to": "ho_tam_ky",
@@ -410,7 +410,7 @@
     ]
    },
    "appearance": "A plump, smiling man in a good silk coat with frayed cuffs, who calls every buyer by name and every name by its price.",
-   "backstory": "The grandson of a Kim Cốc merchant the studio hired in 1004 (A184), he runs the auction floor, the stewards and the lot book. He owed Kim Vạn Lý's (kim_van_ly) table more than his stipend. In 1180 Hách Ánh Hà (hach_anh_ha) paid the debt, and he told her what the surety was. Lạc Hà's caravan steward Lộ Hành Sa (lo_hanh_sa) knows his price to the stone. He does not know that the mistress knows.",
+   "backstory": "The grandson of a Kim Cốc merchant the studio hired in 1004 (A184), he runs the auction floor, the stewards and the lot book. He owed Kim Vạn Lý's (kim_van_ly) table more than his stipend. In 1180 Hách Ánh Hà (hach_anh_ha) paid the debt, and he told her what the surety was. Lộ Hành Sa (lo_hanh_sa) knows his price to the stone. At this spring's auction he is selling Hách the mistress's top price for the thirty contracts, piece by piece, and after it he rides to Cựu Hà Viện to price the children by root, like lots. He does not know that the mistress knows, or that she chose the figure.",
    "ties": [
     {
      "to": "phan_vat_hoa",
@@ -559,8 +559,13 @@
     ]
    },
    "appearance": "A lean, travel-browned woman in a fur collar from the north, with a scar through one eyebrow from a bear's paw.",
-   "backstory": "A Tân Khẩu girl whose village never speaks of the plain (A182), she has travelled the whole continent buying what the auction calls living lots. In 1180 she bought a white bear out of Vô Tung Lâm in Mộc Lan Thành (A142) for a buyer who wanted its gall; Khấu Mục Vân (khau_muc_van) outbid him at the spring auction of 1181 and keeps it alive on his ranch. She now wants the tusk of the Old Ivory, the white whale of the frost coast, and has offered Trạc Anh's harpooners more stones than their terrace holds.",
+   "backstory": "A Tân Khẩu girl whose village never speaks of the plain (A182), she has travelled the whole continent buying what the auction calls living lots. In 1180 she bought a white bear out of Vô Tung Lâm in Mộc Lan Thành (A142) for a buyer who wanted its gall; Khấu Mục Vân (khau_muc_van) outbid him at the spring auction of 1181 and keeps it alive on his ranch. This winter she is on the frost coast again. A pearl diver sold her news of the Old Ivory's calf, and a client of hers wants a living spirit-whale calf. She has paid Trạc Anh's harpoon captain half the price, more stones than the terrace's treasury, and waits at Mộc Lan with a sea pen for the rest.",
    "ties": [
+    {
+     "to": "lo_chau_nuong",
+     "kind": "debt",
+     "note": "the pearl diver who sold her the calf's ground; owed a share"
+    },
     {
      "to": "phan_vat_hoa",
      "kind": "master",
@@ -578,8 +583,8 @@
     },
     {
      "to": "ngac_hai_tieu",
-     "kind": "rival",
-     "note": "Trạc Anh's harpoon captain; she wants the Old Ivory's tusk"
+     "kind": "creditor",
+     "note": "Trạc Anh's harpoon captain; he has spent her advance on iron and owes her the calf"
     },
     {
      "to": "doan_tri_lung",

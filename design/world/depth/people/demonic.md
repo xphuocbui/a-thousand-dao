@@ -68,7 +68,7 @@ people, and that no righteous sect will teach a root like theirs anything else.
 | 1097 | Sào Ẩn Lan's darkened ink puts Nam Phố's copyist to sleep; Châu Phi Vân sends her up the karst | **N-demonic-04** |
 | 1101 | Sào writes the Shade Orchid Breathing on the gorge wall; the first karst children come up | — |
 | 1120 | Dưỡng Khô Chi expelled from Thúy Vi's Furnace Hall | — |
-| 1150 | The Tower offers Hám a guest seat; he refuses the lamp | **N-demonic-05** |
+| 1138 | The Tower offers Hám a guest seat; he refuses the lamp | **N-demonic-05** |
 | 1151 | Triệu drains the flood from Khang Lãng Sa's meridians and keeps him | — |
 | 1170 | Biệt Tri Phản's brother dies of a market blood pill; Biệt turns hunter | — |
 | 1190 | Hạng Dạ Bôi puts Cáo Sa Lang out of Dạ Quang Môn for drinking an escort's blood | — |
@@ -84,7 +84,7 @@ people, and that no righteous sect will teach a root like theirs anything else.
   cartload of lime, and walks into the karst with her. Neither is seen in the west again."
 - **N-demonic-04** (1097, `tale`): "A Nam Phố talisman puts its copyist to sleep for three days. The ink-grinder who
   made it leaves the hall that winter and goes up the karst."
-- **N-demonic-05** (1150, `tale`): "Thính Vũ Lâu offers the soul pedlar of the apricot market a guest seat. He declines
+- **N-demonic-05** (1138, `tale`): "Thính Vũ Lâu offers the soul pedlar of the apricot market a guest seat. He declines
   the lamp, and the Tower sends him a lamp of another kind as a gift."
 
 ## 4. Ways and customs
@@ -136,7 +136,7 @@ group's methods is Heaven tier. The Blood-Ink Canon would be Earth tier if it we
    and his customer Mật Thu Ninh, whose son's breath he sold her.
 3. **U Lan Cốc.** **Sào Ẩn Lan** and the karst children: Ngư Mộng Tê (who has killed), Sung Ngọc Khê (who will not
    drink), Chi Dạ Hành, Ấn Tiểu Mặc, Tiển Hôi Nhi, and six more who have not begun to cultivate.
-4. **Hắc Ưng Phong.** Khoái Thiết Ưng, the last Hắc Phong rogue, with his foundling daughter Khoái Hồng Ngạc and the
+4. **Hắc Ưng Phong.** Khoái Thiết Ưng, the Hắc Phong stockade boy who fled north with the captain's sabre, with his foundling daughter Khoái Hồng Ngạc and the
    mine boy Bộ Thiết Sinh.
 5. **The strays.** Dưỡng Khô Chi, the expelled alchemist; Cáo Sa Lang, the expelled rider, and the caravan hand Việt
    Đà Nhi who buys his blood; Ngao Tầm Phủ, the abode-robber.
@@ -211,7 +211,7 @@ Tâm disciple and to a Dạ Quang elder whose riders guard the mines below the f
 | trieu_huyet_y | Triệu Huyết Y | Kết Đan | A | Water 62, Earth 46, Metal 44, Darkness 68 | Mặc's last disciple; Blood-Ink line |
 | ham_tan_chung | Hám Tàn Chung | Kết Đan | A | Metal 54, Water 42, Wood 38 | the soul pedlar |
 | sao_an_lan | Sào Ẩn Lan | Kết Đan | A | Water 46, Earth 44, Wood 36, Darkness 54 | keeper of U Lan Cốc |
-| khoai_thiet_ung | Khoái Thiết Ưng | Kết Đan | B | Metal 58, Fire 40, Earth 34, Thunder 24 | the last Hắc Phong rogue |
+| khoai_thiet_ung | Khoái Thiết Ưng | Kết Đan | B | Metal 58, Fire 40, Earth 34, Thunder 24 | Hắc Phong stockade boy, now a blood duelist |
 | tra_ham_tuyen | Tra Hàm Tuyền | Kết Đan | B | Water 60, Wood 40, Earth 30 | Văn Hải Khô's disciple |
 | khang_lang_sa | Khang Lãng Sa | Trúc Cơ | B | Water 58, Wood 44, Earth 32 | Triệu's disciple and courier |
 | ngu_mong_te | Ngư Mộng Tê | Trúc Cơ | B | Water 44, Earth 38, Wood 36, Darkness 42 | eldest U Lan child; has killed |

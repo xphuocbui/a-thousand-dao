@@ -63,8 +63,8 @@ up Earth, and those from Lô Châu come up Wood. The head is Water and Earth, an
 **New chronicle proposals:**
 - **N-vong_trieu-01** (790, `oath`): "Cơ Châu Lệ, who changed her name to the burned harbour's, lights the first lamp of
   Vọng Triều Đường above the piers and sets a keeper in the empty fort of Liệu Phàm Bảo."
-- **N-vong_trieu-02** (913, `death`): "Dịch Thủy Thanh of Vọng Triều drowns at the Kim Sa lamp in the storm tide, with the
-  lamp still lit." (the keeper's absence is hidden)
+- **N-vong_trieu-02** (913, `death`): "Dịch Thủy Thanh of Vọng Triều drowns at the Kim Sa lamp in the storm tide; the
+  lamp has burned low." (hidden: the keeper was away selling the lamp's winter oil)
 - **N-vong_trieu-03** (914, `technique_made`): "Ôn Thủ Đăng writes the Last Lamp Vigil."
 - **N-vong_trieu-04** (1190, `tale`): "Chân Định Lan of Vọng Triều wards the palace's jetty at Thạch Cơ Thành alone by
   night; the storm cracks it anyway." (gives A312 a scene)
@@ -131,11 +131,16 @@ the hall's main and both secrets are proposals.
 - **Lamps or walls.** Ôn Thủ Đăng keeps the chain lit and wants the three dark towers relit. Chân Định Lan wants the oil
   spent on breakwater arrays, and the steward Lê Bạch Diêm has the numbers to back her. The hall's young (Kỳ Lam Sa)
   side with Chân. The head will not move.
-- **Why he will not.** In 913 Ôn asked his sworn brother to keep his lamp at Kim Sa while he went to a girl in Lam Điện.
-  The storm tide came, and Dịch Thủy Thanh drowned at the lit lamp. Ôn has kept every lamp lit since, and he will
-  not turn the hall to the storm that took Dịch. No one alive knows.
-- **The unlit sails.** Kiển Mục Hải has twice seen sails pass south at night with no lamp, off the northern fort. His
-  letter to the head has had no answer.
+- **Why he will not.** In 913 Ôn kept the Kim Sa lamp, and he sold its winter oil to a wrecker of the Lô Châu Biện, who
+  burned it in false lamps on the reefs. On the festival night he asked his sworn brother Dịch Thủy Thanh to keep the
+  lamp while he rowed the last casks out to the wrecker's boat. The storm tide came, and Dịch drowned at a lamp with too
+  little oil to last the night. Ôn has kept every lamp lit since, and he will not turn the hall to the storm that took
+  Dịch. No one in the hall knows.
+- **The unlit sails.** The wrecker's grandchildren still sail without lamps, and Ôn still pays them. Each autumn he
+  sails the oil boat down to the burned landing of Hải Diêm himself and leaves casks he rendered at the founder's
+  tower, so that Biện Ám Phàm keeps her boats off his coast and 913 in her family. Since last winter she takes the oil
+  and runs the Night Rain Market's poisons past the northern fort anyway. Kiển Mục Hải has twice seen her sails there,
+  and his letter to the head has had no answer.
 - **The diver.** Trạm Châu Nhi broke her family's vow and dives; the hall pretends not to know.
 
 ## 10. Treasures and sets
@@ -166,14 +171,16 @@ the hall's main and both secrets are proposals.
 
 ## 12. Story hooks
 
-1. **The unlit sails.** Kiển Mục Hải's sails are real: smugglers, or something that remembers Thôn Hải. The player
-   carries his letter, or stands a night on his tower. (Kiển, Đinh Vọng Tinh, Ôn, Phàn Vọng Hải; places 795, 93, 217.)
+1. **The unlit sails.** Kiển Mục Hải's sails are Biện Ám Phàm's, carrying poisons past the northern fort. The player
+   carries his letter, stands a night on his tower, or follows the sails to the landing at Hải Diêm, where the hall's
+   own oil is waiting for them. (Kiển, Đinh Vọng Tinh, Ôn, Biện Ám Phàm, Phàn Vọng Hải; places 795, 776, 93.)
 2. **The next storm tide.** A storm tide is coming. Chân Định Lan and Ôn must choose between lamps and wards. If the
    player helps Chân build in time, a village lives. (Chân, Ôn, Lê Bạch Diêm, Kỳ Lam Sa; places 337, 791, 93.)
 3. **The order from the palace.** Phàn Vọng Hải answers Chân's letter and the palace orders the hall to the sea-walls.
    Ôn must obey his lord or his oath. (Ôn, Chân, Phàn; places 337, 93.)
-4. **The night of 913.** A grandchild of Lam Điện finds a girl's letter of 913 asking a young keeper to come to the
-   festival. (Ôn, Dịch Thủy Thanh's grave; places 1020, 1019.)
+4. **The oil of 913.** Ôn keeps back an autumn's casks to relight a dark tower. Biện Ám Phàm sails into Nhật Xuất
+   with a lamp lit at her masthead and asks for Dịch Tàn Chiếu by name, to tell her what her family's drowned keeper
+   was burning that night. (Ôn, Biện Ám Phàm, Dịch Tàn Chiếu, Dịch Thủy Thanh's grave; places 788, 776, 1019.)
 5. **Kình Nha.** Trạm Châu Nhi and Ô Trầm Châu find the pirate's sabre in the hold. A keeper sworn against Thôn Hải
    holding its lord's blade is a scandal on the coast. (Trạm, Ô Trầm Châu, Phàn; place 217.)
 6. **Relight the dark towers.** Three towers are dark for want of keepers. The player can find keepers among the coast

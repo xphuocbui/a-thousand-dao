@@ -101,7 +101,7 @@
    "rank": "chap_su",
    "home": 23,
    "birthplace": 23,
-   "role": "Second hammer of the anvil hall and the heir's sworn brother",
+   "role": "Second hammer of the anvil hall and Cát Đoán Nhạc's sworn brother",
    "tier": "C",
    "root": {
     "elements": {
@@ -119,7 +119,7 @@
     "calling": "Refiner",
     "upbringing": "sect_raised"
    },
-   "backstory": "Has struck the second hammer to Cát Đoán Nhạc's (cat_doan_nhac) first for eighty years and says a rite that skips the heir for a steppe boy's fire is no rite at all; he has begun counting Đinh Hỏa Lân's (dinh_hoa_lan) folds, waiting for one short of nine.",
+   "backstory": "Has struck the second hammer to Cát Đoán Nhạc's (cat_doan_nhac) first for eighty years and says a rite taught to a steppe boy will leave the mountain with him; he counts Đinh Hỏa Lân's (dinh_hoa_lan) folds at the anvil, waiting for one short of nine.",
    "ties": [
     {
      "to": "cat_luu_quang",
@@ -134,7 +134,7 @@
     {
      "to": "dinh_hoa_lan",
      "kind": "rival",
-     "note": "the Rite should go to the heir"
+     "note": "the Rite should stay on the mountain"
     },
     {
      "to": "ong_thiet_xuyen",
@@ -504,7 +504,7 @@
     "calling": "Refiner",
     "upbringing": "village_born"
    },
-   "backstory": "A star-mine boy who swings the third hammer under Nghê Bách Đoán (nghe_bach_doan); he heard so often that the Rite belongs to the heir that he said it to Đinh Hỏa Lân's (dinh_hoa_lan) face, and carried coal for a month for it.",
+   "backstory": "A star-mine boy who swings the third hammer under Nghê Bách Đoán (nghe_bach_doan); he heard so often that the Rite would leave the mountain with the steppe boy that he said it to Đinh Hỏa Lân's (dinh_hoa_lan) face, and carried coal for a month for it.",
    "ties": [
     {
      "to": "nghe_bach_doan",

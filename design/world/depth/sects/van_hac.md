@@ -108,7 +108,8 @@ element-led art in the house.
 
 - **What it recruits by:** thần hồn. A child must sing back a phrase of the pines they heard once. Root does not
   matter. The academy's students come from the ravine, the mine and the pine villages, and about half of them failed
-  the pines' Wood test first (Cổ Minh Thạch).
+  the pines' Wood test first (Cổ Minh Thạch). The outer gate now also takes Wood-rooted pine children before the
+  pines' stewards can test them (section 9).
 - **Outer to inner:** the third movement played to the walls and the Monk's Rest held for one breath.
 - **Exceptions:** guest craftsmen (the makers of Cầm Tượng, such as the dead Cù Cổ Đồng) who are not taught the canon.
 
@@ -118,15 +119,16 @@ element-led art in the house.
 |---|---|---|
 | The terraces and the echo walls (the canon) | seat, 11 | Hà Thính Tùng; heir Quan Tịch Âm |
 | The outer gate | Tùng Phong Thôn (107) and the lower terraces | Khương Lạc Huyền |
-| The instrument rooms (zithers, strings, the makers' ledger) | the ravine rim | Cù Đồng Mộc; strings Mẫn Ti Trúc |
+| The instrument rooms (zithers, strings, the makers' stock) | the ravine rim | Cù Đồng Mộc; strings Mẫn Ti Trúc |
 | The scores | the head's cell | Hà Thính Tùng |
 
 ## 8. Relations
 
-- **Tùng Đào Cung (lord):** a gentle lord and a gentle vassal. The academy plays at the palace's festivals, and Hà
-  chose the zither of the pines' heir, Vi Thanh Âm, in 1060 (`td-clear-sound-zither`) and taught her tablature. He knows
-  what she writes in it (section 9). Hàn Thanh Hưởng plays for Địch Kinh Lâm's patrols. The Hall of Voices thinks the
-  academy frivolous. Vi, who holds "a good part of what Vạn Hác plays", is its friend there.
+- **Tùng Đào Cung (lord):** a gentle lord and a gentle vassal. The academy plays at the palace's festivals, and Hà chose
+  the zither of the pines' heir, Vi Thanh Âm, in 1060 (`td-clear-sound-zither`) and taught her tablature. He knows what
+  she writes in it (section 9). Hàn Thanh Hưởng plays for Địch Kinh Lâm's patrols. Since the academy began taking the
+  pine villages' hummers, the Coiled Root Hall winters a patrol at Tùng Phong Thôn to test them first. The Hall of
+  Voices thinks the academy frivolous. Vi, who holds "a good part of what Vạn Hác plays", is its friend there.
 - **Thiên Xu Tông:** the envoy Bách Vong Ngôn (`bach_vong_ngon`), who did not forget his message in 1080 (A062), has
   learned the zither from Hà by letter for 120 years in a sect that forbids music. Hà sends him the scores. Khương Lạc
   Huyền, who played that day, still thinks the envoy forgot.
@@ -139,16 +141,26 @@ element-led art in the house.
 
 ## 9. Inside the sect
 
-- **The twelfth movement.** Hà is 370. He has played the canon to the end, and no one else living has. Quan Tịch Âm,
-  his heir, has reached the ninth and is afraid of the twelfth, which takes a night and must not be stopped.
-- **The heir and the famous one.** Khương Lạc Huyền, the player of 1080, expected the succession and teaches the outer
-  gate instead. He tells the envoy story at every banquet. If he learned the envoy only pretended to forget, he would
-  lose the one thing he has.
+- **Ears first.** For centuries the ravine took the children the pines' Wood test turned away. Now it takes the ones the
+  pines would keep. Khương Lạc Huyền runs the outer gate at Tùng Phong Thôn. He pays the village midwives a measure of
+  millet for word of every child who hums in its sleep, and he is at the door with a zither before the stewards' spring
+  walk comes through. A family that asks about the pines hears about the six Coiled Root Hall men who went onto the Cold
+  Ford ice and were sung as deserters. Hà Thính Tùng puts the pine children in front of the echo walls first and does
+  not ask how they came.
+- **Two gates in one week.** The pines answered last autumn. A Coiled Root Hall patrol now winters at Tùng Phong Thôn
+  and tests the children for ears on the green, with the academy's own Hàn Thanh Hưởng sounding the phrase for Địch
+  Kinh Lâm's men. Khương tests at the outer gate the same week, so each child sings for two houses in seven days, and
+  the parents give it to whichever pays more. The patrol pays a bolt of bark linen a child; Khương now pays two. He has
+  struck Hàn from the academy's festival rolls and reads the rolls aloud at supper.
+- **The twelfth movement.** The twelfth is in the scores like the other eleven, and any student can read it. What no
+  one else living has done is play it through: it takes a whole night, it must not be stopped, and the walls send back
+  every wrong note until dawn. Hà has. Quan Tịch Âm, his heir, has played to the ninth, and Hà has set her night for
+  this midwinter.
 - **The score that is not music.** In 1162 Vi Thanh Âm played Hà a piece in the academy's tablature, and he heard the
   pines' canon in it. He has told no one. If her zither is opened (`tung_dao.md` hook 2), the pines will ask who taught
   her to write, and the answer is the academy.
-- **The weight of a zither.** Cù Đồng Mộc keeps his dead father's ledger with the weight of every zither Cầm Tượng made,
-  including the one made in 1011 for the pines. He restrings it every forty years. The next restringing is due.
+- **The weight of a zither.** Cù Đồng Mộc knows every zither Cầm Tượng made by its weight in his hands, as his father
+  did, the one made in 1011 for the pines among them. He restrings it every forty years. The next restringing is due.
 
 ## 10. Treasures and sets
 
@@ -181,13 +193,14 @@ element-led art in the house.
 
 ## 12. Story hooks
 
-1. **The twelfth movement.** Hà means to play it once more, for his heir, and may not survive the night. Someone must
-   keep the ravine quiet till dawn: no patrol drum, no envoy, no beast. (Hà Thính Tùng, Quan Tịch Âm, Hàn Thanh Hưởng;
-   place 11.)
+1. **The twelfth movement.** Quan Tịch Âm plays it on the midwinter night Hà has set, and nothing may break it. Someone
+   must keep the ravine quiet till dawn: no patrol drum, no envoy, no beast. (Quan Tịch Âm, Hà Thính Tùng, Hàn Thanh
+   Hưởng; place 11.)
 2. **Who taught her to write.** If Vi Thanh Âm's zither is opened, the pines come to the ravine for the scores. Hà can
    burn five centuries of tablature, lie, or tell the truth. (Hà Thính Tùng, Vi Thanh Âm, Cù Đồng Mộc, Sử Trường Ngâm.)
-3. **The restringing.** Cù Đồng Mộc's ledger gives the 1011 zither's weight. When Vi brings it for new strings, he will
-   know. The player may be asked to carry it for her. (Cù Đồng Mộc, Vi Thanh Âm, Ngô Tố Âm; places 11, 2.)
+3. **The restringing.** When Vi brings the 1011 zither for new strings, Cù Đồng Mộc will feel four hundred pages in
+   his hands before he sees them, and the Coiled Root Hall, which searches her rooms, would pay for what he felt. The
+   player may be asked to carry it for her. (Cù Đồng Mộc, Vi Thanh Âm, Ngô Tố Âm; places 11, 2.)
 4. **The envoy's letters.** A Thiên Xu inspector finds Bách Vong Ngôn's scores, and the trail leads to the ravine. Hà
    has a century of letters from a man whose sect forbids music. (Hà Thính Tùng, Bách Vong Ngôn, Ngạc Tri Âm.)
 5. **The famous player.** Khương Lạc Huyền learns that the envoy pretended to forget. He can turn on the envoy, on Hà,
@@ -196,5 +209,8 @@ element-led art in the house.
    art turned on him in 641. Something there is still playing. (Âu Tiểu Miên, Hà Thính Tùng; place 1205.)
 7. **The war zither.** The Coiled Root Hall asks for the marching movement for a winter war on the Cold Ford ice. Hàn
    Thanh Hưởng wants to go; Hà's rule forbids playing to hurt. (Hàn Thanh Hưởng, Địch Kinh Lâm, Hà Thính Tùng.)
+9. **Promised twice.** A Tùng Phong midwife has taken Khương's millet and the patrol's linen for the same baby, and
+   both gates come to the door in the same week. The family has promised the child twice, and the child hums.
+   (Khương Lạc Huyền, Hàn Thanh Hưởng, Địch Kinh Lâm; place 107.)
 8. **The buried workshop.** A spring flood in the ravine opens the half of Cầm Tượng Trấn that was buried in 1012. The
    makers' unfinished zithers are down there, and so are their dead. (Cù Đồng Mộc, Mẫn Ti Trúc; place 1491.)

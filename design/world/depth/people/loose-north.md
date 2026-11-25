@@ -33,8 +33,8 @@ ones, who are why they are loose.
   Lâm Dã Hạc's Metal 56 on 10 % Metal land is the iron streak the pines' examiner heard, the same one the chain-smith
   Vưu Liên Hoàn carried (C104).
 - **The frost coast and the lake shore** (regions 1, 9) are Water land, and so are their diggers and fishers (Phàn Cổ
-  Đăng, Nhâm Độ Hàn, Liên Bất Ngữ). The Pavilion took the ones with Ice. The ones without it walked back across
-  Phiến Băng Hồ (Khổng Vọng Băng, Hà Khổ Hàn).
+  Đăng, Nhâm Độ Hàn, Liên Bất Ngữ). The Pavilion took the ones with Ice. The ones without it walked back from the
+  Frost Test on the mere at Hàn Giao Chử (Khổng Vọng Băng, Hà Khổ Hàn).
 - **The desert and steppe** (region 8) breed Earth and Fire (Hô Diên Liệt, Xa Linh Nhi). Even cities stay mixed:
   Trường Vân Thành bred Ngũ Bất Tề's five weak elements, a root no gate takes.
 - **The odd roots**: a Fire root from an ice-cutters' village (Dư Chúc Nhi, Fire factor 0.55 at Tạc Băng Thôn); a Wind
@@ -98,7 +98,7 @@ ones, who are why they are loose.
 ### The Loose Table (Tùng Hạ Thị, place 46)
 
 Lâm Dã Hạc, the woodcutter's son with iron bones; Thư Phiêu Bình, the old guard who taught the boy Hứa Vãn Cung the
-road; Giả Chỉ Lộ, who sells false maps; Mạch Phục Linh, who digs ginseng on the white apes' ridge; and Bì Tứ Nương,
+road; Giả Chỉ Lộ, who walks buyers to ruins and leaves them at the last turn; Mạch Phục Linh, who digs ginseng on the white apes' ridge; and Bì Tứ Nương,
 who keeps the table and sells foundation pills she does not guarantee. Their sect neighbours are Tuần Tùng Đường on
 the hill above the market, which needs a Golden Core and is waiting for Lâm, and Ngạo Tuyết's young swords, who come
 down every autumn to pick fights.
@@ -116,7 +116,7 @@ one hall it has never opened is the fire hall of Băng Hỏa Môn (1430), where 
 Nhâm Độ Hàn poles the river mouth at night and remembers no faces; his daughter Nhâm Liễu Ngạn carries Thúy Vi's
 letters across his river. Cù Lô Nhi, the reed foundling, poles his second boat. On the quay, Cát Châu Nương keeps the
 dice house where half the coast's debts are written, and passes what she hears to Tùng Đào's first elder Hồ Tùng
-Nguyệt. Her best debtor is Luyện Đắc Bảo, whose sister at Vụ Ẩn Môn is paying for him with a layer of the Haze Walk.
+Nguyệt. Her best debtor is Luyện Đắc Bảo, whose sister at Vụ Ẩn Môn is paying for him with the Mist-Lock Lantern's key.
 
 ### The desert road (Đà Linh Trấn, Ngư Đàm Thôn, Trường Vân Thành)
 
@@ -155,7 +155,7 @@ the Đào Sa hemp smuggler, and his wife Liêu Tẩy Sa, who keeps his ledger in
 - **Tuần Tùng Đường** needs a Golden Core and is waiting for Lâm Dã Hạc; Thư Phiêu Bình will not swear to it.
 - **Vụ Ẩn Môn** and the Bobtail band are each other's reason: the mist hides carts, the band robs the ones that do not
   pay. Triều Ngũ Lang and Khấu Thiên Tứ are sworn brothers on opposite sides of it.
-- **Tầm Kiếm Đường** was built on a manual Phàn Cổ Đăng sold; Giả Chỉ Lộ spoils its map-seller's honest maps.
+- **Tầm Kiếm Đường** was built on a manual Phàn Cổ Đăng sold; Giả Chỉ Lộ buys its map-seller's honest copies to learn the passes he leads buyers up.
 - **Trấn Sa Đường and Dạ Quang Môn** both want Hô Diên Liệt, and neither has him.
 - **Lãnh Giang Phái**'s escort is hunting Liên Bất Ngữ (lanh_giang hook 6).
 - **Thiên Xu Tông** weighed Yến Lưu Huy on its beam three springs running and found her five short; she left its outer gate.
@@ -189,7 +189,7 @@ Few, and small. Details in `loose-north.items.json`.
 | cat_chau_nuong | Cát Châu Nương | Trúc Cơ | B | Water 56, Wood 36 | 31 | dice house keeper, Tùng Đào's informant |
 | ho_dien_liet | Hô Diên Liệt | Trúc Cơ | B | Earth 52, Fire 40 | 1418 | free sabre of the desert road |
 | quan_tuyet_tung | Quản Tuyết Tung | Trúc Cơ | B | Wood 62, Water 28 | 938 | beast hunter; sold the cub |
-| gia_chi_lo | Giả Chỉ Lộ | Luyện Khí | B | Wood 36, Metal 28, Earth 22 | 46 | seller of false maps |
+| gia_chi_lo | Giả Chỉ Lộ | Luyện Khí | B | Wood 36, Metal 28, Earth 22 | 46 | guide to ruins; leaves clients at the last turn |
 | mong_thuy_huong | Mông Thủy Hương | Luyện Khí | B | Water 42, Earth 30 | 116 | widow of Ngư Đàm |
 | chiem_thinh_phong | Chiêm Thính Phong | Luyện Khí | B | Wind 54, Water 24, Metal 18 | 48 | the crew's Wind root |
 | duong_tam_dao | Dương Tam Đao | Trúc Cơ | C | Wood 44, Metal 32 | 1043 | Bobtail lieutenant |
@@ -231,19 +231,19 @@ Few, and small. Details in `loose-north.items.json`.
 4. **Two axes.** The Bobtail band raids the Đồng Sơn road again (vu_an hook 4). Khấu Thiên Tứ sends word to Triều Ngũ
    Lang that he wants one night across a fire, and Ký Thất Lộ learns where the band sleeps. Hầu Tiểu Lục can lead either
    of them there. (Khấu, Triều Ngũ Lang, Ký Thất Lộ, Hầu Tiểu Lục, Dương Tam Đao; places 1043, 1056, 1063.)
-5. **The ninth layer, from the quay.** Cát Châu Nương sends Luyện Đắc Bảo to his sister with a deadline. The player can
-   pay the debt, steal the ledger, or carry the layer. (Cát, Luyện Đắc Bảo, Luyện Tố Y, Hồ Tùng Nguyệt; places 31,
+5. **The lantern's key, from the quay.** Cát Châu Nương sends Luyện Đắc Bảo to his sister with a deadline. The player can
+   pay the debt, steal the ledger, or carry the key. (Cát, Luyện Đắc Bảo, Luyện Tố Y, Hồ Tùng Nguyệt; places 31,
    1063; vu_an hook 3.)
-6. **The girl on the ice.** Hà Tiểu Băng walks to Phiến Băng Hồ to sit the solstice night uninvited beside Hồ Tiểu
-   Đàm. Her mother sends the player after her; Đỗ Sương Nhi, who keeps the test, must decide whether a girl who is no
-   outer disciple may sit, and Ôn Sa Ngọc rides up from the Desert Pavilion. If Ice answers her, the oasis has its first Ice root; if not,
-   she has the road her father took. (Hà Tiểu Băng, Mông Thủy Hương, Hồ Tiểu Đàm, Ôn Sa Ngọc, Đỗ Sương Nhi; places
+6. **The girl on the ice.** Hà Tiểu Băng walks to the frozen mere at Hàn Giao Chử to sit the solstice night uninvited
+   beside Hồ Tiểu Đàm. Her mother sends the player after her; Đỗ Sương Nhi, who keeps the test, must decide whether a girl who is no
+   outer disciple may sit, and Ôn Sa Ngọc's letter follows her up the road. If Ice answers her, the oasis has its
+   first Ice root; if not, she has the road her father took. (Hà Tiểu Băng, Mông Thủy Hương, Hồ Tiểu Đàm, Ôn Sa Ngọc, Đỗ Sương Nhi; places
    116, 191.)
 7. **Cores in the fish.** Sử Phá Băng's escort cuts open an ice-fish and finds an Ice beast core (lanh_giang hook 6).
    The trail leads to Liên Bất Ngữ, and through him to Phàn's crew and a Thiên Bảo Trai buyer at Mộc Lan. (Liên, Sử
    Phá Băng, Phàn; places 1440, 68.)
-8. **The map that was right.** A buyer of one of Giả Chỉ Lộ's invented maps comes back in 1197 and pays double. The
-   player buys the same map. (Giả, Hách Tùng, Lạc Đan Thanh; places 46, 45.)
+8. **The walk that was right.** A buyer Giả Chỉ Lộ left at the last turn went on alone in 1197, came back and paid
+   double. The player hires the same walk, and must get past the last turn. (Giả, Hách Tùng, Lạc Đan Thanh; places 46, 45.)
 9. **The free sabre.** A cup with blood in it is found at a stop (tran_sa hook 1). Viên Cô Yên and Ô Liệt Phong each
    want Hô Diên Liệt to ride with their side. Xa Linh Nhi knows whose cup it is. (Hô Diên, Xa Linh Nhi, Viên Cô Yên, Ô
    Liệt Phong; places 1418, 203.)
@@ -266,7 +266,7 @@ Few, and small. Details in `loose-north.items.json`.
 - Facts given to sect people: the buyer of the 1189 cub rode with a Pivot caravan (tuan_tung §9 says Trang Thiết Cước's
   wagon carried it; consistent); Khấu Thiên Tứ let Triều carry Ký Thất Lộ out in 1190; the Tầm Tung manual's seller was
   Phàn Cổ Đăng; Nhâm Độ Hàn is Nhâm Liễu Ngạn's (unkeyed) ferryman father; Cát Châu Nương's dice house is the Hàn Tân
-  table where the 1150 Hồng Lô loss happened (Đồng Hồng Lô's hidden secret: she hints, she does not tell); Mặc Thán
+  table where the 1144 Hồng Lô loss happened (the loss and the sale are public in the valley now; what stays hidden is the bill's ash clause); Mặc Thán
   Nương's kiln-smoke Darkness mirrors Triệu Huyết Y's lime-kiln origin (demonic group).
 - Inventions to confirm: the Hall of Cold Law's digging licence and its tenth (and the hand taken for a second
   unlicensed dig); Tạc Băng Thôn's ice-cutting trade; the Bobtail band feeding the cape's charcoal and tea villages.

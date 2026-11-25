@@ -15,7 +15,7 @@
    "rank": "tong_chu",
    "home": 565,
    "birthplace": 81,
-   "role": "Mistress of Hoa Cái Đường since 1150, pill refining from badland cinnabar and sulphur",
+   "role": "Mistress of Hoa Cái Đường since 1141, pill refining from badland cinnabar and sulphur",
    "tier": "A",
    "root": {
     "elements": {
@@ -37,7 +37,7 @@
     "personality": [
      "Ambitious",
      "Pragmatic",
-     "Diligent"
+     "Callous"
     ],
     "calling": "Alchemist",
     "upbringing": "merchant_child",
@@ -58,9 +58,9 @@
     "gained": []
    },
    "appearance": "A handsome woman of middle years in a vermilion coat, with a faint tremor in her left hand that she hides by holding a fan.",
-   "backstory": "La Tử Vi was a pill-seller's daughter of Thạch Kiều Thành who walked up to the new Hall in 1100 because its pills were the only ones weighed at Thiên Quyền Thị like everything else (V117). The founder Úy Đan Dương (uy_dan_duong) made her his disciple. In 1150 the fumes of the eighth turn of his Canopy Pill blinded him, and the same month his co-founder Tôn Luyện Hà (ton_luyen_ha) died of the mercury. La Tử Vi took the furnace from his hands at sixty and has run the Hall since as a Trúc Cơ, which no one in the heartland expected to last. She made it last by trade. The Hall works the Pivot's own cinnabar diggings at Thần Sa Khoáng under lease, washes and refines the ore, and sells the refined cinnabar back to the Pivot with its wound pills. The Pivot's pill-maker Chúc Đan Sa (chuc_dan_sa) buys from her and is the friend she tells most of her recipes to. She is 110, and a Trúc Cơ has two hundred years.",
-   "wants": "To finish the founder's Canopy Pill and reach Kết Đan by it, before her years run out.",
-   "secret": "She has been taking the unfinished pill from the founder's gourd at a hundredth of a dose for ten years. The tremor in her hand is the mercury.",
+   "backstory": "La Tử Vi was a pill-seller's daughter of Thạch Kiều Thành who walked up to the new Hall in 1100 because its pills were the only ones weighed at Thiên Quyền Thị like everything else (V117). The founder Úy Đan Dương (uy_dan_duong) made her his disciple. In 1141 the fumes of the eighth turn of his Canopy Pill blinded him, and the same month his co-founder Tôn Luyện Hà (ton_luyen_ha) died of the mercury. La Tử Vi took the furnace from his hands at fifty-one and has run the Hall since as a Trúc Cơ, which no one in the heartland expected to last. She made it last by trade. The Hall works the Pivot's own cinnabar diggings at Thần Sa Khoáng under lease, washes and refines the ore, and sells the refined cinnabar back to the Pivot with its wound pills. The Pivot's pill-maker Chúc Đan Sa (chuc_dan_sa) buys from her and is the friend she tells most of her recipes to. She is 110, and a Trúc Cơ has two hundred years. She takes the founder's unfinished pill in the open, and half the Hall admires her for it.",
+   "wants": "To keep the Pivot's lease and the Hall's weight at the scale, and to finish the founder's Canopy Pill and reach Kết Đan by it before her years run out.",
+   "secret": "The washers at Thần Sa Khoáng shake because the Hall roasts its poor ore beside the troughs, and Mục Hồng Sa's returns tell her so each season. Each spring she signs two Thanh Khoa boys onto the lease, and signs the sick off it as gone home to the farm, paid a third of the lease rate. She points to Dư Hoàng Nhi, who breathes the mercury room's air unmasked, as proof that the Breath protects anyone who does it right.",
    "ties": [
     {
      "to": "uy_dan_duong",
@@ -75,7 +75,7 @@
     {
      "to": "muc_hong_sa",
      "kind": "friend",
-     "note": "her foreman at the Pivot's cinnabar diggings"
+     "note": "her foreman at the Pivot's cinnabar diggings, who sends the sick home for her"
     },
     {
      "to": "la_khoi_minh",
@@ -85,7 +85,7 @@
     {
      "to": "chuc_dan_sa",
      "kind": "friend",
-     "note": "the Pivot's pill-maker; La sells her the cinnabar and most of her secrets"
+     "note": "the Pivot's pill-maker; buys her cinnabar and brews the Hall's cheap sleeping pills for the sick washers"
     },
     {
      "to": "ton_luyen_ha",
@@ -165,7 +165,7 @@
     "hc-canopy-furnace",
     "hc-sulphur-fan"
    ],
-   "changed": "build added (none existed); home kept; birthplace 81 added; head since 1150 (proposal, N-hoa_cai-02). cross-sect pass: tie to la_khoi_minh aunt_uncle -> niece_nephew (he is her brother's son; both sides said aunt_uncle)."
+   "changed": "build added (none existed); home kept; birthplace 81 added; head since 1141 (proposal, N-hoa_cai-02). cross-sect pass: tie to la_khoi_minh aunt_uncle -> niece_nephew (he is her brother's son; both sides said aunt_uncle)."
   },
   {
    "key": "uy_dan_duong",
@@ -181,7 +181,7 @@
    "rank": "retired_head",
    "home": 565,
    "birthplace": 170,
-   "role": "Founder of Hoa Cái Đường (1060), blinded by his own pill in 1150; lives in a sealed room at the Hall",
+   "role": "Founder of Hoa Cái Đường (1060), blinded by his own pill in 1141; lives in a sealed room at the Hall",
    "tier": "A",
    "root": {
     "elements": {
@@ -226,9 +226,9 @@
     ]
    },
    "appearance": "A gaunt, silver-skinned old man with clouded eyes, who sits with his hands on a bronze gourd and smells the air before anyone speaks.",
-   "backstory": "Úy Đan Dương was a cinnabar washer's son at Thần Sa Khoáng, the diggings the Pivot's alchemists opened in 300 (A208). He learned refining from the Pivot's own pill-makers without being admitted, and in 1060, at seventy, founded the Hall on the forest slope below the Pivot's seat with Tôn Luyện Hà (ton_luyen_ha) and a dozen washers (V117). He swore the Hall's pills would be weighed in the open market like the Pivot's ore. For ninety years he worked on one pill, the Canopy Pill, a nine-turn cinnabar elixir that was to carry a Trúc Cơ through Kết Đan without a tribulation's luck. In 1150 the eighth turn blew back in his face. It blinded him and the fumes killed Tôn in the next room. He gave the furnace to his disciple La Tử Vi (la_tu_vi) and has lived since in a sealed room, smelling batches she brings him. The ninth turn of the pill is still in his gourd.",
-   "wants": "For someone to finish the ninth turn, and for it not to be La Tử Vi.",
-   "secret": "He knows from the smell of her breath that she has been taking the pill. He has not told her that the eighth turn was not an accident of the furnace: the pill itself is poison at every dose.",
+   "backstory": "Úy Đan Dương was a cinnabar washer's son at Thần Sa Khoáng, the diggings the Pivot's alchemists opened in 300 (A208). He learned refining from the Pivot's own pill-makers without being admitted, and in 1060, at seventy, founded the Hall on the forest slope below the Pivot's seat with Tôn Luyện Hà (ton_luyen_ha) and a dozen washers (V117). He swore the Hall's pills would be weighed in the open market like the Pivot's ore. For eighty years he worked on one pill, the Canopy Pill, a nine-turn cinnabar elixir that was to carry a Trúc Cơ through Kết Đan without a tribulation's luck. In 1141 the eighth turn blew back in his face. It blinded him and the fumes killed Tôn in the next room. He gave the furnace to his disciple La Tử Vi (la_tu_vi) and has lived since in a sealed room, smelling batches she brings him. The ninth turn of the pill is still in his gourd, and the market's book has listed the Canopy Pill as a failure since 1141.",
+   "wants": "For someone to finish the ninth turn and pour it out, and for it not to be La Tử Vi.",
+   "secret": "He is teaching Châu Dĩ An the ninth turn by smell, as she sets down each meal, so that the pill is finished by someone who will pour it into the badland sand. La Tử Vi holds the key to the gourd and thinks he talks to the girl about market prices.",
    "ties": [
     {
      "to": "la_tu_vi",
@@ -243,12 +243,12 @@
     {
      "to": "ton_luyen_ha",
      "kind": "dao_partner",
-     "note": "his co-founder, who died of his pill in 1150"
+     "note": "his co-founder, who died of his pill in 1141"
     },
     {
      "to": "chau_di_an",
      "kind": "friend",
-     "note": "the girl who brings his meals and reads him the market prices"
+     "note": "the girl who brings his meals; he is teaching her the ninth turn by smell"
     },
     {
      "to": "muc_hong_sa",
@@ -373,7 +373,7 @@
     "gained": []
    },
    "appearance": "A thin man in a leather mask with glass eyes, which he takes off only to eat.",
-   "backstory": "A sulphur miner's son from Lưu Hoàng, where the badlands smell of eggs for twenty li (A209). He joined the Hall ten years before La Tử Vi (la_tu_vi) and expected the furnace in 1150. He keeps the Nine-Cycle Mercury Art and teaches it slowly, because he carried Tôn Luyện Hà (ton_luyen_ha) out of the refining room himself. He wants the Canopy Pill destroyed.",
+   "backstory": "A sulphur miner's son from Lưu Hoàng, where the badlands smell of eggs for twenty li (A209). He joined the Hall ten years before La Tử Vi (la_tu_vi) and expected the furnace in 1141. He keeps the Nine-Cycle Mercury Art and teaches it slowly, because he carried Tôn Luyện Hà (ton_luyen_ha) out of the refining room himself. He wants the roasting at the diggings carted back to his masked room at the seat, which would cost the Hall a season's weight at the scale, and La refuses.",
    "ties": [
     {
      "to": "uy_dan_duong",
@@ -478,7 +478,7 @@
     "personality": [
      "Loyal",
      "Brave",
-     "Gregarious"
+     "Callous"
     ],
     "calling": "Steward",
     "upbringing": "village_born",
@@ -498,7 +498,7 @@
     "gained": []
    },
    "appearance": "A big red-handed woman whose teeth are pink from cinnabar dust.",
-   "backstory": "Born at the diggings like the founder, she runs the forty washers the Hall keeps at Thần Sa Khoáng under the Pivot's lease (A208): the Pivot owns the mine, the Hall digs and washes it, and every basket is weighed at Thiên Quyền Thị. La Tử Vi (la_tu_vi) is her friend and her mistress.",
+   "backstory": "Born at the diggings like the founder, she runs the forty washers the Hall keeps at Thần Sa Khoáng under the Pivot's lease (A208): the Pivot owns the mine, the Hall digs and washes it, and every basket is weighed at Thiên Quyền Thị. To keep the baskets full she roasts the poor ore beside the troughs, and the washers who stand in them shake. She sends the sick home to Thanh Khoa with a third of the lease rate and a pouch of herb sleeping pills bought from the Pivot's pill-maker, and puts two new boys at the troughs in their place. La Tử Vi (la_tu_vi) is her friend and her mistress.",
    "ties": [
     {
      "to": "uy_dan_duong",
@@ -508,17 +508,17 @@
     {
      "to": "la_tu_vi",
      "kind": "friend",
-     "note": ""
+     "note": "her friend and mistress, who signs the sick off the lease"
     },
     {
      "to": "me_thanh_mach",
      "kind": "disciple",
-     "note": ""
+     "note": "the Thanh Khoa boy at her troughs whose hands have started to shake"
     },
     {
      "to": "tong_binh_hanh",
      "kind": "rival",
-     "note": "the Pivot's keeper of the standard scales at Thiên Quyền Thị, who weighs her baskets"
+     "note": "the Pivot's keeper of the standard scales, who has written up her light baskets"
     },
     {
      "to": "bien_lam_chau",
@@ -691,7 +691,7 @@
      "poison_proof"
     ]
    },
-   "backstory": "From Lưu Hoàng like her master Thiệu Ngân Hống (thieu_ngan_hong); she breathes the mercury room's air without a mask and he cannot decide whether to be proud or afraid.",
+   "backstory": "From Lưu Hoàng like her master Thiệu Ngân Hống (thieu_ngan_hong); she breathes the mercury room's air without a mask and does not shake, and the Mistress holds her up to the washing shed as proof that the Breath works.",
    "ties": [
     {
      "to": "thieu_ngan_hong",
@@ -743,7 +743,7 @@
    "rank": "ngoai_mon",
    "home": 170,
    "birthplace": 567,
-   "role": "Outer disciple at the washing troughs, from the Hall's barley village",
+   "role": "Outer disciple at the washing troughs, from the Hall's barley village; his hands shake",
    "tier": "C",
    "root": {
     "elements": {
@@ -761,7 +761,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "A barley farmer's boy from Thanh Khoa Thôn, where the stones of an old fort built the houses (V108); he rocks the ore pans for Mục Hồng Sa (muc_hong_sa) and sends his pay home.",
+   "backstory": "A barley farmer's boy from Thanh Khoa Thôn, where the stones of an old fort built the houses (V108); he walked three months to the troughs in 1198 and rocks the ore pans for Mục Hồng Sa (muc_hong_sa). His hands shake now, and he sends his pay home.",
    "ties": [
     {
      "to": "muc_hong_sa",
@@ -900,7 +900,7 @@
     "calling": "Herbalist",
     "upbringing": "servant_born"
    },
-   "backstory": "A washer's daughter born at the Hall, she brings Úy Đan Dương (uy_dan_duong) his meals and reads him the market prices, and is the only one he talks to about the ninth turn.",
+   "backstory": "A washer's daughter born at the Hall, she brings Úy Đan Dương (uy_dan_duong) his meals and reads him the market prices, and he is teaching her the ninth turn of the Canopy Pill by smell.",
    "ties": [
     {
      "to": "la_tu_vi",
@@ -980,7 +980,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "La Tử Vi's (la_tu_vi) brother's son from Thạch Kiều, brought up the slope to be her heir and much more interested in the market than the furnace.",
+   "backstory": "La Tử Vi's (la_tu_vi) brother's son from Thạch Kiều, brought up the slope to the furnace and much more interested in the market stall.",
    "ties": [
     {
      "to": "la_tu_vi",
@@ -1028,7 +1028,7 @@
    "gloss": "Refines the red clouds",
    "sex": "F",
    "born": 1000,
-   "died": 1150,
+   "died": 1141,
    "cause": "the fumes of the eighth turn of the Canopy Pill, at 150",
    "alive": false,
    "peak_realm": "truc_co",
@@ -1036,7 +1036,7 @@
    "rank": "founder",
    "home": 565,
    "birthplace": 170,
-   "role": "Co-founder of Hoa Cái Đường (1060), killed by the founder's pill in 1150",
+   "role": "Co-founder of Hoa Cái Đường (1060), killed by the founder's pill in 1141",
    "tier": "B",
    "traits": {
     "personality": [
@@ -1047,7 +1047,7 @@
     "calling": "Alchemist",
     "upbringing": "village_born"
    },
-   "backstory": "A cinnabar washer of Thần Sa Khoáng and Úy Đan Dương's (uy_dan_duong) Dao partner, who founded the Hall with him in 1060 (V117). She learned the mercury art first, taught La Tử Vi (la_tu_vi) the furnace, and died in the next room when the eighth turn of the Canopy Pill blew back in 1150. The Sulphur Lung Breath was made after her death so that no one else would die the same way.",
+   "backstory": "A cinnabar washer of Thần Sa Khoáng and Úy Đan Dương's (uy_dan_duong) Dao partner, who founded the Hall with him in 1060 (V117). She learned the mercury art first, taught La Tử Vi (la_tu_vi) the furnace, and died in the next room when the eighth turn of the Canopy Pill blew back in 1141. The Sulphur Lung Breath was made after her death so that no one else would die the same way.",
    "ties": [
     {
      "to": "uy_dan_duong",

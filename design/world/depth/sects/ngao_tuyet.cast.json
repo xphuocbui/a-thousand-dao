@@ -33,9 +33,9 @@
    },
    "traits": {
     "personality": [
-     "Brave",
      "Stubborn",
-     "Arrogant"
+     "Arrogant",
+     "Callous"
     ],
     "calling": "Duelist",
     "upbringing": "village_born",
@@ -59,23 +59,23 @@
    },
    "appearance": "A lean, hard old man with a frost-burned face and bare feet in every season, who looks at a visitor's hands before their face.",
    "backstory": "Lăng Đạp Tuyết was born in Hàn Mai Thôn in 1068, in the village named for the winter plum that bloomed over a buried child (A069). At seventeen he followed a wandering sword sage, Tư Không Hạc Niên (tu_khong_hac_nien), for three winters, and came home with a sword and a thread of Metal in his root. In 1105 he founded the school above his village after a winter of watching the plum bloom through the snow, and swore it to the pines (V051). He teaches that a blossom needs a hard branch. Since 1105 he has turned away every child without Metal at the plum gate, Ninh Hàn Chi (ninh_han_chi) among them. In 1161 the last families left the ore town of Thạch Khẩu Trấn, where a tiger was taking miners (V053). The next spring the tiger took his daughter Lăng Nhược Mai (lang_nhuoc_mai) on the mountain road. He hunted it to Hổ Khiếu Cương and killed it, and took the empty town and its iron for the school. His sworn brother Trác Thiết Cán (trac_thiet_can) forged him a sword from it. He is 132, Trúc Cơ, with sixty years left and no Golden Core.",
-   "wants": "A Golden Core before his years run out, and an heir who is better than he is, which he will not admit is Phó Ngạo Sương.",
-   "secret": "He was born with no Metal at all. On the third winter Tư Không Hạc Niên gave him a Spirit Root Fruit (Linh Căn Quả), and the thin Metal it put in his root he raised by marrow-washing over sixty years. He has never told anyone, and he owes the sage the fruit. Every child he turns away at the plum gate is the child he was.",
+   "wants": "A Golden Core before his years run out, and his best sword kept at home whatever the sage was promised.",
+   "secret": "He was born with no Metal at all. On the third winter Tư Không Hạc Niên gave him a Spirit Root Fruit (Linh Căn Quả), and the thin Metal it put in his root he raised by marrow-washing over sixty years. Every child he turns away at the plum gate is the child he was. The fruit's price was the first disciple he would ever make, and at this new year the sage wrote for Phó Ngạo Sương. Lăng wrote back that his first disciple was his dead daughter Lăng Nhược Mai, so the tiger has paid, and asked Trác Thiết Cán to recut the year on the tang of Phó's first sword.",
    "ties": [
     {
      "to": "tu_khong_hac_nien",
      "kind": "former_master",
-     "note": "the sword sage he followed for three winters, who put Metal into his root"
+     "note": "the sword sage he followed for three winters, who put Metal into his root; the price was his first disciple, and this year the sage wrote for it"
     },
     {
      "to": "trac_thiet_can",
      "kind": "sworn_sibling",
-     "note": "since 1105; the smith of the iron town"
+     "note": "since 1105; the smith of the iron town, who would not recut a tang for him this year"
     },
     {
      "to": "pho_ngao_suong",
      "kind": "former_disciple",
-     "note": "his first disciple, now his equal and the heir he will not name"
+     "note": "his first disciple, now his equal; the sage's price, which he has written back to refuse"
     },
     {
      "to": "mac_chiet_chi",
@@ -211,12 +211,12 @@
     ]
    },
    "appearance": "A short, enormous miner's son in a striped tiger-hide coat, with forearms like the mountain's ore.",
-   "backstory": "A miner's son of Thạch Khẩu Trấn who left the ore town at twenty to follow the swordsman of Hàn Mai, and swore brotherhood with Lăng Đạp Tuyết (lang_dap_tuyet) when the school was founded in 1105 (V051). When the town emptied in 1161 (V053) he wanted to go home. Lăng took it a year later for his daughter's sake, and Trác built the forge in the old smelting house and tanned the tiger's hide. He is the only person who tells Lăng no.",
+   "backstory": "A miner's son of Thạch Khẩu Trấn who left the ore town at twenty to follow the swordsman of Hàn Mai, and swore brotherhood with Lăng Đạp Tuyết (lang_dap_tuyet) when the school was founded in 1105 (V051). When the town emptied in 1161 (V053) he wanted to go home. Lăng took it a year later for his daughter's sake, and Trác built the forge in the old smelting house and tanned the tiger's hide. He forges every sword the school carries and cuts the year into its tang. He is the only person who tells Lăng no, and this summer he did.",
    "ties": [
     {
      "to": "lang_dap_tuyet",
      "kind": "sworn_sibling",
-     "note": ""
+     "note": "asked him to recut a tang this summer; he said no"
     },
     {
      "to": "du_ho_van",
@@ -226,7 +226,7 @@
     {
      "to": "pho_ngao_suong",
      "kind": "friend",
-     "note": "he thinks she should be heir and says so"
+     "note": "he forged her first sword in 1125 and is forging her a travelling one"
     },
     {
      "to": "truong_luyen_phong",
@@ -280,7 +280,9 @@
    },
    "items": [
     "ngt-thach-khau-tiger-hide"
-   ]
+   ],
+   "wants": "To see Phó Ngạo Sương go to the sage with a sword worth the price.",
+   "secret": "Lăng asked him this summer to recut 1125, the year on the tang of Phó's first sword, so that his dead daughter would stand first. He refused, and he is forging Phó a travelling sword from the last good iron in the seam."
   },
   {
    "key": "pho_ngao_suong",
@@ -296,7 +298,7 @@
    "rank": "chan_truyen",
    "home": 1262,
    "birthplace": 1255,
-   "role": "The founder's first disciple and the school's best sword; the heir in all but name",
+   "role": "The founder's first disciple and the school's best sword; the price the sword sage wrote for",
    "tier": "B",
    "root": {
     "elements": {
@@ -335,7 +337,7 @@
     ]
    },
    "appearance": "A tall weaver's daughter with a plum-branch hairpin and a long white scar on her neck from a tiger's claw.",
-   "backstory": "A Ma Bố Thôn girl Lăng Đạp Tuyết (lang_dap_tuyet) took as his first disciple in 1125. She reached Trúc Cơ in 1160 and became his equal, which he has never quite forgiven. She was on the mountain road with Lăng Nhược Mai (lang_nhuoc_mai) in 1162 when the tiger came, and lived. She teaches the inner gate and would open the plum gate to children without Metal if she were head.",
+   "backstory": "A Ma Bố Thôn girl Lăng Đạp Tuyết (lang_dap_tuyet) took as his first disciple in 1125; Trác Thiết Cán (trac_thiet_can) forged her first sword that year. She reached Trúc Cơ in 1160 and became his equal, which he has never quite forgiven, and a school whose head is Trúc Cơ can take her no higher. She was on the mountain road with Lăng Nhược Mai (lang_nhuoc_mai) in 1162 when the tiger came, and lived. She teaches the inner gate and would open the plum gate to children without Metal if she were head.",
    "ties": [
     {
      "to": "lang_dap_tuyet",
@@ -360,7 +362,7 @@
     {
      "to": "trac_thiet_can",
      "kind": "friend",
-     "note": "the elder who says out loud she should be heir"
+     "note": "the smith who forged her first sword and says out loud she is the best in the school"
     },
     {
      "to": "so_bang_chi",
@@ -411,8 +413,9 @@
      ],
      "targets_note": "Sword route, Ten Thousand Edges, then her master's Falling Leaves for the Wood bleed: faster and cleaner than him."
     },
-    "note": "The heir in all but name."
-   }
+    "note": "The school's best sword."
+   },
+   "wants": "A master past Trúc Cơ, which the school cannot give her."
   },
   {
    "key": "mac_chiet_chi",
@@ -576,7 +579,7 @@
    "rank": "noi_mon",
    "home": 1262,
    "birthplace": 1255,
-   "role": "Inner disciple of the heir",
+   "role": "Inner disciple of Phó Ngạo Sương",
    "tier": "C",
    "root": {
     "elements": {

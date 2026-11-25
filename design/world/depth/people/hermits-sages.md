@@ -49,7 +49,7 @@ the odd ones the genre expects of loose cultivators:
 - **Tư Không Hạc Niên** is pure Metal (94) from a Metal mine (Không Thanh Khoáng, 1457: Metal 46 %). Under R1's factor
   his land gives Metal ×2.3. No sect of the north-east runs on Metal alone, which is part of why he never joined one.
 - **Đoạn Thương Hải** and **Kê Thính Đào** are Water children of the island coast whose Thunder came from bolts (1060,
-  1150), not from land; Cô Vụ Đảo has no Thunder qi.
+  1148), not from land; Cô Vụ Đảo has no Thunder qi.
 - **Giản Thu Địch** has Wind (64) because she was born at Tập Trận Khoáng (603, Wind 31), one of five windy places on
   the continent. Phất Y Cốc and Cửu Cao Phái both hunt children from that mine; Lương Lạc Mai got there first.
 - **Khuyết Vãn Hà** is Wood and Fire from a cassia village of the hot coast (Quế Viên Thôn 1025: Wood 43, Fire 22).
@@ -74,11 +74,11 @@ the odd ones the genre expects of loose cultivators:
 | 700 | Hoắc dies in his tribulation on a northern glacier; the lightning freezes. Mạc sits down by the gate of Phù Tang Cảnh and never leaves | C014, C039, A305 |
 | 702 | Kỷ Hoa Ảnh seals the empty cave with the sword inside | `le_hoa` |
 | 705 | Cô Phàm Các's fleet is lost; the head's youngest disciple, Yến Tang Điền, is ashore with a fever | C015 |
-| 790 | **N-hermits_sages-03** (hidden): Quách Vô Tích, who has just walked out of Phất Y Cốc, takes a ninety-year-old miner of Không Thanh Khoáng onto the road | new; `phat_y` N-phat_y-01 |
+| 790 | **N-hermits_sages-03** (hidden): Quách Lĩnh Thù, who has just walked out of Phất Y Cốc, takes a ninety-year-old miner of Không Thanh Khoáng onto the road | new; `phat_y` N-phat_y-01 |
 | 860 | Lương Lạc Mai is found dead in her sealed abode | C020 |
 | 860 | **N-hermits_sages-04** (hidden): opening the door, Giản Thu Địch hears two flutes, and one stops; she seals the door again | new |
 | 900 | A traveller is seen off at dawn from Tống Khách Thị and never returns | A138 |
-| 900 | **N-hermits_sages-05** (hidden): the traveller is Quách Vô Tích, who gives Cô Hạc to Tư Không Hạc Niên and goes to die alone | new |
+| 900 | **N-hermits_sages-05** (hidden): the traveller is Quách Lĩnh Thù, who gives Cô Hạc to Tư Không Hạc Niên and goes to die alone | new |
 | 920 | Cao Đan Hà dies of her own pill; Úy Thanh Diễm leaves her untouched | C022 |
 | 920 | **N-hermits_sages-06**: Khuyết Vãn Hà comes back that winter and seals the abode with the furnace inside | new |
 | 1059 | **N-hermits_sages-07**: Yến Tang Điền crosses to Dục Nhật Đảo and asks the question; no answer | new |
@@ -88,7 +88,7 @@ the odd ones the genre expects of loose cultivators:
 | 1088 | **N-hermits_sages-08**: Tư Không leaves Lăng at Hàn Mai and swears to teach no one again | new |
 | 1100 | After forty years of silence, Mạc begins to answer one question a year | A311 |
 | 1130 | Tư Không fights Thang Vô Tạ three days on Cùng Mục Phong, calls it a draw; beats Sài Mộ Kiếm in three passes; settles in Tống Khách Thị | C186, A232, A141 |
-| 1150 | **N-hermits_sages-09**: Đoạn walks into the strait after a bolt and carries out Kê Thính Đào | new |
+| 1148 | **N-hermits_sages-09**: Đoạn walks into the strait after a bolt and carries out Kê Thính Đào | new |
 | 1158 | Lận Viễn Phàm's first boat sails west after the fleet and is lost | `minh_loan` |
 | 1198 | **N-hermits_sages-10** (hidden): Mạc sleeps through the spring; Thư Vấn Triều answers the year's question in his words, and again in 1199 | new |
 | 1199 | Đoạn hears a sail in the pool | `nhan_van` |
@@ -103,7 +103,7 @@ the odd ones the genre expects of loose cultivators:
   Thanh Khoáng, and a ninety-year-old miner with a pure Metal root puts down his pick and follows him."
 - **N-hermits_sages-04** (860, `tale`, hidden): "At the door of Lương Lạc Mai's abode her disciple hears two flutes
   playing the falling-plum tune. One stops as the door opens. She closes it again."
-- **N-hermits_sages-05** (900, `departure`, hidden): "The traveller seen off from Tống Khách Thị is Quách Vô Tích, the
+- **N-hermits_sages-05** (900, `departure`, hidden): "The traveller seen off from Tống Khách Thị is Quách Lĩnh Thù, the
   founder of Phất Y Cốc, 110 years after he hung his robe in his valley. He leaves his sword with his disciple."
 - **N-hermits_sages-06** (920, `abode_sealed`): "Cao Đan Hà's herb girl climbs back to her master's abode in the
   winter and closes it on the furnace, the pill and the body."
@@ -111,7 +111,7 @@ the odd ones the genre expects of loose cultivators:
   hermit one thing, and is given nothing."
 - **N-hermits_sages-08** (1088, `oath`): "The sword sage Tư Không Hạc Niên leaves the boy he taught at Hàn Mai and
   swears to teach no one."
-- **N-hermits_sages-09** (1150, `rescue`): "Lightning splits a fishing boat in the strait; the blind man of the pool
+- **N-hermits_sages-09** (1148, `rescue`): "Lightning splits a fishing boat in the strait; the blind man of the pool
   walks into the sea and carries out the fisher's daughter."
 - **N-hermits_sages-10** (1198, `tale`, hidden): "The hermit of Dục Nhật Đảo does not wake for the spring question.
   His ferryman answers it in his voice."
@@ -179,7 +179,7 @@ down a mine shaft, a fisher's daughter the lightning did not kill.
 
 ## 8. Relations
 
-- **Phất Y Cốc (`phat_y`).** Tư Không's master was its founder Quách Vô Tích, which the valley does not know. Its head
+- **Phất Y Cốc (`phat_y`).** Tư Không's master was its founder Quách Lĩnh Thù, which the valley does not know. Its head
   Thang Vô Tạ owes Tư Không the draw of 1130 and wears the sleeve he cut. Its Wind boy Lộ Khinh Trần is the kind
   of hand Cô Hạc was made for.
 - **Ngạo Tuyết Phái (`ngao_tuyet`).** Lăng Đạp Tuyết is Tư Không's former disciple; the Metal in his root cost him years of
@@ -228,7 +228,7 @@ down a mine shaft, a fisher's daughter the lightning did not kill.
 | Plum of the Fifth Month (Ngũ Nguyệt Mai) | flute-blade (no flute base; flying sword), Wind | sealed abode A-5 | `ngu_nguyet_mai` |
 
 Hermits do not make regalia, but each of the three living ones has gathered a set over a life (below). Details and rules in `hermits-sages.items.json`. Two facts this file settles:
-Cô Hạc's maker (null in the chronicle) is Quách Vô Tích, 760; Sóc Khí lies alone in Hoắc's cave (Lê Hoa Am's account),
+Cô Hạc's maker (null in the chronicle) is Quách Lĩnh Thù, 760; Sóc Khí lies alone in Hoắc's cave (Lê Hoa Am's account),
 where the legendary text says it was "sealed with him".
 - **Personal sets** (world-depth items pass, 2026-11-25; details in `hermits-sages.items.json`):
   - **What the Old Man Kept (Quy Khư Di Vật)**, a set of 2 (Mạc Quy Khư): Vase of the Abyss, Bead of the Unmoving Hour. Full set: The World Before (Tiền Thế), when the Vase spills, the foe's clock stops for 2 s while yours runs (its arts, basic attack and companions wait, and its stacks do not count down), and each art you fire in those seconds lays one stack of every element you own on its target.

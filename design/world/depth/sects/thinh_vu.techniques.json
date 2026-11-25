@@ -41,7 +41,7 @@
     "blood-quench-blade",
     {"new": "Where the Drop Falls (Trích Lạc Kiếm)", "concept": "Mark a foe for 3 s; the first art the foe casts inside the mark is answered by one cut that cannot miss and deals more for each Metal stack on them."},
     {"new": "Not a Drop Spilled (Bất Lậu Nhất Trích)", "concept": "A passive art. Each second in which you fire no art fills a bronze cup (your linh lực returns faster for each); your next cutting art spends every cup for more damage.", "effect": "not-a-drop-spilled", "authored": "d10"},
-    {"new": "Return to the Scabbard (Quy Vỏ)", "concept": "A passive art. After 3 s in which you fire no damaging art, the foe counts as unstruck again: your pieces that read your first hit on a foe, or your first sword art of the fight, re-arm, and any later-hit penalty they carry clears. Your first sword art on an unstruck foe cannot be evaded.", "effect": "return-to-the-scabbard", "unlock_layer": 6, "authored": "d29"}
+    {"new": "Return to the Scabbard (Quy Sao)", "concept": "A passive art. After 3 s in which you fire no damaging art, the foe counts as unstruck again: your pieces that read your first hit on a foe, or your first sword art of the fight, re-arm, and any later-hit penalty they carry clears. Your first sword art on an unstruck foe cannot be evaded.", "effect": "return-to-the-scabbard", "unlock_layer": 6, "authored": "d29"}
    ],
    "lore": "The founder's own sword, written down by her first disciples after the War of the Petal Shore (C126-C128), in which the Tower's swordsmen learned that waiting wins orchards.",
    "status": "proposal",

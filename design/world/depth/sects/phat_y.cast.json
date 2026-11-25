@@ -5,7 +5,7 @@
    "key": "thang_vo_ta",
    "name_hv": "Thang Vô Tạ",
    "name_han": "湯無謝",
-   "gloss": "Hides his name (Lý Bạch: thâm tàng thân dữ danh)",
+   "gloss": "Owes no thanks (from the founder's saying: the fee is the whole of the thanks)",
    "sex": "M",
    "born": 900,
    "alive": true,
@@ -60,9 +60,9 @@
     ]
    },
    "appearance": "A tall, quiet man in an old grey robe with one long sleeve, who stands sideways to everyone as if he were about to leave.",
-   "backstory": "Thang Vô Tạ was a hawk-catcher's son on Thương Ưng Đài, the windy terrace of the Pivot's plateau, and the wind went into him there. He came to the valley at fifteen to sell a hawk and stayed for the sword. The second head Liễu Hành Vân (lieu_hanh_van) had kept the founder's grey sleeve and its Wind art closed for three centuries because no one could read it; he read it. He became head in 1090 and has hired out the valley's swords ever since, to the Pivot's war hall, the camel trains and the mines, by the founder's rule that a sword leaves when the deed is done. In 1130 the sword sage Tư Không Hạc Niên (tu_khong_hac_nien) came to the valley, and the two fought on Cùng Mục Phong for three days (C186). The chronicle calls it a draw. Thạch has never spoken of it (A232), and his disciples climb the peak to read the sword marks. He is three hundred, he has no Wind-rooted heir, and Cửu Cao Phái takes every Wind child born on the plateau before he hears of them.",
-   "wants": "A Wind root to give the Brushed Sleeve Step to before he walks out of the valley as the founder did.",
-   "secret": "He lost. On the third day Tư Không cut his left sleeve through and then lowered his sword, called it even and walked away without a sect, so that the valley would keep its head. The mended seam is under his arm.",
+   "backstory": "Thang Vô Tạ was a hawk-catcher's son on Thương Ưng Đài, the windy terrace of the Pivot's plateau, and the wind went into him there. He came to the valley at fifteen to sell a hawk and stayed for the sword. The second head Liễu Hành Vân (lieu_hanh_van) had kept the founder's grey robe and the Wind art folded into it closed for three centuries because no one had the Wind to open it; he had. He became head in 1090 and has hired out the valley's swords ever since, to the Pivot's war hall, the camel trains and the mines, by the founder's saying on the lintel. In 1130 the sword sage Tư Không Hạc Niên (tu_khong_hac_nien) sought him out, and the two fought on Cùng Mục Phong, forty days' ride from the valley, for three days (C186). The chronicle calls it a draw. He will not speak of it (A232), and his disciples climb the peak to read the sword marks. He has watched Lam Khế Ngôn (lam_khe_ngon) make the valley rich on her own terms and asked nothing, because a sword does not tell the contract house its business. Cửu Cao Phái takes the plateau's Wind children before he hears of most of them; in 1195 he rode out himself and reached Lộ Khinh Trần (lo_khinh_tran) a week ahead of its rider.",
+   "wants": "To put the whole of the Brushed Sleeve Step into Lộ Khinh Trần before Cửu Cao can say the boy was theirs, and to keep the valley out of the Pivot's war with Thính Vũ.",
+   "secret": "Since the winter of 1199 he has held the founder's robe open for Lộ Khinh Trần, whose breath of Wind is far under the bar the robe answers to, by lending each fold his own Wind. Each fold costs him what a season of seclusion would have given him, and the boy bleeds at the nose after it; Liêu Vọng Phong (lieu_vong_phong) holds the lamp at the hall door. And he lost on Cùng Mục Phong: on the third day Tư Không cut his left sleeve through and then lowered his sword, called it even and walked away without a sect, so that the valley would keep its head. The mended seam is under his arm.",
    "ties": [
     {
      "to": "lieu_hanh_van",
@@ -77,7 +77,7 @@
     {
      "to": "lam_khe_ngon",
      "kind": "disciple",
-     "note": "his first disciple, keeper of the contracts, who wants the valley"
+     "note": "his first disciple, keeper of the contracts; he does not ask what is in them"
     },
     {
      "to": "khuc_liet_duong",
@@ -87,7 +87,7 @@
     {
      "to": "lo_khinh_tran",
      "kind": "disciple",
-     "note": "a boy with a breath of Wind, whom he took before Cửu Cao's riders arrived"
+     "note": "a boy with a breath of Wind, for whom he holds the robe open with his own Wind"
     },
     {
      "to": "ung_hac_minh",
@@ -95,7 +95,7 @@
      "note": "her riders carry off the plateau's Wind children"
     },
     {
-     "to": "quach_vo_tich",
+     "to": "quach_linh_thu",
      "kind": "ancestor",
      "note": "the founder, whose art he alone holds (lineage, not blood)"
     },
@@ -129,7 +129,7 @@
    "build": {
     "archetype": "kiem_tu",
     "main": {
-     "tech": "ten-paces-sword-canon",
+     "tech": "contract-sword-canon",
      "layer": 9
     },
     "aux": [
@@ -156,7 +156,7 @@
     "skills": {},
     "tree": {
      "start": "kim",
-     "intent": "Pure Metal crits and speed for the ten-pace cut, Wind behind it for the step out of reach: he strikes once and is gone.",
+     "intent": "Pure Metal crits and speed for the final cut, Wind behind it for the step out of reach: he strikes once and is gone.",
      "targets": [
       725,
       1441,
@@ -166,7 +166,7 @@
       4677,
       808
      ],
-     "targets_note": "The hired sword's road (Edge of Autumn, Sword Spine, Sword Bow), Piercing the Willow for the tenth pace's reach, Twin Arms in Harmony and Ten Thousand Swords Return, then Wind Rider in the Wind land for the step out of reach."
+     "targets_note": "The hired sword's road (Edge of Autumn, Sword Spine, Sword Bow), Piercing the Willow for the final count's reach, Twin Arms in Harmony and Ten Thousand Swords Return, then Wind Rider in the Wind land for the step out of reach."
     },
     "note": "The silent sword of Phất Y: a pure blade who held Tư Không Hạc Niên for three days with the same afterimage art."
    },
@@ -175,7 +175,7 @@
     "py-grey-sleeve",
     "py-sleeve-token"
    ],
-   "changed": "build: main dia_kim (stand-in) -> ten-paces-sword-canon (the lineage main); aux adds brushed-sleeve-step; gear dao_bao -> his named robe; tree targets -> intent; birthplace 236 added."
+   "changed": "fix pass B 2026-11-25: head renamed (was thach_tang_danh), gloss from the founder's saying; the art opens to Wind, nothing is read; wants and secret now the teaching of the Step; main renamed contract-sword-canon. fixB-apply: the secret is no longer a breach of a custom but a cost (he lends each fold his own Wind, Liêu Vọng Phong holds the lamp); the duel is sought out, forty days' ride; founder tie quach_linh_thu -> quach_linh_thu. Earlier: build: main dia_kim (stand-in) -> the lineage main; aux adds brushed-sleeve-step; gear dao_bao -> his named robe; tree targets -> intent; birthplace 236 added."
   },
   {
    "key": "lam_khe_ngon",
@@ -212,7 +212,7 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Pragmatic",
+     "Deceitful",
      "Gregarious"
     ],
     "calling": "Merchant",
@@ -231,9 +231,9 @@
     "gained": []
    },
    "appearance": "A neat woman in a grey coat with ink on two fingers, who reads a client's hands before their letter.",
-   "backstory": "Lam Khế Ngôn grew up among the camel drivers of Đà Đội Thôn, where her mother hired guards for the trains, and she came to the valley at sixteen with a better head for terms than for swords. Thang Vô Tạ (thang_vo_ta) took her as his first disciple and in 1150 gave her the valley's Contract Seal. She has made Phất Y rich: the Pivot's war hall pays a standing fee for forty swords, the mines of Ngọc Hành hire their guards from her, and the camel trains will not cross the steppe without a grey sleeve. She has never been on a long hire herself. The head will not live another two hundred years, and she will be a Trúc Cơ for some time yet, which is the problem. She plays go with the Pivot's drillmaster Đái Hổ Thần (dai_ho_than) when he comes to sign the year's contract.",
-   "wants": "To be head after Thạch, and to hire the valley's swords to anyone who pays, not only to the Pivot's friends.",
-   "secret": "Since 1190 she has hired a company, under a camel-train name, to guard caravans of Thính Vũ Lâu's iron on the southern road.",
+   "backstory": "Lam Khế Ngôn grew up among the camel drivers of Đà Đội Thôn, where her mother hired guards for the trains, and she came to the valley at sixteen with a better head for terms than for swords. Thang Vô Tạ (thang_vo_ta) took her as his first disciple and in 1147 gave her the valley's Contract Seal. She has made Phất Y rich: the Pivot's war hall pays a standing fee for forty swords, the mines of Ngọc Hành hire their guards from her, and the camel trains will not cross the steppe without a grey sleeve. She has never been on a long hire herself. In 1190 Thính Vũ Lâu offered three times the fee for a company on its southern iron road, on one condition: no Pivot line. She sealed it under a camel-train name (N-phat_y-03), and the Tower's money has paid for half the valley's new swords since. She plays go with the Pivot's drillmaster Đái Hổ Thần (dai_ho_than) when he comes to sign the year's contract.",
+   "wants": "To keep the Tower's triple fee and the Pivot's standing fee both coming in, which means the war writ buried every spring, and to hire the valley's swords to anyone who pays, not only to the Pivot's friends.",
+   "secret": "Since 1190 she has hired a company, under the name of a camel train of Đà Đội, to guard Thính Vũ Lâu's iron on the southern road, and she sealed it without the Pivot line: the only valley contract that would not end if the Pivot called. Nine of the company have died. She books each death on the Đà Đội camel road, has Giang Bích Sa write the train's stages and its dead into the road book and pays her a higher copying fee at every renewal, and pays Thôi Ấn Thư more for her silence each time a sleeve comes home.",
    "ties": [
     {
      "to": "thang_vo_ta",
@@ -243,12 +243,12 @@
     {
      "to": "khuc_liet_duong",
      "kind": "rival",
-     "note": "the swordswoman the valley would choose over a clerk"
+     "note": "the road's choice; if the writ ever passes, the swords will look to her"
     },
     {
      "to": "giang_bich_sa",
      "kind": "disciple",
-     "note": "a camel-train girl like her"
+     "note": "a camel-train girl like her, who writes the southern train into the road book"
     },
     {
      "to": "dai_ho_than",
@@ -257,13 +257,13 @@
     },
     {
      "to": "thoi_an_thu",
-     "kind": "creditor",
-     "note": "paymaster of the contract house; owes her"
+     "kind": "debt",
+     "note": "the paymaster, who charges her for silence by the sleeve"
     },
     {
      "to": "manh_thu_cam",
      "kind": "disciple",
-     "note": "inner disciple of the contract house, who presses the Seal"
+     "note": "inner disciple of the contract house, who presses the Seal and has offered to copy the road book for half Giang's fee"
     },
     {
      "to": "tiet_hoanh_sa",
@@ -275,7 +275,7 @@
    "build": {
     "archetype": "kiem_tu",
     "main": {
-     "tech": "ten-paces-sword-canon",
+     "tech": "contract-sword-canon",
      "layer": 6
     },
     "aux": [
@@ -311,7 +311,8 @@
    "items": [
     "py-contract-seal",
     "py-contract-blade"
-   ]
+   ],
+   "changed": "fix pass B 2026-11-25: Pragmatic -> Deceitful (the southern contract sealed with no Pivot line, the dead booked on a camel road); want no longer the headship; tie to thoi_an_thu now debt (she pays for silence). fixB-apply: Contract Seal 1150 -> 1147 (SHAPES-PLAN §7); Giang writes the road book at her word; Mạnh's offer on the tie"
   },
   {
    "key": "khuc_liet_duong",
@@ -371,7 +372,7 @@
     ]
    },
    "appearance": "Burnt dark by the road, with a scar that pulls one corner of her mouth into a smile she does not mean.",
-   "backstory": "Born at the horse-drinking spring of Mã Ẩm Tuyền, where the ground is warm in winter, she went out on her first hire at thirty and came back at fifty. She guarded the trains of the merchant Kim Vạn Lý (kim_van_ly) across the western plains, and he still owes her a year's pay. Thang Vô Tạ (thang_vo_ta) is her master. The swords of the valley would follow her before Lam Khế Ngôn (lam_khe_ngon), and both women know it.",
+   "backstory": "Born at the horse-drinking spring of Mã Ẩm Tuyền, where the ground is warm in winter, she went out on her first hire at thirty and came back at fifty. She guarded the trains of the merchant Kim Vạn Lý (kim_van_ly) across the western plains, and he still owes her a year's pay. Thang Vô Tạ (thang_vo_ta) is her master. The swords of the valley would follow her before Lam Khế Ngôn (lam_khe_ngon), and both women know it. She does not know what the southern company's contract says, and has asked twice to ride south and see it kept.",
    "ties": [
     {
      "to": "thang_vo_ta",
@@ -423,7 +424,7 @@
    "build": {
     "archetype": "kiem_tu",
     "main": {
-     "tech": "ten-paces-sword-canon",
+     "tech": "contract-sword-canon",
      "layer": 5
     },
     "aux": [
@@ -540,7 +541,7 @@
    "build": {
     "archetype": "kiem_tu",
     "main": {
-     "tech": "ten-paces-sword-canon",
+     "tech": "contract-sword-canon",
      "layer": 4
     },
     "aux": [],
@@ -608,7 +609,7 @@
     "upbringing": "sect_raised",
     "lifestyle": "teacher_at_heart"
    },
-   "backstory": "Born in the valley and never hired out, he has taught the Dry Road Sword Primer to every outer disciple since 1100; he counts Thang Vô Tạ (thang_vo_ta) as a brother and climbs Cùng Mục Phong with the new disciples each spring to show them the marks.",
+   "backstory": "Born in the valley and never hired out, he has taught the Dry Road Sword Primer to every outer disciple since 1100; he counts Thang Vô Tạ (thang_vo_ta) as a brother and each autumn rides the forty days to Cùng Mục Phong with the year's new disciples to show them the marks.",
    "ties": [
     {
      "to": "thang_vo_ta",
@@ -616,7 +617,7 @@
      "note": ""
     },
     {
-     "to": "ta_bat_luu",
+     "to": "cat_da_binh",
      "kind": "disciple",
      "note": ""
     },
@@ -635,7 +636,7 @@
    "build": {
     "archetype": "kiem_tu",
     "main": {
-     "tech": "ten-paces-sword-canon",
+     "tech": "contract-sword-canon",
      "layer": 6
     },
     "aux": [],
@@ -696,12 +697,12 @@
      "Spirit-eyed"
     ]
    },
-   "backstory": "A miner's son from Tập Trận Khoáng, where the wind never stops; Thang Vô Tạ (thang_vo_ta) heard of him from a hawk-catcher and fetched him a week before Cửu Cao's riders came.",
+   "backstory": "A miner's son from Tập Trận Khoáng whom Thang Vô Tạ (thang_vo_ta) fetched a week before Cửu Cao's riders came. Since the winter of 1199 the head has held the founder's robe open for him with his own Wind; the boy bleeds at the nose after each fold. Liêu Vọng Phong (lieu_vong_phong) holds the lamp, and Lộ writes of it to his cousin Lộ Phi Sương (lo_phi_suong).",
    "ties": [
     {
      "to": "thang_vo_ta",
      "kind": "master",
-     "note": "the head's hope for the sleeve"
+     "note": "holds the robe open for him with his own Wind"
     },
     {
      "to": "cu_van_ly",
@@ -711,7 +712,7 @@
     {
      "to": "lo_phi_suong",
      "kind": "cousin",
-     "note": "his cousin; rider from Tập Trận Khoáng, Lộ Khinh Trần's cousin, at the roc camp"
+     "note": "his cousin, a rider at Cửu Cao's roc camp, to whom he writes of the robe"
     },
     {
      "to": "lieu_vong_phong",
@@ -723,7 +724,7 @@
    "build": {
     "archetype": "kiem_tu",
     "main": {
-     "tech": "ten-paces-sword-canon",
+     "tech": "contract-sword-canon",
      "layer": 2
     },
     "aux": [],
@@ -792,7 +793,7 @@
    "build": {
     "archetype": "kiem_tu",
     "main": {
-     "tech": "ten-paces-sword-canon",
+     "tech": "contract-sword-canon",
      "layer": 3
     },
     "aux": [],
@@ -839,12 +840,13 @@
     "personality": [
      "Cautious",
      "Greedy",
-     "Honest"
+     "Deceitful"
     ],
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "From Đà Đội Thôn like her master Lam Khế Ngôn (lam_khe_ngon), she copies the valley's contracts and has noticed that one of them is written for a train that does not exist.",
+   "backstory": "From Đà Đội Thôn like her master Lam Khế Ngôn (lam_khe_ngon), she copies the valley's contracts. Since 1196 she has written a camel train her own village has not seen into the contract house's road book at Lam's word, its stages, its fodder and its dead, and copied each year's southern renewal fair; she asks a higher copying fee at every renewal, and Lam pays it.",
+   "changed": "fixB-apply 2026-11-25: no longer finds the false train and copies it to sell (read-pilot-B); she writes it and raises her fee; Honest -> Deceitful",
    "ties": [
     {
      "to": "lam_khe_ngon",
@@ -854,7 +856,7 @@
     {
      "to": "manh_thu_cam",
      "kind": "rival",
-     "note": "inner disciple of the contract house, who presses the Seal"
+     "note": "inner disciple of the contract house, who has offered to copy the road book for half her fee"
     }
    ],
    "master": "lam_khe_ngon",
@@ -881,10 +883,11 @@
    }
   },
   {
-   "key": "ta_bat_luu",
-   "name_hv": "Tạ Bất Lưu",
-   "name_han": "謝不留",
-   "gloss": "Leaves nothing behind",
+   "key": "cat_da_binh",
+   "name_hv": "Cát Dã Bình",
+   "name_han": "葛野平",
+   "gloss": "The open plain at peace",
+   "changed": "fixB-apply 2026-11-25: renamed (was ta_bat_luu, Tạ Bất Lưu 謝不留, 'Leaves nothing behind': 不留 is from the removed verse's second line)",
    "sex": "M",
    "born": 1178,
    "alive": true,
@@ -914,7 +917,7 @@
     "upbringing": "village_born",
     "lifestyle": "hunter"
    },
-   "backstory": "A shepherd from Mục Khuyển Thôn who walks the valley's hires with two dogs; Kiều Tĩnh Sơn (kieu_tinh_son) says he is the only outer disciple who has understood the verse on the cliff.",
+   "backstory": "A shepherd from Mục Khuyển Thôn who walks the valley's hires with two dogs; Kiều Tĩnh Sơn (kieu_tinh_son) says he is the only outer disciple who has understood the saying on the lintel.",
    "ties": [
     {
      "to": "kieu_tinh_son",
@@ -1014,10 +1017,10 @@
    }
   },
   {
-   "key": "quach_vo_tich",
-   "name_hv": "Quách Vô Tích",
-   "name_han": "郭無跡",
-   "gloss": "Leaves no trace",
+   "key": "quach_linh_thu",
+   "name_hv": "Quách Lĩnh Thù",
+   "name_han": "郭領酬",
+   "gloss": "Takes the fee (and nothing past it)",
    "sex": "M",
    "born": 470,
    "died": 900,
@@ -1028,7 +1031,7 @@
    "rank": "founder",
    "home": 24,
    "birthplace": 236,
-   "role": "Founder of Phất Y Cốc (560); a Wind-rooted swordsman who brushed his sleeve and left after every deed",
+   "role": "Founder of Phất Y Cốc (560, A225); a Wind-rooted hired sword who cut the valley's saying on its lintel",
    "tier": "B",
    "traits": {
     "personality": [
@@ -1042,7 +1045,7 @@
      "sword_heart"
     ]
    },
-   "backstory": "A wandering Wind-rooted swordsman who hired his sword for one deed at a time and left before he could be thanked. In 560 he settled the grassland valley under the Pivot, dug the ore of Can Tương for his students' swords (A225), and cut the verse of the hired sword into the cliff. In 790 he hung his grey robe in the hall, with his Wind art folded in the sleeve, and walked out. His disciple Liễu Hành Vân (lieu_hanh_van) kept the valley. He did not die then: on the ore road he took a ninety-year-old miner, Tư Không Hạc Niên (tu_khong_hac_nien), as his one disciple, gave him Cô Hạc, and was seen off from Tống Khách Thị in 900 (A138).",
+   "backstory": "A wandering Wind-rooted swordsman who hired his sword for one deed at a time and took nothing past the fee. In 560 he settled the grassland valley under the Pivot, dug the ore of Can Tương for his students' swords (A225), and cut his saying on the lintel of the first hall: the fee is the whole of the thanks. In 790 he hung his grey robe in the hall, with his Wind art folded in the sleeve, and walked out. His disciple Liễu Hành Vân (lieu_hanh_van) kept the valley. He did not die then: on the ore road he took a ninety-year-old miner, Tư Không Hạc Niên (tu_khong_hac_nien), as his one disciple, gave him Cô Hạc, and was seen off from Tống Khách Thị in 900 (A138).",
    "ties": [
     {
      "to": "lieu_hanh_van",
@@ -1060,7 +1063,7 @@
      "note": "a later head of his line (lineage, not blood)"
     }
    ],
-   "changed": "cross-sect pass: died 790 -> 900: hermits-sages (N-hermits_sages-03, -05) has him teach Tư Không Hạc Niên on the road from 790 and leave as the traveller of A138 in 900; the valley still counts 790. Tie to tu_khong_hac_nien added."
+   "changed": "cross-sect pass: died 790 -> 900: hermits-sages (N-hermits_sages-03, -05) has him teach Tư Không Hạc Niên on the road from 790 and leave as the traveller of A138 in 900; the valley still counts 790. Tie to tu_khong_hac_nien added. fixB-apply 2026-11-25: renamed (was quach_vo_tich, Quách Vô Tích 郭無跡, 'Leaves no trace': the removed verse's 千里不留行 moved into a name); role no longer paraphrases the verse."
   },
   {
    "key": "lieu_hanh_van",
@@ -1070,7 +1073,7 @@
    "sex": "F",
    "born": 640,
    "died": 1090,
-   "cause": "a failed breakthrough to Nguyên Anh at 450, the year she handed the valley to Thạch",
+   "cause": "a failed breakthrough to Nguyên Anh at 450, the year she handed the valley to Thang Vô Tạ",
    "alive": false,
    "peak_realm": "ket_dan",
    "sect": "phat_y",
@@ -1088,10 +1091,10 @@
     "calling": "Strategist",
     "upbringing": "merchant_child"
    },
-   "backstory": "The founder Quách Vô Tích's (quach_vo_tich) disciple, who had no Wind and could not read his art. She kept it closed and built the valley a living instead: she made the Contract Seal, wrote the Dry Road Sword Primer for the camel-train companies, and sent the valley's swords to the Pivot under its writ in the War of Broken Halberds (C016). She gave the grey sleeve to Thang Vô Tạ (thang_vo_ta) when he opened the book.",
+   "backstory": "The founder Quách Lĩnh Thù's (quach_linh_thu) disciple, who had no Wind and could not open his art. She kept it closed and built the valley a living instead: she made the Contract Seal, wrote the Dry Road Sword Primer for the camel-train companies, and sent the valley's swords to the Pivot under its writ in the War of Broken Halberds (C016). She gave the grey robe to Thang Vô Tạ (thang_vo_ta) when it opened to his Wind.",
    "ties": [
     {
-     "to": "quach_vo_tich",
+     "to": "quach_linh_thu",
      "kind": "master",
      "note": ""
     },
@@ -1101,7 +1104,7 @@
      "note": "her successor"
     }
    ],
-   "master": "quach_vo_tich"
+   "master": "quach_linh_thu"
   }
  ]
 }

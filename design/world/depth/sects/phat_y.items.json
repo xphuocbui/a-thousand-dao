@@ -5,16 +5,16 @@
   {
    "id": "py-grey-sleeve", "name": "The Grey Sleeve (Phất Y Bào)", "family": "wind", "kind": "artifact", "base": "dao_bao", "grade": 4,
    "modifiers": [{"key": "evade_pct", "value": 8, "scope": []}, {"key": "art_speed_pct", "value": 12, "scope": ["sword"]}, {"key": "khi_huyet_pct", "value": 14, "scope": []}, {"key": "basic_speed_pct", "value": 12, "scope": []}, {"key": "than_thuc_pct", "value": 4, "scope": []}],
-   "effects": [{"new": true, "id": "deed-done", "name": "The Deed Is Done (Sự Liễu)", "rule": "When a foe you struck dies or flees, you vanish for two seconds: you cannot be targeted, and your next Metal strike from hiding is a critical hit."}],
-   "lore": "A plain grey robe with one long sleeve, left in the valley hall by the founder Quách Vô Tích when he walked out in 790, with the Brushed Sleeve Step folded inside it. Thang Vô Tạ wears it. On the third day of the duel on Cùng Mục Phong (C186) its left sleeve was cut through; he had it mended the same night and has not let anyone see the seam.",
-   "build_use": "A Wind swordsman's robe: evade, speed, and a vanishing after the killing cut.",
-   "holder": "thang_vo_ta", "made_by": "quach_vo_tich", "made_year": 600, "set": "py-ten-paces", "status": "proposal"
+   "effects": [{"new": true, "id": "gone-before-thanks", "name": "Gone Before Thanks (Bất Đãi Tạ)", "rule": "When a foe you struck dies or flees, you vanish for two seconds: you cannot be targeted, and your next Metal strike from hiding is a critical hit."}],
+   "lore": "A plain grey robe with one long sleeve, left in the valley hall by the founder Quách Lĩnh Thù when he walked out in 790, with the Brushed Sleeve Step folded inside it. Thang Vô Tạ wears it. On the third day of the duel on Cùng Mục Phong (C186) its left sleeve was cut through; he had it mended the same night and has not let anyone see the seam.",
+   "build_use": "A Wind swordsman's robe: evade, speed, and a vanishing after the finishing cut.",
+   "holder": "thang_vo_ta", "made_by": "quach_linh_thu", "made_year": 600, "set": "py-grey-seal", "status": "proposal"
   },
   {
    "id": "py-contract-seal", "name": "Contract Seal of the Valley (Cốc Khế Ấn)", "family": "metal", "kind": "artifact", "base": "an", "grade": 3,
    "modifiers": [{"key": "attack_pct", "value": 16, "scope": ["sword"]}, {"key": "leech_health_pct", "value": 15, "scope": []}, {"key": "khi_van", "value": 1, "scope": []}, {"key": "khi_huyet_pct", "value": 10, "scope": []}],
    "effects": [{"new": true, "id": "paid-in-full", "name": "Paid in Full (Thanh Toán)", "rule": "While you fight to protect someone who has hired you, you take a fifth less damage from foes that attack them, and you heal when you strike those foes."}],
-   "lore": "The bronze seal the valley stamps on every hire: a sleeve and a sword. Whoever holds it decides which caravans, mines and sects Phất Y swords will guard. Lam Khế Ngôn has held it since 1150 and has stamped more contracts with it than the two heads before her together.",
+   "lore": "The bronze seal the valley stamps on every hire: a sleeve and a sword. Whoever holds it decides which caravans, mines and sects Phất Y swords will guard. Lam Khế Ngôn has held it since 1147 and has stamped more contracts with it than the two heads before her together.",
    "build_use": "A hired guard's seal: sustain while protecting a client.",
    "holder": "lam_khe_ngon", "made_by": "lieu_hanh_van", "made_year": 800, "set": "py-hired-pair", "status": "proposal"
   },
@@ -24,7 +24,7 @@
    "effects": [],
    "lore": "A scrap of grey sleeve in a wooden case, taken from the beams of the hall of the dead. Each head carries one sleeve down.",
    "build_use": "Wind behind the blade: the step out of reach.",
-   "holder": "thang_vo_ta", "made_by": "phat_y", "made_year": 1090, "set": "py-ten-paces", "status": "proposal"
+   "holder": "thang_vo_ta", "made_by": "phat_y", "made_year": 1090, "set": "py-grey-seal", "status": "proposal"
   },
   {
    "id": "py-contract-blade", "name": "Blade of the Signed Contract (Thiêm Khế Kiếm)", "family": "metal", "kind": "artifact", "base": "phi_kiem", "grade": 2,
@@ -37,15 +37,15 @@
  ],
  "sets": [
   {
-   "id": "py-ten-paces", "name": "Grey Sleeve and Ten Paces (Phất Y Thập Bộ)", "pieces": ["py-grey-sleeve", "py-sleeve-token"],
+   "id": "py-grey-seal", "name": "Grey Sleeve and Seal (Phất Y Khế Ấn)", "pieces": ["py-grey-sleeve", "py-sleeve-token"],
    "bonuses": [
-    {"pieces": 2, "modifiers": [{"key": "crit_chance_pct", "value": 4, "scope": ["sword"]}, {"key": "evade_pct", "value": 3, "scope": []}], "effect": "Ten Paces, One Cut (Thập Bộ Nhất Trảm): after you vanish (The Deed Is Done) or evade an attack, your next sword art while you are At range ends your At range and deals 30 % more damage; if its hit makes the foe Broken, you vanish again. Return to the Scabbard (Quy Vỏ): after 3 s in which you fire no damaging art, the foe counts as unstruck again, and that counts as a vanish for this bonus."}
+    {"pieces": 2, "modifiers": [{"key": "crit_chance_pct", "value": 4, "scope": ["sword"]}, {"key": "evade_pct", "value": 3, "scope": []}], "effect": "The Last Step (Chung Bộ): after you vanish (Gone Before Thanks) or evade an attack, your next sword art while you are At range ends your At range and deals 30 % more damage; if its hit makes the foe Broken, you vanish again. Return to the Scabbard (Quy Sao): after 3 s in which you fire no damaging art, the foe counts as unstruck again, and that counts as a vanish for this bonus."}
    ],
    "story": "The founder's robe and a sleeve of the dead. The robe passes head to head; the sleeve is chosen from the beams by each new head, and no head says whose. He fights with the Thousand-Cut Sword beside them.",
    "authored": "d29, a1"
   },
   {
-   "id": "py-hired-pair", "name": "Hired Sword's Pair (Thuê Kiếm Song Bảo)", "pieces": ["py-contract-seal", "py-contract-blade"],
+   "id": "py-hired-pair", "name": "Hired Sword's Pair (Dung Kiếm Song Bảo)", "pieces": ["py-contract-seal", "py-contract-blade"],
    "bonuses": [
     {"pieces": 2, "modifiers": [{"key": "khi_huyet_pct", "value": 6, "scope": []}, {"key": "health_regen_inc_pct", "value": 10, "scope": []}], "effect": "Paid in Full (Thanh Toán): while you protect a hirer, each crit you land heals you 2 % of your health; if the hirer leaves the fight alive, you are healed in full once."}
    ],

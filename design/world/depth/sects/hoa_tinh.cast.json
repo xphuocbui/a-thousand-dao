@@ -15,7 +15,7 @@
    "rank": "tong_chu",
    "home": 1328,
    "birthplace": 1329,
-   "role": "Hall-mistress of Họa Tinh Đường since 1150, talismans painted with the Dipper in Mặc Yên soot",
+   "role": "Hall-mistress of Họa Tinh Đường since 1137, talismans painted with the Dipper in Mặc Yên soot",
    "tier": "A",
    "root": {
     "elements": {
@@ -58,9 +58,9 @@
     ]
    },
    "appearance": "A slight, grey-haired woman in a black robe flecked with soot, who sits so still at the painting table that moths settle on her sleeves.",
-   "backstory": "Kỷ Ngân Chúc was born in the dark-fungus village of Huyền Chi Thôn, the Hall's own, and is the founder Kỷ Thu Tịch's (ky_thu_tich) grand-niece. She ground ink for a thousand mornings before the founder let her hold a brush, and has painted the Pivot's Dipper talismans by the Silver Candle since 1100. The founder made the Hall in 910, sworn to the Pivot, and its talismans would not run in the rain (V059). That is why the Pivot's archive and its envoys use nothing else. When the founder died in 1150 she left the Hall to Kỷ Ngân Chúc with a key and an oath. The key opens a cedar box in the head's room. The oath is that the box is never opened while the Hall is the Pivot's. The box holds the founder's copy of Thorn and Ink Verses, a song art the Pivot has forbidden since it destroyed Cửu Thiều Cung (C005). The Hall's rain-fast ink comes from its blood-ink writ. She opened the box once, the night she took the oath, and has kept the oath since. The Hall's soot comes from the kilns of Mặc Yên in the vermilion pines, under her ink master Lăng Mặc Khanh (lang_mac_khanh).",
-   "wants": "To find an heir who can keep the box shut, and to keep painting until the candle burns down.",
-   "secret": "The rain-fast ink every talisman of the Hall carries is a forbidden song art with the blood taken out. Every copy of the Compact the Pivot's archive has made since 910 is written in it.",
+   "backstory": "Kỷ Ngân Chúc was born in the dark-fungus village of Huyền Chi Thôn, the Hall's own, and is the founder Kỷ Thu Tịch's (ky_thu_tich) grand-niece. She ground ink for a thousand mornings before the founder let her hold a brush, and has painted the Pivot's Dipper talismans by the Silver Candle since 1100. The founder made the Hall in 910, sworn to the Pivot, and its talismans would not run in the rain (V059). That is why the Pivot's archive and its envoys use nothing else. When the founder died in 1137 she left the Hall to Kỷ Ngân Chúc with a key and an oath. The key opens a cedar box in the head's room. The oath is that the box is never opened while the Hall is the Pivot's. The box holds the founder's copy of Thorn and Ink Verses, a song art the Pivot has forbidden since it destroyed Cửu Thiều Cung (C005). The Hall's rain-fast ink comes from its blood-ink writ. She opened the box once, the night she took the oath, and has kept the oath since. The Hall's soot comes from the kilns of Mặc Yên in the vermilion pines, under her ink master Lăng Mặc Khanh (lang_mac_khanh).",
+   "wants": "To stop the forged Dipper without opening the box, by some proof that does not say why the true one holds; and to keep painting until the candle burns down.",
+   "secret": "The rain-fast ink every talisman of the Hall carries is a forbidden song art with the blood taken out, and every copy of the Compact the Pivot's archive has made since 910 is written in it. Sử Ngưng Mặc (su_ngung_mac) has known since the first ink the Hall sold her: she came north to the founder's burial in 1137 to tell Kỷ that she would go on buying it.",
    "ties": [
     {
      "to": "ky_thu_tich",
@@ -70,17 +70,17 @@
     {
      "to": "lac_to_binh",
      "kind": "disciple",
-     "note": "her chief painter and expected heir"
+     "note": "her chief painter, who holds the Dipper Talisman Seal"
     },
     {
      "to": "tan_cuc_hoa",
      "kind": "disciple",
-     "note": "a quiet girl who has noticed the cedar box"
+     "note": "her last disciple, who sweeps the head's room and is taught by the Silver Candle"
     },
     {
      "to": "su_ngung_mac",
      "kind": "friend",
-     "note": "the keeper of the Pivot's archive, who writes in the Hall's ink"
+     "note": "the keeper of the Pivot's archive, who knows what the Hall's ink is and buys it anyway"
     },
     {
      "to": "ung_hac_minh",
@@ -161,7 +161,7 @@
     "general-talisman-bearer-ring",
     "ht-rainfast-ink-gourd"
    ],
-   "changed": "build added (none existed); birthplace 1329 added; head since 1150 (proposal, N-hoa_tinh-02)."
+   "changed": "build added (none existed); birthplace 1329 added; head since 1137 (proposal, N-hoa_tinh-02)."
   },
   {
    "key": "lac_to_binh",
@@ -177,7 +177,7 @@
    "rank": "chan_truyen",
    "home": 1328,
    "birthplace": 1329,
-   "role": "Chief painter of the Hall and the head's expected heir",
+   "role": "Chief painter of the Hall, holder of the Dipper Talisman Seal; selling the rain-fast stroke to Thính Vũ Lâu",
    "tier": "B",
    "root": {
     "elements": {
@@ -197,7 +197,7 @@
    "traits": {
     "personality": [
      "Ambitious",
-     "Honest",
+     "Greedy",
      "Impatient"
     ],
     "calling": "Talisman maker",
@@ -216,7 +216,7 @@
     "gained": []
    },
    "appearance": "A tall woman with ink to the elbow and a boxwood seal on a cord, who talks while she paints, which no one else dares.",
-   "backstory": "A fungus-gatherer's daughter from the Hall's village like her master Kỷ Ngân Chúc (ky_ngan_chuc), named by her for the same poem. She holds the Dipper Talisman Seal and paints most of what the Pivot buys. She believes the rain-fast ink is the founder's honest discovery, and she would like to sell it to every sect on the continent.",
+   "backstory": "A fungus-gatherer's daughter from the Hall's village like her master Kỷ Ngân Chúc (ky_ngan_chuc), named by her for the same poem. She holds the Dipper Talisman Seal and paints most of what the Pivot buys. She believes the rain-fast ink is the founder's honest discovery, and she has always wanted to sell it to every sect on the continent. This spring, in an inn at Khai Dương Thành, she sold the first half of its stroke to Hoàng Tiêu Diệp (hoang_tieu_diep) of the Tower's coast house, for more stones than the Hall earns in a year, and kept the stones.",
    "ties": [
     {
      "to": "ky_ngan_chuc",
@@ -231,7 +231,7 @@
     {
      "to": "han_thuy_mac",
      "kind": "rival",
-     "note": "who says the Hall should sell to no one but the Pivot"
+     "note": "the ink-maker at the Pivot's seat; they have argued over the Pivot's price since 1160"
     },
     {
      "to": "te_thu_anh",
@@ -247,6 +247,11 @@
      "to": "nhiep_to_han",
      "kind": "rival",
      "note": "painter of the Dipper's middle stars, a Khai Dương scribe's son"
+    },
+    {
+     "to": "hoang_tieu_diep",
+     "kind": "debt",
+     "note": "the Tower's coast-house keeper, who paid for the whole stroke; Lạc owes her the second half next spring"
     }
    ],
    "master": "ky_ngan_chuc",
@@ -286,11 +291,13 @@
      ],
      "targets_note": "Painters' route, then Running Script: fast talismans."
     },
-    "note": "The chief painter."
+    "note": "The chief painter; selling the stroke."
    },
    "items": [
     "ht-dipper-talisman-seal"
-   ]
+   ],
+   "wants": "The second half of Hoàng Tiêu Diệp's price next spring, and her ink sold in every market south of the pines.",
+   "secret": "She is selling the Hall's rain-fast stroke to Thính Vũ Lâu. She thinks the Tower wants the ink for its own writs. Its coast house wants the stroke to paint the Hall's Dipper without deer glue, so that the forgeries will hold in the rain and smell of nothing."
   },
   {
    "key": "lang_mac_khanh",
@@ -471,7 +478,7 @@
     {
      "to": "lac_to_binh",
      "kind": "rival",
-     "note": "the true disciple who says the Hall should sell to no one but the Pivot"
+     "note": "the chief painter; they have argued over the Pivot's price since 1160"
     },
     {
      "to": "nham_thanh_luu",
@@ -553,15 +560,15 @@
    },
    "traits": {
     "personality": [
-     "Content",
-     "Generous",
-     "Pragmatic"
+     "Pragmatic",
+     "Greedy",
+     "Diligent"
     ],
     "calling": "Herbalist",
     "upbringing": "village_born",
     "lifestyle": "gardener"
    },
-   "backstory": "She grows the dark fungus that gives the Hall's paper its grey and its seal ink its violet, and runs Huyền Chi Thôn for Kỷ Ngân Chúc (ky_ngan_chuc), who was born two doors from her mother.",
+   "backstory": "She grows the dark fungus that gives the Hall's paper its grey and its seal ink its violet, and runs Huyền Chi Thôn for Kỷ Ngân Chúc (ky_ngan_chuc). What the vats make beyond the Hall's need she sells at the dye market of Khai Dương Thành. This year one buyer took ten jars of the violet, the seal's colour, and she kept the price and asked nothing.",
    "ties": [
     {
      "to": "ky_ngan_chuc",
@@ -613,7 +620,9 @@
      "intent": "Wood."
     },
     "note": "Fungus dyes."
-   }
+   },
+   "wants": "A good price for the violet, and the granary of Huyền Chi Thôn full by the first snow.",
+   "secret": "She knows ten jars of seal violet are not for cloth, and she sold them anyway, because the dye pays for the village's winter."
   },
   {
    "key": "tan_cuc_hoa",
@@ -629,7 +638,7 @@
    "rank": "noi_mon",
    "home": 1328,
    "birthplace": 1329,
-   "role": "Inner disciple of the head, who has noticed the cedar box",
+   "role": "Inner disciple of the head; sweeps the head's room and is taught by the Silver Candle",
    "tier": "C",
    "root": {
     "elements": {
@@ -647,7 +656,7 @@
     "calling": "Talisman maker",
     "upbringing": "village_born"
    },
-   "backstory": "Kỷ Ngân Chúc's (ky_ngan_chuc) last disciple, she sweeps the head's room and has found that the rain-fast stroke she is taught matches a verse on a scrap of paper caught under the cedar box's lid.",
+   "backstory": "Kỷ Ngân Chúc's (ky_ngan_chuc) last disciple, she sweeps the head's room, grinds the head's ink and is taught the rain-fast stroke by the Silver Candle itself, which no other disciple of her year is. Tề Thu Ảnh (te_thu_anh) has not forgiven her for it.",
    "ties": [
     {
      "to": "ky_ngan_chuc",
@@ -682,7 +691,7 @@
      "start": "moc",
      "intent": "Wood talismans."
     },
-    "note": "The scrap."
+    "note": "The head's room."
    }
   },
   {
@@ -912,7 +921,7 @@
    "rank": "ngoai_mon",
    "home": 1329,
    "birthplace": 113,
-   "role": "Outer disciple from the deer meadow village",
+   "role": "Outer disciple from the deer meadow village; knew the forged Dipper by its glue",
    "tier": "C",
    "root": {
     "elements": {
@@ -930,7 +939,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
-   "backstory": "From Lộc Uyển, where the Pivot forbids hunting the deer (A086); she gathers fungus for Lục Thanh Chi (luc_thanh_chi) and refuses to paint with deer-glue ink.",
+   "backstory": "From Lộc Uyển, where the Pivot forbids hunting the deer (A086); she gathers fungus for Lục Thanh Chi (luc_thanh_chi) and will not paint with deer-glue ink. She knew the first forged Dipper by its smell: the glue is boiled in her uncle's yard at home. She sends him her stipend each season to stop, and he takes it and goes on boiling.",
    "ties": [
     {
      "to": "luc_thanh_chi",
@@ -966,7 +975,9 @@
      "intent": "Wood."
     },
     "note": "No deer glue."
-   }
+   },
+   "wants": "For her uncle to shut his glue yard before the deer warden finds it.",
+   "secret": "The glue in the forged Dipper talismans is boiled in her uncle's yard at Lộc Uyển, and she has been paying him to stop."
   },
   {
    "key": "ky_thu_tich",
@@ -975,8 +986,8 @@
    "gloss": "An autumn evening (Đỗ Mục, Thu tịch)",
    "sex": "F",
    "born": 820,
-   "died": 1150,
-   "cause": "kiln soot in her lungs from three centuries of ink-making, at 330, at the painting table",
+   "died": 1137,
+   "cause": "kiln soot in her lungs from three centuries of ink-making, at 317, at the painting table",
    "alive": false,
    "peak_realm": "ket_dan",
    "sect": "hoa_tinh",

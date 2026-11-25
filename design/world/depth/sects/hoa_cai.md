@@ -12,7 +12,7 @@
 | Leans | Fire, Earth → **Earth, Metal** (re-leaned: mineral alchemy, see 2) |
 | Lineage elements | Earth first, then Metal |
 | Seat | **stays** at Hoa Cái Đường (place 565, forest slope five tiles below the Pivot's seat): Earth 37 %, Metal 25 %, Fire 12 %, density 1.84 |
-| Head | La Tử Vi, Trúc Cơ, Mistress since 1150; the blind founder Úy Đan Dương (Kết Đan) lives in a sealed room |
+| Head | La Tử Vi, Trúc Cơ, Mistress since 1141; the blind founder Úy Đan Dương (Kết Đan) lives in a sealed room |
 | Size | about 60 refiners, washers and sellers; 10 named living, 1 named dead |
 | Way of life | a pill house: it digs and refines the Pivot's cinnabar under lease and sells pills weighed in the open market |
 
@@ -20,7 +20,7 @@ The youngest of the Pivot's vassals, founded in 1060 by a cinnabar washer who le
 pill-makers through a door he was never let in by. The Hall makes the wound pills the Pivot's guards carry and the
 refined cinnabar the Pivot's own alchemist brews with. It is run by a Trúc Cơ woman, which everyone said would not
 last, and by trade, which has made it last. Its founder sits blind in a sealed room with the last turn of a pill that
-killed his partner, and its Mistress has been drinking from it.
+killed his partner, and its Mistress drinks from it in the open. Its washers, out at the Pivot's diggings, shake.
 
 ## 2. Land and seat
 
@@ -51,18 +51,20 @@ nephew and her seller are all Thạch Kiều-born. There is a little Fire in the
 | 1060 | Pill refiners using the cinnabar of the red badlands found Hoa Cái Đường under Thiên Xu; their pills are weighed at Thiên Quyền Thị | V117 |
 | 1062 | Úy Đan Dương begins the Canopy Pill | **N-hoa_cai-01** |
 | 1100 | La Tử Vi walks up from Thạch Kiều | |
-| 1150 | The eighth turn of the Canopy Pill blows back: the founder is blinded, Tôn Luyện Hà dies; La Tử Vi takes the furnace | **N-hoa_cai-02** |
-| 1150s | The Sulphur Lung Breath is made; the Hall takes the Pivot's lease on the cinnabar diggings | **N-hoa_cai-03** |
-| 1190 | La Tử Vi begins taking the unfinished pill (hidden) | |
+| 1141 | The eighth turn of the Canopy Pill blows back: the founder is blinded, Tôn Luyện Hà dies; La Tử Vi takes the furnace | **N-hoa_cai-02** |
+| 1140s | The Sulphur Lung Breath is made; the Hall takes the Pivot's lease on the cinnabar diggings | **N-hoa_cai-03** |
+| 1190 | La Tử Vi begins taking the unfinished pill, in the open | |
+| 1190s | The Hall roasts its poor ore beside the washing troughs at Thần Sa Khoáng; the washers begin to shake | |
 
 **New chronicle proposals.**
 - **N-hoa_cai-01** (1062, `item_made`): "Úy Đan Dương of Hoa Cái Đường begins a nine-turn cinnabar elixir to carry a
   Trúc Cơ through Kết Đan, and calls it the Canopy Pill."
-- **N-hoa_cai-02** (1150, `disaster`): "The eighth turn of the Canopy Pill blows back in the Hall's refining room; its
+- **N-hoa_cai-02** (1141, `disaster`): "The eighth turn of the Canopy Pill blows back in the Hall's refining room; its
   founder is blinded, his partner Tôn Luyện Hà dies, and the Trúc Cơ La Tử Vi takes the furnace."
-- **N-hoa_cai-03** (1155, `trade`): "Thiên Xu leases the digging and washing of Thần Sa Khoáng to Hoa Cái Đường; the
+- **N-hoa_cai-03** (1146, `trade`): "Thiên Xu leases the digging and washing of Thần Sa Khoáng to Hoa Cái Đường; the
   Pivot keeps the mine and buys back the refined cinnabar by weight at Thiên Quyền Thị." This is how the Hall "sells
-  the Pivot cinnabar" (thien_xu §8) from the Pivot's own mine.
+  the Pivot cinnabar" (thien_xu §8) from the Pivot's own mine. The lease binds the Hall to keep a sick washer at the
+  lease rate for life, or to replace him.
 
 ## 4. Doctrine and customs
 
@@ -73,7 +75,8 @@ nephew and her seller are all Thạch Kiều-born. There is a little Fire in the
   Cái that spreads over the pole star, and the Hall's disciples cultivate under it. Its saying is that the pill is the
   pole and the alchemist is only the lid.
 - **The breath first.** No one touches cinnabar before the fourth layer of the Sulphur Lung Breath. No one touches
-  mercury before the Nine-Cycle art, and that is taught slowly. The rule was written in Tôn Luyện Hà's death.
+  mercury before the Nine-Cycle art, and that is taught slowly. The rule was written in Tôn Luyện Hà's death. The Breath
+  hardens the body against fume. It does nothing for mercury in water, which soaks in through the feet and hands.
 - **Dress and food.** Vermilion coats, leather masks with glass eyes in the mercury room, gloves of oiled silk. Rice
   porridge with egg and green beans, which the washers swear draws the poison out. No fish from the badland streams.
 - **Burial.** The dead are buried in the barley fields of Thanh Khoa, away from the red ground, so that their bones
@@ -117,8 +120,9 @@ lets a washer outlive the work.
 
 - **Thiên Xu Tông (lord, loyalty 55):** the Hall sells the Pivot cinnabar and pills (thien_xu §8), refined from the
   Pivot's own mine (N-hoa_cai-03). The Pivot's pill-maker **Chúc Đan Sa** brews with Hoa Cái cinnabar and is La Tử Vi's
-  friend. The keeper of the Pivot's standard scales, **Tông Bình Hành**, weighs every basket the Hall sells. Loyalty
-  is low because the Hall is young and a tenant, not because it is unhappy.
+  friend. The keeper of the Pivot's standard scales, **Tông Bình Hành**, weighs every basket the Hall sells, and has
+  written up three seasons of light ones. Loyalty is low because the Hall is young and a tenant, and because the
+  treasury now wants its diggings back.
 - **Củng Tinh Quán:** buys mountain-sickness pills; the Hall's herb gatherer comes from its village of Tầm Dược.
 - **Chân Kim Các:** assays the Hall's lead and silver for the crucibles, and is the other house that sells by weight.
 - **Lạc Đan Thanh and Giả Hồi Xuân** (loose alchemist and healer): famous names the Hall would like to buy recipes
@@ -126,15 +130,30 @@ lets a washer outlive the work.
 
 ## 9. Inside the sect
 
-- **The Canopy Pill.** The founder spent ninety years on it, and its eighth turn killed his partner. The ninth turn is
-  in his gourd in the sealed room. **La Tử Vi** has the key and has been taking it at a hundredth of a dose, hoping it
-  will carry her to Kết Đan before her years run out. Her hand shakes. The founder knows from her breath, and knows the
-  pill is poison at every dose. **Thiệu Ngân Hống** wants it destroyed.
+- **The washers' shakes.** **Mục Hồng Sa** keeps forty washers at the Pivot's diggings of Thần Sa Khoáng. To keep the
+  baskets full, the Hall roasts its poor ore beside the troughs instead of carting it to the masked mercury room at the
+  seat, sixty-six days off. The mercury settles in the troughs, and the washers stand in them all day. The Sulphur Lung
+  Breath guards them against the fume, not the water. They shake, then they forget their own names.
+- **The replacements.** The lease binds the Hall to keep a sick washer at the lease rate for life, or to replace him.
+  Mục replaces. Two boys leave the barley village of Thanh Khoa each winter and reach the troughs at the spring
+  washing, nearly three months on foot. The sick walk the same road home with a third of the rate and a pouch of **Chúc
+  Đan Sa**'s cheap herb sleeping pills (the Hall brews only from minerals), and **La Tử Vi** signs them off the lease
+  as gone home to the farm. **Mễ Thanh Mạch** came in 1198, and his hands shake now. His sister **Mễ Hòa Thu** digs
+  the Hall's graves at Thanh Khoa: eleven of the last fourteen were for men who came home shaking.
+- **The light baskets.** A shaking washer washes slowly. **Tông Bình Hành** weighs every basket at Thiên Quyền Thị, and
+  three seasons running they have come in light. She wrote it up to Đặng Quân Bình, and the treasury has proposed to
+  take the diggings back (hook 4). La's answer is four boys next spring.
+- **The proof in the mercury room.** **Dư Hoàng Nhi** breathes the mercury room's air unmasked and does not shake. La
+  holds her up to the washing shed as proof that the Breath protects anyone who does it right, and that the shaking boys
+  did it wrong. **Thiệu Ngân Hống**, her master, wants the roasting carted back to his room, which would cost the Hall a
+  season's weight at the scale. La refuses.
+- **The Canopy Pill.** The market's book has listed it as a failure since 1141. La takes it in the open at a hundredth
+  of a dose, hoping it will carry her to Kết Đan before her years run out, and half the Hall admires her nerve. Her hand
+  shakes like the washers'. The founder **Úy Đan Dương** is teaching **Châu Dĩ An** the ninth turn by smell, so that the
+  pill is finished by someone who will pour it out.
 - **The Trúc Cơ Mistress.** A Trúc Cơ cannot teach a Trúc Cơ. The Hall's one Kết Đan is the founder, and he is blind
   and sealed in his room. When he dies, no one left can teach a Trúc Cơ. Without the pill, or a Kết Đan from outside,
   the Hall cannot grow past its Mistress.
-- **The heir.** The Mistress brought her nephew **La Khởi Minh** up from the city to be her heir. He wants the market
-  stall, not the furnace.
 
 ## 10. Treasures and sets
 
@@ -151,32 +170,34 @@ Living 10: Kết Đan 1, Trúc Cơ 4, Luyện Khí 5; tier A 2, B 2, C 6; all ru
 
 | Key | Name | Rank | Realm | Tier | Root | Role |
 |---|---|---|---|---|---|---|
-| la_tu_vi | La Tử Vi | tông chủ | Trúc Cơ | A | Earth 58, Metal 36, Fire 30 | Mistress since 1150 |
-| uy_dan_duong | Úy Đan Dương | retired head | Kết Đan | A | Earth 66, Metal 50, Fire 34 | Founder (1060), blinded by his own pill in 1150 |
+| la_tu_vi | La Tử Vi | tông chủ | Trúc Cơ | A | Earth 58, Metal 36, Fire 30 | Mistress since 1141 |
+| uy_dan_duong | Úy Đan Dương | retired head | Kết Đan | A | Earth 66, Metal 50, Fire 34 | Founder (1060), blinded by his own pill in 1141 |
 | thieu_ngan_hong | Thiệu Ngân Hống | trưởng lão | Trúc Cơ | B | Earth 52, Metal 46 | Master of the mercury room |
 | muc_hong_sa | Mục Hồng Sa | chấp sự | Trúc Cơ | B | Metal 56, Earth 46 | Foreman of the lease at Thần Sa Khoáng |
 | van_thuy_dan | Văn Thụy Đan | nội môn | Trúc Cơ | C | Earth 46, Fire 34, Metal 22 | Seller at Thiên Quyền Thị |
 | du_hoang_nhi | Dư Hoàng Nhi | nội môn | Luyện Khí | C | Metal 48, Earth 46 | Inner disciple of the mercury room |
 | chau_di_an | Châu Dĩ An | nội môn | Luyện Khí | C | Earth 48, Metal 30 | Tends the founder's sealed room |
-| me_thanh_mach | Mễ Thanh Mạch | ngoại môn | Luyện Khí | C | Earth 46, Water 26 | Washer from Thanh Khoa |
+| me_thanh_mach | Mễ Thanh Mạch | ngoại môn | Luyện Khí | C | Earth 46, Water 26 | Washer from Thanh Khoa; his hands shake |
 | phi_tieu_lam | Phí Tiểu Lâm | ngoại môn | Luyện Khí | C | Metal 42, Earth 30, Wood 22 | Herb gatherer from Tầm Dược |
 | la_khoi_minh | La Khởi Minh | ngoại môn | Luyện Khí | C | Earth 40, Fire 30 | The Mistress's nephew |
-| ton_luyen_ha | Tôn Luyện Hà | founder (dead 1150) | Trúc Cơ | B | | Co-founder, killed by the Canopy Pill |
+| ton_luyen_ha | Tôn Luyện Hà | founder (dead 1141) | Trúc Cơ | B | | Co-founder, killed by the Canopy Pill |
 
 ## 12. Story hooks
 
-1. **The tremor.** Chúc Đan Sa notices La Tử Vi's hand shake while weighing pills and recognises mercury. She can tell
-   the Pivot, tell the founder, or ask the player to find out what La is taking. (Chúc Đan Sa, La Tử Vi, Úy Đan Dương;
-   places 52, 565.)
+1. **The sleeping pills.** Chúc Đan Sa is asked for a double batch of the cheap sleeping pills, and the order says what
+   they are for: forty washers, and four new boys. She can brew it, refuse it, or take it to the Pivot. (Chúc Đan Sa, La
+   Tử Vi, Mục Hồng Sa; places 5, 565, 170.)
 2. **The ninth turn.** The founder asks Châu Dĩ An to carry his gourd out of the Hall and pour it into the badland sand.
    Thiệu Ngân Hống will help; La Tử Vi has the key. (Úy, Châu, Thiệu, La; seat 565, place 170.)
 3. **A Kết Đan from outside.** The only Kết Đan in the Hall is blind and sealed away. To outlive him and its
    Mistress, the Hall needs another teacher. The player can bring one: the
    loose alchemist Lạc Đan Thanh, a Pivot elder on loan, or the founder's own last breath. (La, Lạc Đan Thanh, Đỗ
    Tinh Hà.)
-4. **The lease.** The Pivot's treasury proposes to take the cinnabar diggings back. Mục Hồng Sa's forty washers would be
-   out of work, and the Pivot has no one to dig. (Mục, Tông Bình Hành, Đặng Quân Bình; places 170, 52.)
+4. **The lease.** The Pivot's treasury proposes to take the cinnabar diggings back. If it does, it takes the troughs,
+   the forty washers, and the keep of every sick man the lease names, and the Hall's returns say there are none. (Mục,
+   Tông Bình Hành, Đặng Quân Bình, Mễ Hòa Thu; places 170, 52, 567.)
 5. **A pill that weighs short.** A batch weighs a grain light at Thiên Quyền Thị for the first time since 1060.
    Someone has swapped it, and the Hall's oath is on the scale. (Văn Thụy Đan, La Khởi Minh, Tông Bình Hành; place 52.)
-6. **The sulphur girl.** Dư Hoàng Nhi breathes the mercury room's air without a mask. Either the Breath has made her
-   something new or she is dying slowly; the founder can tell by smell. (Dư, Thiệu, Úy; seat 565.)
+6. **The sulphur girl.** Dư Hoàng Nhi breathes the mercury room's air without a mask, and La calls her the proof. Either
+   the Breath has made her something new, which would not help the boys in the troughs, or she is dying slowly; the
+   founder can tell by smell. (Dư, Thiệu, Úy, La; seat 565.)

@@ -18,7 +18,8 @@
 
 The hall is the palace's most useful vassal and its least comfortable one. It holds the strongest levy among the
 vassals, keeps the road to the Fire Court, and sells the court its stone and charcoal. Since 1162 its lord's head has
-lived five tiles from its gate, inside its province. It sits in the same vents where Xích Thành Môn once fed its fire,
+lived five tiles from its gate, and the province has been the lord's. The hall holds its own vents as a tenant, and this
+spring it was sent the rent. It sits in the same vents where Xích Thành Môn once fed its fire,
 and it teaches, though it does not say so, Xích Thành's own body canon. Its people are loud, scarred and hospitable,
 and they say they burn nothing but themselves.
 
@@ -33,21 +34,23 @@ by the hall's Trang Hôi Y and the Ash Seat's attendant Vi Tịch Hôi (`vi_tich
 
 **The lord's court in the hall's land.** Phượng Minh's inner gate has cultivated at the Fire Court (Hỏa Ti Trấn, 449) since
 592, and the hall was founded beside it in 1020 because the vent was there. In 1162 the palace head moved her own court,
-the treasury and the Hall of Spoils down to the Fire Court (N-phuong_minh-12). Place 449 lies in `prov_phan_vu`, five
-tiles from the hall's gate. From that year:
-- the palace's treasurer Vưu Cẩm Thư (`vuu_cam_thu`), who wants the Xích Hà Kỳ back, lives two days down the road;
-- the palace asked for the head's child as surety and has kept Hùng Diễm Nhi since she was twelve (N-phan_vu-03). The
-  palace calls this "the custom of the hall". It has been the custom for one hall, for one child, since 1162;
+the treasury and the Hall of Spoils down to the Fire Court (N-phuong_minh-12), and the palace took `prov_phan_vu` as its
+seat province with them (N-phan_vu-06; ruled 2026-11-25, Provinces rule 2a). The hall keeps its gate, its sitting places
+and its charcoal pits as a vassal holding inside its lord's seat province. Place 449 lies five tiles (about eight days
+on foot) from the hall's gate. From that year:
+- the palace's treasurer Vưu Cẩm Thư (`vuu_cam_thu`), who wants the Xích Hà Kỳ back, has lived eight days down the
+  road, and in the spring of 1200 she set ground rent on the hall's vents and pits (§9);
+- the palace asked the hall for a child as surety, and the head's daughter Hùng Diễm Nhi, twelve, asked to be the one
+  sent (N-phan_vu-03). She has lived with the palace since, as its ward;
 - the hall's levy guards the palace's road (the proposed road 94 → 449 crosses its land), and the palace's envoy
   Bình Viễn Khách (`binh_vien_khach`) counts the levy's service as tribute;
-- the palace forbids its own people to temper in the hall's vents, and its ward slips out to do it (`phuong_minh.md`
+- the palace forbids its own people to temper in the hall's vents, and its ward goes down to do it (`phuong_minh.md`
   hook 9).
-Whether the province becomes the palace's, or a great seat stays inside its vassal's province, is a **Provinces #48
-decision for the user**. The hall's own wish is plain: keep the province, and let the palace be a guest in it. The
-palace's fan master Thích Hồng Linh (`thich_hong_linh`), born in the hall's vent village, argues openly that the
-palace should take the hall in.
+The palace's fan master Thích Hồng Linh (`thich_hong_linh`), born in the hall's vent village, argues openly that the
+palace should take in the hall as well as its ground.
 
-**What staying costs.** Nothing on the map. Chronicle: add N-phan_vu-01 to -05 (§3). C177's "in the vents where Xích
+**What staying costs.** Nothing on the map. The province's seat record becomes Phượng Minh's (Provinces rule 2a); place
+29 stays Phần Vũ Đường's seat. Chronicle: add N-phan_vu-01 to -06 (§3). C177's "in the vents where Xích
 Thành once stood" means Xích Thành's vent country. Xích Thành's red-cliff gate itself (215) is 32 tiles west.
 
 **How the land shapes its people (R1).** The vent villages and the silk towns (Phần Vũ 24 % Fire, Tang Điền 21 %,
@@ -67,7 +70,7 @@ forever at the fourth layer.
 | 980 | Hùng Phần Vũ born in Ngũ Thải Thành; a red feather falls on his cradle | A309 |
 | 1020 | The founder watches him stand in the vent; lends him the Xích Hà Kỳ, and (secretly) Xích Thành's body canon; the hall is founded | C177, **N-01, N-02** |
 | 1025 | The first sitting; Kê Thủ Liệt dies in the vent | A310 |
-| 1162 | The palace head's court comes to the Fire Court; Hùng Diễm Nhi sent as surety; Tuân Hà Y dies in the vent's mouth | N-phuong_minh-12, **N-03, N-04** |
+| 1162 | The palace head's court comes to the Fire Court; the province becomes the palace's seat province; Hùng Diễm Nhi asks to go as surety; Tuân Hà Y dies in the vent's mouth | N-phuong_minh-12, **N-03, N-04, N-06** |
 | 1190 | The hall's carts haul Xích Thành's ruined stone to rebuild the palace's jetty at Thạch Cơ Thành | A312, **N-05** |
 
 **New chronicle proposals:**
@@ -76,12 +79,14 @@ forever at the fourth layer.
 - **N-phan_vu-02** (1020, `item_passed`, hidden): "With the banner, Phượng Minh's founder gives Hùng Phần Vũ the body
   chapters of Xích Thành's canon from the Hall of Spoils, on one condition: that his hall never call itself Xích
   Thành's heir."
-- **N-phan_vu-03** (1162, `hostage`): "Phượng Minh asks for Hùng Phần Vũ's daughter as surety when its head comes to the
-  Fire Court; he sends her, aged twelve."
+- **N-phan_vu-03** (1162, `hostage`): "Phượng Minh asks Phần Vũ for a child as surety when its head comes to the Fire
+  Court; Hùng Phần Vũ's daughter, aged twelve, asks to be the one sent, and he lets her go."
 - **N-phan_vu-04** (1162, `death`): "Tuân Hà Y of Phần Vũ goes into the mouth of Chúc Dung Khẩu for the Red Wall
   Rebirth and does not come out."
 - **N-phan_vu-05** (1190, `trade`): "Phần Vũ's carts haul the stone of Xích Thành's ruined gate to Thạch Cơ Thành for the
   palace's new jetty."
+- **N-phan_vu-06** (1162, `province`): "With its head's court at the Fire Court, Phượng Minh takes the province of
+  Phần Vũ as its seat province; Phần Vũ Đường keeps its hall, its vents and its pits inside it as a vassal holding."
 
 ## 4. Doctrine and customs
 
@@ -122,8 +127,8 @@ Canon he learned on the docks before the hall existed. Non-lineage member (R5): 
   on the docks, and from the palace's outer gate when the palace is not looking.
 - **Inner gate and above:** Fire 45 or more, and the fifth sitting survived. Earth-rooted disciples without Fire keep
   the cooled lava all their lives.
-- **Exceptions:** servants (tạp dịch) of any root. The palace's ward Hùng Diễm Nhi tempers with the hall at night but is
-  the palace's inner disciple, not the hall's.
+- **Exceptions:** servants (tạp dịch) of any root. The palace's ward Hùng Diễm Nhi tempers with the hall at the dark
+  of the moon but is the palace's inner disciple, not the hall's.
 
 ## 7. Ranks and halls
 
@@ -136,12 +141,12 @@ Canon he learned on the docks before the hall existed. Non-lineage member (R5): 
 
 ## 8. Relations
 
-- **Phượng Minh Cung (lord):** loyal by debt, uneasy by geography (loyalty 55). The palace's founder gave the hall its
-  banner and, secretly, its canon. The palace's head took its head's daughter. The treasurer Vưu Cẩm Thư wants the
-  banner back and has promised the first elder the succession. The fan master Thích Hồng Linh, Hùng's friend and Tào's
-  old sweetheart, wants the hall taken in. The envoy Bình Viễn Khách counts its levy as tribute and is the one palace
-  official unwelcome at the gate. Hùng Diễm Nhi (`hung_diem_nhi`) is the palace's ward and the hall's heir, and she
-  tempers in its vents at night.
+- **Phượng Minh Cung (lord):** loyal by debt, uneasy by geography (loyalty 55), and since 1162 a tenant on ground that
+  is now its lord's seat province. The palace's founder gave the hall its banner and, secretly, its canon. The
+  treasurer Vưu Cẩm Thư wants the banner back, promised the first elder the succession in 1162, and this spring set
+  rent on the vents. The fan master Thích Hồng Linh, Hùng's friend and Tào's old sweetheart, wants the hall taken in.
+  The envoy Bình Viễn Khách counts its levy as tribute and is the one palace official unwelcome at the gate. Hùng Diễm
+  Nhi (`hung_diem_nhi`), the head's only child, asked to go to the palace as its ward, and tempers in the hall's vents.
 - **The palace's ash-born:** schoolmates across the wall. Thượng Quy Vũ left the Fire Court for the hall, and Địch Tiểu
   Chước (`dich_tieu_chuoc`) still writes to him.
 - **Chức Hà Các:** the other vassal of Đan Huyệt Châu. Its weavers buy the hall's charcoal and envy its vent.
@@ -151,18 +156,30 @@ Canon he learned on the docks before the hall existed. Non-lineage member (R5): 
 
 ## 9. Inside the sect
 
-- **The heir across the wall.** Hùng Diễm Nhi is fifty, Trúc Cơ, and the palace's ward. She is the head's only child
-  and the hall's heir by blood, and she is a palace fan student by day. Her milk sister Bao Viêm Nương rides her the
-  night's road down to the Lower Mouth at each dark of the moon.
-- **The first elder's bargain.** Tào Tẫn Kiên advised Hùng to send her in 1162, and the palace treasurer promised him the
-  succession for it. He believes he saved the hall from being taken in. If Hùng learns of it, the hall splits.
-- **The canon's source.** Only Hùng knows the Burning Feather Body came out of the palace's Hall of Spoils. If the
-  palace is ever pressed on its ward's night tempering, it must punish her or admit that it gave its vassal Xích
-  Thành's arts (`phuong_minh.md` hook 9).
+- **Rent on the vents.** The Nest Array costs the palace more every year (`phuong_minh.md` §9), and Vưu Cẩm Thư has
+  gone looking for the money in her own seat province. This spring she set ground rent on the hall's sitting places at
+  the Lower Mouth, on Hác Đan Thạch's charcoal pits, and on the cooled lava at the vent's foot. Her clerks entered the
+  hall's standing dead there as structures on palace ground, a rent for each. The hall sells the Fire Court its
+  charcoal, and would now pay the Fire Court for the pits it burns it in.
+- **The lease.** Tào Tẫn Kiên rides up to settle it, still owed the succession the treasurer promised him in 1162.
+  His draft keeps the vents free of rent and gives the palace the cooled lava, the outer gate's sitting ground and the
+  dead's. It names the leaseholder in a vassal's usual words, "the head of Phần Vũ as its lord confirms him", and only
+  Tào and Vưu know what they are worth. Hùng Phần Vũ struck out the cooled lava and added one line: the vents are held
+  "with the canon given with the banner in 1020". Tào carries that line up without knowing what it means. Vưu can
+  neither seal it nor strike it out without being asked.
+- **The ward who chose to go.** In 1161 Tào put Hùng Diễm Nhi, eleven, in the vent to show her father she was too
+  young for the hall. She came out with her left arm burned to the bone, and when the palace asked for a child the
+  next year, she asked to be sent. Since 1190 she has kept the Nest's watch on the vent's lip under the grand elder
+  Nhiếp Tẫn Sa. At each dark of the moon she climbs down the hundred paces to the Lower Mouth, where Bao Viêm Nương
+  holds the cord and Trang Hôi Y lets her sit, to learn the body a head of the hall will need.
+- **The second bid.** This spring Diễm Nhi went down to the Hall of Trust and made Vưu an offer of her own: the Xích Hà
+  Kỳ back on its hook on the day she is head, if the palace backs her and not Tào. Her cousin Hùng Liệt Nha rode her
+  there, and he writes Tào what she does. Vưu now holds two bids for one hall and is in no hurry. Hùng knows of neither.
 - **The last sitting.** The Red Wall Rebirth's final pages are burned. Tuân Hà Y went in without them in 1162. Hùng has
   never sat it, and Tào wants to.
-- **The levy's itch.** Đới Liệt Cương's levy is the strongest among the vassals and is used as a road guard. Long Chước Sinh
-  wants a duel on the Fire Court's stair.
+- **The levy's itch.** Đới Liệt Cương's levy is the strongest among the vassals and is used as a road guard. The rent
+  sets its road days against what the hall owes, at a porter's wage. Long Chước Sinh wants a duel on the Fire Court's
+  stair.
 
 ## 10. Treasures and sets
 
@@ -194,22 +211,24 @@ Canon he learned on the docks before the hall existed. Non-lineage member (R5): 
 
 ## 12. Story hooks
 
-1. **The ward in the vents.** Hùng Diễm Nhi is caught at the Lower Mouth at night. The palace must punish its ward or
-   say whose arts these are; Hùng must decide whether to tell his daughter about 1020. (Hùng Diễm Nhi, Bao Viêm Nương,
-   Hùng Phần Vũ, Thích Hồng Linh, Vưu Cẩm Thư; places 253, 449, 29.)
-2. **The promise of 1162.** The player finds Vưu Cẩm Thư's letter to Tào Tẫn Kiên in the Hall of Trust or in Tào's
-   weiqi box. (Tào, Vưu, Hùng; places 449, 29.)
+1. **The ward in the vents.** Hùng Diễm Nhi is caught at the Lower Mouth on a dark-moon night. The palace must punish
+   its ward or say whose arts these are. Hùng must decide whether to tell his daughter about 1020, in the year she has
+   offered to give his banner away. (Hùng Diễm Nhi, Bao Viêm Nương, Hùng Phần Vũ, Thích Hồng Linh, Vưu Cẩm Thư; places
+   253, 449, 29.)
+2. **The second bid.** Hùng Liệt Nha's letter tells Tào Tẫn Kiên what Diễm Nhi offered the treasurer. Tào rides for
+   the Fire Court to have his lease sealed before hers is heard. The player can carry the letter, lose it, or carry it
+   to Hùng instead. (Tào, Hùng Liệt Nha, Hùng Diễm Nhi, Vưu Cẩm Thư; places 449, 29.)
 3. **The banner's fourth request.** Vưu Cẩm Thư asks for the Xích Hà Kỳ back a fourth time, now as the price of
-   Diễm Nhi's return. (Hùng, Vưu, Hùng Diễm Nhi; places 29, 449.)
+   striking the rent from the lease and the line about 1020 with it. (Hùng, Vưu, Hùng Diễm Nhi; places 29, 449.)
 4. **The missing pages.** The last pages of the Red Wall Rebirth may survive under the lava in Lưu Hỏa Các, Xích Thành's
    buried fire hall on the volcanic isle (V167, V170). Tào wants them; Trang Hôi Y wants no one to sit it again.
    (Tào, Trang; place 1008.)
 5. **A duel on the stair.** Long Chước Sinh challenges a palace fan duelist on the Fire Court's stair. The fan master
    accepts for her side, Đới Liệt Cương for his, and the duel decides more than either says. (Long, Đới, Thích Hồng
    Linh, Đằng Phi Diễm; place 449.)
-6. **The province.** If Provinces #48 gives `prov_phan_vu` to the palace, the hall loses its land and keeps its gate.
-   If not, the palace pays the hall for the ground under its own seat. Either way, Hùng's choice decides his loyalty.
-   (Hùng, Tào, Vưu; places 29, 449.)
+6. **The rent on the vents.** The treasurer's rent falls due at the autumn count. Hùng pays it, or the levy stops
+   guarding the palace's road, or the hall digs its standing dead out of the palace's ground and carries them home.
+   (Hùng, Tào, Vưu Cẩm Thư, Đới Liệt Cương, Lãnh Nham Nương; places 29, 253, 449.)
 7. **The deserter's return.** The palace demands Thượng Quy Vũ back under its admission rule. He refuses, and Địch Tiểu
    Chước carries the message. (Thượng, Trang Hôi Y, Địch Tiểu Chước; places 29, 449.)
 8. **The line on the rock.** The Nest Array frays (`phuong_minh.md` §9), and the palace wants the hall's sitting places

@@ -24,7 +24,7 @@
     "brazier-form",
     {"new": "Bank the Coal (Ủ Than)", "concept": "Each Fire hit you land banks its heat as a coal, and each coal goes cold 6 s after it is banked. A Water art fired while you hold a coal spends it: the Water hit also lays 2 Burn stacks, and you regain a little linh lực."}
    ],
-   "lore": "Written in 1151 by Tần Tuyết Thán at Đồng Hồng Lô's order (N-hong_lo-04), the winter the gate was opened to Water roots. The old primer was the founder's, taught only to Fire roots, and it is still read aloud in the kitchens on the first day of snow.",
+   "lore": "Written in 1145 by Tần Tuyết Thán at Đồng Hồng Lô's order (N-hong_lo-04), the winter the gate was opened to Water roots. The old primer was the founder's, taught only to Fire roots, and it is still read aloud in the kitchens on the first day of snow.",
    "status": "proposal"
   },
   {
@@ -49,7 +49,7 @@
     "drag-of-the-deep",
     {"new": "Line on the Whale (Kình Tác)", "concept": "A spear hit that ties a Water line to the foe for 6 s: while it holds, the foe's movement arts fail and each of your Water hits on them adds a Slowed Time stack."}
    ],
-   "lore": "Nghiêu Phá Lãng (nghieu_pha_lang), the last head of Kình Cốt Đường, went out on the whale road after a great spirit whale in 884 and did not come back. His hunters brought the art to Hồng Lô with their boats. Until 1151 it was taught only in Bồ Diệp Thôn, outside the gate.",
+   "lore": "Nghiêu Phá Lãng (nghieu_pha_lang), the last head of Kình Cốt Đường, went out on the whale road after a great spirit whale in 884 and did not come back. His hunters brought the art to Hồng Lô with their boats. Until 1145 it was taught only in Bồ Diệp Thôn, outside the gate.",
    "status": "proposal"
   }
  ]

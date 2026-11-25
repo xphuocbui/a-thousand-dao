@@ -184,7 +184,7 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "Carries the oil up to Kiển Mục Hải (kien_muc_hai) in the crumbling fort each month; on one night he stayed he saw the unlit sails pass south, and he has drawn them on the stair wall, nine hulls.",
+   "backstory": "Rows the oil boat up the coast to Kiển Mục Hải (kien_muc_hai) in the crumbling fort twice a year; on one night he stayed he saw the unlit sails pass south, and he has drawn them on the stair wall, nine hulls.",
    "ties": [
     {
      "to": "kien_muc_hai",
@@ -212,7 +212,8 @@
      "start": "thuy",
      "intent": "A hard body for the cliff stair."
     }
-   }
+   },
+   "changed": "pass B (fixB-1, 2026-11-25): 'each month' -> twice a year by boat (his village is about 2,500 km from the fort)"
   },
   {
    "key": "dang_ham_sa",

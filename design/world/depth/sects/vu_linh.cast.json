@@ -15,7 +15,7 @@
    "rank": "tong_chu",
    "home": 372,
    "birthplace": 372,
-   "role": "Mistress of Vũ Linh Đường since 1150: rain-bell warning arrays and bronze casting; keeps the warding bells on the walls of Thu Trì Thành",
+   "role": "Mistress of Vũ Linh Đường since 1128: rain-bell warning arrays and bronze casting; keeps the warding bells on the walls of Thu Trì Thành",
    "tier": "A",
    "root": {
     "elements": {
@@ -35,7 +35,7 @@
    },
    "traits": {
     "personality": [
-     "Calm",
+     "Callous",
      "Pragmatic",
      "Paranoid"
     ],
@@ -59,14 +59,14 @@
     ]
    },
    "appearance": "A neat, grey-eyed woman with burn scars on both wrists, who stops talking whenever a bell rings anywhere and resumes at the same word.",
-   "backstory": "Ân Thanh Linh was born at the hall in 1010, eighty years after the founder Chung Thiết Liên (chung_thiet_lien) brought his lamp-casters south from Thanh Đăng Trấn and turned them to bells (V148, V149). The Tower had put out its lamps, so it would need to hear. At twenty she cast a bell for the Nhiếp family that rings only when someone is listening at a door. The Tower's spymaster still wears it. In 1062 she cast Thu Phần's grave bell. In 1105 she hung the hall's first bell line over the forest road (N-vu_linh-02). In 1150 the founder's son Chung Tàn Hưởng (chung_tan_huong) stepped down and gave her the hall, saying she heard bronze better than he did (N-vu_linh-03). She keeps the bells on the walls of Thu Trì and the lines along the forest roads, and she listens to all of them. For a century she has argued bronze by letter with the Tower's forge master Thạch Liên Hoàn (thach_lien_hoan). He forges in lightning; she casts in a charcoal fire and hangs the bell in a living tree to teach it to listen. The Tower's envoy Hứa Thanh Diêm (hua_thanh_diem) visits her before any other vassal.",
+   "backstory": "Ân Thanh Linh was born at the hall in 1010, eighty years after the founder Chung Thiết Liên (chung_thiet_lien) brought his lamp-casters south from Thanh Đăng Trấn and turned them to bells (V148, V149). The Tower had put out its lamps, so it would need to hear. At twenty she cast a bell for the Nhiếp family that rings only when someone is listening at a door. The Tower's spymaster still wears it. In 1062 she cast Thu Phần's grave bell. In 1105 she hung the hall's first bell line over the forest road (N-vu_linh-02). In 1128 the founder's son Chung Tàn Hưởng (chung_tan_huong) stepped down and gave her the hall, saying she heard bronze better than he did (N-vu_linh-03). She keeps the bells on the walls of Thu Trì and the lines along the forest roads, and she listens to all of them. For a century she has argued bronze by letter with the Tower's forge master Thạch Liên Hoàn (thach_lien_hoan). He forges in lightning; she casts in a charcoal fire and hangs the bell in a living tree to teach it to listen. The Tower's envoy Hứa Thanh Diêm (hua_thanh_diem) visits her before any other vassal.",
    "wants": "That the bells on Thu Trì's walls never ring for a war in her lifetime; and the last word in her century of letters.",
-   "secret": "Inside Thu Trì's walls she hung a second line of bells that no one knows of, tuned to the Hall of Echoes' own listeners. For fifty years she has known every ear the Tower keeps in the south, and she has written it all down.",
+   "secret": "Inside Thu Trì's walls she hung a second line of bells, tuned to the Hall of Echoes' own listeners. For fifty years she has known every ear the Tower keeps in the south, and she has written it all down. In the winter of 1197 one of those bells was sold to the Tower, and since 1199 the copper has not come. She has not taken the line down. To keep pouring she is melting the old warding bells off Thu Trì's walls, every third one, and leaving the city deaf in stretches.",
    "ties": [
     {
      "to": "chung_tan_huong",
      "kind": "former_master",
-     "note": "taught her to cast; gave her the hall in 1150"
+     "note": "taught her to cast; gave her the hall in 1128"
     },
     {
      "to": "chung_thiet_lien",
@@ -86,7 +86,7 @@
     {
      "to": "nhiep_vo_thanh",
      "kind": "rival",
-     "note": "the spymaster who wears her bell; Ân's hidden bells hear her ears"
+     "note": "the spymaster who wears her bell; she has known of the hidden bells since 1198, and has stopped the hall's copper"
     },
     {
      "to": "nghe_hong_dau",
@@ -106,7 +106,7 @@
     {
      "to": "trinh_thu_linh",
      "kind": "disciple",
-     "note": "keeper of the wall bells"
+     "note": "keeper of the wall bells, who takes them down for her furnace"
     },
     {
      "to": "chung_hong_lo",
@@ -177,7 +177,7 @@
     "vl-root-line-banner",
     "vl-casters-apron"
    ],
-   "changed": "existing record had no root or build: root Wood 62, Fire 54, Earth 28 set from her birthplace (R1) and the hall's re-lean to Wood, Fire (R4); build, thien_phu, stage 1 and birthplace 372 added."
+   "changed": "existing record had no root or build: root Wood 62, Fire 54, Earth 28 set from her birthplace (R1) and the hall's re-lean to Wood, Fire (R4); build, thien_phu, stage 1 and birthplace 372 added.; pass B (fixB-1, 2026-11-25): traits Calm -> Callous; the copper stops and the wall bells melted (SHAPES-PLAN §4.2 vu_linh)"
   },
   {
    "key": "chung_tan_huong",
@@ -193,7 +193,7 @@
    "rank": "thai_thuong",
    "home": 372,
    "birthplace": 810,
-   "role": "Grand elder; the founder's son, head 1060-1150, who gave the hall to Ân Thanh Linh",
+   "role": "Grand elder; the founder's son, head 1060-1128, who gave the hall to Ân Thanh Linh",
    "tier": "B",
    "root": {
     "elements": {
@@ -232,7 +232,7 @@
     ]
    },
    "appearance": "A huge, slow old caster with one ear gone to a cracked pour, who keeps an unlit blue lamp on his tea table.",
-   "backstory": "Born at Thanh Đăng Trấn, the town of the blue lamps, in the year the Night Rain Edict put the Tower's lamps out (C167). He walked south at twenty-five behind his father Chung Thiết Liên (chung_thiet_lien) and learned to cast bells instead. He led the hall for ninety years after his father died at the pour, and in 1150 he gave it to Ân Thanh Linh (an_thanh_linh), who could hear what he could not. He has not lit his father's last lamp since 905.",
+   "backstory": "Born at Thanh Đăng Trấn, the town of the blue lamps, in the year the Night Rain Edict put the Tower's lamps out (C167). He walked south at twenty-five behind his father Chung Thiết Liên (chung_thiet_lien) and learned to cast bells instead. He led the hall for sixty-eight years after his father died at the pour, and in 1128 he gave it to Ân Thanh Linh (an_thanh_linh), who could hear what he could not. He has not lit his father's last lamp since 905.",
    "ties": [
     {
      "to": "chung_thiet_lien",
@@ -358,12 +358,12 @@
     "gained": []
    },
    "appearance": "A tidy man in a grey coat with a ring of small keys at his belt, one for each bell tower on the wall.",
-   "backstory": "A Thu Trì chandler's son who has walked the city walls every night for sixty years, oiling the bells and listening. He drinks with the Tower's ear at the ferry inn, Lục Nhĩ Thính (luc_nhi_thinh), and each knows what the other is. He does not know about the second line of bells inside the walls, and Ân Thanh Linh (an_thanh_linh) has not told him.",
+   "backstory": "A Thu Trì chandler's son who has walked the city walls every night for sixty years, oiling the bells and listening. He drinks with the Tower's ear at the ferry inn, Lục Nhĩ Thính (luc_nhi_thinh), and each knows what the other is. Last autumn Ân Thanh Linh (an_thanh_linh) ordered every third old bell on the walls taken down for her furnace. He takes them down, and walks the deaf stretches himself after dark with a hand bell.",
    "ties": [
     {
      "to": "an_thanh_linh",
      "kind": "master",
-     "note": "his mistress"
+     "note": "his mistress, whose furnace eats his walls' bells"
     },
     {
      "to": "luc_nhi_thinh",
@@ -373,7 +373,7 @@
     {
      "to": "nguy_tieu_dac",
      "kind": "disciple",
-     "note": "his runner on the walls"
+     "note": "his runner, who tells him which bells ring least"
     },
     {
      "to": "au_tuong_thu",
@@ -474,7 +474,7 @@
     "gained": []
    },
    "appearance": "Broad and red-armed, with her hair burned short and a leather apron black with bronze.",
-   "backstory": "The founder's great-granddaughter, raised at the furnace. Every bell the hall has cast in fifty years has been poured by her hands, and she resents that the casting is called Ân Thanh Linh's (an_thanh_linh). She writes the technical half of the letters to the Tower's forge, and Thạch Liên Hoàn (thach_lien_hoan) is the only man alive she thinks pours as well as she does.",
+   "backstory": "The founder's great-granddaughter, raised at the furnace. Every bell the hall has cast in fifty years has been poured by her hands, and the castings are still called Ân Thanh Linh's (an_thanh_linh). She writes the technical half of the letters to the Tower's forge, and Thạch Liên Hoàn (thach_lien_hoan) is the only man alive she thinks pours as well as she does. This spring, after a year without copper, she wrote back to him that she would pour the Thunder Hall's lightning bell at his storm forge if the copper came.",
    "ties": [
     {
      "to": "an_thanh_linh",
@@ -489,7 +489,7 @@
     {
      "to": "thach_lien_hoan",
      "kind": "rival",
-     "note": "the Tower's forge master; she answers his technical letters"
+     "note": "the Tower's forge master; she has written that she would pour his lightning bell for the Thunder Hall's copper"
     },
     {
      "to": "thang_tieu_hoa",
@@ -552,7 +552,8 @@
      "targets_note": "From Fire: Dry Kindling, Clinging Embers and Long Burn for the pour's burns, Molten Shell."
     },
     "note": "The pour, then the hammer."
-   }
+   },
+   "changed": "pass B (fixB-1, 2026-11-25): 'Whose casting' cut as a quarrel (SHAPES-PLAN §4.2 vu_linh); her letter to Thạch added (the storm-cast bell is the copper's price)"
   },
   {
    "key": "dang_quai_linh",
@@ -704,7 +705,7 @@
     "gained": []
    },
    "appearance": "A quick young woman with nine small cracked bells on a cord round her neck.",
-   "backstory": "Born at the hall to two casters. Ân Thanh Linh (an_thanh_linh) took her as her true disciple at twenty-five, and she has spent fifteen years trying to cast a bell like the one the mistress made at twenty. Nine have cracked in the pour, and she wears them all. She suspects the mistress has not taught her the whole seal, and she is right.",
+   "backstory": "Born at the hall to two casters. Ân Thanh Linh (an_thanh_linh) took her as her true disciple at twenty-five, and she has spent fifteen years trying to cast a bell like the one the mistress made at twenty. Nine have cracked in the pour, and she wears them all. The mistress has not taught her the whole seal, and has told her the tenth will be poured from the first of the walls' old bells to reach the furnace.",
    "ties": [
     {
      "to": "an_thanh_linh",
@@ -1019,7 +1020,7 @@
    },
    "traits": {
     "personality": [
-     "Gregarious",
+     "Greedy",
      "Ambitious",
      "Deceitful"
     ],
@@ -1033,7 +1034,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "An innkeeper's son from Thu Trì who runs messages between the wall towers and sells what he overhears to whoever is buying in the Night Rain Market.",
+   "backstory": "An innkeeper's son from Thu Trì who runs messages between the wall towers and sells what he overhears in the Night Rain Market. In the winter of 1197 he sold the place of a hidden bell to Lục Nhĩ Thính (luc_nhi_thinh) at the ferry inn. Now he tells Trịnh Thủ Linh (trinh_thu_linh) which wall bells ring least, and names the stretches smugglers pay him to name.",
    "ties": [
     {
      "to": "trinh_thu_linh",
@@ -1044,6 +1045,11 @@
      "to": "au_tuong_thu",
      "kind": "friend",
      "note": "keeps the warding bells on the walls of Thu Trì"
+    },
+    {
+     "to": "luc_nhi_thinh",
+     "kind": "friend",
+     "note": "the ferry innkeeper who bought the hidden bell's place from him"
     }
    ],
    "master": "trinh_thu_linh",
@@ -1067,7 +1073,8 @@
      "intent": "Water and speed."
     },
     "note": ""
-   }
+   },
+   "changed": "pass B (fixB-1, 2026-11-25): hook 2 has happened (he sold the bell's place in the winter of 1197); he steers the melting for smugglers; traits Gregarious -> Greedy"
   },
   {
    "key": "canh_tinh_am",
@@ -1183,7 +1190,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "A caster of Thanh Đăng Trấn who made the town's blue lamps and the Tower's bronze rain-chains. When the Night Rain Edict put the Tower's lamps out (C167, A274), the lamp trade died, and in 930 the lamp-makers went to Hạnh Hoa Thị (V148). Chung took his casters south above Thu Trì instead and turned them to bells (V149): if the Tower would not see at night, it would have to hear. He died at the pour in 1060, under a bell that cracked. His son Chung Tàn Hưởng (chung_tan_huong) kept the cracked bell, and in 1150 gave its bronze to Ân Thanh Linh (an_thanh_linh).",
+   "backstory": "A caster of Thanh Đăng Trấn who made the town's blue lamps and the Tower's bronze rain-chains. When the Night Rain Edict put the Tower's lamps out (C167, A274), the lamp trade died, and in 930 the lamp-makers went to Hạnh Hoa Thị (V148). Chung took his casters south above Thu Trì instead and turned them to bells (V149): if the Tower would not see at night, it would have to hear. He died at the pour in 1060, under a bell that cracked. His son Chung Tàn Hưởng (chung_tan_huong) kept the cracked bell, and in 1128 gave its bronze to Ân Thanh Linh (an_thanh_linh).",
    "ties": [
     {
      "to": "chung_tan_huong",

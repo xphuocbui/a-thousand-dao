@@ -42,7 +42,7 @@
    "tier": 1, "tech_kind": "secret", "names": ["kim"], "layers": 9, "rank": "noi_mon",
    "concept": "The refining of mercury from cinnabar, nine times turned, which the old alchemists said makes an elixir of long life and which mostly makes poison. The art teaches the refiner to steer the mercury's Metal qi with their own. In a fight it coats the holder's strikes with quicksilver that seeps into a foe and stacks.",
    "arts": [{"new": "Quicksilver (Thủy Ngân)", "concept": "For a few seconds the holder's hits apply a Mercury stack; at nine stacks the foe's healing is cut sharply and they take Metal damage over time."}],
-   "lore": "Taught only after the Sulphur Lung Breath, because the co-founder Tôn Luyện Hà learned it first and died of it in 1150.",
+   "lore": "Taught only after the Sulphur Lung Breath, because the co-founder Tôn Luyện Hà learned it first and died of it in 1141.",
    "status": "proposal",
    "passives": [
     {"key": "stack_effect_pct", "value": 12, "scope": ["kim", "debuff"]},
@@ -56,7 +56,7 @@
    "tier": 0, "tech_kind": "body", "names": [], "layers": 6, "rank": "ngoai_mon",
    "concept": "A body art, element-free, that hardens the lungs, liver and skin against the fumes of cinnabar, mercury and sulphur. Every member of the Hall learns it before anything else. In a fight it gives resistance to poison and lets the holder breathe through their own poison clouds.",
    "arts": [{"new": "Hold the Fume (Bế Khí)", "concept": "For a few seconds the holder is immune to poison and burning and regains health for every poison stack on foes nearby."}],
-   "lore": "Made by the founder after Tôn Luyện Hà's death in 1150, from the breathing of the Lưu Hoàng sulphur miners, who live to be old in air that kills a horse.",
+   "lore": "Made by the founder after Tôn Luyện Hà's death in 1141, from the breathing of the Lưu Hoàng sulphur miners, who live to be old in air that kills a horse.",
    "status": "proposal"
   }
  ]

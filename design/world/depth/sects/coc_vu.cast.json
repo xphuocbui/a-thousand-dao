@@ -56,9 +56,9 @@
     ]
    },
    "appearance": "A small, brown, smiling woman in a patched grey robe and a rice-straw hat, with mud to the knee and a cough she hides in her sleeve.",
-   "backstory": "Dương Hảo Vũ was born in 830 in a drought year at Phong Đăng, to tenants on the Lục family's farms, whose harvests the Tower taxes first (A288). The abbey's rain came the week she was born, and her mother named her for it. She went up the bamboo hill at ten. The founder Hạng Đảo Vũ (hang_dao_vu) was a rain priestess from the coast who called rain with Water, and by then the hill had stopped answering her. When the founder died in 958, Dương became abbess. She spent forty years learning to call rain the other way: not from the sea, but from the forest's own breath (N-coc_vu-02). It worked, and the farmers have had their rain since. In the great drought of 1150 she held the Grain Rain rite for nine days over the valleys of Phong Đăng and Ương Ca. Her meridians have not been right since. Every autumn she sends rice to Thu Phần's singers and asks them to sing more softly. Their founder, Lý Hận Bích (ly_han_bich), was born the same year as she was, and wants the opposite thing for the dead.",
-   "wants": "Rain for every planting and no rain sold; and the dead of Lôi Trạch at rest before she is.",
-   "secret": "Since 1010 the prior has sold the abbey's rain to the Night Rain Market in dry years, and since 1150 the pills that keep her meridians open have been bought with that money. She knows both things, and she has never asked.",
+   "backstory": "Dương Hảo Vũ was born in 830 in a drought year at Phong Đăng, to tenants on the Lục family's farms, whose harvests the Tower taxes first (A288). The abbey's rain came the week she was born, and her mother named her for it. She went up the bamboo hill at ten. The founder Hạng Đảo Vũ (hang_dao_vu) was a rain priestess from the coast who called rain with Water, and by then the hill had stopped answering her. When the founder died in 958, Dương became abbess. She spent forty years learning to call rain the other way: not from the sea, but from the forest's own breath (N-coc_vu-02). It worked, and the farmers have had their rain since. In the great drought of 1150 she held the Grain Rain rite for nine days over the farmers' valleys of Phong Đăng and Ương Ca and not over the Tower's terraces. The Tower's rice failed, and it marched on Đan Sơn Mạch's cinnabar to pay for grain (C188). Her meridians have not been right since. In 1093 she stood at Thu Phần's graves and felt the chorus drawn up the way her own rite draws the forest's breath, and since then her autumn rice to the Pavilion has been a price, paid so that the river's drowned are left to rest. Its founder, Lý Hận Bích (ly_han_bich), was born the same year as she was. In 1180 half the abbey walked out to the grove with Hà Tĩnh Cần (ha_tinh_can), and the abbess struck none of them off.",
+   "wants": "Rain for every planting and no rain sold; her abbey whole again; and the dead of Lôi Trạch at rest before she is.",
+   "secret": "Since 1180 everyone knows that the prior's pills are bought with sold rain, and she takes them. No one knows that since the spring she has kept back one in three and sent it to the grove for Hà Tĩnh Cần, who, the two villages that came back to pay told Lục Đạo Hoa, now holds each free rite twice and pays for it in years. The prior's pills are keeping alive the rival he pays to ruin.",
    "ties": [
     {
      "to": "hang_dao_vu",
@@ -68,7 +68,7 @@
     {
      "to": "thoi_tri_tiet",
      "kind": "former_disciple",
-     "note": "her prior, who sells the rain"
+     "note": "her prior, who sells the rain at a price posted on the gate"
     },
     {
      "to": "luc_dao_hoa",
@@ -83,12 +83,12 @@
     {
      "to": "ly_han_bich",
      "kind": "rival",
-     "note": "born the same year; keeps the dead singing"
+     "note": "born the same year; harvests the dead and takes the abbess's rice for them"
     },
     {
      "to": "bao_thu_xuong",
      "kind": "friend",
-     "note": "Thu Phần's singer, to whom she sends rice"
+     "note": "Thu Phần's singer, who takes her rice for the river's dead and writes back that they rest"
     },
     {
      "to": "gia_hoi_xuan",
@@ -123,7 +123,12 @@
     {
      "to": "su_van_hoa",
      "kind": "disciple",
-     "note": "the abbess's attendant at the rite ground"
+     "note": "the abbess's attendant at the rite ground, who hands the kept-back pills to the grove's rice cart"
+    },
+    {
+     "to": "ha_tinh_can",
+     "kind": "former_disciple",
+     "note": "her rite master, who walked out in 1180; the abbess sends her one pill in three"
     }
    ],
    "master": "hang_dao_vu",
@@ -195,7 +200,7 @@
    "rank": "truong_lao",
    "home": 441,
    "birthplace": 42,
-   "role": "Prior (giám viện) of the abbey: its stores, its tax, and the rain it sells in dry years",
+   "role": "Prior (giám viện) of the abbey: its stores, its tax, and the rain it sells at a posted price",
    "tier": "B",
    "root": {
     "elements": {
@@ -216,7 +221,7 @@
     "personality": [
      "Pragmatic",
      "Loyal",
-     "Deceitful"
+     "Callous"
     ],
     "calling": "Steward",
     "upbringing": "merchant_child",
@@ -234,12 +239,12 @@
     "gained": []
    },
    "appearance": "A plump, pleasant monk with an abacus in his sleeve and the soft hands of a man who keeps the books.",
-   "backstory": "A rice merchant's son from Thu Trì who came to the abbey at twenty and never quite stopped counting. Since 1010 he has sold the abbey's rain to Kiều Mãn Lâu (kieu_man_lau) in dry years, so that the Night Rain Market can open, and recorded a third of the price. The rest buys the pills that keep the abbess (duong_hao_vu) breathing. He thinks he is the only one who knows.",
+   "backstory": "A rice merchant's son from Thu Trì who came to the abbey at twenty and never quite stopped counting. Since 1010 he has sold the abbey's rain in dry years to Kiều Mãn Lâu (kieu_man_lau) and to any landlord who pays, and since 1150 the money has bought the pills that keep the abbess (duong_hao_vu) breathing. In 1180 Hà Tĩnh Cần (ha_tinh_can) told the valley, and half the abbey walked out with her. He posted the price on the gate the next morning. Now he pays the grove's pole-cutter Sở Lôi Duẩn (so_loi_duan) to cut the hermitage's poles a hand short, so that its free rites call drizzle and the farmers come back to pay.",
    "ties": [
     {
      "to": "duong_hao_vu",
      "kind": "former_master",
-     "note": "taught him, and is kept alive by what he hides"
+     "note": "taught him, and is kept alive by the rain he sells"
     },
     {
      "to": "kieu_man_lau",
@@ -254,7 +259,7 @@
     {
      "to": "so_loi_duan",
      "kind": "disciple",
-     "note": "the bamboo keeper"
+     "note": "his old disciple at the grove, whom he pays to cut the hermitage's poles short"
     },
     {
      "to": "luc_thuong_lam",
@@ -264,7 +269,12 @@
     {
      "to": "huong_can_thu",
      "kind": "disciple",
-     "note": "keeper of the abbey's grain rolls under the prior"
+     "note": "kept his grain rolls for forty years, walked out in 1180 and died at the grove"
+    },
+    {
+     "to": "ha_tinh_can",
+     "kind": "enemy",
+     "note": "the rite master who told the valley in 1180 and calls rain for nothing"
     }
    ],
    "build": {
@@ -487,7 +497,7 @@
     "gained": []
    },
    "appearance": "A tall woman in a black rain cloak over the abbey's grey, who is seen in Thu Trì only on dry nights.",
-   "backstory": "Born in Yên Vũ Trấn, the town of misty rain, she has the best rain hands in the abbey. In dry years the prior Thời Tri Tiết (thoi_tri_tiet) sends her to Thu Trì to call rain at dusk so that Kiều Mãn Lâu's (kieu_man_lau) market can open, and she stays to drink in it. She has stopped asking what the rain is for.",
+   "backstory": "Born in Yên Vũ Trấn, the town of misty rain, she has the best rain hands in the abbey. In dry years the prior Thời Tri Tiết (thoi_tri_tiet) sends her to Thu Trì to call rain at dusk so that Kiều Mãn Lâu's (kieu_man_lau) market can open, and she stays to drink in it. In the dry year of 1179 Hà Tĩnh Cần (ha_tinh_can) called it beside her. Since 1180 everyone knows what the rain is for, and she goes on calling it.",
    "ties": [
     {
      "to": "thoi_tri_tiet",
@@ -508,6 +518,11 @@
      "to": "khang_vu_ngung",
      "kind": "disciple",
      "note": "rain-caller at the abbey's house in Thu Trì"
+    },
+    {
+     "to": "ha_tinh_can",
+     "kind": "rival",
+     "note": "called the market's rain beside her in 1179, then went home and told the valley"
     }
    ],
    "master": "thoi_tri_tiet",
@@ -651,6 +666,137 @@
    }
   },
   {
+   "key": "ha_tinh_can",
+   "name_hv": "Hà Tĩnh Cần",
+   "name_han": "何靜芹",
+   "gloss": "Water celery in a quiet ditch",
+   "sex": "F",
+   "born": 1040,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 2,
+   "sect": "coc_vu",
+   "rank": "truong_lao",
+   "home": 440,
+   "birthplace": 92,
+   "role": "Rite master who walked out of Cốc Vũ Quán in 1180; keeps the hermitage in Lôi Trúc Lâm and calls rain for nothing",
+   "tier": "B",
+   "root": {
+    "elements": {
+     "moc": 58,
+     "thuy": 42
+    },
+    "variants": {}
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 44,
+    "than_hon": 60,
+    "khi_van": 42,
+    "dao_tam": 70,
+    "mi_luc": 50
+   },
+   "traits": {
+    "personality": [
+     "Devout",
+     "Stubborn",
+     "Honest"
+    ],
+    "calling": "Teacher",
+    "upbringing": "village_born",
+    "talent": [],
+    "path": [],
+    "lifestyle": "gardener",
+    "health": "waning_years",
+    "coping": null,
+    "fate_given": [],
+    "gained": []
+   },
+   "appearance": "A small, sun-dark woman in grey hemp gone white at the knees, with the pale mark of a rite bell's cord still on her wrist.",
+   "backstory": "Born in 1040 to Lục tenants at Phong Đăng, she went up the bamboo hill at her first planting. Dương Hảo Vũ (duong_hao_vu) made her master of the rite's callers. In the dry year of 1179 the prior Thời Tri Tiết (thoi_tri_tiet) sent her to Thu Trì to call the Night Rain Market's rain beside Lã Tiềm Dạ (la_tiem_da). She came home in the spring of 1180 to Phong Đăng's dead seedbeds, and at that planting she told the valley where she had been and what it was paid. Half the abbey walked with her to Lôi Trúc Lâm. She gave the abbess back her rite bell, and from the grove she calls rain for any farmer for nothing. This year three of her rites have come down as mist, and she now holds each one twice.",
+   "ties": [
+    {
+     "to": "duong_hao_vu",
+     "kind": "former_master",
+     "note": "taught her the rite; sends her pills bought with the rain Hà walked out over"
+    },
+    {
+     "to": "thoi_tri_tiet",
+     "kind": "enemy",
+     "note": "the prior whose rain she told the valley about in 1180"
+    },
+    {
+     "to": "so_loi_duan",
+     "kind": "friend",
+     "note": "walked out with her; cuts her poles"
+    },
+    {
+     "to": "tong_tiet_truc",
+     "kind": "friend",
+     "note": "born in the grove the year she came, and carries her poles"
+    },
+    {
+     "to": "lo_tan_chau",
+     "kind": "friend",
+     "note": "the Hà Châu boy who plants for the hermitage"
+    },
+    {
+     "to": "la_tiem_da",
+     "kind": "rival",
+     "note": "called the market's rain beside her in 1179, and stayed"
+    },
+    {
+     "to": "huong_can_thu",
+     "kind": "friend",
+     "note": "walked out with her; the hermitage's first grave, in 1186"
+    },
+    {
+     "to": "su_van_hoa",
+     "kind": "friend",
+     "note": "held the poles beside her for sixty years; sends her the abbess's kept-back pills"
+    }
+   ],
+   "build": {
+    "archetype": "linh_thuc_su",
+    "main": {
+     "tech": "good-rain-canon",
+     "layer": 7
+    },
+    "aux": [
+     {
+      "tech": "rite-of-the-grain-rain",
+      "layer": 3
+     }
+    ],
+    "gear": [
+     {
+      "base": "dao_bao",
+      "grade": 2,
+      "element": "moc"
+     },
+     {
+      "base": "ky",
+      "grade": 2,
+      "element": "moc"
+     }
+    ],
+    "skills": {
+     "linh_thuc": 5
+    },
+    "tree": {
+     "start": "moc",
+     "intent": "Rain for a whole valley: Wood healing that spreads and roots, paid for in her own health.",
+     "targets": [
+      6100,
+      6093,
+      5595
+     ],
+     "targets_note": "The abbey's route, which she did not leave with the abbey: Spring Rain, Weeping Willow, Spreading Canopy."
+    },
+    "note": "The rite without the abbey: she holds it at its full cost, and lately twice."
+   }
+  },
+  {
    "key": "so_loi_duan",
    "name_hv": "Sở Lôi Duẩn",
    "name_han": "楚雷筍",
@@ -664,7 +810,7 @@
    "rank": "noi_mon",
    "home": 440,
    "birthplace": 440,
-   "role": "Keeper of Lôi Trúc Lâm, the lightning-bamboo grove",
+   "role": "Keeper of Lôi Trúc Lâm, the lightning-bamboo grove; cuts the rite poles for the hermitage and for the abbey",
    "tier": "C",
    "root": {
     "elements": {
@@ -676,8 +822,8 @@
    "traits": {
     "personality": [
      "Reclusive",
-     "Stubborn",
-     "Calm"
+     "Greedy",
+     "Faithless"
     ],
     "calling": "Refiner",
     "upbringing": "village_born",
@@ -689,17 +835,17 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Lives alone in the abbey's lightning-bamboo grove and cuts the struck canes into the poles the rite is held under; he will not say why the struck ones work better.",
+   "backstory": "Walked out to the grove with Hà Tĩnh Cần (ha_tinh_can) in 1180 and cuts the struck canes into rite poles for both houses; since the spring he has cut the hermitage's a hand short for the prior's money (thoi_tri_tiet). He will not say why the struck ones work better.",
    "ties": [
     {
      "to": "thoi_tri_tiet",
      "kind": "master",
-     "note": "the prior"
+     "note": "the prior, who pays him to cut the hermitage's poles short"
     },
     {
      "to": "lo_tan_chau",
      "kind": "disciple",
-     "note": "the Hà Châu boy"
+     "note": "the Hà Châu boy who plants for the hermitage"
     },
     {
      "to": "thai_huong_doan",
@@ -710,6 +856,11 @@
      "to": "tong_tiet_truc",
      "kind": "disciple",
      "note": "pole-cutter in the lightning-bamboo grove"
+    },
+    {
+     "to": "ha_tinh_can",
+     "kind": "friend",
+     "note": "the hermitage's rite master, whose poles he cuts a hand short"
     }
    ],
    "master": "thoi_tri_tiet",
@@ -923,7 +1074,7 @@
    "rank": "ngoai_mon",
    "home": 440,
    "birthplace": 160,
-   "role": "A Hà Châu boy who wants the risen isle for rice",
+   "role": "A Hà Châu boy at the hermitage who wants the risen isle for rice",
    "tier": "C",
    "root": {
     "elements": {
@@ -948,7 +1099,7 @@
     "fate_given": [],
     "gained": []
    },
-   "backstory": "Watched the isle rise out of the river at Hà Châu in 1199 (A297) and thinks the Tower and the Gate are both wrong: it is good rice mud, and it should be the abbey's.",
+   "backstory": "Watched the isle rise out of the river at Hà Châu in 1199 (A297) and thinks the Tower and the Gate are both wrong: it is good rice mud. The hermitage at the grove eats what the farmers leave it, and he wants the isle planted for it.",
    "ties": [
     {
      "to": "so_loi_duan",
@@ -964,6 +1115,11 @@
      "to": "dinh_tieu_chu",
      "kind": "rival",
      "note": "pole-boy on the Hà Châu ferry"
+    },
+    {
+     "to": "ha_tinh_can",
+     "kind": "friend",
+     "note": "the hermitage's rite master, who is short of rice"
     }
    ],
    "master": "so_loi_duan",

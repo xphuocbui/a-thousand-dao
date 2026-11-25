@@ -34,7 +34,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "Runs the pine-tappers of Chu Tùng Lâm for Lăng Mặc Khanh (lang_mac_khanh) and counts the vermilion pines; she has told him that at Lạc Tố Bình's (lac_to_binh) price for selling ink to every sect, the forest would last forty years.",
+   "backstory": "Runs the pine-tappers of Chu Tùng Lâm for Lăng Mặc Khanh (lang_mac_khanh) and counts the vermilion pines the kilns burn; she has told him the forest would last forty years if the Hall ever sold its ink beyond the Pivot.",
    "ties": [
     {
      "to": "ky_ngan_chuc",
@@ -49,7 +49,7 @@
     {
      "to": "lac_to_binh",
      "kind": "rival",
-     "note": "selling the ink"
+     "note": "the chief painter, who would burn the pines faster"
     },
     {
      "to": "ho_bach_yen",
@@ -119,7 +119,7 @@
     "upbringing": "scholar_family",
     "lifestyle": "calligrapher"
    },
-   "backstory": "A Khai Dương scribe's son who paints the Dipper's middle stars; he and Hàn Thủy Mặc (han_thuy_mac) grew up three streets apart, and he sides with him against Lạc Tố Bình (lac_to_binh) because he has seen what the ink already fetches at the Pivot.",
+   "backstory": "A Khai Dương scribe's son who paints the Dipper's middle stars; he and Hàn Thủy Mặc (han_thuy_mac) grew up three streets apart, and he carries Hàn's letters home to their mothers when he goes down to the city.",
    "ties": [
     {
      "to": "ky_ngan_chuc",
@@ -134,7 +134,7 @@
     {
      "to": "lac_to_binh",
      "kind": "rival",
-     "note": "selling the ink"
+     "note": "the chief painter, who paints faster than he does and talks while she paints"
     }
    ],
    "master": "ky_ngan_chuc",
@@ -329,12 +329,12 @@
     "personality": [
      "Ambitious",
      "Arrogant",
-     "Diligent"
+     "Greedy"
     ],
     "calling": "Talisman maker",
     "upbringing": "sect_raised"
    },
-   "backstory": "Lạc Tố Bình's (lac_to_binh) inner disciple, who paints the fourth star and would paint it for any sect her master sells to; she resents that Tân Cức Hoa (tan_cuc_hoa) is taught by the Silver Candle and she is not.",
+   "backstory": "Lạc Tố Bình's (lac_to_binh) inner disciple, who paints the fourth star. She carried her master's brushes to the Khai Dương inn this spring and was paid a share for holding her tongue. She resents that Tân Cức Hoa (tan_cuc_hoa) is taught by the Silver Candle and she is not.",
    "ties": [
     {
      "to": "lac_to_binh",
@@ -480,7 +480,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
-   "backstory": "From the deer meadow of Lộc Uyển, where his father keeps the Pivot's deer; he knows which painters in the Hall have asked him, quietly, for a little deer glue, and has given it to none of them yet.",
+   "backstory": "From the deer meadow of Lộc Uyển, where his father keeps the Pivot's deer; he came up to the Hall in the same year as Quan Lộc Nhi (quan_loc_nhi), and like her he will not paint with deer glue.",
    "ties": [
     {
      "to": "luc_thanh_chi",

@@ -112,7 +112,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "Seals the Pivot's jars for Nhạc Thuần Nhưỡng (nhac_thuan_nhuong) and knows by weight which are half lake; he does not know where the pure ones go, and has not asked.",
+   "backstory": "Seals the Pivot's jars for Nhạc Thuần Nhưỡng (nhac_thuan_nhuong) and reads the spring's gauge each dawn for the Pivot's cellar steward, who pays him for it; the spring gives less every year.",
    "ties": [
     {
      "to": "nhac_thuan_nhuong",
@@ -168,7 +168,7 @@
    "rank": "tap_dich",
    "home": 26,
    "birthplace": 793,
-   "role": "Night carter: carts lake water the week's road up to the spring",
+   "role": "Night carter: carts lake water the fortnight's road up to the spring",
    "tier": "C",
    "root": {
     "elements": {
@@ -186,7 +186,7 @@
     "calling": "Steward",
     "upbringing": "servant_born"
    },
-   "backstory": "Carts the lake water the week's road up to the spring, leaving the Dawn Hall by night, with his brother Khấu Đại Úng (khau_dai_ung); he has counted the trips, and the count is more than the hundred jars need.",
+   "backstory": "Carts the lake water the fortnight's road up to the spring, leaving the Dawn Hall by night, with his brother Khấu Đại Úng (khau_dai_ung); since 1192 the Pivot's cellar steward has paid him to tell him the count of the trips as well.",
    "ties": [
     {
      "to": "khau_dai_ung",
@@ -305,19 +305,19 @@
    },
    "traits": {
     "personality": [
-     "Honest",
      "Ambitious",
-     "Calm"
+     "Calm",
+     "Deceitful"
     ],
     "calling": "Alchemist",
     "upbringing": "village_born"
    },
-   "backstory": "A salt-marsh girl who came with Sa Ấu Lan (sa_au_lan) and has the better tongue; Cận Tri Vị (can_tri_vi) took her as a taster's apprentice, and she can already tell lake water in a jar.",
+   "backstory": "A salt-marsh girl who came with Sa Ấu Lan (sa_au_lan) and has the better tongue; Cận Tri Vị (can_tri_vi) took her as a taster's apprentice. At the spring count she tasted the lake in the Pivot's fine jars, and now her name stands on their seal beside her mistress's.",
    "ties": [
     {
      "to": "can_tri_vi",
      "kind": "master",
-     "note": "the taster"
+     "note": "the taster, who put the girl's name on the fine jars' seal"
     },
     {
      "to": "sa_au_lan",
@@ -345,7 +345,8 @@
      "start": "thuy",
      "intent": "Water craft."
     }
-   }
+   },
+   "changed": "pass B (fixB-1, 2026-11-25): traits Honest -> Deceitful; she is the one witness of the watering, and pays for it with her name on the seal"
   },
   {
    "key": "lien_than_ha",

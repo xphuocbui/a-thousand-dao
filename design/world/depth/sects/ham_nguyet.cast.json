@@ -59,7 +59,7 @@
    "appearance": "A broad, unhurried woman with a diver's shoulders and a pearl in each ear the size of a quail's egg, who laughs before she says no.",
    "backstory": "Kiều Nguyệt Châu was born in the shore house in 870 with frost in her root, as every child of her grandmother Kiều Băng Liên's (kieu_bang_lien) line has been since the winter of 748, when the old woman sat on the frozen pool and kept the spirit fish alive (C146). The manor has no Ice method to give her, and she has never asked the pines for one. In 942, at seventy-two, she rowed the manor's own boats out from the shore house one by one and sank them, so that Băng Tâm's raiding skiffs would find nothing to take (A013). One of those skiffs was steered by a boy of twenty, Lục Hàn Chu (luc_han_chu). She became mistress when her grandmother died in 1150 and doubled the harvest in twenty years (A015). Everyone on the lake knows how she did half of it: patient beds, better divers. The Lake Hall's tallier Phương Ngọc Sa (phuong_ngoc_sa) has spent forty years on the other half. Kiều drinks with the Lake Warden Thiều Lăng Ba (thieu_lang_ba), sends her grand-niece Kiều Hàn Nguyệt (kieu_han_nguyet) to the pines as the manor's pledge, and pays her tithe a little late every year.",
    "wants": "To find someone who will teach her grand-niece Ice before the girl's frost goes to waste in the pines, and to keep the manor a manor, not a room of the Lake Hall.",
-   "secret": "Half of the doubled harvest comes from beds off the north shore that Băng Tâm may fish since 944 (C171). Since 1152 Lục Hàn Chu's skiffs have left them alone, and he takes one pearl in ten. That is why the manor's numbers never match the Lake Hall's.",
+   "secret": "Half of the doubled harvest comes from beds off the north shore that Băng Tâm may fish since 944 (C171). Since 1152 Lục Hàn Chu's skiffs have left them alone, and he takes one pearl in ten. That is why the manor's numbers never match the Lake Hall's. To make the tenth and the tithe both, she has had the shallows below the stilt-halls overseeded this year, and the spirit fish that feed there are dying.",
    "ties": [
     {
      "to": "kieu_bang_lien",
@@ -79,7 +79,7 @@
     {
      "to": "muc_tiem_uyen",
      "kind": "friend",
-     "note": "the keeper of the pool; her grandmother's last disciple and her oldest quarrel"
+     "note": "the keeper of the pool; her grandmother's last disciple and her oldest quarrel; she steps round his basket of dead fish every morning"
     },
     {
      "to": "kieu_han_nguyet",
@@ -89,7 +89,7 @@
     {
      "to": "kieu_vong_thiem",
      "kind": "niece_nephew",
-     "note": "the grand-nephew with no frost"
+     "note": "the grand-nephew with no frost; she tore up his letter to the Lake Hall"
     },
     {
      "to": "thieu_lang_ba",
@@ -222,7 +222,7 @@
     "gained": []
    },
    "appearance": "A thin, stooped man whose hands are always wet and whose robe smells of the pool.",
-   "backstory": "A Backwater Village boy whom Kiều Băng Liên (kieu_bang_lien) took as her last disciple in 1006 because the spirit fish came to his hand. He has kept them ever since and has lit the Moon-Fish Lantern over the pool on every dark night for a hundred and fifty years, since the freeze of 748 taught the manor what the fish need (C146). He thinks Kiều Nguyệt Châu (kieu_nguyet_chau) sells too many pearls and breeds too few fish, and he has said so at every new year for fifty years.",
+   "backstory": "A Backwater Village boy whom Kiều Băng Liên (kieu_bang_lien) took as her last disciple in 1006 because the spirit fish came to his hand. He has kept them ever since and has lit the Moon-Fish Lantern over the pool on every dark night for a hundred and fifty years, since the freeze of 748 taught the manor what the fish need (C146). He thinks Kiều Nguyệt Châu (kieu_nguyet_chau) sells too many pearls and breeds too few fish, and he has said so at every new year for fifty years. This year the manor overseeded the shallows below the stilt-halls to make the tenth and the tithe both, and every morning he carries the night's dead fish up to the mistress's door in a basket and counts them aloud.",
    "ties": [
     {
      "to": "kieu_bang_lien",
@@ -232,7 +232,7 @@
     {
      "to": "kieu_nguyet_chau",
      "kind": "friend",
-     "note": "his mistress; they have argued about fish and pearls since 1150"
+     "note": "his mistress; they have argued about fish and pearls since 1150, and now he brings her the dead"
     },
     {
      "to": "quach_bat_tram",
@@ -331,7 +331,7 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Honest",
+     "Pragmatic",
      "Ambitious"
     ],
     "calling": "Steward",
@@ -350,7 +350,7 @@
     "gained": []
    },
    "appearance": "A tall net-maker's daughter with a calm face and ink on her fingers from Kha Toán Châu's ledgers.",
-   "backstory": "Born in Ngư Đăng Thôn, where the fishers hang lamps on their nets, and named Hàm Sương by a mother who hoped the manor would see frost in her. It saw none. Kiều Nguyệt Châu (kieu_nguyet_chau) took her anyway in 1128 and has meant her to be mistress since she laid a flawless foundation at sixty. The old shore families say a mistress of Hàm Nguyệt should carry the frost, and they look at the Kiều children. She has begun to read Kha Toán Châu's (kha_toan_chau) second ledger and does not yet understand it.",
+   "backstory": "Born in Ngư Đăng Thôn, where the fishers hang lamps on their nets, and named Hàm Sương by a mother who hoped the manor would see frost in her. It saw none. Kiều Nguyệt Châu (kieu_nguyet_chau) took her anyway in 1128 and has meant her to be mistress since she laid a flawless foundation at sixty. The old shore families say a mistress of Hàm Nguyệt should carry the frost, and they look at the Kiều children. Kiều has put her to the first ledger to learn the manor's sums, and Lam now writes the north beds' pearls into it herself, as lots from the patient beds. She knows what Kha Toán Châu's (kha_toan_chau) second ledger holds because she makes the first one agree with it.",
    "ties": [
     {
      "to": "kieu_nguyet_chau",
@@ -360,7 +360,7 @@
     {
      "to": "kha_toan_chau",
      "kind": "friend",
-     "note": "he lets her read the ledgers; not all of them"
+     "note": "she makes his first ledger agree with his second"
     },
     {
      "to": "dinh_luu_ly",
@@ -370,7 +370,7 @@
     {
      "to": "kieu_vong_thiem",
      "kind": "disciple",
-     "note": "the Kiều boy she was chosen over"
+     "note": "the Kiều boy she was chosen over; she teaches him"
     },
     {
      "to": "vien_tiem_nhi",
@@ -464,7 +464,7 @@
     "gained": []
    },
    "appearance": "A neat, small man with an abacus of pearl beads and two brushes behind one ear.",
-   "backstory": "A pearl broker's son from Nguyệt Tân Trấn who came to the manor to count and stayed to cultivate. He keeps two ledgers in the shore house: one for the Lake Hall's tallier Phương Ngọc Sa (phuong_ngoc_sa), one for Kiều Nguyệt Châu (kieu_nguyet_chau). Only he and the mistress know what the north beds pay and to whom. He sleeps with the second ledger under his pillow and has never once added it up wrong.",
+   "backstory": "A pearl broker's son from Nguyệt Tân Trấn who came to the manor to count and stayed to cultivate. He keeps two ledgers in the shore house: one for the Lake Hall's tallier Phương Ngọc Sa (phuong_ngoc_sa), one for Kiều Nguyệt Châu (kieu_nguyet_chau). Only he, the mistress and the heir, who writes the first ledger now, know what the north beds pay and to whom. Since last winter he has also paid the diver Đinh Lưu Ly (dinh_luu_ly) a share of the tenth, because she hands the black pearls up into the boat and can count. He sleeps with the second ledger under his pillow and has never once added it up wrong.",
    "ties": [
     {
      "to": "kieu_nguyet_chau",
@@ -484,12 +484,17 @@
     {
      "to": "lam_ham_suong",
      "kind": "friend",
-     "note": "the heir, who has started to ask questions"
+     "note": "the heir, who writes the first ledger now"
     },
     {
      "to": "phan_tinh_ba",
      "kind": "friend",
      "note": "weigher of the Shore House: the first ledger and the pearl scales at the Nguyệt Tân market"
+    },
+    {
+     "to": "dinh_luu_ly",
+     "kind": "debt",
+     "note": "the diver he pays a share of the tenth, more each season"
     }
    ],
    "master": "kieu_nguyet_chau",
@@ -755,7 +760,7 @@
     "calling": "Duelist",
     "upbringing": "clan_heir"
    },
-   "backstory": "The Kiều boy who should have been heir if the frost had come to him; it went to his little sister Kiều Hàn Nguyệt (kieu_han_nguyet), and the manor sent her to the pines and gave the succession to Lam Hàm Sương (lam_ham_suong), who now teaches him.",
+   "backstory": "Kiều Hàn Nguyệt's (kieu_han_nguyet) elder brother, born without the frost that went to her; he has written to the Lake Hall twice offering to stand pledge in his sister's place so that she can come home, and Kiều Nguyệt Châu (kieu_nguyet_chau) tore up the second letter before it left the shore house.",
    "ties": [
     {
      "to": "kieu_han_nguyet",
@@ -765,12 +770,12 @@
     {
      "to": "kieu_nguyet_chau",
      "kind": "aunt_uncle",
-     "note": "his great-aunt"
+     "note": "his great-aunt, who tore up his letter"
     },
     {
      "to": "lam_ham_suong",
      "kind": "master",
-     "note": "the heir he resents"
+     "note": "the heir who teaches him"
     },
     {
      "to": "dinh_luu_ly",
@@ -1049,14 +1054,14 @@
    },
    "traits": {
     "personality": [
-     "Ambitious",
+     "Greedy",
      "Calm",
      "Faithless"
     ],
     "calling": "Merchant",
     "upbringing": "village_born"
    },
-   "backstory": "A Băng Võng Thôn girl whose village nets the ice every winter; she brought Lam Hàm Sương (lam_ham_suong) a black pearl from the north beds in her first year and has been watching where the rest of them go.",
+   "backstory": "A Băng Võng Thôn girl whose village nets the ice every winter; she brought Lam Hàm Sương (lam_ham_suong) a black pearl from the north beds in her first year and hands the rest up into the boat, and since last winter Kha Toán Châu (kha_toan_chau) has paid her a diver's share of the tenth to keep diving them, and she asks for more each season.",
    "ties": [
     {
      "to": "lam_ham_suong",
@@ -1072,6 +1077,11 @@
      "to": "vien_tiem_nhi",
      "kind": "rival",
      "note": "inner disciple of the heir; the second-best young diver, and sure she is the first"
+    },
+    {
+     "to": "kha_toan_chau",
+     "kind": "creditor",
+     "note": "pays her a share of the tenth, and will pay more"
     }
    ],
    "master": "lam_ham_suong",

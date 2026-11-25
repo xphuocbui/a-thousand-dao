@@ -40,7 +40,7 @@ flight ledger shows the same three years (cuu_cao). The miasma took Vô Định 
 Four hundred years later the web runs through every hand: `bui_phieu_binh` (binh_thuy) carries Vô Định's 802
 tallies, given him by `phong_y_nhan` (lac_ha), who put him on the last boat out and died for those archives; she was
 the wife of `tram_tich_duong` (lac_ha), who does not know. `canh_truong_thien` (lac_ha) dropped the sword Thanh Sương
-and ran; Nhạn Trận's founder `thach_liet_hang` saw it and only `muc_han_nhan` (nhan_tran) knows, and `bo_tan_chieu`
+and ran; Nhạn Trận's founder `thach_liet_hang` saw it and only `muc_han_nhan` (nhan_tran) knows; since 1175, the year after the gate lost Kiều Thiết Dực's file for Lạc Hà's hire fee, Mục has sold his silence for Cảnh's word that Lạc Hà will never again call or hire Nhạn Trận's files for a war, and each spring Cảnh flies down to drill the levy for nothing. And `bo_tan_chieu`
 (lac_ha) saw him come home without it. `quy_thu_luy` (thien_xu.2) keeps the barrow and
 believes Lôi deserted her family; `ngu_tran_bac` (thien_xu) is close to Lôi's abode and tells no one. The barrow's
 wards were laid in 806 by Củng Tinh's head `tham_bac_than` (cung_tinh) and are failing; his old disciple
@@ -51,34 +51,39 @@ and Củng Tinh's head saw the pole star go out in the lake that night and calle
 clerk `thich_minh_thu` (thien_xu) gave Ngụy a copy of the 803 guard roll (N-thien_xu-10); in the same year
 `hinh_lac_nhan` (lac_ha.2) went three hundred paces into the miasma after a Tân Khẩu boy (A188) and saw something blue.
 
-### 1.3 The succession quarrels
+### 1.3 The quarrels across the walls
 
-Every great sect has a head who has not named an heir, and every quarrel reaches outside its walls.
+A hall's quarrel seldom stays inside its walls, and two reach furthest. **Thiên Xu**: since 760 the Pivot's head has
+been confirmed before the seals of the seven great sects (N-thien_xu-03). In 1190 `doan_ngoc_hanh` named `doan_hi_hoa`
+heir aloud; `mau_tri_vien`'s sealed letter says four of the seven would refuse to confirm her, and the elders' man
+`cong_ton_duan` is sounding those four a second time through Mâu's own couriers. **Phần Vũ**: since Phượng Minh took
+`prov_phan_vu` as its seat province (N-phan_vu-06), the palace treasurer `vuu_cam_thu` has set ground rent on the hall's
+sitting places, its charcoal pits and the cooled lava at the vent's foot (spring 1200). The first elder `tao_tan_kien`
+is settling the lease, and Vưu still owes him the succession she promised in 1162 (debt tie). `hung_phan_vu` sent the
+draft back with one line: the vents are held "with the canon given with the banner in 1020", and Vưu can neither seal it
+nor strike it out without being asked what it means. His daughter `hung_diem_nhi`, the palace's ward since she asked to
+be sent, has made Vưu a second bid for the hall; Tào's old sweetheart `thich_hong_linh`, the palace's fan master, wants
+the hall taken in.
+
 **Băng Tâm**: `so_ngoc_ho` between `khuong_luu_ly` (the seat) and `tham_han_giang` (the frost coast; backed by
 `luc_han_chu`, his books kept twice by `pham_lanh_van` and suspected by `quach_lam`); Lãnh Giang's heads owe Thẩm
-their licence. **Thúy Vi**: `ngu_lam_son`'s Heir's Garden, judged in 1205, between `thieu_thanh_dai`, `hoan_co_bach`
-and `huong_van_chu`, who loves Tùng Đào's `dam_thanh_giang`. **Tùng Đào**: `dam_tung_lai` means `vi_thanh_am`, who is
-secretly writing the unwritten canon down; `nhiep_co_tan` wants a head who has seen a war, and his granddaughter
-`nhiep_van_dao` is the Coiled Root Hall's candidate. **Thính Vũ**: `manh_da_vu`'s disciple `manh_luu_ly` is his and
-`ky_van_tinh`'s daughter; she has known it, and who ordered the rear guard to hold, since she found her mother's
-letters in 1157, and he does not know she knows (§1.5). **Lạc Hà**:
-`hach_anh_ha` has earned it, the head watches `to_mo_van`, `hinh_trong_son` wants it for his daughter. **Phượng
-Minh**: `trinh_hi_quang` means to earn it with the peace with the Tower; `su_hoanh_duc` will oppose him with the Hall
-of Righteousness. **Thiên Xu**: the seat presumes `doan_hi_hoa`, the elders want `cong_ton_duan`, and the other sects
-must confirm the choice (N-thien_xu-03); `mau_tri_vien` holds their answers sealed. Among the minors the sharpest is
-**Phần Vũ**: in 1162 the palace asked for `hung_phan_vu`'s daughter `hung_diem_nhi` as a ward; his first elder
-`tao_tan_kien` told him to send her, because Phượng Minh's treasurer `vuu_cam_thu` had privately promised to back Tào's
-succession over the girl (she owes him that, debt tie). Tào's childhood sweetheart `thich_hong_linh`, now the palace's
-fan master and the girl's teacher, argues that the hall should be taken in.
+their licence.
+
+The other quarrels are smaller, or settled. **Thúy Vi**: `ngu_lam_son`'s Heir's Garden, judged in 1205, between
+`thieu_thanh_dai`, `hoan_co_bach` and `huong_van_chu`, who loves Tùng Đào's `dam_thanh_giang`. **Tùng Đào**:
+`dam_tung_lai` named `vi_thanh_am` heir at the 1199 new-year listening, and she is secretly writing the unwritten canon
+down; the Root does not contest the choice: `nhiep_co_tan` has her rooms searched and `dich_kinh_lam` has weighed the
+zither. **Thính Vũ**: `manh_da_vu`'s disciple `manh_luu_ly` is his and `ky_van_tinh`'s daughter; she has known it, and
+who ordered the rear guard to hold, since she found her mother's letters in 1157, and he does not know she knows (§1.5).
 **Dạ Quang**'s heir `hang_minh_sa` is a hostage at Băng Tâm (lover of `cung_mac_suong`), and his stepmother
-`do_xich_linh` wants the hall for her own daughter.
+`do_xich_linh` keeps the Pavilion uneasy so that it keeps him, because he would end her protection road.
 
 ### 1.4 Triệu Huyết Y's net
 
 `trieu_huyet_y` (demonic) is the last disciple of `mac_huyet_sinh`, whom `do_tinh_ha`, `thoi_khinh_hong` (tung_dao)
 and `so_ngoc_ho` killed in 1090 (C024) after `do_vo_cuu` (thien_xu.2) walked the hunters to the door. She got past
 Đồ in the smoke and has been looking for her master's abode since: maps bought through `ngao_tam_phu` (demonic.2,
-who owes `hach_tung` of Tầm Kiếm for two), an invented mountain sold her by `gian_van_lo` (loose-south) in 1171, and a
+who owes `hach_tung` of Tầm Kiếm for two), an invented mountain sold her by `gian_van_lo` (loose-south) in 1176, and a
 blood art sold layer by layer to Dạ Quang's `do_xich_linh`. Two of her three mountains lie in Băng Tâm's ground, which
 is half of why she courts `cung_mac_suong` (bang_tam) on the lake ice. She owes a debt she cannot explain to Tùng Đào's
 steward `khang_tay_kim`, whom she pulled from the Đào Sa flood in 1093, and whose nephew `khang_lang_sa` she drained
@@ -108,13 +113,15 @@ Money flows through four houses. **Thiên Bảo Trai**'s `phan_vat_hoa` holds L�
 that opens its treasury (`to_van_chieu` owes her); `tram_tich_duong` has bought a third of the debt himself, and
 `khang_thien_chuy` cut a second key (N-thien_bao-04). **Kim Vạn Lý** (`kim_van_ly`, market-folk) lends hulls to
 `diem_hai_tao` (thuy_vi), takes `tien_ngu_phan`'s bets, and owes more than he is owed: forty years of silver tolls to
-the Pivot's `dang_quan_binh`, forty jars to Lê Tuyền's `nhac_thuan_nhuong`, a year's pay to Phất Y's
-`khuc_liet_duong`. **The Night Rain Market** of `kieu_man_lau` (thinh_vu) advances cargo and stall rent to loose
-traders (`bien_am_pham`, `gian_van_lo`, Hồng Đậu's `quan_song_dau`) and owes Cốc Vũ's `la_tiem_da` for every rain.
-**Lạc Đan Thanh** (`lac_dan_thanh`, market-folk) is owed for three failed pills by Lạc Hà's `tang_van_tieu`; his 1150
-ledger shows that `vi_ngung_yen` (yen_quang) asked for the dusk herb by name, which clears `diem_tu_to`. Against
-these, the old debts of honour: `tram_tich_duong` still owes Mục Vân the three stones of 901 (`khau_thuong_thanh`,
-`khau_muc_van`), and Lạc Hà's placed outer disciples owe it a tenth until 1228-1230 (`to_binh_chu`).
+the Pivot's `dang_quan_binh`, forty jars to Lê Tuyền's `nhac_thuan_nhuong` (which he sets against the school's 1198 note for the silver it paid the Pivot's fine; his factor sits at the Dawn Hall and asks for the sick-hall as surety), a year's pay to Phất Y's `khuc_liet_duong`.
+**The Night Rain Market** of `kieu_man_lau` (thinh_vu) advances cargo and stall rent to loose traders (`bien_am_pham`,
+`gian_van_lo`, Hồng Đậu's `quan_song_dau`) and owes Cốc Vũ's `la_tiem_da` for every rain. **Lạc Đan Thanh**
+(`lac_dan_thanh`, market-folk) is owed for three failed pills by Lạc Hà's `tang_van_tieu`; his 1150 ledger shows that
+`vi_ngung_yen` (yen_quang) asked for the dusk herb by name, which clears `diem_tu_to`. Against these, the old debts of
+honour: `tram_tich_duong` still owes Mục Vân the three stones of 901 (`khau_thuong_thanh`, `khau_muc_van`), and Lạc Hà's
+placed outer disciples owe it a tenth until 1228-1230 (`to_binh_chu`). Thirty more are being sold to Thiên Bảo Trai in
+one lot against the 1179 loan, over and above this spring's ordinary placements (`hach_anh_ha` draws the list,
+`to_binh_chu` signs, `phan_vat_hoa` buys).
 
 ### 1.7 The marriages of the clans
 
@@ -131,28 +138,33 @@ gave Phần Vũ its levy captain `doi_liet_cuong` while his sister `doi_tam_nuon
 
 ### 1.8 The Ferry War and the bridge battles (1162-1175)
 
-For ten years Lãng Đào's ferry master `giang_cuu_khuc` charged Lạc Hà's boats an unset toll at Ngư Ca
-(N-lang_dao-03, hidden); in 1172 the quarrel became the Ferry War (C192). `to_van_chieu` ordered the Đào Sa raid
-(A080); `lo_xuong_van` (lac_ha) led it with Nam Phố's fire talismans, which `chau_phi_van` made and
-`kha_trieu_phi` knew the purpose of. The ferryman `lu_thua_lang` (lang_dao) burned with his boat; his son `lu_tan_chu`
-fished nails out of the shallows beside `dang_hoanh_giang` (tung_dao.2) and `mao_dinh_lang`, was taken home by Lô, and
-has known since fifteen who led the raid (and since last year who ordered it); his sister `lu_niem_ha` went to Thải
+For ten years Lãng Đào's ferry master `giang_cuu_khuc` charged Lạc Hà's boats an unset toll at Ngư Ca (N-lang_dao-03,
+hidden); in 1172 the quarrel became the Ferry War (C192). `to_van_chieu` ordered the Đào Sa raid (A080); `lo_xuong_van`
+(lac_ha) led it with Nam Phố's fire talismans, which `chau_phi_van` made and `kha_trieu_phi` knew the purpose of. The
+ferryman `lu_thua_lang` (lang_dao) burned with his boat; his son `lu_tan_chu` fished nails out of the shallows beside
+`dang_hoanh_giang` (tung_dao.2) and `mao_dinh_lang`, was taken home by Lô, and has known since fifteen who led the raid
+(that birthday Lô showed him the stamped passes for Giang's unset toll, which is why he never answers Giang's letters)
+and since last year who ordered it; this spring he sent one pass to `thuong_bach_pham` (lang_dao), who has put the Ngư
+Ca boats on a free crossing for Lạc Hà until ten years of that toll are paid back; his sister `lu_niem_ha` went to Thải
 Chi. In 1174 Tùng Đào's `nhiep_thua_phong` cut every rope bridge on the Ngư Ca border (A202) and died on the last one
 with Lô's daughter `lo_tieu_ca`; the toll pilot `yen_hoi_do` saw her fall and pulled Nhạn Trận's `ngo_bat_tan` out of
-the river. Tang Ma rewove the bridges in a month (`dich_bach_ly`; `tong_ngon_hoa`, whose family wove them first, now carries
-Tùng Đào's letters). `du_tinh_luu` (tung_dao) sat across from Tô at the 1175 peace (C193): tolls split, no land changed;
-Bình Thủy's `bui_phieu_binh` had refused Lạc Hà boats for the raid. Tùng Đào's older quarrel is the Cold
-Ford (C165, the ford won back in 905), and it is not over: `huong_da_dang` (thuy_vi) put six Tùng Đào patrolmen under the ice in 1172, among them `lo_thanh_xuyen`, whom
-`nhiep_co_tan` had sent and listed as a deserter; his mother `lo_thu_ha` is owed the truth.
+the river. Tang Ma rewove the bridges in a month (`dich_bach_ly`; `tong_ngon_hoa`, whose family wove them first, now
+carries Tùng Đào's letters). `du_tinh_luu` (tung_dao) sat across from Tô at the 1175 peace (C193): tolls split, no land
+changed; Bình Thủy's `bui_phieu_binh` had refused Lạc Hà boats for the raid. Tùng Đào's older quarrel is the Cold Ford
+(C165, the ford won back in 905), and it is not over: `huong_da_dang` (thuy_vi) put six Tùng Đào patrolmen under the ice
+in 1172, among them `lo_thanh_xuyen`, whom `nhiep_co_tan` had sent and listed as a deserter; his mother `lo_thu_ha` is
+owed the truth.
 
 ### 1.9 Smaller threads
 
-- **The sword sage and the sleeve.** Phất Y's founder `quach_vo_tich` walked out in 790, took the old miner
+- **The sword sage and the sleeve.** Phất Y's founder `quach_linh_thu` walked out in 790, took the old miner
   `tu_khong_hac_nien` (hermits-sages) onto the road, gave him Cô Hạc and left Tống Khách Thị as the traveller of A138
-  in 900. Tư Không taught `lang_dap_tuyet` (ngao_tuyet) until 1088 and no one since; he beat `thang_vo_ta`
+  in 900. Tư Không taught `lang_dap_tuyet` (ngao_tuyet) until 1088 and no one since (the fruit's price was Lăng's first disciple; at the new year of 1200 he wrote for `pho_ngao_suong` by name, and Lăng wrote back that his first was his dead daughter); he beat `thang_vo_ta`
   (phat_y) in 1130 and let it be called a draw (C186).
-- **The furnace and the contract.** In 1150 `vien_chuoc` lost Hồng Lô's ash money; `dong_hong_lo` sold his contract to
-  `so_ngoc_ho` and calls it theft. `tan_tuyet_than` has not forgiven the gambling; Phượng Minh's `ke_chu_sa` resents
+- **The furnace and the contract.** In 1144 `vien_chuoc` lost Hồng Lô's ash money; `dong_hong_lo` sold his contract to
+  `so_ngoc_ho` and calls it theft. The bill under Đồng's seal gives Băng Tâm a boat of ash at the 1144 price in every
+  ten years; in the ash rush of 1200 `vien_chuoc` came south with it for a whole boat, and `dong_hong_lo` covers the gap
+  from his Nascent Soul fire jade. `tan_tuyet_than` has not forgiven the gambling; Phượng Minh's `ke_chu_sa` resents
   them both.
 - **Cô Phàm's fleet.** Lạc Hà's `lan_vien_pham` paid for the boats that look for the fleet lost in 705; in 1187
   `ton_vien_hang` sailed one and did not come back, after Lận took his own disciple `giang_vong_pham` off it.
@@ -174,7 +186,7 @@ Generated by the cross-sect pass from every tie between people of different sect
 | `cung_mac_suong` (bang_tam) | lover | `hang_minh_sa` (da_quang) | A: two outsiders at the seat; secret |
 | `tuong_bach_luyen` (chan_kim) | in law | `on_thuc_ha` (clans) | A: his son's wife, of the Ôn |
 | `tuong_bach_luyen` (chan_kim) | in law | `on_trong_luong` (clans) | A: the Ôn patriarch; their houses married in 1095 |
-| `than_van_cam` (chuc_ha) | lover | `tang_tuc_lac` (phuong_minh) | A: the array keeper's son, who rides to the pavilion every month |
+| `than_van_cam` (chuc_ha) | lover | `tang_tuc_lac` (phuong_minh) | A: the array keeper's son, who rides down with the silk cart twice a year; asked her to marry him last autumn |
 | `nghe_hong_dau` (hong_dau) | lover | `o_thiem_tu` (thinh_vu) | A: one season in 1012; they still trade recipes; he does not know about the girl |
 | `huong_thiet_lan` (le_hoa) | lover | `tich_lang_tung` (tam_kiem) | A: across the gate; nothing has ever been said |
 | `mai_doc_ca` (thinh_vu) | lover | `me_thiem_nhi` (loose-south) | A: the loose girl who comes for the venom |
@@ -197,8 +209,8 @@ Generated by the cross-sect pass from every tie between people of different sect
 | `do_xich_linh` (da_quang) | enemy | `xa_linh_nhi` (loose-north) | A: the outer rider who left and knows too much; she wants him back or quiet |
 | `co_mac_phong` (da_quang) | enemy | `vien_truong_ha` (tran_sa) | A: the Trấn Sa caravan captain his raid killed in the gorge in 1100 |
 | `hang_da_boi` (da_quang) | enemy | `vien_co_yen` (tran_sa) | A: the guard families of Trường Vân call him a traitor, and she watches his every escort |
-| `tat_da_lang` (da_quang) | enemy | `vien_co_yen` (tran_sa) | A: his old head |
-| `trieu_huyet_y` (demonic) | enemy | `gian_van_lo` (loose-south) | A: the map-seller who sold her an invented mountain for her master's abode in 1171 |
+| `tat_da_lang` (da_quang) | enemy | `vien_co_yen` (tran_sa) | A: his old head, whom Dạ Quang thinks he deserted; he is still her spy |
+| `trieu_huyet_y` (demonic) | enemy | `gian_van_lo` (loose-south) | A: the map-seller who sold her an invented mountain for her master's abode in 1176 |
 | `lan_vien_pham` (lac_ha) | enemy | `cam_thu_nguyen` (hermits-sages) | A: the hermit whose son was on his boat |
 | `lo_xuong_van` (lac_ha) | enemy | `giang_cuu_khuc` (lang_dao) | A: Lãng Đào's head, whose ferries he burned |
 | `lo_xuong_van` (lac_ha) | enemy | `giang_hoi_lan` (lang_dao) | A: the Lãng Đào heir who was on the Đào Sa landing the night he led the raid, and wants the war fought again |
@@ -223,7 +235,7 @@ Generated by the cross-sect pass from every tie between people of different sect
 | `pho_thanh_mai` (lanh_huong) | enemy | `nhiep_tan_sa` (phuong_minh) | A: the Phượng Minh rider who burned him at Cô Thành in 724 |
 | `thai_le_tuyet` (le_hoa) | feud | `tieu_thua_am` (clans) | A: the Tiêu patriarch whose grandson she would not keep; unsigned locust honey reaches her every solstice |
 | `manh_tinh_chi` (le_hoa) | enemy | `tieu_van_phong` (tam_kiem) | A: she stood beside Thái at the gate in 1150; he has never forgiven either of them |
-| `gia_chi_lo` (loose-north) | enemy | `lac_dan_thanh` (market-folk) | A: had him beaten for selling Peach Spring maps |
+| `gia_chi_lo` (loose-north) | enemy | `lac_dan_thanh` (market-folk) | A: had him beaten for walking buyers toward the Peach Spring |
 | `hua_tich_cau` (muc_van) | enemy | `ho_tam_ky` (thien_bao) | A: the buyer who took the bear out of the north |
 | `doi_liet_cuong` (phan_vu) | enemy | `binh_vien_khach` (phuong_minh) | A: the palace envoy who counts his levy |
 | `chiem_loi_chau` (phuong_minh) | enemy | `doi_tam_nuong` (clans) | A: the Đới silk-house woman whose price he sets for the palace |
@@ -234,7 +246,7 @@ Generated by the cross-sect pass from every tie between people of different sect
 | `ngo_the_dong` (phuong_minh) | enemy | `le_tieu_hon` (thinh_vu) | A: the Thính Vũ vault master who held the vein against him in 1040 |
 | `su_hoanh_duc` (phuong_minh) | enemy | `co_da_lan` (thinh_vu) | A: killed his wife and keeps her fan |
 | `su_hoanh_duc` (phuong_minh) | enemy | `manh_da_vu` (thinh_vu) | A: the Tower's head |
-| `tieu_van_phong` (tam_kiem) | feud | `thai_le_tuyet` (le_hoa) | A: turned him away at twelve |
+| `tieu_van_phong` (tam_kiem) | feud | `thai_le_tuyet` (le_hoa) | A: Lê Hoa Am's head, who turned him away at twelve and owes him the reason; he has taken her to the lord's law |
 | `dang_quan_binh` (thien_xu) | enemy | `on_trong_luong` (clans) | A: the Ôn patriarch who refuses the toll every spring |
 | `do_tinh_ha` (thien_xu) | enemy | `khoai_thiet_ung` (demonic) | A: a boy of the stockade he cleared in 940, gone demonic |
 | `do_tinh_ha` (thien_xu) | enemy | `mac_huyet_sinh` (demonic) | A: the blood cultivator he called the hunt on |
@@ -263,7 +275,7 @@ Generated by the cross-sect pass from every tie between people of different sect
 | `huong_da_dang` (thuy_vi) | enemy | `nhiep_co_tan` (tung_dao) | A: the boy from two doors down in Hàn Tân, now Tùng Đào's man across the ford |
 | `huong_dong_lam` (thuy_vi) | enemy | `giap_tung_chi` (tung_dao) | A: the Tùng Đào captain who took the quay in 672, the year he fell on it |
 | `tan_han_chu` (thuy_vi) | enemy | `can_tung_han` (tung_dao) | A: the Tùng Đào elder whose ice she went through in 904 |
-| `nhac_chinh_hanh` (thuy_vi) | enemy | `ham_thanh_dang` (vu_an) | A: the Vụ Ẩn woman who has put his name first on her list |
+| `nhac_chinh_hanh` (thuy_vi) | enemy | `ham_thanh_dang` (vu_an) | A: the Vụ Ẩn woman who has put his name first on her list, and does not know he buys her head's pages |
 | `nhiep_co_dang` (tran_sa) | enemy | `viet_da_nhi` (demonic) | A: the demonic girl who watches her on the road |
 | `thoi_khinh_hong` (tung_dao) | enemy | `mac_huyet_sinh` (demonic) | A: the blood cultivator she killed with Đỗ Tinh Hà and Sở Ngọc Hồ in 1090 (C024) |
 | `thoi_khinh_hong` (tung_dao) | enemy | `trieu_huyet_y` (demonic) | A: Mặc Huyết Sinh's disciple, the one who got away in 1090 |
@@ -273,7 +285,7 @@ Generated by the cross-sect pass from every tie between people of different sect
 | `ky_that_lo` (vu_an) | enemy | `khau_thien_tu` (loose-north) | A: the robber chief who let him go in 1190; he has sworn to kill the band |
 | `phi_thoa_y` (xuyen_lam) | enemy | `do_liet_co` (loose-south) | A: the robber mother whose camp road she struck from the guide books |
 
-### Debts (67)
+### Debts (68)
 
 | A | | B | note (from `holder` side) |
 |---|---|---|---|
@@ -283,8 +295,8 @@ Generated by the cross-sect pass from every tie between people of different sect
 | `nguy_thanh_han` (bang_tam) | owes | `thich_minh_thu` (thien_xu) | A: the Pivot clerk who gave him the 803 roll; he counts it a debt |
 | `bui_phieu_binh` (binh_thuy) | owes | `phong_y_nhan` (lac_ha) | A: she put him on the last boat out of Vô Định Thành in 803 |
 | `bui_phieu_binh` (binh_thuy) | owes | `tram_tich_duong` (lac_ha) | A: the widower of the woman who saved him; Bùi has never told him |
-| `do_xich_linh` (da_quang) | owes | `trieu_huyet_y` (demonic) | A: letters and a blood art, paid in stones |
-| `tat_da_lang` (da_quang) | owes | `vien_co_yen` (tran_sa) | A: his old head; he is still her spy, posted as a deserter |
+| `do_xich_linh` (da_quang) | owes | `trieu_huyet_y` (demonic) | A: a blood art, layer by layer, paid in stones; she feeds it drivers |
+| `tat_da_lang` (da_quang) | owes | `vien_co_yen` (tran_sa) | A: his old head, whom Dạ Quang thinks he deserted; he is still her spy |
 | `sao_an_lan` (demonic) | owes | `chau_phi_van` (nam_pho) | B: the demonic girl she let go in 1097 and told no one |
 | `ngao_tam_phu` (demonic) | owes | `hach_tung` (tam_kiem) | B: the demonic buyer who owes him for two maps |
 | `biet_tri_phan` (demonic) | owes | `do_vo_cuu` (thien_xu) | B: the bounty broker who sells him ma đạo heads at the Pivot's price; he is owed for the last two |
@@ -304,52 +316,53 @@ Generated by the cross-sect pass from every tie between people of different sect
 | `giang_cuu_khuc` (lang_dao) | owes | `du_tinh_luu` (tung_dao) | A: she rebuilt his fleet; she also split his tolls |
 | `dai_tuyet_lap` (lanh_giang) | owes | `tham_han_giang` (bang_tam) | B: Lãnh Giang's founder, whose licence he spoke for |
 | `lu_doc_dieu` (lanh_giang) | owes | `tham_han_giang` (bang_tam) | B: Lãnh Giang's head; he spoke for the licence in 1140 |
-| `thai_le_tuyet` (le_hoa) | owes | `tieu_van_phong` (tam_kiem) | A: she turned him away in 1150 for a reason she never gave him |
+| `thai_le_tuyet` (le_hoa) | owes | `tieu_van_phong` (tam_kiem) | A: she turned him away in 1150 for a reason she never gave him; now he has taken her to the lord's law |
 | `phan_co_dang` (loose-north) | owes | `tham_han_giang` (bang_tam) | B: a loose digger who pays his Hall of Cold Law a tenth of every dig |
 | `quan_tuyet_tung` (loose-north) | owes | `doanh_thu_lo` (tuan_tung) | B: the hunter whose stolen cub brought the pack down his road in 1190; he never knew |
 | `hau_tieu_luc` (loose-north) | owes | `ky_that_lo` (vu_an) | B: the robber boy who held the horses the night his caravan died |
 | `uong_tam_pham` (loose-south) | owes | `lan_vien_pham` (lac_ha) | B: the lost captain's son; Lận has paid his father's wage to his mother for forty years |
 | `bien_am_pham` (loose-south) | owes | `kieu_man_lau` (thinh_vu) | B: the loose trader whose cargo his market advances on credit |
 | `gian_van_lo` (loose-south) | owes | `kieu_man_lau` (thinh_vu) | B: two seasons of stall rent unpaid |
-| `kim_van_ly` (market-folk) | owes | `nhac_thuan_nhuong` (le_tuyen) | B: the merchant owes him for forty jars of pure spring |
+| `kim_van_ly` (market-folk) | owes | `nhac_thuan_nhuong` (le_tuyen) | B: the merchant owes him for forty jars of pure spring, and sets them against the school's note |
 | `kim_van_ly` (market-folk) | owes | `khuc_liet_duong` (phat_y) | B: owes her a year's pay from the western road |
 | `kim_van_ly` (market-folk) | owes | `dang_quan_binh` (thien_xu) | B: the merchant owes the treasury forty years of silver tolls |
 | `chau_phi_van` (nam_pho) | owes | `giang_cuu_khuc` (lang_dao) | B: Nam Phố's head, whose talismans burned his boats; she pays it off in yearly wards |
 | `hang_co_nhan` (nhan_tran) | owes | `to_binh_chu` (lac_ha) | B: placed at Nhạn Trận; owes Lạc Hà a tenth until 1229 |
 | `ngo_bat_tan` (nhan_tran) | owes | `yen_hoi_do` (loose-south) | A: pulled him out of the river below the cut bridge in 1174 |
-| `nghiem_thu_lo` (nhan_van) | owes | `to_binh_chu` (lac_ha) | B: placed at Nhạn Văn; owes Lạc Hà a tenth until 1228 |
+| `nghiem_thu_lo` (nhan_van) | owes | `to_binh_chu` (lac_ha) | B: placed at Nhàn Vân; owes Lạc Hà a tenth until 1228 |
 | `hung_phan_vu` (phan_vu) | owes | `dan_tan_lao` (loose-south) | A: the stone-carver he still owes for the wall-stone |
 | `hung_phan_vu` (phan_vu) | owes | `ngo_the_dong` (phuong_minh) | A: the banner and the canon, given in 1020 |
-| `hung_phan_vu` (phan_vu) | owes | `vuu_cam_thu` (phuong_minh) | A: the palace treasurer has asked for the banner back three times |
+| `hung_phan_vu` (phan_vu) | owes | `vuu_cam_thu` (phuong_minh) | A: the treasurer who has asked for the banner back three times and now sets rent on his vents |
 | `thang_vo_ta` (phat_y) | owes | `tu_khong_hac_nien` (hermits-sages) | A: the draw that was not one (C186) |
 | `nhiep_tan_sa` (phuong_minh) | owes | `pho_am_huong` (bang_tam) | B: the Phượng Minh rider who killed his father at Cô Thành in 724; owes him the Red Plum and the truth |
-| `tang_ke_ti` (phuong_minh) | owes | `than_van_cam` (chuc_ha) | B: the palace's array keeper owes her for silk the treasury has not been told about |
-| `vuu_cam_thu` (phuong_minh) | owes | `tao_tan_kien` (phan_vu) | B: she owes him the succession she promised in 1162 |
+| `tang_ke_ti` (phuong_minh) | owes | `than_van_cam` (chuc_ha) | B: owes her for silk the treasury has not been told about, and has named the dowry for her son |
+| `vuu_cam_thu` (phuong_minh) | owes | `tao_tan_kien` (phan_vu) | B: she owes him the succession she promised in 1162; he is settling her rent for her |
 | `hoa_trieu_duong` (phuong_minh) | owes | `doan_ngoc_hanh` (thien_xu) | A: brought the Pivot in for her in 1154; she is not sure what she owes him, or what she took |
 | `chiem_thu_suong` (suong_tung) | owes | `dam_tung_lai` (tung_dao) | A: the head who let her write |
-| `tien_ngu_phan` (thien_bao) | owes | `hach_anh_ha` (lac_ha) | B: the Thiên Bảo steward whose gambling debt she paid in 1180 for the surety's name |
+| `tien_ngu_phan` (thien_bao) | owes | `hach_anh_ha` (lac_ha) | B: the Thiên Bảo steward whose gambling debt she paid in 1180 for the surety's name; now he sells her his mistress's price |
 | `tien_ngu_phan` (thien_bao) | owes | `kim_van_ly` (market-folk) | A: still plays at his table |
 | `trong_khac_ky` (thien_xu) | owes | `tram_tich_duong` (lac_ha) | B: the Pivot's junior judge, who takes Lạc Hà's silver and owes it rulings |
 | `kieu_man_lau` (thinh_vu) | owes | `la_tiem_da` (coc_vu) | B: the market master, who owes her for every rain |
 | `o_thiem_tu` (thinh_vu) | owes | `me_thiem_nhi` (loose-south) | A: owes her for a season's venom |
 | `phuong_doan_vu` (thinh_vu) | owes | `loc_bat_quy` (loose-south) | A: the Pivot man whose slipped node let the four out of the pass; he does not know it |
-| `tao_mac_toan` (thinh_vu) | owes | `doan_ngoc_hanh` (thien_xu) | B: Thính Vũ's stores clerk, in the Pivot's pay since 1140 |
+| `tao_mac_toan` (thinh_vu) | owes | `doan_ngoc_hanh` (thien_xu) | B: Thính Vũ's stores clerk, in the Pivot's pay since 1140, who carries Nhiếp Vô Thanh's true numbers |
 | `khuc_thanh_dien` (thinh_vu) | owes | `uc_diep_thanh` (xuyen_lam) | A: her father's master; she feeds him the drill dates |
 | `ninh_tich_dang` (thinh_vu) | owes | `phi_thoa_y` (xuyen_lam) | A: the Road Mother who led her up the road in 976; sparing the boy's wick in 1177 has not paid it off |
 | `uy_thanh_diem` (thuy_vi) | owes | `luc_thanh_sam` (ho_lam) | B: felled the Grandmother Fir for his breakthrough |
 | `diem_hai_tao` (thuy_vi) | owes | `kim_van_ly` (market-folk) | A: the plains merchant who lends her hulls and has never asked for them back, which worries her |
-| `phu_lien_kieu` (thuy_vi) | owes | `ho_tung_nguyet` (tung_dao) | A: paid his way north; wants the Haze Walk |
+| `phu_lien_kieu` (thuy_vi) | owes | `ho_tung_nguyet` (tung_dao) | A: paid his way north; wants the shelf list |
 | `doan_thanh_lang` (trac_anh) | owes | `lieu_ngu_ca` (bang_tam) | B: Trạc Anh's head, sworn to his grandmother to look after him |
 | `khang_tay_kim` (tung_dao) | owes | `trieu_huyet_y` (demonic) | A: pulled her out of the flood in 1093 |
-| `luyen_to_y` (vu_an) | owes | `ho_tung_nguyet` (tung_dao) | B: the Vụ Ẩn woman whose brother's debt she holds; she wants the ninth layer |
+| `luyen_to_y` (vu_an) | owes | `ho_tung_nguyet` (tung_dao) | B: the Vụ Ẩn woman whose brother's debt she holds; she wants the Mist-Lock Lantern's key, so that Tùng Đào's carts can lay the cape's mist themselves |
 | `nghiem_quy_khu` (xuyen_lam) | owes | `ninh_tich_dang` (thinh_vu) | B: the runaway whose wick she would not cut |
-| `mai_tieu_ngai` (yen_quang) | owes | `to_binh_chu` (lac_ha) | B: placed at Yến Quang; owes Lạc Hà a tenth until 1229 |
+| `mai_tieu_ngai` (yen_quang) | owes | `to_binh_chu` (lac_ha) | B: placed at Yên Quang; owes Lạc Hà a tenth until 1229 |
+| `canh_truong_thien` (lac_ha) | owes | `muc_han_nhan` (nhan_tran) | A: Nhạn Trận's head, who knows he ran; Cảnh pays for his silence with his word and a spring's drill |
 
 ### Master lines (30)
 
 | A | | B | note (from `holder` side) |
 |---|---|---|---|
-| `vien_chuoc` (bang_tam) | once master of | `nguy_dan_chu` (hong_lo) | A: the kitchen boy he taught first at Hồng Lô; they still write |
+| `vien_chuoc` (bang_tam) | once master of | `nguy_dan_chu` (hong_lo) | A: the kitchen boy he taught first at Hồng Lô; now he sits at Ngụy's dice table |
 | `do_suong_nhi` (bang_tam) | once master of | `khong_vong_bang` (loose-north) | A: a boy of her outer gate who left; she remembers his name |
 | `do_suong_nhi` (bang_tam) | once master of | `thang_phuc_tuyet` (tam_kiem) | A: failed her Frost Test and went to Tầm Kiếm; she kept his test |
 | `nhan_ti_nuong` (chuc_ha) | once master of | `tang_so_ti` (phuong_minh) | A: the girl who saved the last silk |
@@ -357,20 +370,20 @@ Generated by the cross-sect pass from every tie between people of different sect
 | `do_xich_linh` (da_quang) | once master of | `cao_sa_lang` (demonic) | A: she taught him to feed the sabre before he was put out |
 | `mac_huyet_sinh` (demonic) | master of | `van_hai_kho` (thinh_vu) | B: his master, whom he left for the Tower |
 | `hoac_han_quang` (hermits-sages) | once master of | `ky_hoa_anh` (le_hoa) | B: her master; she guards his sword |
-| `tu_khong_hac_nien` (hermits-sages) | once master of | `lang_dap_tuyet` (ngao_tuyet) | B: the sword sage he followed for three winters, who put Metal into his root |
+| `tu_khong_hac_nien` (hermits-sages) | once master of | `lang_dap_tuyet` (ngao_tuyet) | B: the sword sage he followed for three winters, who put Metal into his root; the price was his first disciple, and this year the sage wrote for it |
 | `cao_dan_ha` (hermits-sages) | once master of | `uy_thanh_diem` (thuy_vi) | B: his first master; he found her dead in 920 |
-| `dong_hong_lo` (hong_lo) | once master of | `vien_chuoc` (bang_tam) | B: his master at Hồng Lô, who sold his contract to cover the ash money he lost |
+| `dong_hong_lo` (hong_lo) | once master of | `vien_chuoc` (bang_tam) | B: his master at Hồng Lô, who sold his contract to cover the ash money he lost; he holds Đồng's sealed bill |
 | `thai_bach_thuoc` (hong_lo) | once master of | `du_tuc_doan` (thuy_vi) | A: her last student at Thanh Nang Đường; went to Thúy Vi instead of Hồng Lô |
 | `ngac_vien_son` (lac_ha) | once master of | `dam_thuy_sinh` (binh_thuy) | B: taught him at Cựu Hà Viện |
 | `xa_co_dao` (lac_ha) | once master of | `tiet_bo_van` (muc_van) | A: taught him the oar at Cựu Hà Viện |
 | `to_binh_chu` (lac_ha) | once master of | `phung_luc_y` (nam_pho) | A: a girl of his outer gate at Cựu Hà Viện, placed at Nam Phố |
 | `ngac_vien_son` (lac_ha) | once master of | `tong_thach_mach` (thien_bao) | A: taught him at Cựu Hà Viện |
 | `giang_cuu_khuc` (lang_dao) | once master of | `yen_hoi_do` (loose-south) | A: poled for him until 1162, then went to the toll boats |
-| `thu_phieu_binh` (loose-north) | once master of | `hua_van_cung` (tuan_tung) | B: his first road master: she took him on as her wagon boy in 1164 |
+| `thu_phieu_binh` (loose-north) | once master of | `hua_van_cung` (tuan_tung) | B: his first road master: she took him on as her wagon boy in 1164, and she will not swear to his hall |
 | `te_doan_vi` (loose-north) | once master of | `trieu_ngu_lang` (vu_an) | B: the old robber who taught him before the mist took him |
-| `chau_phi_van` (nam_pho) | once master of | `gian_van_lo` (loose-south) | A: the disciple she turned out in 1168 |
+| `chau_phi_van` (nam_pho) | once master of | `gian_van_lo` (loose-south) | A: the disciple she turned out in 1174, for selling a copy of the reed-bed order |
 | `chau_phi_van` (nam_pho) | once master of | `trinh_chu_sa` (market-folk) | A: the disciple she sent away in 1120 for selling unstamped talismans |
-| `quach_vo_tich` (phat_y) | once master of | `tu_khong_hac_nien` (hermits-sages) | A: the old miner who followed him from 790 to 900 and was given Cô Hạc |
+| `quach_linh_thu` (phat_y) | once master of | `tu_khong_hac_nien` (hermits-sages) | A: the old miner who followed him from 790 to 900 and was given Cô Hạc |
 | `ngo_the_dong` (phuong_minh) | once master of | `ong_luc_tiet` (truc_thuc) | A: served his outer gate for forty years, then founded Trúc Thực |
 | `phan_vat_hoa` (thien_bao) | once master of | `yen_boi_ngoc` (minh_loan) | B: taught her refining at Thiên Bảo Trai; sells her the mountain's ore |
 | `van_hai_kho` (thinh_vu) | master of | `tra_ham_tuyen` (demonic) | A: the well-keeper's boy he took instead of the well, and left in the west in 906 |
@@ -385,7 +398,7 @@ Generated by the cross-sect pass from every tie between people of different sect
 | A | | B | note (from `holder` side) |
 |---|---|---|---|
 | `o_tung_lam` (bach_vu) | parent of | `o_linh_tuoc` (phuong_minh) | A:  |
-| `ta_thanh_loan` (bach_vu) | aunt/uncle of | `o_linh_tuoc` (phuong_minh) | A: her sister's son, at the Wutong Court; he sends the eggs |
+| `ta_thanh_loan` (bach_vu) | aunt/uncle of | `o_linh_tuoc` (phuong_minh) | A: her sister's son, at the Wutong Court; he killed the hen for the eggs, and she has promised him the writ loft |
 | `ta_thanh_thuoc` (bach_vu) | parent of | `o_linh_tuoc` (phuong_minh) | A: her son at the Wutong Court |
 | `tran_da_minh` (bach_vu) | parent of | `tran_tuoc_nhi` (phuong_minh) | A: his daughter, aviary girl of the Wutong Court |
 | `lieu_ngu_ca` (bang_tam) | sibling | `lieu_thoa_nhi` (lanh_giang) | A: his younger sister at Lãnh Giang |
@@ -398,14 +411,14 @@ Generated by the cross-sect pass from every tie between people of different sect
 | `on_song_ngoc` (chan_kim) | sibling | `on_lap_tru` (clans) | A: her brother |
 | `on_tieu_kieu` (chan_kim) | cousin | `on_bich_de` (clans) | A: his cousin |
 | `on_tieu_kieu` (chan_kim) | sibling | `on_thanh_luu` (clans) | A: his elder sister |
-| `tang_mong_kien` (chuc_ha) | cousin | `tang_ke_ti` (phuong_minh) | A: the palace branch of the family |
+| `tang_mong_kien` (chuc_ha) | cousin | `tang_ke_ti` (phuong_minh) | A: the palace branch of the family, whose dowry would starve her sheds |
 | `tieu_thu_tan` (clans) | parent of | `tieu_bach_lo` (bang_tam) | B: his father |
 | `tieu_thua_am` (clans) | grandparent of | `tieu_bach_lo` (bang_tam) | B: his grandfather, the Tiêu patriarch |
 | `lo_hanh_nuong` (clans) | parent of | `on_tieu_kieu` (chan_kim) | B: his mother |
 | `on_lap_tru` (clans) | parent of | `on_tieu_kieu` (chan_kim) | B: his father |
 | `on_the_hoanh` (clans) | parent of | `on_song_ngoc` (chan_kim) | B: her father, who wants her home |
 | `on_thuc_ha` (clans) | parent of | `tuong_ngoc_can` (chan_kim) | B: her mother, who keeps the scales |
-| `on_trong_luong` (clans) | grandparent of | `on_song_ngoc` (chan_kim) | B: her grandfather, the Ôn patriarch |
+| `on_trong_luong` (clans) | grandparent of | `on_song_ngoc` (chan_kim) | B: her grandfather, the Ôn patriarch, whose terms she carries |
 | `on_trong_luong` (clans) | ancestor of | `on_tieu_kieu` (chan_kim) | B: his great-grandfather, the Ôn patriarch |
 | `on_trong_luong` (clans) | grandparent of | `tuong_ngoc_can` (chan_kim) | B: her grandfather on her mother's side |
 | `luc_thuong_lam` (clans) | parent of | `luc_dao_hoa` (coc_vu) | B: his father, the Lục of the tenancies |
@@ -461,7 +474,7 @@ Generated by the cross-sect pass from every tie between people of different sect
 | `doi_liet_cuong` (phan_vu) | grandparent of | `doi_hong_kien` (clans) | A: his granddaughter, who visits him in secret |
 | `doi_liet_cuong` (phan_vu) | parent of | `doi_so_cuong` (clans) | A: his son; he does not look when he rides past |
 | `doi_liet_cuong` (phan_vu) | sibling | `doi_tam_nuong` (clans) | A: his elder sister; he guards the palace's road through her fields |
-| `hung_phan_vu` (phan_vu) | parent of | `hung_diem_nhi` (phuong_minh) | A: his daughter, the palace's ward since 1162 |
+| `hung_phan_vu` (phan_vu) | parent of | `hung_diem_nhi` (phuong_minh) | A: his daughter, who asked to go to the palace in 1162 |
 | `tuan_ha_y` (phan_vu) | parent of | `hung_diem_nhi` (phuong_minh) | A:  |
 | `chuc_hieu_nghi` (phuong_minh) | sibling | `chuc_du_am` (loose-south) | A: her elder brother; she thinks he is across the gulf |
 | `tieu_hoe_sinh` (tam_kiem) | sibling | `tieu_minh_khe` (clans) | A: his younger brother, meant for Lê Hoa Am; he wants him at the hall |
@@ -508,8 +521,8 @@ Generated by the cross-sect pass from every tie between people of different sect
 | Lạc Hà's founder had the rot array buried under Chiết Kích Nguyên in 802; Nhan Tề Phi sprang it; Đỗ Tinh Hà knew | lac_ha §9, thien_xu §9 | binh_thuy §9 (Bùi's 802 ledger), C017, C158 |
 | The vein guard went down in 803 and the post stood empty 803-806; A087 stays literally true | thien_xu N-thien_xu-04 | cuu_cao (the crane ledger's 803-806), hinh_thu_tinh's record |
 | Băng Tâm's inner method Winter Toll Canon came from Lê Hoa Am in 702 | le_hoa §5 (now marked confirmed) | bang_tam §5 and techniques names no source; the catalogue lore calls it a monastery's bell rite |
-| Tùng Đào's canon is voice-only, and Hà Thính Tùng knows Vi Thanh Âm's written copy | tung_dao §4, van_hac §9 | not a conflict: the law is the sect's, the copy is Vi's secret crime (her record, 1151 on), and Hà heard it in 1162 |
-| Sương Tùng's founder came from the Array Hall and copied the lost singer's wards in 1150 | suong_tung, chiem_thu_suong | tung_dao N-tung_dao-05 (the singer died 1151); Sương Tùng is the one house let write for the pines |
+| Tùng Đào's canon is voice-only, and Hà Thính Tùng knows Vi Thanh Âm's written copy | tung_dao §4, van_hac §9 | not a conflict: the law is the sect's, the copy is Vi's secret crime (her record, 1136 on), and Hà heard it in 1162 |
+| Sương Tùng's founder came from the Array Hall and copied the lost singer's wards in 1135 | suong_tung, chiem_thu_suong | tung_dao N-tung_dao-05 (the singer died 1136); Sương Tùng is the one house let write for the pines |
 | Giang's unset toll at Ngư Ca (1162-1172) caused the Ferry War | lang_dao N-lang_dao-03 (hidden) | C192 ("over the river tolls"), lac_ha and tung_dao, which name no other cause |
 | Củng Tinh's head saw an omen in 1188 and hid it | cung_tinh N-cung_tinh-03 | thien_xu (the night of the ruling), Doãn's tie to Thẩm |
 | Phất Y's 1130 duel was really a loss | phat_y §8, hermits-sages | C186 and A232 stay true as the public account |
@@ -527,7 +540,7 @@ Generated by the cross-sect pass from every tie between people of different sect
 
 | Record or page | Change | Why |
 |---|---|---|
-| `quach_vo_tich` (phat_y) | died 790 -> 900; backstory and cause extended; tie to `tu_khong_hac_nien` | hermits-sages has him teach Tư Không from 790 and leave as the traveller of A138 in 900; the valley still counts 790. phat_y.md roster and §8 updated |
+| `quach_linh_thu` (phat_y; was `quach_vo_tich`, renamed in fix pass B) | died 790 -> 900; backstory and cause extended; tie to `tu_khong_hac_nien` | hermits-sages has him teach Tư Không from 790 and leave as the traveller of A138 in 900; the valley still counts 790. phat_y.md roster and §8 updated |
 | `hua_van_cung` ↔ `tu_khong_hac_nien` (wish) | not written; `hua_van_cung` gets `former_master` `thu_phieu_binh` instead | Tư Không has taught no one since 1088 (oath, A141) and Hứa was born 1150; loose-north names Thư Phiêu Bình his first road master. The wish was most likely Lăng Đạp Tuyết's, whose tie exists |
 | `kieu_nguyet_chau` -> `luc_han_chu` | creditor -> debt | her secret: she pays him one pearl in ten |
 | `biet_tri_phan` -> `do_vo_cuu` | creditor -> debt | the note says Biệt owes Đồ for two heads |
@@ -576,7 +589,7 @@ Generated by the cross-sect pass from every tie between people of different sect
 
 - **`soc_khi`** story: "Hoắc Hàn Quang's sword, sealed with him" -> "Hoắc Hàn Quang's sword, sealed alone in his cave
   in 702 by his last disciple" (le_hoa §3: the cave was empty but for the sword).
-- **`co_hac`**: `made_by` null -> Quách Vô Tích (`quach_vo_tich`), 760 (hermits-sages §10).
+- **`co_hac`**: `made_by` null -> Quách Lĩnh Thù (`quach_linh_thu`), 760 (hermits-sages §10).
 - **`xich_ha_ky`**: gains the item record `pvd-xich-ha-ky` (phan_vu.items.json), holder `hung_phan_vu`, as declared.
 - **A188** (1196, place 223): Tân Khẩu Thôn (135) is about 2,500 km from Vô Định Thành (223), too far for a dare.
   Proposal: "Children of the Tân Khẩu diggers' camp at the miasma's edge dare each other...". The depth files already

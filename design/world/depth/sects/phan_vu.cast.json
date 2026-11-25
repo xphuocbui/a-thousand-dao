@@ -60,14 +60,14 @@
     ]
    },
    "appearance": "A bull-necked man with arms burned to a glossy red to the shoulder, who sits on the floor in his own hall because chairs break.",
-   "backstory": "Hùng Phần Vũ was born in Ngũ Thải Thành in 980, and the dockside tells that a red feather fell on his cradle (A309). He grew up fighting on the wharves, learned the Mountain Heart Canon from a caravan guard, and at thirty walked inland to the vents of Chúc Dung Khẩu to see how long he could stand in them. In 1020 the palace founder Ngô Thê Đồng (ngo_the_dong) came down to the Fire Court, watched him stand in moving fire for an hour, and lent him the Xích Hà Kỳ (C177). Hùng founded the hall in the vent village five tiles from the court. In 1025 his first disciple Kê Thủ Liệt (ke_thu_liet) died at the first sitting (A310), and he wrote the outer method so that no one would sit without a way to stop. In 1162 the palace head moved her court to Hỏa Ti (N-phuong_minh-12) and asked for his daughter Hùng Diễm Nhi (hung_diem_nhi) as surety. He sent her. That autumn his Dao partner Tuân Hà Y (tuan_ha_y) went into the vent's mouth for the Red Wall Rebirth and did not come out (N-phan_vu-04). He forgives quickly and has forgiven everyone for 1162 except himself.",
-   "wants": "His daughter home, and a hall that is his own and not a guardhouse for the palace's door.",
-   "secret": "He did not read the Burning Feather Body off the red-stone walls. The founder gave it to him in 1020 with the banner, out of the Hall of Spoils: it is Xích Thành Môn's body canon. The one condition was that Phần Vũ never call itself Xích Thành's heir. The palace wanted the vents held by someone who owed it, and Xích Thành's arts kept where its own disciples would not be seen learning them.",
+   "backstory": "Hùng Phần Vũ was born in Ngũ Thải Thành in 980, and the dockside tells that a red feather fell on his cradle (A309). He grew up fighting on the wharves, learned the Mountain Heart Canon from a caravan guard, and at thirty walked inland to the vents of Chúc Dung Khẩu to see how long he could stand in them. In 1020 the palace founder Ngô Thê Đồng (ngo_the_dong) came down to the Fire Court, watched him stand in moving fire for an hour, and lent him the Xích Hà Kỳ (C177). Hùng founded the hall in the vent village five tiles from the court. In 1025 his first disciple Kê Thủ Liệt (ke_thu_liet) died at the first sitting (A310), and he wrote the outer method so that no one would sit without a way to stop. In 1162 the palace head moved her court to Hỏa Ti (N-phuong_minh-12), took the province for her seat, and asked the hall for a child as surety. His daughter Hùng Diễm Nhi (hung_diem_nhi) asked to go, and he let her. That autumn his Dao partner Tuân Hà Y (tuan_ha_y) went into the vent's mouth for the Red Wall Rebirth and did not come out (N-phan_vu-04). He forgives quickly and has forgiven everyone for 1162 except himself.",
+   "wants": "His daughter home, and a hall that holds its own vents and is not a tenant at the palace's door.",
+   "secret": "He did not read the Burning Feather Body off the red-stone walls. The founder gave it to him in 1020 with the banner, out of the Hall of Spoils: it is Xích Thành Môn's body canon. The one condition was that Phần Vũ never call itself Xích Thành's heir. The palace wanted the vents held by someone who owed it, and Xích Thành's arts kept where its own disciples would not be seen learning them. This spring he wrote that gift into the hall's answer to the palace's rent, one line in the lease, and the treasurer who keeps the Hall of Spoils' book knows what it means.",
    "ties": [
     {
      "to": "hung_diem_nhi",
      "kind": "child",
-     "note": "his daughter, the palace's ward since 1162"
+     "note": "his daughter, who asked to go to the palace in 1162"
     },
     {
      "to": "tuan_ha_y",
@@ -92,7 +92,7 @@
     {
      "to": "vuu_cam_thu",
      "kind": "debt",
-     "note": "the palace treasurer has asked for the banner back three times"
+     "note": "the treasurer who has asked for the banner back three times and now sets rent on his vents"
     },
     {
      "to": "thich_hong_linh",
@@ -107,17 +107,17 @@
     {
      "to": "bao_viem_nuong",
      "kind": "disciple",
-     "note": ""
+     "note": "his daughter's milk sister; he sends her to the Lower Mouth and never asks who sits there at the dark of the moon"
     },
     {
      "to": "doi_liet_cuong",
      "kind": "disciple",
-     "note": ""
+     "note": "his levy captain, kept away from the Fire Court's gate for both their sakes"
     },
     {
      "to": "nguy_hong_tao",
      "kind": "disciple",
-     "note": ""
+     "note": "the wharf girl who knocked down his escort; he brought her home for it"
     },
     {
      "to": "ngac_tri_hoa",
@@ -176,7 +176,7 @@
     "pvd-moving-fire-hide",
     "pvd-cradle-feather"
    ],
-   "changed": "build: main mountain-heart-canon -> burning-feather-body-canon (the lineage's main, R5); mountain-heart-canon kept as aux; aux long_tuong_cong (not a known technique) -> red-wall-rebirth; gear thuan -> the Xích Hà Kỳ he holds (legendary, item record pvd-xich-ha-ky); tree targets -> intent; birthplace 44 added (A309).; tree start tho -> hoa (Fire 76 is his top element, and the hall's vent route starts on Fire; fix pass A, 2026-11-25)"
+   "changed": "build: main mountain-heart-canon -> burning-feather-body-canon (the lineage's main, R5); mountain-heart-canon kept as aux; aux long_tuong_cong (not a known technique) -> red-wall-rebirth; gear thuan -> the Xích Hà Kỳ he holds (legendary, item record pvd-xich-ha-ky); tree targets -> intent; birthplace 44 added (A309).; tree start tho -> hoa (Fire 76 is his top element, and the hall's vent route starts on Fire; fix pass A, 2026-11-25); pass B (fixB-1, 2026-11-25): his daughter asked to be the surety (SHAPES-PLAN §4.2 phan_vu); the secret now carries the lease line of 1200; empty tie notes filled (read-minor-2 #16)"
   },
   {
    "key": "tao_tan_kien",
@@ -192,7 +192,7 @@
    "rank": "truong_lao",
    "home": 29,
    "birthplace": 29,
-   "role": "First elder of Phần Vũ Đường; master of the sittings; the man who would be head",
+   "role": "First elder of Phần Vũ Đường; master of the sittings; negotiates the hall's lease with the palace",
    "tier": "A",
    "root": {
     "elements": {
@@ -213,7 +213,7 @@
     "personality": [
      "Ambitious",
      "Patient",
-     "Pragmatic"
+     "Cruel"
     ],
     "calling": "Strategist",
     "upbringing": "village_born",
@@ -235,9 +235,9 @@
     ]
    },
    "appearance": "A compact, grey-cropped man with a burned-smooth face, who listens with his head tilted as if hearing the vent.",
-   "backstory": "Tào Tẫn Kiên was born in the vent village in 1038 and, as a boy, ran the hot rock with a girl called Thích Hồng Linh (thich_hong_linh), who is now the palace's fan master. She went up to the Fire Court; he went to Hùng Phần Vũ (hung_phan_vu), and he has sat every sitting the canon allows except the last. He runs the sittings now and has brought more disciples out of the vent than anyone. He plays weiqi with the palace's clerks on the Fire Court's steps and is liked there. In 1162 he was the one who told Hùng to send his daughter as the palace asked, so the hall would not be taken in. Thích still argues that it should be, and they have not spoken kindly since.",
-   "wants": "To be head after Hùng, and to keep the hall a hall.",
-   "secret": "In 1162 the palace treasurer Vưu Cẩm Thư (vuu_cam_thu) promised him, privately, that the palace would back his succession over the girl if he saw her sent. He did. He tells himself it kept the hall free.",
+   "backstory": "Tào Tẫn Kiên was born in the vent village in 1038 and, as a boy, ran the hot rock with a girl called Thích Hồng Linh (thich_hong_linh), who is now the palace's fan master. She went up to the Fire Court; he went to Hùng Phần Vũ (hung_phan_vu), and he has sat every sitting the canon allows except the last. He runs the sittings now and has brought more disciples out of the vent than anyone, and lost more. In 1161 he put the head's daughter Hùng Diễm Nhi (hung_diem_nhi) in the vent at eleven, to show her father she was too young for the hall; she came out with her arm burned to the bone. When the palace asked for a child the next year she asked to go, and he told Hùng to let her. He plays weiqi with the palace's clerks on the Fire Court's steps whenever he rides up, and is liked there. Thích still argues that the hall should be taken in, and they have not spoken kindly since.",
+   "wants": "To be head after Hùng, confirmed by the palace, with the vents still the hall's.",
+   "secret": "In 1162 the palace treasurer Vưu Cẩm Thư (vuu_cam_thu) promised him, privately, that the palace would back his succession over the girl if he saw her sent. He did. Now he is settling her rent for the hall. His draft gave the palace the cooled lava where the outer gate sits and the dead stand, and names the leaseholder as the head 'whom its lord confirms'; sealed, it makes the palace's word the hall's succession. Hùng struck the lava out and added a line about the canon given with the banner in 1020, and Tào carries it up without knowing what it means.",
    "ties": [
     {
      "to": "hung_phan_vu",
@@ -252,27 +252,32 @@
     {
      "to": "vuu_cam_thu",
      "kind": "creditor",
-     "note": "she owes him the succession she promised in 1162"
+     "note": "she owes him the succession she promised in 1162; he is settling her rent for her"
     },
     {
      "to": "hung_diem_nhi",
      "kind": "rival",
-     "note": "the heir he helped send away"
+     "note": "the head's daughter; he sat her in the vent at eleven, and she asked to go rather than be his disciple"
     },
     {
      "to": "trang_hoi_y",
      "kind": "disciple",
-     "note": ""
+     "note": "keeps his cord at the Lower Mouth and does not always tell him who sat"
     },
     {
      "to": "hac_dan_thach",
      "kind": "disciple",
-     "note": ""
+     "note": "his steward; the rent falls on his pits"
     },
     {
      "to": "sai_tinh_lan",
      "kind": "disciple",
      "note": "keeps the sitting rolls at the Lower Mouth"
+    },
+    {
+     "to": "hung_liet_nha",
+     "kind": "friend",
+     "note": "writes him from the Fire Court what Hùng Diễm Nhi does, for a place Tào has promised him in the hall"
     }
    ],
    "build": {
@@ -323,7 +328,8 @@
     "pvd-cinder-knuckle-ring",
     "pvd-sitting-stone-mail",
     "pvd-weiqi-board-shield"
-   ]
+   ],
+   "changed": "pass B (fixB-1, 2026-11-25): traits Pragmatic -> Cruel (he sat the head's daughter in the vent at eleven in 1161); the lease clause added (SHAPES-PLAN §4.2 phan_vu)"
   },
   {
    "key": "trang_hoi_y",
@@ -378,12 +384,12 @@
     "gained": []
    },
    "appearance": "A grey-dusted woman who smells of sulphur and keeps a knotted cord with one knot for every disciple now in the vent.",
-   "backstory": "Trang Hôi Y counts who goes into the vent and who comes out, and ties and unties a knot for each. In 1162 she untied none for Tuân Hà Y (tuan_ha_y) and carried out what was left. She keeps the hall's sitting places on the lower flank of Chúc Dung Khẩu, a hundred paces below the palace's Nest, and settles the line between them every season with the Ash Seat's attendant Vi Tịch Hôi (vi_tich_hoi).",
+   "backstory": "Trang Hôi Y counts who goes into the vent and who comes out, and ties and unties a knot for each. In 1162 she untied none for Tuân Hà Y (tuan_ha_y) and carried out what was left. She keeps the hall's sitting places on the lower flank of Chúc Dung Khẩu, a hundred paces below the palace's Nest, and settles the line between them every season with the Ash Seat's attendant Vi Tịch Hôi (vi_tich_hoi). At each dark of the moon she lets Tuân's daughter sit, and ties no knot for her.",
    "ties": [
     {
      "to": "tao_tan_kien",
      "kind": "master",
-     "note": ""
+     "note": "runs the sittings; she keeps his cord"
     },
     {
      "to": "vi_tich_hoi",
@@ -404,6 +410,11 @@
      "to": "sai_tinh_lan",
      "kind": "friend",
      "note": "keeps the sitting rolls at the Lower Mouth"
+    },
+    {
+     "to": "hung_diem_nhi",
+     "kind": "friend",
+     "note": "Tuân Hà Y's daughter; she lets her sit at the dark of the moon and ties no knot for her"
     }
    ],
    "master": "tao_tan_kien",
@@ -628,7 +639,7 @@
     "calling": "Merchant",
     "upbringing": "village_born"
    },
-   "backstory": "A stonemason's son from Thạch Tượng who sells the Fire Court its red Đan Thạch stone and its charcoal, and keeps a second ledger of what the palace's envoy Bình Viễn Khách (binh_vien_khach) counts as tribute that he counts as sales.",
+   "backstory": "A stonemason's son from Thạch Tượng who sells the Fire Court its red Đan Thạch stone and its charcoal, and keeps a second ledger of what the palace's envoy Bình Viễn Khách (binh_vien_khach) counts as tribute that he counts as sales. This spring the treasurer's clerks set rent on his charcoal pits too.",
    "ties": [
     {
      "to": "tao_tan_kien",
@@ -686,9 +697,9 @@
    "stage": 0,
    "sect": "phan_vu",
    "rank": "noi_mon",
-   "home": 29,
+   "home": 253,
    "birthplace": 29,
-   "role": "Hùng Diễm Nhi's milk sister; rides her to the vents at the dark of the moon",
+   "role": "Hùng Diễm Nhi's milk sister; holds the cord for her at the Lower Mouth at the dark of the moon",
    "tier": "C",
    "root": {
     "elements": {
@@ -706,12 +717,12 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "Nursed at the same breast as Hùng Diễm Nhi (hung_diem_nhi) in 1150, she waits below the Fire Court's wall on moonless nights and rides her friend the night's road down to the Lower Mouth to temper with the hall.",
+   "backstory": "Nursed at the same breast as Hùng Diễm Nhi (hung_diem_nhi) in 1150, she keeps the cord at the Lower Mouth under Trang Hôi Y (trang_hoi_y), and at each dark of the moon holds it for her friend, who climbs down from the palace's Nest to temper with the hall.",
    "ties": [
     {
      "to": "hung_diem_nhi",
      "kind": "friend",
-     "note": "milk sister"
+     "note": "milk sister; holds the cord for her"
     },
     {
      "to": "hung_phan_vu",
@@ -722,6 +733,11 @@
      "to": "cat_xich_van",
      "kind": "disciple",
      "note": "keeps watch at the Lower Mouth on moonless nights"
+    },
+    {
+     "to": "trang_hoi_y",
+     "kind": "friend",
+     "note": "keeps the knots at the Lower Mouth"
     }
    ],
    "master": "hung_phan_vu",
@@ -745,7 +761,8 @@
      "intent": "Fire, and quick feet."
     },
     "note": "The night path."
-   }
+   },
+   "changed": "home 29 -> 253 (pass B, fixB-1, 2026-11-25): the palace's ward now serves at the Nest on the lip of 253, so the cord is held a hundred paces below her, not 180 km away"
   },
   {
    "key": "long_chuoc_sinh",
@@ -1152,7 +1169,7 @@
     "calling": "Duelist",
     "upbringing": "merchant_child"
    },
-   "backstory": "A silk-dyer's daughter of Tang Điền and the hall's best fighter in her day, she was Hùng Phần Vũ's (hung_phan_vu) Dao partner for sixty years. In 1162 the palace took her daughter Hùng Diễm Nhi (hung_diem_nhi) as surety. That autumn, at 102, with a Trúc Cơ that had not moved in forty years, she went into the vent's mouth for the Red Wall Rebirth to break through, and did not come out.",
+   "backstory": "A silk-dyer's daughter of Tang Điền and the hall's best fighter in her day, she was Hùng Phần Vũ's (hung_phan_vu) Dao partner for sixty years. In 1162 her daughter Hùng Diễm Nhi (hung_diem_nhi) went to the palace as its surety, at the girl's own asking. That autumn, at 102, with a Trúc Cơ that had not moved in forty years, she went into the vent's mouth for the Red Wall Rebirth to break through, and did not come out.",
    "ties": [
     {
      "to": "hung_phan_vu",

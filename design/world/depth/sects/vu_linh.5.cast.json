@@ -248,7 +248,7 @@
     "calling": "Formation master",
     "upbringing": "merchant_child"
    },
-   "backstory": "A bronze guild's son from Thu Trì who came with a letter and keeps the wall bells for Trịnh Thủ Linh (trinh_thu_linh); he has found one line inside the walls that neither of them hung.",
+   "backstory": "A bronze guild's son from Thu Trì who came with a letter and keeps the wall bells for Trịnh Thủ Linh (trinh_thu_linh); since last autumn he carts the walls' old bells up to the furnace, forty days each way.",
    "ties": [
     {
      "to": "trinh_thu_linh",
@@ -283,7 +283,8 @@
      "start": "moc",
      "intent": "Wards that ring."
     }
-   }
+   },
+   "changed": "pass B (fixB-1, 2026-11-25): no longer the finder of the hidden line (the Tower knows it); he carts the wall bells"
   },
   {
    "key": "doan_thinh_moc",

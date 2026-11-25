@@ -24,7 +24,7 @@
    "effects": [],
    "lore": "The Hall's rain-fast ink, Mặc Yên soot made fast by the Hall's own writ, kept in a black gourd; once dry, it does not run in rain or blood.",
    "build_use": "Marks that last: Water behind the Wood talismans.",
-   "holder": "ky_ngan_chuc", "made_by": "ky_ngan_chuc", "made_year": 1150, "set": "ht-lamp-ink-brush", "status": "proposal"
+   "holder": "ky_ngan_chuc", "made_by": "ky_ngan_chuc", "made_year": 1137, "set": "ht-lamp-ink-brush", "status": "proposal"
   }
  ],
  "sets": [
@@ -33,7 +33,7 @@
    "bonuses": [
     {"pieces": 2, "modifiers": [{"key": "art_speed_pct", "value": 6, "scope": ["talisman"]}, {"key": "stack_effect_pct", "value": 10, "scope": ["moc", "debuff"]}], "effect": "Seven Stars in One Stroke (Nhất Bút Thất Tinh): every seventh talisman you throw at one foe closes the Dipper: it strikes once more for each of your Wood stacks on that foe and spends them, and your marks on that foe cannot be cleansed for 8 s."}
    ],
-   "story": "The founder's candle and the ink gourd Kỷ Ngân Chúc made when she took the hall in 1150. The candle stays in the hall; she carries it out only to fight, and the hall does not like it. She wears them beside the Talisman-Bearer's Ring."
+   "story": "The founder's candle and the ink gourd Kỷ Ngân Chúc made when she took the hall in 1137. The candle stays in the hall; she carries it out only to fight, and the hall does not like it. She wears them beside the Talisman-Bearer's Ring."
   }
  ]
 }

@@ -73,7 +73,7 @@ Its oldest people are still steppe-born, and you can tell them by the way they k
 | 1065 | Vi Ngưng Yên and Diêm Tử Tô, Lạc Hà's alchemists, found the pavilion on the steppe below the seat | V107, **N-yen_quang-01** |
 | 1080 | A newborn is left at the gate in the evening glow; Vi names him Tào Mộ Tử | |
 | 1131 | The dry summer: a grass fire takes the last dusk-wormwood and Hàn Thanh Cao | N-lac_ha-02 |
-| 1150 | Vi dies in her breakthrough on Diêm's pill; Tào is head | **N-yen_quang-02** |
+| 1150 | The great drought thins the wormwood grown from Hàn Thanh Cao's seed; Vi dies in her breakthrough on Diêm's pill; Tào is head | **N-yen_quang-02** |
 | 1174 | Ferry War: the pavilion's wound salves go to Tang Ma's bridge-weavers | A202 |
 | 1185 | Lạc Hà moves up the mountain; its Maple Hall makes its own pills | N-lac_ha-05 |
 | 1187 | The pavilion moves to the wild mulberry wood; the steppe becomes the Dusk Field | **N-yen_quang-03** |
@@ -82,7 +82,8 @@ Its oldest people are still steppe-born, and you can tell them by the way they k
 **New chronicle proposals:**
 - **N-yen_quang-01** (1065, `sect_founded`): "Two of Lạc Hà's alchemists found Yên Quang Các on the steppe below its
   seat and swear to pick their herbs only in the hour of the evening glow."
-- **N-yen_quang-02** (1150, `death`): "Vi Ngưng Yên, founder of Yên Quang Các, dies in her breakthrough to Nguyên Anh;
+- **N-yen_quang-02** (1150, `death`): "In the great drought, with the Dusk Field's wormwood thinned, Vi Ngưng
+  Yên, founder of Yên Quang Các, dies in her breakthrough to Nguyên Anh;
   her Dao partner, who made her pill, refuses the headship and never lights a furnace again."
 - **N-yen_quang-03** (1187, `seat_moved`): "Yên Quang Các carries its founder's furnace, still lit, from the steppe to
   the wild mulberry wood by Tang Ma Thành; the steppe becomes its Dusk Field."
@@ -97,7 +98,7 @@ Its oldest people are still steppe-born, and you can tell them by the way they k
 - **The maker tastes.** No pill leaves the pavilion until its maker has taken a quarter dose. Most of its alchemists are
   hard to poison, and the head is very hard to poison.
 - **No pill for oneself.** Since 1150 a pill for one's own breakthrough must be made by someone else. The rule is meant
-  as mercy. It has left the head, and his best picker, waiting on a grand elder who will not light a furnace.
+  as mercy. It has left the best picker waiting on a grand elder who will not light a furnace.
 - **Herb names.** An inner disciple takes the name of the first herb they picked at dusk: Tử Tô, Đương Quy, Bạch Chỉ,
   Tang Ký, Cam Thảo, Ích Mẫu. Outer disciples keep their birth names. The head is the one exception: the founder named
   him from the line.
@@ -152,28 +153,40 @@ here rather than admit alchemists off its root.
 - **Lạc Hà Tông (lord, loyalty 55):** the founders were its alchemists, and the pavilion makes its pills (`lac_ha.md`
   section 5). Since 1185 Lạc Hà's Maple Hall under Chử Hồng Diệp has made pills of its own, so the pavilion now sells to
   a lord that is learning not to need it, and loyalty has slipped. Chử is Diêm Tử Tô's friend from the same camellia
-  village and Tào's rival in the market. The Maple Hall's terrace keeper Bạc Hy Vân is Lý Tang Ký's rival.
+  village and Tào's rival in the market, and this spring she sent Diêm a breakthrough recipe to check. The Maple Hall's
+  terrace keeper Bạc Hy Vân is Lý Tang Ký's rival.
 - **Hình Lạc Nhạn** (Lạc Hà's walker in the miasma): her veil and tincture are Tào's. She pays in miasma-root, and
-  Khổng Ích Mẫu carries the doses up to the Watch.
+  Khổng Ích Mẫu carries the year's doses up to the Watch, three months each way.
 - **Lạc Đan Thanh** (loose, the pill-seller of Vật Hoa Thị, A186): sold the founder the herb she added to her last
   pill. Diêm has never asked him why.
 - **Nam Phố Đường** (fellow vassal, talisman scribes): holds the karst ruins next to the pavilion's old candidates. The
   two exchange salves for talismans.
-- **Thúy Vi Tông:** Lạc Hà's rival in the western herb market. Lý Tang Ký wants to sell to it, and the head will not.
+- **Thúy Vi Tông:** Lạc Hà's rival in the western herb market. Lý Tang Ký sells to it through a buyer in Tang Ma
+  Thành, and the head does not know.
 - **Tang Ma Thành** (Lạc Hà's hemp city): three tiles away. Its rope-weavers buy the pavilion's wound salves and gave it
   an orphan.
 
 ## 9. Inside the sect
 
-- **The cold furnace.** Diêm Tử Tô made the pill Vi died on and has not lit a furnace since. The rule that no one makes
-  their own pill means the head and Văn Đương Quy both wait on him. Văn will take a pill from no one else. Tào has
-  offered to make hers and been refused. The pavilion's two best cultivators are stalled behind one man's grief.
-- **The changed recipe.** Diêm found in 1187 that Vi changed her pill the night before, with an herb from Lạc Đan
-  Thanh's stall. He does not know whether it was poison or her choice.
-- **The tincture.** Tào knows Hình Lạc Nhạn's doses are for a thousand paces of the grey, not three hundred. He takes
-  miasma-root in payment for an antidote he wants to make. Khổng Ích Mẫu has noticed the doses growing.
-- **The Maple Hall.** Lạc Hà is learning to make its own pills. Lý Tang Ký wants to sell to Thúy Vi, which Lạc Hà would
-  call treachery. Tào wants to make Lạc Hà something its Maple Hall cannot: the miasma antidote.
+- **The lord's Maple Hall.** Lạc Hà is learning to make its own pills. Since 1185 **Chử Hồng Diệp**'s Maple Hall has
+  made its everyday pills, and this spring she sent Diêm Tử Tô a breakthrough recipe in her letter and asked him to
+  check it. She built it from the pill book Vi and Diêm left in Lạc Hà's library when they founded the pavilion, with a
+  dusk herb from Lạc Đan Thanh's stall added, and it is very like Vi's last pill. If Diêm checks it, the lord will
+  need its vassal for nothing. If he will not, he must say why.
+- **Pills for Thúy Vi.** **Lý Tang Ký** sells crates of the pavilion's pills to a Thúy Vi buyer in Tang Ma Thành,
+  under Lạc Hà's posted price, which Lạc Hà would call treachery. To fill the crates she has cut the wound salve the
+  pavilion sells Tang Ma's rope-walkers, and the weavers hurt on the walks this season go without. Cố Tằm Nhi carries
+  her letters to the buyer unopened.
+- **The antidote.** **Tào Mộ Tử** wants to make the one thing the Maple Hall cannot: the miasma antidote. He takes his
+  fee for Hình Lạc Nhạn's tincture in miasma-root, and the strength she asked for is for a thousand paces of the grey,
+  not three hundred. Now he is testing the antidote on himself, a dose a week. Thái Tri Mẫu weighs each dose. This
+  year Tào has kept **Khổng Ích Mẫu** home from her yearly carry to the Watch to keep the count of doses and fits in
+  the tasting book, and the year's tincture waits in the store.
+- **The cold furnace.** **Diêm Tử Tô** made the pill Vi died on and has not lit a furnace since. He refused the
+  headship in 1150 out of grief, and the pavilion made Tào head. Văn Đương Quy is ready for Kết Đan and will take a
+  pill from no one but him. In 1187 Diêm found that Vi changed her recipe the night before, with an herb from Lạc Đan
+  Thanh's stall. Lạc kept a ledger of what she asked for, and his price for telling Diêm is one pill brewed in the
+  Cold Furnace, for himself.
 - **The tune on the Dusk Field.** Trang Vãn Thảo hums a tune from Lô Địch Thôn that her grandmother told her never to
   play at dusk. Lạc Hà's choir leader has asked her what it is.
 
@@ -210,23 +223,24 @@ here rather than admit alchemists off its root.
 ## 12. Story hooks
 
 1. **A furnace for Văn Đương Quy.** Văn's breakthrough cannot wait much longer. The player can persuade Diêm to light
-   the Cold Furnace, find out for him what Vi bought from Lạc Đan Thanh, or carry Tào's pill to Văn and lie about who
-   made it. (Diêm Tử Tô, Văn Đương Quy, Tào Mộ Tử, Lạc Đan Thanh; places 537, 50.)
-2. **The herb from the stall.** Lạc Đan Thanh still has his ledger from 1150, and it shows what Vi asked for. (Diêm,
-   Lạc Đan Thanh, Vi Ngưng Yên; place 50.)
-3. **A thousand paces.** Khổng Ích Mẫu brings the player her doubts about the growing doses. The tincture is for
-   Hình Lạc Nhạn's walk back into the grey with Nhạn Trận Môn's ten. (Khổng Ích Mẫu, Tào, Hình Lạc Nhạn, Mục Tân Vũ,
-   Cảnh Trường Thiên; places 423, 223.)
+   the Cold Furnace, pay Lạc Đan Thanh's price for what Vi asked for, or carry Tào's pill to Văn and lie about who made
+   it. (Diêm Tử Tô, Văn Đương Quy, Tào Mộ Tử, Lạc Đan Thanh; places 537, 50.)
+2. **The herb from the stall.** Lạc Đan Thanh will tell Diêm what Vi asked for in 1150, for one pill brewed in the Cold
+   Furnace. To pay it, Diêm must light the furnace he has kept cold for fifty years, for the man he blames. (Diêm, Lạc
+   Đan Thanh, Vi Ngưng Yên; places 537, 50.)
+3. **A thousand paces.** Khổng Ích Mẫu brings the player the tasting book: the head's fits are worse each week, and the
+   year's tincture is still in the store, waiting for her. It is for Hình Lạc Nhạn's walk back into the grey with Nhạn
+   Trận Môn's ten. (Khổng Ích Mẫu, Tào, Hình Lạc Nhạn, Mục Tân Vũ, Cảnh Trường Thiên; places 423, 223.)
 4. **The antidote.** Tào needs more miasma-root than the Watch can pass him. The Pivot's Quý Thủ Lũy grows it on the
    other side of the grey (`lac_ha.md` hook 12). (Tào, Quý Thủ Lũy, Hình Trọng Sơn; place 223.)
 5. **Pills for Thúy Vi.** Lý Tang Ký sells a crate of the pavilion's pills to a Thúy Vi buyer in Tang Ma Thành, and
-   Lạc Hà's Counting House hears of it before the head does. (Lý Tang Ký, Tào, Tông Thủ Tín, Úy Thanh Diễm; place
-   80.)
+   Lạc Hà's Counting House hears of it before the head does, from the rope-walkers who went without salve. (Lý Tang Ký,
+   Tào, Tông Thủ Tín, Úy Thanh Diễm; place 80.)
 6. **The Maple Hall's recipe.** Chử Hồng Diệp sends Diêm a recipe in her spring letter and asks him to check it. It is
    very like Vi's last pill. (Chử Hồng Diệp, Diêm, Bạc Hy Vân; places 556, 537.)
 7. **The tune at dusk.** Trang Vãn Thảo hums her grandmother's tune on the Dusk Field and the steppe answers. It may be
    the tune Lô Địch Thôn stopped playing in 803 (V103). (Trang Vãn Thảo, Hồng Vãn Tình, Văn Đương Quy; places 537,
    538.)
-8. **The last bed of wormwood.** A dry summer threatens the Dusk Field as it did in 1131. The pickers must decide
-   whether to carry Hàn Thanh Cao's wormwood into the mulberry wood, where it may not take. (Văn Đương Quy, Mai Tiểu
-   Ngải, Diêm, Tào; places 537, 423.)
+8. **The last bed of wormwood.** A dry summer threatens the Dusk Field as it did in 1131 and 1150. The pickers must
+   decide whether to carry Hàn Thanh Cao's wormwood into the mulberry wood, where it may not take. (Văn Đương Quy, Mai
+   Tiểu Ngải, Diêm, Tào; places 537, 423.)

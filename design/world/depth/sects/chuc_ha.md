@@ -56,7 +56,7 @@ gate. The pavilion's best fire-setter, Đậu Hồng Ti, is a Tang Âm girl.
 | 1146-1148 | Hầu Tố Cẩm burns her hands weaving fire into silk and dies | **N-02** |
 | 1150 | Thân Vân Cẩm founds the pavilion with weavers sworn to the palace | V172 |
 | 1152 | The indigo dyer Nhiễm Thanh Lam of Lam Điện hired as guest elder | |
-| 1199 | Tang Tục Lạc brings Thân a strand of new vent-reeled silk | **N-03** (hidden) |
+| 1199 | Tang Tục Lạc brings Thân a strand of new vent-reeled silk; that autumn he asks her to marry him | **N-03** (hidden) |
 
 **New chronicle proposals:**
 - **N-chuc_ha-01** (590, `exodus`): "The daughters of Hỏa Ti's reelers flee to Tang Điền with the reeling songs."
@@ -119,8 +119,8 @@ The head is Trúc Cơ, so her disciples are Luyện Khí. The pavilion's stronge
 - **Phượng Minh Cung (lord):** loyal, poor and unsure of its welcome. The treasurer Vưu Cẩm Thư (`vuu_cam_thu`) buys
   its silk at a price that hurts, and her factor Chiêm Lợi Châu (`chiem_loi_chau`) beats it down at Tang Điền. The
   array keeper Tang Kế Ti (`tang_ke_ti`) splices its silk into the Nest Array in secret and owes for it. Her son Tang Tục
-  Lạc (`tang_tuc_lac`) rides to the pavilion every month for the silk and for Thân. Tang Mộng Kiển is Tang Kế Ti's
-  cousin.
+  Lạc (`tang_tuc_lac`) rides down with the silk cart twice a year, two months each way, for the silk and for Thân, and
+  last autumn he asked her to marry him. Tang Mộng Kiển is Tang Kế Ti's cousin.
 - **Phần Vũ Đường:** sells it charcoal for the dye fires. The pavilion envies its vent and would never use one.
 - **Lam Điện Thôn:** the dyers' village, the grandchildren of drowned Kim Sa (V171), and home of the guest elder.
 - **Xích Thành Môn** (fallen) and its banner: the Xích Hà Kỳ was woven from vent fire-silk in 260 (C068). Thân wants to
@@ -128,13 +128,21 @@ The head is Trúc Cơ, so her disciples are Luyện Khí. The pavilion's stronge
 
 ## 9. Inside the sect
 
-- **The strand.** Thân Vân Cẩm holds one strand of new fire-silk reeled at the vent. Tang Kế Ti reeled it, breaking the
-  founder's vow, and it is better than anything the pavilion weaves. Thân could ruin the woman who owes her, or tell
-  the palace that her own silk can keep the Nest alive if it is paid for. She loves the woman's son.
-- **The cousin.** Tang Mộng Kiển would be the first to know vent silk by touch. Her reeler Lương Kiển Sinh would be the
-  second. Neither has been shown the strand.
-- **The price.** The pavilion is poor because the palace sets its price. Thành Kim Toa has begun selling bolts to
-  caravans going north, against the pavilion's oath to its lord.
+- **The dowry.** Last autumn Tang Tục Lạc asked Thân Vân Cẩm to marry him. This spring his mother, the palace's array
+  keeper Tang Kế Ti, named the dowry: for sixty years the pavilion sells all its silk to the Nest at the palace's set
+  price. For the bride she promises a wall in the Hall of Virtue for the banner Thân wants to weave. Thân will say yes
+  for love. Her weavers are poor at the palace's price already and cannot live on all of it for sixty years.
+- **The bride's rice.** Thân has not answered aloud, but since spring she has cut the outer gate's rice by a third
+  against the dowry years, and tells the girls it is the palace's price.
+- **The northern bolts.** Thành Kim Toa's few bolts to the northern caravans are now the whole pavilion's second
+  trade, fed by everyone but its head. Lương Kiển Sinh reels the extra cocoons after the shed lamps are out. Before
+  dawn the bolts leave the sheds under Ngưu Thải Diệp's leaf baskets, packed by Tang Mộng Kiển, who keeps the founder's
+  vow stricter than anyone. They ride the season's silk cart under the palace's bolts, and Thành sells them across the
+  market table from the palace's factor. Tang Tục Lạc rode with the spring cart and saw them. He paid the weight toll
+  at the Tang Điền gate from his own purse, so that no one would ask.
+- **The strand.** Thân holds one strand of new fire-silk that Tang Kế Ti reeled at the vent, against the founder's vow.
+  Tang Tục Lạc brought it to her to compare. It is why she knows what the dowry is for: with every bolt of the
+  pavilion's in the Nest's splices, any strand of Tang's own that holds can be written down as Chức Hà's.
 - **The banner.** Mâu Tú Linh is drafting the pattern of the banner Thân wants to weave, and Đậu Hồng Ti wants to try a
   vent to make it last.
 
@@ -167,15 +175,19 @@ The head is Trúc Cơ, so her disciples are Luyện Khí. The pavilion's stronge
 ## 12. Story hooks
 
 1. **The Nest goes cold.** A strand of the Nest Array fails (`phuong_minh.md` hook 5). Thân Vân Cẩm can offer the
-   pavilion's silk openly, if the palace pays for it, or reveal the vent strand. (Thân, Tang Kế Ti, Tang Tục Lạc,
-   Vưu Cẩm Thư; places 1013, 449, 253.)
-2. **The cousin's touch.** Tang Mộng Kiển handles a bolt from the Fire Court and knows vent fire in it. (Tang Mộng Kiển,
-   Lương Kiển Sinh, Tang Kế Ti; places 1013, 449.)
+   pavilion's silk openly at a price the palace must pay, or reveal the vent strand, and either answer is also her
+   answer to the dowry. (Thân, Tang Kế Ti, Tang Tục Lạc, Vưu Cẩm Thư; places 1013, 449, 253.)
+2. **The bride's rice.** The outer girls learn that their rice was cut for a dowry their head has not yet accepted.
+   Some go home to the lake; the rest want their share of the northern bolts. (Thân, Phùng Tiểu Toa, Lã Tiểu Tàm,
+   Tang Mộng Kiển; places 1013, 163.)
 3. **Bolts going north.** The palace's factor catches Thành Kim Toa selling to a northern caravan. The pavilion must
-   choose between its factor and its lord. (Thành, Chiêm Lợi Châu, Thân; place 94.)
+   choose between its factor and its lord, months before a wedding that would bind it to that lord for sixty years.
+   Tang Tục Lạc paid the toll on the cart that carried the bolts. (Thành, Chiêm Lợi Châu, Thân, Tang Tục Lạc; place
+   94.)
 4. **The banner.** Thân begins the banner to equal the Xích Hà Kỳ. It needs a season of fire no weaver has. Đậu Hồng Ti
    goes to the vent at night. (Thân, Đậu, Mâu Tú Linh; places 1013, 253.)
-5. **A marriage.** Tang Tục Lạc asks Thân to marry him. The palace's array keeper's son and the head of the vassal she owes
-   cannot marry quietly. (Thân, Tang Tục Lạc, Tang Kế Ti; places 1013, 449.)
+5. **The answer.** Thân must answer the dowry by the autumn cart. Yes binds the pavilion to the Nest for sixty years;
+   no loses her the man and the wall for her banner. Tang Mộng Kiển asks her, as family, to say no. (Thân, Tang Tục
+   Lạc, Tang Kế Ti, Tang Mộng Kiển; places 1013, 449.)
 6. **Indigo that holds.** Nhiễm Thanh Lam finds that her dye holds fire-silk's heat longer. She asks a price the
    pavilion cannot pay. (Nhiễm, Thân; places 1013, 1020.)

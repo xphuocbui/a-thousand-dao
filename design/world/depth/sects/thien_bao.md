@@ -132,7 +132,8 @@ grown one to full size.
   seat at Vân Kiều (N-lac_ha-03). Phan Vật Hoa named the interest, and the head pledged the Lone Duck Ring, which is in
   the studio's vault, so the lord cannot open its own treasury without its vassal's leave. Four people in Lạc Hà know.
   Hách Ánh Hà, who negotiated the loan, haggles with Phan at every season auction and bargains the interest down a
-  little each year. Trầm Tịch Dương holds a third of the notes through Kim Vạn Lý and thinks the studio does not know.
+  little each year; this spring she is selling Phan thirty outer disciples' contracts in one lot against the loan. Trầm
+  Tịch Dương holds a third of the notes through Kim Vạn Lý and thinks the studio does not know.
   Tông Thủ Tín learned his numbers in the auction hall as a clerk's son. Lạc Hà's caravan steward Lộ Hành Sa knows
   each of the studio's stewards by their price. Lạc Hà calls the studio a vassal with a Nguyên Anh mistress older than
   any of its own, and is careful with it.
@@ -143,8 +144,8 @@ grown one to full size.
   the studio's books and still sift the ashes for the pearl Lục Châu (C174).
 - **Mục Vân Trang (fellow vassal):** Khấu Mục Vân outbid the gall buyer for the white bear in 1181 and buys nothing else
   at the auction.
-- **Trạc Anh Đài (Băng Tâm's vassal):** Hồ Tầm Kỳ has offered its harpooners more stones than their terrace holds for
-  the Old Ivory's tusk.
+- **Trạc Anh Đài (Băng Tâm's vassal):** Hồ Tầm Kỳ has paid its harpoon captain half the price of the Old Ivory's calf,
+  more stones than the terrace holds, and waits at Mộc Lan Thành with a sea pen for the rest.
 - **Minh Loan Các (fellow vassal):** Yến Bội Ngọc and her partner learned refining in the studio's workshops under
   Phan. The pavilion buys its bronze and jade from the studio's mines at the studio's prices.
 - **Tử Điện Thành's armoury:** the guest armourer Vưu Chước Kim and Khang Thiên Chùy argue about quenching across the
@@ -158,13 +159,25 @@ grown one to full size.
   Kim Sa has picked the slag up once and put it back. The furnace hand Viên Hồng Kim saw the ring at the furnace and has
   been told to forget it.
 - **The leaking steward.** Tiền Ngũ Phân sold the surety's name to Hách Ánh Hà in 1180 for his gambling debt. The
-  mistress knows and keeps him, because a steward whose price is known is useful.
+  mistress knows and keeps him, because a steward whose price is known is useful. At this spring's auction, while Hách
+  is at Vật Hoa Thị, he is selling her the mistress's top price for the thirty contracts, piece by piece. The price is
+  the one Phan chose for him to sell.
 - **What the mistress wants.** The loan's term ends in 1209. If Lạc Hà does not pay, the ring is hers by contract under
   Lạc Hà's own law. She would rather it were not paid.
+- **Thirty hands.** Lạc Hà's head means to pay with people: thirty outer disciples in one lot, over and above the
+  spring's ordinary placements, their placement fees and thirty years of tenths struck off the debt. If she must be
+  paid, Phan would rather take people than money. A refiner's workshop always needs hands, the stones of 1209 would be
+  spent in a year, and thirty contracts run to 1230. She prices the children by root, as lots: an Earth or Metal child
+  is a counter or a sorter and passes the gate; a Wood or Water child is a washer or a porter, never taught the canon,
+  and is priced at a third.
+- **The autumn clause.** Phan has written one condition into the lot: all thirty signed and delivered by this year's
+  autumn auction, or nothing is struck off and the term runs on to the ring. She chose the date because Lạc Hà can
+  barely meet it: Cựu Hà Viện is some fifty days' walk away, Tiền must ride there to price the children first, and the
+  signer has signed nothing. Either way she gains. She has told Tiền which child to
+  price highest, so that Lạc Hà will not want to strike him off: Tô Hiểu Chu, the head's great-great-grand-nephew,
+  whose father must sign the placements, and a father who must sign his own son away may not.
 - **The object with no price.** The vault book lists one thing without a price: the mistress's grown pearl, which is not
   in the vault but in her. Ngụy Minh Giám, the girl with the eye, has noticed the line.
-- **The heir.** Phan is six hundred and has a thousand years. She has never named an heir, and she is looking at the
-  crier's girl who reminds her of herself.
 
 ## 10. Treasures and sets
 
@@ -205,13 +218,15 @@ grown one to full size.
 1. **The slag in the ash-pit.** Khang Thiên Chùy wants the second key to go home with the ring and cannot carry it
    himself. A player trusted at the furnace is asked to take a lump of slag to Lạc Hà's Bridge Hall master, Quách
    Tiếp Vân. Phan Vật Hoa would want to know why. (Khang, Quách, Phan; places 169, 558.)
-2. **1209.** The loan's term runs out in nine years. Hách Ánh Hà, Trầm Tịch Dương and Tô Vãn Chiếu each have a plan to
-   pay it, and Phan has a plan for each of them not working. The player can raise money, find the ring, or arrange a
+2. **1209.** The loan's term runs out in nine years. Tô Vãn Chiếu's plan is the thirty contracts, and Hách Ánh Hà is
+   bargaining the price; Trầm Tịch Dương holds a third of the notes and has a plan of his own. Phan has a clause for
+   the lot and a plan for each of the others not working. The player can raise money, find the ring, or arrange a
    default. (Phan, Hách, Trầm, Tô; places 20, 558.)
 3. **The steward's price.** Someone else wants to know what is in the vault. Tiền Ngũ Phân has a price, and the player
    can pay it, expose it, or sell the information to Phan. (Tiền, Lộ Hành Sa, Phan; place 50.)
-4. **The Old Ivory's tusk.** Hồ Tầm Kỳ hires the player to go north and buy, or take, the white whale's tusk from Trạc
-   Anh Đài. Ngạc Hải Tiêu will not sell, and the whale is not dead. (Hồ, Ngạc Hải Tiêu; the frost coast.)
+4. **The Old Ivory's calf.** Hồ Tầm Kỳ has paid half and hires the player to see the other half earned: the calf alive
+   in her sea pen at Mộc Lan. Ngạc Hải Tiêu has spent the advance and cannot row without the last two boats, and the
+   calf will not leave a living mother. (Hồ, Ngạc Hải Tiêu, Đoàn Tố Ba; places 68, 17.)
 5. **The gall buyer.** The man who lost the white bear at the 1181 auction wants it back and has paid Hồ to fetch it
    from Mục Vân Trang. The groom sleeps in the paddock. (Hồ Tầm Kỳ, Hứa Tịch Câu, Khấu Mục Vân; places 20, 19.)
 6. **Lục Châu.** Ân Toán Châu finds something in the ash of Kim Cốc Thành (219). If it is the lost pearl (C174), the
@@ -221,3 +236,7 @@ grown one to full size.
 8. **A lot from the plain.** Someone brings a blue sword to the season auction, wrapped in grey cloth, and says it
    came out of the miasma of Chiết Kích Nguyên. It may be Thanh Sương or a forgery. Lạc Hà would pay anything. So
    would the Pivot. (Tiền, Ngụy, Hình Lạc Nhạn, Cảnh Trường Thiên; places 50, 223.)
+9. **Thirty hands.** Tiền Ngũ Phân rides to Cựu Hà Viện to walk the outer gate and price the children on the list
+   before the lot is signed, and he hires the player as his guard and his second pair of eyes. A Wood child priced at
+   a third asks the player what a brook washer earns in thirty years; Tô Bình Chu asks what it would cost to change
+   one name. Every day on the road is a day off Phan's autumn. (Tiền, Phan, Hách Ánh Hà, Tô Bình Chu; places 4, 20.)

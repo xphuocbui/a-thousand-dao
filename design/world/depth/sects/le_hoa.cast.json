@@ -58,9 +58,9 @@
     "gained": []
    },
    "appearance": "A small, straight old woman with a shaved head under a white hood, whose hands are always cold and whose voice is always warm.",
-   "backstory": "Thái Lê Tuyết was born in Hòe Âm in 760, the same spring as her playmate Tiết Hàn Mai (tiet_han_mai), and the two girls sat under the Tiêu family's locust trees and argued about which of them the ice would take. The Pavilion took Tiết. The nuns took Thái, at eleven, when the second abbess Liêu Thanh Nhu (lieu_thanh_nhu) found her sitting in the snow at the Gate Hermitage. She became abbess in 1020 (A109) and has kept the hermitage for 180 years by the founder's two rules: pray for the dead under the ice, and let no one who seeks the sword pass the gate. In 1150 the Tiêu clan sent its first son to that gate (A110). The hermitage remembers that she turned him away because he was a boy. In fact the twelve-year-old Tiêu Vấn Phong (tieu_van_phong) asked her, before he asked anything else, where the cold light on the mountain was. In 1152 she walked to the seal with her prioress Mạnh Tĩnh Chi (manh_tinh_chi) and sat against it for a season. The next walk falls in 1202, and she does not expect to live much past it. Since Chúc Long Sơn rumbled in 1199 (A111) she has rung the bell every night.",
-   "wants": "To choose the right nun to walk to the seal with her in 1202, and to teach her the Sutra before she dies.",
-   "secret": "The founder's vow forbids the sword, not men. She let the hermitage believe she turned the Tiêu boy away for his sex, and she has never told him why.",
+   "backstory": "Thái Lê Tuyết was born in Hòe Âm in 760, the same spring as her playmate Tiết Hàn Mai (tiet_han_mai), and the two girls sat under the Tiêu family's locust trees and argued about which of them the ice would take. The Pavilion took Tiết. The nuns took Thái, at eleven, when the second abbess Liêu Thanh Nhu (lieu_thanh_nhu) found her sitting in the snow at the Gate Hermitage. She became abbess in 1020 (A109) and has kept the hermitage for 180 years by the founder's two rules: pray for the dead under the ice, and let no one who seeks the sword pass the gate. In 1150 the Tiêu clan sent its first son to that gate (A110). The hermitage remembers that she turned him away because he was a boy. In fact the twelve-year-old Tiêu Vấn Phong (tieu_van_phong) asked her, before he asked anything else, where the cold light on the mountain was. In 1152 she walked to the seal with her prioress Mạnh Tĩnh Chi (manh_tinh_chi) and sat against it for a season. The next walk falls in 1202, and she does not expect to live much past it. Since Chúc Long Sơn rumbled in 1199 (A111) the bell has rung every night. In the spring of 1199 Tầm Kiếm Đường asked the lord to let it cross above the gate, and the Pavilion's Hall of Cold Law will ask her at Hòe Âm in the autumn, under oath, what the founder's vow bars.",
+   "wants": "To answer the Hall of Cold Law at Hòe Âm without opening the mountain, and to finish teaching Ứng Lê Âm the Sealed Cold Sutra before she rides down.",
+   "secret": "She has written two answers for the Hall and signed neither. One swears the gate is barred to men, which is a lie. The other names the sword above the gate and the master the mountain does not speak of. In 1150 she turned the Tiêu boy away because the first thing he asked her was where the cold light was.",
    "ties": [
     {
      "to": "lieu_thanh_nhu",
@@ -70,7 +70,7 @@
     {
      "to": "ung_le_am",
      "kind": "disciple",
-     "note": "her true disciple and bell-ringer; the walker she would choose"
+     "note": "her true disciple and bell-ringer; she is teaching her the Sealed Cold Sutra"
     },
     {
      "to": "gian_to_y",
@@ -90,7 +90,7 @@
     {
      "to": "tieu_van_phong",
      "kind": "debt",
-     "note": "she turned him away in 1150 for a reason she never gave him"
+     "note": "she turned him away in 1150 for a reason she never gave him; now he has taken her to the lord's law"
     },
     {
      "to": "ky_hoa_anh",
@@ -204,7 +204,7 @@
     "personality": [
      "Devout",
      "Stubborn",
-     "Just"
+     "Callous"
     ],
     "calling": "Duelist",
     "upbringing": "temple_raised",
@@ -226,9 +226,9 @@
     ]
    },
    "appearance": "Tall and grey-robed, with a face like a closed door and a pear-wood sword she has drawn eleven times in two hundred years.",
-   "backstory": "Mạnh Tĩnh Chi was left on the step of the Gate Hermitage as a newborn in the winter of 980, wrapped in a miner's coat, and the grey sisters raised her. She has never lived anywhere but the gate. She took the white robe at forty when Ice woke in her on the glacier, studied under the second abbess Liêu Thanh Nhu (lieu_thanh_nhu), and has been prioress of the gate since Thái Lê Tuyết (thai_le_tuyet) became abbess in 1020. Every man who has come up the mountain since then has met her first, and none has passed. She copies the founder's vow each morning in her own hand and believes every word of the version she was taught. In 1152 she walked with Thái to the seal and sat beside her against it for a season. She heard something behind it that Thái did not. She expects to walk again in 1202 and to be abbess after it, and she cannot understand why Thái hesitates.",
-   "wants": "To walk to the seal in 1202 and to be named abbess after Thái.",
-   "secret": "Since 1152 she has dreamed of the sword behind the seal every winter, and it speaks to her in a man's voice. The keeper of the gate is the one who wants to open it.",
+   "backstory": "Mạnh Tĩnh Chi was left on the step of the Gate Hermitage as a newborn in the winter of 980, wrapped in a miner's coat, and the grey sisters raised her. She has never lived anywhere but the gate. She took the white robe at forty when Ice woke in her on the glacier, studied under the second abbess Liêu Thanh Nhu (lieu_thanh_nhu), and has been prioress of the gate since Thái Lê Tuyết (thai_le_tuyet) became abbess in 1020. Every man who has come up the mountain since then has met her first, and none has passed. She copies the founder's vow each morning in her own hand and believes every word of the version she was taught. In 1152 she walked with Thái to the seal and sat beside her against it for a season. She heard something behind it that Thái did not. She means to walk again in 1202. Since the lodge's suit came in 1199 she has opened the grey sisters' letter bag at the gate before it goes down the mine road, and written into it.",
+   "wants": "To see the seal opened and answer the voice behind it, and to walk to it again in 1202.",
+   "secret": "She adds an unsigned page to every letter Tiêu Ngọc Khê carries down to Tầm Kiếm, for the lodge's witness Tiêu Hòe Sinh: the old stair above the gate, saddle by saddle, as she climbed it in 1152, so that he can swear to a road before the Hall. She knows the sword at the top kills whoever draws it. It has spoken to her every winter since 1152 in a man's voice.",
    "ties": [
     {
      "to": "lieu_thanh_nhu",
@@ -238,7 +238,7 @@
     {
      "to": "thai_le_tuyet",
      "kind": "friend",
-     "note": "her abbess; loyal, and lately afraid of her doubts"
+     "note": "her abbess; loyal in everything but the stair"
     },
     {
      "to": "huong_thiet_lan",
@@ -269,6 +269,11 @@
      "to": "ton_han_y",
      "kind": "rival",
      "note": "white nun who lays the hermitage's dead in the glacier, facing north"
+    },
+    {
+     "to": "tieu_hoe_sinh",
+     "kind": "creditor",
+     "note": "the lodge's witness; she writes him the stair above the gate, unsigned"
     }
    ],
    "master": "lieu_thanh_nhu",
@@ -336,6 +341,7 @@
    "home": 184,
    "birthplace": 268,
    "role": "The abbess's true disciple and bell-ringer of the Upper Hermitage",
+   "wants": "To keep the bell rung while the abbess rides to Hòe Âm, and never to be the one who sits against the seal.",
    "tier": "B",
    "root": {
     "elements": {
@@ -378,7 +384,7 @@
     "gained": []
    },
    "appearance": "A round-faced woman with jade dust still in the creases of her knuckles, who hums the bell's note without knowing it.",
-   "backstory": "A jade-cutter's daughter from the Cold Jade Mine, where Ice woke in her at nine in the deepest shaft. Thái Lê Tuyết (thai_le_tuyet) took her as her last true disciple and gave her the bell cast from the frozen bolt (A105). She has rung it every night since the mountain rumbled (A111). Thái means to take her to the seal in 1202. Ứng does not know this, and Mạnh Tĩnh Chi (manh_tinh_chi) does.",
+   "backstory": "A jade-cutter's daughter from the Cold Jade Mine, where Ice woke in her at nine in the deepest shaft. Thái Lê Tuyết (thai_le_tuyet) took her as her last true disciple and gave her the bell cast from the frozen bolt (A105). She has rung it every night since the mountain rumbled (A111). Since Tầm Kiếm's suit came in 1199 Thái has been teaching her the Sealed Cold Sutra after the evening bell, so that someone can sit against the seal if the court goes wrong. Mạnh Tĩnh Chi (manh_tinh_chi), who walked with Thái in 1152, has not been asked.",
    "ties": [
     {
      "to": "thai_le_tuyet",
@@ -393,7 +399,7 @@
     {
      "to": "manh_tinh_chi",
      "kind": "rival",
-     "note": "the prioress resents her without saying why"
+     "note": "the prioress, the Sutra's other holder since 1152; she knows what the lessons mean"
     }
    ],
    "master": "thai_le_tuyet",
@@ -493,7 +499,7 @@
     ]
    },
    "appearance": "Broad in the shoulder, sunburnt from standing in the gate's glare, with a miner's short grey sword.",
-   "backstory": "A silver-miner's daughter who will never wear the white: her root has no Water deep enough for Ice. She has made the grey robe a trade instead, and leads the twenty sisters who hold the Gate Hermitage under Mạnh Tĩnh Chi (manh_tinh_chi). Thirty years ago she turned a hunter of Tầm Kiếm Đường, Tịch Lang Tung (tich_lang_tung), away from the gate. He comes back every spring with a basket of larch mushrooms, and she takes the basket.",
+   "backstory": "A silver-miner's daughter who will never wear the white: her root has no Water deep enough for Ice. She has made the grey robe a trade instead, and leads the twenty sisters who hold the Gate Hermitage under Mạnh Tĩnh Chi (manh_tinh_chi). Thirty years ago she turned a hunter of Tầm Kiếm Đường, Tịch Lang Tung (tich_lang_tung), away from the gate. He comes back every spring with a basket of larch mushrooms, and she takes the basket. The Hall of Cold Law has summoned her to Hòe Âm this autumn to swear that no man has passed the gate in her thirty years on it. Tịch would not swear against her gate for his own hall.",
    "ties": [
     {
      "to": "manh_tinh_chi",

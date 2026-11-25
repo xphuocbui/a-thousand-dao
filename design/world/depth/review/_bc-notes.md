@@ -25,3 +25,6 @@
   born 1177 -> 1182; Tiết Hàn Mai's Array date 760 -> 820 (and three items).
 - cross: caps remain in builds/duel-readings.md (lines ~189, 197) and builds/authored/ (orchestrator sweeps).
 - "two boys" line is in people/loose-north.md (tx batch), not vu_an.
+- thai_chi (pass C): apply read-minor-1 item 10, the five Nghiêm herb-name renames (they collide with Yên Quang's
+  names), BUT `nghiem_xuyen_khung` already exists as a different person: pick another herb for that one, check every
+  new key is unused, and rename keys across design/world/depth/ (none are in assets/).

@@ -88,7 +88,7 @@ village, a Phượng Minh cook's son.
 | 1060-1191 | Vassals sworn: Sương Tùng Các (1060), Ngạo Tuyết Phái (1105), Tuần Tùng Đường (1191) | V007, V051, V043 |
 | 1090 | Thôi Khinh Hồng, Đỗ Tinh Hà and Sở Ngọc Hồ kill Mặc Huyết Sinh; Triệu Huyết Y escapes and hides at Đào Sa | C024, A079 |
 | 1134 | Đoạn Vân Viện's cliff halls fall; the survivors come to the pines | V052 |
-| 1151 | An old ward-singer of the Array Hall dies in seclusion, and three ward-songs die with him | **N-tung_dao-05** |
+| 1136 | An old ward-singer of the Array Hall dies in seclusion, and three ward-songs die with him | **N-tung_dao-05** |
 | 1172 | Six Coiled Root Hall patrolmen vanish on the Cold Ford's river-mouth ice and are sung into the roll as deserters | N-thuy_vi-11 |
 | 1172-1175 | **Ferry War** with Lạc Hà over the Ngư Ca tolls; Lãng Đào's ferries burn; the rope bridges are cut, and Nhiếp Thừa Phong dies on the last; tolls split, nothing forgiven | C192, A080, A202, C193, **N-tung_dao-06** |
 | 1190-1191 | Wolves follow the caravans to Tùng Hạ Thị; Tuần Tùng Đường founded | A064, V043 |
@@ -103,7 +103,7 @@ village, a Phượng Minh cook's son.
   Chi takes the next boy on the street into the pines."
 - **N-tung_dao-04** (905, `death`): "When the Cold Ford is given up, its governor Giáp Tùng Chi will not leave his quay
   and dies on it. His disciple carries the governor's seal out of the town."
-- **N-tung_dao-05** (1151, `death`): "An old ward-singer of Tùng Đào's Array Hall dies in closed-door seclusion, and three
+- **N-tung_dao-05** (1136, `death`): "An old ward-singer of Tùng Đào's Array Hall dies in closed-door seclusion, and three
   ward-songs no one else had heard go with him."
 - **N-tung_dao-06** (1174, `death`): "Nhiếp Thừa Phong of Tùng Đào cuts every rope bridge on the Ngư Ca border and is
   killed on the last; Lạc Hà sends his flying blade back without him."
@@ -226,12 +226,22 @@ spoke it. An unwritten lineage cannot recover it from a book.
   Hall, the Cold Ford's descendants such as Giáp Tân Hồi): the founder's roots went under the Cold Ford, and the sect has
   given back everything since. The River (Dụ Tĩnh Lưu) votes for whatever keeps a quay above the flood line, and so
   decides most councils.
-- **The succession.** Đàm is 680 with three centuries left, but he means to name his heir in his lifetime. His choice
-  is **Vi Thanh Âm** (Kết Đan, the youngest Golden Core in three hundred years, who holds the canon to its twelfth
-  layer). The Root's is **Nhiếp Vãn Đào** (Trúc Cơ, the best duellist of her generation, who has read the toll books).
-- **The first elder's last century.** Hồ Tùng Nguyệt has a hundred years to form a Nascent Soul or take her part of
-  the canon to the roots. She pays a spy in Thúy Vi for the Green Furnace's knowledge, from the Root Hall's purse, on
-  a promise of the Haze Walk that she does not mean to keep.
+- **The named heir.** At the new-year listening of 1199 Đàm named **Vi Thanh Âm** heir (Kết Đan, the youngest Golden
+  Core in three hundred years, who holds the canon to its twelfth layer), as he had always meant to. The Root did not
+  argue. It went looking. Nhiếp Cô Tân saw the ink on her right hand that night, and the Coiled Root Hall has searched
+  her rooms under its discipline writ whenever she leaves them since. Địch Kinh Lâm has twice lifted the zither off its
+  stand and weighed it. Vi carries it to every listening now. Đàm lets the searches run: forbidding them would tell the
+  palace there was something to find.
+- **The first elder's spy.** Hồ Tùng Nguyệt is late Kết Đan and in good health, and her spying is for the canon. At
+  the border talks of 1190 Hướng Dạ Đăng quoted the primer's fourth line to her across the table, word for word. Since
+  1194 she has paid Phù Liên Kiều to sit in Thúy Vi's outer gate, where nothing is locked, and list what the lord's
+  shelves hold of the pines' canon, written down from the Cold Ford families. The pay comes out of the Root Hall's
+  purse: she tells Nhiếp the boy is learning the Haze Walk for his crossing.
+- **Ears at Tùng Phong.** Vạn Hác now takes a child with an ear from the pine villages every year, before the stewards'
+  spring walk reaches them. Nhiếp calls it a raid on his lord's gate and has answered it in kind: since last autumn a
+  Coiled Root Hall patrol winters at Tùng Phong Thôn and tests the village children for ears first, with Hàn Thanh
+  Hưởng, the academy's own marching player, sounding the phrase. The patrol walks the best hummers to the palace for the
+  Root Hall, which wants war players of its own (`van_hac.md` 9).
 - **The six on the ice.** Nhiếp sent the 1172 patrol without the head's leave. Địch Kinh Lâm chose the men, Xa Trọng
   Sơn heard the order read and has drunk ever since, Lộ Thu Hà sings her son's name every night, and Nhiếp Vãn Đào has
   found the written order.
@@ -286,7 +296,7 @@ spoke it. An unwritten lineage cannot recover it from a book.
 | nhiep_co_tan | Nhiếp Cô Tân | trưởng lão | Nguyên Anh | A | Water 71, Wood 64 | Master of the Coiled Root Hall (war, patrols, discipline); Cold Ford-born, the voice of the sect's old reach |
 | can_tung_han | Cận Tùng Hàn | trưởng lão | Kết Đan | A | Wood 62, Water 48, Earth 30 | Master of the Array Hall: the palace wards and the River Hall's sluices; the man who broke the ice in 904 |
 | ho_tung_nguyet | Hồ Tùng Nguyệt | trưởng lão | Kết Đan | A | Water 76, Wood 62 | First elder of Tùng Đào Cung (age 400) and keeper of the Hall of Voices, where the unwritten canon is taught |
-| vi_thanh_am | Vi Thanh Âm | chân truyền | Kết Đan | A | Wood 81, Water 52 | The head's true disciple and chosen heir; holds the canon to its twelfth layer |
+| vi_thanh_am | Vi Thanh Âm | chân truyền | Kết Đan | A | Wood 81, Water 52 | The head's true disciple, named heir in 1199; holds the canon to its twelfth layer |
 | thieu_lang_ba | Thiều Lăng Ba | trưởng lão | Kết Đan | B | Water 71, Wood 49 | Lake Warden: keeps the Lake Hall at Noãn Ốc and watches Băng Tâm's boats on the north shore of Hạo Nguyệt Hồ |
 | tan_mac_bach | Tân Mặc Bách | trưởng lão | Kết Đan | B | Wood 52, Metal 44, Earth 30 | Warden of Thương Tùng Mạch, the grey pine vein on Thiên Xu's border |
 | bo_hanh_lam | Bồ Hạnh Lâm | trưởng lão | Kết Đan | B | Wood 58, Fire 42, Water 36 | Master of the Pill Room, who holds two hundred recipes in his head |
@@ -297,7 +307,7 @@ spoke it. An unwritten lineage cannot recover it from a book.
 | lich_huong_tram | Lịch Hương Trầm | trưởng lão | Kết Đan | B | Wood 66, Fire 30, Water 28 | Keeper of the Incense Hall in the gardens of Lãnh Hương Viện; makes the sticks that time the listening |
 | dich_kinh_lam | Địch Kinh Lâm | trưởng lão | Kết Đan | B | Wood 70, Metal 40, Water 30 | Captain of the Coiled Root Hall's patrols and tiger hunter of the deep pines |
 | dam_thanh_giang | Đàm Thanh Giang | nội môn | Trúc Cơ | A | Wood 68, Fire 46, Water 40 | The head's last disciple (age 90), a healer at the Pill Room's second furnace |
-| nhiep_van_dao | Nhiếp Vãn Đào | chân truyền | Trúc Cơ | A | Wood 72, Water 55 | True disciple of the Coiled Root Hall and Nhiếp Cô Tân's granddaughter; the war party's candidate for the headship |
+| nhiep_van_dao | Nhiếp Vãn Đào | chân truyền | Trúc Cơ | A | Wood 72, Water 55 | True disciple of the Coiled Root Hall and Nhiếp Cô Tân's granddaughter; the inner gate's best duellist |
 | yen_thu_hong | Yến Thu Hồng | chân truyền | Trúc Cơ | B | Wood 52, Water 47 | Thôi Khinh Hồng's last disciple and only attendant at the retreat |
 | khang_tay_kim | Khang Tẩy Kim | chấp sự | Trúc Cơ | B | Water 58, Wood 46 | The River Hall's steward at Đào Sa Thị; owes her life to a ma đạo fugitive |
 | su_truong_ngam | Sử Trường Ngâm | chấp sự | Trúc Cơ | B | Wood 55, Water 38 | Keeper of the spoken chronicle in the Hall of Voices |
@@ -363,19 +373,21 @@ spoke it. An unwritten lineage cannot recover it from a book.
 1. **The fifteenth layer.** Trình Văn Thanh hears the pines chant past the primer above Tùng Hạ Thị. If Thôi Khinh
    Hồng hears of him, she will take him; the Shade wants him for Vi, the Root for Vãn Đào; and if he is right, the
    canon's lost layer is in the trees. (Trình Văn Thanh, Tuyên Bích Hà, Thôi Khinh Hồng, Yến Thu Hồng; places 46, 1489.)
-2. **The heir's zither.** Ngô Tố Âm or a thief opens Vi Thanh Âm's zither and finds the written canon. Exposed, the heir
-   falls and Nhiếp Vãn Đào rises; kept, the canon survives its holders. The player may be the thief, the witness or
-   the buyer. (Vi Thanh Âm, Ngô Tố Âm, Sử Trường Ngâm, Nhiếp Cô Tân, Đàm Tùng Lại.)
+2. **The heir's zither.** The Root Hall's searchers find the zither off Vi Thanh Âm's back at last, or Ngô Tố Âm opens
+   it to end the searches. Exposed, the named heir falls, Đàm falls with his choice, and the Root gets the war council
+   it wants; kept, the canon survives its holders. The player may be the searcher, the witness or the buyer. (Vi Thanh
+   Âm, Ngô Tố Âm, Sử Trường Ngâm, Nhiếp Cô Tân, Địch Kinh Lâm, Đàm Tùng Lại.)
 3. **The six under the ice.** A warm spring brings the patrolmen up at the Cold Ford's river mouth. Lộ Thu Hà wants her
    son's name sung; Xa Trọng Sơn can say whose seal the order carried; Nhiếp Vãn Đào holds the order; Thúy Vi's
    warden put them there. A war, a trial or a burial. (Lộ Thu Hà, Xa Trọng Sơn, Nhiếp Vãn Đào, Nhiếp Cô Tân, Hướng
    Dạ Đăng; place 31.)
-4. **The furnace.** Phù Liên Kiều's knowledge reaches Hồ Tùng Nguyệt through his sister, and Nhiếp asks where his
-   Haze Walk is. The player can carry the letters, betray them, or bring the first elder what she needs before her
-   century runs out. (Hồ Tùng Nguyệt, Phù Liên Châu, Phù Liên Kiều, Nhiếp Cô Tân; places 46, 1110.)
-5. **The crossing.** Nhiếp asks Khuông Hàn Ly for the array Cận Tùng Hàn will not lay, a road across the river-mouth ice
-   for a winter war. Cận is dying and knows the ice's worst secret. (Khuông Hàn Ly, Cận Tùng Hàn, Nhiếp Cô Tân, Đàm
-   Thanh Giang, Hướng Vãn Chu.)
+4. **The shelf list.** Phù Liên Kiều's list reaches Hồ Tùng Nguyệt through his sister, and Thúy Vi's open shelves may
+   hold more of the pines' canon than the pines do. Nhiếp asks where his Haze Walk is. The player can carry the letters,
+   steal the book, or tell Nhiếp what his purse has bought. (Hồ Tùng Nguyệt, Phù Liên Châu, Phù Liên Kiều, Nhiếp Cô
+   Tân; places 46, 1110.)
+5. **The crossing.** Nhiếp has gone round Cận Tùng Hàn and asked Khuông Hàn Ly for a road across the river-mouth ice
+   for a winter war. She brings Cận each flag to check, and he retunes each one to hold a patrol and break under a
+   company. (Khuông Hàn Ly, Cận Tùng Hàn, Nhiếp Cô Tân, Đàm Thanh Giang, Hướng Vãn Chu.)
 6. **The lovers on the ice.** Đàm Thanh Giang and Hướng Vãn Chu meet each winter where the crossing would run. A war
    would put him on one bank and her on the other; a marriage could end the grudge. (Đàm Thanh Giang, Hướng Vãn Chu,
    Đàm Tùng Lại, Ngu Lam Sơn.)

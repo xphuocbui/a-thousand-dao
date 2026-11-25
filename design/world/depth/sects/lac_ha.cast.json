@@ -65,7 +65,7 @@
    },
    "appearance": "A tall woman in a robe the colour of dusk, a counting ring on each thumb, with Tử Điện worn at her hip like a ledger she never opens.",
    "backstory": "Tô Vãn Chiếu was born in 890 above a rope-seller's counter in Hạc Đinh Thị, the market below the old seat (A191), and could add a column of prices before she could read. Trầm Tịch Dương (tram_tich_duong) took her into the inner gate at eleven because she caught him shorting a Mục Vân herder three stones and said so in front of the herder. She ran the sect's trade for a century, and in that time the western markets came to use the sect's seal as their measure. In 1160 Trầm stepped down for her, and she took the sword Tử Điện (C191). It has never woken in her hand. Her first war was the Ferry War (C192): she ordered the raid on Đào Sa (A080) and sold the peace of 1175 for half the tolls (C193). Her canon had not turned past its tenth layer since the last seat maple died in 1131, and Tùng Đào's raiders had come within a day of the hall. In 1177 she put the move to the elders (N-lac_ha-06). She borrowed from Thiên Bảo Trai to pay for it (N-lac_ha-03) and took the sect up to Vân Kiều Trấn in 1185 (N-lac_ha-05). The eleventh layer turned in her the next spring. She took Tô Mộ Vân (to_mo_van), a girl of her brother's line, as her disciple on the day she was born (C194).",
-   "wants": "To pay Phan Vật Hoa back and get the founder's ring out of Thiên Bảo Trai's vault before anyone learns it was there. After that, to see Tử Điện wake, which means bringing its twin home from the poisoned plain.",
+   "wants": "To pay Phan Vật Hoa back before the term ends in 1209 and get the founder's ring out of Thiên Bảo Trai's vault before anyone learns it was there. Her way is thirty outer disciples' contracts, sold to the studio in one lot over and above the spring's placements; she has told Hách Ánh Hà that the list is the list, and has not struck her own kin off it. After that, to see Tử Điện wake, which means bringing its twin home from the poisoned plain.",
    "secret": "She pledged the Lone Duck Ring, the key to the sect's treasury, as surety for the loan. And she knew of the carved gallery under Vân Kiều before she proposed the move, because Quách Tiếp Vân told her in 1176. The Deep Vein Scripture she reads there alone was as much the reason for the move as the maples.",
    "ties": [
     {
@@ -461,8 +461,9 @@
    },
    "appearance": "A lean grey man with a goose-feather pin in his topknot and an empty sword scabbard across his back, who stands at the edge of every room.",
    "backstory": "Cảnh Trường Thiên was born in 700 in Nhạn Thanh Thành, under the geese that cross its walls in formation (C092), a herder's boy who could tell every bird in a flock apart. Nhan Tề Phi (nhan_te_phi), the founder's daughter, took him into her war hall at twelve. He was a young Kết Đan of 103 at Chiết Kích Nguyên (C017) and stood in the third rank of her One Colour field when Quý Trường Kích's halberds broke it. She fell, and he brought her body off the plain. Thanh Sương stayed behind (C159, N-lac_ha-01). In 806 he went to the survivors who founded Nhạn Trận Môn (V096) and drilled them for nine years without pay; Mục Hàn Nhạn (muc_han_nhan) calls him the gate's second founder. He reached Nguyên Anh in 1090. He leads the Geese Hall, teaches the elders' war art, and has argued against every war since 805, the Ferry War included.",
-   "wants": "That no one goes back onto Chiết Kích Nguyên for the sword, least of all his disciple Hình Lạc Nhạn.",
-   "secret": "The miasma did not rise off the dead. In 802 the founder had an array of rot buried under the plain, to be sprung only if the field broke. When Quý Trường Kích's halberds broke it, Nhan Tề Phi sprang the array, pushed Thanh Sương into Cảnh's hands and told him to carry it home. The grey came up over both armies. He dropped the sword and ran. He went back that night for her body and not for the sword, and he told the sect she had fallen with the blade in her hand. He has been ashamed for 397 years, and his whole discipline grew out of that shame. He does not know that the Pivot's Đỗ Tinh Hà knew the array was there.",
+   "wants": "That no one goes back onto Chiết Kích Nguyên for the sword, least of all his disciple Hình Lạc Nhạn. And that his word to Mục holds, which means no war on the plain.",
+   "secret": "The miasma did not rise off the dead. In 802 the founder had an array of rot buried under the plain, to be sprung only if the field broke. When Quý Trường Kích's halberds broke it, Nhan Tề Phi sprang the array, pushed Thanh Sương into Cảnh's hands and told him to carry it home. The grey came up over both armies. He dropped the sword and ran. He went back that night for her body and not for the sword, and he told the sect she had fallen with the blade in her hand. He has been ashamed for 397 years, and his whole discipline grew out of that shame. He does not know that the Pivot's Đỗ Tinh Hà knew the array was there. Mục Hàn Nhạn (muc_han_nhan) has known since 1040, from Nhạn Trận's founder on his deathbed. Since 1175, the year after the gate lost a file on a rope bridge for Lạc Hà's hire fee, Mục has sold his silence for Cảnh's word that Lạc Hà will never again call or hire the gate's files for a war, and each spring Cảnh flies a month down to Lạc Nhạn Hồ to drill its levy for nothing.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): secret and want appended with Mục's bargain since 1175 (existing text unchanged); tie to muc_han_nhan now debt",
    "ties": [
     {
      "to": "nhan_te_phi",
@@ -481,8 +482,8 @@
     },
     {
      "to": "muc_han_nhan",
-     "kind": "friend",
-     "note": "Nhạn Trận Môn's head; he drilled his gate's first squads"
+     "kind": "debt",
+     "note": "Nhạn Trận's head, who knows he ran; Cảnh pays for his silence with his word and a spring's drill"
     },
     {
      "to": "hinh_trong_son",
@@ -587,7 +588,7 @@
     "personality": [
      "Gregarious",
      "Ambitious",
-     "Generous"
+     "Callous"
     ],
     "calling": "Diplomat",
     "upbringing": "village_born",
@@ -606,8 +607,8 @@
    },
    "appearance": "A broad-faced island woman who laughs before she bargains, with a maple fan whose eight ribs are each painted with a vassal's mark.",
    "backstory": "Hách Ánh Hà was born in 1010 in Ngưu Đẩu Thôn on Cô Vụ Đảo, an ox-driver's daughter who argued the price of every load. At fifteen she crossed the strait to the outer gate on Bình Thủy Môn's ferry and paid her fare in shell coin she had counted twice. Tô Vãn Chiếu (to_van_chieu) made her first disciple in 1030 and in 1150 sent her to the vassals with the Fan of the Evening Market. For fifty years she has been the sect's face to its eight vassals. She sits at Khấu Mục Vân's (khau_muc_van) races, drinks with Bùi Phiêu Bình (bui_phieu_binh) on his ferry, and haggles with Phan Vật Hoa (phan_vat_hoa) at the season auctions (A185). In 1179 she negotiated the loan for the Cloud Bridge (N-lac_ha-03): the sum, the interest, the term. She was sent out of the room when the surety was set.",
-   "wants": "To be named heir, and before that to make the eight vassals a council that sits under Lạc Hà's seal by choice rather than by debt.",
-   "secret": "Phan Vật Hoa's steward told her what the surety was: the Lone Duck Ring. She has not told the head she knows. She uses it quietly with Phan to bargain the interest down a little each year, and she keeps the savings in a ledger only she reads, against the day she needs a favour from the head.",
+   "wants": "To be the one who brought the ring home, at a price the head will remember, and to make the eight vassals a council that sits under Lạc Hà's seal by choice rather than by debt, with each of them owing her a placement.",
+   "secret": "Phan Vật Hoa's steward told her what the surety was in 1180: the Lone Duck Ring. She has not told the head she knows, and has used it with Phan to bargain the interest down a little each year. Now she is drawing the list for the thirty contracts, and she has left off the children she means to place herself: her grand-niece Hách Thần Hà, the Ngưu Đẩu herder Âu Đẩu Sinh, and Tạ Quy Yến, whom she has promised to Châu Phi Vân for a favour. She draws it at Vật Hoa Thị through the spring auction, where Tiền Ngũ Phân sells her his mistress's top price as the bidding days go. Children who have failed the dusk test only twice, or have not yet sat it, fill the count. Tô Hiểu Chu, the head's own blood, is on it so that no one can say only the poor are sold.",
    "ties": [
     {
      "to": "to_van_chieu",
@@ -652,7 +653,7 @@
     {
      "to": "tien_ngu_phan",
      "kind": "creditor",
-     "note": "the Thiên Bảo steward whose gambling debt she paid in 1180 for the surety's name"
+     "note": "the Thiên Bảo steward whose gambling debt she paid in 1180 for the surety's name; now he sells her his mistress's price"
     },
     {
      "to": "diep_to_quyen",
@@ -672,9 +673,16 @@
     {
      "to": "hach_than_ha",
      "kind": "niece_nephew",
-     "note": "her niece; outer disciple; the envoy's grand-niece"
-    }
+     "note": "her niece; outer disciple; the envoy's grand-niece, kept off the list"
+    },
+    {
+     "to": "to_binh_chu",
+     "kind": "rival",
+     "note": "the outer gate's steward, who must sign her list"
+    },
+    {"to": "chau_phi_van", "kind": "creditor", "note": "Nam Phố's head; owes her a favour for keeping Tạ Quy Yến off the thirty contracts, and Hách means it paid in war orders filled first"}
    ],
+   "changed": "fix pass B 2026-11-25: Generous -> Callous (she draws the thirty-contract list and keeps her own protégés off it); want no longer the headship; secret now the list; tie to to_binh_chu added; fix pass B 2026-11-25 (fixB-5): draws the list at Vật Hoa Thị through the spring auction (read-pilot-B travel); tie to chau_phi_van (fixB-7 row)",
    "master": "to_van_chieu",
    "build": {
     "archetype": "phap_tu",
@@ -947,8 +955,9 @@
    },
    "appearance": "A square, weathered man in ash-grey hemp who smells of lamp oil and keeps the Watch's green-flamed lantern at his belt.",
    "backstory": "Hình Trọng Sơn was born in 860 in Hà Khúc Thôn, a steppe village whose men had gone to Chiết Kích Nguyên fifty years before and not come home. He is Trầm Tịch Dương's (tram_tich_duong) eldest disciple, and he has kept the Miasma Watch at the ruin of Vô Định Thành since 1060. He refills the lantern each night, turns back treasure seekers, and buries what the miasma gives back. He fought the Ferry War from its first raid (C192) and called the peace of 1175 (C193) a sale. In 1177 he voted against the move (N-lac_ha-06): a sect that sits on a mountain, he said, has turned its back on its dead. In 1196 a Tân Khẩu child walked into the miasma on his watch (A188), and his daughter Hình Lạc Nhạn (hinh_lac_nhan) went in after him.",
-   "wants": "To break the Compact that Thiên Xu wrote over Lạc Hà's dead and take the river tolls back from Tùng Đào; to see his daughter head after Tô.",
-   "secret": "Since 1190 he has met Thính Vũ's war elder Cố Dạ Lan three times at the edge of the miasma. They are drafting a second pact like the founders' oath of 788 (C155). He has told no one: not his master, not his daughter, not the head.",
+   "wants": "To break the Compact that Thiên Xu wrote over Lạc Hà's dead and take the river tolls back from Tùng Đào, with the Watch ready to call the plain to war the night the pact is signed.",
+   "secret": "Since 1190 he has met Thính Vũ's war elder Cố Dạ Lan three times at the edge of the miasma. They are drafting a second pact like the founders' oath of 788 (C155). He has told no one: not his master, not his daughter, not the head. Since last spring he has bought war bells for the Watch from Minh Loan Các, alarms tuned to frighten men, which the head has not ordered. He pays Yến Bội Ngọc (yen_boi_ngoc) in the bronze the miasma gives back, which the Watch used to bury.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): want no longer his daughter as head; secret adds the Minh Loan war bells paid in grave bronze; tie to yen_boi_ngoc",
    "ties": [
     {
      "to": "tram_tich_duong",
@@ -1019,7 +1028,8 @@
      "to": "co_thiet_liet",
      "kind": "friend",
      "note": "leader of the second file; Đổng Kiên Lũy's man at the Lake Shore"
-    }
+    },
+    {"to": "yen_boi_ngoc", "kind": "friend", "note": "Minh Loan's head; casts his war bells for grave bronze"}
    ],
    "master": "tram_tich_duong",
    "build": {
@@ -1121,7 +1131,8 @@
     "gained": []
    },
    "appearance": "A thin, ink-fingered man with spectacles of polished crystal and a voice that never rises.",
-   "backstory": "A clerk's son from Vật Hoa Thị who learned his numbers in the auction hall beside Thiên Bảo Trai (A179). Trầm Tịch Dương (tram_tich_duong) took him for his honest books, and he has kept the Counting House since 1060. He is one of four people who know the Lone Duck Ring sits in Thiên Bảo Trai's vault (N-lac_ha-03). Every new moon he gives the head the true figures. He has never written a false one, and he lies awake over the day he will be asked to.",
+   "backstory": "A Vật Hoa Thị clerk's son who learned his numbers in Thiên Bảo Trai's auction hall (A179). Trầm Tịch Dương (tram_tich_duong) took him for his honest books, and he has kept the Counting House since 1060. He is one of four who know the Lone Duck Ring sits in Thiên Bảo Trai's vault (N-lac_ha-03). Every new moon he gives the head the true figures. This spring he is quietly sending each family on the envoy's list of thirty the price of its child's buy-out, worked at the old rate before the lot raises it. In 1199 he raised the Nhàn Vân tribute by a tenth on Mễ Phù Vân's (me_phu_van) figures and lodged Cận Thủ Chuyết (can_thu_chuyet) at its Pool House to count sheets for the year.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): the 1199 Nhàn Vân tribute raise and the assessor's year",
    "ties": [
     {
      "to": "tram_tich_duong",
@@ -1277,7 +1288,8 @@
     ]
    },
    "appearance": "A barrel-chested riverman with a singer's deep voice and soot that never quite washes out of his beard.",
-   "backstory": "Born in Vãn Chu Thôn, where the fishers stay ashore on the dusk of 803 every year (V095), Lô Xướng Vãn knows all nine verses of the boats' song and has sung the ninth over thirty of the sect's dead. In 1173 he led the raid that burned Lãng Đào's boats at Đào Sa (A080) on the head's order. On the burned landing he picked up a ferryman's orphan, Lữ Tẫn Chu (lu_tan_chu), and kept him (N-lac_ha-08). The next year Tùng Đào cut the rope bridges, and his daughter Lô Tiểu Ca (lo_tieu_ca) fell with one (A202).",
+   "backstory": "Born in Vãn Chu Thôn, where the fishers stay ashore on the dusk of 803 every year (V095), Lô Xướng Vãn knows all nine verses of the boats' song and has sung the ninth over thirty of the sect's dead. In 1173 he led the raid that burned Lãng Đào's boats at Đào Sa (A080) on the head's order. On the burned landing he picked up a ferryman's orphan, Lữ Tẫn Chu (lu_tan_chu), and kept him (N-lac_ha-08). The next year Tùng Đào cut the rope bridges, and his daughter Lô Tiểu Ca (lo_tieu_ca) fell with one (A202). As master of the Boat Hall he kept the passes Lạc Hà's boats were stamped at Ngư Ca for Giang's unset toll (1162-1172), and showed them to Lữ on his fifteenth birthday.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): the Ngư Ca passes, per the fixB-6 row",
    "ties": [
     {
      "to": "lo_tieu_ca",
@@ -1447,7 +1459,8 @@
     "gained": []
    },
    "appearance": "A wiry woman with sap-stained palms and a red maple leaf pressed in the clasp of her robe each autumn.",
-   "backstory": "A camellia-picker's daughter from Sơn Trà Thôn, Chử Hồng Diệp has the strongest Wood in the inner sect and only just enough Earth to have entered it. For a century she kept the founder's maples at the old seat and watched them die one by one in the dry years. She boiled the last one's sap in 1131 (N-lac_ha-02) and argued for the move for forty years after. At the new seat she planted the Maple Hall's fields at Phong Ảnh Mạch. The sect's pills now sell against Thúy Vi's in the west, and Úy Thanh Diễm (uy_thanh_diem) has noticed.",
+   "backstory": "A camellia-picker's daughter from Sơn Trà Thôn, Chử Hồng Diệp has the strongest Wood in the inner sect and only just enough Earth to have entered it. For a century she kept the founder's maples at the old seat and watched them die one by one in the dry years. She boiled the last one's sap in 1131 (N-lac_ha-02) and argued for the move for forty years after. At the new seat she planted the Maple Hall's fields at Phong Ảnh Mạch. The sect's pills now sell against Thúy Vi's (uy_thanh_diem) in the west. She means the Maple Hall to make every pill Lạc Hà needs, breakthrough pills too, and this spring she sent Diêm Tử Tô (diem_tu_to) one to check, built from the pill book he left in Lạc Hà's library.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): the Maple Hall's ambition and the spring recipe to Diêm",
    "ties": [
     {
      "to": "sai_thanh_phong",
@@ -1482,7 +1495,7 @@
     {
      "to": "diem_tu_to",
      "kind": "friend",
-     "note": "Yến Quang's old master, from her camellia village; she writes to him every spring"
+     "note": "Yên Quang's old master, from her camellia village; she writes to him every spring, and this spring's letter asks him to check her breakthrough recipe"
     },
     {
      "to": "tuyen_dang_nhi",
@@ -1492,7 +1505,7 @@
     {
      "to": "tao_mo_tu",
      "kind": "rival",
-     "note": "Yến Quang's head, whose old pills her Maple Hall now makes"
+     "note": "Yên Quang's head, whose old pills her Maple Hall now makes"
     },
     {
      "to": "quan_dan_phong",
@@ -2165,7 +2178,7 @@
     {
      "to": "luan_hai_yen",
      "kind": "disciple",
-     "note": "keeps his charts"
+     "note": "keeps his charts; her Rudder chart pays for his third boat"
     },
     {
      "to": "bui_phieu_binh",

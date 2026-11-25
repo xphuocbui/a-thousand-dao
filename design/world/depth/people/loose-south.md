@@ -76,9 +76,9 @@ afterwards. That is why the odd roots end up here.
 | 1156 | A node of the Pivot's array at Đan Sơn Mạch slips; four of the Tower's rear guard come out; a Pivot disciple walks away | N-thinh_vu-08, **N-loose_south-02** |
 | 1158 | The first deep-water boat is lost with a loose sailor aboard | N-binh_thuy-05 |
 | 1162 | A hired boatman at the Ngư Ca landing asks who set the new toll on Lạc Hà's boats, is let go, and takes his boat to Thủy Khẩu | **N-loose_south-03** (hidden) |
-| 1168 | Nam Phố Đường turns out its best map copyist | **N-loose_south-04** |
 | 1173 | Crates stamped with Nam Phố's cloud cross at Thủy Khẩu by night; Đào Sa burns a month later | A080, N-nam_pho-03, **N-loose_south-05** (hidden) |
 | 1174 | The rope bridges are cut; the ferryman of Thủy Khẩu pulls Ngô Bất Tán out of the river, and his crossing is free from that day | A202, N-lac_ha-09, **N-loose_south-06** |
+| 1174 | Nam Phố Đường turns out its best map copyist for selling a copy of the 1173 "reed beds" order | **N-loose_south-04**, N-nam_pho-03 |
 | 1183 | A girl is born in a lightning storm at the Tử Tinh mine | **N-loose_south-07** |
 | 1195 | The tigers of Phục Hổ Cương kill the hunter Bành Liệp Hổ; the musician of Thiều Âm Thị is "sent away" | V160, A248, N-phuong_minh-14, **N-loose_south-08** |
 | 1196 | A Tân Khẩu boy walks into the miasma; his mother breaks the village's silence | A188, N-lac_ha-07 |
@@ -91,8 +91,9 @@ afterwards. That is why the odd roots end up here.
   Lộc Bất Quy, is not at the muster." Agrees with N-thinh_vu-08 (she sent them out; he let them through).
 - **N-loose_south-03** (1162, `tale`, hidden): "A hired boatman at Lãng Đào's Ngư Ca landing asks who set the new toll
   on Lạc Hà's boats. He is let go, and takes his own boat down to Thủy Khẩu." Agrees with N-lang_dao-03 (the unset toll).
-- **N-loose_south-04** (1168, `expulsion`): "Châu Phi Vân turns Giản Vạn Lộ out of Nam Phố Đường for selling unstamped
-  talismans at Hạc Đinh Thị; he walks south to Thu Trì."
+- **N-loose_south-04** (1174, `expulsion`): "Châu Phi Vân turns Giản Vạn Lộ out of Nam Phố Đường for copying the hall's
+  order book of 1173, the one that says 'for the reed beds', and selling the copy at Hạc Đinh Thị; he walks south to Thu
+  Trì." He is one of the people who can prove N-nam_pho-03, with Yến Hồi Độ's slip (N-loose_south-05).
 - **N-loose_south-05** (1173, `tale`, hidden): "The ferryman of Thủy Khẩu carries a Lạc Hà party and its crates across by
   night for a triple fare; the crates carry Nam Phố's cloud, and the slip says 'for the reed beds'." Agrees with
   N-nam_pho-03 and the Nam Phố hook "Reed beds".
@@ -131,20 +132,20 @@ plain, has been his friend since she found him in 900.
 
 ### The Night Rain Market's regulars (Thu Trì Thành, 42; region 18)
 
-**Giản Vạn Lộ** (A), the map-seller, a Nam Phố scribe turned out in 1168 with a Darkness root and a forged cloud seal,
+**Giản Vạn Lộ** (A), the map-seller, a Nam Phố scribe turned out in 1174 for selling a copy of the reed-bed order, with a Darkness root and a forged cloud seal,
 sells nine false maps for every true one and prices them alike. One of the three mountains Triệu Huyết Y has narrowed her master's abode to is his invention. **Đoan Mộc Thính** (B), a Wind-rooted fortune-teller who
 is never wrong about the weather, sings the treasure that his maps lead to; in the dry season she works the music
 market of Thiều Âm Thị. **Lộc Bất Quy** (B) guards buyers who leave carrying too much, and his disciple **Từ Bán Kiếm**,
-who learned five of Phất Y's ten paces, walks behind him. **Mộc Tẩu Vũ**, who failed the Tower's Bell Test, runs parcels
+who learned five layers of Phất Y's dry-road primer, walks behind him. **Mộc Tẩu Vũ**, who failed the Tower's Bell Test, runs parcels
 to Lục Nhĩ Thính's ferry inn and tells her what the buyers said, without knowing whose ear she is. **Mễ Thiềm Nhi**
 sells toad venom from Độc Thiềm Lâm to the market's alchemist Ô Thiềm Tử. They all owe Kiều Mãn Lâu something.
 
 ### The ridge hunters and the Thạch Môn camp (region 19, Kinh Trập Sơn)
 
-**Đồ Liệt Cơ** (A, Kết Đan), the last of the Hắc Phong rogues, has held Thạch Môn Trại for 250 years. The fort sits on the road that comes down from the Pivot's
+**Đồ Liệt Cơ** (A, Kết Đan), the last chief of the Hắc Phong rogues, has held Thạch Môn Trại for 250 years. The fort sits on the road that comes down from the Pivot's
 plateau to the apricot market and the Rain Tower. Her camp robs the Pivot's ore buyers and the caravans on it, never the
 Tower's trains, and the Tower lets it stand as a wall on the Pivot road. Khoái Thiết Ưng (demonic), the stockade boy who
-fled north in 940, is her one other survivor. Her people: **Trương Dã Đạo**, a Xuyên Lâm guide struck from the road books; **Lỗ Tam Chùy**, a runaway
+fled north in 940 with the captain's sabre while she went south with eleven others, holds his own peak in the north. Her people: **Trương Dã Đạo**, a Xuyên Lâm guide struck from the road books; **Lỗ Tam Chùy**, a runaway
 miner with a thread of Thunder; **Quản Thập Nhất**, who keeps the books and fences through Hạnh Hoa Thị at one stone
 in eleven; **Phù Hỏa Sinh**, a Lai Nghi caravan guard who was taken and stayed. Below the camp, in the potters' village
 of Ô Diêu, the widow **Sầm Vãn Nương** (B) raises **Bành Tiểu Điện** (B), a Thunder root born at the Tử Tinh mine. The
@@ -156,7 +157,7 @@ would sell the girl to the Tower for a stipend.
 
 **Biện Ám Phàm** (B) runs two unlit boats out of burned Hải Diêm Trấn: Night Rain goods south to Phượng Minh's ports,
 pearls north. She learned dark sailing from her family, who learned it in Thôn Hải's hold. Since last winter she has run
-the southern leg past Liệu Phàm Bảo, steering by Kiển Mục Hải's lamp: hers are the unlit sails in his letter. Her diver **Yên Thủy Hoa** comes from Âu Lộ, the
+the southern leg past Liệu Phàm Bảo, steering by Kiển Mục Hải's lamp: hers are the unlit sails in his letter. Every autumn she collects Vọng Triều's head's oil at the Hải Diêm landing, the price of 913. Her diver **Yên Thủy Hoa** comes from Âu Lộ, the
 village that swore never to dive. Further south, **Lan Bất Nhiên** failed the palace's Feather Kindling three times and
 gathers spice with **Liên Quế Chi** at Hương Liệu; **Đan Tẫn Lão** picks the ruin of Xích Thành Môn and sold Hùng Phần
 Vũ a carved wall-stone. Inland at Kích Khánh Đường, **Chúc Dư Âm** (B), the musician of 1195, plays every night for Lộ
@@ -230,7 +231,7 @@ go with him.
 | dan_tan_lao | Đan Tẫn Lão | Luyện Khí | C | Wood 38, Fire 32, Earth 26 | 215 | picker of Xích Thành's ruin |
 | lien_que_chi | Liên Quế Chi | Luyện Khí | C | Wood 48, Fire 28, Water 22 | 988 | spice-herb gatherer |
 | tuyen_dang_nhi | Tuyên Đằng Nhi | Luyện Khí | C | Wood 50, Fire 26, Water 20 | 454 | vine-climber of Cô Vụ |
-| do_thiet_hong | Đồ Thiết Hống | (dead 940) Kết Đan | C | | | last chief of Hắc Phong |
+| do_thiet_hong | Đồ Thiết Hống | (dead 940) Kết Đan | C | | | chief of Hắc Phong until 940 |
 | banh_liep_ho | Bành Liệp Hổ | (dead 1195) Trúc Cơ | C | | | hunter, killed by the tigers |
 | uong_vien_lang | Uông Viễn Lãng | (dead 1158) Trúc Cơ | C | | | sailor of the first lost boat |
 
@@ -259,7 +260,7 @@ go with him.
    has the true road and has sold her three false ones. Đoan Mộc Thính sees the rain coming and tells him to leave. (Giản,
    Triệu Huyết Y, Đoan Mộc, Lục Nhĩ Thính; place 42.)
 8. **The unlit sails.** The player stands a night on Kiển Mục Hải's tower and sees Biện Ám Phàm's boats steer by his lamp.
-   Put the lamp out and they wreck; leave it lit and the Night Rain Market's poisons reach Phượng Minh's ports. (Biện,
+   Put the lamp out and they wreck; leave it lit and the Night Rain Market's poisons reach Phượng Minh's ports, and follow them to the landing where Vọng Triều's own oil waits. (Biện,
    Kiển Mục Hải, Yên Thủy Hoa, Trạm Châu Nhi, Kiều Mãn Lâu; places 795, 776, 217.)
 9. **The flute at Kích Khánh Đường.** Đoan Mộc Thính tells Chúc Hiểu Nghi what she hears on still nights. (Chúc Dư Âm,
    Chúc Hiểu Nghi, Lộ Văn Khánh, Đoan Mộc Thính; places 724, 53.)

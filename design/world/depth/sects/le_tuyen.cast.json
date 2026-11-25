@@ -60,7 +60,7 @@
    "appearance": "A round, laughing old woman with plum blossom pinned in white hair, a gourd on one hip and a roll of needles on the other, who smells faintly of wine at every hour.",
    "backstory": "Mai Lễ Tuyền was born in Lục Dã Trấn in 850, and the meadow people say her first cry made the spring flow sweeter (A260). The founder Liêm Cam Lộ (liem_cam_lo) took her at nine. She learned that the school had come too late to Cựu Khê in 812 and that half the town had died before its healers arrived (V136), and she has gone to every fever since on the first day. In 950, gathering herbs on the shore of Triêu Hà Hồ, she found a woman in labour and delivered a girl at dawn as the clouds turned red: Hoa Triêu Dương (hoa_trieu_duong), now head of Phượng Minh (A261). She became head in 930. In 1140 the Pivot ordered a hundred jars of the school's wine a year (A263), and in 1141 she built the Dawn Hall on that same shore with the palace head's gift and moved the healers down to it (N-le_tuyen-03). She trades wine for rice with Điền Phong Niên (dien_phong_nien) every autumn and always wins. She drinks more than a healer should and says it is research.",
    "wants": "For the school to be remembered for its healers, not its wine.",
-   "secret": "The sweet spring cannot give a hundred jars a year. Since 1141 the cellars have cut it with lake water carted a week's road up from Triêu Hà Hồ in barrels sealed as the healers' tinctures, and the Pivot's wine is half lake. She allowed it, because the other choice was telling the Pivot no. That, not the healers' qi, is why she moved the hall to the lake: the barrels are filled where the healers live, and nobody asks what a sick-hall sends.",
+   "secret": "The sweet spring cannot give a hundred jars a year. Since 1141 the cellars have cut it with lake water carted a fortnight's road up from Triêu Hà Hồ in barrels sealed as the healers' tinctures, and the Pivot's wine is half lake. She allowed it, because the other choice was telling the Pivot no. That, not the healers' qi, is why she moved the hall to the lake: the barrels are filled where the healers live, and nobody asks what a sick-hall sends. The Pivot has known since 1192 and fines the school forty pure jars a year. Since the fine first fell short in 1198 she has poured the founder's own last wine into the steward's count, two jars each short spring, from the store kept under the Spring House for the school's dead. Eleven are left.",
    "ties": [
     {
      "to": "liem_cam_lo",
@@ -75,7 +75,7 @@
     {
      "to": "nhac_thuan_nhuong",
      "kind": "friend",
-     "note": "her wine-master; she trusts him with the cellars and the cutting"
+     "note": "her wine-master; she trusts him with the cellars and the cutting, and seals what he brings her on a drinking night"
     },
     {
      "to": "hoa_trieu_duong",
@@ -106,11 +106,6 @@
      "to": "can_tri_vi",
      "kind": "disciple",
      "note": ""
-    },
-    {
-     "to": "nhac_thuan_nhuong",
-     "kind": "former_disciple",
-     "note": "her wine-master; she trusts him with the cellars and the cutting"
     },
     {
      "to": "phuong_kim_cham",
@@ -170,7 +165,7 @@
     "ltp-red-dawn-robe",
     "ltp-sweet-spring-cup"
    ],
-   "changed": "home 26 -> 193 with the healing hall's move (R4, 1141); birthplace 87 added (A260); build aux [] -> the lineage's main method and wine rite (R5); gear chuong -> her named needles; tree targets -> intent. Root kept: she holds the main method's Wood at 62."
+   "changed": "home 26 -> 193 with the healing hall's move (R4, 1141); birthplace 87 added (A260); build aux [] -> the lineage's main method and wine rite (R5); gear chuong -> her named needles; tree targets -> intent. Root kept: she holds the main method's Wood at 62.; pass B (fixB-1, 2026-11-25): secret now carries the Pivot's fine (1192) and the founder's jars (SHAPES-PLAN §4.2 le_tuyen); 'a week's road' -> a fortnight's (place 193 is 202 km from 26); duplicate tie to Nhạc merged"
   },
   {
    "key": "nhac_thuan_nhuong",
@@ -227,9 +222,9 @@
     "gained": []
    },
    "appearance": "A heavy, soft-spoken man in a stained leather apron, with a cellar's chill on his skin and a seal on a cord round his neck.",
-   "backstory": "Nhạc Thuần Nhưỡng was born in the cellars at the spring in 1030 to a family of wine-masters, and has run them since 1100. When the Pivot's order came in 1140 (A263) he had the Seal of the Hundred Jars cut, and when the spring could not fill them he was the one who first carried lake water up from Triêu Hà Hồ, with Mai Lễ Tuyền's (mai_le_tuyen) leave. He is married to the school's taster Cận Tri Vị (can_tri_vi) and their son Nhạc Dư Hương (nhac_du_huong) works under him. He sells wine to Kim Vạn Lý (kim_van_ly), the merchant of the western plains, which the palace's treasurer does not know, and he has put the school's profit into old casks and older manuals. He would like to be head after Mai and thinks the school's future is in the cellars.",
-   "wants": "To be named heir, and to double the jars.",
-   "secret": "The cut jars go to the Pivot and the palace. The pure spring wine goes to Kim Vạn Lý, at three times the price, and Kim owes him for the last forty jars.",
+   "backstory": "Nhạc Thuần Nhưỡng was born in the cellars at the spring in 1030 to a family of wine-masters, and has run them since 1100. When the Pivot's order came in 1140 (A263) he had the Seal of the Hundred Jars cut, and when the spring could not fill them he was the one who first carried lake water up from Triêu Hà Hồ, with Mai Lễ Tuyền's (mai_le_tuyen) leave. He is married to the school's taster Cận Tri Vị (can_tri_vi) and their son Nhạc Dư Hương (nhac_du_huong) works under him. He sells wine to Kim Vạn Lý (kim_van_ly), the merchant of the western plains, which the palace's treasurer does not know, and he has put the school's profit into old casks and older manuals. He thinks the school's future is in the cellars, and since Kim's factor came to the Dawn Hall in 1198 he has been ready to pay for that future with the healers' hall.",
+   "wants": "To clear the school's note without selling a cask, and to double the jars once the fine is lifted.",
+   "secret": "The cut jars go to the Pivot and the palace. The pure spring wine goes to Kim Vạn Lý at three times the price, and Kim will not pay for the last forty jars: he sets them against the school's note. Nhạc has drawn up the pledge of the healers' sick-hall that Kim's factor asks for as surety, and means to set it before Mai on a drinking night, when she seals what she is given.",
    "ties": [
     {
      "to": "mai_le_tuyen",
@@ -249,12 +244,12 @@
     {
      "to": "kim_van_ly",
      "kind": "creditor",
-     "note": "the merchant owes him for forty jars of pure spring"
+     "note": "the merchant owes him for forty jars of pure spring, and sets them against the school's note"
     },
     {
      "to": "ha_thanh_to",
      "kind": "rival",
-     "note": "the healers' heir against the cellars'"
+     "note": "the healers' keeper, whose sick-hall he would pledge"
     },
     {
      "to": "khau_dai_ung",
@@ -322,7 +317,8 @@
     "ltp-hundred-jar-seal",
     "ltp-cut-wine-cask",
     "ltp-cellar-leather"
-   ]
+   ],
+   "changed": "pass B (fixB-1, 2026-11-25): the heir want cut; the pledge of the sick-hall added (SHAPES-PLAN §4.2 le_tuyen); traits kept (Greedy carries the deed)"
   },
   {
    "key": "ha_thanh_to",
@@ -377,7 +373,7 @@
     ]
    },
    "appearance": "A thin woman with cropped hair and herb-stained cuffs, always half-packed for the road.",
-   "backstory": "A meadow girl of Lục Dã taken by Mai Lễ Tuyền (mai_le_tuyen) in 1115, Hà Thanh Tô runs the sick-hall at the Dawn Hall and leads the road healers who go out at the first word of fever. She trained the palace's healer Từ Cam Tuyền (tu_cam_tuyen) during her two years here. Her first road was the marsh fever at Hàm Trạch in 1131, and she has not stopped since. She thinks the cellars are eating the school.",
+   "backstory": "A meadow girl of Lục Dã taken by Mai Lễ Tuyền (mai_le_tuyen) in 1115, Hà Thanh Tô runs the sick-hall at the Dawn Hall and leads the road healers who go out at the first word of fever. She trained the palace's healer Từ Cam Tuyền (tu_cam_tuyen) during her two years here. Her first road was the marsh fever at Hàm Trạch in 1131, and she has not stopped since. She thinks the cellars are eating the school. Since Kim's factor named the sick-hall as his surety she treats the fevers in the road camps instead, and the sick-hall's beds stand half empty, worth less to pledge.",
    "ties": [
     {
      "to": "mai_le_tuyen",
@@ -397,7 +393,7 @@
     {
      "to": "nhac_thuan_nhuong",
      "kind": "rival",
-     "note": "the cellars' man"
+     "note": "the cellars' man, who would pledge her sick-hall"
     },
     {
      "to": "lien_que_chi",
@@ -495,9 +491,9 @@
    },
    "traits": {
     "personality": [
-     "Honest",
      "Calm",
-     "Loyal"
+     "Vengeful",
+     "Deceitful"
     ],
     "calling": "Alchemist",
     "upbringing": "sect_raised",
@@ -515,7 +511,7 @@
     "gained": []
    },
    "appearance": "A still woman with milky eyes who turns her head toward a cask before anyone has opened it.",
-   "backstory": "Cận Tri Vị lost her sight in 1150 to a cask of wine that had gone wrong, and found her tongue sharper for it. She tastes every jar the cellars seal and every pill the healers make. She is married to the wine-master Nhạc Thuần Nhưỡng (nhac_thuan_nhuong) and knows by taste which jars are cut with lake water. She says nothing, because Mai Lễ Tuyền (mai_le_tuyen) allowed it. She does not know where the pure jars go, and she has begun to count.",
+   "backstory": "Cận Tri Vị lost her sight in 1150 to a cask of wine that had gone wrong, and found her tongue sharper for it. She tastes every jar the cellars seal and every pill the healers make. She is married to the wine-master Nhạc Thuần Nhưỡng (nhac_thuan_nhuong) and knows by taste which jars are cut with lake water; the cutting was Mai Lễ Tuyền's (mai_le_tuyen) order, and she holds the Pivot's fine for it unjust. So she waters the fine jars herself, a cup of lake in every ten. Her apprentice Bạc Triều Âm (bac_trieu_am) tasted it, and Cận put the girl's name on the seal beside her own.",
    "ties": [
     {
      "to": "nhac_thuan_nhuong",
@@ -535,7 +531,7 @@
     {
      "to": "bac_trieu_am",
      "kind": "disciple",
-     "note": "taster's apprentice from the salt marsh"
+     "note": "taster's apprentice from the salt marsh; her name is on the fine jars' seal beside Cận's"
     },
     {
      "to": "gia_tuyen_phong",
@@ -584,7 +580,8 @@
      "targets_note": "Lineage, Water Eye and Still Pond: she knows what is in the cup."
     },
     "note": "The taster."
-   }
+   },
+   "changed": "pass B (fixB-1, 2026-11-25): traits Honest, Loyal -> Vengeful, Deceitful; 'has begun to count' cut; she waters the Pivot's fine jars (SHAPES-PLAN §4.2 le_tuyen act), with one witness who pays"
   },
   {
    "key": "nhac_du_huong",
@@ -618,7 +615,7 @@
     "calling": "Merchant",
     "upbringing": "sect_raised"
    },
-   "backstory": "He leads the carters who take lake water the week's road from the Dawn Hall up to the spring, leaving by night, believes his father Nhạc Thuần Nhưỡng (nhac_thuan_nhuong) that it is for the vats' cooling, and writes to the palace envoy Bình Viễn Khách (binh_vien_khach), who grew up in the same cellars.",
+   "backstory": "He leads the carters who take lake water the fortnight's road from the Dawn Hall up to the spring, believes his father Nhạc Thuần Nhưỡng (nhac_thuan_nhuong) that it is for the vats' cooling, carries his father's letters to Kim's factor at the Dawn Hall, and writes to the palace envoy Bình Viễn Khách (binh_vien_khach), who grew up in the same cellars.",
    "ties": [
     {
      "to": "nhac_thuan_nhuong",
@@ -976,7 +973,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
-   "backstory": "Born in the meadow town like the head, he keeps a calendar of every herb's flowering for Ngải Bạch Chỉ (ngai_bach_chi) and has noticed the spring's mint dying back.",
+   "backstory": "Born in the meadow town like the head, he keeps a calendar of every herb's flowering for Ngải Bạch Chỉ (ngai_bach_chi), and writes the spring's mint into it from the cellar boys' letters; this year the letters say it is dying back.",
    "ties": [
     {
      "to": "ngai_bach_chi",
@@ -1051,7 +1048,7 @@
     {
      "to": "khau_nhi_dam",
      "kind": "sibling",
-     "note": "his brother; night carter: carts lake water the week's road up to the spring"
+     "note": "his brother; night carter: carts lake water the fortnight's road up to the spring"
     }
    ],
    "exception": "servant (tạp dịch): Earth-Fire root, not taught the lineage",

@@ -36,9 +36,9 @@
     {"new": true, "id": "crane-from-the-east", "name": "A Crane Crosses from the East (Cô Hạc Đông Lai)",
      "rule": "In a Wind-rooted hand, each attack you evade sends one afterimage cut back at the attacker (sword damage, at most once a second). In any other hand the sword is only a very good blade and this rule sleeps."}
    ],
-   "lore": "A long, narrow sword of Can Tương ore with a grey crane cut into the guard, named for Tô Thức's crane crossing the river from the east. Quách Vô Tích, founder of Phất Y Cốc, forged it in 760 for his own Wind and gave it to Tư Không Hạc Niên at dawn in Tống Khách Thị in 900 before he walked away (A138). Tư Không is pure Metal and has never woken its wind. Legendary item co_hac; its maker was unknown in the chronicle (made_by null) and is named here.",
+   "lore": "A long, narrow sword of Can Tương ore with a grey crane cut into the guard, named for Tô Thức's crane crossing the river from the east. Quách Lĩnh Thù, founder of Phất Y Cốc, forged it in 760 for his own Wind and gave it to Tư Không Hạc Niên at dawn in Tống Khách Thị in 900 before he walked away (A138). Tư Không is pure Metal and has never woken its wind. Legendary item co_hac; its maker was unknown in the chronicle (made_by null) and is named here.",
    "build_use": "The sage's edge: sword attack and speed. Its real rule waits for a Wind root.",
-   "holder": "tu_khong_hac_nien", "made_by": "quach_vo_tich", "made_year": 760, "set": "hs-lone-crane-things",
+   "holder": "tu_khong_hac_nien", "made_by": "quach_linh_thu", "made_year": 760, "set": "hs-lone-crane-things",
    "legendary_key": "co_hac", "status": "proposal"
   },
   {
@@ -149,9 +149,9 @@
    "id": "hs-crane-bone-pendant", "name": "Crane-Bone Pendant (Hạc Cốt Bội)", "family": "metal", "kind": "artifact", "base": "ngoc_boi", "grade": 4,
    "modifiers": [{"key": "crit_chance_pct", "value": 8, "scope": ["sword"]}, {"key": "crit_damage_pct", "value": 40, "scope": ["sword"]}, {"key": "than_thuc_pct", "value": 5, "scope": []}],
    "effects": [],
-   "lore": "A carved crane's wing bone Quách Vô Tích wore while he forged the sword; it was wrapped round the hilt the dawn he gave it away.",
+   "lore": "A carved crane's wing bone Quách Lĩnh Thù wore while he forged the sword; it was wrapped round the hilt the dawn he gave it away.",
    "build_use": "The edge, and the crits that wake the afterimages.",
-   "holder": "tu_khong_hac_nien", "made_by": "quach_vo_tich", "made_year": 760, "set": "hs-lone-crane-things", "status": "proposal"
+   "holder": "tu_khong_hac_nien", "made_by": "quach_linh_thu", "made_year": 760, "set": "hs-lone-crane-things", "status": "proposal"
   },
   {
    "id": "hs-threadbare-robe", "name": "Threadbare Robe (Lam Lũ Bào)", "family": "metal", "kind": "artifact", "base": "dao_bao", "grade": 3,

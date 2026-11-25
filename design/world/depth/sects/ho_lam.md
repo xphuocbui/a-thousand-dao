@@ -71,7 +71,8 @@ which is the other reason the old lean never fitted.
   Tuyết Tùng stands over it until he dies."
 - **N-ho_lam-03** (1150, `tale`): "The Grandmother Fir of Sơ Hiểu Lâm, the greatest spirit tree in the northern woods,
   is felled after a night of asking and burned in the Green Furnace on the night Úy Thanh Diễm forms his Nascent Soul.
-  The hall says the tree said yes." (The truth is in section 9.)
+  The drought had dried the green wood of the northern woods, so only the Fir would do. The hall says the tree said
+  yes." (The truth is in section 9.)
 - **N-ho_lam-04** (1162, `custom`): "After the spring flood of 1161 takes half the rafts, Lục Thanh Sam writes the
   Raft-and-Root Primer for the hall's outer gate, in place of Thúy Vi's Seed and Soil Primer."
 
@@ -152,20 +153,20 @@ the lord's old primer under an exception.
 ## 9. Inside the sect
 
 - **The tree that did not answer.** In 1150 Lục sat the night beside the Grandmother Fir with Mi Túc Thụ, and the tree
-  gave no answer. Úy Thanh Diễm's breakthrough was set for that night, and no other tree in the north was great enough.
-  Lục felled it at dawn and told the hall it had said yes. No spirit seedling has come up in Sơ Hiểu Lâm since. He wears
-  a disc of its heartwood at his throat. Mi has never said what she heard that night. She goes back to the forest every
-  spring to look for seedlings, and she has found none.
-- **The missing log.** Lại Hoành Chi sold one spirit log to a Phượng Minh buyer at Lam Yên Thị in 1199. The tally keeper
-  Lục Lưu Mộc has not noticed, because he is dying, and Phí Tùng Chi has not noticed, because the log was never on the
-  lord's list. Lại wants the hall paid like the great house it keeps alive. He has a buyer for more.
+  gave no answer. Úy Thanh Diễm's breakthrough was set for that night, the drought had dried the green wood of the
+  north, and no other tree was great enough. Lục felled it at dawn and told the hall it had said yes. No spirit seedling
+  has come up in Sơ Hiểu Lâm since. He wears a disc of its heartwood at his throat. Mi has never said what she heard
+  that night. She goes back to the forest every spring to look for seedlings, and she has found none.
+- **The log and the poacher.** Lại Hoành Chi sold a spirit log past the lord to a Phượng Minh buyer at Lam Yên Thị in
+  1199, and it was not his first. In 1186 the poacher of Tân Cư Thôn was felling for him. When Phí Tùng Chi began
+  counting stumps, Lại handed his own feller to the lord's Hall of Rules, took the reward for the catch, and sold the
+  log anyway. The buyer now wants ten more. This spring Lại means to cut the second loose from the rafts at the boom
+  and cart it the fifty days to Lam Yên Thị himself.
 - **The head's son.** Lục Lưu Mộc is 190 and never formed a core. He is the first in the hall to be dying of age while
   both his parents live. Đằng Bích Lưu is looking for a pill and has written to Hồng Lô, which surprised everyone.
-- **The poacher's son.** Bỉnh Thiết Phủ's father was handed to the lord's Hall of Rules in 1186 by Lại Hoành Chi. Lục took
-  the boy in. The boy has worked out who turned his father in, and has not yet worked out what to do about it.
-- **The succession.** Lục has about 150 years left. His son will not outlive him. The candidates are his Dao partner,
-  who would rather be on the river, and Lại, who would sell the wood. A third would be his granddaughter, if she lives
-  long enough.
+- **The poacher's son.** Bỉnh Thiết Phủ was four in 1186, and he sat on his father's log in the cart when Lại drove it
+  away. Lục took the boy in and gave him an axe. This spring Bỉnh has asked to ride the rafts to the boom, and he
+  means to follow the second log all the way to Lam Yên Thị and watch it sold.
 
 ## 10. Treasures and sets
 
@@ -198,18 +199,21 @@ the lord's old primer under an exception.
 1. **A seedling in First Light.** Lục Tiểu Sam finds one spirit seedling in Sơ Hiểu Lâm, the first in fifty years. Mi
    Túc Thụ knows what it would mean, and Lục is afraid to go and look. (Lục Tiểu Sam, Mi Túc Thụ, Lục Thanh Sam; place
    1112.)
-2. **What Mi heard.** Mi Túc Thụ is dying of a long seclusion, or simply tired of the lie. She asks the player to carry
-   what she heard in 1150 to Úy Thanh Diễm and no one else. (Mi Túc Thụ, Lục Thanh Sam, Úy Thanh Diễm; places 1105,
-   1110.)
+2. **What Mi heard.** Thúy Vi asks the hall for a great tree again, for a breakthrough in the Green Furnace, and Lục
+   must sit the asking with Mi Túc Thụ beside him. She has told him she will say what she hears out loud this time, in
+   front of the hall, and the player may be the one sent to bring Úy Thanh Diễm to hear it. (Mi Túc Thụ, Lục Thanh
+   Sam, Úy Thanh Diễm; places 1105, 1110.)
 3. **The second log.** Lại Hoành Chi's Phượng Minh buyer wants ten more logs, and Hồng Lô's Satchel Hall would take
-   five. The tally keeper notices at last. (Lại Hoành Chi, Lục Lưu Mộc, Phí Tùng Chi, Giải Bách Bộ; places 45, 1105, 9.)
+   five. In autumn Phí Tùng Chi counts the rafts against the spring list and finds one short, and Lại says the flood
+   took it at the boom. (Lại Hoành Chi, Phí Tùng Chi, Giải Bách Bộ, Lục Thanh Sam; places 45, 1105, 9.)
 4. **The spring flood.** The flood comes early and high. The lead raft carries the wood for the lord's spring brewing,
    Đằng Bích Lưu is on it, and the boom at Tân Cư Thôn is under water. (Đằng Bích Lưu, Tác Hà Thằng, Sầm Ngưu Tất; places 1101, 1099, 1110.)
-5. **The wolves come back.** The brown bears of Tông Hùng Lâm, which killed Sư Tuyết Tùng in 990, come out of the hills
-   after a felled log for the first time in two centuries. (Lục Thanh Sam, Nghệ Hoàng Phong, Bỉnh Thiết Phủ; places 1107, 1105.)
-6. **The poacher's son.** Bỉnh Thiết Phủ follows Lại Hoành Chi to Lam Yên Thị and sees the log sold. He can avenge his
-   father, or he can become the next man to break the hall's law. (Bỉnh Thiết Phủ, Lại Hoành Chi, Nhạc Chính Hành;
-   place 45.)
+5. **The bears come down.** The brown bears of Tông Hùng Lâm, which killed Sư Tuyết Tùng in 990, come out of the hills
+   after a felled log for the first time in two centuries. (Lục Thanh Sam, Nghệ Hoàng Phong, Bỉnh Thiết Phủ; places
+   1107, 1105.)
+6. **The poacher's son.** Bỉnh Thiết Phủ follows Lại Hoành Chi's cart from the boom to Lam Yên Thị and watches the
+   second log sold. He can avenge his father, carry what he saw to the Hall of Rules that took his father, or become
+   the next man to break the hall's law. (Bỉnh Thiết Phủ, Lại Hoành Chi, Nhạc Chính Hành; places 1101, 45.)
 7. **A pill for the tally keeper.** Đằng Bích Lưu asks Hồng Lô for a pill to give her son another century. Đồng Hồng Lô
    asks for wood past the lord in payment. (Đằng Bích Lưu, Lục Lưu Mộc, Đồng Hồng Lô, Lục Thanh Sam; places 1105, 9.)
 8. **Poachers from across the border.** A Tùng Đào poaching crew is felling spirit trees unasked on the northern edge of

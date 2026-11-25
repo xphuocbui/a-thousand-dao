@@ -35,9 +35,9 @@
    },
    "traits": {
     "personality": [
-     "Honest",
-     "Just",
-     "Cautious"
+     "Arbitrary",
+     "Cautious",
+     "Just"
     ],
     "calling": "Strategist",
     "upbringing": "scholar_family",
@@ -63,9 +63,9 @@
     ]
    },
    "appearance": "A narrow, grey-robed man who looks fifty and always slightly tired, with an accountant's ink-stained middle finger and the stone seal on a cord at his chest.",
-   "backstory": "Doãn Ngọc Hành was born in Thạch Kiều Thành on the night the founder died, under the fifth star of the Dipper, the one that weighs (C147, C148). His family had kept the bridge's toll ledgers since the bridge had tolls, and he could add a column of figures before he could read the names above it. Đỗ Tinh Hà (do_tinh_ha) took him at nine, taught him arrays rather than the spear, and in 1150 stepped down for him after 390 years (C187). He was confirmed before the seven seals at Thạch Kiều, and Thính Vũ's seal came a day late (N-thien_xu-08). Four years later he took the Pivot into the Cinnabar Vein War on Phượng Minh's side and beat Thính Vũ at Đan Sơn Mạch (C189, C190); since 1165 his envoys have counted Thính Vũ's disciples every year (C200). He fights from inside his own arrays and governs the same way: slowly, from the centre, by rule. In 1188 he did the one thing the founder forbade. He asked the Chief Judge Phương Trực Ngôn (phuong_truc_ngon) for the Weight, judged Băng Tâm's petition for Tinh Tủy Mạch himself, and refused it (C195, N-thien_xu-09). He gave the Weight back the next morning. He has not explained it to her, to Sở Ngọc Hồ (so_ngoc_ho), or to his own disciples.",
+   "backstory": "Doãn Ngọc Hành was born in Thạch Kiều Thành on the night the founder died, under the fifth star of the Dipper, the one that weighs (C147, C148). His family had kept the bridge's toll ledgers since the bridge had tolls, and he could add a column of figures before he could read the names above it. Đỗ Tinh Hà (do_tinh_ha) took him at nine, taught him arrays rather than the spear, and in 1150 stepped down for him after 390 years (C187). He was confirmed before the seven seals at Thạch Kiều, and Thính Vũ's seal came a day late (N-thien_xu-08). Four years later he took the Pivot into the Cinnabar Vein War on Phượng Minh's side and beat Thính Vũ at Đan Sơn Mạch (C189, C190); since 1165 his envoys have counted Thính Vũ's disciples every year (C200). He fights from inside his own arrays and governs the same way: slowly, from the centre, by rule. In 1188 he did the one thing the founder forbade. He asked the Chief Judge Phương Trực Ngôn (phuong_truc_ngon) for the Weight, judged Băng Tâm's petition for Tinh Tủy Mạch himself, and refused it (C195, N-thien_xu-09). He gave the Weight back the next morning. He has not explained it to her, to Sở Ngọc Hồ (so_ngoc_ho), or to his own disciples. Two years later, at the Compact-day table, he named Doãn Hi Hòa (doan_hi_hoa) his heir aloud before the elders had been asked, and he has not explained that either.",
    "wants": "To hand on a Compact that holds without him, and to keep Thính Vũ from the war it is building toward without fighting it.",
-   "secret": "He knows that in 803 the whole guard of Tinh Tủy Mạch was called down to Chiết Kích Nguyên as reinforcements and none came back, so the post stood empty until 806, though no order ever withdrew it (N-thien_xu-04). Under the Compact's own wording an unwatched wild vein might have let Băng Tâm's claim stand. He refused the petition so the Pivot would never lose land by a ruling, and sealed the archive's guard roll for 803 with his own hand. He does not know a second copy was filed among the dead lists of that year, or that it has left the archive.",
+   "secret": "He knows that in 803 the whole guard of Tinh Tủy Mạch was called down to Chiết Kích Nguyên as reinforcements and none came back, so the post stood empty until 806, though no order ever withdrew it (N-thien_xu-04). Under the Compact's own wording an unwatched wild vein might have let Băng Tâm's claim stand. He refused the petition so the Pivot would never lose land by a ruling, and sealed the archive's guard roll for 803 with his own hand. He does not know a second copy was filed among the dead lists of that year, or that it has left the archive. Since a night at the ridge palace in 1154, when Hoa Triêu Dương (hoa_trieu_duong) played him eight airs on what he took for a ridge flute, he cannot hear the seat's single dusk bell without counting eight strokes. He decided for the war the next morning. He lets Bách Vong Ngôn's forbidden zither go, and could not say why. He refuses Ngũ Trấn Bắc's writ each spring because Thính Vũ's spymaster Nhiếp Vô Thanh writes to him through the clerk Tào Mặc Toán, and her numbers are half of Phòng Bách Kế's.",
    "ties": [
     {
      "to": "do_tinh_ha",
@@ -75,12 +75,12 @@
     {
      "to": "cong_ton_duan",
      "kind": "disciple",
-     "note": "his chief disciple, who runs the seat and whom the elders want as heir"
+     "note": "his chief disciple, who runs the seat and whom the elders wanted as heir"
     },
     {
      "to": "doan_hi_hoa",
      "kind": "disciple",
-     "note": "the presumed heir; also his brother's descendant"
+     "note": "named heir aloud in 1190; the great sects have not confirmed her"
     },
     {
      "to": "doan_hi_hoa",
@@ -95,7 +95,7 @@
     {
      "to": "bach_vong_ngon",
      "kind": "disciple",
-     "note": "wrote his letters for a century; he knows about the zither and says nothing"
+     "note": "wrote his letters for a century; the head lets his zither go"
     },
     {
      "to": "phuong_truc_ngon",
@@ -125,12 +125,12 @@
     {
      "to": "hoa_trieu_duong",
      "kind": "friend",
-     "note": "his ally of the Cinnabar Vein War"
+     "note": "his ally of the Cinnabar Vein War; she played him eight airs the night before he joined it"
     },
     {
      "to": "tao_mac_toan",
      "kind": "creditor",
-     "note": "Thính Vũ's stores clerk, in the Pivot's pay since 1140"
+     "note": "Thính Vũ's stores clerk, in the Pivot's pay since 1140, who carries Nhiếp Vô Thanh's true numbers"
     },
     {
      "to": "co_da_lan",
@@ -862,7 +862,7 @@
    "appearance": "Long-faced and handsome in a dry way, in a robe a shade finer than the seat allows, with the white jade tally hung where a sword would be.",
    "backstory": "Mâu Tri Viễn was born in Khai Dương Thành, the Pivot's northern road city whose gate faces the morning star (A092), to a clerk of the road tolls and a Tùng Đào boatwoman, and he speaks the river dialects as well as the court's. Đỗ Tinh Hà (do_tinh_ha) took him for the Khai Dương Hall in 1018. In the Thunder Vein War he stopped Phượng Minh's raiders at the upper ferry of Thượng Độ with a letter and no escort (A295, C179). Since 1150 he has been master of the hall and chief envoy. He sat at the Pivot's table in 1188 when Ngụy Thanh Hàn (nguy_thanh_han) read Băng Tâm's petition, and he was the one who walked Ngụy to the gate afterward. He keeps the seven guest-houses for the Compact's witnesses at Thạch Kiều, and he knows the habits of every envoy who stays in them. He undoes Ngũ Trấn Bắc's (ngu_tran_bac) writs before they reach the head, by making each one look premature.",
    "wants": "To make the peace with Thính Vũ Lâu that ends the counting, and to be named first elder for it.",
-   "secret": "In 1197 Công Tôn Duẫn asked him to sound the great sects on whether they would confirm Công Tôn as the next head. He did it, quietly, in four capitals, and keeps the answers in a sealed letter he has shown no one, not even Công Tôn.",
+   "secret": "In 1197 Công Tôn Duẫn asked him to sound the great sects on whether they would confirm Doãn Hi Hòa, named heir in 1190. He did it, quietly, through their envoys at the witness-houses, and keeps the answers in a sealed letter he has shown no one, not even Công Tôn: four of the seven would refuse her. He is drafting the terms on which Thính Vũ, at least, would change its answer, and the first term is an end to the count.",
    "ties": [
     {
      "to": "do_tinh_ha",
@@ -907,7 +907,7 @@
     {
      "to": "cong_ton_duan",
      "kind": "creditor",
-     "note": "owed for the sounding of the sects"
+     "note": "owed for the sounding of the sects, and never shown the answer"
     },
     {
      "to": "nguyen_hao_khach",
@@ -1040,7 +1040,7 @@
    "appearance": "Bent, sharp-eyed, black to the wrists from grinding ink; she keeps the archive's keys on a cord around her neck and touches them when she speaks.",
    "backstory": "Sử Ngưng Mặc was born at the foot of Chấp Bút Phong, the Peak of the Held Brush, where the slate for the sect's inkstones is cut, and was given at seven to Hề Văn Ước (he_van_uoc), who kept the archive as well as the bench in those years. She has kept Tàng Ước Các since 900: the Compact itself, every writ of war since the first in 584 (C118), every arbitration, the land rolls, the guard rolls and the rolls of the 129 boundary steles. She was twenty-eight in 803 and copied the dead lists of Chiết Kích Nguyên by hand for a year (C017). The seat's half of the Thiết Mã tally vanished from her shelves that year; it is the only thing she has ever lost (N-thien_xu-05). She grinds the archive's ink on the founder's inkstone herself and lets no one else touch it. Her disciples Thích Minh Thư (thich_minh_thu) and Hoàng Phủ Tịch (hoang_phu_tich) are the only people she lets past the second door.",
    "wants": "To find the tally's lost half before her years run out, and to leave the archive to a keeper who will keep it as she has.",
-   "secret": "In 1188 the head came to the archive at night, took the guard roll of Tinh Tủy Mạch for 803, and she sealed the shelf behind him without asking why. She has forgotten that she herself copied a duplicate of it in 803, among the dead lists, without reading what she copied.",
+   "secret": "In 1188 the head came to the archive at night, took the guard roll of Tinh Tủy Mạch for 803, and she sealed the shelf behind him without asking why. She has forgotten that she herself copied a duplicate of it in 803, among the dead lists, without reading what she copied. She has also known since the first ink Họa Tinh Đường sold her archive that its rain-fast stroke is the blood-ink writ of Thorn and Ink Verses with the blood taken out: the copy the Pivot seized at Cửu Thiều Cung's fall (C005) is on her own shelves. She came north to the founder's burial in 1137 to tell Kỷ Ngân Chúc that she would go on buying the ink, and she does.",
    "ties": [
     {
      "to": "he_van_uoc",
@@ -1085,7 +1085,7 @@
     {
      "to": "ky_ngan_chuc",
      "kind": "friend",
-     "note": "Họa Tinh's head, whose ink the archive is written in"
+     "note": "Họa Tinh's head; since 1137 they share what the Hall's ink is, and the archive buys it anyway"
     },
     {
      "to": "bang_tinh_bien",
@@ -1161,7 +1161,7 @@
    "rank": "chan_truyen",
    "home": 5,
    "birthplace": 40,
-   "role": "The head's chief disciple and steward of the seat; the elders' choice for heir",
+   "role": "The head's chief disciple and steward of the seat; the elders' man",
    "tier": "A",
    "root": {
     "elements": {
@@ -1181,9 +1181,9 @@
    },
    "traits": {
     "personality": [
-     "Just",
+     "Ambitious",
      "Diligent",
-     "Humble"
+     "Callous"
     ],
     "calling": "Steward",
     "upbringing": "merchant_child",
@@ -1207,9 +1207,9 @@
     "gained": []
    },
    "appearance": "Broad, weathered, in a plain robe with ledger strings at the sleeve; he walks like a man on a deck and keeps a straight blade hanging point-down at his back.",
-   "backstory": "Công Tôn Duẫn is the son of a harbour pilot of Tinh Hán Thành, the Pivot's port built on the old sea-serpent's bones (C067). Doãn Ngọc Hành (doan_ngoc_hanh) took him as a disciple in 1024, long before he was head, and Công Tôn formed his core in 1112 holding the Plumb Line his master gave him. For fifty years he has run the seat: its stores, its rosters, its quarrels. He is fair to a fault, liked by the elders and trusted by the vassals. Everyone assumes he will be the next head except the head, who took a five-year-old girl from Thạch Kiều as his disciple in 1135 (A217) and has treated her as the heir since. Công Tôn trains her in the sword himself, and his own disciple Nhiễm Thừa Nghiệp (nhiem_thua_nghiep) resents her for it. He tells everyone he does not want the Seal.",
-   "wants": "The Seal. He has wanted it for a century and is ashamed of wanting it.",
-   "secret": "In 1197 he asked the envoy Mâu Tri Viễn to learn whether the great sects would confirm him over Doãn Hi Hòa. It is the nearest thing to treason the Pivot's rules allow, and Mâu has never told him the answer.",
+   "backstory": "Công Tôn Duẫn is the son of a harbour pilot of Tinh Hán Thành, the Pivot's port built on the old sea-serpent's bones (C067). Doãn Ngọc Hành (doan_ngoc_hanh) took him as a disciple in 1024, long before he was head, and Công Tôn formed his core in 1112 holding the Plumb Line his master gave him. For fifty years he has run the seat: its stores, its rosters, its quarrels. He is fair in the seat's daily business, liked by the elders and trusted by the vassals. Everyone assumes he will be the next head except the head, who took a five-year-old girl from Thạch Kiều as his disciple in 1135 (A217) and in 1190 named her heir aloud. Công Tôn trains her in the sword himself, and his own disciple Nhiễm Thừa Nghiệp (nhiem_thua_nghiep) resents her for it. He tells everyone he does not want the Seal.",
+   "wants": "The Seal. He has wanted it for a century and has stopped being ashamed of it.",
+   "secret": "In 1197 he asked the envoy Mâu Tri Viễn to sound the great sects on the named heir, and Mâu has never shown him the answers. The courier Phó Dịch Lam, who carried the replies home, told him which four sects' envoys kept her waiting a month. Now she carries his own letters to those four witness-houses at Thạch Kiều under Mâu's seal, asking whether they would confirm him instead. Each letter says what the seat's night-watch book says, that Doãn Hi Hòa goes into the war-writ office at night, and what she tells him on the training floor, that she agrees with every writ. As steward he keeps that book.",
    "ties": [
     {
      "to": "doan_ngoc_hanh",
@@ -1234,7 +1234,7 @@
     {
      "to": "doan_hi_hoa",
      "kind": "rival",
-     "note": "he trains her, likes her, and would be head instead of her"
+     "note": "he trains her, likes her, and is telling four sects that she wants a war"
     },
     {
      "to": "mau_tri_vien",
@@ -1255,6 +1255,11 @@
      "to": "ninh_tich_danh",
      "kind": "disciple",
      "note": "keeper of the seat's rosters under the seat steward"
+    },
+    {
+     "to": "pho_dich_lam",
+     "kind": "debt",
+     "note": "Mâu's courier, who carries his letters under Mâu's seal; he owes her the hall's road office"
     }
    ],
    "master": "doan_ngoc_hanh",
@@ -1321,7 +1326,7 @@
    "rank": "noi_mon",
    "home": 5,
    "birthplace": 81,
-   "role": "The head's disciple and presumed heir, age 70",
+   "role": "The head's disciple, named heir aloud in 1190 and not yet confirmed, age 70",
    "tier": "A",
    "root": {
     "elements": {
@@ -1364,14 +1369,14 @@
     "gained": []
    },
    "appearance": "Tall and quick, sun-browned, hair tied up with a gold cord; she is always the first on the training floor and the last to leave.",
-   "backstory": "Doãn Hi Hòa was born in Thạch Kiều Thành at sunrise (A217), a descendant, seven generations down, of the head's younger brother, in the house where the Doãn have kept the bridge ledgers since before the Compact. Doãn Ngọc Hành (doan_ngoc_hanh) took her as his disciple at five and gave her the founder's method at ten, which no child had been given before. The seat calls her the presumed heir because he has never said she is not. She knows what it also says: that a Trúc Cơ of seventy has been put over a Kết Đan of a century's service because she is family. She means to prove it wrong by being better, and has not yet learned that the Pivot does not reward speed. She trains the sword with Công Tôn Duẫn (cong_ton_duan), the man the elders want instead of her, and likes him, which makes it worse. In 1158, at twenty-eight, she watched her master break Thính Vũ at Đan Sơn Mạch from a hill (C190), and she has wanted a war of her own since. Her niece Doãn Thường Hi (doan_thuong_hi) has just come up to the outer gate.",
-   "wants": "To form her core before she is ninety, and to be named heir in words, once.",
+   "backstory": "Doãn Hi Hòa was born in Thạch Kiều Thành at sunrise (A217), a descendant, seven generations down, of the head's younger brother, in the house where the Doãn have kept the bridge ledgers since before the Compact. Doãn Ngọc Hành (doan_ngoc_hanh) took her as his disciple at five and gave her the founder's method at ten, which no child had been given before. In 1190 he named her his heir aloud at the Compact-day table, before the elders had been asked. She knows what it also says: that a Trúc Cơ of seventy has been put over a Kết Đan of a century's service because she is family. She means to prove it wrong by being better, and has not yet learned that the Pivot does not reward speed. She trains the sword with Công Tôn Duẫn (cong_ton_duan), the man the elders wanted instead of her, and likes him, which makes it worse. In 1158, at twenty-eight, she watched her master break Thính Vũ at Đan Sơn Mạch from a hill (C190), and she has wanted a war of her own since. Her niece Doãn Thường Hi (doan_thuong_hi) has just come up to the outer gate.",
+   "wants": "To be confirmed before the seven seals at Thạch Kiều, and to form her core before she is ninety.",
    "secret": "Nhiếp Minh Tiễn lets her into the war-writ office at night. She has read every one of Ngũ Trấn Bắc's yearly writs against Thính Vũ, and she agrees with them.",
    "ties": [
     {
      "to": "doan_ngoc_hanh",
      "kind": "master",
-     "note": "her master since she was five"
+     "note": "her master since she was five, who named her heir in 1190"
     },
     {
      "to": "doan_ngoc_hanh",
@@ -1381,7 +1386,7 @@
     {
      "to": "cong_ton_duan",
      "kind": "rival",
-     "note": "teaches her the sword; the elders' heir"
+     "note": "teaches her the sword; the elders' man"
     },
     {
      "to": "nhiem_thua_nghiep",
@@ -1457,7 +1462,7 @@
      ],
      "targets_note": "The Pivot's Metal end first (Metal Marrow, Serpent Spear), then her own edge: Metal Root, Keen Edge, Sword Rainbow and Autumn Water Sword; Mountain Hollow, the road's Earth end, comes last, against her master's advice."
     },
-    "note": "The presumed heir: her master's canon at its first layers and an edge she has not learned to sheathe."
+    "note": "The named heir: her master's canon at its first layers and an edge she has not learned to sheathe."
    },
    "items": [
     "tx-dawn-charioteer",
@@ -1808,7 +1813,7 @@
    "born": 560,
    "alive": false,
    "died": 950,
-   "cause": "old age as a hermit (age 390)",
+   "cause": "the miasma he carried off Chiết Kích Nguyên in 803, which ate at his core for 147 years (C023, reworded 2026-11-25)",
    "peak_realm": "ket_dan",
    "sect": "thien_xu",
    "rank": "former_officer",

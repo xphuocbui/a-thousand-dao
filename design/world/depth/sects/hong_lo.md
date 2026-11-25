@@ -39,7 +39,7 @@ now says so.
 - **People.** Wood-rooted members fall outside the lineage. The Satchel Hall's healers (Giải Bách Bộ, Cúc Xa Tiền)
   keep their place as a hired craft under an R2 exception. The head keeps his Wood, which is his parents' Thúy Vi
   blood, and his Fire passes the core rule. Viên Chước and Dương Lô (Băng Tâm's people now) already have exceptions there.
-- **Chronicle.** A024 and A028 stay true. Add N-hong_lo-01 to -06 (below). The 1151 opening of the gate (N-hong_lo-04)
+- **Chronicle.** A024 and A028 stay true. Add N-hong_lo-01 to -06 (below). The 1145 opening of the gate (N-hong_lo-04)
   is the in-world date of the re-lean.
 
 **The ground.** The seat sits at 0.3 km on the north coast of Tuyết Hỏa Giác, between the snowfields and the sea. It is
@@ -72,8 +72,8 @@ Satchel Hall's healers are the only green in the valley.
 | 929 | The island coal dies in a blizzard; the founder goes down into the vent and does not come up | **N-hong_lo-03** |
 | 930-939 | Đồng Hồng Lô becomes master and keeps the furnace lit nine years on snow-cooled vent fire | A028 |
 | 1101 | Thanh Nang Đường's last head dies in seclusion; Giải Bách Bộ brings the healers to the valley | V018 |
-| 1150 | Viên Chước goes to Băng Tâm | **N-hong_lo-05** |
-| 1151 | The gate opens to Water roots; Tần Tuyết Thán writes the Snow Hearth Primer | **N-hong_lo-04** |
+| 1144 | Viên Chước goes to Băng Tâm | **N-hong_lo-05** |
+| 1145 | The gate opens to Water roots; Tần Tuyết Thán writes the Snow Hearth Primer | **N-hong_lo-04** |
 | 1185 | The isles smoke for a month; the boats go out for the ash before the rain | A031 |
 | 1188 | Viên Chước comes back to buy ash and buys the cook's son out of the kitchens | **N-hong_lo-06** |
 
@@ -84,10 +84,10 @@ Satchel Hall's healers are the only green in the valley.
   its master takes no fee."
 - **N-hong_lo-03** (929, `death`): "When the island coal dies in a blizzard, Tiết Thừa Hỏa goes down into the vent below
   the Cockscomb Mine to bring up fire, and does not come up."
-- **N-hong_lo-04** (1151, `custom`): "Đồng Hồng Lô opens Hồng Lô's gate to Water roots, and the first elder writes the
+- **N-hong_lo-04** (1145, `custom`): "Đồng Hồng Lô opens Hồng Lô's gate to Water roots, and the first elder writes the
   Snow Hearth Primer for them in one winter."
-- **N-hong_lo-05** (1150, `tale`): "Băng Tâm Các buys away Hồng Lô's best student, Viên Chước, to brew outside its
-  Array." (The public version. The truth is in section 9.)
+- **N-hong_lo-05** (1144, `tale`): "Băng Tâm Các buys away Hồng Lô's best student, Viên Chước, to brew outside its
+  Array." (The valley knows Đồng sold the contract to cover Viên's dice loss; the bill's ash clause is in section 9.)
 - **N-hong_lo-06** (1188, `tale`): "Viên Chước comes back to Hồng Lô to buy ash, and buys the head cook's son out of
   the kitchens."
 
@@ -111,7 +111,8 @@ Satchel Hall's healers are the only green in the valley.
 - **The dead:** the furnace hall gives its dead to the vent on the first night of snow. The crews give theirs to the
   sea off Kình Cốt Đường's point. The valley has no graves, and the two halls have never agreed which way is better.
 - **Taboos:** letting the furnace cool; selling a one-season pill as a two-season one; carrying dead wood into the
-  Satchel Hall; dice. The last was banned in 1150, and the head has never said why.
+  Satchel Hall; dice. The last was banned in 1144, the year Viên Chước lost the valley's ash money at the tables of
+  Hàn Tân Thành. In the ash rush of 1200 the outside crews brought the dice back, and the head has not closed the table.
 - **Outsiders:** welcome if they bring something to burn. A guest without a gift of fuel sleeps in the snow house.
 - **How others see them:** hot, loud and quick, with pills that work fast and taste of smoke. Thúy Vi calls them harsh.
   The valley calls Thúy Vi's pills bread.
@@ -120,7 +121,7 @@ Satchel Hall's healers are the only green in the valley.
 
 | Rank | Method | Kind | Element | Source |
 |---|---|---|---|---|
-| Outer gate | Snow Hearth Primer (Tuyết Táo Quyết) | main, Yellow | Fire or Water | proposal (Tần Tuyết Thán, 1151) |
+| Outer gate | Snow Hearth Primer (Tuyết Táo Quyết) | main, Yellow | Fire or Water | proposal (Tần Tuyết Thán, 1145) |
 | Inner gate and above | Red Sun Scripture (Xích Nhật Kinh) | main, Profound | Fire | existing (`design/techniques/catalogue-fire.json`) |
 | Boat crews (outer, by leave) | Whale Road Harpoon (Kình Lộ Tiêu Pháp) | secret, Profound | Water | proposal (Kình Cốt Đường's art, V013) |
 | Elders | Water Over Fire Canon (Ký Tế Lô Kinh) | secret, Earth | Fire + Water | proposal, the sect's alchemy |
@@ -128,7 +129,7 @@ Satchel Hall's healers are the only green in the valley.
 
 **Why it fits.** The founder brought only fire, and for 280 years the sect taught the Red Sun Scripture to Fire roots
 and nothing else. The valley kept breeding Water beside the Fire, and the coast bred Water alone. The snow jackets made
-the water part of the craft in 930, and the Water Over Fire Canon made it a method. The Snow Hearth Primer of 1151 let
+the water part of the craft in 930, and the Water Over Fire Canon made it a method. The Snow Hearth Primer of 1145 let
 the coast in at the outer gate. The inner door is still Fire, because the Red Sun Scripture is still the main method, and
 the crews notice. The sect has no Wood method. Its herbs come from the Satchel Hall and Thúy Vi's spirit wood, and its
 weakness is the same as its lord's in reverse: it holds a wild fire easily, and it cannot grow the herbs it brews.
@@ -166,7 +167,8 @@ Members on the lineage: 9 of 11. Two keep the Satchel method under exception (Gi
   sect wants one thing from its lord that it has never been given back: the fire-jade chart sealed in 565 (A022), which
   the founder was lent once.
 - **Băng Tâm Các:** Viên Chước, Hồng Lô's best student, brews for Băng Tâm at Hàn Giao Chử, and the cook's son Dương Lô
-  tends his furnace. In public Đồng calls it theft by Sở Ngọc Hồ. Băng Tâm buys red pills through Viên and pays well.
+  tends his furnace. In public Đồng calls it theft by Sở Ngọc Hồ, and the valley knows he sold the contract himself.
+  Băng Tâm buys red pills through Viên and pays well, and once in ten years it sends for ash.
 - **Tùng Đào Cung:** for 233 years the Cold Ford was Tùng Đào's, east along the coast (C136-C166). The valley brewed the
   wound pills that took it back in 902 (N-hong_lo-02). Tùng Đào's patrol boats still come too close to the cove.
 - **Hộ Lâm Đường:** the Satchel Hall burns spirit wood, and that wood reaches the valley only through Úy's surplus,
@@ -177,29 +179,38 @@ Members on the lineage: 9 of 11. Two keep the Satchel method under exception (Gi
 
 ## 9. Inside the sect
 
-- **Water Over Fire.** Đồng carries the Nine-Year Ember and Tần carries the Snow-Melt Gourd. The valley says the next
-  head is whoever wears both, which would make the set whole. Tần is the canon's author and the crews' elder. Ngụy Đan
-  Chu is the head's true disciple and the old Red Sun way. Đồng will not name an heir until he has tried for Nguyên Anh,
-  and at 440 he has about sixty years left.
-- **The ledger.** In 1150 Viên Chước lost the sect's year of ash money at the gaming tables of Hàn Tân Thành. Đồng sold
-  his contract to Sở Ngọc Hồ to cover it and called it theft. That week the ash ledger shows a payment from Băng Tâm, and
-  Tần keeps the ledger. Dice were banned the same year. That night the ember on the head's belt went out for the first
-  time, and the vent warden Phòng Tẫn Thủ relit it before dawn without asking.
-- **The inner door.** The gate opened to Water in 1151, but the furnace hall's door did not. The crews want a Water
-  root made an inner disciple. Tần wants it too, and she knows it would need a new main method. Ngụy says that would be
-  the end of the Red Furnace.
+- **The ash rush.** The isles have smoked since the thaw, as they did in 1185 (A031), and this time they are raining
+  ash for a whole season. A boatload of ash is a year's pills. Both boats go out in every calm week, the coast villages
+  row out in anything that floats, and outside boats from Hàn Tân Thành crowd the cove. At the ash count Tần Tuyết Thán
+  weighs the sacks across the furnace scale and says aloud that the last man who held the ash money sold his best
+  student for it.
+- **Dice again.** The outside crews brought the dice back, and Ngụy Đan Chu keeps the table in the snow house. He takes
+  a coal's weight of every pot for the furnace hall, and he lends the outer boys their stakes against their ash
+  shares. Lại Tiểu Thán, sixteen and in the valley since the spring, owes him two seasons. Viên Chước sits at the table
+  with the Pavilion's purse.
+- **The bill.** The valley knows Đồng sold Viên's contract to Sở Ngọc Hồ in 1144 to cover the dice loss, and calls it
+  theft anyway. It does not know the bill under Đồng's seal carries a clause: one boat of ash at the 1144 price in
+  every ten years, which is what made Sở's price high enough. Viên came south with the bill and reached the valley in
+  the first month of the rain, and this time the Keeper wants a whole boat. Đồng is making up the difference to the ash
+  count from the fire jade he saved for his Nascent Soul pill, and Phòng Tẫn Thủ sells it to the outside crews.
+- **The reef wreck.** In 1185, through the clear water of the smoking year, Nghiêu Vọng Kình saw his great-grandfather's
+  boat on the warm reef off Kình Cốt point, where the vent keeps it from the ice. Nghiêu Phá Lãng was carrying the
+  hall's fire jade home when he turned after the whale in 884, and the hull is still full of it. Nghiêu has sworn to
+  raise it. The head will not spare a boat in a rush season, so he means to hire an outside crew with his share. His
+  daughter Nghiêu Lãng Hoa will not row him there: she wants the season's ash.
+- **The inner door.** The gate opened to Water in 1145, but the furnace hall's door did not. The crews want a Water
+  root made an inner disciple. Tần wants it too, and it needs a Water main method: she is writing one, and her own
+  share of this season's ash is paying for its test batches. Ngụy says that would be the end of the Red Furnace.
 - **The Satchel Hall's place.** Under the re-lean the healers are a hired craft, not members. Giải Bách Bộ has
   about sixty years left and one apprentice. If the head's renewal ever fails, Dư Tục Đoạn
   has a door open for them at Thúy Vi's Healing House.
-- **The vow.** Nghiêu Vọng Kình has sworn to find the spirit whale that took his great-grandfather in 884. Spirit
-  whales live a long time.
 
 ## 10. Treasures and sets
 
 - **Water Over Fire (Thủy Hỏa Ký Tế)**, now three: the Nine-Year Ember (the head's censer, a coal from the Red Furnace
-  carried since 930), the Coal-Carrier's Ring (the founder's gift to Đồng, 772) and the Snow-Melt Gourd (Tần's, 1151).
-  Split between the head and the first elder, and the valley reads the succession in it. Full set: Burn holds while
-  you heal, and each heal turns a Burn stack into steam.
+  carried since 930), the Coal-Carrier's Ring (the founder's gift to Đồng, 772) and the Snow-Melt Gourd (Tần's, 1145).
+  Split between the head and the first elder. Full set: Burn holds while you heal, and each heal turns a Burn stack
+  into steam.
 - **Snow Hearth (Tuyết Lô Song Bảo)**, Tần Tuyết Thán (worn beside the Snow-Melt Gourd): the First Snow Jacket, Steam
   Censer. Full set: pills act a second sooner, and steam arts heal her for each Burn stack they spend.
 - **The Whale Road Spear**, Kình Cốt Đường's harpoon of spirit-whale rib, the boat captain's since 885.
@@ -232,24 +243,24 @@ Kept from elsewhere: **Viên Chước** (`vien_chuoc`) and **Dương Lô** (`duo
 
 ## 12. Story hooks
 
-1. **Who wears both.** Đồng tries for Nguyên Anh over the Red Furnace. If he fails, the Nine-Year Ember goes to
-   whoever he named, and the valley has not been told who that is. Tần, Ngụy and the crews each ask the player to carry
-   word, a pill or a vote. (Đồng Hồng Lô, Tần Tuyết Thán, Ngụy Đan Chu, Nghiêu Vọng Kình; place 9.)
-2. **The 1150 ledger.** A page of the ash ledger shows a Băng Tâm payment the week Viên left. Whoever holds it can
-   shame the head, buy Tần the succession, or give Viên his name back. Viên would pay for it, and so would Sở Ngọc Hồ.
-   (Tần Tuyết Thán, Đồng Hồng Lô, Viên Chước, Sở Ngọc Hồ; places 9, 31, 239.)
-3. **The whale road.** A spirit whale is sighted off Kình Cốt Đường's point for the first time since 884. Nghiêu Vọng
-   Kình takes both boats out, against the head's order, and needs a harpoon hand. (Nghiêu Vọng Kình, Nghiêu Lãng Hoa;
-   places 1092, 1030.)
+1. **The Nascent Soul.** Đồng tries for Nguyên Anh over the Red Furnace with less fire jade than he saved. The player
+   can find him jade, buy what Phòng Tẫn Thủ is selling, or tell the valley why the head is short. (Đồng Hồng Lô, Phòng
+   Tẫn Thủ, Tần Tuyết Thán; place 9.)
+2. **The Keeper's boat.** Viên Chước's boat of ash must be loaded before the rain stops and carted north, sixteen
+   months on the road to Hàn Giao Chử. The crews think he pays the season's price. A player who loads it, or sits at
+   the snow-house table with him, learns otherwise. (Viên Chước, Đồng Hồng Lô, Nghiêu Vọng Kình; places 9, 239.)
+3. **The reef wreck.** Nghiêu Vọng Kình hires an outside crew to raise his great-grandfather's boat from the warm reef
+   off Kình Cốt point. The vent water scalds, the hull is full of fire jade, and the outside crew has heard so. (Nghiêu
+   Vọng Kình, Nghiêu Lãng Hoa; places 1092, 1030.)
 4. **The sealed chart.** Nghiêu Lãng Hoa wants to sail to the fire-jade island, and Diêm Hải Tảo of Thúy Vi's port house
    wants a crew she can trust. The chart has been sealed since 565, and Thúy Vi has never said why. (Nghiêu Lãng Hoa,
    Diêm Hải Tảo, Đồng Hồng Lô; places 9, 30, 210.)
 5. **The founder's journal.** Its last pages, about Cung Hỏa Vân's fire and the vents, point toward a hidden abode on
    the cape. Ngụy Đan Chu wants the old fire for the old way. (Ngụy Đan Chu, Tiết Thừa Hỏa's journal; abode A-4, places
    264, 1080.)
-6. **The isles smoke again.** The volcanic isles begin to smoke as they did in 1185 (A031). The ash is worth a year's
-   pills, it has to be gathered before the rain, and this time the sea is boiling. (Nghiêu Vọng Kình, Tần Tuyết Thán,
-   Lại Tiểu Thán; the isles, place 210.)
+6. **The boiling sea.** At the end of the ash rain the sea round the isles begins to boil. The last boat out carries
+   the most ash, and Lại Tiểu Thán has to be on it to pay Ngụy Đan Chu. (Lại Tiểu Thán, Ngụy Đan Chu, Nghiêu Vọng Kình;
+   the isles, place 210.)
 7. **The Purple Smoke Furnace.** Đồng and Úy Thanh Diễm both want Cao Đan Hà's furnace from her abode (A-2), each to brew a
    Nascent Soul pill. Úy has his. Đồng has sixty years. (Đồng Hồng Lô, Úy Thanh Diễm; abode A-2.)
 8. **The Satchel Hall's door.** A rumour that the re-lean ends the healers' place sends Dư Tục Đoạn to the valley with

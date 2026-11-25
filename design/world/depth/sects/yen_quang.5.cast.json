@@ -275,7 +275,8 @@
     "calling": "Alchemist",
     "upbringing": "village_born"
    },
-   "backstory": "A Sơn Trà tea-picker's son who took the herb name Tri Mẫu and grinds the miasma-root Tào Mộ Tử (tao_mo_tu) takes in payment; from the weights he has worked out what Khổng Ích Mẫu (khong_ich_mau) only suspects about the doses.",
+   "backstory": "A Sơn Trà tea-picker's son who took the herb name Tri Mẫu and grinds the miasma-root Tào Mộ Tử (tao_mo_tu) takes in payment; he weighs out the head's weekly dose of the antidote, a little heavier each week.",
+   "changed": "fix pass B 2026-11-25 (fixB-5): no longer 'worked out'; weighs the head's weekly dose",
    "ties": [
     {
      "to": "tao_mo_tu",

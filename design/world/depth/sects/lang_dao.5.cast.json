@@ -33,7 +33,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "A Hoành Độ crossing-keeper's son who has stamped passes at the gate-house since the rebuilding of 1175 and fines his own cousins; he says a pass is Giang Cửu Khúc's (giang_cuu_khuc) word, and he has never stamped one the fleet could not honour.",
+   "backstory": "A Hoành Độ crossing-keeper's son who has stamped passes at the gate-house since the rebuilding of 1175 and fines his own cousins; he says a pass is Giang Cửu Khúc's (giang_cuu_khuc) word, and since this spring he has stamped the Ngư Ca passes for Lạc Hà's hulls at no charge on Thương Bạch Phàm's (thuong_bach_pham) order and written the order into the toll book in her name.",
    "ties": [
     {
      "to": "giang_cuu_khuc",
@@ -44,6 +44,11 @@
      "to": "to_lenh_chu",
      "kind": "disciple",
      "note": ""
+    },
+    {
+     "to": "thuong_bach_pham",
+     "kind": "friend",
+     "note": "the boat-mistress whose free-crossing order he writes in the book in her name"
     }
    ],
    "master": "giang_cuu_khuc",

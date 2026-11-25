@@ -138,17 +138,23 @@ been fragments since 1060, held by Kha Triêu Phi.
 
 ## 9. Inside the sect
 
-- **The two lines.** The founders were a dawn painter and a dusk painter, and Dao partners. The dawn line (Châu, Ninh,
-  Lý, Văn) holds the hall. The dusk line (Kha, Đới, Trác) holds the lord's accounts and the fragments of the founders'
-  second half. The hall-mistress wants an heir who can hold both. Kha wants to be that heir himself.
-- **Who knew.** Kha Triêu Phi knew in 1173 what the fire talismans were for, and wrote "reed beds" on the slip so that
-  Châu would paint them. He also knows about the lost war orders. If Châu names Lý Khê Thư heir, he will give Lạc Hà's
-  Vassal Hall a list of the orders.
+- **The dark ink.** **Đới Huyền Nghiên**'s ink from the Jade Milk spring holds longer and stains darker every year, and
+  its talismans are the best the hall sells. Everyone at the hall knows what it is. In 1097 **Châu Phi Vân**, not
+  yet mistress, gave Sào Ẩn Lan a year's stones and sent her up the karst for the same darkening. Now Đới
+  paints at night in the ink-house at the spring, where the dark takes best, and the hall pays him by the sheet. **Hàn
+  Tiểu Chúc**, who carries the ink down, paints his own village's stern-lamp charms with it because they hold three
+  times as long, and his hands are grey to the wrist.
+- **The war chest.** Châu has painted no fire talisman since Đào Sa, and four of Lạc Hà's war orders have been "lost".
+  The hall is the least loyal of the eight, and its lord's orders must be met. This year Châu fills them with Đới's
+  sheets and does not ask what they are for. It is the taboo she wrote after 1173, broken with open eyes. She sets the
+  count each season and has raised it twice since spring. **Văn Tang Chỉ** knows it by the reams he sends up from the
+  mill.
+- **Who knew.** **Kha Triêu Phi** knew in 1173 what the fire talismans were for, and wrote "reed beds" on the slip so
+  that Châu would paint them. He keeps a record of the four lost orders, copied by his scribe Doanh Mộ Vũ, and has told
+  Châu that a fifth sends it to Lạc Hà's Vassal Hall. He would keep the hall for its lord after her. The dark sheets
+  keep the record in his drawer.
 - **The wards on the river.** Châu's yearly gift to Lãng Đào would read in Lạc Hà as treason and in the hall as
   penance. No one at the hall knows but her and Văn Tang Chỉ, who makes the paper.
-- **The dark ink.** Đới Huyền Nghiên's ink holds longer every year and stains darker. The talismans painted with it are
-  the best the hall sells. The karst's Darkness has woken in him, and his ink may be teaching it to everyone who
-  paints with it.
 - **The seal.** Ninh Họa Vân lost the prize seal in 1190 and wants it back from Tô Mộ Vân at the next contest. Kha has
   promised her a rematch. The mistress would rather teach the winner than beat her.
 
@@ -190,16 +196,19 @@ Water is why she is the one scribe at the hall who could learn the dusk half if 
 1. **The dusk half.** Ôn Châu Liêm died at Châu Liêm Trấn (514) in 1060. His house, his curtains and perhaps his
    paintings of the western hills' rain are still there. Whoever finds them can complete the founders' art, and Châu
    and Kha both want them. (Châu, Kha, Lý Khê Thư; place 514.)
-2. **The list of lost orders.** Kha Triêu Phi threatens, or is tempted, to give Lạc Hà's Vassal Hall the list. Hách Ánh
-   Hà would rather not receive it. (Kha, Châu, Hách; places 21, 558.)
-3. **Wards on the river.** A Lãng Đào ferry survives a Tùng Đào-Lạc Hà skirmish because of a ward with no stamp. Lạc Hà's
-   Boat Hall wants to know who painted it. (Châu, Văn Tang Chỉ, Lô Xướng Vãn, Giang Cửu Khúc; Ngư Ca border.)
+2. **The list of lost orders.** A war order goes missing on the road from the spring, and Kha Triêu Phi takes the list
+   to Lạc Hà's Vassal Hall. Hách Ánh Hà, whom Nam Phố owes a favour, would rather not receive it. (Kha, Châu, Hách,
+   Doanh Mộ Vũ; places 21, 249, 558.)
+3. **Wards on the river.** A Lãng Đào ferry survives a Tùng Đào-Lạc Hà skirmish because of a ward with no stamp. Lạc
+   Hà's Boat Hall wants to know who painted it. (Châu, Văn Tang Chỉ, Lô Xướng Vãn, Giang Cửu Khúc; Ngư Ca border.)
 4. **The rematch.** The next Hạc Đinh Thị contest. Ninh Họa Vân against Tô Mộ Vân, with Kha's dark-ink talismans in her
    sleeve. (Ninh, Kha, Đới, Tô Mộ Vân; place 51.)
-5. **The dark ink.** Talismans painted with Đới Huyền Nghiên's ink start to curse the people they were sold to protect.
-   The player traces it to the Jade Milk spring. (Đới, Hàn Tiểu Chúc, Châu; place 249.)
-6. **Placement Day.** Tạ Quy Yến is placed this spring. Châu asked for him, but Kha would rather he went anywhere else,
-   because the boy is good enough to be heir. His cousin Tạ Quy Hồng is torn. (Tạ Quy Yến, Tạ Quy Hồng, Châu, Kha;
-   places 4, 21.)
+5. **The dark ink.** Talismans painted with Đới Huyền Nghiên's ink start to curse the people they were sold to protect:
+   Lạc Hà's soldiers, and the boats of Vãn Đăng. The player traces it to the Jade Milk spring. (Đới, Hàn Tiểu Chúc,
+   Châu; places 249, 555.)
+6. **Placement Day.** Tạ Quy Yến is placed this spring. Châu asked for him, and Hách Ánh Hà kept him off Lạc Hà's
+   thirty contracts for her. Now Hách wants the favour paid in war orders filled first. Kha would rather the boy went
+   anywhere else: one more good dawn hand makes the dusk line smaller. His cousin Tạ Quy Hồng is torn. (Tạ Quy Yến, Tạ
+   Quy Hồng, Châu, Kha, Hách; places 4, 21.)
 7. **Reed beds.** Someone at Thủy Khẩu remembers what the reed beds were really cleared for in 1173. The player learns
    Kha wrote the slip. (Kha, Châu, Vi Lan Châu; place 139.)

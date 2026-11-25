@@ -142,7 +142,7 @@
     {
      "to": "gian_van_lo",
      "kind": "enemy",
-     "note": "the map-seller who sold her an invented mountain for her master's abode in 1171"
+     "note": "the map-seller who sold her an invented mountain for her master's abode in 1176"
     },
     {
      "to": "mac_than_nuong",
@@ -347,7 +347,7 @@
     "gained": []
    },
    "appearance": "A stooped, clean old man in a pedlar's grey coat, a black lamp on a pole over his shoulder and a cracked hand bell at his belt that never rings.",
-   "backstory": "Hám Tàn Chung was born in 975 in Đồng Sơn Trấn, where everyone cast bells, and his father cast the cracked one he still carries. When the copper seam gave out (V017) the town starved slowly. Hám, a Trúc Cơ by then with a Metal root and nothing left to cast, sat with the old who could not leave. A wandering monk had once taught him the Hollow Bell Canon, and he found that a breath drawn into a bell at the right moment stays there. He meant it as a kindness: the bell-casters would ring once more. By 1100 he held forty breaths and had learned what one is worth to a cultivator at a breakthrough. He walks the poor roads now with a pedlar's lamp. He buys last breaths from the dying for their debts or their children's school fees, and writes every one in his ledger, the name and the price. He sells the threads at the Night Rain Market through Kiều Mãn Lâu (kieu_man_lau), and to buyers who would hang him. In 1150 the Tower offered him a guest seat, and he would not let it light a lamp for him. Lý Hận Bích (ly_han_bich) has sworn to break his bells since he took a singer from the graves of Lôi Trạch.",
+   "backstory": "Hám Tàn Chung was born in 975 in Đồng Sơn Trấn, where everyone cast bells, and his father cast the cracked one he still carries. When the copper seam gave out (V017) the town starved slowly. Hám, a Trúc Cơ by then with a Metal root and nothing left to cast, sat with the old who could not leave. A wandering monk had once taught him the Hollow Bell Canon, and he found that a breath drawn into a bell at the right moment stays there. He meant it as a kindness: the bell-casters would ring once more. By 1100 he held forty breaths and had learned what one is worth to a cultivator at a breakthrough. He walks the poor roads now with a pedlar's lamp. He buys last breaths from the dying for their debts or their children's school fees, and writes every one in his ledger, the name and the price. He sells the threads at the Night Rain Market through Kiều Mãn Lâu (kieu_man_lau), and to buyers who would hang him. In 1138 the Tower offered him a guest seat, and he would not let it light a lamp for him. Lý Hận Bích (ly_han_bich) has sworn to break his bells since he took a singer from the graves of Lôi Trạch.",
    "wants": "To keep the ledger honest: every breath paid for, every price written down, no one taken who did not sell.",
    "secret": "Lạc Đan Thanh buys a thread a year from him for the breakthrough pills he sells to cultivators who have already failed once, and pays in silence. And the cracked bell holds his mother's breath, which he took in 1097 without asking her, the one entry missing from the ledger.",
    "ties": [
@@ -497,7 +497,7 @@
    "appearance": "A thin woman with ink-grey fingertips and a pale stone at her throat, who speaks very softly, as if someone in the next room were asleep.",
    "backstory": "Sào Ẩn Lan was a mushroom-picker's daughter of Hầu Đầu Thôn who went down to Nam Phố Đường's outer gate at sixteen on her Water, and ground ink at the Jade Milk spring for thirty years. Her talismans began to come out darker, as Đới Huyền Nghiên's (doi_huyen_nghien) do now, and in 1097 one of them put the hall's copyist to sleep for three days. Châu Phi Vân (chau_phi_van), not yet hall-mistress, did not report her to Lạc Hà. She gave her a year's stones and told her to go up the karst and not come down. In the sunken market of Hãm Thạch Trấn (V105) Sào found a stone an orchid had grown on in the dark, and with it a few nights' breath that cost no one anything. It did not last. Darkness grows by taking. Since 1101 the karst children whose Darkness wakes have come up to her in U Lan Cốc, because no sect takes a Darkness root and the villages say the gorge breathes. She keeps eleven now, five of them cultivators. She wrote them a primer and left out the fourth layer, and they teach it to each other.",
    "wants": "A Darkness method that does not take, found before her children need one.",
-   "secret": "Most nights she drinks from Hầu Đầu Thôn, her own village, so that the children need not, and her brother's grandchildren wake tired. In 1193 Ngư Mộng Tê drank a raftsman of Phóng Mộc Thôn dry, and Sào buried him in the gorge.",
+   "secret": "Most nights she drinks from Hầu Đầu Thôn, her own village, so that the children need not, and her brother's grandchildren wake tired. In 1193 Ngư Mộng Tê drank a raftsman of Phóng Mộc Thôn dry, and Sào buried him in the gorge. This year Đới Huyền Nghiên answered her letter at last: the hall pays him by the sheet to paint Lạc Hà's war orders in the dark ink, and he asks whether the gorge has room for one more.",
    "ties": [
     {
      "to": "chau_phi_van",
@@ -512,7 +512,7 @@
     {
      "to": "doi_huyen_nghien",
      "kind": "friend",
-     "note": "the next one; she has written to him once, and he has not answered"
+     "note": "the next one; this year he answered her letter, and asked if the gorge has room"
     },
     {
      "to": "ngu_mong_te",
@@ -603,7 +603,7 @@
    "rank": "",
    "home": 695,
    "birthplace": 702,
-   "role": "The last of the Hắc Phong rogues: a blood duelist on Hắc Ưng Phong, in the Pivot's own mountains",
+   "role": "A Hắc Phong stockade boy who fled north with the captain's sabre: a blood duelist on Hắc Ưng Phong",
    "tier": "B",
    "root": {
     "elements": {

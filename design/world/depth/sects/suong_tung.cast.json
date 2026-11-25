@@ -55,9 +55,9 @@
     "gained": []
    },
    "appearance": "A quiet, round-shouldered man with ink to the second knuckle, who carries a paper lantern in daylight out of habit.",
-   "backstory": "Văn Hàn Đăng was born in 1100 over his father's lantern shop at Hồ Khẩu Thôn, where the lake meets the river. At sixteen he copied the ward from a pavilion lantern onto one of his father's, and it held the whole winter. The founder Chiêm Thư Sương (chiem_thu_suong) came down from the high pines to see who had done it and took him. He has been head since she died at her desk in 1170. He makes the wards the pines let be written (V007) and hangs four hundred lanterns in the lake villages each winter, more than they pay for. The ice wall that flattened Nghênh Nguyệt Trấn in 1033 (V006) has not come again in any village with his lanterns. The pines' paper-maker Lư Chỉ Mặc (lu_chi_mac) checks every sheet he writes on. Kiều Nguyệt Châu (kieu_nguyet_chau) pays for her bed lanterns in pearl dust, and he grinds it into the paper of his strongest wards.",
-   "wants": "To form a Golden Core so that the pavilion has a master who can teach a Trúc Cơ, and to never have to open the founder's box.",
-   "secret": "The founder left him a sealed box of three ward-scripts. In 1150 she copied, line for line, the wards an old ward-singer of the pines' Array Hall had laid with three songs; she never heard the songs, and he died the next year with them (N-tung_dao-05). Written as wards the scripts were allowed. A reader who knows the Array Hall's chant could sing the songs back from them: the pines' canon, written down.",
+   "backstory": "Văn Hàn Đăng was born in 1100 over his father's lantern shop at Hồ Khẩu Thôn, where the lake meets the river. At sixteen he copied the ward from a pavilion lantern onto one of his father's, and it held the whole winter. The founder Chiêm Thư Sương (chiem_thu_suong) came down from the high pines to see who had done it and took him. He has been head since she died at her desk in 1170. He makes the wards the pines let be written (V007) and hangs four hundred lanterns in the lake villages each winter, more than they pay for. The ice wall that flattened Nghênh Nguyệt Trấn in 1033 (V006) has not come again in any village with his lanterns. The pines' paper-maker Lư Chỉ Mặc (lu_chi_mac) checks every sheet he writes on. Kiều Nguyệt Châu (kieu_nguyet_chau) pays for her bed lanterns in pearl dust, and he grinds it into the paper of his strongest wards. This summer he finished a ward against a wall of ice from Hạng Băng Tường's (hang_bang_tuong) drafts and promised every village on the lake one, though the yards have stock for about sixty.",
+   "wants": "To hang a wall lantern in every village on the lake before the thaw, as he promised, and never to have to open the founder's box.",
+   "secret": "He is teaching Chu Ánh Tuyết to read the founder's hand from her old letters, so that someone can read the sealed box if he dies. In it are three ward-scripts the founder copied in 1135, line for line, from the wards an old ward-singer of the pines' Array Hall laid with three songs; he died the next year with them (N-tung_dao-05). Written as wards the scripts were allowed. A reader who knows the Array Hall's chant could sing the songs back from them: the pines' canon, written down.",
    "ties": [
     {
      "to": "chiem_thu_suong",
@@ -193,7 +193,7 @@
     "gained": []
    },
    "appearance": "A tall woman with resin-stained hands and a birch-bark hat, who can tell a sheet's maker by its smell.",
-   "backstory": "A Hệ Bì Thôn girl from the bark-tying village, taken by the founder Chiêm Thư Sương (chiem_thu_suong) in 1126 for her hands. She has pressed the pavilion's paper ever since and takes it to the palace herself, where Lư Chỉ Mặc (lu_chi_mac) checks it sheet by sheet. She expected to be head in 1170. She is loyal to Văn Hàn Đăng (van_han_dang) and thinks him too soft on the lake villages' debts.",
+   "backstory": "A Hệ Bì Thôn girl from the bark-tying village, taken by the founder Chiêm Thư Sương (chiem_thu_suong) in 1126 for her hands. She has pressed the pavilion's paper ever since and takes it to the palace herself, where Lư Chỉ Mặc (lu_chi_mac) checks it sheet by sheet. She is loyal to Văn Hàn Đăng (van_han_dang) and thinks him too soft on the lake villages' debts. This summer she sold the first forty wall lanterns to Băng Tâm's north-shore villages for silver, through Cao Hàn Chúc (cao_han_chuc), and has not told Văn the count.",
    "ties": [
     {
      "to": "chiem_thu_suong",
@@ -224,6 +224,11 @@
      "to": "thieu_hoa_tam",
      "kind": "friend",
      "note": "keeper of the frost pans in the paper yards: melts the frost that presses the paper"
+    },
+    {
+     "to": "luc_han_chu",
+     "kind": "debt",
+     "note": "the Băng Tâm skiff master whose captains paid her ahead for forty wall lanterns"
     }
    ],
    "master": "chiem_thu_suong",
@@ -303,8 +308,8 @@
    "traits": {
     "personality": [
      "Gregarious",
-     "Brave",
-     "Indulgent"
+     "Indulgent",
+     "Callous"
     ],
     "calling": "Wanderer",
     "upbringing": "village_born",
@@ -313,7 +318,7 @@
     "gained": []
    },
    "appearance": "A long-legged man with a pole of unlit lanterns over his shoulder and a different village's scarf every week.",
-   "backstory": "A Backwater Village fisherman's son who walks the lake's whole shore every autumn with a pole of lanterns, from Hồ Khẩu round to the north shore where Băng Tâm's fishers live, and hangs one in every village whether it can pay or not. The founder Chiêm Thư Sương (chiem_thu_suong) taught him. He knows every headman on the lake and drinks with Quách Bất Trầm (quach_bat_tram) of Hàm Nguyệt.",
+   "backstory": "A Backwater Village fisherman's son who walks the lake's whole shore every autumn with a pole of lanterns, from Hồ Khẩu round to the north shore where Băng Tâm's fishers live, and hangs one in every village whether it can pay or not. This autumn he carries the new wall lanterns: in the villages that owe he takes them down before dawn, hangs last year's in their place, and sells them on to north-shore headmen for a silver apiece. The founder Chiêm Thư Sương (chiem_thu_suong) taught him. He knows every headman on the lake and drinks with Quách Bất Trầm (quach_bat_tram) of Hàm Nguyệt.",
    "ties": [
     {
      "to": "chiem_thu_suong",
@@ -323,7 +328,7 @@
     {
      "to": "hang_bang_tuong",
      "kind": "disciple",
-     "note": ""
+     "note": "walks the lantern road with him; saw him take Tịch Ba's new lantern"
     },
     {
      "to": "cao_han_chuc",
@@ -509,7 +514,7 @@
     "upbringing": "sect_raised",
     "lifestyle": "calligrapher"
    },
-   "backstory": "Born at the pavilion to two of its papermakers, she writes the best plain ward of her generation; Văn Hàn Đăng (van_han_dang) has begun to teach her to read the founder's hand, and has not told her why.",
+   "backstory": "Born at the pavilion to two of its papermakers, she writes the best plain ward of her generation; Văn Hàn Đăng (van_han_dang) is teaching her to read the founder's hand, and has not told her why.",
    "ties": [
     {
      "to": "van_han_dang",
@@ -578,17 +583,22 @@
     "calling": "Formation master",
     "upbringing": "village_born"
    },
-   "backstory": "His grandparents' harbour at Nghênh Nguyệt Trấn was flattened by the ice wall of 1033 (V006); his family has lived at Tịch Ba Thôn since, and he walks the shore with Khổng Dạ Hành (khong_da_hanh) to learn the ward that would stop it.",
+   "backstory": "His grandparents' harbour at Nghênh Nguyệt Trấn was flattened by the ice wall of 1033 (V006), and this summer Văn Hàn Đăng (van_han_dang) made a wall ward from his drafts. On the lantern road he saw Khổng Dạ Hành (khong_da_hanh) take the new lantern from his family's village, Tịch Ba, and he is writing it a ward of his own on Cầu Áp Sương's (cau_ap_suong) spoiled sheets.",
    "ties": [
     {
      "to": "khong_da_hanh",
      "kind": "master",
-     "note": ""
+     "note": "his master on the lantern road; he saw him take Tịch Ba's lantern"
     },
     {
      "to": "lien_bich_phu",
      "kind": "friend",
      "note": "inner disciple of the lantern papers"
+    },
+    {
+     "to": "cau_ap_suong",
+     "kind": "friend",
+     "note": "gives him her spoiled sheets for Tịch Ba's ward"
     }
    ],
    "master": "khong_da_hanh",
@@ -716,7 +726,7 @@
     "calling": "Diplomat",
     "upbringing": "village_born"
    },
-   "backstory": "A Bắc Ngạn Thôn boy who grew up beside Băng Tâm's fishers on the north shore and speaks their dialect; Khổng Dạ Hành (khong_da_hanh) brought him back with the empty lantern pole one autumn.",
+   "backstory": "A Bắc Ngạn Thôn boy who grew up beside Băng Tâm's fishers on the north shore and speaks their dialect; Khổng Dạ Hành (khong_da_hanh) brought him back with the empty lantern pole one autumn. This summer he carried Nhạc Hoa Bì's (nhac_hoa_bi) order for forty wall lanterns to the north-shore headmen, and he carries their silver back on Khổng's road.",
    "ties": [
     {
      "to": "khong_da_hanh",
@@ -862,7 +872,7 @@
      "array_bound"
     ]
    },
-   "backstory": "Raised in the pines' Array Hall, she could not learn a ward by ear as fast as she could write it, which the palace forbade. After the ice wall flattened Nghênh Nguyệt in 1033 (V006) she made the Lantern Ward. In 1060 the head let her found a sworn house in the high pines to write the wards the palace needed (V007). In 1150 she copied the wards an old singer of the Array Hall had laid with three songs she never heard, the year before he died with them (N-tung_dao-05), and sealed the copies in a box for her disciple Văn Hàn Đăng (van_han_dang).",
+   "backstory": "Raised in the pines' Array Hall, she could not learn a ward by ear as fast as she could write it, which the palace forbade. After the ice wall flattened Nghênh Nguyệt in 1033 (V006) she made the Lantern Ward. In 1060 the head let her found a sworn house in the high pines to write the wards the palace needed (V007). In 1135 she copied the wards an old singer of the Array Hall had laid with three songs she never heard, the year before he died with them (N-tung_dao-05), and sealed the copies in a box for her disciple Văn Hàn Đăng (van_han_dang).",
    "ties": [
     {
      "to": "van_han_dang",

@@ -262,7 +262,8 @@
     "calling": "Wanderer",
     "upbringing": "village_born"
    },
-   "backstory": "Lộ Khinh Trần's (lo_khinh_tran) cousin from Tập Trận Khoáng; Cửu Cao's rider came for one boy in 1195, found him gone to the valley, and took the cousin. The two write by the post, and the riders carry the letters unopened.",
+   "backstory": "Lộ Khinh Trần's (lo_khinh_tran) cousin from Tập Trận Khoáng; Cửu Cao's rider came for one boy in 1195, found him gone, and took the cousin. The two write by the post, and the riders carry the letters unopened. The boy's latest, three months on the road, says Phất Y's head holds the founder's robe open for him; Lộ means to carry it to Cừ Vân Lý (cu_van_ly).",
+   "changed": "fixB-apply 2026-11-25: he will be Cừ's way of knowing that the boy is being taught the Step (phat_y hook 6); the letter is still on the post road",
    "ties": [
     {
      "to": "khong_tuong_vu",
@@ -272,7 +273,7 @@
     {
      "to": "lo_khinh_tran",
      "kind": "cousin",
-     "note": ""
+     "note": "they write by the post; he means to carry the letter about the robe to Cừ Vân Lý"
     }
    ],
    "master": "khong_tuong_vu",

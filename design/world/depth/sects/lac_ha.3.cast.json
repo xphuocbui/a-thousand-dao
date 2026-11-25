@@ -413,7 +413,7 @@
     "calling": "Merchant",
     "upbringing": "sect_raised"
    },
-   "backstory": "Tô Mộ Vân's (to_mo_van) younger brother, an ordinary outer disciple who is tired of being asked about his sister.",
+   "backstory": "Tô Mộ Vân's (to_mo_van) younger brother, tired of being asked about his sister. His name is on the envoy's list of thirty for Thiên Bảo Trai, and since he saw it he has stopped practising the primer so that no one can argue he will ever pass: he would rather haul ore in Vật Hoa Thị, where no one has heard of her.",
    "ties": [
     {
      "to": "to_mo_van",
@@ -423,7 +423,7 @@
     {
      "to": "to_binh_chu",
      "kind": "parent",
-     "note": "his father"
+     "note": "his father, who is trying to buy him off the list"
     }
    ],
    "build": {

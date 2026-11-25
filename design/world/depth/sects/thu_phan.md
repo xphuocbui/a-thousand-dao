@@ -11,16 +11,16 @@
 | Kind | Minor sect, vassal of Thính Vũ Lâu (loyalty 65), ma đạo; founded 960 (C197) |
 | Leans | Darkness, Metal → **none** (no-lean, R3): a soul-and-song school that recruits by the ear of the soul (thần hồn) |
 | Lineage elements | none. Song, soul and seal, all element-free |
-| Seat | **stays** on the bamboo hill (place 230), ten tiles (a week up the river) above the graves of Lôi Trạch Thành (221); the outer gate lives at the **Sweepers' Lodge** in the hamlet on the ruin |
+| Seat | **stays** on the bamboo hill (place 230), ten tiles (some 260 km, eighteen days on the road) above the graves of Lôi Trạch Thành (221); the outer gate lives at the **Sweepers' Lodge** in the hamlet on the ruin, and the dark singers at the **Cave Hall** of Thủ Động Trại (852) |
 | Head | Lý Hận Bích, Kết Đan, founder and head since 960 |
 | Size | about 35 members: 11 named living, 1 dead |
-| Way of life | grave-keepers. They sweep the graves of a burned city, sing with its dead in autumn, and ward the graves so the dead stay down |
+| Way of life | grave-keepers. They sweep the graves of a burned city and ward them, and each autumn they sing with its dead and drink what the dead give up; what is left hardens into jade |
 
 A pavilion of mourners on a bamboo hill. Below it lie the graves of Lôi Trạch Thành, the river city of Khải Lôi Môn
 that its own head's tribulation burned in 480. The dead there sing in autumn, as in the old line: *in the autumn graves
 ghosts sing old poems; the blood of the wronged, a thousand years in the earth, turns to jade.* The Pavilion sings with
-them, wards them, and waits for the jade. Its founder heard her first dead at twelve, in a cave on the thunder ridge,
-and she is the only one of them who has the root for it.
+them, drinks what they give, and digs the jade they leave. Its founder heard her first dead at twelve, in a cave on the
+thunder ridge, and only the hunters' children of that ridge share her root.
 
 ## 2. Land and seat
 
@@ -35,20 +35,22 @@ Darkness near them.
 | **No-lean at 230** | any | fits | **the Pavilion's arts are song, soul and seal; its people are the river's Wood and Water children who hear the dead** | **seat** |
 
 **Why no-lean is true.** The founder's Darkness came from one night in a cave on the ridge, not from any teaching, and
-she cannot pass it on. What she teaches is the ear: to hear the dead, sing with them and hold them down. Those arts are
-in the soul-song-seal family and need no element. The lean on the old record was the founder's own root.
+she cannot teach it: it comes with a ridge birth or not at all. What she teaches is the ear: to hear the dead, sing
+with them and hold them down. Those arts are in the soul-song-seal family and need no element. The lean on the old
+record was the founder's own root.
 
 **What it costs.** Nothing on the map: the seat, its art and its routes stay. The sect record changes `leans` to `[]`
-and gains the lineage. The cave at Thủ Động Trại (852) stays the Tower's; the Pavilion keeps a watch there through Ôn
-Tịch Nhai.
+and gains the lineage. The cave at Thủ Động Trại (852) stays the Tower's; the Pavilion keeps its Cave Hall in the
+hunters' village beside it, under Ôn Tịch Nhai.
 
 **How the land shapes its people (R1).** The Pavilion's ground is the river bottom of Kinh Trập Sơn: the bamboo hill
 (230: Wood 48 %), the tribulation-bamboo grove it holds (Kiếp Trúc Lâm 1485: Wood 49 %), the ruin of Lôi Trạch and the
 hamlet on it (221: Wood 39 %, Water 26 %), the fishing village of Mãn Võng (906: Water 32 %), the drummers' ruin at Kích
 Cổ Đường (346: Water 29 %, Wood 28 %) and Song Khê of the twin brooks (158: Wood 45 %). It breeds **Wood** on the hills and
 **Water** by the river. Darkness needs Earth and Water in the root and Darkness in the land, and this land has none. So
-the Pavilion's singers are Wood and Water children with a keen soul. Its only Darkness comes from the cave: the founder,
-and five generations down from her sister, Ôn Tịch Nhai.
+the river singers are Wood and Water children with a keen soul. The Darkness is on the ridge, 63 tiles off: Thủ Động
+Trại holds Darkness 34, and a hunters' child born there with Earth and Water in the root often carries some (R1b). The
+founder is one, and the Cave Hall's two dark singers, Ôn Tịch Nhai and Chử Ẩn Thạch, are the others.
 
 ## 3. History
 
@@ -63,6 +65,7 @@ and five generations down from her sister, Ôn Tịch Nhai.
 | 1000 | The first fleck of grave jade | **N-thu_phan-03** |
 | 1062 | Vũ Linh Đường casts the Bell of the Autumn Graves | (item) |
 | 1110 | Lương Thanh Mộ goes down into the deepest grave to renew the oldest ward | **N-thu_phan-02** |
+| 1185 | Ôn Tịch Nhai opens the Cave Hall in the hunters' village at Thủ Động Trại | |
 | 1190 | The copyist hears the drum in the oldest songs; the head seals his books | **N-thu_phan-04** (hidden) |
 
 **New chronicle proposals:**
@@ -80,15 +83,16 @@ and five generations down from her sister, Ôn Tịch Nhai.
 - **The dead keep what was done to them.** The Pavilion teaches that resentment is memory, not evil. The dead of Lôi
   Trạch were burned by their own head's ambition and their resentment is just. It must not rise, because risen
   resentment walks. It must not be cleansed away either, because then no one remembers. It is held down under a ward
-  until it hardens into jade. A thousand years, says the old line.
+  until it hardens into jade. A thousand years, says the old line. This is what the outer gate is taught; §9 says what
+  the inner gate learns at its first autumn.
 - **We mourn for those no one mourns.** Every member wears undyed hemp mourning for life, as a child does for a parent.
   The Pavilion holds that Lôi Trạch has no one else.
-- **Sweeping.** The outer gate lives at the **Sweepers' Lodge** in the hamlet on the ruin of Lôi Trạch (221), a week down
-  the river from the hill, and sweeps the graves every morning with bamboo brooms, singing the sweeping chant. It is
-  the first lesson and the last. When the head is at the Lodge she still sweeps one grave a day.
-- **The autumn chant.** From the first cold wind to the first frost the graves sing, and the Pavilion comes down the
-  river to the Lodge for the season and goes out every night to sing with them. The Pavilion is busiest then, and most dangerous. The villagers of Ương Ca sing louder at
-  planting to drown it (A314).
+- **Sweeping.** The outer gate lives at the **Sweepers' Lodge** in the hamlet on the ruin of Lôi Trạch (221), eighteen
+  days down the road from the hill, and sweeps the graves every morning with bamboo brooms, singing the sweeping chant.
+  It is the first lesson and the last. When the head is at the Lodge she still sweeps one grave a day.
+- **The autumn chant.** From the first cold wind to the first frost the graves sing. The Pavilion comes down to the
+  Lodge for the season and goes out after dark to sing with them. It is busiest then, and most dangerous. The villagers
+  of Ương Ca sing louder at planting to drown it (A314).
 - **No fire at the graves.** The city burned. No lamp, fire or incense is lit within sight of the graves, which suits a
   vassal of the Night Rain. The Pavilion's own censers are lit on the hill.
 - **Burial.** The Pavilion's own dead are buried at the edge of the old graves, facing the river, so that they can
@@ -109,8 +113,8 @@ and five generations down from her sister, Ôn Tịch Nhai.
 
 **Why it fits.** The Pavilion's work is listening, singing and sealing. The chant trains the soul's ear, the canon sings
 a chorus of the dead against a foe's soul, and the ward holds resentment down until it hardens. None of it draws an
-element, so any child who can hear can learn it. The founder's Darkness and curses (her `tree.start` is Darkness) are
-her own.
+element, so any child who can hear can learn it. The founder's Darkness and curses (her `tree.start` is Darkness)
+belong to a ridge root, and only she and the Cave Hall's two dark singers walk that road.
 
 **Its weaknesses.** Weak at the start of a fight and strong only once the dying begins. No body art,
 no sword, no brewing. A cleansing art undoes its curses.
@@ -123,8 +127,10 @@ no sword, no brewing. A cleansing art undoes its curses.
   wind is taken. Most come from the river villages within hearing. Some walk in from farther off, as Bào Thu Xướng did
   at ten.
 - **Any root.** The Pavilion admits any root and teaches none, so its people look like the river: Wood and Water.
-- **The cave walk.** Every few years Ôn Tịch Nhai brings a hunters' child with Earth and Water in the root down from the
-  ridge, two months on the road (67 tiles), because the founder hopes the Darkness that woke in her will wake in one of them.
+- **The Cave Hall.** The hunters' children of Thủ Động Trại are taken on the ridge, not walked to the graves: the road
+  is 67 tiles, nearly four months. On the night of Kinh Trập Ôn Tịch Nhai shuts a child with Earth and Water in the cave
+  of Khải Lôi's dead, by the hunters' own rule (N-thu_phan-01). If Darkness wakes, the child stays at the Cave Hall. If
+  it does not, the family is paid a fee and the child goes home.
 - **Exceptions:** none needed.
 
 ## 7. Ranks and halls
@@ -135,7 +141,7 @@ no sword, no brewing. A cleansing art undoes its curses.
 | The Sweepers' Lodge (the outer gate), the graves and the autumn chant | the hamlet on the ruin of Lôi Trạch Thành, 221 | Bào Thu Xướng |
 | The jade beds (the wards) | the graves | Thẩm Thổ Bích |
 | The copy room (the songs, the sealed books) | the hill | Cơ Ký Âm |
-| The cave watch | Thủ Động Trại, 852 | Ôn Tịch Nhai |
+| The Cave Hall (the cave watch, the dark singers) | Thủ Động Trại, 852 | Ôn Tịch Nhai |
 | The flute grove | Kiếp Trúc Lâm, 1485 | Nhan Thu Mặc |
 | The village | Mãn Võng Thôn, 906 | the fishers |
 
@@ -150,9 +156,9 @@ no sword, no brewing. A cleansing art undoes its curses.
 - **Khải Lôi Môn (fallen 480):** the Pavilion's dead. Hầu Xuân Lôi's name is not spoken at the graves. The Hầu family of
   Tử Tinh Khoáng, who keep a drumstick they say was his, are not welcome on the hill.
 - **Fellow vassals:**
-  - **Cốc Vũ Quán** (Dương Hảo Vũ): rivals of a gentle kind. The abbess and the founder were born the same year. The
-    abbess prays for the dead to rest, and her farmers at Ương Ca sing louder at planting to drown the graves. She sends
-    the singing master rice every autumn and asks him to sing more softly.
+  - **Cốc Vũ Quán** (Dương Hảo Vũ): rivals. The abbess and the founder were born the same year. The abbess says the
+    singing is suffering, and she is right (§9). Her farmers at Ương Ca sing louder at planting to drown the graves. Her
+    rice comes every autumn, and it is a price, not a gift.
   - **Hồng Đậu Trang** (Nghê Hồng Đậu): friends and trading partners, the two ma đạo houses of the south. Red beans for
     the graves, grave-earth for the bean garden.
   - **Vũ Linh Đường** (Ân Thanh Linh): cast the head's bell in 1062, from bronze laid a year in the oldest grave.
@@ -161,15 +167,33 @@ no sword, no brewing. A cleansing art undoes its curses.
 
 ## 9. Inside the sect
 
+- **What the singing takes.** The inner gate learns at its first autumn what the canon is. The singers sing with the
+  chorus and drink the resentment it gives up, and every Thu Phần art draws its strength from that. A grave sung long
+  enough falls quiet, and what is left under the ward hardens. "Hold them down until jade" is a harvest, and the jade
+  is the husk. **Lý Hận Bích** keeps the oldest graves singing because they give the most. The river brings its drowned
+  down to the mouth, and the hamlet has its unclaimed dead. The sweepers bury them with the chant, and the head has them
+  laid in the jade beds, not at the edge.
+- **The stone.** A thousand years is too slow for **Thẩm Thổ Bích**. For three autumns **Tiết Ấn Sương** laid a forcing
+  seal over one of the oldest graves by the river, and Thẩm sang it dry inside the chant. It gave out on the last
+  night of last autumn, after the singers had gone up, and at midsummer she dug a ripe stone out of it. **Kiều Mãn
+  Lâu**'s man is carrying it to Thu Trì in a fish basket, ten weeks on the road, for the pills that would make her
+  Kết Đan; Tiết's fifth comes back with them. It was a drum grave, and **Cơ Ký Âm** will hear the hole in the oldest
+  song at the first cold wind.
 - **The sealed books.** Cơ Ký Âm has written down what the oldest graves sing: passages of Khải Lôi's canon, chanted by
   the city's dead as their head chanted it under his tribulation. The head sealed the books in the ward in 1190. Thẩm
   Thổ Bích thinks they should have been sold. Cơ thinks they should be read. And Cơ kept a second copy in his robe.
-- **The voice in the chorus.** Since 1110 the Pavilion has heard a new voice in the autumn chant. Bào Thu Xướng listens
-  for it every year. If the oldest ward fails again, someone must go down as Lương Thanh Mộ did.
-- **Succession.** The head has 130 years left and no Darkness to hand on. Her true disciple wants the ward and the jade
-  beds. Her copyist has her trust. Neither can hear the dead the way she does.
-- **The jade.** In two hundred years the beds have given up flecks. The head wants a whole stone before she dies. A
-  ripe stone of grave jade would be worth more than the Pavilion, and the Night Rain Market would sell it.
+- **The voice in the chorus.** Since 1110 the Pavilion has heard a new voice in the autumn chant. **Bào Thu Xướng**
+  listens for it every year, and he sings Lương Thanh Mộ's grave last and lightly, so that it gives her up slowly. If
+  the oldest ward fails again, someone must go down as she did.
+- **The abbess's rice.** Cốc Vũ's abbess **Dương Hảo Vũ** stood at the graves in 1093 and felt the chorus drawn up the
+  way her own rite draws the forest's breath. Since then her autumn rice has been a price: a sack for each drowned
+  stranger, so that he is laid at the edge to rest. Bào Thu Xướng takes it, writes back that they rest, and lays them in
+  the jade beds as the head orders. The rice buys the censers on the hill.
+- **The Cave Hall.** Since 1185 the Pavilion has kept a hall in the hunters' village at Thủ Động Trại, nearly four
+  months up the road from the graves. **Ôn Tịch Nhai** shuts the likeliest hunters' child in the cave of Khải Lôi's dead
+  each Kinh Trập, as the founder was shut in at twelve. Most come out with nothing and are sent home with a fee. **Chử
+  Ẩn Thạch** came out singing. The two of them, Darkness 46 and 47, sing the cave's dead as the river singers sing the
+  graves, and drink them faster than any river singer can.
 
 ## 10. Treasures and sets
 
@@ -181,7 +205,7 @@ no sword, no brewing. A cleansing art undoes its curses.
 - **The copybooks**: not an item, but the most valuable thing on the hill.
 - **Personal sets (2026-11-25)**, for the living tier A members (rules-proposals R7; details in `thu_phan.items.json`). A member who already wears two pieces of a sect set above keeps that set:
   - **The Autumn Graves (Thu Phần Tam Bảo)**, `tp-autumn-graves`, Lý Hận Bích's own set of 3: Bell of the Autumn Graves (`tp-autumn-grave-bell`), Seal of the Jade of Resentment (`tp-resentment-jade-seal`), Robe of the Barred Door (`tp-barred-door-robe`). Full set: each curse adds a Resentment mark, and at seven the jade seal locks a layer and deals soul damage.
-  - **The Second Copy (Phó Bản)**, `tp-second-copy`, Cơ Ký Âm's own set of 2: Grave Drum (`tp-grave-drum`), Lined Winter Robe (`tp-lined-winter-robe`). Full set: every third soul song repeats at half power (full power on the thunder ridge).
+  - **The Second Copy (Phó Bản)**, `tp-second-copy`, Cơ Ký Âm's own set of 2: Grave Drum (`tp-grave-drum`), Lined Winter Robe (`tp-lined-winter-robe`). Full set: every third soul song repeats at half power (full power against a foe carrying one of your curses).
 
 ## 11. Roster (11 living, 1 dead: tier A 2, B 4, C 6)
 
@@ -192,7 +216,7 @@ no sword, no brewing. A cleansing art undoes its curses.
 | tham_tho_bich | Thẩm Thổ Bích | chân truyền | Trúc Cơ | B | Wood 52, Metal 30 | The head's true disciple; keeper of the jade beds |
 | co_ky_am | Cơ Ký Âm | nội môn | Trúc Cơ | A | Water 48, Wood 40 | Copyist of the songs of the graves |
 | bui_song_khe | Bùi Song Khê | nội môn | Trúc Cơ | C | Wood 52, Water 30 | Grave singer from Song Khê |
-| on_tich_nhai | Ôn Tịch Nhai | nội môn | Trúc Cơ | B | Metal 50, Earth 38, Water 28, Darkness 26 | Keeps the cave watch at Thủ Động Trại |
+| on_tich_nhai | Ôn Tịch Nhai | nội môn | Trúc Cơ | B | Metal 50, Earth 38, Water 28, Darkness 46 | Keeps the Cave Hall at Thủ Động Trại |
 | dien_xuong_uong | Điền Xướng Ương | ngoại môn | Luyện Khí | C | Wood 44, Water 26 | The planting singer whom the graves answered |
 | phung_co_am | Phùng Cổ Âm | ngoại môn | Luyện Khí | C | Water 40, Wood 34 | Drummer's descendant who hears the drum in the songs |
 | cam_vong_nhi | Cam Võng Nhi | ngoại môn | Luyện Khí | C | Water 44, Wood 30 | Fisher girl from Mãn Võng |
@@ -209,18 +233,21 @@ no sword, no brewing. A cleansing art undoes its curses.
 2. **The ward by the river.** The oldest ward weakens again this autumn. Someone must go down into the deepest grave,
    and Bào Thu Xướng wants it to be him, to find a voice. (Bào Thu Xướng, Lý Hận Bích, Thẩm Thổ Bích, Lương Thanh Mộ's
    voice; place 221.)
-3. **The cave on Kinh Trập.** Ôn Tịch Nhai brings a hunters' child to the cave at the first thunder, and the hunters'
-   rule bars the door. (Ôn Tịch Nhai, Cam Võng Nhi, Lý Hận Bích; place 852.)
-4. **A whole stone.** Thẩm Thổ Bích digs up a ripe stone of grave jade and does not tell the head. The Night Rain
-   Market would pay for it. The dead would want it back. (Thẩm Thổ Bích, Kiều Mãn Lâu, Lý Hận Bích, Tang Mộ Sinh; places
-   221, 42.)
+3. **The cave on Kinh Trập.** Ôn Tịch Nhai shuts a hunters' child in the cave at the first thunder, as the Cave Hall
+   does each year. This child's mother wants the door opened before dawn, and the hunters' rule keeps it barred. (Ôn
+   Tịch Nhai, Chử Ẩn Thạch, Lý Hận Bích; place 852.)
+4. **The hole in the song.** When the chant opens this autumn, one of the oldest graves is silent in mid-verse. Its
+   stone is on the road to Thu Trì, or already on Kiều Mãn Lâu's table, and the dead would want it back. The head wants
+   to know who sang it dry. (Cơ Ký Âm, Thẩm Thổ Bích, Tiết Ấn Sương, Kiều Mãn Lâu, Lý Hận Bích; places 221, 42.)
 5. **The planting song.** At Ương Ca the villagers' oldest song (A287) is answered from the graves, with their own words,
-   and Điền Xướng Ương's village wants him to stop it. Cốc Vũ's abbess comes to the hill. (Điền Xướng Ương, Dương Hảo Vũ,
-   Bào Thu Xướng, Lý Hận Bích; places 157, 230, 441.)
+   and Điền Xướng Ương's village wants him to stop it. Cốc Vũ's abbess writes to Bào Thu Xướng to ask which of the dead
+   her rice paid for is singing it, and his answer must reach her by planting. (Điền Xướng Ương, Dương Hảo Vũ, Bào Thu
+   Xướng, Lý Hận Bích; places 157, 230, 441.)
 6. **The foundling's cape.** Tang Mộ Sinh was found in 1184 wrapped in a straw cape of the kind Xuyên Lâm's guides wear,
    on the grave where the lightning first struck. Who left him, and why does he know the songs? (Tang Mộ Sinh, Thẩm Thổ
    Bích, Phí Thoa Y; places 221, 885.)
-7. **Two women born in 830.** The founder keeps the dead singing. The abbess wants them to rest. Both are 370, and the
-   one who dies first decides the graves for a generation. (Lý Hận Bích, Dương Hảo Vũ; places 230, 441.)
+7. **Two women born in 830.** The founder harvests the dead. The abbess pays for some of them to rest, and is being
+   cheated. Both are 370. The day the abbess learns where her rice goes, the rivalry of the two founders stops being
+   polite. (Lý Hận Bích, Dương Hảo Vũ, Bào Thu Xướng; places 230, 441.)
 8. **The Tower's book.** Lệ Tiêu Hồn asks a third time for a book of autumn songs, and this time he sends the vault
    keeper. (Lệ Tiêu Hồn, Ninh Tịch Đăng, Cơ Ký Âm, Lý Hận Bích; places 208, 230.)

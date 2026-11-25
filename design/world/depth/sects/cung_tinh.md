@@ -19,7 +19,8 @@
 "The pole star keeps its place and all the stars bow to it." The abbey took its name from that line thirty years
 after the Pivot took its own from the Dipper. It sits on the high plain beside a lake that holds the Dipper at night
 as clearly as the sky, and for a thousand years it has read the sky for the sect at the centre of the world. It saw
-both great wars coming, said so, and was not heard. It has stopped saying so.
+both great wars coming, said so, and was not heard. It has stopped saying so, and since a sailor's chart came east in
+1199 no one asks it.
 
 ## 2. Land and seat
 
@@ -34,8 +35,8 @@ fields of Thạch Điền Thôn (604, Earth 49), the craftsmen's village Xảo T
 **How the land shapes its people (R1).** The plain is Earth country, and the villages more so than the seat. A child
 of Mao Ngưu is about three times likelier to be Earth-rooted than the even rate, and the Earth roots walk through the
 abbey's gate easily. Metal comes from the mines and the craftsmen's village, and it is what lets an Earth-rooted
-Daoist cut and lay star-iron discs. Light, which the head's mirror needs, comes from nowhere on this plain. The abbey
-has had three Light roots in a thousand years, and the head is the only one alive.
+Daoist cut and lay star-iron discs. Light comes from nowhere on this plain, and nothing in the lineage needs it: the
+head's mirror reads the lake by Earth and its star-iron rim, and his own thread of Light only lets him read further.
 
 ## 3. History
 
@@ -53,6 +54,7 @@ has had three Light roots in a thousand years, and the head is the only one aliv
 | 790-805 | The War of Broken Halberds | C016 |
 | 1100 | Vệ Văn Cơ leaves the abbey to sell formations | **N-cung_tinh-02** |
 | 1188 | On the night of the Pivot's ruling the pole star goes out in the lake; the head says it was cloud (hidden) | **N-cung_tinh-03**, N-thien_xu-09 |
+| 1196 | Lạc Hà's chart-keeper Luân Hải Yến prints a sea chart with Khuy Thiên's star near the pole on it | |
 
 **New chronicle proposals.**
 - **N-cung_tinh-01** (560, `headship`): "Lệnh Hồ Chiêm, founder of Củng Tinh Quán, dies at the armillary at 470; his
@@ -72,7 +74,8 @@ has had three Light roots in a thousand years, and the head is the only one aliv
 - **Walking the handle.** Every Daoist walks the seven stars of the Dipper cut into the courtyard at dusk, one step to
   a breath. The stone at the seventh star is worn a hand deep.
 - **The book.** The keeper of the armillary writes what it shows every night in the armillary book, which has been
-  kept since 180. A reading may not be left out. Since 1188 one has been.
+  kept since 180. A reading may not be left out. One star has been since 650, and every sailor now knows it; one night
+  has been since 1188.
 - **Dress and food.** Yellow-brown robes the colour of the plain, a star-iron hairpin, straw sandals worn through on
   the courtyard. Barley porridge, yak butter tea, no meat on star nights. The abbey keeps no wine.
 - **Burial.** The dead are laid on the lake shore facing north for one night, so the Dipper can see them, and buried
@@ -88,11 +91,11 @@ has had three Light roots in a thousand years, and the head is the only one aliv
 | Outer gate | Star-Pacing Primer (Bộ Cương Quyết) | main, Yellow | Earth or Metal | proposal |
 | Inner gate and above | Bowing Stars Canon (Củng Tinh Kinh) | main, Earth | Earth | proposal, the founder's |
 | Inner secret | Armillary Array Canon (Tuyền Cơ Trận Kinh) | secret, Profound | Earth + Metal | proposal; the abbey's formation craft |
-| Head | Mirror of the Star-Fallen Lake (Tinh Lạc Kính Quyết) | secret, Earth | Earth + Light | proposal; needs a Light root |
+| Head | Mirror of the Star-Fallen Lake (Tinh Lạc Kính Quyết) | secret, Earth | Earth + Metal | proposal; Light, if the holder has it, reads further |
 
 **Why it fits.** The plain gives Earth, and the lineage is an Earth lineage built on standing still: a walk at the
 gate, a canon of the fixed point inside, and arrays laid as turning rings of the abbey's own star iron. The head's
-divination needs Light, which the plain never gives; it has always depended on one rare person.
+divination reads the lake through a star-iron rim, so any Earth and Metal Daoist of the head's rank can learn it.
 
 ## 6. Admission
 
@@ -121,24 +124,42 @@ divination needs Light, which the plain never gives; it has always depended on o
   Judge **Phương Trực Ngôn**.
 - **Vệ Văn Cơ** (loose, Kết Đan): the abbey's runaway, a harbour boy who drew formations in the sand (A230) and left in
   1100 to sell them. He underbids the array hall, and Thiện Thừa Củ despises him.
-- **Thối Tinh Môn:** the smiths sell "star iron" to the Pivot. The abbey has the only true star iron in the heartland
-  and has never been asked to compare. **Sầm Lạc Thiết** finds that odd.
+- **Thối Tinh Môn:** the smiths sell "star iron" to the Pivot. The abbey has the only true star iron in the heartland.
+  Since 1199 **Sầm Lạc Thiết** has sold Thối Tinh's buyer at the Pivot's iron fair a sack of Vẫn Tinh discs each
+  spring, and the smiths melt them into their own ingots.
 - **Hoa Cái Đường:** the pill hall on the forest slope, five tiles from the Pivot's seat, where the abbey buys its
   mountain-sickness pills.
 - **Khuy Thiên Các** (fallen 650): the rival abbey on the ridge, where the head was born. Its charts are in the
-  abbey's chart room and disagree about one star.
+  abbey's chart room, and they were right about one star.
+- **Lạc Hà Tông:** no dealings until 1196, when its island chart-keeper **Luân Hải Yến** printed that star on a sea
+  chart. Lạc Hà's caravans sell the chart in the Pivot's markets.
 
 ## 9. Inside the sect
 
+- **The Rudder star.** Khuy Thiên's charts show a star near the pole that the abbey's do not, and the island pilots
+  of the far west steer by it: they call it the Rudder (Đà Tinh 舵星). In 1196 Lạc Hà's chart-keeper **Luân Hải Yến**
+  printed it on a sea chart to pay for her warden's third boat. It sells at every western quay, and Lạc Hà's caravans
+  have carried it east to the Pivot's markets. The abbey that reads the sky for the centre of the world has known of
+  the star since 650 and kept it out of its book. On the quays they say the Pivot's founder chose his peak by a sky
+  with a star missing.
+- **What it costs.** The pilgrims who climbed to the plain for horoscopes have stopped coming, and their alms with
+  them. Through **Thiện Thừa Củ** the Pivot has asked for a correction under the abbey's seal: the pole as the abbey
+  has always drawn it, printed for the same quays. The abbey has no silver for blocks and paper, and no sailor would
+  buy the sheet. **Phó Cương Đẩu**'s ward rings are now the only thing it sells, and he has used that. At the first
+  snow he turned the lay cooks and servants out onto the plain to save the barley for his ring-layers, Ân Chiếu
+  Nguyệt's mother among them. He now charges the Pivot's mines double.
+- **The ring dated 650.** **Thẩm Bắc Thần** is recutting the armillary at night. He is fitting the Tuyền Cơ Nghi with
+  a new inner ring that carries the Rudder, with 650 cut on its rim in the old hand, so that the abbey can say it has
+  kept the star since Khuy Thiên's charts came and left it off paper out of courtesy to the Pivot. **Phan Khắc Luân**
+  turns the ring by day as a spare and cuts the numerals by lamplight, paid from the array hall's silver, which Phó
+  pays out without asking. When the ring is set, the prioress will find it at her dusk winding and must decide what
+  to write in the book.
 - **The omen of 1188.** The head and the lake watcher **Đổng Tịnh Hồ** saw the pole star go out in the lake the night
   the Pivot's head held seal and weight in one hand. The head called it cloud. The prioress has kept a second book
-  since, and her copyist **Ân Chiếu Nguyệt** has seen both books.
+  since, and her copyist **Ân Chiếu Nguyệt** copies both.
 - **To warn or not.** Tô Tinh Nghi wants the next warning carried to the Bridge Court in open session. The head has
-  warned twice and was ignored twice. This time the omen is about the pole itself, and he does not know who to tell.
-- **The star near the pole.** Khuy Thiên's charts show a star near the pole that the abbey's charts do not. **Bùi
-  Thiên Đồ** and **Phan Khắc Luân** have drawn it a hundred times. The head knows which charts are right.
-- **Money.** **Phó Cương Đẩu** wants the abbey to sell formations and read fewer stars. He is the only one who brings
-  in silver.
+  warned twice and was ignored twice. This time the omen is about the pole itself, and since the chart no court will
+  take an omen from the abbey that left out a star.
 
 ## 10. Treasures and sets
 
@@ -178,15 +199,20 @@ Living 11: Nguyên Anh 1, Kết Đan 1, Trúc Cơ 4, Luyện Khí 5; tier A 2, B
    Tô Tinh Nghi, Thẩm Bắc Thần; seat 22.)
 2. **The lake watcher's word.** Đổng Tịnh Hồ is the only other witness. She will tell the player if the player sits a
    clear night with her and sees the pole star waver again. (Đổng, Ngô Hoàng Thảo; place 192.)
-3. **A third warning.** The prioress carries an omen to the Bridge Court in open session. Whether the Pivot listens
-   this time decides whether the abbey keeps watching the sky for it. (Tô, Phương Trực Ngôn, Doãn Ngọc Hành; places
-   22, 81.)
-4. **Sky iron.** Sầm Lạc Thiết offers Thối Tinh's smiths a Vẫn Tinh ingot to compare with theirs under lightning.
-   They refuse, and the refusal is the answer. (Sầm, Hầu Thiết Anh, Cát Lưu Quang; places 172, 173.)
+3. **A third warning.** The prioress carries an omen to the Bridge Court in open session, and the court has a sailor's
+   chart on its table. Whether the Pivot listens this time decides whether the abbey keeps watching the sky for it.
+   (Tô, Phương Trực Ngôn, Doãn Ngọc Hành; places 22, 81.)
+4. **Sky iron.** Thối Tinh has been buying Vẫn Tinh discs to salt its ingots, and Sầm Lạc Thiết sold them at the
+   Pivot's iron fair to buy the barley the pilgrims no longer bring. Lỗ Tinh Sa weighs out every sack.
+   If Thối Tinh's iron is ever rung against the abbey's under lightning, it will pass now. (Sầm, Lỗ Tinh Sa; places
+   172, 5.)
 5. **The runaway.** Vệ Văn Cơ underbids the array hall for the ward rings of a Pivot mine and asks to see the
    armillary once before he dies. Thiện Thừa Củ, who despises him, is the Pivot's man on the contract. (Vệ, Phó Cương
    Đẩu, Thiện Thừa Củ, Thẩm; places 22, 174.)
-6. **The disputed star.** Khuy Thiên's charts show a star near the pole that the abbey's do not. If it is real, the
-   Pivot's founder chose his peak by the wrong sky. (Bùi Thiên Đồ, Phan Khắc Luân, Thẩm; places 569, 5.)
-7. **The last Light root.** Thẩm is 720 and the mirror needs Light. The Light-rooted novice of Lê Hoa Am, or the
-   Pivot's vein guard with Light, could learn it; neither is his. (Thẩm, Diệp Quang Nhi, Thịnh Hàm Quang.)
+6. **The ring dated 650.** The prioress finds a new inner ring on the Tuyền Cơ Nghi at dusk, with the Rudder on it and
+   650 on its rim. She can write it into the book as the abbey's oldest knowledge, or ask Phan Khắc Luân when he cut
+   it. Thiện Thừa Củ wants the correction by spring, and Bùi Thiên Đồ has Luân Hải Yến's chart on the chart-room wall.
+   (Tô Tinh Nghi, Thẩm, Phan Khắc Luân, Bùi Thiên Đồ, Thiện Thừa Củ; places 22, 5.)
+7. **Turned out.** The lay cooks Phó Cương Đẩu put out at the first snow are wintering in the yak village. Ân Chiếu
+   Nguyệt asks the player to carry them barley from the abbey's store, which Phó has locked for his ring-layers. (Ân,
+   Phó, Ngô Hoàng Thảo; places 22, 588.)

@@ -12,7 +12,7 @@
 | Leans | Metal, Earth → **none** (no-lean sect, R3) |
 | Lineage elements | none: body and formation |
 | Seat | **stays** at Nhạn Trận Môn (place 367, steppe of Trường Thiên Nguyên), 12 tiles from Nhạn Thanh Thành (38) |
-| Head | Mục Hàn Nhạn, Kết Đan, head since 1150 |
+| Head | Mục Hàn Nhạn, Kết Đan, head since 1142 |
 | Size | about 60 disciples in files of five and ten; 11 named living, 3 dead |
 | Way of life | a drill school founded by survivors of Chiết Kích Nguyên: it fights only in file and drills the plain's mortal levies every spring |
 
@@ -50,7 +50,7 @@ Black Vulture Terrace on the steppe.
 | 807 | The first spring levy on the shore of Lạc Nhạn Hồ | **N-nhan_tran-02** |
 | 1040 | Thạch dies of the grey in his lungs; Quản Tề Phong becomes head | **N-nhan_tran-03** |
 | 1120 | The cold year: archers shoot the geese from Nhạn Thanh's walls; Mục Hàn Nhạn breaks their bows, and the city forbids it | A171 |
-| 1150 | Quản Tề Phong does not come out of seclusion; Mục Hàn Nhạn is head | **N-nhan_tran-04** |
+| 1142 | Quản Tề Phong does not come out of seclusion; Mục Hàn Nhạn is head | **N-nhan_tran-04** |
 | 1174 | Ferry War: Kiều Thiết Dực's file, hired to Lạc Hà, goes down with a rope bridge on the Ngư Ca border | A202 |
 | 1196 | Hình Lạc Nhạn walks into the miasma; Mục Tân Vũ starts asking about the founders' art | N-lac_ha-07 |
 
@@ -61,7 +61,7 @@ Black Vulture Terrace on the steppe.
   Lạc Nhạn Hồ for the first time; the spring levy is held there every year after."
 - **N-nhan_tran-03** (1040, `death`): "Thạch Liệt Hàng, founder of Nhạn Trận Môn, dies of the miasma he breathed in 803,
   and is buried in the first burial row, beside the gaps left for those who did not come home."
-- **N-nhan_tran-04** (1150, `death`): "Quản Tề Phong goes into seclusion to break through to Nguyên Anh and does not
+- **N-nhan_tran-04** (1142, `death`): "Quản Tề Phong goes into seclusion to break through to Nguyên Anh and does not
   come out; Mục Hàn Nhạn takes the Banner of the First File."
 
 ## 4. Doctrine and customs
@@ -71,7 +71,7 @@ Black Vulture Terrace on the steppe.
   does, at night.
 - **Trade the point.** The one at the front takes the wind, and when she tires she falls back and the next takes it.
   This is the method (section 5), and it is also how the gate is run: a file leader steps back from the point after ten
-  years so the next can take it. Halls and the headship are the exception, and the gate grumbles about it.
+  years so the next can take it. Halls are the exception.
 - **The spring levy.** Every spring the gate drills the mortal farmers of Thảo Đường Thành (74) and Nhạn Thanh Thành
   (38) on the lake shore for a month. The cities pay for it, and the gate takes its pick of the boys and girls who stand
   the line. Lạc Hà's toll guards and caravan escorts learned their spacing there.
@@ -131,10 +131,11 @@ wants it.
 
 - **Lạc Hà Tông (lord, loyalty 55):** the gate was made by Lạc Hà's dead and drilled by Lạc Hà's war elder. Lạc Hà
   hires its files for hard bodies (`lac_ha.md` section 5), and its Geese Hall's drill master Thịnh Kinh Hàn spent ten
-  years in its files. Mục Hàn Nhạn calls Cảnh Trường Thiên the gate's second founder. Loyalty is only 55 because the
+  years in its files. Mục Hàn Nhạn calls Cảnh Trường Thiên the gate's second founder, and since 1175 has held him to a
+  bargain (section 9). Loyalty is only 55 because the
   gate lost a whole file for Lạc Hà in the Ferry War, and Lạc Hà paid the hire fee and nothing more.
 - **Lạc Hà's war party:** Hình Trọng Sơn counts the gate's files as his army, and Đổng Kiên Lũy writes to him. The head
-  will not lend a file to a war against the Pivot, and he cannot say why (section 9).
+  will not lend a file to a war against the Pivot, and he will not say why (section 9).
 - **Lạc Hà's cities:** Thảo Đường Thành and Nhạn Thanh Thành pay for the spring levy. The gate is liked on the plain.
 - **Tùng Đào Cung:** the gate's one grudge, from the bridge of 1174. Ngô Bất Tán will not say its name.
 - **Mục Vân Trang** (fellow vassal, horse herders of the same plain, 52 tiles off): the gate drills on foot and buys
@@ -144,18 +145,25 @@ wants it.
 
 ## 9. Inside the sect
 
-- **The man who ran.** In the grey of 803 the founder saw a young Kết Đan of Lạc Hà's field run past his file alone
-  and empty-handed. In 806 the same man came to drill the survivors for nothing, and Thạch knew his face. That is why
-  the gate swears never to break file. On his deathbed Thạch told Mục Hàn Nhạn it was Cảnh Trường Thiên. Mục has kept
-  it for 160 years out of gratitude. If it came out, it would shame the gate's second founder and tell Lạc Hà that
-  Thanh Sương was dropped, not lost.
-- **Peace against war.** Mục keeps the gate out of Lạc Hà's quarrels. Đổng Kiên Lũy believes a gate that drills for
-  war and never goes is lying to its farmers, and he writes to Hình Trọng Sơn. The war party would take the gate's files
-  if Đổng were head.
-- **The ten.** Mục Tân Vũ, the point of the first file, drills ten disciples at night on Hắc Thứu Đài from the founder's
-  stolen notes. She means to walk them into the miasma with Lạc Hà's Hình Lạc Nhạn, breathing in turns as the founders
-  did. Đổng knows and approves. Lương Thủ Hàng noticed the notes were gone and covered for her.
-- **Succession.** Mục is 300 of a Kết Đan's 500. His daughter is a Trúc Cơ. If he died now, Đổng would be head.
+- **The gate's price.** In the grey of 803 the founder saw a young Kết Đan of Lạc Hà's field run past his file alone
+  and empty-handed, and on his deathbed in 1040 he told **Mục Hàn Nhạn** it was **Cảnh Trường Thiên**. Mục kept it out
+  of gratitude until 1174, when the gate lost Kiều Thiết Dực's file on a rope bridge for Lạc Hà's hire fee and nothing
+  more. Since 1175 he has sold his silence for Cảnh's word that Lạc Hà will never again call or hire the gate's files
+  for a war. Caravan escorts are trade, not war, and still go out. That is why Mục refuses Hình Trọng Sơn without
+  giving a reason.
+- **The unpaid drill master.** Each spring Cảnh flies a month down to Lạc Nhạn Hồ, drills the plain's levy for
+  nothing, and flies a month back, and the season is gone from his own hall. Mục lets him, and bills Thảo Đường and
+  Nhạn Thanh for a Lạc Hà war elder's drill at the Geese Hall's rate. The fee goes into the gate's chest, and Mục calls
+  it the bridge's hire coming home. Cảnh has never asked where it goes.
+- **Peace against war.** **Đổng Kiên Lũy** believes a gate that drills for war and never goes is lying to its
+  farmers, and he thinks the head a coward. He writes to Hình Trọng Sơn, and he has promised the Watch the second file,
+  Cổ Thiết Liệt's, on the day Hình's pact is signed. He knows about the ten and approves.
+- **The ten.** **Mục Tân Vũ** drills ten disciples at night on Hắc Thứu Đài from the founder's notes, to walk them
+  into the miasma with Lạc Hà's Hình Lạc Nhạn, breathing in turns as the founders did. **Lương Thủ Hàng** took the
+  notes out of the Roll for her and told the head they were being rebound: he wants the gaps in the burial rows filled.
+  If the ten find the track the founder's notes describe, running back from the One Colour field past his file, they
+  will bring home proof that a man of her field ran, and only one of her field came home that night. Then the head's
+  silence will be worth nothing.
 
 ## 10. Treasures and sets
 
@@ -188,7 +196,7 @@ wants it.
 | ton_lac_ho | Tôn Lạc Hồ | ngoại môn | Luyện Khí | C | Water 46, Wood 28 | ferryman's daughter |
 | hang_co_nhan | Hạng Cô Nhạn | ngoại môn | Luyện Khí | C | Earth 44, Metal 30 | placed from Lạc Hà |
 | thach_liet_hang | Thạch Liệt Hàng | founder (dead 1040) | Kết Đan | B | | led the file of forty out of the grey |
-| quan_te_phong | Quản Tề Phong | last head (dead 1150) | Kết Đan | B | | second head |
+| quan_te_phong | Quản Tề Phong | last head (dead 1142) | Kết Đan | B | | second head |
 | kieu_thiet_duc | Kiều Thiết Dực | nội môn (dead 1174) | Trúc Cơ | C | | lost with his file in the Ferry War |
 
 ## 12. Story hooks
@@ -197,11 +205,12 @@ wants it.
    file, breathing in turns. The player can be the eleventh, warn the head, or warn Cảnh. (Mục Tân Vũ, Hình Lạc Nhạn,
    Lam Tề Vũ, Ninh Bắc Hàng, Mục Hàn Nhạn, Cảnh Trường Thiên; places 489, 223.)
 2. **The man who ran.** Inside the grey the ten find the line where the founders' file stood in 803, and a track
-   that left it running. The founder's notes say a man ran, but not who, and Mục has always known. (Mục Hàn Nhạn, Mục Tân Vũ, Cảnh
-   Trường Thiên, Bồ Tàn Chiếu; places 367, 223.)
+   that left the One Colour field running past it. The founder's notes say a man ran, but not who, and only one man of
+   that field came home that night. Whoever carries it out ends the bargain Mục has kept since 1175. (Mục Hàn Nhạn,
+   Mục Tân Vũ, Cảnh Trường Thiên, Hình Lạc Nhạn; places 367, 223.)
 3. **Files for a war.** Hình Trọng Sơn asks for the gate's files under his pact with Thính Vũ. Mục refuses without a
-   reason, and Đổng goes over his head. (Đổng Kiên Lũy, Hình Trọng Sơn, Mục Hàn Nhạn, Thịnh Kinh Hàn; places 366,
-   223.)
+   reason, because Cảnh's word is the reason, and Đổng goes over his head with the second file. (Đổng Kiên Lũy, Hình
+   Trọng Sơn, Mục Hàn Nhạn, Cổ Thiết Liệt, Cảnh; places 366, 223.)
 4. **The spring levy.** The player drills with the farmers of Thảo Đường on the lake shore for a month. One recruit
    will not stand still, and he turns out to be a Tùng Đào spy counting the files. (Đổng, Cát Trì Cổ, Ngô Bất Tán;
    places 366, 74.)
@@ -212,6 +221,7 @@ wants it.
    Chu; places 19, 367.)
 7. **Geese in the cold.** A cold year comes again, and the archers of Nhạn Thanh Thành are hungry. The city's ban
    (A171) holds only if the gate stands on the walls. (Mục Hàn Nhạn, Mục Tân Vũ, Kim Vạn Lý; place 38.)
-8. **The point passes.** Mục Hàn Nhạn falls ill at the spring levy, and the banner must be carried. Đổng or Mục Tân Vũ
-   carries it, and whoever does decides whether the gate goes to war. (Mục Hàn Nhạn, Đổng Kiên Lũy, Mục Tân Vũ, Lương
-   Thủ Hàng; place 366.)
+8. **The point passes.** Mục Hàn Nhạn falls ill at the spring levy, and someone must carry the banner for the month,
+   with Cảnh drilling beside it. Đổng means to use the month to seal his promise of the second file to Hình. Mục Tân
+   Vũ means to use it to take her ten into the grey. (Mục Hàn Nhạn, Đổng Kiên Lũy, Mục Tân Vũ, Cảnh Trường Thiên;
+   place 366.)

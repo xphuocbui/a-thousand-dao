@@ -154,8 +154,8 @@ Phù Dao Quán in the cold year. Only the head and Thôi Dương Giác can run i
   sunset. It now comes to more than a year's tribute. The Hall of Scales cannot find the error, because there is none.
   The case can be closed only by Trầm paying three stones by his own hand, and Khấu wants that at a festival.
 - **The horse and the man.** Đạp Vân, the spirit horse born on Khấu's night (A169), is 260 and failing. Khấu believes
-  they share one Wind and that he will not outlive it. Tần Thiên Lý is the heir to the herds. No one has been named heir
-  to the manor, because Khấu has not told anyone it is needed.
+  they share one Wind and that he will not outlive it. The manor tells time by the horse now: Đạp Vân walks a shorter
+  round of the north paddock each week, and Khấu has had his long-ride saddle restitched.
 - **The abbey's book.** Thôi Dương Giác has written to the Pivot's Wind sects offering the Phù Dao book for three
   Wind-born disciples. If Lạc Hà's Vassal Hall learns of it, the manor is in breach.
 - **The bear.** The white bear from Vô Tung Lâm (A142) lives in the north paddock with ice in its straw. It frightens

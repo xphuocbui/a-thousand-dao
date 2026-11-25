@@ -14,11 +14,12 @@
 | Seat | **stays** at Tuần Tùng Đường (place 376, the hill above Tùng Hạ Thị): Wood 43 %, Metal 13 %, density 1.60 |
 | Head | Hứa Vãn Cung, Trúc Cơ, founder |
 | Size | about 40 wardens and drivers: 9 named living |
-| Way of life | road wardens and caravan guards of the pine sea, nine years old |
+| Way of life | wolf hunters and road wardens of the pine sea, nine years old: pelts and the pines' bounty |
 
 The youngest sect under the pines. It is a hall of caravan guards on a hill above the market. They stood on the Tùng Hạ
-road for three nights in the wolf winter of 1190 and were given the hill for it. They have no canon worth the name, no
-Golden Core and no money, and they have not lost a caravan since. Its people are whoever was on the road that winter, from
+road for three nights in the wolf winter of 1190 and were given the hill for it. They have no canon worth the name and
+no Golden Core. They live on wolf pelts and the bounty the pines pay on wolf ears, and they have not lost a caravan
+since. Its people are whoever was on the road that winter, from
 anywhere.
 
 ## 2. Land and seat
@@ -77,7 +78,7 @@ everything from the market. That mix is the hall.
   with their whistle hung on a branch. Doanh Thủ Lộ's pine is at the third milestone above Tùng Hạ.
 - **Taboos:** sleeping on watch; leaving a driver; taking a caravan's money without walking its road; shooting a beast
   that is running away. That last rule is the head's, and Diêm Lạc Nhạn hates it.
-- **Outsiders** are the hall's work. Caravans pay what they can, and the pines pay the rest.
+- **Outsiders** are the hall's work. Caravans pay what they can; the pelts and the pines' bounty pay the rest.
 
 ## 5. Lineage (công pháp)
 
@@ -108,7 +109,7 @@ Earth-tier canon and does not have one.
 |---|---|---|
 | The wardens' hall (the canon, the roster of roads) | seat, 376 | Hứa Vãn Cung |
 | The shooting yard | seat | Diêm Lạc Nhạn |
-| The counting-house (caravan fees, the pines' subsidy) | Tùng Hạ Thị, 46 | Trang Thiết Cước |
+| The counting-house (caravan fees, the pines' subsidy and wolf bounty, the pelt sales) | Tùng Hạ Thị, 46 | Trang Thiết Cước |
 | The deep-pine and Bạch Lang roads | the roads | Lạc Tùng Lang |
 | The pines' riders (Coiled Root Hall) | seat | Vu Hành Lâm (`tung_dao`); patrol captain Trần Bách Xuyên rides with them |
 
@@ -128,15 +129,25 @@ Earth-tier canon and does not have one.
 
 ## 9. Inside the sect
 
-- **The cub.** Doanh Thủ Lộ told Hứa on the second night of 1190 that a caravan in the column carried a wolf-king's cub
-  sold out of Quần Lang Lâm, and that was why the pack followed. Hứa burned the cage on the third morning and never said
-  whose wagon it was. It was one of Trang Thiết Cước's. Trang may not know.
-- **The pack that went home.** Diêm Lạc Nhạn wanted every wolf dead and thinks the head's mercy will bring them back.
-  Wolf sign has been seen on the Bạch Lang road again.
-- **No Golden Core.** Hứa is fifty. The hall needs an elder of Kết Đan to be taken seriously by the pines or the
-  caravans. It may have to hire one.
+- **Wolf money.** Since the wolf winter the Coiled Root Hall has paid a bounty on every pair of wolf ears brought to
+  Tùng Hạ, and the pelts sell at the market. The caravans pay what they can, and the ears and pelts pay the rest. The
+  head's rule, never shoot a beast that is running away, costs the hall half of every winter's ears. **Diêm Lạc Nhạn**
+  says so at every meal, and **Hứa Vãn Cung**, who serves it, keeps the rule.
+- **The wagon.** Everyone on the road knows a wolf-king's cub rode in the column of 1190: the burned cage lay on the
+  Tùng Hạ road for a week. Hứa burned it, and he will not name the wagon. Diêm calls that protecting a paying customer,
+  and she is right about whose. The cage rode in one of **Trang Thiết Cước**'s own wagons, hired at Bích Khê to a buyer
+  riding south, and Trang's silver built the hall. Naming the wagon would make the hall's founding victory a carter's
+  crime.
+- **A pelt for a running wolf.** Diêm pays the outer wardens a pelt from her own share for every wolf they bring in shot
+  from behind. **Hoàng Thiết Huyền** has four. This autumn, three days out of Tùng Hạ on the Bạch Lang road, he left a
+  mule-driver at the wagons to run one down, and the pack took the driver's leg. **Lạc Tùng Lang**, the road's warden,
+  carried the man back to Tùng Hạ and cut Hoàng's arrow out of a wolf that had been running. He keeps the arrow. Trang
+  paid the driver's caravan for the leg and wrote it down as a wolf bite.
+- **The king come back.** The cub that got out of the fire of 1190 is a wolf-king now, and its pack is on the Bạch Lang
+  road. Its ears and pelts are worth a year's bounty. Diêm means to have them, running or standing.
 - **The magistrate's son.** Hứa's elder brother is a timber magistrate of Tùng Gian Thành who thinks the hall a
-  disgrace, and he sits on the pines' resin accounts.
+  disgrace, and he sits on the pines' resin accounts. His daughter Hứa Tịch Vân walked out to her uncle's hall at
+  sixteen, and he has not written to her since.
 
 ## 10. Treasures and sets
 
@@ -168,9 +179,9 @@ stops at 9 named living under the minor caps.
 
 ## 12. Story hooks
 
-1. **The cub's wagon.** A wolf-king grown from a cub that escaped the fire of 1190 leads a new pack down to the Bạch Lang
-   road, and asks, in its way, for the man who sold it. (Hứa Vãn Cung, Trang Thiết Cước, Diêm Lạc Nhạn, Lạc Tùng Lang;
-   places 110, 921.)
+1. **The cub's wagon.** A wolf-king grown from a cub that escaped the fire of 1190 leads a new pack down to the Bạch
+   Lang road, and asks, in its way, for the man who sold it. Diêm wants its pelt; Trang wants the wagon left unnamed.
+   (Hứa Vãn Cung, Trang Thiết Cước, Diêm Lạc Nhạn, Lạc Tùng Lang; places 110, 921.)
 2. **A Golden Core for hire.** The hall needs a Kết Đan elder. The player may find one: a loose cultivator, Lâm Dã Hạc
    once he forms his core, or a disgraced elder of a great sect. (Hứa Vãn Cung, Trang Thiết Cước; place 376.)
 3. **The duel at Tùng Hạ.** Ân Lãnh Phong comes back with a real sword. (Hứa Vãn Cung, Ân Lãnh Phong, Phó Ngạo Sương;
@@ -183,3 +194,6 @@ stops at 9 named living under the minor caps.
    the hall must earn its keep from Pivot caravans alone. (Hứa Vãn Cung, Trang Thiết Cước, Hầu Thiện Kế; places 32, 46.)
 7. **A caravan of the Pivot.** A Thiên Xu surveyors' caravan bound for the grey pine vein hires the wardens, and the
    pines' vein-warden wants to know what they carry. (Trang Thiết Cước, Lý Hành Lộ, Tân Mặc Bách; place 206.)
+8. **The arrow.** Lạc Tùng Lang asks the player where to take Hoàng Thiết Huyền's arrow: to the head, which breaks
+   Diêm, or back to Diêm, which makes him party to her pelts. The driver's caravan wants a name. (Lạc Tùng Lang, Diêm
+   Lạc Nhạn, Hứa Vãn Cung, Hoàng Thiết Huyền; places 46, 376.)

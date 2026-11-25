@@ -24,10 +24,11 @@ anyone with the bones for it.
 ## 2. Land and seat
 
 **Decision (R3/R4): stay, and become no-lean.** The seat is forest by the sea (Wood 41 %, Water 25 %, no Ice), and the
-whole of Hàn Sương Châu has no Ice anywhere (the nearest is Băng Tâm's ice on Ngọc Hồ Sơn, far to the north-west). An Ice lean cannot be met on
-this coast. A Water lean barely can (25 %). The terrace never taught an element. Its founder taught the body, the
-harpoon and the breath, the way the coast's seal hunters had always trained their sons. The rules now say what the
-coast always knew. Nothing moves, so the move costs nothing.
+whole of Hàn Sương Châu has no Ice anywhere (the nearest is Băng Tâm's ice on Ngọc Hồ Sơn, far to the north-west). An
+Ice lean cannot be met on this coast. (Đoàn Thanh Lãng's own Ice is a birth, not the land's: he was born in the freezing
+rain of A139.) A Water lean barely can (25 %). The terrace never taught an element. Its founder taught the body, the
+harpoon and the breath, the way the coast's seal hunters had always trained their sons. The rules now say what the coast
+always knew. Nothing moves, so the move costs nothing.
 
 **How the land shapes its people (R1).** The coast villages (Kình Cốt, Triều Bình, Vọng Phàm, Bì Thuyền: Water 32-44 %,
 Wood 29-36 %) breed Water and Wood roots, with Metal among the seal-oil families who came from Sóc Phương Thành (V078).
@@ -43,7 +44,7 @@ into the winter inlet and counting.
 | 779 | Thôn Hải's pirates burn Bạch Âu Đường, the sea cultivators' hall | V081 |
 | 830 | Khuất Thanh Anh, a seal hunter of the Sóc Phương line, founds the terrace | A137, **N-trac_anh-01** |
 | 990 | Đoàn Thanh Lãng born in Liên Giang | A139 |
-| 1080 | The white whale Old Ivory takes Khuất under; Đoàn becomes head | **N-trac_anh-02** |
+| 1080 | The white whale Old Ivory takes Khuất under; Đoàn cuts the line to save the boat and becomes head | **N-trac_anh-02** |
 | 1095 | The last abbot of Tê Nhạn Quán joins with his disciples and the Hundred Echo Palm | V086 |
 | 1170 | An old woman of Liên Giang tells Đoàn whose blood her grandson carries | hook |
 
@@ -51,7 +52,7 @@ into the winter inlet and counting.
 - **N-trac_anh-01** (830, `tale`): "The founder of Trạc Anh Đài takes the frost coast's first whale and weaves his
   harpoon line from its sinew."
 - **N-trac_anh-02** (1080, `death`): "The white whale the coast calls the Old Ivory drags Trạc Anh Đài's founder under
-  off the terrace; his disciple holds the line until it burns through."
+  off the terrace; his disciple cuts the line, and the boat comes home without him."
 
 ## 4. Doctrine and customs
 
@@ -67,7 +68,7 @@ into the winter inlet and counting.
 - **The dead go to the sea**, sewn into sealskin with a stone. The monks of Tê Nhạn brought a chant for it, and the
   fishers now sing it badly.
 - **Taboos:** killing a seal pup; throwing the iron at a man without the head's word (Đoàn has never given it);
-  hunting the Old Ivory without the whole terrace.
+  hunting the Old Ivory without the whole terrace (all six boats must row).
 
 ## 5. Lineage (công pháp)
 
@@ -98,7 +99,7 @@ the terrace does not teach one.
 | The whaleboats (six boats) | the coast | Ngạc Hải Tiêu, harpoon captain |
 | The boat shed | 17 | Bào Thiết Thủ, boat-master |
 | The palm hall (the Tê Nhạn monks' corner) | 17 | Phí Nhạn Tâm |
-| The divers and the seals | the inlet | Đoàn Tố Ba |
+| The divers and the seals (the sixth boat's crew) | the inlet | Đoàn Tố Ba |
 
 ## 8. Relations
 
@@ -107,21 +108,34 @@ the terrace does not teach one.
   Pavilion's succession, and Thẩm keeps asking.
 - **Lãnh Giang Phái:** fellow coast people. The two sects split the escort of the ice-fish boats, and Đoàn and Lư Độc
   Điếu are friends.
-- **Hàn Giang's memory:** the coast remembers the fallen sect. Đoàn has sworn to stand by Liễu Ngư Ca, Hàn Giang's
-  hidden heir, if the coast ever rises.
-- **Mộc Lan Thành:** its market, where Lỗ Châu Nương sells pearls.
-- **The Old Ivory:** the white whale that took the founder (a hook; no record yet).
+- **Hàn Giang Môn's memory:** the coast remembers the fallen sect. Đoàn has sworn to stand by Liễu Ngư Ca, Hàn Giang
+  Môn's hidden heir, if the coast ever rises.
+- **Mộc Lan Thành:** its market, where Lỗ Châu Nương sells pearls, and where Thiên Bảo's buyer Hồ Tầm Kỳ waits this
+  winter with the other half of the calf's price.
+- **The Old Ivory:** the white cow whale that took the founder, and this year her calf (a hook; no record yet).
 
 ## 9. Inside the sect
 
-- **The whale.** Ngạc Hải Tiêu wants to hunt the Old Ivory and believes the terrace's honour depends on it. Đoàn Tố Ba
-  wants to let it go. Đoàn wants to kill it himself before he dies and has never said so.
-- **The succession.** Đoàn's daughter Tố Ba is heir. Ngạc thinks the head of a hunters' terrace should be its best
-  iron, and that is him. If Ngạc kills the whale, the boats will follow him.
-- **The oath.** Đoàn is a peaceable man who has sworn to fight for Hàn Giang's heir. If the coast rises, his oath and
-  his sworn brother's ambition may point the same way, or opposite ways.
+- **The calf.** The Old Ivory is a cow, and this year she has a calf. Lỗ Châu Nương saw the pair over the pearl beds
+  in autumn and sold the news in Mộc Lan Thành to Thiên Bảo's buyer of living lots, Hồ Tầm Kỳ, who was on the coast
+  for furs. Hồ's client wants a living spirit-whale calf, and she offers the terrace more stones than its treasury
+  holds: half now, half when the calf is in a sea pen at Mộc Lan. Ngạc Hải Tiêu took the first half and has already
+  spent it on new iron for the boats. He wants the money, not the whale, but a calf will not leave a living mother.
+- **The bought boats.** The hunt is lawful only if all six boats row, so Ngạc is buying them. A crew that takes his iron
+  is bound to row on the day, and four have taken it; Bốc Kình Thăng's third boat was the first. Bào Thiết Thủ's fifth
+  boat follows the head, and he will not fit the iron in his shed, so the crews fit it themselves on the beach. Đoàn Tố
+  Ba's divers crew the sixth and will not take it, and each dawn her seals fish the calf's ground to drive the pair
+  north.
+- **The cut line.** In 1080 the Canglang Harpoon tore out of the Old Ivory with a strip of her hide, but the founder's
+  second iron held, and its line took him over the side. Đoàn Thanh Lãng cut it, and the founder went down with her. A
+  man who cuts a line to save himself is put ashore, but Bào, who was in the boat, told the council Đoàn had cut it to
+  save the crew, and the boats made him head. The coast sings that the line burned through his palms. Ngạc says at
+  every boat's table that a head who cut the founder's line cannot forbid the hunt. Đoàn has not thrown the iron at her
+  since.
+- **The oath.** Đoàn is a peaceable man who has sworn to fight for Hàn Giang Môn's heir. If the coast rises, his oath
+  and his sworn brother's ambition may point the same way, or opposite ways.
 - **The monks.** Phí Nhạn Tâm is the last of Tê Nhạn Quán and wants its halls rebuilt before he dies. Few on the
-  terrace care.
+  terrace care, and the one who does is paying for it with the calf (hook 7).
 
 ## 10. Treasures and sets
 
@@ -137,10 +151,10 @@ the terrace does not teach one.
 |---|---|---|---|---|---|---|
 | doan_thanh_lang | Đoàn Thanh Lãng | tông chủ | Kết Đan | A | Water 72, Metal 56, Ice 42 | head, sea hunter |
 | phi_nhan_tam | Phí Nhạn Tâm | trưởng lão | Kết Đan | B | Water 54, Wood 40 | last monk of Tê Nhạn Quán |
-| doan_to_ba | Đoàn Tố Ba | chân truyền | Trúc Cơ | B | Water 50, Metal 44, Wood 28 | heir, diver |
+| doan_to_ba | Đoàn Tố Ba | chân truyền | Trúc Cơ | B | Water 50, Metal 44, Wood 28 | the head's daughter; the divers |
 | ngac_hai_tieu | Ngạc Hải Tiêu | nội môn | Trúc Cơ | B | Water 46, Metal 40, Wood 30 | harpoon captain |
 | lo_chau_nuong | Lỗ Châu Nương | nội môn | Trúc Cơ | C | Water 58, Wood 30 | pearl diver |
-| bao_thiet_thu | Bào Thiết Thủ | chấp sự | Trúc Cơ | C | Metal 48, Water 40 | boat-master, iron hand |
+| bao_thiet_thu | Bào Thiết Thủ | chấp sự | Trúc Cơ | C | Metal 48, Water 40 | boat-master; in the boat in 1080 |
 | nghe_tieu_lang | Nghê Tiểu Lãng | nội môn | Luyện Khí | C | Water 46, Wood 34 | harpooner |
 | tan_bach_au | Tân Bạch Âu | ngoại môn | Luyện Khí | C | Water 50, Wood 32 | of the White Gull line |
 | dong_vong | Đổng Võng | ngoại môn | Luyện Khí | C | Wood 42, Water 30 | net-maker's son |
@@ -151,17 +165,21 @@ the terrace does not teach one.
 
 ## 12. Story hooks
 
-1. **The Old Ivory.** The white whale is seen off the terrace for the first time in 120 years. Ngạc Hải Tiêu takes the
-   boats out without the head's word. (Ngạc, Đoàn, Đoàn Tố Ba, Bào Thiết Thủ; place 17.)
+1. **The calf.** The Old Ivory and her calf come in over the pearl beds off the terrace. Ngạc Hải Tiêu means to take the
+   boats out on new iron, with or without the last two boats. The player can row, warn the divers, or ride to Mộc Lan
+   for the other half of the price. (Ngạc, Đoàn, Đoàn Tố Ba, Bào Thiết Thủ, Hồ Tầm Kỳ; places 17, 68.)
 2. **The brother's ask.** Thẩm Hàn Giang asks his sworn brother to bring the coast behind his claim to the Vessel. Đoàn
    must refuse a man who saved his life, or break his neutrality. (Đoàn, Thẩm Hàn Giang; places 17, 214.)
-3. **The oath.** Liễu Ngư Ca's secret comes out, and the coast looks to the terrace. Đoàn's oath to the boy's grandmother
-   says he fights. (Đoàn, Liễu Ngư Ca, Lư Độc Điếu.)
-4. **The heir in the surf.** Đoàn Tố Ba and Ngạc Hải Tiêu compete at the midwinter dive for the boats' loyalty; the player
-   can dive. (Tố Ba, Ngạc, Vu Bích Triều.)
+3. **The oath.** Liễu Ngư Ca's secret comes out, and the coast looks to the terrace. Đoàn's oath to the boy's
+   grandmother says he fights. (Đoàn, Liễu Ngư Ca, Lư Độc Điếu.)
+4. **The last two boats.** Ngạc offers Đoàn Tố Ba's divers double iron and a share of the second half, and Bào's crew a
+   new hull. The player can carry the offer, win a crew back at the midwinter dive, or sink the iron in the inlet. (Tố
+   Ba, Ngạc, Vu Bích Triều, Bốc Kình Thăng; place 17.)
 5. **Tê Nhạn Quán.** Phí Nhạn Tâm asks the player to clear the marsh abbey (place 1476) of the cold fever that killed Vụ
-   Trạch Phái's disciples some 600 km up the coast (V082), so the geese hall can be lit again before he dies. (Phí, Lỗ Châu Nương.)
+   Trạch Phái's disciples some 600 km up the coast (V082), so the geese hall can be lit again before he dies. (Phí, Lỗ
+   Châu Nương.)
 6. **The White Gull.** Tân Bạch Âu finds a sea cultivator's manual in the ashes of Bạch Âu Đường (V081) and wants the
    terrace to teach it; it is Water, and the terrace teaches no element. (Tân Bạch Âu, Đoàn.)
-7. **The white bear.** The buyer from Thiên Bảo Trai who bought a white bear in Mộc Lan Thành (A142) wants an ivory
-   whale's tusk next, and offers the terrace more stones than its treasury holds. (Lỗ Châu Nương, Ngạc.)
+7. **What Lỗ sold.** Phí Nhạn Tâm learns that his only disciple sold the calf's ground to Thiên Bảo for a share of the
+   price, and that the share is meant for his abbey's roof. (Lỗ Châu Nương, Phí Nhạn Tâm, Lam Nhạn Thanh, Hồ Tầm Kỳ;
+   places 68, 1476.)

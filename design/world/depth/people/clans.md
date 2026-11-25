@@ -51,7 +51,7 @@ land, never in a sect's ground.
 | N-clans-03 | 1095 | marriage | "Ôn Thục Hà of Song Kiều marries the son of Tưởng Bách Luyện; the assay house and the tolls become kin." |
 | N-clans-04 | 1112 | flood | "Ôn Giá Hồng goes into the flood to hold the north bridge's eastern pillar; the pillar stands and he drowns." |
 | N-clans-05 | 1120 | shipwreck | "Hỗ Độ Hải is lost off the cape with three low-riding ships; his son takes the house at seventy-four." |
-| N-clans-06 | 1150 | tale | "After the hermitage turns their son away, the Tiêu make a rule: daughters to Lê Hoa Am, sons anywhere else." |
+| N-clans-06 | 1151 | tale | "The spring after the hermitage turns their son away, the Tiêu make a rule: daughters to Lê Hoa Am, sons anywhere else." |
 | N-clans-07 | 1162 | gift | "Tiêu Thừa Âm gives the Tiêu hunters' lodge below the massif to his grandson for Tầm Kiếm Đường." |
 | N-clans-08 | 1171 | drought | "Rain falls on the Lục paddies of Phong Đăng and not on the tenants' bank across the river; three Thiều children die that winter." |
 | N-clans-09 | 1160 | hidden | "The Vương stop writing to the Tạ. Nobody in Phong Lâm is told." (a secret, not a public chronicle line) |
@@ -71,7 +71,7 @@ walk in shade, and his hamlet took the trees' name (A102). The rule since: each 
 the year it is born and is buried under it. In 930 his descendant Tiêu Kiến Quang saw a sword's cold light behind a
 seal on the mountain and ran (A108); he searched for eighty years. His son **Tiêu Thừa Âm** buried him under the road
 in 1010 (N-clans-02) and has headed the clan since. In 1150 Thừa Âm sent his grandson Tiêu Vấn Phong, twelve, to the
-hermitage gate, where the abbess Thái Lê Tuyết turned him away (A110). The clan's answer was a rule (N-clans-06):
+hermitage gate, where the abbess Thái Lê Tuyết turned him away (A110). The clan's answer, the next spring, was a rule (N-clans-06):
 daughters to the hermitage, to be inside, and sons anywhere else. In 1162 Thừa Âm gave the boy the hunters' lodge for
 Tầm Kiếm Đường (V069, N-clans-07).
 
@@ -219,7 +219,8 @@ bank and not on the tenants' bank (N-clans-08). Three Thiều children died that
 
 **Method.** *Seed Store Method* (Tàng Chủng Pháp, Yellow, Wood): qi is gathered in the autumn sittings and sealed like
 seed grain, and drawn on only when needed. Every Lục child learns it before letters. The head formed his core on a
-bought Verdant Cycle Scripture and a great many pills.
+Verdant Cycle Scripture bought in the drought of 1150, with the profit on old rice sold to the Tower at four times the
+price, and on a great many pills.
 
 **Marriages and grudges.** **Thính Vũ** taxes them first, and no Lục has ever been taken into the Tower: its gate wants
 Metal at 30, and the Lục have none. The heir's wife Tống Thanh Miêu brought the only Metal into the family, and her
@@ -295,7 +296,7 @@ along the road to the Fire Court, reeling sheds, a cellar, and a table at the si
 **History.** When Hỏa Ti burned in 590, its reelers' daughters fled to Tang Điền with the reeling songs (N-chuc_ha-01).
 One of them, Nhan Dư Ti, married a Đới cocoon-buyer about 600 and taught his house to reel (N-clans-01). The house
 passes to its best reeler, son or daughter, and takes her husband into its name. Đới Tàm Nương has held it since her
-father Đới Vạn Ti died in 1150. Her brother Đới Liệt Cương left for Phần Vũ's vents to stop being a silk trader's son
+father Đới Vạn Ti died in 1158. Her brother Đới Liệt Cương left for Phần Vũ's vents to stop being a silk trader's son
 (phan_vu), and now captains its levy, whose work since 1162 has been guarding the palace's road from Tang Điền to
 the Fire Court, through the Đới fields.
 
@@ -328,7 +329,7 @@ house everything, and he sells the factor a little more each year than she knows
 | doi_hong_kien | Đới Hồng Kiển | Luyện Khí | C | Fire 44, Earth 36, Metal 22 | red-cocoon worms |
 | doi_tan_tam | Đới Tân Tằm | Luyện Khí | C | Fire 42, Earth 34, Water 26 | first unbroken thread |
 | nhan_du_ti | Nhan Dư Ti | (dead 742) Trúc Cơ | B | | the reeler out of Hỏa Ti |
-| doi_van_ti | Đới Vạn Ti | (dead 1150) Trúc Cơ | C | | the head's father |
+| doi_van_ti | Đới Vạn Ti | (dead 1158) Trúc Cơ | C | | the head's father |
 | *doi_liet_cuong* | Đới Liệt Cương | Trúc Cơ | B | | in `phan_vu.cast.json` |
 
 ## 7. Heirlooms (`clans.items.json`)

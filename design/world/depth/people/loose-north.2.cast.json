@@ -75,7 +75,7 @@
   "home": 48, "birthplace": 1346, "role": "Ice-cutter of the ruin crew; failed the Pavilion's Frost Test three times and took the road", "tier": "C",
   "root": {"elements": {"thuy": 48, "moc": 30}, "variants": {}},
   "traits": {"personality": ["Patient", "Stubborn", "Humble"], "calling": "Wanderer", "upbringing": "village_born", "coping": "obsessive_training"},
-  "backstory": "He sat on Phiến Băng Hồ three solstice nights beside Thang Phục Tuyết (thang_phuc_tuyet) and walked back across the ice with him on the third morning; Thang went south, and Khổng went to cut the Pavilion's dead halls out of the ice, still sitting the Clear Frost primer every night.",
+  "backstory": "He sat on the frozen mere of Hàn Giao Chử three solstice nights beside Thang Phục Tuyết (thang_phuc_tuyet) and walked back off the ice with him on the third morning; Thang went south, and Khổng went to cut the Pavilion's dead halls out of the ice, still sitting the Clear Frost primer every night.",
   "ties": [{"to": "thang_phuc_tuyet", "kind": "friend", "note": "walked back across the lake together"}, {"to": "do_suong_nhi", "kind": "former_master", "note": "the outer gate's master, who remembers him"}, {"to": "phan_co_dang", "kind": "friend", "note": "his boss"}, {"to": "tuan_tuyet_lien", "kind": "lover", "note": "he walks south to Hòe Âm every autumn"}, {"to": "du_chuc_nhi", "kind": "friend", "note": "he cuts and she melts"}, {"to": "chiem_thinh_phong", "kind": "friend", "note": "carries him out when the air goes bad"}],
   "build": {"archetype": "the_tu", "main": {"tech": "clear-frost-breath", "layer": 6}, "aux": [], "gear": [{"base": "phu", "grade": 1, "element": "thuy"}], "skills": {}, "tree": {"start": "thuy", "intent": "Water health and endurance."}, "note": "An ice axe and the Pavilion's primer, kept."}
  },
@@ -85,7 +85,7 @@
   "home": 31, "birthplace": 1064, "role": "A Phù Kiều gambler of the Hàn Tân quay whose debts Tùng Đào bought", "tier": "C",
   "root": {"elements": {"moc": 40, "thuy": 32}, "variants": {}},
   "traits": {"personality": ["Indulgent", "Fickle", "Trusting"], "calling": "Wanderer", "upbringing": "village_born", "lifestyle": "gambler"},
-  "backstory": "Luyện Tố Y's (luyen_to_y) younger brother has lost at Cát Châu Nương's (cat_chau_nuong) dice house for forty years; in 1192 she bought his debts on Tùng Đào's silver, and the price is a layer of the Haze Walk only his sister can reach.",
+  "backstory": "Luyện Tố Y's (luyen_to_y) younger brother has lost at Cát Châu Nương's (cat_chau_nuong) dice house for forty years; in 1192 she bought his debts on Tùng Đào's silver, and the price is the Mist-Lock Lantern's key, which his sister holds each spring while her head relays the gate.",
   "ties": [{"to": "luyen_to_y", "kind": "sibling", "note": "the sister paying for him"}, {"to": "cat_chau_nuong", "kind": "debt", "note": "forty years of losses"}],
   "build": {"archetype": "tan_tu", "main": {"tech": "hoang_moc", "layer": 3}, "aux": [], "gear": [{"base": "nhan", "grade": 1, "element": "moc"}], "skills": {}, "tree": {"start": "moc", "intent": "Luck and escape."}, "note": "A lucky ring that is not."}
  },
@@ -126,7 +126,7 @@
   "home": 116, "birthplace": 116, "role": "The oasis girl with more Water than the desert has bred; her mother will not let her sit the Frost Test", "tier": "C",
   "root": {"elements": {"thuy": 74, "tho": 26}, "variants": {}},
   "traits": {"personality": ["Ambitious", "Brave", "Impatient"], "calling": "Wanderer", "upbringing": "village_born", "talent": [{"id": "steady_heart", "tier": 1}]},
-  "backstory": "Her father Hà Khổ Hàn (ha_kho_han), who failed the test three times, named her for the ice he never found and taught her the Pavilion's outer primer before he died; she means to walk to Phiến Băng Hồ this winter and sit the solstice night uninvited beside Hồ Tiểu Đàm (ho_tieu_dam), whatever her mother says.",
+  "backstory": "Her father Hà Khổ Hàn (ha_kho_han), who failed the test three times, named her for the ice he never found and taught her the Pavilion's outer primer before he died; she set out from Ngư Đàm with the Desert Pavilion's spring caravan to sit the solstice night uninvited on the frozen mere at Hàn Giao Chử, nine months on the road, beside Hồ Tiểu Đàm (ho_tieu_dam), whatever her mother says.",
   "ties": [{"to": "mong_thuy_huong", "kind": "parent", "note": ""}, {"to": "ha_kho_han", "kind": "parent", "note": "taught her the primer"}, {"to": "ho_tieu_dam", "kind": "friend", "note": "the village's last hope on the ice, before her"}, {"to": "on_sa_ngoc", "kind": "friend", "note": "the elder who asks for her each spring"}],
   "build": {"archetype": "phap_tu", "main": {"tech": "clear-frost-breath", "layer": 4}, "aux": [], "gear": [{"base": "ho_lo", "grade": 1, "element": "thuy"}], "skills": {}, "tree": {"start": "thuy", "intent": "Water linh lực and the hope of Ice."}, "note": "Her father's primer."}
  },

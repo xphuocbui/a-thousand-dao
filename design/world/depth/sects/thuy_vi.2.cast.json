@@ -787,6 +787,9 @@
    "birthplace": 56,
    "role": "Keeper of the sect's spirit cattle at Mục Ca Thành; a Trúc Cơ in his last two years",
    "tier": "B",
+   "beasts": [
+    "lao_hoang"
+   ],
    "root": {
     "elements": {
      "thuy": 56,

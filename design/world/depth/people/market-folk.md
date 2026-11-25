@@ -80,7 +80,8 @@ it to her"). Lạc Đan Thanh is Fire 80 from a Wood village where Fire is 22 % 
 | 1110 | Mẫn Tế Thế dies under the apricot tree; Giả Hồi Xuân keeps the clinic | **N-market_folk-04** |
 | 1120 | Trịnh Chu Sa is sent away from Nam Phố Đường for selling unstamped talismans | his backstory |
 | 1120-1121 | The cold year: the herds die; the Kim house starts to run on credit | A171 |
-| 1150 | Quản Phục Thu opens her grandfather's ledger; Vi Ngưng Yên buys the dusk herb at Lạc's stall and dies | **N-market_folk-06**, N-yen_quang-02 |
+| 1143 | Quản Phục Thu, eighteen, opens her grandfather's ledger | **N-market_folk-06** |
+| 1150 | The great drought: Vi Ngưng Yên buys the dusk herb at Lạc's stall and dies | N-yen_quang-02 |
 | 1160 | Bào Thừa Phong dies owing for the new yards; Kim Vạn Lý buys a third of the ship-house | **N-market_folk-05** |
 | 1173 | Đào Sa burns with Lạc Hà's fire talismans, and the Trịnh stall with it | A080, N-nam_pho-03 |
 | 1180-1184 | Quách Tiếp Vân lays the Cloud Bridge Array to a design bought from Vệ Văn Cơ | N-lac_ha-04 |
@@ -99,7 +100,7 @@ it to her"). Lạc Đan Thanh is Fire 80 from a Wood village where Fire is 22 % 
   break a fever in the lamp-makers' quarter and dies under the apricot tree."
 - **N-market_folk-05** (1160, `trade`): "Bào Thừa Phong of Yên Ba dies owing for his son's new yards; Kim Vạn Lý pays
   the debt for a third of the ship-house."
-- **N-market_folk-06** (1150, `oath`): "Quản Phục Thu opens her grandfather's closed ledger and takes on the last
+- **N-market_folk-06** (1143, `oath`): "Quản Phục Thu opens her grandfather's closed ledger and takes on the last
   twenty parts of the Kim Cốc debt."
 - **N-market_folk-07** (1190, `trade`, hidden): "Kim Vạn Lý orders three hulls from the Bào yards, deep-keeled and
   copper-sheathed for southern water, and lends them to Thúy Vi's port house."
@@ -182,7 +183,7 @@ secret, Earth/Metal, Vệ's own).
   undercut by Kim in the desert; Giả told Ung Thính Thiền the truth about his eyes and taught Bồ Ngọc Châm her salves.
 - **Cốc Vũ Quán:** Dương Hảo Vũ is Giả's oldest friend; Lam Nhuận Chi walks the hard cases down the road.
 - **Nam Phố Đường:** sent Trịnh Chu Sa away in 1120 and burned his stall with its own talismans in 1173.
-- **Lê Tuyền Phái** (Nhạc Thuần Nhưỡng: forty jars), **Phất Y Cốc** (Khúc Liệt Dương: a year's pay), **Mục Vân
+- **Lê Tuyền Phái** (Nhạc Thuần Nhưỡng: forty jars, which since 1198 he sets against the school's note for the silver it paid the Pivot's steward), **Phất Y Cốc** (Khúc Liệt Dương: a year's pay), **Mục Vân
   Trang** (Khấu's horses, Dư Bôn Vân, Kim Đắc Lộc), **Minh Loan Các** (Khang Viễn Đạc's caravan bells), **Phượng
   Minh Cung** (Vưu Cẩm Thư outbids Kim for tea and buys Liêu's bronze), **Yên Quang Các** (Diêm Tử Tô and the dusk
   herb), **Hồng Đậu Trang** (Tề Vong Quy's sleep and his daughter's request), **Băng Tâm Các** (Ôn Sa Ngọc redeems the
@@ -201,7 +202,7 @@ secret, Earth/Metal, Vệ's own).
   unknown. The Golden Valley Suite is split three ways: the coin with Từ, the seal with the Quản, the pearl in the ash.
 - **The Peach Spring.** Lạc Đan Thanh holds the only map of Đào Nguyên Cảnh, and 1200 is an opening year. He has been
   in once and remembers nothing; his best pill is ground from what he brought out, and one stone is left. He had the
-  map-seller Giả Chỉ Lộ (loose-north) beaten for selling false copies.
+  guide Giả Chỉ Lộ (loose-north) beaten for walking buyers toward the Spring.
 - **Where the pills come from.** Not all of Lạc's pills are his. He sells the hermit Khuyết Vãn Hà's (hermits-sages)
   and takes a third; his copies of Thúy Vi's ride north in the Hỗ fleet's second holds (clans); and his pills for
   those who have failed once hold a soul thread bought from Hám Tàn Chung (demonic), who works the apricot market

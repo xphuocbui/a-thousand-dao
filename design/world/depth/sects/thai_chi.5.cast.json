@@ -33,7 +33,7 @@
     "calling": "Herbalist",
     "upbringing": "sect_raised"
    },
-   "backstory": "A dike-village child carried up the river and given the valley's name, he has kept the sick-houses for forty years and treats whoever is carried to the gate, as the valley's rule says; Ông Khổ Sâm (ong_kho_sam) sends him the bill for the pills every season, and he sends it back.",
+   "backstory": "A dike-village child carried up the river and given the valley's name, he has kept the sick-houses for forty years and treats whoever is carried to the gate, as the valley's rule says; since 1176 that has meant the dike children with their hands torn, and Ông Khổ Sâm (ong_kho_sam) sends him the bill for their pills every season, and he sends it back.",
    "ties": [
     {
      "to": "nghiem_linh_chi",
@@ -43,7 +43,7 @@
     {
      "to": "ong_kho_sam",
      "kind": "rival",
-     "note": "the bill for the pills"
+     "note": "the bill for the dike children's pills"
     },
     {
      "to": "nghiem_hoac_huong",
@@ -410,7 +410,7 @@
     "calling": "Herbalist",
     "upbringing": "village_born"
    },
-   "backstory": "A fisher's daughter of Điếu Đài whose father still lives, so she kept her name; she says aloud what the long houses think, that Lữ Niệm Hà (lu_niem_ha) should be heir, and Lữ sends her to weed for it.",
+   "backstory": "A fisher's daughter of Điếu Đài whose father still lives, so she kept her name; she has asked Lữ Niệm Hà (lu_niem_ha) to put her on the dike list in a boy's place, because a season's wages would buy her father a new net, and Lữ will not.",
    "ties": [
     {
      "to": "lu_niem_ha",

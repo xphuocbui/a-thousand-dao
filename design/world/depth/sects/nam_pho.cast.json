@@ -35,7 +35,7 @@
    "traits": {
     "personality": [
      "Diligent",
-     "Honest",
+     "Callous",
      "Devout"
     ],
     "calling": "Talisman maker",
@@ -60,9 +60,9 @@
     ]
    },
    "appearance": "A slight woman with ink-grey fingertips and her hair pinned with a brush, who rises before the birds and has not missed a dawn in two hundred years.",
-   "backstory": "Châu Phi Vân was born in Tang Ma Thành in 930 among the mulberry and hemp, and at four drew her first talisman in mulberry juice on a hemp rag (A199). The founder Nghiêm Họa Đống (nghiem_hoa_dong) took her at eight and taught her to paint the morning cloud. She has kept the hall since 1100. Its scribes held the prize seal of the talisman contest at Hạc Đinh Thị for eleven contests, until a girl of fourteen from Lạc Hà, Tô Mộ Vân (to_mo_van), took it in 1190 (A203). Châu was glad. She has asked the lord twice to lend her the girl for a season, and this spring she asked for the placed boy Tạ Quy Yến (ta_quy_yen) by name. In 1173 the hall painted a hundred fire talismans on a Lạc Hà order for clearing the reed beds at Thủy Khẩu. Châu painted the master sheet herself. Lô Xướng Vãn's (lo_xuong_van) raiders burned Lãng Đào's boats at Đào Sa with them (A080). She has painted no fire talisman since, and the hall's loyalty to its lord has not recovered.",
-   "wants": "To find an heir who can hold both halves of the founders' art, and to paint the whole Painted Beams talisman once, dawn and dusk together, before she dies.",
-   "secret": "Every year since 1175 she has sent Lãng Đào's head Giang Cửu Khúc an unsigned bundle of ward talismans for his rebuilt ferries, stamped with no seal. Lạc Hà's enemy's boats sail under her wards. She has also 'lost' four of Lạc Hà's war orders since the Ferry War, and her elder Kha Triêu Phi has noticed.",
+   "backstory": "Châu Phi Vân was born in Tang Ma Thành in 930 among the mulberry and hemp, and at four drew her first talisman in mulberry juice on a hemp rag (A199). The founder Nghiêm Họa Đống (nghiem_hoa_dong) took her at eight and taught her to paint the morning cloud. In 1097, not yet mistress, she found that the ink-grinder Sào Ẩn Lan (sao_an_lan) had darkened at the Jade Milk spring, gave her a year's stones and sent her up the karst, and told no one. She has kept the hall since 1100. Its scribes held the prize seal of the talisman contest at Hạc Đinh Thị for eleven contests, until a girl of fourteen from Lạc Hà, Tô Mộ Vân (to_mo_van), took it in 1190 (A203). Châu was glad. She has asked the lord twice to lend her the girl for a season, and this spring she asked for the placed boy Tạ Quy Yến (ta_quy_yen) by name; Lạc Hà's envoy Hách Ánh Hà (hach_anh_ha) kept him off the thirty contracts for her, and the hall owes the envoy a favour. In 1173 the hall painted a hundred fire talismans on a Lạc Hà order for clearing the reed beds at Thủy Khẩu. Châu painted the master sheet herself. Lô Xướng Vãn's (lo_xuong_van) raiders burned Lãng Đào's boats at Đào Sa with them (A080). She has painted no fire talisman since, and the hall's loyalty to its lord has not recovered. This year she fills the lord's war orders with Đới Huyền Nghiên's (doi_huyen_nghien) dark sheets, which she knows are darkening him as they darkened Sào, and pays him by the sheet.",
+   "wants": "To meet the lord's war orders without painting another fire talisman, and to paint the whole Painted Beams talisman once, dawn and dusk together, before she dies.",
+   "secret": "Every year since 1175 she has sent Lãng Đào's head Giang Cửu Khúc an unsigned bundle of ward talismans for his rebuilt ferries, stamped with no seal. Lạc Hà's enemy's boats sail under her wards. She has also 'lost' four of Lạc Hà's war orders since the Ferry War; her elder Kha Triêu Phi keeps a record of them and has told her that a fifth sends it to the Vassal Hall.",
    "ties": [
     {
      "to": "nghiem_hoa_dong",
@@ -122,7 +122,7 @@
     {
      "to": "gian_van_lo",
      "kind": "former_disciple",
-     "note": "the disciple she turned out in 1168"
+     "note": "the disciple she turned out in 1174, for selling a copy of the reed-bed order"
     },
     {
      "to": "trinh_chu_sa",
@@ -137,7 +137,7 @@
     {
      "to": "doi_huyen_nghien",
      "kind": "creditor",
-     "note": "the disciple whose gloves she paid for, asking no questions"
+     "note": "she paid for his gloves and asked no questions; now she pays him by the sheet for the dark talismans"
     },
     {
      "to": "chuc_hieu_ha",
@@ -148,6 +148,11 @@
      "to": "ung_trieu_hong",
      "kind": "disciple",
      "note": "dawn-line scribe; Ninh Họa Vân's second at the talisman contest"
+    },
+    {
+     "to": "hach_anh_ha",
+     "kind": "debt",
+     "note": "Lạc Hà's envoy, who kept Tạ Quy Yến off the thirty contracts for her; Nam Phố owes her a favour"
     }
    ],
    "master": "nghiem_hoa_dong",
@@ -259,8 +264,8 @@
    },
    "appearance": "A handsome, grey-temple scholar in a dusk-violet robe a shade too close to Lạc Hà's, who quotes Vương Bột in every second sentence.",
    "backstory": "Kha Triêu Phi was born to a family of failed examination scholars in Phong Lâm Trấn, among the maples the Lạc Hà founder planted (A190), and grew up looking up the river at the great sect's hall. Ôn Châu Liêm (on_chau_liem), the founder's partner, took him as his last disciple in 1055 and taught him the dusk half of the founders' art, the half that rolls up the western hills' rain. Ôn died at Châu Liêm Trấn in 1060 with most of the dusk half still in his head. Kha has kept the dusk line since, and keeps the hall's accounts with Lạc Hà. He likes Lạc Hà, and it likes him. In 1173 he took the Counting House's order for a hundred fire talismans and wrote 'for the reed beds of Thủy Khẩu' on the order slip himself. He watched the hall's loyalty fall after Đào Sa (A080) and thinks Châu Phi Vân (chau_phi_van) has cost the hall a century of trade over a fire it did not light.",
-   "wants": "To be hall-master after Châu, to take the prize seal back from Lạc Hà's prodigy at the next contest, and to bring the hall back into its lord's favour.",
-   "secret": "He knew what the fire talismans were for. The Boat Hall's master Lô Xướng Vãn told him in 1173, and Kha wrote the reed beds on the slip so that Châu would paint them. He has kept a record of the four war orders she has 'lost', and means to give it to Lạc Hà's Vassal Hall if she names anyone but him.",
+   "wants": "To bring the hall back into its lord's favour, by Châu's war orders or by her fall, and to take the prize seal back from Lạc Hà's prodigy at the next contest.",
+   "secret": "He knew what the fire talismans were for. The Boat Hall's master Lô Xướng Vãn told him in 1173, and Kha wrote the reed beds on the slip so that Châu would paint them. He keeps a record of the four war orders she has 'lost', copied by his scribe Doanh Mộ Vũ, and has told her that a fifth sends it to Lạc Hà's Vassal Hall; he would keep the hall for its lord after her.",
    "ties": [
     {
      "to": "on_chau_liem",
@@ -325,7 +330,7 @@
     {
      "to": "chuc_hieu_ha",
      "kind": "friend",
-     "note": "inner disciple of the Dawn Hall; grinds the mistress's ink"
+     "note": "the Dawn Hall girl who sells him the mistress's counts each season"
     }
    ],
    "master": "on_chau_liem",
@@ -521,7 +526,7 @@
    "rank": "noi_mon",
    "home": 249,
    "birthplace": 546,
-   "role": "Ink-grinder at the Jade Milk spring; makes the hall's ink",
+   "role": "Ink-grinder at the Jade Milk spring; paints the hall's dark talismans at night, paid by the sheet",
    "tier": "B",
    "root": {
     "elements": {
@@ -554,7 +559,7 @@
     "health": null
    },
    "appearance": "A pale, careful man who smells of wet stone and wears gloves to keep the ink off his skin, and lately to keep it in.",
-   "backstory": "A Hầu Đầu Thôn mushroom-picker's son from the karst, Kha Triêu Phi's (kha_trieu_phi) disciple, he grinds the hall's ink in the Jade Milk spring among the stone pillars, where the water carries a dark qi. For ten years the talismans painted with his ink have held longer than any others. For three years they have come out a shade darker each season. He has a thread of Darkness he did not have when he joined, and he has told no one.",
+   "backstory": "A Hầu Đầu Thôn mushroom-picker's son from the karst, Kha Triêu Phi's (kha_trieu_phi) disciple, he grinds the hall's ink in the Jade Milk spring among the stone pillars, where the water carries a dark qi. For ten years the talismans painted with his ink have held longer than any others; for three they have come out a shade darker each season. A thread of Darkness has woken in him, and the whole hall knows it. Since the spring Châu Phi Vân (chau_phi_van) has had him paint Lạc Hà's war orders at night in the ink-house, where the dark takes best, and pays him by the sheet.",
    "ties": [
     {
      "to": "kha_trieu_phi",
@@ -569,7 +574,7 @@
     {
      "to": "chau_phi_van",
      "kind": "debt",
-     "note": "she paid for his gloves and asked no questions"
+     "note": "she paid for his gloves; now she pays him by the sheet"
     },
     {
      "to": "gian_van_lo",
@@ -579,7 +584,7 @@
     {
      "to": "sao_an_lan",
      "kind": "friend",
-     "note": "the girl from the outer gate who went demonic; she wrote him one letter and he has not answered"
+     "note": "the girl from the outer gate who went up the karst in 1097; this year he answered her letter"
     },
     {
      "to": "nhieu_thach_nhu",
@@ -617,7 +622,7 @@
     },
     "tree": {
      "start": "moc",
-     "intent": "Wood, and the Darkness he has not admitted, for curses that hold.",
+     "intent": "Wood, and the Darkness the whole hall can see in his ink, for curses that hold.",
      "targets": [
       5780,
       5782,
@@ -628,7 +633,9 @@
      "targets_note": "Binding route, then Cursed Vine and Witch Knot: curses that hold."
     },
     "note": "The ink-grinder; a Darkness thread grown at the spring."
-   }
+   },
+   "wants": "Enough stones by the sheet to buy his mother a house below the karst, before he has to go up it.",
+   "secret": "This year he answered Sào Ẩn Lan's letter at last, and asked whether there is room in the gorge for one more."
   },
   {
    "key": "van_tang_chi",
@@ -901,7 +908,7 @@
     },
     "tree": {
      "start": "moc",
-     "intent": "Wood first and Water close behind: the girl who might hold both halves.",
+     "intent": "Wood first and Water close behind: the one girl at the hall who asks for both halves.",
      "targets": [
       780,
       784,
@@ -909,7 +916,7 @@
      ],
      "targets_note": "Luyện Khí: the Wood start ring only, the binding route is 18 away; petal talismans wait on wish targets-tl/wood-talisman."
     },
-    "note": "The heir the mistress hopes for."
+    "note": "The mistress's youngest; petal talismans."
    }
   },
   {
@@ -1021,7 +1028,7 @@
    "rank": "ngoai_mon",
    "home": 21,
    "birthplace": 555,
-   "role": "Outer disciple who paints the stern-lamp talismans for Vãn Đăng's boats",
+   "role": "Outer disciple who paints the stern-lamp talismans for Vãn Đăng's boats, in the dark ink",
    "tier": "C",
    "root": {
     "elements": {
@@ -1039,7 +1046,7 @@
     "calling": "Talisman maker",
     "upbringing": "village_born"
    },
-   "backstory": "A Vãn Đăng fisher boy whose village lights its lamps on the dusk of 803 but does not put out (V104); he paints the lamp charms and carries Đới Huyền Nghiên's (doi_huyen_nghien) ink, and has noticed it stains darker than it used to.",
+   "backstory": "A Vãn Đăng fisher boy whose village lights its lamps on the dusk of 803 but does not put out (V104). He carries Đới Huyền Nghiên's (doi_huyen_nghien) ink down from the spring, and since last year he has painted his own village's stern-lamp charms with it, because they hold three times as long. His hands are grey to the wrist.",
    "ties": [
     {
      "to": "doi_huyen_nghien",
@@ -1075,7 +1082,9 @@
      "intent": "Wood."
     },
     "note": "Lamp charms."
-   }
+   },
+   "wants": "Charms that keep Vãn Đăng's boats lit through the winter storms.",
+   "secret": "The lamp charms on his village's boats are painted in the dark ink, and his own hands show what it does."
   },
   {
    "key": "phung_luc_y",

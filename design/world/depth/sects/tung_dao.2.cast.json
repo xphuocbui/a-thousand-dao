@@ -62,7 +62,7 @@
    "appearance": "A soft-spoken young man with a ferryman's sunburn that never fades and herb stains up to the wrist.",
    "backstory": "Đàm Thanh Giang was born in 1110 in Cổ Độ Thành into the ferry family the head came from, the line of Đàm Tùng Lại's (dam_tung_lai) brother. At six he was sent up to the palace with a water gourd and a letter, and the head took him as his last disciple. He has no taste for fighting. Bồ Hạnh Lâm (bo_hanh_lam) taught him the furnace, and he now brews most of the wound pills the Coiled Root Hall uses, which is the only reason Nhiếp Cô Tân (nhiep_co_tan) is civil to him. He is ninety, at the last stage of Trúc Cơ, and in no hurry. Since 1190 he has flown out each autumn, most of a season's flight, to spend the winter on the islets of the Cold Ford's river mouth gathering a frost-root that grows only there, and every winter he has met a Thúy Vi girl there, Hướng Vãn Chu (huong_van_chu), who is trying to grow spirit rice in salt water. He has told nobody. The palace would see a scandal. Nhiếp would see a road across the ice.",
    "wants": "To brew a pill that mends a cracked foundation, and to stand on the ice one winter without having to leave at dawn.",
-   "secret": "He does not know what lies under the ice where they meet: the six patrolmen her father killed in 1172. She does.",
+   "secret": "Since 1190 he has brewed the Coiled Root Hall's winter wound pills one grade weak, so that no patrol he heals can hold out a night on the river-mouth ice where he meets Hướng Vãn Chu; Nhiếp Cô Tân thinks the frost-root is poor.",
    "ties": [
     {
      "to": "dam_tung_lai",
@@ -156,7 +156,7 @@
    "home": 2,
    "birthplace": 2,
    "tier": "A",
-   "role": "True disciple of the Coiled Root Hall and Nhiếp Cô Tân's granddaughter; the war party's candidate for the headship",
+   "role": "True disciple of the Coiled Root Hall and Nhiếp Cô Tân's granddaughter; the inner gate's best duellist",
    "root": {
     "elements": {
      "moc": 72,
@@ -198,8 +198,8 @@
     "gained": []
    },
    "appearance": "A tall, sharp-faced young woman in a patrolman's short coat, with a black flying blade across her back that was her father's.",
-   "backstory": "Nhiếp Vãn Đào was born in the palace in 1166. When she was eight, Lạc Hà sent her father's blade back from the Ngư Ca border without him (A202), and her grandfather Nhiếp Cô Tân (nhiep_co_tan) raised her himself in the Coiled Root Hall. She formed her foundation at thirty-two and was made a true disciple at thirty-four, the youngest of her generation, and she has won every duel the inner gate has offered her. The Root Hall says she should be the next head instead of the head's quiet heir, Vi Thanh Âm (vi_thanh_am), and Vãn Đào has begun to believe it. She is not her grandfather. She has sat over the toll books with Từ Tích Cốc (tu_tich_coc) to learn what a war costs, and she walks the dikes with the flood wardens. She thinks the sect has a right to the Cold Ford. She has not yet decided whether it has a right to call six dead men deserters.",
-   "wants": "The headship, won in the open, and her father's name sung in the war roll with the bridges he cut.",
+   "backstory": "Nhiếp Vãn Đào was born in the palace in 1166. When she was eight, Lạc Hà sent her father's blade back from the Ngư Ca border without him (A202), and her grandfather Nhiếp Cô Tân (nhiep_co_tan) raised her himself in the Coiled Root Hall. She formed her foundation at thirty-two and was made a true disciple at thirty-four, the youngest of her generation, and she has won every duel the inner gate has offered her. Her grandfather raised her to be head, and in 1199 Đàm named his quiet disciple Vi Thanh Âm (vi_thanh_am) instead. Vãn Đào took it better than the Root Hall did: she will not go with its searchers into the heir's rooms. She is not her grandfather. She has sat over the toll books with Từ Tích Cốc (tu_tich_coc) to learn what a war costs, and she walks the dikes with the flood wardens. She thinks the sect has a right to the Cold Ford. She has not yet decided whether it has a right to call six dead men deserters.",
+   "wants": "Her father's name sung in the war roll with the bridges he cut, and any war the sect fights fought in the open.",
    "secret": "She found her grandfather's patrol order of 1172 among his things: the only written order the Coiled Root Hall has sent out in a century, because it had to cross the river. It carries his seal and not the head's. She has not told him, and she has not burned it.",
    "ties": [
     {
@@ -220,7 +220,7 @@
     {
      "to": "vi_thanh_am",
      "kind": "rival",
-     "note": "the head's heir"
+     "note": "the named heir; she will not search her rooms"
     },
     {
      "to": "dam_thanh_giang",
@@ -922,7 +922,7 @@
     "calling": "Steward",
     "upbringing": "village_born"
    },
-   "backstory": "Born on the dike of Hà Đê Thôn in a flood year, he walks the River Hall's dikes every spring with a flood-mark rod and has never let a breach stand overnight.",
+   "backstory": "Born on the dike of Hà Đê Thôn in a flood year, he walks the River Hall's dikes every spring with a flood-mark rod and has never let a breach stand overnight. He signs Thải Chi's dike contracts with Ông Khổ Sâm (ong_kho_sam) each autumn, and pays the valley's office for the orphans' days, never the children.",
    "ties": [
     {
      "to": "du_tinh_luu",
@@ -938,6 +938,11 @@
      "to": "du_phong_ngan",
      "kind": "friend",
      "note": "sluice keeper of the River Hall's lower gates at Đào Thanh Thành"
+    },
+    {
+     "to": "ong_kho_sam",
+     "kind": "friend",
+     "note": "Thải Chi's steward; they sign the orphans' dike contracts together each autumn"
     }
    ],
    "master": "du_tinh_luu",
@@ -1287,12 +1292,12 @@
     ]
    },
    "appearance": "A narrow-faced woman who draws array lines in the air with one finger while she talks.",
-   "backstory": "From Cận Tùng Hàn's (can_tung_han) own boat-builders' town, she is the best array hand in the palace after him and the one he means to leave the hall to. She wants to be asked. Nhiếp Cô Tân (nhiep_co_tan) has asked her something else instead: he wants a crossing laid on the river-mouth ice, and she has begun to work out how, in her head, where nobody can read it.",
+   "backstory": "From Cận Tùng Hàn's (can_tung_han) own boat-builders' town, she is the best array hand in the palace after him and the one he means to leave the hall to. She wants to be asked. Nhiếp Cô Tân (nhiep_co_tan) has asked her something else instead: he wants a crossing laid on the river-mouth ice, and she is laying it out flag by flag in the Array Hall's back room. She brings every flag to Cận to check, as she has brought him everything since she was a girl.",
    "ties": [
     {
      "to": "can_tung_han",
      "kind": "master",
-     "note": "means to leave her the hall, and has not said so"
+     "note": "means to leave her the hall, and has not said so; he checks every flag she makes"
     },
     {
      "to": "hong_mac_ky",

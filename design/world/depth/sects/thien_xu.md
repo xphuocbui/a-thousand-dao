@@ -90,7 +90,7 @@ ground.
 | 1080 | The envoy who forgot his message | A062 |
 | 1090 | The hunt for Mặc Huyết Sinh | C024 |
 | 1150 | Đỗ Tinh Hà steps down; Doãn Ngọc Hành is confirmed, and Thính Vũ's seal comes a day late | C187, **N-thien_xu-08** |
-| 1154-1158 | **Cinnabar Vein War** on Phượng Minh's side; Thính Vũ beaten at Đan Sơn Mạch | C189, C190 |
+| 1154-1158 | **Cinnabar Vein War**, begun by the Tower in the drought of 1150 (C188), joined on Phượng Minh's side; Thính Vũ beaten at Đan Sơn Mạch | C189, C190 |
 | 1165 | The Pivot begins counting Thính Vũ's disciples | C200 |
 | 1188 | Băng Tâm's petition for Tinh Tủy Mạch; the head borrows the Weight and refuses it; the guard is doubled | C195, **N-thien_xu-09**, A096, V070 |
 | 1196 | A copy of the 803 guard roll leaves the archive (hidden) | **N-thien_xu-10** |
@@ -112,8 +112,8 @@ ground.
   his lord's refusal; from this year the Pivot's envoys carry jade tallies, never iron."
 - **N-thien_xu-07** (940, `tale`): "At the clearing of Hắc Phong Trại, Đỗ Tinh Hà spares the youngest of the rogues and
   keeps him as a hunter."
-- **N-thien_xu-08** (1150, `rite`): "At Doãn Ngọc Hành's confirmation Thính Vũ Lâu's seal is set a day late; the same
-  year its disciples march on Đan Sơn Mạch."
+- **N-thien_xu-08** (1150, `rite`): "At Doãn Ngọc Hành's confirmation Thính Vũ Lâu's seal is set a day late, because its envoy
+  is out buying grain in the drought; the same year its disciples march on Đan Sơn Mạch."
 - **N-thien_xu-09** (1188, `judgement`): "Doãn Ngọc Hành asks the Chief Judge for the Weight and judges Băng Tâm's
   petition himself, the first head to do so since 510; he returns the Weight the next morning."
 - **N-thien_xu-10** (1196, `tale`, hidden): "A copy of the 803 guard roll of Tinh Tủy Mạch is handed to Băng Tâm's
@@ -137,7 +137,9 @@ ground.
   black cord with seven knots, and elders a small silver star at the collar for their hall's star. The head wears the
   stone seal on a cord at his chest.
 - **Plateau food.** Barley, yak butter tea, mutton in winter. No wine at the seat except Lễ Tuyền Phái's hundred jars
-  a year (A263), which are opened only at the Compact-day table.
+  a year (A263), which are opened only at the Compact-day table, and, since 1192, forty jars of pure spring a year that
+  the Pivot takes in silence as a fine for the lake water in the hundred; a cellar steward of the seat lives at the
+  Spring House and counts its casks each spring.
 - **Burial.** The dead are buried on the slope of Thái Nhất Phong below the founder, facing the pole. Soldiers lie
   where they fell. The Vạn Cốt Trủng on Chiết Kích Nguyên is the sect's largest grave, and Quý Trường Kích lies under it
   with his halberd (C160).
@@ -176,14 +178,16 @@ one art it took by conquest, and the Thiên Quyền Hall has argued against teac
 - **Outer gate:** Metal or Earth at purity 30. Each spring the outer gate's master walks the plateau villages with a
   balance and a bag of weights; the mines send their children without being asked.
 - **The Level Beam:** at the sixth layer of the primer the outer disciple stands on the great scale of Thạch Quyền
-  Phong holding the master's weights. If the beam stays level for an incense stick, and their Metal is 45 or more, the
-  inner gate opens the same evening. Earth carries most of the plateau children to the sixth layer. Metal stops most
-  of them there. One try a year, at the winter solstice, and no limit on years: Hạ Hầu Thạch has tried
-  eleven times in eighty years.
+  Phong holding the master's weights. The right pan is carried by the disciple's Metal, so the beam is how the gate
+  reads it: if the beam stays level for an incense stick, their Metal is 45 or more, and the inner gate opens the same
+  evening. Earth carries most of the plateau children to the sixth layer. Metal stops most
+  of them there. One try a year, at the winter solstice, and no limit on years: Hạ Hầu Thạch tried
+  eleven times in eighty years before the beam held for him in 1199 (§9).
 - **Inner gate and above:** Metal 45 or more (the main method's element). A Light or Thunder root that rides on that
   Metal is taken and taught the lineage like any other (Hình Thủ Tinh, Thịnh Hàm Quang, Mặc Kinh Trập).
 - **Exceptions kept:** the guest armourer from Thối Tinh Môn and the Pivot's hound (khách khanh), and the seat's
-  servants (tạp dịch). Neither guest elder is taught the lineage.
+  servants (tạp dịch). Neither guest elder is taught the lineage. One mark the gate did not mean to make: Hạ Hầu Thạch,
+  signed into the inner gate in 1199 on a filed weight with a Metal of thirty (§9).
 - **No purchase.** A place in the outer gate cannot be bought. Mi Kim Bảo's father tried, and Chử Bình Quân handed the
   silver back.
 
@@ -216,7 +220,8 @@ Pole Star, is the head's court.
 - **Thính Vũ Lâu:** the grudge that matters (−15, from the Broken Halberds and the Cinnabar Vein). Mạnh Dạ Vũ swore at
   Đan Sơn Mạch that the Pivot would answer for it (C190). The Pivot has counted the Tower since 1165, and the count has
   doubled twice. Its envoy Phòng Bách Kế lives there, shown what the Tower wants him to see by Lệ Tiêu Hồn. In 1198 the
-  Tower's war elder Cố Dạ Lan offered a thunder-stone forge for the Thunder-rooted girl Mặc Kinh Trập.
+  Tower's vault master Lệ Tiêu Hồn, who heads its Thunder Hall, offered a thunder-stone forge for the Thunder-rooted
+  girl Mặc Kinh Trập.
 - **Lạc Hà Tông:** −10, from Chiết Kích. Its first elder Trầm Tịch Dương pays the junior judge Trọng Khắc Kỷ, and its
   head Tô Vãn Chiếu tells the Pivot's envoy Chiêm Như Ngọc nothing, courteously.
 - **Băng Tâm Các:** obedient and cold since 1188. Sở Ngọc Hồ withdrew in silence (C195), and Ngụy Thanh Hàn, who wrote
@@ -232,24 +237,42 @@ Pole Star, is the head's court.
   Cốc** (Thang Vô Tạ) supplies swordsmen for hire and Can Tương's ore. **Củng Tinh Quán** (Thẩm Bắc Thần), the
   oldest vassal, reads the Dipper on the Tuyền Cơ Nghi; the Pivot did not listen to its omens in 501 and 789 (C102,
   C156). **Cửu Cao Phái** (Ung Hạc Minh) flies the Pivot's letters and circles the vein, and holds Phá Quân's old
-  ground (C163). **Chân Kim Các** (Tưởng Bách Luyện) assays beside the Pivot at Song Kiều and shaves its weights.
-  **Hoa Cái Đường** (La Tử Vi) sells it cinnabar and pills. **Họa Tinh Đường** (Kỷ Ngân Chúc) paints the Dipper into
-  talismans that will not run in the rain (V059).
+  ground (C163). **Chân Kim Các** (Tưởng Bách Luyện) assays beside the Pivot at Song Kiều, shaves its weights, and
+  since 1198 has taken the square's custom from the Pivot's scale. **Hoa Cái Đường** (La Tử Vi) sells it pills and
+  cinnabar from the Pivot's own diggings, which the treasury now wants back. **Họa Tinh Đường** (Kỷ Ngân Chúc) paints
+  the Dipper into talismans that will not run in the rain (V059); Thính Vũ's coast house now forges them in deer glue
+  from Lộc Uyển (hoa_tinh §9).
 
 ## 9. Inside the sect
 
-- **The succession and the Confirmation.** Since 760 the Pivot's head has been confirmed before the seals of the
-  seven great sects at Thạch Kiều (N-thien_xu-03). Doãn Ngọc Hành has named no heir, and the seat presumes his
-  brother's descendant **Doãn Hi Hòa**, a Trúc Cơ of seventy. The elders want his chief disciple **Công Tôn Duẫn**, a Kết Đan of
-  a century's service whom they believe the other sects would confirm. In 1197 Công Tôn asked the envoy **Mâu Tri Viễn** to sound
-  them. Mâu holds their answers in a sealed letter and has shown it to no one.
+- **The Confirmation.** Since 760 the Pivot's head has been confirmed before the seals of the seven great sects at
+  Thạch Kiều (N-thien_xu-03). In 1190, at the Compact-day table, **Doãn Ngọc Hành** named his brother's descendant
+  **Doãn Hi Hòa**, then a Trúc Cơ of sixty, his heir aloud, before the elders had been asked. In 1197 the envoy **Mâu
+  Tri Viễn** sounded the great sects on her. His sealed letter says four of the seven would refuse to confirm her: the
+  Pivot's own peace would refuse its head. Mâu has shown the letter to no one. He is drafting the terms
+  on which Thính Vũ, at least, would change its answer, and the first term is an end to the count.
+- **The second sounding.** The elders' man **Công Tôn Duẫn**, the head's chief disciple, asked for the 1197 sounding
+  and was never shown the answer. Mâu's courier **Phó Dịch Lam**, who carried the replies home, told him which four
+  envoys kept her waiting a month. Now she carries his own letters to those four witness-houses at Thạch Kiều, fifty
+  days down the road, under Mâu's seal, for the promise of the hall's road office. Each asks whether they would confirm
+  him instead. Each says what the seat's night-watch book says, that the heir he trains goes into the war-writ office
+  at night, and what she tells him on the training floor, that she agrees with every writ. He keeps the book.
 - **The vein and the roll.** The vein guard went down to the plain in 803 and did not come back (N-thien_xu-04); the post stood empty for three years, though no order withdrew it. In 1188 the head sealed the archive's
   roll and refused Băng Tâm's claim himself. **Sử Ngưng Mặc** sealed the shelf and does not remember the duplicate she
   copied in 803. **Thích Minh Thư** found that duplicate in 1195 and gave a copy to Ngụy Thanh Hàn in 1196.
   **Hoàng Phủ Tịch** has noticed. **Phương Trực Ngôn's** unfinished judgement found for Băng Tâm. **Hình Thủ Tinh**
   believes the watch has never been withdrawn, and **Hác Thủ Nhai's** forebear died on the plain in 803.
 - **The hawk and the scale.** **Ngũ Trấn Bắc** drafts a writ against Thính Vũ each spring; **Mâu Tri Viễn** buries it;
-  the head is silent. **Nhiếp Minh Tiễn** lets Doãn Hi Hòa read the writs, and the heir agrees with the hawk.
+  the head is silent. If the writ passed, it would call home Phất Y's grey sleeves, and one company guarding Thính Vũ's
+  iron under a camel-train name holds a contract with no Pivot line. **Nhiếp Minh Tiễn** lets Doãn Hi Hòa read the
+  writs, and the heir agrees with the hawk.
+- **The head's numbers.** The head refuses the writ because Thính Vũ's own spymaster **Nhiếp Vô Thanh** writes to him
+  through the Tower's stores clerk **Tào Mặc Toán**, in the Pivot's pay since 1140, and her numbers are half of **Phòng
+  Bách Kế**'s. Ngũ does not know the letters exist.
+- **The eight strokes.** In 1154, the night before he decided for the war, Doãn Ngọc Hành heard **Hoa Triêu Dương**
+  play eight airs in the ridge palace on what he took for a ridge flute. They were the first eight movements of the
+  Shao, the music the Pivot destroyed Cửu Thiều Cung for (C005). Since then he counts eight strokes in the seat's single
+  dusk bell, and he lets **Bách Vong Ngôn**'s zither go. If it came out, his war of 1154 would be a war the Shao bought.
 - **The Three of the Same Year.** **Đỗ Tinh Hà** sent Quý Trường Kích onto a plain he knew was laid with miasma.
   **Lôi Vô Danh** heard the order and took the banner so no one could send the army again. He hid in abode A-3 on the
   Pivot's own plain until he died in 950. **Ngũ Trấn Bắc** is close to the abode. **Quý Thủ Lũy**, Quý's granddaughter,
@@ -261,7 +284,10 @@ Pole Star, is the head's court.
   The head knows.
 - **The plateau and the mines.** The outer gate is full of Earth-rooted herders' children who will never pass the
   Level Beam. **Chử Bình Quân**, the one who did, with a Metal of exactly forty-six, will not tip it for anyone, not
-  even the head's kin **Doãn Thường Hi**.
+  even the head's kin **Doãn Thường Hi**. At the solstice of 1199 **Hạ Hầu Thạch**, 107, held it level on his
+  twelfth try, on a weight **Uất Trì Thu** had filed. Chử saw the file mark and signed the old man into the inner
+  gate anyway; his Metal of thirty will never carry the Dipper Handle Canon. Uất wants the same weight at this
+  solstice, or the seat hears that its gate master passed an altered weight.
 
 ## 10. Treasures and sets
 
@@ -305,7 +331,7 @@ Living by realm: Nguyên Anh 4, Kết Đan 12, Trúc Cơ 30, Luyện Khí 25 (th
 | ngu_tran_bac | Ngũ Trấn Bắc | trưởng lão | Nguyên Anh | A | Metal 84, Earth 46, Fire 30 | Master of the Dao Quang Hall, the war-writ office: the Pivot's hawk |
 | su_ngung_mac | Sử Ngưng Mặc | trưởng lão | Kết Đan | A | Metal 60, Earth 52 | Keeper of Tàng Ước Các, the archive of the North Star Compact |
 | mau_tri_vien | Mâu Tri Viễn | trưởng lão | Kết Đan | A | Metal 56, Water 42, Wood 30 | Master of the Khai Dương Hall and chief envoy of the Pivot |
-| cong_ton_duan | Công Tôn Duẫn | chân truyền | Kết Đan | A | Metal 70, Earth 52, Water 34 | The head's chief disciple and steward of the seat; the elders' choice for heir |
+| cong_ton_duan | Công Tôn Duẫn | chân truyền | Kết Đan | A | Metal 70, Earth 52, Water 34 | The head's chief disciple and steward of the seat; the elders' man |
 | boc_tram_chu | Bộc Trầm Chu | trưởng lão | Kết Đan | B | Metal 48, Water 58, Earth 30 | Harbour master of Tinh Hán Thành; captain in the Pirate Purge |
 | quy_thu_luy | Quý Thủ Lũy | trưởng lão | Kết Đan | B | Metal 56, Earth 60 | Keeper of the barrow watch at the edge of Chiết Kích Nguyên; Quý Trường Kích's granddaughter |
 | do_vo_cuu | Đồ Vô Cữu | khách khanh | Kết Đan | B | Fire 62, Metal 58, Thunder 48 | Guest elder and the Pivot's hound: hunter of deserters, rogues and the ma đạo |
@@ -315,7 +341,7 @@ Living by realm: Nguyên Anh 4, Kết Đan 12, Trúc Cơ 30, Luyện Khí 25 (th
 | hinh_thu_tinh | Hình Thủ Tinh | chấp sự | Kết Đan | B | Metal 70, Earth 40, Fire 32, Light 26 | Warden of Tinh Tủy Mạch, the Star Marrow Vein, whose guard was doubled in 1189 |
 | trong_khac_ky | Trọng Khắc Kỷ | trưởng lão | Kết Đan | B | Metal 50, Earth 48, Fire 34 | Junior judge of the Bridge Court, who sits on the river and toll cases |
 | nhiep_minh_tien | Nhiếp Minh Tiễn | trưởng lão | Kết Đan | B | Metal 62, Earth 40, Fire 30 | Writ officer of the Dao Quang Hall, keeper of the writ ledger |
-| doan_hi_hoa | Doãn Hi Hòa | nội môn | Trúc Cơ | A | Metal 74, Earth 60 | The head's disciple and presumed heir, age 70 |
+| doan_hi_hoa | Doãn Hi Hòa | nội môn | Trúc Cơ | A | Metal 74, Earth 60 | The head's disciple, named heir aloud in 1190 and not yet confirmed, age 70 |
 | thich_minh_thu | Thích Minh Thư | nội môn | Trúc Cơ | A | Metal 52, Earth 48 | Copyist of Tàng Ước Các, who found the 803 guard roll and gave it away |
 | ta_khac_thach | Tả Khắc Thạch | chấp sự | Trúc Cơ | B | Metal 60, Earth 44 | Stele warden of Giới Bi Phong, keeper of the western boundary steles |
 | chu_binh_quan | Chử Bình Quân | chấp sự | Trúc Cơ | B | Metal 46, Earth 70 | Master of the outer gate on Thạch Quyền Phong, keeper of the Level Beam |
@@ -347,7 +373,7 @@ Living by realm: Nguyên Anh 4, Kết Đan 12, Trúc Cơ 30, Luyện Khí 25 (th
 | thinh_ham_quang | Thịnh Hàm Quang | nội môn | Trúc Cơ | C | Metal 58, Earth 40, Fire 30, Light 34 | Array keeper on Tinh Tủy Mạch |
 | doan_thuong_hi | Doãn Thường Hi | ngoại môn | Luyện Khí | B | Earth 48, Metal 40 | Outer disciple; Doãn Hi Hòa's niece and the head's kin |
 | mac_kinh_trap | Mặc Kinh Trập | nội môn | Luyện Khí | B | Metal 58, Fire 32, Thunder 30 | Inner disciple with a Thunder root from Cùng Mục Phong, whom Thính Vũ has tried to buy |
-| ha_hau_thach | Hạ Hầu Thạch | ngoại môn | Luyện Khí | C | Earth 58, Metal 30 | The oldest outer disciple, who teaches the weights |
+| ha_hau_thach | Hạ Hầu Thạch | nội môn | Luyện Khí | C | Earth 58, Metal 30 | Admitted at 107 on a filed weight (exception); teaches the weights |
 | bo_loc_minh | Bồ Lộc Minh | chấp sự | Luyện Khí | C | Metal 46, Earth 34, Wood 28 | Warden of the deer meadow of Lộc Uyển |
 | uat_tri_thu | Uất Trì Thu | ngoại môn | Luyện Khí | C | Earth 38, Metal 30, Wood 26 | Outer disciple who tries to cheat the beam |
 | tang_kien | Tăng Kiên | ngoại môn | Luyện Khí | C | Earth 42, Metal 34 | Outer disciple from the marshal's village |
@@ -391,12 +417,13 @@ Living by realm: Nguyên Anh 4, Kết Đan 12, Trúc Cơ 30, Luyện Khí 25 (th
 4. **The tally's lost half.** Sử Ngưng Mặc has looked for the archive's half of the Thiết Mã tally for four centuries.
    The other half is in Thiết Mã Cảnh. With both and the banner, someone commands an army. (Sử, Đỗ, Ngũ; Thiết Mã Cảnh,
    seat 5.)
-5. **The writ.** The count has doubled twice. Phòng Bách Kế suspects he is shown numbers on purpose. Ngũ drafts the
-   writ; Mâu buries it; Doãn Hi Hòa has read it. A war with Thính Vũ comes, or the Pivot finds out it has been counting
-   a decoy. (Ngũ, Mâu Tri Viễn, Phòng Bách Kế, Mạnh Dạ Vũ, Lệ Tiêu Hồn, Doãn Hi Hòa; places 7, 211.)
-6. **The Confirmation.** Mâu Tri Viễn's sealed letter says which heir the great sects would confirm. Công Tôn Duẫn
-   asked for it; Doãn Hi Hòa does not know it exists. (Mâu, Công Tôn, Doãn Hi Hòa, Nhiễm Thừa Nghiệp, Doãn Ngọc Hành;
-   place 81.)
+5. **The writ.** The count has doubled twice. Phòng Bách Kế is shown one set of numbers by Lệ Tiêu Hồn, and the head
+   reads half of them in Nhiếp Vô Thanh's letters through Tào Mặc Toán. Ngũ drafts the writ; Mâu buries it; Doãn Hi Hòa
+   has read it. Which count is true, and who is the decoy for? (Ngũ, Mâu Tri Viễn, Phòng Bách Kế, Lệ Tiêu Hồn, Nhiếp Vô
+   Thanh, Tào Mặc Toán, Doãn Hi Hòa; places 7, 211, 874.)
+6. **The Confirmation.** One of the four envoys at Thạch Kiều receives Công Tôn Duẫn's letter under Mâu Tri Viễn's
+   seal and writes to Mâu to ask which letter the Pivot means. Doãn Hi Hòa does not know either letter exists. (Mâu,
+   Công Tôn, Phó Dịch Lam, Doãn Hi Hòa, Doãn Ngọc Hành; place 81.)
 7. **The judge's silver.** Từ Tri Tiết can prove Trọng Khắc Kỷ takes Lạc Hà's money. She needs someone to carry it to
    the Chief Judge. (Từ, Trọng, Trầm Tịch Dương, Nguyên Hảo Khách, Phương; place 81.)
 8. **The zither.** Ngạc Tri Âm is heard practising. The Pivot's oldest taboo meets its most harmless envoy. (Bách Vong
@@ -406,9 +433,13 @@ Living by realm: Nguyên Anh 4, Kết Đan 12, Trúc Cơ 30, Luyện Khí 25 (th
    217.)
 10. **The hound and the blood robe.** Đồ Vô Cữu has hunted Triệu Huyết Y since 1090. She is looking for her master's
     abode, and he knows the way there. (Đồ, Triệu Huyết Y, Đỗ; abode A-6.)
-11. **The Thunder girl.** Thính Vũ wants Mặc Kinh Trập badly enough to offer a forge for her. The Pivot said no without
-    asking her. (Mặc Kinh Trập, Cố Dạ Lan, Đái Hổ Thần, Đồ Vô Cữu, Mâu; places 186, 7.)
+11. **The Thunder girl.** Thính Vũ's Thunder Hall wants Mặc Kinh Trập badly enough to offer a forge for her. The Pivot
+    said no without asking her, and she wants to know what Lệ Tiêu Hồn would teach. (Mặc Kinh Trập, Lệ Tiêu Hồn, Đái Hổ
+    Thần, Đồ Vô Cữu, Mâu; places 186, 208, 7.)
 12. **The Level Beam and the kink.** The player, plateau-born with a strong Earth root, stands on the beam at Thạch
     Quyền Phong. Later, walking the steles with the Thiên Cơ Hall, they find the stele below Thủ Bi Trại forty paces off
     its line, with Tả Khắc Thạch's book of measurements as proof. (Chử Bình Quân, Hạ Hầu Thạch, Doãn Thường Hi, Tả
     Khắc Thạch, Thiện Thừa Củ; places 385, 669, 692.)
+13. **The filed weight.** The winter solstice comes, and Uất Trì Thu steps onto the Level Beam. Chử Bình Quân sets the
+    weights, and Sầm Lũy, who guards the scale at night, stands beside the pan. (Chử Bình Quân, Uất Trì Thu, Hạ Hầu
+    Thạch, Sầm Lũy, Doãn Thường Hi; place 385.)

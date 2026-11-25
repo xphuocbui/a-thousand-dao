@@ -61,9 +61,9 @@
     ]
    },
    "appearance": "A thick, quiet man with a seal hunter's squint and a white hide coat, who stands in freezing surf as if it were a warm bath.",
-   "backstory": "Đoàn Thanh Lãng was born in Liên Giang Thành during a cold rain that joined the river by night (A139), the son of seal-oil boilers. At sixteen he went through the river ice and Thẩm Hàn Giang (tham_han_giang), already a Pavilion man, pulled him out; they swore brotherhood on the ice that winter. He walked the coast to Trạc Anh Đài, where the founder Khuất Thanh Anh (khuat_thanh_anh) taught him to dive in winter and throw the iron. In 1080 the white whale the coast calls the Old Ivory took Khuất under off the terrace. Đoàn held the line until it burned through his palms, and he has led the terrace since. He is a peaceable man who hunts for a living. He keeps the sect neutral, pays the Pavilion its seal oil, and stays out of its quarrels. In 1170 an old woman of Liên Giang told him who her grandson Liễu Ngư Ca (lieu_ngu_ca) really was, and made him swear to stand by the boy if the coast ever rose. Now his sworn brother wants the Vessel, and the boy is that brother's disciple.",
-   "wants": "To kill the Old Ivory before he dies, and to keep the terrace out of the Pavilion's succession.",
-   "secret": "He knows Liễu Ngư Ca is Hàn Giang's heir and has sworn to fight for him. Thẩm does not know he knows.",
+   "backstory": "Đoàn Thanh Lãng was born in Liên Giang Thành during a cold rain that joined the river by night (A139), the son of seal-oil boilers. At sixteen he went through the river ice and Thẩm Hàn Giang (tham_han_giang), already a Pavilion man, pulled him out; they swore brotherhood on the ice that winter. He walked the coast to Trạc Anh Đài, where the founder Khuất Thanh Anh (khuat_thanh_anh) taught him to dive in winter and throw the iron. In 1080 the white whale the coast calls the Old Ivory tore the Canglang Harpoon out of her back, but the founder's second iron held, and its line took him over the side with the boat going after. Đoàn cut the line (N-trac_anh-02). The boats held their council that winter, Bào Thiết Thủ (bao_thiet_thu) said he had cut it for the crew, and the boats made him head. He is a peaceable man who hunts for a living. He keeps the sect neutral, pays the Pavilion its seal oil, and stays out of its quarrels. In 1170 an old woman of Liên Giang told him who her grandson Liễu Ngư Ca (lieu_ngu_ca) really was, and made him swear to stand by the boy if the coast ever rose. Now his sworn brother wants the Vessel, and the boy is that brother's disciple; and his harpoon captain wants the whale's calf.",
+   "wants": "To keep the terrace from selling the Old Ivory's calf to Thiên Bảo, and to keep it out of the Pavilion's succession. Under that, to meet the Old Ivory once more in a boat and learn whether he would throw the iron or cut again.",
+   "secret": "He knows Liễu Ngư Ca is Hàn Giang Môn's heir and has sworn to fight for him. Thẩm does not know he knows.",
    "ties": [
     {
      "to": "tham_han_giang",
@@ -73,17 +73,17 @@
     {
      "to": "khuat_thanh_anh",
      "kind": "master",
-     "note": "the founder, taken by the Old Ivory in 1080"
+     "note": "the founder; Đoàn cut his line in 1080"
     },
     {
      "to": "doan_to_ba",
      "kind": "child",
-     "note": "his daughter and heir"
+     "note": "his daughter; rows the sixth boat and will not take Ngạc's iron"
     },
     {
      "to": "ngac_hai_tieu",
      "kind": "disciple",
-     "note": "his harpoon captain, who wants the terrace"
+     "note": "his harpoon captain, who is buying the hunt with Thiên Bảo's advance"
     },
     {
      "to": "lieu_ngu_ca",
@@ -98,7 +98,7 @@
     {
      "to": "bao_thiet_thu",
      "kind": "friend",
-     "note": "the steward who held the line beside him in 1080"
+     "note": "the boat-master who was in the boat in 1080 and spoke for him at the council"
     },
     {
      "to": "phi_nhan_tam",
@@ -108,7 +108,7 @@
     {
      "to": "boc_kinh_thang",
      "kind": "disciple",
-     "note": "captain of the third whaleboat; the loudest voice for hunting the Old Ivory"
+     "note": "captain of the third whaleboat; the first to take Ngạc's iron"
     }
    ],
    "master": "khuat_thanh_anh",
@@ -308,8 +308,12 @@
    "rank": "chan_truyen",
    "home": 17,
    "birthplace": 17,
-   "role": "The head's daughter and heir; best diver on the terrace",
+   "role": "The head's daughter; best diver on the terrace, who rows the sixth boat with her divers",
    "tier": "B",
+   "beasts": [
+    "lang_nhi",
+    "tiem_nhi"
+   ],
    "root": {
     "elements": {
      "thuy": 50,
@@ -350,7 +354,7 @@
     "gained": []
    },
    "appearance": "Long-armed and sea-browned, with salt-white hair she has had since she was twenty.",
-   "backstory": "Born on the terrace, the daughter of Đoàn Thanh Lãng (doan_thanh_lang) and a seal-hunter's widow who drowned in 1130. She dives deeper than any man on the coast and has tamed two fur seals that fish for her. She wants her father to let the Old Ivory go. Ngạc Hải Tiêu (ngac_hai_tieu) wants to kill it and take the terrace after.",
+   "backstory": "Born on the terrace, the daughter of Đoàn Thanh Lãng (doan_thanh_lang) and a seal-hunter's widow who drowned in 1130. She dives deeper than any man on the coast and has tamed two fur seals that fish for her. She rows the sixth boat with her divers and will not take Ngạc Hải Tiêu's (ngac_hai_tieu) iron, so the hunt cannot lawfully go out. Each dawn she sends her seals over the calf's ground to drive the Old Ivory north.",
    "ties": [
     {
      "to": "doan_thanh_lang",
@@ -360,7 +364,7 @@
     {
      "to": "ngac_hai_tieu",
      "kind": "rival",
-     "note": "for the terrace"
+     "note": "he needs her boat for the hunt and will not get it"
     },
     {
      "to": "vu_bich_trieu",
@@ -459,8 +463,8 @@
    },
    "traits": {
     "personality": [
+     "Greedy",
      "Ambitious",
-     "Wrathful",
      "Brave"
     ],
     "calling": "Strategist",
@@ -481,17 +485,17 @@
     ]
    },
    "appearance": "A big whaler from the Whale Bone Village with a harpoon scar from cheek to collarbone.",
-   "backstory": "He was born in Kình Cốt Thôn the year the Old Ivory took the founder (N-trac_anh-02), and he has believed all his life that the whale is the terrace's shame. He captains its six whaleboats and is the best iron on the coast after Đoàn Thanh Lãng (doan_thanh_lang). He thinks the head grew soft when he swore off war, and that Đoàn Tố Ba (doan_to_ba) would make the terrace a ferry service.",
+   "backstory": "He was born in Kình Cốt Thôn the year the Old Ivory took the founder (N-trac_anh-02), and he is the best iron on the coast after Đoàn Thanh Lãng (doan_thanh_lang). He captains the six whaleboats and wants more for them than seal oil. This winter at Mộc Lan Thành he took the first half of Hồ Tầm Kỳ's (ho_tam_ky) price for the Old Ivory's calf and spent it on new irons, and every crew that takes one is bound to row. Four have. He tells each boat's table that a head who cut the founder's line cannot forbid the hunt.",
    "ties": [
     {
      "to": "doan_thanh_lang",
      "kind": "master",
-     "note": "taught him the iron"
+     "note": "taught him the iron; cut the founder's line, and Ngạc says so"
     },
     {
      "to": "doan_to_ba",
      "kind": "rival",
-     "note": ""
+     "note": "her sixth boat will not take his iron"
     },
     {
      "to": "nghe_tieu_lang",
@@ -510,18 +514,18 @@
     },
     {
      "to": "ho_tam_ky",
-     "kind": "rival",
-     "note": "the Thiên Bảo harpooner who wants the Old Ivory's tusk as much as he does"
+     "kind": "debt",
+     "note": "Thiên Bảo's buyer of living lots; he has spent her advance for the calf"
     },
     {
      "to": "co_lang_hoa",
      "kind": "disciple",
-     "note": "harpooner in Ngạc's boat; wants the bow seat for the whale"
+     "note": "harpooner in Ngạc's boat; wants the bow seat on the day of the calf"
     },
     {
      "to": "boc_kinh_thang",
      "kind": "friend",
-     "note": "captain of the third whaleboat; the loudest voice for hunting the Old Ivory"
+     "note": "captain of the third whaleboat; the first to take his iron"
     }
    ],
    "master": "doan_thanh_lang",
@@ -563,7 +567,7 @@
      ],
      "targets_note": "Fine Steel crit, the Drawn Bow idea's accuracy and Metal damage for the thrown iron, Bone-Breaker pierce."
     },
-    "note": "The whale's enemy."
+    "note": "The terrace's best iron, bought."
    }
   },
   {
@@ -599,8 +603,13 @@
     "upbringing": "village_born",
     "lifestyle": "collector"
    },
-   "backstory": "A diver from the silver-fish village who sells ice-pearls in Mộc Lan Thành and learns the palm from Phí Nhạn Tâm (phi_nhan_tam) because it lets her hold her breath for an hour.",
+   "backstory": "A diver from the silver-fish village who sells ice-pearls in Mộc Lan Thành and learns the palm from Phí Nhạn Tâm (phi_nhan_tam) because it lets her hold her breath for an hour. In autumn she saw the Old Ivory and her calf over the pearl beds and sold the news to Hồ Tầm Kỳ (ho_tam_ky) for a share of the price, for the abbey's roof.",
    "ties": [
+    {
+     "to": "ho_tam_ky",
+     "kind": "creditor",
+     "note": "the Thiên Bảo buyer who owes her a share of the calf's price"
+    },
     {
      "to": "phi_nhan_tam",
      "kind": "master",
@@ -654,7 +663,7 @@
    "rank": "chap_su",
    "home": 17,
    "birthplace": 1438,
-   "role": "Boat-master of the terrace; lost a hand to the Old Ivory",
+   "role": "Boat-master of the terrace; was in the boat in 1080",
    "tier": "C",
    "root": {
     "elements": {
@@ -671,14 +680,14 @@
     ],
     "calling": "Steward",
     "upbringing": "village_born",
-    "health": "maimed"
+    "health": null
    },
-   "backstory": "He was in the boat in 1080 when the whale took the founder, and the line took his left hand; he wears an iron one now, mends every boat on the terrace, and backs Đoàn Thanh Lãng (doan_thanh_lang) in everything.",
+   "backstory": "He was in the boat in 1080 when Đoàn Thanh Lãng (doan_thanh_lang) cut the line of the founder's second iron, and told the council it was cut for the crew. He mends every boat on the terrace, captains the fifth, and will not fit Ngạc's new iron in his shed.",
    "ties": [
     {
      "to": "doan_thanh_lang",
      "kind": "friend",
-     "note": "held the line beside him in 1080"
+     "note": "in the boat with him in 1080; spoke for him at the council"
     },
     {
      "to": "dong_thoa",
@@ -712,7 +721,7 @@
      "start": "kim",
      "intent": "Metal guard."
     },
-    "note": "An iron hand."
+    "note": "A grip like a bollard."
    }
   },
   {
@@ -747,7 +756,7 @@
     "calling": "Duelist",
     "upbringing": "village_born"
    },
-   "backstory": "A tide-village boy who would follow Ngạc Hải Tiêu (ngac_hai_tieu) into the Old Ivory's mouth.",
+   "backstory": "A tide-village boy who carries Ngạc Hải Tiêu's (ngac_hai_tieu) new irons from boat to boat and tells each crew what the calf will pay.",
    "ties": [
     {
      "to": "ngac_hai_tieu",
@@ -757,7 +766,7 @@
     {
      "to": "co_lang_hoa",
      "kind": "rival",
-     "note": "harpooner in Ngạc's boat; wants the bow seat for the whale"
+     "note": "harpooner in Ngạc's boat; wants the bow seat on the day of the calf"
     }
    ],
    "master": "ngac_hai_tieu",
@@ -877,7 +886,7 @@
     "calling": "Merchant",
     "upbringing": "village_born"
    },
-   "backstory": "He came for the free meals and stayed for Lỗ Châu Nương's (lo_chau_nuong) pearl stories.",
+   "backstory": "He came for the free meals and stayed for Lỗ Châu Nương's (lo_chau_nuong) pearl stories. Ngạc has asked him for a net that will hold a whale calf, and he is knotting it slowly.",
    "ties": [
     {
      "to": "lo_chau_nuong",
@@ -1071,12 +1080,12 @@
      "body_tempered"
     ]
    },
-   "backstory": "A seal hunter descended from the oil-boilers Băng Tâm moved out of Sóc Phương Thành (V078). In 830 he gathered the coast's hunters on a terrace of clear water and founded Trạc Anh Đài (A137), teaching that a hunter takes what the sea gives, clear or muddy. He took the coast's first whale, made the harpoon line from its sinew, and was taken in 1080 by the Old Ivory, the one whale he never let go of.",
+   "backstory": "A seal hunter descended from the oil-boilers Băng Tâm moved out of Sóc Phương Thành (V078). In 830 he gathered the coast's hunters on a terrace of clear water and founded Trạc Anh Đài (A137), teaching that a hunter takes what the sea gives, clear or muddy. He took the coast's first whale, made the harpoon line from its sinew, and was taken in 1080 by the Old Ivory, the one whale he never let go of, when his disciple cut the line to save the boat.",
    "ties": [
     {
      "to": "doan_thanh_lang",
      "kind": "disciple",
-     "note": "held his line"
+     "note": "cut his line in 1080 to save the boat"
     }
    ]
   },

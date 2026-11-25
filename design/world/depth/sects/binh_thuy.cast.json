@@ -57,7 +57,7 @@
     ]
    },
    "appearance": "A brown, loose-jointed man who looks fifty, with salt in his beard, a sailcloth fan in his belt and a laugh that carries across a harbour.",
-   "backstory": "Bùi Phiêu Bình was born in Vô Định Thành in 790. In 803, when the battle on the plain reached the city (C158), the tally-keeper Phong Ý Nhàn (phong_y_nhan) put him on the last archive boat, pushed a ledger into his arms and went back for more. The boats got out and she did not. He drifted down to the bay with the archives and came to the island in 806 as a ship's boy, with no name anyone knew. The ferrymen of Bình Thủy took him in and called him for the duckweed. The second head Hạng Thiên Nhai (hang_thien_nhai) taught him the oar and the primer, and found the Wind in him that lets him smell weather a day off. He became head in 1110 (A156) and has run the crossing every day of the year since. In 1115 he fought the Claw King for two tides and took its shoal for the sect (N-binh_thuy-03, -04). He drinks with Lạc Hà's envoy Hách Ánh Hà (hach_anh_ha) on the ferry, lends boats and crews to the island warden Lận Viễn Phàm (lan_vien_pham), and has lost two of them (N-binh_thuy-05, -06). He has named four heirs in ninety years and unnamed three.",
+   "backstory": "Bùi Phiêu Bình was born in Vô Định Thành in 790. In 803, when the battle on the plain reached the city (C158), the tally-keeper Phong Ý Nhàn (phong_y_nhan) put him on the last archive boat, pushed a ledger into his arms and went back for more. The boats got out and she did not. He drifted down to the bay with the archives and came to the island in 806 as a ship's boy, with no name anyone knew. The ferrymen of Bình Thủy took him in and called him for the duckweed. The second head Hạng Thiên Nhai (hang_thien_nhai) taught him the oar and the primer, and found the Wind in him that lets him smell weather a day off. He became head in 1110 (A156) and has run the crossing every day of the year since. In 1115 he fought the Claw King for two tides and took its shoal for the sect (N-binh_thuy-03, -04). He drinks with Lạc Hà's envoy Hách Ánh Hà (hach_anh_ha) on the ferry, lends boats and crews to the island warden Lận Viễn Phàm (lan_vien_pham), and has lost two of them (N-binh_thuy-05, -06). He has named four heirs in ninety years, and each stalled at the same turn of the canon. He unnamed three, and the fourth walked off the ferry at Nhạn Thanh and did not come back. He thinks he has bad luck with children.",
    "wants": "To keep the crossing running every day until someone better takes the oar, and to see the whale-child Sa Kình Nhi build a foundation before he dies.",
    "secret": "He still has the ledger Phong Ý Nhàn gave him. Its last pages, which he learned to read at forty, record what the Geese Hall drew from Vô Định's stores in the spring of 802 under the founder's seal: nine hundred jars of grave-lotus resin and the stones of a buried array. He knows what rose over Chiết Kích Nguyên. He has shown it to no one, not even Trầm Tịch Dương, whose wife saved him.",
    "ties": [
@@ -79,7 +79,7 @@
     {
      "to": "luong_bach_tan",
      "kind": "lover",
-     "note": "asked her to leave Phiêu Bồng Quán in 1101; she did, and has never forgiven either of them"
+     "note": "asked her to leave Phiêu Bồng Quán in 1101; she did, and teaches his heirs the canon; he trusts her with it"
     },
     {
      "to": "ong_te_do",
@@ -119,7 +119,7 @@
     {
      "to": "khuat_do_sinh",
      "kind": "disciple",
-     "note": "keeper of the Strangers' Hall; placed from Lạc Hà in 1176"
+     "note": "keeper of the Strangers' Hall; his third heir, unnamed in 1188 when he stalled"
     }
    ],
    "master": "hang_thien_nhai",
@@ -208,8 +208,8 @@
    "traits": {
     "personality": [
      "Reclusive",
-     "Stubborn",
-     "Honest"
+     "Deceitful",
+     "Callous"
     ],
     "calling": "Teacher",
     "upbringing": "temple_raised",
@@ -231,9 +231,9 @@
     ]
    },
    "appearance": "A thin woman in undyed sailcloth with white streaks in her black hair and the Claw King's shell on her back like a door she carries with her.",
-   "backstory": "Lương Bạch Tần was a shell-gatherer's child from Bối Sa Thôn (A144), given at six to Phiêu Bồng Quán, the abbey of the drifting tumbleweed on the sea cliffs. Its last master taught her to read the tide in the Still Moon Tide Scripture and meant her to keep the abbey after him. She was the only disciple left. In 1101 Bùi Phiêu Bình (bui_phieu_binh), a ferryman with a fan who came up the cliff path every month to buy the abbey's salt, asked her to come down to the ferry, and she went (N-binh_thuy-02). Her master died alone that winter and left his books to Bình Thủy, because she was there (V093). She took the Still Moon Tide down to the shoal with the sect in 1116, taught it to the inner gate, and has kept the Tide Hall since. She has never gone back up the cliff path, and she has not let Bùi into her room for ninety years.",
+   "backstory": "Lương Bạch Tần was a shell-gatherer's child from Bối Sa Thôn (A144), given at six to Phiêu Bồng Quán, the abbey of the drifting tumbleweed on the sea cliffs. Its last master taught her to read the tide in the Still Moon Tide Scripture and meant her to keep the abbey after him. She was the only disciple left. In 1101 Bùi Phiêu Bình (bui_phieu_binh), a ferryman with a fan who came up the cliff path every month to buy the abbey's salt, asked her to come down to the ferry, and she went (N-binh_thuy-02). Her master died alone that winter and left his books to Bình Thủy, because she was there (V093). She took the Still Moon Tide down to the shoal with the sect in 1116, teaches it to the inner gate every month, and has kept the Tide Hall since. She has never gone back up the cliff path, and she has not let Bùi into her room for ninety years.",
    "wants": "To go back to Phiêu Bồng Quán once before she dies and light the lamp her master kept, and to find one disciple who will stay.",
-   "secret": "The abbey's books had a last fascicle, the Still Moon Tide's tenth to twelfth layers. She took it out of the chest before the books came down and has kept it under the Tide Hall's floor. She has turned the tenth layer herself, which is why the first elder is a layer past the head. No one has asked why.",
+   "secret": "She teaches every heir Bùi names the Still Moon Tide's third-layer turn held instead of let go, so that each stalls at the close of the third layer. Four have; Bùi unnamed them and the sect calls him fickle. The rest of the inner gate she teaches true. Sa Kình Nhi reached the turn this spring and comes to her each month, and Lương is teaching her the same way.",
    "ties": [
     {
      "to": "hang_thien_nhai",
@@ -248,7 +248,7 @@
     {
      "to": "kieu_vong_hai",
      "kind": "disciple",
-     "note": "her one inner disciple who might stay"
+     "note": "her one inner disciple who might stay; taught the turn true"
     },
     {
      "to": "cu_boi_ngan",
@@ -258,7 +258,7 @@
     {
      "to": "sa_kinh_nhi",
      "kind": "rival",
-     "note": "Bùi's heir, who would need the last fascicle"
+     "note": "Bùi's fifth heir; Lương teaches her the third turn held"
     },
     {
      "to": "phuc_thuy_hang",
@@ -310,7 +310,7 @@
      ],
      "targets_note": "Crossing route, then the Moon over the Tide and Nourishing Rain: the tide's swell behind the shell."
     },
-    "note": "The keeper of the tide: a shell, a mirror and a canon one layer longer than anyone knows."
+    "note": "The keeper of the tide: a shell, a mirror, and a canon she teaches two ways."
    },
    "items": [
     "bth-claw-king-shell",
@@ -781,7 +781,7 @@
    "rank": "noi_mon",
    "home": 302,
    "birthplace": 125,
-   "role": "The head's youngest disciple and heir; found beside the stranded whale on Tình Sa in 1190",
+   "role": "The head's youngest disciple and his fifth named heir; found beside the stranded whale on Tình Sa in 1190",
    "tier": "B",
    "root": {
     "elements": {
@@ -818,7 +818,7 @@
     "lifestyle": null
    },
    "appearance": "A small, sea-burnt girl of eighteen with pale eyes and a whale's tooth on a cord.",
-   "backstory": "In 1190 a whale stranded on Tình Sa lived three days, and the island gave it back to the sea (A157). On the third day the villagers found a girl of about eight asleep against its side, speaking no tongue anyone knew. Bùi Phiêu Bình (bui_phieu_binh) took her, called her the whale-child and found Wind in her like his own. She now speaks like a Tương Phùng market girl and wants to sail the way the whale came.",
+   "backstory": "In 1190 a whale stranded on Tình Sa lived three days, and the island gave it back to the sea (A157). On the third day the villagers found a girl of about eight asleep against its side, speaking no tongue anyone knew. Bùi Phiêu Bình (bui_phieu_binh) took her, called her the whale-child and found Wind in her like his own. She now speaks like a Tương Phùng market girl and wants to sail the way the whale came. This spring she reached the close of the canon's third layer, and the tide has stopped coming.",
    "ties": [
     {
      "to": "bui_phieu_binh",
@@ -827,8 +827,8 @@
     },
     {
      "to": "luong_bach_tan",
-     "kind": "rival",
-     "note": "the first elder will not teach her past the ninth layer"
+     "kind": "friend",
+     "note": "the first elder, who teaches her the tide each month"
     },
     {
      "to": "ton_niem_trieu",
@@ -877,7 +877,7 @@
      ],
      "targets_note": "Luyện Khí: the crossing route, then Calm Pool at the start: her master's road before anything of her own."
     },
-    "note": "The heir."
+    "note": "The fifth heir, at the turn."
    }
   },
   {

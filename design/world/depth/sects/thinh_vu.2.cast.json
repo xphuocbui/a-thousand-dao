@@ -1473,7 +1473,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "Runs the ferry inn at Thu Trì Thành for Nhiếp Vô Thanh (nhiep_vo_thanh) and has never asked a guest's name, as her grandmother never did (A313).",
+   "backstory": "Runs the ferry inn at Thu Trì Thành for Nhiếp Vô Thanh (nhiep_vo_thanh) and has never asked a guest's name, as her grandmother never did (A313). In the winter of 1197 the wall runner Ngụy Tiểu Đạc sold her the place of a bell inside the walls that rings for her own guests; she sent it up to Nhiếp.",
    "ties": [
     {
      "to": "nhiep_vo_thanh",
@@ -1504,6 +1504,11 @@
      "to": "lac_kim_bang",
      "kind": "disciple",
      "note": "ferry boy at the Thu Trì inn of the Hall of Echoes"
+    },
+    {
+     "to": "nguy_tieu_dac",
+     "kind": "friend",
+     "note": "the Vũ Linh wall runner who sold her the hidden bell's place"
     }
    ],
    "master": "nhiep_vo_thanh",
@@ -2303,7 +2308,7 @@
     "calling": "Merchant",
     "upbringing": "merchant_child"
    },
-   "backstory": "Keeps the Tower's house at Lãng Hoa Thành, the sea-spray city founded the year the pirates were gone (C157), and ships the Night Rain Market's goods down the coast.",
+   "backstory": "Keeps the Tower's house at Lãng Hoa Thành, the sea-spray city founded the year the pirates were gone (C157), and ships the Night Rain Market's goods down the coast. Since 1198 its back rooms have been a copyhouse for Kiều Mãn Lâu (kieu_man_lau). This spring she flew north to Khai Dương Thành and bought half of Họa Tinh's rain-fast stroke from its chief painter, Lạc Tố Bình (lac_to_binh).",
    "ties": [
     {
      "to": "kieu_man_lau",
@@ -2324,6 +2329,11 @@
      "to": "dinh_an_thanh",
      "kind": "friend",
      "note": "listener of the Hall of Echoes in the harbour taverns of Lãng Hoa"
+    },
+    {
+     "to": "lac_to_binh",
+     "kind": "creditor",
+     "note": "Họa Tinh's chief painter; sold her half the rain-fast stroke this spring and owes her the rest"
     }
    ],
    "master": "kieu_man_lau",
@@ -2350,7 +2360,9 @@
      "start": "thuy",
      "intent": "Water toward linh lực."
     }
-   }
+   },
+   "wants": "The second half of the stroke next spring, and the glue buyer's trips north ended for good.",
+   "secret": "Three painters in the coast house forge the Dipper talismans of Họa Tinh Đường, the Pivot's vassal, in glue bought from a yard at Lộc Uyển, where the Pivot forbids anyone to hunt the deer (A086). Lạc Tố Bình thinks the Tower wants the stroke for its own writs."
   },
   {
    "key": "ong_vu_hoa",

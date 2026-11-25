@@ -63,6 +63,11 @@
    "secret": "Tất Dạ Lang did not desert in 1196: she sent him. He sells Đồ Xích Linh false routes and sends Viên the camp's talk.",
    "ties": [
     {
+     "to": "do_xich_linh",
+     "kind": "enemy",
+     "note": "the first blade; Viên hears of unknown riders on the steppe past Dương Bằng and cannot prove they are hers, so she means to make a raid that can be proved"
+    },
+    {
      "to": "vien_truong_ha",
      "kind": "parent",
      "note": "her father, killed by Dạ Quang in 1100"

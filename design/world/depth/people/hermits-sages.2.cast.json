@@ -443,7 +443,7 @@
     ]
    },
    "appearance": "A wiry woman with salt-cracked lips and a fern of lightning scars down one arm, who describes the sea out loud whether anyone is listening or not.",
-   "backstory": "A fisher's daughter of Nguyệt Loan Thôn, Kê Thính Đào was fifteen when lightning split her father's boat in the strait in 1150. Đoạn Thương Hải (doan_thuong_hai) heard the bolt from the pool, walked into the sea and carried her out. Her father was never found. She came ashore with Thunder in a root that had been plain Water, and the blind man, who had sworn after his master's death (C180) to take no disciple, took her. She is his eyes on the boats Lận Viễn Phàm (lan_vien_pham) sends west.",
+   "backstory": "A fisher's daughter of Nguyệt Loan Thôn, Kê Thính Đào was thirteen when lightning split her father's boat in the strait in 1148. Đoạn Thương Hải (doan_thuong_hai) heard the bolt from the pool, walked into the sea and carried her out. Her father was never found. She came ashore with Thunder in a root that had been plain Water, and the blind man, who had sworn after his master's death (C180) to take no disciple, took her. She is his eyes on the boats Lận Viễn Phàm (lan_vien_pham) sends west.",
    "ties": [
     {
      "to": "doan_thuong_hai",
@@ -491,9 +491,9 @@
       4947,
       843
      ],
-     "targets_note": "Her master's tide first (Moon over the Tide idea), his Mirror Lake for the listening bell's soul guard and counter, then his Storm Heart in the Thunder land for the bolt of 1150."
+     "targets_note": "Her master's tide first (Moon over the Tide idea), his Mirror Lake for the listening bell's soul guard and counter, then his Storm Heart in the Thunder land for the bolt of 1148."
     },
-    "note": "The blind man's eyes: his tide method, a bell to listen with, and a temper the lightning left her. Her Thunder is a root change from the bolt of 1150, not from her land (Nguyệt Loan Thôn: 30 % Water, no Thunder)."
+    "note": "The blind man's eyes: his tide method, a bell to listen with, and a temper the lightning left her. Her Thunder is a root change from the bolt of 1148, not from her land (Nguyệt Loan Thôn: 30 % Water, no Thunder)."
    }
   },
   {
@@ -787,7 +787,7 @@
      "fire_tempered"
     ]
    },
-   "backstory": "Born at the volcanic mine of Kê Quan Khoáng, she left Hồng Lô Cốc's outer gate in 1150 because it would not teach the old fire, and has sat in the spring of Tuyết Để Tuyền for fifty years reading the vents for Cung Hỏa Vân's (cung_hoa_van) abode before Ngụy Đan Chu (nguy_dan_chu) finds it.",
+   "backstory": "Born at the volcanic mine of Kê Quan Khoáng, she left Hồng Lô Cốc's outer gate in 1145, the year it opened to Water and still would not teach the old fire, and has sat in the spring of Tuyết Để Tuyền for fifty-five years reading the vents for Cung Hỏa Vân's (cung_hoa_van) abode before Ngụy Đan Chu (nguy_dan_chu) finds it.",
    "ties": [
     {
      "to": "nguy_dan_chu",

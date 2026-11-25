@@ -102,7 +102,7 @@ Entry count: 21 (3 batch-wide, 8 for the great sects, 9 for the vassals, 1 for t
   higher. Finding the rest raises the cap, and with it the build. The pages already write these gaps:
   - Lãnh Giang's Lone Line Sitting Canon stalls at layer 8, because the true method needs Ice. Hàn Giang Môn's own
     layers are the missing part, and Băng Tâm's `lieu_ngu_ca` is that school's hidden heir.
-  - Bình Thủy's Still Moon Tide is missing three of its twelve layers, which lie under the Tide Hall's floor.
+  - Bình Thủy holds all twelve layers of the Still Moon Tide; its first elder teaches the third-layer turn wrong to the head's heirs (binh_thuy §9).
   - Nam Phố's dusk half of Painted Beams has been in fragments since 1060.
   - The Tạ's Returning Swallow Breath stops at the ninth layer. Its second half is believed to be in the old hall.
   - Hàm Nguyệt's Kiều frost has had no teacher since 748.

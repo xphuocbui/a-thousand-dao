@@ -193,7 +193,7 @@ clause that becomes always on, or does nothing, so the catalogue pass should kno
 | `sects/thien_xu.items.json` | `tx-archive-desk` The Door Stays Shut | "While you are Still, each seal art …; a foe whose name the inkstone has written three times holds its arts: those that come ready in the next 2 s wait until the 2 s end." |
 | `sects/tung_dao.items.json` | `td-coiled-root-banner / roots-under-the-field` | "When the foe has been Still for 2 s, it is Rooted for 1 s; once every 10 s." |
 | `sects/muc_van.techniques.json` | `cloud-herd-body-canon › The Long Ride` | "A footwork stance: each hit you land while Moving adds a momentum stack (no cap; stacks fade by a tenth each second you are not Moving); each stack raises Physical damage and body shield a little; being Displaced or Rooted loses half. (Wired as d20's hit clock; 2026-11-25 no-caps ruling.)" |
-| `sects/phat_y.techniques.json` | `ten-paces-sword-canon` (method concept) | "… In a fight, each second you are Moving and strike nothing stores a Pace; at ten …" |
+| `sects/phat_y.techniques.json` | `contract-sword-canon` (method concept) | "… In a fight, each second you are Moving and strike nothing serves a Term (Khoản 款), and each hit you take strikes one Term off. …" (fixB-apply: Final Count's pierce now at five Terms) |
 | `people/clans.items.json` | `cl-locust-shade` He Waited | "for each 10 s you are Still, your wards gain 5 % strength (no cap; the bonus fades by a tenth each second after you act); your first damaging art after it is a sure hit. (2026-11-25 no-caps ruling.)" |
 | `sects/bang_tam.items.json` | `bt-jade-vessel / ice-in-the-vessel` | "While you are Still, your frost ward regains 2 % of its value each second; …" |
 | `sects/bang_tam.items.json` | `bt-fishers-heirs` Sitting on the Ice | "after 2 s Still, you regenerate 1.5 % of your health and linh lực each second, and your next cut adds 2 Ice stacks." ("no art" becomes "no damaging art", so wards keep you sitting) |
@@ -205,8 +205,8 @@ clause that becomes always on, or does nothing, so the catalogue pass should kno
 
 | File | Id | Suggested wording |
 |---|---|---|
-| `sects/phat_y.items.json` | `py-ten-paces` Ten Paces, One Cut | "… your next sword art while you are At range ends your At range and deals 30 % more damage; if its hit makes the foe Broken, you vanish again." |
-| `sects/phat_y.techniques.json` | `ten-paces-sword-canon › No Trace` | "After your hit makes the foe Broken or breaks a ward, you step away: you gain evade for a moment and are At range for 1 s." |
+| `sects/phat_y.items.json` | `py-grey-seal` The Last Step | "… your next sword art while you are At range ends your At range and deals 30 % more damage; if its hit makes the foe Broken, you vanish again." |
+| `sects/phat_y.techniques.json` | `contract-sword-canon › Step Back` | "After your hit makes the foe Broken or breaks a ward, you step away: you gain evade for a moment and are At range for 1 s." |
 | `sects/tung_dao.techniques.json` | `startled-goose-step › The Goose Rises from the Reeds` | "You leap away: you are At range for 1 s, the foe's next hit within 2 s misses, and your next art lands with 30 % more effect." |
 | `sects/da_quang.items.json` | `dq-night-glow-cup / drink-after-the-raid` | "When the foe is Broken, the cup fills: your next three arts cost health instead of linh lực and heal you for 5 % of the damage they deal." |
 | `sects/da_quang.techniques.json` | `night-glow-blood-sabre-canon › Wine in the Night-Glow Cup` | "When the foe is Broken, you heal for a part of its maximum health and your next art is free." |
