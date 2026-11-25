@@ -240,7 +240,7 @@
     ]
    },
    "appearance": "A tall, stooped man in a grey travelling coat with a crane on the sword guard at his back, who sits at the same corner table every day with one cup and does not drink from it until dusk.",
-   "backstory": "Tư Không Hạc Niên was a miner's son at Không Thanh Khoáng, born in 700 with a root of Metal and nothing else. In 790 a Wind-rooted swordsman who had just walked out of his own valley came down the ore road, and the miner, ninety years old and still a Trúc Cơ who had never left the mine road, followed him for a hundred and ten years. That man was Quách Vô Tích (quach_vo_tich), founder of Phất Y Cốc, whom the valley believes was never seen again. In 900 Quách gave him the Wind sword Cô Hạc at dawn in Tống Khách Thị and walked away (A138). From 1085 to 1088 Tư Không let a village boy, Lăng Đạp Tuyết (lang_dap_tuyet), follow him for three winters, and tempered Metal into a root that had none. He saw what it cost the boy, and he has taught no one since. In 1130 he went to his master's valley and fought its head Thạch Tàng Danh (thach_tang_danh) on Cùng Mục Phong for three days (C186). On the third day he cut through the sleeve of his master's grey robe, lowered his sword and called it even. The same year Sài Mộ Kiếm (sai_mo_kiem) challenged him in Tống Khách Thị and lost in three passes. Tư Không handed the sword back and sat down in the market (A141). He has drunk the farewell cup there every year since.",
+   "backstory": "Tư Không Hạc Niên was a miner's son at Không Thanh Khoáng, born in 700 with a root of Metal and nothing else. In 790 a Wind-rooted swordsman who had just walked out of his own valley came down the ore road, and the miner, ninety years old and still a Trúc Cơ who had never left the mine road, followed him for a hundred and ten years. That man was Quách Vô Tích (quach_vo_tich), founder of Phất Y Cốc, whom the valley believes was never seen again. In 900 Quách gave him the Wind sword Cô Hạc at dawn in Tống Khách Thị and walked away (A138). From 1085 to 1088 Tư Không let a village boy, Lăng Đạp Tuyết (lang_dap_tuyet), follow him for three winters, and tempered Metal into a root that had none. He saw what it cost the boy, and he has taught no one since. In 1130 he went to his master's valley and fought its head Thang Vô Tạ (thang_vo_ta) on Cùng Mục Phong for three days (C186). On the third day he cut through the sleeve of his master's grey robe, lowered his sword and called it even. The same year Sài Mộ Kiếm (sai_mo_kiem) challenged him in Tống Khách Thị and lost in three passes. Tư Không handed the sword back and sat down in the market (A141). He has drunk the farewell cup there every year since.",
    "wants": "To see Cô Hạc's wind woken once, in a Wind-rooted hand that deserves his master's sword, before he lays it down.",
    "secret": "The traveller the market toasts (A138) was his master, the founder of Phất Y Cốc, who lived 110 years past the day his valley counts as his death. On Cùng Mục Phong Tư Không won, by cutting his own master's sleeve. He also knows what the Metal he put into Lăng Đạp Tuyết's root cost the boy in years, which Lăng has told no one.",
    "ties": [
@@ -255,7 +255,7 @@
      "note": "three winters, 1085-1088; the last person he taught, and the reason he stopped"
     },
     {
-     "to": "thach_tang_danh",
+     "to": "thang_vo_ta",
      "kind": "creditor",
      "note": "the draw he gave away on Cùng Mục Phong (C186); Thạch wears the sleeve he cut"
     },

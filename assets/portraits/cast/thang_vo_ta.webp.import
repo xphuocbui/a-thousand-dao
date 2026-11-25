@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://265foc4i07va"
-path="res://.godot/imported/thach_tang_danh.webp-cda2e61185ab5fa10350659b425b47ec.ctex"
+uid="uid://djumkmjvnci8c"
+path="res://.godot/imported/thang_vo_ta.webp-e472486b5a137be62de4599ae80054ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/portraits/cast/thach_tang_danh.webp"
-dest_files=["res://.godot/imported/thach_tang_danh.webp-cda2e61185ab5fa10350659b425b47ec.ctex"]
+source_file="res://assets/portraits/cast/thang_vo_ta.webp"
+dest_files=["res://.godot/imported/thang_vo_ta.webp-e472486b5a137be62de4599ae80054ad.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

@@ -12,7 +12,7 @@
 | Leans | Metal, Wind → **Metal, Fire** (re-leaned: no Wind anywhere in Ngọc Hành Sơn, see 2) |
 | Lineage elements | Metal first, then Fire; Wind only in the founder's secret art |
 | Seat | **stays** at Phất Y Cốc (place 24, grassland valley): Metal 34 %, Earth 33 %, Fire 16 %, density 1.30 |
-| Head | Thạch Tàng Danh, Kết Đan, head since 1090 |
+| Head | Thang Vô Tạ, Kết Đan, head since 1090 |
 | Size | about 120 swords, most of them out on hire at any time; 10 named living, 2 named dead |
 | Way of life | hired swords: caravan guards, mine guards, and the Pivot's standing companies |
 
@@ -36,7 +36,7 @@ noon road.
 **Wind** is kept where it belongs: in the founder's art, the Brushed Sleeve Step, which only a Wind root can learn and
 which sits outside the admission rule. The founder and the present head were both born on the windy plateau terrace
 of Thương Ưng Đài (236). Since Cửu Cao Phái began fetching the plateau's Wind children for its cranes, no third Wind
-root has come to the valley, and the art may die with Thạch Tàng Danh.
+root has come to the valley, and the art may die with Thang Vô Tạ.
 
 **No cost.** Nothing moves. The `leans` record changes from Metal, Wind to Metal, Fire.
 
@@ -54,8 +54,8 @@ on Fire. Only the Metal ones pass the inner gate, and the steppe girls who make 
 | 790 | The founder hangs his grey robe in the hall and walks out; Liễu Hành Vân keeps the valley | **N-phat_y-01** |
 | 790-805 | The valley's companies fight under the Pivot's writ in the War of Broken Halberds | C016 |
 | 800 | Liễu Hành Vân makes the Contract Seal and begins hiring the valley's swords to the camel trains | |
-| 1090 | Thạch Tàng Danh, the hawk-catcher's son who opened the founder's sleeve, becomes head | **N-phat_y-02** |
-| 1130 | Tư Không Hạc Niên and Thạch Tàng Danh duel for three days on Cùng Mục Phong; a draw | C186 |
+| 1090 | Thang Vô Tạ, the hawk-catcher's son who opened the founder's sleeve, becomes head | **N-phat_y-02** |
+| 1130 | Tư Không Hạc Niên and Thang Vô Tạ duel for three days on Cùng Mục Phong; a draw | C186 |
 | 1131 | Thạch will not speak of it; disciples climb the peak to read the sword marks | A232 |
 | 1150 | Lam Khế Ngôn takes the Contract Seal | |
 | 1190 | A company is hired, under a camel-train name, to guard Thính Vũ's iron on the southern road (hidden) | **N-phat_y-03** |
@@ -63,7 +63,7 @@ on Fire. Only the Metal ones pass the inner gate, and the steppe girls who make 
 **New chronicle proposals.**
 - **N-phat_y-01** (790, `departure`): "Quách Vô Tích, founder of Phất Y Cốc, hangs his grey robe in the valley's hall
   and walks out; he is not seen again."
-- **N-phat_y-02** (1090, `headship`): "Liễu Hành Vân dies at 450 and gives Phất Y Cốc to Thạch Tàng Danh, the first
+- **N-phat_y-02** (1090, `headship`): "Liễu Hành Vân dies at 450 and gives Phất Y Cốc to Thang Vô Tạ, the first
   since the founder to read the art in the grey sleeve."
 - **N-phat_y-03** (1190, `contract`, hidden): "A company of Phất Y swords, hired under the name of a camel train of Đà
   Đội Thôn, begins guarding Thính Vũ Lâu's iron caravans on the southern road."
@@ -116,7 +116,7 @@ and the valley does not pretend its land can give it more.
 
 | Hall | Place | Head |
 |---|---|---|
-| The hall of sleeves (the head; the founder's robe) | seat, 24 | Thạch Tàng Danh |
+| The hall of sleeves (the head; the founder's robe) | seat, 24 | Thang Vô Tạ |
 | The contract house (the Seal; who is hired where) | seat, the valley mouth | Lam Khế Ngôn |
 | The outer gate and the primer | seat | Kiều Tĩnh Sơn |
 | The road (swords out on hire) | the steppe roads; Đà Đội Thôn, 662 | Khúc Liệt Dương, when she is home |
@@ -132,7 +132,7 @@ and the valley does not pretend its land can give it more.
   blades ring more clearly than the gate's "star iron". The gate's best Fire root, **Đinh Hỏa Lân**, is a steppe boy
   from the valley's own village of Thập Giáp.
 - **Cửu Cao Phái:** the sore point. Since Cửu Cao's riders began taking the plateau's Wind children for the cranes,
-  the valley has had no one to give the founder's art to. **Thạch Tàng Danh** fetched **Lộ Khinh Trần** from Tập Trận
+  the valley has had no one to give the founder's art to. **Thang Vô Tạ** fetched **Lộ Khinh Trần** from Tập Trận
   Khoáng a week before Cửu Cao's rider came for him.
 - **Tư Không Hạc Niên** (loose, Nguyên Anh): the sword sage of the 1130 duel. The chronicle calls it a draw (C186). It
   was not one, and he let it stand. The valley does not know that he was its founder's one disciple: Quách Vô Tích
@@ -163,7 +163,7 @@ and the valley does not pretend its land can give it more.
 - **The hall of sleeves**: two thousand sleeves of the dead on the beams, the valley's only monument.
 - The head also carries the catalogue's Thousand-Cut Sword (`blade-thousand-cut-sword`), worn beside his set.
 - **Personal sets** (world-depth items pass, 2026-11-25; details in `phat_y.items.json`):
-  - **Grey Sleeve and Ten Paces (Phất Y Thập Bộ)**, a set of 2 (Thạch Tàng Danh): The Grey Sleeve, Token from the Hall of Sleeves. Full set: Ten Paces, One Cut (Thập Bộ Nhất Trảm), after you vanish (The Deed Is Done) or evade an attack, your next sword art while you are At range ends your At range and deals 30 % more damage; if its hit makes the foe Broken, you vanish again. Return to the Scabbard (Quy Vỏ): after 3 s in which you fire no damaging art, the foe counts as unstruck again, and that counts as a vanish for this bonus.
+  - **Grey Sleeve and Ten Paces (Phất Y Thập Bộ)**, a set of 2 (Thang Vô Tạ): The Grey Sleeve, Token from the Hall of Sleeves. Full set: Ten Paces, One Cut (Thập Bộ Nhất Trảm), after you vanish (The Deed Is Done) or evade an attack, your next sword art while you are At range ends your At range and deals 30 % more damage; if its hit makes the foe Broken, you vanish again. Return to the Scabbard (Quy Vỏ): after 3 s in which you fire no damaging art, the foe counts as unstruck again, and that counts as a vanish for this bonus.
   - **Hired Sword's Pair (Thuê Kiếm Song Bảo)**, a set of 2 (Lam Khế Ngôn): Contract Seal of the Valley, Blade of the Signed Contract. Full set: Paid in Full (Thanh Toán), while you protect a hirer, each crit you land heals you 2 % of your health; if the hirer leaves the fight alive, you are healed in full once.
 
 ## 11. Roster
@@ -172,7 +172,7 @@ Living 10: Kết Đan 1, Trúc Cơ 4, Luyện Khí 5; tier A 2, B 2, C 6; all ru
 
 | Key | Name | Rank | Realm | Tier | Root | Role |
 |---|---|---|---|---|---|---|
-| thach_tang_danh | Thạch Tàng Danh | tông chủ | Kết Đan | A | Metal 86, Wind 56 | Head since 1090; the valley's one Wind root |
+| thang_vo_ta | Thang Vô Tạ | tông chủ | Kết Đan | A | Metal 86, Wind 56 | Head since 1090; the valley's one Wind root |
 | lam_khe_ngon | Lam Khế Ngôn | trưởng lão | Trúc Cơ | A | Metal 58, Fire 40, Earth 30 | Keeper of the contracts |
 | khuc_liet_duong | Khúc Liệt Dương | nội môn | Trúc Cơ | B | Fire 58, Metal 46, Earth 32 | Swordswoman back from twenty years on the caravan roads |
 | au_duong_kien | Âu Dương Kiên | chấp sự | Trúc Cơ | B | Metal 64, Fire 30, Water 22 | Warden of Can Tương Khoáng |
@@ -189,7 +189,7 @@ Living 10: Kết Đan 1, Trúc Cơ 4, Luyện Khí 5; tier A 2, B 2, C 6; all ru
 
 1. **The sword marks.** A disciple climbing Cùng Mục Phong notices that one cut crosses all the others and ends in a
    torn thread of grey cloth caught in the rock. The player can bury it, bring it to the head, or bring it to Tư Không
-   Hạc Niên. (Thạch Tàng Danh, Tư Không, Kiều Tĩnh Sơn; place 186.)
+   Hạc Niên. (Thang Vô Tạ, Tư Không, Kiều Tĩnh Sơn; place 186.)
 2. **The train that does not exist.** Giang Bích Sa brings the player a contract for a camel train of Đà Đội Thôn that
    has no camels. It leads to a company of grey sleeves guarding Thính Vũ iron in the south. (Giang, Lam Khế Ngôn,
    Thính Vũ's buyers; places 662, the southern road.)

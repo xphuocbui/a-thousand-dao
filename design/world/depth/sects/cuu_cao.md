@@ -143,7 +143,7 @@ marsh's Wood. The bond rite joins the two: Wind to lift the bird and Wood to hol
   Pivot's 1188 ruling.
 - **Họa Tinh Đường:** the talisman hall 34 tiles west, whose talismans the riders carry. **Kỷ Ngân Chúc** and the
   head are friends.
-- **Phất Y Cốc:** rivals for the plateau's Wind children. **Thạch Tàng Danh** took Lộ Khinh Trần in 1195; **Cừ Vân
+- **Phất Y Cốc:** rivals for the plateau's Wind children. **Thang Vô Tạ** took Lộ Khinh Trần in 1195; **Cừ Vân
   Lý** does not forgive it.
 - **Phá Quân Môn** (fallen, 874): the school holds its ground and carries its dead rider's story. One groom, **Hạ
   Tri Hàn**, carries the rebel founder's surname in secret.
@@ -200,7 +200,7 @@ Scripture, grooms the Reed Marsh Breath).
 2. **The night circuit.** Flying the vein with Ung Hạc Minh and Hình Thủ Tinh, the player sees lights on the Băng Tâm
    side of the border. Ung writes them in the ledger; Hình wants them left out. (Ung, Hình, Mộ Viễn Sơn; place 205.)
 3. **A Wind child.** A child the cranes come down to is reported at the hawk camps. Cừ Vân Lý and a Phất Y sword set
-   out the same morning. (Cừ Vân Lý, Lộ Khinh Trần, Thạch Tàng Danh; places 236, 603.)
+   out the same morning. (Cừ Vân Lý, Lộ Khinh Trần, Thang Vô Tạ; places 236, 603.)
 4. **The crane king.** Thanh Điền throws Vi Thừa Phong a third time, over a Pivot letter that matters. Someone has to
    carry it, and the king will carry only Ung. (Ung, Vi Thừa Phong, Tống Phi Thư.)
 5. **The roc.** Khổng Tường Vũ asks the player to help her reach the roc of Bằng Sào Nhai. Tống Phi Thư asks the

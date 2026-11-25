@@ -1216,7 +1216,7 @@
      ],
      "residents": [
       {
-       "name": "Thạch Tàng Danh",
+       "name": "Thang Vô Tạ",
        "role": "Head of Phất Y Cốc, sword cultivation and swordsmen for hire",
        "alive": true,
        "realm": "ket_dan",
@@ -1238,7 +1238,7 @@
       "lord": "thien_xu",
       "craft": "sword cultivation; wandering swordsmen for hire",
       "note": "Lý Bạch, Hiệp Khách Hành: sự liễu phất y khứ, thâm tàng thân dữ danh (deed done, he brushes his sleeve and goes, hiding body and name)",
-      "leader": "Thạch Tàng Danh"
+      "leader": "Thang Vô Tạ"
      }
     },
     {
@@ -1593,14 +1593,14 @@
        "year": 1130,
        "kind": "duel",
        "tier": "landmark",
-       "text": "Tư Không Hạc Niên duels Thạch Tàng Danh of Phất Y Cốc on Cùng Mục Phong for three days; neither wins, and he leaves without a sect.",
+       "text": "Tư Không Hạc Niên duels Thang Vô Tạ of Phất Y Cốc on Cùng Mục Phong for three days; neither wins, and he leaves without a sect.",
        "secret": false
       },
       {
        "year": 1131,
        "kind": "tale",
        "tier": "annal",
-       "text": "After the duel on Cùng Mục Phong, Thạch Tàng Danh will not speak of it; Phất Y Cốc's disciples climb the peak to see the sword marks.",
+       "text": "After the duel on Cùng Mục Phong, Thang Vô Tạ will not speak of it; Phất Y Cốc's disciples climb the peak to see the sword marks.",
        "secret": false
       }
      ],

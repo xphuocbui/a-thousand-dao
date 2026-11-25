@@ -164,7 +164,7 @@ Each line: who wants a tie to whom (keys), and why. The cross-sect pass writes b
 
 ## From hermits-sages
 - quach_vo_tich (Phất Y's founder, lived to 900, the traveller of A138) gets tu_khong_hac_nien as disciple (changes the
-  phat_y page); far sides: lang_dap_tuyet, thach_tang_danh, sai_mo_kiem, co_da_lan, phan_co_dang (Tư Không); ky_hoa_anh
+  phat_y page); far sides: lang_dap_tuyet, thang_vo_ta, sai_mo_kiem, co_da_lan, phan_co_dang (Tư Không); ky_hoa_anh
   (Hoắc); uy_thanh_diem (Cao, Khuyết); diep_to_quyen, tan_dao_anh, o_lao_nghien, lan_vien_pham, sa_kinh_nhi (Đoạn);
   thoi_khinh_hong (Mạc); lac_dan_thanh (Khuyết); ong_hai_linh (Cam); nhiem_han_chau ← hach_tung, do_suong_nhi;
   hac_tan_dang ← nguy_dan_chu.

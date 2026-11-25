@@ -1,0 +1,343 @@
+{"by": "auth-mod",
+ "_doc": "Group (b) of builds/wishlist.md: Modifiers on existing stats. Phase A proposals, unpriced; a later wiring pass applies them. Sizes: technique passives follow design/techniques/catalogue-*.json by tier (tier 0 about half a tree notable per line; tiers 1-3 about one notable per line); item lines follow design/items/catalogue-*.json by grade, and a replaced line keeps its W through the breadth multiplier (modifiers.md Formulas B-C). Where a wish quoted a tree number that differs, the wish's number is in the note. The depth proposal techniques (sects/*.techniques.json) have no passives field yet: an 'add' to 'passives' creates it, in the catalogue's {key, value, scope} form. Only gaps are wired: a line a requester's piece already carries is not added twice. Each wire carries 'value', the line or tag it adds or the replacement; a replace also carries 'old'.",
+ "entries": [
+
+  {"wish": "b1 (ra-G3) Lạc Hà route", "kind": "modifier",
+   "record": {"name": "Maple Hall Road (Phong Đường Lộ)", "modifiers": [
+     {"key": "dao_tam", "value": 1.33, "scope": []},
+     {"key": "khi_huyet_pct", "value": 6.6, "scope": []},
+     {"key": "breakthrough_chance", "value": 0.8, "scope": []},
+     {"key": "health_regen_inc_pct", "value": 13.3, "scope": []}]},
+   "wire": [
+     {"file": "design/world/depth/sects/lac_ha.techniques.json", "id": "sunset-cloud-canon", "field": "passives", "action": "add", "value": "the four lines above", "note": "Tier 3 main method (chu_hong_diep holds it). Each stat of Solid Ground 707, Gate of Faith 3432 and Blessed Basin 3449 is taken once at one notable's size; the route's sum (dao_tam 2.66, khi_huyet_pct 13.2) is not copied."},
+     {"file": "design/world/depth/sects/lac_ha.techniques.json", "id": "evening-song-of-the-boats", "field": "passives", "action": "add", "value": "the four lines above", "note": "Tier 1 secret held as aux by nhiep_ngoc_am, giang_vong_pham and chu_hong_diep, who start on Wood or Water, far from the Earth route."}],
+   "fun": "A Wood-born disciple of the sunset hall has the steady Earth heart of the old steppe seat without walking 43 points to it.",
+   "status": "proposal"},
+
+  {"wish": "b1 (ra-G3) Lạc Hà route, outer gate", "kind": "modifier",
+   "record": {"name": "Maple Hall Road, first steps (Phong Đường Sơ Bộ)", "modifiers": [
+     {"key": "dao_tam", "value": 0.66, "scope": []},
+     {"key": "khi_huyet_pct", "value": 3.3, "scope": []},
+     {"key": "breakthrough_chance", "value": 0.4, "scope": []},
+     {"key": "health_regen_inc_pct", "value": 6.6, "scope": []}]},
+   "wire": [
+     {"file": "design/world/depth/sects/lac_ha.techniques.json", "id": "evening-dust-primer", "field": "passives", "action": "add", "value": "the four lines above", "note": "Tier 0 outer method: half of the tier-1 lines. Covers the Luyện Khí outer gate (ta_quy_yen)."}],
+   "fun": "The herders' sunset sitting already steadies the heart.",
+   "status": "proposal"},
+
+  {"wish": "b1 (ra-G3) Thúy Vi route", "kind": "modifier",
+   "record": {"name": "Green Ring Road (Thúy Luân Lộ)", "modifiers": [
+     {"key": "health_regen_pct", "value": 0.4, "scope": []},
+     {"key": "breakthrough_chance", "value": 0.8, "scope": []},
+     {"key": "cultivation_speed_pct", "value": 1.8, "scope": []},
+     {"key": "herb_growth_pct", "value": 4.4, "scope": []}]},
+   "wire": [
+     {"file": "design/world/depth/sects/thuy_vi.techniques.json", "id": "emerald-haze-canon", "field": "passives", "action": "add", "value": "the four lines above", "note": "Tier 2 main method (quyen_thanh_lam, Earth start). Values are Growth Rings 6299 + New Leaf 6103 (no stat repeats). Paddy Fields (Earth) is near the Earth start already, so it is not copied."}],
+   "fun": "The Earth half of the sect grows the green rings of the Wood half in its own fields.",
+   "status": "proposal"},
+
+  {"wish": "b1 (ra-G3) Thúy Vi route, outer gate", "kind": "modifier",
+   "record": {"name": "Green Ring Road, first steps (Thúy Luân Sơ Bộ)", "modifiers": [
+     {"key": "health_regen_pct", "value": 0.2, "scope": []},
+     {"key": "breakthrough_chance", "value": 0.4, "scope": []},
+     {"key": "cultivation_speed_pct", "value": 0.9, "scope": []},
+     {"key": "herb_growth_pct", "value": 2.2, "scope": []}]},
+   "wire": [
+     {"file": "design/world/depth/sects/thuy_vi.techniques.json", "id": "seed-and-soil-primer", "field": "passives", "action": "add", "value": "the four lines above", "note": "Tier 0: half. me_dien_nhi, the Earth-rooted outer disciple."}],
+   "fun": "A clerk's daughter with weak Wood still sees her seedlings come up.",
+   "status": "proposal"},
+
+  {"wish": "b1 (ra-G3) Vạn Hác route", "kind": "modifier",
+   "record": {"name": "Clear Gong in the Score (Thanh La Nhập Phổ)", "modifiers": [
+     {"key": "soul_res_pct", "value": 8.3, "scope": []},
+     {"key": "status_resist_pct", "value": 7.5, "scope": []}]},
+   "wire": [
+     {"file": "design/world/depth/sects/van_hac.techniques.json", "id": "ten-thousand-ravines-zither-canon", "field": "passives", "action": "add", "value": "the two lines above", "note": "Tier 2 main method; Clear Gong 4216 copied. ha_thinh_tung (Wind start) and khuong_lac_huyen (Wood start)."}],
+   "fun": "The academy's players hear the gong in their own score.",
+   "status": "proposal"},
+
+  {"wish": "b1 (ra-G3) Tuần Tùng route", "kind": "modifier",
+   "record": {"name": "Warden's Road (Tuần Lộ)", "modifiers": [
+     {"key": "khi_huyet_pct", "value": 6.6, "scope": []},
+     {"key": "can_cot", "value": 1.33, "scope": []},
+     {"key": "health_regen_inc_pct", "value": 13.3, "scope": []}]},
+   "wire": [
+     {"file": "design/world/depth/sects/tuan_tung.techniques.json", "id": "pine-warden-staff-and-bow-canon", "field": "passives", "action": "add", "value": "the three lines above", "note": "Tier 1 main method; Strong Sapling 6281 + Climbing Vine 6312, each stat once (the route's health sum, 13.2, is not copied). trang_thiet_cuoc starts on Metal, 41 from the Wood route."}],
+   "fun": "The Metal-born warden has the body for a night on the road like the rest.",
+   "status": "proposal"},
+
+  {"wish": "b1 (ra-G3) Nhạn Trận route", "kind": "modifier",
+   "record": {"name": "The File's Road (Nhạn Hàng Lộ)", "modifiers": [
+     {"key": "attack_pct", "value": 6, "scope": ["tho"]},
+     {"key": "block_rating", "value": 10, "scope": []},
+     {"key": "khi_huyet_pct", "value": 6.6, "scope": []}]},
+   "wire": [
+     {"file": "design/world/depth/sects/nhan_tran.techniques.json", "id": "wild-geese-formation-canon", "field": "passives", "action": "add", "value": "the three lines above", "note": "Tier 1 main method; Earth Root 715 + Earthen Gate 3724 + Five Peaks 3051, each stat once (the route's sums, block 30 and health 13.2, are not copied). dong_kien_luy and muc_tan_vu start on Water, 55 from the route."}],
+   "fun": "Water-born geese still hold the line like Earth.",
+   "status": "proposal"},
+
+  {"wish": "b1 (ra-G3) shared methods: FLAG, do not apply without a ruling", "kind": "modifier",
+   "record": {"name": "Maple Hall Road and Green Ring Road on shared methods", "modifiers": [
+     {"key": "dao_tam", "value": 1.33, "scope": []},
+     {"key": "khi_huyet_pct", "value": 6.6, "scope": []},
+     {"key": "breakthrough_chance", "value": 0.8, "scope": []},
+     {"key": "health_regen_inc_pct", "value": 13.3, "scope": []}]},
+   "wire": [
+     {"file": "design/techniques/catalogue-earth.json", "id": "mountain-heart-canon", "field": "passives", "action": "add", "value": "the Lạc Hà lines above", "note": "Sai Thanh Phong holds only this method; Nhiếp Ngọc Âm and Giang Vọng Phàm hold it as main. It is a shared catalogue method, so the lines would reach every holder (Khâu Bạch Thủ too)."},
+     {"file": "design/techniques/catalogue-wood.json", "id": "verdant-cycle-scripture", "field": "passives", "action": "add", "value": "the Thúy Vi lines (health_regen_pct 0.4, breakthrough_chance 0.8, cultivation_speed_pct 1.8, herb_growth_pct 4.4)", "note": "Phạm Thủ Điền's main. Shared catalogue method, as above."}],
+   "fun": "Covers the two requesters whose only lineage method is a shared one.",
+   "status": "needs-ruling",
+   "ruling": "Pick one: (a) accept the leak to other holders; (b) a lineage.route_passive field on the sect's techniques.json that applies once to members holding any of its methods, which would also end the double-up in b1; (c) leave Sai Thanh Phong and Phạm Thủ Điền uncovered. The wiring pass skips this entry until then."},
+
+  {"wish": "b2 song tag (sets-tp/song-tag, W8, tp/grave-chorus)", "kind": "modifier",
+   "record": {"tag": "song", "family": "form", "tier": "family", "meaning": "An art played or sung: zither, pipe, drum, bell and soul-song arts. Scope target as any form tag (rule 8). A scope [song] on x_soul reads the soul art's tags (rule 8, outgoing soul hit)."},
+   "wire": [
+     {"file": "design/gdd/modifiers.md", "id": "Core Rules rule 9, form family", "field": "tags", "action": "add", "value": "song", "note": "Five arts already carry it, but the vocabulary does not, so a [song] scope would fail validation. GDD amendment, written later with the user."},
+     {"file": "design/items/common-arts.json", "id": "string-cut", "field": "tags", "action": "replace", "old": "music", "value": "song", "note": "The cam base's common art; the bases.json note on cam asks for a music form tag. One tag, not two."},
+     {"file": "design/items/bases.json", "id": "cam", "field": "tags", "action": "add", "value": "song", "note": "As the an base carries seal."},
+     {"file": "design/arts/part-c.json", "id": "delaying-gong", "field": "tags", "action": "add", "value": "song"},
+     {"file": "design/arts/part-b.json", "id": "lustral-bell", "field": "tags", "action": "add", "value": "song"},
+     {"file": "design/arts/part-b.json", "id": "bell-of-waking", "field": "tags", "action": "add", "value": "song"},
+     {"file": "design/world/depth/sects/thu_phan.techniques.json", "id": "grave-sweeping-chant", "field": "arts[Sweep the Stones].tags", "action": "add", "value": "song"},
+     {"file": "design/world/depth/sects/thu_phan.techniques.json", "id": "autumn-grave-canon", "field": "arts[Ghosts Sing Old Poems].tags", "action": "add", "value": "song"},
+     {"file": "design/world/depth/sects/thu_phan.techniques.json", "id": "autumn-grave-canon", "field": "arts[Autumn Comes].tags", "action": "add", "value": "song"},
+     {"file": "design/world/depth/sects/phuong_minh.techniques.json", "id": "shao-remnant-score", "field": "arts[Dawn Clouds Take the Colour].tags", "action": "add", "value": "song"},
+     {"file": "design/world/depth/sects/van_hac.techniques.json", "id": "ten-thousand-ravines-zither-canon", "field": "arts[Ten Thousand Ravines, Echo Wall].tags", "action": "add", "value": "song"},
+     {"file": "design/world/depth/sects/van_hac.techniques.json", "id": "the-monks-rest", "field": "arts[The Held Rest].tags", "action": "add", "value": "song"},
+     {"file": "design/world/depth/sects/lac_ha.techniques.json", "id": "evening-song-of-the-boats", "field": "arts[Coming Home at Dusk, Oars Together, The Ninth Verse].tags", "action": "add", "value": "song"}],
+   "fun": "Music becomes a build word: a drum and a zither that make each other faster.",
+   "status": "proposal"},
+
+  {"wish": "b2 Grave Chorus (tp/grave-chorus), Shao score and bell (W8)", "kind": "modifier",
+   "record": {"name": "Grave Chorus (Quỷ Xướng Hợp Thanh)", "modifiers": [
+     {"key": "x_soul", "value": 5, "scope": ["song"]},
+     {"key": "soul_res_pct", "value": 6.6, "scope": []}]},
+   "wire": [
+     {"file": "design/world/depth/sects/thu_phan.techniques.json", "id": "autumn-grave-canon", "field": "passives", "action": "add", "value": "the two lines above", "note": "Tier 1 main method of bao_thu_xuong, tham_tho_bich, co_ky_am, ly_han_bich. x_soul, not attack_pct: the chorus deals soul damage, which skips the damage layers (rule 8)."},
+     {"file": "design/world/depth/sects/phuong_minh.techniques.json", "id": "shao-remnant-score", "field": "passives", "action": "add", "value": "x_soul 5 [song]; art_speed_pct 8 [song]", "note": "Tier 1 secret, lien_thieu_nghi's aux: the score's soul damage and a faster score instead of the soul guard."},
+     {"file": "design/techniques/catalogue-soul-song-seal.json", "id": "hollow-bell-canon", "field": "passives", "action": "add", "value": "x_soul 3 [song]", "note": "Tier 0 shared catalogue method (chuc_du_am's only method; ham_tan_chung's aux). Shared on purpose: every bell-song holder should have it."}],
+   "fun": "The chorus outlasts the fight: each song lands deeper in the soul.",
+   "status": "proposal"},
+
+  {"wish": "b2 song tag (sets-tp/song-tag): the instruments", "kind": "modifier",
+   "record": {"name": "Played Together (Hợp Tấu)", "modifiers": [
+     {"key": "art_speed_pct", "value": 10, "scope": ["song"]}]},
+   "wire": [
+     {"file": "design/world/depth/sects/phuong_minh.items.json", "id": "pm-remnant-score-zither", "field": "modifiers", "action": "replace", "old": "art_speed_pct 12 [soul]", "value": "art_speed_pct 12 [song]", "note": "lien_thieu_nghi's set piece (pm-seven-movements). Same value, so it costs a little less."},
+     {"file": "design/world/depth/sects/phuong_minh.items.json", "id": "pm-rites-drum", "field": "modifiers", "action": "add", "value": "art_speed_pct 8 [song]", "note": "The drum of the same set had no speed line. Zither and drum now speed each other's songs."},
+     {"file": "design/world/depth/sects/phuong_minh.items.json", "id": "pm-dawn-call-pipe", "field": "modifiers", "action": "replace", "old": "art_speed_pct 10 [soul]", "value": "art_speed_pct 10 [song]", "note": "chuc_hieu_nghi. Grade 2. She holds no soul art, so [soul] reached nothing. [song] reaches the pipe's common art string-cut (cam base), plus any pipe art that the light-pipe-art wish adds."},
+     {"file": "design/world/depth/sects/thu_phan.items.json", "id": "tp-grave-drum", "field": "modifiers", "action": "replace", "old": "art_speed_pct 8 [soul]", "value": "art_speed_pct 8 [song]", "note": "co_ky_am."},
+     {"file": "design/world/depth/sects/thu_phan.items.json", "id": "tp-nine-graves-zither", "field": "modifiers", "action": "replace", "old": "art_speed_pct 10 [soul]", "value": "art_speed_pct 10 [song]", "note": "bao_thu_xuong."},
+     {"file": "design/world/depth/sects/thu_phan.items.json", "id": "tp-autumn-grave-bell", "field": "modifiers", "action": "add", "value": "art_speed_pct 10 [song]", "note": "ly_han_bich's head bell, named by the wish as the Pavilion's carrier."},
+     {"file": "design/world/depth/people/demonic.items.json", "id": "dm-cracked-bell", "field": "modifiers", "action": "replace", "old": "art_speed_pct 10 [soul]", "value": "art_speed_pct 10 [song]", "note": "ham_tan_chung. His Lamp-Oil Lance is soul but not song, so it loses the speed: a choice for the reviewer."}],
+   "fun": "A funeral drum and a zither in one set that make each other faster.",
+   "status": "proposal"},
+
+  {"wish": "b2 Between the Notes (W8): Gián Thu Địch", "kind": "modifier",
+   "record": {"name": "Between the Notes (Âm Gian)", "modifiers": [
+     {"key": "attack_pct", "value": 14, "scope": ["song"]},
+     {"key": "art_speed_pct", "value": 8, "scope": ["song"]},
+     {"key": "soul_res_pct", "value": 15, "scope": []},
+     {"key": "than_thuc_pct", "value": 4, "scope": []}]},
+   "wire": [
+     {"file": "design/world/depth/people/hermits-sages.items.json", "id": "hs-between-the-notes-flute", "field": "items", "action": "new",
+      "new_record": {"id": "hs-between-the-notes-flute", "name": "Flute Between the Notes (Âm Gian Địch)", "family": "wind", "kind": "artifact", "base": "cam", "grade": 3,
+        "modifiers": [{"key": "attack_pct", "value": 14, "scope": ["song"]}, {"key": "art_speed_pct", "value": 8, "scope": ["song"]}, {"key": "soul_res_pct", "value": 15, "scope": []}, {"key": "than_thuc_pct", "value": 4, "scope": []}],
+        "effects": [], "lore": "Lương Lạc Mai's flute of Minh Cầm Phong bamboo, played for 340 years behind a shut door.", "build_use": "Song damage for Echo of the Dodge, and soul guard.", "holder": "gian_thu_dich", "made_by": "luong_lac_mai", "made_year": null, "set": null, "status": "proposal"},
+      "note": "attack_pct, not x_soul: his song art (echo-of-the-dodge, slow-hour-scripture) deals Wind damage. Base cam as pm-dawn-call-pipe uses it until f1 adds a pipe base. Replaces the generic ngoc_boi 3 in his build.gear. made_year left for the writer."}],
+   "fun": "Tunes that slow, then cuts that land between the notes.",
+   "status": "proposal"},
+
+  {"wish": "b2 Between the Notes (W8): Bạch Vọng Ngôn", "kind": "modifier",
+   "record": {"name": "Strings in the Blades (Huyền Tàng Nhận)", "modifiers": [
+     {"key": "attack_pct", "value": 14, "scope": ["song"]},
+     {"key": "art_speed_pct", "value": 10, "scope": ["song"]},
+     {"key": "soul_res_pct", "value": 15, "scope": []}]},
+   "wire": [
+     {"file": "design/world/depth/sects/thien_xu.items.json", "id": "tx-hidden-string-zither", "field": "items", "action": "new",
+      "new_record": {"id": "tx-hidden-string-zither", "name": "Zither of the Hidden Strings (Tàng Huyền Cầm)", "family": "metal", "kind": "artifact", "base": "cam", "grade": 3,
+        "modifiers": [{"key": "attack_pct", "value": 14, "scope": ["song"]}, {"key": "art_speed_pct", "value": 10, "scope": ["song"]}, {"key": "soul_res_pct", "value": 15, "scope": []}],
+        "effects": [], "lore": "A plain seven-string zither with steel strings. The Pivot forbids songs that work on the mind; Bạch Vọng Ngôn plays only the string that cuts.", "build_use": "Force song damage from String Cut, hidden among the flying blades.", "holder": "bach_vong_ngon", "made_by": null, "made_year": null, "set": null, "status": "proposal"},
+      "note": "His build.gear already lists cam grade 3 (kim); this names it. Only string-cut (Force) is a song he holds, so the line is attack_pct [song], not x_soul. Keeps the Pivot's ban on mind songs."}],
+   "fun": "The judge plays one string, and the blades move on its note.",
+   "status": "proposal"},
+
+  {"wish": "b3 (W2, tl/metal-stacks) Metal debuff stacks: tier-1 methods", "kind": "modifier",
+   "record": {"name": "Quench Mark (Thối Ấn)", "modifiers": [
+     {"key": "stack_effect_pct", "value": 12, "scope": ["kim", "debuff"]},
+     {"key": "stack_duration_pct", "value": 16, "scope": ["kim", "debuff"]}]},
+   "wire": [
+     {"file": "design/world/depth/sects/thoi_tinh.techniques.json", "id": "star-quench-canon", "field": "passives", "action": "add", "value": "the two lines above", "note": "bang_lanh_toi. His River Tongs already give duration 30; the canon adds the effect."},
+     {"file": "design/world/depth/sects/chan_kim.techniques.json", "id": "true-gold-canon", "field": "passives", "action": "add", "value": "the two lines above", "note": "phung_xich_kim, who has no named item."},
+     {"file": "design/world/depth/sects/minh_loan.techniques.json", "id": "singing-luan-bell-canon", "field": "passives", "action": "add", "value": "the two lines above", "note": "yen_boi_ngoc, nguy_tram_am, tham_huong_nhi. Their bells already carry one line each."},
+     {"file": "design/world/depth/sects/hoa_cai.techniques.json", "id": "nine-cycle-mercury-art", "field": "passives", "action": "add", "value": "the two lines above", "note": "Hỏa Cái's Mercury stacks come from this Metal art, which la_tu_vi, uy_dan_duong and thieu_ngan_hong all hold. The wish names the Canopy Furnace Canon, but that is an Earth canon, and Metal lines on it would miss its own arts."},
+     {"file": "design/world/depth/sects/hoa_cai.items.json", "id": "hc-fume-censer", "field": "modifiers", "action": "replace", "old": "than_thuc_pct 4", "value": "stack_duration_pct 20 [kim, debuff]", "note": "uy_dan_duong. Completes the pair (it had the effect only). A replace, because an add would take it past its grade-3 budget (about 35.7 W of 38.4 W, plus 4 W)."}],
+   "fun": "The foe's own blows make them brittle, and the marks stay.",
+   "status": "proposal"},
+
+  {"wish": "b4 (tl/wood-talisman) Painted Leaf", "kind": "modifier",
+   "record": {"name": "Painted Leaf (Họa Diệp)", "modifiers": [
+     {"key": "attack_pct", "value": 6, "scope": ["talisman"]},
+     {"key": "art_speed_pct", "value": 10, "scope": ["talisman"]},
+     {"key": "status_duration_pct", "value": 8, "scope": []}]},
+   "wire": [
+     {"file": "design/world/depth/sects/nam_pho.techniques.json", "id": "southern-shore-cloud-canon", "field": "passives", "action": "add", "value": "the three lines above", "note": "Tier 1 main method: chau_phi_van, ninh_hoa_van, ly_khe_thu. The wish's 6 % and 10 % are kept (Brush and Inkstone)."},
+     {"file": "design/world/depth/sects/nam_pho.techniques.json", "id": "mulberry-ink-primer", "field": "passives", "action": "add", "value": "attack_pct 3 [talisman]; art_speed_pct 5 [talisman]; status_duration_pct 4", "note": "Tier 0: half. ly_khe_thu's aux."},
+     {"file": "design/world/depth/sects/suong_tung.items.json", "id": "st-lantern-maker-brush", "field": "modifiers", "action": "add", "value": "attack_pct 8 [talisman]", "note": "van_han_dang. The brush had speed and duration but no damage. np-dawn-cloud-brush already has both lines and is left as it is."},
+     {"file": "design/world/depth/sects/nam_pho.techniques.json", "id": "southern-shore-cloud-canon", "field": "arts[Catch the Morning Cloud, Painted Rain, Paper Beam].tags", "action": "add", "value": "talisman", "note": "Talisman arts with no tags yet, so a [talisman] scope would miss them."},
+     {"file": "design/world/depth/sects/nam_pho.techniques.json", "id": "mulberry-ink-primer", "field": "arts[Three Wet Sheets, Blotting Paper].tags", "action": "add", "value": "talisman"},
+     {"file": "design/world/depth/sects/nam_pho.techniques.json", "id": "painted-beams-dawn-flight", "field": "arts[Dawn Flight, Dusk Curtain].tags", "action": "add", "value": "talisman"}],
+   "fun": "Wood talismans get cheaper and faster for the hall that paints the dawn.",
+   "status": "proposal"},
+
+  {"wish": "b4 (tl/wood-talisman) Painted Leaf: Tạ Quy Yến", "kind": "modifier",
+   "record": {"name": "Painted Leaf (Họa Diệp)", "modifiers": [
+     {"key": "attack_pct", "value": 6, "scope": ["talisman"]},
+     {"key": "art_speed_pct", "value": 5, "scope": ["talisman"]}]},
+   "wire": [
+     {"file": "design/world/depth/sects/lac_ha.items.json", "id": "lh-scribes-reed-brush", "field": "items", "action": "new",
+      "new_record": {"id": "lh-scribes-reed-brush", "name": "Scribe's Reed Brush (Lô Bút)", "family": "wood", "kind": "artifact", "base": null, "grade": 1,
+        "modifiers": [{"key": "attack_pct", "value": 6, "scope": ["talisman"]}, {"key": "art_speed_pct", "value": 5, "scope": ["talisman"]}],
+        "effects": [], "lore": "A reed brush cut by the river below the old seat, the kind every outer-gate scribe makes for herself.", "build_use": "A first talisman hand: talismans she slots strike harder and come round sooner.", "holder": "ta_quy_yen", "made_by": "ta_quy_yen", "made_year": null, "set": null, "status": "proposal"},
+      "note": "base null until f1's brush base exists (f1 is another author's); grade-1 sizes. Replaces the generic an 1 in her build.gear. Her method has no talisman art; the [talisman] source tag reaches the talismans she slots (phu_luc 3)."}],
+   "fun": "The outer-gate scribe's first brush, before any route can reach her.",
+   "status": "proposal"},
+
+  {"wish": "b5 (W5) Miasma Lungs: robes", "kind": "modifier",
+   "record": {"name": "Miasma Lungs (Chướng Phế)", "modifiers": [
+     {"key": "status_resist_pct", "value": 30, "scope": ["poison"]}]},
+   "wire": [
+     {"file": "design/world/depth/people/loose-south.items.json", "id": "ls-miasma-veil-robe", "field": "modifiers", "action": "replace", "old": "status_resist_pct 15 []", "value": "status_resist_pct 30 [poison]", "note": "khau_bach_thu. Same W: universal 15 at 0.4 is 6 W, and [poison] (narrow, x2.0) buys 30. The robe already has health."},
+     {"file": "design/world/depth/sects/hoa_cai.items.json", "id": "hc-cinnabar-robe", "field": "modifiers", "action": "replace", "old": "status_resist_pct 15 []", "value": "status_resist_pct 30 [poison]", "note": "uy_dan_duong. Same trade."}],
+   "fun": "A man who stands in the fume and is not touched by it.",
+   "status": "proposal"},
+
+  {"wish": "b5 (W5) Miasma Lungs: Quý Thủ Lũy and Phùng Xích Kim", "kind": "modifier",
+   "record": {"name": "Miasma Lungs (Chướng Phế)", "modifiers": [
+     {"key": "status_resist_pct", "value": 20, "scope": ["poison"]},
+     {"key": "khi_huyet_pct", "value": 6.6, "scope": []}]},
+   "wire": [
+     {"file": "design/world/depth/sects/thien_xu.items.json", "id": "tx-miasma-root-charm", "field": "items", "action": "new",
+      "new_record": {"id": "tx-miasma-root-charm", "name": "Miasma-Root Charm (Chướng Căn Bội)", "family": "earth", "kind": "artifact", "base": "ngoc_boi", "grade": 3,
+        "modifiers": [{"key": "status_resist_pct", "value": 30, "scope": ["poison"]}, {"key": "khi_huyet_pct", "value": 12, "scope": []}, {"key": "herb_growth_pct", "value": 8, "scope": []}],
+        "effects": [], "lore": "A knot of the miasma root she grows at the barrow watch, dried and bound in jade wire. She has worn one since the first year the plain's air did not kill her.", "build_use": "Poison resistance and health for the barrow watch, and her root fields.", "holder": "quy_thu_luy", "made_by": "quy_thu_luy", "made_year": null, "set": null, "status": "proposal"},
+      "note": "Item sizes (grade 3), not the record's tier-1 sizes. Replaces the generic ngoc_boi 3 in her build.gear."},
+     {"file": "design/world/depth/sects/chan_kim.techniques.json", "id": "true-gold-canon", "field": "passives", "action": "add", "value": "status_resist_pct 20 [poison]; khi_huyet_pct 6.6", "note": "phung_xich_kim: a body that outlived the fumes. Tier-1 size."}],
+   "fun": "The assayer has breathed the furnace for decades and lives.",
+   "status": "proposal"},
+
+  {"wish": "b6 (tp/rain-chain-conductor) Rain-Chain Conductor", "kind": "modifier",
+   "record": {"name": "Rain-Chain Conductor (Vũ Liên Dẫn Lôi)", "modifiers": [
+     {"key": "attack_pct", "value": 6, "scope": ["kim"]},
+     {"key": "attack_pct", "value": 6, "scope": ["loi"]},
+     {"key": "resist_pct", "value": 150, "scope": ["lightning"]},
+     {"key": "can_cot", "value": 1.33, "scope": []}]},
+   "wire": [
+     {"file": "design/world/depth/sects/thinh_vu.techniques.json", "id": "thunder-in-the-rain-canon", "field": "passives", "action": "add", "value": "the four lines above", "note": "Tier 2 main method: thach_lien_hoan, ninh_tich_dang."},
+     {"file": "design/world/depth/sects/thinh_vu.techniques.json", "id": "rain-chain-sword-scripture", "field": "passives", "action": "add", "value": "attack_pct 6 [loi]; resist_pct 150 [lightning]", "note": "Tier 1 inner method: dam_van_chung. Only the Thunder half: the scripture is Metal already."}],
+   "fun": "Metal first, and the Thunder comes down the chain to whoever has the root for it.",
+   "status": "proposal"},
+
+  {"wish": "b6 (tp/rain-chain-conductor): Chu Trì Âm", "kind": "modifier",
+   "record": {"name": "Rain-Chain Conductor (Vũ Liên Dẫn Lôi)", "modifiers": [
+     {"key": "attack_pct", "value": 14, "scope": ["kim"]},
+     {"key": "attack_pct", "value": 10, "scope": ["loi"]},
+     {"key": "resist_pct", "value": 150, "scope": ["lightning"]}]},
+   "wire": [
+     {"file": "design/world/depth/sects/phuong_minh.items.json", "id": "pm-tower-rain-chain-sword", "field": "items", "action": "new",
+      "new_record": {"id": "pm-tower-rain-chain-sword", "name": "Tower Sword of the Rain-Chain (Vũ Liên Lâu Kiếm)", "family": "metal", "kind": "artifact", "base": "phi_kiem", "grade": 3,
+        "modifiers": [{"key": "attack_pct", "value": 14, "scope": ["kim"]}, {"key": "attack_pct", "value": 10, "scope": ["loi"]}, {"key": "resist_pct", "value": 150, "scope": ["lightning"]}],
+        "effects": [], "lore": "The sword the Listening Rain Tower gave him at his inner-gate rite. He left the Tower but not its sword, and still cleans it the Tower's way.", "build_use": "The Tower's Metal-then-Thunder cut, kept by a guest of the palace.", "holder": "chu_tri_am", "made_by": "thinh_vu", "made_year": null, "set": null, "status": "proposal"},
+      "note": "He has a Thunder variant (26). Names his generic phi_kiem 3 (kim) in build.gear. The Night Rain Regalia (tvl-night-rain-regalia) is not wired: its holders, manh_da_vu and quan_vu_thanh, are not this wish's requesters."}],
+   "fun": "A guest of the Phoenix palace who still fights like the Tower.",
+   "status": "proposal"},
+
+  {"wish": "b7 (W1) Weighed Foe", "kind": "modifier",
+   "record": {"name": "Weighed Foe (Quyền Trọng)", "modifiers": [
+     {"key": "stack_effect_pct", "value": 16, "scope": ["tho", "debuff"]}]},
+   "wire": [
+     {"file": "design/world/depth/sects/thien_xu.techniques.json", "id": "heavenly-pivot-true-canon", "field": "passives", "action": "add", "value": "stack_effect_pct 16 [tho, debuff]", "note": "Tier 3 main method: the whole Pivot lineage that lays Weights (phuong_truc_ngon and the elders)."},
+     {"file": "design/world/depth/sects/cung_tinh.techniques.json", "id": "bowing-stars-canon", "field": "passives", "action": "add", "value": "stack_effect_pct 14 [tho, debuff]", "note": "Tier 2 main method: to_tinh_nghi and the abbey."},
+     {"file": "design/world/depth/sects/cung_tinh.items.json", "id": "ct-armillary-ring", "field": "modifiers", "action": "add", "value": "stack_effect_pct 20 [tho, debuff]", "note": "to_tinh_nghi's ring had the duration only. tx-heavenly-weight (30) and mf-golden-valley-seal (24) already carry the line, so they are left as they are."}],
+   "fun": "Every Weight laid on the foe counts for more; the patient judge wins.",
+   "status": "proposal"},
+
+  {"wish": "b8 (W4) Seal Script", "kind": "modifier",
+   "record": {"name": "Seal Script (Ấn Văn)", "modifiers": [
+     {"key": "art_speed_pct", "value": 10, "scope": ["seal"]},
+     {"key": "attack_pct", "value": 6, "scope": ["seal"]}]},
+   "wire": [
+     {"file": "design/world/depth/sects/thien_xu.items.json", "id": "tx-heavenly-weight", "field": "modifiers", "action": "add", "value": "art_speed_pct 10 [seal]", "note": "phuong_truc_ngon: his Weighed Effect keys off seal arts, but the piece had no seal line."},
+     {"file": "design/world/depth/sects/thien_xu.items.json", "id": "tx-copyist-pair", "field": "bonuses[pieces=2].modifiers", "action": "add", "value": "attack_pct 6 [seal]", "note": "The copyist set piece the wish names (holder thich_minh_thu); A Fair Copy hands back through a seal art."},
+     {"file": "design/world/depth/people/loose-north.items.json", "id": "ln-digger-kit", "field": "bonuses[pieces=2].modifiers", "action": "add", "value": "attack_pct 6 [seal]", "note": "The digger set the wish names (holder phan_co_dang); The Way Out breaks array nodes with seal hits."}],
+   "fun": "The judge's seals land a beat sooner.",
+   "status": "proposal",
+   "covered": "Most of the wish is already in the data. The seal tag exists in the vocabulary (form family) and on 33 arts, including all three Nine Seal Ledger arts, so W4's 'no tag' is stale. The Ledger, which all three requesters hold, already has attack_pct 12 and art_speed_pct 12 [seal]. tx-compact-inkstone and the tx-archive-desk set already scope damage to [seal]. Only the gaps above are wired."},
+
+  {"wish": "b9 (bt-08) Hundred Echoes", "kind": "modifier",
+   "record": {"name": "Hundred Echoes (Bách Hưởng)", "modifiers": [
+     {"key": "art_speed_pct", "value": 8, "scope": ["palm"]},
+     {"key": "attack_pct", "value": 12, "scope": ["palm"]}]},
+   "wire": [
+     {"file": "design/arts/family-body.json", "id": "rolling-barrage-fist", "field": "tags", "action": "add", "value": "palm", "note": "fist is not in the vocabulary, so a [palm] scope reached only answering-palm of the scripture's three arts. The scripture is a palm school (Chưởng Kinh); keep fist as a display tag."},
+     {"file": "design/arts/family-body.json", "id": "twin-shadow-fist", "field": "tags", "action": "add", "value": "palm"},
+     {"file": "design/techniques/catalogue-body.json", "id": "hundred-echo-palm-scripture", "field": "passives", "action": "add", "value": "art_speed_pct 8 [palm]", "note": "The scripture already has attack_pct 6 and crit [palm], and speed only as [physical], which is kept: Thính Vũ, a sword sect, uses it as its body method. phi_nhan_tam (main) and nong_bach_thach (aux). It is a shared catalogue method, so the new line reaches every holder who palms."},
+     {"file": "design/world/depth/sects/trac_anh.items.json", "id": "ta-goose-bone-beads", "field": "modifiers", "action": "replace", "old": "attack_pct 10 [physical]", "value": "attack_pct 12 [palm]", "note": "phi_nhan_tam. Same W (broad x1.25 to family x1.5). The fist-wrap base is f1's."}],
+   "fun": "A hundred answering palms, each a little sooner than the last.",
+   "status": "proposal"},
+
+  {"wish": "b10 (ra-TT1) Pine Warden's Draw", "kind": "modifier",
+   "record": {"name": "Pine Warden's Draw (Tùng Vệ Mãn Cung)", "modifiers": [
+     {"key": "attack_pct", "value": 6, "scope": ["bow"]},
+     {"key": "crit_damage_pct", "value": 20, "scope": ["bow"]}]},
+   "wire": [
+     {"file": "design/gdd/modifiers.md", "id": "Core Rules rule 9, form family", "field": "tags", "action": "add", "value": "bow", "note": "pinning-arrow and nocked-arrow carry it, but the vocabulary does not. GDD amendment."},
+     {"file": "design/world/depth/sects/tuan_tung.techniques.json", "id": "wolf-winter-arrow", "field": "arts[The Leader First].tags", "action": "add", "value": "bow"},
+     {"file": "design/world/depth/sects/tuan_tung.techniques.json", "id": "pine-warden-staff-and-bow-canon", "field": "passives", "action": "add", "value": "the two lines above", "note": "Tier 1 main method: hua_van_cung, diem_lac_nhan. Its arts pinning-arrow and nocked-arrow are bow-tagged. The wish's 7.5 and 15 (Drawn Bow) become the tier-1 6 and 20."},
+     {"file": "design/world/depth/sects/tuan_tung.items.json", "id": "ttg-wolf-winter-bow", "field": "modifiers", "action": "replace", "old": "attack_pct 18 [physical]", "value": "attack_pct 21 [bow]", "note": "hua_van_cung. Same W (x1.25 to x1.5). When f1's bow base lands, its common art carries bow too."}],
+   "fun": "He holds the road all night and shoots the leader at dawn, and the shot is worth the wait.",
+   "status": "proposal"},
+
+  {"wish": "b11 (bt-06) Opened Veins", "kind": "modifier",
+   "record": {"name": "Opened Veins (Khai Mạch)", "modifiers": [
+     {"key": "status_duration_pct", "value": 15, "scope": ["bleed"]},
+     {"key": "attack_pct", "value": 10, "scope": ["bleed"]}]},
+   "wire": [
+     {"file": "design/world/depth/sects/da_quang.techniques.json", "id": "night-glow-blood-sabre-canon", "field": "passives", "action": "add", "value": "the two lines above", "note": "Tier 2 main method: hang_luu_hoa (and the Đa Quang line). status_duration_pct reads the status's own tags (modifiers.md rule 8, outgoing status), and Bleed carries bleed. For attack_pct, the Status Catalogue gives Bleed's ticks the tags bleed, over_time and physical, and hc-fume-censer's attack_pct [over_time] makes the same reading. The engine is to confirm that a tick matches its status tags."},
+     {"file": "design/world/depth/sects/da_quang.techniques.json", "id": "night-glow-blood-sabre-canon", "field": "arts[Crescent of Red Sand].tags", "action": "add", "value": "bleed", "note": "The art that lays the Bleed has no tags yet. bleed is in the effect family, so its own hit then counts too."}],
+   "fun": "The red-sand arc opens veins that stay open and bleed harder.",
+   "status": "proposal",
+   "refused_part": "The literal ask (stack_effect_pct and stack_duration_pct scoped [bleed]) breaks modifiers.md rule 8: those stats target element stacks only, and Bleed is a status, so the scope can never match and fails validation. The two lines above are the same idea on stats whose target is a status or a hit. More stacks (Bleed stacks to 5) would be the status stack cap, which is a Pending stat."},
+
+  {"wish": "b12 (W7) Hunter's Snare", "kind": "modifier",
+   "record": {"name": "Hunter's Snare (Liệp Sách)", "modifiers": [
+     {"key": "curse_effect_pct", "value": 10, "scope": []},
+     {"key": "accuracy_pct", "value": 10, "scope": []},
+     {"key": "attack_pct", "value": 10, "scope": ["kim"]}]},
+   "wire": [
+     {"file": "design/world/depth/people/loose-south.items.json", "id": "ls-snare-wire-coins", "field": "items", "action": "new",
+      "new_record": {"id": "ls-snare-wire-coins", "name": "Snare-Wire Coins (Liệp Sách Tiền)", "family": "metal", "kind": "artifact", "base": "tien_tieu", "grade": 2,
+        "modifiers": [{"key": "curse_effect_pct", "value": 10, "scope": []}, {"key": "accuracy_pct", "value": 10, "scope": []}, {"key": "attack_pct", "value": 10, "scope": ["kim"]}],
+        "effects": [], "lore": "Her husband's snare coins: bronze discs strung on hunting wire, which she learned to throw after he did not come back.", "build_use": "Metal curses and slows from range that bite harder and do not miss.", "holder": "sam_van_nuong", "made_by": null, "made_year": null, "set": null, "status": "proposal"},
+      "note": "Names her generic tien_tieu 2 (kim) in build.gear. Her method is Hunter's Reach (Pinning Arrow curses). A snare, so it needs no bow base."}],
+   "fun": "Nothing reaches the widow's door unslowed.",
+   "status": "proposal"},
+
+  {"wish": "b13 (W9) Stone Wardens", "kind": "modifier",
+   "record": {"name": "Stone Wardens (Thạch Vệ)", "modifiers": [
+     {"key": "companion_power_pct", "value": 10, "scope": []},
+     {"key": "companion_speed_pct", "value": 10, "scope": []}]},
+   "wire": [
+     {"file": "design/world/depth/sects/thien_xu.items.json", "id": "tx-dao-quang-war-flag", "field": "modifiers", "action": "add", "value": "companion_power_pct 10; companion_speed_pct 10", "note": "ngu_tran_bac. The Pivot's Stone Warden Call summons a companion on its own timer: its record uses the summon op, its effects modify companion_speed, and Effects rule 16 R31 allows one companion per source. So the companion stats reach the wardens, and the flag's attack_pct 18 [companion] already scales their damage. The flag goes from about 30.5 W to 38.5 W of its 51.2 W grade-4 budget. The engine is to confirm that a summon's fixed coefficient also reads the power share; companion speed reaches it either way."}],
+   "fun": "The war array's stone wardens strike together, and sooner.",
+   "status": "proposal",
+   "refused_part": "Two parts of the literal ask cannot be authored. companion_health_pct 15 does nothing while companions cannot be targeted (combat.md rule 19). A construct scope cannot be added either: companion_power_pct has target 'none', and no construct tag exists. Both lines are unscoped, so they also reach any beast he tames."},
+
+  {"wish": "b14 (W10) Blood Drinker", "kind": "modifier",
+   "record": {"name": "Blood Drinker (Ẩm Huyết)", "modifiers": [
+     {"key": "leech_health_pct", "value": 30, "scope": []}]},
+   "wire": [],
+   "fun": "A robber who never had a healer drinks from every cut.",
+   "status": "covered",
+   "covered": "Already present: ln-lynx-bone-axe (khau_thien_tu) carries leech_health_pct 30, the grade-3 catalogue size. The wish's 2-3 % predates the #44 sustain prices. No second line is added."}
+ ]}

@@ -124,8 +124,10 @@ def main():
     L.append("")
 
     # 5. build coherence
-    weapon_of = {"kiem_tu": {"phi_kiem"}, "dan_su": {"huong_lo", "ho_lo"}, "tran_su": {"ky", "an", "kinh", "co"},
-                 "linh_thuc_su": {"tien_tieu"}, "the_tu": {"giap", "thuan", "lac_thiet", "mao"}}
+    # linh_thuc_su is the spirit farmer (no weapon base); bells, lanterns and banners are this world's array tools
+    weapon_of = {"kiem_tu": {"phi_kiem"}, "dan_su": {"huong_lo", "ho_lo"},
+                 "tran_su": {"ky", "an", "kinh", "co", "chuong", "dang", "phien"},
+                 "the_tu": {"giap", "thuan", "lac_thiet", "mao", "loi_truong"}}
     items = {}
     for f in glob.glob(str(D / "**/*.items.json"), recursive=True):
         for i in load(f).get("items", []):

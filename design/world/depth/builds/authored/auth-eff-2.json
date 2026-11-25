@@ -1,0 +1,1042 @@
+{
+ "by": "auth-eff-2",
+ "refused": [
+  {
+   "wish": "d32 (S6)",
+   "reason": "The crane king Thanh Điền as a standing companion is a Spirit Beasts record (a beast with power share, tags and owner), not an Effect, technique or art; it goes to the spirit-beast pass. The Effect above already reads it as a `crane` companion."
+  },
+  {
+   "wish": "d42 (sets-tl/companion-thread), companion health half",
+   "reason": "companion_health_pct has no fight reading: a companion has no health in a fight (Combat rule 19, Formulas J; duel-readings engine facts). The share-damage half is authored (d42 entry)."
+  }
+ ],
+ "section": "wishlist.md group (d), d27-d49 (d26 dropped by ruling 2026-11-25)",
+ "_doc": "Wishlist group (d), d27-d49 (d26 dropped by ruling 2026-11-25). Effect records follow design/gdd/effects.md (group = rule 2 kind; tier per rule 4); statuses follow its Status Catalogue row. Capitalised fight words are the readings of builds/duel-readings.md (proposal). Wire conventions follow auth-eff-1: a technique passive is a new passive art (field arts, add); a replaced art, item Effect or set bonus carries its suggested text; a new item is field items, action new. Wire text is the suggested wording for the wiring pass. All unpriced proposals.",
+ "entries": [
+  {
+   "wish": "d27 (tp/lamp-ward)",
+   "kind": "effect",
+   "record": {
+    "id": "lamp-ward",
+    "name": "Lamp-Ward (Thủ Đăng)",
+    "group": "Scaling",
+    "tier": "minor",
+    "rule": "Each ward seal Piece you lay turns 1 more blow before it burns out, plus 1 more for every 3 seal Pieces you already have up when you lay it.",
+    "reads": "Your seal Pieces up (self-counter tagged `piece` and `seal`, duel-readings R4), live, read when the new seal is laid",
+    "payload": "+1 to the new Piece's blows count, +1 more per 3 seal Pieces up",
+    "limits": "None: no cap; how many seals you can keep up bounds it",
+    "closes": "—",
+    "hosts": [
+     "Tech"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none beyond duel-readings R4 (Pieces with their own blows count)"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/vong_trieu.techniques.json",
+     "id": "lamp-ward-seal-canon",
+     "field": "arts",
+     "action": "add",
+     "note": "A new passive art from layer 3. The lineage main all three requesters hold (layers 9, 7, 5); a passive from layer 3 so le_bach_diem (layer 5) has it. For on_thu_dang the Lamp Chain's Not One Lamp Out already stops burn-out while he casts no escape art; Lamp-Ward is what his line keeps once he does, and what the other keepers have.",
+     "text": "Lamp-Ward (Thủ Đăng): a passive art. Each ward seal Piece you lay turns 1 more blow before it burns out, plus 1 more for every 3 seal Pieces you already have up when you lay it."
+    }
+   ],
+   "fun": "A keeper with six lamps lit lays a seventh that lasts three blows longer; the line gets sturdier the longer she holds it.",
+   "status": "proposal",
+   "decisions": "Modifier fallback (ward_efficiency_pct 4, than_thuc_pct 3 on vtd-unsleeping-lamp) not used: the Effect carries the wish, and the lamp already holds 14 ward efficiency and 8 thần thức at grade 4."
+  },
+  {
+   "wish": "d28 (ra-VH1)",
+   "kind": "effect",
+   "record": {
+    "id": "earned-rest",
+    "name": "The Earned Rest (Đắc Hưu)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "When your Marching Dirge finale ends a march, The Held Rest starts at once and lasts 0.5 s for each Measure the finale spent instead of 2 s, and each later finale's rest this fight is half as long as the one before; while it holds, the foe carries one Heavy Breath stack (its arts cost 25 % more).",
+    "reads": "Marching Dirge's finale (event: the art fired again, ending the march); Measures spent (the `measure` counter, passed by the finale)",
+    "payload": "Sets The Held Rest's length; applies Heavy Breath x1 for that length (rounded down to pulses, clamped 1-5 by R22)",
+    "limits": "No cap (ruling 2026-11-25, group 8): each later finale's rest is halved, so the slow cannot become a lock; Heavy Breath's own rules and the curse clamp hold",
+    "closes": "—",
+    "hosts": [
+     "Tech"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/van_hac.techniques.json",
+     "id": "the-monks-rest",
+     "field": "arts",
+     "action": "add",
+     "note": "A new passive art from layer 4. The secret all three hold (ha_thinh_tung 9, quan_tich_am 7, cu_dong_moc 7); their main canon gives Marching Dirge.",
+     "text": "The Earned Rest (Đắc Hưu): a passive art. When your Marching Dirge finale ends a march, The Held Rest starts at once and lasts 0.5 s for each Measure the finale spent instead of 2 s, and each later finale's rest this fight is half as long as the one before; while it holds, the foe carries one Heavy Breath stack (its arts cost 25 % more)."
+    },
+    {
+     "file": "design/world/depth/sects/van_hac.techniques.json",
+     "id": "the-monks-rest",
+     "field": "arts",
+     "action": "replace",
+     "note": "Replaces the art The Held Rest (Đình Âm). Defines the end the wish says is missing.",
+     "text": "For two seconds after your song ends, the foe casts more slowly; after a Marching Dirge finale the rest lasts 0.5 s per Measure spent (each later one half as long), and the foe's arts cost more while it holds (The Earned Rest)."
+    }
+   ],
+   "fun": "Play a long march, end it in a storm of free hits, then sit in a silence as long as the march was: play, rest, play.",
+   "status": "proposal",
+   "decisions": "The wishlist's 6 s cap was lifted by the ruling of 2026-11-25 (group 8): each later finale's rest is half as long, which keeps the slow from becoming a lock; Heavy Breath's own rules and the 1-5 pulse clamp already bound the cost half. Uses Heavy Breath (+25 %) in place of the wish's +20 %, so no new curse is needed (R21: an Effect changes foe stats only through a status)."
+  },
+  {
+   "wish": "d29 (rb-08)",
+   "kind": "effect",
+   "record": {
+    "id": "return-to-the-scabbard",
+    "name": "Return to the Scabbard (Quy Vỏ)",
+    "group": "Rule change",
+    "tier": "minor",
+    "rule": "After 3 s in which you fire no damaging art, the foe counts as unstruck again: your pieces that read your first hit on a foe, or your first sword art of the fight, re-arm, and any later-hit penalty they carry clears. Your first sword art on an unstruck foe cannot be evaded.",
+    "reads": "Your art firings (event); seconds with no damaging art fired (pulse check, the same count as auth-eff-1's d10 Not a Drop Spilled on this scripture; the basic attack, wards and heals do not break it)",
+    "payload": "Resets the 'first hit on this foe' and 'first sword art of the fight' latches of your own pieces; Skip a roll (the evade roll) on your first sword art at an unstruck foe",
+    "limits": "A re-arm needs a fresh 3 s; once re-armed the latch waits for your next art hit",
+    "closes": "—",
+    "hosts": [
+     "Tech",
+     "Item"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none (pulse check)"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/thinh_vu.techniques.json",
+     "id": "rain-chain-sword-scripture",
+     "field": "arts",
+     "action": "add",
+     "note": "A new passive art from layer 6. ton_tuyet_bich's main (layer 9). He carries no first-hit piece of his own, so the rule's last sentence (the first sword art on an unstruck foe cannot be evaded) is his payoff.",
+     "text": "Return to the Scabbard (Quy Vỏ): a passive art. After 3 s in which you fire no damaging art, the foe counts as unstruck again: your pieces that read your first hit on a foe, or your first sword art of the fight, re-arm, and any later-hit penalty they carry clears. Your first sword art on an unstruck foe cannot be evaded."
+    },
+    {
+     "file": "design/world/depth/sects/thinh_vu.items.json",
+     "id": "tvl-dalan-suite",
+     "field": "bonuses[pieces=2].effect",
+     "action": "replace",
+     "note": "co_da_lan holds neither the Rain-Chain Scripture nor a lineage piece that fits; his No Second Cut (tvl-night-far-gone) and One Cut Drawn Out are exactly the first-hit pieces that re-arm. Not wired on Drawn-Out Edge Canon: it is a shared catalogue technique and would change every holder.",
+     "text": "One Cut Drawn Out (Nhất Kiếm Trì Xuất): each second you go without attacking adds 12 % crit damage to your next sword art. The first sword art of each fight cannot be evaded. Return to the Scabbard (Quy Vỏ): after 3 s in which you fire no damaging art, the foe counts as unstruck again: No Second Cut and the first-art clause re-arm."
+    },
+    {
+     "file": "design/world/depth/sects/phat_y.items.json",
+     "id": "py-ten-paces",
+     "field": "bonuses[pieces=2].effect",
+     "action": "replace",
+     "note": "thang_vo_ta holds neither named canon; his own set reads 'after you vanish or evade', so a sheathing counts as a vanish for it.",
+     "text": "Ten Paces, One Cut (Thập Bộ Nhất Trảm): after you vanish (The Deed Is Done) or evade an attack, your next sword art while you are At range ends your At range and deals 30 % more damage; if its hit makes the foe Broken, you vanish again. Return to the Scabbard (Quy Vỏ): after 3 s in which you fire no damaging art, the foe counts as unstruck again, and that counts as a vanish for this bonus."
+    }
+   ],
+   "fun": "Cut, step back, sheathe, wait three seconds, cut: the one-cut swordsman peaks every few seconds, not only in the first.",
+   "status": "proposal",
+   "decisions": "Arts fire on their own timers (Combat rule 13), so the 3 s window opens through the loadout: a one-cut build slots few, slow arts. No hold is forced, matching auth-eff-1's d10 on the same scripture. The Ten Paces text starts from duel-readings 3e's wording (At range, Broken)."
+  },
+  {
+   "wish": "d30 (rb-13)",
+   "kind": "effect",
+   "record": {
+    "id": "brittle-from-its-own-blow",
+    "name": "Brittle from Its Own Blow (Tự Kích Tự Thúy)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "Each foe hit you block gives the foe one Quench mark, at most once a second. When your hit lays a Quench mark on a foe carrying your Burn, it spends all your Burn stacks on it and lays one more Quench mark for every 3 spent.",
+    "reads": "Block event; your Burn (Fire debuff) stacks on the foe, live",
+    "payload": "Quench marks on the foe (the Star-Quench Canon's mark); consume(fire, foe, all) passing the count",
+    "limits": "Block half once a second; burn half once per hit",
+    "closes": "—",
+    "hosts": [
+     "Tech"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/thoi_tinh.techniques.json",
+     "id": "star-quench-canon",
+     "field": "arts",
+     "action": "add",
+     "note": "A new passive art from layer 4. The main all three hold (bang_lanh_toi 8, cat_luu_quang 9, dinh_hoa_lan 4). bang_lanh_toi's River Tongs (block 15) feed the block half; the two Fire roots feed the burn half through White Heat.",
+     "text": "Brittle from Its Own Blow (Tự Kích Tự Thúy): a passive art. Each foe hit you block gives the foe one Quench mark, at most once a second. When your hit lays a Quench mark on a foe carrying your Burn, it spends all your Burn stacks on it and lays one more Quench mark for every 3 spent."
+    }
+   ],
+   "fun": "The foe's own blows on her guard make it brittle; for the Fire smiths, cold water on a burning foe: the burn hisses out and the marks jump.",
+   "status": "proposal",
+   "decisions": "'Spends every 3 burns for 1 more mark' is read as: all your Burn on the foe is spent, one mark per 3 stacks. It trades Burn damage for marks, so it is a choice the build makes by having Burn up when Quench lands."
+  },
+  {
+   "wish": "d31 (rb-17)",
+   "kind": "effect",
+   "record": {
+    "id": "true-gold-does-not-fear-the-furnace",
+    "name": "True Gold Does Not Fear the Furnace (Chân Kim Bất Phạ Hỏa)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "Each buff stack you strip from the foe, and each ward share your Assay strips, restores 1.5 % of your maximum linh lực and adds one Part the Dross stack.",
+    "reads": "Your strips: strip_buff results and Assay's ward strip (events)",
+    "payload": "Restore linh lực (not healing); +1 Part the Dross stack",
+    "limits": "None beyond the strips' own limits (strip_buff is once a pulse per source)",
+    "closes": "—",
+    "hosts": [
+     "Tech"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/chan_kim.techniques.json",
+     "id": "true-gold-canon",
+     "field": "arts",
+     "action": "add",
+     "note": "A new passive art from layer 4. The main all three hold (layers 9, 6, 6). tuong_ngoc_can has no Hundred Refinings, so for her only the linh lực half works. Payoff of d38 Touchstone.",
+     "text": "True Gold Does Not Fear the Furnace (Chân Kim Bất Phạ Hỏa): a passive art. Each buff stack you strip from the foe, and each ward share your Assay strips, restores 1.5 % of your maximum linh lực and adds one Part the Dross stack."
+    }
+   ],
+   "fun": "Against a buffer the assayer never runs dry and grows stronger with every stack he burns off; against a plain brawler he has nothing to eat.",
+   "status": "proposal"
+  },
+  {
+   "wish": "d32 (rb-16)",
+   "kind": "effect",
+   "record": {
+    "id": "a-crane-for-the-rider",
+    "name": "A Crane for the Rider (Hạc Linh)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "Each hit your crane companion lands gives you one Wind buff stack for 4 s, at most 2 a pulse. When you fire Crane Descends with no companion beside you, it calls a crane spirit that fights beside you as a companion for 8 s (companion coefficient 0.5, Wind strikes, tag `crane`), once every 20 s.",
+    "reads": "Companion hits (event; the companion's tag `crane`); companions present (duel-readings `allies`, live)",
+    "payload": "Grant Wind buff stacks; a timed companion (one per source, R31; precedent tx-iron-horse 'the riders join you as a companion for 10 s')",
+    "limits": "2 stacks a pulse; the spirit once every 20 s and only with no companion out",
+    "closes": "—",
+    "hosts": [
+     "Tech"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none (timed companion as in duel-readings 3a, tx-iron-horse)"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/cuu_cao.techniques.json",
+     "id": "crane-bond-rite",
+     "field": "arts",
+     "action": "add",
+     "note": "A new passive art from layer 2. The secret all three riders hold (layers 9, 6, 4). Whatever crane fights beside the rider counts (tag `crane`): today the spirit; the crane king Thanh Điền once the Spirit Beasts pass gives it a record (refused below). Tags `crane` and `bird` on companions are to confirm.",
+     "text": "A Crane for the Rider (Hạc Linh): a passive art. Each hit your crane companion lands gives you one Wind buff stack for 4 s, at most 2 a pulse. When you fire Crane Descends with no companion beside you, it calls a crane spirit that fights beside you as a companion for 8 s (companion coefficient 0.5, Wind strikes, tag `crane`), once every 20 s."
+    }
+   ],
+   "fun": "She dodges, the crane strikes, the wind gathers on her; a rider with no beast whistles one down out of the air.",
+   "status": "proposal"
+  },
+  {
+   "wish": "d33 (ra-TC1)",
+   "kind": "effect",
+   "record": {
+    "id": "bitter-medicine",
+    "name": "Bitter Medicine (Khổ Dược)",
+    "group": "Rule change",
+    "tier": "minor",
+    "rule": "While you carry fewer than 10 Poison stacks, each Poison tick on you deals nothing and heals you for half the damage it would have dealt; at 10 stacks or more, Poison ticks on you deal damage as usual.",
+    "reads": "Your Wood debuff (Poison) stacks, live, read at each tick",
+    "payload": "Turns a tick on you into a heal (counts as healing: Withering halves it, `no_heal` makes it 0, and the tick still deals nothing)",
+    "limits": "Poison ticks only; the 10-stack line is the piece's own threshold",
+    "closes": "—",
+    "hosts": [
+     "Tech"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "new action: turn a tick taken into healing (the mirror of Crossing the Line, R12)"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/thai_chi.techniques.json",
+     "id": "hundred-herbs-tasting",
+     "field": "arts",
+     "action": "add",
+     "note": "A new passive art from layer 3. The taster's secret both hold (nghiem_linh_chi 9, lu_niem_ha 4); its concept already says it turns poison into cure.",
+     "text": "Bitter Medicine (Khổ Dược): a passive art. While you carry fewer than 10 Poison stacks, each Poison tick on you deals nothing and heals you for half the damage it would have dealt; at 10 stacks or more, Poison ticks on you deal damage as usual."
+    }
+   ],
+   "fun": "A light poisoner feeds her; to hurt the herb mistress you have to pile ten stacks on her before she Tastes and Names them.",
+   "status": "proposal"
+  },
+  {
+   "wish": "d34 (sets-tp/charm)",
+   "kind": "effect",
+   "record": {
+    "id": "charmed",
+    "name": "Charmed (Mê Hoặc)",
+    "status_kind": "curse",
+    "rule_changed": "Held: the target's arts that come ready while it holds wait until it ends (Move a timer; falloff and timer_resist_pct apply), and its basic attacks miss",
+    "strength": "—",
+    "duration": "2 pulses",
+    "stacking": "None (a recast does nothing while it runs)",
+    "cleanse_tags": [
+     "curse",
+     "charm",
+     "cleanse"
+    ],
+    "tags": [
+     "charmed",
+     "curse"
+    ],
+    "rule": "While it holds, the charmer's own damaging arts and basic attack are held too (she pours the tea: an R29 held state that ends with the charm), so the charm runs its time; a direct hit of the charmer that does land (a trigger or a free hit) ends it at once. Ticks and companion hits do not break it. When it ends, the target cannot be Charmed again for 10 pulses (reapply lockout).",
+    "hosts": [
+     "Tech",
+     "Item"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "engine_additions": "status catalogue row (rule 9); a status that holds its caster's damaging arts while it runs (new small hook, R29 held state tied to the status)"
+   },
+   "wire": [],
+   "fun": "The guest stops fighting for a breath while the poison works; your own next art hit wakes him, so the charm costs you a strike.",
+   "status": "proposal",
+   "decisions": "Arts fire on timers, so the charmer's next art hit would end the charm within a second; the charm therefore holds her damaging arts and basic attack too, and both sides pause while the poison ticks. 'Casts no art at the charmer' reads as 'casts no art' (in a duel every art is aimed at her). The status row goes into the Effects GDD's Status Catalogue with its amendment, not by this pass."
+  },
+  {
+   "wish": "d34 (sets-tp/charm, appliers)",
+   "kind": "effect",
+   "record": {
+    "id": "the-second-cup-charms",
+    "name": "The Second Cup Charms (Đệ Nhị Bôi Mê)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "The Second Cup art and the Tea at the Manor set's second cup lay Charmed on the foe.",
+    "reads": "The art firing; the set's eight-batch trigger (event)",
+    "payload": "Apply Charmed",
+    "limits": "Charmed's own lockout",
+    "closes": "—",
+    "hosts": [
+     "Tech",
+     "Item"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/hong_dau.techniques.json",
+     "id": "canon-of-longing",
+     "field": "arts",
+     "action": "replace",
+     "note": "Replaces the art The Second Cup (Đệ Nhị Bôi). Both requesters hold the canon (layers 11, 6).",
+     "text": "A charm: the foe is Charmed for 2 s; while it holds, its escape and its cleanses fail, and its first art after the charm ends deals 20 % less."
+    },
+    {
+     "file": "design/world/depth/sects/hong_dau.items.json",
+     "id": "hd-tea-at-the-manor",
+     "field": "bonuses[pieces=2].effect",
+     "action": "replace",
+     "note": "nghe_hong_dau's set.",
+     "text": "The Second Cup (Đệ Nhị Bôi): once per foe each fight, when the foe carries eight or more of your Poison batches, they drink the second cup: they are Charmed, their Poison batches stop counting down for 3 s, and they gain 2 Heavy Breath."
+    },
+    {
+     "file": "design/world/depth/sects/hong_dau.items.json",
+     "id": "hd-gracious-door-fan",
+     "field": "effects",
+     "action": "replace",
+     "note": "Replaces the Effect `the-second-cup-is-poured`. lieu_da_thai's fan already names 'charms': it now lengthens Charmed by one pulse (2 to 3, inside the clamp).",
+     "text": "A foe who has been in the fight with you for more than 20 seconds takes 10 % more damage from your Wood poisons, and Charmed lasts 1 pulse longer on them."
+    }
+   ],
+   "fun": "Tea, a second cup, and the guest forgets to fight.",
+   "status": "proposal"
+  },
+  {
+   "wish": "d35 (W6)",
+   "kind": "effect",
+   "record": {
+    "id": "rainfast-ink",
+    "name": "Rainfast Ink (Vũ Bất Thoát)",
+    "group": "Rule change",
+    "tier": "minor",
+    "rule": "Your talisman marks, and the debuff stacks and curses your talismans lay, cannot be cleansed; a cleanse that would remove them removes nothing of yours.",
+    "reads": "Cleanses on the foe (event); which of your stacks a `talisman` art laid (live)",
+    "payload": "Cleanse lock on those stacks and marks (R27)",
+    "limits": "Talisman-laid only; durations still run out; the curse slots and clamp hold",
+    "closes": "—",
+    "hosts": [
+     "Tech"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none (R27 cleanse lock)"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/hoa_tinh.techniques.json",
+     "id": "rainfast-ink-art",
+     "field": "arts",
+     "action": "add",
+     "note": "A new passive art from layer 1. The secret both hold (han_thuy_mac 4, ky_ngan_chuc 9). The art The Rain Does Not Take It stays the wider, timed version (all your debuffs, and it punishes the cleanser). Covers d22's stars on the foe, which are talisman marks.",
+     "text": "Rainfast Ink (Vũ Bất Thoát): a passive art. Your talisman marks, and the debuff stacks and curses your talismans lay, cannot be cleansed; a cleanse that would remove them removes nothing of yours."
+    }
+   ],
+   "fun": "The foe scrubs and scrubs and the seven stars stay painted on him.",
+   "status": "proposal",
+   "decisions": "Scoped to talisman-laid stacks so it does not repeat Embers Never Die (an enabler with a closing). If the lint rates it above minor, fall back to Moss Ledger's form (uncleansable for the first 6 s). With auth-eff-1's d22 (stars wiped by a cleanse unless painted under The Rain Does Not Take It): for the two holders of the Rain-Fast Ink Art the stars always stay; d22's clause still governs a Painted Dipper thrower without the secret."
+  },
+  {
+   "wish": "d36 (rb-12)",
+   "kind": "effect",
+   "record": {
+    "id": "birds-pay-court-to-the-phoenix",
+    "name": "Birds Pay Court to the Phoenix (Bách Điểu Triều Phượng)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "Each hit your bird companions land lays on you the next Five-Colour Plumage colour you lack, at most once a pulse. Each time you spend a full plumage (five colours), you heal 3 % of your maximum health and your companions' next hits deal 30 % more.",
+    "reads": "Companion hits (event; companion tag `bird`); your plumage colours held, live",
+    "payload": "A plumage stack; restore health (healing, to you: duel-readings R1); a held strike payload on each companion's next hit",
+    "limits": "One colour a pulse",
+    "closes": "—",
+    "hosts": [
+     "Tech"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/phuong_minh.techniques.json",
+     "id": "five-virtue-phoenix-canon",
+     "field": "arts",
+     "action": "add",
+     "note": "A new passive art from layer 5. vu_ngo_dong's main (layer 8). 'Heals your companions' is rewritten: companions have no health (Combat rule 19), so the heal is yours and the birds get a strike payload. Works beside d1's five-kinds rule: a bird lays the colour you lack, whatever counts as one.",
+     "text": "Birds Pay Court to the Phoenix (Bách Điểu Triều Phượng): a passive art. Each hit your bird companions land lays on you the next Five-Colour Plumage colour you lack, at most once a pulse. Each time you spend a full plumage (five colours), you heal 3 % of your maximum health and your companions' next hits deal 30 % more."
+    },
+    {
+     "file": "design/world/depth/sects/phuong_minh.items.json",
+     "id": "pm-wutong-twig-ring",
+     "field": "items",
+     "action": "new",
+     "note": "an_thuy_vu holds no Phoenix Canon (chan_truyen rank; she is noi_mon on Red Sun Scripture, a shared catalogue technique, not wired) and no named gear, so the plumage half has nothing to paint for her. A small piece of her own carries the bird half. Sizes sit near the depth grade-2 rings (cl-mulberry-thimble, td-last-bridge-knot: three lines, 6-25), below the catalogue's grade-2 wood-packmate-collar (attack 22 [companion]).",
+     "record": {
+      "id": "pm-wutong-twig-ring",
+      "name": "Wutong Twig Ring (Ngô Đồng Chi Hoàn)",
+      "family": "wood",
+      "kind": "artifact",
+      "base": "nhan",
+      "grade": 2,
+      "modifiers": [
+       {
+        "key": "attack_pct",
+        "value": 12,
+        "scope": [
+         "companion"
+        ]
+       },
+       {
+        "key": "health_regen_inc_pct",
+        "value": 12,
+        "scope": []
+       },
+       {
+        "key": "khi_huyet_pct",
+        "value": 6,
+        "scope": []
+       }
+      ],
+      "effects": [
+       {
+        "new": true,
+        "id": "birds-bring-the-fire",
+        "name": "The Birds Bring the Fire (Điểu Đái Hỏa)",
+        "rule": "Each hit your bird companions land gives you one Fire buff stack for 4 s, at most 2 a pulse."
+       }
+      ],
+      "lore": "A ring bent from a wutong twig of the court's roost, given to the girl who feeds the writ birds.",
+      "build_use": "Her birds fight; their hits warm her Fire arts.",
+      "holder": "an_thuy_vu",
+      "made_by": "vu_ngo_dong",
+      "made_year": null,
+      "set": null,
+      "status": "proposal"
+     }
+    }
+   ],
+   "fun": "The birds paint the plumage, the phoenix sings it off, and the birds come back hungrier.",
+   "status": "proposal"
+  },
+  {
+   "wish": "d37 (rb-27)",
+   "kind": "effect",
+   "record": {
+    "id": "when-the-thread-breaks",
+    "name": "When the Thread Breaks (Đoạn Ti)",
+    "group": "Rule change",
+    "tier": "minor",
+    "rule": "Your thread on the foe (a Reel In bind) breaks when the foe fires a `heavy` or `slow` art or is Displaced by anything but your own pulls; when it breaks you lose 4 % of your maximum linh lực (the recoil). A thread that runs its whole time unbroken ties a Knot (a self-counter, no cap, kept for the fight): each Knot makes your thread arts lay one more Wood stack, and Burning Thread lay 2 more Burn stacks.",
+    "reads": "Foe firings and their tags (event); Displaced on the foe and its source (duel-readings R8, event); the thread's time left, by a pulse check (its end is not an event, R20)",
+    "payload": "Burn your own linh lực (R26, owner's side); Knot self-counter (+1, no decay); extra Wood and Burn stacks per Knot",
+    "limits": "One recoil per thread; Knots only from threads that ran full time",
+    "closes": "—",
+    "hosts": [
+     "Tech"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/chuc_ha.techniques.json",
+     "id": "unbroken-thread-canon",
+     "field": "arts",
+     "action": "add",
+     "note": "A new passive art from layer 3. The main both hold (than_van_cam 8, tang_mong_kien 6). Reel In's own pull does not snap her thread. tang_mong_kien has no Fire in the Thread, so her Knots pay in Wood stacks.",
+     "text": "When the Thread Breaks (Đoạn Ti): a passive art. Your thread on the foe (a Reel In bind) breaks when the foe fires a `heavy` or `slow` art or is Displaced by anything but your own pulls; when it breaks you lose 4 % of your maximum linh lực (the recoil). A thread that runs its whole time unbroken ties a Knot (a self-counter, no cap, kept for the fight): each Knot makes your thread arts lay one more Wood stack, and Burning Thread lay 2 more Burn stacks."
+    }
+   ],
+   "fun": "The weaver plays for length: a heavy-handed foe snaps her thread and her breath with it; a foe who waits gets knotted, then set alight.",
+   "status": "proposal"
+  },
+  {
+   "wish": "d38 (W3)",
+   "kind": "effect",
+   "record": {
+    "id": "touchstone",
+    "name": "Touchstone (Thí Kim Thạch)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "Once per art firing, your first hit on a foe that holds buff stacks strips one of them (its largest pile, oldest batch first).",
+    "reads": "Your art hits (event); the foe's buff stacks, live",
+    "payload": "strip_buff(1)",
+    "limits": "Once per firing; strip_buff's once a pulse per source",
+    "closes": "—",
+    "hosts": [
+     "Item"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/chan_kim.items.json",
+     "id": "ck-hallmark-seal",
+     "field": "effects",
+     "action": "add",
+     "note": "tuong_bach_luyen's seal (no Effect yet); the Tried and Stamped set leans on it. Named Touchstone, since the True Gold Canon already has an art called Assay (Thí Kim)."
+    }
+   ],
+   "fun": "Every cut tests the foe's borrowed strength, and something always comes off.",
+   "status": "proposal"
+  },
+  {
+   "wish": "d39 (sets-tp/drunk)",
+   "kind": "effect",
+   "record": {
+    "id": "drunk",
+    "name": "Drunk (Túy)",
+    "status_kind": "curse",
+    "rule_changed": "Timers slowed and aim lost",
+    "strength": "Per stack: the target's art timers and basic attack run 8 % slower (its own number beside Slowed Time; timer_resist_pct shrinks it; never past cooldown_min) and its accuracy_pct is 10 lower. At 3 or more stacks it also takes 10 % more damage from Water parts.",
+    "duration": "3 pulses",
+    "stacking": "No stack cap (ruling 2026-11-25, group 8); each stack runs its own 3 pulses, and a new stack does not refresh the others, so the count is bounded by how fast stacks are laid",
+    "cleanse_tags": [
+     "curse",
+     "cleanse"
+    ],
+    "tags": [
+     "drunk",
+     "curse",
+     "water"
+    ],
+    "rule": "The misses come from the evade roll through lower accuracy (the seeded stream), not from a new 'fires at nothing' chance.",
+    "hosts": [
+     "Tech",
+     "Item"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "engine_additions": "status catalogue row (rule 9)"
+   },
+   "wire": [],
+   "fun": "He offers you a cup and wins by making you miss.",
+   "status": "proposal",
+   "decisions": "The wish's '10 % chance an art fires at nothing' becomes 10 accuracy a stack, so the miss uses the existing seeded evade roll. The wishlist's 3-stack cap was lifted by the ruling of 2026-11-25 (group 8): each stack runs its own 3 pulses, and the Water clause is a threshold at 3 or more stacks."
+  },
+  {
+   "wish": "d39 (sets-tp/drunk, appliers)",
+   "kind": "effect",
+   "record": {
+    "id": "one-drunk-for-the-cellar",
+    "name": "One Drunk for the Cellar (Nhất Túy)",
+    "group": "Rule change",
+    "tier": "minor",
+    "rule": "Every Lễ Tuyền piece that makes a foe drunk lays the Drunk curse.",
+    "reads": "As each piece",
+    "payload": "Apply Drunk",
+    "limits": "Drunk's own stack timers (each stack its own 3 pulses)",
+    "closes": "—",
+    "hosts": [
+     "Tech",
+     "Item"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/le_tuyen.items.json",
+     "id": "ltp-hundred-jars",
+     "field": "bonuses[pieces=3].effect",
+     "action": "replace",
+     "note": "nhac_thuan_nhuong's set; Drunk replaces the borrowed Slowed Time and the accuracy line.",
+     "text": "Half Lake (Bán Hồ): a foe carrying six or more of your Water stacks gains one Drunk stack each pulse while it stays at six or more."
+    },
+    {
+     "file": "design/world/depth/sects/le_tuyen.items.json",
+     "id": "ltp-hundred-jar-seal",
+     "field": "effects",
+     "action": "replace",
+     "note": "Replaces the Effect `sealed-cask`. His seal.",
+     "text": "A foe struck by your Water art while carrying three or more of your Water stacks gains one Drunk stack and one Heavy Breath."
+    },
+    {
+     "file": "design/world/depth/sects/le_tuyen.techniques.json",
+     "id": "sweet-spring-wine-rite",
+     "field": "arts",
+     "action": "replace",
+     "note": "Replaces the art Open the Cask (Khai Úng). His secret (layer 9).",
+     "text": "A mist of spirit wine around you for several seconds: you heal over time and resist fear; the foe gains Water stacks and one Drunk stack every 2 s."
+    },
+    {
+     "file": "design/world/depth/sects/le_tuyen.techniques.json",
+     "id": "sweet-spring-wine-rite",
+     "field": "arts",
+     "action": "replace",
+     "note": "Replaces the art Last Cup (Tàn Bôi). His secret.",
+     "text": "Against a foe with five or more Water stacks: it gains 2 Drunk stacks and one Heavy Breath."
+    }
+   ],
+   "fun": "Three cups and the foe's arts come late and land wide.",
+   "status": "proposal"
+  },
+  {
+   "wish": "d40 (sets-tp/sleep)",
+   "kind": "effect",
+   "record": {
+    "id": "asleep",
+    "name": "Sleep (Hôn Thụy)",
+    "status_kind": "curse",
+    "rule_changed": "Clock stopped: the target's art timers and basic attack do not run",
+    "strength": "—",
+    "duration": "3 pulses (the target's timer_resist_pct shortens it; at least 1)",
+    "stacking": "None",
+    "cleanse_tags": [
+     "curse",
+     "sleep",
+     "cleanse"
+    ],
+    "tags": [
+     "asleep",
+     "curse",
+     "darkness"
+    ],
+    "rule": "While the target sleeps, the caster's damaging arts and basic attack are held (an R29 held state that ends with the sleep); her curses and wards still fire. A direct hit that does land (a companion, a trigger or a free hit) wakes it at once and deals 20 % less; ticks do not wake it. When it ends, the target cannot be put to Sleep again for 6 pulses.",
+    "hosts": [
+     "Item",
+     "Tech"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "engine_additions": "status catalogue row (rule 9); the same caster-hold hook as Charmed"
+   },
+   "wire": [],
+   "fun": "A Darkness that does not kill: the foe stands asleep while she drinks the dark.",
+   "status": "proposal",
+   "decisions": "Arts fire on timers and her basic attack runs every second, so either would wake the sleeper at once; Sleep holds her damaging arts and basic attack instead, and she spends the three seconds regenerating under her set. Sleep is a third curse beside her Withering and Slowed Time, which fills the 3 curse slots. The row goes into the Status Catalogue with the GDD amendment."
+  },
+  {
+   "wish": "d40 (sets-tp/sleep, applier)",
+   "kind": "effect",
+   "record": {
+    "id": "lullaby-of-the-karst",
+    "name": "Lullaby of the Karst (Thạch Động Ca)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "When your art lays Slowed Time on a foe that carries your Withering, it falls Asleep.",
+    "reads": "Your Slowed Time applied (event); your Withering on the foe, live",
+    "payload": "Apply Sleep",
+    "limits": "Sleep's own 6-pulse lockout",
+    "closes": "—",
+    "hosts": [
+     "Item"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/people/demonic.items.json",
+     "id": "dm-karst-lamp",
+     "field": "effects",
+     "action": "add",
+     "note": "sao_an_lan's main is an unresolved stand-in (`huyen_am`), so the lamp of her own set (no Effect yet) carries it. Her set's A Breath That Costs No One heals her while both curses hold and dims the foe when it is struck: the strike that wakes it also dims it."
+    }
+   ],
+   "fun": "She curses, the foe sleeps, she regenerates; the blow that wakes it lands dim.",
+   "status": "proposal"
+  },
+  {
+   "wish": "d41 (sets-tl/heal-store)",
+   "kind": "effect",
+   "record": {
+    "id": "banked-healing",
+    "name": "Banked Healing (Tàng Liệu)",
+    "group": "Trigger",
+    "tier": "major",
+    "rule": "While the Cold Furnace is unlit, healing you would receive from your own arts and Effects is stored in it instead, and the store fades by a twentieth each second. The furnace lights itself the first time your health falls to 40 % or below: the whole store is restored to you at once as one heal, and lighting it costs you no health.",
+    "reads": "A heal restored (event, before it lands); own health, the pool-crossing event at 40 % (Combat rule 9); the store (a held amount, rule 8), live",
+    "payload": "Held heal (rule 8): bank, then restore health (healing) on the crossing; the fight screen shows the store",
+    "limits": "No store cap (ruling 2026-11-25, group 8): the store decays by a twentieth each second, so a long fight does not bank a full refill; once per fight (the furnace lights once); regeneration is not stored",
+    "closes": "—",
+    "hosts": [
+     "Item"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none (held Effect, rule 8; a store counted in health, shown on the fight screen)"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/yen_quang.items.json",
+     "id": "yq-dusk-field",
+     "field": "bonuses[pieces=3].effect",
+     "action": "replace",
+     "note": "diem_tu_to's set; 'over every ally' lands on him (duel-readings R1).",
+     "text": "Haze Held All Night (Yên Ngưng Chung Dạ): healing you would receive from your own arts while the Cold Furnace is unlit is stored in it instead, and the store fades by a twentieth each second; when the furnace lights, the store is restored to you at once, and lighting it costs you no health."
+    },
+    {
+     "file": "design/world/depth/sects/yen_quang.items.json",
+     "id": "yq-cold-furnace",
+     "field": "effects",
+     "action": "replace",
+     "note": "Replaces the Effect `unlit`. There are no choices in a fight (Combat rule 13), so 'may light it' needs a trigger.",
+     "text": "Until it is lit the furnace gives only its modifiers. It lights itself the first time the holder's health falls to 40 % or below: for 10 s his healing over time is doubled, and he loses 10 % of his maximum health."
+    }
+   ],
+   "fun": "Great healing he will not spend, until the one moment he must: one wave that stands him back up.",
+   "status": "proposal",
+   "decisions": "The wishlist's 30 % cap was lifted by the ruling of 2026-11-25 (group 8): the store decays by a twentieth each second, so a long fight does not bank a full refill. Tier major: it is the set's whole engine. The Gathered Haze Canon may carry it later."
+  },
+  {
+   "wish": "d42 (sets-tl/companion-thread)",
+   "kind": "effect",
+   "record": {
+    "id": "horse-and-rider-bear-it-together",
+    "name": "Horse and Rider Bear It Together (Nhân Mã Đồng Đảm)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "While your companion fights beside you, 15 % of each direct hit on you is taken by it instead. Each share it takes tires it: its hits deal 2 % less, up to 20 % less, until your next joint strike (you and it hitting the foe within 1 s) rests it fully.",
+    "reads": "Direct hits on you (event); companions present (live); your hits and your companion's within 1 s (events)",
+    "payload": "Avoid a hit: a companion takes a share (rule 6 action; avoid budget 2 a pulse; ticks never); a tiring penalty on the companion's damage",
+    "limits": "Avoid budget; tiring floor 20 %",
+    "closes": "—",
+    "hosts": [
+     "Item"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none (existing action 'a companion takes a share')"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/muc_van.items.json",
+     "id": "mv-dap-van-bridle-ring",
+     "field": "effects",
+     "action": "add",
+     "note": "khau_muc_van's ring (no Effect yet). His set's One Thread of Wind already heals on joint strikes ('both of you heal' heals him, R1), which is also what rests the horse."
+    }
+   ],
+   "fun": "The horse lord and his horse as one: the horse takes a share of every blow, tires, and a joint charge brings it back.",
+   "status": "proposal",
+   "decisions": "companion_health_pct half not authored: a companion has no health in a fight (Combat rule 19, Formulas J; duel-readings engine facts), so the stat has no fight reading. The 15 % share stands in for 'share damage taken'. Named apart from the set's One Thread of Wind, which already uses that name."
+  },
+  {
+   "wish": "d43 (S2)",
+   "kind": "effect",
+   "record": {
+    "id": "heat-the-edge",
+    "name": "Heat the Edge (Tôi Phong)",
+    "group": "Scaling",
+    "tier": "minor",
+    "rule": "Each Fire art you fire heats your sword one step (Heat); each step gives your Metal sword arts 4 % pierce. Once it holds 5 steps or more, your next sword art quenches the blade: it is a certain crit, it counts as a Thunder strike on your blade for Sky Iron Sings, and the steps clear.",
+    "reads": "Your firings and their tags (event); the Heat self-counter, live",
+    "payload": "pierce_pct +4 per step, scope [kim, sword]; skip the crit roll (fixed crit) on the quench; sets off Sky Iron Sings",
+    "limits": "No cap: 5 steps is the quench threshold, and the first sword art at 5 or more spends every step, so the pierce never outlives one quench",
+    "closes": "—",
+    "hosts": [
+     "Item"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none (self-counter, rule 8)"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/thoi_tinh.items.json",
+     "id": "tht-fallen-star-forge",
+     "field": "bonuses[pieces=3].effect",
+     "action": "replace",
+     "note": "cat_luu_quang's set already carries it in prose; this is the formal record. A Star-Quench art could carry it later; not proposed, the set holds the build.",
+     "text": "Heat the Edge (Tôi Phong): each Fire art you fire heats your sword one step, each step giving your Metal sword arts 4 % pierce. Once it holds 5 steps or more, your next sword art quenches it: a certain crit that counts as a Thunder strike on your blade (Sky Iron Sings wakes), and the steps clear."
+    }
+   ],
+   "fun": "Fan the blade red with Fire arts, then quench it in a foe: one certain crit that rings like thunder.",
+   "status": "proposal",
+   "decisions": "The 5 is the quench threshold, not a ceiling: steps past 5 still add pierce, and the quench spends them all (ruling 2026-11-25, group 8)."
+  },
+  {
+   "wish": "d44 (sets-tl/paint-back)",
+   "kind": "effect",
+   "record": {
+    "id": "the-sky-of-a-moment-ago",
+    "name": "The Sky of a Moment Ago (Tiền Khắc Thiên)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "The first time each fight your health falls below half, you regain the health and linh lực you lost in the last 3 s.",
+    "reads": "New live readable: health and linh lực lost by a side in the last N s (a rolling record); the pool-crossing event at 50 % (Combat rule 9)",
+    "payload": "Restore health (healing) and linh lực (not healing) by the recorded amounts",
+    "limits": "Once per fight",
+    "closes": "—",
+    "hosts": [
+     "Item",
+     "Tech"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "new readable 'lost in the last N s' (own side; the art below reads the foe's gains the same way)"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/nhan_van.items.json",
+     "id": "nv-idle-cloud",
+     "field": "bonuses[pieces=3].effect",
+     "action": "replace",
+     "note": "diep_to_quyen's set carries it in prose; this is the formal record.",
+     "text": "Paint It Back (Họa Hồi): when your reflection-double falls, the Plain Silk Scroll keeps the ward it grew and gives it to you; and the first time each fight your health falls below half, you regain the health and linh lực you lost in the last 3 s."
+    }
+   ],
+   "fun": "The brush paints the last three seconds out of the pool: the blow that took her to half is undone.",
+   "status": "proposal",
+   "decisions": "The art The Sky of a Moment Ago (old-reflection-art) reads the same rolling record (6 s, the foe's buffs and wards gained); no wording change proposed. Its '2 s long cast' has no meaning without cast times (Combat rule 13); the catalogue pass should know."
+  },
+  {
+   "wish": "d45 (S3)",
+   "kind": "effect",
+   "record": {
+    "id": "a-formation-that-walks",
+    "name": "A Formation That Walks (Trận Tùy Thân)",
+    "group": "Rule change",
+    "tier": "minor",
+    "rule": "In an ambush or a blind fight your diagram is still laid when the fight begins: it pays its lay fuel in linh thạch as in a foreseen fight and works at 100 %. If the fuel is short it is carried as usual.",
+    "reads": "The situation (foreseen, ambush, blind), compile; the lay fuel against your stones (Formations F2)",
+    "payload": "Lets Formations rule 9's laying happen outside a foreseen fight",
+    "limits": "Fuel still paid (linh thạch as formation fuel, which the 2026-11-14 money ruling allows)",
+    "closes": "—",
+    "hosts": [
+     "Item"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "rule change to Formations rule 9 (laying allowed in ambush and blind fights for the holder)"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/people/market-folk.items.json",
+     "id": "mf-carried-array",
+     "field": "bonuses[pieces=3].effect",
+     "action": "replace",
+     "note": "ve_van_co's set. 'Follows you at walking pace' and 'a foe who strikes you from outside it' have no reading (no positions; the foe is always inside your field, duel-readings R3/R4).",
+     "text": "The Array Comes With Me (Trận Tùy Thân): your diagram is laid even in an ambush or a blind fight (paying its fuel); while your array field is up, each foe hit on you is answered once by your array's damage, at most once a second."
+    }
+   ],
+   "fun": "He walks into an ambush already standing inside his own walls, and pays for them as he does for any hired stand.",
+   "status": "proposal",
+   "decisions": "The Loom of Letters Seal's 'move your standing formation to where you stand' reads as nothing in a duel; flagged for the catalogue pass, not changed here."
+  },
+  {
+   "wish": "d46 (S4)",
+   "kind": "effect",
+   "record": {
+    "id": "ring-within-the-ring",
+    "name": "Ring Within the Ring (Hoàn Trung Hoàn)",
+    "group": "Rule change",
+    "tier": "minor",
+    "rule": "When you lay Ring of the Hour on a foe already inside a ring of yours, the new ring is a second ring: while both stand, the foe is Pinned (its escape cannot succeed) and takes each ring's damage every second.",
+    "reads": "Your ring Fields up on the foe (duel-readings `field_up` and count), live",
+    "payload": "Apply Pinned while both rings stand (duel-readings R10); ring damage per ring per second",
+    "limits": "Two rings; a third laid refreshes them",
+    "closes": "—",
+    "hosts": [
+     "Item"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none beyond duel-readings R10 (Rooted, Pinned)"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/cung_tinh.items.json",
+     "id": "ct-armillary-rings",
+     "field": "bonuses[pieces=3].effect",
+     "action": "replace",
+     "note": "to_tinh_nghi's set; 'cannot leave either' is Pinned (no positions).",
+     "text": "Ring Within the Ring (Hoàn Trung Hoàn): a Ring of the Hour you lay on a foe already inside your ring becomes a second ring; while both stand, the foe is Pinned and takes your array damage once for each ring every second."
+    }
+   ],
+   "fun": "Two armillary rings lock around the foe: it cannot run, and both turn on it.",
+   "status": "proposal"
+  },
+  {
+   "wish": "d47 (S5)",
+   "kind": "effect",
+   "record": {
+    "id": "the-world-before",
+    "name": "The World Before (Tiền Thế)",
+    "group": "Trigger",
+    "tier": "major",
+    "rule": "When the Vase of the Abyss spills, the foe's clock stops for 2 s while yours runs: its art timers, basic attack and companions do not run, its stacks and statuses (on it and those it laid) do not count down, and it does not regenerate. Each art you fire in those seconds lays one stack of every element you own on its target.",
+    "reads": "The Vase's spill (event: Where All Waters Return releasing at half health)",
+    "payload": "New action: stop a side's clock for N s (not a Move-a-timer delay: no falloff, timer_resist_pct does not shorten it; Immovable Mountain refuses it as a delay); grant element debuff stacks",
+    "limits": "Once per fight (the Vase spills once)",
+    "closes": "—",
+    "hosts": [
+     "Item"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "new action 'stop a side's clock' (the rule 6 list is closed; engine addition first)"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/people/hermits-sages.items.json",
+     "id": "hs-what-the-old-man-kept",
+     "field": "bonuses[pieces=2].effect",
+     "action": "replace",
+     "note": "mac_quy_khu's set carries it in prose; this is the formal record.",
+     "text": "The World Before (Tiền Thế): when the Vase spills, the foe's clock stops for 2 s while yours runs (its arts, basic attack and companions wait, and its stacks do not count down), and each art you fire in those seconds lays one stack of every element you own on its target."
+    }
+   ],
+   "fun": "The oldest man alive steps out of time for two seconds, and five elements land on a foe that cannot move.",
+   "status": "proposal"
+  },
+  {
+   "wish": "d48 (rb-31)",
+   "kind": "effect",
+   "record": {
+    "id": "thaw",
+    "name": "Thaw (Giải Băng)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "Each Fire hit you land removes one Ice stack from you, at most 2 a pulse; each stack removed heals you 0.5 % of your maximum health and gives you one Fire buff stack for 5 s.",
+    "reads": "Your Fire hits landing (event); your Ice debuff stacks, live",
+    "payload": "Cleanse element stacks (own Ice, oldest first); restore health (healing); grant Fire buff stacks",
+    "limits": "2 a pulse",
+    "closes": "—",
+    "hosts": [
+     "Item"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "none"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/people/loose-north.items.json",
+     "id": "ln-thawing-brazier",
+     "field": "effects",
+     "action": "add",
+     "note": "du_chuc_nhi's only piece of her own (grade 1; its present effect is out-of-fight flavour and stays). Not wired on Scorch Fist Primer: a shared catalogue technique."
+    }
+   ],
+   "fun": "The colder they make her, the hotter she hits.",
+   "status": "proposal"
+  },
+  {
+   "wish": "d49 (vu_an.md, ruling 2026-11-25)",
+   "kind": "effect",
+   "record": {
+    "id": "the-wind-lifts-the-mist",
+    "name": "The Wind Lifts the Mist (Phong Khởi Vụ Tán)",
+    "group": "Rule change",
+    "tier": "minor",
+    "rule": "When the foe fires an art with the `wind` element tag, it lifts one mist of yours: your newest Field tagged `mist` ends, or your mist self-state (A Breath of Road Mist) if you have no mist Field. If a Lantern-Stone holds that field, the stone is spent instead and the field stands. The lift comes before that art's hit, so the mist it lifts cannot make it miss.",
+    "reads": "Foe firings and their element tag (event); your Fields and self-states tagged `mist`; your Lantern-Stone Pieces, live",
+    "payload": "Ends one `mist` Field or state, or spends one Lantern-Stone Piece",
+    "limits": "One mist per Wind art",
+    "closes": "— (it is itself the lineage's weakness)",
+    "hosts": [
+     "Tech"
+    ],
+    "npc": true,
+    "price": "unpriced",
+    "domain": "combat",
+    "engine_additions": "new tag `mist` on Lock the Road, Haze on the Path and A Breath of Road Mist (Fields per duel-readings R4)"
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/vu_an.techniques.json",
+     "id": "mist-lock-array-canon",
+     "field": "arts",
+     "action": "add",
+     "note": "A new passive art from layer 1. The main of six of the ten named (and of the fill members in vu_an.5.cast.json); it covers any mist the holder lays, Haze Walk's included.",
+     "text": "The Wind Lifts the Mist (Phong Khởi Vụ Tán): a passive art. When the foe fires an art with the `wind` element tag, it lifts one mist of yours: your newest Field tagged `mist` ends, or your mist self-state (A Breath of Road Mist) if you have no mist Field. If a Lantern-Stone holds that field, the stone is spent instead and the field stands. The lift comes before that art's hit, so the mist it lifts cannot make it miss."
+    },
+    {
+     "file": "design/world/depth/sects/vu_an.techniques.json",
+     "id": "road-mist-primer",
+     "field": "arts",
+     "action": "add",
+     "note": "A new passive art from layer 1. The outer method of the four outer disciples.",
+     "text": "The Wind Lifts the Mist (Phong Khởi Vụ Tán): a passive art. When the foe fires an art with the `wind` element tag, it lifts one mist of yours: your newest Field tagged `mist` ends, or your mist self-state (A Breath of Road Mist) if you have no mist Field. If a Lantern-Stone holds that field, the stone is spent instead and the field stands. The lift comes before that art's hit, so the mist it lifts cannot make it miss."
+    }
+   ],
+   "fun": "A matchup the player can read: bring a Wind art to the cape roads, or lose the way.",
+   "status": "proposal",
+   "decisions": "Defaults for the three open questions, all left open for the user: (1) a Lantern-Stone takes the gust in its field's place (spent, field stands), so the stone earns its slot; (2) one Wind art lifts one mist, the newest; (3) The Gate Is Not There is a step, not a mist field, so it does not count (Gate Hidden in Mist is not wired; its holder bang_yen_toa is covered through the canon). 'Wind' is the foe's firing tag, never weather. With auth-eff-1's d2 (Lost on the Road counts foe arts that miss in your mist): a Wind art lifts the mist before its hit, so it can never add a Lost."
+  }
+ ]
+}

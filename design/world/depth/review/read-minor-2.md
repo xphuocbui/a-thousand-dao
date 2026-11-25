@@ -46,7 +46,7 @@ A tile is about 25 km (Travel & Map; the pages themselves say "67 tiles (some 1,
 Jin Yong's *Hiệp Khách Hành* is built on Lý Bạch's 俠客行, cut into rock with an art hidden in it that no one could read
 for generations until one man did. Its hero is Thạch Phá Thiên (石破天). In `phat_y.md` the same verse is cut into the
 cliff (§1, §4). The founder's art sat in a sleeve "for three centuries because no one could read it; he read it"
-(`thach_tang_danh` backstory). And the head is surnamed **Thạch**. That is a named novel's premise, its device and its
+(`thang_vo_ta` backstory). And the head is surnamed **Thạch**. That is a named novel's premise, its device and its
 hero's surname.
 
 **Fix:**
@@ -261,7 +261,7 @@ of their own.
 
 - 260 of 1,204 ties (22 %) have empty notes.
 - 71 % of ties are friend, master or disciple.
-- Tier A heads often list their own disciples with no note: Thạch Tàng Danh to au_duong_kien and kieu_tinh_son; Ung
+- Tier A heads often list their own disciples with no note: Thang Vô Tạ to au_duong_kien and kieu_tinh_son; Ung
   Hạc Minh to khong_tuong_vu; Tưởng Bách Luyện to khuong_tieu_kim, la_minh_nhan and on_song_ngoc; Hùng Phần Vũ to
   bao_viem_nuong, doi_liet_cuong and nguy_hong_tao.
 - Many people carry duplicate ties to the same person, such as both `child` and `disciple`.

@@ -87,7 +87,7 @@ the odd ones the genre expects of loose cultivators:
 | 1085-1088 | Tư Không lets Lăng Đạp Tuyết follow him for three winters and tempers Metal into his root | N-ngao_tuyet-03 |
 | 1088 | **N-hermits_sages-08**: Tư Không leaves Lăng at Hàn Mai and swears to teach no one again | new |
 | 1100 | After forty years of silence, Mạc begins to answer one question a year | A311 |
-| 1130 | Tư Không fights Thạch Tàng Danh three days on Cùng Mục Phong, calls it a draw; beats Sài Mộ Kiếm in three passes; settles in Tống Khách Thị | C186, A232, A141 |
+| 1130 | Tư Không fights Thang Vô Tạ three days on Cùng Mục Phong, calls it a draw; beats Sài Mộ Kiếm in three passes; settles in Tống Khách Thị | C186, A232, A141 |
 | 1150 | **N-hermits_sages-09**: Đoạn walks into the strait after a bolt and carries out Kê Thính Đào | new |
 | 1158 | Lận Viễn Phàm's first boat sails west after the fleet and is lost | `minh_loan` |
 | 1198 | **N-hermits_sages-10** (hidden): Mạc sleeps through the spring; Thư Vấn Triều answers the year's question in his words, and again in 1199 | new |
@@ -180,7 +180,7 @@ down a mine shaft, a fisher's daughter the lightning did not kill.
 ## 8. Relations
 
 - **Phất Y Cốc (`phat_y`).** Tư Không's master was its founder Quách Vô Tích, which the valley does not know. Its head
-  Thạch Tàng Danh owes Tư Không the draw of 1130 and wears the sleeve he cut. Its Wind boy Lộ Khinh Trần is the kind
+  Thang Vô Tạ owes Tư Không the draw of 1130 and wears the sleeve he cut. Its Wind boy Lộ Khinh Trần is the kind
   of hand Cô Hạc was made for.
 - **Ngạo Tuyết Phái (`ngao_tuyet`).** Lăng Đạp Tuyết is Tư Không's former disciple; the Metal in his root cost him years of
   his life, and only the two of them know. Bốc Tuyết Nha, turned away at his gate, sits in Tư Không's tavern.
@@ -274,8 +274,8 @@ The quota gave this group one new Nguyên Anh. It is not used: the world cap of 
    what it does (Đoạn has guessed) must choose: let the one tool that saves a hermit's tribulation leave the world, or
    stop the oldest man alive. (Mạc, Đoạn Thương Hải, Úy Thanh Diễm; place 198, Phù Tang Cảnh.)
 3. **The cup of 900.** The player learns from Đậu Tiễn Xuân's ledgers, or from Tư Không on the night of the cup, that the traveller was
-   Phất Y's founder. Tell the valley, or not. Thạch Tàng Danh wears the sleeve; Lộ Khinh Trần has the Wind Cô Hạc wants.
-   (Tư Không, Đậu Tiễn Xuân, Thạch Tàng Danh, Lộ Khinh Trần; places 48, 24, 186.)
+   Phất Y's founder. Tell the valley, or not. Thang Vô Tạ wears the sleeve; Lộ Khinh Trần has the Wind Cô Hạc wants.
+   (Tư Không, Đậu Tiễn Xuân, Thang Vô Tạ, Lộ Khinh Trần; places 48, 24, 186.)
 4. **The girl with no Metal.** Bốc Tuyết Nha asks Tư Không every morning for what he gave Lăng Đạp Tuyết. If he says
    yes, it will cost her years, and Lăng's secret comes out at the plum gate. (Bốc Tuyết Nha, Tư Không, Lăng Đạp Tuyết,
    Phó Ngạo Sương; places 48, 284, 109.)

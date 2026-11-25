@@ -50,7 +50,15 @@ These sects keep the shape. Everyone else in the census row changes it (§4).
 | Odd root at the gate | **Nhiêu Hạ Lôi** (thinh_vu), **Chúc Hiểu Nghi** (phuong_minh) | The rest change (§4: thien_xu, phuong_minh, le_hoa) |
 | Public flaw (the model) | **muc_van** (the three stones); **tran_sa** (Viên staging a raid: already an act) | Untouched apart from §4 notes |
 
-**Untouched** apart from the notes in §4: van_khoi, tran_sa, cuu_cao, hong_dau, xuyen_lam, lanh_giang.
+**Untouched** apart from the notes in §4: van_khoi, tran_sa, cuu_cao, hong_dau, xuyen_lam, lanh_giang. Hồng Đậu still
+cuts hook 8 ("Succession"): the door and the garden fight over the second cup, not over a successor.
+
+**The rest of the creed row:**
+- suong_tung's box and van_hac's written scores are echoes of the Tùng Đào written canon, which is kept. They stay
+  as hooks that fire when Vi's zither is opened (suong_tung hooks 1-2, van_hac hook 2), not as their sects' arcs.
+- nhan_van's signed scrolls stay as a fact inside its new arc.
+- thuy_vi's Rotting Canopy reader (Tề Tử Tô) stays, as part of the kept Thúy Vi page.
+- chuc_ha's strand is Phượng Minh's kept secret seen from the other side.
 
 ---
 
@@ -77,8 +85,7 @@ Each is a situation already in motion, with someone who profits and someone who 
 | M14 | **The scandal everyone knows** | Public and endlessly discussed; the arc is the cost of living with it | F/P |
 | M15 | **The embargo** | The lord or a partner cuts the supply that keeps the craft going; bend or find another source | P/H |
 | M16 | **The counterfeiters** | Someone forges the sect's goods, and the forgery is cheaper and nearly as good | P |
-| M17 | **Exhausted ground** | The seam, vein, spring or bed is running out; move, ration or take someone else's | H |
-| M18 | **The ward who chose to go** | A hostage who asked to be sent, and is using the captivity | H |
+| M17 | **The ward who chose to go** | A hostage who asked to be sent, and is using the captivity | H |
 | M19 | **The lawsuit** | A case before the lord's court over a boundary, a right or a contract; litigation as war | P/F |
 | M20 | **The bounty economy** | The sect lives on killing something, and the rules that make it decent cost it money | H |
 | M21 | **The contest with stakes** | A race, festival or match where the result moves money or loyalty, and cheating is on show | F |
@@ -94,7 +101,8 @@ Each is a situation already in motion, with someone who profits and someone who 
 | M31 | **Arms to a faction** | Selling weapons to one party of your own lord, behind the lord's back | H |
 | M32 | **The petty feud** | Two elders' grudge over something small (a seat at table, a recipe, a dog) stalls the house | F |
 
-Spares for later passes and the C-group harsher layer: M1, M11, M12, M17, M21, M32.
+Spares for later passes and the C-group harsher layer: M1, M11, M12, M21, M32. (There is no M18: the menu has 31
+shapes, numbered M1-M17 and M19-M32 so that the references below stay stable.)
 
 ---
 
@@ -132,7 +140,7 @@ Pairs marked ⇄ are two sides of one arc and may share it.
 | ngao_tuyet | keep lie | The sage's price (replaces the heir) | — |
 | nhan_tran | change | Peace bought with Cảnh's name | M23 |
 | nhan_van | change | The doubles do the work | M10 |
-| phan_vu ⇄ phuong_minh | change | Tenants on their own ground | M29, M18 |
+| phan_vu ⇄ phuong_minh | change | Tenants on their own ground | M29, M17 |
 | phat_y | new core | Sealed on both sides | own (§6) |
 | suong_tung | change | The spring of walls | M13 |
 | thai_chi | change | The orphans' wages | M24 |
@@ -176,7 +184,8 @@ Each block gives:
   `hoa_trieu_duong`.
 - **Fits because.** Bird keepers whose creed is "all birds bow to the phoenix"; a gift of birds is their only road to
   standing.
-- **Act.** Ổ sells the hen's feathers one at a time at Lam Yên Thị; Nhiêu Tiểu Yến feeds the nine every night.
+- **Act.** Nhiêu Tiểu Yến, who feeds the nine, is teaching them to come to Tạ's whistle and not the palace's, so the
+  gift will fly home on its first morning (funny, and the palace will not find it so).
 - **Cut.** "Seventy years" and hook 3 (the Kết Đan pill clock).
 - **Keep consistent.** Vu Ngô Đồng "has not counted his eggs"; A248 (the silent day of 1195); hook 7 (Trúc Thực's rats).
 
@@ -233,8 +242,9 @@ Each block gives:
     left in 1180.
 - **Fits because.** The abbey's taboos are cutting a living tree and selling rain. The grove lies in Khải Lôi's old
   country. The farmers love the abbey, and the Tower counts its grain.
-- **Act.** The prior still sells rain, now openly, to pay for the abbess's pills. The hermitage undercuts him with free
-  rites.
+- **Act.** The prior sells rain openly now, to pay for the abbess's pills, and the hermitage undercuts him with free
+  rites. His answer is petty: he pays Sở Lôi Duẩn, who cuts the poles for both houses, to cut the hermitage's a hand
+  short, so that its rites call drizzle.
 - **Cut.** "He thinks only he knows" and hook 1's discovery. Hook 1 becomes: "The second receipt book still holds one
   sale nobody has seen, the bought rain of 1171."
 - **1150.** N-coc_vu-04 becomes the cause of the Cinnabar Vein War (§7).
@@ -342,6 +352,9 @@ Each block gives:
   - "Who wears both" as a succession (Tần does not want to be named heir). Hook 1 becomes Đồng's Nguyên Anh attempt
     alone.
   - Hook 3 (the whale road) becomes the reef wreck.
+  - "The ledger" bullet and hook 2 ("The 1150 ledger"). Đồng's sale of Viên's contract becomes a public flaw: the
+    valley knows he sold his best student and called it theft, and Tần says so at every ash count. What it does not
+    know is that Sở still spends the bill. That is the act.
 - **Keep consistent.** N-hong_lo-05 and -04 move to 1144 and 1145 (§7). Also cross-sect §1.9 ("The furnace and the
   contract"), and the dice taboo in §4, dated with them.
 
@@ -397,7 +410,8 @@ Each block gives:
   `kim_van_ly`, `khau_dai_ung`.
 - **Fits because.** Brewers of the Pivot's wine and healers who take no fee before the cure, living by the second
   Refusal.
-- **Act.** Nhạc still sends uncut jars to Kim at three times the price, now taken from the fine jars.
+- **Act.** Cận Tri Vị waters the Pivot's fine jars herself, a cup in ten, because she thinks the fine unjust; the
+  steward has not noticed, and the Pivot's table drinks lake water twice over. Nhạc's jars to Kim stay as a fact.
 - **Cut.** "Healers or cellars" as a succession, and hook 7.
 - **Keep consistent.** cross-sect §1.6 (Kim owes Nhạc forty jars); the distance fix (the jars are carted; sweep A);
   hook 5 (Hoa Triêu Dương's wine for the Shao).
@@ -411,6 +425,8 @@ Each block gives:
 - **Fits because.** Bell-casters whose bells carry warnings, and a head who is a market woman.
 - **Act.** The bells leave the Bell Wharf billed as ship bells, and Khang Viễn Đạc rides with them.
 - **Cut.**
+  - Hook 3's note ledger "that catches seconds": Ông Hải Linh rings every bell that leaves the wharf himself, and
+    the seconds got past his ear because he was paid to be deaf on one day a month.
   - "She made him pour" as a secret. The 1121 deadline becomes a public flaw: the pavilion knows the head made him
     pour, and the winter rule is her penance.
   - "Who wears the pendants".
@@ -467,7 +483,8 @@ Each block gives:
 - **People.** `tan_dao_anh`, `dinh_hong_thu`, `me_phu_van`, `diep_to_quyen`, `cu_luc_truc`, `doi_kim_truc`; Lạc Hà
   `tong_thu_tin`, `can_thu_chuyet` (or whichever Counting House clerk the page names).
 - **Fits because.** An idle abbey that paints doubles from reflections, under a lord that prices everything.
-- **Act.** Đới Kim Trục signs the double's scrolls and sells them as the abbey's.
+- **Act.** Đinh Hồng Thụ is teaching Tần's double to talk, so that it can sit the assessor's next count alone. Đới Kim
+  Trục's signed scrolls stay as a fact.
 - **Cut.** "Idle against priced" as a succession (Mễ as the obvious head). Mễ's grievance is the tribute raise he caused.
 - **Keep consistent.** Hook 1 (the sail in the pool; Lận Viễn Phàm); hooks 5 and 7.
 
@@ -482,7 +499,7 @@ Each block gives:
 - **Fits because.** The palace's doorkeepers, five tiles from the Fire Court, who sell it stone and charcoal.
 - **Hùng Diễm Nhi (the surety fix).** She asked to be sent in 1162, to get out of Tào's reach. The vents at night are
   where she is learning the arts she will need to take her father's hall from Tào (read-great-2 item 9). She is the
-  ward who chose to go (M18), not a second Úc Đả Diệp.
+  ward who chose to go (M17), not a second Úc Đả Diệp.
 - **Cut.** "The heir across the wall" as an heir bullet; hook 6's open "If Provinces #48..." (the question is ruled).
 - **Keep consistent.** cross-sect §1.3 (rewrite its Phần Vũ line); phuong_minh hook 9; phuong_minh §9, where the
   Province bullet replaces "Succession" (read-great-2 item 5).
@@ -495,7 +512,8 @@ Each block gives:
 - **People.** `van_han_dang`, `nhac_hoa_bi`, `hang_bang_tuong`, `khong_da_hanh`, `cao_han_chuc`; Băng Tâm
   `luc_han_chu`.
 - **Fits because.** Ward writers of the long lake; no village that hangs one of their lanterns has been flattened.
-- **Act.** Nhạc's sales, carried across the arbitration line by Cao Hàn Chúc.
+- **Act.** Khổng Dạ Hành moves lanterns at night from the villages in debt to the villages that pay, and hangs the old
+  ones in their place. Nhạc's sales across the arbitration line (carried by Cao Hàn Chúc) stay as the fact behind it.
 - **Cut.** "No Golden Core" and "Nhạc expected the headship". The founder's box stays as a hook only, because hooks 1-2
   depend on Tùng Đào's.
 - **Keep consistent.** N-suong_tung-02 moves to 1135 and N-tung_dao-05 to 1136 (§7); hook 4 (the north-shore
@@ -633,8 +651,11 @@ Each block gives:
 - **People.** `tao_mo_tu`, `diem_tu_to`, `ly_tang_ky`, `van_duong_quy`, `khong_ich_mau`; Lạc Hà `chu_hong_diep`,
   `tong_thu_tin`.
 - **Fits because.** Lạc Hà's own pill-makers, who pick only at the glow, against a lord with spirit fields and money.
-- **Act.** Lý's crates to Tang Ma Thành.
-- **Cut.** The "Trúc Cơ head needs a Golden Core" framing. Diêm no longer refuses the headship as a pattern; he refused
+- **Act.** Tào is testing the miasma antidote on himself, a dose a week, and Khổng Ích Mẫu keeps the count. Lý's
+  crates to Tang Ma Thành stay as the fact behind the arc.
+- **Cut.** Hook 2's ledger as the way in: the ledger stays as a fact (cross-sect §1.6), but the hook becomes Lạc Đan
+  Thanh's price for telling Diêm what Vi asked for, which is one pill brewed in the Cold Furnace. Also cut the
+  "Trúc Cơ head needs a Golden Core" framing. Diêm no longer refuses the headship as a pattern; he refused
   it in 1150 out of grief, and that stays as history.
 - **Keep consistent.** N-yen_quang-02 stays in 1150 (§7); cross-sect §1.6 (Lạc Đan Thanh's 1150 ledger clears Diêm).
 
@@ -655,6 +676,42 @@ Each block gives:
   sits longest" stays as a funny hook, not a §9 bullet.
 - **cross-sect.md §1.3** ("Every great sect has a head who has not named an heir"). Rewrite it as two quarrels that
   reach across walls, the Pivot's Confirmation and Phần Vũ's lease, plus the Băng Tâm line, which is kept.
+
+---
+
+### 4.4 Also edit: the other side of each arc
+
+An arc that changes what a person on another page knows or does must be written on that page too, in the same pass.
+
+| Arc (sect) | Also edit |
+|---|---|
+| chan_kim | `dang_quan_binh` (thien_xu): his want and secret now concern a square with no custom |
+| chuc_ha | `tang_ke_ti` and `tang_tuc_lac` (phuong_minh): the dowry terms in their wants; phuong_minh hook 5 |
+| coc_vu | `luc_thuong_lam` (clans.2): the 1150 grain sale; a new tier B for the hermitage (the user should know a person is added); thu_phan hooks 5 and 7 |
+| cung_tinh | `luan_hai_yen` (lac_ha.2): the chart she publishes, in her role and want; `lan_vien_pham` (lac_ha) tie |
+| da_quang | tran_sa §9 (no change, but read it beside the new Dạ Quang §9); `vien_co_yen` tie note on `do_xich_linh` |
+| hoa_cai | `tong_binh_hanh` (thien_xu.3): the lease and the washers |
+| hoa_tinh | thinh_vu §9 or §8: a line naming the copyhouse that forges the Dipper; `kieu_man_lau` (thinh_vu); `su_ngung_mac` (thien_xu) |
+| hong_lo | `so_ngoc_ho` and `vien_chuoc` (bang_tam): the bill of sale, spent this season |
+| lac_ha ⇄ thien_bao | both pages, together; `to_hieu_chu` (lac_ha.3) |
+| le_hoa ⇄ tam_kiem | both pages; bang_tam §8 or §9: one bullet for the case before the Hall of Cold Law; `tham_han_giang` and `khuong_luu_ly` wants |
+| minh_loan | `hinh_trong_son` (lac_ha): the bells in his want or ties; lac_ha §9 "The plain against the mountain" |
+| nam_pho | `sao_an_lan` (demonic) and `gian_van_lo` (loose-south): one clause each, that they have heard what the hall now sells |
+| ngao_tuyet | `tu_khong_hac_nien` (hermits-sages): the letter of 1200 in his want |
+| nhan_tran | `canh_truong_thien` (lac_ha): his secret and want now include the bargain with Mục; lac_ha §9 "The sword on the plain"; cross-sect §1.2 |
+| nhan_van | `tong_thu_tin` (lac_ha): the assessor's year |
+| phan_vu ⇄ phuong_minh | both pages; `vuu_cam_thu` (phuong_minh): the rent assessment |
+| phat_y | thien_xu §9 "The hawk and the scale" (the writ now has a victim); `dai_ho_than` (thien_xu.3); cuu_cao §8 (the boy is being taught) |
+| suong_tung | `luc_han_chu` (ham_nguyet's raider, Băng Tâm): the north-shore wards |
+| thai_chi | `du_tinh_luu` (tung_dao): the River Hall's dike crews; `giang_cuu_khuc` (lang_dao) |
+| thien_xu | `le_tieu_hon` (thinh_vu) and `mac_kinh_trap`: the new rival tie; `ha_hau_thach` (thien_xu.2) |
+| thu_phan | coc_vu §9 and hooks 3 and 7: the abbess is right |
+| trac_anh | `ho_tam_ky` (thien_bao): the calf in his want; thien_bao hook 4 |
+| tuan_tung | none outside the page |
+| van_hac | tung_dao §9: one line on the Coiled Root Hall's ear test; `nhiep_co_tan` |
+| vu_an | `nhac_chinh_hanh` (thuy_vi): he is the buyer of Bàng's pages; thuy_vi hook 9 |
+| vu_linh | thinh_vu §9 "The spymaster's channel" or §8: the embargo; `nhiep_vo_thanh`, `hua_thanh_diem` |
+| yen_quang | `chu_hong_diep` (lac_ha): the Maple Hall's ambition in her want |
 
 ---
 
@@ -707,12 +764,14 @@ Each block gives:
 | Goes (it echoes *Hiệp Khách Hành* or Lý Bạch's 俠客行) | Becomes |
 |---|---|
 | The verse cut into the cliff ("ten paces, one man; a thousand li, no trace; ... hide your name"), §1 and §4 | The founder's own saying, cut on the hall's lintel rather than a cliff: **"The fee is the whole of the thanks."** (read-minor-2 item 2, shortened) |
-| "Kept the founder's grey sleeve and its Wind art closed for three centuries because no one could read it; he read it" (`thach_tang_danh` backstory) | "Kept it closed because **no one had the Wind to open it**; he had." The art is folded into the robe and opens only to a Wind root. Nothing is read. |
-| Head **Thạch Tàng Danh** 石藏名. Thạch is the novel's hero's surname, and 藏名 is from the poem's last line | **Thang Vô Tạ 湯無謝**, "owes no thanks", from the founder's saying. Key `thang_vo_ta`. The gloss loses its Lý Bạch citation |
+| "Kept the founder's grey sleeve and its Wind art closed for three centuries because no one could read it; he read it" (`thang_vo_ta` backstory) | "Kept it closed because **no one had the Wind to open it**; he had." The art is folded into the robe and opens only to a Wind root. Nothing is read. |
+| Head **Thạch Tàng Danh** 石藏名 (renamed 2026-11-25). Thạch is the novel's hero's surname, and 藏名 is from the poem's last line | **Thang Vô Tạ 湯無謝**, "owes no thanks", from the founder's saying. Key `thang_vo_ta`. The gloss loses its Lý Bạch citation |
 | **Ten Paces Sword Canon** (Thập Bộ Kiếm Kinh); set "Grey Sleeve and Ten Paces"; full set "Ten Paces, One Cut"; "The Deed Is Done" (all from the poem's lines) | **Contract Sword Canon** (Khế Kiếm Kinh 契劍經): it counts the steps of a hire to one finishing cut. Set **Grey Sleeve and Seal** (Phất Y Khế Ấn); full set **The Last Step** (Chung Bộ 終步); "The Deed Is Done" becomes **Brush the Sleeve**. Rule text unchanged |
 | "No names" justified by the verse | Justified by the contract: the seal signs, the sword does not. The head's name now means "owes no thanks", not "hides his name" |
-| Set "Hired Sword's Pair" (Thuê Kiếm Song Bảo): "Thuê" is a native word in the Hán-Việt slot | **Dong Kiếm Song Bảo** (傭劍雙寶) |
+| Set "Hired Sword's Pair" (Thuê Kiếm Song Bảo): "Thuê" is a native word in the Hán-Việt slot | **Dung Kiếm Song Bảo** (傭劍雙寶; 傭 reads dung, as in dung binh, a mercenary) |
 | `loose-south.2` tie note "Five of the valley's ten paces"; `loose-south.md` "learned five of Phất Y's ten paces" | "Five of the valley's contract steps" |
+| The canon's art **Tenth Pace** (Thập Bộ) and its "stored Paces" (`phat_y.techniques.json`) | **Final Count** (Tận Số 盡數), spending stored **Steps** |
+| Set id `py-ten-paces` (`phat_y.items.json`; cited in `builds/authored/auth-eff-2.json`, `auth-eff-2.md`, `WIRED.md`, `builds/duel-readings.md`) | `py-grey-seal`, changed in every file that cites it |
 
 **Stays:**
 - the sect name: 拂衣 "to brush the sleeve and go" is a common idiom, older than the poem, and the sleeve custom is the
@@ -726,9 +785,9 @@ Each block gives:
 
 **The rename touches game data.** The key appears in about 45 files outside the reviews, including
 `assets/data/world_history.json`, `assets/portraits/portraits.json`, the cast portrait
-`assets/portraits/cast/thach_tang_danh.webp`, `design/world/cast_proposal.json` and the place catalogue. The writer
+`assets/portraits/cast/thang_vo_ta.webp`, `design/world/cast_proposal.json` and the place catalogue. The writer
 renames the key in the depth files. The game data and the portrait file follow at re-export, which is a step for the
-user to approve. If the user prefers, keep the key `thach_tang_danh` as a legacy id and change only `name_hv` and
+user to approve. If the user prefers, keep the key `thang_vo_ta` as a legacy id and change only `name_hv` and
 `name_han`, but no other key in the world disagrees with its name.
 
 ### The new core: sealed on both sides
@@ -741,8 +800,9 @@ calls*. And a valley sword never breaks a sealed contract.
   **without the Pivot line**. The Tower would not pay without that, and it pays three times the fee. Each spring Ngũ
   Trấn Bắc drafts a war writ against Thính Vũ, and Mâu Tri Viễn buries it. If one passes, the valley's own law sends a
   grey company to fight its own lord's army, or the valley breaks a sealed contract for the first time since 560.
-- **Sleeves from a road that does not exist.** The southern company has sent home nine sleeves since 1190: two from
-  Phượng Minh's raiders, the rest from Đồ Liệt Cơ's camp on the Pivot road. Lam books each death on the Đà Đội camel
+- **Sleeves from a road that does not exist.** The southern company has sent home nine sleeves since 1190: two to
+  Phượng Minh's raiders on the southern road, the other seven to the rain forest's fever and its beasts. (Not to
+  Đồ Liệt Cơ's camp, which has never touched a Tower train.) Lam books each death on the Đà Đội camel
   road. The families are paid the sleeve price and told a road that has no camels. Giang Bích Sa, who copies the
   contracts, has found the train that does not exist. Yên Lạc Tụ, who sweeps the hall of sleeves, has noticed that nine
   sleeves smell of the south's rain, not the steppe's dust.
@@ -763,14 +823,16 @@ calls*. And a valley sword never breaks a sealed contract.
 3. **The paymaster's price.** Thôi Ấn Thư raises it.
 4. **The year's pay.** Khúc Liệt Dương and Kim Vạn Lý; unchanged.
 5. **A Wind child.** Unchanged, the race with Cửu Cao.
-6. **The head walks out.** Unchanged, now with the contract as the claim's stake.
+6. **The fold at a time.** Cửu Cao's rider learns that Lộ Khinh Trần is being taught the Step and comes to the valley
+   mouth to say the boy was promised to the cranes. (This replaces "The head walks out", three claimants for the
+   headship.)
 7. **The sword marks** (hook 1 of the old §12): one cut crosses all the others; keep it.
 8. Cut the old hook 7 (ore that rings), as read-minor-2 item 5 asks.
 
 **§9 bullets (replacing the old three):** "The contract with no line", "Nine sleeves", "The paymaster", "The fold at a
 time" (the head and Lộ), and "The seam" (the lost duel, kept but no longer called "the valley's biggest lie").
 
-**People:** `thach_tang_danh` (renamed `thang_vo_ta`), `lam_khe_ngon` (Ambitious, Deceitful), `khuc_liet_duong`,
+**People:** `thang_vo_ta` (was `thach_tang_danh`), `lam_khe_ngon` (Ambitious, Deceitful), `khuc_liet_duong`,
 `giang_bich_sa`, `thoi_an_thu` (phat_y.5), `yen_lac_tu` (phat_y.5), `lo_khinh_tran`; Pivot `dai_ho_than`,
 `ngu_tran_bac`, `mau_tri_vien`; `do_liet_co` (loose-south); `kim_van_ly` (market-folk); Cửu Cao `cu_van_ly`.
 
@@ -782,8 +844,11 @@ contract, and both sides know it" (§8), and whose lord's war hall drafts the wr
 - C186 and A232 stay.
 - hermits-sages §3 and §8 stay (Quách Vô Tích was Tư Không's master).
 - thien_xu §9 "The hawk and the scale": Ngũ drafts, Mâu buries.
-- cross-sect §1.9 and the ties listed in §2 (`cu_van_ly` enemy, `thach_tang_danh` owes `tu_khong_hac_nien`).
+- cross-sect §1.9 and the ties listed in §2 (`cu_van_ly` enemy, `thang_vo_ta` owes `tu_khong_hac_nien`).
 - Lam's seal year moves to 1147 (§7).
+- **phat_y §8** (Thính Vũ Lâu) says the southern contract "carries the usual line: void if the Pivot calls". Change it
+  to "carries no Pivot line, the only contract the valley has sealed without one". Match `lam_khe_ngon`'s secret and
+  N-phat_y-03's note.
 
 ---
 
@@ -806,8 +871,9 @@ Rewrite **N-coc_vu-04** (stays 1150, `disaster`) as the cause of C188:
 - `luc_thuong_lam` (clans.2) keeps his 1150 purchase of the Verdant Cycle, now explained: he sold the Lục granaries'
   old rice to the Tower at four times the price, and bought the scripture with the profit. It ties to the bought rain
   of 1171.
-- phuong_minh §3, thinh_vu §3 and thien_xu §3 add "the drought" to their 1150-1158 war rows. Phượng Minh "feeds its
-  neighbours in bad years and lectures them": that year it sold, and dearly.
+- phuong_minh §3, thinh_vu §3 and thien_xu §3 add "the drought" to their 1150-1158 war rows. Who sold the Tower its
+  grain: Phượng Minh, the south's granary, which "feeds its neighbours in bad years and lectures them", refused the
+  Tower outright; the Lục of Phong Đăng sold at four times the price; and the Tower marched to pay the Lục.
 
 ### Stay in 1150 (tied to the drought or the war)
 
@@ -838,6 +904,14 @@ Rewrite **N-coc_vu-04** (stays 1150, `disaster`) as the cause of C188:
 
 That accounts for all 16 ids: 5 stay, and 11 move, with 2 partner ids (N-tung_dao-05, N-hong_lo-04) moving with them.
 
+**The dependent lines above are partial.** They come from the literal year in the cast records' backstory, secret,
+want and role fields, and from the §3 rows. For each moved id the writer also greps the old year, and any duration
+counted from it, in the sect page's prose, the tie notes and the items and techniques files: for example
+`grep -rn "1150\|1151" design/world/depth/sects/hong_lo*`, then read for "ninety years", "for fifty years" and the like
+(hoa_cai §9 "ninety years"; hong_lo §9 "In 1150" and hook 2's title). Births checked against the new years: Vi Thanh
+Âm (1040), Kỷ Ngân Chúc (960), La Tử Vi (1090), Ngụy Đan Chu (1118, 26 when Đồng takes him in 1144) and Viên Chước
+(1010) are all old enough.
+
 ### Backstory dates on the pile, not events
 
 | Record | Change |
@@ -867,4 +941,7 @@ of them tied to the drought. The years 1128-1153 receive one moved event each, a
 4. The remaining changed sects in §4.2, then the notes in §4.3.
 5. cross-sect.md §1.3, §1.4 and §1.9, and §5's people.
 6. Run `python -I tools/design/world/depth_check.py` and the review script (`tools/design/world/depth_review.py`), and
-   check that the heir-quarrel count in script-findings falls from 37 to about 8.
+   check the heir-quarrel count in script-findings. The script's motif is the bare regex `\bheir\b|succession` over
+   §9 and §12, so the count measures words, not arcs. In the changed sects, do not use those two words where the
+   heir is not the subject; then the count should fall from 37 to about 10 (the four kept sects, their dependents
+   lanh_giang and tran_sa, and the thien_xu, tung_dao and phan_vu lines that still name an heir as a fact).

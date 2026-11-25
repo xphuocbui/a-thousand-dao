@@ -56,7 +56,7 @@ and the points left over go to the start's land. "Why it fits" is the build's on
 | Technique | Kind | Held by |
 |---|---|---|
 | Verdant Cycle Scripture (Thanh Hoàn Kinh) | main | Đàm Thanh Giang, Quyền Thanh Lam, Hà Thính Tùng, Nghiêm Linh Chi, Ninh Trúc Thực, Giả Hồi Xuân |
-| Canh Kim Địa Quyết | main | Quan Vũ Thanh, Cố Dạ Lan, Thạch Tàng Danh, Lý Hận Bích |
+| Canh Kim Địa Quyết | main | Quan Vũ Thanh, Cố Dạ Lan, Thang Vô Tạ, Lý Hận Bích |
 | Huyền Thủy Địa Quyết | main | Hồ Tùng Nguyệt, Kiều Nguyệt Châu, Giang Cửu Khúc, Châu Phi Vân |
 | Canh Kim Thiên Kinh | main | Doãn Ngọc Hành, Đỗ Tinh Hà, Doãn Hi Hòa, Tư Không Hạc Niên |
 | Thanh Mộc Địa Quyết | main | Ngu Lam Sơn, Tống Tọa Vân, Nghê Hồng Đậu |
@@ -78,7 +78,7 @@ and the points left over go to the start's land. "Why it fits" is the build's on
 | Mountain Bone Body Art (Sơn Cốt Thể Thuật) | body | Quyền Thanh Lam, Khấu Mục Vân, Vệ Văn Cơ |
 | Returning Wake Verse (Hồi Lưu Thi) | secret | Hồ Tùng Nguyệt, Quan Vũ Thanh, Giang Cửu Khúc |
 | Stilled Hour Sutra (Đình Thời Kinh) | secret | Sở Ngọc Hồ, Thái Lê Tuyết, Mạc Quy Khư |
-| Afterimage Sword Canon (Tàn Ảnh Kiếm Kinh) | secret | Thạch Tàng Danh, Tư Không Hạc Niên |
+| Afterimage Sword Canon (Tàn Ảnh Kiếm Kinh) | secret | Thang Vô Tạ, Tư Không Hạc Niên |
 | Debt Ledger Blade (Huyết Trái Đao Lục) | secret | Hạng Dạ Bôi, Triệu Huyết Y |
 | Deep Vein Scripture (Thâm Mạch Kinh) | secret | Doãn Ngọc Hành, Thẩm Bắc Thần |
 | Drawn-Out Edge Canon (Trì Nhận Kinh) | secret | Đỗ Tinh Hà, Cố Dạ Lan |
@@ -153,7 +153,7 @@ and the points left over go to the start's land. "Why it fits" is the build's on
 
 | Key | Name | Realm | Root | Main (layer) | Đạo Đồ targets | Why it fits |
 |---|---|---|---|---|---|---|
-| thach_tang_danh | Thạch Tàng Danh | Kết Đan middle | kim 86, phong 56 | Canh Kim Địa Quyết (9) | Twin Arms in Harmony (cap); Ten Thousand Swords Return (K); Edge of Autumn; Sword Spine | The silent sword of Phất Y: a pure blade who held Tư Không Hạc Niên to a draw for three days with the same afterimage art |
+| thang_vo_ta | Thang Vô Tạ | Kết Đan middle | kim 86, phong 56 | Canh Kim Địa Quyết (9) | Twin Arms in Harmony (cap); Ten Thousand Swords Return (K); Edge of Autumn; Sword Spine | The silent sword of Phất Y: a pure blade who held Tư Không Hạc Niên to a draw for three days with the same afterimage art |
 
 ## Củng Tinh Quán
 

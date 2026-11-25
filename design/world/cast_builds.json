@@ -314,7 +314,7 @@
       "skills": {"luyen_khi": 7},
       "note": "The star-iron smith: a stubborn forger who fights with the blades he tempers and grows the one he keeps inside him"
     },
-    "thach_tang_danh": {
+    "thang_vo_ta": {
       "root": {"elements": {"kim": 86}, "variants": {"phong": 56}},
       "thien_phu": {"ngo_tinh": 76, "can_cot": 66, "than_hon": 68, "khi_van": 52, "dao_tam": 80, "mi_luc": 44},
       "archetype": "kiem_tu",

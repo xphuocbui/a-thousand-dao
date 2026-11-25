@@ -229,7 +229,7 @@ Pole Star, is the head's court.
 - **Thúy Vi Tông:** grateful for the Cold Ford writ of 901 (C165), wary of the 672 crack. Its envoy Biện Vãn Tình
   drinks tea with Mâu Tri Viễn at Thạch Kiều.
 - **Vassals.** **Thối Tinh Môn** (Cát Lưu Quang) forges the Pivot's blades and lends it a son as armourer. **Phất Y
-  Cốc** (Thạch Tàng Danh) supplies swordsmen for hire and Can Tương's ore. **Củng Tinh Quán** (Thẩm Bắc Thần), the
+  Cốc** (Thang Vô Tạ) supplies swordsmen for hire and Can Tương's ore. **Củng Tinh Quán** (Thẩm Bắc Thần), the
   oldest vassal, reads the Dipper on the Tuyền Cơ Nghi; the Pivot did not listen to its omens in 501 and 789 (C102,
   C156). **Cửu Cao Phái** (Ung Hạc Minh) flies the Pivot's letters and circles the vein, and holds Phá Quân's old
   ground (C163). **Chân Kim Các** (Tưởng Bách Luyện) assays beside the Pivot at Song Kiều and shaves its weights.

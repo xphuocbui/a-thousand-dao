@@ -1,0 +1,1925 @@
+{
+ "by": "auth-tech",
+ "_doc": "Group (e) of builds/wishlist.md: techniques and arts. Phase A proposals, unpriced. Arts follow design/arts/family-*.json, techniques design/techniques/catalogue-*.json. DSL words not in the 96 library arts are flagged in each entry's `new_vocab` so the wiring and engine passes see them. Unlock layers ride on the wire (`unlock_layer`), since lineage technique records list arts without layers. `learners` lists requesters who already carry the host and need no build change.",
+ "entries": [
+  {
+   "wish": "e1 (rb-07)",
+   "kind": "art",
+   "record": {
+    "id": "bronze-answers",
+    "name": "Bronze Answers (Đồng Ứng)",
+    "element": "metal",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "group": "thunder-in-the-rain-canon",
+    "tags": [
+     "metal",
+     "sword",
+     "peal",
+     "echo"
+    ],
+    "kind": "phys",
+    "c_art": 0.9,
+    "cost_share": 0.03,
+    "cooldown": 3,
+    "requires": {
+     "root_lacks": [
+      "loi"
+     ]
+    },
+    "counters": [
+     {
+      "id": "peal",
+      "each_for": 8
+     }
+    ],
+    "effects": [
+     {
+      "id": "bronze-peal-crit",
+      "on": "crit",
+      "do": [
+       {
+        "counter": {
+         "id": "peal",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "bronze-peal-counter-cut",
+      "on": "hit_landed",
+      "filter": {
+       "art_id": "where-the-drop-falls"
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "peal",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "bronze-answer",
+      "on": "crit",
+      "filter": {
+       "element": "metal"
+      },
+      "if": [
+       {
+        "read": "own.counter.peal",
+        "op": ">=",
+        "value": 3
+       }
+      ],
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "fire_art": {
+         "which": "last",
+         "filter": {
+          "element": "metal"
+         },
+         "share": 0.6
+        }
+       },
+       {
+        "counter": {
+         "id": "peal",
+         "set": 0
+        }
+       }
+      ]
+     }
+    ],
+    "empower": [
+     {
+      "if": [
+       {
+        "read": "own.counter.peal",
+        "op": ">=",
+        "value": 3
+       },
+       {
+        "any": [
+         {
+          "read": "foe.debuff.metal",
+          "op": ">=",
+          "value": 4
+         },
+         {
+          "read": "own.fired_within.1.group.thunder-in-the-rain-canon",
+          "op": ">=",
+          "value": 2
+         }
+        ]
+       }
+      ],
+      "c_mult": 3
+     }
+    ],
+    "rule": "Open only to a root that has not formed Thunder. A Metal cut. Each crit, and each counter-cut of Where the Drop Falls, adds a Peal that lasts 8 s; at 3 Peals your next Metal crit fires your last Metal art again at 60 % and clears them. The cut itself hits 3 times as hard with 3 Peals and either 4 Metal stacks on the foe or another art of the canon fired that pulse. The bronze rings, but no bolt comes.",
+    "hooks": [
+     "crit",
+     "last art",
+     "metal stacks",
+     "counter",
+     "echo count",
+     "sword"
+    ],
+    "sources": [
+     "rb-07"
+    ]
+   },
+   "new_vocab": [
+    "requires.root_lacks (Thunder gate; the canon's lineage text states it, no record field exists yet)",
+    "fire_art.filter.element",
+    "art id where-the-drop-falls (the lineage's {new} art Where the Drop Falls has no id yet; this assumes that id)"
+   ],
+   "wire": [
+    {
+     "file": "design/world/depth/sects/thinh_vu.techniques.json",
+     "id": "thunder-in-the-rain-canon",
+     "field": "arts",
+     "action": "add",
+     "unlock_layer": 4,
+     "note": "The canon's first half: the Thunderless holders' third art beside Sundering Wedge and Rain Before the Peal. Shares the Peal counter id with Answering Peal, so anything that reads Peals (Chain Arc's step) reads these too. Layer 4 so ung_thinh_thien (layer 4) has it. The counter-cut clause is dormant for all ten today: Where the Drop Falls lives on rain-chain-sword-scripture, which none of them carries; crits alone feed the Peals until a build takes the sword scripture. No wire added for that."
+    }
+   ],
+   "learners": [
+    {
+     "key": "co_da_lan",
+     "file": "design/world/depth/sects/thinh_vu.cast.json",
+     "via": "build.main",
+     "layer": 12
+    },
+    {
+     "key": "manh_da_vu",
+     "file": "design/world/depth/sects/thinh_vu.cast.json",
+     "via": "build.main",
+     "layer": 12
+    },
+    {
+     "key": "quan_vu_thanh",
+     "file": "design/world/depth/sects/thinh_vu.cast.json",
+     "via": "build.main",
+     "layer": 9
+    },
+    {
+     "key": "phuong_doan_vu",
+     "file": "design/world/depth/sects/thinh_vu.cast.json",
+     "via": "build.main",
+     "layer": 9
+    },
+    {
+     "key": "nhiep_vo_thanh",
+     "file": "design/world/depth/sects/thinh_vu.cast.json",
+     "via": "build.main",
+     "layer": 8
+    },
+    {
+     "key": "kieu_man_lau",
+     "file": "design/world/depth/sects/thinh_vu.cast.json",
+     "via": "build.main",
+     "layer": 7
+    },
+    {
+     "key": "tuong_lau_thanh",
+     "file": "design/world/depth/sects/thinh_vu.cast.json",
+     "via": "build.main",
+     "layer": 8
+    },
+    {
+     "key": "lu_tan_ha",
+     "file": "design/world/depth/sects/thinh_vu.cast.json",
+     "via": "build.main",
+     "layer": 9
+    },
+    {
+     "key": "hua_thanh_diem",
+     "file": "design/world/depth/sects/thinh_vu.cast.json",
+     "via": "build.main",
+     "layer": 6
+    },
+    {
+     "key": "ung_thinh_thien",
+     "file": "design/world/depth/sects/thinh_vu.2.cast.json",
+     "via": "build.main",
+     "layer": 4
+    }
+   ],
+   "fun": "The storm without the lightning: the sword cuts, the bronze rings, and the cut comes again in the ringing. The head's tragedy gets its own echo.",
+   "status": "proposal"
+  },
+  {
+   "wish": "e2 (rb-18)",
+   "kind": "art",
+   "record": {
+    "id": "pill-smoke",
+    "name": "Pill Smoke (Đan Yên)",
+    "element": "",
+    "role": "stacks",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": [
+     "smoke",
+     "pill",
+     "censer",
+     "over_time"
+    ],
+    "kind": "elem",
+    "c_art": 0.6,
+    "cost_share": 0.04,
+    "cooldown": 6,
+    "convert": {
+     "to": "chaos",
+     "share": 1.0
+    },
+    "effects": [
+     {
+      "id": "smoke-burn-pill",
+      "on": "art_fired",
+      "filter": {
+       "art_id": "pill-smoke"
+      },
+      "do": [
+       {
+        "burn_pill": {
+         "slot": "pill",
+         "self_share": 0.5,
+         "failed_still_smokes": true
+        }
+       }
+      ]
+     },
+     {
+      "id": "smoke-cloud",
+      "on": "art_fired",
+      "filter": {
+       "art_id": "pill-smoke"
+      },
+      "if": [
+       {
+        "read": "event.pill_burned",
+        "op": ">=",
+        "value": 1
+       }
+      ],
+      "do": [
+       {
+        "stacks": {
+         "el": "pill",
+         "n_per_grade": 4,
+         "for": 6,
+         "side": "foe"
+        }
+       }
+      ]
+     }
+    ],
+    "rule": "A puff of censer smoke: a small Chaos hit. If a pill is prepared in your pill slot, the censer burns it: you get its effect at half strength, and the foe takes a cloud of 4 debuff stacks per pill grade, for 6 s, of the pill's element (Fire Burn, Wood Poison, Water or Ice the Ice stacks, Metal, Earth, Thunder and Wind their own; a pill with no element smokes as Poison). A pill that would fail gives you nothing, but its smoke lays in full. With no pill it is only the puff.",
+    "hooks": [
+     "pills",
+     "pill effect",
+     "element debuffs",
+     "over time",
+     "censer"
+    ],
+    "sources": [
+     "rb-18"
+    ]
+   },
+   "new_vocab": [
+    "burn_pill (spends a prepared pill from the pill slot; Combat rule 12)",
+    "stacks.el = pill (the burned pill's element)",
+    "event.pill_burned",
+    "a pill failing inside a fight (today only mf-vermilion-azure-censer's Ground Like Paint names it)"
+   ],
+   "wire": [
+    {
+     "file": "design/world/depth/sects/hoa_cai.techniques.json",
+     "id": "canopy-furnace-canon",
+     "field": "arts",
+     "action": "add",
+     "unlock_layer": 4,
+     "note": "The Hall's own canon: la_tu_vi (layer 8) and uy_dan_duong (layer 9) already run it as main. The smoke sits under the lid, and the canon's lasting debuffs keep the cloud."
+    },
+    {
+     "file": "design/world/depth/people/hermits-sages.techniques.json",
+     "id": "purple-smoke-furnace-canon",
+     "field": "arts",
+     "action": "add",
+     "unlock_layer": 4,
+     "note": "The hermit furnace canon, beside Smoke over the Burner (which burns no pill)."
+    },
+    {
+     "file": "design/world/depth/people/hermits-sages.2.cast.json",
+     "id": "khuyet_van_ha",
+     "field": "build.main",
+     "action": "replace",
+     "value": {
+      "tech": "purple-smoke-furnace-canon",
+      "layer": 10
+     },
+     "note": "Was the generated stand-in dia_hoa (layer 10). The canon's own record says Khuyết Vãn Hà learned all twelve layers, and her root (Wood 66, Fire 50) is the canon's; layer kept at 10 so her power does not move. The wiring pass may raise it to 12 to match the lore."
+    },
+    {
+     "file": "design/world/depth/people/market-folk.items.json",
+     "id": "mf-vermilion-azure-censer",
+     "field": "arts",
+     "action": "add",
+     "value": [
+      "pill-smoke"
+     ],
+     "note": "lac_dan_thanh runs red-sun-scripture with no aux; the censer that already carries his pill build (Ground Like Paint, the set's pill-taken Fire stacks) holds the art (item `arts`, schema.md)."
+    },
+    {
+     "file": "design/world/depth/people/market-folk.techniques.json",
+     "id": "censer-smoke-manual",
+     "field": "techniques",
+     "action": "new",
+     "value": {
+      "id": "censer-smoke-manual",
+      "name": "Censer Smoke Manual (Lô Yên Quyết)",
+      "tier": 0,
+      "tech_kind": "secret",
+      "names": [],
+      "layers": 6,
+      "rank": "sold on pill-market stalls; any alchemist with a censer",
+      "bonuses": [],
+      "passives": [
+       {
+        "key": "attack_pct",
+        "value": 6,
+        "scope": [
+         "over_time"
+        ]
+       },
+       {
+        "key": "pill_effect_pct",
+        "value": 5,
+        "scope": []
+       },
+       {
+        "key": "stack_duration_pct",
+        "value": 6,
+        "scope": [
+         "debuff"
+        ]
+       }
+      ],
+      "abilities": [
+       {
+        "ability_id": "pill-smoke",
+        "unlock_layer": 1
+       }
+      ],
+      "effects": [],
+      "origin": "authored",
+      "suite": "censer-smoke-manual",
+      "family": "fire",
+      "concept": "An element-free stall manual: how to vent a censer so that what burns in it goes out at a foe. It teaches no cultivation worth the name, only the one art; every alchemist who fights through smoke has a copy.",
+      "lore": "Copied and recopied on the pill markets; the oldest copies are said to be pages torn from the Purple Smoke Furnace Canon.",
+      "status": "proposal"
+     },
+     "note": "Carrier for the alchemists whose own method carries no censer art. Element-free, so any root can take it."
+    },
+    {
+     "file": "design/world/depth/sects/phuong_minh.cast.json",
+     "id": "ke_chu_sa",
+     "field": "build.aux",
+     "action": "add",
+     "value": {
+      "tech": "censer-smoke-manual",
+      "layer": 6
+     },
+     "note": "\"Throws burning pill-smoke and waits\"; aux becomes 2 (ashen-phoenix-canon, this)."
+    },
+    {
+     "file": "design/world/depth/sects/thinh_vu.cast.json",
+     "id": "o_thiem_tu",
+     "field": "build.aux",
+     "action": "add",
+     "value": {
+      "tech": "censer-smoke-manual",
+      "layer": 6
+     },
+     "note": "\"Poison clouds through a censer\"; aux becomes 1. His Wood pills smoke as Poison."
+    },
+    {
+     "file": "design/world/depth/sects/chan_kim.cast.json",
+     "id": "phung_xich_kim",
+     "field": "build.aux",
+     "action": "add",
+     "value": {
+      "tech": "censer-smoke-manual",
+      "layer": 6
+     },
+     "note": "The assayer's fumes; aux becomes 2 (hundred-refinings-art, this). Metal pills lay Metal stacks, which his stacking-debuff route wants."
+    }
+   ],
+   "learners": [
+    {
+     "key": "la_tu_vi",
+     "file": "design/world/depth/sects/hoa_cai.cast.json",
+     "via": "build.main",
+     "layer": 8
+    },
+    {
+     "key": "uy_dan_duong",
+     "file": "design/world/depth/sects/hoa_cai.cast.json",
+     "via": "build.main",
+     "layer": 9
+    }
+   ],
+   "fun": "The alchemist fights with her stock: a failed batch is ammunition, and a blind founder fills the room with fume.",
+   "status": "proposal"
+  },
+  {
+   "wish": "e3 (rb-24)",
+   "kind": "art",
+   "record": {
+    "id": "into-the-vent",
+    "name": "Into the Vent (Nhập Huyệt)",
+    "element": "fire",
+    "role": "utility",
+    "tier": "authored",
+    "power": "standalone",
+    "group": "burning-feather-body-canon",
+    "tags": [
+     "fire",
+     "body",
+     "burn"
+    ],
+    "kind": "elem",
+    "c_art": 0.0,
+    "cost_share": 0.03,
+    "cooldown": 8,
+    "counters": [
+     {
+      "id": "feather_heat"
+     }
+    ],
+    "effects": [
+     {
+      "id": "vent-alight",
+      "on": "art_fired",
+      "filter": {
+       "art_id": "into-the-vent"
+      },
+      "do": [
+       {
+        "stacks": {
+         "el": "fire",
+         "kind": "debuff",
+         "n": 10,
+         "for": 6,
+         "side": "own"
+        }
+       }
+      ]
+     },
+     {
+      "id": "vent-heat",
+      "on": "tick_taken",
+      "filter": {
+       "dtype": "fire"
+      },
+      "limit": {
+       "per_pulse": 3
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "feather_heat",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "vent-mend",
+      "on": "always",
+      "if": [
+       {
+        "read": "own.debuff.fire",
+        "op": ">=",
+        "value": 1
+       }
+      ],
+      "do": [
+       {
+        "mod": {
+         "healing": 30
+        }
+       }
+      ]
+     }
+    ],
+    "rule": "Sets yourself alight: lays 10 of your own Burn stacks on you for 6 s (your Burn, your damage, your Fire resistance). Each tick of a Burn you carry, from any source, adds a heat stack (the canon's heat: Feathers Burn's stacks, which add Fire damage to your next blow), up to 3 a pulse. While you carry any Burn, your healing is 30 % increased.",
+    "hooks": [
+     "heat",
+     "burn",
+     "healing",
+     "fire resistance",
+     "health paid"
+    ],
+    "sources": [
+     "rb-24"
+    ]
+   },
+   "new_vocab": [
+    "stacks.kind = debuff on side own (in the library, side own grants the buff track; a Burn on yourself is new)",
+    "event tick_taken",
+    "own.debuff.<el> read",
+    "counter feather_heat: the canon's heat stacks, shared with the lineage's {new} Feathers Burn when it gets a record; named apart from furnace-heart's decaying `heat` counter (Red Sun) and without the `heat` tag, so the two engines do not feed each other"
+   ],
+   "wire": [
+    {
+     "file": "design/world/depth/sects/phan_vu.techniques.json",
+     "id": "burning-feather-body-canon",
+     "field": "arts",
+     "action": "add",
+     "unlock_layer": 3,
+     "note": "The canon's third art beside Feathers Burn and Stand in the Ash; it starts the engine against a foe with no Fire. Layer 3 so doi_liet_cuong (layer 5) has it."
+    }
+   ],
+   "learners": [
+    {
+     "key": "hung_phan_vu",
+     "file": "design/world/depth/sects/phan_vu.cast.json",
+     "via": "build.main",
+     "layer": 9
+    },
+    {
+     "key": "tao_tan_kien",
+     "file": "design/world/depth/sects/phan_vu.cast.json",
+     "via": "build.main",
+     "layer": 9
+    },
+    {
+     "key": "trang_hoi_y",
+     "file": "design/world/depth/sects/phan_vu.cast.json",
+     "via": "build.main",
+     "layer": 6
+    },
+    {
+     "key": "doi_liet_cuong",
+     "file": "design/world/depth/sects/phan_vu.cast.json",
+     "via": "build.main",
+     "layer": 5
+    }
+   ],
+   "fun": "The brawler sets himself on fire to get started: his health bar drops on purpose, and the fist that follows hits like the vent. A verb for the vassal that is not one more rise.",
+   "status": "proposal"
+  },
+  {
+   "wish": "e4 (rb-11), The Next Movement for Nine Shao",
+   "kind": "art",
+   "record": {
+    "id": "nine-shao-next-movement",
+    "name": "The Next Movement (Tấu Tiếp)",
+    "element": "fire",
+    "role": "utility",
+    "tier": "authored",
+    "power": "engine",
+    "group": "nine-shao-advent",
+    "tags": [
+     "song",
+     "soul",
+     "fire",
+     "movement"
+    ],
+    "kind": "elem",
+    "c_art": 0.8,
+    "cost_share": 0.04,
+    "cooldown": 3,
+    "counters": [
+     {
+      "id": "shao_movement"
+     }
+    ],
+    "movements": [
+     {
+      "n": 2,
+      "name": "The Pipes Answer (Tiêu Ứng)",
+      "do": [
+       {
+        "counter": {
+         "id": "shao",
+         "side": "foe",
+         "add": 1
+        }
+       },
+       {
+        "stacks": {
+         "el": "fire",
+         "n": 2,
+         "for": 8,
+         "side": "own"
+        }
+       }
+      ]
+     },
+     {
+      "n": 3,
+      "name": "Bells and Chimes (Chung Khánh)",
+      "do": [
+       {
+        "free_hit": {
+         "c": 0.6,
+         "dtype": "soul"
+        }
+       },
+       {
+        "status": {
+         "id": "slowed_time",
+         "stacks": 1,
+         "dur": 3,
+         "side": "foe"
+        }
+       }
+      ]
+     },
+     {
+      "n": 4,
+      "name": "The Dancers Enter (Vũ Giả Nhập)",
+      "do": [
+       {
+        "counter": {
+         "id": "shao",
+         "side": "foe",
+         "add": 2
+        }
+       }
+      ]
+     },
+     {
+      "n": 6,
+      "name": "The Hundred Officials in Harmony (Bách Quan Hòa)",
+      "do": [
+       {
+        "heal": {
+         "share": 0.04
+        }
+       }
+      ]
+     },
+     {
+      "n": 7,
+      "name": "The Feathered Banners (Vũ Tinh)",
+      "do": [
+       {
+        "counter": {
+         "id": "shao",
+         "side": "foe",
+         "add": 2
+        }
+       },
+       {
+        "mod": {
+         "next_art_cost": 0,
+         "group": "nine-shao-advent"
+        }
+       }
+      ]
+     }
+    ],
+    "effects": [
+     {
+      "id": "piece-advance",
+      "on": "art_fired",
+      "filter": {
+       "group": "nine-shao-advent"
+      },
+      "if": [
+       {
+        "read": "event.in_turn",
+        "op": "==",
+        "value": 1
+       }
+      ],
+      "do": [
+       {
+        "counter": {
+         "id": "shao_movement",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "piece-broken",
+      "on": "art_fired",
+      "filter": {
+       "tags": [
+        "song"
+       ]
+      },
+      "if": [
+       {
+        "read": "event.in_turn",
+        "op": "==",
+        "value": 0
+       }
+      ],
+      "do": [
+       {
+        "counter": {
+         "id": "shao_movement",
+         "set": 0
+        }
+       }
+      ]
+     }
+    ],
+    "rule": "Nine Shao is played in order, 1 to 8. The First, Fifth and Eighth Movements are their own arts; this art plays every movement between them (2, 3, 4, 6, 7), each with its own small rule: 2 one Shao stack on the foe and 2 Fire buff stacks; 3 a soul strike and 1 Slowed Time; 4 two Shao stacks; 6 heals you 4 %; 7 two Shao stacks and your next Nine Shao art costs nothing. A Nine Shao art fired in its turn advances the piece; one fired out of turn, or any other song art between, starts it again at the First. Played in its turn, the Eighth Movement takes effect without eight Shao stacks. The ninth is not part of this art.",
+    "hooks": [
+     "song",
+     "soul",
+     "slot order",
+     "Shao stacks",
+     "Slowed Time",
+     "fire buff"
+    ],
+    "sources": [
+     "rb-11"
+    ]
+   },
+   "new_vocab": [
+    "movements (per-firing sub-rules read from a counter)",
+    "event.in_turn (the fired art is the piece's next movement)",
+    "counter side foe (Shao stacks are named on the foe in the lineage text)",
+    "mod next_art_cost"
+   ],
+   "wire": [
+    {
+     "file": "design/world/depth/sects/phuong_minh.techniques.json",
+     "id": "nine-shao-advent",
+     "field": "arts",
+     "action": "add",
+     "unlock_layer": 3,
+     "note": "Covers the missing movements 2, 3, 4, 6 and 7 with one counted art, as the wish asks; the named First and Fifth stay as written. The forbidden ninth is untouched."
+    },
+    {
+     "file": "design/world/depth/sects/phuong_minh.techniques.json",
+     "id": "nine-shao-advent",
+     "field": "arts",
+     "action": "replace",
+     "target": "Eighth Movement: The Phoenix Is Near (Phượng Cận)",
+     "value": {
+      "new": "Eighth Movement: The Phoenix Is Near (Phượng Cận)",
+      "concept": "A held note: foes with eight Shao stacks cannot target the player with an art for two seconds. Played in its turn, after the seventh movement, it takes effect without the eight stacks."
+     },
+     "note": "The eighth needed eight Shao stacks; played in order it now needs only the piece."
+    }
+   ],
+   "learners": [
+    {
+     "key": "hoa_trieu_duong",
+     "file": "design/world/depth/sects/phuong_minh.cast.json",
+     "via": "build.aux",
+     "layer": 12
+    }
+   ],
+   "fun": "The fight is a piece of music the foe can hear coming: the head's slot order is the score, and a stray song breaks it.",
+   "status": "proposal"
+  },
+  {
+   "wish": "e4 (rb-11), The Next Movement for the Remnant Score",
+   "kind": "art",
+   "record": {
+    "id": "remnant-next-movement",
+    "name": "The Next Movement, Remnant Score (Tàn Phổ Tấu Tiếp)",
+    "element": "wood",
+    "role": "control",
+    "tier": "authored",
+    "power": "engine",
+    "group": "shao-remnant-score",
+    "tags": [
+     "song",
+     "soul",
+     "wood",
+     "movement"
+    ],
+    "kind": "elem",
+    "c_art": 0.7,
+    "cost_share": 0.04,
+    "cooldown": 3,
+    "counters": [
+     {
+      "id": "remnant_movement"
+     }
+    ],
+    "movements": [
+     {
+      "n": 1,
+      "name": "The Hall Falls Quiet (Đường Tĩnh)",
+      "do": [
+       {
+        "status": {
+         "id": "slowed_time",
+         "stacks": 1,
+         "dur": 3,
+         "side": "foe"
+        }
+       }
+      ]
+     },
+     {
+      "n": 2,
+      "name": "Breath Through Bamboo (Trúc Tức)",
+      "do": [
+       {
+        "gain_qi": {
+         "share": 0.02
+        }
+       }
+      ]
+     },
+     {
+      "n": 3,
+      "name": "Thorn on the String (Huyền Cức)",
+      "do": [
+       {
+        "stacks": {
+         "el": "wood",
+         "n": 3,
+         "for": 8,
+         "side": "foe"
+        }
+       }
+      ]
+     },
+     {
+      "n": 4,
+      "name": "The Dancers Tire (Vũ Quyện)",
+      "do": [
+       {
+        "status": {
+         "id": "slowed_time",
+         "stacks": 2,
+         "dur": 3,
+         "side": "foe"
+        }
+       }
+      ]
+     },
+     {
+      "n": 5,
+      "name": "Rain on the Wutong (Ngô Đồng Vũ)",
+      "do": [
+       {
+        "heal": {
+         "share": 0.03
+        }
+       }
+      ]
+     },
+     {
+      "n": 6,
+      "name": "The Air Thickens (Khí Trệ)",
+      "do": [
+       {
+        "status": {
+         "id": "stagnation",
+         "stacks": 4,
+         "dur": 3,
+         "side": "foe"
+        }
+       }
+      ]
+     },
+     {
+      "n": 7,
+      "name": "Where the Score Breaks (Phổ Đoạn)",
+      "do": [
+       {
+        "timer": {
+         "side": "foe",
+         "which": "longest",
+         "by": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "effects": [
+     {
+      "id": "remnant-advance",
+      "on": "art_fired",
+      "filter": {
+       "art_id": "remnant-next-movement"
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "remnant_movement",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "remnant-broken",
+      "on": "art_fired",
+      "filter": {
+       "tags": [
+        "song"
+       ],
+       "not_art_id": [
+        "remnant-next-movement",
+        "thorn-lullaby",
+        "dawn-clouds-take-the-colour"
+       ]
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "remnant_movement",
+         "set": 0
+        }
+       }
+      ]
+     }
+    ],
+    "rule": "Each firing plays the Remnant Score's next movement, 1 to 7, each with its own small rule: 1 one Slowed Time; 2 you regain 2 % linh lực; 3 three Poison stacks; 4 two Slowed Time; 5 heals you 3 %; 6 four Stagnation; 7 the foe's slowest-ready art is delayed 1 s. Thorn Lullaby and Dawn Clouds are passages of the score and neither advance nor break it; any other song art fired between starts the piece again at 1. After the seventh, the next firing is the attempt at the eighth (Playing Past the Break), or the first again.",
+    "hooks": [
+     "song",
+     "soul",
+     "Slowed Time",
+     "Stagnation",
+     "poison",
+     "slot order"
+    ],
+    "sources": [
+     "rb-11"
+    ]
+   },
+   "new_vocab": [
+    "movements",
+    "filter.not_art_id"
+   ],
+   "wire": [
+    {
+     "file": "design/world/depth/sects/phuong_minh.techniques.json",
+     "id": "shao-remnant-score",
+     "field": "arts",
+     "action": "add",
+     "unlock_layer": 4,
+     "note": "The score says seven movements are written but carried two arts; this is the seven. The Seven Movements set (pm-seven-movements) already counts 'each movement of the Remnant Score you play', so it now has something to count."
+    }
+   ],
+   "learners": [
+    {
+     "key": "lien_thieu_nghi",
+     "file": "design/world/depth/sects/phuong_minh.cast.json",
+     "via": "build.aux",
+     "layer": 9
+    },
+    {
+     "key": "lo_van_khanh",
+     "file": "design/world/depth/sects/phuong_minh.cast.json",
+     "via": "build.aux",
+     "layer": 7
+    }
+   ],
+   "fun": "Seven small rules in a row, and the foe slowing under each; the slow player wins by never letting the piece break.",
+   "status": "proposal"
+  },
+  {
+   "wish": "e4 (rb-11), Playing Past the Break",
+   "kind": "effect",
+   "record": {
+    "id": "playing-past-the-break",
+    "name": "Playing Past the Break (Tục Phổ)",
+    "group": "trigger",
+    "rule": "Once a fight, the firing of the Remnant Score's Next Movement right after its seventh is an attempt at the eighth. The attempt is a counted chance (Formulas A) with p = (thần hồn + khí vận) / 400, on a meter the player keeps from fight to fight; it succeeds when the meter reaches 1. Success: the Eighth Movement plays: the foe takes 5 Slowed Time for 5 s and you regain 10 % of your linh lực. Failure: a soul backlash: you lose 10 % of your health and 10 % of your linh lực. Either way the score then starts again at the first.",
+    "reads": "The movement counter (instant); own thần hồn and khí vận (attributes, compile); the holder's carried counted-chance meter",
+    "payload": "Success: 5 Slowed Time (5 s) on the foe, linh lực +10 % of maximum. Failure: −10 % of health and −10 % of linh lực on yourself",
+    "closes": "Once per fight. Cannot be attempted while the full Seven Movements set is worn: Never the Eighth restarts the score after the seventh ('There is no eighth')",
+    "hosts": [
+     "Tech"
+    ]
+   },
+   "new_vocab": [
+    "a counted-chance meter carried between fights (Formulas A starts the meter at counted_start each fight; this one persists on the holder)",
+    "p reads khí vận: Formulas A says fortune does not shift a counted chance's p; here khí vận is part of p's own formula, an exception the wish asks for"
+   ],
+   "wire": [
+    {
+     "file": "design/world/depth/sects/phuong_minh.techniques.json",
+     "id": "shao-remnant-score",
+     "field": "effects",
+     "action": "add",
+     "note": "Deterministic by construction: no seeded roll; the meter makes every failed attempt bring the eighth nearer, and the HUD shows how near. The rule the wish names (a thần hồn and khí vận roll) becomes the meter's p."
+    }
+   ],
+   "learners": [
+    {
+     "key": "lien_thieu_nghi",
+     "file": "design/world/depth/sects/phuong_minh.cast.json",
+     "via": "build.aux",
+     "layer": 9
+    },
+    {
+     "key": "lo_van_khanh",
+     "file": "design/world/depth/sects/phuong_minh.cast.json",
+     "via": "build.aux",
+     "layer": 7
+    }
+   ],
+   "fun": "The eighth note is the gamble Liên Khánh Dao died making; a player sees the meter fill across a life and chooses when to play past the break. Liên Thiều Nghi, who wears the set that forbids it, has to take off the zither's robe to try.",
+   "status": "proposal"
+  },
+  {
+   "wish": "e4 (rb-11), Dawn Clouds",
+   "kind": "effect",
+   "record": {
+    "id": "dawn-clouds-holds",
+    "name": "The Note Holds (Âm Trì)",
+    "group": "rule_change",
+    "rule": "Dawn Clouds Take the Colour ends only when a hit gets past your ward or body shield and takes health. A hit that a ward or shield stops in full, or that you evade, does not end it.",
+    "reads": "Incoming hit's health damage after wards and shields (instant)",
+    "payload": "Replaces the note's end condition ('ends if the player is struck')",
+    "closes": "The note still ends on any hit that reaches health",
+    "hosts": [
+     "Tech"
+    ]
+   },
+   "wire": [
+    {
+     "file": "design/world/depth/sects/phuong_minh.techniques.json",
+     "id": "shao-remnant-score",
+     "field": "arts",
+     "action": "replace",
+     "target": "Dawn Clouds Take the Colour (Triêu Hà Nhiễm Sắc)",
+     "value": {
+      "new": "Dawn Clouds Take the Colour (Triêu Hà Nhiễm Sắc)",
+      "concept": "A sustained note: allies in hearing regain linh lực while it plays, foes' art speed falls; it ends when a hit gets past the player's ward or body shield (A250)."
+     },
+     "note": "Its concept text changes from 'ends if the player is struck', which ends almost at once in a fight where both sides hit every second. A ward player now holds the note behind the ward."
+    }
+   ],
+   "learners": [
+    {
+     "key": "lien_thieu_nghi",
+     "file": "design/world/depth/sects/phuong_minh.cast.json",
+     "via": "build.aux",
+     "layer": 9
+    },
+    {
+     "key": "lo_van_khanh",
+     "file": "design/world/depth/sects/phuong_minh.cast.json",
+     "via": "build.aux",
+     "layer": 7
+    }
+   ],
+   "fun": "The note lasts as long as the wall in front of it: a ward is now part of the music.",
+   "status": "proposal"
+  },
+  {
+   "wish": "e5 (ra-LG1)",
+   "kind": "art",
+   "record": {
+    "id": "landing-the-fish",
+    "name": "Landing the Fish (Thu Tuyến)",
+    "element": "water",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "group": "lone-line-sitting-canon",
+    "tags": [
+     "water",
+     "hook",
+     "heavy"
+    ],
+    "kind": "elem",
+    "c_art": 0.6,
+    "cost_share": 0.04,
+    "cooldown": 6,
+    "counters": [
+     {
+      "id": "catch"
+     }
+    ],
+    "effects": [
+     {
+      "id": "catch-bank",
+      "on": "qi_drained",
+      "filter": {
+       "source": [
+        "line-through-the-ice",
+        "a-bite-on-the-line"
+       ]
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "catch",
+         "add_amount": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "catch-landed",
+      "on": "art_fired",
+      "filter": {
+       "art_id": "landing-the-fish"
+      },
+      "if": [
+       {
+        "read": "own.counter.catch",
+        "op": ">",
+        "value": 0
+       },
+       {
+        "read": "foe.qi_share",
+        "op": ">=",
+        "value": 0.2
+       }
+      ],
+      "do": [
+       {
+        "free_hit": {
+         "amount": {
+          "read": "own.counter.catch",
+          "mult": 3
+         },
+         "dtype": "elem"
+        }
+       },
+       {
+        "counter": {
+         "id": "catch",
+         "set": 0
+        }
+       }
+      ]
+     },
+     {
+      "id": "catch-landed-dry",
+      "on": "art_fired",
+      "filter": {
+       "art_id": "landing-the-fish"
+      },
+      "if": [
+       {
+        "read": "own.counter.catch",
+        "op": ">",
+        "value": 0
+       },
+       {
+        "read": "foe.qi_share",
+        "op": "<",
+        "value": 0.2
+       }
+      ],
+      "do": [
+       {
+        "free_hit": {
+         "amount": {
+          "read": "own.counter.catch",
+          "mult": 6
+         },
+         "dtype": "elem"
+        }
+       },
+       {
+        "counter": {
+         "id": "catch",
+         "set": 0
+        }
+       }
+      ]
+     }
+    ],
+    "rule": "A short pull on the line (a small Water hit). Every point of linh lực your Line Through the Ice and your Ice Hook's A Bite on the Line drain is banked as Catch, with no cap. Firing it spends the whole Catch as one free Water hit worth 3 times the Catch in damage, 6 times if the foe is below 20 % linh lực.",
+    "hooks": [
+     "linh lực drain",
+     "sitting stance",
+     "patience",
+     "foe linh lực low"
+    ],
+    "sources": [
+     "ra-LG1"
+    ]
+   },
+   "new_vocab": [
+    "event qi_drained (linh lực moved from foe to you)",
+    "counter.add_amount (bank points, not counts)",
+    "free_hit.amount (a flat amount read from a counter)",
+    "source ids line-through-the-ice and a-bite-on-the-line (the lineage art has no id yet)"
+   ],
+   "wire": [
+    {
+     "file": "design/world/depth/sects/lanh_giang.techniques.json",
+     "id": "lone-line-sitting-canon",
+     "field": "arts",
+     "action": "add",
+     "unlock_layer": 6,
+     "note": "The canon's third art, at layer 6 as the wish says. lu_doc_dieu (8) and bo_toa_tuyet (9) have it; su_pha_bang (5) reaches it at layer 6, a growth goal."
+    },
+    {
+     "file": "design/world/depth/sects/lanh_giang.techniques.json",
+     "id": "lone-line-sitting-canon",
+     "field": "arts",
+     "action": "replace",
+     "target": "Line Through the Ice (Xuyên Băng Tuyến)",
+     "value": {
+      "new": "Line Through the Ice (Xuyên Băng Tuyến)",
+      "concept": "A thin Water line that hooks a foe and drains a little of their linh lực each second it holds; what it drains is banked as Catch for Landing the Fish."
+     },
+     "note": "Names the bank, so the payoff reads its feed."
+    },
+    {
+     "file": "design/world/depth/sects/lanh_giang.items.json",
+     "id": "lg-ice-hook",
+     "field": "effects",
+     "action": "replace",
+     "target": "a-bite-on-the-line",
+     "value": {
+      "new": true,
+      "id": "a-bite-on-the-line",
+      "name": "A Bite on the Line (Ngư Thượng Câu)",
+      "rule": "While your Line Through the Ice holds a foe, your Sitting in the Snow stance also drains them: each second you sit, they lose 1 % of their linh lực to you, banked as Catch for Landing the Fish."
+     },
+     "note": "Only the bank clause is added; the drain is unchanged."
+    }
+   ],
+   "learners": [
+    {
+     "key": "lu_doc_dieu",
+     "file": "design/world/depth/sects/lanh_giang.cast.json",
+     "via": "build.main",
+     "layer": 8
+    },
+    {
+     "key": "bo_toa_tuyet",
+     "file": "design/world/depth/sects/lanh_giang.cast.json",
+     "via": "build.main",
+     "layer": 9
+    },
+    {
+     "key": "su_pha_bang",
+     "file": "design/world/depth/sects/lanh_giang.cast.json",
+     "via": "build.main",
+     "layer": 5
+    }
+   ],
+   "fun": "A patient drain, then one pull on the line: the foe who let him sit pays for every second at once.",
+   "status": "proposal"
+  },
+  {
+   "wish": "e6 (ra-TD2)",
+   "kind": "effect",
+   "record": {
+    "id": "pine-wave-fifteenth-layer",
+    "name": "The Fifteenth Layer (Đệ Thập Ngũ Tầng)",
+    "group": "rule_change",
+    "rule": "When you go Down and no refusal holds you up, you stay on the field as the pine for 6 s: you cannot act, be healed or be struck, but every wave you have banked (Gathering Wave's held waves and the canon's waves) fires one a second as a free hit, half Water and half Wood, until the bank is empty or the 6 s end. If the foe goes Down in that window, the fight ends as a double knockout (a draw), not your loss.",
+    "reads": "Down step (event); own banked waves (instant)",
+    "payload": "Free hits from the bank, one a second, c 0.8 each (Gathering Wave's bank value), split Physical (Wood) and the Water art's type",
+    "closes": "Once a fight. A last act: if Final Clause is also held, the waves replace it. Opens only at layer 15, which no copy of the canon teaches: the layer is recovered by quest (Hall of Voices, or the founder's pine)",
+    "hosts": [
+     "Tech"
+    ]
+   },
+   "new_vocab": [
+    "a timed last act: Formulas C allows one round of last acts at Down, so 6 s of waves after Down is a rule change to the Down step, stated here"
+   ],
+   "wire": [
+    {
+     "file": "design/world/depth/sects/tung_dao.techniques.json",
+     "id": "pine-wave-true-canon",
+     "field": "effects",
+     "action": "add",
+     "unlock_layer": 15,
+     "note": "The canon's unspoken fifteenth layer. Blocked: waits on the quest that recovers it (wishlist flags, quests pass). No cast wire: thoi_khinh_hong (14), dam_tung_lai (13) and vi_thanh_am (7) gain it only when the quest grants layer 15."
+    }
+   ],
+   "learners": [
+    {
+     "key": "thoi_khinh_hong",
+     "file": "design/world/depth/sects/tung_dao.cast.json",
+     "via": "build.main",
+     "layer": 14
+    },
+    {
+     "key": "dam_tung_lai",
+     "file": "design/world/depth/sects/tung_dao.cast.json",
+     "via": "build.main",
+     "layer": 13
+    },
+    {
+     "key": "vi_thanh_am",
+     "file": "design/world/depth/sects/tung_dao.cast.json",
+     "via": "build.main",
+     "layer": 7
+    }
+   ],
+   "fun": "The foe has to survive the head's last breath: the pine sea keeps breaking after the pine has fallen, and a loss can still end as a draw.",
+   "status": "proposal"
+  },
+  {
+   "wish": "e7 (rb-29)",
+   "kind": "art",
+   "record": {
+    "id": "drink-within-a-breath",
+    "name": "Drink Within a Breath (Nhất Tức Ẩm)",
+    "element": "metal",
+    "role": "damage",
+    "tier": "authored",
+    "power": "standalone",
+    "group": "black-wind-blood-sabre",
+    "tags": [
+     "metal",
+     "saber",
+     "blood",
+     "quick"
+    ],
+    "kind": "phys",
+    "c_art": 1.3,
+    "cost_share": 0.03,
+    "cooldown": 3,
+    "states": [
+     {
+      "id": "within-a-breath",
+      "mods": {}
+     }
+    ],
+    "effects": [
+     {
+      "id": "breath-cut-leech",
+      "on": "hit_landed",
+      "filter": {
+       "art_id": "drink-within-a-breath"
+      },
+      "do": [
+       {
+        "heal": {
+         "of": "amount",
+         "share": 0.15
+        }
+       }
+      ]
+     },
+     {
+      "id": "breath-opens",
+      "on": "crit",
+      "do": [
+       {
+        "state": {
+         "set": "within-a-breath",
+         "for": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "breath-drinks",
+      "on": "heal_restored",
+      "filter": {
+       "source": "leech"
+      },
+      "if": [
+       {
+        "read": "own.state.within-a-breath",
+        "op": "==",
+        "value": 1
+       }
+      ],
+      "do": [
+       {
+        "gain_qi": {
+         "of": "heal_share",
+         "share": 1.0
+        }
+       }
+      ]
+     }
+    ],
+    "rule": "A quick sabre cut that leeches 15 % of its damage as health. For 1 s after each of your crits, health you leech is also paid to you as linh lực: the same share of your linh lực as it healed of your health. Blood from a foe already Down is worth nothing.",
+    "hooks": [
+     "crit",
+     "health leech",
+     "linh lực",
+     "sabre"
+    ],
+    "sources": [
+     "rb-29"
+    ]
+   },
+   "new_vocab": [
+    "heal.of = amount (leech by the art's own damage)",
+    "heal_restored filter source = leech",
+    "gain_qi.of = heal_share",
+    "state.for (a timed state)"
+   ],
+   "wire": [
+    {
+     "file": "design/world/depth/people/demonic.techniques.json",
+     "id": "black-wind-blood-sabre",
+     "field": "arts",
+     "action": "add",
+     "unlock_layer": 3,
+     "note": "The method's own art beside its borrowed Debt Blade and Shearing Palm: the concept ('blood taken within a breath of the cut becomes linh lực at once') finally has a rule."
+    },
+    {
+     "file": "design/world/depth/people/demonic.cast.json",
+     "id": "khoai_thiet_ung",
+     "field": "build.aux",
+     "action": "replace",
+     "target": "tearing-force-rites",
+     "value": {
+      "tech": "black-wind-blood-sabre",
+      "layer": 9
+     },
+     "note": "The method's record names him as its holder ('now Khoái Thiết Ưng and his household'), his root (Metal 58, Fire 40) is its root, and he carries dm-black-wind-sabre. His Earth-tier stand-in main dia_kim stays (the sabre is Profound, so it does not replace the main); the sabre takes the Yellow tearing-force-rites aux slot. He keeps Shearing Palm (the sabre carries it) and loses Bloodletting Rite. Debt Blade is then carried twice (debt-ledger-blade and the sabre): one art, two carriers."
+    },
+    {
+     "file": "design/world/depth/people/loose-south.cast.json",
+     "id": "do_liet_co",
+     "field": "build.aux",
+     "action": "add",
+     "value": {
+      "tech": "black-wind-blood-sabre",
+      "layer": 6
+     },
+     "note": "The other Hắc Phong rogue; aux becomes 2 (debt-ledger-blade, this). His Thunder main stays; the sabre's crits drink. Debt Blade is carried twice (debt-ledger-blade and the sabre)."
+    }
+   ],
+   "fun": "The robber fights longest when wounded and wounding: every crit is a drink.",
+   "status": "proposal"
+  },
+  {
+   "wish": "e8 (rb-28)",
+   "kind": "art",
+   "record": {
+    "id": "move-the-sickness",
+    "name": "Move the Sickness (Di Bệnh)",
+    "element": "wood",
+    "role": "curse",
+    "tier": "authored",
+    "power": "standalone",
+    "group": "withered-branch-method",
+    "tags": [
+     "wood",
+     "curse",
+     "heal",
+     "poison"
+    ],
+    "kind": "elem",
+    "c_art": 0.8,
+    "cost_share": 0.04,
+    "cooldown": 5,
+    "effects": [
+     {
+      "id": "sickness-moved",
+      "on": "art_fired",
+      "filter": {
+       "art_id": "move-the-sickness"
+      },
+      "do": [
+       {
+        "move_own_debuffs": {
+         "n": "all",
+         "pay_per_stack": {
+          "linh_luc_share": 0.005
+         },
+         "order": "oldest",
+         "to": "foe",
+         "as": "own",
+         "keep_time": true
+        }
+       }
+      ]
+     },
+     {
+      "id": "wound-moved",
+      "on": "art_fired",
+      "filter": {
+       "art_id": "move-the-sickness"
+      },
+      "if": [
+       {
+        "read": "own.tech_layer.withered-branch-method",
+        "op": ">=",
+        "value": 9
+       }
+      ],
+      "do": [
+       {
+        "heal": {
+         "share": 0.04
+        }
+       },
+       {
+        "free_hit": {
+         "amount": {
+          "read": "event.healed",
+          "mult": 1
+         },
+         "dtype": "chaos",
+         "pass_shields": true
+        }
+       }
+      ]
+     }
+    ],
+    "rule": "Takes the stacks of the debuffs, statuses and curses on you, oldest first, and lays them on the foe as your own, with the time they had left. Each stack moved costs 0.5 % of your linh lực, and the move stops at the first stack you cannot pay for. A moved curse needs a free curse slot on the foe, or it stays on you. At the ninth layer of the Withered Branch Method it also moves a wound: you heal 4 % of your health and the foe takes that much as a Chaos hit that passes shields.",
+    "hooks": [
+     "debuffs on you",
+     "curses",
+     "poison",
+     "healing",
+     "anti-stacker"
+    ],
+    "sources": [
+     "rb-28"
+    ]
+   },
+   "new_vocab": [
+    "move_own_debuffs",
+    "move_own_debuffs.pay_per_stack",
+    "own.tech_layer.<id> read",
+    "free_hit.pass_shields",
+    "event.healed"
+   ],
+   "wire": [
+    {
+     "file": "design/world/depth/people/demonic.techniques.json",
+     "id": "withered-branch-method",
+     "field": "arts",
+     "action": "add",
+     "unlock_layer": 3,
+     "note": "The method's own art beside its borrowed Blight Canker and Bloodroot Pact; its whole idea (a sickness moved, not cured) is now in the fight."
+    },
+    {
+     "file": "design/world/depth/people/demonic.2.cast.json",
+     "id": "duong_kho_chi",
+     "field": "build.aux",
+     "action": "add",
+     "value": {
+      "tech": "withered-branch-method",
+      "layer": 9
+     },
+     "note": "He wrote the method in the margins of Thúy Vi's copy but does not carry it; aux becomes 2 (rotting-canopy-canon, this). Layer 9, the layer at which 'a person can take what a person had'."
+    }
+   ],
+   "fun": "The curser's nightmare: everything laid on the heretic healer comes back, and the batch's many stack-layers (the Pivot's Weights, Mercury, Shao) meet their counter.",
+   "status": "proposal"
+  },
+  {
+   "wish": "e9 (sets-bt-05)",
+   "kind": "technique",
+   "record": {
+    "id": "black-ice-method",
+    "name": "Black Ice Method (Hắc Băng Quyết)",
+    "tier": 2,
+    "tech_kind": "secret",
+    "names": [
+     "bang",
+     "am"
+    ],
+    "layers": 12,
+    "rank": "no sect's: a manual Triệu Huyết Y carries and offers; she cannot run it herself (no Ice)",
+    "bonuses": [
+     {
+      "stat": "tam_ma_resist_pct",
+      "value": 8
+     },
+     {
+      "stat": "linh_luc_pct",
+      "value": 10
+     }
+    ],
+    "passives": [
+     {
+      "key": "stack_effect_pct",
+      "value": 10,
+      "scope": [
+       "bang",
+       "debuff"
+      ]
+     },
+     {
+      "key": "status_duration_pct",
+      "value": 12,
+      "scope": [
+       "curse"
+      ]
+     },
+     {
+      "key": "curse_effect_pct",
+      "value": 8,
+      "scope": []
+     },
+     {
+      "key": "attack_pct",
+      "value": 8,
+      "scope": [
+       "chaos"
+      ]
+     },
+     {
+      "key": "art_speed_pct",
+      "value": 8,
+      "scope": [
+       "seal"
+      ]
+     }
+    ],
+    "abilities": [
+     {
+      "ability_id": "black-frost-seal",
+      "unlock_layer": 1
+     }
+    ],
+    "effects": [
+     {
+      "id": "black-under-white",
+      "name": "The Black Under the White (Bạch Hạ Hắc)",
+      "group": "scaling",
+      "rule": "Every 5 of your Ice stacks on a foe count as one of your curses wherever a rule counts your curses or the foe's different statuses. It is a count only: it takes no curse slot and is not cleansed as a curse.",
+      "reads": "Your Ice debuff stacks on the target (instant)",
+      "payload": "+1 counted curse per 5 Ice stacks, no cap",
+      "closes": "—",
+      "hosts": [
+       "Tech"
+      ]
+     },
+     {
+      "id": "black-thaw",
+      "name": "Black Thaw (Hắc Giải)",
+      "group": "trigger",
+      "rule": "When one of your Ice batches on a foe runs out while that foe carries one of your curses, the frost lets go black: the foe takes a Chaos hit of 0.1 per stack the batch held.",
+      "reads": "Your Ice batch expiring (event); your curses on the target (instant)",
+      "payload": "Free hit, c 0.1 per stack in the expired batch, Chaos, no cap",
+      "closes": "Cleansed batches do not thaw (only a batch that runs out)",
+      "hosts": [
+       "Tech"
+      ]
+     }
+    ],
+    "origin": "authored",
+    "suite": "black-ice-method",
+    "family": "ice",
+    "concept": "An Ice method written for a root that is also Darkness. The cultivator lets the Darkness settle under the frost, as ink settles under lake ice, so the cold carries it. In a fight her Ice stacks weigh as curses, and when her frost lets go of a cursed foe it leaves black behind.",
+    "lore": "Copied from the abode walls of Mặc Huyết Sinh's line, the Ice pages his own disciples could never open. Triệu Huyết Y has carried it since 1190 looking for a root that could; in 1196 she found one on the lake ice (cung_mac_suong).",
+    "status": "proposal"
+   },
+   "new_vocab": [
+    "event: an Ice batch running out",
+    "a counted curse that holds no slot"
+   ],
+   "wire": [
+    {
+     "file": "design/world/depth/people/demonic.techniques.json",
+     "id": "black-ice-method",
+     "field": "techniques",
+     "action": "new",
+     "note": "A found or offered manual, not Băng Tâm's lineage: no lineage slot anywhere. Filed with the demonic circle because Triệu Huyết Y carries it."
+    },
+    {
+     "file": "design/world/depth/sects/bang_tam.cast.json",
+     "id": "cung_mac_suong",
+     "field": "build.aux",
+     "action": "add",
+     "value": {
+      "tech": "black-ice-method",
+      "layer": 3
+     },
+     "note": "Conditional: applies when she accepts Triệu Huyết Y's offer (her backstory: she has not said yes). Until then her build stays as is and the Black and White Stones set is her only bridge; the wiring pass may hold this as the story's outcome instead of her start. aux becomes 1. A cheaper stand-in, if the method is far off: a convert_pct Cold → Chaos line on bt-black-backed-mirror (group (b)'s call)."
+    }
+   ],
+   "fun": "The Ice caster whose frost turns black when nobody is watching: her seals feed the Darkness she hides, and a cursed foe pays when the frost lets go.",
+   "status": "proposal"
+  },
+  {
+   "wish": "e9 (sets-bt-05), the method's art",
+   "kind": "art",
+   "record": {
+    "id": "black-frost-seal",
+    "name": "Black Frost Seal (Hắc Sương Ấn)",
+    "element": "ice",
+    "role": "curse",
+    "tier": "authored",
+    "power": "engine",
+    "group": "black-ice-method",
+    "tags": [
+     "cold",
+     "seal",
+     "curse"
+    ],
+    "kind": "elem",
+    "c_art": 1.0,
+    "cost_share": 0.04,
+    "cooldown": 5,
+    "debuff": [
+     5,
+     6
+    ],
+    "convert": {
+     "to": "chaos",
+     "share": 0.3
+    },
+    "statuses": [
+     {
+      "id": "withering",
+      "stacks": 1,
+      "dur": 4
+     }
+    ],
+    "empower": [
+     {
+      "if": [
+       {
+        "read": "foe.debuff.ice",
+        "op": ">=",
+        "value": 10
+       },
+       {
+        "read": "foe.status.withering",
+        "op": ">=",
+        "value": 1
+       }
+      ],
+      "c_mult": 2.5,
+      "convert": {
+       "to": "chaos",
+       "share": 1.0
+      }
+     }
+    ],
+    "rule": "A seal strike, 30 % of it Chaos, that lays 5 Ice stacks for 6 s and Withering (the foe's healing taken halved) for 4 s. Into a foe already at 10 Ice stacks and Withered, it hits two and a half times as hard and all of it is Chaos.",
+    "hooks": [
+     "ice stacks",
+     "curse",
+     "chaos",
+     "seal"
+    ],
+    "sources": [
+     "sets-bt-05"
+    ]
+   },
+   "new_vocab": [
+    "none beyond the library: debuff, convert, statuses and empower as in rime-lock-seal and blight-canker"
+   ],
+   "wire": [
+    {
+     "file": "design/world/depth/people/demonic.techniques.json",
+     "id": "black-ice-method",
+     "field": "abilities",
+     "action": "add",
+     "unlock_layer": 1,
+     "note": "The Black Ice Method's one art (its record lists it under abilities); the method arrives with the e9 'new' wire, so this id exists once that wire is applied."
+    }
+   ],
+   "learners": [
+    {
+     "key": "cung_mac_suong",
+     "file": "design/world/depth/sects/bang_tam.cast.json",
+     "via": "build.aux (e9, conditional)",
+     "layer": 3
+    }
+   ],
+   "fun": "Her seal is white on the outside and black at the core, like the needle she made herself.",
+   "status": "proposal"
+  },
+  {
+   "wish": "e10 (sets-tp/light-pipe-art)",
+   "kind": "art",
+   "record": {
+    "id": "dawn-call",
+    "name": "Dawn Call (Thần Khiếu)",
+    "element": "light",
+    "role": "damage",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": [
+     "light",
+     "song",
+     "soul",
+     "pipe"
+    ],
+    "kind": "elem",
+    "c_art": 1.2,
+    "cost_share": 0.04,
+    "cooldown": 4,
+    "requires": {
+     "root_has": [
+      "quang"
+     ]
+    },
+    "dtype": "light",
+    "soul_part": 0.3,
+    "counters": [
+     {
+      "id": "dawn"
+     }
+    ],
+    "effects": [
+     {
+      "id": "dawn-count",
+      "on": "art_fired",
+      "filter": {
+       "art_id": "dawn-call"
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "dawn",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "dawn-exposed",
+      "on": "art_fired",
+      "filter": {
+       "art_id": "dawn-call"
+      },
+      "if": [
+       {
+        "read": "own.counter.dawn",
+        "op": ">=",
+        "value": 3
+       }
+      ],
+      "do": [
+       {
+        "status": {
+         "id": "exposed",
+         "stacks": 1,
+         "dur": 3,
+         "side": "foe"
+        }
+       },
+       {
+        "counter": {
+         "id": "dawn",
+         "set": 0
+        }
+       }
+      ]
+     }
+    ],
+    "rule": "A note on the pipe: a Light hit with an added Soul part of 30 % (Damage Types rule 1, the R11 exception), so it counts as a song and a soul art. Every third cast lays Exposed (all resistance −100 points, 3 s). Needs a Light variant in the root.",
+    "hooks": [
+     "light",
+     "song",
+     "soul",
+     "Exposed"
+    ],
+    "sources": [
+     "sets-tp/light-pipe-art"
+    ]
+   },
+   "new_vocab": [
+    "element 'light' and dtype 'light' (no library art uses them yet)",
+    "soul_part (the 30 % added Soul part)",
+    "requires.root_has"
+   ],
+   "wire": [
+    {
+     "file": "design/world/depth/sects/phuong_minh.items.json",
+     "id": "pm-dawn-call-pipe",
+     "field": "arts",
+     "action": "add",
+     "value": [
+      "dawn-call"
+     ],
+     "note": "On her brother's pipe, not the lineage: the palace has no Light art and she is the only Light in it. The set's stand-in (Light on the Pipe: every fifth soul art on the pipe lays Exposed) now stacks with it; the set may drop to a plain line if the two together are too much."
+    }
+   ],
+   "learners": [
+    {
+     "key": "chuc_hieu_nghi",
+     "file": "design/world/depth/sects/phuong_minh.2.cast.json",
+     "via": "gear pm-dawn-call-pipe",
+     "layer": null
+    }
+   ],
+   "fun": "The only Light in the palace finds a way to play it: the pipe her brother left lays the foe bare.",
+   "status": "proposal"
+  }
+ ],
+ "not_authored": [
+  {
+   "wish": "e4 for chuc_hieu_nghi",
+   "reason": "She holds neither Shao technique, so a movement counter gives her nothing; her need (the Dawn-Call Pipe) is met by e10 Dawn Call."
+  },
+  {
+   "wish": "an element-free seal method (named in the authoring prompt)",
+   "reason": "Not a group (e) entry; the nearest wishes (W4 Seal Script, b8; the element-free Chân Kim method's linh lực, rb-17) sit in groups (b) and (d) for their authors."
+  }
+ ]
+}

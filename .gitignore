@@ -39,6 +39,7 @@ docs/consistency-failures.md
 /build/
 builds/
 !design/builds/
+!design/world/depth/builds/
 # a design run's own builds/ folder (guides, sheets, fight files) is design work, not build output
 !design/builds/*/builds/
 bin/

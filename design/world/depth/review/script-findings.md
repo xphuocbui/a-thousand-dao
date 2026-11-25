@@ -7,7 +7,7 @@ Observations to steer the readers' review; counts, not verdicts.
 |---|---|---|
 | passed over for the headship | 2 of 50 | 1 of 1889 |
 | succession / heir quarrel | 37 of 50 | 48 of 1889 |
-| a secret kept from the sect | 6 of 50 | 14 of 1889 |
+| a secret kept from the sect | 6 of 50 | 15 of 1889 |
 | a hidden root or variant | 0 of 50 | 0 of 1889 |
 | the last of a fallen sect / line | 4 of 50 | 8 of 1889 |
 | a dying elder near lifespan's end | 1 of 50 | 3 of 1889 |
@@ -26,9 +26,9 @@ Seat-move years read from the pages' Seat rows: tam_kiem 406, chan_kim 427, coc_
 ## 3. Voice tics
 | Phrase | backstories |
 |---|---|
-| "has told no one" | 8 |
+| "has told no one" | 9 |
 | "never forgiven" | 5 |
-| "does not know" | 24 |
+| "does not know" | 25 |
 | "has never" | 114 |
 | "the only one" | 19 |
 | "in secret" | 7 |
@@ -37,19 +37,18 @@ Seat-move years read from the pages' Seat rows: tam_kiem 406, chan_kim 427, coc_
 | "he has not" | 62 |
 | "not yet" | 21 |
 | "the last" | 57 |
-| "for forty years" | 31 |
+| "for forty years" | 32 |
 | "every winter" | 13 |
 | "every year" | 25 |
 
 Most repeated 4-word phrases (backstories containing them): "was born in in" 53; "was born in at" 21; "is the only one" 16; "the night rain market" 15; "and has begun to" 14; "he has kept the" 14; "for forty years and" 14; "and did not come" 13; "the night rain edict" 13; "đỗ tinh hà do" 13; "tinh hà do tinh" 13; "hà do tinh ha" 13; "and has never once" 13; "in the winter of" 13; "kim vạn lý kim" 12; "vạn lý kim van" 12; "lý kim van ly" 12; "tiêu vấn phong tieu" 12; "vấn phong tieu van" 12; "phong tieu van phong" 12; "was born in the" 12; "and is the only" 12; "dusk test three times" 12; "to the fire court" 12; "châu phi vân chau" 11
 
-## 4. Timeline (3 observations)
-- hoa_tuyet_nghi: master ta_ngan_suong less than 10 years older
+## 4. Timeline (2 observations)
 - quan_thap_thu: master tuong_ngoc_can less than 10 years older
 - khuc_phu_thach: master lo_kim_tuyen less than 10 years older
 
 ## 5. Build coherence
-Tier A/B builds whose gear carries none of their archetype's usual bases: linh_thuc_su 33 (e.g. luc_thuong_lam, luc_ke_dien, quan_tuyet_tung, ta_thanh_loan), kiem_tu 13 (e.g. so_ngoc_ho, do_tieu_lien, su_pha_bang, au_duong_kien), tran_su 12 (e.g. hau_bach_chu, ta_quy_yen, tham_huong_nhi, van_han_dang), dan_su 7 (e.g. tuong_ngoc_can, on_song_ngoc, muc_hong_sa, lieu_da_thai), the_tu 5 (e.g. du_chuc_nhi, khau_thanh_thao, phi_nhan_tam, diem_lac_nhan)
+Tier A/B builds whose gear carries none of their archetype's usual bases: dan_su 7 (e.g. tuong_ngoc_can, on_song_ngoc, muc_hong_sa, lieu_da_thai), the_tu 5 (e.g. du_chuc_nhi, khau_thanh_thao, phi_nhan_tam, diem_lac_nhan), tran_su 3 (e.g. hau_bach_chu, ta_quy_yen, chung_hong_lo), kiem_tu 1 (e.g. do_tieu_lien)
 
 Identical Đạo Đồ routes shared by more than one person in a sect: 0 groups, e.g. 
 
@@ -62,4 +61,4 @@ Callings: Steward 302, Wanderer 252, Duelist 225, Merchant 177, Herbalist 174, R
 
 v2 traits never used: cracked_dantian, deviation_survivor, homely, reborn_soul, slow_witted, thin_soul
 
-v2 traits, most used: village_born 1191, merchant_child 230, sect_raised 136, sturdy_frame 94, quick_minded 91, keen_soul 80, servant_born 71, clan_heir 70, steady_heart 66, gardener 56, scholar_family 51, street_orphan 45
+v2 traits, most used: village_born 1191, merchant_child 230, sect_raised 136, sturdy_frame 94, quick_minded 92, keen_soul 80, servant_born 71, clan_heir 70, steady_heart 66, gardener 56, scholar_family 51, street_orphan 45

@@ -2640,12 +2640,12 @@
 "kind": "duel",
 "people": [
 "tu_khong_hac_nien",
-"thach_tang_danh"
+"thang_vo_ta"
 ],
 "sects": [
 "phat_y"
 ],
-"text_en": "Tư Không Hạc Niên duels Thạch Tàng Danh of Phất Y Cốc on Cùng Mục Phong for three days; neither wins, and he leaves without a sect.",
+"text_en": "Tư Không Hạc Niên duels Thang Vô Tạ of Phất Y Cốc on Cùng Mục Phong for three days; neither wins, and he leaves without a sect.",
 "place": 186,
 "item": "co_hac"
 },
@@ -2655,12 +2655,12 @@
 "year": 1131,
 "kind": "tale",
 "people": [
-"thach_tang_danh"
+"thang_vo_ta"
 ],
 "sects": [
 "phat_y"
 ],
-"text_en": "After the duel on Cùng Mục Phong, Thạch Tàng Danh will not speak of it; Phất Y Cốc's disciples climb the peak to see the sword marks.",
+"text_en": "After the duel on Cùng Mục Phong, Thang Vô Tạ will not speak of it; Phất Y Cốc's disciples climb the peak to see the sword marks.",
 "place": 186,
 "region": 15
 },

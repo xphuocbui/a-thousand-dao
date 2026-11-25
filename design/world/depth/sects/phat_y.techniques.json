@@ -7,7 +7,7 @@
   "secret": [
    {"id": "debt-ledger-blade", "rank": "noi_mon", "note": "taught to every sword before its first contract"},
    {"id": "afterimage-sword-canon", "rank": "truong_lao"},
-   {"id": "brushed-sleeve-step", "rank": "tong_chu", "note": "the founder's; Wind roots only. Thạch Tàng Danh is the only living holder"}
+   {"id": "brushed-sleeve-step", "rank": "tong_chu", "note": "the founder's; Wind roots only. Thang Vô Tạ is the only living holder"}
   ],
   "body": null,
   "elements": ["kim", "hoa"],
@@ -47,7 +47,7 @@
     {"new": "Brush the Sleeve (Phất Y)", "concept": "Turns the next attack aimed at the holder with a sweep of the sleeve and moves them a short distance on the wind; for a breath after, their Metal strikes are faster."},
     {"new": "Hide the Name (Tàng Danh)", "concept": "For a few seconds the holder's strikes leave afterimages that strike again a moment later; while it lasts, foes cannot single them out."}
    ],
-   "lore": "Quách Vô Tích taught it to no one and left it in a sleeve of grey cloth in the valley's hall when he walked away in 790. Liễu Hành Vân, who had no Wind, kept the book closed for three centuries until a hawk-catcher's son from Thương Ưng Đài opened it: Thạch Tàng Danh.",
+   "lore": "Quách Vô Tích taught it to no one and left it in a sleeve of grey cloth in the valley's hall when he walked away in 790. Liễu Hành Vân, who had no Wind, kept the book closed for three centuries until a hawk-catcher's son from Thương Ưng Đài opened it: Thang Vô Tạ.",
    "status": "proposal"
   }
  ]
