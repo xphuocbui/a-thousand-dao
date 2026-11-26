@@ -1,0 +1,98 @@
+{
+  "name": "t24_meter_exact",
+  "slice": 24,
+  "chance_free": true,
+  "seed": 241,
+  "doc": "World-depth Stage 5, slice 8b (2026-11-26), chance-free: Playing Past the Break's kept meter (Effects rule 12's one counted chance kept between fights). A starts the fight with the meter at 0.55 and p 0.30; every Remnant firing is an attempt: p joins the meter in thousandths, at 1 it succeeds (Slowed Time on the foe, linh lực back) and 1 comes off, else a backlash (a Fire debuff on A, standing in for the record's health and linh lực loss). No draw.",
+  "a": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "remnant-player",
+    "meters": {
+      "brk": {
+        "start": 0.55,
+        "p": 0.3
+      }
+    },
+    "arts": [
+      {
+        "name": "remnant",
+        "c": 0.6,
+        "cost": 0.04,
+        "cd": 2.5,
+        "tags": [
+          "song"
+        ]
+      },
+      {
+        "name": "palm",
+        "c": 0.8,
+        "cost": 0.04,
+        "cd": 3.0
+      }
+    ],
+    "effects": [
+      {
+        "id": "playing-past-the-break",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "remnant"
+        },
+        "do": [
+          {
+            "meter": {
+              "id": "brk",
+              "success": [
+                {
+                  "status": {
+                    "id": "slowed_time",
+                    "stacks": 5,
+                    "dur": 5,
+                    "side": "foe"
+                  }
+                },
+                {
+                  "gain_qi": {
+                    "share": 0.1
+                  }
+                }
+              ],
+              "failure": [
+                {
+                  "stacks": {
+                    "el": "fire",
+                    "n": 2,
+                    "for": 5,
+                    "side": "own",
+                    "kind": "debuff"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "listener",
+    "arts": [
+      {
+        "name": "cut",
+        "c": 0.8,
+        "cost": 0.04,
+        "cd": 2.5
+      },
+      {
+        "name": "strike",
+        "c": 1.0,
+        "cost": 0.05,
+        "cd": 4.0
+      }
+    ]
+  }
+}

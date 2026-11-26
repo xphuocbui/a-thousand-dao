@@ -133,6 +133,8 @@ var eff_state: Dictionary = {}
 var temp_mods: Array[TempMod] = []
 var banked: Array[Banked] = []
 var counters: Dictionary = {}
+## Kept counted chances, per mille (meter action; 2026-11-26): id -> value; reported at the fight's end.
+var meters: Dictionary = {}
 var counter_times: Dictionary = {}
 ## An extended last act running (Effects rule 11, 2026-11-26): the side is past its Down step, untargetable and
 ## inactive; only its window's free hits fire, a round each window_every ms, until window_until. Once a fight.
@@ -165,6 +167,9 @@ var trig_count: int = 0
 var trig_dmg: float = 0.0
 var state: String = ""
 var fire_log: Array = []
+## Waiting next-art costs (2026-11-26; Nine Shao): [multiplier, filter]; the art that pays with one uses it.
+var next_cost: Array = []
+var nc_idx: int = -1
 var cur_ev: Variant = null
 var last_art: int = -1
 ## Slice 4b: delays this side took (ms, for the falloff), summons ([c, dtype, cd ms, next ms, until ms]), the
@@ -218,6 +223,8 @@ func _init(profile: FighterProfile, side_label: String, k: CombatConstants) -> v
 	state = p.state_start
 	refusals_left = p.refusals
 	more_live = p.always_by_key.has("stack_more")
+	for mid in p.meters:
+		meters[mid] = int(floorf(float(p.meters[mid].get("start", 0.0)) * 1000.0 + 0.5))
 	for cid in p.counter_def:
 		counters[cid] = 0.0
 		counter_times[cid] = []

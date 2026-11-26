@@ -126,12 +126,13 @@ def compile_case(inp):
     finally:
         F._LIB["techs"].pop("character", None)
     rec = dataclasses.asdict(b)
-    for late in ("pill", "tech_layers"):   # fields added later stay out at their default (world-depth Stage 5)
+    for late in ("pill", "tech_layers", "meters"):   # fields added later stay out at their default (world-depth Stage 5)
         if rec.get(late) == {}:
             rec.pop(late, None)
     for art in rec.get("arts", []):   # fields added later stay out at their default (world-depth Stage 5: escape)
-        if art.get("escape") == 0.0:
-            art.pop("escape", None)
+        for late, dv in (("escape", 0.0), ("movements", []), ("movement_counter", "")):
+            if art.get(late) == dv:
+                art.pop(late, None)
     return {"name": inp["name"], "input": inp, "build": rec, "unmodelled": exp["unmodelled"]}
 
 

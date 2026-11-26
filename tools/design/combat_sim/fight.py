@@ -162,7 +162,7 @@ TOP_KEYS = {"name", "realm", "layers", "crit", "n_body", "n_qi", "art_speed_pct"
             "accuracy_pct", "gain_on_hit_pct", "leech_qi_pct", "leech_health_pct", "ward", "body", "cleanse",
             "keystones", "curses", "purity", "bonus_slots", "arts", "enemy", "enemy_overrides", "unmodelled",
             "_comment", "effects", "counters", "companions", "shields", "basic_speed_pct", "opening_haste_pct", "pill",
-            "tech_layers",
+            "tech_layers", "meters",
             "basic_coef_add", "timer_resist_pct", "ward_bill_pct", "refusals", "divine_sense", "soul_res_pct",
             "x_soul", "tam_ma", "resist", "boss", "tags", "states", "techniques", "items", "reserved",
             "stack_eff", "stack_dur", "wards", "pierce_pct", "stage_mult", "tree_effects", "tree_lines_on_sheet",
@@ -172,7 +172,7 @@ BODY_KEYS = {"block", "resistance", "shield", "layers"}
 ART_KEYS = {"id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
             "qi_restore", "cleanse", "x", "_comment", "tags", "guards", "statuses", "split", "soul_pct",
             "soul_part", "bypass", "pool", "convert", "hp_cost", "charges", "group", "steps", "empower",
-            "escape"}
+            "escape", "movements", "movement_counter"}
 CLEANSE_KEYS = {"per_pulse", "fee_share", "share"}
 KEYSTONES = {f for f in sim.Build.__dataclass_fields__ if f.startswith("k_")}
 CURSES = {"withering": "curse_wither", "stagnation": "curse_stagnate"}
@@ -494,6 +494,8 @@ def expand_library(d):
                 continue
             x = {k: v for k, v in src.items() if k in LIB_ART_KEYS}
             x["id"] = src["id"]
+            if src.get("movements") and not src.get("movement_counter") and src.get("counters"):
+                x["movement_counter"] = src["counters"][0]["id"]   # a piece counts on the art's first own counter
             x.update({k: v for k, v in a.items() if k != "lib"})
             out.append(x)
             effects += src.get("effects", [])
@@ -824,6 +826,8 @@ def to_build(d, r, notes, who):
         ea.soul_pct = a.get("soul_pct", 0.0)
         ea.soul_part = a.get("soul_part", 0.0)
         ea.escape = a.get("escape", 0.0)   # an escape art: its e_art (Combat rule 10; world-depth Stage 5)
+        ea.movements = list(a.get("movements", []))   # a piece's movements (2026-11-26)
+        ea.movement_counter = a.get("movement_counter", "")
         ea.bypass = a.get("bypass", 0.0)
         ea.pool = a.get("pool", "qi")
         ea.convert = dict(a.get("convert", {}))
@@ -839,6 +843,7 @@ def to_build(d, r, notes, who):
     eb.counters = list(d.get("counters", []))
     eb.pill = dict(d.get("pill", {}))   # a prepared pill (world-depth Stage 5; smoke only)
     eb.tech_layers = dict(d.get("tech_layers", {}))   # technique id -> layer (own.tech_layer.<id>)
+    eb.meters = {k: dict(v) for k, v in d.get("meters", {}).items()}   # kept counted chances (2026-11-26)
     eb.companions = list(d.get("companions", []))
     eb.shields = [engine.Shield(**sh) for sh in d.get("shields", [])]
     for key, field in (("basic_speed_pct", "basic_speed_pct"), ("opening_haste_pct", "opening_haste_pct"),

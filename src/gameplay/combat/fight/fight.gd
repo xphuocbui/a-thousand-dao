@@ -966,6 +966,9 @@ func act(s: FighterState) -> void:
 			continue
 		if not pay(s, art):
 			continue
+		if s.nc_idx >= 0:   # a waiting next-art cost is used by the art that paid with it
+			s.next_cost.remove_at(s.nc_idx)
+			s.nc_idx = -1
 		var base_id: StringName = art.id
 		art = shape(s, i, art)
 		var speed: float = 1.0 if m(s, "speed_locked", null) > 0.0 else speed_base + m(s, "art_speed", art.ctx) / 100.0 + art.node_speed_pct / 100.0
@@ -1009,7 +1012,7 @@ func act(s: FighterState) -> void:
 		var ev: Dictionary = {}
 		if _fx:
 			ev = {"art_id": str(art.id), "slot": i, "cost": s.last_cost, "tags": art.tags_s, "element": str(art.element),
-				"dtype": str(art.dtype), "kind": "art", "hp_paid_share": s.hp_paid / s.hp_max}
+				"dtype": str(art.dtype), "kind": "art", "hp_paid_share": s.hp_paid / s.hp_max, "group": art.group}
 		s.cur_ev = ev
 		s.last_art = i
 		if art.c != 0.0 or art.soul_pct != 0.0 or art.soul_part != 0.0 or art.tags.has(&"movement"):
@@ -1019,6 +1022,19 @@ func act(s: FighterState) -> void:
 		if art.escape != 0.0:   # an escape art opens its channel; hits keep landing (Combat rule 10)
 			s.channel_until = t + k.escape_channel_ms
 			s.channel_e = art.escape
+		if not art.movements.is_empty():   # a piece's movements (2026-11-26; Nine Shao): the next one, if it is this art's
+			var nxt_m: int = int(float(s.counters.get(art.movement_counter, 0.0))) + 1
+			var mv_d: Dictionary = {}
+			for mv in art.movements:
+				if int(mv.n) == nxt_m:
+					mv_d = mv
+					break
+			ev["in_turn"] = 0.0 if mv_d.is_empty() else 1.0
+			ev["movement"] = 0.0 if mv_d.is_empty() else float(nxt_m)
+			if not mv_d.is_empty():
+				if _log_enabled:
+					_row(FightLogRow.Kind.MOVEMENT, s.label, &"", art.id, [float(nxt_m)])
+				EffectRunner.run(self, s, mv_d.e, mv_d.do, 1.0, ev)
 		_event(s, "art_fired", ev)
 		if art.soul_pct != 0.0:
 			soul_hit(s, o, art)
@@ -1106,6 +1122,13 @@ func pay(s: FighterState, art: ArtDef) -> bool:
 	var cost_up: float = (1.0 + s.dsum("cost_up")) * (1.0 + s.st("heavy_breath") * k.heavy_cost_up)
 	var cost: float = art.cost * k.cost_scale * (1.0 - minf(k.cost_red_cap, p.cost_red + m(s, "cost_red", art.ctx))) \
 			* cost_up * s.qi_base * (1.0 + art.node_cost_pct / 100.0)
+	s.nc_idx = -1
+	for j in s.next_cost.size():
+		if EffectRunner.matches(self, s.next_cost[j][1], art.ctx):
+			s.nc_idx = j
+			break
+	if s.nc_idx >= 0:   # a waiting next-art cost (2026-11-26; Nine Shao's seventh movement)
+		cost *= float(s.next_cost[s.nc_idx][0])
 	if art.pool == &"tam_ma":
 		var need: float = cost / s.qi_max() * 100.0
 		if s.tam_ma < need:

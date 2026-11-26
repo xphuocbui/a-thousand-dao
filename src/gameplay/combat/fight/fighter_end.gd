@@ -19,6 +19,8 @@ var healed: float
 var ward_paid: float
 ## Firings per art, in slot order.
 var fired: PackedInt32Array
+## Kept counted chances at the end (2026-11-26; Playing Past the Break): id -> value 0-1, for the life state.
+var meters: Dictionary = {}
 
 
 ## The end state of [param s].
@@ -35,4 +37,6 @@ static func of(s: FighterState) -> FighterEnd:
 	e.healed = s.healed
 	e.ward_paid = s.ward_paid
 	e.fired = s.fired.duplicate()
+	for mid in s.meters:
+		e.meters[mid] = float(s.meters[mid]) / 1000.0
 	return e

@@ -96,6 +96,8 @@ var effects: Array[EffectDef] = []
 var counter_def: Dictionary = {}
 ## A prepared pill, {element, grade, fail} (world-depth Stage 5, smoke only); empty: none.
 var pill: Dictionary = {}
+## Kept counted chances {id: {start, p}} (2026-11-26; Playing Past the Break; Effects rule 12's exception).
+var meters: Dictionary = {}
 ## Technique id -> layer, read as own.tech_layer.<id> (2026-11-26).
 var tech_layers: Dictionary = {}
 var always_by_key: Dictionary = {}

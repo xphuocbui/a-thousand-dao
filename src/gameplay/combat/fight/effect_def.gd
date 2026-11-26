@@ -41,8 +41,10 @@ class ScaleDef extends RefCounted:
 class ActionDef extends RefCounted:
 	var verb: String = ""
 	var arg: Variant = null
-	## consume's "then" actions, compiled.
+	## consume's "then" actions, compiled; a meter's success actions.
 	var then: Array = []
+	## A meter's failure actions, compiled (2026-11-26).
+	var otherwise: Array = []
 
 
 var id: String = ""

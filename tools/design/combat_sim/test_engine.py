@@ -300,6 +300,72 @@ def t_vocab_8a():
           "%s %s" % (f.read(A, "foe.curses"), f.read(B, "own.curses")))
 
 
+def piece_build(**kw):
+    """A piece (slice 8b; Nine Shao, the Remnant Score): "next" plays movements 1-3 in order; in turn advances the
+    counter, out of turn (past the last) restarts it; 2 lays a Shao stack on the foe, 3 makes the next piece art free."""
+    arts = [E.Art("next", 0.5, 0.04, 2.0, group="g", tags=("song",), movement_counter="m",
+                  movements=[{"n": 1, "do": []},
+                             {"n": 2, "do": [{"counter": {"id": "shao", "side": "foe", "add": 1}}]},
+                             {"n": 3, "do": [{"mod": {"next_art_cost": 0, "group": "g"}}]}])]
+    effects = [{"id": "adv", "on": "art_fired", "filter": {"group": "g"}, "if": [{"read": "event.in_turn", "op": "==", "value": 1}],
+                "do": [{"counter": {"id": "m", "add": 1}}]},
+               {"id": "brk", "on": "art_fired", "filter": {"tags": ["song"]}, "if": [{"read": "event.in_turn", "op": "==", "value": 0}],
+                "do": [{"counter": {"id": "m", "set": 0}}]}]
+    return dummy(arts=arts, effects=effects, counters=[{"id": "m"}], **kw)
+
+
+def t_movements():   # slice 8b (2026-11-26; Nine Shao, the Remnant Score)
+    f = E.Fight(piece_build(), dummy(), seed=3, parity=True, order="fixed")
+    f.run()
+    mv = [r[4] for r in f.plog if r[0] == "movement" and r[2] == "A"]
+    check("movements play 1, 2, 3; past the last nothing plays and the piece restarts", mv[:6] == [1, 2, 3, 1, 2, 3], str(mv[:8]))
+    arts = [r for r in f.plog if r[0] == "art" and r[2] == "A"]
+    check("the restarting firing plays nothing: 4 firings per 3 movements", len(arts) >= 8 and arts[3][1] < [r for r in f.plog if r[0] == "movement" and r[2] == "A"][3][1])
+    check("movement 2 lays Shao stacks on the foe, a plain counter there", f.B.counters.get("shao", 0) >= 2, str(f.B.counters))
+    check("after the third movement the next piece art costs nothing", arts[3][4] == 0.0 and arts[2][4] > 0, str(arts[:5]))
+    check("and the one after pays again", arts[4][4] > 0)
+    a = f.A.b.arts[0]
+    check("match reads group", E.match({"group": "g"}, E.art_ctx(a)) and not E.match({"group": "h"}, E.art_ctx(a)))
+    try:
+        E.Fight(dummy(arts=[E.Art("x", 0.5, 0.04, 2.0, movements=[{"n": 1, "do": []}], movement_counter="nope")]), dummy())
+        check("an undefined movement counter is refused", False)
+    except E.EngineError:
+        check("an undefined movement counter is refused", True)
+
+
+def t_kept_meter():   # slice 8b (2026-11-26; Playing Past the Break): a counted chance kept between fights
+    att = {"id": "eighth", "on": "art_fired", "do": [{"meter": {"id": "brk", "success": [{"gain_qi": {"share": 0.1}}],
+                                                                "failure": [{"stacks": {"el": "fire", "n": 1, "for": 5, "side": "own", "kind": "debuff"}}]}}]}
+    f = E.Fight(dummy(arts=[E.Art("x", 0.5, 0.04, 2.0)], effects=[att], meters={"brk": {"start": 0.6, "p": 0.3}}), dummy(),
+                seed=3, parity=True, order="fixed")
+    f.run()
+    rows = [(r[4], r[5]) for r in f.plog if r[0] == "meter"]
+    check("0.6 + 0.3 fails (900), then succeeds (1200 - 1000 = 200), then 500, 800, 1100 - 1000", rows[:5] == [(0, 900), (1, 200), (0, 500), (0, 800), (1, 100)], str(rows[:6]))
+    check("the end value is the meter left", f.A.meters["brk"] == rows[-1][1])
+    g = E.Fight(dummy(arts=[E.Art("x", 0.5, 0.04, 2.0)], effects=[att]), dummy(), seed=3, parity=True, order="fixed")
+    g.run()
+    check("without the meter no attempt is made", not [r for r in g.plog if r[0] == "meter"])
+
+
+def t_spend_charges():   # regression (2026-11-26): a negative add or a set on an each_for counter did nothing
+    f, A, B = setup(a=dummy(counters=[{"id": "seal", "each_for": 10}]))
+    e = {"id": "x", "on": "always", "do": []}
+    for t in (1000, 2000, 3000, 4000):
+        f.t = t
+        f.do(A, e, [{"counter": {"id": "seal", "add": 1}}], 1.0, {})
+    f.do(A, e, [{"counter": {"id": "seal", "add": -2}}], 1.0, {})
+    check("spending 2 charges removes the 2 nearest their end", A.counter_times["seal"] == [13000, 14000], str(A.counter_times["seal"]))
+    f.do(A, e, [{"counter": {"id": "seal", "add": -5}}], 1.0, {})
+    check("spending more than are held empties it", A.counter_times["seal"] == [])
+    for t in (5000, 6000, 7000):
+        f.t = t
+        f.do(A, e, [{"counter": {"id": "seal", "add": 1}}], 1.0, {})
+    f.do(A, e, [{"counter": {"id": "seal", "set": 1}}], 1.0, {})
+    check("set 1 keeps the newest charge", A.counter_times["seal"] == [17000], str(A.counter_times["seal"]))
+    f.do(A, e, [{"counter": {"id": "seal", "set": 0}}], 1.0, {})
+    check("set 0 clears it", A.counter_times["seal"] == [])
+
+
 def t_move_own_debuffs():   # Move the Sickness (2026-11-26)
     f, A, B = setup()
     f.add_stacks(B, A, "fire", 3, 8.0, buff=False)

@@ -14,7 +14,7 @@ extends RefCounted
 const _NONE_A: Array = []
 const _NONE_D: Dictionary = {}
 ## The filter keys matched by equality (the sim's match()).
-const _EQ_KEYS: Array = ["element", "kind", "status", "art_id", "source"]
+const _EQ_KEYS: Array = ["element", "kind", "status", "art_id", "source", "group"]   # group: 2026-11-26
 
 static func read(f: Fight, s: FighterState, r: EffectDef.ReadDef, ev: Variant) -> float:
 	if r.side == 2:
@@ -371,6 +371,12 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 		var arg: Dictionary = a.arg if a.arg is Dictionary else {}
 		match a.verb:
 			"mod":
+				if arg.has("next_art_cost") and e.on != "always":   # waits for the next matching art (2026-11-26)
+					var ncf := {}
+					for kk in ["group", "tags", "element", "dtype", "art_id"]:
+						if arg.has(kk):
+							ncf[kk] = arg[kk]
+					s.next_cost.append([float(arg.next_art_cost), ncf])
 				if e.on != "always":
 					var dur: float = float(arg.get("for", 0))
 					if not bool(arg.get("stack", false)):
@@ -385,7 +391,7 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 						if arg.has(kk):
 							filt[kk] = arg[kk]
 					for key in arg:
-						if f.is_mod_key(str(key)):
+						if f.is_mod_key(str(key)) and str(key) != "next_art_cost":
 							var tm := FighterState.TempMod.new()
 							tm.key = str(key)
 							tm.v = float(arg[key]) * n
@@ -491,21 +497,28 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 					fire(f, s, str(arg.event), ev2)
 			"counter":
 				var cid: String = str(arg.id)
-				var cdef: Dictionary = s.p.counter_def[cid]
+				var tgt_c: FighterState = o if str(arg.get("side", "own")) == "foe" else s   # side foe (2026-11-26)
+				var cdef: Dictionary = tgt_c.p.counter_def.get(cid, {})   # the foe has none: a plain counter on it
 				if cdef.get("each_for") != null and float(cdef.each_for) != 0.0:
 					# each stack on its own timer; at the cap the oldest is replaced
-					var times: Array = _live_times(s.counter_times[cid], f.t)
-					for i in int(float(arg.get("add", 1)) * n):
+					var times: Array = _live_times(tgt_c.counter_times[cid], f.t)
+					times.sort()
+					# a spend (negative add) removes the charges nearest their end; set keeps the newest N (fixed
+					# 2026-11-26: both did nothing, and a set added a charge). As engine.py.
+					var kk: int = (int(arg.set) - times.size()) if arg.get("set") != null else int(float(arg.get("add", 1)) * n)
+					if kk < 0:
+						times = times.slice(mini(times.size(), -kk))
+					for i in maxi(0, kk):
 						times.append(f.t + CombatConstants.ms(float(cdef.each_for)))
 					times.sort()
 					var tcap: int = int(cdef.get("cap", 0)) if cdef.get("cap") != null else 0
-					s.counter_times[cid] = times.slice(maxi(0, times.size() - tcap)) if tcap > 0 else times
+					tgt_c.counter_times[cid] = times.slice(maxi(0, times.size() - tcap)) if tcap > 0 else times
 					continue
-				var v: float = float(s.counters[cid]) + float(arg.get("add", 1)) * n
+				var v: float = float(tgt_c.counters.get(cid, 0.0)) + float(arg.get("add", 1)) * n
 				if arg.get("set") != null:
 					v = float(arg.set)
 				var ccap: Variant = cdef.get("cap")
-				s.counters[cid] = maxf(0.0, v if ccap == null else minf(float(ccap), v))
+				tgt_c.counters[cid] = maxf(0.0, v if ccap == null else minf(float(ccap), v))
 			"timer":
 				var tgt_t: FighterState = s if str(arg.get("side", "own")) == "own" else o
 				var by: float = float(arg.by) * n
@@ -655,6 +668,18 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 				s.protect[str(arg.el)] = {"for_first": arg.get("for_first"), "swap_buff": bool(arg.get("swap_buff", false))}
 			"move_own_debuffs":
 				f.move_own_debuffs(s, float(arg.get("pay_per_stack", 0.0)))
+			"meter":
+				# a counted chance kept between fights (Effects rule 12's exception, 2026-11-26; Playing Past the Break)
+				var mid: String = str(arg.get("id", ""))
+				if not s.meters.has(mid):
+					continue   # a fighter without the meter makes no attempt
+				s.meters[mid] = int(s.meters[mid]) + int(floorf(maxf(0.0, float(s.p.meters[mid].get("p", 0.0))) * 1000.0 + 0.5))
+				var ok_m: bool = int(s.meters[mid]) >= 1000
+				if ok_m:
+					s.meters[mid] = int(s.meters[mid]) - 1000
+				if f._log_enabled:
+					f._row(FightLogRow.Kind.METER, s.label, &"", StringName(mid), [1.0 if ok_m else 0.0, float(s.meters[mid])])
+				run(f, s, e, a.then if ok_m else a.otherwise, n, ev)
 			"burn_pill":
 				# Burn the prepared pill (Effects rule 6, 2026-11-26; Pill Smoke; smoke only): stacks_per_grade x grade debuff
 				# stacks of its element on the foe (Water as Ice, none as Wood), failed or not; its fail chance is drawn

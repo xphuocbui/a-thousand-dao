@@ -138,7 +138,7 @@ def build_all():
     # every field the same way (the fighter records are fully resolved; FighterProfileLoader)
     defaults = dataclasses.asdict(engine.from_sim(sim.Build("default")))
     defaults.pop("name")
-    for late in ("pill", "tech_layers"):   # fields added later stay out at their default (world-depth Stage 5), as
+    for late in ("pill", "tech_layers", "meters"):   # fields added later stay out at their default (world-depth Stage 5), as
         if defaults.get(late) == {}:        # in the parity and compile files, so compiled builds keep their shape
             defaults.pop(late)
     consts["build_defaults"] = defaults

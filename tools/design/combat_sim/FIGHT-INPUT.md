@@ -269,6 +269,23 @@ looks like a strong build.
   first, then your statuses, soonest end first, move to the foe as yours with their time left; each stack costs that
   share of your maximum linh lực and the move stops at the first you cannot pay; a curse needs a free slot on the foe.
   Fixture t22.
+- **Slice 8b (pieces in movements; Nine Shao, the Remnant Score):** an art's `movements` (`[{n, do}]`) with its
+  `movement_counter` (a plain counter of the fighter's own; a library art defaults to its first own counter). At
+  firing it plays the movement numbered counter + 1 if it has it (a `movement` log row), and `art_fired` carries
+  `in_turn` (1 or 0) and `movement` (the number played, or 0), read with an `if` on `event.in_turn`. The records
+  advance or restart the counter; past the last movement nothing plays. `counter {side: foe}` writes the foe's counter
+  (a plain one when the foe defines none). Mod `next_art_cost` (a cost multiplier, 0 = free) with `group` / `tags` /
+  `element` / `dtype` / `art_id` waits for your next matching art and is used when it pays; filters now take `group`.
+  Fixture t23.
+- **Slice 8b, the kept meter (Playing Past the Break; Effects rule 12's one counted chance kept between fights):**
+  the build's `meters` (`{id: {start, p}}`, both 0-1; the character compiler sets p from thần hồn and khí vận) and the
+  action `meter {id, success, failure}`: each attempt adds p in thousandths, succeeds when the meter reaches 1 (1 comes
+  off) and runs that list, else runs `failure`; no draw, a `meter` log row. A fighter without the meter makes no
+  attempt. The fight's end reports each meter's value (FighterEnd.meters; the sim's side.meters). Where the life state
+  keeps it, and which fights write it back, is not built yet. Fixture t24.
+- **Fix (2026-11-26):** a spend (`counter {add: -N}`) or a `set` on a charge counter (`each_for`) did nothing in
+  both engines, and a set even added a charge; a spend now removes the charges nearest their end, and a set keeps the
+  newest N. Every library art that spends Seal, Fray, Drink, Temper or Peal charges now pays them.
 
 ### World-depth vocabulary (2026-11-26; to build in world-depth Stage 5)
 

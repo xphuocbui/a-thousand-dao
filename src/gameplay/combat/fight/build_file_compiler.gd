@@ -27,14 +27,15 @@ const LIBRARY_FILE := "combat_library"
 ## Build-file fields a Character's fighter may have (before and after expansion).
 const KEYS := ["name", "realm", "layers", "n_body", "n_qi", "ward", "arts", "items", "modifiers", "purity", "effects",
 	"counters", "states", "unmodelled", "wards", "reserved", "stack_eff", "stack_dur", "body", "divine_sense",
-	"stage_mult", "tree_effects", "tree_lines_on_sheet", "counts", "stack_alias", "no_ward", "pill", "tech_layers"]
+	"stage_mult", "tree_effects", "tree_lines_on_sheet", "counts", "stack_alias", "no_ward", "pill", "tech_layers", "meters"]
 ## Base elements among slotted arts (the art_elements count: Utmost Yang, Utmost Yin).
 const BASE_ELEMENTS := ["fire", "water", "earth", "metal", "wood"]
 const WARD_KEYS := ["model", "payload", "drain_base", "ws_base", "we", "layers", "block"]
 const BODY_KEYS := ["block", "resistance", "shield", "layers"]
 const ART_KEYS := ["id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
 	"qi_restore", "cleanse", "x", "_comment", "tags", "guards", "statuses", "split", "soul_pct", "soul_part", "bypass",
-	"pool", "convert", "hp_cost", "charges", "group", "steps", "empower", "escape"]
+	"pool", "convert", "hp_cost", "charges", "group", "steps", "empower", "escape",
+	"movements", "movement_counter"]
 ## The synthetic technique a Character's sheet lines are compiled as (fight.py treats it like any technique).
 const SHEET_ID := "character"
 
@@ -167,6 +168,8 @@ func _expand(src: Dictionary) -> Dictionary:
 				if _lib_art_keys.has(str(k)):
 					x[k] = s[k]
 			x["id"] = s.id
+			if not Array(s.get("movements", [])).is_empty() and not s.has("movement_counter") and not Array(s.get("counters", [])).is_empty():
+				x["movement_counter"] = str(s.counters[0].id)   # a piece counts on the art's first own counter
 			for k in a:
 				if str(k) != "lib":
 					x[k] = a[k]
@@ -633,6 +636,9 @@ func _to_build(d: Dictionary, r: int, who: String) -> Dictionary:
 			art["c"] = 0.0
 		if float(a.get("escape", 0.0)) != 0.0:   # an escape art (world-depth Stage 5); absent at 0, as fight.py's cases
 			art["escape"] = float(a.escape)
+		if not Array(a.get("movements", [])).is_empty():   # a piece's movements (2026-11-26); absent when none
+			art["movements"] = Array(a.movements).duplicate(true)
+			art["movement_counter"] = str(a.get("movement_counter", ""))
 		arts.append(art)
 	b["arts"] = arts
 	b["layers"] = _pad(layers, 5)
@@ -640,6 +646,8 @@ func _to_build(d: Dictionary, r: int, who: String) -> Dictionary:
 	b["counters"] = Array(d.get("counters", [])).duplicate(true)
 	if d.get("tech_layers") is Dictionary and not (d.tech_layers as Dictionary).is_empty():   # as fight.py
 		b["tech_layers"] = (d.tech_layers as Dictionary).duplicate()
+	if d.get("meters") is Dictionary and not (d.meters as Dictionary).is_empty():   # kept counted chances, as fight.py
+		b["meters"] = (d.meters as Dictionary).duplicate(true)
 	if d.get("pill") is Dictionary and not (d.pill as Dictionary).is_empty():   # absent while empty, as fight.py's cases
 		b["pill"] = (d.pill as Dictionary).duplicate()
 	b["states"] = Array(d.get("states", [])).duplicate(true)

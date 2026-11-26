@@ -19,7 +19,8 @@ const SIDE_READS := ["hp_share", "hp_missing_share", "qi_share", "qi_missing_sha
 	"curses", "ward_paid", "body_shield_share", "boss", "tam_ma", "state.any", "buff_elements", "evade", "since_hit",
 	"hp_max_lead", "composed", "composed_time", "pressing", "foe_pressed", "since_act", "field_up", "broken", "wounded"]
 ## Filter and mod-argument keys that are not mod keys.
-const FILTER_KEYS := ["for", "dtype", "element", "tags", "kind", "stack", "status", "art_id", "not_tags", "is_crit", "source"]
+const FILTER_KEYS := ["for", "dtype", "element", "tags", "kind", "stack", "status", "art_id", "not_tags", "is_crit", "source",
+	"group"]
 
 var errors: PackedStringArray = []
 ## Records that compile but will not do what they say in this fighter: a read of a counter nothing in the fighter
@@ -123,8 +124,17 @@ func _action(a: Variant, w: String, counters: Dictionary) -> EffectDef.ActionDef
 				if not _mod_keys.has(str(key)) and not (str(key) in FILTER_KEYS):
 					errors.append("%s: mod key %s is not in the engine" % [w, str(key)])
 		"counter":
-			if not counters.has(str(arg.get("id", ""))):
+			if str(arg.get("side", "own")) != "foe" and not counters.has(str(arg.get("id", ""))):   # foe: plain if none
 				errors.append("%s: counter %s is not defined" % [w, str(arg.get("id"))])
+		"meter":   # a kept counted chance (2026-11-26): success and failure lists
+			for t in arg.get("success", []):
+				var sub_s: EffectDef.ActionDef = _action(t, w, counters)
+				if sub_s != null:
+					ad.then.append(sub_s)
+			for t in arg.get("failure", []):
+				var sub_f: EffectDef.ActionDef = _action(t, w, counters)
+				if sub_f != null:
+					ad.otherwise.append(sub_f)
 		"consume":
 			for t in arg.get("then", []):
 				var sub: EffectDef.ActionDef = _action(t, w, counters)

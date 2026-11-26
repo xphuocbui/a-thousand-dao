@@ -99,6 +99,8 @@ class Art:
     steps: list = field(default_factory=list)    # multi-step art: [{"unlock": conds, "pay": actions, overrides...}]
     empower: list = field(default_factory=list)  # [{"if": conds, "pay": actions, "c_mult", overrides...}]
     escape: float = 0.0                          # an escape art: its base e_art (Combat rule 10, Formulas I)
+    movements: list = field(default_factory=list)  # a piece's movements [{n, do}] (2026-11-26; Nine Shao)
+    movement_counter: str = ""                   # the counter that holds the last movement played
 
 
 @dataclass
@@ -153,6 +155,7 @@ class Build:
     effects: list = field(default_factory=list)    # Effect records (dicts)
     counters: list = field(default_factory=list)   # self-counter definitions (dicts)
     pill: dict = field(default_factory=dict)       # a prepared pill: {element, grade, fail} (2026-11-26, smoke only)
+    meters: dict = field(default_factory=dict)     # kept counted chances {id: {start, p}} (2026-11-26; Playing Past the Break)
     tech_layers: dict = field(default_factory=dict)  # technique id -> layer, read as own.tech_layer.<id> (2026-11-26)
     companions: list = field(default_factory=list)  # {"c": coefficient, "dtype": ..., "cd": s}
     divine_sense: float = 1.0
@@ -246,6 +249,8 @@ class Side:
         self.channel_e = 0.0
         self.fled = False
         self.pill_used = False      # the prepared pill was burned (burn_pill; one pill a fight)
+        # kept counted chances, per mille as Called Blow's (Effects rule 12, Formulas A); the end value is reported
+        self.meters = {k: int(math.floor(float(v.get("start", 0.0)) * 1000 + 0.5)) for k, v in b.meters.items()}
         self.loss_log = []          # [ms, health lost, linh luc lost] per pulse, the last 30 s (lost_last)
         self.loss_prev = None       # health and linh luc at the last pulse's end
         self.temp_mods = []                         # [key, value, until_ms, filter]
@@ -268,6 +273,8 @@ class Side:
         self.cur_ev = None
         self.step = [0] * len(b.arts)               # multi-step arts: the step the next firing tries
         self.fire_log = []                          # [t_ms, art_id, tags, group]
+        self.next_cost = []                         # waiting next-art costs: [multiplier, filter] (2026-11-26)
+        self.nc_idx = None                          # the one the art being paid for uses
         self.basic_ready = 0
         self.comp_ready = []
         self.soul_ready = 0
@@ -1051,6 +1058,9 @@ class Fight:
                 continue
             if not self.pay(s, a):
                 continue
+            if s.nc_idx is not None:   # a waiting next-art cost is used by the art that paid with it
+                s.next_cost.pop(s.nc_idx)
+                s.nc_idx = None
             a = self.shape(s, i, a)
             # art speed may be scoped (Sword arts, Fire arts, curse arts): read it in the art's own context
             speed = 1.0 if self.mod(s, "speed_locked") > 0 else speed_base + self.mod(s, "art_speed", art_ctx(a)) / 100
@@ -1083,7 +1093,7 @@ class Fight:
             if self.plog is not None:
                 self.plog.append(["art", self.t, s.label, a.name, s.last_cost, s.hp, s.qi])
             ev = {"art": a, "art_id": a.name, "slot": i, "cost": s.last_cost, "tags": a.tags, "element": a.element,
-                  "dtype": a.dtype, "kind": "art", "hp_paid_share": s.hp_paid / s.hp_max}
+                  "dtype": a.dtype, "kind": "art", "hp_paid_share": s.hp_paid / s.hp_max, "group": a.group}
             s.cur_ev = ev
             s.last_art = i
             if a.c or a.soul_pct or a.soul_part or "movement" in a.tags:   # the duel readings' clock (Formulas L)
@@ -1093,6 +1103,15 @@ class Fight:
             if a.escape:   # an escape art opens its channel; hits keep landing (Combat rule 10)
                 s.channel_until = self.t + ms(K["escape_channel"])
                 s.channel_e = a.escape
+            if a.movements:   # a piece's movements (2026-11-26; Nine Shao): plays the next one if it is this art's
+                nxt = int(s.counters.get(a.movement_counter, 0.0)) + 1
+                mv = next((m_ for m_ in a.movements if m_.get("n") == nxt), None)
+                ev["in_turn"] = 1.0 if mv else 0.0
+                ev["movement"] = float(nxt) if mv else 0.0
+                if mv:
+                    if self.plog is not None:
+                        self.plog.append(["movement", self.t, s.label, a.name, nxt])
+                    self.do(s, {"id": a.name + "-movement", "on": "art_fired"}, mv.get("do", []), 1.0, ev)
             self.fire_event(s, "art_fired", ev)
             if a.soul_pct:
                 self.soul_hit(s, o, a)
@@ -1172,6 +1191,9 @@ class Fight:
         s.hp_paid = 0.0
         cost_up = (1 + s.dsum("cost_up")) * (1 + s.st("heavy_breath") * STATUS["heavy_breath"]["cost_up"])
         cost = a.cost * K["cost_scale"] * (1 - min(K["cost_red_cap"], b.cost_red + self.mod(s, "cost_red", art_ctx(a)))) * cost_up * s.qi_base
+        s.nc_idx = next((j for j, x in enumerate(s.next_cost) if match(x[1], art_ctx(a))), None)
+        if s.nc_idx is not None:   # a waiting next-art cost (2026-11-26; Nine Shao's seventh movement)
+            cost *= s.next_cost[s.nc_idx][0]
         if a.pool == "tam_ma":
             need = cost / s.qi_max() * 100
             if s.tam_ma < need:
@@ -1769,12 +1791,15 @@ class Fight:
         for a in actions:
             (verb, arg), = a.items()
             if verb == "mod":
+                if "next_art_cost" in arg and e.get("on") != "always":   # waits for the next matching art
+                    s.next_cost.append([arg["next_art_cost"], {kk: arg[kk] for kk in ("group", "tags", "element", "dtype", "art_id")
+                                                              if kk in arg}])
                 if e.get("on") != "always":
                     dur = arg.get("for", 0)
                     if not arg.get("stack"):   # "while X in the last N s": a new firing refreshes, never stacks
                         s.temp_mods = [m for m in s.temp_mods if len(m) < 5 or m[4] != e["id"]]
                     for k, v in arg.items():
-                        if k in MOD_KEYS:
+                        if k in MOD_KEYS and k != "next_art_cost":
                             s.temp_mods.append([k, v * n, self.t + ms(dur) if dur else self.t + 1,
                                                 {kk: arg[kk] for kk in ("dtype", "element", "tags", "kind") if kk in arg},
                                                 e["id"]])
@@ -1809,6 +1834,19 @@ class Fight:
                     s.clipped["trig_budget"] = s.clipped.get("trig_budget", 0) + 1
             elif verb == "move_own_debuffs":
                 self.move_own_debuffs(s, arg.get("pay_per_stack", 0.0))
+            elif verb == "meter":
+                # a counted chance kept between fights (Effects rule 12's exception, 2026-11-26; Playing Past the
+                # Break): p in thousandths joins the meter; at 1000 it succeeds and 1000 comes off, else it fails
+                mid = arg["id"]
+                if mid not in s.meters:
+                    continue   # a fighter without the meter makes no attempt
+                s.meters[mid] += int(math.floor(max(0.0, float(s.b.meters[mid].get("p", 0.0))) * 1000 + 0.5))
+                ok = s.meters[mid] >= 1000
+                if ok:
+                    s.meters[mid] -= 1000
+                if self.plog is not None:
+                    self.plog.append(["meter", self.t, s.label, mid, 1 if ok else 0, s.meters[mid]])
+                self.do(s, e, arg.get("success" if ok else "failure", []), n, ev)
             elif verb == "burn_pill":
                 # Burn the prepared pill (Effects rule 6, 2026-11-26; Pill Smoke; smoke only for now): its smoke lays
                 # stacks_per_grade x grade debuff stacks of its element on the foe (Water smokes as Ice, no element as
@@ -1895,22 +1933,30 @@ class Fight:
             elif verb == "refund":
                 s.qi = min(s.qi_use(), s.qi + min(1.0, arg.get("share", 1.0) * n) * ev.get("cost", 0.0))
             elif verb == "counter":
-                cdef = s.counter_def.get(arg["id"])
+                tgt = o if arg.get("side") == "foe" else s   # side foe: the foe's counter (2026-11-26; Shao stacks)
+                cdef = tgt.counter_def.get(arg["id"])
                 if cdef is None:
-                    raise EngineError("counter %r is not defined" % arg["id"])
+                    if tgt is s:
+                        raise EngineError("counter %r is not defined" % arg["id"])
+                    cdef = {}   # the foe has none: a plain counter on it
                 if cdef.get("each_for"):   # each stack on its own timer; at the cap the oldest is replaced
-                    times = [u for u in s.counter_times[arg["id"]] if u > self.t]
-                    for _ in range(int(arg.get("add", 1) * n)):
+                    times = sorted(u for u in tgt.counter_times[arg["id"]] if u > self.t)
+                    # a spend (negative add) removes the charges nearest their end; set keeps the newest N (fixed
+                    # 2026-11-26: both did nothing, and a set added a charge)
+                    k = int(arg["set"]) - len(times) if arg.get("set") is not None else int(arg.get("add", 1) * n)
+                    if k < 0:
+                        times = times[min(len(times), -k):]
+                    for _ in range(max(0, k)):
                         times.append(self.t + ms(cdef["each_for"]))
                     times.sort()
                     cap = cdef.get("cap")
-                    s.counter_times[arg["id"]] = times[-cap:] if cap else times
+                    tgt.counter_times[arg["id"]] = times[-cap:] if cap else times
                     continue
-                v = s.counters[arg["id"]] + arg.get("add", 1) * n
+                v = tgt.counters.get(arg["id"], 0.0) + arg.get("add", 1) * n
                 if arg.get("set") is not None:
                     v = arg["set"]
                 cap = cdef.get("cap")
-                s.counters[arg["id"]] = max(0.0, v if cap is None else min(cap, v))
+                tgt.counters[arg["id"]] = max(0.0, v if cap is None else min(cap, v))
             elif verb == "strip":
                 left = int(arg.get("n", 1) * n)
                 pile = arg.get("el")
@@ -2154,7 +2200,7 @@ class Fight:
 def art_ctx(a):
     """The context an art's own reads use (speed, cost, soul multiplier), the same keys as a hit's context, so a
     scoped modifier (Fire arts, Sword arts, curse arts) matches the arts it names and no other."""
-    return {"dtype": a.dtype, "element": a.element, "tags": a.tags, "kind": "art", "art_id": a.name}
+    return {"dtype": a.dtype, "element": a.element, "tags": a.tags, "kind": "art", "art_id": a.name, "group": a.group}
 
 
 def match(filt, ctx):
@@ -2183,7 +2229,7 @@ def match(filt, ctx):
         elif k == "not_art_id":           # any art but this one (2026-11-26; Remnant Score)
             if ctx.get("art_id") in (v if isinstance(v, (list, tuple)) else [v]):
                 return False
-        elif k in ("element", "kind", "status", "art_id"):
+        elif k in ("element", "kind", "status", "art_id", "group"):   # group: the art's technique (2026-11-26)
             if ctx.get(k) != v:
                 return False
     return True
@@ -2261,7 +2307,7 @@ def validate(b):
                     raise EngineError("%s: Effect %s: cost_red %r is a share of the cost (0.1 = 10 %%), not points"
                                       % (b.name, e["id"], arg["cost_red"]))
                 bad = [k for k in arg if k not in MOD_KEYS and k not in ("for", "dtype", "element", "tags", "kind", "stack",
-                                                                         "status", "not_tags", "is_crit")]
+                                                                         "status", "not_tags", "is_crit", "group", "art_id")]
                 if bad:
                     raise EngineError("%s: Effect %s: mod keys %s are not in the engine" % (b.name, e["id"], bad))
             if verb == "stacks" and isinstance(arg, dict) and arg.get("el", "") not in ELEMENTS:
@@ -2281,6 +2327,16 @@ def validate(b):
             raise EngineError("%s: art %s: dtype %r" % (b.name, a.name, a.dtype))
         if a.soul_part > 0.30 + 1e-9:
             raise EngineError("%s: art %s: added Soul part over 30 %% (R11)" % (b.name, a.name))
+        if a.movements:   # a piece's movements read a plain counter of the fighter's own (2026-11-26)
+            cd_ = {c.get("id"): c for c in b.counters}.get(a.movement_counter)
+            if cd_ is None or cd_.get("each_for"):
+                raise EngineError("%s: art %s: movement_counter %r is not a plain counter of this fighter"
+                                  % (b.name, a.name, a.movement_counter))
+            for m_ in a.movements:
+                for act in m_.get("do", []):
+                    (vb, _), = act.items()
+                    if vb not in ACTIONS:
+                        raise EngineError("%s: art %s: movement %s: action %r is not in the engine" % (b.name, a.name, m_.get("n"), vb))
 
 
 def fight(b1, b2, seed=1, trace=False, order="random", parity=False):

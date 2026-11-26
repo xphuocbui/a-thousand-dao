@@ -41,12 +41,12 @@ const BUILD_NOT_PORTED := [
 const ART_PORTED := [
 	"name", "c", "cost", "cd", "element", "dtype", "m_mult", "split", "charges", "heal", "qi_restore", "hp_cost",
 	"bypass", "tags", "pool", "convert", "buff", "debuff", "cleanse", "statuses", "soul_pct", "soul_part", "guards",
-	"group", "steps", "empower", "escape",
+	"group", "steps", "empower", "escape", "movements", "movement_counter",
 ]
 const ART_NEUTRAL := []
 ## Art fields added after the records were resolved: absent means the default (world-depth Stage 5: escape 0, not an
 ## escape art), so earlier build files and the compile cases stay as they were.
-const ART_OPTIONAL := ["escape"]
+const ART_OPTIONAL := ["escape", "movements", "movement_counter"]
 const ART_NOT_PORTED := [
 ]
 
@@ -75,7 +75,7 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 		var name: String = str(key)
 		if BUILD_FLOATS.has(name) or name in ["realm", "resist", "arts", "companions", "shields", "wards", "purity",
 				"stack_eff", "stack_dur", "cleanse_pulse", "effects", "counters", "layers", "boss", "states", "refusals",
-			"stack_alias", "pill", "tech_layers"] \
+			"stack_alias", "pill", "tech_layers", "meters"] \
 				or name in BUILD_NEUTRAL:
 			continue
 		if name in BUILD_NOT_PORTED:
@@ -117,6 +117,8 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 		p.layers = PackedFloat64Array(d.layers)
 	if d.get("tech_layers") is Dictionary:   # technique id -> layer (own.tech_layer.<id>, 2026-11-26)
 		p.tech_layers = (d.tech_layers as Dictionary).duplicate()
+	if d.get("meters") is Dictionary:   # kept counted chances (2026-11-26)
+		p.meters = (d.meters as Dictionary).duplicate(true)
 	if d.get("pill") is Dictionary:   # a prepared pill (world-depth Stage 5, smoke only)
 		p.pill = (d.pill as Dictionary).duplicate()
 	for c in d.get("counters", []):
@@ -368,6 +370,15 @@ func _art(d: Dictionary, where: String) -> ArtDef:
 	a.soul_pct = float(d.get("soul_pct", 0.0))
 	a.soul_part = float(d.get("soul_part", 0.0))
 	a.escape = float(d.get("escape", 0.0))
+	a.movement_counter = str(d.get("movement_counter", ""))
+	var mv_e: EffectDef = _pseudo(str(d.get("name", "")) + "-movement")
+	for j in (d.get("movements", []) as Array).size():   # a piece's movements (2026-11-26)
+		var mv: Dictionary = d.movements[j]
+		a.movements.append({"n": int(mv.get("n", 0)), "do": _pay(mv.get("do", []), "%s.movements[%d]" % [where, j]), "e": mv_e})
+	if not a.movements.is_empty():
+		var mcd: Variant = _counters_for_arts.get(a.movement_counter)
+		if mcd == null or ((mcd as Dictionary).get("each_for") != null and float(mcd.each_for) != 0.0):
+			errors.append("%s: movement_counter %s is not a plain counter of this fighter" % [where, a.movement_counter])
 	if a.soul_part > SOUL_PART_MAX + 1e-9:
 		errors.append("%s: added Soul part %s is over %s (R11)" % [where, str(a.soul_part), str(SOUL_PART_MAX)])
 	for j in (d.get("statuses", []) as Array).size():
@@ -403,7 +414,8 @@ func _art(d: Dictionary, where: String) -> ArtDef:
 	for t in d.get("tags", []):
 		a.tags.append(StringName(str(t)))
 		a.tags_s.append(str(t))
-	a.ctx = {"dtype": str(a.dtype), "element": str(a.element), "tags": a.tags_s, "kind": "art", "art_id": str(a.id)}
+	a.ctx = {"dtype": str(a.dtype), "element": str(a.element), "tags": a.tags_s, "kind": "art", "art_id": str(a.id),
+		"group": a.group}
 	# a step's art is the base art with the step applied (the base art is complete only now)
 	for pend in _pending_steps:
 		if pend[0] == a:

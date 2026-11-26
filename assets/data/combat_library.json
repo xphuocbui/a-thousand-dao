@@ -24730,6 +24730,8 @@
    "hp_cost",
    "id",
    "kind",
+   "movement_counter",
+   "movements",
    "pool",
    "qi_restore",
    "soul_part",

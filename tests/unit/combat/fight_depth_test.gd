@@ -666,3 +666,36 @@ func test_move_own_debuffs_pays_per_stack_and_stops_at_the_first_it_cannot_pay()
 	g.move_own_debuffs(g.a, 0.005)
 	assert_near(EffectRunner._count(g.b.debuffs, "wood"), 2.0, 1e-9, "stops partway through the Wood")
 	assert_near(EffectRunner._count(g.a.debuffs, "wood"), 2.0, 1e-9)
+
+
+func test_spending_or_setting_charges_removes_them() -> void:
+	# regression (2026-11-26): a negative add or a set on an each_for counter did nothing (test_engine.py t_spend_charges)
+	var spend := {"id": "sp", "on": "fight_start", "do": [{"counter": {"id": "seal", "add": -2}}]}
+	var f: Fight = M._fight(M._dummy({"counters": [{"id": "seal", "each_for": 10}], "effects": [spend]}), M._dummy())
+	f.t = 1000
+	f.a.counter_times["seal"] = [11000, 12000, 13000, 14000]
+	EffectRunner.fire(f, f.a, "fight_start", {})
+	assert_eq(f.a.counter_times["seal"], [13000, 14000], "the 2 nearest their end go")
+	var keep := {"id": "kp", "on": "fight_start", "do": [{"counter": {"id": "seal", "set": 1}}]}
+	var g: Fight = M._fight(M._dummy({"counters": [{"id": "seal", "each_for": 10}], "effects": [keep]}), M._dummy())
+	g.t = 1000
+	g.a.counter_times["seal"] = [11000, 12000, 13000]
+	EffectRunner.fire(g, g.a, "fight_start", {})
+	assert_eq(g.a.counter_times["seal"], [13000], "set 1 keeps the newest")
+
+
+func test_kept_meter_counts_without_a_draw_and_reports_its_end_value() -> void:
+	# Playing Past the Break (2026-11-26; test_engine.py t_kept_meter): 0.6 + 0.3 fails, then succeeds and keeps 0.2
+	var att := {"id": "eighth", "on": "fight_start", "do": [{"meter": {"id": "brk", "success": [{"gain_qi": {"share": 0.1}}],
+		"failure": [{"stacks": {"el": "fire", "n": 1, "for": 5, "side": "own", "kind": "debuff"}}]}}]}
+	var f: Fight = M._fight(M._dummy({"effects": [att], "meters": {"brk": {"start": 0.6, "p": 0.3}}}), M._dummy())
+	EffectRunner.fire(f, f.a, "fight_start", {})
+	assert_eq(int(f.a.meters["brk"]), 900, "a failed attempt keeps its count")
+	assert_near(EffectRunner._count(f.a.debuffs, "fire"), 1.0, 1e-9, "the failure ran")
+	EffectRunner.fire(f, f.a, "fight_start", {})
+	assert_eq(int(f.a.meters["brk"]), 200, "at 1 it succeeds and 1 comes off")
+	assert_near(FighterEnd.of(f.a).meters["brk"], 0.2, 1e-9, "the end reports the value for the life state")
+	var g: Fight = M._fight(M._dummy({"effects": [att]}), M._dummy())
+	EffectRunner.fire(g, g.a, "fight_start", {})
+	assert_bool(g.a.meters.is_empty()).is_true()
+	assert_near(EffectRunner._count(g.a.debuffs, "fire"), 0.0, 1e-9, "without the meter no attempt is made")
