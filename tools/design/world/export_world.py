@@ -95,6 +95,14 @@ class Export:
         for p in self.cont["places"]:
             if p.get("former_name"):
                 self.place_by_name.setdefault(p["former_name"], p)
+        # a moved seat (World Generation rule 16; seat_moves.json): its name means the old place, now a sect hall, in
+        # an event dated before the move, and the new seat from the move on (so the chronicle keeps its places)
+        by_id = {p["id"]: p for p in self.cont["places"]}
+        self.moved_seat = {}
+        for g in self.cont["great_sects"] + self.cont["minor_sects"]:
+            mv = g.get("seat_moved")
+            if mv:
+                self.moved_seat[by_id[g["seat"]]["name"]] = (int(mv["from"]), int(mv["year"]), set(mv.get("events_at_old", [])))
         self.region_by_name = {r["name"]: r for r in self.cont["regions"]}
         self.features = self._features()
         self.famous = self._famous()
@@ -161,12 +169,16 @@ class Export:
                 return g["key"]
         return name
 
-    def place_ref(self, name, where):
-        """A place name -> {"place": id} | {"feature": name, "tile"} | {"famous": name}; {} for none."""
+    def place_ref(self, name, where, year=None, event=None):
+        """A place name -> {"place": id} | {"feature": name, "tile"} | {"famous": name}; {} for none. With [year], a
+        moved seat's name before its move resolves to the old seat (now its sect hall)."""
         if not name:
             return {}
+        if name in self.moved_seat and ((year is not None and year < self.moved_seat[name][1])
+                                        or (event is not None and event in self.moved_seat[name][2])):
+            return {"place": self.moved_seat[name][0]}   # before the move, or an event the page keeps at the old seat
         if name not in self.place_by_name and " (" in name:     # "Tùng Đào Cung (the retreat by its seat)": a note
-            ref = self.place_ref(name.split(" (")[0], where)
+            ref = self.place_ref(name.split(" (")[0], where, year, event)
             if ref:
                 ref["note"] = name.split(" (", 1)[1].rstrip(")")
             return ref
@@ -197,6 +209,9 @@ class Export:
                        "kind": kind, "alignment": ALIGN.get(st["alignment"], st["alignment"]), "leans": g.get("leans", []),
                        "seat": g["seat"], "levels": st["levels"], "treasury": st["treasury"],
                        "founded": founded.get(key), "specialty": SPECIALTY.get(key, "")}
+                for k in ("seat_moved", "seat_array_density", "seat_array"):   # World Generation rules 16, 16a
+                    if k in g:
+                        rec[k] = g[k]
                 if kind == "great":
                     rec["tier"] = g["tier"]
                     rec["regions"] = g.get("regions", [])
@@ -327,7 +342,7 @@ class Export:
                 where = "event %s" % e["id"]
                 rec = {"id": e["id"], "tier": tier, "year": int(e["year"]), "kind": e["kind"], "people": e.get("people", []),
                        "sects": e.get("sects", []), "text_vi": e["text_vi"], "text_en": e.get("text", "")}
-                rec.update(self.place_ref(e.get("place"), where))
+                rec.update(self.place_ref(e.get("place"), where, int(e["year"]), e["id"]))
                 if e.get("famous_site"):
                     if e["famous_site"] not in self.famous:
                         self.err("%s: famous site '%s' does not exist" % (where, e["famous_site"]))
@@ -611,7 +626,7 @@ class Export:
 
     def version(self):
         h = hashlib.sha256()
-        for d, names in ((WORLD, sorted(os.listdir(WORLD))), (MAP, ["history.json", "sacred.json", "minor_sects.json", "land_qi.json"])):
+        for d, names in ((WORLD, sorted(os.listdir(WORLD))), (MAP, ["history.json", "sacred.json", "minor_sects.json", "land_qi.json", "seat_moves.json"])):
             for n in names:
                 if n.endswith(".json"):
                     with open(os.path.join(d, n), "rb") as fh:

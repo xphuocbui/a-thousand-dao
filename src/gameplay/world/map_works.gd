@@ -47,6 +47,11 @@ static func density(gd: GameData, qi: Dictionary, c: Character, residence_grade:
 	var lines: Array = []
 	if l2u > 0.0:
 		lines.append("Layer 2: the ground's own works +%.2f" % l2u)
+	# World Generation rule 16a: a moved seat's founder's array, a permanent layer-2 work; a broken array reads 0
+	var arr: Dictionary = qi.get("seat_array", {})
+	if float(arr.get("density", 0.0)) > 0.0 and not bool(arr.get("broken", false)):
+		l2p += float(arr.density)
+		lines.append("Layer 2: %s +%.2f" % [str(arr.get("name", "the founder's array")), float(arr.density)])
 	for id in qi.get("layer2", {}):
 		var w: Dictionary = work(gd, str(id))
 		if str(w.get("stat", "")) != "density":

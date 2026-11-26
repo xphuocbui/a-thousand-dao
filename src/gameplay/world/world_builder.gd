@@ -159,7 +159,8 @@ func _step_base() -> void:
 			"qi": Dictionary(p.get("qi", {})).duplicate(true), "holder": str(p.get("holder", "")), "territory": str(p.get("territory", "")),
 			"name_han": str(p.get("name_han", "")), "gloss": str(p.get("gloss", ""))}
 		for key in ["founded", "former", "lived", "former_name", "port", "river", "coast", "array", "resource", "livability",
-				"site_grade", "no_site", "province", "v2_slot"]:   # the last four: the provinces-v2 places (2026-11-24)
+				"site_grade", "no_site", "province", "v2_slot",   # the provinces-v2 places (2026-11-24)
+				"site_kind", "hall_of", "seat_moved"]:   # the world-depth seat moves (Travel & Map rule 6, 2026-11-26)
 			if p.has(key):
 				rec[key] = p[key]
 		_climate(rec, grid)
@@ -216,6 +217,9 @@ func _step_sects() -> void:
 		sect_ids[str(s.key)] = id
 		if not hq.is_empty():
 			hq["sect_id"] = id
+			# World Generation rule 16a: a moved seat's founder's array, a permanent layer-2 work (Travel & Map back-link)
+			if float(s.get("seat_array_density", 0.0)) > 0.0 and hq.has("qi") and not Dictionary(hq.qi).is_empty():
+				hq.qi["seat_array"] = {"name": str(s.get("seat_array", "")), "density": float(s.seat_array_density)}
 	for s in _hist.sects:
 		var rec: Dictionary = _db.get_record("sects", sect_ids[str(s.key)])
 		rec["lord_id"] = sect_ids.get(str(s.get("lord", "")), "")
@@ -427,7 +431,8 @@ func _step_resource_sites() -> void:
 	var kinds: Array = _gd.file(MapProduction.DATA_FILE).get("site_kinds", [])
 	var n: int = Array(_gd.file(MapProduction.DATA_FILE).get("reserve_start_choices", [1.0])).size()
 	for p in _db.all("places"):
-		if str(p.get("kind", "")) in kinds and not bool(p.get("hidden", false)) and not bool(p.get("no_site", false)):
+		# a moved seat keeps its production site's good (Travel & Map rule 6, "Sect halls"): site_kind holds the old kind
+		if str(p.get("site_kind", p.get("kind", ""))) in kinds and not bool(p.get("hidden", false)) and not bool(p.get("no_site", false)):
 			var pick: int = slot_pick("reserve", str(p.get("continent_id", p.id)), n)
 			p["site"] = MapProduction.init_site(_gd, p, pick)
 			ledger["reserve:%s" % str(p.get("continent_id", p.id))] = {"family": "reserve", "candidate": pick, "place_id": str(p.id)}

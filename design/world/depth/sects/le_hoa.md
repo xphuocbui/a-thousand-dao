@@ -49,7 +49,7 @@ at the gate, which is where outsiders meet the hermitage.
 - Art: a small hermitage painting on the glacier at 184; place 15 keeps its painting as the gate.
 - Routes and province: a stair route 15 → 184 of some 150 km, about ten days' climb; the province seat record follows.
 - Density: 184 is 1.23 against 15's 1.63. **Founder's array** (amended 2026-11-25, ruling group 2: every moved sect
-  gets one): the **Pear-Frost Ring (Lê Sương Hoàn)**, `seat_array_density` **+0.40** (proposed; World Generation rule
+  gets one): the **Pear-Frost Ring (Lê Sương Hoàn)**, `seat_array_density` **+0.20** (re-sized 2026-11-26 by Formula G on the seat kind (user ruling); was +0.40; World Generation rule
   16a, Formula G: 1.63 − 1.23), so the Upper Hermitage reads 1.63. In 702 Kỷ Hoa Ảnh hung the frozen-lightning bell
   (A105) at the ring's heart and planted the ice pears round it when she raised the Upper Hermitage (N-le_hoa-01); the
   nuns still call it a wall against the wind, not a gift of qi. Silencing the bell (a hook) drops the seat to 1.23.

@@ -777,7 +777,7 @@ func _marker_at(p: Dictionary) -> Vector2:
 static func _label_rank(p: Dictionary) -> int:
 	match str(p.get("kind", "")):
 		"great_seat", "city": return 0
-		"minor_seat", "town", "market": return 1
+		"minor_seat", "town", "sect_hall", "market": return 1
 		"village": return 3
 	return 2
 
@@ -1318,7 +1318,7 @@ func _v2_hidden_at(p: Dictionary, sc: float) -> bool:
 	var k: String = str(p.get("kind", ""))
 	if k in ["great_seat", "minor_seat", "city"]:
 		return false
-	if k in ["village", "town", "market", "mine"]:
+	if k in ["village", "town", "sect_hall", "market", "mine"]:
 		return sc < float(_zcfg.get("v2_holdings_from_px", 8.0))
 	return sc < float(_zcfg.get("v2_places_from_px", 14.0))
 

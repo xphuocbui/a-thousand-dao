@@ -51,7 +51,7 @@ what it is now: a door, a tea room and the mistress of the door.
 - **Routes:** 263 is off the road. Add a cart track 27 → 263 (5 tiles, three days by cart) that only the manor uses. There is no public road to the garden, and the
   manor wants it that way.
 - **Density:** 263 is 1.10 against 27's 1.50. **Founder's array** (amended 2026-11-25, ruling group 2: every moved
-  sect gets one): the **Red Trellis (Hồng Giá Trận)**, `seat_array_density` **+0.40** (proposed; World Generation rule
+  sect gets one): the **Red Trellis (Hồng Giá Trận)**, `seat_array_density` **+0.10** (re-sized 2026-11-26 by Formula G on the seat kind (user ruling); was +0.40; World Generation rule
   16a, Formula G: 1.50 − 1.10), so the vein garden reads 1.50. The mistress says thick qi makes the beans sweet, so in
   1110, when she moved her rooms into the banana shade, she had Nghê Hồng Đậu's first trellises rewoven over the vein as
   an array (N-hong_dau-03). Cutting the trellis (a hook) drops the seat to 1.10.

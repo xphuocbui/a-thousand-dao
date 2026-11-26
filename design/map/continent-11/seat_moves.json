@@ -1,0 +1,448 @@
+{
+ "_doc": "The world-depth seat moves (user rulings 2026-11-25/26; Travel & Map rule 6 'Sect halls', Provinces rule 2a, World Generation rules 16 and 16a). Read by tools/design/map/export_continent.py after every place is appended: the new seat place (to) becomes the sect's great or minor seat under the seat's names, the old seat (from) a sect_hall under old_becomes; array is the founder's array (World Generation Formula G); routes are the page's new routes (track, or road where the page says road), measured on the land. year dates the move for chronicle names. Drafted from the sect pages (each field's source quoted in sources), names for the Shore House, Gate Hermitage, Spring House, Plum Gate, Rain Tower, Hundred-Bell Eaves and Spring Return approved by the user 2026-11-26. events_at_old: chronicle events dated after the move that the page places at the old seat (now the sect hall).",
+ "moves": [
+  {
+   "sect": "bang_tam",
+   "from": 3,
+   "to": 214,
+   "year": 470,
+   "old_becomes": {
+    "name_hv": "Cựu Các",
+    "name_han": "",
+    "gloss": "the Desert Pavilion"
+   },
+   "array": {
+    "name_hv": "Ngọc Hồ Trận",
+    "name_en": "Jade Vessel Array",
+    "density": 0.75,
+    "year": 470
+   },
+   "routes": [
+    {
+     "a": 214,
+     "b": 1346,
+     "kind": "lane"
+    },
+    {
+     "a": 214,
+     "b": 239,
+     "kind": "track"
+    }
+   ],
+   "sources": {
+    "year": "In 470, when the Pavilion claimed the empty ice (C095), she moved the sect onto Hồ Thiên's ruin.",
+    "old_becomes": "**Old seat (place 3)** becomes **Cựu Các, the Desert Pavilion**",
+    "array": "Tần Ngưng Sương bố Ngọc Hồ Trận vào lớp băng || +0.75 (Jade Vessel Array, 470; re-sized 2026-11-25 || In 470, when the Pavilion claimed the empty ice (C095), she moved the sect onto Hồ Thiên",
+    "routes": "User ruling 2026-11-26: place 214 is on an island of the ice archipelago (no land path to Hòe Âm Trấn or Trường Vân Thành); a sea lane from the nearest routed coastal place, Băng Khổng Thôn (1346; Hàn Trạch Thôn, 1398, the nearest routed place, is inland), and a track to Hàn Giao Chử (239) on the island."
+   }
+  },
+  {
+   "sect": "binh_thuy",
+   "from": 18,
+   "to": 302,
+   "year": 1116,
+   "old_becomes": {
+    "name_hv": "Khách Tương Đường",
+    "name_han": "",
+    "gloss": "the Strangers' Hall"
+   },
+   "array": {
+    "name_hv": "Đình Triều Yển",
+    "name_en": "Slack-Water Weirs",
+    "density": 0.35,
+    "year": 1116
+   },
+   "routes": [
+    {
+     "a": 302,
+     "b": 123,
+     "kind": "track"
+    }
+   ],
+   "sources": {
+    "year": "in 1116 the sect raised the Tide Hall on agarwood stilts above the flats (N-binh_thuy-04)",
+    "old_becomes": "**The old seat** becomes the **Strangers' Hall** (Khách Tương Đường)",
+    "array": "the **Slack-Water Weirs (Đình Triều Yển)**, `seat_array_density` **+0.30** || In 1116 Bùi Phiêu Bình drove the Claw King's shell plates into the flats as a ring of weirs | re-sized 2026-11-26 by Formula G on the seat kind (user ruling): +0.35",
+    "routes": "a raft track 302 to 123 (5 tiles); the 18-49 and 18-123 roads stay."
+   }
+  },
+  {
+   "sect": "ham_nguyet",
+   "from": 8,
+   "to": 260,
+   "year": 412,
+   "old_becomes": {
+    "name_hv": "Ngạn Đường",
+    "name_han": "",
+    "gloss": "the Shore House"
+   },
+   "array": {
+    "name_hv": "Trầm Bích Trận",
+    "name_en": "Sunken Disc",
+    "density": 0.15,
+    "year": 412
+   },
+   "routes": [
+    {
+     "a": 8,
+     "b": 260,
+     "kind": "track"
+    }
+   ],
+   "sources": {
+    "year": "The founder Đới Thiềm Quang built the manor's moon halls on piles over Trầm Bích Đàm in 412",
+    "old_becomes": "place 8 stays the **Shore House**",
+    "array": "the **Sunken Disc (Trầm Bích Trận)**, `seat_array_density` **+0.05** || which Đới Thiềm Quang sank under the moon halls in 412 | re-sized 2026-11-26 by Formula G on the seat kind (user ruling): +0.15",
+    "routes": "a short causeway route 8 ↔ 260 || move the seat record 3.6 tiles inland to Trầm Bích Đàm (260)",
+    "events_at_old": "ham_nguyet.md §2: 'A013 (the beds of the manor at 8) and A015 stay true: the beds and the boats were always at the shore house.'"
+   },
+   "events_at_old": [
+    "A013",
+    "A015"
+   ]
+  },
+  {
+   "sect": "hong_dau",
+   "from": 27,
+   "to": 263,
+   "year": 1110,
+   "old_becomes": {
+    "name_hv": "Nhã Môn",
+    "name_han": "",
+    "gloss": "the Gracious Door"
+   },
+   "array": {
+    "name_hv": "Hồng Giá Trận",
+    "name_en": "Red Trellis",
+    "density": 0.1,
+    "year": 1110
+   },
+   "routes": [
+    {
+     "a": 27,
+     "b": 263,
+     "kind": "track"
+    }
+   ],
+   "sources": {
+    "year": "In 1110 the mistress moved her own rooms and her canon back into the banana shade (N-hong_dau-03).",
+    "old_becomes": "Place 27 becomes a sect hall, named **Nhã Môn, the Gracious Door**.",
+    "array": "the **Red Trellis (Hồng Giá Trận)**, `seat_array_density` **+0.40** || in 1110, when she moved her rooms into the banana shade, she had Nghê Hồng Đậu's first trellises rewoven over the vein as an array (N-hong_dau-03) | re-sized 2026-11-26 by Formula G on the seat kind (user ruling): +0.10",
+    "routes": "Add a cart track 27 → 263 (5 tiles, three days by cart)",
+    "events_at_old": "hong_dau.md §2: 'A279's red beans lie on the path to the door.'"
+   },
+   "events_at_old": [
+    "A279"
+   ]
+  },
+  {
+   "sect": "lac_ha",
+   "from": 4,
+   "to": 558,
+   "year": 1185,
+   "old_becomes": {
+    "name_hv": "Cựu Hà Viện",
+    "name_han": "",
+    "gloss": "the Old Glow Court"
+   },
+   "array": {
+    "name_hv": "Vân Kiều Trận",
+    "name_en": "Cloud Bridge Array",
+    "density": 0.5,
+    "year": 1180
+   },
+   "routes": [
+    {
+     "a": 560,
+     "b": 558,
+     "kind": "track"
+    }
+   ],
+   "sources": {
+    "year": "the sect moved up in 1185 (N-lac_ha-05)",
+    "old_becomes": "**The old seat (place 4)** becomes **Cựu Hà Viện, the Old Glow Court**",
+    "array": "+0.5 (Cloud Bridge Array, 1180-1184; re-sized 2026-11-25 || Quách Tiếp Vân bố Vân Kiều Trận vắt ngang",
+    "routes": "New route up from Vân Gian Thôn (560), where the miners went down in 1040."
+   }
+  },
+  {
+   "sect": "le_hoa",
+   "from": 15,
+   "to": 184,
+   "year": 702,
+   "old_becomes": {
+    "name_hv": "Môn Am",
+    "name_han": "",
+    "gloss": "the Gate Hermitage"
+   },
+   "array": {
+    "name_hv": "Lê Sương Hoàn",
+    "name_en": "Pear-Frost Ring",
+    "density": 0.2,
+    "year": 702
+   },
+   "routes": [
+    {
+     "a": 15,
+     "b": 184,
+     "kind": "track"
+    }
+   ],
+   "sources": {
+    "year": "In 702, after she sealed her master's cave and cast the bell from frozen lightning (A105), she raised the Upper Hermitage on the glacier of Lăng Tuyệt Phong",
+    "old_becomes": "place 15 stays as the **Gate Hermitage**",
+    "array": "the **Pear-Frost Ring (Lê Sương Hoàn)**, `seat_array_density` **+0.40** || In 702 Kỷ Hoa Ảnh hung the frozen-lightning bell | re-sized 2026-11-26 by Formula G on the seat kind (user ruling): +0.20",
+    "routes": "a stair route 15 → 184 of some 150 km, about ten days' climb || move the seat 6 tiles up onto Lăng Tuyệt Phong (184)",
+    "events_at_old": "le_hoa.md §2: 'Every event the chronicle places at place 15 (A103, A109, A110) happened at the gate'"
+   },
+   "events_at_old": [
+    "A109",
+    "A110"
+   ]
+  },
+  {
+   "sect": "le_tuyen",
+   "from": 26,
+   "to": 193,
+   "year": 1141,
+   "old_becomes": {
+    "name_hv": "Tuyền Phòng",
+    "name_han": "",
+    "gloss": "the Spring House"
+   },
+   "array": {
+    "name_hv": "Triêu Hà Kính",
+    "name_en": "Dawn Cloud Mirror",
+    "density": 0.2,
+    "year": 1141
+   },
+   "routes": [
+    {
+     "a": 193,
+     "b": 87,
+     "kind": "track"
+    },
+    {
+     "a": 193,
+     "b": 26,
+     "kind": "track"
+    }
+   ],
+   "sources": {
+    "year": "In 1141 Mai built the **Dawn Hall (Triêu Đường)** on the shore where that birth happened",
+    "old_becomes": "place 26 stays as the **Spring House**",
+    "array": "the **Dawn Cloud Mirror (Triêu Hà Kính)**, `seat_array_density` **+0.10** || In 1141 Mai set the bronze mirror | re-sized 2026-11-26 by Formula G on the seat kind (user ruling): +0.20",
+    "routes": "a track 193 → Lục Dã Trấn (87, 3.6 tiles, on the road), and 193 → 26. || move the seat 8 tiles to Triêu Hà Hồ (193)"
+   }
+  },
+  {
+   "sect": "minh_loan",
+   "from": 527,
+   "to": 519,
+   "year": 1188,
+   "old_becomes": {
+    "name_hv": "Chung Bến",
+    "name_han": "",
+    "gloss": "the Bell Wharf"
+   },
+   "array": {
+    "name_hv": "Bách Chung Diêm",
+    "name_en": "Hundred-Bell Eaves",
+    "density": 0.0,
+    "year": null
+   },
+   "routes": [
+    {
+     "a": 519,
+     "b": 518,
+     "kind": "track"
+    }
+   ],
+   "sources": {
+    "year": "In 1188 the head moved the casting floor and the inner pavilion up the mountain (N-minh_loan-03)",
+    "old_becomes": "Place 527 keeps its painting as the **Bell Wharf (Chung Bến)**.",
+    "array": "+0.2 (Hundred-Bell Eaves, a little under half hung) || **Hundred-Bell Eaves**, a ring of tuned bells under the pavilion's roofs | re-sized 2026-11-26 by Formula G on the seat kind (user ruling): +0.00",
+    "routes": "A new track 519 → 518 (the ore, 3 tiles)."
+   }
+  },
+  {
+   "sect": "ngao_tuyet",
+   "from": 284,
+   "to": 1262,
+   "year": 1162,
+   "old_becomes": {
+    "name_hv": "Mai Môn",
+    "name_han": "",
+    "gloss": "the Plum Gate"
+   },
+   "array": {
+    "name_hv": "Hổ Văn Hoàn",
+    "name_en": "Tiger-Stripe Ring",
+    "density": 0,
+    "year": 1162
+   },
+   "routes": [
+    {
+     "a": 284,
+     "b": 1262,
+     "kind": "track"
+    }
+   ],
+   "sources": {
+    "year": "In the spring of 1162 the tiger took the founder's daughter",
+    "old_becomes": "place 284 stays the **Plum Gate**",
+    "array": "the **Tiger-Stripe Ring (Hổ Văn Hoàn)**, the miners' old smelting ring under the forge, which Trác Thiết Cán relit in the summer of 1162 (N-ngao_tuyet-02)",
+    "routes": "a mountain path 284 ↔ 1262 || move the seat record 26 tiles up the mountain to Thạch Khẩu Trấn (1262)"
+   }
+  },
+  {
+   "sect": "phuong_minh",
+   "from": 6,
+   "to": 449,
+   "year": 1162,
+   "old_becomes": {
+    "name_hv": "Ngô Đồng Đình",
+    "name_han": "",
+    "gloss": "the Wutong Court"
+   },
+   "array": {
+    "name_hv": "Phượng Sào Trận",
+    "name_en": "Nest Array",
+    "density": 0.65,
+    "year": 592
+   },
+   "routes": [
+    {
+     "a": 94,
+     "b": 449,
+     "kind": "road"
+    },
+    {
+     "a": 449,
+     "b": 253,
+     "kind": "track"
+    }
+   ],
+   "sources": {
+    "year": "Hoa Triêu Dương moved the head's court, the treasury and the Hall of Spoils down to the Fire Court in 1162 (N-phuong_minh-12).",
+    "old_becomes": "Place 6: kind great_seat → sect hall, named **Ngô Đồng Đình, the Wutong Court**.",
+    "array": "he laid it as the threads of the **Nest Array (Phượng Sào Trận)** || In 592 the founder raised the **Fire Court (Hỏa Đình)** on the ashes",
+    "routes": "Add a road to Tang Điền Trấn (94, about 6 tiles) || and a track up to Chúc Dung Khẩu (253, 3 tiles)"
+   }
+  },
+  {
+   "sect": "thinh_vu",
+   "from": 7,
+   "to": 874,
+   "year": 1166,
+   "old_becomes": {
+    "name_hv": "Vũ Lâu",
+    "name_han": "",
+    "gloss": "the Rain Tower"
+   },
+   "array": {
+    "name_hv": "Thiết Vũ Trận",
+    "name_en": "Iron Rain Array",
+    "density": 0.35,
+    "year": 1170
+   },
+   "routes": [
+    {
+     "a": 28,
+     "b": 874,
+     "kind": "road"
+    },
+    {
+     "a": 874,
+     "b": 208,
+     "kind": "track"
+    },
+    {
+     "a": 874,
+     "b": 873,
+     "kind": "track"
+    }
+   ],
+   "sources": {
+    "year": "In 1166 the head moved the halls east (N-thinh_vu-09).",
+    "old_becomes": "Place 7: kind great_seat → sect hall, named **Thính Vũ Cựu Lâu, the Rain Tower**.",
+    "array": "+0.35 (Iron Rain array, Thiết Vũ Trận) || In 1170 Thạch Liên Hoàn and Lệ Tiêu Hồn laid the Iron Rain array from the peak to the vein (N-thinh_vu-10)",
+    "routes": "Add a road from Xuyên Lâm Môn (28, on the road, about 8 tiles) to 874, and tracks to Kinh Lôi Mạch (208) and Sa Kim Khoáng (873).",
+    "events_at_old": "thinh_vu.md §2: 'A278 (1185) stay true: both are at place 7, ... the second at the Rain Tower, where Quan Vũ Thanh lives.'"
+   },
+   "events_at_old": [
+    "A278"
+   ]
+  },
+  {
+   "sect": "thuy_vi",
+   "from": 1,
+   "to": 1110,
+   "year": 1001,
+   "old_becomes": {
+    "name_hv": "Thúy Vi Nhai Đường",
+    "name_han": "",
+    "gloss": "the Cliff Hall"
+   },
+   "array": {
+    "name_hv": "Xuân Hồi Trận",
+    "name_en": "Spring Return array",
+    "density": 0.1,
+    "year": 1006
+   },
+   "routes": [
+    {
+     "a": 45,
+     "b": 1110,
+     "kind": "road"
+    },
+    {
+     "a": 1110,
+     "b": 1109,
+     "kind": "track"
+    },
+    {
+     "a": 1110,
+     "b": 1111,
+     "kind": "track"
+    }
+   ],
+   "sources": {
+    "year": "The sect moved its halls in 1001-1006 (N-thuy_vi-03).",
+    "old_becomes": "Place 1: kind great_seat → sect hall, named **Thúy Vi Nhai Đường, the Cliff Hall**.",
+    "array": "+0.10 (Spring Return array, 1006) || the **Spring Return array** Tất Hành Vụ laid over the root-vein in 1006",
+    "routes": "Add a road from Lam Yên Thị (45) to 1110 (about 7 tiles) and tracks to Thương Thúy Lâm (1109) and Phục Linh Thôn (1111)."
+   }
+  },
+  {
+   "sect": "yen_quang",
+   "from": 537,
+   "to": 423,
+   "year": 1187,
+   "old_becomes": {
+    "name_hv": "Vãn Điền",
+    "name_han": "",
+    "gloss": "the Dusk Field"
+   },
+   "array": {
+    "name_hv": "Trường Minh Lô",
+    "name_en": "Ever-Lit Furnace",
+    "density": 0,
+    "year": 1187
+   },
+   "routes": [
+    {
+     "a": 423,
+     "b": 80,
+     "kind": "track"
+    }
+   ],
+   "sources": {
+    "year": "In 1187 Tào Mộ Tử moved the furnaces and beds to the wild mulberry wood",
+    "old_becomes": "**Dusk Field (Vãn Điền)**",
+    "array": "the **Ever-Lit Furnace (Trường Minh Lô)**, the founder's furnace that Tào Mộ Tử carried to the mulberry wood with its coals lit in 1187 (N-yen_quang-03)",
+    "routes": "A new track 423 → 80 (Tang Ma Thành, 3 tiles)"
+   }
+  }
+ ]
+}

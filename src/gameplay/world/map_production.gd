@@ -32,7 +32,7 @@ static func site_resource(gd: GameData, place: Dictionary) -> Dictionary:
 	var shares: Dictionary = place.get("qi", {}).get("shares", {})
 	var land: float = float(place.get("qi", {}).get("land_density", place.get("density", 1.0)))
 	var em: float = float(shares.get("tho", 0.0)) + float(shares.get("kim", 0.0))
-	if str(place.get("kind", "")) == "spirit_vein" or (land >= float(cfg.linh_thach_density_min) and em >= float(cfg.linh_thach_shares_min)):
+	if str(place.get("site_kind", place.get("kind", ""))) == "spirit_vein" or (land >= float(cfg.linh_thach_density_min) and em >= float(cfg.linh_thach_shares_min)):
 		return {"resource": "linh_thach", "kind": "linh_thach"}
 	var top: String = "tho"
 	for e in shares:

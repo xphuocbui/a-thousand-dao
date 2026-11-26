@@ -35,3 +35,31 @@
   friend by default, rival or enmity where the note says they parted badly (the pinned sư đồ is the current pair only).
 - **Event Vietnamese text:** all 277 translated now, in batches on Sonnet; the user reviews at the end.
 - **combat_library.json:** re-export now (the 2026-11-25 `song` tags on three bell arts), with the full test suite.
+
+# Decisions 2026-11-26 (implementation, Stage 2: the seat moves)
+
+- **Seat takes the province:** the province a new seat lies in becomes that sect's seat province: its seat place
+  becomes the sect seat and its seat kind the great or minor seat; a wilderness province becomes a settlement province
+  and gets the seat's starting buildings; the village or city stays a place inside it. A minor seat in a city's
+  province (Yến Quang in Tang Ma Thành's `prov_p80`) is a vassal seat inside it: the city keeps the province, as Phần
+  Vũ does under Phượng Minh.
+- **Old seats become a new kind, `sect_hall`:** a sect's outer hall or court, held by the sect, settled like a town,
+  its painting kept and retitled, a sect-hall map symbol.
+- **The seat replaces the site:** a production site's good (vein, lair, forest) stays with the place as the seat's own
+  site; ruins and peaks just become the seat.
+- **Routes as data:** each page's routes are added as tracks (roads where the page says road) in the route data, not
+  painted into `roads.png` or the map art yet.
+- **Provinces runtime code:** done now in this work (the provinces session is not running), with tests, noted in
+  `production/plans/provinces-runtime.md`.
+- **GDD amendments first:** Travel & Map (the `sect_hall` kind) and Provinces (rule 2a for wilderness, village and city
+  provinces) are drafted and shown before any building.
+- **Băng Tâm's island seat:** place 214 lies on an island of the ice archipelago (every audit candidate does). Ruled:
+  keep it, with a sea lane; the lane runs from Băng Khổng Thôn (1346), the nearest routed coastal place (Hàn Trạch
+  Thôn, first named, is inland), plus a track to Hàn Giao Chử on the island. The export writes the lane's water tiles
+  into the travel grid's lane layer so a player can sail it (the painted map and `roads.png` are not changed).
+- **Founder's arrays re-sized** (Formula G on the seat kind): Hồng Đậu +0.10, Lê Hoa +0.20, Minh Loan 0 (a named
+  record), Hàm Nguyệt +0.15, Lễ Tuyền +0.20, Bình Thủy +0.35; the Formula G table and the six pages updated.
+- **AC-PV-01** amended to 472 settlement and 233 wilderness provinces.
+- **The 12 unmoved minor seats** whose province's seat place is a village, town or nothing are fixed the same way (their
+  province takes the minor seat as its seat place), in a separate commit with a census check.
+- **Re-leans** (`seats.json`) go into the game's sect records with Stage 9 (admission and land-driven roots).

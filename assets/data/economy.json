@@ -244,6 +244,7 @@
       "city": 1.0,
       "great_seat": 1.0,
       "town": 1.05,
+      "sect_hall": 1.05,
       "market": 1.05,
       "minor_seat": 1.05,
       "village": 1.15
@@ -252,6 +253,7 @@
       "city": 1.0,
       "great_seat": 1.0,
       "town": 0.95,
+      "sect_hall": 0.95,
       "market": 0.95,
       "minor_seat": 0.95,
       "village": 0.9
@@ -261,6 +263,7 @@
       "city": 8,
       "great_seat": 8,
       "town": 4,
+      "sect_hall": 4,
       "minor_seat": 4,
       "market": 3,
       "village": 1

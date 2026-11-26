@@ -121,6 +121,7 @@
     "great_seat",
     "minor_seat",
     "town",
+    "sect_hall",
     "market",
     "village",
     "mine"

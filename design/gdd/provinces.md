@@ -81,6 +81,19 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
      builder and payer, and it gains the great seat's starting buildings and seat halls (rule 10). The minor sect keeps
      its seat inside as a vassal, keeps its local-lord income from the province, and builds there only through its
      lord. Rule 10's starting-level and hall rules read the province as the great sect's seat province.
+   - **The province a new seat lies in becomes its seat province** (user ruling 2026-11-26), whatever it was: its seat
+     place becomes the sect seat and its seat kind the great or minor seat. A **wilderness** province becomes a
+     settlement province; a **village**-seat province keeps the village as a place inside it. Either way the province
+     starts with the seat kind's buildings (rule 10).
+   - **A minor seat in a city's province** (Yến Quang's Dã Tang Lâm, 423, in Tang Ma Thành's `prov_p80`): the city keeps
+     the province, its seat kind and its buildings; the minor sect is a vassal seat inside it, keeps its local-lord
+     income, and builds there only through the province's payer (as Phần Vũ under Phượng Minh).
+   - **A move inside one province** (Hàm Nguyệt, Hồng Đậu, Lê Hoa) only moves the province's seat place. **A seat on a
+     lake in no province** (Lễ Tuyền's Triêu Hà Hồ, 193) first takes its nearest land tile's province (ADR-0008
+     decision 3).
+   - **The old seat's province** keeps its key (`prov_<old seat key>`); its seat place is now the sect hall (seat kind
+     `sect_hall`, a town's starting buildings; Travel & Map rule 6). A province left with no seat takes the kind its
+     other places give it.
 
 **The record**
 
@@ -611,8 +624,9 @@ No GDD yet: World Database (#3) and Market (#20), referenced by system number.
 
 **Rules**
 
-- **AC-PV-01** `[A]` **GIVEN** the continent loaded, **WHEN** provinces are built, **THEN** there are 705 of them (468
-  settlement, 237 wilderness; provinces-v2, updated 2026-11-24), every land tile has exactly one, and none crosses a region
+- **AC-PV-01** `[A]` **GIVEN** the continent loaded, **WHEN** provinces are built, **THEN** there are 705 of them (472
+  settlement, 233 wilderness; provinces-v2, updated 2026-11-24; since the seat moves, rule 2a 2026-11-26, the four
+  wilderness provinces a moved seat lies in are settlement provinces), every land tile has exactly one, and none crosses a region
   border; every place has one (a lake takes its nearest land province) and sits in its province's region (the 15
   border places follow their province, user decision 2026-11-24).
 - **AC-PV-02** `[A]` **GIVEN** the world built twice with seed 7 and once with seed 11, **WHEN** the three are compared,

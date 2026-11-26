@@ -459,7 +459,8 @@
       "beast_lair": "forest",
       "hot_spring": "valley",
       "lava_vent": "mountain",
-      "lightning_wood": "forest"
+      "lightning_wood": "forest",
+      "sect_hall": "settlement"
     },
     "rows": {
       "settlement": {

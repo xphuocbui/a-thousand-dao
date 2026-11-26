@@ -15,7 +15,7 @@ const SECTIONS := [["overview", "Overview"], ["places", "Places"], ["economy", "
 ## A raw good class is its kind and rarity band (TradeGoods.class_of: band = ceil(rarity / 2)), so "herb2" is herbs of
 ## rarity 3-4; the window names it that way.
 const GOOD_KINDS := {"herb": "Herbs", "ore": "Ore", "beast": "Beast parts", "special": "Specialties"}
-const KIND_NAMES := {"great_seat": "Great sect seat", "minor_seat": "Minor sect seat", "city": "City", "town": "Town",
+const KIND_NAMES := {"great_seat": "Great sect seat", "minor_seat": "Minor sect seat", "city": "City", "town": "Town", "sect_hall": "Sect hall",
 	"market": "Market", "village": "Village", "mine": "Mine", "ruin": "Ruin", "peak": "Peak", "spirit_vein": "Spirit vein",
 	"hot_spring": "Hot spring", "lake": "Lake", "forest": "Forest", "beast_lair": "Beast lair", "gorge": "Gorge",
 	"volcano": "Volcano", "lava_vent": "Lava vent", "lightning_wood": "Lightning wood", "island": "Island"}

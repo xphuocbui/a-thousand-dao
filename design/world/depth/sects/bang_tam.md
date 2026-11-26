@@ -46,7 +46,9 @@ rumbled for the first time in 774 years in 1199 (A111).
 - Chronicle: C007's "among the ice fields" becomes "at the desert's edge, facing the ice fields". Add N-bang_tam-01
   (470, the move) and N-bang_tam-02 (470, the Jade Vessel Array laid).
 - Art: a seat painting and map symbol at place 214. The old seat keeps its painting as the Desert Pavilion.
-- Routes and province: seat record to place 214's province; routes from Hòe Âm Trấn (66) and Trường Vân Thành (35).
+- Routes and province: seat record to place 214's province. Place 214 lies on an island of the ice archipelago, so the
+  seat is reached by a sea lane from Băng Khổng Thôn (1346), the nearest coastal village with a road, and a track to Hàn Giao Chử (239) on the island (user ruling
+  2026-11-26; there is no land road from Hòe Âm Trấn or Trường Vân Thành).
 - Density: place 214 is 1.02 as a ruin, which includes the ruin's +0.25; as the seat it takes the great seat's +0.10
   instead, so 0.77 + 0.10 = 0.87. `seat_array_density` **+0.75** from the Jade Vessel Array (re-sized 2026-11-25 by
   World Generation Formula G, ruling group 12; it was +0.6), so the seat reads 1.62 against the old seat's 1.63. If

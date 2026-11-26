@@ -18,7 +18,7 @@ extends RefCounted
 
 const DATA_FILE := "world_continent"
 ## The kinds of place that are settlements (the reachability check of Travel & Map AC-TM-128 counts these).
-const SETTLED := ["great_seat", "minor_seat", "city", "market", "town", "village", "mine"]
+const SETTLED := ["great_seat", "minor_seat", "city", "market", "town", "sect_hall", "village", "mine"]
 const ROUTE_KINDS := ["road", "trunk", "lane", "track"]   # track: a provinces-v2 footpath (2026-11-24)
 
 var grid: Vector2i = Vector2i.ZERO

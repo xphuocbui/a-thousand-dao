@@ -73,11 +73,12 @@ static func acting_places(gd: GameData, db: WorldDB, v: Dictionary, k: String) -
 	return out
 
 
-## Who pays and orders province [param v]'s buildings (rule 9): a minor sect seated in it (the local lord), else the
-## holder of its region; "" when nobody holds it.
+## Who pays and orders province [param v]'s buildings (rule 9): a sect seated at its seat place (the local lord; a
+## great seat there makes the great sect the payer, rule 2a, 2026-11-25/26), else the holder of its region; "" when
+## nobody holds it.
 static func payer(db: WorldDB, v: Dictionary) -> String:
 	var seat: Dictionary = db.get_record("places", str(v.get("seat_place", "")))
-	if not seat.is_empty() and str(seat.get("kind", "")) == "minor_seat" and str(seat.get("sect_id", "")) != "":
+	if not seat.is_empty() and str(seat.get("kind", "")) in ["minor_seat", "great_seat"] and str(seat.get("sect_id", "")) != "":
 		var s: Dictionary = db.get_record("sects", str(seat.sect_id))
 		if not s.is_empty() and str(s.get("status", "")) == "active":
 			return str(s.id)
@@ -104,11 +105,15 @@ static func place_start(gd: GameData, db: WorldDB) -> void:
 	var lore := {}   # sect key -> its world_history record (specialty, craft)
 	for h in gd.file("world_history").get("sects", []):
 		lore[str(h.get("key", ""))] = h
-	var seat_of := {}   # province id -> the sect whose seat it holds
+	# province id -> the ids of the sects seated in it (rule 2a: a great seat and a minor seat may share one province)
+	var seat_of := {}
 	for s in db.all("sects"):
 		var sp: Dictionary = db.get_record("places", str(s.get("hq_place_id", "")))
 		if not sp.is_empty():
-			seat_of[str(sp.get("province_id", ""))] = s
+			var pv: String = str(sp.get("province_id", ""))
+			if not seat_of.has(pv):
+				seat_of[pv] = []
+			seat_of[pv].append(str(s.id))
 	for v in db.all(Provinces.TABLE):
 		var list: Array = []
 		var water: bool = bool(v.get("coast", false)) or int(v.get("river_tiles", 0)) >= int(c.get("landing_river_tiles", 6))
@@ -128,7 +133,7 @@ static func place_start(gd: GameData, db: WorldDB) -> void:
 					break
 		var payer_id: String = payer(db, v)
 		var sect: Dictionary = db.get_record("sects", payer_id) if payer_id != "" else {}
-		var at_seat: bool = seat_of.has(str(v.id)) and str(seat_of[str(v.id)].id) == payer_id
+		var at_seat: bool = seat_of.has(str(v.id)) and Array(seat_of[str(v.id)]).has(payer_id)
 		if not sect.is_empty():
 			var h: Dictionary = lore.get(str(sect.get("key", "")), {})
 			if at_seat:

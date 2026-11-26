@@ -46,7 +46,7 @@ calls the moon's reflection.
 - Art: a small painting of stilt-halls on a still pool at 260; place 8 keeps its painting as the Shore House.
 - Routes and province: a short causeway route 8 ↔ 260; the province seat record follows.
 - Density: 1.37 against 1.41. **Founder's array** (amended 2026-11-25, ruling group 2: every moved sect gets one):
-  the **Sunken Disc (Trầm Bích Trận)**, `seat_array_density` **+0.05** (proposed; World Generation rule 16a, Formula
+  the **Sunken Disc (Trầm Bích Trận)**, `seat_array_density` **+0.15** (re-sized 2026-11-26 by Formula G on the seat kind (user ruling); was +0.05; World Generation rule 16a, Formula
   G: 1.41 − 1.37 = 0.04, rounded to 0.05), so the moon halls read 1.42. It is the jade disc the pool is named for, which
   Đới Thiềm Quang sank under the moon halls in 412 to hold the moonlit qi; the manor calls it the moon's own array.
   Raising the disc (a hook) drops the seat to 1.37.

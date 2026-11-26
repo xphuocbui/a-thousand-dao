@@ -421,6 +421,20 @@
         1
       ]
     ],
+    "sect_hall": [
+      [
+        "road",
+        1
+      ],
+      [
+        "market_hall",
+        1
+      ],
+      [
+        "granary",
+        1
+      ]
+    ],
     "minor_seat": [
       [
         "road",
@@ -519,6 +533,7 @@
   },
   "landing_seats": [
     "town",
+    "sect_hall",
     "market",
     "city"
   ],

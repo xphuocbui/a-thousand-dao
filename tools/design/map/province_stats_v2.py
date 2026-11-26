@@ -43,9 +43,9 @@ WILD_HOPS = 6
 CAP0 = 0.2
 CAP_B = {"granary": 0.05, "spirit_fields": 0.03}
 SLOT_POP_STEP = 8.0
-BASE_SLOTS = {"village": 2, "market": 3, "town": 3, "minor_seat": 4, "city": 5, "great_seat": 6}
+BASE_SLOTS = {"village": 2, "market": 3, "town": 3, "sect_hall": 3, "minor_seat": 4, "city": 5, "great_seat": 6}
 WILD_SLOTS = 1
-INFRA0 = {"village": 100, "market": 200, "town": 200, "minor_seat": 300, "city": 400, "great_seat": 600}
+INFRA0 = {"village": 100, "market": 200, "town": 200, "sect_hall": 200, "minor_seat": 300, "city": 400, "great_seat": 600}
 I_ROAD, I_RIVER, RIVER_CAP = 40.0, 25.0, 20
 INFRA_B = {"road": 200, "caravan_post": 400, "landing": 500}
 START_ACCESS_MIN = 0.5
@@ -55,12 +55,13 @@ START_BUILDINGS = {
     "village": [("road", 1)],
     "market": [("road", 1), ("market_hall", 1)],
     "town": [("road", 1), ("market_hall", 1), ("granary", 1)],
+    "sect_hall": [("road", 1), ("market_hall", 1), ("granary", 1)],   # like a town (Travel & Map rule 6, 2026-11-26)
     "minor_seat": [("road", 1), ("gathering_array", 1), ("warding_wall", 1)],
     "city": [("road", 2), ("market_hall", 2), ("granary", 1), ("caravan_post", 1)],
     "great_seat": [("road", 3), ("market_hall", 2), ("granary", 2), ("caravan_post", 2), ("gathering_array", 2), ("warding_wall", 1)],
 }
 GOOD_BUILDING = {"herb": "spirit_fields", "ore": "mine_works", "beast": "hunting_lodge"}
-SEAT_RANK = ["great_seat", "city", "minor_seat", "town", "market", "village"]
+SEAT_RANK = ["great_seat", "city", "minor_seat", "town", "sect_hall", "market", "village"]
 BUILDING_NAMES = {"road": "Road", "market_hall": "Market hall", "granary": "Granary", "caravan_post": "Caravan post",
                   "gathering_array": "Gathering array", "warding_wall": "Warding wall", "spirit_fields": "Spirit fields",
                   "mine_works": "Mine works", "hunting_lodge": "Hunting lodge", "landing": "Landing"}
@@ -81,6 +82,17 @@ def label_point(pid, i, centre):
     ys, xs = np.nonzero(d == d.max())
     j = int(np.argmin((xs - centre[0]) ** 2 + (ys - centre[1]) ** 2))
     return [int(xs[j]), int(ys[j])]
+
+
+def seat_place_of(r, p, moved):
+    """The province's seat place: a moved sect seat when the province's seat kind is that seat's (Provinces rule 2a,
+    2026-11-26: the province a new seat lies in becomes its seat province), else the province's seed place. Only the
+    world-depth moves ([param moved], place ids) are re-seated; other provinces keep their seed place."""
+    if r["seat"] in ("great_seat", "minor_seat"):
+        ids = sorted(pl["id"] for pl in r["places"] if pl.get("kind") == r["seat"] and pl.get("id") in moved)
+        if ids:
+            return ids[0]
+    return p.get("seed_place")
 
 
 def main():
@@ -134,6 +146,24 @@ def main():
     for q in cont["places"]:
         if q.get("province"):
             merged[q["province"]].append(q["id"])
+    # a moved seat in no province (Lễ Tuyền's lake, 193) takes its nearest land tile's province (Provinces rule 2a,
+    # ADR-0008 decision 3), so that province can become its seat province
+    moved_seats = {q["id"] for q in cont["places"] if q.get("seat_moved")}
+    listed = {q for pr in provs for q in pr["places"]} | {q for v in merged.values() for q in v}
+    key_of = {pr["id"]: pr["key"] for pr in provs}
+    for q in cont["places"]:
+        if q.get("seat_moved") and q["id"] not in listed:
+            x0, y0 = q["tile"]
+            got = None
+            for rad in range(0, 40):
+                ring = [(x0 + dx, y0 + dy) for dx in range(-rad, rad + 1) for dy in range(-rad, rad + 1)
+                        if max(abs(dx), abs(dy)) == rad and 0 <= x0 + dx < W and 0 <= y0 + dy < H]
+                ids = sorted(int(pid[y, x]) for x, y in ring if int(pid[y, x]) > 0)
+                if ids:
+                    got = ids[0]
+                    break
+            if got is not None:
+                merged[key_of[got]].append(q["id"])
     for p in provs:
         key = p["key"]
         own = defaultdict(float)
@@ -219,7 +249,7 @@ def main():
                 if gb:
                     b.append([gb, 1])
             if p.get("coast") or p.get("river_tiles", 0) >= 6:
-                if r["seat"] in ("city", "great_seat", "town", "market"):
+                if r["seat"] in ("city", "great_seat", "town", "sect_hall", "market"):
                     b.append(["landing", 1])
         elif any(pl["kind"] == "mine" for pl in r["places"]):
             b = [["mine_works", 1]]   # a wilderness outpost (wild_slots 1)
@@ -241,7 +271,7 @@ def main():
         dev = int(round(levels + P0))
         e = lore["provinces"].get(p["key"], {})
         out.append({"id": i, "key": p["key"], "region": p["region"], "kind": "settlement" if is_set else "wilderness",
-                    "seat_kind": r["seat"], "seat_place": p.get("seed_place"),
+                    "seat_kind": r["seat"], "seat_place": seat_place_of(r, p, moved_seats),
                     "name": e.get("name") or p.get("name") or "", "name_han": e.get("name_han", ""), "gloss": e.get("gloss", ""),
                     "lore": e.get("lore", ""), "tiles": p["tiles"], "centre": p["centre"], "land": p["land"],
                     "river_tiles": p.get("river_tiles", 0), "road_tiles": int(road_n[i]), "coast": p.get("coast", False),

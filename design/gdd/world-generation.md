@@ -586,14 +586,16 @@ none, so neither gets a bonus on top. The proposed values (`design/world/depth/s
 | Phượng Minh | 449 | 1.35 + 0.10 = 1.45 | +0.65 (Nest Array, 592) | 2.10 | 2.11 |
 | Băng Tâm | 214 | 1.02 − 0.25 (ruin) = 0.77 + 0.10 = 0.87 | +0.75 (Jade Vessel Array, 470; re-sized 2026-11-25) | 1.62 | 1.63 |
 | Lạc Hà | 558 | 1.36 − 0.25 (ruin) = 1.11 + 0.10 = 1.21 | +0.5 (Cloud Bridge Array, 1180-1184; re-sized 2026-11-25) | 1.71 | 1.72 |
-| Minh Loan (minor) | 519 | 0.56 | +0.2 (Hundred-Bell Eaves, a little under half hung) | 0.76 | 0.80 |
-| Bình Thủy (minor) | 302 | 1.01 | +0.30 (Slack-Water Weirs) | 1.31 | 1.31 |
-| Hàm Nguyệt (minor) | 260 | 1.37 | +0.05 (Sunken Disc) | 1.42 | 1.41 |
-| Hồng Đậu (minor) | 263 | 1.10 | +0.40 (Red Trellis) | 1.50 | 1.50 |
-| Lê Hoa Am (minor) | 184 | 1.23 | +0.40 (Pear-Frost Ring) | 1.63 | 1.63 |
-| Lễ Tuyền (minor) | 193 | 1.22 | +0.10 (Dawn Cloud Mirror) | 1.32 | 1.33 |
+| Minh Loan (minor) | 519 | 0.79 | 0 (Hundred-Bell Eaves, a named record; re-sized 2026-11-26) | 0.79 | 0.80 |
+| Bình Thủy (minor) | 302 | 0.97 | +0.35 (Slack-Water Weirs; re-sized 2026-11-26) | 1.32 | 1.31 |
+| Hàm Nguyệt (minor) | 260 | 1.28 | +0.15 (Sunken Disc; re-sized 2026-11-26) | 1.43 | 1.41 |
+| Hồng Đậu (minor) | 263 | 1.38 | +0.10 (Red Trellis; re-sized 2026-11-26) | 1.48 | 1.50 |
+| Lê Hoa Am (minor) | 184 | 1.46 | +0.20 (Pear-Frost Ring; re-sized 2026-11-26) | 1.66 | 1.63 |
+| Lễ Tuyền (minor) | 193 | 1.13 | +0.20 (Dawn Cloud Mirror; re-sized 2026-11-26) | 1.33 | 1.33 |
 | Ngạo Tuyết (minor) | 1262 | 1.36 | 0 (Tiger-Stripe Ring, a named record) | 1.36 | 1.10 |
 | Yến Quang (minor) | 423 | 1.04 | 0 (Ever-Lit Furnace, a named record) | 1.04 | 0.81 |
+
+*Re-sized 2026-11-26 (user ruling, world-depth Stage 2):* the six minor rows above had taken `d_seat` from the old site's kind (a vein or a peak) instead of the seat kind this formula names; measured on the exported seats (land density plus the seat kind), their arrays are re-sized to bring each new seat to its old density, rounded to 0.05.
 
 *(Minor rows added 2026-11-25 from the pages' own densities, as the Minh Loan row is; each page's §2 names the array
 and its history.)*

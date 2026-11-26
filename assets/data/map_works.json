@@ -125,6 +125,7 @@
   "prebuilt_density": {
     "village": 0.1,
     "town": 0.2,
+    "sect_hall": 0.2,
     "market": 0.25,
     "city": 0.3,
     "great_seat": 0.4,
@@ -133,6 +134,7 @@
   "settled_kinds": [
     "village",
     "town",
+    "sect_hall",
     "market",
     "city",
     "great_seat",
@@ -142,12 +144,14 @@
   "settled_cap_kinds": [
     "village",
     "town",
+    "sect_hall",
     "market",
     "city"
   ],
   "max_grade": {
     "village": 2,
     "town": 3,
+    "sect_hall": 3,
     "market": 4,
     "city": 4,
     "great_seat": 5,

@@ -49,7 +49,7 @@ too: the layered ranges rise green (tằng loan tủng thúy), and a bell rung t
 - **Routes and province.** A new track 519 → 518 (the ore, 3 tiles). It joins the existing track from the Lam Ngọc
   mine through Mặc Thiết Khoáng (516) to Thiên Bảo Trai (20), so every bell going down to the wharf passes Thiên Bảo's
   door. Place 519 is in province `prov_r12_3` with Thiên Bảo's mine. Provinces #48 decides the seat record.
-- **Density.** Place 519 is 0.56 against the coast's 0.80. Proposal: `seat_array_density` +0.2 from the **Hundred-Bell
+- **Density.** Place 519 is 0.56 against the coast's 0.80. Proposal: `seat_array_density` **0** (re-sized 2026-11-26 by Formula G on the seat kind (user ruling); was +0.2: the seat as a seat reads 0.79 against 0.80, so the eaves are a named record at 0) from the **Hundred-Bell
   Eaves**, a ring of tuned bells under the pavilion's roofs that ring in the mountain wind and gather qi. It is a little
   under half hung, because the bronze is Thiên Bảo's and Phan Vật Hoa prices it (a hook).
 - **The old seat (527)** is the **Bell Wharf**: ships are fitted there, caravans buy there, and the note ledger, which

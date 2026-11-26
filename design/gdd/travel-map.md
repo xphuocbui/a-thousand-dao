@@ -173,12 +173,24 @@ names rather than a place.
 6. **Named places sit on tiles.** About 200–300 places across about 20 regions (raised from 150–250, user decision 2026-11-15, for more cities and the ruined cities of the history). A place sits in one part of its tile
    (rule 2) and reads that part's terrain and qi, and its kind adds to it: a mountain place on a tile that is 30 % high
    mountain sits in the mountain part. The kinds:
-   - **settlements:** city (thành), town (trấn), market (phường thị), village (thôn);
+   - **settlements:** city (thành), town (trấn), market (phường thị), village (thôn), sect hall (đường, `sect_hall`;
+     new 2026-11-26, below);
    - **wild sites:** mountain (sơn), valley (cốc), lake (hồ), forest (lâm), island (đảo);
    - **special sites:** spirit vein, mine (khoáng mạch), sect seat, secret realm (bí cảnh), ruin (di tích; a ruined city is a ruin with a former-city record, from World Generation's territory history) and cave
      abode (động phủ).
 
    A settlement lowers danger, and cities and markets have trade (towns and villages do not, as built).
+
+   **Sect halls (new, 2026-11-26; user ruling, world-depth seat moves).** When a sect's seat moves (World Generation
+   rule 16), the old seat becomes a **sect hall**: the sect's outer hall, outer gate or court under the name its page
+   gives (Cựu Các, Cựu Hà Viện, the Wutong Court, the Rain Tower, the Cliff Hall, the Bell Wharf, the Dusk Field…). The
+   sect holds it. It is settled **like a town** in every rule that reads a place kind: the settlement row of Formula C,
+   prebuilt density 0.20, best residence grade 3, settle weight 4, w_size 4, the settled density cap, and a town's
+   starting buildings when it is a province's seat (Provinces rule 10). It keeps its painting, retitled, and takes a
+   sect-hall map symbol. The **new seat place** becomes the great or minor seat. A production site there (a spirit
+   vein, a beast lair, a forest) keeps its good as the seat's own site; a ruin or a peak simply becomes the seat. The
+   page's routes to the new seat are added to the route data as tracks, or roads where the page says road; the road
+   image and the painted map show them only when the map is repainted.
 
    **Provinces v2 (user decisions 2026-11-24):** the continent has 1,494 places: the 254 authored ones and 1,240
    provinces-v2 places (277 villages, 26 towns, 20 minor sect seats, 119 mines, 150 spirit veins, 126 beast lairs, 45
@@ -665,7 +677,7 @@ depth and features.
 
 | Kind (of 200 places) | Share | Density band | Share at ≥ 1.4 |
 |---|---|---|---|
-| Settlements (4 kinds) | 40 % | 0.6–1.1 | 0 % |
+| Settlements (4 kinds; a sect hall takes this row, 2026-11-26) | 40 % | 0.6–1.1 | 0 % |
 | Mountain | 14 % | 1.0–1.5 | 20 % |
 | Valley | 9 % | 1.1–1.6 | 40 % |
 | Lake | 6 % | 1.0–1.4 | 0 % |
@@ -869,7 +881,7 @@ both then times Formula H's demand factor `D_f` and scar `S_f` (no reserve: fiel
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| w_size | float | village 1, market 3, town 4, city 8, minor seat 4, great seat 8 | data file *(guess; the old settlement weights)* | Size of a settlement kind |
+| w_size | float | village 1, market 3, town 4, sect hall 4, city 8, minor seat 4, great seat 8 | data file *(guess; the old settlement weights)* | Size of a settlement kind |
 | livability_p | float | 0.34–1.94 on continent 11 | map tools (`places.json`) | How livable the place's land is (water, coast, climate) |
 | P_p | float | ~0.3–16 | calculated | Mortal population, in settlement-weight units |
 | D_land | float | ~0.6–2.0 | Formula C | The place's land density |
@@ -1015,7 +1027,7 @@ decision (Open Questions).
 
 The prebuilt_works formula is defined as: `ΔD2u_start[place] = prebuilt_density[kind]`, in place at game start and upkept by the holder
 
-The settled_caps formula is defined as: for a home inside a settlement (village, town, market or city; not a sect ground, user decision 2026-11-24), `D ≤ settled_density_cap`. There is no settled match cap (user decision 2026-11-13)
+The settled_caps formula is defined as: for a home inside a settlement (village, town, sect hall, market or city; not a sect ground, user decision 2026-11-24), `D ≤ settled_density_cap`. There is no settled match cap (user decision 2026-11-13)
 
 The rent formula is defined as: `rent_season = round(linh_thach_max[realm] · rent_frac · quality)`; `price = rent_season · buy_seasons`; `quality = D_residence / core_density_min`
 
@@ -1028,15 +1040,15 @@ The furnishing formula is defined as: `ΔD1_furnish = furnish_per_grade · grade
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| prebuilt_density | float | village 0.10, town 0.20, market 0.25, city 0.30, sect seat 0.40 | data file *(guess)* | Layer 2 upkept works at game start |
+| prebuilt_density | float | village 0.10, town 0.20, sect hall 0.20, market 0.25, city 0.30, sect seat 0.40 | data file *(guess)* | Layer 2 upkept works at game start |
 | settled_density_cap | float | 1.8 | data file *(guess)* | A settled home's density stays below what an own base or a blessed land can reach (no cap there since 2026-11-24). `settled_match_cap` (×1.3) is removed (user decision 2026-11-13) |
 | linh_thach_max | int | 80 / 600 / 5,000 / 40,000 / 300,000 | data file (`events_budgets.json`) | The renter's realm budget |
 | rent_frac, buy_seasons | float, int | 0.02, 40 | data file *(guess)* | Rent share and purchase multiple |
 | D_residence | float | 0.6–1.8 | calculated (B) | The residence's stacked density |
 | npc_settled_share | float | 0.85 | data file (user decision) | Share of NPCs living in settlements and sect grounds |
-| settle_weight | int | city 8, town 4, market 3, village 1 | data file *(guess)* | How settled NPCs spread |
+| settle_weight | int | city 8, town 4, sect hall 4, market 3, village 1 | data file *(guess)* | How settled NPCs spread |
 | npc_wild_pick_top | float | QR 0.25, FE 0.15, CF 0.08, NS 0.04, DT 0.02 | data file (0.25 user decision; the realm ladder a guess) | Outside NPCs pick among the best share of spots for their root in their region; narrower and better as realm rises |
-| grade, max_grade | int | 1–5; village 2, town 3, market and city 4, sect seat 5 | calculated; data file *(guess)* | Residence grade; the best a place kind offers |
+| grade, max_grade | int | 1–5; village 2, town and sect hall 3, market and city 4, sect seat 5 | calculated; data file *(guess)* | Residence grade; the best a place kind offers |
 | furnish_per_grade | float | 0.05 | data file *(guess)* | Layer 1 density a residence's furnishing adds per grade |
 | grade_realm_min | int | grade 4 Core Formation, grade 5 Nascent Soul | data file *(guess)* | Least realm to rent or buy the top grades |
 

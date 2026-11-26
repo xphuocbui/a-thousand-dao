@@ -2,12 +2,12 @@
  "_doc": "Output of tools/design/map/land_qi.py (Travel & Map Formula C on the fine map). places: every exported place by id, each famous site (famous:<name>) and each hidden slot candidate (slot:<id>:<i>), with its part, base shares, variants (outside the 100), land density (the part's mean), density (plus o_kind, clamped) and danger (after the settlement cut). mu: Formula A's world mean shares over places. check: Formula C's map targets (observations).",
  "params_file": "assets/data/world_map.json",
  "timing_s": {
-  "depth": 4.9,
+  "depth": 4.8,
   "profile": 0.1,
   "blend": 0.5,
   "features": 0.2,
   "finish": 0.1,
-  "parts": 0.2
+  "parts": 0.3
  },
  "instances": {
   "lava": 16,
@@ -42,8 +42,8 @@
  },
  "check": {
   "places": 271.0,
-  "share_at_1_4": 0.1882,
-  "mean_density": 1.0951,
+  "share_at_1_4": 0.1845,
+  "mean_density": 1.0899,
   "wild_tiles_share_at_1_4": 0.0396,
   "mu": {
    "moc": 0.2223,
@@ -124,9 +124,9 @@
     "o_kind": 0.14
    },
    "hidden_ruin": {
-    "places": 28.0,
-    "mean": 1.31,
-    "share_at_1_4": 0.25,
+    "places": 27.0,
+    "mean": 1.321,
+    "share_at_1_4": 0.259,
     "range": [
      0.858,
      2.262
@@ -154,8 +154,8 @@
     "o_kind": 0.29
    },
    "lake": {
-    "places": 5.0,
-    "mean": 1.204,
+    "places": 4.0,
+    "mean": 1.202,
     "share_at_1_4": 0.0,
     "range": [
      0.817,
@@ -184,9 +184,9 @@
     "o_kind": -0.12
    },
    "mountain": {
-    "places": 14.0,
-    "mean": 1.167,
-    "share_at_1_4": 0.143,
+    "places": 13.0,
+    "mean": 1.162,
+    "share_at_1_4": 0.154,
     "range": [
      0.3,
      1.882
@@ -214,12 +214,12 @@
     "o_kind": 0.71
    },
    "sect_seat": {
-    "places": 30.0,
-    "mean": 1.544,
-    "share_at_1_4": 0.667,
+    "places": 23.0,
+    "mean": 1.427,
+    "share_at_1_4": 0.565,
     "range": [
      0.789,
-     2.364
+     2.108
     ],
     "band": [
      1.2,
@@ -229,12 +229,12 @@
     "o_kind": 0.1
    },
    "settlement": {
-    "places": 135.0,
-    "mean": 0.846,
-    "share_at_1_4": 0.007,
+    "places": 145.0,
+    "mean": 0.895,
+    "share_at_1_4": 0.048,
     "range": [
      0.655,
-     1.543
+     2.224
     ],
     "band": [
      0.6,
@@ -284,9 +284,9 @@
  "places": [
   {
    "id": 1,
-   "name": "Thúy Vi Tông",
-   "kind": "great_seat",
-   "row": "sect_seat",
+   "name": "Thúy Vi Nhai Đường",
+   "kind": "sect_hall",
+   "row": "settlement",
    "tile": [
     147,
     95
@@ -302,7 +302,7 @@
    },
    "variants": {},
    "land_density": 1.838,
-   "density": 1.938,
+   "density": 1.798,
    "land_danger": 1,
    "danger": 1
   },
@@ -332,9 +332,9 @@
   },
   {
    "id": 3,
-   "name": "Băng Tâm Các",
-   "kind": "great_seat",
-   "row": "sect_seat",
+   "name": "Cựu Các",
+   "kind": "sect_hall",
+   "row": "settlement",
    "tile": [
     455,
     139
@@ -350,15 +350,15 @@
    },
    "variants": {},
    "land_density": 1.533,
-   "density": 1.633,
+   "density": 1.493,
    "land_danger": 2,
    "danger": 1
   },
   {
    "id": 4,
-   "name": "Lạc Hà Tông",
-   "kind": "great_seat",
-   "row": "sect_seat",
+   "name": "Cựu Hà Viện",
+   "kind": "sect_hall",
+   "row": "settlement",
    "tile": [
     198,
     205
@@ -374,7 +374,7 @@
    },
    "variants": {},
    "land_density": 1.615,
-   "density": 1.715,
+   "density": 1.575,
    "land_danger": 1,
    "danger": 1
   },
@@ -404,9 +404,9 @@
   },
   {
    "id": 6,
-   "name": "Phượng Minh Cung",
-   "kind": "great_seat",
-   "row": "sect_seat",
+   "name": "Ngô Đồng Đình",
+   "kind": "sect_hall",
+   "row": "settlement",
    "tile": [
     369,
     250
@@ -422,15 +422,15 @@
    },
    "variants": {},
    "land_density": 2.013,
-   "density": 2.113,
+   "density": 1.973,
    "land_danger": 2,
    "danger": 1
   },
   {
    "id": 7,
-   "name": "Thính Vũ Lâu",
-   "kind": "great_seat",
-   "row": "sect_seat",
+   "name": "Vũ Lâu",
+   "kind": "sect_hall",
+   "row": "settlement",
    "tile": [
     253,
     249
@@ -448,15 +448,15 @@
     "bang": 6.11
    },
    "land_density": 2.264,
-   "density": 2.364,
+   "density": 2.224,
    "land_danger": 4,
    "danger": 3
   },
   {
    "id": 8,
-   "name": "Hàm Nguyệt Trang",
-   "kind": "minor_seat",
-   "row": "sect_seat",
+   "name": "Ngạn Đường",
+   "kind": "sect_hall",
+   "row": "settlement",
    "tile": [
     303,
     75
@@ -472,7 +472,7 @@
    },
    "variants": {},
    "land_density": 1.312,
-   "density": 1.412,
+   "density": 1.272,
    "land_danger": 1,
    "danger": 1
   },
@@ -622,9 +622,9 @@
   },
   {
    "id": 15,
-   "name": "Lê Hoa Am",
-   "kind": "minor_seat",
-   "row": "sect_seat",
+   "name": "Môn Am",
+   "kind": "sect_hall",
+   "row": "settlement",
    "tile": [
     410,
     140
@@ -640,7 +640,7 @@
    },
    "variants": {},
    "land_density": 1.533,
-   "density": 1.633,
+   "density": 1.493,
    "land_danger": 2,
    "danger": 1
   },
@@ -694,9 +694,9 @@
   },
   {
    "id": 18,
-   "name": "Bình Thủy Môn",
-   "kind": "minor_seat",
-   "row": "sect_seat",
+   "name": "Khách Tương Đường",
+   "kind": "sect_hall",
+   "row": "settlement",
    "tile": [
     125,
     247
@@ -712,7 +712,7 @@
    },
    "variants": {},
    "land_density": 1.206,
-   "density": 1.306,
+   "density": 1.166,
    "land_danger": 1,
    "danger": 1
   },
@@ -886,9 +886,9 @@
   },
   {
    "id": 26,
-   "name": "Lễ Tuyền Phái",
-   "kind": "minor_seat",
-   "row": "sect_seat",
+   "name": "Tuyền Phòng",
+   "kind": "sect_hall",
+   "row": "settlement",
    "tile": [
     409,
     211
@@ -904,15 +904,15 @@
    },
    "variants": {},
    "land_density": 1.232,
-   "density": 1.332,
+   "density": 1.192,
    "land_danger": 1,
    "danger": 1
   },
   {
    "id": 27,
-   "name": "Hồng Đậu Trang",
-   "kind": "minor_seat",
-   "row": "sect_seat",
+   "name": "Nhã Môn",
+   "kind": "sect_hall",
+   "row": "settlement",
    "tile": [
     181,
     305
@@ -928,7 +928,7 @@
    },
    "variants": {},
    "land_density": 1.401,
-   "density": 1.501,
+   "density": 1.361,
    "land_danger": 2,
    "danger": 1
   },
@@ -4683,9 +4683,9 @@
   },
   {
    "id": 184,
-   "name": "Lăng Tuyệt Phong",
-   "kind": "peak",
-   "row": "mountain",
+   "name": "Lê Hoa Am",
+   "kind": "minor_seat",
+   "row": "sect_seat",
    "tile": [
     410,
     146
@@ -4704,9 +4704,9 @@
     "bang": 10.0
    },
    "land_density": 1.357,
-   "density": 1.227,
+   "density": 1.457,
    "land_danger": 3,
-   "danger": 3
+   "danger": 2
   },
   {
    "id": 185,
@@ -4904,9 +4904,9 @@
   },
   {
    "id": 193,
-   "name": "Triêu Hà Hồ",
-   "kind": "lake",
-   "row": "lake",
+   "name": "Lễ Tuyền Phái",
+   "kind": "minor_seat",
+   "row": "sect_seat",
    "tile": [
     408,
     203
@@ -4922,7 +4922,7 @@
    },
    "variants": {},
    "land_density": 1.025,
-   "density": 1.215,
+   "density": 1.125,
    "land_danger": 1,
    "danger": 1
   },
@@ -5415,9 +5415,9 @@
   },
   {
    "id": 214,
-   "name": "Hồ Thiên Phái",
-   "kind": "ruin",
-   "row": "hidden_ruin",
+   "name": "Băng Tâm Các",
+   "kind": "great_seat",
+   "row": "sect_seat",
    "tile": [
     400,
     24
@@ -5435,9 +5435,9 @@
     "bang": 22.49
    },
    "land_density": 0.773,
-   "density": 1.023,
+   "density": 0.873,
    "land_danger": 3,
-   "danger": 3
+   "danger": 2
   },
   {
    "id": 215,
@@ -6530,9 +6530,9 @@
   },
   {
    "id": 260,
-   "name": "Trầm Bích Đàm",
-   "kind": "lake",
-   "row": "lake",
+   "name": "Hàm Nguyệt Trang",
+   "kind": "minor_seat",
+   "row": "sect_seat",
    "tile": [
     306,
     77
@@ -6548,7 +6548,7 @@
    },
    "variants": {},
    "land_density": 1.183,
-   "density": 1.373,
+   "density": 1.283,
    "land_danger": 1,
    "danger": 1
   },
@@ -6602,9 +6602,9 @@
   },
   {
    "id": 263,
-   "name": "Tiêu Âm Mạch",
-   "kind": "spirit_vein",
-   "row": "spirit_vein",
+   "name": "Hồng Đậu Trang",
+   "kind": "minor_seat",
+   "row": "sect_seat",
    "tile": [
     186,
     303
@@ -6620,9 +6620,9 @@
    },
    "variants": {},
    "land_density": 1.278,
-   "density": 1.098,
+   "density": 1.378,
    "land_danger": 2,
-   "danger": 2
+   "danger": 1
   },
   {
    "id": 264,
@@ -7109,9 +7109,9 @@
   },
   {
    "id": 284,
-   "name": "Ngạo Tuyết Phái",
-   "kind": "minor_seat",
-   "row": "sect_seat",
+   "name": "Mai Môn",
+   "kind": "sect_hall",
+   "row": "settlement",
    "tile": [
     269,
     131
@@ -7127,7 +7127,7 @@
    },
    "variants": {},
    "land_density": 1.0,
-   "density": 1.1,
+   "density": 0.96,
    "land_danger": 2,
    "danger": 1
   },
@@ -7541,9 +7541,9 @@
   },
   {
    "id": 302,
-   "name": "Cự Ngao Chử",
-   "kind": "beast_lair",
-   "row": "forest",
+   "name": "Bình Thủy Môn",
+   "kind": "minor_seat",
+   "row": "sect_seat",
    "tile": [
     133,
     254
@@ -7559,7 +7559,7 @@
    },
    "variants": {},
    "land_density": 0.866,
-   "density": 1.006,
+   "density": 0.966,
    "land_danger": 1,
    "danger": 1
   },
@@ -10447,9 +10447,9 @@
   },
   {
    "id": 423,
-   "name": "Dã Tang Lâm",
-   "kind": "forest",
-   "row": "forest",
+   "name": "Yên Quang Các",
+   "kind": "minor_seat",
+   "row": "sect_seat",
    "tile": [
     183,
     178
@@ -10465,7 +10465,7 @@
    },
    "variants": {},
    "land_density": 0.902,
-   "density": 1.042,
+   "density": 1.002,
    "land_danger": 1,
    "danger": 1
   },
@@ -11071,9 +11071,9 @@
   },
   {
    "id": 449,
-   "name": "Hỏa Ti Trấn",
-   "kind": "ruin",
-   "row": "hidden_ruin",
+   "name": "Phượng Minh Cung",
+   "kind": "great_seat",
+   "row": "sect_seat",
    "tile": [
     487,
     243
@@ -11089,9 +11089,9 @@
    },
    "variants": {},
    "land_density": 1.352,
-   "density": 1.602,
+   "density": 1.452,
    "land_danger": 3,
-   "danger": 3
+   "danger": 2
   },
   {
    "id": 450,
@@ -12757,9 +12757,9 @@
   },
   {
    "id": 519,
-   "name": "Tằng Loan Phong",
-   "kind": "peak",
-   "row": "mountain",
+   "name": "Minh Loan Các",
+   "kind": "minor_seat",
+   "row": "sect_seat",
    "tile": [
     240,
     213
@@ -12777,9 +12777,9 @@
     "am": 12.22
    },
    "land_density": 0.693,
-   "density": 0.563,
+   "density": 0.793,
    "land_danger": 4,
-   "danger": 4
+   "danger": 3
   },
   {
    "id": 520,
@@ -12951,9 +12951,9 @@
   },
   {
    "id": 527,
-   "name": "Minh Loan Các",
-   "kind": "minor_seat",
-   "row": "sect_seat",
+   "name": "Chung Bến",
+   "kind": "sect_hall",
+   "row": "settlement",
    "tile": [
     189,
     240
@@ -12969,7 +12969,7 @@
    },
    "variants": {},
    "land_density": 0.701,
-   "density": 0.801,
+   "density": 0.661,
    "land_danger": 1,
    "danger": 1
   },
@@ -13191,9 +13191,9 @@
   },
   {
    "id": 537,
-   "name": "Yên Quang Các",
-   "kind": "minor_seat",
-   "row": "sect_seat",
+   "name": "Vãn Điền",
+   "kind": "sect_hall",
+   "row": "settlement",
    "tile": [
     177,
     207
@@ -13209,7 +13209,7 @@
    },
    "variants": {},
    "land_density": 0.707,
-   "density": 0.807,
+   "density": 0.667,
    "land_danger": 1,
    "danger": 1
   },
@@ -13709,9 +13709,9 @@
   },
   {
    "id": 558,
-   "name": "Vân Kiều Trấn",
-   "kind": "ruin",
-   "row": "hidden_ruin",
+   "name": "Lạc Hà Tông",
+   "kind": "great_seat",
+   "row": "sect_seat",
    "tile": [
     232,
     184
@@ -13727,9 +13727,9 @@
    },
    "variants": {},
    "land_density": 1.108,
-   "density": 1.358,
+   "density": 1.208,
    "land_danger": 2,
-   "danger": 2
+   "danger": 1
   },
   {
    "id": 559,
@@ -21343,9 +21343,9 @@
   },
   {
    "id": 874,
-   "name": "Thần Cổ Phong",
-   "kind": "peak",
-   "row": "mountain",
+   "name": "Thính Vũ Lâu",
+   "kind": "great_seat",
+   "row": "sect_seat",
    "tile": [
     337,
     262
@@ -21363,9 +21363,9 @@
     "loi": 40.0
    },
    "land_density": 1.898,
-   "density": 1.768,
+   "density": 1.998,
    "land_danger": 3,
-   "danger": 3
+   "danger": 2
   },
   {
    "id": 875,
@@ -27011,9 +27011,9 @@
   },
   {
    "id": 1110,
-   "name": "Cổ Dịch Trấn",
-   "kind": "ruin",
-   "row": "hidden_ruin",
+   "name": "Thúy Vi Tông",
+   "kind": "great_seat",
+   "row": "sect_seat",
    "tile": [
     148,
     87
@@ -27029,7 +27029,7 @@
    },
    "variants": {},
    "land_density": 1.747,
-   "density": 1.997,
+   "density": 1.847,
    "land_danger": 1,
    "danger": 1
   },
@@ -30663,9 +30663,9 @@
   },
   {
    "id": 1262,
-   "name": "Thạch Khẩu Trấn",
-   "kind": "ruin",
-   "row": "hidden_ruin",
+   "name": "Ngạo Tuyết Phái",
+   "kind": "minor_seat",
+   "row": "sect_seat",
    "tile": [
     256,
     154
@@ -30681,9 +30681,9 @@
    },
    "variants": {},
    "land_density": 1.109,
-   "density": 1.359,
+   "density": 1.209,
    "land_danger": 2,
-   "danger": 2
+   "danger": 1
   },
   {
    "id": 1263,

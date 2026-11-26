@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "_doc": "The authored world's history (design/gdd/world-generation.md), exported by tools/design/world/export_world.py from design/world/*.json and design/map/continent-11; do not edit by hand. start_year: every game starts here (Core Rule 11). sects: the 30 living sects with their authored start (alignment chinh | ma | trung, the four development levels, treasury, a minor sect's lord and loyalty), seat (place id), founded year, specialty (the sect archetype NPC Builds reads) and leader (a cast key). fallen_sects: sects that fell before the start. people: the fixed cast (alive: realm, home place id, traits; dead: records with peak_realm, died, cause), with master, vassal_of, served_under and abode_slot where authored. events: the landmark chronicle and the annals, ordered by year then id; place is a place id, famous a famous site's name, feature a named feature with its tile; secret events are hidden until discovered. legendary_items: the 34 unique items, held by a living cast member or lost at a place or slot. territory: eras, land changes, wars, vassal changes, grudges. hidden_slots: the 28 hidden places with their 2-3 candidate tiles and origin event; tile_secrets: the 80 with their candidates; famous_sites and features: named sites and features. data_version: a hash of the inputs, recorded in each save (Core Rule 13).",
- "data_version": "ba1157cb73e16c98",
+ "data_version": "ea88b082192971f7",
  "start_year": 1200,
  "sects": [
   {
@@ -73,7 +73,7 @@
     "Earth",
     "Wood"
    ],
-   "seat": 4,
+   "seat": 558,
    "levels": {
     "holdings": 9,
     "institutions": 8,
@@ -83,6 +83,13 @@
    "treasury": 60000,
    "founded": 290,
    "specialty": "phap_tu",
+   "seat_moved": {
+    "from": 4,
+    "year": 1185,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.5,
+   "seat_array": "Vân Kiều Trận",
    "tier": 1,
    "regions": [
     10,
@@ -104,7 +111,7 @@
     "Water",
     "Thunder"
    ],
-   "seat": 7,
+   "seat": 874,
    "levels": {
     "holdings": 10,
     "institutions": 10,
@@ -114,6 +121,15 @@
    "treasury": 60000,
    "founded": 380,
    "specialty": "kiem_tu",
+   "seat_moved": {
+    "from": 7,
+    "year": 1166,
+    "events_at_old": [
+     "A278"
+    ]
+   },
+   "seat_array_density": 0.35,
+   "seat_array": "Thiết Vũ Trận",
    "tier": 1,
    "regions": [
     18,
@@ -132,7 +148,7 @@
     "Water",
     "Ice"
    ],
-   "seat": 3,
+   "seat": 214,
    "levels": {
     "holdings": 6,
     "institutions": 9,
@@ -142,6 +158,13 @@
    "treasury": 30000,
    "founded": 440,
    "specialty": "kiem_tu",
+   "seat_moved": {
+    "from": 3,
+    "year": 470,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.75,
+   "seat_array": "Ngọc Hồ Trận",
    "tier": 2,
    "regions": [
     7,
@@ -161,7 +184,7 @@
     "Wood",
     "Earth"
    ],
-   "seat": 1,
+   "seat": 1110,
    "levels": {
     "holdings": 7,
     "institutions": 5,
@@ -171,6 +194,13 @@
    "treasury": 30000,
    "founded": 500,
    "specialty": "dan_su",
+   "seat_moved": {
+    "from": 1,
+    "year": 1001,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.1,
+   "seat_array": "Xuân Hồi Trận",
    "tier": 2,
    "regions": [
     2,
@@ -189,7 +219,7 @@
     "Fire",
     "Wood"
    ],
-   "seat": 6,
+   "seat": 449,
    "levels": {
     "holdings": 9,
     "institutions": 6,
@@ -199,6 +229,13 @@
    "treasury": 30000,
    "founded": 480,
    "specialty": "phap_tu",
+   "seat_moved": {
+    "from": 6,
+    "year": 1162,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.65,
+   "seat_array": "Phượng Sào Trận",
    "tier": 2,
    "regions": [
     16,
@@ -326,7 +363,7 @@
     "Water",
     "Ice"
    ],
-   "seat": 8,
+   "seat": 260,
    "levels": {
     "holdings": 4,
     "institutions": 2,
@@ -336,6 +373,16 @@
    "treasury": 7000,
    "founded": 410,
    "specialty": "phap_tu",
+   "seat_moved": {
+    "from": 8,
+    "year": 412,
+    "events_at_old": [
+     "A013",
+     "A015"
+    ]
+   },
+   "seat_array_density": 0.15,
+   "seat_array": "Trầm Bích Trận",
    "lord": "tung_dao",
    "loyalty": 65,
    "craft": "water arts; spirit fish and lake pearls",
@@ -434,7 +481,7 @@
     "Water",
     "Wood"
    ],
-   "seat": 18,
+   "seat": 302,
    "levels": {
     "holdings": 2,
     "institutions": 2,
@@ -444,6 +491,13 @@
    "treasury": 7000,
    "founded": 520,
    "specialty": "phap_tu",
+   "seat_moved": {
+    "from": 18,
+    "year": 1116,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.35,
+   "seat_array": "Đình Triều Yển",
    "lord": "lac_ha",
    "loyalty": 65,
    "craft": "sea trade, ships and the strait crossing",
@@ -569,7 +623,7 @@
     "Poison",
     "Wood"
    ],
-   "seat": 27,
+   "seat": 263,
    "levels": {
     "holdings": 2,
     "institutions": 3,
@@ -579,6 +633,15 @@
    "treasury": 7000,
    "founded": 910,
    "specialty": "dan_su",
+   "seat_moved": {
+    "from": 27,
+    "year": 1110,
+    "events_at_old": [
+     "A279"
+    ]
+   },
+   "seat_array_density": 0.1,
+   "seat_array": "Hồng Giá Trận",
    "lord": "thinh_vu",
    "loyalty": 65,
    "craft": "poisons and charms behind a gracious door",
@@ -596,7 +659,7 @@
     "Ice",
     "Water"
    ],
-   "seat": 15,
+   "seat": 184,
    "levels": {
     "holdings": 3,
     "institutions": 4,
@@ -606,6 +669,16 @@
    "treasury": 7000,
    "founded": 600,
    "specialty": "kiem_tu",
+   "seat_moved": {
+    "from": 15,
+    "year": 702,
+    "events_at_old": [
+     "A109",
+     "A110"
+    ]
+   },
+   "seat_array_density": 0.2,
+   "seat_array": "Lê Sương Hoàn",
    "lord": "bang_tam",
    "loyalty": 65,
    "craft": "ice cultivation; a hermitage near the ice fields",
@@ -758,7 +831,7 @@
     "Water",
     "Wood"
    ],
-   "seat": 26,
+   "seat": 193,
    "levels": {
     "holdings": 2,
     "institutions": 4,
@@ -768,6 +841,13 @@
    "treasury": 7000,
    "founded": 660,
    "specialty": "dan_su",
+   "seat_moved": {
+    "from": 26,
+    "year": 1141,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.2,
+   "seat_array": "Triêu Hà Kính",
    "lord": "phuong_minh",
    "loyalty": 65,
    "craft": "healing, spirit wine and the lake springs",
@@ -839,7 +919,7 @@
     "Wood",
     "Metal"
    ],
-   "seat": 284,
+   "seat": 1262,
    "levels": {
     "holdings": 2,
     "institutions": 3,
@@ -849,6 +929,13 @@
    "treasury": 7000,
    "founded": 1105,
    "specialty": "kiem_tu",
+   "seat_moved": {
+    "from": 284,
+    "year": 1162,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.0,
+   "seat_array": "Hổ Văn Hoàn",
    "lord": "tung_dao",
    "loyalty": 65,
    "craft": "sword cultivation (kiếm tu); plum-blossom sword forms",
@@ -1162,7 +1249,7 @@
     "Metal",
     "Earth"
    ],
-   "seat": 527,
+   "seat": 519,
    "levels": {
     "holdings": 2,
     "institutions": 3,
@@ -1172,6 +1259,13 @@
    "treasury": 7000,
    "founded": 960,
    "specialty": "phap_tu",
+   "seat_moved": {
+    "from": 527,
+    "year": 1188,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.0,
+   "seat_array": "Bách Chung Diêm",
    "lord": "lac_ha",
    "loyalty": 65,
    "craft": "bell casting and sound arts; ward bells for ships and caravans",
@@ -1189,7 +1283,7 @@
     "Wood",
     "Earth"
    ],
-   "seat": 537,
+   "seat": 423,
    "levels": {
     "holdings": 3,
     "institutions": 2,
@@ -1199,6 +1293,13 @@
    "treasury": 7000,
    "founded": 1065,
    "specialty": "dan_su",
+   "seat_moved": {
+    "from": 537,
+    "year": 1187,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.0,
+   "seat_array": "Trường Minh Lô",
    "lord": "lac_ha",
    "loyalty": 55,
    "craft": "alchemy (luyện đan) from steppe herbs picked at dusk",
@@ -1560,7 +1661,7 @@
    "rank": "tong_chu",
    "role": "Head of Lạc Hà Tông",
    "realm": "nguyen_anh",
-   "home": 4,
+   "home": 558,
    "traits": {
     "personality": [
      "Gregarious",
@@ -1584,7 +1685,7 @@
    "rank": "tong_chu",
    "role": "Head of Thính Vũ Lâu",
    "realm": "nguyen_anh",
-   "home": 7,
+   "home": 874,
    "traits": {
     "personality": [
      "Paranoid",
@@ -1607,7 +1708,7 @@
    "rank": "tong_chu",
    "role": "Head of Băng Tâm Các",
    "realm": "nguyen_anh",
-   "home": 3,
+   "home": 214,
    "traits": {
     "personality": [
      "Reclusive",
@@ -1630,7 +1731,7 @@
    "rank": "tong_chu",
    "role": "Head of Thúy Vi Tông",
    "realm": "nguyen_anh",
-   "home": 1,
+   "home": 1110,
    "traits": {
     "personality": [
      "Content",
@@ -1653,7 +1754,7 @@
    "rank": "tong_chu",
    "role": "Head of Phượng Minh Cung",
    "realm": "nguyen_anh",
-   "home": 6,
+   "home": 449,
    "traits": {
     "personality": [
      "Ambitious",
@@ -1981,7 +2082,7 @@
    "rank": "tong_chu",
    "role": "Mistress of Hàm Nguyệt Trang, water arts, spirit fish and lake pearls",
    "realm": "ket_dan",
-   "home": 8,
+   "home": 260,
    "traits": {
     "personality": [
      "Calm",
@@ -2077,7 +2178,7 @@
    "rank": "tong_chu",
    "role": "Head of Bình Thủy Môn, sea trade, ships and the strait crossing",
    "realm": "ket_dan",
-   "home": 18,
+   "home": 302,
    "traits": {
     "personality": [
      "Gregarious",
@@ -2173,7 +2274,7 @@
    "rank": "tong_chu",
    "role": "Mistress of Hồng Đậu Trang, poisons and charms behind a gracious door (ma đạo)",
    "realm": "ket_dan",
-   "home": 27,
+   "home": 263,
    "traits": {
     "personality": [
      "Deceitful",
@@ -2197,7 +2298,7 @@
    "rank": "tong_chu",
    "role": "Abbess of Lê Hoa Am, ice cultivation in a hermitage by the ice fields",
    "realm": "ket_dan",
-   "home": 15,
+   "home": 184,
    "traits": {
     "personality": [
      "Compassionate",
@@ -2293,7 +2394,7 @@
    "rank": "tong_chu",
    "role": "Head of Lễ Tuyền Phái, healing, spirit wine and the lake springs",
    "realm": "ket_dan",
-   "home": 26,
+   "home": 193,
    "traits": {
     "personality": [
      "Compassionate",
@@ -2594,7 +2695,7 @@
    "rank": "truong_lao",
    "role": "First elder of Lạc Hà Tông (age 550); its second head, 940-1160, who stepped down for his disciple, the head Tô Vãn Chiếu",
    "realm": "nguyen_anh",
-   "home": 4,
+   "home": 558,
    "traits": {
     "personality": [
      "Stubborn",
@@ -2617,7 +2718,7 @@
    "rank": "truong_lao",
    "role": "First elder of Thính Vũ Lâu (age 420)",
    "realm": "ket_dan",
-   "home": 7,
+   "home": 874,
    "traits": {
     "personality": [
      "Loyal",
@@ -2640,7 +2741,7 @@
    "rank": "truong_lao",
    "role": "First elder of Băng Tâm Các (age 440)",
    "realm": "ket_dan",
-   "home": 3,
+   "home": 214,
    "traits": {
     "personality": [
      "Cautious",
@@ -2663,7 +2764,7 @@
    "rank": "truong_lao",
    "role": "First elder of Thúy Vi Tông (age 360)",
    "realm": "ket_dan",
-   "home": 1,
+   "home": 1110,
    "traits": {
     "personality": [
      "Diligent",
@@ -2686,7 +2787,7 @@
    "rank": "truong_lao",
    "role": "First elder of Phượng Minh Cung (age 320)",
    "realm": "ket_dan",
-   "home": 6,
+   "home": 449,
    "traits": {
     "personality": [
      "Gregarious",
@@ -2757,7 +2858,7 @@
    "rank": "noi_mon",
    "role": "The head's youngest disciple, age 24: the world's brightest young talent",
    "realm": "luyen_khi",
-   "home": 4,
+   "home": 558,
    "traits": {
     "personality": [
      "Brave",
@@ -2783,7 +2884,7 @@
    "rank": "noi_mon",
    "role": "The head's disciple, age 140, ambitious; rival of her master for the sect's future",
    "realm": "ket_dan",
-   "home": 7,
+   "home": 874,
    "traits": {
     "personality": [
      "Ambitious",
@@ -2807,7 +2908,7 @@
    "rank": "noi_mon",
    "role": "The head's disciple, age 60",
    "realm": "truc_co",
-   "home": 3,
+   "home": 214,
    "traits": {
     "personality": [
      "Calm",
@@ -3022,7 +3123,7 @@
    "rank": "truong_lao",
    "role": "War elder of Thính Vũ Lâu (age 560); came to the Tower in 906 at the Night Rain Edict and has never lost a duel",
    "realm": "nguyen_anh",
-   "home": 7,
+   "home": 874,
    "traits": {
     "personality": [
      "Wrathful",
@@ -3045,7 +3146,7 @@
    "rank": "truong_lao",
    "role": "Master of Thính Vũ Lâu's soul vaults and keeper of Kinh Lôi Mạch (age 380)",
    "realm": "nguyen_anh",
-   "home": 7,
+   "home": 874,
    "traits": {
     "personality": [
      "Patient",
@@ -3092,7 +3193,7 @@
    "rank": "tong_chu",
    "role": "Founder and head of Ngạo Tuyết Phái (1105), sword cultivation in plum-blossom forms",
    "realm": "truc_co",
-   "home": 284,
+   "home": 1262,
    "traits": {
     "personality": [
      "Brave",
@@ -3380,7 +3481,7 @@
    "rank": "tong_chu",
    "role": "A founder (960) and head of Minh Loan Các, bell casting and sound arts; ward bells for ships",
    "realm": "ket_dan",
-   "home": 527,
+   "home": 519,
    "traits": {
     "personality": [
      "Diligent",
@@ -3404,7 +3505,7 @@
    "rank": "tong_chu",
    "role": "Head of Yên Quang Các, alchemy from steppe herbs picked only in the evening glow",
    "realm": "truc_co",
-   "home": 537,
+   "home": 423,
    "traits": {
     "personality": [
      "Patient",
@@ -11314,7 +11415,7 @@
    ],
    "text_vi": "Tần Ngưng Sương qua đời ở tuổi bảy trăm mười; Sở Ngọc Hồ trở thành các chủ Băng Tâm Các và người giữ Băng Tâm Ngọc Hồ.",
    "text_en": "Tần Ngưng Sương dies at 710; Sở Ngọc Hồ becomes head of Băng Tâm Các and keeper of the Jade Vessel.",
-   "place": 3,
+   "place": 214,
    "item": "bang_tam_ngoc_ho"
   },
   {
@@ -13053,7 +13154,7 @@
    ],
    "text_vi": "Sở Ngọc Hồ trở về từ triều đình của Xu không nói một lời và tự giam mình trong băng điện của tông môn suốt một năm.",
    "text_en": "Sở Ngọc Hồ returns from the Pivot's court without a word and shuts herself in the seat's ice hall for a year.",
-   "place": 3,
+   "place": 214,
    "region": 8
   },
   {

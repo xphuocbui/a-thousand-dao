@@ -134,6 +134,140 @@ def track_routes(places, routes, m, travel, w, h):
     return out
 
 
+def apply_seat_moves(m, places):
+    """The world-depth seat moves (seat_moves.json, user rulings 2026-11-25/26; Travel & Map rule 6 "Sect halls",
+    Provinces rule 2a, World Generation rule 16): each moved sect's new seat place becomes its great or minor seat under
+    the seat's names, keeping its own name as former_name and a production site's kind as site_kind; the old seat
+    becomes a sect_hall under the name its page gives, keeping the seat's name as former_name. Applied after every
+    place is appended (ids are positional) and before seats, origins and routes are read. Returns the moves."""
+    path = os.path.join(m, "seat_moves.json")
+    if not os.path.exists(path):
+        return []
+    moves = load(path)["moves"]
+    by_id = {p["id"]: p for p in places}
+    for mv in moves:
+        old, new = by_id[mv["from"]], by_id[mv["to"]]
+        if old.get("key") != mv["sect"] or old["kind"] not in ("great_seat", "minor_seat"):
+            raise SystemExit("seat_moves.json: place %s is not %s's seat" % (mv["from"], mv["sect"]))
+        if new.get("key"):
+            raise SystemExit("seat_moves.json: place %s already holds a sect seat" % mv["to"])
+        seat_kind = old["kind"]
+        hall = mv["old_becomes"]
+        if new["kind"] not in ("ruin", "peak"):
+            new["site_kind"] = new["kind"]   # Travel & Map rule 6: a production site keeps its good as the seat's site
+        new["former_name"] = new["name"]
+        for k in ("name_han", "gloss"):
+            new.pop(k, None)
+            if old.get(k):
+                new[k] = old[k]
+        new.update({"kind": seat_kind, "key": mv["sect"], "name": old["name"], "holder": mv["sect"],
+                    "seat_moved": int(mv["year"])})
+        old.pop("key", None)
+        old["former_name"] = old["name"]
+        old.update({"kind": "sect_hall", "name": hall["name_hv"], "holder": mv["sect"], "hall_of": mv["sect"]})
+        for k in ("name_han", "gloss"):
+            old.pop(k, None)
+            if hall.get(k):
+                old[k] = hall[k]
+    return moves
+
+
+def land_path(a, b, cw, ok, w, h, path=None):
+    """The cheapest path from place a to place b over the tiles [ok] allows (Formula D's walking cost, as track_routes):
+    (tiles, cost), or None when no path joins them. With a list [path], the tile indices walked are appended to it."""
+    i0, goal = a["tile"][1] * w + a["tile"][0], b["tile"][1] * w + b["tile"][0]
+    best, tl, pq, prev = {i0: 0.0}, {i0: 0.0}, [(0.0, i0)], {}
+    while pq:
+        c, i = heapq.heappop(pq)
+        if i == goal:
+            if path is not None:
+                while i in prev:
+                    path.append(i)
+                    i = prev[i]
+                path.append(i0)
+            return tl[goal], c
+        if c > best.get(i, float("inf")):
+            continue
+        x, y = i % w, i // w
+        for dx, dy in N8:
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < w and 0 <= ny < h:
+                j = ny * w + nx
+                if not ok[j] and j != goal:
+                    continue
+                d = 1.4142 if dx and dy else 1.0
+                nc = c + d * cw[j]
+                if nc < best.get(j, float("inf")):
+                    best[j], tl[j], prev[j] = nc, tl[i] + d, i
+                    heapq.heappush(pq, (nc, j))
+    return None
+
+
+def seat_move_routes(moves, places, routes, m, travel, w, h):
+    """The routes each seat_moves.json row names (a track walked, or a road ridden where the page says road), measured
+    along the cheapest land path; a new seat still off the network then takes a track to its nearest routed place (as
+    track_routes). Returns route records."""
+    if not moves:
+        return [], []
+    by_id = {p["id"]: p for p in places}
+    road_cw = road_tile_costs(m, travel, w, h)
+    scale = float(travel["speed"]["road"]) / float(travel["speed"]["wilderness"])
+    walk_cw = [c * scale for c in road_tile_costs(m, dict(travel, road_terrain_share=1.0), w, h)]
+    land, _ = PL_pixels(os.path.join(m, "regions.png"))
+    lake_id = int(next(k for k, v in load(os.path.join(m, "base", "meta.json"))["legend"]["biome_ids"].items() if v == "lake"))
+    main_b = list(Image.open(os.path.join(m, "base", "biome.png")).getdata())
+    # a seat route may cross a lake (by boat or on the ice: Lễ Tuyền's lake seat, 193); never the sea, which takes a lane
+    ok = [land[i] > 0 for i in range(w * h)]
+    water = [land[i] == 0 or main_b[i] == lake_id for i in range(w * h)]
+    have = {(r["a"], r["b"]): r["kind"] for r in routes}
+    out, lane_tiles = [], []
+    for mv in moves:
+        for r in mv.get("routes", []):
+            a, b = sorted((r["a"], r["b"]))
+            if (a, b) in have and not (r["kind"] == "road" and have[(a, b)] == "track"):
+                continue
+            if r["kind"] == "lane":   # a sea lane: measured along the water, Formula D's c_t = 1 at sea
+                tiles = []
+                got = land_path(by_id[a], by_id[b], [1.0] * (w * h), water, w, h, tiles)
+                got = (got[0], got[0]) if got else None
+                lane_tiles.extend(i for i in tiles if water[i])
+            else:
+                got = land_path(by_id[a], by_id[b], road_cw if r["kind"] == "road" else walk_cw, ok, w, h)
+            if got is None:
+                raise SystemExit("seat_moves.json: no %s path from %s to %s" % ("water" if r["kind"] == "lane" else "land", a, b))
+            out.append({"a": a, "b": b, "kind": r["kind"], "tiles": got[0], "cost": got[1]})
+            have[(a, b)] = r["kind"]
+    # every new seat must reach the main network (the component of the first settled place), not only some route
+    nb = {}
+    for r in list(routes) + out:
+        nb.setdefault(r["a"], set()).add(r["b"])
+        nb.setdefault(r["b"], set()).add(r["a"])
+    first = min(p["id"] for p in places if p["kind"] in SETTLED and p["id"] in nb)
+    main, todo = {first}, [first]
+    while todo:
+        for y in nb.get(todo.pop(), ()):
+            if y not in main:
+                main.add(y)
+                todo.append(y)
+    on_net = main
+    for mv in moves:
+        if mv["to"] in on_net:
+            continue
+        seat = by_id[mv["to"]]
+        best = None
+        for q in places:
+            if q["id"] in on_net and q["region"] == seat["region"]:
+                got = land_path(seat, q, walk_cw, ok, w, h)
+                if got and (best is None or got[1] < best[2]):
+                    best = (q["id"], got[0], got[1])
+        if best is None:
+            raise SystemExit("seat_moves.json: %s's new seat %s cannot reach the network" % (mv["sect"], mv["to"]))
+        a, b = sorted((mv["to"], best[0]))
+        out.append({"a": a, "b": b, "kind": "track", "tiles": best[1], "cost": best[2]})
+        on_net.add(mv["to"])
+    return out, lane_tiles
+
+
 def PL_pixels(path):
     im = Image.open(path)
     return list(im.getdata()), im.size
@@ -404,6 +538,7 @@ def main():
         for s in v2.get("minor_sects", []):
             minor.append({k: s[k] for k in ("key", "name_hv", "name_han", "gloss", "alignment", "leans", "craft", "lord",
                                            "region", "founded") if k in s})
+    moves = apply_seat_moves(m, places)
     by_key = {p["key"]: p for p in places if p.get("key")}
     by_name = {p["name"]: p for p in places}
     for p in places:
@@ -434,6 +569,14 @@ def main():
                           "seat": seat["id"] if seat else None})
         if s.get("founded") is not None:   # the provinces-v2 sects carry their founding year
             minor_out[-1]["founded"] = s["founded"]
+    # World Generation rule 16a: a moved seat's record carries its founder's array and the move (from, year)
+    sect_out = {s["key"]: s for s in great_out + minor_out}
+    for mv in moves:
+        rec = sect_out[mv["sect"]]
+        rec["seat_moved"] = {"from": mv["from"], "year": int(mv["year"]), "events_at_old": mv.get("events_at_old", [])}
+        arr = mv.get("array") or {}
+        rec["seat_array_density"] = float(arr.get("density", 0.0))
+        rec["seat_array"] = arr.get("name_hv") or arr.get("name_en", "")
 
     # origins: each approved home choice resolved to the place it starts at (fixed-world decisions: a sect disciple at
     # its sect's seat, a loose cultivator at a cultivator market, a clan heir in its clan's town)
@@ -488,6 +631,19 @@ def main():
     for a_id, b_id, tiles, cost in track_routes(places, routes, m, travel, w, h):
         routes.append({"a": a_id, "b": b_id, "kind": "track", "tiles": round(tiles, 3),
                        "km": round(tiles * km_per_tile, 1), "cost": round(cost, 3)})
+    # the moved seats' routes after the tracks (Travel & Map rule 6), so every provinces-v2 place still walks to the
+    # network first; a page's road over an existing track replaces it
+    seat_routes, lane_tiles = seat_move_routes(moves, places, routes, m, travel, w, h)
+    for i in lane_tiles:   # a moved seat's sea lane joins the grid's lane layer, so tile travel can sail it
+        roads[i] = 3
+    for r in seat_routes:
+        rec = {"a": r["a"], "b": r["b"], "kind": r["kind"], "tiles": round(r["tiles"], 3),
+               "km": round(r["tiles"] * km_per_tile, 1), "cost": round(r["cost"], 3)}
+        old = next((i for i, q in enumerate(routes) if (q["a"], q["b"]) == (r["a"], r["b"])), None)
+        if old is None:
+            routes.append(rec)
+        else:
+            routes[old] = rec
 
     # each mine's authored resource (user decision 2026-11-20: by its name; mine_resources.json)
     mr_path = os.path.join(m, "mine_resources.json")

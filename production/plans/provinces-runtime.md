@@ -244,3 +244,19 @@ rule 13's lag, OQ 3 and 4, rule 10's lore levels, stone sites, shocks; Canh-gioi
 - **Stage 6 is the biggest balance change** (the economy's unit and access). Prices already sit outside their band
   for ore, special goods and pills in the baseline, so judge by the change, not by the band.
 - **Shared files:** `game_query.gd` and `map_screen.gd` with the UI-windows session.
+
+## Note for this session: the world-depth seat moves (2026-11-26, done by the world-depth work)
+
+The provinces session was not running, so the user ruled that the world-depth work makes the provinces changes the
+seat moves need (`design/world/depth/DECISIONS-2026-11-26.md`, Stage 2; Provinces rule 2a, extended 2026-11-26).
+- `tools/design/map/province_stats_v2.py`: `sect_hall` ranks like a town (seat rank, base slots, infra0, starting
+  buildings); a moved seat's province takes it as its seat place (`seat_place_of`, moved seats only); a moved seat
+  in no province (Lễ Tuyền's lake, 193) takes its nearest land tile's province.
+- `ProvinceBuildings.payer`: a great seat at the province's seat place makes that great sect the payer (as a minor
+  seat already did), for Phượng Minh in `prov_phan_vu`.
+- `place_start` needed no change: it already reads the seat province from the sect's seat place.
+- Data: `sect_hall` added beside `town` in `provinces.json` (base_slots, infra0) and `province_buildings.json` (start,
+  landing_seats).
+- **Found, not changed (put to the user):** 12 provinces hold an unmoved minor seat that is not their seat place
+  (prov_p146, p151, p46, p66, p82, p92, r14_12, r1_22, r20_3, r2_24, r3_13, r6_3), so that minor sect is not its
+  province's payer and its seat-kind buildings act at the village, town or nowhere.

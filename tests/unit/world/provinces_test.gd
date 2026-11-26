@@ -1,6 +1,6 @@
 extends DaoTestSuite
 ## Provinces as live world records, Stage 1 in shadow (design/gdd/provinces.md rules 1-7, F1, F2, F4, F5; ADR-0008;
-## AC-PV-01 counts as amended to 705 / 468 / 237). One world per suite; the season tests copy nothing and only add
+## AC-PV-01 counts as amended to 705 / 468 / 237, and 472 / 233 since the seat moves, Provinces rule 2a 2026-11-26). One world per suite; the season tests copy nothing and only add
 ## seasons of MapProduction and the province step.
 
 var _db: WorldDB
@@ -25,8 +25,9 @@ func _session() -> GameSession:
 func test_the_world_has_every_province_of_the_shapes_ac_pv_01() -> void:
 	var all: Array = _db.all(Provinces.TABLE)
 	assert_eq(all.size(), 705, "every province")
-	assert_eq(all.filter(func(v): return str(v.kind) == "settlement").size(), 468, "settlement provinces")
-	assert_eq(all.filter(func(v): return str(v.kind) == "wilderness").size(), 237, "wilderness provinces")
+	# Provinces rule 2a (2026-11-26): the four wilderness provinces a moved seat lands in become settlement provinces
+	assert_eq(all.filter(func(v): return str(v.kind) == "settlement").size(), 472, "settlement provinces")
+	assert_eq(all.filter(func(v): return str(v.kind) == "wilderness").size(), 233, "wilderness provinces")
 	for v in all:
 		assert_true(str(v.region_id) != "", "%s sits in a region" % v.id)
 

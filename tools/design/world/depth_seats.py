@@ -85,7 +85,8 @@ def fit(place, leans):
 
 def build():
     w = json.loads((ROOT / "assets/data/world_continent.json").read_text(encoding="utf-8"))
-    current = {s["key"]: s["seat"] for s in w["great_sects"] + w["minor_sects"]}
+    # the seat before the world-depth moves: a moved sect's record names it (seat_moved.from, export_continent.py)
+    current = {s["key"]: (s.get("seat_moved") or {}).get("from", s["seat"]) for s in w["great_sects"] + w["minor_sects"]}
     places = {p["id"]: p for p in w["places"]}
     rows, unread = [], []
     for page_path in sorted((D / "sects").glob("*.md")):

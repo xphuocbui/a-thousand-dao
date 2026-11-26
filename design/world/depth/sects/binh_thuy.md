@@ -50,7 +50,7 @@ the ferry still runs from Tương Phùng Thị (49).
   18 keeps its painting as the Strangers' Hall.
 - Routes: a raft track 302 to 123 (5 tiles); the 18-49 and 18-123 roads stay.
 - Density: 302 is 1.01 against 18's 1.31. **Founder's array** (amended 2026-11-25, ruling group 2: every moved sect
-  gets one): the **Slack-Water Weirs (Đình Triều Yển)**, `seat_array_density` **+0.30** (proposed; World Generation
+  gets one): the **Slack-Water Weirs (Đình Triều Yển)**, `seat_array_density` **+0.35** (re-sized 2026-11-26 by Formula G on the seat kind (user ruling); was +0.30; World Generation
   rule 16a, Formula G: 1.31 − 1.01), so the Tide Hall reads 1.31. In 1116 Bùi Phiêu Bình drove the Claw King's shell
   plates into the flats as a ring of weirs that hold the slack water's qi round the Tide Hall (N-binh_thuy-04).
   Breaking the weirs (a hook) drops the seat to 1.01.

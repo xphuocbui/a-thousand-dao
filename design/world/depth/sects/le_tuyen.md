@@ -54,7 +54,7 @@ The spring house stayed with the brewers, which is why the cellars' people (Bìn
 - Routes: a track 193 → Lục Dã Trấn (87, 3.6 tiles, on the road), and 193 → 26.
 - Province: both places are in the same province; the seat record moves to 193.
 - Density: 193 is 1.22 against 26's 1.33. **Founder's array** (amended 2026-11-25, ruling group 2: every moved sect
-  gets one): the **Dawn Cloud Mirror (Triêu Hà Kính)**, `seat_array_density` **+0.10** (proposed; World Generation
+  gets one): the **Dawn Cloud Mirror (Triêu Hà Kính)**, `seat_array_density` **+0.20** (re-sized 2026-11-26 by Formula G on the seat kind (user ruling); was +0.10; World Generation
   rule 16a, Formula G: 1.33 − 1.22 = 0.11, rounded to 0.10), so the Dawn Hall reads 1.32. In 1141 Mai set the bronze
   mirror that came with the palace head's gift under the Dawn Hall's eaves, where it gathers the lake's dawn light
   (N-le_tuyen-03); she still says the healers need the lake's air, not more qi. Breaking the mirror (a hook) drops the

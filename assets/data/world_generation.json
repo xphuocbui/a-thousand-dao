@@ -600,6 +600,11 @@
         "market": false,
         "bounties": true
       },
+      "sect_hall": {
+        "type": "tran",
+        "market": false,
+        "bounties": true
+      },
       "market": {
         "type": "phuong_thi",
         "market": true,
@@ -704,6 +709,7 @@
     "settled_kinds": [
       "city",
       "town",
+      "sect_hall",
       "market",
       "village"
     ],
@@ -733,6 +739,7 @@
     "settle_weight": {
       "city": 8,
       "town": 4,
+      "sect_hall": 4,
       "market": 3,
       "village": 1
     },

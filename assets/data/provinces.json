@@ -10,6 +10,7 @@
     "village": 2,
     "market": 3,
     "town": 3,
+    "sect_hall": 3,
     "minor_seat": 4,
     "city": 5,
     "great_seat": 6
@@ -30,6 +31,7 @@
       "village": 100,
       "market": 200,
       "town": 200,
+      "sect_hall": 200,
       "minor_seat": 300,
       "city": 400,
       "great_seat": 600

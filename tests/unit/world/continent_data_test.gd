@@ -36,7 +36,8 @@ func test_every_settlement_but_two_off_road_minor_seats_reaches_every_other_ac_t
 	# travel exists (Travel & Map rule 10). This pins them so a change shows.
 	var cd := _cd()
 	var settled: Array = cd.settled_ids()
-	assert_eq(settled.size(), 623, "181 settlements and 442 provinces-v2 ones (villages, towns, mines, sect seats)")
+	# the 13 world-depth seat moves (2026-11-26) add their new seat places; the old seats stay settled as sect halls
+	assert_eq(settled.size(), 636, "194 settlements and 442 provinces-v2 ones (villages, towns, mines, sect seats and halls)")
 	var main: Dictionary = cd.reachable_from(int(settled[0]))
 	var cut: Array = settled.filter(func(id): return not main.has(id))
 	var old_cut: Array = cut.filter(func(id): return not cd.places[id].has("v2_slot"))

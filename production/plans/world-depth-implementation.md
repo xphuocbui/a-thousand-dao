@@ -254,6 +254,37 @@ earlier hand count, kept for where each kind lives.
   (Provinces OQ 11). Re-run the starting-level census.
 - **Art:** moved seats show PlaceholderArt until painted (low quality by default).
 
+**Progress 2026-11-26** (rulings in `design/world/depth/DECISIONS-2026-11-26.md`, Stage 2):
+- GDD amendments written (user-approved): Travel & Map rule 6 "Sect halls" and its kind tables; Provinces rule 2a
+  extended to wilderness, village and city provinces, same-province and lake moves, and the old seat's province.
+- `design/map/continent-11/seat_moves.json` (user-approved names): the 13 moves, years, old-seat names, founder's arrays
+  (Formula G), page routes and `events_at_old`. `export_continent.py` applies it (new seat = great/minor seat under the
+  seat's names, `former_name` and `site_kind` kept; old seat = `sect_hall`), measures the routes on the land (lakes
+  crossable; a sea lane on the water) and links any seat still off the network; sect records carry `seat_moved`,
+  `seat_array_density`, `seat_array`. Pipeline: export, `land_qi.py --no-bin`, export, `province_stats_v2.py`,
+  `export_world.py`.
+- **Băng Tâm's 214 is an island** of the ice archipelago (every audit candidate is): ruled to keep it with a sea lane
+  from Băng Khổng Thôn (1346), the nearest routed coastal place, and a track to Hàn Giao Chử; page §2 updated.
+- Chronicle: an event naming a moved seat resolves to the old seat before the move year, and to it always when the
+  page keeps it there (`events_at_old`: A013, A015, A109, A110, A278, A279); only C175 and A125 move to Băng Tâm's new
+  seat. Living cast homes follow the seat; three the pages put at the old hall (Quan Vũ Thanh, Vu Ngô Đồng, Lệ Tiêu
+  Hồn) wait for Stage 7's depth homes.
+- Code: `sect_hall` in every kind table (data and `continent_data`, `map_view`, `province_window`); the founder's array
+  as a permanent layer-2 work in `MapWorks.density` (`qi.seat_array`, 0 when broken); a seat keeps its production site
+  (`site_kind`); `ProvinceBuildings.payer` takes a great seat at the seat place. Tests: `tests/unit/world/
+  seat_moves_test.gd` (8, AC-WG-52 included).
+- `map_version` hashes only the grid and qi bins, so it does not change; old saves keep their own places until Stage
+  7's `world_data_version` refuses them.
+- Checked 2026-11-26: full suite green (1,105); census flat over three seeds (year 200 mean Kết Đan 248 → 249,
+  Nguyên Anh 42 → 44, Hóa Thần 5 → 4); every seat compared old against new (`place_start` now seats a great and a minor
+  sect in one province, so Phượng Minh keeps its seat halls; a lane's water tiles join the travel grid so the island
+  seat can be left; six minor arrays re-sized by Formula G on the seat kind). Lạc Hà's old seat drew a hidden blessed
+  land (+0.8) in seed 4242: a per-game roll that stays with the hall, outside Formula G. Screenshots:
+  `production/qa/evidence/world-depth-stage2/`.
+- Open: the sect-hall map symbol (no file, so the diamond shows); new seats' banners and place lore until Stage 3 (the
+  panels show the old site's or old seat's text); the three cast homes the pages put at the old hall (Stage 7);
+  the 12 unmoved minor seats (ruled: fix, separate commit); re-leans with Stage 9 (ruled).
+
 ### Stage 3: install the authored art
 - **Portraits.**
   - Copy each `tools/asset-pipeline/portraits/out/authored/x-<group>/<key>.png` to `assets/portraits/cast/<key>.webp`
@@ -370,6 +401,8 @@ All in batches of about 50, the checker up front, **by sect** (D3), Băng Tâm C
 - The gap report shows zero across the world.
 
 ### Stage 9: roots and admission in code
+- **Re-leans first** (user 2026-11-26): write each sect's final leans from `design/world/depth/seats.json` into the
+  game's sect records (`world_continent.json` great/minor sects), with the admission code.
 - **Linh Căn:** the weighted Fisher-Yates, the purity shift and the variant boost (Formulas A2, D4). The map export
   writes province `land_qi`, `variant_max` and `land_element_means` (Provinces rule 3a).
 - **World Generation rule 8a:** birthplace, the land roll, Sects admission (F20), intake (F21), and no-lean sects.

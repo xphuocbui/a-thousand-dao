@@ -1614,7 +1614,14 @@
     13
    ],
    "seat_region": 13,
-   "seat": 4
+   "seat": 558,
+   "seat_moved": {
+    "from": 4,
+    "year": 1185,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.5,
+   "seat_array": "Vân Kiều Trận"
   },
   {
    "key": "thinh_vu",
@@ -1632,7 +1639,16 @@
     19
    ],
    "seat_region": 18,
-   "seat": 7
+   "seat": 874,
+   "seat_moved": {
+    "from": 7,
+    "year": 1166,
+    "events_at_old": [
+     "A278"
+    ]
+   },
+   "seat_array_density": 0.35,
+   "seat_array": "Thiết Vũ Trận"
   },
   {
    "key": "bang_tam",
@@ -1650,7 +1666,14 @@
     9
    ],
    "seat_region": 8,
-   "seat": 3
+   "seat": 214,
+   "seat_moved": {
+    "from": 3,
+    "year": 470,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.75,
+   "seat_array": "Ngọc Hồ Trận"
   },
   {
    "key": "thuy_vi",
@@ -1667,7 +1690,14 @@
     3
    ],
    "seat_region": 3,
-   "seat": 1
+   "seat": 1110,
+   "seat_moved": {
+    "from": 1,
+    "year": 1001,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.1,
+   "seat_array": "Xuân Hồi Trận"
   },
   {
    "key": "phuong_minh",
@@ -1685,7 +1715,14 @@
     20
    ],
    "seat_region": 16,
-   "seat": 6
+   "seat": 449,
+   "seat_moved": {
+    "from": 6,
+    "year": 1162,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.65,
+   "seat_array": "Phượng Sào Trận"
   }
  ],
  "minor_sects": [
@@ -1762,7 +1799,17 @@
    "craft": "water arts; spirit fish and lake pearls",
    "lord": "tung_dao",
    "region": 1,
-   "seat": 8
+   "seat": 260,
+   "seat_moved": {
+    "from": 8,
+    "year": 412,
+    "events_at_old": [
+     "A013",
+     "A015"
+    ]
+   },
+   "seat_array_density": 0.15,
+   "seat_array": "Trầm Bích Trận"
   },
   {
    "key": "van_hac",
@@ -1822,7 +1869,14 @@
    "craft": "sea trade, ships and the strait crossing",
    "lord": "lac_ha",
    "region": 10,
-   "seat": 18
+   "seat": 302,
+   "seat_moved": {
+    "from": 18,
+    "year": 1116,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.35,
+   "seat_array": "Đình Triều Yển"
   },
   {
    "key": "muc_van",
@@ -1897,7 +1951,16 @@
    "craft": "poisons and charms behind a gracious door",
    "lord": "thinh_vu",
    "region": 18,
-   "seat": 27
+   "seat": 263,
+   "seat_moved": {
+    "from": 27,
+    "year": 1110,
+    "events_at_old": [
+     "A279"
+    ]
+   },
+   "seat_array_density": 0.1,
+   "seat_array": "Hồng Giá Trận"
   },
   {
    "key": "le_hoa",
@@ -1912,7 +1975,17 @@
    "craft": "ice cultivation; a hermitage near the ice fields",
    "lord": "bang_tam",
    "region": 7,
-   "seat": 15
+   "seat": 184,
+   "seat_moved": {
+    "from": 15,
+    "year": 702,
+    "events_at_old": [
+     "A109",
+     "A110"
+    ]
+   },
+   "seat_array_density": 0.2,
+   "seat_array": "Lê Sương Hoàn"
   },
   {
    "key": "trac_anh",
@@ -2002,7 +2075,14 @@
    "craft": "healing, spirit wine and the lake springs",
    "lord": "phuong_minh",
    "region": 17,
-   "seat": 26
+   "seat": 193,
+   "seat_moved": {
+    "from": 26,
+    "year": 1141,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.2,
+   "seat_array": "Triêu Hà Kính"
   },
   {
    "key": "phan_vu",
@@ -2047,8 +2127,15 @@
    "craft": "sword cultivation (kiếm tu); plum-blossom sword forms",
    "lord": "tung_dao",
    "region": 5,
-   "seat": 284,
-   "founded": 1105
+   "seat": 1262,
+   "founded": 1105,
+   "seat_moved": {
+    "from": 284,
+    "year": 1162,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.0,
+   "seat_array": "Hổ Văn Hoàn"
   },
   {
    "key": "bach_vu",
@@ -2238,8 +2325,15 @@
    "craft": "bell casting and sound arts; ward bells for ships and caravans",
    "lord": "lac_ha",
    "region": 12,
-   "seat": 527,
-   "founded": 960
+   "seat": 519,
+   "founded": 960,
+   "seat_moved": {
+    "from": 527,
+    "year": 1188,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.0,
+   "seat_array": "Bách Chung Diêm"
   },
   {
    "key": "yen_quang",
@@ -2254,8 +2348,15 @@
    "craft": "alchemy (luyện đan) from steppe herbs picked at dusk",
    "lord": "lac_ha",
    "region": 13,
-   "seat": 537,
-   "founded": 1065
+   "seat": 423,
+   "founded": 1065,
+   "seat_moved": {
+    "from": 537,
+    "year": 1187,
+    "events_at_old": []
+   },
+   "seat_array_density": 0.0,
+   "seat_array": "Trường Minh Lô"
   },
   {
    "key": "hoa_cai",
@@ -2357,7 +2458,7 @@
  "places": [
   {
    "id": 1,
-   "kind": "great_seat",
+   "kind": "sect_hall",
    "tile": [
     147,
     95
@@ -2369,13 +2470,14 @@
    "river": false,
    "coast": false,
    "livability": 0.01,
-   "name": "Thúy Vi Tông",
-   "name_han": "翠微宗",
-   "key": "thuy_vi",
+   "name": "Thúy Vi Nhai Đường",
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": true,
    "array": false,
+   "former_name": "Thúy Vi Tông",
+   "hall_of": "thuy_vi",
+   "gloss": "the Cliff Hall",
    "qi": {
     "part": 0,
     "part_biome": "temperate_forest",
@@ -2390,7 +2492,7 @@
     "land_density": 1.838,
     "land_danger": 1
    },
-   "density": 1.938,
+   "density": 1.798,
    "danger": 1
   },
   {
@@ -2433,7 +2535,7 @@
   },
   {
    "id": 3,
-   "kind": "great_seat",
+   "kind": "sect_hall",
    "tile": [
     455,
     139
@@ -2445,13 +2547,14 @@
    "river": false,
    "coast": false,
    "livability": 0.01,
-   "name": "Băng Tâm Các",
-   "name_han": "冰心閣",
-   "key": "bang_tam",
+   "name": "Cựu Các",
    "holder": "bang_tam",
    "territory": "bang_tam",
    "on_road": true,
    "array": false,
+   "former_name": "Băng Tâm Các",
+   "hall_of": "bang_tam",
+   "gloss": "the Desert Pavilion",
    "qi": {
     "part": 0,
     "part_biome": "badlands",
@@ -2466,12 +2569,12 @@
     "land_density": 1.533,
     "land_danger": 2
    },
-   "density": 1.633,
+   "density": 1.493,
    "danger": 1
   },
   {
    "id": 4,
-   "kind": "great_seat",
+   "kind": "sect_hall",
    "tile": [
     198,
     205
@@ -2483,13 +2586,14 @@
    "river": false,
    "coast": false,
    "livability": 0.26,
-   "name": "Lạc Hà Tông",
-   "name_han": "落霞宗",
-   "key": "lac_ha",
+   "name": "Cựu Hà Viện",
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
    "array": false,
+   "former_name": "Lạc Hà Tông",
+   "hall_of": "lac_ha",
+   "gloss": "the Old Glow Court",
    "qi": {
     "part": 0,
     "part_biome": "steppe",
@@ -2504,7 +2608,7 @@
     "land_density": 1.615,
     "land_danger": 1
    },
-   "density": 1.715,
+   "density": 1.575,
    "danger": 1
   },
   {
@@ -2547,7 +2651,7 @@
   },
   {
    "id": 6,
-   "kind": "great_seat",
+   "kind": "sect_hall",
    "tile": [
     369,
     250
@@ -2559,13 +2663,14 @@
    "river": false,
    "coast": false,
    "livability": 0.01,
-   "name": "Phượng Minh Cung",
-   "name_han": "鳳鳴宮",
-   "key": "phuong_minh",
+   "name": "Ngô Đồng Đình",
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
    "array": false,
+   "former_name": "Phượng Minh Cung",
+   "hall_of": "phuong_minh",
+   "gloss": "the Wutong Court",
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -2580,12 +2685,12 @@
     "land_density": 2.013,
     "land_danger": 2
    },
-   "density": 2.113,
+   "density": 1.973,
    "danger": 1
   },
   {
    "id": 7,
-   "kind": "great_seat",
+   "kind": "sect_hall",
    "tile": [
     253,
     249
@@ -2597,13 +2702,14 @@
    "river": false,
    "coast": false,
    "livability": 0.0,
-   "name": "Thính Vũ Lâu",
-   "name_han": "聽雨樓",
-   "key": "thinh_vu",
+   "name": "Vũ Lâu",
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
    "array": false,
+   "former_name": "Thính Vũ Lâu",
+   "hall_of": "thinh_vu",
+   "gloss": "the Rain Tower",
    "qi": {
     "part": 0,
     "part_biome": "volcano",
@@ -2620,12 +2726,12 @@
     "land_density": 2.264,
     "land_danger": 4
    },
-   "density": 2.364,
+   "density": 2.224,
    "danger": 3
   },
   {
    "id": 8,
-   "kind": "minor_seat",
+   "kind": "sect_hall",
    "tile": [
     303,
     75
@@ -2637,13 +2743,14 @@
    "river": false,
    "coast": false,
    "livability": 0.18,
-   "name": "Hàm Nguyệt Trang",
-   "name_han": "含月莊",
-   "key": "ham_nguyet",
+   "name": "Ngạn Đường",
    "holder": "ham_nguyet",
    "territory": "tung_dao",
    "on_road": true,
    "array": false,
+   "former_name": "Hàm Nguyệt Trang",
+   "hall_of": "ham_nguyet",
+   "gloss": "the Shore House",
    "qi": {
     "part": 0,
     "part_biome": "temperate_forest",
@@ -2658,7 +2765,7 @@
     "land_density": 1.312,
     "land_danger": 1
    },
-   "density": 1.412,
+   "density": 1.272,
    "danger": 1
   },
   {
@@ -2891,7 +2998,7 @@
   },
   {
    "id": 15,
-   "kind": "minor_seat",
+   "kind": "sect_hall",
    "tile": [
     410,
     140
@@ -2903,13 +3010,14 @@
    "river": false,
    "coast": false,
    "livability": 0.0,
-   "name": "Lê Hoa Am",
-   "name_han": "梨花庵",
-   "key": "le_hoa",
+   "name": "Môn Am",
    "holder": "le_hoa",
    "territory": "bang_tam",
    "on_road": true,
    "array": false,
+   "former_name": "Lê Hoa Am",
+   "hall_of": "le_hoa",
+   "gloss": "the Gate Hermitage",
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -2924,7 +3032,7 @@
     "land_density": 1.533,
     "land_danger": 2
    },
-   "density": 1.633,
+   "density": 1.493,
    "danger": 1
   },
   {
@@ -3005,7 +3113,7 @@
   },
   {
    "id": 18,
-   "kind": "minor_seat",
+   "kind": "sect_hall",
    "tile": [
     125,
     247
@@ -3017,13 +3125,14 @@
    "river": false,
    "coast": true,
    "livability": 0.84,
-   "name": "Bình Thủy Môn",
-   "name_han": "萍水門",
-   "key": "binh_thuy",
+   "name": "Khách Tương Đường",
    "holder": "binh_thuy",
    "territory": "lac_ha",
    "on_road": true,
    "array": false,
+   "former_name": "Bình Thủy Môn",
+   "hall_of": "binh_thuy",
+   "gloss": "the Strangers' Hall",
    "qi": {
     "part": 0,
     "part_biome": "grassland",
@@ -3038,7 +3147,7 @@
     "land_density": 1.206,
     "land_danger": 1
    },
-   "density": 1.306,
+   "density": 1.166,
    "danger": 1
   },
   {
@@ -3309,7 +3418,7 @@
   },
   {
    "id": 26,
-   "kind": "minor_seat",
+   "kind": "sect_hall",
    "tile": [
     409,
     211
@@ -3321,13 +3430,14 @@
    "river": false,
    "coast": false,
    "livability": 0.95,
-   "name": "Lễ Tuyền Phái",
-   "name_han": "醴泉派",
-   "key": "le_tuyen",
+   "name": "Tuyền Phòng",
    "holder": "le_tuyen",
    "territory": "phuong_minh",
    "on_road": true,
    "array": false,
+   "former_name": "Lễ Tuyền Phái",
+   "hall_of": "le_tuyen",
+   "gloss": "the Spring House",
    "qi": {
     "part": 0,
     "part_biome": "grassland",
@@ -3342,12 +3452,12 @@
     "land_density": 1.232,
     "land_danger": 1
    },
-   "density": 1.332,
+   "density": 1.192,
    "danger": 1
   },
   {
    "id": 27,
-   "kind": "minor_seat",
+   "kind": "sect_hall",
    "tile": [
     181,
     305
@@ -3359,13 +3469,14 @@
    "river": false,
    "coast": true,
    "livability": 0.35,
-   "name": "Hồng Đậu Trang",
-   "name_han": "紅豆莊",
-   "key": "hong_dau",
+   "name": "Nhã Môn",
    "holder": "hong_dau",
    "territory": "thinh_vu",
    "on_road": true,
    "array": false,
+   "former_name": "Hồng Đậu Trang",
+   "hall_of": "hong_dau",
+   "gloss": "the Gracious Door",
    "qi": {
     "part": 0,
     "part_biome": "jungle",
@@ -3380,7 +3491,7 @@
     "land_density": 1.401,
     "land_danger": 2
    },
-   "density": 1.501,
+   "density": 1.361,
    "danger": 1
   },
   {
@@ -9423,7 +9534,7 @@
   },
   {
    "id": 184,
-   "kind": "peak",
+   "kind": "minor_seat",
    "tile": [
     410,
     146
@@ -9435,14 +9546,16 @@
    "river": false,
    "coast": false,
    "livability": 0.0,
-   "name": "Lăng Tuyệt Phong",
-   "name_han": "凌絕峰",
-   "gloss": "Peak Above All",
+   "name": "Lê Hoa Am",
    "note": "Đỗ Phủ, Vọng Nhạc: hội đương lăng tuyệt đỉnh, nhất lãm chúng sơn tiểu (I shall stand on the very top and see all mountains small); 5.2 km, the highest on the continent",
-   "holder": "",
+   "holder": "le_hoa",
    "territory": "bang_tam",
    "on_road": false,
    "array": false,
+   "former_name": "Lăng Tuyệt Phong",
+   "name_han": "梨花庵",
+   "key": "le_hoa",
+   "seat_moved": 702,
    "qi": {
     "part": 0,
     "part_biome": "glacier",
@@ -9460,8 +9573,8 @@
     "land_density": 1.357,
     "land_danger": 3
    },
-   "density": 1.227,
-   "danger": 3
+   "density": 1.457,
+   "danger": 2
   },
   {
    "id": 185,
@@ -9779,7 +9892,7 @@
   },
   {
    "id": 193,
-   "kind": "lake",
+   "kind": "minor_seat",
    "tile": [
     408,
     203
@@ -9791,14 +9904,17 @@
    "river": false,
    "coast": false,
    "livability": 0.0,
-   "name": "Triêu Hà Hồ",
-   "name_han": "朝霞湖",
-   "gloss": "Lake of the Dawn Clouds",
+   "name": "Lễ Tuyền Phái",
    "note": "The east's dawn clouds answer Lạc Hà's sunset clouds in the west; beside Lễ Tuyền Phái",
-   "holder": "",
+   "holder": "le_tuyen",
    "territory": "phuong_minh",
    "on_road": false,
    "array": false,
+   "site_kind": "lake",
+   "former_name": "Triêu Hà Hồ",
+   "name_han": "醴泉派",
+   "key": "le_tuyen",
+   "seat_moved": 1141,
    "qi": {
     "part": 0,
     "part_biome": "lake",
@@ -9813,7 +9929,7 @@
     "land_density": 1.025,
     "land_danger": 1
    },
-   "density": 1.215,
+   "density": 1.125,
    "danger": 1
   },
   {
@@ -10610,7 +10726,7 @@
   },
   {
    "id": 214,
-   "kind": "ruin",
+   "kind": "great_seat",
    "tile": [
     400,
     24
@@ -10622,7 +10738,7 @@
    "river": false,
    "coast": true,
    "livability": 0.02,
-   "name": "Hồ Thiên Phái",
+   "name": "Băng Tâm Các",
    "on_road": false,
    "array": false,
    "former": "sect",
@@ -10630,11 +10746,13 @@
     210,
     425
    ],
-   "name_han": "胡天派",
-   "gloss": "School of the Northern Sky",
    "note": "Buried by the eruption of Chúc Long Sơn under the ice.",
    "holder": "bang_tam",
    "territory": "bang_tam",
+   "former_name": "Hồ Thiên Phái",
+   "name_han": "冰心閣",
+   "key": "bang_tam",
+   "seat_moved": 470,
    "qi": {
     "part": 0,
     "part_biome": "tundra",
@@ -10651,8 +10769,8 @@
     "land_density": 0.773,
     "land_danger": 3
    },
-   "density": 1.023,
-   "danger": 3
+   "density": 0.873,
+   "danger": 2
   },
   {
    "id": 215,
@@ -12530,7 +12648,7 @@
   },
   {
    "id": 260,
-   "kind": "lake",
+   "kind": "minor_seat",
    "tile": [
     306,
     77
@@ -12542,16 +12660,19 @@
    "river": false,
    "coast": false,
    "livability": 0.0,
-   "name": "Trầm Bích Đàm",
+   "name": "Hàm Nguyệt Trang",
    "on_road": false,
    "array": false,
    "province": "prov_ham_nguyet",
    "v2_slot": "prov_ham_nguyet_lake_1",
-   "name_han": "沉璧潭",
-   "gloss": "Pool of the Sunken Jade Disc",
    "site_grade": "minor",
-   "holder": "",
+   "holder": "ham_nguyet",
    "territory": "tung_dao",
+   "site_kind": "lake",
+   "former_name": "Trầm Bích Đàm",
+   "name_han": "含月莊",
+   "key": "ham_nguyet",
+   "seat_moved": 412,
    "qi": {
     "part": 0,
     "part_biome": "temperate_forest",
@@ -12566,7 +12687,7 @@
     "land_density": 1.183,
     "land_danger": 1
    },
-   "density": 1.373,
+   "density": 1.283,
    "danger": 1
   },
   {
@@ -12663,7 +12784,7 @@
   },
   {
    "id": 263,
-   "kind": "spirit_vein",
+   "kind": "minor_seat",
    "tile": [
     186,
     303
@@ -12675,16 +12796,19 @@
    "river": false,
    "coast": false,
    "livability": 0.0,
-   "name": "Tiêu Âm Mạch",
+   "name": "Hồng Đậu Trang",
    "on_road": false,
    "array": false,
    "province": "prov_hong_dau",
    "v2_slot": "prov_hong_dau_spirit_vein_1",
-   "name_han": "蕉陰脈",
-   "gloss": "Vein in the Banana Shade",
    "no_site": true,
    "holder": "hong_dau",
    "territory": "thinh_vu",
+   "site_kind": "spirit_vein",
+   "former_name": "Tiêu Âm Mạch",
+   "name_han": "紅豆莊",
+   "key": "hong_dau",
+   "seat_moved": 1110,
    "qi": {
     "part": 0,
     "part_biome": "jungle",
@@ -12699,8 +12823,8 @@
     "land_density": 1.278,
     "land_danger": 2
    },
-   "density": 1.098,
-   "danger": 2
+   "density": 1.378,
+   "danger": 1
   },
   {
    "id": 264,
@@ -13542,7 +13666,7 @@
   },
   {
    "id": 284,
-   "kind": "minor_seat",
+   "kind": "sect_hall",
    "tile": [
     269,
     131
@@ -13554,16 +13678,16 @@
    "river": false,
    "coast": false,
    "livability": 0.25,
-   "name": "Ngạo Tuyết Phái",
+   "name": "Mai Môn",
    "on_road": false,
    "array": false,
    "province": "prov_p109",
    "v2_slot": "prov_p109_minor_seat_p",
-   "name_han": "傲雪派",
-   "gloss": "School That Defies the Snow",
-   "key": "ngao_tuyet",
    "holder": "ngao_tuyet",
    "territory": "tung_dao",
+   "former_name": "Ngạo Tuyết Phái",
+   "hall_of": "ngao_tuyet",
+   "gloss": "the Plum Gate",
    "qi": {
     "part": 0,
     "part_biome": "temperate_forest",
@@ -13578,7 +13702,7 @@
     "land_density": 1.0,
     "land_danger": 2
    },
-   "density": 1.1,
+   "density": 0.96,
    "danger": 1
   },
   {
@@ -14300,7 +14424,7 @@
   },
   {
    "id": 302,
-   "kind": "beast_lair",
+   "kind": "minor_seat",
    "tile": [
     133,
     254
@@ -14312,16 +14436,19 @@
    "river": false,
    "coast": false,
    "livability": 0.0,
-   "name": "Cự Ngao Chử",
+   "name": "Bình Thủy Môn",
    "on_road": false,
    "array": false,
    "province": "prov_p123",
    "v2_slot": "prov_p123_beast_lair_1",
-   "name_han": "巨螯渚",
-   "gloss": "Shoal of the Great Claws",
    "site_grade": "minor",
-   "holder": "",
+   "holder": "binh_thuy",
    "territory": "lac_ha",
+   "site_kind": "beast_lair",
+   "former_name": "Cự Ngao Chử",
+   "name_han": "萍水門",
+   "key": "binh_thuy",
+   "seat_moved": 1116,
    "qi": {
     "part": 0,
     "part_biome": "grassland",
@@ -14336,7 +14463,7 @@
     "land_density": 0.866,
     "land_danger": 1
    },
-   "density": 1.006,
+   "density": 0.966,
    "danger": 1
   },
   {
@@ -19343,7 +19470,7 @@
   },
   {
    "id": 423,
-   "kind": "forest",
+   "kind": "minor_seat",
    "tile": [
     183,
     178
@@ -19355,16 +19482,20 @@
    "river": false,
    "coast": false,
    "livability": 0.0,
-   "name": "Dã Tang Lâm",
+   "name": "Yên Quang Các",
    "on_road": false,
    "array": false,
    "province": "prov_p80",
    "v2_slot": "prov_p80_forest_1",
-   "name_han": "野桑林",
-   "gloss": "Wild Mulberry Wood",
    "site_grade": "minor",
-   "holder": "",
+   "holder": "yen_quang",
    "territory": "lac_ha",
+   "site_kind": "forest",
+   "former_name": "Dã Tang Lâm",
+   "name_han": "煙光閣",
+   "gloss": "Pavilion of the Hazy Light",
+   "key": "yen_quang",
+   "seat_moved": 1187,
    "qi": {
     "part": 0,
     "part_biome": "temperate_forest",
@@ -19379,7 +19510,7 @@
     "land_density": 0.902,
     "land_danger": 1
    },
-   "density": 1.042,
+   "density": 1.002,
    "danger": 1
   },
   {
@@ -20429,7 +20560,7 @@
   },
   {
    "id": 449,
-   "kind": "ruin",
+   "kind": "great_seat",
    "tile": [
     487,
     243
@@ -20441,21 +20572,23 @@
    "river": false,
    "coast": false,
    "livability": 0.0,
-   "name": "Hỏa Ti Trấn",
+   "name": "Phượng Minh Cung",
    "on_road": false,
    "array": false,
    "province": "prov_phan_vu",
    "v2_slot": "prov_phan_vu_ruin_1",
-   "name_han": "火絲鎮",
-   "gloss": "Fire-Silk Town",
    "former": "town",
    "lived": [
     255,
     590
    ],
    "site_grade": "minor",
-   "holder": "phan_vu",
+   "holder": "phuong_minh",
    "territory": "phuong_minh",
+   "former_name": "Hỏa Ti Trấn",
+   "name_han": "鳳鳴宮",
+   "key": "phuong_minh",
+   "seat_moved": 1162,
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -20470,8 +20603,8 @@
     "land_density": 1.352,
     "land_danger": 3
    },
-   "density": 1.602,
-   "danger": 3
+   "density": 1.452,
+   "danger": 2
   },
   {
    "id": 450,
@@ -23299,7 +23432,7 @@
   },
   {
    "id": 519,
-   "kind": "peak",
+   "kind": "minor_seat",
    "tile": [
     240,
     213
@@ -23311,16 +23444,19 @@
    "river": false,
    "coast": false,
    "livability": 0.0,
-   "name": "Tằng Loan Phong",
+   "name": "Minh Loan Các",
    "on_road": false,
    "array": false,
    "province": "prov_r12_3",
    "v2_slot": "prov_r12_3_peak_1",
-   "name_han": "層巒峰",
-   "gloss": "Peak of the Layered Ranges",
    "site_grade": "minor",
-   "holder": "",
+   "holder": "minh_loan",
    "territory": "lac_ha",
+   "former_name": "Tằng Loan Phong",
+   "name_han": "鳴鸞閣",
+   "gloss": "Pavilion of the Singing Bells",
+   "key": "minh_loan",
+   "seat_moved": 1188,
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -23337,8 +23473,8 @@
     "land_density": 0.693,
     "land_danger": 4
    },
-   "density": 0.563,
-   "danger": 4
+   "density": 0.793,
+   "danger": 3
   },
   {
    "id": 520,
@@ -23626,7 +23762,7 @@
   },
   {
    "id": 527,
-   "kind": "minor_seat",
+   "kind": "sect_hall",
    "tile": [
     189,
     240
@@ -23638,16 +23774,16 @@
    "river": false,
    "coast": true,
    "livability": 0.45,
-   "name": "Minh Loan Các",
+   "name": "Chung Bến",
    "on_road": false,
    "array": false,
    "province": "prov_r12_7",
    "v2_slot": "prov_r12_7_minor_seat_p",
-   "name_han": "鳴鸞閣",
-   "gloss": "Pavilion of the Singing Bells",
-   "key": "minh_loan",
    "holder": "minh_loan",
    "territory": "lac_ha",
+   "former_name": "Minh Loan Các",
+   "hall_of": "minh_loan",
+   "gloss": "the Bell Wharf",
    "qi": {
     "part": 0,
     "part_biome": "steppe",
@@ -23662,7 +23798,7 @@
     "land_density": 0.701,
     "land_danger": 1
    },
-   "density": 0.801,
+   "density": 0.661,
    "danger": 1
   },
   {
@@ -24032,7 +24168,7 @@
   },
   {
    "id": 537,
-   "kind": "minor_seat",
+   "kind": "sect_hall",
    "tile": [
     177,
     207
@@ -24044,16 +24180,16 @@
    "river": false,
    "coast": false,
    "livability": 0.29,
-   "name": "Yên Quang Các",
+   "name": "Vãn Điền",
    "on_road": false,
    "array": false,
    "province": "prov_r13_12",
    "v2_slot": "prov_r13_12_minor_seat_p",
-   "name_han": "煙光閣",
-   "gloss": "Pavilion of the Hazy Light",
-   "key": "yen_quang",
    "holder": "yen_quang",
    "territory": "lac_ha",
+   "former_name": "Yên Quang Các",
+   "hall_of": "yen_quang",
+   "gloss": "the Dusk Field",
    "qi": {
     "part": 0,
     "part_biome": "steppe",
@@ -24068,7 +24204,7 @@
     "land_density": 0.707,
     "land_danger": 1
    },
-   "density": 0.807,
+   "density": 0.667,
    "danger": 1
   },
   {
@@ -24905,7 +25041,7 @@
   },
   {
    "id": 558,
-   "kind": "ruin",
+   "kind": "great_seat",
    "tile": [
     232,
     184
@@ -24917,13 +25053,11 @@
    "river": false,
    "coast": false,
    "livability": 0.0,
-   "name": "Vân Kiều Trấn",
+   "name": "Lạc Hà Tông",
    "on_road": false,
    "array": false,
    "province": "prov_r13_9",
    "v2_slot": "prov_r13_9_ruin_3",
-   "name_han": "雲橋鎮",
-   "gloss": "Cloud Bridge Town",
    "former": "town",
    "lived": [
     520,
@@ -24932,6 +25066,10 @@
    "site_grade": "minor",
    "holder": "lac_ha",
    "territory": "lac_ha",
+   "former_name": "Vân Kiều Trấn",
+   "name_han": "落霞宗",
+   "key": "lac_ha",
+   "seat_moved": 1185,
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -24946,8 +25084,8 @@
     "land_density": 1.108,
     "land_danger": 2
    },
-   "density": 1.358,
-   "danger": 2
+   "density": 1.208,
+   "danger": 1
   },
   {
    "id": 559,
@@ -38023,7 +38161,7 @@
   },
   {
    "id": 874,
-   "kind": "peak",
+   "kind": "great_seat",
    "tile": [
     337,
     262
@@ -38035,16 +38173,18 @@
    "river": false,
    "coast": false,
    "livability": 0.0,
-   "name": "Thần Cổ Phong",
+   "name": "Thính Vũ Lâu",
    "on_road": false,
    "array": false,
    "province": "prov_r19_30",
    "v2_slot": "prov_r19_30_peak_1",
-   "name_han": "神鼓峰",
-   "gloss": "Divine Drum Peak",
    "site_grade": "minor",
-   "holder": "",
+   "holder": "thinh_vu",
    "territory": "thinh_vu",
+   "former_name": "Thần Cổ Phong",
+   "name_han": "聽雨樓",
+   "key": "thinh_vu",
+   "seat_moved": 1166,
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -38061,8 +38201,8 @@
     "land_density": 1.898,
     "land_danger": 3
    },
-   "density": 1.768,
-   "danger": 3
+   "density": 1.998,
+   "danger": 2
   },
   {
    "id": 875,
@@ -47735,7 +47875,7 @@
   },
   {
    "id": 1110,
-   "kind": "ruin",
+   "kind": "great_seat",
    "tile": [
     148,
     87
@@ -47747,13 +47887,11 @@
    "river": false,
    "coast": false,
    "livability": 0.0,
-   "name": "Cổ Dịch Trấn",
+   "name": "Thúy Vi Tông",
    "on_road": false,
    "array": false,
    "province": "prov_r3_15",
    "v2_slot": "prov_r3_15_ruin_3",
-   "name_han": "古驛鎮",
-   "gloss": "Old Post Town",
    "former": "town",
    "lived": [
     520,
@@ -47762,6 +47900,10 @@
    "site_grade": "minor",
    "holder": "thuy_vi",
    "territory": "thuy_vi",
+   "former_name": "Cổ Dịch Trấn",
+   "name_han": "翠微宗",
+   "key": "thuy_vi",
+   "seat_moved": 1001,
    "qi": {
     "part": 0,
     "part_biome": "temperate_forest",
@@ -47776,7 +47918,7 @@
     "land_density": 1.747,
     "land_danger": 1
    },
-   "density": 1.997,
+   "density": 1.847,
    "danger": 1
   },
   {
@@ -53995,7 +54137,7 @@
   },
   {
    "id": 1262,
-   "kind": "ruin",
+   "kind": "minor_seat",
    "tile": [
     256,
     154
@@ -54007,21 +54149,24 @@
    "river": false,
    "coast": false,
    "livability": 0.0,
-   "name": "Thạch Khẩu Trấn",
+   "name": "Ngạo Tuyết Phái",
    "on_road": false,
    "array": false,
    "province": "prov_r5_29",
    "v2_slot": "prov_r5_29_ruin_2",
-   "name_han": "石口鎮",
-   "gloss": "Stone Mouth Town",
    "former": "town",
    "lived": [
     930,
     1161
    ],
    "site_grade": "minor",
-   "holder": "tung_dao",
+   "holder": "ngao_tuyet",
    "territory": "tung_dao",
+   "former_name": "Thạch Khẩu Trấn",
+   "name_han": "傲雪派",
+   "gloss": "School That Defies the Snow",
+   "key": "ngao_tuyet",
+   "seat_moved": 1162,
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -54036,8 +54181,8 @@
     "land_density": 1.109,
     "land_danger": 2
    },
-   "density": 1.359,
-   "danger": 2
+   "density": 1.209,
+   "danger": 1
   },
   {
    "id": 1263,
@@ -65740,6 +65885,22 @@
    "cost": 7.071
   },
   {
+   "a": 8,
+   "b": 260,
+   "kind": "track",
+   "tiles": 3.828,
+   "km": 95.7,
+   "cost": 17.228
+  },
+  {
+   "a": 27,
+   "b": 263,
+   "kind": "track",
+   "tiles": 6.414,
+   "km": 160.4,
+   "cost": 22.633
+  },
+  {
    "a": 15,
    "b": 268,
    "kind": "track",
@@ -65748,12 +65909,12 @@
    "cost": 46.819
   },
   {
-   "a": 284,
-   "b": 1257,
+   "a": 123,
+   "b": 302,
    "kind": "track",
-   "tiles": 4.828,
-   "km": 120.7,
-   "cost": 21.728
+   "tiles": 5.828,
+   "km": 145.7,
+   "cost": 18.19
   },
   {
    "a": 144,
@@ -65820,12 +65981,28 @@
    "cost": 43.284
   },
   {
+   "a": 80,
+   "b": 423,
+   "kind": "track",
+   "tiles": 3.0,
+   "km": 75.0,
+   "cost": 9.0
+  },
+  {
    "a": 82,
    "b": 427,
    "kind": "track",
    "tiles": 5.414,
    "km": 135.4,
    "cost": 16.243
+  },
+  {
+   "a": 94,
+   "b": 449,
+   "kind": "road",
+   "tiles": 6.828,
+   "km": 170.7,
+   "cost": 7.614
   },
   {
    "a": 24,
@@ -65908,12 +66085,12 @@
    "cost": 30.213
   },
   {
-   "a": 18,
+   "a": 302,
    "b": 472,
    "kind": "track",
-   "tiles": 21.828,
-   "km": 545.7,
-   "cost": 67.825
+   "tiles": 18.142,
+   "km": 453.5,
+   "cost": 56.42
   },
   {
    "a": 125,
@@ -66020,12 +66197,12 @@
    "cost": 63.213
   },
   {
-   "a": 156,
+   "a": 263,
    "b": 509,
    "kind": "track",
-   "tiles": 15.485,
-   "km": 387.1,
-   "cost": 47.622
+   "tiles": 11.828,
+   "km": 295.7,
+   "cost": 44.644
   },
   {
    "a": 78,
@@ -66066,6 +66243,14 @@
    "tiles": 8.657,
    "km": 216.4,
    "cost": 45.342
+  },
+  {
+   "a": 518,
+   "b": 519,
+   "kind": "track",
+   "tiles": 3.414,
+   "km": 85.4,
+   "cost": 25.606
   },
   {
    "a": 4,
@@ -66181,6 +66366,14 @@
   },
   {
    "a": 541,
+   "b": 558,
+   "kind": "track",
+   "tiles": 15.314,
+   "km": 382.8,
+   "cost": 62.275
+  },
+  {
+   "a": 541,
    "b": 560,
    "kind": "track",
    "tiles": 14.071,
@@ -66212,12 +66405,12 @@
    "cost": 47.743
   },
   {
-   "a": 541,
+   "a": 558,
    "b": 571,
    "kind": "track",
-   "tiles": 14.899,
-   "km": 372.5,
-   "cost": 71.545
+   "tiles": 7.243,
+   "km": 181.1,
+   "cost": 51.324
   },
   {
    "a": 384,
@@ -66916,20 +67109,20 @@
    "cost": 16.97
   },
   {
-   "a": 815,
-   "b": 829,
+   "a": 519,
+   "b": 815,
    "kind": "track",
-   "tiles": 17.728,
-   "km": 443.2,
-   "cost": 69.012
+   "tiles": 7.071,
+   "km": 176.8,
+   "cost": 53.032
   },
   {
-   "a": 156,
+   "a": 263,
    "b": 818,
    "kind": "track",
-   "tiles": 10.828,
-   "km": 270.7,
-   "cost": 54.906
+   "tiles": 11.657,
+   "km": 291.4,
+   "cost": 52.554
   },
   {
    "a": 42,
@@ -67066,6 +67259,14 @@
    "tiles": 7.657,
    "km": 191.4,
    "cost": 57.426
+  },
+  {
+   "a": 873,
+   "b": 874,
+   "kind": "track",
+   "tiles": 3.414,
+   "km": 85.4,
+   "cost": 25.606
   },
   {
    "a": 43,
@@ -67684,12 +67885,20 @@
    "cost": 30.468
   },
   {
-   "a": 1103,
+   "a": 45,
+   "b": 1110,
+   "kind": "road",
+   "tiles": 7.828,
+   "km": 195.7,
+   "cost": 9.161
+  },
+  {
+   "a": 1110,
    "b": 1111,
    "kind": "track",
-   "tiles": 14.071,
-   "km": 351.8,
-   "cost": 63.319
+   "tiles": 9.243,
+   "km": 231.1,
+   "cost": 42.912
   },
   {
    "a": 1105,
@@ -68172,6 +68381,14 @@
    "cost": 36.754
   },
   {
+   "a": 1261,
+   "b": 1262,
+   "kind": "track",
+   "tiles": 4.828,
+   "km": 120.7,
+   "cost": 29.851
+  },
+  {
    "a": 1255,
    "b": 1267,
    "kind": "track",
@@ -68180,12 +68397,12 @@
    "cost": 47.989
   },
   {
-   "a": 1261,
+   "a": 1262,
    "b": 1268,
    "kind": "track",
-   "tiles": 8.828,
-   "km": 220.7,
-   "cost": 52.765
+   "tiles": 5.657,
+   "km": 141.4,
+   "cost": 37.929
   },
   {
    "a": 1210,
@@ -68746,6 +68963,94 @@
    "tiles": 4.828,
    "km": 120.7,
    "cost": 36.213
+  },
+  {
+   "a": 214,
+   "b": 1346,
+   "kind": "lane",
+   "tiles": 74.314,
+   "km": 1857.8,
+   "cost": 74.314
+  },
+  {
+   "a": 214,
+   "b": 239,
+   "kind": "track",
+   "tiles": 5.657,
+   "km": 141.4,
+   "cost": 38.183
+  },
+  {
+   "a": 558,
+   "b": 560,
+   "kind": "track",
+   "tiles": 9.0,
+   "km": 225.0,
+   "cost": 46.403
+  },
+  {
+   "a": 15,
+   "b": 184,
+   "kind": "track",
+   "tiles": 6.0,
+   "km": 150.0,
+   "cost": 45.0
+  },
+  {
+   "a": 87,
+   "b": 193,
+   "kind": "track",
+   "tiles": 3.828,
+   "km": 95.7,
+   "cost": 11.485
+  },
+  {
+   "a": 26,
+   "b": 193,
+   "kind": "track",
+   "tiles": 8.414,
+   "km": 210.4,
+   "cost": 25.243
+  },
+  {
+   "a": 284,
+   "b": 1262,
+   "kind": "track",
+   "tiles": 28.385,
+   "km": 709.6,
+   "cost": 136.419
+  },
+  {
+   "a": 253,
+   "b": 449,
+   "kind": "track",
+   "tiles": 3.0,
+   "km": 75.0,
+   "cost": 19.125
+  },
+  {
+   "a": 28,
+   "b": 874,
+   "kind": "road",
+   "tiles": 6.243,
+   "km": 156.1,
+   "cost": 8.584
+  },
+  {
+   "a": 208,
+   "b": 874,
+   "kind": "track",
+   "tiles": 6.657,
+   "km": 166.4,
+   "cost": 49.926
+  },
+  {
+   "a": 1109,
+   "b": 1110,
+   "kind": "track",
+   "tiles": 6.243,
+   "km": 156.1,
+   "cost": 29.412
   }
  ],
  "arrays": [
@@ -69137,24 +69442,24 @@
  },
  "origin_homes": {
   "tong_mon": [
-   1,
+   1110,
    2,
-   3,
-   4,
+   214,
+   558,
    5,
-   6,
-   7,
-   8,
+   449,
+   874,
+   260,
    9,
    10,
    11,
    12,
    13,
    14,
-   15,
+   184,
    16,
    17,
-   18,
+   302,
    19,
    20,
    21,
@@ -69162,8 +69467,8 @@
    23,
    24,
    25,
-   26,
-   27,
+   193,
+   263,
    28,
    29,
    230
@@ -69243,5 +69548,5 @@
    "miasma_source": 1024
   }
  },
- "map_version": "24e5a58d7ef0ec8f"
+ "map_version": "c0deaf04bb7f894f"
 }
