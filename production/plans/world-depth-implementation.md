@@ -34,7 +34,14 @@ The content is in `design/world/depth/` (`SUMMARY-2026-11-25.md`).
 
 ## Start here (for a new session)
 
-0. **Resume point (2026-11-26, end of day; the user switched accounts):** Stages 0-5 are DONE and committed (Stage 5's
+0. **Resume point (2026-11-26, late): Băng Tâm Các has finished Stages 6 and 7** (last commit 07e6f3b3; its gap report
+   reads 0). The record is `production/plans/stage6/bang_tam.md`, with its review in `bang_tam-review.md`.
+   **Next: Stage 6 for the other 49 sects and the 6 outside groups**, as headless Opus jobs with Fable as the advisor,
+   three at a time, decisions auto-accepted. First write the job brief from Băng Tâm's pass, and settle how the
+   parallel jobs share the engine files (see Stage 6, "After Băng Tâm Các"). Then Stage 8 exports everyone with
+   `export_world.py --sect all`.
+   The older resume point follows:
+   **(2026-11-26, end of day; the user switched accounts):** Stages 0-5 are DONE and committed (Stage 5's
    code 28d3dca5, its close c709af42). The full suite (1,180 cases) and the full parity `--check` passed at 28d3dca5.
    **Next: Stage 6, Băng Tâm Các first, then Stage 7 for that sect before the other 49.** Follow Stage 6's "per-sect
    method" (user-approved 2026-11-26), and resume a sect from `production/plans/stage6/<key>.md`. Open calls for the user:
