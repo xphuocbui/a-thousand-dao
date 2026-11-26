@@ -66,10 +66,11 @@ func test_the_dead_are_replaced_by_new_qi_refining_cultivators_ac69() -> void:
 func test_the_configured_size_cannot_go_below_the_minimum() -> void:
 	var people: Dictionary = game_data().world_gen().people
 	var floor_was: int = int(people.world_cultivators_min)
-	people.world_cultivators_min = 200
+	var floor_now: int = int(people.world_cultivators) + 50   # above the fixture's size (the authored cast + 80)
+	people.world_cultivators_min = floor_now
 	var alive: int = _alive(_world(14))
 	people.world_cultivators_min = floor_was
-	assert_eq(alive, 200, "the minimum wins over a smaller size")
+	assert_eq(alive, floor_now, "the minimum wins over a smaller size")
 
 
 func test_an_archetype_never_changes_a_root() -> void:
