@@ -59,7 +59,7 @@ pole of a landing.
   River and will not cut the ropes until they swear to be one gate."
 - **N-lang_dao-02** (940, `beast`): "Lãng Đào's pilot rows a pig out to the eighth bend, and the water serpent lets the
   ferries through. The gate has fed it every spring since."
-- **N-lang_dao-03** (1162, `trade`, hidden): "Lãng Đào's ferry master begins to charge Lạc Hà's boats a toll at the Ngư Ca
+- **N-lang_dao-03** (1162, `hidden`, kind: `trade`): "Lãng Đào's ferry master begins to charge Lạc Hà's boats a toll at the Ngư Ca
   landing that Tùng Đào never set."
 - **N-lang_dao-04** (1173, `tale`): "When the Đào Sa landing burns, Thương Bạch Phàm cuts one ferry loose and poles it
   into the current with nine children aboard."

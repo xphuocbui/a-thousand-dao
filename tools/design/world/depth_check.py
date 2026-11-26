@@ -320,6 +320,20 @@ def main():
             for r, cap in caps.items():
                 if count[s][r] > cap:
                     f("quota", "%s: %s %d > %d" % (s, r, count[s][r], cap))
+    # World Generation Formula F on the final seats (seats.json, from tools/design/world/depth_seats.py; Wind exempt)
+    sp = D / "seats.json"
+    if not sp.exists():
+        f("seat", "no seats.json: run tools/design/world/depth_seats.py")
+    else:
+        import depth_seats  # noqa: E402
+        fresh = depth_seats.build()
+        if fresh != load(sp):
+            f("seat", "seats.json is stale against the sect pages: run tools/design/world/depth_seats.py")
+        for u in fresh["unread"]:
+            f("seat", "%s: the page's seat or leans cannot be read (%s)" % (u["key"], u["why"]))
+        for r in fresh["sects"]:
+            if not r["fit"]:
+                f("seat", "%s: seat %s fails Formula F for leans %s (%s)" % (r["key"], r["seat"], r["leans"], r["notes"]))
     if not quiet:
         print("\n".join(lines))
     tot = collections.Counter()

@@ -16,3 +16,22 @@
   new statuses, tags and modifier keys. Generated stand-in techniques are only a temporary step; they are not the end
   state. This answers the plan's old D2 question. Plan: `production/plans/world-depth-implementation.md` (Stages 4-6
   and the gap report's done condition).
+
+# Decisions 2026-11-26 (implementation, Stages 0-1)
+
+- **D3: promote records by sect**, Băng Tâm Các first (ADR-0009, accepted; saves refused on a `world_data_version`
+  number, not the content hash).
+- **The per-sect order:** each sect's pass designs its techniques, arts and Effects, runs the gap report for the
+  engine words it needs, builds those in both fight engines with parity, then exports, loads and fights. Stage 5 up
+  front builds only the features already known (`builds/engine-wishes.md`).
+- **Review every sect:** the user reviews each sect's designed techniques, arts, Effects and items before it is
+  exported.
+- **Stand-ins:** each sect's Stage 6 pass picks its people's real techniques (the lineage method by rank where one
+  fits, the method a note names, else a new technique for that sect).
+- **Hidden events:** World Generation rule 5a wins. N-lang_dao-03, N-suong_tung-02, N-thai_chi-04 and N-van_hac-03 are
+  the `hidden` kind (out of both tiers until uncovered), their page kind kept as `kind:` (the story kind).
+  N-thoi_tinh-01 ("hidden in part") is split: a public quarrel line and a hidden N-thoi_tinh-01b (texts approved).
+- **Ties:** `lover` is a soft friend tie started at a high strength; `former_master` / `former_disciple` are soft ties,
+  friend by default, rival or enmity where the note says they parted badly (the pinned sư đồ is the current pair only).
+- **Event Vietnamese text:** all 277 translated now, in batches on Sonnet; the user reviews at the end.
+- **combat_library.json:** re-export now (the 2026-11-25 `song` tags on three bell arts), with the full test suite.

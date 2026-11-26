@@ -56,7 +56,7 @@ inner gate, and the north-shore boys who do not stay at the outer gate and carry
 **New chronicle proposals:**
 - **N-suong_tung-01** (1033, `craft`): "After the ice wall at Nghênh Nguyệt, a ward-writer of Tùng Đào's Array Hall writes a
   ward inside a paper lantern that keeps the ice off a village for a winter."
-- **N-suong_tung-02** (1135, `craft`, hidden): "Sương Tùng's founder copies the wards an old singer of Tùng Đào's Array Hall
+- **N-suong_tung-02** (1135, `hidden`, kind: `craft`): "Sương Tùng's founder copies the wards an old singer of Tùng Đào's Array Hall
   lays with his songs, and seals the copies in a box."
 - **N-suong_tung-03** (1170, `death`): "The founder of Sương Tùng Các dies at her desk with the brush in her hand; her
   disciple Văn Hàn Đăng, of Hồ Khẩu, becomes head."

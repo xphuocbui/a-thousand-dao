@@ -62,10 +62,11 @@ the fire vent and the journeyman Đinh Hỏa Lân from Phất Y's hot steppe (64
 | 1170 | The head lends his second son Cát Thối Phong to the Pivot as the seat's armourer | **N-thoi_tinh-02** |
 
 **New chronicle proposals.**
-- **N-thoi_tinh-01** (1160, `quarrel`, hidden in part): "Vưu Chước Kim of Thối Tinh Môn strikes the blade Three Years'
-  Tax with lightning, and it sings; he strikes an ingot of Thiên Ngoại iron, and it does not. Cát Lưu Quang breaks
-  Vưu's hammer and sends him down the mountain." The public line is the quarrel. What Vưu said about the iron is
-  hidden, known to the head, Vưu and the quench-keeper Bàng Lãnh Tôi.
+- **N-thoi_tinh-01** (1160, `quarrel`): "Vưu Chước Kim of Thối Tinh Môn quarrels with his head at the forge. Cát Lưu
+  Quang breaks Vưu's hammer and sends him down the mountain." The public line is the quarrel.
+- **N-thoi_tinh-01b** (1160, `quarrel`, hidden): "Vưu Chước Kim strikes the blade Three Years' Tax with lightning, and it
+  sings; he strikes an ingot of Thiên Ngoại iron, and it does not. What he says of the iron is kept by the head, by Vưu
+  and by the quench-keeper Bàng Lãnh Tôi." (Split from N-thoi_tinh-01 by the user's ruling, 2026-11-26.)
 - **N-thoi_tinh-02** (1170, `appointment`): "Cát Lưu Quang lends his second son, Cát Thối Phong, to Thiên Xu Tông as
   the armourer of its seat."
 - **N-thoi_tinh-04** (790, `mine`, hidden): "The last of the sky-iron seam at Thiên Ngoại Khoáng is forged into blades

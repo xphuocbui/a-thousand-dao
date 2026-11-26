@@ -62,7 +62,7 @@ terraces as mortals. The valley has never sent a child away for its root.
   basket. She will be the valley's mistress."
 - **N-thai_chi-03** (1066, `tale`): "The youngest master of Lăng Tiêu Các walks into Thải Chi Cốc with a bronze censer
   and a coal from the fire that burned his pavilion."
-- **N-thai_chi-04** (1174, `tale`): "By lamplight in Thải Chi's lower field, the valley-mistress treats Lạc Hà raiders
+- **N-thai_chi-04** (1174, `hidden`, kind: `tale`): "By lamplight in Thải Chi's lower field, the valley-mistress treats Lạc Hà raiders
   wounded at Đào Sa and sends them home."
 
 ## 4. Doctrine and customs

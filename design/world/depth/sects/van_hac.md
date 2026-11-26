@@ -67,7 +67,7 @@ the woodcutters' villages. About half the named members are each.
   Mộc Tự, and keeps the day of his withering as a day without music."
 - **N-van_hac-02** (621, `tale`): "Vạn Hác's first students write the monk's music down in zither tablature, so that it
   outlives them."
-- **N-van_hac-03** (1162, `tale`, hidden): "The heir of Tùng Đào plays Vạn Hác's head a score in the academy's tablature. He
+- **N-van_hac-03** (1162, `hidden`, kind: `tale`): "The heir of Tùng Đào plays Vạn Hác's head a score in the academy's tablature. He
   hears the pines' unwritten canon in it."
 
 ## 4. Doctrine and customs

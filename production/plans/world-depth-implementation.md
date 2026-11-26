@@ -133,8 +133,9 @@ The content is in `design/world/depth/` (`SUMMARY-2026-11-25.md`).
 
 ## The gap: what the content names that the game does not have (measured 2026-11-26)
 
-Stage 1's gap report (`depth_gap.py`) replaces these counts with exact lists. Until then they are measurements, not
-verdicts.
+Stage 1's gap report (`depth_gap.py`) replaces these counts with exact lists. **Since 2026-11-26 the live numbers
+are `python -I tools/design/world/depth_gap.py`** (Stage 1 progress has the first run). The table below is the
+earlier hand count, kept for where each kind lives.
 
 | What | Count | Where it is | State |
 |---|---|---|---|
@@ -160,18 +161,53 @@ verdicts.
 
 ### Stage 0: decisions and one ADR
 - **D1:** DONE. Checkpoints committed.
-- **ADR-0009: the world-depth export.** It covers:
-  - how `design/world/depth/` folds into `world_history.json` and the data files;
-  - the merge with `cast_builds`: keep the authored targets, add the new, and keep the 18 fallen-sect people;
-  - the data-version bump (a save on the old cast is refused);
-  - the route: depth proposals are **promoted into the design catalogues** (`design/techniques/`, `design/arts/`,
-    `design/items/`) and reach the game through the existing exporters. There is no second exporter for records.
-  - the temporary stand-in rule while stages land.
+- **ADR-0009: the world-depth export.** ACCEPTED 2026-11-26 (user): `docs/architecture/adr-0009-world-depth-export.md`.
+  It covers:
+  - the two routes: world content through `export_world.py`; records promoted into the design catalogues
+    (`catalogue-sect-<key>.json`, `part-sect-<key>.json`, `sets-<key>.json`) and the existing exporters, with Effects
+    written into `combat_effects.json` as today. There is no second exporter for records.
+  - the merge: the depth record wins on every field it carries; the 18 fallen-sect people come from the old cast;
+    the depth builds already hold all 54 old builds' targets (18 the same, 36 changed in the depth pass).
+  - the save check: a `world_data_version` **integer** (user 2026-11-26), raised only on a break; `load_dict`
+    refuses a save with another value. Today `data_version` is recorded but never compared.
+  - the stand-in rule: explicit `wants` beside a stand-in, counted by the gap report; `_learn` warns.
 - **D2:** ANSWERED by the 2026-11-26 ruling: no stand-ins at the end.
-- **D3: the order of the catalogue promotion.** Recommended: by sect, so each sect works end to end before the next.
-  The alternative is by kind (all techniques, then all items). Ask the user.
+- **D3:** ANSWERED (user 2026-11-26): **by sect**. Băng Tâm Các first.
+- **Sources first (found 2026-11-26).** DONE 2026-11-26. A fresh `export_world.py` run differed from the committed
+  `world_history.json` in A225 and C023: the approved texts (story pass B, 5ababc91) were edited in `assets/data` only.
+  Both are now in their sources (A225 in `annals_proposal.json`, C023 in `chronicle_proposal.json`), and a fresh
+  export equals the file apart from `data_version`. From now on, never edit `world_history.json` by hand.
 
 ### Stage 1: structure the export, and the gap report (tools only)
+
+**Progress 2026-11-26:**
+- DONE: `tools/design/world/depth_gap.py`. It gives each record a state (rule text, engine form, structured,
+  catalogue, game, runs, clash); only "runs" closes (techniques, items, sets and beasts at "game", since their lines
+  and Effects are their own rows, read from the game record once promoted). Fight verdicts come from fight.py's own
+  compilers; a scope tag no library art carries stays open. It lists by owner and cross-owner references (`--sect`,
+  `--list`, `--json`). First run: 180 techniques, 331 new arts (11 engine form), 490 items, 166 sets, 381 open
+  Effects (1 clash: Still Water), 4 Effect names shared by several records, 75 open modifier lines of 2,394, 21 beasts,
+  276 events (structured, not yet in the game), 184 stand-ins (none names its wanted technique in a field), 39
+  cross-owner references, 16 people over the 16-tie cap (distinct partners), 47 engine words, 4 open wishes, 0
+  unknown ids. Băng Tâm Các's slice: 4 techniques, 9 new arts, 23 items, 9 sets, 11 Effects, 2 beasts, 5 events, 6
+  stand-ins, 104 lines that all run.
+- DONE: the seat table, `tools/design/world/depth_seats.py` → `design/world/depth/seats.json`. 50 sects read, 13 seats
+  move, 11 no-lean, all pass Formula F (Wind exempt). `depth_check.py` runs it and reports a stale file or a failing
+  seat.
+- STRUCTURED, not done: the events, `tools/design/world/depth_events.py` → `design/world/depth/events/
+  <owner>.events.json`. 277 events in 56 owners (landmark 39, annals 233, hidden kind 5; secret 34, from the header
+  flag, a "(hidden" after the text, or a timeline row marking its bold id). People, sects and place are matched by name
+  as proposals. Open: `text_vi` for all 277 (the translation pass; `text_vi_of` catches a later rewrite) and a confirm
+  pass on the matched people and places.
+- DONE in the gap report (`TIE_MAP`, user rulings 2026-11-26): the tie mapping; no kind is unmapped. Every authored
+  person is notable in the game (cap 16); partners are counted once; a feud is pinned.
+- RULED 2026-11-26 (`DECISIONS-2026-11-26.md`, Stages 0-1): the four `hidden`-kind events follow rule 5a (pages
+  now `hidden`, kind kept); N-thoi_tinh-01 split into a public line and hidden N-thoi_tinh-01b (277 events); `lover`
+  is a high-strength soft friend tie; former masters are soft ties; stand-ins are picked per sect in Stage 6; all 277
+  events are translated now on Sonnet; `combat_library.json` is re-exported now.
+- OPEN: the trait trim (rule 2a's order is fully stated; it lands in the export, Stage 7), the export fields, the
+  Đạo Đồ route rule.
+
 - **The gap report,** `tools/design/world/depth_gap.py` (observations only). For every build, person, item, set,
   technique, art and beast it lists:
   - stand-in techniques;
@@ -251,6 +287,9 @@ The features in Stage 5 need these rules first. Another session edits `design/gd
 - **Art DSL** (the arts README or GDD): the `new_vocab` words of `engine-wishes.md` section 4.
 
 ### Stage 5: the engine features (both engines, parity green)
+- **Order (user 2026-11-26):** this stage builds only the features already known (`engine-wishes.md`, the duel
+  readings, sets, tags). Each sect's Stage 6 pass then builds the engine words its own designs need, in both engines
+  with parity, before that sect is exported.
 - **Verify first, then build only the gap.** The engine already lists `delay_immune` (MOD_KEYS), `last_act`,
   `store_damage`, `heal_restored`, `batch_ended`, `overflow` and others (`assets/data/combat_engine.json`). For each
   row of `engine-wishes.md`, record whether it exists, partly exists or is missing before writing code.
@@ -268,7 +307,10 @@ The features in Stage 5 need these rules first. Another session edits `design/gd
 - **Every feature** gets a GdUnit test and a `fight.py` test, plus a parity case.
 
 ### Stage 6: the records (author, then promote through the existing exporters)
-All in batches of about 50, the checker up front, by sect in the order D3 picks. Nothing here is priced.
+All in batches of about 50, the checker up front, **by sect** (D3), Băng Tâm Các first. Nothing here is priced.
+- **Each sect's pass (user 2026-11-26):** design its techniques, arts, Effects, items, sets and beasts; pick its
+  stand-ins' real techniques; run `depth_gap.py --sect <key>` for the engine words it needs; build those (Stage 5's
+  rules); **show the user the sect's designs for review** (every sect, user 2026-11-26); then export, load and fight.
 - **Techniques (180).** Promote each proposal into `design/techniques/catalogue-*.json` in the catalogue form:
   `bonuses`, `passives` (the fight lines), `abilities` with `unlock_layer`, and layers. Lint with
   `tools/design/arts/lint_techniques.py`. Then `export_techniques.py` writes them into `items_cong_phap.json`.
