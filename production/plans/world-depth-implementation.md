@@ -378,6 +378,22 @@ The features in Stage 5 need these rules first. Another session edits `design/gd
   - the pill slot read in a fight (`burn_pill`, `pill_burned`);
   - the counted-chance meter kept between fights (`playing-past-the-break`, an exception to Formulas A).
 - **Every feature** gets a GdUnit test and a `fight.py` test, plus a parity case.
+- **Done 2026-11-26** (slices 1-8b, last commit 28d3dca5; fixtures t10-t24; `tools/design/combat_sim/FIGHT-INPUT.md`
+  lists each word). Fixed on the way: a spend or a set on a charge counter did nothing in both engines. **Not built,
+  carried to Stage 6 (each sect's pass builds what its own records need):**
+  - per-charge blows on self-counter charges (duel-readings R4; `lamp-ward`, Laid Ward's "ends after N foe hits");
+  - an action that costs your own health and linh lực by a share (Playing Past the Break's backlash; `self_hit` is a
+    hit and meets defences);
+  - where the kept meter lives on the character, and which fights write it back (rating panels, trial fights for
+    card odds and NPC fights should likely read it and never write); the engine takes `meters {id: {start, p}}` and
+    reports the end value;
+  - after the Remnant Score's seventh movement nothing plays and the counter stays at 7 until a song art restarts
+    it: the record needs a restart rule (and Playing Past the Break reads that firing);
+  - `diagram_always` (Formations rule 9, outside the fight engine);
+  - section 5's checks: a Bleed tick's damage does not read `attack_pct [bleed]` (its duration does read
+    `status_duration_pct [bleed]`); a summon's fixed coefficient does not read `companion_power_pct`; decay by a share
+    is built (`decay_share`);
+  - held damage (parked with A File of One); the Soul part's `[soul]` scope; the lineage arts' ids (records).
 
 ### Stage 6: the records (author, then promote through the existing exporters)
 All in batches of about 50, the checker up front, **by sect** (D3), Băng Tâm Các first. Nothing here is priced.
