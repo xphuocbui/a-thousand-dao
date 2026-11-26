@@ -109,7 +109,7 @@ Resume here: read this file, then do the first unchecked step.
       - Gap report: stand-ins 0. effects 5 runs, 6 open.
       - Tool fixes: depth_check.py does not count a `catalogue-sect-*` item as a duplicate of its depth record, and
         depth_gap.py does not call a sect's own merged Effect (source `world-depth:<owner>`) a clash.
-- [ ] 5. Engine words, both engines, parity. The rulings are ANSWERED (2026-11-26: every recommendation, see
+- [x] 5. Engine words, both engines, parity. DONE 2026-11-26 (978ab58c). Earlier notes: The rulings are ANSWERED (2026-11-26: every recommendation, see
       DECISIONS-2026-11-26.md "Stage 6, Băng Tâm Các review round 1"). Next:
       - (a) show the user the GDD text for W1-W4 (Effects rule 6), section by section;
       - (b) show the rule 20f amendment (signature items unique);
@@ -130,7 +130,16 @@ Resume here: read this file, then do the first unchecked step.
         ignores a record-level `filter`).
       - Five Petals' bonus moved to the fifth hit that lands, because `art_fired` fires before the art's hits.
 - [x] 6. Review file, then STOP for the user. Round 1 written and answered 2026-11-26 (`production/plans/stage6/bang_tam-review.md`).
-- [ ] 7. Stage 7 (after approval).
+- [x] 6b. Review round 2, logged under the auto-accept rule (in the review file).
+- [ ] 7. Stage 7, next. The work:
+      - export the records: `export_techniques.py`, `export_named.py` (with `unique: true` carried and honoured) and
+        `export_combat_library.py`;
+      - `export_world.py --sect bang_tam`: the depth reader (people, merged builds, lineage, beasts, events, ties mapped
+        by `TIE_MAP`, the trait trim, `world_data_version`);
+      - load the world, open the sect window and the person cards, and fight one authored build. Screenshots go in
+        `production/qa/evidence/world-depth-stage7/`; warn the user before the Godot windows;
+      - measure the world build time;
+      - confirm the gap report reads zero for the sect.
 
 ## Step 1 result: the mechanic table (2026-11-26)
 `spatial_words_check.py`: Băng Tâm's hits are false positives ("banner" is an item base, "beside" or "alone" sit in

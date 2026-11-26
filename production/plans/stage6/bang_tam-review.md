@@ -153,3 +153,36 @@ lam_tuyet_dieu now lists her beasts ngoc_dieu and han_tich.
 
 Build W1-W4 with the GDD text, write the 4 arts and 6 Effects, and run the gap report (target: only events, beasts
 and ties open, which Stage 7's export closes). Then a short round 2 on those records alone, and then Stage 7.
+
+## Round 2 (2026-11-26): the last 4 arts and 6 Effects, decisions auto-accepted (user rule)
+
+The user's rule since 2026-11-26: take the recommended option after thinking it through against the design
+philosophy, and log it here. Each one below is logged. Say if any should change.
+
+**Built:**
+- W1-W4 in both engines, with parity fixture `t25_stance_ward_exact` exact.
+- GDD texts: W1 (c14985d9), W2 (a108d9f3), W3 and rule 20f (bceada72).
+- Gap report: **all 11 Effects run**, and all 10 arts and 5 techniques are in the catalogue. What is still open
+  (beasts, events, the tie cap, the exports) closes at Stage 7.
+
+| Record | Engine form | Deviation, and why (auto-accepted) |
+|---|---|---|
+| heart-in-the-jade-vessel (art, d18) | A Composed stance. The ward grows 3 % of health a second; each absorbed hit lays 1 Ice (10 s), 2 while the ward is above half its peak; release at 25 % of health or 10 Ice, all Ice consumed, +4 % per stack | **"Holds your damaging arts" is a fixed list** (the lineage's damaging Ice arts: rime-lotus, five-petals, plum-falls, frost-breath-palm, shatter-palm, rime-lock-seal, black-ice-glaze). The engine's `suppress` takes art ids, and no word holds every damaging art. **The new readable `own.ward_of_peak`** expresses "half its peak" (GDD line extended) |
+| clear-heart-mirror (art) | one soul-reflect charge for 6 s | none |
+| hidden-fragrance (art) | a small Cold cut (c 0.8, tag `movement`, so it reads as Pressing) and 1 decoy; a struck decoy lays 2 Ice | none |
+| glacier-bastion (art) | the ward grows 6 % of health; +1 % a second while your Field is up | "stands inside the seal" is your Field (R1) |
+| Ice in the Vessel | while Composed, the ward refills 2 % of its peak a second; the Vessel gains `tam_ma_resist_pct 33` | R3: "a third" is 33 (the resist scales heart-demon gain by 1 − pct/100) |
+| Clear-Heart Reflection | one soul-reflect charge for the fight | none |
+| The Peak Does Not Move | Field up and Composed: the ward grows 3 % of its peak a second past the peak; after 10 s Composed, 1 % of linh lực a second; when the ward breaks, 4 Ice and Off Guard 1 s on the foe | R1 (the Field). The upkeep is a negative linh lực gain, and it stops below 1 % |
+| Walk the Nodes | Field up: every 6 s a 4 % peak refill and 1 Earth buff (20 s); once a fight at 10 Earth buffs, the ward is held 3 s | R1. "Earth guard stack" is an Earth buff |
+| Master's Road | while the ward holds, Ice lasts twice as long (`stack_dur` 100) | none |
+| Hidden Half | at the foe's 4th Ice stack from you: Heavy Breath 3 s. While the foe is cursed, each Ice grant gives 1 more stack | **R2 refined.** "Count 20 % more" would need `stack_more` on debuffs, which would also change four existing Water and Wood Effects (scoped by element only), or a new key needing live debuff sums in GDScript. `stack_grant` already exists and keeps the intent: curses feed the Ice, with no cap. **The curse is Heavy Breath** (it raises art costs, the Ice debuff's own stat) |
+
+**Fight checks:** `$CLAUDE_JOB_DIR/tmp/run_bt.py`, with the sets loaded from `sets-bang_tam.json`.
+- Against a typical foe of their own realm:
+  - Sở Ngọc Hồ's kit (Nguyên Anh): 20-0, 24 s, 75 % health left;
+  - Cố Lăng Sương's Glacier Vigil and Keeper of the Lid kit (Nguyên Anh): 20-0, 27 s, 100 % left;
+  - Phó Ám Hương's Plums with a robe and needle (Kết Đan): 20-0, 15 s.
+- Against a typical foe one realm up, all three lose (Vigil after 41 s, out of linh lực).
+
+  Strong, but not unbeatable. That fits "slightly overpowered builds are fine".
