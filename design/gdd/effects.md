@@ -162,6 +162,8 @@ different.
        wards gained over them (`own.lost_last.<pool>.<seconds>`, a per-side record of each pulse's losses and gains);
      - on a self-counter: **the hour a Piece was laid**, the pulse each batch was laid (`laid_at`), read as its 5 s
        hour of the fight.
+     - live: **your stance ward** (rule 6, Grow a ward), its size now and its highest this fight, as shares of your
+       maximum health (`own.ward_share`, `own.ward_peak`; new 2026-11-26, world-depth Băng Tâm Các).
 
      "A time window starting" is not an event (R20): an Effect uses a pulse check or a time conditional instead. **A
      batch expiring is an event since 2026-11-26** (`batch_expired`; the Starter Effect Wildfire's "batch end" reads
@@ -225,6 +227,7 @@ different.
    | **Turn a tick into healing** (new 2026-11-26; `convert_tick_to_heal {share}`): a tick you take that matches the Effect's status tag heals you for that share of it instead of hurting. The mirror of Crossing the Line (R12; world-depth `bitter-medicine`) | Combat Defence & Healing rule 19 |
    | **Stop a side's clock** (new 2026-11-26; `stop_clock {side, seconds}`): for that time the side's art timers, basic attack, companions and stack countdowns do not advance, while the other side's do. `timer_resist_pct` shortens the stop, and it never breaks `cooldown_min`. Sleep uses it (world-depth `the-world-before`, `asleep`) | Combat rule 13 (the timeline) |
    | **Upkeep on a self-counter** (new 2026-11-26; `upkeep {pool, per_stack}`): each pulse, every stack of a self-counter costs its owner the named amount from the named pool, and a stack left unpaid ends. This is the closing cost rule 19 relies on for standing charges (world-depth `laid-ward-on-the-next-stroke`) | rule 19; Combat rule 11 (the pools) |
+   | **Grow a ward** (new 2026-11-26, world-depth Băng Tâm Các; `ward_grow {share, of, past_peak}`): raise your **stance ward**, a ward shield of your own (Combat Defence & Healing rule 6) that stops damage like any ward shield and costs nothing to keep up. If you hold none, it creates one. It grows by `share` of your maximum health (`of: "hp"`) or of its own peak (`of: "peak"`, a refill: it stops at the peak unless `past_peak`). It has no ceiling of its own: a release condition, an upkeep or the foe's damage closes it (rule 19). A foe breaking it raises *a shield breaks*. **Hold a ward** (`ward_fixed`, a mod for N s): while you hold it, the stance ward stops hits but loses nothing. **Release a ward** (`release_ward {dtype, more_per_stack, consume}`): end the stance ward and deal what it still holds to the foe as damage of that type, `more_per_stack` more for each stack the same action consumes (every stack of the named element, no cap); the hit meets the foe's defence | this GDD; Combat Defence & Healing rules 5–9 |
    | **Burn a pill** (new 2026-11-26; `burn_pill`): spend a prepared pill from the pill slot. Its element and grade become the payload, and in a fight a pill can fail (`failed`), drawn on the fight's seeded stream (world-depth `pill-smoke`) | this GDD; Alchemy (the pill) |
 
    The list is closed (user decision 2026-11-08). A new action is an engine addition, added here before any
