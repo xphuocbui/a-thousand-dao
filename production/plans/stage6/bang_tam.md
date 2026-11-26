@@ -238,3 +238,40 @@ Mechanics that look like they need an engine word or a ruling (to confirm in ste
 - possibly spatial: "walks into them", "stands inside the seal", "a Field", "afterimage".
 Existing words that cover parts: `stop_clock`, `wounded`/`broken` events, `composed`/`composed_time`, `ward_absorbed`,
 `shield_broken`, `off_guard`, `sure_crit`, `bypass`, `states` with `suppress` and `tags`.
+
+
+## Stage 7 plan for Băng Tâm (written 2026-11-26, before starting)
+`export_world.py` has **no depth reader yet**: it reads `design/world/*_proposal.json` and
+`design/world/cast_builds.json` only. ADR-0009 decision 5 and the Key Interfaces define the reader. Units, each
+committed:
+1. **Record exports.** Run `export_techniques.py`, `export_named.py` (items_named and items_sets) and
+   `export_combat_library.py`, then `compile_parity_export.py` (it deals every library art and named item into
+   cases). Add a parity fixture t26 generated from co_lang_suong's resolved build (fight.py expand_library + to_build,
+   `dataclasses.asdict`), using the sealed Vessel, Glacier Bastion and Lotus Seal. Run parity, the compile parity and
+   the combat GdUnit group.
+2. **The depth reader** in `export_world.py` behind `--sect <key>`. For one sect it builds:
+   - the people from the `design/world/depth/sects/<key>*.cast.json` files. The depth record wins on every field it
+     carries; old fields are kept; `changed` notes are dropped. People of other sects stay from the old cast; the 18
+     fallen-sect people stay;
+   - the builds from depth `build`, `root`, `thien_phu` and `stage`, in the `cast_builds` shape. Đạo Đồ targets reuse
+     that shape (`tree.targets`). Tier C people with no `thien_phu` are rolled by the builder;
+   - the lineage from `<key>.techniques.json` `lineage`;
+   - the beasts from `<key>.beasts.json`, into world_history `beasts`, with `WorldBuilder` reading them as people with
+     `owner_id`;
+   - the events from `design/world/depth/events/<key>.events.json`, merged into `events`;
+   - the ties, mapped by depth_gap's `TIE_MAP`. Cap 16; soft ties beyond it trimmed by weight; pinned ones kept
+     (on_sa_ngoc has 17 partners);
+   - the trait trim (NPC Traits rule 2a's order);
+   - `world_data_version` 1 (an int); `data_version` also hashes `design/world/depth/`.
+
+   Run `--check` first, as a dry run for missing ids.
+3. **Game side.**
+   - `GameSession.load_dict` refuses a save with another `world_data_version`;
+   - `CastBuilds._learn` warns on an unknown id;
+   - `WorldBuilder` reads `beasts`.
+
+   Each gets a unit test (ADR-0009 Implementation Guidelines).
+4. **Load and look.** Warn the user first, then use `--shots` and the cached test world. Open the sect window and
+   person cards (Sở Ngọc Hồ, Cố Lăng Sương), and fight one authored build. Screenshots go in
+   `production/qa/evidence/world-depth-stage7/`. Measure the world build time.
+5. **Gap report** `--sect bang_tam`: zero open. The full suite and the full parity check before the last commit.
