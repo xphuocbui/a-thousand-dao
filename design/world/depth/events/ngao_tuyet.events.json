@@ -12,12 +12,15 @@
    "story_kind": "",
    "text_en": "The founder of Ngạo Tuyết Phái hunts the tiger of Thạch Khẩu to Hổ Khiếu Cương and kills it, a month after it killed his daughter.",
    "page": "design/world/depth/sects/ngao_tuyet.md",
-   "text_vi": "",
-   "people": [],
+   "text_vi": "Người sáng lập Ngạo Tuyết Phái săn con hổ của Thạch Khẩu đến Hổ Khiếu Cương và giết nó, một tháng sau khi nó giết con gái ông.",
+   "people": [
+    "lang_dap_tuyet"
+   ],
    "sects": [
     "ngao_tuyet"
    ],
-   "place": 242
+   "place": 242,
+   "text_vi_of": "The founder of Ngạo Tuyết Phái hunts the tiger of Thạch Khẩu to Hổ Khiếu Cương and kills it, a month after it killed his daughter."
   },
   {
    "id": "N-ngao_tuyet-02",
@@ -29,12 +32,13 @@
    "story_kind": "",
    "text_en": "Ngạo Tuyết Phái moves its sword hall into the empty ore town of Thạch Khẩu Trấn; the plum garden above Hàn Mai becomes its gate.",
    "page": "design/world/depth/sects/ngao_tuyet.md",
-   "text_vi": "",
+   "text_vi": "Ngạo Tuyết Phái dời kiếm đường vào thị trấn quặng bỏ không Thạch Khẩu Trấn; vườn mai phía trên Hàn Mai trở thành cổng của phái.",
    "people": [],
    "sects": [
     "ngao_tuyet"
    ],
-   "place": 1262
+   "place": 1262,
+   "text_vi_of": "Ngạo Tuyết Phái moves its sword hall into the empty ore town of Thạch Khẩu Trấn; the plum garden above Hàn Mai becomes its gate."
   },
   {
    "id": "N-ngao_tuyet-03",
@@ -46,10 +50,11 @@
    "story_kind": "",
    "text_en": "A Hàn Mai boy follows a wandering sword sage into the mountains for three winters and comes home with a sword.",
    "page": "design/world/depth/sects/ngao_tuyet.md",
-   "text_vi": "",
+   "text_vi": "Một cậu bé ở Hàn Mai theo một kiếm thánh lang thang vào núi ba mùa đông và trở về nhà với một thanh kiếm.",
    "people": [],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "A Hàn Mai boy follows a wandering sword sage into the mountains for three winters and comes home with a sword."
   }
  ]
 }

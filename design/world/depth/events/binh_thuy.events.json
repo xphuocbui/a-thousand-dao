@@ -12,10 +12,13 @@
    "story_kind": "",
    "text_en": "A war-orphan ship's boy from burned Vô Định Thành comes to Tương Phùng Thị with a ledger he will not put down; Bình Thủy's ferrymen take him in and name him for the duckweed.",
    "page": "design/world/depth/sects/binh_thuy.md",
-   "text_vi": "",
+   "text_vi": "Một cậu bé tàu mồ côi vì chiến tranh, từ Vô Định Thành bị thiêu cháy, đến Tương Phùng Thị với cuốn sổ cái không chịu buông; các lái đò của Bình Thủy Môn nhận cậu và đặt tên theo cây bèo.",
    "people": [],
-   "sects": [],
-   "place": 49
+   "sects": [
+    "binh_thuy"
+   ],
+   "place": 49,
+   "text_vi_of": "A war-orphan ship's boy from burned Vô Định Thành comes to Tương Phùng Thị with a ledger he will not put down; Bình Thủy's ferrymen take him in and name him for the duckweed."
   },
   {
    "id": "N-binh_thuy-02",
@@ -27,10 +30,11 @@
    "story_kind": "",
    "text_en": "The last disciple of Phiêu Bồng Quán goes down the cliff path with a ferryman and does not come back; her master spends the winter alone.",
    "page": "design/world/depth/sects/binh_thuy.md",
-   "text_vi": "",
+   "text_vi": "Đệ tử cuối cùng của Phiêu Bồng Quán cùng một người lái đò đi xuống con đường vách đá và không trở lại; sư phụ của nàng một mình qua mùa đông.",
    "people": [],
    "sects": [],
-   "place": 380
+   "place": 380,
+   "text_vi_of": "The last disciple of Phiêu Bồng Quán goes down the cliff path with a ferryman and does not come back; her master spends the winter alone."
   },
   {
    "id": "N-binh_thuy-03",
@@ -42,12 +46,15 @@
    "story_kind": "",
    "text_en": "Bùi Phiêu Bình fights the Claw King of Cự Ngao Chử through two tides and kills it at slack water.",
    "page": "design/world/depth/sects/binh_thuy.md",
-   "text_vi": "",
+   "text_vi": "Bùi Phiêu Bình giao chiến với Ngao Vương của Cự Ngao Chử suốt hai đợt triều và giết nó lúc nước đứng.",
    "people": [
     "bui_phieu_binh"
    ],
-   "sects": [],
-   "place": 302
+   "sects": [
+    "binh_thuy"
+   ],
+   "place": 302,
+   "text_vi_of": "Bùi Phiêu Bình fights the Claw King of Cự Ngao Chử through two tides and kills it at slack water."
   },
   {
    "id": "N-binh_thuy-04",
@@ -59,12 +66,13 @@
    "story_kind": "",
    "text_en": "Bình Thủy Môn raises its Tide Hall on stilts over the shoal; the old hall above the landing becomes the Strangers' Hall.",
    "page": "design/world/depth/sects/binh_thuy.md",
-   "text_vi": "",
+   "text_vi": "Bình Thủy Môn dựng Triều Đường trên cọc cao giữa bãi cạn; tòa đường cũ phía trên bến trở thành Khách Tương Đường.",
    "people": [],
    "sects": [
     "binh_thuy"
    ],
-   "place": null
+   "place": 302,
+   "text_vi_of": "Bình Thủy Môn raises its Tide Hall on stilts over the shoal; the old hall above the landing becomes the Strangers' Hall."
   },
   {
    "id": "N-binh_thuy-05",
@@ -76,12 +84,15 @@
    "story_kind": "",
    "text_en": "The first deep-water boat Lận Viễn Phàm pays for sails west past the Cô Phàm charts with a Bình Thủy crew and is not seen again.",
    "page": "design/world/depth/sects/binh_thuy.md",
-   "text_vi": "",
+   "text_vi": "Chiếc thuyền nước sâu đầu tiên do Lận Viễn Phàm bỏ tiền ra căng buồm đi về phía tây, vượt khỏi hải đồ Cô Phàm cùng một thủy thủ đoàn của Bình Thủy, và không ai thấy nữa.",
    "people": [
     "lan_vien_pham"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "binh_thuy"
+   ],
+   "place": null,
+   "text_vi_of": "The first deep-water boat Lận Viễn Phàm pays for sails west past the Cô Phàm charts with a Bình Thủy crew and is not seen again."
   },
   {
    "id": "N-binh_thuy-06",
@@ -93,13 +104,16 @@
    "story_kind": "",
    "text_en": "The second boat, under the captain Tôn Viễn Hàng, follows the first. Lận Viễn Phàm takes his own disciple off it at the quay.",
    "page": "design/world/depth/sects/binh_thuy.md",
-   "text_vi": "",
+   "text_vi": "Chiếc thuyền thứ hai, dưới quyền thuyền trưởng Tôn Viễn Hàng, theo chiếc thứ nhất. Lận Viễn Phàm đón đệ tử của chính mình xuống khỏi thuyền ngay tại bến.",
    "people": [
     "ton_vien_hang",
     "lan_vien_pham"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "binh_thuy"
+   ],
+   "place": null,
+   "text_vi_of": "The second boat, under the captain Tôn Viễn Hàng, follows the first. Lận Viễn Phàm takes his own disciple off it at the quay."
   },
   {
    "id": "N-binh_thuy-07",
@@ -111,10 +125,15 @@
    "story_kind": "",
    "text_en": "A child is found asleep against the stranded whale of Tình Sa; Bình Thủy's head takes her home.",
    "page": "design/world/depth/sects/binh_thuy.md",
-   "text_vi": "",
-   "people": [],
-   "sects": [],
-   "place": null
+   "text_vi": "Một bé gái được tìm thấy đang ngủ tựa vào con cá voi mắc cạn ở Tình Sa; tông chủ Bình Thủy Môn đưa em về nhà.",
+   "people": [
+    "bui_phieu_binh"
+   ],
+   "sects": [
+    "binh_thuy"
+   ],
+   "place": 125,
+   "text_vi_of": "A child is found asleep against the stranded whale of Tình Sa; Bình Thủy's head takes her home."
   }
  ]
 }

@@ -12,12 +12,15 @@
    "story_kind": "",
    "text_en": "When the grey rises over Chiết Kích Nguyên, the levy captain Thạch Liệt Hàng's file of forty holds its line, breathes through one wet cloth in turns and walks out backwards; thirty-one come home.",
    "page": "design/world/depth/sects/nhan_tran.md",
-   "text_vi": "",
+   "text_vi": "Khi màn xám dâng lên trên Chiết Kích Nguyên, hàng bốn mươi người của đội trưởng quân dịch Thạch Liệt Hàng giữ vững đội hình, thay phiên nhau thở qua một mảnh vải ướt và đi lùi ra; ba mươi mốt người trở về nhà.",
    "people": [
     "thach_liet_hang"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "nhan_tran"
+   ],
+   "place": null,
+   "text_vi_of": "When the grey rises over Chiết Kích Nguyên, the levy captain Thạch Liệt Hàng's file of forty holds its line, breathes through one wet cloth in turns and walks out backwards; thirty-one come home."
   },
   {
    "id": "N-nhan_tran-02",
@@ -29,12 +32,13 @@
    "story_kind": "",
    "text_en": "Nhạn Trận Môn drills the farmers of Thảo Đường and Nhạn Thanh on the shore of Lạc Nhạn Hồ for the first time; the spring levy is held there every year after.",
    "page": "design/world/depth/sects/nhan_tran.md",
-   "text_vi": "",
+   "text_vi": "Nhạn Trận Môn lần đầu luyện tập cho nông dân Thảo Đường và Nhạn Thanh trên bờ Lạc Nhạn Hồ; từ đó năm nào quân dịch mùa xuân cũng họp ở đấy.",
    "people": [],
    "sects": [
     "nhan_tran"
    ],
-   "place": 366
+   "place": 366,
+   "text_vi_of": "Nhạn Trận Môn drills the farmers of Thảo Đường and Nhạn Thanh on the shore of Lạc Nhạn Hồ for the first time; the spring levy is held there every year after."
   },
   {
    "id": "N-nhan_tran-03",
@@ -46,14 +50,15 @@
    "story_kind": "",
    "text_en": "Thạch Liệt Hàng, founder of Nhạn Trận Môn, dies of the miasma he breathed in 803, and is buried in the first burial row, beside the gaps left for those who did not come home.",
    "page": "design/world/depth/sects/nhan_tran.md",
-   "text_vi": "",
+   "text_vi": "Thạch Liệt Hàng, người sáng lập Nhạn Trận Môn, mất vì chướng khí ông đã hít năm 803, và được chôn ở hàng mộ đầu tiên, bên cạnh những chỗ trống để lại cho những người không trở về.",
    "people": [
     "thach_liet_hang"
    ],
    "sects": [
     "nhan_tran"
    ],
-   "place": null
+   "place": 367,
+   "text_vi_of": "Thạch Liệt Hàng, founder of Nhạn Trận Môn, dies of the miasma he breathed in 803, and is buried in the first burial row, beside the gaps left for those who did not come home."
   },
   {
    "id": "N-nhan_tran-04",
@@ -65,13 +70,16 @@
    "story_kind": "",
    "text_en": "Quản Tề Phong goes into seclusion to break through to Nguyên Anh and does not come out; Mục Hàn Nhạn takes the Banner of the First File.",
    "page": "design/world/depth/sects/nhan_tran.md",
-   "text_vi": "",
+   "text_vi": "Quản Tề Phong bế quan để đột phá lên Nguyên Anh và không ra nữa; Mục Hàn Nhạn nhận Đầu Hàng Kỳ.",
    "people": [
     "quan_te_phong",
     "muc_han_nhan"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "nhan_tran"
+   ],
+   "place": null,
+   "text_vi_of": "Quản Tề Phong goes into seclusion to break through to Nguyên Anh and does not come out; Mục Hàn Nhạn takes the Banner of the First File."
   }
  ]
 }

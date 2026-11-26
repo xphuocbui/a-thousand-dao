@@ -12,14 +12,15 @@
    "story_kind": "",
    "text_en": "Quách Lĩnh Thù, founder of Phất Y Cốc, hangs his grey robe in the valley's hall and walks out; he is not seen again.",
    "page": "design/world/depth/sects/phat_y.md",
-   "text_vi": "",
+   "text_vi": "Quách Lĩnh Thù, người sáng lập Phất Y Cốc, treo áo xám trong điện của thung lũng rồi bước ra đi; không ai thấy ông nữa.",
    "people": [
     "quach_linh_thu"
    ],
    "sects": [
     "phat_y"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Quách Lĩnh Thù, founder of Phất Y Cốc, hangs his grey robe in the valley's hall and walks out; he is not seen again."
   },
   {
    "id": "N-phat_y-02",
@@ -31,7 +32,7 @@
    "story_kind": "",
    "text_en": "Liễu Hành Vân dies at 450 and gives Phất Y Cốc to Thang Vô Tạ, the first since the founder to open the art in the grey sleeve.",
    "page": "design/world/depth/sects/phat_y.md",
-   "text_vi": "",
+   "text_vi": "Liễu Hành Vân mất năm bốn trăm năm mươi tuổi và trao Phất Y Cốc cho Thang Vô Tạ, người đầu tiên kể từ vị sáng lập mở được công pháp trong ống tay áo xám.",
    "people": [
     "lieu_hanh_van",
     "thang_vo_ta"
@@ -39,7 +40,8 @@
    "sects": [
     "phat_y"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Liễu Hành Vân dies at 450 and gives Phất Y Cốc to Thang Vô Tạ, the first since the founder to open the art in the grey sleeve."
   },
   {
    "id": "N-phat_y-03",
@@ -51,12 +53,14 @@
    "story_kind": "",
    "text_en": "A company of Phất Y swords, hired under the name of a camel train of Đà Đội Thôn, begins guarding Thính Vũ Lâu's iron caravans on the southern road.",
    "page": "design/world/depth/sects/phat_y.md",
-   "text_vi": "",
+   "text_vi": "Một toán kiếm của Phất Y, thuê dưới danh nghĩa một đoàn lạc đà của Đà Đội Thôn, bắt đầu hộ tống các đoàn xe sắt của Thính Vũ Lâu trên con đường phía nam.",
    "people": [],
    "sects": [
+    "phat_y",
     "thinh_vu"
    ],
-   "place": 662
+   "place": 662,
+   "text_vi_of": "A company of Phất Y swords, hired under the name of a camel train of Đà Đội Thôn, begins guarding Thính Vũ Lâu's iron caravans on the southern road."
   }
  ]
 }

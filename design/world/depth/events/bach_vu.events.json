@@ -12,10 +12,13 @@
    "story_kind": "",
    "text_en": "A blue-crested bird dies of age on the arm of a cinnamon-wood catcher, Tạ, who takes its name, Thanh Loan, and carves its wing into a whistle.",
    "page": "design/world/depth/sects/bach_vu.md",
-   "text_vi": "",
-   "people": [],
+   "text_vi": "Một con chim mào xanh chết vì tuổi già trên cánh tay một người bắt chim ở rừng quế họ Tạ, người ấy lấy tên nó, Thanh Loan, và khắc cánh nó thành một chiếc còi.",
+   "people": [
+    "ta_thanh_loan"
+   ],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "A blue-crested bird dies of age on the arm of a cinnamon-wood catcher, Tạ, who takes its name, Thanh Loan, and carves its wing into a whistle."
   },
   {
    "id": "N-bach_vu-02",
@@ -27,14 +30,15 @@
    "story_kind": "",
    "text_en": "Tuyên Bách Minh, founder of Bách Vũ Các, climbs Triều Phượng Đỉnh at dawn to see the birds bow to the phoenix, and falls.",
    "page": "design/world/depth/sects/bach_vu.md",
-   "text_vi": "",
+   "text_vi": "Tuyên Bách Minh, người sáng lập Bách Vũ Các, leo lên Triều Phượng Đỉnh lúc bình minh để xem bầy chim cúi chào phượng hoàng, và ngã xuống.",
    "people": [
     "tuyen_bach_minh"
    ],
    "sects": [
     "bach_vu"
    ],
-   "place": 451
+   "place": 451,
+   "text_vi_of": "Tuyên Bách Minh, founder of Bách Vũ Các, climbs Triều Phượng Đỉnh at dawn to see the birds bow to the phoenix, and falls."
   },
   {
    "id": "N-bach_vu-03",
@@ -46,14 +50,15 @@
    "story_kind": "",
    "text_en": "The dark apes of Huyền Viên Lâm kill Ổ Tùng Lâm of Bách Vũ Các at his parrot nets.",
    "page": "design/world/depth/sects/bach_vu.md",
-   "text_vi": "",
+   "text_vi": "Bầy vượn đen ở Huyền Viên Lâm giết Ổ Tùng Lâm của Bách Vũ Các bên lưới bắt vẹt của ông.",
    "people": [
     "o_tung_lam"
    ],
    "sects": [
     "bach_vu"
    ],
-   "place": 235
+   "place": 235,
+   "text_vi_of": "The dark apes of Huyền Viên Lâm kill Ổ Tùng Lâm of Bách Vũ Các at his parrot nets."
   },
   {
    "id": "N-bach_vu-04",
@@ -65,12 +70,14 @@
    "story_kind": "",
    "text_en": "Red-crested writ birds hatch in a hidden loft of Bách Vũ Các from eggs carried out of the Wutong Court's aviary.",
    "page": "design/world/depth/sects/bach_vu.md",
-   "text_vi": "",
+   "text_vi": "Những con chim chiếu thư mào đỏ nở trong một gác xép kín của Bách Vũ Các, từ những quả trứng được mang ra khỏi chuồng chim của Ngô Đồng Đình.",
    "people": [],
    "sects": [
-    "bach_vu"
+    "bach_vu",
+    "phuong_minh"
    ],
-   "place": null
+   "place": 330,
+   "text_vi_of": "Red-crested writ birds hatch in a hidden loft of Bách Vũ Các from eggs carried out of the Wutong Court's aviary."
   }
  ]
 }

@@ -12,12 +12,15 @@
    "story_kind": "",
    "text_en": "The swordsman Tư Không Hạc Niên beat comes north to teach a hall of hunters, because they ask better questions than duelists.",
    "page": "design/world/depth/sects/tam_kiem.md",
-   "text_vi": "",
+   "text_vi": "Kiếm khách Tư Không Hạc Niên lên phương bắc dạy một đường của những thợ săn, vì họ hỏi hay hơn các kiếm sĩ đấu tay đôi.",
    "people": [
     "tu_khong_hac_nien"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "tam_kiem"
+   ],
+   "place": null,
+   "text_vi_of": "The swordsman Tư Không Hạc Niên beat comes north to teach a hall of hunters, because they ask better questions than duelists."
   },
   {
    "id": "N-tam_kiem-02",
@@ -29,13 +32,14 @@
    "story_kind": "",
    "text_en": "Tầm Kiếm Đường finishes its map of the southern massif: every cave searched but those behind Lê Hoa Am's gate.",
    "page": "design/world/depth/sects/tam_kiem.md",
-   "text_vi": "",
+   "text_vi": "Tầm Kiếm Đường hoàn thành bản đồ khối núi phía nam: mọi hang đều đã được tìm kiếm, trừ những hang sau cổng của Lê Hoa Am.",
    "people": [],
    "sects": [
     "tam_kiem",
     "le_hoa"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Tầm Kiếm Đường finishes its map of the southern massif: every cave searched but those behind Lê Hoa Am's gate."
   }
  ]
 }

@@ -12,10 +12,15 @@
    "story_kind": "",
    "text_en": "The Desert Pavilion hangs the caravan guard Hạng for a tax caravan lost to the sand; his brother leaves the road.",
    "page": "design/world/depth/sects/da_quang.md",
-   "text_vi": "",
-   "people": [],
-   "sects": [],
-   "place": null
+   "text_vi": "Băng Tâm Các treo cổ người hộ tống thương đội Hạng vì một đoàn thuế bị cát nuốt mất; em trai ông rời con đường.",
+   "people": [
+    "hang_da_boi"
+   ],
+   "sects": [
+    "bang_tam"
+   ],
+   "place": null,
+   "text_vi_of": "The Desert Pavilion hangs the caravan guard Hạng for a tax caravan lost to the sand; his brother leaves the road."
   },
   {
    "id": "N-da_quang-02",
@@ -27,10 +32,13 @@
    "story_kind": "",
    "text_en": "Dạ Quang's riders are seen driving forty laden camels into Mai Sa Bảo the week before the sandstorm buries it.",
    "page": "design/world/depth/sects/da_quang.md",
-   "text_vi": "",
+   "text_vi": "Kỵ sĩ Dạ Quang bị thấy lùa bốn mươi con lạc đà chất nặng vào Mai Sa Bảo một tuần trước khi bão cát chôn vùi nơi ấy.",
    "people": [],
-   "sects": [],
-   "place": 1425
+   "sects": [
+    "da_quang"
+   ],
+   "place": 1425,
+   "text_vi_of": "Dạ Quang's riders are seen driving forty laden camels into Mai Sa Bảo the week before the sandstorm buries it."
   }
  ]
 }

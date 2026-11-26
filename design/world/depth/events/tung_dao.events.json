@@ -12,12 +12,15 @@
    "story_kind": "",
    "text_en": "When Thiên Xu breaks Thiết Tỏa Quan, the smith Vưu Liên Hoàn is standing on his chain, and goes down with it to the river bed.",
    "page": "design/world/depth/sects/tung_dao.md",
-   "text_vi": "",
+   "text_vi": "Khi Thiên Xu phá Thiết Tỏa Quan, người thợ rèn Vưu Liên Hoàn đang đứng trên xích của mình và cùng nó rơi xuống đáy sông.",
    "people": [
     "vuu_lien_hoan"
    ],
-   "sects": [],
-   "place": 229
+   "sects": [
+    "thien_xu"
+   ],
+   "place": 229,
+   "text_vi_of": "When Thiên Xu breaks Thiết Tỏa Quan, the smith Vưu Liên Hoàn is standing on his chain, and goes down with it to the river bed."
   },
   {
    "id": "N-tung_dao-02",
@@ -29,10 +32,13 @@
    "story_kind": "",
    "text_en": "A twelve-year-old girl walks from the drowned Abbey of Still Water to Tùng Đào with its altar lamp, which she has dug out of the river mud.",
    "page": "design/world/depth/sects/tung_dao.md",
-   "text_vi": "",
+   "text_vi": "Một cô gái mười hai tuổi đi bộ từ Tĩnh Thủy Quán chìm dưới nước đến Tùng Đào, mang theo ngọn đèn bàn thờ mà nàng đã đào lên từ bùn sông.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "tung_dao"
+   ],
+   "place": null,
+   "text_vi_of": "A twelve-year-old girl walks from the drowned Abbey of Still Water to Tùng Đào with its altar lamp, which she has dug out of the river mud."
   },
   {
    "id": "N-tung_dao-03",
@@ -44,12 +50,15 @@
    "story_kind": "",
    "text_en": "A fisher's boy of Hàn Tân swims the river mouth to Thúy Vi. The governor Giáp Tùng Chi takes the next boy on the street into the pines.",
    "page": "design/world/depth/sects/tung_dao.md",
-   "text_vi": "",
+   "text_vi": "Một cậu bé con nhà ngư dân ở Hàn Tân bơi qua cửa sông đến Thúy Vi. Trấn thủ Giáp Tùng Chi đưa cậu bé kế tiếp trên phố vào rừng thông.",
    "people": [
     "giap_tung_chi"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thuy_vi"
+   ],
+   "place": 31,
+   "text_vi_of": "A fisher's boy of Hàn Tân swims the river mouth to Thúy Vi. The governor Giáp Tùng Chi takes the next boy on the street into the pines."
   },
   {
    "id": "N-tung_dao-04",
@@ -61,12 +70,13 @@
    "story_kind": "",
    "text_en": "When the Cold Ford is given up, its governor Giáp Tùng Chi will not leave his quay and dies on it. His disciple carries the governor's seal out of the town.",
    "page": "design/world/depth/sects/tung_dao.md",
-   "text_vi": "",
+   "text_vi": "Khi Hàn Tân bị bỏ, trấn thủ Giáp Tùng Chi không chịu rời bến của mình và chết trên đó. Đệ tử của ông mang ấn của trấn thủ ra khỏi thị trấn.",
    "people": [
     "giap_tung_chi"
    ],
    "sects": [],
-   "place": null
+   "place": 31,
+   "text_vi_of": "When the Cold Ford is given up, its governor Giáp Tùng Chi will not leave his quay and dies on it. His disciple carries the governor's seal out of the town."
   },
   {
    "id": "N-tung_dao-05",
@@ -78,10 +88,13 @@
    "story_kind": "",
    "text_en": "An old ward-singer of Tùng Đào's Array Hall dies in closed-door seclusion, and three ward-songs no one else had heard go with him.",
    "page": "design/world/depth/sects/tung_dao.md",
-   "text_vi": "",
+   "text_vi": "Một người xướng hộ trận ca già của Trận Đường thuộc Tùng Đào chết trong lúc bế quan, và ba bài hộ trận ca không ai khác từng nghe đi cùng ông.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "tung_dao"
+   ],
+   "place": null,
+   "text_vi_of": "An old ward-singer of Tùng Đào's Array Hall dies in closed-door seclusion, and three ward-songs no one else had heard go with him."
   },
   {
    "id": "N-tung_dao-06",
@@ -93,12 +106,16 @@
    "story_kind": "",
    "text_en": "Nhiếp Thừa Phong of Tùng Đào cuts every rope bridge on the Ngư Ca border and is killed on the last; Lạc Hà sends his flying blade back without him.",
    "page": "design/world/depth/sects/tung_dao.md",
-   "text_vi": "",
+   "text_vi": "Nhiếp Thừa Phong của Tùng Đào chặt mọi cây cầu dây ở biên giới Ngư Ca và bị giết trên cây cuối cùng; Lạc Hà gửi phi kiếm của ông trở về mà không có ông.",
    "people": [
     "nhiep_thua_phong"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "tung_dao",
+    "lac_ha"
+   ],
+   "place": null,
+   "text_vi_of": "Nhiếp Thừa Phong of Tùng Đào cuts every rope bridge on the Ngư Ca border and is killed on the last; Lạc Hà sends his flying blade back without him."
   },
   {
    "id": "N-tung_dao-07",
@@ -110,10 +127,13 @@
    "story_kind": "",
    "text_en": "An outer disciple of Tùng Đào, a woodcutter's son, says the pines above Tùng Hạ Thị are chanting something longer than the primer.",
    "page": "design/world/depth/sects/tung_dao.md",
-   "text_vi": "",
+   "text_vi": "Một ngoại môn đệ tử của Tùng Đào, con trai một tiều phu, nói rằng những cây thông phía trên Tùng Hạ Thị đang ngâm một điều gì đó dài hơn sách vỡ lòng.",
    "people": [],
-   "sects": [],
-   "place": 46
+   "sects": [
+    "tung_dao"
+   ],
+   "place": 46,
+   "text_vi_of": "An outer disciple of Tùng Đào, a woodcutter's son, says the pines above Tùng Hạ Thị are chanting something longer than the primer."
   },
   {
    "id": "N-tung_dao-08",
@@ -125,10 +145,14 @@
    "story_kind": "",
    "text_en": "A rope-hand of Tùng Đào's Coiled Root Hall, who held the windlass line on the night of the last Ngư Ca bridge, crosses to the Lạc Hà bank on an unsigned word in spring and does not come back.",
    "page": "design/world/depth/sects/tung_dao.md",
-   "text_vi": "",
+   "text_vi": "Một người giữ dây ở Bàn Căn Đường của Tùng Đào, người đã giữ dây tời trong đêm cây cầu Ngư Ca cuối cùng, sang bờ Lạc Hà theo một lời nhắn không ký tên vào mùa xuân và không trở lại.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "tung_dao",
+    "lac_ha"
+   ],
+   "place": null,
+   "text_vi_of": "A rope-hand of Tùng Đào's Coiled Root Hall, who held the windlass line on the night of the last Ngư Ca bridge, crosses to the Lạc Hà bank on an unsigned word in spring and does not come back."
   }
  ]
 }

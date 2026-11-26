@@ -12,12 +12,15 @@
    "story_kind": "",
    "text_en": "Trọng Tế Thế of Lễ Tuyền goes ahead of the school's healers into fevered Cựu Khê Trấn and dies of the fever; his name is written over the sick-hall door.",
    "page": "design/world/depth/sects/le_tuyen.md",
-   "text_vi": "",
+   "text_vi": "Trọng Tế Thế của Lễ Tuyền đi trước các thầy thuốc của Lễ Tuyền Phái vào Cựu Khê Trấn đang sốt dịch và chết vì bệnh; tên ông được viết trên cửa bệnh đường.",
    "people": [
     "trong_te_the"
    ],
-   "sects": [],
-   "place": 430
+   "sects": [
+    "le_tuyen"
+   ],
+   "place": 430,
+   "text_vi_of": "Trọng Tế Thế of Lễ Tuyền goes ahead of the school's healers into fevered Cựu Khê Trấn and dies of the fever; his name is written over the sick-hall door."
   },
   {
    "id": "N-le_tuyen-02",
@@ -29,13 +32,16 @@
    "story_kind": "",
    "text_en": "Liêm Cam Lộ dies sitting by the sweet spring; Mai Lễ Tuyền becomes head.",
    "page": "design/world/depth/sects/le_tuyen.md",
-   "text_vi": "",
+   "text_vi": "Liêm Cam Lộ chết khi đang ngồi bên suối ngọt; Mai Lễ Tuyền trở thành chưởng môn.",
    "people": [
-    "mai_le_tuyen",
-    "liem_cam_lo"
+    "liem_cam_lo",
+    "mai_le_tuyen"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "le_tuyen"
+   ],
+   "place": 26,
+   "text_vi_of": "Liêm Cam Lộ dies sitting by the sweet spring; Mai Lễ Tuyền becomes head."
   },
   {
    "id": "N-le_tuyen-03",
@@ -47,12 +53,17 @@
    "story_kind": "",
    "text_en": "Mai Lễ Tuyền raises the Dawn Hall on the shore of Triêu Hà Hồ, where she delivered Phượng Minh's head in 950, and moves the healers down from the spring; the brewers keep the Spring House.",
    "page": "design/world/depth/sects/le_tuyen.md",
-   "text_vi": "",
+   "text_vi": "Mai Lễ Tuyền dựng Triêu Đường bên bờ Triêu Hà Hồ, nơi bà đỡ sinh cho chưởng môn Phượng Minh năm 950, và dời các thầy thuốc xuống khỏi con suối; các thợ nấu giữ lại Tuyền Phòng.",
    "people": [
-    "mai_le_tuyen"
+    "mai_le_tuyen",
+    "hoa_trieu_duong"
    ],
-   "sects": [],
-   "place": 193
+   "sects": [
+    "le_tuyen",
+    "phuong_minh"
+   ],
+   "place": 193,
+   "text_vi_of": "Mai Lễ Tuyền raises the Dawn Hall on the shore of Triêu Hà Hồ, where she delivered Phượng Minh's head in 950, and moves the healers down from the spring; the brewers keep the Spring House."
   },
   {
    "id": "N-le_tuyen-04",
@@ -64,10 +75,13 @@
    "story_kind": "",
    "text_en": "The Spring House's porters begin to cart lake water from the Dawn Hall up to the sweet spring, a fortnight's road, in barrels sealed as the healers' tinctures.",
    "page": "design/world/depth/sects/le_tuyen.md",
-   "text_vi": "",
+   "text_vi": "Những người khuân vác của Tuyền Phòng bắt đầu chở nước hồ từ Triêu Đường lên suối ngọt, một chặng đường nửa tháng, trong các thùng niêm phong như thuốc nước của các thầy thuốc.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "le_tuyen"
+   ],
+   "place": null,
+   "text_vi_of": "The Spring House's porters begin to cart lake water from the Dawn Hall up to the sweet spring, a fortnight's road, in barrels sealed as the healers' tinctures."
   },
   {
    "id": "N-le_tuyen-05",
@@ -79,10 +93,14 @@
    "story_kind": "",
    "text_en": "The Pivot's table tastes the lake in Lễ Tuyền's wine. Thiên Xu says nothing in public, takes forty jars of pure spring a year as a fine, and sends a cellar steward to live at the Spring House.",
    "page": "design/world/depth/sects/le_tuyen.md",
-   "text_vi": "",
+   "text_vi": "Bàn tiệc của Thiên Xu nếm ra vị hồ trong rượu của Lễ Tuyền. Thiên Xu không nói gì trước người ngoài, mỗi năm lấy bốn mươi vò nước suối nguyên chất làm tiền phạt, và cử một quản hầm rượu đến sống ở Tuyền Phòng.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thien_xu",
+    "le_tuyen"
+   ],
+   "place": null,
+   "text_vi_of": "The Pivot's table tastes the lake in Lễ Tuyền's wine. Thiên Xu says nothing in public, takes forty jars of pure spring a year as a fine, and sends a cellar steward to live at the Spring House."
   }
  ]
 }

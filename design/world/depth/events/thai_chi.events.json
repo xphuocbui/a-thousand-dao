@@ -12,12 +12,13 @@
    "story_kind": "",
    "text_en": "The founder of Thải Chi Cốc grows a gourd on her own vine and cures it with lingzhi spores; herbs kept in it do not wilt.",
    "page": "design/world/depth/sects/thai_chi.md",
-   "text_vi": "",
+   "text_vi": "Người sáng lập Thải Chi Cốc trồng một quả hồ lô trên dây của chính mình và ướp nó bằng bào tử linh chi; dược thảo cất trong đó không héo.",
    "people": [],
    "sects": [
     "thai_chi"
    ],
-   "place": null
+   "place": 12,
+   "text_vi_of": "The founder of Thải Chi Cốc grows a gourd on her own vine and cures it with lingzhi spores; herbs kept in it do not wilt."
   },
   {
    "id": "N-thai_chi-02",
@@ -29,10 +30,13 @@
    "story_kind": "",
    "text_en": "A herb-picker of Thải Chi carries a girl of four out of the Hà Đê flood in his basket. She will be the valley's mistress.",
    "page": "design/world/depth/sects/thai_chi.md",
-   "text_vi": "",
+   "text_vi": "Một người hái thuốc của Thải Chi Cốc bế một bé gái bốn tuổi ra khỏi trận lụt Hà Đê trong giỏ của mình. Nàng sẽ là bà chủ của thung lũng.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thai_chi"
+   ],
+   "place": 1233,
+   "text_vi_of": "A herb-picker of Thải Chi carries a girl of four out of the Hà Đê flood in his basket. She will be the valley's mistress."
   },
   {
    "id": "N-thai_chi-03",
@@ -44,12 +48,13 @@
    "story_kind": "",
    "text_en": "The youngest master of Lăng Tiêu Các walks into Thải Chi Cốc with a bronze censer and a coal from the fire that burned his pavilion.",
    "page": "design/world/depth/sects/thai_chi.md",
-   "text_vi": "",
+   "text_vi": "Vị chủ trẻ nhất của Lăng Tiêu Các bước vào Thải Chi Cốc với một lư hương bằng đồng và một cục than từ ngọn lửa đã thiêu tòa các của ông.",
    "people": [],
    "sects": [
     "thai_chi"
    ],
-   "place": 1252
+   "place": 12,
+   "text_vi_of": "The youngest master of Lăng Tiêu Các walks into Thải Chi Cốc with a bronze censer and a coal from the fire that burned his pavilion."
   },
   {
    "id": "N-thai_chi-04",
@@ -61,10 +66,14 @@
    "story_kind": "tale",
    "text_en": "By lamplight in Thải Chi's lower field, the valley-mistress treats Lạc Hà raiders wounded at Đào Sa and sends them home.",
    "page": "design/world/depth/sects/thai_chi.md",
-   "text_vi": "",
+   "text_vi": "Dưới ánh đèn ở ruộng dưới của Thải Chi Cốc, bà chủ thung lũng chữa cho những kẻ cướp của Lạc Hà Tông bị thương ở Đào Sa và cho họ về nhà.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thai_chi",
+    "lac_ha"
+   ],
+   "place": 12,
+   "text_vi_of": "By lamplight in Thải Chi's lower field, the valley-mistress treats Lạc Hà raiders wounded at Đào Sa and sends them home."
   }
  ]
 }

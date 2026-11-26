@@ -12,13 +12,16 @@
    "story_kind": "",
    "text_en": "Ngô Thê Đồng watches the young Hùng Phần Vũ stand an hour in the moving fire of Chúc Dung Khẩu, and lends him Xích Thành's banner.",
    "page": "design/world/depth/sects/phan_vu.md",
-   "text_vi": "",
+   "text_vi": "Ngô Thê Đồng nhìn Hùng Phần Vũ khi còn trẻ đứng một canh giờ trong ngọn lửa chuyển động của Chúc Dung Khẩu, và cho y mượn cờ của Xích Thành.",
    "people": [
     "hung_phan_vu",
     "ngo_the_dong"
    ],
-   "sects": [],
-   "place": 253
+   "sects": [
+    "phuong_minh"
+   ],
+   "place": 253,
+   "text_vi_of": "Ngô Thê Đồng watches the young Hùng Phần Vũ stand an hour in the moving fire of Chúc Dung Khẩu, and lends him Xích Thành's banner."
   },
   {
    "id": "N-phan_vu-02",
@@ -30,12 +33,16 @@
    "story_kind": "",
    "text_en": "With the banner, Phượng Minh's founder gives Hùng Phần Vũ the body chapters of Xích Thành's canon from the Hall of Spoils, on one condition: that his hall never call itself Xích Thành's heir.",
    "page": "design/world/depth/sects/phan_vu.md",
-   "text_vi": "",
+   "text_vi": "Cùng với lá cờ, vị sáng lập Phượng Minh trao cho Hùng Phần Vũ các chương luyện thể trong công pháp của Xích Thành lấy từ Chiến Lợi Khố, với một điều kiện: đường của y không bao giờ tự xưng là người kế thừa Xích Thành.",
    "people": [
+    "ngo_the_dong",
     "hung_phan_vu"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "phuong_minh"
+   ],
+   "place": null,
+   "text_vi_of": "With the banner, Phượng Minh's founder gives Hùng Phần Vũ the body chapters of Xích Thành's canon from the Hall of Spoils, on one condition: that his hall never call itself Xích Thành's heir."
   },
   {
    "id": "N-phan_vu-03",
@@ -47,12 +54,16 @@
    "story_kind": "",
    "text_en": "Phượng Minh asks Phần Vũ for a child as surety when its head comes to the Fire Court; Hùng Phần Vũ's daughter, aged twelve, asks to be the one sent, and he lets her go.",
    "page": "design/world/depth/sects/phan_vu.md",
-   "text_vi": "",
+   "text_vi": "Phượng Minh đòi Phần Vũ một đứa trẻ làm con tin khi người đứng đầu đến Hỏa Đình; con gái của Hùng Phần Vũ, mười hai tuổi, xin được là người bị gửi đi, và ông để cô đi.",
    "people": [
     "hung_phan_vu"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "phuong_minh",
+    "phan_vu"
+   ],
+   "place": null,
+   "text_vi_of": "Phượng Minh asks Phần Vũ for a child as surety when its head comes to the Fire Court; Hùng Phần Vũ's daughter, aged twelve, asks to be the one sent, and he lets her go."
   },
   {
    "id": "N-phan_vu-04",
@@ -64,12 +75,15 @@
    "story_kind": "",
    "text_en": "Tuân Hà Y of Phần Vũ goes into the mouth of Chúc Dung Khẩu for the Red Wall Rebirth and does not come out.",
    "page": "design/world/depth/sects/phan_vu.md",
-   "text_vi": "",
+   "text_vi": "Tuân Hà Y của Phần Vũ đi vào miệng Chúc Dung Khẩu để thực hiện Xích Thành Niết Bàn và không trở ra.",
    "people": [
     "tuan_ha_y"
    ],
-   "sects": [],
-   "place": 253
+   "sects": [
+    "phan_vu"
+   ],
+   "place": 253,
+   "text_vi_of": "Tuân Hà Y of Phần Vũ goes into the mouth of Chúc Dung Khẩu for the Red Wall Rebirth and does not come out."
   },
   {
    "id": "N-phan_vu-05",
@@ -81,10 +95,13 @@
    "story_kind": "",
    "text_en": "Phần Vũ's carts haul the stone of Xích Thành's ruined gate to Thạch Cơ Thành for the palace's new jetty.",
    "page": "design/world/depth/sects/phan_vu.md",
-   "text_vi": "",
+   "text_vi": "Xe của Phần Vũ chở đá từ cổng đổ nát của Xích Thành đến Thạch Cơ Thành để làm bến thuyền mới cho cung điện.",
    "people": [],
-   "sects": [],
-   "place": 93
+   "sects": [
+    "phan_vu"
+   ],
+   "place": 93,
+   "text_vi_of": "Phần Vũ's carts haul the stone of Xích Thành's ruined gate to Thạch Cơ Thành for the palace's new jetty."
   },
   {
    "id": "N-phan_vu-06",
@@ -96,12 +113,14 @@
    "story_kind": "",
    "text_en": "With its head's court at the Fire Court, Phượng Minh takes the province of Phần Vũ as its seat province; Phần Vũ Đường keeps its hall, its vents and its pits inside it as a vassal holding.",
    "page": "design/world/depth/sects/phan_vu.md",
-   "text_vi": "",
+   "text_vi": "Khi triều đình của người đứng đầu Phượng Minh đặt tại Hỏa Đình, Phượng Minh lấy tỉnh Phần Vũ làm tỉnh trị sở; Phần Vũ Đường giữ lại đường, các lỗ phun và các hố của mình bên trong đó như một lãnh địa chư hầu.",
    "people": [],
    "sects": [
+    "phuong_minh",
     "phan_vu"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "With its head's court at the Fire Court, Phượng Minh takes the province of Phần Vũ as its seat province; Phần Vũ Đường keeps its hall, its vents and its pits inside it as a vassal holding."
   }
  ]
 }

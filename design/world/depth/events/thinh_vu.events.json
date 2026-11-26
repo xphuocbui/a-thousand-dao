@@ -12,12 +12,15 @@
    "story_kind": "",
    "text_en": "Phó Tiêu Tương hangs a chain of nine bronze cups from the eaves of her tower on the cone. It rings when it rains, and she sits under it.",
    "page": "design/world/depth/sects/thinh_vu.md",
-   "text_vi": "",
+   "text_vi": "Phó Tiêu Tương treo một chuỗi chín chén đồng từ mái hiên tòa tháp của bà trên ngọn núi hình nón. Chuỗi chén reo khi trời mưa, và bà ngồi dưới nó.",
    "people": [
     "pho_tieu_tuong"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thinh_vu"
+   ],
+   "place": null,
+   "text_vi_of": "Phó Tiêu Tương hangs a chain of nine bronze cups from the eaves of her tower on the cone. It rings when it rains, and she sits under it."
   },
   {
    "id": "N-thinh_vu-02",
@@ -29,12 +32,15 @@
    "story_kind": "",
    "text_en": "A drummer's boy of Kích Cổ Đường, sixteen, walks up the cone with Khải Lôi's storm notes in his head. Phó Tiêu Tương takes him in and names him Văn Lôi, he who hears the thunder.",
    "page": "design/world/depth/sects/thinh_vu.md",
-   "text_vi": "",
+   "text_vi": "Một cậu bé đánh trống của Kích Cổ Đường, mười sáu tuổi, đi lên ngọn núi hình nón với những khúc nhạc bão của Khải Lôi trong đầu. Phó Tiêu Tương nhận cậu và đặt tên là Văn Lôi, người nghe sấm.",
    "people": [
     "pho_tieu_tuong"
    ],
-   "sects": [],
-   "place": 346
+   "sects": [
+    "thinh_vu"
+   ],
+   "place": 346,
+   "text_vi_of": "A drummer's boy of Kích Cổ Đường, sixteen, walks up the cone with Khải Lôi's storm notes in his head. Phó Tiêu Tương takes him in and names him Văn Lôi, he who hears the thunder."
   },
   {
    "id": "N-thinh_vu-03",
@@ -46,12 +52,16 @@
    "story_kind": "",
    "text_en": "On Văn Lôi Đài, where the rain turns to thunder, Nhiếp Văn Lôi writes the thunder into the founder's chain: the Văn Lôi Kinh.",
    "page": "design/world/depth/sects/thinh_vu.md",
-   "text_vi": "",
+   "text_vi": "Trên Văn Lôi Đài, nơi mưa hóa thành sấm, Nhiếp Văn Lôi viết tiếng sấm vào chuỗi của người sáng lập: Văn Lôi Kinh.",
    "people": [
-    "nhiep_van_loi"
+    "nhiep_van_loi",
+    "pho_tieu_tuong"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thinh_vu"
+   ],
+   "place": null,
+   "text_vi_of": "On Văn Lôi Đài, where the rain turns to thunder, Nhiếp Văn Lôi writes the thunder into the founder's chain: the Văn Lôi Kinh."
   },
   {
    "id": "N-thinh_vu-04",
@@ -63,10 +73,13 @@
    "story_kind": "",
    "text_en": "In the empty storm camp of Nghênh Lôi Trại the Tower finds Khải Lôi's Heavenly Tribulation Scripture and a third of the Gate's own canon.",
    "page": "design/world/depth/sects/thinh_vu.md",
-   "text_vi": "",
+   "text_vi": "Trong doanh bão bỏ không Nghênh Lôi Trại, Thính Vũ Lâu tìm thấy Thiên Kiếp Kinh của Khải Lôi và một phần ba kinh điển riêng của Khải Lôi Môn.",
    "people": [],
-   "sects": [],
-   "place": 862
+   "sects": [
+    "thinh_vu"
+   ],
+   "place": 862,
+   "text_vi_of": "In the empty storm camp of Nghênh Lôi Trại the Tower finds Khải Lôi's Heavenly Tribulation Scripture and a third of the Gate's own canon."
   },
   {
    "id": "N-thinh_vu-05",
@@ -78,12 +91,15 @@
    "story_kind": "",
    "text_en": "The guest master Văn Hải Khô dies in seclusion at the Tower. The Tower records a qi deviation, and his Hollow Tide Scripture passes to the head.",
    "page": "design/world/depth/sects/thinh_vu.md",
-   "text_vi": "",
+   "text_vi": "Tri khách Văn Hải Khô mất trong lúc bế quan tại Thính Vũ Lâu. Thính Vũ Lâu ghi lại là tẩu hỏa nhập ma, và Không Triều Kinh của ông truyền cho tông chủ.",
    "people": [
     "van_hai_kho"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thinh_vu"
+   ],
+   "place": null,
+   "text_vi_of": "The guest master Văn Hải Khô dies in seclusion at the Tower. The Tower records a qi deviation, and his Hollow Tide Scripture passes to the head."
   },
   {
    "id": "N-thinh_vu-06",
@@ -95,12 +111,15 @@
    "story_kind": "",
    "text_en": "Lệ Tiêu Hồn writes the vault law: a life lamp for every sworn member of the Tower, and none for the head; a lamp may be put out from afar only by the master lamp and the shears together.",
    "page": "design/world/depth/sects/thinh_vu.md",
-   "text_vi": "",
+   "text_vi": "Lệ Tiêu Hồn viết luật kho: mỗi thành viên đã thề của Thính Vũ Lâu có một ngọn mệnh đăng, riêng tông chủ thì không; một ngọn đèn chỉ có thể bị dập từ xa bởi chủ đăng cùng chiếc kéo.",
    "people": [
     "le_tieu_hon"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thinh_vu"
+   ],
+   "place": null,
+   "text_vi_of": "Lệ Tiêu Hồn writes the vault law: a life lamp for every sworn member of the Tower, and none for the head; a lamp may be put out from afar only by the master lamp and the shears together."
   },
   {
    "id": "N-thinh_vu-07",
@@ -112,12 +131,15 @@
    "story_kind": "",
    "text_en": "With the vein kept, the Tower builds its new guard on Thần Cổ Phong above the ashes of Thủ Lôi Bảo, and names the guardhouse for Tạ Thiết Trụ.",
    "page": "design/world/depth/sects/thinh_vu.md",
-   "text_vi": "",
+   "text_vi": "Giữ được mạch, Thính Vũ Lâu dựng đội canh mới trên Thần Cổ Phong, phía trên tro tàn của Thủ Lôi Bảo, và đặt tên gác canh theo Tạ Thiết Trụ.",
    "people": [
     "ta_thiet_tru"
    ],
-   "sects": [],
-   "place": 874
+   "sects": [
+    "thinh_vu"
+   ],
+   "place": 874,
+   "text_vi_of": "With the vein kept, the Tower builds its new guard on Thần Cổ Phong above the ashes of Thủ Lôi Bảo, and names the guardhouse for Tạ Thiết Trụ."
   },
   {
    "id": "N-thinh_vu-08",
@@ -129,12 +151,16 @@
    "story_kind": "",
    "text_en": "At the pass of Đan Sơn Mạch, Kỷ Vãn Tình holds the Tower's rear guard until the Pivot's arrays close. Four of her people come out with the wounded.",
    "page": "design/world/depth/sects/thinh_vu.md",
-   "text_vi": "",
+   "text_vi": "Ở đèo Đan Sơn Mạch, Kỷ Vãn Tình giữ hậu quân của Thính Vũ Lâu cho đến khi các trận pháp của Thiên Xu khép lại. Bốn người của bà ra được cùng những người bị thương.",
    "people": [
     "ky_van_tinh"
    ],
-   "sects": [],
-   "place": 211
+   "sects": [
+    "thinh_vu",
+    "thien_xu"
+   ],
+   "place": 211,
+   "text_vi_of": "At the pass of Đan Sơn Mạch, Kỷ Vãn Tình holds the Tower's rear guard until the Pivot's arrays close. Four of her people come out with the wounded."
   },
   {
    "id": "N-thinh_vu-09",
@@ -146,14 +172,16 @@
    "story_kind": "",
    "text_en": "Thính Vũ Lâu carries its halls east from the cone to Thần Cổ Phong. Quan Vũ Thanh stays in the founder's tower with the founder's chain, and the old seat becomes the Rain Tower.",
    "page": "design/world/depth/sects/thinh_vu.md",
-   "text_vi": "",
+   "text_vi": "Thính Vũ Lâu dời các tòa điện từ ngọn núi hình nón về phía đông đến Thần Cổ Phong. Quan Vũ Thanh ở lại trong tòa tháp của người sáng lập cùng chuỗi của người sáng lập, và chỗ ở cũ trở thành Vũ Lâu.",
    "people": [
-    "quan_vu_thanh"
+    "quan_vu_thanh",
+    "pho_tieu_tuong"
    ],
    "sects": [
     "thinh_vu"
    ],
-   "place": 874
+   "place": 874,
+   "text_vi_of": "Thính Vũ Lâu carries its halls east from the cone to Thần Cổ Phong. Quan Vũ Thanh stays in the founder's tower with the founder's chain, and the old seat becomes the Rain Tower."
   },
   {
    "id": "N-thinh_vu-10",
@@ -165,13 +193,16 @@
    "story_kind": "",
    "text_en": "Thạch Liên Hoàn casts and Lệ Tiêu Hồn lays the Iron Rain array, a bronze chain from the new seat down to Kinh Lôi Mạch; the soul vaults move into the vein.",
    "page": "design/world/depth/sects/thinh_vu.md",
-   "text_vi": "",
+   "text_vi": "Thạch Liên Hoàn đúc và Lệ Tiêu Hồn bày Thiết Vũ Trận, một sợi xích đồng từ chỗ ở mới xuống đến Kinh Lôi Mạch; các hồn khố dời vào trong mạch.",
    "people": [
     "thach_lien_hoan",
     "le_tieu_hon"
    ],
-   "sects": [],
-   "place": 208
+   "sects": [
+    "thinh_vu"
+   ],
+   "place": 208,
+   "text_vi_of": "Thạch Liên Hoàn casts and Lệ Tiêu Hồn lays the Iron Rain array, a bronze chain from the new seat down to Kinh Lôi Mạch; the soul vaults move into the vein."
   },
   {
    "id": "N-thinh_vu-11",
@@ -183,14 +214,17 @@
    "story_kind": "",
    "text_en": "Xuyên Lâm Môn protests the Tower's seat among its mines. Its head sends his nephew Úc Đả Diệp to Thần Cổ Phong as surety.",
    "page": "design/world/depth/sects/thinh_vu.md",
-   "text_vi": "",
+   "text_vi": "Xuyên Lâm Môn phản đối việc Thính Vũ Lâu đặt chỗ ở giữa các mỏ của mình. Tông chủ Xuyên Lâm Môn sai cháu trai là Úc Đả Diệp đến Thần Cổ Phong làm con tin.",
    "people": [
+    "uc_diep_thanh",
     "uc_da_diep"
    ],
    "sects": [
-    "xuyen_lam"
+    "xuyen_lam",
+    "thinh_vu"
    ],
-   "place": 874
+   "place": 874,
+   "text_vi_of": "Xuyên Lâm Môn protests the Tower's seat among its mines. Its head sends his nephew Úc Đả Diệp to Thần Cổ Phong as surety."
   },
   {
    "id": "N-thinh_vu-12",
@@ -202,12 +236,16 @@
    "story_kind": "",
    "text_en": "A Xuyên Lâm-born disciple deserts the Tower for the Gate. The vault keeper Ninh Tịch Đăng refuses to cut his wick, and he lives.",
    "page": "design/world/depth/sects/thinh_vu.md",
-   "text_vi": "",
+   "text_vi": "Một đệ tử gốc Xuyên Lâm bỏ Thính Vũ Lâu theo Xuyên Lâm Môn. Người giữ kho Ninh Tịch Đăng không chịu cắt bấc đèn của hắn, và hắn sống.",
    "people": [
     "ninh_tich_dang"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thinh_vu",
+    "xuyen_lam"
+   ],
+   "place": null,
+   "text_vi_of": "A Xuyên Lâm-born disciple deserts the Tower for the Gate. The vault keeper Ninh Tịch Đăng refuses to cut his wick, and he lives."
   }
  ]
 }

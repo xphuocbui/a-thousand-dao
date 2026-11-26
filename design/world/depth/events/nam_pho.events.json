@@ -12,14 +12,15 @@
    "story_kind": "",
    "text_en": "Ôn Châu Liêm, co-founder of Nam Phố Đường, goes home to Châu Liêm Trấn to die, and the dusk half of the founders' art goes with him.",
    "page": "design/world/depth/sects/nam_pho.md",
-   "text_vi": "",
+   "text_vi": "Ôn Châu Liêm, đồng sáng lập Nam Phố Đường, về nhà ở Châu Liêm Trấn để chết, và nửa hoàng hôn trong pháp của những người sáng lập đi cùng ông.",
    "people": [
     "on_chau_liem"
    ],
    "sects": [
     "nam_pho"
    ],
-   "place": 514
+   "place": 514,
+   "text_vi_of": "Ôn Châu Liêm, co-founder of Nam Phố Đường, goes home to Châu Liêm Trấn to die, and the dusk half of the founders' art goes with him."
   },
   {
    "id": "N-nam_pho-02",
@@ -31,7 +32,7 @@
    "story_kind": "",
    "text_en": "Nghiêm Họa Đống dies at dawn with a brush in her hand; Châu Phi Vân becomes hall-mistress of Nam Phố Đường.",
    "page": "design/world/depth/sects/nam_pho.md",
-   "text_vi": "",
+   "text_vi": "Nghiêm Họa Đống chết lúc bình minh với cây bút trong tay; Châu Phi Vân trở thành tông chủ Nam Phố Đường.",
    "people": [
     "nghiem_hoa_dong",
     "chau_phi_van"
@@ -39,7 +40,8 @@
    "sects": [
     "nam_pho"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Nghiêm Họa Đống dies at dawn with a brush in her hand; Châu Phi Vân becomes hall-mistress of Nam Phố Đường."
   },
   {
    "id": "N-nam_pho-03",
@@ -51,10 +53,15 @@
    "story_kind": "",
    "text_en": "Nam Phố's scribes paint a hundred fire talismans on a Lạc Hà order for clearing the reed beds at Thủy Khẩu; a month later Lãng Đào's boats burn at Đào Sa.",
    "page": "design/world/depth/sects/nam_pho.md",
-   "text_vi": "",
+   "text_vi": "Các phù sư của Nam Phố vẽ một trăm lá hỏa phù theo đơn đặt của Lạc Hà để dọn các bãi lau ở Thủy Khẩu; một tháng sau những chiếc thuyền của Lãng Đào cháy ở Đào Sa.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "nam_pho",
+    "lac_ha",
+    "lang_dao"
+   ],
+   "place": 47,
+   "text_vi_of": "Nam Phố's scribes paint a hundred fire talismans on a Lạc Hà order for clearing the reed beds at Thủy Khẩu; a month later Lãng Đào's boats burn at Đào Sa."
   },
   {
    "id": "N-nam_pho-04",
@@ -66,10 +73,13 @@
    "story_kind": "",
    "text_en": "An unsigned bundle of ward talismans comes down the river to Lãng Đào's rebuilt ferries, and comes again every year after.",
    "page": "design/world/depth/sects/nam_pho.md",
-   "text_vi": "",
+   "text_vi": "Một bó hộ phù không ký tên trôi xuống sông đến những chuyến đò được dựng lại của Lãng Đào, và năm nào sau đó cũng lại đến.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "lang_dao"
+   ],
+   "place": null,
+   "text_vi_of": "An unsigned bundle of ward talismans comes down the river to Lãng Đào's rebuilt ferries, and comes again every year after."
   }
  ]
 }

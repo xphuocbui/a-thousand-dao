@@ -12,12 +12,13 @@
    "story_kind": "",
    "text_en": "Hộ Lâm Đường's wardens swear the rite of asking as their first law: no spirit tree is felled until a warden has spent a night beside it.",
    "page": "design/world/depth/sects/ho_lam.md",
-   "text_vi": "",
+   "text_vi": "Các hộ lâm viên của Hộ Lâm Đường thề giữ nghi thức Vấn Mộc làm luật đầu tiên: không cây linh thụ nào bị đốn trước khi một hộ lâm viên đã ở bên nó một đêm.",
    "people": [],
    "sects": [
     "ho_lam"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Hộ Lâm Đường's wardens swear the rite of asking as their first law: no spirit tree is felled until a warden has spent a night beside it."
   },
   {
    "id": "N-ho_lam-02",
@@ -29,12 +30,15 @@
    "story_kind": "",
    "text_en": "The brown bears of Tông Hùng Lâm come for a felled spirit log, and the warden Sư Tuyết Tùng stands over it until he dies.",
    "page": "design/world/depth/sects/ho_lam.md",
-   "text_vi": "",
+   "text_vi": "Gấu nâu của Tông Hùng Lâm kéo đến lấy một khúc linh mộc bị đốn, và hộ lâm viên Sư Tuyết Tùng đứng chắn trên nó cho đến lúc chết.",
    "people": [
     "su_tuyet_tung"
    ],
-   "sects": [],
-   "place": 1107
+   "sects": [
+    "ho_lam"
+   ],
+   "place": 1107,
+   "text_vi_of": "The brown bears of Tông Hùng Lâm come for a felled spirit log, and the warden Sư Tuyết Tùng stands over it until he dies."
   },
   {
    "id": "N-ho_lam-03",
@@ -46,12 +50,15 @@
    "story_kind": "",
    "text_en": "The Grandmother Fir of Sơ Hiểu Lâm, the greatest spirit tree in the northern woods, is felled after a night of asking and burned in the Green Furnace on the night Úy Thanh Diễm forms his Nascent Soul. The drought had dried the green wood of the northern woods, so only the Fir would do. The hall says the tree said yes.",
    "page": "design/world/depth/sects/ho_lam.md",
-   "text_vi": "",
+   "text_vi": "Tổ Mẫu Sam của Sơ Hiểu Lâm, linh thụ lớn nhất trong rừng phương bắc, bị đốn sau một đêm hỏi cây và bị đốt trong Thanh Lô vào đêm Úy Thanh Diễm kết thành Nguyên Anh. Hạn hán đã làm khô gỗ xanh của rừng phương bắc, nên chỉ có Tổ Mẫu Sam mới dùng được. Hộ Lâm Đường nói rằng cây đã đồng ý.",
    "people": [
     "uy_thanh_diem"
    ],
-   "sects": [],
-   "place": 1112
+   "sects": [
+    "ho_lam"
+   ],
+   "place": 1112,
+   "text_vi_of": "The Grandmother Fir of Sơ Hiểu Lâm, the greatest spirit tree in the northern woods, is felled after a night of asking and burned in the Green Furnace on the night Úy Thanh Diễm forms his Nascent Soul. The drought had dried the green wood of the northern woods, so only the Fir would do. The hall says the tree said yes."
   },
   {
    "id": "N-ho_lam-04",
@@ -63,12 +70,16 @@
    "story_kind": "",
    "text_en": "After the spring flood of 1161 takes half the rafts, Lục Thanh Sam writes the Raft-and-Root Primer for the hall's outer gate, in place of Thúy Vi's Seed and Soil Primer.",
    "page": "design/world/depth/sects/ho_lam.md",
-   "text_vi": "",
+   "text_vi": "Sau khi trận lũ mùa xuân năm 1161 cuốn đi một nửa số bè, Lục Thanh Sam viết Phiệt Căn Quyết cho cổng ngoài của đường, thay cho Chủng Thổ Quyết của Thúy Vi.",
    "people": [
     "luc_thanh_sam"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "ho_lam",
+    "thuy_vi"
+   ],
+   "place": null,
+   "text_vi_of": "After the spring flood of 1161 takes half the rafts, Lục Thanh Sam writes the Raft-and-Root Primer for the hall's outer gate, in place of Thúy Vi's Seed and Soil Primer."
   }
  ]
 }

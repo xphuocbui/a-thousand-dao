@@ -12,13 +12,16 @@
    "story_kind": "",
    "text_en": "Nhan Tề Phi falls at the head of Lạc Hà's field on Chiết Kích Nguyên; her disciple Cảnh Trường Thiên brings her body off the plain at night.",
    "page": "design/world/depth/sects/lac_ha.md",
-   "text_vi": "",
+   "text_vi": "Nhan Tề Phi ngã xuống ở đầu trận tuyến của Lạc Hà trên Chiết Kích Nguyên; đệ tử của bà là Cảnh Trường Thiên đưa thi thể bà khỏi cánh đồng trong đêm.",
    "people": [
-    "canh_truong_thien",
-    "nhan_te_phi"
+    "nhan_te_phi",
+    "canh_truong_thien"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "lac_ha"
+   ],
+   "place": null,
+   "text_vi_of": "Nhan Tề Phi falls at the head of Lạc Hà's field on Chiết Kích Nguyên; her disciple Cảnh Trường Thiên brings her body off the plain at night."
   },
   {
    "id": "N-lac_ha-02",
@@ -30,13 +33,16 @@
    "story_kind": "",
    "text_en": "The last of the maples Nhan Cô Vụ planted round Lạc Hà's hall dies in a dry summer; the elder Chử Hồng Diệp boils its sap, and a note in the founder's hand is found in the canon's margin.",
    "page": "design/world/depth/sects/lac_ha.md",
-   "text_vi": "",
+   "text_vi": "Cây phong cuối cùng mà Nhan Cô Vụ trồng quanh đại điện của Lạc Hà chết trong một mùa hè khô hạn; trưởng lão Chử Hồng Diệp nấu nhựa của nó, và người ta tìm thấy một ghi chú bằng nét chữ của người sáng lập ở lề cuốn kinh.",
    "people": [
-    "chu_hong_diep",
-    "nhan_co_vu"
+    "nhan_co_vu",
+    "chu_hong_diep"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "lac_ha"
+   ],
+   "place": null,
+   "text_vi_of": "The last of the maples Nhan Cô Vụ planted round Lạc Hà's hall dies in a dry summer; the elder Chử Hồng Diệp boils its sap, and a note in the founder's hand is found in the canon's margin."
   },
   {
    "id": "N-lac_ha-03",
@@ -48,7 +54,7 @@
    "story_kind": "",
    "text_en": "Lạc Hà Tông borrows from its vassal Thiên Bảo Trai to raise a new seat; Phan Vật Hoa names the interest, and the head names the surety in private.",
    "page": "design/world/depth/sects/lac_ha.md",
-   "text_vi": "",
+   "text_vi": "Lạc Hà Tông vay của chư hầu Thiên Bảo Trai để dựng một trụ sở mới; Phan Vật Hoa định mức lãi, và tông chủ nói riêng vật bảo đảm.",
    "people": [
     "phan_vat_hoa"
    ],
@@ -56,7 +62,8 @@
     "thien_bao",
     "lac_ha"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Lạc Hà Tông borrows from its vassal Thiên Bảo Trai to raise a new seat; Phan Vật Hoa names the interest, and the head names the surety in private."
   },
   {
    "id": "N-lac_ha-04",
@@ -68,13 +75,14 @@
    "story_kind": "",
    "text_en": "Quách Tiếp Vân lays the Cloud Bridge Array across the gorge of Vân Kiều Trấn, where the miners' rope bridge broke, to a design bought from Vệ Văn Cơ.",
    "page": "design/world/depth/sects/lac_ha.md",
-   "text_vi": "",
+   "text_vi": "Quách Tiếp Vân bố Vân Kiều Trận vắt ngang hẻm núi của Vân Kiều Trấn, nơi cầu dây của thợ mỏ đã đứt, theo một đồ hình mua từ Vệ Văn Cơ.",
    "people": [
     "quach_tiep_van",
     "ve_van_co"
    ],
    "sects": [],
-   "place": 558
+   "place": 558,
+   "text_vi_of": "Quách Tiếp Vân lays the Cloud Bridge Array across the gorge of Vân Kiều Trấn, where the miners' rope bridge broke, to a design bought from Vệ Văn Cơ."
   },
   {
    "id": "N-lac_ha-05",
@@ -86,12 +94,13 @@
    "story_kind": "",
    "text_en": "Lạc Hà Tông leaves the steppe for the mountain town of Vân Kiều; its old hall becomes the outer gate, Cựu Hà Viện.",
    "page": "design/world/depth/sects/lac_ha.md",
-   "text_vi": "",
+   "text_vi": "Lạc Hà Tông rời thảo nguyên đến thị trấn miền núi Vân Kiều; đại điện cũ của tông môn thành sơn môn ngoài, Cựu Hà Viện.",
    "people": [],
    "sects": [
     "lac_ha"
    ],
-   "place": null
+   "place": 558,
+   "text_vi_of": "Lạc Hà Tông leaves the steppe for the mountain town of Vân Kiều; its old hall becomes the outer gate, Cựu Hà Viện."
   },
   {
    "id": "N-lac_ha-06",
@@ -103,14 +112,17 @@
    "story_kind": "",
    "text_en": "Tô Vãn Chiếu puts the move of the seat to Lạc Hà's elders at dusk; Trầm Tịch Dương and Hình Trọng Sơn vote against it, and it is carried.",
    "page": "design/world/depth/sects/lac_ha.md",
-   "text_vi": "",
+   "text_vi": "Tô Vãn Chiếu đưa việc dời trụ sở ra trước các trưởng lão của Lạc Hà lúc chiều tà; Trầm Tịch Dương và Hình Trọng Sơn bỏ phiếu chống, và nghị quyết vẫn được thông qua.",
    "people": [
+    "to_van_chieu",
     "tram_tich_duong",
-    "hinh_trong_son",
-    "to_van_chieu"
+    "hinh_trong_son"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "lac_ha"
+   ],
+   "place": null,
+   "text_vi_of": "Tô Vãn Chiếu puts the move of the seat to Lạc Hà's elders at dusk; Trầm Tịch Dương and Hình Trọng Sơn vote against it, and it is carried."
   },
   {
    "id": "N-lac_ha-07",
@@ -122,12 +134,13 @@
    "story_kind": "",
    "text_en": "Hình Lạc Nhạn walks three hundred paces into the miasma of Chiết Kích Nguyên after the lost Tân Khẩu boy and comes back with his shoe.",
    "page": "design/world/depth/sects/lac_ha.md",
-   "text_vi": "",
+   "text_vi": "Hình Lạc Nhạn đi ba trăm bước vào chướng khí của Chiết Kích Nguyên để tìm cậu bé Tân Khẩu bị lạc và trở về với chiếc giày của cậu.",
    "people": [
     "hinh_lac_nhan"
    ],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "Hình Lạc Nhạn walks three hundred paces into the miasma of Chiết Kích Nguyên after the lost Tân Khẩu boy and comes back with his shoe."
   },
   {
    "id": "N-lac_ha-08",
@@ -139,12 +152,15 @@
    "story_kind": "",
    "text_en": "On the burned landing at Đào Sa, Lạc Hà's raid leader Lô Xướng Vãn helps a ferryman's son fish nails out of the river, and takes him home.",
    "page": "design/world/depth/sects/lac_ha.md",
-   "text_vi": "",
+   "text_vi": "Trên bến cháy ở Đào Sa, thủ lĩnh đội tập kích của Lạc Hà là Lô Xướng Vãn giúp con trai một người lái đò mò đinh dưới sông, và đưa cậu về nhà.",
    "people": [
     "lo_xuong_van"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "lac_ha"
+   ],
+   "place": 47,
+   "text_vi_of": "On the burned landing at Đào Sa, Lạc Hà's raid leader Lô Xướng Vãn helps a ferryman's son fish nails out of the river, and takes him home."
   },
   {
    "id": "N-lac_ha-09",
@@ -156,12 +172,15 @@
    "story_kind": "",
    "text_en": "Lô Tiểu Ca meets the Tùng Đào raiders' leader on the last rope bridge of the Ngư Ca border; he dies there, and she falls when the ropes go. The Tang Ma weavers hang her lamp from the new bridge.",
    "page": "design/world/depth/sects/lac_ha.md",
-   "text_vi": "",
+   "text_vi": "Lô Tiểu Ca gặp thủ lĩnh đội tập kích của Tùng Đào trên cây cầu dây cuối cùng ở biên giới Ngư Ca; ông ta chết ở đó, còn nàng rơi xuống khi dây đứt. Những thợ dệt Tang Ma treo đèn của nàng lên cây cầu mới.",
    "people": [
     "lo_tieu_ca"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "tung_dao"
+   ],
+   "place": null,
+   "text_vi_of": "Lô Tiểu Ca meets the Tùng Đào raiders' leader on the last rope bridge of the Ngư Ca border; he dies there, and she falls when the ropes go. The Tang Ma weavers hang her lamp from the new bridge."
   },
   {
    "id": "N-lac_ha-10",
@@ -173,12 +192,15 @@
    "story_kind": "",
    "text_en": "Lạc Hà's fleet master Hạ Hầu Trường Phong moors his ships across the harbour mouth of Thôn Hải Môn and burns with his flagship when the pirates' fire-rafts come out.",
    "page": "design/world/depth/sects/lac_ha.md",
-   "text_vi": "",
+   "text_vi": "Hạm trưởng của Lạc Hà là Hạ Hầu Trường Phong neo thuyền chắn ngang cửa cảng Thôn Hải Môn và cháy cùng soái hạm khi bè lửa của hải tặc xông ra.",
    "people": [
     "ha_hau_truong_phong"
    ],
-   "sects": [],
-   "place": 217
+   "sects": [
+    "lac_ha"
+   ],
+   "place": 217,
+   "text_vi_of": "Lạc Hà's fleet master Hạ Hầu Trường Phong moors his ships across the harbour mouth of Thôn Hải Môn and burns with his flagship when the pirates' fire-rafts come out."
   },
   {
    "id": "N-lac_ha-11",
@@ -190,12 +212,13 @@
    "story_kind": "",
    "text_en": "Thiệu Song Phong, who forged the iron gates of Thiết Tỏa Quan, dies holding them so the allies can get off the river road.",
    "page": "design/world/depth/sects/lac_ha.md",
-   "text_vi": "",
+   "text_vi": "Thiệu Song Phong, người rèn các cổng sắt của Thiết Tỏa Quan, chết khi giữ chúng để quân đồng minh rút khỏi đường sông.",
    "people": [
     "thieu_song_phong"
    ],
    "sects": [],
-   "place": 229
+   "place": 229,
+   "text_vi_of": "Thiệu Song Phong, who forged the iron gates of Thiết Tỏa Quan, dies holding them so the allies can get off the river road."
   },
   {
    "id": "N-lac_ha-12",
@@ -207,12 +230,15 @@
    "story_kind": "",
    "text_en": "At the truce, Nhan Cô Vụ cuts the ninth verse from the boats' song and names the vein below his hall for his daughter: Tề Phi Mạch.",
    "page": "design/world/depth/sects/lac_ha.md",
-   "text_vi": "",
+   "text_vi": "Trong cuộc đình chiến, Nhan Cô Vụ cắt đoạn thứ chín khỏi bài hát của những chiếc thuyền và đặt tên mạch dưới đại điện của mình theo tên con gái: Tề Phi Mạch.",
    "people": [
     "nhan_co_vu"
    ],
-   "sects": [],
-   "place": 265
+   "sects": [
+    "lac_ha"
+   ],
+   "place": 265,
+   "text_vi_of": "At the truce, Nhan Cô Vụ cuts the ninth verse from the boats' song and names the vein below his hall for his daughter: Tề Phi Mạch."
   }
  ]
 }

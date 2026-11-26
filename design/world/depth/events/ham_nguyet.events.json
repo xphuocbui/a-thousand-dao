@@ -12,10 +12,15 @@
    "story_kind": "",
    "text_en": "Hàm Nguyệt's founder raises the moon halls on piles over Trầm Bích Đàm, the still pool behind the reed bar, and keeps her boats at the shore house.",
    "page": "design/world/depth/sects/ham_nguyet.md",
-   "text_vi": "",
-   "people": [],
-   "sects": [],
-   "place": 260
+   "text_vi": "Người sáng lập Hàm Nguyệt dựng các nguyệt điện trên cọc phía trên Trầm Bích Đàm, vũng nước lặng sau doi lau, và cất thuyền của bà ở nhà ven bờ.",
+   "people": [
+    "doi_thiem_quang"
+   ],
+   "sects": [
+    "ham_nguyet"
+   ],
+   "place": 260,
+   "text_vi_of": "Hàm Nguyệt's founder raises the moon halls on piles over Trầm Bích Đàm, the still pool behind the reed bar, and keeps her boats at the shore house."
   },
   {
    "id": "N-ham_nguyet-02",
@@ -27,12 +32,15 @@
    "story_kind": "",
    "text_en": "Kiều Băng Liên of Hàm Nguyệt sits on the frozen pool all winter and keeps the spirit fish alive on the moon's reflection. In spring frost has come into her root.",
    "page": "design/world/depth/sects/ham_nguyet.md",
-   "text_vi": "",
+   "text_vi": "Kiều Băng Liên của Hàm Nguyệt ngồi trên mặt đầm đóng băng suốt mùa đông và giữ cho linh ngư sống nhờ bóng trăng. Vào xuân, hàn khí đã vào linh căn của nàng.",
    "people": [
     "kieu_bang_lien"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "ham_nguyet"
+   ],
+   "place": null,
+   "text_vi_of": "Kiều Băng Liên of Hàm Nguyệt sits on the frozen pool all winter and keeps the spirit fish alive on the moon's reflection. In spring frost has come into her root."
   },
   {
    "id": "N-ham_nguyet-03",
@@ -44,12 +52,15 @@
    "story_kind": "",
    "text_en": "The founder of Hàm Nguyệt Trang walks out onto the lake at the full moon and is not found.",
    "page": "design/world/depth/sects/ham_nguyet.md",
-   "text_vi": "",
-   "people": [],
+   "text_vi": "Người sáng lập Hàm Nguyệt Trang bước ra hồ vào đêm trăng rằm và không ai tìm thấy.",
+   "people": [
+    "doi_thiem_quang"
+   ],
    "sects": [
     "ham_nguyet"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "The founder of Hàm Nguyệt Trang walks out onto the lake at the full moon and is not found."
   },
   {
    "id": "N-ham_nguyet-04",
@@ -61,12 +72,14 @@
    "story_kind": "",
    "text_en": "Hàm Nguyệt Trang seeds new pearl beds off the north shore, where Băng Tâm's fishers have fished since the arbitration.",
    "page": "design/world/depth/sects/ham_nguyet.md",
-   "text_vi": "",
+   "text_vi": "Hàm Nguyệt Trang gieo những bãi ngọc trai mới ngoài bờ bắc, nơi ngư dân của Băng Tâm đã đánh cá từ sau phán quyết trọng tài.",
    "people": [],
    "sects": [
-    "ham_nguyet"
+    "ham_nguyet",
+    "bang_tam"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Hàm Nguyệt Trang seeds new pearl beds off the north shore, where Băng Tâm's fishers have fished since the arbitration."
   }
  ]
 }

@@ -12,10 +12,13 @@
    "story_kind": "",
    "text_en": "Kình Cốt Đường's whale crews bring their boats into Hồng Lô's cove and settle their families at Bồ Diệp Thôn.",
    "page": "design/world/depth/sects/hong_lo.md",
-   "text_vi": "",
+   "text_vi": "Các đoàn thuyền săn kình của Kình Cốt Đường đưa thuyền vào vịnh của Hồng Lô và an cư gia quyến tại Bồ Diệp Thôn.",
    "people": [],
-   "sects": [],
-   "place": 1092
+   "sects": [
+    "hong_lo"
+   ],
+   "place": 1030,
+   "text_vi_of": "Kình Cốt Đường's whale crews bring their boats into Hồng Lô's cove and settle their families at Bồ Diệp Thôn."
   },
   {
    "id": "N-hong_lo-02",
@@ -27,12 +30,14 @@
    "story_kind": "",
    "text_en": "Hồng Lô Cốc's furnace brews the wound pills for Thúy Vi's march on the Cold Ford, and its master takes no fee.",
    "page": "design/world/depth/sects/hong_lo.md",
-   "text_vi": "",
+   "text_vi": "Lò của Hồng Lô Cốc luyện đan chữa thương cho cuộc hành quân của Thúy Vi tới Hàn Tân, và chủ lò không lấy phí.",
    "people": [],
    "sects": [
-    "hong_lo"
+    "hong_lo",
+    "thuy_vi"
    ],
-   "place": null
+   "place": 9,
+   "text_vi_of": "Hồng Lô Cốc's furnace brews the wound pills for Thúy Vi's march on the Cold Ford, and its master takes no fee."
   },
   {
    "id": "N-hong_lo-03",
@@ -44,12 +49,13 @@
    "story_kind": "",
    "text_en": "When the island coal dies in a blizzard, Tiết Thừa Hỏa goes down into the vent below the Cockscomb Mine to bring up fire, and does not come up.",
    "page": "design/world/depth/sects/hong_lo.md",
-   "text_vi": "",
+   "text_vi": "Khi than trên đảo tắt trong một trận bão tuyết, Tiết Thừa Hỏa xuống miệng hỏa huyệt dưới Kê Quan Khoáng để mang lửa lên, và không trở lên nữa.",
    "people": [
     "tiet_thua_hoa"
    ],
    "sects": [],
-   "place": null
+   "place": 264,
+   "text_vi_of": "When the island coal dies in a blizzard, Tiết Thừa Hỏa goes down into the vent below the Cockscomb Mine to bring up fire, and does not come up."
   },
   {
    "id": "N-hong_lo-04",
@@ -61,12 +67,16 @@
    "story_kind": "",
    "text_en": "Đồng Hồng Lô opens Hồng Lô's gate to Water roots, and the first elder writes the Snow Hearth Primer for them in one winter.",
    "page": "design/world/depth/sects/hong_lo.md",
-   "text_vi": "",
+   "text_vi": "Đồng Hồng Lô mở cổng Hồng Lô cho các linh căn Thủy, và vị trưởng lão đầu tiên viết Tuyết Táo Quyết cho họ trong một mùa đông.",
    "people": [
-    "dong_hong_lo"
+    "dong_hong_lo",
+    "tan_tuyet_than"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "hong_lo"
+   ],
+   "place": null,
+   "text_vi_of": "Đồng Hồng Lô opens Hồng Lô's gate to Water roots, and the first elder writes the Snow Hearth Primer for them in one winter."
   },
   {
    "id": "N-hong_lo-05",
@@ -78,14 +88,16 @@
    "story_kind": "",
    "text_en": "Băng Tâm Các buys away Hồng Lô's best student, Viên Chước, to brew outside its Array.",
    "page": "design/world/depth/sects/hong_lo.md",
-   "text_vi": "",
+   "text_vi": "Băng Tâm Các mua đi học trò giỏi nhất của Hồng Lô là Viên Chước, để luyện đan ngoài trận pháp của mình.",
    "people": [
     "vien_chuoc"
    ],
    "sects": [
-    "bang_tam"
+    "bang_tam",
+    "hong_lo"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Băng Tâm Các buys away Hồng Lô's best student, Viên Chước, to brew outside its Array."
   },
   {
    "id": "N-hong_lo-06",
@@ -97,12 +109,15 @@
    "story_kind": "",
    "text_en": "Viên Chước comes back to Hồng Lô to buy ash, and buys the head cook's son out of the kitchens.",
    "page": "design/world/depth/sects/hong_lo.md",
-   "text_vi": "",
+   "text_vi": "Viên Chước trở về Hồng Lô để mua tro, và mua con trai của vị bếp trưởng ra khỏi nhà bếp.",
    "people": [
     "vien_chuoc"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "hong_lo"
+   ],
+   "place": 9,
+   "text_vi_of": "Viên Chước comes back to Hồng Lô to buy ash, and buys the head cook's son out of the kitchens."
   }
  ]
 }

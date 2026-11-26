@@ -12,12 +12,14 @@
    "story_kind": "",
    "text_en": "Mục Vân Trang's remounts are lost with Lạc Hà's field on Chiết Kích Nguyên; for a century the manor breeds no war horses.",
    "page": "design/world/depth/sects/muc_van.md",
-   "text_vi": "",
+   "text_vi": "Ngựa thay của Mục Vân Trang mất cùng bãi trận của Lạc Hà trên Chiết Kích Nguyên; suốt một thế kỷ Mục Vân Trang không nuôi ngựa chiến.",
    "people": [],
    "sects": [
-    "muc_van"
+    "muc_van",
+    "lac_ha"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Mục Vân Trang's remounts are lost with Lạc Hà's field on Chiết Kích Nguyên; for a century the manor breeds no war horses."
   },
   {
    "id": "N-muc_van-02",
@@ -29,10 +31,17 @@
    "story_kind": "",
    "text_en": "At the horse fair below Lạc Hà's seat Lạc Hà's treasurer shorts a Mục Vân herder three stones, and a market girl of eleven says so in front of them both.",
    "page": "design/world/depth/sects/muc_van.md",
-   "text_vi": "",
-   "people": [],
-   "sects": [],
-   "place": null
+   "text_vi": "Tại chợ ngựa dưới chỗ ngồi của Lạc Hà, thủ quỹ của Lạc Hà trả thiếu một người chăn của Mục Vân ba viên linh thạch, và một cô bé bán hàng mười một tuổi nói ra điều ấy trước mặt cả hai.",
+   "people": [
+    "tram_tich_duong",
+    "to_van_chieu"
+   ],
+   "sects": [
+    "lac_ha",
+    "muc_van"
+   ],
+   "place": 51,
+   "text_vi_of": "At the horse fair below Lạc Hà's seat Lạc Hà's treasurer shorts a Mục Vân herder three stones, and a market girl of eleven says so in front of them both."
   },
   {
    "id": "N-muc_van-03",
@@ -44,14 +53,16 @@
    "story_kind": "",
    "text_en": "Lạc Hà's Counting House will not delay Mục Vân Trang's tribute after the cold year; Khấu Mục Vân pays it less three stones and their interest, and has every year since.",
    "page": "design/world/depth/sects/muc_van.md",
-   "text_vi": "",
+   "text_vi": "Toán Phòng của Lạc Hà không hoãn cống nạp của Mục Vân Trang sau năm đói rét; Khấu Mục Vân nộp thiếu ba viên linh thạch và tiền lãi của chúng, và năm nào cũng làm vậy kể từ đó.",
    "people": [
     "khau_muc_van"
    ],
    "sects": [
-    "muc_van"
+    "muc_van",
+    "lac_ha"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Lạc Hà's Counting House will not delay Mục Vân Trang's tribute after the cold year; Khấu Mục Vân pays it less three stones and their interest, and has every year since."
   },
   {
    "id": "N-muc_van-04",
@@ -63,14 +74,16 @@
    "story_kind": "",
    "text_en": "Khấu Mục Vân buys the white bear from the north at Thiên Bảo Trai's spring auction, so that it will not be sold for its gall.",
    "page": "design/world/depth/sects/muc_van.md",
-   "text_vi": "",
+   "text_vi": "Khấu Mục Vân mua con gấu trắng từ phương bắc tại buổi đấu giá mùa xuân của Thiên Bảo Trai, để nó không bị bán lấy mật.",
    "people": [
     "khau_muc_van"
    ],
    "sects": [
-    "thien_bao"
+    "thien_bao",
+    "muc_van"
    ],
-   "place": null
+   "place": 20,
+   "text_vi_of": "Khấu Mục Vân buys the white bear from the north at Thiên Bảo Trai's spring auction, so that it will not be sold for its gall."
   }
  ]
 }

@@ -12,12 +12,13 @@
    "story_kind": "",
    "text_en": "Họa Tinh Đường builds its soot kilns, the Mặc Yên, among the vermilion pines where Chi Hương Trấn burned, and burns pine pitch for ink.",
    "page": "design/world/depth/sects/hoa_tinh.md",
-   "text_vi": "",
+   "text_vi": "Họa Tinh Đường dựng các lò muội than của mình, Mặc Yên, giữa rừng thông đỏ son nơi Chi Hương Trấn từng bị thiêu, và đốt nhựa thông làm mực.",
    "people": [],
    "sects": [
     "hoa_tinh"
    ],
-   "place": 1286
+   "place": 1286,
+   "text_vi_of": "Họa Tinh Đường builds its soot kilns, the Mặc Yên, among the vermilion pines where Chi Hương Trấn burned, and burns pine pitch for ink."
   },
   {
    "id": "N-hoa_tinh-02",
@@ -29,15 +30,16 @@
    "story_kind": "",
    "text_en": "Kỷ Thu Tịch, founder of Họa Tinh Đường, dies at the painting table at 317; her grand-niece Kỷ Ngân Chúc takes the Hall and swears an oath on a cedar box.",
    "page": "design/world/depth/sects/hoa_tinh.md",
-   "text_vi": "",
+   "text_vi": "Kỷ Thu Tịch, người sáng lập Họa Tinh Đường, qua đời bên bàn vẽ ở tuổi ba trăm mười bảy; chắt gái của bà là Kỷ Ngân Chúc tiếp quản Họa Tinh Đường và thề một lời thề trên chiếc hộp gỗ tuyết tùng.",
    "people": [
-    "ky_ngan_chuc",
-    "ky_thu_tich"
+    "ky_thu_tich",
+    "ky_ngan_chuc"
    ],
    "sects": [
     "hoa_tinh"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Kỷ Thu Tịch, founder of Họa Tinh Đường, dies at the painting table at 317; her grand-niece Kỷ Ngân Chúc takes the Hall and swears an oath on a cedar box."
   },
   {
    "id": "N-hoa_tinh-03",
@@ -49,13 +51,16 @@
    "story_kind": "",
    "text_en": "Thích Minh Thư of the Pivot's archive asks Hàn Thủy Mặc for a night's ink, for a guard roll of Tinh Tủy Mạch.",
    "page": "design/world/depth/sects/hoa_tinh.md",
-   "text_vi": "",
+   "text_vi": "Thích Minh Thư ở kho lưu trữ của Thiên Xu xin Hàn Thủy Mặc một đêm mực, để chép một bản danh sách lính canh Tinh Tủy Mạch.",
    "people": [
     "thich_minh_thu",
     "han_thuy_mac"
    ],
-   "sects": [],
-   "place": 205
+   "sects": [
+    "thien_xu"
+   ],
+   "place": null,
+   "text_vi_of": "Thích Minh Thư of the Pivot's archive asks Hàn Thủy Mặc for a night's ink, for a guard roll of Tinh Tủy Mạch."
   }
  ]
 }

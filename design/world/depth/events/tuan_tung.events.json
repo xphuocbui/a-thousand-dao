@@ -12,10 +12,13 @@
    "story_kind": "",
    "text_en": "A timber magistrate's son of Tùng Gian Thành fails the pines' chant and leaves to guard caravans on the pine-sea roads.",
    "page": "design/world/depth/sects/tuan_tung.md",
-   "text_vi": "",
+   "text_vi": "Con trai một quan coi gỗ ở Tùng Gian Thành trượt bài Tùng Ngâm và bỏ đi hộ tống thương đội trên các con đường biển thông.",
    "people": [],
-   "sects": [],
-   "place": 32
+   "sects": [
+    "tuan_tung"
+   ],
+   "place": 32,
+   "text_vi_of": "A timber magistrate's son of Tùng Gian Thành fails the pines' chant and leaves to guard caravans on the pine-sea roads."
   },
   {
    "id": "N-tuan_tung-02",
@@ -27,12 +30,13 @@
    "story_kind": "",
    "text_en": "On the third night of the wolf winter a caravan guard named Hứa Vãn Cung shoots the grey wolf that leads the pack on the Tùng Hạ road, and the wolves go back into the pines.",
    "page": "design/world/depth/sects/tuan_tung.md",
-   "text_vi": "",
+   "text_vi": "Đêm thứ ba của mùa đông sói, một người hộ tống thương đội tên Hứa Vãn Cung bắn con sói xám dẫn đầu bầy trên đường Tùng Hạ, và bầy sói quay vào rừng thông.",
    "people": [
     "hua_van_cung"
    ],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "On the third night of the wolf winter a caravan guard named Hứa Vãn Cung shoots the grey wolf that leads the pack on the Tùng Hạ road, and the wolves go back into the pines."
   }
  ]
 }

@@ -12,13 +12,14 @@
    "story_kind": "",
    "text_en": "Two refiners of Thiên Bảo Trai's workshops cast a luan bell and carve jade pendants for their Dao-partner rite, and found Minh Loan Các on the coast to make ward bells for ships.",
    "page": "design/world/depth/sects/minh_loan.md",
-   "text_vi": "",
+   "text_vi": "Hai thợ luyện chế của xưởng Thiên Bảo Trai đúc một loan chung và chạm những mặt ngọc bội cho nghi lễ đạo lữ của họ, rồi lập Minh Loan Các trên bờ biển để làm chuông hộ vệ cho tàu thuyền.",
    "people": [],
    "sects": [
     "thien_bao",
     "minh_loan"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Two refiners of Thiên Bảo Trai's workshops cast a luan bell and carve jade pendants for their Dao-partner rite, and found Minh Loan Các on the coast to make ward bells for ships."
   },
   {
    "id": "N-minh_loan-02",
@@ -30,14 +31,15 @@
    "story_kind": "",
    "text_en": "In the cold winter Minh Loan Các's great bell cracks as it cools in the pit and kills the founder Hoa Minh Hòa; the pavilion forbids casting in winter from that spring.",
    "page": "design/world/depth/sects/minh_loan.md",
-   "text_vi": "",
+   "text_vi": "Giữa mùa đông giá, quả đại chung của Minh Loan Các nứt khi nguội trong hố và giết người sáng lập Hoa Minh Hòa; từ mùa xuân ấy, Minh Loan Các cấm đúc chuông vào mùa đông.",
    "people": [
     "hoa_minh_hoa"
    ],
    "sects": [
     "minh_loan"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "In the cold winter Minh Loan Các's great bell cracks as it cools in the pit and kills the founder Hoa Minh Hòa; the pavilion forbids casting in winter from that spring."
   },
   {
    "id": "N-minh_loan-03",
@@ -49,12 +51,13 @@
    "story_kind": "",
    "text_en": "Minh Loan Các moves its casting floor up Tằng Loan Phong, where the Cloud Bridge bells rang true, and leaves its coast hall to the ships as the Bell Wharf.",
    "page": "design/world/depth/sects/minh_loan.md",
-   "text_vi": "",
+   "text_vi": "Minh Loan Các dời xưởng đúc lên Tằng Loan Phong, nơi những chiếc chuông Vân Kiều ngân chuẩn, và để lại sảnh ven biển cho tàu thuyền, gọi là Chung Bến.",
    "people": [],
    "sects": [
     "minh_loan"
    ],
-   "place": 519
+   "place": 519,
+   "text_vi_of": "Minh Loan Các moves its casting floor up Tằng Loan Phong, where the Cloud Bridge bells rang true, and leaves its coast hall to the ships as the Bell Wharf."
   }
  ]
 }

@@ -12,12 +12,16 @@
    "story_kind": "",
    "text_en": "Lạc Hà grants the painters of Đàm Ảnh Thành a dry steppe west of the city; Kha Đạm Mặc says it is the right place, where the clouds have nothing to stop them, and keeps a Pool House by the water.",
    "page": "design/world/depth/sects/nhan_van.md",
-   "text_vi": "",
+   "text_vi": "Lạc Hà Tông ban cho các họa sĩ của Đàm Ảnh Thành một vùng thảo nguyên khô phía tây thành; Kha Đạm Mặc nói đó là chỗ đúng, nơi mây chẳng có gì cản, và giữ một Ảnh Đường bên mặt nước.",
    "people": [
     "kha_dam_mac"
    ],
-   "sects": [],
-   "place": 37
+   "sects": [
+    "lac_ha",
+    "nhan_van"
+   ],
+   "place": 37,
+   "text_vi_of": "Lạc Hà grants the painters of Đàm Ảnh Thành a dry steppe west of the city; Kha Đạm Mặc says it is the right place, where the clouds have nothing to stop them, and keeps a Pool House by the water."
   },
   {
    "id": "N-nhan_van-02",
@@ -29,12 +33,15 @@
    "story_kind": "",
    "text_en": "The painter Kha Đạm Mặc walks into the pool of Đàm Ảnh Thành at dusk with his brush; in the morning the brush is floating and he is drowned, with half a sky painted on the silk beside the water.",
    "page": "design/world/depth/sects/nhan_van.md",
-   "text_vi": "",
+   "text_vi": "Họa sĩ Kha Đạm Mặc cầm bút bước vào ao của Đàm Ảnh Thành lúc chạng vạng; sáng ra cây bút nổi trên mặt nước còn ông đã chết đuối, bên bờ nước là nửa bầu trời vẽ trên lụa.",
    "people": [
     "kha_dam_mac"
    ],
-   "sects": [],
-   "place": 37
+   "sects": [
+    "nhan_van"
+   ],
+   "place": 37,
+   "text_vi_of": "The painter Kha Đạm Mặc walks into the pool of Đàm Ảnh Thành at dusk with his brush; in the morning the brush is floating and he is drowned, with half a sky painted on the silk beside the water."
   },
   {
    "id": "N-nhan_van-03",
@@ -46,12 +53,13 @@
    "story_kind": "",
    "text_en": "A painter of Nhàn Vân Quán paints her own reflection too long and cannot take her face back from it; she dies that winter, and the abbey forbids painting a living face onto a scroll.",
    "page": "design/world/depth/sects/nhan_van.md",
-   "text_vi": "",
+   "text_vi": "Một họa sĩ của Nhàn Vân Quán vẽ bóng phản chiếu của chính mình quá lâu và không lấy lại được gương mặt từ đó; nàng chết mùa đông năm ấy, và Nhàn Vân Quán cấm vẽ mặt người sống lên cuộn tranh.",
    "people": [],
    "sects": [
     "nhan_van"
    ],
-   "place": null
+   "place": 364,
+   "text_vi_of": "A painter of Nhàn Vân Quán paints her own reflection too long and cannot take her face back from it; she dies that winter, and the abbey forbids painting a living face onto a scroll."
   }
  ]
 }

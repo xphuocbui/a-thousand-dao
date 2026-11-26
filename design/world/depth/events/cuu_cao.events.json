@@ -12,13 +12,14 @@
    "story_kind": "",
    "text_en": "Thiên Xu Tông grants the crane riders of Cửu Cao Phái the Grey Hawk Terrace for their winters, and the hawk-catchers' children their first riders.",
    "page": "design/world/depth/sects/cuu_cao.md",
-   "text_vi": "",
+   "text_vi": "Thiên Xu Tông ban cho các kỵ sĩ hạc của Cửu Cao Phái Thương Ưng Đài để qua mùa đông, và cho con cái của những người bắt ưng những kỵ sĩ đầu tiên của chúng.",
    "people": [],
    "sects": [
     "thien_xu",
     "cuu_cao"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Thiên Xu Tông grants the crane riders of Cửu Cao Phái the Grey Hawk Terrace for their winters, and the hawk-catchers' children their first riders."
   },
   {
    "id": "N-cuu_cao-02",
@@ -30,10 +31,13 @@
    "story_kind": "",
    "text_en": "Cửu Cao's riders fly over Tinh Tủy Mạch every week for three years and write in the school's ledger that no one is there.",
    "page": "design/world/depth/sects/cuu_cao.md",
-   "text_vi": "",
+   "text_vi": "Các kỵ sĩ của Cửu Cao Phái bay qua Tinh Tủy Mạch mỗi tuần suốt ba năm và ghi vào sổ của phái rằng không có ai ở đó.",
    "people": [],
-   "sects": [],
-   "place": 205
+   "sects": [
+    "cuu_cao"
+   ],
+   "place": 205,
+   "text_vi_of": "Cửu Cao's riders fly over Tinh Tủy Mạch every week for three years and write in the school's ledger that no one is there."
   },
   {
    "id": "N-cuu_cao-03",
@@ -45,15 +49,16 @@
    "story_kind": "",
    "text_en": "Tần Minh Cao, founder of Cửu Cao Phái, dies at 445 on the day the cranes return to Hạc Quy, and gives the school to Ung Hạc Minh.",
    "page": "design/world/depth/sects/cuu_cao.md",
-   "text_vi": "",
+   "text_vi": "Tần Minh Cao, người sáng lập Cửu Cao Phái, mất ở tuổi 445 vào ngày bầy hạc trở về Hạc Quy, và trao phái cho Ung Hạc Minh.",
    "people": [
-    "ung_hac_minh",
-    "tan_minh_cao"
+    "tan_minh_cao",
+    "ung_hac_minh"
    ],
    "sects": [
     "cuu_cao"
    ],
-   "place": null
+   "place": 112,
+   "text_vi_of": "Tần Minh Cao, founder of Cửu Cao Phái, dies at 445 on the day the cranes return to Hạc Quy, and gives the school to Ung Hạc Minh."
   }
  ]
 }

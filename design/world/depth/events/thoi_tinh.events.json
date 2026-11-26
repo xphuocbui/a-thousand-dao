@@ -12,7 +12,7 @@
    "story_kind": "",
    "text_en": "Vưu Chước Kim of Thối Tinh Môn quarrels with his head at the forge. Cát Lưu Quang breaks Vưu's hammer and sends him down the mountain.",
    "page": "design/world/depth/sects/thoi_tinh.md",
-   "text_vi": "",
+   "text_vi": "Vưu Chước Kim của Thối Tinh Môn cãi nhau với tông chủ ở lò rèn. Cát Lưu Quang đập gãy búa của Vưu và đuổi ông xuống núi.",
    "people": [
     "vuu_chuoc_kim",
     "cat_luu_quang"
@@ -20,7 +20,8 @@
    "sects": [
     "thoi_tinh"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Vưu Chước Kim of Thối Tinh Môn quarrels with his head at the forge. Cát Lưu Quang breaks Vưu's hammer and sends him down the mountain."
   },
   {
    "id": "N-thoi_tinh-01b",
@@ -32,13 +33,16 @@
    "story_kind": "",
    "text_en": "Vưu Chước Kim strikes the blade Three Years' Tax with lightning, and it sings; he strikes an ingot of Thiên Ngoại iron, and it does not. What he says of the iron is kept by the head, by Vưu and by the quench-keeper Bàng Lãnh Tôi.",
    "page": "design/world/depth/sects/thoi_tinh.md",
-   "text_vi": "",
+   "text_vi": "Vưu Chước Kim đánh sét vào thanh kiếm Tam Niên Thuế, và nó ngân lên; ông đánh vào một thỏi Thiên Ngoại Thiết, và nó không ngân. Điều ông nói về thứ sắt ấy chỉ tông chủ, Vưu và người giữ lửa tôi Bàng Lãnh Tôi biết.",
    "people": [
     "vuu_chuoc_kim",
     "bang_lanh_toi"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thoi_tinh"
+   ],
+   "place": null,
+   "text_vi_of": "Vưu Chước Kim strikes the blade Three Years' Tax with lightning, and it sings; he strikes an ingot of Thiên Ngoại iron, and it does not. What he says of the iron is kept by the head, by Vưu and by the quench-keeper Bàng Lãnh Tôi."
   },
   {
    "id": "N-thoi_tinh-02",
@@ -50,15 +54,17 @@
    "story_kind": "",
    "text_en": "Cát Lưu Quang lends his second son, Cát Thối Phong, to Thiên Xu Tông as the armourer of its seat.",
    "page": "design/world/depth/sects/thoi_tinh.md",
-   "text_vi": "",
+   "text_vi": "Cát Lưu Quang cho Thiên Xu Tông mượn con trai thứ hai của mình là Cát Thối Phong làm thợ rèn giáp cho tòa tông.",
    "people": [
-    "cat_thoi_phong",
-    "cat_luu_quang"
+    "cat_luu_quang",
+    "cat_thoi_phong"
    ],
    "sects": [
+    "thoi_tinh",
     "thien_xu"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Cát Lưu Quang lends his second son, Cát Thối Phong, to Thiên Xu Tông as the armourer of its seat."
   },
   {
    "id": "N-thoi_tinh-03",
@@ -70,12 +76,15 @@
    "story_kind": "",
    "text_en": "Nhạc Bá Chùy, who forged Trầm Sa Kích, is refused leave to draw it from the barrow on Chiết Kích Nguyên, and dies that winter.",
    "page": "design/world/depth/sects/thoi_tinh.md",
-   "text_vi": "",
+   "text_vi": "Nhạc Bá Chùy, người đã rèn Trầm Sa Kích, bị từ chối cho rút nó ra khỏi gò mộ trên Chiết Kích Nguyên, và mất mùa đông năm ấy.",
    "people": [
     "nhac_ba_chuy"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thoi_tinh"
+   ],
+   "place": null,
+   "text_vi_of": "Nhạc Bá Chùy, who forged Trầm Sa Kích, is refused leave to draw it from the barrow on Chiết Kích Nguyên, and dies that winter."
   },
   {
    "id": "N-thoi_tinh-04",
@@ -87,10 +96,14 @@
    "story_kind": "",
    "text_en": "The last of the sky-iron seam at Thiên Ngoại Khoáng is forged into blades for the Pivot's war; below it the mine gives ordinary mountain iron, and the gate goes on calling it star iron.",
    "page": "design/world/depth/sects/thoi_tinh.md",
-   "text_vi": "",
+   "text_vi": "Phần cuối của mạch thiết từ trời ở Thiên Ngoại Khoáng được rèn thành kiếm cho cuộc chiến của Thiên Xu; dưới đó mỏ chỉ cho sắt núi thường, và Thối Tinh Môn vẫn gọi nó là sắt sao.",
    "people": [],
-   "sects": [],
-   "place": 173
+   "sects": [
+    "thoi_tinh",
+    "thien_xu"
+   ],
+   "place": 173,
+   "text_vi_of": "The last of the sky-iron seam at Thiên Ngoại Khoáng is forged into blades for the Pivot's war; below it the mine gives ordinary mountain iron, and the gate goes on calling it star iron."
   }
  ]
 }

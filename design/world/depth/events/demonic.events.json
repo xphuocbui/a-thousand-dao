@@ -12,12 +12,13 @@
    "story_kind": "",
    "text_en": "Tra Cam Tỉnh ties bitter root to her chest and goes down into the last well of Tình Sa Thôn. The well-drinker spits out its water and leaves the town alive. The well is bitter still.",
    "page": "design/world/depth/people/demonic.md",
-   "text_vi": "",
+   "text_vi": "Tra Cam Tỉnh buộc rễ đắng vào ngực và xuống giếng cuối cùng của Tình Sa Thôn. Kẻ uống giếng nhổ nước ra và rời thị trấn còn sống. Giếng vẫn đắng.",
    "people": [
     "tra_cam_tinh"
    ],
    "sects": [],
-   "place": 125
+   "place": 125,
+   "text_vi_of": "Tra Cam Tỉnh ties bitter root to her chest and goes down into the last well of Tình Sa Thôn. The well-drinker spits out its water and leaves the town alive. The well is bitter still."
   },
   {
    "id": "N-demonic-02",
@@ -29,13 +30,14 @@
    "story_kind": "",
    "text_en": "The wandering talisman master Sách Viễn Thư is found shaven and bloodless on the road; his disciple Mặc Huyết Sinh has a new brush.",
    "page": "design/world/depth/people/demonic.md",
-   "text_vi": "",
+   "text_vi": "Phù sư lang thang Sách Viễn Thư được tìm thấy trên đường, bị cạo trọc và cạn máu; đệ tử Mặc Huyết Sinh có một cây bút mới.",
    "people": [
     "mac_huyet_sinh",
     "sach_vien_thu"
    ],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "The wandering talisman master Sách Viễn Thư is found shaven and bloodless on the road; his disciple Mặc Huyết Sinh has a new brush."
   },
   {
    "id": "N-demonic-03",
@@ -47,10 +49,11 @@
    "story_kind": "",
    "text_en": "A scholar in grey buys a lime-burner's nine-year-old daughter at Hôi Diêu Thôn for a cartload of lime, and walks into the karst with her. Neither is seen in the west again.",
    "page": "design/world/depth/people/demonic.md",
-   "text_vi": "",
+   "text_vi": "Một thư sinh áo xám mua đứa con gái chín tuổi của một người nung vôi ở Hôi Diêu Thôn bằng một xe vôi, rồi cùng nó đi vào núi đá vôi. Từ đó không ai thấy cả hai ở miền tây nữa.",
    "people": [],
    "sects": [],
-   "place": 549
+   "place": 549,
+   "text_vi_of": "A scholar in grey buys a lime-burner's nine-year-old daughter at Hôi Diêu Thôn for a cartload of lime, and walks into the karst with her. Neither is seen in the west again."
   },
   {
    "id": "N-demonic-04",
@@ -62,10 +65,11 @@
    "story_kind": "",
    "text_en": "A Nam Phố talisman puts its copyist to sleep for three days. The ink-grinder who made it leaves the hall that winter and goes up the karst.",
    "page": "design/world/depth/people/demonic.md",
-   "text_vi": "",
+   "text_vi": "Một đạo phù của Nam Phố làm người chép phù ngủ ba ngày. Người mài mực làm ra nó rời thính đường mùa đông ấy và đi lên núi đá vôi.",
    "people": [],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "A Nam Phố talisman puts its copyist to sleep for three days. The ink-grinder who made it leaves the hall that winter and goes up the karst."
   },
   {
    "id": "N-demonic-05",
@@ -77,12 +81,13 @@
    "story_kind": "",
    "text_en": "Thính Vũ Lâu offers the soul pedlar of the apricot market a guest seat. He declines the lamp, and the Tower sends him a lamp of another kind as a gift.",
    "page": "design/world/depth/people/demonic.md",
-   "text_vi": "",
+   "text_vi": "Thính Vũ Lâu mời kẻ buôn hồn ở chợ mơ một ghế khách. Hắn từ chối ngọn đèn, và Thính Vũ Lâu gửi tặng hắn một ngọn đèn loại khác.",
    "people": [],
    "sects": [
     "thinh_vu"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Thính Vũ Lâu offers the soul pedlar of the apricot market a guest seat. He declines the lamp, and the Tower sends him a lamp of another kind as a gift."
   }
  ]
 }

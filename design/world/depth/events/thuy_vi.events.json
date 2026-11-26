@@ -12,10 +12,11 @@
    "story_kind": "",
    "text_en": "The road wardens of Lam Yên give up the road through Cổ Dịch Trấn: every spring the forest takes back a li of it, and the road is moved east.",
    "page": "design/world/depth/sects/thuy_vi.md",
-   "text_vi": "",
+   "text_vi": "Các đội giữ đường của Lam Yên bỏ con đường qua Cổ Dịch Trấn: mỗi mùa xuân rừng lấy lại một dặm của nó, và con đường bị dời về phía đông.",
    "people": [],
    "sects": [],
-   "place": 1110
+   "place": 1110,
+   "text_vi_of": "The road wardens of Lam Yên give up the road through Cổ Dịch Trấn: every spring the forest takes back a li of it, and the road is moved east."
   },
   {
    "id": "N-thuy_vi-02",
@@ -27,12 +28,15 @@
    "story_kind": "",
    "text_en": "Ngu Lam Sơn ends his hundred days in the haze at the empty inns of Cổ Dịch Trấn, and gives his first order as head: 'We go down.'",
    "page": "design/world/depth/sects/thuy_vi.md",
-   "text_vi": "",
+   "text_vi": "Ngu Lam Sơn kết thúc một trăm ngày trong sương mù ở những quán trọ trống của Cổ Dịch Trấn, và ra lệnh đầu tiên với tư cách tông chủ: 'Chúng ta xuống núi.'",
    "people": [
     "ngu_lam_son"
    ],
-   "sects": [],
-   "place": 1110
+   "sects": [
+    "thuy_vi"
+   ],
+   "place": 1110,
+   "text_vi_of": "Ngu Lam Sơn ends his hundred days in the haze at the empty inns of Cổ Dịch Trấn, and gives his first order as head: 'We go down.'"
   },
   {
    "id": "N-thuy_vi-03",
@@ -44,14 +48,15 @@
    "story_kind": "",
    "text_en": "Thúy Vi Tông carries its halls down from the founder's ridge to Cổ Dịch Trấn. Cù Thúy Bách stays with the founder's pine, and the old seat becomes the Cliff Hall.",
    "page": "design/world/depth/sects/thuy_vi.md",
-   "text_vi": "",
+   "text_vi": "Thúy Vi Tông dời các điện từ dải núi của tổ sư xuống Cổ Dịch Trấn. Cù Thúy Bách ở lại với cây tùng của tổ sư, và tòa cũ thành Thúy Vi Nhai Đường.",
    "people": [
     "cu_thuy_bach"
    ],
    "sects": [
     "thuy_vi"
    ],
-   "place": 1110
+   "place": 1110,
+   "text_vi_of": "Thúy Vi Tông carries its halls down from the founder's ridge to Cổ Dịch Trấn. Cù Thúy Bách stays with the founder's pine, and the old seat becomes the Cliff Hall."
   },
   {
    "id": "N-thuy_vi-04",
@@ -63,13 +68,16 @@
    "story_kind": "",
    "text_en": "Ngu Lam Sơn finds the child of Ẩn Loan cove eating kelp on the beach and carries her up to the ridge; the sect names her Diêm Hải Tảo, for the salt and the weed.",
    "page": "design/world/depth/sects/thuy_vi.md",
-   "text_vi": "",
+   "text_vi": "Ngu Lam Sơn thấy đứa trẻ của vịnh Ẩn Loan đang ăn tảo bẹ trên bãi biển và bế nó lên dải núi; tông môn đặt tên nó là Diêm Hải Tảo, theo muối và rong.",
    "people": [
-    "diem_hai_tao",
-    "ngu_lam_son"
+    "ngu_lam_son",
+    "diem_hai_tao"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thuy_vi"
+   ],
+   "place": 101,
+   "text_vi_of": "Ngu Lam Sơn finds the child of Ẩn Loan cove eating kelp on the beach and carries her up to the ridge; the sect names her Diêm Hải Tảo, for the salt and the weed."
   },
   {
    "id": "N-thuy_vi-05",
@@ -81,12 +89,15 @@
    "story_kind": "",
    "text_en": "Hướng Đông Lâm, Warden of the Cold Ford, will not leave the quay of Hàn Tân and dies beside his lamp; the fishers hide the lamp.",
    "page": "design/world/depth/sects/thuy_vi.md",
-   "text_vi": "",
+   "text_vi": "Hướng Đông Lâm, người trấn thủ Hàn Tân, không chịu rời bến Hàn Tân và chết bên ngọn đèn của mình; ngư dân giấu ngọn đèn đi.",
    "people": [
     "huong_dong_lam"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thuy_vi"
+   ],
+   "place": 31,
+   "text_vi_of": "Hướng Đông Lâm, Warden of the Cold Ford, will not leave the quay of Hàn Tân and dies beside his lamp; the fishers hide the lamp."
   },
   {
    "id": "N-thuy_vi-06",
@@ -98,12 +109,16 @@
    "story_kind": "",
    "text_en": "Tân Hàn Chu takes forty disciples across the river-mouth ice at night under Tùng Đào's arrays; the ice breaks.",
    "page": "design/world/depth/sects/thuy_vi.md",
-   "text_vi": "",
+   "text_vi": "Tân Hàn Chu đưa bốn mươi đệ tử qua lớp băng cửa sông trong đêm dưới các trận pháp của Tùng Đào; băng vỡ.",
    "people": [
     "tan_han_chu"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thuy_vi",
+    "tung_dao"
+   ],
+   "place": null,
+   "text_vi_of": "Tân Hàn Chu takes forty disciples across the river-mouth ice at night under Tùng Đào's arrays; the ice breaks."
   },
   {
    "id": "N-thuy_vi-07",
@@ -115,12 +130,15 @@
    "story_kind": "",
    "text_en": "Tất Hành Vụ teaches the Haze Walk to his sworn brother, a road guard of the cape.",
    "page": "design/world/depth/sects/thuy_vi.md",
-   "text_vi": "",
+   "text_vi": "Tất Hành Vụ truyền Vụ Bộ cho người anh em kết nghĩa của mình, một lính giữ đường của mũi đất.",
    "people": [
     "tat_hanh_vu"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thuy_vi"
+   ],
+   "place": null,
+   "text_vi_of": "Tất Hành Vụ teaches the Haze Walk to his sworn brother, a road guard of the cape."
   },
   {
    "id": "N-thuy_vi-08",
@@ -132,15 +150,18 @@
    "story_kind": "",
    "text_en": "Ngu Lam Sơn plants three plots of the Heir's Garden and gives them to Thiệu Thanh Đài, Hoàn Cô Bách and Hướng Vãn Chu; he will judge them in 1205.",
    "page": "design/world/depth/sects/thuy_vi.md",
-   "text_vi": "",
+   "text_vi": "Ngu Lam Sơn gieo ba mảnh của Tự Viên và trao chúng cho Thiệu Thanh Đài, Hoàn Cô Bách và Hướng Vãn Chu; ông sẽ xét họ vào năm 1205.",
    "people": [
+    "ngu_lam_son",
     "thieu_thanh_dai",
-    "huong_van_chu",
     "hoan_co_bach",
-    "ngu_lam_son"
+    "huong_van_chu"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thuy_vi"
+   ],
+   "place": null,
+   "text_vi_of": "Ngu Lam Sơn plants three plots of the Heir's Garden and gives them to Thiệu Thanh Đài, Hoàn Cô Bách and Hướng Vãn Chu; he will judge them in 1205."
   },
   {
    "id": "N-thuy_vi-09",
@@ -152,10 +173,13 @@
    "story_kind": "",
    "text_en": "Peach petals come down a forest stream to Lăng Giác Thôn in spring. A disciple follows them and comes back three days later with no memory of the three days.",
    "page": "design/world/depth/sects/thuy_vi.md",
-   "text_vi": "",
+   "text_vi": "Cánh hoa đào trôi theo dòng suối rừng đến Lăng Giác Thôn vào mùa xuân. Một đệ tử đi theo chúng và ba ngày sau trở về, không nhớ gì về ba ngày ấy.",
    "people": [],
-   "sects": [],
-   "place": 1073
+   "sects": [
+    "thuy_vi"
+   ],
+   "place": 1073,
+   "text_vi_of": "Peach petals come down a forest stream to Lăng Giác Thôn in spring. A disciple follows them and comes back three days later with no memory of the three days."
   },
   {
    "id": "N-thuy_vi-10",
@@ -167,12 +191,15 @@
    "story_kind": "",
    "text_en": "Úy Thanh Diễm forms his Nascent Soul over the Green Furnace, which does not go out.",
    "page": "design/world/depth/sects/thuy_vi.md",
-   "text_vi": "",
+   "text_vi": "Úy Thanh Diễm kết Nguyên Anh trên Thanh Lô, ngọn lửa không bao giờ tắt.",
    "people": [
     "uy_thanh_diem"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thuy_vi"
+   ],
+   "place": null,
+   "text_vi_of": "Úy Thanh Diễm forms his Nascent Soul over the Green Furnace, which does not go out."
   },
   {
    "id": "N-thuy_vi-11",
@@ -184,10 +211,13 @@
    "story_kind": "",
    "text_en": "Six of Tùng Đào's border patrol do not come back from the river-mouth ice of the Cold Ford; Tùng Đào lists them as deserters.",
    "page": "design/world/depth/sects/thuy_vi.md",
-   "text_vi": "",
+   "text_vi": "Sáu người của đội tuần biên Tùng Đào không trở về từ lớp băng cửa sông của Hàn Tân; Tùng Đào ghi họ là kẻ đào ngũ.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "tung_dao"
+   ],
+   "place": null,
+   "text_vi_of": "Six of Tùng Đào's border patrol do not come back from the river-mouth ice of the Cold Ford; Tùng Đào lists them as deserters."
   },
   {
    "id": "N-thuy_vi-12",
@@ -199,10 +229,13 @@
    "story_kind": "",
    "text_en": "On the Green Door Day a baby is left on the step of Thúy Vi's door in Lam Yên Thị, wrapped in green inner-gate silk.",
    "page": "design/world/depth/sects/thuy_vi.md",
-   "text_vi": "",
+   "text_vi": "Vào Thanh Môn Nhật, một đứa bé bị bỏ lại trên bậc cửa của Thúy Vi Tông ở Lam Yên Thị, quấn trong lụa nội môn màu lục.",
    "people": [],
-   "sects": [],
-   "place": 45
+   "sects": [
+    "thuy_vi"
+   ],
+   "place": 45,
+   "text_vi_of": "On the Green Door Day a baby is left on the step of Thúy Vi's door in Lam Yên Thị, wrapped in green inner-gate silk."
   }
  ]
 }

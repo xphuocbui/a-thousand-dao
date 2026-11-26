@@ -12,12 +12,15 @@
    "story_kind": "",
    "text_en": "The founder of Trạc Anh Đài takes the frost coast's first whale and weaves his harpoon line from its sinew.",
    "page": "design/world/depth/sects/trac_anh.md",
-   "text_vi": "",
-   "people": [],
+   "text_vi": "Vị sáng lập của Trạc Anh Đài bắt con cá voi đầu tiên của bờ biển giá lạnh và bện dây lao của mình từ gân nó.",
+   "people": [
+    "khuat_thanh_anh"
+   ],
    "sects": [
     "trac_anh"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "The founder of Trạc Anh Đài takes the frost coast's first whale and weaves his harpoon line from its sinew."
   },
   {
    "id": "N-trac_anh-02",
@@ -29,12 +32,16 @@
    "story_kind": "",
    "text_en": "The white whale the coast calls the Old Ivory drags Trạc Anh Đài's founder under off the terrace; his disciple cuts the line, and the boat comes home without him.",
    "page": "design/world/depth/sects/trac_anh.md",
-   "text_vi": "",
-   "people": [],
+   "text_vi": "Con cá voi trắng mà bờ biển gọi là Cựu Nha kéo vị sáng lập của Trạc Anh Đài xuống nước ngoài khơi đài; đệ tử ông cắt dây, và con thuyền trở về nhà thiếu ông.",
+   "people": [
+    "khuat_thanh_anh",
+    "doan_thanh_lang"
+   ],
    "sects": [
     "trac_anh"
    ],
-   "place": null
+   "place": 17,
+   "text_vi_of": "The white whale the coast calls the Old Ivory drags Trạc Anh Đài's founder under off the terrace; his disciple cuts the line, and the boat comes home without him."
   }
  ]
 }

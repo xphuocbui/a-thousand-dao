@@ -12,12 +12,13 @@
    "story_kind": "",
    "text_en": "Lê Hoa Am's nuns raise their Upper Hermitage on the glacier of Lăng Tuyệt Phong; the house at the foot becomes their gate.",
    "page": "design/world/depth/sects/le_hoa.md",
-   "text_vi": "",
+   "text_vi": "Các ni sư của Lê Hoa Am dựng Thượng Am trên băng hà của Lăng Tuyệt Phong; ngôi nhà dưới chân núi trở thành cổng của họ.",
    "people": [],
    "sects": [
     "le_hoa"
    ],
-   "place": 184
+   "place": 184,
+   "text_vi_of": "Lê Hoa Am's nuns raise their Upper Hermitage on the glacier of Lăng Tuyệt Phong; the house at the foot becomes their gate."
   },
   {
    "id": "N-le_hoa-02",
@@ -29,12 +30,15 @@
    "story_kind": "",
    "text_en": "Kỷ Hoa Ảnh seals her dead master's cave with cold, his sword inside, and writes the vow: let no one who seeks the sword pass this gate.",
    "page": "design/world/depth/sects/le_hoa.md",
-   "text_vi": "",
+   "text_vi": "Kỷ Hoa Ảnh phong ấn hang của sư phụ đã mất bằng hơi lạnh, thanh kiếm của ông ở bên trong, và viết lời thề: kẻ nào tìm thanh kiếm thì không được qua cổng này.",
    "people": [
     "ky_hoa_anh"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "le_hoa"
+   ],
+   "place": null,
+   "text_vi_of": "Kỷ Hoa Ảnh seals her dead master's cave with cold, his sword inside, and writes the vow: let no one who seeks the sword pass this gate."
   },
   {
    "id": "N-le_hoa-03",
@@ -46,12 +50,15 @@
    "story_kind": "",
    "text_en": "The founder of Lê Hoa Am dies sitting against the seal she laid.",
    "page": "design/world/depth/sects/le_hoa.md",
-   "text_vi": "",
-   "people": [],
+   "text_vi": "Vị sáng lập Lê Hoa Am qua đời khi đang ngồi tựa vào phong ấn bà đã đặt.",
+   "people": [
+    "ky_hoa_anh"
+   ],
    "sects": [
     "le_hoa"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "The founder of Lê Hoa Am dies sitting against the seal she laid."
   },
   {
    "id": "N-le_hoa-04",
@@ -63,12 +70,13 @@
    "story_kind": "",
    "text_en": "The abbess of Lê Hoa Am and her prioress sit against the cave's seal for a season; the cold light behind it dims.",
    "page": "design/world/depth/sects/le_hoa.md",
-   "text_vi": "",
+   "text_vi": "Vị trụ trì của Lê Hoa Am cùng phó trụ trì ngồi tựa vào phong ấn của hang suốt một mùa; ánh sáng lạnh phía sau nó mờ đi.",
    "people": [],
    "sects": [
     "le_hoa"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "The abbess of Lê Hoa Am and her prioress sit against the cave's seal for a season; the cold light behind it dims."
   }
  ]
 }

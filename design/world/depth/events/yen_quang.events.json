@@ -12,12 +12,17 @@
    "story_kind": "",
    "text_en": "Two of Lạc Hà's alchemists found Yên Quang Các on the steppe below its seat and swear to pick their herbs only in the hour of the evening glow.",
    "page": "design/world/depth/sects/yen_quang.md",
-   "text_vi": "",
-   "people": [],
-   "sects": [
-    "yen_quang"
+   "text_vi": "Hai luyện đan sư của Lạc Hà lập Yên Quang Các trên thảo nguyên bên dưới nơi đặt tông của nó, và thề chỉ hái thuốc vào giờ ráng chiều.",
+   "people": [
+    "vi_ngung_yen",
+    "diem_tu_to"
    ],
-   "place": null
+   "sects": [
+    "yen_quang",
+    "lac_ha"
+   ],
+   "place": 537,
+   "text_vi_of": "Two of Lạc Hà's alchemists found Yên Quang Các on the steppe below its seat and swear to pick their herbs only in the hour of the evening glow."
   },
   {
    "id": "N-yen_quang-02",
@@ -29,14 +34,16 @@
    "story_kind": "",
    "text_en": "In the great drought, with the Dusk Field's wormwood thinned, Vi Ngưng Yên, founder of Yên Quang Các, dies in her breakthrough to Nguyên Anh; her Dao partner, who made her pill, refuses the headship and never lights a furnace again.",
    "page": "design/world/depth/sects/yen_quang.md",
-   "text_vi": "",
+   "text_vi": "Trong trận đại hạn, khi ngải cứu của Vãn Điền thưa đi, Vi Ngưng Yên, người sáng lập Yên Quang Các, mất khi đột phá lên Nguyên Anh; đạo lữ của bà, người đã luyện viên đan cho bà, từ chối chức tông chủ và không bao giờ nhóm lò nữa.",
    "people": [
-    "vi_ngung_yen"
+    "vi_ngung_yen",
+    "diem_tu_to"
    ],
    "sects": [
     "yen_quang"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "In the great drought, with the Dusk Field's wormwood thinned, Vi Ngưng Yên, founder of Yên Quang Các, dies in her breakthrough to Nguyên Anh; her Dao partner, who made her pill, refuses the headship and never lights a furnace again."
   },
   {
    "id": "N-yen_quang-03",
@@ -48,12 +55,15 @@
    "story_kind": "",
    "text_en": "Yên Quang Các carries its founder's furnace, still lit, from the steppe to the wild mulberry wood by Tang Ma Thành; the steppe becomes its Dusk Field.",
    "page": "design/world/depth/sects/yen_quang.md",
-   "text_vi": "",
-   "people": [],
+   "text_vi": "Yên Quang Các mang lò của người sáng lập, vẫn đang cháy, từ thảo nguyên đến rừng dâu dại bên Tang Ma Thành; thảo nguyên trở thành Vãn Điền của các.",
+   "people": [
+    "vi_ngung_yen"
+   ],
    "sects": [
     "yen_quang"
    ],
-   "place": 80
+   "place": 80,
+   "text_vi_of": "Yên Quang Các carries its founder's furnace, still lit, from the steppe to the wild mulberry wood by Tang Ma Thành; the steppe becomes its Dusk Field."
   }
  ]
 }

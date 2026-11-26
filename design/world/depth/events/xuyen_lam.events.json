@@ -12,12 +12,15 @@
    "story_kind": "",
    "text_en": "Mạc Nhất Thoa finishes the Gate's staff canon, nine layers for the nine lines of the song the guides sing on the road.",
    "page": "design/world/depth/sects/xuyen_lam.md",
-   "text_vi": "",
+   "text_vi": "Mạc Nhất Thoa hoàn thành Định Phong Trượng Kinh của Xuyên Lâm Môn, chín tầng ứng với chín dòng của bài ca mà các người dẫn đường hát trên đường.",
    "people": [
     "mac_nhat_thoa"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "xuyen_lam"
+   ],
+   "place": null,
+   "text_vi_of": "Mạc Nhất Thoa finishes the Gate's staff canon, nine layers for the nine lines of the song the guides sing on the road."
   },
   {
    "id": "N-xuyen_lam-02",
@@ -29,14 +32,15 @@
    "story_kind": "",
    "text_en": "The founder of Xuyên Lâm Môn dies of a centipede's venom in Xích Túc Cốc, guiding a salt caravan through; his first disciple Nhậm Bình Sinh takes the staff.",
    "page": "design/world/depth/sects/xuyen_lam.md",
-   "text_vi": "",
+   "text_vi": "Vị sáng lập của Xuyên Lâm Môn chết vì nọc độc của một con rết ở Xích Túc Cốc khi dẫn một đoàn buôn muối đi qua; đệ tử đầu Nhậm Bình Sinh nhận lấy cây trượng.",
    "people": [
     "nham_binh_sinh"
    ],
    "sects": [
     "xuyen_lam"
    ],
-   "place": 884
+   "place": 884,
+   "text_vi_of": "The founder of Xuyên Lâm Môn dies of a centipede's venom in Xích Túc Cốc, guiding a salt caravan through; his first disciple Nhậm Bình Sinh takes the staff."
   },
   {
    "id": "N-xuyen_lam-03",
@@ -48,14 +52,18 @@
    "story_kind": "",
    "text_en": "Nhậm Bình Sinh sits nine days in the rain without a hat at the gate of the Tower's new seat on Thần Cổ Phong, among the Gate's mines. He walks home and dies that winter, leaving the founder's staff to Úc Diệp Thanh and the founder's cape to Phí Thoa Y.",
    "page": "design/world/depth/sects/xuyen_lam.md",
-   "text_vi": "",
+   "text_vi": "Nhậm Bình Sinh ngồi chín ngày trong mưa không đội nón trước cổng nơi đóng mới của Thính Vũ Lâu trên Thần Cổ Phong, giữa các mỏ của Xuyên Lâm Môn. Ông đi bộ về nhà và chết mùa đông ấy, để lại cây trượng của vị sáng lập cho Úc Diệp Thanh và chiếc áo tơi của vị sáng lập cho Phí Thoa Y.",
    "people": [
     "nham_binh_sinh",
     "uc_diep_thanh",
     "phi_thoa_y"
    ],
-   "sects": [],
-   "place": 874
+   "sects": [
+    "xuyen_lam",
+    "thinh_vu"
+   ],
+   "place": 874,
+   "text_vi_of": "Nhậm Bình Sinh sits nine days in the rain without a hat at the gate of the Tower's new seat on Thần Cổ Phong, among the Gate's mines. He walks home and dies that winter, leaving the founder's staff to Úc Diệp Thanh and the founder's cape to Phí Thoa Y."
   },
   {
    "id": "N-xuyen_lam-04",
@@ -67,12 +75,16 @@
    "story_kind": "",
    "text_en": "The Road Mother of Xuyên Lâm hides the Tower's deserter Nghiêm Quy Khứ in her house at Dẫn Lộ Thôn, and writes one letter up the mountain.",
    "page": "design/world/depth/sects/xuyen_lam.md",
-   "text_vi": "",
+   "text_vi": "Lộ Mẫu của Xuyên Lâm giấu kẻ đào ngũ của Thính Vũ Lâu là Nghiêm Quy Khứ trong nhà bà ở Dẫn Lộ Thôn, và viết một lá thư lên núi.",
    "people": [
     "nghiem_quy_khu"
    ],
-   "sects": [],
-   "place": 885
+   "sects": [
+    "xuyen_lam",
+    "thinh_vu"
+   ],
+   "place": 885,
+   "text_vi_of": "The Road Mother of Xuyên Lâm hides the Tower's deserter Nghiêm Quy Khứ in her house at Dẫn Lộ Thôn, and writes one letter up the mountain."
   },
   {
    "id": "N-xuyen_lam-05",
@@ -84,12 +96,15 @@
    "story_kind": "",
    "text_en": "On the morning the isle rises at Hà Châu, the Gate's ferry warden Đinh Vãn Độ poles out to it and drives the Gate's staff into its mud.",
    "page": "design/world/depth/sects/xuyen_lam.md",
-   "text_vi": "",
+   "text_vi": "Vào buổi sáng hòn đảo trồi lên ở Hà Châu, người coi bến đò của Xuyên Lâm Môn là Đinh Vãn Độ chống thuyền ra đó và cắm cây trượng của Xuyên Lâm Môn xuống bùn của nó.",
    "people": [
     "dinh_van_do"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "xuyen_lam"
+   ],
+   "place": 160,
+   "text_vi_of": "On the morning the isle rises at Hà Châu, the Gate's ferry warden Đinh Vãn Độ poles out to it and drives the Gate's staff into its mud."
   }
  ]
 }

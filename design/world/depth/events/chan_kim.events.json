@@ -12,14 +12,16 @@
    "story_kind": "",
    "text_en": "Hạng Thử Kim of Chân Kim Các casts the house's copy of the Pivot's standard weight and swears on it that the house will never weigh for itself.",
    "page": "design/world/depth/sects/chan_kim.md",
-   "text_vi": "",
+   "text_vi": "Hạng Thử Kim của Chân Kim Các đúc bản sao quả cân chuẩn của Thiên Xu cho bản các, và thề trên đó rằng bản các sẽ không bao giờ cân cho chính mình.",
    "people": [
     "hang_thu_kim"
    ],
    "sects": [
-    "chan_kim"
+    "chan_kim",
+    "thien_xu"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Hạng Thử Kim of Chân Kim Các casts the house's copy of the Pivot's standard weight and swears on it that the house will never weigh for itself."
   },
   {
    "id": "N-chan_kim-02",
@@ -31,15 +33,16 @@
    "story_kind": "",
    "text_en": "Đặng Quân Bình of the Ngọc Hành Hall finds Chân Kim Các's weight a hair light; Tưởng Bách Luyện weighs it before her and it is true.",
    "page": "design/world/depth/sects/chan_kim.md",
-   "text_vi": "",
+   "text_vi": "Đặng Quân Bình của Ngọc Hành Đường thấy quả cân của Chân Kim Các nhẹ một sợi tóc; Tưởng Bách Luyện cân nó trước mặt bà và nó đúng.",
    "people": [
-    "tuong_bach_luyen",
-    "dang_quan_binh"
+    "dang_quan_binh",
+    "tuong_bach_luyen"
    ],
    "sects": [
     "chan_kim"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Đặng Quân Bình of the Ngọc Hành Hall finds Chân Kim Các's weight a hair light; Tưởng Bách Luyện weighs it before her and it is true."
   }
  ]
 }

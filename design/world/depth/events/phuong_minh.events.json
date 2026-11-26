@@ -12,12 +12,15 @@
    "story_kind": "",
    "text_en": "When the reelers of Hỏa Ti Trấn bar the road for Xích Thành, Nguyên Chước Ly burns the town with them in it.",
    "page": "design/world/depth/sects/phuong_minh.md",
-   "text_vi": "",
+   "text_vi": "Khi những người ươm tơ của Hỏa Ti Trấn chặn đường đi Xích Thành, Nguyên Chước Ly đốt trấn cùng họ ở bên trong.",
    "people": [
     "nguyen_chuoc_ly"
    ],
-   "sects": [],
-   "place": 449
+   "sects": [
+    "phuong_minh"
+   ],
+   "place": 449,
+   "text_vi_of": "When the reelers of Hỏa Ti Trấn bar the road for Xích Thành, Nguyên Chước Ly burns the town with them in it."
   },
   {
    "id": "N-phuong_minh-02",
@@ -29,10 +32,15 @@
    "story_kind": "",
    "text_en": "The Ashen Phoenix Canon is carried out of Xích Thành Môn's burning gate; the founder teaches it to his elders with its blood pyre sealed.",
    "page": "design/world/depth/sects/phuong_minh.md",
-   "text_vi": "",
-   "people": [],
-   "sects": [],
-   "place": 215
+   "text_vi": "Hôi Phượng Kinh được mang ra khỏi cổng đang cháy của Xích Thành Môn; vị sáng lập dạy nó cho các trưởng lão của mình với huyết hỏa đàn bị phong kín.",
+   "people": [
+    "ngo_the_dong"
+   ],
+   "sects": [
+    "phuong_minh"
+   ],
+   "place": 215,
+   "text_vi_of": "The Ashen Phoenix Canon is carried out of Xích Thành Môn's burning gate; the founder teaches it to his elders with its blood pyre sealed."
   },
   {
    "id": "N-phuong_minh-03",
@@ -44,13 +52,16 @@
    "story_kind": "",
    "text_en": "Ngô Thê Đồng raises the Fire Court on the ashes of Hỏa Ti Trấn and sends his inner gate down from the ridge; Nguyên Chước Ly dies that winter of the fire she had taken in, and the court is built over her pyre.",
    "page": "design/world/depth/sects/phuong_minh.md",
-   "text_vi": "",
+   "text_vi": "Ngô Thê Đồng dựng Hỏa Đình trên tro tàn của Hỏa Ti Trấn và cho nội môn xuống khỏi sườn núi; Nguyên Chước Ly chết mùa đông năm ấy vì ngọn lửa bà đã nạp vào mình, và Hỏa Đình được xây trên giàn thiêu của bà.",
    "people": [
-    "nguyen_chuoc_ly",
-    "ngo_the_dong"
+    "ngo_the_dong",
+    "nguyen_chuoc_ly"
    ],
-   "sects": [],
-   "place": 449
+   "sects": [
+    "phuong_minh"
+   ],
+   "place": 449,
+   "text_vi_of": "Ngô Thê Đồng raises the Fire Court on the ashes of Hỏa Ti Trấn and sends his inner gate down from the ridge; Nguyên Chước Ly dies that winter of the fire she had taken in, and the court is built over her pyre."
   },
   {
    "id": "N-phuong_minh-04",
@@ -62,12 +73,16 @@
    "story_kind": "",
    "text_en": "Tang Sơ Ti gives the last fire-silk of Hỏa Ti to the founder; he lays it as the Nest Array from the mouth of Chúc Dung Khẩu to the Fire Court, and vows no silk will be reeled at these vents again.",
    "page": "design/world/depth/sects/phuong_minh.md",
-   "text_vi": "",
+   "text_vi": "Tang Sơ Ti trao tơ lửa cuối cùng của Hỏa Ti cho vị sáng lập; ông bày nó thành Phượng Sào Trận từ miệng Chúc Dung Khẩu đến Hỏa Đình, và thề không ươm tơ ở những miệng hỏa huyệt này nữa.",
    "people": [
-    "tang_so_ti"
+    "tang_so_ti",
+    "ngo_the_dong"
    ],
-   "sects": [],
-   "place": 253
+   "sects": [
+    "phuong_minh"
+   ],
+   "place": 253,
+   "text_vi_of": "Tang Sơ Ti gives the last fire-silk of Hỏa Ti to the founder; he lays it as the Nest Array from the mouth of Chúc Dung Khẩu to the Fire Court, and vows no silk will be reeled at these vents again."
   },
   {
    "id": "N-phuong_minh-05",
@@ -79,10 +94,13 @@
    "story_kind": "",
    "text_en": "Lãnh Hương's plum-blossom riders charge Phượng Minh's lines at Cô Thành; a young disciple burns their first rider out of the saddle.",
    "page": "design/world/depth/sects/phuong_minh.md",
-   "text_vi": "",
+   "text_vi": "Kỵ binh hoa mai của Lãnh Hương xông vào trận tuyến của Phượng Minh tại Cô Thành; một đệ tử trẻ đốt người kỵ binh đầu tiên của họ rơi khỏi yên.",
    "people": [],
-   "sects": [],
-   "place": 227
+   "sects": [
+    "phuong_minh"
+   ],
+   "place": 227,
+   "text_vi_of": "Lãnh Hương's plum-blossom riders charge Phượng Minh's lines at Cô Thành; a young disciple burns their first rider out of the saddle."
   },
   {
    "id": "N-phuong_minh-06",
@@ -94,13 +112,16 @@
    "story_kind": "",
    "text_en": "In the burning hall of Cô Thành, Nhiếp Tẫn Sa finds a red sword laid on the riders' ashes with a note in red ink; Lâu Liệt Hà hangs it in the Hall of Spoils and forbids its name.",
    "page": "design/world/depth/sects/phuong_minh.md",
-   "text_vi": "",
+   "text_vi": "Trong đại điện đang cháy ở Cô Thành, Nhiếp Tẫn Sa tìm thấy một thanh kiếm đỏ đặt trên tro của đám kỵ binh cùng một mảnh giấy viết mực đỏ; Lâu Liệt Hà treo nó trong Chiến Lợi Khố và cấm nhắc tên nó.",
    "people": [
     "nhiep_tan_sa",
     "lau_liet_ha"
    ],
-   "sects": [],
-   "place": 227
+   "sects": [
+    "phuong_minh"
+   ],
+   "place": 227,
+   "text_vi_of": "In the burning hall of Cô Thành, Nhiếp Tẫn Sa finds a red sword laid on the riders' ashes with a note in red ink; Lâu Liệt Hà hangs it in the Hall of Spoils and forbids its name."
   },
   {
    "id": "N-phuong_minh-07",
@@ -112,12 +133,15 @@
    "story_kind": "",
    "text_en": "Liên Khánh Dao plays past the seventh movement of her Shao Remnant Score and dies at the zither; its eighth string snaps.",
    "page": "design/world/depth/sects/phuong_minh.md",
-   "text_vi": "",
+   "text_vi": "Liên Khánh Dao đàn quá chương thứ bảy của Thiều Âm Tàn Phổ và chết bên cây đàn; dây thứ tám của nó đứt.",
    "people": [
     "lien_khanh_dao"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "phuong_minh"
+   ],
+   "place": null,
+   "text_vi_of": "Liên Khánh Dao plays past the seventh movement of her Shao Remnant Score and dies at the zither; its eighth string snaps."
   },
   {
    "id": "N-phuong_minh-08",
@@ -129,13 +153,16 @@
    "story_kind": "",
    "text_en": "Lâu Liệt Hà follows Ô Kình Hải down into the burning hold of Thôn Hải Môn and does not come up.",
    "page": "design/world/depth/sects/phuong_minh.md",
-   "text_vi": "",
+   "text_vi": "Lâu Liệt Hà theo Ô Kình Hải xuống khoang tàu đang cháy của Thôn Hải Môn và không trở lên nữa.",
    "people": [
     "lau_liet_ha",
     "o_kinh_hai"
    ],
-   "sects": [],
-   "place": 217
+   "sects": [
+    "phuong_minh"
+   ],
+   "place": 217,
+   "text_vi_of": "Lâu Liệt Hà follows Ô Kình Hải down into the burning hold of Thôn Hải Môn and does not come up."
   },
   {
    "id": "N-phuong_minh-09",
@@ -147,13 +174,17 @@
    "story_kind": "",
    "text_en": "Hề Bính Hỏa takes Thủ Lôi Bảo after nine days and burns it with its keeper Tạ Thiết Trụ inside; the lightning stored in its walls kills him in the same fire, and his disciples carry him out.",
    "page": "design/world/depth/sects/phuong_minh.md",
-   "text_vi": "",
+   "text_vi": "Hề Bính Hỏa chiếm Thủ Lôi Bảo sau chín ngày và đốt nó cùng người giữ bảo là Tạ Thiết Trụ ở bên trong; sấm sét tích trong tường giết ông ngay trong đám cháy ấy, và các đệ tử khiêng ông ra.",
    "people": [
-    "ta_thiet_tru",
-    "he_binh_hoa"
+    "he_binh_hoa",
+    "ta_thiet_tru"
    ],
-   "sects": [],
-   "place": 875
+   "sects": [
+    "phuong_minh",
+    "thinh_vu"
+   ],
+   "place": 875,
+   "text_vi_of": "Hề Bính Hỏa takes Thủ Lôi Bảo after nine days and burns it with its keeper Tạ Thiết Trụ inside; the lightning stored in its walls kills him in the same fire, and his disciples carry him out."
   },
   {
    "id": "N-phuong_minh-10",
@@ -165,13 +196,17 @@
    "story_kind": "",
    "text_en": "Cố Dạ Lan of Thính Vũ kills Dụ Đan Huỳnh on Đan Sơn Mạch and carries off her fan.",
    "page": "design/world/depth/sects/phuong_minh.md",
-   "text_vi": "",
+   "text_vi": "Cố Dạ Lan của Thính Vũ giết Dụ Đan Huỳnh trên Đan Sơn Mạch và mang quạt của nàng đi.",
    "people": [
-    "du_dan_huynh",
-    "co_da_lan"
+    "co_da_lan",
+    "du_dan_huynh"
    ],
-   "sects": [],
-   "place": 211
+   "sects": [
+    "thinh_vu",
+    "phuong_minh"
+   ],
+   "place": 211,
+   "text_vi_of": "Cố Dạ Lan of Thính Vũ kills Dụ Đan Huỳnh on Đan Sơn Mạch and carries off her fan."
   },
   {
    "id": "N-phuong_minh-11",
@@ -183,14 +218,19 @@
    "story_kind": "",
    "text_en": "When the Pivot's arrays close on Kỷ Vãn Tình's rear guard at the pass (N-thinh_vu-08), Hách Chu Lăng takes the Thính Vũ swordsman Chử Trì Âm alive; he refuses the Tower's ransom, and in 1160 becomes the palace's guest.",
    "page": "design/world/depth/sects/phuong_minh.md",
-   "text_vi": "",
+   "text_vi": "Khi trận pháp của Thiên Xu siết lấy hậu quân của Kỷ Vãn Tình ở đèo (N-thinh_vu-08), Hách Chu Lăng bắt sống kiếm sĩ Thính Vũ Chử Trì Âm; ông từ chối tiền chuộc của Thính Vũ Lâu, và năm 1160 trở thành thượng khách của Phượng Minh Cung.",
    "people": [
-    "hach_chu_lang",
     "ky_van_tinh",
+    "hach_chu_lang",
     "chu_tri_am"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thien_xu",
+    "thinh_vu",
+    "phuong_minh"
+   ],
+   "place": 211,
+   "text_vi_of": "When the Pivot's arrays close on Kỷ Vãn Tình's rear guard at the pass (N-thinh_vu-08), Hách Chu Lăng takes the Thính Vũ swordsman Chử Trì Âm alive; he refuses the Tower's ransom, and in 1160 becomes the palace's guest."
   },
   {
    "id": "N-phuong_minh-12",
@@ -202,13 +242,16 @@
    "story_kind": "",
    "text_en": "Hoa Triêu Dương moves the head's court, the treasury and the Hall of Spoils down to the Fire Court of Hỏa Ti; the ridge palace becomes the Wutong Court under Vu Ngô Đồng.",
    "page": "design/world/depth/sects/phuong_minh.md",
-   "text_vi": "",
+   "text_vi": "Hoa Triêu Dương dời triều đình của chưởng môn, kho bạc và Chiến Lợi Khố xuống Hỏa Đình của Hỏa Ti; cung điện trên sườn núi trở thành Ngô Đồng Đình dưới quyền Vu Ngô Đồng.",
    "people": [
     "hoa_trieu_duong",
     "vu_ngo_dong"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "phuong_minh"
+   ],
+   "place": 449,
+   "text_vi_of": "Hoa Triêu Dương moves the head's court, the treasury and the Hall of Spoils down to the Fire Court of Hỏa Ti; the ridge palace becomes the Wutong Court under Vu Ngô Đồng."
   },
   {
    "id": "N-phuong_minh-13",
@@ -220,14 +263,18 @@
    "story_kind": "",
    "text_en": "At the Wutong Court, Vu Ngô Đồng hands Quan Vũ Thanh the head's private terms, drafted by Trình Hi Quang: peace for a fifth of Kinh Lôi Mạch's yield. No reply comes.",
    "page": "design/world/depth/sects/phuong_minh.md",
-   "text_vi": "",
+   "text_vi": "Tại Ngô Đồng Đình, Vu Ngô Đồng trao cho Quan Vũ Thanh các điều khoản riêng của chưởng môn, do Trình Hi Quang soạn: hòa bình đổi lấy một phần năm sản lượng của Kinh Lôi Mạch. Không có hồi đáp nào đến.",
    "people": [
-    "trinh_hi_quang",
+    "vu_ngo_dong",
     "quan_vu_thanh",
-    "vu_ngo_dong"
+    "trinh_hi_quang"
    ],
-   "sects": [],
-   "place": 208
+   "sects": [
+    "phuong_minh",
+    "thinh_vu"
+   ],
+   "place": 6,
+   "text_vi_of": "At the Wutong Court, Vu Ngô Đồng hands Quan Vũ Thanh the head's private terms, drafted by Trình Hi Quang: peace for a fifth of Kinh Lôi Mạch's yield. No reply comes."
   },
   {
    "id": "N-phuong_minh-14",
@@ -239,12 +286,15 @@
    "story_kind": "",
    "text_en": "The boat paid to carry the musician of Thiều Âm Thị away sails without him; Lộ Văn Khánh keeps him in the ruins of Kích Khánh Đường.",
    "page": "design/world/depth/sects/phuong_minh.md",
-   "text_vi": "",
+   "text_vi": "Con thuyền được trả tiền để đưa nhạc sĩ của Thiều Âm Thị đi rời bến mà không có ông; Lộ Văn Khánh giữ ông lại trong tàn tích của Kích Khánh Đường.",
    "people": [
     "lo_van_khanh"
    ],
-   "sects": [],
-   "place": 724
+   "sects": [
+    "phuong_minh"
+   ],
+   "place": 724,
+   "text_vi_of": "The boat paid to carry the musician of Thiều Âm Thị away sails without him; Lộ Văn Khánh keeps him in the ruins of Kích Khánh Đường."
   }
  ]
 }

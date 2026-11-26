@@ -12,12 +12,13 @@
    "story_kind": "",
    "text_en": "Mạc Quy Khư comes out of Phù Tang Cảnh with his root burned through by its ten suns and an unglazed vase in his arms that is colder than the sea.",
    "page": "design/world/depth/people/hermits-sages.md",
-   "text_vi": "",
+   "text_vi": "Mạc Quy Khư bước ra từ Phù Tang Cảnh, linh căn bị mười mặt trời của nơi ấy thiêu thủng, trong tay ôm một chiếc bình không men lạnh hơn biển.",
    "people": [
     "mac_quy_khu"
    ],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "Mạc Quy Khư comes out of Phù Tang Cảnh with his root burned through by its ten suns and an unglazed vase in his arms that is colder than the sea."
   },
   {
    "id": "N-hermits_sages-02",
@@ -29,13 +30,14 @@
    "story_kind": "",
    "text_en": "The ice swordsman Hoắc Hàn Quang asks Mạc Quy Khư how the Hóa Thần tribulation is lived through, and is told: with empty hands. He lays his sword on the stone of his cave and goes north.",
    "page": "design/world/depth/people/hermits-sages.md",
-   "text_vi": "",
+   "text_vi": "Kiếm sĩ băng Hoắc Hàn Quang hỏi Mạc Quy Khư làm sao sống sót qua thiên kiếp Hóa Thần, và được đáp: bằng đôi tay trắng. Ông đặt kiếm lên tảng đá trong hang rồi đi về phía bắc.",
    "people": [
     "hoac_han_quang",
     "mac_quy_khu"
    ],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "The ice swordsman Hoắc Hàn Quang asks Mạc Quy Khư how the Hóa Thần tribulation is lived through, and is told: with empty hands. He lays his sword on the stone of his cave and goes north."
   },
   {
    "id": "N-hermits_sages-03",
@@ -47,10 +49,15 @@
    "story_kind": "",
    "text_en": "A Wind-rooted swordsman with no robe comes down the ore road past Không Thanh Khoáng, and a ninety-year-old miner with a pure Metal root puts down his pick and follows him.",
    "page": "design/world/depth/people/hermits-sages.md",
-   "text_vi": "",
-   "people": [],
-   "sects": [],
-   "place": 1457
+   "text_vi": "Một kiếm sĩ linh căn Phong không mặc áo đi xuống con đường quặng ngang qua Không Thanh Khoáng, và một thợ mỏ chín mươi tuổi linh căn Kim thuần đặt cuốc xuống đi theo ông.",
+   "people": [
+    "quach_linh_thu"
+   ],
+   "sects": [
+    "phat_y"
+   ],
+   "place": 1457,
+   "text_vi_of": "A Wind-rooted swordsman with no robe comes down the ore road past Không Thanh Khoáng, and a ninety-year-old miner with a pure Metal root puts down his pick and follows him."
   },
   {
    "id": "N-hermits_sages-04",
@@ -62,12 +69,13 @@
    "story_kind": "",
    "text_en": "At the door of Lương Lạc Mai's abode her disciple hears two flutes playing the falling-plum tune. One stops as the door opens. She closes it again.",
    "page": "design/world/depth/people/hermits-sages.md",
-   "text_vi": "",
+   "text_vi": "Trước cửa động phủ của Lương Lạc Mai, đệ tử nàng nghe hai cây sáo thổi khúc Lạc Mai. Một cây ngừng khi cửa mở. Nàng đóng cửa lại.",
    "people": [
     "luong_lac_mai"
    ],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "At the door of Lương Lạc Mai's abode her disciple hears two flutes playing the falling-plum tune. One stops as the door opens. She closes it again."
   },
   {
    "id": "N-hermits_sages-05",
@@ -79,14 +87,15 @@
    "story_kind": "",
    "text_en": "The traveller seen off from Tống Khách Thị is Quách Lĩnh Thù, the founder of Phất Y Cốc, 110 years after he hung his robe in his valley. He leaves his sword with his disciple.",
    "page": "design/world/depth/people/hermits-sages.md",
-   "text_vi": "",
+   "text_vi": "Người lữ khách được tiễn ở Tống Khách Thị là Quách Lĩnh Thù, người sáng lập Phất Y Cốc, một trăm mười năm sau khi ông treo áo trong thung lũng của mình. Ông để lại kiếm cho đệ tử.",
    "people": [
     "quach_linh_thu"
    ],
    "sects": [
     "phat_y"
    ],
-   "place": 48
+   "place": 48,
+   "text_vi_of": "The traveller seen off from Tống Khách Thị is Quách Lĩnh Thù, the founder of Phất Y Cốc, 110 years after he hung his robe in his valley. He leaves his sword with his disciple."
   },
   {
    "id": "N-hermits_sages-06",
@@ -98,12 +107,13 @@
    "story_kind": "",
    "text_en": "Cao Đan Hà's herb girl climbs back to her master's abode in the winter and closes it on the furnace, the pill and the body.",
    "page": "design/world/depth/people/hermits-sages.md",
-   "text_vi": "",
+   "text_vi": "Cô bé hái thuốc của Cao Đan Hà leo về động phủ của sư phụ vào mùa đông và đóng cửa lại trên lò, viên đan và thi thể.",
    "people": [
     "cao_dan_ha"
    ],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "Cao Đan Hà's herb girl climbs back to her master's abode in the winter and closes it on the furnace, the pill and the body."
   },
   {
    "id": "N-hermits_sages-07",
@@ -115,12 +125,14 @@
    "story_kind": "",
    "text_en": "Yến Tang Điền, the last of Cô Phàm Các, crosses to Dục Nhật Đảo to ask the hermit one thing, and is given nothing.",
    "page": "design/world/depth/people/hermits-sages.md",
-   "text_vi": "",
+   "text_vi": "Yến Tang Điền, người cuối cùng của Cô Phàm Các, sang Dục Nhật Đảo để hỏi vị ẩn sĩ một điều, và không được cho gì.",
    "people": [
-    "yen_tang_dien"
+    "yen_tang_dien",
+    "mac_quy_khu"
    ],
    "sects": [],
-   "place": 198
+   "place": 198,
+   "text_vi_of": "Yến Tang Điền, the last of Cô Phàm Các, crosses to Dục Nhật Đảo to ask the hermit one thing, and is given nothing."
   },
   {
    "id": "N-hermits_sages-08",
@@ -132,12 +144,13 @@
    "story_kind": "",
    "text_en": "The sword sage Tư Không Hạc Niên leaves the boy he taught at Hàn Mai and swears to teach no one.",
    "page": "design/world/depth/people/hermits-sages.md",
-   "text_vi": "",
+   "text_vi": "Kiếm thánh Tư Không Hạc Niên rời cậu bé ông đã dạy ở Hàn Mai và thề không dạy ai nữa.",
    "people": [
     "tu_khong_hac_nien"
    ],
    "sects": [],
-   "place": null
+   "place": 109,
+   "text_vi_of": "The sword sage Tư Không Hạc Niên leaves the boy he taught at Hàn Mai and swears to teach no one."
   },
   {
    "id": "N-hermits_sages-09",
@@ -149,10 +162,13 @@
    "story_kind": "",
    "text_en": "Lightning splits a fishing boat in the strait; the blind man of the pool walks into the sea and carries out the fisher's daughter.",
    "page": "design/world/depth/people/hermits-sages.md",
-   "text_vi": "",
-   "people": [],
+   "text_vi": "Sét bổ đôi một chiếc thuyền chài trên eo biển; người mù bên đầm bước vào biển và bế con gái người chài ra.",
+   "people": [
+    "doan_thuong_hai"
+   ],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "Lightning splits a fishing boat in the strait; the blind man of the pool walks into the sea and carries out the fisher's daughter."
   },
   {
    "id": "N-hermits_sages-10",
@@ -164,10 +180,14 @@
    "story_kind": "",
    "text_en": "The hermit of Dục Nhật Đảo does not wake for the spring question. His ferryman answers it in his voice.",
    "page": "design/world/depth/people/hermits-sages.md",
-   "text_vi": "",
-   "people": [],
+   "text_vi": "Vị ẩn sĩ Dục Nhật Đảo không tỉnh dậy cho câu hỏi mùa xuân. Người lái đò của ông trả lời thay bằng giọng của ông.",
+   "people": [
+    "mac_quy_khu",
+    "thu_van_trieu"
+   ],
    "sects": [],
-   "place": 198
+   "place": 198,
+   "text_vi_of": "The hermit of Dục Nhật Đảo does not wake for the spring question. His ferryman answers it in his voice."
   }
  ]
 }

@@ -12,14 +12,15 @@
    "story_kind": "",
    "text_en": "Phan Vật Hoa of Thiên Bảo Trai sets a grain of Xích Kim's red gold in her own dantian to grow by the Warm-Nurtured Treasure Sutra.",
    "page": "design/world/depth/sects/thien_bao.md",
-   "text_vi": "",
+   "text_vi": "Phan Vật Hoa của Thiên Bảo Trai đặt một hạt vàng đỏ của Xích Kim vào đan điền mình để nuôi lớn theo Ôn Dưỡng Bảo Kinh.",
    "people": [
     "phan_vat_hoa"
    ],
    "sects": [
     "thien_bao"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Phan Vật Hoa of Thiên Bảo Trai sets a grain of Xích Kim's red gold in her own dantian to grow by the Warm-Nurtured Treasure Sutra."
   },
   {
    "id": "N-thien_bao-02",
@@ -31,7 +32,7 @@
    "story_kind": "",
    "text_en": "The vault furnace of Thiên Bảo Trai bursts while Ung Thiên Kim refines the studio's ingot; her disciple Phan Vật Hoa melts her gear into it.",
    "page": "design/world/depth/sects/thien_bao.md",
-   "text_vi": "",
+   "text_vi": "Lò kho của Thiên Bảo Trai nổ tung khi Ung Thiên Kim luyện thỏi vàng của xưởng; đệ tử Phan Vật Hoa nấu bánh răng của bà vào đó.",
    "people": [
     "ung_thien_kim",
     "phan_vat_hoa"
@@ -39,7 +40,8 @@
    "sects": [
     "thien_bao"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "The vault furnace of Thiên Bảo Trai bursts while Ung Thiên Kim refines the studio's ingot; her disciple Phan Vật Hoa melts her gear into it."
   },
   {
    "id": "N-thien_bao-03",
@@ -51,12 +53,14 @@
    "story_kind": "",
    "text_en": "Thiên Bảo Trai's auction steward tells Lạc Hà's envoy what the surety of 1179 is, for the price of his gambling debt.",
    "page": "design/world/depth/sects/thien_bao.md",
-   "text_vi": "",
+   "text_vi": "Quản sự buổi đấu giá của Thiên Bảo Trai nói cho sứ giả Lạc Hà biết khoản bảo chứng năm 1179 là gì, để đổi lấy món nợ cờ bạc của mình.",
    "people": [],
    "sects": [
-    "thien_bao"
+    "thien_bao",
+    "lac_ha"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Thiên Bảo Trai's auction steward tells Lạc Hà's envoy what the surety of 1179 is, for the price of his gambling debt."
   },
   {
    "id": "N-thien_bao-04",
@@ -68,12 +72,15 @@
    "story_kind": "",
    "text_en": "Khang Thiên Chùy cuts a second key from the Lone Duck Ring at the Xích Kim furnace and tells his mistress it has failed.",
    "page": "design/world/depth/sects/thien_bao.md",
-   "text_vi": "",
+   "text_vi": "Khang Thiên Chùy đúc một chìa khóa thứ hai từ Cô Vụ Giới tại lò Xích Kim và nói với tình nhân rằng nó đã hỏng.",
    "people": [
     "khang_thien_chuy"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thien_bao"
+   ],
+   "place": null,
+   "text_vi_of": "Khang Thiên Chùy cuts a second key from the Lone Duck Ring at the Xích Kim furnace and tells his mistress it has failed."
   }
  ]
 }

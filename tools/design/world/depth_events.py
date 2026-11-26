@@ -25,6 +25,7 @@ Run:
   python -I tools/design/world/depth_events.py            write the files
   python -I tools/design/world/depth_events.py --check    compare, write nothing: missing entries, stale page
                                                           fields, empty text_vi, unknown keys and ids
+  ... --check --owner=bang_tam,thien_xu                   the same, for those owners only (all lines printed)
 Exit 0 always.
 """
 import collections
@@ -204,9 +205,11 @@ def main():
         sum(e["secret"] for v in by_owner.values() for e in v)))
     if "--check" in sys.argv:
         found = check(by_owner, problems, old)
-        kinds = collections.Counter(re.sub(r"^N-[a-z_]+-\S+: ", "", x).split(" ")[0] for x in found)
+        owners = next((a.split("=", 1)[1].split(",") for a in sys.argv if a.startswith("--owner=")), None)
+        if owners:   # one batch's owners only (the translation pass): --owner=bang_tam,thien_xu
+            found = [x for x in found if re.match(r"^N-(%s)-" % "|".join(map(re.escape, owners)), x)]
         print("observations: %d" % len(found))
-        for x in found[:60]:
+        for x in found if owners else found[:60]:
             print("  " + x)
         return 0
     for p in problems:

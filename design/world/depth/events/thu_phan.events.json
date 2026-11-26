@@ -12,10 +12,11 @@
    "story_kind": "",
    "text_en": "On the day of Kinh Trập the cave hunters of Thủ Động Trại bar the cave of Khải Lôi's dead at the first thunder, as their rule says, with a girl of twelve still inside. At dawn she walks out singing.",
    "page": "design/world/depth/sects/thu_phan.md",
-   "text_vi": "",
+   "text_vi": "Vào ngày Kinh Trập, các thợ săn hang của Thủ Động Trại đóng hang của người chết Khải Lôi ngay tiếng sấm đầu tiên, theo quy tắc của họ, khi một bé gái mười hai tuổi vẫn còn bên trong. Đến bình minh em bước ra, miệng hát.",
    "people": [],
    "sects": [],
-   "place": 852
+   "place": 852,
+   "text_vi_of": "On the day of Kinh Trập the cave hunters of Thủ Động Trại bar the cave of Khải Lôi's dead at the first thunder, as their rule says, with a girl of twelve still inside. At dawn she walks out singing."
   },
   {
    "id": "N-thu_phan-02",
@@ -27,14 +28,15 @@
    "story_kind": "",
    "text_en": "The oldest ward over the graves of Lôi Trạch fails. Lương Thanh Mộ, first elder of Thu Phần Các, goes down into the grave to renew it from inside. The ward holds, and she does not come up.",
    "page": "design/world/depth/sects/thu_phan.md",
-   "text_vi": "",
+   "text_vi": "Cấm chế cổ nhất trên các mộ của Lôi Trạch hỏng. Lương Thanh Mộ, trưởng lão đầu tiên của Thu Phần Các, đi xuống mộ để làm mới nó từ bên trong. Cấm chế giữ vững, và bà không trở lên.",
    "people": [
     "luong_thanh_mo"
    ],
    "sects": [
     "thu_phan"
    ],
-   "place": null
+   "place": 221,
+   "text_vi_of": "The oldest ward over the graves of Lôi Trạch fails. Lương Thanh Mộ, first elder of Thu Phần Các, goes down into the grave to renew it from inside. The ward holds, and she does not come up."
   },
   {
    "id": "N-thu_phan-03",
@@ -46,10 +48,13 @@
    "story_kind": "",
    "text_en": "Under the Pavilion's ward the first fleck of grave jade is dug from a grave of Lôi Trạch: green, very hard, with a thumbprint in it.",
    "page": "design/world/depth/sects/thu_phan.md",
-   "text_vi": "",
+   "text_vi": "Dưới cấm chế của Thu Phần Các, mảnh mộ ngọc đầu tiên được đào lên từ một ngôi mộ ở Lôi Trạch: màu xanh, rất cứng, có một dấu ngón tay cái trong đó.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thu_phan"
+   ],
+   "place": 221,
+   "text_vi_of": "Under the Pavilion's ward the first fleck of grave jade is dug from a grave of Lôi Trạch: green, very hard, with a thumbprint in it."
   },
   {
    "id": "N-thu_phan-04",
@@ -61,13 +66,16 @@
    "story_kind": "",
    "text_en": "The copyist Cơ Ký Âm understands that the oldest graves of Lôi Trạch chant Khải Lôi's canon as their head chanted it under the tribulation. Lý Hận Bích seals his copybooks in the ward.",
    "page": "design/world/depth/sects/thu_phan.md",
-   "text_vi": "",
+   "text_vi": "Người chép sách Cơ Ký Âm hiểu ra rằng những ngôi mộ cổ nhất của Lôi Trạch đọc tụng công pháp của Khải Lôi như người đứng đầu đã đọc nó dưới thiên kiếp. Lý Hận Bích niêm các cuốn sách chép của ông trong cấm chế.",
    "people": [
-    "ly_han_bich",
-    "co_ky_am"
+    "co_ky_am",
+    "ly_han_bich"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thu_phan"
+   ],
+   "place": 221,
+   "text_vi_of": "The copyist Cơ Ký Âm understands that the oldest graves of Lôi Trạch chant Khải Lôi's canon as their head chanted it under the tribulation. Lý Hận Bích seals his copybooks in the ward."
   }
  ]
 }

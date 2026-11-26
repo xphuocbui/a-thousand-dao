@@ -12,12 +12,13 @@
    "story_kind": "",
    "text_en": "Nhan Dư Ti, a reeler's daughter out of burning Hỏa Ti, marries into the Đới of Tang Điền and teaches the house to reel.",
    "page": "design/world/depth/people/clans.md",
-   "text_vi": "",
+   "text_vi": "Nhan Dư Ti, con gái một thợ ươm tơ từ Hỏa Ti đang cháy, về làm dâu họ Đới ở Tang Điền và dạy cả nhà ươm tơ.",
    "people": [
     "nhan_du_ti"
    ],
    "sects": [],
-   "place": null
+   "place": 94,
+   "text_vi_of": "Nhan Dư Ti, a reeler's daughter out of burning Hỏa Ti, marries into the Đới of Tang Điền and teaches the house to reel."
   },
   {
    "id": "N-clans-02",
@@ -29,12 +30,13 @@
    "story_kind": "",
    "text_en": "Tiêu Thừa Âm buries his father under the locust road and promises to finish his search; the first locust of 520 dies in the frost that winter.",
    "page": "design/world/depth/people/clans.md",
-   "text_vi": "",
+   "text_vi": "Tiêu Thừa Âm chôn cha dưới con đường châu chấu và hứa sẽ làm xong việc tìm kiếm của cha; con châu chấu đầu tiên của năm 520 chết trong sương giá mùa đông năm đó.",
    "people": [
     "tieu_thua_am"
    ],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "Tiêu Thừa Âm buries his father under the locust road and promises to finish his search; the first locust of 520 dies in the frost that winter."
   },
   {
    "id": "N-clans-03",
@@ -46,13 +48,14 @@
    "story_kind": "",
    "text_en": "Ôn Thục Hà of Song Kiều marries the son of Tưởng Bách Luyện; the assay house and the tolls become kin.",
    "page": "design/world/depth/people/clans.md",
-   "text_vi": "",
+   "text_vi": "Ôn Thục Hà ở Song Kiều gả cho con trai Tưởng Bách Luyện; nhà thử kim và các trạm thu thuế thành thông gia.",
    "people": [
     "tuong_bach_luyen",
     "on_thuc_ha"
    ],
    "sects": [],
-   "place": null
+   "place": 82,
+   "text_vi_of": "Ôn Thục Hà of Song Kiều marries the son of Tưởng Bách Luyện; the assay house and the tolls become kin."
   },
   {
    "id": "N-clans-04",
@@ -64,12 +67,13 @@
    "story_kind": "",
    "text_en": "Ôn Giá Hồng goes into the flood to hold the north bridge's eastern pillar; the pillar stands and he drowns.",
    "page": "design/world/depth/people/clans.md",
-   "text_vi": "",
+   "text_vi": "Ôn Giá Hồng lao vào lũ để giữ trụ cầu phía đông của cầu phía bắc; trụ cầu đứng vững còn ông chết đuối.",
    "people": [
     "on_gia_hong"
    ],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "Ôn Giá Hồng goes into the flood to hold the north bridge's eastern pillar; the pillar stands and he drowns."
   },
   {
    "id": "N-clans-05",
@@ -81,12 +85,13 @@
    "story_kind": "",
    "text_en": "Hỗ Độ Hải is lost off the cape with three low-riding ships; his son takes the house at seventy-four.",
    "page": "design/world/depth/people/clans.md",
-   "text_vi": "",
+   "text_vi": "Hỗ Độ Hải mất tích ngoài mũi đất cùng ba chiếc thuyền chìm sát mặt nước; con trai ông nối giữ nhà năm bảy mươi bốn tuổi.",
    "people": [
     "ho_do_hai"
    ],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "Hỗ Độ Hải is lost off the cape with three low-riding ships; his son takes the house at seventy-four."
   },
   {
    "id": "N-clans-06",
@@ -98,12 +103,13 @@
    "story_kind": "",
    "text_en": "The spring after the hermitage turns their son away, the Tiêu make a rule: daughters to Lê Hoa Am, sons anywhere else.",
    "page": "design/world/depth/people/clans.md",
-   "text_vi": "",
+   "text_vi": "Mùa xuân sau khi am thất từ chối con trai họ, nhà Tiêu đặt ra một lệ: con gái gả về Lê Hoa Am, con trai đi bất cứ đâu khác.",
    "people": [],
    "sects": [
     "le_hoa"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "The spring after the hermitage turns their son away, the Tiêu make a rule: daughters to Lê Hoa Am, sons anywhere else."
   },
   {
    "id": "N-clans-07",
@@ -115,14 +121,15 @@
    "story_kind": "",
    "text_en": "Tiêu Thừa Âm gives the Tiêu hunters' lodge below the massif to his grandson for Tầm Kiếm Đường.",
    "page": "design/world/depth/people/clans.md",
-   "text_vi": "",
+   "text_vi": "Tiêu Thừa Âm trao nhà săn của họ Tiêu dưới dãy núi lớn cho cháu nội để lập Tầm Kiếm Đường.",
    "people": [
     "tieu_thua_am"
    ],
    "sects": [
     "tam_kiem"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Tiêu Thừa Âm gives the Tiêu hunters' lodge below the massif to his grandson for Tầm Kiếm Đường."
   },
   {
    "id": "N-clans-08",
@@ -134,10 +141,11 @@
    "story_kind": "",
    "text_en": "Rain falls on the Lục paddies of Phong Đăng and not on the tenants' bank across the river; three Thiều children die that winter.",
    "page": "design/world/depth/people/clans.md",
-   "text_vi": "",
+   "text_vi": "Mưa rơi xuống ruộng lúa họ Lục ở Phong Đăng mà không rơi xuống bờ của tá điền bên kia sông; ba đứa trẻ nhà Thiều chết mùa đông năm đó.",
    "people": [],
    "sects": [],
-   "place": null
+   "place": 92,
+   "text_vi_of": "Rain falls on the Lục paddies of Phong Đăng and not on the tenants' bank across the river; three Thiều children die that winter."
   },
   {
    "id": "N-clans-09",
@@ -149,10 +157,11 @@
    "story_kind": "",
    "text_en": "The Vương stop writing to the Tạ. Nobody in Phong Lâm is told.",
    "page": "design/world/depth/people/clans.md",
-   "text_vi": "",
+   "text_vi": "Nhà Vương thôi không viết thư cho nhà Tạ. Không ai ở Phong Lâm được báo.",
    "people": [],
    "sects": [],
-   "place": null
+   "place": 79,
+   "text_vi_of": "The Vương stop writing to the Tạ. Nobody in Phong Lâm is told."
   }
  ]
 }

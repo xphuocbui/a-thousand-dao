@@ -12,13 +12,16 @@
    "story_kind": "",
    "text_en": "Chung Hoài Cực gives the first weight of Thiên Quyền Thị's scales to Hề Văn Ước and makes her Chief Judge of the Compact: the one who seals does not weigh.",
    "page": "design/world/depth/sects/thien_xu.md",
-   "text_vi": "",
+   "text_vi": "Chung Hoài Cực trao quả cân đầu tiên của cân Thiên Quyền Thị cho Hề Văn Ước và phong bà làm Chủ Phán của Bắc Thần Ước: người đóng ấn thì không cân.",
    "people": [
     "chung_hoai_cuc",
     "he_van_uoc"
    ],
-   "sects": [],
-   "place": 52
+   "sects": [
+    "thien_xu"
+   ],
+   "place": 52,
+   "text_vi_of": "Chung Hoài Cực gives the first weight of Thiên Quyền Thị's scales to Hề Văn Ước and makes her Chief Judge of the Compact: the one who seals does not weigh."
   },
   {
    "id": "N-thien_xu-02",
@@ -30,10 +33,13 @@
    "story_kind": "",
    "text_en": "The Thiên Cơ Hall walks the borders of the seven great sects and plants 129 steles; from this year a line the Compact draws can be felt by anyone who crosses it.",
    "page": "design/world/depth/sects/thien_xu.md",
-   "text_vi": "",
+   "text_vi": "Thiên Cơ Đường đi dọc biên giới bảy đại tông và dựng 129 tấm bia; từ năm này, bất kỳ ai băng qua một đường mà Bắc Thần Ước vạch ra đều có thể cảm nhận được nó.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thien_xu"
+   ],
+   "place": null,
+   "text_vi_of": "The Thiên Cơ Hall walks the borders of the seven great sects and plants 129 steles; from this year a line the Compact draws can be felt by anyone who crosses it."
   },
   {
    "id": "N-thien_xu-03",
@@ -45,12 +51,15 @@
    "story_kind": "",
    "text_en": "Đỗ Tinh Hà takes the Bắc Thần Ấn at Thạch Kiều before the seals of the seven great sects; from this year the Pivot's head is confirmed by the sects whose peace he keeps.",
    "page": "design/world/depth/sects/thien_xu.md",
-   "text_vi": "",
+   "text_vi": "Đỗ Tinh Hà nhận Bắc Thần Ấn tại Thạch Kiều trước ấn của bảy đại tông; từ năm này, người đứng đầu Thiên Xu được các tông mà ông giữ hòa bình xác nhận.",
    "people": [
     "do_tinh_ha"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thien_xu"
+   ],
+   "place": 81,
+   "text_vi_of": "Đỗ Tinh Hà takes the Bắc Thần Ấn at Thạch Kiều before the seals of the seven great sects; from this year the Pivot's head is confirmed by the sects whose peace he keeps."
   },
   {
    "id": "N-thien_xu-04",
@@ -62,10 +71,13 @@
    "story_kind": "",
    "text_en": "Every guard on Tinh Tủy Mạch is called down to the plain of Chiết Kích as reinforcements; none returns, and the vein stands unwatched for three years.",
    "page": "design/world/depth/sects/thien_xu.md",
-   "text_vi": "",
+   "text_vi": "Mọi lính canh trên Tinh Tủy Mạch đều bị gọi xuống đồng bằng Chiết Kích làm viện binh; không ai trở về, và mạch đứng không người canh suốt ba năm.",
    "people": [],
-   "sects": [],
-   "place": 205
+   "sects": [
+    "thien_xu"
+   ],
+   "place": 205,
+   "text_vi_of": "Every guard on Tinh Tủy Mạch is called down to the plain of Chiết Kích as reinforcements; none returns, and the vein stands unwatched for three years."
   },
   {
    "id": "N-thien_xu-05",
@@ -77,10 +89,13 @@
    "story_kind": "",
    "text_en": "The seat's half of the Thiết Mã tally is missing from Tàng Ước Các the winter after the battle; the keeper searches the shelves for a year.",
    "page": "design/world/depth/sects/thien_xu.md",
-   "text_vi": "",
+   "text_vi": "Nửa binh phù Thiết Mã thuộc về tông chủ mất khỏi Tàng Ước Các vào mùa đông sau trận chiến; người giữ kho tìm trên các giá suốt một năm.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thien_xu"
+   ],
+   "place": null,
+   "text_vi_of": "The seat's half of the Thiết Mã tally is missing from Tàng Ước Các the winter after the battle; the keeper searches the shelves for a year."
   },
   {
    "id": "N-thien_xu-06",
@@ -92,12 +107,15 @@
    "story_kind": "",
    "text_en": "The Pivot's envoy Trình Bạch Tiết is killed on the stair of Phá Quân Môn carrying his lord's refusal; from this year the Pivot's envoys carry jade tallies, never iron.",
    "page": "design/world/depth/sects/thien_xu.md",
-   "text_vi": "",
+   "text_vi": "Sứ giả của Thiên Xu là Trình Bạch Tiết bị giết trên bậc thang Phá Quân Môn khi mang lời từ chối của chủ mình; từ năm này sứ giả của Thiên Xu mang phù ngọc, không bao giờ mang phù sắt.",
    "people": [
     "trinh_bach_tiet"
    ],
-   "sects": [],
-   "place": 218
+   "sects": [
+    "thien_xu"
+   ],
+   "place": 218,
+   "text_vi_of": "The Pivot's envoy Trình Bạch Tiết is killed on the stair of Phá Quân Môn carrying his lord's refusal; from this year the Pivot's envoys carry jade tallies, never iron."
   },
   {
    "id": "N-thien_xu-07",
@@ -109,12 +127,15 @@
    "story_kind": "",
    "text_en": "At the clearing of Hắc Phong Trại, Đỗ Tinh Hà spares the youngest of the rogues and keeps him as a hunter.",
    "page": "design/world/depth/sects/thien_xu.md",
-   "text_vi": "",
+   "text_vi": "Tại bãi trống Hắc Phong Trại, Đỗ Tinh Hà tha cho kẻ trẻ nhất trong đám cướp và giữ y lại làm thợ săn.",
    "people": [
     "do_tinh_ha"
    ],
-   "sects": [],
-   "place": 702
+   "sects": [
+    "thien_xu"
+   ],
+   "place": 702,
+   "text_vi_of": "At the clearing of Hắc Phong Trại, Đỗ Tinh Hà spares the youngest of the rogues and keeps him as a hunter."
   },
   {
    "id": "N-thien_xu-08",
@@ -126,14 +147,16 @@
    "story_kind": "",
    "text_en": "At Doãn Ngọc Hành's confirmation Thính Vũ Lâu's seal is set a day late, because its envoy is out buying grain in the drought; the same year its disciples march on Đan Sơn Mạch.",
    "page": "design/world/depth/sects/thien_xu.md",
-   "text_vi": "",
+   "text_vi": "Trong lễ xác nhận của Doãn Ngọc Hành, ấn của Thính Vũ Lâu được đóng muộn một ngày, vì sứ giả của họ đi mua lương trong nạn hạn; cũng năm ấy, đệ tử của họ kéo quân đến Đan Sơn Mạch.",
    "people": [
     "doan_ngoc_hanh"
    ],
    "sects": [
+    "thien_xu",
     "thinh_vu"
    ],
-   "place": 211
+   "place": 211,
+   "text_vi_of": "At Doãn Ngọc Hành's confirmation Thính Vũ Lâu's seal is set a day late, because its envoy is out buying grain in the drought; the same year its disciples march on Đan Sơn Mạch."
   },
   {
    "id": "N-thien_xu-09",
@@ -145,12 +168,16 @@
    "story_kind": "",
    "text_en": "Doãn Ngọc Hành asks the Chief Judge for the Weight and judges Băng Tâm's petition himself, the first head to do so since 510; he returns the Weight the next morning.",
    "page": "design/world/depth/sects/thien_xu.md",
-   "text_vi": "",
+   "text_vi": "Doãn Ngọc Hành xin Chủ Phán trao Thiên Quyền Thạch và tự mình xét đơn kiện của Băng Tâm, người đứng đầu đầu tiên làm vậy kể từ năm 510; sáng hôm sau ông trả lại Thiên Quyền Thạch.",
    "people": [
     "doan_ngoc_hanh"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thien_xu",
+    "bang_tam"
+   ],
+   "place": null,
+   "text_vi_of": "Doãn Ngọc Hành asks the Chief Judge for the Weight and judges Băng Tâm's petition himself, the first head to do so since 510; he returns the Weight the next morning."
   },
   {
    "id": "N-thien_xu-10",
@@ -162,10 +189,14 @@
    "story_kind": "",
    "text_en": "A copy of the 803 guard roll of Tinh Tủy Mạch is handed to Băng Tâm's envoy in a guest-house at Thạch Kiều.",
    "page": "design/world/depth/sects/thien_xu.md",
-   "text_vi": "",
+   "text_vi": "Một bản chép danh sách lính canh năm 803 của Tinh Tủy Mạch được trao cho sứ giả của Băng Tâm tại một nhà khách ở Thạch Kiều.",
    "people": [],
-   "sects": [],
-   "place": 205
+   "sects": [
+    "thien_xu",
+    "bang_tam"
+   ],
+   "place": 81,
+   "text_vi_of": "A copy of the 803 guard roll of Tinh Tủy Mạch is handed to Băng Tâm's envoy in a guest-house at Thạch Kiều."
   }
  ]
 }

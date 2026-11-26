@@ -12,12 +12,15 @@
    "story_kind": "",
    "text_en": "Dạ Quang's raiders kill the guard captain Viên Trường Hà in the gorge of the crying gibbons and set a night-glowing cup on his chest.",
    "page": "design/world/depth/sects/tran_sa.md",
-   "text_vi": "",
+   "text_vi": "Bọn cướp của Dạ Quang Môn giết đội trưởng canh Viên Trường Hà ở hẻm núi vượn hú và đặt một chiếc chén phát sáng trong đêm lên ngực ông.",
    "people": [
     "vien_truong_ha"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "da_quang"
+   ],
+   "place": null,
+   "text_vi_of": "Dạ Quang's raiders kill the guard captain Viên Trường Hà in the gorge of the crying gibbons and set a night-glowing cup on his chest."
   },
   {
    "id": "N-tran_sa-02",
@@ -29,12 +32,14 @@
    "story_kind": "",
    "text_en": "Trấn Sa Đường's smiths light a forge on the Sword-Washing Spring; the Pavilion buys its first blades from it the next year.",
    "page": "design/world/depth/sects/tran_sa.md",
-   "text_vi": "",
+   "text_vi": "Các thợ rèn của Trấn Sa Đường nhóm một lò rèn trên Tẩy Kiếm Tuyền; năm sau Băng Tâm Các mua những thanh kiếm đầu tiên từ đó.",
    "people": [],
    "sects": [
-    "tran_sa"
+    "tran_sa",
+    "bang_tam"
    ],
-   "place": null
+   "place": 255,
+   "text_vi_of": "Trấn Sa Đường's smiths light a forge on the Sword-Washing Spring; the Pavilion buys its first blades from it the next year."
   }
  ]
 }

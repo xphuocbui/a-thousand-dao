@@ -12,12 +12,15 @@
    "story_kind": "",
    "text_en": "Ông Lục Tiết, who sat the Feather Kindling forty-one times, leads forty unkindled outer disciples of Phượng Minh down to the wet grass below Tử Trúc Lâm to grow the bamboo seed the phoenix eats; the palace grants the garden sixty years of rice.",
    "page": "design/world/depth/sects/truc_thuc.md",
-   "text_vi": "",
+   "text_vi": "Ông Lục Tiết, người đã dự Vũ Hỏa Thí bốn mươi mốt lần, dẫn bốn mươi ngoại môn đệ tử chưa nhóm được lửa của Phượng Minh xuống bãi cỏ ướt dưới Tử Trúc Lâm để trồng hạt trúc mà phượng hoàng ăn; cung ban cho khu vườn sáu mươi năm gạo.",
    "people": [
     "ong_luc_tiet"
    ],
-   "sects": [],
-   "place": 331
+   "sects": [
+    "phuong_minh"
+   ],
+   "place": 331,
+   "text_vi_of": "Ông Lục Tiết, who sat the Feather Kindling forty-one times, leads forty unkindled outer disciples of Phượng Minh down to the wet grass below Tử Trúc Lâm to grow the bamboo seed the phoenix eats; the palace grants the garden sixty years of rice."
   },
   {
    "id": "N-truc_thuc-02",
@@ -29,10 +32,13 @@
    "story_kind": "",
    "text_en": "The garden's grove flowers and dies in a month; the bamboo rats of Trúc Thử Nguyên eat the fallen seed, then Bích Lãng's rice.",
    "page": "design/world/depth/sects/truc_thuc.md",
-   "text_vi": "",
+   "text_vi": "Rừng trúc của khu vườn nở hoa rồi chết trong một tháng; chuột trúc ở Trúc Thử Nguyên ăn hạt rụng, rồi ăn gạo của Bích Lãng.",
    "people": [],
-   "sects": [],
-   "place": 1488
+   "sects": [
+    "truc_thuc"
+   ],
+   "place": 1488,
+   "text_vi_of": "The garden's grove flowers and dies in a month; the bamboo rats of Trúc Thử Nguyên eat the fallen seed, then Bích Lãng's rice."
   },
   {
    "id": "N-truc_thuc-03",
@@ -44,13 +50,16 @@
    "story_kind": "",
    "text_en": "As the grove flowers, Tất Mạn Thu flowers with it to heal the field hands the rats have bitten, and dies before summer; her disciple Ninh Trúc Thực lights a censer in the young clumps.",
    "page": "design/world/depth/sects/truc_thuc.md",
-   "text_vi": "",
+   "text_vi": "Khi rừng trúc nở hoa, Tất Mạn Thu cũng nở hoa cùng nó để chữa cho các tá điền bị chuột cắn, và chết trước mùa hạ; đệ tử Ninh Trúc Thực thắp một lư hương giữa những bụi trúc non.",
    "people": [
     "ninh_truc_thuc",
     "tat_man_thu"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "truc_thuc"
+   ],
+   "place": null,
+   "text_vi_of": "As the grove flowers, Tất Mạn Thu flowers with it to heal the field hands the rats have bitten, and dies before summer; her disciple Ninh Trúc Thực lights a censer in the young clumps."
   },
   {
    "id": "N-truc_thuc-04",
@@ -62,12 +71,15 @@
    "story_kind": "",
    "text_en": "Úy Thương Điền cuts flood terraces below the bamboo; the garden takes in the Water-rooted children of the coast.",
    "page": "design/world/depth/sects/truc_thuc.md",
-   "text_vi": "",
+   "text_vi": "Úy Thương Điền đắp ruộng bậc thang chống lũ dưới rừng trúc; khu vườn nhận những đứa trẻ linh căn Thủy của miền duyên hải.",
    "people": [
     "uy_thuong_dien"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "truc_thuc"
+   ],
+   "place": null,
+   "text_vi_of": "Úy Thương Điền cuts flood terraces below the bamboo; the garden takes in the Water-rooted children of the coast."
   },
   {
    "id": "N-truc_thuc-05",
@@ -79,12 +91,13 @@
    "story_kind": "",
    "text_en": "Trúc Thực Viên writes its lineage as Wood and Water.",
    "page": "design/world/depth/sects/truc_thuc.md",
-   "text_vi": "",
+   "text_vi": "Trúc Thực Viên ghi dòng truyền thừa của mình là Mộc và Thủy.",
    "people": [],
    "sects": [
     "truc_thuc"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Trúc Thực Viên writes its lineage as Wood and Water."
   }
  ]
 }

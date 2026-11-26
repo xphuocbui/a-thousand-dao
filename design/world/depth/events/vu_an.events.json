@@ -12,12 +12,15 @@
    "story_kind": "",
    "text_en": "Hàm Thủ Lộ hangs the first mist lantern at the Trà Viên crossroads; travellers who walk under it are not seen until the next crossroads.",
    "page": "design/world/depth/sects/vu_an.md",
-   "text_vi": "",
+   "text_vi": "Hàm Thủ Lộ treo chiếc vụ đăng đầu tiên ở ngã tư Trà Viên; lữ khách đi dưới nó sẽ không bị nhìn thấy cho đến ngã tư kế tiếp.",
    "people": [
     "ham_thu_lo"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "vu_an"
+   ],
+   "place": 1075,
+   "text_vi_of": "Hàm Thủ Lộ hangs the first mist lantern at the Trà Viên crossroads; travellers who walk under it are not seen until the next crossroads."
   },
   {
    "id": "N-vu_an-02",
@@ -29,12 +32,16 @@
    "story_kind": "",
    "text_en": "Vụ Ẩn Môn's founder hides a robber of Đoản Vĩ Cương from a Thúy Vi road patrol in his mist and does not ask why. The robber becomes his road guard.",
    "page": "design/world/depth/sects/vu_an.md",
-   "text_vi": "",
-   "people": [],
-   "sects": [
-    "vu_an"
+   "text_vi": "Người sáng lập Vụ Ẩn Môn giấu một tên cướp ở Đoản Vĩ Cương khỏi một đội tuần đường của Thúy Vi trong màn sương của mình và không hỏi vì sao. Tên cướp trở thành người hộ đường của ông.",
+   "people": [
+    "ham_thu_lo"
    ],
-   "place": 1043
+   "sects": [
+    "vu_an",
+    "thuy_vi"
+   ],
+   "place": 1043,
+   "text_vi_of": "Vụ Ẩn Môn's founder hides a robber of Đoản Vĩ Cương from a Thúy Vi road patrol in his mist and does not ask why. The robber becomes his road guard."
   },
   {
    "id": "N-vu_an-03",
@@ -46,12 +53,15 @@
    "story_kind": "",
    "text_en": "Hàm Thủ Lộ walks into his own mist on the road by empty Đồng Sơn Trấn and is not found. His lantern is found on the road, still burning.",
    "page": "design/world/depth/sects/vu_an.md",
-   "text_vi": "",
+   "text_vi": "Hàm Thủ Lộ bước vào màn sương của chính mình trên con đường cạnh Đồng Sơn Trấn vắng người và không ai tìm thấy ông. Chiếc đèn của ông được tìm thấy trên đường, vẫn đang cháy.",
    "people": [
     "ham_thu_lo"
    ],
-   "sects": [],
-   "place": 1056
+   "sects": [
+    "vu_an"
+   ],
+   "place": 1056,
+   "text_vi_of": "Hàm Thủ Lộ walks into his own mist on the road by empty Đồng Sơn Trấn and is not found. His lantern is found on the road, still burning."
   },
   {
    "id": "N-vu_an-04",
@@ -63,12 +73,15 @@
    "story_kind": "",
    "text_en": "Robbers from the Ridge of the Bobtails fall on a caravan on the Đồng Sơn road. The guard Bối Trường Đình dies holding the mist over it, and one child lives.",
    "page": "design/world/depth/sects/vu_an.md",
-   "text_vi": "",
+   "text_vi": "Bọn cướp từ Đoản Vĩ Cương ập vào một đoàn thương nhân trên đường Đồng Sơn. Người hộ đường Bối Trường Đình chết khi đang giữ màn sương che phủ nó, và một đứa trẻ sống sót.",
    "people": [
     "boi_truong_dinh"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "vu_an"
+   ],
+   "place": 1056,
+   "text_vi_of": "Robbers from the Ridge of the Bobtails fall on a caravan on the Đồng Sơn road. The guard Bối Trường Đình dies holding the mist over it, and one child lives."
   },
   {
    "id": "N-vu_an-05",
@@ -80,10 +93,13 @@
    "story_kind": "",
    "text_en": "An agent of Tùng Đào's first elder buys up a Phù Kiều gambler's debts in Hàn Tân Thành.",
    "page": "design/world/depth/sects/vu_an.md",
-   "text_vi": "",
+   "text_vi": "Một mật sứ của trưởng lão đầu tiên của Tùng Đào mua hết các khoản nợ của một con bạc ở Phù Kiều tại Hàn Tân Thành.",
    "people": [],
-   "sects": [],
-   "place": 31
+   "sects": [
+    "tung_dao"
+   ],
+   "place": 31,
+   "text_vi_of": "An agent of Tùng Đào's first elder buys up a Phù Kiều gambler's debts in Hàn Tân Thành."
   }
  ]
 }

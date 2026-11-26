@@ -12,12 +12,15 @@
    "story_kind": "",
    "text_en": "Nghê Hồng Đậu plants the first red-bean trellis over the vein at Tiêu Âm Mạch, five tiles inland from her gracious door.",
    "page": "design/world/depth/sects/hong_dau.md",
-   "text_vi": "",
+   "text_vi": "Nghê Hồng Đậu dựng giàn đậu đỏ đầu tiên trên mạch đất ở Tiêu Âm Mạch, cách cửa quý của bà năm ô về phía nội địa.",
    "people": [
     "nghe_hong_dau"
    ],
-   "sects": [],
-   "place": 263
+   "sects": [
+    "hong_dau"
+   ],
+   "place": 263,
+   "text_vi_of": "Nghê Hồng Đậu plants the first red-bean trellis over the vein at Tiêu Âm Mạch, five tiles inland from her gracious door."
   },
   {
    "id": "N-hong_dau-02",
@@ -29,14 +32,16 @@
    "story_kind": "",
    "text_en": "Hàn Tư Quân, first disciple of Hồng Đậu Trang, tries to carry Phi Hồng to Lạc Hà. The mistress meets him at the door with a cup of tea. He is buried under the first trellis.",
    "page": "design/world/depth/sects/hong_dau.md",
-   "text_vi": "",
+   "text_vi": "Hàn Tư Quân, đệ tử đầu của Hồng Đậu Trang, toan đưa Phi Hồng đến Lạc Hà. Bà chủ gặp anh ở cửa với một chén trà. Anh được chôn dưới giàn đầu tiên.",
    "people": [
     "han_tu_quan"
    ],
    "sects": [
-    "hong_dau"
+    "hong_dau",
+    "lac_ha"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Hàn Tư Quân, first disciple of Hồng Đậu Trang, tries to carry Phi Hồng to Lạc Hà. The mistress meets him at the door with a cup of tea. He is buried under the first trellis."
   },
   {
    "id": "N-hong_dau-03",
@@ -48,12 +53,13 @@
    "story_kind": "",
    "text_en": "The mistress of Hồng Đậu Trang moves her rooms from the manor on the forest road to the vein garden, where no bell line reaches. The house on the road keeps the gracious door.",
    "page": "design/world/depth/sects/hong_dau.md",
-   "text_vi": "",
+   "text_vi": "Bà chủ Hồng Đậu Trang dời phòng của mình từ trang viên bên đường rừng đến vườn mạch, nơi không đường dây chuông nào vươn tới. Ngôi nhà bên đường giữ cửa quý.",
    "people": [],
    "sects": [
     "hong_dau"
    ],
-   "place": null
+   "place": 263,
+   "text_vi_of": "The mistress of Hồng Đậu Trang moves her rooms from the manor on the forest road to the vein garden, where no bell line reaches. The house on the road keeps the gracious door."
   },
   {
    "id": "N-hong_dau-04",
@@ -65,10 +71,15 @@
    "story_kind": "",
    "text_en": "A Phượng Minh swordsman knocks at the gracious door, asks about the Tower's poisons, and is poured a second cup. He does not go home.",
    "page": "design/world/depth/sects/hong_dau.md",
-   "text_vi": "",
+   "text_vi": "Một kiếm khách Phượng Minh Cung gõ cửa quý, hỏi về các loại độc của Thính Vũ Lâu, và được rót chén thứ hai. Ông không về nhà nữa.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "phuong_minh",
+    "thinh_vu",
+    "hong_dau"
+   ],
+   "place": null,
+   "text_vi_of": "A Phượng Minh swordsman knocks at the gracious door, asks about the Tower's poisons, and is poured a second cup. He does not go home."
   }
  ]
 }

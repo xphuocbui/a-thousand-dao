@@ -12,13 +12,14 @@
    "story_kind": "",
    "text_en": "A month before Kim Cốc Viên falls, Kim Vạn Lý sells his share of its notes to the banker Quản Doanh Hư.",
    "page": "design/world/depth/people/market-folk.md",
-   "text_vi": "",
+   "text_vi": "Một tháng trước khi Kim Cốc Viên sụp đổ, Kim Vạn Lý bán phần của mình trong các khoản vay của nó cho chủ ngân hiệu Quản Doanh Hư.",
    "people": [
-    "quan_doanh_hu",
-    "kim_van_ly"
+    "kim_van_ly",
+    "quan_doanh_hu"
    ],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "A month before Kim Cốc Viên falls, Kim Vạn Lý sells his share of its notes to the banker Quản Doanh Hư."
   },
   {
    "id": "N-market_folk-02",
@@ -30,12 +31,13 @@
    "story_kind": "",
    "text_en": "In Vật Hoa Thị the ruined banker Quản Doanh Hư sells four copies of Kim Cốc Viên's Golden Valley Ledger Canon to pay his creditors.",
    "page": "design/world/depth/people/market-folk.md",
-   "text_vi": "",
+   "text_vi": "Ở Vật Hoa Thị, chủ ngân hiệu Quản Doanh Hư đã phá sản bán bốn bản Kim Cốc Trướng Kinh của Kim Cốc Viên để trả chủ nợ.",
    "people": [
     "quan_doanh_hu"
    ],
    "sects": [],
-   "place": 50
+   "place": 50,
+   "text_vi_of": "In Vật Hoa Thị the ruined banker Quản Doanh Hư sells four copies of Kim Cốc Viên's Golden Valley Ledger Canon to pay his creditors."
   },
   {
    "id": "N-market_folk-03",
@@ -47,12 +49,13 @@
    "story_kind": "",
    "text_en": "Quản Doanh Hư dies in a rented room in Vật Hoa Thị with eighty parts in a hundred paid; his ledger is closed.",
    "page": "design/world/depth/people/market-folk.md",
-   "text_vi": "",
+   "text_vi": "Quản Doanh Hư chết trong một căn phòng thuê ở Vật Hoa Thị khi đã trả được tám phần trong một trăm; sổ của ông được khép lại.",
    "people": [
     "quan_doanh_hu"
    ],
    "sects": [],
-   "place": 50
+   "place": 50,
+   "text_vi_of": "Quản Doanh Hư dies in a rented room in Vật Hoa Thị with eighty parts in a hundred paid; his ledger is closed."
   },
   {
    "id": "N-market_folk-04",
@@ -64,12 +67,13 @@
    "story_kind": "",
    "text_en": "Mẫn Tế Thế, the healer of Hạnh Hoa Thị, spends his last years in needles to break a fever in the lamp-makers' quarter and dies under the apricot tree.",
    "page": "design/world/depth/people/market-folk.md",
-   "text_vi": "",
+   "text_vi": "Mẫn Tế Thế, thầy thuốc của Hạnh Hoa Thị, dành những năm cuối đời bằng kim châm để cắt cơn sốt trong khu thợ làm đèn và chết dưới gốc cây hạnh.",
    "people": [
     "man_te_the"
    ],
    "sects": [],
-   "place": 54
+   "place": 54,
+   "text_vi_of": "Mẫn Tế Thế, the healer of Hạnh Hoa Thị, spends his last years in needles to break a fever in the lamp-makers' quarter and dies under the apricot tree."
   },
   {
    "id": "N-market_folk-05",
@@ -81,13 +85,14 @@
    "story_kind": "",
    "text_en": "Bào Thừa Phong of Yên Ba dies owing for his son's new yards; Kim Vạn Lý pays the debt for a third of the ship-house.",
    "page": "design/world/depth/people/market-folk.md",
-   "text_vi": "",
+   "text_vi": "Bào Thừa Phong ở Yên Ba chết khi còn nợ tiền xưởng đóng tàu mới của con trai; Kim Vạn Lý trả khoản nợ để lấy một phần ba xưởng tàu.",
    "people": [
     "bao_thua_phong",
     "kim_van_ly"
    ],
    "sects": [],
-   "place": null
+   "place": 30,
+   "text_vi_of": "Bào Thừa Phong of Yên Ba dies owing for his son's new yards; Kim Vạn Lý pays the debt for a third of the ship-house."
   },
   {
    "id": "N-market_folk-06",
@@ -99,12 +104,13 @@
    "story_kind": "",
    "text_en": "Quản Phục Thu opens her grandfather's closed ledger and takes on the last twenty parts of the Kim Cốc debt.",
    "page": "design/world/depth/people/market-folk.md",
-   "text_vi": "",
+   "text_vi": "Quản Phục Thu mở cuốn sổ đã khép của ông nội và nhận hai mươi phần cuối cùng của khoản nợ Kim Cốc.",
    "people": [
     "quan_phuc_thu"
    ],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "Quản Phục Thu opens her grandfather's closed ledger and takes on the last twenty parts of the Kim Cốc debt."
   },
   {
    "id": "N-market_folk-07",
@@ -116,12 +122,15 @@
    "story_kind": "",
    "text_en": "Kim Vạn Lý orders three hulls from the Bào yards, deep-keeled and copper-sheathed for southern water, and lends them to Thúy Vi's port house.",
    "page": "design/world/depth/people/market-folk.md",
-   "text_vi": "",
+   "text_vi": "Kim Vạn Lý đặt ba thân tàu ở xưởng họ Bào, sống tàu sâu và bọc đồng cho vùng nước phía nam, và cho cảng quán của Thúy Vi Tông mượn.",
    "people": [
     "kim_van_ly"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thuy_vi"
+   ],
+   "place": null,
+   "text_vi_of": "Kim Vạn Lý orders three hulls from the Bào yards, deep-keeled and copper-sheathed for southern water, and lends them to Thúy Vi's port house."
   }
  ]
 }

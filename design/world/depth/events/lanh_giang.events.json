@@ -12,10 +12,11 @@
    "story_kind": "",
    "text_en": "An old fisher who belongs to no sect forms his core sitting by a hole in the Liên Giang ice.",
    "page": "design/world/depth/sects/lanh_giang.md",
-   "text_vi": "",
+   "text_vi": "Một lão ngư không thuộc tông môn nào kết đan khi ngồi bên một lỗ băng trên sông Liên Giang.",
    "people": [],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "An old fisher who belongs to no sect forms his core sitting by a hole in the Liên Giang ice."
   },
   {
    "id": "N-lanh_giang-02",
@@ -27,10 +28,14 @@
    "story_kind": "",
    "text_en": "Băng Tâm's licence to the fishers of Liên Giang: they may sit as Hàn Giang sat, on Water alone; Ice belongs to the Pavilion.",
    "page": "design/world/depth/sects/lanh_giang.md",
-   "text_vi": "",
+   "text_vi": "Giấy phép của Băng Tâm cho ngư dân Liên Giang: họ được ngồi như Hàn Giang đã ngồi, chỉ trên Thủy; Băng thuộc về Băng Tâm Các.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "bang_tam",
+    "lanh_giang"
+   ],
+   "place": null,
+   "text_vi_of": "Băng Tâm's licence to the fishers of Liên Giang: they may sit as Hàn Giang sat, on Water alone; Ice belongs to the Pavilion."
   },
   {
    "id": "N-lanh_giang-03",
@@ -42,10 +47,15 @@
    "story_kind": "",
    "text_en": "Lãnh Giang's co-founder goes through the spring ice sitting the seventh layer; the school never sits on spring ice again.",
    "page": "design/world/depth/sects/lanh_giang.md",
-   "text_vi": "",
-   "people": [],
-   "sects": [],
-   "place": null
+   "text_vi": "Người đồng sáng lập Lãnh Giang đi xuyên qua lớp băng mùa xuân khi đang ngồi ở tầng thứ bảy; từ đó Lãnh Giang Phái không bao giờ ngồi trên băng mùa xuân nữa.",
+   "people": [
+    "dai_tuyet_lap"
+   ],
+   "sects": [
+    "lanh_giang"
+   ],
+   "place": null,
+   "text_vi_of": "Lãnh Giang's co-founder goes through the spring ice sitting the seventh layer; the school never sits on spring ice again."
   }
  ]
 }

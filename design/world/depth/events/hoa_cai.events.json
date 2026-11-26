@@ -12,14 +12,15 @@
    "story_kind": "",
    "text_en": "Úy Đan Dương of Hoa Cái Đường begins a nine-turn cinnabar elixir to carry a Trúc Cơ through Kết Đan, and calls it the Canopy Pill.",
    "page": "design/world/depth/sects/hoa_cai.md",
-   "text_vi": "",
+   "text_vi": "Úy Đan Dương của Hoa Cái Đường khởi luyện một lò đan sa chín chuyển để đưa một tu sĩ Trúc Cơ vượt qua Kết Đan, và gọi nó là Hoa Cái Đan.",
    "people": [
     "uy_dan_duong"
    ],
    "sects": [
     "hoa_cai"
    ],
-   "place": null
+   "place": 565,
+   "text_vi_of": "Úy Đan Dương of Hoa Cái Đường begins a nine-turn cinnabar elixir to carry a Trúc Cơ through Kết Đan, and calls it the Canopy Pill."
   },
   {
    "id": "N-hoa_cai-02",
@@ -31,13 +32,16 @@
    "story_kind": "",
    "text_en": "The eighth turn of the Canopy Pill blows back in the Hall's refining room; its founder is blinded, his partner Tôn Luyện Hà dies, and the Trúc Cơ La Tử Vi takes the furnace.",
    "page": "design/world/depth/sects/hoa_cai.md",
-   "text_vi": "",
+   "text_vi": "Chuyển thứ tám của Hoa Cái Đan phản phệ trong phòng luyện của Hoa Cái Đường; người sáng lập bị mù, bạn đồng sáng lập Tôn Luyện Hà chết, và tu sĩ Trúc Cơ La Tử Vi nhận lấy lò.",
    "people": [
     "ton_luyen_ha",
     "la_tu_vi"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "hoa_cai"
+   ],
+   "place": 565,
+   "text_vi_of": "The eighth turn of the Canopy Pill blows back in the Hall's refining room; its founder is blinded, his partner Tôn Luyện Hà dies, and the Trúc Cơ La Tử Vi takes the furnace."
   },
   {
    "id": "N-hoa_cai-03",
@@ -49,12 +53,14 @@
    "story_kind": "",
    "text_en": "Thiên Xu leases the digging and washing of Thần Sa Khoáng to Hoa Cái Đường; the Pivot keeps the mine and buys back the refined cinnabar by weight at Thiên Quyền Thị.",
    "page": "design/world/depth/sects/hoa_cai.md",
-   "text_vi": "",
+   "text_vi": "Thiên Xu cho Hoa Cái Đường thuê việc đào và rửa Thần Sa Khoáng; Thiên Xu giữ mỏ và mua lại đan sa đã luyện theo cân ở Thiên Quyền Thị.",
    "people": [],
    "sects": [
+    "thien_xu",
     "hoa_cai"
    ],
-   "place": 52
+   "place": 52,
+   "text_vi_of": "Thiên Xu leases the digging and washing of Thần Sa Khoáng to Hoa Cái Đường; the Pivot keeps the mine and buys back the refined cinnabar by weight at Thiên Quyền Thị."
   }
  ]
 }

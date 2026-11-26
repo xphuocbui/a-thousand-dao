@@ -12,10 +12,13 @@
    "story_kind": "",
    "text_en": "After the ice wall at Nghênh Nguyệt, a ward-writer of Tùng Đào's Array Hall writes a ward inside a paper lantern that keeps the ice off a village for a winter.",
    "page": "design/world/depth/sects/suong_tung.md",
-   "text_vi": "",
+   "text_vi": "Sau bức tường băng ở Nghênh Nguyệt, một phù sư của Trận Đường thuộc Tùng Đào viết một cấm chế vào trong chiếc đèn lồng giấy, giữ băng tránh xa một ngôi làng suốt một mùa đông.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "tung_dao"
+   ],
+   "place": 943,
+   "text_vi_of": "After the ice wall at Nghênh Nguyệt, a ward-writer of Tùng Đào's Array Hall writes a ward inside a paper lantern that keeps the ice off a village for a winter."
   },
   {
    "id": "N-suong_tung-02",
@@ -27,10 +30,14 @@
    "story_kind": "craft",
    "text_en": "Sương Tùng's founder copies the wards an old singer of Tùng Đào's Array Hall lays with his songs, and seals the copies in a box.",
    "page": "design/world/depth/sects/suong_tung.md",
-   "text_vi": "",
+   "text_vi": "Người sáng lập Sương Tùng chép lại các cấm chế mà một ca sư già của Trận Đường thuộc Tùng Đào bày bằng những bài hát của ông, và niêm các bản chép trong một chiếc hộp.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "suong_tung",
+    "tung_dao"
+   ],
+   "place": null,
+   "text_vi_of": "Sương Tùng's founder copies the wards an old singer of Tùng Đào's Array Hall lays with his songs, and seals the copies in a box."
   },
   {
    "id": "N-suong_tung-03",
@@ -42,14 +49,15 @@
    "story_kind": "",
    "text_en": "The founder of Sương Tùng Các dies at her desk with the brush in her hand; her disciple Văn Hàn Đăng, of Hồ Khẩu, becomes head.",
    "page": "design/world/depth/sects/suong_tung.md",
-   "text_vi": "",
+   "text_vi": "Người sáng lập Sương Tùng Các qua đời bên bàn viết, cây bút còn trong tay; đệ tử của bà là Văn Hàn Đăng, người Hồ Khẩu, trở thành tông chủ.",
    "people": [
     "van_han_dang"
    ],
    "sects": [
     "suong_tung"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "The founder of Sương Tùng Các dies at her desk with the brush in her hand; her disciple Văn Hàn Đăng, of Hồ Khẩu, becomes head."
   }
  ]
 }

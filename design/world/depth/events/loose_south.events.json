@@ -12,12 +12,15 @@
    "story_kind": "",
    "text_en": "Đồ Liệt Cơ and the eleven who went over the wall of Hắc Phong take the empty fort of Thạch Môn Trại, which Khải Lôi's garrison left in 645, and the Pivot road has a toll the Pivot did not set.",
    "page": "design/world/depth/people/loose-south.md",
-   "text_vi": "",
+   "text_vi": "Đồ Liệt Cơ cùng mười một người đã vượt tường Hắc Phong chiếm pháo đài bỏ trống Thạch Môn Trại, nơi đồn quân Khải Lôi đã rời đi năm 645, và đường của Thiên Xu có một trạm thu thuế mà Thiên Xu không đặt ra.",
    "people": [
     "do_liet_co"
    ],
-   "sects": [],
-   "place": 389
+   "sects": [
+    "thien_xu"
+   ],
+   "place": 389,
+   "text_vi_of": "Đồ Liệt Cơ and the eleven who went over the wall of Hắc Phong take the empty fort of Thạch Môn Trại, which Khải Lôi's garrison left in 645, and the Pivot road has a toll the Pivot did not set."
   },
   {
    "id": "N-loose_south-02",
@@ -29,13 +32,16 @@
    "story_kind": "",
    "text_en": "At the pass of Đan Sơn Mạch one node of the Pivot's closing array goes slack for the time it takes four of Kỷ Vãn Tình's people to carry the wounded out. The disciple who held it, Lộc Bất Quy, is not at the muster.",
    "page": "design/world/depth/people/loose-south.md",
-   "text_vi": "",
+   "text_vi": "Ở ải Đan Sơn Mạch, một nút của trận pháp phong bế của Thiên Xu chùng xuống trong khoảng thời gian bốn người của Kỷ Vãn Tình khiêng thương binh ra ngoài. Đệ tử giữ nút ấy, Lộc Bất Quy, không có mặt ở buổi điểm danh.",
    "people": [
     "ky_van_tinh",
     "loc_bat_quy"
    ],
-   "sects": [],
-   "place": 211
+   "sects": [
+    "thien_xu"
+   ],
+   "place": 211,
+   "text_vi_of": "At the pass of Đan Sơn Mạch one node of the Pivot's closing array goes slack for the time it takes four of Kỷ Vãn Tình's people to carry the wounded out. The disciple who held it, Lộc Bất Quy, is not at the muster."
   },
   {
    "id": "N-loose_south-03",
@@ -47,10 +53,14 @@
    "story_kind": "",
    "text_en": "A hired boatman at Lãng Đào's Ngư Ca landing asks who set the new toll on Lạc Hà's boats. He is let go, and takes his own boat down to Thủy Khẩu.",
    "page": "design/world/depth/people/loose-south.md",
-   "text_vi": "",
+   "text_vi": "Một người chèo thuyền thuê ở bến Ngư Ca của Lãng Đào hỏi ai đã đặt khoản thuế mới lên thuyền của Lạc Hà. Ông bị cho thôi việc, và tự chèo thuyền của mình xuống Thủy Khẩu.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "lang_dao",
+    "lac_ha"
+   ],
+   "place": null,
+   "text_vi_of": "A hired boatman at Lãng Đào's Ngư Ca landing asks who set the new toll on Lạc Hà's boats. He is let go, and takes his own boat down to Thủy Khẩu."
   },
   {
    "id": "N-loose_south-04",
@@ -62,7 +72,7 @@
    "story_kind": "",
    "text_en": "Châu Phi Vân turns Giản Vạn Lộ out of Nam Phố Đường for copying the hall's order book of 1173, the one that says 'for the reed beds', and selling the copy at Hạc Đinh Thị; he walks south to Thu Trì.",
    "page": "design/world/depth/people/loose-south.md",
-   "text_vi": "",
+   "text_vi": "Châu Phi Vân đuổi Giản Vạn Lộ khỏi Nam Phố Đường vì chép sổ lệnh năm 1173 của đường, cuốn ghi 'cho bãi lau', và bán bản chép ở Hạc Đinh Thị; ông đi bộ xuống phía nam đến Thu Trì.",
    "people": [
     "chau_phi_van",
     "gian_van_lo"
@@ -70,7 +80,8 @@
    "sects": [
     "nam_pho"
    ],
-   "place": 51
+   "place": 21,
+   "text_vi_of": "Châu Phi Vân turns Giản Vạn Lộ out of Nam Phố Đường for copying the hall's order book of 1173, the one that says 'for the reed beds', and selling the copy at Hạc Đinh Thị; he walks south to Thu Trì."
   },
   {
    "id": "N-loose_south-05",
@@ -82,10 +93,14 @@
    "story_kind": "",
    "text_en": "The ferryman of Thủy Khẩu carries a Lạc Hà party and its crates across by night for a triple fare; the crates carry Nam Phố's cloud, and the slip says 'for the reed beds'.",
    "page": "design/world/depth/people/loose-south.md",
-   "text_vi": "",
+   "text_vi": "Người lái đò Thủy Khẩu chở một đoàn người Lạc Hà cùng các thùng hàng sang sông trong đêm với giá gấp ba; các thùng hàng chứa mây của Nam Phố, và phiếu ghi 'cho bãi lau'.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "lac_ha",
+    "nam_pho"
+   ],
+   "place": 139,
+   "text_vi_of": "The ferryman of Thủy Khẩu carries a Lạc Hà party and its crates across by night for a triple fare; the crates carry Nam Phố's cloud, and the slip says 'for the reed beds'."
   },
   {
    "id": "N-loose_south-06",
@@ -97,13 +112,16 @@
    "story_kind": "",
    "text_en": "Below the last cut bridge of the Ngư Ca border the ferryman Yến Hồi Độ pulls Nhạn Trận's Ngô Bất Tán out of the river. From that day the crossing at Thủy Khẩu charges no fare.",
    "page": "design/world/depth/people/loose-south.md",
-   "text_vi": "",
+   "text_vi": "Bên dưới cây cầu bị chặt cuối cùng của biên giới Ngư Ca, lái đò Yến Hồi Độ kéo Ngô Bất Tán của Nhạn Trận từ dưới sông lên. Từ ngày ấy bến sang sông ở Thủy Khẩu không thu tiền đò.",
    "people": [
     "ngo_bat_tan",
     "yen_hoi_do"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "nhan_tran"
+   ],
+   "place": null,
+   "text_vi_of": "Below the last cut bridge of the Ngư Ca border the ferryman Yến Hồi Độ pulls Nhạn Trận's Ngô Bất Tán out of the river. From that day the crossing at Thủy Khẩu charges no fare."
   },
   {
    "id": "N-loose_south-07",
@@ -115,10 +133,11 @@
    "story_kind": "",
    "text_en": "A hunter's daughter is born in a lightning storm at the Tử Tinh mine camp, and the miners' lamps go out all at once.",
    "page": "design/world/depth/people/loose-south.md",
-   "text_vi": "",
+   "text_vi": "Con gái một người thợ săn chào đời trong một cơn bão sét ở trại mỏ Tử Tinh, và đèn của các thợ mỏ tắt cùng một lúc.",
    "people": [],
    "sects": [],
-   "place": null
+   "place": 863,
+   "text_vi_of": "A hunter's daughter is born in a lightning storm at the Tử Tinh mine camp, and the miners' lamps go out all at once."
   },
   {
    "id": "N-loose_south-08",
@@ -130,12 +149,13 @@
    "story_kind": "",
    "text_en": "The hunter Bành Liệp Hổ is killed by the tiger-kind of Phục Hổ Cương; his sworn brother carries him down to Ô Diêu.",
    "page": "design/world/depth/people/loose-south.md",
-   "text_vi": "",
+   "text_vi": "Thợ săn Bành Liệp Hổ bị loài hổ ở Phục Hổ Cương giết chết; huynh đệ kết nghĩa của ông cõng ông xuống Ô Diêu.",
    "people": [
     "banh_liep_ho"
    ],
    "sects": [],
-   "place": 231
+   "place": 231,
+   "text_vi_of": "The hunter Bành Liệp Hổ is killed by the tiger-kind of Phục Hổ Cương; his sworn brother carries him down to Ô Diêu."
   }
  ]
 }

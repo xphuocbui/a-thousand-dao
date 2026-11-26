@@ -194,11 +194,12 @@ earlier hand count, kept for where each kind lives.
 - DONE: the seat table, `tools/design/world/depth_seats.py` → `design/world/depth/seats.json`. 50 sects read, 13 seats
   move, 11 no-lean, all pass Formula F (Wind exempt). `depth_check.py` runs it and reports a stale file or a failing
   seat.
-- STRUCTURED, not done: the events, `tools/design/world/depth_events.py` → `design/world/depth/events/
+- DONE 2026-11-26: the events, `tools/design/world/depth_events.py` → `design/world/depth/events/
   <owner>.events.json`. 277 events in 56 owners (landmark 39, annals 233, hidden kind 5; secret 34, from the header
   flag, a "(hidden" after the text, or a timeline row marking its bold id). People, sects and place are matched by name
-  as proposals. Open: `text_vi` for all 277 (the translation pass; `text_vi_of` catches a later rewrite) and a confirm
-  pass on the matched people and places.
+  as proposals, then confirmed and corrected by the translation pass, which wrote `text_vi` for all 277 in six Sonnet
+  batches (`design/world/depth/_brief-event-translation.md`; `text_vi_of` catches a later rewrite). Coined names and
+  judgement calls for the user's end review: `design/world/depth/review/event-translation-names.md`.
 - DONE in the gap report (`TIE_MAP`, user rulings 2026-11-26): the tie mapping; no kind is unmapped. Every authored
   person is notable in the game (cap 16); partners are counted once; a feud is pinned.
 - RULED 2026-11-26 (`DECISIONS-2026-11-26.md`, Stages 0-1): the four `hidden`-kind events follow rule 5a (pages

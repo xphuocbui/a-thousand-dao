@@ -12,12 +12,13 @@
    "story_kind": "",
    "text_en": "Băng Tâm Các leaves its desert pavilion and raises its halls on the ruin of Hồ Thiên Phái, on the ice the fire mountain buried.",
    "page": "design/world/depth/sects/bang_tam.md",
-   "text_vi": "",
+   "text_vi": "Băng Tâm Các rời tòa các giữa sa mạc và dựng các điện trên tàn tích Hồ Thiên Phái, trên lớp băng mà ngọn núi lửa đã chôn.",
    "people": [],
    "sects": [
     "bang_tam"
    ],
-   "place": 214
+   "place": 214,
+   "text_vi_of": "Băng Tâm Các leaves its desert pavilion and raises its halls on the ruin of Hồ Thiên Phái, on the ice the fire mountain buried."
   },
   {
    "id": "N-bang_tam-02",
@@ -29,12 +30,15 @@
    "story_kind": "",
    "text_en": "Tần Ngưng Sương lays the Jade Vessel Array into the ice over the buried vent; the steam stops, and the birds come back to Ngọc Hồ Sơn.",
    "page": "design/world/depth/sects/bang_tam.md",
-   "text_vi": "",
+   "text_vi": "Tần Ngưng Sương bố Ngọc Hồ Trận vào lớp băng phía trên miệng huyệt bị chôn; hơi nước ngừng bốc, và chim muông trở về Ngọc Hồ Sơn.",
    "people": [
     "tan_ngung_suong"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "bang_tam"
+   ],
+   "place": null,
+   "text_vi_of": "Tần Ngưng Sương lays the Jade Vessel Array into the ice over the buried vent; the steam stops, and the birds come back to Ngọc Hồ Sơn."
   },
   {
    "id": "N-bang_tam-03",
@@ -46,10 +50,11 @@
    "story_kind": "",
    "text_en": "A four-year-old boy is carried out of the ruin of Cô Thành wrapped in his dead father's cape, a red-ink sword manual sewn into the lining: the last of Lãnh Hương Các.",
    "page": "design/world/depth/sects/bang_tam.md",
-   "text_vi": "",
+   "text_vi": "Một bé trai bốn tuổi được bế ra khỏi tàn tích Cô Thành, bọc trong áo choàng của người cha đã chết, trong lớp lót khâu một cuốn kiếm phổ viết bằng mực đỏ: người cuối cùng của Lãnh Hương Các.",
    "people": [],
    "sects": [],
-   "place": 1412
+   "place": 227,
+   "text_vi_of": "A four-year-old boy is carried out of the ruin of Cô Thành wrapped in his dead father's cape, a red-ink sword manual sewn into the lining: the last of Lãnh Hương Các."
   },
   {
    "id": "N-bang_tam-04",
@@ -61,12 +66,15 @@
    "story_kind": "",
    "text_en": "Passed over for the Vessel, Cố Lăng Sương climbs Băng Bích Nhai the winter her master dies and closes the cave behind her.",
    "page": "design/world/depth/sects/bang_tam.md",
-   "text_vi": "",
+   "text_vi": "Bị bỏ qua khi chọn người giữ Ngọc Hồ, Cố Lăng Sương leo lên Băng Bích Nhai vào mùa đông sư phụ nàng mất và đóng cửa hang sau lưng.",
    "people": [
     "co_lang_suong"
    ],
-   "sects": [],
-   "place": 1393
+   "sects": [
+    "bang_tam"
+   ],
+   "place": 1393,
+   "text_vi_of": "Passed over for the Vessel, Cố Lăng Sương climbs Băng Bích Nhai the winter her master dies and closes the cave behind her."
   },
   {
    "id": "N-bang_tam-05",
@@ -78,15 +86,16 @@
    "story_kind": "",
    "text_en": "Hạng Dạ Bôi's son Hạng Minh Sa, twenty-one, is sent to Băng Tâm Các as surety for his father's knee.",
    "page": "design/world/depth/sects/bang_tam.md",
-   "text_vi": "",
+   "text_vi": "Con trai Hạng Dạ Bôi là Hạng Minh Sa, hai mươi mốt tuổi, bị gửi đến Băng Tâm Các làm vật bảo đảm cho đầu gối của cha.",
    "people": [
-    "hang_minh_sa",
-    "hang_da_boi"
+    "hang_da_boi",
+    "hang_minh_sa"
    ],
    "sects": [
     "bang_tam"
    ],
-   "place": null
+   "place": null,
+   "text_vi_of": "Hạng Dạ Bôi's son Hạng Minh Sa, twenty-one, is sent to Băng Tâm Các as surety for his father's knee."
   }
  ]
 }

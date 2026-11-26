@@ -12,12 +12,13 @@
    "story_kind": "",
    "text_en": "Vạn Hác Viện learns that the monk who left them his zither in 620 was the abbot of Khô Mộc Tự, and keeps the day of his withering as a day without music.",
    "page": "design/world/depth/sects/van_hac.md",
-   "text_vi": "",
+   "text_vi": "Vạn Hác Viện biết rằng vị tăng để lại cây đàn cho họ năm 620 là trụ trì của Khô Mộc Tự, và giữ ngày ông khô héo làm một ngày không âm nhạc.",
    "people": [],
    "sects": [
     "van_hac"
    ],
-   "place": 1205
+   "place": 11,
+   "text_vi_of": "Vạn Hác Viện learns that the monk who left them his zither in 620 was the abbot of Khô Mộc Tự, and keeps the day of his withering as a day without music."
   },
   {
    "id": "N-van_hac-02",
@@ -29,10 +30,13 @@
    "story_kind": "",
    "text_en": "Vạn Hác's first students write the monk's music down in zither tablature, so that it outlives them.",
    "page": "design/world/depth/sects/van_hac.md",
-   "text_vi": "",
+   "text_vi": "Những học trò đầu tiên của Vạn Hác chép nhạc của vị tăng thành phổ đàn, để nó sống lâu hơn họ.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "van_hac"
+   ],
+   "place": null,
+   "text_vi_of": "Vạn Hác's first students write the monk's music down in zither tablature, so that it outlives them."
   },
   {
    "id": "N-van_hac-03",
@@ -44,10 +48,17 @@
    "story_kind": "tale",
    "text_en": "The heir of Tùng Đào plays Vạn Hác's head a score in the academy's tablature. He hears the pines' unwritten canon in it.",
    "page": "design/world/depth/sects/van_hac.md",
-   "text_vi": "",
-   "people": [],
-   "sects": [],
-   "place": null
+   "text_vi": "Người kế vị của Tùng Đào đàn cho chưởng môn Vạn Hác một bản nhạc theo phổ đàn của Vạn Hác Viện. Ông nghe thấy trong đó bộ kinh không chữ của rặng thông.",
+   "people": [
+    "vi_thanh_am",
+    "ha_thinh_tung"
+   ],
+   "sects": [
+    "tung_dao",
+    "van_hac"
+   ],
+   "place": null,
+   "text_vi_of": "The heir of Tùng Đào plays Vạn Hác's head a score in the academy's tablature. He hears the pines' unwritten canon in it."
   }
  ]
 }

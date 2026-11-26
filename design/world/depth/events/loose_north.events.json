@@ -12,12 +12,13 @@
    "story_kind": "",
    "text_en": "On the frost coast, the digger Thiệu Tàn Đăng forces the sealed fire hall of Băng Hỏa Môn with a borrowed fire talisman. The hall's ward burns him in the doorway, and his lamp goes out.",
    "page": "design/world/depth/people/loose-north.md",
-   "text_vi": "",
+   "text_vi": "Trên bờ biển băng giá, kẻ đào di tích Thiệu Tàn Đăng cưỡng mở hỏa điện bị phong ấn của Băng Hỏa Môn bằng một lá hỏa phù mượn. Cấm chế của điện thiêu hắn ngay ngưỡng cửa, và ngọn đèn của hắn tắt.",
    "people": [
     "thieu_tan_dang"
    ],
    "sects": [],
-   "place": 1430
+   "place": 1430,
+   "text_vi_of": "On the frost coast, the digger Thiệu Tàn Đăng forces the sealed fire hall of Băng Hỏa Môn with a borrowed fire talisman. The hall's ward burns him in the doorway, and his lamp goes out."
   },
   {
    "id": "N-loose_north-02",
@@ -29,13 +30,16 @@
    "story_kind": "",
    "text_en": "Tề Đoản Vĩ, chief of the robbers of the Bobtail ridge for a century, dies under a Thúy Vi road patrol's swords on the Thạch Công road. His foundling Khấu Thiên Tứ buries him and takes the band.",
    "page": "design/world/depth/people/loose-north.md",
-   "text_vi": "",
+   "text_vi": "Tề Đoản Vĩ, thủ lĩnh bọn cướp ở Đoản Vĩ Cương suốt một thế kỷ, chết dưới gươm của một toán tuần đường Thúy Vi trên con đường Thạch Công. Đứa con nuôi Khấu Thiên Tứ chôn ông và nhận lấy bang.",
    "people": [
-    "khau_thien_tu",
-    "te_doan_vi"
+    "te_doan_vi",
+    "khau_thien_tu"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "thuy_vi"
+   ],
+   "place": null,
+   "text_vi_of": "Tề Đoản Vĩ, chief of the robbers of the Bobtail ridge for a century, dies under a Thúy Vi road patrol's swords on the Thạch Công road. His foundling Khấu Thiên Tứ buries him and takes the band."
   },
   {
    "id": "N-loose_north-03",
@@ -47,10 +51,11 @@
    "story_kind": "",
    "text_en": "A sandstorm out of Phong Sa Nhãn buries a salt caravan on the desert road. One guard walks out of it, carrying the other's sabre.",
    "page": "design/world/depth/people/loose-north.md",
-   "text_vi": "",
+   "text_vi": "Một trận bão cát từ Phong Sa Nhãn vùi một đoàn buôn muối trên con đường sa mạc. Một người bảo vệ đi ra khỏi đó, mang theo thanh đao của người kia.",
    "people": [],
    "sects": [],
-   "place": 1417
+   "place": 1417,
+   "text_vi_of": "A sandstorm out of Phong Sa Nhãn buries a salt caravan on the desert road. One guard walks out of it, carrying the other's sabre."
   },
   {
    "id": "N-loose_north-04",
@@ -62,10 +67,13 @@
    "story_kind": "",
    "text_en": "Two hunters of Lãnh Nguyệt Lâm dig a wolf-king's cub out of its den in Quần Lang Lâm and sell it at Quy Điểu's ice market to a buyer riding south with a Pivot caravan.",
    "page": "design/world/depth/people/loose-north.md",
-   "text_vi": "",
+   "text_vi": "Hai thợ săn ở Lãnh Nguyệt Lâm đào một con sói con của sói vương khỏi hang ở Quần Lang Lâm và bán nó ở chợ băng của Quy Điểu cho một người mua cưỡi ngựa xuống phương nam cùng một đoàn thương nhân của Thiên Xu.",
    "people": [],
-   "sects": [],
-   "place": 921
+   "sects": [
+    "thien_xu"
+   ],
+   "place": 921,
+   "text_vi_of": "Two hunters of Lãnh Nguyệt Lâm dig a wolf-king's cub out of its den in Quần Lang Lâm and sell it at Quy Điểu's ice market to a buyer riding south with a Pivot caravan."
   },
   {
    "id": "N-loose_north-05",
@@ -77,10 +85,11 @@
    "story_kind": "",
    "text_en": "Diggers open the frozen doors of Bắc Minh Quán on the northern shore, empty since 332. The ice-cutters they hired could not chip one door; a girl of Tạc Băng Thôn melted it with her hands.",
    "page": "design/world/depth/people/loose-north.md",
-   "text_vi": "",
+   "text_vi": "Những kẻ đào di tích mở các cánh cửa băng của Bắc Minh Quán trên bờ phía bắc, bỏ trống từ năm 332. Những thợ cắt băng họ thuê không đục nổi một cánh cửa; một cô gái ở Tạc Băng Thôn đã làm nó tan bằng đôi tay.",
    "people": [],
    "sects": [],
-   "place": 946
+   "place": 968,
+   "text_vi_of": "Diggers open the frozen doors of Bắc Minh Quán on the northern shore, empty since 332. The ice-cutters they hired could not chip one door; a girl of Tạc Băng Thôn melted it with her hands."
   }
  ]
 }

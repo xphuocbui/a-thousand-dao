@@ -12,15 +12,16 @@
    "story_kind": "",
    "text_en": "Lệnh Hồ Chiêm, founder of Củng Tinh Quán, dies at the armillary at 470; his disciple Thẩm Bắc Thần becomes head.",
    "page": "design/world/depth/sects/cung_tinh.md",
-   "text_vi": "",
+   "text_vi": "Lệnh Hồ Chiêm, người sáng lập Củng Tinh Quán, mất bên Tuyền Cơ Nghi, thọ bốn trăm bảy mươi tuổi; đệ tử Thẩm Bắc Thần lên đứng đầu.",
    "people": [
-    "tham_bac_than",
-    "lenh_ho_chiem"
+    "lenh_ho_chiem",
+    "tham_bac_than"
    ],
    "sects": [
     "cung_tinh"
    ],
-   "place": null
+   "place": 22,
+   "text_vi_of": "Lệnh Hồ Chiêm, founder of Củng Tinh Quán, dies at the armillary at 470; his disciple Thẩm Bắc Thần becomes head."
   },
   {
    "id": "N-cung_tinh-02",
@@ -32,14 +33,15 @@
    "story_kind": "",
    "text_en": "Vệ Văn Cơ, a disciple of Củng Tinh Quán, leaves the abbey to lay formations for hire.",
    "page": "design/world/depth/sects/cung_tinh.md",
-   "text_vi": "",
+   "text_vi": "Vệ Văn Cơ, một đệ tử của Củng Tinh Quán, rời quán để bày trận pháp thuê.",
    "people": [
     "ve_van_co"
    ],
    "sects": [
     "cung_tinh"
    ],
-   "place": null
+   "place": 22,
+   "text_vi_of": "Vệ Văn Cơ, a disciple of Củng Tinh Quán, leaves the abbey to lay formations for hire."
   },
   {
    "id": "N-cung_tinh-03",
@@ -51,14 +53,17 @@
    "story_kind": "",
    "text_en": "On the night Doãn Ngọc Hành holds the Bắc Thần Ấn and the Weight together, the pole star goes out in the water of Tinh Lạc Hồ. The lake watcher sees it; the head of Củng Tinh Quán sees it in his mirror, and says it was cloud.",
    "page": "design/world/depth/sects/cung_tinh.md",
-   "text_vi": "",
+   "text_vi": "Đêm Doãn Ngọc Hành giữ Bắc Thần Ấn cùng Thiên Quyền Thạch, sao Bắc Cực tắt trong nước Tinh Lạc Hồ. Người canh hồ trông thấy; quán chủ Củng Tinh Quán trông thấy trong gương của ông, và nói đó là mây.",
    "people": [
-    "doan_ngoc_hanh"
+    "doan_ngoc_hanh",
+    "tham_bac_than"
    ],
    "sects": [
-    "cung_tinh"
+    "cung_tinh",
+    "thien_xu"
    ],
-   "place": 192
+   "place": 192,
+   "text_vi_of": "On the night Doãn Ngọc Hành holds the Bắc Thần Ấn and the Weight together, the pole star goes out in the water of Tinh Lạc Hồ. The lake watcher sees it; the head of Củng Tinh Quán sees it in his mirror, and says it was cloud."
   }
  ]
 }

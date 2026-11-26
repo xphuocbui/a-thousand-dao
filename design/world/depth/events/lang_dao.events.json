@@ -12,12 +12,15 @@
    "story_kind": "",
    "text_en": "Uông Liên Chu lashes the feuding boat families' boats together across the Nine-Bend River and will not cut the ropes until they swear to be one gate.",
    "page": "design/world/depth/sects/lang_dao.md",
-   "text_vi": "",
+   "text_vi": "Uông Liên Chu buộc thuyền của các nhà chài đang thù nhau vào với nhau ngang sông Cửu Khúc Giang và không chịu cắt dây cho đến khi họ thề làm một môn.",
    "people": [
     "uong_lien_chu"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "lang_dao"
+   ],
+   "place": 13,
+   "text_vi_of": "Uông Liên Chu lashes the feuding boat families' boats together across the Nine-Bend River and will not cut the ropes until they swear to be one gate."
   },
   {
    "id": "N-lang_dao-02",
@@ -29,10 +32,13 @@
    "story_kind": "",
    "text_en": "Lãng Đào's pilot rows a pig out to the eighth bend, and the water serpent lets the ferries through. The gate has fed it every spring since.",
    "page": "design/world/depth/sects/lang_dao.md",
-   "text_vi": "",
+   "text_vi": "Hoa tiêu của Lãng Đào Môn chèo một con heo ra khúc quanh thứ tám, và thủy xà cho các chuyến đò đi qua. Từ đó mỗi mùa xuân Lãng Đào Môn đều cúng nó.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "lang_dao"
+   ],
+   "place": null,
+   "text_vi_of": "Lãng Đào's pilot rows a pig out to the eighth bend, and the water serpent lets the ferries through. The gate has fed it every spring since."
   },
   {
    "id": "N-lang_dao-03",
@@ -44,10 +50,15 @@
    "story_kind": "trade",
    "text_en": "Lãng Đào's ferry master begins to charge Lạc Hà's boats a toll at the Ngư Ca landing that Tùng Đào never set.",
    "page": "design/world/depth/sects/lang_dao.md",
-   "text_vi": "",
+   "text_vi": "Chủ đò của Lãng Đào Môn bắt đầu thu thuế thuyền Lạc Hà tại bến Ngư Ca, thứ thuế Tùng Đào Cung chưa từng đặt ra.",
    "people": [],
-   "sects": [],
-   "place": null
+   "sects": [
+    "lang_dao",
+    "lac_ha",
+    "tung_dao"
+   ],
+   "place": null,
+   "text_vi_of": "Lãng Đào's ferry master begins to charge Lạc Hà's boats a toll at the Ngư Ca landing that Tùng Đào never set."
   },
   {
    "id": "N-lang_dao-04",
@@ -59,12 +70,13 @@
    "story_kind": "",
    "text_en": "When the Đào Sa landing burns, Thương Bạch Phàm cuts one ferry loose and poles it into the current with nine children aboard.",
    "page": "design/world/depth/sects/lang_dao.md",
-   "text_vi": "",
+   "text_vi": "Khi bến Đào Sa cháy, Thương Bạch Phàm cắt một chiếc đò thả trôi và chống nó ra dòng nước với chín đứa trẻ trên boong.",
    "people": [
     "thuong_bach_pham"
    ],
    "sects": [],
-   "place": null
+   "place": 47,
+   "text_vi_of": "When the Đào Sa landing burns, Thương Bạch Phàm cuts one ferry loose and poles it into the current with nine children aboard."
   }
  ]
 }

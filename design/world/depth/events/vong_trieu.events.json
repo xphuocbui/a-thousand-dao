@@ -12,14 +12,15 @@
    "story_kind": "",
    "text_en": "Cơ Châu Lệ, who changed her name to the burned harbour's, lights the first lamp of Vọng Triều Đường above the piers and sets a keeper in the empty fort of Liệu Phàm Bảo.",
    "page": "design/world/depth/sects/vong_trieu.md",
-   "text_vi": "",
+   "text_vi": "Cơ Châu Lệ, người đã đổi tên theo tên bến cảng bị đốt, thắp ngọn đèn đầu tiên của Vọng Triều Đường trên các cầu tàu và đặt một người giữ đèn trong pháo đài trống Liệu Phàm Bảo.",
    "people": [
     "co_chau_le"
    ],
    "sects": [
     "vong_trieu"
    ],
-   "place": 795
+   "place": 795,
+   "text_vi_of": "Cơ Châu Lệ, who changed her name to the burned harbour's, lights the first lamp of Vọng Triều Đường above the piers and sets a keeper in the empty fort of Liệu Phàm Bảo."
   },
   {
    "id": "N-vong_trieu-02",
@@ -31,12 +32,15 @@
    "story_kind": "",
    "text_en": "Dịch Thủy Thanh of Vọng Triều drowns at the Kim Sa lamp in the storm tide; the lamp has burned low.",
    "page": "design/world/depth/sects/vong_trieu.md",
-   "text_vi": "",
+   "text_vi": "Dịch Thủy Thanh của Vọng Triều chết đuối tại ngọn đèn Kim Sa trong triều bão; ngọn đèn cháy yếu dần.",
    "people": [
     "dich_thuy_thanh"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "vong_trieu"
+   ],
+   "place": 1019,
+   "text_vi_of": "Dịch Thủy Thanh of Vọng Triều drowns at the Kim Sa lamp in the storm tide; the lamp has burned low."
   },
   {
    "id": "N-vong_trieu-03",
@@ -48,12 +52,15 @@
    "story_kind": "",
    "text_en": "Ôn Thủ Đăng writes the Last Lamp Vigil.",
    "page": "design/world/depth/sects/vong_trieu.md",
-   "text_vi": "",
+   "text_vi": "Ôn Thủ Đăng viết Tàn Đăng Thủ Dạ.",
    "people": [
     "on_thu_dang"
    ],
-   "sects": [],
-   "place": null
+   "sects": [
+    "vong_trieu"
+   ],
+   "place": null,
+   "text_vi_of": "Ôn Thủ Đăng writes the Last Lamp Vigil."
   },
   {
    "id": "N-vong_trieu-04",
@@ -65,12 +72,16 @@
    "story_kind": "",
    "text_en": "Chân Định Lan of Vọng Triều wards the palace's jetty at Thạch Cơ Thành alone by night; the storm cracks it anyway.",
    "page": "design/world/depth/sects/vong_trieu.md",
-   "text_vi": "",
+   "text_vi": "Chân Định Lan của Vọng Triều một mình canh giữ bến tàu của Phượng Minh Cung ở Thạch Cơ Thành trong đêm; triều bão vẫn làm nó nứt.",
    "people": [
     "chan_dinh_lan"
    ],
-   "sects": [],
-   "place": 93
+   "sects": [
+    "vong_trieu",
+    "phuong_minh"
+   ],
+   "place": 93,
+   "text_vi_of": "Chân Định Lan of Vọng Triều wards the palace's jetty at Thạch Cơ Thành alone by night; the storm cracks it anyway."
   }
  ]
 }

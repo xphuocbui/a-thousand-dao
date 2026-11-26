@@ -12,10 +12,11 @@
    "story_kind": "",
    "text_en": "The daughters of Hỏa Ti's reelers flee to Tang Điền with the reeling songs.",
    "page": "design/world/depth/sects/chuc_ha.md",
-   "text_vi": "",
+   "text_vi": "Các con gái của những thợ ươm tơ ở Hỏa Ti trốn đến Tang Điền cùng những bài ca ươm tơ.",
    "people": [],
    "sects": [],
-   "place": null
+   "place": 94,
+   "text_vi_of": "The daughters of Hỏa Ti's reelers flee to Tang Điền with the reeling songs."
   },
   {
    "id": "N-chuc_ha-02",
@@ -27,12 +28,13 @@
    "story_kind": "",
    "text_en": "Hầu Tố Cẩm, a Tang Điền weaver, dies of the burns she took weaving fire into silk with her own Fire.",
    "page": "design/world/depth/sects/chuc_ha.md",
-   "text_vi": "",
+   "text_vi": "Hầu Tố Cẩm, một thợ dệt Tang Điền, chết vì những vết bỏng khi dệt lửa vào tơ bằng chính Hỏa của mình.",
    "people": [
     "hau_to_cam"
    ],
    "sects": [],
-   "place": null
+   "place": null,
+   "text_vi_of": "Hầu Tố Cẩm, a Tang Điền weaver, dies of the burns she took weaving fire into silk with her own Fire."
   },
   {
    "id": "N-chuc_ha-03",
@@ -44,14 +46,15 @@
    "story_kind": "",
    "text_en": "Tang Tục Lạc carries a strand of fire-silk reeled at the vent of Chúc Dung Khẩu to Chức Hà Các.",
    "page": "design/world/depth/sects/chuc_ha.md",
-   "text_vi": "",
+   "text_vi": "Tang Tục Lạc mang một sợi tơ lửa, ươm ở miệng phun của Chúc Dung Khẩu, đến Chức Hà Các.",
    "people": [
     "tang_tuc_lac"
    ],
    "sects": [
     "chuc_ha"
    ],
-   "place": 253
+   "place": 253,
+   "text_vi_of": "Tang Tục Lạc carries a strand of fire-silk reeled at the vent of Chúc Dung Khẩu to Chức Hà Các."
   }
  ]
 }
