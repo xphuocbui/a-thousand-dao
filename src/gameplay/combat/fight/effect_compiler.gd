@@ -27,6 +27,7 @@ var errors: PackedStringArray = []
 var warnings: PackedStringArray = []
 var _k: CombatConstants
 var _events: Dictionary = {}
+var _alias: Dictionary = {}
 var _mod_keys: Dictionary = {}
 var _actions: Dictionary = {}
 
@@ -36,6 +37,7 @@ func _init(k: CombatConstants) -> void:
 	_k = k
 	for x in k.events:
 		_events[str(x)] = true
+	_alias = k.event_alias
 	for x in k.mod_keys:
 		_mod_keys[str(x)] = true
 	for x in k.actions:
@@ -56,6 +58,7 @@ func compile(d: Dictionary, where: String, counters: Dictionary) -> EffectDef:
 		if not (str(key) in ["id", "on", "filter", "if", "scale", "limit", "chance", "held", "do", "name", "text", "source"]):
 			errors.append("%s: unknown Effect field %s" % [w, str(key)])
 	e.on = str(d.get("on", ""))
+	e.on = str(_alias.get(e.on, e.on))   # batch_expired is batch_ended, healed is heal_restored
 	if not _events.has(e.on):
 		errors.append("%s: event %s is not in the engine" % [w, e.on])
 	elif e.on in EVENTS_LATER:

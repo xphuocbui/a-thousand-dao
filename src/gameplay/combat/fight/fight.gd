@@ -427,6 +427,9 @@ func pulse(s: FighterState) -> void:
 		var dec: float = float(s.p.counter_def[cid].get("decay_per_pulse", 0))
 		if dec != 0.0:
 			s.counters[cid] = maxf(0.0, float(s.counters[cid]) - dec)
+		var dsh: float = float(s.p.counter_def[cid].get("decay_share", 0))
+		if dsh != 0.0:   # decay by a share of the count each pulse (world-depth Stage 5)
+			s.counters[cid] = float(s.counters[cid]) * maxf(0.0, 1.0 - dsh)
 	# per-pulse limits reset
 	s.trig_count = 0
 	s.trig_dmg = 0.0
@@ -476,6 +479,31 @@ static func _sort_by_until(batches: Array[FighterState.StackBatch]) -> void:
 ## Heals [param s] by [param amount] (Combat Defence & Healing E, 19): healing and healing taken (floored with
 ## curses), Withering (with Crossing the Line it lands as damage), a heal cap from Effects, then heal_restored.
 ## Public for mechanism tests.
+## Stops [param s]'s clock for [param d] ms (Effects rule 6, 2026-11-26): its art timers, basic attack, companions,
+## soul attack, summons and the stack and status timers on it move [param d] later. As engine.py stop_clock.
+func stop_clock(s: FighterState, d: int) -> void:
+	if d <= 0:
+		return
+	for i in s.ready.size():
+		if s.ready[i] > t:
+			s.ready[i] += d
+	s.basic_ready = maxi(s.basic_ready, t) + d
+	for i in s.comp_ready.size():
+		s.comp_ready[i] += d
+	s.soul_ready = maxi(s.soul_ready, t) + d
+	for sm in s.summons:
+		sm[3] = int(sm[3]) + d
+		sm[4] = int(sm[4]) + d
+	for lst in [s.buffs, s.debuffs]:
+		for x in lst:
+			if x.until >= 0:   # -1: a batch for the whole fight
+				x.until += d
+	for sid in s.statuses:
+		var stt: FighterState.StatusState = s.statuses[sid]
+		if stt.until >= 0:
+			stt.until += d
+
+
 func heal(s: FighterState, amount: float, source: String = "", ignore_taken: bool = false) -> void:
 	amount *= 1.0 + s.p.healing + m(s, "healing", null) / 100.0
 	# ignore_taken: a heal its own closing exempts (Still Water)
@@ -500,6 +528,7 @@ func heal(s: FighterState, amount: float, source: String = "", ignore_taken: boo
 			var ev: Dictionary = (s.cur_ev as Dictionary).duplicate() if s.cur_ev is Dictionary else {}
 			ev["amount"] = got
 			ev["share"] = got / s.hp_max
+			ev["overflow"] = maxf(0.0, amount - got)   # Effects rule 5 (2026-11-26): healing lost to full health
 			if source != "":
 				ev["source"] = source
 			_event(s, "heal_restored", ev)

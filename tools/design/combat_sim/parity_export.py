@@ -17,6 +17,7 @@ fixed order.
 Run:
   python -I tools/design/combat_sim/parity_export.py           write every expected file
   python -I tools/design/combat_sim/parity_export.py --check   compare with the files on disk; exit 1 on any drift
+  ... --only <fixture name>                                        one fixture
 Exit codes: 0 ok; 1 drift or a non-deterministic fixture; 2 bad fixture.
 """
 import dataclasses
@@ -143,6 +144,9 @@ def dumps(doc):
 def main(argv):
     check = "--check" in argv
     paths = sorted(glob.glob(os.path.join(FIXTURES, "*.json")))
+    if "--only" in argv:   # one fixture by name (2026-11-26): python -I parity_export.py --only t10_depth_exact
+        only = argv[argv.index("--only") + 1]
+        paths = [x for x in paths if os.path.basename(x)[:-5] == only]
     if not paths:
         print("no fixtures in %s" % FIXTURES)
         return 2

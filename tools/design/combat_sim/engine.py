@@ -56,6 +56,7 @@ STATUS = _C["STATUS"]
 
 # The Effect vocabulary (Effects GDD rules 5-6), shared with the GDScript engine through combat_engine.json.
 EVENTS = set(_C["EVENTS"])
+EVENT_ALIAS = dict(_C.get("EVENT_ALIAS", {}))   # an Effects GDD word for an engine event (world-depth Stage 5)
 MOD_KEYS = set(_C["MOD_KEYS"])
 ACTIONS = set(_C["ACTIONS"])
 
@@ -710,6 +711,9 @@ class Fight:
             dec = cdef.get("decay_per_pulse", 0)
             if dec:
                 s.counters[cid] = max(0.0, s.counters[cid] - dec)
+            dsh = cdef.get("decay_share", 0)
+            if dsh:   # decay by a share of the count each pulse (world-depth Stage 5; Effects rule 19's closes)
+                s.counters[cid] *= max(0.0, 1.0 - dsh)
         # per-pulse limits reset
         s.trig_count = 0
         s.trig_dmg = 0.0
@@ -1113,6 +1117,7 @@ class Fight:
             if paid > 0:
                 self.fire_event(att, "foe_ward_paid", {"amount": paid})
         a = D - prevented
+        ward_took = bill_share if bill_share > 0 else 0.0   # the drain ward's part of the prevention (world-depth Stage 5)
         # block (not for ticks unless an Effect lets a share meet them, R24)
         blk = BLOCK_UNIT[dfn.b.realm] * dfn.b.stage_mult * (dfn.b.block + self.mod(dfn, "block") + dfn.b.body_block * dfn.b.bs_mult
                                          + sum(w.get("block", 0.0) for w, _ in xs))
@@ -1150,6 +1155,7 @@ class Fight:
                         self.fire_event(dfn, "shield_broken", {})
                 w["quiet_since"] = self.t
                 rest -= soak
+                ward_took += soak
             a = rest + through
             if a > 0 and dfn.body_bar > 0 and dtype not in ("chaos", "soul") and self.mod(dfn, "no_body_shield") <= 0:
                 soak = min(a, dfn.body_bar)
@@ -1159,6 +1165,8 @@ class Fight:
         dealt = 0.0 if a <= 1e-12 else (a if is_tick else max(K["min_hit"], a))
         if dealt > 0:
             reached = True
+        if ward_took > 0 and not is_tick:   # Effects rule 5 (2026-11-26): a ward absorbed a hit, or a share of it
+            self.fire_event(dfn, "ward_absorbed", dict(ctx or {}, amount=ward_took, dtype=dtype))
         dfn.hp -= dealt
         if not reached and not is_tick and D > 0:
             ctx["stopped"] = True
@@ -1213,7 +1221,7 @@ class Fight:
         if got > 0:
             s.hp += got
             s.healed += got
-            ev = dict(s.cur_ev or {}, amount=got, share=got / s.hp_max)
+            ev = dict(s.cur_ev or {}, amount=got, share=got / s.hp_max, overflow=max(0.0, amount - got))
             if source:
                 ev["source"] = source
             self.fire_event(s, "heal_restored", ev)
@@ -1630,6 +1638,12 @@ class Fight:
                 pass
             elif verb == "self_hit":
                 self.hit(o, s, arg.get("c", 0.0) * n, arg.get("dtype", "phys"), None, kind="trigger", trig=True)
+            elif verb == "stop_clock":   # Effects rule 6 (2026-11-26): the side's clock does not run for N s
+                tgt = s if arg.get("side", "foe") == "own" else o
+                sec = arg.get("seconds", 0.0) * n
+                if tgt is o:
+                    sec *= max(0.0, 1 - (o.b.timer_resist + self.mod(o, "timer_resist")) / 100)
+                self.stop_clock(tgt, ms(sec))
             elif verb == "store_damage":
                 st = o.statuses.get("internal_injury")
                 if st is None:
@@ -1638,6 +1652,26 @@ class Fight:
                 st["stored"] = st.get("stored", 0.0) + arg.get("share", 0.0) * ev.get("amount", 0.0) * n
             else:
                 raise EngineError("action %r is not in the engine" % verb)
+
+    def stop_clock(self, s, d):
+        """Stop a side's clock for d ms (Effects rule 6, 2026-11-26): its art timers, basic attack, companions, soul
+        attack, summons and the stack and status timers on it move d later, so nothing of it runs in the gap."""
+        if d <= 0:
+            return
+        s.ready = [r + d if r > self.t else r for r in s.ready]
+        s.basic_ready = max(s.basic_ready, self.t) + d
+        s.comp_ready = [c + d for c in s.comp_ready]
+        s.soul_ready = max(s.soul_ready, self.t) + d
+        for x in s.summons:
+            x[3] += d
+            x[4] += d
+        for lst in (s.buffs, s.debuffs):
+            for x in lst:
+                if x[2] is not None:   # None: a batch for the whole fight
+                    x[2] += d
+        for stt in s.statuses.values():
+            if stt.get("until") is not None:
+                stt["until"] += d
 
     # ---------------------------------------------------------- the Down step [Effects 11]
     def defeat_check(self):
@@ -1780,6 +1814,8 @@ def validate(b):
         _check_conds(b, e, e.get("if"))
         if e.get("scale"):
             _check_read(b, e, e["scale"].get("read", ""))
+        if e.get("on") in EVENT_ALIAS:
+            e["on"] = EVENT_ALIAS[e["on"]]
         if e.get("on") not in EVENTS:
             raise EngineError("%s: Effect %s: event %r is not in the engine" % (b.name, e["id"], e.get("on")))
         for a in e.get("do", []):

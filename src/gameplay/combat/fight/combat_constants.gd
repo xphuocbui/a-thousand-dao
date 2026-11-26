@@ -94,6 +94,8 @@ var injury_every: float
 var refuse_down_health: float
 ## The Effect vocabulary (Effects GDD rules 5-6) and an "elem" art's usual damage type by element.
 var events: Array = []
+## Effects GDD words for engine events, read through at load (world-depth Stage 5): {word: engine event}.
+var event_alias: Dictionary = {}
 var mod_keys: Array = []
 var actions: Array = []
 var elem_type: Dictionary = {}
@@ -232,6 +234,7 @@ static func from_dict(d: Dictionary) -> CombatConstants:
 	k.injury_every = float(kd.injury_every)
 	k.refuse_down_health = float(kd.refuse_down_health)
 	k.events = d.get("EVENTS", [])
+	k.event_alias = d.get("EVENT_ALIAS", {})
 	k.mod_keys = d.get("MOD_KEYS", [])
 	k.actions = d.get("ACTIONS", [])
 	k.elem_type = d.get("ELEM_TYPE", {})

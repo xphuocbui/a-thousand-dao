@@ -622,6 +622,12 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 				s.protect[str(arg.el)] = {"for_first": arg.get("for_first"), "swap_buff": bool(arg.get("swap_buff", false))}
 			"refuse_down", "last_act":
 				pass   # read by the Down step
+			"stop_clock":   # Effects rule 6 (2026-11-26): the side's clock does not run for N s
+				var tgt_c: FighterState = s if str(arg.get("side", "foe")) == "own" else o
+				var sec: float = float(arg.get("seconds", 0.0)) * n
+				if tgt_c == o:
+					sec *= maxf(0.0, 1.0 - (o.p.timer_resist + f.m(o, "timer_resist", null)) / 100.0)
+				f.stop_clock(tgt_c, CombatConstants.ms(sec))
 			"store_damage":
 				var inj: FighterState.StatusState = o.statuses.get("internal_injury")
 				if inj == null:

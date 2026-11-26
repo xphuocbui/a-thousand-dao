@@ -86,6 +86,7 @@ static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float
 		if paid > 0.0 and f.listens(att, "foe_ward_paid"):
 			EffectRunner.fire(f, att, "foe_ward_paid", {"amount": paid})
 	var a: float = amount - prevented
+	var ward_took: float = bill_share if bill_share > 0.0 else 0.0   # the drain ward's part (world-depth Stage 5)
 	var x_blk: float = 0.0
 	for xw in xs:
 		x_blk += xw.def.block
@@ -131,6 +132,7 @@ static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float
 						EffectRunner.fire(f, dfn, "shield_broken", {})
 			w.quiet_since = f.t
 			rest -= soak
+			ward_took += soak
 		a = rest + through
 		if a > 0.0 and dfn.body_bar > 0.0 and dtype != &"chaos" and dtype != &"soul" \
 				and not (dm and f.m(dfn, "no_body_shield", null) > 0.0):
@@ -141,6 +143,12 @@ static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float
 	var dealt: float = 0.0 if a <= 1e-12 else (a if is_tick else maxf(k.min_hit, a))
 	if dealt > 0.0:
 		reached = true
+	if ward_took > 0.0 and not is_tick and f.listens(dfn, "ward_absorbed"):
+		# Effects rule 5 (2026-11-26): a ward absorbed a hit, or a share of it
+		var wev: Dictionary = ctx.duplicate()
+		wev["amount"] = ward_took
+		wev["dtype"] = dtype
+		EffectRunner.fire(f, dfn, "ward_absorbed", wev)
 	dfn.hp -= dealt
 	if not reached and not is_tick and amount > 0.0:
 		ctx["stopped"] = true

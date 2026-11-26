@@ -132,6 +132,61 @@ def t_trigger_budget():  # Combat Formulas G
           "dmg %.2f count %d" % (A.trig_dmg, A.trig_count))
 
 
+def t_ward_absorbed():   # Effects rule 5, world-depth Stage 5 (2026-11-26)
+    soaked = {"id": "ws", "on": "ward_absorbed", "do": [{"counter": {"id": "soak", "add": 1}}]}
+    f, A, B = setup(b=dummy(ward_pts=0, block=0, shields=[E.Shield(size=300 / (26 * E.U[0] * 1.053))],
+                            effects=[soaked], counters=[{"id": "soak"}]))
+    B.wshields[0]["left"] = 300.0
+    seen = []
+    orig = f.fire_event
+    f.fire_event = lambda s, name, ev: (seen.append((name, ev.get("amount"))) if name == "ward_absorbed" else None, orig(s, name, ev))[1]
+    f.defend(A, B, 120.0, "phys", None, {}, is_tick=False)
+    f.defend(A, B, 50.0, "fire", None, {}, is_tick=True)   # a tick: no event
+    check("ward_absorbed fires once per hit with the soaked amount", seen == [("ward_absorbed", 120.0)] and B.counters["soak"] == 1, str(seen))
+    f, A, B = setup(b=dummy(ward_pts=0, block=0, effects=[soaked], counters=[{"id": "soak"}]))
+    f.defend(A, B, 120.0, "phys", None, {}, is_tick=False)
+    check("no ward, no ward_absorbed", B.counters["soak"] == 0)
+
+
+def t_stop_clock():      # Effects rule 6, world-depth Stage 5 (2026-11-26)
+    f, A, B = setup(b=dummy(arts=[E.Art("x", 1.0, 0.05, 4.0)]))
+    e = {"id": "s", "on": "always", "do": []}
+    f.t = 500
+    r0, b0 = B.ready[0], B.basic_ready
+    B.debuffs.append(["fire", 2, 3000, A, 2500])
+    B.debuffs.append(["fire", 1, None, A, None])
+    f.do(A, e, [{"stop_clock": {"side": "foe", "seconds": 2.0}}], 1.0, {})
+    check("stop_clock moves the foe's timers 2 s", B.ready[0] - r0 == 2000 and B.basic_ready == max(b0, 500) + 2000, "%d %d" % (B.ready[0] - r0, B.basic_ready))
+    check("stop_clock moves stack timers, not fight-long batches", B.debuffs[0][2] == 5000 and B.debuffs[1][2] is None)
+    f, A, B = setup(b=dummy(timer_resist=25, arts=[E.Art("x", 1.0, 0.05, 4.0)]))
+    r0 = B.ready[0]
+    f.do(A, e, [{"stop_clock": {"side": "foe", "seconds": 2.0}}], 1.0, {})
+    check("timer resistance 25 shortens a stop to 1.5 s", B.ready[0] - r0 == 1500, str(B.ready[0] - r0))
+
+
+def t_heal_overflow():   # Effects rule 5, world-depth Stage 5 (2026-11-26)
+    f, A, B = setup()
+    A.hp = A.hp_max - 10.0
+    got = []
+    orig = f.fire_event
+    f.fire_event = lambda s, name, ev: (got.append(ev) if name == "heal_restored" else None, orig(s, name, ev))[1]
+    f.heal(A, 25.0)
+    check("heal_restored reports the overflow lost to full health", got and abs(got[0]["amount"] - 10.0) < 1e-9 and abs(got[0]["overflow"] - 15.0) < 1e-9, str(got))
+
+
+def t_counter_decay_share():   # Effects rule 19's closes, world-depth Stage 5 (2026-11-26)
+    f, A, B = setup(a=dummy(counters=[{"id": "store", "decay_share": 0.1}]))
+    A.counters["store"] = 50.0
+    f.pulse(A)
+    check("a counter decays by its share each pulse", abs(A.counters["store"] - 45.0) < 1e-9, str(A.counters["store"]))
+
+
+def t_event_alias():     # combat_engine.json EVENT_ALIAS (2026-11-26)
+    b = dummy(effects=[{"id": "w", "on": "batch_expired", "do": []}, {"id": "h", "on": "healed", "do": []}])
+    E.validate(b)
+    check("batch_expired and healed load as batch_ended and heal_restored", [e["on"] for e in b.effects] == ["batch_ended", "heal_restored"])
+
+
 def t_pieces():          # AC-CD-82
     f, A, B = setup(b=dummy(ward_pts=0, block=0, shields=[E.Shield(size=300 / (26 * E.U[0] * 1.053), pieces=3)]))
     B.wshields[0]["left"] = 300.0

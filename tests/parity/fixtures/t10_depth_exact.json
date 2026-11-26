@@ -1,0 +1,44 @@
+{
+  "name": "t10_depth_exact",
+  "slice": 10,
+  "chance_free": true,
+  "seed": 101,
+  "doc": "World-depth Stage 5, slice 1 (2026-11-26), chance-free: ward_absorbed, stop_clock, the heal event's overflow, a counter's decay_share and the EVENT_ALIAS words. A: a frost palm that stops the foe's clock for 1 s each firing (stop_clock, at most once every 6 s); a heal of 5 % each pulse whose overflow (healing lost to full health) feeds a counter that decays by a fifth each pulse, scaling a layer bonus. B: a standing ward shield; each hit it absorbs adds a soak stack that decays by a quarter each pulse and raises block; a 'healed' listener (read as heal_restored) that counts B's own heals.",
+  "a": {
+    "name": "frost-keeper",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "counters": [{"id": "spill", "decay_share": 0.2}],
+    "arts": [
+      {"name": "frost-palm", "c": 0.7, "cost": 0.03, "cd": 3.0, "element": "ice"},
+      {"name": "plum-cut", "c": 1.0, "cost": 0.04, "cd": 2.0}
+    ],
+    "effects": [
+      {"id": "still-the-foe", "on": "art_fired", "filter": {"art_id": "frost-palm"}, "limit": {"cooldown": 6.0},
+       "do": [{"stop_clock": {"side": "foe", "seconds": 1.0}}]},
+      {"id": "mend", "on": "pulse", "do": [{"heal": {"share": 0.05}}]},
+      {"id": "spill-count", "on": "heal_restored", "scale": {"read": "event.overflow", "per": 5},
+       "do": [{"counter": {"id": "spill", "add": 1}}]},
+      {"id": "spill-edge", "on": "always", "scale": {"read": "own.counter.spill", "per": 1},
+       "do": [{"mod": {"L5": 0.5}}]}
+    ]
+  },
+  "b": {
+    "name": "ward-sitter",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "counters": [{"id": "soak", "decay_share": 0.25}, {"id": "mended"}],
+    "shields": [{"size": 0.35, "standing": true, "pieces": 1}],
+    "arts": [
+      {"name": "ice-needle", "c": 0.9, "cost": 0.04, "cd": 2.5},
+      {"name": "still-breath", "c": 0.0, "cost": 0.02, "cd": 5.0, "heal": 0.06}
+    ],
+    "effects": [
+      {"id": "soak-count", "on": "ward_absorbed", "do": [{"counter": {"id": "soak", "add": 1}}]},
+      {"id": "soak-guard", "on": "always", "scale": {"read": "own.counter.soak", "per": 1}, "do": [{"mod": {"block": 2}}]},
+      {"id": "mended-count", "on": "healed", "do": [{"counter": {"id": "mended", "add": 1}}]}
+    ]
+  }
+}
