@@ -34,7 +34,7 @@ Resume here: read this file, then do the first unchecked step.
 | hang_minh_sa | Fire, Metal | red-sand-sabre-primer (Dạ Quang outer method, promoted early) |
 
 ## Steps
-- [ ] 1. Verify first: the mechanic table (exists / needs a word / needs a ruling), spatial_words_check.
+- [x] 1. Verify first: the mechanic table (exists / needs a word / needs a ruling), spatial_words_check.
 - [ ] 2. Checkers up front: lint_techniques, lint_arts, suite_check, lint_items (known broken), exporters' --check,
       sets export in export_named.py.
 - [ ] 3a. Techniques and arts (+ the servants' method, red-sand-sabre-primer).
@@ -44,6 +44,51 @@ Resume here: read this file, then do the first unchecked step.
 - [ ] 5. Engine words, both engines, parity.
 - [ ] 6. Review file, then STOP for the user.
 - [ ] 7. Stage 7 (after approval).
+
+## Step 1 result: the mechanic table (2026-11-26)
+`spatial_words_check.py`: Băng Tâm's hits are false positives ("banner" is an item base, "beside" or "alone" sit in
+tie notes, "Stillness" is a name). No art or Effect text is flagged.
+
+**Words to build** (both engines, parity):
+- **W1, a growing ward** (the frost ward). It serves six records: Heart in the Jade Vessel, Glacier Bastion, Ice in
+  the Vessel, The Peak Does Not Move, Master's Road and Walk the Nodes.
+  - The parts: an action that raises or grows a ward shield, a share of health (`ward_shields` in both engines);
+    readables for its size now and its peak this fight or stance (as shares of maximum health); and a "release"
+    action that deals what is left as damage of a type, more for each stack it consumes.
+  - It already fires `ward_absorbed` and `shield_broken`. Today nothing can grow a ward shield (the `shield` action
+    grows only the body bar, which fires neither event).
+- **W2, a soul reflect.** Clear-Heart Mirror (art) and Clear-Heart Reflection (item). The next soul art that lands on
+  you does no harm and strikes its caster as Cold damage equal to its own. `soul_hit` fires only for the attacker, and
+  `reflect_first` takes any first hit.
+- **W3, an afterimage.** Hidden Fragrance: an action that grants a decoy (decoys exist, R6 `avoid_budget`, but nothing
+  grants one) and an event when a decoy takes the hit (2 Ice stacks on the striker).
+- **W4, a live stack duration.** Master's Road: Ice stacks last twice as long while your ward holds. Today
+  `stack_dur` is build-static only, and the live mod `stack_more` changes the effect, not the duration.
+
+**Rulings needed from the user** (to put in the review file):
+- **R1, a formation inside a fight.** Walk the Nodes ("inside your own formation", "regains 4 % of its strength",
+  "cannot be broken") and The Peak Does Not Move ("while your diagram is laid"). The fight has a Set combat diagram
+  (GDScript `Diagrams.apply_payload`, node mods and feeds) but no formation strength.
+  - Proposal: "diagram laid" means fighting with a Set diagram (a readable `own.diagram`), and the formation's
+    strength means your growing ward (W1).
+  - Alternative: read both as your Field stance (`field_up`).
+- **R2, Hidden Half.** "Your curses on it count as Ice debuffs for your stack effect" has no word; the reverse,
+  `counted_curse_per`, exists. Proposal: while the foe carries your curse, your Ice stacks on it count 20 % more
+  (`stack_more`, debuff side), or build a new word.
+- **R3, Ice in the Vessel's out-of-fight half.** "Heart-demon odds at a breakthrough fall by a third". Proposal: a
+  `tam_ma_resist_pct` line on the item, sized to a third, since `character_rules.gd` already reads it at a
+  breakthrough.
+- **R4, "freezes for a breath".** Rime Lotus and Plum Falls on Snow. Proposal: `stop_clock` on the foe for 1 s (Stop a
+  side's clock, Effects rule 6). No new Freeze status.
+- **R5, Heart in the Jade Vessel's "above half its peak".** Proposal: half of the 25 % release size (12.5 % of health),
+  read from W1's size. Or build the peak readable, which W1 includes anyway.
+
+**Covered by existing words:** Frost-Breath Palm (`timer` next), Five Petals (`split`, `debuff`, an empower scaled by
+Ice), Plum Falls on Snow (`empower`, `consume`), Lotus Seal Ground (a state tagged `field`, pulse `stacks`,
+`slowed_time`), The Keeper's Stillness (`wounded`, `stop_clock`, `stacks`), Twin Plums (filter `group`, `crit`,
+`fire_art`), Second Wind (`was_hit` + `hp_share`, `per_fight`, `hregen`, `gain_qi`, counter), Every Fifth a Star
+(`status_applied` + `check_cross`, `sure_crit`, `bypass`), Sitting on the Ice (`composed_time`, `regen`, `hregen`,
+`held`), The Peak's broken-shield clause (`shield_broken`, `off_guard`).
 
 ## Notes from the first read (2026-11-26)
 Mechanics that look like they need an engine word or a ruling (to confirm in step 1):
