@@ -1385,8 +1385,8 @@ static func item_icon(it: Dictionary) -> String:
 		"artifact":
 			key = "artifact_" + str(it.get("base", ""))
 			var named: String = "res://assets/icons/items/named_%s.png" % str(it.get("named", ""))
-			if str(it.get("named", "")) != "" and ResourceLoader.exists(named):   # a legendary item's own icon
-				return named
+			if str(it.get("named", "")) != "":   # a named item's own icon, or none yet: the placeholder, never its base's
+				return named if ResourceLoader.exists(named) else ""
 		"cong_phap":
 			var els: Array = Array(it.get("elements", it.get("names", [])))
 			var e: String = str(els[0]).to_lower() if not els.is_empty() else ""

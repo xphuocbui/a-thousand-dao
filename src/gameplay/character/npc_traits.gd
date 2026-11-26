@@ -108,7 +108,7 @@ static func from_authored(gd: GameData, authored: Dictionary) -> Dictionary:
 		return out
 	var calling: String = str(cat.by_name.get(str(authored.get("calling", "")).to_lower(), ""))
 	return {"personality": ids.call(authored.get("personality", [])), "calling": calling,
-		"fate": ids.call(authored.get("fate_given", [])), "gained": []}
+		"fate": ids.call(authored.get("fate_given", [])), "gained": ids.call(authored.get("gained", []))}   # gained: world-depth
 
 
 ## F2: the weight of a choice tagged [param tags] for [param person]: [param base] times the product of every held

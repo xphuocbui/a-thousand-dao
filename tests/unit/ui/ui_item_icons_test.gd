@@ -21,10 +21,16 @@ func test_every_artifact_base_herb_material_and_pill_has_an_icon() -> void:
 
 
 func test_a_named_item_shows_its_own_icon_not_its_base() -> void:
+	# A named item never borrows its base's icon: its own, or "" (PlaceholderArt) until it is painted (the world-depth
+	# signature items, 2026-11-26; the placeholder rule for missing art).
 	var gd := _data()
 	for t in Array(gd.file("items_named").named):
 		var path: String = GameQuery.item_icon({"kind": "artifact", "base": str(t.base), "named": str(t.id)})
-		assert_true(path.ends_with("named_%s.png" % str(t.id)), "%s -> %s" % [t.id, path])
+		var own: String = "res://assets/icons/items/named_%s.png" % str(t.id)
+		if ResourceLoader.exists(own):
+			assert_eq(path, own, "%s shows its own icon" % t.id)
+		else:
+			assert_eq(path, "", "%s has no icon yet: the placeholder, not its base" % t.id)
 
 
 func test_a_manual_without_an_element_gets_the_plain_cover() -> void:

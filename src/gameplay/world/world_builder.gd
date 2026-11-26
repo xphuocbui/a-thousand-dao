@@ -86,6 +86,8 @@ func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	_step_sects()
 	_step_history()
 	_step_cast()
+	_step_beasts()
+	_step_ties()
 	_step_rolls()
 	_step_sites()
 	_step_resource_sites()
@@ -107,6 +109,7 @@ func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	WorldEconomy.build(_gd, _db, TravelGrid.of(_gd))
 	# Core Rules 10 and 13: the ledger of truth and the data versions are saved with the world, never shown
 	_db.add("world", {"id": "w_meta", "builder": "continent", "data_version": str(_hist.get("data_version", "")),
+		"world_data_version": int(_hist.get("world_data_version", 0)),   # ADR-0009 decision 9: load_dict compares it
 		"map_version": str(_gd.file(ContinentData.DATA_FILE).get("map_version", "")), "seed": _seed, "ledger": ledger,
 		"provinces_version": int(_gd.file(Provinces.FILE).get("provinces_version", 0))})
 	return _db
@@ -332,6 +335,56 @@ func _step_cast() -> void:
 			Ties.set_master(_gd, _db, str(rec.id), str(person_ids.get(str(p.master), "")), current_year * 4)
 	for s in _db.find("sects", func(x): return x.status == "active" and str(x.leader_id) == ""):
 		errors.append("sect %s has no living leader" % s.name)
+
+
+## The authored beasts (world-depth, ADR-0009; world_history `beasts`): each is a people record with `is_beast`, its
+## owner's id and loyalty, listed in its owner's beasts (BeastKeeper's form). A beast whose owner is absent is skipped.
+func _step_beasts() -> void:
+	for b in _hist.get("beasts", []):
+		var owner_id: String = str(person_ids.get(str(b.owner_id), ""))
+		var owner: Dictionary = _db.get_record("people", owner_id) if owner_id != "" else {}
+		if owner.is_empty() or not bool(owner.get("alive", false)):
+			continue
+		var pid: String = _db.add("people", {"name": str(b.name_hv), "alive": false, "pending": true})
+		var crng := RandomNumberGenerator.new()
+		crng.seed = RngUtils.stable_hash("beast:" + str(b.key))
+		var home: String = place_ids.get(int(b.home), str(owner.get("location_id", ""))) if b.get("home") != null else str(owner.get("location_id", ""))
+		_builds.create_person(crng, {"realm_index": _realm_index(str(b.realm)), "is_beast": true, "location_id": home,
+			"name": str(b.name_hv), "gender": "female" if str(b.get("sex", "")) == "F" else "male",
+			"age": float(current_year - int(b.born)), "created_by": "cast", "id": pid})
+		var rec: Dictionary = _db.get_record("people", pid)
+		rec.erase("pending")
+		rec["cast_key"] = str(b.key)
+		rec["born_year"] = int(b.born)
+		rec["owner_id"] = owner_id
+		rec["loyalty"] = int(b.get("loyalty", 50))
+		rec["species"] = str(b.get("species", ""))
+		rec["beast_tags"] = Array(b.get("tags", []))
+		person_ids[str(b.key)] = pid
+		var owned: Array = Array(owner.get("beasts", []))
+		if not owned.has(pid):
+			owned.append(pid)
+		owner["beasts"] = owned
+
+
+## The authored ties (world-depth, ADR-0009; world_history `ties`, mapped by the export): each through its Ties writer.
+## The su_do pair is the person's `master` field (_step_cast); a tie naming someone absent is skipped.
+func _step_ties() -> void:
+	var season: int = current_year * 4
+	for t in _hist.get("ties", []):
+		var a: String = str(person_ids.get(str(t.a), ""))
+		var b: String = str(person_ids.get(str(t.b), ""))
+		if a == "" or b == "":
+			continue
+		match str(t.kind):
+			"kin", "ket_nghia", "dao_lu":
+				Ties.add_pinned(_gd, _db, a, b, str(t.kind), season, true)
+			"friend", "rival", "enmity":
+				Ties.write_soft(_gd, _db, a, b, str(t.kind), int(t.get("s", 0)), season)
+			"feud":
+				Ties.set_feud(_gd, _db, a, b, season)
+			"debt":
+				Ties.write_debt(_gd, _db, a, b, int(t.get("s", 0)), season)
 
 
 # --- 5. Seeded rolls --------------------------------------------------------------------------------------------------

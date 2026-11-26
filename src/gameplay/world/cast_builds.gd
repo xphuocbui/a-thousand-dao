@@ -100,6 +100,10 @@ static func make(gd: GameData, tree: DaoDoTree, db: WorldDB, items: ItemFactory,
 	return c
 
 
+## Technique ids a build named that the catalogue lacks, in order (ADR-0009 decision 8; tests read it).
+static var unknown_ids: Array = []
+
+
 static func _learn(gd: GameData, db: WorldDB, items: ItemFactory, c: Character, tech_id: String, layer: int, is_main: bool) -> String:
 	if tech_id == "":
 		return ""
@@ -114,4 +118,7 @@ static func _learn(gd: GameData, db: WorldDB, items: ItemFactory, c: Character, 
 			if is_main:
 				c.main_tech = id
 			return id
+	# ADR-0009 decision 8: an unknown id is reported, never dropped silently
+	unknown_ids.append(tech_id)
+	push_warning("CastBuilds: technique %s is not in the catalogue; %s learns nothing in its place" % [tech_id, c.name])
 	return ""

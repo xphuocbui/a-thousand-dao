@@ -299,3 +299,27 @@ committed:
 - **Beasts:** the `<key>.beasts.json` records as given. `WorldBuilder` makes each a people record with `is_beast`,
   `owner_id` and `loyalty`, and the owner lists its id.
 
+### Stage 7 progress (2026-11-26)
+- Unit 2, the depth reader, is WRITTEN: `tools/design/world/depth_export.py`, called by `export_world.py --sect <key|all>`.
+  - Dry run `--check --sect bang_tam`: 0 failures; 220 people (187 living), 693 events, 136 ties, 2 beasts.
+  - Observations: 48 ties name people of sects not exported yet; 20 old-cast members have no build (true before this
+    work too). Lãnh Hương Các (fallen in 724, not a game sect) leaves pho_thanh_mai's record with no sect key.
+  - A plain export without `--sect` differs from the committed file only in the new keys and `data_version`.
+  - NOT written to assets yet: the full suite was running (`$CLAUDE_JOB_DIR/tmp/full_suite2.log`).
+- Unit 3, game side, is WRITTEN, not yet run:
+  - `WorldBuilder._step_beasts` and `_step_ties`, and `w_meta.world_data_version`;
+  - the `GameSession.load_dict` refusal;
+  - `CastBuilds._learn` reports unknown ids (`unknown_ids`, push_warning);
+  - `NpcTraits.from_authored` reads `gained`;
+  - test `tests/unit/world/world_depth_export_test.gd`.
+- NEXT:
+  1. `python -I tools/design/world/export_world.py --sect bang_tam`;
+  2. run the new test and the world group;
+  3. commit units 2 and 3;
+  4. warn the user, then the screenshots (unit 4).
+- Auto-accepted:
+  - only the v1 trait kinds are exported (personality, calling, fate_given, gained), so the rule 2a trim of the v2
+    kinds waits for Stage 10;
+  - former pairs read rival or enmity from keywords in the tie note;
+  - soft start strengths: friend 40, lover 70, rival 40, enmity 50, former 30, debt 30.
+

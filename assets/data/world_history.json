@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "_doc": "The authored world's history (design/gdd/world-generation.md), exported by tools/design/world/export_world.py from design/world/*.json and design/map/continent-11; do not edit by hand. start_year: every game starts here (Core Rule 11). sects: the 30 living sects with their authored start (alignment chinh | ma | trung, the four development levels, treasury, a minor sect's lord and loyalty), seat (place id), founded year, specialty (the sect archetype NPC Builds reads) and leader (a cast key). fallen_sects: sects that fell before the start. people: the fixed cast (alive: realm, home place id, traits; dead: records with peak_realm, died, cause), with master, vassal_of, served_under and abode_slot where authored. events: the landmark chronicle and the annals, ordered by year then id; place is a place id, famous a famous site's name, feature a named feature with its tile; secret events are hidden until discovered. legendary_items: the 34 unique items, held by a living cast member or lost at a place or slot. territory: eras, land changes, wars, vassal changes, grudges. hidden_slots: the 28 hidden places with their 2-3 candidate tiles and origin event; tile_secrets: the 80 with their candidates; famous_sites and features: named sites and features. data_version: a hash of the inputs, recorded in each save (Core Rule 13).",
- "data_version": "ea88b082192971f7",
+ "data_version": "96ed54366dc87d1c",
  "start_year": 1200,
  "sects": [
   {
@@ -1706,7 +1706,7 @@
    "alive": true,
    "sect": "bang_tam",
    "rank": "tong_chu",
-   "role": "Head of Băng Tâm Các",
+   "role": "Head of Băng Tâm Các, Keeper of the Vessel",
    "realm": "nguyen_anh",
    "home": 214,
    "traits": {
@@ -1716,8 +1716,18 @@
      "Just"
     ],
     "calling": "Strategist",
-    "fate_given": []
-   }
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "tier": "A",
+   "stage": 1,
+   "appearance": "Tall, white-haired since her Kết Đan, with eyes the pale grey of lake ice; she wears the jade vessel at her belt and nothing else of colour.",
+   "wants": "To leave the Pavilion stronger than she found it, and to name an heir who will not need her.",
+   "secret": "She knows the Jade Vessel Array is weakening and has not told the sect, because she does not know how to mend it without Tiết Hàn Mai, who is dying.",
+   "birthplace": 1393,
+   "master": "tan_ngung_suong"
   },
   {
    "key": "ngu_lam_son",
@@ -1839,11 +1849,13 @@
    "alive": false,
    "sect": "bang_tam",
    "rank": "founder",
-   "role": "Founder of Băng Tâm Các (year 440, at 140)",
+   "role": "Founder of Băng Tâm Các (year 440, at 140); lies inside the Jade Vessel Array under the seat",
    "peak_realm": "nguyen_anh",
    "died": 1010,
-   "cause": "old age at 710",
-   "record": true
+   "cause": "spent the last of her lifespan into the Jade Vessel Array to hold the lid, and lies inside it (1010, age 710)",
+   "record": true,
+   "tier": "A",
+   "appearance": "Remembered as a slight scholar in southern grey, a jade vessel hung at her waist and ink on her wrist."
   },
   {
    "key": "ngo_the_dong",
@@ -2739,7 +2751,7 @@
    "alive": true,
    "sect": "bang_tam",
    "rank": "truong_lao",
-   "role": "First elder of Băng Tâm Các (age 440)",
+   "role": "First elder of Băng Tâm Các and keeper of the Jade Vessel Array (age 440)",
    "realm": "ket_dan",
    "home": 214,
    "traits": {
@@ -2749,8 +2761,16 @@
      "Stubborn"
     ],
     "calling": "Formation master",
-    "fate_given": []
-   }
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "A",
+   "stage": 2,
+   "appearance": "Thin and stooped now, her hands always cold, a frost-silk sash knotted the old way; she smells of the pine tea she brews for the grand elder.",
+   "wants": "Time: a Nguyên Anh breakthrough, or a disciple careful enough to hold the Array after her.",
+   "secret": "She has felt three of the Array's nodes go warm since 1199 and has told only the grand elder.",
+   "birthplace": 66,
+   "master": "tan_ngung_suong"
   },
   {
    "key": "quyen_thanh_lam",
@@ -2916,9 +2936,16 @@
      "Loyal"
     ],
     "calling": "Duelist",
-    "fate_given": []
+    "fate_given": [],
+    "gained": []
    },
-   "master": "so_ngoc_ho"
+   "master": "so_ngoc_ho",
+   "tier": "A",
+   "stage": 1,
+   "appearance": "A grave young woman in undyed white who wears the winter robe her name means even in summer.",
+   "wants": "To be worthy of the surname.",
+   "secret": "For three winters she has followed the Keeper and Tiết Hàn Mai under the seat and learned eleven of the 108 nodes by touch, more than anyone alive but Tiết. Tiết hears her behind them and walks slower.",
+   "birthplace": 1394
   },
   {
    "key": "tu_khong_hac_nien",
@@ -3884,6 +3911,3295 @@
    "died": 874,
    "cause": "",
    "record": true
+  },
+  {
+   "key": "ton_han_thach",
+   "name": "Tôn Hàn Thạch",
+   "name_han": "孫寒石",
+   "gloss": "Cold stone",
+   "sex": "M",
+   "born": 1040,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "truong_lao",
+   "role": "Captain of the Desert Pavilion's guard",
+   "realm": "ket_dan",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Callous",
+     "Loyal"
+    ],
+    "calling": "Strategist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Squints even indoors; the caravan boys say he counts water by the mouthful.",
+   "birthplace": 1406
+  },
+  {
+   "key": "nhac_bang_thiem",
+   "name": "Nhạc Băng Thiềm",
+   "name_han": "岳冰蟾",
+   "gloss": "Ice toad (the moon's toad)",
+   "sex": "F",
+   "born": 980,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "truong_lao",
+   "role": "Keeper of the burial glacier above the seat",
+   "realm": "ket_dan",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Devout",
+     "Calm",
+     "Reclusive"
+    ],
+    "calling": "Teacher",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Speaks so softly that the standing dead seem to lean in; lamp soot on both cuffs.",
+   "birthplace": 1398
+  },
+  {
+   "key": "quach_lam",
+   "name": "Quách Lẫm",
+   "name_han": "郭凜",
+   "gloss": "Severe cold",
+   "sex": "M",
+   "born": 1060,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "chap_su",
+   "role": "Treasurer of the Pavilion; counts the frost coast's tax",
+   "realm": "ket_dan",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Paranoid",
+     "Callous",
+     "Greedy"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Thumbnails black from checking every bill twice, lips pinched as if tasting the sum.",
+   "birthplace": 68
+  },
+  {
+   "key": "luc_han_chu",
+   "name": "Lục Hàn Chu",
+   "name_han": "陸寒舟",
+   "gloss": "Cold boat",
+   "sex": "M",
+   "born": 922,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "truong_lao",
+   "role": "Master of the Pavilion's skiffs on the frost coast",
+   "realm": "ket_dan",
+   "home": 36,
+   "traits": {
+    "personality": [
+     "Warlike",
+     "Gregarious",
+     "Cruel"
+    ],
+    "calling": "Strategist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "His nose was flattened by a pearl-bed raid, so the laugh comes straight from the chest, loud across water.",
+   "birthplace": 1440
+  },
+  {
+   "key": "van_tuyet_khanh",
+   "name": "Văn Tuyết Khanh",
+   "name_han": "文雪卿",
+   "gloss": "Lady of snow",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "chan_truyen",
+   "role": "Tiết Hàn Mai's disciple in the Array",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Patient",
+     "Deceitful"
+    ],
+    "calling": "Formation master",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Left sleeve pinned back for work; hums one cold note until the node answers.",
+   "birthplace": 1352,
+   "master": "tiet_han_mai"
+  },
+  {
+   "key": "nhac_thanh_suong",
+   "name": "Nhạc Thanh Sương",
+   "name_han": "岳青霜",
+   "gloss": "Blue frost",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Inner disciple of the burial glacier",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Calm",
+     "Devout",
+     "Humble"
+    ],
+    "calling": "Teacher",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Nods to empty air as the standing dead go by; frost gathers on her pale lashes.",
+   "birthplace": 1398,
+   "master": "nhac_bang_thiem"
+  },
+  {
+   "key": "mac_ngung_bich",
+   "name": "Mạc Ngưng Bích",
+   "name_han": "莫凝碧",
+   "gloss": "Jade-green, set still",
+   "sex": "F",
+   "born": 1120,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Khương Lưu Ly's disciple",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Loyal",
+     "Cruel"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Touches the jade pin in her sleek braids whenever she is angry, which is most hours.",
+   "birthplace": 1346,
+   "master": "khuong_luu_ly"
+  },
+  {
+   "key": "tuong_han_phong",
+   "name": "Tưởng Hàn Phong",
+   "name_han": "蔣寒鋒",
+   "gloss": "Cold edge",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Senior sword of the Plum Sword Hall, passed over for Hạ Lăng Hàn",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Wrathful",
+     "Diligent"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "White cloth strips on both palms, never unwrapped in the hall; the blood shows through by evening.",
+   "birthplace": 66,
+   "master": "pho_am_huong"
+  },
+  {
+   "key": "ninh_bach_ho",
+   "name": "Ninh Bạch Hồ",
+   "name_han": "寧白湖",
+   "gloss": "White lake",
+   "sex": "M",
+   "born": 1135,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Rider of the Beast Hall",
+   "realm": "truc_co",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Lazy",
+     "Gregarious",
+     "Fickle"
+    ],
+    "calling": "Beast tamer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "White wolf hair on both sleeves; a knee that clicks when he mounts.",
+   "birthplace": 1396,
+   "master": "lam_tuyet_dieu"
+  },
+  {
+   "key": "quan_lang_ba",
+   "name": "Quan Lăng Ba",
+   "name_han": "關凌波",
+   "gloss": "Walking on waves",
+   "sex": "F",
+   "born": 1160,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Apprentice warden of the Ice Soul vein",
+   "realm": "truc_co",
+   "home": 209,
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Deceitful",
+     "Content"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Soot freckles across her nose, the rod-house stove's mark.",
+   "birthplace": 69,
+   "master": "kha_tinh_ba"
+  },
+  {
+   "key": "au_duong_tuyet",
+   "name": "Âu Dương Tuyết",
+   "name_han": "歐陽雪",
+   "gloss": "Snow (Âu Dương is a two-syllable surname)",
+   "sex": "M",
+   "born": 1090,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "chap_su",
+   "role": "Quartermaster of the seat and its mortal servants",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Greedy",
+     "Gregarious"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Smells of boiled barley; counts under his breath whether or not there is anything to count.",
+   "birthplace": 67
+  },
+  {
+   "key": "dieu_han_dam",
+   "name": "Diêu Hàn Đàm",
+   "name_han": "姚寒潭",
+   "gloss": "Cold pool",
+   "sex": "F",
+   "born": 1125,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Keeper of the ice sables at the Beast Hall",
+   "realm": "truc_co",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Reclusive",
+     "Patient"
+    ],
+    "calling": "Beast tamer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Sable hairs in her braids; a crooked finger where a kit once bit through.",
+   "birthplace": 1350,
+   "master": "lam_tuyet_dieu"
+  },
+  {
+   "key": "man_bang_ha",
+   "name": "Mẫn Băng Hà",
+   "name_han": "閔冰河",
+   "gloss": "Ice river",
+   "sex": "M",
+   "born": 1140,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Skiff captain on the frost coast",
+   "realm": "truc_co",
+   "home": 36,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Loyal"
+    ],
+    "calling": "Strategist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Salt-white scar across the chin, shoulders as broad as a door.",
+   "birthplace": 1438,
+   "master": "luc_han_chu"
+  },
+  {
+   "key": "giang_suong_lac",
+   "name": "Giang Sương Lạc",
+   "name_han": "江霜落",
+   "gloss": "Frost falling on the river",
+   "sex": "F",
+   "born": 1155,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Desert-born inner disciple at the Desert Pavilion",
+   "realm": "truc_co",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Humble",
+     "Diligent",
+     "Trusting"
+    ],
+    "calling": "Merchant",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Her Hồi Lan vowels climb at the end of every sentence; the sash sits a little high.",
+   "birthplace": 67,
+   "master": "on_sa_ngoc"
+  },
+  {
+   "key": "kieu_tuyet_ky",
+   "name": "Kiều Tuyết Kỳ",
+   "name_han": "喬雪旗",
+   "gloss": "Snow banner",
+   "sex": "M",
+   "born": 1105,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Banner-bearer of the Desert Pavilion guard",
+   "realm": "truc_co",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Deceitful",
+     "Stubborn"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Straight as his own banner pole; the brass cap has dented his thumb.",
+   "birthplace": 35,
+   "master": "ton_han_thach"
+  },
+  {
+   "key": "pham_lanh_van",
+   "name": "Phạm Lãnh Vân",
+   "name_han": "范冷雲",
+   "gloss": "Cold cloud",
+   "sex": "M",
+   "born": 1080,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "chap_su",
+   "role": "Clerk of the Hall of Cold Law in Liên Giang",
+   "realm": "truc_co",
+   "home": 36,
+   "traits": {
+    "personality": [
+     "Arbitrary",
+     "Patient",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Ink to the second knuckle; the fine long hand the Pivot admires.",
+   "birthplace": 36
+  },
+  {
+   "key": "vuong_thanh_lam",
+   "name": "Vương Thanh Lẫm",
+   "name_han": "王清凜",
+   "gloss": "Clear and severe",
+   "sex": "F",
+   "born": 1165,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "The envoy's aide",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Deceitful",
+     "Faithless"
+    ],
+    "calling": "Diplomat",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Heavy braid pinned over one shoulder; ink at the corner of her mouth.",
+   "birthplace": 66,
+   "master": "nguy_thanh_han"
+  },
+  {
+   "key": "ha_han_lo",
+   "name": "Hà Hàn Lộ",
+   "name_han": "何寒露",
+   "gloss": "Cold dew (the solar term)",
+   "sex": "F",
+   "born": 1145,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "The treasurer's clerk",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Faithless",
+     "Paranoid"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Reads with a finger under each line; lips split by the cold.",
+   "birthplace": 1435,
+   "master": "quach_lam"
+  },
+  {
+   "key": "ta_ngan_suong",
+   "name": "Tạ Ngân Sương",
+   "name_han": "謝銀霜",
+   "gloss": "Silver frost",
+   "sex": "F",
+   "born": 1170,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Khương Lưu Ly's youngest disciple",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Fickle",
+     "Gregarious",
+     "Brave"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Gap in her front teeth, which shows whenever the halls ring with her laugh.",
+   "birthplace": 1354,
+   "master": "khuong_luu_ly"
+  },
+  {
+   "key": "luu_han_ngan",
+   "name": "Lưu Hàn Ngạn",
+   "name_han": "劉寒岸",
+   "gloss": "Cold shore",
+   "sex": "M",
+   "born": 1115,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Frost-coast inner disciple, Thẩm's man",
+   "realm": "truc_co",
+   "home": 36,
+   "traits": {
+    "personality": [
+     "Faithless",
+     "Wrathful",
+     "Gregarious"
+    ],
+    "calling": "Strategist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Coast-blue lining flashes under the white robe; the Liên Giang drawl is thick as fish stew.",
+   "birthplace": 36,
+   "master": "luc_han_chu"
+  },
+  {
+   "key": "dinh_tuyet_tung",
+   "name": "Đinh Tuyết Tùng",
+   "name_han": "丁雪松",
+   "gloss": "Snow pine",
+   "sex": "M",
+   "born": 1095,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Warden of the burial glacier",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Devout",
+     "Stubborn"
+    ],
+    "calling": "Teacher",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Eyebrows white with chisel dust.",
+   "birthplace": 1343,
+   "master": "nhac_bang_thiem"
+  },
+  {
+   "key": "cat_ngoc_tri",
+   "name": "Cát Ngọc Trì",
+   "name_han": "葛玉池",
+   "gloss": "Jade pond",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Keeper of the founder's cold well at the Desert Pavilion",
+   "realm": "truc_co",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Content",
+     "Patient",
+     "Compassionate"
+    ],
+    "calling": "Herbalist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Hems always damp from the well; a dried lily bulb pins her pale braid.",
+   "birthplace": 116,
+   "master": "on_sa_ngoc"
+  },
+  {
+   "key": "truong_lanh_ha",
+   "name": "Trương Lãnh Hà",
+   "name_han": "張冷河",
+   "gloss": "Cold river",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "The outer disciple who reached Foundation without Ice",
+   "realm": "truc_co",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Ambitious",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Nose broken and set crooked; frostbite has cut leaf-shaped scars into both ears.",
+   "birthplace": 1452
+  },
+  {
+   "key": "bach_han_yen",
+   "name": "Bạch Hàn Yên",
+   "name_han": "白寒煙",
+   "gloss": "Cold mist",
+   "sex": "F",
+   "born": 1120,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Thunder-scarred watcher of the Ice Soul vein",
+   "realm": "truc_co",
+   "home": 209,
+   "traits": {
+    "personality": [
+     "Calm",
+     "Brave",
+     "Reclusive"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Two fingers gone from the right hand; a faint blue web of burns climbs her neck.",
+   "birthplace": 1440,
+   "master": "kha_tinh_ba"
+  },
+  {
+   "key": "ong_tinh_hai",
+   "name": "Ông Tĩnh Hải",
+   "name_han": "翁靜海",
+   "gloss": "Still sea",
+   "sex": "M",
+   "born": 1070,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "chap_su",
+   "role": "Tea master of the seat",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Arbitrary",
+     "Humble",
+     "Content"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Steam-pink hands, a stained apron under the robe, round shoulders.",
+   "birthplace": 1431
+  },
+  {
+   "key": "la_bang_tuyen",
+   "name": "La Băng Tuyền",
+   "name_han": "羅冰泉",
+   "gloss": "Ice spring",
+   "sex": "F",
+   "born": 1158,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Inner disciple born on the head's own peak",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Reclusive",
+     "Calm",
+     "Faithless"
+    ],
+    "calling": "Wanderer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Windburn she never lets heal; herder's beads at one wrist.",
+   "birthplace": 1393,
+   "master": "nhac_bang_thiem"
+  },
+  {
+   "key": "duong_lo",
+   "name": "Dương Lô",
+   "name_han": "楊爐",
+   "gloss": "Furnace",
+   "sex": "M",
+   "born": 1160,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "tap_dich",
+   "role": "The guest alchemist's apprentice",
+   "realm": "truc_co",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Trusting"
+    ],
+    "calling": "Alchemist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Always the last to take his apron off.",
+   "birthplace": 9,
+   "master": "vien_chuoc"
+  },
+  {
+   "key": "than_ngung_lam",
+   "name": "Thân Ngưng Lam",
+   "name_han": "申凝藍",
+   "gloss": "Set blue",
+   "sex": "F",
+   "born": 1135,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Plum Sword disciple who copies the red-ink manual",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Patient",
+     "Deceitful",
+     "Humble"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Red ink under one thumbnail that no washing shifts.",
+   "birthplace": 1356,
+   "master": "pho_am_huong"
+  },
+  {
+   "key": "lang_han_sinh",
+   "name": "Lăng Hàn Sinh",
+   "name_han": "凌寒生",
+   "gloss": "Born against the cold",
+   "sex": "M",
+   "born": 1142,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Skiffman and diver for ice-pearls",
+   "realm": "truc_co",
+   "home": 36,
+   "traits": {
+    "personality": [
+     "Generous",
+     "Brave",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Deaf in one ear from the deep; coughs like a barking seal.",
+   "birthplace": 1450,
+   "master": "luc_han_chu"
+  },
+  {
+   "key": "tieu_bach_lo",
+   "name": "Tiêu Bạch Lộ",
+   "name_han": "蕭白鷺",
+   "gloss": "White egret",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "A Tiêu-clan son in the outer gate",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Deceitful",
+     "Gregarious"
+    ],
+    "calling": "Wanderer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Too well fed for the outer gate; clan-silk laces are tucked inside his boots.",
+   "birthplace": 66
+  },
+  {
+   "key": "nghiem_tieu_tuyet",
+   "name": "Nghiêm Tiểu Tuyết",
+   "name_han": "嚴小雪",
+   "gloss": "Little snow",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Youngest of the outer gate",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Trusting",
+     "Diligent",
+     "Humble"
+    ],
+    "calling": "Herbalist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Two pairs of mittens indoors; sits nearest every brazier, wrists thin as reeds.",
+   "birthplace": 1352
+  },
+  {
+   "key": "hau_ngu",
+   "name": "Hầu Ngư",
+   "name_han": "侯漁",
+   "gloss": "Fisher",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Fisher's son in the outer gate",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Content",
+     "Lazy",
+     "Gregarious"
+    ],
+    "calling": "Wanderer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Smells of fish brine; ice-pick tucked in his belt.",
+   "birthplace": 1431
+  },
+  {
+   "key": "chu_suong_linh",
+   "name": "Chu Sương Linh",
+   "name_han": "周霜鈴",
+   "gloss": "Frost bell",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Passed the Frost Test last solstice",
+   "realm": "luyen_khi",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Loyal"
+    ],
+    "calling": "Teacher",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Eyes still red-rimmed; she touches her cheek where she wept, as if checking it.",
+   "birthplace": 1394,
+   "master": "do_suong_nhi"
+  },
+  {
+   "key": "ly_han_tam",
+   "name": "Lý Hàn Tâm",
+   "name_han": "李寒心",
+   "gloss": "Cold heart",
+   "sex": "M",
+   "born": 1170,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Sở Hàn Y's first disciple",
+   "realm": "luyen_khi",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Calm",
+     "Loyal",
+     "Patient"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Looks fresh-washed, as if his mother still packed his sleeves.",
+   "birthplace": 1346,
+   "master": "so_han_y"
+  },
+  {
+   "key": "phan_dong_nhi",
+   "name": "Phan Đông Nhi",
+   "name_han": "潘冬兒",
+   "gloss": "Winter child",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Outer disciple from the seal-hunters' village",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Callous"
+    ],
+    "calling": "Beast tamer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Seal oil in the creases of her knuckles; the laugh is a bark.",
+   "birthplace": 1350
+  },
+  {
+   "key": "khong_thiet_ngung",
+   "name": "Khổng Thiết Ngưng",
+   "name_han": "孔鐵凝",
+   "gloss": "Iron, set hard",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Desert-born outer disciple at the Desert Pavilion",
+   "realm": "luyen_khi",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Greedy",
+     "Paranoid"
+    ],
+    "calling": "Refiner",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Forearms soot-black to the elbow; sleeps in a leather apron.",
+   "birthplace": 1418
+  },
+  {
+   "key": "uong_tuyet_nhan",
+   "name": "Uông Tuyết Nhạn",
+   "name_han": "汪雪雁",
+   "gloss": "Snow goose",
+   "sex": "F",
+   "born": 1177,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Three Frost Tests failed; leaving for Lãnh Giang Phái",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Forgiving",
+     "Calm"
+    ],
+    "calling": "Wanderer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "The third hat this month lost to the lake; a cough hidden behind her hand.",
+   "birthplace": 1443
+  },
+  {
+   "key": "bui_han",
+   "name": "Bùi Hàn",
+   "name_han": "裴寒",
+   "gloss": "Cold",
+   "sex": "M",
+   "born": 1174,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Tưởng Hàn Phong's disciple in the Plum Sword Hall",
+   "realm": "luyen_khi",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Loyal",
+     "Wrathful"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "A cropped head and a wrist wrapped in a hand's width of cloth.",
+   "birthplace": 66,
+   "master": "tuong_han_phong"
+  },
+  {
+   "key": "sam_bich_lan",
+   "name": "Sầm Bích Lan",
+   "name_han": "岑碧蘭",
+   "gloss": "Green orchid",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Outer disciple from the oriole valley",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Content",
+     "Lazy"
+    ],
+    "calling": "Herbalist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Quill behind the ear, ink on the chin, a poem half out of every pocket.",
+   "birthplace": 115
+  },
+  {
+   "key": "te_lac_bang",
+   "name": "Tề Lạc Băng",
+   "name_han": "齊落冰",
+   "gloss": "Falling ice",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Reed-marsh boy in the outer gate",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Humble",
+     "Patient"
+    ],
+    "calling": "Herbalist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Breathes so slowly that his scarf barely moves.",
+   "birthplace": 121
+  },
+  {
+   "key": "an_tieu_han",
+   "name": "Ân Tiểu Hàn",
+   "name_han": "殷小寒",
+   "gloss": "Lesser cold (the solar term)",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Outer disciple from the tide village",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Honest",
+     "Ambitious",
+     "Gregarious"
+    ],
+    "calling": "Schemer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Quick brown eyes that never settle; a pouch of dried plums for the people she is paid by.",
+   "birthplace": 1450
+  },
+  {
+   "key": "la_ngu_nhi",
+   "name": "Lã Ngư Nhi",
+   "name_han": "呂魚兒",
+   "gloss": "Little fish",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Waterfall village girl in the outer gate",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Trusting",
+     "Impatient"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Black hair heavy with water, wrung out before she enters any room.",
+   "birthplace": 1354
+  },
+  {
+   "key": "han_tieu_bac",
+   "name": "Hàn Tiểu Bắc",
+   "name_han": "韓小北",
+   "gloss": "Little north",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Outer disciple from the sail-watchers' village",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Calm",
+     "Pragmatic",
+     "Deceitful"
+    ],
+    "calling": "Merchant",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Tar under his nails; a rope burn across one palm.",
+   "birthplace": 1443
+  },
+  {
+   "key": "to_lanh_nguyet",
+   "name": "Tô Lãnh Nguyệt",
+   "name_han": "蘇冷月",
+   "gloss": "Cold moon",
+   "sex": "F",
+   "born": 1172,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Desert Pavilion inner disciple",
+   "realm": "luyen_khi",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Patient",
+     "Loyal",
+     "Humble"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Practice characters inked on her cuffs, row after row.",
+   "birthplace": 35,
+   "master": "giang_suong_lac"
+  },
+  {
+   "key": "vo_bang_kien",
+   "name": "Võ Băng Kiên",
+   "name_han": "武冰堅",
+   "gloss": "Firm as ice",
+   "sex": "M",
+   "born": 1175,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Caravan guard's son in the outer gate",
+   "realm": "luyen_khi",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Loyal",
+     "Warlike"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Rolls like a caravan guard when he walks; one eyebrow split in two.",
+   "birthplace": 35
+  },
+  {
+   "key": "que_han_chi",
+   "name": "Quế Hàn Chi",
+   "name_han": "桂寒枝",
+   "gloss": "Cold cassia branch",
+   "sex": "F",
+   "born": 1183,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Outer disciple from Lịch Thanh Thôn",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Calm",
+     "Deceitful",
+     "Reclusive"
+    ],
+    "calling": "Herbalist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Dirt under her nails even in winter; a seed in every pocket.",
+   "birthplace": 1343
+  },
+  {
+   "key": "trinh_lang",
+   "name": "Trịnh Lăng",
+   "name_han": "鄭凌",
+   "gloss": "Rising above",
+   "sex": "M",
+   "born": 1173,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Mạc Ngưng Bích's disciple",
+   "realm": "luyen_khi",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Loyal",
+     "Brave"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Much-resoled squire's boots; takes a joke a full breath late, then laughs alone.",
+   "birthplace": 1346,
+   "master": "mac_ngung_bich"
+  },
+  {
+   "key": "thach_tieu_lo",
+   "name": "Thạch Tiểu Lộ",
+   "name_han": "石小露",
+   "gloss": "Little dew",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Raft village girl, newest in the outer gate",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Trusting",
+     "Gregarious",
+     "Lazy"
+    ],
+    "calling": "Wanderer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Counts on her fingers, loses the count at seven, starts again out loud.",
+   "birthplace": 1356
+  },
+  {
+   "key": "ma_dong_lam",
+   "name": "Mã Đông Lâm",
+   "name_han": "馬冬林",
+   "gloss": "Winter forest",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "The horse village's only Water root",
+   "realm": "luyen_khi",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Humble",
+     "Diligent",
+     "Stubborn"
+    ],
+    "calling": "Beast tamer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Bow-legged from the saddle; a horse's mane braided into his belt.",
+   "birthplace": 118
+  },
+  {
+   "key": "hua_bang_nhi",
+   "name": "Hứa Băng Nhi",
+   "name_han": "許冰兒",
+   "gloss": "Ice child",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Beast Hall inner disciple",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Patient",
+     "Reclusive"
+    ],
+    "calling": "Beast tamer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Freckles in a fur pattern across the nose; she sleeps in her boots.",
+   "birthplace": 1396,
+   "master": "dieu_han_dam"
+  },
+  {
+   "key": "dao_han_mac",
+   "name": "Đào Hàn Mặc",
+   "name_han": "陶寒墨",
+   "gloss": "Cold ink",
+   "sex": "M",
+   "born": 1182,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "tap_dich",
+   "role": "Servant of the seat who cultivates by grace",
+   "realm": "luyen_khi",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Humble",
+     "Diligent",
+     "Loyal"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Broom-callused right palm; one white streak at the temple.",
+   "birthplace": 35
+  },
+  {
+   "key": "yen_tuyet_ngung",
+   "name": "Yên Tuyết Ngưng",
+   "name_han": "燕雪凝",
+   "gloss": "Snow set still",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Ice-hole village outer disciple",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Calm",
+     "Patient",
+     "Stubborn"
+    ],
+    "calling": "Teacher",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Sits cross-legged in any queue; no one has ever seen her sit down.",
+   "birthplace": 1346
+  },
+  {
+   "key": "lieu_tieu_giang",
+   "name": "Liễu Tiểu Giang",
+   "name_han": "柳小江",
+   "gloss": "Little river",
+   "sex": "M",
+   "born": 1184,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Liễu Ngư Ca's young cousin",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Honest",
+     "Gregarious"
+    ],
+    "calling": "Wanderer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Sunburnt ears that stick out; a moustache shadow he is proud of.",
+   "birthplace": 36
+  },
+  {
+   "key": "nhiep_lang_tuyet",
+   "name": "Nhiếp Lăng Tuyết",
+   "name_han": "聶凌雪",
+   "gloss": "Rising over the snow",
+   "sex": "F",
+   "born": 1118,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "chap_su",
+   "role": "Deputy steward of the outer gate; keeps the Frost Test roll",
+   "realm": "truc_co",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Patient",
+     "Just",
+     "Stubborn"
+    ],
+    "calling": "Teacher",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Her breath smokes even in the warm hall; she carries the roll under one arm like a child.",
+   "birthplace": 1398
+  },
+  {
+   "key": "ky_han_bach",
+   "name": "Kỷ Hàn Bách",
+   "name_han": "紀寒柏",
+   "gloss": "Winter cypress",
+   "sex": "M",
+   "born": 1125,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Teacher of the primer at the outer gate; the seat's man at the lake",
+   "realm": "truc_co",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Cruel",
+     "Arrogant",
+     "Loyal"
+    ],
+    "calling": "Teacher",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "That voice, trained to carry across lake wind.",
+   "birthplace": 1346,
+   "master": "khuong_luu_ly"
+  },
+  {
+   "key": "manh_trieu_suong",
+   "name": "Mạnh Triều Sương",
+   "name_han": "孟潮霜",
+   "gloss": "Frost on the tide",
+   "sex": "M",
+   "born": 1110,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Skiff disciple who carries the Hall of Cold Law's letters along the frost coast",
+   "realm": "truc_co",
+   "home": 36,
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Loyal",
+     "Greedy"
+    ],
+    "calling": "Diplomat",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Burn-spotted lamp-maker's fingers; a whistle every harbour knows.",
+   "birthplace": 1440,
+   "master": "luc_han_chu"
+  },
+  {
+   "key": "lac_ngan_bang",
+   "name": "Lạc Ngạn Băng",
+   "name_han": "駱岸冰",
+   "gloss": "Ice on the shore",
+   "sex": "F",
+   "born": 1132,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "chap_su",
+   "role": "Tax-reckoner of the Hall of Cold Law on the frost coast",
+   "realm": "truc_co",
+   "home": 36,
+   "traits": {
+    "personality": [
+     "Honest",
+     "Just",
+     "Paranoid"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Abacus beads click in her sleeve; she squints at anything not set in columns.",
+   "birthplace": 1450,
+   "master": "tham_han_giang"
+  },
+  {
+   "key": "thai_han_ngu",
+   "name": "Thái Hàn Ngư",
+   "name_han": "蔡寒漁",
+   "gloss": "Cold-water fisher",
+   "sex": "M",
+   "born": 1148,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Ice-hole fisher and skiffman on the frost coast",
+   "realm": "truc_co",
+   "home": 36,
+   "traits": {
+    "personality": [
+     "Calm",
+     "Content",
+     "Peaceable"
+    ],
+    "calling": "Wanderer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "His grandfather's wool cap; a three-fingered ice-fisher's mitten on the left hand.",
+   "birthplace": 1452,
+   "master": "luc_han_chu"
+  },
+  {
+   "key": "tong_ngu_lan",
+   "name": "Tống Ngư Lan",
+   "name_han": "宋漁瀾",
+   "gloss": "Waves of the fishing water",
+   "sex": "F",
+   "born": 1122,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Thẩm Hàn Giang's disciple at the seat; the frost coast's voice among the inner disciples",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Brave",
+     "Wrathful"
+    ],
+    "calling": "Strategist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Salt-streaked braids, and a shout held back behind her teeth.",
+   "birthplace": 1443,
+   "master": "tham_han_giang"
+  },
+  {
+   "key": "phi_thanh_sa",
+   "name": "Phí Thanh Sa",
+   "name_han": "費青沙",
+   "gloss": "Blue-green sand",
+   "sex": "F",
+   "born": 1128,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Keeper of the Desert Pavilion's caravan ledgers",
+   "realm": "truc_co",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Pragmatic",
+     "Diligent",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Ledger powder has greened her fingertips; she weighs every coin on her palm before she takes it.",
+   "birthplace": 116,
+   "master": "on_sa_ngoc"
+  },
+  {
+   "key": "muc_sa_hanh",
+   "name": "Mục Sa Hành",
+   "name_han": "穆沙行",
+   "gloss": "Walker on sand",
+   "sex": "M",
+   "born": 1112,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Caravan rider of the Desert Pavilion's guard",
+   "realm": "truc_co",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Reclusive",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "His gaze always rests on the horizon; the lips are sun-split.",
+   "birthplace": 1406,
+   "master": "ton_han_thach"
+  },
+  {
+   "key": "yen_luc_tuyen",
+   "name": "Yên Lục Tuyền",
+   "name_han": "燕綠泉",
+   "gloss": "Green spring",
+   "sex": "F",
+   "born": 1150,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Keeps the founder's cold well at the Desert Pavilion",
+   "realm": "truc_co",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Devout",
+     "Patient",
+     "Reclusive"
+    ],
+    "calling": "Formation master",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Well-rope calluses on both hands; scribe's sleeves pinned neat.",
+   "birthplace": 67,
+   "master": "on_sa_ngoc"
+  },
+  {
+   "key": "uc_hoang_sa",
+   "name": "Úc Hoàng Sa",
+   "name_han": "郁黃沙",
+   "gloss": "Yellow sand",
+   "sex": "M",
+   "born": 1135,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Desert-born guard of the Desert Pavilion who passed the Frost Test on his third sitting",
+   "realm": "truc_co",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Patient",
+     "Humble"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Upper tooth missing; stands bow-legged as a camel-driver.",
+   "birthplace": 1418,
+   "master": "ton_han_thach"
+  },
+  {
+   "key": "dien_han_tac",
+   "name": "Điền Hàn Tạc",
+   "name_han": "田寒鑿",
+   "gloss": "Cold chisel",
+   "sex": "M",
+   "born": 1098,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Cuts the standing graves in the burial glacier",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Calm",
+     "Devout",
+     "Humble"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Chisel tucked behind his ear; grit in every knuckle crease.",
+   "birthplace": 1398,
+   "master": "nhac_bang_thiem"
+  },
+  {
+   "key": "kha_lac_tuyet",
+   "name": "Kha Lạc Tuyết",
+   "name_han": "柯落雪",
+   "gloss": "Falling snow",
+   "sex": "F",
+   "born": 1138,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Watcher of the Ice Soul vein; the warden's niece",
+   "realm": "truc_co",
+   "home": 209,
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Loyal",
+     "Diligent"
+    ],
+    "calling": "Formation master",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Tilts her head to the west when thunder is near.",
+   "birthplace": 69,
+   "master": "kha_tinh_ba"
+  },
+  {
+   "key": "lam_ngung_phong",
+   "name": "Lâm Ngưng Phong",
+   "name_han": "林凝鋒",
+   "gloss": "Frozen edge",
+   "sex": "M",
+   "born": 1128,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Plum Sword Hall swordsman of Tưởng Hàn Phong's side",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Ambitious",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Turns his clan's seal ring when he is slighted; boots too fine for the hall.",
+   "birthplace": 1354,
+   "master": "pho_am_huong"
+  },
+  {
+   "key": "dam_tinh_thach",
+   "name": "Đàm Tĩnh Thạch",
+   "name_han": "譚靜石",
+   "gloss": "Still stone",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Array Hall disciple who checks the lid stones of the Jade Vessel Array",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Honest",
+     "Patient"
+    ],
+    "calling": "Formation master",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Damp knees; the smell of lamp oil from the tunnels.",
+   "birthplace": 1352,
+   "master": "tiet_han_mai"
+  },
+  {
+   "key": "luong_sa_bang",
+   "name": "Lương Sa Băng",
+   "name_han": "梁沙冰",
+   "gloss": "Ice on sand",
+   "sex": "F",
+   "born": 1152,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Desert-born rider of the Beast Hall",
+   "realm": "truc_co",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Greedy",
+     "Stubborn"
+    ],
+    "calling": "Beast tamer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Sable's tail stitched to her cap.",
+   "birthplace": 116,
+   "master": "lam_tuyet_dieu"
+  },
+  {
+   "key": "hoac_tuyet_ngan",
+   "name": "Hoắc Tuyết Ngạn",
+   "name_han": "霍雪岸",
+   "gloss": "Snowy shore",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Frost-coast boy in the outer gate",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Impatient",
+     "Gregarious"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Speaks in the coast's sing-song; a fishing-line scar round one wrist.",
+   "birthplace": 1438
+  },
+  {
+   "key": "tieu_lanh_thu",
+   "name": "Tiêu Lãnh Thu",
+   "name_han": "蕭冷秋",
+   "gloss": "Cold autumn",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Tiêu-clan daughter; sits her first Frost Test at the coming solstice",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Pragmatic",
+     "Calm"
+    ],
+    "calling": "Diplomat",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Powders her long plain face white; the clan's gloves are too small for her hands.",
+   "birthplace": 66
+  },
+  {
+   "key": "phu_suong_nguyen",
+   "name": "Phù Sương Nguyên",
+   "name_han": "符霜原",
+   "gloss": "Frost plain",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Has failed the Frost Test twice",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Patient"
+    ],
+    "calling": "Talisman maker",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Snow melting in his hair most mornings; goes blank mid-sentence, as if his voice had been blown out.",
+   "birthplace": 1356
+  },
+  {
+   "key": "nhan_bich_tuyen",
+   "name": "Nhan Bích Tuyền",
+   "name_han": "顏碧泉",
+   "gloss": "Jade spring",
+   "sex": "F",
+   "born": 1175,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Sits her third and last Frost Test at the coming solstice",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Calm",
+     "Stubborn",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Crosses her fingers behind her back; trips on dry ground; net-mender's calluses.",
+   "birthplace": 1431
+  },
+  {
+   "key": "dang_tieu_ha",
+   "name": "Đặng Tiểu Hà",
+   "name_han": "鄧小河",
+   "gloss": "Little river",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Seal-hunter's boy, new in the outer gate",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Brave",
+     "Lazy"
+    ],
+    "calling": "Beast tamer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Wide, sleepy grin.",
+   "birthplace": 1350
+  },
+  {
+   "key": "nham_dong_tuyet",
+   "name": "Nhậm Đông Tuyết",
+   "name_han": "任冬雪",
+   "gloss": "Winter snow",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Outer disciple with a faint Ice the lake has not yet woken",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Diligent",
+     "Humble"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Fine pale hair that stands up when she is afraid.",
+   "birthplace": 1346,
+   "master": "ky_han_bach"
+  },
+  {
+   "key": "hau_lang",
+   "name": "Hầu Lãng",
+   "name_han": "侯浪",
+   "gloss": "Wave",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Hầu Ngư's younger brother",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Fickle",
+     "Gregarious",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Sits on a fishing hole as if it were a stool, heels drumming.",
+   "birthplace": 1431
+  },
+  {
+   "key": "ong_tieu_tra",
+   "name": "Ông Tiểu Trà",
+   "name_han": "翁小茶",
+   "gloss": "Little tea",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "The tea master's grandniece in the outer gate",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Patient",
+     "Content",
+     "Temperate"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Careful step with every cup.",
+   "birthplace": 1431
+  },
+  {
+   "key": "tu_lac_suong",
+   "name": "Từ Lạc Sương",
+   "name_han": "徐落霜",
+   "gloss": "Falling frost",
+   "sex": "F",
+   "born": 1179,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Đàm Tĩnh Thạch's niece; wants the Array Hall",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Honest",
+     "Diligent",
+     "Trusting"
+    ],
+    "calling": "Formation master",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Chalk-white fingers from drawing patterns in the snow.",
+   "birthplace": 1352
+  },
+  {
+   "key": "vi_tu_han",
+   "name": "Vi Tử Hàn",
+   "name_han": "韋子寒",
+   "gloss": "Child of the cold",
+   "sex": "M",
+   "born": 1168,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Oldest of the outer gate; failed three Frost Tests and stayed",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Content",
+     "Compassionate"
+    ],
+    "calling": "Teacher",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "One shoulder worn down by other people's bags; stops mid-word, blank, until someone says his name.",
+   "birthplace": 1440
+  },
+  {
+   "key": "dien_tieu_thach",
+   "name": "Điền Tiểu Thạch",
+   "name_han": "田小石",
+   "gloss": "Pebble",
+   "sex": "M",
+   "born": 1180,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "The grave-cutter's son in the outer gate",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Calm",
+     "Stubborn",
+     "Honest"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Grave-cutter's squint.",
+   "birthplace": 1398
+  },
+  {
+   "key": "mai_han_tich",
+   "name": "Mai Hàn Tịch",
+   "name_han": "梅寒汐",
+   "gloss": "Cold night-tide",
+   "sex": "F",
+   "born": 1174,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Skiff hand of the frost coast",
+   "realm": "luyen_khi",
+   "home": 36,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Faithless",
+     "Impatient"
+    ],
+    "calling": "Wanderer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Palms blistered at the bow oar; the eyes go pale grey when she judges ice.",
+   "birthplace": 1450,
+   "master": "man_bang_ha"
+  },
+  {
+   "key": "bi_tieu_chu",
+   "name": "Bì Tiểu Chu",
+   "name_han": "皮小舟",
+   "gloss": "Little boat",
+   "sex": "M",
+   "born": 1177,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Outer disciple lent to the coast; dives for ice-pearls",
+   "realm": "luyen_khi",
+   "home": 36,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Greedy",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Hair that never dries; a pearl-seller's smile.",
+   "birthplace": 1435
+  },
+  {
+   "key": "diep_lanh_thu",
+   "name": "Diệp Lãnh Thư",
+   "name_han": "葉冷書",
+   "gloss": "Cold letters",
+   "sex": "F",
+   "born": 1172,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Copyist of the Hall of Cold Law in Liên Giang",
+   "realm": "luyen_khi",
+   "home": 36,
+   "traits": {
+    "personality": [
+     "Deceitful",
+     "Diligent",
+     "Cautious"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Covers the page with her sleeve as she writes.",
+   "birthplace": 68,
+   "master": "pham_lanh_van"
+  },
+  {
+   "key": "lu_bang_trieu",
+   "name": "Lữ Băng Triều",
+   "name_han": "呂冰潮",
+   "gloss": "Ice tide",
+   "sex": "M",
+   "born": 1173,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Frost-coast inner disciple sent down from the seat after a quarrel",
+   "realm": "luyen_khi",
+   "home": 36,
+   "traits": {
+    "personality": [
+     "Wrathful",
+     "Loyal",
+     "Brave"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": [
+     "Disgraced"
+    ]
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Knuckles still swollen from the fist that cost him the seat.",
+   "birthplace": 1440,
+   "master": "luu_han_ngan"
+  },
+  {
+   "key": "manh_tieu_ngu",
+   "name": "Mạnh Tiểu Ngư",
+   "name_han": "孟小魚",
+   "gloss": "Little fish",
+   "sex": "M",
+   "born": 1181,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Mạnh Triều Sương's nephew; a skiff boy",
+   "realm": "luyen_khi",
+   "home": 36,
+   "traits": {
+    "personality": [
+     "Trusting",
+     "Gregarious",
+     "Lazy"
+    ],
+    "calling": "Wanderer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Forearms like bailing buckets.",
+   "birthplace": 1440
+  },
+  {
+   "key": "phuong_diem_nhi",
+   "name": "Phương Diêm Nhi",
+   "name_han": "方鹽兒",
+   "gloss": "Salt girl",
+   "sex": "F",
+   "born": 1180,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Salt-boiler's daughter at the Desert Pavilion",
+   "realm": "luyen_khi",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Honest",
+     "Impatient",
+     "Generous"
+    ],
+    "calling": "Merchant",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Salt-white lashes; a laugh that comes out as a cough.",
+   "birthplace": 1406
+  },
+  {
+   "key": "nghe_kho_tuyen",
+   "name": "Nghê Khô Tuyền",
+   "name_han": "倪枯泉",
+   "gloss": "Dry spring",
+   "sex": "M",
+   "born": 1176,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Oasis boy who failed the Frost Test three times",
+   "realm": "luyen_khi",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Vengeful",
+     "Diligent"
+    ],
+    "calling": "Schemer",
+    "fate_given": [],
+    "gained": [
+     "Embittered"
+    ]
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Rolls a coin across his knuckles, mouth twisted bitter.",
+   "birthplace": 116
+  },
+  {
+   "key": "mong_sa_lien",
+   "name": "Mông Sa Liên",
+   "name_han": "蒙沙蓮",
+   "gloss": "Sand lotus",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Hồi Lan girl who passed the Frost Test; Giang Sương Lạc's disciple",
+   "realm": "luyen_khi",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Humble",
+     "Patient",
+     "Trusting"
+    ],
+    "calling": "Merchant",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Heavy harbour anklets that she refuses to take off.",
+   "birthplace": 67,
+   "master": "giang_suong_lac"
+  },
+  {
+   "key": "cat_lo_chau",
+   "name": "Cát Lộ Châu",
+   "name_han": "葛露珠",
+   "gloss": "Dewdrop",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Cát Ngọc Trì's niece at the Desert Pavilion",
+   "realm": "luyen_khi",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Fickle",
+     "Compassionate"
+    ],
+    "calling": "Herbalist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Reed cuts on both hands; she cannot hold a laugh in.",
+   "birthplace": 116
+  },
+  {
+   "key": "ngac_thiet_phong",
+   "name": "Ngạc Thiết Phong",
+   "name_han": "鄂鐵風",
+   "gloss": "Iron wind",
+   "sex": "M",
+   "born": 1174,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "Caravan guard in training under Úc Hoàng Sa",
+   "realm": "luyen_khi",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Warlike",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Camel dust in his eyebrows.",
+   "birthplace": 1418,
+   "master": "uc_hoang_sa"
+  },
+  {
+   "key": "ma_thao_nhi",
+   "name": "Mã Thảo Nhi",
+   "name_han": "馬草兒",
+   "gloss": "Grass girl",
+   "sex": "F",
+   "born": 1181,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "tap_dich",
+   "role": "Stable servant at the Desert Pavilion; Mã Đông Lâm's sister",
+   "realm": "luyen_khi",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Humble",
+     "Content",
+     "Loyal"
+    ],
+    "calling": "Beast tamer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Straw in her braid; a horse's patient stare.",
+   "birthplace": 118
+  },
+  {
+   "key": "giai_tieu_hoa",
+   "name": "Giải Tiểu Hỏa",
+   "name_han": "解小火",
+   "gloss": "Little fire",
+   "sex": "M",
+   "born": 1179,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "tap_dich",
+   "role": "Furnace boy of the guest alchemist's hall at Hàn Giao Chử",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Gregarious",
+     "Impatient",
+     "Brave"
+    ],
+    "calling": "Alchemist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Eyebrows singed off once and never regrown; he cannot stand still.",
+   "birthplace": 35,
+   "master": "duong_lo"
+  },
+  {
+   "key": "quy_to_nga",
+   "name": "Quý Tố Nga",
+   "name_han": "季素娥",
+   "gloss": "Plain grace",
+   "sex": "F",
+   "born": 1160,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "tap_dich",
+   "role": "Washer of the seat's undyed robes; Đào Hàn Mặc's mother",
+   "realm": "luyen_khi",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Patient",
+     "Humble",
+     "Compassionate"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Hands bleached white, wrinkled to the wrist.",
+   "birthplace": 1346
+  },
+  {
+   "key": "trac_on_tuyen",
+   "name": "Trác Ôn Tuyền",
+   "name_han": "卓溫泉",
+   "gloss": "Warm spring",
+   "sex": "M",
+   "born": 1183,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "tap_dich",
+   "role": "Tea servant who warms the seat's water with qi",
+   "realm": "luyen_khi",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Humble",
+     "Trusting"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 0,
+   "appearance": "Palms always warm, steaming faintly in winter air.",
+   "birthplace": 1431
+  },
+  {
+   "key": "hoa_tuyet_nghi",
+   "name": "Hoa Tuyết Nghi",
+   "name_han": "華雪儀",
+   "gloss": "Snow grace",
+   "sex": "F",
+   "born": 1182,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Tạ Ngân Sương's disciple",
+   "realm": "luyen_khi",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Calm",
+     "Arrogant",
+     "Callous"
+    ],
+    "calling": "Strategist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Perfectly still face; one tiny line between the brows she is proud of.",
+   "birthplace": 1398,
+   "master": "ta_ngan_suong"
+  },
+  {
+   "key": "vu_mai_suong",
+   "name": "Vu Mai Sương",
+   "name_han": "于梅霜",
+   "gloss": "Frost on the plum",
+   "sex": "M",
+   "born": 1175,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Plum Sword Hall disciple; grinds the red ink",
+   "realm": "luyen_khi",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Honest",
+     "Patient"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Red-stained cuffs; the hunched back of a grinder.",
+   "birthplace": 1354,
+   "master": "than_ngung_lam"
+  },
+  {
+   "key": "loi_tuyet_hieu",
+   "name": "Lôi Tuyết Hiêu",
+   "name_han": "雷雪鴞",
+   "gloss": "Snow owl",
+   "sex": "M",
+   "born": 1178,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Beast Hall rider",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Reclusive",
+     "Patient"
+    ],
+    "calling": "Beast tamer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 1,
+   "appearance": "Owl feathers tucked behind one ear; unblinking pale eyes.",
+   "birthplace": 1398,
+   "master": "ninh_bach_ho"
+  },
+  {
+   "key": "thinh_han_loi",
+   "name": "Thịnh Hàn Lôi",
+   "name_han": "盛寒雷",
+   "gloss": "Cold thunder",
+   "sex": "M",
+   "born": 1174,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Keeps the lightning rods on the Ice Soul vein",
+   "realm": "luyen_khi",
+   "home": 209,
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Diligent",
+     "Paranoid"
+    ],
+    "calling": "Formation master",
+    "fate_given": [],
+    "gained": [
+     "Scarred"
+    ]
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Hair that stands on end near the rods; sets each foot down as if testing it.",
+   "birthplace": 69,
+   "master": "quan_lang_ba"
+  },
+  {
+   "key": "hoang_tuyet_tinh",
+   "name": "Hoàng Tuyết Tịnh",
+   "name_han": "黃雪淨",
+   "gloss": "Clean snow",
+   "sex": "F",
+   "born": 1176,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Array Hall junior",
+   "realm": "luyen_khi",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Humble",
+     "Loyal"
+    ],
+    "calling": "Formation master",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "C",
+   "stage": 2,
+   "appearance": "Dark circles under the eyes; the lamp never trembles in her hand.",
+   "birthplace": 1352,
+   "master": "van_tuyet_khanh"
+  },
+  {
+   "key": "co_lang_suong",
+   "name": "Cố Lăng Sương",
+   "name_han": "顧凌霜",
+   "gloss": "She who stands above the frost",
+   "sex": "F",
+   "born": 560,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "thai_thuong",
+   "role": "Grand elder of Băng Tâm Các, in seclusion on Băng Bích Nhai since 1010",
+   "realm": "nguyen_anh",
+   "home": 1393,
+   "traits": {
+    "personality": [
+     "Patient",
+     "Stubborn",
+     "Loyal"
+    ],
+    "calling": "Formation master",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "A",
+   "stage": 2,
+   "appearance": "A small woman wrapped in a grey fur gone white with rime, who has not cut her hair in two hundred years and wears it bound around her like a cloak.",
+   "wants": "To keep the founder's last order, and to be sure before she breaks her silence.",
+   "secret": "She was never passed over: Tần chose her for the watch and Sở for the hall, and told neither the other's task.",
+   "birthplace": 1362,
+   "master": "tan_ngung_suong"
+  },
+  {
+   "key": "tham_han_giang",
+   "name": "Thẩm Hàn Giang",
+   "name_han": "沈寒江",
+   "gloss": "The cold river, sunk deep",
+   "sex": "M",
+   "born": 900,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "truong_lao",
+   "role": "Master of the Hall of Cold Law; voice of the frost coast in the Pavilion",
+   "realm": "nguyen_anh",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Just",
+     "Gregarious"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": [
+     "Renowned"
+    ]
+   },
+   "tier": "A",
+   "stage": 0,
+   "appearance": "Broad, weathered and loud for a Băng Tâm elder, with a fisher's hands and a laugh that the seat's halls are not built for.",
+   "wants": "To be named heir, to make the frost coast the Pavilion's equal rather than its tax, and to rule at Hòe Âm this autumn for the men's lodge of the massif, whose men would then stand behind him.",
+   "secret": "He has quietly kept the frost-coast towns' tax books in two sets for forty years: one for the seat, one that shows what the coast really pays.",
+   "birthplace": 36
+  },
+  {
+   "key": "pho_am_huong",
+   "name": "Phó Ám Hương",
+   "name_han": "傅暗香",
+   "gloss": "Hidden fragrance (the plum's scent in the dark)",
+   "sex": "M",
+   "born": 720,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "truong_lao",
+   "role": "Master of the Plum Sword Hall; the last of Lãnh Hương Các (age 480)",
+   "realm": "ket_dan",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Vengeful",
+     "Diligent",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": [
+     "Battle-hardened"
+    ]
+   },
+   "tier": "A",
+   "stage": 2,
+   "appearance": "A lean old swordsman with a plum-blossom scar on his left hand where his father's cape-pin burned him in the fire of Cô Thành.",
+   "wants": "The red plum sword back from Phượng Minh before he dies; a disciple worthy of the pair.",
+   "secret": "He has written to Phượng Minh's head Hoa Triêu Dương (hoa_trieu_duong) three times offering a duel for the sword, and has never sent the letters.",
+   "birthplace": 1412
+  },
+  {
+   "key": "khuong_luu_ly",
+   "name": "Khương Lưu Ly",
+   "name_han": "姜琉璃",
+   "gloss": "Lapis glaze (lưu ly), clear and cold",
+   "sex": "F",
+   "born": 950,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "chan_truyen",
+   "role": "The head's first disciple and the seat's heir candidate",
+   "realm": "ket_dan",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Arrogant",
+     "Diligent",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "A",
+   "stage": 2,
+   "appearance": "Beautiful in the Pavilion's way, cold and exact, with a sword so clear it looks like a sliver of glazed glass.",
+   "wants": "To be named heir, to know why she has not been, and to see Lê Hoa Am's gate upheld at Hòe Âm, because the seat will read a ruling against a women's vow as a ruling against the Keepers.",
+   "secret": "Since the 1188 petition she has written to the Pivot's young disciples under a false name to learn what Doãn Ngọc Hành said of her master.",
+   "birthplace": 214,
+   "master": "so_ngoc_ho"
+  },
+  {
+   "key": "on_sa_ngoc",
+   "name": "Ôn Sa Ngọc",
+   "name_han": "溫沙玉",
+   "gloss": "Warm jade of the sand",
+   "sex": "F",
+   "born": 905,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "truong_lao",
+   "role": "Keeper of the Desert Pavilion (the old seat): caravans, trade and desert recruits",
+   "realm": "ket_dan",
+   "home": 3,
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Pragmatic",
+     "Gregarious"
+    ],
+    "calling": "Merchant",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "B",
+   "stage": 1,
+   "appearance": "Sun-browned, the only elder who smiles in public, with sand always in the folds of her white robe.",
+   "wants": "To keep the Desert Pavilion alive as the Pavilion's door to the desert, and to be buried in the sand, not the glacier.",
+   "secret": "She is skimming a tenth of the caravan toll into sealed jars under her cellar floor, against the day the seat calls the old hall home. Phí Thanh Sa (phi_thanh_sa) keeps the books and has begun counting the jars.",
+   "birthplace": 116
+  },
+  {
+   "key": "kha_tinh_ba",
+   "name": "Kha Tĩnh Ba",
+   "name_han": "柯靜波",
+   "gloss": "Still wave",
+   "sex": "M",
+   "born": 980,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "chap_su",
+   "role": "Steward and warden of the Ice Soul vein, Băng Phách Mạch",
+   "realm": "ket_dan",
+   "home": 209,
+   "traits": {
+    "personality": [
+     "Calm",
+     "Content",
+     "Loyal"
+    ],
+    "calling": "Steward",
+    "fate_given": [],
+    "gained": [
+     "Scarred"
+    ]
+   },
+   "tier": "B",
+   "stage": 0,
+   "appearance": "A quiet man whose left arm twitches when storms come; the scar of a lightning lash runs from his shoulder to his wrist.",
+   "wants": "To make the seat believe the vein is warming without being asked what he did to it.",
+   "secret": "Each night he opens a vent-sluice on Băng Phách Mạch by a hand's width to bleed the heat, which the Array Hall forbids. Quan Lăng Ba (quan_lang_ba) logs the drop and has told no one.",
+   "birthplace": 69
+  },
+  {
+   "key": "lam_tuyet_dieu",
+   "name": "Lam Tuyết Điêu",
+   "name_han": "藍雪貂",
+   "gloss": "Blue snow sable",
+   "sex": "F",
+   "born": 1000,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "truong_lao",
+   "role": "Elder of the Beast Hall: the ice beasts and the sect's mounts",
+   "realm": "ket_dan",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Compassionate",
+     "Impatient"
+    ],
+    "calling": "Beast tamer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "B",
+   "stage": 0,
+   "appearance": "Wiry and wind-burned, a white sable usually draped across her shoulders, smelling of hide and snow.",
+   "wants": "To breed a white sable pair that will not flee the vein's heat.",
+   "secret": "She has been feeding the oldest wolf from her own plate and telling the hall it died in spring; it sleeps in the lamp-room under Diêu Hàn Đàm's (dieu_han_dam) bed, and the two women have not spoken of it.",
+   "birthplace": 233,
+   "beasts": [
+    "ngoc_dieu",
+    "han_tich"
+   ]
+  },
+  {
+   "key": "nguy_thanh_han",
+   "name": "Ngụy Thanh Hàn",
+   "name_han": "魏清寒",
+   "gloss": "Clear cold",
+   "sex": "M",
+   "born": 1030,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "truong_lao",
+   "role": "Envoy of Băng Tâm Các to the Pivot and the vassals",
+   "realm": "ket_dan",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Deceitful",
+     "Patient"
+    ],
+    "calling": "Diplomat",
+    "fate_given": [],
+    "gained": [
+     "Humbled"
+    ]
+   },
+   "tier": "B",
+   "stage": 0,
+   "appearance": "Neat, soft-spoken, ink on his cuff; he bows exactly as deep as each listener's rank and never deeper.",
+   "wants": "A second claim to Tinh Tủy Mạch that the Pivot cannot refuse.",
+   "secret": "He is paying a Pivot land clerk in Pavilion silver to copy the rolls, and his aide Vương Thanh Lẫm (vuong_thanh_lam) has begun selling copies of the copies to the treasurer Quách Lẫm (quach_lam). Over wine he also lets the Hall of Trust's courier Thư Ngạn Hành (thu_ngan_hanh) read him each letter before it is delivered, paying in northern pepper, and files whatever names Cô Thành for the day the Pivot needs a lever.",
+   "birthplace": 67
+  },
+  {
+   "key": "vien_chuoc",
+   "name": "Viên Chước",
+   "name_han": "袁灼",
+   "gloss": "Scorching",
+   "sex": "M",
+   "born": 1010,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "khach_khanh",
+   "role": "Guest alchemist of Băng Tâm Các (a Fire root in an Ice sect)",
+   "realm": "ket_dan",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Greedy",
+     "Diligent",
+     "Arrogant"
+    ],
+    "calling": "Alchemist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "B",
+   "stage": 0,
+   "appearance": "Red-cheeked and sweating even in the Pavilion's cold, the only man at Hàn Giao Chử who wears his robe open.",
+   "wants": "To take a whole boat of ash at the 1144 price, and to win at the valley's dice what he lost there.",
+   "secret": "He brings the Pavilion's ash purse to the snow-house table and has lost a fifth of it already.",
+   "birthplace": 9
+  },
+  {
+   "key": "cung_mac_suong",
+   "name": "Cung Mặc Sương",
+   "name_han": "宮墨霜",
+   "gloss": "Ink-black frost",
+   "sex": "F",
+   "born": 1130,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "The head's second disciple, who hides a Darkness root",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Deceitful",
+     "Patient"
+    ],
+    "calling": "Schemer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "A",
+   "stage": 2,
+   "appearance": "Small, pale, with black eyes that do not reflect the lamps; her frost leaves a faint grey stain where it melts.",
+   "wants": "To stop starving half of her root.",
+   "secret": "The Darkness root, and Triệu Huyết Y's offer.",
+   "birthplace": 1442,
+   "master": "so_ngoc_ho"
+  },
+  {
+   "key": "lieu_ngu_ca",
+   "name": "Liễu Ngư Ca",
+   "name_han": "柳漁歌",
+   "gloss": "Fisherman's song",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "noi_mon",
+   "role": "Thẩm Hàn Giang's disciple; the hidden heir of Hàn Giang Môn",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Honest",
+     "Vengeful"
+    ],
+    "calling": "Wanderer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "A",
+   "stage": 0,
+   "appearance": "A tall, easy young man who sings fishermen's songs under his breath, badly, and sits on the lake ice the old Hàn Giang way.",
+   "wants": "To find the Lone Fisher's Rod; to never have to choose between his master and his blood.",
+   "secret": "His blood, and the ice-hole method.",
+   "birthplace": 36,
+   "master": "tham_han_giang"
+  },
+  {
+   "key": "ha_lang_han",
+   "name": "Hạ Lăng Hàn",
+   "name_han": "夏凌寒",
+   "gloss": "Summer that defies the cold",
+   "sex": "F",
+   "born": 1145,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "chan_truyen",
+   "role": "Phó Ám Hương's last disciple, heir to the white plum",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Cruel",
+     "Wrathful",
+     "Loyal"
+    ],
+    "calling": "Duelist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "B",
+   "stage": 1,
+   "appearance": "Sharp-featured, a guard captain's daughter's bearing, red ink on her fingers from copying her master's manual.",
+   "wants": "To bring the red plum home to Phó Ám Hương by duel, before Tưởng Hàn Phong's side can challenge her.",
+   "secret": "She is breaking Bùi Hàn's (bui_han) sword wrist a little each practice bout, out of sight, so that he cannot call her out before she rides for Cô Thành. Phó Ám Hương (pho_am_huong) has not looked at the boy's hand.",
+   "birthplace": 35,
+   "master": "pho_am_huong"
+  },
+  {
+   "key": "hang_minh_sa",
+   "name": "Hạng Minh Sa",
+   "name_han": "項明沙",
+   "gloss": "Bright sand",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "sect": "da_quang",
+   "rank": "noi_mon",
+   "role": "Dạ Quang Môn's heir, kept at Băng Tâm Các as surety since 1121",
+   "realm": "truc_co",
+   "home": 214,
+   "traits": {
+    "personality": [
+     "Patient",
+     "Vengeful",
+     "Gregarious"
+    ],
+    "calling": "Schemer",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "B",
+   "stage": 2,
+   "appearance": "A desert man with a sabre scar and a ready laugh, the only warm-coloured robe in the Vessel Hall.",
+   "wants": "To go home to Dạ Quang before his father dies, with Cung Mặc Sương beside him.",
+   "secret": "After the lamps are out he spars with Liễu Ngư Ca (lieu_ngu_ca) in the Vessel Hall's back yard to learn the sword forms hostages may not be taught.",
+   "birthplace": 16
+  },
+  {
+   "key": "do_suong_nhi",
+   "name": "Đỗ Sương Nhi",
+   "name_han": "杜霜兒",
+   "gloss": "Frost child",
+   "sex": "F",
+   "born": 1080,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "chap_su",
+   "role": "Steward of the outer gate; keeper of the Frost Test on the frozen mere of Hàn Giao Chử",
+   "realm": "truc_co",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Patient",
+     "Compassionate",
+     "Just"
+    ],
+    "calling": "Teacher",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "B",
+   "stage": 2,
+   "appearance": "Round-faced and kind, with frostbitten earlobes from a hundred solstice nights on the lake.",
+   "wants": "To get Trương Lãnh Hà (truong_lanh_ha) through the inner gate before she is too old to argue for him.",
+   "secret": "Each solstice she pays Trác Ôn Tuyền (trac_on_tuyen) to keep a kettle warm behind the reeds for sitters who wet themselves, and signs the bill as repairs.",
+   "birthplace": 68
+  },
+  {
+   "key": "ho_tieu_dam",
+   "name": "Hồ Tiểu Đàm",
+   "name_han": "胡小潭",
+   "gloss": "Little pond",
+   "sex": "F",
+   "born": 1178,
+   "alive": true,
+   "sect": "bang_tam",
+   "rank": "ngoai_mon",
+   "role": "An oasis girl in the outer gate who has failed the Frost Test twice",
+   "realm": "luyen_khi",
+   "home": 239,
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Stubborn",
+     "Humble"
+    ],
+    "calling": "Herbalist",
+    "fate_given": [],
+    "gained": []
+   },
+   "tier": "B",
+   "stage": 2,
+   "appearance": "Brown and freckled from the oasis sun, the warmest-looking face on the lake, wrapped in three borrowed furs.",
+   "wants": "To pass the third Frost Test before the Desert Pavilion is offered to her.",
+   "secret": "She is teaching her pot reed to grow in ice water, and is afraid the reed blooms only when she sits close, so that it is the reed and not she that answers.",
+   "birthplace": 116
+  },
+  {
+   "key": "pho_thanh_mai",
+   "name": "Phó Thanh Mai",
+   "name_han": "傅青梅",
+   "gloss": "Green plum",
+   "sex": "M",
+   "born": 580,
+   "alive": false,
+   "sect": "",
+   "rank": "truong_lao",
+   "role": "Plum-blossom swordsman of Lãnh Hương Các; father of Phó Ám Hương",
+   "peak_realm": "ket_dan",
+   "died": 724,
+   "cause": "killed riding to break the siege of Cô Thành",
+   "record": true,
+   "tier": "B",
+   "appearance": "Remembered as a lean man in plum-red sleeves with a sword scar through his left eyebrow.",
+   "birthplace": 1412
   }
  ],
  "events": [
@@ -6311,6 +9627,33 @@
    "place": 35
   },
   {
+   "id": "N-bang_tam-01",
+   "tier": "landmark",
+   "year": 470,
+   "kind": "seat_moved",
+   "people": [],
+   "sects": [
+    "bang_tam"
+   ],
+   "text_vi": "Băng Tâm Các rời tòa các giữa sa mạc và dựng các điện trên tàn tích Hồ Thiên Phái, trên lớp băng mà ngọn núi lửa đã chôn.",
+   "text_en": "Băng Tâm Các leaves its desert pavilion and raises its halls on the ruin of Hồ Thiên Phái, on the ice the fire mountain buried.",
+   "place": 214
+  },
+  {
+   "id": "N-bang_tam-02",
+   "tier": "landmark",
+   "year": 470,
+   "kind": "array_laid",
+   "people": [
+    "tan_ngung_suong"
+   ],
+   "sects": [
+    "bang_tam"
+   ],
+   "text_vi": "Tần Ngưng Sương bố Ngọc Hồ Trận vào lớp băng phía trên miệng huyệt bị chôn; hơi nước ngừng bốc, và chim muông trở về Ngọc Hồ Sơn.",
+   "text_en": "Tần Ngưng Sương lays the Jade Vessel Array into the ice over the buried vent; the steam stops, and the birds come back to Ngọc Hồ Sơn."
+  },
+  {
    "id": "V035",
    "tier": "annal",
    "year": 470,
@@ -8711,6 +12054,17 @@
    "text_en": "Cô Thành's garrison holds out for two years against Phượng Minh's fire, drinking the desert lake down to salt.",
    "place": 227,
    "region": 8
+  },
+  {
+   "id": "N-bang_tam-03",
+   "tier": "annal",
+   "year": 724,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một bé trai bốn tuổi được bế ra khỏi tàn tích Cô Thành, bọc trong áo choàng của người cha đã chết, trong lớp lót khâu một cuốn kiếm phổ viết bằng mực đỏ: người cuối cùng của Lãnh Hương Các.",
+   "text_en": "A four-year-old boy is carried out of the ruin of Cô Thành wrapped in his dead father's cape, a red-ink sword manual sewn into the lining: the last of Lãnh Hương Các.",
+   "place": 227
   },
   {
    "id": "V071",
@@ -11448,6 +14802,21 @@
    "place": 208
   },
   {
+   "id": "N-bang_tam-04",
+   "tier": "annal",
+   "year": 1010,
+   "kind": "hermit",
+   "people": [
+    "co_lang_suong"
+   ],
+   "sects": [
+    "bang_tam"
+   ],
+   "text_vi": "Bị bỏ qua khi chọn người giữ Ngọc Hồ, Cố Lăng Sương leo lên Băng Bích Nhai vào mùa đông sư phụ nàng mất và đóng cửa hang sau lưng.",
+   "text_en": "Passed over for the Vessel, Cố Lăng Sương climbs Băng Bích Nhai the winter her master dies and closes the cave behind her.",
+   "place": 1393
+  },
+  {
    "id": "V049",
    "tier": "annal",
    "year": 1010,
@@ -12478,6 +15847,21 @@
    "text_en": "Hạng Dạ Bôi kneels to Sở Ngọc Hồ; Dạ Quang Môn becomes a vassal of Băng Tâm, and does not forget.",
    "place": 16,
    "war": "da_quang"
+  },
+  {
+   "id": "N-bang_tam-05",
+   "tier": "annal",
+   "year": 1121,
+   "kind": "hostage",
+   "people": [
+    "hang_da_boi",
+    "hang_minh_sa"
+   ],
+   "sects": [
+    "bang_tam"
+   ],
+   "text_vi": "Con trai Hạng Dạ Bôi là Hạng Minh Sa, hai mươi mốt tuổi, bị gửi đến Băng Tâm Các làm vật bảo đảm cho đầu gối của cha.",
+   "text_en": "Hạng Dạ Bôi's son Hạng Minh Sa, twenty-one, is sent to Băng Tâm Các as surety for his father's knee."
   },
   {
    "id": "V074",
@@ -22810,10 +26194,10 @@
   }
  ],
  "living_cast_by_realm": {
-  "luyen_khi": 1,
-  "truc_co": 15,
-  "ket_dan": 40,
-  "nguyen_anh": 16,
+  "luyen_khi": 56,
+  "truc_co": 60,
+  "ket_dan": 51,
+  "nguyen_anh": 18,
   "hoa_than": 2
  },
  "cast_builds": {
@@ -23671,18 +27055,10 @@
      "bang": 84
     }
    },
-   "thien_phu": {
-    "ngo_tinh": 80,
-    "can_cot": 60,
-    "than_hon": 82,
-    "khi_van": 55,
-    "dao_tam": 88,
-    "mi_luc": 56
-   },
-   "archetype": "kiem_tu",
+   "archetype": "phap_tu",
    "stage": 1,
    "main": {
-    "tech": "thien_thuy",
+    "tech": "jade-vessel-ice-heart-canon",
     "layer": 12
    },
    "aux": [
@@ -23693,32 +27069,39 @@
    ],
    "gear": [
     {
+     "named": "bt-jade-vessel"
+    },
+    {
+     "named": "bt-pavilion-frost-seal"
+    },
+    {
      "named": "ice-deep-freeze-ring"
-    },
-    {
-     "base": "phi_kiem",
-     "grade": 4,
-     "element": "thuy"
-    },
-    {
-     "base": "giap",
-     "grade": 3,
-     "element": "thuy"
     }
    ],
+   "skills": {},
+   "thien_phu": {
+    "ngo_tinh": 80,
+    "can_cot": 60,
+    "than_hon": 82,
+    "khi_van": 55,
+    "dao_tam": 88,
+    "mi_luc": 56
+   },
    "tree": {
-    "start": "thuy",
+    "start": "bang",
     "targets": [
-     774,
+     765,
+     768,
+     5227,
      9001,
-     5412,
-     5207,
-     9014,
-     5117
+     5203,
+     5202,
+     7677,
+     7687,
+     4912
     ]
    },
-   "skills": {},
-   "note": "The reclusive Ice head: a near-pure Water-Ice root that freezes the hour and seals every foe in frost"
+   "note": "The still Keeper: stands in the Heart in the Jade Vessel stance until her ward is thick, freezes the hour, and seals the foe in frost."
   },
   "tiet_han_mai": {
    "root": {
@@ -23730,6 +27113,32 @@
      "bang": 54
     }
    },
+   "archetype": "tran_su",
+   "stage": 2,
+   "main": {
+    "tech": "jade-vessel-ice-heart-canon",
+    "layer": 9
+   },
+   "aux": [
+    {
+     "tech": "frost-lotus-array-canon",
+     "layer": 10
+    }
+   ],
+   "gear": [
+    {
+     "named": "bt-clear-heart-mirror"
+    },
+    {
+     "named": "bt-locust-shade-seal"
+    },
+    {
+     "named": "bt-locust-lid-shield"
+    }
+   ],
+   "skills": {
+    "tran_phap": 8
+   },
    "thien_phu": {
     "ngo_tinh": 70,
     "can_cot": 56,
@@ -23738,43 +27147,19 @@
     "dao_tam": 74,
     "mi_luc": 50
    },
-   "archetype": "tran_su",
-   "stage": 2,
-   "main": {
-    "tech": "winter-toll-canon",
-    "layer": 9
-   },
-   "aux": [],
-   "gear": [
-    {
-     "base": "ky",
-     "grade": 3,
-     "element": "thuy"
-    },
-    {
-     "base": "an",
-     "grade": 3,
-     "element": "tho"
-    },
-    {
-     "base": "thuan",
-     "grade": 3,
-     "element": "thuy"
-    }
-   ],
    "tree": {
     "start": "thuy",
     "targets": [
      765,
+     768,
      5227,
      9001,
-     3094
+     7728,
+     3094,
+     3096
     ]
    },
-   "skills": {
-    "tran_phap": 7
-   },
-   "note": "Băng Tâm's cautious formation elder: ice seals and frost shields inside a guardian array, honest and immovable"
+   "note": "The keeper of the lid: frost-lotus seal, glacier bastion, and a mirror for the soul arts."
   },
   "so_han_y": {
    "root": {
@@ -23785,6 +27170,27 @@
      "bang": 66
     }
    },
+   "archetype": "kiem_tu",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 5
+   },
+   "aux": [
+    {
+     "tech": "snow-plum-sword",
+     "layer": 3
+    }
+   ],
+   "gear": [
+    {
+     "named": "bt-snow-step-sword"
+    },
+    {
+     "named": "bt-winter-robe"
+    }
+   ],
+   "skills": {},
    "thien_phu": {
     "ngo_tinh": 66,
     "can_cot": 60,
@@ -23793,35 +27199,17 @@
     "dao_tam": 70,
     "mi_luc": 52
    },
-   "archetype": "kiem_tu",
-   "stage": 1,
-   "main": {
-    "tech": "winter-toll-canon",
-    "layer": 5
-   },
-   "aux": [],
-   "gear": [
-    {
-     "base": "phi_kiem",
-     "grade": 2,
-     "element": "thuy"
-    },
-    {
-     "base": "ngoc_boi",
-     "grade": 1,
-     "element": "thuy"
-    }
-   ],
    "tree": {
-    "start": "thuy",
+    "start": "bang",
     "targets": [
-     774,
-     9001,
-     5207
+     765,
+     768,
+     5227,
+     5203,
+     5202
     ]
    },
-   "skills": {},
-   "note": "Her master's calm, stubborn disciple: an ice sword and the frost seal, nothing else yet"
+   "note": "Her master's calm, stubborn disciple: an ice sword and the frost seal, nothing else yet."
   },
   "ngu_lam_son": {
    "root": {
@@ -25899,6 +29287,4590 @@
    },
    "skills": {},
    "note": "The woodcutter's son with iron bones: an axe, a body that will not break, and no sect to teach him"
+  },
+  "ton_han_thach": {
+   "root": {
+    "elements": {
+     "thuy": 55,
+     "tho": 40
+    },
+    "variants": {
+     "bang": 35
+    }
+   },
+   "archetype": "the_tu",
+   "stage": 0,
+   "main": {
+    "tech": "jade-vessel-ice-heart-canon",
+    "layer": 4
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "thuan",
+     "grade": 3,
+     "element": "tho"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A shield on the desert road."
+  },
+  "nhac_bang_thiem": {
+   "root": {
+    "elements": {
+     "thuy": 70
+    },
+    "variants": {
+     "bang": 60
+    }
+   },
+   "archetype": "phap_tu",
+   "stage": 1,
+   "main": {
+    "tech": "jade-vessel-ice-heart-canon",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "dang",
+     "grade": 3,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   },
+   "note": "The lamp-keeper of the dead."
+  },
+  "quach_lam": {
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "kim": 44
+    },
+    "variants": {
+     "bang": 38
+    }
+   },
+   "archetype": "phap_tu",
+   "stage": 0,
+   "main": {
+    "tech": "jade-vessel-ice-heart-canon",
+    "layer": 4
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "kinh",
+     "grade": 3,
+     "element": "kim"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A ledger with a sword hidden in it."
+  },
+  "luc_han_chu": {
+   "root": {
+    "elements": {
+     "thuy": 68,
+     "moc": 30
+    },
+    "variants": {
+     "bang": 44
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 1,
+   "main": {
+    "tech": "jade-vessel-ice-heart-canon",
+    "layer": 5
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "mao",
+     "grade": 3,
+     "element": "thuy"
+    },
+    {
+     "base": "phi_kiem",
+     "grade": 3,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A boathook spear and a short temper."
+  },
+  "van_tuyet_khanh": {
+   "root": {
+    "elements": {
+     "thuy": 66,
+     "tho": 52
+    },
+    "variants": {
+     "bang": 50
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 8
+   },
+   "aux": [
+    {
+     "tech": "frost-lotus-array-canon",
+     "layer": 3
+    }
+   ],
+   "gear": [
+    {
+     "base": "ky",
+     "grade": 2,
+     "element": "tho"
+    }
+   ],
+   "skills": {
+    "tran_phap": 5
+   },
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "The Array's next keeper, if there is time."
+  },
+  "nhac_thanh_suong": {
+   "root": {
+    "elements": {
+     "thuy": 62
+    },
+    "variants": {
+     "bang": 48
+    }
+   },
+   "archetype": "phap_tu",
+   "stage": 0,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 5
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "dang",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   },
+   "note": "A lamp and a seal."
+  },
+  "mac_ngung_bich": {
+   "root": {
+    "elements": {
+     "thuy": 70
+    },
+    "variants": {
+     "bang": 56
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 6
+   },
+   "aux": [
+    {
+     "tech": "snow-plum-sword",
+     "layer": 2
+    }
+   ],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   },
+   "note": "A small copy of Khương."
+  },
+  "tuong_han_phong": {
+   "root": {
+    "elements": {
+     "thuy": 64,
+     "kim": 40
+    },
+    "variants": {
+     "bang": 52
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 8
+   },
+   "aux": [
+    {
+     "tech": "snow-plum-sword",
+     "layer": 7
+    }
+   ],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 2,
+     "element": "kim"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   },
+   "note": "The plum's bitter blade."
+  },
+  "ninh_bach_ho": {
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "moc": 38
+    },
+    "variants": {
+     "bang": 42
+    }
+   },
+   "archetype": "linh_thuc_su",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "tien_tieu",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {
+    "linh_thuc": 4
+   },
+   "tree": {
+    "start": "bang"
+   },
+   "note": "A wolf rider."
+  },
+  "quan_lang_ba": {
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "kim": 34
+    },
+    "variants": {
+     "bang": 40
+    }
+   },
+   "archetype": "the_tu",
+   "stage": 0,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 4
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "thuan",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   },
+   "note": "Holds the vein gate."
+  },
+  "au_duong_tuyet": {
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "tho": 36
+    },
+    "variants": {
+     "bang": 34
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ho_lo",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {
+    "tran_phap": 2
+   },
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "The seat's purse and pantry."
+  },
+  "dieu_han_dam": {
+   "root": {
+    "elements": {
+     "thuy": 64,
+     "moc": 32
+    },
+    "variants": {
+     "bang": 46
+    }
+   },
+   "archetype": "linh_thuc_su",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 5
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ngoc_boi",
+     "grade": 2,
+     "element": "moc"
+    }
+   ],
+   "skills": {
+    "linh_thuc": 5
+   },
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A healer of beasts."
+  },
+  "man_bang_ha": {
+   "root": {
+    "elements": {
+     "thuy": 66
+    },
+    "variants": {
+     "bang": 40
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 0,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 4
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "mao",
+     "grade": 2,
+     "element": "thuy"
+    },
+    {
+     "base": "phi_kiem",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A boat's spear."
+  },
+  "giang_suong_lac": {
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "tho": 38
+    },
+    "variants": {
+     "bang": 36
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 0,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 4
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "an",
+     "grade": 2,
+     "element": "tho"
+    }
+   ],
+   "skills": {
+    "tran_phap": 2
+   },
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A desert ice-seal."
+  },
+  "kieu_tuyet_ky": {
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "kim": 46
+    },
+    "variants": {
+     "bang": 38
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 7
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ky",
+     "grade": 2,
+     "element": "thuy"
+    },
+    {
+     "base": "phi_kiem",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A banner and a blade."
+  },
+  "pham_lanh_van": {
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "moc": 34
+    },
+    "variants": {
+     "bang": 34
+    }
+   },
+   "archetype": "phap_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 7
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phu",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {
+    "phu_luc": 3
+   },
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A brush and a frost talisman."
+  },
+  "vuong_thanh_lam": {
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "kim": 30
+    },
+    "variants": {
+     "bang": 40
+    }
+   },
+   "archetype": "phap_tu",
+   "stage": 0,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 3
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phien",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A fan and a memory."
+  },
+  "ha_han_lo": {
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "kim": 36
+    },
+    "variants": {
+     "bang": 38
+    }
+   },
+   "archetype": "phap_tu",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 4
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "kinh",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A clerk with a secret."
+  },
+  "ta_ngan_suong": {
+   "root": {
+    "elements": {
+     "thuy": 68
+    },
+    "variants": {
+     "bang": 54
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 0,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 3
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   },
+   "note": "A quick, careless ice sword."
+  },
+  "luu_han_ngan": {
+   "root": {
+    "elements": {
+     "thuy": 62,
+     "moc": 36
+    },
+    "variants": {
+     "bang": 42
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 5
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A coast brawler."
+  },
+  "dinh_tuyet_tung": {
+   "root": {
+    "elements": {
+     "thuy": 64
+    },
+    "variants": {
+     "bang": 50
+    }
+   },
+   "archetype": "the_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 7
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "lac_thiet",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   },
+   "note": "An ice-axe and patience."
+  },
+  "cat_ngoc_tri": {
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "tho": 40
+    },
+    "variants": {
+     "bang": 36
+    }
+   },
+   "archetype": "linh_thuc_su",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 5
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ho_lo",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {
+    "linh_thuc": 5
+   },
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A desert gardener of ice."
+  },
+  "truong_lanh_ha": {
+   "root": {
+    "elements": {
+     "thuy": 66,
+     "moc": 40
+    },
+    "variants": {}
+   },
+   "archetype": "kiem_tu",
+   "stage": 0,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A Water sword in an Ice house."
+  },
+  "bach_han_yen": {
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "kim": 38
+    },
+    "variants": {
+     "bang": 44
+    }
+   },
+   "archetype": "the_tu",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 5
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "giap",
+     "grade": 2,
+     "element": "kim"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   },
+   "note": "A scarred watcher."
+  },
+  "ong_tinh_hai": {
+   "root": {
+    "elements": {
+     "thuy": 58
+    },
+    "variants": {
+     "bang": 34
+    }
+   },
+   "archetype": "tan_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ho_lo",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A teapot."
+  },
+  "la_bang_tuyen": {
+   "root": {
+    "elements": {
+     "thuy": 72
+    },
+    "variants": {
+     "bang": 62
+    }
+   },
+   "archetype": "phap_tu",
+   "stage": 0,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 4
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "cham",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   },
+   "note": "A strong root with one foot out of the door."
+  },
+  "duong_lo": {
+   "root": {
+    "elements": {
+     "hoa": 58,
+     "moc": 40
+    },
+    "variants": {}
+   },
+   "archetype": "dan_su",
+   "stage": 0,
+   "main": {
+    "tech": "red-sun-scripture",
+    "layer": 4
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "huong_lo",
+     "grade": 2,
+     "element": "hoa"
+    }
+   ],
+   "skills": {
+    "dan_dao": 4
+   },
+   "tree": {
+    "start": "hoa"
+   },
+   "note": "A furnace boy."
+  },
+  "than_ngung_lam": {
+   "root": {
+    "elements": {
+     "thuy": 62,
+     "kim": 34
+    },
+    "variants": {
+     "bang": 48
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 5
+   },
+   "aux": [
+    {
+     "tech": "snow-plum-sword",
+     "layer": 3
+    }
+   ],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   },
+   "note": "A careful plum."
+  },
+  "lang_han_sinh": {
+   "root": {
+    "elements": {
+     "thuy": 64
+    },
+    "variants": {
+     "bang": 40
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 4
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "cham",
+     "grade": 2,
+     "element": "thuy"
+    },
+    {
+     "base": "phi_kiem",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A diver's needle."
+  },
+  "tieu_bach_lo": {
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 38
+    },
+    "variants": {}
+   },
+   "archetype": "kiem_tu",
+   "stage": 1,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 3
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "An outer-gate sword."
+  },
+  "nghiem_tieu_tuyet": {
+   "root": {
+    "elements": {
+     "thuy": 52
+    },
+    "variants": {}
+   },
+   "archetype": "linh_thuc_su",
+   "stage": 0,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ngoc_boi",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A new girl."
+  },
+  "hau_ngu": {
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 1,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "cham",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A fisher, mostly."
+  },
+  "chu_suong_linh": {
+   "root": {
+    "elements": {
+     "thuy": 58
+    },
+    "variants": {
+     "bang": 30
+    }
+   },
+   "archetype": "phap_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "chuong",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   },
+   "note": "New Ice."
+  },
+  "ly_han_tam": {
+   "root": {
+    "elements": {
+     "thuy": 60
+    },
+    "variants": {
+     "bang": 40
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   },
+   "note": "A still young sword."
+  },
+  "phan_dong_nhi": {
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "kim": 32
+    },
+    "variants": {}
+   },
+   "archetype": "linh_thuc_su",
+   "stage": 0,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "tien_tieu",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A seal-hunter."
+  },
+  "khong_thiet_ngung": {
+   "root": {
+    "elements": {
+     "kim": 50,
+     "thuy": 34
+    },
+    "variants": {}
+   },
+   "archetype": "the_tu",
+   "stage": 1,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "lac_thiet",
+     "grade": 1,
+     "element": "kim"
+    }
+   ],
+   "skills": {
+    "luyen_khi": 1
+   },
+   "tree": {
+    "start": "kim"
+   },
+   "note": "A forge hand."
+  },
+  "uong_tuyet_nhan": {
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 2,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ho_lo",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "Leaving."
+  },
+  "bui_han": {
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "kim": 32
+    },
+    "variants": {
+     "bang": 34
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 1,
+     "element": "kim"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   },
+   "note": "A young plum with a grudge."
+  },
+  "sam_bich_lan": {
+   "root": {
+    "elements": {
+     "thuy": 42,
+     "moc": 46
+    },
+    "variants": {}
+   },
+   "archetype": "linh_thuc_su",
+   "stage": 1,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ngoc_boi",
+     "grade": 1,
+     "element": "moc"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "moc"
+   },
+   "note": "A poet in the wrong sect."
+  },
+  "te_lac_bang": {
+   "root": {
+    "elements": {
+     "thuy": 54
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 0,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ngoc_boi",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "Slow and sure."
+  },
+  "an_tieu_han": {
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "tho": 32
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 1,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "cham",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "An informer."
+  },
+  "la_ngu_nhi": {
+   "root": {
+    "elements": {
+     "thuy": 60
+    },
+    "variants": {}
+   },
+   "archetype": "kiem_tu",
+   "stage": 0,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A promising root."
+  },
+  "han_tieu_bac": {
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "kim": 36
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 1,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "cham",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A boatman at heart."
+  },
+  "to_lanh_nguyet": {
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "tho": 34
+    },
+    "variants": {
+     "bang": 32
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "an",
+     "grade": 1,
+     "element": "tho"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A desert seal."
+  },
+  "vo_bang_kien": {
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "kim": 44
+    },
+    "variants": {}
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 5
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 1,
+     "element": "kim"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "kim"
+   },
+   "note": "A caravan sword."
+  },
+  "que_han_chi": {
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "archetype": "linh_thuc_su",
+   "stage": 0,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ngoc_boi",
+     "grade": 1,
+     "element": "moc"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "An ice gardener."
+  },
+  "trinh_lang": {
+   "root": {
+    "elements": {
+     "thuy": 58
+    },
+    "variants": {
+     "bang": 38
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   },
+   "note": "A hothead in a cold hall."
+  },
+  "thach_tieu_lo": {
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 0,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ngoc_boi",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A raft girl."
+  },
+  "ma_dong_lam": {
+   "root": {
+    "elements": {
+     "tho": 48,
+     "thuy": 31
+    },
+    "variants": {}
+   },
+   "archetype": "linh_thuc_su",
+   "stage": 1,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "tien_tieu",
+     "grade": 1,
+     "element": "tho"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "tho"
+   },
+   "note": "A horseman."
+  },
+  "hua_bang_nhi": {
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "moc": 30
+    },
+    "variants": {
+     "bang": 34
+    }
+   },
+   "archetype": "linh_thuc_su",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "tien_tieu",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   },
+   "note": "A sable girl."
+  },
+  "dao_han_mac": {
+   "root": {
+    "elements": {
+     "tho": 40,
+     "hoa": 32
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 1,
+   "main": {
+    "tech": "warm-hearth-breath",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "lac_thiet",
+     "grade": 1,
+     "element": "tho"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "tho"
+   },
+   "note": "A broom."
+  },
+  "yen_tuyet_ngung": {
+   "root": {
+    "elements": {
+     "thuy": 54
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 1,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 3
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ngoc_boi",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "Sits like the old fishers."
+  },
+  "lieu_tieu_giang": {
+   "root": {
+    "elements": {
+     "thuy": 52
+    },
+    "variants": {}
+   },
+   "archetype": "kiem_tu",
+   "stage": 0,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   },
+   "note": "A cousin."
+  },
+  "nhiep_lang_tuyet": {
+   "root": {
+    "elements": {
+     "thuy": 58
+    },
+    "variants": {
+     "bang": 36
+    }
+   },
+   "archetype": "phap_tu",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 5
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "chuong",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {
+    "tran_phap": 2
+   },
+   "tree": {
+    "start": "bang"
+   }
+  },
+  "ky_han_bach": {
+   "root": {
+    "elements": {
+     "thuy": 62
+    },
+    "variants": {
+     "bang": 40
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   }
+  },
+  "manh_trieu_suong": {
+   "root": {
+    "elements": {
+     "thuy": 66,
+     "moc": 30
+    },
+    "variants": {
+     "bang": 38
+    }
+   },
+   "archetype": "phap_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 7
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phien",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "lac_ngan_bang": {
+   "root": {
+    "elements": {
+     "thuy": 64
+    },
+    "variants": {
+     "bang": 42
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 5
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "an",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {
+    "tran_phap": 3
+   },
+   "tree": {
+    "start": "bang"
+   }
+  },
+  "thai_han_ngu": {
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "moc": 32
+    },
+    "variants": {
+     "bang": 34
+    }
+   },
+   "archetype": "tan_tu",
+   "stage": 0,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 4
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ho_lo",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "tong_ngu_lan": {
+   "root": {
+    "elements": {
+     "thuy": 66
+    },
+    "variants": {
+     "bang": 36
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 8
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   }
+  },
+  "phi_thanh_sa": {
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "tho": 42
+    },
+    "variants": {
+     "bang": 32
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 5
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "tien_tieu",
+     "grade": 2,
+     "element": "tho"
+    }
+   ],
+   "skills": {
+    "tran_phap": 1
+   },
+   "tree": {
+    "start": "tho"
+   }
+  },
+  "muc_sa_hanh": {
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "kim": 40
+    },
+    "variants": {
+     "bang": 30
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 7
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 2,
+     "element": "kim"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "kim"
+   }
+  },
+  "yen_luc_tuyen": {
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "tho": 30
+    },
+    "variants": {
+     "bang": 34
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 0,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 4
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ho_lo",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {
+    "tran_phap": 2
+   },
+   "tree": {
+    "start": "bang"
+   }
+  },
+  "uc_hoang_sa": {
+   "root": {
+    "elements": {
+     "kim": 44,
+     "thuy": 40
+    },
+    "variants": {
+     "bang": 30
+    }
+   },
+   "archetype": "the_tu",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 5
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "thuan",
+     "grade": 2,
+     "element": "kim"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "kim"
+   }
+  },
+  "dien_han_tac": {
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "tho": 36
+    },
+    "variants": {
+     "bang": 32
+    }
+   },
+   "archetype": "the_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "lac_thiet",
+     "grade": 2,
+     "element": "tho"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "tho"
+   }
+  },
+  "kha_lac_tuyet": {
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "kim": 32
+    },
+    "variants": {
+     "bang": 40
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 5
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "kinh",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {
+    "tran_phap": 2
+   },
+   "tree": {
+    "start": "bang"
+   }
+  },
+  "lam_ngung_phong": {
+   "root": {
+    "elements": {
+     "thuy": 64,
+     "kim": 38
+    },
+    "variants": {
+     "bang": 46
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 8
+   },
+   "aux": [
+    {
+     "tech": "snow-plum-sword",
+     "layer": 4
+    }
+   ],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 3,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   }
+  },
+  "dam_tinh_thach": {
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "tho": 44
+    },
+    "variants": {
+     "bang": 38
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 7
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "an",
+     "grade": 2,
+     "element": "tho"
+    }
+   ],
+   "skills": {
+    "tran_phap": 4
+   },
+   "tree": {
+    "start": "tho"
+   }
+  },
+  "luong_sa_bang": {
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "tho": 34
+    },
+    "variants": {
+     "bang": 30
+    }
+   },
+   "archetype": "linh_thuc_su",
+   "stage": 0,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 5
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "mao",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "hoac_tuyet_ngan": {
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "kim": 30
+    },
+    "variants": {}
+   },
+   "archetype": "kiem_tu",
+   "stage": 1,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 3
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "tieu_lanh_thu": {
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "archetype": "phap_tu",
+   "stage": 2,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "chuong",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "phu_suong_nguyen": {
+   "root": {
+    "elements": {
+     "thuy": 54
+    },
+    "variants": {}
+   },
+   "archetype": "phap_tu",
+   "stage": 2,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ho_lo",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "nhan_bich_tuyen": {
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 2,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ngoc_boi",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "dang_tieu_ha": {
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "archetype": "linh_thuc_su",
+   "stage": 0,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "lac_thiet",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "nham_dong_tuyet": {
+   "root": {
+    "elements": {
+     "thuy": 56
+    },
+    "variants": {
+     "bang": 8
+    }
+   },
+   "archetype": "phap_tu",
+   "stage": 1,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 4
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "chuong",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   }
+  },
+  "hau_lang": {
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 0,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "lac_thiet",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "ong_tieu_tra": {
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "moc": 36
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 1,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ho_lo",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "tu_lac_suong": {
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "archetype": "tran_su",
+   "stage": 2,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "an",
+     "grade": 1,
+     "element": "tho"
+    }
+   ],
+   "skills": {
+    "tran_phap": 1
+   },
+   "tree": {
+    "start": "tho"
+   }
+  },
+  "vi_tu_han": {
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "kim": 32
+    },
+    "variants": {}
+   },
+   "archetype": "the_tu",
+   "stage": 2,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "thuan",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "dien_tieu_thach": {
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "archetype": "the_tu",
+   "stage": 1,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 3
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "lac_thiet",
+     "grade": 1,
+     "element": "tho"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "tho"
+   }
+  },
+  "mai_han_tich": {
+   "root": {
+    "elements": {
+     "thuy": 58
+    },
+    "variants": {
+     "bang": 32
+    }
+   },
+   "archetype": "phap_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phien",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   }
+  },
+  "bi_tieu_chu": {
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "moc": 32
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 1,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 4
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "lac_thiet",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "diep_lanh_thu": {
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "moc": 30
+    },
+    "variants": {
+     "bang": 30
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "an",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {
+    "tran_phap": 1
+   },
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "lu_bang_trieu": {
+   "root": {
+    "elements": {
+     "thuy": 60
+    },
+    "variants": {
+     "bang": 34
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 3
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   }
+  },
+  "manh_tieu_ngu": {
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "moc": 34
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 0,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ho_lo",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "phuong_diem_nhi": {
+   "root": {
+    "elements": {
+     "thuy": 40,
+     "tho": 38
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 1,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ho_lo",
+     "grade": 1,
+     "element": "tho"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "nghe_kho_tuyen": {
+   "root": {
+    "elements": {
+     "thuy": 46,
+     "tho": 34
+    },
+    "variants": {}
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "mong_sa_lien": {
+   "root": {
+    "elements": {
+     "thuy": 50,
+     "tho": 32
+    },
+    "variants": {
+     "bang": 30
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "an",
+     "grade": 1,
+     "element": "tho"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   }
+  },
+  "cat_lo_chau": {
+   "root": {
+    "elements": {
+     "thuy": 44,
+     "tho": 36
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 0,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ho_lo",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "ngac_thiet_phong": {
+   "root": {
+    "elements": {
+     "kim": 46,
+     "thuy": 32
+    },
+    "variants": {}
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 5
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 1,
+     "element": "kim"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "kim"
+   }
+  },
+  "ma_thao_nhi": {
+   "root": {
+    "elements": {
+     "tho": 44,
+     "moc": 30
+    },
+    "variants": {}
+   },
+   "archetype": "linh_thuc_su",
+   "stage": 0,
+   "main": {
+    "tech": "warm-hearth-breath",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "lac_thiet",
+     "grade": 1,
+     "element": "tho"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "tho"
+   }
+  },
+  "giai_tieu_hoa": {
+   "root": {
+    "elements": {
+     "hoa": 42,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "archetype": "dan_su",
+   "stage": 1,
+   "main": {
+    "tech": "red-sun-scripture",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "huong_lo",
+     "grade": 1,
+     "element": "hoa"
+    }
+   ],
+   "skills": {
+    "dan_dao": 1
+   },
+   "tree": {
+    "start": "hoa"
+   }
+  },
+  "quy_to_nga": {
+   "root": {
+    "elements": {
+     "moc": 32,
+     "thuy": 26
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 0,
+   "main": {
+    "tech": "warm-hearth-breath",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ngoc_boi",
+     "grade": 1,
+     "element": "moc"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "moc"
+   }
+  },
+  "trac_on_tuyen": {
+   "root": {
+    "elements": {
+     "thuy": 34,
+     "moc": 28
+    },
+    "variants": {}
+   },
+   "archetype": "tan_tu",
+   "stage": 0,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 1
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ho_lo",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "thuy"
+   }
+  },
+  "hoa_tuyet_nghi": {
+   "root": {
+    "elements": {
+     "thuy": 60
+    },
+    "variants": {
+     "bang": 36
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   }
+  },
+  "vu_mai_suong": {
+   "root": {
+    "elements": {
+     "thuy": 56,
+     "kim": 30
+    },
+    "variants": {
+     "bang": 32
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 3
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   }
+  },
+  "loi_tuyet_hieu": {
+   "root": {
+    "elements": {
+     "thuy": 54,
+     "moc": 32
+    },
+    "variants": {
+     "bang": 30
+    }
+   },
+   "archetype": "linh_thuc_su",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "mao",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "tree": {
+    "start": "bang"
+   }
+  },
+  "thinh_han_loi": {
+   "root": {
+    "elements": {
+     "thuy": 52,
+     "kim": 34
+    },
+    "variants": {
+     "bang": 30
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 2
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "kinh",
+     "grade": 1,
+     "element": "kim"
+    }
+   ],
+   "skills": {
+    "tran_phap": 1
+   },
+   "tree": {
+    "start": "kim"
+   }
+  },
+  "hoang_tuyet_tinh": {
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "tho": 32
+    },
+    "variants": {
+     "bang": 34
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 3
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "dang",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {
+    "tran_phap": 1
+   },
+   "tree": {
+    "start": "tho"
+   }
+  },
+  "co_lang_suong": {
+   "root": {
+    "elements": {
+     "thuy": 90
+    },
+    "variants": {
+     "bang": 88
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 2,
+   "main": {
+    "tech": "jade-vessel-ice-heart-canon",
+    "layer": 12
+   },
+   "aux": [
+    {
+     "tech": "frost-lotus-array-canon",
+     "layer": 12
+    }
+   ],
+   "gear": [
+    {
+     "named": "bt-frost-lotus-banner"
+    },
+    {
+     "named": "bt-glacier-bastion-plate"
+    },
+    {
+     "named": "bt-last-order-seal"
+    }
+   ],
+   "skills": {
+    "tran_phap": 9
+   },
+   "thien_phu": {
+    "ngo_tinh": 84,
+    "can_cot": 58,
+    "than_hon": 86,
+    "khi_van": 48,
+    "dao_tam": 90,
+    "mi_luc": 40
+   },
+   "tree": {
+    "start": "bang",
+    "targets": [
+     765,
+     768,
+     7692,
+     7728,
+     7722,
+     3094,
+     3151,
+     3839
+    ]
+   },
+   "note": "The array on the peak: a frost-lotus seal, a glacier bastion, and a patience no one has outlasted."
+  },
+  "tham_han_giang": {
+   "root": {
+    "elements": {
+     "thuy": 78,
+     "moc": 34
+    },
+    "variants": {
+     "bang": 70
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 0,
+   "main": {
+    "tech": "jade-vessel-ice-heart-canon",
+    "layer": 10
+   },
+   "aux": [
+    {
+     "tech": "snow-plum-sword",
+     "layer": 9
+    }
+   ],
+   "gear": [
+    {
+     "named": "bt-ice-hole-blade"
+    },
+    {
+     "named": "bt-seal-oil-coat"
+    },
+    {
+     "named": "bt-coast-wine-gourd"
+    }
+   ],
+   "skills": {},
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 70,
+    "than_hon": 66,
+    "khi_van": 58,
+    "dao_tam": 78,
+    "mi_luc": 72
+   },
+   "tree": {
+    "start": "thuy",
+    "targets": [
+     765,
+     768,
+     5374,
+     5379,
+     5414,
+     5203,
+     9004
+    ]
+   },
+   "note": "The coast's sword: outlasts, then plum-cuts."
+  },
+  "pho_am_huong": {
+   "root": {
+    "elements": {
+     "thuy": 66,
+     "kim": 48
+    },
+    "variants": {
+     "bang": 60
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "jade-vessel-ice-heart-canon",
+    "layer": 9
+   },
+   "aux": [
+    {
+     "tech": "snow-plum-sword",
+     "layer": 9
+    }
+   ],
+   "gear": [
+    {
+     "named": "bt-white-plum"
+    },
+    {
+     "named": "bt-plum-father-cape"
+    },
+    {
+     "base": "ngoc_boi",
+     "grade": 3,
+     "element": "kim"
+    }
+   ],
+   "skills": {},
+   "thien_phu": {
+    "ngo_tinh": 76,
+    "can_cot": 64,
+    "than_hon": 60,
+    "khi_van": 40,
+    "dao_tam": 70,
+    "mi_luc": 62
+   },
+   "tree": {
+    "start": "bang",
+    "targets": [
+     765,
+     768,
+     774,
+     5390,
+     7657,
+     7672,
+     9000
+    ]
+   },
+   "note": "Five petals of cold and a falling plum: the inner gate's sword in its first form."
+  },
+  "khuong_luu_ly": {
+   "root": {
+    "elements": {
+     "thuy": 80
+    },
+    "variants": {
+     "bang": 76
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "jade-vessel-ice-heart-canon",
+    "layer": 8
+   },
+   "aux": [
+    {
+     "tech": "snow-plum-sword",
+     "layer": 9
+    }
+   ],
+   "gear": [
+    {
+     "named": "bt-glazed-frost-sword"
+    },
+    {
+     "named": "bt-frost-star-ring"
+    },
+    {
+     "named": "bt-ink-frost-robe"
+    }
+   ],
+   "skills": {},
+   "thien_phu": {
+    "ngo_tinh": 78,
+    "can_cot": 58,
+    "than_hon": 74,
+    "khi_van": 60,
+    "dao_tam": 76,
+    "mi_luc": 70
+   },
+   "tree": {
+    "start": "bang",
+    "targets": [
+     765,
+     768,
+     5445,
+     7740,
+     7760,
+     7756,
+     7752
+    ]
+   },
+   "note": "The pure Ice duelist: every cut a stack, every fifth a freeze."
+  },
+  "on_sa_ngoc": {
+   "root": {
+    "elements": {
+     "thuy": 58,
+     "tho": 44
+    },
+    "variants": {
+     "bang": 40
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 1,
+   "main": {
+    "tech": "jade-vessel-ice-heart-canon",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "an",
+     "grade": 3,
+     "element": "tho"
+    },
+    {
+     "base": "ho_lo",
+     "grade": 2,
+     "element": "thuy"
+    },
+    {
+     "base": "giap",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {
+    "tran_phap": 4
+   },
+   "thien_phu": {
+    "ngo_tinh": 62,
+    "can_cot": 60,
+    "than_hon": 56,
+    "khi_van": 64,
+    "dao_tam": 60,
+    "mi_luc": 74
+   },
+   "tree": {
+    "start": "thuy",
+    "targets": [
+     765,
+     768,
+     5374,
+     5379,
+     4349,
+     4357
+    ]
+   },
+   "note": "The desert's ice: wards and patience on the caravan road."
+  },
+  "kha_tinh_ba": {
+   "root": {
+    "elements": {
+     "thuy": 64,
+     "kim": 36
+    },
+    "variants": {
+     "bang": 48
+    }
+   },
+   "archetype": "the_tu",
+   "stage": 0,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 9
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "thuan",
+     "grade": 3,
+     "element": "thuy"
+    },
+    {
+     "base": "giap",
+     "grade": 3,
+     "element": "kim"
+    },
+    {
+     "base": "chuong",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 66,
+    "than_hon": 54,
+    "khi_van": 44,
+    "dao_tam": 68,
+    "mi_luc": 46
+   },
+   "tree": {
+    "start": "bang",
+    "targets": [
+     765,
+     768,
+     5227,
+     6118,
+     6125,
+     4357
+    ]
+   },
+   "note": "The vein's warden: shield, armour, bell, and a long stubborn fight."
+  },
+  "lam_tuyet_dieu": {
+   "root": {
+    "elements": {
+     "thuy": 62,
+     "moc": 40
+    },
+    "variants": {
+     "bang": 46
+    }
+   },
+   "archetype": "linh_thuc_su",
+   "stage": 0,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 8
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "tien_tieu",
+     "grade": 3,
+     "element": "thuy"
+    },
+    {
+     "base": "giap",
+     "grade": 2,
+     "element": "moc"
+    },
+    {
+     "base": "ngoc_boi",
+     "grade": 3,
+     "element": "thuy"
+    }
+   ],
+   "skills": {
+    "linh_thuc": 7
+   },
+   "thien_phu": {
+    "ngo_tinh": 60,
+    "can_cot": 68,
+    "than_hon": 64,
+    "khi_van": 56,
+    "dao_tam": 58,
+    "mi_luc": 52
+   },
+   "tree": {
+    "start": "bang",
+    "targets": [
+     765,
+     768,
+     5232,
+     5167,
+     5186
+    ]
+   },
+   "note": "The beast keeper: a frost-wolf pack leader and an ice sable."
+  },
+  "nguy_thanh_han": {
+   "root": {
+    "elements": {
+     "thuy": 60,
+     "kim": 38
+    },
+    "variants": {
+     "bang": 44
+    }
+   },
+   "archetype": "phap_tu",
+   "stage": 0,
+   "main": {
+    "tech": "jade-vessel-ice-heart-canon",
+    "layer": 5
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phien",
+     "grade": 3,
+     "element": "thuy"
+    },
+    {
+     "base": "ngoc_boi",
+     "grade": 2,
+     "element": "kim"
+    },
+    {
+     "base": "giap",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {},
+   "thien_phu": {
+    "ngo_tinh": 70,
+    "can_cot": 50,
+    "than_hon": 60,
+    "khi_van": 50,
+    "dao_tam": 56,
+    "mi_luc": 72
+   },
+   "tree": {
+    "start": "thuy",
+    "targets": [
+     765,
+     768,
+     4909,
+     5361,
+     5365
+    ]
+   },
+   "note": "The envoy: a frost fan and a quick road home."
+  },
+  "vien_chuoc": {
+   "root": {
+    "elements": {
+     "hoa": 74,
+     "moc": 52
+    },
+    "variants": {}
+   },
+   "archetype": "dan_su",
+   "stage": 0,
+   "main": {
+    "tech": "red-sun-scripture",
+    "layer": 8
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "huong_lo",
+     "grade": 3,
+     "element": "hoa"
+    },
+    {
+     "base": "ho_lo",
+     "grade": 3,
+     "element": "moc"
+    },
+    {
+     "base": "giap",
+     "grade": 2,
+     "element": "hoa"
+    }
+   ],
+   "skills": {
+    "dan_dao": 8
+   },
+   "thien_phu": {
+    "ngo_tinh": 74,
+    "can_cot": 52,
+    "than_hon": 62,
+    "khi_van": 50,
+    "dao_tam": 54,
+    "mi_luc": 58
+   },
+   "tree": {
+    "start": "hoa",
+    "targets": [
+     2325,
+     2380,
+     2279,
+     2283,
+     2348
+    ]
+   },
+   "note": "A furnace in the snow: pills first, flame if cornered."
+  },
+  "cung_mac_suong": {
+   "root": {
+    "elements": {
+     "thuy": 68,
+     "tho": 40
+    },
+    "variants": {
+     "bang": 58,
+     "am": 30
+    }
+   },
+   "archetype": "phap_tu",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 7
+   },
+   "aux": [],
+   "gear": [
+    {
+     "named": "bt-ice-knot-needle"
+    },
+    {
+     "named": "bt-black-backed-mirror"
+    }
+   ],
+   "skills": {},
+   "thien_phu": {
+    "ngo_tinh": 82,
+    "can_cot": 50,
+    "than_hon": 76,
+    "khi_van": 46,
+    "dao_tam": 52,
+    "mi_luc": 64
+   },
+   "tree": {
+    "start": "bang",
+    "targets": [
+     765,
+     768,
+     5437,
+     5382,
+     5055,
+     5053
+    ]
+   },
+   "note": "An Ice caster with a black edge she does not use in public."
+  },
+  "lieu_ngu_ca": {
+   "root": {
+    "elements": {
+     "thuy": 72
+    },
+    "variants": {
+     "bang": 50
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 0,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 4
+   },
+   "aux": [
+    {
+     "tech": "snow-plum-sword",
+     "layer": 2
+    }
+   ],
+   "gear": [
+    {
+     "named": "bt-fisher-sword"
+    },
+    {
+     "named": "bt-river-ice-gourd"
+    }
+   ],
+   "skills": {},
+   "thien_phu": {
+    "ngo_tinh": 68,
+    "can_cot": 62,
+    "than_hon": 60,
+    "khi_van": 62,
+    "dao_tam": 66,
+    "mi_luc": 68
+   },
+   "tree": {
+    "start": "thuy",
+    "targets": [
+     765,
+     768,
+     5374,
+     5379,
+     5414
+    ]
+   },
+   "note": "A young sword who outlasts."
+  },
+  "ha_lang_han": {
+   "root": {
+    "elements": {
+     "thuy": 64,
+     "kim": 32
+    },
+    "variants": {
+     "bang": 58
+    }
+   },
+   "archetype": "kiem_tu",
+   "stage": 1,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 6
+   },
+   "aux": [
+    {
+     "tech": "snow-plum-sword",
+     "layer": 6
+    }
+   ],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 2,
+     "element": "thuy"
+    },
+    {
+     "base": "giap",
+     "grade": 2,
+     "element": "kim"
+    }
+   ],
+   "skills": {},
+   "thien_phu": {
+    "ngo_tinh": 72,
+    "can_cot": 64,
+    "than_hon": 54,
+    "khi_van": 48,
+    "dao_tam": 66,
+    "mi_luc": 56
+   },
+   "tree": {
+    "start": "bang",
+    "targets": [
+     765,
+     768,
+     774,
+     5390,
+     5304
+    ]
+   },
+   "note": "The plum's next blade."
+  },
+  "hang_minh_sa": {
+   "root": {
+    "elements": {
+     "hoa": 62,
+     "kim": 55
+    },
+    "variants": {}
+   },
+   "archetype": "kiem_tu",
+   "stage": 2,
+   "main": {
+    "tech": "red-sand-sabre-primer",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "phi_kiem",
+     "grade": 2,
+     "element": "hoa"
+    },
+    {
+     "base": "giap",
+     "grade": 2,
+     "element": "kim"
+    }
+   ],
+   "skills": {},
+   "thien_phu": {
+    "ngo_tinh": 64,
+    "can_cot": 70,
+    "than_hon": 52,
+    "khi_van": 40,
+    "dao_tam": 58,
+    "mi_luc": 66
+   },
+   "tree": {
+    "start": "hoa",
+    "targets": [
+     700,
+     2566,
+     2763,
+     2767
+    ]
+   },
+   "note": "A sabre with nowhere to be drawn."
+  },
+  "do_suong_nhi": {
+   "root": {
+    "elements": {
+     "thuy": 60
+    },
+    "variants": {
+     "bang": 42
+    }
+   },
+   "archetype": "tran_su",
+   "stage": 2,
+   "main": {
+    "tech": "winter-toll-canon",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ky",
+     "grade": 2,
+     "element": "thuy"
+    },
+    {
+     "base": "ngoc_boi",
+     "grade": 2,
+     "element": "thuy"
+    }
+   ],
+   "skills": {
+    "tran_phap": 3
+   },
+   "thien_phu": {
+    "ngo_tinh": 56,
+    "can_cot": 58,
+    "than_hon": 60,
+    "khi_van": 50,
+    "dao_tam": 72,
+    "mi_luc": 60
+   },
+   "tree": {
+    "start": "thuy",
+    "targets": [
+     765,
+     768,
+     5351,
+     5340,
+     5227
+    ]
+   },
+   "note": "The outer gate's keeper: a banner and a warm hand."
+  },
+  "ho_tieu_dam": {
+   "root": {
+    "elements": {
+     "thuy": 48,
+     "tho": 30
+    },
+    "variants": {}
+   },
+   "archetype": "linh_thuc_su",
+   "stage": 2,
+   "main": {
+    "tech": "clear-frost-breath",
+    "layer": 6
+   },
+   "aux": [],
+   "gear": [
+    {
+     "base": "ngoc_boi",
+     "grade": 1,
+     "element": "thuy"
+    }
+   ],
+   "skills": {
+    "linh_thuc": 2
+   },
+   "thien_phu": {
+    "ngo_tinh": 58,
+    "can_cot": 54,
+    "than_hon": 50,
+    "khi_van": 60,
+    "dao_tam": 66,
+    "mi_luc": 54
+   },
+   "tree": {
+    "start": "thuy",
+    "targets": [
+     765,
+     768,
+     5351
+    ]
+   },
+   "note": "The outer gate's hope, one night from the road."
   }
- }
+ },
+ "world_data_version": 1,
+ "depth_sects": [
+  "bang_tam"
+ ],
+ "ties": [
+  {
+   "a": "au_duong_tuyet",
+   "b": "dao_han_mac",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "au_duong_tuyet",
+   "b": "quy_to_nga",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "bach_han_yen",
+   "b": "kha_lac_tuyet",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "bui_han",
+   "b": "ha_lang_han",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "bui_han",
+   "b": "vu_mai_suong",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "cat_lo_chau",
+   "b": "ho_tieu_dam",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "cat_ngoc_tri",
+   "b": "cat_lo_chau",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "cat_ngoc_tri",
+   "b": "ho_tieu_dam",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "cat_ngoc_tri",
+   "b": "que_han_chi",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "cat_ngoc_tri",
+   "b": "yen_luc_tuyen",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "chu_suong_linh",
+   "b": "hoa_tuyet_nghi",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "co_lang_suong",
+   "b": "tiet_han_mai",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "cung_mac_suong",
+   "b": "hang_minh_sa",
+   "kind": "friend",
+   "s": 70
+  },
+  {
+   "a": "cung_mac_suong",
+   "b": "trieu_huyet_y",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "dam_tinh_thach",
+   "b": "hoang_tuyet_tinh",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "dam_tinh_thach",
+   "b": "tu_lac_suong",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "dao_han_mac",
+   "b": "giai_tieu_hoa",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "dao_han_mac",
+   "b": "quy_to_nga",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "dien_han_tac",
+   "b": "dien_tieu_thach",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "dieu_han_dam",
+   "b": "luong_sa_bang",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "dinh_tuyet_tung",
+   "b": "dien_han_tac",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "dinh_tuyet_tung",
+   "b": "dien_tieu_thach",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "do_suong_nhi",
+   "b": "ho_tieu_dam",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "doan_thanh_lang",
+   "b": "lieu_ngu_ca",
+   "kind": "debt",
+   "s": 30
+  },
+  {
+   "a": "giang_suong_lac",
+   "b": "yen_luc_tuyen",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "ha_han_lo",
+   "b": "diep_lanh_thu",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "ha_lang_han",
+   "b": "hoa_trieu_duong",
+   "kind": "enmity",
+   "s": 50
+  },
+  {
+   "a": "han_tieu_bac",
+   "b": "do_suong_nhi",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "han_tieu_bac",
+   "b": "hoac_tuyet_ngan",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "hang_minh_sa",
+   "b": "hang_da_boi",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "hau_ngu",
+   "b": "do_suong_nhi",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "hau_ngu",
+   "b": "hau_lang",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "hau_ngu",
+   "b": "nhan_bich_tuyen",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "hau_ngu",
+   "b": "thach_tieu_lo",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "hua_bang_nhi",
+   "b": "loi_tuyet_hieu",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "kha_lac_tuyet",
+   "b": "kha_tinh_ba",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "kha_lac_tuyet",
+   "b": "thinh_han_loi",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "kha_tinh_ba",
+   "b": "lam_tuyet_dieu",
+   "kind": "dao_lu",
+   "s": 0
+  },
+  {
+   "a": "khong_thiet_ngung",
+   "b": "ngac_thiet_phong",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "khong_thiet_ngung",
+   "b": "on_sa_ngoc",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "khong_thiet_ngung",
+   "b": "uc_hoang_sa",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "khuong_luu_ly",
+   "b": "cung_mac_suong",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "khuong_luu_ly",
+   "b": "so_han_y",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "kieu_nguyet_chau",
+   "b": "luc_han_chu",
+   "kind": "debt",
+   "s": 30
+  },
+  {
+   "a": "kieu_tuyet_ky",
+   "b": "ha_lang_han",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "kieu_tuyet_ky",
+   "b": "muc_sa_hanh",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "ky_han_bach",
+   "b": "tong_ngu_lan",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "la_ngu_nhi",
+   "b": "khuong_luu_ly",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "lac_ngan_bang",
+   "b": "diep_lanh_thu",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "lac_ngan_bang",
+   "b": "mai_han_tich",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "lam_ngung_phong",
+   "b": "ha_lang_han",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "lang_han_sinh",
+   "b": "bi_tieu_chu",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "lang_han_sinh",
+   "b": "manh_tieu_ngu",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "lieu_ngu_ca",
+   "b": "hang_minh_sa",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "lieu_tieu_giang",
+   "b": "lieu_ngu_ca",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "lu_doc_dieu",
+   "b": "tham_han_giang",
+   "kind": "debt",
+   "s": 30
+  },
+  {
+   "a": "luc_han_chu",
+   "b": "tham_han_giang",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "luong_sa_bang",
+   "b": "ho_tieu_dam",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "luu_han_ngan",
+   "b": "lieu_ngu_ca",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "luu_han_ngan",
+   "b": "trinh_lang",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "ma_dong_lam",
+   "b": "ma_thao_nhi",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "ma_dong_lam",
+   "b": "on_sa_ngoc",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "man_bang_ha",
+   "b": "manh_trieu_suong",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "man_bang_ha",
+   "b": "thai_han_ngu",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "manh_trieu_suong",
+   "b": "manh_tieu_ngu",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "manh_trieu_suong",
+   "b": "tham_han_giang",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "muc_sa_hanh",
+   "b": "phuong_diem_nhi",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "nghe_kho_tuyen",
+   "b": "ho_tieu_dam",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "nghe_kho_tuyen",
+   "b": "on_sa_ngoc",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "nghiem_tieu_tuyet",
+   "b": "ho_tieu_dam",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "nguy_thanh_han",
+   "b": "doan_ngoc_hanh",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "nguy_thanh_han",
+   "b": "so_ngoc_ho",
+   "kind": "debt",
+   "s": 30
+  },
+  {
+   "a": "nhac_bang_thiem",
+   "b": "co_lang_suong",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "nhiep_lang_tuyet",
+   "b": "do_suong_nhi",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "nhiep_lang_tuyet",
+   "b": "ky_han_bach",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "nhiep_lang_tuyet",
+   "b": "phu_suong_nguyen",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "nhiep_lang_tuyet",
+   "b": "vi_tu_han",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "on_sa_ngoc",
+   "b": "hang_minh_sa",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "on_sa_ngoc",
+   "b": "ho_tieu_dam",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "on_sa_ngoc",
+   "b": "vien_co_yen",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "ong_tieu_tra",
+   "b": "trac_on_tuyen",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "ong_tinh_hai",
+   "b": "ong_tieu_tra",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "ong_tinh_hai",
+   "b": "tiet_han_mai",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "ong_tinh_hai",
+   "b": "trac_on_tuyen",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "pham_lanh_van",
+   "b": "lac_ngan_bang",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "pham_lanh_van",
+   "b": "tham_han_giang",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "phan_dong_nhi",
+   "b": "dang_tieu_ha",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "phan_dong_nhi",
+   "b": "lam_tuyet_dieu",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "phi_thanh_sa",
+   "b": "ho_tieu_dam",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "pho_am_huong",
+   "b": "hoa_trieu_duong",
+   "kind": "feud",
+   "s": 0
+  },
+  {
+   "a": "pho_am_huong",
+   "b": "vien_chuoc",
+   "kind": "enmity",
+   "s": 50
+  },
+  {
+   "a": "phu_suong_nguyen",
+   "b": "ho_tieu_dam",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "phuong_diem_nhi",
+   "b": "on_sa_ngoc",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "quach_lam",
+   "b": "au_duong_tuyet",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "quach_lam",
+   "b": "lac_ngan_bang",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "quach_lam",
+   "b": "tham_han_giang",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "que_han_chi",
+   "b": "tu_lac_suong",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "sam_bich_lan",
+   "b": "do_suong_nhi",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "so_han_y",
+   "b": "cung_mac_suong",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "so_han_y",
+   "b": "lieu_ngu_ca",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "so_ngoc_ho",
+   "b": "co_lang_suong",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "so_ngoc_ho",
+   "b": "doan_ngoc_hanh",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "so_ngoc_ho",
+   "b": "dong_hong_lo",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "so_ngoc_ho",
+   "b": "hang_da_boi",
+   "kind": "enmity",
+   "s": 50
+  },
+  {
+   "a": "so_ngoc_ho",
+   "b": "tham_han_giang",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "so_ngoc_ho",
+   "b": "thoi_khinh_hong",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "so_ngoc_ho",
+   "b": "tiet_han_mai",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "so_ngoc_ho",
+   "b": "trieu_huyet_y",
+   "kind": "enmity",
+   "s": 50
+  },
+  {
+   "a": "so_ngoc_ho",
+   "b": "vien_chuoc",
+   "kind": "debt",
+   "s": 30
+  },
+  {
+   "a": "ta_ngan_suong",
+   "b": "lieu_ngu_ca",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "te_lac_bang",
+   "b": "do_suong_nhi",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "tham_han_giang",
+   "b": "doan_thanh_lang",
+   "kind": "ket_nghia",
+   "s": 0
+  },
+  {
+   "a": "tham_han_giang",
+   "b": "kha_tinh_ba",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "tham_han_giang",
+   "b": "khuong_luu_ly",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "tiet_han_mai",
+   "b": "pho_am_huong",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "tiet_han_mai",
+   "b": "thai_le_tuyet",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "tieu_bach_lo",
+   "b": "ho_tieu_dam",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "tieu_bach_lo",
+   "b": "tieu_lanh_thu",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "tieu_bach_lo",
+   "b": "tieu_van_phong",
+   "kind": "kin",
+   "s": 0
+  },
+  {
+   "a": "to_lanh_nguyet",
+   "b": "mong_sa_lien",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "ton_han_thach",
+   "b": "on_sa_ngoc",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "ton_han_thach",
+   "b": "vo_bang_kien",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "tong_ngu_lan",
+   "b": "hoac_tuyet_ngan",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "tong_ngu_lan",
+   "b": "lieu_ngu_ca",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "trinh_lang",
+   "b": "lu_bang_trieu",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "truong_lanh_ha",
+   "b": "do_suong_nhi",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "truong_lanh_ha",
+   "b": "vi_tu_han",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "tuong_han_phong",
+   "b": "ha_lang_han",
+   "kind": "rival",
+   "s": 40
+  },
+  {
+   "a": "tuong_han_phong",
+   "b": "lam_ngung_phong",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "uong_tuyet_nhan",
+   "b": "ho_tieu_dam",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "uong_tuyet_nhan",
+   "b": "nhan_bich_tuyen",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "van_tuyet_khanh",
+   "b": "dam_tinh_thach",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "vien_chuoc",
+   "b": "dong_hong_lo",
+   "kind": "friend",
+   "s": 30
+  },
+  {
+   "a": "vuong_thanh_lam",
+   "b": "an_tieu_han",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "yen_tuyet_ngung",
+   "b": "lieu_ngu_ca",
+   "kind": "friend",
+   "s": 40
+  },
+  {
+   "a": "yen_tuyet_ngung",
+   "b": "nham_dong_tuyet",
+   "kind": "friend",
+   "s": 40
+  }
+ ],
+ "beasts": [
+  {
+   "key": "ngoc_dieu",
+   "name_hv": "Ngọc Điêu",
+   "name_han": "玉貂",
+   "gloss": "Jade Sable",
+   "is_beast": true,
+   "species": "white ice sable",
+   "sex": "F",
+   "born": 1014,
+   "alive": true,
+   "realm": "ket_dan",
+   "stage": 0,
+   "root": {
+    "elements": {
+     "thuy": 40
+    },
+    "variants": {
+     "bang": 52
+    }
+   },
+   "owner_id": "lam_tuyet_dieu",
+   "loyalty": 90,
+   "home": 239,
+   "location_id": 239,
+   "tags": [
+    "sable",
+    "companion"
+   ],
+   "appearance": "A white sable draped across her shoulders, so still it is taken for a fur.",
+   "combat": {
+    "strikes": "bang",
+    "power_share": 0.5,
+    "note": "Her Ice companion; her build's Ice stacks and companion nodes serve it and the wolf."
+   },
+   "bond": {
+    "keeper": "lam_tuyet_dieu",
+    "since": 1014,
+    "event": null,
+    "rule": "Raised from a kit inside her coat."
+   },
+   "backstory": "The sable kit Lam Tuyết Điêu carried inside her coat when she came to the Pavilion. It has grown with her into a Kết Đan beast, which no other sable of the Beast Hall has done."
+  },
+  {
+   "key": "han_tich",
+   "name_hv": "Hàn Tích",
+   "name_han": "寒脊",
+   "gloss": "Cold Spine",
+   "is_beast": true,
+   "species": "frost wolf, leader of the Beast Hall pack",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "realm": "truc_co",
+   "stage": 1,
+   "root": {
+    "elements": {
+     "thuy": 46
+    },
+    "variants": {
+     "bang": 40
+    }
+   },
+   "owner_id": "lam_tuyet_dieu",
+   "loyalty": 90,
+   "home": 239,
+   "location_id": 239,
+   "tags": [
+    "wolf",
+    "companion"
+   ],
+   "appearance": "A big grey-white wolf with a black stripe down its spine and frost in its ruff.",
+   "combat": {
+    "strikes": "bang",
+    "power_share": 0.5,
+    "note": "The frost-wolf pack leader her build's companion health and power nodes are for."
+   },
+   "bond": {
+    "keeper": "lam_tuyet_dieu",
+    "since": 1152,
+    "event": null,
+    "rule": "Raised at the Beast Hall from a pup."
+   },
+   "backstory": "Grandson of the tundra wolf that came with her from Tuyết Lang Nguyên. It leads the Beast Hall's frost-wolf pack, and it was the first to grow restless when the vein began to warm."
+  }
+ ]
 }

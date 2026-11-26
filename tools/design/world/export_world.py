@@ -27,6 +27,9 @@ import json
 import os
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import depth_export  # noqa: E402  (the world-depth reader, ADR-0009 decision 5)
+
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", ".."))
 WORLD = os.path.join(ROOT, "design", "world")
 MAP = os.path.join(ROOT, "design", "map", "continent-11")
@@ -58,8 +61,9 @@ def load(path):
 
 
 class Export:
-    def __init__(self):
+    def __init__(self, depth_keys=None):
         self.errors, self.warnings = [], []
+        self.depth_keys = depth_keys or []
         self.cont = load(os.path.join(ROOT, "assets", "data", "world_continent.json"))
         self.wg = load(os.path.join(ROOT, "assets", "data", "world_generation.json"))
         self.realms_file = load(os.path.join(ROOT, "assets", "data", "cultivation_realms.json"))
@@ -476,12 +480,21 @@ class Export:
         sects = self.sects()
         self.fallen_list = self.fallen()
         people = self.people()
+        depth = depth_export.Depth(self, self.depth_keys) if self.depth_keys else None
+        if depth:   # the world-depth cast of the exported sects merges over the old one (ADR-0009 decision 5)
+            depth.merge_people(people)
+            self.people_by = {r["key"]: r for r in people}
+            depth.check_masters(self.people_by)
         self.check_people(sects)
         events = self.events()
+        if depth:
+            events += depth.events(self.people_by)
+            events.sort(key=lambda r: (r["year"], r["id"]))
+            self.event_ids = {r["id"] for r in events}
         self.check_wars(sects)
         items = self.legendary()
         slots, secrets = self.hidden()
-        builds = self.cast_builds()
+        builds = self.cast_builds(depth.builds() if depth else None)
         T = self.territory
         territory = {"eras": T["eras"], "land_changes": T["land_changes"], "wars": T["wars"],
                      "vassal_lord_changes": T["vassal_lord_changes"], "grudges": T["grudges"], "other_events": T["other_events"]}
@@ -520,10 +533,14 @@ class Export:
             "features": [dict(v, name=k) for k, v in self.features.items()],
             "living_cast_by_realm": self.living_by_realm,
             "cast_builds": builds,
+            "world_data_version": depth_export.WORLD_DATA_VERSION,
+            "depth_sects": self.depth_keys,
+            "ties": depth.ties(self.people_by) if depth else [],
+            "beasts": depth.beasts(self.people_by) if depth else [],
         }
 
     # -- the cast's hand-authored builds (Core Rule 6) -------------------------------------------------------------
-    def cast_builds(self):
+    def cast_builds(self, extra=None):
         """design/world/cast_builds.json, checked id by id (World Generation's Checking: a build naming a technique,
         item or Đạo Đồ node that does not exist fails). A living person with no build is reported (an observation
         until all are written; the builder fills those from a keyed stream)."""
@@ -532,7 +549,8 @@ class Export:
             self.warn("no design/world/cast_builds.json yet: every living cast member's build is a keyed stand-in")
             return {}
         data = load(path)
-        builds = data.get("builds", {})
+        builds = dict(data.get("builds", {}))
+        builds.update(extra or {})   # the exported sects' depth builds win (ADR-0009 decision 5)
         cp = load(os.path.join(ROOT, "assets", "data", "items_cong_phap.json"))
         temps = {t["id"]: t for t in cp["templates"]}
         tiers = {t["rank"]: t for t in cp["tiers"]}
@@ -633,6 +651,11 @@ class Export:
                         h.update(n.encode() + fh.read())
         with open(os.path.join(ROOT, "assets", "data", "world_continent.json"), "rb") as fh:
             h.update(fh.read())
+        if self.depth_keys:   # ADR-0009 decision 9: the hash also covers design/world/depth/
+            h.update(",".join(self.depth_keys).encode())
+            for f in depth_export.version_files():
+                with open(f, "rb") as fh:
+                    h.update(os.path.relpath(f, ROOT).replace(os.sep, "/").encode() + fh.read())
         return h.hexdigest()[:16]
 
 
@@ -650,8 +673,9 @@ def targets(n, weights):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
+    ap.add_argument("--sect", default="", help="world-depth owners to export (comma list, or all); ADR-0009")
     a = ap.parse_args()
-    ex = Export()
+    ex = Export(depth_export.owners(a.sect) if a.sect else None)
     out = ex.build()
     for w in ex.warnings:
         print("observation:", w)
@@ -668,7 +692,8 @@ def main():
                       "living": sum(1 for p in out["people"] if p["alive"]), "events": len(out["events"]),
                       "items": len(out["legendary_items"]), "hidden_slots": len(out["hidden_slots"]),
                       "tile_secrets": len(out["tile_secrets"]), "living_cast_by_realm": out["living_cast_by_realm"],
-                      "data_version": out["data_version"], "written": not a.check}, ensure_ascii=False))
+                      "data_version": out["data_version"], "depth_sects": out["depth_sects"], "ties": len(out["ties"]),
+                      "beasts": len(out["beasts"]), "written": not a.check}, ensure_ascii=False))
     return 0
 
 

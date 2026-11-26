@@ -2391,6 +2391,10 @@ func load_dict(d: Dictionary) -> Dictionary:
 	if not meta.is_empty() and prov_now > 0 and int(meta.get("provinces_version", 0)) != prov_now:
 		# ADR-0008 decision 10 (user D7, 2026-11-24): a save made before the provinces table is refused, not migrated
 		return {"ok": false, "lines": ["This save was made before provinces were part of the world (provinces version %d; this game has %d). It cannot be loaded." % [int(meta.get("provinces_version", 0)), prov_now]]}
+	var wdv_now: int = int(gd.file("world_history").get("world_data_version", 0))
+	if not meta.is_empty() and wdv_now > 0 and int(meta.get("world_data_version", 0)) != wdv_now:
+		# ADR-0009 decision 9 (2026-11-26): a save made on another world data version is refused, not migrated
+		return {"ok": false, "lines": ["This save was made with world data version %d; this game has %d. It cannot be loaded." % [int(meta.get("world_data_version", 0)), wdv_now]]}
 	db = loaded_db
 	Ties.migrate(gd, db, year * int(gd.cultivation_rules().seasons_per_year) + season)   # NPC Relationships: masters kept only in master_id
 	for rec in db.all("people"):

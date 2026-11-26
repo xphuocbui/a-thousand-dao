@@ -350,8 +350,10 @@ class Report:
                 partners[t.get("to")] = partners.get(t.get("to"), False) or k in PINNED
             if len(partners) > TIE_CAP:
                 pinned = sum(partners.values())
-                self.add("ties_over_cap", own, "rule text", person=key, tier=p.get("tier"), partners=len(partners),
-                         pinned=pinned, soft=len(partners) - pinned)
+                # the export trims soft ties beyond the cap by strength (depth_export.Depth.ties): closed once the
+                # pinned ties alone fit
+                self.add("ties_over_cap", own, "game" if pinned <= TIE_CAP else "rule text", person=key,
+                         tier=p.get("tier"), partners=len(partners), pinned=pinned, soft=len(partners) - pinned)
         for own, lin in self.lineages.items():
             fields = [("main", lin.get("main")), ("inner", lin.get("inner")), ("outer", lin.get("outer")),
                       ("body", lin.get("body"))] + [("secret", s.get("id")) for s in lin.get("secret") or []]
@@ -405,10 +407,12 @@ def is_open(section, e):
     if section in ALWAYS_OPEN:
         return True
     if section == "ties_over_cap":
-        return True   # an observation: the authored overflow rule (NPC Relationships rule 5) decides each
+        # the export trims soft ties beyond the cap by strength (NPC Relationships rule 5's authored overflow): open
+        # only when the pinned ties alone are over it
+        return e["state"] != "game"
     if section == "cross_owner":
         return e["state"] not in ("runs", "game")
-    return e["state"] != "runs" and not (section in ("techniques", "items", "sets", "beasts", "events")
+    return e["state"] != "runs" and not (section in ("techniques", "items", "sets", "beasts", "events", "ties_over_cap")
                                          and e["state"] == "game")
 
 
