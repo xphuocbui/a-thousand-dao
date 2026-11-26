@@ -42,7 +42,7 @@ def _load(name, path):
 
 tech = _load("lint_techniques", os.path.join(ROOT, "tools", "design", "arts", "lint_techniques.py"))
 arts_lint = _load("lint_arts", os.path.join(ROOT, "tools", "design", "arts", "lint_arts.py"))
-cat = _load("export_catalogue", os.path.join(ROOT, "tools", "design", "dao_do_rework", "editor", "export_catalogue.py"))
+cat = _load("gdd_catalogue", os.path.join(ROOT, "tools", "design", "items", "gdd_catalogue.py"))   # GDD parser (2026-11-26)
 
 # item stats the technique lint does not price (modifiers.md Stat List W, per displayed unit)
 ITEM_PRICE = {"artifact_attack_pct": 0.6, "artifact_defense_pct": 0.6, "than_thuc_cost_pct": 0.8,
@@ -64,7 +64,11 @@ ROLES = {"weapon", "ward_gear", "body_gear", "utility", "ring", "necklace"}
 FAMILIES = {"blade", "body", "earth", "fire", "force-chaos", "ice", "metal", "soul-song-seal", "thunder", "water",
             "wind", "wood", "general"}
 FIELDS = {"id", "name", "family", "kind", "base", "grade", "rarity", "modifiers", "effects", "arts", "wards",
-          "reserve_arts", "exception", "sources", "lore", "build_use", "notes", "holder"}
+          "reserve_arts", "exception", "sources", "lore", "build_use", "notes", "holder",
+          "set", "made_by", "made_year", "legendary_key", "where"}   # world-depth signature items (rule 20f)
+# world-depth sect catalogues (catalogue-sect-<key>.json, ADR-0009) are unpriced (user rule: no W price until the game
+# is finished): the W sum is still noted, OVER_BUDGET and the spend note are skipped there.
+UNPRICED_PREFIX = "catalogue-sect-"
 REQUIRED = {"id", "name", "family", "kind", "base", "modifiers", "effects", "sources", "build_use"}
 NEW_EFFECT_FIELDS = {"name", "rule", "payload"}
 WARD_FIELDS = {"id", "name", "payload", "payment", "activation", "check_from"}
@@ -195,6 +199,9 @@ def main():
     gd = cat.build()
     stats_w = {s["key"]: s["w"] for s in gd["stats"] if s.get("w") is not None}
     eff_names = {re.sub(r"\s*\(.*$", "", e["name"]).strip().lower(): e for e in gd["effects"]}
+    # an Effect with an engine record in combat_effects.json counts as known (world-depth Effects live there, ADR-0009)
+    for k in json.load(open(os.path.join(ROOT, "assets", "data", "combat_effects.json"), encoding="utf-8"))["effects"]:
+        eff_names.setdefault(k.strip().lower(), {"group": ""})
     starter_wards = set()
     try:
         cd = open(os.path.join(ROOT, "design", "gdd", "combat-defence.md"), encoding="utf-8").read()
@@ -218,6 +225,7 @@ def main():
             print("UNREADABLE\t%s\t%s" % (f, e))
             return 2
         fname = os.path.basename(f)
+        unpriced = fname.startswith(UNPRICED_PREFIX)
         for it in items:
             iid = it.get("id", "?")
             where = "%s\t%s" % (fname, iid)
@@ -261,16 +269,17 @@ def main():
             # budget
             w, priced = modifiers_w(it["modifiers"], stats_w, where, findings)
             limit = AFFIX_COUNT[g] * wa
-            if priced and w > limit * NAMED_W_TOLERANCE + 0.05:
+            if priced and not unpriced and w > limit * NAMED_W_TOLERANCE + 0.05:
                 findings.append("OVER_BUDGET\t%s\tmodifiers %.1f W, grade %d budget %.1f W (x%.2f = %.1f)"
                                 % (where, w, g, limit, NAMED_W_TOLERANCE, limit * NAMED_W_TOLERANCE))
-            notes.append("w\t%s\t%s W of %.1f (grade %d, rarity %d%s)" % (where, ("%.1f" % w) if priced else "NOT ASSESSED",
-                                                                       limit, g, rarity, ", unique" if unique else ""))
+            notes.append("w\t%s\t%s W of %.1f (grade %d, rarity %d%s%s)" % (
+                where, ("%.1f" % w) if priced else "NOT ASSESSED", limit, g, rarity, ", unique" if unique else "",
+                ", unpriced, world-depth" if unpriced else ""))
             has_enabler = any((isinstance(e, dict) and e.get("tier") in ("enabler", "keystone")) or
                               (isinstance(e, str) and eff_names.get(e.strip().lower(), {}).get("group") in ("Enablers", "Keystones"))
                               for e in it["effects"])
             floor = SPEND_ENABLER if has_enabler else SPEND_TARGET
-            if priced and w < floor * limit - 0.05:
+            if priced and not unpriced and w < floor * limit - 0.05:
                 notes.append("spend\t%s\t%.0f %% of the budget, under the %.0f %% target%s"
                              % (where, 100 * w / limit, 100 * floor, " for an enabler item" if has_enabler else ""))
             # effects

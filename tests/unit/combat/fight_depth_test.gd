@@ -574,6 +574,24 @@ func test_a_set_pays_its_modifiers_at_two_pieces_and_its_effect_at_the_full_set(
 	assert_eq(_set_ids(bfc, [pieces[0], pieces[0]]), [], "two records of one piece count once")
 
 
+func test_a_full_set_naming_a_library_effect_runs_its_record() -> void:
+	# ADR-0009 (2026-11-26): the world-depth set Effects live in combat_effects.json under their names (test_engine.py)
+	var gd := game_data()
+	var old: Dictionary = gd.file("items_sets")
+	var names: Array = (gd.file("combat_library").items as Dictionary).keys()
+	names.sort()
+	var pieces: Array = names.slice(0, 2)
+	gd.registry.set_file("items_sets", {"constants": {"set_bonus_min_pieces": 2}, "sets": [{"id": "duo", "name": "Duo",
+			"pieces": pieces, "bonuses": [{"pieces": 2, "effect": "Rime Lock (Sương Tỏa)"}]}]})
+	var bfc := BuildFileCompiler.new(gd)
+	gd.registry.set_file("items_sets", old)
+	var d: Dictionary = bfc.compile({"name": "t", "realm": "luyen_khi", "layers": [0, 0, 0, 0, 0], "arts": [], "items": pieces})
+	var ids: Array = []
+	for e in d.get("effects", []):
+		ids.append(str(e.get("id", "")))
+	assert_bool(ids.has("eff:Rime Lock")).override_failure_message(str(ids)).is_true()
+
+
 # ---- slice 7 (2026-11-26): kept request tags read as tag.<name> (Combat rule 12, AC-CB-104) ----
 func test_a_rule_reads_a_kept_request_tag() -> void:
 	var trib := {"id": "t", "on": "always", "if": [{"read": "tag.tribulation", "op": ">=", "value": 1}], "do": [{"mod": {"block": 7}}]}

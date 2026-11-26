@@ -18,6 +18,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 OUT = os.path.join(ROOT, "assets", "data", "items_named.json")
+SETS_OUT = os.path.join(ROOT, "assets", "data", "items_sets.json")   # Item Database rule 22 (ADR-0009, 2026-11-26)
 
 # Design family -> Godot element or variant-root id (character_elements.json; user decision 2026-11-13: the variant
 # families map to their variant roots). Blade, body, general and soul-song-seal are not elements and get "".
@@ -76,18 +77,60 @@ def render(data):
     return head + rows + "\n  ]\n}\n"
 
 
+def build_sets():
+    """assets/data/items_sets.json from design/items/sets-<key>.json (world-depth sets, ADR-0009): the file's _doc and
+    constants are kept; each set is {id, name, pieces, bonuses, story}. A full-set bonus names its Effect, whose engine
+    record lives in combat_effects.json under that name (fight.py add_sets); an inline `record` is kept if a set has one."""
+    with open(SETS_OUT, encoding="utf-8") as f:
+        data = json.load(f)
+    sets = []
+    for path in sorted(glob.glob(os.path.join(ROOT, "design", "items", "sets-*.json"))):
+        with open(path, encoding="utf-8") as f:
+            for st in json.load(f):
+                rec = {"id": st["id"], "name": st["name"], "pieces": list(st["pieces"]), "bonuses": []}
+                for b in st.get("bonuses", []):
+                    out = {"pieces": int(b["pieces"])}
+                    if b.get("modifiers"):
+                        out["modifiers"] = [{"key": m["key"], "value": m["value"], "scope": m.get("scope", [])}
+                                            for m in b["modifiers"]]
+                    for k in ("effect", "record"):
+                        if b.get(k):
+                            out[k] = b[k]
+                    rec["bonuses"].append(out)
+                if st.get("story"):
+                    rec["story"] = st["story"]
+                sets.append(rec)
+    sets.sort(key=lambda r: r["id"])
+    data["sets"] = sets
+    return data
+
+
+def render_sets(data):
+    """One set per line, the head as json.dumps writes it (indent 2)."""
+    head = json.dumps({k: v for k, v in data.items() if k != "sets"}, indent=2, ensure_ascii=False)
+    rows = ",\n".join("    " + json.dumps(r, ensure_ascii=False) for r in data["sets"])
+    return head[:-2] + ',\n  "sets": [' + ("\n" + rows + "\n  " if rows else "") + "]\n}\n"
+
+
 def main():
     text = render(build())
+    sets_text = render_sets(build_sets())
     if "--check" in sys.argv:
         cur = open(OUT, encoding="utf-8").read() if os.path.exists(OUT) else ""
-        if cur != text:
-            print("items_named.json is stale: run tools/design/items/export_named.py")
+        cur_sets = open(SETS_OUT, encoding="utf-8").read() if os.path.exists(SETS_OUT) else ""
+        stale = [n for n, a, b in (("items_named.json", cur, text), ("items_sets.json", cur_sets, sets_text)) if a != b]
+        if stale:
+            print("%s stale: run tools/design/items/export_named.py" % " and ".join(stale))
             sys.exit(1)
-        print("items_named.json is current")
+        print("items_named.json and items_sets.json are current")
         return
     with open(OUT, "w", encoding="utf-8", newline="\n") as f:
         f.write(text)
-    print("wrote %s (%d named items)" % (os.path.relpath(OUT, ROOT), len(json.loads(text)["named"])))
+    with open(SETS_OUT, "w", encoding="utf-8", newline="\n") as f:
+        f.write(sets_text)
+    print("wrote %s (%d named items) and %s (%d sets)" % (
+        os.path.relpath(OUT, ROOT), len(json.loads(text)["named"]), os.path.relpath(SETS_OUT, ROOT),
+        len(json.loads(sets_text)["sets"])))
 
 
 if __name__ == "__main__":

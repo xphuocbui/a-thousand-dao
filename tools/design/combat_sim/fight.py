@@ -361,9 +361,11 @@ def item_sets():
     return SETS
 
 
-def add_sets(worn, d, effects, unmod):
+def add_sets(worn, d, effects, unmod, counters=None):
     """Item sets (Item Database rule 22, Formulas J): distinct worn pieces of each set; its modifiers from
-    set_bonus_min_pieces, its Effect at the full set (its engine record, or listed as unmodelled)."""
+    set_bonus_min_pieces, its Effect at the full set: its inline engine record, else the Effect of that name in
+    assets/data/combat_effects.json (where the world-depth set Effects live, ADR-0009; 2026-11-26), else listed as
+    unmodelled."""
     data = item_sets()
     need = int(data.get("constants", {}).get("set_bonus_min_pieces", 2))
     have = set(worn)
@@ -380,7 +382,8 @@ def add_sets(worn, d, effects, unmod):
             if (b.get("effect") or b.get("record")) and n == len(set(s["pieces"])):
                 if b.get("record"):
                     effects.append(dict(b["record"], id="set:%s:full" % s["id"]))
-                else:
+                elif counters is None or not add_library_effect(str(b["effect"]).split(" (")[0], d, effects, counters,
+                                                                unmod, "set %s" % s["id"], worn):
                     unmod.append("set %s full-set Effect %s: no engine record yet (not run)" % (s["id"], b["effect"]))
 
 
@@ -555,7 +558,7 @@ def expand_library(d):
             if not add_library_effect(short, d, effects, counters, unmod, "item %s" % iid, worn):
                 unmod.append("item %s Effect %s: not in assets/data/combat_effects.json; write it in \"effects\" (id "
                              "\"eff:<name>\") to run it" % (iid, name))
-    add_sets(worn, d, effects, unmod)
+    add_sets(worn, d, effects, unmod, counters)
     # the Đạo Đồ's held Effects by name (keystones and crown notables; ADR-0004 decision 3)
     tree = list(d.pop("tree_effects", []) or [])
     on_sheet = bool(d.pop("tree_lines_on_sheet", False))

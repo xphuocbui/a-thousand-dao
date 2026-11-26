@@ -1329,6 +1329,11 @@ def t_item_sets():   # Item Database rule 22, Formulas J (world-depth Stage 5 sl
         check("two pieces: the 2-piece modifiers, not the Effect", "set:trio" in two and "set:trio:full" not in two, str(two))
         check("the full set: the modifiers and its Effect", {"set:trio", "set:trio:full"} <= three, str(three))
         check("two records of one piece count once", not any(i.startswith("set:") for i in twice), str(twice))
+        # a full set naming an Effect with no inline record runs it from combat_effects.json (ADR-0009, 2026-11-26)
+        F.SETS = {"constants": {"set_bonus_min_pieces": 2}, "sets": [{"id": "duo", "name": "Duo", "pieces": pieces[:2],
+                  "bonuses": [{"pieces": 2, "effect": "Rime Lock (Sương Tỏa)"}]}]}
+        lib = ids(pieces[:2])
+        check("a full-set Effect by name runs its library record", "eff:Rime Lock" in lib, str(lib))
     finally:
         F.SETS = old
 

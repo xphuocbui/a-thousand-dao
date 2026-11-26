@@ -235,7 +235,7 @@ func _expand(src: Dictionary) -> Dictionary:
 			lib_done[short] = true
 			if not _add_library_effect(short, d, effects, counters, unmod, "item %s" % iid, worn):
 				unmod.append("item %s Effect %s: not in assets/data/combat_effects.json; write it in \"effects\" (id \"eff:<name>\") to run it" % [iid, name])
-	_add_sets(worn, d, effects, unmod)
+	_add_sets(worn, d, effects, unmod, counters)
 	d.erase("items")
 	# the Đạo Đồ's held Effects by name (keystones and crown notables; ADR-0004 decision 3), as fight.py
 	var tree: Array = Array(d.get("tree_effects", [])).duplicate()
@@ -389,7 +389,9 @@ func _add_library_effect(name: String, d: Dictionary, effects: Array, counters: 
 
 ## Item sets (Item Database rule 22, Formulas J): distinct worn pieces of each set; its modifiers from
 ## set_bonus_min_pieces, its Effect at the full set (its engine record, or listed as unmodelled). As fight.py add_sets.
-func _add_sets(worn: Array, d: Dictionary, effects: Array, unmod: Array) -> void:
+## A full-set Effect runs its inline record, else the Effect of that name in combat_effects.json (where the
+## world-depth set Effects live, ADR-0009; 2026-11-26), as fight.py add_sets.
+func _add_sets(worn: Array, d: Dictionary, effects: Array, unmod: Array, counters: Array) -> void:
 	var need: int = int(_sets.get("constants", {}).get("set_bonus_min_pieces", 2))
 	for s in _sets.get("sets", []):
 		var pieces := {}
@@ -415,7 +417,7 @@ func _add_sets(worn: Array, d: Dictionary, effects: Array, unmod: Array) -> void
 					var rec: Dictionary = (b.record as Dictionary).duplicate(true)
 					rec["id"] = "set:%s:full" % str(s.id)
 					effects.append(rec)
-				else:
+				elif not _add_library_effect(str(b.effect).split(" (")[0], d, effects, counters, unmod, "set %s" % str(s.id), worn):
 					unmod.append("set %s full-set Effect %s: no engine record yet (not run)" % [str(s.id), str(b.effect)])
 
 

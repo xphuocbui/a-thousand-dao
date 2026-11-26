@@ -35,7 +35,10 @@ ELEMENT_ID = {"fire": "hoa", "water": "thuy", "earth": "tho", "metal": "kim", "w
               "ice": "bang", "thunder": "loi", "wind": "phong"}
 NAMEABLE = {"kim", "moc", "thuy", "hoa", "tho", "phong", "loi", "am", "hon_don", "quang", "bang"}  # Blood, Void archived
 FIELDS = {"id", "name", "tier", "tech_kind", "names", "layers", "bonuses", "passives", "abilities", "effects",
-          "origin", "suite", "family", "lore", "notes"}
+          "origin", "suite", "family", "lore", "notes", "rank", "concept", "owner"}
+# world-depth sect catalogues (catalogue-sect-<key>.json, ADR-0009) are unpriced (user rule: no W price until the game
+# is finished): the W sum is still noted, but NOT_PRICED and OVER_BUDGET are notes there, not findings.
+UNPRICED_PREFIX = "catalogue-sect-"
 REQUIRED = {"id", "name", "tier", "tech_kind", "names", "layers", "bonuses", "passives", "abilities", "origin"}
 
 # modifiers.md Formulas A, W per displayed unit. Keys missing here are NOT_PRICED.
@@ -86,14 +89,18 @@ def breadth(tags):
 
 def load_arts():
     arts = {}
-    for f in sorted(glob.glob(os.path.join(ROOT, "design", "arts", "family-*.json"))):
-        for a in json.load(open(f, encoding="utf-8")):
-            arts[a["id"]] = a
+    # signature arts: the family files and each sect's part-sect-<key>.json (ADR-0009); the other part-*.json files
+    # hold the common and early library, which no technique carries
+    for pat in ("family-*.json", "part-sect-*.json"):
+        for f in sorted(glob.glob(os.path.join(ROOT, "design", "arts", pat))):
+            for a in json.load(open(f, encoding="utf-8")):
+                arts.setdefault(a["id"], a)
     return arts
 
 
 def lint(techs, fname, arts, pool, tiers, notes):
     out = []
+    unpriced = fname.startswith(UNPRICED_PREFIX)
     pool_by = {p["stat"]: p for p in pool}
     for t in techs:
         tid = t.get("id", "?")
@@ -156,7 +163,7 @@ def lint(techs, fname, arts, pool, tiers, notes):
             tags = scope + ([IMPLIED[key]] if key in IMPLIED and IMPLIED[key] not in scope else [])
             w_sum += abs(val) * price / breadth(tags) * (1 if val * (-1 if key in LOWER else 1) > 0 else -1)
         if priced and w_sum > BUDGET[tier] + 0.05:
-            out.append("OVER_BUDGET\t%s\tpassives %.1f W, tier %d budget %.0f W" % (where, w_sum, tier, BUDGET[tier]))
+            (notes if unpriced else out).append("OVER_BUDGET\t%s\tpassives %.1f W, tier %d budget %.0f W" % (where, w_sum, tier, BUDGET[tier]))
         notes.append("passive_w\t%s\t%s W of %.0f" % (where, ("%.1f" % w_sum) if priced else "NOT ASSESSED",
                                                       BUDGET[tier]))
         # abilities

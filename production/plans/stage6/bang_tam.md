@@ -38,8 +38,24 @@ Resume here: read this file, then do the first unchecked step.
 
 ## Steps
 - [x] 1. Verify first: the mechanic table (exists / needs a word / needs a ruling), spatial_words_check.
-- [ ] 2. Checkers up front: lint_techniques, lint_arts, suite_check, lint_items (known broken), exporters' --check,
-      sets export in export_named.py.
+- [x] 2. Checkers up front: lint_techniques, lint_arts, suite_check, lint_items (known broken), exporters' --check,
+      sets export in export_named.py. Done 2026-11-26:
+      - `lint_items.py` works again. Its GDD parser was in the removed Đạo Đồ editor; it is restored as
+        `tools/design/items/gdd_catalogue.py`.
+      - Both linters treat `catalogue-sect-*.json` as unpriced: the W sum is still noted, and NOT_PRICED and
+        OVER_BUDGET are notes there, not findings.
+      - Both linters accept the depth fields (`rank`, `concept`, `owner`; `set`, `made_by`, `made_year`,
+        `legendary_key`, `where`). The item lint counts an Effect named in `combat_effects.json` as known.
+      - The technique lint's signature arts are `family-*.json` plus `part-sect-*.json`.
+      - `export_named.py` also writes `items_sets.json` from `design/items/sets-*.json`, and its `--check` covers both
+        files.
+      - Both engines run a full set's Effect from `combat_effects.json` by name when the set has no inline record
+        (`add_sets` / `_add_sets`). Tests: `test_engine.py` t_item_sets (watched it fail first) and
+        `fight_depth_test.gd` `test_a_full_set_naming_a_library_effect_runs_its_record`.
+      - `lint_arts.py` reads `part-*.json` already. `export_combat_library.py` and `export_techniques.py` glob the sect
+        files already.
+      - Carried over for later sects (not Băng Tâm's): `export_techniques.py` does not export a technique's own
+        `effects` (black-ice-method has two), and `export_named.py` skips `kind: treasure` (58 depth treasures).
 - [ ] 3a. Techniques and arts (+ the servants' method, red-sand-sabre-primer).
 - [ ] 3b. Effects (11) into combat_effects.json.
 - [ ] 3c. Items (23) and sets (9).
@@ -85,6 +101,15 @@ tie notes, "Stillness" is a name). No art or Effect text is flagged.
   side's clock, Effects rule 6). No new Freeze status.
 - **R5, Heart in the Jade Vessel's "above half its peak".** Proposal: half of the 25 % release size (12.5 % of health),
   read from W1's size. Or build the peak readable, which W1 includes anyway.
+
+- **R6, the signature items' own arts.** Item Database rule 20a says a named item carries "the arts its role gives
+  (rule 21), authored instead of common". The depth items name none, and rule 21 is a blueprint with marked
+  exceptions. Băng Tâm has 9 weapons, 4 robes or armours and 1 shield.
+  - Proposal: each weapon and armour piece uses its base's common art or ward, marked with
+    `exception: "world-depth signature item: the base's common art"`, and authored arts come later only where a story
+    names one.
+  - Alternative: author an attack art or ward per piece (about 14 here, about 300 across the world).
+  - Until ruled, promote with the exception mark (reversible).
 
 **Covered by existing words:** Frost-Breath Palm (`timer` next), Five Petals (`split`, `debuff`, an empower scaled by
 Ice), Plum Falls on Snow (`empower`, `consume`), Lotus Seal Ground (a state tagged `field`, pulse `stacks`,
