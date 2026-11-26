@@ -6427,20 +6427,20 @@ constants:
       - design/gdd/modifiers.md
     value: 0.5
     unit: share
-    notes: "Combat Formulas L: each companion's share of an ally strike payload ([companion] scope). Safe 0.25-1.0. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    notes: "Combat Formulas L: each companion's share of a strike payload that names it (2026-11-26: no allies) ([companion] scope). Safe 0.25-1.0. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
     added: 2026-11-25
-    revised: ""
+    revised: 2026-11-26
   - name: spread_share
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
       - design/gdd/effects.md
     value: 0.5
     unit: share
-    notes: "Combat Formulas L: a spread lands again on the same foe at this share. Guess. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    notes: "Deprecated 2026-11-26 (user: no spatial fight, one side against one side; design/world/depth/DECISIONS-2026-11-26.md). Combat Formulas L: a spread lands again on the same foe at this share. Guess. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
     added: 2026-11-25
-    revised: ""
+    revised: 2026-11-26
   - name: act_window
     status: active
     source: design/gdd/combat.md
@@ -6449,10 +6449,21 @@ constants:
       - design/gdd/effects.md
     value: 1
     unit: s
-    notes: "Combat Formulas L: how long a foe counts as having moved. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    notes: "Combat Formulas L: how long the foe counts as having pressed (reading renamed 2026-11-26). (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
     added: 2026-11-25
-    revised: ""
+    revised: 2026-11-26
   - name: still_after
+    status: deprecated
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/effects.md
+    value: 2
+    unit: s
+    notes: "Deprecated 2026-11-26 (user: no spatial fight, one side against one side; design/world/depth/DECISIONS-2026-11-26.md). Renamed composed_after. Combat Formulas L: seconds without a damaging or movement art or evade before Still. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: 2026-11-26
+  - name: composed_after
     status: active
     source: design/gdd/combat.md
     referenced_by:
@@ -6460,10 +6471,21 @@ constants:
       - design/gdd/effects.md
     value: 2
     unit: s
-    notes: "Combat Formulas L: seconds without a damaging or movement art or evade before Still. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
-    added: 2026-11-25
+    notes: "Combat Formulas L: seconds without a damaging or movement art or evade before Composed (was still_after). Safe 1-3. (design/world/depth/DECISIONS-2026-11-26.md)"
+    added: 2026-11-26
     revised: ""
   - name: moving_after
+    status: deprecated
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/effects.md
+    value: 1
+    unit: s
+    notes: "Deprecated 2026-11-26 (user: no spatial fight, one side against one side; design/world/depth/DECISIONS-2026-11-26.md). Renamed pressing_after. Combat Formulas L: Moving after an evade or a movement art. Guess. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    added: 2026-11-25
+    revised: 2026-11-26
+  - name: pressing_after
     status: active
     source: design/gdd/combat.md
     referenced_by:
@@ -6471,75 +6493,75 @@ constants:
       - design/gdd/effects.md
     value: 1
     unit: s
-    notes: "Combat Formulas L: Moving after an evade or a movement art. Guess. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
-    added: 2026-11-25
+    notes: "Combat Formulas L: Pressing after an evade or a movement art (was moving_after). Guess; safe 0.5-2. (design/world/depth/DECISIONS-2026-11-26.md)"
+    added: 2026-11-26
     revised: ""
   - name: range_open
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
       - design/gdd/effects.md
     value: 3
     unit: s
-    notes: "Combat Formulas L: the opening At range window. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    notes: "Deprecated 2026-11-26 (user: no spatial fight, one side against one side; design/world/depth/DECISIONS-2026-11-26.md). Combat Formulas L: the opening At range window. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
     added: 2026-11-25
-    revised: ""
+    revised: 2026-11-26
   - name: range_refresh
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
       - design/gdd/effects.md
     value: 1
     unit: s
-    notes: "Combat Formulas L: At range after an evade, movement art or push. Guess. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    notes: "Deprecated 2026-11-26 (user: no spatial fight, one side against one side; design/world/depth/DECISIONS-2026-11-26.md). Combat Formulas L: At range after an evade, movement art or push. Guess. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
     added: 2026-11-25
-    revised: ""
+    revised: 2026-11-26
   - name: displace_delay
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
       - design/gdd/effects.md
     value: {normal: 0.3, heavy: 0.5}
     unit: s
-    notes: "Combat Formulas L (ruling group 9): the timer delay of a Displace (heavy-tagged 0.5), through Effects rule 6. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    notes: "Deprecated 2026-11-26 (user: no spatial fight, one side against one side; design/world/depth/DECISIONS-2026-11-26.md). Combat Formulas L (ruling group 9): the timer delay of a Displace (heavy-tagged 0.5), through Effects rule 6. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
     added: 2026-11-25
-    revised: ""
+    revised: 2026-11-26
   - name: displaced_time
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
       - design/gdd/effects.md
     value: 2
     unit: s
-    notes: "Combat Formulas L: how long Displaced lasts. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    notes: "Deprecated 2026-11-26 (user: no spatial fight, one side against one side; design/world/depth/DECISIONS-2026-11-26.md). Combat Formulas L: how long Displaced lasts. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
     added: 2026-11-25
-    revised: ""
+    revised: 2026-11-26
   - name: rooted_delay_share
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
       - design/gdd/effects.md
     value: 0.5
     unit: share of Rooted's N s
-    notes: "Combat Formulas L: the delay when Rooted lands. Guess. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    notes: "Deprecated 2026-11-26 (user: no spatial fight, one side against one side; design/world/depth/DECISIONS-2026-11-26.md). Combat Formulas L: the delay when Rooted lands. Guess. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
     added: 2026-11-25
-    revised: ""
+    revised: 2026-11-26
   - name: rooted_moment
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
       - design/gdd/effects.md
     value: 1
     unit: s
-    notes: "Combat Formulas L: 'a moment' or 'a breath' of Rooted. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    notes: "Deprecated 2026-11-26 (user: no spatial fight, one side against one side; design/world/depth/DECISIONS-2026-11-26.md). Combat Formulas L: 'a moment' or 'a breath' of Rooted. (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
     added: 2026-11-25
-    revised: ""
+    revised: 2026-11-26
   - name: broken_threshold
     status: active
     source: design/gdd/combat.md
@@ -6552,7 +6574,7 @@ constants:
     added: 2026-11-25
     revised: ""
   - name: duel_statuses
-    status: active
+    status: deprecated
     source: design/gdd/effects.md
     referenced_by:
       - design/gdd/effects.md
@@ -6560,9 +6582,9 @@ constants:
       - design/gdd/combat-defence.md
     value: [Displaced, Rooted, Pinned, Planted]
     unit: statuses
-    notes: "Effects rule 17 and Status Catalogue (ruling group 9): Displaced (2 s, no Still), Rooted (evade 0), Pinned (Rooted and no escape), Planted (immune to Displace). (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
+    notes: "Deprecated 2026-11-26 (user: no spatial fight, one side against one side; design/world/depth/DECISIONS-2026-11-26.md). Effects rule 17 and Status Catalogue (ruling group 9): Displaced (2 s, no Still), Rooted (evade 0), Pinned (Rooted and no escape), Planted (immune to Displace). (world-depth rulings, design/world/depth/DECISIONS-2026-11-25.md)"
     added: 2026-11-25
-    revised: ""
+    revised: 2026-11-26
   - name: local_recruit
     status: active
     source: design/gdd/world-generation.md

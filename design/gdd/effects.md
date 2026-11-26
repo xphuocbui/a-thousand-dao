@@ -6,6 +6,7 @@
 > **Last Verified**: 2026-11-10 (confirming re-review)
 > **Implements Pillar**: Your Dao, Your Name (1); Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2)
 > **Amended 2026-11-25** (user rulings, world-depth pass: `design/world/depth/DECISIONS-2026-11-25.md` groups 1, 6, 8, 9 and 11; proposals `design/world/depth/builds/duel-readings.md` and `builds/engine-wishes.md`): **duel-reading vocabulary, no environment, no caps inside pieces.** Effects read the duel readings through fixed keys (`allies`, `alone`, `foe_moved`, `still`, `moving`, `displaced`, `planted`, `rooted`, `pinned`, `at_range`, `broken`, `wounded`; rule 17, Status Catalogue), never terrain, weather, place, time of day or season (rule 18), and a piece that would run away gets a close or a decay instead of a cap (rule 19). The Effects authored in `design/world/depth/builds/authored/` exist as unpriced proposals (Authored Effects). Group 11: R34's "home ground" hook now reads the side's own laid arrays; the `own_abode` and `vein` place bonuses are gone (Combat rules 12, 26).
+> **Amended 2026-11-26** (user, `design/world/depth/DECISIONS-2026-11-26.md`): **no spatial fight; one side against one side.** The reading keys are now `foe_pressed`, `since_act`, `composed`, `composed_time`, `pressing`, `broken`, `wounded`, `field_up` and `diagram_laid` (rule 17). Displace, Root, Pin, Spread and Lay a field Piece are removed from rule 6, the duel statuses (Displaced, Rooted, Pinned) and the Planted immunity are gone, and field Pieces become plain self-counter charges with their own timers (rule 8). `allies` and `alone` are postponed with fights of several fighters (Combat rule 25).
 > **Scope**: Every build piece with a rule in it: conditions, scaling, triggers, conditional conversion, overflow, rule changes, keystones and enablers. An Effect usually grants Modifier System modifiers (`design/gdd/modifiers.md`) as its payload (user decision 2026-11-07). Plain numbers on a stat are Modifiers, not Effects; so is a plain conversion share (`convert_pct`, user decision 2026-11-08).
 > **Reference only**: Part 2 of `design/quick-specs/modifier-inventory.md` (361 effect candidates, mostly from the overnight run). This GDD is designed from scratch and adopts only what passes its rules.
 
@@ -140,7 +141,7 @@ different.
        your Ice stacks added**; **health overflow** (healing lost to a full pool, per pulse); **the heart demon and
        thần thức pools** (Combat rule 11, R12);
      - at compile: **each layer's total before its cap**; **the pieces you control** (count and roles: artifacts,
-       companions, wards; field Pieces are not counted here but live under `field_pieces`, rule 17); **the target is
+       companions, wards); **the target is
        a boss**; a part's **conversion history** (its earlier types are a
        scope and a readable);
      - **life readables** (Character Stats' "life readables" section, read at compile): kill count, win streak and
@@ -218,15 +219,12 @@ different.
 | Write a layer total (clip or raise): capstones only, one per Way, logged; reading layer totals stays free (R15d, 2026-11-11) | Combat (layers) |
 | Cull: set the target Down at the defeat check when its health is at or below a threshold (`cull_threshold`, start 8 %); capstones only, and Sát Đạo is the only source (R15c, 2026-11-11) | rule 11 |
    | Count a chance on a meter instead of rolling it (keystones only) | rule 12, Formulas A |
-   | **Displace** (new, 2026-11-25): Move a timer on the target's art with the least time left by `displace_delay` (`displace_delay_heavy` if the record is tagged `heavy`), then apply Displaced; a Planted target refuses both | Combat rule 25, Formulas L; Status Catalogue |
-   | **Root** and **Pin** (new, 2026-11-25): apply Rooted or Pinned for N s; on landing, Move a timer on the target's art with the least time left by N × `rooted_delay_share` | Combat rule 25, Formulas L; Status Catalogue |
-   | **Spread** (new, 2026-11-25): a payload that "spreads to a nearby foe" lands again on the same foe, once, at `spread_share`; a spread never spreads again | Combat rule 25 |
-   | **Lay a field Piece** (new, 2026-11-25): add one charge to a self-counter tagged `field_piece`, with its own duration and, if the record says so, a number of foe hits that wear it out | rule 17; Combat rule 25 |
+   | *Removed 2026-11-26 (no spatial fight, Combat rule 25):* Displace, Root and Pin, Spread, and Lay a field Piece. A knock-back is written as Move a timer on the foe's soonest art; a laid object is a charge of a self-counter (rule 8) | Combat rule 25 |
    | **Hold damage** (new 2026-11-26, world-depth `a-file-of-one`): move a share of a hit you take into your side's held-damage pool. Each pulse the pool lands `pool ÷ pulses left` on you as damage that skips wards; a heal pays the pool off first, then restores health. The pool has no cap: the pulses close it (rule 19) | this GDD; Combat Defence & Healing |
-   | **Delay immunity** (new 2026-11-26; the state flag `delay_immune`): while you hold it, Move a timer skips you. A second carve-out beside Planted, which refuses Displace's delay (world-depth `the-ninth-verse`) | rule 6, Move a timer |
+   | **Delay immunity** (new 2026-11-26; the state flag `delay_immune`): while you hold it, Move a timer skips you (world-depth `the-ninth-verse`) | rule 6, Move a timer |
    | **Turn a tick into healing** (new 2026-11-26; `convert_tick_to_heal {share}`): a tick you take that matches the Effect's status tag heals you for that share of it instead of hurting. The mirror of Crossing the Line (R12; world-depth `bitter-medicine`) | Combat Defence & Healing rule 19 |
    | **Stop a side's clock** (new 2026-11-26; `stop_clock {side, seconds}`): for that time the side's art timers, basic attack, companions and stack countdowns do not advance, while the other side's do. `timer_resist_pct` shortens the stop, and it never breaks `cooldown_min`. Sleep uses it (world-depth `the-world-before`, `asleep`) | Combat rule 13 (the timeline) |
-   | **Upkeep on a self-counter** (new 2026-11-26; `upkeep {pool, per_stack}`): each pulse, every stack of a self-counter costs its owner the named amount from the named pool, and a stack left unpaid ends. This is the closing cost rule 19 relies on for standing field Pieces (world-depth `laid-ward-on-the-next-stroke`) | rule 19; Combat rule 11 (the pools) |
+   | **Upkeep on a self-counter** (new 2026-11-26; `upkeep {pool, per_stack}`): each pulse, every stack of a self-counter costs its owner the named amount from the named pool, and a stack left unpaid ends. This is the closing cost rule 19 relies on for standing charges (world-depth `laid-ward-on-the-next-stroke`) | rule 19; Combat rule 11 (the pools) |
    | **Burn a pill** (new 2026-11-26; `burn_pill`): spend a prepared pill from the pill slot. Its element and grade become the payload, and in a fight a pill can fail (`failed`), drawn on the fight's seeded stream (world-depth `pill-smoke`) | this GDD; Alchemy (the pill) |
 
    The list is closed (user decision 2026-11-08). A new action is an engine addition, added here before any
@@ -264,10 +262,10 @@ different.
      read it** (its count is readable live). Every self-counter carries the tag `growing`, so counter-pieces can
      read the tag. Fury, Spin, Hunger, Seal Marks and Stars are self-counters. A side may run any number of them;
      each is bounded by its own decay or close.
-     - **Field Pieces** (new, 2026-11-25) are self-counters tagged `field_piece`. Each charge keeps its **own
-       timer** and, if its record says so, its **own blows count**: a foe hit that lands wears one blow off, and the
-       charge ends at 0 blows or when its timer runs out, whichever comes first. They count toward `allies` and
-       receive no payload (rule 17).
+     - **Charges with their own timers** (new 2026-11-25 as field Pieces; generalised 2026-11-26, no spatial fight):
+       a self-counter's record may give each charge its **own timer** and its **own blows count**: a foe hit that
+       lands wears one blow off, and the charge ends at 0 blows or when its timer runs out, whichever comes first.
+       A laid stele, flag, bell or seal is written this way. It is a plain self-counter: no place, no ally count.
 
    **Preparation choices** (Đạo shared rule R8, 2026-11-11). A **preparation-choice record** holds its `id`, its
    effects, and the situations that allow it (foreseen, ambush, blind; Combat rule 12's table). Vows, decrees,
@@ -447,9 +445,7 @@ different.
       The 3 curse slots and the 1–5 pulse clamp still hold.
     - **Immunities and ignores** (R28, major or capstone): immunity to curses that name a tag or type; immunity to
       the foe's on-hit triggers; hits that ignore the defender's dampen; a per-hit limit on health lost.
-      **Exception, Planted (Trụ)** (new, 2026-11-25; user ruling, DECISIONS group 9): immunity to every action and
-      status tagged `displace`, **open at every tier**, because a Displace is worth only a 0.3 s delay. A state or a
-      conditional Effect sets it; Combat rule 25 defines it.
+      (The Planted exception of 2026-11-25 is removed with Displace, 2026-11-26.)
     - **States** (R29): self-states (forms, stances) that swap a modifier set, tags and an art's element tag; guards
       may read the state; a state may suppress named arts; a switch may turn the owner's conditional Effects off.
     - **Loadout changes** (R30): swap to a prepared second loadout (on a Down refusal); remove an own art for the rest
@@ -472,49 +468,43 @@ different.
       ticks; a cost paid over a pulse; body cultivation counting as gear for L3; lower a foe's `growing`
       self-counter (a counter, not a stat, so R21 holds); a Soul tick that meets only soul defence; a carried ground
       that arrives mid-fight (its own tags only, never a place tag; amended 2026-11-25, rule 18).
-    - **States for the readings** (new, 2026-11-25): R29 states may carry the tags `field` (a Field), `still` (a
-      still stance) and `footwork` (a footwork stance). A held stance, a state that suppresses your damaging arts,
-      needs a written release condition (Combat rule 25). A state may not be both `still` and `footwork`.
+    - **States for the readings** (new, 2026-11-25; renamed 2026-11-26): R29 states may carry the tags `field` (a
+      Field), `composed` (a composed stance) and `pressing` (a pressing stance). A held stance, a state that
+      suppresses your damaging arts, needs a written release condition (Combat rule 25). A state may not be both
+      `composed` and `pressing`.
 
     Proposed stat keys (`Needs key` in the Đạo drafts) are accepted in principle and enter Character Stats rule 15
     and the Modifier Stat List when their Way is drawn.
 
 **Duel readings, environment and caps (new, 2026-11-25)**
 
-17. **The duel-reading vocabulary** (new, 2026-11-25; user rulings, DECISIONS group 9). Combat rule 25 says what
-    each reading means in a fight of one fighter plus companions with no positions; this rule gives the keys an
-    Effect's `reads` uses for them. They join rule 5's list. As a condition each is read at instant start (rule 8);
-    as a count or a duration it is read live. Numbers are Combat Formulas L.
+17. **The duel-reading vocabulary** (new, 2026-11-25; user rulings, DECISIONS group 9; **rewritten 2026-11-26**: no
+    spatial fight, one side against one side). Combat rule 25 says what each reading means in a fight of one fighter
+    plus companions against one foe, with no positions; this rule gives the keys an Effect's `reads` uses for them.
+    They join rule 5's list. As a condition each is read at instant start (rule 8); as a count or a duration it is
+    read live. Numbers are Combat Formulas L.
 
     | Key | Value | Read time | True when, or what it counts |
     |---|---|---|---|
-    | `allies` | count, ≥ 1 | live; instant start as a condition | 1 (you) + your companions + your field Pieces up |
-    | `alone` | bool | instant start | `allies` = 1: no companion and no field Piece of your own |
-    | `foe_moved` | bool | instant start | The foe fired a damaging or movement art, or evaded one of your hits, within `act_window` (1 s) |
+    | `foe_pressed` | bool | instant start | The foe fired a damaging or movement art, or evaded one of your hits, within `act_window` (1 s) |
     | `since_act` | seconds, per side | live | Time since that side last fired a damaging or movement art or evaded |
-    | `still`, `still_time` | bool; seconds | instant start; live | A still stance is up, or `still_after` (2 s) has passed since your last damaging or movement art or evade, and you are not Displaced; `still_time` is the seconds since Still began |
-    | `moving` | bool | instant start | A footwork stance is up, or within `moving_after` (1 s) of an evade or movement art; never while Still, Displaced or Rooted |
-    | `displaced` | status on a side | instant start | The Displaced status holds (Status Catalogue) |
-    | `planted` | flag on a side | instant start | A state or conditional Effect sets Planted (rule 16, R28 exception) |
-    | `rooted`, `pinned` | status on a side | instant start | The Rooted or Pinned status holds; Pinned counts as Rooted too |
-    | `at_range` | bool | instant start | The fight's first `range_open` (3 s), or within `range_refresh` (1 s) of your evade, movement art or push away, unless spent or ended by a pull |
+    | `composed`, `composed_time` | bool; seconds | instant start; live | A composed stance is up, or `composed_after` (2 s) has passed since your last damaging or movement art or evade; `composed_time` is the seconds since Composed began |
+    | `pressing` | bool | instant start | A pressing stance is up, or within `pressing_after` (1 s) of an evade or movement art; never while Composed |
     | `broken`, `wounded` | event once a fight; latched bool | event; instant start | The foe's (`broken`) or your own (`wounded`) health first falls to `broken_threshold` (25 %) or below; Combat rule 9's pool-crossing event, latched |
     | `field_up` | bool | instant start | An R29 state tagged `field` of yours is up |
-    | `field_pieces` | count | live | Your field Pieces up (self-counter charges tagged `field_piece`, rule 8) |
     | `diagram_laid` | bool | compile | Your combat diagram is laid (Formations rule 9, read only) |
 
-    - **Payload words.** "Ally", "allies" and "every ally" are routed by payload kind (Combat rule 25). Body payloads
-      (heal, ward, shield, linh lực, cleanse, damage taken, evade) land on you, once. Strike payloads (damage, art
-      speed, fury stacks, a strike) go to you in full and to each companion at `companion_share` (half), through the
-      `[companion]` scope. Field Pieces receive nothing. "Every foe" is the one foe, once.
-    - **Tags.** On R29 states: `field`, `still`, `footwork` (rule 16). On self-counters: `field_piece`. On arts:
-      `movement` (the escape art counts), `heavy` (on a Displace). On actions and statuses: `displace`, `rooted`,
-      `pinned`. These join the Modifier System's rule 9 vocabulary.
+    - **Removed 2026-11-26** (no spatial fight): `displaced`, `planted`, `rooted`, `pinned`, `at_range` and
+      `field_pieces`. **Postponed** (one side against one side): `allies` and `alone`. Renamed: `still` and
+      `still_time` are `composed` and `composed_time`, `moving` is `pressing`, `foe_moved` is `foe_pressed`.
+    - **Payload words.** A body payload (heal, ward, shield, linh lực, cleanse, damage taken, evade) lands on you.
+      A strike payload (damage, art speed, fury stacks, a strike) that names your companions goes to each at
+      `companion_share` (half), through the `[companion]` scope. "Ally", "allies", "every ally" and "every foe" are
+      not used (Combat rule 25).
+    - **Tags.** On R29 states: `field`, `composed`, `pressing` (rule 16). On arts: `movement` (a dash, a step, a
+      flourish; the escape art counts). These join the Modifier System's rule 9 vocabulary.
     - **Not readable**, by rule 18: the place, terrain, biome, ground (other than your own laid or carried ground),
       weather, time of day or season.
-    - **Names in the proposal.** `design/world/depth/builds/duel-readings.md` and the authored records write `piece`
-      (the tag) and `pieces` (the count). Here they are `field_piece` and `field_pieces`, so that a field Piece is
-      never confused with a build piece or with rule 5's "the pieces you control". The catalogue pass maps them.
 18. **No environment conditions** (new, 2026-11-25; user rulings, DECISIONS groups 1 and 6). An Effect that applies
     in a fight never reads terrain, biome, ground, weather, place, time of day or season, in its condition, its
     count, its trigger or its payload. It reads the two fighters' own state and each side's own preparation (Combat
@@ -532,7 +522,7 @@ different.
     An Effect, status row or self-counter authored from now on carries **no cap of its own** (no "to 30 %", no "to 5
     Debts", no "at most 3 wards", no "10 momentum").
     - Where a piece would run away, it gets **a closing cost or a decay** instead: a store that decays by a share
-      each second, an upkeep per standing field Piece, a halving on a heavy blow, each mark on its own timer, or a
+      each second, an upkeep per standing charge, a halving on a heavy blow, each mark on its own timer, or a
       payoff that spends the count.
     - These are not caps and stay: **thresholds** a payoff empties (five Lost, a cup of five); **rate limits** ("at
       most N a pulse", "once a second"); a bound on a drawback (a 20 % tiring).
@@ -573,6 +563,7 @@ duration to read. They are bound instead by their standing cost (Formulas B) and
 | Sundered (Phá Giáp) | Resistance down, for the damage type of the applying hit's largest part after conversion (ties go to the first type in Combat Damage Types' order). When no hit applies it (a talisman, a side's laid or carried ground, a trigger; amended 2026-11-25, rule 18), the applying record names the type; an all-Soul hit cannot apply it (Slackened Soul is its Soul counterpart; re-review EF 5) | −150 points per stack (2026-11-10) | 4 | Stacks to 3 | curse, cleanse | sundered, curse | No shred cap or floor since 2026-11-10: below 0 points a part is amplified (Combat Defence & Healing rule 3) |
 | Exposed (Hiển Hình) | All resistance down | −100 points (2026-11-10) | 3 | Refresh | curse, light, cleanse | exposed, curse, light | Light's status: the target is laid bare |
 | Sealed Meridian (Phong Mạch) | Layer lock: one named layer, L2 to L5, counts as 1.0 | — | 2 | None | curse, seal, cleanse | sealed_meridian, curse | Cannot be reapplied to that target for 2 pulses after it ends |
+| Bound (Phược Thân) | Flight blocked: the target's escape fails while it holds, with no draw; its cost and cooldown stay paid (Combat rule 10) | — | 2 (the record's N) | None | curse, bind, cleanse | bound, curse | New 2026-11-26 (user: "cannot flee" stays without positions, Combat rule 25). Hooks, nets and binding arts. It does not touch evade |
 | Silence (Cấm Ngôn) | Tag block: arts with the named tag cannot fire, and modifiers needing it do not apply | — | 3 | None | curse, seal, cleanse | silence, curse | May not name `ward`, `basic` or `escape`; the same 2-pulse reapply lockout |
 | Stagnation (Trệ Khí) | Regeneration dampened: linh lực **and** health regeneration are divided by (1 + D / 100), D = 1 per stack (Modifier System rule 6a) | 1 % dampened per stack | 3 | Stacks with no cap; a new stack refreshes all | curse, cleanse | stagnation, curse | Pairs with drain and Force builds. 100 stacks halve regeneration, 200 leave a third; it never stops it (user decision 2026-11-10, replacing the full block that starved linh lực after #44) |
 | Heavy Breath (Trọng Tức) | Art cost raise | +25 % per stack | 4 | Stacks to 2 (+50 %, `curse_cost_raise_max`) | curse, cleanse | heavy_breath, curse | — |
@@ -598,18 +589,9 @@ lengthenings by the applier, then clamp the result to 1–`curse_duration_max` (
 duration never goes below 1. An Effect may change a status's stacking, remove its reapply lockout, or give it cleanse resistance
 or a cleanse lock (rule 16, R27); the 3 curse slots and this clamp still hold.
 
-**Duel statuses** (new, 2026-11-25; Combat rule 25, Formulas L). They are a third class, neither ticks nor curses:
-they **take no curse slot**, run in **seconds on the millisecond timeline** (not pulses, because content writes
-"rooted 1.5 s" and "for half a second"), and their ends fire nothing, like a ward's expiry (Combat rule 10). The curse
-clamp does not apply to them.
-
-| Status | Rule changed | Duration | Stacking | Cleanse tags | Tags | Rule |
-|---|---|---|---|---|---|---|
-| Displaced (Thất Thế) | Not Still and cannot become Still; stops Moving; a stance that bills "a step out of the centre" pays its price | `displaced_time` (2 s) | A new Displace restarts the time | none (assumption, Combat Open Question 32) | displaced, displace | Applied only by Displace (rule 6), together with its delay. Planted refuses it |
-| Rooted (Định Thân) | Evade counts as 0; not Moving | N s from the record; "a moment" or "a breath" is `rooted_moment` (1 s) | The longer remaining time wins | none (assumption) | rooted | On landing, delays the target's soonest art by N × `rooted_delay_share` (rule 6, Root). Planted does not refuse it |
-| Pinned (Câu Thúc) | As Rooted, and the target's escape fails while it holds (Combat rule 10) | N s from the record | The longer remaining time wins | none (assumption) | pinned, rooted | Pinned, hooked, bound, "cannot leave the line" |
-
-**Planted** is not a status: it is an immunity flag (rule 16, R28 exception).
+**Duel statuses** (new, 2026-11-25; **removed 2026-11-26**, no spatial fight, Combat rule 25). Displaced, Rooted
+and Pinned, and the Planted immunity, are gone. An Effect that wants "evade counts as 0 for N s" uses an evade debuff,
+and one that wants a knock-back uses Move a timer (rule 6).
 
 ### Starter Effects
 
@@ -878,8 +860,8 @@ source is `design/world/depth/builds/authored/`:
 | `auth-mod.json` (`.md`) | Group (b): plain Modifier lines (not Effects, rule 3), listed for completeness | 28 entries, 72 wires |
 | `WIRED.md` | Which wires were applied to the depth files, the conflicts, and the group 8 cap removals | — |
 
-All of them carry `price: unpriced` and `status: proposal`. They use the duel-reading words (rule 17, with the
-proposal's names: `piece` and `pieces` there are `field_piece` and `field_pieces` here), read no environment (rule 18)
+All of them carry `price: unpriced` and `status: proposal`. They used the 2026-11-25 duel-reading words; the 2026-11-26 rewrite pass moves them to rule 17's current keys (no
+positions, one side against one side). They read no environment (rule 18)
 and, in the JSON records, carry no internal caps (rule 19; WIRED.md "Group 8 rulings"; some `auth-eff-*.md` summary
 rows still quote the old caps, and the JSON is the source). Those that need an engine
 feature not yet in rules 5–6 stay proposals until it is added (Combat Open Question 29, `builds/engine-wishes.md`).
@@ -900,15 +882,15 @@ The catalogue pass lints them against this GDD and moves the accepted ones into 
 **A status on a target:** Applied → Ticking or Cursing (each pulse) → Expired (duration 0), Cleansed, or Ended
 (a standing status whose caster could not pay). A recast refreshes unless the record says otherwise.
 
-**A duel status** (new, 2026-11-25): Applied (or Refused: Displaced on a Planted target) → Holding (its seconds run on
-the millisecond timeline) → Ended. A field Piece: Laid → Standing → Burnt out (its blows reach 0) or Ended (its timer).
+**A charge with its own timer** (rule 8; was a field Piece, 2026-11-25): Added → Standing → Burnt out (its blows reach
+0) or Ended (its timer). (The duel statuses' states are removed with them, 2026-11-26.)
 
 ### Interactions with Other Systems
 
 | System | Direction | Data | Interface owner |
 |---|---|---|---|
 | Modifier System (#40) | in | Catalogue modifiers used as payloads; tag vocabulary | Modifier System |
-| Combat (#21) | in / out | Events, instants, guards, the trigger order and budget, the defeat check, results; since 2026-11-25 the duel readings' definitions and numbers (Combat rule 25, Formulas L) and the no-environment rule (rule 26). Out: free hits, refunds, timer moves, Down refusals, Breakdown lines, reported life costs; the reading keys, Displace, Root, Pin, Spread, field Pieces and the Displaced, Rooted and Pinned rows (rule 17) | Combat (timeline, limits, what each reading means); this GDD (the Effects, the keys and statuses) |
+| Combat (#21) | in / out | Events, instants, guards, the trigger order and budget, the defeat check, results; since 2026-11-25 the duel readings' definitions and numbers (Combat rule 25, Formulas L) and the no-environment rule (rule 26). Out: free hits, refunds, timer moves, Down refusals, Breakdown lines, reported life costs; the reading keys (rule 17; rewritten 2026-11-26, Displace, Root, Pin, Spread, field Pieces and the duel statuses removed) | Combat (timeline, limits, what each reading means); this GDD (the Effects, the keys and statuses) |
 | Combat Defence & Healing (#21a) | out | Heals and restores, reservations, ward changes | Combat Defence & Healing (rules); this GDD (sources) |
 | Combat Damage Types (#21b) | out | Conditional conversion Effect records (none yet); statuses' damage types | Combat Damage Types (the conversion rules and steps); this GDD (the records) |
 | Character Stats (#7), Realms (#8) | in / out | Readable sheet values at compile. Out: reported heart demon, lifespan years, seasons, toxicity, spirit stones, root purity, cultivation base and stage (applied by the caller; rule 10) | Character Stats; Realms |
@@ -1075,18 +1057,12 @@ at 0.25 takes a batch of 8 Burn stacks to 6, then 4.5, then 3.4.
 - **If Ice stacks would raise art cost past `curse_cost_raise_max`**: they do; that cap binds curses only (rule 9a).
 
 **Duel readings, environment and caps (new, 2026-11-25)**
-- **If an Effect reads a reading word that rule 17 has no key for** ("an ally beside you", "ten paces away"): review
-  maps it to its Combat rule 25 reading (the ally, At range) before it is accepted; an unmapped word is rejected like
-  any unlisted read (rule 5).
-- **If a Displace lands on a Planted target**: nothing is delayed, Displaced is not applied, and the Breakdown writes
-  "Planted: refused". An Effect that triggers on "status applied" does not fire.
-- **If Rooted is applied while Rooted already holds**: the longer remaining time wins, and the landing delay applies
-  again with the delay falloff (rule 6).
-- **If a field Piece's blows reach 0 and its timer ends in the same instant**: it ends once, and Effects reading
-  "a field Piece burns out" fire once.
-- **If an Effect gives a body payload to "every ally"**: you receive it once. Companions and field Pieces receive
-  nothing, so `allies` never multiplies a heal, ward or shield. An Effect that scales by `allies` ("+8 block per ally
-  beyond yourself") is a count read, and it does count them.
+- **If an Effect reads a reading word that rule 17 has no key for** ("an ally beside you", "ten paces away", "knocked
+  back"): it is rejected like any unlisted read (rule 5); the removed and postponed words of Combat rule 25 are not
+  mapped (rewritten 2026-11-26).
+- **If a charge's blows reach 0 and its timer ends in the same instant**: it ends once, and Effects reading
+  "a charge burns out" fire once.
+- **If a body payload names a companion**: it does nothing (companions have no pools, Combat rule 25).
 - **If an Effect reads `broken` and the foe was already below 25 % at fight start**: it fires at the first pulse
   (Combat Formulas L, assumption).
 - **If an Effect reads the season, the place, terrain, weather or the hour for a fight payload**: review and the lint
@@ -1194,7 +1170,7 @@ not prices. Safe ranges are design estimates.
 | `cull_threshold` | 8 % of maximum health | 5–12 % | When Sát's cull takes a target (R15c) | Rules 6, 11 |
 | Refusal budget | 1 per fight; 2 with a "twice" capstone | fixed | How often a side may refuse Down (R5) | Rule 11 |
 | Minimum batch length | 2 pulses | 1–3 | The shortest element stack batch (build-run suggestion 4d) | Rule 9a |
-| Duel reading knobs (`act_window`, `still_after`, `moving_after`, `displace_delay`, `displaced_time`, `rooted_delay_share`, `rooted_moment`, `range_open`, `range_refresh`, `broken_threshold`, `companion_share`, `spread_share`) | Combat Formulas L | Combat Tuning Knobs | What each reading key of rule 17 sees, and what Displace, Root and Spread do (2026-11-25) | Combat (owner) |
+| Duel reading knobs (`act_window`, `composed_after`, `pressing_after`, `broken_threshold`, `companion_share`; rewritten 2026-11-26) | Combat Formulas L | Combat Tuning Knobs | What each reading key of rule 17 sees | Combat (owner) |
 
 ## Acceptance Criteria
 
@@ -1303,11 +1279,11 @@ not prices. Safe ranges are design estimates.
 
 **Added 2026-11-25 (duel readings, no environment, no caps inside pieces)**
 
-- **AC-EF-81** [Logic] Rule 17, the keys. **GIVEN** a record reading each rule 17 key with its listed read time, **THEN** it is accepted. **GIVEN** a record reading `still` live as a condition, or a reading word with no key ("ten paces away"), **THEN** it is rejected and the error names the read. The truth tables of the keys themselves are Combat's AC-CB-92 to AC-CB-101.
-- **AC-EF-82** [Logic] Rule 17, payload routing. **GIVEN** a side with one companion and one field Piece, and an Effect granting "you and your allies" a 10 % heal, +10 % damage and +20 % art speed, **THEN** you are healed 10 % once, your hits get +10 % and the companion's +5 %, your art speed rises 20 % and the companion's timer speed 10 % (through the `[companion]` scope), and the field Piece receives nothing.
-- **AC-EF-83** [Logic] Rule 6, Displace; Status Catalogue. **GIVEN** a Displace on a foe, **THEN** Displaced holds for exactly 2.000 s on the millisecond clock, takes no curse slot (a foe already holding 3 curses still takes it), is not shortened or clamped by the curse clamp, and its end fires no event. **GIVEN** a Planted foe, **THEN** neither the delay nor Displaced applies, no "status applied" event fires, and the Breakdown reads "Planted: refused". **GIVEN** a Planted Effect tiered `minor`, **THEN** the tier lint passes it (the R28 exception), while a `minor` curse immunity fails.
-- **AC-EF-84** [Logic] Rule 6, Root and Pin. **GIVEN** Root for 1.5 s, **THEN** the target's soonest art is delayed 0.75 s (at `timer_resist_pct` 0), and Rooted ends at 1.500 s after it landed. **GIVEN** Pin for 2 s, **THEN** the `rooted` and `pinned` keys both read true, and both end at 2.000 s.
-- **AC-EF-85** [Logic] Rule 8, field Pieces. **GIVEN** a field Piece laid with 3 blows and a 10 s timer, **WHEN** 3 foe hits land on you within 4 s, **THEN** it burns out at the third hit's instant and `field_pieces` and `allies` drop by 1 from the next instant. **GIVEN** no foe hit lands, **THEN** it ends at 10.000 s. **GIVEN** a foe hit that you evade, **THEN** no blow wears off.
+- **AC-EF-81** [Logic] Rule 17, the keys (rewritten 2026-11-26). **GIVEN** a record reading each rule 17 key with its listed read time, **THEN** it is accepted. **GIVEN** a record reading `composed` live as a condition, a removed key (`at_range`, `rooted`, `field_pieces`), a postponed key (`allies`, `alone`) or a reading word with no key ("ten paces away"), **THEN** it is rejected and the error names the read. The truth tables of the keys themselves are Combat's AC-CB-94 to AC-CB-100.
+- **AC-EF-82** [Logic] Rule 17, payload routing (rewritten 2026-11-26). **GIVEN** a side with one companion and an Effect granting "you and your companions" +10 % damage and +20 % art speed, and a 10 % heal, **THEN** you are healed 10 % once, your hits get +10 % and the companion's +5 %, and your art speed rises 20 % and the companion's timer speed 10 % (through the `[companion]` scope).
+- **AC-EF-83** *Removed 2026-11-26* (Displace and Planted, no spatial fight).
+- **AC-EF-84** *Removed 2026-11-26* (Root and Pin, no spatial fight).
+- **AC-EF-85** [Logic] Rule 8, charges with their own timers (rewritten 2026-11-26). **GIVEN** a charge added with 3 blows and a 10 s timer, **WHEN** 3 foe hits land on you within 4 s, **THEN** it burns out at the third hit's instant and the counter drops by 1 from the next instant. **GIVEN** no foe hit lands, **THEN** it ends at 10.000 s. **GIVEN** a foe hit that you evade, **THEN** no blow wears off.
 - **AC-EF-86** [Config/Data] Rule 18. **GIVEN** the shipped Effect and status data, **WHEN** the lint runs, **THEN** it reports how many records it checked and rejects by name any fight Effect whose reads, condition, count or payload names terrain, biome, ground (other than the side's own laid or carried ground), weather, place, time of day or season. **GIVEN** a test fight Effect reading "at night", **THEN** it is rejected; **GIVEN** a life Effect reading the season, **THEN** it is accepted.
 - **AC-EF-87** [Config/Data] Rule 19. **GIVEN** a test record dated after 2026-11-25 whose `limits` field holds a cap on its own count or store ("to 30 %"), **WHEN** the record lint runs, **THEN** it reports a rule 19 finding naming the record and the field. **GIVEN** the same record with a decay by a share per second, a close, or a threshold its payoff spends instead, **THEN** no finding is reported. **GIVEN** a "once a second" rate limit, **THEN** no finding is reported. **GIVEN** the Starter and Đạo Đồ records written before 2026-11-25, **THEN** the lint lists their caps in a separate report section and fails nothing (Open Question 12).
 
@@ -1335,4 +1311,4 @@ not prices. Safe ranges are design estimates.
 | 12 | **Records with internal caps written before rule 19** (2026-11-25). Starter and Đạo Đồ Effects with a cap inside the piece (for example Before Heaven's "Cap 5 elements", the Scaling example's old "to +12 %") and original lineage counts the wishes did not author (Plant the Stele's three, Walk Slowly's 8, Army-Breaker's momentum cap; WIRED.md "What stays") are not rewritten. At the balance pass, decide for each whether it becomes a close or a decay, or stays as a threshold | user + systems-designer | Balance pass |
 | 13 | **The authored Effects** (`design/world/depth/builds/authored/`: 49 Effect records, 3 status rows, 3 technique Effects, 10 arts, 1 technique) wait on the catalogue pass: lint each against rules 1–7 and 17–19, add the engine features they need first (Combat Open Question 29), and resolve WIRED.md's "Still open" items (an art id that does not exist yet, two texts that read one clause two ways) | catalogue pass | Content pass |
 | 14 | **Engine wishes that change this GDD's rules.** `builds/engine-wishes.md` asks for an "element batch runs out" event, against R20 ("a batch expired is not an event"; the Starter Effect Wildfire already reads "batch end"); a status flag `holds_caster` and a `delay_immune` state flag (a second carve-out from rule 6's Move a timer, beside Planted); `convert_tick_to_heal`; and `upkeep` on self-counters, the close rule 19 relies on for standing field Pieces. Each needs a rule here before any Effect uses it (rule 6: the action list is closed). **Answered 2026-11-26** (user): `holds_caster` (Status Catalogue), `delay_immune`, `convert_tick_to_heal`, `stop_clock`, self-counter `upkeep` and `burn_pill` (rule 6) are in, and a batch expiring is an event (rule 5, R20 amended) | user, gameplay-programmer | The combat port |
-| 15 | **Can Displaced, Rooted and Pinned be cleansed?** The source does not say; the catalogue rows carry no cleanse tag (assumption: no, since they last seconds). Confirm (Combat Open Question 32) | user | Status Catalogue |
+| 15 | ~~Can Displaced, Rooted and Pinned be cleansed?~~ **Moot 2026-11-26**: those statuses are removed (no spatial fight, Combat rule 25) | — | — |

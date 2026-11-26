@@ -81,3 +81,24 @@
 - Amendments 1-3 approved one by one; 4-9 approved together ("i approve all now go"). The list is in the plan's Stage 4.
 - The Formations rule 9 carve-out (`diagram_always`) is written by this work, since the formations session was not
   running.
+
+# Decisions 2026-11-26 (combat redesign: no space, one side against one side)
+
+- **No spatial fight** (user: "I don't want spatial fight"). Position readings are removed: range (At range), places
+  ("inside / under your field"), knock-back (Displace, Displaced, Planted), Rooted and Pinned, field Pieces, spreads
+  to "a nearby foe". The action readings stay under non-spatial names (user picked the names): **Composed** (Định Tâm; was Still:
+  a composed stance, or 2 s with no damaging or movement art or evade), **Pressing** (Áp Công; was Moving: a pressing
+  stance, or within 1 s of an evade or movement art) and **the foe pressed** (was "the foe moved": it fired a damaging
+  or movement art, or evaded, in the last second). Broken and Wounded (health thresholds) stay. A Field stays as a
+  plain timed self-state; a laid object becomes a self-counter charge with its own timer.
+- **One side against one side** ("multiple ally or multiple enemies fight should be postponed for now"): allies
+  counted, Alone, "every foe", several fighters or foes and spreads are postponed. **Companions and summons stay** as
+  part of a fighter's side, as today.
+- **Approach:** the GDDs are amended now (shown section by section), then a rewrite pass over the ~240 affected depth
+  records before Stage 5 goes on.
+- **Rewrite rulings** (user, 2026-11-26): records that only name allies or "alone" in passing are reworded to "you",
+  "your companions" or "with no companion"; records **built on counting allies** are **parked** (kept unchanged,
+  marked postponed, not exported). "Cannot flee" **stays** as a non-spatial curse, **Bound** (Phược Thân): the foe's
+  escape fails while it holds; it replaces Pinned's escape failure and does not touch evade. **Spread** clauses are
+  **cut**; a record left with no point gets a small payoff on the one foe. Checker:
+  `tools/design/world/spatial_words_check.py` (239 records with a hit in a rule field on 2026-11-26).

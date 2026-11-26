@@ -147,7 +147,7 @@ earlier hand count, kept for where each kind lives.
 | Sets | 166 | `items.json` `sets` | Not in the game. 2-piece and 3-piece Modifiers are plain lines; 165 full-set Effects are rule text. |
 | Authored wishes | 94 entries | `builds/authored/auth-mod/eff-1/eff-2/tech.json` | Have DSL records or modifier lines, wired into the depth files (`WIRED.md`). Not in `combat_effects.json`. 2 were refused and 2 not authored. |
 | Engine features | about 30 | `builds/engine-wishes.md` sections 1-5 | Fight-state actions, readables and events, statuses, tags, Art DSL words and checks. Several may already exist (see Stage 5). |
-| Duel readings | 10 families | `builds/duel-readings.md` section 2 | Combat rule 25 and Formulas L are in the GDD. Not in code. |
+| Duel readings | 5 kept (rewritten 2026-11-26: no spatial fight) | Combat rule 25, Formulas L | Composed, Pressing, the foe pressed, Broken, Wounded, plus the Bound curse. At range, Displace, Rooted, Pinned, field Pieces, spreads removed; allies and Alone postponed. Not in code. |
 | Statuses | Charmed, Drunk, Sleep | `engine-wishes.md` section 3 | Not in the Effects GDD Status Catalogue or the engine's `STATUS`. |
 | Elements and parts | Light dtype, `soul_part` 30 % on a Light hit | `dawn-call` | The engine's `ELEM_TYPE` has no `light`. |
 | Tags | `song`, `bow`, `fan`, `mist`, `crane`, `bird`, `talisman` (source tag) | depth arts, items and beasts | `song` and `bow` need the `modifiers.md` rule 9 amendment. The rest need engine support. |
@@ -351,6 +351,11 @@ The features in Stage 5 need these rules first. Another session edits `design/gd
 9. Formations rule 9: `diagram_always` (written by this work; the formations session was not running).
 
 ### Stage 5: the engine features (both engines, parity green)
+- **2026-11-26, combat redesign** (`design/world/depth/DECISIONS-2026-11-26.md`): before slice 2, one rewrite pass
+  moves the depth records off the removed and postponed readings (`tools/design/world/spatial_words_check.py`, 239
+  records). Slice 1 is committed (4f9fc9a4). Remaining slices: 2 statuses, holds-caster, tick to heal, held damage,
+  upkeep, last-act window, Bound; 3 events and readables; 4 tags and Light; 5 the five kept readings (smaller than
+  planned); 6 item sets; 7 the abode and vein removal; 8 the DSL words and the kept meter.
 - **Order (user 2026-11-26):** this stage builds only the features already known (`engine-wishes.md`, the duel
   readings, sets, tags). Each sect's Stage 6 pass then builds the engine words its own designs need, in both engines
   with parity, before that sect is exported.
@@ -360,8 +365,9 @@ The features in Stage 5 need these rules first. Another session edits `design/gd
 - **Build:**
   - `engine-wishes.md` sections 1-4, the actions, events, readables, statuses, tags and DSL words;
   - section 5's checks: the Bleed tags, the summon coefficient's `companion_power_pct`, and decay by a share;
-  - the duel readings (Combat rule 25, Formulas L): ally, alone, foe_moved, still, moving, displace with planted,
-    rooted with pinned, at_range, broken and wounded (`duel-readings.md` section 2);
+  - the duel readings (Combat rule 25, Formulas L; **rewritten 2026-11-26**, no spatial fight, one side against one
+    side): Composed and `composed_time`, Pressing, the foe pressed, Broken and Wounded, the Bound curse, and the
+    companion share of strike payloads; self-counter charges with their own timers and blows;
   - removing the `own_abode` and `vein` fight bonuses (rule 26, AC-CB-104);
   - item sets: the set bonus counted on worn pieces (Item Database rule 22), in the stat sheet and the fight compiler;
   - companion tags and companion hit events carrying them (crane, bird);

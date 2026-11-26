@@ -1042,8 +1042,8 @@ measures the drift first, and no deflator is applied until it has.
 | Market (#20), Time & Turn, Realms, Spirit Herbs, Sects, Travel | Soft (read this) | Their Stat List rows; Market and Time & Turn owe keys for Pending rows | Various | Not yet (re-review MD 8) |
 
 **Back-links written 2026-11-25** (world-depth rulings, `design/world/depth/DECISIONS-2026-11-25.md`):
-- **Combat** (#21, rules 25, 26) and **Effects** (#41, rule 17): the `[companion]` scope, `timer_resist_pct` against
-  Displace and Rooted, and nine reading tags (`field` … `pinned`, Combat's Dependencies row) are owed to rule 9's
+- **Combat** (#21, rules 25, 26) and **Effects** (#41, rule 17): the `[companion]` scope and four reading tags (`field`, `composed`,
+  `pressing`, `movement`; rewritten 2026-11-26, no spatial fight, Combat's Dependencies row) are owed to rule 9's
   vocabulary; "ground tags" on L4, W4 and B4 are a side's own laid or carried ground only (since group 11: "your own
   laid arrays and carried ground"; `own_abode` and `vein` removed, Combat Open Question 30).
 - **Combat** (#21, rule 6) owes the form tags `song`, `bow` and `mist` (rule 9, new 2026-11-25) in its own form list.

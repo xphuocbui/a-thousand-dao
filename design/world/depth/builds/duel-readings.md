@@ -1,5 +1,10 @@
 # Duel readings (Đấu Giải): proposal
 
+> **Superseded 2026-11-26** (user: no spatial fight; fights of several fighters postponed;
+> `design/world/depth/DECISIONS-2026-11-26.md`). Combat rule 25 and Formulas L now hold the readings: Still and Moving
+> are **Composed** and **Pressing**, "the foe moved" is **the foe pressed**, and At range, Displace, Planted, Rooted,
+> Pinned, field Pieces, spreads, allies and Alone are gone or postponed. Read this file as history only.
+
 > **Status**: proposal for the user's review (authoring approved 2026-11-25). Nothing here is added to
 > `design/gdd/combat.md`, `effects.md`, `modifiers.md` or the depth JSON yet.
 > **Wish**: a1 in `wishlist.md` (`ra-G1 + rb-01 + sets-bt-01 + sets-bt-04`), about 54 builds.
