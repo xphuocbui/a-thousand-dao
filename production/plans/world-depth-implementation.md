@@ -34,6 +34,14 @@ The content is in `design/world/depth/` (`SUMMARY-2026-11-25.md`).
 
 ## Start here (for a new session)
 
+0. **Resume point (2026-11-26, end of day; the user switched accounts):** Stages 0-5 are DONE and committed (Stage 5's
+   code 28d3dca5, its close c709af42). The full suite (1,180 cases) and the full parity `--check` passed at 28d3dca5.
+   **Next: Stage 6, Băng Tâm Các first, then Stage 7 for that sect before the other 49.** Open calls for the user:
+   where the kept meter lives and which fights write it back; the Remnant Score's restart rule after its seventh
+   movement. What Stage 5 did not build is listed under Stage 5 "Done 2026-11-26". Estimate for Stages 6-11: about
+   35-60 h of Claude time, plus the user's 50 sect reviews and the final review pass. To save usage: a fresh session
+   per sect, bulk writers on Sonnet (headless `claude -p`), and the user's sect reviews done in the files outside a
+   session.
 1. **Read, in order:**
    - this plan;
    - `design/world/depth/README.md` and `SUMMARY-2026-11-25.md` (what the content is);
