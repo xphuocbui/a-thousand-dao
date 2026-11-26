@@ -18,6 +18,8 @@ Run:
   python -I tools/design/combat_sim/parity_export.py           write every expected file
   python -I tools/design/combat_sim/parity_export.py --check   compare with the files on disk; exit 1 on any drift
   ... --only <fixture name>                                        one fixture
+  ... --quick       skip the chancy fixtures (their 10x-seed sim references take ~8 min); the exact ones
+                    take seconds. Per slice --check --quick; the full --check at a stage's end (user 2026-11-26)
 Exit codes: 0 ok; 1 drift or a non-deterministic fixture; 2 bad fixture.
 """
 import dataclasses
@@ -183,6 +185,8 @@ def main(argv):
     if "--only" in argv:   # one fixture by name (2026-11-26): python -I parity_export.py --only t10_depth_exact
         only = argv[argv.index("--only") + 1]
         paths = [x for x in paths if os.path.basename(x)[:-5] == only]
+    if "--quick" in argv:   # exact fixtures only (user 2026-11-26: the chancy references made the check ~8 min)
+        paths = [x for x in paths if json.load(open(x, encoding="utf-8")).get("chance_free")]
     if not paths:
         print("no fixtures in %s" % FIXTURES)
         return 2
