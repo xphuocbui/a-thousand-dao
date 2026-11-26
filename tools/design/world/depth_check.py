@@ -72,8 +72,10 @@ def main():
         arts |= {x["id"] for x in load(fn)}
     items, mods = set(), set()
     for fn in glob.glob(str(ROOT / "design/items/catalogue-*.json")):
+        promoted = pathlib.Path(fn).name.startswith("catalogue-sect-")   # depth items promoted (ADR-0009, Stage 6)
         for i in load(fn):
-            items.add(i["id"])
+            if not promoted:
+                items.add(i["id"])
             mods |= {m["key"] for m in i.get("modifiers", [])}
     named_game = {i["id"] for i in load(ROOT / "assets/data/items_named.json").get("items", [])} \
         if (ROOT / "assets/data/items_named.json").exists() else set()

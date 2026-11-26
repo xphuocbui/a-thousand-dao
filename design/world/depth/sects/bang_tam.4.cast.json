@@ -2657,7 +2657,7 @@
    "build": {
     "archetype": "linh_thuc_su",
     "main": {
-     "tech": "hoang_tho",
+     "tech": "warm-hearth-breath",
      "layer": 1
     },
     "aux": [],
@@ -2732,7 +2732,7 @@
    "build": {
     "archetype": "dan_su",
     "main": {
-     "tech": "hoang_hoa",
+     "tech": "red-sun-scripture",
      "layer": 2
     },
     "aux": [],
@@ -2802,7 +2802,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "warm-hearth-breath",
      "layer": 1
     },
     "aux": [],
@@ -2870,7 +2870,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "hoang_thuy",
+     "tech": "clear-frost-breath",
      "layer": 1
     },
     "aux": [],

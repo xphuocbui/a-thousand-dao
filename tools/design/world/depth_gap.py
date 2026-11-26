@@ -221,7 +221,7 @@ class Report:
         nm = plain(name)
         self.effect_names[nm].add(where)
         st, note = self.g.effect_state(nm)
-        if new and nm in self.g.effects:
+        if new and nm in self.g.effects and self.g.effects[nm].get("source") != "world-depth:%s" % own:
             st, note = "clash", "marked new, but %s is an existing Effect (source %s)" % (
                 nm, self.g.effects[nm].get("source", "items"))
         self.add("effects", own, st, name=nm, where=where, new=new, note=note)

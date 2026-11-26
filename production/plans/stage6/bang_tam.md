@@ -95,7 +95,14 @@ Resume here: read this file, then do the first unchecked step.
         Hidden Half are listed as not run (step 5).
       - NOT exported yet (method: export after the user's review, Stage 7), so the exporters' `--check` reports the
         game data stale until then. That is expected, and no test asserts otherwise.
-- [ ] 4. Stand-ins and beasts (owner's `beasts` field).
+- [x] 4. Stand-ins and beasts (owner's `beasts` field). Done 2026-11-26:
+      - The six picks are written in the cast files (layers: trac 1, giai 2, dao 2, ma 1, quy 1, hang 6, the
+        primer's top).
+      - lam_tuyet_dieu carries `beasts: [ngoc_dieu, han_tich]`. The beast records stay in `bang_tam.beasts.json`
+        and close at the Stage 7 export.
+      - Gap report: stand-ins 0. effects 5 runs, 6 open.
+      - Tool fixes: depth_check.py does not count a `catalogue-sect-*` item as a duplicate of its depth record, and
+        depth_gap.py does not call a sect's own merged Effect (source `world-depth:<owner>`) a clash.
 - [ ] 5. Engine words, both engines, parity.
 - [ ] 6. Review file, then STOP for the user.
 - [ ] 7. Stage 7 (after approval).

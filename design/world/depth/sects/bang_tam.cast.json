@@ -1401,6 +1401,7 @@
      "note": "desert-born rider of the Beast Hall"
     }
    ],
+   "beasts": ["ngoc_dieu", "han_tich"],
    "build": {
     "archetype": "linh_thuc_su",
     "main": {
@@ -2388,8 +2389,8 @@
    "build": {
     "archetype": "kiem_tu",
     "main": {
-     "tech": "huyen_hoa",
-     "layer": 9
+     "tech": "red-sand-sabre-primer",
+     "layer": 6
     },
     "aux": [],
     "gear": [
