@@ -85,13 +85,15 @@ def label_point(pid, i, centre):
 
 
 def seat_place_of(r, p, moved):
-    """The province's seat place: a moved sect seat when the province's seat kind is that seat's (Provinces rule 2a,
-    2026-11-26: the province a new seat lies in becomes its seat province), else the province's seed place. Only the
-    world-depth moves ([param moved], place ids) are re-seated; other provinces keep their seed place."""
+    """The province's seat place: its sect seat when the province's seat kind is a sect seat (Provinces rule 2a,
+    2026-11-26: the province a seat lies in is its seat province; rule 9: the minor sect seated in it is its payer), a
+    moved seat first, else the lowest-id seat of that kind; otherwise the province's seed place. User ruling
+    2026-11-26: the 12 unmoved minor seats whose seed place was a village, town or nothing are re-seated the same way."""
     if r["seat"] in ("great_seat", "minor_seat"):
-        ids = sorted(pl["id"] for pl in r["places"] if pl.get("kind") == r["seat"] and pl.get("id") in moved)
-        if ids:
-            return ids[0]
+        ids = sorted(pl["id"] for pl in r["places"] if pl.get("kind") == r["seat"] and "id" in pl)
+        first = [i for i in ids if i in moved] + ids
+        if first:
+            return first[0]
     return p.get("seed_place")
 
 

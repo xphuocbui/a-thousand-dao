@@ -136,3 +136,14 @@ func test_a_player_can_walk_or_sail_off_the_island_and_lake_seats() -> void:
 		var b: Dictionary = _place(int(row[1]))
 		var trip: Dictionary = tg.trip(Vector2i(int(a.tile[0]), int(a.tile[1])), Vector2i(int(b.tile[0]), int(b.tile[1])), "ground", 1.0, 0.0)
 		assert_false(trip.is_empty(), "a ground trip leaves %s for %s" % [a.name, b.name])
+
+
+func test_every_minor_seat_province_is_seated_at_and_paid_by_its_sect_rule_9() -> void:
+	# Provinces rule 9 and rule 2a (user ruling 2026-11-26): a province whose seat kind is a minor seat has that seat as
+	# its seat place, so the minor sect seated in it is its payer (Bách Vũ's 330 in prov_p146 was a village before)
+	for v in _db.all(Provinces.TABLE):
+		if str(v.get("seat_kind", "")) != "minor_seat":
+			continue
+		var seat: Dictionary = _db.get_record("places", str(v.get("seat_place", "")))
+		assert_eq(str(seat.get("kind", "")), "minor_seat", "%s is seated at its minor seat" % v.key)
+		assert_eq(ProvinceBuildings.payer(_db, v), str(seat.get("sect_id", "")), "%s is paid by its seated sect" % v.key)

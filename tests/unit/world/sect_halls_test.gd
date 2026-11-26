@@ -76,13 +76,17 @@ func test_a_talisman_hall_raises_the_drawing_chance() -> void:
 func test_a_regions_alchemy_halls_raise_its_markets_pill_success() -> void:
 	var gd := game_data()
 	var m: Dictionary = _db.all(WorldEconomy.TABLE)[0]
-	var rid: String = str(m.regions.keys()[0])
-	var reg: Dictionary = _db.get_record("regions", rid)
-	var saved: Dictionary = Dictionary(reg.get("halls", {})).duplicate()
-	reg["halls"] = {"alchemy_hall": 5}
+	# the market sums every region's halls (CraftEconomy.ps_at), so the others are cleared for the test and restored
+	var saved := {}
+	for r in m.regions:
+		var rec: Dictionary = _db.get_record("regions", str(r))
+		saved[str(r)] = Dictionary(rec.get("halls", {})).duplicate()
+		rec["halls"] = {}
+	_db.get_record("regions", str(m.regions.keys()[0]))["halls"] = {"alchemy_hall": 5}
 	var ps: float = 0.8
 	var got: float = CraftEconomy.ps_at(gd, _db, m, "pill", ps)
-	reg["halls"] = saved
+	for r in saved:
+		_db.get_record("regions", r)["halls"] = saved[r]
 	assert_near(got, 1.0 - 0.2 / 1.5, 1e-9, "1 - (1 - 0.8) / (1 + 0.1 x 5)")
 	assert_near(CraftEconomy.ps_at(gd, _db, m, "artifact", ps), CraftEconomy.ps_at(gd, _db, m, "artifact", ps), 1e-12, "other kinds read their own halls")
 

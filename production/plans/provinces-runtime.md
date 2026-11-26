@@ -257,6 +257,7 @@ seat moves need (`design/world/depth/DECISIONS-2026-11-26.md`, Stage 2; Province
 - `place_start` needed no change: it already reads the seat province from the sect's seat place.
 - Data: `sect_hall` added beside `town` in `provinces.json` (base_slots, infra0) and `province_buildings.json` (start,
   landing_seats).
-- **Found, not changed (put to the user):** 12 provinces hold an unmoved minor seat that is not their seat place
-  (prov_p146, p151, p46, p66, p82, p92, r14_12, r1_22, r20_3, r2_24, r3_13, r6_3), so that minor sect is not its
-  province's payer and its seat-kind buildings act at the village, town or nowhere.
+- **Fixed (user ruling 2026-11-26, its own commit):** 12 provinces held an unmoved minor seat that was not their seat
+  place (prov_p146, p151, p46, p66, p82, p92, r14_12, r1_22, r20_3, r2_24, r3_13, r6_3), so that minor sect was not its
+  province's payer and its seat-kind buildings acted at the village, town or nowhere. `seat_place_of` now seats every
+  sect-seat province at its seat (a moved seat first); test `test_every_minor_seat_province_is_seated_at_and_paid_by_its_sect_rule_9`.
