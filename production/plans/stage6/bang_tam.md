@@ -141,8 +141,7 @@ Resume here: read this file, then do the first unchecked step.
         crits against 16, and 28.0 s down to 25.7 s.
       - The rest are expected no-ops against a typical foe: Ice in the Vessel, Second Wind and Sitting on the Ice need
         damage taken, or a pause.
-      - R2 is marked "refined, PENDING the user's confirmation" in DECISIONS-2026-11-26.md (stack_grant +1 is +100 %
-        for one-stack hits).
+      - R2's refinement (stack_grant +1 while cursed) was CONFIRMED by the user ("keep it", 2026-11-26).
 - [ ] 7. Stage 7, next. Advisor order:
       - (a) the full suite and full parity --check (launched 2026-11-26; logs `$CLAUDE_JOB_DIR/tmp/full_suite.log` and
         `parity_full.log`);
