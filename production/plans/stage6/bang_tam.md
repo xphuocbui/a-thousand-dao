@@ -142,7 +142,7 @@ Resume here: read this file, then do the first unchecked step.
       - The rest are expected no-ops against a typical foe: Ice in the Vessel, Second Wind and Sitting on the Ice need
         damage taken, or a pause.
       - R2's refinement (stack_grant +1 while cursed) was CONFIRMED by the user ("keep it", 2026-11-26).
-- [ ] 7. Stage 7, next. Advisor order:
+- [x] 7. Stage 7 DONE 2026-11-26 (see "Stage 7 result" below). Advisor order:
       - (a) the full suite and full parity --check (launched 2026-11-26; logs `$CLAUDE_JOB_DIR/tmp/full_suite.log` and
         `parity_full.log`);
       - (b) export `combat_library.json`, then add a Băng Tâm build to the compile-parity cases and one exact fixture
@@ -322,4 +322,35 @@ committed:
     kinds waits for Stage 10;
   - former pairs read rival or enmity from keywords in the tie note;
   - soft start strengths: friend 40, lover 70, rival 40, enmity 50, former 30, debt 30.
+
+### Stage 7 result (2026-11-26): DONE
+- **Exports:**
+  - records: d489875e;
+  - depth reader, world export and game side: 860bde10;
+  - gained-traits fix: f7db0feb;
+  - portrait fix and screenshots: this commit.
+- **Gap report `--sect bang_tam`: 0 open on every row.** World-wide, all 16 over-cap people close (their pinned ties
+  fit).
+- **Tests:**
+  - full suite at 860bde10: 1,189 cases; its one failure, rating_session_test (the gained-traits records), is fixed
+    in f7db0feb and re-run green;
+  - world_depth_export_test.gd: 6 cases;
+  - parity: t25 and t26.
+- **Screenshots** in `production/qa/evidence/world-depth-stage7/`:
+  - 01 the sect window (the head Sở Ngọc Hồ, 468 members);
+  - 02 Sở Ngọc Hồ's card;
+  - 03 Lam Tuyết Điêu's card;
+  - 04 the Jade Sable's beast card (PlaceholderArt, unpainted).
+- **Fixed on the way:** person cards built their portrait from `Character.to_dict()`, which drops `cast_key`, so every
+  named character showed a type face (`GameQuery` person view).
+- **World build time** (5,000 cultivators, seed 4242): 24.7 s with Băng Tâm, against 23.2 s without (+6 % for 115 more
+  authored people).
+- **Follow-ups (UI, outside this pass):**
+  - a beast's card reads "loose cultivator (tán tu)" and shows the raw archetype `yeu_thu`;
+  - a beast's stage is rolled, not authored;
+  - no card lists a person's beasts;
+  - the 23 signature items and the beasts have no paintings (placeholders, by rule);
+  - Lãnh Hương Các is not a fallen sect in the game.
+- **Incident:** a mistaken `git stash push`/`pop` popped an older unrelated stash (`stash@{0}`, 1a0d186a). The user
+  restored the files; the stash entry is still in the list, untouched.
 

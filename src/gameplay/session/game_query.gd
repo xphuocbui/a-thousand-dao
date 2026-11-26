@@ -462,7 +462,10 @@ static func character(s: GameSession, person_id: String = "") -> Dictionary:
 	var out := {
 		"id": c.id, "name": c.name, "alive": c.alive, "death_cause": c.death_cause, "is_player": is_me,
 		"realm_label": gd.realm_label(c.realm_index, c.stage), "level": c.level, "layer": layer,
-		"portrait": portrait_of(s, c.to_dict()), "gender": c.gender, "traits": traits_view(gd, c.npc_traits),
+		# the record's cast_key (Character.to_dict drops it): a named character wears their own painting, never a type
+		# face (fixed 2026-11-26, world-depth Stage 7 screenshots)
+		"portrait": portrait_of(s, c.to_dict().merged({"cast_key": str(s.db.get_record("people", c.id).get("cast_key", ""))}, true)),
+		"gender": c.gender, "traits": traits_view(gd, c.npc_traits),
 		"sect": str(sect.get("name", "")), "rank": s.sect_members.rank_name(c.sect_rank) if s.sect_members != null and c.sect_rank != "" else "",
 		"age": c.age, "lifespan": life.total, "power": int(res.get("power", -1)), "provisional": bool(res.get("provisional", false)),
 		"event_waiting": s.has_pending_event(),
