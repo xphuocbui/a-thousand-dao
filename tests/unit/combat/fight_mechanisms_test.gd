@@ -348,7 +348,11 @@ func test_every_library_effect_compiles() -> void:
 			other.append("%s: %s" % [name, "; ".join(c.errors)])
 	assert_eq(other, [], "no library Effect fails for any reason but a later slice")
 	assert_eq(ok, lib.size(), "every library Effect compiles (54 item Effects from slice 4b, the Đạo Đồ's 55 since 2026-11-20)")
-	assert_eq(lib.size(), 109, "54 item Effects and the Đạo Đồ's 55")
+	var depth := 0   # world-depth Effects (source "world-depth:<key>", ADR-0009) grow with each sect's Stage 6 pass
+	for name in lib:
+		if str(lib[name].get("source", "")).begins_with("world-depth:"):
+			depth += 1
+	assert_eq(lib.size() - depth, 109, "54 item Effects and the Đạo Đồ's 55, besides the world-depth ones")
 	assert_eq(later.size(), 0, "none waits for a later slice: %s" % str(later))
 
 
@@ -423,3 +427,16 @@ func test_step_field_neither_engine_runs_is_refused() -> void:
 	loader.errors = []
 	var ok := _dummy({}, [{"name": "pricey", "c": 1.0, "steps": [{"unlock": [], "c_mult": 2.0, "hp_cost": 0.05}]}])
 	assert_true(loader.from_sim_build(ok, "case") != null, "a step's hp_cost loads: %s" % "; ".join(loader.errors))
+
+
+func test_an_empowered_arts_hit_still_carries_its_technique() -> void:
+	# regression (2026-11-26, Twin Plums; test_engine.py t_hit_carries_group): an empowered art's hits kept no group,
+	# so a hit_landed filter on the technique missed them.
+	var eff := {"id": "g", "on": "hit_landed", "filter": {"group": "snow-plum-sword"}, "do": [{"counter": {"id": "n", "add": 1}}]}
+	var art := {"name": "cut", "c": 1.0, "cost": 0.02, "cd": 2.0, "group": "snow-plum-sword",
+		"empower": [{"if": [{"read": "foe.qi_share", "op": "<=", "value": 1.0}], "c_mult": 2.0}]}
+	var f := _fight(_dummy({"effects": [eff], "counters": [{"id": "n"}]}, [art]), _dummy({"ward_pts": 0.0, "block": 0.0}))
+	f.t = f.a.ready[0]
+	f.a.basic_ready = 1000000000
+	f.act(f.a)
+	assert_eq(int(f.a.counters.get("n", 0)), 1, "the empowered hit matched its technique")

@@ -1249,6 +1249,8 @@ class Fight:
         # ctags: a companion's own tags (crane, bird) ride on its hits (2026-11-26)
         ctx = {"dtype": dtype, "element": art.element if art else "", "tags": art.tags if art else (kind,) + tuple(ctags), "kind": kind,
                "art_id": art.name if art else kind}
+        if art is not None and art.group:   # hit events carry the art's technique, as art_fired does (2026-11-26)
+            ctx["group"] = art.group
         if pass_shields:   # a free hit that passes ward shields (2026-11-26; Move the Sickness)
             ctx["pass_shields"] = True
         # avoid [R6]

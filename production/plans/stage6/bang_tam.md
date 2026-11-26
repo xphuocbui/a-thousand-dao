@@ -70,7 +70,21 @@ Resume here: read this file, then do the first unchecked step.
       - Checks: lint_arts 0 findings; lint_techniques' 4 findings are the 4 arts still to write. The unpriced W notes
         are clear-frost-breath 9.1 of 8 and warm-hearth-breath 8.6 of 8. A fight.py run (Kết Đan, typical foe:
         `$CLAUDE_JOB_DIR/tmp/bt_arts.fight.json`) went 20-0 in 45 s, and every art fired with no engine error.
-- [ ] 3b. Effects (11) into combat_effects.json.
+- [~] 3b. Effects (11) into combat_effects.json. Done 2026-11-26: 5 of 11 that need no new word:
+      - The Keeper's Stillness, Twin Plums, Second Wind on the Ice, Every Fifth a Star (approx: bypass 0.5 for "ignores
+        the ward") and Sitting on the Ice.
+      - Source: `design/world/depth/effects/bang_tam.effects.json`, merged by the new
+        `tools/design/combat_sim/put_effects.py` (same-source rerun replaces; another source's key is refused; the
+        other entries' text is kept verbatim).
+      - Each one was run in fight.py with and without it, and each changed the fight.
+      - Engine fix found on the way: hit events did not carry the art's `group`, in Python at all and in GDScript for
+        an empowered or stepped art, so `filter.group` on `hit_landed` or `crit` missed. Fixed in engine.py `hit` and
+        art_override.gd. Tests: test_engine.py `t_hit_carries_group` and fight_mechanisms_test.gd
+        `test_an_empowered_arts_hit_still_carries_its_technique`, both watched failing first.
+        `test_every_library_effect_compiles` now counts the world-depth Effects apart from the fixed 109.
+      - Left for step 5: Ice in the Vessel, Clear-Heart Reflection, The Peak Does Not Move, Walk the Nodes, Master's
+        Road, Hidden Half.
+      - Note: `fight.py --timeline` crashes in sim.py (`k_water_pp`); the bug predates this work and is not fixed here.
 - [ ] 3c. Items (23) and sets (9).
 - [ ] 4. Stand-ins and beasts (owner's `beasts` field).
 - [ ] 5. Engine words, both engines, parity.

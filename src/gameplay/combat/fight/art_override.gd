@@ -89,5 +89,6 @@ func apply(a: ArtDef) -> ArtDef:
 		var st: Array[StatusSpec] = b.statuses.duplicate()
 		st.append_array(add_statuses)
 		b.statuses = st
-	b.ctx = {"dtype": str(b.dtype), "element": str(b.element), "tags": b.tags_s, "kind": "art", "art_id": str(b.id)}
+	b.ctx = {"dtype": str(b.dtype), "element": str(b.element), "tags": b.tags_s, "kind": "art", "art_id": str(b.id),
+		"group": b.group}   # an empowered or stepped art's hits keep its technique (2026-11-26), as the base art's do
 	return b

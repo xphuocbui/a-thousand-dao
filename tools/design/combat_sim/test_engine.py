@@ -366,6 +366,16 @@ def t_spend_charges():   # regression (2026-11-26): a negative add or a set on a
     check("set 0 clears it", A.counter_times["seal"] == [])
 
 
+def t_hit_carries_group():   # regression (2026-11-26, Twin Plums): hit events carry the art's technique
+    eff = {"id": "g", "on": "hit_landed", "filter": {"group": "snow-plum-sword"}, "do": [{"counter": {"id": "n", "add": 1}}]}
+    f, A, B = setup(a=dummy(effects=[eff], counters=[{"id": "n"}]))
+    cut = E.Art("cut", 1.0, 0.03, 3.0, group="snow-plum-sword")
+    f.hit(A, B, 1.0, "cold", cut)
+    check("a hit_landed filter on group matches the art's technique", A.counters["n"] == 1, str(A.counters))
+    f.hit(A, B, 1.0, "cold", E.Art("other", 1.0, 0.03, 3.0, group="else"))
+    check("an art of another technique does not match", A.counters["n"] == 1, str(A.counters))
+
+
 def t_move_own_debuffs():   # Move the Sickness (2026-11-26)
     f, A, B = setup()
     f.add_stacks(B, A, "fire", 3, 8.0, buff=False)
