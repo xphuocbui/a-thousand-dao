@@ -125,7 +125,7 @@ The content is in `design/world/depth/` (`SUMMARY-2026-11-25.md`).
       and verified on 2026-11-26. One prompt (`quan_anh_ho`) was softened after a safety refusal; her story stays in
       her record.
   - **Places:** 311 story-site pictures in `design/world/depth/art/places/out/<batch>/`, outside git, painted before
-    the xianxia change. Whether to repaint them in the new style is open for the user.
+    the xianxia change. The user keeps them as they are for now (2026-11-26).
   - **Beasts:** the 21 beasts have no picture and show PlaceholderArt until the user asks for them.
   - **Gallery:** https://claude.ai/artifact/H45zDrK7quF8PusDZGKAPE (version 5: all 1,909 xianxia portraits and the
     311 places). Its build script sits in the content session's scratchpad. The install in Stage 3 reads the pngs,
