@@ -44,11 +44,11 @@
      "new": true,
      "id": "rings-as-it-moves",
      "name": "Rings as It Moves (Hành Minh)",
-     "rule": "The bell rings whenever a foe within hearing moves or dodges: that foe takes a light Metal hit and gains one Metal stack, at most once per second per foe."
+     "rule": "The bell rings whenever the foe presses or dodges: it takes a light Metal hit and gains one Metal stack, at most once per second."
     }
    ],
    "lore": "A bronze carriage bell in the shape of a luan bird, the first bell Yến Bội Ngọc cast at the coast in 960 (V102). It rang at her Dao-partner rite with Hoa Minh Hòa, against the jade pendants he carved, and the pavilion is named for the two together (Vương Bột: bội ngọc minh loan).",
-   "build_use": "The head's ward bell: Metal stacks on every foe that moves.",
+   "build_use": "The head's ward bell: Metal stacks on the foe each second it presses.",
    "holder": "yen_boi_ngoc",
    "made_by": "yen_boi_ngoc",
    "made_year": 960,

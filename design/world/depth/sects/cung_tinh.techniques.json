@@ -18,7 +18,7 @@
    "id": "star-pacing-primer",
    "name": "Star-Pacing Primer (Bộ Cương Quyết)",
    "tier": 0, "tech_kind": "main", "names": ["tho", "kim"], "layers": 6, "rank": "ngoai_mon",
-   "concept": "The outer gate's method is a walk: the novice paces the seven stars of the Dipper on a pattern cut into the abbey's courtyard, one step to a breath, drawing Earth up through the feet or Metal down from the night air. The Daoists call it walking the handle (bộ cương đạp đẩu). In a fight the holder's footwork lays a small pattern on the ground; standing on it steadies them.",
+   "concept": "The outer gate's method is a walk: the novice paces the seven stars of the Dipper on a pattern cut into the abbey's courtyard, one step to a breath, drawing Earth up through the feet or Metal down from the night air. The Daoists call it walking the handle (bộ cương đạp đẩu). In a fight the holder's footwork lays a small pattern (a Field); while it is up it steadies them.",
    "arts": [{"new": "Seven Steps (Thất Bộ)", "concept": "Each of your next seven arts leaves a mark; on the seventh the marks join into a Field: on rising it gives the foe one Slowed Time stack, and you take less damage while it holds.", "authored": "a1"}],
    "lore": "As old as the abbey. Every Daoist of Củng Tinh has walked the courtyard pattern at dusk every day of their lives; the stones are worn a hand deep where the seventh star is.",
    "status": "proposal",
@@ -28,10 +28,10 @@
    "id": "bowing-stars-canon",
    "name": "Bowing Stars Canon (Củng Tinh Kinh)",
    "tier": 2, "tech_kind": "main", "names": ["tho"], "layers": 12, "rank": "noi_mon",
-   "concept": "Named from the Analects: the pole star keeps its place and the stars bow to it. The cultivator makes their dantian a fixed point and lets the qi around them turn on it, slowly, like the sky on the pole. In a fight the holder does not move much; Earth weight gathers around them, foes who circle them are dragged inward and slowed, and the longer the holder stands, the heavier their strikes become.",
+   "concept": "Named from the Analects: the pole star keeps its place and the stars bow to it. The cultivator makes their dantian a fixed point and lets the qi around them turn on it, slowly, like the sky on the pole. In a fight the holder stays Composed; Earth weight gathers around them, the foe is slowed and its soonest art waits 0.3 s, and the longer the holder stays Composed, the heavier their strikes become.",
    "arts": [
-    {"new": "The Stars Bow (Chúng Tinh Củng)", "concept": "A slow field around the holder: foes inside are pulled toward them and slowed, and gain Earth stacks each second they stay."},
-    {"new": "Fixed Pole (Định Cực)", "concept": "After 3 s Still, your Earth arts deal more damage and you are Planted, with more timer resistance; it resets when you stop being Still.", "authored": "a1"}
+    {"new": "The Stars Bow (Chúng Tinh Củng)", "concept": "A slow field around the holder: while it is up, the foe's soonest art waits 0.3 s, and the foe is slowed and gains Earth stacks each second."},
+    {"new": "Fixed Pole (Định Cực)", "concept": "After 3 s Composed, your Earth arts deal more damage and you have more timer resistance; it resets when you stop being Composed.", "authored": "a1"}
    ],
    "lore": "Written by the founder Lệnh Hồ Chiêm in the abbey's first century, after thirty years of watching the Dipper turn in the lake of Tinh Lạc Hồ (A205). It is the same idea as the Pivot's own, older and slower.",
    "status": "proposal",
@@ -60,7 +60,7 @@
    "tier": 2, "tech_kind": "secret", "names": ["tho", "kim"], "layers": 12, "rank": "tong_chu",
    "concept": "The head's divination. The holder reads the Dipper in the water of Tinh Lạc Hồ through a star-iron rim, by Earth and Metal rather than by eye, and reads in it what the armillary only points at. A holder with Light reads further in it. In a fight it shows the holder the foe's next art a moment before it comes.",
    "arts": [
-    {"new": "Read the Water (Độc Thủy)", "concept": "For a few seconds the holder sees each foe's next art before it is cast: they evade or ward it far more easily, and their counter-strikes against it are critical."},
+    {"new": "Read the Water (Độc Thủy)", "concept": "For a few seconds the holder sees the foe's next art before it is cast: they evade or ward it far more easily, and their counter-strikes against it are critical."},
     {"new": "The Star Goes Out (Tinh Diệt)", "concept": "Names one foe: that foe's buffs are dimmed and their luck in the fight (khí vận) is lowered for a long while."}
    ],
    "lore": "Taught by the founder to Thẩm Bắc Thần. It needs only the abbey's Earth and the Metal of Vẫn Tinh's iron; Thẩm's thread of Light lets him read further in it than any head before him. It is how he saw the omen of 1188 that he has told no one.",

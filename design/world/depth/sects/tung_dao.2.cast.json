@@ -810,7 +810,7 @@
     ],
     "tree": {
      "start": "moc",
-     "intent": "Wood damage at range."
+     "intent": "Wood damage while Composed."
     }
    }
   },
@@ -2130,7 +2130,7 @@
     ],
     "tree": {
      "start": "moc",
-     "intent": "Wood damage at range."
+     "intent": "Wood damage while Composed."
     }
    }
   },

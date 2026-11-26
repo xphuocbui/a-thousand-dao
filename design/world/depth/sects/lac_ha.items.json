@@ -494,7 +494,7 @@
      "new": true,
      "id": "span-the-gap",
      "name": "Span the Gap (Hoành Không)",
-     "rule": "Plants two flag Pieces for 12 s; while both stand, you take 10 % less damage and gain a small ward every 3 s.",
+     "rule": "Gains two Flag charges for 12 s; while you hold both, you take 10 % less damage and gain a small ward every 3 s.",
      "authored": "a1"
     }
    ],
@@ -1332,7 +1332,7 @@
     },
     {
      "pieces": 3,
-     "effect": "The Sky Goes One Colour (Nhất Sắc Thiên): while you hold all three, once each fight after the 30th second, the glow over the field turns red for 8 s. Every foe's Earth stacks count double for your arts, and allies under it heal 3 % of their health each second."
+     "effect": "The Sky Goes One Colour (Nhất Sắc Thiên): while you hold all three, once each fight after the 30th second, the glow over the field turns red for 8 s. The foe's Earth stacks count double for your arts, and you heal 3 % of your health each second."
     }
    ],
    "story": "The founder held all three. In 1179 Tô Vãn Chiếu pledged the Lone Duck Ring to Phan Vật Hoa for the loan that built the Cloud Bridge. The Regalia will be whole again when the loan is paid. The sect believes the ring is in the treasury vault."
@@ -1447,7 +1447,7 @@
        "scope": []
       }
      ],
-     "effect": "Glow After Dark (Hà Quang Bất Tán): a talisman you seal with the Crane Shoal Seal keeps its glow; if it expires unspent, it fires once at half strength at the nearest foe."
+     "effect": "Glow After Dark (Hà Quang Bất Tán): a talisman you seal with the Crane Shoal Seal keeps its glow; if it expires unspent, it fires once at half strength at the foe."
     }
    ],
    "story": "The brush the head gave her at birth and the prize it won at fourteen. Tô Mộ Vân holds both but, at Luyện Khí, can wear only one: she wears the seal, and the set waits for her foundation."
@@ -1546,7 +1546,7 @@
     },
     {
      "pieces": 3,
-     "effect": "Eight Marks (Bát Ấn): a foe struck by the fan's art at 4 or more Earth stacks has its guard broken (its block and ward 30 % weaker for 4 s), and each guard you break this way lets your song heal every ally near you for 2 % of their health."
+     "effect": "Eight Marks (Bát Ấn): a foe struck by the fan's art at 4 or more Earth stacks has its guard broken (its block and ward 30 % weaker for 4 s), and each guard you break this way lets your song heal you for 2 % of your health."
     }
    ],
    "story": "Her master's fan, her own fare and the vassals' stitches: Hách Ánh Hà's whole errand. All three are hers."
@@ -1577,7 +1577,7 @@
     },
     {
      "pieces": 3,
-     "effect": "Anchored Span (Mao Kiều): while both your flags stand, each time the foe acts it gains 2 Earth stacks and one Slowed Time stack (once per 2 s); while you are Still, your array's upkeep costs no linh lực."
+     "effect": "Anchored Span (Mao Kiều): while you hold both Flag charges, each time the foe acts it gains 2 Earth stacks and one Slowed Time stack (once per 2 s); while you are Composed, your array's upkeep costs no linh lực."
     }
    ],
    "story": "The flags, the anchor-pin and the lamp of the miners: everything Quách Tiếp Vân took from Vân Kiều to build the bridge. All three are his.",

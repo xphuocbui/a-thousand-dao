@@ -20,7 +20,7 @@
    "tier": 0, "tech_kind": "main", "names": ["hoa", "tho"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The outer gate's method, breathed sitting on the warm rock of the vent's lower flank, a little closer each layer. Earth qi from the rock is drawn in to hold the body together while Fire qi from the vent is let in to burn. The first layers are sat on cooled lava, the last within arm's reach of moving fire. Most of the hall's outer disciples stop at the fourth layer and are not ashamed of it.",
    "arts": [
-    {"new": "Hot Rock (Nhiệt Thạch)", "concept": "A stance: while the holder stands still, she gains defense and her next blow lays one Fire stack."},
+    {"new": "Hot Rock (Nhiệt Thạch)", "concept": "A stance: while the holder stays Composed, she gains defense and her next blow lays one Fire stack."},
     {"new": "Shake Off the Ash (Phất Tro)", "concept": "Clears one Fire or burn stack from the holder and heals a little."}
    ],
    "lore": "Hùng Phần Vũ wrote it in 1026, after Kê Thủ Liệt died at the first sitting (A310), so that no disciple would come to the vent without a way to stop.",
@@ -47,7 +47,7 @@
    "concept": "The tenth sitting. The cultivator goes into the vent's mouth itself and lets the body burn down to the bone and the core, then rebuilds all of it at once, the way the phoenix is said to burn and rise. A cultivator who comes out has crossed a realm's stage with the body of a younger one. One who does not is ash. In a fight it is a last art: at the edge of death the holder burns and rises once.",
    "arts": [
     {"new": "Nirvana of the Red Wall (Xích Thành Niết Bàn)", "concept": "Once per fight, when a blow would kill her, the holder burns instead: she is untargetable for two seconds, then rises with half her health, all debuffs gone, and a burst of Fire around her."},
-    {"new": "Wall of Red Rock (Xích Nham Bích)", "concept": "Raises a ring of molten rock around the holder for a few seconds; foes who cross it gain Fire stacks and are slowed."}
+    {"new": "Wall of Red Rock (Xích Nham Bích)", "concept": "Raises a ring of molten rock (a Field) around the holder for a few seconds; while it is up, the foe gains Fire stacks and is slowed."}
    ],
    "lore": "Xích Thành's highest body rite. Its last pages are burned, and the hall believes the missing part says how to come out. Kê Thủ Liệt's death in 1025 was at an earlier sitting. Tuân Hà Y died attempting this one in 1162 (N-phan_vu-04). Hùng Phần Vũ has never sat it.",
    "status": "proposal"

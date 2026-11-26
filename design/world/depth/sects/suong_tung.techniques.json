@@ -27,8 +27,8 @@
    "id": "frost-pine-ward-canon",
    "name": "Frost Pine Ward Canon (Sương Tùng Phù Kinh)",
    "tier": 1, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 9, "rank": "noi_mon",
-   "concept": "The pavilion's canon is a talisman method. The cultivator writes her own meridians, stroke by stroke, in Wood ink on a body of Water, so that her qi moves along written paths and can be laid down on paper and lit later. In a fight she lays wards in advance: on the ground, on allies and on lanterns. They go off when a foe crosses them, and each one burns a little of the paper it was written on.",
-   "arts": ["lamp-oil-lance", {"new": "Laid Ward (Bố Phù)", "concept": "Lays three ward Pieces, with no limit on how many stand, and each standing ward costs you a little linh lực each second; each time the foe fires an art, one is spent: the foe is Rooted for a moment and takes Wood damage. In a foreseen fight, three are laid before it begins, at no cost.", "authored": "d15, a1"}, {"new": "Frost on the Pine (Tùng Thượng Sương)", "concept": "Writes a ward on an ally: the next hit on them is reduced and the attacker is slowed."}],
+   "concept": "The pavilion's canon is a talisman method. The cultivator writes her own meridians, stroke by stroke, in Wood ink on a body of Water, so that her qi moves along written paths and can be laid down on paper and lit later. In a fight she lays wards in advance: on herself and on lanterns. They go off when a foe crosses them, and each one burns a little of the paper it was written on.",
+   "arts": ["lamp-oil-lance", {"new": "Laid Ward (Bố Phù)", "concept": "Gains three Ward charges, with no limit on how many are held, and each held ward costs you a little linh lực each second; each time the foe fires an art, one is spent: the foe cannot evade for 1 s and takes Wood damage. In a foreseen fight, three are gained before it begins, at no cost.", "authored": "d15, a1"}, {"new": "Frost on the Pine (Tùng Thượng Sương)", "concept": "Writes a ward on you: the next hit on you is reduced and the attacker is slowed."}],
    "lore": "Written down, unlike anything of the pines' own. Tùng Đào allowed it in 1060 because a ward is a tool and not a teaching (V007). The pavilion knows the line between the two is thinner than the pines think.",
    "status": "proposal",
    "authored": "d15, a1"
@@ -37,8 +37,8 @@
    "id": "lantern-ward-art",
    "name": "Lantern Ward Art (Hộ Đăng Quyết)",
    "tier": 1, "tech_kind": "secret", "names": ["moc", "thuy"], "layers": 9, "rank": "truong_lao",
-   "concept": "The art of the ward lanterns that hang in the lake villages. A ward written on the inside of a lantern's paper holds for a whole winter, and when it is lit it keeps out cold, beasts and ice. In a fight the holder sets a ward lantern on the ground: allies in its light regenerate and resist cold, and foes who enter it are slowed and marked.",
-   "arts": [{"new": "Cold Night Lamp (Hàn Dạ Đăng)", "concept": "Sets a ward lantern for several seconds: allies in its light regenerate health and resist cold; foes who enter it are slowed and take more damage from wards."}],
+   "concept": "The art of the ward lanterns that hang in the lake villages. A ward written on the inside of a lantern's paper holds for a whole winter, and when it is lit it keeps out cold, beasts and ice. In a fight the holder gains a Lantern charge: while it is held, the holder regenerates and resists cold, and the foe is slowed and marked.",
+   "arts": [{"new": "Cold Night Lamp (Hàn Dạ Đăng)", "concept": "Gains a Lantern charge for several seconds: while you hold it, you regenerate health and resist cold; the foe is slowed and takes more damage from wards."}],
    "lore": "Made after the ice wall of 1033 flattened Nghênh Nguyệt Trấn (V006), before the pavilion existed, by the founder while she was still a ward-writer of the pines' Array Hall. Văn Hàn Đăng hangs four hundred lanterns a winter.",
    "status": "proposal"
   }

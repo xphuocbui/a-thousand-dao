@@ -1,0 +1,160 @@
+{
+ "_doc": "Rule texts parked on 2026-11-26 (user: fights of several fighters postponed; design/world/depth/DECISIONS-2026-11-26.md). Each entry's idea is counting allies or several fighters. The text is kept unchanged and is not exported until such fights return. An entry names the file, the record and the field: an entry under `techniques.arts` parks that one art, not its technique; an item effect or a set bonus parks that line; a whole record is parked when all its rule fields are listed. People are never parked.",
+ "records": [
+  {
+   "where": "builds/authored/auth-eff-1.json :: geese-line :: entries.record.rule",
+   "text": "While you count two or more allies (you, companions and Pieces), you gain 8 block for each ally beyond yourself.",
+   "note": "per ally beyond yourself"
+  },
+  {
+   "where": "sects/nhan_tran.items.json :: geese-line :: items.effects.rule",
+   "text": "While you count two or more allies (you, companions and Pieces), you gain 8 block for each ally beyond yourself.",
+   "note": "per ally beyond yourself"
+  },
+  {
+   "where": "builds/authored/auth-eff-1.json :: geese-line :: entries.record.reads",
+   "text": "allies counted (duel-readings R1, instant start)",
+   "note": "allies counted"
+  },
+  {
+   "where": "builds/authored/auth-eff-1.json :: geese-line :: entries.record.payload",
+   "text": "`block_rating` +8 per ally beyond yourself",
+   "note": "per ally beyond yourself"
+  },
+  {
+   "where": "builds/authored/auth-eff-1.json :: geese-line :: entries.record.limits",
+   "text": "No cap. The wish's 'take 15 % of each ally's damage' is dropped: companions take no damage (Combat rule 19) and Pieces receive nothing, so it would do nothing",
+   "note": "about ally damage share and counting; companions/Pieces"
+  },
+  {
+   "where": "builds/authored/auth-eff-1.json :: long-sky-one-colour :: entries.wire.text",
+   "text": "Geese Startled by the Cold (Nhạn Trận Kinh Hàn): while your field is up and you count three or more allies (you, companions, Pieces), you take 8 % less damage and your Earth stacks on the foe last 2 s longer. If you fight Alone inside it, 40 % of each hit is held back and lands over the next 4 s instead, and healing pays it off first.",
+   "note": "counts three or more allies"
+  },
+  {
+   "where": "builds/authored/auth-eff-1.json :: long-sky-one-colour :: entries.wire.text",
+   "text": "Geese Line (Nhạn Hàng): a passive art. While you count two or more allies (you, companions, Pieces), you gain block for each ally beyond yourself.",
+   "note": "per ally beyond yourself"
+  },
+  {
+   "where": "builds/authored/auth-eff-1.json :: pine-warden-staff-and-bow-canon :: entries.wire.text",
+   "text": "Geese Line (Nhạn Hàng): a passive art. While you count two or more allies (you, companions, Pieces), you gain block for each ally beyond yourself.",
+   "note": "per ally beyond yourself"
+  },
+  {
+   "where": "builds/authored/auth-eff-1.json :: nt-first-file-banner :: entries.wire.note",
+   "text": "muc_han_nhan; beside One Goose (duel-readings 3a rewording). The planted banner is itself a Piece, so it counts toward the line.",
+   "note": "banner counted toward the line (counting idea); needs a decision since charges are never counted as allies"
+  },
+  {
+   "where": "builds/authored/auth-eff-1.json :: walking-out-of-the-grey :: entries.wire.note",
+   "text": "One Breath Down the File. Starts from duel-readings 3a's wording; alone, divided by 1 would do nothing, so the Alone form halves instead. Doubled curse durations still clamp at 5 pulses (Effects R22). Payload: Cleanse element stacks (half of each new batch on landing) and the R27 status bend for duration.",
+   "note": "divided by ally count and Alone form; counting idea"
+  },
+  {
+   "where": "builds/authored/auth-eff-1.json :: walking-out-of-the-grey :: entries.wire.text",
+   "text": "One Breath Down the File (Nhất Tức Truyền Hàng): for 8 s, curse and debuff stacks laid on you are divided by your ally count (rounded down) and last 25 % shorter. If you fight Alone, they are halved instead (rounded down) and last twice as long.",
+   "note": "divided by ally count"
+  },
+  {
+   "where": "builds/authored/auth-eff-1.json :: wild-geese-formation-canon :: entries.wire.note",
+   "text": "Geese Stance. Starts from duel-readings 3a's wording (the ally multiplier) and adds the Alone clause; muc_han_nhan, muc_tan_vu, dong_kien_luy, luong_thu_hang, ngo_bat_tan.",
+   "note": "ally multiplier"
+  },
+  {
+   "where": "builds/authored/auth-eff-1.json :: wild-geese-formation-canon :: entries.wire.text",
+   "text": "Geese Stance (Nhạn Thế): a stance. While you count three or more allies (you, companions, Pieces), the damage you take is multiplied by 0.9 for each ally beyond yourself; while you fight Alone, 40 % of each hit is held back and lands over the next 4 s, and healing pays it off first. You gain a small ward every 3 s the stance holds. Being Displaced breaks the line.",
+   "note": "counts allies"
+  },
+  {
+   "where": "sects/lac_ha.items.json :: geese-in-file :: items.effects.rule",
+   "text": "The sword flies in a line of seven short blades. While your One Colour field is up, each ally beyond yourself (companion or Piece) adds one blade, each striking for 8 % of the sword's hit.",
+   "note": "each ally beyond yourself adds a blade"
+  },
+  {
+   "where": "sects/lac_ha.items.json :: lh-cold-geese-sword :: items.build_use",
+   "text": "A war elder's flying sword that grows with the line of allies he holds.",
+   "note": "grows with the line of allies he holds"
+  },
+  {
+   "where": "sects/lac_ha.techniques.json :: long-sky-one-colour :: techniques.concept",
+   "text": "The elders' war art, named for the second half of the founder's line: the autumn water is one colour with the long sky. The holder spreads Earth and Wood qi across a field until ground, grass and sky look one colour, so a foe inside cannot judge distance or tell which shapes are men. The holder sees clearly. Inside the field the holder's arts strike every foe in it at reduced weight, and foes lose accuracy and hidden things are revealed. It needs a rank: with fewer than three allies standing in the field it is weak, which is why the sect fights as a line and lost at Thiết Tỏa Quan.",
+   "note": "record needs a rank of allies (fewer than three allies is weak); whole record parked"
+  },
+  {
+   "where": "sects/lac_ha.techniques.json :: long-sky-one-colour :: techniques.arts.concept",
+   "text": "A field 12 s long: foes inside lose 15 % accuracy and cannot be hidden; your single-target Earth arts hit the foe again for 30 % of their damage while the field holds.",
+   "note": "same record as 169/171/172 (long-sky-one-colour), parked per record"
+  },
+  {
+   "where": "sects/lac_ha.techniques.json :: long-sky-one-colour :: techniques.arts.concept",
+   "text": "While your field is up and you count three or more allies (you, companions, Pieces), you take 8 % less damage and your Earth stacks on the foe last 2 s longer. If you fight Alone inside it, 40 % of each hit is held back and lands over the next 4 s instead, and healing pays it off first.",
+   "note": "counts three or more allies"
+  },
+  {
+   "where": "sects/lac_ha.techniques.json :: long-sky-one-colour :: techniques.arts.concept",
+   "text": "A passive art. While you count two or more allies (you, companions, Pieces), you gain block for each ally beyond yourself.",
+   "note": "block for each ally beyond yourself"
+  },
+  {
+   "where": "sects/tuan_tung.techniques.json :: pine-warden-staff-and-bow-canon :: techniques.arts.concept",
+   "text": "A passive art. While you count two or more allies (you, companions, Pieces), you gain block for each ally beyond yourself.",
+   "note": "block for each ally beyond yourself"
+  },
+  {
+   "where": "sects/nhan_tran.items.json :: nt-first-file-banner :: items.build_use",
+   "text": "The head's banner: a file that shares its damage.",
+   "note": "a file that shares its damage: several fighters"
+  },
+  {
+   "where": "sects/nhan_tran.items.json :: nt-out-of-the-grey :: sets.bonuses.effect",
+   "text": "Last Man in the File (Mạt Hàng Nhân): while the Banner's spread holds, your hits taken are blocked as though you had raised the shield, and each blocked hit lets you shed one poison or miasma stack (once every 3 s).",
+   "note": "depends on the Banner's damage spread across a file of fighters"
+  },
+  {
+   "where": "sects/nhan_tran.items.json :: one-goose :: items.effects.rule",
+   "text": "While the banner is planted (a Piece) and you count three or more allies, the damage you take is multiplied by (1 − X) for each ally beyond yourself, and the banner's first share is yours.",
+   "note": "counts allies beyond yourself"
+  },
+  {
+   "where": "sects/nhan_tran.techniques.json :: walking-out-of-the-grey :: techniques.arts.concept",
+   "text": "For 8 s, curse and debuff stacks laid on you are divided by your ally count (rounded down) and last 25 % shorter. If you fight Alone, they are halved instead (rounded down) and last twice as long.",
+   "note": "divided by ally count; scales with allies"
+  },
+  {
+   "where": "sects/nhan_tran.techniques.json :: wild-geese-formation-canon :: techniques.concept",
+   "text": "A method for a file, not for one person. Each disciple learns to pass qi down the line the way geese trade the lead in a long flight: the one at the point takes the wind, and when the point tires it falls back and the next takes it. The canon cultivates no element. It trains the meridians to give and take a share of a neighbour's strain, so a file of five fights as one body with five pairs of hands. Alone, a disciple of the gate is ordinary. In file they are very hard to break, and they get stronger the longer the line holds.",
+   "note": "a file of five fighting as one body; payoff needs several fighters"
+  },
+  {
+   "where": "sects/nhan_tran.techniques.json :: wild-geese-formation-canon :: techniques.arts.concept",
+   "text": "A stance. While you count three or more allies (you, companions, Pieces), the damage you take is multiplied by 0.9 for each ally beyond yourself; while you fight Alone, 40 % of each hit is held back and lands over the next 4 s, and healing pays it off first. You gain a small ward every 3 s the stance holds. Being Displaced breaks the line. This is the stance Cảnh Trường Thiên carried into Lạc Hà's Autumn Water and the Long Sky.",
+   "note": "counts allies beyond yourself"
+  },
+  {
+   "where": "sects/phan_vu.items.json :: pvd-xich-ha-ky :: items.build_use",
+   "text": "A war banner for the hall's levy: Fire fury on allies and one rising.",
+   "note": "fury on allies and an ally rising; levy of several fighters"
+  },
+  {
+   "where": "sects/phan_vu.items.json :: red-cloud-rising :: items.effects.rule",
+   "text": "While the banner is planted, allies within its cloud gain 1 Fire stack of fury every 3 s, each adding attack and each burning its holder for a little health each second; the first ally to fall in the cloud each fight rises once at a fifth of their health.",
+   "note": "allies in a cloud, first ally to fall; several fighters"
+  },
+  {
+   "where": "sects/phat_y.items.json :: paid-in-full :: items.effects.rule",
+   "text": "While you fight to protect someone who has hired you, you take a fifth less damage from foes that attack them, and you heal when you strike those foes.",
+   "note": "payoff depends on a protected hirer fighting beside you"
+  },
+  {
+   "where": "sects/truc_thuc.items.json :: ttv-seed-warming-censer :: items.build_use",
+   "text": "The farmer's support piece: longer Wood buffs, a warm heal over time on every ally he tends.",
+   "note": "idea is heals on every ally he tends"
+  },
+  {
+   "where": "sects/truc_thuc.items.json :: warm-the-grove :: items.effects.rule",
+   "text": "While the censer burns, Wood buffs the holder lays on allies last 2 s longer, and each ally who receives one also gains 1 Fire stack of warmth that heals a little over its duration.",
+   "note": "idea is buffs laid on allies, each ally who receives one"
+  }
+ ]
+}

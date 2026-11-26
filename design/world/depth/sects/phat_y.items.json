@@ -23,7 +23,7 @@
    "modifiers": [{"key": "evade_pct", "value": 6, "scope": []}, {"key": "art_speed_pct", "value": 10, "scope": ["phong"]}, {"key": "than_thuc_pct", "value": 4, "scope": []}, {"key": "khi_huyet_pct", "value": 10, "scope": []}],
    "effects": [],
    "lore": "A scrap of grey sleeve in a wooden case, taken from the beams of the hall of the dead. Each head carries one sleeve down.",
-   "build_use": "Wind behind the blade: the step out of reach.",
+   "build_use": "Wind behind the blade: the evade after the cut.",
    "holder": "thang_vo_ta", "made_by": "phat_y", "made_year": 1090, "set": "py-grey-seal", "status": "proposal"
   },
   {
@@ -39,7 +39,7 @@
   {
    "id": "py-grey-seal", "name": "Grey Sleeve and Seal (Phất Y Khế Ấn)", "pieces": ["py-grey-sleeve", "py-sleeve-token"],
    "bonuses": [
-    {"pieces": 2, "modifiers": [{"key": "crit_chance_pct", "value": 4, "scope": ["sword"]}, {"key": "evade_pct", "value": 3, "scope": []}], "effect": "The Last Step (Chung Bộ): after you vanish (Gone Before Thanks) or evade an attack, your next sword art while you are At range ends your At range and deals 30 % more damage; if its hit makes the foe Broken, you vanish again. Return to the Scabbard (Quy Sao): after 3 s in which you fire no damaging art, the foe counts as unstruck again, and that counts as a vanish for this bonus."}
+    {"pieces": 2, "modifiers": [{"key": "crit_chance_pct", "value": 4, "scope": ["sword"]}, {"key": "evade_pct", "value": 3, "scope": []}], "effect": "The Last Step (Chung Bộ): after you vanish (Gone Before Thanks) or evade an attack, your next sword art within 2 s deals 30 % more damage; if its hit makes the foe Broken, you vanish again. Return to the Scabbard (Quy Sao): after 3 s in which you fire no damaging art, the foe counts as unstruck again, and that counts as a vanish for this bonus."}
    ],
    "story": "The founder's robe and a sleeve of the dead. The robe passes head to head; the sleeve is chosen from the beams by each new head, and no head says whose. He fights with the Thousand-Cut Sword beside them.",
    "authored": "d29, a1"

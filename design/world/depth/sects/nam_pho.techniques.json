@@ -38,7 +38,7 @@
    "tier": 1, "tech_kind": "main", "names": ["moc"], "layers": 9, "rank": "noi_mon",
    "concept": "The hall's canon, from Vương Bột's line: the painted beams at dawn fly with the clouds of the southern shore. The hall paints at first light by custom: the scribe paints the morning cloud as it comes off the river, and draws the Wood qi of the waking forest into the brush. Scribes swear a talisman painted at dawn holds longer than one painted at noon; the canon turns at any hour, and its layers are counted in the clouds a scribe has caught. In a fight the scribe lays talismans ahead of time and lets them work: Wood stacks that bind and seed, wards that heal, and a long fight in which the paper does the fighting.",
    "arts": [
-    {"new": "Catch the Morning Cloud (Thủ Triêu Vân)", "concept": "Lays a cloud talisman on the field; foes inside gain Wood stacks each second and allies inside heal a little.", "tags": ["talisman"], "authored": "b4"},
+    {"new": "Catch the Morning Cloud (Thủ Triêu Vân)", "concept": "Gains a cloud talisman charge (a Field); while it is up, the foe gains Wood stacks each second and you heal a little.", "tags": ["talisman"], "authored": "b4"},
     {"new": "Painted Rain (Họa Vũ)", "concept": "Spends the talismans the holder has laid: each bursts for Wood damage, more for every Wood stack on the foe.", "tags": ["talisman"], "authored": "b4"},
     {"new": "Paper Beam (Chỉ Đống)", "concept": "A ward talisman that holds a beam of qi over the holder: it blocks the next heavy hit and then heals the holder for part of it.", "tags": ["talisman"], "authored": "b4"}
    ],
@@ -57,8 +57,8 @@
    "tier": 2, "tech_kind": "secret", "names": ["moc", "thuy"], "layers": 12, "rank": "truong_lao",
    "concept": "The founders' art, in two halves like Vương Bột's couplet: the painted beams at dawn fly with the southern shore's clouds; the pearl curtains at dusk roll up the western hills' rain. The dawn half, Wood, binds and seeds. The dusk half, Water, washes and heals. A scribe who holds both can turn a fight from one to the other. No one at the hall has held both since the founders, and the dusk half has been half-lost since 1060.",
    "arts": [
-    {"new": "Dawn Flight (Triêu Phi)", "concept": "A great cloud talisman that flies over the field: every foe under it gains several Wood stacks and is slowed.", "tags": ["talisman"], "authored": "b4"},
-    {"new": "Dusk Curtain (Mộ Quyển)", "concept": "Rolls up the holder's talismans into rain: allies heal and lose one debuff each, and foes' Wood stacks burst for Water damage.", "tags": ["talisman"], "authored": "b4"}
+    {"new": "Dawn Flight (Triêu Phi)", "concept": "A great cloud talisman (a Field): while it is up, the foe gains several Wood stacks and is slowed.", "tags": ["talisman"], "authored": "b4"},
+    {"new": "Dusk Curtain (Mộ Quyển)", "concept": "Rolls up the holder's talismans into rain: you heal and lose one debuff, and the foe's Wood stacks burst for Water damage.", "tags": ["talisman"], "authored": "b4"}
    ],
    "lore": "The dawn half belongs to Nghiêm Họa Đống's line and the dusk half to Ôn Châu Liêm's. He took most of the dusk half with him to Châu Liêm Trấn when he died there in 1060.",
    "status": "proposal",

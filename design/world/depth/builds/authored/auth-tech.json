@@ -774,7 +774,7 @@
      "target": "Eighth Movement: The Phoenix Is Near (Phượng Cận)",
      "value": {
       "new": "Eighth Movement: The Phoenix Is Near (Phượng Cận)",
-      "concept": "A held note: foes with eight Shao stacks cannot target the player with an art for two seconds. Played in its turn, after the seventh movement, it takes effect without the eight stacks."
+      "concept": "A held note: the foe with eight Shao stacks cannot target the player with an art for two seconds. Played in its turn, after the seventh movement, it takes effect without the eight stacks."
      },
      "note": "The eighth needed eight Shao stacks; played in order it now needs only the piece."
     }
@@ -1061,7 +1061,7 @@
      "target": "Dawn Clouds Take the Colour (Triêu Hà Nhiễm Sắc)",
      "value": {
       "new": "Dawn Clouds Take the Colour (Triêu Hà Nhiễm Sắc)",
-      "concept": "A sustained note: allies in hearing regain linh lực while it plays, foes' art speed falls; it ends when a hit gets past the player's ward or body shield (A250)."
+      "concept": "A sustained note: you regain linh lực while it plays, the foe's art speed falls; it ends when a hit gets past the player's ward or body shield (A250)."
      },
      "note": "Its concept text changes from 'ends if the player is struck', which ends almost at once in a fight where both sides hit every second. A ward player now holds the note behind the ward."
     }

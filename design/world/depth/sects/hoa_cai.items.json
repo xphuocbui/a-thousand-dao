@@ -70,7 +70,7 @@
    "id": "hc-blind-founder", "name": "The Sealed Room (Phong Thất Tam Bảo)", "pieces": ["hc-nine-cycle-gourd", "hc-fume-censer", "hc-cinnabar-robe"],
    "bonuses": [
     {"pieces": 2, "modifiers": [{"key": "stack_effect_pct", "value": 10, "scope": ["kim", "debuff"]}, {"key": "dan_doc_resist_pct", "value": 8, "scope": []}]},
-    {"pieces": 3, "effect": "A Room Full of Fume (Mãn Thất Yên): each second, every foe near you gains one Mercury stack; the Gourd's lingering poison no longer stays on you but is shared among the foes near you when you drink."}
+    {"pieces": 3, "effect": "A Room Full of Fume (Mãn Thất Yên): each second, the foe gains one Mercury stack; the Gourd's lingering poison no longer stays on you but goes to the foe when you drink."}
    ],
    "story": "What the founder kept when he gave the Hall away: his gourd, his robe, and the censer lit the day he went blind. He has not let the Mistress take any of it out of the room."
   }

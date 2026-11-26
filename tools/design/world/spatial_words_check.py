@@ -56,13 +56,15 @@ P = {
         r"\boff[- ]balance\b", r"\bsweeps? (the foe|aside|away)\b", r"\bplanted\b",
         r"\brooted\b", r"\broots? (the|a|your) foe\b", r"\btakes? root\b", r"\bpinned\b", r"\bpins? (the|a) foe\b",
         r"\bhooked\b", r"\bcannot leave\b", r"\bbound in place\b",
-        r"\bfield pieces?\b", r"\bsteles?\b", r"\bbanners?\b", r"\bflags?\b", r"\blaid out\b",
+        # a laid object written as a self-counter charge ("a Banner charge", "Stele charges") is the new form
+        r"\bfield pieces?\b", r"\bsteles?\b(?!-? ?charges?)", r"\bbanners?\b(?!-? ?charges?)",
+        r"\bflags?\b(?!-? ?charges?)", r"\blaid out\b",
         r"\b(inside|within|into|enters?|entering|leaves?|under) (your|the|its|their|this|a) (field|mist|ring|array|"
         r"formation|cloud|rain|haze|glow|zone|circle|domain|fog|snow|storm|net|web)\b",
         r"\bin (your|the|its) (field|mist|ring|zone|circle|fog|haze|net|web)\b", r"\bzones?\b",
         r"\bfoes? (inside|within|in it|under it)\b",
         r"\bspread(s|ing)? to\b", r"\bnearby\b", r"\bnearest\b", r"\badjacent\b", r"\bneighbou?r(ing)? foe",
-        r"\bjumps? to\b", r"\bchains? to\b", r"\bbounces?\b", r"\banother foe\b", r"\bnext foe\b",
+        r"\bjumps? to\b", r"\bchains? to\b", r"\bbounces?\b", r"\banother foe\b", r"\bnext foe\b(?! art)",
         r"\bbehind the foe\b", r"\bin front of\b",
         r"\bsteps? (back|aside|forward|in|toward|towards|away|out)\b", r"\bretreat", r"\bflank",
     ],

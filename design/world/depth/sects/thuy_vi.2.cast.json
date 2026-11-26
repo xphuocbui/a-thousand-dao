@@ -142,7 +142,7 @@
      ],
      "targets_note": "Her master's Binding Vine rooting, Hollow Heart linh lực."
     },
-    "note": "A coast fighter with a pole: roots the foe at the end of her reach and keeps them there."
+    "note": "A coast fighter with a pole: the foe cannot evade and is Bound (it cannot flee)."
    },
    "items": [
     "tv-punt-pole",
@@ -1273,7 +1273,7 @@
       6300,
       6287
      ],
-     "targets_note": "Spring Shoots and the Tender Shoots idea's regeneration; ally buffs wished (wish bt-01)."
+     "targets_note": "Spring Shoots and the Tender Shoots idea's regeneration; buffs for you wished (wish bt-01)."
     },
     "note": "A grower kept in a stone hall."
    }

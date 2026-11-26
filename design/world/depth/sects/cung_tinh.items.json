@@ -5,7 +5,7 @@
   {
    "id": "ct-star-lake-mirror", "name": "Mirror of the Star-Fallen Lake (Tinh Lạc Kính)", "family": "earth", "kind": "treasure", "base": "kinh", "grade": 4,
    "modifiers": [{"key": "than_thuc_pct", "value": 8, "scope": []}, {"key": "stack_effect_pct", "value": 30, "scope": ["tho", "debuff"]}, {"key": "status_duration_pct", "value": 15, "scope": []}, {"key": "khi_van", "value": 1, "scope": []}, {"key": "ward_efficiency_pct", "value": 12, "scope": []}],
-   "effects": [{"new": true, "id": "seen-in-the-water", "name": "Seen in the Water (Thủy Trung Kiến)", "rule": "At the start of a fight you see the first art each foe will use. The first time each foe uses it, you ward it fully."}],
+   "effects": [{"new": true, "id": "seen-in-the-water", "name": "Seen in the Water (Thủy Trung Kiến)", "rule": "At the start of a fight you see the first art the foe will use. The first time the foe uses it, you ward it fully."}],
    "lore": "A disc of black stone polished flat and set in a bronze rim, cut in 160 from the bed of Tinh Lạc Hồ where the lake holds the Dipper at night (A205). Laid on the water, it shows the stars as the lake sees them. Thẩm Bắc Thần has carried it for six hundred years.",
    "build_use": "The head's divination piece: thần thức, Earth stacks, and a ward against the first blow.",
    "holder": "tham_bac_than", "made_by": "lenh_ho_chiem", "made_year": 160, "set": "ct-pole-star-court", "status": "proposal"
@@ -48,7 +48,7 @@
   {
    "id": "ct-pole-star-court", "name": "Pole Star Court (Bắc Thần Tinh Đình)", "pieces": ["ct-star-lake-mirror", "ct-dipper-array-flag"],
    "bonuses": [
-    {"pieces": 2, "modifiers": [{"key": "stack_effect_pct", "value": 12, "scope": ["tho", "debuff"]}, {"key": "than_thuc_pct", "value": 4, "scope": []}], "effect": "The Field Turns (Tinh Chuyển): while your array field is up and you are Still, every 4 s the foe gains one Earth stack and is Displaced. A foe whose first art the Mirror warded fully takes double damage from your next array art."}
+    {"pieces": 2, "modifiers": [{"key": "stack_effect_pct", "value": 12, "scope": ["tho", "debuff"]}, {"key": "than_thuc_pct", "value": 4, "scope": []}], "effect": "The Field Turns (Tinh Chuyển): while your array field is up and you are Composed, every 4 s the foe gains one Earth stack and its soonest art waits 0.3 s. A foe whose first art the Mirror warded fully takes double damage from your next array art."}
    ],
    "story": "The lake mirror of 160 and the flag the head made for himself in 560, the year he took the abbey's centre. Whole in his hands for six centuries; the Mountain-Pressing Seal presses what the field has gathered.",
    "authored": "a1"
@@ -57,7 +57,7 @@
    "id": "ct-armillary-rings", "name": "Rings of the Armillary (Tuyền Cơ Tam Hoàn)", "pieces": ["ct-armillary-ring", "ct-ecliptic-flag", "ct-prioress-robe"],
    "bonuses": [
     {"pieces": 2, "modifiers": [{"key": "stack_duration_pct", "value": 14, "scope": ["tho", "debuff"]}, {"key": "linh_luc_pct", "value": 4, "scope": []}]},
-    {"pieces": 3, "effect": "Ring Within the Ring (Hoàn Trung Hoàn): a Ring of the Hour you lay on a foe already inside your ring becomes a second ring; while both stand, the foe is Pinned and takes your array damage once for each ring every second."}
+    {"pieces": 3, "effect": "Ring Within the Ring (Hoàn Trung Hoàn): a Ring of the Hour you lay while your ring (a Field) is up becomes a second ring; while you hold both, the foe is Bound (it cannot flee) and takes your array damage once for each ring every second."}
    ],
    "story": "The armillary's spare circle, the ecliptic flag cut from the same bronze in 180, and the keeper's robe. They go to whoever keeps Tuyền Cơ Nghi, not to the prioress as such.",
    "authored": "d46"

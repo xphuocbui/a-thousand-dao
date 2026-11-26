@@ -46,7 +46,7 @@
    "concept": "The painting of things that move. On bamboo paper from the abbey's mill, a figure painted in qi-ink can walk inside its scroll and, for a few breaths, step off it. Wood gives the figure its life and Water its ink. The abbey lives on this art: it sells door scrolls whose painted guardians step down at night, and boat scrolls whose painted carp swim ahead of a hull to find the deep channel. In a fight the painter unrolls a scroll and lets what is on it out.",
    "arts": [
     {"new": "Door Guardian (Môn Thần Quyển)", "concept": "Unrolls a painted guardian for 10 s: a companion that strikes with Wood and takes the foe's hits as a decoy; after it has taken N hits it goes back into the scroll and cannot be called for 20 s.", "authored": "a1"},
-    {"new": "Ink Rain (Mặc Vũ)", "concept": "Shakes the wet scroll over the ground: a field of ink drops for 4 s that slows foes and gives each a Wood stack per second they stand in it."}
+    {"new": "Ink Rain (Mặc Vũ)", "concept": "Shakes the wet scroll over the ground: a Field of ink drops for 4 s; while it is up, the foe is slowed and gains a Wood stack per second."}
    ],
    "lore": "The founder's door scrolls were the abbey's first trade, sold in Triều Âm Thành from 910. Since 1158 the abbey teaches it with one rule: never paint a living face onto the scroll, only its reflection.",
    "status": "proposal",
@@ -59,7 +59,7 @@
    "concept": "Kha Đạm Mặc believed the pool of Đàm Ảnh Thành keeps every sky it has ever held, layer on layer like sediment, and that a painter with enough stillness can paint an old one back out. This is his method for doing it. In a fight it paints the foe's reflection from a few seconds before and sets the foe back into it: their newest wards and buffs are lost, and any blow they struck in those seconds is undone on the painter. It is slow to cast and costly, and the abbey says that every time it is used something of the painter goes into the water.",
    "arts": [
     {"new": "The Sky of a Moment Ago (Tiền Khắc Thiên)", "concept": "A long cast (2 s): the foe loses every buff and ward gained in the last 6 s, and the holder regains the health they took from her in that time. The holder loses 5 % of her maximum health, which does not return in this fight."},
-    {"new": "Ink Sediment (Mặc Trầm)", "concept": "A stance: each second the holder does not move, she gains one layer of stillness; each layer adds to the ward of her reflection-double, and all of them fall away when she moves."}
+    {"new": "Ink Sediment (Mặc Trầm)", "concept": "A stance: each second the holder stays Composed, she gains one layer of stillness; each layer adds to the ward of her reflection-double, and all of them fall away when she is no longer Composed."}
    ],
    "lore": "Kha taught it to two people, Diệp Tố Quyên and Mễ Phù Vân, and died in 1010 at the pool's edge with half the sky of 705 on his silk (N-nhan_van-02). Tần Đảo Ảnh has not been taught it and is trying it anyway.",
    "status": "proposal"

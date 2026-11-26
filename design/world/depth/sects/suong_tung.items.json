@@ -43,11 +43,11 @@
      "new": true,
      "id": "the-light-that-stays",
      "name": "The Light That Stays (Đăng Bất Diệt)",
-     "rule": "Your Cold Night Lamp lantern lasts twice as long, and while it burns, the first ward each foe crosses does not burn out."
+     "rule": "Your Cold Night Lamp lantern charge lasts twice as long, and while you hold it, the first ward the foe crosses does not burn out."
     }
    ],
    "lore": "The first ward lantern Văn Hàn Đăng made, at sixteen in his father's shop at Hồ Khẩu Thôn: birch-bark paper on a pine frame, with the founder's Lantern Ward written inside it. It hung over the lake mouth for twenty winters before he took it down and carried it up to the pavilion. Every lantern of the lake villages is copied from it.",
-   "build_use": "The head's lantern: sustain and cold resistance for allies, and wards that last.",
+   "build_use": "The head's lantern: sustain and cold resistance for you, and wards that last.",
    "holder": "van_han_dang",
    "made_by": "van_han_dang",
    "made_year": 1116,
@@ -93,7 +93,7 @@
      "new": true,
      "id": "sheets-in-the-wind",
      "name": "Sheets in the Wind (Phong Trung Chỉ)",
-     "rule": "Each time you lay a ward, one blank sheet from the flag flies to the nearest foe and slows it briefly."
+     "rule": "Each time you lay a ward, one blank sheet from the flag flies to the foe and slows it briefly."
     }
    ],
    "lore": "A flag stitched from the hundred best sheets of birch-bark paper Nhạc Hoa Bì has ever pressed, each with a plain ward on it. She carries it on the paper road to the palace, where Lư Chỉ Mặc of the pines checks every sheet before the wards are written.",

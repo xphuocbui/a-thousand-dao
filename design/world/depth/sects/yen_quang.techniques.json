@@ -30,10 +30,10 @@
    "id": "evening-haze-furnace",
    "name": "Evening Haze Furnace Art (Yên Quang Lô Pháp)",
    "tier": 1, "tech_kind": "secret", "names": ["moc", "tho"], "layers": 9, "rank": "noi_mon",
-   "concept": "The furnace is lit at dusk and banked at dawn, and the smoke that rises off it in the evening is the pavilion's name: the hazy light (yên quang). The alchemist learns to make the haze itself medicine. A pill's vapour is breathed into the dantian before the pill is formed, Wood for the herb's life and Earth for the furnace clay. In a fight the cultivator breathes out that haze. Allies in it mend over time, and foes in it are slowed and gather Wood.",
+   "concept": "The furnace is lit at dusk and banked at dawn, and the smoke that rises off it in the evening is the pavilion's name: the hazy light (yên quang). The alchemist learns to make the haze itself medicine. A pill's vapour is breathed into the dantian before the pill is formed, Wood for the herb's life and Earth for the furnace clay. In a fight the cultivator breathes out that haze. While it is up (a Field), you mend over time, and the foe is slowed and gathers Wood.",
    "arts": [
-    {"new": "Dusk Haze (Vãn Yên)", "concept": "A cloud of medicinal haze for 6 s: allies inside gain a healing-over-time stack each second, and foes inside gain a Wood stack and are slowed."},
-    {"new": "Bank the Furnace (Phong Lô)", "concept": "Ends the haze early: every healing stack on allies resolves at once at 150 %, and the holder's next haze costs half."}
+    {"new": "Dusk Haze (Vãn Yên)", "concept": "A cloud of medicinal haze for 6 s: you gain a healing-over-time stack each second, and the foe gains a Wood stack and is slowed."},
+    {"new": "Bank the Furnace (Phong Lô)", "concept": "Ends the haze early: every healing stack on you resolves at once at 150 %, and the holder's next haze costs half."}
    ],
    "lore": "Diêm Tử Tô wrote it in 1070-1090, the years the pavilion's first pills sold to Lạc Hà. Tào Mộ Tử made Hình Lạc Nhạn's miasma tincture with it in 1195.",
    "status": "proposal"
@@ -44,7 +44,7 @@
    "tier": 2, "tech_kind": "secret", "names": ["moc", "tho"], "layers": 12, "rank": "truong_lao",
    "concept": "The founder's canon, named for her and for the line the pavilion takes its name from: the haze gathers, and the evening hills turn purple (yên quang ngưng nhi mộ sơn tử). It teaches the cultivator to hold the haze inside the body for a whole night and let it settle into the meridians, so that every pill taken heals more and every wound closes slowly from within. In a fight it gathers healing that has not yet been spent and holds it, then releases it as a single wave.",
    "arts": [
-    {"new": "The Haze Gathers (Yên Ngưng)", "concept": "For 10 s, healing over time on the holder and nearby allies is stored instead of applied; at the end it is released at 160 % as one heal."},
+    {"new": "The Haze Gathers (Yên Ngưng)", "concept": "For 10 s, healing over time on the holder is stored instead of applied; at the end it is released at 160 % as one heal."},
     "second-spring"
    ],
    "lore": "Vi Ngưng Yên died in her breakthrough of 1150 holding a pill made under this canon. Diêm Tử Tô has taught it to no one since.",

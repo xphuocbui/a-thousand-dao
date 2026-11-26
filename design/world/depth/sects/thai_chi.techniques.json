@@ -46,8 +46,8 @@
    "id": "grain-rain-canon",
    "name": "Grain Rain Canon (Cốc Vũ Kinh)",
    "tier": 2, "tech_kind": "secret", "names": ["thuy", "moc"], "layers": 12, "rank": "truong_lao",
-   "concept": "The elders' secret is named for the spring rain that falls on the sown fields. The holder calls a fine rain of Water qi over the ground she stands on, and everything rooted in it heals and grows, whether herb, ally or Wood stack. Its strongest form waters a dying field back to life, and the valley has used it twice on the river floods.",
-   "arts": [{"new": "Grain Rain (Cốc Vũ)", "concept": "A rain field for several seconds: allies in it heal over time, and foes in it have their Wood stacks grow by one each second."}],
+   "concept": "The elders' secret is named for the spring rain that falls on the sown fields. The holder calls a fine rain of Water qi over the ground she stands on, and everything rooted in it heals and grows, whether herb, holder or Wood stack. Its strongest form waters a dying field back to life, and the valley has used it twice on the river floods.",
+   "arts": [{"new": "Grain Rain (Cốc Vũ)", "concept": "A rain Field for several seconds: while it is up, you heal over time, and the foe's Wood stacks grow by one each second."}],
    "lore": "Made by the valley's second mistress after the great flood of 700 (A074), to bring the drowned fields of the river back. Taught to the mistress and the field-warden.",
    "status": "proposal"
   }

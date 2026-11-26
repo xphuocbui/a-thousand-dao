@@ -366,7 +366,7 @@
     },
     "tree": {
      "start": "moc",
-     "intent": "Wood for the banner's stacks, Water for the dusk half's rain: he binds a foe and then washes his own side clean.",
+     "intent": "Wood for the Banner charge's stacks, Water for the dusk half's rain: he binds the foe and then washes his own side clean.",
      "targets": [
       5780,
       5782,
@@ -377,7 +377,7 @@
      ],
      "targets_note": "Binding route, Venom Surge's Wood stacks, then the dusk half's rain: Timely Rain, Nourishing Rain."
     },
-    "note": "The dusk line: a banner and half an art."
+    "note": "The dusk line: a Banner charge and half an art."
    },
    "items": [
     "np-painted-beam-banner",

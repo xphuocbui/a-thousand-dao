@@ -500,7 +500,7 @@
     "skills": {},
     "tree": {
      "start": "hoa",
-     "intent": "Fire banners on a wall."
+     "intent": "Fire Banner charges on a wall."
     }
    }
   },
@@ -2138,7 +2138,7 @@
     "skills": {},
     "tree": {
      "start": "kim",
-     "intent": "Metal banners."
+     "intent": "Metal Banner charges."
     }
    }
   },

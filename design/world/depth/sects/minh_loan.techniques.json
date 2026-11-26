@@ -20,7 +20,7 @@
    "tier": 0, "tech_kind": "main", "names": ["tho", "kim"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The outer gate makes the moulds a bell is cast in, and this is the method it makes them by. The novice packs clay round a core with her palms, breath by breath, until the clay holds the shape of a note before any bronze is poured. The Earth it draws is the mountain's, and the little Metal it touches is the ore dust in the clay. In a fight it hardens the skin like a fired mould and answers a blow with a dull ring.",
    "arts": [
-    {"new": "Fired Mould (Thiêu Phạm)", "concept": "A ward stance: the holder's skin sets like baked clay for 3 s, blocking the next hit; when the ward breaks it rings, giving nearby foes an Earth stack."},
+    {"new": "Fired Mould (Thiêu Phạm)", "concept": "A ward stance: the holder's skin sets like baked clay for 3 s, blocking the next hit; when the ward breaks it rings, giving the foe an Earth stack."},
     "mountain-stance"
    ],
    "lore": "Written at the coast in 962 by Hoa Minh Hòa, who said a caster who cannot make a mould will crack every bell she pours. Since 1188 it has been taught on the casting floor of Tằng Loan Phong, where the clay is better.",
@@ -30,9 +30,9 @@
    "id": "singing-luan-bell-canon",
    "name": "Singing Luan Bell Canon (Minh Loan Chung Kinh)",
    "tier": 1, "tech_kind": "main", "names": ["kim"], "layers": 9, "rank": "noi_mon",
-   "concept": "The caster casts herself. Metal qi is poured into the dantian like bronze into a mould and tuned there, layer by layer, until it rings at one true note. A cultivator of the canon fights by sounding that note. The luan bells of a lord's carriage ring because the carriage moves, and the canon's bell works the same way: it rings when the foe moves, and each ring lays Metal on them. The note drives off beasts and carries a warning a long way, which is what the pavilion sells.",
+   "concept": "The caster casts herself. Metal qi is poured into the dantian like bronze into a mould and tuned there, layer by layer, until it rings at one true note. A cultivator of the canon fights by sounding that note. The luan bells of a lord's carriage ring because the carriage moves, and the canon's bell works the same way: it rings when the foe presses, and each ring lays Metal on it. The note drives off beasts and carries a warning a long way, which is what the pavilion sells.",
    "arts": [
-    {"new": "Carriage Bell (Loan Linh)", "concept": "For 6 s, each time a foe within hearing moves or dodges, the bell rings: a light Metal hit and one Metal stack on that foe."},
+    {"new": "Carriage Bell (Loan Linh)", "concept": "For 6 s, each time the foe presses or dodges, the bell rings: a light Metal hit and one Metal stack on the foe."},
     {"new": "Ward Peal (Hộ Hưởng)", "concept": "One long note: a creature foe's soonest art waits 2 s (it flees); you gain a ward that grows with the Metal stacks on the foe.", "authored": "a1"}
    ],
    "lore": "Yến Bội Ngọc and Hoa Minh Hòa wrote it at the coast between 960 and 1000, from the ship bells they cast. Its upper layers were rewritten on Tằng Loan Phong after 1188, because the note rang truer there.",
@@ -47,7 +47,7 @@
    "id": "hanging-bells-array",
    "name": "Hanging Bells Array (Huyền Chung Trận)",
    "tier": 1, "tech_kind": "secret", "names": ["kim", "tho"], "layers": 9, "rank": "noi_mon",
-   "concept": "The art of hanging bells so that they guard a place: on a ship's rail, a caravan's poles, a city gate or Lạc Hà's Cloud Bridge. Each bell is set in Earth so that it hears the ground, and tuned in Metal so that the others answer it. A line of them rings when anything crosses it, and rings louder the harder it is pushed. In a fight the ringer sets small bells around a ground, and foes inside are slowed by the ringing.",
+   "concept": "The art of hanging bells so that they guard a place: on a ship's rail, a caravan's poles, a city gate or Lạc Hà's Cloud Bridge. Each bell is set in Earth so that it hears the ground, and tuned in Metal so that the others answer it. A line of them rings when anything crosses it, and rings louder the harder it is pushed. In a fight the ringer gains Bell charges, and while she holds them the foe is slowed by the ringing.",
    "arts": [
     {"new": "Hang the Bells (Huyền Linh)", "concept": "Sets four bell Pieces for 10 s; each time the foe fires an art while two or more stand, it gains one Slowed Time stack and Metal stacks, one more each crossing than the last. In a foreseen fight, the bells are hung before it begins, at no cost.", "authored": "d15, a1"},
     {"new": "Alarm Line (Cảnh Tuyến)", "concept": "Rings all your bell Pieces at once: the foe gains 2 Earth stacks, and its arts that come ready in the next 0.5 s wait until it ends.", "authored": "a1"}

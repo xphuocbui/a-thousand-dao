@@ -28,7 +28,7 @@
    "name": "Moon-Holding Scripture (Hàm Nguyệt Kinh)",
    "tier": 2, "tech_kind": "main", "names": ["thuy"], "layers": 12, "rank": "noi_mon",
    "concept": "The manor's own method. The cultivator sits on the stilt-halls over the still pool of Trầm Bích Đàm on the nights the moon lies on it, and draws the reflection's cold Water qi down into the dantian, where it is laid on in thin rings like nacre round a grain. Each layer is one ring. In a fight it is slow, patient Water: it heals, wards and wears a foe down, and its strongest art is a double of the holder, laid like a reflection, that takes the blow meant for her.",
-   "arts": ["deep-lake-stance", {"new": "The Moon in the Water (Thủy Trung Nguyệt)", "concept": "Lays a reflection of the holder on the ground for a few seconds; the next foe art that hits the holder hits the reflection instead, and the holder regains linh lực equal to part of the blow."}, {"new": "Full Pool (Mãn Đàm)", "concept": "A slow heal over time that grows stronger for each second the holder has not moved."}],
+   "arts": ["deep-lake-stance", {"new": "The Moon in the Water (Thủy Trung Nguyệt)", "concept": "Gains a Reflection charge for a few seconds; the next foe art that hits the holder hits the reflection instead, and the holder regains linh lực equal to part of the blow."}, {"new": "Full Pool (Mãn Đàm)", "concept": "A slow heal over time that grows stronger for each second the holder has not moved."}],
    "lore": "The founder said the moon in the lake is easier to catch than the one in the sky (A006); this is how. In the winter of 748 the lake froze to its bed (C146) and Kiều Băng Liên kept the spirit fish alive in the reflection with it, and came back with frost in her root.",
    "status": "proposal"
   },

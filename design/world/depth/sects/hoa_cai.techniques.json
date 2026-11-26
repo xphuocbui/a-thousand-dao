@@ -28,8 +28,8 @@
    "tier": 1, "tech_kind": "main", "names": ["tho"], "layers": 9, "rank": "noi_mon",
    "concept": "Named for the Canopy (Hoa Cái), the asterism that spreads over the pole star. The cultivator makes their body the furnace's lid, a heavy Earth canopy over the dantian, so that what is refined inside cannot escape. In a fight the holder takes blows on the canopy and returns them as pressure, and their poisons and debuffs on a foe stay sealed in longer.",
    "arts": [
-    {"new": "Spread the Canopy (Khai Cái)", "concept": "Raises an Earth ward over the holder; while it holds, debuffs the holder has laid on foes do not fade."},
-    {"new": "Lift the Lid (Khải Lô)", "concept": "Breaks the ward outward: every foe near the holder takes Earth damage that grows with the debuffs on them."},
+    {"new": "Spread the Canopy (Khai Cái)", "concept": "Raises an Earth ward over the holder; while it holds, debuffs the holder has laid on the foe do not fade."},
+    {"new": "Lift the Lid (Khải Lô)", "concept": "Breaks the ward outward: the foe takes Earth damage that grows with the debuffs on it."},
     {"new": "Pill Smoke (Đan Yên)", "concept": "A puff of censer smoke: a small Chaos hit. If a pill is prepared in your pill slot, the censer burns it: you get its effect at half strength, and the foe takes a cloud of 4 debuff stacks per pill grade, for 6 s, of the pill's element (Fire Burn, Wood Poison, Water or Ice the Ice stacks, Metal, Earth, Thunder and Wind their own; a pill with no element smokes as Poison). A pill that would fail gives you nothing, but its smoke lays in full. With no pill it is only the puff.", "id": "pill-smoke", "tags": ["smoke", "pill", "censer", "over_time"], "unlock_layer": 4, "record": "builds/authored/auth-tech.json (e2)", "authored": "e2"}
    ],
    "lore": "The founder's canon, written in his first year at the Hall. The furnace sits under a painted canopy of nine stars in the Hall's refining room, and the disciples cultivate beneath it.",
@@ -55,7 +55,7 @@
    "name": "Sulphur Lung Breath (Hoàng Phế Tức)",
    "tier": 0, "tech_kind": "body", "names": [], "layers": 6, "rank": "ngoai_mon",
    "concept": "A body art, element-free, that hardens the lungs, liver and skin against the fumes of cinnabar, mercury and sulphur. Every member of the Hall learns it before anything else. In a fight it gives resistance to poison and lets the holder breathe through their own poison clouds.",
-   "arts": [{"new": "Hold the Fume (Bế Khí)", "concept": "For a few seconds the holder is immune to poison and burning and regains health for every poison stack on foes nearby."}],
+   "arts": [{"new": "Hold the Fume (Bế Khí)", "concept": "For a few seconds the holder is immune to poison and burning and regains health for every poison stack on the foe."}],
    "lore": "Made by the founder after Tôn Luyện Hà's death in 1141, from the breathing of the Lưu Hoàng sulphur miners, who live to be old in air that kills a horse.",
    "status": "proposal"
   }

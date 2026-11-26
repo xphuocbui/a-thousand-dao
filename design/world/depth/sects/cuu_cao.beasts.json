@@ -24,7 +24,7 @@
    "combat": {
     "strikes": "phong",
     "power_share": 0.5,
-    "note": "A companion share under Formulas J: Wind strikes on the rider's basic_cooldown; it takes the rider's attack_pct [companion]; 'beside you' and allies counted (duel-readings R1) count it. A Crane for the Rider (crane-bond-rite) reads its hits through the `crane` tag, and Rider and King (cc-green-field-riders set) answers each evade with one of its Wind strikes."
+    "note": "A companion share under Formulas J: Wind strikes on the rider's basic_cooldown; it takes the rider's attack_pct [companion]; 'beside you' (duel-readings R1) counts it. A Crane for the Rider (crane-bond-rite) reads its hits through the `crane` tag, and Rider and King (cc-green-field-riders set) answers each evade with one of its Wind strikes."
    },
    "bond": {
     "rider": "ung_hac_minh",

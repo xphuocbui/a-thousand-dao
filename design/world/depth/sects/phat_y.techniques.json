@@ -20,7 +20,7 @@
    "name": "Dry Road Sword Primer (Hạn Lộ Kiếm Quyết)",
    "tier": 0, "tech_kind": "main", "names": ["kim", "hoa"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The caravan guard's method, taught to the outer gate on the hot steppe roads below the valley. It draws Metal from the ore hills and Fire from the noon ground, either one, and keeps a sword arm loose through a long day's heat. It fights in short exchanges and gets stronger the longer the guard has been on the road.",
-   "arts": [{"new": "Noon Guard (Ngọ Vệ)", "concept": "A stance: each foe hit on you while it holds is partly turned onto your sword (less damage taken) and grants a stack of Heat that strengthens your next cut.", "authored": "a1"}],
+   "arts": [{"new": "Noon Guard (Ngọ Vệ)", "concept": "A stance: each hit by the foe on you while it holds is partly turned onto your sword (less damage taken) and grants a stack of Heat that strengthens your next cut.", "authored": "a1"}],
    "lore": "Written by the second head Liễu Hành Vân for the companies she hired out to the camel trains of Đà Đội Thôn, so that a girl from the hot springs and a boy from the copper mines could learn the same sword.",
    "status": "proposal",
    "authored": "a1"
@@ -29,10 +29,10 @@
    "id": "contract-sword-canon",
    "name": "Contract Sword Canon (Khế Kiếm Kinh)",
    "tier": 1, "tech_kind": "main", "names": ["kim"], "layers": 9, "rank": "noi_mon",
-   "concept": "A hired sword's method: it counts a fight as a contract counts its terms to the fee. The cultivator counts terms instead of breaths. In a fight, each second you are Moving and strike nothing serves a Term (Khoản 款), and each hit you take strikes one Term off. It is a method for finishing a contract, not for winning a war.",
+   "concept": "A hired sword's method: it counts a fight as a contract counts its terms to the fee. The cultivator counts terms instead of breaths. In a fight, each second you are Pressing and strike nothing serves a Term (Khoản 款), and each hit you take strikes one Term off. It is a method for finishing a contract, not for winning a war.",
    "arts": [
     {"new": "Final Count (Tận Số)", "concept": "Spends all served Terms on one Metal strike whose damage and crit chance grow with each Term; at five Terms or more it ignores part of the foe's defence."},
-    {"new": "Step Back (Thoái Bộ)", "concept": "After your hit makes the foe Broken or breaks a ward, you step away: you gain evade for a moment and are At range for 1 s.", "authored": "a1"}
+    {"new": "Step Back (Thoái Bộ)", "concept": "After your hit makes the foe Broken or breaks a ward, you gain evade for 1 s.", "authored": "a1"}
    ],
    "lore": "The founder Quách Lĩnh Thù's method, the canon every inner disciple of the valley takes before their first contract. The founder cut his saying on the lintel of the hall, where every hired sword passes under it on the way out: the fee is the whole of the thanks.",
    "status": "proposal",
@@ -44,8 +44,8 @@
    "tier": 2, "tech_kind": "secret", "names": ["phong"], "layers": 12, "rank": "tong_chu",
    "concept": "The founder's own art, the valley's custom made into a step: a sleeve brushed across the hilt ends the hire. It runs on Wind alone. The holder moves on the air between one step and the next, and a sleeve brushed across a blade turns it. Taught only to a Wind root; the valley has had two in six centuries.",
    "arts": [
-    {"new": "Brush the Sleeve (Phất Y)", "concept": "Turns the next attack aimed at the holder with a sweep of the sleeve and moves them a short distance on the wind; for a breath after, their Metal strikes are faster."},
-    {"new": "A Thousand Sleeves (Thiên Tụ)", "concept": "For a few seconds the holder's strikes leave afterimages that strike again a moment later; while it lasts, foes cannot single them out."}
+    {"new": "Brush the Sleeve (Phất Y)", "concept": "Turns the next attack aimed at the holder with a sweep of the sleeve; for a breath after, their Metal strikes are faster."},
+    {"new": "A Thousand Sleeves (Thiên Tụ)", "concept": "For a few seconds the holder's strikes leave afterimages that strike again a moment later; while it lasts, the foe cannot single them out."}
    ],
    "lore": "Quách Lĩnh Thù taught it to no one and left it folded into his grey robe in the valley's hall when he walked away in 790. The robe opens only to a Wind root. Liễu Hành Vân, who had no Wind, kept it closed for three centuries because no one had the Wind to open it, until a hawk-catcher's son from Thương Ưng Đài did: Thang Vô Tạ.",
    "status": "proposal"

@@ -41,7 +41,7 @@
      "new": true,
      "id": "smoke-on-the-road",
      "name": "Smoke on the Road (Đạo Thượng Yên)",
-     "rule": "When an ally within your Hold the Sand ring is struck, your next Answering Cut against that attacker cannot miss."
+     "rule": "While your Hold the Sand ring (a Field) is up, when you are struck, your next Answering Cut against that attacker cannot miss."
     }
    ],
    "lore": "A broad sabre with a hilt of grey horn. Tống Thối Kim forged it in 1125 for the founding of the hall, from the sabre Viên Trường Hà was carrying the day Dạ Quang's raiders killed him.",

@@ -58,7 +58,7 @@
    "tier": 2, "tech_kind": "secret", "names": ["bang", "tho"], "layers": 12, "rank": "truong_lao",
    "concept": "The elders' array method. It teaches how to lay ice into earth, so that a formation holds its shape in a glacier the way stone holds it in a mountain. Its greatest work is the Jade Vessel Array under the Pavilion, which keeps the fire of Chúc Long Sơn sleeping beneath the ice. Fighting arrays come from it as well: frost-lotus seals that slow and freeze anyone who walks into them.",
    "arts": [
-    {"new": "Lotus Seal Ground (Liên Ấn Địa)", "concept": "Lays a frost-lotus seal under the holder; foes inside take Ice stacks each second and their art speed falls."},
+    {"new": "Lotus Seal Ground (Liên Ấn Địa)", "concept": "Lays a frost-lotus seal (a Field); while it is up, the foe takes Ice stacks each second and its art speed falls."},
     {"new": "Glacier Bastion (Băng Xuyên Lũy)", "concept": "Raises an ice wall ward that grows stronger the longer the holder stands inside the seal."}
    ],
    "lore": "Tiết Hàn Mai has kept the Jade Vessel Array for three hundred years and knows every node of it by touch. She has taught it whole to no one.",

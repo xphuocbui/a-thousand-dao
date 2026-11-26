@@ -20,7 +20,7 @@
    "tier": 0, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The bean-pickers' method, learned on the trellises at the back garden. The student draws Wood or Water qi through the fingertips while sorting red beans, which are bright, pretty and deadly, by touch alone, so that the hand learns which seed is ripe and which is poison before the eye does. It is a gentle method with one hard lesson: a picker who sorts carelessly dies of it. In a fight it sows seeds that ripen into small poisons.",
    "arts": [
-    {"new": "Scatter Beans (Tán Đậu)", "concept": "Throws a handful of red beans: each foe hit gains one Wood poison stack, and a foe who already holds three stacks is slowed briefly."}
+    {"new": "Scatter Beans (Tán Đậu)", "concept": "Throws a handful of red beans: the foe hit gains one Wood poison stack, and a foe who already holds three stacks is slowed briefly."}
    ],
    "lore": "Written by Nghê Hồng Đậu in 912 for the first girls she took in at the manor, two years after she found the sword and planted the beans (C168, A275).",
    "status": "proposal"

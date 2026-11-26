@@ -551,7 +551,7 @@
     "skills": {},
     "tree": {
      "start": "moc",
-     "intent": "Wood roots and debuff duration first, then the body land's palm counters: he pins a foe in place and breaks them there.",
+     "intent": "Wood roots and debuff duration first, then the body land's palm counters: he binds the foe (it cannot flee) and breaks it.",
      "targets": [
       6169,
       6166,
@@ -561,9 +561,9 @@
       9015,
       6252
      ],
-     "targets_note": "Pine route, then Binding Vine, the Strangling Vines keystone (foe Slowed at 5 Wood stacks) and Thorn Hedge: pin the foe, break him there."
+     "targets_note": "Pine route, then Binding Vine, the Strangling Vines keystone (foe Slowed at 5 Wood stacks) and Thorn Hedge: Bind the foe, break him."
     },
-    "note": "Roots, a war banner and a palm: a fighter who wants the foe to stand still."
+    "note": "Roots, a war Banner charge and a palm: a fighter who wants the foe to stay Composed."
    },
    "items": [
     "td-coiled-root-banner",
@@ -1489,7 +1489,7 @@
     "skills": {},
     "tree": {
      "start": "thuy",
-     "intent": "Water damage and linh lực; a boat fighter who strikes from range.",
+     "intent": "Water damage and linh lực; a boat fighter who strikes while Composed.",
      "targets": [
       6169,
       6166,
@@ -1498,7 +1498,7 @@
       5261,
       5304
      ],
-     "targets_note": "Pine route from Water, then Rolling Waves and Mill Race: a boat fighter's fast Water arts at range."
+     "targets_note": "Pine route from Water, then Rolling Waves and Mill Race: a boat fighter's fast Water arts while Composed."
     }
    },
    "items": [

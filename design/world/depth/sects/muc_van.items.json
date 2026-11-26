@@ -40,7 +40,7 @@
      "new": true,
      "id": "turn-the-herd",
      "name": "Turn the Herd (Hồi Quần)",
-     "rule": "When your companion's hit lands within 1 s of one of your art hits, the foe is Displaced and your companion's next hit deals 30 % more.",
+     "rule": "When your companion's hit lands within 1 s of one of your art hits, the foe's soonest art waits 0.3 s and your companion's next hit deals 30 % more.",
      "authored": "a1"
     }
    ],
@@ -303,7 +303,7 @@
     },
     {
      "pieces": 3,
-     "effect": "Ninety Thousand Li (Cửu Vạn Lý): each blow you evade winds the whirlwind tighter, one Wind buff stack; when you cast a Wind escape art with 8 or more stacks you spend them all on a gust: you are At range for 2 s and gain 2.5 % evasion for 4 s for each stack spent."
+     "effect": "Ninety Thousand Li (Cửu Vạn Lý): each blow you evade winds the whirlwind tighter, one Wind buff stack; when you cast a Wind escape art with 8 or more stacks you spend them all on a gust: for 2 s the foe's hits on you deal 20 % less, and you gain 2.5 % evasion for 4 s for each stack spent."
     }
    ],
    "story": "The abbey's pennant and habit, and her father's stone. Thôi Dương Giác holds all three, and means to hand the first two to whoever lights the abbey after her.",

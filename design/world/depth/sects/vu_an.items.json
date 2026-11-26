@@ -83,7 +83,7 @@
      "new": true,
      "id": "out-of-the-mist",
      "name": "Out of the Mist (Xuất Vụ)",
-     "rule": "Your first hit after leaving a mist field strikes 20 % harder. By the sect's rule it is never struck from inside the mist."
+     "rule": "Your first hit after your mist field ends strikes 20 % harder. By the sect's rule it is never struck while the mist is up."
     }
    ],
    "lore": "A woodsman's axe re-hafted in lynx-bone, carried by the robbers of Đoản Vĩ Cương (1043). Its owner brought it with him when the founder hid him from Thúy Vi's patrol in 1081 (N-vu_an-02). It has killed men on both sides of the law.",
@@ -151,7 +151,7 @@
        "scope": []
       }
      ],
-     "effect": "Nobody Looked (Vô Nhân Cố): while your mist formation holds, the first art aimed at you every 8 s misses; when you leave the field, the mist holds 3 s longer."
+     "effect": "Nobody Looked (Vô Nhân Cố): while your mist formation holds, the first art aimed at you every 8 s misses; the mist holds 3 s longer."
     }
    ],
    "story": "The lantern found burning on the road in 1146 and the flag he painted that night: the cape roads' mist in two things a carrier can hold."

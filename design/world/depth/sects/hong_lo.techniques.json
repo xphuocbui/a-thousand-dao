@@ -44,7 +44,7 @@
    "id": "whale-road-harpoon",
    "name": "Whale Road Harpoon (Kình Lộ Tiêu Pháp)",
    "tier": 1, "tech_kind": "secret", "names": ["thuy"], "layers": 9, "rank": "ngoai_mon",
-   "concept": "The sea hunters' art from Kình Cốt Đường, carried into the valley in 884 (V013). The hunter throws a line of Water qi with the spear and hauls on it, so a struck foe is dragged and held. It was made for spirit whales and works on anything that tries to run. Hồng Lô's boat crews use it to hold their boats in the swell off the volcanic isles while the alchemists gather ash.",
+   "concept": "The sea hunters' art from Kình Cốt Đường, carried into the valley in 884 (V013). The hunter throws a line of Water qi with the spear, so a struck foe's soonest art waits 0.3 s. It was made for spirit whales and works on anything that tries to run. Hồng Lô's boat crews use it to hold their boats in the swell off the volcanic isles while the alchemists gather ash.",
    "arts": [
     "drag-of-the-deep",
     {"new": "Line on the Whale (Kình Tác)", "concept": "A spear hit that ties a Water line to the foe for 6 s: while it holds, the foe's movement arts fail and each of your Water hits on them adds a Slowed Time stack."}

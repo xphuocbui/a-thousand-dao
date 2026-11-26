@@ -36,7 +36,7 @@
    "id": "fallen-star-forging-rite",
    "name": "Rite of the Fallen Star (Vẫn Tinh Đoán Pháp)",
    "tier": 2, "tech_kind": "secret", "names": ["kim", "hoa"], "layers": 12, "rank": "tong_chu",
-   "concept": "The forging rite for sky iron. The smith holds the metal at a heat no coal fire reaches by feeding it their own Fire qi, and folds their Metal into it at each strike, so the blade keeps part of the maker. It cannot be cultivated without a Fire root. In a fight it lets the holder heat their own blade: Metal strikes burn, and burning foes take Quench marks faster.",
+   "concept": "The forging rite for sky iron. The smith holds the metal at a heat no coal fire reaches by feeding it their own Fire qi, and folds their Metal into it at each strike, so the blade keeps part of the maker. It cannot be cultivated without a Fire root. In a fight it lets the holder heat their own blade: Metal strikes burn, and a burning foe takes Quench marks faster.",
    "arts": [
     {"new": "White Heat (Bạch Nhiệt)", "concept": "For a few seconds the holder's Metal arts also deal Fire damage and each hit applies a burn; a burning foe gains Quench marks twice as fast."},
     {"new": "The Maker's Fold (Tượng Chiết)", "concept": "Spends health to empower the holder's flying sword: its next strikes cannot be parried and leave a lasting mark."}

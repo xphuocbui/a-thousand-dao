@@ -25,7 +25,7 @@
    "concept": "The outer gate's method, practised with the hands in the spirit fields. A Wood root breathes as the seed and an Earth root as the soil; either alone will carry a disciple through its six layers, and a root that holds both moves faster. Each layer is tied to a season of field work, so an outer disciple cannot rush it. Its sixth layer is the First Leaf: the life tree the disciple planted on the day they joined puts out its first spirit leaf. Then, if their Wood holds, the inner gate opens.",
    "arts": [
     "seed-of-spring",
-    {"new": "Furrow Palm (Lũng Chưởng)", "concept": "A low, dragging palm that lays one Earth stack and one Wood stack together; a foe carrying both moves and casts a little slower. The outer gate's only fighting art, and a field tool first."}
+    {"new": "Furrow Palm (Lũng Chưởng)", "concept": "A low, dragging palm that lays one Earth stack and one Wood stack together; a foe carrying both casts a little slower. The outer gate's only fighting art, and a field tool first."}
    ],
    "lore": "Quyền Thanh Lam rewrote it in 1006, the year the sect came down to Cổ Dịch Trấn (N-thuy_vi-03). The old primer had been written for rock gardens on the ridge and would not take in the deep loam of the post town's lost gardens.",
    "status": "proposal",
@@ -41,12 +41,12 @@
    "id": "emerald-haze-canon",
    "name": "Emerald Haze True Canon (Thúy Vi Chân Kinh)",
    "tier": 2, "tech_kind": "main", "names": ["moc", "tho"], "layers": 12, "rank": "chan_truyen",
-   "concept": "The founder's method and the sect's name. Thúy vi is the green breath of a mountain's middle slope, the haze that rises from living leaves over wet soil. Vương Duy wrote that on a mountain road with no rain, the empty green wet the travellers' clothes. The practitioner draws qi from growing things and breathes it back out as that haze. Allies inside it mend; foes inside it are slowly rooted to the ground. Like every method, it cultivates faster on land that matches it, here where Wood is strong in the place's qi, and slowly where it is not. On the Metal ridge it was slow for five centuries, and that is why the sect left the ridge.",
+   "concept": "The founder's method and the sect's name. Thúy vi is the green breath of a mountain's middle slope, the haze that rises from living leaves over wet soil. Vương Duy wrote that on a mountain road with no rain, the empty green wet the travellers' clothes. The practitioner draws qi from growing things and breathes it back out as that haze. While it is up, you mend and the foe slowly cannot evade. Like every method, it cultivates faster on land that matches it, here where Wood is strong in the place's qi, and slowly where it is not. On the Metal ridge it was slow for five centuries, and that is why the sect left the ridge.",
    "arts": [
     "second-spring",
     "rooted-form",
-    {"new": "Empty Green Wets the Robe (Không Thúy Thấp Y)", "concept": "Lays a haze field around the holder for 8 s: allies inside regain health and linh lực each second, foes inside gain a Wood stack each second; a foe with five Wood stacks takes an Earth stack and is rooted for a breath."},
-    {"new": "Moss in the Returning Light (Phản Cảnh Thanh Đài)", "concept": "Plants a slow heal on an ally that blooms the next time they are struck, healing for twice what it would have given over time."}
+    {"new": "Empty Green Wets the Robe (Không Thúy Thấp Y)", "concept": "Lays a haze field around the holder for 8 s: you regain health and linh lực each second, the foe gains a Wood stack each second; a foe with five Wood stacks takes an Earth stack and cannot evade for 1 s."},
+    {"new": "Moss in the Returning Light (Phản Cảnh Thanh Đài)", "concept": "Plants a slow heal on you that blooms the next time you are struck, healing for twice what it would have given over time."}
    ],
    "lore": "Phùng Yên Hà wrote it in her first ten years on the empty mountain (500-510), from Không Sơn Viện's quiet and her own love of landscape (yên hà). The first copy was written on mulberry paper that the haze kept damp for five centuries. It is kept at the new seat, and it is still damp.",
    "status": "proposal",
@@ -65,7 +65,7 @@
    "concept": "A walking art. The body thins into the green haze of a forest slope, so the walker is hard to see, hard to strike and hard to follow. It is taught to the inner gate for travel and for leaving a fight. By sect rule it is never used to come at a foe unseen. In a fight it gives evasion and a short concealment, and it can lay haze on a path behind the walker to blind pursuers.",
    "arts": [
     {"new": "Step into the Green (Nhập Thúy Bộ)", "concept": "A step that hides the holder for 1.5 s: the next hit aimed at them misses, and their next art is cast at full speed."},
-    {"new": "Haze on the Path (Vụ Tỏa Kính)", "concept": "Lays a haze strip behind the holder for 6 s; foes inside lose accuracy and cannot see hidden things."}
+    {"new": "Haze on the Path (Vụ Tỏa Kính)", "concept": "Lays a haze strip for 6 s; while it is up, the foe loses accuracy and cannot see hidden things."}
    ],
    "lore": "This is the art in annal V015. Tất Hành Vụ taught it in 1048 to his sworn brother, a road guard. The man took it to the cape and founded Vụ Ẩn Môn on it (N-thuy_vi-07). The sect still argues over whether that was a gift or a theft.",
    "status": "proposal",
@@ -105,7 +105,7 @@
     "harvest-bloom",
     {"new": "Green Fire Eats Dead Wood (Thanh Hỏa Thực Khô)", "concept": "A green burn over 6 s that deals half again as much to a foe below half health; if the foe is Broken while it burns, the burn is laid on it again at half strength.", "authored": "a1"},
     {"new": "Pill Smoke Ward (Đan Yên Hộ)", "concept": "Breathes out the smoke of the last pill taken: a ward for 5 s that also cuts the next debuff's duration by half."},
-    {"new": "The Furnace Spills Over (Lô Dật)", "concept": "A passive art. Healing lost to your full health is stored, and the store fades by a tenth each second; when the foe is Rooted or carries five of your Wood stacks, it falls on the foe as Wood damage, once every 3 s.", "effect": "the-empty-mountains-answer", "authored": "d5"}
+    {"new": "The Furnace Spills Over (Lô Dật)", "concept": "A passive art. Healing lost to your full health is stored, and the store fades by a tenth each second; when the foe cannot evade or carries five of your Wood stacks, it falls on the foe as Wood damage, once every 3 s.", "effect": "the-empty-mountains-answer", "authored": "d5"}
    ],
    "lore": "Âu Dương Thanh Lô wrote it in the 520s, when the sect was too poor to buy volcano fire from the isles. He died in 932 at Bách Thảo Viện trying to tame a fire cauldron that green flame could not hold (V029). The Furnace Hall keeps the method's last page burned at the edge, as he left it.",
    "status": "proposal",
@@ -120,7 +120,7 @@
     {"new": "No One Is Seen (Bất Kiến Nhân)", "concept": "While the holder casts nothing for 2 s, they are hidden; the first art cast from hiding is cast instantly."},
     {"new": "Returning Light (Phản Cảnh)", "concept": "For 6 s, a third of the damage the holder takes is stored and returns as healing over the next 6 s."},
     {"new": "Voices on the Empty Mountain (Không Sơn Nhân Ngữ)", "concept": "An echo: the holder's last art repeats once at half strength from where they stood, after they have moved."},
-    {"new": "The Empty Mountain's Answer (Không Sơn Đáp)", "concept": "A passive art. Healing lost to your full health is stored as Green, and the Green fades by a tenth each second; when the foe is Rooted or carries five of your Wood stacks, the Green falls on it as Wood damage, once every 3 s.", "effect": "the-empty-mountains-answer", "authored": "d5"}
+    {"new": "The Empty Mountain's Answer (Không Sơn Đáp)", "concept": "A passive art. Healing lost to your full health is stored as Green, and the Green fades by a tenth each second; when the foe cannot evade or carries five of your Wood stacks, the Green falls on it as Wood damage, once every 3 s.", "effect": "the-empty-mountains-answer", "authored": "d5"}
    ],
    "lore": "Thôi Bất Kiến gave it to Phùng Yên Hà with the hills, his whisk and his only student (C100). Only the founder and Ngu Lam Sơn have read past its ninth layer. The traveller who heard someone reading aloud in the empty academy in 1195 (A048) heard its first lines.",
    "status": "proposal",

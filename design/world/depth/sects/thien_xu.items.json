@@ -13,7 +13,7 @@
   {
    "id": "tx-seven-star-flag", "name": "Seven-Star Array Flag (Thất Tinh Trận Kỳ)", "family": "earth", "kind": "artifact", "base": "ky", "grade": 4,
    "modifiers": [{"key": "stack_effect_pct", "value": 28, "scope": ["tho", "buff"]}, {"key": "stack_duration_pct", "value": 34, "scope": ["tho", "buff"]}, {"key": "attack_pct", "value": 12, "scope": ["kim"]}, {"key": "than_thuc_pct", "value": 5, "scope": []}, {"key": "khi_huyet_pct", "value": 8, "scope": []}],
-   "effects": [{"new": true, "id": "seven-lamps", "name": "Seven Lamps Turn (Thất Đăng Chuyển)", "rule": "Each formation art you cast lights one of seven star-lamps around you. At the seventh, your next ward is doubled and every foe within the lamps gains two Earth stacks; then the lamps go out."}],
+   "effects": [{"new": true, "id": "seven-lamps", "name": "Seven Lamps Turn (Thất Đăng Chuyển)", "rule": "Each formation art you cast lights one of seven star-lamps around you. At the seventh, your next ward is doubled and the foe gains two Earth stacks; then the lamps go out."}],
    "lore": "Black silk on an iron staff, sewn with seven silver stars that move a little through the year. The founder planted it on the day the seat was raised (C002), and the seat's Seven-Star Array is still keyed to it.",
    "build_use": "Array keeper's anchor: Earth buffs held longer, wards doubled on the turn.",
    "holder": "doan_ngoc_hanh", "made_by": "chung_hoai_cuc", "made_year": 120, "set": "tx-pivot-regalia", "status": "proposal"
@@ -48,7 +48,7 @@
   {
    "id": "tx-seventh-star-drum", "name": "War Drum of the Seventh Star (Dao Quang Chiến Cổ)", "family": "metal", "kind": "artifact", "base": "co", "grade": 3,
    "modifiers": [{"key": "attack_pct", "value": 15, "scope": ["companion"]}, {"key": "art_speed_pct", "value": 10, "scope": ["artifact"]}, {"key": "khi_huyet_pct", "value": 10, "scope": []}, {"key": "stack_grant", "value": 1, "scope": ["kim", "debuff"]}],
-   "effects": [{"new": true, "id": "beat-to-quarters", "name": "Beat to Quarters (Kích Cổ Tề Binh)", "rule": "When you summon a warden or plant a formation, every ally and summon you command strikes once at once; this can happen once each 10 s."}],
+   "effects": [{"new": true, "id": "beat-to-quarters", "name": "Beat to Quarters (Kích Cổ Tề Binh)", "rule": "When you summon a warden or plant a formation, every companion and summon you command strikes once at once; this can happen once each 10 s."}],
    "lore": "An iron-hooped drum skinned with the hide of a mountain ox from Mao Ngưu Thôn. The Dao Quang Hall beat it to muster in the Pirate Purge and at Cố Lũy; it has not been struck in earnest since 805, and Ngũ Trấn Bắc has it tuned every spring.",
    "build_use": "A war-array build: summoned wardens and formation links that hit together.",
    "holder": "ngu_tran_bac", "made_by": "thien_xu", "made_year": 776, "set": "tx-dao-quang-kit", "status": "proposal"
@@ -97,9 +97,9 @@
   {
    "id": "tx-square-and-compass", "name": "Square-and-Compass Flag (Quy Củ Kỳ)", "family": "earth", "kind": "artifact", "base": "ky", "grade": 3,
    "modifiers": [{"key": "stack_effect_pct", "value": 22, "scope": ["tho", "buff"]}, {"key": "stack_duration_pct", "value": 28, "scope": ["tho", "buff"]}, {"key": "than_thuc_pct", "value": 4, "scope": []}, {"key": "defense_pct", "value": 6, "scope": []}],
-   "effects": [{"new": true, "id": "true-to-the-line", "name": "True to the Line (Trúng Thằng)", "rule": "Your stele and anchor Pieces are not worn by foe hits, and last 3 s longer.", "authored": "a1"}],
+   "effects": [{"new": true, "id": "true-to-the-line", "name": "True to the Line (Trúng Thằng)", "rule": "Your Stele and Anchor charges are not worn by foe hits, and last 3 s longer.", "authored": "a1"}],
    "lore": "A small square flag on a staff made from a carpenter's square and a compass bound together. The Thiên Cơ Hall's master plants it first whenever a stele is set; it was made for the stele walk of 515.",
-   "build_use": "A stele-array build: anchors that hold and Earth wards that last.",
+   "build_use": "A Stele-charge build: anchors that hold and Earth wards that last.",
    "holder": "thien_thua_cu", "made_by": "thien_xu", "made_year": 515, "set": null, "status": "proposal",
    "authored": "a1"
   },
@@ -114,7 +114,7 @@
   {
    "id": "tx-iron-horse-banner", "name": "Armoured Horse Banner (Thiết Mã Kỳ)", "family": "general", "kind": "treasure", "base": "ky", "grade": 4,
    "modifiers": [{"key": "attack_pct", "value": 16, "scope": ["companion"]}, {"key": "attack_pct", "value": 14, "scope": ["am"]}, {"key": "khi_huyet_pct", "value": 12, "scope": []}, {"key": "than_thuc_pct", "value": 5, "scope": []}, {"key": "stack_effect_pct", "value": 20, "scope": ["tho", "buff"]}],
-   "effects": [{"new": true, "id": "banner-of-the-waiting-army", "name": "The Banner Is Raised (Kỳ Khởi)", "rule": "While the banner is planted, your summons take a quarter less damage and gain a Darkness stack on each foe they strike."}],
+   "effects": [{"new": true, "id": "banner-of-the-waiting-army", "name": "The Banner Is Raised (Kỳ Khởi)", "rule": "While you hold the Banner charge, your summons take a quarter less damage and gain a Darkness stack on the foe they strike."}],
    "lore": "The marshal's banner, black silk woven with black iron thread from Huyền Thiết, which drinks light and is why the pair is Darkness. Đỗ Tinh Hà gave it to Quý Trường Kích in 785 (C154). Lôi Vô Danh carried it off the plain of Chiết Kích in 803 and hid it with himself in the cave abode of slot A-3 on Thiên Tuyền Nguyên, where he died in 950. Element Darkness (am). Legendary item thiet_ma_ky.",
    "build_use": "A summoner's war standard; whole only with its tally.",
    "holder": null, "where": "cave abode A-3, Thiên Tuyền Nguyên (lost)", "made_by": "thien_xu", "made_year": 785, "set": "tx-iron-horse", "legendary_key": "thiet_ma_ky", "status": "proposal"
@@ -313,7 +313,7 @@
   {
    "id": "tx-iron-horse", "name": "The Armoured Horse (Thiết Mã Song Bảo)", "pieces": ["tx-iron-horse-banner", "tx-iron-horse-tally"],
    "bonuses": [
-    {"pieces": 2, "modifiers": [{"key": "attack_pct", "value": 10, "scope": ["companion"]}, {"key": "khi_huyet_pct", "value": 8, "scope": []}], "effect": "The Army That Waits (Phục Binh Tại Cảnh): with banner and tally both, you may open Thiết Mã Cảnh. In a fight, once, the riders join you as a companion for 10 s; their first hit Displaces the foe (heavy). Outside a fight, the pair commands the army in the realm, which is a world event, not a stat."}
+    {"pieces": 2, "modifiers": [{"key": "attack_pct", "value": 10, "scope": ["companion"]}, {"key": "khi_huyet_pct", "value": 8, "scope": []}], "effect": "The Army That Waits (Phục Binh Tại Cảnh): with banner and tally both, you may open Thiết Mã Cảnh. In a fight, once, the riders join you as a companion for 10 s; their first hit makes the foe's soonest art wait 0.5 s. Outside a fight, the pair commands the army in the realm, which is a world event, not a stat."}
    ],
    "story": "Made in 785 for the war marshal (C154), parted at Chiết Kích in 803: the banner went into hiding with Lôi Vô Danh, the tally's halves into the realm and out of the archive. Đỗ Tinh Hà has looked for both for four hundred years. Ngũ Trấn Bắc wants them found; Doãn Ngọc Hành would prefer they were not.",
    "authored": "a1"
@@ -353,7 +353,7 @@
    "id": "tx-archive-desk", "name": "Keeper's Desk (Tàng Ước Tam Bảo)", "pieces": ["tx-compact-inkstone", "tx-archive-robe", "tx-archive-key"],
    "bonuses": [
     {"pieces": 2, "modifiers": [{"key": "linh_luc_regen_inc_pct", "value": 8, "scope": []}, {"key": "attack_pct", "value": 6, "scope": ["seal"]}]},
-    {"pieces": 3, "effect": "The Door Stays Shut (Môn Bất Khai): while you are Still, each seal art you cast lays a seal-ward on you worth 4 % of your linh lực, and each seal-ward loses a tenth of its value each second; a foe whose name the inkstone has written three times holds its arts: those that come ready in the next 2 s wait until the 2 s end."}
+    {"pieces": 3, "effect": "The Door Stays Shut (Môn Bất Khai): while you are Composed, each seal art you cast lays a seal-ward on you worth 4 % of your linh lực, and each seal-ward loses a tenth of its value each second; a foe whose name the inkstone has written three times holds its arts: those that come ready in the next 2 s wait until the 2 s end."}
    ],
    "story": "The founder's key, the Compact's inkstone and the keeper's own robe. The key and stone pass with the archive; the robe is hers, and the Pivot will have to make another.",
    "authored": "a1"

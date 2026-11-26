@@ -28,13 +28,13 @@
    "names": [],
    "layers": 9,
    "rank": "noi_mon",
-   "concept": "The wardens' method is cultivated on the road. Qi is drawn in with each pull of the bow and driven into the bone with each turn of the staff, so a warden cultivates by walking his road, shooting and fighting. It runs on no element: the strength is the body's. In a fight it is a guard's method, with long shots that pin a foe in place and a staff that turns a crowd away from the wagons behind it.",
+   "concept": "The wardens' method is cultivated on the road. Qi is drawn in with each pull of the bow and driven into the bone with each turn of the staff, so a warden cultivates by walking his road, shooting and fighting. It runs on no element: the strength is the body's. In a fight it is a guard's method, with long shots that bind the foe (it cannot flee) and a staff that makes the foe's soonest art wait 0.3 s.",
    "arts": [
     "pinning-arrow",
     "nocked-arrow",
     {
      "new": "Wolf Ring (Lang Hoàn)",
-     "concept": "A full turn of the staff that strikes the foe and Displaces it (heavy).",
+     "concept": "A full turn of the staff that strikes the foe and its soonest art waits 0.5 s.",
      "authored": "a1"
     },
     {"new": "Geese Line (Nhạn Hàng)", "concept": "A passive art. While you count two or more allies (you, companions, Pieces), you gain block for each ally beyond yourself.", "effect": "geese-line", "authored": "d17"}

@@ -142,7 +142,7 @@
     "skills": {},
     "tree": {
      "start": "thuy",
-     "intent": "Water for health and sustain under the body canon, Metal second for the harpoon's pierce: he outlasts and drags.",
+     "intent": "Water for health and sustain under the body canon, Metal second for the harpoon's pierce: he outlasts and the foe's soonest art waits 0.3 s.",
      "targets": [
       5403,
       4384,
@@ -151,9 +151,9 @@
       7716,
       9004
      ],
-     "targets_note": "The lineage's Ice Pupil and Spear Thrust, Whale Drinks for linh lực leech on the harpoon, Plate Ice and Ice-Jade Skin for a body hardened by cold water, and Ebb Tide for the second wind: he outlasts and drags."
+     "targets_note": "The lineage's Ice Pupil and Spear Thrust, Whale Drinks for linh lực leech on the harpoon, Plate Ice and Ice-Jade Skin for a body hardened by cold water, and Ebb Tide for the second wind: he outlasts and the foe's soonest art waits 0.3 s."
     },
-    "note": "The frost-coast sea hunter: a harpoon that pins and drags, and a body hardened by cold water."
+    "note": "The frost-coast sea hunter: a harpoon that binds the foe (it cannot flee) and makes its soonest art wait 0.3 s, and a body hardened by cold water."
    },
    "items": [
     "ta-canglang-harpoon",

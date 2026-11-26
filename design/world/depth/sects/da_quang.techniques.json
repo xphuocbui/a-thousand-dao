@@ -31,7 +31,7 @@
    "arts": [
     {"new": "Pay in Blood (Huyết Thường)", "concept": "For a few seconds the holder's arts cost health instead of linh lực and deal more Fire damage."},
     {"new": "Wine in the Night-Glow Cup (Dạ Quang Bôi Tửu)", "concept": "Each 5 % of your health you pay for arts or deal as Bleed fills the cup by one, to five; a Broken foe fills it at once. At five you drink: your next art is free and heals you for a fifth of the health you paid since the last drink.", "authored": "d19, a1"},
-    {"new": "Crescent of Red Sand (Xích Sa Nguyệt)", "concept": "A wide Metal-and-Fire sabre arc that bleeds every foe it touches; bleeding foes take more from the holder's next cut.", "tags": ["bleed"], "authored": "b11"}
+    {"new": "Crescent of Red Sand (Xích Sa Nguyệt)", "concept": "A wide Metal-and-Fire sabre arc that bleeds the foe; a bleeding foe takes more from the holder's next cut.", "tags": ["bleed"], "authored": "b11"}
    ],
    "lore": "Hạng Dạ Bôi learned its core from a blood-sabre manual taken off a ma đạo caravan in 981 and spent a century making it his own. Băng Tâm forbade it in 1121 and has not checked since (A126).",
    "status": "proposal",

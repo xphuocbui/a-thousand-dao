@@ -19,7 +19,7 @@
    "name": "Gate Sword Primer (Sơn Môn Kiếm Quyết)",
    "tier": 0, "tech_kind": "main", "names": ["kim"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The grey sisters' method, taught at the Gate Hermitage. It draws the mountain's Metal qi into a short, upright sword that is drilled for one purpose: to stand in a doorway and not be moved. Its forms all face one way, downhill. It never cultivates Ice, and the grey sisters know it: it is a guard's method, and they are the hermitage's guard.",
-   "arts": [{"new": "Bar the Gate (Bế Môn)", "concept": "A guarding stance: while the holder stands still with sword raised, the next hit on her is halved and the striker takes a light Metal hit back."}],
+   "arts": [{"new": "Bar the Gate (Bế Môn)", "concept": "A guarding stance: while the holder stays Composed with sword raised, the next hit on her is halved and the striker takes a light Metal hit back."}],
    "lore": "Written by the founder Kỷ Hoa Ảnh in 702, the year she sealed the cave above the hermitage, so that the women at the gate could hold it without her.",
    "status": "proposal"
   },
@@ -29,7 +29,7 @@
    "tier": 1, "tech_kind": "secret", "names": ["bang", "kim"], "layers": 9, "rank": "noi_mon",
    "concept": "The white nuns' sword, made from the night in 600 when snow fell like pear blossom in the eighth month (A103). The blade throws off a drift of frost petals that hang in the air. A foe moving through them gathers Ice stacks, and a nun standing in them moves more lightly. It is slow to learn and gentle to watch, and those who have fought it say it is like being buried.",
    "arts": [
-    {"new": "Eighth-Month Snow (Bát Nguyệt Tuyết)", "concept": "Scatters a field of frost petals around the holder for a few seconds; each foe who moves inside gains an Ice stack per second."},
+    {"new": "Eighth-Month Snow (Bát Nguyệt Tuyết)", "concept": "Scatters a field of frost petals for a few seconds; each second the foe presses while it is up, it gains an Ice stack."},
     {"new": "One Branch of Pear (Nhất Chi Lê)", "concept": "A single thrust that deals Metal damage and, against a foe with five or more Ice stacks, pierces their ward."}
    ],
    "lore": "Only white nuns learn it. A grey sister who awakens Ice is taught it on the night she takes the white robe. Its first forms are the first six layers of Hoắc Hàn Quang's North Wind, Cold Light Sword, which the founder learned from him (hermits-sages; settled in the cross-sect pass).",

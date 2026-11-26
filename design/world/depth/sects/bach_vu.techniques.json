@@ -20,7 +20,7 @@
    "concept": "A bird catcher's breathing, done in the canopy at dawn and dusk when the birds call. The disciple learns one call per layer and breathes with it: Wood qi drawn in as the forest breathes, a little Fire let out on the call. A catcher at the sixth layer can bring a wild bird to the hand without a net. It is a quiet method and makes quiet people.",
    "arts": [
     {"new": "Call Down (Hô Hạ)", "concept": "Calls a wild bird to harry a foe for a few seconds: light hits and a small chance to interrupt their art."},
-    {"new": "Still on the Branch (Chi Thượng Tĩnh)", "concept": "A still stance: while you are Still you gain evasion, and your next art's timer is 0.5 s shorter.", "authored": "a1"}
+    {"new": "Still on the Branch (Chi Thượng Tĩnh)", "concept": "A still stance: while you are Composed you gain evasion, and your next art's timer is 0.5 s shorter.", "authored": "a1"}
    ],
    "lore": "Tuyên Bách Minh's calls, written down by Tạ Thanh Thước in 1112 so that the catchers' children would not have to learn them only by ear.",
    "status": "proposal",

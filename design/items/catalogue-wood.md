@@ -151,7 +151,7 @@
 
 **Effect (new): Gripping Root (Triền Căn)** (Trigger, minor). When your Physical Wood hit lands, the target's art with the least time left is delayed by 0.5 s, once per 2 s. *Payload:* The target's soonest art is delayed 0.5 s.
 
-**Reserve art: Web of Roots (Căn Võng)** (reserves 15 % of maximum linh lực). While reserved, your Poison stacks on a rooted foe are 20 % stronger.
+**Reserve art: Web of Roots (Căn Võng)** (reserves 15 % of maximum linh lực). While reserved, your Poison stacks on the foe are 20 % stronger.
 
 **Modifiers:** +16 % art speed [moc] · 6.4 W; +20 % damage [physical] · 16.0 W; +24 % stack effect [moc, debuff] · 6.0 W; +4 % thần thức · 5.2 W; +10 % maximum linh lực · 10.0 W; +8 % maximum health (khí huyết) · 4.8 W
 

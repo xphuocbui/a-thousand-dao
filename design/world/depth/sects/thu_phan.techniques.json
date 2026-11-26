@@ -19,7 +19,7 @@
    "tier": 0, "tech_kind": "main", "names": [], "layers": 6, "rank": "ngoai_mon",
    "concept": "The outer gate's method. Disciples sweep the graves of Lôi Trạch with bamboo brooms and sing the sweeping chant as they go, and the method is in the singing: it draws no element, only breath and attention, and trains the ear of the soul (thần hồn) to hear what lies under the earth. Most who learn it hear nothing for years. Those who hear something are taken into the inner gate.",
    "arts": [
-    {"new": "Sweep the Stones (Tảo Thạch)", "concept": "A low chant that strikes every foe in hearing for light soul damage and lowers their soul resistance for a few seconds.", "tags": ["song"], "authored": "b2"}
+    {"new": "Sweep the Stones (Tảo Thạch)", "concept": "A low chant that strikes the foe for light soul damage and lowers its soul resistance for a few seconds.", "tags": ["song"], "authored": "b2"}
    ],
    "lore": "Lý Hận Bích set it down in 961, from the chant the cave hunters of Thủ Động Trại sang when they swept Khải Lôi's dead on the day of Kinh Trập (V152).",
    "status": "proposal",
@@ -29,11 +29,11 @@
    "id": "autumn-grave-canon",
    "name": "Canon of the Autumn Graves (Thu Phần Kinh)",
    "tier": 1, "tech_kind": "main", "names": [], "layers": 9, "rank": "noi_mon",
-   "concept": "The Pavilion's canon: to sing with the dead. The cultivator learns the songs the graves of Lôi Trạch sing in autumn and sings them back, so that the dead join in. In a fight the canon raises a chorus around the singer. Each foe who falls within it adds a voice, and the chorus strikes the soul, not the body. It is weak at the start of a fight and grows as the fight grows deadly. Against a foe below half health, it is very strong.",
+   "concept": "The Pavilion's canon: to sing with the dead. The cultivator learns the songs the graves of Lôi Trạch sing in autumn and sings them back, so that the dead join in. In a fight the canon raises a chorus around the singer. While the chorus is up, the foe who falls adds a voice, and the chorus strikes the soul, not the body. It is weak at the start of a fight and grows as the fight grows deadly. Against a foe below half health, it is very strong.",
    "arts": [
-    {"new": "Ghosts Sing Old Poems (Quỷ Xướng)", "concept": "A song art that deals soul damage to every foe in hearing; its damage rises with each voice in the chorus.", "tags": ["song"], "authored": "b2"},
+    {"new": "Ghosts Sing Old Poems (Quỷ Xướng)", "concept": "A song art that deals soul damage to the foe; its damage rises with each voice in the chorus.", "tags": ["song"], "authored": "b2"},
     {"new": "Add a Voice (Thêm Thanh)", "concept": "The chorus gains a voice each time the foe's health first falls below 80, 60, 40 and 20 %, when the foe is Broken and when you are first Wounded.", "authored": "d7, a1"},
-    {"new": "Autumn Comes (Thu Lai)", "concept": "Spends the chorus: every foe in hearing is silenced for a moment per two voices spent and takes soul damage.", "tags": ["song"], "authored": "b2"}
+    {"new": "Autumn Comes (Thu Lai)", "concept": "Spends the chorus: the foe is silenced for 1 s per two voices spent and takes soul damage.", "tags": ["song"], "authored": "b2"}
    ],
    "lore": "Written by Lý Hận Bích between 960 and 1000, at the graves (C197). The Pavilion holds that she did not write it, only heard it.",
    "status": "proposal",

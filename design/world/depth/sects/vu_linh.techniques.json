@@ -20,7 +20,7 @@
    "tier": 0, "tech_kind": "main", "names": ["hoa", "moc"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The foundry's first method. Outer disciples burn the hall's charcoal in earth kilns and work the bellows for the pour, and the primer is learned at the kiln mouth: draw the wood's qi as it chars and the fire's qi as it rises, and hold the heat even for a day and a night. A disciple who can keep a kiln steady can keep a casting fire steady, and a bell is only as good as its pour.",
    "arts": [
-    {"new": "Bank the Kiln (Ủ Lò)", "concept": "A stance: the holder's linh lực regenerates faster while they stand still; their next Fire art after leaving it deals more damage."}
+    {"new": "Bank the Kiln (Ủ Lò)", "concept": "A stance: the holder's linh lực regenerates faster while they stay Composed; their next Fire art after leaving it deals more damage."}
    ],
    "lore": "Written by the founder Chung Thiết Liên in 930, when he brought his lamp-casters south and had to make charcoal before he could make bells (V149).",
    "status": "proposal"
@@ -31,9 +31,9 @@
    "tier": 1, "tech_kind": "main", "names": ["moc"], "layers": 9, "rank": "noi_mon",
    "concept": "The hall's canon and its art of warning. A bell is hung in a living tree, and the cultivator's Wood qi joins it to the tree's roots. When the bell rings, the roots carry the note to every other tree in the line and to the cultivator's feet. A line of rain bells across a forest is a single array that hears. In a fight the canon hangs small bells in the air around the holder: they warn of every strike before it lands, and their ringing slows and confuses a foe.",
    "arts": [
-    {"new": "Hang a Bell (Quải Linh)", "concept": "Places a bell near the holder for the fight; each bell raises evasion a little and rings to reveal unseen foes, and each new bell reserves a little more linh lực than the last."},
-    {"new": "The Line Rings (Tuyến Hưởng)", "concept": "Rings every hung bell at once: each foe in reach of a bell is slowed and takes light Wood damage per bell."},
-    {"new": "Heard Through the Roots (Căn Văn)", "concept": "A passive: the first strike each fight against the holder or an ally within a bell's reach is warned and partly evaded."}
+    {"new": "Hang a Bell (Quải Linh)", "concept": "Gains a Bell charge for the fight; each bell raises evasion a little and rings to reveal the unseen foe, and each new bell reserves a little more linh lực than the last."},
+    {"new": "The Line Rings (Tuyến Hưởng)", "concept": "Rings every hung bell at once: the foe is slowed and takes light Wood damage per bell."},
+    {"new": "Heard Through the Roots (Căn Văn)", "concept": "A passive: the first strike each fight against the holder while a Bell charge is held is warned and partly evaded."}
    ],
    "lore": "Chung Thiết Liên's canon, completed by Chung Tàn Hưởng in 1080 and given its ninth layer by Ân Thanh Linh in 1105, the year the hall hung its first bell line over the forest road (N-vu_linh-02).",
    "status": "proposal"

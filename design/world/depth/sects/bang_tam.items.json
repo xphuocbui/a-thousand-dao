@@ -39,12 +39,12 @@
      "new": true,
      "id": "ice-in-the-vessel",
      "name": "Ice in the Vessel (Băng Tại Ngọc Hồ)",
-     "rule": "While you are Still, your frost ward regains 2 % of its value each second; heart-demon odds at a breakthrough fall by a third while the Vessel is worn.",
+     "rule": "While you are Composed, your frost ward regains 2 % of its value each second; heart-demon odds at a breakthrough fall by a third while the Vessel is worn.",
      "authored": "a1"
     }
    ],
    "lore": "A plain jade wine vessel holding a piece of ice that has not melted since 440. The founder carried the Ice-Heart Canon across the desert inside it. Legendary item bang_tam_ngoc_ho.",
-   "build_use": "The Keeper's sustain piece: linh lực and a ward that thickens while she stands still.",
+   "build_use": "The Keeper's sustain piece: linh lực and a ward that thickens while she stays Composed.",
    "holder": "so_ngoc_ho",
    "made_by": "tan_ngung_suong",
    "made_year": 440,
@@ -598,7 +598,7 @@
    ],
    "effects": [],
    "lore": "A round shield of the same locust tree, shaped like the lid of the Array's well. Thái Lê Tuyết sent the wood from Hòe Âm in 822.",
-   "build_use": "A seal-keeper's shield: block and status resistance while she stands still.",
+   "build_use": "A seal-keeper's shield: block and status resistance while she stays Composed.",
    "holder": "tiet_han_mai",
    "made_by": "tiet_han_mai",
    "made_year": 822,
@@ -978,7 +978,7 @@
     },
     {
      "pieces": 3,
-     "effect": "The Keeper's Stillness (Chưởng Hồ Chi Tĩnh): while you hold all three, the first time each fight you would fall below a quarter of your health, time stills for you alone for 1.5 s (no damage taken, your arts recharge), and every foe gains 3 Ice stacks."
+     "effect": "The Keeper's Stillness (Chưởng Hồ Chi Tĩnh): while you hold all three, the first time each fight you would fall below a quarter of your health, the foe's clock stops for 1.5 s (its arts, basic attack and companions wait; no damage taken, your arts recharge), and the foe gains 3 Ice stacks."
     }
    ],
    "story": "Tần held all three. The Mirror went to Tiết Hàn Mai in 820 for the Array's last nodes, and Sở Ngọc Hồ has never asked for it back. The Regalia is whole only in one pair of hands, so succession and Tiết's death decide who holds it."
@@ -1042,7 +1042,7 @@
     },
     {
      "pieces": 3,
-     "effect": "The Peak Does Not Move (Phong Bất Động): while your diagram is laid and you are Still, your ward gains 3 % of its base value each second, with no ceiling; each second you hold Still past the tenth costs you 1 % of your linh lực. When the foe breaks it (a shield breaks), the foe gains 4 Ice stacks and is Rooted for 1 s."
+     "effect": "The Peak Does Not Move (Phong Bất Động): while your diagram is laid and you are Composed, your ward gains 3 % of its base value each second, with no ceiling; each second you stay Composed past the tenth costs you 1 % of your linh lực. When the foe breaks it (a shield breaks), the foe gains 4 Ice stacks and cannot evade for 1 s."
     }
    ],
    "story": "Two pieces from Tần Ngưng Sương, the banner from the Array's laying and the seal from her deathbed, and one Cố cut from her own cave wall. Cố has worn all three since 1010 and has not come down. Whoever she gives the seal to will learn the last order.",
@@ -1164,7 +1164,7 @@
        "scope": []
       }
      ],
-     "effect": "Master's Road (Sư Lộ): while your ward holds, the Ice stacks you put on foes last twice as long."
+     "effect": "Master's Road (Sư Lộ): while your ward holds, the Ice stacks you put on the foe last twice as long."
     }
    ],
    "story": "The robe she was found in and her master's first sword: the two things the Keeper has given anyone along with her surname."
@@ -1221,7 +1221,7 @@
        "scope": []
       }
      ],
-     "effect": "Sitting on the Ice (Tọa Băng): after 2 s Still, you regenerate 1.5 % of your health and linh lực each second, and your next cut adds 2 Ice stacks."
+     "effect": "Sitting on the Ice (Tọa Băng): after 2 s Composed, you regenerate 1.5 % of your health and linh lực each second, and your next cut adds 2 Ice stacks."
     }
    ],
    "story": "One piece from his master and one from his grandmother, the Pavilion and the fallen sect. Liễu wears both and has told neither giver about the other.",

@@ -41,7 +41,7 @@
      "new": true,
      "id": "clear-note",
      "name": "Clear Note (Thanh Âm)",
-     "rule": "Your ward rings when it is struck: each time it stops damage, every foe within reach is slowed for half a second (at most once every 3 seconds)."
+     "rule": "Your ward rings when it is struck: each time it stops damage, the foe is slowed for half a second (at most once every 3 seconds)."
     }
    ],
    "lore": "The mistress's own bell, cast in 1128 on the night the hall was given to her, from the bronze of the bell that cracked in the pour and killed the founder in 1060. It rings a note no other bell in the south can match, and every bell line on the roads has been retuned to it.",
@@ -93,7 +93,7 @@
      "new": true,
      "id": "the-forest-hears",
      "name": "The Forest Hears (Lâm Văn)",
-     "rule": "Every foe is seen from the start of a fight, and the first ambush each fight on you or an ally fails."
+     "rule": "The foe is seen from the start of a fight, and the first ambush each fight on you fails."
     }
    ],
    "lore": "A long banner of bamboo paper painted with the hall's bell lines, each bell a dot of bronze leaf. When a bell rings anywhere on the roads, its dot warms. The mistress has added a dot for every bell she has hung since 1105, and some dots are on no road the hall admits to.",

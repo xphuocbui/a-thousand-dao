@@ -39,7 +39,7 @@
      "new": true,
      "id": "good-rain-knows-its-season",
      "name": "The Good Rain Knows Its Season (Hảo Vũ Tri Thời)",
-     "rule": "For the first 10 seconds of a fight your heals are halved; after that, while the banner stands, you and your allies regenerate 1 % of health each second."
+     "rule": "For the first 10 seconds of a fight your heals are halved; after that, while you hold the Banner charge, you regenerate 1 % of health each second."
     }
    ],
    "lore": "A long banner of undyed hemp painted with the twenty-four seasons, raised over the terraces for the Grain Rain rite each year. The founder brought it from the coast in 610 (V154). Dương Hảo Vũ repainted its sea in green in 1000, when the abbey's rain began to come from the forest.",

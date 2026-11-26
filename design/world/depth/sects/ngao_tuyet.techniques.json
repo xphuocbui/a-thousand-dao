@@ -36,8 +36,8 @@
    "id": "lone-branch-sword",
    "name": "Lone Branch Sword (Độc Chi Kiếm)",
    "tier": 1, "tech_kind": "secret", "names": ["kim"], "layers": 9, "rank": "truong_lao",
-   "concept": "The head's own art: one branch that blooms when every other tree is bare. The holder fights alone better than in company; with no ally near, her sword arts cost less and strike harder, and the first killing blow she would take in a fight leaves her one breath to answer it.",
-   "arts": [{"new": "Bare Winter (Đông Lõa)", "concept": "While you fight alone (no companion, no Piece), your sword arts cost less linh lực and deal more damage.", "authored": "a1"}, {"new": "Last Blossom (Tàn Mai)", "concept": "Once per fight, a killing blow leaves the holder at 1 health for one second, during which her next sword art deals double damage."}],
+   "concept": "The head's own art: one branch that blooms when every other tree is bare. The holder fights better with no companion than in company; with no companion, her sword arts cost less and strike harder, and the first killing blow she would take in a fight leaves her one breath to answer it.",
+   "arts": [{"new": "Bare Winter (Đông Lõa)", "concept": "While you fight with no companion (no Piece), your sword arts cost less linh lực and deal more damage.", "authored": "a1"}, {"new": "Last Blossom (Tàn Mai)", "concept": "Once per fight, a killing blow leaves the holder at 1 health for one second, during which her next sword art deals double damage."}],
    "lore": "Made after his daughter Lăng Nhược Mai died to the tiger of Thạch Khẩu in 1162. He has taught it to Trác Thiết Cán and Phó Ngạo Sương and to no one else.",
    "status": "proposal",
    "authored": "a1"

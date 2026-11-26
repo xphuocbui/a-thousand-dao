@@ -18,7 +18,7 @@
    "id": "ink-grinding-breath",
    "name": "Ink-Grinding Breath (Ma Mặc Tức)",
    "tier": 0, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 6, "rank": "ngoai_mon",
-   "concept": "The apprentice grinds the pine-soot ink stick on a wet stone for an hour each morning, and breathes with the stroke: Wood qi from the soot or Water qi from the stone, whichever the root takes. It is a patient method that teaches the hand to be steady. In a fight it lays ink on the holder's blade or fist; ink-marked foes are slowed.",
+   "concept": "The apprentice grinds the pine-soot ink stick on a wet stone for an hour each morning, and breathes with the stroke: Wood qi from the soot or Water qi from the stone, whichever the root takes. It is a patient method that teaches the hand to be steady. In a fight it lays ink on the holder's blade or fist; an ink-marked foe is slowed.",
    "arts": [{"new": "Wet Ink (Thấp Mặc)", "concept": "The holder's next strikes leave an ink mark; a marked foe is slowed and the holder's talismans home on them."}],
    "lore": "The founder Kỷ Thu Tịch's rule: no brush is touched before a thousand mornings of grinding.",
    "status": "proposal"

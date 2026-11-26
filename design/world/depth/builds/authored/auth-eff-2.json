@@ -136,7 +136,7 @@
      "field": "bonuses[pieces=2].effect",
      "action": "replace",
      "note": "thang_vo_ta holds neither named canon; his own set reads 'after you vanish or evade', so a sheathing counts as a vanish for it.",
-     "text": "The Last Step (Chung Bộ): after you vanish (Gone Before Thanks) or evade an attack, your next sword art while you are At range ends your At range and deals 30 % more damage; if its hit makes the foe Broken, you vanish again. Return to the Scabbard (Quy Sao): after 3 s in which you fire no damaging art, the foe counts as unstruck again, and that counts as a vanish for this bonus."
+     "text": "The Last Step (Chung Bộ): after you vanish (Gone Before Thanks) or evade an attack, your next sword art within 2 s deals 30 % more damage; if its hit makes the foe Broken, you vanish again. Return to the Scabbard (Quy Sao): after 3 s in which you fire no damaging art, the foe counts as unstruck again, and that counts as a vanish for this bonus."
     }
    ],
    "fun": "Cut, step back, sheathe, wait three seconds, cut: the one-cut swordsman peaks every few seconds, not only in the first.",
@@ -221,7 +221,7 @@
     "group": "Trigger",
     "tier": "minor",
     "rule": "Each hit your crane companion lands gives you one Wind buff stack for 4 s, at most 2 a pulse. When you fire Crane Descends with no companion beside you, it calls a crane spirit that fights beside you as a companion for 8 s (companion coefficient 0.5, Wind strikes, tag `crane`), once every 20 s.",
-    "reads": "Companion hits (event; the companion's tag `crane`); companions present (duel-readings `allies`, live)",
+    "reads": "Companion hits (event; the companion's tag `crane`); companions present (live)",
     "payload": "Grant Wind buff stacks; a timed companion (one per source, R31; precedent tx-iron-horse 'the riders join you as a companion for 10 s')",
     "limits": "2 stacks a pulse; the spirit once every 20 s and only with no companion out",
     "closes": "—",
@@ -240,7 +240,7 @@
      "field": "arts",
      "action": "add",
      "note": "A new passive art from layer 2. The secret all three riders hold (layers 9, 6, 4). Whatever crane fights beside the rider counts (tag `crane`): today the spirit; the crane king Thanh Điền once the Spirit Beasts pass gives it a record (refused below). Tags `crane` and `bird` on companions are to confirm.",
-     "text": "A Crane for the Rider (Hạc Linh): a passive art. Each hit your crane companion lands gives you one Wind buff stack for 4 s, at most 2 a pulse. When you fire Crane Descends with no companion beside you, it calls a crane spirit that fights beside you as a companion for 8 s (companion coefficient 0.5, Wind strikes, tag `crane`), once every 20 s."
+     "text": "A Crane for the Rider (Hạc Linh): a passive art. Each hit your crane companion lands gives you one Wind buff stack for 4 s, at most 2 a pulse. When you fire Crane Descends with no companion, it calls a crane spirit that fights beside you as a companion for 8 s (companion coefficient 0.5, Wind strikes, tag `crane`), once every 20 s."
     }
    ],
    "fun": "She dodges, the crane strikes, the wind gathers on her; a rider with no beast whistles one down out of the air.",
@@ -491,8 +491,8 @@
     "name": "When the Thread Breaks (Đoạn Ti)",
     "group": "Rule change",
     "tier": "minor",
-    "rule": "Your thread on the foe (a Reel In bind) breaks when the foe fires a `heavy` or `slow` art or is Displaced by anything but your own pulls; when it breaks you lose 4 % of your maximum linh lực (the recoil). A thread that runs its whole time unbroken ties a Knot (a self-counter, no cap, kept for the fight): each Knot makes your thread arts lay one more Wood stack, and Burning Thread lay 2 more Burn stacks.",
-    "reads": "Foe firings and their tags (event); Displaced on the foe and its source (duel-readings R8, event); the thread's time left, by a pulse check (its end is not an event, R20)",
+    "rule": "Your thread on the foe (a Reel In bind) breaks when the foe fires a `heavy` or `slow` art; when it breaks you lose 4 % of your maximum linh lực (the recoil). A thread that runs its whole time unbroken ties a Knot (a self-counter, no cap, kept for the fight): each Knot makes your thread arts lay one more Wood stack, and Burning Thread lay 2 more Burn stacks.",
+    "reads": "Foe firings and their tags (event); the thread's time left, by a pulse check (its end is not an event, R20)",
     "payload": "Burn your own linh lực (R26, owner's side); Knot self-counter (+1, no decay); extra Wood and Burn stacks per Knot",
     "limits": "One recoil per thread; Knots only from threads that ran full time",
     "closes": "—",
@@ -511,7 +511,7 @@
      "field": "arts",
      "action": "add",
      "note": "A new passive art from layer 3. The main both hold (than_van_cam 8, tang_mong_kien 6). Reel In's own pull does not snap her thread. tang_mong_kien has no Fire in the Thread, so her Knots pay in Wood stacks.",
-     "text": "When the Thread Breaks (Đoạn Ti): a passive art. Your thread on the foe (a Reel In bind) breaks when the foe fires a `heavy` or `slow` art or is Displaced by anything but your own pulls; when it breaks you lose 4 % of your maximum linh lực (the recoil). A thread that runs its whole time unbroken ties a Knot (a self-counter, no cap, kept for the fight): each Knot makes your thread arts lay one more Wood stack, and Burning Thread lay 2 more Burn stacks."
+     "text": "When the Thread Breaks (Đoạn Ti): a passive art. Your thread on the foe (a Reel In bind) breaks when the foe fires a `heavy` or `slow` art; when it breaks you lose 4 % of your maximum linh lực (the recoil). A thread that runs its whole time unbroken ties a Knot (a self-counter, no cap, kept for the fight): each Knot makes your thread arts lay one more Wood stack, and Burning Thread lay 2 more Burn stacks."
     }
    ],
    "fun": "The weaver plays for length: a heavy-handed foe snaps her thread and her breath with it; a foe who waits gets knotted, then set alight.",
@@ -902,9 +902,9 @@
     "name": "Ring Within the Ring (Hoàn Trung Hoàn)",
     "group": "Rule change",
     "tier": "minor",
-    "rule": "When you lay Ring of the Hour on a foe already inside a ring of yours, the new ring is a second ring: while both stand, the foe is Pinned (its escape cannot succeed) and takes each ring's damage every second.",
+    "rule": "When you lay Ring of the Hour while a ring of yours (a Field) is up, the new ring is a second ring: while you hold both, the foe is Bound (it cannot flee) and takes each ring's damage every second.",
     "reads": "Your ring Fields up on the foe (duel-readings `field_up` and count), live",
-    "payload": "Apply Pinned while both rings stand (duel-readings R10); ring damage per ring per second",
+    "payload": "Apply Bound while you hold both rings (duel-readings R10); ring damage per ring per second",
     "limits": "Two rings; a third laid refreshes them",
     "closes": "—",
     "hosts": [
@@ -921,8 +921,8 @@
      "id": "ct-armillary-rings",
      "field": "bonuses[pieces=3].effect",
      "action": "replace",
-     "note": "to_tinh_nghi's set; 'cannot leave either' is Pinned (no positions).",
-     "text": "Ring Within the Ring (Hoàn Trung Hoàn): a Ring of the Hour you lay on a foe already inside your ring becomes a second ring; while both stand, the foe is Pinned and takes your array damage once for each ring every second."
+     "note": "to_tinh_nghi's set; 'cannot leave either' is Bound (no positions).",
+     "text": "Ring Within the Ring (Hoàn Trung Hoàn): a Ring of the Hour you lay while your ring (a Field) is up becomes a second ring; while you hold both, the foe is Bound (it cannot flee) and takes your array damage once for each ring every second."
     }
    ],
    "fun": "Two armillary rings lock around the foe: it cannot run, and both turn on it.",

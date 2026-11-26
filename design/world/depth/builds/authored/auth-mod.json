@@ -318,7 +318,7 @@
      {"file": "design/world/depth/people/loose-south.items.json", "id": "ls-snare-wire-coins", "field": "items", "action": "new",
       "new_record": {"id": "ls-snare-wire-coins", "name": "Snare-Wire Coins (Liệp Sách Tiền)", "family": "metal", "kind": "artifact", "base": "tien_tieu", "grade": 2,
         "modifiers": [{"key": "curse_effect_pct", "value": 10, "scope": []}, {"key": "accuracy_pct", "value": 10, "scope": []}, {"key": "attack_pct", "value": 10, "scope": ["kim"]}],
-        "effects": [], "lore": "Her husband's snare coins: bronze discs strung on hunting wire, which she learned to throw after he did not come back.", "build_use": "Metal curses and slows from range that bite harder and do not miss.", "holder": "sam_van_nuong", "made_by": null, "made_year": null, "set": null, "status": "proposal"},
+        "effects": [], "lore": "Her husband's snare coins: bronze discs strung on hunting wire, which she learned to throw after he did not come back.", "build_use": "Metal curses and slows from a Composed stance that bite harder and do not miss.", "holder": "sam_van_nuong", "made_by": null, "made_year": null, "set": null, "status": "proposal"},
       "note": "Names her generic tien_tieu 2 (kim) in build.gear. Her method is Hunter's Reach (Pinning Arrow curses). A snare, so it needs no bow base."}],
    "fun": "Nothing reaches the widow's door unslowed.",
    "status": "proposal"},

@@ -148,7 +148,7 @@
     },
     "tree": {
      "start": "kim",
-     "intent": "Metal stacks laid by ringing, Earth for health under them: every foe who moves pays a note, and the bell she becomes is rung by their blows.",
+     "intent": "Metal stacks laid by ringing, Earth for health under them: the foe pays a note for each second it presses, and the bell she becomes is rung by their blows.",
      "targets": [
       4299,
       4303,
@@ -432,7 +432,7 @@
     },
     "tree": {
      "start": "kim",
-     "intent": "Metal for the bells' stacks, toward the array: she fights inside a ring of bells and lets them do the striking.",
+     "intent": "Metal for the bells' stacks, toward the array: she fights with her ring of bells up and lets them do the striking.",
      "targets": [
       4299,
       4303,

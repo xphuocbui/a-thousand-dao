@@ -24208,7 +24208,7 @@
      "id": "wood-root-web",
      "name": "Web of Roots (Căn Võng)",
      "reserve": 0.15,
-     "rule": "While reserved, your Poison stacks on a rooted foe are 20 % stronger.",
+     "rule": "While reserved, your Poison stacks on the foe are 20 % stronger.",
      "grants": [
       {
        "key": "stack_effect_pct",

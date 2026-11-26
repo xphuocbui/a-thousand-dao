@@ -19,7 +19,7 @@
    "name": "Ferry Pole Primer (Sanh Độ Quyết)",
    "tier": 0, "tech_kind": "main", "names": ["thuy", "moc"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The ferry children's method, learned standing on a moving deck with a bamboo pole. The pole goes down into the river and Water qi comes up it; the bamboo itself gives a little Wood. At the sixth layer a ferryman can hold a loaded boat still against the spring current. Ashore it gives a steady body and good balance and not much more.",
-   "arts": ["rooted-form", {"new": "Pole Vault (Sanh Khiêu)", "concept": "The holder vaults a short distance and the next blow she lands knocks the foe back."}],
+   "arts": ["rooted-form", {"new": "Pole Vault (Sanh Khiêu)", "concept": "The holder vaults and the next blow she lands makes the foe's soonest art wait 0.3 s."}],
    "lore": "The boat families of the Nine-Bend River taught it to their children long before they banded together as a sect in 790 (A075).",
    "status": "proposal"
   },
@@ -36,7 +36,7 @@
    "id": "nine-bends-art",
    "name": "Nine Bends Art (Cửu Khúc Quyết)",
    "tier": 1, "tech_kind": "secret", "names": ["thuy"], "layers": 9, "rank": "truong_lao",
-   "concept": "The art of going round. A river does not break a rock; it bends nine times and arrives anyway. The holder slips each blow in a long curve, and every blow she slips builds a Bend; at nine Bends she arrives behind the foe with the whole river at her back. It is the sect's art for the elders and the head, and it is why Lãng Đào's ferries went round the serpent of the eighth bend for forty years instead of fighting it (A077).",
+   "concept": "The art of going round. A river does not break a rock; it bends nine times and arrives anyway. The holder slips each blow in a long curve, and every blow she slips builds a Bend; at nine Bends she arrives with the whole river at her back. It is the sect's art for the elders and the head, and it is why Lãng Đào's ferries went round the serpent of the eighth bend for forty years instead of fighting it (A077).",
    "arts": ["swallow-stance", {"new": "Ninth Bend (Cửu Khúc)", "concept": "After nine slipped blows, the holder's next Water art deals heavy damage from behind and cannot be evaded."}],
    "lore": "Giang Cửu Khúc, whose name is the river's nine bends, holds it to the ninth layer. He says he has never once arrived late.",
    "status": "proposal"

@@ -95,11 +95,11 @@
      "new": true,
      "id": "the-boat-that-did-not-burn",
      "name": "The Boat That Did Not Burn (Bất Phần Chu)",
-     "rule": "Allies near the planted sail take half damage from burns and fire, and the first ally each fight who would be killed by a burn is left at 1 health instead."
+     "rule": "While you hold the Sail charge, you take half damage from burns and fire, and the first time each fight a burn would kill you, you are left at 1 health instead."
     }
    ],
    "lore": "The sail of the one ferry that did not burn at the Đào Sa landing in 1173 (A080), because Thương Bạch Phàm cut it loose and poled it into the current with nine children aboard. She had it made into a war flag when the fleet was rebuilt with the pines' timber in 1175, and plants it on the landing every spring.",
-   "build_use": "The boat-mistress's flag: defence, evasion and fire protection for those around her.",
+   "build_use": "The boat-mistress's Flag charge: defence, evasion and fire protection for her.",
    "holder": "thuong_bach_pham",
    "made_by": "thuong_bach_pham",
    "made_year": 1175,

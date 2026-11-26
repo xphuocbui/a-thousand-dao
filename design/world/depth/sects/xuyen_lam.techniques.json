@@ -20,7 +20,7 @@
    "tier": 0, "tech_kind": "main", "names": [], "layers": 6, "rank": "ngoai_mon",
    "concept": "The guides' first method, learned on the forest road with a load on the back. It draws no element: the student breathes to the rhythm of the step and tempers the legs, the lungs and the soles of the feet, until a day's walk through wet bamboo costs no more than an hour on a dry road. Its forms are walking forms. A primer disciple is hard to knock down and harder to catch.",
    "arts": [
-    {"new": "Lighter Than a Horse (Khinh Thắng Mã)", "concept": "A movement art: for a few seconds you are Moving, faster and harder to hit; the first time in that window the foe acts, its next art is delayed (you left its reach).", "authored": "a1"}
+    {"new": "Lighter Than a Horse (Khinh Thắng Mã)", "concept": "A movement art: for a few seconds you are Pressing, faster and harder to hit; the first time in that window the foe acts, its next art is delayed.", "authored": "a1"}
    ],
    "lore": "Written by the founder Mạc Nhất Thoa in 690 for the forest boys who carried travellers' packs (A289). He named it for the line every guide learns before he learns to hold a staff: bamboo staff and straw sandals, lighter than a horse.",
    "status": "proposal",
@@ -30,12 +30,12 @@
    "id": "calm-wind-staff-canon",
    "name": "Staff Canon of the Calmed Wind and Waves (Định Phong Trượng Kinh)",
    "tier": 1, "tech_kind": "main", "names": [], "layers": 9, "rank": "noi_mon",
-   "concept": "The Gate's staff. It cultivates no element; it cultivates steadiness. The cultivator walks while fighting, never stands still and never hurries, and each slow step adds weight to the next swing of the staff. Weather, fear and a foe's cries are treated as rain on leaves: heard, and not listened to. It is weak in a single exchange and very strong in a long running fight, which is the only kind of fight a guide has.",
+   "concept": "The Gate's staff. It cultivates no element; it cultivates steadiness. The cultivator walks while fighting, never stays Composed and never hurries, and each slow step adds weight to the next swing of the staff. Weather, fear and a foe's cries are treated as rain on leaves: heard, and not listened to. It is weak in a single exchange and very strong in a long running fight, which is the only kind of fight a guide has.",
    "arts": [
     {"new": "Walk Slowly (Từ Hành)", "concept": "A stance kept while moving: each second the holder keeps moving adds a stack; each stack raises the Physical damage of the next staff strike and is spent by it. Standing still for a second, or running (an escape art), loses them all: a guide never runs."},
-    {"new": "Who Is Afraid (Thùy Phạ)", "concept": "A sweeping staff strike that hits every foe in reach; while the holder has five or more Walk Slowly stacks, it also cleanses one fear or slow status from the holder."},
-    {"new": "One Straw Cape (Nhất Thoa)", "concept": "A guard: for a few seconds the fields foes lay (rain, mist, haze, flood, seals on the ground) do not touch the holder, and status effects on them tick at half rate."},
-    {"new": "The Long Road (Trường Lộ)", "concept": "A passive art. While you are Moving, your arts cost less linh lực, and less again for each Walk Slowly stack you hold.", "effect": "the-long-road", "authored": "d23"}
+    {"new": "Who Is Afraid (Thùy Phạ)", "concept": "A sweeping staff strike that hits the foe; while the holder has five or more Walk Slowly stacks, it also cleanses one fear or slow status from the holder."},
+    {"new": "One Straw Cape (Nhất Thoa)", "concept": "A guard: for a few seconds the fields the foe lays (rain, mist, haze, flood, seals) do not touch the holder, and status effects on them tick at half rate."},
+    {"new": "The Long Road (Trường Lộ)", "concept": "A passive art. While you are Pressing, your arts cost less linh lực, and less again for each Walk Slowly stack you hold.", "effect": "the-long-road", "authored": "d23"}
    ],
    "lore": "Mạc Nhất Thoa's own canon, finished in 720. Its nine layers carry the nine lines of the old song the guides sing on the road; the Gate will not say whose song it is.",
    "status": "proposal",

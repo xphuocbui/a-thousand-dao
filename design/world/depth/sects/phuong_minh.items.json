@@ -38,7 +38,7 @@
      "new": true,
      "id": "eight-of-nine",
      "name": "Eight of Nine (Bát Thành)",
-     "rule": "Played as an art, each movement lays one Shao stack on every foe in hearing; a foe with eight stacks holds its arts: those that come ready in the next 2 s wait until the 2 s end. The ninth movement is not an art: while it plays, no hearer of lower realm can act against the player. Story use only.",
+     "rule": "Played as an art, each movement lays one Shao stack on the foe; a foe with eight stacks holds its arts: those that come ready in the next 2 s wait until the 2 s end. The ninth movement is not an art: while it plays, no hearer of lower realm can act against the player. Story use only.",
      "authored": "a1"
     }
    ],
@@ -374,7 +374,7 @@
      "new": true,
      "id": "thread-of-the-nest",
      "name": "Thread of the Nest (Sào Ti)",
-     "rule": "While planted inside an array the holder laid, allies within it take 10 % less Fire damage and the holder's wards last a second longer."
+     "rule": "While the holder's array (a Field) is up, the holder takes 10 % less Fire damage and the holder's wards last a second longer."
     }
    ],
    "lore": "A small array banner hemmed with one strand of the fire-silk Tang Sơ Ti gave the Nest Array in 592. The Tang family has passed it from keeper to keeper.",
@@ -1247,7 +1247,7 @@
     },
     {
      "pieces": 3,
-     "effect": "The Phoenix Comes with Stately Grace (Phượng Hoàng Lai Nghi): while you hold all three, each full five-colour plumage you spend heals every ally in the fight for 5 % of their health, and the next plumage starts with two colours."
+     "effect": "The Phoenix Comes with Stately Grace (Phượng Hoàng Lai Nghi): while you hold all three, each full five-colour plumage you spend heals you for 5 % of your health, and the next plumage starts with two colours."
     }
    ],
    "story": "The founder made the robe in 505 and the seal in 485, and in 1100 the fan to go with them. The fan and robe went to the Fire Court with the head in 1162 (N-phuong_minh-12); the seal stayed on the ridge with Vu Ngô Đồng, because the founder said it stays with the tree. The Regalia is whole only if the head takes the seal from the Wutong Court, which the ridge would call a theft, or goes back up the ridge to wear it."

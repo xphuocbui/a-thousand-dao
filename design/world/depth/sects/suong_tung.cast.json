@@ -131,7 +131,7 @@
     },
     "tree": {
      "start": "moc",
-     "intent": "Wood wards and statuses, Water sustain: he lays wards before the fight and keeps his allies in the light.",
+     "intent": "Wood wards and statuses, Water sustain: he lays wards before the fight and keeps himself in the light.",
      "targets": [
       6118,
       6121,
@@ -390,7 +390,7 @@
     },
     "tree": {
      "start": "moc",
-     "intent": "Lanterns for allies on the road.",
+     "intent": "Lanterns for you on the road.",
      "targets": [
       6118,
       6121,

@@ -50,7 +50,7 @@
      "new": true,
      "id": "the-empty-mountains-answer",
      "name": "The Empty Mountain's Answer (Không Sơn Đáp)",
-     "rule": "Healing lost to your full health is stored as Green, and the Green fades by a tenth each second. When the foe is Rooted or carries 5 or more of your Wood stacks, the Green falls on it as Wood damage, once every 3 s.",
+     "rule": "Healing lost to your full health is stored as Green, and the Green fades by a tenth each second. When the foe cannot evade or carries 5 or more of your Wood stacks, the Green falls on it as Wood damage, once every 3 s.",
      "authored": "d5"
     }
    ],
@@ -215,7 +215,7 @@
     },
     {
      "pieces": 3,
-     "effect": "Rain on the Sown Field (Vũ Lạc Bá Điền): while your Grain Rain falls, Lingzhi Spores on foes under it do not fade, and each time a spore stack ripens it heals you and the ally lowest on health for 2 % of their health."
+     "effect": "Rain on the Sown Field (Vũ Lạc Bá Điền): while your Grain Rain falls, Lingzhi Spores on the foe do not fade, and each time a spore stack ripens it heals you for 2 % of your health."
     }
    ],
    "story": "The founder's gourd, her master's fan and the valley's bell. Nghiêm Linh Chi holds all three; they go to the next valley-mistress together, or the terraces say the year's harvest fails."

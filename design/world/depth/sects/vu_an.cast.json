@@ -464,7 +464,7 @@
     },
     "tree": {
      "start": "moc",
-     "intent": "Wood toward ward duration and accuracy loss on foes.",
+     "intent": "Wood toward ward duration and accuracy loss on the foe.",
      "targets": [
       6085,
       6362,

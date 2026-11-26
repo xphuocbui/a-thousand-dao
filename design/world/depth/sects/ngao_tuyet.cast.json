@@ -142,7 +142,7 @@
     },
     "tree": {
      "start": "kim",
-     "intent": "Metal sword crits first, Wood bleeds second: he fights alone and blooms when he is most hurt.",
+     "intent": "Metal sword crits first, Wood bleeds second: he fights with no companion and blooms when he is most hurt.",
      "targets": [
       4270,
       4246,

@@ -41,7 +41,7 @@
      "new": true,
      "id": "lamp-that-is-not-out",
      "name": "The Lamp That Is Not Out (Đăng Vị Tức)",
-     "rule": "While the lamp is lit beside the holder, her ward seals last 4 s longer, and the first seal of hers to burn out each fight relights once."
+     "rule": "While the lamp is lit, her ward seals last 4 s longer, and the first seal of hers to burn out each fight relights once."
     }
    ],
    "lore": "A bronze storm lamp with a wick of twisted pearl-diver's line, lit by Ôn Thủ Đăng in the winter of 913 and never let go out since. He carries it from tower to tower. The hall believes it was the founder's; it was not. He made it the night Kim Sa Trấn drowned (V171).",

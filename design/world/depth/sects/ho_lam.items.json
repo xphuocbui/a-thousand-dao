@@ -208,7 +208,7 @@
     },
     {
      "pieces": 3,
-     "effect": "The Forest Closes (Lâm Hợp): after each axe stroke you take root for 6 s: you cannot be moved, you regenerate 2 % of your health each second, and each foe that hits you gains a Wood stack."
+     "effect": "The Forest Closes (Lâm Hợp): after each axe stroke you brace: your evade is 0 for 6 s, you regenerate 2 % of your health each second, and the foe that hits you gains a Wood stack."
     }
    ],
    "story": "The axe he has felled with since 910, the Grandmother Fir's heartwood and his father's white wax: the warden's whole life, worn in the forest he keeps."

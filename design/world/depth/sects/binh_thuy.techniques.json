@@ -18,9 +18,9 @@
    "id": "duckweed-drift-primer",
    "name": "Duckweed Drift Primer (Phù Bình Quyết)",
    "tier": 0, "tech_kind": "main", "names": ["thuy", "moc"], "layers": 6, "rank": "ngoai_mon",
-   "concept": "The founders' own method, the only one the sect had for six hundred years. The disciple floats on the shallows at slack water and lets the qi of whatever is under them come up: Water from the sea, Wood from the weed and the mangrove roots. It takes either element, because the strangers who wrote it had both. In a fight it does not hold ground. It drifts out of reach, closes again, and heals a little each time it is struck, the way duckweed closes over a dropped stone.",
+   "concept": "The founders' own method, the only one the sect had for six hundred years. The disciple floats on the shallows at slack water and lets the qi of whatever is under them come up: Water from the sea, Wood from the weed and the mangrove roots. It takes either element, because the strangers who wrote it had both. In a fight it does not hold ground. It drifts, and heals a little each time it is struck, the way duckweed closes over a dropped stone.",
    "arts": [
-    {"new": "Close Over the Stone (Bình Hợp)", "concept": "After the holder is hit, a light heal over 3 s and a step back out of reach; once per few seconds."},
+    {"new": "Close Over the Stone (Bình Hợp)", "concept": "After the holder is hit, a light heal over 3 s; once per few seconds."},
     {"new": "Chance Meeting (Tương Phùng)", "concept": "A quick strike that deals Water or Wood damage, the holder's stronger element, and grants a stack of that element as a buff."}
    ],
    "lore": "Written down in 524 by the founder Doãn Bình Sơ from what the castaways of the first winter taught each other on Tình Sa beach. The first page says: we are all far from home here.",

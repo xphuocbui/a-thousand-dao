@@ -156,7 +156,7 @@
     "skills": {},
     "tree": {
      "start": "kim",
-     "intent": "Pure Metal crits and speed for the final cut, Wind behind it for the step out of reach: he strikes once and is gone.",
+     "intent": "Pure Metal crits and speed for the final cut, Wind behind it for the evade after the cut: he strikes once and is gone.",
      "targets": [
       725,
       1441,
@@ -166,7 +166,7 @@
       4677,
       808
      ],
-     "targets_note": "The hired sword's road (Edge of Autumn, Sword Spine, Sword Bow), Piercing the Willow for the final count's reach, Twin Arms in Harmony and Ten Thousand Swords Return, then Wind Rider in the Wind land for the step out of reach."
+     "targets_note": "The hired sword's road (Edge of Autumn, Sword Spine, Sword Bow), Piercing the Willow for the final count's reach, Twin Arms in Harmony and Ten Thousand Swords Return, then Wind Rider in the Wind land for the evade after the cut."
     },
     "note": "The silent sword of Phất Y: a pure blade who held Tư Không Hạc Niên for three days with the same afterimage art."
    },

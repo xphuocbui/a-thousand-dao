@@ -29,11 +29,11 @@
    "id": "good-rain-canon",
    "name": "Canon of the Good Rain (Hảo Vũ Kinh)",
    "tier": 1, "tech_kind": "main", "names": ["moc"], "layers": 9, "rank": "noi_mon",
-   "concept": "The abbey's rain is not called from the sea or the sky but from the forest. The cultivator draws the Wood qi of the canopy up through the leaves until the trees breathe out water as mist, and the mist gathers and falls where the cultivator breathes. The good rain knows its season: it comes at night, follows the wind and wets everything without a sound. In a fight the canon is a sustaining art: a soft rain over the holder and allies that heals, grows Wood stacks and slowly wears a foe down.",
+   "concept": "The abbey's rain is not called from the sea or the sky but from the forest. The cultivator draws the Wood qi of the canopy up through the leaves until the trees breathe out water as mist, and the mist gathers and falls where the cultivator breathes. The good rain knows its season: it comes at night, follows the wind and wets everything without a sound. In a fight the canon is a sustaining art: a soft rain over the holder that heals, grows Wood stacks and slowly wears a foe down.",
    "arts": [
-    {"new": "Follows the Wind Into the Night (Tùy Phong Nhập Dạ)", "concept": "A rain over the holder's area for several seconds: allies in it regenerate health and gain Wood buff stacks; foes in it are slowed slightly."},
+    {"new": "Follows the Wind Into the Night (Tùy Phong Nhập Dạ)", "concept": "A rain (a Field) for several seconds: while it is up, the holder regenerates health and gains Wood buff stacks, and the foe is slowed slightly."},
     {"new": "Moistens Without a Sound (Nhuận Vật Vô Thanh)", "concept": "A passive: the holder's heals are silent and cannot be interrupted, and each heal adds a Wood buff stack."},
-    {"new": "When the Season Comes (Đương Xuân)", "concept": "Spends the holder's Wood buff stacks for one large heal on the most wounded ally."},
+    {"new": "When the Season Comes (Đương Xuân)", "concept": "Spends the holder's Wood buff stacks for one large heal on the holder."},
     {"new": "Water Wears the Stone (Thủy Tích Thạch Xuyên)", "concept": "A passive art. Each heal you receive drips on the foe as a small Wood hit, larger for each Wood buff stack you hold, at most three a second.", "effect": "water-wears-the-stone", "authored": "d24"}
    ],
    "lore": "Dương Hảo Vũ rewrote the founder's Water rite into this Wood canon between 958 and 1000, after the abbey found it could not call rain from a hill that held no Water (N-coc_vu-02). Its nine layers follow the poem her name comes from.",
@@ -44,9 +44,9 @@
    "id": "rite-of-the-grain-rain",
    "name": "Rite of the Grain Rain (Cốc Vũ Nghi)",
    "tier": 2, "tech_kind": "secret", "names": ["moc"], "layers": 12, "rank": "truong_lao",
-   "concept": "The great rain-calling rite, held each year at the solar term of Cốc Vũ and in every drought. The abbess sits at the centre of the terraces with the abbey around her and the farmers' song below, and draws the whole forest's breath into one rain over a valley. It costs her own qi, and in a hard drought much more. In a fight the rite is a held art: while the holder channels, a wide rain heals every ally in it and roots every foe, and the longer she holds it, the more it costs her.",
+   "concept": "The great rain-calling rite, held each year at the solar term of Cốc Vũ and in every drought. The abbess sits at the centre of the terraces with the abbey around her and the farmers' song below, and draws the whole forest's breath into one rain over a valley. It costs her own qi, and in a hard drought much more. In a fight the rite is a held art: while the holder channels, a wide rain heals the holder and the foe cannot evade, and the longer she holds it, the more it costs her.",
    "arts": [
-    {"new": "Call the Grain Rain (Đảo Cốc Vũ)", "concept": "A channelled rain over a wide area: allies heal and are cleansed of one status each second; foes are rooted for a moment each second; the holder pays linh lực and then health for each second held."}
+    {"new": "Call the Grain Rain (Đảo Cốc Vũ)", "concept": "A channelled rain over a wide area: the holder heals and is cleansed of one status each second; the foe cannot evade for 1 s each second; the holder pays linh lực and then health for each second held."}
    ],
    "lore": "The founder's rite in its Wood form. Only the abbess and the prior hold it now. In the great drought of 1150 the abbess held it for nine days, and her meridians have never been the same.",
    "status": "proposal"

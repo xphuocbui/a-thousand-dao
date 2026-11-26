@@ -43,7 +43,7 @@
      "new": true,
      "id": "under-the-umbrella",
      "name": "Under the Umbrella (Tán Hạ)",
-     "rule": "While the umbrella is open, the first Lightning hit each 10 s that would strike you or an ally beside you runs off its rim instead, and you gain linh lực equal to a tenth of the damage it would have dealt."
+     "rule": "While the umbrella is open, the first Lightning hit each 10 s that would strike you runs off its rim instead, and you gain linh lực equal to a tenth of the damage it would have dealt."
     }
    ],
    "lore": "Spotted bamboo from Tương Phi Đảo and oiled paper, made for Phó Tiêu Tương in 380 (legendary tuong_phi_tan). The spots on the ribs are said to be tears. Mạnh Dạ Vũ took it in 880 (C164) and proclaimed the Night Rain Edict under it in 905 (C167). On the ridge it is the only thing the lightning will not touch. Its spotted-bamboo spine sheathes a blade as thin as a rib, the blade his master never drew: the umbrella's rule stands while it is open, and the blade is drawn for the one cut.",
@@ -250,7 +250,7 @@
    ],
    "effects": [],
    "lore": "Bronze wick shears from the same casting as the master lamp. The vault keeper trims every life lamp with them on the first night of each month.",
-   "build_use": "The keeper's needles: soul damage and curses at range.",
+   "build_use": "The keeper's needles: soul damage and curses while Composed.",
    "holder": "ninh_tich_dang",
    "made_by": "le_tieu_hon",
    "made_year": 1010,
@@ -304,7 +304,7 @@
      "new": true,
      "id": "never-the-second-cut",
      "name": "No Second Cut (Bất Nhị Kiếm)",
-     "rule": "Your first sword hit on each foe in a fight is a guaranteed crit and pierces their guard; your later hits on that foe deal a little less."
+     "rule": "Your first sword hit on the foe in a fight is a guaranteed crit and pierces their guard; your later hits on the foe deal a little less."
     }
    ],
    "lore": "Forged at Kinh Điện Khoáng in a storm in 656 by Cố Dạ Lan's father, the year she left home, and named for her. It has been drawn in four hundred duels and has never been drawn twice in one.",
@@ -1346,7 +1346,7 @@
        ]
       }
      ],
-     "effect": "Branded to the Vein (Lạc Mạch): a foe carrying two or more of your curses is branded. Your chained Lightning bolts always jump to a branded foe first, and each bolt that lands on them adds 1 s to every curse they carry (the curse duration clamp still holds)."
+     "effect": "Branded to the Vein (Lạc Mạch): a foe carrying two or more of your curses is branded. Each of your Lightning bolts that lands on a branded foe adds 1 s to every curse it carries (the curse duration clamp still holds)."
     }
    ],
    "story": "Cast together in 1170, when Lệ moved the vaults into the vein. The master lamp is not part of it: by the vault law of 1010 the lamp is half of a pair kept in two hands, and it stays burning in the vaults while he goes out with the brand, the bell and the Ninth Tribulation seal. He made this pair so as to have something whole of his own.",
@@ -1511,7 +1511,7 @@
        ]
       }
      ],
-     "effect": "The Struck Shed (Lôi Kích Lều): while your sword is raised to the cloud, each bolt it draws that crits chains to one more hit."
+     "effect": "The Struck Shed (Lôi Kích Lều): while your sword is raised to the cloud, each bolt it draws that crits adds a Lightning stack on the foe."
     }
    ],
    "story": "Both come from Sa Kim Khoáng: her mother's leather and her father's ore. She wears both, and she does not ask how the forge was paid.",
@@ -1541,7 +1541,7 @@
        ]
       }
      ],
-     "effect": "After the First Blow (Hậu Phát): the first hit each foe aims at you is heard. If you evade it, your next sword art at that foe is a sure crit."
+     "effect": "After the First Blow (Hậu Phát): the first hit the foe aims at you is heard. If you evade it, your next sword art at the foe is a sure crit."
     }
    ],
    "story": "The head gave him both in 1186, the year he took him, the first gift he had made a disciple in a century. The Tower reads more into it than the boy does.",

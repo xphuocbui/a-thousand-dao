@@ -29,7 +29,7 @@
    "concept": "From the proverb: true gold does not fear the furnace (chân kim bất phạ hỏa luyện). The cultivator refines their own qi by testing it, layer by layer, against the furnace of their spirit until only the true part is left; the method takes any root and asks only for a steady soul. In a fight it assays the foe: wards, buffs and borrowed strength are shown for what they are and burned off.",
    "arts": [
     {"new": "Assay (Thí Kim)", "concept": "Strips one buff or a share of the ward from a foe; if the foe has none, the holder's next strike is critical."},
-    {"new": "The Furnace Shows (Lô Hiện)", "concept": "For a few seconds every foe near the holder loses a part of their defence and cannot gain new buffs."},
+    {"new": "The Furnace Shows (Lô Hiện)", "concept": "For a few seconds the foe loses a part of its defence and cannot gain new buffs."},
     {"new": "True Gold Does Not Fear the Furnace (Chân Kim Bất Phạ Hỏa)", "concept": "A passive art. Each buff stack you strip from the foe, and each ward share your Assay strips, restores 1.5 % of your maximum linh lực and adds one Part the Dross stack.", "effect": "true-gold-does-not-fear-the-furnace", "unlock_layer": 4, "authored": "d31"}
    ],
    "lore": "Written down by Tưởng Bách Luyện and Hạng Thử Kim in the first decade of the house (V127), from the assayers' craft of the Pivot's mint at Bạch Ngân, where both had worked.",

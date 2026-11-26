@@ -36,7 +36,7 @@
      "new": true,
      "id": "supple-as-a-dragon",
      "name": "Supple as a Swimming Dragon (Uyển Nhược Du Long)",
-     "rule": "Once every 15 s, when a single hit would take more than a tenth of your health, you slip half of it and are moved one step aside."
+     "rule": "Once every 15 s, when a single hit would take more than a tenth of your health, you slip half of it."
     }
    ],
    "lore": "A long sash of grey-green silk woven with wind qi, worn over the robe. Kỳ Tùng Ẩn had it made in the year he founded the palace (C003) for his first disciple, from the line of Lạc Thần Phú that her name comes from: light as a startled goose, supple as a swimming dragon. Thôi Khinh Hồng has worn it for 1,000 years. It is a Wind treasure on a Wood and Water root, and she uses only its slipping. Legendary item du_long_thao.",
@@ -87,7 +87,7 @@
      "new": true,
      "id": "the-pack-remembers",
      "name": "The Pack Remembers (Lang Quần Ký)",
-     "rule": "Against a rooted foe, your Wood damage ignores 15 % of their resistance."
+     "rule": "Against a foe that cannot evade, your Wood damage ignores 15 % of their resistance."
     }
    ],
    "lore": "The left eye-tooth of the white wolf king of Cửu Khúc Xuyên, which Thôi Khinh Hồng killed in 455 (C093), set in pine-root wood and worn on a cord. The children of Bạch Lang Thôn wear wolf-tooth charms in imitation (A070); hers is the one they copy.",
@@ -480,7 +480,7 @@
      "new": true,
      "id": "roots-under-the-field",
      "name": "Roots Under the Field (Địa Hạ Căn)",
-     "rule": "When the foe has been Still for 2 s, it is Rooted for 1 s; once every 10 s.",
+     "rule": "When the foe has been Composed for 2 s, it cannot evade for 1 s; once every 10 s.",
      "authored": "a1"
     }
    ],
@@ -530,7 +530,7 @@
      "new": true,
      "id": "cool-the-burn",
      "name": "Cool the Burn (Tiêu Chước)",
-     "rule": "Your heals also remove one Fire stack from the ally they land on."
+     "rule": "Your heals also remove one Fire stack from you."
     }
    ],
    "lore": "A folding fan of thin pine slats with a painted rain on it, the first elder's teaching fan. Hồ Tùng Nguyệt taps the time of the canon's lines on her palm with it, and every disciple she has taught knows the sound.",
@@ -627,7 +627,7 @@
      "new": true,
      "id": "crack-the-ice",
      "name": "Crack the Ice (Liệt Băng)",
-     "rule": "While the flags stand, a foe that has been Still for 3 s is Rooted for 2 s and takes a Water stack each second.",
+     "rule": "While you hold the Flag charges, a foe that has been Composed for 3 s cannot evade for 2 s and takes a Water stack each second.",
      "authored": "a1"
     }
    ],
@@ -785,7 +785,7 @@
    ],
    "effects": [],
    "lore": "Nine bone needles wound in a hank of the tow rope from the Đàm family's ferry at Cổ Độ Thành. Bồ Hạnh Lâm made them for Đàm Thanh Giang when he took the second furnace, so that the gourd from home would have something from home to work with.",
-   "build_use": "The healer's hand: Wood heals and Wood buff stacks laid on the ally he keeps standing.",
+   "build_use": "The healer's hand: Wood heals and Wood buff stacks laid on you.",
    "holder": "dam_thanh_giang",
    "made_by": "bo_hanh_lam",
    "made_year": 1185,
@@ -1188,7 +1188,7 @@
     },
     {
      "pieces": 3,
-     "effect": "The Sea Answers (Hải Ứng): while you stand still, every 3 s a wave goes out from you. Allies in reach heal 2 % of their health and foes in reach gain one Wood stack. Each wave is stronger than the last, and every wave after the fifth costs you 2 % of your maximum linh lực; the waves break if you are moved."
+     "effect": "The Sea Answers (Hải Ứng): while you stay Composed, every 3 s a wave goes out from you. Each wave: you heal 2 % of your health and the foe gains one Wood stack. Each wave is stronger than the last, and every wave after the fifth costs you 2 % of your maximum linh lực; the waves break if you stop being Composed."
     }
    ],
    "story": "Kỳ Tùng Ẩn made all three in the palace's first thirty years. Unlike the regalia of Băng Tâm and Thúy Vi, Tùng Đào's has never been split: Thôi Khinh Hồng handed all three to Đàm Tùng Lại in one morning in 900. The Coiled Root Hall says a head who gave up the Cold Ford should not wear them, and Đàm, who agrees more than he says, wears only the robe except at the new year."
@@ -1220,7 +1220,7 @@
     },
     {
      "pieces": 3,
-     "effect": "Light on the Quay (Kiều Thượng Đăng): while you hold all three and stand still, the lantern lights the ground around you: allies in it heal 1 % of their health each second and foes in it are Slowed; a foe rooted in the light for 2 s is struck by a palm counter."
+     "effect": "Light on the Quay (Kiều Thượng Đăng): while you hold all three and stay Composed, the lantern lights a Field around you: while it is up, you heal 1 % of your health each second and the foe is Slowed; a foe that cannot evade for 2 s is struck by a palm counter."
     }
    ],
    "story": "The seal and the lantern of the Cold Ford governor, made in 672. Nhiếp Cô Tân has the seal; the lantern was left on the quay at Hàn Tân in 905. He would give a great deal for it, and more for the war that would let him walk onto that quay and look. The governor's coat, made with them, came off Giáp Tùng Chi's body in Nhiếp's hands that day, so he wears two of the three; the Charge is whole only with the lantern from under the quay stones."
@@ -1247,7 +1247,7 @@
        "scope": []
       }
      ],
-     "effect": "Ferry Across (Độ Khách): when you heal an ally below half health, they also shed one poison stack and gain one Wood buff stack; once per ally every 6 s."
+     "effect": "Ferry Across (Độ Khách): when you heal below half health, you also shed one poison stack and gain one Wood buff stack; once every 6 s."
     }
    ],
    "story": "A gourd from the ferry and needles wound in its rope: Bồ Hạnh Lâm made the second piece in 1185 to match the first. Both are Đàm Thanh Giang's, and the set is whole."
@@ -1307,7 +1307,7 @@
     },
     {
      "pieces": 3,
-     "effect": "Light as a Startled Goose (Phiên Nhược Kinh Hồng): each time the Sash slips a blow, you regrow 4 % of your health over 4 s and the attacker is rooted for 1 s where it stands, so the Fang's resistance cut applies to it."
+     "effect": "Light as a Startled Goose (Phiên Nhược Kinh Hồng): each time the Sash slips a blow, you regrow 4 % of your health over 4 s and the attacker cannot evade for 1 s, so the Fang's resistance cut applies to it."
     }
    ],
    "story": "Not made together: the founder's sash of 200, the wolf king's tooth of 455 and the pin she cut in 900. She bound them with one cord the morning she retired, and they have answered one another since. All three are hers; the Thousand Roots Banner stays furled at Thính Đào Nhãn."
@@ -1338,7 +1338,7 @@
     },
     {
      "pieces": 3,
-     "effect": "The River Keeps Its Bed (Hà Thủ Kỳ Sàng): each Water art the Lamp makes free counts twice toward the Ring's ninth bend, and when the ninth wave bends back it also heals you and the ally lowest on health for 3 % of your maximum linh lực."
+     "effect": "The River Keeps Its Bed (Hà Thủ Kỳ Sàng): each Water art the Lamp makes free counts twice toward the Ring's ninth bend, and when the ninth wave bends back it also heals you for 3 % of your maximum linh lực."
     }
    ],
    "story": "The abbey's lamp, her mother's habit and the River Hall's ring: two relics of the flood of 700 and the hand of the man who sent it. Dụ Tĩnh Lưu wears all three, and only she knows why that is a penance."
@@ -1369,7 +1369,7 @@
     },
     {
      "pieces": 3,
-     "effect": "Voice in the Rain (Vũ Trung Thanh): while your Pine Rain falls, each heal you land on an ally under it also gives them one Water buff stack and restores 1 % of your maximum linh lực; heals on allies below a third of their health are 25 % stronger."
+     "effect": "Voice in the Rain (Vũ Trung Thanh): while your Pine Rain falls, each heal you receive also gives you one Water buff stack and restores 1 % of your maximum linh lực; heals on you below a third of your health are 25 % stronger."
     }
    ],
    "story": "The teaching fan, the pearl from home and the robe of the Hall of Voices, gathered over three centuries. All are Hồ Tùng Nguyệt's, and the hall expects them to pass to whoever keeps it after her."
@@ -1435,7 +1435,7 @@
     },
     {
      "pieces": 3,
-     "effect": "Ground Set Before (Tiên Bố Địa): arrays and curses you lay in the first 5 s of a fight last 50 % longer, and a foe who stands cursed inside your array for 3 s is rooted for 1.5 s and takes a Water stack; once per foe every 10 s."
+     "effect": "Ground Set Before (Tiên Bố Địa): arrays and curses you lay in the first 5 s of a fight last 50 % longer, and while your array (a Field) is up, a foe that stays cursed for 3 s cannot evade for 1.5 s and takes a Water stack; once every 10 s."
     }
    ],
    "story": "The nine flags of 904, a seal for the ward-songs and his father's keel. Cận Tùng Hàn holds all three, and the flags are still rolled; the set has not been worn whole since that winter."

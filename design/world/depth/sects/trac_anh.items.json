@@ -40,11 +40,11 @@
      "new": true,
      "id": "the-line-holds",
      "name": "The Line Holds (Tác Bất Đoạn)",
-     "rule": "While a target is pinned by your Whale-Line Harpoon, your hits on it heal you for 3 % of the damage dealt."
+     "rule": "While a target is Bound by your Whale-Line Harpoon, your hits on it heal you for 3 % of the damage dealt."
     }
    ],
    "lore": "The founder's harpoon, its line woven from the sinew of the first whale Trạc Anh Đài ever took (830). Đoàn Thanh Lãng has carried it since 1080 and never thrown it at a man.",
-   "build_use": "The sea hunter's pin-and-drag: physical damage, longer pins, sustain on a pinned foe.",
+   "build_use": "The sea hunter's bind-and-delay: physical damage, longer Binds, sustain on a Bound foe.",
    "holder": "doan_thanh_lang",
    "made_by": "khuat_thanh_anh",
    "made_year": 830,
@@ -201,7 +201,7 @@
     },
     {
      "pieces": 3,
-     "effect": "Drag It to the Ice (Duệ Thượng Băng): a foe pinned by your harpoon cannot leave the line; each second it stays on it you heal 1 % of your health and it takes 4 % more Physical damage from you; the bonus lasts while the pin holds and is lost when it ends."
+     "effect": "Drag It to the Ice (Duệ Thượng Băng): a foe Bound by your harpoon (it cannot flee); each second it stays Bound you heal 1 % of your health and it takes 4 % more Physical damage from you; the bonus lasts while the Bind holds and is lost when it ends."
     }
    ],
    "story": "The founder's harpoon, the coat cut from the strip of hide the Old Ivory left on it, and his sworn brother's ring. Đoàn wears all three on every hunt; he says he will take them off when the whale is dead."

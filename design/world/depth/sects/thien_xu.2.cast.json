@@ -144,9 +144,9 @@
       3214,
       3105
      ],
-     "targets_note": "Pivot route from the Earth end, then the stele warden's arrays: Array Foundation, Array Flag (his master's), Array Keeper's ward around three planted steles."
+     "targets_note": "Pivot route from the Earth end, then the stele warden's arrays: Array Foundation, Array Flag (his master's), Array Keeper's ward while three Stele charges are held."
     },
-    "note": "Plants three steles and lets the foe come to the line."
+    "note": "Gains three Stele charges."
    },
    "items": [
     "tx-square-and-compass"
@@ -1922,7 +1922,7 @@
       3151,
       3214
      ],
-     "targets_note": "Pivot route from the Earth end, then his master's Array Foundation and Array Flag: steles that hold."
+     "targets_note": "Pivot route from the Earth end, then his master's Array Foundation and Array Flag: Stele charges that hold."
     },
     "note": "Plants steles for a living; fights the same way."
    }

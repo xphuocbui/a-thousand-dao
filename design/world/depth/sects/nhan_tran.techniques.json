@@ -40,7 +40,7 @@
    "concept": "The drum the gate beats when it drills the plain's mortal levies on the shore of Lạc Nhạn Hồ each spring. The drummer's qi goes into the beat, and the beat goes into the feet of everyone who hears it in time: a line of farmers keeps its spacing under arrows, and a file of disciples moves at one pace. In a fight the drum sets the file's rhythm and closes gaps when someone falls.",
    "arts": [
     "marching-dirge",
-    {"new": "Close the File (Hợp Hàng)", "concept": "When you are first Wounded, or each time you are Displaced, the drum closes the gap: for 5 s you gain attack speed (your companions half) and take 10 % less damage.", "authored": "a1"}
+    {"new": "Close the File (Hợp Hàng)", "concept": "When you are first Wounded, for 5 s you gain attack speed (your companions half) and take 10 % less damage.", "authored": "a1"}
    ],
    "lore": "The levy drum was first beaten in 807. Lạc Hà's Thảo Đường Thành and Nhạn Thanh Thành pay the gate for every spring it drills their farmers.",
    "status": "proposal",
@@ -53,7 +53,7 @@
    "concept": "The founders' art, made on one night. On Chiết Kích Nguyên in 803 Thạch Liệt Hàng's file of forty was inside the grey when it rose. They held their line, breathed through one wet cloth passed down the file, one breath each, and walked out backwards with the rear guard facing the halberds. The art teaches that: a file that shares its breath shares its poison, and a shared poison is a halved poison. In a fight it spreads curses, poisons and stacks laid on one member across the whole file, so no one carries enough to fall, and it lets the file give ground without breaking.",
    "arts": [
     {"new": "One Breath Down the File (Nhất Tức Truyền Hàng)", "concept": "For 8 s, curse and debuff stacks laid on you are divided by your ally count (rounded down) and last 25 % shorter. If you fight Alone, they are halved instead (rounded down) and last twice as long.", "authored": "d4, a1"},
-    {"new": "The Rear Guard Faces Back (Hậu Vệ Hồi Thân)", "concept": "You step back: for 3 s you gain evasion and a ward, you are At range for 1 s, and you strike the foe once (a free hit).", "authored": "a1"}
+    {"new": "The Rear Guard Faces Back (Hậu Vệ Hồi Thân)", "concept": "For 3 s you gain evasion and a ward, and you strike the foe once (a free hit).", "authored": "a1"}
    ],
    "lore": "Never written down until Thạch's death in 1040. It is taught only to the head and the elders. Mục Tân Vũ, the point of the first file, has not been taught it, and she is learning it anyway from Thạch's notes.",
    "status": "proposal",

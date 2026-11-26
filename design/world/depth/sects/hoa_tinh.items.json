@@ -5,7 +5,7 @@
   {
    "id": "ht-silver-candle", "name": "The Silver Candle (Ngân Chúc Đăng)", "family": "wood", "kind": "treasure", "base": "dang", "grade": 4,
    "modifiers": [{"key": "attack_pct", "value": 20, "scope": ["talisman"]}, {"key": "art_speed_pct", "value": 14, "scope": ["talisman"]}, {"key": "than_thuc_pct", "value": 8, "scope": []}, {"key": "stack_effect_pct", "value": 20, "scope": ["moc", "debuff"]}, {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}],
-   "effects": [{"new": true, "id": "autumn-light-on-the-screen", "name": "Autumn Light on the Screen (Thu Quang Họa Bình)", "rule": "While the candle is lit, the first talisman you throw at each foe is painted twice: it strikes again a moment later at half strength. Talismans you paint by its light keep a grade higher."}],
+   "effects": [{"new": true, "id": "autumn-light-on-the-screen", "name": "Autumn Light on the Screen (Thu Quang Họa Bình)", "rule": "While the candle is lit, the first talisman you throw at the foe is painted twice: it strikes again 1 s later at half strength. Talismans you paint by its light keep a grade higher."}],
    "lore": "A tall candlestick of silver with a white pine-wax candle that is never allowed to burn down, after the line of Đỗ Mục's that the head is named for: a silver candle, autumn light, a cold painted screen. Every Dipper talisman the Pivot has bought since 912 was painted by its light.",
    "build_use": "The head's lamp: talisman damage and speed, and a second stroke.",
    "holder": "ky_ngan_chuc", "made_by": "ky_thu_tich", "made_year": 912, "set": "ht-lamp-ink-brush", "status": "proposal"

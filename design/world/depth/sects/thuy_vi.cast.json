@@ -894,7 +894,7 @@
      ],
      "targets_note": "Binding Vine rooting (status duration), Black Forest damage, Hollow Bamboo linh lực for long winter fights."
     },
-    "note": "Roots the foe on the ice, strips their concealment with the lamp, and keeps going."
+    "note": "The foe cannot evade, loses its concealment to the lamp, and the fight keeps going."
    },
    "items": [
     "tv-quay-lamp",
@@ -1546,7 +1546,7 @@
      ],
      "targets_note": "Grove Shade concealment and Bamboo Grove, then Earth formation power for the Lotus Throne array."
     },
-    "note": "Lays the Lotus Throne, walks out of reach, and lets the array fight."
+    "note": "Lays the Lotus Throne and lets the array fight."
    }
   },
   {
@@ -1973,7 +1973,7 @@
      ],
      "targets_note": "Beast Pen, then the Beast-Soul Totem idea and its Beast Soul Union: the martens' power, bound to her."
     },
-    "note": "The martens fight; she keeps them hidden in the haze until they bite."
+    "note": "The martens fight; she keeps them hidden while her haze (a Field) is up until they bite."
    }
   },
   {

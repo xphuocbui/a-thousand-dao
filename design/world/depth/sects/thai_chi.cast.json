@@ -538,7 +538,7 @@
     },
     "tree": {
      "start": "moc",
-     "intent": "Wood healing for allies in the rain; a hard old body.",
+     "intent": "Wood healing for you while your rain (a Field) is up; a hard old body.",
      "targets": [
       788,
       5710,
@@ -546,7 +546,7 @@
       5595,
       6281
      ],
-     "targets_note": "Herb route, then Spreading Canopy and Strong Sapling: heals for allies in the rain, a hard old body."
+     "targets_note": "Herb route, then Spreading Canopy and Strong Sapling: heals for you while your rain (a Field) is up, a hard old body."
     },
     "note": "A hoe for an axe."
    }

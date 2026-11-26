@@ -5,7 +5,7 @@
   {
    "id": "cc-green-field-bell", "name": "Green Field Bell (Thanh Điền Linh)", "family": "wind", "kind": "treasure", "base": "chuong", "grade": 4,
    "modifiers": [{"key": "art_speed_pct", "value": 14, "scope": ["phong"]}, {"key": "stack_effect_pct", "value": 24, "scope": ["phong", "buff"]}, {"key": "than_thuc_pct", "value": 6, "scope": []}, {"key": "evade_pct", "value": 5, "scope": []}, {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}],
-   "effects": [{"new": true, "id": "the-king-answers", "name": "The King Answers (Vương Ứng)", "rule": "Once a fight, ringing the bell calls the crane king Thanh Điền: it strikes every foe near you with Wind and, for a few seconds, any crane art you use is cast twice."}],
+   "effects": [{"new": true, "id": "the-king-answers", "name": "The King Answers (Vương Ứng)", "rule": "Once a fight, ringing the bell calls the crane king Thanh Điền: it strikes the foe with Wind and, for a few seconds, any crane art you use is cast twice."}],
    "lore": "A small bronze bell tied to the leg of the crane king Thanh Điền, which Ung Hạc Minh tamed in 1197 and which lets no one else ride it (A097). The bell was the founder's; it hung silent in the hall for two hundred years until a crane would wear it.",
    "build_use": "The head's crane rite: faster Wind arts, stronger buffs, and the king when it matters.",
    "holder": "ung_hac_minh", "made_by": "tan_minh_cao", "made_year": 700, "set": "cc-green-field-riders", "status": "proposal"

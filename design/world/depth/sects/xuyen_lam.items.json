@@ -38,7 +38,7 @@
      "new": true,
      "id": "rain-on-leaves",
      "name": "Rain on the Leaves (Đả Diệp)",
-     "rule": "While you keep moving, each foe's art that hits you gives you one Walk Slowly stack, as if you had walked a second longer."
+     "rule": "While you keep Pressing, the foe's art that hits you gives you one Walk Slowly stack, as if you had walked a second longer."
     }
    ],
    "lore": "A plain staff of forest bamboo, worn pale at the grip, that Mạc Nhất Thoa carried on the road from before the Gate was founded (A289). It has been cut down and rebound three times, and every head of the Gate has walked a year of the road with it. Nhậm Bình Sinh left it to Úc Diệp Thanh in 1169.",
@@ -123,7 +123,7 @@
      "new": true,
      "id": "lamp-on-the-road",
      "name": "Lamp on the Road (Lộ Đăng)",
-     "rule": "No foe within your reach can be unseen. Once per fight, you and one ally may leave a fight at no cost."
+     "rule": "The foe cannot be unseen. Once per fight, you may leave a fight at no cost."
     }
    ],
    "lore": "A horn lantern with a wick of bamboo pith, kept by the Road Mother for the night crossings. The Night Rain Edict lit no lamps (A274), and the Gate has carried this one through the Tower's forest every night since, which the Tower has never forgiven and never forbidden.",
