@@ -562,6 +562,8 @@ func test_with_rankings_off_a_close_world_fight_by_power_makes_rivals_rule_8() -
 	tick["duel_kill_p"] = 0.0
 	for p in s.db.living():
 		p["power"] = 100.0   # every pair is close
+	for r in s.db.all("ties"):   # rule 8 alone: the authored cast's ties (world-depth) would fill the duelists' caps
+		s.db.remove("ties", str(r.id))
 	var rng := RandomNumberGenerator.new()
 	rng.seed = 5
 	var news: Array = s.ticker.tick(rng, 1200, 0)
