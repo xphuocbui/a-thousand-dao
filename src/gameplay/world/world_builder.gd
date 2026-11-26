@@ -323,6 +323,7 @@ func _step_cast() -> void:
 		rec["born_year"] = int(p.born)
 		rec["role"] = str(p.get("role", ""))
 		rec["npc_traits"] = NpcTraits.from_authored(_gd, p.get("traits", {}))   # the cast's authored traits, as catalogue ids
+		NpcTraits.grant_authored(_gd, rec, Array(p.get("traits", {}).get("gained", [])), current_year * 4)   # world-depth
 		rec["build_source"] = "authored" if not authored.is_empty() else "stand-in"
 		rec.erase("pending")
 		if not sect_rec.is_empty():

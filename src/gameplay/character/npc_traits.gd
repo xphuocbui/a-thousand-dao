@@ -108,7 +108,7 @@ static func from_authored(gd: GameData, authored: Dictionary) -> Dictionary:
 		return out
 	var calling: String = str(cat.by_name.get(str(authored.get("calling", "")).to_lower(), ""))
 	return {"personality": ids.call(authored.get("personality", [])), "calling": calling,
-		"fate": ids.call(authored.get("fate_given", [])), "gained": ids.call(authored.get("gained", []))}   # gained: world-depth
+		"fate": ids.call(authored.get("fate_given", [])), "gained": []}
 
 
 ## F2: the weight of a choice tagged [param tags] for [param person]: [param base] times the product of every held
@@ -283,6 +283,16 @@ static func grant(gd: GameData, person: Dictionary, id: String, now: int, target
 	g[oldest] = {"id": id, "expires": now + fade, "target": target}
 	person.npc_traits["gained"] = g
 	return "replaced"
+
+
+## The cast's authored gained traits (world-depth; names from the catalogue), granted at season [param now] as rule 12
+## grants any gained trait, so they fade like the rest. Unknown names are skipped.
+static func grant_authored(gd: GameData, person: Dictionary, names: Array, now: int) -> void:
+	var cat := catalogue(gd)
+	for n in names:
+		var id: String = str(cat.by_name.get(str(n).to_lower(), ""))
+		if id != "":
+			grant(gd, person, id, now)
 
 
 ## Rule 12: removes the gained traits of [param person] that expire by season [param now].
