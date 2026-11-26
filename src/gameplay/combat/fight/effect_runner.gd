@@ -653,6 +653,8 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 						x.until = f.t + x.length
 			"protect":
 				s.protect[str(arg.el)] = {"for_first": arg.get("for_first"), "swap_buff": bool(arg.get("swap_buff", false))}
+			"move_own_debuffs":
+				f.move_own_debuffs(s, float(arg.get("pay_per_stack", 0.0)))
 			"burn_pill":
 				# Burn the prepared pill (Effects rule 6, 2026-11-26; Pill Smoke; smoke only): stacks_per_grade x grade debuff
 				# stacks of its element on the foe (Water as Ice, none as Wood), failed or not; its fail chance is drawn

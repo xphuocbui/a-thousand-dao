@@ -1,0 +1,78 @@
+{
+  "name": "t22_move_exact",
+  "slice": 22,
+  "chance_free": true,
+  "seed": 221,
+  "doc": "World-depth Stage 5, slice 8a (2026-11-26), chance-free: Move the Sickness. B lays Fire and Wood debuffs and Heavy Breath on A; every 4 s A moves its debuffs and statuses onto B as its own (oldest first, 0.5 % of maximum linh lực a stack, stopping at the first it cannot pay; a curse moves only into a free curse slot).",
+  "a": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "withered-branch",
+    "arts": [
+      {
+        "name": "palm",
+        "c": 0.9,
+        "cost": 0.04,
+        "cd": 2.0
+      }
+    ],
+    "effects": [
+      {
+        "id": "move-the-sickness",
+        "on": "pulse",
+        "limit": {
+          "cooldown": 4.0
+        },
+        "do": [
+          {
+            "move_own_debuffs": {
+              "pay_per_stack": 0.005
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "plague-hand",
+    "arts": [
+      {
+        "name": "fire-spit",
+        "c": 0.4,
+        "cost": 0.03,
+        "cd": 2.0,
+        "element": "fire",
+        "debuff": [
+          3,
+          6.0
+        ]
+      },
+      {
+        "name": "rot-touch",
+        "c": 0.4,
+        "cost": 0.03,
+        "cd": 3.0,
+        "element": "wood",
+        "debuff": [
+          2,
+          8.0
+        ],
+        "statuses": [
+          {
+            "id": "heavy_breath"
+          }
+        ]
+      },
+      {
+        "name": "cut",
+        "c": 0.8,
+        "cost": 0.04,
+        "cd": 2.5
+      }
+    ]
+  }
+}

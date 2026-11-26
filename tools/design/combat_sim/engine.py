@@ -631,6 +631,50 @@ class Fight:
             out += STATUS["drunk"]["slow"] * dk * resist
         return out
 
+    def move_own_debuffs(self, s, per):
+        """Move the Sickness (2026-11-26): s's debuff batches, oldest first, then its statuses, soonest end first,
+        move to the foe as s's own with the time they had left. Each stack costs per of s's maximum linh luc; the move
+        stops at the first stack s cannot pay for. A moved curse needs a free curse slot on the foe, or it stays."""
+        o = s.foe
+        fee = per * s.qi_max()
+        start = lambda x: (x[2] - x[4]) if (x[2] is not None and len(x) > 4 and x[4] is not None) else -1
+        for x in sorted(s.debuffs, key=start):
+            can = x[1] if fee <= 0 else min(x[1], math.floor(s.qi / fee + 1e-9))
+            if can <= 0:
+                s.debuffs = [y for y in s.debuffs if y[1] > 0]
+                return
+            s.qi -= can * fee
+            o.debuffs.append([x[0], can, x[2], s, x[4] if len(x) > 4 else None])
+            x[1] -= can
+            if x[1] > 0:   # only part of it could be paid for
+                s.debuffs = [y for y in s.debuffs if y[1] > 0]
+                return
+        s.debuffs = [y for y in s.debuffs if y[1] > 0]
+        end = lambda sid: s.statuses[sid]["until"] if s.statuses[sid].get("until") is not None else 1 << 40
+        for sid in sorted([k for k in s.statuses if k in STATUS], key=lambda k: (end(k), k)):
+            stt = s.statuses[sid]
+            cost = stt["stacks"] * fee
+            if cost > s.qi + 1e-9:
+                return
+            if STATUS[sid]["kind"] == "curse" and sid not in o.statuses:
+                live = [k for k in o.statuses if STATUS.get(k, {}).get("kind") == "curse"]
+                if len(live) >= K["curse_slots"]:
+                    continue   # no free slot on the foe: it stays on s
+            s.qi -= cost
+            moved = dict(stt, src=s)
+            moved.pop("clock", None)
+            if "each" in stt:
+                moved["each"] = [list(b) for b in stt["each"]]
+            if sid in o.statuses:   # the foe has it already: stacks add, the longer time stays
+                ot = o.statuses[sid]
+                cap = STATUS[sid].get("cap")
+                ot["stacks"] = ot["stacks"] + stt["stacks"] if cap is None else min(cap, ot["stacks"] + stt["stacks"])
+                if ot.get("until") is not None and stt.get("until") is not None:
+                    ot["until"] = max(ot["until"], stt["until"])
+            else:
+                o.statuses[sid] = moved
+            del s.statuses[sid]
+
     def counted_curses(self, holder, x):
         """Black Under White (2026-11-26): while reading its foe, every counted_curse_per of the holder's stacks of an
         element on that foe count as one more of the holder's curses. A count only: no slot, no cleanse."""
@@ -1763,6 +1807,8 @@ class Fight:
                     s.dealt -= over
                     s.trig_dmg -= over
                     s.clipped["trig_budget"] = s.clipped.get("trig_budget", 0) + 1
+            elif verb == "move_own_debuffs":
+                self.move_own_debuffs(s, arg.get("pay_per_stack", 0.0))
             elif verb == "burn_pill":
                 # Burn the prepared pill (Effects rule 6, 2026-11-26; Pill Smoke; smoke only for now): its smoke lays
                 # stacks_per_grade x grade debuff stacks of its element on the foe (Water smokes as Ice, no element as

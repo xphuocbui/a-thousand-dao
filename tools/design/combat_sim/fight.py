@@ -457,6 +457,21 @@ def apply_static(d, lines, who, unmod):
             table[k] = table.get(k, 0.0) + val
 
 
+def root_gate(req, purity):
+    """An art's root gate (2026-11-26): requires.root_has / root_lacks, an engine element or variant (light, ice,
+    thunder...), read against the build's purity (owned elements and variants). Returns why it fails, or \"\"."""
+    if not req:
+        return ""
+    has = {k for k, v in (purity or {}).items() if v > 0}
+    for el in ([req["root_has"]] if isinstance(req.get("root_has"), str) else req.get("root_has", [])):
+        if el not in has:
+            return "needs a root with %s" % el
+    for el in ([req["root_lacks"]] if isinstance(req.get("root_lacks"), str) else req.get("root_lacks", [])):
+        if el in has:
+            return "needs a root without %s" % el
+    return ""
+
+
 def expand_library(d):
     """Resolve {"lib": id} arts and "techniques" ids into plain build fields. Unknown ids are BadInput."""
     if not any(isinstance(a, dict) and "lib" in a for a in d.get("arts", [])) and not d.get("techniques") \
@@ -473,6 +488,10 @@ def expand_library(d):
             if not src:
                 raise BadInput("arts: library art %r not found in design/arts/ (family-*.json or part-*.json), "
                                "design/items/common-arts.json or an item's arts" % a["lib"])
+            gate = root_gate(src.get("requires"), d.get("purity", {}))
+            if gate:   # a root gate the owner fails: not slotted (2026-11-26; Bronze Answers, Dawn Call)
+                d.setdefault("unmodelled", []).append("art %s: %s (not slotted)" % (src["id"], gate))
+                continue
             x = {k: v for k, v in src.items() if k in LIB_ART_KEYS}
             x["id"] = src["id"]
             x.update({k: v for k, v in a.items() if k != "lib"})

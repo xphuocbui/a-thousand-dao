@@ -46,7 +46,7 @@ def _art_record(a, source):
     rec["name"] = a.get("name", a["id"])
     rec["rule"] = a.get("rule", "")
     rec["source"] = source
-    for k in ("effects", "counters", "states"):
+    for k in ("effects", "counters", "states", "requires"):   # requires: root gates (2026-11-26)
         if a.get(k):
             rec[k] = a[k]
     return rec
@@ -138,6 +138,9 @@ def build_all():
     # every field the same way (the fighter records are fully resolved; FighterProfileLoader)
     defaults = dataclasses.asdict(engine.from_sim(sim.Build("default")))
     defaults.pop("name")
+    for late in ("pill", "tech_layers"):   # fields added later stay out at their default (world-depth Stage 5), as
+        if defaults.get(late) == {}:        # in the parity and compile files, so compiled builds keep their shape
+            defaults.pop(late)
     consts["build_defaults"] = defaults
     return {
         "schema_version": 1,

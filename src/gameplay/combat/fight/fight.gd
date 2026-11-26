@@ -628,6 +628,99 @@ func restart_clock(rec: Array, left: int) -> void:
 
 ## Broken and Wounded (Combat rule 25, Formulas L): the first time this fight [param s]'s health falls to
 ## broken_threshold of its maximum or below, it is Wounded and its foe has Broken it; once a fight. As engine.py.
+## Move the Sickness (2026-11-26): [param s]'s debuff batches, oldest first, then its statuses, soonest end first,
+## move to the foe as its own with the time they had left; each stack costs [param per] of its maximum linh lực and
+## the move stops at the first it cannot pay; a moved curse needs a free curse slot on the foe, or it stays.
+## As engine.py move_own_debuffs.
+func move_own_debuffs(s: FighterState, per: float) -> void:
+	var o: FighterState = foe_of(s)
+	var fee: float = per * s.qi_max()
+	# oldest first; ties keep their list order (sort_custom is not stable, the sim's sorted() is)
+	var keyed: Array = []
+	for i in s.debuffs.size():
+		keyed.append([_batch_start(s.debuffs[i]), i])
+	keyed.sort_custom(func(p1, p2): return p1[0] < p2[0] or (p1[0] == p2[0] and p1[1] < p2[1]))
+	var order: Array = keyed.map(func(p): return s.debuffs[p[1]])
+	var stop := false
+	for x in order:
+		var can: float = x.n if fee <= 0.0 else minf(x.n, floorf(s.qi / fee + 1e-9))
+		if can <= 0.0:
+			stop = true
+			break
+		s.qi -= can * fee
+		var nb := FighterState.StackBatch.new()
+		nb.el = x.el
+		nb.n = can
+		nb.until = x.until
+		nb.src_idx = _idx(s)
+		nb.src_p = s.p
+		nb.length = x.length
+		nb.power = StackMath.stack_power(k, s.p, x.el, "debuff")
+		o.debuffs.append(nb)
+		x.n -= can
+		if x.n > 0.0:   # only part of it could be paid for
+			stop = true
+			break
+	var kept: Array[FighterState.StackBatch] = []
+	for y in s.debuffs:
+		if y.n > 0.0:
+			kept.append(y)
+	s.debuffs = kept
+	s.touch_debuffs()
+	o.touch_debuffs()
+	if stop:
+		return
+	var sids: Array = []
+	for sid in s.statuses:
+		if k.status.has(sid):
+			sids.append(sid)
+	sids.sort_custom(func(a1, b1): return _status_end(s, a1) < _status_end(s, b1) or (_status_end(s, a1) == _status_end(s, b1) and str(a1) < str(b1)))
+	for sid in sids:
+		var stt: FighterState.StatusState = s.statuses[sid]
+		var cost: float = stt.stacks * fee
+		if cost > s.qi + 1e-9:
+			return
+		if str(k.status[sid].kind) == "curse" and not o.statuses.has(sid):
+			var live: int = 0
+			for other in o.statuses:
+				if str(k.status.get(other, {}).get("kind", "")) == "curse":
+					live += 1
+			if live >= k.curse_slots:
+				continue   # no free slot on the foe: it stays
+		s.qi -= cost
+		if o.statuses.has(sid):   # the foe has it already: stacks add, the longer time stays
+			var ot: FighterState.StatusState = o.statuses[sid]
+			var cap_v: Variant = k.status[sid].get("cap")
+			ot.stacks = ot.stacks + stt.stacks if cap_v == null else minf(float(cap_v), ot.stacks + stt.stacks)
+			if ot.until >= 0 and stt.until >= 0:
+				ot.until = maxi(ot.until, stt.until)
+		else:
+			var mv := FighterState.StatusState.new()
+			mv.stacks = stt.stacks
+			mv.until = stt.until
+			mv.src_idx = _idx(s)
+			mv.tag = stt.tag
+			mv.layer = stt.layer
+			mv.crossing = stt.crossing
+			mv.no_lockout = stt.no_lockout
+			mv.stored = stt.stored
+			mv.every = stt.every
+			mv.next_release = stt.next_release
+			for bt in stt.each:
+				mv.each.append((bt as Array).duplicate())
+			o.statuses[sid] = mv
+		s.statuses.erase(sid)
+
+
+func _batch_start(x: FighterState.StackBatch) -> int:
+	return (x.until - x.length) if (x.until != -1 and x.length != -1) else -1
+
+
+func _status_end(s: FighterState, sid: String) -> int:
+	var u: int = s.statuses[sid].until
+	return u if u >= 0 else 1 << 40
+
+
 ## Black Under White (2026-11-26): while [param holder] reads its foe [param x], every counted_curse_per of its stacks
 ## of an element on that foe count as one more curse. A count only. As engine.py counted_curses.
 func counted_curses(holder: FighterState, x: FighterState) -> int:

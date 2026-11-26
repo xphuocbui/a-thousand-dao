@@ -300,6 +300,56 @@ def t_vocab_8a():
           "%s %s" % (f.read(A, "foe.curses"), f.read(B, "own.curses")))
 
 
+def t_move_own_debuffs():   # Move the Sickness (2026-11-26)
+    f, A, B = setup()
+    f.add_stacks(B, A, "fire", 3, 8.0, buff=False)
+    f.t = 1000
+    f.add_stacks(B, A, "wood", 4, 8.0, buff=False)
+    f.apply_status(B, A, {"id": "sundered", "stacks": 2})
+    A.qi = A.qi_max()
+    f.move_own_debuffs(A, 0.005)
+    check("all moved to the foe as A's own, with their time", A.count(A.debuffs, "fire") == 0 and B.count(B.debuffs, "fire") == 3
+          and B.count(B.debuffs, "wood") == 4 and B.debuffs[0][3] is A and B.debuffs[0][2] == 8000 and B.st("sundered") == 2
+          and "sundered" not in A.statuses, str(B.debuffs))
+    check("each stack paid 0.5 % of maximum linh luc (9 stacks)", abs(A.qi - A.qi_max() * (1 - 9 * 0.005)) < 1e-9)
+    f, A, B = setup()
+    f.add_stacks(B, A, "fire", 3, 8.0, buff=False)
+    f.t = 1000
+    f.add_stacks(B, A, "wood", 4, 8.0, buff=False)
+    A.qi = A.qi_max() * 0.005 * 5
+    f.move_own_debuffs(A, 0.005)
+    check("it stops at the first stack it cannot pay for: the oldest 3 Fire, then 2 of 4 Wood",
+          B.count(B.debuffs, "fire") == 3 and B.count(B.debuffs, "wood") == 2 and A.count(A.debuffs, "wood") == 2, str(B.debuffs))
+    f, A, B = setup()
+    for sid in ("sundered", "exposed", "withering"):
+        f.apply_status(A, B, {"id": sid})
+    f.apply_status(B, A, {"id": "heavy_breath"})
+    A.qi = A.qi_max()
+    f.move_own_debuffs(A, 0.005)
+    check("a curse with no free slot on the foe stays", "heavy_breath" in A.statuses and "heavy_breath" not in B.statuses)
+
+
+def t_root_gates():   # requires.root_has / root_lacks (2026-11-26; Bronze Answers, Dawn Call)
+    import fight as F
+    arts_lib, _ = F._library()
+    aid = sorted(arts_lib)[0]
+    old = arts_lib[aid].get("requires")
+    try:
+        build = lambda pur: F.expand_library({"name": "t", "realm": "luyen_khi", "arts": [{"lib": aid}], "purity": pur})
+        arts_lib[aid]["requires"] = {"root_lacks": "thunder"}
+        check("root_lacks thunder: a Metal root slots it", [a["id"] for a in build({"metal": 40})["arts"]] == [aid])
+        d = build({"metal": 40, "thunder": 20})
+        check("a Thunder root does not, and the build says why", d["arts"] == [] and any("without thunder" in u for u in d.get("unmodelled", [])),
+              str(d.get("unmodelled")))
+        arts_lib[aid]["requires"] = {"root_has": "light"}
+        check("root_has light needs a Light root", build({"light": 30})["arts"] != [] and build({"fire": 30})["arts"] == [])
+    finally:
+        if old is None:
+            arts_lib[aid].pop("requires", None)
+        else:
+            arts_lib[aid]["requires"] = old
+
+
 # ---- world-depth Stage 5 slice 7 (2026-11-26): kept request tags (Combat rule 12, AC-CB-104)
 def t_request_tags():
     trib = {"id": "t", "on": "always", "if": [{"read": "tag.tribulation", "op": ">=", "value": 1}], "do": [{"mod": {"block": 7}}]}

@@ -630,3 +630,39 @@ func test_tech_layer_counted_curses_not_art_id_and_the_last_art_of_an_element() 
 	var hp: float = h.b.hp
 	EffectRunner.fire(h, h.a, "fight_start", {})
 	assert_bool(h.b.hp < hp).override_failure_message("the last Metal art fires again").is_true()
+
+
+func test_root_gates_read_the_builds_purity() -> void:
+	# requires.root_has / root_lacks (2026-11-26; Bronze Answers, Dawn Call; test_engine.py t_root_gates)
+	assert_eq(BuildFileCompiler._root_gate({"root_lacks": "thunder"}, {"metal": 40.0}), "")
+	assert_eq(BuildFileCompiler._root_gate({"root_lacks": "thunder"}, {"metal": 40.0, "thunder": 20.0}), "needs a root without thunder")
+	assert_eq(BuildFileCompiler._root_gate({"root_has": "light"}, {"light": 30.0}), "")
+	assert_eq(BuildFileCompiler._root_gate({"root_has": "light"}, {"fire": 30.0}), "needs a root with light")
+	assert_eq(BuildFileCompiler._root_gate({}, {}), "")
+
+
+func test_move_own_debuffs_pays_per_stack_and_stops_at_the_first_it_cannot_pay() -> void:
+	# Move the Sickness (2026-11-26; test_engine.py t_move_own_debuffs)
+	var f: Fight = M._fight(M._dummy(), M._dummy())
+	f.add_stacks(f.b, f.a, "fire", 3.0, 8.0, false)
+	f.t = 1000
+	f.add_stacks(f.b, f.a, "wood", 4.0, 8.0, false)
+	var sun := _spec("sundered")
+	sun.stacks = 2.0   # a spec's stacks are its own field, not an extra
+	f.apply_status(f.b, f.a, sun)
+	f.a.qi = f.a.qi_max()
+	f.move_own_debuffs(f.a, 0.005)
+	assert_near(EffectRunner._count(f.b.debuffs, "fire") + EffectRunner._count(f.b.debuffs, "wood"), 7.0, 1e-9)
+	assert_eq(f.b.debuffs[0].src_idx, 0, "moved as A's own")
+	assert_eq(f.b.debuffs[0].until, 8000, "with the time it had left")
+	assert_near(f.b.st("sundered"), 2.0, 1e-9)
+	assert_bool(f.a.statuses.has("sundered")).is_false()
+	assert_near(f.a.qi, f.a.qi_max() * (1.0 - 9 * 0.005), 1e-9)
+	var g: Fight = M._fight(M._dummy(), M._dummy())
+	g.add_stacks(g.b, g.a, "fire", 3.0, 8.0, false)
+	g.t = 1000
+	g.add_stacks(g.b, g.a, "wood", 4.0, 8.0, false)
+	g.a.qi = g.a.qi_max() * 0.005 * 5
+	g.move_own_debuffs(g.a, 0.005)
+	assert_near(EffectRunner._count(g.b.debuffs, "wood"), 2.0, 1e-9, "stops partway through the Wood")
+	assert_near(EffectRunner._count(g.a.debuffs, "wood"), 2.0, 1e-9)

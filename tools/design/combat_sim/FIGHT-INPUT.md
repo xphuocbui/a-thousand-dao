@@ -263,6 +263,12 @@ looks like a strong build.
   (to the side a tick lands on); `free_hit.pass_shields`; the build field `tech_layers` read as
   `own.tech_layer.<id>`; the mod `counted_curse_per` (element filter: every that many of your stacks on the foe count
   as one of your curses in the `curses` and `distinct_statuses` reads). Fixture t21.
+- **Slice 8a, part two:** root gates on a library art, `requires.root_has` / `requires.root_lacks` (an engine
+  element or variant: `light`, `thunder`, ...), read against the build's `purity`: a failed gate leaves the art
+  unslotted and says why in `unmodelled`. The action `move_own_debuffs` (`pay_per_stack`): your debuff batches, oldest
+  first, then your statuses, soonest end first, move to the foe as yours with their time left; each stack costs that
+  share of your maximum linh lực and the move stops at the first you cannot pay; a curse needs a free slot on the foe.
+  Fixture t22.
 
 ### World-depth vocabulary (2026-11-26; to build in world-depth Stage 5)
 

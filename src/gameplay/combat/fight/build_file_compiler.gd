@@ -115,6 +115,26 @@ func _who(d: Dictionary) -> String:
 
 # --- expand_library -------------------------------------------------------------------------------------------------
 
+## An art's root gate (2026-11-26): requires.root_has / root_lacks against the build's purity. Returns why it fails,
+## or "". As fight.py root_gate.
+static func _root_gate(req: Variant, purity: Dictionary) -> String:
+	if not (req is Dictionary) or (req as Dictionary).is_empty():
+		return ""
+	var has := {}
+	for k in purity:
+		if float(purity[k]) > 0.0:
+			has[str(k)] = true
+	var need: Variant = req.get("root_has", [])
+	for el in ([need] if need is String else need):
+		if not has.has(str(el)):
+			return "needs a root with %s" % str(el)
+	var lack: Variant = req.get("root_lacks", [])
+	for el in ([lack] if lack is String else lack):
+		if has.has(str(el)):
+			return "needs a root without %s" % str(el)
+	return ""
+
+
 func _expand(src: Dictionary) -> Dictionary:
 	var d: Dictionary = src.duplicate(true)
 	var lines: Array = d.get("modifiers", [])
@@ -136,6 +156,12 @@ func _expand(src: Dictionary) -> Dictionary:
 				errors.append("arts: library art '%s' not found in combat_library.json" % aid)
 				continue
 			var s: Dictionary = _arts[aid]
+			var gate: String = _root_gate(s.get("requires", {}), d.get("purity", {}))
+			if gate != "":   # a root gate the owner fails: not slotted (2026-11-26; Bronze Answers, Dawn Call)
+				if not d.has("unmodelled"):
+					d["unmodelled"] = []
+				d.unmodelled.append("art %s: %s (not slotted)" % [aid, gate])
+				continue
 			var x := {}
 			for k in s:
 				if _lib_art_keys.has(str(k)):
