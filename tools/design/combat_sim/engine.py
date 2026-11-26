@@ -572,7 +572,32 @@ class Fight:
 
     def slow(self, s):
         n = min(s.st("slowed_time"), STATUS["slowed_time"]["cap"])
-        return 1 + K["slowed_time_pct"] * n * (1 - (s.b.timer_resist + self.mod(s, "timer_resist")) / 100)
+        resist = 1 - (s.b.timer_resist + self.mod(s, "timer_resist")) / 100
+        out = 1 + K["slowed_time_pct"] * n * resist
+        dk = s.st("drunk")
+        if dk:   # Drunk (Effects Status Catalogue, 2026-11-26): its own slow per stack beside Slowed Time
+            out += STATUS["drunk"]["slow"] * dk * resist
+        return out
+
+    def caster_held(self, s):
+        """True while the foe carries a status that holds its caster and s cast it (Effects Status Catalogue,
+        'Statuses that hold their caster', 2026-11-26). Read live, so any way the status ends frees the caster."""
+        for sid, stt in s.foe.statuses.items():
+            if STATUS.get(sid, {}).get("holds_caster") and stt.get("src") is s and stt["stacks"] > 0:
+                return True
+        return False
+
+    def end_status(self, s, sid, early=False):
+        """End a status now (its time ran out, or a hit ended it); the reapply lockout starts. A Sleep cut short gives
+        back the clock time it had not used yet (only to timers its stop moved and nothing has reset since)."""
+        stt = s.statuses.pop(sid, None)
+        if stt is None:
+            return
+        lock = STATUS.get(sid, {}).get("lockout")
+        if lock and not stt.get("no_lockout"):
+            s.lockouts[sid] = self.t + ms(lock)
+        if early and stt.get("clock") and stt.get("until") is not None and stt["until"] > self.t:
+            self.restart_clock(stt["clock"], stt["until"] - self.t)
 
     # ---------------------------------------------------------- the loop
     def run(self):
@@ -700,11 +725,17 @@ class Fight:
                                                       "rekindled": 1.0 if len(x) > 5 and x[5] == "rekindled" else 0.0})
         for sid in list(s.statuses):
             stt = s.statuses[sid]
+            if "each" in stt:   # Drunk: each stack ends on its own time
+                stt["each"] = [b for b in stt["each"] if b[1] is None or b[1] > self.t]
+                stt["stacks"] = sum(b[0] for b in stt["each"])
+                if not stt["each"]:
+                    self.end_status(s, sid)
+                else:
+                    ends = [b[1] for b in stt["each"]]
+                    stt["until"] = None if None in ends else max(ends)
+                continue
             if stt.get("until") is not None and stt["until"] <= self.t:
-                lock = STATUS[sid].get("lockout")
-                if lock and not stt.get("no_lockout"):
-                    s.lockouts[sid] = self.t + ms(lock)
-                del s.statuses[sid]
+                self.end_status(s, sid)
         s.temp_mods = [m for m in s.temp_mods if m[2] > self.t]
         # self-counter decay
         for cid, cdef in s.counter_def.items():
@@ -767,8 +798,14 @@ class Fight:
         b = s.b
         speed_base = 1 + s.bsum("speed") + b.art_speed_pct / 100
         sup = set(s.state_def.get(s.state, {}).get("suppress", []))
+        # Sleep and Charmed hold every art of their target; a status s laid that holds its caster holds s's damaging
+        # arts and basic attack (Effects Status Catalogue, 2026-11-26)
+        stopped = s.st("sleep") > 0 or s.st("charmed") > 0
+        held = self.caster_held(s) if o.statuses else False
         for i, a in enumerate(b.arts):
             if s.removed[i] or self.t < s.ready[i] or a.name in sup:
+                continue
+            if stopped or (held and (a.c or a.soul_pct or a.soul_part)):
                 continue
             if a.tags and s.st("silence") and s.statuses["silence"].get("tag") in a.tags:
                 continue
@@ -823,8 +860,9 @@ class Fight:
             self.spend_banked(s, "art_fired", ev)
             s.cur_ev = None
         while self.t >= s.basic_ready:
-            c = 1.0 + b.basic_coef_add + self.mod(s, "basic_coef")
-            self.hit(s, o, c, "phys", None, kind="basic")
+            if not (stopped or held):   # a held basic attack misses; its timer still runs
+                c = 1.0 + b.basic_coef_add + self.mod(s, "basic_coef")
+                self.hit(s, o, c, "phys", None, kind="basic")
             s.basic_ready += ms(self.basic_cd(s) * self.slow(s))
         for sm in list(s.summons):
             while self.t >= sm[3] and sm[3] < sm[4]:
@@ -962,14 +1000,25 @@ class Fight:
         w_ev = sum(xw["w"].get("evade", 0.0) for xw in dfn.xwards
                    if xw["up"] and (xw["w"]["model"] == "reserved" or dfn.qi > 0)) / 100   # evade wards (2026-11-13)
         p_ev = min(K["evade_cap"], max(0.0, dfn.b.evade + w_ev + self.mod(dfn, "evade") / 100 - dfn.dsum("evade_down")
-                                       - (att.b.acc + self.mod(att, "acc") / 100 + att.bsum("acc") - att.dsum("acc_down"))))
+                                       - (att.b.acc + self.mod(att, "acc") / 100 + att.bsum("acc") - att.dsum("acc_down"))
+                                       + STATUS["drunk"]["acc_down"] * att.st("drunk")))   # Drunk: aim lost (2026-11-26)
         if self.mod(dfn, "no_evade") > 0:
             p_ev = 0.0
-        if self.rng.random() < p_ev:
+        if dfn.st("off_guard") > 0:
+            pass   # Off Guard: evade counts as 0, with no draw (2026-11-26)
+        elif self.rng.random() < p_ev:
             self.fire_event(dfn, "evaded", ctx)
             self.fire_event(att, "was_evaded", ctx)
             return 0.0
         dfn.last_hit_t = self.t
+        wake_cut = 0.0
+        if dfn.statuses:   # the hit landed: it may end a held status (Effects Status Catalogue, 2026-11-26)
+            if dfn.st("sleep") > 0:   # any direct hit wakes the sleeper, and deals less
+                wake_cut = STATUS["sleep"]["wake_cut"]
+                self.end_status(dfn, "sleep", early=True)
+            ch = dfn.statuses.get("charmed")
+            if ch and ch.get("src") is att and kind != "companion":   # the charmer's own trigger or free hit
+                self.end_status(dfn, "charmed", early=True)
         is_crit = False
         if kind not in ("companion",) and not trig:
             cap = K["crit_cap"]
@@ -993,7 +1042,12 @@ class Fight:
         more *= 1 + self.mod(att, "dmg_more", ctx)
         M = self.layers_M(att, art, ctx) if kind != "companion" else att.b.M
         D = att.U_att * c * M * crit * more * supp(att, dfn, self.mod(att, "pierce") / 100)
-        damp = (dfn.bsum("phys_dampen") if phys else 0.0) + self.mod(dfn, "dampen_taken", ctx) / 100
+        if wake_cut:   # the hit that wakes a sleeper deals less
+            D *= 1 - wake_cut
+        if (art is not None and art.element == "water"
+                and dfn.st("drunk") >= STATUS["drunk"]["water_taken_at"]):   # Drunk at 3+: Water parts hit harder
+            D *= 1 + STATUS["drunk"]["water_taken"]
+        damp =(dfn.bsum("phys_dampen") if phys else 0.0) + self.mod(dfn, "dampen_taken", ctx) / 100
         if damp:
             D /= 1 + damp
         D_in = D                             # the hit's amount before the defence path (parity log)
@@ -1282,15 +1336,30 @@ class Fight:
             dur = dur * (1 + self.mod(src, "status_dur", sctx) / 100)
         if dur is not None and is_curse:
             dur = max(1, min(K["curse_duration_max"], dur))
+        if dur is not None and d.get("falloff"):   # Charmed: the delay falloff (R1), counted with timer delays
+            target.delays = [x for x in target.delays if self.t - x < ms(K["delay_window"])]
+            dur = dur * K["delay_falloff"] ** len(target.delays)
+            target.delays.append(self.t)
+        if dur is not None and d.get("timer_resisted"):   # Charmed, Sleep: timer resistance shortens it, at least 1 s
+            dur = max(1, dur * (1 - (target.b.timer_resist + self.mod(target, "timer_resist")) / 100))
         st = target.statuses.get(sid)
         n = spec.get("stacks", 1)
         cap = spec.get("cap", d.get("cap"))
         if st is None:
             st = {"stacks": 0, "until": None, "src": src}
             target.statuses[sid] = st
-        st["stacks"] = st["stacks"] + n if cap is None else min(cap, st["stacks"] + n)
         st["src"] = src
-        st["until"] = None if dur is None else self.t + ms(dur)
+        if d.get("stack_timers"):   # Drunk: each landing runs its own time; a new stack refreshes none of the others
+            each = st.setdefault("each", [])
+            each.append([n, None if dur is None else self.t + ms(dur)])
+            st["stacks"] = sum(b[0] for b in each)
+            ends = [b[1] for b in each]
+            st["until"] = None if None in ends else max(ends)
+        else:
+            st["stacks"] = st["stacks"] + n if cap is None else min(cap, st["stacks"] + n)
+            if d.get("clock_stop") and dur is not None:   # Sleep: the target's clock stops for its time (rule 6)
+                st["clock"] = self.stop_clock(target, ms(dur))
+            st["until"] = None if dur is None else self.t + ms(dur)
         for k in ("layer", "tag", "crossing", "no_lockout"):
             if k in spec:
                 st[k] = spec[k]
@@ -1655,23 +1724,51 @@ class Fight:
 
     def stop_clock(self, s, d):
         """Stop a side's clock for d ms (Effects rule 6, 2026-11-26): its art timers, basic attack, companions, soul
-        attack, summons and the stack and status timers on it move d later, so nothing of it runs in the gap."""
+        attack, summons and the stack and status timers on it move d later, so nothing of it runs in the gap.
+        Returns what it moved, as (holder, key, new value), so a Sleep cut short can give the rest back.
+        An art already ready waits too (slice 2a fix: it used to move only arts still counting down)."""
+        rec = []
         if d <= 0:
-            return
-        s.ready = [r + d if r > self.t else r for r in s.ready]
+            return rec
+
+        def move(holder, key, base):
+            holder[key] = base + d
+            rec.append((holder, key, holder[key]))
+
+        for i in range(len(s.ready)):
+            move(s.ready, i, max(s.ready[i], self.t))
+        for i in range(len(s.comp_ready)):
+            move(s.comp_ready, i, max(s.comp_ready[i], self.t))
         s.basic_ready = max(s.basic_ready, self.t) + d
-        s.comp_ready = [c + d for c in s.comp_ready]
+        rec.append((s, "basic_ready", s.basic_ready))
         s.soul_ready = max(s.soul_ready, self.t) + d
+        rec.append((s, "soul_ready", s.soul_ready))
         for x in s.summons:
-            x[3] += d
-            x[4] += d
+            move(x, 3, x[3])
+            move(x, 4, x[4])
         for lst in (s.buffs, s.debuffs):
             for x in lst:
                 if x[2] is not None:   # None: a batch for the whole fight
-                    x[2] += d
+                    move(x, 2, x[2])
         for stt in s.statuses.values():
             if stt.get("until") is not None:
-                stt["until"] += d
+                move(stt, "until", stt["until"])
+            for b in stt.get("each", []):   # Drunk's stacks, each on its own time
+                if b[1] is not None:
+                    move(b, 1, b[1])
+        for cid in s.counter_times:   # self-counter charges on their own timers (Effects rule 8)
+            s.counter_times[cid] = [u + d for u in s.counter_times[cid]]
+        return rec
+
+    def restart_clock(self, rec, left):
+        """Give back `left` ms of a clock stop that ended early: every timer the stop moved comes `left` sooner, unless
+        something set it since (then it keeps its new time). Never earlier than now."""
+        for holder, key, val in rec:
+            if isinstance(holder, Side):
+                if getattr(holder, key) == val:
+                    setattr(holder, key, max(self.t, val - left))
+            elif holder[key] == val:
+                holder[key] = max(self.t, val - left)
 
     # ---------------------------------------------------------- the Down step [Effects 11]
     def defeat_check(self):

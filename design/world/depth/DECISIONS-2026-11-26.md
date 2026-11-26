@@ -102,3 +102,7 @@
   escape fails while it holds; it replaces Pinned's escape failure and does not touch evade. **Spread** clauses are
   **cut**; a record left with no point gets a small payoff on the one foe. Checker:
   `tools/design/world/spatial_words_check.py` (239 records with a hit in a rule field on 2026-11-26).
+- **Slice 2 rulings** (user, 2026-11-26): **escape** (fleeing) is built as its own Stage 5 slice, since neither engine
+  has it and Bound, `escape_failed` and the escape records need it; "the foe cannot evade for N s" is a new curse,
+  **Off Guard** (Sơ Hở; evade 0, takes a curse slot, cleansable); **held damage** is parked with its only consumer
+  (A File of One, inside the parked Geese Stance).

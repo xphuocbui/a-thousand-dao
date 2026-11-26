@@ -502,7 +502,8 @@ author's reading and wait for confirmation (see Open Questions).
       counted as allies); "a nearby foe", "the nearest foe" and spreads. Content that used them is rewritten to a
       reading above or to an action that exists: a knock-back becomes Move a timer on the foe's soonest art (Effects
       rule 6), a laid stele becomes a charge of a plain self-counter (Effects rule 8), "rooted" becomes "cannot evade
-      for N s", and Pinned's escape failure lives on as the Bound curse (above). A spread clause is cut, and a record
+      for N s" (the Off Guard curse, Effects Status Catalogue), and Pinned's escape failure lives on as the Bound
+      curse (above). A spread clause is cut, and a record
       left with no point gets a small payoff on the one foe instead (Open Question 31).
     - **Postponed 2026-11-26 (one side against one side).** Allies and allies counted, Alone, "every foe" and "all
       foes" as several foes, and fights of more than one cultivator a side (Open Question 8). Content says "you",
@@ -1072,7 +1073,7 @@ adds 0.03 to it, so **0.25**. Escape art 0.55, one realm below a locking pursuer
 
 **Duel readings** (amended 2026-11-25; **removed 2026-11-26**, no spatial fight, rule 25): Rooted and Pinned no longer
 exist, so no reading sets `p_evade` to 0; an Effect that zeroes evade does it through the ordinary evade terms
-above. A **Bound** side's escape is `p_escape = 0` at its channel's end, below the 0.05 floor, with no draw (2026-11-26,
+above, or lays the **Off Guard** curse on the foe: while it holds, `p_evade = 0` with no draw (2026-11-26). A **Bound** side's escape is `p_escape = 0` at its channel's end, below the 0.05 floor, with no draw (2026-11-26,
 the Bound curse).
 
 ### J. Companions and creatures

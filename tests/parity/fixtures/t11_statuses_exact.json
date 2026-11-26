@@ -1,0 +1,38 @@
+{
+  "name": "t11_statuses_exact",
+  "slice": 11,
+  "chance_free": true,
+  "seed": 111,
+  "doc": "World-depth Stage 5, slice 2a (2026-11-26), chance-free: the Status Catalogue rows Off Guard, Bound, Charmed, Drunk and Sleep, the caster hold and the stop_clock ready-art fix. A: a lullaby that puts B to sleep (its clock stops 3 s; A is held while B sleeps, and A's companion strike every 2 s wakes B early for 20 % less); a charming fan (B's arts wait 2 s, A is held; A's free hit every 3 s ends it); Water wine laying 2 Drunk stacks at a time (each on its own 3 s; B's timers run slower, B's aim drops, and at 3+ stacks A's Water parts hit B 10 % harder). B has accuracy 1, so its lost aim never opens an evade chance. B: a hook that leaves A Off Guard (evade 0, no draw) and Bound for 2 s, a slicing art and a heal; a 'status.bound' reader that counts the pulses A is Bound.",
+  "a": {
+    "name": "dream-singer",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "arts": [
+      {"name": "lullaby", "c": 0.4, "cost": 0.03, "cd": 9.0, "statuses": [{"id": "sleep"}]},
+      {"name": "charming-fan", "c": 0.3, "cost": 0.03, "cd": 7.0, "statuses": [{"id": "charmed"}]},
+      {"name": "spring-wine", "c": 0.6, "cost": 0.03, "cd": 2.5, "element": "water", "statuses": [{"id": "drunk", "stacks": 2}]}
+    ],
+    "effects": [
+      {"id": "crane-strike", "on": "pulse", "limit": {"cooldown": 2.0}, "do": [{"free_hit": {"c": 0.25}}]}
+    ]
+  },
+  "b": {
+    "name": "hook-keeper",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "acc": 1.0,
+    "counters": [{"id": "bound_pulses"}],
+    "arts": [
+      {"name": "iron-hook", "c": 0.5, "cost": 0.03, "cd": 4.0, "statuses": [{"id": "off_guard", "dur": 1}, {"id": "bound", "dur": 2}]},
+      {"name": "slicing-wind", "c": 0.9, "cost": 0.04, "cd": 2.0},
+      {"name": "still-breath", "c": 0.0, "cost": 0.02, "cd": 5.0, "heal": 0.06}
+    ],
+    "effects": [
+      {"id": "count-bound", "on": "pulse", "scale": {"read": "foe.status.bound", "per": 1},
+       "do": [{"counter": {"id": "bound_pulses", "add": 1}}]}
+    ]
+  }
+}

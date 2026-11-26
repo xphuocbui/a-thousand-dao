@@ -353,9 +353,12 @@ The features in Stage 5 need these rules first. Another session edits `design/gd
 ### Stage 5: the engine features (both engines, parity green)
 - **2026-11-26, combat redesign** (`design/world/depth/DECISIONS-2026-11-26.md`): before slice 2, one rewrite pass
   moves the depth records off the removed and postponed readings (`tools/design/world/spatial_words_check.py`, 239
-  records). Slice 1 is committed (4f9fc9a4). Remaining slices: 2 statuses, holds-caster, tick to heal, held damage,
-  upkeep, last-act window, Bound; 3 events and readables; 4 tags and Light; 5 the five kept readings (smaller than
-  planned); 6 item sets; 7 the abode and vein removal; 8 the DSL words and the kept meter.
+  records). Slice 1 is committed (4f9fc9a4). Remaining slices (rulings 2026-11-26): 2a statuses Bound, Off Guard,
+  Charmed, Drunk, Sleep and the caster hold; 2b tick to heal and upkeep; 2c the extended last act (`last_act_window`,
+  its own slice: it changes the defeat check); E escape (fleeing, Combat rule 10, Formulas I; neither engine has it);
+  3 events and readables; 4 tags and Light; 5 the five kept readings (smaller than planned); 6 item sets; 7 the abode
+  and vein removal; 8 the DSL words and the kept meter. Held damage is parked with A File of One. Estimate for the
+  rest of Stage 5: about 20-26 h.
 - **Order (user 2026-11-26):** this stage builds only the features already known (`engine-wishes.md`, the duel
   readings, sets, tags). Each sect's Stage 6 pass then builds the engine words its own designs need, in both engines
   with parity, before that sect is exported.

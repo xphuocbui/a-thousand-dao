@@ -187,6 +187,132 @@ def t_event_alias():     # combat_engine.json EVENT_ALIAS (2026-11-26)
     check("batch_expired and healed load as batch_ended and heal_restored", [e["on"] for e in b.effects] == ["batch_ended", "heal_restored"])
 
 
+# ---- world-depth Stage 5 slice 2a (2026-11-26): Effects Status Catalogue rows Off Guard, Bound, Charmed, Drunk, Sleep
+def _hits_landed(f, A, B, n, kind="art"):
+    landed = 0
+    for _ in range(n):
+        hp = B.hp
+        f.hit(A, B, 0.01, "phys", None, kind=kind)
+        landed += B.hp < hp
+        B.hp = B.hp_max
+    return landed
+
+
+def t_off_guard():
+    f, A, B = setup(b=dummy(evade=0.4, ward_pts=0, block=0))
+    f.apply_status(A, B, {"id": "off_guard", "dur": 2})
+    check("Off Guard: every hit lands against 40 % evade", _hits_landed(f, A, B, 40) == 40)
+    check("Off Guard lasts its 2 s", B.statuses["off_guard"]["until"] == f.t + 2000)
+    f, A, B = setup(b=dummy(evade=0.4, ward_pts=0, block=0))
+    check("without it some hits are evaded", _hits_landed(f, A, B, 40) < 40)
+
+
+def t_bound():
+    f, A, B = setup()
+    f.apply_status(A, B, {"id": "bound", "dur": 2})
+    u = B.statuses["bound"]["until"]
+    f.t = 500
+    f.apply_status(A, B, {"id": "bound", "dur": 2})
+    check("Bound holds; a recast while it runs does nothing (stacking None)", B.st("bound") == 1 and B.statuses["bound"]["until"] == u)
+
+
+def t_drunk():
+    f, A, B = setup(b=dummy(ward_pts=0, block=0))
+    f.apply_status(A, B, {"id": "drunk"})
+    f.t = 1000
+    f.apply_status(A, B, {"id": "drunk"})
+    check("Drunk: no stack cap, 2 stacks", B.st("drunk") == 2)
+    check("Drunk: 8 % slower timers per stack", abs(f.slow(B) - 1.16) < 1e-12, str(f.slow(B)))
+    f.t = 3000
+    f.pulse(B)
+    check("Drunk: the first stack ends on its own time, the second keeps its own", B.st("drunk") == 1, str(B.st("drunk")))
+    f.t = 4000
+    f.pulse(B)
+    check("Drunk: gone when its last stack ends", "drunk" not in B.statuses)
+    # aim: 3 stacks on the attacker raise the foe's evade chance by 30 points (from 0)
+    f, A, B = setup(b=dummy(ward_pts=0, block=0))
+    for _ in range(3):
+        f.apply_status(B, A, {"id": "drunk"})
+    got = _hits_landed(f, A, B, 400)
+    check("Drunk 3: about 30 % of the drunk side's hits miss", 240 <= got <= 320, str(got))
+    # Water parts at 3 stacks
+    seen = []
+    f, A, B = setup(b=dummy(ward_pts=0, block=0))
+    f.defend = lambda att, dfn, D, *a, **k: (seen.append(D), 0.0)[1]
+    water = E.Art("w", 1.0, 0.05, 3.0, element="water")
+    f.hit(A, B, 1.0, "phys", water)
+    for _ in range(3):
+        f.apply_status(A, B, {"id": "drunk"})
+    f.hit(A, B, 1.0, "phys", water)
+    f.hit(A, B, 1.0, "phys", E.Art("m", 1.0, 0.05, 3.0, element="metal"))
+    check("Drunk 3: Water parts deal 10 % more, others do not", abs(seen[1] / seen[0] - 1.10) < 1e-9 and abs(seen[2] / seen[0] - 1.0) < 1e-9,
+          "%s" % [round(x / seen[0], 4) for x in seen])
+
+
+def t_charmed():
+    arts = [E.Art("cut", 1.0, 0.01, 2.0), E.Art("mend", 0.0, 0.01, 2.0, heal=0.05)]
+    f, A, B = setup(a=dummy(arts=list(arts)), b=dummy(arts=list(arts)))
+    f.t = 5000
+    A.ready = [f.t, f.t]
+    B.ready = [f.t, f.t]
+    f.apply_status(A, B, {"id": "charmed"})
+    check("Charmed lasts 2 s", B.statuses["charmed"]["until"] == 7000)
+    f.act(B)
+    check("Charmed: the target's arts all wait", B.fired == [0, 0], str(B.fired))
+    f.act(A)
+    check("the charmer is held: its damaging art waits, its heal fires", A.fired == [0, 1], str(A.fired))
+    f.tick(A, B, 5.0, "fire", "burn")
+    check("a tick does not end Charmed", B.st("charmed") == 1)
+    f.hit(A, B, 0.01, "phys", None, kind="companion")
+    check("the charmer's companion hit does not end it", B.st("charmed") == 1)
+    f.hit(A, B, 0.01, "phys", None, kind="trigger", trig=True)
+    check("the charmer's free hit ends it, and the lockout starts", B.st("charmed") == 0 and B.lockouts["charmed"] == f.t + 10000)
+    f.act(B)
+    check("freed, the target fires again", B.fired[0] == 1, str(B.fired))
+    f, A, B = setup(b=dummy(timer_resist=50))
+    f.apply_status(A, B, {"id": "charmed"})
+    check("timer resistance 50 shortens Charmed to 1 s", B.statuses["charmed"]["until"] == f.t + 1000)
+    f, A, B = setup(b=dummy(arts=[E.Art("x", 1.0, 0.05, 4.0)]))
+    f.do(A, {"id": "d", "on": "always", "do": []}, [{"timer": {"side": "foe", "by": 0.2}}], 1.0, {})
+    f.apply_status(A, B, {"id": "charmed"})
+    check("the delay falloff halves Charmed after a delay (1 s)", B.statuses["charmed"]["until"] == f.t + 1000)
+
+
+def t_sleep():
+    arts = [E.Art("cut", 1.0, 0.01, 2.0)]
+    f, A, B = setup(b=dummy(arts=list(arts), ward_pts=0, block=0))
+    f.t = 5000
+    B.ready = [4000]          # already ready: it must wait too
+    B.basic_ready = 5500
+    f.apply_status(A, B, {"id": "sleep"})
+    check("Sleep: the clock stops 3 s, a ready art included", B.ready[0] == 8000 and B.basic_ready == 8500, "%d %d" % (B.ready[0], B.basic_ready))
+    check("Sleep lasts 3 s", B.statuses["sleep"]["until"] == 8000)
+    f.act(B)
+    check("asleep, nothing fires", B.fired == [0])
+    f.tick(A, B, 5.0, "fire", "burn")
+    check("a tick does not wake it", B.st("sleep") == 1)
+    B.hp = B.hp_max
+    A.basic_ready = f.t
+    f.act(A)
+    check("the sleeper's caster is held (its basic attack does not hit)", B.hp == B.hp_max)
+    f.t = 6000
+    B.basic_ready = 9000      # set during the sleep: the wake must not pull it back
+    seen = []
+    orig = f.defend
+    f.defend = lambda att, dfn, D, *a, **k: (seen.append(D), orig(att, dfn, D, *a, **k))[1]
+    f.hit(A, B, 1.0, "phys", None, kind="companion")
+    check("a companion hit wakes it, and the lockout starts", B.st("sleep") == 0 and B.lockouts["sleep"] == 6000 + 6000)
+    check("the unused 2 s come back to the timers the stop moved", B.ready[0] == 6000, str(B.ready[0]))
+    check("a timer set during the sleep keeps its time", B.basic_ready == 9000, str(B.basic_ready))
+    f.hit(A, B, 1.0, "phys", None, kind="companion")
+    check("the waking hit deals 20 % less", abs(seen[0] / seen[1] - 0.8) < 1e-9, str(seen[0] / seen[1]))
+    f, A, B = setup(b=dummy(arts=list(arts)))
+    f.apply_status(A, B, {"id": "sleep"})
+    f.t = 3000
+    f.pulse(B)
+    check("Sleep ends on its own after 3 s, with nothing given back", "sleep" not in B.statuses)
+
+
 def t_pieces():          # AC-CD-82
     f, A, B = setup(b=dummy(ward_pts=0, block=0, shields=[E.Shield(size=300 / (26 * E.U[0] * 1.053), pieces=3)]))
     B.wshields[0]["left"] = 300.0

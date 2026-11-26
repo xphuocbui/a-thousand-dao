@@ -69,3 +69,152 @@ func test_batch_expired_and_healed_load_as_the_engine_events() -> void:
 	for e in f.a.p.effects:
 		ons.append(e.on)
 	assert_eq(ons, ["batch_ended", "heal_restored"])
+
+
+# ---- slice 2a (2026-11-26): the Status Catalogue rows Off Guard, Bound, Charmed, Drunk, Sleep (test_engine.py) ----
+static func _spec(id: String, extra: Dictionary = {}) -> StatusSpec:
+	var s := StatusSpec.new()
+	s.id = id
+	s.extra = extra
+	return s
+
+
+static func _landed(f: Fight, n: int) -> int:
+	var got: int = 0
+	for _i in n:
+		var hp: float = f.b.hp
+		f.hit(f.a, f.b, 0.01, &"phys", null, Fight.KIND_ART)
+		if f.b.hp < hp:
+			got += 1
+		f.b.hp = f.b.hp_max
+	return got
+
+
+func test_off_guard_makes_every_hit_land_against_evade() -> void:
+	var f: Fight = M._fight(M._dummy(), M._dummy({"evade": 0.4, "ward_pts": 0.0, "block": 0.0}))
+	f.apply_status(f.a, f.b, _spec("off_guard", {"dur": 2}))
+	assert_eq(_landed(f, 40), 40, "Off Guard: every hit lands")
+	assert_eq(f.b.statuses["off_guard"].until, f.t + 2000)
+	var g: Fight = M._fight(M._dummy(), M._dummy({"evade": 0.4, "ward_pts": 0.0, "block": 0.0}))
+	assert_bool(_landed(g, 40) < 40).is_true()
+
+
+func test_bound_holds_and_a_recast_does_nothing() -> void:
+	var f: Fight = M._fight(M._dummy(), M._dummy())
+	f.apply_status(f.a, f.b, _spec("bound", {"dur": 2}))
+	var u: int = f.b.statuses["bound"].until
+	f.t = 500
+	f.apply_status(f.a, f.b, _spec("bound", {"dur": 2}))
+	assert_near(f.b.st("bound"), 1.0, 1e-9)
+	assert_eq(f.b.statuses["bound"].until, u)
+
+
+func test_drunk_stacks_run_their_own_time_and_slow_timers() -> void:
+	var f: Fight = M._fight(M._dummy(), M._dummy({"ward_pts": 0.0, "block": 0.0}))
+	f.apply_status(f.a, f.b, _spec("drunk"))
+	f.t = 1000
+	f.apply_status(f.a, f.b, _spec("drunk"))
+	assert_near(f.b.st("drunk"), 2.0, 1e-9, "no stack cap")
+	assert_near(f.slow(f.b), 1.16, 1e-12, "8 % per stack")
+	f.t = 3000
+	f.pulse(f.b)
+	assert_near(f.b.st("drunk"), 1.0, 1e-9, "the first stack ends on its own time")
+	f.t = 4000
+	f.pulse(f.b)
+	assert_bool(f.b.statuses.has("drunk")).is_false()
+
+
+func test_drunk_three_stacks_lose_aim_and_take_more_from_water() -> void:
+	var f: Fight = M._fight(M._dummy(), M._dummy({"ward_pts": 0.0, "block": 0.0}))
+	for _i in 3:
+		f.apply_status(f.b, f.a, _spec("drunk"))
+	var got: int = _landed(f, 400)
+	assert_bool(got >= 240 and got <= 320).override_failure_message("landed %d of 400" % got).is_true()
+	var g: Fight = M._fight(M._dummy({}, [{"name": "w", "c": 1.0, "cost": 0.05, "cd": 3.0, "element": "water"},
+			{"name": "m", "c": 1.0, "cost": 0.05, "cd": 3.0, "element": "metal"}]), M._dummy({"ward_pts": 0.0, "block": 0.0}))
+	var water: ArtDef = g.a.p.arts[0]
+	var metal: ArtDef = g.a.p.arts[1]
+	var lost: Array = []
+	for step in 3:
+		if step == 1:
+			for _i in 3:
+				g.apply_status(g.a, g.b, _spec("drunk"))
+		var hp: float = g.b.hp
+		g.hit(g.a, g.b, 1.0, &"phys", metal if step == 2 else water, Fight.KIND_ART)
+		lost.append(hp - g.b.hp)
+		g.b.hp = g.b.hp_max
+	assert_near(float(lost[1]) / float(lost[0]), 1.10, 1e-9, "Water parts +10 %")
+	assert_near(float(lost[2]) / float(lost[0]), 1.0, 1e-9, "other parts unchanged")
+
+
+func test_charmed_holds_the_target_and_its_caster_until_the_charmer_strikes() -> void:
+	var arts := [{"name": "cut", "c": 1.0, "cost": 0.01, "cd": 2.0}, {"name": "mend", "c": 0.0, "cost": 0.01, "cd": 2.0, "heal": 0.05}]
+	var f: Fight = M._fight(M._dummy({}, arts), M._dummy({}, arts))
+	f.t = 5000
+	f.a.ready = PackedInt64Array([5000, 5000])
+	f.b.ready = PackedInt64Array([5000, 5000])
+	f.apply_status(f.a, f.b, _spec("charmed"))
+	assert_eq(f.b.statuses["charmed"].until, 7000)
+	f.act(f.b)
+	assert_eq(Array(f.b.fired), [0, 0], "the target's arts all wait")
+	f.act(f.a)
+	assert_eq(Array(f.a.fired), [0, 1], "the charmer's damaging art waits, its heal fires")
+	f.tick(f.a, f.b, 5.0, &"fire", "burn")
+	assert_near(f.b.st("charmed"), 1.0, 1e-9, "a tick does not end it")
+	f.hit(f.a, f.b, 0.01, &"phys", null, Fight.KIND_COMPANION)
+	assert_near(f.b.st("charmed"), 1.0, 1e-9, "a companion hit does not end it")
+	f.hit(f.a, f.b, 0.01, &"phys", null, Fight.KIND_TRIGGER, true)
+	assert_near(f.b.st("charmed"), 0.0, 1e-9, "the charmer's free hit ends it")
+	assert_eq(int(f.b.lockouts["charmed"]), f.t + 10000)
+	f.act(f.b)
+	assert_eq(int(f.b.fired[0]), 1, "freed, the target fires again")
+
+
+func test_charmed_is_shortened_by_timer_resistance_and_the_delay_falloff() -> void:
+	var f: Fight = M._fight(M._dummy(), M._dummy({"timer_resist": 50.0}))
+	f.apply_status(f.a, f.b, _spec("charmed"))
+	assert_eq(f.b.statuses["charmed"].until, f.t + 1000, "timer resistance 50")
+	var delay := {"id": "d", "on": "fight_start", "do": [{"timer": {"side": "foe", "by": 0.2}}]}
+	var g: Fight = M._fight(M._dummy({"effects": [delay]}), M._dummy({}, [{"name": "x", "c": 1.0, "cost": 0.05, "cd": 4.0}]))
+	EffectRunner.fire(g, g.a, "fight_start", {})
+	g.apply_status(g.a, g.b, _spec("charmed"))
+	assert_eq(g.b.statuses["charmed"].until, g.t + 1000, "the falloff halves it after a delay")
+
+
+func test_sleep_stops_the_clock_and_a_landed_hit_wakes_it_for_less() -> void:
+	var f: Fight = M._fight(M._dummy(), M._dummy({"ward_pts": 0.0, "block": 0.0}, [{"name": "cut", "c": 1.0, "cost": 0.01, "cd": 2.0}]))
+	f.t = 5000
+	f.b.ready = PackedInt64Array([4000])
+	f.b.basic_ready = 5500
+	f.apply_status(f.a, f.b, _spec("sleep"))
+	assert_eq(int(f.b.ready[0]), 8000, "a ready art waits too")
+	assert_eq(f.b.basic_ready, 8500)
+	assert_eq(f.b.statuses["sleep"].until, 8000)
+	f.act(f.b)
+	assert_eq(int(f.b.fired[0]), 0, "asleep, nothing fires")
+	f.tick(f.a, f.b, 5.0, &"fire", "burn")
+	assert_near(f.b.st("sleep"), 1.0, 1e-9, "a tick does not wake it")
+	f.b.hp = f.b.hp_max
+	f.a.basic_ready = f.t
+	f.act(f.a)
+	assert_near(f.b.hp, f.b.hp_max, 1e-9, "the caster is held: its basic attack does not hit")
+	f.t = 6000
+	f.b.basic_ready = 9000
+	var hp0: float = f.b.hp
+	f.hit(f.a, f.b, 1.0, &"phys", null, Fight.KIND_COMPANION)
+	var woke: float = hp0 - f.b.hp
+	assert_near(f.b.st("sleep"), 0.0, 1e-9, "a companion hit wakes it")
+	assert_eq(int(f.b.lockouts["sleep"]), 12000)
+	assert_eq(int(f.b.ready[0]), 6000, "the unused 2 s come back")
+	assert_eq(f.b.basic_ready, 9000, "a timer set during the sleep keeps its time")
+	var hp1: float = f.b.hp
+	f.hit(f.a, f.b, 1.0, &"phys", null, Fight.KIND_COMPANION)
+	assert_near(woke / (hp1 - f.b.hp), 0.8, 1e-9, "the waking hit deals 20 % less")
+
+
+func test_sleep_ends_on_its_own_with_nothing_given_back() -> void:
+	var f: Fight = M._fight(M._dummy(), M._dummy({}, [{"name": "cut", "c": 1.0, "cost": 0.01, "cd": 2.0}]))
+	f.apply_status(f.a, f.b, _spec("sleep"))
+	f.t = 3000
+	f.pulse(f.b)
+	assert_bool(f.b.statuses.has("sleep")).is_false()

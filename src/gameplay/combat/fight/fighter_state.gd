@@ -37,6 +37,10 @@ class StatusState extends RefCounted:
 	var stored: float = 0.0
 	var every: float = 3.0
 	var next_release: int = 0
+	## Drunk (stack_timers, 2026-11-26): each landing as [stacks, until ms]; empty for other statuses.
+	var each: Array = []
+	## Sleep (clock_stop): what its clock stop moved, [holder, key, new value], so an early wake gives the rest back.
+	var clock: Array = []
 
 
 ## A ward shield bar in this fight: its definition, what is left, when it was last hit (ms), pieces left.

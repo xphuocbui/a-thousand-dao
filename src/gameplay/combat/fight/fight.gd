@@ -261,7 +261,12 @@ func slow(s: FighterState) -> float:
 	if s.statuses.is_empty():
 		return 1.0
 	var n: float = minf(s.st("slowed_time"), float(k.slowed_cap))
-	return 1.0 + k.slowed_time_pct * n * (1.0 - (s.p.timer_resist + m(s, "timer_resist", null)) / 100.0)
+	var resist: float = 1.0 - (s.p.timer_resist + m(s, "timer_resist", null)) / 100.0
+	var out: float = 1.0 + k.slowed_time_pct * n * resist
+	var dk: float = s.st("drunk")
+	if dk > 0.0:   # Drunk (Effects Status Catalogue, 2026-11-26): its own slow per stack beside Slowed Time
+		out += float(k.status.drunk.slow) * dk * resist
+	return out
 
 
 ## The offence multiplier M with layer mods (Combat Formulas A): without layer mods or a seal, the fighter's M (x
@@ -411,11 +416,28 @@ func pulse(s: FighterState) -> void:
 						"rekindled": 1.0 if x.mark == "rekindled" else 0.0})
 	for sid in (s.statuses.keys() if not s.statuses.is_empty() else EffectRunner._NONE_A):
 		var stt2: FighterState.StatusState = s.statuses[sid]
+		if not stt2.each.is_empty():   # Drunk: each stack ends on its own time
+			var keep_e: Array = []
+			var n_e: float = 0.0
+			var last_e: int = 0
+			var open_e: bool = false
+			for bt in stt2.each:
+				if int(bt[1]) < 0 or int(bt[1]) > t:
+					keep_e.append(bt)
+					n_e += float(bt[0])
+					if int(bt[1]) < 0:
+						open_e = true
+					else:
+						last_e = maxi(last_e, int(bt[1]))
+			stt2.each = keep_e
+			stt2.stacks = n_e
+			if keep_e.is_empty():
+				end_status(s, sid)
+			else:
+				stt2.until = -1 if open_e else last_e
+			continue
 		if stt2.until != -1 and stt2.until <= t:
-			var lock: Variant = k.status[sid].get("lockout")
-			if lock != null and float(lock) != 0.0 and not stt2.no_lockout:
-				s.lockouts[sid] = t + CombatConstants.ms(float(lock))
-			s.statuses.erase(sid)
+			end_status(s, sid)
 	if not s.temp_mods.is_empty():
 		var keep_m: Array[FighterState.TempMod] = []
 		for tm in s.temp_mods:
@@ -476,33 +498,105 @@ static func _sort_by_until(batches: Array[FighterState.StackBatch]) -> void:
 		batches[j + 1] = x
 
 
-## Heals [param s] by [param amount] (Combat Defence & Healing E, 19): healing and healing taken (floored with
-## curses), Withering (with Crossing the Line it lands as damage), a heal cap from Effects, then heal_restored.
-## Public for mechanism tests.
 ## Stops [param s]'s clock for [param d] ms (Effects rule 6, 2026-11-26): its art timers, basic attack, companions,
-## soul attack, summons and the stack and status timers on it move [param d] later. As engine.py stop_clock.
-func stop_clock(s: FighterState, d: int) -> void:
+## soul attack, summons and the stack, status and charge timers on it move [param d] later; an art already ready
+## waits too (slice 2a). Returns what it moved, [holder, key, index, new value], for [method restart_clock]: an
+## Object property (index -1), an index of a packed-array property (packed arrays copy on write, so the record
+## names the owner), or an index of a plain Array (key ""). As engine.py.
+func stop_clock(s: FighterState, d: int) -> Array:
+	var rec: Array = []
 	if d <= 0:
-		return
+		return rec
 	for i in s.ready.size():
-		if s.ready[i] > t:
-			s.ready[i] += d
-	s.basic_ready = maxi(s.basic_ready, t) + d
+		s.ready[i] = maxi(s.ready[i], t) + d
+		rec.append([s, "ready", i, s.ready[i]])
 	for i in s.comp_ready.size():
-		s.comp_ready[i] += d
+		s.comp_ready[i] = maxi(s.comp_ready[i], t) + d
+		rec.append([s, "comp_ready", i, s.comp_ready[i]])
+	s.basic_ready = maxi(s.basic_ready, t) + d
+	rec.append([s, "basic_ready", -1, s.basic_ready])
 	s.soul_ready = maxi(s.soul_ready, t) + d
+	rec.append([s, "soul_ready", -1, s.soul_ready])
 	for sm in s.summons:
 		sm[3] = int(sm[3]) + d
+		rec.append([sm, "", 3, sm[3]])
 		sm[4] = int(sm[4]) + d
+		rec.append([sm, "", 4, sm[4]])
 	for lst in [s.buffs, s.debuffs]:
 		for x in lst:
 			if x.until >= 0:   # -1: a batch for the whole fight
 				x.until += d
+				rec.append([x, "until", -1, x.until])
 	for sid in s.statuses:
 		var stt: FighterState.StatusState = s.statuses[sid]
 		if stt.until >= 0:
 			stt.until += d
+			rec.append([stt, "until", -1, stt.until])
+		for bt in stt.each:   # Drunk's stacks, each on its own time
+			if int(bt[1]) >= 0:
+				bt[1] = int(bt[1]) + d
+				rec.append([bt, "", 1, bt[1]])
+	for cid in s.counter_times:   # self-counter charges on their own timers (Effects rule 8)
+		var moved: Array = []
+		for u in s.counter_times[cid]:
+			moved.append(int(u) + d)
+		s.counter_times[cid] = moved
+	return rec
 
+
+## Gives back [param left] ms of a clock stop that ended early: each timer in [param rec] comes [param left]
+## sooner, unless something set it since; never earlier than now. As engine.py restart_clock.
+func restart_clock(rec: Array, left: int) -> void:
+	for r in rec:
+		var holder: Variant = r[0]
+		var key: String = r[1]
+		var idx: int = r[2]
+		var val: int = int(r[3])
+		var back: int = maxi(t, val - left)
+		if holder is Array:
+			if int(holder[idx]) == val:
+				holder[idx] = back
+		elif idx < 0:
+			if int(holder.get(key)) == val:
+				holder.set(key, back)
+		else:
+			var arr: Variant = holder.get(key)   # a packed array: write the whole property back
+			if idx < arr.size() and int(arr[idx]) == val:
+				arr[idx] = back
+				holder.set(key, arr)
+
+
+## True while the foe carries a status that holds its caster and [param s] laid it (Effects Status Catalogue,
+## "Statuses that hold their caster", 2026-11-26). Read live, so any way the status ends frees the caster.
+func caster_held(s: FighterState) -> bool:
+	var o: FighterState = foe_of(s)
+	if o.statuses.is_empty():
+		return false
+	var me: int = _idx(s)
+	for sid in o.statuses:
+		var stt: FighterState.StatusState = o.statuses[sid]
+		if stt.src_idx == me and stt.stacks > 0.0 and bool(k.status.get(sid, {}).get("holds_caster", false)):
+			return true
+	return false
+
+
+## Ends status [param sid] on [param s] now (its time ran out, or a hit ended it); the reapply lockout starts. A
+## Sleep cut short ([param early]) gives back the clock time it had not used. As engine.py end_status.
+func end_status(s: FighterState, sid: String, early: bool = false) -> void:
+	var stt: FighterState.StatusState = s.statuses.get(sid)
+	if stt == null:
+		return
+	s.statuses.erase(sid)
+	var lock: Variant = k.status.get(sid, {}).get("lockout")
+	if lock != null and float(lock) != 0.0 and not stt.no_lockout:
+		s.lockouts[sid] = t + CombatConstants.ms(float(lock))
+	if early and not stt.clock.is_empty() and stt.until >= 0 and stt.until > t:
+		restart_clock(stt.clock, stt.until - t)
+
+
+## Heals [param s] by [param amount] (Combat Defence & Healing E, 19): healing and healing taken (floored with
+## curses), Withering (with Crossing the Line it lands as damage), a heal cap from Effects, then heal_restored.
+## Public for mechanism tests.
 
 func heal(s: FighterState, amount: float, source: String = "", ignore_taken: bool = false) -> void:
 	amount *= 1.0 + s.p.healing + m(s, "healing", null) / 100.0
@@ -545,10 +639,16 @@ func act(s: FighterState) -> void:
 	var p: FighterProfile = s.p
 	var speed_base: float = 1.0 + s.bsum("speed") + p.art_speed_pct / 100.0
 	var sup: Array = s.p.states.get(s.state, EffectRunner._NONE_D).get("suppress", EffectRunner._NONE_A) if s.state != "" else EffectRunner._NONE_A
+	# Sleep and Charmed hold every art of their target; a status s laid that holds its caster holds s's damaging arts
+	# and basic attack (Effects Status Catalogue, 2026-11-26)
+	var stopped: bool = not s.statuses.is_empty() and (s.st("sleep") > 0.0 or s.st("charmed") > 0.0)
+	var held: bool = caster_held(s)
 	for i in p.arts.size():
 		if t < s.ready[i]:
 			continue
 		var art: ArtDef = p.arts[i]
+		if stopped or (held and (art.c != 0.0 or art.soul_pct != 0.0 or art.soul_part != 0.0)):
+			continue
 		if not sup.is_empty() and sup.has(str(art.id)):
 			continue
 		if not art.tags.is_empty() and s.st("silence") > 0.0:
@@ -619,7 +719,8 @@ func act(s: FighterState) -> void:
 		EffectRunner.spend_banked(self, s, "art_fired", ev)
 		s.cur_ev = null
 	while t >= s.basic_ready:
-		hit(s, o, 1.0 + p.basic_coef_add + m(s, "basic_coef", null), &"phys", null, KIND_BASIC)
+		if not (stopped or held):   # a held basic attack misses; its timer still runs
+			hit(s, o, 1.0 + p.basic_coef_add + m(s, "basic_coef", null), &"phys", null, KIND_BASIC)
 		s.basic_ready += CombatConstants.ms(basic_cd(s) * slow(s))
 	for sm in (s.summons.duplicate() if not s.summons.is_empty() else EffectRunner._NONE_A):
 		while t >= int(sm[3]) and int(sm[3]) < int(sm[4]):
@@ -777,11 +878,20 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 			_row(FightLogRow.Kind.REFLECT, dfn.label, &"", &"", [d0, got_r, att.hp, att.qi])
 		return 0.0
 	# evade, then crit: both rolls are drawn whenever they apply, so a zero chance never shifts the stream
-	if rng.randf() < evade_chance(att, dfn):
+	# Off Guard (2026-11-26): evade counts as 0, with no draw
+	if dfn.st("off_guard") <= 0.0 and rng.randf() < evade_chance(att, dfn):
 		_event(dfn, "evaded", ctx)
 		_event(att, "was_evaded", ctx)
 		return 0.0
 	dfn.last_hit_t = t
+	var wake_cut: float = 0.0
+	if not dfn.statuses.is_empty():   # the hit landed: it may end a held status (Effects Status Catalogue)
+		if dfn.st("sleep") > 0.0:   # any direct hit wakes the sleeper, and deals less
+			wake_cut = float(k.status.sleep.wake_cut)
+			end_status(dfn, "sleep", true)
+		var ch_s: FighterState.StatusState = dfn.statuses.get("charmed")
+		if ch_s != null and ch_s.src_idx == _idx(att) and kind != KIND_COMPANION:   # the charmer's trigger or free hit
+			end_status(dfn, "charmed", true)
 	var is_crit := false
 	if kind != KIND_COMPANION and not trig:
 		var ch: float = crit_chance(att, dfn, ctx)
@@ -802,6 +912,10 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 	more *= 1.0 + (m(att, "dmg_more", ctx) if am else 0.0)
 	var mm: float = att.p.m if kind == KIND_COMPANION else layers_m(att, art, ctx)
 	var d: float = att.u_att * c * mm * crit * more * _supp(att, dfn, (m(att, "pierce", null) if am else 0.0) / 100.0)
+	if wake_cut != 0.0:   # the hit that wakes a sleeper deals less
+		d *= 1.0 - wake_cut
+	if art != null and art.element == &"water" and dfn.st("drunk") >= float(k.status.drunk.water_taken_at):
+		d *= 1.0 + float(k.status.drunk.water_taken)   # Drunk at 3+: Water parts hit harder
 	var damp: float = (dfn.bsum("phys_dampen") if phys else 0.0) + (m(dfn, "dampen_taken", ctx) if dm else 0.0) / 100.0
 	if damp != 0.0:
 		d /= 1.0 + damp
@@ -996,14 +1110,40 @@ func apply_status(src: FighterState, target: FighterState, spec: StatusSpec) -> 
 		dur = dur * (1.0 + m(src, "status_dur", sctx) / 100.0)
 	if has_dur and is_curse:
 		dur = maxf(1.0, minf(k.curse_duration_max, dur))
+	if has_dur and bool(d.get("falloff", false)):   # Charmed: the delay falloff (R1), counted with timer delays
+		var recent: Array = []
+		for x in target.delays:
+			if t - int(x) < k.delay_window_ms:
+				recent.append(x)
+		target.delays = recent
+		dur = dur * pow(k.delay_falloff, float(target.delays.size()))
+		target.delays.append(t)
+	if has_dur and bool(d.get("timer_resisted", false)):   # Charmed, Sleep: timer resistance shortens it, >= 1 s
+		dur = maxf(1.0, dur * (1.0 - (target.p.timer_resist + m(target, "timer_resist", null)) / 100.0))
 	var st: FighterState.StatusState = target.statuses.get(sid)
 	var cap_v: Variant = spec.extra["cap"] if spec.extra.has("cap") else d.get("cap")
 	if st == null:
 		st = FighterState.StatusState.new()
 		target.statuses[sid] = st
-	st.stacks = st.stacks + spec.stacks if cap_v == null else minf(float(cap_v), st.stacks + spec.stacks)
 	st.src_idx = _idx(src)
-	st.until = -1 if not has_dur else t + CombatConstants.ms(dur)
+	if bool(d.get("stack_timers", false)):   # Drunk: each landing runs its own time; a new stack refreshes no other
+		st.each.append([spec.stacks, -1 if not has_dur else t + CombatConstants.ms(dur)])
+		var n_s: float = 0.0
+		var last_s: int = 0
+		var open_s: bool = false
+		for bt in st.each:
+			n_s += float(bt[0])
+			if int(bt[1]) < 0:
+				open_s = true
+			else:
+				last_s = maxi(last_s, int(bt[1]))
+		st.stacks = n_s
+		st.until = -1 if open_s else last_s
+	else:
+		st.stacks = st.stacks + spec.stacks if cap_v == null else minf(float(cap_v), st.stacks + spec.stacks)
+		if has_dur and bool(d.get("clock_stop", false)):   # Sleep: the target's clock stops for its time (rule 6)
+			st.clock = stop_clock(target, CombatConstants.ms(dur))
+		st.until = -1 if not has_dur else t + CombatConstants.ms(dur)
 	if spec.extra.has("layer"):
 		st.layer = int(spec.extra.layer)
 	if spec.extra.has("tag"):
@@ -1084,7 +1224,8 @@ func evade_chance(att: FighterState, dfn: FighterState) -> float:
 	var ev_m: float = m(dfn, "evade", null) if has_mods(dfn) else 0.0
 	var acc_m: float = m(att, "acc", null) if has_mods(att) else 0.0
 	var p_ev: float = dfn.p.evade + w_ev + ev_m / 100.0 - dfn.dsum("evade_down") \
-			- (att.p.acc + acc_m / 100.0 + att.bsum("acc") - att.dsum("acc_down"))
+			- (att.p.acc + acc_m / 100.0 + att.bsum("acc") - att.dsum("acc_down")) \
+			+ float(k.status.drunk.acc_down) * att.st("drunk")   # Drunk: aim lost (2026-11-26)
 	return minf(k.evade_cap, maxf(0.0, p_ev))
 
 

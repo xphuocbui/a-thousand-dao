@@ -210,6 +210,18 @@ looks like a strong build.
   `ward_paid`, `buff_elements`, `state.any`; events now carry `share` on `heal_restored` and `overflow`,
   `hp_paid_share` on `art_fired`, and the art's tags on `soul_hit`.
 
+### Built in world-depth Stage 5 (2026-11-26; both engines, parity fixtures t10, t11)
+
+- **Slice 1:** the event `ward_absorbed` (`event.amount`, `event.dtype`); the action `stop_clock` (`side`,
+  `seconds`; an art already ready waits too); `event.overflow` on `heal_restored`; a counter's `decay_share`; the
+  event words `batch_expired` and `healed` (EVENT_ALIAS).
+- **Slice 2a statuses** (art `statuses` or the `status` action; read as `status.<id>`): `off_guard` (evade 0, no
+  draw), `bound` (escape fails; escape is not modelled yet, so it is a readable only), `charmed` (the target's arts
+  wait; its caster is held; the caster's own trigger or free hit ends it), `drunk` (each landing its own time, no
+  cap; per stack 8 % slower timers and 10 points of aim; at 3+ stacks Water parts deal 10 % more), `sleep` (the
+  clock stops; its caster is held; any direct hit wakes it for 20 % less). A held caster's arts with a damage part
+  and its basic attack do not fire. A chance-free fixture may lay Drunk only on a side with `acc` 1 or more.
+
 ### World-depth vocabulary (2026-11-26; to build in world-depth Stage 5)
 
 Proposed words from the authored records (`design/world/depth/builds/authored/auth-tech.json` `new_vocab`, listed in

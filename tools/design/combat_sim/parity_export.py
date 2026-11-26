@@ -62,6 +62,12 @@ def check_chance_free(fx, b, where):
         for st in a.statuses:
             if st.get("chance", 1.0) < 1:
                 raise FixtureError("%s: chance_free, but art %s applies %s at chance %s" % (where, a.name, st["id"], st["chance"]))
+            # Drunk lowers the drunk side's accuracy (2026-11-26); chance-free only while the drunk side's own
+            # accuracy keeps every evade chance at 0 (its foe has no evade, so acc >= 1 covers 10 stacks)
+            if st["id"] == "drunk":
+                other = fx["b" if where.endswith(".a") else "a"]
+                if float(other.get("acc", 0.0)) < 1.0:
+                    raise FixtureError("%s: chance_free, but art %s lays Drunk on a side with acc < 1" % (where, a.name))
         # Thunder stacks raise crit chance; Earth debuffs lower accuracy, which lets the other side evade
         if a.element == "thunder" and (a.buff or a.debuff):
             raise FixtureError("%s: chance_free, but art %s grants Thunder stacks (crit chance)" % (where, a.name))
