@@ -9,8 +9,14 @@ Resume here: read this file, then do the first unchecked step.
   with this sect, per the method's step 4, so Băng Tâm's gap reaches zero.
 - Review format: `production/plans/stage6/bang_tam-review.md`, each rule beside its engine form.
 
-- After this sect: the other sects run as headless Sonnet jobs via `tools/headless/run_jobs.py`, two in parallel
-  (plan Stage 6). Băng Tâm's pass is the template for their brief.
+- After this sect: the other sects run as headless Opus jobs with Fable as the advisor, three in parallel, via
+  `tools/headless/run_jobs.py` (plan Stage 6). Băng Tâm's pass is the template for their brief.
+- **From 2026-11-26 (user): decisions are auto-accepted.** Take the recommended option, thought through against the
+  design philosophy, and log it in the review file. This applies to the rest of Băng Tâm too.
+- GDD texts (2026-11-26): W1 grow, hold and release a ward (c14985d9); W2 soul reflect and `soul_taken` (a108d9f3);
+  W3 `decoy_struck` and `decoy {n}` (user-approved); W4 needs no GDD text (a conditional modifier, rule 8). Item
+  Database rule 20f: signature items always unique, and arts by role use the base's common art (auto-accepted,
+  following the user's rulings). Stage 7 must carry `unique: true` into items_named.json and make the game honour it.
 
 ## Scope (gap report 2026-11-26, `python -I tools/design/world/depth_gap.py --sect bang_tam`)
 - 4 techniques: clear-frost-breath (Yellow main, outer), jade-vessel-ice-heart-canon (Earth main),

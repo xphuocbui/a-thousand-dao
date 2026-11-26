@@ -457,9 +457,14 @@ All in batches of about 50, the checker up front, **by sect** (D3), Băng Tâm C
   beasts, then engine words.
 - A new session starts by reading the sect's progress file.
 
-**After Băng Tâm Các (user 2026-11-26): run the other sects as headless Sonnet sessions through the driver
-`tools/headless/run_jobs.py`, two sects at once in parallel** (two runner processes, each with its own job list).
-Each job follows this method up to step 6, the review file and stop. Before launching:
+**After Băng Tâm Các (user 2026-11-26, revised the same day): run the other sects as headless sessions on Opus with
+Fable as the advisor, three sects at once in parallel**, through the driver `tools/headless/run_jobs.py` (three
+runner processes, each with its own job list; the runner's `--model` and the job's advisor setting carry the models).
+**Decisions are auto-accepted**: each job takes its own recommended option, after thinking it through in detail
+against the design philosophy, and logs it in the sect's review file. The memory rules apply: builds are the game,
+Modifier vs Effect, scale without caps, no environment conditions, no spatial fight, and sustain is king.
+(Superseded: "Sonnet, two at once".)
+Each job follows this method through step 6; with decisions auto-accepted it does not stop at the review but logs it. Before launching:
 - write the job brief from Băng Tâm's pass (its progress file, its review file, and the tools fixed in step 2);
 - settle how two parallel sessions share the engine files (`engine.py`, `fight.py`, `src/gameplay/combat/fight/`).
   For example, the jobs author records and list the engine words they need, and one serial step builds the words;

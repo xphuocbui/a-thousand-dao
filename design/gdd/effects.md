@@ -159,7 +159,9 @@ different.
        (`ward_absorbed {amount}`, for each hit a ward or a ward share stops or loses to, beside "a shield breaks");
        **an escape failed** (`escape_failed`); **a soul art reached you** (`soul_taken {amount, art_id, tags}`, raised
        on the side a soul art lands on, the attacker's side keeping *soul hit*, and also when a reflect stops it; new
-       2026-11-26, world-depth Băng Tâm Các);
+       2026-11-26, world-depth Băng Tâm Các); **a decoy took a hit** (`decoy_struck {kind, art_id}`, raised on the
+       decoy's owner when one of its decoys absorbs a hit at the avoid step; the striker is the foe; new 2026-11-26,
+       world-depth Băng Tâm Các);
      - live: **lost in the last N s**, your health and linh lực lost over the last N seconds and the foe's buffs and
        wards gained over them (`own.lost_last.<pool>.<seconds>`, a per-side record of each pulse's losses and gains);
      - on a self-counter: **the hour a Piece was laid**, the pulse each batch was laid (`laid_at`), read as its 5 s
@@ -216,7 +218,7 @@ different.
 | Skip ward shields with a share of a hit: `bypass_share` on a part. That share skips ward shields only and still meets resistance, block and the body shield; shares from all sources add, capped at 50 % per hit (R2, 2026-11-11) | Combat Defence & Healing |
 | Widen what a shield stops: add damage types or ticks to a shield's `stops` list, at a share. Answers to the counters are capped at 50 % of Chaos and 30 % of Soul, and each source closes something real; base shields never stop ticks (R3, 2026-11-11) | Combat Defence & Healing |
 | Add a Soul part to a non-soul art, at most 30 % of its damage. That part meets only soul defence and shares the soul lockout; converting to Soul stays forbidden (R11, 2026-11-11) | Combat (soul rules) |
-| Avoid a hit: a decoy absorbs a whole hit, an untargetable window drops hits, or a companion takes a share, at the avoid step before evade, within the side's per-pulse avoid budget (`avoid_budget`, start 2). Ticks are never avoided (R6, 2026-11-11) | Combat Defence & Healing (defence path) |
+| Avoid a hit: a decoy absorbs a whole hit, an untargetable window drops hits, or a companion takes a share, at the avoid step before evade, within the side's per-pulse avoid budget (`avoid_budget`, start 2). Ticks are never avoided (R6, 2026-11-11). An Effect grants decoys with `decoy {n}`; each absorbs one whole hit and raises *a decoy took a hit* (2026-11-26) | Combat Defence & Healing (defence path) |
 | Turn healing into damage: while the target carries Withering, healing it would receive is dealt to it as damage instead (Crossing the Line, R12, 2026-11-11) | Combat Defence & Healing rule 19 |
 | Pay a cost from the heart demon or thần thức pool (R12, 2026-11-11) | Combat rule 11 (the pools) |
 | Lay carried ground: at fight start, at foreseen 100 %, ambush 70 %, blind 50 % strength; the Domain is the one carried ground that unfolds mid-fight (R9, 2026-11-11) | Combat rule 12 |

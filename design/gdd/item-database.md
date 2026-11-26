@@ -256,9 +256,17 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
     - **f. Signature items (new, 2026-11-25; R7, ruling group 1).** The authored cast carries **signature items**: named
       items made for a person or handed down to them. Heads carry 3-4, elders 2-3 and key disciples 1-2, and every
       living tier A person wears at least one piece of a personal or sect set (rule 22). A signature item is an
-      ordinary named item: rules 20a-e and 21 apply unchanged (base, grade, modifiers within Formulas I, unpriced
-      Effects, arts by role, uniqueness by rarity). It adds `holder` (its authored owner at world start), `made_by`,
-      `made_year`, `set` (rule 22) and, when it is a World Generation legendary record made real, `legendary_key`.
+      ordinary named item: rules 20a-e and 21 apply (base, grade, modifiers within Formulas I, unpriced Effects, arts
+      by role), with two exceptions (amended 2026-11-26, user rulings at the Băng Tâm Các review):
+      - **Always unique.** Every signature item is unique whatever its rarity (`unique: true`), so rule 20c's
+        repeatable grade 2-3 pieces do not apply to it: no source makes a second White Plum while the first exists,
+        and a destroyed one returns as rule 20c says for unique items.
+      - **Arts by role:** a signature weapon, armour or shield whose record names no authored art or ward gives its
+        base's common art or ward (rule 21), marked as an `exception`. Authored arts come only where its story names
+        one.
+
+      It adds `holder` (its authored owner at world start), `made_by`, `made_year`, `set` (rule 22) and, when it is a
+      World Generation legendary record made real, `legendary_key`.
       - **Authored source:** `design/world/depth/sects/<key>.items.json` and `design/world/depth/people/<group>.items.json`
         (format: `design/world/depth/schema.md`, "signature items and sets"). Do not copy them here.
       - **Counts (measured 2026-11-25):** 490 items in 56 files (432 artifacts, 58 treasures; grade 1 / 2 / 3 / 4:
