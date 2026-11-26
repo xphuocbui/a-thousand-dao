@@ -59,6 +59,10 @@ The content is in `design/world/depth/` (`SUMMARY-2026-11-25.md`).
    - the game suites: `tools/run-tests-parallel.sh` (memory: the parallel runner, with integration and parity) and the
      smoke check;
    - the exporters' `--check` modes: `export_named.py`, `export_techniques.py` and `export_combat_library.py`.
+     **Expected stale during a sect's Stage 6 pass:** the sect's records are promoted into the design catalogues but
+     exported only at its Stage 7, after the user's review. So until then the three `--check` modes report the game
+     data stale, and a whole-catalogue `lint_techniques.py` lists `ART_MISSING` for the arts still to write. Do not
+     export to "fix" this.
 3. **Commits so far (all on main, not pushed):**
    - 7a5d139f: the content and GDD amendments;
    - 4f89c796: the Phất Y rename and the builds folder;

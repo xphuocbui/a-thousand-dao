@@ -206,7 +206,7 @@
       "records": [
         {"id": "eff:Every Fifth a Star arm", "on": "status_applied", "filter": {"element": "ice"}, "if": [{"read": "foe.debuff.ice", "op": ">=", "value": 5}, {"read": "own.counter.star_seen", "op": "==", "value": 0}], "do": [{"counter": {"id": "star", "set": 1}}, {"counter": {"id": "star_seen", "set": 1}}]},
         {"id": "eff:Every Fifth a Star rearm", "on": "pulse", "if": [{"read": "foe.debuff.ice", "op": "<", "value": 5}], "do": [{"counter": {"id": "star_seen", "set": 0}}]},
-        {"id": "eff:Every Fifth a Star cut", "on": "always", "filter": {"tags": ["sword"]}, "if": [{"read": "own.counter.star", "op": ">=", "value": 1}], "do": [{"mod": {"sure_crit": 1, "bypass": 0.5}}]},
+        {"id": "eff:Every Fifth a Star cut", "on": "always", "if": [{"read": "own.counter.star", "op": ">=", "value": 1}], "do": [{"mod": {"sure_crit": 1, "bypass": 0.5, "tags": ["sword"]}}]},
         {"id": "eff:Every Fifth a Star spent", "on": "hit_landed", "filter": {"tags": ["sword"]}, "if": [{"read": "own.counter.star", "op": ">=", "value": 1}], "do": [{"counter": {"id": "star", "set": 0}}]}
       ]
     },

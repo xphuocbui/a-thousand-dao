@@ -5,66 +5,390 @@
   "The Keeper's Stillness": {
    "rule": "Ice Heart Regalia, full set: the first time each fight you fall to a quarter of your health, the foe's clock stops for 1.5 s (its arts, basic attack and companions wait; your arts keep recharging), and the foe gains 3 Ice stacks.",
    "records": [
-    {"id": "eff:The Keeper's Stillness", "on": "wounded",
-     "do": [{"stop_clock": {"side": "foe", "seconds": 1.5}}, {"stacks": {"el": "ice", "n": 3, "for": 8, "side": "foe"}}]}
+    {
+     "id": "eff:The Keeper's Stillness",
+     "on": "wounded",
+     "do": [
+      {
+       "stop_clock": {
+        "side": "foe",
+        "seconds": 1.5
+       }
+      },
+      {
+       "stacks": {
+        "el": "ice",
+        "n": 3,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    }
    ]
   },
   "Twin Plums": {
    "rule": "Red and White Plums, full set: your Snow Plum cuts alternate swords. Every fifth Snow Plum hit that lands strikes again (a Cold hit of 0.36, one petal's share), and a Snow Plum hit that crits lays one more Ice stack.",
-   "counters": [{"id": "twin_petal"}],
+   "counters": [
+    {
+     "id": "twin_petal"
+    }
+   ],
    "records": [
-    {"id": "eff:Twin Plums crit", "on": "crit", "filter": {"group": "snow-plum-sword"},
-     "do": [{"stacks": {"el": "ice", "n": 1, "for": 8, "side": "foe"}}]},
-    {"id": "eff:Twin Plums count", "on": "hit_landed", "filter": {"group": "snow-plum-sword"},
-     "do": [{"counter": {"id": "twin_petal", "add": 1}}]},
-    {"id": "eff:Twin Plums fifth", "on": "hit_landed", "filter": {"group": "snow-plum-sword"},
-     "if": [{"read": "own.counter.twin_petal", "op": ">=", "value": 5}],
-     "do": [{"counter": {"id": "twin_petal", "set": 0}}, {"free_hit": {"c": 0.36, "dtype": "cold"}}]}
+    {
+     "id": "eff:Twin Plums crit",
+     "on": "crit",
+     "filter": {
+      "group": "snow-plum-sword"
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "ice",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Twin Plums count",
+     "on": "hit_landed",
+     "filter": {
+      "group": "snow-plum-sword"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "twin_petal",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Twin Plums fifth",
+     "on": "hit_landed",
+     "filter": {
+      "group": "snow-plum-sword"
+     },
+     "if": [
+      {
+       "read": "own.counter.twin_petal",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "twin_petal",
+        "set": 0
+       }
+      },
+      {
+       "free_hit": {
+        "c": 0.36,
+        "dtype": "cold"
+       }
+      }
+     ]
+    }
    ]
   },
   "Second Wind on the Ice": {
    "rule": "Ice-Fisher's Three, full set: the first time each fight you fall to half your health, you regain 20 % of your health and a quarter of your linh lực over 4 s, and your next five Snow Plum arts each lay one more Ice stack.",
-   "counters": [{"id": "second_wind"}, {"id": "wind_cuts"}, {"id": "wind_used"}],
+   "counters": [
+    {
+     "id": "second_wind"
+    },
+    {
+     "id": "wind_cuts"
+    },
+    {
+     "id": "wind_used"
+    }
+   ],
    "records": [
-    {"id": "eff:Second Wind on the Ice", "on": "was_hit",
-     "if": [{"read": "own.hp_share", "op": "<=", "value": 0.5}, {"read": "own.counter.wind_used", "op": "==", "value": 0}],
-     "do": [{"counter": {"id": "wind_used", "set": 1}}, {"counter": {"id": "second_wind", "set": 4}},
-            {"counter": {"id": "wind_cuts", "set": 5}}]},
-    {"id": "eff:Second Wind on the Ice pulse", "on": "pulse",
-     "if": [{"read": "own.counter.second_wind", "op": ">=", "value": 1}],
-     "do": [{"heal": {"share": 0.05}}, {"gain_qi": {"share": 0.0625}}, {"counter": {"id": "second_wind", "add": -1}}]},
-    {"id": "eff:Second Wind on the Ice cuts", "on": "art_fired", "filter": {"group": "snow-plum-sword"},
-     "if": [{"read": "own.counter.wind_cuts", "op": ">=", "value": 1}],
-     "do": [{"stacks": {"el": "ice", "n": 1, "for": 8, "side": "foe"}}, {"counter": {"id": "wind_cuts", "add": -1}}]}
+    {
+     "id": "eff:Second Wind on the Ice",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.5
+      },
+      {
+       "read": "own.counter.wind_used",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "wind_used",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "second_wind",
+        "set": 4
+       }
+      },
+      {
+       "counter": {
+        "id": "wind_cuts",
+        "set": 5
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Second Wind on the Ice pulse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.second_wind",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.05
+       }
+      },
+      {
+       "gain_qi": {
+        "share": 0.0625
+       }
+      },
+      {
+       "counter": {
+        "id": "second_wind",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Second Wind on the Ice cuts",
+     "on": "art_fired",
+     "filter": {
+      "group": "snow-plum-sword"
+     },
+     "if": [
+      {
+       "read": "own.counter.wind_cuts",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "ice",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "wind_cuts",
+        "add": -1
+       }
+      }
+     ]
+    }
    ]
   },
   "Every Fifth a Star": {
    "rule": "Clear Glaze, full set: each time a foe reaches 5 of your Ice stacks, your next sword cut against it is a sure crit and half of its damage goes past the foe's ward.",
    "approx": "\"ignores the foe's ward\" is bypass 0.5, the engine's bypass_cap; a full ward pass exists only on free hits (pass_shields)",
-   "counters": [{"id": "star"}, {"id": "star_seen"}],
+   "counters": [
+    {
+     "id": "star"
+    },
+    {
+     "id": "star_seen"
+    }
+   ],
    "records": [
-    {"id": "eff:Every Fifth a Star arm", "on": "status_applied", "filter": {"element": "ice"},
-     "if": [{"read": "foe.debuff.ice", "op": ">=", "value": 5}, {"read": "own.counter.star_seen", "op": "==", "value": 0}],
-     "do": [{"counter": {"id": "star", "set": 1}}, {"counter": {"id": "star_seen", "set": 1}}]},
-    {"id": "eff:Every Fifth a Star rearm", "on": "pulse", "if": [{"read": "foe.debuff.ice", "op": "<", "value": 5}],
-     "do": [{"counter": {"id": "star_seen", "set": 0}}]},
-    {"id": "eff:Every Fifth a Star cut", "on": "always", "filter": {"tags": ["sword"]},
-     "if": [{"read": "own.counter.star", "op": ">=", "value": 1}],
-     "do": [{"mod": {"sure_crit": 1, "bypass": 0.5}}]},
-    {"id": "eff:Every Fifth a Star spent", "on": "hit_landed", "filter": {"tags": ["sword"]},
-     "if": [{"read": "own.counter.star", "op": ">=", "value": 1}],
-     "do": [{"counter": {"id": "star", "set": 0}}]}
+    {
+     "id": "eff:Every Fifth a Star arm",
+     "on": "status_applied",
+     "filter": {
+      "element": "ice"
+     },
+     "if": [
+      {
+       "read": "foe.debuff.ice",
+       "op": ">=",
+       "value": 5
+      },
+      {
+       "read": "own.counter.star_seen",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "star",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "star_seen",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Every Fifth a Star rearm",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "foe.debuff.ice",
+       "op": "<",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "star_seen",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Every Fifth a Star cut",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.star",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "sure_crit": 1,
+        "bypass": 0.5,
+        "tags": [
+         "sword"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Every Fifth a Star spent",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.star",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "star",
+        "set": 0
+       }
+      }
+     ]
+    }
    ]
   },
   "Sitting on the Ice": {
    "rule": "Fisher's Heirs, full set (2 pieces): after 2 s Composed, you regenerate 1.5 % of your health and linh lực each second, and your next sword cut lays 2 Ice stacks.",
-   "counters": [{"id": "sit_cut"}],
+   "counters": [
+    {
+     "id": "sit_cut"
+    }
+   ],
    "records": [
-    {"id": "eff:Sitting on the Ice", "on": "pulse", "if": [{"read": "own.composed_time", "op": ">=", "value": 2}],
-     "do": [{"heal": {"share": 0.015}}, {"gain_qi": {"share": 0.015}}, {"counter": {"id": "sit_cut", "set": 1}}]},
-    {"id": "eff:Sitting on the Ice cut", "on": "art_fired", "filter": {"tags": ["sword"]},
-     "if": [{"read": "own.counter.sit_cut", "op": ">=", "value": 1}],
-     "do": [{"stacks": {"el": "ice", "n": 2, "for": 8, "side": "foe"}}, {"counter": {"id": "sit_cut", "set": 0}}]}
+    {
+     "id": "eff:Sitting on the Ice",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.composed_time",
+       "op": ">=",
+       "value": 2
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.015
+       }
+      },
+      {
+       "gain_qi": {
+        "share": 0.015
+       }
+      },
+      {
+       "counter": {
+        "id": "sit_cut",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Sitting on the Ice cut",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.sit_cut",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "ice",
+        "n": 2,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "sit_cut",
+        "set": 0
+       }
+      }
+     ]
+    }
    ]
   }
  }

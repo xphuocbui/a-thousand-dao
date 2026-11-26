@@ -177,15 +177,28 @@
        "for": 8,
        "side": "foe"
       }
+     },
+     {
+      "counter": {
+       "id": "cold_petal",
+       "add": 1
+      }
      }
     ]
    },
    {
     "id": "fifth-petal",
-    "on": "art_fired",
+    "on": "hit_landed",
     "filter": {
      "art_id": "five-petals-of-cold"
     },
+    "if": [
+     {
+      "read": "own.counter.cold_petal",
+      "op": ">=",
+      "value": 5
+     }
+    ],
     "scale": {
      "read": "foe.debuff.ice",
      "per": 1
@@ -198,9 +211,31 @@
       }
      }
     ]
+   },
+   {
+    "id": "fifth-petal-reset",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "five-petals-of-cold"
+    },
+    "if": [
+     {
+      "read": "own.counter.cold_petal",
+      "op": ">=",
+      "value": 5
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "cold_petal",
+       "set": 0
+      }
+     }
+    ]
    }
   ],
-  "rule": "Five quick cuts, each laying 1 Ice stack for 8 s when it lands; the fifth cut adds a Cold hit of 0.05 for every Ice stack on the foe.",
+  "rule": "Five quick cuts, each laying 1 Ice stack for 8 s when it lands; the fifth cut to land adds a Cold hit of 0.05 for every Ice stack on the foe (its own stacks included).",
   "hooks": [
    "ice stacks",
    "split hits",
@@ -210,6 +245,11 @@
   ],
   "sources": [
    "world-depth:bang_tam"
+  ],
+  "counters": [
+   {
+    "id": "cold_petal"
+   }
   ]
  },
  {

@@ -103,8 +103,12 @@ Resume here: read this file, then do the first unchecked step.
       - Gap report: stand-ins 0. effects 5 runs, 6 open.
       - Tool fixes: depth_check.py does not count a `catalogue-sect-*` item as a duplicate of its depth record, and
         depth_gap.py does not call a sect's own merged Effect (source `world-depth:<owner>`) a clash.
-- [ ] 5. Engine words, both engines, parity.
-- [ ] 6. Review file, then STOP for the user.
+- [ ] 5. Engine words, both engines, parity. BLOCKED on review round 1 (the rulings R1-R6, W2 and W3 calls, and
+      the GDD text for W1-W4).
+      - Fixed before the review: Every Fifth a Star's sword scope now sits inside the `mod` (an `always` record
+        ignores a record-level `filter`).
+      - Five Petals' bonus moved to the fifth hit that lands, because `art_fired` fires before the art's hits.
+- [x] 6. Review file, then STOP for the user. Round 1 written 2026-11-26: `production/plans/stage6/bang_tam-review.md`. WAITING for the user's answers.
 - [ ] 7. Stage 7 (after approval).
 
 ## Step 1 result: the mechanic table (2026-11-26)
