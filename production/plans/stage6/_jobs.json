@@ -1,59 +1,21 @@
 [
  {
-  "id": "s6-lac_ha",
+  "id": "s6-thien_xu",
   "model": "opus",
   "timeout_min": 240,
   "allowed": "Read,Glob,Grep,Write,Edit,Bash(python -I:*),Bash(python:*)",
   "system": "You are a headless world-depth Stage 6 job. Nobody answers questions: decisions are auto-accepted (take your recommended option, think it through against the design rules in the brief, and log it). Never run git.",
   "env": {
-   "DEPTH_STAGE": "C:\\Users\\xphuo\\IdeaProjects\\my-game\\design\\stage6-staging\\lac_ha"
+   "DEPTH_STAGE": "C:\\Users\\xphuo\\IdeaProjects\\my-game\\design\\stage6-staging\\thien_xu"
   },
-  "expect": "production/plans/stage6/lac_ha.done",
-  "prompt": "Run world-depth Stage 6's record pass for owner lac_ha. Follow production/plans/stage6/_brief-record.md exactly (OWNER = lac_ha). DEPTH_STAGE is already set for you. Finish by writing production/plans/stage6/lac_ha.done.",
+  "expect": "production/plans/stage6/thien_xu.done",
+  "prompt": "Run world-depth Stage 6's record pass for owner thien_xu. Follow production/plans/stage6/_brief-record.md exactly (OWNER = thien_xu). DEPTH_STAGE is already set for you. Finish by writing production/plans/stage6/thien_xu.done.",
   "after": [
    "C:\\Users\\xphuo\\scoop\\apps\\python\\current\\python.exe",
    "-I",
    "tools/headless/stage6_gate.py",
    "record",
-   "lac_ha"
-  ]
- },
- {
-  "id": "s6-tran_sa",
-  "model": "opus",
-  "timeout_min": 240,
-  "allowed": "Read,Glob,Grep,Write,Edit,Bash(python -I:*),Bash(python:*)",
-  "system": "You are a headless world-depth Stage 6 job. Nobody answers questions: decisions are auto-accepted (take your recommended option, think it through against the design rules in the brief, and log it). Never run git.",
-  "env": {
-   "DEPTH_STAGE": "C:\\Users\\xphuo\\IdeaProjects\\my-game\\design\\stage6-staging\\tran_sa"
-  },
-  "expect": "production/plans/stage6/tran_sa.done",
-  "prompt": "Run world-depth Stage 6's record pass for owner tran_sa. Follow production/plans/stage6/_brief-record.md exactly (OWNER = tran_sa). DEPTH_STAGE is already set for you. Finish by writing production/plans/stage6/tran_sa.done.",
-  "after": [
-   "C:\\Users\\xphuo\\scoop\\apps\\python\\current\\python.exe",
-   "-I",
-   "tools/headless/stage6_gate.py",
-   "record",
-   "tran_sa"
-  ]
- },
- {
-  "id": "s6-tam_kiem",
-  "model": "opus",
-  "timeout_min": 240,
-  "allowed": "Read,Glob,Grep,Write,Edit,Bash(python -I:*),Bash(python:*)",
-  "system": "You are a headless world-depth Stage 6 job. Nobody answers questions: decisions are auto-accepted (take your recommended option, think it through against the design rules in the brief, and log it). Never run git.",
-  "env": {
-   "DEPTH_STAGE": "C:\\Users\\xphuo\\IdeaProjects\\my-game\\design\\stage6-staging\\tam_kiem"
-  },
-  "expect": "production/plans/stage6/tam_kiem.done",
-  "prompt": "Run world-depth Stage 6's record pass for owner tam_kiem. Follow production/plans/stage6/_brief-record.md exactly (OWNER = tam_kiem). DEPTH_STAGE is already set for you. Finish by writing production/plans/stage6/tam_kiem.done.",
-  "after": [
-   "C:\\Users\\xphuo\\scoop\\apps\\python\\current\\python.exe",
-   "-I",
-   "tools/headless/stage6_gate.py",
-   "record",
-   "tam_kiem"
+   "thien_xu"
   ]
  },
  {
@@ -71,16 +33,14 @@
    "snapshot",
    "w01"
   ],
-  "prompt": "Run world-depth Stage 6's serial step for wave w01, owners lac_ha, tran_sa, tam_kiem. Follow production/plans/stage6/_brief-serial.md exactly (TAG = w01). Finish by writing production/plans/stage6/_serial-w01.done.",
+  "prompt": "Run world-depth Stage 6's serial step for wave w01, owners thien_xu. Follow production/plans/stage6/_brief-serial.md exactly (TAG = w01). Finish by writing production/plans/stage6/_serial-w01.done.",
   "after": [
    "C:\\Users\\xphuo\\scoop\\apps\\python\\current\\python.exe",
    "-I",
    "tools/headless/stage6_gate.py",
    "serial",
    "w01",
-   "lac_ha",
-   "tran_sa",
-   "tam_kiem"
+   "thien_xu"
   ]
  }
 ]
