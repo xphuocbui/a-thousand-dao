@@ -274,3 +274,28 @@ committed:
    person cards (Sở Ngọc Hồ, Cố Lăng Sương), and fight one authored build. Screenshots go in
    `production/qa/evidence/world-depth-stage7/`. Measure the world build time.
 5. **Gap report** `--sect bang_tam`: zero open. The full suite and the full parity check before the last commit.
+
+### Stage 7 unit 2 design (2026-11-26)
+- Unit 1 is DONE (d489875e): the records are exported, t26 parity passes, and the 70 compile cases pass.
+- **world_history additions:** `world_data_version: 1`, `beasts: [...]`, `ties: [...]`. `people` and `cast_builds`
+  are merged for the exported sects.
+- **Ties format:** `{"a": key, "b": key, "kind": <game kind>, "s": <start strength>, "dir": "a_to_b"}`. Mapping is by
+  depth_gap `TIE_MAP`; one record per pair, the strongest kind wins. The writers:
+  - kin, ket_nghia and dao_lu: `Ties.add_pinned(..., authored=true)`;
+  - su_do: `Ties.set_master(disciple, master)`, the current pair only;
+  - friend (40), lover (friend, 70), rival (40) and enmity (50): `Ties.write_soft(holder=a, other=b, kind, delta=s)`;
+  - former master or disciple: soft friend 30; rival or enmity when the note says they parted badly (a keyword
+    list, each one logged);
+  - feud: `Ties.set_feud`; debt: `Ties.write_debt`.
+
+  A tie whose other person is not in the world is skipped and reported, and comes with its sect in Stage 8. Over the
+  cap of 16: pinned ties are kept, soft ones are kept by strength.
+- **People:** a depth record merges over the old one (or is new). The game reads key, name (from `name_hv`),
+  name_han, gloss, sex, born, alive, sect, rank, role, realm, home (a place id), the traits (personality, calling,
+  fate_given; v2 kinds wait for Stage 10), master, and peak_realm, died and cause when dead. It also carries tier,
+  stage, appearance, wants, secret and beasts; `changed` is dropped.
+- **Builds:** the depth `build` mapped into the `cast_builds` shape: root, thien_phu (tier C has none, so the builder
+  rolls it), archetype, stage, main, aux, gear, skills, and tree {start, targets}.
+- **Beasts:** the `<key>.beasts.json` records as given. `WorldBuilder` makes each a people record with `is_beast`,
+  `owner_id` and `loyalty`, and the owner lists its id.
+
