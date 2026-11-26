@@ -36,7 +36,8 @@ The content is in `design/world/depth/` (`SUMMARY-2026-11-25.md`).
 
 0. **Resume point (2026-11-26, end of day; the user switched accounts):** Stages 0-5 are DONE and committed (Stage 5's
    code 28d3dca5, its close c709af42). The full suite (1,180 cases) and the full parity `--check` passed at 28d3dca5.
-   **Next: Stage 6, Băng Tâm Các first, then Stage 7 for that sect before the other 49.** Open calls for the user:
+   **Next: Stage 6, Băng Tâm Các first, then Stage 7 for that sect before the other 49.** Follow Stage 6's "per-sect
+   method" (user-approved 2026-11-26), and resume a sect from `production/plans/stage6/<key>.md`. Open calls for the user:
    where the kept meter lives and which fights write it back; the Remnant Score's restart rule after its seventh
    movement. What Stage 5 did not build is listed under Stage 5 "Done 2026-11-26". Estimate for Stages 6-11: about
    35-60 h of Claude time, plus the user's 50 sect reviews and the final review pass. To save usage: a fresh session
@@ -405,6 +406,44 @@ The features in Stage 5 need these rules first. Another session edits `design/gd
 
 ### Stage 6: the records (author, then promote through the existing exporters)
 All in batches of about 50, the checker up front, **by sect** (D3), Băng Tâm Các first. Nothing here is priced.
+
+**The per-sect method (user-approved 2026-11-26; follow it for every sect, in every session).**
+1. **Verify first (read only).** Run `depth_gap.py --sect <key>` and `spatial_words_check.py`. Then read every
+   technique, art, item, set and Effect rule and sort each mechanic into one of three groups: the engine has it, it
+   needs an engine word, or it needs a user ruling. Write the table into the sect's progress file. `engine_words 0`
+   in the gap report means nothing while the records are still rule text.
+2. **Checkers up front.** Run each linter (`lint_techniques.py`, `lint_arts.py`, `suite_check.py`, `lint_items.py`)
+   and the exporters' `--check` on a one-record stub before authoring, and fix the tools first. Those fixes carry
+   over to every later sect.
+3. **Author in-session** (a sect has tens of records, so no writers are needed; for a sect with far more, use Sonnet
+   batches per the bulk rules). Write into the ADR-0009 files:
+   - `design/techniques/catalogue-sect-<key>.json`;
+   - `design/arts/part-sect-<key>.json`;
+   - `design/items/catalogue-sect-<key>.json`;
+   - `design/items/sets-<key>.json`;
+   - Effects in `assets/data/combat_effects.json` with `source: "world-depth:<key>"`.
+
+   Lint each record, and run every art and Effect in `fight.py`. The depth file then keeps the ids. Check that the
+   gap report still reads promoted item and set Effects; it must not lose their rows.
+4. **Stand-ins.** Apply the ruled order per person: the lineage method by rank where it fits, else the method the
+   person's note names, else a new technique for the sect. Show the picks as a table in the review file. A method
+   owned by another, unpromoted sect is promoted early with this sect, so that this sect's gap reaches zero.
+5. **Engine words.** Build each in both engines with a parity fixture, running the targeted tests only. A new status
+   or rule needs a GDD amendment first, which goes to the user section by section.
+6. **Review file, then stop.** Write `production/plans/stage6/<key>-review.md`: each record's rule text beside its
+   engine form, the stand-in table, and the open rulings. Stop for the user's review. Nothing is exported before
+   approval.
+7. **Stage 7 for the sect** after approval: export, load, fight one authored build, keep screenshots, and confirm the
+   sect's gap report reads zero.
+
+**Recoverable at every point** (accounts may switch mid-sect):
+- Keep the progress file `production/plans/stage6/<key>.md` (done, next, open questions, exact commands), updated
+  after every unit.
+- Add one line to `production/session-state/active.md` and update the `world-depth-resume` memory at each step.
+- **Commit after every unit** (user standing go 2026-11-26), own paths only (`git commit -- <paths>`).
+- Units are small and in this order: techniques and arts, then Effects, then items and sets, then stand-ins and
+  beasts, then engine words.
+- A new session starts by reading the sect's progress file.
 - **Each sect's pass (user 2026-11-26):** design its techniques, arts, Effects, items, sets and beasts; pick its
   stand-ins' real techniques; run `depth_gap.py --sect <key>` for the engine words it needs; build those (Stage 5's
   rules); **show the user the sect's designs for review** (every sect, user 2026-11-26); then export, load and fight.
