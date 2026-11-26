@@ -55,3 +55,15 @@ The orchestrating session runs one owner at a time, no parallel lanes. Thiên Xu
    review found and fixed, the decisions taken for the user, anything that needs the user, and the time.
 
 No job starts after 08:00. On a HALT: read it, fix the cause, delete HALT, and rerun the same command.
+
+## Overnight status (2026-11-27 00:50, written as the orchestrator's usage limit ran out)
+- Thiên Xu's record job FINISHED its work (40 min; `thien_xu.done`, `thien_xu.md`, `thien_xu-review.md`; staging in
+  `design/stage6-staging/thien_xu/`; its own depth files edited). NOT committed yet.
+- The record gate HALTED: the three lints are 0 findings, but `sect_fight.py` printed a REFUSED holder (log
+  `production/session-logs/stage6-run/s6-thien_xu-after.md`, line 75; the refused line is cut by the log's 4,000-char
+  tail, so rerun `DEPTH_STAGE=design/stage6-staging/thien_xu python -I tools/design/combat_sim/sect_fight.py thien_xu
+  --seeds 5 | grep REFUSED` to see which holder and why). Also seen: "Sentence Stands" NEVER_RAN on phuong_truc_ngon.
+- NEXT: fix the refused build (likely a staged record the engine refuses), delete `production/session-logs/stage6-run/HALT`,
+  run `python -I tools/headless/stage6_gate.py record thien_xu` (it commits), then the checkpoint review, then
+  `--part serial`.
+
