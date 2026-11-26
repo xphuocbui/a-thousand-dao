@@ -121,13 +121,15 @@ The content is in `design/world/depth/` (`SUMMARY-2026-11-25.md`).
     - Prompts: `design/world/depth/art/portraits/x-<group>/*.json` (1,909 people: the 1,891 authored, plus the 18
       fallen-sect people in `x-fallen`). The five authored people added late (`ha_tinh_can`, `mac_thang_kieu`,
       `thang_vo_ta`, `cao_sa_lang`, `nhan_du_ti`) are in `x-late`.
-    - Images: `tools/asset-pipeline/portraits/out/authored/x-<group>/<key>.png`, outside git. Check `active.md` for
-      whether the paint run has finished, and retry any key without a png.
+    - Images: `tools/asset-pipeline/portraits/out/authored/x-<group>/<key>.png`, outside git. All 1,909 were painted
+      and verified on 2026-11-26. One prompt (`quan_anh_ho`) was softened after a safety refusal; her story stays in
+      her record.
   - **Places:** 311 story-site pictures in `design/world/depth/art/places/out/<batch>/`, outside git, painted before
     the xianxia change. Whether to repaint them in the new style is open for the user.
   - **Beasts:** the 21 beasts have no picture and show PlaceholderArt until the user asks for them.
-  - **Gallery:** https://claude.ai/artifact/H45zDrK7quF8PusDZGKAPE. The content session republishes it with the
-    xianxia portraits when the paint run ends.
+  - **Gallery:** https://claude.ai/artifact/H45zDrK7quF8PusDZGKAPE (version 5: all 1,909 xianxia portraits and the
+    311 places). Its build script sits in the content session's scratchpad. The install in Stage 3 reads the pngs,
+    not the gallery.
 
 ## The gap: what the content names that the game does not have (measured 2026-11-26)
 
