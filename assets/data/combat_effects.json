@@ -212,7 +212,7 @@
         {"id": "eff:Every Fifth a Star arm", "on": "status_applied", "filter": {"element": "ice"}, "if": [{"read": "foe.debuff.ice", "op": ">=", "value": 5}, {"read": "own.counter.star_seen", "op": "==", "value": 0}], "do": [{"counter": {"id": "star", "set": 1}}, {"counter": {"id": "star_seen", "set": 1}}]},
         {"id": "eff:Every Fifth a Star rearm", "on": "pulse", "if": [{"read": "foe.debuff.ice", "op": "<", "value": 5}], "do": [{"counter": {"id": "star_seen", "set": 0}}]},
         {"id": "eff:Every Fifth a Star cut", "on": "always", "if": [{"read": "own.counter.star", "op": ">=", "value": 1}], "do": [{"mod": {"sure_crit": 1, "bypass": 0.5, "tags": ["sword"]}}]},
-        {"id": "eff:Every Fifth a Star spent", "on": "hit_landed", "filter": {"tags": ["sword"]}, "if": [{"read": "own.counter.star", "op": ">=", "value": 1}], "do": [{"counter": {"id": "star", "set": 0}}]}
+        {"id": "eff:Every Fifth a Star spent", "on": "crit", "filter": {"tags": ["sword"]}, "if": [{"read": "own.counter.star", "op": ">=", "value": 1}], "do": [{"counter": {"id": "star", "set": 0}}]}
       ]
     },
     "Fan the Pyre": {
@@ -386,9 +386,9 @@
       "records": [{"id": "eff:Marked Prey", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1, "cap": 4}, "do": [{"mod": {"L5": 4}}]}]
     },
     "Master's Road": {
-      "rule": "Step for Step, full set (2 pieces): while your stance ward holds, the Ice stacks you lay last twice as long.",
+      "rule": "Step for Step, full set (2 pieces): while your ward holds (your stance ward, or your main ward, which stands while you have linh lực), the Ice stacks you lay last twice as long.",
       "source": "world-depth:bang_tam",
-      "records": [{"id": "eff:Master's Road", "on": "always", "if": [{"read": "own.ward_share", "op": ">", "value": 0}], "do": [{"mod": {"stack_dur": 100, "element": "ice", "kind": "debuff"}}]}]
+      "records": [{"id": "eff:Master's Road", "on": "always", "if": [{"any": [{"read": "own.ward_share", "op": ">", "value": 0}, {"read": "own.qi_share", "op": ">", "value": 0}]}], "do": [{"mod": {"stack_dur": 100, "element": "ice", "kind": "debuff"}}]}]
     },
     "Metal Begets Water": {
       "rule": "Each hit of a Metal art you land adds one Water buff stack to you. Closes: Wood arts you slot deal 50 % less.",

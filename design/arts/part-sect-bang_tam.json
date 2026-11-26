@@ -343,6 +343,13 @@
     "filter": {
      "art_id": "lotus-seal-ground"
     },
+    "if": [
+     {
+      "read": "own.state.jade-vessel",
+      "op": "<",
+      "value": 1
+     }
+    ],
     "do": [
      {
       "state": {
@@ -352,11 +359,32 @@
     ]
    },
    {
+    "id": "lotus-seal-into-vessel",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "lotus-seal-ground"
+    },
+    "if": [
+     {
+      "read": "own.state.jade-vessel",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "jade-vessel-sealed"
+      }
+     }
+    ]
+   },
+   {
     "id": "lotus-seal-pulse",
     "on": "pulse",
     "if": [
      {
-      "read": "own.state.lotus-seal",
+      "read": "own.field_up",
       "op": ">=",
       "value": 1
      }
@@ -381,7 +409,7 @@
     ]
    }
   ],
-  "rule": "Lays a frost-lotus seal (a Field) that stays up for the fight. While it is up you cast 10 % slower, and each second the foe takes 1 Ice stack for 6 s and a stack of Slowed Time for 2 s.",
+  "rule": "Lays a frost-lotus seal (a Field) that stays up for the fight. While it is up you cast 10 % slower, and each second the foe takes 1 Ice stack for 6 s and a stack of Slowed Time for 2 s. Laid inside Heart in the Jade Vessel, it seals the Vessel (both at once).",
   "hooks": [
    "field",
    "ice stacks",
@@ -393,7 +421,7 @@
   ],
   "guards": [
    {
-    "read": "own.state.lotus-seal",
+    "read": "own.field_up",
     "op": "<",
     "value": 1
    }
@@ -446,6 +474,11 @@
     "read": "own.state.jade-vessel",
     "op": "<",
     "value": 1
+   },
+   {
+    "read": "own.state.jade-vessel-sealed",
+    "op": "<",
+    "value": 1
    }
   ],
   "states": [
@@ -464,6 +497,25 @@
      "rime-lock-seal",
      "black-ice-glaze"
     ]
+   },
+   {
+    "id": "jade-vessel-sealed",
+    "tags": [
+     "composed",
+     "field"
+    ],
+    "mods": {
+     "art_speed": -10
+    },
+    "suppress": [
+     "rime-lotus",
+     "five-petals-of-cold",
+     "plum-falls-on-snow",
+     "frost-breath-palm",
+     "shatter-palm",
+     "rime-lock-seal",
+     "black-ice-glaze"
+    ]
    }
   ],
   "effects": [
@@ -473,6 +525,13 @@
     "filter": {
      "art_id": "heart-in-the-jade-vessel"
     },
+    "if": [
+     {
+      "read": "own.state.lotus-seal",
+      "op": "<",
+      "value": 1
+     }
+    ],
     "do": [
      {
       "state": {
@@ -482,13 +541,43 @@
     ]
    },
    {
+    "id": "vessel-enter-sealed",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "heart-in-the-jade-vessel"
+    },
+    "if": [
+     {
+      "read": "own.state.lotus-seal",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "jade-vessel-sealed"
+      }
+     }
+    ]
+   },
+   {
     "id": "vessel-grow",
     "on": "pulse",
     "if": [
      {
-      "read": "own.state.jade-vessel",
-      "op": ">=",
-      "value": 1
+      "any": [
+       {
+        "read": "own.state.jade-vessel",
+        "op": ">=",
+        "value": 1
+       },
+       {
+        "read": "own.state.jade-vessel-sealed",
+        "op": ">=",
+        "value": 1
+       }
+      ]
      }
     ],
     "do": [
@@ -505,9 +594,18 @@
     "on": "ward_absorbed",
     "if": [
      {
-      "read": "own.state.jade-vessel",
-      "op": ">=",
-      "value": 1
+      "any": [
+       {
+        "read": "own.state.jade-vessel",
+        "op": ">=",
+        "value": 1
+       },
+       {
+        "read": "own.state.jade-vessel-sealed",
+        "op": ">=",
+        "value": 1
+       }
+      ]
      }
     ],
     "do": [
@@ -526,9 +624,18 @@
     "on": "ward_absorbed",
     "if": [
      {
-      "read": "own.state.jade-vessel",
-      "op": ">=",
-      "value": 1
+      "any": [
+       {
+        "read": "own.state.jade-vessel",
+        "op": ">=",
+        "value": 1
+       },
+       {
+        "read": "own.state.jade-vessel-sealed",
+        "op": ">=",
+        "value": 1
+       }
+      ]
      },
      {
       "read": "own.ward_of_peak",
@@ -585,9 +692,48 @@
       }
      }
     ]
+   },
+   {
+    "id": "vessel-release-sealed",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.state.jade-vessel-sealed",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "any": [
+       {
+        "read": "own.ward_share",
+        "op": ">=",
+        "value": 0.25
+       },
+       {
+        "read": "foe.debuff.ice",
+        "op": ">=",
+        "value": 10
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "release_ward": {
+       "dtype": "cold",
+       "more_per_stack": 0.04,
+       "consume": "ice"
+      }
+     },
+     {
+      "state": {
+       "set": "lotus-seal"
+      }
+     }
+    ]
    }
   ],
-  "rule": "A held stance (Composed). While you hold it your damaging Ice arts wait and a frost ward grows by 3 % of your health each second; each hit it absorbs lays 1 Ice stack on the attacker for 10 s, 2 while the ward is above half its peak. When the ward reaches 25 % of your health or the foe carries 10 Ice stacks, the stance ends and the ward is released as Cold damage on the foe, 4 % more for each Ice stack it consumes (all of them).",
+  "rule": "A held stance (Composed). While you hold it your damaging Ice arts wait and a frost ward grows by 3 % of your health each second; each hit it absorbs lays 1 Ice stack on the attacker for 10 s, 2 while the ward is above half its peak. When the ward reaches 25 % of your health or the foe carries 10 Ice stacks, the stance ends and the ward is released as Cold damage on the foe, 4 % more for each Ice stack it consumes (all of them). Entered while your Lotus Seal Ground is up, the stance keeps the seal (a sealed Vessel: Composed and a Field at once, casting 10 % slower), and the release returns you to the seal.",
   "hooks": [
    "stance ward",
    "ward strength",

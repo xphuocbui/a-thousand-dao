@@ -117,7 +117,12 @@ The user took every recommendation in `production/plans/stage6/bang_tam-review.m
 - **R1, a formation in a fight:** "inside your own formation" and "while your diagram is laid" mean your Field stance
   is up (`field_up`). A formation's strength is your growing ward (W1). This applies to every sect's records.
 - **R2, Hidden Half:** while the foe carries one of your curses, your Ice stacks on it count 20 % more
-  (`stack_more`, debuff side).
+  (`stack_more`, debuff side). **REFINED 2026-11-26, PENDING the user's confirmation.**
+  - `stack_more` reads buffs only. Extending it to debuffs would also change four existing Water and Wood Effects,
+    which are scoped by element only.
+  - So the build uses `stack_grant` +1 instead: while the foe is cursed, each Ice grant you lay gives 1 more stack.
+  - That is +100 % for arts that lay one stack per hit (Rime Lotus, Five Petals), not +20 %.
+  - The alternative is a new debuff-side key (`debuff_more`, 20 %), which needs live debuff sums in GDScript.
 - **R3, heart-demon odds at a breakthrough:** a `tam_ma_resist_pct` line on the item, sized so the odds fall by that
   share.
 - **R4, "freeze for a breath":** `stop_clock` on the foe for 1 s. No Freeze status.

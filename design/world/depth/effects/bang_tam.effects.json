@@ -296,7 +296,7 @@
     },
     {
      "id": "eff:Every Fifth a Star spent",
-     "on": "hit_landed",
+     "on": "crit",
      "filter": {
       "tags": [
        "sword"
@@ -569,16 +569,25 @@
    ]
   },
   "Master's Road": {
-   "rule": "Step for Step, full set (2 pieces): while your stance ward holds, the Ice stacks you lay last twice as long.",
+   "rule": "Step for Step, full set (2 pieces): while your ward holds (your stance ward, or your main ward, which stands while you have linh lực), the Ice stacks you lay last twice as long.",
    "records": [
     {
      "id": "eff:Master's Road",
      "on": "always",
      "if": [
       {
-       "read": "own.ward_share",
-       "op": ">",
-       "value": 0
+       "any": [
+        {
+         "read": "own.ward_share",
+         "op": ">",
+         "value": 0
+        },
+        {
+         "read": "own.qi_share",
+         "op": ">",
+         "value": 0
+        }
+       ]
       }
      ],
      "do": [

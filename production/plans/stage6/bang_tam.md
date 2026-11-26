@@ -131,7 +131,31 @@ Resume here: read this file, then do the first unchecked step.
       - Five Petals' bonus moved to the fifth hit that lands, because `art_fired` fires before the art's hits.
 - [x] 6. Review file, then STOP for the user. Round 1 written and answered 2026-11-26 (`production/plans/stage6/bang_tam-review.md`).
 - [x] 6b. Review round 2, logged under the auto-accept rule (in the review file).
-- [ ] 7. Stage 7, next. The work:
+- [x] 6c. Holder check (advisor, 2026-11-26): fight files from the actual cast builds
+      (`$CLAUDE_JOB_DIR/tmp/cast_fight.py` and `probe.py`, which counts each Effect's runs). Fixed:
+      - The Vessel and Lotus Seal shared the one stance slot, so they kept overwriting each other. A sealed Vessel
+        (`jade-vessel-sealed`, Composed and Field together) now joins them for Cố and Tiết. After the fix, The Peak
+        and Walk the Nodes give 69 % against 39 % and 62 % against 43 % health left.
+      - Master's Road's "your ward holds" covers the main ward too (Sở Hàn Y has no stance ward).
+      - Every Fifth a Star was spent by the sub-hit that armed it. It is now spent on the crit it grants: 98 sure
+        crits against 16, and 28.0 s down to 25.7 s.
+      - The rest are expected no-ops against a typical foe: Ice in the Vessel, Second Wind and Sitting on the Ice need
+        damage taken, or a pause.
+      - R2 is marked "refined, PENDING the user's confirmation" in DECISIONS-2026-11-26.md (stack_grant +1 is +100 %
+        for one-stack hits).
+- [ ] 7. Stage 7, next. Advisor order:
+      - (a) the full suite and full parity --check (launched 2026-11-26; logs `$CLAUDE_JOB_DIR/tmp/full_suite.log` and
+        `parity_full.log`);
+      - (b) export `combat_library.json`, then add a Băng Tâm build to the compile-parity cases and one exact fixture
+        that uses the library arts (the 10 arts have not run in GDScript yet);
+      - (c) check how world generation places unique named items (rule 20d: a Kết Đan+ NPC or Lost). The authored
+        `holder` must win, with a fallback for a holder not yet in the world (Red Plum's holder is Phượng Minh's), and
+        rule 20f's Counts bullet needs fixing;
+      - (d) dry-run `export_world.py --sect bang_tam --check` for missing ids;
+      - (e) Đạo Đồ targets: reuse the `cast_builds` shape;
+      - (f) commit the record exports and the world export together.
+
+      The work itself:
       - export the records: `export_techniques.py`, `export_named.py` (with `unique: true` carried and honoured) and
         `export_combat_library.py`;
       - `export_world.py --sect bang_tam`: the depth reader (people, merged builds, lineage, beasts, events, ties mapped
