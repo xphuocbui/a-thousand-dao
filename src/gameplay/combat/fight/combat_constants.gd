@@ -112,6 +112,8 @@ var broken_threshold: float
 var events: Array = []
 ## Effects GDD words for engine events, read through at load (world-depth Stage 5): {word: engine event}.
 var event_alias: Dictionary = {}
+## REQUEST_TAGS: the request tags a fight keeps (tribulation); the rest are ignored (2026-11-26).
+var request_tags: Array = []
 var mod_keys: Array = []
 var actions: Array = []
 var elem_type: Dictionary = {}
@@ -262,6 +264,7 @@ static func from_dict(d: Dictionary) -> CombatConstants:
 	k.broken_threshold = float(kd.broken_threshold)
 	k.events = d.get("EVENTS", [])
 	k.event_alias = d.get("EVENT_ALIAS", {})
+	k.request_tags = d.get("REQUEST_TAGS", [])
 	k.mod_keys = d.get("MOD_KEYS", [])
 	k.actions = d.get("ACTIONS", [])
 	k.elem_type = d.get("ELEM_TYPE", {})

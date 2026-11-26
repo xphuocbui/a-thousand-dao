@@ -357,10 +357,12 @@ def supp(att, dfn, pierce=0.0):
 
 # ------------------------------------------------------------------ the fight
 class Fight:
-    def __init__(self, b1, b2, seed=1, trace=False, order="random", parity=False):
+    def __init__(self, b1, b2, seed=1, trace=False, order="random", parity=False, tags=()):
         """order: "random" draws which side acts first at each moment (the rule in both engines, ADR-0001); "fixed"
         is side A before side B, used only by the exact parity fixtures. parity: record
-        `plog`, the event rows the parity suite compares (tests/parity, parity_export.py)."""
+        `plog`, the event rows the parity suite compares (tests/parity, parity_export.py). tags: the request's kept
+        tags (REQUEST_TAGS, e.g. tribulation), read as tag.<name> (Combat rule 12, AC-CB-104; 2026-11-26)."""
+        self.tags = {t for t in tags if t in _C.get("REQUEST_TAGS", [])}
         for b in (b1, b2):
             validate(b)
         if order not in ("random", "fixed"):
@@ -401,6 +403,8 @@ class Fight:
                 return float((self.t // ms(K["pulse"])) % int(key[6:]))
             if key.startswith("event."):
                 return (ev or {}).get(key[6:], 0.0)
+            if key.startswith("tag."):     # a kept request tag (tribulation; Combat rule 12, AC-CB-104)
+                return 1.0 if key[4:] in self.tags else 0.0
             raise EngineError("unknown readable %r" % key)
         if k == "hp_share":
             return max(0.0, x.hp) / x.hp_max

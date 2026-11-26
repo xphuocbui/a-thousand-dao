@@ -192,6 +192,11 @@ func _read(key: String, w: String, counters: Dictionary) -> EffectDef.ReadDef:
 		r.key = "time" if key == "time" else "event"
 		r.param = key.trim_prefix("event.")
 		return r
+	if key.begins_with("tag."):   # a kept request tag (tribulation; Combat rule 12, AC-CB-104): no side
+		r.side = 2
+		r.key = "tag"
+		r.param = key.substr(4)
+		return r
 	if key.begins_with("cycle."):   # the pulse index modulo n: no side
 		r.side = 2
 		r.key = "cycle"

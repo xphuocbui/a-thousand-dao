@@ -19,6 +19,8 @@ var b_end: FighterEnd
 var deciding_layer: int = -1
 ## Empty unless the log was on.
 var log_rows: Array[FightLogRow] = []
+## Notes on the request (2026-11-26): a request tag the fight ignored, once each (Combat rule 26, AC-CB-104).
+var notes: PackedStringArray = []
 
 
 ## The sim's win code: "A", "B", "draw" (both down) or "time" (the limit).

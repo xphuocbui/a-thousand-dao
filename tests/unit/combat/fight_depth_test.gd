@@ -572,3 +572,12 @@ func test_a_set_pays_its_modifiers_at_two_pieces_and_its_effect_at_the_full_set(
 	assert_eq(_set_ids(bfc, pieces.slice(0, 2)), ["set:trio"], "two pieces: the modifiers only")
 	assert_eq(_set_ids(bfc, pieces), ["set:trio", "set:trio:full"], "the full set: both")
 	assert_eq(_set_ids(bfc, [pieces[0], pieces[0]]), [], "two records of one piece count once")
+
+
+# ---- slice 7 (2026-11-26): kept request tags read as tag.<name> (Combat rule 12, AC-CB-104) ----
+func test_a_rule_reads_a_kept_request_tag() -> void:
+	var trib := {"id": "t", "on": "always", "if": [{"read": "tag.tribulation", "op": ">=", "value": 1}], "do": [{"mod": {"block": 7}}]}
+	var f: Fight = M._fight(M._dummy({"effects": [trib]}), M._dummy())
+	assert_near(f.m(f.a, "block", null), 0.0, 1e-9, "no tag: nothing")
+	f.tags = ["tribulation"]
+	assert_near(f.m(f.a, "block", null), 7.0, 1e-9, "tribulation kept: the rule sees it")

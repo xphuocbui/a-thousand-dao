@@ -28,8 +28,6 @@ func resolve(request: FightRequest) -> FightResult:
 	errors = []
 	if request.a == null or request.b == null:
 		errors.append("a fight request needs two compiled fighters")
-	if not request.ground_tags.is_empty():
-		errors.append("ground tags %s are not run by the fight engine yet" % str(request.ground_tags))
 	if request.no_heal:
 		errors.append("no_heal is not run by the fight engine yet (Combat Defence & Healing rule 19)")
 	# Combat rule 3 / Edge Cases: a health share of 0 or below or a share above 1 is rejected at the request
@@ -40,8 +38,17 @@ func resolve(request: FightRequest) -> FightResult:
 	if not errors.is_empty():
 		return null
 	var f := Fight.new(request.a, request.b, _k, request.fight_seed, Fight.Order.COIN, request.log_enabled)
+	var notes: PackedStringArray = []
+	for tag in request.ground_tags:   # Combat rules 12, 26 (AC-CB-104): keep the readable kinds, ignore the rest
+		if _k.request_tags.has(str(tag)):
+			if not f.tags.has(str(tag)):
+				f.tags.append(str(tag))
+		elif not notes.has("request tag %s ignored (a fight reads no place)" % str(tag)):
+			notes.append("request tag %s ignored (a fight reads no place)" % str(tag))
 	if request.start_health_share != 1.0 or request.start_qi_share != 1.0:
 		# starting shares replace the full start for side A (Combat Formulas A: health_max x share, qi_use x share)
 		f.a.hp = f.a.hp_max * request.start_health_share
 		f.a.qi = f.a.qi_use() * request.start_qi_share
-	return f.run()
+	var res: FightResult = f.run()
+	res.notes = notes
+	return res

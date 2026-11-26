@@ -258,6 +258,15 @@ def t_burn_pill():   # Pill Smoke, smoke only (user 2026-11-26)
     check("with no pill nothing happens", not B.debuffs)
 
 
+# ---- world-depth Stage 5 slice 7 (2026-11-26): kept request tags (Combat rule 12, AC-CB-104)
+def t_request_tags():
+    trib = {"id": "t", "on": "always", "if": [{"read": "tag.tribulation", "op": ">=", "value": 1}], "do": [{"mod": {"block": 7}}]}
+    f = E.Fight(dummy(effects=[trib]), dummy(), seed=3, tags=("tribulation", "own_abode", "vein"))
+    check("tribulation is kept and read; place tags are not kept", f.tags == {"tribulation"} and f.mod(f.A, "block") == 7, str(f.tags))
+    g = E.Fight(dummy(effects=[trib]), dummy(), seed=3)
+    check("with no tag the rule sees nothing", g.mod(g.A, "block") == 0)
+
+
 # ---- world-depth Stage 5 slice 5 (2026-11-26): the duel readings (Combat rule 25, Formulas L, its Example)
 def t_readings():
     f, A, B = setup()

@@ -43,6 +43,8 @@ var t: int = 0
 ## The constants and the fight's one random stream (read by [EffectRunner] and [DefencePath]).
 var k: CombatConstants
 var rng := RandomNumberGenerator.new()
+## The request's kept tags (REQUEST_TAGS, e.g. tribulation), read as tag.<name> (Combat rule 12, AC-CB-104).
+var tags: Array = []
 ## Reused one-key context for defence reads (DefencePath), and the hit context when no Effect exists: nothing keeps
 ## them, so reuse avoids an allocation per hit (allocations serialise threads: ADR-0003 spike, 2026-11-14).
 var dt_ctx: Dictionary = {}

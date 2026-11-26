@@ -14,7 +14,9 @@ var a: FighterProfile
 var b: FighterProfile
 ## What preparation applies (Combat rule 12). Read when the fighters are compiled; the fight itself does not use it.
 var situation: Situation = Situation.FORESEEN
-## Ground tags (rule 12). Not run by either engine yet: a non-empty list is refused.
+## Request tags (rules 12, 26; AC-CB-104, 2026-11-26): those in combat_engine.json REQUEST_TAGS (tribulation) are kept
+## and rules read them as tag.<name>; any other (own_abode, vein, a place or biome) applies nothing and is noted
+## once in the result as ignored.
 var ground_tags: Array[StringName] = []
 ## No healing in the fight (Combat Defence & Healing rule 19). Not run by either engine yet: true is refused.
 var no_heal: bool = false

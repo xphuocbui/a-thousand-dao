@@ -20,6 +20,8 @@ static func read(f: Fight, s: FighterState, r: EffectDef.ReadDef, ev: Variant) -
 	if r.side == 2:
 		if r.key == "time":
 			return f.t / 1000.0
+		if r.key == "tag":   # a kept request tag (Combat rule 12, AC-CB-104)
+			return 1.0 if f.tags.has(r.param) else 0.0
 		if r.key == "cycle":   # the pulse index modulo n (Tide's 6-pulse cycle)
 			@warning_ignore("integer_division")
 			var pulse_index: int = f.t / f.k.pulse_ms

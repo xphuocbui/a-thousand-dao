@@ -45,10 +45,25 @@ func test_requests_the_engine_cannot_run_are_refused_by_name() -> void:
 		["start_health_share", func(r: FightRequest) -> void: r.start_health_share = 1.5],
 		["start_qi_share", func(r: FightRequest) -> void: r.start_qi_share = -0.1],
 		["no_heal", func(r: FightRequest) -> void: r.no_heal = true],
-		["ground tags", func(r: FightRequest) -> void: r.ground_tags = [&"swamp"]],
 	]
 	for c in cases:
 		var req := _request(gd, 1)
 		c[1].call(req)
 		assert_true(service.resolve(req) == null, "%s is refused" % c[0])
 		assert_true("; ".join(service.errors).contains(c[0]), "the error names %s: %s" % [c[0], "; ".join(service.errors)])
+
+
+func test_place_tags_are_ignored_once_and_tribulation_is_kept() -> void:
+	# Combat rules 12, 26, AC-CB-104 (2026-11-26): a place tag applies nothing and is noted once as ignored; the fight
+	# still runs. tribulation is kept (REQUEST_TAGS), so a rule could read it as tag.tribulation.
+	var gd := game_data()
+	var service := CombatService.new(CombatConstants.from_game_data(gd))
+	var req := _request(gd, 1)
+	req.ground_tags = [&"own_abode", &"vein", &"own_abode", &"tribulation"]
+	var r: FightResult = service.resolve(req)
+	assert_true(r != null, "the fight runs: %s" % "; ".join(service.errors))
+	if r == null:
+		return
+	assert_eq(r.notes.size(), 2, "own_abode and vein, once each: %s" % str(r.notes))
+	assert_true("; ".join(r.notes).contains("own_abode") and "; ".join(r.notes).contains("vein"))
+	assert_false("; ".join(r.notes).contains("tribulation"), "tribulation is kept, not ignored")
