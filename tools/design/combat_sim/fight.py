@@ -349,6 +349,40 @@ def _library():
     return _LIB["arts"], _LIB["techs"]
 
 
+SETS = None   # assets/data/items_sets.json, loaded once; tests may set it
+
+
+def item_sets():
+    global SETS
+    if SETS is None:
+        p = os.path.join(ROOT, "assets", "data", "items_sets.json")
+        SETS = json.load(open(p, encoding="utf-8")) if os.path.exists(p) else {"sets": []}
+    return SETS
+
+
+def add_sets(worn, d, effects, unmod):
+    """Item sets (Item Database rule 22, Formulas J): distinct worn pieces of each set; its modifiers from
+    set_bonus_min_pieces, its Effect at the full set (its engine record, or listed as unmodelled)."""
+    data = item_sets()
+    need = int(data.get("constants", {}).get("set_bonus_min_pieces", 2))
+    have = set(worn)
+    for s in data.get("sets", []):
+        n = len(set(s["pieces"]) & have)
+        if n < need:
+            continue
+        for b in s.get("bonuses", []):
+            if b.get("modifiers"):
+                apply_static(d, b["modifiers"], "set %s" % s["id"], unmod)
+                e = passive_effect(dict(id=s["id"]), unmod, lines=b["modifiers"], what="set", prefix="set")
+                if e:
+                    effects.append(e)
+            if (b.get("effect") or b.get("record")) and n == len(set(s["pieces"])):
+                if b.get("record"):
+                    effects.append(dict(b["record"], id="set:%s:full" % s["id"]))
+                else:
+                    unmod.append("set %s full-set Effect %s: no engine record yet (not run)" % (s["id"], b["effect"]))
+
+
 def passive_effect(t, unmod, lines=None, what="technique", prefix="tech"):
     """A technique's passives (or an item's modifiers) as one always-on Effect; lines the engine has no stat for go to
     unmod."""
@@ -499,6 +533,7 @@ def expand_library(d):
             if not add_library_effect(short, d, effects, counters, unmod, "item %s" % iid, worn):
                 unmod.append("item %s Effect %s: not in assets/data/combat_effects.json; write it in \"effects\" (id "
                              "\"eff:<name>\") to run it" % (iid, name))
+    add_sets(worn, d, effects, unmod)
     # the Đạo Đồ's held Effects by name (keystones and crown notables; ADR-0004 decision 3)
     tree = list(d.pop("tree_effects", []) or [])
     on_sheet = bool(d.pop("tree_lines_on_sheet", False))

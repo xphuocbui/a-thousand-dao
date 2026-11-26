@@ -57,6 +57,8 @@ var _static: Dictionary = {}
 var _scope_el: Dictionary
 var _scope_dt: Dictionary
 var _lib_art_keys: Dictionary = {}
+## items_sets.json (Item Database rule 22): {constants, sets}.
+var _sets: Dictionary = {}
 ## The reserved share the last _extra_wards() call added (fight.py's extra_wards second return value).
 var _xres := 0.0
 
@@ -66,6 +68,7 @@ func _init(gd: GameData) -> void:
 	var lib: Dictionary = gd.file(LIBRARY_FILE)
 	_arts = lib.get("arts", {})
 	_items = lib.get("items", {})
+	_sets = gd.file("items_sets")   # Item Database rule 22 (2026-11-26); empty when the file is absent
 	_c = lib.get("constants", {})
 	_defaults = _c.get("build_defaults", {})
 	_file = _c.get("file_defaults", {})
@@ -203,6 +206,7 @@ func _expand(src: Dictionary) -> Dictionary:
 			lib_done[short] = true
 			if not _add_library_effect(short, d, effects, counters, unmod, "item %s" % iid, worn):
 				unmod.append("item %s Effect %s: not in assets/data/combat_effects.json; write it in \"effects\" (id \"eff:<name>\") to run it" % [iid, name])
+	_add_sets(worn, d, effects, unmod)
 	d.erase("items")
 	# the Đạo Đồ's held Effects by name (keystones and crown notables; ADR-0004 decision 3), as fight.py
 	var tree: Array = Array(d.get("tree_effects", [])).duplicate()
@@ -352,6 +356,38 @@ func _add_library_effect(name: String, d: Dictionary, effects: Array, counters: 
 	if lib.get("approx"):
 		unmod.append("%s Effect %s: run from the library, approximately (%s)" % [who, name, str(lib.approx)])
 	return true
+
+
+## Item sets (Item Database rule 22, Formulas J): distinct worn pieces of each set; its modifiers from
+## set_bonus_min_pieces, its Effect at the full set (its engine record, or listed as unmodelled). As fight.py add_sets.
+func _add_sets(worn: Array, d: Dictionary, effects: Array, unmod: Array) -> void:
+	var need: int = int(_sets.get("constants", {}).get("set_bonus_min_pieces", 2))
+	for s in _sets.get("sets", []):
+		var pieces := {}
+		for pc in s.pieces:
+			pieces[str(pc)] = true
+		var n: int = 0
+		var seen := {}
+		for iid in worn:
+			if pieces.has(str(iid)) and not seen.has(str(iid)):
+				seen[str(iid)] = true
+				n += 1
+		if n < need:
+			continue
+		for b in s.get("bonuses", []):
+			var mods: Array = b.get("modifiers", [])
+			if not mods.is_empty():
+				_apply_static(d, mods, "set %s" % str(s.id), unmod)
+				var se: Variant = _passive_effect(str(s.id), unmod, mods, "set", "set")
+				if se != null:
+					effects.append(se)
+			if (b.get("effect") != null or b.get("record") != null) and n == pieces.size():
+				if b.get("record") is Dictionary:
+					var rec: Dictionary = (b.record as Dictionary).duplicate(true)
+					rec["id"] = "set:%s:full" % str(s.id)
+					effects.append(rec)
+				else:
+					unmod.append("set %s full-set Effect %s: no engine record yet (not run)" % [str(s.id), str(b.effect)])
 
 
 func _passive_effect(id: String, unmod: Array, lines: Array, what: String, prefix: String) -> Variant:

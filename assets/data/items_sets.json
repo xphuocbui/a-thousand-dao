@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "_doc": "Item sets (Item Database rule 22, Formulas J; world-depth Stage 5, 2026-11-26). A set: id, name (\"English (Hán-Việt)\"), pieces (2-5 named template ids, as combat_library.json items), bonuses and story. A bonus with `modifiers` (catalogue keys with scopes) applies while set_bonus_min_pieces distinct pieces are worn (Formulas J1, about half one item's budget); a bonus with `effect` (its name) applies at the full set, run through its engine record `record` (an Effect dict, id set:<id>:full) or listed as unmodelled until it is written. Read by tools/design/combat_sim/fight.py, BuildFileCompiler and StatSheet. Empty until the Stage 6 sect exports fill it (the depth sets sit in design/world/depth/sects/*.items.json until then).",
+  "constants": {
+    "set_bonus_min_pieces": 2
+  },
+  "sets": []
+}

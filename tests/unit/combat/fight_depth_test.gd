@@ -545,3 +545,30 @@ func test_broken_and_wounded_fire_once_on_the_crossing() -> void:
 	f.b.hp = 0.1 * f.b.hp_max
 	f.hit(f.a, f.b, 0.01, &"phys", null, Fight.KIND_ART)
 	assert_near(float(f.a.counters["brk"]), 1.0, 1e-9, "once a fight")
+
+
+# ---- slice 6 (2026-11-26): item sets (Item Database rule 22, Formulas J; test_engine.py t_item_sets) ----
+static func _set_ids(bfc: BuildFileCompiler, items: Array) -> Array:
+	var d: Dictionary = bfc.compile({"name": "t", "realm": "luyen_khi", "layers": [0, 0, 0, 0, 0], "arts": [], "items": items})
+	var out: Array = []
+	for e in d.get("effects", []):
+		if str(e.get("id", "")).begins_with("set:"):
+			out.append(str(e.id))
+	return out
+
+
+func test_a_set_pays_its_modifiers_at_two_pieces_and_its_effect_at_the_full_set() -> void:
+	var gd := game_data()
+	var old: Dictionary = gd.file("items_sets")
+	var names: Array = (gd.file("combat_library").items as Dictionary).keys()
+	names.sort()
+	var pieces: Array = names.slice(0, 3)
+	gd.registry.set_file("items_sets", {"constants": {"set_bonus_min_pieces": 2}, "sets": [{"id": "trio", "name": "Trio",
+			"pieces": pieces, "bonuses": [{"pieces": 2, "modifiers": [{"key": "attack_pct", "value": 10, "scope": []}]},
+			{"pieces": 3, "effect": "Trio Whole", "record": {"id": "x", "on": "always", "do": [{"mod": {"block": 5}}]}}]}]})
+	var bfc := BuildFileCompiler.new(gd)
+	gd.registry.set_file("items_sets", old)
+	assert_eq(_set_ids(bfc, pieces.slice(0, 1)), [], "one piece: nothing")
+	assert_eq(_set_ids(bfc, pieces.slice(0, 2)), ["set:trio"], "two pieces: the modifiers only")
+	assert_eq(_set_ids(bfc, pieces), ["set:trio", "set:trio:full"], "the full set: both")
+	assert_eq(_set_ids(bfc, [pieces[0], pieces[0]]), [], "two records of one piece count once")

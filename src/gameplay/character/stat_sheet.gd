@@ -75,7 +75,9 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 	if db != null:
 		# Named pieces may carry combat keys (art speed, crit) the game does not run yet; they stay on the record.
 		var labels: Dictionary = gd.file("character_stat_labels").get("labels", {})
-		for item_id in CombatPower.controlled(c, gd, db, sheet).used:
+		var used: Array = CombatPower.controlled(c, gd, db, sheet).used
+		sheet._add_set_lines(gd, db, used, labels)
+		for item_id in used:
 			var art: Dictionary = db.get_record("items", item_id)
 			for line in ItemStats.lines(art):
 				if not ARTIFACT_LOCAL_STATS.has(line.stat) and labels.has(line.stat) and not labels[line.stat].get("fight_only", false):
@@ -83,6 +85,34 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 	if tree != null:
 		sheet._add_tree_effect_from(c, tree)
 	return sheet
+
+
+## Item Database rule 22 (2026-11-26): each set's modifiers while set_bonus_min_pieces distinct pieces of it are
+## worn (counted from the pieces that count under rule 11), as item lines under "Bộ: <name> (n/N)", so the
+## Breakdown shows the set and its count. The full-set Effect reaches fights through the build file (BuildFileCompiler).
+func _add_set_lines(gd: GameData, db: WorldDB, used: Array, labels: Dictionary) -> void:
+	var data: Dictionary = gd.file("items_sets")
+	if data.get("sets", []).is_empty():
+		return
+	var need: int = int(data.get("constants", {}).get("set_bonus_min_pieces", 2))
+	var worn := {}
+	for item_id in used:
+		var named: String = str(db.get_record("items", item_id).get("named", ""))
+		if named != "":
+			worn[named] = true
+	for s in data.sets:
+		var n: int = 0
+		for pc in s.pieces:
+			if worn.has(str(pc)):
+				n += 1
+		if n < need:
+			continue
+		var src: String = "Bộ: %s (%d/%d)" % [str(s.get("name", s.id)), n, s.pieces.size()]
+		for b in s.get("bonuses", []):
+			for line in b.get("modifiers", []):
+				var stat: String = str(line.key)
+				if labels.has(stat) and not labels[stat].get("fight_only", false):
+					add_mod(src, stat, float(line.value), KIND_ITEM, Array(line.get("scope", [])))
 
 
 ## NPC Traits rule 5: each held trait's stat rows (a personality trait's or calling's boon and cost; a fate-given or

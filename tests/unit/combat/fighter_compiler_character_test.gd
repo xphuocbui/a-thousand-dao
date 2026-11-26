@@ -295,3 +295,33 @@ func test_capability_4_linh_luc_is_not_scaled_by_linh_luc_pct() -> void:
 	var rec: Dictionary = BuildFileCompiler.new(gd).compile(FighterCompiler.character_build_file(c, gd, db, sheet))
 	var ref_qi: float = float(gd.realm(1).linh_luc_base) * float(gd.combat().fighter_pools.ref_tech_power)
 	assert_near(float(rec.n_qi), CharacterRules.linh_luc(c, gd, sheet).total / ref_qi, 1e-9, "the game's linh lực, once")
+
+
+func test_a_worn_set_shows_on_the_sheet_and_runs_in_the_fight() -> void:
+	# Item Database rule 22, Formulas J (world-depth Stage 5 slice 6, 2026-11-26): two of three pieces give the 2-piece
+	# Modifiers (on the sheet as "Bộ: <name> (2/3)", in the fight as set:<id>); all of a 2-piece set also its Effect.
+	var gd := game_data()
+	var old: Dictionary = gd.file("items_sets")
+	gd.registry.set_file("items_sets", {"constants": {"set_bonus_min_pieces": 2}, "sets": [
+		{"id": "trio", "name": "Blade Trio", "pieces": [WEAPON, ROBE, "blade-sword-nest-flag"],
+			"bonuses": [{"pieces": 2, "modifiers": [{"key": "linh_luc_pct", "value": 8, "scope": []},
+				{"key": "attack_pct", "value": 4, "scope": []}]}]},
+		{"id": "pair", "name": "Blade Pair", "pieces": [WEAPON, ROBE],
+			"bonuses": [{"pieces": 2, "modifiers": [{"key": "attack_pct", "value": 5, "scope": []}]},
+				{"pieces": 2, "effect": "Pair Whole", "record": {"id": "x", "on": "always", "do": [{"mod": {"block": 5}}]}}]}]})
+	var db := WorldDB.new()
+	var c := TestFixtures.character({"kim": 50}, 50, 2)
+	c.equipped = [_named(db, gd, WEAPON, 2), _named(db, gd, ROBE, 2)]
+	var sheet := StatSheet.build(c, gd, db, null)
+	var errors: Array = []
+	var p: FighterProfile = FighterCompiler.compile(c, gd, db, sheet, [], errors)
+	gd.registry.set_file("items_sets", old)
+	assert_true(sheet.sources("linh_luc_pct").any(func(x): return str(x.source) == "Bộ: Blade Trio (2/3)"),
+			"the sheet shows the set and its count: %s" % str(sheet.sources("linh_luc_pct")))
+	assert_true(p != null and errors.is_empty(), "compiles: %s" % str(errors))
+	if p == null:
+		return
+	var ids: Array = p.effects.map(func(e): return str(e.id))
+	# linh_luc_pct is a pool stat, folded into the build like an item's; attack_pct runs as the set:<id> Effect
+	assert_true(ids.has("set:trio") and not ids.has("set:trio:full"), "two of three: the Modifiers only: %s" % str(ids))
+	assert_true(ids.has("set:pair") and ids.has("set:pair:full"), "a whole 2-piece set: both: %s" % str(ids))

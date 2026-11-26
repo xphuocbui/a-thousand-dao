@@ -1144,6 +1144,28 @@ def t_effects_library():   # assets/data/combat_effects.json (moved 2026-11-14, 
     check("a build's own form of the Effect wins over the library", got == [own], str(got))
 
 
+def t_item_sets():   # Item Database rule 22, Formulas J (world-depth Stage 5 slice 6, 2026-11-26)
+    import fight as F
+    F._library()
+    pieces = sorted(F._LIB["items"])[:3]
+    full = {"id": "x", "on": "always", "do": [{"mod": {"block": 5}}]}
+    old = F.SETS
+    F.SETS = {"constants": {"set_bonus_min_pieces": 2}, "sets": [{"id": "trio", "name": "Trio", "pieces": pieces,
+              "bonuses": [{"pieces": 2, "modifiers": [{"key": "attack_pct", "value": 10, "scope": []}]},
+                          {"pieces": 3, "effect": "Trio Whole", "record": full}]}]}
+    try:
+        ids = lambda items: {e["id"] for e in F.expand_library({"name": "t", "realm": "luyen_khi", "arts": [],
+                                                                  "items": items})["effects"]}
+        one, two, three = ids(pieces[:1]), ids(pieces[:2]), ids(pieces)
+        twice = ids([pieces[0], pieces[0]])
+        check("one piece: no set lines", not any(i.startswith("set:") for i in one), str(one))
+        check("two pieces: the 2-piece modifiers, not the Effect", "set:trio" in two and "set:trio:full" not in two, str(two))
+        check("the full set: the modifiers and its Effect", {"set:trio", "set:trio:full"} <= three, str(three))
+        check("two records of one piece count once", not any(i.startswith("set:") for i in twice), str(twice))
+    finally:
+        F.SETS = old
+
+
 def t_elem_type_scope():   # an "elem" art meets type-scoped filters as its element's usual type (2026-11-13)
     check("a Fire-type filter matches a Fire-element elem art", E.match({"dtype": "fire"}, {"dtype": "elem", "element": "fire"}))
     check("a Lightning-type filter matches a Thunder elem art", E.match({"dtype": "lightning"}, {"dtype": "elem", "element": "thunder"}))
