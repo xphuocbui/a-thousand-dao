@@ -103,12 +103,18 @@ Resume here: read this file, then do the first unchecked step.
       - Gap report: stand-ins 0. effects 5 runs, 6 open.
       - Tool fixes: depth_check.py does not count a `catalogue-sect-*` item as a duplicate of its depth record, and
         depth_gap.py does not call a sect's own merged Effect (source `world-depth:<owner>`) a clash.
-- [ ] 5. Engine words, both engines, parity. BLOCKED on review round 1 (the rulings R1-R6, W2 and W3 calls, and
-      the GDD text for W1-W4).
+- [ ] 5. Engine words, both engines, parity. The rulings are ANSWERED (2026-11-26: every recommendation, see
+      DECISIONS-2026-11-26.md "Stage 6, Băng Tâm Các review round 1"). Next:
+      - (a) show the user the GDD text for W1-W4 (Effects rule 6), section by section;
+      - (b) show the rule 20f amendment (signature items unique);
+      - (c) build W1-W4 in both engines with parity;
+      - (d) write the 4 arts and 6 Effects: Walk the Nodes and the Peak use `field_up`, Hidden Half uses `stack_more`
+        20 % while cursed, and Ice in the Vessel gets a `tam_ma_resist_pct` line;
+      - (e) run the gap report, then review round 2 on those records.
       - Fixed before the review: Every Fifth a Star's sword scope now sits inside the `mod` (an `always` record
         ignores a record-level `filter`).
       - Five Petals' bonus moved to the fifth hit that lands, because `art_fired` fires before the art's hits.
-- [x] 6. Review file, then STOP for the user. Round 1 written 2026-11-26: `production/plans/stage6/bang_tam-review.md`. WAITING for the user's answers.
+- [x] 6. Review file, then STOP for the user. Round 1 written and answered 2026-11-26 (`production/plans/stage6/bang_tam-review.md`).
 - [ ] 7. Stage 7 (after approval).
 
 ## Step 1 result: the mechanic table (2026-11-26)

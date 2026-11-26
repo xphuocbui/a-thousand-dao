@@ -431,7 +431,15 @@ All in batches of about 50, the checker up front, **by sect** (D3), Băng Tâm C
    gap report still reads promoted item and set Effects; it must not lose their rows.
 4. **Stand-ins.** Apply the ruled order per person: the lineage method by rank where it fits, else the method the
    person's note names, else a new technique for the sect. Show the picks as a table in the review file. A method
-   owned by another, unpromoted sect is promoted early with this sect, so that this sect's gap reaches zero.
+   owned by another, unpromoted sect is promoted early with this sect, so that this sect's gap reaches zero. A pass
+   may only add to another sect's catalogue file, and two parallel jobs never run sects whose records reference each
+   other (user 2026-11-26).
+   - Standing rulings for every sect (Băng Tâm review, user 2026-11-26):
+     - "inside your formation" and "diagram laid" mean the Field stance (`field_up`);
+     - a formation's strength is the growing ward;
+     - "freeze" is `stop_clock` 1 s;
+     - signature weapons and armour use their base's common art (a rule 21 `exception`);
+     - signature items are unique.
 5. **Engine words.** Build each in both engines with a parity fixture, running the targeted tests only. A new status
    or rule needs a GDD amendment first, which goes to the user section by section.
 6. **Review file, then stop.** Write `production/plans/stage6/<key>-review.md`: each record's rule text beside its

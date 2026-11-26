@@ -9,6 +9,10 @@ want changed; silence means approved. Every record cites its file, and the depth
 
 ## A. Rulings needed (each has my recommendation first)
 
+**ANSWERED 2026-11-26: the user took every recommendation** (recorded in `design/world/depth/DECISIONS-2026-11-26.md`,
+"Stage 6, Băng Tâm Các review round 1"). Still open: the GDD text for W1-W4 and the rule 20f amendment, each shown to
+the user before it is written. The record list (§C-§G) had no change requests at the time of the rulings.
+
 1. **R1, a formation inside a fight.** Walk the Nodes says "inside your own formation… regains 4 % of its
    strength… cannot be broken"; The Peak Does Not Move says "while your diagram is laid". Neither fight engine has a
    formation's strength. The GDScript fight applies a Set combat diagram (node mods and feeds), but `fight.py` and

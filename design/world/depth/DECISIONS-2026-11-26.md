@@ -110,3 +110,24 @@
   (element, grade, fail chance); `burn_pill` spends it, lays its smoke (4 debuff stacks per grade of its element for
   6 s) and rolls its fail chance, raising `pill_burned {element, grade, failed}`. "Its effect at half strength" waits
   until pills have fight effects (an Alchemy pass); until then a burned pill gives its burner nothing.
+
+# Decisions 2026-11-26 (Stage 6, Băng Tâm Các review round 1)
+
+The user took every recommendation in `production/plans/stage6/bang_tam-review.md` §A:
+- **R1, a formation in a fight:** "inside your own formation" and "while your diagram is laid" mean your Field stance
+  is up (`field_up`). A formation's strength is your growing ward (W1). This applies to every sect's records.
+- **R2, Hidden Half:** while the foe carries one of your curses, your Ice stacks on it count 20 % more
+  (`stack_more`, debuff side).
+- **R3, heart-demon odds at a breakthrough:** a `tam_ma_resist_pct` line on the item, sized so the odds fall by that
+  share.
+- **R4, "freeze for a breath":** `stop_clock` on the foe for 1 s. No Freeze status.
+- **R5, a ward's peak:** a real readable, `own.ward_peak`, part of W1.
+- **R6, signature items' own arts:** a weapon, armour or shield uses its base's common art or ward, marked with a rule
+  21 `exception`. Authored arts come only where a story names one. This applies to every sect.
+- **W2, a soul reflect:** the reflector takes nothing, and the caster takes Cold damage equal to what the soul art
+  would have done.
+- **W3, an afterimage:** a decoy that spends the Combat R6 avoid budget, and it lays 2 Ice stacks on the striker.
+- **Promoting another sect's method early: kept, with guards.** A sect's pass may only add to another sect's catalogue
+  file, and the two parallel headless jobs never run sects whose records reference each other.
+- **Signature items are all unique,** whatever their grade. A short Item Database rule 20f amendment goes to the user
+  before it is written.
