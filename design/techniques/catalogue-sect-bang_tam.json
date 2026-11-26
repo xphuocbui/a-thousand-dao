@@ -1,0 +1,143 @@
+[
+ {
+  "id": "clear-frost-breath",
+  "name": "Clear Frost Breathing Primer (Thanh Sương Thổ Nạp Quyết)",
+  "tier": 0,
+  "tech_kind": "main",
+  "names": ["thuy"],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {"key": "attack_pct", "value": 4, "scope": ["cold"]},
+   {"key": "art_speed_pct", "value": 4, "scope": ["cold"]},
+   {"key": "linh_luc_regen_inc_pct", "value": 6, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "frost-breath-palm", "unlock_layer": 1}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "clear-frost-breath",
+  "family": "water",
+  "owner": "bang_tam",
+  "rank": "ngoai_mon",
+  "concept": "The outer gate's method, taught on the frozen lake below the Pavilion. The disciple breathes glacier air into a Water dantian until breath and qi move at the same slow pace. It is gentle and slow, and it never harms a Water root. Its sixth layer is the Frost Test: the disciple sits on the lake ice for a night, and if Ice answers in their meridians the inner gate opens to them. Fewer than one in ten pass.",
+  "lore": "Tần Ngưng Sương wrote it in 471, the year after the Pavilion took the ice of Ngọc Hồ Sơn, so that the desert-born could learn to breathe the cold before the cold learned them."
+ },
+ {
+  "id": "jade-vessel-ice-heart-canon",
+  "name": "Jade Vessel Ice-Heart Canon (Ngọc Hồ Băng Tâm Kinh)",
+  "tier": 2,
+  "tech_kind": "main",
+  "names": ["bang", "thuy"],
+  "layers": 12,
+  "bonuses": [
+   {"stat": "tam_ma_resist_pct", "value": 12},
+   {"stat": "linh_luc_pct", "value": 12}
+  ],
+  "passives": [
+   {"key": "ward_efficiency_pct", "value": 10, "scope": []},
+   {"key": "stack_effect_pct", "value": 10, "scope": ["bang", "debuff"]},
+   {"key": "stack_duration_pct", "value": 12, "scope": ["bang", "debuff"]},
+   {"key": "attack_pct", "value": 6, "scope": ["cold"]},
+   {"key": "status_resist_pct", "value": 8, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "heart-in-the-jade-vessel", "unlock_layer": 1},
+   {"ability_id": "rime-lotus", "unlock_layer": 2},
+   {"ability_id": "clear-heart-mirror", "unlock_layer": 4}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "jade-vessel-ice-heart-canon",
+  "family": "ice",
+  "owner": "bang_tam",
+  "rank": "chan_truyen",
+  "concept": "The founder's own method and the sect's name. It cultivates a heart as clear and cold as a piece of ice in a jade vessel (the poet's line the sect is named for): the practitioner stills each feeling as it rises and lets it freeze clear rather than cloud the qi. Heart demons find nothing to hold. In a fight it is a ward method: frost wards that thicken while the holder stays still, and Ice stacks that ripen on any foe who strikes into them. The price is warmth. Those who reach the ninth layer seldom laugh, and their disciples feel it.",
+  "lore": "Tần Ngưng Sương carried the first copy across the desert in 440 inside the jade vessel itself, which is why the head of the sect is called the Keeper of the Vessel."
+ },
+ {
+  "id": "snow-plum-sword",
+  "name": "Snow Plum Sword Method (Tuyết Mai Kiếm Quyết)",
+  "tier": 1,
+  "tech_kind": "secret",
+  "names": ["bang"],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "attack_pct", "value": 8}
+  ],
+  "passives": [
+   {"key": "crit_chance_pct", "value": 5, "scope": ["sword"]},
+   {"key": "art_speed_pct", "value": 8, "scope": ["sword"]},
+   {"key": "stack_effect_pct", "value": 8, "scope": ["bang", "debuff"]}
+  ],
+  "abilities": [
+   {"ability_id": "five-petals-of-cold", "unlock_layer": 1},
+   {"ability_id": "hidden-fragrance", "unlock_layer": 2},
+   {"ability_id": "plum-falls-on-snow", "unlock_layer": 4}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "snow-plum-sword",
+  "family": "ice",
+  "owner": "bang_tam",
+  "rank": "noi_mon",
+  "concept": "A sword of five cuts like the five petals of a plum blossom, each cut laying cold, the fifth falling like a blossom on snow. It came into the Pavilion from Lãnh Hương Các, the plum-blossom swordsmen who all died riding to break the siege of Cô Thành in 724 (V071). Their one surviving child brought it, and it is now the inner gate's sword.",
+  "lore": "The manual is copied in red ink, the way Lãnh Hương Các kept it. Phó Ám Hương will not let it be copied in black."
+ },
+ {
+  "id": "frost-lotus-array-canon",
+  "name": "Frost Lotus Array Canon (Sương Liên Trận Kinh)",
+  "tier": 2,
+  "tech_kind": "secret",
+  "names": ["bang", "tho"],
+  "layers": 12,
+  "bonuses": [
+   {"stat": "than_thuc_pct", "value": 10},
+   {"stat": "defense_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "stack_duration_pct", "value": 14, "scope": ["bang", "debuff"]},
+   {"key": "ward_efficiency_pct", "value": 10, "scope": []},
+   {"key": "status_duration_pct", "value": 10, "scope": ["curse"]},
+   {"key": "art_cost_pct", "value": -8, "scope": ["formation"]}
+  ],
+  "abilities": [
+   {"ability_id": "lotus-seal-ground", "unlock_layer": 1},
+   {"ability_id": "glacier-bastion", "unlock_layer": 2}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "frost-lotus-array-canon",
+  "family": "ice",
+  "owner": "bang_tam",
+  "rank": "truong_lao",
+  "concept": "The elders' array method. It teaches how to lay ice into earth, so that a formation holds its shape in a glacier the way stone holds it in a mountain. Its greatest work is the Jade Vessel Array under the Pavilion, which keeps the fire of Chúc Long Sơn sleeping beneath the ice. Fighting arrays come from it as well: frost-lotus seals that slow and freeze anyone who walks into them.",
+  "lore": "Tiết Hàn Mai has kept the Jade Vessel Array for three hundred years and knows every node of it by touch. She has taught it whole to no one."
+ },
+ {
+  "id": "warm-hearth-breath",
+  "name": "Warm Hearth Breathing (Noãn Táo Thổ Nạp Pháp)",
+  "tier": 0,
+  "tech_kind": "main",
+  "names": ["tho", "moc", "hoa"],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {"key": "health_regen_inc_pct", "value": 10, "scope": []},
+   {"key": "khi_huyet_pct", "value": 4, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 4, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "warm-hands", "unlock_layer": 1}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "warm-hearth-breath",
+  "family": "earth",
+  "owner": "bang_tam",
+  "rank": "tap_dich",
+  "concept": "The servants' method of the seat, for the warm roots the frost will not take. Where the Primer breathes glacier air, this one breathes what the servants already live beside: the hearth's heat, the stable's earth, the steam over the washing tubs. It is a small, patient method that keeps a body warm and whole through the long winters, and it opens no gate.",
+  "lore": "Âu Dương Tuyết, the seat's purse and pantry, set it down from what the servants' families had always done, after she let a washer and her son sit in on the Primer and watched it never take."
+ }
+]

@@ -56,7 +56,20 @@ Resume here: read this file, then do the first unchecked step.
         files already.
       - Carried over for later sects (not Băng Tâm's): `export_techniques.py` does not export a technique's own
         `effects` (black-ice-method has two), and `export_named.py` skips `kind: treasure` (58 depth treasures).
-- [ ] 3a. Techniques and arts (+ the servants' method, red-sand-sabre-primer).
+- [~] 3a. Techniques and arts (+ the servants' method, red-sand-sabre-primer). Done 2026-11-26 except the four arts
+      that need W1-W3 (heart-in-the-jade-vessel, clear-heart-mirror, hidden-fragrance, glacier-bastion: written in
+      step 5 after their words):
+      - `design/techniques/catalogue-sect-bang_tam.json`: 5 techniques, the 4 lineage ones plus the new
+        `warm-hearth-breath` (Earth, Wood and Fire, Yellow, the servants' method, art `warm-hands`).
+      - `design/techniques/catalogue-sect-da_quang.json`: `red-sand-sabre-primer`, promoted early (art
+        `cut-the-horse`).
+      - `design/arts/part-sect-bang_tam.json`: frost-breath-palm, rime-lotus, five-petals-of-cold,
+        plum-falls-on-snow, lotus-seal-ground (a Field that stays up), warm-hands. `part-sect-da_quang.json`:
+        cut-the-horse.
+      - The depth files carry the art ids, and warm-hearth-breath is registered in `bang_tam.techniques.json`.
+      - Checks: lint_arts 0 findings; lint_techniques' 4 findings are the 4 arts still to write. The unpriced W notes
+        are clear-frost-breath 9.1 of 8 and warm-hearth-breath 8.6 of 8. A fight.py run (Kết Đan, typical foe:
+        `$CLAUDE_JOB_DIR/tmp/bt_arts.fight.json`) went 20-0 in 45 s, and every art fired with no engine error.
 - [ ] 3b. Effects (11) into combat_effects.json.
 - [ ] 3c. Items (23) and sets (9).
 - [ ] 4. Stand-ins and beasts (owner's `beasts` field).

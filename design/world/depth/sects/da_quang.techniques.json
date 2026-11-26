@@ -19,7 +19,7 @@
    "name": "Red Sand Sabre Primer (Xích Sa Đao Quyết)",
    "tier": 0, "tech_kind": "main", "names": ["hoa"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The raiders' first method, taught on horseback. The rider breathes the desert's heat into a Fire dantian and lets it out through a curved sabre in one long draw-cut from the saddle. It is fast to learn and wasteful of qi, which suits men who expect to die young. Its sixth layer teaches the cut that takes a horse's legs first.",
-   "arts": [{"new": "Cut the Horse (Trảm Mã)", "concept": "A riding draw-cut that deals Fire damage and slows the target heavily for a moment; doubled against a foe who is moving."}],
+   "arts": [{"id": "cut-the-horse", "new": "Cut the Horse (Trảm Mã)", "concept": "A riding draw-cut that deals Fire damage and slows the target heavily for a moment; doubled against a foe who is moving."}],
    "lore": "Hạng Dạ Bôi wrote it down in 975 from what the caravan guards of Trường Vân already knew, because his raiders could not read and needed someone to read it to them.",
    "status": "proposal"
   },

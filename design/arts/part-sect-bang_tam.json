@@ -1,0 +1,387 @@
+[
+ {
+  "id": "frost-breath-palm",
+  "name": "Frost-Breath Palm (Sương Tức Chưởng)",
+  "element": "water",
+  "role": "damage",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "clear-frost-breath",
+  "tags": [
+   "cold",
+   "palm"
+  ],
+  "c_art": 1.5,
+  "cost_share": 0.03,
+  "cooldown": 3,
+  "kind": "elem",
+  "effects": [
+   {
+    "id": "frost-breath-slow",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "frost-breath-palm"
+    },
+    "limit": {
+     "per_pulse": 1
+    },
+    "do": [
+     {
+      "timer": {
+       "side": "foe",
+       "which": "next",
+       "by": 0.5
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A slow palm that breathes out cold: a light Cold hit that delays the foe's next ready art by 0.5 s.",
+  "hooks": [
+   "timer delay",
+   "cold damage",
+   "art speed"
+  ],
+  "sources": [
+   "world-depth:bang_tam"
+  ]
+ },
+ {
+  "id": "rime-lotus",
+  "name": "Rime Lotus (Sương Liên)",
+  "element": "ice",
+  "role": "stacks",
+  "tier": "authored",
+  "power": "engine",
+  "group": "jade-vessel-ice-heart-canon",
+  "tags": [
+   "cold",
+   "seal"
+  ],
+  "c_art": 1.6,
+  "cost_share": 0.04,
+  "cooldown": 6,
+  "kind": "elem",
+  "split": [
+   0.2,
+   0.2,
+   0.2,
+   0.2,
+   0.2
+  ],
+  "counters": [
+   {
+    "id": "petal"
+   }
+  ],
+  "effects": [
+   {
+    "id": "rime-petal",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "rime-lotus"
+    },
+    "do": [
+     {
+      "stacks": {
+       "el": "ice",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     },
+     {
+      "counter": {
+       "id": "petal",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "rime-fifth-petal",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "rime-lotus"
+    },
+    "if": [
+     {
+      "read": "own.counter.petal",
+      "op": ">=",
+      "value": 5
+     }
+    ],
+    "do": [
+     {
+      "stop_clock": {
+       "side": "foe",
+       "seconds": 1.0
+      }
+     },
+     {
+      "counter": {
+       "id": "petal",
+       "set": 0
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A frost lotus opens under the foe in five petals. Each petal that lands lays 1 Ice stack for 8 s; the fifth petal to land (counted across firings) freezes the foe for a breath: its clock stops for 1 s.",
+  "hooks": [
+   "ice stacks",
+   "split hits",
+   "stack duration",
+   "clock stop"
+  ],
+  "sources": [
+   "world-depth:bang_tam"
+  ]
+ },
+ {
+  "id": "five-petals-of-cold",
+  "name": "Five Petals of Cold (Ngũ Biện Hàn)",
+  "element": "ice",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "snow-plum-sword",
+  "tags": [
+   "cold",
+   "sword",
+   "quick"
+  ],
+  "c_art": 1.8,
+  "cost_share": 0.04,
+  "cooldown": 4,
+  "kind": "elem",
+  "split": [
+   0.2,
+   0.2,
+   0.2,
+   0.2,
+   0.2
+  ],
+  "effects": [
+   {
+    "id": "petal-cold",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "five-petals-of-cold"
+    },
+    "do": [
+     {
+      "stacks": {
+       "el": "ice",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "fifth-petal",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "five-petals-of-cold"
+    },
+    "scale": {
+     "read": "foe.debuff.ice",
+     "per": 1
+    },
+    "do": [
+     {
+      "free_hit": {
+       "c": 0.05,
+       "dtype": "cold"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Five quick cuts, each laying 1 Ice stack for 8 s when it lands; the fifth cut adds a Cold hit of 0.05 for every Ice stack on the foe.",
+  "hooks": [
+   "ice stacks",
+   "split hits",
+   "crit",
+   "free hits",
+   "stack effect"
+  ],
+  "sources": [
+   "world-depth:bang_tam"
+  ]
+ },
+ {
+  "id": "plum-falls-on-snow",
+  "name": "Plum Falls on Snow (Mai Lạc Tuyết)",
+  "element": "ice",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "snow-plum-sword",
+  "tags": [
+   "cold",
+   "sword",
+   "heavy"
+  ],
+  "c_art": 2.0,
+  "cost_share": 0.05,
+  "cooldown": 7,
+  "kind": "elem",
+  "empower": [
+   {
+    "if": [
+     {
+      "read": "foe.debuff.ice",
+      "op": ">=",
+      "value": 5
+     }
+    ],
+    "pay": [
+     {
+      "consume": {
+       "el": "ice",
+       "side": "foe",
+       "kind": "debuff"
+      }
+     },
+     {
+      "stop_clock": {
+       "side": "foe",
+       "seconds": 1.0
+      }
+     }
+    ],
+    "c_art": 3.5
+   }
+  ],
+  "rule": "A single falling cut. Against a foe with 5 or more Ice stacks it eats them all, hits much harder and freezes the foe for a breath: its clock stops for 1 s.",
+  "hooks": [
+   "ice stacks",
+   "consume stacks",
+   "clock stop",
+   "crit"
+  ],
+  "sources": [
+   "world-depth:bang_tam"
+  ]
+ },
+ {
+  "id": "lotus-seal-ground",
+  "name": "Lotus Seal Ground (Liên Ấn Địa)",
+  "element": "ice",
+  "role": "curse",
+  "tier": "authored",
+  "power": "engine",
+  "group": "frost-lotus-array-canon",
+  "tags": [
+   "cold",
+   "seal",
+   "formation",
+   "stance"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 4,
+  "kind": "elem",
+  "states": [
+   {
+    "id": "lotus-seal",
+    "tags": [
+     "field"
+    ],
+    "mods": {
+     "art_speed": -10
+    }
+   }
+  ],
+  "effects": [
+   {
+    "id": "lotus-seal-lay",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "lotus-seal-ground"
+    },
+    "do": [
+     {
+      "state": {
+       "set": "lotus-seal"
+      }
+     }
+    ]
+   },
+   {
+    "id": "lotus-seal-pulse",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.state.lotus-seal",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "ice",
+       "n": 1,
+       "for": 6,
+       "side": "foe"
+      }
+     },
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 2,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Lays a frost-lotus seal (a Field) that stays up for the fight. While it is up you cast 10 % slower, and each second the foe takes 1 Ice stack for 6 s and a stack of Slowed Time for 2 s.",
+  "hooks": [
+   "field",
+   "ice stacks",
+   "slowed time",
+   "curse duration"
+  ],
+  "sources": [
+   "world-depth:bang_tam"
+  ],
+  "guards": [
+   {
+    "read": "own.state.lotus-seal",
+    "op": "<",
+    "value": 1
+   }
+  ]
+ },
+ {
+  "id": "warm-hands",
+  "name": "Warm Hands (Noãn Thủ)",
+  "element": "",
+  "role": "heal",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "warm-hearth-breath",
+  "tags": [
+   "heal"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 5,
+  "kind": "elem",
+  "c_heal": 0.5,
+  "rule": "The servant cups their own hearth-warmth between their hands: a small heal.",
+  "hooks": [
+   "healing",
+   "health regeneration"
+  ],
+  "sources": [
+   "world-depth:bang_tam"
+  ]
+ }
+]

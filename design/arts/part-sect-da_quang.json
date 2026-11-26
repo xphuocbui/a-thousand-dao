@@ -1,0 +1,23 @@
+[
+ {
+  "id": "cut-the-horse",
+  "name": "Cut the Horse (Trảm Mã)",
+  "element": "fire",
+  "role": "damage",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "red-sand-sabre-primer",
+  "tags": ["fire", "sabre"],
+  "c_art": 1.8,
+  "cost_share": 0.04,
+  "cooldown": 4,
+  "kind": "elem",
+  "statuses": [{"id": "slowed_time", "stacks": 2, "dur": 2}],
+  "empower": [
+   {"if": [{"read": "foe.pressing", "op": ">=", "value": 1}], "c_mult": 2.0}
+  ],
+  "rule": "A riding draw-cut: a Fire hit that lays 2 stacks of Slowed Time for 2 s. Against a Pressing foe (one that is moving and acting) it hits twice as hard.",
+  "hooks": ["fire damage", "slowed time", "pressing foe"],
+  "sources": ["world-depth:da_quang"]
+ }
+]
