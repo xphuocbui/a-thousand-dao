@@ -83,8 +83,20 @@ files, or any other owner's depth files.
    - The pending words.
    - The holder table.
 9. **Finish.**
+   - Open your review file with a `## Summary` section: what was built, how many deviations, the decisions you took
+     for the user, the pending words, anything that never ran and why, early promotions, and open items.
    - Write the line `RECORD PASS DONE` at the end of your progress file.
-   - Write the file `production/plans/stage6/<OWNER>.done` containing one line: the counts of what you wrote.
+   - Write `production/plans/stage6/<OWNER>.done` as one JSON object:
+
+     ```json
+     {"owner": "<OWNER>", "minutes": 0,
+      "written": {"techniques": 0, "arts": 0, "items": 0, "sets": 0, "effects": 0, "stand_ins": 0, "beasts": 0},
+      "deviations": 0, "decisions": ["one line each: what you chose, and why"],
+      "pending_words": ["name: one line"], "never_ran": ["record: reason"],
+      "early_promotions": ["technique id (owner)"], "open": ["what needs the user or the serial step"]}
+     ```
+
+     `minutes` is about how long you worked; the numbers are your counts.
 
 ## Lessons from the Băng Tâm pilot (check each before you tick step 7)
 These are from `production/plans/world-depth-implementation.md`, Stage 6.

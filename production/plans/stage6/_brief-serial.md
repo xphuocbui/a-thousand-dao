@@ -47,7 +47,9 @@ thought through against the design rules in `production/plans/stage6/_brief-reco
    - the records moved;
    - the auto-accepted decisions.
 
-   End it with `SERIAL DONE`, then write `production/plans/stage6/_serial-<TAG>.done`.
+   End it with `SERIAL DONE`, then write `production/plans/stage6/_serial-<TAG>.done` as one JSON object:
+   `{"tag", "minutes", "words_built": ["name: one line"], "words_avoided": ["record: the existing word used"],
+   "gdd_lines": 0, "tests": 0, "fixture": "t<NN>_...", "records_moved": 0, "decisions": [], "open": []}`.
 
 The runner's gate then merges the staged files into `design/` (`stage6_merge.py`), exports the library and the compile
 cases, runs the checks again, and commits. **Never run git, `stage6_merge.py` or an exporter yourself.** Never touch:

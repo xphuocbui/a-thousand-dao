@@ -41,3 +41,17 @@ User 2026-11-26: after Băng Tâm Các, the other sects run as headless sessions
   - The probe job confirmed that a headless job can write to staging, run python with `DEPTH_STAGE`, and use the
     advisor.
   - The pilot is wave 1 (lac_ha, tran_sa, tam_kiem). Its records get read against the depth text before the rest.
+
+## Overnight run, 2026-11-27 (user: one sect at a time, until 08:00; checkpoints 1-4)
+The orchestrating session runs one owner at a time, no parallel lanes. Thiên Xu Tông first, then the owners in
+`stage6_jobs.py`'s wave order. For each owner:
+1. Commit `_jobs.json`, then run the record job: `stage6_jobs.py --only <o> --tag <o> --part record` and
+   `run_jobs.py ... --lanes 1 --until 2026-11-27T08:00`.
+2. **Checkpoint review.** A fresh reviewer agent (Opus, not anchored on the orchestrator) reads the staged records
+   against the depth text, the rulings and the design rules, and runs `sect_fight.py` itself. The orchestrator fixes
+   the findings in staging (or the brief, for a flaw every job would repeat) and commits them.
+3. Run the serial job: `--part serial`. Then the orchestrator checks the new engine words and the gate's tests.
+4. Update the morning report `production/plans/stage6/_report-overnight.md`: per owner, what was built, what the
+   review found and fixed, the decisions taken for the user, anything that needs the user, and the time.
+
+No job starts after 08:00. On a HALT: read it, fix the cause, delete HALT, and rerun the same command.

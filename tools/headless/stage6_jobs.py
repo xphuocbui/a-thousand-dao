@@ -1,6 +1,7 @@
 """The job list of the parallel world-depth Stage 6 run (production/plans/stage6/_run.md), for tools/headless/run_jobs.py.
 
     python -I tools/headless/stage6_jobs.py [--waves A-B] [--out production/plans/stage6/_jobs.json] [--only k1,k2,...]
+                                           [--tag wNN] [--part record|serial|both]
 
 Owners still open (depth_gap.py) are dealt into waves of three: the sects first, the outside groups last, each wave
 one large owner with two small ones so the lanes end together. After each wave comes its serial job (a barrier):
@@ -17,8 +18,13 @@ OUTSIDE = ["clans", "market-folk", "demonic", "hermits-sages", "loose-south", "l
 SKIP = {"bang_tam", "authored"}   # Băng Tâm is done; the authored wishes' Effects ride with their owners' records
 RECORD_TOOLS = "Read,Glob,Grep,Write,Edit,Bash(python -I:*),Bash(python:*)"
 SERIAL_TOOLS = RECORD_TOOLS + ",Bash(C:/Godot/Godot_v4.7.1-stable_win64_console.exe:*)"
-SYSTEM = ("You are a headless world-depth Stage 6 job. Nobody answers questions: decisions are auto-accepted (take your "
-          "recommended option, think it through against the design rules in the brief, and log it). Never run git.")
+SYSTEM = ("You are a headless world-depth Stage 6 job; nobody is watching and nobody answers questions. The user waived, "
+          "for these jobs (2026-11-26), CLAUDE.md's ask-first protocol ('May I write...', show drafts, wait for approval): "
+          "write the files the brief names without asking. Decisions are auto-accepted: take your recommended option, think "
+          "it through against the design rules in the brief, and log it with its reason. Finish every step of the brief; if "
+          "something blocks a step, log it as an open item in your review file and carry on, never stop early or hand back. "
+          "The owner's depth text (design/world/depth/) and the user's rulings are the source of truth; the brief's examples "
+          "(Băng Tâm) show the form, not the content. Never run git.")
 
 
 def sizes():
@@ -48,11 +54,14 @@ def waves(n):
     return out
 
 
-def jobs_for(ws, first):
+TAG = None   # --tag: the serial step's tag (one owner run alone: its own tag, e.g. "thien_xu")
+
+
+def jobs_for(ws, first, part="both"):
     out = []
     for i, w in enumerate(ws, start=first):
-        tag = "w%02d" % i
-        for o in w:
+        tag = TAG or "w%02d" % i
+        for o in (w if part in ("both", "record") else []):
             out.append({
                 "id": "s6-%s" % o, "model": "opus", "timeout_min": 240, "allowed": RECORD_TOOLS, "system": SYSTEM,
                 "env": {"DEPTH_STAGE": os.path.join(ROOT, "design", "stage6-staging", o)},
@@ -61,6 +70,8 @@ def jobs_for(ws, first):
                            "production/plans/stage6/_brief-record.md exactly (OWNER = %s). DEPTH_STAGE is already set "
                            "for you. Finish by writing production/plans/stage6/%s.done." % (o, o, o)),
                 "after": [sys.executable, "-I", "tools/headless/stage6_gate.py", "record", o]})
+        if part == "record":
+            continue
         out.append({
             "id": "s6-serial-%s" % tag, "model": "opus", "timeout_min": 240, "allowed": SERIAL_TOOLS, "system": SYSTEM,
             "barrier": True, "expect": "production/plans/stage6/_serial-%s.done" % tag,
@@ -74,6 +85,8 @@ def jobs_for(ws, first):
 
 def main():
     arg = lambda k, d=None: sys.argv[sys.argv.index(k) + 1] if k in sys.argv else d
+    global TAG
+    TAG = arg("--tag")
     n = sizes()
     ws = waves(n)
     if arg("--only"):
@@ -83,7 +96,7 @@ def main():
         a, _, b = arg("--waves").partition("-")
         lo, hi = int(a), int(b or a)
     out = arg("--out", os.path.join(ROOT, "production", "plans", "stage6", "_jobs.json"))
-    jobs = jobs_for(ws[lo - 1:hi], lo)
+    jobs = jobs_for(ws[lo - 1:hi], lo, arg("--part", "both"))
     with open(out, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(jobs, fh, ensure_ascii=False, indent=1)
     for i, w in enumerate(ws, start=1):

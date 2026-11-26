@@ -30,10 +30,9 @@ ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
 PY = [sys.executable, "-I"]
 GODOT = os.environ.get("GODOT_CONSOLE", r"C:/Godot/Godot_v4.7.1-stable_win64_console.exe")
 SNAP = os.path.join(ROOT, "production", "session-logs", "stage6-snapshots")   # gitignored
-TRAILER = ("Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n"
-           "Claude-Session: https://claude.ai/code/session_015bBMQ8HHzd429k9s9a1S8c")
+TRAILER = "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 RECORD_OK = [r"^design/stage6-staging/", r"^design/world/depth/(sects|people)/[^/]+\.(cast|techniques|items|beasts)\.json$",
-             r"^production/plans/stage6/[^/]+\.md$"]
+             r"^production/plans/stage6/[^/]+\.(md|done)$"]
 
 
 def sh(args, env=None, timeout=3600):
@@ -109,7 +108,7 @@ def record(owner):
     if not good:
         return 1
     mine = [p for p in dirty() if p.startswith(stage + "/") or re.search(r"^design/world/depth/(sects|people)/%s\." % re.escape(owner), p)
-            or re.search(r"^production/plans/stage6/%s(-review)?\.md$" % re.escape(owner), p)]
+            or re.search(r"^production/plans/stage6/%s(-review\.md|\.md|\.done)$" % re.escape(owner), p)]
     return commit(mine, "feat: world-depth Stage 6 %s: the record pass (staged)\n\nPlan: production/plans/stage6/%s.md" % (owner, owner))
 
 
