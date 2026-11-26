@@ -85,7 +85,16 @@ Resume here: read this file, then do the first unchecked step.
       - Left for step 5: Ice in the Vessel, Clear-Heart Reflection, The Peak Does Not Move, Walk the Nodes, Master's
         Road, Hidden Half.
       - Note: `fight.py --timeline` crashes in sim.py (`k_water_pp`); the bug predates this work and is not fixed here.
-- [ ] 3c. Items (23) and sets (9).
+- [x] 3c. Items (23) and sets (9). Done 2026-11-26:
+      - `design/items/catalogue-sect-bang_tam.json` (23 items, sources `npc`, Effects by plain English name). The
+        weapons, armour and shield carry the R6 `exception` mark.
+      - `design/items/sets-bang_tam.json` (9 sets; a full-set bonus has `effect` (name) and `rule`).
+      - The depth items file is kept whole, so the gap report still reads its Effect rows.
+      - lint_items: 2 findings, Ice in the Vessel and Clear-Heart Reflection (step 5).
+      - fight.py with the 9 sets: 5 full-set Effects run from the library; Peak, Walk the Nodes, Master's Road and
+        Hidden Half are listed as not run (step 5).
+      - NOT exported yet (method: export after the user's review, Stage 7), so the exporters' `--check` reports the
+        game data stale until then. That is expected, and no test asserts otherwise.
 - [ ] 4. Stand-ins and beasts (owner's `beasts` field).
 - [ ] 5. Engine words, both engines, parity.
 - [ ] 6. Review file, then STOP for the user.
