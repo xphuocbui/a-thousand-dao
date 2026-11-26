@@ -64,7 +64,7 @@ looks like a strong build.
   `enemy_overrides` (same fields as a build) to shape a matchup, such as a heavy ward or a cleanser.
 - **Effects run in the fight** (engine 2026-11-11). Write the build's engine as `effects` records; put a piece in
   `unmodelled` only when the engine refuses it (it names the missing event, action or readable), so most builds can
-  now be assessed. Still not modelled: escape, conversion inside a hit, forms and stances, loadout swaps, ward
+  now be assessed. Still not modelled: conversion inside a hit, forms and stances, loadout swaps, ward
   payloads other than drain (model the nearest drain ward).
 
 ### Effects, counters and the new fields
@@ -231,6 +231,12 @@ looks like a strong build.
   the fight for the window, untargetable, unhealable and out of its pulse, and each round fires its hits as free
   hits; it goes Down on time or when the bank is empty, and the foe going Down within it is a draw. Once a fight; it
   replaces the side's other last acts and its `down` event. Fixtures t13 (draw), t14 (ends on time).
+- **Slice E, escape** (Combat rule 10, Formulas I): an art's `escape` (its e_art, 0.40-0.70 in content) makes it
+  an escape art. Firing it opens a 1 s channel (one per side; a ready escape art waits). When the channel ends, after
+  both sides' hits, A first, a side above 0 health rolls `clamp(e_art + 0.10 x realm gap - 0.15 x lock + escape/100,
+  0.05, 0.95)`: `lock` is the foe's mod flag, `escape` the side's mod. Bound fails it with no draw. A success ends
+  the fight (`flight`; the fled side wins if the foe is already at 0); a failure raises `escape_failed`. Fortune is
+  not modelled in any roll yet. Fixtures t15 (chancy), t16 (Bound, exact).
 
 ### World-depth vocabulary (2026-11-26; to build in world-depth Stage 5)
 

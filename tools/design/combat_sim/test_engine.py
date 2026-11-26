@@ -187,6 +187,87 @@ def t_event_alias():     # combat_engine.json EVENT_ALIAS (2026-11-26)
     check("batch_expired and healed load as batch_ended and heal_restored", [e["on"] for e in b.effects] == ["batch_ended", "heal_restored"])
 
 
+# ---- world-depth Stage 5 slice E (2026-11-26): escape (Combat rule 10, Formulas I)
+class _Roll:
+    """A random stream that returns fixed values, and fails the test if drawn when it must not be."""
+    def __init__(self, *vals):
+        self.vals = list(vals)
+
+    def random(self):
+        if not self.vals:
+            raise AssertionError("an escape roll was drawn when none was expected")
+        return self.vals.pop(0)
+
+
+def _escape_fight(e_art=0.55, a_kw=None, b_kw=None):
+    run = E.Art("run", 0.0, 0.01, 4.0, escape=e_art, tags=("escape", "movement"))
+    f, A, B = setup(a=dummy(arts=[run], **(a_kw or {})), b=dummy(**(b_kw or {})))
+    f.t = 3000
+    A.ready = [3000]
+    f.act(A)
+    return f, A, B
+
+
+def t_escape():
+    f, A, B = _escape_fight()
+    check("an escape art opens a 1 s channel", A.channel_until == 4000)
+    A.ready = [3000]
+    f.act(A)
+    check("one channel at a time: a ready escape art waits", A.fired[0] == 1, str(A.fired))
+    failed = []
+    orig = f.fire_event
+    f.fire_event = lambda s, name, ev: (failed.append(s) if name == "escape_failed" else None, orig(s, name, ev))[1]
+    f.rng = _Roll(0.5)
+    f.t = 4000
+    f.escape_rolls()
+    check("p 0.55 against a draw of 0.5: it flees", A.fled and A.channel_until is None)
+    f, A, B = _escape_fight(b_kw={"effects": [{"id": "l", "on": "always", "do": [{"mod": {"lock": 1}}]}]})
+    f.fire_event = lambda s, name, ev: (failed.append(s) if name == "escape_failed" else None, orig(s, name, ev))[1]
+    f.rng = _Roll(0.5)
+    f.t = 4000
+    f.escape_rolls()
+    check("a locking pursuer: p 0.40, the draw of 0.5 fails and raises escape_failed", not A.fled and failed == [A])
+    f, A, B = _escape_fight(a_kw={"realm": 2})
+    f.rng = _Roll(0.62)
+    f.t = 4000
+    f.escape_rolls()
+    check("one realm above the pursuer: p 0.65", A.fled)
+    f, A, B = _escape_fight(e_art=2.0)
+    f.rng = _Roll(0.96)
+    f.t = 4000
+    f.escape_rolls()
+    check("p is capped at 0.95", not A.fled)
+    f, A, B = _escape_fight()
+    f.apply_status(B, A, {"id": "bound", "dur": 2})
+    f.rng = _Roll()
+    f.t = 4000
+    f.escape_rolls()
+    check("Bound: the escape fails with no draw", not A.fled)
+    f, A, B = _escape_fight()
+    A.hp = 0.0
+    f.rng = _Roll()
+    f.t = 4000
+    f.escape_rolls()
+    check("a side at 0 health does not flee", not A.fled)
+
+
+def t_escape_result():
+    run = E.Art("run", 0.0, 0.01, 2.0, escape=0.95, tags=("escape",))
+    f = E.Fight(dummy(arts=[run]), dummy(), seed=3)
+    f.rng = _Roll(*([0.0] * 50))
+    r = f.run()
+    check("a successful escape ends the fight in flight, no winner", r["win"] == "flight" and f.A.fled, r["win"])
+    f = E.Fight(dummy(arts=[run]), dummy(), seed=3)
+    f.rng = _Roll(*([0.0] * 50))
+    f.B.hp = 0.0
+    f.t = 2000
+    f.A.ready = [2000]
+    f.act(f.A)
+    f.t = 3000
+    f.escape_rolls()
+    check("fleeing while the foe is at 0 health is a win", f.A.fled and f.B.hp <= 0)
+
+
 # ---- world-depth Stage 5 slice 2c (2026-11-26): the extended last act (Effects rule 11, The Fifteenth Layer)
 _PINE = {"id": "pine", "on": "down", "do": [{"last_act_window": {
     "seconds": 6, "every": 1.0, "spend": "waves", "hits": [{"c": 0.4, "dtype": "phys"}, {"c": 0.4, "dtype": "cold"}]}}]}

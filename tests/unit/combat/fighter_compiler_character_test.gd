@@ -38,6 +38,8 @@ func test_a_bare_character_fights_as_the_typical_fighter_of_its_realm_with_its_p
 	var errors: Array = []
 	var p: FighterProfile = FighterCompiler.compile(c, gd, db, StatSheet.build(c, gd, db, null), [], errors)
 	assert_true(p != null and errors.is_empty(), "compiles: %s" % str(errors))
+	if p == null:
+		return   # a fight with no profile never advances (2026-11-26: it hung the suite for 18 min)
 	var r: FightResult = Fight.new(p, FighterCompiler.from_data("typical", 1, gd), CombatConstants.from_game_data(gd), 3).run()
 	assert_true(r.seconds > 0.0, "and fights")
 

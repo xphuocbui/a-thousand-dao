@@ -59,6 +59,10 @@ def check_chance_free(fx, b, where):
         if "chance" in e:
             raise FixtureError("%s: chance_free, but Effect %s has a chance" % (where, e.get("id")))
     for a in b.arts:
+        # an escape roll is always chancy (clamped 5-95 %, Formulas I); chance-free only when the fixture says every
+        # channel ends while the side is Bound (no draw), which the GDScript run then proves event by event
+        if a.escape and not fx.get("escapes_bound"):
+            raise FixtureError("%s: chance_free, but art %s is an escape art" % (where, a.name))
         for st in a.statuses:
             if st.get("chance", 1.0) < 1:
                 raise FixtureError("%s: chance_free, but art %s applies %s at chance %s" % (where, a.name, st["id"], st["chance"]))
@@ -86,7 +90,7 @@ def run_chancy(fx, name, a, b):
     1,000-seed reference, seeds 0-999 of the even mirror read A 0.529 / B 0.441 against a true 0.48 / 0.48."""
     n = int(fx.get("seeds", 1000))
     ref_n = int(fx.get("ref_seeds", 10 * n))
-    wins = {"A": 0, "B": 0, "draw": 0, "time": 0}
+    wins = {"A": 0, "B": 0, "draw": 0, "time": 0, "flight": 0}
     total_t = 0.0
     for s in range(ref_n):
         r = E.fight(a, b, seed=s, order="random")
@@ -98,10 +102,32 @@ def run_chancy(fx, name, a, b):
     return dict(
         fixture=name, slice=fx.get("slice"), chance_free=False, seeds=n, ref_seeds=ref_n,
         generated_by="tools/design/combat_sim/parity_export.py (order=random)",
-        a=dataclasses.asdict(a), b=dataclasses.asdict(b),
-        stats=dict(mean_t=total_t / ref_n, share={k: v / ref_n for k, v in wins.items()}),
+        a=as_doc(a), b=as_doc(b),
+        stats=dict(mean_t=total_t / ref_n, share={k: v / ref_n for k, v in wins.items() if v or k != "flight"}),
         rows=[],
     )
+
+
+# Fields added after the expected files were written are left out while at their default, so every earlier
+# expected file stays byte-identical (world-depth Stage 5): an art's escape (slice E).
+LATE_ART_FIELDS = {"escape": 0.0}
+
+
+def as_doc(b):
+    d = dataclasses.asdict(b)
+    for art in d.get("arts", []):
+        for k, v in LATE_ART_FIELDS.items():
+            if art.get(k) == v:
+                art.pop(k, None)
+    return d
+
+
+def as_doc_art(a):
+    d = dataclasses.asdict(a)
+    for k, v in LATE_ART_FIELDS.items():
+        if d.get(k) == v:
+            d.pop(k, None)
+    return d
 
 
 def end_state(s):
@@ -127,7 +153,7 @@ def run_fixture(path):
         doc = dict(
             fixture=name, slice=fx.get("slice"), chance_free=bool(fx.get("chance_free")), seed=int(fx.get("seed", 1)),
             generated_by="tools/design/combat_sim/parity_export.py (order=fixed)",
-            a=dataclasses.asdict(a), b=dataclasses.asdict(b),
+            a=as_doc(a), b=as_doc(b),
             result=dict(t_ms=f.t, win=res["win"], A=end_state(res["A"]), B=end_state(res["B"])),
             rows=res["plog"],
         )
@@ -161,7 +187,7 @@ def main(argv):
     # the sim's Build and Art defaults, so GDScript unit tests build "a dummy with X" the way test_engine.py does
     # without repeating the defaults
     defaults = json.dumps(dict(generated_by="tools/design/combat_sim/parity_export.py",
-                               build=dataclasses.asdict(E.Build("dummy")), art=dataclasses.asdict(E.Art("art"))),
+                               build=dataclasses.asdict(E.Build("dummy")), art=as_doc_art(E.Art("art"))),
                           indent=1, ensure_ascii=False) + "\n"
     dpath = os.path.join(ROOT, "tests", "parity", "sim_defaults.json")
     if check:

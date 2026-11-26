@@ -1,0 +1,80 @@
+{
+  "name": "t15_escape_chancy",
+  "slice": 15,
+  "chance_free": false,
+  "seed": 151,
+  "seeds": 1000,
+  "doc": "World-depth Stage 5, slice E (2026-11-26), chancy: escape (Combat rule 10, Formulas I). A, the weaker side, fires a Wind escape art (e_art 0.55) once its health is below 40 %: a 1 s channel, then a roll; a success ends the fight in flight (or a win if B is already at 0), a failure raises escape_failed, which A's Effect answers with a small heal. B carries a lock (mod lock): p falls to 0.40. Compared over seeds: the flight share, the win shares and the mean fight time.",
+  "a": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "fleeing-courier",
+    "arts": [
+      {
+        "name": "wind-step",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 4.0,
+        "escape": 0.55,
+        "tags": [
+          "escape",
+          "movement"
+        ],
+        "guards": [
+          {
+            "read": "own.hp_share",
+            "op": "<",
+            "value": 0.4
+          }
+        ]
+      },
+      {
+        "name": "jab",
+        "c": 0.8,
+        "cost": 0.04,
+        "cd": 2.0
+      }
+    ],
+    "effects": [
+      {
+        "id": "catch-breath",
+        "on": "escape_failed",
+        "do": [
+          {
+            "heal": {
+              "share": 0.03
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "hunting-hawk",
+    "arts": [
+      {
+        "name": "talon",
+        "c": 1.2,
+        "cost": 0.04,
+        "cd": 2.0
+      }
+    ],
+    "effects": [
+      {
+        "id": "locked-on",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "lock": 1
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -98,6 +98,7 @@ class Art:
     group: str = ""                              # the technique (cong phap) that carries it, for cross-art conditions
     steps: list = field(default_factory=list)    # multi-step art: [{"unlock": conds, "pay": actions, overrides...}]
     empower: list = field(default_factory=list)  # [{"if": conds, "pay": actions, "c_mult", overrides...}]
+    escape: float = 0.0                          # an escape art: its base e_art (Combat rule 10, Formulas I)
 
 
 @dataclass
@@ -239,6 +240,9 @@ class Side:
         self.counter_times = {c["id"]: [] for c in b.counters}   # per-stack expiry, for counters with each_for
         self.window = None          # an extended last act running: {"until", "next", "every", "spec"} (Effects 11)
         self.window_used = False
+        self.channel_until = None   # an escape channel open: ms it ends (Combat rule 10; one per side)
+        self.channel_e = 0.0
+        self.fled = False
         self.temp_mods = []                         # [key, value, until_ms, filter]
         self.banked = []                            # held payloads: [effect, actions, scale]
         self.eff_state = {}                         # effect id -> {"fight": n, "pulse": n, "next": ms}
@@ -637,6 +641,8 @@ class Fight:
         while True:
             cands = [next_pulse]
             for s in (A, B):
+                if s.channel_until is not None and s.channel_until >= self.t:   # an escape channel ending
+                    cands.append(s.channel_until)
                 if s.window is not None:   # an extended last act: only its rounds wake the loop; its own timers stand
                     if s.window["next"] >= self.t:
                         cands.append(s.window["next"])
@@ -657,14 +663,46 @@ class Fight:
             first, second = self.sides_in_order()
             self.act(first)
             self.act(second)
+            self.escape_rolls()
             for s in (A, B):
                 if s.dry_at is None and s.qi < 0.05 * s.qi_max():
                     s.dry_at = t / 1000
+            if A.fled or B.fled:   # a success ends the fight there (Combat rule 10)
+                break
             self.defeat_check()
             if A.down or B.down:
                 break
-        win = "draw" if A.down and B.down else "A" if B.down else "B" if A.down else "time"
+        if A.fled or B.fled:
+            # the fled side wins by knockout if the foe is at 0 or below; otherwise flight, no winner
+            win = ("flight" if A.fled and B.fled else "A" if A.fled and B.hp <= 0 else "B" if B.fled and A.hp <= 0
+                   else "flight")
+        else:
+            win = "draw" if A.down and B.down else "A" if B.down else "B" if A.down else "time"
         return dict(t=self.t / 1000, win=win, A=A, B=B, rows=self.rows, plog=self.plog)
+
+    def escape_rolls(self):
+        """Escape channels ending this instant, after both sides' hits, A (the requesting side) first (Combat rule 10,
+        Formulas I). A side at 0 or below does not flee; Bound fails it with no draw; otherwise p is drawn."""
+        for s in (self.A, self.B):
+            if s.channel_until is None or self.t < s.channel_until:
+                continue
+            s.channel_until = None
+            if s.hp <= 0:
+                continue
+            o = s.foe
+            if s.st("bound") > 0:
+                ok = False
+            else:
+                lock = 1 if self.mod(o, "lock") > 0 else 0
+                p = min(K["escape_max"], max(K["escape_min"], s.channel_e + K["escape_realm_step"] * (s.b.realm - o.b.realm)
+                                              - K["escape_lock_penalty"] * lock + self.mod(s, "escape") / 100))
+                ok = self.rng.random() < p
+            if self.plog is not None:
+                self.plog.append(["escape", self.t, s.label, "fled" if ok else "failed"])
+            if ok:
+                s.fled = True
+            else:
+                self.fire_event(s, "escape_failed", {})
 
     def sides_in_order(self):
         """Who acts first at this moment: a coin from the order stream, or A then B when the order is fixed."""
@@ -851,6 +889,8 @@ class Fight:
         for i, a in enumerate(b.arts):
             if s.removed[i] or self.t < s.ready[i] or a.name in sup:
                 continue
+            if a.escape and s.channel_until is not None:   # one escape channel open at a time; a ready one waits
+                continue
             if stopped or (held and (a.c or a.soul_pct or a.soul_part)):
                 continue
             if a.tags and s.st("silence") and s.statuses["silence"].get("tag") in a.tags:
@@ -896,6 +936,9 @@ class Fight:
                   "dtype": a.dtype, "kind": "art", "hp_paid_share": s.hp_paid / s.hp_max}
             s.cur_ev = ev
             s.last_art = i
+            if a.escape:   # an escape art opens its channel; hits keep landing (Combat rule 10)
+                s.channel_until = self.t + ms(K["escape_channel"])
+                s.channel_e = a.escape
             self.fire_event(s, "art_fired", ev)
             if a.soul_pct:
                 self.soul_hit(s, o, a)

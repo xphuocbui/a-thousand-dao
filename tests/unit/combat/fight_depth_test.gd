@@ -330,3 +330,60 @@ func test_the_window_ends_on_time_and_a_refusal_comes_first() -> void:
 	g.a.hp = -1.0
 	g._defeat_check()
 	assert_bool(not g.a.window_on and not g.a.down and g.a.hp > 0.0).is_true()
+
+
+# ---- slice E (2026-11-26): escape (Combat rule 10, Formulas I; test_engine.py t_escape) ----
+static func _runner(e_art: float, fields: Dictionary = {}) -> Dictionary:
+	return M._dummy(fields, [{"name": "run", "c": 0.0, "cost": 0.01, "cd": 4.0, "escape": e_art, "tags": ["escape", "movement"]}])
+
+
+func test_an_escape_art_opens_one_channel_and_a_second_waits() -> void:
+	var f: Fight = M._fight(_runner(0.55), M._dummy())
+	f.t = 3000
+	f.a.ready = PackedInt64Array([3000])
+	f.act(f.a)
+	assert_eq(f.a.channel_until, 4000, "a 1 s channel")
+	f.a.ready = PackedInt64Array([3000])
+	f.act(f.a)
+	assert_eq(int(f.a.fired[0]), 1, "a ready escape art waits while a channel is open")
+
+
+func test_bound_fails_the_escape_with_no_draw_and_raises_escape_failed() -> void:
+	var count := {"id": "c", "on": "escape_failed", "do": [{"counter": {"id": "failed", "add": 1}}]}
+	var f: Fight = M._fight(_runner(0.55, {"effects": [count], "counters": [{"id": "failed"}]}), M._dummy())
+	f.t = 3000
+	f.a.ready = PackedInt64Array([3000])
+	f.act(f.a)
+	f.apply_status(f.b, f.a, _spec("bound", {"dur": 2}))
+	var state_before: int = f.rng.state
+	f.t = 4000
+	f.escape_rolls()
+	assert_bool(f.a.fled).is_false()
+	assert_eq(f.rng.state, state_before, "no draw")
+	assert_near(float(f.a.counters["failed"]), 1.0, 1e-9, "escape_failed fired")
+
+
+func test_a_side_at_zero_health_does_not_flee() -> void:
+	var f: Fight = M._fight(_runner(0.95), M._dummy())
+	f.t = 3000
+	f.a.ready = PackedInt64Array([3000])
+	f.act(f.a)
+	f.a.hp = 0.0
+	var state_before: int = f.rng.state
+	f.t = 4000
+	f.escape_rolls()
+	assert_bool(f.a.fled).is_false()
+	assert_eq(f.rng.state, state_before, "no draw")
+
+
+func test_a_near_certain_escape_ends_the_fight_in_flight() -> void:
+	var fled: int = 0
+	for seed in 10:
+		var k := CombatConstants.load_file()
+		var loader := FighterProfileLoader.new(k)
+		var pa: FighterProfile = loader.from_sim_build(_runner(0.95), "a")
+		var pb: FighterProfile = loader.from_sim_build(M._dummy(), "b")
+		var r: FightResult = Fight.new(pa, pb, k, seed, Fight.Order.FIXED).run()
+		if r.win_code() == "flight":
+			fled += 1
+	assert_bool(fled >= 8).override_failure_message("fled %d of 10 at p 0.95" % fled).is_true()

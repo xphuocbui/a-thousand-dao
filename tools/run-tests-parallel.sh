@@ -36,6 +36,20 @@ else
   done
 fi
 
+# A test file with a "## test-shards: N" line runs as N units, file@i/N, each with TEST_SHARD=i/N: the file splits its
+# own loops by it (tests/parity/combat_parity_test.gd, 2026-11-26), so one big file no longer holds the run open.
+expanded=()
+for u in "${units[@]}"; do
+  n=""
+  [ -f "$u" ] && n="$(sed -nE 's/^## test-shards: ([0-9]+).*/\1/p' "$u" | head -1)"
+  if [ -n "$n" ] && [ "$n" -gt 1 ]; then
+    for ((i = 0; i < n; i++)); do expanded+=("$u@$i/$n"); done
+  else
+    expanded+=("$u")
+  fi
+done
+units=("${expanded[@]}")
+
 # Slowest first: the last run's seconds per unit; units with no time yet go first (assume they are slow).
 order() {
   local u t
@@ -48,12 +62,15 @@ order() {
 mapfile -t units < <(order)
 
 run_unit() {
-  local g="$1" name t0
-  name="$(echo "$g" | tr '/.' '__')"
+  local g="$1" name t0 path shard
+  name="$(echo "$g" | tr '/.@' '___')"
+  path="${g%@*}"
+  shard=""
+  [ "$path" != "$g" ] && shard="${g##*@}"
   t0=$(date +%s)
   # Same flags as the serial runner; -rd gives each process its own report folder.
-  timeout 2400 "$GODOT_CONSOLE" --headless --path . -s -d --remote-debug tcp://127.0.0.1:0 \
-    res://addons/gdUnit4/bin/GdUnitCmdTool.gd -a "res://$g" -rd "reports/parallel/$name" --ignoreHeadlessMode \
+  TEST_SHARD="$shard" timeout "${UNIT_TIMEOUT:-600}" "$GODOT_CONSOLE" --headless --path . -s -d --remote-debug tcp://127.0.0.1:0 \
+    res://addons/gdUnit4/bin/GdUnitCmdTool.gd -a "res://$path" -rd "reports/parallel/$name" --ignoreHeadlessMode \
     >"$OUT/$name.log" 2>&1
   echo $? >"$OUT/$name.code"
   echo $(( $(date +%s) - t0 )) >"$OUT/$name.secs"
@@ -78,7 +95,7 @@ mkdir -p "$(dirname "$TIMES")"
 newtimes="$(mktemp)"
 [ -f "$TIMES" ] && cp "$TIMES" "$newtimes"
 for g in "${units[@]}"; do
-  name="$(echo "$g" | tr '/.' '__')"
+  name="$(echo "$g" | tr '/.@' '___')"
   secs="$(cat "$OUT/$name.secs" 2>/dev/null || echo 0)"
   awk -F'\t' -v k="$g" '$1 != k' "$newtimes" >"$newtimes.tmp" && mv "$newtimes.tmp" "$newtimes"
   printf '%s\t%s\n' "$g" "$secs" >>"$newtimes"

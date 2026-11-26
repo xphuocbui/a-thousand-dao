@@ -25,6 +25,8 @@ var log_rows: Array[FightLogRow] = []
 func win_code() -> String:
 	if timed_out:
 		return "time"
+	if ending == Ending.FLIGHT:
+		return "flight"
 	match winner:
 		Winner.A:
 			return "A"

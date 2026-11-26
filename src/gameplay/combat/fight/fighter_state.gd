@@ -142,6 +142,10 @@ var window_next: int = 0
 var window_every: int = 0
 var window_spec: Dictionary = {}
 var window_used: bool = false
+## An escape channel open (Combat rule 10; one per side): the ms it ends (-1 none), its art's e_art; fled on success.
+var channel_until: int = -1
+var channel_e: float = 0.0
+var fled: bool = false
 var trig_count: int = 0
 var trig_dmg: float = 0.0
 var state: String = ""

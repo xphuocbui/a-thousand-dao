@@ -126,6 +126,9 @@ def compile_case(inp):
     finally:
         F._LIB["techs"].pop("character", None)
     rec = dataclasses.asdict(b)
+    for art in rec.get("arts", []):   # fields added later stay out at their default (world-depth Stage 5: escape)
+        if art.get("escape") == 0.0:
+            art.pop("escape", None)
     return {"name": inp["name"], "input": inp, "build": rec, "unmodelled": exp["unmodelled"]}
 
 

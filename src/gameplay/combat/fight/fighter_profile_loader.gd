@@ -41,9 +41,12 @@ const BUILD_NOT_PORTED := [
 const ART_PORTED := [
 	"name", "c", "cost", "cd", "element", "dtype", "m_mult", "split", "charges", "heal", "qi_restore", "hp_cost",
 	"bypass", "tags", "pool", "convert", "buff", "debuff", "cleanse", "statuses", "soul_pct", "soul_part", "guards",
-	"group", "steps", "empower",
+	"group", "steps", "empower", "escape",
 ]
 const ART_NEUTRAL := []
+## Art fields added after the records were resolved: absent means the default (world-depth Stage 5: escape 0, not an
+## escape art), so earlier build files and the compile cases stay as they were.
+const ART_OPTIONAL := ["escape"]
 const ART_NOT_PORTED := [
 ]
 
@@ -324,7 +327,7 @@ func _art(d: Dictionary, where: String) -> ArtDef:
 			continue
 		errors.append("%s: unknown art field %s" % [where, name])
 	for key in ART_PORTED:
-		if not d.has(key):
+		if not d.has(key) and not ART_OPTIONAL.has(key):
 			errors.append("%s: %s is missing (art records must be fully resolved)" % [where, key])
 	if not (str(d.get("pool", "qi")) in ["qi", "tam_ma", "than_thuc"]):
 		errors.append("%s: pool %s is not qi, tam_ma or than_thuc" % [where, str(d.get("pool"))])
@@ -360,6 +363,7 @@ func _art(d: Dictionary, where: String) -> ArtDef:
 	a.cleanse = int(d.get("cleanse", 0))
 	a.soul_pct = float(d.get("soul_pct", 0.0))
 	a.soul_part = float(d.get("soul_part", 0.0))
+	a.escape = float(d.get("escape", 0.0))
 	if a.soul_part > SOUL_PART_MAX + 1e-9:
 		errors.append("%s: added Soul part %s is over %s (R11)" % [where, str(a.soul_part), str(SOUL_PART_MAX)])
 	for j in (d.get("statuses", []) as Array).size():

@@ -48,6 +48,8 @@ var statuses: Array[StatusSpec] = []
 var soul_pct: float = 0.0
 ## An added Soul part (R11): this share of each hit meets soul resistance only.
 var soul_part: float = 0.0
+## An escape art: its base chance e_art (Combat rule 10, Formulas I); 0 is not an escape art.
+var escape: float = 0.0
 ## The pool it is paid from (Combat 11, R12): qi, tam_ma or than_thuc.
 var pool: StringName = &"qi"
 ## Formations rule 5: a diagram node's Modifier on this art, in points (0 outside a diagram): art speed added to the

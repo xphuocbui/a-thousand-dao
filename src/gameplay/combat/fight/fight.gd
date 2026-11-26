@@ -127,14 +127,44 @@ func run() -> FightResult:
 		else:
 			act(b)
 			act(a)
+		escape_rolls()
+		if a.fled or b.fled:   # a success ends the fight there (Combat rule 10)
+			break
 		_defeat_check()
 		if a.down or b.down:
 			break
 	return _result()
 
 
+## Escape channels ending this instant, after both sides' hits, A (the requesting side) first (Combat rule 10,
+## Formulas I): a side at 0 or below does not flee; Bound fails it with no draw; otherwise p is drawn. As
+## engine.py escape_rolls.
+func escape_rolls() -> void:
+	for s in [a, b]:
+		if s.channel_until < 0 or t < s.channel_until:
+			continue
+		s.channel_until = -1
+		if s.hp <= 0.0:
+			continue
+		var o: FighterState = foe_of(s)
+		var ok: bool = false
+		if s.st("bound") <= 0.0:
+			var lock: float = 1.0 if m(o, "lock", null) > 0.0 else 0.0
+			var p: float = minf(k.escape_max, maxf(k.escape_min, s.channel_e + k.escape_realm_step
+					* float(s.p.realm - o.p.realm) - k.escape_lock_penalty * lock + m(s, "escape", null) / 100.0))
+			ok = rng.randf() < p
+		if _log_enabled:
+			_row(FightLogRow.Kind.ESCAPE, s.label, &"", &"fled" if ok else &"failed", [])
+		if ok:
+			s.fled = true
+		else:
+			_event(s, "escape_failed", {})
+
+
 ## The next event time of [param s] before [param tn]: arts ready after now, the basic attack, companions.
 func _earliest(s: FighterState, tn: int) -> int:
+	if s.channel_until >= t and s.channel_until < tn:   # an escape channel ending
+		tn = s.channel_until
 	if s.window_on:   # an extended last act: only its rounds wake the loop; its own timers stand still
 		if s.window_next >= t and s.window_next < tn:
 			tn = s.window_next
@@ -702,6 +732,8 @@ func act(s: FighterState) -> void:
 		if t < s.ready[i]:
 			continue
 		var art: ArtDef = p.arts[i]
+		if art.escape != 0.0 and s.channel_until >= 0:   # one escape channel open at a time; a ready one waits
+			continue
 		if stopped or (held and (art.c != 0.0 or art.soul_pct != 0.0 or art.soul_part != 0.0)):
 			continue
 		if not sup.is_empty() and sup.has(str(art.id)):
@@ -762,6 +794,9 @@ func act(s: FighterState) -> void:
 				"dtype": str(art.dtype), "kind": "art", "hp_paid_share": s.hp_paid / s.hp_max}
 		s.cur_ev = ev
 		s.last_art = i
+		if art.escape != 0.0:   # an escape art opens its channel; hits keep landing (Combat rule 10)
+			s.channel_until = t + k.escape_channel_ms
+			s.channel_e = art.escape
 		_event(s, "art_fired", ev)
 		if art.soul_pct != 0.0:
 			soul_hit(s, o, art)
@@ -1476,7 +1511,17 @@ func _result() -> FightResult:
 	var r := FightResult.new()
 	r.t_ms = t
 	r.seconds = t / 1000.0
-	if a.down and b.down:
+	if a.fled or b.fled:   # the fled side wins by knockout if the foe is at 0 or below; else flight, no winner
+		if a.fled and not b.fled and b.hp <= 0.0:
+			r.winner = FightResult.Winner.A
+			r.ending = FightResult.Ending.KNOCKOUT
+		elif b.fled and not a.fled and a.hp <= 0.0:
+			r.winner = FightResult.Winner.B
+			r.ending = FightResult.Ending.KNOCKOUT
+		else:
+			r.winner = FightResult.Winner.DRAW
+			r.ending = FightResult.Ending.FLIGHT
+	elif a.down and b.down:
 		r.winner = FightResult.Winner.DRAW
 		r.ending = FightResult.Ending.DRAW
 	elif b.down:

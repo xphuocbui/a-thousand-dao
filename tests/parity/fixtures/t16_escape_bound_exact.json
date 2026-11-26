@@ -1,0 +1,93 @@
+{
+  "name": "t16_escape_bound_exact",
+  "slice": 16,
+  "chance_free": true,
+  "escapes_bound": true,
+  "seed": 161,
+  "doc": "World-depth Stage 5, slice E (2026-11-26), chance-free: escape against the Bound curse. A fires its escape art every 4 s; B's hook lays Bound for 2 s every second (re-laid in the instant it expires), so every channel ends while A is Bound: the escape fails with no draw, its cost and cooldown stay paid, and escape_failed fires (A's Effect counts the failures). No escape roll is ever drawn, so the fight is exact.",
+  "a": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "caught-runner",
+    "counters": [
+      {
+        "id": "caught"
+      }
+    ],
+    "arts": [
+      {
+        "name": "wind-step",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 4.0,
+        "escape": 0.6,
+        "tags": [
+          "escape",
+          "movement"
+        ]
+      },
+      {
+        "name": "jab",
+        "c": 0.8,
+        "cost": 0.04,
+        "cd": 2.0
+      }
+    ],
+    "effects": [
+      {
+        "id": "count-caught",
+        "on": "escape_failed",
+        "do": [
+          {
+            "counter": {
+              "id": "caught",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "caught-anger",
+        "on": "always",
+        "scale": {
+          "read": "own.counter.caught",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "L5": 0.5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "net-keeper",
+    "arts": [
+      {
+        "name": "iron-hook",
+        "c": 0.4,
+        "cost": 0.02,
+        "cd": 1.0,
+        "statuses": [
+          {
+            "id": "bound",
+            "dur": 2
+          }
+        ]
+      },
+      {
+        "name": "cut",
+        "c": 0.9,
+        "cost": 0.04,
+        "cd": 2.0
+      }
+    ]
+  }
+}

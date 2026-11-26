@@ -3,6 +3,9 @@ extends DaoTestSuite
 ## by tools/design/combat_sim/parity_export.py from tests/parity/fixtures/) must be matched exactly by the GDScript
 ## engine with the fixed order: the same event rows, every number within 1e-6, the same winner and end state.
 ## Regenerate the expected files after a sim change: python -I tools/design/combat_sim/parity_export.py
+## test-shards: 4
+## Sharded (2026-11-26): tools/run-tests-parallel.sh runs this file 4 times with TEST_SHARD=i/4; each run takes every
+## 4th fixture of each loop, and the one-off tests run on shard 0. With no TEST_SHARD it runs everything.
 
 const EXPECTED_DIR := "res://tests/parity/expected/"
 const TOL := 1e-6
@@ -20,11 +23,42 @@ const SIGNOFF := ["t6_typical_mirror_r0", "t6_typical_mirror_r1", "t6_typical_mi
 ## tie order, stacking None statuses ignoring a recast; the Realms stage multiplier.
 const FIXES := ["t7_fixes_exact", "t8_stage_exact"]
 ## World-depth Stage 5 (2026-11-26): the depth engine features, one fixture per slice.
-const DEPTH := ["t10_depth_exact", "t11_statuses_exact", "t12_upkeep_exact", "t13_window_draw_exact", "t14_window_ends_exact"]
+const DEPTH := ["t10_depth_exact", "t11_statuses_exact", "t12_upkeep_exact", "t13_window_draw_exact", "t14_window_ends_exact",
+		"t15_escape_chancy", "t16_escape_bound_exact"]
 ## ADR-0001 decision 4 (amended 2026-11-13): chancy fixtures over 1,000 seeds; mean fight time within 5 %, each win
 ## share within 0.05 of the sim's reference (which parity_export.py takes over 10x the seeds).
 const TIME_TOL := 0.05
 const SHARE_TOL := 0.05
+
+
+## This process's shard [i, n] from TEST_SHARD ("i/n"); [0, 1] when unset.
+static func _shard() -> Vector2i:
+	var v: String = OS.get_environment("TEST_SHARD")
+	if v == "" or not v.contains("/"):
+		return Vector2i(0, 1)
+	var parts: PackedStringArray = v.split("/")
+	return Vector2i(int(parts[0]), maxi(1, int(parts[1])))
+
+
+## True when item [param idx] of a loop belongs to this shard.
+static func _mine(idx: int) -> bool:
+	var sh: Vector2i = _shard()
+	return idx % sh.y == sh.x
+
+
+## True on shard 0 (the one-off tests) and when not sharded.
+static func _first() -> bool:
+	return _shard().x == 0
+
+
+## The expected files in name order, so every shard numbers them alike.
+static func _expected_files() -> Array:
+	var out: Array = []
+	for file in DirAccess.get_files_at(EXPECTED_DIR):
+		if file.ends_with(".json"):
+			out.append(file)
+	out.sort()
+	return out
 
 
 static func _read(path: String) -> Dictionary:
@@ -91,12 +125,16 @@ static func _compare(doc: Dictionary, r: FightResult) -> String:
 
 
 func test_the_constants_load_from_the_shared_file() -> void:
+	if not _first():
+		return
 	var k := _constants()
 	assert_true(k.errors.is_empty(), "combat_engine.json loads: %s" % "; ".join(k.errors))
 	assert_eq(k.pulse_ms, 1000, "a pulse is 1000 ms")
 
 
 func test_every_slice_fixture_has_an_expected_file() -> void:
+	if not _first():
+		return
 	for name in SLICE_1 + SLICE_2 + SLICE_3 + SLICE_4 + SLICE_5 + SIGNOFF + FIXES + DEPTH:
 		assert_true(FileAccess.file_exists(EXPECTED_DIR + name + ".json"), "%s.json is there" % name)
 
@@ -104,11 +142,13 @@ func test_every_slice_fixture_has_an_expected_file() -> void:
 func test_every_chance_free_fixture_matches_the_sim_exactly() -> void:
 	var k := _constants()
 	var ran := 0
-	for file in DirAccess.get_files_at(EXPECTED_DIR):
-		if not file.ends_with(".json"):
-			continue
+	var idx := -1
+	for file in _expected_files():
 		var doc := _read(EXPECTED_DIR + file)
 		if not bool(doc.get("chance_free", false)):
+			continue
+		idx += 1
+		if not _mine(idx):
 			continue
 		var errs: Array = []
 		var pr: Array = _profiles(doc, file, k, errs)
@@ -119,10 +159,12 @@ func test_every_chance_free_fixture_matches_the_sim_exactly() -> void:
 		var diff: String = _compare(doc, r)
 		assert_eq(diff, "", "%s matches the sim" % file)
 		ran += 1
-	assert_true(ran >= SLICE_1.size(), "ran %d chance-free fixtures" % ran)
+	assert_true(ran >= (SLICE_1.size() if _shard().y == 1 else 1), "ran %d chance-free fixtures" % ran)
 
 
 func test_the_same_profiles_fight_twice_the_same_way() -> void:
+	if not _first():
+		return
 	# ADR-0001 Risks: GDScript has no immutable objects, so a fight that wrote to a cached profile would change the
 	# next fight. Two fights from the same profile objects must give the same rows.
 	var k := _constants()
@@ -144,6 +186,8 @@ func test_the_same_profiles_fight_twice_the_same_way() -> void:
 
 
 func test_the_coin_order_is_seeded_and_fair_in_a_mirror() -> void:
+	if not _first():
+		return
 	# ADR-0001 (amended 2026-11-13): a coin at each moment decides who acts first. The same seed replays the same
 	# fight; over many seeds an exact mirror is won by both sides (A-first would win it every time).
 	var k := _constants()
@@ -169,6 +213,8 @@ func test_the_typical_mirror_lasts_30_to_60_s_at_every_realm() -> void:
 	# (Combat Formulas A, the 30-60 s fight target). 200 seeds per realm.
 	var k := _constants()
 	for r in 5:
+		if not _mine(r):
+			continue
 		var doc := _read(EXPECTED_DIR + "t6_typical_mirror_r%d.json" % r)
 		var errs: Array = []
 		var pr: Array = _profiles(doc, "typical r%d" % r, k, errs)
@@ -192,6 +238,8 @@ func _load_and_fight(name: String) -> void:
 
 
 func test_profiles_and_fights_leave_no_objects_behind() -> void:
+	if not _first():
+		return
 	# ADR-0001 Risks: cyclic RefCounted references leak. A step's art once kept the steps list that holds the step
 	# (76 objects leaked per run of the bench). Load and fight in a helper; once it returns, nothing may remain.
 	_load_and_fight("t5_steps_exact_1")   # warm up the class and data caches
@@ -205,11 +253,13 @@ func test_profiles_and_fights_leave_no_objects_behind() -> void:
 func test_every_chancy_fixture_matches_the_sim_statistically() -> void:
 	var k := _constants()
 	var ran := 0
-	for file in DirAccess.get_files_at(EXPECTED_DIR):
-		if not file.ends_with(".json"):
-			continue
+	var idx := -1
+	for file in _expected_files():
 		var doc := _read(EXPECTED_DIR + file)
 		if bool(doc.get("chance_free", true)):
+			continue
+		idx += 1
+		if not _mine(idx):
 			continue
 		var errs: Array = []
 		var pr: Array = _profiles(doc, file, k, errs)
@@ -217,7 +267,7 @@ func test_every_chancy_fixture_matches_the_sim_statistically() -> void:
 		if pr.is_empty():
 			continue
 		var n: int = int(doc.seeds)
-		var wins := {"A": 0, "B": 0, "draw": 0, "time": 0}
+		var wins := {"A": 0, "B": 0, "draw": 0, "time": 0, "flight": 0}   # flight: escape (2026-11-26)
 		var total_t := 0.0
 		for s in n:
 			var r: FightResult = Fight.new(pr[0], pr[1], k, s).run()
@@ -232,6 +282,6 @@ func test_every_chancy_fixture_matches_the_sim_statistically() -> void:
 		assert_true(rel <= TIME_TOL, "%s mean fight %.2f s, sim %.2f s (%.1f %%)" % [file, mean_t, float(want.mean_t), rel * 100.0])
 		for key in wins:
 			var share: float = float(wins[key]) / n
-			assert_near(share, float(want.share[key]), SHARE_TOL, "%s %s share over %d seeds" % [file, key, n])
+			assert_near(share, float(want.share.get(key, 0.0)), SHARE_TOL, "%s %s share over %d seeds" % [file, key, n])
 		ran += 1
-	assert_true(ran >= 2, "ran %d chancy fixtures" % ran)
+	assert_true(ran >= (2 if _shard().y == 1 else 1), "ran %d chancy fixtures" % ran)

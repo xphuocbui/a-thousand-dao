@@ -26,6 +26,7 @@ const REQUIRED_K := [
 	"soul_lockout", "curse_heal_taken_max", "status_chance_min", "status_chance_max", "purity_stack_power",
 	"water_ice_share", "cleanse_min_stacks", "trig_cap", "trig_depth", "trig_budget", "trig_floor_u", "layer_caps",
 	"l1_soft", "delay_window", "delay_falloff", "summon_c", "summon_for", "injury_every", "refuse_down_health",
+	"escape_channel", "escape_realm_step", "escape_lock_penalty", "escape_min", "escape_max",
 ]
 
 var fatigue_start: float
@@ -92,6 +93,12 @@ var summon_c: float
 var summon_for: float
 var injury_every: float
 var refuse_down_health: float
+## Escape (Combat rule 10, Formulas I; world-depth Stage 5): the channel (ms), the realm and lock terms, the clamp.
+var escape_channel_ms: int
+var escape_realm_step: float
+var escape_lock_penalty: float
+var escape_min: float
+var escape_max: float
 ## The Effect vocabulary (Effects GDD rules 5-6) and an "elem" art's usual damage type by element.
 var events: Array = []
 ## Effects GDD words for engine events, read through at load (world-depth Stage 5): {word: engine event}.
@@ -233,6 +240,11 @@ static func from_dict(d: Dictionary) -> CombatConstants:
 	k.summon_for = float(kd.summon_for)
 	k.injury_every = float(kd.injury_every)
 	k.refuse_down_health = float(kd.refuse_down_health)
+	k.escape_channel_ms = ms(float(kd.escape_channel))
+	k.escape_realm_step = float(kd.escape_realm_step)
+	k.escape_lock_penalty = float(kd.escape_lock_penalty)
+	k.escape_min = float(kd.escape_min)
+	k.escape_max = float(kd.escape_max)
 	k.events = d.get("EVENTS", [])
 	k.event_alias = d.get("EVENT_ALIAS", {})
 	k.mod_keys = d.get("MOD_KEYS", [])

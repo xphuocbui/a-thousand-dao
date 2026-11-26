@@ -34,7 +34,7 @@ const WARD_KEYS := ["model", "payload", "drain_base", "ws_base", "we", "layers",
 const BODY_KEYS := ["block", "resistance", "shield", "layers"]
 const ART_KEYS := ["id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
 	"qi_restore", "cleanse", "x", "_comment", "tags", "guards", "statuses", "split", "soul_pct", "soul_part", "bypass",
-	"pool", "convert", "hp_cost", "charges", "group", "steps", "empower"]
+	"pool", "convert", "hp_cost", "charges", "group", "steps", "empower", "escape"]
 ## The synthetic technique a Character's sheet lines are compiled as (fight.py treats it like any technique).
 const SHEET_ID := "character"
 
@@ -569,6 +569,8 @@ func _to_build(d: Dictionary, r: int, who: String) -> Dictionary:
 		}
 		if float(art.soul_pct) != 0.0:
 			art["c"] = 0.0
+		if float(a.get("escape", 0.0)) != 0.0:   # an escape art (world-depth Stage 5); absent at 0, as fight.py's cases
+			art["escape"] = float(a.escape)
 		arts.append(art)
 	b["arts"] = arts
 	b["layers"] = _pad(layers, 5)
