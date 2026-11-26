@@ -170,8 +170,8 @@ divination reads the lake through a star-iron rim, so any Earth and Metal Daoist
 - **The armillary book**, read every night since 180, and the prioress's second book since 1188.
 - The head also keeps the catalogue's Mountain-Pressing Seal, worn beside his set.
 - **Personal sets** (world-depth items pass, 2026-11-25; details in `cung_tinh.items.json`):
-  - **Pole Star Court (Bắc Thần Tinh Đình)**, a set of 2 (Thẩm Bắc Thần): Mirror of the Star-Fallen Lake, Flag of the Turning Dipper. Full set: The Field Turns (Tinh Chuyển), while your array field is up and you are Still, every 4 s the foe gains one Earth stack and is Displaced. A foe whose first art the Mirror warded fully takes double damage from your next array art.
-  - **Rings of the Armillary (Tuyền Cơ Tam Hoàn)**, a set of 3 (Tô Tinh Nghi): Ring of the Armillary, Flag of the Ecliptic, Robe of the Armillary Keeper. Full set: Ring Within the Ring (Hoàn Trung Hoàn), a Ring of the Hour you lay on a foe already inside your ring becomes a second ring; while both stand, the foe is Pinned and takes your array damage once for each ring every second.
+  - **Pole Star Court (Bắc Thần Tinh Đình)**, a set of 2 (Thẩm Bắc Thần): Mirror of the Star-Fallen Lake, Flag of the Turning Dipper. Full set: The Field Turns (Tinh Chuyển), while your array field is up and you are Composed, every 4 s the foe gains one Earth stack and its soonest art waits 0.3 s. A foe whose first art the Mirror warded fully takes double damage from your next array art.
+  - **Rings of the Armillary (Tuyền Cơ Tam Hoàn)**, a set of 3 (Tô Tinh Nghi): Ring of the Armillary, Flag of the Ecliptic, Robe of the Armillary Keeper. Full set: Ring Within the Ring (Hoàn Trung Hoàn), a Ring of the Hour you lay while your ring (a Field) is up becomes a second ring; while you hold both, the foe is Bound (it cannot flee) and takes your array damage once for each ring every second.
 
 ## 11. Roster
 

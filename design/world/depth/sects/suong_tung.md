@@ -92,7 +92,7 @@ inner gate, and the north-shore boys who do not stay at the outer gate and carry
 writes the cultivator's own meridians in Wood ink on a body of Water, so that qi can be laid on paper and lit later. In a
 fight it lays wards in advance that root and wound the foe each time it acts. Thorn and Ink Verses is taught as the ink: the
 Wood stacks that make a ward bite. The Lantern Ward holds a winter in a paper lantern, and in a fight it sets a light that
-heals allies and slows foes. The canon is written, the one ward canon the pines let a vassal write for them, and it stops at the Profound
+heals you and slows the foe. The canon is written, the one ward canon the pines let a vassal write for them, and it stops at the Profound
 tier because the founder would not write anything deeper.
 
 ## 6. Admission
@@ -149,7 +149,7 @@ tier because the founder would not write anything deeper.
 - Details in `suong_tung.items.json`.
 - Personal sets (cast-sets pass, 2026-11-25):
   - **Lamp and Brush (Đăng Bút Song Bảo)**, Văn Hàn Đăng's pair: the Lamp on a Cold Night and the Lantern-Maker's Brush;
-    wards in the lamp's light hold for two foes.
+    wards in the lamp's light hold for two foe hits.
 
 ## 11. Roster
 

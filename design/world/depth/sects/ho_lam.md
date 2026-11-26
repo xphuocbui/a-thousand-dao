@@ -174,7 +174,7 @@ the lord's old primer under an exception.
 - **Heart of First Light (Sơ Hiểu Tâm Mộc)**, heartwood of the Grandmother Fir, at the head's throat since 1150.
 - **Banner of the Lead Raft (Đầu Phiệt Kỳ)**, flown at the front of every spring flood since 960.
 - **First Light (Sơ Hiểu Tam Kiện)**, Lục Thanh Sam: the Asking Axe, Heart of First Light, White-Wax Warden's Robe.
-  Full set: each axe stroke roots him for 6 s, regenerating, and foes who hit him gain Wood stacks.
+  Full set: each axe stroke braces him: his evade is 0 for 6 s, regenerating, and the foe that hits him gains Wood stacks.
 - Details in `ho_lam.items.json`.
 
 ## 11. Roster (11 living, 1 dead: tier A 1, B 4, C 7)

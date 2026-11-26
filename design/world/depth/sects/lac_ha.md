@@ -194,7 +194,7 @@ prejudice is the reverse of the Ice sects': it trusts the steppe-born with its b
 **Why it fits.** Every method is Earth or lives on Earth, and Wood comes in where the sect needs to last: the song's
 sustain and the canon's upper layers. The steppe gives Earth and the river gives Wood, so the lineage needs both lands,
 which is why the sect has never been able to choose between them. The Sunset Cloud canon is a long-fight method (memory:
-sustain is king). Its cloud weighs foes with Earth stacks that thicken each breath, and its damage grows as the fight
+sustain is king). Its cloud weighs the foe with Earth stacks that thicken each breath, and its damage grows as the fight
 goes on. It is weak in the first ten seconds and dangerous after thirty. Lạc Hà's fighters plan for that: open
 with a ward or a song, and win late. The elders' field art needs a rank of allies standing in it, so the sect fights as a line; it lost
 at Thiết Tỏa Quan (508). It hires its pills from Yên Quang Các, its talismans from Nam Phố Đường and its ward
@@ -341,7 +341,7 @@ It was opened in 1181, during the array work. The head reads it alone. It is a d
   - **The Envoy's Errand (Sứ Giả Tam Bảo)**, Hách Ánh Hà's three: the Fan of the Evening Market, the Shell-Coin Ring and
     the Robe of Eight Marks; the fan breaks a weighted guard, and each break heals the line.
   - **The Cloud Bridge Works (Vân Kiều Tam Cụ)**, Quách Tiếp Vân's three: the Cloud Bridge Flags, the Gorge Anchor Seal
-    and the Miner's Lamp of Vân Gian; while both flags stand, each foe action slows and weighs it, and standing Still costs no upkeep.
+    and the Miner's Lamp of Vân Gian; while you hold both Flag charges, each foe action slows and weighs it, and staying Composed costs no upkeep.
   - **The Miasma Watch (Thủ Chướng Tam Bảo)**, Hình Trọng Sơn's three: the Miasma Watch Lantern, the Anchor of the Ruin
     Warden and the Watch-Coat of Grey Felt; fading poison heals him and loads the anchor's lock.
 

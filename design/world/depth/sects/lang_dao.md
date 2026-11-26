@@ -96,7 +96,7 @@ pole of a landing.
 **Why it fits:** the pole method draws Water up a bamboo pole from a moving river, so it takes either root and is
 learned standing on a deck. The canon washes the cultivator's qi a thousand times through the meridians, as the
 gold-washers wash sand, and in a fight strips a foe's wards a layer at a time. The Nine Bends Art slips blows in long
-curves and arrives behind the foe. The Returning Wake Verse came from the pines' River Hall, which has trained the
+curves. The Returning Wake Verse came from the pines' River Hall, which has trained the
 gate's inner disciples beside its own since the rebuilding of 1175.
 
 ## 6. Admission

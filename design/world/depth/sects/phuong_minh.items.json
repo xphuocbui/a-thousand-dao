@@ -1402,7 +1402,7 @@
     },
     {
      "pieces": 3,
-     "effect": "Fire Down the Thread (Hỏa Hành Ti): while you stand inside an array you laid, each Fire buff stack you gain also lays a ward thread on you worth 2 % of your health, and each new thread costs 1 % of your linh lực. A hit that breaks a thread deals its value back to the striker as Fire damage."
+     "effect": "Fire Down the Thread (Hỏa Hành Ti): while an array you laid (a Field) is up, each Fire buff stack you gain also lays a ward thread on you worth 2 % of your health, and each new thread costs 1 % of your linh lực. A hit that breaks a thread deals its value back to the striker as Fire damage."
     }
    ],
    "story": "The Tang family's keeping since 592: the robe, the banner hemmed with the founder's strand, and the seal Tang Kế Ti cut herself. The set passes with the Nest Array, not with the family, though it has never yet left the family.",

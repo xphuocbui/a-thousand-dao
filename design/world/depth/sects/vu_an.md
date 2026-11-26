@@ -172,7 +172,7 @@ mist it lays. Members on the lineage: 10 of 10.
 - **Bobtail Axe (Đoản Vĩ Phủ)**, the road captain's, from his robber days.
 - **The milestones:** every one carries a mist seal; together they are the array's pins. Not items; the sect's real
   treasure.
-- **Road Mist (Lộ Vụ)**, Bàng Yên Tỏa: Mist-Lock Lantern, Milestone Flag. Full set: inside his mist the first art
+- **Road Mist (Lộ Vụ)**, Bàng Yên Tỏa: Mist-Lock Lantern, Milestone Flag. Full set: while his mist (a Field) is up the first art
   aimed at him every 8 s misses, and the mist outlasts his leaving.
 - Details in `vu_an.items.json`.
 

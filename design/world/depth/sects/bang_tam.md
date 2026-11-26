@@ -206,7 +206,7 @@ Fire alchemist (Viên Chước) and buys its blades from Trấn Sa Đường's f
   father's cape (Phó Ám Hương) and the red sword, lost at Cô Thành. A hook: Phượng Minh took it. Full set: Snow Plum
   cuts alternate swords, every fifth petal lands twice, and crits add an Ice stack.
 - **Glacier Vigil (Băng Bích Thủ Tịch)**, Cố Lăng Sương: Frost Lotus Banner, Glacier Bastion Plate, Seal of the Last
-  Order. Full set: while her diagram is laid and she is Still, the ward grows each second with no ceiling, and stillness past ten seconds costs her linh lực; when the foe breaks it, the foe gains 4 Ice stacks and is Rooted.
+  Order. Full set: while her diagram is laid and she is Composed, the ward grows each second with no ceiling, and each second she stays Composed past the tenth costs her linh lực; when the foe breaks it, the foe gains 4 Ice stacks and cannot evade for 1 s.
 - **Ice-Fisher's Three (Băng Ngư Tam Kiện)**, Thẩm Hàn Giang: Ice-Hole Blade, Seal-Oil Coat, Gourd of Coast Wine. Full
   set: a second wind below half health and five Snow Plum cuts with an extra Ice stack.
 - **Keeper of the Lid (Thủ Cái Song Bảo)**, Tiết Hàn Mai (worn beside the Regalia's Mirror): Seal of the Hundred and
@@ -217,7 +217,7 @@ Fire alchemist (Viên Chước) and buys its blades from Trấn Sa Đường's f
   stacks last twice as long.
 - **Black and White Stones (Hắc Bạch Tử)**, Cung Mặc Sương: Ice Knot Needle, Black-Backed Mirror. Full set: a fourth
   Ice stack also curses, and her curses count as Ice debuffs.
-- **Fisher's Heirs (Ngư Gia Song Kiện)**, Liễu Ngư Ca: Fisher's Sword, River Ice Gourd. Full set: after 2 s Still, the
+- **Fisher's Heirs (Ngư Gia Song Kiện)**, Liễu Ngư Ca: Fisher's Sword, River Ice Gourd. Full set: after 2 s Composed, the
   wearer regenerates health and linh lực and loads 2 Ice stacks on the next cut.
 - **Phi Tuyết**, Khúc Hồ Già's sword of ice that never melts (C061, legendary item `phi_tuyet`, unheld). It is under the
   ice of place 214, beneath the Array. Digging for it would mean breaking the lid.

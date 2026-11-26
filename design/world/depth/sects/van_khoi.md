@@ -179,7 +179,7 @@ lineage: 12 of 12.
 - **Bell of the Empty Hall (Không Đường Linh)**, Không Sơn's hand bell, rung at the academy's door before each reading.
 - **The Reader's copy** of the Empty Mountain Sutra: not an item, a hook.
 - **The Empty Mountain (Không Sơn Tam Kiện)**, Tống Tọa Vân: Robe of the Rising Clouds, Censer of the Empty Mountain,
-  Hundred-Echo Seal. Full set: seconds spent Still bank Clouds; at 5, the next hit on him is answered by a free
+  Hundred-Echo Seal. Full set: seconds spent Composed bank Clouds; at 5, the next hit on him is answered by a free
   hundred-echo palm. The Heart-Lamp stays lit on the altar, unworn.
 - **The Reader's Pair (Độc Giả Song Kiện)**, Văn Nhân Hưởng: Bell of the Empty Hall, Reader's Mica Robe. Full set: soul
   arts after the bell last longer, and every third casts the next one at once.

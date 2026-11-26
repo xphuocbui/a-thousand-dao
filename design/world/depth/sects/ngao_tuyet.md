@@ -163,7 +163,7 @@ years old whose founder has not formed a Golden Core.
 - **Hide of the Thạch Khẩu Tiger**, the striped hide of the tiger of 1162; Trác Thiết Cán's armour.
 - Details in `ngao_tuyet.items.json`.
 - Personal sets (cast-sets pass, 2026-11-25):
-  - **Plum and Snow (Mai Tuyết Song Bảo)**, Lăng Đạp Tuyết's pair: Plum in the Snow and the Snow Cloak of Hàn Mai; alone
+  - **Plum and Snow (Mai Tuyết Song Bảo)**, Lăng Đạp Tuyết's pair: Plum in the Snow and the Snow Cloak of Hàn Mai; with no companion
     and hurt, Petals sharpen his crits, and Last Blossom refills them.
 
 ## 11. Roster

@@ -162,7 +162,7 @@ lets a washer outlive the work.
 - The painted canopy of nine stars over the refining room's furnace.
 - **Personal sets** (world-depth items pass, 2026-11-25; details in `hoa_cai.items.json`):
   - **Canopy and Lid (Hoa Cái Song Bảo)**, a set of 2 (La Tử Vi): Canopy Furnace, Sulphur Fan. Full set: Under the Lid (Cái Hạ), while a foe carries both your Earth and your Mercury stacks, your ward regains 3 % each second, and each fan art adds one more Mercury stack to it.
-  - **The Sealed Room (Phong Thất Tam Bảo)**, a set of 3 (Úy Đan Dương): Nine-Cycle Gourd, Censer of the Sealed Room, Cinnabar-Stained Robe. Full set: A Room Full of Fume (Mãn Thất Yên), each second, every foe near you gains one Mercury stack; the Gourd's lingering poison no longer stays on you but is shared among the foes near you when you drink.
+  - **The Sealed Room (Phong Thất Tam Bảo)**, a set of 3 (Úy Đan Dương): Nine-Cycle Gourd, Censer of the Sealed Room, Cinnabar-Stained Robe. Full set: A Room Full of Fume (Mãn Thất Yên), each second, the foe gains one Mercury stack; the Gourd's lingering poison no longer stays on you but is shared with the foe when you drink.
 
 ## 11. Roster
 

@@ -276,7 +276,7 @@ spoke it. An unwritten lineage cannot recover it from a book.
 - Personal items in `tung_dao.items.json`.
 - Personal sets (cast-sets pass, 2026-11-25):
   - **The Ferryman's Remedy (Độ Gia Song Bảo)**, Đàm Thanh Giang's pair: the Ferryman's Gourd and the Ferry-Rope
-    Needles; heals on a hurt ally also strip poison and add a Wood stack.
+    Needles; heals on you also strip poison and add a Wood stack.
   - **Cut Bridges (Đoạn Kiều Song Bảo)**, Nhiếp Vãn Đào's pair: the Bridge-Cutter and the Knot of the Last Bridge; a foe
     pushed below half health takes a certain crit and a root.
   - **Swan Goose and Swimming Dragon (Kinh Hồng Du Long)**, Thôi Khinh Hồng's three: the Wandering Dragon Sash, the

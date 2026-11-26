@@ -90,7 +90,7 @@ everything from the market. That mix is the hall.
 | Elders | Wolf-Winter Arrow (Lang Đông Tiễn) | secret, Profound | none | proposal, the head's |
 
 **Why it fits:** a road warden cultivates on the road. Qi is drawn in with each pull of the bow and driven into the bone
-with each turn of the staff, so the body is the method. The outer gate hardens the flesh first. The canon pins a foe
+with each turn of the staff, so the body is the method. The outer gate hardens the flesh first. The canon Binds a foe
 with arrows and turns a crowd away from the wagons with the staff. The Three Nights art grows stronger the longer a
 fight lasts. The Wolf-Winter Arrow marks the strongest foe and breaks the rest when it falls. The hall wants a real
 Earth-tier canon and does not have one.

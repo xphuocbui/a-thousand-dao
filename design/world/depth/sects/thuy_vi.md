@@ -297,7 +297,7 @@ Ngải Thanh Hao (Thanh Nang Đường's healing method), the guest refiner and 
   - **Far Ambition (Viễn Chí)**, Kiển Viễn Chí: Foundling's Cloth, Polygala Needle [a pill fires the next needle at once, double stacks, stronger heals].
   - **Pine on the Cliff (Nhai Tùng)**, Cù Thúy Bách (worn beside the Seed Gourd): Cliff Pine Bark, Rock-Splitting Root Axe [blocks lay Wood stacks that feed the root split].
   - **Green Fire (Thanh Hỏa Tam Kiện)**, Úy Thanh Diễm: the Green Furnace, Pulse-Reading Needle, Charcoal-Clamp Robe [spent Wood stacks rekindle once as Burn].
-  - **Cold Ford Watch (Hàn Tân Canh)**, Hướng Dạ Đăng: Lamp of the Cold Ford Quay, Spear of the Quay, Winter Quay Coat [rooted foes lose concealment and take growing Wood damage].
+  - **Cold Ford Watch (Hàn Tân Canh)**, Hướng Dạ Đăng: Lamp of the Cold Ford Quay, Spear of the Quay, Winter Quay Coat [a foe that cannot evade loses concealment and takes growing Wood damage].
   - **The Salt Chest (Diêm Rương Tam Kiện)**, Diêm Hải Tảo: Brass Lock of the Salt Chest, Cove Wind Fan, Salt-Crusted Deck Robe [once a fight, low linh lực refills by half with a haze ward].
   - **Poria Under Pine (Tùng Hạ Phục Linh)**, Thiệu Thanh Đài: Green Moss Mirror, Poria Gourd, Weeping Willow Robe [once a fight, a heal below a quarter of her health adds a Wood ward].
   - **Cliff Hall Champion (Nhai Đường Tam Kiện)**, Hoàn Cô Bách: Lone Cypress Banner, Ridge Jade Buckler, Metal-Wind Coat [hits on a cracked guard stack pierce until the block breaks].

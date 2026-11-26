@@ -143,7 +143,7 @@ the terrace does not teach one.
 - **Coat of the Old Ivory (Lão Nha Kình Bì Giáp)**, cut from the strip of hide the whale left on the harpoon in 1080.
 - **Roosting Geese Beads (Tê Nhạn Châu)**, the last abbot's prayer string. Held by Phí Nhạn Tâm.
 - **Old Ivory Hunt (Lão Nha Liệp)**, Đoàn Thanh Lãng: Canglang Harpoon, Coat of the Old Ivory, Sworn-Ice Ring (Thẩm
-  Hàn Giang's gift). Full set: a pinned foe cannot leave the line, heals him and takes more Physical damage.
+  Hàn Giang's gift). Full set: a Bound foe (it cannot flee) heals him and takes more Physical damage.
 
 ## 11. Roster
 

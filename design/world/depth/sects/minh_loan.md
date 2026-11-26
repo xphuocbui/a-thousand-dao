@@ -116,8 +116,8 @@ go to Lạc Hà's island vassals. The peak's Darkness (12) has woken nothing in 
 | Body | none | | | |
 
 **Why it fits.** A bell is Earth and Metal: a clay mould and the bronze poured into it. The outer gate makes moulds on
-Earth, and the inner gate casts and rings on Metal. The canon rings when a foe moves, laying Metal stacks on whoever
-will not stand still. The array hangs bells round a ground and punishes every move the foe makes. The unstruck bell turns the foe's
+Earth, and the inner gate casts and rings on Metal. The canon rings when the foe presses, laying Metal stacks on whoever
+will not stay Composed. The array hangs bells as a Field and punishes each second the foe presses. The unstruck bell turns the foe's
 own blows back as Metal. All three are slow, attritional and defensive (memory: sustain is king), which is what a ward
 bell is for. Lạc Hà buys its ward bells here rather than admit crafters off its root (`lac_ha.md` section 5).
 
@@ -182,7 +182,7 @@ bell is for. Lạc Hà buys its ward bells here rather than admit crafters off i
 ## 10. Treasures and sets
 
 - **Pendant and Bell (Bội Ngọc Minh Loan)**, a set of three from the founders' rite of 960: the **Singing Luan Bell**
-  (Minh Loan Linh), cast by Yến, which rings whenever a foe moves, and the **Jade Pendants** (Bội Ngọc), carved by Hoa
+  (Minh Loan Linh), cast by Yến, which rings whenever the foe presses, and the **Jade Pendants** (Bội Ngọc), carved by Hoa
   in Lam Ngọc jade, and her rite robe. All three are the head's.
 - **The Winter Crack (Đông Liệt Chung)**: the flat great bell of 1121 that killed Hoa; every new bell is struck against
   it. Ngụy Trầm Âm's.

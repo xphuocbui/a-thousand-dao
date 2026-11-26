@@ -59,7 +59,7 @@ P = {
         # a laid object written as a self-counter charge ("a Banner charge", "Stele charges") is the new form
         r"\bfield pieces?\b", r"\bsteles?\b(?!-? ?charges?)", r"\bbanners?\b(?!-? ?charges?)",
         r"\bflags?\b(?!-? ?charges?)", r"\blaid out\b",
-        r"\b(inside|within|into|enters?|entering|leaves?|under) (your|the|its|their|this|a) (field|mist|ring|array|"
+        r"\b(inside|within|into|enters?|entering|leaves?|under) (your|the|its|their|this|an?) (field|mist|ring|array|"
         r"formation|cloud|rain|haze|glow|zone|circle|domain|fog|snow|storm|net|web)\b",
         r"\bin (your|the|its) (field|mist|ring|zone|circle|fog|haze|net|web)\b", r"\bzones?\b",
         r"\bfoes? (inside|within|in it|under it)\b",

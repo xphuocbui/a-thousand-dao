@@ -188,7 +188,7 @@ calls*. And a valley sword does not break a sealed contract.
 - **The hall of sleeves**: two thousand sleeves of the dead on the beams, the valley's only monument.
 - The head also carries the catalogue's Thousand-Cut Sword (`blade-thousand-cut-sword`), worn beside his set.
 - **Personal sets** (world-depth items pass, 2026-11-25; details in `phat_y.items.json`):
-  - **Grey Sleeve and Seal (Phất Y Khế Ấn)**, a set of 2 (Thang Vô Tạ): The Grey Sleeve, Token from the Hall of Sleeves. Full set: The Last Step (Chung Bộ), after you vanish (Gone Before Thanks) or evade an attack, your next sword art while you are At range ends your At range and deals 30 % more damage; if its hit makes the foe Broken, you vanish again. Return to the Scabbard (Quy Sao): after 3 s in which you fire no damaging art, the foe counts as unstruck again, and that counts as a vanish for this bonus.
+  - **Grey Sleeve and Seal (Phất Y Khế Ấn)**, a set of 2 (Thang Vô Tạ): The Grey Sleeve, Token from the Hall of Sleeves. Full set: The Last Step (Chung Bộ), after you vanish (Gone Before Thanks) or evade an attack, your next sword art within 2 s deals 30 % more damage; if its hit makes the foe Broken, you vanish again. Return to the Scabbard (Quy Sao): after 3 s in which you fire no damaging art, the foe counts as unstruck again, and that counts as a vanish for this bonus.
   - **Hired Sword's Pair (Dung Kiếm Song Bảo)**, a set of 2 (Lam Khế Ngôn): Contract Seal of the Valley, Blade of the Signed Contract. Full set: Paid in Full (Thanh Toán), while you protect a hirer, each crit you land heals you 2 % of your health; if the hirer leaves the fight alive, you are healed in full once.
 
 ## 11. Roster

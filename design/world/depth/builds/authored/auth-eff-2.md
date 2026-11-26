@@ -30,7 +30,7 @@ are in `auth-eff-2.json`; fight readings follow `duel-readings.md`. Nothing here
 - **d36 Birds Pay Court to the Phoenix (Bách Điểu Triều Phượng):** each bird hit lays the plumage colour you lack, and
   a spent full plumage heals you and powers up the birds. Carried by the Five-Virtue Phoenix Canon (vu_ngo_dong). New
   item: the Wutong Twig Ring (Ngô Đồng Chi Hoàn), which gives an_thuy_vu the bird half.
-- **d37 When the Thread Breaks (Đoạn Ti):** a slow art or a Displace snaps the thread (linh lực recoil); an unbroken
+- **d37 When the Thread Breaks (Đoạn Ti):** a slow art snaps the thread (linh lực recoil); an unbroken
   thread ties a Knot that adds Wood and Burn stacks. Carried by the Unbroken Thread Canon (than_van_cam,
   tang_mong_kien).
 - **d38 Touchstone (Thí Kim Thạch):** once per art firing, a hit strips one buff stack. Carried by the Hallmark Seal
@@ -50,7 +50,7 @@ are in `auth-eff-2.json`; fight readings follow `duel-readings.md`. Nothing here
   linh lực lost come back. A formal record of The Idle Cloud set (diep_to_quyen).
 - **d45 A Formation That Walks (Trận Tùy Thân):** your diagram is laid even in an ambush or a blind fight, with fuel
   paid. Carried by The Carried Array set (ve_van_co).
-- **d46 Ring Within the Ring (Hoàn Trung Hoàn):** a second ring on a ringed foe Pins it, and both rings deal damage.
+- **d46 Ring Within the Ring (Hoàn Trung Hoàn):** a second ring while your first is up Binds the foe (it cannot flee), and both rings deal damage.
   Carried by the Rings of the Armillary set (to_tinh_nghi).
 - **d47 The World Before (Tiền Thế):** when the Vase spills, the foe's clock stops for 2 s. A formal record of What the
   Old Man Kept (mac_quy_khu); it needs a new engine action.
