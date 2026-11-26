@@ -56,7 +56,10 @@ def main():
         lines.append("%-12s %s" % (kind, msg))
 
     hist = load(ROOT / "assets/data/world_history.json")
-    old = {p["key"]: p for p in hist["people"]}
+    # the old cast to compare with: an exported owner's people now come from the depth files themselves (ADR-0009,
+    # Stage 7), so they are left out of the comparison
+    exported = set(hist.get("depth_sects", []))
+    old = {p["key"]: p for p in hist["people"] if p.get("sect") not in exported and not p.get("tier")}
     t1 = load(ROOT / "assets/data/traits.json")
     v1 = {k: {x["name"] for x in t1[k]} for k in ["personality", "callings", "fate", "gained"]}
     pers_set = {x["name"]: x.get("set") for x in t1["personality"]}  # same set = opposites (traits.json)

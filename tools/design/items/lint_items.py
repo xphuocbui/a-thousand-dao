@@ -202,6 +202,10 @@ def main():
     # an Effect with an engine record in combat_effects.json counts as known (world-depth Effects live there, ADR-0009)
     for k in json.load(open(os.path.join(ROOT, "assets", "data", "combat_effects.json"), encoding="utf-8"))["effects"]:
         eff_names.setdefault(k.strip().lower(), {"group": ""})
+    stage = os.environ.get("DEPTH_STAGE", "")   # world-depth Stage 6: the job's own staged Effects count as known
+    for f in (glob.glob(os.path.join(stage, "effects", "*.effects.json")) if stage else []):
+        for k in json.load(open(f, encoding="utf-8"))["effects"]:
+            eff_names.setdefault(k.strip().lower(), {"group": ""})
     starter_wards = set()
     try:
         cd = open(os.path.join(ROOT, "design", "gdd", "combat-defence.md"), encoding="utf-8").read()

@@ -55,25 +55,26 @@ def install_owner(owner):
     """The owner's sets and Effects, in memory, over the exported ones (a rerun after an edit needs no export)."""
     F._library()
     sets = []
-    p = os.path.join(ROOT, "design", "items", "sets-%s.json" % owner)
-    if os.path.exists(p):
-        sets = load(p)
+    for p in [os.path.join(ROOT, "design", "items", "sets-%s.json" % owner)] + F.stage_files("items", "sets-%s.json" % owner):
+        if os.path.exists(p):
+            sets = load(p)   # the staged file (last) wins
     base = F.item_sets()
     keep = [s for s in base.get("sets", []) if s["id"] not in {x["id"] for x in sets}]
     F.SETS = {"constants": base.get("constants", {"set_bonus_min_pieces": 2}), "sets": keep + sets}
     lib = F.effects_library()
-    p = os.path.join(D, "effects", "%s.effects.json" % owner)
     names = []
-    if os.path.exists(p):
-        for name, e in load(p)["effects"].items():
-            lib[name] = e
-            names.append(name)
+    for p in [os.path.join(D, "effects", "%s.effects.json" % owner)] + F.stage_files("effects", "%s.effects.json" % owner):
+        if os.path.exists(p):
+            for name, e in load(p)["effects"].items():
+                lib[name] = e
+                if name not in names:
+                    names.append(name)
     return names
 
 
 def techs():
     out = {}
-    for f in glob.glob(os.path.join(ROOT, "design", "techniques", "catalogue-*.json")):
+    for f in sorted(glob.glob(os.path.join(ROOT, "design", "techniques", "catalogue-*.json"))) +             F.stage_files("techniques", "catalogue-sect-*.json"):
         for t in load(f):
             out[t["id"]] = t
     return out

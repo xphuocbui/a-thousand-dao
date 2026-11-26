@@ -91,8 +91,9 @@ def load_arts():
     arts = {}
     # signature arts: the family files and each sect's part-sect-<key>.json (ADR-0009); the other part-*.json files
     # hold the common and early library, which no technique carries
+    stage = os.environ.get("DEPTH_STAGE", "")   # world-depth Stage 6: the job's own staged arts
     for pat in ("family-*.json", "part-sect-*.json"):
-        for f in sorted(glob.glob(os.path.join(ROOT, "design", "arts", pat))):
+        for f in sorted(glob.glob(os.path.join(ROOT, "design", "arts", pat))) +                 (sorted(glob.glob(os.path.join(stage, "arts", pat))) if stage and pat.startswith("part") else []):
             for a in json.load(open(f, encoding="utf-8")):
                 arts.setdefault(a["id"], a)
     return arts

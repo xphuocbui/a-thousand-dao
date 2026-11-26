@@ -319,19 +319,30 @@ def add_library_effect(name, d, effects, counters, unmod, who, worn, counts=None
     return True
 
 
+def stage_files(sub, pattern):
+    """An owner's staged files (world-depth Stage 6: DEPTH_STAGE=<dir mirroring design/>, e.g.
+    design/stage6-staging/<owner>), read on top of the committed ones by the job that owns them and by no other."""
+    import glob as _g
+    stage = os.environ.get("DEPTH_STAGE", "")
+    return sorted(_g.glob(os.path.join(stage, sub, pattern))) if stage else []
+
+
 def _library():
     if not _LIB:
         import glob as _g
         arts, techs = {}, {}
-        for f in sorted(_g.glob(os.path.join(ROOT, "design", "arts", "family-*.json"))):
+        for f in stage_files("arts", "part-sect-*.json"):   # staged first: a staged art wins its id (setdefault below)
             for a in json.load(open(f, encoding="utf-8")):
                 arts[a["id"]] = a
+        for f in sorted(_g.glob(os.path.join(ROOT, "design", "arts", "family-*.json"))):
+            for a in json.load(open(f, encoding="utf-8")):
+                arts.setdefault(a["id"], a)
         for f in sorted(_g.glob(os.path.join(ROOT, "design", "arts", "part-*.json"))):
             for a in json.load(open(f, encoding="utf-8")):
                 # the common pool generated techniques roll (cong-phap rule 17) and, since 2026-11-14, the authored
                 # part arts too (user decision: every authored art is in the game's library; no id collides)
                 arts.setdefault(a["id"], a)
-        for f in sorted(_g.glob(os.path.join(ROOT, "design", "techniques", "catalogue-*.json"))):
+        for f in sorted(_g.glob(os.path.join(ROOT, "design", "techniques", "catalogue-*.json"))) +                 stage_files("techniques", "catalogue-sect-*.json"):   # staged last: a staged technique wins its id
             for t in json.load(open(f, encoding="utf-8")):
                 techs[t["id"]] = t
         items = {}
@@ -339,7 +350,7 @@ def _library():
         if os.path.exists(common):
             for a in json.load(open(common, encoding="utf-8")):
                 arts.setdefault(a["id"], a)
-        for f in sorted(_g.glob(os.path.join(ROOT, "design", "items", "catalogue-*.json"))):
+        for f in sorted(_g.glob(os.path.join(ROOT, "design", "items", "catalogue-*.json"))) +                 stage_files("items", "catalogue-sect-*.json"):
             for it in json.load(open(f, encoding="utf-8")):
                 items[it["id"]] = it
                 for a in it.get("arts", []):
