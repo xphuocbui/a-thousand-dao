@@ -418,12 +418,13 @@ func _art(d: Dictionary, where: String) -> ArtDef:
 
 func _companion(d: Dictionary, where: String) -> FighterProfile.Companion:
 	for key in d:
-		if not (str(key) in ["c", "dtype", "cd"]):
+		if not (str(key) in ["c", "dtype", "cd", "tags"]):   # tags: 2026-11-26 (crane, bird)
 			errors.append("%s: unknown companion field %s" % [where, str(key)])
 	var comp := FighterProfile.Companion.new()
 	comp.c = float(d.get("c", 0.0))
 	comp.dtype = StringName(str(d.get("dtype", "phys")))
 	comp.cd = float(d.get("cd", _k.basic_cooldown))
+	comp.tags = Array(d.get("tags", [])).duplicate()
 	if not (str(comp.dtype) in DTYPES):
 		errors.append("%s: dtype %s is not one of %s" % [where, str(comp.dtype), str(DTYPES)])
 	return comp

@@ -48,8 +48,8 @@ BLOCK_UNIT = list(_C["BLOCK_UNIT"])
 # (Combat Damage Types rule 3, the authoring guide, 2026-11-13): all in combat_engine.json, the one source.
 BUFF = _C["BUFF"]
 DEBUFF = _C["DEBUFF"]
-ELEMENTS = {"", "fire", "water", "earth", "metal", "wood", "ice", "thunder", "wind"}
-DTYPES = {"phys", "elem", "fire", "cold", "lightning", "force", "chaos", "soul"}
+ELEMENTS = {"", "fire", "water", "earth", "metal", "wood", "ice", "thunder", "wind", "light"}
+DTYPES = {"phys", "elem", "fire", "cold", "lightning", "force", "chaos", "soul", "light"}   # light: 2026-11-26
 TICK_TYPE = _C["TICK_TYPE"]
 ELEM_TYPE = _C["ELEM_TYPE"]
 STATUS = _C["STATUS"]
@@ -801,18 +801,22 @@ class Fight:
         # cleansing ward
         n = s.b.cleanse_pulse
         while n > 0 and s.debuffs:
+            s.debuffs.sort(key=lambda x: x[2] if x[2] is not None else 1 << 40)
+            j = next((i for i, x in enumerate(s.debuffs) if not self.held_fast(x)), None)
+            if j is None:   # only talisman stacks held fast are left (2026-11-26)
+                break
             fee = s.b.cleanse_cost * s.qi_max()
             if s.qi < fee:
                 break
             s.qi -= fee
-            s.debuffs.sort(key=lambda x: x[2] if x[2] is not None else 1 << 40)
-            s.debuffs[0][1] -= 1
-            if s.debuffs[0][1] <= 0:
-                s.debuffs.pop(0)
+            s.debuffs[j][1] -= 1
+            if s.debuffs[j][1] <= 0:
+                s.debuffs.pop(j)
             n -= 1
         if s.b.cleanse_share:
             for x in s.debuffs:
-                x[1] *= (1 - s.b.cleanse_share)
+                if not self.held_fast(x):
+                    x[1] *= (1 - s.b.cleanse_share)
             s.debuffs = [x for x in s.debuffs if x[1] >= K["cleanse_min_stacks"]]
         # fatigue
         if self.t >= ms(K["fatigue_start"]):
@@ -998,7 +1002,7 @@ class Fight:
                 s.summons.remove(sm)
         for j, comp in enumerate(b.companions):
             while self.t >= s.comp_ready[j]:
-                self.hit(s, o, comp["c"], comp.get("dtype", "phys"), None, kind="companion")
+                self.hit(s, o, comp["c"], comp.get("dtype", "phys"), None, kind="companion", ctags=comp.get("tags", ()))
                 cd = comp.get("cd", K["basic_cooldown"]) / (1 + self.mod(s, "companion_speed") / 100)
                 s.comp_ready[j] += ms(max(K["cooldown_min"], cd))
 
@@ -1103,11 +1107,12 @@ class Fight:
         return True
 
     # ---------------------------------------------------------- hits
-    def hit(self, att, dfn, c, dtype, art, kind="art", trig=False):
+    def hit(self, att, dfn, c, dtype, art, kind="art", trig=False, ctags=()):
         """One hit through the defence path. Returns the health removed."""
         if dfn.window is not None:   # an extended last act: the side cannot be struck (Effects rule 11)
             return 0.0
-        ctx = {"dtype": dtype, "element": art.element if art else "", "tags": art.tags if art else (kind,), "kind": kind,
+        # ctags: a companion's own tags (crane, bird) ride on its hits (2026-11-26)
+        ctx = {"dtype": dtype, "element": art.element if art else "", "tags": art.tags if art else (kind,) + tuple(ctags), "kind": kind,
                "art_id": art.name if art else kind}
         # avoid [R6]
         if not trig and dfn.decoys > 0 and dfn.avoided < K["avoid_budget"]:
@@ -1213,7 +1218,8 @@ class Fight:
         if self.plog is not None:
             self.plog.append(["hit", self.t, att.label, kind, ctx["art_id"], D_in, dealt, dfn.hp, dfn.qi, att.hp, att.qi])
         if art and art.debuff:
-            self.add_stacks(att, dfn, art.element, art.debuff[0], art.debuff[1], buff=False)
+            self.add_stacks(att, dfn, art.element, art.debuff[0], art.debuff[1], buff=False,
+                            mark="talisman" if "talisman" in art.tags else None)   # talisman stacks (2026-11-26)
         if art:
             for st in art.statuses:
                 self.apply_status(att, dfn, st)
@@ -1508,6 +1514,11 @@ class Fight:
                               -1 if st["until"] is None else st["until"]])
         self.fire_event(src, "status_applied", {"status": sid, "stacks": n})
 
+    def held_fast(self, x):
+        """A debuff batch a talisman art laid, while its caster holds talisman_fast: no cleanse removes it (Effects
+        rule 16, 2026-11-26; Rainfast Ink)."""
+        return len(x) > 5 and x[5] == "talisman" and x[3] is not None and self.mod(x[3], "talisman_fast") > 0
+
     def cleanse(self, s, n, el=None):
         removed = 0
         s.debuffs.sort(key=lambda x: x[2] if x[2] is not None else 1 << 40)
@@ -1515,6 +1526,9 @@ class Fight:
         while n > 0 and i < len(s.debuffs):
             x = s.debuffs[i]
             if el and x[0] != el:
+                i += 1
+                continue
+            if self.held_fast(x):
                 i += 1
                 continue
             guard = x[3].protect.get(x[0]) if x[3] is not None else None

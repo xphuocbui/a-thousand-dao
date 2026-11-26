@@ -1,0 +1,137 @@
+{
+  "name": "t19_light_tags_exact",
+  "slice": 19,
+  "chance_free": true,
+  "seed": 191,
+  "doc": "World-depth Stage 5, slice 4 (2026-11-26), chance-free: the Light element and damage type, a companion's tags on its hits, and talisman stacks held fast. A: Dawn Call, a Light art with an added 30 % Soul part; a crane companion (tags crane, bird) beside a plain one, and a counter of crane hits that adds block; Rainfast Ink: a talisman art laying 3 Fire stacks for 10 s, which no cleanse removes while A holds talisman_fast, beside a plain Wood palm whose stacks can be cleansed. B: Light resistance and a cleansing ward that removes 2 stacks a pulse.",
+  "a": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "dawn-singer",
+    "counters": [
+      {
+        "id": "crane_hits"
+      }
+    ],
+    "companions": [
+      {
+        "c": 0.3,
+        "dtype": "phys",
+        "cd": 1.5,
+        "tags": [
+          "crane",
+          "bird"
+        ]
+      },
+      {
+        "c": 0.25,
+        "dtype": "phys",
+        "cd": 2.0
+      }
+    ],
+    "arts": [
+      {
+        "name": "dawn-call",
+        "c": 0.9,
+        "cost": 0.04,
+        "cd": 3.0,
+        "element": "light",
+        "dtype": "light",
+        "soul_part": 0.3,
+        "tags": [
+          "song"
+        ]
+      },
+      {
+        "name": "rainfast-ink",
+        "c": 0.2,
+        "cost": 0.03,
+        "cd": 4.0,
+        "element": "fire",
+        "debuff": [
+          3,
+          10.0
+        ],
+        "tags": [
+          "talisman"
+        ]
+      },
+      {
+        "name": "wood-palm",
+        "c": 0.6,
+        "cost": 0.03,
+        "cd": 2.5,
+        "element": "wood",
+        "debuff": [
+          2,
+          6.0
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "id": "rainfast",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "talisman_fast": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "crane-count",
+        "on": "hit_landed",
+        "filter": {
+          "tags": [
+            "crane"
+          ]
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "crane_hits",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "crane-guard",
+        "on": "always",
+        "scale": {
+          "read": "own.counter.crane_hits",
+          "per": 5
+        },
+        "do": [
+          {
+            "mod": {
+              "block": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "clean-mirror",
+    "resist": {
+      "light": 120.0
+    },
+    "cleanse_pulse": 2,
+    "cleanse_cost": 0.01,
+    "arts": [
+      {
+        "name": "cut",
+        "c": 1.0,
+        "cost": 0.04,
+        "cd": 2.0
+      }
+    ]
+  }
+}

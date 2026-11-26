@@ -454,3 +454,38 @@ func test_burning_a_pill_smokes_its_element_once_a_fight() -> void:
 	var h: Fight = M._fight(M._dummy({"effects": [burn]}), M._dummy())
 	EffectRunner.fire(h, h.a, "fight_start", {})
 	assert_bool(h.b.debuffs.is_empty()).is_true()
+
+
+# ---- slice 4 (2026-11-26): Light, companion tags, talisman stacks held fast (test_engine.py) ----
+func test_a_light_hit_lands_and_light_resistance_cuts_it() -> void:
+	var lost: Array = []
+	for resist in [{}, {"light": 300.0}]:
+		var f: Fight = M._fight(M._dummy({}, [{"name": "dawn", "c": 1.0, "cost": 0.05, "cd": 3.0, "element": "light", "dtype": "light"}]),
+				M._dummy({"ward_pts": 0.0, "block": 0.0, "resist": resist}))
+		var hp: float = f.b.hp
+		f.hit(f.a, f.b, 1.0, &"light", f.a.p.arts[0], Fight.KIND_ART)
+		lost.append(hp - f.b.hp)
+	assert_bool(float(lost[0]) > 0.0 and float(lost[1]) < float(lost[0])).override_failure_message(str(lost)).is_true()
+
+
+func test_a_companions_tags_ride_on_its_hits() -> void:
+	var count := {"id": "c", "on": "hit_landed", "filter": {"tags": ["crane"]}, "do": [{"counter": {"id": "crane_hits", "add": 1}}]}
+	var f: Fight = M._fight(M._dummy({"effects": [count], "counters": [{"id": "crane_hits"}],
+			"companions": [{"c": 0.3, "dtype": "phys", "cd": 1.0, "tags": ["crane", "bird"]}, {"c": 0.3, "dtype": "phys", "cd": 1.0}]}), M._dummy())
+	f.t = 1000
+	f.a.comp_ready = PackedInt64Array([1000, 1000])
+	f.act(f.a)
+	assert_near(float(f.a.counters["crane_hits"]), 1.0, 1e-9)
+
+
+func test_talisman_stacks_hold_through_a_cleanse_while_the_caster_has_the_effect() -> void:
+	var fast := {"id": "rain", "on": "always", "do": [{"mod": {"talisman_fast": 1}}]}
+	var arts := [{"name": "ink", "c": 0.01, "cost": 0.05, "cd": 3.0, "element": "fire", "debuff": [3, 10.0], "tags": ["talisman"]},
+			{"name": "palm", "c": 0.01, "cost": 0.05, "cd": 3.0, "element": "wood", "debuff": [2, 10.0]}]
+	for has in [true, false]:
+		var f: Fight = M._fight(M._dummy({"effects": [fast] if has else []}, arts), M._dummy({"ward_pts": 0.0, "block": 0.0}))
+		f.hit(f.a, f.b, 0.01, &"phys", f.a.p.arts[0], Fight.KIND_ART)
+		f.hit(f.a, f.b, 0.01, &"phys", f.a.p.arts[1], Fight.KIND_ART)
+		f.cleanse(f.b, 10)
+		assert_near(EffectRunner._count(f.b.debuffs, "fire"), 3.0 if has else 0.0, 1e-9, "talisman stacks with the Effect: %s" % str(has))
+		assert_near(EffectRunner._count(f.b.debuffs, "wood"), 0.0, 1e-9)

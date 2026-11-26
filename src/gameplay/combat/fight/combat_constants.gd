@@ -12,8 +12,8 @@ extends RefCounted
 ## [/codeblock]
 
 ## Damage types and elements the engine knows (the sim's DTYPES and ELEMENTS).
-const DTYPES := ["phys", "elem", "fire", "cold", "lightning", "force", "chaos", "soul"]
-const ELEMENTS := ["", "fire", "water", "earth", "metal", "wood", "ice", "thunder", "wind"]
+const DTYPES := ["phys", "elem", "fire", "cold", "lightning", "force", "chaos", "soul", "light"]
+const ELEMENTS := ["", "fire", "water", "earth", "metal", "wood", "ice", "thunder", "wind", "light"]
 ## Where the game keeps the constants.
 const DEFAULT_PATH := "res://assets/data/combat_engine.json"
 ## The K keys this engine slice reads; a missing one stops the load.

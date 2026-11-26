@@ -409,20 +409,28 @@ func pulse(s: FighterState) -> void:
 	# the cleansing ward: stacks per pulse for a fee each, earliest expiry first; then a share of every batch
 	var n_cl: int = s.p.cleanse_pulse
 	while n_cl > 0 and not s.debuffs.is_empty():
+		_sort_by_until(s.debuffs)
+		var j_cl: int = -1
+		for ix in s.debuffs.size():
+			if not held_fast(s.debuffs[ix]):
+				j_cl = ix
+				break
+		if j_cl < 0:   # only talisman stacks held fast are left (2026-11-26)
+			break
 		var fee_cl: float = s.p.cleanse_cost * s.qi_max()
 		if s.qi < fee_cl:
 			break
 		s.qi -= fee_cl
-		_sort_by_until(s.debuffs)
-		s.debuffs[0].n -= 1.0
-		if s.debuffs[0].n <= 0.0:
-			s.debuffs.remove_at(0)
+		s.debuffs[j_cl].n -= 1.0
+		if s.debuffs[j_cl].n <= 0.0:
+			s.debuffs.remove_at(j_cl)
 		s.touch_debuffs()
 		n_cl -= 1
 	if s.p.cleanse_share != 0.0:
 		var kept: Array[FighterState.StackBatch] = []
 		for x in s.debuffs:
-			x.n *= (1.0 - s.p.cleanse_share)
+			if not held_fast(x):
+				x.n *= (1.0 - s.p.cleanse_share)
 			if x.n >= k.cleanse_min_stacks:
 				kept.append(x)
 		s.debuffs = kept
@@ -863,7 +871,7 @@ func act(s: FighterState) -> void:
 	for j in p.companions.size():
 		var comp: FighterProfile.Companion = p.companions[j]
 		while t >= s.comp_ready[j]:
-			hit(s, o, comp.c, comp.dtype, null, KIND_COMPANION)
+			hit(s, o, comp.c, comp.dtype, null, KIND_COMPANION, false, comp.tags)
 			var ccd: float = comp.cd / (1.0 + m(s, "companion_speed", null) / 100.0)
 			s.comp_ready[j] += CombatConstants.ms(maxf(k.cooldown_min, ccd))
 
@@ -986,7 +994,7 @@ func pay(s: FighterState, art: ArtDef) -> bool:
 ## only below the trigger depth) and payloads held until hit_landed. Returns the health removed.
 ## Public for mechanism tests.
 func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art: ArtDef, kind: StringName,
-		trig: bool = false) -> float:
+		trig: bool = false, ctags: Array = []) -> float:
 	if dfn.window_on:   # an extended last act: the side cannot be struck (Effects rule 11)
 		return 0.0
 	var ctx: Dictionary
@@ -996,7 +1004,9 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 		ctx = art.ctx.duplicate()
 		ctx["dtype"] = str(dtype)
 	else:
-		ctx = {"dtype": str(dtype), "element": "", "tags": [str(kind)], "kind": str(kind), "art_id": str(kind)}
+		var tg: Array = [str(kind)]
+		tg.append_array(ctags)   # a companion's own tags (crane, bird), 2026-11-26
+		ctx = {"dtype": str(dtype), "element": "", "tags": tg, "kind": str(kind), "art_id": str(kind)}
 	var am: bool = has_mods(att)
 	var dm: bool = has_mods(dfn)
 	# Returning Wave: the first hit taken does no harm and strikes the attacker at full damage, once a fight
@@ -1091,7 +1101,8 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 		var id: StringName = art.id if art != null else kind
 		_row(FightLogRow.Kind.HIT, att.label, kind, id, [d_in, dealt, dfn.hp, dfn.qi, att.hp, att.qi])
 	if art != null and art.debuff_n != 0.0:
-		add_stacks(att, dfn, str(art.element), art.debuff_n, art.debuff_dur, false)
+		add_stacks(att, dfn, str(art.element), art.debuff_n, art.debuff_dur, false,
+				"talisman" if art.tags.has(&"talisman") else "")   # talisman stacks (2026-11-26)
 	if art != null:
 		for spec in art.statuses:
 			apply_status(att, dfn, spec)
@@ -1305,6 +1316,15 @@ func apply_status(src: FighterState, target: FighterState, spec: StatusSpec) -> 
 
 ## Cleanses up to [param n] debuff stacks from [param s], earliest expiry first (of element [param el] only, when
 ## given); the foe hears cleansed. Returns the stacks removed. Public for mechanism tests.
+## A debuff batch a talisman art laid, while its caster holds talisman_fast: no cleanse removes it (Rainfast Ink,
+## 2026-11-26). As engine.py held_fast.
+func held_fast(x: FighterState.StackBatch) -> bool:
+	if x.mark != "talisman":
+		return false
+	var owner: FighterState = _side(x.src_idx)
+	return has_mods(owner) and m(owner, "talisman_fast", null) > 0.0
+
+
 func cleanse(s: FighterState, n: int, el: String = "") -> float:
 	var removed: float = 0.0
 	var left: float = n
@@ -1313,6 +1333,9 @@ func cleanse(s: FighterState, n: int, el: String = "") -> float:
 	while left > 0.0 and i < s.debuffs.size():
 		var x: FighterState.StackBatch = s.debuffs[i]
 		if el != "" and x.el != el:
+			i += 1
+			continue
+		if held_fast(x):
 			i += 1
 			continue
 		var owner: FighterState = _side(x.src_idx)

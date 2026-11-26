@@ -258,6 +258,39 @@ def t_burn_pill():   # Pill Smoke, smoke only (user 2026-11-26)
     check("with no pill nothing happens", not B.debuffs)
 
 
+# ---- world-depth Stage 5 slice 4 (2026-11-26): Light, companion tags, talisman stacks held fast
+def t_light():
+    lost = []
+    for resist in ({}, {"light": 300.0}):
+        f, A, B = setup(b=dummy(ward_pts=0, block=0, resist=resist))
+        hp = B.hp
+        f.hit(A, B, 1.0, "light", E.Art("dawn", 1.0, 0.05, 3.0, element="light", dtype="light"))
+        lost.append(hp - B.hp)
+    check("a Light hit lands, and Light resistance cuts it", lost[0] > 0 and lost[1] < lost[0], str(lost))
+
+
+def t_companion_tags():
+    count = {"id": "c", "on": "hit_landed", "filter": {"tags": ["crane"]}, "do": [{"counter": {"id": "crane_hits", "add": 1}}]}
+    f, A, B = setup(a=dummy(effects=[count], counters=[{"id": "crane_hits"}],
+                            companions=[{"c": 0.3, "dtype": "phys", "cd": 1.0, "tags": ["crane", "bird"]},
+                                        {"c": 0.3, "dtype": "phys", "cd": 1.0}]))
+    f.t = 1000
+    A.comp_ready = [1000, 1000]
+    f.act(A)
+    check("only the crane companion's hit carries crane", A.counters["crane_hits"] == 1.0, str(A.counters["crane_hits"]))
+
+
+def t_talisman_fast():
+    fast = {"id": "rain", "on": "always", "do": [{"mod": {"talisman_fast": 1}}]}
+    for has, want in ((True, 3), (False, 0)):
+        f, A, B = setup(a=dummy(effects=[fast] if has else []), b=dummy(ward_pts=0, block=0))
+        f.hit(A, B, 0.01, "phys", E.Art("ink", 0.01, 0.05, 3.0, element="fire", debuff=(3, 10.0), tags=("talisman",)))
+        f.hit(A, B, 0.01, "phys", E.Art("palm", 0.01, 0.05, 3.0, element="wood", debuff=(2, 10.0)))
+        f.cleanse(B, 10)
+        check("talisman stacks: %s" % ("held fast through a cleanse" if has else "cleansed without the Effect"),
+              B.count(B.debuffs, "fire") == want and B.count(B.debuffs, "wood") == 0, str(B.debuffs))
+
+
 # ---- world-depth Stage 5 slice E (2026-11-26): escape (Combat rule 10, Formulas I)
 class _Roll:
     """A random stream that returns fixed values, and fails the test if drawn when it must not be."""

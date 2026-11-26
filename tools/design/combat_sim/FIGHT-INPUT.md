@@ -241,7 +241,15 @@ looks like a strong build.
   `qi_drained` reports `event.amount`); a leech heal's `source` is `leech` (filter `source`); readables
   `own.lost_last.<hp|qi>.<seconds>` (net losses per pulse in the window, plus since the last pulse) and
   `own.counter_hours.<id>` / `own.counter_this_hour.<id>` (a charge counter's distinct 5 s fight hours, and the
-  charges laid in the current hour; laid = end − `each_for`). Fixture t17. Not built: a pill burned in a fight.
+  charges laid in the current hour; laid = end − `each_for`). Fixture t17.
+- **Slice 3b, pill smoke** (user: smoke only for now): a build's `pill` (`{"element", "grade", "fail"}`); the
+  action `burn_pill` (`stacks_per_grade` 4, `for` 6 s) spends it once a fight: that many debuff stacks per grade of
+  its element on the foe (Water as Ice, none as Wood), a fail roll, and the event `pill_burned` (`element`, `grade`,
+  `failed`). The pill's own effect is not modelled yet. Fixture t18.
+- **Slice 4:** the element and damage type `light` (Hán-Việt scope `quang`); a companion's `tags` ride on its hits
+  (filter `tags`: `crane`, `bird`); a debuff batch laid by an art tagged `talisman` is held fast through every
+  cleanse while its caster holds the mod flag `talisman_fast` (Rainfast Ink). Fixture t19. Not built: an added Soul
+  part meeting `[soul]`-scoped modifiers (Damage Types rule 1, 2026-11-26); today it takes the art's own scope only.
 
 ### World-depth vocabulary (2026-11-26; to build in world-depth Stage 5)
 

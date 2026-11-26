@@ -13,6 +13,8 @@ class Companion extends RefCounted:
 	var c: float = 0.0
 	var dtype: StringName = &"phys"
 	var cd: float = 1.0
+	## The companion's tags (crane, bird), carried by its hits (2026-11-26).
+	var tags: Array = []
 
 
 var id: String = ""
