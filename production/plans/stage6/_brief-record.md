@@ -86,6 +86,21 @@ files, or any other owner's depth files.
    - Write the line `RECORD PASS DONE` at the end of your progress file.
    - Write the file `production/plans/stage6/<OWNER>.done` containing one line: the counts of what you wrote.
 
+## Lessons from the Băng Tâm pilot (check each before you tick step 7)
+The full list is in `production/plans/world-depth-implementation.md`, Stage 6, "Lessons from the Băng Tâm pilot".
+The checks:
+- [ ] Each holder ran in `sect_fight.py`. Every Effect changes the fight with and without it, or has a written
+      reason; no record has 0 runs and no art has 0 fires without a reason.
+- [ ] No holder slots two stances without a combined stance, and every art defines every stance its records set.
+- [ ] Nothing that must see this firing's stacks sits on `art_fired`. No counter is armed and spent on the same hit.
+      No `always` record carries a record-level `filter` (its scope goes inside the mod).
+- [ ] Each vague word ("cut", "petal", "the ward", "the fifth") has its meaning written into the record's `rule`, and
+      is listed as a deviation.
+- [ ] Each Effect that reads "your X" was checked on a holder who may not have X.
+- [ ] The techniques' new bonuses and passives are sized against the same-tier catalogue and marked as new in the
+      review.
+- [ ] Each refinement of a ruling or of the depth text is logged with its reason.
+
 ## Pending words (when the engine lacks something)
 Do not edit the engine. Write `design/stage6-staging/<OWNER>/pending.json`:
 
