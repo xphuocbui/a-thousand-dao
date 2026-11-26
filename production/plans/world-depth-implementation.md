@@ -444,6 +444,15 @@ All in batches of about 50, the checker up front, **by sect** (D3), Băng Tâm C
 - Units are small and in this order: techniques and arts, then Effects, then items and sets, then stand-ins and
   beasts, then engine words.
 - A new session starts by reading the sect's progress file.
+
+**After Băng Tâm Các (user 2026-11-26): run the other sects as headless Sonnet sessions through the driver
+`tools/headless/run_jobs.py`, two sects at once in parallel** (two runner processes, each with its own job list).
+Each job follows this method up to step 6, the review file and stop. Before launching:
+- write the job brief from Băng Tâm's pass (its progress file, its review file, and the tools fixed in step 2);
+- settle how two parallel sessions share the engine files (`engine.py`, `fight.py`, `src/gameplay/combat/fight/`).
+  For example, the jobs author records and list the engine words they need, and one serial step builds the words;
+- check that the jobs' allowed tools cover Bash for the checkers and `fight.py`. The runner blocks `git`, so the
+  parent session commits each finished sect.
 - **Each sect's pass (user 2026-11-26):** design its techniques, arts, Effects, items, sets and beasts; pick its
   stand-ins' real techniques; run `depth_gap.py --sect <key>` for the engine words it needs; build those (Stage 5's
   rules); **show the user the sect's designs for review** (every sect, user 2026-11-26); then export, load and fight.

@@ -9,6 +9,9 @@ Resume here: read this file, then do the first unchecked step.
   with this sect, per the method's step 4, so Băng Tâm's gap reaches zero.
 - Review format: `production/plans/stage6/bang_tam-review.md`, each rule beside its engine form.
 
+- After this sect: the other sects run as headless Sonnet jobs via `tools/headless/run_jobs.py`, two in parallel
+  (plan Stage 6). Băng Tâm's pass is the template for their brief.
+
 ## Scope (gap report 2026-11-26, `python -I tools/design/world/depth_gap.py --sect bang_tam`)
 - 4 techniques: clear-frost-breath (Yellow main, outer), jade-vessel-ice-heart-canon (Earth main),
   snow-plum-sword (Profound secret), frost-lotus-array-canon (Earth secret). Existing in the lineage: winter-toll-canon,
