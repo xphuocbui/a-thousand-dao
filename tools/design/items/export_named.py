@@ -60,6 +60,8 @@ def build():
                     rec["holder"] = it["holder"]
                 if it.get("exception"):
                     rec["exception"] = it["exception"]
+                if it.get("unique"):   # a signature item is unique whatever its grade (rule 20f, 2026-11-26)
+                    rec["unique"] = True
                 items.append(rec)
     items.sort(key=lambda r: r["id"])
     return {

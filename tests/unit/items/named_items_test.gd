@@ -44,6 +44,24 @@ func test_a_repeatable_named_item_is_made_any_number_of_times() -> void:
 	assert_false(items.named_artifact(tid, 0, db).is_empty(), "a second copy")
 
 
+func test_a_signature_item_marked_unique_is_made_once_whatever_its_grade() -> void:
+	# Rule 20f (amended 2026-11-26): a world-depth signature item is unique whatever its grade (`unique: true`).
+	var gd := game_data()
+	var items := ItemFactory.new(gd)
+	var db := WorldDB.new()
+	var tid: String = _template_of_grade(2)
+	var t: Dictionary = gd.named_item(tid)
+	t["unique"] = true   # restored below: the template dict is the game data's own
+	var unique: bool = items.is_unique(tid)
+	var first: Dictionary = items.named_artifact(tid, 0, db)
+	db.add("items", first)
+	var second: Dictionary = items.named_artifact(tid, 0, db)
+	t.erase("unique")
+	assert_true(unique, "a grade 2 template marked unique is unique")
+	assert_false(first.is_empty(), "the first is made")
+	assert_true(second.is_empty(), "no second while it exists")
+
+
 func test_a_destroyed_unique_item_returns_after_unique_return_years() -> void:
 	# AC-ID-93 with the data value of unique_return_years.
 	var gd := game_data()

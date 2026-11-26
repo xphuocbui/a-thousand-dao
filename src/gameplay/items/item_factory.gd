@@ -174,9 +174,12 @@ func named_artifact(named_id: String, realm_tier: int, db: WorldDB = null, year:
 	}
 
 
-## Whether a named template is unique: rarity (artifact grade + `rarity_offset`) at or above `unique_rarity_min`.
+## Whether a named template is unique: marked `unique` (a signature item, rule 20f), or its rarity (artifact grade +
+## `rarity_offset`) at or above `unique_rarity_min`.
 func is_unique(named_id: String) -> bool:
 	var cfg: Dictionary = _gd.artifacts_file().named
+	if bool(_gd.named_item(named_id).get("unique", false)):   # a signature item, whatever its grade (rule 20f, 2026-11-26)
+		return true
 	return int(_gd.named_item(named_id).get("grade", 0)) + int(cfg.rarity_offset) >= int(cfg.unique_rarity_min)
 
 

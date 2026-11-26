@@ -65,7 +65,7 @@ FAMILIES = {"blade", "body", "earth", "fire", "force-chaos", "ice", "metal", "so
             "wind", "wood", "general"}
 FIELDS = {"id", "name", "family", "kind", "base", "grade", "rarity", "modifiers", "effects", "arts", "wards",
           "reserve_arts", "exception", "sources", "lore", "build_use", "notes", "holder",
-          "set", "made_by", "made_year", "legendary_key", "where"}   # world-depth signature items (rule 20f)
+          "set", "made_by", "made_year", "legendary_key", "where", "unique"}   # world-depth signature items (rule 20f)
 # world-depth sect catalogues (catalogue-sect-<key>.json, ADR-0009) are unpriced (user rule: no W price until the game
 # is finished): the W sum is still noted, OVER_BUDGET and the spend note are skipped there.
 UNPRICED_PREFIX = "catalogue-sect-"
@@ -258,7 +258,7 @@ def main():
             else:
                 findings.append("SCHEMA\t%s\tkind %r is not artifact or treasure" % (where, kind))
                 continue
-            unique = rarity >= UNIQUE_RARITY_MIN
+            unique = rarity >= UNIQUE_RARITY_MIN or bool(it.get("unique"))   # signature items: always (rule 20f)
             src = set(it["sources"])
             if not src or src - SOURCES:
                 findings.append("SCHEMA\t%s\tsources %r: some of %s" % (where, sorted(src), ", ".join(sorted(SOURCES))))

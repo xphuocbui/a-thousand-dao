@@ -148,7 +148,12 @@ Resume here: read this file, then do the first unchecked step.
         `parity_full.log`);
       - (b) export `combat_library.json`, then add a Băng Tâm build to the compile-parity cases and one exact fixture
         that uses the library arts (the 10 arts have not run in GDScript yet);
-      - (c) check how world generation places unique named items (rule 20d: a Kết Đan+ NPC or Lost). The authored
+      - (c) DONE 2026-11-26. `WorldBuilder` runs `_step_cast` before `_step_named_items`. A holder's authored gear
+        makes the item first, and `named_available` then keeps the random rule 20d placement from making a second.
+        A holder not yet in the world (Red Plum's, Phượng Minh) falls back to that placement until their sect's pass.
+        `unique: true` is on the 23 records, carried by `export_named.py` and honoured by `ItemFactory.is_unique`
+        (test `named_items_test.gd`, watched failing first); the rule 20f Counts line is fixed. The original note was:
+        check how world generation places unique named items (rule 20d: a Kết Đan+ NPC or Lost). The authored
         `holder` must win, with a fallback for a holder not yet in the world (Red Plum's holder is Phượng Minh's), and
         rule 20f's Counts bullet needs fixing;
       - (d) dry-run `export_world.py --sect bang_tam --check` for missing ids;

@@ -271,7 +271,9 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
         (format: `design/world/depth/schema.md`, "signature items and sets"). Do not copy them here.
       - **Counts (measured 2026-11-25):** 490 items in 56 files (432 artifacts, 58 treasures; grade 1 / 2 / 3 / 4:
         5 / 69 / 288 / 128), 429 of them set pieces; 166 sets. No grade-4 artifact or rarity-5 treasure is held
-        below Kết Đan, so every unique one meets `holder_realm_min` (rule 20d).
+        below Kết Đan. Since every signature item is unique (2026-11-26), some unique ones are held below Kết Đan
+        (Sở Hàn Y's Snow Step at Trúc Cơ). The holder's own authored gear places them, and `holder_realm_min` binds
+        only rule 20d's random placement, which takes a signature item only when its holder is not in the world.
       - **Status:** every one is `status: "proposal"`, **unpriced and unlinted until the item pass** (user ruling
         2026-11-25: "items stay unpriced proposals until the item pass (item lint to repair)"). The item pass prices
         them against Formulas I and J and lints them; how they then reach the game data (into the `design/items/`
