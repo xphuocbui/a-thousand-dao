@@ -436,3 +436,21 @@ func test_charge_hours_count_distinct_hours_and_this_hour() -> void:
 	f.t = 11500
 	assert_near(f.charge_hours(f.a, "ring", false), 3.0, 1e-9, "hours 0, 1, 2")
 	assert_near(f.charge_hours(f.a, "ring", true), 1.0, 1e-9, "one in the current hour")
+
+
+func test_burning_a_pill_smokes_its_element_once_a_fight() -> void:
+	# test_engine.py t_burn_pill: smoke only (user 2026-11-26)
+	var burn := {"id": "p", "on": "fight_start", "do": [{"burn_pill": {}}]}
+	var count := {"id": "c", "on": "pill_burned", "scale": {"read": "event.grade", "per": 1}, "do": [{"counter": {"id": "grade", "add": 1}}]}
+	var f: Fight = M._fight(M._dummy({"effects": [burn, count], "counters": [{"id": "grade"}], "pill": {"element": "fire", "grade": 2}}), M._dummy())
+	EffectRunner.fire(f, f.a, "fight_start", {})
+	assert_near(EffectRunner._count(f.b.debuffs, "fire"), 8.0, 1e-9, "8 Fire stacks")
+	assert_near(float(f.a.counters["grade"]), 2.0, 1e-9, "pill_burned reports grade 2")
+	EffectRunner.fire(f, f.a, "fight_start", {})
+	assert_near(EffectRunner._count(f.b.debuffs, "fire"), 8.0, 1e-9, "one pill a fight")
+	var g: Fight = M._fight(M._dummy({"effects": [burn], "pill": {"element": "water", "grade": 1, "fail": 1.0}}), M._dummy())
+	EffectRunner.fire(g, g.a, "fight_start", {})
+	assert_near(EffectRunner._count(g.b.debuffs, "ice"), 4.0, 1e-9, "a failed Water pill still smokes, as Ice")
+	var h: Fight = M._fight(M._dummy({"effects": [burn]}), M._dummy())
+	EffectRunner.fire(h, h.a, "fight_start", {})
+	assert_bool(h.b.debuffs.is_empty()).is_true()

@@ -1,0 +1,103 @@
+{
+  "name": "t18_pill_smoke_exact",
+  "slice": 18,
+  "chance_free": true,
+  "seed": 181,
+  "doc": "World-depth Stage 5, slice 3b (2026-11-26; user: pill smoke only for now), chance-free: Pill Smoke. A carries a prepared grade-2 Fire pill with no fail chance; its censer art burns it on the first firing (8 Fire debuff stacks on B for 6 s, the pill_burned event) and is only a small Chaos puff after; a pill_burned listener counts the grade. B carries a Water pill (it smokes as Ice) and burns it when its health first falls below half.",
+  "a": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "censer-monk",
+    "pill": {
+      "element": "fire",
+      "grade": 2
+    },
+    "counters": [
+      {
+        "id": "grade"
+      }
+    ],
+    "arts": [
+      {
+        "name": "pill-smoke",
+        "c": 0.3,
+        "cost": 0.03,
+        "cd": 4.0,
+        "element": "wood"
+      },
+      {
+        "name": "palm",
+        "c": 0.9,
+        "cost": 0.04,
+        "cd": 2.0
+      }
+    ],
+    "effects": [
+      {
+        "id": "burn-it",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "pill-smoke"
+        },
+        "do": [
+          {
+            "burn_pill": {}
+          }
+        ]
+      },
+      {
+        "id": "count-grade",
+        "on": "pill_burned",
+        "scale": {
+          "read": "event.grade",
+          "per": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "grade",
+              "add": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "river-healer",
+    "pill": {
+      "element": "water",
+      "grade": 1
+    },
+    "arts": [
+      {
+        "name": "cut",
+        "c": 1.0,
+        "cost": 0.04,
+        "cd": 2.0
+      }
+    ],
+    "effects": [
+      {
+        "id": "last-pill",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<",
+            "value": 0.5
+          }
+        ],
+        "do": [
+          {
+            "burn_pill": {}
+          }
+        ]
+      }
+    ]
+  }
+}

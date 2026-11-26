@@ -126,6 +126,8 @@ def compile_case(inp):
     finally:
         F._LIB["techs"].pop("character", None)
     rec = dataclasses.asdict(b)
+    if rec.get("pill") == {}:   # a field added later stays out at its default (world-depth Stage 5: pill)
+        rec.pop("pill", None)
     for art in rec.get("arts", []):   # fields added later stay out at their default (world-depth Stage 5: escape)
         if art.get("escape") == 0.0:
             art.pop("escape", None)

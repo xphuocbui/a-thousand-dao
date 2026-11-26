@@ -152,6 +152,7 @@ class Build:
     purity: dict = field(default_factory=dict)
     effects: list = field(default_factory=list)    # Effect records (dicts)
     counters: list = field(default_factory=list)   # self-counter definitions (dicts)
+    pill: dict = field(default_factory=dict)       # a prepared pill: {element, grade, fail} (2026-11-26, smoke only)
     companions: list = field(default_factory=list)  # {"c": coefficient, "dtype": ..., "cd": s}
     divine_sense: float = 1.0
     soul_res: float = 0.0
@@ -243,6 +244,7 @@ class Side:
         self.channel_until = None   # an escape channel open: ms it ends (Combat rule 10; one per side)
         self.channel_e = 0.0
         self.fled = False
+        self.pill_used = False      # the prepared pill was burned (burn_pill; one pill a fight)
         self.loss_log = []          # [ms, health lost, linh luc lost] per pulse, the last 30 s (lost_last)
         self.loss_prev = None       # health and linh luc at the last pulse's end
         self.temp_mods = []                         # [key, value, until_ms, filter]
@@ -1670,6 +1672,20 @@ class Fight:
                     s.dealt -= over
                     s.trig_dmg -= over
                     s.clipped["trig_budget"] = s.clipped.get("trig_budget", 0) + 1
+            elif verb == "burn_pill":
+                # Burn the prepared pill (Effects rule 6, 2026-11-26; Pill Smoke; smoke only for now): its smoke lays
+                # stacks_per_grade x grade debuff stacks of its element on the foe (Water smokes as Ice, no element as
+                # Wood), whether or not it fails; its fail chance is drawn when it is between 0 and 1.
+                pill = s.b.pill
+                if not pill or s.pill_used:
+                    continue
+                s.pill_used = True
+                el = {"water": "ice", "": "wood"}.get(pill.get("element", ""), pill.get("element", ""))
+                grade = int(pill.get("grade", 1))
+                self.add_stacks(s, o, el, arg.get("stacks_per_grade", 4) * grade, arg.get("for", 6.0), buff=False)
+                fail = float(pill.get("fail", 0.0))
+                failed = fail >= 1 or (fail > 0 and self.rng.random() < fail)
+                self.fire_event(s, "pill_burned", {"element": el, "grade": float(grade), "failed": 1.0 if failed else 0.0})
             elif verb == "stacks":
                 tgt = o if arg.get("side", "foe") == "foe" else s
                 self.add_stacks(s, tgt, arg["el"], arg["n"] * n, arg.get("for"), buff=(tgt is s), mark=arg.get("mark"))

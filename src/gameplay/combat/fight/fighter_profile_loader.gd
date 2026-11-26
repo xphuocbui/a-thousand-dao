@@ -75,7 +75,7 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 		var name: String = str(key)
 		if BUILD_FLOATS.has(name) or name in ["realm", "resist", "arts", "companions", "shields", "wards", "purity",
 				"stack_eff", "stack_dur", "cleanse_pulse", "effects", "counters", "layers", "boss", "states", "refusals",
-			"stack_alias"] \
+			"stack_alias", "pill"] \
 				or name in BUILD_NEUTRAL:
 			continue
 		if name in BUILD_NOT_PORTED:
@@ -115,6 +115,8 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 			p.state_start = str(st.id)
 	if d.get("layers") is Array:
 		p.layers = PackedFloat64Array(d.layers)
+	if d.get("pill") is Dictionary:   # a prepared pill (world-depth Stage 5, smoke only)
+		p.pill = (d.pill as Dictionary).duplicate()
 	for c in d.get("counters", []):
 		if not (c is Dictionary) or str(c.get("id", "")) == "":
 			errors.append("%s: a counter has no id" % where)

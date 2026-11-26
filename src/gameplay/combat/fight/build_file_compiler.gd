@@ -576,6 +576,8 @@ func _to_build(d: Dictionary, r: int, who: String) -> Dictionary:
 	b["layers"] = _pad(layers, 5)
 	b["effects"] = Array(d.get("effects", [])).duplicate(true)
 	b["counters"] = Array(d.get("counters", [])).duplicate(true)
+	if d.get("pill") is Dictionary and not (d.pill as Dictionary).is_empty():   # absent while empty, as fight.py's cases
+		b["pill"] = (d.pill as Dictionary).duplicate()
 	b["states"] = Array(d.get("states", [])).duplicate(true)
 	if d.has("divine_sense"):
 		b["divine_sense"] = float(d.divine_sense)

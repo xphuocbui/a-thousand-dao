@@ -92,6 +92,8 @@ var feeds: Array = []
 ## order the sim sums them); per event, the Effects listening (held ones included) in order. Built by the loader.
 var effects: Array[EffectDef] = []
 var counter_def: Dictionary = {}
+## A prepared pill, {element, grade, fail} (world-depth Stage 5, smoke only); empty: none.
+var pill: Dictionary = {}
 var always_by_key: Dictionary = {}
 var listeners: Dictionary = {}
 ## Damage layer points x1..x5 (Combat Formulas A), when given; layer mods then meet exact caps.

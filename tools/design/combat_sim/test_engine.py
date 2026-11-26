@@ -236,6 +236,28 @@ def t_charge_hours():
     check("one charge laid in the current hour (2)", f.read(A, "own.counter_this_hour.ring") == 1.0)
 
 
+def t_burn_pill():   # Pill Smoke, smoke only (user 2026-11-26)
+    burn = {"id": "p", "on": "always", "do": []}
+    seen = []
+    f, A, B = setup(a=dummy(pill={"element": "fire", "grade": 2}))
+    orig = f.fire_event
+    f.fire_event = lambda s, name, ev: (seen.append(ev) if name == "pill_burned" else None, orig(s, name, ev))[1]
+    f.do(A, burn, [{"burn_pill": {}}], 1.0, {})
+    check("a grade-2 Fire pill smokes 8 Fire stacks onto the foe for 6 s",
+          B.count(B.debuffs, "fire") == 8 and B.debuffs[0][2] == f.t + 6000, str(B.debuffs))
+    check("pill_burned reports element, grade and success", seen == [{"element": "fire", "grade": 2.0, "failed": 0.0}], str(seen))
+    f.do(A, burn, [{"burn_pill": {}}], 1.0, {})
+    check("one pill a fight", B.count(B.debuffs, "fire") == 8 and len(seen) == 1)
+    f, A, B = setup(a=dummy(pill={"element": "water", "grade": 1, "fail": 1.0}))
+    seen.clear()
+    f.fire_event = lambda s, name, ev: (seen.append(ev) if name == "pill_burned" else None, orig(s, name, ev))[1]
+    f.do(A, burn, [{"burn_pill": {}}], 1.0, {})
+    check("a failed Water pill still smokes, as Ice", B.count(B.debuffs, "ice") == 4 and seen[0]["failed"] == 1.0, str(seen))
+    f, A, B = setup()
+    f.do(A, burn, [{"burn_pill": {}}], 1.0, {})
+    check("with no pill nothing happens", not B.debuffs)
+
+
 # ---- world-depth Stage 5 slice E (2026-11-26): escape (Combat rule 10, Formulas I)
 class _Roll:
     """A random stream that returns fixed values, and fails the test if drawn when it must not be."""

@@ -629,6 +629,24 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 						x.until = f.t + x.length
 			"protect":
 				s.protect[str(arg.el)] = {"for_first": arg.get("for_first"), "swap_buff": bool(arg.get("swap_buff", false))}
+			"burn_pill":
+				# Burn the prepared pill (Effects rule 6, 2026-11-26; Pill Smoke; smoke only): stacks_per_grade x grade debuff
+				# stacks of its element on the foe (Water as Ice, none as Wood), failed or not; its fail chance is drawn
+				# when between 0 and 1. As engine.py.
+				var pill: Dictionary = s.p.pill
+				if pill.is_empty() or s.pill_used:
+					continue
+				s.pill_used = true
+				var pel: String = str(pill.get("element", ""))
+				if pel == "water":
+					pel = "ice"
+				elif pel == "":
+					pel = "wood"
+				var grade: int = int(pill.get("grade", 1))
+				f.add_stacks(s, o, pel, float(arg.get("stacks_per_grade", 4)) * grade, float(arg.get("for", 6.0)), false)
+				var fail: float = float(pill.get("fail", 0.0))
+				var failed: bool = fail >= 1.0 or (fail > 0.0 and f.rng.randf() < fail)
+				fire(f, s, "pill_burned", {"element": pel, "grade": float(grade), "failed": 1.0 if failed else 0.0})
 			"refuse_down", "last_act", "last_act_window":
 				pass   # read by the Down step
 			"stop_clock":   # Effects rule 6 (2026-11-26): the side's clock does not run for N s
