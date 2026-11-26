@@ -181,6 +181,9 @@ nothing in this paragraph fixes a number.
       secret realm (bí cảnh) it controls when the realm opens (Travel & Map rule 26).
     - **An elder's guidance:** a season of an elder's help with cultivation or a breakthrough attempt (the bonus belongs to
       Realms & Bottlenecks; until Realms defines it, this service is not offered).
+    - **Formation teaching** (built 2026-11-24): each fixed sect teaches a hand-assigned list of combat formations
+      (`assets/data/sects_teaching.json`), each at the rank its grade needs, for contribution by grade (not F14: the
+      price is Formations' own, rule 8 of `design/gdd/formations.md`, which owns the lists, ranks and prices).
     - **Borrowing a treasure:** a sect treasure for some seasons, against a deposit in contribution that is returned when
       the treasure is. Losing it costs the deposit and standing.
     - **Protection and a levy call:** the sect warns off or hunts a named enemy of the player, or sends members to help in
@@ -188,9 +191,6 @@ nothing in this paragraph fixes a number.
     - **A voice in the council** (elders only): a pull of +1 or −1 on one dial for 4 seasons, added to the leader's pulls
       (F6). It is how an elder prepares a bid for the head seat (rule 28).
     Top-grade stock (Nguyên Anh and Hóa Thần goods) stays rare, refills slowly with Institutions, and is gated by rank.
-20. **Joining.** A loose cultivator who passes the sect's gate (spiritual root fit if the sect asks, a realm floor,
-    **standing** at least the recruit line, and the sect's Recruitment dial) joins as an outer disciple. A minor sect's
-    gate is easier, its teaching and manuals smaller, and its lord's reach can pull you into its levy.
 19b. **Titles on the ladder (new, 2026-11-25).** The authored world-depth cast uses five titles. Each **maps** to one
     of the four ranks of rule 19, and every rule that reads a rank (realm gate, contribution, stipend, duty, residence,
     services, the rank weight of rule 20a, the ranks of F11 and F13) reads the mapped rank, except where a line below
@@ -208,18 +208,18 @@ nothing in this paragraph fixes a number.
     stipends (F3), add their realm to war strength (F8) and can die in a war (F9).
     The teaching order of the ranks a lineage method names is: outer disciple < inner disciple = steward < true disciple
     < elder = grand elder < head. A technique marked `forbidden` is taught to no rank (it is the sect's sealed manual).
-20a. **Masters at joining** (user decision 2026-11-21). When a sect takes in an NPC (F17 intake or rule 20), with chance
-    `master_share` (0.3, World Generation rule 8's share, so it holds after the first generation) it gives the newcomer
-    a master: a living member of a higher realm with fewer than `disciples_max` (3) living disciples, weighted
+20. **Joining.** A loose cultivator who passes the sect's gate (spiritual root fit if the sect asks, a realm floor,
+    **standing** at least the recruit line, and the sect's Recruitment dial) joins as an outer disciple. A minor sect's
+    gate is easier, its teaching and manuals smaller, and its lord's reach can pull you into its levy.
     *(Amended 2026-11-25.)* "Root fit if the sect asks" is now the **admission test** of rule 20c for every sect with
     lineage elements, the player included: a root that fails the outer test cannot join that sect, and the gate says
     why. A no-lean sect (rule 20d) asks no root.
+20a. **Masters at joining** (user decision 2026-11-21). When a sect takes in an NPC (F17 intake or rule 20), with chance
+    `master_share` (0.3, World Generation rule 8's share, so it holds after the first generation) it gives the newcomer
+    a master: a living member of a higher realm with fewer than `disciples_max` (3) living disciples, weighted
     `w = 1 + rank index` (outer 1, inner 2, elder 3, head 4; rank follows realm, rule 19). The pair holds sư đồ (NPC
     Relationships rule 8, sect life), and the newcomer's traits roll with the master's lean (NPC Traits F5). No eligible
     member: no master. The player is never assigned one; they ask through the bond verb.
-21. **Standing** (−100 to 100, per sect and per player) is what a sect thinks of the player. It sets offers, prices
-    (a discount at good standing, a surcharge at poor), who recruits you, which manuals you may buy, and whether the
-    sect hunts you. This answers Quests open question 10. Harming a sect's members, stealing, deserting or breaking a
 20b. **Every sect has a công pháp lineage (new, 2026-11-25; R5, approved).** A sect record carries `lineage`:
 
     | Field | Meaning |
@@ -291,6 +291,9 @@ nothing in this paragraph fixes a number.
       Triều's oath, Chân Kim's eye); five also by kin. The export maps the line and the oath to đạo tâm and the eye to
       ngộ tính (a guess; Open Questions 16). No great sect is no-lean.
     - A no-lean sect still has a lineage (rule 20b) and the 80 % rule; only `elements` is empty.
+21. **Standing** (−100 to 100, per sect and per player) is what a sect thinks of the player. It sets offers, prices
+    (a discount at good standing, a surcharge at poor), who recruits you, which manuals you may buy, and whether the
+    sect hunts you. This answers Quests open question 10. Harming a sect's members, stealing, deserting or breaking a
     mission lowers it, and the sect's allies and vassals share part of the fall.
 22. **Leaving.** A member may leave on good terms (pay what was borrowed, give up the residence), or desert. Deserting
     costs standing with the sect and its allies and marks the player as hostile at the threshold (Quests
@@ -330,13 +333,13 @@ nothing in this paragraph fixes a number.
     density), a stated sum, and enough disciples, may found a **minor sect** inside one great sect's territory. It
     starts as that great sect's vassal, and may break away later by war (rule 6). A founded sect has its own record, dials
     and development like any other minor sect. The seat's stacked density counts only **active** home works; a work held dormant for lack of slots counts for nothing (`design/gdd/cave-abode.md` rules 3, 9).
-30. **NPCs found sects too.** Each season, in a great sect's territory that holds fewer minor sects than its authored
-    count, one NPC who meets rule 29's terms may found a minor sect (chance 0.05 a season, a guess). This replaces fallen
-    minor sects over time, so the world keeps 15–25 of them.
     *(Amended 2026-11-25.)* A founded sect's lineage (rule 20b) is its founder's: `main` is the founder's main
     technique, `elements` its element list (in the technique's order), `outer` the generated Yellow stand-in of the main
     element, and no secret, body or tree route until the founder adds them. A founder whose main technique runs on no
     element founds a no-lean sect. The rule 30 NPC founder follows the same rule (Open Questions 17).
+30. **NPCs found sects too.** Each season, in a great sect's territory that holds fewer minor sects than its authored
+    count, one NPC who meets rule 29's terms may found a minor sect (chance 0.05 a season, a guess). This replaces fallen
+    minor sects over time, so the world keeps 15–25 of them.
 
 *All numbers named "stated" or marked as thresholds are guesses until Formulas and the balance pass.*
 
@@ -442,15 +445,15 @@ Nguyên Anh or above, it becomes a **great sect** of tier 2 (rare; user decision
 | **Item Database** | out | Sect rewards (named templates, as Item Database line 240 waits on). |
 | **Guidance Layer** (#35) | out | Sect states, offers and threats the advisor can surface. |
 | **Time & Turn** (#4) | in | The season clock, and seasons spent on missions, duties and leader decisions. |
-
-## Formulas
-
 | **Spiritual Roots (Linh Căn, #6)** (new, 2026-11-25) | in | Each person's root (elements, variants and purities), which admission reads (rule 20c, F20); a root change after joining marks the member, it never expels them. |
 | **Character Stats** (talents) (new, 2026-11-25) | in | The thiên phú talents a no-lean sect recruits by (`recruit_by`, rule 20d, F21). |
 | **Cultivation Techniques** (#9) (lineage, new 2026-11-25) | in | The lineage's methods, their tiers and the rank each is taught at (rule 20b); the proposals wait for its catalogue pass. |
 | **Đạo Đồ** (new, 2026-11-25) | out | `lineage.tree_route`: 2-4 notables a sect's members take early, read by NPC build generation. |
 | **Living World Tick** (#28) (intake, amended 2026-11-25) | in / out | In: the season's pool of new cultivators, each with a birthplace and a root. Out: which pool members each sect admits (F21); the rest are loose. |
 | **Provinces** (#48) (new, 2026-11-25) | in | The seat province of a moved seat (Provinces rule 2a), including Phượng Minh's in `prov_phan_vu`. |
+
+## Formulas
+
 All values are **guesses** until the sect season tick runs in the Balance Simulation Harness (#33) for 400 seasons
 (Acceptance Criteria). Specialists consulted: `systems-designer` (F1–F13), `economy-designer` (budgets, cost curve,
 dampers). Realm-indexed lists run Luyện Khí / Trúc Cơ / Kết Đan / Nguyên Anh / Hóa Thần. All values live in a new data
@@ -869,13 +872,13 @@ council pull (rule 19a) is separate.
 
 The trait list itself (37 personality traits in 18 opposed sets, 14 callings, 10 fate-given and 16 gained traits) lives in
 `design/gdd/npc-traits-catalogue.md` (rules in `design/gdd/npc-traits.md`, NPC Traits #42). Sects owns only the pull kinds above.
-
-**Output Range:** dial pulls from one leader can sum to −3 – +3 on a dial (F6 clamps the target to 0–4). War odds run 0.8
-– 1.2, weariness limits 20 – 60, invest share 0.35 – 0.6.
 **Back-link 2026-11-25** (NPC Traits traits v2, rule 2a): the counts above are v1. Since 2026-11-25 only 4 fate-given
 traits are kept, and § Traits v2 adds 80 traits in six kinds. Four `policy:` hooks join F15 as pulls when the holder
 leads a sect (proposed: `tradition` Openness −1, `trade` first track Trade, `caution` war odds 1.2, `openness`
 Openness +1; catalogue § Hooks by consumer). Sects owns the mapping, which is not yet confirmed.
+
+**Output Range:** dial pulls from one leader can sum to −3 – +3 on a dial (F6 clamps the target to 0–4). War odds run 0.8
+– 1.2, weariness limits 20 – 60, invest share 0.35 – 0.6.
 **Example:** a Greedy, Ambitious, Paranoid Strategist: Tax +1, Expansion +1, War readiness +1, loyalty −2, war odds 0.9,
 first track Military. Absolute pulls sum to 3, so the leader is bold (F6). With a hostile neighbour (War readiness need
 +1), its War readiness target is 2 + 1 + 1 = 4, reached in one season.
@@ -917,14 +920,14 @@ Rank follows realm (rule 19). Deaths come from the world tick, losses from F9, d
 
 **Output Range:** 0 – 0.2 · target a season; 0 at or above target. **Example:** a minor sect at capacity 56 with 38 members and Recruitment 2: target 50, intake round(0.10 · 12) = **1**.
 
-### F18. War target and goal
-
-The war_goal rule is defined as:
 *(Amended 2026-11-25.)* The intake is a **demand**. Living World Tick Formulas D turns it into a claim on the season's
 pool, and **F21 fills the claim only with pool members whose roots pass the sect's outer test** (rule 20c). A claim
 that finds too few such members is filled in part; the rest lapses that season and is not carried over. A pool member
 no sect admits is loose.
 
+### F18. War target and goal
+
+The war_goal rule is defined as:
 
 Target = the sect this one is in a feud with that has the lowest S_other (F8) among those passing the F7 war-odds test, where `war_odds' = max(0.6, war_odds − 0.1 · max(0, Expansion − 2))`. Goal tier by Expansion:
 
@@ -946,9 +949,6 @@ The invest_track rule is defined as:
 
 **Output Range:** exactly one track a season. **Example:** FX-T1 (6/6/6/6) at peace: C shares (Holdings / Institutions / Military / Trade) are 0.25 / 0.31 / 0.25 / 0.19, against the mix 0.25 / 0.20 / 0.30 / 0.25 the deficits are 0 / −0.11 / +0.05 / +0.06, so Trade is chosen.
 
-**Highest risks** (from the specialists): the F3 money flow (mission fees and V_own depend on #43); F9 wars ending in
-truce too often or chính–ma feuds never ending; minor-sect solvency; the contribution stock at the top realms (a Hóa Thần
-earns contribution faster than a sect's stock refills). Each needs the 400-season simulation run.
 ### F20. Admission test (new, 2026-11-25)
 
 The admission rule is defined as:
@@ -1059,6 +1059,9 @@ difference the array makes does not (Open Questions 13).
 `lineage_share_min` 0.80 (rule 20b: a content check on authored members, safe 0.7-0.95; lower lets more outside
 methods in); `array_round` 0.05 (F22). All live in `sects.json`.
 
+**Highest risks** (from the specialists): the F3 money flow (mission fees and V_own depend on #43); F9 wars ending in
+truce too often or chính–ma feuds never ending; minor-sect solvency; the contribution stock at the top realms (a Hóa Thần
+earns contribution faster than a sect's stock refills). Each needs the 400-season simulation run.
 
 ## Edge Cases
 
@@ -1128,9 +1131,6 @@ methods in); `array_round` 0.05 (F22). All live in `sects.json`.
 - **The player deserts while head.** Succession runs at once. Desertion's standing loss (F10) applies, and the sect's
   allies and vassals take half.
 
-**Small-case defaults** (all guesses; listed in Open Questions for review)
-
-- **A notable choice** (rule 14) is a dial reaching 0 or 4, a dial moving 2 steps in one season, a war declared, a pact
 **Lineage, admission and seats (2026-11-25)**
 
 - **A member's root changes after joining** (Linh Căn root change, an injury, a lost variant). They keep their rank and
@@ -1159,6 +1159,9 @@ methods in); `array_round` 0.05 (F22). All live in `sects.json`.
 - **A lineage method is missing from the catalogue at load** (an unpriced proposal not yet exported). The load fails and
   names the sect and the technique id (AC-SM-64); a generated stand-in is never silently used for a lineage member.
 
+**Small-case defaults** (all guesses; listed in Open Questions for review)
+
+- **A notable choice** (rule 14) is a dial reaching 0 or 4, a dial moving 2 steps in one season, a war declared, a pact
   formed or broken, a rebellion, a succession, or a fall.
 - **A mission's nudge** (rule 26): a won raid or defence adds 1 to the sect's war score, a failed one subtracts 1; a
   successful diplomacy mission adds 3 loyalty to the vassal concerned. Gathering and escort missions move goods, not money.
@@ -1193,15 +1196,15 @@ methods in); `array_round` 0.05 (F22). All live in `sects.json`.
 | Formations (#17) | Soft | Sect-owned arrays (teleport, protective, standing at the seat) use Formations' array record; sects teach combat diagrams. The seat's `def` 1.2 "Formations bonus" stays Sects' number until Formations Open Question 7 settles whether seat arrays feed it | Yes (`design/gdd/formations.md`, designed 2026-11-21) | Yes |
 | Alchemy (#15) | Soft | Pills for the kind stipend come from workshops brewing Alchemy's recipes (Trade Goods' kind share) | Yes (`design/gdd/alchemy.md`, designed 2026-11-21) | Yes |
 | Cave Abode & Home Works (#47) | Soft | The abode's active works and grade for the `seat_density` check (rule 29) | Yes (`design/gdd/cave-abode.md`, designed 2026-11-21) | Yes |
-
-**Downstream (they read this system)**
-
 | Spiritual Roots (Linh Căn, #6) (new, 2026-11-25) | Hard | Each person's root (elements, variants, purities) for admission (rule 20c, F20) and the intake score (F21); root changes mark members | Yes (`linh-can.md`) | Yes (Interactions row "Sects & Missions", 2026-11-25) |
 | Character Stats (talents) (new, 2026-11-25) | Soft | The thiên phú talent a no-lean sect recruits by (rule 20d, F21) | Yes | Owed |
 | Cultivation Techniques (#9) (lineage, new 2026-11-25) | Hard | The lineage's methods, tiers and teaching ranks (rule 20b); the 180 proposals wait for its catalogue pass | Yes (`cong-phap.md`) | Owed (the read direction) |
 | Living World Tick (#28) (intake, new 2026-11-25) | Hard | The season's pool, each member with a birthplace and root; the claims of its Formulas D (F21) | Yes (`living-world-tick.md`) | Owed (claims filled under admission) |
 | NPC Relationships (#46) (kin, new 2026-11-25) | Soft | Families (parent, grandparent) for F21's kin term | Yes | Owed |
 | Provinces (#48) (new, 2026-11-25) | Soft | Seat provinces of moved seats, Phượng Minh's in `prov_phan_vu` (rule 3a; Provinces rule 2a) | Yes (`provinces.md`) | Yes (rule 2a, 2026-11-25) |
+
+**Downstream (they read this system)**
+
 | System | Hard / soft | Interface | Lists Sects back? |
 |---|---|---|---|
 | Travel & Map (#25) | Hard | Holder of each region and site, territory changes, array access, `owner_mult` | Yes |
@@ -1434,9 +1437,6 @@ seed, season, record id). Evidence goes to `tests/unit/sects/`, `tests/integrati
 - **AC-SM-56** [Logic] F10, rule 23a. **GIVEN** a discovered leak, **THEN** the seller and the holder each lose 40 standing with the owner; **GIVEN** a refused levy, **THEN** −10 with the player's own sect. Standing is stored per (sect, player) as a float.
 - **AC-SM-57** [Logic] F15 dispute ruling. **GIVEN** two vassals at loyalty 40 and 70 and a head with no ruling trait, **THEN** they become 42 and 70; **GIVEN** a Just head, **THEN** 42 and 72; **GIVEN** a Steward at Thriving, **THEN** its Tax pull is −1 and it is 0 otherwise.
 
-## Open Questions
-
-User direction, 2026-11-14 (built into this GDD): major sects are the powers; minor sects are their vassals; sects decide
 **Lineage, admission and seats (2026-11-25)**
 
 - **AC-SM-59** [Logic] F20, rule 20c. **GIVEN** Băng Tâm's lineage `[bang, thuy]`, **THEN** a root of Water 62 with no
@@ -1488,6 +1488,9 @@ User direction, 2026-11-14 (built into this GDD): major sects are the powers; mi
   sect admits at least 1 member in every 20-season window; AC-SM-42's members-by-realm band still holds; the share of
   new cultivators left loose is reported (an observation, no band until Open Questions 18 is answered).
 
+## Open Questions
+
+User direction, 2026-11-14 (built into this GDD): major sects are the powers; minor sects are their vassals; sects decide
 each region's economy through their development and their leaders' decisions; leaders' traits work like the character
 traits of grand-strategy games (NPC Traits #42).
 
