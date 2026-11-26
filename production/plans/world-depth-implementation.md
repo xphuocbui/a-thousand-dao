@@ -1,50 +1,90 @@
-# World depth in the running game: plan (2026-11-25)
+# World depth in the running game: plan (2026-11-25, rewritten 2026-11-26)
 
-**Status:** PLAN. The content review and its fixes are done (below); Stage 0 is next.
+**Status:** PLAN. The content review and its fixes are done. The art is painted (portraits in the xianxia style,
+places in the grand style). Stage 0 is next.
 
-**Asked:** the user, 2026-11-25: "before the implementation work, could you please first mark down the plan, then
-before the plan execution, do a full review of the casts, events, builds that we did tonight, content-wise".
+**Asked:**
+- the user, 2026-11-25: "before the implementation work, could you please first mark down the plan, then before the
+  plan execution, do a full review of the casts, events, builds that we did tonight, content-wise".
+- the user, 2026-11-26: "please make sure to include everything, including the effects and items that are not in the
+  game in the implementation".
 
-**Design:** the GDDs amended 2026-11-25 from the user's rulings (`design/world/depth/DECISIONS-2026-11-25.md`, groups
-1-12):
-- Linh Căn rule 2 and Formulas A2 / D4;
-- Provinces rules 2a / 3a;
+**The 2026-11-26 ruling, which shapes this plan.** Everything the world-depth content names goes into the game:
+- every proposal technique and its arts;
+- every item, set bonus and Effect;
+- every engine feature those Effects need (`builds/engine-wishes.md`, the duel readings);
+- the beasts, the new statuses, tags and modifier keys.
+
+Stand-in techniques (`<hoang|huyen|dia|thien>_<element>`) are allowed only as a temporary step while stages land. They
+are not an end state: the plan is done only when the gap report (Stage 1) shows zero stand-ins and zero unwired
+records. This answers the old D2 question. Recorded in `design/world/depth/DECISIONS-2026-11-26.md`.
+
+**Design:** the GDDs were amended on 2026-11-25 from the user's rulings in `design/world/depth/DECISIONS-2026-11-25.md`,
+groups 1-12:
+- Linh Căn rule 2, Formulas A2 and D4;
+- Provinces rules 2a and 3a;
 - Sects rules 3a, 19b, 20b-20d and F20-F22;
-- World Generation rules 3a, 5, 5a, 6, 6a, 8a, 16, 16a and Formulas E / F / G;
+- World Generation rules 3a, 5, 5a, 6, 6a, 8a, 16, 16a and Formulas E, F and G;
 - NPC Traits (v2) and its catalogue;
-- Item Database rules 20f / 20g / 22 and Formulas J;
-- Combat rules 25 / 26 and Formulas L; Effects rules 17-19.
+- Item Database rules 20f, 20g and 22, and Formulas J;
+- Combat rules 25 and 26, and Formulas L;
+- Effects rules 17-19.
 
 The content is in `design/world/depth/` (`SUMMARY-2026-11-25.md`).
 
 ## Start here (for a new session)
 
-1. **Read these, in order:**
+1. **Read, in order:**
    - this plan;
    - `design/world/depth/README.md` and `SUMMARY-2026-11-25.md` (what the content is);
-   - `design/world/depth/DECISIONS-2026-11-25.md`, groups 1-14 (every user ruling);
+   - `design/world/depth/DECISIONS-2026-11-25.md` groups 1-14, and `DECISIONS-2026-11-26.md` (every user ruling);
    - `design/world/depth/schema.md` (record fields);
-   - `design/world/depth/art/README.md` (the art method), only if you touch the art.
+   - `design/world/depth/builds/README.md`, `engine-wishes.md`, `duel-readings.md` and `authored/WIRED.md` (what
+     the builds need from the engine, and what is still open);
+   - `design/world/depth/art/README.md` (the art method), only for Stage 3.
 2. **Checkers to keep green:**
    - `python -I tools/design/world/depth_check.py` (content: roots, admission, bands, opposite traits, routes, ties);
-   - `python -I tools/design/world/art_prompt_check.py` (art prompts).
+   - `python -I tools/design/world/art_prompt_check.py`, for the `x-*` batches only.
+     - The `p*` batches are superseded by the xianxia rewrite (`x-*`). Their flags, such as p07, are not yours.
+     - The 14 flags left on `x-*/demo.json` are the user-approved demo prompts, so leave them.
+   - the game suites: `tools/run-tests-parallel.sh` (memory: the parallel runner, with integration and parity) and the
+     smoke check;
+   - the exporters' `--check` modes: `export_named.py`, `export_techniques.py` and `export_combat_library.py`.
 3. **Commits so far (all on main, not pushed):**
    - 7a5d139f: the content and GDD amendments;
    - 4f89c796: the Phất Y rename and the builds folder;
    - 5ababc91: story pass B;
    - 4f5305a2: depth and tone;
    - 251d240e: the art prompts;
-   - e2ce0d41: the prompt fixes and this plan.
+   - e2ce0d41 and 65d2f3fa: the prompt fixes and this plan's first version;
+   - the xianxia art pass: see `production/session-state/active.md` (the content session commits it).
+4. **Rules that bind this work** (from the user's memory rules):
+   - **Commit only your own paths** (`git commit -- <paths>`). Another session owns the "Formation teaching" bullet in
+     `design/gdd/sects.md`, so never stage that hunk. The formations session owns `formations.md`, and the provinces
+     session owns the provinces runtime code.
+   - **Both engines.** Every fight feature and every Effect lands in GDScript (`src/gameplay/combat/fight/`) and in
+     `tools/design/combat_sim/fight.py`, with the parity tests green.
+   - **Effects are hand-designed and unpriced.** No W price and no price check until the game is finished.
+   - **Bulk authoring.** About 50 records per batch, the checker handed over up front, all rules in one list, an early
+     content read, and "rewrite", never "expand". Batch subagents use model `sonnet`.
+   - **No environment conditions** in fight rules (terrain, biome, weather, place). **Scale without caps:** a cost or
+     a decay bounds a piece, not a cap.
+   - **Run and observe:** every player-visible change is launched and kept as a screenshot in `production/qa/evidence/`.
+     Warn the user before a batch of Godot windows, use `--shots` and the cached test world, and keep ratings off in
+     test runs.
+   - **Missing art** shows PlaceholderArt (magenta stripes), never a stand-in that looks finished.
+   - **GDD edits go to the user** section by section; the user approves each one.
 
-   **Commit only your own paths** (`git commit -- <paths>`). Another session owns
-   the "Formation teaching" bullet in `design/gdd/sects.md`: never stage that hunk.
-4. **Do not touch** `design/world/depth/art/` or `tools/asset-pipeline/portraits/` while the paint run (started
-   2026-11-25 evening in the content session) is going. Check `production/session-state/active.md` for its state.
+## Where things stand (updated 2026-11-26)
 
-## Where things stand (updated 2026-11-25, late)
+- **Content:**
+  - 1,891 people (1,748 living) in 50 sects and 6 outside groups;
+  - 490 items in 166 sets;
+  - 180 proposal techniques with 331 new arts;
+  - 21 named beasts;
+  - about 264 new dated events;
+  - 435 hand-picked Đạo Đồ routes.
 
-- **Content:** 1,891 people (1,748 living) in 50 sects and 6 outside groups; 490 items in 166 sets; 180 proposed
-  techniques; ~264 new dated events; 435 hand-picked Đạo Đồ routes. The content review is done (below), and
   `depth_check.py` reports no findings.
 - **Keys renamed during the fixes**, so the export must use the new keys:
   - `thach_tang_danh` became `thang_vo_ta`, already changed in `assets/data` too;
@@ -52,126 +92,260 @@ The content is in `design/world/depth/` (`SUMMARY-2026-11-25.md`).
   - `ta_bat_luu` became `cat_da_binh`;
   - Thải Chi's five Nghiêm herb names became `nghiem_kim_ngan`, `nghiem_bac_ha`, `nghiem_ha_kho`, `nghiem_hoi_huong`
     and `nghiem_ngu_vi`.
-- **New people:** `ha_tinh_can` (Cốc Vũ, tier B) and `mac_thang_kieu` (Tùng Đào, tier C, held in Lô Niệm Ca's cellar).
-  **Removed:** none.
-- **Chronicle data already changed in `assets/data/world_history.json`** (user approved): A225's text, the Phất Y
-  founding with no poem; and C023, Lôi Vô Danh dies of the miasma.
-- **Game data otherwise unchanged:** `world_history.json` still holds the old 106 people and 54 authored builds. Only
+- **People:**
+  - **new:** `ha_tinh_can` (Cốc Vũ, tier B) and `mac_thang_kieu` (Tùng Đào, tier C, held in Lô Niệm Ca's cellar);
+  - **removed:** none;
+  - **kept from `world_history.json`, not in the depth content:** 18 dead founders and last heads of fallen sects:
+
+    | Sect | People |
+    |---|---|
+    | khong_son | bui_loc_trai, thoi_bat_kien |
+    | xich_thanh | chu_liet_nhat, ton_ha_khoi |
+    | cuu_thieu | co_phuong_nghi, lac_thieu_am |
+    | lac_anh | dao_tan_phan, diep_phi_hong, khuong_vong_nguyet |
+    | co_pham | giang_bich_khong, ma_vien_anh |
+    | pha_quan | ha_lang_tinh |
+    | khai_loi | hau_xuan_loi, ly_thien_co |
+    | ho_thien | khuc_ho_gia |
+    | han_giang | lieu_co_chu, lieu_thoa_lap |
+    | thon_hai | o_kinh_hai |
+
+    The merge must keep them.
+- **Chronicle data already changed in `assets/data/world_history.json`** (user approved):
+  - A225's text: the Phất Y founding, with no poem;
+  - C023: Lôi Vô Danh dies of the miasma.
+- **Game data otherwise unchanged.** `world_history.json` still holds the old 106 people and 54 authored builds. Only
   `world_cultivators_min` (5000) and the two chronicle texts have changed.
-- **Art (DECISIONS group 14):** a portrait for every authored person (1,891) and a picture for 311 story sites,
-  painted at low quality from prompts authored per person and place (`design/world/depth/art/`). The painted images
-  sit outside git:
-  - portraits in `tools/asset-pipeline/portraits/out/authored/<batch>/`;
-  - places in `design/world/depth/art/places/out/<batch>/`.
+- **Art** (DECISIONS group 14; style in DECISIONS-2026-11-26):
+  - **Portraits:** one per authored person, in the xianxia style, painted at low quality.
+    - Prompts: `design/world/depth/art/portraits/x-<group>/*.json` (1,886 people).
+    - Images: `tools/asset-pipeline/portraits/out/authored/x-<group>/<key>.png`, outside git.
+    - Five authored people have no prompt yet: `ha_tinh_can`, `mac_thang_kieu`, `thang_vo_ta`, `cao_sa_lang` and
+      `nhan_du_ti`. The 18 fallen-sect people above still have old-style portraits. The content session writes and
+      paints all 23 before handoff; check `active.md`.
+  - **Places:** 311 story-site pictures in `design/world/depth/art/places/out/<batch>/`, outside git, painted before
+    the xianxia change. Whether to repaint them in the new style is open for the user.
+  - **Beasts:** the 21 beasts have no picture and show PlaceholderArt until the user asks for them.
+  - **Gallery:** https://claude.ai/artifact/H45zDrK7quF8PusDZGKAPE. The content session republishes it with the
+    xianxia portraits when the paint run ends.
 
-  The review gallery is https://claude.ai/artifact/H45zDrK7quF8PusDZGKAPE. Install is Stage 2b below.
+## The gap: what the content names that the game does not have (measured 2026-11-26)
 
-Facts checked 2026-11-25 that shape the stages:
-- **Unknown technique ids are dropped silently.** `CastBuilds._learn` matches only templates in
-  `items_cong_phap.json`. A build naming a proposal id learns nothing, with no error.
-- **Ties.** The game's kinds are pinned (kin, su_do, ket_nghia, dao_lu, companion), soft (friend, rival, enmity), debt
-  and feud, with caps of 6 ordinary and 16 notable. The content uses 25 kinds. 18 people hold more than 16 ties (up to
-  28), and authored pinned ties may overflow by rule.
-- **The map.** Homes point at the new seats (214, 1110, 874, 558, 449 and the minor moves), which are still ruins,
-  peaks and towns in `world_continent.json`.
-- **Load cost.** The world builds 54 authored builds today; it will build 1,747.
-- **Rigor is `standard`.** Only critical ADRs are required. The export merge and the data-version bump are critical
-  (saves, the merge with `cast_builds`), so they get one ADR.
+Stage 1's gap report (`depth_gap.py`) replaces these counts with exact lists. Until then they are measurements, not
+verdicts.
+
+| What | Count | Where it is | State |
+|---|---|---|---|
+| Proposal techniques | 180 (49 Yellow, 80 Profound, 44 Earth, 7 Heaven; 98 main, 79 secret, 3 body) | `**/*.techniques.json` | Prose `concept`. 4 carry catalogue-form `abilities` or `effects`. None are in `items_cong_phap.json`. |
+| New arts | 331 | the techniques' `arts` dicts | 11 point to a DSL record in `builds/authored/auth-tech.json`, and 24 to an Effect in `auth-eff-*.json`. The rest (about 296) are a name and a concept only. |
+| Existing art references | 83 (50 distinct) | the techniques' `arts` strings | All 50 are in `combat_library.json`. |
+| Items | 490 (432 artifacts, 58 treasures) | `**/*.items.json` | Not in `items_named.json` or `combat_library.json`. 2 items have no `base`. |
+| Item Effects | about 170 on 163 items | `items[].effects` | Rule text (`{id, name, rule}`), no engine records. |
+| Sets | 166 | `items.json` `sets` | Not in the game. 2-piece and 3-piece Modifiers are plain lines; 165 full-set Effects are rule text. |
+| Authored wishes | 94 entries | `builds/authored/auth-mod/eff-1/eff-2/tech.json` | Have DSL records or modifier lines, wired into the depth files (`WIRED.md`). Not in `combat_effects.json`. 2 were refused and 2 not authored. |
+| Engine features | about 30 | `builds/engine-wishes.md` sections 1-5 | Fight-state actions, readables and events, statuses, tags, Art DSL words and checks. Several may already exist (see Stage 5). |
+| Duel readings | 10 families | `builds/duel-readings.md` section 2 | Combat rule 25 and Formulas L are in the GDD. Not in code. |
+| Statuses | Charmed, Drunk, Sleep | `engine-wishes.md` section 3 | Not in the Effects GDD Status Catalogue or the engine's `STATUS`. |
+| Elements and parts | Light dtype, `soul_part` 30 % on a Light hit | `dawn-call` | The engine's `ELEM_TYPE` has no `light`. |
+| Tags | `song`, `bow`, `fan`, `mist`, `crane`, `bird`, `talisman` (source tag) | depth arts, items and beasts | `song` and `bow` need the `modifiers.md` rule 9 amendment. The rest need engine support. |
+| Modifier keys, candidates | about 12 non-fight or new keys | items, sets and passives | Candidates: `dan_doc_resist_pct`, `curse_effect_pct`, `pill_effect_pct`, `dao_tam`, `can_cot`, `khi_van`, `cultivation_speed_pct`, `breakthrough_chance`, `herb_growth_pct`, `element_affinity_pct`, `artifact_attack_pct`, and `companion_power_pct` / `companion_speed_pct` (refused, b13). Whether the game reads each one is unconfirmed; the gap report decides. |
+| Beasts | 21 | `**/*.beasts.json` | Named beasts in the game's Character form (`is_beast`, `owner_id`, `loyalty`, `tags`, `combat`, `bond`). Not in the game. |
+| Ties | 25 kinds | cast `ties` | Map to the game's kinds (Stage 1). 18 people are over the 16 cap. |
+| Đạo Đồ routes | 435, plus a `lineage.tree_route` per sect | cast `build.tree` | Hand-picked notables. They must reach the game's allocation. |
+| Events | about 264 `N-` events | `sects/*.md` prose | Not structured (Stage 1). |
 
 ## Stages
 
 ### Stage 0: decisions and one ADR
-- **D1:** DONE. Checkpoints committed (7a5d139f and the three after it).
-- **ADR-0009:** the world-depth export, covering how `design/world/depth/` folds into `world_history.json` and the
-  data files, the merge with `cast_builds` (keep authored targets, add the new), the data-version bump (a save on the
-  old cast is refused), and the stand-in rule for uncatalogued techniques.
-- **D2:** the interim technique mapping. Until the catalogue pass, a proposal technique becomes its generated stand-in
-  `<hoang|huyen|dia|thien>_<element>` by tier and first element, and its arts are absent. Ask the user whether builds
-  may ship that way into a playable world.
+- **D1:** DONE. Checkpoints committed.
+- **ADR-0009: the world-depth export.** It covers:
+  - how `design/world/depth/` folds into `world_history.json` and the data files;
+  - the merge with `cast_builds`: keep the authored targets, add the new, and keep the 18 fallen-sect people;
+  - the data-version bump (a save on the old cast is refused);
+  - the route: depth proposals are **promoted into the design catalogues** (`design/techniques/`, `design/arts/`,
+    `design/items/`) and reach the game through the existing exporters. There is no second exporter for records.
+  - the temporary stand-in rule while stages land.
+- **D2:** ANSWERED by the 2026-11-26 ruling: no stand-ins at the end.
+- **D3: the order of the catalogue promotion.** Recommended: by sect, so each sect works end to end before the next.
+  The alternative is by kind (all techniques, then all items). Ask the user.
 
-### Stage 1: structure what the export needs (tools only)
-- Extract the 264 `N-` events from the sect pages into structured JSON (id, year, kind, tier, people, place, text).
-  This also feeds the review's timeline check.
-- A machine-readable table of the final seat and leans per sect (World Generation OQ 12). Add Formula F on the final
-  seats, with the Wind exemption, to `depth_check.py`.
-- A tie-kind mapping table from 25 kinds to the game's kinds (kin covers parent, child, sibling, cousin, grandparent,
-  grandchild, aunt_uncle, niece_nephew, in_law, ancestor and descendant; su_do covers master, disciple and the former
-  pair; ket_nghia covers sworn_sibling; dao_lu covers dao_partner and spouse; lover is soft). Overflow is checked
-  against rule 5's authored exception.
-- The trait trim for over-band people (NPC Traits rule 2a): 30 people, 36 traits.
-- Fields added by the content fixes that the export must carry:
+### Stage 1: structure the export, and the gap report (tools only)
+- **The gap report,** `tools/design/world/depth_gap.py` (observations only). For every build, person, item, set,
+  technique, art and beast it lists:
+  - stand-in techniques;
+  - technique, art, item, Effect and beast ids the game does not have;
+  - modifier keys that nothing in the game consumes (stat sheet, fight compiler, cultivation, crafting);
+  - Effects with rule text but no engine record;
+  - engine words (events, actions, statuses, tags) that the records use and the engine lacks.
+
+  **Done condition for the whole plan:** every list is empty.
+- **The 264 `N-` events** become structured JSON (id, year, kind, tier, people, place, text). This also feeds the
+  review's timeline check.
+- **Seats:** a machine-readable table of the final seat and leans per sect (World Generation OQ 12). Add Formula F on
+  the final seats, with the Wind exemption, to `depth_check.py`.
+- **Tie kinds:** a mapping table from the 25 kinds to the game's kinds.
+  - kin covers parent, child, sibling, cousin, grandparent, grandchild, aunt_uncle, niece_nephew, in_law, ancestor and
+    descendant;
+  - su_do covers master, disciple and the former pair;
+  - ket_nghia covers sworn_sibling;
+  - dao_lu covers dao_partner and spouse;
+  - lover is soft.
+
+  Overflow is checked against rule 5's authored exception.
+- **The trait trim** for over-band people (NPC Traits rule 2a). The first count was 30 people and 36 traits; pass C
+  added about 21 tier B and 20 tier C people one trait over their band.
+- **Fields the export carries:**
   - `appearance` for every tier;
   - `wants` and `secret` for tier B;
-  - talent flaws (with `thien_phu` to match);
-  - a `beasts` list on tamers, with records in `**/*.beasts.json`;
-  - `changed` notes, which are design-only and not exported.
-- Over-band people grew in pass C: about 21 tier B and 20 tier C sit one trait over their band, which the export trims.
+  - talent flaws, with `thien_phu` to match;
+  - `beasts` on tamers, with the records from `**/*.beasts.json`.
+
+  `changed` notes are design-only and are not exported.
+- **Đạo Đồ routes:** how a route's notables (and the sect's `lineage.tree_route`) become the game's allocation. Use
+  the BuildGenerator path where it fits, with the authored notables pinned.
 
 ### Stage 2: the map (seats move)
-- `world_continent.json`: each moved seat place becomes `great_seat` / `minor_seat` with the sect's key. The old seat
-  becomes the kind its page names. Routes to the new seats. `seat_array_density` on the new seats. Province seat
-  records (Provinces rule 2a). Place lore lines.
-- Code effects named by the provinces session: `ProvinceBuildings.payer` and `place_start`'s seat-province test (Provinces
-  OQ 11). Re-run the starting-level census.
-- Art: moved seats show PlaceholderArt until painted (memory rule; low quality by default when painted).
+- **`world_continent.json`:**
+  - each moved seat place becomes `great_seat` / `minor_seat` with the sect's key;
+  - the old seat becomes the kind its page names;
+  - routes to the new seats, and `seat_array_density` on them;
+  - province seat records (Provinces rule 2a);
+  - place lore lines.
+- **Code effects named by the provinces session:** `ProvinceBuildings.payer` and `place_start`'s seat-province test
+  (Provinces OQ 11). Re-run the starting-level census.
+- **Art:** moved seats show PlaceholderArt until painted (low quality by default).
 
-### Stage 2b: install the authored art (after the user reviews the gallery)
+### Stage 3: install the authored art
 - **Portraits.**
-  - Copy each `out/authored/<batch>/<key>.png` to `assets/portraits/cast/<key>.webp` at 400x600, as
-    `gen_portraits.install` does.
-  - The 10 pilot people use `out/authored/pilot/<key>.png`; this replaces the old 88 cast portraits too.
-  - Then rebuild `assets/portraits/portraits.json`, whose `cast` list must hold every authored key.
-  - A key without a picture keeps PlaceholderArt (memory rule).
+  - Copy each `tools/asset-pipeline/portraits/out/authored/x-<group>/<key>.png` to `assets/portraits/cast/<key>.webp`
+    at 400x600, as `gen_portraits.install` does.
+  - The `x-*` batches are the only source. The old `p*` and `pilot` batches are superseded.
+  - This replaces the old cast portraits, including the 18 fallen-sect people once they are repainted.
+  - Rebuild `assets/portraits/portraits.json`; its `cast` list must hold every authored key.
+  - A key without a picture keeps PlaceholderArt.
 - **Places.**
   - Copy each `places/out/<batch>/paint_<id>.png` to `assets/art/places/<id>.webp`, the window banner, at 1536x864
     for seats and 960x540 for the rest (as `tools/asset-pipeline/places/install_place_paintings.py` does).
-  - Replace the old 254 banners.
+  - Replace the old 254 banners. If the user orders a xianxia place repaint, install that instead.
   - The map's miniatures (`assets/map/places/`) are NOT changed.
-- **Check:** open the character window and a sect window, and keep screenshots in `production/qa/evidence/`
-  (run-and-observe). Measure the import size; 1,891 webp portraits come to about 60 MB.
-- **Open:** batch p07 has 41 flagged portraits the user may want fixed and repainted, for about $0.40 (ask). Retry
-  any refused or failed images from the paint logs.
+- **Check:** open the character window and a sect window, and keep screenshots in `production/qa/evidence/`. Measure
+  the import size; about 1,900 webp portraits come to about 60 MB.
 
-### Stage 3: one sect end to end (Băng Tâm Các)
-- `tools/design/world/export_world.py` reads `design/world/depth/` for one sect: people, merged builds, lineage,
-  items, sets, events and ties (mapped), and writes `world_history.json` plus the item, set and technique stand-ins.
-- Load the world, open the sect window and person cards, and keep a screenshot in `production/qa/evidence/`
-  (run-and-observe).
+### Stage 4: the GDD amendments (each one to the user, section by section)
+The features in Stage 5 need these rules first. Another session edits `design/gdd/`, so stage only your own hunks.
+- **Effects GDD:**
+  - Status Catalogue rows Charmed, Drunk and Sleep (d34, d39, d40). Drunk has no stack cap; each stack runs its own 3
+    pulses. Charmed and Sleep hold the caster.
+  - The engine features of `engine-wishes.md` sections 1-3 that change a rule: held damage, delay immunity, tick to
+    heal, stopping a side's clock, the caster-holding status, the diagram in an ambush, the overflow amount, upkeep per
+    Piece, the lost-in-N-s readable, pill burn, the drained, healed and leech events, batch expiry, ward-absorbed, the
+    Piece's laid hour, and failed escape.
+- **Combat GDD:** Formulas C, the extended last act after Down and the double-knockout draw (`pine-wave-fifteenth-layer`).
+- **Damage Types:** the Light element and dtype, and the R11 `soul_part` exception (`dawn-call`).
+- **Modifier System:** rule 9 vocabulary for the `song` and `bow` form tags, plus `fan`, `mist`, the companion tags
+  `crane` and `bird`, and the talisman source tag. Also every new modifier key the gap report finds unconsumed:
+  `companion_power_pct` and `companion_speed_pct` (b13) unless they already exist, and the non-fight keys.
+- **Formations:** rule 9's `diagram_always` carve-out. This is the formations session's file, so ask that session.
+- **Art DSL** (the arts README or GDD): the `new_vocab` words of `engine-wishes.md` section 4.
+
+### Stage 5: the engine features (both engines, parity green)
+- **Verify first, then build only the gap.** The engine already lists `delay_immune` (MOD_KEYS), `last_act`,
+  `store_damage`, `heal_restored`, `batch_ended`, `overflow` and others (`assets/data/combat_engine.json`). For each
+  row of `engine-wishes.md`, record whether it exists, partly exists or is missing before writing code.
+- **Build:**
+  - `engine-wishes.md` sections 1-4, the actions, events, readables, statuses, tags and DSL words;
+  - section 5's checks: the Bleed tags, the summon coefficient's `companion_power_pct`, and decay by a share;
+  - the duel readings (Combat rule 25, Formulas L): ally, alone, foe_moved, still, moving, displace with planted,
+    rooted with pinned, at_range, broken and wounded (`duel-readings.md` section 2);
+  - removing the `own_abode` and `vein` fight bonuses (rule 26, AC-CB-104);
+  - item sets: the set bonus counted on worn pieces (Item Database rule 22), in the stat sheet and the fight compiler;
+  - companion tags and companion hit events carrying them (crane, bird);
+  - the source tag on stacks and marks (talisman), and cleanse skipping it;
+  - the pill slot read in a fight (`burn_pill`, `pill_burned`);
+  - the counted-chance meter kept between fights (`playing-past-the-break`, an exception to Formulas A).
+- **Every feature** gets a GdUnit test and a `fight.py` test, plus a parity case.
+
+### Stage 6: the records (author, then promote through the existing exporters)
+All in batches of about 50, the checker up front, by sect in the order D3 picks. Nothing here is priced.
+- **Techniques (180).** Promote each proposal into `design/techniques/catalogue-*.json` in the catalogue form:
+  `bonuses`, `passives` (the fight lines), `abilities` with `unlock_layer`, and layers. Lint with
+  `tools/design/arts/lint_techniques.py`. Then `export_techniques.py` writes them into `items_cong_phap.json`.
+- **Arts (331 new).** Write a full art record for each concept-only art (about 296) in `design/arts/` form: DSL fields,
+  tags and unlock layer. Take the 11 `auth-tech.json` records and the 24 Effect-backed passive arts as written. Lint
+  with `lint_arts.py` and `suite_check.py`. Give ids to the lineage arts that have none (`where-the-drop-falls`,
+  `line-through-the-ice`, `a-bite-on-the-line`).
+- **Effects.** Write an engine record (as in `combat_effects.json`: `rule`, `records` with `on`, `filter` and `do`,
+  plus `lines`) for:
+  - about 170 item Effects;
+  - 165 full-set Effects;
+  - the technique and passive-art Effects.
+
+  Bring the 94 authored wish records into `combat_effects.json`.
+- **Items (490) and sets (166).** Promote into `design/items/catalogue-*.json`, with a new sets file for the sets.
+  Give the 2 items with no `base` a base. Lint with `lint_items.py`; repair it first, since it imports the removed Đạo
+  Đồ editor. Then `export_named.py` writes `items_named.json`, `export_combat_library.py` writes `combat_library.json`,
+  and a new `items_sets.json` is exported.
+- **Beasts (21).** The game's beast records, with owner, loyalty, tags, power share and bond (`creatures_linh_thu.json`
+  rules), and each owner's `beasts` field.
+- **Non-fight modifier keys.** Each key the gap report finds unconsumed gets a reader: cultivation speed and
+  breakthrough chance, herb growth, pill effect, curse effect, the talent and dao_tam lines, and the Đan Độc and Tâm Ma
+  resists. Each gets a unit test.
+- **The open items from `WIRED.md`**, each decided by the user or applied:
+  - unapplied wires:
+    - **b2:** `string-cut` music to song, the `cam` base tag, and `x_soul 3 [song]` on `hollow-bell-canon`;
+    - **b9:** `palm` on `rolling-barrage-fist` and `twin-shadow-fist`, and `art_speed_pct 8 [palm]` on
+      `hundred-echo-palm-scripture`; with it, the held `ta-goose-bone-beads` rescope;
+    - **b10:** the bow scopes;
+    - **d11:** the Debt Stone on `mountain-heart-canon`, with the held `lh-nails-of-dao-sa` 2-piece;
+    - **d12:** Written in the Ledger on `ruin-ledger-scripture`;
+    - **b13:** the war-flag companion lines;
+    - the dropped `herb_growth_pct` and `curse_effect_pct` lines, which return once their keys are read;
+  - choices for the user:
+    - the Way-Out Knot gear for phong_bach_ke, hua_thanh_diem and nham_do_han;
+    - the two aux choices: sai_thanh_phong with `evening-song-of-the-boats`, and pham_thu_dien with `haze-walk`;
+    - e9 `cung_mac_suong`'s black-ice-method, held until her story turns;
+  - text conflicts:
+    - the Eighth Movement's two readings (`nine-shao-advent` against `pm-tieu-thieu-quan / eight-of-nine`);
+    - the two stale `build_use` lines (`tx-miasma-root-charm`, `ls-snare-wire-coins`);
+  - the 2 refused and 2 not-authored entries in `auth-eff-2.json` and `auth-tech.json`: re-author or drop, with the
+    user.
+
+### Stage 7: one sect end to end (Băng Tâm Các)
+- `tools/design/world/export_world.py` reads `design/world/depth/` for one sect: people, merged builds, lineage, items,
+  sets, beasts, events and ties (mapped). It writes `world_history.json`; the records come through Stage 6's exporters.
+- The gap report for this sect shows zero.
+- Load the world, open the sect window and the person cards, and fight one authored build. Keep screenshots in
+  `production/qa/evidence/`.
 - Measure world build time with this sect.
 
-### Stage 4: everyone
+### Stage 8: everyone
 - Export the other 49 sects and the 6 groups. Measure world build time with all 1,747 authored builds; budget and
   optimise if needed.
 - The census: realm counts against the targets (5,000 world), sect sizes, the admission pass rates.
+- The gap report shows zero across the world.
 
-### Stage 5: roots and admission in code
-- Linh Căn: the weighted Fisher-Yates, the purity shift, the variant boost (Formulas A2, D4). The map export writes
-  province `land_qi`, `variant_max` and `land_element_means` (Provinces rule 3a).
-- World Generation rule 8a: birthplace, the land roll, Sects admission (F20), intake (F21), no-lean sects.
-- Living World Tick: births read the mother's home province.
-- Golden tests: even land equals the old roll (AC-LC-59). The world-totals AC is AC-LC-66.
+### Stage 9: roots and admission in code
+- **Linh Căn:** the weighted Fisher-Yates, the purity shift and the variant boost (Formulas A2, D4). The map export
+  writes province `land_qi`, `variant_max` and `land_element_means` (Provinces rule 3a).
+- **World Generation rule 8a:** birthplace, the land roll, Sects admission (F20), intake (F21), and no-lean sects.
+- **Living World Tick:** births read the mother's home province.
+- **Golden tests:** even land equals the old roll (AC-LC-59). The world-totals AC is AC-LC-66.
 
-### Stage 6: traits v2 in code
-- `traits.json` gets the new kinds. NpcTraits: roll, inherit with talent drift, likes and dislikes in opinion (F3),
-  doubled personality rows, the 15 choice-weighted v2 traits, the talent grade display (the character sheet's C3).
-- Dialogue verbs (#30) are the first `opens` consumer: a separate plan.
+### Stage 10: traits v2 in code
+- `traits.json` gets the new kinds.
+- NpcTraits:
+  - roll, and inherit with talent drift;
+  - likes and dislikes in opinion (F3);
+  - the doubled personality rows;
+  - the 15 choice-weighted v2 traits;
+  - the talent grade display (the character sheet's C3).
+- Dialogue verbs (#30) are the first `opens` consumer, in a separate plan.
 
-### Stage 7: item sets in code
-- `items_sets.json`. The set bonus is counted on worn pieces (Item DB rule 22). The 2-piece Modifiers compile now.
-  Full-set Effects compile where their hooks exist; the rest are flagged as engine wishes.
-- Repair the item lint (it imports the removed Đạo Đồ editor) and lint the 490 items.
-
-### Stage 8: combat readings in code
-- The fight engine: ally, alone, foe_moved, still, moving, displace with planted, rooted with pinned, at_range,
-  broken and wounded (Combat rule 25, Formulas L). Remove the `own_abode` and `vein` fight bonuses (rule 26; AC-CB-104).
-- The 24 engine wishes (`design/world/depth/builds/engine-wishes.md`) are their own backlog.
-
-### Stage 9: the catalogue pass and balance
-- Price and lint the 180 proposal techniques and their arts (records, not concepts), then swap the stand-ins for the
-  real ids.
+### Stage 11: balance and the one review
 - Fight-test the authored builds against Power Rankings' bands. Re-check Realms' calibration with the land roll
   (Linh Căn OQ 16).
-- The one design review over everything (the user's rule: one pass at the end).
+- Builds a little overpowered are fine; do not chase outliers or loop rebalances (memory: balance depth).
+- The one design review over everything, per the user's rule of one pass at the end.
 
 ## Before Stage 0: the content review (DONE 2026-11-25)
 
@@ -186,10 +360,17 @@ wants and secrets; tier C has looks.
 
 ## Risks
 
-- **Load time** with 1,747 authored builds (Stage 3 measures one sect, Stage 4 all of them).
-- **Silent technique drops** until the stand-in mapping is in the export (Stage 0, D2).
+- **Size.** Stage 6 is the bulk: about 296 art records and about 340 Effect records to author by hand, plus 180
+  techniques and 490 items to promote. Plan it as many batches of about 50, by sect.
+- **Engine scope.** About 30 engine features in two engines with parity. Stage 5's verify-first step keeps it to the
+  real gap.
+- **Load time** with 1,747 authored builds (Stage 7 measures one sect, Stage 8 all of them).
+- **Silent technique drops:** `CastBuilds._learn` drops unknown ids with no error. The gap report catches them; make
+  the loader warn as well.
 - **Ties over the caps** for 18 people. The authored overflow rule covers pinned ties; soft ties beyond the cap are
   trimmed by weight.
 - **Saves:** the data-version bump refuses old saves (pre-release, development saves only).
-- **Other sessions:** the formations session owns `formations.md` and the uncommitted sects.md bullet; the provinces
-  session owns the provinces runtime code.
+- **Other sessions:**
+  - the formations session owns `formations.md` and the uncommitted `sects.md` bullet;
+  - the provinces session owns the provinces runtime code;
+  - GDD files are shared, so stage hunks.

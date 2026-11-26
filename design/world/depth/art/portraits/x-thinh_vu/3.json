@@ -1,0 +1,404 @@
+{
+ "people": [
+  {
+   "key": "cat_viem",
+   "sex": "m",
+   "age": 24,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Holding the salve pots on the stair, catching his breath, hands very clean.",
+   "subject": "The moment: stopped on a mist-wet stair, catching his breath, a tray of small salve pots held in very clean hands. Face: a large, soft, pale, round face, flushed at the cheeks, gentle tired dark eyes, faint pale lashes and brows, a round nose, an open panting mouth with a chapped lower lip. Hair: dark and short, combed damp to the skull, a thin line of sweat by the ear, held by one plain dark silver pin. Body: big, soft and pale, shoulders heaving, one hand on the rail, belly rounded. Clothing: the simplest graceful silk of an outer disciple, a robe of soft dusk-grey silk with a storm-violet inner collar showing at the neck, a short black oiled-silk over-robe, wide sleeves rolled back over spotless forearms, a black sash with a small bronze bell, and a clean white cloth tied at the waist. Hands and objects: a wooden tray of small round celadon salve pots in very clean hands, the other hand gripping the rail. Power: none, only a faint warm red-gold shimmer in the steam of the salves. Background: a grey stone stair in drifting rain-mist, the lit door of an infirmary at the top. Light: soft silver moon-grey light from the upper left with a faint glow rim along the shoulder, warm lamp-glow from the pots. Expression: breathless and gentle, resigned, the patient look of a big man who knows the stair is long and means to climb it anyway."
+  },
+  {
+   "key": "phung_toi_hoa",
+   "sex": "m",
+   "age": 18,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "At the storm forge bellows, no eyebrows at all, already working on a third attempt at burning them off.",
+   "subject": "The moment: leaning toward the forge fire at the bellows with an eager face, no eyebrows at all, already planning a third attempt to burn them off. Face: completely bare brow ridges, smooth skin where eyebrows should be, giving a startled look; a thin, bright, rosy face with wide excited brown eyes, a snub nose, an eager open mouth; the brow skin pinker than the rest. Hair: black and short, singed at the front, a small tuft singed at the temple, one dark silver pin. Body: slight and wiry, knees bent, feet set wide, leaning on the bellows with his whole weight. Clothing: a simple graceful dusk-grey silk robe with storm-violet collars, the cuffs scorched pale brown by the forge, sleeves tied back with a silk cord, a short black oiled-silk over-robe, a black sash with a bronze bell. Hands and objects: both hands, blackened to the wrist, on the bellows handle, a damp cloth bound round one thumb. Slung diagonally across his back, hilt above the right shoulder: a plain straight double-edged sword with a faint copper tint along the edge, grip wrapped in blistered scorched leather, a plain dark disc guard, a scabbard of singed pale wood blackened along one edge. Power: a few red-gold sparks drift up around him like fireflies. Background: the orange mouth of a storm forge, dark beams, rising sparks in mist. Light: glowing orange fire-light from below right, a pale silver rim light on the other cheek. Expression: eager and bold, innocent, the face of a boy who has not yet learned that the fire can say no."
+  },
+  {
+   "key": "duong_lac_dong",
+   "sex": "f",
+   "age": 22,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Casting the bronze cups new disciples wear at the neck, sleeves rolled, mould sand in her hair.",
+   "subject": "The moment: pouring glowing bronze from a small ladle into a clay mould, face intent and proud, casting the cups new disciples wear at the neck. Face: grey mould sand speckled in her black hair; a strong, square, sun-tanned face with bright focused dark eyes, strong brows, a short nose, a tight mouth, one drop of sweat by the ear and a tiny smear of bronze on the upper lip. Hair: black, tied in a tail grey with sand, one loose strand stuck to her damp cheek, a plain dark silver pin. Body: sturdy, strong-armed, feet apart and elbows in, steadying the heavy ladle like a seasoned founder. Clothing: a simple graceful dusk-grey silk robe of good cloth with storm-violet collars, wide sleeves tied up neatly to the elbow with silk cord leaving strong forearms bare, a short black oiled-silk over-robe, a black sash hung with a small bronze bell. Hands and objects: a small iron ladle of glowing bronze over a clay mould held in both hands. On her back, hilt over the left shoulder: a plain long straight sword, grip wrapped in cord the pale colour of casting sand, a cast bronze disc guard with the mould seam still showing and a tiny stamped ring-mark, a scabbard of dark grey leather. Power: a faint warm bronze-gold shimmer rising from the molten metal and drifting past her cheek. Background: a dim foundry hall, a rack of finished small bronze cups, a soft orange glow in mist. Light: fierce orange glow from the bronze under her chin, cool silver moonlight rim from the right. Expression: focused and proud, careful, the held breath of a pour that must not be spoiled."
+  },
+  {
+   "key": "dong_vu_thach",
+   "sex": "m",
+   "age": 13,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Looks about twelve, smells of wet gravel, a pebble behind each ear, picking rain-flower pebbles from the stream.",
+   "subject": "The moment: crouched in a shallow moonlit stream picking up a pebble, grinning, with a pebble tucked behind each ear. Face: a small pebble tucked behind each ear, one visible on each side of his head; a small, round, childlike face, wet and pink, large curious brown eyes, arched brows, a button nose, an open gap-toothed grin with a tiny chip missing from one front tooth, a smear of wet mud across chin and nose. Hair: black, wet, sticking up. Body: small, thin, child-sized, in a child's easy squat, bare knees almost to his ears, wet toes gripping the gravel. Clothing: a dusk-grey silk robe of the simplest cut with storm-violet collars, far too large, its sleeves rolled three times and its hem floating on the water, a short black oiled-silk over-robe, a black sash. Hands and objects: a small pale flower-shaped pebble in his wet palm, the other hand in the stream. On his back, the hilt of a plain short slim sword far too big for him rising past the right shoulder, grip wrapped in gravel-grey cord, a small plain round guard, a scabbard of pale mud-splashed goatskin dried hard, a smooth pebble knotted into the cord loop. Power: a few tiny pale-gold motes of earth-qi float up from the pebbles. Background: a shallow stream of bright gravel, a mine hill and drifting mist. Light: soft silver moonlight from the upper left, glittering on the water and lighting the wet pebbles like beads. Expression: eager, innocent, delighted."
+  },
+  {
+   "key": "mac_tieu_dien",
+   "sex": "m",
+   "age": 17,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "A splinter of thunder-glass on a cord round his wrist; he means to show his Thunder at the Bell Test no matter what his aunt says.",
+   "subject": "The moment: lifting a wrist to show a splinter of violet glass, a determined, sly grin, meaning to show his Thunder at the Bell Test whatever his aunt says. Face: a violet splinter of thunder-glass on a cord round his wrist, held up toward the viewer; a narrow, eager, tanned face with bright daring dark eyes, thick straight brows, a sharp nose, a cocky grin, a scatter of freckles across the nose and a tiny cleft in the chin. Hair: black and spiky, a violet cord tied through it, a dark silver pin. Body: slight and springy, bouncing on the balls of his feet, loose shoulders, chest out. Clothing: a simple graceful dusk-grey silk robe with storm-violet collars hitched at one shoulder, a short black oiled-silk over-robe with a thin silver lightning thread at the hem, a black sash tied with a violet cord and a small bronze bell. Hands and objects: the left wrist lifted with a thin cord and a jagged violet crystal splinter glowing faintly; the right hand a fist. On his back, hilt past the left shoulder: a plain short slim sword with a faint violet shimmer along the steel, grip wrapped in dark leather strips, a plain oval guard, a scabbard of black wood, a chip of smoky thunder-glass in the pommel. Power: tiny violet sparks crawl across his wrist and the crystal, a faint violet aura crackling about his shoulders. Background: a rainy mine yard in deep mist, a purple glow beyond. Light: cool silver-grey moonlight from the upper left, violet shimmer tinting the skin of his wrist. Expression: daring and mischievous, the lifted chin and sly sideways glance of a boy daring the world to stop him."
+  },
+  {
+   "key": "gian_thiet_son",
+   "sex": "m",
+   "age": 23,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Carrying the practice swords up the peak, wrestler's ear, bruises in three colours, a face that still hopes after four lost years.",
+   "subject": "The moment: climbing a steep moonlit peak path with a bundle of wooden practice swords over his shoulder, smiling hopefully through his bruises after four lost years. Face: a crushed cauliflower wrestler's ear and bruises in three colours, purple, yellow and green, around one eye and cheek; a broad, battered, honest face with bright hopeful brown eyes, one half closed in a bruise, thick brows, a flattened nose broken and set slightly to the left, a wide hopeful smile with a half-healed split in the lower lip. Hair: black and cropped short, a bald scar at the left temple with a rope fibre caught in it, one plain dark silver pin. Body: thick, strong and round-shouldered, stocky and bow-legged, thick forearms, leaning to balance the weight. Clothing: the simplest graceful silk of an outer disciple, a dusk-grey robe of good cloth with storm-violet collars layered at the neck, wide sleeves tied back with silver-grey cord, a short black oiled-silk over-robe with a thin lightning thread along the hem, a black sash and a small bronze bell. Hands and objects: a bundle of a dozen wooden practice swords on one shoulder, bound with rope. Power: faint pale-silver motes of metal-qi drift along the wooden blades. Background: a steep wet peak path wrapped in grey-violet mist, lit lanterns far below. Light: soft silver moonlight and mist-glow from the upper left, showing the bruises in their three colours. Expression: hopeful and good-humoured, undefeated, a smile that has lost four years of bouts and still turns up for the fifth."
+  },
+  {
+   "key": "nhac_cuu_huong",
+   "sex": "m",
+   "age": 85,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Spring dawn at the outer gate, yet again at the bell frame, the eighty-sixth Kinh Trập he has sat. White beard, grey outer-disciple robe that his dignity does not quite fill. He remembers the one time the bell answered him, faintly, and listens as if for it.",
+   "subject": "The moment: at dawn he sits upright on a low stool before a great bronze bell, head tilted a little, listening with his whole face for an answer in his chest. Face: a long, full white beard to the breastbone, combed and clean; a narrow, deeply lined old face, brown and soft as a dried apricot, pale hopeful watery blue-grey eyes, long white eyebrows drooping at the ends, a long straight nose, a thin mouth held in a dignified line, lips just parted. Hair: thin white, drawn into a tiny topknot with a plain silver pin, wisps at the temples. Body: small, upright, thin as a rake, a straight back made with effort. Clothing: a dusk-grey silk robe, the simplest graceful kind, hanging a little loose on him, neatly mended at one elbow with matching thread, a high collar with a storm-violet inner edge, a short black oiled-silk over-robe folded square over the left shoulder, a black silk belt tied in a flat knot with a small bronze bell. Hands and objects: both hands folded on his knees, knotted and spotted with age, the right thumb lifted; a plain wooden practice sword leans on the stool beside him. Power: almost none, only a very faint pale-silver shimmer along the rim of the bell where it waits to answer. Background: the great dark bronze bell on its frame, a pearly misty dawn, a blurred line of young people waiting. Light: cool pearl-grey dawn light from the upper left, a soft glow rim, a faint gleam on the bronze. Expression: patient, hopeful, dignified, the look of a man who has waited eighty springs."
+  },
+  {
+   "key": "trinh_cam_duong",
+   "sex": "f",
+   "age": 45,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Late afternoon in the seat's kitchen, just before she puts the fire out for the night by the Night Rain rule. She has a poker at her hip and soot to her eyebrows. A servant waits for bread and she is deciding, by her mood, whether to give it.",
+   "subject": "The moment: at dusk in a smoky kitchen she stands with fists on her hips, an iron poker pushed through her sash, glaring at someone waiting for bread, her mood unreadable. Face: soot blackens her eyebrows and the skin round them, so her brows are smudged black bars over bright eyes; a broad, red, shiny face with heavy cheeks, small shrewd bright grey eyes, a short wide nose with a smut on the tip, a wide mouth set down at the corners, ready to scold. Hair: grey-streaked black, bundled under a floury white cloth tied at the nape with a dark silver pin through the knot, a few damp curls stuck to the temple. Body: short, wide, solid, built like a stove. Clothing: plainer than a disciple's, as a kitchen keeper's story asks, but kept clean and graceful: a dusk-grey silk robe floury at the front, storm-violet collars, wide sleeves rolled above the elbow and tied back with silk cord, a short black oiled-silk over-robe pinned back, a black sash with a small bronze bell. Hands and objects: a black iron poker thrust through the sash at her hip; both bare forearms thick and pink with soot to the wrist; behind her on a table a round loaf of dark barley bread. Power: none, only a ruddy glow of red-gold embers drifting up round her like fireflies. Background: a dim stone kitchen in drifting steam, a big iron stove with the last red coals, hanging pots, a ladle. Light: red-orange ember glow from the stove on the right, cold silver dusk light from a small window on the left. Expression: formidable, moody, hard to read, one corner of the mouth twitching."
+  },
+  {
+   "key": "thoi_an_phong",
+   "sex": "m",
+   "age": 24,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "A road at dusk. He is exactly the sort of man no one remembers: ordinary brown coat, forgettable face. He carries sealed reeds without opening them and has learned the knots by their shape. He feels the weight of what he knows.",
+   "subject": "The moment: at dusk on a road he stands looking at nothing in particular, one hand slid into his sleeve on a bundle of sealed reed tubes, so ordinary that the eye slides off him. Face: an utterly plain face with nothing to hold the eye; a medium, oval, tan face, small mild brown eyes that look slightly to one side, thin brown eyebrows, a short straight nose, a thin neutral mouth, no scar, no mole. Hair: ordinary brown, cut short and combed to the side, held by one plain dark silver pin. Body: middle height, middle build, narrow shoulders, an unhurried walker's stance. Clothing: a runner's plain but clean silk robe in dull brown-grey, deliberately forgettable, with only a thin storm-violet edge at the collar, crossed collars neatly closed, a small straw hat hung at the back on a cord, a leather strap across the chest, a dark sash. Hands and objects: the right hand pushed into the left sleeve, where three thin reed tubes sealed with knotted grass cord show at the cuff; the left hand on a satchel at his hip. On his back, hilt past the right shoulder: a plain narrow straight sword made to be forgotten, grip wrapped in ordinary brown hemp, a plain bar guard, a scabbard of dull brown leather with no mark, a seal-knot copied from a reed tied at the pommel. Power: none. Background: a blurred dusk road between rice fields in drifting mist, a far lantern. Light: soft violet dusk light from the upper left, a faint pale rim, giving no shadow of note. Expression: bland, careful, faintly anxious, and forgettable."
+  },
+  {
+   "key": "chung_hai_duong",
+   "sex": "f",
+   "age": 22,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "The coast house at midday, fish accounts open. A fishwife's daughter, chattering without drawing breath, scales glittering in her hair. She folds some pages twice and does not ask why.",
+   "subject": "The moment: at a desk at midday she chatters at the viewer with a bright animated face, hands flying, a pile of fish accounts beside her with several pages folded twice. Face: silver fish scales stuck in her black hair and on her cheek glitter like sequins, her mouth open mid-sentence; a round, pink, freckled face, large bright restless brown eyes, quick lifted brows, a snub nose, a wide mouth forever talking with a gap between the front teeth. Hair: black, in a loose knot with two long strands falling, scales glittering all through it, a pale shell hairpin. Body: plump, small, gesturing, bouncing on her seat. Clothing: the simplest graceful silk of an outer disciple, a dusk-grey robe with storm-violet collars and a blue silk scarf at the neck, cuffs lightly fish-scaled, a short black oiled-silk over-robe over the chair back, a black sash with a small bronze bell. Hands and objects: both hands raised in a gesture, ink on the right forefinger; on the desk a stack of papers with the corners of several pages folded twice, and a clay cup of cold tea. A plain straight double-edged sword in a blue-black scabbard is slung diagonally across her back; its pewter guard and the grip wrapped in pale blue cord show above the left shoulder. Power: a faint ripple of pale-blue water-qi motes shimmers round her hands. Background: a bright coastal room with a window of gulls and masts, nets hung to dry, a sea-mist glow. Light: bright pearly sea-light from the upper left, scales glinting. Expression: cheerful, chattering, innocently incurious."
+  },
+  {
+   "key": "lac_kim_bang",
+   "sex": "m",
+   "age": 18,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "The ferry landing at Thu Trì in the evening rain. Jug-eared boy with a rope sling over his shoulder, carrying a guest's bag, with an ear bent toward the guest for a copper a sentence. He is not proud of it.",
+   "subject": "The moment: on a wet ferry landing in the evening he lugs a traveller's heavy bag up the steps, his head turned and one big ear tilted toward the guest's murmured words. Face: two large jug ears that stick out sideways from a narrow head, the left cocked toward a voice; a narrow, freckled, eager boy's face, wide wary light brown eyes, thin raised brows, a pointed nose, a thin mouth slightly open; a single copper coin visible between two knuckles. Hair: short, mouse-brown, flat and wet, leaving the ears bare. Body: skinny, wiry, bent under the bag, a quick scuttle. Clothing: a simple dusk-grey silk robe with storm-violet collars, tucked up at the sash for the stairs, sleeves rolled, a short black oiled-silk over-robe dripping with rain, a black sash, wet bare calves in rope-soled sandals. Hands and objects: both hands hold a big bundled bag of oiled cloth against his chest; a thick coil of ferry rope over his right shoulder. A plain narrow straight sword with a faint damp sheen, grip wrapped in unravelling ferry rope, a plain iron ring guard, a scabbard of river-tarred black wood with a splice in its sling, a copper coin hung from the pommel by a thread, is slung diagonally across his back, hilt above the right shoulder. Power: a few faint pale-blue motes of water-qi beading in the rain around him. Background: a rain-dark landing in mist, a lantern on a post, a ferry boat on grey water, a dim inn doorway. Light: warm yellow lantern glow from the upper left, blue rain-dusk behind with a soft rim light. Expression: eager, furtive, listening."
+  },
+  {
+   "key": "hoac_thu_lan",
+   "sex": "f",
+   "age": 17,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Night Rain Market, writing the weights the weigher calls. A bone weight on a cord round her neck that she has never lost. She is quick, and was famous for a week when she caught a false stone.",
+   "subject": "The moment: at a night-market stall she looks up from writing with a quick, bright, careful glance, a small white bone weight swinging at her throat; she writes down the weights the weigher calls. Face: a small white bone weight, polished and round, hanging on a red cord at her throat in front of the collar; a young, slim, quick, pale-brown face with sharp bright dark eyes that are always checking, narrow arched brows, a small neat nose, a small mouth with a tight pleased curl. Hair: black, in two neat buns pinned flat with bone pins. Body: slight and quick, straight-backed, perched on a stool. Clothing: a tidy simple dusk-grey silk robe with storm-violet collars crossed at the neck, cuffs turned back, a short black oiled-silk over-robe, a black sash with a small pouch and a bronze bell; ink on the fingers of the right hand. Hands and objects: the right hand holds a fine brush lifted mid-stroke over a blank sheet; the left rests on the beam of a small brass balance. Power: a faint blue-silver sheen of water-qi on the polished bone weight, no more. Background: the lanterns of the night market floating in rain-mist, blurred stalls, a wet awning, a hanging row of weights. Light: warm gold lantern light from the upper left, a bright gleam on the polished bone, soft silver rim light. Expression: sharp and careful, proud, the small satisfied look of someone who once caught a false stone and has not forgotten how it felt."
+  },
+  {
+   "key": "pham_tich_lien",
+   "sex": "f",
+   "age": 22,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "On the burial boat at dawn on the lake, rowing posture straight, her gaze never blinking. Six generations of her family have poled this boat.",
+   "subject": "The moment: standing in the stern of a long flat boat with a pole, she stares at the viewer without blinking, dawn mist round her knees. Face: an unblinking stare from wide pale steady eyes, never dropping; a long, calm, solemn face, pale and cool, large light grey eyes with the whites showing fully, thin straight brows, a long nose, a pale closed mouth. Hair: black, plain, tied in a low tail with a white cord. Body: tall, long-armed, shoulders square, a rower's upright, slightly forward posture. Clothing: a dusk-grey silk robe kilted up for boat work with storm-violet collars, a short black oiled-silk over-robe, a black sash, a white mourning cord at the wrist, sleeves pushed above the elbow. Hands and objects: both long hands round a pale wooden boat pole, the palms thick with callus; behind her in the boat a long bundle wrapped in white cloth lies along the floor. On her back, hilt past the left shoulder: a plain slim jian with a faint damp bloom on the steel, grip wrapped in grey hemp, a round guard of dark tarnished bronze, a scabbard of weathered grey bamboo bound with pale hemp like a punt pole. Power: a thin drift of pale silver-blue mist-motes curls about her ankles and the boat's prow. Background: a pale misty lake at dawn, withered lotus leaves, a faint shore. Light: cool pearl-grey dawn light from the upper left, a soft glow on the water, a silver rim along the cheek. Expression: grave, calm, unblinking, a quiet duty."
+  },
+  {
+   "key": "uong_hong_tieu",
+   "sex": "f",
+   "age": 19,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "On the cone at dawn, face lifted to the sky, a cloud-grey ribbon in her hair, reading the clouds a day early. She does not thank the goatherd who warns her.",
+   "subject": "The moment: standing on a slope at dawn with her face turned straight up to the sky, eyes narrowed, reading the clouds. Face: her face tipped up, throat stretched, a cloud-grey silk ribbon streaming from her hair in the wind; a fine, sharp, brown face with high cheekbones, bright narrowed hazel eyes, thin lifted brows, a small straight nose, lips pursed in thought, a fine freckle pattern on the nose. Hair: black, in one long plait with the pale grey silk ribbon wound through it, its end fluttering like a small flag, a tiny pinch of ash in the crown of the braid. Body: slim, springy, balanced on the slope. Clothing: the simplest graceful silk of an outer disciple, a dusk-grey robe short at the ankle for climbing with storm-violet collars, a short black oiled-silk over-robe snapping in the wind, a black sash with a coil of silk rope and a small bronze bell. Hands and objects: the right hand shading her brow; the left holds the over-robe closed at the throat; behind her at the edge a goat's horned head. Power: a few small red-gold motes of fire-qi gleam in the air before her palm. Background: a bruised ash-grey sky of heavy clouds with a pale gap, the dark cone slope below, drifting mist. Light: cold silver light from the upper left, cloud edges bright, a soft rim glow along her cheek and the ribbon. Expression: intent, clever, a shade ungrateful."
+  },
+  {
+   "key": "lo_canh_son",
+   "sex": "m",
+   "age": 24,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Climbing to the water clock cistern in the dark, a full bucket on each shoulder on a carrying pole, silent step, never spilled a bucket.",
+   "subject": "The moment: at night on a dark stair he climbs to the water-clock cistern with a pole across his shoulders and a full bucket at each end, utterly steady and silent. Face: two wooden buckets brimming with water at the ends of a bent pole, not a drop spilled, above a calm still face; a young, plain, quiet, brown, earnest face with steady dark eyes fixed ahead, level brows, a straight nose, a closed patient mouth. Hair: black, tied in a plain knot with a dark silver pin, a few damp strands clinging to the nape. Body: lean and sinewy, shoulders square under the pole, a night-walker's soft step. Clothing: a simple dusk-grey silk robe of good cloth with storm-violet collars, the sleeves tied back, soft cloth shoes, a short black oiled-silk over-robe folded over the pole, a black sash with a small bronze bell. Hands and objects: both hands hold the pole ends steady beside his neck; the water in the buckets lies flat as glass with a point of lamplight in it. Power: a faint pale-gold shimmer of earth-qi lies on the water, so still that no ripple moves. Background: a dark stone stair at night in drifting mist, a faint lamp on a wall far above, a single drip. Light: a thin cool silver light from a lamp at the upper left, deep blue shadow, a ripple of moonlight across each bucket's surface, steady as a mirror. Expression: patient, calm and silent, a face that gives nothing away to the dark."
+  },
+  {
+   "key": "tiet_thu_bach",
+   "sex": "f",
+   "age": 22,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Tallying the salted meat and barley. An abacus bead strung on her braid, ink-black thumbs. Her master checks her sums against a second ledger in his sleeve that she has never seen.",
+   "subject": "The moment: in a storeroom she tallies by flicking an abacus, a single wooden abacus bead hanging from the end of her braid, her thumbs black with ink. Face: a wooden abacus bead tied to the tip of her long braid, swinging, and both thumbs black with ink to the first joint; a thin, serious, narrow, pale face, sharp tired dark eyes, fine straight brows, a thin nose, a tidy closed mouth with a small crease of worry between the brows, a faint pencil line of ink smudged at the left temple. Hair: black, in one long braid over her shoulder with the bead on the end, a dark silver pin at the nape. Body: slight, narrow-shouldered, bent over her work. Clothing: a simple graceful dusk-grey silk robe with storm-violet collars crossed at the neck, ink-grey cuffs, a short black oiled-silk over-robe hung on a hook behind her, a black sash with a small bronze bell. Hands and objects: the right thumb and finger flick the beads of a small wooden abacus; the left black thumb holds the page edge of a thick book. Power: none, only a faint pale-gold glimmer of earth-qi on the beads as they click. Background: stacked barrels of salted meat and sacks of barley in a lamp-hazed storeroom. Light: warm lamplight from the upper left, a pale silver shaft from a high window touching the beads and the end of her braid. Expression: careful, dutiful, a little uneasy."
+  },
+  {
+   "key": "cao_thua_phong",
+   "sex": "m",
+   "age": 19,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "At the foot of the peak before the first storm, chin lifted toward the summit, unable to wait. He goes a little farther each year.",
+   "subject": "The moment: standing at the foot of a steep peak path in a rising wind, chin raised, eyes fixed on the summit, bouncing on his toes. Face: his chin thrust up toward the peak, neck stretched, the whole face lit with longing; a sharp, hungry, tanned face, bright fixed brown eyes, thick upward-slanting brows, a strong nose, a tight eager mouth, a line of sweat at the hairline and a small scar across the lip from a fall on the first stretch. Hair: black, short and spiky, a silk cord tied round the brow. Body: wiry, tense, on tiptoe, ready to run. Clothing: a simple graceful dusk-grey silk robe tucked up for climbing with storm-violet collars, a short black oiled-silk over-robe flapping in the wind, a black sash with a small bronze bell, wrapped legs and rope-soled shoes. Hands and objects: both fists clenched at his sides; a coil of climbing cord at his shoulder; a scuffed practice sword on his back. A ring of scrapes marks the back of his right hand and a dark rust-brown stain marks the knuckles. Power: a few pale-silver motes of metal-qi lift from his fists in the wind. Background: a very steep dark peak wreathed in cloud, the first big drops of a storm, mist. Light: grey-green storm light from the upper left, a bright cloud edge, a faint glow rim along the jaw. Expression: impatient longing, mouth a little open, the whole eager face turned to the summit."
+  },
+  {
+   "key": "sa_bat_ngu",
+   "sex": "m",
+   "age": 48,
+   "dress": null,
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "A kitchen at night. Bald, silent cook sent from Xuyên Lâm Môn with the hostage, his ears seeming to listen on their own. Thirty years of being listened to and nothing heard.",
+   "subject": "The moment: in a kitchen at night he stands very still with a long ladle in hand, his head turned a little, his ears seeming to listen on their own. Face: a completely bald, smooth, domed head and a pair of large still ears, and burn-scarred hands in the lower frame; a broad, plain, flat, impassive brown face, small calm dark eyes, almost no eyebrows, a wide flat nose, a long closed mouth, faint old burn marks speckling the jaw and neck, pale short lashes. Hair: none, the scalp shining. Body: thick-set, heavy-shouldered, utterly still. Clothing: a servant's plainer dress, kept clean and graceful: a long tunic of soft green cotton-silk, the colour of Xuyên Lâm, with a rolled collar crossed over an inner collar of pale linen, wide sleeves rolled to the elbow, a brown silk belt tied flat; no sect embroidery and no ornament but a small wooden toggle. Hands and objects: the right hand holds a long wooden ladle; both forearms and hands, pocked and shiny with old burn scars, are lifted into the light. Power: none, only a faint green-gold glow in the steam rising past his face. Background: a dim stone kitchen in drifting steam, a big iron pot, a rack of bamboo steamers. Light: warm orange firelight from the lower left, soft silver steam-glow behind, a thin line of firelight on the ladle's bowl and the sheen of his bald scalp. Expression: blank, silent, a listening stillness."
+  },
+  {
+   "key": "la_tieu_hanh",
+   "sex": "f",
+   "age": 16,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Folding a scrap of poem into her sleeve and humming when she thinks, an apricot seller's girl who knows the poem of the small tower by heart.",
+   "subject": "The moment: standing alone under a rain-wet eave, humming softly with her head tilted, folding a small slip of paper into her sleeve. Face: a tiny folded slip of paper going into the cuff of her sleeve and a hummed tune on her lips; a small, round, dreamy, pale pink face, large soft far-off dark eyes, fine low brows, a button nose, a small mouth shaped round a hum, a faint dusting of freckles, long dark lashes. Hair: black, in two low plaits tied with apricot-orange silk threads, a tiny silver pin. Body: small, slim, light, feet together, shoulders rounded slightly inward, a dreamer's loose posture. Clothing: the simplest graceful silk of an outer disciple, a soft dusk-grey robe with storm-violet inner collars, fine and tidy, wide sleeves, a short black oiled-silk over-robe, a black sash with a small bronze bell, a sprig of dried apricot blossom pinned at the collar. Hands and objects: the right fingers tucking the folded paper into the left sleeve; the left hand holds a small basket of apricots. A plain short slim sword, grip wrapped in soft pale cotton strips, a small round iron guard, a scabbard of grey hide, a tiny folded paper slip tucked under the cord binding, is slung diagonally across her back, hilt above the right shoulder. Power: a few faint motes of pale gold and apricot light float about her like drifting petals. Background: a rain-wet eave, a stone yard in grey drizzle, an apricot tree blurred in mist. Light: soft silvery moon-grey light from the upper left, a thin silver line of rainlight along the eave and a drop gleaming on her sleeve. Expression: dreamy, shy, content."
+  },
+  {
+   "key": "bien_tram_thach",
+   "sex": "m",
+   "age": 19,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "At the vault door in the evening, head cocked at a footstep, naming each elder by their tread. Ruin dust on his chin; he was born in the ruin of the old guard.",
+   "subject": "The moment: standing guard beside a heavy iron door in the evening, his head cocked sharply toward steps far down the corridor, ready to name each elder by their tread. Face: his head tilted hard to one side with the ear forward, mouth slightly open as he names a step, and a smudge of grey ruin dust on his chin, for he was born in the ruin of the old guard; a young, narrow, solemn face with large alert dark eyes looking aside, thin brows, a long nose, parted lips, long still lashes, a thin dust-grey line along the jaw. Hair: black and cropped short, a pale layer of ruin dust settled in it, giving it a grey tint, a plain dark silver pin. Body: slim and upright, rigid with attention. Clothing: a simple graceful dusk-grey silk robe with storm-violet collars, dust-grey at the hem, a short black oiled-silk over-robe, a black sash with a small bronze bell, a grey silk cloth wrapped round each fist. Hands and objects: both hands hold a plain wooden staff upright before him; the heavy iron door stands at his side. Power: faint pale-gold motes of earth-qi drift in the lamplight round his feet. Background: a stone corridor in faint mist, a single lamp, the long shadow of an approaching figure. Light: dim yellow lamplight from the upper left, a silver rim light, a thin shaft of it lighting the side of his face turned toward the sound. Expression: alert and serious, wholly listening."
+  },
+  {
+   "key": "thang_tieu_chuc",
+   "sex": "f",
+   "age": 17,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Walking down into the vaults with one hand on the wall, a thimble of lamp oil in her sleeve. She is afraid of the dark everywhere but here.",
+   "subject": "The moment: walking down a dim stair with one hand flat on the stone wall, glancing at the dark behind her. Face: her left hand flat on the wall and her wide frightened eyes looking over her shoulder, a small clay oil flask in her other hand; a small, pale, anxious face, wide round dark eyes, thin upturned brows, a small nose, a tight small mouth, wet lashes and a small tear clinging at the inner corner of one eye. Hair: black, in a single braid tied with a bit of silk cord, a few loose strands, a small silver pin. Body: small, thin, hunched, shrinking inward. Clothing: a simple graceful dusk-grey silk robe with storm-violet collars, a short black oiled-silk over-robe, a black sash with a small bronze bell, a spotless pale cloth tied at the waist with a few spots of lamp oil. Hands and objects: the left hand flat against the wall; the right holds a small clay flask of lamp oil; in the cuff of her sleeve a thimble of oil shows. Power: none, only a tiny warm gold spark of lamp-flame reflected in her eyes. Background: a narrow stone stair going down into a vault lit with rows of tiny lamps, a very dark corridor behind, soft mist. Light: warm lamp glow from below and ahead, deep blue-black behind, a faint silver rim along her cheek, far lamplight flickering in her wide eyes. Expression: afraid, resolute, small."
+  },
+  {
+   "key": "ha_mach_tue",
+   "sex": "f",
+   "age": 18,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Carrying the grain tax up the road, calluses across both shoulders, thinking aloud about rice and how the ridge should eat it.",
+   "subject": "The moment: trudging up a road in the evening with grain sacks on a shoulder-pole, talking aloud to herself about rice and how the ridge should eat it, mouth open. Face: broad shoulders with a thick pad of callus visible where the neck of her robe is pulled aside, and a pole across them hung with grain sacks; a broad, plain, sunburnt face with honest thoughtful brown eyes, strong straight brows, a wide nose, a wide mouth in mid-speech, a scatter of small freckles across cheeks and nose, lips chapped from the road wind. Hair: black, in a thick plait coiled at the nape under a pale cloth, a plain silver pin. Body: stocky, strong and wide-shouldered. Clothing: a simple dusk-grey silk robe of good cloth with storm-violet collars, the sleeves rolled and the collar pulled open at one shoulder showing the callus, a short black oiled-silk over-robe tied round her waist, a black sash, straw sandals. Hands and objects: both hands on a bamboo carrying pole across her shoulders, a sack of rice hanging at each end. Slung across her back, hilt past the right shoulder: a plain long straight sword with a faint green bloom on the steel, grip wrapped in coarse sackcloth, a plain bar guard of grey iron, a scabbard of pale grain-sack canvas stitched round wood with one neat square of mending, a twist of cloth holding a few husked rice grains at the pommel. Power: a few soft green motes of wood-qi float up from the grain. Background: a wet road between green rice fields, a far grey tower in the mist. Light: soft silvery moonlight from the upper left, a pale sheen on the wet fields and the grain sacks. Expression: earnest and practical, absorbed in her own thoughts, the frown and open mouth of someone working out a sum aloud."
+  },
+  {
+   "key": "tham_hoi_y",
+   "sex": "f",
+   "age": 23,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Holding the ladder while the founder's chain is oiled, wearing her wide rain hat indoors, nothing showing but her mouth.",
+   "subject": "The moment: standing at the foot of a ladder, steadying it for someone above while the founder's chain is oiled, in a huge rain hat pulled low indoors so only her mouth is visible. Face: a very wide conical straw rain hat that hides her eyes and nose entirely, leaving only a small firm mouth and chin; the visible part is a pale, sharp, small pointed chin with a tiny dimple and a small closed slightly pursed mouth, the lips faintly dry from cold. Hair: not visible, only a few black strands escaping at the nape. Body: slim, tall and upright, hands steady. Clothing: a neat simple dusk-grey silk robe with storm-violet inner collars crossed at the neck, wide sleeves, a black oiled-silk rain cloak with a high collar and a thin silver lightning thread at the hem, a black sash with a bronze bell, the wide hat tied with a chin cord. Hands and objects: both hands grip the sides of a wooden ladder rising out of the frame, with a bronze chain of cups hanging beside it. A plain long straight sword in a red-brown scabbard is slung diagonally across her back; its copper guard and the grip wrapped in rust-red cord show above the left shoulder. Power: a few faint red-gold motes of fire-qi glow under the brim, no more. Background: a tower eave in mist, a hanging bronze rain-chain, a pale grey wall. Light: soft moon-grey light from the upper left, the hat's shadow lying across her face, a narrow silver rim light at the edge of the brim. Expression: unreadable and reserved, the calm closed mouth of someone who is dutiful and is not going to explain herself."
+  },
+  {
+   "key": "khau_thinh_trieu",
+   "sex": "m",
+   "age": 85,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Poling a boat across the lotus lake, bald as a turnip. The boatmen call him Radish to his face and he lets them. Rice wine in payment, and he calls it the tax.",
+   "subject": "The moment: poling a long boat across a lotus lake, he turns his face to the viewer with a long, wind-cracked, patient look; the boatmen call him Radish to his face and he lets them. Face: a bald crown and a long, wind-cracked, pale-pink and white face shaped just like a boiled turnip, narrow at the chin; deeply creased, small watery amused grey eyes, no brows, only two pale smudges, a big bulbous nose dotted with fine red veins, a wide mouth with few teeth, stubble on the long chin, cheeks cracked and shiny. Hair: none, a shiny bald crown with a white fringe at the ears. Body: tall, stooped and bony, with long arms. Clothing: a dusk-grey silk robe, simple, clean and well kept, with storm-violet collars, a short black oiled-silk over-robe, a silk rope belt, a small straw hat hung at his back and a red clay gourd of rice wine tied at the waist. Hands and objects: both hands on a long wooden pole; the wine gourd swings at his hip, his payment for the crossing, which he calls the tax. Past the left shoulder rises the pale blue-corded hilt of a plain long straight sword slung on his back, its blue-black scabbard held by a plain strap, the blade of blue-grey steel. Power: a thin ring of pale-blue water-qi ripples round the pole where it enters the water. Background: a pale misty lake, lotus leaves, a faint cone-shaped hill. Light: soft pearl-grey moonlight from the upper left, a thin mist-glow making the bald head shine like a polished turnip. Expression: patient and mild, a tipsy good humour in the watery eyes."
+  },
+  {
+   "key": "thuong_bich_ngan",
+   "sex": "f",
+   "age": 22,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "In the practice yard copying her idol down to the sleeve, one hard cut, the War Hall telling them apart by height. She thinks the south is soft.",
+   "subject": "The moment: in the practice yard she makes one hard sword cut and holds the pose, an exact copy of a duellist's stance, the point of the blade level. Face: a hawk-like face, the nose beaked and the eyes narrowed in a deliberate copy, and on her left sleeve a pair of red stitches made in imitation; a lean, hard, sharp young face, dark narrow glittering eyes, strong black brows, a hooked nose, a thin hard mouth, a faint white scar nicking the corner of one brow, short black lashes. Hair: black, in a tight hard topknot with a black iron pin. Body: tall, rangy, a duellist's coiled stance. Clothing: a long black oiled-silk rain cloak thrown back from her shoulders, a dusk-grey silk robe of fine cloth with a high collar edged in storm-violet and tight sleeves, the left sleeve marked with two red stitches, a black sash with a small bronze bell. Hands and objects: a plain sword held out in the cut, its blade level, the right wrist locked; the left arm bent back. Power: a cold silver-white glint of metal-qi runs along the flat of the blade, a few silver motes trailing the cut. Background: a grey yard in mist and rain, a few blurred watchers. Light: cold silver moonlight from the upper left, a hard rim light, glinting sharply along the blade. Expression: hard, proud, contemptuous."
+  },
+  {
+   "key": "hang_dan_ha",
+   "sex": "f",
+   "age": 18,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Carrying the copies from the vaults to the seat, a satchel strap across her chest, her foot never still. She sold a glimpse for a ribbon.",
+   "subject": "The moment: waiting on a step with a satchel across her chest, one foot tapping, pleased with a new ribbon. Face: a bright, new, bold-coloured ribbon tied in her hair, too bright for the grey, and a satchel strap across her chest; a pert, freckled, round face, quick bright guilty brown eyes, thin arched brows, a small upturned nose, a restless half-smiling mouth, a smudge of ink on the chin, a dimple at one corner of the mouth. Hair: dark brown, in a high tail tied with a bright new scarlet silk ribbon, a tiny silver pin. Body: slight, quick, restless. Clothing: a neat, simple graceful dusk-grey silk robe with storm-violet collars, a short black oiled-silk over-robe, a black sash with a small bronze bell, a leather satchel strap crossing the chest. Hands and objects: both hands on the satchel; one foot visible tapping on the stone step; her nails bitten short, one thumb wrapped in a strip of cloth, the strap worn pale. Past the left shoulder rises the rust-red-corded hilt of a plain straight double-edged sword slung on her back, its red-brown scabbard held by a plain strap, the blade of steel darkened to a warm tint. Power: a tiny glow of red-gold fire-qi in the ribbon touches the grey wall beside her. Background: a stone stair in front of a hall in drifting rain-mist, a small figure waiting. Light: soft moon-grey light from the upper left, a silver rim light, a bright spot of scarlet. Expression: restless, pleased with herself, a little guilty."
+  },
+  {
+   "key": "manh_da_vu",
+   "sex": "m",
+   "age": 56,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "A rainy night in the Hall of the Night Rain, the head's court. He has turned his head toward a sound at the door before his eyes follow. The spotted-bamboo umbrella is furled at his side indoors. A gutter-mender's son who once knew from the drip of eaves which guest was awake.",
+   "subject": "The moment: on a rainy night in the Hall of the Night Rain, the head's court, he has turned his head sharply toward a small sound at the door, his eyes still on the viewer a moment before they follow. Face: the head turned in profile toward a sound while the eyes lag behind; a narrow, long, pale face with deep lines from nose to mouth, dark sunken patient eyes under thin level brows, a long thin nose, thin bloodless lips held a little apart as he listens, a neat black moustache and a short pointed grey-black beard. Hair: black streaked with silver, drawn into a tight topknot crowned with a small black-silver coronet and a long dark silver pin. Body: narrow, upright, spare, one shoulder turned. Clothing: the richest dress of the house, a long black oiled-silk over-robe with a high collar, lined with storm-violet brocade and embroidered down the front with silver lightning and raindrops, over layered robes of black and storm-violet silk with three crossed collars, wide sleeves falling in long folds, a sash hung with a bronze bell and a jade pendant. Hands and objects: the right hand rests on the handle of a furled spotted-bamboo umbrella, its ribs freckled brown-purple like tears; the handle is a plain sword grip, a hairline seam runs down its spine where a thin steel blade is housed, a finger's width of bright blade showing at the throat; the left hand is hidden in his sleeve. Power: a strong cold aura of silver-blue rain, fine streaks of falling water-light and a faint wind stirring the robes. Background: a dark hall, pillars lost in shadow, one lamp, a blurred doorway, mist along the floor. Light: low yellow lamplight from the upper left, deep shadow on the other cheek, a silver rim light. Expression: watchful, patient, suspicious, listening before looking."
+  },
+  {
+   "key": "co_da_lan",
+   "sex": "f",
+   "age": 60,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Dusk on the War Hall's yard. She stands with her weight back on her heels, sword hand empty and open, a miner's squint, waiting for a challenger. She has never lost a duel and wants the last two swords she has not measured.",
+   "subject": "The moment: at dusk in the War Hall's yard she stands with her weight rocked back on her heels, her right hand open and empty beside her hip, squinting at someone she is about to measure. Face: a hard miner's squint that narrows both eyes to slits in a long, weathered face, and a thin white scar through the chin; a tall woman's long, hard, lined, sun-browned face, narrow flat grey eyes under strong grey brows, a straight strong nose, a thin level mouth with a trace of contempt. Hair: iron-grey, thick, cut straight at the shoulder and tied back low with a silver-grey cord, loose strands at the temple, a plain heavy silver hairpin. Body: tall, broad-shouldered, smith's forearms, weight tipped back. Clothing: the richest dress of the house in a hard martial cut: a long black oiled-silk over-robe thrown back over the shoulders, scorched at the hem and left unmended, over layered robes of black and storm-violet silk with crossed collars, a high collar of silver-threaded brocade, a lacquered black scale vest of small silver-grey plates over the robe, sleeves bound at the wrist with cord, a sash with a bronze bell and a jade pendant. Hands and objects: the right hand empty and open, thick scarred fingers; the left rests on the hilt of a plain long sword at her hip, the scabbard black and worn. Power: a strong aura of cold silver metal-light flickering about her like drawn steel, a few forks of pale lightning at her shoulders. Background: a darkening storm-blue yard of the War Hall in mist, a drum on a post, blurred watchers, a flash far off. Light: cold blue dusk light from the upper left, a thin flicker of lightning on the silver plates. Expression: a hard patient squint, the mouth a flat line, and a cold certainty in the face of someone who has never lost."
+  },
+  {
+   "key": "quan_vu_thanh",
+   "sex": "f",
+   "age": 56,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Beneath the old tower's eaves in soft rain. A silver-haired woman with a straight back and soft voice, an old straw rain hat she will not replace, nine spare bronze links at her belt. She has spoken for peace for four hundred years.",
+   "subject": "The moment: standing under the eaves of an old tower in soft rain, she speaks gently with her palm turned up, as though offering peace. Face: an old, much-mended straw rain hat on her silver hair, and at her belt a loop of nine bronze links gleaming; a fine-boned, gentle, oval, pale brown face with many small lines, soft wise grey-green eyes with a steady kindness, thin silver brows, a straight delicate nose, a soft mouth in a slight firm smile. Hair: silver-white, smooth, parted in the middle and coiled low at the nape under the hat, a long white-jade pin. Body: slight, very straight-backed, composed. Clothing: the rich dress of an elder, softly worn: a black oiled-silk rain cloak, well oiled, lined in storm-violet silk and embroidered at the hem and cuffs with silver raindrops, over layered robes of pale silver-grey and black silk with three crossed collars and wide sleeves, a black sash holding the ring of nine bronze links and a small bronze bell. Hands and objects: the right hand turned palm up, open; the left rests on the hilt of a long light sword with a worn black scabbard; at her belt the nine bronze links. Power: a gentle aura of silver-blue light, soft motes of rain-light drifting round her like slow snow, the raindrops hanging in the air a moment before they fall. Background: a soft grey old tower eave with a hanging bronze chain of cups, misty rain, a green hill. Light: soft silvery moonlight from the upper left, beads of rain on the cloak, a gentle rim glow. Expression: gentle, firm, patient, kind and unyielding."
+  },
+  {
+   "key": "manh_luu_ly",
+   "sex": "f",
+   "age": 27,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Just before a storm on the ridge, a small quick woman, veins blue at her temples, a thin sword of violet glass humming at her side. She wants to be head while her master lives to see it.",
+   "subject": "The moment: on a ridge before a storm she tilts her head as her violet glass sword begins to hum, a quick hungry look in her eyes. Face: a sword of thin clear violet glass, see-through as a sheet of ice, held up beside her face, and skin so pale that blue veins show at her temples; a small, quick, sharp, fine-boned, almost white face, bright dark restless eyes, thin dark arched brows, a small straight nose, a small firm curved mouth, a faint ambitious tension in the jaw. Hair: black, glossy, in a high knot held by a violet glass pin and a small silver crown, one strand lifting in the static. Body: small, slight, quick, poised on her toes. Clothing: the rich dress of the head's disciple: a black oiled-silk over-robe thrown back, lined in storm-violet brocade, over layered robes of black and violet silk with three crossed collars, glass thread woven through the cloth so that it glints violet, wide sleeves embroidered at the cuffs with silver lightning, a sash with a bronze bell, a copper-bound rod of raw amethyst thrust through it. Hands and objects: the right hand holds up a thin, flat violet glass sword, humming, its edge catching light; the left rests on the copper-bound amethyst rod. Power: a vivid aura of violet-white lightning crawling along the glass blade and her sleeves, her hair lifting with static. Background: a dark purple storm sky, a ridge, a thin white fork of lightning far off. Light: cold violet-white light from the upper left, a glow along the glass blade. Expression: sharp, ambitious, alert, eager."
+  },
+  {
+   "key": "nhiep_vo_thanh",
+   "sex": "f",
+   "age": 45,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "An inn room in Thu Trì at night, in a plain grey innkeeper's robe. She sits with her head tilted toward the nearest door, a small bronze bell sewn inside her collar. Nobody remembers the woman in the robe, which is the point.",
+   "subject": "The moment: seated at a low table in an inn room in Thu Trì at night, her head tilted toward the closed door, heavy-lidded eyes half closed, listening. Face: a plain, heavy-lidded face and an inclined head turned toward a door, with the barest glint of a small bronze bell sewn inside the collar of her robe; a broad, plain, unremarkable, tan face, heavy-lidded calm dark eyes, soft level brows, a short nose, a plain closed even mouth. Hair: black with grey, plainly coiled and pinned flat with two wooden pins, like any innkeeper's. Body: stout, solid, seated square, unremarkable. Clothing: she is dressed to be overlooked, yet the cloth gives her away to a sharp eye: a plain dove-grey innkeeper's robe of fine silk, three crossed collars of the same grey, a thin storm-violet line hidden inside the cuffs, a small bronze bell stitched inside the high collar, wide sleeves, a dark brocade sash tied plainly with a jade toggle. Hands and objects: both hands folded on a low table beside a plain clay teapot and one cup; a small round bronze mirror, face down, lies at her elbow. Power: a faint pale-silver aura, almost invisible, a ripple of listening-light in the steam above the tea. Background: a lamplit inn room in drifting mist, a door of dark wood, a window with rain. Light: warm low lamp light from the upper left, soft shadows, a faint silver rim. Expression: calm, attentive, a mask of mildness."
+  },
+  {
+   "key": "hau_vong_xuan",
+   "sex": "m",
+   "age": 40,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "On Liệt Khuyết Phong at the first storm of Kinh Trập, holding a peach-wood sword to the cloud. A white fern of lightning scar runs from his left ear to the collarbone. He claims the blood of Khải Lôi and means to open what was sealed.",
+   "subject": "The moment: on a peak at the first spring storm he holds a peach-wood sword up to the clouds with one hand, his face lit white by the sky. Face: a white branching fern-shaped lightning scar running from his left ear down the neck to the collarbone, bold and raised against sunburnt skin; a broad, strong, sunburnt face, heavy jaw, fierce dark deep-set eyes, thick black brows, a broad nose, a wide hard mouth, a short black beard. Hair: black, thick, tied in a topknot with a red cord and a silver crown-pin, a few strands whipped by wind. Body: broad, thick-chested, powerful, a drummer's shoulders. Clothing: the rich dress of a true disciple: a black oiled-silk over-robe open and snapping in the wind, scorched at the hem and lined in storm-violet brocade with silver lightning embroidery, over layered black and violet silk robes with three crossed collars, sleeves tied back, a broad sash with a bronze bell and a jade pendant, a peach-wood drumstick pushed through it. Hands and objects: the right hand holds a slender sword with a reddish-brown core of peach wood raised to the sky; the left grips the drumstick at his belt, pale, thunder-struck wood. Power: a strong violet-white aura, forks of living lightning leaping from the sword tip to the clouds and crawling over his shoulders. Background: a dark purple storm, towering cloud, a white bolt far off, a crag in mist. Light: harsh white-violet flash from the upper left, a deep shadow on the right cheek. Expression: fierce, proud, driven, arrogant."
+  },
+  {
+   "key": "kieu_man_lau",
+   "sex": "m",
+   "age": 50,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "The Night Rain Market after dark, plump, gleaming with rings, throwing abacus beads like coins when an argument goes badly. A red silk lining flashes in his black cloak.",
+   "subject": "The moment: at night in his market he leans back on a stool, smiling broadly, ringed hands spread palm up, a black iron abacus clicking at his hip. Face: a different ring on every finger of both hands, gold, jade, iron and silver, bright against the plump hands, and a black cloak open to flash a brilliant red silk lining; a round, plump, jolly, shiny face, small shrewd bright black eyes, thick arched brows, a small snub nose, a wide rich smile with a gold tooth, a double chin and a thin curled moustache. Hair: black, oiled, drawn into a topknot with a gold pin and a small gold crown. Body: plump and round-bellied, relaxed, taking up his stool with satisfaction. Clothing: the richest dress of the house, in a merchant's fashion: a black oiled-silk over-robe lined with the brilliant red silk showing at the open front, embroidered with silver raindrops, over layered robes of storm-violet and black brocade with three crossed collars and gold buttons, wide sleeves, a wide black sash hung with a bronze bell, jade pendants and a heavy iron abacus with black beads. Hands and objects: both hands spread palm up with a ring on every finger; the abacus beads click at his hip. Power: a glittering aura of blue and gold light-motes, like coins of water-light floating up round him. Background: lantern-lit market stalls at night in rain-mist, hanging charms, rain on the awnings, all blurred. Light: warm red-gold lantern light from the upper left, glinting in the gold tooth and the rings. Expression: jovial and shrewd, a greedy delight behind the smile, a man who throws beads like coins when an argument goes badly."
+  },
+  {
+   "key": "thach_lien_hoan",
+   "sex": "m",
+   "age": 48,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "At the storm forge under a darkening sky. He stops talking when the sky darkens and goes to his anvil. No eyebrows, burn-mottled arms. He wants one lightning rod that does not bring the strike to the man who holds it.",
+   "subject": "The moment: standing at an anvil at the storm forge under a darkening sky, a heavy hammer on his shoulder, he has stopped speaking and looks up at the clouds. Face: completely hairless brow ridges, no eyebrows at all, and bare arms mottled with pale burn scars from wrist to shoulder; a short, square man's broad, flat, burn-pinked face, small steady dark eyes beneath smooth brows, a wide nose, a thick tight silent mouth, a short grey beard, tiny pale burn scars on the cheeks and bridge of the nose, singed short lashes. Hair: grey, cropped close, with a silver band round the head. Body: short, very square and thick-armed. Clothing: the rich dress of an elder in a forge master's cut: a black oiled-silk over-robe singed along the hem, lined in storm-violet brocade, over a short sleeveless jerkin of dark silver-grey brocade and layered black and violet silk robes with crossed collars, a sash with a bronze bell and jade pendant; the scarred arms are bare. Hands and objects: the right hand holds a heavy old forge hammer on the shoulder; the left rests on a dark anvil. Past the right shoulder rises the rust-red-corded hilt of a well-made narrow straight sword slung on his back, its red-brown scabbard held by a plain strap, the blade of steel darkened to a warm tint. Power: a strong aura of silver-white metal-light and shed red-gold sparks swirling round him, a faint crackle of lightning in the clouds above. Background: an open fire mouth, dark clouds at the door, a tall iron rod outside, mist. Light: orange fire-glow from the lower right, cold silver storm light from the upper left. Expression: silent, grave and absorbed, an honest patient attention, the look of a man hoping for one lightning rod that does not bring the strike to the hand that holds it."
+  },
+  {
+   "key": "phuong_doan_vu",
+   "sex": "m",
+   "age": 50,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Drilling the inner gate in the rain, always soaked because he does not change. He counts the lightning with the villagers. He wants to die on the climb, not in the rain of the pass.",
+   "subject": "The moment: standing in pouring rain on a drill ground, water streaming from his sleeves and hair, counting aloud with a lifted finger as lightning flickers. Face: a lean, sunken-cheeked, always wet face with water running from the chin and the hair; deep-set tired dark eyes, thin dark brows plastered flat, a long straight nose, a thin hard mouth whose lips move as he counts, short grey stubble. Hair: dark grey, plastered flat to the skull, tied in a short wet tail with a dark silver pin. Body: lean, long and wire-tough, upright in the downpour. Clothing: the rich dress of an elder, soaked and shining: a grey-black silk robe of fine cloth soaked dark with rain and clinging at the shoulders over layered robes of black and storm-violet silk with crossed collars, a black oiled-silk over-robe hanging heavy and dripping, embroidered with silver lightning that glints in the wet, a black sash with a bronze bell and a jade pendant, no hat. Hands and objects: the right forefinger raised, counting; the left holds a plain long sword at his side by the scabbard, streaming. Power: a strong cold aura of silver rain-light, every drop around him gleaming and falling slower than elsewhere, a faint white flash of lightning behind. Background: a grey drill field in rain and mist, rows of blurred young figures. Light: cold silver moonlight from the upper left, a white flash far behind, a hard rim light on the wet shoulders. Expression: tired and hard, grimly steady, the set mouth of a man who does not change his clothes because he has chosen to stay in the weather."
+  },
+  {
+   "key": "hua_thanh_diem",
+   "sex": "f",
+   "age": 45,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "In a host's hall, refusing the offered cup. She carries her own tea and never drinks a host's. A green-lined cloak. She writes about tea to a man who refused the Tower.",
+   "subject": "The moment: seated politely in a stranger's hall, she gently slides her own small tea cup in front of her and smiles at the host's offered bowl, declining it, as she always does. Face: a green silk lining flashing at the open front of her black cloak, and in her hands her own small white porcelain tea cup; a soft, round, pleasant, smooth pale-brown face, warm bright intelligent eyes that quietly watch, gently arched brows, a small straight nose, a pleasant closed-lip smile. Hair: black with a few silver threads, in a smooth coil at the back pinned with a jade pin and a small silver comb. Body: round-shouldered, soft and composed, seated upright. Clothing: the rich dress of an envoy: a black oiled-silk over-robe lined in bright green silk and embroidered at the cuffs with silver raindrops, over layered robes of pale silver-grey and storm-violet silk with three crossed collars and wide sleeves, a black brocade sash from which hangs a tiny dark lacquer tea caddy, a bronze bell and a jade pendant. Hands and objects: both hands cup the small white porcelain cup; the tiny lacquered tea caddy hangs at her belt, lid closed. A fine straight double-edged sword in a blue-black scabbard is slung diagonally across her back; its pewter guard and the grip wrapped in pale blue cord show above the left shoulder. Power: a soft aura of pale blue water-light, a thin drift of tea-steam turning to glittering motes above the cup. Background: a blurred formal hall with carved screens in mist, and at the edge a host's hand offering a bowl. Light: soft golden light from the upper left, warm on the porcelain and the jade, a silver rim. Expression: gracious and warm, with a guarded stillness behind the smile, kindly and entirely unpersuadable."
+  },
+  {
+   "key": "tuong_lau_thanh",
+   "sex": "m",
+   "age": 70,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "In the Hall of Rules beside the water clock, tapping a bronze cup with one finger while listening, speaking in the rhythm of dripping water. A bony old man who wants the clock never again to need a hand.",
+   "subject": "The moment: seated beside a dripping water clock in the Hall of Rules, he taps a small bronze cup with one finger in time with the drops, head tilted, eyes unfocused, speaking in the rhythm of the water. Face: a bony finger tapping a small bronze cup held in the left hand, his head tilted to the rhythm of falling water; a gaunt, bony, long-jawed, grey-brown, creased old face, deep-set calm pale eyes, sparse white brows, a long thin nose, a thin straight mouth whose lips just move, a long white wispy beard. Hair: white and sparse, drawn into a tiny topknot with a plain bone pin and a narrow silver circlet. Body: tall, bony and narrow-shouldered, stiffly seated. Clothing: the rich dress of an elder, severe and exact: a perfectly oiled black silk over-robe lined in storm-violet, over layered robes of grey-black and violet silk with a high stiff collar and three crossed collars, the sleeves embroidered with fine silver raindrops in measured rows, a black sash with a bronze bell; his fingertips are ink-dark. Hands and objects: the left hand holds a small bronze cup in the palm; the right forefinger taps its rim; beside him stands a tall bronze-and-clay water clock with a line of drops falling. On his back, hilt past the left shoulder: a well-made long straight sword, old and worn smooth, grip covered in black-dyed ray-skin, a flat narrow guard of dark bronze, a scabbard of heavy glossy black lacquer with a fine crackle in the gloss, a small bronze water-clock weight hanging from the pommel. Power: a strong still aura of silver-gold light, each falling drop catching the glow and hanging a moment in the air. Background: a dim bare hall of rules in mist, one lamp. Light: low amber lamplight from the upper left, a gleam on the water drops, a pale rim glow. Expression: still and exact, a listening, just calm, the face of an old man who wants the clock never again to need a hand."
+  },
+  {
+   "key": "lu_tan_ha",
+   "sex": "f",
+   "age": 90,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "The lake shore in rain with no hat, hands folded in her sleeves, a tiny brown old woman sitting beside the withered lotus where the founder is buried. She wants to be put into the lake herself on a night of rain.",
+   "subject": "The moment: sitting very small on a stone at a lakeshore in steady rain, bareheaded, hands folded in her sleeves, her face upturned to the drops. Face: bare head and grey hair soaked with rain, no hat, a face lifted to the rain with closed eyes and a deep contentment; a tiny, brown, deeply wrinkled face like a dried walnut, closed peaceful eyes, thin white brows, a small flat nose, a faint serene toothless smile, rain running down. Hair: thin white, plastered flat, tied in a tiny knot with a grey silk cord and a small white-jade pin. Body: tiny, shrunken, bent, sitting like a stone. Clothing: the richest dress of the house worn with total carelessness: a black oiled-silk over-robe open and soaked at the shoulders, lined in storm-violet brocade with silver lightning and raindrops, over layered robes of pale grey and violet silk with three crossed collars and wide sleeves, a plain black sash, a small white lotus petal pinned at the breast. Hands and objects: both hands folded deep inside her wide sleeves; at her side a single pale withered lotus stem rising from the lake. Slung across her back, hilt rising past the right shoulder: a fine narrow straight sword in a blue-black scabbard, grip wrapped in pale blue cord, a pewter guard. Power: a vast quiet aura of pale silver-blue light, the rain-rings on the lake spreading wider than the drops should make, motes of water-light rising from the lotus. Background: a grey misty lake with rain rings, withered lotus leaves, a pale far shore. Light: soft silver-grey moonlight from the upper left, rain bright on her face, a gentle glow rim. Expression: serene and content, a tiny smile, the deep quiet of someone already half returned to the water."
+  },
+  {
+   "key": "o_thiem_tu",
+   "sex": "m",
+   "age": 50,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "In his alchemy room at the market, tasting a new brew with a spoon. A fat damp yellow-eyed man with live toads in his sleeves. He sends the healer each new poison first.",
+   "subject": "The moment: in a steamy alchemy room he licks a spoon of green liquid with half-closed yellow eyes while a toad's head peeks from his sleeve. Face: a toad's warty brown head poking out from the cuff of his right sleeve beside his face, and sickly yellow eyes; a fat, round, damp, greenish-pale, glistening face, small sleepy yellow eyes with heavy lids, hairless brows, a flat wide nose, a wide wet mouth with the spoon at its tip, tongue touching, sagging jowls. Hair: thin black strands slicked flat over a shiny scalp, a small knot held by a green jade pin. Body: very fat, round, soft, slouching. Clothing: the rich dress of a guest elder in an alchemist's fashion: a black oiled-silk over-robe stained with green splashes, lined in storm-violet silk, over layered robes of dark green and grey brocade with crossed collars and wide sleeves, damp at the underarms, a black sash hung with a row of small stoppered jade bottles and a bronze bell. Hands and objects: the right hand holds a long wooden spoon with green liquid; the left sleeve cuff holds a second toad's head. Power: a strong green aura, swirls of pale green wood-qi mixed with curls of steam, a sickly glow lifting from the pot. Background: a steamy alchemy room, bubbling clay pots, hanging dried herbs and toads, a lamp. Light: green-tinged lamp light from below and the right, warm steam, a faint silver rim. Expression: half-closed yellow eyes and a slack, wet-lipped, indulgent mouth round the spoon, calm and unmoved by the taste."
+  },
+  {
+   "key": "ninh_tich_dang",
+   "sex": "f",
+   "age": 40,
+   "dress": "x:thinh_vu",
+   "style": "xianxia",
+   "memorial": false,
+   "imagined": "Emerging from the soul vaults blinking at daylight after a month underground, ink on her fingers, wax in her hair, a pair of wick shears in her hand. She never wants to be asked to cut a wick again.",
+   "subject": "The moment: stepping from a dark doorway into daylight after a month in the soul vaults, she blinks slowly and squints, one hand raised against the light, a pair of bronze shears in the other. Face: a pair of bronze wick shears held tight against her breast, and a slow wincing blink in the daylight; a tall woman's long, pale, tired face, pale as a root, slow-blinking dark tender eyes under violet shadows, straight brows, a long nose, a soft set mouth. Hair: black, in a loose knot with beads of white candle wax stuck in it, held by a dark silver pin. Body: tall, long-limbed and slightly stooped, uncertain in the light. Clothing: the rich dress of an elder, dimmed by long work: a black oiled-silk over-robe lined in storm-violet brocade, over layered robes of grey and violet silk with a high collar and three crossed collars, the cuffs ink-black and the front spotted with wax, a black sash with a bronze bell and a jade pendant. Hands and objects: the right hand shades her eyes, the fingers black with ink; the left holds the bronze scissor-shaped wick shears, long handles against her chest. Power: a strong aura of violet lightning-light and warm red-gold, tiny flame-motes and faint violet sparks clinging to her sleeves like fireflies. Background: a dark doorway behind her with rows of tiny lamps, a bright washed-out daylight ahead, pale mist. Light: bright white daylight from the right and in front, a dim lamp glow behind, a faint glowing rim. Expression: weary and compassionate, stubbornly gentle, the look of a woman who never again wants to be asked to cut a wick."
+  }
+ ]
+}

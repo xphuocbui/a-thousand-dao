@@ -50,8 +50,8 @@ memorial portraits at the age of their defining deed.
 - **Describe the look, never the deed.** Cruelty shows in a face, not in blood. Marks and flaws must be plainly
   visible: lead with them.
 - **No writing in the picture:** no seals, ledgers or banners with text.
-- **Power is never drawn:** no grander look, size or glow for a higher realm. Qi is only a subtle hint of the
-  person's element.
+- **Power may be drawn, but not always** (user, 2026-11-25): a qi glow, an aura or an ethereal presence where it
+  suits the person and the moment.
 - No names, characters or images from existing novels, dramas or games.
 
 ## Finish

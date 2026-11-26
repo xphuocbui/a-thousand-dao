@@ -1,0 +1,394 @@
+{
+ "people": [
+  {
+   "key": "hoa_thien_khe",
+   "sex": "m",
+   "age": 40,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "Napping on the granary sacks, a tuneless whistle through the gap in his teeth as he counts, content.",
+   "subject": "The moment: sitting on a stack of rice sacks in a dim granary, he whistles through the gap in his front teeth with his eyes closed, counting in his head. Face: a broad, flat, easy brown face with thick lips, a snub nose and heavy relaxed lids; a clear gap between the front teeth, the mouth pursed in a small round around a thin whistle; a day's stubble on the cheeks and one crumb of rice cake in the corner of the mouth. Hair: black, tied up with a strip of plain red silk, grain husks clinging to it. Body: big, loose and sprawled, one knee up, his belly rising and falling in a slow lazy rhythm. Clothing: the simplest graceful silk of an outer disciple of the Fire Court: a robe of pale dawn-orange silk with a single crossed collar loosened at the neck, wide sleeves pushed back, a plain vermilion sash hanging untied, rice-dust on the shoulders, one small embroidered flame at the hem; no jade, no crown; his sandals lie off beside him. Hands and objects: a half-eaten rice cake in one hand. Background: a granary of heaped sacks rising into soft dark rafters, a wooden measure with a scoop, a ladder, and in the doorway a square of bright yard with a cart. Light: a slanting band of warm golden spirit-light from the doorway makes the husks sparkle like motes, with a soft mist of flour dust drifting. Power: a faint, drowsy ochre glimmer of Earth qi around his shoulders, barely there. Expression: eyes shut, lips pursed round the whistle, an easy contented slackness in the cheeks."
+  },
+  {
+   "key": "nguy_bach_thach",
+   "sex": "m",
+   "age": 21,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "On the ridge stair, tapping knuckles on the nearest rail, listening hard to a captain's talk about the Tower, fiercely wanting a Metal art.",
+   "subject": "The moment: leaning on a stone rail at the top of a long stair, he drums his knuckles on it and listens sidelong to something out of frame, eager and sly. Face: a narrow, quick, ambitious face with a thin sharp nose, close-set dark eyes with a gleam in them, thin chapped lips half-smiling, a line of sweat above the upper lip; the knuckles of the tapping right hand are scarred and white at the joints, blurred in motion. Hair: black, short, a cowlick lifted by the wind. Body: lean and wiry, one shoulder against the rail, arms folded in a way that looks casual and is not. Clothing: a robe of pale gold-orange silk of an outer disciple, two crossed collars, sleeves rolled to the elbow, a vermilion sash double-knotted, a thin border of embroidered flames at the cuffs; on his left forearm a new silver-grey bracer too fine for his rank. Hands and objects: a short bamboo staff against his shoulder; slung across his back rises the hilt of a plain straight double-edged sword, its grip wrapped in straw-coloured cord, a plain steel guard, a pale wutong-wood scabbard bare at one spot where he taps it, a small wooden bead on the pommel. Background: a grey stair climbing a ridge between rock walls, a lantern on a post, a cloud-heavy sky, mist. Light: cold silver spirit-light from the upper left with a pale rim light on his cheek and sword. Power: a thin grey-white wisp of Metal qi curling from the sword hilt. Expression: a sly sidelong look, lips parted, jaw tense with the wish to speak."
+  },
+  {
+   "key": "dieu_ngoc_xuyen",
+   "sex": "f",
+   "age": 27,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "At a dice game in the outer court, a pair of ivory dice in her hand, charming smile, and a chipped thumbnail she turns away from the viewer.",
+   "subject": "The moment: seated at a table of games in a lamplit court, she rolls two ivory dice in her palm and smiles sweetly at the viewer. Face: a pretty, poised oval face with thin arched brows, a small mouth painted cherry, dark eyes bright with scheming, one brow arched a little too perfectly; a delicate beauty spot beside the left eye, gold powder on the eyelids; the raised hand shows deep red lacquered nails, all perfect except the thumb's, which is chipped. Hair: black, in an elaborate high knot with a jade comb and silver tassels. Body: slim and graceful, leaning forward with one elbow on the table, every inch of the pose arranged. Clothing: a robe of layered pale gold and dawn-orange silk and gauze with three crossed collars and wide flowing sleeves, the hem embroidered with a tiny border of white waves among the sect's gold flames, a vermilion sash, a jade bracelet on the left wrist, a string of small jade beads looped twice round her neck, a silk handkerchief in the sleeve. Hands and objects: two ivory dice in the right palm, one with a faint darker spot; teacups on the table. Background: a blurred dark court with a latticed window, a paper lantern, young disciples leaning in. Light: warm lantern glow and a soft blue-white rim of spirit-light on her hair, mist at the window. Power: a faint blue Water shimmer drifting off the dice like drops of dew. Expression: a sweet, poised smile, eyes that hold the viewer's a beat too steadily."
+  },
+  {
+   "key": "bao_lac_hai",
+   "sex": "m",
+   "age": 34,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "At the Nest's stove in the vent's heat, spoon on his shoulder like a sword; he has stolen a little meal-silver and is laughing about it.",
+   "subject": "The moment: standing at a hot stove, he holds a long wooden spoon at his hip like a sword, drawn halfway, and laughs aloud. Face: a round, red, sweaty, jolly face with plump shiny cheeks, small bright eyes squeezed in a big laugh, a thin grease-waxed moustache, a small white scar nicking the chin; the spoon is big and obvious. Hair: black, under a clean white cook's cap. Body: stout and round, feet wide, stomach forward, spoon-hand on his hip in a swagger. Clothing: a servant's tunic of clean undyed cotton, plain and spotless, with a vermilion silk sash and a thin border of tiny stitched flames at the collar, a white apron with one splash of broth, sleeves rolled over hairy forearms, a string of dried red chillies hung round his neck like a garland, a cloth over his shoulder. Hands and objects: the long wooden spoon; behind him a steaming iron pot on a stove glowing orange at the vent. Background: a vast kitchen with hanging pans and ladles, strings of onions, a table heaped with bowls of rice, steam rising into dark rafters. Light: a warm orange spirit-fire glow from the stove lights his face from the lower right, turning the steam to golden mist. Power: none beyond a few drifting golden sparks. Expression: a loud open laugh, a sly pleased gleam in the corner of his eye."
+  },
+  {
+   "key": "tran_tuoc_nhi",
+   "sex": "f",
+   "age": 16,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "In the aviary, a red-crested chick cupped in her hands; she is telling it its name; quills braided into her hair, each named.",
+   "subject": "The moment: sitting cross-legged on the floor of an aviary, she cups a fluffy chick in both hands, whispers a name to it, then smiles at the viewer. Face: a young, round, freckled, open face, thick freckles across the nose, rosy cheeks, wide dark shining eyes with short lashes, a small mouth with the lower lip a little out, a trace of sadness at the corners. Hair: black, in a long braid over one shoulder threaded with a dozen small coloured quills in red, blue, green and grey. Body: small and thin, shoulders rounded, leaning over the chick as one leans over a flame. Clothing: a robe of soft pale gold silk with a crossed collar and a vermilion sash, sleeves rolled back, a small silver pin shaped like a feather at the breast, a string of tiny coloured beads round the left ankle, a cloth seed pouch at the waist, one knee mended with a patch of different brown silk. Hands and objects: a baby red-crested chick, grey fluff with a red tuft, in her cupped hands. Background: tiers of dark wooden perches, a straw nest in the corner, a high window with a blue-violet sky and drifting mist. Light: a soft bar of silvery morning spirit-light lights the grey fluff and her cheek. Power: a faint green Wood glow in tiny motes around the chick. Expression: wide shining eyes bent tenderly on the chick, a quick eager smile and a faint sadness at the mouth."
+  },
+  {
+   "key": "hoang_anh_sa",
+   "sex": "f",
+   "age": 38,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "Sitting on the ridge stones between posts to breathe, report pouch on her knee and cinnabar red under every nail.",
+   "subject": "The moment: seated on ridge stones, she catches her breath and looks up at the viewer with a small flat pouch of papers on her knee. Face: a thin, pale, narrow face with a flush, a sharp chin, a small nose, large tired dark eyes slightly sunken, parted dry lips, a fine sheen of sweat on the nose; held spread on her knee, her fingernails each carry a bright vermilion crescent of cinnabar, the only strong colour in the frame. Hair: black, in a short braid, damp strands stuck to her face, a strip of white silk tied round the forehead. Body: thin, narrow and frail, knees drawn up, her chest rising and falling quickly. Clothing: the simple graceful silk of an outer disciple: a robe of pale gold silk with two crossed collars loosened at the neck, narrow sleeves, a vermilion sash, a leather pouch strap across the chest, ankles wrapped in white silk bands, light sandals tied with double cord. Hands and objects: a small flat leather pouch of papers. Background: a path of loose grey scree running up the ridge behind her, a stone cairn, and far below a toy-small fort with a red banner, wreathed in pale mist. Light: bright hazy spirit-light from the upper left bleaches her face and makes the cinnabar glow. Power: a very faint red Fire shimmer at the fingertips. Expression: tired wide eyes, parted lips dragging breath, yet a steady, determined set of the chin."
+  },
+  {
+   "key": "bi_thuan",
+   "sex": "m",
+   "age": 78,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "In the bird court in autumn, bent nearly double over a broom, a wutong leaf stuck in his collar; he is about to say that there are twice as many leaves.",
+   "subject": "The moment: bent nearly double over a broom among fallen wutong leaves, he turns his head to look up at the viewer sideways. Face: a small, wizened, brown, kindly face, a hooked nose, a few long white whiskers, tiny bright eyes crinkled, a deep line down each cheek, a wart on the left eyelid, a mild content smile; a big flat wutong leaf is stuck in the back of his collar. Hair: thin white, tied in a stub knot under a clean pale cloth. Body: bent in a hoop, so that his head hangs level with his waist, thin. Clothing: he is a servant, so plain but clean and pressed: a tunic of undyed soft cotton with a narrow vermilion silk edge at the collar, tied with a cord, the collar turned in where the leaf sits, hand-knitted mittens with the fingers cut off, shoes bound with straw. Hands and objects: a long-handled twig broom; a drift of broad brown wutong leaves. Background: a large stone court covered in drifts of gold and brown leaves, a bare-branched wutong beyond the wall, an empty aviary cage and a red-crested bird watching from a post, soft mist. Light: low golden autumn light from the upper left, long soft shadows, a gentle glow on the leaves. Power: none. Expression: a mild, contented smile, the whole look turned up sideways with gentle humour."
+  },
+  {
+   "key": "luong_diep_nhi",
+   "sex": "f",
+   "age": 23,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "At the dice table, jaw pushed out like a ram before an argument; she has just put a hand over the dice.",
+   "subject": "The moment: leaning over a gaming table in a sunlit court, her chin thrust forward like a ram about to charge, a hand slapped flat on a pair of dice. Face: a square, freckled, determined face with thick brows, bright fierce brown eyes, a short upper lip curled, flaring nostrils, a stubborn jutting jaw, a dark freckle at the corner of the mouth. Hair: brown, in a bun with a bamboo pin, short curls escaped round her forehead. Body: sturdy and compact, her weight on her palms, braced like a ram. Clothing: a robe of pale dawn-orange silk with a crossed collar, sleeves rolled to the elbow, a vermilion sash, a short green silk half-apron with a patch on the front, a longan seed on a thread at her neck as a charm, one narrow embroidered flame border at the hem. Hands and objects: her palm flat on two small ivory dice. Background: a blurred table with cups and a heap of coins, three younger novices peeping behind her, a courtyard wall with a pot of herbs, pale mist over the roof tiles. Light: bright clear light from the upper left throws a sharp shadow of her jaw on her neck, with a soft rim glow on her hair. Power: a faint green Wood shimmer round her hand. Expression: a jutting jaw, lowered brows and a bright fierce stare, her lip curled, sure of being right."
+  },
+  {
+   "key": "ung_liet_tam",
+   "sex": "m",
+   "age": 44,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "Showing the new outer boys the scar on the back of his hand on purpose, then tending their burns; his anger is a kind one.",
+   "subject": "The moment: holding up the back of his left hand toward the viewer, he shows a scar deliberately, brow furrowed in anger and care. Face: a stern, broad, tanned face with strong brows, a straight nose, a clenched jaw, but kind dark eyes, stubble on the chin, a deep line between the brows, a small crescent scar by the mouth; in the foreground the back of the left hand carries a clear fan-shaped scar, pale and raised, spread like an open fan. Hair: black, in a topknot tied with a red cord and a plain silver pin. Body: tall, strong, broad-shouldered, feet apart, one shoulder forward, a man who stands between a child and a fire without thinking. Clothing: the robe of an inner disciple of the Fire Court: vermilion silk with two crossed collars, gold-thread flames at the cuffs and hem, wide sleeves held above the elbow by a plain strap, a dark red sash with a small copper burn-salve box hanging from it; worn at the cuffs but spotless. Hands and objects: a small pot of burn salve in the right hand. Background: a blurred outer court, a row of young outer disciples on a bench, one with a bandaged arm, a bucket of water and clean cloth, a gourd on a nail. Light: warm gold spirit-light from the upper left catches the scar and his eyes, a faint orange rim light on his shoulder. Power: a calm red-gold aura of Fire qi curling gently at his sleeves, held tightly in check. Expression: stern furrowed brow and hard jaw, but eyes steady and caring on the viewer."
+  },
+  {
+   "key": "du_tan_hoa",
+   "sex": "m",
+   "age": 33,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "At the vent's mouth, new boots too fine for a charcoal carrier shining; he asked for a second pay-bag and is keeping his face blank.",
+   "subject": "The moment: standing with a basket of charcoal on his back, he lifts one foot slightly to show off a new pair of boots, eyeing the viewer. Face: a cautious, small, sooty face with sharp little eyes, a sly small smile held tight as if keeping something back, a black smudge across the forehead, dust thick on the lashes; at the front of the frame, a pair of new, fine, polished black boots with brass buckles gleam against black-dusted trousers and a sooty floor. Hair: black, sooty, in a short tail. Body: wiry, a little bent under the basket, weight on the heels, thumbs hooked in the straps. Clothing: an inner disciple's errand-boy robe of vermilion silk, smudged black with charcoal to the elbows, two crossed collars, sleeves rolled, a plain rope-woven red sash, a small silk coin pouch tucked inside the collar, trousers rolled to show the boots. Hands and objects: a basket of charcoal on his back; a water jug. Background: a dark tunnel mouth with a faint orange glow, steps of black stone, a heap of charcoal, an old man with a broom in the shadows, drifting ember motes. Light: orange vent-light from the lower right edges the basket and the toes of the boots; a thin glow on the cheek. Power: a faint red Fire flicker of sparks around the basket. Expression: a blank careful face, eyes cut sideways to the boots, lips pressed together, wary of being noticed."
+  },
+  {
+   "key": "dong_luc_y",
+   "sex": "f",
+   "age": 26,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "In the purple bamboo forest, a freshly cut flute in each hand, a calm blank patience; she has never played any of them.",
+   "subject": "The moment: standing among tall bamboo, she holds a freshly cut flute out to the viewer in both hands, calmly, without a word. Face: a long, quiet, pale face with a straight nose, drowsy green-brown eyes under heavy lids and low brows, a faint line of sawdust and a streak of green bamboo sap on one cheek, a small mole on the chin, lips pressed together as though she has never blown a note. Hair: black, in a long braid down her back. Body: tall, slender, relaxed, head tilted, a very slow and patient figure. Clothing: the graceful silk of an outer disciple: a robe of pale gold silk with a crossed collar and long sleeves tied back with a green silk cord, a green sash, a string of small bamboo flutes of different lengths hanging from the belt, a tiny saw at the hip, soft boots wrapped in leaves against the damp. Hands and objects: one flute offered in outstretched hands, pale green bamboo with fresh-cut ends. Background: a forest of tall purple-black bamboo, a heap of cut culms stacked to dry, a small saw on a stump, thin mist between the stems. Light: dim green spirit-light with a faint purple tint, and the fresh flute is the brightest thing, glowing softly. Power: a faint green Wood haze of motes drifting round the flute. Expression: a calm sealed mouth, drowsy lowered lids, a still blank patience."
+  },
+  {
+   "key": "thinh_phong_dang",
+   "sex": "m",
+   "age": 31,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "On a road at night, asleep on his feet against a lantern pole; the pouch at his side is full of unsent letters.",
+   "subject": "The moment: asleep on his feet at night, leaning against a lantern pole, head lolling, mouth slightly open. Face: a drowsy, slack, blissful, honest round face, eyes shut, head drooped sideways onto the pole, a trickle of drool, a stubble of beard, cheeks dented by the pole, faint dark rings under the eyes. Hair: black, tousled, with a loose red silk headband. Body: tall, slumped, one leg bent, his whole body slack and trusting the pole. Clothing: the robe of an outer disciple, pale gold silk with two crossed collars, a vermilion sash, a travelling cloak of dark red gauze thrown back and spotted with candle wax, worn boots; a fat leather pouch of letters bulging at his side, folded papers sticking out. Hands and objects: a lantern on a pole propped on his shoulder, still burning. Background: a long dark road with a few small lanterns going away into the night, a signpost pointing to a town, a bank of trees, a crescent moon, silver mist along the ground. Light: the lantern casts a soft circle of yellow light round him; moonlight rims his hair. Power: a faint blue Water glow, like dew, around the lantern. Expression: eyes shut, head lolled, lips parted and cheeks slack, a blissful honest sleep with a little drool at the corner of the mouth."
+  },
+  {
+   "key": "xa_ngu_nuong",
+   "sex": "f",
+   "age": 37,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "On the quay hauling a net with calm competence, one ear swollen shut long ago; she tilts her head to hear.",
+   "subject": "The moment: standing at a quay with a net heaped at her feet, she turns her good ear toward the viewer. Face: a broad, calm, brown face with a flat nose, content narrow eyes, laugh lines, a weathered pink line across the cheek where the wind has chapped it; her left ear is visibly swollen shut, thick, puffy and pale, a small knob of flesh the size of a walnut with no opening, a clear contrast with the right ear. Hair: black, tied in a pale silk scarf, wisps loose at the temples. Body: sturdy, broad-hipped, feet apart on wet planks, back straight, a woman who does not hurry. Clothing: an outer disciple's robe of pale gold-orange silk with a crossed collar, sleeves rolled, a vermilion sash, trousers wet at the hem, a thin border of embroidered waves at the cuff. Hands and objects: a net draped over the arm. Background: a long stone quay with stacked fish baskets, a gang of crew hauling a net in the distance, a fleet of red-sailed boats tied up, a stretch of calm blue water under a pearly sky. Light: bright pearly spirit-light bounces off the water onto her face, a soft sea-mist glow. Power: a faint blue Water shimmer rising from the net like spray. Expression: a broad calm face tilted so the good ear leans forward, narrow eyes easy, a small content smile."
+  },
+  {
+   "key": "luu_hoa_nha",
+   "sex": "f",
+   "age": 19,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "Back in the kitchen after the fire, a pot just starting to simmer; she giggles uncontrollably and bounces.",
+   "subject": "The moment: standing over a simmering pot, she giggles and bounces on her toes with hands clasped. Face: a smooth, round mulberry-girl's face with freckles and a button nose, mouth wide open in a giggle, eyes squeezed and bright and wet with laughing, a bright pink flush, a smudge of soot on one cheek; her fringe is singed into a short, scorched, uneven line across the brow. Hair: black, in two puffy buns, the fringe singed short. Body: small and bouncy, shoulders hunched in excitement, hands clasped at the chest. Clothing: the robe of a new outer disciple: pale gold-orange silk with a crossed collar, a vermilion sash, a pot-holder cloth hung from the sash, the hem scorched brown, a smear of grey ash on the right sleeve, sleeves with a scorch mark. Hands and objects: a small clay pot of simmering liquid with steam. Background: a small stone kitchen with a blackened wall and an open window, a stack of clay pots, a bunch of drying herbs, a bucket of water, the faint remains of a burnt beam. Light: warm firelight dances on her face and a soft silver spirit-light from the window falls on the pot. Power: a tiny red Fire glimmer of sparks above the pot. Expression: a helpless giggle, eyes squeezed shut, mouth wide, cheeks pink, her whole face bright with giddy hope."
+  },
+  {
+   "key": "nhan_quy_vu",
+   "sex": "f",
+   "age": 50,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "In the Wutong Court, sewing the newest red feather into her hem by lamplight; the hem is a fringe of red already.",
+   "subject": "The moment: seated and sewing, she lifts her hem to show a fringe of red feathers and smiles gently. Face: a calm, pale, kind oval face with dark gentle eyes crinkled at the corners, a soft mouth, smooth skin, a small mole near the chin; she lifts a long hem of vermilion silk with dozens of small red feathers sewn in a dense row along it, vivid. Hair: black with grey, in a low bun with a red feather pin and a small silver comb. Body: slender, seated upright and composed, knees together, head bowed over the hem. Clothing: the robe of a Keeper of the Hall of Rites, a Trúc Cơ elder-in-service: layered vermilion silk and gauze with three crossed collars, the hem edged with two narrow bands of gold and white, wide sleeves tied back with white cord, a dark red sash with a small jade pendant, soft white socks. Hands and objects: a needle and red thread; a single red feather in the left hand; a small wooden box of needles and a spool of red thread at her knee. Background: a quiet hall with long wooden shelves carrying rows of small red feathers on pegs, each with a tiny painted dot, a low table with an oil lamp, a doorway onto a courtyard of wutong trees, faint mist. Light: soft lamp light from the upper left gleams on the hundreds of feathers; a faint red-gold glow lifts off the hem. Power: a gentle red Fire aura, soft as candle-light, round her hands. Expression: a soft patient smile, dark kind eyes lowered to the needle, her face calm and gently devout."
+  },
+  {
+   "key": "duong_ho_thu",
+   "sex": "m",
+   "age": 40,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "High in the great wutong's branches among falling leaves, a knotted string on his wrist; he counts again and does not say the number.",
+   "subject": "The moment: perched in the branches of a huge tree, he holds out a knotted counting string and looks down at the viewer guardedly. Face: a thin, serious, scholarly face with a long straight nose, tired attentive eyes under thin slightly raised brows, tight thin lips, ink on one cheek and a smudge of bark dust; a cord of many knots winds round the wrist and hangs down, plain and long. Hair: black, in a small knot with a plain jade pin. Body: lean and careful, sitting astride a thick branch with one arm round the trunk, legs hooked for balance. Clothing: the robe of a Trúc Cơ inner disciple: vermilion silk of fine weave with two crossed collars, gold-thread flame borders on the sleeves and hem, tucked up over the knees for climbing, a dark red sash tied tight with a pouch of tally-knots, silver ornament at the collar, soft grip-soled shoes. Hands and objects: a broad golden-brown wutong leaf in his right hand, the knotted cord. Background: a blurred canopy of huge golden leaves, a rough mossy trunk filling one side, and far below a tiny courtyard with a woman looking up, mist among the boughs. Light: dappled green-gold spirit-light from the upper left flickers over his face, a faint rim glow. Power: soft green Wood motes drifting from the leaves round him, a thin gold-red Fire shimmer on his sleeve. Expression: tired attentive eyes under a furrowed brow, thin lips pressed shut, a careful guarded look as he hides the number."
+  },
+  {
+   "key": "khang_kien_duc",
+   "sex": "m",
+   "age": 38,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "At the court gate with a wine gourd, flush crawling up from the collar the moment the head is mentioned.",
+   "subject": "The moment: standing at a gate with a wine gourd in his hand, his neck going red, he scowls at the viewer. Face: a heavy, square, brave face with a short broken nose flushed deep purple at the tip, thick brows crushed down, hot bloodshot dark eyes, short grey stubble on the jaw; a deep wine-coloured flush climbs from his collar to the ears and cheeks in a strong visible gradient. Hair: black, cropped, damp with sweat at the brow. Body: broad, strong and planted, lurching slightly, one shoulder against the gatepost, the heavy frame swaying with drink. Clothing: the gate-captain's robe of a Trúc Cơ guard of the Fire Court: vermilion silk with crossed collars and gold flame embroidery at the cuffs, a red scarf knotted at the neck, a dark red sash, over it a lacquered red breastplate of overlapping plates, dented on the right, studded boots scuffed pale. Hands and objects: a wine gourd in the left hand. Background: a great wooden gate with iron studs, a rack of spears, a brazier of orange coals with a sleepy dog, dark trees and drifting mist beyond. Light: warm brazier light from below shows the flush spreading up his neck, with a faint cool rim light on the breastplate. Power: a heavy red-grey aura of Fire and Metal qi smouldering round his shoulders, uneven with drink. Expression: a hot scowling glare, jaw clenched, brows crushed, stubbornly loyal to the name he will not disown."
+  },
+  {
+   "key": "sam_liet_duc",
+   "sex": "m",
+   "age": 32,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "On the stair after his third loss, shirt open, proud of the burns on each shoulder he calls medals; a cruel little grin.",
+   "subject": "The moment: standing on a stair with his robe open at the shoulders, showing two burn scars and grinning cruelly. Face: a loud, handsome, wide face with a long nose, thick slashed brows, bright hard eyes, large white teeth in a mocking grin held a beat too long, a pale scar nicking the lower lip; on each bare shoulder is a round burn scar as big as a palm, shiny red-pink, shown proudly. Hair: red-brown, in a high ponytail through a gold ring. Body: broad, strong and swaggering, chest thrown out, arms wide, the frame turned so the shoulders show. Clothing: the splendid robe of a Trúc Cơ inner disciple: vermilion silk of the finest weave, pulled open off both shoulders and hanging from the elbows, gold phoenix-feather embroidery along the collars and a gold band at the hem, a dark red sash of fine silk, a gold ring on the right thumb, a small crown-clasp of gold at the topknot. Hands and objects: a red fan swung at his side. Background: a long red stone stair with a crowd of disciples on both sides, an empty top step, a banner with a plain red field, a hard blue sky streaked with cloud. Light: strong high spirit-light from the upper left and a fierce orange rim light light the two raised scars. Power: a strong red Fire aura licking up from the shoulders in flickering flame-wisps. Expression: a loud mocking grin, bright hard eyes fixed on the viewer, brows cocked, cruel and proud."
+  },
+  {
+   "key": "cu_chan_uy",
+   "sex": "m",
+   "age": 45,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "On the parade ground at dusk, a dead woman's fan-tassel on his sleeve, a hard look at a junior.",
+   "subject": "The moment: standing straight on a parade ground at dusk, he glares at a junior just out of frame. Face: a hard, scarred, tanned, battle-worn face with deep lines, a short beard cropped and shot with grey, a long white scar across the left cheek, a straight cold mouth, pale hard eyes wet from the wind; a small faded red silk fan-tassel is sewn to the sleeve and hangs from the shoulder, plain. Hair: black going grey, short. Body: tall, broad, stern, feet at shoulder width, hands behind his back, rigid and unbending. Clothing: the war-robe of a Trúc Cơ veteran: vermilion silk cut for war with two crossed collars, gold-and-white bands at the hem, a dark red sash, a lacquered red breastplate cracked and polished by use, a red cord wound round the left wrist, the faded red tassel on the sleeve. Hands and objects: a red war fan held closed in the right hand. Background: a wide parade ground of packed earth with long shadows, a line of recruits in red at attention, a wall with a banner of plain red cloth, a low band of mist. Light: low red dusk spirit-light from the upper left throws his shadow long across the ground, with a faint rim glow on the breastplate. Power: a severe dark-red aura of Fire qi, steady and heavy, with a few ember motes. Expression: a hard cold glare with pale eyes narrowed, the mouth a straight scar-edged line, the jaw locked with old loyalty."
+  },
+  {
+   "key": "ma_pha_lang",
+   "sex": "m",
+   "age": 40,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "At the flagship's helm, one ear tilted to every shout; list of pirate keels in a pouch.",
+   "subject": "The moment: at a ship's wheel, he turns his notched ear to a shout and eyes the viewer. Face: a weathered, calm, lined face with a salt-grey stubble, narrowed vigilant eyes creased from sun; the left ear is notched by a grapple, a deep jagged V cut from its rim, visible with the hair tied back, a small gold ring glinting in it. Hair: black going grey, tied in a short tail. Body: lean, braced and sea-legged, knees slightly bent, rolling with the deck. Clothing: the robe of a Trúc Cơ helmsman: vermilion silk cut short with a crossed collar and a second inner collar of gold-orange, wave-and-flame embroidery at the cuffs stained with tar, a dark red sash, a leather cord at the neck carrying a brass whistle, oiled boots. Hands and objects: both hands on a big wooden wheel; a scroll of names tucked in the belt. Background: pale planks of a ship's deck, a coil of rope, a binnacle, sailors in the rigging, a red sail and a bright sea with a low bank of mist. Light: bright clean spirit-light off the water shines on the brass of the wheel, from the upper left, with a pearly rim light on his cheek. Power: a modest red-and-blue aura of Fire and Water qi, like sea-mist lit from within. Expression: narrowed creased eyes sweeping the water, a calm weathered face and a wary tilt of the head toward the shout."
+  },
+  {
+   "key": "hach_dan_tam",
+   "sex": "f",
+   "age": 30,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "On the wall at night, her head tilted to the ridge, a thunder-charm in her ear; she is deciding whether this rumble is rain.",
+   "subject": "The moment: on a wall at night, she tilts her left ear to the dark ridge, listening, deciding. Face: a calm, narrow, careful face with a straight nose, fine slightly arched brows, steady dark eyes, a closed mouth that hides a smile; a small bright thunder-charm of blue-black iron hangs from the left ear lobe in sharp focus, catching the lamp and swinging against her cheek. Hair: black, in a tight bun with a silver pin, a stray wisp. Body: slim and very still, head tilted, weight even, her thin neck stretched in listening. Clothing: the watch robe of a Trúc Cơ disciple: vermilion silk cut close with two crossed collars, silver-thread flame borders, a dark red sash, a short grey silk-gauze cloak folded over the shoulders, fingerless gloves, quiet-soled boots. Hands and objects: a lantern hooded low in the right hand. Background: a wide stone parapet with crenellations, a dark rolling ridge on the horizon and far off a faint blue-white flicker in the clouds, a field of stars and thin mist. Light: a small lantern casts a low orange glow from the lower left against a deep blue-black sky; faint lightning and a cool silver rim light on the hair. Power: a soft red Fire aura round the lantern, a tiny blue spark clinging to the iron charm. Expression: a careful still look with head tilted, steady dark eyes and a closed mouth keeping back the hint of a smile."
+  },
+  {
+   "key": "khong_te_dan",
+   "sex": "m",
+   "age": 42,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "In a village square at the end of a ceremony of thanks, with a granary cart behind him; every thank-you makes the blush climb his neck.",
+   "subject": "The moment: standing by a granary cart in a village square, being thanked, he blushes and looks away. Face: a gentle, open, noble-born face with a long straight nose, fine level brows, soft brown eyes lowered, thin lips pressed in embarrassment into a shy half smile, a small beauty mark just under the left eye; a deep blush climbs from the collar over the whole neck, ears and cheeks, bright red against pale skin. Hair: black, in a neat knot with a small gold pin. Body: tall, a little awkward, shoulders hunched, weight on the back foot as though he would like to step out of the frame. Clothing: the fine robe of a Trúc Cơ inner disciple: vermilion silk well fitted with three crossed collars, gold-and-white flame bands at the hem, a dark red sash with a red jade pendant, a garland of flowers hung round his neck. Hands and objects: a sack of rice held awkwardly in both arms. Background: a village square with bunting and children, a granary cart piled with sacks tied with red cord, a row of village elders in their best blue jackets bowing, a banner of plain red cloth on two bamboo poles, soft haze. Light: bright pearly light from the upper left makes the garland's petals glow and shows every pink shade of his skin; a gentle gold rim light. Power: a mild red-gold Fire and green Wood glow of qi like warm breath round his shoulders. Expression: soft brown eyes lowered, a shy helpless half-smile, honest and mortified by the thanks."
+  },
+  {
+   "key": "lu_chu_hong",
+   "sex": "f",
+   "age": 35,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "At the grinding stone, her part widened with red dust, watching a rival's batch. She pockets a measure and does not blink.",
+   "subject": "The moment: at a grinding stone, she looks up from the pestle with a cool smile, a quick hand slipping something into her sleeve. Face: a sharp, handsome, narrow face with a pointed chin, bright calculating dark eyes that do not blink, long lashes dusted red, a thin red-tinted mouth with a small dimple at one corner, a thin line of cinnabar powder in the creases beside the nose; cinnabar-red dust lies in the parting of her black hair as a bright red line down the middle of her head. Hair: black, parted dead centre, in a bun with a silver pin. Body: slender, quick and upright. Clothing: the robe of a Trúc Cơ alchemist's hand: vermilion silk with two crossed collars, sleeves tied back, the cuffs red to the wrist, a pale silk apron dusted red and tied with a double bow, a dark red sash, leather gloves tucked in it, a small brass scale at her belt. Hands and objects: a stone pestle in a mortar of bright red powder; beside it, three tiny clay jars, one lid slightly ajar. Background: a long bench with a row of stone mortars and weights, a shelf of sealed jars, the open mouth of a furnace with red glow in a smoky room. Light: orange furnace glow from the lower right catches the red dust in her hair and drifting steam crosses the light. Power: a faint red Fire shimmer of cinnabar motes floating round her hands. Expression: a cool level smile, bright calculating eyes, her hand quick and her face entirely at ease."
+  },
+  {
+   "key": "man_tin_van",
+   "sex": "m",
+   "age": 40,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "At the New Year tribute counting, two tally-sticks behind his ears, scanning the carters for one who did not bow.",
+   "subject": "The moment: seated at a counting table, he glances up suspiciously from a ledger, a tally stick behind each ear. Face: a thin, dry, pinched face with a long nose, sharp watchful eyes under a small crease between the brows, a thin neat moustache, narrow dry lips in a stern small mouth; two long pale tally-sticks are tucked one behind each ear, sticking out sideways like whiskers, one notched in rows, one stained. Hair: black, thin, scraped back under a small silver cap-clasp. Body: thin, neat and bolt upright, elbows tucked in. Clothing: the robe of a Trúc Cơ steward: crisp vermilion silk with three crossed collars, gold-thread flame embroidery at the cuffs, sleeves tied back and guarded with black silk cuffs, a dark red sash with a small bundle of keys and a jade pendant, a pair of small round brass spectacle-frames without glass hanging from a cord round the neck. Hands and objects: an abacus before him; a pile of copper strings and rice samples. Background: a hall with sacks of grain and rolls of cloth stacked by weight, a stand with six small flags of different colours for the vassals, a closed wooden door with a bar, faint mist. Light: cool grey-silver spirit-light from a high window falls flat on the ledger, a thin gold rim on his sleeve. Power: a faint red Fire glow no brighter than lamp-light round the abacus. Expression: sharp watchful eyes under a stern frown, thin dry lips compressed, a suspicious narrowed look at the carters."
+  },
+  {
+   "key": "sai_tan_nhien",
+   "sex": "m",
+   "age": 40,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "At the vent's lip after a breakthrough, he looks at the sky before he speaks. It is cloudy, so he says nothing.",
+   "subject": "The moment: at the lip of a vent with a long broom, he tilts his face to the sky and waits, then closes his mouth. Face: a calm, long, lean face with a hollow cheek, a mild pale-brown gaze on a grey sky, lines of soot in the creases of his eyelids, soot on the brow, dry chapped lips, a long solemn jaw; the head is tilted back, mouth shut after being about to speak. Hair: black, in a knot under a pale cloth, a little grey ash dusting it like early snow. Body: tall, thin, stooped, the broom held upright like a staff, a patient scarecrow of a man. Clothing: the tunic of a Trúc Cơ keeper of the Ash Seat: vermilion silk scorched at the hem, with a dark red sash and faded gold flame borders, thick leather gloves, boots, a grey cloth tied over nose and mouth and pulled down to the chin for speaking. Hands and objects: a long broom and a small iron shovel of coals. Background: a wide platform of black rock with deep cracks, a stone seat in the middle, a plume of heat shimmer above the vent, a high pale sky with heavy cloud, drifting ash. Light: dull grey spirit-light from the upper left while an orange glow rises from the cracks below, rimming his chin. Power: a steady red Fire aura rising from the vent through him, like heat haze, with floating embers. Expression: a calm hollow-cheeked face tipped to the sky, pale-brown eyes mild and waiting, his lips closed on what he decided not to say."
+  },
+  {
+   "key": "tuan_le_chinh",
+   "sex": "m",
+   "age": 50,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "At the door of the audience hall, bribes in his sleeve, cuff thread glittering; he decides today's order with a polite smile.",
+   "subject": "The moment: standing at a doorway holding a roll, he bows slightly with a smooth smile, gold thread glinting at his cuff. Face: a smooth, comfortable, fleshy face with a short soft beard, bright shrewd small eyes, a generous soft mouth, a fine web of lines across the brow, a rosy glow from good wine; the right sleeve cuff is held up as he gestures, a glittering band of bright gold embroidery thread. Hair: grey, oiled, in a neat knot with a gold pin, a little grey showing at the temples. Body: stout and dignified, a slight bow, one foot forward, a practised courtesy. Clothing: the sumptuous robe of a Trúc Cơ steward of audience: layered vermilion silk with three crossed collars, the hem edged with two bands of gold and green, gold phoenix-feather embroidery, a dark red sash with a thick purse and gold tassel, a heavy ring set with a red stone on the right hand, slippers of red silk, a small gold crown-clasp. Hands and objects: a short scroll in the left hand; one hand tucked into a heavy sleeve. Background: a tall carved doorway with red pillars, a line of petitioners in the courtyard behind him, a servant holding a tray of gifts, a bronze incense burner with a thread of smoke. Light: warm gold light streams into the doorway and makes the thread at his cuff glitter, from the upper left, with a soft red rim glow. Power: a faint red-gold Fire aura, dignified and smooth, with a few gold motes. Expression: a smooth comfortable smile with shrewd small eyes that measure the viewer while the face stays warm and polite."
+  },
+  {
+   "key": "han_ngoc_tieu",
+   "sex": "f",
+   "age": 33,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "In the flute stall, hearing a note in her head before she answers; a flute in her hands, head slightly tilted.",
+   "subject": "The moment: holding a flute under her chin, she hums a note silently, eyes far away, then smiles at the viewer. Face: a warm, round, honest face with rosy cheeks, soft arched brows, a small straight nose, a tiny dimple beside the mouth, eyes unfocused and lips shaped around an unvoiced note, the head tilted, a trusting smile. Hair: black, in a low knot with a jade pin. Body: medium and gentle, elbows level, shoulders relaxed, head slightly tilted as if listening for the note in her head. Clothing: the robe of a Trúc Cơ instrument-tuner: vermilion silk with two crossed collars and long sleeves tied back with a strip of green silk, gold flame borders, a dark red sash, a small jade pendant shaped like a flute on a green cord round her neck, a cloth bag of reeds at her waist. Hands and objects: a pale jade-green bamboo flute in both hands. Background: a narrow market stall hung with dozens of flutes of different lengths in rows, labelled with dabs of coloured paint, a lantern, a street of other stalls beyond with a crowd, soft haze. Light: soft warm light from the upper left glows on the pale bamboo, with a faint silvery rim light. Power: a faint green Wood shimmer and soft notes of light drifting from the flute. Expression: she listens inward, gaze drifting past the viewer, with the delighted trusting look of someone certain of the next note."
+  },
+  {
+   "key": "lieu_nhung_hoa",
+   "sex": "f",
+   "age": 38,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "Knitting a bracelet of chrysanthemum fluff and holding it out to the viewer to take, a soft grandmotherly smile.",
+   "subject": "The moment: holding out a small woven bracelet of yellow fluff in an open palm, she offers it with a gentle smile. Face: a kind, round, freckled face with soft cheeks, warm brown eyes, pale lashes, a patient smile, a tiny pale tuft of fluff clinging to the chin; on her palm the bracelet of soft golden-yellow chrysanthemum fluff is fluffy and bright. Hair: black, in a bun, flecked with down. Body: plump and soft, seated, shoulders rounded, a stooped patient figure. Clothing: the robe of a Trúc Cơ down-gatherer: layered vermilion silk with a crossed collar, sleeves tied back, a dark red sash with a pouch of down at the belt, a knitted yellow silk shawl over the shoulders, a coral bead on a cord round the wrist, an apron pocket holding balls of fluff in many shades, small gold flame embroidery at the collar. Hands and objects: the bracelet, a ball of fluff. Background: a small shed with shelves of pale sacks, a window with a view of a field of yellow chrysanthemums, a basket of bright feathers on the floor, soft down floating in the air. Light: warm gentle spirit-light from the upper left through the window makes the floating down glitter like motes. Power: a faint red Fire warmth, a soft glow round her hands, the down drifting upward on it. Expression: a soft grandmotherly smile with warm brown eyes on the viewer's, her head tipped gently as she offers the bracelet."
+  },
+  {
+   "key": "hoan_vong_linh",
+   "sex": "m",
+   "age": 40,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "On the western march with a hawk on his glove, spyglass through his belt like a dagger, looking out at a rising seat on a far peak.",
+   "subject": "The moment: standing at a cliff edge with a hawk on his gloved fist, a spyglass thrust through his belt like a dagger, he looks to the far distance. Face: a lean, windburnt face with a hooked nose, narrowed grey eyes ringed by sun lines, a stubborn jaw, a thin line of beard, a day's stubble, a small old scar notching the chin; a bright brass spyglass is thrust through the belt, hilt-like. Hair: black, wild, in a tail. Body: wiry, feet wide apart, leaning slightly into the wind, the stance of a man who watches far horizons. Clothing: the travelling robe of a Trúc Cơ rider: vermilion silk with a crossed collar and an inner collar of gold-orange, a leather vest over it, a dark red sash, a small whistle at the throat, a cloak of dark red gauze pinned at the shoulder with a bronze clasp, a heavy leather glove covering the left hand to the elbow. Hands and objects: a brown hawk on the left fist. Background: a bare jagged cliff edge in the foreground, a chasm full of cloud below, and on the far horizon a thin grey spire rising from a new peak, with a pair of hawks circling, mist. Light: cold bright spirit-light from the upper left shows every grain of the rock and every line of his face, with a faint cold rim light. Power: a modest red aura of Fire qi with a cold silver edge of Metal, stirring the hawk's feathers. Expression: narrowed grey eyes on the far peak, a stubborn jaw and a watchful windburnt stillness, the thin mouth set."
+  },
+  {
+   "key": "lac_tuoc_ca",
+   "sex": "f",
+   "age": 19,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "Whistling the birds down with a whistle curled in her cheek, so that when she speaks she lisps; sparrows landing on her arm.",
+   "subject": "The moment: whistling, with a small bone whistle curled in one cheek, she looks at the viewer while birds land on her outstretched arm. Face: a round, merry, freckled face with a button nose, bright dark eyes shining, rosy cheeks with a dimple on one side, lips pursed round the whistle; one cheek is puffed out round it, visible as a bulge. Hair: black, in two braids tied with red silk ribbon. Body: slight and springy, one arm lifted, shoulders squared, perfectly balanced, as light and quick as a bird herself. Clothing: the robe of an outer disciple: pale gold silk with two crossed collars, sleeves rolled, a vermilion sash, a necklace of small coloured feathers at her throat, a seed pouch tied at the waist, one sleeve spotted with white droppings. Hands and objects: three small brown sparrows perched on the outstretched arm. Background: a tall aviary of wire and dark wood, many small birds on perches, a sack of seed on a stool, a blue-violet sky showing through the roof lattice, light mist. Light: bright spirit-light from the upper left glints on the little wings and the feathers. Power: a faint green Wood shimmer of tiny motes where the sparrows land. Expression: a merry cheek-puffed grin round the whistle, bright dark eyes shining, a quick kind softness toward the birds."
+  },
+  {
+   "key": "do_thanh_duan",
+   "sex": "m",
+   "age": 24,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "Cutting shoots in the grove, sleeve rolled to show eight scorch-lines; he tells the tree it needs Wood more than the palace needs Fire.",
+   "subject": "The moment: cutting a bamboo shoot, he lifts his forearm with a content smile, eight scorch-lines visible. Face: a calm, plain, pleasant face with thick level brows, a wide nose, sleepy-clever eyes, a lopsided half smile with one dimple, a streak of green sap along the cheek; on the left forearm, eight short parallel scorch-lines, burnt brown, in a neat row. Hair: black, in a short tail tied with red silk. Body: lean, bending slightly, weight on one leg, easygoing, shoulders loose, the stance of a man who knows how to wait. Clothing: the robe of an outer disciple: pale gold-orange silk with a crossed collar, sleeves rolled, a vermilion sash, a basket sling across the chest, a small silk bag of tools at the belt, trousers tucked into boots wet from the grove. Hands and objects: a short curved knife; a basket of pale shoots. Background: a grove of tall green bamboo with shoots poking from the ground in clusters, a path of beaten earth with a wheelbarrow, a stone shrine to a bamboo spirit half hidden in the culms, thin mist. Light: soft green spirit-light from the upper left fills the grove and makes the pale shoots glow. Power: a faint green Wood shimmer of motes round the shoots. Expression: a calm sly half-smile with sleepy-clever eyes, easy brows and a pleased glance at his own forearm."
+  },
+  {
+   "key": "ong_truc_thanh",
+   "sex": "m",
+   "age": 30,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "At dawn with his eyes shut blowing the second flute part, half a beat behind on purpose.",
+   "subject": "The moment: playing a flute at dawn with eyes closed, cheeks round. Face: a calm, broad face with a stubborn jaw and a faint serenity, thick level relaxed brows, full lips pursed round the mouthpiece, eyes shut tight and cheeks puffed, a calm line of sweat shining at the temple. Hair: black, in a topknot with a plain jade pin. Body: sturdy and straight, feet planted, chest wide to take breath, shoulders low, an unmoving figure of calm. Clothing: the robe of an outer disciple: clean pale gold silk with two crossed collars, sleeves tied back with a green silk cord, a vermilion sash with a small cloth case for the flute, a thin embroidered flame border, the hem dewy from the grass. Hands and objects: a long bamboo flute. Background: a stone courtyard in the first light, a row of other players standing in a line, a red-lacquered gate pillar, the dark shape of the great wutong's boughs against the sky, mist at the ground. Light: pink-gold dawn spirit-light from the upper left glows behind him and outlines his shoulders. Power: a faint green Wood shimmer rising with the notes, like drifting motes. Expression: the contented, obstinate look of a man who will not be hurried off his beat."
+  },
+  {
+   "key": "tri_quy_lo",
+   "sex": "m",
+   "age": 50,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "On the long road with urns on his back, asking each its name; the stoppers at his throat click as he nods.",
+   "subject": "The moment: walking a road, he nods gravely to the viewer, a string of small stoppers clicking at his throat. Face: a long, gentle, worn face with kind deep eyes, thin dry lips, grey in the stubble, grey drooping brows, hollow cheeks from long walking; a string of small round ceramic stoppers hangs at his throat like a necklace, pale and numerous. Hair: black and grey, in a knot, a small red feather stuck in it. Body: thin, bent under a load, head bowed, shoulders drawn forward, a slow patient stride. Clothing: he is a porter and plain but clean: a long robe of undyed soft silk-cotton with a narrow vermilion border at the collar and cuffs, tied with a red cord, dust at the hem, strips of white cloth wound round his hands against the rope, sandals bound with straw. Hands and objects: a staff; urns on a carrying frame at his back. Background: a long dusty road climbing through dry grass to a distant ridge of dark trees, a stone milestone, a low sun in haze. Light: soft low spirit-light from the upper left makes the little stoppers shine like pearls. Power: a faint grey-white Metal glimmer at the urn lids, like moonlight. Expression: a grave gentle nod with deep kind eyes and a quiet humble mouth, grey brows drooping with patience."
+  },
+  {
+   "key": "nguu_dai_huu",
+   "sex": "m",
+   "age": 70,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "In the kitchen yard at New Year setting out ninety bowls; he walks with the stoop of a yoke he put down years ago.",
+   "subject": "The moment: standing in a kitchen yard with a stack of bowls, still stooped as if under a yoke, smiling broadly. Face: a round, brown, cheerful, wrinkled face with a toothy grin, a few strong yellow teeth, bright warm hazel eyes, deep lines turning up as he laughs; the shoulders are rounded and held as though carrying a yoke that is not there, one higher than the other. Hair: white, cropped short like a bristly brush, a strip of cloth tied round the forehead. Body: thick and bent, neck thrust forward, arms thick and sinewy from years of carrying. Clothing: a servant's tunic of plain undyed soft cotton, clean, with a thin vermilion silk edge at the collar, a wet apron, sleeves rolled to the elbow over a brown hairy forearm. Hands and objects: a tall stack of ninety small bowls in his arms. Background: a wide kitchen yard with a great well and stacked wooden buckets, long tables set with ninety bowls in neat rows, steam from a big cauldron, a gaggle of hens at the gate. Light: warm morning spirit-light and white steam fill the yard from the upper left, glowing gold. Power: none, only a faint ochre warmth in the steam. Expression: pure welcome, lit with the happiness of a man who has set down his load and has ninety guests to feed."
+  },
+  {
+   "key": "khuong_linh_mai",
+   "sex": "f",
+   "age": 21,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "In the guard room when someone names the Feather Kindling; she goes grey and silent and turns to the door.",
+   "subject": "The moment: standing in a guard room, her face gone grey, she is half turned toward the door with a hand on her sword. Face: a square, strong, miner's-daughter face with thick brows, dark eyes fixed on the floor, pale lips pressed thin, a bead of cold sweat at the hairline; the skin is grey-white as ash, drained, a clear contrast with the red of her collar. Hair: black, cropped, under a pale silk cloth. Body: sturdy and tense, one shoulder toward the door, the free arm held rigid, the whole body tense to leave. Clothing: the guard's robe of an outer disciple: plain-cut vermilion silk with two crossed collars, a dark red sash, sleeves tied back with cord, a leather strap across the chest holding a scabbard, a small miner's lamp pinned to the collar as a keepsake, a thin silver border at the cuffs. Hands and objects: a plain steel sword gripped at the hip. Background: a small guardroom with a rack of swords, a table with a half-eaten meal, a lamp, a door standing open to a bright corridor, a pair of guards staring. Light: cold grey spirit-light from the door leaves her face a pale mask, a thin cold rim light on the steel. Power: a faint grey-white Metal gleam along the sword's edge. Expression: a grey drained face with dark eyes on the floor, jaw clenched, mouth pressed tight, shut tight against the word."
+  },
+  {
+   "key": "chu_nhien_tam",
+   "sex": "f",
+   "age": 24,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "Rolling her sleeves to hide the worn cuff under a too-bright tassel, claiming a sitting she did not pass.",
+   "subject": "The moment: rolling a sleeve back so a bright tassel hides the cuff, she smiles confidently at the viewer. Face: a pretty, sharp, impatient face with bright hurried eyes, sharply arched fine brows, long lashes, a quick smile, bright red paint on the lips, a flush; the chin lifted a little too high to be convincing. Hair: black, in a high knot with red silk ribbons and small gold pins. Body: slim and quick, one hip cocked, the sleeves rolled with a flourish, a posture that wants to be admired. Clothing: the robe of an inner disciple of the fan forms: vermilion silk with three crossed collars, faded at the elbows, the cuff slightly creased under an oversized, over-bright orange silk tassel, gaudy against the vermilion, gold flame borders, a dark red sash with a string of tiny bells, red ribbons at the wrists. Hands and objects: a red fan open in the right hand. Background: a courtyard of raked sand with a row of fan racks, two other inner disciples whispering at the edge, a tiled roof against a bright pale-gold sky, light mist. Light: warm bright spirit-light from the upper left flashes on the tassel, with a red-gold rim glow. Power: a strong, showy red Fire aura of bright flame-wisps round the fan, a little more than she can steady. Expression: a quick confident smile, a glance that dares the viewer to admire her."
+  },
+  {
+   "key": "quach_tieu_dao",
+   "sex": "f",
+   "age": 16,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "New at the outer court, two burnt feather-ends tied in her hair as charms, wide-eyed.",
+   "subject": "The moment: standing wide-eyed in a courtyard, she shows two singed feathers in her hair. Face: a small, round, bright, trusting face with very bright round eyes, a button nose, a few pale freckles, cheeks flushed pink with excitement, slightly crooked front teeth, biting the lower lip; two blackened burnt feather ends are tied into her hair, one on each side, short and singed. Hair: black, in two braids, freshly oiled. Body: small and thin, on her toes with her hands clenched in front of her, tense and thrilled. Clothing: the robe of a new outer disciple: clean pale gold-orange silk, the sleeves too long and flopping over her hands, a vermilion sash, a bundle of red-stained feathers tied at the belt, new sandals. Hands and objects: a fresh white feather held in a fist. Background: a broad courtyard with older disciples in red robes practising in rows, a tall stone gate with a red lantern, a pale morning sky and light mist. Light: bright spirit-light from the upper left glints on the feathers and the braids. Power: a very faint red Fire shimmer at the singed feather tips. Expression: very bright round eyes, a hopeful half-open mouth and a small eager trusting face lifted toward the viewer."
+  },
+  {
+   "key": "luong_dao_tue",
+   "sex": "m",
+   "age": 18,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "At the table in a village, straw in his hair, tired and happy beside the cart.",
+   "subject": "The moment: seated at a table in a village inn, straw sticking from his hair, he beams at the viewer. Face: a broad, tanned, simple face with a wide grin, warm slightly sleepy eyes, round red cheeks, a broad nose; bits of golden straw stick out in all directions from his black hair, one bright wisp standing up from the crown like a feather. Hair: black, with straw. Body: strong and loose, elbows on the table, shoulders relaxed, a big gentle body at ease after work; forearms brown from the sun, thumbs cracked from threshing. Clothing: the robe of an outer disciple: pale gold-orange silk with a crossed collar, a vermilion sash, a bag of rice samples at the belt, sleeves cuffed with brown silk, boots by the table with straw sticking out. Hands and objects: a bowl of rice, steaming. Background: a long wooden table with bowls of rice and bean paste, a lamp, a sleeping dog, and through the open door a cart under a tree, dusk haze. Light: warm gold evening spirit-light from the upper left turns the straw to gold. Power: a faint ochre Earth glow round the bowl. Expression: a tired pleased beam, the look of a lad who has finished a good day's work and wants nothing more."
+  },
+  {
+   "key": "lam_anh_hong",
+   "sex": "f",
+   "age": 20,
+   "dress": "x:phuong_minh",
+   "memorial": false,
+   "style": "xianxia",
+   "imagined": "Licking her pen as she copies a petition, and adding her name to the best one; a blue stain on her lips.",
+   "subject": "The moment: at a desk, she touches the tip of her brush to her lips, then glances up. Face: a neat, narrow face with a sharp nose, bright ambitious eyes, long lashes, thin brows, a small beauty mark above the lip, slightly hollow cheeks; the lips are stained ink-blue, clear against the pale face. Hair: black, in a bun with a bamboo pin and a bamboo-green ribbon. Body: slim, bent over the desk, back very straight, head bowed, sleeves pushed up neatly over the elbows. Clothing: the robe of an outer disciple clerk: pale gold silk with two crossed collars, sleeves tied back and cuffs protected with black silk guards, a vermilion sash tied with a neat bow, a small silver flame pin at the collar. Hands and objects: a brush; a stack of petitions. Background: a long desk heaped with petitions tied in bundles, a lamp, a brush stand, an open window onto a courtyard, behind her an older clerk working with his head down, light mist at the window. Light: a lamp from the upper left casts a warm gold circle that shows the stain on her lips, with a faint silver rim light. Power: a faint red Fire shimmer on the brush-tip. Expression: a sharp bright upward glance with a small tidy smile that gives nothing away, eyes keen and wanting."
+  }
+ ]
+}

@@ -167,3 +167,21 @@ ACTION after the finishing pass: apply these to world-generation.md (floor), com
   - Places are political entities: size each place first, since not everything is a sect headquarters, and keep its
     own character ("really paint a sect").
   - Rewrite all prompts now, and **give a cost estimate before generating any images**.
+- **Style note (user, 2026-11-25, late):** the old cast portraits' clothing and lighting felt better and more
+  **xianxia**, while the authored ones read as **wuxia**, and the game is xianxia. The paint run was stopped at
+  portrait batch 6 (batches 1-5 and 7, the pilot and all 311 places are painted). Next: a style pass before painting
+  the rest, then decide whether to repaint the batches already done.
+  - The old block (`gen_portraits.STYLE`, the TIER text "rich layered robes with fine embroidery and a jade or silver
+    ornament; a quiet, heavy presence and a faint glow of qi around the shoulders") gave immortal-cultivator dress
+    and a luminous, ethereal light.
+  - The authored usage block's "power is never drawn" rule and the "well-made practical cloth" wording pushed the
+    look toward grounded wuxia.
+  - The art bible's realm-is-never-drawn rule needs a user ruling against this note.
+- **Ruling (user, 2026-11-25, late):** "power should be drawn, but not always; remove that rule". The art bible's
+  "realm is never drawn" line is replaced: power may be drawn (a qi glow, an aura, an ethereal presence) where it suits
+  the person and the moment, and many portraits show none. It is removed from the portrait usage block and the brief,
+  and the checker's `power` flag is dropped.
+- **Ruling (user, 2026-11-25, late):** remove the "well-made, practical clothing" wording too. The usage block now
+  only says that cultivators are never ragged unless their story calls for it. The README rule is changed to match.
+  Dress sheets using "practical" or "well-made" (bach_vu, muc_van, thinh_vu and others) are reworded in the xianxia
+  style pass.

@@ -89,7 +89,7 @@ def text_checks(subject, floor, traits):
     stub = [s for s in sents if len(s.split()) < 6 and not re.match(r"^(The moment|Face|Hair|Body|Clothing|Light|Expression|Background)", s)]
     if len(stub) >= 3:
         flags.append("stubby %d" % len(stub))
-    for name, rx in (("clothes", POOR), ("text", TEXT), ("power", POWER), ("risk", RISK)):
+    for name, rx in (("clothes", POOR), ("text", TEXT), ("risk", RISK)):   # power may be drawn (user 2026-11-25)
         m = rx.search(subject)
         if m:
             flags.append("%s: %s" % (name, m.group(0)))
@@ -144,7 +144,7 @@ def record_checks(e, rec, dress_keys):
         flags.append("weapon: beasts %s not in the picture" % ",".join(rec["beasts"]))
     sect = rec.get("sect")
     if alive and sect and rec.get("rank") in ("ngoai_mon", "noi_mon", "chan_truyen", "truong_lao", "tong_chu"):
-        if sect in dress_keys and e.get("dress") != sect:
+        if sect in dress_keys and e.get("dress") not in (sect, "x:" + sect):
             flags.append("dress: %s wears %s" % (sect, e.get("dress")))
     return flags
 
@@ -206,7 +206,7 @@ def main():
                 w = re.findall(r"[a-z]+", s.lower())
                 grams.update({" ".join(w[i:i + 5]) for i in range(len(w) - 4)})
                 if fl:
-                    key = str(e.get("key") or e.get("id"))
+                    key = "%s/%s" % (batch, e.get("key") or e.get("id"))   # batch/key: a person may be in several batches
                     out[key] = {"file": os.path.relpath(f, ROOT).replace(os.sep, "/"), "flags": fl}
                     for x in fl:
                         counts[(batch, x.split(":")[0].split(" ")[0])] += 1

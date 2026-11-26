@@ -1,454 +1,454 @@
 {
- "nhac_bang_thiem": {
+ "p07/nhac_bang_thiem": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Reclusive, Devout"
   ]
  },
- "luc_han_chu": {
+ "p07/luc_han_chu": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Gregarious, Warlike",
    "weapon: sword cultivator with no blade"
   ]
  },
- "nhac_thanh_suong": {
+ "p07/nhac_thanh_suong": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Calm, Humble, Devout"
   ]
  },
- "mac_ngung_bich": {
+ "p07/mac_ngung_bich": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Arrogant, Cruel, Loyal"
   ]
  },
- "tuong_han_phong": {
+ "p07/tuong_han_phong": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "risk: blood",
    "traits listed: Wrathful, Ambitious"
   ]
  },
- "ninh_bach_ho": {
+ "p07/ninh_bach_ho": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Lazy, Gregarious, Fickle"
   ]
  },
- "quan_lang_ba": {
+ "p07/quan_lang_ba": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Cautious, Content, Deceitful"
   ]
  },
- "au_duong_tuyet": {
+ "p07/au_duong_tuyet": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Greedy, Gregarious, Pragmatic"
   ]
  },
- "dieu_han_dam": {
+ "p07/dieu_han_dam": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Reclusive, Patient, Compassionate"
   ]
  },
- "man_bang_ha": {
+ "p07/man_bang_ha": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Brave, Patient, Impatient, Loyal",
    "weapon: sword cultivator with no blade"
   ]
  },
- "giang_suong_lac": {
+ "p07/giang_suong_lac": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Diligent, Humble, Trusting"
   ]
  },
- "kieu_tuyet_ky": {
+ "p07/kieu_tuyet_ky": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Brave, Stubborn",
    "weapon: sword cultivator with no blade"
   ]
  },
- "pham_lanh_van": {
+ "p07/pham_lanh_van": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Honest, Arbitrary, Patient"
   ]
  },
- "vuong_thanh_lam": {
+ "p07/vuong_thanh_lam": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Ambitious, Deceitful, Faithless"
   ]
  },
- "ha_han_lo": {
+ "p07/ha_han_lo": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Diligent, Paranoid, Loyal"
   ]
  },
- "ta_ngan_suong": {
+ "p07/ta_ngan_suong": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Brave, Gregarious, Fickle"
   ]
  },
- "luu_han_ngan": {
+ "p07/luu_han_ngan": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Wrathful, Gregarious, Faithless",
    "weapon: sword cultivator with no blade"
   ]
  },
- "dinh_tuyet_tung": {
+ "p07/dinh_tuyet_tung": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Reclusive, Devout, Stubborn"
   ]
  },
- "cat_ngoc_tri": {
+ "p07/cat_ngoc_tri": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Content, Patient, Compassionate"
   ]
  },
- "truong_lanh_ha": {
+ "p07/truong_lanh_ha": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Brave, Ambitious, Stubborn",
    "weapon: sword cultivator with no blade"
   ]
  },
- "bach_han_yen": {
+ "p07/bach_han_yen": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Brave, Calm, Reclusive"
   ]
  },
- "ong_tinh_hai": {
+ "p07/ong_tinh_hai": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Content, Humble, Arbitrary"
   ]
  },
- "duong_lo": {
+ "p07/duong_lo": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Diligent, Humble, Trusting"
   ]
  },
- "than_ngung_lam": {
+ "p07/than_ngung_lam": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Deceitful, Humble, Patient",
    "weapon: sword cultivator with no blade"
   ]
  },
- "lang_han_sinh": {
+ "p07/lang_han_sinh": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "weapon: sword cultivator with no blade"
   ]
  },
- "tieu_bach_lo": {
+ "p07/tieu_bach_lo": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Ambitious, Deceitful",
    "weapon: sword cultivator with no blade"
   ]
  },
- "chu_suong_linh": {
+ "p07/chu_suong_linh": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Diligent, Humble"
   ]
  },
- "phan_dong_nhi": {
+ "p07/phan_dong_nhi": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Brave, Patient, Impatient, Callous"
   ]
  },
- "khong_thiet_ngung": {
+ "p07/khong_thiet_ngung": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Greedy, Paranoid, Stubborn"
   ]
  },
- "bui_han": {
+ "p07/bui_han": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Wrathful, Diligent, Loyal"
   ]
  },
- "sam_bich_lan": {
+ "p07/sam_bich_lan": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Content, Gregarious"
   ]
  },
- "te_lac_bang": {
+ "p07/te_lac_bang": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Cautious, Humble, Patient"
   ]
  },
- "la_ngu_nhi": {
+ "p07/la_ngu_nhi": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "weapon: sword cultivator with no blade"
   ]
  },
- "han_tieu_bac": {
+ "p07/han_tieu_bac": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Calm, Deceitful, Pragmatic"
   ]
  },
- "to_lanh_nguyet": {
+ "p07/to_lanh_nguyet": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Humble, Patient, Loyal"
   ]
  },
- "trinh_lang": {
+ "p07/trinh_lang": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "weapon: sword cultivator with no blade"
   ]
  },
- "thach_tieu_lo": {
+ "p07/thach_tieu_lo": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Lazy, Gregarious, Trusting"
   ]
  },
- "hua_bang_nhi": {
+ "p07/hua_bang_nhi": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Reclusive, Patient, Compassionate"
   ]
  },
- "yen_tuyet_ngung": {
+ "p07/yen_tuyet_ngung": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Calm, Patient, Stubborn"
   ]
  },
- "lieu_tieu_giang": {
+ "p07/lieu_tieu_giang": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Brave, Gregarious, Honest",
    "weapon: sword cultivator with no blade"
   ]
  },
- "nhiep_lang_tuyet": {
+ "p07/nhiep_lang_tuyet": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Just, Patient, Stubborn"
   ]
  },
- "ky_han_bach": {
+ "p07/ky_han_bach": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Arrogant, Cruel, Loyal",
    "weapon: sword cultivator with no blade"
   ]
  },
- "manh_trieu_suong": {
+ "p07/manh_trieu_suong": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Greedy, Gregarious, Loyal"
   ]
  },
- "tong_ngu_lan": {
+ "p07/tong_ngu_lan": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Brave, Wrathful, Ambitious",
    "weapon: sword cultivator with no blade"
   ]
  },
- "muc_sa_hanh": {
+ "p07/muc_sa_hanh": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "weapon: sword cultivator with no blade"
   ]
  },
- "dien_han_tac": {
+ "p07/dien_han_tac": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Calm, Humble, Devout"
   ]
  },
- "kha_lac_tuyet": {
+ "p07/kha_lac_tuyet": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Cautious, Diligent, Loyal"
   ]
  },
- "hoac_tuyet_ngan": {
+ "p07/hoac_tuyet_ngan": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "weapon: sword cultivator with no blade"
   ]
  },
- "ong_tieu_tra": {
+ "p07/ong_tieu_tra": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "qi: names bang, root has moc/thuy"
   ]
  },
- "lu_bang_trieu": {
+ "p07/lu_bang_trieu": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "weapon: sword cultivator with no blade"
   ]
  },
- "nghe_kho_tuyen": {
+ "p07/nghe_kho_tuyen": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "weapon: sword cultivator with no blade"
   ]
  },
- "co_lang_suong": {
+ "p07/co_lang_suong": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Patient, Stubborn"
   ]
  },
- "tham_han_giang": {
+ "p07/tham_han_giang": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Ambitious, Just"
   ]
  },
- "tiet_han_mai": {
+ "p07/tiet_han_mai": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Cautious, Honest"
   ]
  },
- "pho_am_huong": {
+ "p07/pho_am_huong": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Vengeful, Patient"
   ]
  },
- "khuong_luu_ly": {
+ "p07/khuong_luu_ly": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Diligent, Arrogant, Loyal"
   ]
  },
- "on_sa_ngoc": {
+ "p07/on_sa_ngoc": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Gregarious, Pragmatic"
   ]
  },
- "nguy_thanh_han": {
+ "p07/nguy_thanh_han": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Ambitious, Deceitful, Patient"
   ]
  },
- "hang_minh_sa": {
+ "p07/hang_minh_sa": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Vengeful, Gregarious, Patient"
   ]
  },
- "ho_tieu_dam": {
+ "p07/ho_tieu_dam": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "traits listed: Diligent, Humble, Stubborn"
   ]
  },
- "hoa_tuyet_nghi": {
+ "p07/hoa_tuyet_nghi": {
   "file": "design/world/depth/art/portraits/p07/bang_tam.json",
   "flags": [
    "weapon: sword cultivator with no blade"
   ]
  },
- "bo_tay_sa": {
+ "p07/bo_tay_sa": {
   "file": "design/world/depth/art/portraits/p07/lang_dao.json",
   "flags": [
    "traits listed: Wrathful, Loyal"
   ]
  },
- "ngo_da_do": {
+ "p07/ngo_da_do": {
   "file": "design/world/depth/art/portraits/p07/lang_dao.json",
   "flags": [
    "traits listed: Brave, Calm"
   ]
  },
- "thuong_thien_dao": {
+ "p07/thuong_thien_dao": {
   "file": "design/world/depth/art/portraits/p07/lang_dao.json",
   "flags": [
    "traits listed: Wrathful, Arbitrary"
   ]
  },
- "le_tieu_pham": {
+ "p07/le_tieu_pham": {
   "file": "design/world/depth/art/portraits/p07/lang_dao.json",
   "flags": [
    "traits listed: Gregarious, Patient, Impatient"
   ]
  },
- "ma_truong_cao": {
+ "p07/ma_truong_cao": {
   "file": "design/world/depth/art/portraits/p07/lang_dao.json",
   "flags": [
    "traits listed: Calm, Loyal"
   ]
  },
- "thach_thap_dinh": {
+ "p07/thach_thap_dinh": {
   "file": "design/world/depth/art/portraits/p07/lang_dao.json",
   "flags": [
    "traits listed: Greedy, Paranoid"
   ]
  },
- "giang_tieu_loan": {
+ "p07/giang_tieu_loan": {
   "file": "design/world/depth/art/portraits/p07/lang_dao.json",
   "flags": [
    "traits listed: Generous, Trusting"
   ]
  },
- "uong_lien_chu": {
+ "p07/uong_lien_chu": {
   "file": "design/world/depth/art/portraits/p07/lang_dao.json",
   "flags": [
    "traits listed: Just, Patient"
   ]
  },
- "lu_thua_lang": {
+ "p07/lu_thua_lang": {
   "file": "design/world/depth/art/portraits/p07/lang_dao.json",
   "flags": [
    "traits listed: Content, Loyal"
   ]
  },
- "lac_tam_chan": {
+ "p07/lac_tam_chan": {
   "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
   "flags": [
    "weapon: sword cultivator with no blade"
   ]
  },
- "ngo_han_dac": {
+ "p07/ngo_han_dac": {
   "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
   "flags": [
    "traits listed: Humble, Stubborn"
   ]
  },
- "au_da_loc": {
+ "p07/au_da_loc": {
   "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
   "flags": [
    "weapon: sword cultivator with no blade"
   ]
  },
- "van_kien_boi": {
+ "p07/van_kien_boi": {
   "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
   "flags": [
    "traits listed: Content, Lazy, Loyal",
@@ -456,255 +456,344 @@
    "age: looks 35, young person aged 24"
   ]
  },
- "quach_do_anh": {
+ "p07/quach_do_anh": {
   "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
   "flags": [
    "risk: blood",
    "traits listed: Ambitious, Cruel, Loyal"
   ]
  },
- "tieu_van_phong": {
+ "p07/tieu_van_phong": {
   "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
   "flags": [
    "traits listed: Brave, Ambitious, Stubborn"
   ]
  },
- "sai_mo_kiem": {
+ "p07/sai_mo_kiem": {
   "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
   "flags": [
    "traits listed: Lazy, Vengeful, Arrogant"
   ]
  },
- "tich_lang_tung": {
+ "p07/tich_lang_tung": {
   "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
   "flags": [
    "traits listed: Patient, Loyal"
   ]
  },
- "thang_phuc_tuyet": {
+ "p07/thang_phuc_tuyet": {
   "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
   "flags": [
    "traits listed: Wrathful, Diligent, Arbitrary"
   ]
  },
- "lu_hoi_lo": {
+ "p07/lu_hoi_lo": {
   "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
   "flags": [
    "traits listed: Cautious, Honest",
    "weapon: sword cultivator with no blade"
   ]
  },
- "tieu_hoe_sinh": {
+ "p07/tieu_hoe_sinh": {
   "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
   "flags": [
    "traits listed: Ambitious, Greedy, Deceitful",
    "weapon: sword cultivator with no blade"
   ]
  },
- "nguu_pha_son": {
+ "p07/nguu_pha_son": {
   "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
   "flags": [
    "traits listed: Content, Loyal"
   ]
  },
- "duong_tieu_kiem": {
+ "p07/duong_tieu_kiem": {
   "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
   "flags": [
    "traits listed: Diligent, Paranoid, Callous"
   ]
  },
- "hach_tung": {
+ "p07/hach_tung": {
   "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
   "flags": [
    "traits listed: Calm, Pragmatic",
    "weapon: sword cultivator with no blade"
   ]
  },
- "thai_truong_thanh": {
+ "p07/thai_truong_thanh": {
   "file": "design/world/depth/art/portraits/p07/tam_kiem.json",
   "flags": [
    "traits listed: Forgiving, Honest, Trusting",
    "weapon: sword cultivator with no blade"
   ]
  },
- "doan_ma_kinh": {
+ "p07/doan_ma_kinh": {
   "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
   "flags": [
    "traits listed: Ambitious, Patient, Impatient"
   ]
  },
- "kha_o_lan": {
+ "p07/kha_o_lan": {
   "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
   "flags": [
    "traits listed: Brave, Honest, Stubborn"
   ]
  },
- "tat_kim_thanh": {
+ "p07/tat_kim_thanh": {
   "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
   "flags": [
    "weapon: sword cultivator with no blade"
   ]
  },
- "ong_thiet_xuyen": {
+ "p07/ong_thiet_xuyen": {
   "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
   "flags": [
    "traits listed: Brave, Wrathful, Loyal"
   ]
  },
- "cat_luu_quang": {
+ "p07/cat_luu_quang": {
   "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
   "flags": [
    "traits listed: Calm, Diligent, Stubborn"
   ]
  },
- "cat_doan_nhac": {
+ "p07/cat_doan_nhac": {
   "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
   "flags": [
    "traits listed: Arrogant, Callous",
    "weapon: sword cultivator with no blade"
   ]
  },
- "hau_thiet_anh": {
+ "p07/hau_thiet_anh": {
   "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
   "flags": [
    "weapon: sword cultivator with no blade"
   ]
  },
- "dinh_hoa_lan": {
+ "p07/dinh_hoa_lan": {
   "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
   "flags": [
    "traits listed: Ambitious, Generous, Patient, Impatient"
   ]
  },
- "cat_thanh_diem": {
+ "p07/cat_thanh_diem": {
   "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
   "flags": [
    "traits listed: Brave, Honest, Stubborn",
    "weapon: sword cultivator with no blade"
   ]
  },
- "kha_than_sinh": {
+ "p07/kha_than_sinh": {
   "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
   "flags": [
    "weapon: sword cultivator with no blade"
   ]
  },
- "dam_kinh_nguyet": {
+ "p07/dam_kinh_nguyet": {
   "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
   "flags": [
    "traits listed: Calm, Humble, Patient"
   ]
  },
- "tao_bach_sinh": {
+ "p07/tao_bach_sinh": {
   "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
   "flags": [
    "traits listed: Ambitious, Gregarious, Loyal",
    "weapon: sword cultivator with no blade"
   ]
  },
- "man_hac_chau": {
+ "p07/man_hac_chau": {
   "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
   "flags": [
    "traits listed: Diligent, Just, Paranoid",
    "weapon: sword cultivator with no blade"
   ]
  },
- "dieu_lac_tinh": {
+ "p07/dieu_lac_tinh": {
   "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
   "flags": [
    "traits listed: Devout, Stubborn"
   ]
  },
- "nhac_ba_chuy": {
+ "p07/nhac_ba_chuy": {
   "file": "design/world/depth/art/portraits/p07/thoi_tinh.json",
   "flags": [
    "traits listed: Calm, Humble, Loyal"
   ]
  },
- "lam_nhan_thanh": {
+ "p07/lam_nhan_thanh": {
   "file": "design/world/depth/art/portraits/p07/trac_anh.json",
   "flags": [
    "traits listed: Humble, Patient, Devout"
   ]
  },
- "co_lang_hoa": {
+ "p07/co_lang_hoa": {
   "file": "design/world/depth/art/portraits/p07/trac_anh.json",
   "flags": [
    "traits listed: Ambitious, Warlike"
   ]
  },
- "dong_thoa": {
+ "p07/dong_thoa": {
   "file": "design/world/depth/art/portraits/p07/trac_anh.json",
   "flags": [
    "traits listed: Cautious, Patient"
   ]
  },
- "phi_nhan_tam": {
+ "p07/phi_nhan_tam": {
   "file": "design/world/depth/art/portraits/p07/trac_anh.json",
   "flags": [
    "risk: blood",
    "traits listed: Calm, Forgiving"
   ]
  },
- "doan_to_ba": {
+ "p07/doan_to_ba": {
   "file": "design/world/depth/art/portraits/p07/trac_anh.json",
   "flags": [
    "traits listed: Brave, Patient, Impatient"
   ]
  },
- "ngac_hai_tieu": {
+ "p07/ngac_hai_tieu": {
   "file": "design/world/depth/art/portraits/p07/trac_anh.json",
   "flags": [
    "traits listed: Ambitious, Greedy"
   ]
  },
- "lo_chau_nuong": {
+ "p07/lo_chau_nuong": {
   "file": "design/world/depth/art/portraits/p07/trac_anh.json",
   "flags": [
    "traits listed: Calm, Patient"
   ]
  },
- "bao_thiet_thu": {
+ "p07/bao_thiet_thu": {
   "file": "design/world/depth/art/portraits/p07/trac_anh.json",
   "flags": [
    "traits listed: Arbitrary, Stubborn, Loyal"
   ]
  },
- "nghe_tieu_lang": {
+ "p07/nghe_tieu_lang": {
   "file": "design/world/depth/art/portraits/p07/trac_anh.json",
   "flags": [
    "risk: blood",
    "traits listed: Cruel, Warlike, Loyal"
   ]
  },
- "tan_bach_au": {
+ "p07/tan_bach_au": {
   "file": "design/world/depth/art/portraits/p07/trac_anh.json",
   "flags": [
    "traits listed: Diligent, Vengeful"
   ]
  },
- "dong_vong": {
+ "p07/dong_vong": {
   "file": "design/world/depth/art/portraits/p07/trac_anh.json",
   "flags": [
    "traits listed: Content, Lazy, Gregarious"
   ]
  },
- "vu_bich_trieu": {
+ "p07/vu_bich_trieu": {
   "file": "design/world/depth/art/portraits/p07/trac_anh.json",
   "flags": [
    "traits listed: Brave, Trusting"
   ]
  },
- "khuat_thanh_anh": {
+ "p07/khuat_thanh_anh": {
   "file": "design/world/depth/art/portraits/p07/trac_anh.json",
   "flags": [
    "traits listed: Brave, Content, Generous"
   ]
  },
- "chung_quy_nhan": {
+ "p07/chung_quy_nhan": {
   "file": "design/world/depth/art/portraits/p07/trac_anh.json",
   "flags": [
    "traits listed: Humble, Patient, Compassionate"
+  ]
+ },
+ "x-bang_tam/au_duong_tuyet": {
+  "file": "design/world/depth/art/portraits/x-bang_tam/demo.json",
+  "flags": [
+   "short 186"
+  ]
+ },
+ "x-da_quang/hang_da_boi": {
+  "file": "design/world/depth/art/portraits/x-da_quang/demo.json",
+  "flags": [
+   "short 193"
+  ]
+ },
+ "x-loose-north/ngu_bat_te": {
+  "file": "design/world/depth/art/portraits/x-loose-north/demo.json",
+  "flags": [
+   "short 186"
+  ]
+ },
+ "x-market-folk/kim_van_ly": {
+  "file": "design/world/depth/art/portraits/x-market-folk/demo.json",
+  "flags": [
+   "short 188"
+  ]
+ },
+ "x-muc_van/khau_muc_van": {
+  "file": "design/world/depth/art/portraits/x-muc_van/demo.json",
+  "flags": [
+   "short 179",
+   "traits listed: Content, Honest, Patient"
+  ]
+ },
+ "x-phuong_minh/ton_xich_minh": {
+  "file": "design/world/depth/art/portraits/x-phuong_minh/demo.json",
+  "flags": [
+   "short 164"
+  ]
+ },
+ "x-phuong_minh/hoa_trieu_duong": {
+  "file": "design/world/depth/art/portraits/x-phuong_minh/demo.json",
+  "flags": [
+   "short 196"
+  ]
+ },
+ "x-thien_bao/quan_tay_lan": {
+  "file": "design/world/depth/art/portraits/x-thien_bao/demo.json",
+  "flags": [
+   "short 190"
+  ]
+ },
+ "x-thien_xu/do_tinh_ha": {
+  "file": "design/world/depth/art/portraits/x-thien_xu/demo.json",
+  "flags": [
+   "traits listed: Forgiving, Patient"
+  ]
+ },
+ "x-thinh_vu/le_tieu_hon": {
+  "file": "design/world/depth/art/portraits/x-thinh_vu/demo.json",
+  "flags": [
+   "short 173",
+   "traits listed: Patient, Cruel"
+  ]
+ },
+ "x-thu_phan/ly_han_bich": {
+  "file": "design/world/depth/art/portraits/x-thu_phan/demo.json",
+  "flags": [
+   "short 184",
+   "traits listed: Vengeful, Patient"
+  ]
+ },
+ "x-tung_dao/trinh_van_thanh": {
+  "file": "design/world/depth/art/portraits/x-tung_dao/demo.json",
+  "flags": [
+   "short 167",
+   "traits listed: Calm, Honest"
+  ]
+ },
+ "x-tung_dao/mai_tieu_phuc": {
+  "file": "design/world/depth/art/portraits/x-tung_dao/demo.json",
+  "flags": [
+   "short 183"
+  ]
+ },
+ "x-tung_dao/dam_tung_lai": {
+  "file": "design/world/depth/art/portraits/x-tung_dao/demo.json",
+  "flags": [
+   "short 191",
+   "traits listed: Calm, Humble"
   ]
  }
 }

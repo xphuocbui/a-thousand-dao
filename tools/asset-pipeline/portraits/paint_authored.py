@@ -43,12 +43,25 @@ USAGE = ("How it is used: this is one person's own portrait in the game's charac
          "tooltips and on the map. So the face must read at that small size: the head and shoulders form a clear "
          "silhouette, the face is lit, and the one or two things that make this person recognisable are big and simple, "
          "not fine detail. The clothing's cut and collar shows at a glance what they are (a sect disciple, a loose "
-         "cultivator in a travel cloak, a mortal in work clothes). Power is never drawn: a strong cultivator does not "
-         "look grander, larger or more glowing than a weak one; any qi is a small, subtle hint of their element only. "
-         "Cultivators are not poor: their clothes are well-made robes of fine, clean cloth, often spirit-woven, neatly "
-         "kept and well fitted, even in a humble or frugal sect, where humble means plain colour and little ornament, "
-         "never worn, frayed, patched or ragged. Wear and patches belong to mortals only. "
+         "cultivator in a travel cloak, a mortal in work clothes). "
+         "Cultivators are never ragged: no worn, frayed or patched clothes unless the person's story calls for it. "
          "No numbers, writing or symbols that could read as text.")
+# The xianxia style (user 2026-11-26: the old cast portraits' clothing and light felt more xianxia; the authored ones
+# read as wuxia). Used instead of gen_portraits.STYLE for people whose entry has "style": "xianxia".
+XIANXIA_STYLE = (
+    "A single painted character portrait for a historical grand-strategy game set in an original Chinese cultivation "
+    "(xianxia) world of immortal cultivators. Chest-up, three-quarter view, eyes alive. Refined semi-realistic oil "
+    "painting with soft, visible brushwork, in the manner of a luminous xianxia illustration: soft ethereal light on "
+    "the face as if lit by moonlight or spirit-light, a gentle glowing rim light, a dark painterly background with "
+    "drifting mist and faint motes of light. East Asian features (Vietnamese and Chinese). Cultivators dress as the "
+    "immortals of a xianxia world: flowing, layered hanfu of silk and spirit-woven gauze, two or three crossed collars "
+    "showing at the neck, wide sleeves that fall in long folds, borders embroidered with clouds, cranes, waves or "
+    "flames, sashes hung with jade pendants and tassels, long hair dressed with jade or silver hairpins, a small crown "
+    "or ribbons; clear, rich colours. Even a junior disciple's robe is graceful silk; only a mortal wears plain cotton. "
+    "Power may show where it suits the person: a soft aura, wisps of qi or floating motes in the colour of their "
+    "element, stronger for the stronger, but not in every portrait. Not wuxia: no rough leather, no work aprons, no "
+    "gritty realism unless the person's story asks for it. No armour unless asked. No text, no letters, no frame, no "
+    "border, no watermark, no signature; the figure fills the picture, head in the upper third.")
 SEX = {"m": "a man", "f": "a woman"}
 MEMORIAL = " Painted as a memorial portrait of someone long dead: slightly faded, as on old silk."
 PLACE_QUALITY, PLACE_SIZE = "low", "1536x864"   # user 2026-11-25: low on all
@@ -59,11 +72,69 @@ def load(p):
     return json.load(open(p, encoding="utf-8"))
 
 
+# Rank and realm, read from the cast record and added to every xianxia prompt (user 2026-11-26: a sect's cast wears a
+# uniform; higher realms look more powerful, with better clothes, treasures and aura).
+RANK = {"tap_dich": "a servant of the sect", "ngoai_mon": "an outer disciple", "noi_mon": "an inner disciple",
+        "chan_truyen": "a true disciple", "chap_su": "a steward", "truong_lao": "an elder", "thai_thuong": "a grand elder",
+        "tong_chu": "the head of the sect", "founder": "the founder of the sect", "last_head": "a former head",
+        "retired_head": "a retired head", "khach_khanh": "a guest elder", "war_marshal": "a war marshal",
+        "former_officer": "a former officer"}
+REALM_LOOK = {
+    "luyen_khi": "Realm: Luyện Khí, a beginner. Their clothes are the plain version of what their rank wears, with "
+                 "little ornament, and they show no aura beyond a faint calm.",
+    "truc_co": "Realm: Trúc Cơ, a foundation-built cultivator. Finer cloth and one good ornament such as a jade pendant "
+               "or a silver hairpin; now and then a faint shimmer of their element's qi.",
+    "ket_dan": "Realm: Kết Đan, a golden-core master. Rich robes with heavy embroidery, jewelled hairpins or a small "
+               "crown, their spirit weapon or treasure clearly in view; visible wisps of qi in their element's colour "
+               "curl around them.",
+    "nguyen_anh": "Realm: Nguyên Anh, a great master whose word moves a sect. Splendid layered robes of the finest "
+                  "spirit silk, a crown, treasures that glow with their own light; a strong aura in their element's "
+                  "colour fills the air around them, and their presence is imposing.",
+    "hoa_than": "Realm: Hóa Thần, all but beyond the mortal world. Radiant, ethereal robes that seem woven of light; a "
+                "vast aura in their element's colour; the air itself seems to bend around them.",
+}
+ELEMENT_COLOUR = {"kim": "silver-white", "moc": "jade green", "thuy": "deep blue", "hoa": "red-gold", "tho": "ochre gold",
+                  "bang": "ice blue", "loi": "violet", "phong": "pale silver-green", "am": "dark violet",
+                  "quang": "golden white", "hon": "shifting many-coloured"}
+_CAST = {}
+
+
+def cast_record(key):
+    if not _CAST:
+        for f in glob.glob(os.path.join(ROOT, "design", "world", "depth", "**", "*.cast.json"), recursive=True):
+            for p in load(f)["people"]:
+                _CAST[p["key"]] = p
+    return _CAST.get(key, {})
+
+
+def rank_realm(person):
+    rec = cast_record(person["key"])
+    out = []
+    rank = RANK.get(rec.get("rank") or "")
+    if rank and rec.get("sect"):
+        out.append("Rank: %s. They wear the sect's uniform in the version for their rank (see the sect's dress), "
+                   "with their own touches." % rank)
+    realm = rec.get("realm") or rec.get("peak_realm")
+    root = rec.get("root") or {}
+    pure = dict(root.get("elements") or {}, **(root.get("variants") or {}))
+    if realm in REALM_LOOK:
+        colour = (" Their element's colour is %s." % ELEMENT_COLOUR.get(max(pure, key=pure.get), "pale")) if pure else ""
+        out.append(REALM_LOOK[realm] + colour)
+    elif not pure:
+        out.append("A mortal or someone with no cultivation to speak of: no aura, plain but clean clothes.")
+    return " ".join(out)
+
+
 def portrait_prompt(person, dress):
     sheet = dress.get(person["dress"]) if person.get("dress") else None
-    text = gp.STYLE + "\n\n" + USAGE
+    xianxia = person.get("style") == "xianxia"
+    text = (XIANXIA_STYLE if xianxia else gp.STYLE) + "\n\n" + USAGE
     if sheet:
         text += "\n\nThe sect's dress: " + sheet
+    if xianxia and person.get("rank_realm"):   # off by default: the user preferred v1 without these lines (2026-11-26)
+        rr = rank_realm(person)
+        if rr:
+            text += "\n\n" + rr
     text += "\n\nThe subject, %s who looks about %d: %s" % (SEX[person["sex"]], person["age"], person["subject"])
     if person.get("memorial"):
         text += MEMORIAL
@@ -137,7 +208,8 @@ def main():
             lines += ["## Portrait: %s" % p["key"], ""]
             if p.get("imagined"):
                 lines += ["*Imagined (not sent):* " + p["imagined"], ""]
-            lines += [full[len(head):].strip(), ""]
+            h = (XIANXIA_STYLE if p.get("style") == "xianxia" else gp.STYLE) + "\n\n" + USAGE
+            lines += [full[len(h):].strip(), ""]
         for p in places:
             lines += ["## Place %d: %s" % (p["id"], p["name"]), "", "*Where (from the record and the map crop):* " + p["where"], "",
                       "*Imagined (not sent):* " + p.get("imagined", ""), "", p["subject"], ""]

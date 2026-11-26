@@ -125,8 +125,9 @@ trait that reads at thumbnail size:
 - mortal: work clothes and no implement;
 - demonic beast: a non-human outline.
 
-Realm is **never** drawn as size, glow or ornament. A strong cultivator does not look grander; the realm is printed
-(Pillar 3, Principle 1). On the map, people are discs, not painted figures, because they move each season and changes
+Power **may** be drawn, but not always (user, 2026-11-25, replacing "realm is never drawn"): a portrait may show a
+cultivator's power, such as a qi glow, an aura or an ethereal presence, where it suits the person and the moment, and
+many portraits show none. The realm number is still printed by the UI (Pillar 3, Principle 1). On the map, people are discs, not painted figures, because they move each season and changes
 arrive as overlays (Principle 2).
 
 **Environment geometry.** Terrain follows real geography: irregular coasts, branching ridges and rivers that drain,

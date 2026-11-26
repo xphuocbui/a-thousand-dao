@@ -1,0 +1,394 @@
+{
+ "people": [
+  {
+   "key": "te_lac_bang",
+   "sex": "m",
+   "age": 16,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Breathing the primer so slowly that his scarf hardly moves; eyes shut.",
+   "subject": "The moment: in the frosted reed marsh he sits cross-legged breathing the primer so slowly that his scarf hardly moves, eyes shut except for one that has cracked open to look at the viewer. Face: a thin, serene boy's face of sixteen with closed lids, a small calm mouth, a faint down on the lip and skin pale with cold; the single open eye is pale brown and calm. Hair: black, in a short tail bound with a white ribbon. Body: thin, folded and perfectly still. Clothing: the simplest graceful outer-disciple robe of white silk, two crossed collars edged in ice blue, wide sleeves falling in soft folds over his knees, and a plain grey silk scarf lying flat across his chest; his sandals are set side by side on the ice as though he had been told to. Hands and objects: hands on his knees, palms up. Power: a single slow thread of pale breath rises from his nose and a few faint blue motes of water qi hang near his shoulders, barely visible. Background: drifting mist over a reed marsh and a distant hut, a small icicle hanging from a reed above his head that does not drip, and far off a round-faced woman in white nodding to herself. Light: soft silver moonlight from the upper left with a gentle rim of glow along his shoulder. Expression: a cautious, humble and patient look, the single open eye wary and the mouth soft, a boy who has been told to be still and means to do it properly."
+  },
+  {
+   "key": "an_tieu_han",
+   "sex": "f",
+   "age": 20,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Selling a bit of gossip for a dried plum, her quick brown eyes never settling.",
+   "subject": "The moment: in a lantern-lit corridor of the sect she sells a bit of gossip for a dried plum, holding one out from her pouch and looking sideways at the viewer. Face: a sharp, quick, small face of twenty with restless brown eyes that dart left and right, a cheerful honest-seeming smile and a small mole at the corner of the mouth. Hair: brown, in a messy plait with a silver pin slipping loose. Body: small and nimble, weight on the balls of her feet as if ready to slip away. Clothing: a graceful white silk outer-disciple robe with two crossed collars edged in ice blue and a sleeve rolled once, a smudge of plum sugar on the embroidered silver snowflake at the cuff, a pale sash with a small jade bead, and a faded blue silk pouch with a drawstring swelling at her waist. Hands and objects: the plum, wrinkled, dark red and sugared, held out by the stem between finger and thumb; the other hand resting on the plump pouch. Background: a pale corridor with a narrow window showing drifting snow, two white-robed disciples blurred in deep conversation at its end. Light: cool spirit-light lanterns glowing blue-white from the upper left, a soft rim light on her cheek and the dark plum glinting. Expression: a bright, easy, over-friendly smile with eyes that do not stay on you, a quick girl who is pleasant to everyone and weighs what each is worth."
+  },
+  {
+   "key": "la_ngu_nhi",
+   "sex": "f",
+   "age": 18,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Wringing out her heavy wet hair before entering a room, a waterfall-village girl.",
+   "subject": "The moment: before stepping into a hall, a waterfall-village girl wrings out her heavy wet hair, twisting a rope of black hair in both fists so that a stream of water falls, and looks up boldly at the viewer. Face: a bright, fierce face of eighteen with clear brave eyes, wet lashes beaded with spray, a determined mouth and a single drop falling from her chin. Hair: very long black hair, soaking, so heavy it drags her head back a little, a silver comb hanging at its end. Body: strong and sturdy, planted in a doorway with her feet apart, grinning as though about to run back to the water. Clothing: a white silk outer-disciple robe with two crossed collars edged in ice blue, the shoulders soaked dark and clinging, the wide sleeves pushed up to the elbow over strong brown forearms, a pale sash with a white jade pendant dripping; bare feet, wet. Hands and objects: both hands wringing the rope of hair, the water falling in a bright cord to the stone threshold and splashing her toes; a slim sword in a plain scabbard hangs from her sash. Power: tiny pale-blue motes of water qi float up from the spray and cling to her lashes, a soft misty glow around her hands. Background: a stone threshold with a wet footprint and, through the door, the white blur of a waterfall under the moon. Light: silver moonlight from the upper left, the spray glittering, a bright rim light on her wet shoulder. Expression: a bold, challenging, half-laughing look, chin up, as if daring anyone to mind the water on the floor."
+  },
+  {
+   "key": "han_tieu_bac",
+   "sex": "m",
+   "age": 22,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Smiling sincerely at the teacher about the test, tar under his nails and a rope burn across his palm.",
+   "subject": "The moment: he smiles sincerely at the teacher about the test, both hands held open before him, tar under his nails and a rope burn across his palm. Face: an honest-looking, calm, regular face of twenty-two with pleasant eyes and a practised smile that creases both cheeks, friendly eyes above palms held a little too still. Hair: black, neat, tied up with a pale ribbon. Body: medium and easy, one boot toe turned toward the water. Clothing: a flowing white silk outer-disciple robe with two crossed collars edged in ice blue, the wide sleeves folded back a precise fold, a plain scarf of grey silk tied in a sailor's flat knot, a pale sash with a small jade fish pendant. Hands and objects: tar black under every nail; a long red rope-burn welt across the right palm, blistered at one edge. Background: a lake edge shrouded in mist, a boat drawn up on the shingle with a simple blue fish painted on its bow, and a small flag marking a good spot on the ice in the middle distance. Light: pale moonlight from the upper left with a soft glow off the mist and a thin rim light on his cheek. Expression: calm, pragmatic and deceitful, a smile that stays pleasant while he works out what the teacher wants to hear."
+  },
+  {
+   "key": "to_lanh_nguyet",
+   "sex": "f",
+   "age": 28,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "A clerk's daughter at the Desert Pavilion; practice characters inked in rows down her cuffs.",
+   "subject": "The moment: a clerk's daughter of the Desert Pavilion holds one cuff out to the viewer with a diligent smile, rows of small ink strokes of practice marching down the inside of the sleeve. Face: a neat, patient face of twenty-eight with clever dark eyes, round calm cheeks, lightly tanned skin and a small smile. Hair: black, in a neat bun held by a silver pin with a small ribbon bookmark of blue silk trailing from it. Body: slim and tidy, standing before a pale low wall; a veiled woman with a gold nostril stud speaks to her a pace away. Clothing: a layered white silk inner-disciple robe with three crossed collars edged in ice blue, wide sleeves embroidered at the cuffs with silver frost ferns, the lifted inner cuff crowded with small black practice strokes that form no readable letters, a pale-blue silk sash with a white jade pendant and a small brush hanging from it. Hands and objects: one cuff held up; ink on her right forefinger; a white clay inkpot tucked in her sash. Power: a very faint cold shimmer of frost qi lies on her sleeve like dew. Background: a sunlit sandy courtyard, a camel's knee at the edge of the frame. Light: warm gold light from the upper left tempered by a cool rim of pale glow along her cheek. Expression: a patient, loyal and humble look, the smile small and diligent and the eyes steady, a girl who copies out her lessons because she is grateful to have them."
+  },
+  {
+   "key": "vo_bang_kien",
+   "sex": "m",
+   "age": 25,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Rolling like a caravan guard as he walks, one eyebrow split in two; he thinks the Frost Test a waste of a winter.",
+   "subject": "The moment: in a caravan yard he walks toward the viewer with a rolling swagger and a grin, one thumb hooked in his belt, as though the Frost Test were a waste of a winter. Face: a broad, tanned, cheerful face of twenty-five with bold eyes, a scar splitting the left eyebrow in two halves at different heights so that he looks permanently quizzical, and a wide grin showing a chipped front tooth. Hair: black, cropped short, the bare head catching the light. Body: broad and bandy-legged, with a caravan guard's roll in his stance. Clothing: a layered white silk outer-disciple robe cut short at the thigh for riding, two crossed collars edged in ice blue, wide sleeves folded to the elbow over wide tanned forearms dusted with sand, silver snowflakes embroidered at the cuffs, a pale-blue sash with a jade pendant, clean white boots scuffed with dust. Hands and objects: a thumb hooked in his belt; a long sword hanging low at his hip, its hilt wrapped in white silk cord. Power: a faint haze of pale-blue qi drifts off his shoulders and wavers in the heat. Background: a caravan yard with a line of kneeling camels chewing, a water-skin on a wagon, and an older guard in a pale-blue sash watching him walk. Light: bright sun from the upper left softened by a pearly glow and a golden rim light. Expression: a swaggering, cocky grin with the quizzical eyebrow raised, easy and loud and sure of himself."
+  },
+  {
+   "key": "que_han_chi",
+   "sex": "f",
+   "age": 17,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Digging in the ice-herb bed, a seed in every pocket, dirt under her nails.",
+   "subject": "The moment: she kneels in the ice-herb bed with a seed in every pocket and dirt under her nails, and looks up from the small pale plants with soil on her hands and a closed face. Face: a quiet, narrow face of seventeen with steady dark eyes, a still mouth that gives nothing away, a smear of soil on one cheek and her breath fogging gently. Hair: brown, braided and tucked up, a small leaf caught in it and a white jade pin holding the braid. Body: small and bent, kneeling low over the bed. Clothing: a simple graceful white silk outer-disciple robe with two crossed collars edged in ice blue, the wide sleeves tied back with a pale cord, the knees stained brown with earth, a tiny silk pouch of seeds hanging at her waist beside a small jade pendant, more seeds peeping from her sleeves. Hands and objects: a wooden trowel in one hand; the other open and full of earth, a small pale leaf curling in the palm; nails rimmed black, knuckles chapped. Power: soft green-blue motes of living qi gather over the seedlings and lift toward her hand, faint in the dark. Background: a low stone wall framing beds of woven reed under thin snow, and far off a small round girl watering seedlings. Light: pale moonlight from the upper left with a faint glow rising from the small plants. Expression: a closed, patient, unreadable look, a girl who keeps her own counsel and will say only what she means to."
+  },
+  {
+   "key": "trinh_lang",
+   "sex": "m",
+   "age": 27,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "A squire's son in much-resoled boots; he laughs a full breath late at a joke.",
+   "subject": "The moment: he laughs alone with his head thrown back at his own joke, then looks at the viewer to see who is laughing with him. Face: a ruddy, square, boastful face of twenty-seven with bright blue eyes round with delight, a wide mouth still laughing after everyone else has stopped, a day's stubble and a faint blush of pleasure colouring his ears. Hair: brown, cropped short, with a small silver clasp. Body: stocky and squared, chest out, planted with a squire's son's swagger. Clothing: a rich white silk inner-disciple robe with three crossed collars edged in ice blue, wide sleeves embroidered at the cuffs with silver snowflakes, a pale-blue silk sash tied in a loose bow with one end longer than the other, a jade pendant swinging, and old squire's boots resoled in three different leathers and polished to a hard black shine. Hands and objects: both hands on his hips; a short dagger in a creased old sheath thrust through his sash and a straight sword in a polished white scabbard at his hip. Power: a thin pale-blue shimmer of water qi lies along his shoulders, unnoticed by him. Background: a high hall of white pillars and polished floor where a few disciples look away with careful politeness and a tall frost-coast disciple in a coast-blue lining shows a thin smile. Light: cool silver light from a high window at the upper left, a soft glow on the floor, his shadow broad. Expression: a loud, delighted, self-pleased laugh, eyes bright, a man too sure of his own wit to notice the cold audience."
+  },
+  {
+   "key": "thach_tieu_lo",
+   "sex": "f",
+   "age": 19,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "New from the log raft, counting on her fingers and losing the count at seven; starts again aloud.",
+   "subject": "The moment: new from the log raft, she counts on her fingers and loses the count at seven, then looks up at the viewer with a chatty smile and starts again aloud. Face: a round, friendly face of nineteen with blue-grey eyes, a snub nose and round cheeks pink with cold and talk, her mouth half open on the next number. Hair: brown, in a thick braid with a green hair ribbon trailing from it, a small gift from her father, a few strands escaped at her neck. Body: plump, easy, her fingers waving in the air like small flags. Clothing: a white silk outer-disciple robe a size too large, two crossed collars edged in ice blue with the sleeves rolled once, a muddy line along the hem from the riverbank, a pale sash with a small jade bead, and riverside sandals bound with reed. Hands and objects: the fingers of her right hand lifted, counting to seven and stuck. Power: a few pale-blue water-qi motes drift around her fingertips as if counting with her. Background: a misty riverbank sloping down to a muddy shore where a small log raft is drawn up, and a patient young fisherman with a grin sitting by a fishing hole who holds up a hand to correct her sequence. Light: soft silver-blue light from the upper left, a gentle glow on her cheeks. Expression: a trusting, chatty, easy-going look, the eyes warm and unhurried, a girl who will happily start the count again as many times as it takes."
+  },
+  {
+   "key": "ma_dong_lam",
+   "sex": "m",
+   "age": 24,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "At the Desert Pavilion's paddock, a horse's mane braided into his belt, bow-legged.",
+   "subject": "The moment: at the Desert Pavilion's paddock he stands beside a horse with a hand on its neck and looks steadily at the viewer, a horse's mane braided into his belt. Face: a broad, brown, humble face of twenty-four with steady dark eyes, fine dust in the creases and sun-bleached hair sticking up at the fringe. Hair: black, thick, in a short tail tied with a pale cord. Body: short and bow-legged, knees wide even standing still. Clothing: a white silk outer-disciple robe cut for riding and split at the sides, two crossed collars edged in ice blue, wide sleeves tied back, silver snowflakes at the cuffs, and a belt made of a long black horse's mane plaited into a thick shining rope hanging at his hip with a small white jade pendant. Hands and objects: one broad, scarred hand resting on the neck of the horse, the nails short. Power: a faint, warm haze of ochre earth qi stirs around his boots and the horse's hooves. Background: a stocky dun with a white blaze and ears pricked toward him, a paddock of grey poles beyond and a line of horses on a dry plain under a pearl-gold sky. Light: warm low light from the upper left with a soft golden rim along his shoulder. Expression: a mild, patient, honest look, the eyes steady and the mouth easy, a man who works without being asked and does not mind being overlooked."
+  },
+  {
+   "key": "hua_bang_nhi",
+   "sex": "f",
+   "age": 21,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Fur-pattern freckles; asleep in her boots against a sable's den; just woken.",
+   "subject": "The moment: she sits up from a nest of straw with a small white sable curled beside her, one paw on her wrist and one eye open, blinking, just woken. Face: a gentle face of twenty-one with fur-pattern freckles scattered across the nose like tiny paw prints, wide wild dark eyes and a small soft mouth. Hair: dark brown, tousled, with straw in it like a nest and a white jade pin hanging askew. Body: slight, one hand resting on the sable's back. Clothing: a rumpled white silk inner-disciple robe with three crossed collars edged in ice blue, straw clinging to its wide sleeve, a pale-blue sash tied once only, silver snowflakes at the cuffs, and soft boots she sleeps in, laced halfway. Hands and objects: her hand on the white sable, which is no larger than a cat. Power: a few pale-blue motes of frost qi drift between her and the sable, and the kit's fur glimmers faintly. Background: a warm hut with a row of small wooden pens holding sleeping white kits, a hanging lamp, jars of dried meat, and a woman with sable hairs in her braids mixing feed. Light: amber lamplight from the upper left with a silver glow along the white fur. Expression: a gentle, patient, shy look, the eyes soft on the sable and wary of anyone else, a young woman who prefers animals to company."
+  },
+  {
+   "key": "dao_han_mac",
+   "sex": "m",
+   "age": 18,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Sweeping the Vessel Hall; a white streak at the temple; a broom-callused palm.",
+   "subject": "The moment: he leans on his broom in the Vessel Hall and looks up quietly, as if he had not expected to be seen. Face: a thin, humble face of eighteen with gentle dark eyes, a clean jaw, chapped lips, and one white streak at the left temple glinting like a feather in the black. Hair: black, tied back plainly, with a single white lock at the temple. Body: thin, standing a little stooped, the broom taking half his weight. Clothing: a servant's plain undyed white tunic, clean and neat, with one narrow crossed collar and a simple cord belt, because the task asks for it and not for show; bare feet in straw sandals, toes red with cold. Hands and objects: the broom is a bundle of dry reeds tied to a pole, pale at the grip; his right palm, slightly open and turned toward the viewer, is hard with callus. Power: faint warm gold motes of earth qi float up in the dust behind him, almost invisible. Background: the Vessel Hall opening behind him in white pillars and a polished floor with a long swept line across it, a soft blue glow from the ice beyond, and swept dust hanging in the air. Light: a shaft of pale spirit-light from the upper left through the dust, a faint silver rim along his thin shoulder. Expression: a gentle, shy, uncomplaining look, the eyes lowered a little and the mouth soft, a boy content with plain work and willing to do more of it."
+  },
+  {
+   "key": "yen_tuyet_ngung",
+   "sex": "f",
+   "age": 20,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Sitting cross-legged in the queue as always, in the old Hàn Giang way.",
+   "subject": "The moment: she sits cross-legged in a line on a flat stone, as always, in the old Han Giang way, and looks calmly at the viewer. Face: a calm, still, patient face of twenty with clear grey eyes, fair brows, a small nose and a closed mouth, skin pale with cold. Hair: white-blond, in a plain plait lying over one shoulder, tied with a pale blue ribbon. Body: small, composed, spine straight as a rule, her feet tucked in a way no one in the queue copies; a faint dusting of snow lies on her knees and shoulders and does not melt. Clothing: a clean white silk outer-disciple robe folded neatly around her knees, two crossed collars edged in ice blue, soft wide sleeves, a small wooden bead of her grandmother's hanging at her neck on a cord. Hands and objects: hands resting on her knees palm up. Power: a slow even plume of white breath and a few pale snow-white motes of water qi gather in her lap. Background: a frozen lake stretching white to a grey horizon under drifting mist, an old woman's footprints trailing across the ice. Light: cold silver moonlight from the upper left with a faint pearly glow on her hair. Expression: a calm, patient look with a stubborn set to the small chin, a girl who sits her own way and will not be moved from it."
+  },
+  {
+   "key": "lieu_tieu_giang",
+   "sex": "m",
+   "age": 16,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Proud of his first moustache shadow, ears sunburnt, looking at his cousin as if at the best man alive.",
+   "subject": "The moment: he stands tall with his chest out and looks adoringly toward the left of the frame at his cousin out of sight, then flicks his eyes to the viewer. Face: a boyish, sunburnt face of sixteen with ears that stick out, bright eyes, and a faint moustache shadow he has darkened a little with soot, a thread of it smudged. Hair: black, short, with a pale ribbon band. Body: gangly, his arms bare to the elbow, thin and brown, chin held high as he imagines a hero would. Clothing: a crisp white silk outer-disciple robe with two crossed collars edged in ice blue, the collar turned up in imitation of his cousin, wide sleeves pushed back, a pale sash with a small jade fish pendant and a small fisher's knife in a leather sheath at his hip, new stiff sandals. Hands and objects: both hands at his sides, chest out, a short sword in a leather scabbard at his hip beside the fisher's knife. Power: a faint pale-blue shimmer of water qi hangs at his shoulders, brighter when he looks at his cousin. Background: a misty frozen lake glinting, with a tall easy young man sitting on the ice with a gourd far off as a small distant shape. Light: bright cold silver light from the upper left, his ears sunburnt, an open honest glow on his face. Expression: a brave, honest, open-faced look of pure admiration, the chin high, a boy who wants to be liked and wants to be like his cousin."
+  },
+  {
+   "key": "nhiep_lang_tuyet",
+   "sex": "f",
+   "age": 40,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Midnight on the mere, walking the line with warm stones, the roll under one arm like a child.",
+   "subject": "The moment: at midnight on the mere she carries a thick roll against her chest and looks kindly yet firmly at the viewer, her breath smoking. Face: a plain, serious face of forty with clear grey eyes, a firm mouth, slight lines at the corners and a white plume of breath. Hair: dark, in a tight bun held by a bone pin. Body: sturdy, carrying a bamboo roll as thick as a child under one arm, bound with a faded blue ribbon, cradled in her forearm. Clothing: a richer white silk robe of a deputy steward with three crossed collars edged in ice blue, a fine frost-pale gauze over-robe at her shoulders, silver frost ferns embroidered along the wide cuffs, a pale-blue sash knotted at the side with a white jade pendant, a thin frost sparkling on her shoulders. Hands and objects: a bamboo roll held like a baby; in her other hand a warm stone wrapped in cloth steaming faintly. Power: a soft pale ring of frost qi stands about her shoulders, tiny crystals drifting; the warm stone glows amber against it. Background: a dark lake beneath a night sky with a long line of pale lanterns marking the sitters, one small figure in white wrapped in a blanket she has just tucked. Light: lantern light from the lower left warming her chin, cold silver moonlight on her hair. Expression: an even, unhurried look over a firm mouth, a steward who is fair to everyone and will not be bent, her eyes kind and her mind made up."
+  },
+  {
+   "key": "ky_han_bach",
+   "sex": "m",
+   "age": 45,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Standing at the water's edge with a voice trained for the lake wind, taking the sitters' wrapped stones away.",
+   "subject": "The moment: he stands at the water's edge with arms folded, shouting in a trained carrying voice, then fixes the viewer with a cold stare. Face: a hard, cold, long face of forty-five with narrow slate-coloured eyes, a thin mouth open mid-command, a long straight nose, a clean-shaven jaw and veins standing in his neck. Hair: black, in a tight topknot held by a bone pin and a small silver crown. Body: tall, upright. Clothing: a richly pressed white silk robe with three crossed collars edged in ice blue, a pale gauze over-robe of frost-blue held at the shoulder by a silver clasp, wide embroidered sleeves with silver snowflakes, a pale-blue sash tied in a hard flat knot with a white jade pendant hanging dead straight. Hands and objects: a wrapped warm stone held out in his right hand like something confiscated, his left arm swinging back, a straight sword in a pale lacquered scabbard at his hip. Power: a thin cold ring of frost qi hangs round his shoulders, tiny crystals drifting. Background: the lake's white surface under mist, small huddled figures on the ice and one fallen figure in white lying still. Light: cold silver moonlight from the upper left with a hard rim of blue-white glow. Expression: a cruel, arrogant stare with a flat loyal mouth, a man certain that harshness is the seat's service and that he alone performs it."
+  },
+  {
+   "key": "manh_trieu_suong",
+   "sex": "m",
+   "age": 44,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "On the skiff, a whistle every harbour knows; burn-spotted lamp-maker's fingers.",
+   "subject": "The moment: on the harbour he puts two burn-spotted fingers to his lips mid-whistle, the tune every harbour knows, and looks at the viewer. Face: a lean, jolly face of forty-four with puffed cheeks, bright slightly greedy eyes, and fingers speckled with tiny pale burn scars from lamp-making. Hair: black, tied up in a short knot with a lamp-wick. Body: wiry. Clothing: a layered white silk robe with a coast-blue lining flashing at the cuff, three crossed collars edged in ice blue, wide sleeves embroidered with silver waves, a pale-blue sash tied loose, a leather letter-satchel with a flap of oiled cloth at his hip and a small tin lamp spotted with old burns hanging at his belt beside a jade pendant. Hands and objects: two fingers at the lips, tiny burn marks plain on the skin. Power: a soft haze of pale-blue qi swirls around him with the sound of the whistle, lightly drawn. Background: a misty harbour with a skiff rocking and its brown sail furled, a lantern on a pole at the dock, two skiff-men on a net-pile with their backs turned, a gull on the piling. Light: cool silver-grey light from the upper left with a warm lantern glow on his chin and a soft rim light. Expression: a merry, loyal look with a flicker of greed in the bright eyes, a man who delivers every letter and keeps an eye on the fee."
+  },
+  {
+   "key": "lac_ngan_bang",
+   "sex": "f",
+   "age": 38,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Clicking the beads of an abacus in her sleeve, squinting at anything not set in columns.",
+   "subject": "The moment: she squints hard at the viewer as at an unbalanced sum, a small abacus clicking in one hand with the beads pushed to the left. Face: a plain, shrewd face of thirty-eight with narrowed suspicious eyes, a straight nose, a firm mouth and fine lines between the brows. Hair: black, drawn into a plain bun held by a silver pin, not a strand out of place. Body: neat and upright, narrow-shouldered, standing as precisely as a column of figures with her elbows tucked in. Clothing: a refined white silk robe of a tax-reckoner with three crossed collars edged in ice blue, wide sleeves embroidered with silver frost ferns, a slit pocket in the right sleeve where the abacus lives, a pale-blue sash with a jade pendant and a stub of brush tucked in it. Hands and objects: a small abacus of dark wood in the right hand, beads clicked left; ink-stained fingertips. Power: a faint shimmer of pale frost qi lies on her sleeves like fine rime. Background: a counting room with shelves of rolled tax-sheets tied in blue string, and a small window showing a misty grey harbour. Light: clear cool silver light from the upper left with a soft glow along her cheek. Expression: a narrow, flinty squint and a firm, level mouth, honest and unforgiving, the look of a woman who has found an error and will not let it go."
+  },
+  {
+   "key": "thai_han_ngu",
+   "sex": "m",
+   "age": 32,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "On the ice off his village, his grandfather's wool cap; a three-fingered mitten on his left hand.",
+   "subject": "The moment: he sits beside a fishing hole in the ice wearing his grandfather's brown wool cap and a three-fingered mitten, calm and unbothered by the skiff and the tall scarred man waving an invitation behind him that he is ignoring. Face: a round, calm, weathered, friendly face of thirty-two with small blue eyes, a snub nose and a wide peaceful mouth, grey-stubbled, with a small unlit clay pipe at one corner. Hair: black, showing at the edges of the cap. Body: stocky and still, settled onto the ice like a stone. Clothing: a white silk robe of an inner disciple cut short and tucked into sealskin boots, two crossed collars edged in ice blue, a plain rope in place of the pale-blue sash with a small jade fish pendant tied to it, his grandfather's wool cap pulled low, the three-fingered mitten on his left hand. Hands and objects: a plain ice-fisher's hook in the right hand and a short gaff across his knees. Power: a thin curl of white breath and a few pale-blue water motes drift lazily by his pipe. Background: white ice scratched by boots, a row of three tidy fishing holes and a pail of silver fish, the skiff and its two figures small and far behind in mist. Light: soft pale moonlight from the upper left, silver on the ice. Expression: a placid, contented, slow half-smile, eyes half-closed, a man in no hurry who has no quarrel with anyone."
+  },
+  {
+   "key": "tong_ngu_lan",
+   "sex": "f",
+   "age": 42,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Salt-streaked braids, a shout held behind her teeth, at the Pavilion's council door.",
+   "subject": "The moment: she stands rigid in a doorway, jaw clenched, braids streaked with salt, and glares at the viewer, a shout held behind her teeth. Face: a strong, flushed, angry face of forty-two with flashing dark eyes, broad cheekbones, clenched teeth and an angry full mouth. Hair: black braids thick as rope hanging to her waist, streaked white where the sea has dried in them, a single strand stuck in the salt at her temple, a silver ring-pin holding the crown. Body: strong and broad, thick forearms of a sail-watcher's daughter, one fist half-raised and trembling. Clothing: a rich white silk robe with a coast-blue lining at the collar and cuffs, three crossed collars edged in ice blue, wide sleeves embroidered with silver waves, a pale-blue sash tied tight with a white jade pendant. Hands and objects: a fist half-raised, veins standing out at her wrist; a sword in a white scabbard at her hip. Power: a cold pale-blue swell of qi lifts the ends of her salt-streaked braids as if in a sea wind. Background: a hall door opening onto a council room where elders in frost-silk sashes sit in a row, and a cold-faced man from the lake's primer stands at the edge. Light: hard white spirit-light from the upper left on her angry face, a blue rim on her shoulder. Expression: a brave, wrathful glare with ambition behind it, the look of a woman who has been made to wait at a door and will not wait much longer."
+  },
+  {
+   "key": "phi_thanh_sa",
+   "sex": "f",
+   "age": 40,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Weighing a coin on her palm; greened fingertips from ledger powder.",
+   "subject": "The moment: in the caravan office she holds a coin up on her flat palm and bites her lower lip, weighing it, then glances over it at the viewer. Face: a shrewd, merry face of forty with quick dark eyes, round cheeks, a wide mouth caught between a grin and a calculation, and fingertips near her face tinted pale green from ledger powder. Hair: black, in a neat bun fixed with a silver pin and a small jade bead. Body: stout and brisk, weight forward as if about to bargain. Clothing: a rich white silk robe with three crossed collars edged in ice blue, wide sleeves embroidered at the cuffs with silver snowflakes, a pale-blue silk sash, a thin desert veil of sand-coloured gauze drifting round her neck, and a row of small brass scale-weights hanging at her sash that click when she moves. Hands and objects: the coin on the flat palm, the pale green fingertips curled lightly beneath it. Power: a faint shimmer of pale-blue and ochre qi dances over the coin as she weighs it. Background: the caravan office with a table of green-bound ledgers, a brass scale and a stack of bills with no marks, and a window showing a camel train arriving through haze. Light: bright warm light from the upper left flashing on the coin and the scale, a cool pearly rim on her cheek. Expression: a bright, shrewd, good-humoured look, the lip caught in her teeth and the eyes already guessing the weight, a woman who likes everyone and still counts the change."
+  },
+  {
+   "key": "muc_sa_hanh",
+   "sex": "m",
+   "age": 44,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "His gaze always on the horizon, lips sun-split, a hundred and nine crossings behind him.",
+   "subject": "The moment: after a hundred and nine crossings of this road, he looks past the viewer at the horizon with narrowed eyes, the reins of a tall tawny camel in his hands. Face: a lean, sun-burnt, long face of forty-four with far-looking pale eyes narrowed in focus, sun-split lips, a hawk nose, grey-flecked stubble, and lines at the eyes deep as cracks in a dry riverbed. Hair: black, mostly hidden under a long white silk headcloth wound round head and neck against the sand, its tail whipping in the wind, held by a silver ring. Body: lean and dry as a rope, standing loose and easy like one who walks all day. Clothing: a white desert robe of fine silk with three crossed collars edged in ice blue, wide sleeves embroidered at the cuffs with silver frost ferns, a pale-blue sash with a white jade pendant, clean at the shoulder though dusty below; one hand gloved in pale leather against the rein. Hands and objects: both hands on the rein of the tall tawny camel at his shoulder, the gloved one closed round it, the other bare and brown; a sheathed sword rides on the camel's saddle behind him. Power: a thin ribbon of pale-blue qi trails from his sleeve in the wind alongside the headcloth. Background: a vast pale desert horizon under a bleached pearl sky, a line of small camels trailing far behind in the haze. Light: hard white light from the upper left with a silver rim along his jaw and the headcloth. Expression: a still, distant, patient gaze, the brows drawn slightly together against the glare, a man more at home with a far line than with any face near him."
+  },
+  {
+   "key": "yen_luc_tuyen",
+   "sex": "f",
+   "age": 50,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Drawing the founder's well at dawn; well-rope calluses; scribe's sleeves pinned.",
+   "subject": "The moment: at dawn she draws water from the founder's well, pulling the rope hand over hand, and looks up serenely at the viewer. Face: a calm, narrow face of fifty with deep devout eyes, a straight nose, a firm quiet mouth and a faint flush from the effort. Hair: grey-black, in a plain bun with a white jade pin, a few strands loose at the temples. Body: slim, upright, strong forearms standing out as she pulls. Clothing: a scribe's white silk robe with three crossed collars edged in ice blue, the long wide sleeves pinned neatly at the elbow with small bone pins, silver frost ferns embroidered along the borders, a pale-blue sash tied in a flat knot with a jade pendant. Hands and objects: both palms ridged with calluses from the well-rope, gripping the taut rope, the bucket rising out of sight below. Power: faint pale-blue motes of frost qi rise from the well with the cold breath of the water and drift past her face. Background: the dark, damp stone well-head with a thin skin of ice, a sand dune glowing pale gold behind it as the sun's first edge touches it, and to one side a woman with a dried lily bulb in her braid scattering grain for two sparrows. Light: cool gold dawn light from the upper left, first sun on the dune, a soft silver glow off the water. Expression: a serene, patient, inward look, the eyes lifted and the mouth at rest, a woman for whom a morning chore is a kind of prayer."
+  },
+  {
+   "key": "uc_hoang_sa",
+   "sex": "m",
+   "age": 50,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "A camel-driver's bow-legged stance, an upper tooth missing, training the guard's sons.",
+   "subject": "The moment: in the guard's training yard he stands bow-legged and grins at the viewer to show a missing upper tooth, correcting a young boy's grip on a wooden practice sword. Face: a lined, brown, cheerful face of fifty with a gap in the upper teeth on the left side and crow's-feet deepening round the eyes as he laughs. Hair: grey-black, tied under a sand-coloured silk headcloth with a pale-blue band. Body: wiry and bow-legged like a camel-driver, standing wide and easy. Clothing: a white silk riding robe with three crossed collars edged in ice blue, wide sleeves tied back, silver snowflakes along the cuffs, a pale-blue sash with a jade pendant, a long leather whip looped on the belt, sturdy white riding boots. Hands and objects: a wooden practice sword held out toward a young boy half in the frame, correcting his grip; the hands broad and cracked. Power: a warm haze of pale gold qi stirs around his boots in the dust, steadier than the boy's. Background: a sandy training yard marked with a ring of stones and a row of wooden posts, a few young guards in white practising cuts, a camel tethered at a rail, golden haze over it all. Light: bright dry light from the upper left with a soft pearly glow and a golden rim on his shoulder. Expression: a broad, gap-toothed, unhurried grin with deep laughter lines, kind and stubborn together, the look of a patient teacher who has said it a hundred times and will say it once more."
+  },
+  {
+   "key": "dien_han_tac",
+   "sex": "m",
+   "age": 55,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Chisel behind his ear, grit in every knuckle crease, one empty niche kept for himself.",
+   "subject": "The moment: he looks calmly at the viewer before a half-cut grave niche, a chisel behind his ear, ice dust whitening his brows. Face: a calm, craggy face of fifty-five with ice dust on the brows and lashes, deep-set eyes, a big nose and a few days of grey stubble. Hair: grey, cropped short. Body: broad and bent; he has cut every grave in the glacier for sixty years and keeps one empty niche, longer and narrower than the rest, for himself, visible at his shoulder. Clothing: a dust-pale white silk robe with three crossed collars edged in ice blue, a pale-blue sash with a small jade pendant, wide sleeves tied back with a cord, a thin shaving of ice clinging to a sleeve embroidered with silver frost ferns. Hands and objects: a short iron chisel tucked behind his ear and a wooden mallet in one hand, its head dark with years of use and a worn hollow where his palm fits; broad hands, every knuckle crease gritty with ice dust. Power: faint motes of blue frost qi drift off the glacier wall and gather quietly about his hands. Background: blue ice walls glowing in the dark around him, standing figures carved in ice receding behind. Light: deep blue spirit-light from the upper left glowing from within the ice, a soft silver rim on his craggy brow. Expression: a calm, devout, humble look, the eyes quiet and the mouth at rest, an old man at peace with the work he will finish in his own niche."
+  },
+  {
+   "key": "kha_lac_tuyet",
+   "sex": "f",
+   "age": 43,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Tilting her head to the west when thunder is near on the vein watch.",
+   "subject": "The moment: she tilts her head to the left, eyes half closed, one hand raised to her ear, listening for thunder, then glances at the viewer. Face: a narrow, alert face of forty-three with a long nose, dark attentive eyes, a thin mouth slightly open and a faint pale freckle pattern dusting her nose. Hair: black, in a bun pinned with a copper pin. Body: thin and tense, counting the seconds silently. Clothing: a white silk robe with three crossed collars edged in ice blue, copper-wire embroidery wound round the wide cuffs beside the silver snowflakes, a pale-blue sash, a leather strap across her chest holding a small notebook, a thin silver chain at her neck carrying a small copper whistle. Hands and objects: one hand lifted to her ear. Power: thin blue sparks of storm qi crackle along the copper wire at her cuffs and lift fine strands of her hair. Background: a stormy ridge with tall copper rods against a purple-grey sky, a distant flash of blue lightning, a line of small lights marking the vein watch, and a thin man with his hair standing on end tending a rod far off. Light: flat cold silver light from the upper left with a flicker of blue lightning along her cheek. Expression: a cautious, diligent look, the eyes fixed on the sky and loyal to her watch, a woman who counts the seconds because someone must."
+  },
+  {
+   "key": "lam_ngung_phong",
+   "sex": "m",
+   "age": 45,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Turning his clan seal ring when slighted; boots too fine for the hall.",
+   "subject": "The moment: slighted in the sword hall, he turns his heavy clan seal ring round and round on his finger with his thumb and looks down his nose at the viewer. Face: a handsome, haughty face of forty-five with a lean, pale, well-kept complexion, a thin moustache, a high-bridged nose, cold eyes and a small tight mouth. Hair: black, oiled and combed back from the forehead, bound up high with a jewelled jade pin and a silver crown. Body: tall and straight, chin lifted, one shoulder turned slightly away, the posture lofty and wounded. Clothing: a robe of the finest white silk, brilliant and pressed, with three crossed collars edged in ice blue and embroidered white-on-white, an over-robe of frost-pale gauze falling from the shoulders, wide sleeves worked in silver snowflakes, a pale-blue sash with a white jade pendant, boots of pale calf with silver stitching far too fine for a sword hall. Hands and objects: a heavy seal ring turned with the thumb; a white-hilted sword at the hip in a scabbard of pale lacquer; the other hand held stiffly at his side. Power: a cold ring of frost-blue qi curls round his shoulders, tiny crystals glinting. Background: a sword hall of pale boards where a white-robed woman with a sharp-featured face practises alone at the far end. Light: cool, bright silver spirit-light from the upper left making the white silk glare, a blue rim on his cheek. Expression: a cold, supercilious look down the nose, the mouth small and tight, the cheek faintly tense, a man who feels the slight keenly and will not show how much."
+  },
+  {
+   "key": "dam_tinh_thach",
+   "sex": "m",
+   "age": 48,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Up from the tunnels with damp knees, a lamp that smells of oil, writing 'warm' again.",
+   "subject": "The moment: up from the tunnels with damp knees and a lamp that smells of oil, he stands at the tunnel mouth and looks at the viewer with a troubled frown, about to report the tunnels warm again. Face: a worried, honest, round face of forty-eight with anxious brown eyes, knitted brows and a mouth turned a little down. Hair: grey-brown, tied back in a short knot, a few loose strands stuck to his damp forehead. Body: stooped and a little pot-bellied, shoulders rounded by years of ducking under low stone, weight on his heels. Clothing: a white silk robe with three crossed collars edged in ice blue, dark with damp at the knees, wide sleeves embroidered with silver snowflakes, a pale-blue sash with a jade pendant, a lump of chalk in one sleeve. Hands and objects: a small brass lamp in one hand; a roll of blank slips tucked under the other arm. Power: faint motes of ochre earth qi and pale-blue frost qi drift out of the tunnel and curl round the lamp. Background: the tunnel mouth, a low stone arch with a faint blue glow deep within, and a woman with dark-circled eyes and a steady hand holding a second lamp at its edge. Light: warm lamp glow from the lower left, with a cold blue spirit-light from the tunnel behind. Expression: a worried, conscientious look, the brows knit and the mouth downturned, an honest man who dreads the one word he must report and will report it anyway."
+  },
+  {
+   "key": "luong_sa_bang",
+   "sex": "f",
+   "age": 36,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "A sable's tail stitched to her cap, hoarding hay in a rented loft.",
+   "subject": "The moment: in a rented stable loft she tips her fur cap with a sable's tail stitched to the back and grins at the viewer, a handful of golden hay sifting through her fist. Face: a bright, shrewd, tanned face of thirty-six with quick black eyes, high cheekbones and a wide, stubborn mouth. Hair: black, in a braid hanging over one shoulder, a silver pin at the crown. Body: strong and square, with the easy weight of a woman used to carrying feed. Clothing: a white silk riding robe with three crossed collars edged in ice blue, wide sleeves bound at the wrist, a fine pale harness over it and a pale-blue sash with a jade pendant, a fur cap with a ringed white sable's tail stitched to the back, a pair of sable-lined gloves hanging from her belt. Hands and objects: one hand tipping the cap; the other fist closed on golden hay that she lets sift through her fingers. Power: a few pale-blue motes of frost qi glimmer in the dust above the hay, softly. Background: a loft piled with yellow hay under a rough roof, a ladder, a fur-trader's lamp, and in the stall below a lame old white mare standing with its head low, dust in its manger. Light: warm, dusty gold light from the upper left, motes hanging in the beam, a silver rim along the sable tail. Expression: a wide, bold grin with a hard glint in the eyes, brave and stubborn and a little greedy, the look of a woman who has hoarded the winter's hay and is proud of it."
+  },
+  {
+   "key": "hoac_tuyet_ngan",
+   "sex": "m",
+   "age": 20,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Singing a coast song; a fishing-line scar round one wrist.",
+   "subject": "The moment: singing a coast song with his mouth wide open, he holds out his wrist toward the viewer to show a thin pale scar like a bracelet, left by a fishing line that once snared him. Face: a lean, bright, boyish face of twenty with fair brows, quick eyes, a sunburnt nose, the mouth open in song and the chin lifted. Hair: black, cropped short and stiff with salt. Body: wiry, with thin tanned arms and a narrow chest, leaning forward eagerly onto the balls of his feet, one shoulder lifted with the effort of the song, a slim sword in a plain scabbard across his back. Clothing: a clean white silk outer-disciple robe with two crossed collars edged in ice blue, the sleeves pushed up, a small bone fish-hook worn at the collar as a charm, a pale sash with a jade bead, boots two sizes too large stuffed with straw. Hands and objects: the wrist held out, ringed by the thin scar; at his feet on the ice a coil of fishing line and a bone hook. Power: a few pale-blue water-qi motes spiral up from his open mouth with the song. Background: the lake glittering behind him in mist and, on the shore, a woman holding a shout back behind her teeth. Light: bright cold silver light from the upper left glittering off the ice, a soft rim light on his lifted chin. Expression: an eager, open-mouthed, impatient grin, the eyebrows lifted and the eyes darting to see who is listening, a boy bursting to be noticed."
+  },
+  {
+   "key": "tieu_lanh_thu",
+   "sex": "f",
+   "age": 22,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Powder-white face, clan gloves too small for her big hands, on the eve of the test.",
+   "subject": "The moment: on the eve of her first test she stands before a pillar in the Pavilion's outer court and holds up both hands in tight gloves, looking serenely at the viewer. Face: a long, plain face of twenty-two powdered chalk-white so that the features look carved, with calm clever dark eyes under level brows, a long straight nose and a composed mouth painted a faint rose. Hair: black, drawn up in the clan's high knot with two jade pins and a thin silver comb. Body: tall and straight, shoulders level, perfectly composed. Clothing: a refined white silk outer-disciple robe of very fine silk-cotton with two crossed collars edged in ice blue and a narrow pale-grey border, a clan pattern woven into the cloth, silver snowflakes at the wide cuffs, a pale sash with a white jade pendant. Hands and objects: both hands raised in tight gloves of fine white kid a size too small, the wrists showing red between glove and cuff. Power: a faint cool shimmer of pale-blue water qi hovers about the raised gloves. Background: the outer court of the Pavilion under a pearl sky; at the gate her brothers and servants of the Tieu clan wait with a lacquered box, and a plump boy in silk-laced boots looks away. Light: bright, cool silver light from the upper left with a soft glow and a thin rim on her cheek. Expression: a calm, level, appraising look with a faint, practised smile, the eyes steady and clever, a clan daughter who has decided in advance how the test will go."
+  },
+  {
+   "key": "phu_suong_nguyen",
+   "sex": "m",
+   "age": 24,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Snow melting in his hair, going blank mid-sentence.",
+   "subject": "The moment: at night he sits in a snowdrift with snow melting in his hair and the pale eyes gone blank in the middle of a sentence, as though the voice had been blown out of him, and looks at the viewer. Face: a thin, pale, patient face of twenty-four with blue lips and pale eyes blank and unfocused. Hair: black, plastered flat with snowmelt, drops glittering in it. Body: thin, sitting small in the snow with his back unwrapped. Clothing: a white silk outer-disciple robe stiff with frost at the shoulders, two crossed collars edged in ice blue, belted with a plain silk cord, a few blank paper talismans tucked into the wide sleeve. Hands and objects: both hands resting open on his knees, bluish and cracked with cold. Power: a thin film of pale frost-blue qi clings to his shoulders and hair and does not melt, the breath barely showing. Background: the lake lying under stars with lantern points along it, and beside him a woman with her breath smoking, a roll under her arm and a warm stone in her hand, stepping toward him to bring him in. Light: cold blue starlight from the upper left with a small warm glow from the lanterns, a silver rim along his cheek. Expression: a blank, patient, hollow gaze, the mouth a little open and the brows slack, the look of a diligent man who has worked past the end of himself and has not noticed."
+  },
+  {
+   "key": "nhan_bich_tuyen",
+   "sex": "f",
+   "age": 25,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Fingers crossed behind her back, net-mender's calluses, tripping on dry ground.",
+   "subject": "The moment: on the eve of her third and last Frost Test she stands at the edge of the lake with her fingers crossed behind her back and gives the viewer a steady look, having just tripped on dry ground and righted herself, one foot slightly sideways. Face: a calm, plain, stubborn face of twenty-five with grey-brown eyes, a net-mender's wide mouth set firm and her breath leaving in a short plume. Hair: brown, in a thick plait pinned up with a plain silver pin. Body: sturdy and square, one foot turned awkwardly to catch her balance. Clothing: a clean white silk outer-disciple robe with two crossed collars edged in ice blue, wide sleeves, a thin pale-blue sash with a small jade bead, and plain wool leggings and sturdy shoes. Hands and objects: both hands behind her back with the fingers crossed, net-mender's calluses showing at the side. Power: a few pale-blue motes of water qi gather near her crossed fingers, faint and nervous. Background: the grey lake with a thin gold thread of sunrise lying along it under drifting mist, and on a bench behind her a white-haired woman with a small bundle and a cough hidden behind her hand, watching and saying goodbye. Light: flat, pale silver light from the upper left with a faint gold dawn glow at the edges. Expression: a steady, honest, dogged look, the jaw set and the eyes unflinching, a plain woman who has decided she will not look away from this."
+  },
+  {
+   "key": "dang_tieu_ha",
+   "sex": "m",
+   "age": 17,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Asleep in the hay in the sable shed with a wide sleepy grin.",
+   "subject": "The moment: seventeen, he lies full length in a heap of yellow hay in the sable shed and grins sleepily, an empty wooden bucket on its side beside him. Face: a wide, sleepy, freckled face with drooping eyelids, a few strands of hay caught in the lashes and a wide, slow grin. Hair: brown and tousled, with hay in it like a nest and a stray strand across his freckled forehead. Body: gangly, long limbs sprawled, one bare foot sticking out of the hay with a grey sock half off; a small white sable kit curled asleep on his chest. Clothing: a rumpled white silk outer-disciple robe with two crossed collars edged in ice blue, straw clinging to the wide sleeves and the collar half open, a pale sash with a small jade bead loosened. Hands and objects: an empty bucket beside him; one hand loose over the kit. Power: a few pale-blue motes of water qi drift above the sleeping kit like dust in the light. Background: pens of straw and rows of other empty buckets showing a feeding turn missed, and a sturdy girl with seal oil on her knuckles standing in the doorway with a strap in her hand, sighing. Light: warm, dusty, golden light from the upper left as through the slats of the shed wall, motes in the beam, a silver glow along the white kit. Expression: a wide, drowsy, unashamed grin, eyes half shut, a boy who has forgotten the whole world and is perfectly happy to be found."
+  },
+  {
+   "key": "nham_dong_tuyet",
+   "sex": "f",
+   "age": 19,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Fine pale hair standing up in fear as she looks at the lake.",
+   "subject": "The moment: she stands at the edge of the lake looking at it with terror, her fine pale hair lifted by fear, and then turns to the viewer. Face: a pale, frightened, delicate face of nineteen with wide light eyes, a small mouth pressed tight, a faint blue vein at the temple and her breath coming in short white puffs. Hair: fine, pale and standing straight up from her scalp like thistledown, a thin white ribbon tied in it. Body: small and slight, the shoulders shaking a little, the arms rigid. Clothing: a clean white silk outer-disciple robe a little large for her, two crossed collars edged in ice blue, wide sleeves, a plain silk cord for a sash with a small white jade pendant. Hands and objects: both hands clenched at her sides. Power: only a single faint thread of pale frost qi wavers at her fingertips, thinner than anyone's, and her hair stands in it. Background: the lake a flat white plate under a grey sky with lantern points across it, the first snow falling; at a distance her teacher, a sharp-faced man with a carrying voice, stands with arms folded. Light: cold, flat silver light from the upper left with a soft glow of lanterns on the snow. Expression: wide, frightened eyes and a mouth pressed tight to hold the trembling in, the face of a careful girl who is afraid and is going to go in anyway."
+  },
+  {
+   "key": "hau_lang",
+   "sex": "m",
+   "age": 17,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Sitting on a fishing hole as if on a stool, heels drumming.",
+   "subject": "The moment: he sits on a round fishing hole cut in the lake ice as if it were a stool, heels drumming against the edge, and waves cheerfully at the viewer. Face: a cheeky, round, sunburnt face of seventeen with bright black eyes, a snub nose and a missing front milk-tooth in a wide grin. Hair: black, messy and sticking up with a white cloth band. Body: small, thin-wristed and restless, bouncing on the spot, shoulders hunched up against the cold. Clothing: a clean white silk outer-disciple robe in a boy's size with two crossed collars edged in ice blue, a knitted grey scarf wound twice round the neck, boots too big for him stuffed with straw, a pale sash with a jade bead. Hands and objects: one hand waving; a tiny fish-hook on a line lying in his lap. Power: a few pale-blue water motes bob up from the hole beside his boots. Background: the frozen lake stretching white with other holes under mist, a thin crust of ice forming at the rim of his own, and a stocky older brother asleep in a reed hut behind. Light: bright, cold silver light from the upper left glaring off the white ice and making him squint, a soft rim on his round cheek. Expression: a cheerful, gap-toothed, cheeky grin, bright-eyed and unembarrassed, a boy who talks to everyone and is not afraid of any of them."
+  },
+  {
+   "key": "ong_tieu_tra",
+   "sex": "f",
+   "age": 18,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Carrying a tray of qi-warmed tea carefully down to the lake.",
+   "subject": "The moment: at the start of a night of the Frost Test she carries a steaming tray of spirit-warmed tea down a lakeside path with her eyes on every cup, and then glances up with a small calm smile at the viewer. Face: a careful, content, round face of eighteen with soft brown eyes, a rounded chin, fine fair brows and a faint flush from the steam. Hair: black, in a neat bun with a small silver pin. Body: small and slight, stepping with the short careful steps of someone entrusted with a single precious thing. Clothing: a clean white silk outer-disciple robe a little too long, two crossed collars edged in ice blue, the wide sleeves tied back by a pale cord, a pale-grey silk sash with a small jade pendant. Hands and objects: a lacquer tray of six small cups, each one steaming, held level in both hands. Power: warm golden motes of tea qi rise from the cups and drift upward in the cold air. Background: the lakeside path lined with small pale lanterns, a row of huddled figures out on the lake, and her round-shouldered great-uncle waving a kettle in the distance. Light: soft golden light rising from the cups and cool silver moonlight from the upper left. Expression: a gentle, composed, contented half-smile and a steady gaze, the look of a girl who is quietly pleased to be trusted with something warm and means to deliver it without a spill."
+  },
+  {
+   "key": "tu_lac_suong",
+   "sex": "f",
+   "age": 21,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "Drawing patterns in the snow, fingers chalk-white.",
+   "subject": "The moment: she kneels in the snow drawing a pattern with one chalk-white finger, tongue between her teeth, then looks up eagerly at the viewer. Face: an eager, round face of twenty-one flushed pink with cold, bright brown eyes, short brows, a wide quick smile and a nose pink from the cold. Hair: black, in a high ponytail tied with a white silk cloth, swinging forward over one shoulder. Body: slim and light, leaning over her drawing. Clothing: a clean white silk outer-disciple robe with two crossed collars edged in ice blue, wide sleeves pushed back, the knees dark with melted snow, a pale sash with a small jade bead. Hands and objects: fingers chalk-white to the second knuckle, a stub of white chalk clutched in the left hand; on the snow a ring of small interlocking circles and spokes, a formation diagram, and beside it a second smaller pattern half rubbed out by her sleeve, showing she has tried it twice. Power: a few pale-blue motes of qi gather over the lines of the diagram and flicker, not yet catching. Background: open snow with a thin mist rising from the waterfall-village girl's spot behind her, and under an arch a stooped uncle with damp knees and a lamp. Light: bright soft silver light from the upper left on the snow, a faint glow rising from the chalk lines. Expression: a bright, trusting, open-faced eagerness, the eyes wide and the smile ready, a girl certain that this time it will work."
+  },
+  {
+   "key": "vi_tu_han",
+   "sex": "m",
+   "age": 32,
+   "memorial": null,
+   "dress": "x:bang_tam",
+   "style": "xianxia",
+   "imagined": "The unpaid elder brother of the outer gate, one shoulder worn down by others' bags, stopping mid-word.",
+   "subject": "The moment: he stops mid-word and stands blank until the viewer says his name, one shoulder lowered by years of carrying other people's bags; he is the outer gate's unpaid elder brother, who failed three Frost Tests at twenty-six and stayed. Face: a mild, kind, tired face of thirty-two with soft grey eyes, laugh lines, a stubbled jaw and a long forgiving nose. Hair: black, tied in a plain knot with a few early grey hairs. Body: one shoulder lower than the other, standing a little crooked and easy. Clothing: a clean white silk outer-disciple robe with two crossed collars edged in ice blue, neatly mended at the elbow and cuff in the careful way of a man who has no one to do it for him, a pale sash with a small jade bead, someone's satchel strap still looped over the lowered shoulder. Hands and objects: a stranger's bag on the lower shoulder and another bag in his hand. Power: a faint pale-blue shimmer of water qi lies on his shoulders, quiet and steady. Background: the frozen lake behind him under drifting mist and a line of younger disciples sitting on the ice in rows, one of them a scarred man with a crooked nose who looks away. Light: soft grey-silver light from the upper left with a gentle rim glow. Expression: a mild, patient, faintly puzzled look, the mouth a little open on the lost word and the eyes kind, a man who has made his peace with being the one who carries."
+  }
+ ]
+}

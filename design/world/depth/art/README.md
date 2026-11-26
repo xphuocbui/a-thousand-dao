@@ -25,9 +25,10 @@ assembled from fields.
   - what they carry;
   - then the qi hint, the expression and the palette.
   About 130-180 words.
-- **Cultivators dress well** (user, 2026-11-25). Their robes are fine, clean and well fitted, even in a frugal sect;
-  humble means plain, not worn. Rags, patches or filth only where the story calls for it (a madman, a beggar-sage, a
-  penitent, a prisoner), and then the paragraph says so and why.
+- **Cultivators are never ragged** (user, 2026-11-25). Rags, patches or filth appear only where the story calls for
+  it (a madman, a beggar-sage, a penitent, a prisoner), and then the paragraph says so and why. The "well-made,
+  practical clothing" wording was removed the same night at the user's word: it read as wuxia. The xianxia style pass
+  (next) sets how cultivators dress.
 - **Lead with something different each time**: the eyes, a posture, an object, a beast, the hands, a laugh. 1,800
   prompts must not share one shape.
 - **Two or three anchors, front-loaded.** Low quality holds about three clear things. The frame is chest-up, so a
