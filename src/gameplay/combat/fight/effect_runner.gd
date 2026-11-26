@@ -49,6 +49,10 @@ static func read(f: Fight, s: FighterState, r: EffectDef.ReadDef, ev: Variant) -
 				x.counter_times[r.param] = _live_times(x.counter_times[r.param], f.t)
 				return float((x.counter_times[r.param] as Array).size())
 			return float(x.counters.get(r.param, 0.0))
+		"lost_last":
+			return f.lost_last(x, r.param, r.window_ms)
+		"counter_hours", "counter_this_hour":
+			return f.charge_hours(x, r.param, r.key == "counter_this_hour")
 		"distinct_statuses":
 			var n: int = 0
 			for sid in x.statuses:
@@ -443,7 +447,12 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 			"burn_qi":
 				var base_b: float = float(ev.get("amount", 0.0)) if str(arg.get("of", "amount")) == "amount" else o.qi_max()
 				var amt_b: float = float(arg.get("share", 0)) * base_b * n
+				var burned_b: float = minf(o.qi, maxf(0.0, amt_b))
 				o.qi = maxf(0.0, o.qi - amt_b)
+				if arg.get("to_self") != null and float(arg.to_self) != 0.0 and burned_b > 0.0:   # a drain (qi_drained, 2026-11-26)
+					var got_b: float = burned_b * float(arg.to_self)
+					s.qi = minf(s.qi_use(), s.qi + got_b)
+					fire(f, s, "qi_drained", {"amount": got_b})
 			"shield":
 				if arg.get("refill") != null:   # refill toward the starting bar, never past it (Earthen Armour)
 					var cap_b: float = s.p.body_shield * s.hp_max * f.shield_hold(s)

@@ -237,6 +237,11 @@ looks like a strong build.
   0.05, 0.95)`: `lock` is the foe's mod flag, `escape` the side's mod. Bound fails it with no draw. A success ends
   the fight (`flight`; the fled side wins if the foe is already at 0); a failure raises `escape_failed`. Fortune is
   not modelled in any roll yet. Fixtures t15 (chancy), t16 (Bound, exact).
+- **Slice 3:** `burn_qi` takes `to_self` (a drain: that share of the linh lực burned moves to you, and the event
+  `qi_drained` reports `event.amount`); a leech heal's `source` is `leech` (filter `source`); readables
+  `own.lost_last.<hp|qi>.<seconds>` (net losses per pulse in the window, plus since the last pulse) and
+  `own.counter_hours.<id>` / `own.counter_this_hour.<id>` (a charge counter's distinct 5 s fight hours, and the
+  charges laid in the current hour; laid = end − `each_for`). Fixture t17. Not built: a pill burned in a fight.
 
 ### World-depth vocabulary (2026-11-26; to build in world-depth Stage 5)
 

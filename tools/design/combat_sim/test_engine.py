@@ -2,6 +2,7 @@
 
 Run: python -I tools/design/combat_sim/test_engine.py     (exit 1 on any failure)
 """
+import math
 import os
 import sys
 
@@ -185,6 +186,54 @@ def t_event_alias():     # combat_engine.json EVENT_ALIAS (2026-11-26)
     b = dummy(effects=[{"id": "w", "on": "batch_expired", "do": []}, {"id": "h", "on": "healed", "do": []}])
     E.validate(b)
     check("batch_expired and healed load as batch_ended and heal_restored", [e["on"] for e in b.effects] == ["batch_ended", "heal_restored"])
+
+
+# ---- world-depth Stage 5 slice 3 (2026-11-26): qi_drained, the leech source, lost_last, charge hours
+def t_qi_drained():
+    drain = {"id": "d", "on": "hit_landed", "do": [{"burn_qi": {"share": 0.1, "of": "max", "to_self": 0.5}}]}
+    bank = {"id": "b", "on": "qi_drained", "scale": {"read": "event.amount", "per": 1}, "do": [{"counter": {"id": "catch", "add": 1}}]}
+    f, A, B = setup(a=dummy(effects=[drain, bank], counters=[{"id": "catch"}]), b=dummy(ward_pts=0, block=0))
+    A.qi = 0.5 * A.qi_max()
+    q0, b0 = A.qi, B.qi
+    f.hit(A, B, 0.01, "phys", None)
+    moved = 0.1 * B.qi_max()
+    check("a drain burns the foe's linh luc and moves half to you", abs(B.qi - (b0 - moved)) < 1e-9 and abs(A.qi - (q0 + moved / 2)) < 1e-9)
+    check("qi_drained reports the points moved (scale counts whole points)", A.counters["catch"] == math.floor(moved / 2),
+          "%s vs %s" % (A.counters["catch"], moved / 2))
+
+
+def t_leech_source():
+    count = {"id": "l", "on": "heal_restored", "filter": {"source": "leech"}, "do": [{"counter": {"id": "leeched", "add": 1}}]}
+    f, A, B = setup(a=dummy(effects=[count], counters=[{"id": "leeched"}], leech_hp=0.2), b=dummy(ward_pts=0, block=0))
+    A.hp = A.hp_max * 0.5
+    f.hit(A, B, 1.0, "phys", None)
+    f.heal(A, 10.0)
+    check("a leech heal carries the source leech; another heal does not", A.counters["leeched"] == 1.0, str(A.counters["leeched"]))
+
+
+def t_lost_last():
+    f, A, B = setup()
+    f.t = 1000
+    f.pulse(A)              # the first pulse sets the baseline
+    for t, hp_drop, qi_drop in [(2000, 30.0, 5.0), (3000, 20.0, 0.0), (4000, 10.0, 2.0)]:
+        A.hp -= hp_drop
+        A.qi -= qi_drop
+        f.t = t
+        f.pulse(A)
+    A.hp -= 7.0              # since the last pulse
+    lost3 = f.read(A, "own.lost_last.hp.3")
+    check("lost_last: the last 3 s of pulses plus since the last pulse", abs(lost3 - (30 + 20 + 10 + 7)) < 1e-6, str(lost3))
+    check("lost_last over 2 s", abs(f.read(A, "own.lost_last.hp.2") - (20 + 10 + 7)) < 1e-6, str(f.read(A, "own.lost_last.hp.2")))
+
+
+def t_charge_hours():
+    f, A, B = setup(a=dummy(counters=[{"id": "ring", "each_for": 12}]))
+    for t in (1000, 2000, 6000, 11000):
+        f.t = t
+        f.do(A, {"id": "lay", "on": "always", "do": []}, [{"counter": {"id": "ring", "add": 1}}], 1.0, {})
+    f.t = 11500
+    check("charges laid in hours 0, 1 and 2: three distinct hours", f.read(A, "own.counter_hours.ring") == 3.0)
+    check("one charge laid in the current hour (2)", f.read(A, "own.counter_this_hour.ring") == 1.0)
 
 
 # ---- world-depth Stage 5 slice E (2026-11-26): escape (Combat rule 10, Formulas I)

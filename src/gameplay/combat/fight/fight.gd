@@ -491,6 +491,16 @@ func pulse(s: FighterState) -> void:
 		var up: Variant = s.p.counter_def[cid].get("upkeep")
 		if up != null:
 			upkeep(s, cid, up)
+	if s.has_loss_prev:   # this pulse's net losses, for lost_last
+		s.loss_log.append([t, maxf(0.0, s.loss_prev_hp - s.hp), maxf(0.0, s.loss_prev_qi - s.qi)])
+		var keep_l: Array = []
+		for x in s.loss_log:
+			if t - int(x[0]) < k.lost_last_keep_ms:
+				keep_l.append(x)
+		s.loss_log = keep_l
+	s.loss_prev_hp = s.hp
+	s.loss_prev_qi = s.qi
+	s.has_loss_prev = true
 	# per-pulse limits reset
 	s.trig_count = 0
 	s.trig_dmg = 0.0
@@ -603,6 +613,38 @@ func restart_clock(rec: Array, left: int) -> void:
 			if idx < arr.size() and int(arr[idx]) == val:
 				arr[idx] = back
 				holder.set(key, arr)
+
+
+## Health ([param pool] "hp") or linh lực ("qi") [param s] lost over the last [param window] ms (Effects rule 5,
+## 2026-11-26): each pulse's net loss in the window, plus what it has lost since the last pulse. As engine.py.
+func lost_last(s: FighterState, pool: String, window: int) -> float:
+	var i: int = 1 if pool == "hp" else 2
+	var tot: float = 0.0
+	for x in s.loss_log:
+		if t - int(x[0]) < window:
+			tot += float(x[i])
+	if s.has_loss_prev:
+		tot += maxf(0.0, (s.loss_prev_hp - s.hp) if pool == "hp" else (s.loss_prev_qi - s.qi))
+	return tot
+
+
+## The fight hours a charge counter's live charges were laid in: how many distinct hours, or ([param this_hour]) how
+## many were laid in the current hour (The Twelve Hours, 2026-11-26). Laid = end - each_for. As engine.py.
+func charge_hours(s: FighterState, cid: String, this_hour: bool) -> float:
+	var cdef: Dictionary = s.p.counter_def.get(cid, {})
+	if cdef.get("each_for") == null or float(cdef.each_for) == 0.0:
+		return 0.0
+	var each: int = CombatConstants.ms(float(cdef.each_for))
+	var hours: Dictionary = {}
+	var now_n: int = 0
+	var now_h: int = t / k.fight_hour_ms
+	for u in s.counter_times.get(cid, []):
+		if int(u) > t:
+			var h: int = (int(u) - each) / k.fight_hour_ms
+			hours[h] = true
+			if h == now_h:
+				now_n += 1
+	return float(now_n) if this_hour else float(hours.size())
 
 
 ## Upkeep on self-counter [param cid] (Effects rule 6, 2026-11-26): each pulse every stack costs per_stack of the
@@ -1044,7 +1086,7 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 	att.qi = minf(att.qi_use(), att.qi + gain)
 	var lh: float = att.p.leech_hp + (m(att, "leech_hp", null) if am else 0.0) / 100.0
 	if lh != 0.0:
-		heal(att, lh * dealt)
+		heal(att, lh * dealt, "leech")   # a leech is a heal's source (2026-11-26)
 	if _log_enabled:
 		var id: StringName = art.id if art != null else kind
 		_row(FightLogRow.Kind.HIT, att.label, kind, id, [d_in, dealt, dfn.hp, dfn.qi, att.hp, att.qi])

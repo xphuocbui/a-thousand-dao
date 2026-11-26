@@ -27,6 +27,7 @@ const REQUIRED_K := [
 	"water_ice_share", "cleanse_min_stacks", "trig_cap", "trig_depth", "trig_budget", "trig_floor_u", "layer_caps",
 	"l1_soft", "delay_window", "delay_falloff", "summon_c", "summon_for", "injury_every", "refuse_down_health",
 	"escape_channel", "escape_realm_step", "escape_lock_penalty", "escape_min", "escape_max",
+	"fight_hour", "lost_last_keep",
 ]
 
 var fatigue_start: float
@@ -99,6 +100,9 @@ var escape_realm_step: float
 var escape_lock_penalty: float
 var escape_min: float
 var escape_max: float
+## Slice 3: a fight hour (ms) for charge hours; how long the lost_last record keeps (ms).
+var fight_hour_ms: int
+var lost_last_keep_ms: int
 ## The Effect vocabulary (Effects GDD rules 5-6) and an "elem" art's usual damage type by element.
 var events: Array = []
 ## Effects GDD words for engine events, read through at load (world-depth Stage 5): {word: engine event}.
@@ -245,6 +249,8 @@ static func from_dict(d: Dictionary) -> CombatConstants:
 	k.escape_lock_penalty = float(kd.escape_lock_penalty)
 	k.escape_min = float(kd.escape_min)
 	k.escape_max = float(kd.escape_max)
+	k.fight_hour_ms = ms(float(kd.fight_hour))
+	k.lost_last_keep_ms = ms(float(kd.lost_last_keep))
 	k.events = d.get("EVENTS", [])
 	k.event_alias = d.get("EVENT_ALIAS", {})
 	k.mod_keys = d.get("MOD_KEYS", [])

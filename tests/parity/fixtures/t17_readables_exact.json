@@ -1,0 +1,178 @@
+{
+  "name": "t17_readables_exact",
+  "slice": 17,
+  "chance_free": true,
+  "seed": 171,
+  "doc": "World-depth Stage 5, slice 3 (2026-11-26), chance-free: the qi_drained event, a leech heal's source, the lost_last readable and a charge counter's fight hours. A (the line-fisher): each landed hit drains 4 % of B's maximum linh lực, half of it to A, and banks every point drained as Catch (a counter A's ice-line spends on a free hit, via its state of Catch); a Ring charge every 3 s, each lasting 12 s, and +0.6 L5 per distinct 5 s hour among the rings held. B (the blood-drinker): leeches 15 % of its hits as health, counts its leech heals (source leech) apart from its other heals, and gains block for every 25 health lost over the last 3 s.",
+  "a": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "line-fisher",
+    "counters": [
+      {
+        "id": "catch"
+      },
+      {
+        "id": "ring",
+        "each_for": 12
+      }
+    ],
+    "arts": [
+      {
+        "name": "ice-line",
+        "c": 0.6,
+        "cost": 0.03,
+        "cd": 2.5,
+        "element": "ice"
+      },
+      {
+        "name": "cut",
+        "c": 0.9,
+        "cost": 0.04,
+        "cd": 2.0
+      }
+    ],
+    "effects": [
+      {
+        "id": "line-drain",
+        "on": "hit_landed",
+        "do": [
+          {
+            "burn_qi": {
+              "share": 0.04,
+              "of": "max",
+              "to_self": 0.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "bank-catch",
+        "on": "qi_drained",
+        "scale": {
+          "read": "event.amount",
+          "per": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "catch",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "land-fish",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "ice-line"
+        },
+        "scale": {
+          "read": "own.counter.catch",
+          "per": 10
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.1
+            }
+          }
+        ]
+      },
+      {
+        "id": "lay-ring",
+        "on": "pulse",
+        "limit": {
+          "cooldown": 3.0
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "ring",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "ring-hours",
+        "on": "always",
+        "scale": {
+          "read": "own.counter_hours.ring",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "L5": 0.6
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "blood-drinker",
+    "leech_hp": 0.15,
+    "counters": [
+      {
+        "id": "leech_heals"
+      },
+      {
+        "id": "other_heals"
+      }
+    ],
+    "arts": [
+      {
+        "name": "sabre",
+        "c": 1.0,
+        "cost": 0.04,
+        "cd": 2.0
+      },
+      {
+        "name": "breath",
+        "c": 0.0,
+        "cost": 0.02,
+        "cd": 5.0,
+        "heal": 0.06
+      }
+    ],
+    "effects": [
+      {
+        "id": "count-leech",
+        "on": "heal_restored",
+        "filter": {
+          "source": "leech"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "leech_heals",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "hard-skin",
+        "on": "always",
+        "scale": {
+          "read": "own.lost_last.hp.3",
+          "per": 25
+        },
+        "do": [
+          {
+            "mod": {
+              "block": 1
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

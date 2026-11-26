@@ -24,7 +24,7 @@ const SIGNOFF := ["t6_typical_mirror_r0", "t6_typical_mirror_r1", "t6_typical_mi
 const FIXES := ["t7_fixes_exact", "t8_stage_exact"]
 ## World-depth Stage 5 (2026-11-26): the depth engine features, one fixture per slice.
 const DEPTH := ["t10_depth_exact", "t11_statuses_exact", "t12_upkeep_exact", "t13_window_draw_exact", "t14_window_ends_exact",
-		"t15_escape_chancy", "t16_escape_bound_exact"]
+		"t15_escape_chancy", "t16_escape_bound_exact", "t17_readables_exact"]
 ## ADR-0001 decision 4 (amended 2026-11-13): chancy fixtures over 1,000 seeds; mean fight time within 5 %, each win
 ## share within 0.05 of the sim's reference (which parity_export.py takes over 10x the seeds).
 const TIME_TOL := 0.05

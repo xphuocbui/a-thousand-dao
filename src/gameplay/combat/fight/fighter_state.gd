@@ -146,6 +146,12 @@ var window_used: bool = false
 var channel_until: int = -1
 var channel_e: float = 0.0
 var fled: bool = false
+## Net losses per pulse for lost_last (2026-11-26): [ms, health lost, linh lực lost], the last lost_last_keep s; and
+## health and linh lực at the last pulse's end (has_loss_prev false before the first pulse).
+var loss_log: Array = []
+var loss_prev_hp: float = 0.0
+var loss_prev_qi: float = 0.0
+var has_loss_prev: bool = false
 var trig_count: int = 0
 var trig_dmg: float = 0.0
 var state: String = ""

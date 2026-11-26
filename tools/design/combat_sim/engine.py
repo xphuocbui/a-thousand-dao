@@ -243,6 +243,8 @@ class Side:
         self.channel_until = None   # an escape channel open: ms it ends (Combat rule 10; one per side)
         self.channel_e = 0.0
         self.fled = False
+        self.loss_log = []          # [ms, health lost, linh luc lost] per pulse, the last 30 s (lost_last)
+        self.loss_prev = None       # health and linh luc at the last pulse's end
         self.temp_mods = []                         # [key, value, until_ms, filter]
         self.banked = []                            # held payloads: [effect, actions, scale]
         self.eff_state = {}                         # effect id -> {"fight": n, "pulse": n, "next": ms}
@@ -408,6 +410,12 @@ class Fight:
             return x.count(x.debuffs, k[7:])
         if k.startswith("status."):
             return x.st(k[7:])
+        if k.startswith("lost_last."):   # health or linh luc lost over the last N s (2026-11-26)
+            _, pool, secs = k.split(".")
+            return self.lost_last(x, pool, float(secs))
+        if k.startswith("counter_hours.") or k.startswith("counter_this_hour."):
+            head, cid = k.split(".", 1)
+            return self.charge_hours(x, cid, head == "counter_this_hour")
         if k.startswith("counter."):
             cid = k[8:]
             if x.counter_def.get(cid, {}).get("each_for"):
@@ -584,6 +592,29 @@ class Fight:
         if dk:   # Drunk (Effects Status Catalogue, 2026-11-26): its own slow per stack beside Slowed Time
             out += STATUS["drunk"]["slow"] * dk * resist
         return out
+
+    def lost_last(self, s, pool, secs):
+        """Health or linh luc s lost over the last secs seconds (Effects rule 5, 2026-11-26): each pulse's net loss in
+        the window, plus what it has lost since the last pulse."""
+        i = 1 if pool == "hp" else 2
+        tot = sum(x[i] for x in s.loss_log if self.t - x[0] < ms(secs))
+        if s.loss_prev is not None:
+            now = s.hp if pool == "hp" else s.qi
+            tot += max(0.0, s.loss_prev[i - 1] - now)
+        return tot
+
+    def charge_hours(self, s, cid, this_hour):
+        """The fight hours (fight_hour s each) a charge counter's live charges were laid in: how many distinct hours, or
+        how many charges were laid in the current hour (Effects rule 5, 2026-11-26; The Twelve Hours). A charge's laid
+        time is its end less each_for, so a clock stop on its side counts it as laid that much later."""
+        each = ms(s.counter_def.get(cid, {}).get("each_for") or 0)
+        if not each:
+            return 0.0
+        hour = ms(K["fight_hour"])
+        laid = [(u - each) // hour for u in s.counter_times.get(cid, []) if u > self.t]
+        if this_hour:
+            return float(sum(1 for h in laid if h == self.t // hour))
+        return float(len(set(laid)))
 
     def upkeep(self, s, cid, up):
         """Upkeep on a self-counter (Effects rule 6, 2026-11-26): each pulse every stack costs its owner per_stack of the
@@ -819,6 +850,10 @@ class Fight:
                 s.counters[cid] *= max(0.0, 1.0 - dsh)
             if cdef.get("upkeep"):
                 self.upkeep(s, cid, cdef["upkeep"])
+        if s.loss_prev is not None:   # this pulse's net losses, for lost_last
+            s.loss_log.append([self.t, max(0.0, s.loss_prev[0] - s.hp), max(0.0, s.loss_prev[1] - s.qi)])
+            s.loss_log = [x for x in s.loss_log if self.t - x[0] < ms(K["lost_last_keep"])]
+        s.loss_prev = (s.hp, s.qi)
         # per-pulse limits reset
         s.trig_count = 0
         s.trig_dmg = 0.0
@@ -1172,7 +1207,7 @@ class Fight:
         att.qi = min(att.qi_use(), att.qi + gain)
         lh = att.b.leech_hp + self.mod(att, "leech_hp") / 100
         if lh:
-            self.heal(att, lh * dealt)
+            self.heal(att, lh * dealt, source="leech")   # a leech is a heal's source (2026-11-26)
         if self.plog is not None:
             self.plog.append(["hit", self.t, att.label, kind, ctx["art_id"], D_in, dealt, dfn.hp, dfn.qi, att.hp, att.qi])
         if art and art.debuff:
@@ -1779,7 +1814,12 @@ class Fight:
             elif verb == "burn_qi":
                 # Spillover: burn the foe's linh luc by a share of the event's amount, no second resistance step
                 amt = arg.get("share", 0) * (ev.get("amount", 0.0) if arg.get("of", "amount") == "amount" else o.qi_max()) * n
+                burned = min(o.qi, max(0.0, amt))
                 o.qi = max(0.0, o.qi - amt)
+                if arg.get("to_self") and burned > 0:   # a drain: that share moves to you (2026-11-26, qi_drained)
+                    got = burned * arg["to_self"]
+                    s.qi = min(s.qi_use(), s.qi + got)
+                    self.fire_event(s, "qi_drained", {"amount": got})
             elif verb == "emit":
                 # raise another event as if it happened (Phantom Dodge: a basic hit counts as an evade)
                 if self.depth <= K["trig_depth"]:

@@ -106,3 +106,7 @@
   has it and Bound, `escape_failed` and the escape records need it; "the foe cannot evade for N s" is a new curse,
   **Off Guard** (Sơ Hở; evade 0, takes a curse slot, cleansable); **held damage** is parked with its only consumer
   (A File of One, inside the parked Geese Stance).
+- **Pills in a fight** (user, 2026-11-26; Pill Smoke): **smoke only for now.** A fight input may carry one prepared pill
+  (element, grade, fail chance); `burn_pill` spends it, lays its smoke (4 debuff stacks per grade of its element for
+  6 s) and rolls its fail chance, raising `pill_burned {element, grade, failed}`. "Its effect at half strength" waits
+  until pills have fight effects (an Alchemy pass); until then a burned pill gives its burner nothing.

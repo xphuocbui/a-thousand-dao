@@ -222,6 +222,20 @@ func _read(key: String, w: String, counters: Dictionary) -> EffectDef.ReadDef:
 				# the sim reads an undefined counter as 0 (engine.py read()); a write to one is still an error
 				warnings.append("%s: reads counter %s, which nothing in this fighter builds (reads 0)" % [w, r.param])
 			return r
+	if k.begins_with("lost_last."):   # own.lost_last.<hp|qi>.<seconds> (2026-11-26)
+		var lp: PackedStringArray = k.split(".")
+		r.key = "lost_last"
+		if lp.size() != 3 or not (lp[1] in ["hp", "qi"]) or not lp[2].is_valid_float():
+			errors.append("%s: read %s: lost_last.<hp|qi>.<seconds>" % [w, key])
+			return r
+		r.param = lp[1]
+		r.window_ms = CombatConstants.ms(float(lp[2]))
+		return r
+	for pre_h in ["counter_hours.", "counter_this_hour."]:   # a charge counter's fight hours (2026-11-26)
+		if k.begins_with(pre_h):
+			r.key = pre_h.trim_suffix(".")
+			r.param = k.substr(pre_h.length())
+			return r
 	if k.begins_with("fired_within."):
 		var parts: PackedStringArray = k.split(".")
 		r.key = "fired_within"

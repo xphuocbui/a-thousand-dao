@@ -387,3 +387,52 @@ func test_a_near_certain_escape_ends_the_fight_in_flight() -> void:
 		if r.win_code() == "flight":
 			fled += 1
 	assert_bool(fled >= 8).override_failure_message("fled %d of 10 at p 0.95" % fled).is_true()
+
+
+# ---- slice 3 (2026-11-26): qi_drained, the leech source, lost_last, charge hours (test_engine.py) ----
+func test_a_drain_moves_linh_luc_and_reports_it() -> void:
+	var drain := {"id": "d", "on": "hit_landed", "do": [{"burn_qi": {"share": 0.1, "of": "max", "to_self": 0.5}}]}
+	var bank := {"id": "b", "on": "qi_drained", "scale": {"read": "event.amount", "per": 1}, "do": [{"counter": {"id": "catch", "add": 1}}]}
+	var f: Fight = M._fight(M._dummy({"effects": [drain, bank], "counters": [{"id": "catch"}]}), M._dummy({"ward_pts": 0.0, "block": 0.0}))
+	f.a.qi = 0.5 * f.a.qi_max()
+	var q0: float = f.a.qi
+	var b0: float = f.b.qi
+	f.hit(f.a, f.b, 0.01, &"phys", null, Fight.KIND_ART)
+	var moved: float = 0.1 * f.b.qi_max()
+	assert_near(f.b.qi, b0 - moved, 1e-9)
+	assert_near(f.a.qi, q0 + moved / 2.0, 1e-9)
+	assert_near(float(f.a.counters["catch"]), floorf(moved / 2.0), 1e-9, "whole points banked")
+
+
+func test_a_leech_heal_carries_the_source_leech() -> void:
+	var count := {"id": "l", "on": "heal_restored", "filter": {"source": "leech"}, "do": [{"counter": {"id": "leeched", "add": 1}}]}
+	var f: Fight = M._fight(M._dummy({"effects": [count], "counters": [{"id": "leeched"}], "leech_hp": 0.2}), M._dummy({"ward_pts": 0.0, "block": 0.0}))
+	f.a.hp = f.a.hp_max * 0.5
+	f.hit(f.a, f.b, 1.0, &"phys", null, Fight.KIND_ART)
+	f.heal(f.a, 10.0)
+	assert_near(float(f.a.counters["leeched"]), 1.0, 1e-9)
+
+
+func test_lost_last_sums_the_window_and_the_part_since_the_last_pulse() -> void:
+	var f: Fight = M._fight(M._dummy(), M._dummy())
+	f.t = 1000
+	f.pulse(f.a)
+	for row in [[2000, 30.0, 5.0], [3000, 20.0, 0.0], [4000, 10.0, 2.0]]:
+		f.a.hp -= float(row[1])
+		f.a.qi -= float(row[2])
+		f.t = int(row[0])
+		f.pulse(f.a)
+	f.a.hp -= 7.0
+	assert_near(f.lost_last(f.a, "hp", 3000), 67.0, 1e-6)
+	assert_near(f.lost_last(f.a, "hp", 2000), 37.0, 1e-6)
+
+
+func test_charge_hours_count_distinct_hours_and_this_hour() -> void:
+	var lay := {"id": "lay", "on": "fight_start", "do": [{"counter": {"id": "ring", "add": 1}}]}
+	var f: Fight = M._fight(M._dummy({"effects": [lay], "counters": [{"id": "ring", "each_for": 12}]}), M._dummy())
+	for tt in [1000, 2000, 6000, 11000]:
+		f.t = tt
+		EffectRunner.fire(f, f.a, "fight_start", {})
+	f.t = 11500
+	assert_near(f.charge_hours(f.a, "ring", false), 3.0, 1e-9, "hours 0, 1, 2")
+	assert_near(f.charge_hours(f.a, "ring", true), 1.0, 1e-9, "one in the current hour")
