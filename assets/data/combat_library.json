@@ -1096,7 +1096,8 @@
    "tags": [
     "cleanse",
     "soul",
-    "bell"
+    "bell",
+    "song"
    ],
    "name": "Bell of Waking (Tỉnh Hồn Chung)",
    "rule": "While your soul is slackened, cleanses 2 of your debuffs: the answer to a rival soul build.",
@@ -3747,7 +3748,8 @@
    "kind": "elem",
    "tags": [
     "control",
-    "bell"
+    "bell",
+    "song"
    ],
    "name": "Delaying Gong (Hoãn Chung)",
    "rule": "A hit that pushes back all the foe's art timers by 1 s (falling off with repeats and the foe's timer resistance).",
@@ -8061,7 +8063,8 @@
    "tags": [
     "metal",
     "bell",
-    "cleanse"
+    "cleanse",
+    "song"
    ],
    "name": "Lustral Bell (Tẩy Chung)",
    "rule": "Strikes a bell that cleanses 3 of your debuffs and strips 10 stacks from the foe.",

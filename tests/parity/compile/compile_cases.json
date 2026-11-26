@@ -3473,7 +3473,8 @@
       "tags": [
        "cleanse",
        "soul",
-       "bell"
+       "bell",
+       "song"
       ],
       "guards": [
        {
@@ -9832,7 +9833,8 @@
       "m_mult": 1.0,
       "tags": [
        "control",
-       "bell"
+       "bell",
+       "song"
       ],
       "guards": [],
       "statuses": [],
@@ -23628,7 +23630,8 @@
       "tags": [
        "metal",
        "bell",
-       "cleanse"
+       "cleanse",
+       "song"
       ],
       "guards": [],
       "statuses": [],
