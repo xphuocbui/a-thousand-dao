@@ -25,6 +25,11 @@ def main():
     # a place's recorded years: its own events, its seated sect's events and founding, its residents' events and
     # births and deaths, and the region's fallen sects' founding and fall
     seat_of = {s["seat"]: s for s in hist["sects"] if s.get("seat") is not None}
+    # a sect hall (an old seat after a world-depth move, 2026-11-26) shares its sect's record
+    by_key = {s["key"]: s for s in hist["sects"]}
+    for pl in cont["places"]:
+        if pl.get("hall_of") in by_key:
+            seat_of.setdefault(pl["id"], by_key[pl["hall_of"]])
     home = {}
     for person in hist["people"]:
         if person.get("home") is not None:

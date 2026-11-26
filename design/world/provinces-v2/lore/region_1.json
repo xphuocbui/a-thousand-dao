@@ -5,7 +5,7 @@
    "name": "Hàm Nguyệt",
    "name_han": "含月",
    "gloss": "Holding the Moon",
-   "lore": "Birch and pine shore along the western end of Hạo Nguyệt Hồ, where the long lake is calmest. Its people fish, tend pearl beds and cut birch for Hàm Nguyệt Trang, which rules the shore for Tùng Đào Cung. Pearls and spirit fish are its wealth, and every fisher here knows the old saying that the moon in the lake is easier to catch than the one in the sky."
+   "lore": "Birch and pine shore along the western end of Hạo Nguyệt Hồ, where the long lake is calmest. Its people fish, tend pearl beds and cut birch for Hàm Nguyệt Trang, which rules the shore for Tùng Đào Cung. The sect's moon halls stand on piles over the still pool of Trầm Bích Đàm, while its Shore House on the lake keeps the pearl houses and the boats. Pearls and spirit fish are its wealth, and every fisher here knows the old saying that the moon in the lake is easier to catch than the one in the sky."
   },
   "prov_p55": {
    "name": "Quy Điểu",
@@ -208,11 +208,11 @@
  },
  "places": {
   "prov_ham_nguyet_lake_1": {
-   "name": "Trầm Bích Đàm",
+   "name": "Hàm Nguyệt Trang",
    "name_han": "沉璧潭",
    "gloss": "Pool of the Sunken Jade Disc",
-   "look": "A round, still side lake behind a sand bar off the long lake, ringed by birches, so calm that the full moon lies in it like a jade disc dropped to the bottom.",
-   "lore": "The sand bar closed this bay off from Hạo Nguyệt Hồ long ago, and Hàm Nguyệt Trang's novices practise here before they are let near the Moon Net. Its water is cold and deep, and pearl mussels grow slowly in it."
+   "look": "Dark timber halls under grey tile stand on tall piles over the middle of a round, still pool behind a bar, joined by long covered walkways, and birches ring the shore. The water is so calm that every roof and the full moon lie in it twice.",
+   "lore": "Hàm Nguyệt Trang is a small water-arts sect (tông môn) sworn to Tùng Đào Cung, living on spirit fish (linh ngư) and lake pearls. Its founder Đới Thiềm Quang raised the moon halls on piles over Trầm Bích Đàm in 412, because the moon lies stillest here, and sank the Sunken Disc under them to hold the moonlit qi. Its mistress Kiều Nguyệt Châu has led it since 1150 and doubled the pearl harvest. The sect keeps its boats and its pearl trade at the Shore House on the lake."
   },
   "prov_ham_nguyet_ruin_2": {
    "name": "Cựu Châu Trấn",

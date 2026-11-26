@@ -209,7 +209,7 @@
    "name": "Chấn Thiên Lĩnh",
    "name_han": "震天嶺",
    "gloss": "Ridge That Shakes the Sky",
-   "lore": "High mountains beside Kinh Lôi Mạch, where the thunder is loud enough to shake stones loose. Gold sand washes out of its streams after storms. The ruin of the fort that guarded the vein in the Thunder Vein War stands on its lower ridge."
+   "lore": "High mountains beside Kinh Lôi Mạch, where the thunder is loud enough to shake stones loose. Gold sand washes out of its streams after storms. The ruin of the fort that guarded the vein in the Thunder Vein War stands on its lower ridge, and on the drum-shaped summit of Thần Cổ Phong above it stands Thính Vũ Lâu, which carried its halls here from the cone in 1166-1170."
   },
   "prov_r19_31": {
    "name": "Lâm Vụ Câu",
@@ -776,11 +776,11 @@
    "lore": "Herders say an old white stag has grazed this summit for longer than anyone remembers. Wood (Mộc) qi lies in its high grass."
   },
   "prov_r19_30_peak_1": {
-   "name": "Thần Cổ Phong",
+   "name": "Thính Vũ Lâu",
    "name_han": "神鼓峰",
    "gloss": "Divine Drum Peak",
-   "look": "A massive round-shouldered summit beside the Thunder vein, its hollow rock booming like a drum when thunder strikes it.",
-   "lore": "Metal (Kim) qi fills its hollow rock. The guards of Kinh Lôi Mạch say the peak warns them of storms a day before they come."
+   "look": "Black halls stand on a bare grey peak with a drum-shaped crown, a bronze rain-chain hanging from every eave and running down into the rock, and lightning running down the chains in a storm. The hollow rock of the peak still booms like a drum when thunder strikes.",
+   "lore": "Thính Vũ Lâu, a great sect (đại tông môn) of the ma đạo (demonic path), ruled by Mạnh Dạ Vũ, who holds the Tương Phi Tán, has held this summit since 1166-1170, when it carried its halls east from the cone; its old seat is now the Rain Tower. The Tower had built its guard here in 1046 above the ashes of Thủ Lôi Bảo, and the canon's second half wants the Thunder qi that the cone lacks. In 1170 Thạch Liên Hoàn and Lệ Tiêu Hồn laid the Iron Rain array, a bronze chain from the peak down to Kinh Lôi Mạch, and the soul vaults moved into the vein. The guards of Kinh Lôi Mạch say the peak warns them of storms a day before they come."
   },
   "prov_r19_30_mine_2": {
    "name": "Sa Kim Khoáng",

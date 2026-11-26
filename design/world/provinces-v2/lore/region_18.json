@@ -5,7 +5,7 @@
    "name": "Hồng Đậu",
    "name_han": "紅豆",
    "gloss": "Red Beans",
-   "lore": "Coastal rain forest and open grass at the western edge of Tiêu Vũ Lâm, where the forest road comes down to the sea at Hồng Đậu Trang. Its people gather rattan, honey and resin and fish the shallows, and many serve the manor as gardeners and porters without asking what grows in its back courts. Vines of red beans run wild along every path, and children are taught early not to put them in their mouths."
+   "lore": "Coastal rain forest and open grass at the western edge of Tiêu Vũ Lâm, where the forest road comes down to the sea at Nhã Môn, the gracious door of Hồng Đậu Trang. Its people gather rattan, honey and resin and fish the shallows, and many serve the manor as gardeners and porters without asking what grows in the back garden over the vein of Tiêu Âm Mạch, where the mistress has kept her rooms since 1110. Vines of red beans run wild along every path, and children are taught early not to put them in their mouths."
   },
   "prov_p153": {
    "name": "Kiều Bạn",
@@ -53,7 +53,7 @@
    "name": "Thính Vũ",
    "name_han": "聽雨",
    "gloss": "Listening to the Rain",
-   "lore": "The Tower's own ground: a dormant volcanic cone and the bare high mountains around it, falling through dry steppe to the coast. Banana groves terrace the cone's flanks and the grey lake Tàn Hà Hồ lies at its foot; no village stands within sight of the Tower, and its only people are disciples, servants and the masters who came by night. Rain clouds break on the cone almost every night, so the Tower sits in rain while the steppe below stays dry."
+   "lore": "The Rain Tower's own ground, the old seat of Thính Vũ Lâu: a dormant volcanic cone and the bare high mountains around it, falling through dry steppe to the coast. Banana groves terrace the cone's flanks and the grey lake Tàn Hà Hồ lies at its foot; no village stands within sight of the Tower, and its only people are disciples, servants and the masters who came by night. Quan Vũ Thanh keeps the founder's tower here since the court moved east in 1166-1170. Rain clouds break on the cone almost every night, so the Tower sits in rain while the steppe below stays dry."
   },
   "prov_r18_1": {
    "name": "Tận Vũ Lĩnh",
@@ -190,11 +190,11 @@
  },
  "places": {
   "prov_hong_dau_spirit_vein_1": {
-   "name": "Tiêu Âm Mạch",
+   "name": "Hồng Đậu Trang",
    "name_han": "蕉陰脈",
    "gloss": "Vein in the Banana Shade",
-   "look": "Under a ring of old wild banana plants whose leaves the wind never tears, the ground breathes a faint green warmth and the rain falls softer.",
-   "lore": "A spirit vein (linh mạch) of Wood (Mộc) qi in the jungle behind Hồng Đậu Trang, where the manor grows its charm-herbs. Visitors who sit too long in the shade wake with a headache and no memory of the hour."
+   "look": "Under a ring of old wild banana plants, red-bean trellises climb over faintly warm green ground, and a low house of black wood stands among them, where gardeners in grey bend over the beds. The rain falls softer here.",
+   "lore": "Hồng Đậu Trang is a minor ma đạo sect under Thính Vũ Lâu, a house of poisons and charms. Its mistress Nghê Hồng Đậu has kept her own rooms and her canon here since 1110, in the banana shade over a spirit vein (linh mạch) of Wood (Mộc) qi, where the red beans grow on trellises first planted in 912 and rewoven as the Red Trellis array. Only a cart track from the manor on the forest road reaches it, and visitors who sit too long in the shade wake with a headache and no memory of the hour. Those who stay too long at the manor are said to end up tending the beans."
   },
   "prov_hong_dau_ruin_2": {
    "name": "Lan Tân Trấn",

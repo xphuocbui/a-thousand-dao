@@ -4,9 +4,9 @@
  "status": "proposal (2026-11-22 overnight); for the user's review",
  "places": {
   "1": {
-   "name": "Thúy Vi Tông",
-   "look": "Twin summits rise out of the blue-green haze of the hills, their slopes stepped with herb terraces and white-walled halls under green-glazed roofs. Around the higher summit a broad path of white stone winds in a spiral from the haze to the peak, and on misty mornings only its pale upper turns show above the clouds.",
-   "lore": "Thúy Vi Tông, the Sect of the Emerald Haze, is a righteous (chính đạo) great sect of alchemists whose herb terraces climb its slopes in green stripes. Its founder came into these hills when the last master of Không Sơn Viện gave them away, and the sect still leaves that old academy untouched. Its head Ngu Lam Sơn walked in the haze for a hundred days before giving his first order, and new disciples now walk the white spiral path, the Haze Walk, from dawn to dusk before they take their vows.",
+   "name": "Thúy Vi Nhai Đường",
+   "look": "Twin summits rise out of the blue-green haze, their herb terraces and white-walled halls half empty, and a twisted pine grows sideways out of the rock by the gate. A broad white stone path still winds in a spiral around the higher summit, its pale upper turns showing above the clouds.",
+   "lore": "Thúy Vi Nhai Đường, the Cliff Hall, is the old seat of Thúy Vi Tông, a righteous (chính đạo) great sect of alchemists that came down to Cổ Dịch Trấn in 1001-1006. The grand elder Cù Thúy Bách stayed behind with the founder's pine, and with the steward Bao Nham Tỉnh he keeps the founder's grave and the life trees of every disciple who joined before 1006. The teaching here is harsher than elsewhere in the sect. Phùng Yên Hà founded Thúy Vi Tông on this ridge in 500, and the sect still leaves the old academy of Không Sơn Viện untouched.",
    "history": "In 500 Phùng Yên Hà founded Thúy Vi Tông in the blue-green mist of the north-western hills, the same year Thôi Bất Kiến of Không Sơn Viện, having no heir, gave Thanh Loan Lĩnh, his whisk and his only student to Phùng Yên Hà. In 505 the sect opened the green jade mine that Không Sơn had forbidden, and when Thôi Bất Kiến died in 520 it left his academy unlocked and unlooted. The sect took the cape of snow and fire in 560 and founded the ports of Yên Ba Thành in 590 and Mục Ca Thành in 700. In 668 Tùng Đào Cung marched on its Cold Ford coast without a writ, took it in 672, and the Pivot let the seizure stand. Thúy Vi waited, and in 901, holding the Pivot's writ, marched to take it back, retaking the Cold Ford in 905, more than two centuries after losing it. In 1000 Phùng Yên Hà died at 640; Ngu Lam Sơn became head, took the White Cloud Whisk, and walked in the haze for a hundred days before giving his first order.",
    "special": true,
    "levels": [
@@ -26,9 +26,9 @@
    ]
   },
   "3": {
-   "name": "Băng Tâm Các",
+   "name": "Cựu Các",
    "look": "Out of red badlands at the desert's edge rises a tall white pavilion of stacked celadon-glazed roofs, pale stone terraces climbing to it. Even at midsummer frost rims its eaves, and a thin cold mist spills from the round well-house at its foot, where the water keeps ice all year. Far beyond, the snow ranges of Ngọc Hồ Sơn stand white against the sky.",
-   "lore": "Băng Tâm Các, the Pavilion of the Ice Heart, is a great sect (đại tông môn) of sword cultivators (kiếm tu) and lord of the desert and the ice mountains; its name comes from the old line that the ice heart sits in the jade vessel. Sở Ngọc Hồ has led it since 1010 as keeper of the Jade Vessel, with Tiết Hàn Mai as first elder and Sở Hàn Y as her disciple. Disciples at the seat drink only its well water, and a newcomer who flinches at the cup is told to stay until they no longer do.",
+   "lore": "Cựu Các, the Desert Pavilion, is the old seat of Băng Tâm Các, a great sect (đại tông môn) of sword cultivators (kiếm tu), and is now its outer hall for the desert and the caravan road. Ôn Sa Ngọc keeps the Pavilion's trade here and its desert recruits, the oasis children. The founder's cold well still keeps ice all year, disciples here drink only its water, and a newcomer who flinches at the cup is told to stay until they no longer do. Tần Ngưng Sương founded the sect on this ridge in 440 and moved it to the ice of Ngọc Hồ Sơn in 470.",
    "history": "In 440 Tần Ngưng Sương founded Băng Tâm Các in the cold north-east, a pavilion for the ice heart, on the high badlands between the desert and the ice fields. In 445 Tần Ngưng Sương made the well water of the desert seat cold enough to keep ice all summer. The sect claimed the empty ice of Ngọc Hồ Sơn and founded Trường Vân Thành in 470, and took the frost coast from Hàn Giang Môn in the war of 492 to 498. In the Desert Road War of 722 to 728 it lost Cô Thành to Phượng Minh's fire, and in the Long Lake War of 940 to 944 won only the right to fish the northern shore of Hạo Nguyệt Hồ. Tần Ngưng Sương died in 1010, and Sở Ngọc Hồ became head and keeper of the Jade Vessel; in 1090 she joined the hunt that killed Mặc Huyết Sinh, and in 1121 Hạng Dạ Bôi knelt to her. In 1188 her claim to Tinh Tủy Mạch was rejected before the Pivot, and she returned without a word and shut herself in the seat's ice hall for a year.",
    "special": true,
    "levels": [
@@ -41,9 +41,9 @@
    ]
   },
   "4": {
-   "name": "Lạc Hà Tông",
+   "name": "Cựu Hà Viện",
    "look": "The road climbs a low swell of steppe to a sect (tông môn) of long ochre earth terraces and rose-tiled halls, every one of them turned to the west. On the westernmost terrace stands the Sunset Ring, a great round stone gate with no doors and no wall, through which the whole sect watches the sun go down each evening. Below, the river shoals of Hạc Đinh Thị shine in the low light.",
-   "lore": "Lạc Hà Tông, the Sect of the Drifting Sunset Clouds, is one of the seven great sects and master of the western lands; its arts lean on earth and wood, and its disciples hold the hour of evening glow best for cultivation. The head Tô Vãn Chiếu carries the sword Tử Điện; its twin Thanh Sương fell on Chiết Kích Nguyên in 803, and no one has dared go back for it. The dusk of 803, when the river boats fell silent, is kept each year as an evening of mourning, and the head's youngest disciple Tô Mộ Vân is the sect's brightest hope.",
+   "lore": "Cựu Hà Viện, the Old Glow Court, is the old seat of Lạc Hà Tông and now its outer gate: the steppe's strong Earth qi trains outer disciples for the inner gate better than the mountain does, and the founder's dusk practice is still done here on the steppe where he did it. Tô Bình Chu keeps it as steward, Ngạc Viễn Sơn teaches there, and the founder's maple stumps are oiled every autumn. Nhan Cô Vụ founded Lạc Hà Tông on this steppe in 290, and the dusk of 803, when the river boats fell silent, is still kept each year as an evening of mourning.",
    "history": "Nhan Cô Vụ founded Lạc Hà Tông in 290 in the western lands where the sun goes down, and a market soon grew on the river shoals below. In 360 the sect forged the twin swords Tử Điện and Thanh Sương for its armoury. It lost the War of the Pivot beside Tùng Đào and lived under the North Star Compact from then on. Its founder later swore with Phó Tiêu Tương to end the Pivot's oversight; when news of the battle on Chiết Kích Nguyên reached the seat in 803, the fishing boats did not sing at dusk for the first time in six hundred years. Nhan Cô Vụ died in 940 and Trầm Tịch Dương became the second head; in 1160 he stepped down for his disciple Tô Vãn Chiếu, who took Tử Điện. In 1176 Tô Mộ Vân was born on the day the evening glow filled the whole sky.",
    "special": true,
    "levels": [
@@ -70,9 +70,9 @@
    ]
   },
   "6": {
-   "name": "Phượng Minh Cung",
+   "name": "Ngô Đồng Đình",
    "look": "High on the ridges of Thê Ngô Lĩnh, a palace of red-lacquered halls and stacked golden-brown pagoda roofs climbs around one colossal ancient wutong (ngô đồng) tree, whose broad green crown rises above the highest roof. Wutong groves fill the terraces below.",
-   "lore": "Phượng Minh Cung, the Palace of the Phoenix's Call, is the great sect of fire and wood in the south, founded on the empty lands of the fallen Cửu Thiều Cung. It holds the rice plain of Triêu Dương Nguyên, whose granaries carried the south through the drought of 649, and since 590 the fire coast of Đan Huyệt Châu. Its head is Hoa Triêu Dương, with the first elder Vu Ngô Đồng at her side. The palace keeps the old court music of the ridges in its rites, but its elders grow uneasy when any tune is played too long, and there are whispers that the palace keeps something of Cửu Thiều's that it never shows.",
+   "lore": "Ngô Đồng Đình, the Wutong Court, is the old seat of Phượng Minh Cung, the great sect of fire and wood in the south, whose head Hoa Triêu Dương moved the court, the treasury and the Hall of Spoils down to the Fire Court in 1162. The first elder Vu Ngô Đồng keeps it, with the great wutong, the founder's ashes, the aviary of spirit birds, the Seal of the Wutong and the western march against Thính Vũ. Liên Thiều Nghi keeps the Hall of Rites and the score archive, and the old court music of the ridges is still kept in its rites. Ngô Thê Đồng founded the palace here in 480 on the empty lands of the fallen Cửu Thiều Cung, and died here in 1100.",
    "history": "Ngô Thê Đồng founded Phượng Minh Cung in 480 on the lands left empty since the fall of Cửu Thiều Cung, and in 485 a market of the Shao music opened at the foot of the new palace. In 520 the palace took the rice plain of Triêu Dương Nguyên, and in the decades after it founded Lai Nghi Thành and its gulf port Thanh Khê Thành. In 584 it asked the Pivot for a writ against Xích Thành Môn, which had burned eleven villages, and won the first writ of the Compact; in 590 it destroyed that sect, took Đan Huyệt Châu and hung the Xích Hà Kỳ in its hall. It fought Băng Tâm Các over the Desert Road from 722 and broke Cô Thành in 726, until the Pivot imposed a truce in 728. In 1040 it went to war with Thính Vũ Lâu for the Kinh Lôi vein, and in 1046 the Pivot's judgement left the vein with Thính Vũ. Ngô Thê Đồng died in 1100 and Hoa Triêu Dương became head; it is whispered in the palace that the dying founder gave her something with a warning, though no one says what. From 1150 to 1158 the palace held Đan Sơn Mạch against Thính Vũ Lâu, with Thiên Xu at its side from 1154.",
    "special": true,
    "levels": [
@@ -84,9 +84,9 @@
    ]
   },
   "7": {
-   "name": "Thính Vũ Lâu",
+   "name": "Vũ Lâu",
    "look": "Out of the rain forest rises a dormant volcanic cone, dark with banana groves on its terraced flanks, and on its crown a slender many-eaved tower, the tallest thing in the south. From every eave of every storey hang long bronze rain-chains, so that in a downpour the whole tower runs with water and rings like a struck bell. No lamp burns in any window.",
-   "lore": "Thính Vũ Lâu, a great sect (đại tông môn) of the ma đạo (demonic path), is ruled by Mạnh Dạ Vũ, who holds the Tương Phi Tán. Its founder Phó Tiêu Tương built the tower so that one could listen to the rain, and its sword disciples are still taught by the sound of it. Since the masters of the ma đạo came by night after the Night Rain Edict, the Tower's lamps have never been lit. Its soul vaults are kept by Lệ Tiêu Hồn, its first elder is Quan Vũ Thanh, and its war elder is Cố Dạ Lan, who has never lost a duel; the head's ambitious disciple Mạnh Lưu Ly is his rival for the sect's future.",
+   "lore": "Vũ Lâu, the Rain Tower, is the old seat of Thính Vũ Lâu, a great sect (đại tông môn) of the ma đạo (demonic path) that carried its halls east to Thần Cổ Phong in 1166-1170. The first elder Quan Vũ Thanh stays in the founder's tower with the founder's chain on the eaves, and from it the Tower governs the south: the cities, four of the five vassals and the Night Rain Market's tax. The lake graves of Tàn Hà Hồ lie below, and a copy of the founder's sutra is kept here. Phó Tiêu Tương built the tower so that one could listen to the rain, and since the masters of the ma đạo came by night after the Night Rain Edict its lamps have never been lit.",
    "history": "Phó Tiêu Tương founded Thính Vũ Lâu in the rain forests in 380. A century later, when Khải Lôi Môn fell, the Tower rose on its ground and took the thunder mountains. It won the forest half of the Petal Shore by the Pivot's judgement, then broke the Compact beside Lạc Hà in the War of Broken Halberds and lost. In 880 Phó Tiêu Tương died, and Mạnh Dạ Vũ took the headship and the Tương Phi Tán; in 905 he proclaimed the Night Rain Edict. In 906 the ma đạo masters came by night, Cố Dạ Lan among them, and the lamps were never lit again. Beaten at Đan Sơn Mạch, the Tower had rebuilt its strength twice over by 1165, to the Pivot's unease. In 1185 its first elder Quan Vũ Thanh went in secret to Phượng Minh to talk of peace, and came back without an answer.",
    "special": true,
    "levels": [
@@ -95,9 +95,9 @@
    ]
   },
   "8": {
-   "name": "Hàm Nguyệt Trang",
+   "name": "Ngạn Đường",
    "look": "A low manor of dark timber and grey tile stands among birches on the lake shore, its slim piers reaching out over still water. Just off the piers a perfect ring of white stones breaks the surface, enclosing a circle of water so calm it holds the moon whole; the manor calls it the Moon Net.",
-   "lore": "Hàm Nguyệt Trang is a small water-arts sect (tông môn) sworn to Tùng Đào Cung, living on spirit fish (linh ngư) and lake pearls. Its founder said the moon in the lake is easier to catch than the one in the sky, and novices still begin by sitting at the Moon Net until they can watch the reflection without breaking it. Its mistress Kiều Nguyệt Châu has doubled the pearl harvest since she took the manor. The manor keeps no war boats; its old ones lie on the lake bed where it sank them.",
+   "lore": "Ngạn Đường, the Shore House, is the old seat of Hàm Nguyệt Trang, the small water-arts sect (tông môn) sworn to Tùng Đào Cung, and it keeps the pearl houses, the ledgers, the market and the boats on the lake. Kha Toán Châu keeps the books as steward, and Băng Tâm's north-shore fishers drink at its market. Novices still begin by sitting at the Moon Net until they can watch the reflection without breaking it. A short causeway runs to the moon halls over Trầm Bích Đàm, where the sect now lives.",
    "history": "In 410 a water cultivator founded Hàm Nguyệt Trang on the long lake, saying the moon in the lake is easier to catch than the one in the sky. In 470 a fisher of Tuyết Lộc pulled a pearl the size of a fist from Hạo Nguyệt Hồ; the manor bought it and began to farm pearls, and pearls have been its wealth ever since. In 610 its disciples tracked a snow-leopard spirit beast that had taken a child from Hàn Yên Thôn for forty days across the ice. In 748 the lake froze to its bed for one winter, and the manor's spirit fish lived through it in the moon's reflection, which the disciples count as proof of their founder's words. When Tùng Đào Cung and Băng Tâm Các went to war over the lake, Băng Tâm skiffs raided the pearl beds in 942, and the manor sank its own boats rather than lose them. The arbitration that ended the war left the lake with Tùng Đào but gave Băng Tâm the fishing of the northern shore, so the manor now shares its waters with its old raiders. In 1150 Kiều Nguyệt Châu became mistress of the manor and doubled the pearl harvest within twenty years.",
    "special": true,
    "levels": [
@@ -183,9 +183,9 @@
    ]
   },
   "15": {
-   "name": "Lê Hoa Am",
+   "name": "Môn Am",
    "look": "A small hermitage of white-plastered halls climbs a steep slope beside the ice fields, inside an orchard of old pear trees whose branches are white with rime most of the year. From below, the rimed orchard looks like a hillside in full blossom even in deep winter. A single three-roof bell pagoda stands above the trees.",
-   "lore": "Lê Hoa Am is a hermitage (am) of ice cultivators, a minor sect (tiểu tông môn) sworn to Băng Tâm Các, and it takes only women. It was founded in 600 by a nun who came after a snow fell like pear blossom overnight in the eighth month. Thái Lê Tuyết has been abbess since 1020, and when Chúc Long Sơn rumbled in 1199 the nuns prayed all winter.",
+   "lore": "Môn Am, the Gate Hermitage, is the old seat of Lê Hoa Am, a hermitage (am) of women ice cultivators and a minor sect (tiểu tông môn) sworn to Băng Tâm Các. The grey sisters hold the gate here, where outsiders meet the hermitage, under the prioress Mạnh Tĩnh Chi, while the white nuns went up to the glacier of Lăng Tuyệt Phong in 702. A nun founded it in 600 after a snow fell like pear blossom overnight in the eighth month, and when Chúc Long Sơn rumbled in 1199 the nuns prayed all winter.",
    "history": "In 600 a snow that fell like pear blossom overnight in the eighth month brought a nun to the ice fields of Ngọc Hồ Sơn, and she founded Lê Hoa Am where it had fallen. The hermitage swore itself to Băng Tâm Các, which had held the empty ice for more than a century. Its nuns planted pear trees around their halls, and the rime on the branches gave the place the look of its name. The Tiêu family's village of Hòe Âm below came to answer to the hermitage. In 1020 Thái Lê Tuyết became abbess. In 1150 the Tiêu clan sent its first son to the gate; he was turned away for being a son, and became a hunter. In 1199 Chúc Long Sơn rumbled under the ice for the first time since the eruption that buried Hồ Thiên Phái, and the nuns prayed all winter.",
    "special": true,
    "levels": [
@@ -226,9 +226,9 @@
    ]
   },
   "18": {
-   "name": "Bình Thủy Môn",
-   "look": "A sect seat on a low green headland over the strait, its halls rising in grey-tile tiers to a single high hall. On the point stands a tall mast hung with green lanterns, lit every dusk to mark the crossing, and below it the ferries come and go from the market quay.",
-   "lore": "Strangers far from home, meeting on the island by chance like duckweed on water, founded this sect in 520 and live by sea trade, ships and the strait crossing, sworn to Lạc Hà Tông. Every disciple must have been born somewhere else, and gives the name of their home village at the gate; it is written on a green lantern, and the mast carries the homes of all who have served. Under Bùi Phiêu Bình, head since 1110, the crossing runs every day of the year.",
+   "name": "Khách Tương Đường",
+   "look": "A low green headland over the strait carries halls rising in grey-tile tiers to one high hall, now a hostel for travellers. On the point stands a tall mast hung with green lanterns, lit every dusk, and below it the ferries come and go from the quay.",
+   "lore": "Khách Tương Đường, the Strangers' Hall, is the old seat of Bình Thủy Môn, the sect of the strait crossing, which moved to its Tide Hall on Cự Ngao Chử in 1116. Newcomers sleep their first night here, free, and are fed before they are asked anything. The Book of Meetings, in which every newcomer writes the name of their home village, is kept here by the purser Cù Bối Ngân, and the mast still carries the homes of all who have served. Strangers far from home founded the sect on this headland in 520.",
    "history": "A generation before the sect, Cô Vụ Đảo became Lạc Hà Tông's land when Giang Bích Không swore Cô Phàm Các to Lạc Hà in the Strait Oath. In 520 strangers far from home, who had met on the island like duckweed on water, founded Bình Thủy Môn on this headland. In 525 a market of chance meetings, Tương Phùng Thị, grew up at the quay below the seat, and the sect's ferries made it the island's door to the mainland. When the fleet of Cô Phàm Các was lost at sea in the Age of the North Star Compact, Bình Thủy's ferries became the island's surest ships. In the Age of Vein Wars Wave Rock split at Lãng Thạch Thôn, one of the sect's villages, and gave up a sea cave of old Cô Phàm charts; some say the best of them are kept in the seat's archive. In 1110 Bùi Phiêu Bình became head, and under him the strait crossing runs every day of the year, storm or calm.",
    "special": true,
    "levels": [
@@ -335,9 +335,9 @@
    ]
   },
   "26": {
-   "name": "Lễ Tuyền Phái",
+   "name": "Tuyền Phòng",
    "look": "A low rise on the open grassland by the shore of Triêu Hà Hồ carries a short stack of pale timber halls and a three-roofed pagoda. Below the pagoda a round basin of white stone brims with spring water under one enormous wutong (ngô đồng) tree, its broad leaves always beaded wet. Stoneware jars sealed with red clay stand in rows on the lowest terrace, warming in the sun.",
-   "lore": "A minor sect (tiểu tông môn) of healers under Phượng Minh Cung, Lễ Tuyền Phái brews spirit wine (linh tửu) from the sweet spring the phoenix is said to drink from, and treats the sick with it. Its head, Mai Lễ Tuyền, keeps the lake springs and the herb gardens of Lục Dã Trấn. Disciples may not draw from the basin with metal; they use gourds, so that the spring is never cut. Since the wine first went to the Pivot's table, the jars that leave the spring carry the school's name further than its arts ever have.",
+   "lore": "Tuyền Phòng, the Spring House, is the old seat of Lễ Tuyền Phái, the healers' sect under Phượng Minh Cung, and the brewers keep it now: the sweet spring the phoenix is said to drink from, the cellars and the wine-masters' families are here. Nhạc Thuần Nhưỡng is its wine-master, and the brewers fill the hundred jars of spirit wine (linh tửu) the Pivot orders each year. Disciples may not draw from the basin with metal; they use gourds, so that the spring is never cut. The healers went down to the Dawn Hall on Triêu Hà Hồ in 1141.",
    "history": "In 660, in the Age of the North Star Compact, healers who brewed wine from the sweet spring founded Lễ Tuyền Phái beside the lake, under the protection of Phượng Minh Cung. Two years later, in 662, the green meadows of Lục Dã were given to the school for its herb gardens. For two centuries it stayed small, known in the rice towns for fevers cured and wounds washed clean. In 850 Mai Lễ Tuyền was born in Lục Dã Trấn, and it was said her first cry made the spring flow sweeter; she grew up to lead the school. Through the Age of Vein Wars its healers tended the wounded of their lord's short wars and took no side of their own. In 1140 its spirit wine was served at the Pivot's table for the first time, and Thiên Xu Tông set a standing yearly order for it. Envoys of the Pivot now come to the spring each year to fetch the jars.",
    "special": true,
    "levels": [
@@ -346,9 +346,9 @@
    ]
   },
   "27": {
-   "name": "Hồng Đậu Trang",
+   "name": "Nhã Môn",
    "look": "Where the rain forest meets the sea, a walled manor of red-lacquered halls rises in three terraces, half buried in glossy leaves. Its entrance is a perfect round moon gate of red lacquer, so thickly wreathed in vines of scarlet, black-eyed beans that the lacquer barely shows. A path of crushed shell leads to it from the forest road.",
-   "lore": "Hồng Đậu Trang is a minor ma đạo sect under Thính Vũ Lâu, a house of poisons and charms behind a gracious door. Its mistress Nghê Hồng Đậu found the sword Phi Hồng in this forest and built the manor around it. The door opens to guests of every sect and the house is famous for its hospitality; it is also said that those who stay too long do not leave. Red beans grow in the south, the old poem says, and here everyone knows the lovesick bean is a deadly poison.",
+   "lore": "Nhã Môn, the Gracious Door, is the front house of Hồng Đậu Trang on the forest road, a minor ma đạo sect under Thính Vũ Lâu, and it keeps the tea room that opens to guests of every sect. Liễu Đa Thải, mistress of the door, pours each guest one cup and decides who is poured a second. Nghê Hồng Đậu moved her own rooms and her canon to the vein garden in 1110, and only a cart track from here reaches it. The house is famous for its hospitality, and it is said that those who stay too long do not leave.",
    "history": "In the early years of the North Star Compact, Diệp Phi Hồng, sworn sister of Lạc Anh Phái's new head, kept the sword Phi Hồng when the school's founder died without naming an heir. More than a century later, long after Lạc Anh had broken apart, she carried Phi Hồng into the rain forest of Tiêu Vũ Lâm and taught its art to no one, and the sword waited there for an heir. In 800 Nghê Hồng Đậu was born in Thu Trì Thành, and red beans grew from the cracks in her mother's doorstep. In 910 she found Phi Hồng where Diệp Phi Hồng had left it, and founded Hồng Đậu Trang around it under the lordship of Thính Vũ Lâu. By 912 the manor's gracious door was open to guests from every sect, and the saying began that those who stay too long do not leave. Its poisons and charms found ready buyers once the Night Rain Market opened in Thu Trì the next century. In 1197 travellers on the forest road found red beans scattered on the path to the manor, and stepped around them; no one has said what they meant.",
    "special": true,
    "levels": [
@@ -1986,9 +1986,9 @@
    "special": true
   },
   "184": {
-   "name": "Lăng Tuyệt Phong",
-   "look": "The highest summit on the continent: a white glacier pyramid standing clear above a sea of cloud, every other peak below it. A small cairn of pale stones sits on the very top. From its foot the summit looks close enough to touch, and is not.",
-   "lore": "Băng Tâm's climbers reached the top of Lăng Tuyệt Phong in 480 and saw all the mountains small, and left the cairn that still stands there. Since then a disciple who means to enter a long seclusion often climbs it first. The cold at the summit is said to test the ice heart more cruelly than any master.",
+   "name": "Lê Hoa Am",
+   "look": "The highest summit on the continent, a white glacier pyramid standing clear above a sea of cloud, with a cairn of pale stones on its very top. On a shelf of rock and ice on its flank a small hermitage of white-plastered halls hangs a bronze bell, ringed by frost-white stones.",
+   "lore": "Lăng Tuyệt Phong is the Upper Hermitage of Lê Hoa Am, a hermitage (am) of women ice cultivators, a minor sect (tiểu tông môn) sworn to Băng Tâm Các. In 702 the founder Kỷ Hoa Ảnh raised it on the glacier, hung the bell cast from frozen lightning at the heart of the Pear-Frost Ring and planted ice pears round it; the white nuns live here under the abbess Thái Lê Tuyết, and the grey sisters hold the gate below. Băng Tâm's climbers reached the summit in 480 and left the cairn, and Băng Tâm's disciples still climb it before a long seclusion.",
    "history": "No climb of the continent's highest peak is remembered from the Wild Age or the Age of First Gates; even Hồ Thiên's disciples, who carved the stair on Hồi Lộ Phong, left no record of its top. Tần Ngưng Sương founded Băng Tâm Các in the Age of Seven Seats, and within a generation the sect had claimed the empty ice of Ngọc Hồ Sơn. In 480 the sect's climbers reached the summit of Lăng Tuyệt Phong and saw all the mountains small. They left a cairn of pale stones at the top. In the centuries since, Băng Tâm's disciples have climbed it as a rite before long seclusion, and the sect has never set a building on it. No one claims the peak; the cold holds it.",
    "special": true
   },
@@ -2049,9 +2049,9 @@
    "special": true
   },
   "193": {
-   "name": "Triêu Hà Hồ",
-   "look": "A wide shallow lake in the open grassland, so still at dawn that the first clouds lie doubled on it. Each morning a mist rises off the water and turns rose, then gold, with the sunrise. In the eastern shallows lies a low, flat platform of weathered stone, half awash, where musicians once played to the sun.",
-   "lore": "The plain folk say the east's dawn clouds answer Lạc Hà's sunset clouds in the west. In 200 the musicians of Vân Môn played to the morning sun over the lake, and the dawn clouds took the colour of their music. Hoa Triêu Dương, now head of Phượng Minh Cung, was born on its shore at dawn in 950 as the clouds turned red. Lễ Tuyền Phái keeps its sweet spring on the shore.",
+   "name": "Lễ Tuyền Phái",
+   "look": "A wide shallow lake lies so still at dawn in the open grassland that the first clouds lie doubled on it, a rose mist lifting off the water. On its shore stands the Dawn Hall, pale timber halls at the water's edge with herb terraces behind, and in the eastern shallows lies a low flat platform of weathered stone, half awash.",
+   "lore": "Lễ Tuyền Phái, a minor sect (tiểu tông môn) of healers under Phượng Minh Cung, keeps its Dawn Hall (Triêu Đường) on this shore, where in 950 Mai Lễ Tuyền delivered Hoa Triêu Dương, now head of Phượng Minh Cung, at dawn as the clouds turned red. Mai Lễ Tuyền raised the hall in 1141 with a gift from the palace head and moved the healers and the inner gate down from the spring, while the brewers kept the Spring House. A bronze mirror that came with the gift hangs under the hall's eaves and gathers the lake's dawn light. The plain folk say the east's dawn clouds answer Lạc Hà's sunset clouds in the west, and pilgrims of the Palace come at dawn to watch them.",
    "history": "In the Age of First Gates the musicians of Vân Môn Thành, Cửu Thiều Cung's city on the plain, came to this lake to play to the rising sun. By 200 it was said that the dawn clouds took the colour of their music, and the players built a low stone platform in the shallows to stand on. After the War of the Nine Shao the musicians were gone, and for nearly two centuries only herders saw the dawns here. When Phượng Minh Cung took the plain, its people came back to the shore. In the Age of the North Star Compact healers founded Lễ Tuyền Phái beside the lake, at the sweet spring. In 950 Hoa Triêu Dương was born at dawn on the shore as the clouds turned red; a century and a half later she became head of Phượng Minh Cung. Since then pilgrims of the Palace come at dawn to watch the clouds, and some bring flutes.",
    "special": true
   },
@@ -2196,9 +2196,9 @@
    "special": true
   },
   "214": {
-   "name": "Hồ Thiên Phái",
-   "look": "On a flat, bleak tundra shore, a field of black frozen lava runs down to the water, and from it sticks the green-tiled tip of a single pagoda roof, curled eaves and all. No grass grows around it and no bird sings. The wind hums through gaps in the buried tiles.",
-   "lore": "Khúc Hồ Già founded Hồ Thiên Phái on the ice of Ngọc Hồ Sơn in 210, below the fire mountain, and in 230 forged the sword Phi Tuyết from ice that never melts. In 425 Chúc Long Sơn erupted and buried the school with its founder. Băng Tâm holds the shore and tells its disciples not to dig, but treasure hunters whisper that Phi Tuyết lies somewhere under the lava, still cold.",
+   "name": "Băng Tâm Các",
+   "look": "Băng Tâm Các's white halls climb a black lava mountain on a sheet of blue glacier ice, raised on the ruin of Hồ Thiên Phái, with a great Vessel Hall on the summit and a tall white pagoda behind it. At the mountain's foot the green-tiled tip of one old pagoda roof still stands out of a bare field of black lava, and a ring of jade-green light glows up through the ice.",
+   "lore": "Băng Tâm Các, the Pavilion of the Ice Heart, is a great sect (đại tông môn) of sword cultivators (kiếm tu); its name comes from the old line that the ice heart sits in the jade vessel. In 470, when the sect claimed the empty ice of Ngọc Hồ Sơn, Tần Ngưng Sương moved it onto the ruin of Hồ Thiên Phái and laid the Jade Vessel Array into the ice over the buried vent; the steam stopped and the birds came back. Sở Ngọc Hồ has led the sect since 1010 as keeper of the Jade Vessel, with Tiết Hàn Mai as first elder. Hồ Thiên Phái, buried by Chúc Long Sơn in 425 with its founder Khúc Hồ Già, lies beneath the halls, and the sect leaves the ruin as it lay.",
    "history": "In 210 Khúc Hồ Già founded Hồ Thiên Phái on the ice of Ngọc Hồ Sơn, below the fire mountain Chúc Long Sơn, where snow flies in the eighth month. In 230 Khúc Hồ Già forged the sword Phi Tuyết from ice that never melts. In the school's best years its disciples carved the winding ice stair of Hồi Lộ Phong. In 425 Chúc Long Sơn erupted under the ice and buried the school with its founder, and Ngọc Hồ Sơn lay empty. A year later steam still rose from the ice where Hồ Thiên had stood, and no bird sang there. Two generations later Băng Tâm Các claimed the empty ice and left the ruin as it lay. The villagers of Đỗ Quyên Thôn still say the red azaleas on their slopes are the eruption's dead.",
    "special": true
   },
@@ -2500,9 +2500,9 @@
    "new": true
   },
   "260": {
-   "name": "Trầm Bích Đàm",
-   "look": "A round, still side lake behind a sand bar off the long lake, ringed by birches, so calm that the full moon lies in it like a jade disc dropped to the bottom.",
-   "lore": "The sand bar closed this bay off from Hạo Nguyệt Hồ long ago, and Hàm Nguyệt Trang's novices practise here before they are let near the Moon Net. Its water is cold and deep, and pearl mussels grow slowly in it.",
+   "name": "Hàm Nguyệt Trang",
+   "look": "Dark timber halls under grey tile stand on tall piles over the middle of a round, still pool behind a bar, joined by long covered walkways, and birches ring the shore. The water is so calm that every roof and the full moon lie in it twice.",
+   "lore": "Hàm Nguyệt Trang is a small water-arts sect (tông môn) sworn to Tùng Đào Cung, living on spirit fish (linh ngư) and lake pearls. Its founder Đới Thiềm Quang raised the moon halls on piles over Trầm Bích Đàm in 412, because the moon lies stillest here, and sank the Sunken Disc under them to hold the moonlit qi. Its mistress Kiều Nguyệt Châu has led it since 1150 and doubled the pearl harvest. The sect keeps its boats and its pearl trade at the Shore House on the lake.",
    "new": true
   },
   "261": {
@@ -2518,9 +2518,9 @@
    "new": true
   },
   "263": {
-   "name": "Tiêu Âm Mạch",
-   "look": "Under a ring of old wild banana plants whose leaves the wind never tears, the ground breathes a faint green warmth and the rain falls softer.",
-   "lore": "A spirit vein (linh mạch) of Wood (Mộc) qi in the jungle behind Hồng Đậu Trang, where the manor grows its charm-herbs. Visitors who sit too long in the shade wake with a headache and no memory of the hour.",
+   "name": "Hồng Đậu Trang",
+   "look": "Under a ring of old wild banana plants, red-bean trellises climb over faintly warm green ground, and a low house of black wood stands among them, where gardeners in grey bend over the beds. The rain falls softer here.",
+   "lore": "Hồng Đậu Trang is a minor ma đạo sect under Thính Vũ Lâu, a house of poisons and charms. Its mistress Nghê Hồng Đậu has kept her own rooms and her canon here since 1110, in the banana shade over a spirit vein (linh mạch) of Wood (Mộc) qi, where the red beans grow on trellises first planted in 912 and rewoven as the Red Trellis array. Only a cart track from the manor on the forest road reaches it, and visitors who sit too long in the shade wake with a headache and no memory of the hour. Those who stay too long at the manor are said to end up tending the beans.",
    "new": true
   },
   "264": {
@@ -2644,9 +2644,9 @@
    "new": true
   },
   "284": {
-   "name": "Ngạo Tuyết Phái",
-   "look": "A small school of grey-tiled halls among wild plums on a slope above the river, its practice yard ringed with plum trees.",
-   "lore": "Ngạo Tuyết Phái is a small school of sword cultivators sworn to Tùng Đào Cung, founded in 1105 by a swordsman who learned his art watching the plum bloom through the snow. Its plum-blossom sword forms are quick and light.",
+   "name": "Mai Môn",
+   "look": "A plain grey plank gate under a small tiled roof stands at the end of a garden of about two hundred old plum trees, with a few low grey-tiled buildings and a stone yard before it. In the first winter a line of children waits in the snow under the red blossom to have their roots read.",
+   "lore": "Mai Môn, the Plum Gate, is the old seat of Ngạo Tuyết Phái, a small school of sword cultivators sworn to Tùng Đào Cung, and is now its outer gate. Every child's root is read here in the first winter, and the founder turns away anyone without Metal; Mạc Chiết Chi keeps the gate and the school's graves. Every winter the outer disciples come down to it and train barefoot under the plums. A swordsman who learned his art watching the plum bloom through the snow founded the school here in 1105, and its plum-blossom sword forms are quick and light.",
    "new": true
   },
   "285": {
@@ -2752,9 +2752,9 @@
    "new": true
   },
   "302": {
-   "name": "Cự Ngao Chử",
-   "look": "A flat of rough grass and tide pools behind the shore, pocked with burrows wide enough to swallow a goat.",
-   "lore": "Spirit crabs with claws as long as an arm come up out of the surf to burrow here. Their shells are hard enough to turn a blade, and the fishers of Lãng Thạch sell them to armourers on the mainland.",
+   "name": "Bình Thủy Môn",
+   "look": "The Tide Hall stands on agarwood stilts above low brackish flats of grey grass, cut by creeks that fill and empty with the tide. A raft track runs off toward Wave Rock, and giant crabs still roam the mud around the stilts.",
+   "lore": "Bình Thủy Môn, founded in 520 by strangers far from home and sworn to Lạc Hà Tông, has kept its Tide Hall here since 1116, on agarwood stilts above the crab flats of Cự Ngao Chử. Its head Bùi Phiêu Bình chose the flats for the Still Moon Tide Scripture, a canon that fills at the turn of the tide, and in 1115 he fought the Claw King for two tides and killed it at slack water. He drove its shell plates into the mud as the Slack-Water Weirs, and the sect's boats moor at Lãng Thạch. The old hall above the landing is now the Strangers' Hall.",
    "new": true
   },
   "303": {
@@ -3478,9 +3478,9 @@
    "new": true
   },
   "423": {
-   "name": "Dã Tang Lâm",
-   "look": "A tangled wood of wild mulberries on the river, purple with fallen fruit in summer.",
-   "lore": "The poorest families of Tang Ma pick leaves here for their silkworms. Children come in summer to paint their door charms in the purple juice.",
+   "name": "Yên Quang Các",
+   "look": "Low furnace-houses of grey tile and unpainted timber stand under old wild mulberry trees, and a thin line of sweet steam goes up at dusk. In summer the ground beneath the trees is purple with fallen fruit.",
+   "lore": "Yên Quang Các, the Pavilion of the Hazy Light, is a minor sect of alchemists (luyện đan) sworn to Lạc Hà Tông. In 1187 its head Tào Mộ Tử moved the furnaces and beds here, carrying the founder's furnace with its coals lit so that the fire never went out. The mulberry gives three medicines, the leaf, the root bark and the mistletoe that grows on it. The poorest families of Tang Ma still pick leaves here for their silkworms, and the old seat on the steppe is now the Dusk Field.",
    "new": true
   },
   "424": {
@@ -3634,9 +3634,9 @@
    "new": true
   },
   "449": {
-   "name": "Hỏa Ti Trấn",
-   "look": "Blackened walls on a steep slope above the vent field, with rows of stone reeling basins standing in the roofless halls.",
-   "lore": "Xích Thành Môn's town of fire-silk spinners, where the thread for the Xích Hà Kỳ was reeled from the vents. It burned in the fighting of 590 when Phượng Minh destroyed the gate, and no one has spun fire-silk there since.",
+   "name": "Phượng Minh Cung",
+   "look": "Red-lacquered halls with golden-brown roofs climb the black volcanic rock below the smoking vent of Chúc Dung Khẩu, with faint lines of red silk glowing from the vent's lip down to the roofs. The old fire-silk quarter of Hỏa Ti still crowds the slope below them.",
+   "lore": "Phượng Minh Cung, the Palace of the Phoenix's Call, is the great sect of fire and wood in the south; in 1162 its head Hoa Triêu Dương moved the court, the treasury and the Hall of Spoils here from the ridge, which is now the Wutong Court. Ngô Thê Đồng had raised the Fire Court (Hỏa Đình) on the ashes of Hỏa Ti Trấn in 592, after the fire-silk town burned in the fighting that destroyed Xích Thành Môn, and sent his inner gate down to it. He laid the town's last unburned silk as the Nest Array, carrying the vent's fire into the court, and swore that no silk would be reeled at these vents again. The ash-born, children born at the Fire Court since 592, run the palace.",
    "new": true
   },
   "450": {
@@ -4054,9 +4054,9 @@
    "new": true
   },
   "519": {
-   "name": "Tằng Loan Phong",
-   "look": "A tall square-sided peak of pale rock, the highest in the bay's lands, standing above ridge after ridge.",
-   "lore": "Its name comes from the old line about layered ranges rising green to the heavens. Its rock carries Metal and Earth qi, and few cultivators have climbed it.",
+   "name": "Minh Loan Các",
+   "look": "Black casting sheds stand on a ledge of a tall peak of pale rock, with a frame of bells hung under their eaves, and ridge after ridge falls away below. The note of a bell rung here is heard on every ridge.",
+   "lore": "Minh Loan Các, the Pavilion of the Singing Bells, is the bell-casting sect of Lạc Hà Tông's bay, whose ward bells drive off beasts, warn of attack and ring on every ship and caravan of the bay. In 1188 its head Yến Bội Ngọc moved the casting floor and the inner pavilion up this mountain, after the casting master Ngụy Trầm Âm cast the Cloud Bridge bells on this shoulder, next to the blue jade mine, and they rang true. A ring of tuned bells, the Hundred-Bell Eaves, rings in the mountain wind under the pavilion's roofs, though it is still a little under half hung. The peak's name comes from the old line about layered ranges rising green to the heavens.",
    "new": true
   },
   "520": {
@@ -4102,9 +4102,9 @@
    "new": true
   },
   "527": {
-   "name": "Minh Loan Các",
-   "look": "A tall pavilion on the steppe shore, its eaves hung with hundreds of bronze bells that ring together in the sea wind.",
-   "lore": "Bell-casters founded the pavilion in 960 under Lạc Hà Tông, after the old line about jade pendants and singing bells. Its disciples cast ward bells whose note drives off beasts and warns of attack, and every ship and caravan of the bay carries one. A disciple must cast a bell that rings true before learning any art.",
+   "name": "Chung Bến",
+   "look": "A walled bell-yard of grey stone and tile stands on the steppe shore, its foundry smoking among hundreds of bronze bells hung on timber frames that ring together in the sea wind. Beyond it the bay's ships lie at the wharf.",
+   "lore": "Chung Bến, the Bell Wharf, is the coast hall of Minh Loan Các, where bell-casters founded the pavilion in 960 under Lạc Hà Tông, after the old line about jade pendants and singing bells. Its casting floor moved up Tằng Loan Phong in 1188 and the hall was left to the ships. Ships are fitted and caravans buy their ward bells here, and the steward Ông Hải Linh keeps the note ledger, which records every bell the pavilion has sold by its note.",
    "new": true
   },
   "528": {
@@ -4162,9 +4162,9 @@
    "new": true
   },
   "537": {
-   "name": "Yên Quang Các",
-   "look": "A pavilion of ochre walls on the steppe, surrounded by terraced herb beds that its disciples tend only at sunset.",
-   "lore": "Alchemists sworn to Lạc Hà Tông founded the pavilion in 1065, after the old line about the haze and light congealing as the evening hills turn purple. They pick their herbs only in the hour of the evening glow and say the herbs hold the light. Lạc Hà's disciples buy most of its pills.",
+   "name": "Vãn Điền",
+   "look": "A small walled yard of grey stone and grey tile stands quiet on the steppe, with a gate-house, a plain hall with a lantern before it and a drying shed hung with herb bundles. Behind it a gentle hillside slopes away, where the founder's grave lies and pickers walk in a slow line at sunset.",
+   "lore": "Vãn Điền, the Dusk Field, is the old seat of Yên Quang Các, now its outer gate, where the pickers walk the steppe at sunset beside Hà Quang Tuyền, the Spring of the Evening Glow. The grand elder Diêm Tử Tô lives here beside the founder's grave and would not move, and Văn Đương Quy keeps the field with him. Two of Lạc Hà's alchemists founded the pavilion here in 1065, after the old line about the haze and light congealing as the evening hills turn purple. The sect moved its furnaces and beds to Dã Tang Lâm in 1187.",
    "new": true
   },
   "538": {
@@ -4288,9 +4288,9 @@
    "new": true
   },
   "558": {
-   "name": "Vân Kiều Trấn",
-   "look": "Ruined stone houses on a high mountain shoulder, reached by a broken stone bridge over a gorge.",
-   "lore": "Silver miners built the town in 520 under Lạc Hà Tông, and reached it by a stone bridge often lost in cloud. By 1040 its silver was gone and its people had moved down to Vân Gian. The bridge broke in a storm a few years later.",
+   "name": "Lạc Hà Tông",
+   "look": "Rose-tiled halls of pale stone climb two shoulders of a high mountain, with the dark ruins of the old town showing among the new terraces. A band of sunset-coloured cloud joins the two shoulders across the gorge, where the old bridge broke.",
+   "lore": "Lạc Hà Tông, the Sect of the Drifting Sunset Clouds, is one of the seven great sects and master of the western lands; its arts lean on earth and wood, and its head Tô Vãn Chiếu carries the sword Tử Điện. The sect moved up here from the steppe in 1185, to high ground where Earth and Wood qi lie together, and its array master Quách Tiếp Vân laid the Cloud Bridge Array across the gorge. Silver miners had built Vân Kiều Trấn on this mountain in 520 under Lạc Hà; by 1040 the silver was gone and its people had moved down to Vân Gian, and the bridge broke in a storm a few years later.",
    "new": true
   },
   "559": {
@@ -6184,9 +6184,9 @@
    "new": true
   },
   "874": {
-   "name": "Thần Cổ Phong",
-   "look": "A massive round-shouldered summit beside the Thunder vein, its hollow rock booming like a drum when thunder strikes it.",
-   "lore": "Metal (Kim) qi fills its hollow rock. The guards of Kinh Lôi Mạch say the peak warns them of storms a day before they come.",
+   "name": "Thính Vũ Lâu",
+   "look": "Black halls stand on a bare grey peak with a drum-shaped crown, a bronze rain-chain hanging from every eave and running down into the rock, and lightning running down the chains in a storm. The hollow rock of the peak still booms like a drum when thunder strikes.",
+   "lore": "Thính Vũ Lâu, a great sect (đại tông môn) of the ma đạo (demonic path), ruled by Mạnh Dạ Vũ, who holds the Tương Phi Tán, has held this summit since 1166-1170, when it carried its halls east from the cone; its old seat is now the Rain Tower. The Tower had built its guard here in 1046 above the ashes of Thủ Lôi Bảo, and the canon's second half wants the Thunder qi that the cone lacks. In 1170 Thạch Liên Hoàn and Lệ Tiêu Hồn laid the Iron Rain array, a bronze chain from the peak down to Kinh Lôi Mạch, and the soul vaults moved into the vein. The guards of Kinh Lôi Mạch say the peak warns them of storms a day before they come.",
    "new": true
   },
   "875": {
@@ -7600,9 +7600,9 @@
    "new": true
   },
   "1110": {
-   "name": "Cổ Dịch Trấn",
-   "look": "A street of empty inns and a collapsed post stable line an overgrown road through the pines.",
-   "lore": "It was the post town on the old road from the Cold Ford to Lam Yên. When the road was moved east in 975, its inns closed one by one.",
+   "name": "Thúy Vi Tông",
+   "look": "Wooden halls with green-glazed roofs stand in deep forest with no wall around them, half drowned in a blue-green haze, and herb terraces climb the forest edge. Inn gardens grow too well along the old post town's overgrown streets.",
+   "lore": "Thúy Vi Tông, the Sect of the Emerald Haze, is a righteous (chính đạo) great sect of alchemists, and has kept its halls in the old post town of Cổ Dịch Trấn since 1001-1006. The inns had closed one by one after the road was moved east in 975, and in 1000 Ngu Lam Sơn ended his hundred days in the haze at the empty inns and gave his first order as head: 'We go down.' The town sat on a root-vein nobody had noticed, the green haze the sect is named for pools thickest here, and Tất Hành Vụ laid the Spring Return array over the vein in 1006. Úy Thanh Diễm carried the Green Furnace down from the ridge still burning.",
    "new": true
   },
   "1111": {
@@ -8512,9 +8512,9 @@
    "new": true
   },
   "1262": {
-   "name": "Thạch Khẩu Trấn",
-   "look": "A miners' town in ruins on the mountain, its stone houses roofless.",
-   "lore": "The miners' town of the tiger-stripe mine. The ore ran thin and the tiger took miners, and it emptied in 1161.",
+   "name": "Ngạo Tuyết Phái",
+   "look": "A sword hall with a freshly tiled roof stands among the grey stone houses of an old mining town, about a hundred and twenty of them repaired and the rest roofless, with a forge smoking beside it. Behind the town the spoil heaps of the ore lie banded like a tiger's flank.",
+   "lore": "Ngạo Tuyết Phái is a small school of sword cultivators sworn to Tùng Đào Cung, founded in 1105 by a swordsman who learned his art watching the plum bloom through the snow; it takes only children with Metal in their root. In 1162, a month after the tiger of Thạch Khẩu killed his daughter Lăng Nhược Mai, the founder Lăng Đạp Tuyết hunted it to Hổ Khiếu Cương, killed it, and moved the sword hall into the town's empty smelting houses. His sworn brother Trác Thiết Cán, a miner's son of the town, relit the forge. The miners had left because the tiger-stripe ore ran thin and the tiger took them, and the town was empty by 1161.",
    "new": true
   },
   "1263": {

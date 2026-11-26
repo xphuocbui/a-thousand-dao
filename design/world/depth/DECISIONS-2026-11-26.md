@@ -63,3 +63,7 @@
 - **The 12 unmoved minor seats** whose province's seat place is a village, town or nothing are fixed the same way (their
   province takes the minor seat as its seat place), in a separate commit with a census check.
 - **Re-leans** (`seats.json`) go into the game's sect records with Stage 9 (admission and land-driven roots).
+- **Sect-hall map symbol:** option 1 (a wide hall with a double roof behind a gate arch), style G, painted at low
+  quality; the other symbols are unchanged.
+- **Place and province text** for the 26 moved places and their provinces: rewritten now from the pages, shown as one
+  table first. **Cast homes** of the three old-cast people the pages put at old halls wait for Stage 7.

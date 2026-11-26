@@ -47,7 +47,7 @@
    "name": "Phần Vũ",
    "name_han": "焚羽",
    "gloss": "Burning Feathers",
-   "lore": "Grass, jungle and steep volcanic ground on the east coast, where Phần Vũ Đường tempers its disciples in the vents and Chúc Dung Khẩu smokes over the sea. Few farm here; its people serve the hall and its burned. The walls of a fire-silk town that died with Xích Thành stand on the slope."
+   "lore": "Grass, jungle and steep volcanic ground on the east coast, where Phần Vũ Đường, vassal of Phượng Minh Cung, tempers its disciples in the vents and Chúc Dung Khẩu smokes over the sea. Few farm here; its people serve the hall and its burned. On the slope stands the Fire Court (Hỏa Đình), raised in 592 on the ashes of the fire-silk town of Hỏa Ti, which has been the court of Phượng Minh Cung since 1162; the quarter keeps the name Hỏa Ti."
   },
   "prov_r20_1": {
    "name": "Tân Sinh",
@@ -251,11 +251,11 @@
    "lore": "A Thổ (earth) vein touched with fire. The silk women say it is what puts fire in the thread."
   },
   "prov_phan_vu_ruin_1": {
-   "name": "Hỏa Ti Trấn",
+   "name": "Phượng Minh Cung",
    "name_han": "火絲鎮",
    "gloss": "Fire-Silk Town",
-   "look": "Blackened walls on a steep slope above the vent field, with rows of stone reeling basins standing in the roofless halls.",
-   "lore": "Xích Thành Môn's town of fire-silk spinners, where the thread for the Xích Hà Kỳ was reeled from the vents. It burned in the fighting of 590 when Phượng Minh destroyed the gate, and no one has spun fire-silk there since.",
+   "look": "Red-lacquered halls with golden-brown roofs climb the black volcanic rock below the smoking vent of Chúc Dung Khẩu, with faint lines of red silk glowing from the vent's lip down to the roofs. The old fire-silk quarter of Hỏa Ti still crowds the slope below them.",
+   "lore": "Phượng Minh Cung, the Palace of the Phoenix's Call, is the great sect of fire and wood in the south; in 1162 its head Hoa Triêu Dương moved the court, the treasury and the Hall of Spoils here from the ridge, which is now the Wutong Court. Ngô Thê Đồng had raised the Fire Court (Hỏa Đình) on the ashes of Hỏa Ti Trấn in 592, after the fire-silk town burned in the fighting that destroyed Xích Thành Môn, and sent his inner gate down to it. He laid the town's last unburned silk as the Nest Array, carrying the vent's fire into the court, and swore that no silk would be reeled at these vents again. The ash-born, children born at the Fire Court since 592, run the palace.",
    "former": "town",
    "lived": [
     255,

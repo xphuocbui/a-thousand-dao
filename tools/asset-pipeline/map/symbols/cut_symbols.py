@@ -19,11 +19,27 @@ SIDE = 128
 PAD = 10
 
 
+def sect_hall_cut():
+    """The sect-hall symbol (user pick 2026-11-26: option 1 of sheet-sect-hall.png, a 2 x 2 sheet painted in style G
+    from prompt-sect-hall.md, gpt-image-2 low): the top-left cell."""
+    a = np.asarray(Image.open(os.path.join(HERE, "sheet-sect-hall.png")).convert("RGB")).astype(np.float32)
+    r, g, b = a[..., 0], a[..., 1], a[..., 2]
+    key = g - np.maximum(r, b)
+    alpha = np.clip(1 - (key - 40) / 60, 0, 1)
+    a[..., 1] = g - np.maximum(0, key) * (alpha < 1) * 0.9
+    rgba = np.dstack([a, alpha * 255]).clip(0, 255).astype(np.uint8)
+    c = rgba[:alpha.shape[0] // 2, :alpha.shape[1] // 2]
+    ys, xs = np.nonzero(c[..., 3] > 20)
+    return Image.fromarray(c[ys.min():ys.max() + 1, xs.min():xs.max() + 1])
+
+
 def main(repo):
     syms = cut(os.path.join(HERE, "sheet-g.png"))
+    if os.path.exists(os.path.join(HERE, "sheet-sect-hall.png")):
+        syms["sect_hall"] = sect_hall_cut()
     out = os.path.join(repo, "assets/map/symbols")
     os.makedirs(out, exist_ok=True)
-    for k in BUILT:
+    for k in BUILT + (["sect_hall"] if "sect_hall" in syms else []):
         sp = syms[k]
         f = (SIDE - 2 * PAD) / max(sp.size)
         sp = sp.resize((max(1, round(sp.size[0] * f)), max(1, round(sp.size[1] * f))), Image.LANCZOS)

@@ -17,7 +17,7 @@
    "name": "Hàn Mai",
    "name_han": "寒梅",
    "gloss": "Winter Plum",
-   "lore": "Wide river forest around Hàn Mai Thôn and its plum. Its people farm the river flats, fish and gather wild plums from the woods. Since 1105 the swordsmen of Ngạo Tuyết Phái have trained in the plum wood above the village."
+   "lore": "Wide river forest around Hàn Mai Thôn and its plum. Its people farm the river flats, fish and gather wild plums from the woods. Above the village stands the Plum Gate, the old seat and outer gate of Ngạo Tuyết Phái, founded in 1105; the school's sword hall moved to Thạch Khẩu Trấn in 1162, and every winter its outer disciples come down to train barefoot under the plums."
   },
   "prov_p110": {
    "name": "Bạch Lang",
@@ -185,7 +185,7 @@
    "name": "Hổ Bối Lĩnh",
    "name_han": "虎背嶺",
    "gloss": "Tiger's Back Ridges",
-   "lore": "High mountain and forest around Hổ Khiếu Cương. No one lives here now; the tiger and the thin ore drove the miners out. Tùng Đào's riders go around the ridges, not over them."
+   "lore": "High mountain and forest around Hổ Khiếu Cương. The tiger and the thin ore drove the miners out of Thạch Khẩu Trấn, and since 1162 the swordsmen of Ngạo Tuyết Phái have kept their sword hall in its empty houses. Tùng Đào's riders go around the ridges, not over them."
   },
   "prov_r5_3": {
    "name": "Thương Lô Trạch",
@@ -277,11 +277,11 @@
    "lore": "The villagers of Hàn Mai say the plums grew from the seeds of their own tree. The swordsmen of Ngạo Tuyết Phái train among them in the blossom season."
   },
   "prov_p109_minor_seat_p": {
-   "name": "Ngạo Tuyết Phái",
+   "name": "Mai Môn",
    "name_han": "傲雪派",
    "gloss": "School That Defies the Snow",
-   "look": "A small school of grey-tiled halls among wild plums on a slope above the river, its practice yard ringed with plum trees.",
-   "lore": "Ngạo Tuyết Phái is a small school of sword cultivators sworn to Tùng Đào Cung, founded in 1105 by a swordsman who learned his art watching the plum bloom through the snow. Its plum-blossom sword forms are quick and light.",
+   "look": "A plain grey plank gate under a small tiled roof stands at the end of a garden of about two hundred old plum trees, with a few low grey-tiled buildings and a stone yard before it. In the first winter a line of children waits in the snow under the red blossom to have their roots read.",
+   "lore": "Mai Môn, the Plum Gate, is the old seat of Ngạo Tuyết Phái, a small school of sword cultivators sworn to Tùng Đào Cung, and is now its outer gate. Every child's root is read here in the first winter, and the founder turns away anyone without Metal; Mạc Chiết Chi keeps the gate and the school's graves. Every winter the outer disciples come down to it and train barefoot under the plums. A swordsman who learned his art watching the plum bloom through the snow founded the school here in 1105, and its plum-blossom sword forms are quick and light.",
    "sect": {
     "key": "ngao_tuyet",
     "name": "Ngạo Tuyết Phái",
@@ -687,7 +687,7 @@
    "lore": "The mine dug banded iron ore. The tiger of Hổ Khiếu Cương drove the miners out."
   },
   "prov_r5_29_ruin_2": {
-   "name": "Thạch Khẩu Trấn",
+   "name": "Ngạo Tuyết Phái",
    "name_han": "石口鎮",
    "gloss": "Stone Mouth Town",
    "former": "town",
@@ -695,8 +695,8 @@
     930,
     1161
    ],
-   "look": "A miners' town in ruins on the mountain, its stone houses roofless.",
-   "lore": "The miners' town of the tiger-stripe mine. The ore ran thin and the tiger took miners, and it emptied in 1161."
+   "look": "A sword hall with a freshly tiled roof stands among the grey stone houses of an old mining town, about a hundred and twenty of them repaired and the rest roofless, with a forge smoking beside it. Behind the town the spoil heaps of the ore lie banded like a tiger's flank.",
+   "lore": "Ngạo Tuyết Phái is a small school of sword cultivators sworn to Tùng Đào Cung, founded in 1105 by a swordsman who learned his art watching the plum bloom through the snow; it takes only children with Metal in their root. In 1162, a month after the tiger of Thạch Khẩu killed his daughter Lăng Nhược Mai, the founder Lăng Đạp Tuyết hunted it to Hổ Khiếu Cương, killed it, and moved the sword hall into the town's empty smelting houses. His sworn brother Trác Thiết Cán, a miner's son of the town, relit the forge. The miners had left because the tiger-stripe ore ran thin and the tiger took them, and the town was empty by 1161."
   },
   "prov_r5_3_beast_lair_1": {
    "name": "Nê Giao Chử",

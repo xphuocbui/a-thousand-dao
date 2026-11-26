@@ -281,9 +281,17 @@ earlier hand count, kept for where each kind lives.
   seat can be left; six minor arrays re-sized by Formula G on the seat kind). Lạc Hà's old seat drew a hidden blessed
   land (+0.8) in seed 4242: a per-game roll that stays with the hall, outside Formula G. Screenshots:
   `production/qa/evidence/world-depth-stage2/`.
-- Open: the sect-hall map symbol (no file, so the diamond shows); new seats' banners and place lore until Stage 3 (the
-  panels show the old site's or old seat's text); the three cast homes the pages put at the old hall (Stage 7);
-  the 12 unmoved minor seats (ruled: fix, separate commit); re-leans with Stage 9 (ruled).
+- DONE 2026-11-26: the sect-hall map symbol (user pick, option 1 of `tools/asset-pipeline/map/symbols/sheet-sect-hall.png`,
+  gpt-image-2 low; cut by `cut_symbols.py` into `assets/map/symbols/sect_hall.png`).
+- DONE 2026-11-26: the 26 moved places' look and lore and 23 provinces' lore (user-approved table:
+  `design/world/depth/review/moved-text-2026-11-26.md`), written into the catalogue packs
+  (`design/world/place_catalogue/pack_*.json`, merged by `place_catalogue_check.py`) and the provinces-v2 lore files.
+  The catalogue check now counts a sect hall's sect record; its year notes on 12 entries (move years, page history)
+  clear when Stage 7 exports the depth events.
+- Open: new seats' banners until Stage 3; Băng Tâm's new seat (214) has fewer than 2 catalogue levels (it kept the
+  ruin's); the three cast homes the pages put at the old hall (Stage 7);
+  re-leans with Stage 9 (ruled). The 12 unmoved minor seats whose province was seated at a village, town or nothing
+  are fixed in their own commit (ruled 2026-11-26).
 
 ### Stage 3: install the authored art
 - **Portraits.**

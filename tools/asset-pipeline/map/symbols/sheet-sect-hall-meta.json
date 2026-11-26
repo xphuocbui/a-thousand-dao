@@ -1,0 +1,23 @@
+{
+ "created": 1795699211,
+ "background": "opaque",
+ "output_format": "png",
+ "quality": "low",
+ "safety_identifier": null,
+ "size": "1536x1024",
+ "usage": {
+  "input_tokens": 1819,
+  "input_tokens_details": {
+   "image_tokens": 1536,
+   "text_tokens": 283
+  },
+  "output_tokens": 158,
+  "output_tokens_details": {
+   "image_tokens": 158,
+   "text_tokens": 0
+  },
+  "total_tokens": 1977
+ },
+ "model": "gpt-image-2",
+ "prompt": "The attached sheet shows a set of small map symbols in one style (style G): bold simplified silhouettes in a warm off-white with a dark brown outline and a soft drop shadow, flat with one light shade.\n\nPaint 4 new map symbols in exactly that style, in an exact grid of 2 columns and 2 rows, evenly spaced, all about the same size (each about 30 % of the canvas width across), on flat pure chroma green (#00FF00) with clear green space between them. Every symbol must read clearly when shown very small (about 40 pixels). No text, letters, characters, seals, banners with writing or numbers anywhere.\n\nEach is a different take on one subject: a sect hall, the old seat of a cultivation sect that has moved its main seat elsewhere, now its outer hall or court. It must read as smaller and plainer than the minor sect symbol (a single three-tier pagoda with a courtyard wall) and more important than the town symbol (a cluster of tiled houses). (1) a single-storey hall with a sweeping double roof behind a gate arch; (2) a two-tier pavilion with a courtyard wall and a small gate; (3) a gatehouse with a hall roof behind it and one tall pine; (4) a hall on a raised stone terrace with steps and two lanterns."
+}

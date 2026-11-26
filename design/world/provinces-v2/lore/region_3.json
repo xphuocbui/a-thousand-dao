@@ -47,7 +47,7 @@
    "name": "Thúy Vi",
    "name_han": "翠微",
    "gloss": "The Emerald Haze",
-   "lore": "The twin summits of Thúy Vi Tông and the forested mountains around them, with no coast and no river, high and always half in haze. Herb terraces, pill furnaces and the green jade of Bích Ngọc Khoáng are its wealth. Disciples walk the white spiral Haze Walk from dawn to dusk before they take their vows."
+   "lore": "The twin summits of the Cliff Hall, the old seat of Thúy Vi Tông, and the forested mountains around them, with no coast and no river, high and always half in haze. Herb terraces and the green jade of Bích Ngọc Khoáng are its wealth, and the founder's grave and pine stay on the ridge under the grand elder Cù Thúy Bách. Disciples walk the white spiral Haze Walk from dawn to dusk before they take their vows."
   },
   "prov_van_khoi": {
    "name": "Vân Khởi",
@@ -95,7 +95,7 @@
    "name": "Phục Linh",
    "name_han": "茯苓",
    "gloss": "The Poria",
-   "lore": "Pine forest on the road north from Lam Yên, gently rising toward the mountains. Its villagers dig poria fungus from pine roots for Thúy Vi's furnaces. An old post town on the road stands empty since the road was moved."
+   "lore": "Pine forest on the road north from Lam Yên, gently rising toward the mountains. Its villagers dig poria fungus from pine roots for Thúy Vi's furnaces. The old post town of Cổ Dịch Trấn, left behind when the road was moved, has been Thúy Vi Tông's seat since 1001-1006, its halls standing in deep forest and haze."
   },
   "prov_r3_16": {
    "name": "Bạch Lạp",
@@ -480,7 +480,7 @@
    "lore": "Its oldest pines grow the best poria, and the villagers guard the roots jealously. Thúy Vi disciples walking the road north rest in its shade."
   },
   "prov_r3_15_ruin_3": {
-   "name": "Cổ Dịch Trấn",
+   "name": "Thúy Vi Tông",
    "name_han": "古驛鎮",
    "gloss": "Old Post Town",
    "former": "town",
@@ -488,8 +488,8 @@
     520,
     980
    ],
-   "look": "A street of empty inns and a collapsed post stable line an overgrown road through the pines.",
-   "lore": "It was the post town on the old road from the Cold Ford to Lam Yên. When the road was moved east in 975, its inns closed one by one."
+   "look": "Wooden halls with green-glazed roofs stand in deep forest with no wall around them, half drowned in a blue-green haze, and herb terraces climb the forest edge. Inn gardens grow too well along the old post town's overgrown streets.",
+   "lore": "Thúy Vi Tông, the Sect of the Emerald Haze, is a righteous (chính đạo) great sect of alchemists, and has kept its halls in the old post town of Cổ Dịch Trấn since 1001-1006. The inns had closed one by one after the road was moved east in 975, and in 1000 Ngu Lam Sơn ended his hundred days in the haze at the empty inns and gave his first order as head: 'We go down.' The town sat on a root-vein nobody had noticed, the green haze the sect is named for pools thickest here, and Tất Hành Vụ laid the Spring Return array over the vein in 1006. Úy Thanh Diễm carried the Green Furnace down from the ridge still burning."
   },
   "prov_r3_16_village_1": {
    "name": "Bạch Lạp Thôn",
