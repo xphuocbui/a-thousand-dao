@@ -118,11 +118,11 @@ The content is in `design/world/depth/` (`SUMMARY-2026-11-25.md`).
   `world_cultivators_min` (5000) and the two chronicle texts have changed.
 - **Art** (DECISIONS group 14; style in DECISIONS-2026-11-26):
   - **Portraits:** one per authored person, in the xianxia style, painted at low quality.
-    - Prompts: `design/world/depth/art/portraits/x-<group>/*.json` (1,886 people).
-    - Images: `tools/asset-pipeline/portraits/out/authored/x-<group>/<key>.png`, outside git.
-    - Five authored people have no prompt yet: `ha_tinh_can`, `mac_thang_kieu`, `thang_vo_ta`, `cao_sa_lang` and
-      `nhan_du_ti`. The 18 fallen-sect people above still have old-style portraits. The content session writes and
-      paints all 23 before handoff; check `active.md`.
+    - Prompts: `design/world/depth/art/portraits/x-<group>/*.json` (1,909 people: the 1,891 authored, plus the 18
+      fallen-sect people in `x-fallen`). The five authored people added late (`ha_tinh_can`, `mac_thang_kieu`,
+      `thang_vo_ta`, `cao_sa_lang`, `nhan_du_ti`) are in `x-late`.
+    - Images: `tools/asset-pipeline/portraits/out/authored/x-<group>/<key>.png`, outside git. Check `active.md` for
+      whether the paint run has finished, and retry any key without a png.
   - **Places:** 311 story-site pictures in `design/world/depth/art/places/out/<batch>/`, outside git, painted before
     the xianxia change. Whether to repaint them in the new style is open for the user.
   - **Beasts:** the 21 beasts have no picture and show PlaceholderArt until the user asks for them.
