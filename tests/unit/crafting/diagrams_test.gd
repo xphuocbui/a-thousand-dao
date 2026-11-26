@@ -212,3 +212,12 @@ func test_a_deferred_fuel_is_burnt_only_when_paid_ac_fo_09() -> void:
 	var due2: Array = []
 	Diagrams.compile_for(gd, db, c, FighterCompiler.from_data("typical", 2, gd), null, FightRequest.Situation.FORESEEN, 5, due2)
 	assert_eq(due2.size(), 0, "the player chose not to lay")
+
+
+func test_a_gate_on_a_count_or_the_fight_time_reads_as_plain_numbers() -> void:
+	# regression (2026-11-26): the gate text formatted its value with "%g", which GDScript's % does not support, so the
+	# sect window printed "String formatting error" and the condition lost its number
+	var timed: String = Diagrams.rule_words({"type": "gate", "cond": {"read": "time", "op": ">=", "value": 12.0}}, "?")
+	assert_eq(timed, "holds until the fight's time >= 12s")
+	var counted: String = Diagrams.rule_words({"type": "gate", "cond": {"read": "foe.curses", "op": ">=", "value": 2.5}}, "?")
+	assert_eq(counted, "holds until the foe's curses >= 2.5")

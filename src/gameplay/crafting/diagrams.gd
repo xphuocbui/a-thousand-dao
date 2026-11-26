@@ -411,10 +411,14 @@ static func rule_words(rule: Dictionary, polarity: String = "+", s: float = 1.0)
 				"distinct_statuses": "statuses", "body_shield_share": "body shield", "since_hit": "seconds since you were hit",
 				"buff_elements": "elemental buffs", "time": "the fight's time"}
 			var val: float = float(c.value)
-			var shown: String = ("%.0f%%" % (val * 100.0)) if what.ends_with("_share") else ("%gs" % val if what == "time" else "%g" % val)
+			# GDScript's % has no %g: a plain number with no trailing zeros (12 -> "12", 2.5 -> "2.5")
+			var num: String = String.num(val, 2)
+			if num.contains("."):
+				num = num.rstrip("0").rstrip(".")
+			var shown: String = ("%.0f%%" % (val * 100.0)) if what.ends_with("_share") else (num + "s" if what == "time" else num)
 			if read.begins_with("cycle."):
 				return "fires only on pulse %d of every %s" % [int(val), read.get_slice(".", 1)]
-			return "holds until %s %s %s %s" % [who, names.get(what, what), str(c.op), shown]
+			return "holds until %s%s %s %s" % [(who + " ") if who != "" else "", names.get(what, what), str(c.op), shown]
 	return ""
 
 
