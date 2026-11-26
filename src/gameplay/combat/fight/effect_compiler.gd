@@ -17,7 +17,8 @@ const OPS := ["<=", ">=", "<", ">", "=="]
 ## Readables with no parameter, on a side.
 const SIDE_READS := ["hp_share", "hp_missing_share", "qi_share", "qi_missing_share", "distinct_statuses", "fired",
 	"curses", "ward_paid", "body_shield_share", "boss", "tam_ma", "state.any", "buff_elements", "evade", "since_hit",
-	"hp_max_lead", "composed", "composed_time", "pressing", "foe_pressed", "since_act", "field_up", "broken", "wounded"]
+	"hp_max_lead", "composed", "composed_time", "pressing", "foe_pressed", "since_act", "field_up", "broken", "wounded",
+	"ward_share", "ward_peak", "ward_of_peak"]
 ## Filter and mod-argument keys that are not mod keys.
 const FILTER_KEYS := ["for", "dtype", "element", "tags", "kind", "stack", "status", "art_id", "not_tags", "is_crit", "source",
 	"group"]

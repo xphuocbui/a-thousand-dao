@@ -135,6 +135,16 @@ static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float
 			w.quiet_since = f.t
 			rest -= soak
 			ward_took += soak
+		if rest > 0.0 and dfn.sward > 0.0 and not is_tick and dtype != &"soul":   # the stance ward (W1, 2026-11-26)
+			var ssoak: float = minf(rest, dfn.sward)
+			if not (dm and f.m(dfn, "ward_fixed", null) > 0.0):   # Hold a ward: it stops hits but loses nothing
+				dfn.sward -= ssoak
+				if dfn.sward <= 1e-9:
+					dfn.sward = 0.0
+					if f.listens(dfn, "shield_broken"):
+						EffectRunner.fire(f, dfn, "shield_broken", {"stance_ward": 1})
+			rest -= ssoak
+			ward_took += ssoak
 		a = rest + through
 		if a > 0.0 and dfn.body_bar > 0.0 and dtype != &"chaos" and dtype != &"soul" \
 				and not (dm and f.m(dfn, "no_body_shield", null) > 0.0):

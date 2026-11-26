@@ -423,5 +423,351 @@
   "sources": [
    "world-depth:bang_tam"
   ]
+ },
+ {
+  "id": "heart-in-the-jade-vessel",
+  "name": "Heart in the Jade Vessel (Tâm Tại Ngọc Hồ)",
+  "element": "ice",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "jade-vessel-ice-heart-canon",
+  "tags": [
+   "cold",
+   "stance",
+   "ward"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.04,
+  "cooldown": 6,
+  "kind": "elem",
+  "guards": [
+   {
+    "read": "own.state.jade-vessel",
+    "op": "<",
+    "value": 1
+   }
+  ],
+  "states": [
+   {
+    "id": "jade-vessel",
+    "tags": [
+     "composed"
+    ],
+    "mods": {},
+    "suppress": [
+     "rime-lotus",
+     "five-petals-of-cold",
+     "plum-falls-on-snow",
+     "frost-breath-palm",
+     "shatter-palm",
+     "rime-lock-seal",
+     "black-ice-glaze"
+    ]
+   }
+  ],
+  "effects": [
+   {
+    "id": "vessel-enter",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "heart-in-the-jade-vessel"
+    },
+    "do": [
+     {
+      "state": {
+       "set": "jade-vessel"
+      }
+     }
+    ]
+   },
+   {
+    "id": "vessel-grow",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.state.jade-vessel",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "ward_grow": {
+       "share": 0.03,
+       "of": "hp"
+      }
+     }
+    ]
+   },
+   {
+    "id": "vessel-answer",
+    "on": "ward_absorbed",
+    "if": [
+     {
+      "read": "own.state.jade-vessel",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "ice",
+       "n": 1,
+       "for": 10,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "vessel-answer-high",
+    "on": "ward_absorbed",
+    "if": [
+     {
+      "read": "own.state.jade-vessel",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.ward_of_peak",
+      "op": ">",
+      "value": 0.5
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "ice",
+       "n": 1,
+       "for": 10,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "vessel-release",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.state.jade-vessel",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "any": [
+       {
+        "read": "own.ward_share",
+        "op": ">=",
+        "value": 0.25
+       },
+       {
+        "read": "foe.debuff.ice",
+        "op": ">=",
+        "value": 10
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "release_ward": {
+       "dtype": "cold",
+       "more_per_stack": 0.04,
+       "consume": "ice"
+      }
+     },
+     {
+      "state": {
+       "set": null
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A held stance (Composed). While you hold it your damaging Ice arts wait and a frost ward grows by 3 % of your health each second; each hit it absorbs lays 1 Ice stack on the attacker for 10 s, 2 while the ward is above half its peak. When the ward reaches 25 % of your health or the foe carries 10 Ice stacks, the stance ends and the ward is released as Cold damage on the foe, 4 % more for each Ice stack it consumes (all of them).",
+  "hooks": [
+   "stance ward",
+   "ward strength",
+   "ice stacks",
+   "composed",
+   "release"
+  ],
+  "sources": [
+   "world-depth:bang_tam",
+   "d18 frost-answers-the-blow"
+  ]
+ },
+ {
+  "id": "clear-heart-mirror",
+  "name": "Clear-Heart Mirror (Băng Tâm Kính)",
+  "element": "ice",
+  "role": "ward",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "jade-vessel-ice-heart-canon",
+  "tags": [
+   "cold",
+   "soul",
+   "ward"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 8,
+  "kind": "elem",
+  "effects": [
+   {
+    "id": "mirror-charge",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "clear-heart-mirror"
+    },
+    "do": [
+     {
+      "mod": {
+       "soul_reflect": 1,
+       "for": 6
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "For 6 s, the next soul or heart-demon art that would land on you does nothing to you and strikes its caster as Cold damage equal to what it would have taken.",
+  "hooks": [
+   "soul defence",
+   "reflect",
+   "cold damage"
+  ],
+  "sources": [
+   "world-depth:bang_tam"
+  ]
+ },
+ {
+  "id": "hidden-fragrance",
+  "name": "Hidden Fragrance (Ám Hương)",
+  "element": "ice",
+  "role": "utility",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "snow-plum-sword",
+  "tags": [
+   "cold",
+   "sword",
+   "movement"
+  ],
+  "c_art": 0.8,
+  "cost_share": 0.03,
+  "cooldown": 5,
+  "kind": "elem",
+  "effects": [
+   {
+    "id": "fragrance-afterimage",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "hidden-fragrance"
+    },
+    "do": [
+     {
+      "decoy": {
+       "n": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "fragrance-struck",
+    "on": "decoy_struck",
+    "do": [
+     {
+      "stacks": {
+       "el": "ice",
+       "n": 2,
+       "for": 8,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A light sword step that leaves an afterimage: a small Cold cut, and a decoy that takes the foe's next hit (within the avoid budget). A foe who strikes the afterimage takes 2 Ice stacks for 8 s.",
+  "hooks": [
+   "decoy",
+   "ice stacks",
+   "movement",
+   "pressing"
+  ],
+  "sources": [
+   "world-depth:bang_tam"
+  ]
+ },
+ {
+  "id": "glacier-bastion",
+  "name": "Glacier Bastion (Băng Xuyên Lũy)",
+  "element": "ice",
+  "role": "ward",
+  "tier": "authored",
+  "power": "engine",
+  "group": "frost-lotus-array-canon",
+  "tags": [
+   "cold",
+   "formation",
+   "ward"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.05,
+  "cooldown": 8,
+  "kind": "elem",
+  "effects": [
+   {
+    "id": "bastion-raise",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "glacier-bastion"
+    },
+    "do": [
+     {
+      "ward_grow": {
+       "share": 0.06,
+       "of": "hp"
+      }
+     }
+    ]
+   },
+   {
+    "id": "bastion-grows",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.field_up",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.ward_share",
+      "op": ">",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "ward_grow": {
+       "share": 0.01,
+       "of": "hp"
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Raises an ice wall: your stance ward grows by 6 % of your health. While your Field is up (for example Lotus Seal Ground) and the wall stands, it grows by 1 % of your health more each second.",
+  "hooks": [
+   "stance ward",
+   "field",
+   "ward strength"
+  ],
+  "sources": [
+   "world-depth:bang_tam"
+  ]
  }
 ]

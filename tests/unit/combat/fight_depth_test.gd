@@ -717,3 +717,88 @@ func test_kept_meter_counts_without_a_draw_and_reports_its_end_value() -> void:
 	EffectRunner.fire(g, g.a, "fight_start", {})
 	assert_bool(g.a.meters.is_empty()).is_true()
 	assert_near(EffectRunner._count(g.a.debuffs, "fire"), 0.0, 1e-9, "without the meter no attempt is made")
+
+
+# ---- Stage 6, Băng Tâm Các (2026-11-26): W1-W4 (Effects GDD rules 5-6; test_engine.py, same names) ----
+static func _ice(s: FighterState) -> float:
+	var n := 0.0
+	for x in s.debuffs:
+		if x.el == "ice":
+			n += x.n
+	return n
+
+
+func test_stance_ward_grows_soaks_holds_and_releases() -> void:
+	# test_engine.py t_stance_ward
+	var grow := {"id": "g", "on": "fight_start", "do": [{"ward_grow": {"share": 0.10, "of": "hp"}}]}
+	var refill := {"id": "r", "on": "pulse", "do": [{"ward_grow": {"share": 1.0, "of": "peak"}}]}
+	var past := {"id": "p", "on": "kill", "do": [{"ward_grow": {"share": 0.5, "of": "peak", "past_peak": true}}]}
+	var hold := {"id": "h", "on": "evaded", "do": [{"mod": {"ward_fixed": 1, "for": 3}}]}
+	var rel := {"id": "x", "on": "art_fired", "do": [{"release_ward": {"dtype": "cold", "more_per_stack": 0.04, "consume": "ice"}}]}
+	var f: Fight = M._fight(M._dummy(), M._dummy({"ward_pts": 0.0, "block": 0.0,
+			"effects": [_soak_counter(), grow, refill, past, hold, rel], "counters": [{"id": "soak"}]}))
+	EffectRunner.fire(f, f.b, "fight_start", {})
+	assert_near(f.b.sward, 0.10 * f.b.hp_max, 1e-6, "grow by a share of health")
+	DefencePath.defend(f, f.a, f.b, 0.02 * f.b.hp_max, &"cold", null, {}, false)
+	assert_bool(f.b.sward < 0.10 * f.b.hp_max).override_failure_message("the ward soaked").is_true()
+	assert_near(float(f.b.counters["soak"]), 1.0, 1e-9, "ward_absorbed raised")
+	EffectRunner.fire(f, f.b, "pulse", {})
+	assert_near(f.b.sward, 0.10 * f.b.hp_max, 1e-6, "a refill stops at the peak")
+	EffectRunner.fire(f, f.b, "kill", {})
+	assert_near(f.b.sward_peak / f.b.hp_max, 0.15, 1e-6, "past_peak moves the peak")
+	EffectRunner.fire(f, f.b, "evaded", {})
+	var before: float = f.b.sward
+	DefencePath.defend(f, f.a, f.b, 0.02 * f.b.hp_max, &"cold", null, {}, false)
+	assert_near(f.b.sward, before, 1e-9, "a held ward loses nothing")
+	f.add_stacks(f.b, f.a, "ice", 4, 8.0, false)
+	var hp_a: float = f.a.hp
+	EffectRunner.fire(f, f.b, "art_fired", {})
+	assert_near(f.b.sward, 0.0, 1e-9, "the ward ends")
+	assert_near(_ice(f.a), 0.0, 1e-9, "the Ice is consumed")
+	assert_bool(f.a.hp < hp_a).override_failure_message("the foe is hit").is_true()
+
+
+func test_a_reflected_soul_art_hurts_only_its_caster() -> void:
+	# test_engine.py t_soul_reflect
+	var charge := {"id": "m", "on": "fight_start", "do": [{"mod": {"soul_reflect": 1}}]}
+	var seen := {"id": "st", "on": "soul_taken", "do": [{"counter": {"id": "n", "add": 1}}]}
+	var f: Fight = M._fight(M._dummy({}, [{"name": "gaze", "c": 0.0, "cost": 0.03, "cd": 3.0, "soul_pct": 0.05}]),
+			M._dummy({"effects": [charge, seen], "counters": [{"id": "n"}]}))
+	EffectRunner.fire(f, f.b, "fight_start", {})
+	var hp_a: float = f.a.hp
+	var hp_b: float = f.b.hp
+	f.soul_hit(f.a, f.b, f.a.p.arts[0])
+	assert_near(f.b.hp, hp_b, 1e-9, "no harm to the reflector")
+	assert_bool(f.a.hp < hp_a).override_failure_message("the caster takes Cold").is_true()
+	assert_near(float(f.b.counters["n"]), 1.0, 1e-9, "soul_taken on the reflector")
+	f.soul_hit(f.a, f.b, f.a.p.arts[0])
+	assert_bool(f.b.hp < hp_b).override_failure_message("the charge is spent").is_true()
+	assert_near(float(f.b.counters["n"]), 2.0, 1e-9, "soul_taken again")
+
+
+func test_a_granted_decoy_takes_the_hit_and_raises_decoy_struck() -> void:
+	# test_engine.py t_decoy_struck
+	var grant := {"id": "g", "on": "art_fired", "do": [{"decoy": {"n": 1}}]}
+	var struck := {"id": "d", "on": "decoy_struck", "do": [{"stacks": {"el": "ice", "n": 2, "for": 8, "side": "foe"}}]}
+	var f: Fight = M._fight(M._dummy(), M._dummy({"effects": [grant, struck]}))
+	EffectRunner.fire(f, f.b, "art_fired", {})
+	var hp_b: float = f.b.hp
+	f.hit(f.a, f.b, 1.0, &"cold", null, Fight.KIND_BASIC)
+	assert_near(f.b.hp, hp_b, 1e-9, "the decoy takes the hit")
+	assert_eq(f.b.decoys, 0, "the decoy is spent")
+	assert_near(_ice(f.a), 2.0, 1e-9, "2 Ice stacks on the striker")
+
+
+func test_live_stack_dur_doubles_ice_while_the_ward_holds() -> void:
+	# test_engine.py t_live_stack_dur
+	var md := {"id": "md", "on": "always", "if": [{"read": "own.ward_share", "op": ">", "value": 0}],
+		"do": [{"mod": {"stack_dur": 100, "element": "ice", "kind": "debuff"}}]}
+	var grow := {"id": "g", "on": "fight_start", "do": [{"ward_grow": {"share": 0.1, "of": "hp"}}]}
+	var f: Fight = M._fight(M._dummy({"effects": [md, grow]}), M._dummy())
+	f.add_stacks(f.a, f.b, "ice", 1, 4.0, false)
+	var plain: int = f.b.debuffs[-1].until - f.t
+	EffectRunner.fire(f, f.a, "fight_start", {})
+	f.add_stacks(f.a, f.b, "ice", 1, 4.0, false)
+	assert_eq(f.b.debuffs[-1].until - f.t, 2 * plain, "Ice laid while the ward holds lasts twice as long")
+	f.add_stacks(f.a, f.b, "fire", 1, 4.0, false)
+	assert_eq(f.b.debuffs[-1].until - f.t, plain, "another element keeps its time")

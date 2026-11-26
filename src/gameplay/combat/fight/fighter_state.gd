@@ -182,6 +182,15 @@ var refusals_left: int = 1
 ## spent, the counted-crit meter (per mille), and the summed scale each Effect has given this pulse (scale_per_pulse).
 var last_hit_t: int = 0
 var reflected: bool = false
+## The stance ward's points left and its highest this fight (Effects rule 6, Grow a ward; world-depth 2026-11-26).
+var sward: float = 0.0
+var sward_peak: float = 0.0
+## Reflect a soul art: each charge's end in ms (SOUL_CHARGE_FIGHT for the whole fight).
+var soul_charges: Array[int] = []
+const SOUL_CHARGE_FIGHT := 1 << 62
+## Decoys held and hits avoided this pulse (Effects rule 6, Avoid a hit; Combat R6, avoid_budget).
+var decoys: int = 0
+var avoided: int = 0
 var crit_meter: int = 0
 var eff_pulse_n: Dictionary = {}
 ## True while stack_more is being read (bsum then ignores stack_more, so its conditions see the stacks without it).

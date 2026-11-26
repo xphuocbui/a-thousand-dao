@@ -167,7 +167,8 @@ different.
      - on a self-counter: **the hour a Piece was laid**, the pulse each batch was laid (`laid_at`), read as its 5 s
        hour of the fight.
      - live: **your stance ward** (rule 6, Grow a ward), its size now and its highest this fight, as shares of your
-       maximum health (`own.ward_share`, `own.ward_peak`; new 2026-11-26, world-depth Băng Tâm Các).
+       maximum health (`own.ward_share`, `own.ward_peak`), and its size as a share of that peak (`own.ward_of_peak`, 0
+       with no peak; new 2026-11-26, world-depth Băng Tâm Các).
 
      "A time window starting" is not an event (R20): an Effect uses a pulse check or a time conditional instead. **A
      batch expiring is an event since 2026-11-26** (`batch_expired`; the Starter Effect Wildfire's "batch end" reads

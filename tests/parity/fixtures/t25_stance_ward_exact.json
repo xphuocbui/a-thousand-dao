@@ -1,0 +1,188 @@
+{
+  "name": "t25_stance_ward_exact",
+  "slice": 25,
+  "chance_free": true,
+  "seed": 251,
+  "doc": "World-depth Stage 6, Băng Tâm Các (2026-11-26), chance-free: W1-W4. A raises a stance ward at fight start and grows it each second; each hit it absorbs lays Ice on B (2 while the ward holds 10 % of health or more); it releases as Cold, eating all Ice, at 25 % of health or 10 Ice stacks. A holds one soul-reflect charge, grants itself a decoy whenever its palm fires (a struck decoy lays 2 Ice), and its Ice lasts twice as long while the ward holds. B strikes with a soul art and a plain art.",
+  "a": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "ice-heart-keeper",
+    "arts": [
+      {
+        "name": "frost-palm",
+        "c": 0.6,
+        "cost": 0.03,
+        "cd": 3.0,
+        "element": "ice",
+        "debuff": [
+          1,
+          4.0
+        ]
+      }
+    ],
+    "counters": [],
+    "effects": [
+      {
+        "id": "raise",
+        "on": "fight_start",
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.05,
+              "of": "hp"
+            }
+          },
+          {
+            "mod": {
+              "soul_reflect": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "grow",
+        "on": "pulse",
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.02,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "answer",
+        "on": "ward_absorbed",
+        "do": [
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "answer-high",
+        "on": "ward_absorbed",
+        "if": [
+          {
+            "read": "own.ward_share",
+            "op": ">=",
+            "value": 0.1
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "release",
+        "on": "pulse",
+        "if": [
+          {
+            "any": [
+              {
+                "read": "own.ward_share",
+                "op": ">=",
+                "value": 0.25
+              },
+              {
+                "read": "foe.debuff.ice",
+                "op": ">=",
+                "value": 10
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "release_ward": {
+              "dtype": "cold",
+              "more_per_stack": 0.04,
+              "consume": "ice"
+            }
+          }
+        ]
+      },
+      {
+        "id": "afterimage",
+        "on": "art_fired",
+        "do": [
+          {
+            "decoy": {
+              "n": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "afterimage-struck",
+        "on": "decoy_struck",
+        "do": [
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 2,
+              "for": 6,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "masters-road",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.ward_share",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "stack_dur": 100,
+              "element": "ice",
+              "kind": "debuff"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "heart-demon-caster",
+    "arts": [
+      {
+        "name": "demon-gaze",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 4.0,
+        "soul_pct": 0.05
+      },
+      {
+        "name": "strike",
+        "c": 1.0,
+        "cost": 0.03,
+        "cd": 2.0
+      }
+    ]
+  }
+}

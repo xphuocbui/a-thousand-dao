@@ -103,6 +103,11 @@
         {"id": "eff:Called Blow closes", "on": "always", "do": [{"mod": {"crit_cap_to": 0.35}}], "fixed": true}
       ]
     },
+    "Clear-Heart Reflection": {
+      "rule": "Clear-Heart Mirror: once a fight, the first soul or heart-demon art that would land on you does nothing to you and strikes its caster as Cold damage equal to its own.",
+      "source": "world-depth:bang_tam",
+      "records": [{"id": "eff:Clear-Heart Reflection", "on": "fight_start", "do": [{"mod": {"soul_reflect": 1}}]}]
+    },
     "Cold Feet": {
       "rule": "Your escape art's first firing comes at cooldown_min.",
       "not_run": "escape is not in the engine (deferred)"
@@ -295,6 +300,16 @@
       "source": "Đạo Đồ",
       "records": [{"id": "eff:Heaven's Verdict", "on": "always", "if": [{"read": "foe.hp_share", "op": "<", "value": 0.5}], "do": [{"mod": {"L5": 20, "element": "thunder", "tags": ["slow"]}}]}]
     },
+    "Hidden Half": {
+      "rule": "Black and White Stones, full set (2 pieces): each time a foe gains its fourth Ice stack from you, it is also cursed with Heavy Breath for 3 s; while it carries a curse, each grant of Ice you lay on it gives 1 more stack (review R2, refined: stack_grant).",
+      "source": "world-depth:bang_tam",
+      "counters": [{"id": "half_seen"}],
+      "records": [
+        {"id": "eff:Hidden Half curse", "on": "status_applied", "filter": {"element": "ice"}, "if": [{"read": "foe.debuff.ice", "op": ">=", "value": 4}, {"read": "own.counter.half_seen", "op": "==", "value": 0}], "do": [{"status": {"id": "heavy_breath", "stacks": 1, "dur": 3, "side": "foe"}}, {"counter": {"id": "half_seen", "set": 1}}]},
+        {"id": "eff:Hidden Half rearm", "on": "pulse", "if": [{"read": "foe.debuff.ice", "op": "<", "value": 4}], "do": [{"counter": {"id": "half_seen", "set": 0}}]},
+        {"id": "eff:Hidden Half grant", "on": "always", "if": [{"read": "foe.curses", "op": ">=", "value": 1}], "do": [{"mod": {"stack_grant": 1, "element": "ice", "kind": "debuff"}}]}
+      ]
+    },
     "Hidden Moon": {
       "rule": "Your evade also counts as crit chance, point for point. Closes: your block and body shield count nothing; maximum health -20 %.",
       "source": "Đạo Đồ",
@@ -309,6 +324,11 @@
       "source": "Đạo Đồ",
       "sheet_from": [{"key": "attack_pct", "from": "artifact_power_pct", "factor": 0.5}],
       "lines": [{"key": "art_speed_pct", "value": -20}]
+    },
+    "Ice in the Vessel": {
+      "rule": "Jade Vessel of the Ice Heart: while you are Composed, your stance ward regains 2 % of its peak each second (never past it). Out of fights, heart-demon odds at a breakthrough fall by a third while the Vessel is worn (the Vessel's tam_ma_resist_pct 33 line, review R3).",
+      "source": "world-depth:bang_tam",
+      "records": [{"id": "eff:Ice in the Vessel", "on": "pulse", "if": [{"read": "own.composed", "op": ">=", "value": 1}], "do": [{"ward_grow": {"share": 0.02, "of": "peak"}}]}]
     },
     "Immovable Mountain": {
       "rule": "Slowed Time and timer delays never land on you. Closes: art speed modifiers do nothing for you.",
@@ -364,6 +384,11 @@
     "Marked Prey": {
       "rule": "Your hits deal more for each different status of yours on the target: L5 +4 each, cap +16.",
       "records": [{"id": "eff:Marked Prey", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1, "cap": 4}, "do": [{"mod": {"L5": 4}}]}]
+    },
+    "Master's Road": {
+      "rule": "Step for Step, full set (2 pieces): while your stance ward holds, the Ice stacks you lay last twice as long.",
+      "source": "world-depth:bang_tam",
+      "records": [{"id": "eff:Master's Road", "on": "always", "if": [{"read": "own.ward_share", "op": ">", "value": 0}], "do": [{"mod": {"stack_dur": 100, "element": "ice", "kind": "debuff"}}]}]
     },
     "Metal Begets Water": {
       "rule": "Each hit of a Metal art you land adds one Water buff stack to you. Closes: Wood arts you slot deal 50 % less.",
@@ -596,6 +621,15 @@
       "source": "world-depth:bang_tam",
       "records": [{"id": "eff:The Keeper's Stillness", "on": "wounded", "do": [{"stop_clock": {"side": "foe", "seconds": 1.5}}, {"stacks": {"el": "ice", "n": 3, "for": 8, "side": "foe"}}]}]
     },
+    "The Peak Does Not Move": {
+      "rule": "Glacier Vigil, full set: while your Field is up and you are Composed, your stance ward grows by 3 % of its peak each second, with no ceiling; each second you stay Composed past the tenth costs you 1 % of your linh lực. When the foe breaks the ward, the foe gains 4 Ice stacks and cannot evade for 1 s (Off Guard).",
+      "source": "world-depth:bang_tam",
+      "records": [
+        {"id": "eff:The Peak Does Not Move grow", "on": "pulse", "if": [{"read": "own.field_up", "op": ">=", "value": 1}, {"read": "own.composed", "op": ">=", "value": 1}], "do": [{"ward_grow": {"share": 0.03, "of": "peak", "past_peak": true}}]},
+        {"id": "eff:The Peak Does Not Move upkeep", "on": "pulse", "if": [{"read": "own.field_up", "op": ">=", "value": 1}, {"read": "own.composed_time", "op": ">=", "value": 10}, {"read": "own.qi_share", "op": ">=", "value": 0.01}], "do": [{"gain_qi": {"share": -0.01}}]},
+        {"id": "eff:The Peak Does Not Move broken", "on": "shield_broken", "do": [{"stacks": {"el": "ice", "n": 4, "for": 8, "side": "foe"}}, {"status": {"id": "off_guard", "stacks": 1, "dur": 1, "side": "foe"}}]}
+      ]
+    },
     "Thorns": {
       "rule": "A blocked hit returns 30 % of the blocked amount to the attacker as physical damage, once per pulse.",
       "source": "Đạo Đồ",
@@ -672,6 +706,14 @@
       "rule": "Your Thunder debuff stacks on a Slowed target cannot expire. Closes: Thunder stacks you lay on a foe that is not Slowed last 25 % shorter.",
       "records": [{"id": "eff:Verdict Stands", "on": "status_applied", "if": [{"read": "foe.status.slowed_time", "op": ">=", "value": 1}], "do": [{"refresh": {"el": "thunder", "side": "foe", "kind": "debuff", "hold": true}}]}],
       "approx": "held from the first status landed while Slowed; the closing is not run"
+    },
+    "Walk the Nodes": {
+      "rule": "Keeper of the Lid, full set (2 pieces): while your Field is up, every 6 s your stance ward regains 4 % of its peak and you gain an Earth guard stack (an Earth buff, 20 s). Once a fight, at 10 Earth buff stacks, your stance ward is held for 3 s (it stops hits but loses nothing).",
+      "source": "world-depth:bang_tam",
+      "records": [
+        {"id": "eff:Walk the Nodes", "on": "pulse", "if": [{"read": "own.field_up", "op": ">=", "value": 1}], "limit": {"cooldown": 6}, "do": [{"ward_grow": {"share": 0.04, "of": "peak"}}, {"stacks": {"el": "earth", "n": 1, "for": 20, "side": "own"}}]},
+        {"id": "eff:Walk the Nodes hold", "on": "pulse", "if": [{"read": "own.buff.earth", "op": ">=", "value": 10}], "limit": {"per_fight": 1}, "do": [{"mod": {"ward_fixed": 1, "for": 3}}]}
+      ]
     },
     "Water Begets Wood": {
       "rule": "Your Water buff stacks also count as Wood buff stacks. Closes: Earth arts you slot deal 50 % less.",

@@ -83,6 +83,12 @@ static func read(f: Fight, s: FighterState, r: EffectDef.ReadDef, ev: Variant) -
 			return x.ward_paid / x.qi_max()
 		"body_shield_share":
 			return x.body_bar / x.hp_max
+		"ward_share":   # the stance ward now and its peak, shares of maximum health (W1, 2026-11-26)
+			return x.sward / x.hp_max
+		"ward_peak":
+			return x.sward_peak / x.hp_max
+		"ward_of_peak":   # the stance ward as a share of its peak (0 with no peak)
+			return x.sward / x.sward_peak if x.sward_peak > 0.0 else 0.0
 		"boss":
 			return 1.0 if x.p.boss else 0.0
 		"tam_ma":
@@ -390,8 +396,12 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 					for kk in ["dtype", "element", "tags", "kind"]:
 						if arg.has(kk):
 							filt[kk] = arg[kk]
+					if arg.has("soul_reflect"):   # Reflect a soul art: charges, each spent by one soul art (W2)
+						var until_s: int = f.t + CombatConstants.ms(dur) if dur != 0.0 else FighterState.SOUL_CHARGE_FIGHT
+						for _i in range(int(roundf(float(arg.soul_reflect) * n))):
+							s.soul_charges.append(until_s)
 					for key in arg:
-						if f.is_mod_key(str(key)) and str(key) != "next_art_cost":
+						if f.is_mod_key(str(key)) and str(key) != "next_art_cost" and str(key) != "soul_reflect":
 							var tm := FighterState.TempMod.new()
 							tm.key = str(key)
 							tm.v = float(arg[key]) * n
@@ -477,6 +487,31 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 						s.body_bar = minf(cap_b, s.body_bar + float(arg.refill) * cap_b * n)
 				else:
 					s.body_bar += float(arg.get("body", 0.0)) * s.hp_max * n * f.shield_hold(s)
+			"ward_grow":   # Effects rule 6, Grow a ward (W1, 2026-11-26)
+				var of_hp: bool = str(arg.get("of", "hp")) == "hp"
+				var nw: float = s.sward + float(arg.get("share", 0.0)) * n * (s.hp_max if of_hp else s.sward_peak)
+				if not of_hp and not bool(arg.get("past_peak", false)):
+					nw = minf(nw, maxf(s.sward, s.sward_peak))
+				s.sward = maxf(0.0, nw)
+				s.sward_peak = maxf(s.sward_peak, s.sward)
+			"release_ward":   # Effects rule 6, Release a ward (W1): what it holds, more per stack consumed
+				var left_w: float = s.sward
+				s.sward = 0.0
+				var kw: float = 0.0
+				if arg.has("consume"):
+					for x in o.debuffs.duplicate():
+						if x.el == str(arg.consume):
+							kw += x.n
+							o.debuffs.erase(x)
+					o.touch_debuffs()
+				var amt_w: float = left_w * (1.0 + float(arg.get("more_per_stack", 0.0)) * kw)
+				if amt_w > 0.0:
+					var dt_w: String = str(arg.get("dtype", "cold"))
+					var got_w: float = DefencePath.defend(f, s, o, amt_w, StringName(dt_w), null,
+							{"dtype": dt_w, "kind": "trigger"}, false)
+					s.dealt += got_w
+			"decoy":   # Effects rule 6, Avoid a hit: grant decoys (W3, 2026-11-26)
+				s.decoys += int(roundf(float(arg.get("n", 1)) * n))
 			"return_damage":
 				# a share of the event's amount strikes the foe through its defence (Thorns: a share of the blocked)
 				var amt_r: float = float(arg.get("share", 0.0)) * float(ev.get("amount", 0.0)) * n

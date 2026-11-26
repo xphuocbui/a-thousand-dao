@@ -46,6 +46,8 @@ var cooldown_min: float
 var basic_cooldown: float
 var pulse: float
 var bypass_cap: float
+## Hits a side's decoys may avoid per pulse (Combat R6; decoys, Effects rule 6, 2026-11-26).
+var avoid_budget: float
 var pierce_cap: float
 ## health_max = health_units x U x n_body x health_mult x d_r; qi_base = qi_units x U x n_qi.
 var health_units: float
@@ -218,6 +220,7 @@ static func from_dict(d: Dictionary) -> CombatConstants:
 	k.basic_cooldown = float(kd.basic_cooldown)
 	k.pulse = float(kd.pulse)
 	k.bypass_cap = float(kd.bypass_cap)
+	k.avoid_budget = float(kd.avoid_budget)
 	k.pierce_cap = float(kd.pierce_cap)
 	k.health_units = float(kd.health_units)
 	k.qi_units = float(kd.qi_units)

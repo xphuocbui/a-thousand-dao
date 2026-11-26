@@ -516,6 +516,7 @@ func pulse(s: FighterState) -> void:
 	s.trig_count = 0
 	s.trig_dmg = 0.0
 	s.direct_dmg = 0.0
+	s.avoided = 0
 	for eid in s.eff_state:
 		var es: PackedInt64Array = s.eff_state[eid]
 		es[1] = 0
@@ -1208,6 +1209,13 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 		ctx["pass_shields"] = true
 	var am: bool = has_mods(att)
 	var dm: bool = has_mods(dfn)
+	# avoid (Combat R6): a decoy absorbs the whole hit, within the side's per-pulse avoid budget (W3, 2026-11-26)
+	if not trig and dfn.decoys > 0 and dfn.avoided < int(k.avoid_budget):
+		dfn.decoys -= 1
+		dfn.avoided += 1
+		if listens(dfn, "decoy_struck"):
+			_event(dfn, "decoy_struck", {"kind": str(kind), "art_id": str(art.id) if art != null else str(kind)})
+		return 0.0
 	# Returning Wave: the first hit taken does no harm and strikes the attacker at full damage, once a fight
 	if not trig and not dfn.reflected and dm and m(dfn, "reflect_first", null) > 0.0:
 		dfn.reflected = true
@@ -1378,6 +1386,21 @@ func soul_hit(att: FighterState, dfn: FighterState, art: ArtDef) -> float:
 			* _supp(att, dfn, m(att, "pierce", null) / 100.0), k.soul_cap)
 	var lh: float = pct * dfn.hp_max
 	var lq: float = pct * dfn.qi_max()
+	if not dfn.soul_charges.is_empty():   # Reflect a soul art (W2, 2026-11-26): no harm; Cold on the caster
+		var live: Array[int] = []
+		for u in dfn.soul_charges:
+			if u > t:
+				live.append(u)
+		live.sort()
+		if not live.is_empty():
+			live.remove_at(0)
+			dfn.soul_charges = live
+			var got_s: float = DefencePath.defend(self, dfn, att, lh, &"cold", null, {"dtype": "cold", "kind": "trigger"}, false)
+			dfn.dealt += got_s
+			if listens(dfn, "soul_taken"):
+				_event(dfn, "soul_taken", {"amount": lh, "art_id": str(art.id), "tags": art.tags_s, "reflected": 1.0})
+			return 0.0
+		dfn.soul_charges = live
 	dfn.hp -= lh
 	dfn.qi = maxf(0.0, dfn.qi - lq)
 	att.dealt += lh
@@ -1387,6 +1410,8 @@ func soul_hit(att: FighterState, dfn: FighterState, art: ArtDef) -> float:
 	if listens(att, "soul_hit"):
 		_event(att, "soul_hit", {"amount": lh, "qi": lq, "tags": art.tags_s, "element": str(art.element),
 			"art_id": str(art.id), "kind": "art", "dtype": "soul"})
+	if listens(dfn, "soul_taken"):   # W2 (2026-11-26): the side a soul art lands on
+		_event(dfn, "soul_taken", {"amount": lh, "art_id": str(art.id), "tags": art.tags_s, "reflected": 0.0})
 	return lh
 
 
@@ -1409,6 +1434,8 @@ func add_stacks(src: FighterState, target: FighterState, el: String, n: float, d
 		n += float(int(m(src, "stack_grant", {"element": el, "kind": kind})))
 	if dur >= 0.0 and not src.p.stack_dur.is_empty():
 		dur = dur * (1.0 + StackMath.stack_pct(src.p.stack_dur, el, kind) / 100.0)
+	if dur >= 0.0 and has_mods(src):   # the live stack_dur mod (W4, 2026-11-26; Master's Road), read when laid
+		dur = dur * maxf(0.0, 1.0 + m(src, "stack_dur", {"element": el, "kind": kind}) / 100.0)
 	var until: int = -1 if dur < 0.0 else t + CombatConstants.ms(maxf(k.min_batch, dur))
 	var batch := FighterState.StackBatch.new()
 	batch.el = el

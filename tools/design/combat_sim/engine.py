@@ -484,6 +484,8 @@ class Fight:
             return x.sward / x.hp_max
         if k == "ward_peak":
             return x.sward_peak / x.hp_max
+        if k == "ward_of_peak":             # the stance ward as a share of its peak (0 with no peak)
+            return x.sward / x.sward_peak if x.sward_peak > 0 else 0.0
         if k == "boss":
             return 1.0 if x.b.boss else 0.0
         if k == "tam_ma":
@@ -1556,8 +1558,6 @@ class Fight:
             dfn.soul_charges = sorted(live)[1:]
             got = self.defend(dfn, att, lh, "cold", None, {"dtype": "cold", "kind": "trigger"}, is_tick=False)
             dfn.dealt += got
-            if self.plog is not None:
-                self.plog.append(["soul_reflect", self.t, dfn.label, a.name, lh, got, att.hp, att.qi])
             self.fire_event(dfn, "soul_taken", {"amount": lh, "art_id": a.name, "tags": a.tags, "reflected": 1.0})
             return 0.0
         dfn.hp -= lh
@@ -2098,8 +2098,6 @@ class Fight:
                     dt = arg.get("dtype", "cold")
                     got = self.defend(s, o, amt, dt, None, {"dtype": dt, "kind": "trigger"}, is_tick=False)
                     s.dealt += got
-                    if self.plog is not None:
-                        self.plog.append(["release_ward", self.t, s.label, left, k, got, o.hp])
             elif verb == "decoy":   # Effects rule 6, Avoid a hit: grant decoys (W3, 2026-11-26)
                 s.decoys += int(round(arg.get("n", 1) * n))
             elif verb == "return_damage":
