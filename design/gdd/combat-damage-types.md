@@ -72,6 +72,10 @@ would have to mean both a crushing wave and a freezing mist.
      wants both deals two hits. **One exception** (Đạo shared rule R11, 2026-11-11): a non-soul art may carry an
      **added Soul part** of at most 30 % of its damage, worked as an ordinary part that meets only soul defence
      (Combat Formulas E2). Converting to Soul stays forbidden.
+     **How an added Soul part is scoped** (new, 2026-11-26; world-depth `dawn-call`; user approval): it meets
+     `[soul]` scopes and keeps the art's own tags, so a song art's Soul part counts for both `[song]` and `[soul]`
+     modifiers. A Light art with an added Soul part (a Light hit and a 30 % Soul part) needs the Light type in the
+     engine (world-depth Stage 5); no rule here changes.
    - Every tick has one type: a burn is Fire, a poison Chaos, a bleed Physical, Qi Disruption Force. Except a named Soul tick that meets only soul defence (Effects rule 16), no status deals
      Soul damage.
    - The Breakdown names the type of every part.

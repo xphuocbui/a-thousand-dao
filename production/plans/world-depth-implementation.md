@@ -334,6 +334,22 @@ The features in Stage 5 need these rules first. Another session edits `design/gd
 - **Formations:** rule 9's `diagram_always` carve-out. This is the formations session's file, so ask that session.
 - **Art DSL** (the arts README or GDD): the `new_vocab` words of `engine-wishes.md` section 4.
 
+**Progress 2026-11-26: DONE** (user approved each amendment; 4-9 approved together, "i approve all now go"):
+1. Effects Status Catalogue: Charmed, Drunk, Sleep, and "Statuses that hold their caster" (`holds_caster`).
+2. Effects rule 6: Hold damage, Delay immunity (`delay_immune`), Turn a tick into healing, Stop a side's clock,
+   Upkeep on a self-counter.
+3. Effects rules 5 and 6: the world-depth events and readables (`pill_burned`, `qi_drained`, `healed` and the heal
+   event's `overflow`, `batch_expired`, `ward_absorbed`, `escape_failed`, lost in the last N s, a batch's laid hour);
+   R20 amended so a batch expiring is an event; Burn a pill. Effects Open Question 14 answered.
+4. Effects rule 9b: a stack or mark remembers its source (talisman cleanse skip); companions carry tags.
+5. Effects rule 11 and Combat rule 10: the extended last act (`last_act_window`) and its double-knockout draw.
+6. Damage Types rule 1: how an added Soul part is scoped (Light and R11 were already in).
+7. Modifier System rule 9: `fan`, the companion-kind family (`crane`, `bird`), the three new status tags; every
+   depth modifier key was already a Stat List row.
+8. `tools/design/combat_sim/FIGHT-INPUT.md`: the world-depth DSL words (to build in Stage 5); Effects rule 12 and the
+   Status Catalogue note the two exceptions (a meter kept between fights, a curse that takes no slot).
+9. Formations rule 9: `diagram_always` (written by this work; the formations session was not running).
+
 ### Stage 5: the engine features (both engines, parity green)
 - **Order (user 2026-11-26):** this stage builds only the features already known (`engine-wishes.md`, the duel
   readings, sets, tags). Each sect's Stage 6 pass then builds the engine words its own designs need, in both engines

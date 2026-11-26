@@ -149,8 +149,22 @@ different.
        and `undead`; world time and season (amended 2026-11-25: world time and season may feed life Effects only,
        never a fight payload, rule 18).
 
-     "A batch expired" and "a time window starting" are not events (R20): an Effect uses a pulse check or a time
-     conditional instead.
+   - **added with the world-depth pass** (2026-11-26; `design/world/depth/builds/engine-wishes.md` §2). Every
+     Effect that reads one carries its own bound (rule 19).
+     - events: **a pill burned** (`pill_burned {element, grade, failed}`); **linh lực drained** (`qi_drained
+       {amount}`, the points moved from the foe to you); **healed** (`healed {source}`, a heal received, a leech by
+       your own hit counting as a source; the heal-restored event also reports **`overflow`**, the share lost to full
+       health); **an element batch ran out** (`batch_expired {element, stacks}`); **a ward absorbed a hit**
+       (`ward_absorbed {amount}`, for each hit a ward or a ward share stops or loses to, beside "a shield breaks");
+       **an escape failed** (`escape_failed`);
+     - live: **lost in the last N s**, your health and linh lực lost over the last N seconds and the foe's buffs and
+       wards gained over them (`own.lost_last.<pool>.<seconds>`, a per-side record of each pulse's losses and gains);
+     - on a self-counter: **the hour a Piece was laid**, the pulse each batch was laid (`laid_at`), read as its 5 s
+       hour of the fight.
+
+     "A time window starting" is not an event (R20): an Effect uses a pulse check or a time conditional instead. **A
+     batch expiring is an event since 2026-11-26** (`batch_expired`; the Starter Effect Wildfire's "batch end" reads
+     it; it was not an event before).
    - **in life:** the season, the place, the sect, and the World DB facts the Event Engine exposes (life Effects
      only; rule 18 keeps them out of fights).
 
@@ -208,6 +222,12 @@ different.
    | **Root** and **Pin** (new, 2026-11-25): apply Rooted or Pinned for N s; on landing, Move a timer on the target's art with the least time left by N × `rooted_delay_share` | Combat rule 25, Formulas L; Status Catalogue |
    | **Spread** (new, 2026-11-25): a payload that "spreads to a nearby foe" lands again on the same foe, once, at `spread_share`; a spread never spreads again | Combat rule 25 |
    | **Lay a field Piece** (new, 2026-11-25): add one charge to a self-counter tagged `field_piece`, with its own duration and, if the record says so, a number of foe hits that wear it out | rule 17; Combat rule 25 |
+   | **Hold damage** (new 2026-11-26, world-depth `a-file-of-one`): move a share of a hit you take into your side's held-damage pool. Each pulse the pool lands `pool ÷ pulses left` on you as damage that skips wards; a heal pays the pool off first, then restores health. The pool has no cap: the pulses close it (rule 19) | this GDD; Combat Defence & Healing |
+   | **Delay immunity** (new 2026-11-26; the state flag `delay_immune`): while you hold it, Move a timer skips you. A second carve-out beside Planted, which refuses Displace's delay (world-depth `the-ninth-verse`) | rule 6, Move a timer |
+   | **Turn a tick into healing** (new 2026-11-26; `convert_tick_to_heal {share}`): a tick you take that matches the Effect's status tag heals you for that share of it instead of hurting. The mirror of Crossing the Line (R12; world-depth `bitter-medicine`) | Combat Defence & Healing rule 19 |
+   | **Stop a side's clock** (new 2026-11-26; `stop_clock {side, seconds}`): for that time the side's art timers, basic attack, companions and stack countdowns do not advance, while the other side's do. `timer_resist_pct` shortens the stop, and it never breaks `cooldown_min`. Sleep uses it (world-depth `the-world-before`, `asleep`) | Combat rule 13 (the timeline) |
+   | **Upkeep on a self-counter** (new 2026-11-26; `upkeep {pool, per_stack}`): each pulse, every stack of a self-counter costs its owner the named amount from the named pool, and a stack left unpaid ends. This is the closing cost rule 19 relies on for standing field Pieces (world-depth `laid-ward-on-the-next-stroke`) | rule 19; Combat rule 11 (the pools) |
+   | **Burn a pill** (new 2026-11-26; `burn_pill`): spend a prepared pill from the pill slot. Its element and grade become the payload, and in a fight a pill can fail (`failed`), drawn on the fight's seeded stream (world-depth `pill-smoke`) | this GDD; Alchemy (the pill) |
 
    The list is closed (user decision 2026-11-08). A new action is an engine addition, added here before any
    Effect uses it. An Effect never changes the foe's stats directly: it applies a status, or gives its owner a
@@ -319,6 +339,15 @@ different.
 
 **The hard cases**
 
+9b. **Source and companion tags** (new, 2026-11-26; world-depth Stage 4, `builds/engine-wishes.md` §3; user approval).
+    - **A batch or mark remembers its source.** Every element-stack batch, status stack and mark keeps the tags of
+      the art that laid it. A cleanse skips a batch or mark whose source carries `talisman` while its holder has an
+      Effect that says so (world-depth `rainfast-ink`, `stars-on-the-foe`); without that Effect, talisman stacks
+      cleanse as usual.
+    - **Companions carry tags.** A companion record carries `tags` (for example `crane`, `bird`), and its hit events
+      carry them, so an Effect can filter "a hit by a crane or bird companion" (world-depth `a-crane-for-the-rider`,
+      `birds-pay-court-to-the-phoenix`, `birds-bring-the-fire`).
+
 10. **Costs that outlive the fight are reported, never applied in the fight** (user decision 2026-11-07;
     overnight decision 4). An Effect may spend or raise heart demon, lifespan years, seasons, toxicity, spirit
     stones, root purity, cultivation base or stage (re-review EF 9). The values it reads are taken before the fight. The fight's result reports every
@@ -346,6 +375,12 @@ different.
     If both sides are saved, both are at 1 and the fight goes on. If both fall, Combat rule 10's overkill and
     draw rules decide as usual.
 
+    **An extended last act** (new, 2026-11-26; world-depth `pine-wave-fifteenth-layer`; user approval). An Effect may
+    give step 2 a window, `last_act_window {seconds}`: the Down side stays in the fight for that time, untargetable and
+    inactive, and only the free hits its Effect names (banked waves) fire. If the foe goes Down within the window, the
+    fight is a **draw** (Combat rule 10's draw: both left at 1 health, `wound: grave`), not a win on overkill. When the
+    window ends the side is Down as usual. A refusal cannot fire during the window, and the window never extends.
+
     **Order and overkill** (user decision 2026-11-08, re-review EF 7): when both sides reach this step in one
     instant, the requesting side (the side that opened the fight, Combat rule 10) resolves first, each side's
     Effects and draws in its slot order. A Down side keeps its overkill for the follow-up check, so a last act that
@@ -355,7 +390,9 @@ different.
     `overkill_epsilon` are a draw.
 
 12. **Counted chance is a keystone rule** (user decision 2026-11-07; overnight decision 9). A keystone may turn
-    one of its owner's chances (crit, evade, a status chance) into a **count**:
+    one of its owner's chances (crit, evade, a status chance) into a **count**. **One exception** (new, 2026-11-26;
+    world-depth `playing-past-the-break`, user approval): its meter is kept between fights as a life state, and its p
+    reads khí vận; every other counted chance starts each fight at `counted_start` (Formulas A):
     - each time the chance would be rolled, its probability is added to a visible meter instead;
     - when the meter reaches 1, the event happens and 1 is taken off.
 
@@ -543,6 +580,18 @@ duration to read. They are bound instead by their standing cost (Formulas B) and
 | Withering (Khô Héo) | Healing taken down | −50 % (`curse_heal_taken_max`, new) | 4 | Refresh | curse, cleanse | withering, curse | The healer's answer |
 | Slackened Soul (Tùng Hồn) | Soul resistance down | −15 pp per stack (Combat revision D12); no floor since 2026-11-10, so below 0 it amplifies soul hits (Combat Formulas E2) | 2 | Stacks to 2 | curse, soul, cleanse | slackened_soul, curse, soul | — |
 | Slowed Time (Hoãn Thời) | The target's art timers and basic attack run slower | 6 % per stack (`slowed_time_pct`), 30 % at 5 stacks | 3 | Stacks to 5; a new stack refreshes all | curse, cleanse | slowed_time, curse | Thời Đạo's curse (Đạo shared rule R1, 2026-11-11). The target's `timer_resist_pct` shrinks it; a slower timer never breaks `cooldown_min` |
+| Charmed (Mê Hoặc) | Held: the target's arts that come ready while it holds wait until it ends (Move a timer; the falloff and `timer_resist_pct` apply), and its basic attacks miss | — | 2 | None (a recast does nothing while it runs) | curse, charm, cleanse | charmed, curse | **Holds its caster** (below; new 2026-11-26, world-depth d34). A direct hit by the charmer that lands (a trigger or a free hit) ends it at once; ticks and companion hits do not. Reapply lockout 10 pulses |
+| Drunk (Túy) | Timers slowed and aim lost | Per stack: the target's art timers and basic attack run 8 % slower (its own number beside Slowed Time; `timer_resist_pct` shrinks it; never past `cooldown_min`) and its `accuracy_pct` is 10 lower; at 3 or more stacks it also takes 10 % more damage from Water parts | 3 | **No stack cap** (ruling 2026-11-25, group 8): each stack runs its own 3 pulses, and a new stack does not refresh the others | curse, cleanse | drunk, curse, water | New 2026-11-26 (world-depth d39). The misses come from the evade roll through lower accuracy, never a new "fires at nothing" chance |
+| Sleep (Hôn Thụy) | Clock stopped: the target's art timers and basic attack do not run (Stop a side's clock, rule 6) | — | 3 (the target's `timer_resist_pct` shortens it; at least 1) | None | curse, sleep, cleanse | asleep, curse, darkness | **Holds its caster** (below; new 2026-11-26, world-depth d40): their curses and wards still fire. A direct hit that lands (a companion, a trigger or a free hit) wakes the target at once and deals 20 % less; ticks do not wake it. Reapply lockout 6 pulses |
+
+**Statuses that hold their caster** (new, 2026-11-26; world-depth d34, d40). A row marked "holds its caster" sets the
+flag `holds_caster`. While the status runs, its caster is in an R29 held state that suppresses their arts with a damage
+part and their basic attack, and that state ends with the status. A direct hit by the caster's side that lands ends the
+status (Charmed excepts companion hits, Sleep does not); ticks never end it. The curse clamp and the 3 curse slots apply
+as for any curse, and Drunk's uncapped stacks are bounded by how fast stacks are laid (rule 19).
+
+**A counted curse that takes no curse slot** (new, 2026-11-26; world-depth `black-under-white`, user approval): one
+named curse may be counted, not slotted, so it does not use one of the 3 curse slots; the curse clamp still applies.
 
 **Curse durations** (Đạo shared rule R22, 2026-11-11): apply every change, both shortenings on the holder and
 lengthenings by the applier, then clamp the result to 1–`curse_duration_max` (5) pulses. Halves round down, and a
@@ -1285,5 +1334,5 @@ not prices. Safe ranges are design estimates.
 | 11 | **Balance-pass watch item (EF-05, accepted 2026-11-08c).** Stacked Physical → Chaos `convert_pct` has no cap below 100 %. About 7 notables at +15 pp turn all Physical into Chaos, which passes body shields. Accepted as a slightly OP build. Measure it in the Open Question 1 pass; fix only if it breaks the macro targets | user + systems-designer | Balance pass |
 | 12 | **Records with internal caps written before rule 19** (2026-11-25). Starter and Đạo Đồ Effects with a cap inside the piece (for example Before Heaven's "Cap 5 elements", the Scaling example's old "to +12 %") and original lineage counts the wishes did not author (Plant the Stele's three, Walk Slowly's 8, Army-Breaker's momentum cap; WIRED.md "What stays") are not rewritten. At the balance pass, decide for each whether it becomes a close or a decay, or stays as a threshold | user + systems-designer | Balance pass |
 | 13 | **The authored Effects** (`design/world/depth/builds/authored/`: 49 Effect records, 3 status rows, 3 technique Effects, 10 arts, 1 technique) wait on the catalogue pass: lint each against rules 1–7 and 17–19, add the engine features they need first (Combat Open Question 29), and resolve WIRED.md's "Still open" items (an art id that does not exist yet, two texts that read one clause two ways) | catalogue pass | Content pass |
-| 14 | **Engine wishes that change this GDD's rules.** `builds/engine-wishes.md` asks for an "element batch runs out" event, against R20 ("a batch expired is not an event"; the Starter Effect Wildfire already reads "batch end"); a status flag `holds_caster` and a `delay_immune` state flag (a second carve-out from rule 6's Move a timer, beside Planted); `convert_tick_to_heal`; and `upkeep` on self-counters, the close rule 19 relies on for standing field Pieces. Each needs a rule here before any Effect uses it (rule 6: the action list is closed) | user, gameplay-programmer | The combat port |
+| 14 | **Engine wishes that change this GDD's rules.** `builds/engine-wishes.md` asks for an "element batch runs out" event, against R20 ("a batch expired is not an event"; the Starter Effect Wildfire already reads "batch end"); a status flag `holds_caster` and a `delay_immune` state flag (a second carve-out from rule 6's Move a timer, beside Planted); `convert_tick_to_heal`; and `upkeep` on self-counters, the close rule 19 relies on for standing field Pieces. Each needs a rule here before any Effect uses it (rule 6: the action list is closed). **Answered 2026-11-26** (user): `holds_caster` (Status Catalogue), `delay_immune`, `convert_tick_to_heal`, `stop_clock`, self-counter `upkeep` and `burn_pill` (rule 6) are in, and a batch expiring is an event (rule 5, R20 amended) | user, gameplay-programmer | The combat port |
 | 15 | **Can Displaced, Rooted and Pinned be cleansed?** The source does not say; the catalogue rows carry no cleanse tag (assumption: no, since they last seconds). Confirm (Combat Open Question 32) | user | Status Catalogue |

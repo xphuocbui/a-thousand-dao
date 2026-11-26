@@ -209,3 +209,24 @@ looks like a strong build.
   `foe_ward_paid` (`amount`), `foe_cost_extra` (the cost a foe paid because of your Ice). Readables `curses`,
   `ward_paid`, `buff_elements`, `state.any`; events now carry `share` on `heal_restored` and `overflow`,
   `hp_paid_share` on `art_fired`, and the art's tags on `soul_hit`.
+
+### World-depth vocabulary (2026-11-26; to build in world-depth Stage 5)
+
+Proposed words from the authored records (`design/world/depth/builds/authored/auth-tech.json` `new_vocab`, listed in
+`builds/engine-wishes.md` §4; approved for the plan by the user 2026-11-26). Until Stage 5 builds them the loader
+does not know them, so a build file that uses one stops with `UNKNOWN_FIELD`.
+
+- **Root gates** on an art: `requires.root_lacks` and `requires.root_has` (an element or variant id): the art may
+  be slotted only if the owner's root lacks or has it (`bronze-answers`: no Thunder; `dawn-call`: Light).
+- **Event filters:** `fire_art.filter.element`; `filter.not_art_id`.
+- **Self-debuffs:** `stacks` with `kind: debuff` on `side: own` (a Burn on yourself), the event `tick_taken`, read
+  as `own.debuff.<el>` (`into-the-vent`).
+- **Movements:** `movements`, per-firing sub-rules taken in turn from a counter; the event `in_turn`; a counter on
+  `side: foe`; `next_art_cost` (`nine-shao-next-movement`, `remnant-next-movement`).
+- **A counted-chance meter kept between fights**, whose p reads khí vận (`playing-past-the-break`; an exception to
+  Effects Formulas A, noted in Effects rule 12).
+- **Moving and reading:** `move_own_debuffs`; read `own.tech_layer.<id>`; `free_hit.pass_shields`
+  (`move-the-sickness`).
+- **A counted curse that takes no curse slot** (`black-under-white`; an exception noted in the Effects Status
+  Catalogue).
+- **Lineage art ids** still to assign (Stage 6): `where-the-drop-falls`, `line-through-the-ice`, `a-bite-on-the-line`.

@@ -75,3 +75,9 @@
 - **Git LFS** for `assets/portraits/**/*.webp` and `assets/art/places/*.webp` (about 0.5 GB).
 - **Godot import:** those two folders import as lossy WebP 0.9 with mipmaps (same resolution; the import cache and an
   exported build carry about 0.85 GB instead of 3.2 GB lossless). Easy to revert per file if lossless is wanted.
+
+# Decisions 2026-11-26 (implementation, Stage 4: the GDD amendments)
+
+- Amendments 1-3 approved one by one; 4-9 approved together ("i approve all now go"). The list is in the plan's Stage 4.
+- The Formations rule 9 carve-out (`diagram_always`) is written by this work, since the formations session was not
+  running.

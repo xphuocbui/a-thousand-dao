@@ -226,6 +226,8 @@ author's reading and wait for confirmation (see Open Questions).
       `wound: grave` and neither `mortal`. The result carries a `wound` value per side: `none`, `grave` (a draw's
       survivors) or `mortal` (a Down side). The caller decides what a grave wound costs (rule 14). No random draw
       decides it and fortune does not enter.
+      **An extended last act** (amended 2026-11-26; Effects System rule 11, `last_act_window`) keeps a Down side in the
+      fight for its window, untargetable; if the foe goes Down within it, the fight is a draw as above.
     - **Fatigue (#44 item A3; flat since 2026-11-10).** From `fatigue_start` (60 s), every pulse takes from **both**
       sides a **flat** amount, `fatigue_units` × U_r × d_r × n² (d_r the realm defence factor, Formulas A), where n counts fatigue pulses (1 at 60 s, 2 at 61 s …)
       and U_r is the side's own realm fight unit (6.31 at Qi Refining, so the first pulses take 3.16, 12.6, 28.4,

@@ -187,7 +187,8 @@ system. An Effect grants modifiers from this catalogue as its payload.
    |---|---|---|
    | damage type | physical, force, fire, cold, lightning, light, chaos, soul | Combat Damage Types rule 1 (replaces Combat's kind family) |
    | element | kim, moc, thuy, hoa, tho (Metal, Wood, Water, Fire, Earth) and the root variants. Art tags only: never defence | Combat rule 6; Combat Damage Types rule 2 |
-   | form | sword, palm, seal, beast, formation, song, bow, mist (the last three new, 2026-11-25) | Combat rule 6 |
+   | form | sword, palm, seal, beast, formation, song, bow, mist (new, 2026-11-25), fan (new, 2026-11-26) | Combat rule 6 |
+   | companion kind | crane, bird (new, 2026-11-26): on companion records and their hit events, never on arts (Effects System rule 9b) | Spirit Beasts; Effects System rule 9b |
    | mode | hit, over_time, curse, ward | Combat rule 6 |
    | source | art, artifact, talisman, formation, companion | Combat rule 6 |
    | effect | pierce, lock, poison, cleanse, escape, bleed, seal (cleanse tags, Combat revision D17) | Combat rule 6 |
@@ -195,7 +196,7 @@ system. An Effect grants modifiers from this catalogue as its payload.
    | artifact role | weapon, ward_gear, body_gear, utility | Item DB (Combat's role tags; Item DB renamed `ward`/`body`, D2 done 2026-11-08) |
    | foe | cultivator, creature (Pending: Combat stamps them on profiles only when content needs them, Combat rule 6, user decision CB-08; `demonic` and `tribulation` held) | Combat rules 2, 18 (variety 2026-11-08) |
    | activity | secluded, travelling (Pending) | Time & Turn, Realms (variety 2026-11-08) |
-   | status | one tag per status in the Effects Status Catalogue's Tags column: ticks burn, poison (the effect tag `poison`, shared), corpse_rot, bleed, qi_disruption (frostbite and shock retired with #44); curses sundered, exposed, sealed_meridian, silence, stagnation, heavy_breath, leaking_ward, withering, slackened_soul | Effects System Status Catalogue (re-review MD 4) |
+   | status | one tag per status in the Effects Status Catalogue's Tags column: ticks burn, poison (the effect tag `poison`, shared), corpse_rot, bleed, qi_disruption (frostbite and shock retired with #44); curses sundered, exposed, sealed_meridian, silence, stagnation, heavy_breath, leaking_ward, withering, slackened_soul, slowed_time, charmed, drunk, asleep (the last three new, 2026-11-26) | Effects System Status Catalogue (re-review MD 4) |
    | heal source | body_shield (a restore of the body shield) | Combat Defence & Healing |
    | effect kind | conditional, scaling, trigger, conversion, overflow, rule_change, status, keystone, enabler (on Effect records only; never a scope) | Effects System rule 2 (re-review 2026-11-08b EF-15) |
    | stat family | damage, crit, accuracy, speed, cost, linh_luc, than_thuc, health, ward, resistance, block, shield, healing, evade, soul, status, gear, preparation, companion, escape, fortune, realm, cultivation, lifespan, heart_demon, toxicity, crafting, economy, travel, attribute, slots | this GDD |
@@ -212,6 +213,13 @@ A tag listed in two families is one tag; its tier is the same in both.
      find them ("a foe's Wind art lifts your mist"; Vụ Ẩn's road-mist arts).
    - `palm` and `seal` were already in the form family; `seal` is also an effect tag, and by the line above it is one
      tag.
+   **Tags added 2026-11-26** (world-depth Stage 4; user approval):
+   - `fan` (form): a fan art (world-depth `five-marks-from-five-arts` reads it); no art carries it yet.
+   - `crane` and `bird` (companion kind, a new family): a crane or bird companion; companion records and their hit
+     events carry them (Effects System rule 9b), so `[crane]` and `[bird]` scopes read companion hits only.
+   - `talisman` was already a source tag; since 2026-11-26 a stack or mark also remembers it (Effects rule 9b).
+   - Every modifier key the depth content uses is already a row in the Stat List; what the world-depth gap report
+     finds unread is a missing reader in code (world-depth Stage 6), not a missing key.
 
 10. **Derived art tags** let a modifier key off what an art is like without a condition. Combat adopted them
     (Combat revision D5, 2026-11-08): Combat owns them and assigns them when an art is compiled. The thresholds are
