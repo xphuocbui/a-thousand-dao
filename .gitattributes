@@ -36,3 +36,6 @@ production/qa/evidence/province-panel/*.png filter=lfs diff=lfs merge=lfs -text
 production/qa/evidence/province-panel/*.jpg filter=lfs diff=lfs merge=lfs -text
 design/map/continent-11/provinces-v2/*.png filter=lfs diff=lfs merge=lfs -text
 design/map/continent-11/provinces-v2/*.jpg filter=lfs diff=lfs merge=lfs -text
+# Portraits and place banners at full painted resolution (user 2026-11-26, world-depth Stage 3: about 0.5 GB), kept in Git LFS.
+assets/portraits/**/*.webp filter=lfs diff=lfs merge=lfs -text
+assets/art/places/*.webp filter=lfs diff=lfs merge=lfs -text

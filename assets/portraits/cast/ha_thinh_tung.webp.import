@@ -15,9 +15,9 @@ dest_files=["res://.godot/imported/ha_thinh_tung.webp-590195d41197a53ce9af3d7ecb
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

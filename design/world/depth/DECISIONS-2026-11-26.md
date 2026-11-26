@@ -67,3 +67,11 @@
   quality; the other symbols are unchanged.
 - **Place and province text** for the 26 moved places and their provinces: rewritten now from the pages, shown as one
   table first. **Cast homes** of the three old-cast people the pages put at old halls wait for Stage 7.
+
+# Decisions 2026-11-26 (implementation, Stage 3: the art)
+
+- **Full resolution:** portraits are installed at the painted 1024x1536 and every place banner at the painted
+  1536x864 (WebP quality 90), not 400x600 and 960x540 (user: "by high quality i mean high resolution").
+- **Git LFS** for `assets/portraits/**/*.webp` and `assets/art/places/*.webp` (about 0.5 GB).
+- **Godot import:** those two folders import as lossy WebP 0.9 with mipmaps (same resolution; the import cache and an
+  exported build carry about 0.85 GB instead of 3.2 GB lossless). Easy to revert per file if lossless is wanted.

@@ -309,6 +309,14 @@ earlier hand count, kept for where each kind lives.
 - **Check:** open the character window and a sect window, and keep screenshots in `production/qa/evidence/`. Measure
   the import size; about 1,900 webp portraits come to about 60 MB.
 
+**Progress 2026-11-26** (rulings in `DECISIONS-2026-11-26.md`, Stage 3):
+- Portraits: `tools/asset-pipeline/portraits/install_authored.py` installs the 1,909 `x-*` portraits (the four
+  `x-pilot` ones included) at the painted 1024x1536, WebP 90, 404 MB; `portraits.json` cast lists all 1,909.
+- Places: `tools/asset-pipeline/places/install_place_paintings.py` now installs the world-depth paintings (batches l1-l3,
+  311 places, all 254 earlier banners replaced) at 1536x864, WebP 90, 134 MB. The map miniatures are unchanged.
+- Both folders in Git LFS; imported as lossy WebP 0.9 with mipmaps (845 MB import cache).
+- Evidence: `production/qa/evidence/world-depth-stage3/01-bang-tam-sect-window-*.png` (1600x900 and 2560x1440).
+
 ### Stage 4: the GDD amendments (each one to the user, section by section)
 The features in Stage 5 need these rules first. Another session edits `design/gdd/`, so stage only your own hunks.
 - **Effects GDD:**
