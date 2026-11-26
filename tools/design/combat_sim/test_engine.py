@@ -376,6 +376,70 @@ def t_hit_carries_group():   # regression (2026-11-26, Twin Plums): hit events c
     check("an art of another technique does not match", A.counters["n"] == 1, str(A.counters))
 
 
+def t_stance_ward():   # Effects rule 6, Grow, Hold and Release a ward (W1, world-depth Băng Tâm, 2026-11-26)
+    e = {"id": "w", "on": "always", "do": []}
+    f, A, B = setup(b=dummy(effects=[{"id": "abs", "on": "ward_absorbed", "do": [{"counter": {"id": "n", "add": 1}}]}],
+                            counters=[{"id": "n"}]))
+    f.do(B, e, [{"ward_grow": {"share": 0.10, "of": "hp"}}], 1.0, {})
+    check("grow by a share of health", abs(B.sward - 0.10 * B.hp_max) < 1e-6 and abs(f.read(B, "own.ward_share") - 0.10) < 1e-9)
+    hp0 = B.hp
+    f.hit(A, B, 0.5, "cold", E.Art("x", 0.5, 0.03, 3.0))
+    check("the stance ward soaks a hit and raises ward_absorbed", B.sward < 0.10 * B.hp_max and B.counters["n"] == 1,
+          "%s %s" % (B.sward, B.counters))
+    left = B.sward
+    f.do(B, e, [{"ward_grow": {"share": 1.0, "of": "peak"}}], 1.0, {})
+    check("a refill of the peak stops at the peak", abs(B.sward - 0.10 * B.hp_max) < 1e-6, str(B.sward))
+    f.do(B, e, [{"ward_grow": {"share": 0.5, "of": "peak", "past_peak": True}}], 1.0, {})
+    check("past_peak grows past it and moves the peak", abs(f.read(B, "own.ward_peak") - 0.15) < 1e-6, str(f.read(B, "own.ward_peak")))
+    f.do(B, {"id": "fx", "on": "pulse"}, [{"mod": {"ward_fixed": 1, "for": 3}}], 1.0, {})
+    before = B.sward
+    f.hit(A, B, 0.5, "cold", E.Art("x", 0.5, 0.03, 3.0))
+    check("a held ward loses nothing", abs(B.sward - before) < 1e-9)
+    f.add_stacks(B, A, "ice", 4, 8.0, buff=False)
+    hpA = A.hp
+    f.do(B, e, [{"release_ward": {"dtype": "cold", "more_per_stack": 0.04, "consume": "ice"}}], 1.0, {})
+    check("release: the ward ends, the Ice is consumed and the foe is hit", B.sward == 0 and A.count(A.debuffs, "ice") == 0
+          and A.hp < hpA, "%s %s %s" % (B.sward, A.count(A.debuffs, "ice"), hpA - A.hp))
+    check("the peak stays after a release", f.read(B, "own.ward_peak") > 0)
+
+
+def t_soul_reflect():   # Effects rule 6, Reflect a soul art (W2, 2026-11-26)
+    f, A, B = setup(b=dummy(effects=[{"id": "st", "on": "soul_taken", "do": [{"counter": {"id": "n", "add": 1}}]}],
+                            counters=[{"id": "n"}]))
+    soul = E.Art("gaze", 0.0, 0.03, 3.0, soul_pct=0.05)
+    f.do(B, {"id": "m", "on": "fight_start"}, [{"mod": {"soul_reflect": 1}}], 1.0, {})
+    hpA, hpB = A.hp, B.hp
+    f.soul_hit(A, B, soul)
+    check("a reflected soul art does nothing to the reflector", B.hp == hpB, "%s" % (hpB - B.hp))
+    check("its caster takes Cold damage", A.hp < hpA, "%s" % (hpA - A.hp))
+    check("soul_taken is raised on the reflector", B.counters["n"] == 1)
+    f.soul_hit(A, B, soul)
+    check("the charge is spent: the next soul art lands", B.hp < hpB and B.counters["n"] == 2)
+
+
+def t_decoy_struck():   # Effects rule 6, Avoid a hit: decoy {n} and decoy_struck (W3, 2026-11-26)
+    f, A, B = setup(b=dummy(effects=[{"id": "d", "on": "decoy_struck", "do": [{"stacks": {"el": "ice", "n": 2, "for": 8, "side": "foe"}}]}]))
+    f.do(B, {"id": "g", "on": "art_fired"}, [{"decoy": {"n": 1}}], 1.0, {})
+    hpB = B.hp
+    f.hit(A, B, 1.0, "cold", E.Art("x", 1.0, 0.03, 3.0))
+    check("the decoy takes the hit", B.hp == hpB and B.decoys == 0)
+    check("decoy_struck lays 2 Ice stacks on the striker", A.count(A.debuffs, "ice") == 2, str(A.count(A.debuffs, "ice")))
+
+
+def t_live_stack_dur():   # the live stack_dur mod (W4, 2026-11-26; Master's Road)
+    eff = {"id": "md", "on": "always", "if": [{"read": "own.ward_share", "op": ">", "value": 0}],
+           "do": [{"mod": {"stack_dur": 100, "element": "ice", "kind": "debuff"}}]}
+    f, A, B = setup(a=dummy(effects=[eff]))
+    f.add_stacks(A, B, "ice", 1, 4.0, buff=False)
+    plain = B.debuffs[-1][2] - f.t
+    f.do(A, {"id": "w", "on": "always"}, [{"ward_grow": {"share": 0.1, "of": "hp"}}], 1.0, {})
+    f.add_stacks(A, B, "ice", 1, 4.0, buff=False)
+    held = B.debuffs[-1][2] - f.t
+    check("Ice laid while the ward holds lasts twice as long", held == 2 * plain, "%s %s" % (plain, held))
+    f.add_stacks(A, B, "fire", 1, 4.0, buff=False)
+    check("another element keeps its time", B.debuffs[-1][2] - f.t == plain)
+
+
 def t_move_own_debuffs():   # Move the Sickness (2026-11-26)
     f, A, B = setup()
     f.add_stacks(B, A, "fire", 3, 8.0, buff=False)

@@ -339,7 +339,9 @@
     "pill_burned",
     "broken",
     "wounded",
-    "tick_taken"
+    "tick_taken",
+    "soul_taken",
+    "decoy_struck"
   ],
   "MOD_KEYS": [
     "L1",
@@ -410,7 +412,10 @@
     "lock",
     "talisman_fast",
     "counted_curse_per",
-    "next_art_cost"
+    "next_art_cost",
+    "ward_fixed",
+    "soul_reflect",
+    "stack_dur"
   ],
   "ACTIONS": [
     "bank",
@@ -443,7 +448,10 @@
     "last_act_window",
     "burn_pill",
     "move_own_debuffs",
-    "meter"
+    "meter",
+    "ward_grow",
+    "release_ward",
+    "decoy"
   ],
   "CHARACTER_MODS": {
     "passive": {

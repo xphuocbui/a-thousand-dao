@@ -293,6 +293,9 @@ class Side:
         self.in_more = False                # reading stack_more (bsum's re-entry guard)
         self.last_hit_t = 0                 # when a hit last landed on this side (own.since_hit)
         self.reflected = False              # reflect_first spent (Returning Wave)
+        self.sward = 0.0                    # the stance ward's points left (Effects rule 6, Grow a ward; 2026-11-26)
+        self.sward_peak = 0.0               # its highest this fight
+        self.soul_charges = []              # Reflect a soul art: each charge's end (ms; inf for the fight)
         self.crit_meter = 0                 # counted crit, per mille (Effects Formulas A)
         self.last_cost = 0.0                # linh lực the last art paid (hit events carry it: Autumn Harvest)
         self.dealt = self.spent = self.healed = self.fat = 0.0
@@ -477,6 +480,10 @@ class Fight:
             return x.ward_paid / x.qi_max()
         if k == "body_shield_share":
             return x.body_bar / x.hp_max
+        if k == "ward_share":               # the stance ward now and its peak, shares of maximum health (W1, 2026-11-26)
+            return x.sward / x.hp_max
+        if k == "ward_peak":
+            return x.sward_peak / x.hp_max
         if k == "boss":
             return 1.0 if x.b.boss else 0.0
         if k == "tam_ma":
@@ -1257,6 +1264,7 @@ class Fight:
         if not trig and dfn.decoys > 0 and dfn.avoided < K["avoid_budget"]:
             dfn.decoys -= 1
             dfn.avoided += 1
+            self.fire_event(dfn, "decoy_struck", {"kind": kind, "art_id": ctx["art_id"]})   # W3 (2026-11-26)
             return 0.0
         # Returning Wave: the first hit taken does no harm and strikes the attacker at full damage, once a fight
         if not trig and not dfn.reflected and self.mod(dfn, "reflect_first") > 0:
@@ -1487,6 +1495,15 @@ class Fight:
                 w["quiet_since"] = self.t
                 rest -= soak
                 ward_took += soak
+            if rest > 0 and dfn.sward > 0 and not is_tick and dtype != "soul":   # the stance ward (W1, 2026-11-26)
+                soak = min(rest, dfn.sward)
+                if self.mod(dfn, "ward_fixed") <= 0:   # Hold a ward: it stops hits but loses nothing
+                    dfn.sward -= soak
+                    if dfn.sward <= 1e-9:
+                        dfn.sward = 0.0
+                        self.fire_event(dfn, "shield_broken", {"stance_ward": 1})
+                rest -= soak
+                ward_took += soak
             a = rest + through
             if a > 0 and dfn.body_bar > 0 and dtype not in ("chaos", "soul") and self.mod(dfn, "no_body_shield") <= 0:
                 soak = min(a, dfn.body_bar)
@@ -1534,6 +1551,15 @@ class Fight:
             return 0.0
         pct = min(a.soul_pct * (1 + (att.b.x_soul + self.mod(att, "x_soul", art_ctx(a))) / 100) * rho ** K["soul_beta"] * supp(att, dfn, self.mod(att, "pierce") / 100), K["soul_cap"])
         lh, lq = pct * dfn.hp_max, pct * dfn.qi_max()
+        live = [u for u in dfn.soul_charges if u > self.t]
+        if live:   # Reflect a soul art (W2, 2026-11-26): no harm to you; Cold equal to its health loss on the caster
+            dfn.soul_charges = sorted(live)[1:]
+            got = self.defend(dfn, att, lh, "cold", None, {"dtype": "cold", "kind": "trigger"}, is_tick=False)
+            dfn.dealt += got
+            if self.plog is not None:
+                self.plog.append(["soul_reflect", self.t, dfn.label, a.name, lh, got, att.hp, att.qi])
+            self.fire_event(dfn, "soul_taken", {"amount": lh, "art_id": a.name, "tags": a.tags, "reflected": 1.0})
+            return 0.0
         dfn.hp -= lh
         dfn.qi = max(0.0, dfn.qi - lq)
         att.dealt += lh
@@ -1542,6 +1568,7 @@ class Fight:
             self.plog.append(["soul", self.t, att.label, a.name, lh, lq, dfn.hp, dfn.qi])
         self.fire_event(att, "soul_hit", {"amount": lh, "qi": lq, "tags": a.tags, "element": a.element, "art_id": a.name,
                                           "kind": "art", "dtype": "soul"})
+        self.fire_event(dfn, "soul_taken", {"amount": lh, "art_id": a.name, "tags": a.tags, "reflected": 0.0})   # W2
         return lh
 
     def heal(self, s, amount, source=None, ignore_taken=False):
@@ -1579,6 +1606,8 @@ class Fight:
         n += int(self.mod(src, "stack_grant", {"element": el, "kind": "buff" if buff else "debuff"}))
         if dur is not None and src.b.stack_dur:
             dur = dur * (1 + stack_pct(src.b.stack_dur, el, "buff" if buff else "debuff") / 100)
+        if dur is not None:   # the live stack_dur mod (W4, 2026-11-26; Master's Road), read when the batch is laid
+            dur = dur * max(0.0, 1 + self.mod(src, "stack_dur", {"element": el, "kind": "buff" if buff else "debuff"}) / 100)
         until = None if dur is None else self.t + ms(max(K["min_batch"], dur))
         if buff:
             target.buffs.append([el, n, until, src, None if until is None else until - self.t])
@@ -1800,8 +1829,10 @@ class Fight:
                     dur = arg.get("for", 0)
                     if not arg.get("stack"):   # "while X in the last N s": a new firing refreshes, never stacks
                         s.temp_mods = [m for m in s.temp_mods if len(m) < 5 or m[4] != e["id"]]
+                    if "soul_reflect" in arg:   # Reflect a soul art: charges, each spent by one soul art (W2)
+                        s.soul_charges += [self.t + ms(dur) if dur else float("inf")] * int(round(arg["soul_reflect"] * n))
                     for k, v in arg.items():
-                        if k in MOD_KEYS and k != "next_art_cost":
+                        if k in MOD_KEYS and k not in ("next_art_cost", "soul_reflect"):
                             s.temp_mods.append([k, v * n, self.t + ms(dur) if dur else self.t + 1,
                                                 {kk: arg[kk] for kk in ("dtype", "element", "tags", "kind") if kk in arg},
                                                 e["id"]])
@@ -2047,6 +2078,30 @@ class Fight:
                         s.body_bar = min(cap, s.body_bar + arg["refill"] * cap * n)
                 else:
                     s.body_bar += arg.get("body", 0.0) * s.hp_max * n * self.shield_hold(s)
+            elif verb == "ward_grow":   # Effects rule 6, Grow a ward (W1, 2026-11-26)
+                of = arg.get("of", "hp")
+                new = s.sward + arg.get("share", 0.0) * n * (s.hp_max if of == "hp" else s.sward_peak)
+                if of == "peak" and not arg.get("past_peak"):
+                    new = min(new, max(s.sward, s.sward_peak))
+                s.sward = max(0.0, new)
+                s.sward_peak = max(s.sward_peak, s.sward)
+            elif verb == "release_ward":   # Effects rule 6, Release a ward (W1): what it holds, more per stack consumed
+                left, s.sward = s.sward, 0.0
+                k = 0
+                if arg.get("consume"):
+                    for x in list(o.debuffs):
+                        if x[0] == arg["consume"]:
+                            k += x[1]
+                            o.debuffs.remove(x)
+                amt = left * (1 + arg.get("more_per_stack", 0.0) * k)
+                if amt > 0:
+                    dt = arg.get("dtype", "cold")
+                    got = self.defend(s, o, amt, dt, None, {"dtype": dt, "kind": "trigger"}, is_tick=False)
+                    s.dealt += got
+                    if self.plog is not None:
+                        self.plog.append(["release_ward", self.t, s.label, left, k, got, o.hp])
+            elif verb == "decoy":   # Effects rule 6, Avoid a hit: grant decoys (W3, 2026-11-26)
+                s.decoys += int(round(arg.get("n", 1) * n))
             elif verb == "return_damage":
                 # a share of the event's amount strikes the foe through its defence (Thorns: a share of the blocked)
                 amt = arg.get("share", 0.0) * ev.get("amount", 0.0) * n

@@ -113,7 +113,16 @@ Resume here: read this file, then do the first unchecked step.
       DECISIONS-2026-11-26.md "Stage 6, Băng Tâm Các review round 1"). Next:
       - (a) show the user the GDD text for W1-W4 (Effects rule 6), section by section;
       - (b) show the rule 20f amendment (signature items unique);
-      - (c) build W1-W4 in both engines with parity;
+      - (c) build W1-W4 in both engines with parity. **Python DONE 2026-11-26:**
+        - engine.py: the stance ward (`sward`, `sward_peak`), soaked after the ward shields;
+        - the actions `ward_grow`, `release_ward` and `decoy`; the mods `ward_fixed`, `soul_reflect` (charges, in the
+          `mod` verb) and `stack_dur` (read in `add_stacks`);
+        - the events `soul_taken` and `decoy_struck`; the readables `own.ward_share` and `own.ward_peak`;
+        - the vocabulary in `combat_engine.json`; tests `t_stance_ward`, `t_soul_reflect`, `t_decoy_struck` and
+          `t_live_stack_dur`.
+
+        **NEXT: GDScript** (`fight.gd` defend and soul hit, `effect_runner.gd` actions, `fighter_state.gd`, the read
+        function), then GdUnit twins and a parity fixture (t25).
       - (d) write the 4 arts and 6 Effects: Walk the Nodes and the Peak use `field_up`, Hidden Half uses `stack_more`
         20 % while cursed, and Ice in the Vessel gets a `tam_ma_resist_pct` line;
       - (e) run the gap report, then review round 2 on those records.
