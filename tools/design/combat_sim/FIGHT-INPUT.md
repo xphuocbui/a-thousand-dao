@@ -287,6 +287,50 @@ looks like a strong build.
   both engines, and a set even added a charge; a spend now removes the charges nearest their end, and a set keeps the
   newest N. Every library art that spends Seal, Fray, Drink, Temper or Peal charges now pays them.
 
+### Built in world-depth Stage 6 (2026-11-26, Băng Tâm Các; both engines, parity t25, t26)
+
+- **A stance ward** (Effects GDD rules 5-6, Grow, Hold and Release a ward):
+  - `ward_grow {share, of: "hp" | "peak", past_peak}` raises your stance ward, in shares of maximum health, or
+    refills it from its peak (stopping at the peak unless `past_peak`). If you hold no stance ward, it creates one.
+  - It soaks hits after the ward shields, never ticks or Soul, and raises `ward_absorbed` and `shield_broken`
+    (`stance_ward: 1`).
+  - The mod `ward_fixed` (for N s): the ward stops hits but loses nothing.
+  - `release_ward {dtype, more_per_stack, consume: <el>}` deals what the ward holds to the foe, more per stack of
+    the element it consumes (all of them).
+  - Readables: `own.ward_share`, `own.ward_peak`, and `own.ward_of_peak` (its size as a share of its peak).
+- **A soul reflect:** the mod `soul_reflect` (a count of charges; `for` N s gives timed charges, none gives charges for
+  the fight). The next soul art landing on you does nothing to you, and its caster takes that much Cold damage. The
+  event `soul_taken {amount, art_id, tags, reflected}` is raised on the side a soul art lands on.
+- **Decoys:** the action `decoy {n}` grants decoys. Each takes one whole hit at the avoid step, within the per-pulse
+  `avoid_budget` (2), and raises `decoy_struck {kind, art_id}` on its owner.
+- **A live stack duration:** the mod `stack_dur` (percent, with `element` and `kind` buff or debuff inside the mod),
+  read when a batch is laid (Master's Road).
+- **Hit events carry the art's `group`** (its technique), so `filter.group` matches on `hit_landed` and `crit` too,
+  for empowered and stepped arts as well.
+- **Sets:** a full set naming an Effect with no inline `record` runs it from `assets/data/combat_effects.json` by name.
+
+### Traps found in Stage 6 (read before writing records)
+
+- **On `on: "always"`, scope goes INSIDE the mod** (`{"mod": {"sure_crit": 1, "tags": ["sword"]}}`). A record-level
+  `filter` is ignored by `always` records, so the mod would apply to every hit.
+- **`art_fired` fires before the art's own hits.** A bonus that should see the stacks this firing lays goes on
+  `hit_landed`, counted, for example "the fifth petal to land".
+- **Stacks land inside the hit, before its `hit_landed`.** A counter armed by `status_applied` and spent on
+  `hit_landed` is spent by the same sub-hit that armed it. Spend it on the event it grants instead (`crit` for a sure
+  crit).
+- **A fighter has one stance slot.** `state {set}` replaces the current stance, so two stances in one build overwrite
+  each other. Give them a combined stance (Băng Tâm's `jade-vessel-sealed`: Composed and Field), with guards on
+  `field_up` or on the combined state.
+- **An art must define every stance its records set.** The GDScript loader checks state targets when it compiles, and
+  Python only when the record runs.
+- **`stack_more` is buffs only.** For "debuffs count more", use `stack_grant` (more stacks per grant, scoped
+  `element` and `kind` inside the mod).
+- **Leave a stance with `{"state": {"set": null}}`.**
+- **Test against `--gap 1`, not `top_end`.** The top-end foe kills a build in about 2 s, so no Effect can show.
+- **"Runs" in the gap report only means a record exists.** Check every Effect on its real holders with
+  `tools/design/combat_sim/sect_fight.py <owner>`. That prints with and without, and the runs per Effect and fires per
+  art; a 0 needs a written reason.
+
 ### World-depth vocabulary (2026-11-26; to build in world-depth Stage 5)
 
 Proposed words from the authored records (`design/world/depth/builds/authored/auth-tech.json` `new_vocab`, listed in
