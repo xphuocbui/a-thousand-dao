@@ -3184,6 +3184,40 @@
     }
    ]
   },
+  "clear-heart-mirror": {
+   "c_art": 0.0,
+   "cooldown": 8,
+   "cost_share": 0.03,
+   "element": "ice",
+   "group": "jade-vessel-ice-heart-canon",
+   "id": "clear-heart-mirror",
+   "kind": "elem",
+   "tags": [
+    "cold",
+    "soul",
+    "ward"
+   ],
+   "name": "Clear-Heart Mirror (Băng Tâm Kính)",
+   "rule": "For 6 s, the next soul or heart-demon art that would land on you does nothing to you and strikes its caster as Cold damage equal to what it would have taken.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "mirror-charge",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "clear-heart-mirror"
+     },
+     "do": [
+      {
+       "mod": {
+        "soul_reflect": 1,
+        "for": 6
+       }
+      }
+     ]
+    }
+   ]
+  },
   "closing-palm": {
    "c_art": 1.35,
    "cooldown": 3,
@@ -3401,6 +3435,41 @@
    "name": "Cold Ledger (Hàn Trướng)",
    "rule": "No damage: lays 3 Ice stacks for 12 s on the foe.",
    "source": "part_common"
+  },
+  "cut-the-horse": {
+   "c_art": 1.8,
+   "cooldown": 4,
+   "cost_share": 0.04,
+   "element": "fire",
+   "empower": [
+    {
+     "if": [
+      {
+       "read": "foe.pressing",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "c_mult": 2.0
+    }
+   ],
+   "group": "red-sand-sabre-primer",
+   "id": "cut-the-horse",
+   "kind": "elem",
+   "statuses": [
+    {
+     "id": "slowed_time",
+     "stacks": 2,
+     "dur": 2
+    }
+   ],
+   "tags": [
+    "fire",
+    "sabre"
+   ],
+   "name": "Cut the Horse (Trảm Mã)",
+   "rule": "A riding draw-cut: a Fire hit that lays 2 stacks of Slowed Time for 2 s. Against a Pressing foe (one that is moving and acting) it hits twice as hard.",
+   "source": "part_authored"
   },
   "deaf-verdict": {
    "c_art": 0.0,
@@ -4593,6 +4662,108 @@
    "rule": "A plain Fire hit.",
    "source": "part_common"
   },
+  "five-petals-of-cold": {
+   "c_art": 1.8,
+   "cooldown": 4,
+   "cost_share": 0.04,
+   "element": "ice",
+   "group": "snow-plum-sword",
+   "id": "five-petals-of-cold",
+   "kind": "elem",
+   "split": [
+    0.2,
+    0.2,
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tags": [
+    "cold",
+    "sword",
+    "quick"
+   ],
+   "name": "Five Petals of Cold (Ngũ Biện Hàn)",
+   "rule": "Five quick cuts, each laying 1 Ice stack for 8 s when it lands; the fifth cut to land adds a Cold hit of 0.05 for every Ice stack on the foe (its own stacks included).",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "petal-cold",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "five-petals-of-cold"
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "ice",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "cold_petal",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "fifth-petal",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "five-petals-of-cold"
+     },
+     "if": [
+      {
+       "read": "own.counter.cold_petal",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "scale": {
+      "read": "foe.debuff.ice",
+      "per": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.05,
+        "dtype": "cold"
+       }
+      }
+     ]
+    },
+    {
+     "id": "fifth-petal-reset",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "five-petals-of-cold"
+     },
+     "if": [
+      {
+       "read": "own.counter.cold_petal",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "cold_petal",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "cold_petal"
+    }
+   ]
+  },
   "flame-lance": {
    "c_art": 1.91,
    "cooldown": 6,
@@ -5445,6 +5616,43 @@
     }
    ]
   },
+  "frost-breath-palm": {
+   "c_art": 1.5,
+   "cooldown": 3,
+   "cost_share": 0.03,
+   "element": "water",
+   "group": "clear-frost-breath",
+   "id": "frost-breath-palm",
+   "kind": "elem",
+   "tags": [
+    "cold",
+    "palm"
+   ],
+   "name": "Frost-Breath Palm (Sương Tức Chưởng)",
+   "rule": "A slow palm that breathes out cold: a light Cold hit that delays the foe's next ready art by 0.5 s.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "frost-breath-slow",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "frost-breath-palm"
+     },
+     "limit": {
+      "per_pulse": 1
+     },
+     "do": [
+      {
+       "timer": {
+        "side": "foe",
+        "which": "next",
+        "by": 0.5
+       }
+      }
+     ]
+    }
+   ]
+  },
   "frost-seal": {
    "c_art": 3.44,
    "cooldown": 5,
@@ -6243,6 +6451,64 @@
    "rule": "A plain quick Physical cut that carries no element, so it never fights a build's own.",
    "source": "item"
   },
+  "glacier-bastion": {
+   "c_art": 0.0,
+   "cooldown": 8,
+   "cost_share": 0.05,
+   "element": "ice",
+   "group": "frost-lotus-array-canon",
+   "id": "glacier-bastion",
+   "kind": "elem",
+   "tags": [
+    "cold",
+    "formation",
+    "ward"
+   ],
+   "name": "Glacier Bastion (Băng Xuyên Lũy)",
+   "rule": "Raises an ice wall: your stance ward grows by 6 % of your health. While your Field is up (for example Lotus Seal Ground) and the wall stands, it grows by 1 % of your health more each second.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "bastion-raise",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "glacier-bastion"
+     },
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.06,
+        "of": "hp"
+       }
+      }
+     ]
+    },
+    {
+     "id": "bastion-grows",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.field_up",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.ward_share",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.01,
+        "of": "hp"
+       }
+      }
+     ]
+    }
+   ]
+  },
   "gourd-spout": {
    "c_art": 2.46,
    "cooldown": 3,
@@ -6537,6 +6803,296 @@
    "counters": [
     {
      "id": "seed"
+    }
+   ]
+  },
+  "heart-in-the-jade-vessel": {
+   "c_art": 0.0,
+   "cooldown": 6,
+   "cost_share": 0.04,
+   "element": "ice",
+   "group": "jade-vessel-ice-heart-canon",
+   "guards": [
+    {
+     "read": "own.state.jade-vessel",
+     "op": "<",
+     "value": 1
+    },
+    {
+     "read": "own.state.jade-vessel-sealed",
+     "op": "<",
+     "value": 1
+    }
+   ],
+   "id": "heart-in-the-jade-vessel",
+   "kind": "elem",
+   "tags": [
+    "cold",
+    "stance",
+    "ward"
+   ],
+   "name": "Heart in the Jade Vessel (Tâm Tại Ngọc Hồ)",
+   "rule": "A held stance (Composed). While you hold it your damaging Ice arts wait and a frost ward grows by 3 % of your health each second; each hit it absorbs lays 1 Ice stack on the attacker for 10 s, 2 while the ward is above half its peak. When the ward reaches 25 % of your health or the foe carries 10 Ice stacks, the stance ends and the ward is released as Cold damage on the foe, 4 % more for each Ice stack it consumes (all of them). Entered while your Lotus Seal Ground is up, the stance keeps the seal (a sealed Vessel: Composed and a Field at once, casting 10 % slower), and the release returns you to the seal.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "vessel-enter",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "heart-in-the-jade-vessel"
+     },
+     "if": [
+      {
+       "read": "own.state.lotus-seal",
+       "op": "<",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "state": {
+        "set": "jade-vessel"
+       }
+      }
+     ]
+    },
+    {
+     "id": "vessel-enter-sealed",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "heart-in-the-jade-vessel"
+     },
+     "if": [
+      {
+       "read": "own.state.lotus-seal",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "state": {
+        "set": "jade-vessel-sealed"
+       }
+      }
+     ]
+    },
+    {
+     "id": "vessel-grow",
+     "on": "pulse",
+     "if": [
+      {
+       "any": [
+        {
+         "read": "own.state.jade-vessel",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.state.jade-vessel-sealed",
+         "op": ">=",
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.03,
+        "of": "hp"
+       }
+      }
+     ]
+    },
+    {
+     "id": "vessel-answer",
+     "on": "ward_absorbed",
+     "if": [
+      {
+       "any": [
+        {
+         "read": "own.state.jade-vessel",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.state.jade-vessel-sealed",
+         "op": ">=",
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "ice",
+        "n": 1,
+        "for": 10,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "vessel-answer-high",
+     "on": "ward_absorbed",
+     "if": [
+      {
+       "any": [
+        {
+         "read": "own.state.jade-vessel",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.state.jade-vessel-sealed",
+         "op": ">=",
+         "value": 1
+        }
+       ]
+      },
+      {
+       "read": "own.ward_of_peak",
+       "op": ">",
+       "value": 0.5
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "ice",
+        "n": 1,
+        "for": 10,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "vessel-release",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.jade-vessel",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "any": [
+        {
+         "read": "own.ward_share",
+         "op": ">=",
+         "value": 0.25
+        },
+        {
+         "read": "foe.debuff.ice",
+         "op": ">=",
+         "value": 10
+        }
+       ]
+      }
+     ],
+     "do": [
+      {
+       "release_ward": {
+        "dtype": "cold",
+        "more_per_stack": 0.04,
+        "consume": "ice"
+       }
+      },
+      {
+       "state": {
+        "set": null
+       }
+      }
+     ]
+    },
+    {
+     "id": "vessel-release-sealed",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.jade-vessel-sealed",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "any": [
+        {
+         "read": "own.ward_share",
+         "op": ">=",
+         "value": 0.25
+        },
+        {
+         "read": "foe.debuff.ice",
+         "op": ">=",
+         "value": 10
+        }
+       ]
+      }
+     ],
+     "do": [
+      {
+       "release_ward": {
+        "dtype": "cold",
+        "more_per_stack": 0.04,
+        "consume": "ice"
+       }
+      },
+      {
+       "state": {
+        "set": "lotus-seal"
+       }
+      }
+     ]
+    }
+   ],
+   "states": [
+    {
+     "id": "jade-vessel",
+     "tags": [
+      "composed"
+     ],
+     "mods": {},
+     "suppress": [
+      "rime-lotus",
+      "five-petals-of-cold",
+      "plum-falls-on-snow",
+      "frost-breath-palm",
+      "shatter-palm",
+      "rime-lock-seal",
+      "black-ice-glaze"
+     ]
+    },
+    {
+     "id": "jade-vessel-sealed",
+     "tags": [
+      "composed",
+      "field"
+     ],
+     "mods": {
+      "art_speed": -10
+     },
+     "suppress": [
+      "rime-lotus",
+      "five-petals-of-cold",
+      "plum-falls-on-snow",
+      "frost-breath-palm",
+      "shatter-palm",
+      "rime-lock-seal",
+      "black-ice-glaze"
+     ]
+    },
+    {
+     "id": "lotus-seal",
+     "tags": [
+      "field"
+     ],
+     "mods": {
+      "art_speed": -10
+     }
     }
    ]
   },
@@ -6883,6 +7439,53 @@
    "counters": [
     {
      "id": "breath"
+    }
+   ]
+  },
+  "hidden-fragrance": {
+   "c_art": 0.8,
+   "cooldown": 5,
+   "cost_share": 0.03,
+   "element": "ice",
+   "group": "snow-plum-sword",
+   "id": "hidden-fragrance",
+   "kind": "elem",
+   "tags": [
+    "cold",
+    "sword",
+    "movement"
+   ],
+   "name": "Hidden Fragrance (Ám Hương)",
+   "rule": "A light sword step that leaves an afterimage: a small Cold cut, and a decoy that takes the foe's next hit (within the avoid budget). A foe who strikes the afterimage takes 2 Ice stacks for 8 s.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "fragrance-afterimage",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "hidden-fragrance"
+     },
+     "do": [
+      {
+       "decoy": {
+        "n": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "fragrance-struck",
+     "on": "decoy_struck",
+     "do": [
+      {
+       "stacks": {
+        "el": "ice",
+        "n": 2,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
     }
    ]
   },
@@ -8051,6 +8654,134 @@
    "name": "Lightning Step (Lôi Độn)",
    "rule": "Escape, usable only when your health is at or below 30 %.",
    "source": "part_authored"
+  },
+  "lotus-seal-ground": {
+   "c_art": 0.0,
+   "cooldown": 4,
+   "cost_share": 0.04,
+   "element": "ice",
+   "group": "frost-lotus-array-canon",
+   "guards": [
+    {
+     "read": "own.field_up",
+     "op": "<",
+     "value": 1
+    }
+   ],
+   "id": "lotus-seal-ground",
+   "kind": "elem",
+   "tags": [
+    "cold",
+    "seal",
+    "formation",
+    "stance"
+   ],
+   "name": "Lotus Seal Ground (Liên Ấn Địa)",
+   "rule": "Lays a frost-lotus seal (a Field) that stays up for the fight. While it is up you cast 10 % slower, and each second the foe takes 1 Ice stack for 6 s and a stack of Slowed Time for 2 s. Laid inside Heart in the Jade Vessel, it seals the Vessel (both at once).",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "lotus-seal-lay",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "lotus-seal-ground"
+     },
+     "if": [
+      {
+       "read": "own.state.jade-vessel",
+       "op": "<",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "state": {
+        "set": "lotus-seal"
+       }
+      }
+     ]
+    },
+    {
+     "id": "lotus-seal-into-vessel",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "lotus-seal-ground"
+     },
+     "if": [
+      {
+       "read": "own.state.jade-vessel",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "state": {
+        "set": "jade-vessel-sealed"
+       }
+      }
+     ]
+    },
+    {
+     "id": "lotus-seal-pulse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.field_up",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "ice",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      },
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 1,
+        "dur": 2,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ],
+   "states": [
+    {
+     "id": "lotus-seal",
+     "tags": [
+      "field"
+     ],
+     "mods": {
+      "art_speed": -10
+     }
+    },
+    {
+     "id": "jade-vessel-sealed",
+     "tags": [
+      "composed",
+      "field"
+     ],
+     "mods": {
+      "art_speed": -10
+     },
+     "suppress": [
+      "rime-lotus",
+      "five-petals-of-cold",
+      "plum-falls-on-snow",
+      "frost-breath-palm",
+      "shatter-palm",
+      "rime-lock-seal",
+      "black-ice-glaze"
+     ]
+    }
+   ]
   },
   "lustral-bell": {
    "c_art": 1.19,
@@ -9804,6 +10535,50 @@
    "rule": "A plain Physical sword hit.",
    "source": "part_common"
   },
+  "plum-falls-on-snow": {
+   "c_art": 2.0,
+   "cooldown": 7,
+   "cost_share": 0.05,
+   "element": "ice",
+   "empower": [
+    {
+     "if": [
+      {
+       "read": "foe.debuff.ice",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "pay": [
+      {
+       "consume": {
+        "el": "ice",
+        "side": "foe",
+        "kind": "debuff"
+       }
+      },
+      {
+       "stop_clock": {
+        "side": "foe",
+        "seconds": 1.0
+       }
+      }
+     ],
+     "c_art": 3.5
+    }
+   ],
+   "group": "snow-plum-sword",
+   "id": "plum-falls-on-snow",
+   "kind": "elem",
+   "tags": [
+    "cold",
+    "sword",
+    "heavy"
+   ],
+   "name": "Plum Falls on Snow (Mai Lạc Tuyết)",
+   "rule": "A single falling cut. Against a foe with 5 or more Ice stacks it eats them all, hits much harder and freezes the foe for a breath: its clock stops for 1 s.",
+   "source": "part_authored"
+  },
   "qi-shaking-palm": {
    "c_art": 1.97,
    "cooldown": 2,
@@ -10547,6 +11322,87 @@
    "counters": [
     {
      "id": "frost"
+    }
+   ]
+  },
+  "rime-lotus": {
+   "c_art": 1.6,
+   "cooldown": 6,
+   "cost_share": 0.04,
+   "element": "ice",
+   "group": "jade-vessel-ice-heart-canon",
+   "id": "rime-lotus",
+   "kind": "elem",
+   "split": [
+    0.2,
+    0.2,
+    0.2,
+    0.2,
+    0.2
+   ],
+   "tags": [
+    "cold",
+    "seal"
+   ],
+   "name": "Rime Lotus (Sương Liên)",
+   "rule": "A frost lotus opens under the foe in five petals. Each petal that lands lays 1 Ice stack for 8 s; the fifth petal to land (counted across firings) freezes the foe for a breath: its clock stops for 1 s.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "rime-petal",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "rime-lotus"
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "ice",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "petal",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "rime-fifth-petal",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "rime-lotus"
+     },
+     "if": [
+      {
+       "read": "own.counter.petal",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "stop_clock": {
+        "side": "foe",
+        "seconds": 1.0
+       }
+      },
+      {
+       "counter": {
+        "id": "petal",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "petal"
     }
    ]
   },
@@ -15375,6 +16231,22 @@
    "rule": "A plain wood whip strike.",
    "source": "part_common"
   },
+  "warm-hands": {
+   "c_art": 0.0,
+   "c_heal": 0.5,
+   "cooldown": 5,
+   "cost_share": 0.03,
+   "element": "",
+   "group": "warm-hearth-breath",
+   "id": "warm-hands",
+   "kind": "elem",
+   "tags": [
+    "heal"
+   ],
+   "name": "Warm Hands (Noãn Thủ)",
+   "rule": "The servant cups their own hearth-warmth between their hands: a small heal.",
+   "source": "part_authored"
+  },
   "warm-the-hearth": {
    "buff": [
     3,
@@ -17393,6 +18265,784 @@
      "not_run": []
     }
    ],
+   "reserve_arts": []
+  },
+  "bt-black-backed-mirror": {
+   "name": "Black-Backed Mirror (Hắc Bối Kính)",
+   "role": "utility",
+   "modifiers": [
+    {
+     "key": "soul_res_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 25,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-clear-heart-mirror": {
+   "name": "Clear-Heart Mirror (Băng Tâm Kính)",
+   "role": "utility",
+   "modifiers": [
+    {
+     "key": "soul_res_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 30,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    "Clear-Heart Reflection"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-coast-wine-gourd": {
+   "name": "Gourd of Coast Wine (Ngạn Tửu Hồ)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 28,
+     "scope": []
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 20,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-fisher-sword": {
+   "name": "Fisher's Sword (Ngư Kiếm)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 12,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-frost-lotus-banner": {
+   "name": "Frost Lotus Banner (Sương Liên Kỳ)",
+   "role": "utility",
+   "modifiers": [
+    {
+     "key": "stack_duration_pct",
+     "value": 30,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    },
+    {
+     "key": "defense_pct",
+     "value": 9,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-frost-star-ring": {
+   "name": "Frost Star Ring (Sương Tinh Giới)",
+   "role": "ring",
+   "modifiers": [
+    {
+     "key": "stack_effect_pct",
+     "value": 22,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-glacier-bastion-plate": {
+   "name": "Glacier Bastion Plate (Băng Bích Lũy Giáp)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 9,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "body_shield_pct",
+     "value": 35,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 150,
+     "scope": [
+      "cold"
+     ]
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-glazed-frost-sword": {
+   "name": "Glazed Frost (Lưu Ly Sương Kiếm)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 15,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 22,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": [
+      "cold"
+     ]
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-ice-hole-blade": {
+   "name": "Ice-Hole Blade (Băng Huyệt Đao)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "leech_health_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 24,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-ice-knot-needle": {
+   "name": "Ice Knot Needle (Băng Kết Châm)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 12,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 15,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": [
+      "curse"
+     ]
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-ink-frost-robe": {
+   "name": "Ink-Frost Robe (Mặc Sương Bào)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-jade-vessel": {
+   "name": "Jade Vessel of the Ice Heart (Băng Tâm Ngọc Hồ)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "linh_luc_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 30,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    },
+    {
+     "key": "ward_efficiency_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "tam_ma_resist_pct",
+     "value": 33,
+     "scope": []
+    }
+   ],
+   "effects": [
+    "Ice in the Vessel"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-last-order-seal": {
+   "name": "Seal of the Last Order (Di Mệnh Ấn)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "stack_effect_pct",
+     "value": 25,
+     "scope": [
+      "tho",
+      "buff"
+     ]
+    },
+    {
+     "key": "ward_efficiency_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 15,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-locust-lid-shield": {
+   "name": "Locust-Wood Lid (Hòe Mộc Cái)",
+   "role": "ward_gear",
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-locust-shade-seal": {
+   "name": "Seal of the Hundred and Eight Nodes (Bách Bát Tiết Ấn)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "stack_effect_pct",
+     "value": 20,
+     "scope": [
+      "tho",
+      "buff"
+     ]
+    },
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-pavilion-frost-seal": {
+   "name": "Frost Seal of the Pavilion (Băng Tâm Các Sương Ấn)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 18,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 28,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-plum-father-cape": {
+   "name": "Cape of Phó Thanh Mai (Thanh Mai Phi Phong)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 20,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-red-plum": {
+   "name": "Red Plum (Hồng Mai Kiếm)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "crit_damage_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "pierce_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 20,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-river-ice-gourd": {
+   "name": "River Ice Gourd (Giang Băng Hồ)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "linh_luc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 29,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-seal-oil-coat": {
+   "name": "Seal-Oil Coat (Hải Báo Du Giáp)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 150,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "defense_pct",
+     "value": 9,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-snow-step-sword": {
+   "name": "Snow Step (Tuyết Bộ Kiếm)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 12,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 25,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-white-plum": {
+   "name": "White Plum (Bạch Mai Kiếm)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 20,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bt-winter-robe": {
+   "name": "The Winter Robe (Hàn Y)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 100,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
    "reserve_arts": []
   },
   "earth-boulder-ring-mail": {

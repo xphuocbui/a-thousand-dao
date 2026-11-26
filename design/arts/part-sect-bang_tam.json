@@ -334,6 +334,25 @@
     "mods": {
      "art_speed": -10
     }
+   },
+   {
+    "id": "jade-vessel-sealed",
+    "tags": [
+     "composed",
+     "field"
+    ],
+    "mods": {
+     "art_speed": -10
+    },
+    "suppress": [
+     "rime-lotus",
+     "five-petals-of-cold",
+     "plum-falls-on-snow",
+     "frost-breath-palm",
+     "shatter-palm",
+     "rime-lock-seal",
+     "black-ice-glaze"
+    ]
    }
   ],
   "effects": [
@@ -516,6 +535,15 @@
      "rime-lock-seal",
      "black-ice-glaze"
     ]
+   },
+   {
+    "id": "lotus-seal",
+    "tags": [
+     "field"
+    ],
+    "mods": {
+     "art_speed": -10
+    }
    }
   ],
   "effects": [

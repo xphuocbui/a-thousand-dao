@@ -1,0 +1,1779 @@
+{
+ "fixture": "t26_bang_tam_kit_exact",
+ "slice": 26,
+ "chance_free": true,
+ "seed": 261,
+ "generated_by": "tools/design/combat_sim/parity_export.py (order=fixed)",
+ "a": {
+  "name": "co-lang-suong",
+  "realm": 3,
+  "M": 7.370569771936605,
+  "layers": [
+   184.88596830305372,
+   40,
+   40,
+   20,
+   10
+  ],
+  "crit": 0.0,
+  "crit_mult": 1.7,
+  "evade": 0.0,
+  "acc": 0.0,
+  "n_body": 1.2406620000000002,
+  "n_qi": 1.1583,
+  "ward_pts": 638.8118824893697,
+  "drain": 0.46646609596463673,
+  "block": 17.7,
+  "regen_bonus": 0.0,
+  "hregen": 0.0,
+  "cost_red": 0.0,
+  "gain_on_hit": 0.0,
+  "leech_qi": 0.0,
+  "leech_hp": 0.0,
+  "hp_pay": 0.0,
+  "healing": 0.0,
+  "cleanse_pulse": 0,
+  "cleanse_cost": 0.0,
+  "cleanse_share": 0.0,
+  "art_speed_pct": 0.0,
+  "basic_speed_pct": 0.0,
+  "opening_haste_pct": 0.0,
+  "basic_coef_add": 0.0,
+  "ward_layer": 1.0,
+  "body_pts": 0.0,
+  "body_block": 0.0,
+  "bs_mult": 1.0,
+  "body_shield": 0.35,
+  "resist": {},
+  "shields": [],
+  "arts": [
+   {
+    "name": "heart-in-the-jade-vessel",
+    "c": 0.0,
+    "cost": 0.08,
+    "cd": 6,
+    "element": "ice",
+    "dtype": "elem",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "cold",
+     "stance",
+     "ward"
+    ],
+    "guards": [
+     {
+      "read": "own.state.jade-vessel",
+      "op": "<",
+      "value": 1
+     },
+     {
+      "read": "own.state.jade-vessel-sealed",
+      "op": "<",
+      "value": 1
+     }
+    ],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "jade-vessel-ice-heart-canon",
+    "steps": [],
+    "empower": []
+   },
+   {
+    "name": "rime-lotus",
+    "c": 1.6,
+    "cost": 0.08,
+    "cd": 6,
+    "element": "ice",
+    "dtype": "elem",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "cold",
+     "seal"
+    ],
+    "guards": [],
+    "statuses": [],
+    "split": [
+     0.2,
+     0.2,
+     0.2,
+     0.2,
+     0.2
+    ],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "jade-vessel-ice-heart-canon",
+    "steps": [],
+    "empower": []
+   },
+   {
+    "name": "clear-heart-mirror",
+    "c": 0.0,
+    "cost": 0.06,
+    "cd": 8,
+    "element": "ice",
+    "dtype": "elem",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "cold",
+     "soul",
+     "ward"
+    ],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "jade-vessel-ice-heart-canon",
+    "steps": [],
+    "empower": []
+   },
+   {
+    "name": "lotus-seal-ground",
+    "c": 0.0,
+    "cost": 0.08,
+    "cd": 4,
+    "element": "ice",
+    "dtype": "elem",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "cold",
+     "seal",
+     "formation",
+     "stance"
+    ],
+    "guards": [
+     {
+      "read": "own.field_up",
+      "op": "<",
+      "value": 1
+     }
+    ],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "frost-lotus-array-canon",
+    "steps": [],
+    "empower": []
+   },
+   {
+    "name": "glacier-bastion",
+    "c": 0.0,
+    "cost": 0.1,
+    "cd": 8,
+    "element": "ice",
+    "dtype": "elem",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "cold",
+     "formation",
+     "ward"
+    ],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "frost-lotus-array-canon",
+    "steps": [],
+    "empower": []
+   }
+  ],
+  "purity": {
+   "water": 90,
+   "ice": 88
+  },
+  "effects": [
+   {
+    "id": "vessel-enter",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "heart-in-the-jade-vessel"
+    },
+    "if": [
+     {
+      "read": "own.state.lotus-seal",
+      "op": "<",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "jade-vessel"
+      }
+     }
+    ]
+   },
+   {
+    "id": "vessel-enter-sealed",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "heart-in-the-jade-vessel"
+    },
+    "if": [
+     {
+      "read": "own.state.lotus-seal",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "jade-vessel-sealed"
+      }
+     }
+    ]
+   },
+   {
+    "id": "vessel-grow",
+    "on": "pulse",
+    "if": [
+     {
+      "any": [
+       {
+        "read": "own.state.jade-vessel",
+        "op": ">=",
+        "value": 1
+       },
+       {
+        "read": "own.state.jade-vessel-sealed",
+        "op": ">=",
+        "value": 1
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "ward_grow": {
+       "share": 0.03,
+       "of": "hp"
+      }
+     }
+    ]
+   },
+   {
+    "id": "vessel-answer",
+    "on": "ward_absorbed",
+    "if": [
+     {
+      "any": [
+       {
+        "read": "own.state.jade-vessel",
+        "op": ">=",
+        "value": 1
+       },
+       {
+        "read": "own.state.jade-vessel-sealed",
+        "op": ">=",
+        "value": 1
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "ice",
+       "n": 1,
+       "for": 10,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "vessel-answer-high",
+    "on": "ward_absorbed",
+    "if": [
+     {
+      "any": [
+       {
+        "read": "own.state.jade-vessel",
+        "op": ">=",
+        "value": 1
+       },
+       {
+        "read": "own.state.jade-vessel-sealed",
+        "op": ">=",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "read": "own.ward_of_peak",
+      "op": ">",
+      "value": 0.5
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "ice",
+       "n": 1,
+       "for": 10,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "vessel-release",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.state.jade-vessel",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "any": [
+       {
+        "read": "own.ward_share",
+        "op": ">=",
+        "value": 0.25
+       },
+       {
+        "read": "foe.debuff.ice",
+        "op": ">=",
+        "value": 10
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "release_ward": {
+       "dtype": "cold",
+       "more_per_stack": 0.04,
+       "consume": "ice"
+      }
+     },
+     {
+      "state": {
+       "set": null
+      }
+     }
+    ]
+   },
+   {
+    "id": "vessel-release-sealed",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.state.jade-vessel-sealed",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "any": [
+       {
+        "read": "own.ward_share",
+        "op": ">=",
+        "value": 0.25
+       },
+       {
+        "read": "foe.debuff.ice",
+        "op": ">=",
+        "value": 10
+       }
+      ]
+     }
+    ],
+    "do": [
+     {
+      "release_ward": {
+       "dtype": "cold",
+       "more_per_stack": 0.04,
+       "consume": "ice"
+      }
+     },
+     {
+      "state": {
+       "set": "lotus-seal"
+      }
+     }
+    ]
+   },
+   {
+    "id": "rime-petal",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "rime-lotus"
+    },
+    "do": [
+     {
+      "stacks": {
+       "el": "ice",
+       "n": 1,
+       "for": 8,
+       "side": "foe"
+      }
+     },
+     {
+      "counter": {
+       "id": "petal",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "rime-fifth-petal",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "rime-lotus"
+    },
+    "if": [
+     {
+      "read": "own.counter.petal",
+      "op": ">=",
+      "value": 5
+     }
+    ],
+    "do": [
+     {
+      "stop_clock": {
+       "side": "foe",
+       "seconds": 1.0
+      }
+     },
+     {
+      "counter": {
+       "id": "petal",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "mirror-charge",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "clear-heart-mirror"
+    },
+    "do": [
+     {
+      "mod": {
+       "soul_reflect": 1,
+       "for": 6
+      }
+     }
+    ]
+   },
+   {
+    "id": "lotus-seal-lay",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "lotus-seal-ground"
+    },
+    "if": [
+     {
+      "read": "own.state.jade-vessel",
+      "op": "<",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "lotus-seal"
+      }
+     }
+    ]
+   },
+   {
+    "id": "lotus-seal-into-vessel",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "lotus-seal-ground"
+    },
+    "if": [
+     {
+      "read": "own.state.jade-vessel",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "state": {
+       "set": "jade-vessel-sealed"
+      }
+     }
+    ]
+   },
+   {
+    "id": "lotus-seal-pulse",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.field_up",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "stacks": {
+       "el": "ice",
+       "n": 1,
+       "for": 6,
+       "side": "foe"
+      }
+     },
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 2,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "bastion-raise",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "glacier-bastion"
+    },
+    "do": [
+     {
+      "ward_grow": {
+       "share": 0.06,
+       "of": "hp"
+      }
+     }
+    ]
+   },
+   {
+    "id": "bastion-grows",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.field_up",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.ward_share",
+      "op": ">",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "ward_grow": {
+       "share": 0.01,
+       "of": "hp"
+      }
+     }
+    ]
+   },
+   {
+    "id": "tech:jade-vessel-ice-heart-canon",
+    "on": "always",
+    "do": [
+     {
+      "mod": {
+       "L1": 6,
+       "dtype": "cold"
+      }
+     },
+     {
+      "mod": {
+       "status_resist": 8
+      }
+     }
+    ]
+   },
+   {
+    "id": "tech:frost-lotus-array-canon",
+    "on": "always",
+    "do": [
+     {
+      "mod": {
+       "status_dur": 10,
+       "tags": [
+        "curse"
+       ]
+      }
+     },
+     {
+      "mod": {
+       "cost_red": 0.08,
+       "tags": [
+        "formation"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "item:bt-glacier-bastion-plate",
+    "on": "always",
+    "do": [
+     {
+      "mod": {
+       "resist": 150,
+       "dtype": "cold"
+      }
+     }
+    ]
+   },
+   {
+    "id": "item:bt-last-order-seal",
+    "on": "always",
+    "do": [
+     {
+      "mod": {
+       "regen": 0.00525
+      }
+     },
+     {
+      "mod": {
+       "status_resist": 15
+      }
+     }
+    ]
+   },
+   {
+    "id": "set:bt-glacier-vigil",
+    "on": "always",
+    "do": [
+     {
+      "mod": {
+       "regen": 0.0028
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:The Peak Does Not Move grow",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.field_up",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.composed",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "ward_grow": {
+       "share": 0.03,
+       "of": "peak",
+       "past_peak": true
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:The Peak Does Not Move upkeep",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.field_up",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.composed_time",
+      "op": ">=",
+      "value": 10
+     },
+     {
+      "read": "own.qi_share",
+      "op": ">=",
+      "value": 0.01
+     }
+    ],
+    "do": [
+     {
+      "gain_qi": {
+       "share": -0.01
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:The Peak Does Not Move broken",
+    "on": "shield_broken",
+    "do": [
+     {
+      "stacks": {
+       "el": "ice",
+       "n": 4,
+       "for": 8,
+       "side": "foe"
+      }
+     },
+     {
+      "status": {
+       "id": "off_guard",
+       "stacks": 1,
+       "dur": 1,
+       "side": "foe"
+      }
+     }
+    ]
+   }
+  ],
+  "counters": [
+   {
+    "id": "petal"
+   }
+  ],
+  "companions": [],
+  "divine_sense": 1.04,
+  "soul_res": 0.0,
+  "x_soul": 0.0,
+  "tam_ma": 0.0,
+  "timer_resist": 0.0,
+  "ward_bill_pct": 0.0,
+  "refusals": 1,
+  "boss": false,
+  "tags": [],
+  "states": [
+   {
+    "id": "jade-vessel",
+    "tags": [
+     "composed"
+    ],
+    "mods": {},
+    "suppress": [
+     "rime-lotus",
+     "five-petals-of-cold",
+     "plum-falls-on-snow",
+     "frost-breath-palm",
+     "shatter-palm",
+     "rime-lock-seal",
+     "black-ice-glaze"
+    ]
+   },
+   {
+    "id": "jade-vessel-sealed",
+    "tags": [
+     "composed",
+     "field"
+    ],
+    "mods": {
+     "art_speed": -10
+    },
+    "suppress": [
+     "rime-lotus",
+     "five-petals-of-cold",
+     "plum-falls-on-snow",
+     "frost-breath-palm",
+     "shatter-palm",
+     "rime-lock-seal",
+     "black-ice-glaze"
+    ]
+   },
+   {
+    "id": "lotus-seal",
+    "tags": [
+     "field"
+    ],
+    "mods": {
+     "art_speed": -10
+    }
+   }
+  ],
+  "reserved": 0.0,
+  "stage_mult": 1.0,
+  "stack_eff": {
+   "ice|debuff": 10.0,
+   "earth|buff": 25.0
+  },
+  "stack_dur": {
+   "ice|debuff": 56.0
+  },
+  "wards": [],
+  "stack_alias": {}
+ },
+ "b": {
+  "name": "striker",
+  "realm": 3,
+  "M": 3.273,
+  "layers": null,
+  "crit": 0.0,
+  "crit_mult": 1.7,
+  "evade": 0.0,
+  "acc": 0.0,
+  "n_body": 1.0883,
+  "n_qi": 1.053,
+  "ward_pts": 448.0,
+  "drain": 0.959,
+  "block": 15.0,
+  "regen_bonus": 0.0,
+  "hregen": 0.0,
+  "cost_red": 0.0,
+  "gain_on_hit": 0.0,
+  "leech_qi": 0.0,
+  "leech_hp": 0.0,
+  "hp_pay": 0.0,
+  "healing": 0.0,
+  "cleanse_pulse": 0,
+  "cleanse_cost": 0.0,
+  "cleanse_share": 0.0,
+  "art_speed_pct": 0.0,
+  "basic_speed_pct": 0.0,
+  "opening_haste_pct": 0.0,
+  "basic_coef_add": 0.0,
+  "ward_layer": 1.0,
+  "body_pts": 0.0,
+  "body_block": 0.0,
+  "bs_mult": 1.0,
+  "body_shield": 0.0,
+  "resist": {},
+  "shields": [],
+  "arts": [
+   {
+    "name": "demon-gaze",
+    "c": 0.0,
+    "cost": 0.03,
+    "cd": 5.0,
+    "element": "",
+    "dtype": "phys",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.05,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "",
+    "steps": [],
+    "empower": []
+   },
+   {
+    "name": "strike",
+    "c": 1.0,
+    "cost": 0.03,
+    "cd": 2.0,
+    "element": "",
+    "dtype": "phys",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "",
+    "steps": [],
+    "empower": []
+   }
+  ],
+  "purity": {},
+  "effects": [],
+  "counters": [],
+  "companions": [],
+  "divine_sense": 1.0,
+  "soul_res": 0.0,
+  "x_soul": 0.0,
+  "tam_ma": 0.0,
+  "timer_resist": 0.0,
+  "ward_bill_pct": 0.0,
+  "refusals": 1,
+  "boss": false,
+  "tags": [],
+  "states": [],
+  "reserved": 0.0,
+  "stage_mult": 1.0,
+  "stack_eff": {},
+  "stack_dur": {},
+  "wards": [],
+  "stack_alias": {}
+ },
+ "result": {
+  "t_ms": 63000,
+  "win": "A",
+  "A": {
+   "hp": 12022.259043426857,
+   "qi": 3004.534629224701,
+   "hp_max": 17879.48219248396,
+   "qi_base": 3011.5800000000004,
+   "dealt": 12504.712113372101,
+   "spent": 3881.3243040000007,
+   "fat": 3377.6351970669107,
+   "healed": 0.0,
+   "ward_paid": 750.4014940491911,
+   "fired": [
+    9,
+    9,
+    7,
+    1,
+    7
+   ],
+   "down": false
+  },
+  "B": {
+   "hp": -198.59100124258777,
+   "qi": 835.3820224543356,
+   "hp_max": 15683.756309196455,
+   "qi_base": 2737.7999999999997,
+   "dealt": 2479.5879519901937,
+   "spent": 1400.6011887971993,
+   "fat": 3377.6351970669107,
+   "healed": 0.0,
+   "ward_paid": 6345.782232909454,
+   "fired": [
+    8,
+    21
+   ],
+   "down": true
+  }
+ },
+ "rows": [
+  ["pulse", 1000, "A", 17879.48219248396, 3011.5800000000004],
+  ["pulse", 1000, "B", 15683.756309196455, 2737.7999999999997],
+  ["hit", 1000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 15583.06686080345, 2686.4753924205643, 17879.48219248396, 3011.5800000000004],
+  ["hit", 1000, "B", "basic", "basic", 327.3, 0.0, 17879.48219248396, 2999.8549766554816, 15583.06686080345, 2686.4753924205643],
+  ["pulse", 2000, "A", 17879.48219248396, 3011.5800000000004],
+  ["pulse", 2000, "B", 15583.06686080345, 2737.7999999999997],
+  ["hit", 2000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 15482.377412410446, 2686.4753924205643, 17879.48219248396, 3011.5800000000004],
+  ["art", 2000, "B", "strike", 41.06699999999999, 15482.377412410446, 2645.4083924205643],
+  ["hit", 2000, "B", "art", "strike", 327.3, 0.0, 17879.48219248396, 2999.8549766554816, 15482.377412410446, 2645.4083924205643],
+  ["hit", 2000, "B", "basic", "basic", 327.3, 0.0, 17879.48219248396, 2988.1299533109627, 15482.377412410446, 2645.4083924205643],
+  ["pulse", 3000, "A", 17879.48219248396, 3011.5800000000004],
+  ["pulse", 3000, "B", 15482.377412410446, 2737.7999999999997],
+  ["hit", 3000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 15381.687964017441, 2686.4753924205643, 17879.48219248396, 3011.5800000000004],
+  ["hit", 3000, "B", "basic", "basic", 327.3, 0.0, 17879.48219248396, 2999.8549766554816, 15381.687964017441, 2686.4753924205643],
+  ["pulse", 4000, "A", 17879.48219248396, 3011.5800000000004],
+  ["pulse", 4000, "B", 15381.687964017441, 2737.7999999999997],
+  ["art", 4000, "A", "lotus-seal-ground", 110.82614400000001, 17879.48219248396, 2900.7538560000003],
+  ["effect", 4000, "A", "lotus-seal-lay"],
+  ["hit", 4000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 15280.998515624437, 2686.4753924205643, 17879.48219248396, 2900.7538560000003],
+  ["art", 4000, "B", "strike", 41.06699999999999, 15280.998515624437, 2645.4083924205643],
+  ["hit", 4000, "B", "art", "strike", 327.3, 0.0, 17879.48219248396, 2889.0288326554814, 15280.998515624437, 2645.4083924205643],
+  ["hit", 4000, "B", "basic", "basic", 327.3, 0.0, 17879.48219248396, 2877.3038093109626, 15280.998515624437, 2645.4083924205643],
+  ["pulse", 5000, "A", 17879.48219248396, 3005.8086989400913],
+  ["effect", 5000, "A", "lotus-seal-pulse"],
+  ["stacks", 5000, "A", "B", "ice", 1.0, 14360, 0],
+  ["status", 5000, "A", "B", "slowed_time", 1.0, 7200],
+  ["effect", 5000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 5000, "B", 15280.998515624437, 2737.7999999999997],
+  ["hit", 5000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 15180.309067231432, 2686.4753924205643, 17879.48219248396, 3005.8086989400913],
+  ["art", 5000, "B", "demon-gaze", 43.29740626379999, 15180.309067231432, 2643.1779861567643],
+  ["soul", 5000, "B", "demon-gaze", 826.5293173300646, 139.21875, 17052.952875153896, 2866.5899489400913],
+  ["hit", 5000, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2854.8649255955725, 15180.309067231432, 2643.1779861567643],
+  ["pulse", 6000, "A", 17052.952875153896, 2983.369815224701],
+  ["effect", 6000, "A", "lotus-seal-pulse"],
+  ["stacks", 6000, "A", "B", "ice", 1.0, 15360, 0],
+  ["status", 6000, "A", "B", "slowed_time", 2.0, 8200],
+  ["effect", 6000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 6000, "B", 15180.309067231432, 2737.7999999999997],
+  ["art", 6000, "A", "heart-in-the-jade-vessel", 120.46320000000001, 17052.952875153896, 2862.906615224701],
+  ["effect", 6000, "A", "vessel-enter-sealed"],
+  ["art", 6000, "A", "rime-lotus", 120.46320000000001, 17052.952875153896, 2742.443415224701],
+  ["hit", 6000, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 15170.172779512093, 2721.0302213970617, 17052.952875153896, 2742.443415224701],
+  ["effect", 6000, "A", "rime-petal"],
+  ["stacks", 6000, "A", "B", "ice", 1.0, 18480, 0],
+  ["hit", 6000, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 15160.036491792755, 2704.2604427941237, 17052.952875153896, 2742.443415224701],
+  ["effect", 6000, "A", "rime-petal"],
+  ["stacks", 6000, "A", "B", "ice", 1.0, 18480, 0],
+  ["hit", 6000, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 15149.900204073416, 2687.4906641911857, 17052.952875153896, 2742.443415224701],
+  ["effect", 6000, "A", "rime-petal"],
+  ["stacks", 6000, "A", "B", "ice", 1.0, 18480, 0],
+  ["hit", 6000, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 15139.763916354077, 2670.7208855882477, 17052.952875153896, 2742.443415224701],
+  ["effect", 6000, "A", "rime-petal"],
+  ["stacks", 6000, "A", "B", "ice", 1.0, 18480, 0],
+  ["hit", 6000, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 15129.627628634738, 2653.9511069853097, 17052.952875153896, 2742.443415224701],
+  ["effect", 6000, "A", "rime-petal"],
+  ["stacks", 6000, "A", "B", "ice", 1.0, 18480, 0],
+  ["effect", 6000, "A", "rime-fifth-petal"],
+  ["hit", 6000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 15028.938180241734, 2602.6264994058743, 17052.952875153896, 2742.443415224701],
+  ["pulse", 7000, "A", 17052.952875153896, 2870.9483048538295],
+  ["effect", 7000, "A", "vessel-grow"],
+  ["effect", 7000, "A", "lotus-seal-pulse"],
+  ["stacks", 7000, "A", "B", "ice", 1.0, 16360, 0],
+  ["status", 7000, "A", "B", "slowed_time", 3.0, 9200],
+  ["effect", 7000, "A", "bastion-grows"],
+  ["effect", 7000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 7000, "B", 15028.938180241734, 2698.449499405874],
+  ["hit", 7000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 14928.24873184873, 2647.1248918264387, 17052.952875153896, 2870.9483048538295],
+  ["art", 7000, "B", "strike", 58.9102501104, 14928.24873184873, 2588.214641716039],
+  ["effect", 7000, "A", "vessel-answer"],
+  ["stacks", 7000, "A", "B", "ice", 1.0, 22600, 0],
+  ["effect", 7000, "A", "vessel-answer-high"],
+  ["stacks", 7000, "A", "B", "ice", 1.0, 22600, 0],
+  ["hit", 7000, "B", "art", "strike", 327.3, 0.0, 17052.952875153896, 2859.2232815093107, 14928.24873184873, 2588.214641716039],
+  ["effect", 7060, "A", "vessel-answer"],
+  ["stacks", 7060, "A", "B", "ice", 1.0, 22660, 0],
+  ["effect", 7060, "A", "vessel-answer-high"],
+  ["stacks", 7060, "A", "B", "ice", 1.0, 22660, 0],
+  ["hit", 7060, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2847.498258164792, 14928.24873184873, 2588.214641716039],
+  ["pulse", 8000, "A", 17052.952875153896, 2976.0031477939206],
+  ["effect", 8000, "A", "vessel-grow"],
+  ["effect", 8000, "A", "vessel-release-sealed"],
+  ["effect", 8000, "A", "lotus-seal-pulse"],
+  ["stacks", 8000, "A", "B", "ice", 1.0, 17360, 0],
+  ["status", 8000, "A", "B", "slowed_time", 4.0, 10200],
+  ["effect", 8000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 8000, "B", 14620.630019254462, 2553.749414517895],
+  ["art", 8000, "A", "clear-heart-mirror", 90.34740000000001, 17052.952875153896, 2885.6557477939205],
+  ["effect", 8000, "A", "mirror-charge"],
+  ["art", 8000, "A", "glacier-bastion", 138.53268000000003, 17052.952875153896, 2747.12306779392],
+  ["effect", 8000, "A", "bastion-raise"],
+  ["hit", 8000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 14519.940570861458, 2502.4248069384594, 17052.952875153896, 2747.12306779392],
+  ["hit", 8240, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2735.3980444494014, 14519.940570861458, 2502.4248069384594],
+  ["pulse", 9000, "A", 17052.952875153896, 2863.90293407853],
+  ["effect", 9000, "A", "lotus-seal-pulse"],
+  ["stacks", 9000, "A", "B", "ice", 1.0, 18360, 0],
+  ["status", 9000, "A", "B", "slowed_time", 5, 11200],
+  ["effect", 9000, "A", "bastion-grows"],
+  ["effect", 9000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 9000, "B", 14519.940570861458, 2598.2478069384592],
+  ["hit", 9000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 14419.251122468453, 2546.923199359024, 17052.952875153896, 2863.90293407853],
+  ["art", 9360, "B", "strike", 45.52781252759999, 14419.251122468453, 2501.395386831424],
+  ["hit", 9360, "B", "art", "strike", 327.3, 0.0, 17052.952875153896, 2852.177910734011, 14419.251122468453, 2501.395386831424],
+  ["hit", 9480, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2840.4528873894924, 14419.251122468453, 2501.395386831424],
+  ["pulse", 10000, "A", 17052.952875153896, 2968.957777018621],
+  ["effect", 10000, "A", "lotus-seal-pulse"],
+  ["stacks", 10000, "A", "B", "ice", 1.0, 19360, 0],
+  ["status", 10000, "A", "B", "slowed_time", 5, 12200],
+  ["effect", 10000, "A", "bastion-grows"],
+  ["effect", 10000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 10000, "B", 14419.251122468453, 2597.2183868314237],
+  ["hit", 10000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 14318.561674075449, 2545.8937792519882, 17052.952875153896, 2968.957777018621],
+  ["hit", 10780, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2957.2327536741022, 14318.561674075449, 2545.8937792519882],
+  ["pulse", 11000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 11000, "A", "lotus-seal-pulse"],
+  ["stacks", 11000, "A", "B", "ice", 1.0, 20360, 0],
+  ["status", 11000, "A", "B", "slowed_time", 5, 13200],
+  ["effect", 11000, "A", "bastion-grows"],
+  ["effect", 11000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 11000, "B", 14318.561674075449, 2641.716779251988],
+  ["hit", 11000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 14217.872225682444, 2590.3921716725526, 17052.952875153896, 3011.5800000000004],
+  ["art", 11300, "B", "demon-gaze", 49.988625055199996, 14217.872225682444, 2540.4035466173527],
+  ["art", 11960, "B", "strike", 49.988625055199996, 14100.855707921482, 2432.859950674579],
+  ["hit", 11960, "B", "art", "strike", 327.3, 0.0, 17052.952875153896, 2999.8549766554816, 14100.855707921482, 2432.859950674579],
+  ["pulse", 12000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 12000, "A", "lotus-seal-pulse"],
+  ["stacks", 12000, "A", "B", "ice", 1.0, 21360, 0],
+  ["status", 12000, "A", "B", "slowed_time", 5, 14200],
+  ["effect", 12000, "A", "bastion-grows"],
+  ["effect", 12000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 12000, "B", 14100.855707921482, 2528.682950674579],
+  ["hit", 12000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 14000.166259528478, 2477.3583430951435, 17052.952875153896, 3011.5800000000004],
+  ["hit", 12080, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2999.8549766554816, 14000.166259528478, 2477.3583430951435],
+  ["art", 12667, "A", "heart-in-the-jade-vessel", 120.46320000000001, 17052.952875153896, 2879.3917766554814],
+  ["effect", 12667, "A", "vessel-enter-sealed"],
+  ["art", 12667, "A", "rime-lotus", 120.46320000000001, 17052.952875153896, 2758.9285766554813],
+  ["hit", 12667, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 13990.02997180914, 2460.5885644922055, 17052.952875153896, 2758.9285766554813],
+  ["effect", 12667, "A", "rime-petal"],
+  ["stacks", 12667, "A", "B", "ice", 1.0, 25147, 0],
+  ["hit", 12667, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 13979.8936840898, 2443.8187858892675, 17052.952875153896, 2758.9285766554813],
+  ["effect", 12667, "A", "rime-petal"],
+  ["stacks", 12667, "A", "B", "ice", 1.0, 25147, 0],
+  ["hit", 12667, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 13969.757396370462, 2427.0490072863295, 17052.952875153896, 2758.9285766554813],
+  ["effect", 12667, "A", "rime-petal"],
+  ["stacks", 12667, "A", "B", "ice", 1.0, 25147, 0],
+  ["hit", 12667, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 13959.621108651123, 2410.2792286833915, 17052.952875153896, 2758.9285766554813],
+  ["effect", 12667, "A", "rime-petal"],
+  ["stacks", 12667, "A", "B", "ice", 1.0, 25147, 0],
+  ["hit", 12667, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 13949.484820931784, 2393.5094500804535, 17052.952875153896, 2758.9285766554813],
+  ["effect", 12667, "A", "rime-petal"],
+  ["stacks", 12667, "A", "B", "ice", 1.0, 25147, 0],
+  ["effect", 12667, "A", "rime-fifth-petal"],
+  ["pulse", 13000, "A", 17052.952875153896, 2887.43346628461],
+  ["effect", 13000, "A", "vessel-grow"],
+  ["effect", 13000, "A", "vessel-release-sealed"],
+  ["effect", 13000, "A", "lotus-seal-pulse"],
+  ["stacks", 13000, "A", "B", "ice", 1.0, 22360, 0],
+  ["status", 13000, "A", "B", "slowed_time", 5, 15200],
+  ["pulse", 13000, "B", 13337.268321881807, 2242.810572512802],
+  ["hit", 13000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 13236.578873488803, 2191.4859649333666, 17052.952875153896, 2887.43346628461],
+  ["pulse", 14000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 14000, "A", "lotus-seal-pulse"],
+  ["stacks", 14000, "A", "B", "ice", 1.0, 23360, 0],
+  ["status", 14000, "A", "B", "slowed_time", 5, 16200],
+  ["pulse", 14000, "B", 13236.578873488803, 2287.3089649333665],
+  ["hit", 14000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 13135.889425095798, 2235.984357353931, 17052.952875153896, 3011.5800000000004],
+  ["hit", 14380, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2999.8549766554816, 13135.889425095798, 2235.984357353931],
+  ["pulse", 15000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 15000, "A", "lotus-seal-pulse"],
+  ["stacks", 15000, "A", "B", "ice", 1.0, 24360, 0],
+  ["status", 15000, "A", "B", "slowed_time", 5, 17200],
+  ["effect", 15000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 15000, "B", 13135.889425095798, 2331.807357353931],
+  ["hit", 15000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 13035.199976702794, 2280.4827497744955, 17052.952875153896, 3011.5800000000004],
+  ["art", 15560, "B", "strike", 47.7582187914, 13035.199976702794, 2232.7245309830955],
+  ["hit", 15560, "B", "art", "strike", 327.3, 0.0, 17052.952875153896, 2999.8549766554816, 13035.199976702794, 2232.7245309830955],
+  ["hit", 15680, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2988.1299533109627, 13035.199976702794, 2232.7245309830955],
+  ["pulse", 16000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 16000, "A", "lotus-seal-pulse"],
+  ["stacks", 16000, "A", "B", "ice", 1.0, 25360, 0],
+  ["status", 16000, "A", "B", "slowed_time", 5, 18200],
+  ["effect", 16000, "A", "bastion-grows"],
+  ["effect", 16000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 16000, "B", 13035.199976702794, 2328.5475309830954],
+  ["hit", 16000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 12934.51052830979, 2277.22292340366, 17052.952875153896, 3011.5800000000004],
+  ["art", 16889, "A", "clear-heart-mirror", 90.34740000000001, 17052.952875153896, 2921.2326000000003],
+  ["effect", 16889, "A", "mirror-charge"],
+  ["art", 16889, "A", "glacier-bastion", 138.53268000000003, 17052.952875153896, 2782.69992],
+  ["effect", 16889, "A", "bastion-raise"],
+  ["hit", 16980, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2770.974896655481, 12934.51052830979, 2277.22292340366],
+  ["pulse", 17000, "A", 17052.952875153896, 2899.47978628461],
+  ["effect", 17000, "A", "lotus-seal-pulse"],
+  ["stacks", 17000, "A", "B", "ice", 1.0, 26360, 0],
+  ["status", 17000, "A", "B", "slowed_time", 5, 19200],
+  ["effect", 17000, "A", "bastion-grows"],
+  ["effect", 17000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 17000, "B", 12934.51052830979, 2373.04592340366],
+  ["hit", 17000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 12833.821079916785, 2321.7213158242243, 17052.952875153896, 2899.47978628461],
+  ["pulse", 18000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 18000, "A", "lotus-seal-pulse"],
+  ["stacks", 18000, "A", "B", "ice", 1.0, 27360, 0],
+  ["status", 18000, "A", "B", "slowed_time", 5, 20200],
+  ["effect", 18000, "A", "bastion-grows"],
+  ["effect", 18000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 18000, "B", 12833.821079916785, 2417.544315824224],
+  ["hit", 18000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 12733.13163152378, 2366.2197082447888, 17052.952875153896, 3011.5800000000004],
+  ["art", 18160, "B", "strike", 54.449437582799995, 12733.13163152378, 2311.770270661989],
+  ["hit", 18160, "B", "art", "strike", 327.3, 0.0, 17052.952875153896, 2999.8549766554816, 12733.13163152378, 2311.770270661989],
+  ["hit", 18280, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2988.1299533109627, 12733.13163152378, 2311.770270661989],
+  ["art", 18800, "B", "demon-gaze", 54.449437582799995, 12733.13163152378, 2257.320833079189],
+  ["pulse", 19000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 19000, "A", "lotus-seal-pulse"],
+  ["stacks", 19000, "A", "B", "ice", 1.0, 28360, 0],
+  ["status", 19000, "A", "B", "slowed_time", 5, 21200],
+  ["effect", 19000, "A", "bastion-grows"],
+  ["effect", 19000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 19000, "B", 12616.115113762819, 2295.588862191615],
+  ["hit", 19000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 12515.425665369814, 2244.2642546121797, 17052.952875153896, 3011.5800000000004],
+  ["art", 19334, "A", "heart-in-the-jade-vessel", 120.46320000000001, 17052.952875153896, 2891.1168000000002],
+  ["effect", 19334, "A", "vessel-enter-sealed"],
+  ["art", 19334, "A", "rime-lotus", 120.46320000000001, 17052.952875153896, 2770.6536],
+  ["hit", 19334, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 12505.289377650475, 2227.4944760092417, 17052.952875153896, 2770.6536],
+  ["effect", 19334, "A", "rime-petal"],
+  ["stacks", 19334, "A", "B", "ice", 1.0, 31814, 0],
+  ["hit", 19334, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 12495.153089931136, 2210.7246974063037, 17052.952875153896, 2770.6536],
+  ["effect", 19334, "A", "rime-petal"],
+  ["stacks", 19334, "A", "B", "ice", 1.0, 31814, 0],
+  ["hit", 19334, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 12485.016802211798, 2193.9549188033657, 17052.952875153896, 2770.6536],
+  ["effect", 19334, "A", "rime-petal"],
+  ["stacks", 19334, "A", "B", "ice", 1.0, 31814, 0],
+  ["hit", 19334, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 12474.880514492459, 2177.1851402004277, 17052.952875153896, 2770.6536],
+  ["effect", 19334, "A", "rime-petal"],
+  ["stacks", 19334, "A", "B", "ice", 1.0, 31814, 0],
+  ["hit", 19334, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 12464.74422677312, 2160.4153615974897, 17052.952875153896, 2770.6536],
+  ["effect", 19334, "A", "rime-petal"],
+  ["stacks", 19334, "A", "B", "ice", 1.0, 31814, 0],
+  ["effect", 19334, "A", "rime-fifth-petal"],
+  ["pulse", 20000, "A", 17052.952875153896, 2899.158489629129],
+  ["effect", 20000, "A", "vessel-grow"],
+  ["effect", 20000, "A", "vessel-release-sealed"],
+  ["effect", 20000, "A", "lotus-seal-pulse"],
+  ["stacks", 20000, "A", "B", "ice", 1.0, 29360, 0],
+  ["status", 20000, "A", "B", "slowed_time", 5, 22200],
+  ["pulse", 20000, "B", 11774.321833093949, 1979.8733367143668],
+  ["hit", 20000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 11673.632384700944, 1928.5487291349311, 17052.952875153896, 2899.158489629129],
+  ["hit", 20580, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2887.43346628461, 11673.632384700944, 1928.5487291349311],
+  ["pulse", 21000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 21000, "A", "lotus-seal-pulse"],
+  ["stacks", 21000, "A", "B", "ice", 1.0, 30360, 0],
+  ["status", 21000, "A", "B", "slowed_time", 5, 23200],
+  ["pulse", 21000, "B", 11673.632384700944, 2024.3717291349312],
+  ["hit", 21000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 11572.94293630794, 1973.0471215554956, 17052.952875153896, 3011.5800000000004],
+  ["art", 21760, "B", "strike", 45.52781252759999, 11572.94293630794, 1927.5193090278956],
+  ["hit", 21760, "B", "art", "strike", 327.3, 0.0, 17052.952875153896, 2999.8549766554816, 11572.94293630794, 1927.5193090278956],
+  ["hit", 21880, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2988.1299533109627, 11572.94293630794, 1927.5193090278956],
+  ["pulse", 22000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 22000, "A", "lotus-seal-pulse"],
+  ["stacks", 22000, "A", "B", "ice", 1.0, 31360, 0],
+  ["status", 22000, "A", "B", "slowed_time", 5, 24200],
+  ["effect", 22000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 22000, "B", 11572.94293630794, 2023.3423090278957],
+  ["hit", 22000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 11472.253487914935, 1972.01770144846, 17052.952875153896, 3011.5800000000004],
+  ["pulse", 23000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 23000, "A", "lotus-seal-pulse"],
+  ["stacks", 23000, "A", "B", "ice", 1.0, 32360, 0],
+  ["status", 23000, "A", "B", "slowed_time", 5, 25200],
+  ["effect", 23000, "A", "bastion-grows"],
+  ["effect", 23000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 23000, "B", 11472.253487914935, 2067.84070144846],
+  ["hit", 23000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 11371.56403952193, 2016.5160938690244, 17052.952875153896, 3011.5800000000004],
+  ["hit", 23180, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2999.8549766554816, 11371.56403952193, 2016.5160938690244],
+  ["pulse", 24000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 24000, "A", "lotus-seal-pulse"],
+  ["stacks", 24000, "A", "B", "ice", 1.0, 33360, 0],
+  ["status", 24000, "A", "B", "slowed_time", 5, 26200],
+  ["effect", 24000, "A", "bastion-grows"],
+  ["effect", 24000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 24000, "B", 11371.56403952193, 2112.3390938690245],
+  ["hit", 24000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 11270.874591128926, 2061.014486289589, 17052.952875153896, 3011.5800000000004],
+  ["art", 24360, "B", "strike", 52.219031318999996, 11270.874591128926, 2008.7954549705892],
+  ["hit", 24360, "B", "art", "strike", 327.3, 0.0, 17052.952875153896, 2999.8549766554816, 11270.874591128926, 2008.7954549705892],
+  ["hit", 24480, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2988.1299533109627, 11270.874591128926, 2008.7954549705892],
+  ["pulse", 25000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 25000, "A", "lotus-seal-pulse"],
+  ["stacks", 25000, "A", "B", "ice", 1.0, 34360, 0],
+  ["status", 25000, "A", "B", "slowed_time", 5, 27200],
+  ["effect", 25000, "A", "bastion-grows"],
+  ["effect", 25000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 25000, "B", 11270.874591128926, 2104.618454970589],
+  ["hit", 25000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 11170.185142735922, 2053.2938473911536, 17052.952875153896, 3011.5800000000004],
+  ["art", 25778, "A", "clear-heart-mirror", 90.34740000000001, 17052.952875153896, 2921.2326000000003],
+  ["effect", 25778, "A", "mirror-charge"],
+  ["art", 25778, "A", "glacier-bastion", 138.53268000000003, 17052.952875153896, 2782.69992],
+  ["effect", 25778, "A", "bastion-raise"],
+  ["hit", 25780, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2770.974896655481, 11170.185142735922, 2053.2938473911536],
+  ["pulse", 26000, "A", 17052.952875153896, 2899.47978628461],
+  ["effect", 26000, "A", "lotus-seal-pulse"],
+  ["stacks", 26000, "A", "B", "ice", 1.0, 35360, 0],
+  ["status", 26000, "A", "B", "slowed_time", 5, 28200],
+  ["effect", 26000, "A", "bastion-grows"],
+  ["effect", 26000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 26000, "B", 11170.185142735922, 2149.1168473911534],
+  ["hit", 26000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 11069.495694342917, 2097.792239811718, 17052.952875153896, 2899.47978628461],
+  ["art", 26001, "A", "heart-in-the-jade-vessel", 120.46320000000001, 17052.952875153896, 2779.0165862846097],
+  ["effect", 26001, "A", "vessel-enter-sealed"],
+  ["art", 26001, "A", "rime-lotus", 120.46320000000001, 17052.952875153896, 2658.5533862846096],
+  ["hit", 26001, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 11059.359406623578, 2081.02246120878, 17052.952875153896, 2658.5533862846096],
+  ["effect", 26001, "A", "rime-petal"],
+  ["stacks", 26001, "A", "B", "ice", 1.0, 38481, 0],
+  ["hit", 26001, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 11049.22311890424, 2064.252682605842, 17052.952875153896, 2658.5533862846096],
+  ["effect", 26001, "A", "rime-petal"],
+  ["stacks", 26001, "A", "B", "ice", 1.0, 38481, 0],
+  ["hit", 26001, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 11039.0868311849, 2047.4829040029038, 17052.952875153896, 2658.5533862846096],
+  ["effect", 26001, "A", "rime-petal"],
+  ["stacks", 26001, "A", "B", "ice", 1.0, 38481, 0],
+  ["hit", 26001, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 11028.950543465562, 2030.7131253999655, 17052.952875153896, 2658.5533862846096],
+  ["effect", 26001, "A", "rime-petal"],
+  ["stacks", 26001, "A", "B", "ice", 1.0, 38481, 0],
+  ["hit", 26001, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 11018.814255746223, 2013.9433467970273, 17052.952875153896, 2658.5533862846096],
+  ["effect", 26001, "A", "rime-petal"],
+  ["stacks", 26001, "A", "B", "ice", 1.0, 38481, 0],
+  ["effect", 26001, "A", "rime-fifth-petal"],
+  ["pulse", 27000, "A", 17052.952875153896, 2787.0582759137383],
+  ["effect", 27000, "A", "vessel-grow"],
+  ["effect", 27000, "A", "vessel-release-sealed"],
+  ["effect", 27000, "A", "lotus-seal-pulse"],
+  ["stacks", 27000, "A", "B", "ice", 1.0, 36360, 0],
+  ["status", 27000, "A", "B", "slowed_time", 5, 29200],
+  ["pulse", 27000, "B", 10321.008660775242, 1830.5839132664362],
+  ["hit", 27000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 10220.319212382237, 1779.2593056870005, 17052.952875153896, 2787.0582759137383],
+  ["art", 27300, "B", "demon-gaze", 43.29740626379999, 10220.319212382237, 1735.9618994232005],
+  ["art", 27960, "B", "strike", 43.29740626379999, 10103.302694621276, 1635.1095222718266],
+  ["hit", 27960, "B", "art", "strike", 327.3, 0.0, 17052.952875153896, 2775.3332525692194, 10103.302694621276, 1635.1095222718266],
+  ["pulse", 28000, "A", 17052.952875153896, 2903.838142198348],
+  ["effect", 28000, "A", "lotus-seal-pulse"],
+  ["stacks", 28000, "A", "B", "ice", 1.0, 37360, 0],
+  ["status", 28000, "A", "B", "slowed_time", 5, 30200],
+  ["pulse", 28000, "B", 10103.302694621276, 1730.9325222718267],
+  ["hit", 28000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 10002.613246228271, 1679.607914692391, 17052.952875153896, 2903.838142198348],
+  ["hit", 28080, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2892.1131188538293, 10002.613246228271, 1679.607914692391],
+  ["pulse", 29000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 29000, "A", "lotus-seal-pulse"],
+  ["stacks", 29000, "A", "B", "ice", 1.0, 38360, 0],
+  ["status", 29000, "A", "B", "slowed_time", 5, 31200],
+  ["effect", 29000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 29000, "B", 10002.613246228271, 1775.430914692391],
+  ["hit", 29000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 9901.923797835267, 1724.1063071129554, 17052.952875153896, 3011.5800000000004],
+  ["hit", 29380, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2999.8549766554816, 9901.923797835267, 1724.1063071129554],
+  ["pulse", 30000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 30000, "A", "lotus-seal-pulse"],
+  ["stacks", 30000, "A", "B", "ice", 1.0, 39360, 0],
+  ["status", 30000, "A", "B", "slowed_time", 5, 32200],
+  ["effect", 30000, "A", "bastion-grows"],
+  ["effect", 30000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 30000, "B", 9901.923797835267, 1819.9293071129555],
+  ["hit", 30000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 9801.234349442262, 1768.6046995335198, 17052.952875153896, 3011.5800000000004],
+  ["art", 30560, "B", "strike", 49.988625055199996, 9801.234349442262, 1718.61607447832],
+  ["hit", 30560, "B", "art", "strike", 327.3, 0.0, 17052.952875153896, 2999.8549766554816, 9801.234349442262, 1718.61607447832],
+  ["hit", 30680, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2988.1299533109627, 9801.234349442262, 1718.61607447832],
+  ["pulse", 31000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 31000, "A", "lotus-seal-pulse"],
+  ["stacks", 31000, "A", "B", "ice", 1.0, 40360, 0],
+  ["status", 31000, "A", "B", "slowed_time", 5, 33200],
+  ["effect", 31000, "A", "bastion-grows"],
+  ["effect", 31000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 31000, "B", 9801.234349442262, 1814.43907447832],
+  ["hit", 31000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 9700.544901049258, 1763.1144668988843, 17052.952875153896, 3011.5800000000004],
+  ["hit", 31980, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2999.8549766554816, 9700.544901049258, 1763.1144668988843],
+  ["pulse", 32000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 32000, "A", "lotus-seal-pulse"],
+  ["stacks", 32000, "A", "B", "ice", 1.0, 41360, 0],
+  ["status", 32000, "A", "B", "slowed_time", 5, 34200],
+  ["effect", 32000, "A", "bastion-grows"],
+  ["effect", 32000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 32000, "B", 9700.544901049258, 1858.9374668988844],
+  ["hit", 32000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 9599.855452656253, 1807.6128593194487, 17052.952875153896, 3011.5800000000004],
+  ["art", 32668, "A", "heart-in-the-jade-vessel", 120.46320000000001, 17052.952875153896, 2891.1168000000002],
+  ["effect", 32668, "A", "vessel-enter-sealed"],
+  ["art", 32668, "A", "rime-lotus", 120.46320000000001, 17052.952875153896, 2770.6536],
+  ["hit", 32668, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 9589.719164936914, 1790.8430807165105, 17052.952875153896, 2770.6536],
+  ["effect", 32668, "A", "rime-petal"],
+  ["stacks", 32668, "A", "B", "ice", 1.0, 45148, 0],
+  ["hit", 32668, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 9579.582877217576, 1774.0733021135723, 17052.952875153896, 2770.6536],
+  ["effect", 32668, "A", "rime-petal"],
+  ["stacks", 32668, "A", "B", "ice", 1.0, 45148, 0],
+  ["hit", 32668, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 9569.446589498237, 1757.303523510634, 17052.952875153896, 2770.6536],
+  ["effect", 32668, "A", "rime-petal"],
+  ["stacks", 32668, "A", "B", "ice", 1.0, 45148, 0],
+  ["hit", 32668, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 9559.310301778898, 1740.5337449076958, 17052.952875153896, 2770.6536],
+  ["effect", 32668, "A", "rime-petal"],
+  ["stacks", 32668, "A", "B", "ice", 1.0, 45148, 0],
+  ["hit", 32668, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 9549.17401405956, 1723.7639663047576, 17052.952875153896, 2770.6536],
+  ["effect", 32668, "A", "rime-petal"],
+  ["stacks", 32668, "A", "B", "ice", 1.0, 45148, 0],
+  ["effect", 32668, "A", "rime-fifth-petal"],
+  ["pulse", 33000, "A", 17052.952875153896, 2899.158489629129],
+  ["effect", 33000, "A", "vessel-grow"],
+  ["effect", 33000, "A", "vessel-release-sealed"],
+  ["effect", 33000, "A", "lotus-seal-pulse"],
+  ["stacks", 33000, "A", "B", "ice", 1.0, 42360, 0],
+  ["status", 33000, "A", "B", "slowed_time", 5, 35200],
+  ["pulse", 33000, "B", 9220.297597872253, 1681.1868597793125],
+  ["hit", 33000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 9119.608149479249, 1629.8622521998768, 17052.952875153896, 2899.158489629129],
+  ["pulse", 34000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 34000, "A", "lotus-seal-pulse"],
+  ["stacks", 34000, "A", "B", "ice", 1.0, 43360, 0],
+  ["status", 34000, "A", "B", "slowed_time", 5, 36200],
+  ["pulse", 34000, "B", 9119.608149479249, 1725.685252199877],
+  ["hit", 34000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 9018.918701086244, 1674.3606446204412, 17052.952875153896, 3011.5800000000004],
+  ["art", 34160, "B", "strike", 45.52781252759999, 9018.918701086244, 1628.8328320928413],
+  ["hit", 34160, "B", "art", "strike", 327.3, 0.0, 17052.952875153896, 2999.8549766554816, 9018.918701086244, 1628.8328320928413],
+  ["hit", 34280, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2988.1299533109627, 9018.918701086244, 1628.8328320928413],
+  ["art", 34667, "A", "clear-heart-mirror", 90.34740000000001, 17052.952875153896, 2897.7825533109626],
+  ["effect", 34667, "A", "mirror-charge"],
+  ["art", 34667, "A", "glacier-bastion", 138.53268000000003, 17052.952875153896, 2759.2498733109624],
+  ["effect", 34667, "A", "bastion-raise"],
+  ["art", 34800, "B", "demon-gaze", 45.52781252759999, 9018.918701086244, 1583.3050195652413],
+  ["pulse", 35000, "A", 17052.952875153896, 2887.754762940091],
+  ["effect", 35000, "A", "lotus-seal-pulse"],
+  ["stacks", 35000, "A", "B", "ice", 1.0, 44360, 0],
+  ["status", 35000, "A", "B", "slowed_time", 5, 37200],
+  ["effect", 35000, "A", "bastion-grows"],
+  ["effect", 35000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 35000, "B", 8901.902183325283, 1621.5730486776674],
+  ["hit", 35000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 8801.212734932278, 1570.2484410982318, 17052.952875153896, 2887.754762940091],
+  ["hit", 35580, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2876.029739595572, 8801.212734932278, 1570.2484410982318],
+  ["pulse", 36000, "A", 17052.952875153896, 3004.534629224701],
+  ["effect", 36000, "A", "lotus-seal-pulse"],
+  ["stacks", 36000, "A", "B", "ice", 1.0, 45360, 0],
+  ["status", 36000, "A", "B", "slowed_time", 5, 38200],
+  ["effect", 36000, "A", "bastion-grows"],
+  ["effect", 36000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 36000, "B", 8801.212734932278, 1666.0714410982318],
+  ["hit", 36000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 8700.523286539274, 1614.7468335187962, 17052.952875153896, 3004.534629224701],
+  ["art", 36760, "B", "strike", 49.988625055199996, 8700.523286539274, 1564.7582084635962],
+  ["hit", 36760, "B", "art", "strike", 327.3, 0.0, 17052.952875153896, 2992.809605880182, 8700.523286539274, 1564.7582084635962],
+  ["hit", 36880, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2981.0845825356632, 8700.523286539274, 1564.7582084635962],
+  ["pulse", 37000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 37000, "A", "lotus-seal-pulse"],
+  ["stacks", 37000, "A", "B", "ice", 1.0, 46360, 0],
+  ["status", 37000, "A", "B", "slowed_time", 5, 39200],
+  ["effect", 37000, "A", "bastion-grows"],
+  ["effect", 37000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 37000, "B", 8700.523286539274, 1660.5812084635963],
+  ["hit", 37000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 8599.833838146269, 1609.2566008841607, 17052.952875153896, 3011.5800000000004],
+  ["pulse", 38000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 38000, "A", "lotus-seal-pulse"],
+  ["stacks", 38000, "A", "B", "ice", 1.0, 47360, 0],
+  ["status", 38000, "A", "B", "slowed_time", 5, 40200],
+  ["effect", 38000, "A", "bastion-grows"],
+  ["effect", 38000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 38000, "B", 8599.833838146269, 1705.0796008841608],
+  ["hit", 38000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 8499.144389753264, 1653.754993304725, 17052.952875153896, 3011.5800000000004],
+  ["hit", 38180, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2999.8549766554816, 8499.144389753264, 1653.754993304725],
+  ["pulse", 39000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 39000, "A", "lotus-seal-pulse"],
+  ["stacks", 39000, "A", "B", "ice", 1.0, 48360, 0],
+  ["status", 39000, "A", "B", "slowed_time", 5, 41200],
+  ["effect", 39000, "A", "bastion-grows"],
+  ["effect", 39000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 39000, "B", 8499.144389753264, 1749.5779933047252],
+  ["hit", 39000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 8398.45494136026, 1698.2533857252895, 17052.952875153896, 3011.5800000000004],
+  ["art", 39335, "A", "heart-in-the-jade-vessel", 120.46320000000001, 17052.952875153896, 2891.1168000000002],
+  ["effect", 39335, "A", "vessel-enter-sealed"],
+  ["art", 39335, "A", "rime-lotus", 120.46320000000001, 17052.952875153896, 2770.6536],
+  ["hit", 39335, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 8388.318653640921, 1681.4836071223513, 17052.952875153896, 2770.6536],
+  ["effect", 39335, "A", "rime-petal"],
+  ["stacks", 39335, "A", "B", "ice", 1.0, 51815, 0],
+  ["hit", 39335, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 8378.182365921582, 1664.713828519413, 17052.952875153896, 2770.6536],
+  ["effect", 39335, "A", "rime-petal"],
+  ["stacks", 39335, "A", "B", "ice", 1.0, 51815, 0],
+  ["hit", 39335, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 8368.046078202244, 1647.9440499164748, 17052.952875153896, 2770.6536],
+  ["effect", 39335, "A", "rime-petal"],
+  ["stacks", 39335, "A", "B", "ice", 1.0, 51815, 0],
+  ["hit", 39335, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 8357.909790482905, 1631.1742713135366, 17052.952875153896, 2770.6536],
+  ["effect", 39335, "A", "rime-petal"],
+  ["stacks", 39335, "A", "B", "ice", 1.0, 51815, 0],
+  ["hit", 39335, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 8347.773502763566, 1614.4044927105983, 17052.952875153896, 2770.6536],
+  ["effect", 39335, "A", "rime-petal"],
+  ["stacks", 39335, "A", "B", "ice", 1.0, 51815, 0],
+  ["effect", 39335, "A", "rime-fifth-petal"],
+  ["pulse", 40000, "A", 17052.952875153896, 2899.158489629129],
+  ["effect", 40000, "A", "vessel-grow"],
+  ["effect", 40000, "A", "vessel-release-sealed"],
+  ["effect", 40000, "A", "lotus-seal-pulse"],
+  ["stacks", 40000, "A", "B", "ice", 1.0, 49360, 0],
+  ["status", 40000, "A", "B", "slowed_time", 5, 42200],
+  ["pulse", 40000, "B", 7600.572774962177, 1412.196016755335],
+  ["hit", 40000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 7499.883326569174, 1360.8714091758993, 17052.952875153896, 2899.158489629129],
+  ["art", 40360, "B", "strike", 43.29740626379999, 7499.883326569174, 1317.5740029120993],
+  ["hit", 40360, "B", "art", "strike", 327.3, 0.0, 17052.952875153896, 2887.43346628461, 7499.883326569174, 1317.5740029120993],
+  ["hit", 40480, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2875.708442940091, 7499.883326569174, 1317.5740029120993],
+  ["pulse", 41000, "A", 17052.952875153896, 3004.21333256922],
+  ["effect", 41000, "A", "lotus-seal-pulse"],
+  ["stacks", 41000, "A", "B", "ice", 1.0, 50360, 0],
+  ["status", 41000, "A", "B", "slowed_time", 5, 43200],
+  ["pulse", 41000, "B", 7499.883326569174, 1413.3970029120994],
+  ["hit", 41000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 7399.19387817617, 1362.0723953326637, 17052.952875153896, 3004.21333256922],
+  ["hit", 41780, "B", "basic", "basic", 327.3, 0.0, 17052.952875153896, 2992.488309224701, 7399.19387817617, 1362.0723953326637],
+  ["pulse", 42000, "A", 17052.952875153896, 3011.5800000000004],
+  ["effect", 42000, "A", "lotus-seal-pulse"],
+  ["stacks", 42000, "A", "B", "ice", 1.0, 51360, 0],
+  ["status", 42000, "A", "B", "slowed_time", 5, 44200],
+  ["effect", 42000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 42000, "B", 7399.19387817617, 1457.8953953326638],
+  ["hit", 42000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 7298.504429783166, 1406.5707877532282, 17052.952875153896, 3011.5800000000004],
+  ["art", 42300, "B", "demon-gaze", 47.7582187914, 7298.504429783166, 1358.8125689618282],
+  ["soul", 42300, "B", "demon-gaze", 826.5293173300646, 139.21875, 16226.423557823831, 2872.3612500000004],
+  ["art", 42960, "B", "strike", 47.7582187914, 7298.504429783166, 1311.0543501704283],
+  ["hit", 42960, "B", "art", "strike", 327.3, 0.0, 16226.423557823831, 2860.6362266554816, 7298.504429783166, 1311.0543501704283],
+  ["pulse", 43000, "A", 16226.423557823831, 2989.1411162846102],
+  ["effect", 43000, "A", "lotus-seal-pulse"],
+  ["stacks", 43000, "A", "B", "ice", 1.0, 52360, 0],
+  ["status", 43000, "A", "B", "slowed_time", 5, 45200],
+  ["effect", 43000, "A", "bastion-grows"],
+  ["effect", 43000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 43000, "B", 7298.504429783166, 1406.8773501704284],
+  ["hit", 43000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 7197.814981390163, 1355.5527425909927, 16226.423557823831, 2989.1411162846102],
+  ["hit", 43080, "B", "basic", "basic", 327.3, 0.0, 16226.423557823831, 2977.4160929400914, 7197.814981390163, 1355.5527425909927],
+  ["art", 43556, "A", "clear-heart-mirror", 90.34740000000001, 16226.423557823831, 2887.0686929400913],
+  ["effect", 43556, "A", "mirror-charge"],
+  ["art", 43556, "A", "glacier-bastion", 138.53268000000003, 16226.423557823831, 2748.5360129400915],
+  ["effect", 43556, "A", "bastion-raise"],
+  ["pulse", 44000, "A", 16226.423557823831, 2877.04090256922],
+  ["effect", 44000, "A", "lotus-seal-pulse"],
+  ["stacks", 44000, "A", "B", "ice", 1.0, 53360, 0],
+  ["status", 44000, "A", "B", "slowed_time", 5, 46200],
+  ["effect", 44000, "A", "bastion-grows"],
+  ["effect", 44000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 44000, "B", 7197.814981390163, 1451.3757425909928],
+  ["hit", 44000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 7097.125532997159, 1400.051135011557, 16226.423557823831, 2877.04090256922],
+  ["hit", 44380, "B", "basic", "basic", 327.3, 0.0, 16226.423557823831, 2865.3158792247013, 7097.125532997159, 1400.051135011557],
+  ["pulse", 45000, "A", 16226.423557823831, 2993.82076885383],
+  ["effect", 45000, "A", "lotus-seal-pulse"],
+  ["stacks", 45000, "A", "B", "ice", 1.0, 54360, 0],
+  ["status", 45000, "A", "B", "slowed_time", 5, 47200],
+  ["effect", 45000, "A", "bastion-grows"],
+  ["effect", 45000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 45000, "B", 7097.125532997159, 1495.8741350115572],
+  ["hit", 45000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 6996.436084604155, 1444.5495274321215, 16226.423557823831, 2993.82076885383],
+  ["art", 45560, "B", "strike", 54.449437582799995, 6996.436084604155, 1390.1000898493214],
+  ["hit", 45560, "B", "art", "strike", 327.3, 0.0, 16226.423557823831, 2982.095745509311, 6996.436084604155, 1390.1000898493214],
+  ["hit", 45680, "B", "basic", "basic", 327.3, 0.0, 16226.423557823831, 2970.3707221647924, 6996.436084604155, 1390.1000898493214],
+  ["pulse", 46000, "A", 16226.423557823831, 3011.5800000000004],
+  ["effect", 46000, "A", "lotus-seal-pulse"],
+  ["stacks", 46000, "A", "B", "ice", 1.0, 55360, 0],
+  ["status", 46000, "A", "B", "slowed_time", 5, 48200],
+  ["effect", 46000, "A", "bastion-grows"],
+  ["effect", 46000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 46000, "B", 6996.436084604155, 1485.9230898493215],
+  ["hit", 46000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 6895.746636211152, 1434.5984822698858, 16226.423557823831, 3011.5800000000004],
+  ["art", 46002, "A", "heart-in-the-jade-vessel", 120.46320000000001, 16226.423557823831, 2891.1168000000002],
+  ["effect", 46002, "A", "vessel-enter-sealed"],
+  ["art", 46002, "A", "rime-lotus", 120.46320000000001, 16226.423557823831, 2770.6536],
+  ["hit", 46002, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 6885.610348491814, 1417.8287036669476, 16226.423557823831, 2770.6536],
+  ["effect", 46002, "A", "rime-petal"],
+  ["stacks", 46002, "A", "B", "ice", 1.0, 58482, 0],
+  ["hit", 46002, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 6875.474060772476, 1401.0589250640094, 16226.423557823831, 2770.6536],
+  ["effect", 46002, "A", "rime-petal"],
+  ["stacks", 46002, "A", "B", "ice", 1.0, 58482, 0],
+  ["hit", 46002, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 6865.337773053138, 1384.2891464610711, 16226.423557823831, 2770.6536],
+  ["effect", 46002, "A", "rime-petal"],
+  ["stacks", 46002, "A", "B", "ice", 1.0, 58482, 0],
+  ["hit", 46002, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 6855.2014853338005, 1367.519367858133, 16226.423557823831, 2770.6536],
+  ["effect", 46002, "A", "rime-petal"],
+  ["stacks", 46002, "A", "B", "ice", 1.0, 58482, 0],
+  ["hit", 46002, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 6845.065197614463, 1350.7495892551947, 16226.423557823831, 2770.6536],
+  ["effect", 46002, "A", "rime-petal"],
+  ["stacks", 46002, "A", "B", "ice", 1.0, 58482, 0],
+  ["effect", 46002, "A", "rime-fifth-petal"],
+  ["pulse", 47000, "A", 16226.423557823831, 2899.158489629129],
+  ["effect", 47000, "A", "vessel-grow"],
+  ["effect", 47000, "A", "vessel-release-sealed"],
+  ["effect", 47000, "A", "lotus-seal-pulse"],
+  ["stacks", 47000, "A", "B", "ice", 1.0, 56360, 0],
+  ["status", 47000, "A", "B", "slowed_time", 5, 49200],
+  ["pulse", 47000, "B", 6139.932539614438, 1164.5941692787958],
+  ["hit", 47000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 6039.243091221434, 1113.26956169936, 16226.423557823831, 2899.158489629129],
+  ["hit", 47980, "B", "basic", "basic", 327.3, 0.0, 16226.423557823831, 2887.43346628461, 6039.243091221434, 1113.26956169936],
+  ["pulse", 48000, "A", 16226.423557823831, 3011.5800000000004],
+  ["effect", 48000, "A", "lotus-seal-pulse"],
+  ["stacks", 48000, "A", "B", "ice", 1.0, 57360, 0],
+  ["status", 48000, "A", "B", "slowed_time", 5, 50200],
+  ["pulse", 48000, "B", 6039.243091221434, 1209.0925616993602],
+  ["hit", 48000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 5938.55364282843, 1157.7679541199245, 16226.423557823831, 3011.5800000000004],
+  ["pulse", 49000, "A", 16226.423557823831, 3011.5800000000004],
+  ["effect", 49000, "A", "lotus-seal-pulse"],
+  ["stacks", 49000, "A", "B", "ice", 1.0, 58360, 0],
+  ["status", 49000, "A", "B", "slowed_time", 5, 51200],
+  ["effect", 49000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 49000, "B", 5938.55364282843, 1253.5909541199246],
+  ["hit", 49000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 5837.864194435427, 1202.266346540489, 16226.423557823831, 3011.5800000000004],
+  ["art", 49160, "B", "strike", 47.7582187914, 5837.864194435427, 1154.508127749089],
+  ["hit", 49160, "B", "art", "strike", 327.3, 0.0, 16226.423557823831, 2999.8549766554816, 5837.864194435427, 1154.508127749089],
+  ["hit", 49280, "B", "basic", "basic", 327.3, 0.0, 16226.423557823831, 2988.1299533109627, 5837.864194435427, 1154.508127749089],
+  ["art", 49800, "B", "demon-gaze", 47.7582187914, 5837.864194435427, 1106.749908957689],
+  ["soul", 49800, "B", "demon-gaze", 826.5293173300646, 139.21875, 15399.894240493766, 2848.9112033109627],
+  ["pulse", 50000, "A", 15399.894240493766, 2977.4160929400914],
+  ["effect", 50000, "A", "lotus-seal-pulse"],
+  ["stacks", 50000, "A", "B", "ice", 1.0, 59360, 0],
+  ["status", 50000, "A", "B", "slowed_time", 5, 52200],
+  ["effect", 50000, "A", "bastion-grows"],
+  ["effect", 50000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 50000, "B", 5837.864194435427, 1202.5729089576892],
+  ["hit", 50000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 5737.174746042423, 1151.2483013782535, 15399.894240493766, 2977.4160929400914],
+  ["hit", 50580, "B", "basic", "basic", 327.3, 0.0, 15399.894240493766, 2965.6910695955726, 5737.174746042423, 1151.2483013782535],
+  ["pulse", 51000, "A", 15399.894240493766, 3011.5800000000004],
+  ["effect", 51000, "A", "lotus-seal-pulse"],
+  ["stacks", 51000, "A", "B", "ice", 1.0, 60360, 0],
+  ["status", 51000, "A", "B", "slowed_time", 5, 53200],
+  ["effect", 51000, "A", "bastion-grows"],
+  ["effect", 51000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 51000, "B", 5737.174746042423, 1247.0713013782536],
+  ["hit", 51000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 5636.485297649419, 1195.746693798818, 15399.894240493766, 3011.5800000000004],
+  ["art", 51760, "B", "strike", 52.219031318999996, 5636.485297649419, 1143.527662479818],
+  ["hit", 51760, "B", "art", "strike", 327.3, 0.0, 15399.894240493766, 2999.8549766554816, 5636.485297649419, 1143.527662479818],
+  ["hit", 51880, "B", "basic", "basic", 327.3, 0.0, 15399.894240493766, 2988.1299533109627, 5636.485297649419, 1143.527662479818],
+  ["pulse", 52000, "A", 15399.894240493766, 3011.5800000000004],
+  ["effect", 52000, "A", "lotus-seal-pulse"],
+  ["stacks", 52000, "A", "B", "ice", 1.0, 61360, 0],
+  ["status", 52000, "A", "B", "slowed_time", 5, 54200],
+  ["effect", 52000, "A", "bastion-grows"],
+  ["effect", 52000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 52000, "B", 5636.485297649419, 1239.350662479818],
+  ["hit", 52000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 5535.795849256416, 1188.0260549003824, 15399.894240493766, 3011.5800000000004],
+  ["art", 52445, "A", "clear-heart-mirror", 90.34740000000001, 15399.894240493766, 2921.2326000000003],
+  ["effect", 52445, "A", "mirror-charge"],
+  ["art", 52445, "A", "glacier-bastion", 138.53268000000003, 15399.894240493766, 2782.69992],
+  ["effect", 52445, "A", "bastion-raise"],
+  ["art", 52669, "A", "heart-in-the-jade-vessel", 120.46320000000001, 15399.894240493766, 2662.23672],
+  ["effect", 52669, "A", "vessel-enter-sealed"],
+  ["art", 52669, "A", "rime-lotus", 120.46320000000001, 15399.894240493766, 2541.7735199999997],
+  ["hit", 52669, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 5525.659561537078, 1171.2562762974442, 15399.894240493766, 2541.7735199999997],
+  ["effect", 52669, "A", "rime-petal"],
+  ["stacks", 52669, "A", "B", "ice", 1.0, 65149, 0],
+  ["hit", 52669, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 5515.52327381774, 1154.486497694506, 15399.894240493766, 2541.7735199999997],
+  ["effect", 52669, "A", "rime-petal"],
+  ["stacks", 52669, "A", "B", "ice", 1.0, 65149, 0],
+  ["hit", 52669, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 5505.386986098402, 1137.7167190915677, 15399.894240493766, 2541.7735199999997],
+  ["effect", 52669, "A", "rime-petal"],
+  ["stacks", 52669, "A", "B", "ice", 1.0, 65149, 0],
+  ["hit", 52669, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 5495.2506983790645, 1120.9469404886295, 15399.894240493766, 2541.7735199999997],
+  ["effect", 52669, "A", "rime-petal"],
+  ["stacks", 52669, "A", "B", "ice", 1.0, 65149, 0],
+  ["hit", 52669, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 5485.114410659727, 1104.1771618856912, 15399.894240493766, 2541.7735199999997],
+  ["effect", 52669, "A", "rime-petal"],
+  ["stacks", 52669, "A", "B", "ice", 1.0, 65149, 0],
+  ["effect", 52669, "A", "rime-fifth-petal"],
+  ["pulse", 53000, "A", 15399.894240493766, 2670.2784096291284],
+  ["effect", 53000, "A", "vessel-grow"],
+  ["effect", 53000, "A", "vessel-release-sealed"],
+  ["effect", 53000, "A", "lotus-seal-pulse"],
+  ["stacks", 53000, "A", "B", "ice", 1.0, 62360, 0],
+  ["status", 53000, "A", "B", "slowed_time", 5, 55200],
+  ["pulse", 53000, "B", 4869.7328266852255, 952.2704968984801],
+  ["hit", 53000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 4769.043378292222, 900.9458893190445, 15399.894240493766, 2670.2784096291284],
+  ["pulse", 54000, "A", 15399.894240493766, 2798.783299258257],
+  ["effect", 54000, "A", "lotus-seal-pulse"],
+  ["stacks", 54000, "A", "B", "ice", 1.0, 63360, 0],
+  ["status", 54000, "A", "B", "slowed_time", 5, 56200],
+  ["pulse", 54000, "B", 4769.043378292222, 996.7688893190444],
+  ["hit", 54000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 4668.353929899218, 945.4442817396088, 15399.894240493766, 2798.783299258257],
+  ["hit", 54180, "B", "basic", "basic", 327.3, 0.0, 15399.894240493766, 2787.0582759137383, 4668.353929899218, 945.4442817396088],
+  ["pulse", 55000, "A", 15399.894240493766, 2915.563165542867],
+  ["effect", 55000, "A", "lotus-seal-pulse"],
+  ["stacks", 55000, "A", "B", "ice", 1.0, 64360, 0],
+  ["status", 55000, "A", "B", "slowed_time", 5, 57200],
+  ["effect", 55000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 55000, "B", 4668.353929899218, 1041.2672817396087],
+  ["hit", 55000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 4567.6644815062145, 989.942674160173, 15399.894240493766, 2915.563165542867],
+  ["art", 55360, "B", "strike", 47.7582187914, 4567.6644815062145, 942.1844553687731],
+  ["hit", 55360, "B", "art", "strike", 327.3, 0.0, 15399.894240493766, 2903.838142198348, 4567.6644815062145, 942.1844553687731],
+  ["hit", 55480, "B", "basic", "basic", 327.3, 0.0, 15399.894240493766, 2892.1131188538293, 4567.6644815062145, 942.1844553687731],
+  ["pulse", 56000, "A", 15399.894240493766, 3011.5800000000004],
+  ["effect", 56000, "A", "lotus-seal-pulse"],
+  ["stacks", 56000, "A", "B", "ice", 1.0, 65360, 0],
+  ["status", 56000, "A", "B", "slowed_time", 5, 58200],
+  ["effect", 56000, "A", "bastion-grows"],
+  ["effect", 56000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 56000, "B", 4567.6644815062145, 1038.0074553687732],
+  ["hit", 56000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 4466.975033113211, 986.6828477893375, 15399.894240493766, 3011.5800000000004],
+  ["hit", 56780, "B", "basic", "basic", 327.3, 0.0, 15399.894240493766, 2999.8549766554816, 4466.975033113211, 986.6828477893375],
+  ["pulse", 57000, "A", 15399.894240493766, 3011.5800000000004],
+  ["effect", 57000, "A", "lotus-seal-pulse"],
+  ["stacks", 57000, "A", "B", "ice", 1.0, 66360, 0],
+  ["status", 57000, "A", "B", "slowed_time", 5, 59200],
+  ["effect", 57000, "A", "bastion-grows"],
+  ["effect", 57000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 57000, "B", 4466.975033113211, 1082.5058477893376],
+  ["hit", 57000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 4366.285584720207, 1031.181240209902, 15399.894240493766, 3011.5800000000004],
+  ["art", 57300, "B", "demon-gaze", 52.219031318999996, 4366.285584720207, 978.9622088909019],
+  ["art", 57960, "B", "strike", 52.219031318999996, 4249.269066959247, 869.188206684328],
+  ["hit", 57960, "B", "art", "strike", 327.3, 0.0, 15399.894240493766, 2999.8549766554816, 4249.269066959247, 869.188206684328],
+  ["pulse", 58000, "A", 15399.894240493766, 3011.5800000000004],
+  ["effect", 58000, "A", "lotus-seal-pulse"],
+  ["stacks", 58000, "A", "B", "ice", 1.0, 67360, 0],
+  ["status", 58000, "A", "B", "slowed_time", 5, 60200],
+  ["effect", 58000, "A", "bastion-grows"],
+  ["effect", 58000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 58000, "B", 4249.269066959247, 965.0112066843279],
+  ["hit", 58000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 4148.579618566243, 913.6865991048923, 15399.894240493766, 3011.5800000000004],
+  ["hit", 58080, "B", "basic", "basic", 327.3, 0.0, 15399.894240493766, 2999.8549766554816, 4148.579618566243, 913.6865991048923],
+  ["pulse", 59000, "A", 15399.894240493766, 3011.5800000000004],
+  ["effect", 59000, "A", "lotus-seal-pulse"],
+  ["stacks", 59000, "A", "B", "ice", 1.0, 68360, 0],
+  ["status", 59000, "A", "B", "slowed_time", 5, 61200],
+  ["effect", 59000, "A", "bastion-grows"],
+  ["effect", 59000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 59000, "B", 4148.579618566243, 1009.5095991048922],
+  ["hit", 59000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 4047.8901701732393, 958.1849915254566, 15399.894240493766, 3011.5800000000004],
+  ["art", 59336, "A", "heart-in-the-jade-vessel", 120.46320000000001, 15399.894240493766, 2891.1168000000002],
+  ["effect", 59336, "A", "vessel-enter-sealed"],
+  ["art", 59336, "A", "rime-lotus", 120.46320000000001, 15399.894240493766, 2770.6536],
+  ["hit", 59336, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 4037.7538824539015, 941.4152129225183, 15399.894240493766, 2770.6536],
+  ["effect", 59336, "A", "rime-petal"],
+  ["stacks", 59336, "A", "B", "ice", 1.0, 71816, 0],
+  ["hit", 59336, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 4027.6175947345637, 924.6454343195801, 15399.894240493766, 2770.6536],
+  ["effect", 59336, "A", "rime-petal"],
+  ["stacks", 59336, "A", "B", "ice", 1.0, 71816, 0],
+  ["hit", 59336, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 4017.481307015226, 907.8756557166419, 15399.894240493766, 2770.6536],
+  ["effect", 59336, "A", "rime-petal"],
+  ["stacks", 59336, "A", "B", "ice", 1.0, 71816, 0],
+  ["hit", 59336, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 4007.345019295888, 891.1058771137036, 15399.894240493766, 2770.6536],
+  ["effect", 59336, "A", "rime-petal"],
+  ["stacks", 59336, "A", "B", "ice", 1.0, 71816, 0],
+  ["hit", 59336, "A", "art", "rime-lotus", 240.82565670197147, 10.136287719337844, 3997.2087315765502, 874.3360985107654, 15399.894240493766, 2770.6536],
+  ["effect", 59336, "A", "rime-petal"],
+  ["stacks", 59336, "A", "B", "ice", 1.0, 71816, 0],
+  ["effect", 59336, "A", "rime-fifth-petal"],
+  ["pulse", 60000, "A", 15287.306400591537, 2899.158489629129],
+  ["effect", 60000, "A", "vessel-grow"],
+  ["effect", 60000, "A", "vessel-release-sealed"],
+  ["effect", 60000, "A", "lotus-seal-pulse"],
+  ["stacks", 60000, "A", "B", "ice", 1.0, 69360, 0],
+  ["status", 60000, "A", "B", "slowed_time", 5, 62200],
+  ["pulse", 60000, "B", 3469.2141494941075, 798.7392652996783],
+  ["hit", 60000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 3368.524701101104, 747.4146577202426, 15287.306400591537, 2899.158489629129],
+  ["hit", 60380, "B", "basic", "basic", 327.3, 0.0, 15287.306400591537, 2887.43346628461, 3368.524701101104, 747.4146577202426],
+  ["pulse", 61000, "A", 14836.955040982615, 3011.5800000000004],
+  ["effect", 61000, "A", "lotus-seal-pulse"],
+  ["stacks", 61000, "A", "B", "ice", 1.0, 70360, 0],
+  ["status", 61000, "A", "B", "slowed_time", 5, 63200],
+  ["pulse", 61000, "B", 2918.1733414921823, 843.2376577202426],
+  ["hit", 61000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 2817.4838930991787, 791.913050140807, 14836.955040982615, 3011.5800000000004],
+  ["art", 61334, "A", "clear-heart-mirror", 90.34740000000001, 14836.955040982615, 2921.2326000000003],
+  ["effect", 61334, "A", "mirror-charge"],
+  ["art", 61334, "A", "glacier-bastion", 138.53268000000003, 14836.955040982615, 2782.69992],
+  ["effect", 61334, "A", "bastion-raise"],
+  ["art", 61560, "B", "strike", 45.52781252759999, 2817.4838930991787, 746.385237613207],
+  ["hit", 61560, "B", "art", "strike", 327.3, 0.0, 14836.955040982615, 2770.974896655481, 2817.4838930991787, 746.385237613207],
+  ["hit", 61680, "B", "basic", "basic", 327.3, 0.0, 14836.955040982615, 2759.2498733109624, 2817.4838930991787, 746.385237613207],
+  ["pulse", 62000, "A", 13823.664481862543, 2887.754762940091],
+  ["effect", 62000, "A", "lotus-seal-pulse"],
+  ["stacks", 62000, "A", "B", "ice", 1.0, 71360, 0],
+  ["status", 62000, "A", "B", "slowed_time", 5, 64200],
+  ["effect", 62000, "A", "bastion-grows"],
+  ["effect", 62000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 62000, "B", 1804.1933339791053, 842.208237613207],
+  ["hit", 62000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, 1703.5038855861017, 790.8836300337713, 13823.664481862543, 2887.754762940091],
+  ["hit", 62980, "B", "basic", "basic", 327.3, 0.0, 13823.664481862543, 2876.029739595572, 1703.5038855861017, 790.8836300337713],
+  ["pulse", 63000, "A", 12022.259043426857, 3004.534629224701],
+  ["effect", 63000, "A", "lotus-seal-pulse"],
+  ["stacks", 63000, "A", "B", "ice", 1.0, 72360, 0],
+  ["status", 63000, "A", "B", "slowed_time", 5, 65200],
+  ["effect", 63000, "A", "bastion-grows"],
+  ["effect", 63000, "A", "eff:The Peak Does Not Move grow"],
+  ["pulse", 63000, "B", -97.90155284958405, 886.7066300337713],
+  ["hit", 63000, "A", "basic", "basic", 737.0569771936605, 100.68944839300372, -198.59100124258777, 835.3820224543356, 12022.259043426857, 3004.534629224701],
+  ["down", 63000, "B", "down"]
+ ]
+}

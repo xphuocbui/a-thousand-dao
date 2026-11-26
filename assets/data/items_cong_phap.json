@@ -1923,6 +1923,322 @@
       "source": "design"
     },
     {
+      "id": "clear-frost-breath",
+      "name": "Clear Frost Breathing Primer (Thanh Sương Thổ Nạp Quyết)",
+      "tier": 0,
+      "tech_kind": "main",
+      "names": [
+        "thuy"
+      ],
+      "layers": 6,
+      "bonuses": [],
+      "passives": [
+        {
+          "key": "attack_pct",
+          "value": 4,
+          "scope": [
+            "cold"
+          ]
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 4,
+          "scope": [
+            "cold"
+          ]
+        },
+        {
+          "key": "linh_luc_regen_inc_pct",
+          "value": 6,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "frost-breath-palm",
+          "unlock_layer": 1
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "jade-vessel-ice-heart-canon",
+      "name": "Jade Vessel Ice-Heart Canon (Ngọc Hồ Băng Tâm Kinh)",
+      "tier": 2,
+      "tech_kind": "main",
+      "names": [
+        "bang",
+        "thuy"
+      ],
+      "layers": 12,
+      "bonuses": [
+        {
+          "stat": "tam_ma_resist_pct",
+          "value": 12
+        },
+        {
+          "stat": "linh_luc_pct",
+          "value": 12
+        }
+      ],
+      "passives": [
+        {
+          "key": "ward_efficiency_pct",
+          "value": 10,
+          "scope": []
+        },
+        {
+          "key": "stack_effect_pct",
+          "value": 10,
+          "scope": [
+            "bang",
+            "debuff"
+          ]
+        },
+        {
+          "key": "stack_duration_pct",
+          "value": 12,
+          "scope": [
+            "bang",
+            "debuff"
+          ]
+        },
+        {
+          "key": "attack_pct",
+          "value": 6,
+          "scope": [
+            "cold"
+          ]
+        },
+        {
+          "key": "status_resist_pct",
+          "value": 8,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "heart-in-the-jade-vessel",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "rime-lotus",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "clear-heart-mirror",
+          "unlock_layer": 4
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "snow-plum-sword",
+      "name": "Snow Plum Sword Method (Tuyết Mai Kiếm Quyết)",
+      "tier": 1,
+      "tech_kind": "secret",
+      "names": [
+        "bang"
+      ],
+      "layers": 9,
+      "bonuses": [
+        {
+          "stat": "attack_pct",
+          "value": 8
+        }
+      ],
+      "passives": [
+        {
+          "key": "crit_chance_pct",
+          "value": 5,
+          "scope": [
+            "sword"
+          ]
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 8,
+          "scope": [
+            "sword"
+          ]
+        },
+        {
+          "key": "stack_effect_pct",
+          "value": 8,
+          "scope": [
+            "bang",
+            "debuff"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "five-petals-of-cold",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "hidden-fragrance",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "plum-falls-on-snow",
+          "unlock_layer": 4
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "frost-lotus-array-canon",
+      "name": "Frost Lotus Array Canon (Sương Liên Trận Kinh)",
+      "tier": 2,
+      "tech_kind": "secret",
+      "names": [
+        "bang",
+        "tho"
+      ],
+      "layers": 12,
+      "bonuses": [
+        {
+          "stat": "than_thuc_pct",
+          "value": 10
+        },
+        {
+          "stat": "defense_pct",
+          "value": 10
+        }
+      ],
+      "passives": [
+        {
+          "key": "stack_duration_pct",
+          "value": 14,
+          "scope": [
+            "bang",
+            "debuff"
+          ]
+        },
+        {
+          "key": "ward_efficiency_pct",
+          "value": 10,
+          "scope": []
+        },
+        {
+          "key": "status_duration_pct",
+          "value": 10,
+          "scope": [
+            "curse"
+          ]
+        },
+        {
+          "key": "art_cost_pct",
+          "value": -8,
+          "scope": [
+            "formation"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "lotus-seal-ground",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "glacier-bastion",
+          "unlock_layer": 2
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "warm-hearth-breath",
+      "name": "Warm Hearth Breathing (Noãn Táo Thổ Nạp Pháp)",
+      "tier": 0,
+      "tech_kind": "main",
+      "names": [
+        "tho",
+        "moc",
+        "hoa"
+      ],
+      "layers": 6,
+      "bonuses": [],
+      "passives": [
+        {
+          "key": "health_regen_inc_pct",
+          "value": 10,
+          "scope": []
+        },
+        {
+          "key": "khi_huyet_pct",
+          "value": 4,
+          "scope": []
+        },
+        {
+          "key": "linh_luc_regen_inc_pct",
+          "value": 4,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "warm-hands",
+          "unlock_layer": 1
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "red-sand-sabre-primer",
+      "name": "Red Sand Sabre Primer (Xích Sa Đao Quyết)",
+      "tier": 0,
+      "tech_kind": "main",
+      "names": [
+        "hoa"
+      ],
+      "layers": 6,
+      "bonuses": [],
+      "passives": [
+        {
+          "key": "attack_pct",
+          "value": 5,
+          "scope": [
+            "fire"
+          ]
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 6,
+          "scope": [
+            "fire"
+          ]
+        },
+        {
+          "key": "art_cost_pct",
+          "value": 6,
+          "scope": [
+            "fire"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "cut-the-horse",
+          "unlock_layer": 1
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
       "id": "hollow-bell-canon",
       "name": "Hollow Bell Canon (Hư Chung Kinh)",
       "tier": 0,

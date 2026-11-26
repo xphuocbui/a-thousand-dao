@@ -1,0 +1,894 @@
+{
+  "name": "t26_bang_tam_kit_exact",
+  "slice": 26,
+  "chance_free": true,
+  "seed": 261,
+  "doc": "World-depth Stage 6/7, Băng Tâm Các (2026-11-26), chance-free: Cố Lăng Sương's resolved build (fight.py expand_library + to_build from her cast build: Jade Vessel and Frost Lotus canons, the Glacier Vigil set) with the library arts Heart in the Jade Vessel (the sealed Vessel), Lotus Seal Ground, Glacier Bastion, Rime Lotus and Clear-Heart Mirror, against a plain striker with a soul art.",
+  "a": {
+    "name": "co-lang-suong",
+    "realm": 3,
+    "M": 7.370569771936605,
+    "layers": [
+      184.88596830305372,
+      40,
+      40,
+      20,
+      10
+    ],
+    "crit": 0.0,
+    "crit_mult": 1.7,
+    "evade": 0.0,
+    "acc": 0.0,
+    "n_body": 1.2406620000000002,
+    "n_qi": 1.1583,
+    "ward_pts": 638.8118824893697,
+    "drain": 0.46646609596463673,
+    "block": 17.7,
+    "regen_bonus": 0.0,
+    "hregen": 0.0,
+    "cost_red": 0.0,
+    "gain_on_hit": 0.0,
+    "leech_qi": 0.0,
+    "leech_hp": 0.0,
+    "hp_pay": 0.0,
+    "healing": 0.0,
+    "cleanse_pulse": 0,
+    "cleanse_cost": 0.0,
+    "cleanse_share": 0.0,
+    "art_speed_pct": 0.0,
+    "basic_speed_pct": 0.0,
+    "opening_haste_pct": 0.0,
+    "basic_coef_add": 0.0,
+    "ward_layer": 1.0,
+    "body_pts": 0.0,
+    "body_block": 0.0,
+    "bs_mult": 1.0,
+    "body_shield": 0.35,
+    "resist": {},
+    "shields": [],
+    "arts": [
+      {
+        "name": "heart-in-the-jade-vessel",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 6,
+        "element": "ice",
+        "dtype": "elem",
+        "buff": [],
+        "debuff": [],
+        "heal": 0.0,
+        "qi_restore": 0.0,
+        "cleanse": 0,
+        "m_mult": 1.0,
+        "tags": [
+          "cold",
+          "stance",
+          "ward"
+        ],
+        "guards": [
+          {
+            "read": "own.state.jade-vessel",
+            "op": "<",
+            "value": 1
+          },
+          {
+            "read": "own.state.jade-vessel-sealed",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "statuses": [],
+        "split": [],
+        "soul_pct": 0.0,
+        "soul_part": 0.0,
+        "bypass": 0.0,
+        "pool": "qi",
+        "convert": {},
+        "hp_cost": 0.0,
+        "charges": 1,
+        "group": "jade-vessel-ice-heart-canon",
+        "steps": [],
+        "empower": [],
+        "escape": 0.0,
+        "movements": [],
+        "movement_counter": ""
+      },
+      {
+        "name": "rime-lotus",
+        "c": 1.6,
+        "cost": 0.08,
+        "cd": 6,
+        "element": "ice",
+        "dtype": "elem",
+        "buff": [],
+        "debuff": [],
+        "heal": 0.0,
+        "qi_restore": 0.0,
+        "cleanse": 0,
+        "m_mult": 1.0,
+        "tags": [
+          "cold",
+          "seal"
+        ],
+        "guards": [],
+        "statuses": [],
+        "split": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        "soul_pct": 0.0,
+        "soul_part": 0.0,
+        "bypass": 0.0,
+        "pool": "qi",
+        "convert": {},
+        "hp_cost": 0.0,
+        "charges": 1,
+        "group": "jade-vessel-ice-heart-canon",
+        "steps": [],
+        "empower": [],
+        "escape": 0.0,
+        "movements": [],
+        "movement_counter": ""
+      },
+      {
+        "name": "clear-heart-mirror",
+        "c": 0.0,
+        "cost": 0.06,
+        "cd": 8,
+        "element": "ice",
+        "dtype": "elem",
+        "buff": [],
+        "debuff": [],
+        "heal": 0.0,
+        "qi_restore": 0.0,
+        "cleanse": 0,
+        "m_mult": 1.0,
+        "tags": [
+          "cold",
+          "soul",
+          "ward"
+        ],
+        "guards": [],
+        "statuses": [],
+        "split": [],
+        "soul_pct": 0.0,
+        "soul_part": 0.0,
+        "bypass": 0.0,
+        "pool": "qi",
+        "convert": {},
+        "hp_cost": 0.0,
+        "charges": 1,
+        "group": "jade-vessel-ice-heart-canon",
+        "steps": [],
+        "empower": [],
+        "escape": 0.0,
+        "movements": [],
+        "movement_counter": ""
+      },
+      {
+        "name": "lotus-seal-ground",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 4,
+        "element": "ice",
+        "dtype": "elem",
+        "buff": [],
+        "debuff": [],
+        "heal": 0.0,
+        "qi_restore": 0.0,
+        "cleanse": 0,
+        "m_mult": 1.0,
+        "tags": [
+          "cold",
+          "seal",
+          "formation",
+          "stance"
+        ],
+        "guards": [
+          {
+            "read": "own.field_up",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "statuses": [],
+        "split": [],
+        "soul_pct": 0.0,
+        "soul_part": 0.0,
+        "bypass": 0.0,
+        "pool": "qi",
+        "convert": {},
+        "hp_cost": 0.0,
+        "charges": 1,
+        "group": "frost-lotus-array-canon",
+        "steps": [],
+        "empower": [],
+        "escape": 0.0,
+        "movements": [],
+        "movement_counter": ""
+      },
+      {
+        "name": "glacier-bastion",
+        "c": 0.0,
+        "cost": 0.1,
+        "cd": 8,
+        "element": "ice",
+        "dtype": "elem",
+        "buff": [],
+        "debuff": [],
+        "heal": 0.0,
+        "qi_restore": 0.0,
+        "cleanse": 0,
+        "m_mult": 1.0,
+        "tags": [
+          "cold",
+          "formation",
+          "ward"
+        ],
+        "guards": [],
+        "statuses": [],
+        "split": [],
+        "soul_pct": 0.0,
+        "soul_part": 0.0,
+        "bypass": 0.0,
+        "pool": "qi",
+        "convert": {},
+        "hp_cost": 0.0,
+        "charges": 1,
+        "group": "frost-lotus-array-canon",
+        "steps": [],
+        "empower": [],
+        "escape": 0.0,
+        "movements": [],
+        "movement_counter": ""
+      }
+    ],
+    "purity": {
+      "water": 90,
+      "ice": 88
+    },
+    "effects": [
+      {
+        "id": "vessel-enter",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "heart-in-the-jade-vessel"
+        },
+        "if": [
+          {
+            "read": "own.state.lotus-seal",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "jade-vessel"
+            }
+          }
+        ]
+      },
+      {
+        "id": "vessel-enter-sealed",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "heart-in-the-jade-vessel"
+        },
+        "if": [
+          {
+            "read": "own.state.lotus-seal",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "jade-vessel-sealed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "vessel-grow",
+        "on": "pulse",
+        "if": [
+          {
+            "any": [
+              {
+                "read": "own.state.jade-vessel",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.state.jade-vessel-sealed",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.03,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "vessel-answer",
+        "on": "ward_absorbed",
+        "if": [
+          {
+            "any": [
+              {
+                "read": "own.state.jade-vessel",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.state.jade-vessel-sealed",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 1,
+              "for": 10,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "vessel-answer-high",
+        "on": "ward_absorbed",
+        "if": [
+          {
+            "any": [
+              {
+                "read": "own.state.jade-vessel",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.state.jade-vessel-sealed",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "read": "own.ward_of_peak",
+            "op": ">",
+            "value": 0.5
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 1,
+              "for": 10,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "vessel-release",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.jade-vessel",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "any": [
+              {
+                "read": "own.ward_share",
+                "op": ">=",
+                "value": 0.25
+              },
+              {
+                "read": "foe.debuff.ice",
+                "op": ">=",
+                "value": 10
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "release_ward": {
+              "dtype": "cold",
+              "more_per_stack": 0.04,
+              "consume": "ice"
+            }
+          },
+          {
+            "state": {
+              "set": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "vessel-release-sealed",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.jade-vessel-sealed",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "any": [
+              {
+                "read": "own.ward_share",
+                "op": ">=",
+                "value": 0.25
+              },
+              {
+                "read": "foe.debuff.ice",
+                "op": ">=",
+                "value": 10
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "release_ward": {
+              "dtype": "cold",
+              "more_per_stack": 0.04,
+              "consume": "ice"
+            }
+          },
+          {
+            "state": {
+              "set": "lotus-seal"
+            }
+          }
+        ]
+      },
+      {
+        "id": "rime-petal",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "rime-lotus"
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 1,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "petal",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "rime-fifth-petal",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "rime-lotus"
+        },
+        "if": [
+          {
+            "read": "own.counter.petal",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "stop_clock": {
+              "side": "foe",
+              "seconds": 1.0
+            }
+          },
+          {
+            "counter": {
+              "id": "petal",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "mirror-charge",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "clear-heart-mirror"
+        },
+        "do": [
+          {
+            "mod": {
+              "soul_reflect": 1,
+              "for": 6
+            }
+          }
+        ]
+      },
+      {
+        "id": "lotus-seal-lay",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "lotus-seal-ground"
+        },
+        "if": [
+          {
+            "read": "own.state.jade-vessel",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "lotus-seal"
+            }
+          }
+        ]
+      },
+      {
+        "id": "lotus-seal-into-vessel",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "lotus-seal-ground"
+        },
+        "if": [
+          {
+            "read": "own.state.jade-vessel",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "jade-vessel-sealed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "lotus-seal-pulse",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.field_up",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          },
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 1,
+              "dur": 2,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "bastion-raise",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "glacier-bastion"
+        },
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.06,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "bastion-grows",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.field_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.ward_share",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.01,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "tech:jade-vessel-ice-heart-canon",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "L1": 6,
+              "dtype": "cold"
+            }
+          },
+          {
+            "mod": {
+              "status_resist": 8
+            }
+          }
+        ]
+      },
+      {
+        "id": "tech:frost-lotus-array-canon",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "status_dur": 10,
+              "tags": [
+                "curse"
+              ]
+            }
+          },
+          {
+            "mod": {
+              "cost_red": 0.08,
+              "tags": [
+                "formation"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "item:bt-glacier-bastion-plate",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "resist": 150,
+              "dtype": "cold"
+            }
+          }
+        ]
+      },
+      {
+        "id": "item:bt-last-order-seal",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "regen": 0.00525
+            }
+          },
+          {
+            "mod": {
+              "status_resist": 15
+            }
+          }
+        ]
+      },
+      {
+        "id": "set:bt-glacier-vigil",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "regen": 0.0028
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Peak Does Not Move grow",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.field_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.composed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.03,
+              "of": "peak",
+              "past_peak": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Peak Does Not Move upkeep",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.field_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.composed_time",
+            "op": ">=",
+            "value": 10
+          },
+          {
+            "read": "own.qi_share",
+            "op": ">=",
+            "value": 0.01
+          }
+        ],
+        "do": [
+          {
+            "gain_qi": {
+              "share": -0.01
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Peak Does Not Move broken",
+        "on": "shield_broken",
+        "do": [
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 4,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "status": {
+              "id": "off_guard",
+              "stacks": 1,
+              "dur": 1,
+              "side": "foe"
+            }
+          }
+        ]
+      }
+    ],
+    "counters": [
+      {
+        "id": "petal"
+      }
+    ],
+    "pill": {},
+    "meters": {},
+    "tech_layers": {},
+    "companions": [],
+    "divine_sense": 1.04,
+    "soul_res": 0.0,
+    "x_soul": 0.0,
+    "tam_ma": 0.0,
+    "timer_resist": 0.0,
+    "ward_bill_pct": 0.0,
+    "refusals": 1,
+    "boss": false,
+    "tags": [],
+    "states": [
+      {
+        "id": "jade-vessel",
+        "tags": [
+          "composed"
+        ],
+        "mods": {},
+        "suppress": [
+          "rime-lotus",
+          "five-petals-of-cold",
+          "plum-falls-on-snow",
+          "frost-breath-palm",
+          "shatter-palm",
+          "rime-lock-seal",
+          "black-ice-glaze"
+        ]
+      },
+      {
+        "id": "jade-vessel-sealed",
+        "tags": [
+          "composed",
+          "field"
+        ],
+        "mods": {
+          "art_speed": -10
+        },
+        "suppress": [
+          "rime-lotus",
+          "five-petals-of-cold",
+          "plum-falls-on-snow",
+          "frost-breath-palm",
+          "shatter-palm",
+          "rime-lock-seal",
+          "black-ice-glaze"
+        ]
+      },
+      {
+        "id": "lotus-seal",
+        "tags": [
+          "field"
+        ],
+        "mods": {
+          "art_speed": -10
+        }
+      }
+    ],
+    "reserved": 0.0,
+    "stage_mult": 1.0,
+    "stack_eff": {
+      "ice|debuff": 10.0,
+      "earth|buff": 25.0
+    },
+    "stack_dur": {
+      "ice|debuff": 56.0
+    },
+    "wards": [],
+    "stack_alias": {}
+  },
+  "b": {
+    "realm": 3,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "striker",
+    "arts": [
+      {
+        "name": "demon-gaze",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 5.0,
+        "soul_pct": 0.05
+      },
+      {
+        "name": "strike",
+        "c": 1.0,
+        "cost": 0.03,
+        "cd": 2.0
+      }
+    ]
+  }
+}
