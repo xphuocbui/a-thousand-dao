@@ -27,7 +27,7 @@ const LIBRARY_FILE := "combat_library"
 ## Build-file fields a Character's fighter may have (before and after expansion).
 const KEYS := ["name", "realm", "layers", "n_body", "n_qi", "ward", "arts", "items", "modifiers", "purity", "effects",
 	"counters", "states", "unmodelled", "wards", "reserved", "stack_eff", "stack_dur", "body", "divine_sense",
-	"stage_mult", "tree_effects", "tree_lines_on_sheet", "counts", "stack_alias", "no_ward"]
+	"stage_mult", "tree_effects", "tree_lines_on_sheet", "counts", "stack_alias", "no_ward", "pill", "tech_layers"]
 ## Base elements among slotted arts (the art_elements count: Utmost Yang, Utmost Yin).
 const BASE_ELEMENTS := ["fire", "water", "earth", "metal", "wood"]
 const WARD_KEYS := ["model", "payload", "drain_base", "ws_base", "we", "layers", "block"]
@@ -612,6 +612,8 @@ func _to_build(d: Dictionary, r: int, who: String) -> Dictionary:
 	b["layers"] = _pad(layers, 5)
 	b["effects"] = Array(d.get("effects", [])).duplicate(true)
 	b["counters"] = Array(d.get("counters", [])).duplicate(true)
+	if d.get("tech_layers") is Dictionary and not (d.tech_layers as Dictionary).is_empty():   # as fight.py
+		b["tech_layers"] = (d.tech_layers as Dictionary).duplicate()
 	if d.get("pill") is Dictionary and not (d.pill as Dictionary).is_empty():   # absent while empty, as fight.py's cases
 		b["pill"] = (d.pill as Dictionary).duplicate()
 	b["states"] = Array(d.get("states", [])).duplicate(true)

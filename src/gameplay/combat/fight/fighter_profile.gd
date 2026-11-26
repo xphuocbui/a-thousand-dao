@@ -96,6 +96,8 @@ var effects: Array[EffectDef] = []
 var counter_def: Dictionary = {}
 ## A prepared pill, {element, grade, fail} (world-depth Stage 5, smoke only); empty: none.
 var pill: Dictionary = {}
+## Technique id -> layer, read as own.tech_layer.<id> (2026-11-26).
+var tech_layers: Dictionary = {}
 var always_by_key: Dictionary = {}
 var listeners: Dictionary = {}
 ## Damage layer points x1..x5 (Combat Formulas A), when given; layer mods then meet exact caps.

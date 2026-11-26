@@ -215,6 +215,10 @@ func _read(key: String, w: String, counters: Dictionary) -> EffectDef.ReadDef:
 	r.key = k
 	if k in SIDE_READS:
 		return r
+	if k.begins_with("tech_layer."):   # a technique's layer (2026-11-26)
+		r.key = "tech_layer"
+		r.param = k.substr(11)
+		return r
 	for pre in ["buff.", "debuff.", "status.", "counter.", "state.", "since.", "step."]:
 		if k.begins_with(pre):
 			r.key = pre.trim_suffix(".")

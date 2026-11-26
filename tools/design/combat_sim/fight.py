@@ -162,6 +162,7 @@ TOP_KEYS = {"name", "realm", "layers", "crit", "n_body", "n_qi", "art_speed_pct"
             "accuracy_pct", "gain_on_hit_pct", "leech_qi_pct", "leech_health_pct", "ward", "body", "cleanse",
             "keystones", "curses", "purity", "bonus_slots", "arts", "enemy", "enemy_overrides", "unmodelled",
             "_comment", "effects", "counters", "companions", "shields", "basic_speed_pct", "opening_haste_pct", "pill",
+            "tech_layers",
             "basic_coef_add", "timer_resist_pct", "ward_bill_pct", "refusals", "divine_sense", "soul_res_pct",
             "x_soul", "tam_ma", "resist", "boss", "tags", "states", "techniques", "items", "reserved",
             "stack_eff", "stack_dur", "wards", "pierce_pct", "stage_mult", "tree_effects", "tree_lines_on_sheet",
@@ -818,6 +819,7 @@ def to_build(d, r, notes, who):
         [{"id": "build-fields", "on": "always", "do": top_fx}] if top_fx else [])
     eb.counters = list(d.get("counters", []))
     eb.pill = dict(d.get("pill", {}))   # a prepared pill (world-depth Stage 5; smoke only)
+    eb.tech_layers = dict(d.get("tech_layers", {}))   # technique id -> layer (own.tech_layer.<id>)
     eb.companions = list(d.get("companions", []))
     eb.shields = [engine.Shield(**sh) for sh in d.get("shields", [])]
     for key, field in (("basic_speed_pct", "basic_speed_pct"), ("opening_haste_pct", "opening_haste_pct"),

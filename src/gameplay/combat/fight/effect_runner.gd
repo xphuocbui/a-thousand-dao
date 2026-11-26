@@ -65,7 +65,7 @@ static func read(f: Fight, s: FighterState, r: EffectDef.ReadDef, ev: Variant) -
 			var els := {}
 			for d in x.debuffs:
 				els[d.el] = true
-			return float(n + els.size())
+			return float(n + els.size() + f.counted_curses(s, x))
 		"fired":
 			var tot: int = 0
 			for v in x.fired:
@@ -76,7 +76,9 @@ static func read(f: Fight, s: FighterState, r: EffectDef.ReadDef, ev: Variant) -
 			for sid in x.statuses:
 				if x.statuses[sid].stacks > 0 and str(f.k.status.get(sid, {}).get("kind", "")) == "curse":
 					c += 1
-			return float(c)
+			return float(c + f.counted_curses(s, x))
+		"tech_layer":   # a technique's layer (2026-11-26; Move the Sickness)
+			return float(x.p.tech_layers.get(r.param, 0))
 		"ward_paid":
 			return x.ward_paid / x.qi_max()
 		"body_shield_share":
@@ -244,6 +246,10 @@ static func matches(f: Fight, filt: Dictionary, ctx: Variant) -> bool:
 			for tg in filt[key]:
 				if have_n.has(str(tg)):
 					return false
+		elif k == "not_art_id":   # any art but this one (2026-11-26; Remnant Score)
+			var nots: Array = filt[key] if filt[key] is Array else [filt[key]]
+			if nots.map(func(x): return str(x)).has(str(c.get("art_id", ""))):
+				return false
 		elif k == "is_crit":   # the hit is (or is not) a crit (Heaven's Eye)
 			if bool(c.get("crit", false)) != bool(filt[key]):
 				return false
@@ -410,7 +416,7 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 				if dt == "same":   # Echo: the same type as the hit that triggered it
 					var evd: String = str(ev.get("dtype", ""))
 					dt = evd if evd in CombatConstants.DTYPES else "phys"
-				f.hit(s, o, float(arg.c) * n, StringName(dt), null, Fight.KIND_TRIGGER, true)
+				f.hit(s, o, float(arg.c) * n, StringName(dt), null, Fight.KIND_TRIGGER, true, [], bool(arg.get("pass_shields", false)))
 				var over: float = (before - o.hp) - budget
 				if over > 0.0 and not bool(arg.get("outside_budget", false)):
 					o.hp += over
@@ -419,7 +425,8 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 			"stacks":
 				var tgt: FighterState = o if str(arg.get("side", "foe")) == "foe" else s
 				var dur_s: float = -1.0 if arg.get("for") == null else float(arg["for"])
-				f.add_stacks(s, tgt, str(arg.el), float(arg.n) * n, dur_s, tgt == s, str(arg.get("mark", "")))
+				var is_buff: bool = str(arg.get("kind", "buff" if tgt == s else "debuff")) == "buff"   # kind debuff on own
+				f.add_stacks(s, tgt, str(arg.el), float(arg.n) * n, dur_s, is_buff, str(arg.get("mark", "")))
 			"status":
 				var spec := StatusSpec.new()
 				spec.id = str(arg.id)
@@ -554,6 +561,16 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 						var x: ArtDef = s.p.arts[i]
 						if x.c != 0.0 and x.soul_pct == 0.0 and (ai < 0 or x.cd > s.p.arts[ai].cd):
 							ai = i
+				elif which_a == "last" and arg.get("filter", {}).get("element") != null:   # the last art of an element
+					var el_f: String = str(arg.filter.element)
+					for ri in range(s.fire_log.size() - 1, -1, -1):
+						var nm: String = str(s.fire_log[ri][1])
+						for i in s.p.arts.size():
+							if str(s.p.arts[i].id) == nm and str(s.p.arts[i].element) == el_f:
+								ai = i
+								break
+						if ai >= 0:
+							break
 				elif which_a == "last":
 					ai = s.last_art
 				else:

@@ -628,6 +628,29 @@ func restart_clock(rec: Array, left: int) -> void:
 
 ## Broken and Wounded (Combat rule 25, Formulas L): the first time this fight [param s]'s health falls to
 ## broken_threshold of its maximum or below, it is Wounded and its foe has Broken it; once a fight. As engine.py.
+## Black Under White (2026-11-26): while [param holder] reads its foe [param x], every counted_curse_per of its stacks
+## of an element on that foe count as one more curse. A count only. As engine.py counted_curses.
+func counted_curses(holder: FighterState, x: FighterState) -> int:
+	if x == holder or not has_mods(holder):
+		return 0
+	var els: Array = []
+	for d in x.debuffs:
+		if not els.has(d.el):
+			els.append(d.el)
+	els.sort()
+	var n: int = 0
+	var me: int = _idx(holder)
+	for el in els:
+		var per: float = m(holder, "counted_curse_per", {"element": el})
+		if per > 0.0:
+			var tot: float = 0.0
+			for d in x.debuffs:
+				if d.el == el and d.src_idx == me:
+					tot += d.n
+			n += int(floorf(tot / per))
+	return n
+
+
 func check_cross(s: FighterState, ev: Dictionary) -> void:
 	if s.crossed or s.hp > k.broken_threshold * s.hp_max:
 		return
@@ -1050,7 +1073,7 @@ func pay(s: FighterState, art: ArtDef) -> bool:
 ## only below the trigger depth) and payloads held until hit_landed. Returns the health removed.
 ## Public for mechanism tests.
 func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art: ArtDef, kind: StringName,
-		trig: bool = false, ctags: Array = []) -> float:
+		trig: bool = false, ctags: Array = [], pass_shields: bool = false) -> float:
 	if dfn.window_on:   # an extended last act: the side cannot be struck (Effects rule 11)
 		return 0.0
 	var ctx: Dictionary
@@ -1063,6 +1086,10 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 		var tg: Array = [str(kind)]
 		tg.append_array(ctags)   # a companion's own tags (crane, bird), 2026-11-26
 		ctx = {"dtype": str(dtype), "element": "", "tags": tg, "kind": str(kind), "art_id": str(kind)}
+	if pass_shields:   # a free hit that passes ward shields (2026-11-26; Move the Sickness)
+		if ctx == _bare_ctx:
+			ctx = {}
+		ctx["pass_shields"] = true
 	var am: bool = has_mods(att)
 	var dm: bool = has_mods(dfn)
 	# Returning Wave: the first hit taken does no harm and strikes the attacker at full damage, once a fight
@@ -1211,6 +1238,9 @@ func tick(src: FighterState, s: FighterState, amount: float, dtype: StringName, 
 		_row(FightLogRow.Kind.TICK, src.label, &"", StringName(sid), [amount, dealt, s.hp, s.qi])
 	if listens(src, "tick_dealt"):
 		_event(src, "tick_dealt", {"amount": dealt, "status": sid,
+			"element": sid if sid in CombatConstants.ELEMENTS else "", "dtype": str(dtype)})
+	if listens(s, "tick_taken"):
+		_event(s, "tick_taken", {"amount": dealt, "status": sid,
 			"element": sid if sid in CombatConstants.ELEMENTS else "", "dtype": str(dtype)})
 	check_cross(s, {"status": sid, "kind": "tick"})
 	return dealt

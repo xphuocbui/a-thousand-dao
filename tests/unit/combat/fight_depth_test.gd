@@ -581,3 +581,52 @@ func test_a_rule_reads_a_kept_request_tag() -> void:
 	assert_near(f.m(f.a, "block", null), 0.0, 1e-9, "no tag: nothing")
 	f.tags = ["tribulation"]
 	assert_near(f.m(f.a, "block", null), 7.0, 1e-9, "tribulation kept: the rule sees it")
+
+
+# ---- slice 8a (2026-11-26): the art-format words, part one (test_engine.py t_vocab_8a) ----
+func test_a_burn_laid_on_yourself_ticks_on_you_and_raises_tick_taken() -> void:
+	var burn := {"id": "vent", "on": "fight_start", "do": [{"stacks": {"el": "fire", "n": 10, "for": 6, "side": "own", "kind": "debuff"}}]}
+	var count := {"id": "c", "on": "tick_taken", "do": [{"counter": {"id": "taken", "add": 1}}]}
+	var f: Fight = M._fight(M._dummy({"effects": [burn, count], "counters": [{"id": "taken"}]}), M._dummy())
+	EffectRunner.fire(f, f.a, "fight_start", {})
+	assert_near(EffectRunner._count(f.a.debuffs, "fire"), 10.0, 1e-9)
+	assert_bool(f.a.buffs.is_empty()).is_true()
+	f.t = 1000
+	f.pulse(f.a)
+	assert_near(float(f.a.counters["taken"]), 1.0, 1e-9, "tick_taken on the side it lands on")
+
+
+func test_a_free_hit_that_passes_shields_reaches_health() -> void:
+	var lost: Array = []
+	for ps in [false, true]:
+		var hit := {"id": "h", "on": "fight_start", "do": [{"free_hit": {"c": 1.0, "pass_shields": ps}}]}
+		var f: Fight = M._fight(M._dummy({"effects": [hit]}), M._dummy({"ward_pts": 0.0, "block": 0.0,
+				"shields": [{"size": 1.0, "body": false, "standing": true, "stops": {}, "pieces": 1, "floor": 0.0}]}))
+		f.b.wshields[0].left = 1e9
+		var hp: float = f.b.hp
+		EffectRunner.fire(f, f.a, "fight_start", {})
+		lost.append(hp - f.b.hp)
+	assert_bool(float(lost[0]) == 0.0 and float(lost[1]) > 0.0).override_failure_message(str(lost)).is_true()
+
+
+func test_tech_layer_counted_curses_not_art_id_and_the_last_art_of_an_element() -> void:
+	var f: Fight = M._fight(M._dummy({"tech_layers": {"withered-branch": 9}}), M._dummy())
+	var r := EffectDef.ReadDef.new()
+	r.side = 0
+	r.key = "tech_layer"
+	r.param = "withered-branch"
+	assert_near(EffectRunner.read(f, f.a, r, null), 9.0, 1e-9, "own.tech_layer")
+	assert_bool(EffectRunner.matches(f, {"not_art_id": "thorn"}, {"art_id": "thorn"})).is_false()
+	assert_bool(EffectRunner.matches(f, {"not_art_id": "thorn"}, {"art_id": "x"})).is_true()
+	var count := {"id": "bw", "on": "always", "do": [{"mod": {"counted_curse_per": 5, "element": "ice"}}]}
+	var g: Fight = M._fight(M._dummy({"effects": [count]}), M._dummy())
+	g.add_stacks(g.a, g.b, "ice", 12.0, 10.0, false)
+	assert_eq(g.counted_curses(g.a, g.b), 2, "12 Ice stacks count as 2 curses")
+	assert_eq(g.counted_curses(g.b, g.b), 0)
+	var again := {"id": "x", "on": "fight_start", "do": [{"fire_art": {"which": "last", "filter": {"element": "metal"}, "share": 0.6}}]}
+	var h: Fight = M._fight(M._dummy({"effects": [again]}, [{"name": "metal-cut", "c": 1.0, "cost": 0.01, "cd": 2.0, "element": "metal"},
+			{"name": "fire-cut", "c": 1.0, "cost": 0.01, "cd": 2.0, "element": "fire"}]), M._dummy({"ward_pts": 0.0, "block": 0.0}))
+	h.a.fire_log = [[0, "metal-cut", [], ""], [1, "fire-cut", [], ""]]
+	var hp: float = h.b.hp
+	EffectRunner.fire(h, h.a, "fight_start", {})
+	assert_bool(h.b.hp < hp).override_failure_message("the last Metal art fires again").is_true()

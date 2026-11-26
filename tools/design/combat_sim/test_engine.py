@@ -258,6 +258,48 @@ def t_burn_pill():   # Pill Smoke, smoke only (user 2026-11-26)
     check("with no pill nothing happens", not B.debuffs)
 
 
+# ---- world-depth Stage 5 slice 8a (2026-11-26): the art-format words, part one
+def t_vocab_8a():
+    check("filter not_art_id", not E.match({"not_art_id": "thorn"}, {"art_id": "thorn"}) and E.match({"not_art_id": "thorn"}, {"art_id": "x"}))
+    # fire_art: the last art of an element (Bronze Answers)
+    seen = []
+    arts = [E.Art("metal-cut", 1.0, 0.01, 2.0, element="metal"), E.Art("fire-cut", 1.0, 0.01, 2.0, element="fire")]
+    f, A, B = setup(a=dummy(arts=list(arts)), b=dummy(ward_pts=0, block=0))
+    A.fire_log = [[0, "metal-cut", (), ""], [1, "fire-cut", (), ""]]
+    orig = f.hit
+    f.hit = lambda att, dfn, c, dtype, art, **kw: (seen.append(art.name if art else None), orig(att, dfn, c, dtype, art, **kw))[1]
+    f.do(A, {"id": "x", "on": "always", "do": []}, [{"fire_art": {"which": "last", "filter": {"element": "metal"}, "share": 0.6}}], 1.0, {})
+    check("fire_art filter element: the last Metal art, not the last art", seen == ["metal-cut"], str(seen))
+    # a debuff laid on yourself, and tick_taken (Into the Vent)
+    took = []
+    f, A, B = setup()
+    f.do(A, {"id": "x", "on": "always", "do": []}, [{"stacks": {"el": "fire", "n": 10, "for": 6, "side": "own", "kind": "debuff"}}], 1.0, {})
+    check("stacks kind debuff on side own: a Burn on yourself", A.count(A.debuffs, "fire") == 10 and not A.buffs)
+    orig_fe = f.fire_event
+    f.fire_event = lambda s, name, ev: (took.append(s.label) if name == "tick_taken" else None, orig_fe(s, name, ev))[1]
+    f.t = 1000
+    f.pulse(A)
+    check("its tick lands on you and raises tick_taken for you", took and took[0] == "A", str(took))
+    # free_hit pass_shields
+    lost = []
+    for ps in (False, True):
+        f, A, B = setup(b=dummy(ward_pts=0, block=0, shields=[E.Shield(size=1.0)]))
+        B.wshields[0]["left"] = 1e9
+        hp = B.hp
+        f.do(A, {"id": "x", "on": "always", "do": []}, [{"free_hit": {"c": 1.0, "pass_shields": ps}}], 1.0, {})
+        lost.append(hp - B.hp)
+    check("free_hit pass_shields skips ward shields", lost[0] == 0 and lost[1] > 0, str(lost))
+    # own.tech_layer.<id>
+    f, A, B = setup(a=dummy(tech_layers={"withered-branch": 9}))
+    check("own.tech_layer reads a technique's layer", f.read(A, "own.tech_layer.withered-branch") == 9 and f.read(A, "own.tech_layer.x") == 0)
+    # counted curses (Black Under White)
+    count = {"id": "bw", "on": "always", "do": [{"mod": {"counted_curse_per": 5, "element": "ice"}}]}
+    f, A, B = setup(a=dummy(effects=[count]))
+    f.add_stacks(A, B, "ice", 12, 10.0, buff=False)
+    check("12 of your Ice stacks on the foe count as 2 curses", f.read(A, "foe.curses") == 2 and f.read(B, "own.curses") == 0,
+          "%s %s" % (f.read(A, "foe.curses"), f.read(B, "own.curses")))
+
+
 # ---- world-depth Stage 5 slice 7 (2026-11-26): kept request tags (Combat rule 12, AC-CB-104)
 def t_request_tags():
     trib = {"id": "t", "on": "always", "if": [{"read": "tag.tribulation", "op": ">=", "value": 1}], "do": [{"mod": {"block": 7}}]}

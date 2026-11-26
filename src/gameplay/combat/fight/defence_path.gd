@@ -107,6 +107,8 @@ static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float
 	var reached := false
 	if a > 0.0:
 		var byp: float = 0.0 if is_tick else minf(k.bypass_cap, (art.bypass if art != null else 0.0) + (f.m(att, "bypass", ctx) if am else 0.0))
+		if ctx is Dictionary and bool((ctx as Dictionary).get("pass_shields", false)):   # a free hit passing shields
+			byp = 1.0
 		var through: float = a * byp
 		var rest: float = a - through
 		for w in dfn.wshields:

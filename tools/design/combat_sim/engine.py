@@ -153,6 +153,7 @@ class Build:
     effects: list = field(default_factory=list)    # Effect records (dicts)
     counters: list = field(default_factory=list)   # self-counter definitions (dicts)
     pill: dict = field(default_factory=dict)       # a prepared pill: {element, grade, fail} (2026-11-26, smoke only)
+    tech_layers: dict = field(default_factory=dict)  # technique id -> layer, read as own.tech_layer.<id> (2026-11-26)
     companions: list = field(default_factory=list)  # {"c": coefficient, "dtype": ..., "cd": s}
     divine_sense: float = 1.0
     soul_res: float = 0.0
@@ -456,11 +457,15 @@ class Fight:
                 return float(len(x.counter_times[cid]))
             return x.counters.get(cid, 0.0)
         if k == "distinct_statuses":
-            return len([1 for v in x.statuses.values() if v["stacks"] > 0]) + len({d[0] for d in x.debuffs})
+            return len([1 for v in x.statuses.values() if v["stacks"] > 0]) + len({d[0] for d in x.debuffs}) \
+                + self.counted_curses(s, x)
+        if k.startswith("tech_layer."):    # a technique's layer (2026-11-26; Move the Sickness)
+            return float(x.b.tech_layers.get(k[11:], 0))
         if k == "fired":
             return sum(x.fired)
         if k == "curses":                   # curse statuses up on the side (Weight of Names)
-            return float(len([1 for sid, v in x.statuses.items() if v["stacks"] > 0 and STATUS.get(sid, {}).get("kind") == "curse"]))
+            return float(len([1 for sid, v in x.statuses.items() if v["stacks"] > 0 and STATUS.get(sid, {}).get("kind") == "curse"])) \
+                + self.counted_curses(s, x)
         if k == "ward_paid":                # linh lực its drain wards have paid this fight, as a share of its qi_max
             return x.ward_paid / x.qi_max()
         if k == "body_shield_share":
@@ -625,6 +630,18 @@ class Fight:
         if dk:   # Drunk (Effects Status Catalogue, 2026-11-26): its own slow per stack beside Slowed Time
             out += STATUS["drunk"]["slow"] * dk * resist
         return out
+
+    def counted_curses(self, holder, x):
+        """Black Under White (2026-11-26): while reading its foe, every counted_curse_per of the holder's stacks of an
+        element on that foe count as one more of the holder's curses. A count only: no slot, no cleanse."""
+        if x is holder or not holder.b.effects:
+            return 0
+        n = 0
+        for el in sorted({d[0] for d in x.debuffs}):
+            per = self.mod(holder, "counted_curse_per", {"element": el})
+            if per > 0:
+                n += int(sum(d[1] for d in x.debuffs if d[0] == el and d[3] is holder) // per)
+        return n
 
     def check_cross(self, s, ev):
         """Broken and Wounded (Combat rule 25, Formulas L): the first time this fight s's health falls to
@@ -1159,13 +1176,15 @@ class Fight:
         return True
 
     # ---------------------------------------------------------- hits
-    def hit(self, att, dfn, c, dtype, art, kind="art", trig=False, ctags=()):
+    def hit(self, att, dfn, c, dtype, art, kind="art", trig=False, ctags=(), pass_shields=False):
         """One hit through the defence path. Returns the health removed."""
         if dfn.window is not None:   # an extended last act: the side cannot be struck (Effects rule 11)
             return 0.0
         # ctags: a companion's own tags (crane, bird) ride on its hits (2026-11-26)
         ctx = {"dtype": dtype, "element": art.element if art else "", "tags": art.tags if art else (kind,) + tuple(ctags), "kind": kind,
                "art_id": art.name if art else kind}
+        if pass_shields:   # a free hit that passes ward shields (2026-11-26; Move the Sickness)
+            ctx["pass_shields"] = True
         # avoid [R6]
         if not trig and dfn.decoys > 0 and dfn.avoided < K["avoid_budget"]:
             dfn.decoys -= 1
@@ -1375,6 +1394,8 @@ class Fight:
         reached = False
         if a > 0:
             byp = 0.0 if is_tick else min(K["bypass_cap"], (art.bypass if art else 0.0) + self.mod(att, "bypass", ctx))
+            if (ctx or {}).get("pass_shields"):
+                byp = 1.0
             through = a * byp
             rest = a - through
             for w in dfn.wshields:
@@ -1429,6 +1450,7 @@ class Fight:
         if self.plog is not None:
             self.plog.append(["tick", self.t, src.label, sid, amount, dealt, s.hp, s.qi])
         self.fire_event(src, "tick_dealt", {"amount": dealt, "status": sid, "element": sid if sid in ELEMENTS else "", "dtype": dtype})
+        self.fire_event(s, "tick_taken", {"amount": dealt, "status": sid, "element": el, "dtype": dtype})
         self.check_cross(s, {"status": sid, "kind": "tick"})
         return dealt
 
@@ -1734,7 +1756,7 @@ class Fight:
                 dt = arg.get("dtype", "phys")
                 if dt == "same":                  # Echo: the same type as the hit that triggered it
                     dt = ev.get("dtype", "phys") if ev.get("dtype") in DTYPES else "phys"
-                self.hit(s, o, arg["c"] * n, dt, None, kind="trigger", trig=True)
+                self.hit(s, o, arg["c"] * n, dt, None, kind="trigger", trig=True, pass_shields=bool(arg.get("pass_shields")))
                 over = (before - o.hp) - budget
                 if over > 0 and not arg.get("outside_budget"):
                     o.hp += over
@@ -1757,7 +1779,8 @@ class Fight:
                 self.fire_event(s, "pill_burned", {"element": el, "grade": float(grade), "failed": 1.0 if failed else 0.0})
             elif verb == "stacks":
                 tgt = o if arg.get("side", "foe") == "foe" else s
-                self.add_stacks(s, tgt, arg["el"], arg["n"] * n, arg.get("for"), buff=(tgt is s), mark=arg.get("mark"))
+                buff = arg.get("kind", "buff" if tgt is s else "debuff") == "buff"   # kind debuff on own: a Burn on yourself
+                self.add_stacks(s, tgt, arg["el"], arg["n"] * n, arg.get("for"), buff=buff, mark=arg.get("mark"))
             elif verb == "status":
                 spec = dict(arg)
                 spec["stacks"] = spec.get("stacks", 1) * n
@@ -1792,6 +1815,11 @@ class Fight:
                 if which == "longest":
                     hitters = [i for i, x in enumerate(s.b.arts) if x.c and not x.soul_pct]
                     idx = min(hitters, key=lambda i: (-s.b.arts[i].cd, i)) if hitters else None
+                elif which == "last" and arg.get("filter", {}).get("element"):   # the last art of an element
+                    el = arg["filter"]["element"]
+                    names = [x[1] for x in s.fire_log]
+                    idx = next((i for nm in reversed(names) for i, x in enumerate(s.b.arts)
+                                if x.name == nm and x.element == el), None)
                 else:
                     idx = s.last_art if which == "last" else next(
                         (i for i, x in enumerate(s.b.arts) if x.name == which), None)
@@ -2105,6 +2133,9 @@ def match(filt, ctx):
         elif k == "dtype":
             got = ctx.get("dtype")
             if got != v and not (got == "elem" and ELEM_TYPE.get(ctx.get("element", "")) == v):
+                return False
+        elif k == "not_art_id":           # any art but this one (2026-11-26; Remnant Score)
+            if ctx.get("art_id") in (v if isinstance(v, (list, tuple)) else [v]):
                 return False
         elif k in ("element", "kind", "status", "art_id"):
             if ctx.get(k) != v:

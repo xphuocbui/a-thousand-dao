@@ -256,6 +256,13 @@ looks like a strong build.
   reader's foe acted within 1 s), `since_act`, `field_up` (the stance is tagged `field`), `broken` (the reader's foe
   has fallen to 25 % this fight), `wounded` (the reader has). Events `wounded` and `broken`, once a fight, right after
   the hit, tick or pulse that crossed. A state may carry `tags`. Fixture t20.
+- **Slice 7:** the request's kept tags (combat_engine.json `REQUEST_TAGS`: `tribulation`) read as `tag.<name>`;
+  any other request tag applies nothing and is noted once in the result. A sim `Fight` takes `tags=`.
+- **Slice 8a, part one:** filter `not_art_id`; `fire_art` with `filter.element` (the last art of that element
+  fired); `stacks` with `kind: debuff` on `side: own` (a debuff on yourself, at your power); the event `tick_taken`
+  (to the side a tick lands on); `free_hit.pass_shields`; the build field `tech_layers` read as
+  `own.tech_layer.<id>`; the mod `counted_curse_per` (element filter: every that many of your stacks on the foe count
+  as one of your curses in the `curses` and `distinct_statuses` reads). Fixture t21.
 
 ### World-depth vocabulary (2026-11-26; to build in world-depth Stage 5)
 

@@ -113,7 +113,7 @@ def run_chancy(fx, name, a, b):
 # Fields added after the expected files were written are left out while at their default, so every earlier
 # expected file stays byte-identical (world-depth Stage 5): an art's escape (slice E).
 LATE_ART_FIELDS = {"escape": 0.0}
-LATE_BUILD_FIELDS = {"pill": {}}
+LATE_BUILD_FIELDS = {"pill": {}, "tech_layers": {}}
 
 
 def as_doc(b):

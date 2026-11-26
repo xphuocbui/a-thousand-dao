@@ -1,0 +1,205 @@
+{
+  "name": "t21_vocab_exact",
+  "slice": 21,
+  "chance_free": true,
+  "seed": 211,
+  "doc": "World-depth Stage 5, slice 8a (2026-11-26), chance-free: the first art-format words. A: Into the Vent sets itself alight (10 of its own Burn stacks, kind debuff on side own) every 7 s; each Burn tick it takes (tick_taken) adds feather heat (+0.3 L5 each); Bronze Answers' echo: each Fire cut fires the last Metal art again at 60 % (fire_art filter element); a counter of arts fired other than the Fire cut (not_art_id); at technique layer 9 (own.tech_layer) a free hit that passes ward shields every 3 s; Black Under White: every 5 of A's Ice stacks on B count as a curse, and +1 L5 per curse on B. B: a standing ward shield and a cut.",
+  "a": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "vent-singer",
+    "tech_layers": {
+      "withered-branch": 9
+    },
+    "counters": [
+      {
+        "id": "heat"
+      },
+      {
+        "id": "not_fire"
+      }
+    ],
+    "arts": [
+      {
+        "name": "metal-cut",
+        "c": 0.8,
+        "cost": 0.03,
+        "cd": 2.5,
+        "element": "metal"
+      },
+      {
+        "name": "fire-cut",
+        "c": 0.7,
+        "cost": 0.03,
+        "cd": 3.0,
+        "element": "fire"
+      },
+      {
+        "name": "frost-needle",
+        "c": 0.5,
+        "cost": 0.03,
+        "cd": 2.0,
+        "element": "ice",
+        "debuff": [
+          3,
+          8.0
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "id": "into-the-vent",
+        "on": "pulse",
+        "limit": {
+          "cooldown": 7.0
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "fire",
+              "n": 10,
+              "for": 6,
+              "side": "own",
+              "kind": "debuff"
+            }
+          }
+        ]
+      },
+      {
+        "id": "feather-heat",
+        "on": "tick_taken",
+        "filter": {
+          "element": "fire"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "heat",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "heat-edge",
+        "on": "always",
+        "scale": {
+          "read": "own.counter.heat",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "L5": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "bronze-echo",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "fire-cut"
+        },
+        "do": [
+          {
+            "fire_art": {
+              "which": "last",
+              "filter": {
+                "element": "metal"
+              },
+              "share": 0.6
+            }
+          }
+        ]
+      },
+      {
+        "id": "not-the-fire",
+        "on": "art_fired",
+        "filter": {
+          "not_art_id": "fire-cut"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "not_fire",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "wound-moves",
+        "on": "pulse",
+        "limit": {
+          "cooldown": 3.0
+        },
+        "if": [
+          {
+            "read": "own.tech_layer.withered-branch",
+            "op": ">=",
+            "value": 9
+          }
+        ],
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.3,
+              "dtype": "chaos",
+              "pass_shields": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "black-under-white",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "counted_curse_per": 5,
+              "element": "ice"
+            }
+          }
+        ]
+      },
+      {
+        "id": "curse-edge",
+        "on": "always",
+        "scale": {
+          "read": "foe.curses",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "L5": 1.0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "shield-wall",
+    "shields": [
+      {
+        "size": 0.35,
+        "standing": true,
+        "pieces": 1
+      }
+    ],
+    "arts": [
+      {
+        "name": "cut",
+        "c": 1.0,
+        "cost": 0.04,
+        "cd": 2.0
+      }
+    ]
+  }
+}
