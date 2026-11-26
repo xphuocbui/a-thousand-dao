@@ -8,7 +8,9 @@ For each owner, the staged files move into place:
   design/<same path>. A file that already exists is merged by record id: the staged record replaces one of the same id,
   others are kept. That is how a job adds to another owner's file (an early promotion);
 - effects/<owner>.effects.json goes to design/world/depth/effects/, merged by Effect name, then put_effects.py merges it
-  into assets/data/combat_effects.json.
+  into assets/data/combat_effects.json;
+- foreign/<other>/techniques/catalogue-sect-<other>.json and foreign/<other>/arts/part-sect-<other>.json (an early
+  promotion of another owner's method) merge by id into <other>'s files.
 
 Then the gates (any failure exits 1 and names it):
 - one id per technique, per art and per item across design/, and one owner per Effect name in the library;
@@ -60,6 +62,14 @@ def moves(owner):
     eff = os.path.join(base, "effects", "%s.effects.json" % owner)
     if os.path.exists(eff):
         out.append((eff, os.path.join(ROOT, "design", "world", "depth", "effects", "%s.effects.json" % owner)))
+    # an early promotion (plan Stage 6, step 4): another owner's method staged under foreign/<other>/, merged by id
+    # into <other>'s files (added to, never rewritten)
+    for fdir in sorted(glob.glob(os.path.join(base, "foreign", "*"))):
+        other = os.path.basename(fdir)
+        for sub, pat in (("techniques", "catalogue-sect-%s.json" % other), ("arts", "part-sect-%s.json" % other)):
+            f = os.path.join(fdir, sub, pat)
+            if os.path.exists(f):
+                out.append((f, os.path.join(ROOT, "design", sub, pat)))
     return out
 
 
