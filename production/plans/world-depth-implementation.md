@@ -455,48 +455,21 @@ All in batches of about 50, the checker up front, **by sect** (D3), Băng Tâm C
 7. **Stage 7 for the sect** after approval: export, load, fight one authored build, keep screenshots, and confirm the
    sect's gap report reads zero.
 
-**Lessons from the Băng Tâm pilot (2026-11-26; apply them in every sect, and the record brief repeats them):**
-1. **Lint-clean is not working.** Five faults passed every linter and showed only on real holders. Run
-   `tools/design/combat_sim/sect_fight.py <owner>` (also `--gap 1`) on the cast builds. Every Effect must change the
-   fight with and without it, every record must run (`runs`), and every art must fire. A 0 needs a written reason,
-   such as "needs damage taken" or "needs a pause".
-2. **Read the holders' whole kits, not the record alone.**
-   - One stance slot: the Vessel and the Lotus Seal overwrote each other, so they got a combined stance.
-   - "Your ward" meant the main ward for a holder with no stance ward (Master's Road).
-   - The Red Plum's holder sits in another sect, so its set is never whole there. That is the story, not a bug.
-3. **Event order matters.**
-   - `art_fired` comes before the art's own hits.
-   - Stacks land inside a hit, before its `hit_landed`. A counter armed on `status_applied` and spent on `hit_landed`
-     spends itself, so spend it on the event it grants (`crit`).
-   - An `always` record ignores a record-level `filter`; the scope goes inside the mod.
-4. **The two engines check different things.** The GDScript loader checks every state an art sets when it compiles
-   (define them all in the art). Hit events carried no `group` until it was fixed. Export the library and run the
-   compile parity and a fixture of the real kit before trusting a record in the game.
-5. **Prefer an existing word that keeps the intent, and log the change.**
-   - Freeze became `stop_clock`. Hidden Half's "20 % more" became `stack_grant` +1: a literal `stack_more` on debuffs
-     would have changed four existing Effects.
-   - A ruling you refine for cost is a logged deviation, never a silent one; the user confirmed this one.
-6. **Pin vague words in the rule text.**
-   - Say whether a "cut" or a "petal" is a hit or an art firing, and when "the fifth" is counted.
-   - Say what "the ward" is.
-   - Write the chosen meaning into the record's `rule`, and list it in the review's deviations.
-7. **Techniques come with no numbers.** The depth records name no bonuses or passives: size them against the
-   catalogue's same-tier techniques, unpriced, and say in the review that they are new.
-8. **Test against `--gap 1`.** The top-end foe kills any build in about 2 s, so nothing shows.
-9. **An export changes the world's behaviour, so expect test fallout.**
-   - The authored cast filled the 80-person test world.
-   - Authored ties filled the duelists' caps.
-   - Gained traits must be granted as records, not names.
-   - Person cards showed type faces, because `Character.to_dict` drops `cast_key`.
-
-   Run the full suite after every export and read each failure for its cause.
-10. **Unique signature items:** the holder's authored gear places them first (cast before named items). A holder not
-    yet in the world falls back to the random placement until their sect's pass.
-11. **Tools learn too.** After promotion, the depth checker and the gap report needed rules for promoted records:
-    duplicate items, the sect's own Effects as "clash", over-cap ties. Fix the tool when its rule no longer fits;
-    never hand-wave a finding.
-12. **Git:** never use `git stash` to swap a file. A push with nothing to stash followed by a pop applied an old
-    unrelated stash. Commit after every unit, and keep the progress file current.
+**Lessons from the Băng Tâm pilot (2026-11-26):**
+1. **Lint-clean is not working.** Five faults passed every linter and showed only on the real holders' builds. Check
+   each Effect with and without it, and count its runs and the arts' fires
+   (`tools/design/combat_sim/sect_fight.py <owner>`). The event-order traps behind those faults are listed in
+   `FIGHT-INPUT.md`, "Traps found in Stage 6".
+2. **Read the holders' whole kits.** A fighter has one stance slot: two stances in one build overwrite each other and
+   need a combined stance. An Effect reading "your ward" must work for a holder who has no stance ward.
+3. **The GDScript loader checks what Python does not.** It checks every state an art sets when it compiles. Run the
+   library export and the compile parity before trusting a record in the game (the serial step does this).
+4. **An existing engine word that keeps the intent beats a new one.** Freeze became `stop_clock`; Hidden Half became
+   `stack_grant`. Log each such refinement of a ruling or of the depth text; the user confirmed Hidden Half's.
+5. **Pin vague words in the record's `rule`.** Say whether a "cut" or a "petal" is a hit or an art firing, what "the
+   ward" is, and when "the fifth" is counted.
+6. **The depth techniques name no bonuses or passives.** Size them against the same-tier catalogue techniques, and mark
+   them as new in the review.
 
 **Recoverable at every point** (accounts may switch mid-sect):
 - Keep the progress file `production/plans/stage6/<key>.md` (done, next, open questions, exact commands), updated
@@ -575,6 +548,7 @@ Each job follows this method through step 6; with decisions auto-accepted it doe
 - Measure world build time with this sect.
 
 ### Stage 8: everyone
+- **Expect test fallout from the export** (Băng Tâm, 2026-11-26): a larger authored cast changes world behaviour. It filled the test world, filled tie caps and exposed a portrait bug. Run the full suite after the export and fix each failure at its cause.
 - Export the other 49 sects and the 6 groups. Measure world build time with all 1,747 authored builds; budget and
   optimise if needed.
 - The census: realm counts against the targets (5,000 world), sect sizes, the admission pass rates.
