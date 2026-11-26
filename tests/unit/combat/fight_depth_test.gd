@@ -489,3 +489,59 @@ func test_talisman_stacks_hold_through_a_cleanse_while_the_caster_has_the_effect
 		f.cleanse(f.b, 10)
 		assert_near(EffectRunner._count(f.b.debuffs, "fire"), 3.0 if has else 0.0, 1e-9, "talisman stacks with the Effect: %s" % str(has))
 		assert_near(EffectRunner._count(f.b.debuffs, "wood"), 0.0, 1e-9)
+
+
+# ---- slice 5 (2026-11-26): the duel readings (Combat rule 25, Formulas L, its Example; test_engine.py) ----
+func test_composed_pressing_and_the_foe_pressed_follow_the_formulas_l_example() -> void:
+	var f: Fight = M._fight(M._dummy(), M._dummy())
+	assert_near(f.reading(f.a, "composed"), 0.0, 1e-9, "not Composed at the start")
+	f.t = 2000
+	assert_near(f.reading(f.a, "composed"), 1.0, 1e-9, "Composed from 2 s")
+	f.a.t_act = 3100
+	f.t = 4000
+	assert_near(f.reading(f.a, "composed") + f.reading(f.a, "pressing"), 0.0, 1e-9, "neither after a damaging art")
+	assert_near(f.reading(f.b, "foe_pressed"), 1.0, 1e-9)
+	f.t = 4100
+	assert_near(f.reading(f.b, "foe_pressed"), 0.0, 1e-9)
+	f.t = 5600
+	assert_near(f.reading(f.a, "composed_time"), 0.5, 1e-9)
+	f.a.t_act = 6000
+	f.a.t_move = 6000
+	f.t = 6999
+	assert_near(f.reading(f.a, "pressing"), 1.0, 1e-9, "Pressing after the evade")
+	f.t = 7000
+	assert_near(f.reading(f.a, "pressing"), 0.0, 1e-9)
+	assert_near(f.reading(f.a, "since_act"), 1.0, 1e-9)
+
+
+func test_a_composed_stance_and_a_field_stance_read_at_once() -> void:
+	var states := [{"id": "still", "tags": ["composed"], "mods": {}}, {"id": "mist", "tags": ["field"], "mods": {}}]
+	var go_still := {"id": "s", "on": "fight_start", "do": [{"state": {"set": "still"}}]}
+	var go_mist := {"id": "m", "on": "pulse", "do": [{"state": {"set": "mist"}}]}
+	var f: Fight = M._fight(M._dummy({"states": states, "effects": [go_still, go_mist]}), M._dummy())
+	f.t = 1000
+	f.a.t_act = 1000
+	EffectRunner.fire(f, f.a, "fight_start", {})
+	f.t = 1500
+	assert_near(f.reading(f.a, "composed"), 1.0, 1e-9)
+	assert_near(f.reading(f.a, "composed_time"), 0.5, 1e-9)
+	EffectRunner.fire(f, f.a, "pulse", {})
+	assert_near(f.reading(f.a, "field_up"), 1.0, 1e-9)
+
+
+func test_broken_and_wounded_fire_once_on_the_crossing() -> void:
+	var on_b := {"id": "b", "on": "broken", "do": [{"counter": {"id": "brk", "add": 1}}]}
+	var on_w := {"id": "w", "on": "wounded", "do": [{"counter": {"id": "wnd", "add": 1}}]}
+	var f: Fight = M._fight(M._dummy({"effects": [on_b], "counters": [{"id": "brk"}]}),
+			M._dummy({"effects": [on_w], "counters": [{"id": "wnd"}], "ward_pts": 0.0, "block": 0.0}))
+	f.b.hp = 0.3 * f.b.hp_max
+	f.hit(f.a, f.b, 0.01, &"phys", null, Fight.KIND_ART)
+	assert_near(float(f.a.counters["brk"]), 0.0, 1e-9, "above 25 %: nothing")
+	f.b.hp = 0.26 * f.b.hp_max
+	f.hit(f.a, f.b, 2.0, &"phys", null, Fight.KIND_ART)
+	assert_near(float(f.a.counters["brk"]), 1.0, 1e-9, "A has Broken B")
+	assert_near(float(f.b.counters["wnd"]), 1.0, 1e-9, "B is Wounded")
+	assert_near(f.reading(f.a, "broken") + f.reading(f.b, "wounded"), 2.0, 1e-9)
+	f.b.hp = 0.1 * f.b.hp_max
+	f.hit(f.a, f.b, 0.01, &"phys", null, Fight.KIND_ART)
+	assert_near(float(f.a.counters["brk"]), 1.0, 1e-9, "once a fight")

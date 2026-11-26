@@ -148,6 +148,13 @@ var channel_e: float = 0.0
 var fled: bool = false
 ## The prepared pill was burned (burn_pill; one a fight).
 var pill_used: bool = false
+## The duel readings (Combat rule 25, Formulas L; 2026-11-26): ms of the last damaging or movement art or evade,
+## and of the last movement art or evade (-1: none yet); health fell to broken_threshold this fight; the ms the
+## current stance began.
+var t_act: int = -1
+var t_move: int = -1
+var crossed: bool = false
+var state_since: int = 0
 ## Net losses per pulse for lost_last (2026-11-26): [ms, health lost, linh lực lost], the last lost_last_keep s; and
 ## health and linh lực at the last pulse's end (has_loss_prev false before the first pulse).
 var loss_log: Array = []

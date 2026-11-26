@@ -250,6 +250,12 @@ looks like a strong build.
   (filter `tags`: `crane`, `bird`); a debuff batch laid by an art tagged `talisman` is held fast through every
   cleanse while its caster holds the mod flag `talisman_fast` (Rainfast Ink). Fixture t19. Not built: an added Soul
   part meeting `[soul]`-scoped modifiers (Damage Types rule 1, 2026-11-26); today it takes the art's own scope only.
+- **Slice 5, the duel readings** (Combat rule 25, Formulas L): readables `own|foe.composed` (a stance tagged
+  `composed`, or 2 s since its last damaging or movement art or evade), `composed_time`, `pressing` (not Composed;
+  a stance tagged `pressing`, or within 1 s of a movement art, tag `movement`, or an evade), `foe_pressed` (the
+  reader's foe acted within 1 s), `since_act`, `field_up` (the stance is tagged `field`), `broken` (the reader's foe
+  has fallen to 25 % this fight), `wounded` (the reader has). Events `wounded` and `broken`, once a fight, right after
+  the hit, tick or pulse that crossed. A state may carry `tags`. Fixture t20.
 
 ### World-depth vocabulary (2026-11-26; to build in world-depth Stage 5)
 

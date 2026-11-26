@@ -1,0 +1,191 @@
+{
+  "name": "t20_readings_exact",
+  "slice": 20,
+  "chance_free": true,
+  "seed": 201,
+  "doc": "World-depth Stage 5, slice 5 (2026-11-26; Combat rule 25, Formulas L), chance-free: the duel readings in one fight. A (a ward-sitter): mostly wards and heals, a slow damaging art; while Composed +12 block, +0.2 L5 per second Composed (composed_time), a counter of the pulses B pressed (foe_pressed), and a heal when it Breaks B (broken). B (a skirmisher): a movement art (tag movement) that makes it Pressing for 1 s, +25 art speed while Pressing, a mist stance (tag field) taken at the start that dampens damage taken while it is up (field_up), and a heal when it is Wounded.",
+  "a": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "still-lake",
+    "counters": [
+      {
+        "id": "pressed"
+      }
+    ],
+    "arts": [
+      {
+        "name": "frost-ward",
+        "c": 0.0,
+        "cost": 0.02,
+        "cd": 3.0,
+        "heal": 0.04
+      },
+      {
+        "name": "lake-palm",
+        "c": 1.4,
+        "cost": 0.05,
+        "cd": 5.0,
+        "element": "water"
+      }
+    ],
+    "effects": [
+      {
+        "id": "still-guard",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.composed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "block": 12
+            }
+          }
+        ]
+      },
+      {
+        "id": "still-depth",
+        "on": "always",
+        "scale": {
+          "read": "own.composed_time",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "L5": 0.2
+            }
+          }
+        ]
+      },
+      {
+        "id": "count-pressed",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.foe_pressed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "pressed",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "on-break",
+        "on": "broken",
+        "do": [
+          {
+            "heal": {
+              "share": 0.1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "mist-skirmisher",
+    "states": [
+      {
+        "id": "mist",
+        "tags": [
+          "field"
+        ],
+        "mods": {}
+      }
+    ],
+    "arts": [
+      {
+        "name": "wind-step",
+        "c": 0.2,
+        "cost": 0.02,
+        "cd": 3.0,
+        "tags": [
+          "movement"
+        ]
+      },
+      {
+        "name": "slash",
+        "c": 1.0,
+        "cost": 0.04,
+        "cd": 2.0
+      }
+    ],
+    "effects": [
+      {
+        "id": "raise-mist",
+        "on": "fight_start",
+        "do": [
+          {
+            "state": {
+              "set": "mist"
+            }
+          }
+        ]
+      },
+      {
+        "id": "press-speed",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.pressing",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "art_speed": 25
+            }
+          }
+        ]
+      },
+      {
+        "id": "in-mist",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.field_up",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 10
+            }
+          }
+        ]
+      },
+      {
+        "id": "on-wound",
+        "on": "wounded",
+        "do": [
+          {
+            "heal": {
+              "share": 0.15
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

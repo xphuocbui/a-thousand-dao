@@ -257,6 +257,10 @@ class Side:
         self.delays = []                            # ms times of delays received (falloff)
         self.charges = [a.charges for a in b.arts]
         self.state = next((x["id"] for x in b.states if x.get("start")), None)
+        self.state_since = 0          # ms the current stance began (composed_time)
+        self.t_act = None             # ms of the last damaging or movement art or evade (Formulas L)
+        self.t_move = None            # ms of the last movement art or evade
+        self.crossed = False          # health fell to broken_threshold or below this fight (Wounded; Broken to the foe)
         self.state_def = {x["id"]: x for x in b.states}
         self.summons = []                           # [c, dtype, cd_ms, next_ms, until_ms]
         self.last_art = None
@@ -412,6 +416,29 @@ class Fight:
             return x.count(x.debuffs, k[7:])
         if k.startswith("status."):
             return x.st(k[7:])
+        if k == "composed":     # the duel readings (Combat rule 25, Formulas L; 2026-11-26)
+            return 1.0 if self.composed(x) else 0.0
+        if k == "composed_time":
+            if self.stance_tag(x, "composed"):
+                return (self.t - x.state_since) / 1000
+            c0 = (x.t_act or 0) + ms(K["composed_after"])
+            return max(0, self.t - c0) / 1000
+        if k == "pressing":
+            if self.composed(x):
+                return 0.0
+            moved = x.t_move is not None and self.t - x.t_move < ms(K["pressing_after"])
+            return 1.0 if self.stance_tag(x, "pressing") or moved else 0.0
+        if k == "foe_pressed":
+            o = x.foe
+            return 1.0 if o.t_act is not None and self.t - o.t_act < ms(K["act_window"]) else 0.0
+        if k == "since_act":
+            return (self.t - (x.t_act or 0)) / 1000
+        if k == "field_up":
+            return 1.0 if self.stance_tag(x, "field") else 0.0
+        if k == "broken":
+            return 1.0 if x.foe.crossed else 0.0
+        if k == "wounded":
+            return 1.0 if x.crossed else 0.0
         if k.startswith("lost_last."):   # health or linh luc lost over the last N s (2026-11-26)
             _, pool, secs = k.split(".")
             return self.lost_last(x, pool, float(secs))
@@ -594,6 +621,22 @@ class Fight:
         if dk:   # Drunk (Effects Status Catalogue, 2026-11-26): its own slow per stack beside Slowed Time
             out += STATUS["drunk"]["slow"] * dk * resist
         return out
+
+    def check_cross(self, s, ev):
+        """Broken and Wounded (Combat rule 25, Formulas L): the first time this fight s's health falls to
+        broken_threshold of its maximum or below, s is Wounded and its foe has Broken it; once a fight."""
+        if s.crossed or s.hp > K["broken_threshold"] * s.hp_max:
+            return
+        s.crossed = True
+        self.fire_event(s, "wounded", dict(ev or {}))
+        self.fire_event(s.foe, "broken", dict(ev or {}))
+
+    def stance_tag(self, s, tag):
+        st = s.state_def.get(s.state) if s.state else None
+        return bool(st) and tag in st.get("tags", ())
+
+    def composed(self, s):
+        return self.stance_tag(s, "composed") or self.t - (s.t_act or 0) >= ms(K["composed_after"])
 
     def lost_last(self, s, pool, secs):
         """Health or linh luc s lost over the last secs seconds (Effects rule 5, 2026-11-26): each pulse's net loss in
@@ -856,6 +899,7 @@ class Fight:
                 s.counters[cid] *= max(0.0, 1.0 - dsh)
             if cdef.get("upkeep"):
                 self.upkeep(s, cid, cdef["upkeep"])
+        self.check_cross(s, {"kind": "pulse"})
         if s.loss_prev is not None:   # this pulse's net losses, for lost_last
             s.loss_log.append([self.t, max(0.0, s.loss_prev[0] - s.hp), max(0.0, s.loss_prev[1] - s.qi)])
             s.loss_log = [x for x in s.loss_log if self.t - x[0] < ms(K["lost_last_keep"])]
@@ -977,6 +1021,10 @@ class Fight:
                   "dtype": a.dtype, "kind": "art", "hp_paid_share": s.hp_paid / s.hp_max}
             s.cur_ev = ev
             s.last_art = i
+            if a.c or a.soul_pct or a.soul_part or "movement" in a.tags:   # the duel readings' clock (Formulas L)
+                s.t_act = self.t
+            if "movement" in a.tags:
+                s.t_move = self.t
             if a.escape:   # an escape art opens its channel; hits keep landing (Combat rule 10)
                 s.channel_until = self.t + ms(K["escape_channel"])
                 s.channel_e = a.escape
@@ -1140,6 +1188,7 @@ class Fight:
         if dfn.st("off_guard") > 0:
             pass   # Off Guard: evade counts as 0, with no draw (2026-11-26)
         elif self.rng.random() < p_ev:
+            dfn.t_act = dfn.t_move = self.t   # an evade is an act and a move (Formulas L)
             self.fire_event(dfn, "evaded", ctx)
             self.fire_event(att, "was_evaded", ctx)
             return 0.0
@@ -1223,6 +1272,7 @@ class Fight:
         if art:
             for st in art.statuses:
                 self.apply_status(att, dfn, st)
+        self.check_cross(dfn, ev)
         if not trig or self.depth < K["trig_depth"]:
             self.fire_event(att, "hit_landed", ev)
             if is_crit:
@@ -1375,6 +1425,7 @@ class Fight:
         if self.plog is not None:
             self.plog.append(["tick", self.t, src.label, sid, amount, dealt, s.hp, s.qi])
         self.fire_event(src, "tick_dealt", {"amount": dealt, "status": sid, "element": sid if sid in ELEMENTS else "", "dtype": dtype})
+        self.check_cross(s, {"status": sid, "kind": "tick"})
         return dealt
 
     def soul_hit(self, att, dfn, a):
@@ -1722,7 +1773,10 @@ class Fight:
             elif verb == "state":
                 if arg.get("set") is not None and arg["set"] not in s.state_def:
                     raise EngineError("state %r is not defined" % arg["set"])
-                s.state = None if (arg.get("toggle") and s.state == arg.get("set")) else arg.get("set")
+                new_state = None if (arg.get("toggle") and s.state == arg.get("set")) else arg.get("set")
+                if new_state != s.state:
+                    s.state_since = self.t
+                s.state = new_state
             elif verb == "summon":
                 cd = ms(max(K["cooldown_min"], arg.get("cd", K["basic_cooldown"])))
                 s.summons.append([arg.get("c", K["summon_c"]) * n, arg.get("dtype", "phys"), cd, self.t + cd,

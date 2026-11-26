@@ -258,6 +258,62 @@ def t_burn_pill():   # Pill Smoke, smoke only (user 2026-11-26)
     check("with no pill nothing happens", not B.debuffs)
 
 
+# ---- world-depth Stage 5 slice 5 (2026-11-26): the duel readings (Combat rule 25, Formulas L, its Example)
+def t_readings():
+    f, A, B = setup()
+    r = lambda s, k: f.read(s, "own." + k)
+    check("at the start nothing has acted: not Composed yet, nor Pressing", r(A, "composed") == 0 and r(A, "pressing") == 0)
+    f.t = 2000
+    check("Composed from 2 s with no act", r(A, "composed") == 1)
+    f.t = 3100
+    A.t_act = 3100                      # a damaging art at 3.100 s (as the act loop sets it)
+    f.t = 4000
+    check("3.1-5.1 s: neither Composed nor Pressing (a damaging art is not a move)", r(A, "composed") == 0 and r(A, "pressing") == 0)
+    check("its foe reads foe_pressed until 4.099 s", r(B, "foe_pressed") == 1)
+    f.t = 4100
+    check("and not from 4.100 s", r(B, "foe_pressed") == 0)
+    f.t = 5600
+    check("Composed from 5.100 s; composed_time 0.5 at 5.600 s", r(A, "composed") == 1 and abs(r(A, "composed_time") - 0.5) < 1e-9)
+    f.t = 6000
+    A.t_act = A.t_move = 6000          # an evade at 6.000 s
+    f.t = 6999
+    check("the evade: Pressing until 6.999 s, not Composed", r(A, "pressing") == 1 and r(A, "composed") == 0)
+    f.t = 7000
+    check("Pressing ends at 7.000 s", r(A, "pressing") == 0)
+    check("since_act 1.0 s", abs(r(A, "since_act") - 1.0) < 1e-9)
+
+
+def t_reading_stances():
+    states = [{"id": "still", "tags": ["composed"], "mods": {}}, {"id": "mist", "tags": ["field"], "mods": {}}]
+    f, A, B = setup(a=dummy(states=states))
+    f.t = 1000
+    A.t_act = 1000
+    f.do(A, {"id": "s", "on": "always", "do": []}, [{"state": {"set": "still"}}], 1.0, {})
+    f.t = 1500
+    check("a composed stance: Composed at once, composed_time from its start", f.read(A, "own.composed") == 1
+          and abs(f.read(A, "own.composed_time") - 0.5) < 1e-9)
+    f.do(A, {"id": "s", "on": "always", "do": []}, [{"state": {"set": "mist"}}], 1.0, {})
+    check("a field stance: field_up", f.read(A, "own.field_up") == 1 and f.read(B, "own.field_up") == 0)
+
+
+def t_broken_wounded():
+    seen = []
+    f, A, B = setup(b=dummy(ward_pts=0, block=0))
+    orig = f.fire_event
+    f.fire_event = lambda s, name, ev: (seen.append((s.label, name)) if name in ("broken", "wounded") else None, orig(s, name, ev))[1]
+    B.hp = 0.3 * B.hp_max
+    f.hit(A, B, 0.01, "phys", None)
+    check("above 25 %: nothing", seen == [])
+    B.hp = 0.26 * B.hp_max
+    f.hit(A, B, 2.0, "phys", None)
+    check("the crossing: B is Wounded and A has Broken it", seen == [("B", "wounded"), ("A", "broken")], str(seen))
+    check("read as broken (A) and wounded (B)", f.read(A, "own.broken") == 1 and f.read(B, "own.wounded") == 1)
+    B.hp = 0.5 * B.hp_max
+    B.hp = 0.1 * B.hp_max
+    f.hit(A, B, 0.01, "phys", None)
+    check("once a fight", len(seen) == 2)
+
+
 # ---- world-depth Stage 5 slice 4 (2026-11-26): Light, companion tags, talisman stacks held fast
 def t_light():
     lost = []

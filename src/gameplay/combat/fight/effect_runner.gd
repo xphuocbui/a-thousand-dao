@@ -51,6 +51,8 @@ static func read(f: Fight, s: FighterState, r: EffectDef.ReadDef, ev: Variant) -
 			return float(x.counters.get(r.param, 0.0))
 		"lost_last":
 			return f.lost_last(x, r.param, r.window_ms)
+		"composed", "composed_time", "pressing", "foe_pressed", "since_act", "field_up", "broken", "wounded":
+			return f.reading(x, r.key)
 		"counter_hours", "counter_this_hour":
 			return f.charge_hours(x, r.param, r.key == "counter_this_hour")
 		"distinct_statuses":
@@ -532,7 +534,10 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 					tgt_t.ready[i] = maxi(last_ok if by < 0.0 else 0, tgt_t.ready[i] + CombatConstants.ms(by))
 			"state":
 				var set_to: String = str(arg.set) if arg.get("set") != null else ""
-				s.state = "" if (bool(arg.get("toggle", false)) and s.state == set_to) else set_to
+				var new_state: String = "" if (bool(arg.get("toggle", false)) and s.state == set_to) else set_to
+				if new_state != s.state:
+					s.state_since = f.t
+				s.state = new_state
 			"summon":
 				var cd_ms: int = CombatConstants.ms(maxf(k.cooldown_min, float(arg.get("cd", k.basic_cooldown))))
 				s.summons.append([float(arg.get("c", k.summon_c)) * n, StringName(str(arg.get("dtype", "phys"))), cd_ms,

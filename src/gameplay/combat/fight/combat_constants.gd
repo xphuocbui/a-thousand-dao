@@ -27,7 +27,7 @@ const REQUIRED_K := [
 	"water_ice_share", "cleanse_min_stacks", "trig_cap", "trig_depth", "trig_budget", "trig_floor_u", "layer_caps",
 	"l1_soft", "delay_window", "delay_falloff", "summon_c", "summon_for", "injury_every", "refuse_down_health",
 	"escape_channel", "escape_realm_step", "escape_lock_penalty", "escape_min", "escape_max",
-	"fight_hour", "lost_last_keep",
+	"fight_hour", "lost_last_keep", "composed_after", "pressing_after", "act_window", "broken_threshold",
 ]
 
 var fatigue_start: float
@@ -103,6 +103,11 @@ var escape_max: float
 ## Slice 3: a fight hour (ms) for charge hours; how long the lost_last record keeps (ms).
 var fight_hour_ms: int
 var lost_last_keep_ms: int
+## Slice 5, the duel readings (Combat Formulas L): ms, and the Broken / Wounded health share.
+var composed_after_ms: int
+var pressing_after_ms: int
+var act_window_ms: int
+var broken_threshold: float
 ## The Effect vocabulary (Effects GDD rules 5-6) and an "elem" art's usual damage type by element.
 var events: Array = []
 ## Effects GDD words for engine events, read through at load (world-depth Stage 5): {word: engine event}.
@@ -251,6 +256,10 @@ static func from_dict(d: Dictionary) -> CombatConstants:
 	k.escape_max = float(kd.escape_max)
 	k.fight_hour_ms = ms(float(kd.fight_hour))
 	k.lost_last_keep_ms = ms(float(kd.lost_last_keep))
+	k.composed_after_ms = ms(float(kd.composed_after))
+	k.pressing_after_ms = ms(float(kd.pressing_after))
+	k.act_window_ms = ms(float(kd.act_window))
+	k.broken_threshold = float(kd.broken_threshold)
 	k.events = d.get("EVENTS", [])
 	k.event_alias = d.get("EVENT_ALIAS", {})
 	k.mod_keys = d.get("MOD_KEYS", [])

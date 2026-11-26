@@ -499,6 +499,7 @@ func pulse(s: FighterState) -> void:
 		var up: Variant = s.p.counter_def[cid].get("upkeep")
 		if up != null:
 			upkeep(s, cid, up)
+	check_cross(s, {"kind": "pulse"})
 	if s.has_loss_prev:   # this pulse's net losses, for lost_last
 		s.loss_log.append([t, maxf(0.0, s.loss_prev_hp - s.hp), maxf(0.0, s.loss_prev_qi - s.qi)])
 		var keep_l: Array = []
@@ -621,6 +622,55 @@ func restart_clock(rec: Array, left: int) -> void:
 			if idx < arr.size() and int(arr[idx]) == val:
 				arr[idx] = back
 				holder.set(key, arr)
+
+
+## Broken and Wounded (Combat rule 25, Formulas L): the first time this fight [param s]'s health falls to
+## broken_threshold of its maximum or below, it is Wounded and its foe has Broken it; once a fight. As engine.py.
+func check_cross(s: FighterState, ev: Dictionary) -> void:
+	if s.crossed or s.hp > k.broken_threshold * s.hp_max:
+		return
+	s.crossed = true
+	_event(s, "wounded", ev.duplicate())
+	_event(foe_of(s), "broken", ev.duplicate())
+
+
+func _stance_tag(s: FighterState, tag: String) -> bool:
+	if s.state == "":
+		return false
+	var st: Dictionary = s.p.states.get(s.state, {})
+	return Array(st.get("tags", [])).has(tag)
+
+
+func _composed(s: FighterState) -> bool:
+	return _stance_tag(s, "composed") or t - maxi(s.t_act, 0) >= k.composed_after_ms
+
+
+## A duel reading of [param x] (Effects rule 17, Combat Formulas L). As engine.py read.
+func reading(x: FighterState, key: String) -> float:
+	match key:
+		"composed":
+			return 1.0 if _composed(x) else 0.0
+		"composed_time":
+			if _stance_tag(x, "composed"):
+				return (t - x.state_since) / 1000.0
+			return maxi(0, t - (maxi(x.t_act, 0) + k.composed_after_ms)) / 1000.0
+		"pressing":
+			if _composed(x):
+				return 0.0
+			var moved: bool = x.t_move >= 0 and t - x.t_move < k.pressing_after_ms
+			return 1.0 if _stance_tag(x, "pressing") or moved else 0.0
+		"foe_pressed":
+			var o: FighterState = foe_of(x)
+			return 1.0 if o.t_act >= 0 and t - o.t_act < k.act_window_ms else 0.0
+		"since_act":
+			return (t - maxi(x.t_act, 0)) / 1000.0
+		"field_up":
+			return 1.0 if _stance_tag(x, "field") else 0.0
+		"broken":
+			return 1.0 if foe_of(x).crossed else 0.0
+		"wounded":
+			return 1.0 if x.crossed else 0.0
+	return 0.0
 
 
 ## Health ([param pool] "hp") or linh lực ("qi") [param s] lost over the last [param window] ms (Effects rule 5,
@@ -844,6 +894,10 @@ func act(s: FighterState) -> void:
 				"dtype": str(art.dtype), "kind": "art", "hp_paid_share": s.hp_paid / s.hp_max}
 		s.cur_ev = ev
 		s.last_art = i
+		if art.c != 0.0 or art.soul_pct != 0.0 or art.soul_part != 0.0 or art.tags.has(&"movement"):
+			s.t_act = t   # the duel readings' clock (Formulas L)
+		if art.tags.has(&"movement"):
+			s.t_move = t
 		if art.escape != 0.0:   # an escape art opens its channel; hits keep landing (Combat rule 10)
 			s.channel_until = t + k.escape_channel_ms
 			s.channel_e = art.escape
@@ -1024,6 +1078,8 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 	# evade, then crit: both rolls are drawn whenever they apply, so a zero chance never shifts the stream
 	# Off Guard (2026-11-26): evade counts as 0, with no draw
 	if dfn.st("off_guard") <= 0.0 and rng.randf() < evade_chance(att, dfn):
+		dfn.t_act = t   # an evade is an act and a move (Formulas L)
+		dfn.t_move = t
 		_event(dfn, "evaded", ctx)
 		_event(att, "was_evaded", ctx)
 		return 0.0
@@ -1106,6 +1162,13 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 	if art != null:
 		for spec in art.statuses:
 			apply_status(att, dfn, spec)
+	if not dfn.crossed and dfn.hp <= k.broken_threshold * dfn.hp_max:
+		var cev: Dictionary = ctx.duplicate() if _fx else {}
+		if _fx:
+			cev["amount"] = dealt
+			cev["crit"] = is_crit
+			cev["cost"] = att.last_cost if kind == KIND_ART and not trig else 0.0
+		check_cross(dfn, cev)
 	if _fx and (not trig or depth < k.trig_depth):
 		var ev: Dictionary = ctx.duplicate()
 		ev["amount"] = dealt
@@ -1147,6 +1210,7 @@ func tick(src: FighterState, s: FighterState, amount: float, dtype: StringName, 
 	if listens(src, "tick_dealt"):
 		_event(src, "tick_dealt", {"amount": dealt, "status": sid,
 			"element": sid if sid in CombatConstants.ELEMENTS else "", "dtype": str(dtype)})
+	check_cross(s, {"status": sid, "kind": "tick"})
 	return dealt
 
 
