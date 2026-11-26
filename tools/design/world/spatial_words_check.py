@@ -54,7 +54,7 @@ P = {
         r"\bpush(es|ed|ing)? (back|away|aside)\b",
         r"\bpull(s|ed|ing)? (in|close|closer|toward|towards)\b", r"\bdrag(s|ged|ging)?\b", r"\bhaul(s|ed|ing)?\b",
         r"\boff[- ]balance\b", r"\bsweeps? (the foe|aside|away)\b", r"\bplanted\b",
-        r"\brooted\b", r"\broots? (the|a|your) foe\b", r"\btakes? root\b", r"\bpinned\b", r"\bpins? (the|a) foe\b",
+        r"\brooted\b", r"\broots? (the|a|your) foe\b", r"\brooting\b", r"\broots? (it|them)\b", r"\btakes? root\b", r"\bpinned\b", r"\bpins? (the|a) foe\b",
         r"\bhooked\b", r"\bcannot leave\b", r"\bbound in place\b",
         # a laid object written as a self-counter charge ("a Banner charge", "Stele charges") is the new form
         r"\bfield pieces?\b", r"\bsteles?\b(?!-? ?charges?)", r"\bbanners?\b(?!-? ?charges?)",
@@ -79,6 +79,8 @@ P = {
 }
 CI = {"removed": re.I, "postponed": re.I, "rename": 0, "soft": re.I}
 PAT = {c: [re.compile(x, CI[c]) for x in v] for c, v in P.items()}
+# the old engine term "Piece" (a field Piece), capitalised; a lower-case "piece" is a build piece and stays
+PAT["removed"].append(re.compile(r"\bPieces?\b"))
 # "stand still" etc. are case-insensitive even inside the case-sensitive rename class
 PAT["rename"] = [re.compile(x, 0 if x in (r"\bStill\b", r"\bMoving\b") else re.I) for x in P["rename"]]
 

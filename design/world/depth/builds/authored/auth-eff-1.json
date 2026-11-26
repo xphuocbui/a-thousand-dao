@@ -245,9 +245,9 @@
 
   {"wish": "d15 (ra-ST1)", "kind": "effect",
    "record": {"id": "laid-ward-on-the-next-stroke", "name": "Laid Ward on the Next Stroke (Phù Đãi Chiêu)", "group": "Trigger",
-     "rule": "Your laid wards are Pieces that wait for the foe: each time the foe fires an art, one is spent, Rooting it for a moment and striking it with Wood. Each standing ward costs a little linh lực each second. In a foreseen fight, three are laid before the fight at no cost.",
-     "reads": ["the foe fires an art (event)", "your ward Pieces (live)", "foreseen (preparation, compile)"],
-     "payload": ["Pieces (tag piece, ward), no cap; upkeep: −0.2 % of maximum linh lực per standing ward each second", "on a foe art fired: spend one Ward charge; the foe cannot evade for 1 pulse; free Physical hit tagged moc, c_trig 0.5", "preparation choice (foreseen only): 3 Pieces laid at fight start, cost waived"],
+     "rule": "Your laid wards are Ward charges that wait for the foe: each time the foe fires an art, one is spent; the foe cannot evade for 1 s and is struck with Wood. Each Ward charge you hold costs a little linh lực each second. In a foreseen fight, three are gained before the fight at no cost.",
+     "reads": ["the foe fires an art (event)", "your Ward charges (live)", "foreseen (preparation, compile)"],
+     "payload": ["Ward charges (a self-counter, tag ward), no cap; upkeep: −0.2 % of maximum linh lực per Ward charge each second", "on a foe art fired: spend one Ward charge; the foe cannot evade for 1 pulse; free Physical hit tagged moc, c_trig 0.5", "preparation choice (foreseen only): 3 Ward charges gained at fight start, cost waived"],
      "limits": "One charge per foe art; no holding cap (ruling 2026-11-25, group 8): each held ward's linh lực upkeep is the close",
      "closes": null, "hosts": ["Tech"], "tier": "minor", "npc": true, "price": "unpriced"},
    "wire": [
@@ -256,7 +256,7 @@
       "text": "Laid Ward (Bố Phù): gains three Ward charges, with no limit on how many you hold, and each Ward charge you hold costs you a little linh lực each second; each time the foe fires an art, one is spent: the foe cannot evade for 1 s and takes Wood damage. In a foreseen fight, three are gained before it begins, at no cost."},
      {"file": "design/world/depth/sects/minh_loan.techniques.json", "id": "hanging-bells-array", "field": "arts", "action": "replace",
       "note": "Hang the Bells: duel-readings 3c's wording, 'rings louder' made a number, and the same foreseen preparation. tham_huong_nhi, yen_boi_ngoc.",
-      "text": "Hang the Bells (Huyền Linh): sets four bell Pieces for 10 s; each time the foe fires an art while two or more stand, it gains one Slowed Time stack and Metal stacks, one more each crossing than the last. In a foreseen fight, the bells are hung before it begins, at no cost."}],
+      "text": "Hang the Bells (Huyền Linh): sains four Bell charges for 10 s; each time the foe fires an art while you hold two or more, it gains one Slowed Time stack and Metal stacks, one more each time than the last. In a foreseen fight, the bells are hung before it begins, at no cost."}],
    "fun": "Traps that turn the foe's own tempo against it; preparation pays.",
    "status": "proposal"},
 
@@ -397,7 +397,7 @@
   {"wish": "d25 (rb-26)", "kind": "effect",
    "record": {"id": "the-lamp-flares", "name": "The Lamp Flares (Đăng Bùng)", "group": "Trigger",
      "rule": "When a foe's blow spends the last of a ward seal, the seal flares: a free Force hit that grows with the blows it turned, and one Slowed Time stack on the foe.",
-     "reads": ["a foe hit stopped by a seal Piece that wears its last blow (event; a seal ending by time does not flare, R20)", "blows the seal turned (live)"],
+     "reads": ["a foe hit that wears a Seal charge's last blow (event; a seal ending by time does not flare, R20)", "blows the seal turned (live)"],
      "payload": ["free Force hit, c_trig 0.3 + 0.1 per blow the seal turned", "apply 1 Slowed Time stack"],
      "limits": "One flare per seal; at most 2 flares per pulse; inside the trigger budget",
      "closes": null, "hosts": ["Tech"], "tier": "minor", "npc": true, "price": "unpriced"},

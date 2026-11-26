@@ -218,3 +218,115 @@ func test_sleep_ends_on_its_own_with_nothing_given_back() -> void:
 	f.t = 3000
 	f.pulse(f.b)
 	assert_bool(f.b.statuses.has("sleep")).is_false()
+
+
+# ---- slice 2b (2026-11-26): tick to heal (Bitter Medicine) and upkeep on a self-counter (test_engine.py) ----
+func test_a_poison_tick_heals_instead_while_under_ten_stacks() -> void:
+	var bitter := {"id": "bm", "on": "always", "if": [{"read": "own.debuff.wood", "op": "<", "value": 10}],
+			"do": [{"mod": {"tick_to_heal": 50, "element": "wood"}}]}
+	var f: Fight = M._fight(M._dummy(), M._dummy({"effects": [bitter], "ward_pts": 0.0, "block": 0.0}))
+	f.b.hp = f.b.hp_max - 100.0
+	var got: float = f.tick(f.a, f.b, 40.0, &"chaos", "wood")
+	assert_near(got, 0.0, 1e-9, "deals nothing")
+	assert_near(f.b.hp_max - f.b.hp, 80.0, 1e-9, "heals half of it")
+	var hp: float = f.b.hp
+	f.tick(f.a, f.b, 40.0, &"fire", "fire")
+	assert_bool(f.b.hp < hp).override_failure_message("a Burn tick still hurts").is_true()
+	f.add_stacks(f.a, f.b, "wood", 10.0, 30.0, false)
+	hp = f.b.hp
+	f.tick(f.a, f.b, 40.0, &"chaos", "wood")
+	assert_bool(f.b.hp < hp).override_failure_message("at 10 stacks it hurts").is_true()
+
+
+func test_tick_to_heal_counts_as_healing_under_withering() -> void:
+	var bitter := {"id": "bm", "on": "always", "do": [{"mod": {"tick_to_heal": 50, "element": "wood"}}]}
+	var f: Fight = M._fight(M._dummy(), M._dummy({"effects": [bitter]}))
+	f.b.hp = f.b.hp_max - 100.0
+	f.apply_status(f.a, f.b, _spec("withering"))
+	var hp: float = f.b.hp
+	f.tick(f.a, f.b, 40.0, &"chaos", "wood")
+	assert_near(f.b.hp - hp, 10.0, 1e-9, "Withering halves the heal")
+
+
+func test_upkeep_pays_each_stack_and_ends_the_unpaid() -> void:
+	var f: Fight = M._fight(M._dummy({"counters": [{"id": "ward", "upkeep": {"pool": "qi", "per_stack": 0.1}}]}), M._dummy())
+	var up: Dictionary = f.a.p.counter_def["ward"].upkeep
+	f.a.counters["ward"] = 3.0
+	f.a.qi = 0.35 * f.a.qi_max()
+	f.upkeep(f.a, "ward", up)
+	assert_near(float(f.a.counters["ward"]), 3.0, 1e-9)
+	assert_near(f.a.qi, 0.05 * f.a.qi_max(), 1e-9)
+	f.a.qi = 0.25 * f.a.qi_max()
+	f.upkeep(f.a, "ward", up)
+	assert_near(float(f.a.counters["ward"]), 2.0, 1e-9, "the third ends")
+
+
+func test_upkeep_on_charges_drops_the_nearest_end_and_health_keeps_its_floor() -> void:
+	var f: Fight = M._fight(M._dummy({"counters": [{"id": "stele", "each_for": 9, "upkeep": {"pool": "qi", "per_stack": 0.1}}]}), M._dummy())
+	f.t = 1000
+	f.a.counter_times["stele"] = [5000, 3000, 4000]
+	f.a.qi = 0.15 * f.a.qi_max()
+	f.upkeep(f.a, "stele", f.a.p.counter_def["stele"].upkeep)
+	assert_eq(f.a.counter_times["stele"], [5000])
+	var g: Fight = M._fight(M._dummy({"counters": [{"id": "blood", "upkeep": {"pool": "hp", "per_stack": 0.5}}]}), M._dummy())
+	g.a.counters["blood"] = 3.0
+	g.upkeep(g.a, "blood", g.a.p.counter_def["blood"].upkeep)
+	assert_near(float(g.a.counters["blood"]), 1.0, 1e-9)
+	assert_bool(g.a.hp >= g.k.pay_keep_health).is_true()
+
+
+# ---- slice 2c (2026-11-26): the extended last act (Effects rule 11, The Fifteenth Layer; test_engine.py) ----
+static func _pine() -> Dictionary:
+	return {"id": "pine", "on": "down", "do": [{"last_act_window": {"seconds": 6, "every": 1.0, "spend": "waves",
+			"hits": [{"c": 0.4, "dtype": "phys"}, {"c": 0.4, "dtype": "cold"}]}}]}
+
+
+func test_the_window_keeps_a_down_side_in_until_its_bank_runs_dry() -> void:
+	var f: Fight = M._fight(M._dummy({"effects": [_pine()], "counters": [{"id": "waves"}]}), M._dummy({"ward_pts": 0.0, "block": 0.0}))
+	f.a.counters["waves"] = 3.0
+	f.t = 10000
+	f.a.hp = -5.0
+	f._defeat_check()
+	assert_bool(f.a.window_on and not f.a.down).override_failure_message("the window opens").is_true()
+	assert_near(f.hit(f.b, f.a, 1.0, &"phys", null, Fight.KIND_ART), 0.0, 1e-9, "cannot be struck")
+	f.heal(f.a, 50.0)
+	assert_near(f.a.hp, -5.0, 1e-9, "cannot be healed")
+	var hp: float = f.b.hp
+	f.t = 11000
+	f.act(f.a)
+	assert_bool(f.b.hp < hp).override_failure_message("a round of waves fires").is_true()
+	assert_near(float(f.a.counters["waves"]), 2.0, 1e-9)
+	f.t = 13000
+	f.act(f.a)
+	f._defeat_check()
+	assert_bool(f.a.down).override_failure_message("the bank runs dry: Down").is_true()
+
+
+func test_the_foe_going_down_inside_the_window_is_a_draw() -> void:
+	var f: Fight = M._fight(M._dummy({"effects": [_pine()], "counters": [{"id": "waves"}]}), M._dummy())
+	f.a.counters["waves"] = 9.0
+	f.a.hp = -1.0
+	f._defeat_check()
+	f.t = 2000
+	f.b.hp = -1.0
+	f._defeat_check()
+	assert_bool(f.a.down and f.b.down).is_true()
+
+
+func test_the_window_ends_on_time_and_a_refusal_comes_first() -> void:
+	var f: Fight = M._fight(M._dummy({"effects": [_pine()], "counters": [{"id": "waves"}]}), M._dummy())
+	f.a.counters["waves"] = 99.0
+	f.a.hp = -1.0
+	f._defeat_check()
+	for tt in [1000, 2000, 3000, 4000, 5000, 6000, 7000]:
+		f.t = tt
+		f.act(f.a)
+	f._defeat_check()
+	assert_bool(f.a.down).is_true()
+	assert_near(float(f.a.counters["waves"]), 93.0, 1e-9, "six rounds in 6 s")
+	var refuse := {"id": "r", "on": "down", "do": [{"refuse_down": true}]}
+	var g: Fight = M._fight(M._dummy({"effects": [refuse, _pine()], "counters": [{"id": "waves"}], "refusals": 1}), M._dummy())
+	g.a.counters["waves"] = 3.0
+	g.a.hp = -1.0
+	g._defeat_check()
+	assert_bool(not g.a.window_on and not g.a.down and g.a.hp > 0.0).is_true()

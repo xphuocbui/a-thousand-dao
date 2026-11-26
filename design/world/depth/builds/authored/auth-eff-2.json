@@ -21,9 +21,9 @@
     "name": "Lamp-Ward (Thủ Đăng)",
     "group": "Scaling",
     "tier": "minor",
-    "rule": "Each ward seal Piece you lay turns 1 more blow before it burns out, plus 1 more for every 3 seal Pieces you already have up when you lay it.",
-    "reads": "Your seal Pieces up (self-counter tagged `piece` and `seal`, duel-readings R4), live, read when the new seal is laid",
-    "payload": "+1 to the new Piece's blows count, +1 more per 3 seal Pieces up",
+    "rule": "Each Seal charge you gain turns 1 more blow before it ends, plus 1 more for every 3 Seal charges you already hold when you gain it.",
+    "reads": "Your Seal charges held (self-counter tagged `seal`), live, read when the new charge is gained",
+    "payload": "+1 to the new charge's blows count, +1 more per 3 Seal charges held",
     "limits": "None: no cap; how many seals you can keep up bounds it",
     "closes": "—",
     "hosts": [
@@ -41,7 +41,7 @@
      "field": "arts",
      "action": "add",
      "note": "A new passive art from layer 3. The lineage main all three requesters hold (layers 9, 7, 5); a passive from layer 3 so le_bach_diem (layer 5) has it. For on_thu_dang the Lamp Chain's Not One Lamp Out already stops burn-out while he casts no escape art; Lamp-Ward is what his line keeps once he does, and what the other keepers have.",
-     "text": "Lamp-Ward (Thủ Đăng): a passive art. Each ward seal Piece you lay turns 1 more blow before it burns out, plus 1 more for every 3 seal Pieces you already have up when you lay it."
+     "text": "Lamp-Ward (Thủ Đăng): a passive art. Each Seal charge you gain turns 1 more blow before it ends, plus 1 more for every 3 Seal charges you already hold when you gain it."
     }
    ],
    "fun": "A keeper with six lamps lit lays a seventh that lasts three blows longer; the line gets sturdier the longer she holds it.",
@@ -1004,8 +1004,8 @@
     "group": "Rule change",
     "tier": "minor",
     "rule": "When the foe fires an art with the `wind` element tag, it lifts one mist of yours: your newest Field tagged `mist` ends, or your mist self-state (A Breath of Road Mist) if you have no mist Field. If a Lantern-Stone holds that field, the stone is spent instead and the field stands. The lift comes before that art's hit, so the mist it lifts cannot make it miss.",
-    "reads": "Foe firings and their element tag (event); your Fields and self-states tagged `mist`; your Lantern-Stone Pieces, live",
-    "payload": "Ends one `mist` Field or state, or spends one Lantern-Stone Piece",
+    "reads": "Foe firings and their element tag (event); your Fields and self-states tagged `mist`; your Lantern-Stone charges, live",
+    "payload": "Ends one `mist` Field or state, or spends one Lantern-Stone charge",
     "limits": "One mist per Wind art",
     "closes": "— (it is itself the lineage's weakness)",
     "hosts": [

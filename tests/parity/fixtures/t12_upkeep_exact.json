@@ -1,0 +1,39 @@
+{
+  "name": "t12_upkeep_exact",
+  "slice": 12,
+  "chance_free": true,
+  "seed": 121,
+  "doc": "World-depth Stage 5, slice 2b (2026-11-26), chance-free: tick to heal and upkeep on a self-counter. A: Bitter Medicine (below 10 Poison stacks a Poison tick on A deals nothing and heals A for half of it; at 10 or more it hurts as usual); a ward weave that adds a Ward stack (block +3 each) costing 2 % of maximum linh lực per stack each pulse, so the stacks the pool cannot pay end; a Stele charge every 4 s, each on its own 6 s, costing 1 % of maximum health per charge each pulse (L5 +0.5 each). B: venom laying 4 Poison stacks for 8 s every 2.5 s, so A's Poison crosses 10 and back, and a plain cut.",
+  "a": {
+    "name": "bitter-herbalist",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "counters": [
+      {"id": "ward", "upkeep": {"pool": "qi", "per_stack": 0.02}},
+      {"id": "stele", "each_for": 6, "upkeep": {"pool": "hp", "per_stack": 0.01}}
+    ],
+    "arts": [
+      {"name": "ward-weave", "c": 0.0, "cost": 0.02, "cd": 3.0},
+      {"name": "palm", "c": 1.0, "cost": 0.04, "cd": 2.0}
+    ],
+    "effects": [
+      {"id": "bitter-medicine", "on": "always", "if": [{"read": "own.debuff.wood", "op": "<", "value": 10}],
+       "do": [{"mod": {"tick_to_heal": 50, "element": "wood"}}]},
+      {"id": "weave", "on": "art_fired", "filter": {"art_id": "ward-weave"}, "do": [{"counter": {"id": "ward", "add": 1}}]},
+      {"id": "ward-block", "on": "always", "scale": {"read": "own.counter.ward", "per": 1}, "do": [{"mod": {"block": 3}}]},
+      {"id": "raise-stele", "on": "pulse", "limit": {"cooldown": 4.0}, "do": [{"counter": {"id": "stele", "add": 1}}]},
+      {"id": "stele-edge", "on": "always", "scale": {"read": "own.counter.stele", "per": 1}, "do": [{"mod": {"L5": 0.5}}]}
+    ]
+  },
+  "b": {
+    "name": "poison-spitter",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "arts": [
+      {"name": "venom", "c": 0.5, "cost": 0.03, "cd": 2.5, "element": "wood", "debuff": [4, 8.0]},
+      {"name": "spit", "c": 0.8, "cost": 0.04, "cd": 2.0}
+    ]
+  }
+}

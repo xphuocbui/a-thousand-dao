@@ -237,6 +237,8 @@ class Side:
         self.counters = {c["id"]: 0.0 for c in b.counters}
         self.counter_def = {c["id"]: c for c in b.counters}
         self.counter_times = {c["id"]: [] for c in b.counters}   # per-stack expiry, for counters with each_for
+        self.window = None          # an extended last act running: {"until", "next", "every", "spec"} (Effects 11)
+        self.window_used = False
         self.temp_mods = []                         # [key, value, until_ms, filter]
         self.banked = []                            # held payloads: [effect, actions, scale]
         self.eff_state = {}                         # effect id -> {"fight": n, "pulse": n, "next": ms}
@@ -579,6 +581,32 @@ class Fight:
             out += STATUS["drunk"]["slow"] * dk * resist
         return out
 
+    def upkeep(self, s, cid, up):
+        """Upkeep on a self-counter (Effects rule 6, 2026-11-26): each pulse every stack costs its owner per_stack of the
+        pool's maximum (qi: linh luc; hp: health, which must leave pay_keep_health). Stacks the pool cannot pay end;
+        a charge counter (each_for) loses the charges nearest their end first."""
+        charged = bool(s.counter_def[cid].get("each_for"))
+        if charged:
+            s.counter_times[cid] = sorted(u for u in s.counter_times[cid] if u > self.t)
+            n = float(len(s.counter_times[cid]))
+        else:
+            n = s.counters[cid]
+        if n <= 0:
+            return
+        qi = up.get("pool", "qi") == "qi"
+        cost = up["per_stack"] * (s.qi_max() if qi else s.hp_max)
+        have = s.qi if qi else s.hp - K["pay_keep_health"]
+        keep = n if cost <= 0 or have >= n * cost else float(math.floor(max(0.0, have) / cost))
+        paid = keep * cost
+        if qi:
+            s.qi -= paid
+        else:
+            s.hp -= paid
+        if keep < n:
+            if charged:
+                s.counter_times[cid] = s.counter_times[cid][int(n - keep):]
+            s.counters[cid] = keep
+
     def caster_held(self, s):
         """True while the foe carries a status that holds its caster and s cast it (Effects Status Catalogue,
         'Statuses that hold their caster', 2026-11-26). Read live, so any way the status ends frees the caster."""
@@ -609,6 +637,10 @@ class Fight:
         while True:
             cands = [next_pulse]
             for s in (A, B):
+                if s.window is not None:   # an extended last act: only its rounds wake the loop; its own timers stand
+                    if s.window["next"] >= self.t:
+                        cands.append(s.window["next"])
+                    continue
                 cands += [r for i, r in enumerate(s.ready) if r > self.t and not s.removed[i]]
                 cands += [s.basic_ready] + [c for c in s.comp_ready if c > self.t]
             t = min(c for c in cands if c >= self.t)
@@ -642,6 +674,8 @@ class Fight:
 
     # ---------------------------------------------------------- pulses
     def pulse(self, s):
+        if s.window is not None:     # an extended last act: the side is out of the fight but for its free hits
+            return
         o = s.foe
         # element ticks (Burn, Poison)
         for el, n, t_end, src in [x[:4] for x in s.debuffs]:
@@ -745,6 +779,8 @@ class Fight:
             dsh = cdef.get("decay_share", 0)
             if dsh:   # decay by a share of the count each pulse (world-depth Stage 5; Effects rule 19's closes)
                 s.counters[cid] *= max(0.0, 1.0 - dsh)
+            if cdef.get("upkeep"):
+                self.upkeep(s, cid, cdef["upkeep"])
         # per-pulse limits reset
         s.trig_count = 0
         s.trig_dmg = 0.0
@@ -791,6 +827,16 @@ class Fight:
 
     def act(self, s):
         if s.down:
+            return
+        if s.window is not None:   # an extended last act: only its named free hits, one round each `every`
+            w = s.window
+            spend = w["spec"].get("spend")
+            while self.t >= w["next"] and w["next"] <= w["until"] and not (spend and s.counters.get(spend, 0.0) <= 0):
+                for h in w["spec"].get("hits", []):
+                    self.hit(s, s.foe, h["c"], h.get("dtype", "phys"), None, kind="trigger", trig=True)
+                if spend:
+                    s.counters[spend] = max(0.0, s.counters[spend] - 1)
+                w["next"] += w["every"]
             return
         if s.xwards:
             self.cast_wards(s)
@@ -979,6 +1025,8 @@ class Fight:
     # ---------------------------------------------------------- hits
     def hit(self, att, dfn, c, dtype, art, kind="art", trig=False):
         """One hit through the defence path. Returns the health removed."""
+        if dfn.window is not None:   # an extended last act: the side cannot be struck (Effects rule 11)
+            return 0.0
         ctx = {"dtype": dtype, "element": art.element if art else "", "tags": art.tags if art else (kind,), "kind": kind,
                "art_id": art.name if art else kind}
         # avoid [R6]
@@ -1228,7 +1276,15 @@ class Fight:
 
     def tick(self, src, s, amount, dtype, sid):
         self.hit_fees = set()
-        dealt = self.defend(src, s, amount, dtype, None, {"dtype": dtype}, is_tick=True)
+        el = sid if sid in ELEMENTS else ""
+        tc = self.mod(s, "tick_to_heal", {"element": el, "status": sid, "dtype": dtype}) if s.b.effects else 0.0
+        if tc > 0:
+            # Turn a tick into healing (Effects rule 6, 2026-11-26; Bitter Medicine): the tick deals nothing and heals
+            # its taker for that share of it, as healing (Withering and the healing rules apply)
+            self.heal(s, amount * min(1.0, tc / 100), source="tick")
+            dealt = 0.0
+        else:
+            dealt = self.defend(src, s, amount, dtype, None, {"dtype": dtype}, is_tick=True)
         src.dealt += dealt
         if self.plog is not None:
             self.plog.append(["tick", self.t, src.label, sid, amount, dealt, s.hp, s.qi])
@@ -1236,6 +1292,8 @@ class Fight:
         return dealt
 
     def soul_hit(self, att, dfn, a):
+        if dfn.window is not None:   # an extended last act: the side cannot be struck (Effects rule 11)
+            return 0.0
         ds_att = att.b.divine_sense * (1 - att.ts_spent)
         ds_def = dfn.b.divine_sense * (1 - dfn.ts_spent)
         sr = dfn.b.soul_res + self.mod(dfn, "soul_res") + dfn.st("slackened_soul") * STATUS["slackened_soul"]["soul_res"] \
@@ -1256,6 +1314,8 @@ class Fight:
         return lh
 
     def heal(self, s, amount, source=None, ignore_taken=False):
+        if s.window is not None:     # an extended last act: the side cannot be healed (Effects rule 11)
+            return
         amount *= 1 + s.b.healing + self.mod(s, "healing") / 100
         # the receiver's healing taken (Combat Defence & Healing E; healing_taken_pct), floored at -50 % with curses;
         # ignore_taken: a heal its own closing exempts (Still Water)
@@ -1412,7 +1472,7 @@ class Fight:
             key = (name, ev.get("art_id", ""))
             s.engine_counts[key] = s.engine_counts.get(key, 0) + 1
         for e in s.b.effects:
-            if name == "down" and any("refuse_down" in a or "last_act" in a for a in e.get("do", [])):
+            if name == "down" and any("refuse_down" in a or "last_act" in a or "last_act_window" in a for a in e.get("do", [])):
                 continue    # refusals are Down step 1 and last acts run in the step itself (defeat_check)
             if e.get("on") != name or e.get("held"):
                 if e.get("held") and e.get("on") == name:
@@ -1685,7 +1745,7 @@ class Fight:
                 # own debuff batches of an element that a cleanse skips: for the whole batch, or its first N s
                 # (Embers Never Die, Moss Ledger); swap_buff: the cleanse takes the same number of own buff stacks
                 s.protect[arg["el"]] = {"for_first": arg.get("for_first"), "swap_buff": bool(arg.get("swap_buff"))}
-            elif verb == "refuse_down" or verb == "last_act":
+            elif verb in ("refuse_down", "last_act", "last_act_window"):
                 pass   # read by the Down step
             elif verb == "shield":
                 if arg.get("refill") is not None:   # refill toward the starting bar, never past it (Earthen Armour)
@@ -1780,7 +1840,7 @@ class Fight:
                             s.hp = 0.0
                             if self.plog is not None:
                                 self.plog.append(["cull", self.t, s.label])
-        downs = [s for s in (self.A, self.B) if s.hp <= 0]
+        downs = [s for s in (self.A, self.B) if s.hp <= 0 and s.window is None]   # a window side is past its Down step
         for s in downs:
             # Down step 1 [Effects 11]: the first usable refusal whose conditions hold (2026-11-14: conditions were
             # not read, so Ash Rebirth refused with no Ash); its other actions run with it (Ash Rebirth's heal), then
@@ -1805,6 +1865,21 @@ class Fight:
                         self.depth -= 1
                 self.fire_event(s, "refused", {})
                 continue
+            # An extended last act (Effects rule 11, 2026-11-26; The Fifteenth Layer): the side stays in the fight for
+            # the window, untargetable and inactive; only its named free hits fire. It replaces the side's other last
+            # acts and its Down event, and opens once a fight.
+            win = None if s.window_used else next(((e, a["last_act_window"]) for e in s.b.effects
+                                                   for a in e.get("do", []) if "last_act_window" in a
+                                                   and self.allowed(s, e)), None)
+            if win is not None:
+                e, w = win
+                self.mark(s, e)
+                s.window_used = True
+                every = ms(w.get("every", 1.0))
+                s.window = {"until": self.t + ms(w["seconds"]), "next": self.t + every, "every": every, "spec": w}
+                if self.plog is not None:
+                    self.plog.append(["down", self.t, s.label, "window"])
+                continue
             for e in s.b.effects:
                 for a in e.get("do", []):
                     if "last_act" in a and self.allowed(s, e):
@@ -1818,6 +1893,15 @@ class Fight:
             if self.plog is not None:
                 self.plog.append(["down", self.t, s.label, "down"])
         for s in (self.A, self.B):
+            if s.window is not None:
+                spend = s.window["spec"].get("spend")
+                if s.foe.down:   # the foe went Down within the window: a draw (Combat rule 10)
+                    s.down = True
+                elif self.t >= s.window["until"] or (spend and s.counters.get(spend, 0.0) <= 0):
+                    s.down = True
+                    if self.plog is not None:
+                        self.plog.append(["down", self.t, s.label, "down"])
+                continue
             if not s.down and s.hp <= 0:
                 s.down = True
 

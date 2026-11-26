@@ -135,6 +135,10 @@ func run() -> FightResult:
 
 ## The next event time of [param s] before [param tn]: arts ready after now, the basic attack, companions.
 func _earliest(s: FighterState, tn: int) -> int:
+	if s.window_on:   # an extended last act: only its rounds wake the loop; its own timers stand still
+		if s.window_next >= t and s.window_next < tn:
+			tn = s.window_next
+		return tn
 	for r in s.ready:
 		if r > t and r < tn:
 			tn = r
@@ -316,6 +320,8 @@ func _m_of(x: PackedFloat64Array, seal: int) -> float:
 ## fatigue, expiries (with lockouts), timed mods, counter decay, per-pulse resets, shield recharge, the pulse event.
 ## Public for mechanism tests.
 func pulse(s: FighterState) -> void:
+	if s.window_on:   # an extended last act: the side is out of the fight but for its free hits
+		return
 	# element ticks (Burn, Poison), each batch at its source's offence and stack power
 	for x in (s.debuffs.duplicate() if not s.debuffs.is_empty() else EffectRunner._NONE_A):
 		var tab: Dictionary = k.debuff.get(x.el, EffectRunner._NONE_D)
@@ -452,6 +458,9 @@ func pulse(s: FighterState) -> void:
 		var dsh: float = float(s.p.counter_def[cid].get("decay_share", 0))
 		if dsh != 0.0:   # decay by a share of the count each pulse (world-depth Stage 5)
 			s.counters[cid] = float(s.counters[cid]) * maxf(0.0, 1.0 - dsh)
+		var up: Variant = s.p.counter_def[cid].get("upkeep")
+		if up != null:
+			upkeep(s, cid, up)
 	# per-pulse limits reset
 	s.trig_count = 0
 	s.trig_dmg = 0.0
@@ -566,6 +575,40 @@ func restart_clock(rec: Array, left: int) -> void:
 				holder.set(key, arr)
 
 
+## Upkeep on self-counter [param cid] (Effects rule 6, 2026-11-26): each pulse every stack costs per_stack of the
+## pool's maximum (qi: linh lực; hp: health, which must leave pay_keep_health). Stacks the pool cannot pay end; a
+## charge counter (each_for) loses the charges nearest their end first. As engine.py upkeep.
+func upkeep(s: FighterState, cid: String, up: Dictionary) -> void:
+	var cdef: Dictionary = s.p.counter_def[cid]
+	var charged: bool = cdef.get("each_for") != null and float(cdef.each_for) != 0.0
+	var n: float
+	if charged:
+		var live: Array = []
+		for u in s.counter_times[cid]:
+			if int(u) > t:
+				live.append(int(u))
+		live.sort()
+		s.counter_times[cid] = live
+		n = float(live.size())
+	else:
+		n = float(s.counters[cid])
+	if n <= 0.0:
+		return
+	var qi: bool = str(up.get("pool", "qi")) == "qi"
+	var cost: float = float(up.per_stack) * (s.qi_max() if qi else s.hp_max)
+	var have: float = s.qi if qi else s.hp - k.pay_keep_health
+	var keep: float = n if cost <= 0.0 or have >= n * cost else floorf(maxf(0.0, have) / cost)
+	var paid: float = keep * cost
+	if qi:
+		s.qi -= paid
+	else:
+		s.hp -= paid
+	if keep < n:
+		if charged:
+			s.counter_times[cid] = (s.counter_times[cid] as Array).slice(int(n - keep))
+		s.counters[cid] = keep
+
+
 ## True while the foe carries a status that holds its caster and [param s] laid it (Effects Status Catalogue,
 ## "Statuses that hold their caster", 2026-11-26). Read live, so any way the status ends frees the caster.
 func caster_held(s: FighterState) -> bool:
@@ -599,6 +642,8 @@ func end_status(s: FighterState, sid: String, early: bool = false) -> void:
 ## Public for mechanism tests.
 
 func heal(s: FighterState, amount: float, source: String = "", ignore_taken: bool = false) -> void:
+	if s.window_on:   # an extended last act: the side cannot be healed (Effects rule 11)
+		return
 	amount *= 1.0 + s.p.healing + m(s, "healing", null) / 100.0
 	# ignore_taken: a heal its own closing exempts (Still Water)
 	if not ignore_taken:
@@ -632,6 +677,16 @@ func heal(s: FighterState, amount: float, source: String = "", ignore_taken: boo
 ## mechanism tests.
 func act(s: FighterState) -> void:
 	if s.down:
+		return
+	if s.window_on:   # an extended last act: only its named free hits, one round each window_every ms
+		var spend: String = str(s.window_spec.get("spend", ""))
+		while t >= s.window_next and s.window_next <= s.window_until \
+				and not (spend != "" and float(s.counters.get(spend, 0.0)) <= 0.0):
+			for h in s.window_spec.get("hits", []):
+				hit(s, foe_of(s), float(h.c), StringName(str(h.get("dtype", "phys"))), null, KIND_TRIGGER, true)
+			if spend != "":
+				s.counters[spend] = maxf(0.0, float(s.counters[spend]) - 1.0)
+			s.window_next += s.window_every
 		return
 	if not s.xwards.is_empty():
 		cast_wards(s)
@@ -855,6 +910,8 @@ func pay(s: FighterState, art: ArtDef) -> bool:
 ## Public for mechanism tests.
 func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art: ArtDef, kind: StringName,
 		trig: bool = false) -> float:
+	if dfn.window_on:   # an extended last act: the side cannot be struck (Effects rule 11)
+		return 0.0
 	var ctx: Dictionary
 	if not _fx:
 		ctx = _bare_ctx   # no Effects: nothing reads the context (defend may mark it stopped; nothing reads that)
@@ -985,7 +1042,17 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 ## stop ticks), then tick_dealt. Returns the health removed.
 func tick(src: FighterState, s: FighterState, amount: float, dtype: StringName, sid: String) -> float:
 	hit_id += 1
-	var dealt: float = DefencePath.defend(self, src, s, amount, dtype, null, {"dtype": str(dtype)} if _fx else {}, true)
+	var dealt: float = 0.0
+	var tc: float = 0.0
+	if has_mods(s):
+		tc = m(s, "tick_to_heal", {"element": sid if sid in CombatConstants.ELEMENTS else "", "status": sid,
+				"dtype": str(dtype)})
+	if tc > 0.0:
+		# Turn a tick into healing (Effects rule 6, 2026-11-26; Bitter Medicine): the tick deals nothing and heals
+		# its taker for that share of it, as healing (Withering and the healing rules apply). As engine.py tick.
+		heal(s, amount * minf(1.0, tc / 100.0), "tick")
+	else:
+		dealt = DefencePath.defend(self, src, s, amount, dtype, null, {"dtype": str(dtype)} if _fx else {}, true)
 	src.dealt += dealt
 	if _log_enabled:
 		_row(FightLogRow.Kind.TICK, src.label, &"", StringName(sid), [amount, dealt, s.hp, s.qi])
@@ -999,6 +1066,8 @@ func tick(src: FighterState, s: FighterState, amount: float, dtype: StringName, 
 ## defender's soul resistance; no effect below rho_min; else a share of the defender's health and linh lực, capped
 ## at soul_cap; then soul_hit. Returns the health removed. Public for mechanism tests.
 func soul_hit(att: FighterState, dfn: FighterState, art: ArtDef) -> float:
+	if dfn.window_on:   # an extended last act: the side cannot be struck (Effects rule 11)
+		return 0.0
 	var ds_att: float = att.p.divine_sense * (1.0 - att.ts_spent)
 	var ds_def: float = dfn.p.divine_sense * (1.0 - dfn.ts_spent)
 	var sr: float = _soul_res(att, dfn)
@@ -1296,7 +1365,7 @@ func _defeat_check() -> void:
 							_row(FightLogRow.Kind.CULL, s.label, &"", &"", [])
 	var downs: Array = []
 	for s in [a, b]:
-		if s.hp <= 0.0:
+		if s.hp <= 0.0 and not s.window_on:   # a window side is past its Down step
 			downs.append(s)
 	for s in downs:
 		# Down step 1 (Effects rule 11): the first usable refusal whose conditions hold; its other actions run with it,
@@ -1329,6 +1398,31 @@ func _defeat_check() -> void:
 				depth -= 1
 			EffectRunner.fire(self, s, "refused", {})
 			continue
+		# An extended last act (Effects rule 11, 2026-11-26; The Fifteenth Layer): the side stays in the fight for the
+		# window, untargetable and inactive; only its named free hits fire. It replaces the side's other last acts and
+		# its Down event, and opens once a fight. As engine.py defeat_check.
+		var win_e: EffectDef = null
+		var win_spec: Dictionary = {}
+		if not s.window_used:
+			for e in s.p.effects:
+				for act_def in e.actions:
+					if act_def.verb == "last_act_window" and EffectRunner.allowed(self, s, e):
+						win_e = e
+						win_spec = act_def.arg
+						break
+				if win_e != null:
+					break
+		if win_e != null:
+			EffectRunner.mark(self, s, win_e)
+			s.window_used = true
+			s.window_on = true
+			s.window_spec = win_spec
+			s.window_every = CombatConstants.ms(float(win_spec.get("every", 1.0)))
+			s.window_until = t + CombatConstants.ms(float(win_spec.seconds))
+			s.window_next = t + s.window_every
+			if _log_enabled:
+				_row(FightLogRow.Kind.DOWN, s.label, &"", &"window", [])
+			continue
 		for e in s.p.effects:
 			for act_def in e.actions:
 				if act_def.verb == "last_act" and EffectRunner.allowed(self, s, e):
@@ -1341,6 +1435,15 @@ func _defeat_check() -> void:
 		if _log_enabled:
 			_row(FightLogRow.Kind.DOWN, s.label, &"", &"down", [])
 	for s in [a, b]:
+		if s.window_on:
+			var spend: String = str(s.window_spec.get("spend", ""))
+			if foe_of(s).down:   # the foe went Down within the window: a draw (Combat rule 10)
+				s.down = true
+			elif t >= s.window_until or (spend != "" and float(s.counters.get(spend, 0.0)) <= 0.0):
+				s.down = true
+				if _log_enabled:
+					_row(FightLogRow.Kind.DOWN, s.label, &"", &"down", [])
+			continue
 		if not s.down and s.hp <= 0.0:
 			s.down = true
 

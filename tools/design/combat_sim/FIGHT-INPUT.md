@@ -221,6 +221,16 @@ looks like a strong build.
   cap; per stack 8 % slower timers and 10 points of aim; at 3+ stacks Water parts deal 10 % more), `sleep` (the
   clock stops; its caster is held; any direct hit wakes it for 20 % less). A held caster's arts with a damage part
   and its basic attack do not fire. A chance-free fixture may lay Drunk only on a side with `acc` 1 or more.
+- **Slice 2b:** the mod `tick_to_heal` (percent; filters `element`, `status`, `dtype`): a tick its holder takes
+  deals nothing and heals that share of it as healing (Bitter Medicine; the Effects GDD's `convert_tick_to_heal`).
+  A counter's `upkeep` (`{"pool": "qi" or "hp", "per_stack": share of the pool's maximum}`): paid each pulse per
+  stack; stacks the pool cannot pay end, the charges nearest their end first; health keeps `pay_keep_health`.
+  Fixture t12.
+- **Slice 2c:** the action `last_act_window` (`seconds`, `every` (default 1), `spend` (a counter, one per round;
+  empty ends it), `hits` (`[{"c", "dtype"}]`)) on a `down` Effect: when no refusal holds the side up, it stays in
+  the fight for the window, untargetable, unhealable and out of its pulse, and each round fires its hits as free
+  hits; it goes Down on time or when the bank is empty, and the foe going Down within it is a draw. Once a fight; it
+  replaces the side's other last acts and its `down` event. Fixtures t13 (draw), t14 (ends on time).
 
 ### World-depth vocabulary (2026-11-26; to build in world-depth Stage 5)
 

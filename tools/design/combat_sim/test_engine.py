@@ -187,6 +187,98 @@ def t_event_alias():     # combat_engine.json EVENT_ALIAS (2026-11-26)
     check("batch_expired and healed load as batch_ended and heal_restored", [e["on"] for e in b.effects] == ["batch_ended", "heal_restored"])
 
 
+# ---- world-depth Stage 5 slice 2c (2026-11-26): the extended last act (Effects rule 11, The Fifteenth Layer)
+_PINE = {"id": "pine", "on": "down", "do": [{"last_act_window": {
+    "seconds": 6, "every": 1.0, "spend": "waves", "hits": [{"c": 0.4, "dtype": "phys"}, {"c": 0.4, "dtype": "cold"}]}}]}
+
+
+def t_last_act_window():
+    f, A, B = setup(a=dummy(effects=[_PINE], counters=[{"id": "waves"}]), b=dummy(ward_pts=0, block=0))
+    A.counters["waves"] = 3.0
+    f.t = 10000
+    A.hp = -5.0
+    f.defeat_check()
+    check("the window opens: not Down yet", A.window is not None and not A.down)
+    check("it cannot be struck or healed", f.hit(B, A, 1.0, "phys", None) == 0.0 and (f.heal(A, 50.0) or A.hp) == -5.0)
+    hp = B.hp
+    f.t = 11000
+    f.act(A)
+    check("one round of its banked waves fires a second", B.hp < hp and A.counters["waves"] == 2.0)
+    f.t = 13000
+    f.act(A)
+    f.defeat_check()
+    check("the bank runs dry: the side is Down", A.counters["waves"] == 0.0 and A.down)
+    # the foe goes Down within the window: a draw
+    f, A, B = setup(a=dummy(effects=[_PINE], counters=[{"id": "waves"}]))
+    A.counters["waves"] = 9.0
+    A.hp = -1.0
+    f.defeat_check()
+    f.t = 2000
+    B.hp = -1.0
+    f.defeat_check()
+    check("the foe goes Down inside the window: both Down, a draw", A.down and B.down)
+    # the window ends on time with waves left, and opens only once
+    f, A, B = setup(a=dummy(effects=[_PINE], counters=[{"id": "waves"}]))
+    A.counters["waves"] = 99.0
+    A.hp = -1.0
+    f.defeat_check()
+    for t in range(1000, 7001, 1000):
+        f.t = t
+        f.act(A)
+    f.defeat_check()
+    check("six rounds in 6 s, then Down", A.down and A.counters["waves"] == 93.0, str(A.counters["waves"]))
+    # a refusal comes first
+    refuse = {"id": "r", "on": "down", "do": [{"refuse_down": True}]}
+    f, A, B = setup(a=dummy(effects=[refuse, _PINE], counters=[{"id": "waves"}], refusals=1))
+    A.counters["waves"] = 3.0
+    A.hp = -1.0
+    f.defeat_check()
+    check("a refusal holds it up first; no window", A.window is None and not A.down and A.hp > 0)
+
+
+# ---- world-depth Stage 5 slice 2b (2026-11-26): tick to heal (Bitter Medicine) and upkeep on a self-counter
+def t_tick_to_heal():
+    bitter = {"id": "bm", "on": "always", "if": [{"read": "own.debuff.wood", "op": "<", "value": 10}],
+              "do": [{"mod": {"tick_to_heal": 50, "element": "wood"}}]}
+    f, A, B = setup(b=dummy(effects=[bitter], ward_pts=0, block=0))
+    B.hp = B.hp_max - 100.0
+    got = f.tick(A, B, 40.0, "chaos", "wood")
+    check("a Poison tick deals nothing and heals half of it", got == 0.0 and abs(B.hp - (B.hp_max - 80.0)) < 1e-9, str(B.hp_max - B.hp))
+    hp = B.hp
+    f.tick(A, B, 40.0, "fire", "fire")
+    check("a Burn tick still hurts", B.hp < hp)
+    B.debuffs.append(["wood", 10, None, A, None])
+    hp = B.hp
+    f.tick(A, B, 40.0, "chaos", "wood")
+    check("at 10 Poison stacks the tick hurts as usual", B.hp < hp)
+    B.debuffs.clear()
+    f.apply_status(A, B, {"id": "withering"})
+    hp = B.hp
+    f.tick(A, B, 40.0, "chaos", "wood")
+    check("it counts as healing: Withering halves it", abs((B.hp - hp) - 10.0) < 1e-9, str(B.hp - hp))
+
+
+def t_upkeep():
+    f, A, B = setup(a=dummy(counters=[{"id": "ward", "upkeep": {"pool": "qi", "per_stack": 0.1}}]))
+    A.counters["ward"] = 3.0
+    A.qi = 0.35 * A.qi_max()
+    f.upkeep(A, "ward", A.counter_def["ward"]["upkeep"])
+    check("upkeep: 3 stacks at 10 % each are paid in full", A.counters["ward"] == 3.0 and abs(A.qi - 0.05 * A.qi_max()) < 1e-9)
+    A.qi = 0.25 * A.qi_max()
+    f.upkeep(A, "ward", A.counter_def["ward"]["upkeep"])
+    check("upkeep: only 2 can be paid, the third ends", A.counters["ward"] == 2.0 and abs(A.qi - 0.05 * A.qi_max()) < 1e-9, str(A.counters["ward"]))
+    f, A, B = setup(a=dummy(counters=[{"id": "stele", "each_for": 9, "upkeep": {"pool": "qi", "per_stack": 0.1}}]))
+    f.t = 1000
+    A.counter_times["stele"] = [5000, 3000, 4000]
+    A.qi = 0.15 * A.qi_max()
+    f.upkeep(A, "stele", A.counter_def["stele"]["upkeep"])
+    check("upkeep on charges: the ones nearest their end go first", A.counter_times["stele"] == [5000], str(A.counter_times["stele"]))
+    f, A, B = setup(a=dummy(counters=[{"id": "blood", "upkeep": {"pool": "hp", "per_stack": 0.5}}]))
+    A.counters["blood"] = 3.0
+    f.upkeep(A, "blood", A.counter_def["blood"]["upkeep"])
+    check("upkeep in health never goes below pay_keep_health", A.counters["blood"] == 1.0 and A.hp >= E.K["pay_keep_health"], "%s %s" % (A.counters["blood"], A.hp))
+
+
 # ---- world-depth Stage 5 slice 2a (2026-11-26): Effects Status Catalogue rows Off Guard, Bound, Charmed, Drunk, Sleep
 def _hits_landed(f, A, B, n, kind="art"):
     landed = 0

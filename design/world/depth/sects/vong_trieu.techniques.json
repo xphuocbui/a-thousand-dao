@@ -23,7 +23,7 @@
     {"new": "Set the Lamp (Thiết Đăng)", "concept": "Gains a ward seal charge: you take less damage from the next few hits; it ends after a set number of foe hits."},
     {"new": "Line of Lamps (Đăng Tuyến)", "concept": "With three or more seal charges held, links them: the foe is slowed and loses a share of its ward."},
     {"new": "The Lamp Flares (Đăng Bùng)", "concept": "A passive art. When a blow spends the last of a ward seal, the seal flares: a crack of light that strikes the foe, harder for each blow the seal turned, and slows it a little.", "effect": "the-lamp-flares", "authored": "d25"},
-    {"new": "Lamp-Ward (Thủ Đăng)", "concept": "A passive art. Each ward seal Piece you lay turns 1 more blow before it burns out, plus 1 more for every 3 seal Pieces you already have up when you lay it.", "effect": "lamp-ward", "unlock_layer": 3, "authored": "d27"}
+    {"new": "Lamp-Ward (Thủ Đăng)", "concept": "A passive art. Each Seal charge you gain turns 1 more blow before it ends, plus 1 more for every 3 Seal charges you already hold when you gain it.", "effect": "lamp-ward", "unlock_layer": 3, "authored": "d27"}
    ],
    "lore": "Written by the founder Cơ Châu Lệ between 790 and 820 from the harbour-wards of Châu Lệ Cảng that failed in 762 (C151), so that the next ones would not. The founder's rule is written on the first page: a seal is a promise, and it lasts as long as you keep it.",
    "status": "proposal",

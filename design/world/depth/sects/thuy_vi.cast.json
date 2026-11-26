@@ -882,7 +882,7 @@
     },
     "tree": {
      "start": "moc",
-     "intent": "Wood land toward rooting and damage, then the Water land for linh lực on long winter fights.",
+     "intent": "Wood land toward binding and damage, then the Water land for linh lực on long winter fights.",
      "targets": [
       6299,
       6103,
@@ -892,7 +892,7 @@
       6151,
       6154
      ],
-     "targets_note": "Binding Vine rooting (status duration), Black Forest damage, Hollow Bamboo linh lực for long winter fights."
+     "targets_note": "Binding Vine (status duration), Black Forest damage, Hollow Bamboo linh lực for long winter fights."
     },
     "note": "The foe cannot evade, loses its concealment to the lamp, and the fight keeps going."
    },

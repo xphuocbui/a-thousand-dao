@@ -134,6 +134,14 @@ var temp_mods: Array[TempMod] = []
 var banked: Array[Banked] = []
 var counters: Dictionary = {}
 var counter_times: Dictionary = {}
+## An extended last act running (Effects rule 11, 2026-11-26): the side is past its Down step, untargetable and
+## inactive; only its window's free hits fire, a round each window_every ms, until window_until. Once a fight.
+var window_on: bool = false
+var window_until: int = 0
+var window_next: int = 0
+var window_every: int = 0
+var window_spec: Dictionary = {}
+var window_used: bool = false
 var trig_count: int = 0
 var trig_dmg: float = 0.0
 var state: String = ""

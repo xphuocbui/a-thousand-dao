@@ -59,7 +59,7 @@
     "stone-warden-call",
     {"new": "The Pivot Does Not Turn (Xu Bất Chuyển)", "concept": "A still stance: while you are Composed, the foe gains one Earth stack every 2 s, and your Metal arts deal more for each Earth stack on it. Firing a movement art ends the stance and clears half the stacks it laid.", "authored": "a1"},
     {"new": "Weigh the Heart (Quyền Tâm)", "concept": "A judgement art: deals Metal damage that grows with every stack the foe carries of any element, then strips their two longest buffs. It cannot crit; the sect says a verdict should not be lucky."},
-    {"new": "North Star Writ (Bắc Thần Hịch)", "concept": "For 8 s the foe is Named: your companions and Pieces deal more to it, and while it is above half health it takes Withering.", "authored": "a1"},
+    {"new": "North Star Writ (Bắc Thần Hịch)", "concept": "For 8 s the foe is Named: your companions deal more to it, and while it is above half health it takes Withering.", "authored": "a1"},
     {"new": "The Pole Draws from the Vein (Xu Cực Dẫn Mạch)", "concept": "A passive art. While you are Composed, each second you regain a little linh lực for every three Weights (Earth stacks) on the foe.", "effect": "the-pole-draws-from-the-vein", "unlock_layer": 7, "authored": "d8"}
    ],
    "lore": "Chung Hoài Cực wrote it at 80, the year he founded the sect under the Northern Dipper (C002), and rewrote its last three layers after the War of the Pivot (C106). The rewritten layers teach the holder to stop a war without winning it. Only two people have cultivated past the twelfth layer, the founder and Đỗ Tinh Hà. Doãn Ngọc Hành has been at the tenth for forty years.",

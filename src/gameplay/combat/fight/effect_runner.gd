@@ -256,7 +256,7 @@ static func matches(f: Fight, filt: Dictionary, ctx: Variant) -> bool:
 static func fire(f: Fight, s: FighterState, name: String, ev: Dictionary) -> void:
 	var listeners: Array = s.p.listeners.get(name, [])
 	for e in listeners:
-		if name == "down" and e.actions.any(func(x): return x.verb == "refuse_down" or x.verb == "last_act"):
+		if name == "down" and e.actions.any(func(x): return x.verb == "refuse_down" or x.verb == "last_act" or x.verb == "last_act_window"):
 			continue   # refusals are Down step 1 and last acts run in the step itself (Fight._defeat_check)
 		if e.held:
 			bank(f, s, e, ev)
@@ -620,7 +620,7 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 						x.until = f.t + x.length
 			"protect":
 				s.protect[str(arg.el)] = {"for_first": arg.get("for_first"), "swap_buff": bool(arg.get("swap_buff", false))}
-			"refuse_down", "last_act":
+			"refuse_down", "last_act", "last_act_window":
 				pass   # read by the Down step
 			"stop_clock":   # Effects rule 6 (2026-11-26): the side's clock does not run for N s
 				var tgt_c: FighterState = s if str(arg.get("side", "foe")) == "own" else o

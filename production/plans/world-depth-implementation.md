@@ -465,6 +465,12 @@ All in batches of about 50, the checker up front, **by sect** (D3), Băng Tâm C
   (Linh Căn OQ 16).
 - Builds a little overpowered are fine; do not chase outliers or loop rebalances (memory: balance depth).
 - The one design review over everything, per the user's rule of one pass at the end.
+- **Later (user, 2026-11-26): precompute the cast's ranking.** With the large fixed cast (1,889 authored people), run
+  the full Power Rankings panels for the cast offline, ship the result as the game's initial ranking, and at world
+  generation only insert the newly generated characters at their right place, instead of rating everyone at start
+  (today: provisional ratings by Formulas G, then background panels; Power Rankings rules 16 and the Provisional and
+  Stale states). Needs a Power Rankings GDD amendment and a re-run whenever the cast or the fight data changes. Not
+  scheduled; do it when the cast and its builds settle.
 
 ## Before Stage 0: the content review (DONE 2026-11-25)
 

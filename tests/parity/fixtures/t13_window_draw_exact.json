@@ -1,0 +1,94 @@
+{
+  "name": "t13_window_draw_exact",
+  "slice": 13,
+  "chance_free": true,
+  "seed": 131,
+  "doc": "World-depth Stage 5, slice 2c (2026-11-26), chance-free: the extended last act (Effects rule 11, last_act_window; The Fifteenth Layer). A banks a wave each time Gathering Wave fires; when A goes Down with no refusal it stays in the fight 6 s, untargetable, unhealable and out of its pulse, and each second spends a wave on two free hits (Physical and Cold). The waves take B Down inside the window: a draw.",
+  "a": {
+    "name": "pine-elder",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "counters": [
+      {
+        "id": "waves"
+      }
+    ],
+    "arts": [
+      {
+        "name": "gathering-wave",
+        "c": 0.5,
+        "cost": 0.03,
+        "cd": 3.0,
+        "element": "water"
+      },
+      {
+        "name": "palm",
+        "c": 3.0,
+        "cost": 0.04,
+        "cd": 2.0
+      }
+    ],
+    "effects": [
+      {
+        "id": "bank-wave",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "gathering-wave"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "waves",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "fifteenth-layer",
+        "on": "down",
+        "do": [
+          {
+            "last_act_window": {
+              "seconds": 6,
+              "every": 1.0,
+              "spend": "waves",
+              "hits": [
+                {
+                  "c": 3.0,
+                  "dtype": "phys"
+                },
+                {
+                  "c": 3.0,
+                  "dtype": "cold"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "name": "sword-guest",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "arts": [
+      {
+        "name": "cut",
+        "c": 3.0,
+        "cost": 0.04,
+        "cd": 1.5
+      },
+      {
+        "name": "mend",
+        "c": 0.0,
+        "cost": 0.02,
+        "cd": 5.0,
+        "heal": 0.06
+      }
+    ]
+  }
+}

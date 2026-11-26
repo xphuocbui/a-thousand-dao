@@ -132,7 +132,7 @@
     },
     "tree": {
      "start": "moc",
-     "intent": "Wood land toward rooting and reach, with Water for linh lực.",
+     "intent": "Wood land toward binding and reach, with Water for linh lực.",
      "targets": [
       6299,
       6103,
@@ -140,7 +140,7 @@
       5784,
       6149
      ],
-     "targets_note": "Her master's Binding Vine rooting, Hollow Heart linh lực."
+     "targets_note": "Her master's Binding Vine, Hollow Heart linh lực."
     },
     "note": "A coast fighter with a pole: the foe cannot evade and is Bound (it cannot flee)."
    },
@@ -1698,7 +1698,7 @@
     ],
     "tree": {
      "start": "moc",
-     "intent": "Wood rooting and damage."
+     "intent": "Wood binding and damage."
     }
    }
   },
