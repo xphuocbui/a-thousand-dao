@@ -241,7 +241,7 @@
      {
       "counter": {
        "id": "flood_sec",
-       "add": 3
+       "add": 4
       }
      },
      {
@@ -297,7 +297,7 @@
     ]
    }
   ],
-  "rule": "Floods the terrace for 3 s (tracked by the flood_sec counter, leaving Rooted Form intact; 6 s with Measured Flood). While the flood holds, the foe carries 3 stacks of Slowed Time (18 % slower, about a fifth) and your Chaos damage and Wood poison ticks ignore 80 points of the foe's resistance.",
+  "rule": "Floods the terrace for 3 s (4 initial flood_sec -> 3 pulses after first pulse-start decay, leaving Rooted Form intact; +3 from Measured Flood -> 6 pulses). While the flood holds, the foe carries 3 stacks of Slowed Time (18 % slower, about a fifth) and your Chaos damage and Wood poison ticks ignore 80 points of the foe's resistance.",
   "hooks": [
    "field",
    "slowed time",
@@ -587,7 +587,20 @@
      "thorn-rain",
      "blight-canker",
      "bloodroot-pact",
-     "thornling-grove"
+     "thornling-grove",
+     "rot-seed",
+     "slow-rot",
+     "vine-lash",
+     "spring-sap",
+     "weeping-sap",
+     "venom-tithe",
+     "banyan-shade",
+     "green-poultice",
+     "shedding-bark",
+     "withering-touch",
+     "venom-drinking-root",
+     "heartwood-spear",
+     "bark-mantle"
     ]
    }
   ],

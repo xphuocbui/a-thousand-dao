@@ -39,11 +39,11 @@
      "new": true,
      "id": "warm-the-grove",
      "name": "Warm the Grove (Ôn Lâm)",
-     "rule": "While the censer burns, Wood buffs the holder lays on allies last 2 s longer, and each ally who receives one also gains 1 Fire stack of warmth that heals a little over its duration."
+     "rule": "While the censer burns, Wood buffs you lay last 2 s longer, and when you receive one you also gain 1 Fire stack of warmth that heals a little over its duration."
     }
    ],
    "lore": "A squat red-clay censer that Ninh Trúc Thực carries into the grove every spring and sets burning at the foot of the oldest clump. He feeds it with his own Fire and walks the rows for nine nights until the culms flower. It is how the garden has had a seed every year since 1050 (A246), and no one else in the garden has the Fire to light it.",
-   "build_use": "The farmer's support piece: longer Wood buffs, a warm heal over time on every ally he tends.",
+   "build_use": "The farmer's support piece: longer Wood buffs, a warm heal over time on himself whenever he tends his Wood buffs.",
    "holder": "ninh_truc_thuc",
    "made_by": "ninh_truc_thuc, with clay from Thủy Điền Thôn",
    "made_year": 1051,
