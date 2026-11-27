@@ -1,29 +1,24 @@
-# Instructions for Gemini / Antigravity agents
+# Project rules for Antigravity sessions
 
-This project is set up for Claude Code. You get no hooks, no deny rules and no
-auto-loaded memory, so you must read the sources yourself and obey them on your own.
+`AGENTS.md` and `.agents/` (Antigravity Game Studios, same 1.3.0 base as `.claude/`)
+carry the studio rules, skills and agents. This file adds what is specific to this repo.
 
 ## Read first, every session
-1. `CLAUDE.md` and every file it imports (the lines starting with `@`):
-   `.claude/docs/directory-structure.md`, `docs/engine-reference/godot/VERSION.md`,
-   `.claude/docs/coordination-rules.md`, `.claude/docs/coding-standards.md`.
-2. The user's standing rules (memory): `C:\Users\xphuo\.claude\projects\C--Users-xphuo-IdeaProjects-my-game\memory\MEMORY.md`,
-   then every memory file relevant to your task. They bind as much as CLAUDE.md. Read only, never edit.
-3. `production/session-state/active.md` (the session checkpoint; long, so read the end first).
-4. The `.claude/rules/*.md` file for the kind of file you touch (data files, design docs, gameplay code...).
+1. The user's standing rules: `C:\Users\xphuo\.claude\projects\C--Users-xphuo-IdeaProjects-my-game\memory\MEMORY.md`,
+   then every memory file relevant to your task. They bind as much as AGENTS.md. Read only, never edit.
+2. `production/session-state/active.md` (long; read the end first).
 
-## Rules the Claude hooks enforce, which you must enforce yourself
-- Ask "May I write this to <path>?" before writing, and show a draft first,
-  unless your task says the user waived it (headless jobs).
-- Never commit without the user's instruction. Commit only your own paths:
-  `git commit -- <paths>`, never a plain commit (another session shares the repo).
+## Headless jobs
+A task that waives the ask-first protocol ("May I write...", drafts, approval) waives it
+whether it names CLAUDE.md or AGENTS.md: write the files the task names without asking.
+
+## Shared repo, two harnesses
+- Another session (Claude Code or Antigravity) may share this checkout. Commit only when
+  the user or your task says so, and only your own paths: `git commit -- <paths>`.
   Conventional Commits, task or doc reference in the body.
-- Never run `rm -rf`, `git reset --hard`, `git clean -f`, `git push --force` or `git stash`.
+- Never run `rm -rf`, `git reset --hard`, `git clean -f`, `git push --force` or `git stash`
+  (`.agents/hooks.json` blocks them).
 - Never edit `design/gdd/*` or the entity registry unless the task says so.
-- Docs over 40 KB: find the heading with grep and read only that section.
 - Python: `python -I`. Shell: Git Bash on Windows.
-- Godot 4.7: check `docs/engine-reference/godot/` before using an engine API.
-
-## Skills
-`.claude/skills/<name>/SKILL.md` are procedures. When asked for `/name`, read that
-file and follow it by hand (ignore its `model:` line).
+- Use the `.agents/` copies of skills, rules and docs; read a `.claude/` file only when a task names it.
+  A project rule added to `.claude/rules/` must also go in `.agents/rules/` (with `trigger: glob` frontmatter).

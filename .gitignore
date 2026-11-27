@@ -24,6 +24,11 @@ production/session-state/
 # repository.
 .claude/worktrees/
 
+# === Antigravity Local ===
+AGENTS.local.md
+.agents/agent-memory/
+.agents/worktrees/
+
 
 # === Local sandboxes and scratch work ===
 examples/
