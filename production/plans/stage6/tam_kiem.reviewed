@@ -1,0 +1,12 @@
+{
+ "owner": "tam_kiem",
+ "minutes": 5,
+ "must_fix": 0,
+ "should": 0,
+ "fixed": 0,
+ "words": {},
+ "open": [
+  "Serial merge of design/stage6-staging/tam_kiem/ into design/ and assets/data/combat_effects.json (put_effects.py under world-depth:tam_kiem).",
+  "Stage 7 export (export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py --sect tam_kiem) to close N-tam_kiem-01 and N-tam_kiem-02 events."
+ ]
+}
