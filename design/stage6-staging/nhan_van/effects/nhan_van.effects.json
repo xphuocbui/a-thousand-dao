@@ -171,6 +171,11 @@
      "on": "shield_broken",
      "if": [
       {
+       "read": "event.stance_ward",
+       "op": "==",
+       "value": 1
+      },
+      {
        "read": "own.counter.double_up",
        "op": "==",
        "value": 2
@@ -199,6 +204,11 @@
      "on": "shield_broken",
      "if": [
       {
+       "read": "event.stance_ward",
+       "op": "==",
+       "value": 1
+      },
+      {
        "read": "own.counter.double_up",
        "op": "==",
        "value": 2
@@ -221,6 +231,13 @@
     {
      "id": "eff:Paint It Back track hit",
      "on": "was_hit",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
      "do": [
       {
        "counter": {
@@ -233,6 +250,13 @@
     {
      "id": "eff:Paint It Back track tick",
      "on": "tick_taken",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
      "do": [
       {
        "counter": {
@@ -447,6 +471,9 @@
     },
     {
      "id": "double_up"
+    },
+    {
+     "id": "fig_up"
     }
    ],
    "records": [
@@ -456,11 +483,24 @@
      "filter": {
       "art_id": "cloud-in-the-pool"
      },
+     "if": [
+      {
+       "read": "own.counter.fig_up",
+       "op": "==",
+       "value": 0
+      }
+     ],
      "do": [
       {
        "counter": {
         "id": "double_t",
         "add": 3
+       }
+      },
+      {
+       "counter": {
+        "id": "fig_up",
+        "set": 1
        }
       }
      ]
@@ -492,6 +532,11 @@
        "read": "own.counter.double_up",
        "op": "==",
        "value": 2
+      },
+      {
+       "read": "own.counter.fig_up",
+       "op": "==",
+       "value": 1
       }
      ],
      "do": [
@@ -502,6 +547,12 @@
         "for": 10,
         "side": "own"
        }
+      },
+      {
+       "counter": {
+        "id": "fig_up",
+        "set": 0
+       }
       }
      ]
     },
@@ -510,9 +561,19 @@
      "on": "shield_broken",
      "if": [
       {
+       "read": "event.stance_ward",
+       "op": "==",
+       "value": 1
+      },
+      {
        "read": "own.counter.double_up",
        "op": "==",
        "value": 2
+      },
+      {
+       "read": "own.counter.fig_up",
+       "op": "==",
+       "value": 1
       }
      ],
      "do": [
@@ -522,6 +583,12 @@
         "n": 2,
         "for": 10,
         "side": "own"
+       }
+      },
+      {
+       "counter": {
+        "id": "fig_up",
+        "set": 0
        }
       }
      ]

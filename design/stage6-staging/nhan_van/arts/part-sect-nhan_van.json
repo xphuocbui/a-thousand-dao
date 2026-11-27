@@ -311,6 +311,11 @@
     "on": "shield_broken",
     "if": [
      {
+      "read": "event.stance_ward",
+      "op": "==",
+      "value": 1
+     },
+     {
       "read": "own.counter.double_up",
       "op": "==",
       "value": 1
@@ -735,39 +740,6 @@
     ]
    },
    {
-    "id": "ink-sediment-ward",
-    "on": "pulse",
-    "if": [
-     {
-      "read": "own.counter.sediment_on",
-      "op": ">=",
-      "value": 1
-     },
-     {
-      "read": "own.counter.double_up",
-      "op": "==",
-      "value": 1
-     },
-     {
-      "read": "own.counter.stillness",
-      "op": ">=",
-      "value": 1
-     }
-    ],
-    "scale": {
-     "read": "own.counter.stillness",
-     "per": 1
-    },
-    "do": [
-     {
-      "ward_grow": {
-       "share": 0.004,
-       "of": "hp"
-      }
-     }
-    ]
-   },
-   {
     "id": "ink-sediment-fall",
     "on": "pulse",
     "if": [
@@ -792,6 +764,44 @@
       "counter": {
        "id": "stillness",
        "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "ink-sediment-ward",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.sediment_on",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.composed",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.double_up",
+      "op": "==",
+      "value": 1
+     },
+     {
+      "read": "own.counter.stillness",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "scale": {
+     "read": "own.counter.stillness",
+     "per": 1
+    },
+    "do": [
+     {
+      "ward_grow": {
+       "share": 0.004,
+       "of": "hp"
       }
      }
     ]
@@ -834,6 +844,11 @@
     "value": 0
    },
    {
+    "read": "own.counter.hits_6s",
+    "op": ">=",
+    "value": 1
+   },
+   {
     "read": "own.counter.rewind_used",
     "op": "<",
     "value": 18
@@ -852,6 +867,13 @@
    {
     "id": "sky-track-hit",
     "on": "was_hit",
+    "if": [
+     {
+      "read": "event.amount",
+      "op": ">",
+      "value": 0
+     }
+    ],
     "do": [
      {
       "counter": {
@@ -864,6 +886,13 @@
    {
     "id": "sky-track-tick",
     "on": "tick_taken",
+    "if": [
+     {
+      "read": "event.amount",
+      "op": ">",
+      "value": 0
+     }
+    ],
     "do": [
      {
       "counter": {
