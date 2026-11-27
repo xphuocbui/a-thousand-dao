@@ -268,8 +268,8 @@
    ]
   },
   "Read Aloud": {
-   "rule": "The Reader's Pair, full set (2 pieces): ringing the bell (at fight start and when struck, 8 s cooldown) opens a 6 s window; each soul art you cast within it gets +25 % status duration (~1 s longer), and after three such arts your next ready art comes ready at once (down to cooldown_min).",
-   "approx": "vk-empty-hall-bell uses Golden Bell (a standing per-hit ward with no active ring), so ringing the bell is triggered at fight_start and on was_hit (8 s cooldown) for 6.5 s (covering exact 6 s casts), status duration uses +25 % status_dur, and timer which: next resets the soonest art.",
+   "rule": "The Reader's Pair, full set (2 pieces): ringing the bell (at fight start and when struck, 6 s cooldown) opens a 6 s window; each soul art you cast within it gets +25 % status duration (~1 s longer, up to the 5 s curse cap), and on your third such art your soul art speed surges (+1000 % soul art speed) so your next soul art casts at once (at the 1 s soul lockout).",
+   "approx": "vk-empty-hall-bell uses Golden Bell (a standing per-hit ward with no active ring), so ringing the bell is triggered at fight_start and on was_hit (6 s cooldown) for 6.5 s (covering exact 6 s casts), status duration uses +25 % status_dur (clamped by curse_duration_max = 5 on lamp-oil-lance's 5 s slackened_soul), and on read_aloud >= 2 while bell_ring >= 1 an always-on soul-tagged art_speed +1000 % fires the next soul art at cooldown_min / 1 s soul lockout before resetting read_aloud at 3.",
    "counters": [
     {
      "id": "bell_ring",
@@ -297,13 +297,39 @@
      "id": "eff:Read Aloud ring",
      "on": "was_hit",
      "limit": {
-      "cooldown": 8.0
+      "cooldown": 6.0
      },
      "do": [
       {
        "counter": {
         "id": "bell_ring",
         "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Read Aloud cast-now",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.bell_ring",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.read_aloud",
+       "op": ">=",
+       "value": 2
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "art_speed": 1000,
+        "tags": [
+         "soul"
+        ]
        }
       }
      ]
@@ -357,13 +383,6 @@
        "counter": {
         "id": "read_aloud",
         "set": 0
-       }
-      },
-      {
-       "timer": {
-        "side": "own",
-        "which": "next",
-        "by": -99
        }
       }
      ]
