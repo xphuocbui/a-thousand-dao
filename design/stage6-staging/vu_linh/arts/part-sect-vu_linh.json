@@ -104,9 +104,9 @@
     ]
    }
   ],
-  "rule": "Hangs a Canopy Bell charge for the fight: each bell gives +3 pp evade and +4 accuracy, and costs 0.6 % of maximum linh lực per second in upkeep (bells you cannot pay fall).",
+  "rule": "Hangs a Canopy Bell charge for the fight: each bell gives +3 pp evade and +4 accuracy, and costs 0.3 % of maximum linh lực per second in upkeep (bells you cannot pay fall).",
   "hooks": ["bell charges", "evade", "accuracy", "upkeep"],
-  "notes": "Uses counter canopy_bell with pulse upkeep (0.006 qi/s per bell) to bound bell count without a hard cap; +4 acc represents revealing the unseen foe in 1v1 duels.",
+  "notes": "Uses counter canopy_bell with pulse upkeep (0.003 qi/s per bell) to bound bell count without a hard cap; +4 acc represents revealing the unseen foe in 1v1 duels.",
   "sources": ["world-depth:vu_linh"]
  },
  {

@@ -43,7 +43,7 @@
   "arts": [],
   "sources": ["npc"],
   "lore": "A long banner of bamboo paper painted with the hall's bell lines, each bell a dot of bronze leaf. When a bell rings anywhere on the roads, its dot warms. The mistress has added a dot for every bell she has hung since 1105, and some dots are on no road the hall admits to.",
-  "build_use": "A warning array in a banner: sight, evasion and faster Wood arts.",
+  "build_use": "A warning array: sight, evasion and faster Wood arts.",
   "holder": "an_thanh_linh",
   "made_by": "an_thanh_linh",
   "made_year": 1105,
