@@ -542,10 +542,18 @@ func test_a_world_duel_can_kill_and_names_the_winner_as_a_known_killer() -> void
 	rng.seed = 3
 	var news: Array = s.ticker.tick(rng, 1200, 0)
 	tick.merge(saved, true)
-	var slain: Array = s.db.all("people").filter(func(p): return str(p.get("death_cause", "")) == "Tử trận")
-	assert_eq(slain.size(), 1, "the duel's loser is slain")
-	var ev: Array = news.map(func(id): return str(s.db.get_record("events", str(id)).get("text", ""))).filter(func(t): return t.contains("chém chết"))
-	assert_eq(ev.size(), 1, "the kill is logged with its killer")
+	var kill_events: Array = news.map(func(id): return s.db.get_record("events", str(id))).filter(func(e): return str(e.get("type", "")) == "tick_duel_kill")
+	assert_eq(kill_events.size(), 1, "the kill is logged with its killer")
+	var kev: Dictionary = kill_events[0]
+	assert_true(str(kev.get("text", "")).contains("chém chết"), "the kill text names the killing")
+	var loser: Dictionary = s.db.get_record("people", str(kev.data.refs.b))
+	assert_false(bool(loser.get("alive", true)), "the duel's loser is dead")
+	assert_eq(str(loser.get("death_cause", "")), "Tử trận", "the duel's loser is slain")
+	var winner_id: String = str(kev.data.refs.a)
+	assert_true(winner_id != "", "the kill names a winner")
+	var duel_events: Array = news.map(func(id): return s.db.get_record("events", str(id))).filter(func(e): return str(e.get("type", "")) == "tick_duel")
+	assert_eq(duel_events.size(), 1, "the duel event is logged")
+	assert_eq(winner_id, str(duel_events[0].data.refs.winner), "the kill's winner matches the duel's winner")
 	assert_true(s.db.living().filter(func(p): return bool(p.get("alive", true))).size() < alive0, "one fewer living")
 
 

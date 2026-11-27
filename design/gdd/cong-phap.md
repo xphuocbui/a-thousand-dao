@@ -3,7 +3,7 @@
 > **Status**: In Review (design-review 2026-11-10: NEEDS REVISION, 2 blocking; answers and fixes applied the same day, see `reviews/cong-phap-review-2026-11-10.md`; confirming re-review 2026-11-10 answered and fixed the same day, see `reviews/cong-phap-rereview-2026-11-10.md`).
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-10
+> **Last Updated**: 2026-11-27
 > **Last Verified**: 2026-11-10
 > **Implements Pillar**: Pillar 3 (Power Is Built, Not Given); touches Pillar 1 (Your Dao, Your Name) and Pillar 4 (Every Season Counts)
 
@@ -125,7 +125,7 @@ which technique you commit your seasons to. The decision has two sides:
    - The manual stays an item: it can be kept, sold or given away. Sects may forbid
      selling their manuals (Sects & Missions).
    - A character may learn a technique whose named ids their root lacks. They cannot
-     slot it until the root has every named id (rule 8).
+     slot it until the technique is usable under rule 8 (the root owns at least one named id).
    - Learning the same technique twice does nothing.
 5. **Layers and realms.** Every tier has 3 layers per realm up to its maximum realm:
 
@@ -168,13 +168,15 @@ which technique you commit your seasons to. The decision has two sides:
      required realm.
    - Mastery is never lost: not by unslotting, by a failed breakthrough or by any
      other cost.
-8. **A named id the root lacks.**
-   - A technique is **usable** only if every element and variant it names is owned by the root, or has been raised
-     by rare sources (Spiritual Roots rule 8a: Dao paths, a Linh Căn Quả) to at least `tech_foreign_purity_min`
-     (10, the birth minimum; user decision 2026-11-10, re-review D-1). Body techniques and element-free
-     authored methods (`names: []`, all carried arts element-free) are always usable; element-free `main` and
-     `secret` methods read the root's strongest base-element purity (`avg_purity = strongest_purity`, matching
-     crude cultivation) for speed and bonuses. Purity never falls, so a technique usable this way stays usable.
+8. **A named id the root lacks (amended 2026-11-27, user ruling).**
+   - A technique with non-empty `names` is **usable** if and only if the character's Linh Căn owns **at least one** of
+     its named elements or variant roots (`names ∩ root ≠ ∅`). Body techniques and element-free authored methods
+     (`names: []`, all carried arts element-free) remain always usable; element-free `main` and `secret` methods read
+     the root's strongest base-element purity (`avg_purity = strongest_purity`, matching crude cultivation) for speed and
+     bonuses. Individual divine abilities (thần thông) carried by the technique with `requires.root_has` or
+     `requires.root_lacks` still gate themselves in Combat. Owned elements and variants never drop, so a usable
+     technique stays usable. *(This supersedes the earlier 2026-11-10 requirement that every named id be owned or
+     road-raised to `tech_foreign_purity_min`.)*
    - An unusable technique cannot be slotted.
    - If a root change makes a slotted technique unusable, it is unslotted at the
      start of the next season. No current root change removes an element or a
@@ -189,9 +191,10 @@ which technique you commit your seasons to. The decision has two sides:
 9. **Speed.** Only the main method (and the #6 second main) gives speed. Its factor
    comes from:
    - the tier scale;
-   - the average purity of the named ids (the Spiritual Roots contract, rule 8 there), read in full, past 100 too
-     (user decision 2026-11-10, Spiritual Roots review D6). Purity a road granted in an element the root does not own
-     counts here too once the technique is usable through it (rule 8; Spiritual Roots rule 8a, review D2). The ranges in Formulas A and D widen with it, and Realms re-checks its years table (its Open Question 23);
+   - the average purity of the **owned** named ids (`names ∩ root`, `0.0` if none owned; amended 2026-11-27, user
+     ruling; strongest base-element purity for element-free `main`/`secret` methods, `0.0` for `body`), read in full,
+     past 100 too (user decision 2026-11-10, Spiritual Roots review D6). The ranges in Formulas A and D widen with it,
+     and Realms re-checks its years table (its Open Question 23);
    - the mastered layer (Formulas A).
 
    This factor is the `tech` term of the Realms cultivation rate.
@@ -298,7 +301,7 @@ The state of one technique for one character:
 | State | Meaning | Enters from | Leaves to |
 |---|---|---|---|
 | Unknown | Not learned | — | Known (read a manual, rule 4) |
-| Known · unusable | Learned; a named id is neither owned nor at purity ≥ 10 | Unknown; any Slotted sub-state (root change, guard only) | Known · usable (the root gains the id, or its purity reaches 10) |
+| Known · unusable | Learned; none of its `names` ids is owned by the root (rule 8) | Unknown; any Slotted sub-state (root change, guard only) | Known · usable (the root gains at least one named id) |
 | Known · usable | Learned, can be slotted, not in a slot | Unknown; Known · unusable; Slotted (unslotted) | Slotted (at a season start) |
 | Slotted | In the main, second-main or an auxiliary slot; gains mastery, gives its effects | Known · usable | Known · usable (unslotted); Known · unusable (root change); Gated; Great completion |
 | Gated | Slotted, but the next layer needs a higher realm; mastery holds at that layer's cost | Slotted | Slotted (the realm is reached); Known · usable (unslotted); Known · unusable (root change) |
@@ -354,7 +357,7 @@ with
 - `L = max(L_floor, 1 − δ · d)`;
 - `edge = S[tier] / S[par(r)]` if r ≤ the tier's max realm, else 1;
 - `beyond = beyond_realm_mult` (0.25) if r > the tier's max realm, else 1;
-- `match = avg_purity(names) / 100` (Spiritual Roots rule 8; or `strongest_purity / 100` when `names` is empty on an element-free authored method);
+- `match = avg_purity(names) / 100`, where `avg_purity` averages the purities of the **owned** elements/variants in `names` (`names ∩ root`, `0.0` if none is owned; amended 2026-11-27, user ruling; `strongest_purity` when `names` is empty on an element-free authored method, `0.0` for `body`);
 - `g = count_gain[n_base]`, the **element-count gain**: 1.00 / 1.22 / 1.33 / 1.41 /
   1.46 for 1–5 base elements, and 1.27 for five elements in QR.
 
@@ -388,7 +391,7 @@ element, or several elements, still gives less, as before.
 | S[tier] (`speed_mult`) | float | 1.00 / 1.15 / 1.30 / 1.45 (guess; edge per tier 1.10–1.25) | data file | Tier speed scale (**changed** from 1.0 / 1.3 / 1.7 / 2.2; power is now separate, Formulas C) |
 | κ (`tech_norm`) | float | 2.0 (derived: 1 ÷ typical match 0.5; safe 1.8–2.2) | data file | Normaliser |
 | g (`count_gain`) | float | 1.00 / 1.22 / 1.33 / 1.41 / 1.46 by base element count; 1.27 for five elements in QR (derived; see above) | data file | Element-count gain divided out of κ |
-| match | float | 0.08 and up (0.08: a derived variant at its purity floor of 8; above 1.0 past purity 100) | calculated (Spiritual Roots) | Average purity of the named ids ÷ 100, uncapped |
+| match | float | 0.08 and up (0.08: a derived variant at its purity floor of 8; above 1.0 past purity 100; 0 if none of `names` is owned) | calculated (Spiritual Roots) | Average purity of the owned ids in `names` (`names ∩ root`) ÷ 100, uncapped (or `strongest_purity ÷ 100` when `names` is empty on an element-free method) |
 | beyond_realm_mult | float | 0.25 | data file (value from Realms rule 13) | Tier cap |
 | f2 (`second_main_mult`) | float | 0.5 | data file (value from Đạo Đồ #6) | Second main method's speed share |
 | no_cong_phap_mult | float | 0.3 (as built) | data file | Crude cultivation multiplier |
@@ -548,7 +551,7 @@ layer 3.
 The technique_bonus formula is defined as:
 
 `v = v_full · B(k) · F · H · comp_strength`, where `B(k) = b_floor + (1 − b_floor) · (k − 1) / (layers − 1)` and:
-- `F = 0.5 + avg_purity(names) / 100` for a main method or a secret art (using `strongest_purity` when `names` is empty on an element-free authored method);
+- `F = 0.5 + avg_purity(names) / 100` for a main method or a secret art (`avg_purity` over the owned ids `names ∩ root`, `0.0` if none owned; using `strongest_purity` when `names` is empty on an element-free authored method);
 - `F = min(F_cap, 0.5 + physique / 100)` for a body technique;
 - `H` = the harmony factor (rule 12) for an auxiliary art; 1.0 for the main method.
 
@@ -570,7 +573,7 @@ is Wood–Earth, Earth–Water, Water–Fire, Fire–Metal and Metal–Wood.
 |----------|------|-------|--------|-------------|
 | v_full | float | per bonus (`bonus_pool` min–max, or authored) | data file | Value at great completion, before F and H |
 | b_floor (`bonus_layer_floor`) | float | 0.3 (guess; safe 0.2–0.5) | data file | Share of the bonus at layer 1 |
-| avg_purity | float | 8 and up (uncapped) | calculated (Spiritual Roots) | As in A, but in the Đạo Đồ's 0.5 + purity ÷ 100 form |
+| avg_purity | float | 8 and up (uncapped; 0.0 if none owned or `body`) | calculated (Spiritual Roots) | As in A (average over `names ∩ root`), in the Đạo Đồ's 0.5 + purity ÷ 100 form |
 | physique | float | 1–150 | calculated (Character Stats) | Effective Physique (căn cốt) |
 | F_cap (`body_factor_cap`) | float | 1.5 (guess; safe 1.2–1.5) | data file | Cap on the body-technique factor |
 | H (`harmony`) | float | 0.60–1.15 (one of 0.60 / 1.00 / 1.15, or an average of them) | data file | Harmony multiplier |
@@ -741,8 +744,8 @@ This section was drafted without `systems-designer` (lean mode). Several design 
 - **If the player tries to slot the same technique twice, or a main method in an
   auxiliary slot:** the action is refused with a reason line (rules 2 and 6).
 - **If a root gains an element or a variant** (a Linh Căn Quả, a Mutation
-  Awakening): every known technique that becomes usable moves to Known · usable at
-  the next season start. Nothing is auto-slotted.
+  Awakening): every known technique that becomes usable (owning at least one of its `names`, or updating `avg_purity`
+  over `names ∩ root` if already usable) moves to Known · usable at the next season start. Nothing is auto-slotted.
 - **If a derived variant's purity changes because a required element changed** (Spiritual
   Roots rule 10): match and F for techniques naming it update at the next season start.
 - **If the strongest base elements tie when the starting technique is chosen:** the
@@ -972,7 +975,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 - **Harmony.** Each auxiliary art shows its relation to the main method (generated
   by it / neutral / overcoming) and the resulting ×1.15 / ×1.00 / ×0.60.
 - **Known list.** It lists known techniques, marks the unusable ones with the
-  missing id ("needs Water"), and shows each one's kept layers.
+  missing ids (none of `names` is owned), and shows each one's kept layers.
 - **Before learning or slotting.** The screen previews the speed and bonus change,
   and the seasons to reach the speed of the current method. This makes the ramp
   trade-off (Formulas A) visible. It also shows the new lifespan cap, and the death
@@ -1076,13 +1079,13 @@ applied above).
 
   Mastery is never lost: k and stored mastery are unchanged after unslotting and
   reslotting, and after a forced failed breakthrough.
-- **AC-CP-07** [Logic] Rule 8, usability. With R:
-  - [Wood, Fire] is usable;
-  - [Wood, Water] is not;
-  - [Light (Quang)] is usable only if Light is owned or its purity is at least 10;
-  - with Water raised to 12 by Water-land roads (not owned), [Wood, Water] is usable and its speed reads Water 12;
-    at Water 9 it is not (`tech_foreign_purity_min` 10);
-  - a body technique is always usable.
+- **AC-CP-07** [Logic] Rule 8, usability (amended 2026-11-27, user ruling). With R = {Wood 40, Fire 86}:
+  - [Wood, Fire] is usable (`avg_purity = (40 + 86) / 2 = 63`);
+  - [Wood, Water] IS usable because Wood is owned (`avg_purity = 40`, averaging owned `names ∩ root` only);
+  - [Metal, Thunder] (`["kim", "loi"]`) on a `[kim]` root is usable (`avg_purity = purity("kim")`), and on a dual `[kim, loi]` root averages both owned purities;
+  - [Water] and [Metal, Thunder] on R (`{Wood 40, Fire 86}`), and [Metal, Thunder] on `[moc]`, are NOT usable (`usable() == false`, `avg_purity == 0.0`);
+  - [Light (Quang)] is usable only if Light is owned;
+  - a body technique and an element-free authored method (`names: []`) are always usable (`body` `avg_purity == 0.0`, element-free `main`/`secret` `avg_purity == strongest_purity`).
 
   Guard case: a test-only fixture removes Fire from the root. The slotted [Fire] main
   method is unslotted at the next season start, not at once.

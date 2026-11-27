@@ -254,7 +254,7 @@
     },
     "aux": [
      {
-      "tech": "hollow-bell-canon",
+      "tech": "undertow-litany",
       "layer": 6
      }
     ],
@@ -395,10 +395,14 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "drawn-out-edge-canon",
+     "tech": "verdant-cycle-scripture",
      "layer": 8
     },
     "aux": [
+     {
+      "tech": "drawn-out-edge-canon",
+      "layer": 8
+     },
      {
       "tech": "debt-ledger-blade",
       "layer": 6
@@ -517,10 +521,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "scorch-fist-primer",
+     "tech": "red-sun-scripture",
      "layer": 4
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "scorch-fist-primer",
+      "layer": 4
+     }
+    ],
     "gear": [
      {
       "named": "ln-thawing-brazier"
@@ -986,7 +995,7 @@
     },
     "aux": [
      {
-      "tech": "sand-wall-primer",
+      "tech": "mountain-bone-body-art",
       "layer": 6
      }
     ],
@@ -1098,12 +1107,7 @@
      "tech": "verdant-cycle-scripture",
      "layer": 6
     },
-    "aux": [
-     {
-      "tech": "hunters-reach-canon",
-      "layer": 5
-     }
-    ],
+    "aux": [],
     "gear": [
      {
       "base": "cham",

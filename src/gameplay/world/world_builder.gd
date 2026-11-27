@@ -369,10 +369,19 @@ func _step_beasts() -> void:
 
 
 ## The authored ties (world-depth, ADR-0009; world_history `ties`, mapped by the export): each through its Ties writer.
-## The su_do pair is the person's `master` field (_step_cast); a tie naming someone absent is skipped.
+## The su_do pair is the person's `master` field (_step_cast); a tie naming someone absent is skipped. Pinned ties are
+## inserted first and soft/debt ties in descending strength order so runtime caps never evict an earlier weaker tie.
 func _step_ties() -> void:
 	var season: int = current_year * 4
+	var pinned: Array = []
+	var soft: Array = []
 	for t in _hist.get("ties", []):
+		var kind: String = str(t.kind)
+		if kind in ["kin", "ket_nghia", "dao_lu", "feud"]:
+			pinned.append(t)
+		elif kind in ["friend", "rival", "enmity", "debt"]:
+			soft.append(t)
+	for t in pinned:
 		var a: String = str(person_ids.get(str(t.a), ""))
 		var b: String = str(person_ids.get(str(t.b), ""))
 		if a == "" or b == "":
@@ -380,10 +389,26 @@ func _step_ties() -> void:
 		match str(t.kind):
 			"kin", "ket_nghia", "dao_lu":
 				Ties.add_pinned(_gd, _db, a, b, str(t.kind), season, true)
-			"friend", "rival", "enmity":
-				Ties.write_soft(_gd, _db, a, b, str(t.kind), int(t.get("s", 0)), season)
 			"feud":
 				Ties.set_feud(_gd, _db, a, b, season)
+	soft.sort_custom(func(x, y):
+		var sx: int = int(x.get("s", 0))
+		var sy: int = int(y.get("s", 0))
+		if sx != sy:
+			return sx > sy
+		var xa: String = str(x.a)
+		var ya: String = str(y.a)
+		if xa != ya:
+			return xa < ya
+		return str(x.b) < str(y.b))
+	for t in soft:
+		var a: String = str(person_ids.get(str(t.a), ""))
+		var b: String = str(person_ids.get(str(t.b), ""))
+		if a == "" or b == "":
+			continue
+		match str(t.kind):
+			"friend", "rival", "enmity":
+				Ties.write_soft(_gd, _db, a, b, str(t.kind), int(t.get("s", 0)), season)
 			"debt":
 				Ties.write_debt(_gd, _db, a, b, int(t.get("s", 0)), season)
 

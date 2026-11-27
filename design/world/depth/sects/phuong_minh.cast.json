@@ -2154,10 +2154,15 @@
    "build": {
     "archetype": "kiem_tu",
     "main": {
-     "tech": "hundred-blades-canon",
+     "tech": "thunder-in-the-rain-canon",
      "layer": 8
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "hundred-blades-canon",
+      "layer": 8
+     }
+    ],
     "gear": [
      {
       "named": "pm-tower-rain-chain-sword"

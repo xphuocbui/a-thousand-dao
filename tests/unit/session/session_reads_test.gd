@@ -4,6 +4,7 @@ extends DaoTestSuite
 ## exactly as it was. A small world with Power Rankings on, so the power reads have rating records to touch.
 
 static var _on: GameData
+static var _base_save: String = ""
 
 
 static func _gd_on() -> GameData:
@@ -18,17 +19,35 @@ static func _gd_on() -> GameData:
 	return _on
 
 
+static func _base_save_json() -> String:
+	if _base_save == "":
+		var gd := _gd_on()
+		var llm := LlmService.new(gd)
+		llm.enabled = false
+		var s := GameSession.new(gd, llm, TestFixtures.tree())
+		s.ratings_background = false
+		s.new_game(5151, {"mode": "roll", "name": "Đọc Thử", "gender": "male", "origin": "tan_tu"})
+		_base_save = JSON.stringify(s.to_dict(), "", false, true)
+		s.shutdown()
+	return _base_save
+
+
 func _session() -> GameSession:
+	var save_json: String = _base_save_json()
 	var gd := _gd_on()
 	var llm := LlmService.new(gd)
 	llm.enabled = false
 	var s := GameSession.new(gd, llm, TestFixtures.tree())
-	s.new_game(5151, {"mode": "roll", "name": "Đọc Thử", "gender": "male", "origin": "tan_tu"})
+	s.ratings_background = false
+	var rk: Dictionary = gd.file("combat_rankings")
+	rk["enabled"] = false
+	s.load_dict(JSON.parse_string(save_json))
+	rk["enabled"] = true
 	return s
 
 
 static func _state(s: GameSession) -> String:
-	return JSON.stringify(s.to_dict(), "", true)
+	return JSON.stringify(s.to_dict(), "", false, true)
 
 
 func test_reading_the_power_of_a_stale_player_changes_nothing() -> void:
@@ -119,10 +138,12 @@ func test_every_read_method_and_guidance_read_leaves_the_world_unchanged() -> vo
 		"GameQuery.dao_do_node": func(): return GameQuery.dao_do_node(s, int(s.tree.frontier(s.player, s.gd)[0]) if not s.tree.frontier(s.player, s.gd).is_empty() else 0, []),
 		"GameQuery.sect other": func(): return GameQuery.sect(s, str(s.db.all("sects")[0].id)),
 	}
+	var before: String = _state(s)
 	for name in reads:
-		var before: String = _state(s)
 		(reads[name] as Callable).call()
-		assert_eq(_state(s), before, "%s changed the world" % name)
+		var after: String = _state(s)
+		assert_eq(after, before, "%s changed the world" % name)
+		before = after
 	s.shutdown()
 
 

@@ -145,17 +145,17 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "cloud-herd-body-canon",
+     "tech": "gale-courier-scripture",
      "layer": 8
     },
     "aux": [
      {
-      "tech": "herd-call",
-      "layer": 9
+      "tech": "cloud-herd-body-canon",
+      "layer": 8
      },
      {
-      "tech": "gale-courier-scripture",
-      "layer": 5
+      "tech": "herd-call",
+      "layer": 9
      }
     ],
     "gear": [
@@ -416,10 +416,14 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "cloud-herd-body-canon",
+     "tech": "river-ice-groom-breath",
      "layer": 6
     },
     "aux": [
+     {
+      "tech": "cloud-herd-body-canon",
+      "layer": 6
+     },
      {
       "tech": "herd-call",
       "layer": 5
@@ -532,10 +536,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "cloud-herd-body-canon",
-     "layer": 5
+     "tech": "river-ice-groom-breath",
+     "layer": 6
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "cloud-herd-body-canon",
+      "layer": 5
+     }
+    ],
     "gear": [
      {
       "base": "an",
@@ -625,10 +634,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "mountain-bone-body-art",
+     "tech": "mountain-heart-canon",
      "layer": 6
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 6
+     }
+    ],
     "gear": [
      {
       "base": "thuan",
@@ -740,10 +754,14 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "cloud-herd-body-canon",
-     "layer": 4
+     "tech": "river-ice-groom-breath",
+     "layer": 6
     },
     "aux": [
+     {
+      "tech": "cloud-herd-body-canon",
+      "layer": 4
+     },
      {
       "tech": "herd-call",
       "layer": 3
@@ -831,10 +849,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "mountain-bone-body-art",
+     "tech": "nine-temper-scripture",
      "layer": 3
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 3
+     }
+    ],
     "gear": [
      {
       "base": "tien_tieu",
@@ -905,10 +928,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "mountain-bone-body-art",
+     "tech": "red-sun-scripture",
      "layer": 2
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "mao",
@@ -974,10 +1002,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "mountain-bone-body-art",
+     "tech": "river-ice-groom-breath",
      "layer": 2
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "cam",
@@ -1059,10 +1092,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "cloud-herd-body-canon",
+     "tech": "river-ice-groom-breath",
      "layer": 2
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "cloud-herd-body-canon",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "mao",

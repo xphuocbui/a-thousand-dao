@@ -62,10 +62,14 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "canglang-body-canon",
-     "layer": 5
+     "tech": "still-moon-tide-scripture",
+     "layer": 6
     },
     "aux": [
+     {
+      "tech": "canglang-body-canon",
+      "layer": 5
+     },
      {
       "tech": "whale-line-harpoon",
       "layer": 4
@@ -135,10 +139,14 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "canglang-body-canon",
-     "layer": 4
+     "tech": "still-moon-tide-scripture",
+     "layer": 6
     },
     "aux": [
+     {
+      "tech": "canglang-body-canon",
+      "layer": 4
+     },
      {
       "tech": "hundred-echo-palm-scripture",
       "layer": 2
@@ -213,10 +221,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "unbroken-flesh-canon",
-     "layer": 2
+     "tech": "still-moon-tide-scripture",
+     "layer": 3
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "mao",
@@ -280,10 +293,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "unbroken-flesh-canon",
+     "tech": "nine-temper-scripture",
      "layer": 3
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 3
+     }
+    ],
     "gear": [
      {
       "base": "giap",
@@ -354,10 +372,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "canglang-body-canon",
-     "layer": 2
+     "tech": "still-moon-tide-scripture",
+     "layer": 3
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "canglang-body-canon",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "thuan",
@@ -422,10 +445,14 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "canglang-body-canon",
+     "tech": "still-moon-tide-scripture",
      "layer": 3
     },
     "aux": [
+     {
+      "tech": "canglang-body-canon",
+      "layer": 3
+     },
      {
       "tech": "whale-line-harpoon",
       "layer": 1
@@ -495,10 +522,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "unbroken-flesh-canon",
-     "layer": 1
+     "tech": "verdant-cycle-scripture",
+     "layer": 3
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 1
+     }
+    ],
     "gear": [
      {
       "base": "lac_thiet",

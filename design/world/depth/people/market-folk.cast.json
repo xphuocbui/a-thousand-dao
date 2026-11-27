@@ -1518,7 +1518,9 @@
     "aux": [],
     "gear": [
      {
-      "named": "general-talisman-bearer-ring"
+      "base": "nhan",
+      "grade": 3,
+      "element": "moc"
      },
      {
       "named": "mf-scorched-cloud-seal"

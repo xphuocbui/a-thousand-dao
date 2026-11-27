@@ -583,7 +583,7 @@
     },
     "aux": [
      {
-      "tech": "clear-frost-breath",
+      "tech": "mountain-bone-body-art",
       "layer": 6
      }
     ],
@@ -834,10 +834,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "mountain-bone-body-art",
+     "tech": "tracker-sword-primer",
      "layer": 4
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 4
+     }
+    ],
     "gear": [
      {
       "base": "giap",

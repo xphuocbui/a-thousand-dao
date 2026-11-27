@@ -21,7 +21,8 @@
    "root": {
     "elements": {
      "tho": 50,
-     "thuy": 50
+     "thuy": 50,
+     "moc": 30
     },
     "variants": {}
    },
@@ -1274,7 +1275,8 @@
    "root": {
     "elements": {
      "tho": 48,
-     "thuy": 42
+     "thuy": 42,
+     "moc": 30
     },
     "variants": {}
    },

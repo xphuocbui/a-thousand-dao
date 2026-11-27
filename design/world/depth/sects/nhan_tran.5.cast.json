@@ -217,10 +217,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "mountain-bone-body-art",
+     "tech": "wild-geese-formation-canon",
      "layer": 2
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "thuan",
@@ -421,10 +426,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "mountain-bone-body-art",
+     "tech": "wild-geese-formation-canon",
      "layer": 2
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "thuan",
@@ -489,10 +499,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "mountain-bone-body-art",
-     "layer": 1
+     "tech": "wild-geese-formation-canon",
+     "layer": 2
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 1
+     }
+    ],
     "gear": [
      {
       "base": "thuan",

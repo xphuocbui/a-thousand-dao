@@ -312,9 +312,9 @@ func manual_from_template(t: Dictionary) -> Dictionary:
 
 func _catalogue_pick(rng: RandomNumberGenerator, tier_rank: int, kind: String, names: Array) -> Dictionary:
 	var all: Array = _gd.cong_phap_file().get("templates", []).filter(func(t): return int(t.tier) == tier_rank and str(t.tech_kind) == kind)
-	var fit: Array = all.filter(func(t): return not names.is_empty() and names.has(t.names[0] if not t.names.is_empty() else ""))
-	# a request naming elements takes only a template that fits them, so the technique is usable (rule 8); with none
-	# the caller generates a common instead (2026-11-14: any template of the tier was returned)
+	var fit: Array = all.filter(func(t): return not names.is_empty() and Array(t.names).any(func(e): return names.has(str(e))))
+	# a request naming elements takes any template sharing at least one named id, so the technique is usable
+	# (rule 8, amended 2026-11-27); with none the caller generates a common instead
 	var from: Array = fit if not fit.is_empty() else (all if names.is_empty() else [])
 	return RngUtils.pick(rng, from) if not from.is_empty() else {}
 

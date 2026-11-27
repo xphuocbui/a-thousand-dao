@@ -146,6 +146,122 @@ func test_the_route_preview_equals_the_route_opened_ac_kmd_14() -> void:
 	assert_true(c.tree_nodes.has(2131), "reached")
 
 
+# Reference shortest-path DP using full distances() + node_value() + _better(), for equivalence checks.
+func _reference_path_to(t: DaoDoTree, c: Character, gd: GameData, target: int) -> Array:
+	if c.tree_nodes.has(target) or not t.accessible(c, target, gd):
+		return []
+	var dist: Dictionary = t.distances(c, gd)
+	if not dist.has(target):
+		return []
+	var order: Array = dist.keys().filter(func(k): return int(dist[k]) > 0 and int(dist[k]) <= int(dist[target]))
+	order.sort_custom(func(a, b): return int(dist[a]) < int(dist[b]) if dist[a] != dist[b] else a < b)
+	var best: Dictionary = {}
+	for id in order:
+		var value: float = t.node_value(c, gd, id)
+		var chosen: Dictionary = {}
+		for nb in t.neighbors(id):
+			if int(dist.get(nb, -9)) != int(dist[id]) - 1:
+				continue
+			var prior: Dictionary = best.get(nb, {"value": 0.0, "path": []})
+			var cand: Dictionary = {"value": float(prior.value) + value, "path": prior.path + [id]}
+			if chosen.is_empty() or DaoDoTree._better(cand, chosen):
+				chosen = cand
+		best[id] = chosen
+	return best[target].path
+
+
+func test_path_to_matches_reference_shortest_highest_value_lowest_id() -> void:
+	var t := _t()
+	var gd := game_data()
+
+	# 1. Edge cases: already open, nonexistent, distance 1.
+	var fire := _c({"hoa": 70, "tho": 45}, {}, 2)
+	assert_eq(t.path_to(fire, gd, FIRE_START), [], "already open returns []")
+	assert_eq(t.path_to(fire, gd, -999), [], "unknown node returns []")
+	assert_eq(t.path_to(fire, gd, FIRE_MARK), _reference_path_to(t, fire, gd, FIRE_MARK), "distance 1 small mark")
+	assert_eq(t.path_to(fire, gd, FIRE_ROAD), _reference_path_to(t, fire, gd, FIRE_ROAD), "distance 1 road")
+
+	# 2. Multiple starts, multi-path ties, road purity grants, and sequential target opening.
+	var caps: Array = t.nodes.values().filter(func(n): return int(n.get("cap", 0)) > 0 and not bool(n.gated))
+	var cap_id: int = int(caps[0].id)
+	var gated_caps: Array = t.nodes.values().filter(func(n): return int(n.get("cap", 0)) > 0 and bool(n.gated))
+	var gated_cap_id: int = int(gated_caps[0].id)
+	var roads: Array = t.nodes.values().filter(func(n): return str(n.kind) == "road" and not bool(n.gated))
+	var sample_targets: Array[int] = [2131, BORDER_WF, WIND_MARK, FE_ROAD, int(roads[10].id), int(roads[50].id), cap_id, EMBER_HEART, HUB_ROAD, gated_cap_id]
+
+	var cases: Array = [
+		{"name": "fire_low_realm", "c": _c({"hoa": 70, "tho": 45}, {}, 1)},
+		{"name": "fire_core_realm", "c": _c({"hoa": 70, "tho": 45}, {}, 2)},
+		{"name": "water_ice", "c": _c({"thuy": 80}, {"bang": 60}, 3)},
+		{"name": "wind_variant", "c": _c({"moc": 65, "thuy": 40}, {"phong": 75}, 2)},
+		{"name": "five_el_gate_open", "c": _c({"moc": 45, "hoa": 55, "tho": 35, "kim": 60, "thuy": 50}, {}, 3)},
+		{"name": "chaos_root", "c": _c({"moc": 50, "hoa": 50, "tho": 50, "kim": 50, "thuy": 50}, {"hon_don": 70}, 4)},
+	]
+	for entry in cases:
+		var ch: Character = entry.c
+		for tgt in sample_targets:
+			var got: Array = t.path_to(ch, gd, tgt)
+			var want: Array = _reference_path_to(t, ch, gd, tgt)
+			assert_eq(got, want, "%s -> #%d" % [entry.name, tgt])
+
+	# 3. Capability notable below Core Formation is unreachable; at Core Formation it matches reference.
+	var low_c := _c({"hoa": 70, "kim": 70, "moc": 70, "tho": 70, "thuy": 70}, {}, 1)
+	assert_eq(t.path_to(low_c, gd, cap_id), [], "capability target blocked below Core Formation")
+	low_c.realm_index = 2
+	assert_eq(t.path_to(low_c, gd, cap_id), _reference_path_to(t, low_c, gd, cap_id), "capability target open at Core Formation")
+
+	# 4. Chaos-gated target blocked when closed, matches reference when opened by roads.
+	var at30 := _c({"hoa": 30, "tho": 40, "kim": 50, "thuy": 60, "moc": 70}, {}, 2)
+	assert_eq(t.path_to(at30, gd, EMBER_HEART), [], "Chaos target blocked at purity 30")
+	at30.tree_points = 1
+	t.open_node(at30, FIRE_ROAD, gd)
+	assert_eq(t.path_to(at30, gd, EMBER_HEART), _reference_path_to(t, at30, gd, EMBER_HEART), "Chaos target open after road purity")
+
+	# 5. Multi-node open set (sequential target routes, as in CastBuilds.make).
+	var seq := _c({"hoa": 85, "moc": 55}, {}, 3)
+	seq.tree_points = 300
+	for tgt in [FIRE_ROAD, 2131, BORDER_WF, FE_ROAD]:
+		var got: Array = t.path_to(seq, gd, tgt)
+		var want: Array = _reference_path_to(t, seq, gd, tgt)
+		assert_eq(got, want, "sequential open set -> #%d" % tgt)
+		for nid in got:
+			t.open_node(seq, int(nid), gd)
+
+	# 6. Synthetic diamond with equal-length paths testing value tie-break and lowest-id tie-break.
+	var mini := DaoDoTree.new()
+	mini._read({
+		"baseline": "test",
+		"starts": {"hoa": 1},
+		"nodes": [
+			{"id": 1, "kind": "start", "area": "exact"},
+			{"id": 2, "kind": "small", "area": "el:hoa", "mods": [{"stat": "attack_pct", "value": 2.0, "w": 1.0}]},
+			{"id": 3, "kind": "small", "area": "el:hoa", "mods": [{"stat": "attack_pct", "value": 2.0, "w": 1.0}]},
+			{"id": 4, "kind": "road", "area": "exact", "grants": {"hoa": 1.0}},
+			{"id": 5, "kind": "small", "area": "el:hoa", "mods": [{"stat": "attack_pct", "value": 4.0, "w": 3.0}]},
+			{"id": 6, "kind": "notable", "area": "el:hoa", "mods": [{"stat": "attack_pct", "value": 5.0, "w": 2.0}]},
+		],
+		"edges": [[1, 3], [1, 2], [2, 6], [3, 6], [1, 4], [4, 6]],
+	})
+	var mc := _c({"hoa": 60}, {}, 2)
+	mc.tree_nodes = [1]
+	assert_eq(mini.path_to(mc, gd, 6), _reference_path_to(mini, mc, gd, 6), "diamond with road grant matches reference")
+	# Pure tie between node 2 and node 3 (equal value, node 3 listed first in edges): lowest id (2) must win.
+	var tie_tree := DaoDoTree.new()
+	tie_tree._read({
+		"baseline": "test",
+		"starts": {"hoa": 1},
+		"nodes": [
+			{"id": 1, "kind": "start", "area": "exact"},
+			{"id": 2, "kind": "small", "area": "el:hoa", "mods": [{"stat": "attack_pct", "value": 2.0, "w": 1.0}]},
+			{"id": 3, "kind": "small", "area": "el:hoa", "mods": [{"stat": "attack_pct", "value": 2.0, "w": 1.0}]},
+			{"id": 6, "kind": "notable", "area": "el:hoa", "mods": [{"stat": "attack_pct", "value": 5.0, "w": 2.0}]},
+		],
+		"edges": [[1, 3], [1, 2], [3, 6], [2, 6]],
+	})
+	assert_eq(tie_tree.path_to(mc, gd, 6), [2, 6], "equal-value diamond breaks tie by lowest id")
+	assert_eq(tie_tree.path_to(mc, gd, 6), _reference_path_to(tie_tree, mc, gd, 6), "equal-value diamond matches reference")
+
+
 # --- Scaling (rule 4; AC-KMD-15, -16) -------------------------------------------------------------------------------
 
 func test_land_marks_scale_by_purity_ac_kmd_15() -> void:

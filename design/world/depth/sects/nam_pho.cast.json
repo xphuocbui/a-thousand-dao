@@ -203,7 +203,6 @@
     "note": "The hall-mistress of scribes: a devout talisman maker who lays her paper at dawn and waits."
    },
    "items": [
-    "general-talisman-bearer-ring",
     "np-southern-cloud-seal",
     "np-dawn-cloud-brush",
     "np-mulberry-hemp-robe"
@@ -894,12 +893,7 @@
      "tech": "southern-shore-cloud-canon",
      "layer": 2
     },
-    "aux": [
-     {
-      "tech": "mulberry-ink-primer",
-      "layer": 6
-     }
-    ],
+    "aux": [],
     "gear": [
      {
       "base": "an",

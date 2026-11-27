@@ -271,13 +271,13 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "sword-washing-temper",
+     "tech": "sand-holding-sabre-canon",
      "layer": 8
     },
     "aux": [
      {
-      "tech": "sand-holding-sabre-canon",
-      "layer": 6
+      "tech": "sword-washing-temper",
+      "layer": 8
      }
     ],
     "gear": [

@@ -102,22 +102,36 @@ static func make(gd: GameData, tree: DaoDoTree, db: WorldDB, items: ItemFactory,
 
 ## Technique ids a build named that the catalogue lacks, in order (ADR-0009 decision 8; tests read it).
 static var unknown_ids: Array = []
+static var _tpl_cache: Dictionary = {}
+
+
+static func _templates(gd: GameData) -> Dictionary:
+	var key: int = gd.get_instance_id()
+	if _tpl_cache.has(key):
+		return _tpl_cache[key]
+	var by_id: Dictionary = {}
+	for t in gd.cong_phap_file().get("templates", []):
+		var tid: String = str(t.id)
+		if not by_id.has(tid):
+			by_id[tid] = t
+	_tpl_cache[key] = by_id
+	return by_id
 
 
 static func _learn(gd: GameData, db: WorldDB, items: ItemFactory, c: Character, tech_id: String, layer: int, is_main: bool) -> String:
 	if tech_id == "":
 		return ""
-	for t in gd.cong_phap_file().get("templates", []):
-		if str(t.id) == tech_id:
-			var cp: Dictionary = items.manual_from_template(t)
-			cp["owner_id"] = c.id
-			db.add("items", cp)
-			CongPhap.learn(c, cp)
-			var id: String = str(cp.tech_id)
-			c.techniques[id]["layer"] = clampi(layer, 1, int(cp.layers))
-			if is_main:
-				c.main_tech = id
-			return id
+	var t: Dictionary = _templates(gd).get(tech_id, {})
+	if not t.is_empty():
+		var cp: Dictionary = items.manual_from_template(t)
+		cp["owner_id"] = c.id
+		db.add("items", cp)
+		CongPhap.learn(c, cp)
+		var id: String = str(cp.tech_id)
+		c.techniques[id]["layer"] = clampi(layer, 1, int(cp.layers))
+		if is_main:
+			c.main_tech = id
+		return id
 	# ADR-0009 decision 8: an unknown id is reported, never dropped silently
 	unknown_ids.append(tech_id)
 	push_warning("CastBuilds: technique %s is not in the catalogue; %s learns nothing in its place" % [tech_id, c.name])

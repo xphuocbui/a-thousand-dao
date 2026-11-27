@@ -64,7 +64,11 @@ func test_the_batch_follows_rule_14s_order_and_never_pairs_the_player_or_beasts_
 	var s := _session(32)
 	s.player.stage = mini(s.player.stage + 1, 3)   # a build change: the player is Stale
 	s.sync_player()
+	var top: int = s.db.find("people", func(p): return p.alive and not p.get("is_player", false) and not p.get("is_beast", false) and int(p.realm_index) >= 3).size()
+	var rk: Dictionary = s.gd.file("combat_rankings")
+	rk["season_fight_budget"] = maxi(BUDGET, top * (top - 1) / 2 + 120)
 	var b: SeasonBatch = s.ratings.plan_season(s.seed_value, s.season_index(), s.year, s.season, s.player, s.sheet())
+	rk["season_fight_budget"] = BUDGET
 	assert_eq(b.panels[0].id, s.player.id, "the player's panel first")
 	var last_realm := 99
 	for i in range(1, b.panels.size()):
@@ -81,7 +85,6 @@ func test_the_batch_follows_rule_14s_order_and_never_pairs_the_player_or_beasts_
 	for f in b.pairs:
 		assert_true(f.a != s.player.id and f.b != s.player.id, "the player is never paired")
 		assert_false(beasts.has(f.a) or beasts.has(f.b), "beasts are never paired")
-	var top: int = s.db.find("people", func(p): return p.alive and not p.get("is_player", false) and not p.get("is_beast", false) and int(p.realm_index) >= 3).size()
 	assert_eq(kinds.count("rr"), top * (top - 1) / 2, "every top-realm pair once (AC-PR-14)")
 
 
@@ -114,11 +117,15 @@ func test_two_batches_are_in_flight_and_pairing_reads_ratings_without_the_last_s
 	s.cultivate(1)
 	assert_true(s._rating_prev != null and s._rating_prev.season == first, "the first season's batch waits a season")
 	assert_true(s._rating_batch != null and s._rating_batch.season == first + 1, "this season's batch is planned")
-	# Provisional ratings follow realm and stage (Formulas G), and the world tick advances stages, so bases may move; what
-	# must not happen yet is any fight result: no offset or pair count moves, and no panel makes anyone Rated.
+	# Provisional ratings follow realm and stage (Formulas G), and the world tick advances stages and can kill NPCs,
+	# so bases may move and dead NPCs become Gone; what must not happen yet is any fight result: no offset or pair
+	# count moves, and no panel makes anyone Rated.
 	var after: Dictionary = _ratings(s)
 	for id in before:
-		assert_eq([after[id][1], after[id][2], after[id][3]], [before[id][1], before[id][2], before[id][3]], "%s: no fight result applied yet" % id)
+		if not bool(s.db.get_record("people", str(id)).get("alive", false)):
+			assert_eq([after[id][1], after[id][2], after[id][3]], [before[id][1], before[id][2], RatingService.GONE], "%s: died in the tick with no fight result applied" % id)
+		else:
+			assert_eq([after[id][1], after[id][2], after[id][3]], [before[id][1], before[id][2], before[id][3]], "%s: no fight result applied yet" % id)
 
 
 func test_background_and_blocking_seasons_give_identical_ratings_ac_pr_52() -> void:

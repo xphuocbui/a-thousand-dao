@@ -199,10 +199,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "unbroken-flesh-canon",
+     "tech": "lamp-ward-seal-canon",
      "layer": 3
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 3
+     }
+    ],
     "gear": [
      {
       "base": "giap",
@@ -268,10 +273,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "unbroken-flesh-canon",
+     "tech": "lamp-ward-seal-canon",
      "layer": 4
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 4
+     }
+    ],
     "gear": [
      {
       "base": "nhan",
@@ -342,10 +352,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "unbroken-flesh-canon",
+     "tech": "lamp-ward-seal-canon",
      "layer": 2
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "ngoc_boi",
@@ -405,10 +420,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "unbroken-flesh-canon",
+     "tech": "lamp-ward-seal-canon",
      "layer": 4
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 4
+     }
+    ],
     "gear": [
      {
       "base": "dang",
@@ -482,10 +502,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "unbroken-flesh-canon",
-     "layer": 1
+     "tech": "lamp-ward-seal-canon",
+     "layer": 2
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 1
+     }
+    ],
     "gear": [
      {
       "base": "dang",

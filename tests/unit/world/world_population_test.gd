@@ -13,11 +13,15 @@ func _alive(db: WorldDB) -> int:
 
 func _tick_years(db: WorldDB, years: int, seed_v: int) -> void:
 	var gd := game_data()
+	var tick: Dictionary = gd.world_gen().tick
+	var kill_was: Variant = tick.get("duel_kill_p", 0.0)
+	tick["duel_kill_p"] = 0.0
 	var ticker := WorldTicker.new(gd, db, BuildGenerator.new(gd, TestFixtures.tree(), db))
 	var r := rng(seed_v)
 	for y in years:
 		for s in int(gd.cultivation_rules().seasons_per_year):
 			ticker.tick(r, y, s)
+	tick["duel_kill_p"] = kill_was
 
 
 func test_gate_steps_match_the_formula_ac53() -> void:
@@ -97,7 +101,11 @@ func test_an_archetype_never_changes_a_root() -> void:
 
 func _tick_season(db: WorldDB, seed_v: int) -> void:
 	var gd := game_data()
+	var tick: Dictionary = gd.world_gen().tick
+	var kill_was: Variant = tick.get("duel_kill_p", 0.0)
+	tick["duel_kill_p"] = 0.0
 	WorldTicker.new(gd, db, BuildGenerator.new(gd, TestFixtures.tree(), db)).tick(rng(seed_v), 1, 0)
+	tick["duel_kill_p"] = kill_was
 
 
 func _age_out(db: WorldDB, count: int) -> void:

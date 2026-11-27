@@ -38,13 +38,16 @@ static func learn(c: Character, manual: Dictionary) -> bool:
 	return true
 
 
-## Rule 8: usable only if the root has every named id. Body techniques and element-free authored
-## methods (names == []) are always usable.
+## Rule 8 (amended 2026-11-27, user ruling): usable if the technique names nothing (body
+## techniques and element-free authored methods), or if the root owns at least one named id.
 static func usable(c: Character, def: Dictionary) -> bool:
-	for id in def.get("names", []):
-		if not c.linh_can.has(str(id)):
-			return false
-	return true
+	var names: Array = def.get("names", [])
+	if names.is_empty():
+		return true
+	for id in names:
+		if c.linh_can.has(str(id)):
+			return true
+	return false
 
 
 ## The technique entry in the main slot, or {} if the slot is empty or unusable.
@@ -118,15 +121,23 @@ static func _in_slot(c: Character, slot: String, index: int, key: String) -> boo
 	return index >= 0 and index < c.aux_tech.size() and str(c.aux_tech[index]) == key
 
 
-## Average purity of a definition's named ids; strongest base purity for element-free
-## main/secret methods (matching crude()); 0 for a body technique.
+## Average purity of a definition's owned named ids (`names` intersected with `c.linh_can`,
+## 0.0 if none is owned); strongest base purity for element-free main/secret methods (matching
+## crude()); 0.0 for a body technique.
 static func avg_purity(c: Character, def: Dictionary) -> float:
 	var names: Array = def.get("names", [])
 	if names.is_empty():
 		if str(def.get("tech_kind", "")) == "body":
 			return 0.0
 		return c.linh_can.purity(c.linh_can.strongest_element())
-	return c.linh_can.average_purity(names)
+	var owned: Array = []
+	for id in names:
+		var sid: String = str(id)
+		if c.linh_can.has(sid):
+			owned.append(sid)
+	if owned.is_empty():
+		return 0.0
+	return c.linh_can.average_purity(owned)
 
 
 ## The lowest tier rank whose max realm is at or above the realm index.

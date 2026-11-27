@@ -317,9 +317,9 @@ func _maybe_technique(s: GameSession, st: Dictionary) -> bool:
 		if not bool(place.get("market", false)):
 			continue
 		for it in s.market.stock(place.id):
-			if it.kind != "cong_phap" or int(it.tier) < want or str(it.tech_kind) != "main":
+			if it.kind != "cong_phap" or int(it.tier) < want or str(it.tech_kind) != "main" or not CongPhap.usable(c, it):
 				continue
-			var p: float = c.linh_can.average_purity(it.names)
+			var p: float = CongPhap.avg_purity(c, it)
 			if p > best_p:
 				best_p = p
 				best = it

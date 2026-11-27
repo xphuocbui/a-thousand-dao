@@ -55,10 +55,14 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "cloud-herd-body-canon",
-     "layer": 4
+     "tech": "river-ice-groom-breath",
+     "layer": 6
     },
     "aux": [
+     {
+      "tech": "cloud-herd-body-canon",
+      "layer": 4
+     },
      {
       "tech": "herd-call",
       "layer": 2
@@ -138,10 +142,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "cloud-herd-body-canon",
-     "layer": 3
+     "tech": "river-ice-groom-breath",
+     "layer": 6
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "cloud-herd-body-canon",
+      "layer": 3
+     }
+    ],
     "gear": [
      {
       "base": "an",
@@ -216,10 +225,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "mountain-bone-body-art",
+     "tech": "mountain-heart-canon",
      "layer": 2
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "giap",
@@ -295,10 +309,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "mountain-bone-body-art",
+     "tech": "river-ice-groom-breath",
      "layer": 1
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 1
+     }
+    ],
     "gear": [
      {
       "base": "giap",
@@ -364,10 +383,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "cloud-herd-body-canon",
+     "tech": "river-ice-groom-breath",
      "layer": 2
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "cloud-herd-body-canon",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "mao",
@@ -438,10 +462,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "cloud-herd-body-canon",
+     "tech": "river-ice-groom-breath",
      "layer": 2
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "cloud-herd-body-canon",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "mao",
@@ -501,10 +530,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "mountain-bone-body-art",
+     "tech": "river-ice-groom-breath",
      "layer": 2
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "mountain-bone-body-art",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "an",

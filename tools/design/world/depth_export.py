@@ -163,7 +163,8 @@ class Depth:
     def ties(self, people_by):
         """[{a, b, kind, s}] for the game's Ties writers (WorldBuilder._step_ties); master pairs travel as `master`."""
         pairs = {}
-        skipped = 0
+        skipped_missing = 0
+        skipped_dead = 0
         for p in self.people_src:
             if not p.get("alive"):
                 continue
@@ -176,8 +177,11 @@ class Depth:
                 if k == "su_do":
                     continue   # the current pair is the person's `master` field (Ties.set_master)
                 o = people_by.get(to)
-                if o is None or not o.get("alive"):
-                    skipped += 1
+                if o is None:
+                    skipped_missing += 1
+                    continue
+                if not o.get("alive"):
+                    skipped_dead += 1
                     continue
                 s = 0
                 if dk in ("former_master", "former_disciple"):
@@ -197,23 +201,41 @@ class Depth:
                 if old is None or rank > old[0]:
                     pairs[key] = (rank, {"a": a, "b": b, "kind": k, "s": s})
         out = [v[1] for v in pairs.values()]
-        # the cap (16, every authored person is notable): pinned ties stay; soft ties are kept by strength
-        count = {}
-        for t in out:
-            for x in (t["a"], t["b"]):
-                count[x] = count.get(x, 0) + 1
-        for person, n in sorted(count.items()):
-            masters = 1 if people_by.get(person, {}).get("master") else 0
-            over = n + masters - depth_gap.TIE_CAP
-            if over <= 0:
+        # the cap (16, every authored person is notable): pinned ties stay; soft-only ties (including debt) are kept by
+        # strength up to soft_limit = max(soft_reserve.notable=4, cap_notable=16 - pinned_count) (ties.gd:107,167,222).
+        su_do_pairs = set()
+        for k, rec in people_by.items():
+            if not rec.get("alive"):
                 continue
-            soft = sorted((t for t in out if person in (t["a"], t["b"]) and t["kind"] in SOFT_START), key=lambda t: t["s"])
-            for t in soft[:over]:
-                out.remove(t)
-            self.ex.warn("depth person %s: %d ties over the cap of %d; %d soft ties trimmed by strength"
-                         % (person, over, depth_gap.TIE_CAP, min(over, len(soft))))
-        if skipped:
-            self.ex.warn("%d depth ties name someone not in the world yet (their sect is not exported)" % skipped)
+            m = rec.get("master")
+            if m and m != k and people_by.get(m, {}).get("alive"):
+                su_do_pairs.add((min(k, m), max(k, m)))
+        pinned_pairs = su_do_pairs | {tuple(sorted((t["a"], t["b"]))) for t in out if t["kind"] in depth_gap.PINNED}
+        pinned_count = {}
+        for a, b in pinned_pairs:
+            pinned_count[a] = pinned_count.get(a, 0) + 1
+            pinned_count[b] = pinned_count.get(b, 0) + 1
+        while True:
+            soft_people = sorted({x for t in out if tuple(sorted((t["a"], t["b"]))) not in pinned_pairs for x in (t["a"], t["b"])})
+            trimmed_any = False
+            for person in soft_people:
+                soft_lim = max(4, depth_gap.TIE_CAP - pinned_count.get(person, 0))
+                soft_only = [t for t in out if person in (t["a"], t["b"]) and tuple(sorted((t["a"], t["b"]))) not in pinned_pairs]
+                over = len(soft_only) - soft_lim
+                if over <= 0:
+                    continue
+                soft_only.sort(key=lambda t: (t["s"], t["a"], t["b"]))
+                for t in soft_only[:over]:
+                    out.remove(t)
+                trimmed_any = True
+                self.ex.warn("depth person %s: %d soft ties over soft_limit %d (pinned %d, cap %d); %d trimmed by strength"
+                             % (person, over, soft_lim, pinned_count.get(person, 0), depth_gap.TIE_CAP, over))
+            if not trimmed_any:
+                break
+        if skipped_missing:
+            self.ex.warn("%d depth ties name someone not in the world yet (their sect is not exported)" % skipped_missing)
+        if skipped_dead:
+            self.ex.warn("%d depth ties name a dead person (ties live between living cultivators only)" % skipped_dead)
         out.sort(key=lambda t: (t["a"], t["b"]))
         return out
 
@@ -234,26 +256,29 @@ class Depth:
     # -- events --------------------------------------------------------------------------------------------------
     def events(self, people_by):
         out = []
+        seen_paths = set()
         for k in self.keys:
-            p = os.path.join(D, "events", "%s.events.json" % k)
-            if not os.path.exists(p):
-                continue
-            for e in load(p)["events"]:
-                rec = {"id": e["id"], "tier": e.get("tier") or "annal", "year": int(e["year"]), "kind": e["kind"],
-                       "people": [x for x in e.get("people", []) if x in people_by],
-                       "sects": e.get("sects", []), "text_vi": e["text_vi"], "text_en": e.get("text_en", "")}
-                if e.get("place") is not None:
-                    if e["place"] not in self.place_ids:
-                        self.ex.err("event %s: place %r is not a place id" % (e["id"], e["place"]))
-                    rec["place"] = e["place"]
-                if e.get("secret") or e.get("tier") == "hidden":
-                    rec["secret"] = True
-                if e.get("story_kind"):
-                    rec["story_kind"] = e["story_kind"]
-                missing = [x for x in e.get("people", []) if x not in people_by]
-                if missing:
-                    self.ex.warn("event %s: %s not in the world yet; left out of its people" % (e["id"], ", ".join(missing)))
-                out.append(rec)
+            for cand in dict.fromkeys((k, k.replace("-", "_"))):
+                p = os.path.join(D, "events", "%s.events.json" % cand)
+                if not os.path.exists(p) or p in seen_paths:
+                    continue
+                seen_paths.add(p)
+                for e in load(p)["events"]:
+                    rec = {"id": e["id"], "tier": e.get("tier") or "annal", "year": int(e["year"]), "kind": e["kind"],
+                           "people": [x for x in e.get("people", []) if x in people_by],
+                           "sects": e.get("sects", []), "text_vi": e["text_vi"], "text_en": e.get("text_en", "")}
+                    if e.get("place") is not None:
+                        if e["place"] not in self.place_ids:
+                            self.ex.err("event %s: place %r is not a place id" % (e["id"], e["place"]))
+                        rec["place"] = e["place"]
+                    if e.get("secret") or e.get("tier") == "hidden":
+                        rec["secret"] = True
+                    if e.get("story_kind"):
+                        rec["story_kind"] = e["story_kind"]
+                    missing = [x for x in e.get("people", []) if x not in people_by]
+                    if missing:
+                        self.ex.warn("event %s: %s not in the world yet; left out of its people" % (e["id"], ", ".join(missing)))
+                    out.append(rec)
         return out
 
 

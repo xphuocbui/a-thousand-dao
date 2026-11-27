@@ -218,10 +218,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "unbroken-flesh-canon",
+     "tech": "pine-warden-staff-and-bow-canon",
      "layer": 3
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 3
+     }
+    ],
     "gear": [
      {
       "base": "loi_truong",
@@ -352,10 +357,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "unbroken-flesh-canon",
+     "tech": "pine-warden-staff-and-bow-canon",
      "layer": 2
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "cham",
@@ -502,10 +512,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "unbroken-flesh-canon",
+     "tech": "pine-warden-staff-and-bow-canon",
      "layer": 3
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 3
+     }
+    ],
     "gear": [
      {
       "base": "cham",

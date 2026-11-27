@@ -255,26 +255,156 @@ func distances(c: Character, gd: GameData) -> Dictionary:
 ## highest total scaled value, then the lowest ids. [] if none (a gated node behind a closed gate and a capability
 ## notable below its realm are never on a route).
 func path_to(c: Character, gd: GameData, target: int) -> Array:
-	if c.tree_nodes.has(target) or not accessible(c, target, gd):
+	if c.tree_nodes.has(target):
 		return []
-	var dist: Dictionary = distances(c, gd)
-	if not dist.has(target):
+	var tnd: Dictionary = nodes.get(target, {})
+	if tnd.is_empty():
 		return []
-	var order: Array = dist.keys().filter(func(k): return int(dist[k]) > 0 and int(dist[k]) <= int(dist[target]))
-	order.sort_custom(func(a, b): return int(dist[a]) < int(dist[b]) if dist[a] != dist[b] else a < b)
-	var best: Dictionary = {}
-	for id in order:
-		var value: float = node_value(c, gd, id)
-		var chosen: Dictionary = {}
-		for nb in neighbors(id):
-			if int(dist.get(nb, -9)) != int(dist[id]) - 1:
+	var gate: bool = gate_open(c.linh_can, gd)
+	if bool(tnd.gated) and not gate:
+		return []
+	var cfg: Dictionary = gd.tree_config()
+	var rmin: int = int(cfg.cap_realm_min)
+	var below_cap: bool = c.realm_index < rmin
+	if below_cap and tnd.has("cap") and int(tnd["cap"]) > 0:
+		return []
+
+	# Bounded forward BFS: stops as soon as `target` is discovered at `target_dist`. Because BFS pops by distance,
+	# every node at distance <= target_dist - 1 is already in `dist` with its exact shortest distance.
+	var dist: Dictionary = {}
+	var queue: Array[int] = []
+	for a in c.tree_nodes:
+		var ai: int = int(a)
+		if not dist.has(ai):
+			dist[ai] = 0
+			queue.append(ai)
+	var head: int = 0
+	var target_dist: int = -1
+	while head < queue.size():
+		var cur: int = queue[head]
+		head += 1
+		var next_d: int = int(dist[cur]) + 1
+		var cur_nd: Dictionary = nodes.get(cur, {})
+		for nb in cur_nd.get("links", []):
+			if dist.has(nb):
 				continue
-			var prior: Dictionary = best.get(nb, {"value": 0.0, "path": []})
-			var cand: Dictionary = {"value": float(prior.value) + value, "path": prior.path + [id]}
-			if chosen.is_empty() or _better(cand, chosen):
-				chosen = cand
-		best[id] = chosen
+			var nd: Dictionary = nodes[nb]
+			if bool(nd.gated) and not gate:
+				continue
+			if below_cap and nd.has("cap") and int(nd["cap"]) > 0:
+				continue
+			dist[nb] = next_d
+			if nb == target:
+				target_dist = next_d
+				break
+			queue.append(nb)
+		if target_dist >= 0:
+			break
+	if target_dist < 0:
+		return []
+	if target_dist == 1:
+		return [target]
+
+	# Backward BFS from `target` down to distance 1: keeps only nodes on at least one shortest path to `target`.
+	var layers: Array = []
+	layers.resize(target_dist + 1)
+	for i in range(target_dist + 1):
+		layers[i] = []
+	layers[target_dist] = [target]
+	var in_dag: Dictionary = {target: true}
+	for d in range(target_dist, 1, -1):
+		var prev_layer: Array = layers[d - 1]
+		var want: int = d - 1
+		for cur in layers[d]:
+			for nb in nodes[cur].links:
+				if not in_dag.has(nb) and int(dist.get(nb, -9)) == want:
+					in_dag[nb] = true
+					prev_layer.append(nb)
+
+	# Forward DP over the pruned shortest-path DAG only, with hoisted config and per-area scale cache.
+	var fx: Dictionary = gd.element_effects()
+	var parents: Dictionary = gd.attributes().linh_can.get("variant_parents", {})
+	var road_purity: float = float(cfg.road_purity)
+	var purity_price: float = float(cfg.purity_price)
+	var scales: Dictionary = {}
+	var best: Dictionary = {}
+	for d in range(1, target_dist + 1):
+		var prev_d: int = d - 1
+		for id in layers[d]:
+			var value: float = _node_value_cached(c.linh_can, gd, id, fx, parents, gate, road_purity, purity_price, scales)
+			if d == 1:
+				best[id] = {"value": 0.0 + value, "path": [id]}
+				continue
+			var chosen_val: float = 0.0
+			var chosen_prior_path: Array = []
+			var has_chosen: bool = false
+			for nb in nodes[id].links:
+				if int(dist.get(nb, -9)) != prev_d:
+					continue
+				var prior: Dictionary = best[nb]
+				var cand_val: float = float(prior.value) + value
+				var prior_path: Array = prior.path
+				if not has_chosen:
+					chosen_val = cand_val
+					chosen_prior_path = prior_path
+					has_chosen = true
+				elif not is_equal_approx(cand_val, chosen_val):
+					if cand_val > chosen_val:
+						chosen_val = cand_val
+						chosen_prior_path = prior_path
+				elif prior_path < chosen_prior_path:
+					chosen_val = cand_val
+					chosen_prior_path = prior_path
+			best[id] = {"value": chosen_val, "path": chosen_prior_path + [id]}
 	return best[target].path
+
+
+func _node_value_cached(lc: LinhCan, gd: GameData, node_id: int, fx: Dictionary, parents: Dictionary, gate: bool,
+		road_purity: float, purity_price: float, scales: Dictionary) -> float:
+	var nd: Dictionary = nodes[node_id]
+	var total: float = 0.0
+	if nd.has("mods"):
+		for m in nd.mods:
+			total += float(m.w)
+		var ak: String = str(nd.get("area", "exact"))
+		var sc: float
+		if scales.has(ak):
+			sc = float(scales[ak])
+		else:
+			sc = _node_scale_cached(nd, lc, gd, fx, parents, gate)
+			scales[ak] = sc
+		total *= sc
+	if nd.has("grants"):
+		for gid in nd.grants:
+			total += float(nd.grants[gid]) * road_purity * purity_price
+	return total
+
+
+func _node_scale_cached(nd: Dictionary, lc: LinhCan, gd: GameData, fx: Dictionary, parents: Dictionary, gate: bool) -> float:
+	match int(nd.get("area_kind", AREA_EXACT)):
+		AREA_ELEMENT:
+			return _element_scale_cached(str(nd.area_ids[0]), lc, fx, parents)
+		AREA_VARIANT:
+			return _rate(lc.variants.has(str(nd.area_ids[0])), lc.purity(str(nd.area_ids[0])), fx)
+		AREA_BORDER:
+			return (_element_scale_cached(str(nd.area_ids[0]), lc, fx, parents) + _element_scale_cached(str(nd.area_ids[1]), lc, fx, parents)) / 2.0
+		AREA_CHAOS:
+			if lc.variants.has(CHAOS):
+				return _rate(true, lc.purity(CHAOS), fx)
+			if gate:
+				return _rate(true, lc.purity(lc.weakest_element(gd)), fx)
+			return _rate(false, lc.purity(CHAOS), fx)
+	return 1.0
+
+
+static func _element_scale_cached(e: String, lc: LinhCan, fx: Dictionary, parents: Dictionary) -> float:
+	var owned: bool = lc.elements.has(e)
+	var best: float = lc.purity(e)
+	for v in lc.variants.keys():
+		if parents.get(v, []).has(e):
+			owned = true
+			best = maxf(best, lc.purity(str(v)))
+	return _rate(owned, best, fx)
 
 
 static func _better(a: Dictionary, b: Dictionary) -> bool:

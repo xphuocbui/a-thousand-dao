@@ -122,10 +122,6 @@
     },
     "aux": [
      {
-      "tech": "hundred-herb-mending-scripture",
-      "layer": 9
-     },
-     {
       "tech": "sweet-spring-wine-rite",
       "layer": 8
      }
@@ -277,10 +273,6 @@
      {
       "tech": "sweet-spring-wine-rite",
       "layer": 9
-     },
-     {
-      "tech": "still-moon-tide-scripture",
-      "layer": 4
      }
     ],
     "gear": [

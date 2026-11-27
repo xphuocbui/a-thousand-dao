@@ -556,7 +556,9 @@ class Export:
         tiers = {t["rank"]: t for t in cp["tiers"]}
         arts = load(os.path.join(ROOT, "assets", "data", "items_artifacts.json"))
         bases = {b["id"] for b in arts["bases"]}
-        named = {n["id"] for n in load(os.path.join(ROOT, "assets", "data", "items_named.json"))["named"]}
+        named = {n["id"]: n for n in load(os.path.join(ROOT, "assets", "data", "items_named.json"))["named"]}
+        rarity_offset = int(arts["named"]["rarity_offset"])
+        unique_rarity_min = int(arts["named"]["unique_rarity_min"])
         dmap = load(os.path.join(ROOT, "assets", "data", "dao_do_map.json"))
         nodes = {int(n["id"]): n for n in dmap["nodes"]}
         starts = set(dmap["starts"].keys())
@@ -619,11 +621,16 @@ class Export:
                 self.err("%s: at most 2 auxiliary techniques (AC-CP-42)" % where)
             for g in b.get("gear", []):
                 if "named" in g:
-                    if g["named"] not in named:
-                        self.err("%s: named item '%s' does not exist" % (where, g["named"]))
-                    elif g["named"] in used_named:
-                        self.err("%s: named item '%s' is already %s's" % (where, g["named"], used_named[g["named"]]))
-                    used_named[g["named"]] = key
+                    nid = g["named"]
+                    rec = named.get(nid)
+                    if rec is None:
+                        self.err("%s: named item '%s' does not exist" % (where, nid))
+                    else:
+                        is_unique = bool(rec.get("unique", False)) or int(rec.get("grade", 0)) + rarity_offset >= unique_rarity_min
+                        if is_unique:
+                            if nid in used_named:
+                                self.err("%s: named item '%s' is already %s's" % (where, nid, used_named[nid]))
+                            used_named[nid] = key
                 elif g.get("base") not in bases:
                     self.err("%s: artifact base '%s' does not exist" % (where, g.get("base")))
                 elif not 0 <= int(g.get("grade", 1)) < len(arts["grades"]):

@@ -6908,9 +6908,7 @@
       "name": "Censer Smoke Manual (Lô Yên Quyết)",
       "tier": 0,
       "tech_kind": "secret",
-      "names": [
-        "hoa"
-      ],
+      "names": [],
       "layers": 6,
       "bonuses": [],
       "passives": [

@@ -215,7 +215,7 @@ func test_commons_stay_in_their_tiers_and_authored_fill_the_rest() -> void:
 	assert_true(common.names.size() <= 2, "at most 2 elements")
 	var earth: Dictionary = items.cong_phap(r, 2, ["hoa"])
 	assert_eq(earth.origin, "authored", "Earth is authored")
-	assert_eq(earth.names, ["hoa"], "names the element")
+	assert_true(earth.names.has("hoa"), "names the requested element")
 
 
 func test_every_authored_template_fits_its_tier() -> void:
@@ -330,3 +330,42 @@ func test_element_free_main_and_secret_are_usable_and_scale_with_strongest_root(
 	assert_eq(lines.size(), 2, "both element-free techniques grant bonuses")
 	assert_near(lines[0].value, 10.0 * (0.3 + 0.7 * 5.0 / 8.0) * (0.5 + 0.86), 1e-6, "element-free main bonus uses strongest purity")
 	assert_near(lines[1].value, 8.0 * 1.0 * (0.5 + 0.86) * 1.0, 1e-6, "element-free secret bonus uses strongest purity and neutral harmony")
+
+
+func test_rule8_usable_if_at_least_one_named_element_owned_ac_cp_07() -> void:
+	var gd := game_data()
+	var dual_def := _def(1, "main", ["kim", "loi"], [{"stat": "attack_pct", "value": 10.0}])
+	var body_def := _def(1, "body", [])
+	var free_def := _def(1, "main", [])
+
+	# (a) [kim] root CAN use a [kim, loi] technique, and avg_purity == purity("kim").
+	var kim_only := _in_realm(TestFixtures.character({"kim": 68}), 1)
+	assert_true(CongPhap.usable(kim_only, dual_def), "[kim] root can use [kim, loi]")
+	assert_near(CongPhap.avg_purity(kim_only, dual_def), 68.0, 1e-6, "[kim] avg_purity equals purity(kim)")
+	var e_kim := _give(kim_only, "kl", dual_def, 6)
+	assert_true(CongPhap.set_slot(kim_only, gd, "main", 0, "kl").ok, "[kim] can slot [kim, loi]")
+	assert_near(CongPhap.tech_one(kim_only, gd, e_kim), 2.0 * 1.15 * 0.68, 1e-6, "[kim] tech_one reads purity(kim)")
+
+	# (b) [moc] root CANNOT use a [kim, loi] technique (usable == false, avg_purity == 0.0).
+	var moc_only := _in_realm(TestFixtures.character({"moc": 75}), 1)
+	assert_false(CongPhap.usable(moc_only, dual_def), "[moc] root cannot use [kim, loi]")
+	assert_eq(CongPhap.avg_purity(moc_only, dual_def), 0.0, "[moc] avg_purity on [kim, loi] is 0.0")
+	_give(moc_only, "kl", dual_def, 1)
+	assert_false(CongPhap.set_slot(moc_only, gd, "main", 0, "kl").ok, "[moc] cannot slot [kim, loi]")
+	# Road purity on an unowned id does not grant ownership for Rule 8 usability or avg_purity.
+	moc_only.linh_can.add_road_purity(gd, "kim", 15.0)
+	assert_false(CongPhap.usable(moc_only, dual_def), "unowned road purity does not satisfy Rule 8")
+	assert_eq(CongPhap.avg_purity(moc_only, dual_def), 0.0, "unowned road purity excluded from avg_purity")
+
+	# (c) names == [] and body remain always usable.
+	assert_true(CongPhap.usable(moc_only, free_def), "names == [] is always usable")
+	assert_true(CongPhap.usable(moc_only, body_def), "body is always usable")
+	assert_near(CongPhap.avg_purity(moc_only, free_def), 75.0, 1e-6, "element-free main reads strongest purity")
+	assert_eq(CongPhap.avg_purity(moc_only, body_def), 0.0, "body avg_purity stays 0.0")
+
+	# (d) Dual-root [kim, loi] averages both owned purities on a [kim, loi] technique.
+	var dual_root := _in_realm(TestFixtures.character({"kim": 64, "hoa": 100}), 1)
+	dual_root.linh_can.variants = {"loi": 80.0}
+	dual_root.linh_can.recompute_derived(gd)
+	assert_true(CongPhap.usable(dual_root, dual_def), "[kim, loi] root can use [kim, loi]")
+	assert_near(CongPhap.avg_purity(dual_root, dual_def), 72.0, 1e-6, "[kim, loi] averages both owned purities: (64 + 80) / 2")

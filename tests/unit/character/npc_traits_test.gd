@@ -45,7 +45,7 @@ func test_the_built_world_gives_every_person_traits() -> void:
 	for p in people:
 		assert_eq(Array(p.get("npc_traits", {}).get("personality", [])).size(), 3, "%s has three personality traits" % p.id)
 	var head: Dictionary = db.get_record("people", str(db.find("sects", func(s): return str(s.get("key", "")) == "thien_xu")[0].leader_id))
-	assert_eq(head.npc_traits.personality, ["honest", "just", "cautious"], "Thiên Xu's authored head keeps the authored traits")
+	assert_eq(head.npc_traits.personality, ["arbitrary", "cautious", "calm"], "Thiên Xu's authored head keeps the authored traits")
 
 
 func test_gained_traits_grant_refresh_replace_and_fade() -> void:

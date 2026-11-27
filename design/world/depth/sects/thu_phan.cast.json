@@ -283,8 +283,8 @@
     },
     "aux": [
      {
-      "tech": "grave-sweeping-chant",
-      "layer": 6
+      "tech": "jade-of-resentment-ward",
+      "layer": 8
      }
     ],
     "gear": [
@@ -418,12 +418,7 @@
      "tech": "autumn-grave-canon",
      "layer": 7
     },
-    "aux": [
-     {
-      "tech": "grave-sweeping-chant",
-      "layer": 6
-     }
-    ],
+    "aux": [],
     "gear": [
      {
       "base": "ky",
@@ -550,12 +545,7 @@
      "tech": "autumn-grave-canon",
      "layer": 6
     },
-    "aux": [
-     {
-      "tech": "grave-sweeping-chant",
-      "layer": 6
-     }
-    ],
+    "aux": [],
     "gear": [
      {
       "named": "tp-grave-drum"
@@ -768,12 +758,7 @@
      "tech": "autumn-grave-canon",
      "layer": 5
     },
-    "aux": [
-     {
-      "tech": "grave-sweeping-chant",
-      "layer": 6
-     }
-    ],
+    "aux": [],
     "gear": [
      {
       "base": "dang",

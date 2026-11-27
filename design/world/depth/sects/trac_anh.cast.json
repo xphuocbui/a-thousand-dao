@@ -115,17 +115,17 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "canglang-body-canon",
-     "layer": 7
+     "tech": "still-moon-tide-scripture",
+     "layer": 9
     },
     "aux": [
      {
-      "tech": "whale-line-harpoon",
+      "tech": "canglang-body-canon",
       "layer": 7
      },
      {
-      "tech": "undertow-litany",
-      "layer": 6
+      "tech": "whale-line-harpoon",
+      "layer": 7
      }
     ],
     "gear": [
@@ -251,10 +251,14 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "hundred-echo-palm-scripture",
+     "tech": "still-moon-tide-scripture",
      "layer": 9
     },
     "aux": [
+     {
+      "tech": "hundred-echo-palm-scripture",
+      "layer": 9
+     },
      {
       "tech": "canglang-body-canon",
       "layer": 6
@@ -395,10 +399,14 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "canglang-body-canon",
+     "tech": "still-moon-tide-scripture",
      "layer": 6
     },
     "aux": [
+     {
+      "tech": "canglang-body-canon",
+      "layer": 6
+     },
      {
       "tech": "whale-line-harpoon",
       "layer": 4
@@ -538,10 +546,14 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "canglang-body-canon",
+     "tech": "still-moon-tide-scripture",
      "layer": 6
     },
     "aux": [
+     {
+      "tech": "canglang-body-canon",
+      "layer": 6
+     },
      {
       "tech": "whale-line-harpoon",
       "layer": 7
@@ -637,10 +649,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "canglang-body-canon",
-     "layer": 5
+     "tech": "still-moon-tide-scripture",
+     "layer": 6
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "canglang-body-canon",
+      "layer": 5
+     }
+    ],
     "gear": [
      {
       "base": "ngoc_boi",
@@ -711,10 +728,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "canglang-body-canon",
-     "layer": 4
+     "tech": "nine-temper-scripture",
+     "layer": 6
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "canglang-body-canon",
+      "layer": 4
+     }
+    ],
     "gear": [
      {
       "base": "thuan",
@@ -782,10 +804,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "canglang-body-canon",
-     "layer": 2
+     "tech": "still-moon-tide-scripture",
+     "layer": 3
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "canglang-body-canon",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "mao",
@@ -845,10 +872,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "unbroken-flesh-canon",
-     "layer": 4
+     "tech": "still-moon-tide-scripture",
+     "layer": 3
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 4
+     }
+    ],
     "gear": [
      {
       "base": "giap",
@@ -913,10 +945,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "unbroken-flesh-canon",
-     "layer": 2
+     "tech": "verdant-cycle-scripture",
+     "layer": 3
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "giap",
@@ -982,10 +1019,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "unbroken-flesh-canon",
+     "tech": "still-moon-tide-scripture",
      "layer": 3
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "unbroken-flesh-canon",
+      "layer": 3
+     }
+    ],
     "gear": [
      {
       "base": "ngoc_boi",
@@ -1051,10 +1093,15 @@
    "build": {
     "archetype": "the_tu",
     "main": {
-     "tech": "canglang-body-canon",
-     "layer": 2
+     "tech": "still-moon-tide-scripture",
+     "layer": 3
     },
-    "aux": [],
+    "aux": [
+     {
+      "tech": "canglang-body-canon",
+      "layer": 2
+     }
+    ],
     "gear": [
      {
       "base": "giap",

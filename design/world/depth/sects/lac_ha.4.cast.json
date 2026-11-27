@@ -465,7 +465,7 @@
     },
     "aux": [
      {
-      "tech": "evening-song-of-the-boats",
+      "tech": "ruin-ledger-scripture",
       "layer": 4
      }
     ],
@@ -905,12 +905,7 @@
      "tech": "mountain-heart-canon",
      "layer": 8
     },
-    "aux": [
-     {
-      "tech": "evening-song-of-the-boats",
-      "layer": 5
-     }
-    ],
+    "aux": [],
     "gear": [
      {
       "base": "dao_bao",
@@ -1665,7 +1660,8 @@
    "root": {
     "elements": {
      "tho": 45,
-     "thuy": 40
+     "thuy": 40,
+     "moc": 30
     },
     "variants": {}
    },

@@ -142,10 +142,6 @@
      {
       "tech": "rite-of-the-grain-rain",
       "layer": 10
-     },
-     {
-      "tech": "verdant-cycle-scripture",
-      "layer": 8
      }
     ],
     "gear": [
@@ -417,12 +413,7 @@
      "tech": "good-rain-canon",
      "layer": 6
     },
-    "aux": [
-     {
-      "tech": "verdant-cycle-scripture",
-      "layer": 6
-     }
-    ],
+    "aux": [],
     "gear": [
      {
       "base": "ho_lo",
