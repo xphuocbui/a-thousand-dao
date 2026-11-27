@@ -1,0 +1,36 @@
+{
+ "owner": "hermits-sages",
+ "written": {
+  "techniques": 6,
+  "arts": 11,
+  "items": 13,
+  "sets": 3,
+  "effects": 10,
+  "stand_ins": 7,
+  "beasts": 0
+ },
+ "deviations": 15,
+ "decisions": [
+  "Keep pill-smoke in committed part-sect-market-folk.json without duplicating; purple-smoke-furnace-canon carries it at unlock_layer 4.",
+  "Resolve 7 stand-ins: new T3 Metal method lone-crane-metal-canon for tu_khong_hac_nien, new T1 Water method vermilion-tide-breath for thu_van_trieu/trau_vong_bang/thu_tieu_chu, and committed verdant-cycle-scripture for boc_tuyet_nha/bao_tieu_que/cam_thu_nguyen.",
+  "Replace spatial words with 1v1 engine mechanics (own.composed for stand still, evade+decoy+timer haste for Walking on Still Water, single-foe stacks for AOE).",
+  "Apply R6 exceptions (arts: []) on 9 weapon/body_gear/ward_gear signature items, rarity 5 on the 3 grade-4 treasures, and sealed abode where strings on A-1/A-4/A-5.",
+  "Map hs-between-the-notes-flute modifier scope from 'song' to ['artifact'] matching tx-hidden-string-zither so lint_items.py passes cleanly.",
+  "Match both tags: ['fan'] and art_id: 'fan-gust' on Noon on One Side.",
+  "Model Where All Waters Return and The Blue Sea Becomes Mulberry Fields first-hit negation via was_hit (event.amount > 0) heal (of: amount, ignore_taken: true) plus tag.tribulation refuse_down 0.2 on the vase.",
+  "Gate A Crane Crosses from the East on own.fired_within.60.tag.wind >= 1 so it sleeps in tu_khong_hac_nien's pure Metal hand and fires when a Wind art is cast."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "Purple Smoke on the Burner: out-of-fight alchemy craft bonus and abode A-2 story choice (not_run)",
+  "Where All Waters Return & The World Before: typical hoa_than foe never drops mac_quy_khu below 67%/50% HP in default sect_fight (verified in top_end*0.55 and tags=['tribulation'] probes)",
+  "A Crane Crosses from the East: sleeps as designed in tu_khong_hac_nien's pure Metal hand (verified firing 44 times on gian_thu_dich holding hs-lone-crane)",
+  "The Blue Sea Becomes Mulberry Fields: typical nguyen_anh foe uses no lightning hits in default sect_fight (verified firing 10/10 vs thunder_foe)"
+ ],
+ "early_promotions": [],
+ "open": [
+  "characters/engine: add element_affinity_pct to CHARACTER_MODS and GDScript StatSheet (1 open lines gap on hs-purple-smoke-furnace)",
+  "modifiers/pricing: add 'song' to lint_techniques.py TIER so hs-between-the-notes-flute can restore scope ['song'] in the serial pass",
+  "events/craft: wire out-of-fight halves of Purple Smoke on the Burner (alchemy + abode A-2), Mirror of Seas and Fields (scrying), and North-Wind Breath (abode A-1 bolt)"
+ ]
+}

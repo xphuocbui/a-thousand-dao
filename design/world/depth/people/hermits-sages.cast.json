@@ -289,7 +289,7 @@
    "build": {
     "archetype": "kiem_tu",
     "main": {
-     "tech": "thien_kim",
+     "tech": "lone-crane-metal-canon",
      "layer": 12
     },
     "aux": [

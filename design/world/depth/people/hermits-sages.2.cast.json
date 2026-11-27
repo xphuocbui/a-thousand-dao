@@ -84,7 +84,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "vermilion-tide-breath",
      "layer": 8
     },
     "aux": [
@@ -887,7 +887,7 @@
    "build": {
     "archetype": "linh_thuc_su",
     "main": {
-     "tech": "huyen_thuy",
+     "tech": "vermilion-tide-breath",
      "layer": 5
     },
     "aux": [],
@@ -955,7 +955,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "hoang_thuy",
+     "tech": "vermilion-tide-breath",
      "layer": 3
     },
     "aux": [],
@@ -1028,7 +1028,7 @@
    "build": {
     "archetype": "kiem_tu",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "verdant-cycle-scripture",
      "layer": 2
     },
     "aux": [],
@@ -1092,7 +1092,7 @@
    "build": {
     "archetype": "dan_su",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "verdant-cycle-scripture",
      "layer": 3
     },
     "aux": [],
@@ -1174,7 +1174,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "hoang_moc",
+     "tech": "verdant-cycle-scripture",
      "layer": 5
     },
     "aux": [],
