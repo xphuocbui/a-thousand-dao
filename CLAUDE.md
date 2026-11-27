@@ -80,3 +80,9 @@ elsewhere in the repo, so they are restated here rather than lost:
 - **Helpers in `.claude/scripts/` emit observations, never verdicts.** A script
   that scores or judges will eventually contradict a mode or override it cannot
   see. (Cited by `artifact-check.sh` and `adr-dep-graph.sh`.)
+
+## Two Studio Layers
+
+This repo also carries the Antigravity port of the studio (`.agents/`, `AGENTS.md`,
+`GEMINI.md`). A project rule or skill added to `.claude/` goes in `.agents/` too.
+Update both with `/update-studio`; how it fits and how to fix it: `docs/studio-layers.md`.

@@ -2,6 +2,8 @@
 
 `AGENTS.md` and `.agents/` (Antigravity Game Studios, same 1.3.0 base as `.claude/`)
 carry the studio rules, skills and agents. This file adds what is specific to this repo.
+How the two studio layers fit, how to update them (`/update-studio`) and how to fix
+them: `docs/studio-layers.md`.
 
 ## Read first, every session
 1. The user's standing rules: `C:\Users\xphuo\.claude\projects\C--Users-xphuo-IdeaProjects-my-game\memory\MEMORY.md`,
