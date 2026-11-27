@@ -1,0 +1,125 @@
+[
+ {
+  "id": "star-pacing-primer",
+  "name": "Star-Pacing Primer (Bộ Cương Quyết)",
+  "tier": 0,
+  "tech_kind": "main",
+  "names": ["tho", "kim"],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {"key": "defense_pct", "value": 4, "scope": []},
+   {"key": "stack_duration_pct", "value": 10, "scope": ["tho", "debuff"]},
+   {"key": "attack_pct", "value": 3, "scope": ["kim"]}
+  ],
+  "abilities": [
+   {"ability_id": "seven-steps", "unlock_layer": 1}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "star-pacing-primer",
+  "family": "earth",
+  "owner": "cung_tinh",
+  "rank": "ngoai_mon",
+  "concept": "The outer gate's method is a walk: the novice paces the seven stars of the Dipper on a pattern cut into the abbey's courtyard, one step to a breath, drawing Earth up through the feet or Metal down from the night air. The Daoists call it walking the handle (bộ cương đạp đẩu). In a fight the holder's footwork lays a small pattern (a Field); while it is up it steadies them.",
+  "lore": "As old as the abbey. Every Daoist of Củng Tinh has walked the courtyard pattern at dusk every day of their lives; the stones are worn a hand deep where the seventh star is."
+ },
+ {
+  "id": "bowing-stars-canon",
+  "name": "Bowing Stars Canon (Củng Tinh Kinh)",
+  "tier": 2,
+  "tech_kind": "main",
+  "names": ["tho"],
+  "layers": 12,
+  "bonuses": [
+   {"stat": "defense_pct", "value": 10},
+   {"stat": "linh_luc_pct", "value": 12}
+  ],
+  "passives": [
+   {"key": "stack_effect_pct", "value": 14, "scope": ["tho", "debuff"]},
+   {"key": "stack_duration_pct", "value": 16, "scope": ["tho", "debuff"]},
+   {"key": "status_duration_pct", "value": 12, "scope": ["curse"]},
+   {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []},
+   {"key": "attack_pct", "value": 6, "scope": ["tho"]}
+  ],
+  "abilities": [
+   {"ability_id": "the-stars-bow", "unlock_layer": 1},
+   {"ability_id": "fixed-pole", "unlock_layer": 2}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "bowing-stars-canon",
+  "family": "earth",
+  "owner": "cung_tinh",
+  "rank": "noi_mon",
+  "concept": "Named from the Analects: the pole star keeps its place and the stars bow to it. The cultivator makes their dantian a fixed point and lets the qi around them turn on it, slowly, like the sky on the pole. In a fight the holder stays Composed; Earth weight gathers around them, the foe is slowed and its soonest art waits 0.3 s, and the longer the holder stays Composed, the heavier their strikes become.",
+  "lore": "Written by the founder Lệnh Hồ Chiêm in the abbey's first century, after thirty years of watching the Dipper turn in the lake of Tinh Lạc Hồ (A205). It is the same idea as the Pivot's own, older and slower."
+ },
+ {
+  "id": "armillary-array-canon",
+  "name": "Armillary Array Canon (Tuyền Cơ Trận Kinh)",
+  "tier": 1,
+  "tech_kind": "secret",
+  "names": ["tho", "kim"],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "than_thuc_pct", "value": 8}
+  ],
+  "passives": [
+   {"key": "stack_duration_pct", "value": 15, "scope": ["tho", "debuff"]},
+   {"key": "art_cost_pct", "value": -6, "scope": ["formation"]},
+   {"key": "attack_pct", "value": 5, "scope": ["tho"]},
+   {"key": "ward_efficiency_pct", "value": 5, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "ring-of-the-hour", "unlock_layer": 1},
+   {"ability_id": "the-handle-turns", "unlock_layer": 2}
+  ],
+  "effects": [
+   {
+    "name": "The Twelve Hours (Thập Nhị Thời)",
+    "unlock_layer": 4,
+    "passive_art": true,
+    "rule": "A passive art (authored wish d16). The armillary counts the fight in hours of 5 s, and each ring belongs to the hour it was laid. A ring deals 30 % more within its own hour; when rings of three different hours stand at once, the armillary turns: every ring is refreshed, and each further hour adds 6 % more damage and 1 Slowed Time stack on the foe each second. Its engine record is in effects/cung_tinh.effects.json; the loader does not yet attach a technique's Effects (pending word technique-effects)."
+   }
+  ],
+  "origin": "authored",
+  "suite": "armillary-array-canon",
+  "family": "earth",
+  "owner": "cung_tinh",
+  "rank": "noi_mon",
+  "concept": "The abbey's formation craft. Arrays are laid as rings, like the rings of the armillary, each ring a star-hour. In a fight an array laid by it turns as the fight runs, one star-hour to every 5 s, and each ring is strongest in the hour it was laid. In a fight the holder throws rings of star-iron discs that lock together around a foe.",
+  "lore": "Taught with the star iron of Vẫn Tinh Khoáng (A206): the abbey's array discs are cut from it, and they ring faintly when an array turns."
+ },
+ {
+  "id": "star-lake-mirror",
+  "name": "Mirror of the Star-Fallen Lake (Tinh Lạc Kính Quyết)",
+  "tier": 2,
+  "tech_kind": "secret",
+  "names": ["tho", "kim"],
+  "layers": 12,
+  "bonuses": [
+   {"stat": "than_thuc_pct", "value": 12},
+   {"stat": "tam_ma_resist_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "evade_pct", "value": 4, "scope": []},
+   {"key": "soul_res_pct", "value": 10, "scope": []},
+   {"key": "than_thuc_pct", "value": 4, "scope": []},
+   {"key": "status_duration_pct", "value": 10, "scope": ["curse"]},
+   {"key": "linh_luc_regen_inc_pct", "value": 3, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "read-the-water", "unlock_layer": 1},
+   {"ability_id": "the-star-goes-out", "unlock_layer": 2}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "star-lake-mirror",
+  "family": "earth",
+  "owner": "cung_tinh",
+  "rank": "tong_chu",
+  "concept": "The head's divination. The holder reads the Dipper in the water of Tinh Lạc Hồ through a star-iron rim, by Earth and Metal rather than by eye, and reads in it what the armillary only points at. A holder with Light reads further in it. In a fight it shows the holder the foe's next art a moment before it comes.",
+  "lore": "Taught by the founder to Thẩm Bắc Thần. It needs only the abbey's Earth and the Metal of Vẫn Tinh's iron; Thẩm's thread of Light lets him read further in it than any head before him. It is how he saw the omen of 1188 that he has told no one."
+ }
+]

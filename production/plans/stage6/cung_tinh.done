@@ -1,0 +1,35 @@
+{
+  "owner": "cung_tinh",
+  "minutes": 55,
+  "written": {
+    "techniques": 4,
+    "arts": 7,
+    "items": 5,
+    "sets": 2,
+    "effects": 5,
+    "stand_ins": 0,
+    "beasts": 0
+  },
+  "deviations": 7,
+  "decisions": [
+    "the-handle-turns and The Twelve Hours add ring summons and refresh Earth debuffs without calling counter.set on ring, keeping charge_hours timestamps intact",
+    "ring-of-the-hour uses a 0.4 c / 14 s summon instead of a pulse free_hit so damage is not clipped to 0.25 * U_att and Composed stays active",
+    "the-stars-bow and ring-of-the-hour share both Field state ids with a field_up == 0 guard and counter handoff so multi-method holders never drop their Field",
+    "fixed-pole places its 3 s Composed heavy boost on empower alongside always L5 +25 [tho] and timer_resist +25 so act() resetting t_act does not break it",
+    "the-star-goes-out expresses its out-of-fight khi_van drop in combat via Exposed 4 s, buff strip, and 4 Earth stacks for accuracy loss",
+    "reused the batch-approved pending word technique-effects for armillary-array-canon layer 4 passive art The Twelve Hours (d16)",
+    "set rarity: 5 on ct-star-lake-mirror (kind treasure, grade 4) to satisfy lint_items.py without changing modifiers"
+  ],
+  "pending_words": [
+    "technique-effects: attach named Effects unlocked on a technique at >= unlock_layer without taking an art slot (already approved build)"
+  ],
+  "never_ran": [
+    "the-star-goes-out (khi_van drop): out-of-fight luck stat; its combat half (strip, Exposed, Metal/Earth stacks) runs in full"
+  ],
+  "early_promotions": [],
+  "open": [
+    "serial step: wire shared pending word technique-effects into export_techniques.py, fight.py, and GDScript FighterCompiler so The Twelve Hours auto-attaches",
+    "serial step / export: extend export_named.py to export kind == treasure so ct-star-lake-mirror exports at Stage 7",
+    "serial step: promoting cung_tinh's staged techniques resolves market-folk's 4 cross-owner references (phong_kinh_sa, ngu_hoa_sa, ve_van_co)"
+  ]
+}

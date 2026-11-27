@@ -19,7 +19,7 @@
    "name": "Star-Pacing Primer (Bộ Cương Quyết)",
    "tier": 0, "tech_kind": "main", "names": ["tho", "kim"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The outer gate's method is a walk: the novice paces the seven stars of the Dipper on a pattern cut into the abbey's courtyard, one step to a breath, drawing Earth up through the feet or Metal down from the night air. The Daoists call it walking the handle (bộ cương đạp đẩu). In a fight the holder's footwork lays a small pattern (a Field); while it is up it steadies them.",
-   "arts": [{"new": "Seven Steps (Thất Bộ)", "concept": "Each of your next seven arts leaves a mark; on the seventh the marks join into a Field: on rising it gives the foe one Slowed Time stack, and you take less damage while it holds.", "authored": "a1"}],
+   "arts": [{"id": "seven-steps", "new": "Seven Steps (Thất Bộ)", "concept": "Each of your next seven arts leaves a mark; on the seventh the marks join into a Field: on rising it gives the foe one Slowed Time stack, and you take less damage while it holds.", "authored": "a1"}],
    "lore": "As old as the abbey. Every Daoist of Củng Tinh has walked the courtyard pattern at dusk every day of their lives; the stones are worn a hand deep where the seventh star is.",
    "status": "proposal",
    "authored": "a1"
@@ -30,8 +30,8 @@
    "tier": 2, "tech_kind": "main", "names": ["tho"], "layers": 12, "rank": "noi_mon",
    "concept": "Named from the Analects: the pole star keeps its place and the stars bow to it. The cultivator makes their dantian a fixed point and lets the qi around them turn on it, slowly, like the sky on the pole. In a fight the holder stays Composed; Earth weight gathers around them, the foe is slowed and its soonest art waits 0.3 s, and the longer the holder stays Composed, the heavier their strikes become.",
    "arts": [
-    {"new": "The Stars Bow (Chúng Tinh Củng)", "concept": "A slow field around the holder: while it is up, the foe's soonest art waits 0.3 s, and the foe is slowed and gains Earth stacks each second."},
-    {"new": "Fixed Pole (Định Cực)", "concept": "After 3 s Composed, your Earth arts deal more damage and you have more timer resistance; it resets when you stop being Composed.", "authored": "a1"}
+    {"id": "the-stars-bow", "new": "The Stars Bow (Chúng Tinh Củng)", "concept": "A slow field around the holder: while it is up, the foe's soonest art waits 0.3 s, and the foe is slowed and gains Earth stacks each second."},
+    {"id": "fixed-pole", "new": "Fixed Pole (Định Cực)", "concept": "After 3 s Composed, your Earth arts deal more damage and you have more timer resistance; it resets when you stop being Composed.", "authored": "a1"}
    ],
    "lore": "Written by the founder Lệnh Hồ Chiêm in the abbey's first century, after thirty years of watching the Dipper turn in the lake of Tinh Lạc Hồ (A205). It is the same idea as the Pivot's own, older and slower.",
    "status": "proposal",
@@ -46,8 +46,8 @@
    "tier": 1, "tech_kind": "secret", "names": ["tho", "kim"], "layers": 9, "rank": "noi_mon",
    "concept": "The abbey's formation craft. Arrays are laid as rings, like the rings of the armillary, each ring a star-hour. In a fight an array laid by it turns as the fight runs, one star-hour to every 5 s, and each ring is strongest in the hour it was laid. In a fight the holder throws rings of star-iron discs that lock together around a foe.",
    "arts": [
-    {"new": "Ring of the Hour (Thời Hoàn)", "concept": "Lays a ring array around a foe: while inside they deal less damage and take Earth damage at each tick; a second ring laid on the first doubles both."},
-    {"new": "The Handle Turns (Bính Chuyển)", "concept": "Rotates every array the holder has laid, moving them a step and refreshing their duration."},
+    {"id": "ring-of-the-hour", "new": "Ring of the Hour (Thời Hoàn)", "concept": "Lays a ring array around a foe: while inside they deal less damage and take Earth damage at each tick; a second ring laid on the first doubles both."},
+    {"id": "the-handle-turns", "new": "The Handle Turns (Bính Chuyển)", "concept": "Rotates every array the holder has laid, moving them a step and refreshing their duration."},
     {"new": "The Twelve Hours (Thập Nhị Thời)", "concept": "A passive art. Each ring belongs to the 5 s hour of the fight in which it was laid and is strongest in that hour. When rings of three different hours stand at once, the armillary turns: every ring is refreshed, and each further hour adds damage and slows the foe.", "effect": "the-twelve-hours", "authored": "d16"}
    ],
    "lore": "Taught with the star iron of Vẫn Tinh Khoáng (A206): the abbey's array discs are cut from it, and they ring faintly when an array turns.",
@@ -60,8 +60,8 @@
    "tier": 2, "tech_kind": "secret", "names": ["tho", "kim"], "layers": 12, "rank": "tong_chu",
    "concept": "The head's divination. The holder reads the Dipper in the water of Tinh Lạc Hồ through a star-iron rim, by Earth and Metal rather than by eye, and reads in it what the armillary only points at. A holder with Light reads further in it. In a fight it shows the holder the foe's next art a moment before it comes.",
    "arts": [
-    {"new": "Read the Water (Độc Thủy)", "concept": "For a few seconds the holder sees the foe's next art before it is cast: they evade or ward it far more easily, and their counter-strikes against it are critical."},
-    {"new": "The Star Goes Out (Tinh Diệt)", "concept": "Names one foe: that foe's buffs are dimmed and their luck in the fight (khí vận) is lowered for a long while."}
+    {"id": "read-the-water", "new": "Read the Water (Độc Thủy)", "concept": "For a few seconds the holder sees the foe's next art before it is cast: they evade or ward it far more easily, and their counter-strikes against it are critical."},
+    {"id": "the-star-goes-out", "new": "The Star Goes Out (Tinh Diệt)", "concept": "Names one foe: that foe's buffs are dimmed and their luck in the fight (khí vận) is lowered for a long while."}
    ],
    "lore": "Taught by the founder to Thẩm Bắc Thần. It needs only the abbey's Earth and the Metal of Vẫn Tinh's iron; Thẩm's thread of Light lets him read further in it than any head before him. It is how he saw the omen of 1188 that he has told no one.",
    "status": "proposal"

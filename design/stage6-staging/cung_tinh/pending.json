@@ -1,0 +1,18 @@
+{
+ "words": [
+  {
+   "name": "technique-effects",
+   "kind": "field",
+   "spec": "A technique's `effects` list may hold {\"name\": <library Effect name>, \"unlock_layer\": n, \"passive_art\": true, \"rule\": ...}. When a build knows the technique at layer n or above (fight.py `tech_layers`, the GDScript FighterCompiler), the loader adds that Effect from assets/data/combat_effects.json and merges its counters. Matches Thiên Xu, Lạc Hà, Thúy Vi, and Phượng Minh's pending word of the same name.",
+   "gdd_text": "Công Pháp rule (passive arts & technique effects): a technique may carry named Effects with an unlock layer; known to that layer, the Effect is always on in a fight without taking an art slot.",
+   "used_by": [
+    "armillary-array-canon",
+    "The Twelve Hours"
+   ],
+   "decision": "build",
+   "decision_reason": "Already approved 'build' in this batch (thien_xu / lac_ha / thuy_vi / phuong_minh). armillary-array-canon carries The Twelve Hours (d16) as a passive art Effect at unlock_layer 4; its runtime record lives in effects/cung_tinh.effects.json and waits for the serial step to wire technique-effects into export_techniques.py, fight.py, and GDScript FighterCompiler."
+  }
+ ],
+ "arts": [],
+ "effects": {}
+}
