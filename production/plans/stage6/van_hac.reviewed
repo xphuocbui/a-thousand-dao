@@ -1,0 +1,13 @@
+{
+ "owner": "van_hac",
+ "minutes": 6,
+ "must_fix": 2,
+ "should": 1,
+ "fixed": 3,
+ "words": {},
+ "open": [
+  "Serial step (s6-serial-b04): promote design/stage6-staging/van_hac/ files into design/ and merge effects/van_hac.effects.json into assets/data/combat_effects.json.",
+  "Treasure export: tools/design/items/export_named.py skips kind: 'treasure' (vh-tung-phong-cam) until treasure export is supported.",
+  "Stage 7: export the 3 chronicle events (N-van_hac-01..03, with N-van_hac-03 marked hidden)."
+ ]
+}

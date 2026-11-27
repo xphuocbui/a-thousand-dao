@@ -240,6 +240,66 @@
      ]
     },
     {
+     "id": "eff:The Earned Rest finish slow",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "marching-dirge"
+     },
+     "if": [
+      {
+       "read": "own.counter.earned_measures",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.status.slowed_time",
+       "op": "<=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 1,
+        "dur": 1,
+        "side": "foe",
+        "cap": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Earned Rest finish breath",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "marching-dirge"
+     },
+     "if": [
+      {
+       "read": "own.counter.earned_measures",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.status.heavy_breath",
+       "op": "<=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "status": {
+        "id": "heavy_breath",
+        "stacks": 1,
+        "dur": 1,
+        "side": "foe",
+        "cap": 1
+       }
+      }
+     ]
+    },
+    {
      "id": "eff:The Earned Rest finish",
      "on": "art_fired",
      "filter": {
@@ -264,24 +324,6 @@
         "id": "earned_halvings",
         "add": 1
        }
-      },
-      {
-       "status": {
-        "id": "slowed_time",
-        "stacks": 1,
-        "dur": 1,
-        "side": "foe",
-        "cap": 1
-       }
-      },
-      {
-       "status": {
-        "id": "heavy_breath",
-        "stacks": 1,
-        "dur": 1,
-        "side": "foe",
-        "cap": 1
-       }
       }
      ]
     },
@@ -291,6 +333,13 @@
      "filter": {
       "art_id": "the-held-rest"
      },
+     "if": [
+      {
+       "read": "foe.status.heavy_breath",
+       "op": "<=",
+       "value": 1
+      }
+     ],
      "do": [
       {
        "status": {
@@ -304,12 +353,36 @@
      ]
     },
     {
-     "id": "eff:The Earned Rest pulse",
+     "id": "held-rest-tick",
      "on": "pulse",
      "if": [
       {
        "read": "own.counter.held_rest",
        "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "held_rest",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Earned Rest pulse slow",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.held_rest",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.status.slowed_time",
+       "op": "<=",
        "value": 1
       }
      ],
@@ -322,7 +395,25 @@
         "side": "foe",
         "cap": 1
        }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Earned Rest pulse breath",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.held_rest",
+       "op": ">=",
+       "value": 1
       },
+      {
+       "read": "foe.status.heavy_breath",
+       "op": "<=",
+       "value": 1
+      }
+     ],
+     "do": [
       {
        "status": {
         "id": "heavy_breath",
@@ -498,7 +589,7 @@
   },
   "Silence After the Twelfth": {
    "rule": "The Monk's Things, full set (3 pieces): each echo the Zither sounds adds one Resonance to its foe; when you stop playing (The Held Rest), a foe with 6 or more Resonance falls into the silence: its clock stops for 1 s and its casting is 30 % slower for 3 s.",
-   "approx": "Uses stop_clock (foe, 1.0 s) + 3 stacks of Slowed Time for 3 s instead of single-tag Silence so all foe arts stall and slow.",
+   "approx": "Uses stop_clock (foe, 1.0 s) + Slowed Time x5 (30 % slower, 3 s) instead of single-tag Silence so all foe arts stall and slow.",
    "counters": [
     {
      "id": "held_rest"
@@ -531,7 +622,7 @@
       {
        "status": {
         "id": "slowed_time",
-        "stacks": 3,
+        "stacks": 5,
         "dur": 3,
         "side": "foe"
        }
@@ -574,7 +665,7 @@
       {
        "status": {
         "id": "slowed_time",
-        "stacks": 3,
+        "stacks": 5,
         "dur": 3,
         "side": "foe"
        }

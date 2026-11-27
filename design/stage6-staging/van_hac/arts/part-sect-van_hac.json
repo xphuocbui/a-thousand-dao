@@ -430,7 +430,23 @@
        "id": "held_rest",
        "set": 2
       }
-     },
+     }
+    ]
+   },
+   {
+    "id": "held-rest-slow",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "the-held-rest"
+    },
+    "if": [
+     {
+      "read": "foe.status.slowed_time",
+      "op": "<=",
+      "value": 1
+     }
+    ],
+    "do": [
      {
       "status": {
        "id": "slowed_time",
