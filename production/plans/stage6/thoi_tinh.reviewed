@@ -1,0 +1,11 @@
+{
+ "owner": "thoi_tinh",
+ "minutes": 5,
+ "must_fix": 0,
+ "should": 3,
+ "fixed": 3,
+ "words": {},
+ "open": [
+  "Serial step (s6-serial-b04): merge staged design/stage6-staging/thoi_tinh/ files into design/, merge effects/thoi_tinh.effects.json into assets/data/combat_effects.json, and run compile/GDScript parity + world export."
+ ]
+}

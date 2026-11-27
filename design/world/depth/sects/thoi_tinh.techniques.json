@@ -22,7 +22,7 @@
    "arts": [
     {"id": "quench-strike", "new": "Quench (Thối)", "concept": "A cutting strike that applies a Quench mark; a foe with three Quench marks takes extra Metal damage from the next hit and loses part of their defence for a few seconds."},
     {"id": "ninth-blow", "new": "Ninth Blow (Cửu Kích)", "concept": "Counts the holder's hits; the ninth deals heavy Metal damage and resets the count, as a blade is finished on the ninth fold."},
-    {"new": "Brittle from Its Own Blow (Tự Kích Tự Thúy)", "concept": "A passive art. Each foe hit you block gives the foe one Quench mark, at most once a second. When your hit lays a Quench mark on a foe carrying your Burn, it spends all your Burn stacks on it and lays one more Quench mark for every 3 spent.", "effect": "brittle-from-its-own-blow", "unlock_layer": 4, "authored": "d30"}
+    {"new": "Brittle from Its Own Blow (Tự Kích Tự Thúy)", "concept": "A passive art. Each hit from a foe you block gives the foe one Quench mark, at most once a second. When your hit lays a Quench mark on a foe carrying your Burn, it spends all your Burn stacks on it and lays one more Quench mark for every 3 spent.", "effect": "brittle-from-its-own-blow", "unlock_layer": 4, "authored": "d30"}
    ],
    "lore": "Written down by the founder Diêu Lạc Tinh after the first star iron was quenched in the river below the gate in 330 (A221). Inner disciples learn it the winter after they first draw a blade that rings.",
    "status": "proposal",

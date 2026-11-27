@@ -79,13 +79,13 @@
      {"read": "own.counter.fold_hits", "op": ">=", "value": 8}
     ],
     "do": [
-     {"mod": {"dmg_more": 1.2}}
+     {"mod": {"dmg_more": 1.2, "not_tags": ["trigger", "companion"]}}
     ]
    },
    {
     "id": "ninth-blow-count",
     "on": "hit_landed",
-    "filter": {"not_tags": ["trigger"]},
+    "filter": {"not_tags": ["trigger", "companion"]},
     "do": [
      {"counter": {"id": "fold_hits", "add": 1}}
     ]
@@ -93,7 +93,7 @@
    {
     "id": "ninth-blow-reset",
     "on": "hit_landed",
-    "filter": {"not_tags": ["trigger"]},
+    "filter": {"not_tags": ["trigger", "companion"]},
     "if": [
      {"read": "own.counter.fold_hits", "op": ">=", "value": 9}
     ],

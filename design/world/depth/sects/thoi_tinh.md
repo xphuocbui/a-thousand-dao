@@ -172,7 +172,7 @@ lineage is a smith's lineage in a fight too: it hardens with every hit and makes
 - **Trầm Sa Kích** (legendary `tram_sa_kich`), the gate's most famous work, lies under the Vạn Cốt Trủng (thien_xu §10).
 - The head also keeps the catalogue's Hundred-Edge Flying Sword, unworn since he took up the forge set below.
 - **Personal sets** (world-depth items pass, 2026-11-25; details in `thoi_tinh.items.json`):
-  - **Fallen Star Forge (Tinh Lạc Lô Cụ)**, a set of 3 (Cát Lưu Quang): Three Years' Tax, Star-Brand, Robe of Quenched Iron. Full set: Heat the Edge (Tôi Phong), each Fire art you fire heats your sword one step, each step giving your Metal sword arts 4 % pierce; each step fades after 3 s unless you fire another Fire art. At 5 steps or more your next sword art quenches it: a certain crit that counts as a Thunder strike on your blade (Sky Iron Sings wakes), and the steps clear.
+  - **Fallen Star Forge (Tinh Lạc Lô Cụ)**, a set of 3 (Cát Lưu Quang): Three Years' Tax, Star-Brand, Robe of Quenched Iron. Full set: Heat the Edge (Tôi Phong), each Fire art you fire heats your sword one step, each step giving your Metal sword arts 4 % pierce. Once it holds 5 steps or more, your next sword art quenches it: a certain crit that counts as a Thunder strike on your blade (Sky Iron Sings wakes), and the steps clear.
 
 ## 11. Roster
 
