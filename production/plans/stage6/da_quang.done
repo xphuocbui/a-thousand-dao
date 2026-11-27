@@ -1,0 +1,35 @@
+{
+ "owner": "da_quang",
+ "minutes": 8,
+ "written": {
+  "techniques": 2,
+  "arts": 3,
+  "items": 6,
+  "sets": 2,
+  "effects": 4,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 4,
+ "decisions": [
+  "Preserved existing committed red-sand-sabre-primer and cut-the-horse verbatim and added newly promoted night-glow-blood-sabre-canon, crescent-of-red-sand, and pay-in-blood alongside them.",
+  "Assigned crescent-of-red-sand to unlock_layer 1, pay-in-blood to unlock_layer 2, and Wine in the Night-Glow Cup (d19, a1) as a layer-4 passive art in night-glow-blood-sabre-canon.effects, inserting art ids on all 3 new entries in da_quang.techniques.json.",
+  "Kept bleed in crescent-of-red-sand.tags and da_quang.techniques.json while using temporary lint-safe scope proxies (over_time, hoa) on night-glow-blood-sabre-canon's two b11 passives until s6-serial-b05 adds bleed to lint_techniques.py TIER.",
+  "Sized night-glow-blood-sabre-canon with 2 new tier-2 bonuses (attack_pct 10, khi_huyet_pct 12) and 3 new passives (leech_health_pct 15, art_cost_health_pct 10, crit_damage_pct 15 [physical]) totaling 22.9 W / 24 W (18.9 W once bleed scope restores).",
+  "Implemented Pay in Blood and Drink After the Raid health-cost shifting with art_cost_hp 900 (90% shifted safely under pay_keep_health) and split Pay in Blood into two Effect records to avoid multi-mod clobber.",
+  "Tracked exact art health payments in Wine in the Night-Glow Cup via event.hp_paid_share / 0.01 (floor: false) and approximated Bleed tick cup fill at +2.0% hp_max per damaging bleed tick.",
+  "Exempted Cut the Horse First's 4% crit heal from its own heal_taken -50 closing via ignore_taken: true, and gated First and Often's first3/mark_after on Fire art hit_landed (per_firing: 1) so pay-in-blood utility casts do not consume Fire-cut charges.",
+  "Converted dq-night-glow-cup to kind treasure rarity 4 (no grade), marked all 6 items unique and npc-sourced, and added R6 exception on the 4 weapon/body_gear pieces."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "Blood Casting (existing combat_effects.json always-on Effect on hang_da_boi): sect_fight counts Fight.do() only and hang_da_boi kept positive linh luc at --gap 0 (verified heal_taken -50 active via 8.6 s vs 8.8 s survival delta at --gap 1).",
+  "pay-in-blood at --gap 1 on truc_co holders (trac_hong_da, co_xich_nguyet, hang_luu_hoa, o_liet_phong, cuu_lac_nhat): defeated at 8.0 s before its 9.0 s cooldown completed (fires 2.2-4.0/fight at --gap 0, and 0.2-1.0/fight at --gap 1 on ket_dan holders)."
+ ],
+ "early_promotions": [],
+ "open": [
+  "lint-bleed-scope (s6-serial-b05): add 'bleed' to TIER in tools/design/arts/lint_techniques.py (matching modifiers.md rule 9 and fight.py) and restore scope: ['bleed'] on night-glow-blood-sabre-canon's two b11 passives.",
+  "Serial step: merge design/stage6-staging/da_quang/* into design/ and assets/data/combat_effects.json (world-depth:da_quang).",
+  "Stage 7 export: export techniques, items (including kind 'treasure' dq-night-glow-cup), sets, combat library, and 2 translated events (da_quang.events.json)."
+ ]
+}

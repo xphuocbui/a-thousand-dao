@@ -1,0 +1,656 @@
+{
+ "_doc": "Dạ Quang Môn's Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py under source world-depth:da_quang. Unpriced. Rule text from design/world/depth/sects/da_quang.techniques.json and da_quang.items.json.",
+ "source": "world-depth:da_quang",
+ "effects": {
+  "Wine in the Night-Glow Cup": {
+   "rule": "Night-Glow Blood Sabre Canon (passive art, layer 4, authored d19, a1): each 5 % of your maximum health you pay for arts or deal as Bleed fills the Night-Glow Cup by one, to five; a Broken foe fills it at once. At five you drink: your next art is free and heals you for 20 % of the health you paid since the last drink.",
+   "approx": "Art health payments read exact `event.hp_paid_share`; Bleed ticks (`status: \"bleed\"`) advance the cup by 2 % of health per tick (`~1-2 Bleed stacks` at typical realm M) because `tick_dealt` carries raw HP rather than a `hp_max` share.",
+   "counters": [
+    {
+     "id": "cup_pct"
+    },
+    {
+     "id": "night_glow_cup",
+     "cap": 5
+    },
+    {
+     "id": "cup_paid_pct"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Wine in the Night-Glow Cup:pay",
+     "on": "art_fired",
+     "if": [
+      {
+       "read": "event.hp_paid_share",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "scale": {
+      "read": "event.hp_paid_share",
+      "per": 0.01,
+      "floor": false
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "cup_pct",
+        "add": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "cup_paid_pct",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Wine in the Night-Glow Cup:bleed",
+     "on": "tick_dealt",
+     "filter": {
+      "status": "bleed"
+     },
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "cup_pct",
+        "add": 2.0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Wine in the Night-Glow Cup:broken",
+     "on": "broken",
+     "do": [
+      {
+       "counter": {
+        "id": "night_glow_cup",
+        "set": 5
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Wine in the Night-Glow Cup:notch_art",
+     "on": "art_fired",
+     "if": [
+      {
+       "read": "own.counter.cup_pct",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "scale": {
+      "read": "own.counter.cup_pct",
+      "per": 5
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "night_glow_cup",
+        "add": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "cup_pct",
+        "add": -5
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Wine in the Night-Glow Cup:notch_tick",
+     "on": "tick_dealt",
+     "filter": {
+      "status": "bleed"
+     },
+     "if": [
+      {
+       "read": "own.counter.cup_pct",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "scale": {
+      "read": "own.counter.cup_pct",
+      "per": 5
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "night_glow_cup",
+        "add": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "cup_pct",
+        "add": -5
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Wine in the Night-Glow Cup:drink_heal_art",
+     "on": "art_fired",
+     "if": [
+      {
+       "read": "own.counter.night_glow_cup",
+       "op": ">=",
+       "value": 5
+      },
+      {
+       "read": "own.counter.cup_paid_pct",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "scale": {
+      "read": "own.counter.cup_paid_pct",
+      "per": 1,
+      "floor": false
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.002
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Wine in the Night-Glow Cup:drink_reset_art",
+     "on": "art_fired",
+     "if": [
+      {
+       "read": "own.counter.night_glow_cup",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "next_art_cost": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "night_glow_cup",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "cup_paid_pct",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Wine in the Night-Glow Cup:drink_heal_tick",
+     "on": "tick_dealt",
+     "filter": {
+      "status": "bleed"
+     },
+     "if": [
+      {
+       "read": "own.counter.night_glow_cup",
+       "op": ">=",
+       "value": 5
+      },
+      {
+       "read": "own.counter.cup_paid_pct",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "scale": {
+      "read": "own.counter.cup_paid_pct",
+      "per": 1,
+      "floor": false
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.002
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Wine in the Night-Glow Cup:drink_reset_tick",
+     "on": "tick_dealt",
+     "filter": {
+      "status": "bleed"
+     },
+     "if": [
+      {
+       "read": "own.counter.night_glow_cup",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "next_art_cost": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "night_glow_cup",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "cup_paid_pct",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Wine in the Night-Glow Cup:drink_heal_broken",
+     "on": "broken",
+     "if": [
+      {
+       "read": "own.counter.night_glow_cup",
+       "op": ">=",
+       "value": 5
+      },
+      {
+       "read": "own.counter.cup_paid_pct",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "scale": {
+      "read": "own.counter.cup_paid_pct",
+      "per": 1,
+      "floor": false
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.002
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Wine in the Night-Glow Cup:drink_reset_broken",
+     "on": "broken",
+     "if": [
+      {
+       "read": "own.counter.night_glow_cup",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "next_art_cost": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "night_glow_cup",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "cup_paid_pct",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Drink After the Raid": {
+   "rule": "The First Night-Glow Cup (`dq-night-glow-cup`): when the foe is Broken (first drop to 25 % health), the cup fills: your next three arts shift 90 % of their linh lực cost to health (`art_cost_hp` 900) and heal you for 5 % of the damage their hits deal.",
+   "counters": [
+    {
+     "id": "raid_drink",
+     "cap": 3
+    },
+    {
+     "id": "raid_drink_hit",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Drink After the Raid:fill",
+     "on": "broken",
+     "do": [
+      {
+       "counter": {
+        "id": "raid_drink",
+        "set": 3
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Drink After the Raid:cost",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.raid_drink",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "art_cost_hp": 900
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Drink After the Raid:clear_hit",
+     "on": "art_fired",
+     "do": [
+      {
+       "counter": {
+        "id": "raid_drink_hit",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Drink After the Raid:arm_hit",
+     "on": "art_fired",
+     "if": [
+      {
+       "read": "own.counter.raid_drink",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "raid_drink_hit",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "raid_drink",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Drink After the Raid:heal",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.raid_drink_hit",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "of": "amount",
+        "share": 0.05
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Cut the Horse First": {
+   "rule": "Night-Glow Raider, full set (3 pieces): your arts paid in health deal 1 % more damage for each 1 % of health you are missing, and each crit they land heals you for 4 % of your health; healing from other sources is halved on you (`heal_taken` -50).",
+   "counters": [
+    {
+     "id": "horse_hp_art",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Cut the Horse First:clear",
+     "on": "art_fired",
+     "do": [
+      {
+       "counter": {
+        "id": "horse_hp_art",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Cut the Horse First:mark",
+     "on": "art_fired",
+     "if": [
+      {
+       "read": "event.hp_paid_share",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "horse_hp_art",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Cut the Horse First:dmg",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.horse_hp_art",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.hp_missing_share",
+      "per": 0.01
+     },
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.01,
+        "kind": "art"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Cut the Horse First:crit",
+     "on": "crit",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.horse_hp_art",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.04,
+        "ignore_taken": true
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Cut the Horse First:closes",
+     "on": "always",
+     "do": [
+      {
+       "mod": {
+        "heal_taken": -50
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "First and Often": {
+   "rule": "Red Band, full set (3 pieces): your first three Fire cuts each fight cost no health (`hp_cost_red` 1) and each puts 2 Burn stacks (6 s); after that, every Fire cut that crits puts one more Burn stack (6 s).",
+   "counters": [
+    {
+     "id": "red_band_cuts",
+     "cap": 3
+    },
+    {
+     "id": "red_band_after",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:First and Often:free_hp",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.red_band_cuts",
+       "op": "<",
+       "value": 3
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "hp_cost_red": 1,
+        "element": "fire",
+        "kind": "art"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:First and Often:mark_after",
+     "on": "hit_landed",
+     "filter": {
+      "element": "fire",
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.red_band_cuts",
+       "op": ">=",
+       "value": 3
+      }
+     ],
+     "limit": {
+      "per_firing": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "red_band_after",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:First and Often:first3",
+     "on": "hit_landed",
+     "filter": {
+      "element": "fire",
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.red_band_cuts",
+       "op": "<",
+       "value": 3
+      }
+     ],
+     "limit": {
+      "per_firing": 1
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 2,
+        "for": 6,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "red_band_cuts",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:First and Often:crit_burn",
+     "on": "crit",
+     "filter": {
+      "element": "fire",
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.red_band_after",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

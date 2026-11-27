@@ -1,0 +1,198 @@
+[
+ {
+  "id": "cut-the-horse",
+  "name": "Cut the Horse (Trảm Mã)",
+  "element": "fire",
+  "role": "damage",
+  "tier": "authored",
+  "power": "standalone",
+  "group": "red-sand-sabre-primer",
+  "tags": ["fire", "sabre"],
+  "c_art": 1.8,
+  "cost_share": 0.04,
+  "cooldown": 4,
+  "kind": "elem",
+  "statuses": [{"id": "slowed_time", "stacks": 2, "dur": 2}],
+  "empower": [
+   {"if": [{"read": "foe.pressing", "op": ">=", "value": 1}], "c_mult": 2.0}
+  ],
+  "rule": "A riding draw-cut: a Fire hit that lays 2 stacks of Slowed Time for 2 s. Against a Pressing foe (one that is moving and acting) it hits twice as hard.",
+  "hooks": ["fire damage", "slowed time", "pressing foe"],
+  "sources": ["world-depth:da_quang"]
+ },
+ {
+  "id": "crescent-of-red-sand",
+  "name": "Crescent of Red Sand (Xích Sa Nguyệt)",
+  "element": "fire",
+  "role": "damage",
+  "tier": "authored",
+  "power": "engine",
+  "group": "night-glow-blood-sabre-canon",
+  "tags": [
+   "fire",
+   "sabre",
+   "bleed"
+  ],
+  "c_art": 2.1,
+  "cost_share": 0.04,
+  "cooldown": 4.0,
+  "kind": "elem",
+  "convert": {
+   "to": "phys",
+   "share": 0.5
+  },
+  "statuses": [
+   {
+    "id": "bleed",
+    "stacks": 2,
+    "dur": 4
+   }
+  ],
+  "counters": [
+   {
+    "id": "red_sand_mark",
+    "cap": 1
+   }
+  ],
+  "effects": [
+   {
+    "id": "crescent-bleed-spend",
+    "on": "hit_landed",
+    "filter": {
+     "not_art_id": [
+      "crescent-of-red-sand",
+      "trigger"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.red_sand_mark",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "red_sand_mark",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "crescent-bleed-arm",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "crescent-of-red-sand"
+    },
+    "if": [
+     {
+      "read": "foe.status.bleed",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "red_sand_mark",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "crescent-bleed-bonus",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.red_sand_mark",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.25
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "A wide Metal-and-Fire sabre arc (half Fire, half Physical) that lays 2 Bleed stacks for 4 pulses. If the foe is bleeding when it lands, your next cut (direct art or basic hit) deals 25 % more damage.",
+  "hooks": [
+   "fire damage",
+   "physical damage",
+   "conversion",
+   "bleed",
+   "dmg more"
+  ],
+  "sources": [
+   "world-depth:da_quang",
+   "b11"
+  ]
+ },
+ {
+  "id": "pay-in-blood",
+  "name": "Pay in Blood (Huyết Thường)",
+  "element": "fire",
+  "role": "utility",
+  "tier": "authored",
+  "power": "engine",
+  "group": "night-glow-blood-sabre-canon",
+  "tags": [
+   "fire",
+   "blood"
+  ],
+  "c_art": 0.0,
+  "cost_share": 0.03,
+  "cooldown": 9.0,
+  "kind": "elem",
+  "hp_cost": 0.04,
+  "effects": [
+   {
+    "id": "pay-in-blood-shift",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "pay-in-blood"
+    },
+    "do": [
+     {
+      "mod": {
+       "art_cost_hp": 900,
+       "for": 5.0
+      }
+     }
+    ]
+   },
+   {
+    "id": "pay-in-blood-fire",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "pay-in-blood"
+    },
+    "do": [
+     {
+      "mod": {
+       "dmg_more": 0.25,
+       "element": "fire",
+       "for": 5.0
+      }
+     }
+    ]
+   }
+  ],
+  "rule": "Pays 4 % of your health up front. For 5 s, 90 % of every art's linh lực cost is shifted to health (`art_cost_hp` 900), and your Fire arts deal 25 % more damage.",
+  "hooks": [
+   "health cost",
+   "art cost health",
+   "fire damage",
+   "dmg more"
+  ],
+  "sources": [
+   "world-depth:da_quang"
+  ]
+ }
+]

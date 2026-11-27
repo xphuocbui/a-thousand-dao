@@ -29,9 +29,9 @@
    "tier": 2, "tech_kind": "main", "names": ["hoa", "kim"], "layers": 12, "rank": "noi_mon",
    "concept": "The blood sabre. The cultivator tempers a Metal edge with Fire and quenches it in their own blood, so that each art can be paid in health instead of linh lực, and each wound the sabre opens pays some of it back. It is a ma đạo method: the blade is fed, and a sabre long unfed makes its holder restless. At the higher layers the holder can drink the heat of a kill. Raiders say a kill tastes like grape wine from a night-glowing cup, and they mean it.",
    "arts": [
-    {"new": "Pay in Blood (Huyết Thường)", "concept": "For a few seconds the holder's arts cost health instead of linh lực and deal more Fire damage."},
-    {"new": "Wine in the Night-Glow Cup (Dạ Quang Bôi Tửu)", "concept": "Each 5 % of your health you pay for arts or deal as Bleed fills the cup by one, to five; a Broken foe fills it at once. At five you drink: your next art is free and heals you for a fifth of the health you paid since the last drink.", "authored": "d19, a1"},
-    {"new": "Crescent of Red Sand (Xích Sa Nguyệt)", "concept": "A wide Metal-and-Fire sabre arc that bleeds the foe; a bleeding foe takes more from the holder's next cut.", "tags": ["bleed"], "authored": "b11"}
+    {"id": "pay-in-blood", "new": "Pay in Blood (Huyết Thường)", "concept": "For a few seconds the holder's arts cost health instead of linh lực and deal more Fire damage."},
+    {"id": "wine-in-the-night-glow-cup", "new": "Wine in the Night-Glow Cup (Dạ Quang Bôi Tửu)", "concept": "Each 5 % of your health you pay for arts or deal as Bleed fills the cup by one, to five; a Broken foe fills it at once. At five you drink: your next art is free and heals you for a fifth of the health you paid since the last drink.", "authored": "d19, a1"},
+    {"id": "crescent-of-red-sand", "new": "Crescent of Red Sand (Xích Sa Nguyệt)", "concept": "A wide Metal-and-Fire sabre arc that bleeds the foe; a bleeding foe takes more from the holder's next cut.", "tags": ["bleed"], "authored": "b11"}
    ],
    "lore": "Hạng Dạ Bôi learned its core from a blood-sabre manual taken off a ma đạo caravan in 981 and spent a century making it his own. Băng Tâm forbade it in 1121 and has not checked since (A126).",
    "status": "proposal",
