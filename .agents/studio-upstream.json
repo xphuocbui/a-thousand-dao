@@ -1,0 +1,12 @@
+{
+  "ccgs": {
+    "remote": "template",
+    "url": "https://github.com/Donchitos/Claude-Code-Game-Studios.git"
+  },
+  "ag_studio": {
+    "remote": "ag-studio",
+    "url": "https://github.com/ammarsufyan/Antigravity-Game-Studios.git",
+    "commit": "c1e29d3deb4e2783a81aa70408592564b1206ee0",
+    "version": "1.3.0-antigravity.1"
+  }
+}
