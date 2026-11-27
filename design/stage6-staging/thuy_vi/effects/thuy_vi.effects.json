@@ -1,12 +1,18 @@
 {
- "_doc": "World-depth Stage 6 Effects for Thúy Vi Tông (thuy_vi). All fight-time records validate cleanly against combat_sim/engine.py.",
+ "_doc": "World-depth Stage 6 Effects for Thúy Vi Tông (thuy_vi). All fight-time records validate cleanly against combat_sim/engine.py and GDScript EffectCompiler / FighterProfileLoader.",
  "source": "world-depth:thuy_vi",
  "effects": {
   "Brush Away the Dust": {
    "rule": "Once every 20 s, the whisk brushes one debuff off you and turns its remaining time into a ward of the same length.",
-   "approx": "Cleanses 1 curse status or 1 element debuff stack every 20 s when one is held, granting a 1 s-equivalent fixed 8 % health ward (remaining batch time is not a readable).",
+   "approx": "Cleanses 1 curse status or 1 element debuff stack every 20 s when one is held, granting a fixed 8 % health ward (remaining batch time is not a readable).",
    "counters": [{"id": "brush_cd"}],
    "records": [
+    {
+     "id": "eff:Brush Away the Dust:tick",
+     "on": "pulse",
+     "if": [{"read": "own.counter.brush_cd", "op": ">=", "value": 1}],
+     "do": [{"counter": {"id": "brush_cd", "add": -1}}]
+    },
     {
      "id": "eff:Brush Away the Dust:curse",
      "on": "pulse",
@@ -43,25 +49,35 @@
       {"ward_grow": {"share": 0.08, "of": "hp"}},
       {"counter": {"id": "brush_cd", "set": 20}}
      ]
-    },
-    {
-     "id": "eff:Brush Away the Dust:tick",
-     "on": "pulse",
-     "if": [{"read": "own.counter.brush_cd", "op": ">=", "value": 1}],
-     "do": [{"counter": {"id": "brush_cd", "add": -1}}]
     }
    ]
   },
   "The Robe Is Never Dry": {
    "rule": "Burns on the wearer last half as long, and the first burn each fight is put out at once.",
-   "approx": "Extinguishes the first Fire tick batch at once per fight; thereafter cleanses 1 Fire stack every 2 s while burning to halve burn longevity.",
+   "approx": "Extinguishes the first Fire burn immediately on landing (was_hit, or tick_taken if applied outside a hit); thereafter cleanses 1 Fire stack every 2 s while burning to halve burn longevity.",
+   "counters": [{"id": "robe_doused"}],
    "records": [
     {
-     "id": "eff:The Robe Is Never Dry:first",
+     "id": "eff:The Robe Is Never Dry:first_hit",
+     "on": "was_hit",
+     "if": [
+      {"read": "own.counter.robe_doused", "op": "<", "value": 1},
+      {"read": "own.debuff.fire", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"counter": {"id": "robe_doused", "set": 1}},
+      {"cleanse": {"n": 99, "el": "fire"}}
+     ]
+    },
+    {
+     "id": "eff:The Robe Is Never Dry:first_tick",
      "on": "tick_taken",
      "filter": {"element": "fire"},
-     "limit": {"per_fight": 1},
-     "do": [{"cleanse": {"n": 99, "el": "fire"}}]
+     "if": [{"read": "own.counter.robe_doused", "op": "<", "value": 1}],
+     "do": [
+      {"counter": {"id": "robe_doused", "set": 1}},
+      {"cleanse": {"n": 99, "el": "fire"}}
+     ]
     },
     {
      "id": "eff:The Robe Is Never Dry:halve",
@@ -110,13 +126,20 @@
   },
   "Green Fire": {
    "rule": "Burns from your Wood arts deal 25 % more to the foe below half health. Out of a fight, pills brewed in the furnace come out one grade cleaner, as if your Đan Đạo were one level higher (craft rule; no modifier key exists for it).",
-   "approx": "Combat half boosts over_time arts by 25 % below 50 % foe health; out-of-fight Đan Đạo +1 craft rule is not modeled in combat.",
+   "approx": "Below 50 % foe health, boosts over_time direct hits by 25 % (`dmg_more`) and echoes 25 % of each post-defence Wood tick directly via `tick_dealt` `return_damage` (`dtype: \"soul\"` bypasses a second resistance pass and non-tick flat block, matching exact +25 % Wood burn damage in both Python and GDScript); out-of-fight Đan Đạo +1 craft rule is not modeled in combat.",
    "records": [
     {
-     "id": "eff:Green Fire",
+     "id": "eff:Green Fire:hit",
      "on": "always",
      "if": [{"read": "foe.hp_share", "op": "<", "value": 0.5}],
      "do": [{"mod": {"dmg_more": 0.25, "tags": ["over_time"]}}]
+    },
+    {
+     "id": "eff:Green Fire:tick",
+     "on": "tick_dealt",
+     "filter": {"element": "wood"},
+     "if": [{"read": "foe.hp_share", "op": "<", "value": 0.5}],
+     "do": [{"return_damage": {"share": 0.25, "dtype": "soul"}}]
     }
    ]
   },
@@ -171,11 +194,24 @@
      "do": [{"counter": {"id": "moss_store", "add": 1}}]
     },
     {
+     "id": "eff:Light on the Moss:release_hit",
+     "on": "was_hit",
+     "if": [
+      {"read": "own.hp_share", "op": "<", "value": 0.5},
+      {"read": "own.counter.moss_store", "op": ">=", "value": 0.01}
+     ],
+     "scale": {"read": "own.counter.moss_store", "per": 1, "floor": false},
+     "do": [
+      {"heal": {"share": 0.01}},
+      {"counter": {"id": "moss_store", "set": 0}}
+     ]
+    },
+    {
      "id": "eff:Light on the Moss:release",
      "on": "pulse",
      "if": [
       {"read": "own.hp_share", "op": "<", "value": 0.5},
-      {"read": "own.counter.moss_store", "op": ">=", "value": 0.5}
+      {"read": "own.counter.moss_store", "op": ">=", "value": 0.01}
      ],
      "scale": {"read": "own.counter.moss_store", "per": 1, "floor": false},
      "do": [
@@ -274,8 +310,12 @@
        {"read": "own.counter.moss_bloom", "op": ">=", "value": 1},
        {"read": "own.counter.haze_field", "op": ">=", "value": 1},
        {"read": "own.counter.ret_heal", "op": ">=", "value": 1},
+       {"read": "own.counter.regalia_haze", "op": ">=", "value": 1},
        {"read": "own.state.rooted", "op": ">=", "value": 1},
-       {"read": "own.state.rooted-haze", "op": ">=", "value": 1}
+       {"read": "own.state.rooted-haze", "op": ">=", "value": 1},
+       {"read": "own.state.rooted-pine", "op": ">=", "value": 1},
+       {"read": "own.state.rooted-pine-haze", "op": ">=", "value": 1},
+       {"read": "own.state.mountain-root-haze", "op": ">=", "value": 1}
       ]}
      ],
      "do": [{"stacks": {"el": "earth", "n": 1, "for": 8, "side": "own"}}]
@@ -290,7 +330,7 @@
   },
   "Reach and Root": {
    "rule": "Evening Ferry (2 pieces): a foe that cannot evade from a pole art of yours stays so 1 s longer for each 3 Wood stacks it carries, and that spends those stacks; each time the foe is made unable to evade this way again in a fight, the extra time is halved.",
-   "approx": "Uses `status_dur` (+100 % first, +50 % second, +25 % third+ per 3 Wood stacks on foe) when `off_guard` lands (from any source) and consumes all Wood stacks on the foe (engine `consume` takes a fixed count, not scaled).",
+   "approx": "Uses `status_dur` (+100 % first, +50 % second, +25 % third+ per 3 Wood stacks on foe) when `off_guard` lands (from any source, since tv-punt-pole uses the base common art under R6) and consumes all Wood stacks on the foe (engine `consume` takes a fixed count, not scaled).",
    "counters": [{"id": "reach_uses"}],
    "records": [
     {
@@ -328,14 +368,14 @@
   },
   "Everything at Once": {
    "rule": "Far Ambition (2 pieces): when you use a pill, your next needle art casts at once and puts double Wood stacks, and your heals are 20 % stronger for 3 s.",
-   "approx": "Cuts cooldown on the next ready art (not filtered to needle arts, as tv-polygala-needle uses base common art under R6) and grants +2 flat Wood debuff stacks for 3 s (stack_grant is additive, not multiplicative).",
+   "approx": "Cuts cooldown on the longest-cooling art by 10 s (not filtered to needle arts, as tv-polygala-needle uses base common art under R6) and grants +2 flat Wood debuff stacks for 3 s (stack_grant is additive, not multiplicative).",
    "counters": [{"id": "far_ambition"}],
    "records": [
     {
      "id": "eff:Everything at Once:pill",
      "on": "pill_burned",
      "do": [
-      {"timer": {"side": "own", "which": "next", "by": -10.0}},
+      {"timer": {"side": "own", "which": "longest", "by": -10.0}},
       {"counter": {"id": "far_ambition", "set": 3}},
       {"mod": {"stack_grant": 2, "element": "wood", "kind": "debuff", "for": 3.0}}
      ]
@@ -356,16 +396,26 @@
   },
   "The Pine That Does Not Move": {
    "rule": "Pine on the Cliff (2 pieces): while in Pine Against the Wind, each hit you block puts a Wood stack on the attacker, and your next root-splitting art deals 10 % more for each Wood stack on its target, and spends those stacks.",
+   "counters": [{"id": "pine_split_ready"}],
    "records": [
     {
      "id": "eff:The Pine That Does Not Move:block",
      "on": "blocked",
-     "if": [{"read": "own.state.pine", "op": ">=", "value": 1}],
-     "do": [{"stacks": {"el": "wood", "n": 1, "for": 8, "side": "foe"}}]
+     "if": [{"any": [
+      {"read": "own.state.pine", "op": ">=", "value": 1},
+      {"read": "own.state.pine-haze", "op": ">=", "value": 1},
+      {"read": "own.state.rooted-pine", "op": ">=", "value": 1},
+      {"read": "own.state.rooted-pine-haze", "op": ">=", "value": 1}
+     ]}],
+     "do": [
+      {"stacks": {"el": "wood", "n": 1, "for": 8, "side": "foe"}},
+      {"counter": {"id": "pine_split_ready", "set": 1}}
+     ]
     },
     {
      "id": "eff:The Pine That Does Not Move:boost",
      "on": "always",
+     "if": [{"read": "own.counter.pine_split_ready", "op": ">=", "value": 1}],
      "scale": {"read": "foe.debuff.wood", "per": 1},
      "do": [{"mod": {"dmg_more": 0.1, "tags": ["split"]}}]
     },
@@ -373,8 +423,14 @@
      "id": "eff:The Pine That Does Not Move:spend",
      "on": "hit_landed",
      "filter": {"art_id": "root-in-the-crack"},
-     "if": [{"read": "foe.debuff.wood", "op": ">=", "value": 1}],
-     "do": [{"consume": {"el": "wood", "side": "foe", "kind": "debuff"}}]
+     "if": [
+      {"read": "own.counter.pine_split_ready", "op": ">=", "value": 1},
+      {"read": "foe.debuff.wood", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"consume": {"el": "wood", "side": "foe", "kind": "debuff"}},
+      {"counter": {"id": "pine_split_ready", "set": 0}}
+     ]
     }
    ]
   },
@@ -422,8 +478,8 @@
     },
     {
      "id": "eff:No Hiding on the Quay:spend",
-     "on": "art_fired",
-     "filter": {"element": "wood"},
+     "on": "hit_landed",
+     "filter": {"element": "wood", "kind": "art"},
      "if": [{"read": "own.counter.quay_focus", "op": ">=", "value": 1}],
      "do": [{"counter": {"id": "quay_focus", "set": 0}}]
     }
@@ -450,7 +506,7 @@
     {
      "id": "eff:Nobody Falls",
      "on": "heal_restored",
-     "if": [{"read": "own.hp_share", "op": "<", "value": 0.25}],
+     "if": [{"read": "own.wounded", "op": ">=", "value": 1}],
      "limit": {"per_fight": 1},
      "do": [{"ward_grow": {"share": 0.1, "of": "hp"}}]
     }

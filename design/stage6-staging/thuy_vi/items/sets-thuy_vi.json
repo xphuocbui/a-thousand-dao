@@ -17,7 +17,7 @@
     "rule": "the first time each fight you fall below a third of your health, haze (a Field) rises around you for 6 s. While it is up, you heal 3 % of your health each second, the foe gains 2 Wood stacks each second, and your Wood arts cost nothing while it lasts."
    }
   ],
-  "story": "The three heirloom pieces split between the mountain seat and the lower seat: Ngu Lam Sơn holds the seal and the robe; Cù Thúy Bách keeps the founder's gourd on the ridge."
+  "story": "Phùng Yên Hà held all three. The seal and the robe went down to Cổ Dịch Trấn with Ngu Lam Sơn in 1006. The gourd stayed on the ridge with Cù Thúy Bách, who says the founder's seeds belong beside the founder's tree. The Regalia has not been whole for 194 years, and Cù will trade the gourd only for the sect's return, or for the heir she chooses."
  },
  {
   "id": "tv-field-and-garden",
@@ -37,7 +37,7 @@
     "rule": "your heals over time also grant one Earth guard stack each second they tick, and while you hold 5 or more Earth guard stacks your health regeneration is doubled."
    }
   ],
-  "story": "The Field Hall elder Quyền Thanh Lâm wears the seal and jacket; the Herb Garden keeper Khổng Đương Quy holds the gourd."
+  "story": "The first elder's seal and jacket and his Dao partner's gourd. Each refuses to keep the other's piece. Each spring at the planting, whoever finished sowing first is handed the other's: in his years the set is whole for one season; in hers she wears the seal beside her gourd."
  },
  {
   "id": "tv-evening-ferry",
@@ -54,7 +54,7 @@
     "rule": "a foe that cannot evade from a pole art of yours stays so 1 s longer for each 3 Wood stacks it carries, and that spends those stacks; each time the foe is made unable to evade this way again in a fight, the extra time is halved."
    }
   ],
-  "story": "Hướng Vãn Chu's salt-marsh patrol pair: a cedar boat pole and a salt-crusted reed cape."
+  "story": "The quay's pole and the marsh's reeds: the coast girl who chose to grow rice where her father wanted war."
  },
  {
   "id": "tv-far-ambition",
@@ -71,7 +71,7 @@
     "rule": "when you use a pill, your next needle art casts at once and puts double Wood stacks, and your heals are 20 % stronger for 3 s."
    }
   ],
-  "story": "The pair forged for the foundling prodigy Kiển Viễn Chí."
+  "story": "The cloth he was left in and the needle he made too fast: who he was and who he is in a hurry to be."
  },
  {
   "id": "tv-cliff-pine",
@@ -88,7 +88,7 @@
     "rule": "while in Pine Against the Wind, each hit you block puts a Wood stack on the attacker, and your next root-splitting art deals 10 % more for each Wood stack on its target, and spends those stacks."
    }
   ],
-  "story": "Cù Thúy Bách's old-seat shield and stone-splitting axe, cut down from pine bark and ridge iron."
+  "story": "Bark from the founder's pine and an axe from her father's workshop: the ridge's two crafts, wood and jade. Cù wears them beside the founder's Seed Gourd, which belongs to the Regalia and not to her."
  },
  {
   "id": "tv-green-fire",
@@ -108,7 +108,7 @@
     "rule": "when a foe's Wood stacks from you run out, they rekindle once as Burn stacks of half their number."
    }
   ],
-  "story": "Úy Thanh Diễm's Furnace Hall kit: the emerald censer, the pulse needle, and the scorch-hemmed robe."
+  "story": "The Furnace Hall's master's three: the green furnace he keeps, the needle he reads pulses with, and the clamp-cloth of his home village. Úy says the set will be whole only when the Purple Smoke Furnace sits beside it."
  },
  {
   "id": "tv-cold-ford-watch",
@@ -128,7 +128,7 @@
     "rule": "a foe that cannot evade loses its concealment, and each second it cannot evade your next Wood art against it deals 8 % more; that art spends the bonus, and it is lost when it can evade again."
    }
   ],
-  "story": "Hướng Dạ Đăng's border watch kit at Hàn Tân Thành: the quay lamp, the river spear, and the frost-proof quay coat."
+  "story": "The lamp found unbroken in 905, a spear from the quay's own iron and the warden's winter coat. The Cold Ford Hall's warden has worn the three since 940 and means his daughter to wear them after him."
  },
  {
   "id": "tv-salt-chest",
@@ -148,7 +148,7 @@
     "rule": "once a fight, when your linh lực falls below a quarter, the lock opens: you regain half your linh lực and gain a haze ward worth 10 % of your health."
    }
   ],
-  "story": "Diêm Hải Tạo's port-house kit at Yên Ba Thành: the salt-chest pendant lock, the cove fan, and the crusted coat."
+  "story": "Everything the pirates left in the cove with a three-year-old girl: the lock, a fan under the salt and the cloth around it. Diêm has never learned whether the chest was meant for her."
  },
  {
   "id": "tv-poria-under-pine",
@@ -168,7 +168,7 @@
     "rule": "once a fight, a heal that lands on you while you are below a quarter of your health also gives you a Wood ward worth 10 % of your health."
    }
   ],
-  "story": "Thiệu Thanh Đài's healer regalia: the green moss mirror, the poria medicine gourd, and the weeping-willow robe."
+  "story": "Her mirror, her village's gourd and her master's robe: a support's set, made for the quiet sect she wants to keep."
  },
  {
   "id": "tv-cliff-hall-champion",
@@ -188,6 +188,6 @@
     "rule": "each hit on a foe whose guard you cracked adds a Wood stack and 3 % pierce against it, and every tenth such hit breaks the foe's block for 3 s; the pierce falls by 3 % each second you do not hit that foe."
    }
   ],
-  "story": "Hoàn Cô Bách's heavy vanguard set from the Cliff Hall."
+  "story": "The ridge's champion's set: the cypress banner, his father's jade block and the Cliff Hall coat Cù gave him. He wears it at the new seat to remind them where it came from."
  }
 ]

@@ -1,17 +1,17 @@
 {
  "owner": "thuy_vi",
- "minutes": 18,
- "must_fix": 6,
- "should": 7,
- "fixed": 11,
+ "minutes": 25,
+ "must_fix": 8,
+ "should": 8,
+ "fixed": 15,
  "words": {
   "technique-effects": "build",
   "heal-overflow": "build"
  },
  "open": [
-  "Cross-root lineage names vs CongPhap.usable on seed-and-soil-primer (24 LK holders) and green-furnace-canon (3 elders lack tho)",
+  "Cross-root lineage names vs CongPhap.usable on seed-and-soil-primer (24 LK holders) and green-furnace-canon (3 elders lack tho); emerald-haze-canon kept as [moc] per thuy_vi.md:194",
   "Serial step s6-serial-b01: build technique-effects and heal-overflow (separate heal_overflow event), then swap pending.json effects (The Empty Mountain's Answer) into effects/thuy_vi.effects.json",
-  "voices-on-the-empty-mountain fire_art which:last echoes itself (0.35 c) because engine.py:1107 sets last_art before art_fired (benign for ngu_lam_son)",
+  "Cross-batch Thanh Nang Duong reconciliation at merge: thuy_vi's thanh-nang-balm-canon vs hong_lo's later-batch satchel-hall-healing-canon",
   "Cross-owner ties (8: ho_lam phu_hau_tho, vu_an 7) close at serial merge; out-of-fight clauses (Nine Squares, Green Fire Dan Dao +1); export_named.py treasure handling"
  ]
 }
