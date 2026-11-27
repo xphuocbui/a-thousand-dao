@@ -33,11 +33,12 @@
     "pinning-arrow",
     "nocked-arrow",
     {
+     "id": "wolf-ring",
      "new": "Wolf Ring (Lang Hoàn)",
      "concept": "A full turn of the staff that strikes the foe and its soonest art waits 0.5 s.",
      "authored": "a1"
     },
-    {"new": "Geese Line (Nhạn Hàng)", "concept": "A passive art. While you count two or more allies (you, companions, Pieces), you gain block for each ally beyond yourself.", "effect": "geese-line", "authored": "d17"}
+    {"new": "Geese Line (Nhạn Hàng)", "concept": "A passive art. While you count two or more allies (you, companions, Pieces), you gain block for each ally beyond yourself.", "effect": "warden-geese-line", "unlock_layer": 2, "authored": "d17"}
    ],
    "lore": "Put together by Hứa Vãn Cung and the first wardens in the winter of 1191, from caravan guards' habits and the Coiled Root Hall's bow drill, the year after the wolves (A064, V043).",
    "status": "proposal",
@@ -61,6 +62,7 @@
    "concept": "The art of not sleeping. In the wolf winter Hứa Vãn Cung held the Tùng Hạ road for three nights without closing his eyes, and the wardens learned to keep a body going on breath alone. The holder grows harder the longer a fight lasts: health returns a little each second, and after the first minute their blows land heavier.",
    "arts": [
     {
+     "id": "second-night",
      "new": "Second Night (Đệ Nhị Dạ)",
      "concept": "Once your glow clock (the fight's time plus 1 s per 2 % of health lost to blows this fight) passes 30 s, you regenerate health each second and your staff and bow arts deal more damage.",
      "authored": "d3"
@@ -81,6 +83,7 @@
    "concept": "The head's art: one arrow at the pack's leader. The holder marks the strongest foe on the field; their arrows at the marked foe pierce wards, and when it falls the others hesitate. It is the shot that ended the wolf winter.",
    "arts": [
     {
+     "id": "the-leader-first",
      "new": "The Leader First (Tiên Xạ Đầu Lang)",
      "concept": "Marks the foe; arrows at it ignore part of its ward, and when it is Broken it gains two Slowed Time stacks.",
      "authored": "a1, b10",

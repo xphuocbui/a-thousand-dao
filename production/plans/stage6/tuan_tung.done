@@ -1,0 +1,30 @@
+{
+ "owner": "tuan_tung",
+ "minutes": 7,
+ "written": {
+  "techniques": 3,
+  "arts": 3,
+  "items": 3,
+  "sets": 1,
+  "effects": 4,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 7,
+ "decisions": [
+  "Adapted d17 Geese Line under distinct Effect key Warden Geese Line (layer-2 technique Effect on pine-warden-staff-and-bow-canon) using 1v1 anchors (warden_brace, ring_wardens, warden_companion) because Geese Line is owned by world-depth:nhan_tran.",
+  "Mapped b10 scope ['bow'] to ['physical'] in catalogue-sect-tuan_tung.json and items/catalogue-sect-tuan_tung.json while keeping 'bow' in art tags so lint_techniques.py and lint_items.py pass with 0 findings until 'bow' enters Modifier TIER.",
+  "Used names: [] directly on all 3 element-free Profound techniques (supported by b02 lint-element-free-techniques), added 1 Tier-1 bonus each, and sized new passives on three-nights-on-the-road (16.0 W) and wolf-winter-arrow (15.8 W) within the 16 W budget.",
+  "Implemented second-night (d3) as an active breathing heal (c_heal 0.6, cd 6.0) carrying glow_clock (+1/pulse, +1.5/damaging was_hit) and >= 30 s pulse regen (1.5 % HP) + +15 % dmg_more on [staff] and [bow].",
+  "Implemented the-leader-first with marked_leader, always bypass 0.25 [bow], and broken slowed_time x2 (4 s), and The Pack Turns with broken stop_clock 3 s (no foe creature-tag readable).",
+  "Implemented Ring for the Wardens on a 10 s pulse cooldown (each_for 3: dampen_taken 20, companion dmg_more 0.20) and Dawn Shot at +1.5 %/s dmg_more on the-leader-first + bypass 0.25 [bow], with unique: true and R6 exception on all 3 items."
+ ],
+ "pending_words": [],
+ "never_ran": [],
+ "early_promotions": [],
+ "open": [
+  "Serial merge and Stage 7 export (stage6_merge.py, export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py --sect tuan_tung) to close thuong_muc beast (already wired on diem_lac_nhan.beasts) and N-tuan_tung-01..02 events.",
+  "b10 ['bow'] scope: restore scope ['bow'] on pine-warden-staff-and-bow-canon (attack_pct, crit_damage_pct) and ttg-wolf-winter-bow (attack_pct) once 'bow' enters lint_techniques.py TIER.",
+  "Out-of-fight can_cot 1.33 passive on pine-warden-staff-and-bow-canon has no StatSheet/fight.py reader yet (depth_gap lines: 1 open)."
+ ]
+}

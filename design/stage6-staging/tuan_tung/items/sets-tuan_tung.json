@@ -1,0 +1,22 @@
+[
+ {
+  "id": "ttg-three-nights",
+  "name": "Three Nights on the Road (Tam Dạ Đạo Thượng)",
+  "pieces": [
+   "ttg-wolf-winter-bow",
+   "ttg-three-nights-coat"
+  ],
+  "bonuses": [
+   {
+    "pieces": 2,
+    "modifiers": [
+     {"key": "health_regen_inc_pct", "value": 10, "scope": []},
+     {"key": "accuracy_pct", "value": 6, "scope": []}
+    ],
+    "effect": "Dawn Shot (Lê Minh Xạ)",
+    "rule": "Against a foe marked by The Leader First, your bow arts bypass 25 % more of its ward, and The Leader First deals 1.5 % more damage per second since your last shot or fight start (15 % per 10 s), resetting when The Leader First lands."
+   }
+  ],
+  "story": "The bow and the coat of the wolf winter. Hứa Vãn Cung holds both."
+ }
+]

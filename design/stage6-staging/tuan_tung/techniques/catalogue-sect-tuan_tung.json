@@ -1,0 +1,97 @@
+[
+ {
+  "id": "pine-warden-staff-and-bow-canon",
+  "name": "Pine Warden's Staff and Bow Canon (Tuần Tùng Côn Cung Kinh)",
+  "tier": 1,
+  "tech_kind": "main",
+  "names": [],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "khi_huyet_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "khi_huyet_pct", "value": 6.6, "scope": []},
+   {"key": "can_cot", "value": 1.33, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 13.3, "scope": []},
+   {"key": "attack_pct", "value": 6, "scope": ["physical"]},
+   {"key": "crit_damage_pct", "value": 20, "scope": ["physical"]}
+  ],
+  "abilities": [
+   {"ability_id": "pinning-arrow", "unlock_layer": 1},
+   {"ability_id": "wolf-ring", "unlock_layer": 2},
+   {"ability_id": "nocked-arrow", "unlock_layer": 4}
+  ],
+  "effects": [
+   {
+    "name": "Warden Geese Line",
+    "unlock_layer": 2,
+    "passive_art": true,
+    "rule": "A passive art (d17, 1v1 adaptation of Geese Line). While your warden file is braced (after firing a Pine Warden art), your Caravan Bell rally holds, or your companion fights beside you, you gain +8 block rating for each active anchor."
+   }
+  ],
+  "origin": "authored",
+  "suite": "pine-warden-staff-and-bow-canon",
+  "family": "body",
+  "owner": "tuan_tung",
+  "rank": "noi_mon",
+  "notes": "b10 attack_pct/crit_damage_pct [bow] scopes mapped to [physical] until 'bow' enters lint_techniques.py TIER; d17 passive art named Warden Geese Line so it does not clash with nhan_tran's Geese Line in combat_effects.json.",
+  "concept": "The wardens' method is cultivated on the road. Qi is drawn in with each pull of the bow and driven into the bone with each turn of the staff, so a warden cultivates by walking his road, shooting and fighting. It runs on no element: the strength is the body's. In a fight it is a guard's method, with long shots that slow the foe and a staff that makes the foe's soonest art wait.",
+  "lore": "Put together by Hứa Vãn Cung and the first wardens in the winter of 1191, from caravan guards' habits and the Coiled Root Hall's bow drill, the year after the wolves (A064, V043)."
+ },
+ {
+  "id": "three-nights-on-the-road",
+  "name": "Three Nights on the Road (Tam Dạ Thủ Lộ Quyết)",
+  "tier": 1,
+  "tech_kind": "secret",
+  "names": [],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "khi_huyet_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "health_regen_inc_pct", "value": 16, "scope": []},
+   {"key": "khi_huyet_pct", "value": 8, "scope": []},
+   {"key": "status_resist_pct", "value": 8, "scope": []},
+   {"key": "block_rating", "value": 8, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "second-night", "unlock_layer": 1}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "three-nights-on-the-road",
+  "family": "body",
+  "owner": "tuan_tung",
+  "rank": "noi_mon",
+  "concept": "The art of not sleeping. In the wolf winter Hứa Vãn Cung held the Tùng Hạ road for three nights without closing his eyes, and the wardens learned to keep a body going on steady breath. The holder grows harder the longer a fight lasts: health returns a little each second, and after the first minute their blows land heavier.",
+  "lore": "Taught to every inner warden on the anniversary of the third night of 1190."
+ },
+ {
+  "id": "wolf-winter-arrow",
+  "name": "Wolf-Winter Arrow (Lang Đông Tiễn)",
+  "tier": 1,
+  "tech_kind": "secret",
+  "names": [],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "attack_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "attack_pct", "value": 6, "scope": ["physical"]},
+   {"key": "crit_chance_pct", "value": 5, "scope": ["physical"]},
+   {"key": "accuracy_pct", "value": 8, "scope": []},
+   {"key": "pierce_pct", "value": 3, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "the-leader-first", "unlock_layer": 1}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "wolf-winter-arrow",
+  "family": "blade",
+  "owner": "tuan_tung",
+  "rank": "truong_lao",
+  "concept": "The head's art: one arrow at the pack's leader. The holder marks the strongest foe; their arrows at the marked foe pierce wards, and when it breaks it falters. It is the shot that ended the wolf winter.",
+  "lore": "On the third night of 1190 Hứa Vãn Cung shot the grey wolf that led the pack, and the rest went back into the pines (A064). He teaches it to his elders only."
+ }
+]
