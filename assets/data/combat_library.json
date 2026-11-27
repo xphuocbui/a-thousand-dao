@@ -189,6 +189,140 @@
     }
    ]
   },
+  "a-breath-of-road-mist": {
+   "c_art": 0.0,
+   "cooldown": 5.0,
+   "cost_share": 0.03,
+   "element": "wood",
+   "group": "road-mist-primer",
+   "guards": [
+    {
+     "read": "own.counter.road_mist",
+     "op": "==",
+     "value": 0
+    }
+   ],
+   "id": "a-breath-of-road-mist",
+   "kind": "elem",
+   "tags": [
+    "wood",
+    "mist",
+    "breath_mist"
+   ],
+   "name": "A Breath of Road Mist (Lộ Vụ Nhất Tức)",
+   "rule": "Breathes out mist over yourself for 4 s: grants +65 evade against the next art aimed at you, then clears.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "road-mist-arm",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "breath_mist"
+      ]
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "road_mist",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "road-mist-evade",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.road_mist",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "evade": 65
+       }
+      }
+     ]
+    },
+    {
+     "id": "road-mist-spend-hit",
+     "on": "was_hit",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.road_mist",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "road_mist",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "road-mist-spend-evade",
+     "on": "evaded",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.road_mist",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "road_mist",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "road-mist-spend-decoy",
+     "on": "decoy_struck",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.road_mist",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "road_mist",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "road_mist",
+     "cap": 1,
+     "each_for": 4.0
+    }
+   ]
+  },
   "a-thousand-sleeves": {
    "c_art": 1.5,
    "cooldown": 7.0,
@@ -4943,6 +5077,192 @@
     }
    ]
   },
+  "call-the-grain-rain": {
+   "c_art": 0.0,
+   "c_heal": 0.6,
+   "cooldown": 10.0,
+   "cost_share": 0.05,
+   "element": "wood",
+   "group": "rite-of-the-grain-rain",
+   "guards": [
+    {
+     "read": "own.counter.grain_channel",
+     "op": "<",
+     "value": 1
+    }
+   ],
+   "id": "call-the-grain-rain",
+   "kind": "elem",
+   "tags": [
+    "wood",
+    "heal",
+    "cleanse"
+   ],
+   "name": "Call the Grain Rain (Đảo Cốc Vũ)",
+   "rule": "Channels the Grain Rain rite for 4 s: each second you heal 2.5 % of your maximum health, cleanse 1 debuff stack and 1 curse status, and lay Off Guard on the foe for 1 s (it cannot evade). Each second held costs 3 % of your maximum linh lực, or 3 % of your maximum health once linh lực falls below 3 %.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "grain-channel-open",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "call-the-grain-rain"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "grain_channel",
+        "set": 4
+       }
+      }
+     ]
+    },
+    {
+     "id": "grain-channel-rain",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.grain_channel",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.025
+       }
+      },
+      {
+       "cleanse": {
+        "n": 1
+       }
+      },
+      {
+       "cleanse": {
+        "curses": 1
+       }
+      },
+      {
+       "status": {
+        "id": "off_guard",
+        "stacks": 1,
+        "dur": 1,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "grain-channel-pay-qi",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.grain_channel",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.qi_share",
+       "op": ">=",
+       "value": 0.03
+      }
+     ],
+     "do": [
+      {
+       "gain_qi": {
+        "share": -0.03
+       }
+      },
+      {
+       "counter": {
+        "id": "grain_hp_cost",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "grain-channel-pay-hp",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.grain_channel",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.qi_share",
+       "op": "<",
+       "value": 0.03
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "grain_hp_cost",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "grain-channel-tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.grain_channel",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "grain_channel",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "grain-channel-close",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.grain_channel",
+       "op": "<",
+       "value": 1
+      },
+      {
+       "read": "own.counter.grain_hp_cost",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "grain_hp_cost",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "grain_channel"
+    },
+    {
+     "id": "grain_hp_cost",
+     "upkeep": {
+      "pool": "hp",
+      "per_stack": 0.03
+     }
+    }
+   ]
+  },
   "capacitor-palm": {
    "c_art": 1.0,
    "cooldown": 5,
@@ -5209,6 +5529,51 @@
      "id": "carriage_bell",
      "cap": 1,
      "each_for": 6
+    }
+   ]
+  },
+  "cast-the-pearl": {
+   "c_art": 2.0,
+   "cooldown": 5,
+   "cost_share": 0.04,
+   "element": "water",
+   "group": "nacre-over-grit-canon",
+   "guards": [
+    {
+     "read": "own.counter.pearl",
+     "op": ">=",
+     "value": 1
+    }
+   ],
+   "id": "cast-the-pearl",
+   "kind": "elem",
+   "tags": [
+    "water",
+    "pearl"
+   ],
+   "name": "Cast the Pearl (Phát Châu)",
+   "rule": "Spends 1 Pearl to cast the wrapped blow back as Water damage (c 2.0, fixed half-heavy-art coefficient proxy because active casts cannot read a prior foe art's coefficient).",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "cast-the-pearl-spend",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "cast-the-pearl"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "pearl",
+        "add": -1
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "pearl"
     }
    ]
   },
@@ -5540,6 +5905,26 @@
     }
    ]
   },
+  "chance-meeting": {
+   "buff": [
+    1,
+    8.0
+   ],
+   "c_art": 1.5,
+   "cooldown": 2.0,
+   "cost_share": 0.025,
+   "element": "water",
+   "group": "duckweed-drift-primer",
+   "id": "chance-meeting",
+   "kind": "elem",
+   "tags": [
+    "water",
+    "quick"
+   ],
+   "name": "Chance Meeting (Tương Phùng)",
+   "rule": "A quick Cold strike that grants 1 Water buff stack for 8 s.",
+   "source": "part_authored"
+  },
   "chaos-bolt": {
    "c_art": 1.97,
    "cooldown": 2,
@@ -5674,6 +6059,85 @@
    "rule": "The servant breathes with the drip of the water clock, one breath a drop: a small heal.",
    "source": "part_authored"
   },
+  "close-over-the-stone": {
+   "buff": [
+    1,
+    8.0
+   ],
+   "c_art": 0.0,
+   "c_heal": 0.4,
+   "cooldown": 5.0,
+   "cost_share": 0.025,
+   "element": "wood",
+   "group": "duckweed-drift-primer",
+   "id": "close-over-the-stone",
+   "kind": "elem",
+   "tags": [
+    "wood",
+    "heal"
+   ],
+   "name": "Close Over the Stone (Bình Hợp)",
+   "rule": "Cups your qi in drift-weed: heals lightly and grants 1 Wood buff stack for 8 s. Also, after you take a damaging hit (once per 6 s), heals 1.5 % of your health each second for 3 s.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "close-over-hit",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      },
+      {
+       "read": "own.counter.duckweed_mend",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "limit": {
+      "cooldown": 6.0
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "duckweed_mend",
+        "set": 3
+       }
+      }
+     ]
+    },
+    {
+     "id": "close-over-pulse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.duckweed_mend",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.015
+       }
+      },
+      {
+       "counter": {
+        "id": "duckweed_mend",
+        "add": -1
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "duckweed_mend"
+    }
+   ]
+  },
   "close-the-file": {
    "c_art": 1.6,
    "cooldown": 5.0,
@@ -5745,6 +6209,65 @@
    "name": "Closing Palm (Hợp Chưởng)",
    "rule": "A Physical palm hit that lays 3 Metal debuff stacks for 10 s.",
    "source": "part_common"
+  },
+  "cloud-in-the-pane": {
+   "c_art": 1.4,
+   "cooldown": 7.0,
+   "cost_share": 0.05,
+   "element": "",
+   "group": "cloud-mother-seal",
+   "id": "cloud-in-the-pane",
+   "kind": "elem",
+   "statuses": [
+    {
+     "id": "slowed_time",
+     "stacks": 1,
+     "dur": 3
+    }
+   ],
+   "tags": [
+    "seal",
+    "curse"
+   ],
+   "name": "Cloud in the Pane (Song Trung Vân)",
+   "rule": "A mica seal strike (1.4 c, 1 Slowed Time for 3 s) that seals the foe for 3 s (Sealed Meridian, delays their next ready art by 1.5 s) and halves incoming hit damage for 3 s (dampen_taken 100) so your wards lose half as much when struck.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "pane-seal-hit",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "cloud-in-the-pane"
+     },
+     "limit": {
+      "per_pulse": 1
+     },
+     "do": [
+      {
+       "status": {
+        "id": "sealed_meridian",
+        "stacks": 1,
+        "dur": 3,
+        "layer": 1,
+        "side": "foe"
+       }
+      },
+      {
+       "timer": {
+        "side": "foe",
+        "which": "next",
+        "by": 1.5
+       }
+      },
+      {
+       "mod": {
+        "dampen_taken": 100,
+        "for": 3.0
+       }
+      }
+     ]
+    }
+   ]
   },
   "cloud-in-the-pool": {
    "c_art": 0.0,
@@ -6039,6 +6562,176 @@
        }
       }
      ]
+    }
+   ]
+  },
+  "clouds-rise": {
+   "c_art": 0.0,
+   "cooldown": 3.0,
+   "cost_share": 0.03,
+   "element": "",
+   "group": "sitting-cloud-canon",
+   "guards": [
+    {
+     "read": "own.state.clouds-watching",
+     "op": "<",
+     "value": 1
+    }
+   ],
+   "id": "clouds-rise",
+   "kind": "elem",
+   "tags": [
+    "stance"
+   ],
+   "name": "Clouds Rise (Vân Khởi)",
+   "rule": "A held Composed stance. Once you have held it for 2 s (and have at least 8 % linh lực), each second banks 1 Cloud for 0.3 % x (1 + banked Clouds) of maximum linh lực. Your next soul art spends all banked Clouds: each Cloud adds +10 % soul damage and +15 % status duration.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "clouds-enter",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "clouds-rise"
+     },
+     "do": [
+      {
+       "state": {
+        "set": "clouds-watching"
+       }
+      }
+     ]
+    },
+    {
+     "id": "clouds-pay-scale",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.clouds-watching",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.composed_time",
+       "op": ">=",
+       "value": 2
+      },
+      {
+       "read": "own.qi_share",
+       "op": ">=",
+       "value": 0.08
+      }
+     ],
+     "scale": {
+      "read": "own.counter.cloud",
+      "per": 1
+     },
+     "do": [
+      {
+       "gain_qi": {
+        "share": -0.003
+       }
+      }
+     ]
+    },
+    {
+     "id": "clouds-bank",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.clouds-watching",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.composed_time",
+       "op": ">=",
+       "value": 2
+      },
+      {
+       "read": "own.qi_share",
+       "op": ">=",
+       "value": 0.08
+      }
+     ],
+     "do": [
+      {
+       "gain_qi": {
+        "share": -0.003
+       }
+      },
+      {
+       "counter": {
+        "id": "cloud",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "clouds-spend-boost",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "soul"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.cloud",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.cloud",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "x_soul": 10,
+        "status_dur": 15
+       }
+      }
+     ]
+    },
+    {
+     "id": "clouds-spend-clear",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "soul"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.cloud",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "cloud",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "cloud"
+    }
+   ],
+   "states": [
+    {
+     "id": "clouds-watching",
+     "tags": [
+      "composed"
+     ],
+     "mods": {}
     }
    ]
   },
@@ -6500,6 +7193,55 @@
     }
    ]
   },
+  "crane-descends": {
+   "c_art": 1.5,
+   "cooldown": 5.0,
+   "cost_share": 0.04,
+   "element": "wind",
+   "group": "crane-bond-rite",
+   "id": "crane-descends",
+   "kind": "elem",
+   "statuses": [
+    {
+     "id": "off_guard",
+     "stacks": 1,
+     "dur": 1
+    }
+   ],
+   "tags": [
+    "wind",
+    "crane",
+    "quick"
+   ],
+   "name": "Crane Descends (Hạc Giáng)",
+   "rule": "Calls the bonded crane down on the foe: a Wind strike that delays its next ready art by 0.3 s and leaves it Off Guard for 1 s; while the crane circles for 4 s, you gain 8 evade points and 10 % art speed.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "crane-descends-gust",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "crane-descends"
+     },
+     "do": [
+      {
+       "timer": {
+        "side": "foe",
+        "which": "next",
+        "by": 0.3
+       }
+      },
+      {
+       "mod": {
+        "evade": 8,
+        "art_speed": 10,
+        "for": 4
+       }
+      }
+     ]
+    }
+   ]
+  },
   "crucible-guard": {
    "buff": [
     2,
@@ -6656,6 +7398,50 @@
       "block": 12,
       "resist": 40
      }
+    }
+   ]
+  },
+  "cry-in-the-nine-marshes": {
+   "buff": [
+    1,
+    6
+   ],
+   "c_art": 1.2,
+   "cooldown": 6.0,
+   "cost_share": 0.04,
+   "element": "wind",
+   "group": "crane-bond-rite",
+   "id": "cry-in-the-nine-marshes",
+   "kind": "elem",
+   "tags": [
+    "wind",
+    "crane"
+   ],
+   "name": "Cry in the Nine Marshes (Cửu Cao Minh)",
+   "rule": "The crane's cry (not counted as music): a brief Wind burst that grants 1 Wind buff stack for 6 s, delays the foe's next ready art by 0.8 s, and refreshes your own buff batches.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "nine-marshes-cry",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "cry-in-the-nine-marshes"
+     },
+     "do": [
+      {
+       "timer": {
+        "side": "foe",
+        "which": "next",
+        "by": 0.8
+       }
+      },
+      {
+       "refresh": {
+        "side": "own",
+        "kind": "buff"
+       }
+      }
+     ]
     }
    ]
   },
@@ -8399,6 +9185,102 @@
     }
    ]
   },
+  "echo-wall": {
+   "c_art": 0.0,
+   "cooldown": 6.0,
+   "cost_share": 0.04,
+   "element": "",
+   "group": "ten-thousand-ravines-zither-canon",
+   "guards": [
+    {
+     "read": "own.counter.echo_wall",
+     "op": "==",
+     "value": 0
+    }
+   ],
+   "id": "echo-wall",
+   "kind": "elem",
+   "tags": [
+    "song",
+    "ward",
+    "heal"
+   ],
+   "name": "Echo Wall (Hồi Hưởng Bích)",
+   "rule": "For 4 s, each art hit that damages you returns an echo that heals you for 25 % of its damage (up to 3 times a pulse). Also attunes your canon: every song art you cast adds 1 Resonance stack to the foe.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "echo-wall-up",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "echo-wall"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "echo_wall",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "echo-wall-heal",
+     "on": "was_hit",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.echo_wall",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "limit": {
+      "per_pulse": 3
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.25,
+        "of": "amount"
+       }
+      }
+     ]
+    },
+    {
+     "id": "echo-wall-resonance",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "song"
+      ]
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "resonance",
+        "side": "foe",
+        "add": 1
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "echo_wall",
+     "each_for": 4.0,
+     "cap": 1
+    }
+   ]
+  },
   "eighth-month-snow": {
    "c_art": 0.0,
    "cooldown": 6.0,
@@ -9114,6 +9996,156 @@
    "name": "Empty-Husk Gust (Không Xác Phong)",
    "rule": "A plain gust, no stacks.",
    "source": "part_common"
+  },
+  "empty-lungs": {
+   "c_art": 0.0,
+   "cooldown": 8,
+   "cost_share": 0.03,
+   "element": "water",
+   "group": "pearl-diver-breath",
+   "id": "empty-lungs",
+   "kind": "elem",
+   "tags": [
+    "water",
+    "breath"
+   ],
+   "name": "Empty Lungs (Không Phế)",
+   "rule": "For 5 s the diver holds an empty-lung breath: immune to Heavy Breath, Silence, Sealed Meridian and timer delays, +50 status resistance against statuses and curses, and +3 percentage-point linh lực regeneration bonus.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "empty-lungs-hold",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "empty-lungs"
+     },
+     "do": [
+      {
+       "mod": {
+        "regen": 0.03,
+        "delay_immune": 1,
+        "status_resist": 50,
+        "for": 5
+       }
+      },
+      {
+       "counter": {
+        "id": "empty_lungs_t",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "empty-lungs-immune-breath",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.empty_lungs_t",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "status_immune": 1,
+        "status": "heavy_breath"
+       }
+      }
+     ]
+    },
+    {
+     "id": "empty-lungs-immune-silence",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.empty_lungs_t",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "status_immune": 1,
+        "status": "silence"
+       }
+      }
+     ]
+    },
+    {
+     "id": "empty-lungs-immune-sealed",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.empty_lungs_t",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "status_immune": 1,
+        "status": "sealed_meridian"
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "empty_lungs_t",
+     "cap": 1,
+     "each_for": 5
+    }
+   ]
+  },
+  "empty-ravine": {
+   "c_art": 1.4,
+   "convert": {
+    "to": "force",
+    "share": 1.0
+   },
+   "cooldown": 5.0,
+   "cost_share": 0.03,
+   "element": "",
+   "group": "the-monks-rest",
+   "id": "empty-ravine",
+   "kind": "elem",
+   "tags": [
+    "song",
+    "force",
+    "curse"
+   ],
+   "name": "Empty Ravine (Không Hác)",
+   "rule": "A sharp clearing note (Force damage) that strips up to 3 stacks from the foe's largest buff pile and silences its song arts for 3 s.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "empty-ravine-strip",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "empty-ravine"
+     },
+     "do": [
+      {
+       "strip": {
+        "n": 3
+       }
+      },
+      {
+       "status": {
+        "id": "silence",
+        "tag": "song",
+        "dur": 3,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
   },
   "exposing-thread": {
    "c_art": 1.55,
@@ -11438,6 +12470,331 @@
    "rule": "The sword leaves the hand and cuts: a plain quick Physical hit.",
    "source": "common_arts"
   },
+  "follows-the-wind-into-the-night": {
+   "c_art": 0.0,
+   "c_heal": 0.4,
+   "cooldown": 8.0,
+   "cost_share": 0.04,
+   "element": "wood",
+   "group": "good-rain-canon",
+   "guards": [
+    {
+     "read": "own.counter.good_rain",
+     "op": "<",
+     "value": 1
+    }
+   ],
+   "id": "follows-the-wind-into-the-night",
+   "kind": "elem",
+   "tags": [
+    "wood",
+    "field",
+    "heal"
+   ],
+   "name": "Follows the Wind Into the Night (Tùy Phong Nhập Dạ)",
+   "rule": "Calls a soft rain Field for 6 s: each second you heal 2 % of your maximum health and gain 1 Wood buff stack (8 s), and every 2 s the foe takes 1 Slowed Time stack (2 s). Combines with Rooted Form if both are active.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "good-rain-open",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "follows-the-wind-into-the-night"
+     },
+     "if": [
+      {
+       "read": "own.state.rooted",
+       "op": "<",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "good_rain",
+        "set": 6
+       }
+      },
+      {
+       "state": {
+        "set": "good-rain"
+       }
+      }
+     ]
+    },
+    {
+     "id": "good-rain-open-rooted",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "follows-the-wind-into-the-night"
+     },
+     "if": [
+      {
+       "read": "own.state.rooted",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "good_rain",
+        "set": 6
+       }
+      },
+      {
+       "state": {
+        "set": "good-rain-rooted"
+       }
+      }
+     ]
+    },
+    {
+     "id": "good-rain-merge-rooted",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.good_rain",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.state.rooted",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "state": {
+        "set": "good-rain-rooted"
+       }
+      }
+     ]
+    },
+    {
+     "id": "good-rain-heal",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.good_rain",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.02
+       }
+      },
+      {
+       "stacks": {
+        "el": "wood",
+        "n": 1,
+        "for": 8,
+        "side": "own"
+       }
+      }
+     ]
+    },
+    {
+     "id": "good-rain-slow",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.good_rain",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "cooldown": 2.0
+     },
+     "do": [
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 1,
+        "dur": 2,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "good-rain-rooted-creep",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.good-rain-rooted",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.good_rain",
+       "op": ">=",
+       "value": 2
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "wood",
+        "n": 2,
+        "for": 5,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "seed",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "good-rain-rooted-sap",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.good-rain-rooted",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.good_rain",
+       "op": ">=",
+       "value": 2
+      }
+     ],
+     "scale": {
+      "read": "own.buff.wood",
+      "per": 10
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "wood",
+        "n": 2,
+        "for": 5,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "good-rain-tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.good_rain",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "good_rain",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "good-rain-close",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.good_rain",
+       "op": "<",
+       "value": 1
+      },
+      {
+       "read": "own.state.good-rain",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "state": {
+        "set": null
+       }
+      }
+     ]
+    },
+    {
+     "id": "good-rain-close-rooted",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.good_rain",
+       "op": "<",
+       "value": 1
+      },
+      {
+       "read": "own.state.good-rain-rooted",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "state": {
+        "set": "rooted"
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "good_rain"
+    },
+    {
+     "id": "seed"
+    }
+   ],
+   "states": [
+    {
+     "id": "good-rain",
+     "tags": [
+      "field"
+     ],
+     "mods": {}
+    },
+    {
+     "id": "rooted",
+     "mods": {
+      "hregen": 0.3,
+      "healing": 25,
+      "dampen_taken": 10,
+      "art_speed": -20
+     },
+     "suppress": [
+      "thorn-rain"
+     ]
+    },
+    {
+     "id": "good-rain-rooted",
+     "tags": [
+      "field"
+     ],
+     "mods": {
+      "hregen": 0.3,
+      "healing": 25,
+      "dampen_taken": 10,
+      "art_speed": -20
+     },
+     "suppress": [
+      "thorn-rain"
+     ]
+    }
+   ]
+  },
   "force-chaos-foreclose": {
    "c_art": 0.6,
    "cooldown": 6,
@@ -12110,6 +13467,109 @@
        }
       }
      ]
+    }
+   ]
+  },
+  "full-pool": {
+   "c_art": 0.0,
+   "c_heal": 0.5,
+   "cooldown": 7,
+   "cost_share": 0.04,
+   "element": "water",
+   "group": "moon-holding-scripture",
+   "id": "full-pool",
+   "kind": "elem",
+   "tags": [
+    "water",
+    "heal"
+   ],
+   "name": "Full Pool (Mãn Đàm)",
+   "rule": "A slow ripple of healing (c_heal 0.5 on cast) followed by 4 s of pool-restoration: 1.5 % of maximum health each second plus 0.5 % per second since your last damaging or movement act (uncapped).",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "full-pool-open",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "full-pool"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "full_pool_t",
+        "set": 4
+       }
+      }
+     ]
+    },
+    {
+     "id": "full-pool-base",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.full_pool_t",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.015
+       }
+      }
+     ]
+    },
+    {
+     "id": "full-pool-still",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.full_pool_t",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.since_act",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.since_act",
+      "per": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.005
+       }
+      }
+     ]
+    },
+    {
+     "id": "full-pool-tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.full_pool_t",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "full_pool_t",
+        "add": -1
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "full_pool_t"
     }
    ]
   },
@@ -14207,6 +15667,124 @@
    "counters": [
     {
      "id": "seed"
+    }
+   ]
+  },
+  "haul-in": {
+   "c_art": 2.2,
+   "cooldown": 5.0,
+   "cost_share": 0.05,
+   "element": "",
+   "empower": [
+    {
+     "if": [
+      {
+       "read": "foe.status.bound",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "pay": [
+      {
+       "timer": {
+        "side": "foe",
+        "which": "next",
+        "by": 0.3
+       }
+      }
+     ],
+     "c_mult": 1.6
+    }
+   ],
+   "group": "whale-line-harpoon",
+   "id": "haul-in",
+   "kind": "phys",
+   "tags": [
+    "physical",
+    "harpoon",
+    "haul_in"
+   ],
+   "name": "Haul In (Kéo Tác)",
+   "rule": "Tightens the harpoon line for Physical damage; if the foe is Bound, delays its soonest ready art by 0.3 s and deals 60 % more base damage plus 15 % more damage for each second Bound has held.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "haul-in-clear",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "foe.status.bound",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.line_held",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "line_held",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "haul-in-hold",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "foe.status.bound",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "line_held",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "haul-in-scale",
+     "on": "always",
+     "if": [
+      {
+       "read": "foe.status.bound",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.line_held",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.line_held",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.15,
+        "tags": [
+         "haul_in"
+        ]
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "line_held"
     }
    ]
   },
@@ -16803,6 +18381,118 @@
    "rule": "A soul hit that applies Slackened Soul ×2 (−15 pp soul resistance each) so the next soul hit lands on a loosened soul.",
    "source": "part_authored"
   },
+  "landing-the-fish": {
+   "c_art": 0.6,
+   "cooldown": 6.0,
+   "cost_share": 0.04,
+   "element": "water",
+   "group": "lone-line-sitting-canon",
+   "id": "landing-the-fish",
+   "kind": "elem",
+   "tags": [
+    "water",
+    "hook",
+    "heavy"
+   ],
+   "name": "Landing the Fish (Thu Tuyến)",
+   "rule": "A short pull on the line (a small Water hit). Every linh lực drain your Line Through the Ice or A Bite on the Line lands banks 1 Catch, with no cap. Landing this pull spends all Catch as one free Water hit of 0.35 c per Catch, doubled to 0.70 c per Catch if the foe is below 20 % linh lực.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "catch-bank",
+     "on": "qi_drained",
+     "do": [
+      {
+       "counter": {
+        "id": "catch",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "catch-landed",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "landing-the-fish"
+     },
+     "if": [
+      {
+       "read": "own.counter.catch",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.qi_share",
+       "op": ">=",
+       "value": 0.2
+      }
+     ],
+     "scale": {
+      "read": "own.counter.catch",
+      "per": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.35,
+        "dtype": "elem",
+        "outside_budget": true
+       }
+      },
+      {
+       "counter": {
+        "id": "catch",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "catch-landed-dry",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "landing-the-fish"
+     },
+     "if": [
+      {
+       "read": "own.counter.catch",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.qi_share",
+       "op": "<",
+       "value": 0.2
+      }
+     ],
+     "scale": {
+      "read": "own.counter.catch",
+      "per": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.7,
+        "dtype": "elem",
+        "outside_budget": true
+       }
+      },
+      {
+       "counter": {
+        "id": "catch",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "catch"
+    }
+   ]
+  },
   "landslide": {
    "buff": [
     4,
@@ -16842,6 +18532,406 @@
    "name": "Lantern Out (Đăng Tắt)",
    "rule": "Escape, usable only when your health is at or below 30 %.",
    "source": "part_authored"
+  },
+  "lantern-stone": {
+   "c_art": 0.0,
+   "cooldown": 8.0,
+   "cost_share": 0.04,
+   "element": "wood",
+   "group": "mist-lock-array-canon",
+   "guards": [
+    {
+     "read": "own.counter.lantern_stone",
+     "op": "<",
+     "value": 2
+    }
+   ],
+   "id": "lantern-stone",
+   "kind": "elem",
+   "tags": [
+    "wood",
+    "lantern",
+    "mist",
+    "stone_art"
+   ],
+   "name": "Lantern-Stone (Đăng Thạch)",
+   "rule": "Gains 1 Lantern-Stone charge (2 hits of wear each, cap 3): while you hold one and are Composed, your mist field does not fade; damaging non-wind hits wear the stones and ending the last stone ends the mist field.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "lantern-stone-gain",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "stone_art"
+      ]
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "lantern_stone",
+        "add": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "lantern_wear",
+        "add": 2
+       }
+      }
+     ]
+    },
+    {
+     "id": "lantern-stone-wear-1",
+     "on": "was_hit",
+     "filter": {
+      "not_tags": [
+       "wind",
+       "phong"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_stone",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_wear",
+       "op": "==",
+       "value": 1
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lantern_wear",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "lantern_stone",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "mist_field",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "lantern-stone-wear-2",
+     "on": "was_hit",
+     "filter": {
+      "not_tags": [
+       "wind",
+       "phong"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_stone",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_wear",
+       "op": "==",
+       "value": 2
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lantern_wear",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "lantern-stone-wear-3",
+     "on": "was_hit",
+     "filter": {
+      "not_tags": [
+       "wind",
+       "phong"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_stone",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_wear",
+       "op": "==",
+       "value": 3
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lantern_wear",
+        "set": 2
+       }
+      },
+      {
+       "counter": {
+        "id": "lantern_stone",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "lantern-stone-wear-4",
+     "on": "was_hit",
+     "filter": {
+      "not_tags": [
+       "wind",
+       "phong"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_stone",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_wear",
+       "op": "==",
+       "value": 4
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lantern_wear",
+        "set": 3
+       }
+      }
+     ]
+    },
+    {
+     "id": "lantern-stone-wear-5",
+     "on": "was_hit",
+     "filter": {
+      "not_tags": [
+       "wind",
+       "phong"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_stone",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_wear",
+       "op": "==",
+       "value": 5
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lantern_wear",
+        "set": 4
+       }
+      },
+      {
+       "counter": {
+        "id": "lantern_stone",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "lantern-stone-wear-6",
+     "on": "was_hit",
+     "filter": {
+      "not_tags": [
+       "wind",
+       "phong"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_stone",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_wear",
+       "op": ">=",
+       "value": 6
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lantern_wear",
+        "set": 5
+       }
+      }
+     ]
+    },
+    {
+     "id": "lantern-stone-sync-0",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.lantern_stone",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.lantern_wear",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lantern_wear",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "lantern-stone-sync-1",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.lantern_stone",
+       "op": "==",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_wear",
+       "op": ">=",
+       "value": 3
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lantern_wear",
+        "set": 2
+       }
+      }
+     ]
+    },
+    {
+     "id": "lantern-stone-sync-2",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.lantern_stone",
+       "op": "==",
+       "value": 2
+      },
+      {
+       "read": "own.counter.lantern_wear",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lantern_wear",
+        "set": 4
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "lantern_stone",
+     "cap": 3
+    },
+    {
+     "id": "lantern_wear",
+     "cap": 6
+    },
+    {
+     "id": "mist_field",
+     "cap": 20
+    }
+   ]
   },
   "last-breath-fist": {
    "c_art": 2.8,
@@ -17941,6 +20031,73 @@
     }
    ]
   },
+  "line-through-the-ice": {
+   "c_art": 0.8,
+   "cooldown": 7.0,
+   "cost_share": 0.03,
+   "element": "water",
+   "group": "lone-line-sitting-canon",
+   "id": "line-through-the-ice",
+   "kind": "elem",
+   "tags": [
+    "water",
+    "cold",
+    "hook"
+   ],
+   "name": "Line Through the Ice (Xuyên Băng Tuyến)",
+   "rule": "A thin Water line that hooks a foe for 6 s and drains 1.5 % of their maximum linh lực to you each second it holds; what it drains raises Catch for Landing the Fish.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "line-through-ice-hook",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "line-through-the-ice"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "ice_line",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "ice_line",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "line-through-ice-drain",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.ice_line",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "burn_qi": {
+        "of": "qi_max",
+        "share": 0.015,
+        "to_self": 1.0
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "ice_line",
+     "cap": 1,
+     "each_for": 6.0
+    }
+   ]
+  },
   "lingzhi-spores": {
    "c_art": 1.0,
    "cooldown": 5,
@@ -18024,6 +20181,302 @@
     {
      "id": "spore_ripened",
      "each_for": 0.5
+    }
+   ]
+  },
+  "lock-the-road": {
+   "c_art": 0.0,
+   "cooldown": 8.0,
+   "cost_share": 0.05,
+   "element": "wood",
+   "group": "mist-lock-array-canon",
+   "guards": [
+    {
+     "read": "own.counter.mist_field",
+     "op": "==",
+     "value": 0
+    }
+   ],
+   "id": "lock-the-road",
+   "kind": "elem",
+   "tags": [
+    "wood",
+    "mist",
+    "field",
+    "lock_road"
+   ],
+   "name": "Lock the Road (Tỏa Lộ)",
+   "rule": "Lays a mist field for 8 s: grants +18 evade (+2 evade per second elapsed, matching the foe's fading aim) and 1 avoid for the foe's first strike. Uses the single stance slot when free so Deep Lake can stay active.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "lock-road-cast",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "lock_road"
+      ]
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "mist_field",
+        "set": 8
+       }
+      },
+      {
+       "counter": {
+        "id": "mist_field_age",
+        "set": 0
+       }
+      },
+      {
+       "decoy": {
+        "n": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "lock-road-enter-state",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "lock_road"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.state.any",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "state": {
+        "set": "mist-lock-field"
+       }
+      }
+     ]
+    },
+    {
+     "id": "lock-road-evade",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "evade": 18
+       }
+      }
+     ]
+    },
+    {
+     "id": "lock-road-age-evade",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.mist_field_age",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.mist_field_age",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "evade": 2
+       }
+      }
+     ]
+    },
+    {
+     "id": "lock-road-age-tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "mist_field_age",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "lock-road-fade-pressing",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.composed",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "mist_field",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "lock-road-fade-unheld",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.composed",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.lantern_stone",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.mist_lantern",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "mist_field",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "lock-road-reenter-state",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.state.any",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "state": {
+        "set": "mist-lock-field"
+       }
+      }
+     ]
+    },
+    {
+     "id": "lock-road-clear-state",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.state.mist-lock-field",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "state": {
+        "set": null
+       }
+      }
+     ]
+    },
+    {
+     "id": "lock-road-clear-age",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.mist_field",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.mist_field_age",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "mist_field_age",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "mist_field",
+     "cap": 20
+    },
+    {
+     "id": "mist_field_age",
+     "cap": 20
+    },
+    {
+     "id": "lantern_stone",
+     "cap": 3
+    },
+    {
+     "id": "mist_lantern",
+     "cap": 1
+    }
+   ],
+   "states": [
+    {
+     "id": "mist-lock-field",
+     "tags": [
+      "field"
+     ]
     }
    ]
   },
@@ -20595,6 +23048,253 @@
     }
    ]
   },
+  "ninth-blow": {
+   "c_art": 1.8,
+   "cooldown": 4.0,
+   "cost_share": 0.04,
+   "element": "metal",
+   "group": "star-quench-canon",
+   "id": "ninth-blow",
+   "kind": "phys",
+   "tags": [
+    "metal",
+    "sword",
+    "heavy"
+   ],
+   "name": "Ninth Blow (Cửu Kích)",
+   "rule": "A heavy finishing cut. Every direct hit you land (arts and basic attacks) adds 1 fold; your ninth direct hit deals 120 % more damage and resets the fold count to 0.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "ninth-blow-mod",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.fold_hits",
+       "op": ">=",
+       "value": 8
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 1.2,
+        "not_tags": [
+         "trigger",
+         "companion"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "ninth-blow-count",
+     "on": "hit_landed",
+     "filter": {
+      "not_tags": [
+       "trigger",
+       "companion"
+      ]
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "fold_hits",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "ninth-blow-reset",
+     "on": "hit_landed",
+     "filter": {
+      "not_tags": [
+       "trigger",
+       "companion"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.fold_hits",
+       "op": ">=",
+       "value": 9
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "fold_hits",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "fold_hits"
+    }
+   ]
+  },
+  "ninth-fathom": {
+   "c_art": 0.0,
+   "cooldown": 6.0,
+   "cost_share": 0.05,
+   "element": "",
+   "group": "canglang-body-canon",
+   "guards": [
+    {
+     "read": "own.counter.ninth_fathom_used",
+     "op": "==",
+     "value": 0
+    }
+   ],
+   "id": "ninth-fathom",
+   "kind": "phys",
+   "tags": [
+    "physical",
+    "body",
+    "ward",
+    "cleanse"
+   ],
+   "name": "Ninth Fathom (Cửu Tầm)",
+   "rule": "Once a fight: sinks into deep-water calm, clearing every Slowed Time and Drunk stack and taking no damage for 1 s.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "ninth-fathom-cast",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "ninth-fathom"
+     },
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "ninth_fathom_used",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "ninth_fathom_sec",
+        "set": 1
+       }
+      },
+      {
+       "cleanse": {
+        "status": "slowed_time"
+       }
+      },
+      {
+       "cleanse": {
+        "status": "drunk"
+       }
+      },
+      {
+       "mod": {
+        "dampen_taken": 10000,
+        "for": 1.0
+       }
+      }
+     ]
+    },
+    {
+     "id": "ninth-fathom-hit",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.ninth_fathom_sec",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "of": "amount",
+        "share": 1.0,
+        "ignore_taken": true
+       }
+      }
+     ]
+    },
+    {
+     "id": "ninth-fathom-tick",
+     "on": "tick_taken",
+     "if": [
+      {
+       "read": "own.counter.ninth_fathom_sec",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "of": "amount",
+        "share": 1.0,
+        "ignore_taken": true
+       }
+      }
+     ]
+    },
+    {
+     "id": "ninth-fathom-soul",
+     "on": "soul_taken",
+     "if": [
+      {
+       "read": "own.counter.ninth_fathom_sec",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "event.reflected",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "of": "amount",
+        "share": 1.0,
+        "ignore_taken": true
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "ninth_fathom_used",
+     "cap": 1
+    },
+    {
+     "id": "ninth_fathom_sec",
+     "cap": 1,
+     "each_for": 1.0
+    }
+   ]
+  },
   "ninth-weight-lance": {
    "c_art": 0.0,
    "cooldown": 8,
@@ -21288,6 +23988,139 @@
     }
    ]
   },
+  "not-counting-the-steps": {
+   "c_art": 0.0,
+   "cooldown": 5.0,
+   "cost_share": 0.03,
+   "element": "",
+   "group": "water-ends-primer",
+   "guards": [
+    {
+     "read": "own.state.uncounted-walk",
+     "op": "<",
+     "value": 1
+    }
+   ],
+   "id": "not-counting-the-steps",
+   "kind": "phys",
+   "tags": [
+    "movement",
+    "stance"
+   ],
+   "name": "Not Counting the Steps (Bất Kế Bộ)",
+   "rule": "A walking stance (Pressing). Each second while walking adds 1 Step (+4 pp evasion, paying 0.4 % of maximum linh lực per Step each second in upkeep). The first damaging hit that lands on you clears the stance and resets your Steps.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "walk-enter",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "not-counting-the-steps"
+     },
+     "do": [
+      {
+       "state": {
+        "set": "uncounted-walk"
+       }
+      },
+      {
+       "counter": {
+        "id": "walk_step",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "walk-pace",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.uncounted-walk",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "walk_step",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "walk-evade",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.state.uncounted-walk",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.walk_step",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "evade": 4
+       }
+      }
+     ]
+    },
+    {
+     "id": "walk-clear",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.state.uncounted-walk",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "state": {
+        "set": null
+       }
+      },
+      {
+       "counter": {
+        "id": "walk_step",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "walk_step",
+     "upkeep": {
+      "pool": "qi",
+      "per_stack": 0.004
+     }
+    }
+   ],
+   "states": [
+    {
+     "id": "uncounted-walk",
+     "tags": [
+      "pressing"
+     ],
+     "mods": {}
+    }
+   ]
+  },
   "notch-the-foe": {
    "c_art": 1.58,
    "cooldown": 5,
@@ -21306,6 +24139,45 @@
    "name": "Notch the Foe (Khắc Ngân)",
    "rule": "A Physical sword hit that lays 3 Metal debuff stacks (+1.8 % Physical damage taken each) for 8 s.",
    "source": "part_common"
+  },
+  "oar-stroke": {
+   "c_art": 1.4,
+   "cooldown": 3.0,
+   "cost_share": 0.03,
+   "element": "water",
+   "group": "ice-fish-boat-breath",
+   "id": "oar-stroke",
+   "kind": "elem",
+   "qi_restore": 0.05,
+   "tags": [
+    "water",
+    "cold",
+    "quick"
+   ],
+   "name": "Oar Stroke (Trạo Kích)",
+   "rule": "A sweeping Water blow that delays the foe's soonest ready art by 0.3 s on hit and restores 5 % of maximum linh lực.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "oar-stroke-slow",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "oar-stroke"
+     },
+     "limit": {
+      "per_pulse": 1
+     },
+     "do": [
+      {
+       "timer": {
+        "side": "foe",
+        "which": "next",
+        "by": 0.3
+       }
+      }
+     ]
+    }
+   ]
   },
   "oars-together": {
    "c_art": 0.0,
@@ -23617,6 +26489,108 @@
    "rule": "A plain Physical sword hit.",
    "source": "part_common"
   },
+  "plant-the-seedling": {
+   "c_art": 0.0,
+   "c_heal": 0.5,
+   "cooldown": 5.0,
+   "cost_share": 0.03,
+   "element": "wood",
+   "group": "seedling-breath-primer",
+   "guards": [
+    {
+     "read": "own.counter.seedling",
+     "op": "<",
+     "value": 1
+    }
+   ],
+   "id": "plant-the-seedling",
+   "kind": "elem",
+   "tags": [
+    "wood",
+    "heal",
+    "seed"
+   ],
+   "name": "Plant the Seedling (Cấy Ương)",
+   "rule": "Plants a spirit seedling that stays with you for 3 s (with a small cast heal): each second while it grows you regenerate 1.5 % of your maximum health, and on the 3rd second it is harvested for a 4 % health heal.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "seedling-plant",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "plant-the-seedling"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "seedling",
+        "set": 3
+       }
+      }
+     ]
+    },
+    {
+     "id": "seedling-grow",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.seedling",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.015
+       }
+      }
+     ]
+    },
+    {
+     "id": "seedling-harvest",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.seedling",
+       "op": "==",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.04
+       }
+      }
+     ]
+    },
+    {
+     "id": "seedling-tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.seedling",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "seedling",
+        "add": -1
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "seedling"
+    }
+   ]
+  },
   "plant-the-stele": {
    "c_art": 0.0,
    "cooldown": 3,
@@ -23948,6 +26922,123 @@
     }
    ]
   },
+  "plucked-pitch": {
+   "c_art": 1.4,
+   "convert": {
+    "to": "force",
+    "share": 1.0
+   },
+   "cooldown": 1.5,
+   "cost_share": 0.03,
+   "element": "",
+   "group": "pine-wind-fingering",
+   "id": "plucked-pitch",
+   "kind": "elem",
+   "tags": [
+    "song",
+    "force",
+    "quick"
+   ],
+   "name": "Plucked Pitch (Câu Huyền)",
+   "rule": "A single note thrown at a foe as Force damage; the next song or music note that lands within 1 s deals 25 % more damage.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "plucked-boost",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.plucked_echo",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.25,
+        "tags": [
+         "song",
+         "music"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "plucked-spend",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "song",
+       "music"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.plucked_echo",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "plucked_echo",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "plucked-spend-evade",
+     "on": "was_evaded",
+     "filter": {
+      "tags": [
+       "song",
+       "music"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.plucked_echo",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "plucked_echo",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "plucked-arm",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "plucked-pitch"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "plucked_echo",
+        "add": 1
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "plucked_echo",
+     "each_for": 1.0,
+     "cap": 1
+    }
+   ]
+  },
   "plum-falls-on-snow": {
    "c_art": 2.0,
    "cooldown": 7,
@@ -24259,6 +27350,106 @@
    "name": "Quench (Tôi Thiết)",
    "rule": "No hit. Only while you bear Sealed Meridian: cleanses curses with the seal tag from you.",
    "source": "part_authored"
+  },
+  "quench-strike": {
+   "c_art": 1.5,
+   "cooldown": 3.0,
+   "cost_share": 0.03,
+   "debuff": [
+    1,
+    8
+   ],
+   "element": "metal",
+   "group": "star-quench-canon",
+   "id": "quench-strike",
+   "kind": "phys",
+   "tags": [
+    "metal",
+    "sword",
+    "quench"
+   ],
+   "name": "Quench (Thối)",
+   "rule": "A cutting strike that applies 1 Quench mark (Metal debuff stack) for 8 s. When it lands on a foe carrying 3 or more Quench marks, the foe takes Sundered (-150 resistance points for 4 s) and your next Metal art hit deals 35 % more damage.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "quench-brittle-mod",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.quench_brittle",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.35,
+        "element": "metal"
+       }
+      }
+     ]
+    },
+    {
+     "id": "quench-brittle-spend",
+     "on": "hit_landed",
+     "filter": {
+      "element": "metal"
+     },
+     "if": [
+      {
+       "read": "own.counter.quench_brittle",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "quench_brittle",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "quench-brittle-arm",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "quench-strike"
+     },
+     "if": [
+      {
+       "read": "foe.debuff.metal",
+       "op": ">=",
+       "value": 3
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "quench_brittle",
+        "set": 1
+       }
+      },
+      {
+       "status": {
+        "id": "sundered",
+        "stacks": 1,
+        "dur": 4,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "quench_brittle",
+     "cap": 1
+    }
+   ]
   },
   "quick-draw-cut": {
    "c_art": 1.6,
@@ -25405,6 +28596,130 @@
    "name": "Red Sun Descends (Hồng Nhật Giáng)",
    "rule": "Counts as a Red Sun Scripture art. A slow Fire seal that lays 4 Burn stacks for 6 s. In Brazier Form, or with 6 Heat, it falls twice as hard.",
    "source": "item"
+  },
+  "reed-bed": {
+   "c_art": 0.0,
+   "cooldown": 8.0,
+   "cost_share": 0.04,
+   "element": "wood",
+   "group": "marsh-reed-breath",
+   "guards": [
+    {
+     "read": "own.field_up",
+     "op": "<",
+     "value": 1
+    }
+   ],
+   "id": "reed-bed",
+   "kind": "elem",
+   "tags": [
+    "wood",
+    "field",
+    "stance"
+   ],
+   "name": "Reed Bed (Lô Sàng)",
+   "rule": "Raises a bed of reeds (a Field) for 8 s: each second while it is up, the foe takes 1 Slowed Time stack for 2 s and 1 Wood stack for 6 s, and you regain 1.5 % of your maximum health.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "reed-bed-enter",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "reed-bed"
+     },
+     "do": [
+      {
+       "state": {
+        "set": "reed-bed"
+       }
+      },
+      {
+       "counter": {
+        "id": "reed_bed",
+        "set": 8
+       }
+      }
+     ]
+    },
+    {
+     "id": "reed-bed-pulse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.reed-bed",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 1,
+        "dur": 2,
+        "side": "foe"
+       }
+      },
+      {
+       "stacks": {
+        "el": "wood",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      },
+      {
+       "heal": {
+        "share": 0.015
+       }
+      },
+      {
+       "counter": {
+        "id": "reed_bed",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "reed-bed-exit",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.reed-bed",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.reed_bed",
+       "op": "<=",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "state": {
+        "set": null
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "reed_bed",
+     "cap": 8
+    }
+   ],
+   "states": [
+    {
+     "id": "reed-bed",
+     "tags": [
+      "field"
+     ],
+     "mods": {}
+    }
+   ]
   },
   "reed-cutting-breeze": {
    "c_art": 1.97,
@@ -31204,6 +34519,76 @@
     }
    ]
   },
+  "sitting-in-the-snow": {
+   "c_art": 0.0,
+   "cooldown": 4.0,
+   "cost_share": 0.03,
+   "element": "water",
+   "group": "lone-line-sitting-canon",
+   "guards": [
+    {
+     "read": "own.state.sitting-in-the-snow",
+     "op": "<",
+     "value": 1
+    }
+   ],
+   "id": "sitting-in-the-snow",
+   "kind": "elem",
+   "tags": [
+    "water",
+    "cold",
+    "stance"
+   ],
+   "name": "Sitting in the Snow (Tọa Tuyết)",
+   "rule": "Enters a Composed sitting stance that stays up for the fight: linh lực regenerates 2.5 % of maximum faster each second and Cold damage taken is reduced by 20 %.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "sitting-enter",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "sitting-in-the-snow"
+     },
+     "do": [
+      {
+       "state": {
+        "set": "sitting-in-the-snow"
+       }
+      }
+     ]
+    },
+    {
+     "id": "sitting-cold-ward",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.state.sitting-in-the-snow",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dampen_taken": 20,
+        "dtype": "cold"
+       }
+      }
+     ]
+    }
+   ],
+   "states": [
+    {
+     "id": "sitting-in-the-snow",
+     "tags": [
+      "composed"
+     ],
+     "mods": {
+      "regen": 0.025
+     }
+    }
+   ]
+  },
   "skimming-the-broth": {
    "c_art": 0.0,
    "c_heal": 0.55,
@@ -34235,6 +37620,157 @@
     }
    ]
   },
+  "ten-thousand-ravines": {
+   "c_art": 1.5,
+   "convert": {
+    "to": "force",
+    "share": 1.0
+   },
+   "cooldown": 6.0,
+   "cost_share": 0.06,
+   "element": "",
+   "group": "ten-thousand-ravines-zither-canon",
+   "id": "ten-thousand-ravines",
+   "kind": "elem",
+   "tags": [
+    "song",
+    "force",
+    "heavy"
+   ],
+   "name": "Ten Thousand Ravines (Vạn Hác)",
+   "rule": "Strikes with Force damage, then sets every Resonance stack on the foe ringing for 0.25 c Force free-hit damage per stack; half the foe's Resonance stacks (rounded down) remain on it.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "ravines-ring",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "ten-thousand-ravines"
+     },
+     "if": [
+      {
+       "read": "foe.counter.resonance",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "foe.counter.resonance",
+      "per": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.25,
+        "dtype": "force"
+       }
+      }
+     ]
+    },
+    {
+     "id": "ravines-half-clear-keep",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "ten-thousand-ravines"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "res_keep",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "ravines-half-count",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "ten-thousand-ravines"
+     },
+     "if": [
+      {
+       "read": "foe.counter.resonance",
+       "op": ">=",
+       "value": 2
+      }
+     ],
+     "scale": {
+      "read": "foe.counter.resonance",
+      "per": 2
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "res_keep",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "ravines-clear",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "ten-thousand-ravines"
+     },
+     "if": [
+      {
+       "read": "foe.counter.resonance",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "resonance",
+        "side": "foe",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "ravines-reapply",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "ten-thousand-ravines"
+     },
+     "if": [
+      {
+       "read": "own.counter.res_keep",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.res_keep",
+      "per": 1
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "resonance",
+        "side": "foe",
+        "add": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "res_keep",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "res_keep"
+    }
+   ]
+  },
   "the-bell-that-rings-itself": {
    "c_art": 1.2,
    "cooldown": 8,
@@ -34732,6 +38268,49 @@
     },
     {
      "id": "touchstone_stripped"
+    }
+   ]
+  },
+  "the-gate-is-not-there": {
+   "c_art": 0.0,
+   "cooldown": 7.0,
+   "cost_share": 0.04,
+   "element": "wood",
+   "group": "hidden-gate-array",
+   "id": "the-gate-is-not-there",
+   "kind": "elem",
+   "tags": [
+    "wood",
+    "mist",
+    "movement",
+    "gate_fold"
+   ],
+   "name": "The Gate Is Not There (Môn Bất Tại)",
+   "rule": "Steps into a fold of mist: grants 1 avoid so the foe loses your target, and delays the foe's soonest art by 0.3 s.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "hidden-gate-fold",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "gate_fold"
+      ]
+     },
+     "do": [
+      {
+       "decoy": {
+        "n": 1
+       }
+      },
+      {
+       "timer": {
+        "side": "foe",
+        "which": "next",
+        "by": 0.3
+       }
+      }
+     ]
     }
    ]
   },
@@ -35434,6 +39013,88 @@
     }
    ]
   },
+  "the-held-rest": {
+   "c_art": 0.0,
+   "cooldown": 5.0,
+   "cost_share": 0.03,
+   "element": "",
+   "group": "the-monks-rest",
+   "id": "the-held-rest",
+   "kind": "elem",
+   "tags": [
+    "song",
+    "curse"
+   ],
+   "name": "The Held Rest (Đình Âm)",
+   "rule": "Stops playing for a 2 s rest: lays 1 Slowed Time stack for 2 s on the foe so its casting slows. With The Earned Rest, a Marching Dirge finale starts this rest for 0.5 s per Measure spent (halving each later finale) and adds Heavy Breath while it holds.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "held-rest-start",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "the-held-rest"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "held_rest",
+        "set": 2
+       }
+      }
+     ]
+    },
+    {
+     "id": "held-rest-slow",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "the-held-rest"
+     },
+     "if": [
+      {
+       "read": "foe.status.slowed_time",
+       "op": "<=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 1,
+        "dur": 2,
+        "side": "foe",
+        "cap": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "held-rest-tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.held_rest",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "held_rest",
+        "add": -1
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "held_rest"
+    }
+   ]
+  },
   "the-herd-turns": {
    "c_art": 0.0,
    "cooldown": 8.0,
@@ -35895,6 +39556,245 @@
     {
      "id": "ride_hit_pulse",
      "cap": 1
+    }
+   ]
+  },
+  "the-makers-fold": {
+   "c_art": 1.5,
+   "cooldown": 6.0,
+   "cost_share": 0.04,
+   "element": "metal",
+   "group": "fallen-star-forging-rite",
+   "hp_cost": 0.05,
+   "id": "the-makers-fold",
+   "kind": "phys",
+   "tags": [
+    "metal",
+    "sword",
+    "heavy"
+   ],
+   "name": "The Maker's Fold (Tượng Chiết)",
+   "rule": "Spends 5 % of your health to fold your own Metal into the blade: your next 3 sword art hits (including this strike) cannot be blocked and each lays a lasting Quench mark (Metal debuff stack) for 15 s.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "makers-fold-arm",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "the-makers-fold"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "maker_fold",
+        "set": 3
+       }
+      }
+     ]
+    },
+    {
+     "id": "makers-fold-unblockable",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.maker_fold",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "ignore_block": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "makers-fold-mark",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.maker_fold",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "metal",
+        "n": 1,
+        "for": 15,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "maker_fold",
+        "add": -1
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "maker_fold",
+     "cap": 3
+    }
+   ]
+  },
+  "the-moon-in-the-water": {
+   "c_art": 0.0,
+   "cooldown": 8,
+   "cost_share": 0.04,
+   "element": "water",
+   "group": "moon-holding-scripture",
+   "guards": [
+    {
+     "read": "own.counter.refl_up",
+     "op": "<",
+     "value": 1
+    }
+   ],
+   "id": "the-moon-in-the-water",
+   "kind": "elem",
+   "tags": [
+    "water",
+    "ward"
+   ],
+   "name": "The Moon in the Water (Thủy Trung Nguyệt)",
+   "rule": "Lays a Moon-in-the-Water reflection for 4 s (1 decoy, within the avoid budget): the next direct hit lands on the reflection instead and restores 8 % of your maximum linh lực (fixed share proxy for part of the blow, as decoy_struck carries no damage amount).",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "moon-water-cast",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "the-moon-in-the-water"
+     },
+     "do": [
+      {
+       "decoy": {
+        "n": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "refl_up",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "refl_t",
+        "add": 4
+       }
+      }
+     ]
+    },
+    {
+     "id": "moon-water-struck",
+     "on": "decoy_struck",
+     "if": [
+      {
+       "read": "own.counter.refl_up",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "gain_qi": {
+        "share": 0.08
+       }
+      },
+      {
+       "counter": {
+        "id": "refl_up",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "refl_t",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "moon-water-expire",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.refl_up",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.refl_t",
+       "op": "<=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "decoy": {
+        "n": -1
+       }
+      },
+      {
+       "counter": {
+        "id": "refl_up",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "refl_t",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "moon-water-tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.refl_up",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.refl_t",
+       "op": ">=",
+       "value": 2
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "refl_t",
+        "add": -1
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "refl_up"
+    },
+    {
+     "id": "refl_t"
     }
    ]
   },
@@ -37515,6 +41415,187 @@
     }
    ]
   },
+  "the-water-has-ended": {
+   "c_art": 0.0,
+   "cooldown": 8.0,
+   "cost_share": 0.04,
+   "element": "",
+   "group": "sitting-cloud-canon",
+   "id": "the-water-has-ended",
+   "kind": "elem",
+   "tags": [
+    "ward",
+    "cleanse"
+   ],
+   "name": "The Water Has Ended (Thủy Cùng)",
+   "rule": "Raises a stance ward (5 % of health) and hardens soul (+12 %) and status (+20 %) resistance for 8 s. While Composed, once every 8 s when a status lands on you, turns it aside (cleanses 1 curse and tick statuses) and restores 3 % linh lực and +8 % soul resistance for 4 s.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "water-ended-ward",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "the-water-has-ended"
+     },
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.05,
+        "of": "hp"
+       }
+      },
+      {
+       "mod": {
+        "soul_res": 12,
+        "status_resist": 20,
+        "for": 8.0
+       }
+      }
+     ]
+    },
+    {
+     "id": "water-ended-turn",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.composed",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "any": [
+        {
+         "read": "own.status.slowed_time",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.heavy_breath",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.sundered",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.exposed",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.sealed_meridian",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.silence",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.stagnation",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.leaking_ward",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.withering",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.slackened_soul",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.off_guard",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.bound",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.charmed",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.sleep",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.drunk",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.bleed",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.qi_disruption",
+         "op": ">=",
+         "value": 1
+        },
+        {
+         "read": "own.status.corpse_rot",
+         "op": ">=",
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "limit": {
+      "cooldown": 8.0
+     },
+     "do": [
+      {
+       "cleanse": {
+        "curses": 1
+       }
+      },
+      {
+       "cleanse": {
+        "status": "bleed"
+       }
+      },
+      {
+       "cleanse": {
+        "status": "qi_disruption"
+       }
+      },
+      {
+       "cleanse": {
+        "status": "corpse_rot"
+       }
+      },
+      {
+       "gain_qi": {
+        "share": 0.03
+       }
+      },
+      {
+       "mod": {
+        "soul_res": 8,
+        "for": 4.0
+       }
+      }
+     ]
+    }
+   ]
+  },
   "the-wave-comes-back": {
    "c_art": 0.0,
    "c_heal": 0.0,
@@ -38396,6 +42477,34 @@
    ],
    "name": "Through the Mountain (Xuyên Sơn)",
    "rule": "A heavy Physical hit that passes 10 % of the foe's ward (bypass). The heavy blow of a piercing build; Notch the Foe's stacks set it up.",
+   "source": "part_authored"
+  },
+  "throw-the-iron": {
+   "c_art": 1.35,
+   "cooldown": 4.0,
+   "cost_share": 0.04,
+   "element": "",
+   "group": "whale-line-harpoon",
+   "id": "throw-the-iron",
+   "kind": "phys",
+   "statuses": [
+    {
+     "id": "bound",
+     "stacks": 1,
+     "dur": 3
+    },
+    {
+     "id": "slowed_time",
+     "stacks": 1,
+     "dur": 2
+    }
+   ],
+   "tags": [
+    "physical",
+    "harpoon"
+   ],
+   "name": "Throw the Iron (Phóng Lao)",
+   "rule": "Throws the harpoon on its qi-woven line for Physical damage, binding the foe (Bound, 3 s, it cannot flee) and slowing its timers (Slowed Time, 2 s).",
    "source": "part_authored"
   },
   "thunder-forked-slash": {
@@ -40582,6 +44691,198 @@
     }
    ]
   },
+  "wash-the-feet": {
+   "c_art": 0.0,
+   "cooldown": 6.0,
+   "cost_share": 0.04,
+   "element": "",
+   "group": "canglang-body-canon",
+   "guards": [
+    {
+     "read": "own.state.wash-the-feet",
+     "op": "<",
+     "value": 1
+    }
+   ],
+   "id": "wash-the-feet",
+   "kind": "phys",
+   "tags": [
+    "physical",
+    "body",
+    "stance",
+    "ward"
+   ],
+   "name": "Wash the Feet (Trạc Túc)",
+   "rule": "A low Composed stance (+10 block): after a damaging hit lands on you in the stance, the next damaging hit taken is turned into body shield (restoring the health lost and adding that amount to your body shield), ending the stance.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "wash-the-feet-enter",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "wash-the-feet"
+     },
+     "do": [
+      {
+       "state": {
+        "set": "wash-the-feet"
+       }
+      },
+      {
+       "counter": {
+        "id": "wash_feet_armed",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "wash-the-feet-convert",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.state.wash-the-feet",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.wash_feet_armed",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "of": "amount",
+        "share": 1.0,
+        "ignore_taken": true
+       }
+      },
+      {
+       "heal": {
+        "of": "amount",
+        "share": 1.0,
+        "body_shield": true
+       }
+      },
+      {
+       "counter": {
+        "id": "wash_feet_armed",
+        "set": 0
+       }
+      },
+      {
+       "state": {
+        "set": null
+       }
+      }
+     ]
+    },
+    {
+     "id": "wash-the-feet-arm",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.state.wash-the-feet",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.wash_feet_armed",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "wash_feet_armed",
+        "set": 1
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "wash_feet_armed",
+     "cap": 1
+    }
+   ],
+   "states": [
+    {
+     "id": "wash-the-feet",
+     "tags": [
+      "composed"
+     ],
+     "mods": {
+      "block": 10
+     }
+    }
+   ]
+  },
+  "wash-the-hat-strings": {
+   "c_art": 0.0,
+   "cooldown": 6.0,
+   "cost_share": 0.03,
+   "element": "",
+   "group": "canglang-body-canon",
+   "id": "wash-the-hat-strings",
+   "kind": "phys",
+   "tags": [
+    "physical",
+    "body",
+    "heal",
+    "ward"
+   ],
+   "name": "Wash the Hat Strings (Trạc Anh)",
+   "rule": "A breath held under pressure: for 4 s your health regenerates by 2.5 % of your maximum health each second and Cold damage taken is halved.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "wash-the-hat-strings-regen",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "wash-the-hat-strings"
+     },
+     "do": [
+      {
+       "mod": {
+        "hregen": 0.025,
+        "for": 4.0
+       }
+      }
+     ]
+    },
+    {
+     "id": "wash-the-hat-strings-cold",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "wash-the-hat-strings"
+     },
+     "do": [
+      {
+       "mod": {
+        "dampen_taken": 100,
+        "dtype": "cold",
+        "for": 4.0
+       }
+      }
+     ]
+    }
+   ]
+  },
   "water-abyss-seal-descends": {
    "c_art": 1.9,
    "cooldown": 5,
@@ -41256,6 +45557,67 @@
     }
    ]
   },
+  "when-the-season-comes": {
+   "c_art": 0.0,
+   "c_heal": 0.8,
+   "cooldown": 7.0,
+   "cost_share": 0.04,
+   "element": "wood",
+   "group": "good-rain-canon",
+   "guards": [
+    {
+     "read": "own.buff.wood",
+     "op": ">=",
+     "value": 4
+    },
+    {
+     "read": "own.hp_share",
+     "op": "<=",
+     "value": 0.95
+    }
+   ],
+   "id": "when-the-season-comes",
+   "kind": "elem",
+   "tags": [
+    "wood",
+    "heal"
+   ],
+   "name": "When the Season Comes (Đương Xuân)",
+   "rule": "When you hold at least 4 Wood buff stacks and 95 % health or less, spends all your Wood buff stacks to restore 2 % of your maximum health per stack consumed on top of the art's base heal.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "season-comes-heal",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "when-the-season-comes"
+     },
+     "if": [
+      {
+       "read": "own.buff.wood",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "consume": {
+        "el": "wood",
+        "side": "own",
+        "kind": "buff",
+        "then": [
+         {
+          "heal": {
+           "share": 0.02
+          }
+         }
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  },
   "where-the-drop-falls": {
    "c_art": 1.5,
    "cooldown": 4.0,
@@ -41538,6 +45900,125 @@
        }
       }
      ]
+    }
+   ]
+  },
+  "white-heat": {
+   "c_art": 0.0,
+   "cooldown": 4.0,
+   "cost_share": 0.03,
+   "element": "fire",
+   "group": "fallen-star-forging-rite",
+   "id": "white-heat",
+   "kind": "elem",
+   "tags": [
+    "fire",
+    "forge"
+   ],
+   "name": "White Heat (Bạch Nhiệt)",
+   "rule": "Heats your blade to white heat for 4 s: your Metal art hits also deal a 0.35 Fire free hit, every direct hit you land lays 1 Burn (Fire debuff) stack for 6 s, and against a burning foe each Quench mark (Metal debuff stack) grant gives 1 more stack.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "white-heat-start",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "white-heat"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "white_heat",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "white-heat-fire",
+     "on": "hit_landed",
+     "filter": {
+      "element": "metal"
+     },
+     "if": [
+      {
+       "read": "own.counter.white_heat",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_pulse": 3
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.35,
+        "dtype": "fire"
+       }
+      }
+     ]
+    },
+    {
+     "id": "white-heat-burn",
+     "on": "hit_landed",
+     "filter": {
+      "not_tags": [
+       "trigger"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.white_heat",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_pulse": 3
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "white-heat-quench",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.white_heat",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "foe.debuff.fire",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "stack_grant": 1,
+        "element": "metal",
+        "kind": "debuff"
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "white_heat",
+     "each_for": 4,
+     "cap": 1
     }
    ]
   },
@@ -42033,6 +46514,153 @@
    "counters": [
     {
      "id": "seed"
+    }
+   ]
+  },
+  "wrap-the-grain": {
+   "c_art": 0.0,
+   "cooldown": 6,
+   "cost_share": 0.04,
+   "element": "water",
+   "group": "nacre-over-grit-canon",
+   "guards": [
+    {
+     "read": "own.counter.wrap_stance",
+     "op": "<",
+     "value": 1
+    }
+   ],
+   "id": "wrap-the-grain",
+   "kind": "elem",
+   "tags": [
+    "water",
+    "stance",
+    "ward"
+   ],
+   "name": "Wrap the Grain (Bao Sa)",
+   "rule": "A held wrapping stance (tracked in a self-counter so it sits beside Deep Lake Stance without overwriting it) that opens a 4 % stance ward. Each foe art that strikes you adds 1 Nacre stack and grows your stance ward by 2.5 % of health; every 5 Nacre stacks condense into 1 Pearl.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "wrap-grain-enter",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "wrap-the-grain"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "wrap_stance",
+        "set": 1
+       }
+      },
+      {
+       "ward_grow": {
+        "share": 0.04,
+        "of": "hp"
+       }
+      }
+     ]
+    },
+    {
+     "id": "wrap-grain-hit",
+     "on": "was_hit",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.wrap_stance",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "nacre",
+        "add": 1
+       }
+      },
+      {
+       "ward_grow": {
+        "share": 0.025,
+        "of": "hp"
+       }
+      }
+     ]
+    },
+    {
+     "id": "wrap-grain-pearl",
+     "on": "was_hit",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.wrap_stance",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.nacre",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "nacre",
+        "add": -5
+       }
+      },
+      {
+       "counter": {
+        "id": "pearl",
+        "add": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "pearl_just_made",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "wrap-grain-clear-flag",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.pearl_just_made",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "pearl_just_made",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "wrap_stance"
+    },
+    {
+     "id": "nacre"
+    },
+    {
+     "id": "pearl"
+    },
+    {
+     "id": "pearl_just_made"
     }
    ]
   },
@@ -44023,6 +48651,236 @@
    "wards": [],
    "reserve_arts": []
   },
+  "bth-claw-king-shell": {
+   "name": "Shell of the Claw King (Ngao Vương Thuẫn)",
+   "role": "ward_gear",
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 100,
+     "scope": [
+      "physical"
+     ]
+    }
+   ],
+   "effects": [
+    "Slack Water"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bth-crossing-lamp": {
+   "name": "Stern Lamp of the Crossing (Độ Đầu Đăng)",
+   "role": "utility",
+   "modifiers": [
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 3,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bth-ferry-token-ring": {
+   "name": "Ferry Token Ring (Độ Bài Giới)",
+   "role": "ring",
+   "modifiers": [
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "thuy",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bth-following-wind-fan": {
+   "name": "Fan of the Following Wind (Thuận Phong Phiến)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "phong"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "phong"
+     ]
+    },
+    {
+     "key": "basic_speed_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 14,
+     "scope": [
+      "thuy",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    "Every Day of the Year"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bth-phieu-bong-tide-mirror": {
+   "name": "Tide Mirror of Phiêu Bồng (Phiêu Bồng Triều Kính)",
+   "role": "utility",
+   "modifiers": [
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bth-shell-gatherer-robe": {
+   "name": "Shell-Gatherer's Robe (Bối Sa Bào)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "bth-strait-crossing-coat": {
+   "name": "Coat of the Strait Crossing (Độ Hải Bào)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "art_speed_pct",
+     "value": 8,
+     "scope": [
+      "phong"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
   "bvc-blue-luan-whistle": {
    "name": "Blue Luan Whistle (Thanh Loan Địch)",
    "role": "weapon",
@@ -44126,6 +48984,115 @@
     {
      "key": "linh_luc_pct",
      "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "cc-crane-down-robe": {
+   "name": "Robe of Crane Down (Hạc Nhung Bào)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "evade_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 100,
+     "scope": [
+      "cold"
+     ]
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "cc-green-field-bell": {
+   "name": "Green Field Bell (Thanh Điền Linh)",
+   "role": "ward_gear",
+   "modifiers": [
+    {
+     "key": "art_speed_pct",
+     "value": 14,
+     "scope": [
+      "phong"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 24,
+     "scope": [
+      "phong",
+      "buff"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "evade_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    "The King Answers"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "cc-winter-terrace-cloak": {
+   "name": "Winter Terrace Cloak (Đông Đài Sưởng)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "evade_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
      "scope": []
     }
    ],
@@ -44596,6 +49563,137 @@
    "effects": [
     "Seen in the Water"
    ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "cv-abbess-rain-robe": {
+   "name": "Robe of the Rain Abbess (Đảo Vũ Bào)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "cv-rain-calling-banner": {
+   "name": "Banner That Calls the Grain Rain (Đảo Vũ Phan)",
+   "role": "utility",
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 20,
+     "scope": [
+      "moc",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    }
+   ],
+   "effects": [
+    "The Good Rain Knows Its Season"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "cv-season-seal": {
+   "name": "Seal of the Twenty-Four Seasons (Tiết Khí Ấn)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "accuracy_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "cv-seed-rice-gourd": {
+   "name": "Gourd of Seed Rice (Chủng Mễ Hồ Lô)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "cultivation_speed_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [],
    "arts": [],
    "art_tags": [],
    "wards": [],
@@ -47614,6 +52712,147 @@
    "wards": [],
    "reserve_arts": []
   },
+  "hn-frost-lotus-pin": {
+   "name": "Frost-Lotus Pin of Kiều Băng Liên (Băng Liên Trâm)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "stack_duration_pct",
+     "value": 20,
+     "scope": [
+      "bang",
+      "debuff"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 100,
+     "scope": [
+      "cold"
+     ]
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "hn-moon-fish-lantern": {
+   "name": "Moon-Fish Lantern (Nguyệt Ngư Đăng)",
+   "role": "utility",
+   "modifiers": [
+    {
+     "key": "healing_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 12,
+     "scope": [
+      "thuy",
+      "buff"
+     ]
+    }
+   ],
+   "effects": [
+    "False Moon"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "hn-nacre-robe": {
+   "name": "Nacre Robe of Trầm Bích (Trầm Bích Trân Bào)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "ward_efficiency_pct",
+     "value": 3,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "hn-tuyet-loc-fist-pearl": {
+   "name": "Fist Pearl of Tuyết Lộc (Tuyết Lộc Quyền Châu)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "thuy"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 18,
+     "scope": [
+      "thuy",
+      "buff"
+     ]
+    },
+    {
+     "key": "ward_efficiency_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    "The Pearl Remembers"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
   "ice-black-ledger-mirror": {
    "name": "Black Ledger Mirror (Huyền Trướng Kính)",
    "role": "utility",
@@ -48149,6 +53388,164 @@
      "slow"
     ]
    ],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "lg-ice-hook": {
+   "name": "Ice Hook (Băng Câu)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "thuy"
+     ]
+    },
+    {
+     "key": "leech_linh_luc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 14,
+     "scope": []
+    }
+   ],
+   "effects": [
+    "A Bite on the Line"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "lg-old-sitter-gourd": {
+   "name": "Old Sitter's Gourd (Lão Tọa Hồ)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "lg-river-bottom-stone": {
+   "name": "River-Bottom Stone (Giang Để Thạch)",
+   "role": "necklace",
+   "modifiers": [
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "ward_efficiency_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "lg-sitting-robe": {
+   "name": "Ice-Hole Sitting Robe (Băng Huyệt Tọa Bào)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "linh_luc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 100,
+     "scope": [
+      "cold"
+     ]
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "lg-snow-cape": {
+   "name": "Snow Cape of the Old Sitter (Tuyết Thoa)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "linh_luc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "healing_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
    "wards": [],
    "reserve_arts": []
   },
@@ -53297,6 +58694,142 @@
    "wards": [],
    "reserve_arts": []
   },
+  "ta-canglang-harpoon": {
+   "name": "Canglang Harpoon (Thương Lãng Lao)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 16,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "crit_damage_pct",
+     "value": 20,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [
+    "The Line Holds"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "ta-goose-bone-beads": {
+   "name": "Roosting Geese Beads (Tê Nhạn Châu)",
+   "role": "necklace",
+   "modifiers": [
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "attack_pct",
+     "value": 10,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "ta-sworn-ice-ring": {
+   "name": "Sworn-Ice Ring (Thệ Băng Giới)",
+   "role": "ring",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 10,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "ta-white-whale-coat": {
+   "name": "Coat of the Old Ivory (Lão Nha Kình Bì Giáp)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "cold"
+     ]
+    },
+    {
+     "key": "body_shield_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
   "tb-crucible-lid": {
    "name": "Crucible Lid Shield (Dã Lô Cái Thuẫn)",
    "role": "ward_gear",
@@ -54569,6 +60102,193 @@
    ],
    "effects": [
     "The Pack Remembers"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "tht-coal-black-apron": {
+   "name": "Coal-Black Apron (Hắc Thán Vi)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 18,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 20,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "tht-quench-robe": {
+   "name": "Robe of Quenched Iron (Tôi Thiết Bào)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "khi_huyet_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "defense_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "resist_pct",
+     "value": 120,
+     "scope": [
+      "lightning"
+     ]
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 14,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "tht-river-tongs": {
+   "name": "River Tongs (Hà Kiềm)",
+   "role": "utility",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "kim"
+     ]
+    },
+    {
+     "key": "stack_duration_pct",
+     "value": 30,
+     "scope": [
+      "kim",
+      "debuff"
+     ]
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 15,
+     "scope": []
+    }
+   ],
+   "effects": [
+    "Drawn from the River"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "tht-star-brand": {
+   "name": "Star-Brand (Tinh Lạc Thiết)",
+   "role": "utility",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 14,
+     "scope": [
+      "fire"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 20,
+     "scope": [
+      "hoa",
+      "buff"
+     ]
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "tht-three-years-tax": {
+   "name": "Three Years' Tax (Tam Niên Thuế)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 22,
+     "scope": [
+      "sword"
+     ]
+    },
+    {
+     "key": "crit_damage_pct",
+     "value": 30,
+     "scope": [
+      "physical"
+     ]
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "kim"
+     ]
+    },
+    {
+     "key": "stack_effect_pct",
+     "value": 20,
+     "scope": [
+      "kim",
+      "debuff"
+     ]
+    },
+    {
+     "key": "pierce_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    "Sky Iron Sings"
    ],
    "arts": [],
    "art_tags": [],
@@ -58693,6 +64413,421 @@
    "wards": [],
    "reserve_arts": []
   },
+  "va-bobtail-axe": {
+   "name": "Bobtail Axe (Đoản Vĩ Phủ)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 18,
+     "scope": [
+      "moc"
+     ]
+    },
+    {
+     "key": "crit_chance_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "block_rating",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    "Out of the Mist"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "va-milestone-flag": {
+   "name": "Milestone Flag (Lý Bia Kỳ)",
+   "role": "utility",
+   "modifiers": [
+    {
+     "key": "evade_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "va-mist-lock-lantern": {
+   "name": "Mist-Lock Lantern (Tỏa Vụ Đăng)",
+   "role": "utility",
+   "modifiers": [
+    {
+     "key": "evade_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "cast_ward_duration_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "accuracy_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [
+    "The Mist Does Not Ask"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "vh-held-rest-beads": {
+   "name": "Beads of the Held Rest (Đình Âm Niệm Châu)",
+   "role": "necklace",
+   "modifiers": [
+    {
+     "key": "art_speed_pct",
+     "value": 10,
+     "scope": [
+      "soul"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "vh-ravine-wind-robe": {
+   "name": "Robe of the Ravine Wind (Hác Phong Bào)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "evade_pct",
+     "value": 5,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 6,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "vh-stringless-zither": {
+   "name": "The Stringless Zither of Cầm Tượng (Cầm Tượng Vô Huyền Cầm)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "x_soul",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 24,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "art_cost_pct",
+     "value": -8,
+     "scope": [
+      "soul"
+     ]
+    }
+   ],
+   "effects": [
+    "The Unplayed Note"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "vh-tung-phong-cam": {
+   "name": "Pine-Wind Zither (Tùng Phong Cầm)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "x_soul",
+     "value": 14,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 14,
+     "scope": [
+      "soul"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 10,
+     "scope": []
+    }
+   ],
+   "effects": [
+    "Pines in Ten Thousand Ravines"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "vk-cloud-mother-mirror": {
+   "name": "Cloud Mother Mirror (Vân Mẫu Kính)",
+   "role": "utility",
+   "modifiers": [
+    {
+     "key": "ward_efficiency_pct",
+     "value": 16,
+     "scope": []
+    },
+    {
+     "key": "cast_ward_duration_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "vk-empty-hall-bell": {
+   "name": "Bell of the Empty Hall (Không Đường Linh)",
+   "role": "ward_gear",
+   "modifiers": [
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "status_duration_pct",
+     "value": 8,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "vk-hundred-echo-seal": {
+   "name": "Hundred-Echo Seal (Bách Hưởng Ấn)",
+   "role": "weapon",
+   "modifiers": [
+    {
+     "key": "attack_pct",
+     "value": 20,
+     "scope": [
+      "soul"
+     ]
+    },
+    {
+     "key": "x_soul",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "art_speed_pct",
+     "value": 12,
+     "scope": [
+      "soul"
+     ]
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "vk-mica-reader-robe": {
+   "name": "Reader's Mica Robe (Vân Mẫu Độc Bào)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "than_thuc_pct",
+     "value": 4,
+     "scope": []
+    },
+    {
+     "key": "soul_res_pct",
+     "value": 20,
+     "scope": []
+    },
+    {
+     "key": "khi_huyet_pct",
+     "value": 8,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "vk-rising-cloud-robe": {
+   "name": "Robe of the Rising Clouds (Vân Khởi Bào)",
+   "role": "body_gear",
+   "modifiers": [
+    {
+     "key": "soul_res_pct",
+     "value": 24,
+     "scope": []
+    },
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 12,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    }
+   ],
+   "effects": [
+    "Sit and Watch"
+   ],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
+  "vk-thoi-censer": {
+   "name": "Censer of the Empty Mountain (Không Sơn Hương Lô)",
+   "role": "utility",
+   "modifiers": [
+    {
+     "key": "than_thuc_pct",
+     "value": 6,
+     "scope": []
+    },
+    {
+     "key": "linh_luc_regen_inc_pct",
+     "value": 15,
+     "scope": []
+    },
+    {
+     "key": "health_regen_inc_pct",
+     "value": 30,
+     "scope": []
+    },
+    {
+     "key": "status_resist_pct",
+     "value": 15,
+     "scope": []
+    }
+   ],
+   "effects": [],
+   "arts": [],
+   "art_tags": [],
+   "wards": [],
+   "reserve_arts": []
+  },
   "vl-casters-apron": {
    "name": "Bell-Caster's Apron (Chú Linh Bào)",
    "role": "body_gear",
@@ -61350,6 +67485,12 @@
     "unlock_layer": 1
    }
   ],
+  "crane-bond-rite": [
+   {
+    "name": "A Crane for the Rider",
+    "unlock_layer": 2
+   }
+  ],
   "empty-mountain-sutra": [
    {
     "name": "The Empty Mountain's Answer (Không Sơn Đáp)",
@@ -61360,6 +67501,16 @@
    {
     "name": "Birds Pay Court to the Phoenix",
     "unlock_layer": 5
+   }
+  ],
+  "good-rain-canon": [
+   {
+    "name": "Moistens Without a Sound (Nhuận Vật Vô Thanh)",
+    "unlock_layer": 4
+   },
+   {
+    "name": "Water Wears the Stone (Thủy Tích Thạch Xuyên)",
+    "unlock_layer": 6
    }
   ],
   "green-furnace-canon": [
@@ -61396,6 +67547,16 @@
     "unlock_layer": 4
    }
   ],
+  "mist-lock-array-canon": [
+   {
+    "name": "The Wind Lifts the Mist",
+    "unlock_layer": 1
+   },
+   {
+    "name": "Lost on the Road",
+    "unlock_layer": 5
+   }
+  ],
   "moulted-feather-fan": [
    {
     "name": "Hundred-Feather Fan",
@@ -61422,6 +67583,12 @@
     "unlock_layer": 6
    }
   ],
+  "road-mist-primer": [
+   {
+    "name": "The Wind Lifts the Mist",
+    "unlock_layer": 1
+   }
+  ],
   "shang-mountain-lingzhi-canon": [
    {
     "name": "Cut to the Root (Đoạn Căn Tái Sinh)",
@@ -61434,10 +67601,22 @@
     "unlock_layer": 1
    }
   ],
+  "star-quench-canon": [
+   {
+    "name": "Brittle from Its Own Blow",
+    "unlock_layer": 4
+   }
+  ],
   "sunset-cloud-canon": [
    {
     "name": "The Glow Deepens (Hà Thâm)",
     "unlock_layer": 3
+   }
+  ],
+  "the-monks-rest": [
+   {
+    "name": "The Earned Rest",
+    "unlock_layer": 4
    }
   ],
   "true-gold-canon": [

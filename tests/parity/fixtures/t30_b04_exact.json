@@ -1,0 +1,5986 @@
+{
+  "name": "t30_b04_exact",
+  "slice": 30,
+  "chance_free": true,
+  "seed": 301,
+  "doc": "World-depth Stage 6 batch b04 (2026-11-27), chance-free: representative b04 arts and Effects across all 10 owners (van_khoi, van_hac, vu_an, binh_thuy, coc_vu, ham_nguyet, lanh_giang, thoi_tinh, trac_anh, cuu_cao).",
+  "a": {
+    "name": "b04-kit-a",
+    "realm": 2,
+    "crit": 0.0,
+    "evade": 0.0,
+    "acc": 2.0,
+    "n_body": 2.0,
+    "n_qi": 2.0,
+    "arts": [
+      {
+        "name": "wash-the-feet",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 6.0,
+        "element": "",
+        "dtype": "phys",
+        "tags": [
+          "physical",
+          "body",
+          "stance",
+          "ward"
+        ],
+        "group": "canglang-body-canon",
+        "guards": [
+          {
+            "read": "own.state.wash-the-feet",
+            "op": "<",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "name": "throw-the-iron",
+        "c": 1.35,
+        "cost": 0.08,
+        "cd": 4.0,
+        "element": "",
+        "dtype": "phys",
+        "tags": [
+          "physical",
+          "harpoon"
+        ],
+        "group": "whale-line-harpoon",
+        "statuses": [
+          {
+            "id": "bound",
+            "stacks": 1,
+            "dur": 3
+          },
+          {
+            "id": "slowed_time",
+            "stacks": 1,
+            "dur": 2
+          }
+        ]
+      },
+      {
+        "name": "haul-in",
+        "c": 2.2,
+        "cost": 0.1,
+        "cd": 5.0,
+        "element": "",
+        "dtype": "phys",
+        "tags": [
+          "physical",
+          "harpoon",
+          "haul_in"
+        ],
+        "group": "whale-line-harpoon",
+        "empower": [
+          {
+            "if": [
+              {
+                "read": "foe.status.bound",
+                "op": ">=",
+                "value": 1
+              }
+            ],
+            "pay": [
+              {
+                "timer": {
+                  "side": "foe",
+                  "which": "next",
+                  "by": 0.3
+                }
+              }
+            ],
+            "c_mult": 1.6
+          }
+        ]
+      },
+      {
+        "name": "quench-strike",
+        "c": 1.5,
+        "cost": 0.06,
+        "cd": 3.0,
+        "element": "metal",
+        "dtype": "phys",
+        "tags": [
+          "metal",
+          "sword",
+          "quench"
+        ],
+        "group": "star-quench-canon",
+        "debuff": [
+          1,
+          8
+        ]
+      },
+      {
+        "name": "ninth-blow",
+        "c": 1.8,
+        "cost": 0.08,
+        "cd": 4.0,
+        "element": "metal",
+        "dtype": "phys",
+        "tags": [
+          "metal",
+          "sword",
+          "heavy"
+        ],
+        "group": "star-quench-canon"
+      },
+      {
+        "name": "white-heat",
+        "c": 0.0,
+        "cost": 0.06,
+        "cd": 4.0,
+        "element": "fire",
+        "dtype": "elem",
+        "tags": [
+          "fire",
+          "forge"
+        ],
+        "group": "fallen-star-forging-rite"
+      },
+      {
+        "name": "the-makers-fold",
+        "c": 1.5,
+        "cost": 0.08,
+        "cd": 6.0,
+        "element": "metal",
+        "dtype": "phys",
+        "tags": [
+          "metal",
+          "sword",
+          "heavy"
+        ],
+        "group": "fallen-star-forging-rite",
+        "hp_cost": 0.05
+      },
+      {
+        "name": "crane-descends",
+        "c": 1.5,
+        "cost": 0.08,
+        "cd": 5.0,
+        "element": "wind",
+        "dtype": "elem",
+        "tags": [
+          "wind",
+          "crane",
+          "quick"
+        ],
+        "group": "crane-bond-rite",
+        "statuses": [
+          {
+            "id": "off_guard",
+            "stacks": 1,
+            "dur": 1
+          }
+        ]
+      },
+      {
+        "name": "cry-in-the-nine-marshes",
+        "c": 1.2,
+        "cost": 0.08,
+        "cd": 6.0,
+        "element": "wind",
+        "dtype": "elem",
+        "tags": [
+          "wind",
+          "crane"
+        ],
+        "group": "crane-bond-rite",
+        "buff": [
+          1,
+          6
+        ]
+      },
+      {
+        "name": "chance-meeting",
+        "c": 1.5,
+        "cost": 0.05,
+        "cd": 2.0,
+        "element": "water",
+        "dtype": "elem",
+        "tags": [
+          "water",
+          "quick"
+        ],
+        "group": "duckweed-drift-primer",
+        "buff": [
+          1,
+          8.0
+        ]
+      },
+      {
+        "name": "gathering-wave",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 5.0,
+        "element": "water",
+        "dtype": "elem",
+        "tags": [
+          "water",
+          "wave"
+        ],
+        "group": "still-moon-tide-scripture",
+        "empower": [
+          {
+            "if": [
+              {
+                "read": "own.counter.tide",
+                "op": ">=",
+                "value": 2
+              },
+              {
+                "read": "own.state.deep-lake",
+                "op": ">=",
+                "value": 1
+              }
+            ],
+            "c_art": 3.5
+          },
+          {
+            "if": [
+              {
+                "read": "own.counter.tide",
+                "op": ">=",
+                "value": 2
+              },
+              {
+                "read": "foe.status.slowed_time",
+                "op": ">=",
+                "value": 2
+              }
+            ],
+            "c_art": 3.5
+          },
+          {
+            "if": [
+              {
+                "read": "own.counter.tide",
+                "op": ">=",
+                "value": 3
+              },
+              {
+                "read": "own.hp_share",
+                "op": "<=",
+                "value": 0.7
+              }
+            ],
+            "pay": [
+              {
+                "counter": {
+                  "id": "tide",
+                  "add": -3
+                }
+              }
+            ],
+            "c_art": 3.5
+          }
+        ]
+      },
+      {
+        "name": "cloud-in-the-pane",
+        "c": 1.4,
+        "cost": 0.1,
+        "cd": 7.0,
+        "element": "",
+        "dtype": "elem",
+        "tags": [
+          "seal",
+          "curse"
+        ],
+        "group": "cloud-mother-seal",
+        "statuses": [
+          {
+            "id": "slowed_time",
+            "stacks": 1,
+            "dur": 3
+          }
+        ]
+      }
+    ],
+    "counters": [
+      {
+        "id": "wash_feet_armed",
+        "cap": 1
+      },
+      {
+        "id": "line_held"
+      },
+      {
+        "id": "quench_brittle",
+        "cap": 1
+      },
+      {
+        "id": "fold_hits"
+      },
+      {
+        "id": "white_heat",
+        "each_for": 4,
+        "cap": 1
+      },
+      {
+        "id": "maker_fold",
+        "cap": 3
+      },
+      {
+        "id": "tide"
+      },
+      {
+        "id": "quench_from_block",
+        "cap": 1
+      },
+      {
+        "id": "burn_to_quench"
+      },
+      {
+        "id": "heat"
+      },
+      {
+        "id": "sky_iron_rings",
+        "cap": 3
+      },
+      {
+        "id": "crane_bonded",
+        "cap": 1
+      },
+      {
+        "id": "crane_spirit",
+        "each_for": 8
+      },
+      {
+        "id": "king_answers",
+        "each_for": 8
+      },
+      {
+        "id": "ivory_bind"
+      },
+      {
+        "id": "slack_armed"
+      },
+      {
+        "id": "slack_water_threshold"
+      },
+      {
+        "id": "slack_just_healed"
+      },
+      {
+        "id": "sit_had_status"
+      }
+    ],
+    "states": [
+      {
+        "id": "wash-the-feet",
+        "tags": [
+          "composed"
+        ],
+        "mods": {
+          "block": 10
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "wash-the-feet-enter",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "wash-the-feet"
+        },
+        "do": [
+          {
+            "state": {
+              "set": "wash-the-feet"
+            }
+          },
+          {
+            "counter": {
+              "id": "wash_feet_armed",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "wash-the-feet-convert",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.state.wash-the-feet",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.wash_feet_armed",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "of": "amount",
+              "share": 1.0,
+              "ignore_taken": true
+            }
+          },
+          {
+            "heal": {
+              "of": "amount",
+              "share": 1.0,
+              "body_shield": true
+            }
+          },
+          {
+            "counter": {
+              "id": "wash_feet_armed",
+              "set": 0
+            }
+          },
+          {
+            "state": {
+              "set": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "wash-the-feet-arm",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.state.wash-the-feet",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.wash_feet_armed",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "wash_feet_armed",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "haul-in-clear",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "foe.status.bound",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.line_held",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "line_held",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "haul-in-hold",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "foe.status.bound",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "line_held",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "haul-in-scale",
+        "on": "always",
+        "if": [
+          {
+            "read": "foe.status.bound",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.line_held",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.line_held",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.15,
+              "tags": [
+                "haul_in"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "quench-brittle-mod",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.quench_brittle",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.35,
+              "element": "metal"
+            }
+          }
+        ]
+      },
+      {
+        "id": "quench-brittle-spend",
+        "on": "hit_landed",
+        "filter": {
+          "element": "metal"
+        },
+        "if": [
+          {
+            "read": "own.counter.quench_brittle",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "quench_brittle",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "quench-brittle-arm",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "quench-strike"
+        },
+        "if": [
+          {
+            "read": "foe.debuff.metal",
+            "op": ">=",
+            "value": 3
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "quench_brittle",
+              "set": 1
+            }
+          },
+          {
+            "status": {
+              "id": "sundered",
+              "stacks": 1,
+              "dur": 4,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ninth-blow-mod",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.fold_hits",
+            "op": ">=",
+            "value": 8
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 1.2,
+              "not_tags": [
+                "trigger",
+                "companion"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ninth-blow-count",
+        "on": "hit_landed",
+        "filter": {
+          "not_tags": [
+            "trigger",
+            "companion"
+          ]
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "fold_hits",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "ninth-blow-reset",
+        "on": "hit_landed",
+        "filter": {
+          "not_tags": [
+            "trigger",
+            "companion"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.fold_hits",
+            "op": ">=",
+            "value": 9
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "fold_hits",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "white-heat-start",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "white-heat"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "white_heat",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "white-heat-fire",
+        "on": "hit_landed",
+        "filter": {
+          "element": "metal"
+        },
+        "if": [
+          {
+            "read": "own.counter.white_heat",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "per_pulse": 3
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.35,
+              "dtype": "fire"
+            }
+          }
+        ]
+      },
+      {
+        "id": "white-heat-burn",
+        "on": "hit_landed",
+        "filter": {
+          "not_tags": [
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.white_heat",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "per_pulse": 3
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "fire",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "white-heat-quench",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.white_heat",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "foe.debuff.fire",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "stack_grant": 1,
+              "element": "metal",
+              "kind": "debuff"
+            }
+          }
+        ]
+      },
+      {
+        "id": "makers-fold-arm",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "the-makers-fold"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "maker_fold",
+              "set": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "makers-fold-unblockable",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.maker_fold",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "ignore_block": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "makers-fold-mark",
+        "on": "hit_landed",
+        "filter": {
+          "tags": [
+            "sword"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.maker_fold",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "metal",
+              "n": 1,
+              "for": 15,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "maker_fold",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "crane-descends-gust",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "crane-descends"
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 0.3
+            }
+          },
+          {
+            "mod": {
+              "evade": 8,
+              "art_speed": 10,
+              "for": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "nine-marshes-cry",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "cry-in-the-nine-marshes"
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 0.8
+            }
+          },
+          {
+            "refresh": {
+              "side": "own",
+              "kind": "buff"
+            }
+          }
+        ]
+      },
+      {
+        "id": "wave-bank",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "gathering-wave"
+        },
+        "held": {
+          "until": "hit_landed",
+          "cap": 4
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.8,
+              "dtype": "elem"
+            }
+          },
+          {
+            "heal": {
+              "share": 0.02
+            }
+          }
+        ]
+      },
+      {
+        "id": "wave-surge",
+        "on": "empowered",
+        "filter": {
+          "art_id": "gathering-wave"
+        },
+        "held": {
+          "until": "hit_landed",
+          "cap": 2
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 1.5,
+              "dtype": "elem"
+            }
+          },
+          {
+            "heal": {
+              "share": 0.05
+            }
+          }
+        ]
+      },
+      {
+        "id": "pane-seal-hit",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "cloud-in-the-pane"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "status": {
+              "id": "sealed_meridian",
+              "stacks": 1,
+              "dur": 3,
+              "layer": 1,
+              "side": "foe"
+            }
+          },
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 1.5
+            }
+          },
+          {
+            "mod": {
+              "dampen_taken": 100,
+              "for": 3.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Brittle from Its Own Blow block",
+        "on": "blocked",
+        "limit": {
+          "cooldown": 1.0
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "quench_from_block",
+              "set": 1
+            }
+          },
+          {
+            "stacks": {
+              "el": "metal",
+              "n": 1,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "quench_from_block",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Brittle from Its Own Blow count",
+        "on": "status_applied",
+        "filter": {
+          "element": "metal"
+        },
+        "if": [
+          {
+            "read": "own.counter.quench_from_block",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "foe.debuff.fire",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "foe.debuff.fire",
+          "per": 3
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "burn_to_quench",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "burn_to_quench",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Brittle from Its Own Blow consume",
+        "on": "status_applied",
+        "filter": {
+          "element": "metal"
+        },
+        "if": [
+          {
+            "read": "own.counter.quench_from_block",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "foe.debuff.fire",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "consume": {
+              "el": "fire",
+              "side": "foe",
+              "n": 999
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Brittle from Its Own Blow marks",
+        "on": "status_applied",
+        "filter": {
+          "element": "metal"
+        },
+        "if": [
+          {
+            "read": "own.counter.burn_to_quench",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.burn_to_quench",
+          "per": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "burn_to_quench",
+              "set": 0
+            }
+          },
+          {
+            "stacks": {
+              "el": "metal",
+              "n": 1,
+              "for": 8,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Heat the Edge step",
+        "on": "art_fired",
+        "filter": {
+          "element": "fire"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "heat",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Heat the Edge pierce",
+        "on": "always",
+        "scale": {
+          "read": "own.counter.heat",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "pierce": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Heat the Edge crit",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.heat",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "sure_crit": 1,
+              "tags": [
+                "sword"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Heat the Edge quench",
+        "on": "crit",
+        "filter": {
+          "tags": [
+            "sword"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.heat",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "heat",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "sky_iron_rings",
+              "set": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Sky Iron Sings thunder",
+        "on": "was_hit",
+        "filter": {
+          "dtype": "lightning"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "sky_iron_rings",
+              "set": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Sky Iron Sings strike",
+        "on": "hit_landed",
+        "filter": {
+          "element": "metal"
+        },
+        "if": [
+          {
+            "read": "own.counter.sky_iron_rings",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "per_pulse": 3
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.45,
+              "dtype": "lightning"
+            }
+          },
+          {
+            "counter": {
+              "id": "sky_iron_rings",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:A Crane for the Rider bonded",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "companion",
+          "tags": [
+            "crane"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.crane_bonded",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "crane_bonded",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:A Crane for the Rider bonded evade",
+        "on": "was_evaded",
+        "filter": {
+          "kind": "companion",
+          "tags": [
+            "crane"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.crane_bonded",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "crane_bonded",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:A Crane for the Rider wind",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "companion",
+          "tags": [
+            "crane"
+          ]
+        },
+        "limit": {
+          "per_pulse": 2
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "wind",
+              "n": 1,
+              "for": 4,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:A Crane for the Rider spirit",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "crane-descends"
+        },
+        "if": [
+          {
+            "read": "own.counter.crane_bonded",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "limit": {
+          "cooldown": 20
+        },
+        "do": [
+          {
+            "summon": {
+              "c": 0.5,
+              "dtype": "force",
+              "cd": 1.0,
+              "for": 8
+            }
+          },
+          {
+            "counter": {
+              "id": "crane_spirit",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:A Crane for the Rider spirit wind",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "companion"
+        },
+        "if": [
+          {
+            "read": "own.counter.crane_bonded",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.crane_spirit",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "per_pulse": 2
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "wind",
+              "n": 1,
+              "for": 4,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The King Answers ring",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "crane"
+          ]
+        },
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 1.2,
+              "dtype": "force"
+            }
+          },
+          {
+            "counter": {
+              "id": "king_answers",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The King Answers echo",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "crane"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.king_answers",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "fire_art": {
+              "which": "last",
+              "share": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Line Holds",
+        "on": "hit_landed",
+        "if": [
+          {
+            "read": "foe.status.bound",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "of": "amount",
+              "share": 0.03
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Drag It to the Ice:clear",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "foe.status.bound",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.ivory_bind",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "ivory_bind",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Drag It to the Ice:tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "foe.status.bound",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.01
+            }
+          },
+          {
+            "counter": {
+              "id": "ivory_bind",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Drag It to the Ice:more",
+        "on": "always",
+        "if": [
+          {
+            "read": "foe.status.bound",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.ivory_bind",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.ivory_bind",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.04,
+              "dtype": "phys"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Every Day of the Year slow",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.buff.water",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "status_immune": 1,
+              "status": "slowed_time"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Every Day of the Year delay",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.buff.water",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "delay_immune": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Every Day of the Year evade",
+        "on": "evaded",
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "water",
+              "n": 2,
+              "for": 8,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Slack Water block",
+        "on": "blocked",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "water",
+              "n": 1,
+              "for": 8,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Slack Water arm",
+        "on": "buff_gained",
+        "filter": {
+          "element": "water"
+        },
+        "if": [
+          {
+            "any": [
+              {
+                "read": "own.buff.water",
+                "op": ">=",
+                "value": 5
+              },
+              {
+                "read": "own.counter.slack_water_threshold",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "read": "own.buff.water",
+            "op": ">=",
+            "value": 4
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "slack_armed",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Slack Water heal",
+        "on": "art_fired",
+        "filter": {
+          "group": "still-moon-tide-scripture"
+        },
+        "if": [
+          {
+            "read": "own.counter.slack_armed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "slack_armed",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "slack_just_healed",
+              "set": 1
+            }
+          },
+          {
+            "heal": {
+              "share": 0.04
+            }
+          },
+          {
+            "counter": {
+              "id": "slack_just_healed",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Tenth Layer threshold",
+        "on": "fight_start",
+        "do": [
+          {
+            "counter": {
+              "id": "slack_water_threshold",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Tenth Layer heal",
+        "on": "heal_restored",
+        "if": [
+          {
+            "read": "own.counter.slack_just_healed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "slack_just_healed",
+              "set": 0
+            }
+          },
+          {
+            "stacks": {
+              "el": "water",
+              "n": 1,
+              "for": 8,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Tenth Layer heal_overflow",
+        "on": "heal_overflow",
+        "if": [
+          {
+            "read": "own.counter.slack_just_healed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "slack_just_healed",
+              "set": 0
+            }
+          },
+          {
+            "stacks": {
+              "el": "water",
+              "n": 1,
+              "for": 8,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Tenth Layer refresh",
+        "on": "blocked",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "refresh": {
+              "el": "water",
+              "side": "own",
+              "kind": "buff"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Sit and Watch guard",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.composed_time",
+            "op": ">=",
+            "value": 3
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 13.64
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Sit and Watch ended",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.sit_had_status",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.status.slowed_time",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.heavy_breath",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.sundered",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.exposed",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.sealed_meridian",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.silence",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.stagnation",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.leaking_ward",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.withering",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.slackened_soul",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.off_guard",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.bound",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.charmed",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.sleep",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.drunk",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.bleed",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.qi_disruption",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.status.corpse_rot",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "sit_had_status",
+              "set": 0
+            }
+          },
+          {
+            "gain_qi": {
+              "share": 0.02
+            }
+          },
+          {
+            "mod": {
+              "soul_res": 6,
+              "for": 4.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Sit and Watch watch",
+        "on": "pulse",
+        "if": [
+          {
+            "any": [
+              {
+                "read": "own.status.slowed_time",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.heavy_breath",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.sundered",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.exposed",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.sealed_meridian",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.silence",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.stagnation",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.leaking_ward",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.withering",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.slackened_soul",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.off_guard",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.bound",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.charmed",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.sleep",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.drunk",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.bleed",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.qi_disruption",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.status.corpse_rot",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "sit_had_status",
+              "set": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "name": "b04-kit-b",
+    "realm": 2,
+    "crit": 0.0,
+    "evade": 0.0,
+    "acc": 2.0,
+    "n_body": 2.2,
+    "n_qi": 3.5,
+    "arts": [
+      {
+        "name": "follows-the-wind-into-the-night",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 8.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "field",
+          "heal"
+        ],
+        "group": "good-rain-canon",
+        "guards": [
+          {
+            "read": "own.counter.good_rain",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "heal": 0.4
+      },
+      {
+        "name": "rooted-form",
+        "c": 0.0,
+        "cost": 0.06,
+        "cd": 6.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "buff",
+          "stance",
+          "form"
+        ],
+        "group": "verdant-cycle-scripture"
+      },
+      {
+        "name": "call-the-grain-rain",
+        "c": 0.0,
+        "cost": 0.1,
+        "cd": 10.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "heal",
+          "cleanse"
+        ],
+        "group": "rite-of-the-grain-rain",
+        "guards": [
+          {
+            "read": "own.counter.grain_channel",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "heal": 0.6
+      },
+      {
+        "name": "plant-the-seedling",
+        "c": 0.0,
+        "cost": 0.06,
+        "cd": 5.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "heal",
+          "seed"
+        ],
+        "group": "seedling-breath-primer",
+        "guards": [
+          {
+            "read": "own.counter.seedling",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "heal": 0.5
+      },
+      {
+        "name": "when-the-season-comes",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 7.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "heal"
+        ],
+        "group": "good-rain-canon",
+        "guards": [
+          {
+            "read": "own.buff.wood",
+            "op": ">=",
+            "value": 4
+          },
+          {
+            "read": "own.hp_share",
+            "op": "<=",
+            "value": 0.95
+          }
+        ],
+        "heal": 0.8
+      },
+      {
+        "name": "plucked-pitch",
+        "c": 1.4,
+        "cost": 0.06,
+        "cd": 1.5,
+        "element": "",
+        "dtype": "elem",
+        "tags": [
+          "song",
+          "force",
+          "quick"
+        ],
+        "group": "pine-wind-fingering",
+        "convert": {
+          "to": "force",
+          "share": 1.0
+        }
+      },
+      {
+        "name": "echo-wall",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 6.0,
+        "element": "",
+        "dtype": "elem",
+        "tags": [
+          "song",
+          "ward",
+          "heal"
+        ],
+        "group": "ten-thousand-ravines-zither-canon",
+        "guards": [
+          {
+            "read": "own.counter.echo_wall",
+            "op": "==",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "name": "ten-thousand-ravines",
+        "c": 1.5,
+        "cost": 0.12,
+        "cd": 6.0,
+        "element": "",
+        "dtype": "elem",
+        "tags": [
+          "song",
+          "force",
+          "heavy"
+        ],
+        "group": "ten-thousand-ravines-zither-canon",
+        "convert": {
+          "to": "force",
+          "share": 1.0
+        }
+      },
+      {
+        "name": "the-held-rest",
+        "c": 0.0,
+        "cost": 0.06,
+        "cd": 5.0,
+        "element": "",
+        "dtype": "elem",
+        "tags": [
+          "song",
+          "curse"
+        ],
+        "group": "the-monks-rest"
+      },
+      {
+        "name": "empty-ravine",
+        "c": 1.4,
+        "cost": 0.06,
+        "cd": 5.0,
+        "element": "",
+        "dtype": "elem",
+        "tags": [
+          "song",
+          "force",
+          "curse"
+        ],
+        "group": "the-monks-rest",
+        "convert": {
+          "to": "force",
+          "share": 1.0
+        }
+      },
+      {
+        "name": "line-through-the-ice",
+        "c": 0.8,
+        "cost": 0.06,
+        "cd": 7.0,
+        "element": "water",
+        "dtype": "elem",
+        "tags": [
+          "water",
+          "cold",
+          "hook"
+        ],
+        "group": "lone-line-sitting-canon"
+      },
+      {
+        "name": "landing-the-fish",
+        "c": 0.6,
+        "cost": 0.08,
+        "cd": 6.0,
+        "element": "water",
+        "dtype": "elem",
+        "tags": [
+          "water",
+          "hook",
+          "heavy"
+        ],
+        "group": "lone-line-sitting-canon"
+      },
+      {
+        "name": "oar-stroke",
+        "c": 1.4,
+        "cost": 0.06,
+        "cd": 3.0,
+        "element": "water",
+        "dtype": "elem",
+        "tags": [
+          "water",
+          "cold",
+          "quick"
+        ],
+        "group": "ice-fish-boat-breath",
+        "qi_restore": 0.05
+      },
+      {
+        "name": "the-moon-in-the-water",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 8.0,
+        "element": "water",
+        "dtype": "elem",
+        "tags": [
+          "water",
+          "ward"
+        ],
+        "group": "moon-holding-scripture",
+        "guards": [
+          {
+            "read": "own.counter.refl_up",
+            "op": "<",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "name": "full-pool",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 7.0,
+        "element": "water",
+        "dtype": "elem",
+        "tags": [
+          "water",
+          "heal"
+        ],
+        "group": "moon-holding-scripture",
+        "heal": 0.5
+      },
+      {
+        "name": "wrap-the-grain",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 6.0,
+        "element": "water",
+        "dtype": "elem",
+        "tags": [
+          "water",
+          "stance",
+          "ward"
+        ],
+        "group": "nacre-over-grit-canon",
+        "guards": [
+          {
+            "read": "own.counter.wrap_stance",
+            "op": "<",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "name": "cast-the-pearl",
+        "c": 2.0,
+        "cost": 0.08,
+        "cd": 5.0,
+        "element": "water",
+        "dtype": "elem",
+        "tags": [
+          "water",
+          "pearl"
+        ],
+        "group": "nacre-over-grit-canon",
+        "guards": [
+          {
+            "read": "own.counter.pearl",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "name": "lock-the-road",
+        "c": 0.0,
+        "cost": 0.1,
+        "cd": 8.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "mist",
+          "field",
+          "lock_road"
+        ],
+        "group": "mist-lock-array-canon",
+        "guards": [
+          {
+            "read": "own.counter.mist_field",
+            "op": "==",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "name": "lantern-stone",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 8.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "lantern",
+          "mist",
+          "stone_art"
+        ],
+        "group": "mist-lock-array-canon",
+        "guards": [
+          {
+            "read": "own.counter.lantern_stone",
+            "op": "<",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "the-gate-is-not-there",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 7.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "mist",
+          "movement",
+          "gate_fold"
+        ],
+        "group": "hidden-gate-array"
+      }
+    ],
+    "counters": [
+      {
+        "id": "good_rain"
+      },
+      {
+        "id": "seed"
+      },
+      {
+        "id": "grain_channel"
+      },
+      {
+        "id": "grain_hp_cost",
+        "upkeep": {
+          "pool": "hp",
+          "per_stack": 0.03
+        }
+      },
+      {
+        "id": "seedling"
+      },
+      {
+        "id": "plucked_echo",
+        "each_for": 1.0,
+        "cap": 1
+      },
+      {
+        "id": "echo_wall",
+        "each_for": 4.0,
+        "cap": 1
+      },
+      {
+        "id": "res_keep"
+      },
+      {
+        "id": "held_rest"
+      },
+      {
+        "id": "ice_line",
+        "cap": 1,
+        "each_for": 6.0
+      },
+      {
+        "id": "catch"
+      },
+      {
+        "id": "refl_up"
+      },
+      {
+        "id": "refl_t"
+      },
+      {
+        "id": "full_pool_t"
+      },
+      {
+        "id": "wrap_stance"
+      },
+      {
+        "id": "nacre"
+      },
+      {
+        "id": "pearl"
+      },
+      {
+        "id": "pearl_just_made"
+      },
+      {
+        "id": "mist_field",
+        "cap": 20
+      },
+      {
+        "id": "mist_field_age",
+        "cap": 20
+      },
+      {
+        "id": "lantern_stone",
+        "cap": 3
+      },
+      {
+        "id": "mist_lantern",
+        "cap": 1
+      },
+      {
+        "id": "lantern_wear",
+        "cap": 6
+      },
+      {
+        "id": "cam_echo"
+      },
+      {
+        "id": "rain_seconds"
+      },
+      {
+        "id": "rain_cost",
+        "upkeep": {
+          "pool": "hp",
+          "per_stack": 0.01
+        }
+      },
+      {
+        "id": "fist_nacre",
+        "each_for": 30
+      },
+      {
+        "id": "fist_below"
+      },
+      {
+        "id": "fist_spent"
+      },
+      {
+        "id": "next_pearl_ice"
+      },
+      {
+        "id": "road_mist",
+        "cap": 1,
+        "each_for": 4.0
+      },
+      {
+        "id": "wind_lifted",
+        "cap": 1
+      },
+      {
+        "id": "out_mist_seen",
+        "cap": 1
+      },
+      {
+        "id": "out_mist_armed",
+        "cap": 1
+      },
+      {
+        "id": "nobody_ext_given",
+        "cap": 1
+      },
+      {
+        "id": "answers_twice_ready",
+        "cap": 1
+      }
+    ],
+    "states": [
+      {
+        "id": "good-rain",
+        "tags": [
+          "field"
+        ],
+        "mods": {}
+      },
+      {
+        "id": "rooted",
+        "mods": {
+          "hregen": 0.3,
+          "healing": 25,
+          "dampen_taken": 10,
+          "art_speed": -20
+        },
+        "suppress": [
+          "thorn-rain"
+        ]
+      },
+      {
+        "id": "good-rain-rooted",
+        "tags": [
+          "field"
+        ],
+        "mods": {
+          "hregen": 0.3,
+          "healing": 25,
+          "dampen_taken": 10,
+          "art_speed": -20
+        },
+        "suppress": [
+          "thorn-rain"
+        ]
+      },
+      {
+        "id": "mist-lock-field",
+        "tags": [
+          "field"
+        ]
+      },
+      {
+        "id": "march",
+        "mods": {
+          "art_speed": 35,
+          "basic_speed": 35,
+          "cost_red": -0.05
+        }
+      },
+      {
+        "id": "sitting-in-the-snow",
+        "tags": [
+          "composed"
+        ],
+        "mods": {
+          "regen": 0.025
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "good-rain-open",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "follows-the-wind-into-the-night"
+        },
+        "if": [
+          {
+            "read": "own.state.rooted",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "good_rain",
+              "set": 6
+            }
+          },
+          {
+            "state": {
+              "set": "good-rain"
+            }
+          }
+        ]
+      },
+      {
+        "id": "good-rain-open-rooted",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "follows-the-wind-into-the-night"
+        },
+        "if": [
+          {
+            "read": "own.state.rooted",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "good_rain",
+              "set": 6
+            }
+          },
+          {
+            "state": {
+              "set": "good-rain-rooted"
+            }
+          }
+        ]
+      },
+      {
+        "id": "good-rain-merge-rooted",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.good_rain",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.state.rooted",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "good-rain-rooted"
+            }
+          }
+        ]
+      },
+      {
+        "id": "good-rain-heal",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.good_rain",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.02
+            }
+          },
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 8,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "good-rain-slow",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.good_rain",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "cooldown": 2.0
+        },
+        "do": [
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 1,
+              "dur": 2,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "good-rain-rooted-creep",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.good-rain-rooted",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.good_rain",
+            "op": ">=",
+            "value": 2
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 2,
+              "for": 5,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "seed",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "good-rain-rooted-sap",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.good-rain-rooted",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.good_rain",
+            "op": ">=",
+            "value": 2
+          }
+        ],
+        "scale": {
+          "read": "own.buff.wood",
+          "per": 10
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 2,
+              "for": 5,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "good-rain-tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.good_rain",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "good_rain",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "good-rain-close",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.good_rain",
+            "op": "<",
+            "value": 1
+          },
+          {
+            "read": "own.state.good-rain",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "good-rain-close-rooted",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.good_rain",
+            "op": "<",
+            "value": 1
+          },
+          {
+            "read": "own.state.good-rain-rooted",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "rooted"
+            }
+          }
+        ]
+      },
+      {
+        "id": "rooted-toggle",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "rooted-form"
+        },
+        "do": [
+          {
+            "state": {
+              "set": "rooted",
+              "toggle": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "rooted-creep",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.rooted",
+            "op": "==",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 2,
+              "for": 5,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "seed",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "rooted-sap",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.rooted",
+            "op": "==",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.buff.wood",
+          "per": 10
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 2,
+              "for": 5,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "grain-channel-open",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "call-the-grain-rain"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "grain_channel",
+              "set": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "grain-channel-rain",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.grain_channel",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.025
+            }
+          },
+          {
+            "cleanse": {
+              "n": 1
+            }
+          },
+          {
+            "cleanse": {
+              "curses": 1
+            }
+          },
+          {
+            "status": {
+              "id": "off_guard",
+              "stacks": 1,
+              "dur": 1,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "grain-channel-pay-qi",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.grain_channel",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.qi_share",
+            "op": ">=",
+            "value": 0.03
+          }
+        ],
+        "do": [
+          {
+            "gain_qi": {
+              "share": -0.03
+            }
+          },
+          {
+            "counter": {
+              "id": "grain_hp_cost",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "grain-channel-pay-hp",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.grain_channel",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.qi_share",
+            "op": "<",
+            "value": 0.03
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "grain_hp_cost",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "grain-channel-tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.grain_channel",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "grain_channel",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "grain-channel-close",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.grain_channel",
+            "op": "<",
+            "value": 1
+          },
+          {
+            "read": "own.counter.grain_hp_cost",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "grain_hp_cost",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "seedling-plant",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "plant-the-seedling"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "seedling",
+              "set": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "seedling-grow",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seedling",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.015
+            }
+          }
+        ]
+      },
+      {
+        "id": "seedling-harvest",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seedling",
+            "op": "==",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.04
+            }
+          }
+        ]
+      },
+      {
+        "id": "seedling-tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seedling",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seedling",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "season-comes-heal",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "when-the-season-comes"
+        },
+        "if": [
+          {
+            "read": "own.buff.wood",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "consume": {
+              "el": "wood",
+              "side": "own",
+              "kind": "buff",
+              "then": [
+                {
+                  "heal": {
+                    "share": 0.02
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "plucked-boost",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.plucked_echo",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.25,
+              "tags": [
+                "song",
+                "music"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "plucked-spend",
+        "on": "hit_landed",
+        "filter": {
+          "tags": [
+            "song",
+            "music"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.plucked_echo",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "plucked_echo",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "plucked-spend-evade",
+        "on": "was_evaded",
+        "filter": {
+          "tags": [
+            "song",
+            "music"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.plucked_echo",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "plucked_echo",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "plucked-arm",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "plucked-pitch"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "plucked_echo",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "echo-wall-up",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "echo-wall"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "echo_wall",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "echo-wall-heal",
+        "on": "was_hit",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.echo_wall",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "limit": {
+          "per_pulse": 3
+        },
+        "do": [
+          {
+            "heal": {
+              "share": 0.25,
+              "of": "amount"
+            }
+          }
+        ]
+      },
+      {
+        "id": "echo-wall-resonance",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "song"
+          ]
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "resonance",
+              "side": "foe",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "ravines-ring",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "ten-thousand-ravines"
+        },
+        "if": [
+          {
+            "read": "foe.counter.resonance",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "foe.counter.resonance",
+          "per": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.25,
+              "dtype": "force"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ravines-half-clear-keep",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "ten-thousand-ravines"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "res_keep",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "ravines-half-count",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "ten-thousand-ravines"
+        },
+        "if": [
+          {
+            "read": "foe.counter.resonance",
+            "op": ">=",
+            "value": 2
+          }
+        ],
+        "scale": {
+          "read": "foe.counter.resonance",
+          "per": 2
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "res_keep",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "ravines-clear",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "ten-thousand-ravines"
+        },
+        "if": [
+          {
+            "read": "foe.counter.resonance",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "resonance",
+              "side": "foe",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "ravines-reapply",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "ten-thousand-ravines"
+        },
+        "if": [
+          {
+            "read": "own.counter.res_keep",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.res_keep",
+          "per": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "resonance",
+              "side": "foe",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "res_keep",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "held-rest-start",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "the-held-rest"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "held_rest",
+              "set": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "held-rest-slow",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "the-held-rest"
+        },
+        "if": [
+          {
+            "read": "foe.status.slowed_time",
+            "op": "<=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 1,
+              "dur": 2,
+              "side": "foe",
+              "cap": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "held-rest-tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.held_rest",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "held_rest",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "empty-ravine-strip",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "empty-ravine"
+        },
+        "do": [
+          {
+            "strip": {
+              "n": 3
+            }
+          },
+          {
+            "status": {
+              "id": "silence",
+              "tag": "song",
+              "dur": 3,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "line-through-ice-hook",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "line-through-the-ice"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "ice_line",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "ice_line",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "line-through-ice-drain",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.ice_line",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "burn_qi": {
+              "of": "qi_max",
+              "share": 0.015,
+              "to_self": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "catch-bank",
+        "on": "qi_drained",
+        "do": [
+          {
+            "counter": {
+              "id": "catch",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "catch-landed",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "landing-the-fish"
+        },
+        "if": [
+          {
+            "read": "own.counter.catch",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "foe.qi_share",
+            "op": ">=",
+            "value": 0.2
+          }
+        ],
+        "scale": {
+          "read": "own.counter.catch",
+          "per": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.35,
+              "dtype": "elem",
+              "outside_budget": true
+            }
+          },
+          {
+            "counter": {
+              "id": "catch",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "catch-landed-dry",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "landing-the-fish"
+        },
+        "if": [
+          {
+            "read": "own.counter.catch",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "foe.qi_share",
+            "op": "<",
+            "value": 0.2
+          }
+        ],
+        "scale": {
+          "read": "own.counter.catch",
+          "per": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.7,
+              "dtype": "elem",
+              "outside_budget": true
+            }
+          },
+          {
+            "counter": {
+              "id": "catch",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "oar-stroke-slow",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "oar-stroke"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "moon-water-cast",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "the-moon-in-the-water"
+        },
+        "do": [
+          {
+            "decoy": {
+              "n": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "refl_up",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "refl_t",
+              "add": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "moon-water-struck",
+        "on": "decoy_struck",
+        "if": [
+          {
+            "read": "own.counter.refl_up",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "gain_qi": {
+              "share": 0.08
+            }
+          },
+          {
+            "counter": {
+              "id": "refl_up",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "refl_t",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "moon-water-expire",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.refl_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.refl_t",
+            "op": "<=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "decoy": {
+              "n": -1
+            }
+          },
+          {
+            "counter": {
+              "id": "refl_up",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "refl_t",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "moon-water-tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.refl_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.refl_t",
+            "op": ">=",
+            "value": 2
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "refl_t",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "full-pool-open",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "full-pool"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "full_pool_t",
+              "set": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "full-pool-base",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.full_pool_t",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.015
+            }
+          }
+        ]
+      },
+      {
+        "id": "full-pool-still",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.full_pool_t",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.since_act",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.since_act",
+          "per": 1
+        },
+        "do": [
+          {
+            "heal": {
+              "share": 0.005
+            }
+          }
+        ]
+      },
+      {
+        "id": "full-pool-tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.full_pool_t",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "full_pool_t",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "wrap-grain-enter",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "wrap-the-grain"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "wrap_stance",
+              "set": 1
+            }
+          },
+          {
+            "ward_grow": {
+              "share": 0.04,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "wrap-grain-hit",
+        "on": "was_hit",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.wrap_stance",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "nacre",
+              "add": 1
+            }
+          },
+          {
+            "ward_grow": {
+              "share": 0.025,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "wrap-grain-pearl",
+        "on": "was_hit",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.wrap_stance",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.nacre",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "nacre",
+              "add": -5
+            }
+          },
+          {
+            "counter": {
+              "id": "pearl",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "pearl_just_made",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "wrap-grain-clear-flag",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.pearl_just_made",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "pearl_just_made",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "cast-the-pearl-spend",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "cast-the-pearl"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "pearl",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "lock-road-cast",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "lock_road"
+          ]
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "mist_field",
+              "set": 8
+            }
+          },
+          {
+            "counter": {
+              "id": "mist_field_age",
+              "set": 0
+            }
+          },
+          {
+            "decoy": {
+              "n": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "lock-road-enter-state",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "lock_road"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.state.any",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "mist-lock-field"
+            }
+          }
+        ]
+      },
+      {
+        "id": "lock-road-evade",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "evade": 18
+            }
+          }
+        ]
+      },
+      {
+        "id": "lock-road-age-evade",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.mist_field_age",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.mist_field_age",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "evade": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "lock-road-age-tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "mist_field_age",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "lock-road-fade-pressing",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.composed",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "mist_field",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "lock-road-fade-unheld",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.composed",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_stone",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.mist_lantern",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "mist_field",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "lock-road-reenter-state",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.state.any",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "mist-lock-field"
+            }
+          }
+        ]
+      },
+      {
+        "id": "lock-road-clear-state",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.state.mist-lock-field",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "lock-road-clear-age",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.mist_field_age",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "mist_field_age",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "lantern-stone-gain",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "stone_art"
+          ]
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "lantern_stone",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lantern_wear",
+              "add": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "lantern-stone-wear-1",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "wind",
+            "phong"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_stone",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_wear",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "lantern_wear",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "lantern_stone",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "mist_field",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "lantern-stone-wear-2",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "wind",
+            "phong"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_stone",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_wear",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "lantern_wear",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "lantern-stone-wear-3",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "wind",
+            "phong"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_stone",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_wear",
+            "op": "==",
+            "value": 3
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "lantern_wear",
+              "set": 2
+            }
+          },
+          {
+            "counter": {
+              "id": "lantern_stone",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "lantern-stone-wear-4",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "wind",
+            "phong"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_stone",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_wear",
+            "op": "==",
+            "value": 4
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "lantern_wear",
+              "set": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "lantern-stone-wear-5",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "wind",
+            "phong"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_stone",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_wear",
+            "op": "==",
+            "value": 5
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "lantern_wear",
+              "set": 4
+            }
+          },
+          {
+            "counter": {
+              "id": "lantern_stone",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "lantern-stone-wear-6",
+        "on": "was_hit",
+        "filter": {
+          "not_tags": [
+            "wind",
+            "phong"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_stone",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_wear",
+            "op": ">=",
+            "value": 6
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "lantern_wear",
+              "set": 5
+            }
+          }
+        ]
+      },
+      {
+        "id": "lantern-stone-sync-0",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.lantern_stone",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.lantern_wear",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "lantern_wear",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "lantern-stone-sync-1",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.lantern_stone",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_wear",
+            "op": ">=",
+            "value": 3
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "lantern_wear",
+              "set": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "lantern-stone-sync-2",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.lantern_stone",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "read": "own.counter.lantern_wear",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "lantern_wear",
+              "set": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "hidden-gate-fold",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "gate_fold"
+          ]
+        },
+        "do": [
+          {
+            "decoy": {
+              "n": 1
+            }
+          },
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Pines in Ten Thousand Ravines queue",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "song"
+          ]
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "cam_echo",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Pines in Ten Thousand Ravines echo",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.cam_echo",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.cam_echo",
+          "per": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.8,
+              "dtype": "force"
+            }
+          },
+          {
+            "counter": {
+              "id": "resonance",
+              "side": "foe",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Pines in Ten Thousand Ravines clear",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.cam_echo",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "cam_echo",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Silence After the Twelfth rest",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "the-held-rest"
+        },
+        "if": [
+          {
+            "read": "foe.counter.resonance",
+            "op": ">=",
+            "value": 6
+          }
+        ],
+        "limit": {
+          "cooldown": 5
+        },
+        "do": [
+          {
+            "stop_clock": {
+              "side": "foe",
+              "seconds": 1.0
+            }
+          },
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 5,
+              "dur": 3,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Silence After the Twelfth finale",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "marching-dirge"
+        },
+        "if": [
+          {
+            "read": "own.state.march",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.held_rest",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "foe.counter.resonance",
+            "op": ">=",
+            "value": 6
+          }
+        ],
+        "limit": {
+          "cooldown": 5
+        },
+        "do": [
+          {
+            "stop_clock": {
+              "side": "foe",
+              "seconds": 1.0
+            }
+          },
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 5,
+              "dur": 3,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Moistens Without a Sound",
+        "on": "heal_restored",
+        "limit": {
+          "per_pulse": 3
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 8,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Water Wears the Stone",
+        "on": "heal_restored",
+        "limit": {
+          "per_pulse": 3
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.15,
+              "dtype": "phys"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Water Wears the Stone:wood",
+        "on": "heal_restored",
+        "limit": {
+          "per_pulse": 3
+        },
+        "if": [
+          {
+            "read": "own.buff.wood",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.buff.wood",
+          "per": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.01,
+              "dtype": "phys"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Good Rain Knows Its Season:early",
+        "on": "always",
+        "if": [
+          {
+            "read": "time",
+            "op": "<",
+            "value": 10
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "heal_taken": -50
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Good Rain Knows Its Season:late",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "time",
+            "op": ">=",
+            "value": 10
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.01
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Rain That Does Not Stop:heal",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.rain_seconds",
+            "op": ">=",
+            "value": 10
+          }
+        ],
+        "scale": {
+          "read": "own.counter.rain_seconds",
+          "per": 10
+        },
+        "do": [
+          {
+            "mod": {
+              "healing": 10
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Rain That Does Not Stop:keep",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.good_rain",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "good_rain",
+              "set": 6
+            }
+          },
+          {
+            "counter": {
+              "id": "rain_seconds",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Rain That Does Not Stop:cost_reset",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.rain_seconds",
+            "op": ">=",
+            "value": 10
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "rain_cost",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Rain That Does Not Stop:cost",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.rain_seconds",
+            "op": ">=",
+            "value": 10
+          }
+        ],
+        "scale": {
+          "read": "own.counter.rain_seconds",
+          "per": 10
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "rain_cost",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Pearl Remembers store",
+        "on": "was_hit",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.pearl_just_made",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "fist_nacre",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "pearl_just_made",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Pearl Remembers spend hit",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<=",
+            "value": 0.3334
+          },
+          {
+            "read": "own.counter.fist_below",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.fist_nacre",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.fist_nacre",
+          "per": 1
+        },
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.04,
+              "of": "hp"
+            }
+          },
+          {
+            "counter": {
+              "id": "fist_spent",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "fist_below",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Pearl Remembers clear hit",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.counter.fist_spent",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.fist_nacre",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "fist_nacre",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Pearl Remembers spend pulse",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<=",
+            "value": 0.3334
+          },
+          {
+            "read": "own.counter.fist_below",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.fist_nacre",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.fist_nacre",
+          "per": 1
+        },
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.04,
+              "of": "hp"
+            }
+          },
+          {
+            "counter": {
+              "id": "fist_spent",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "fist_below",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Pearl Remembers clear pulse",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.fist_spent",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.fist_nacre",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "fist_nacre",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Pearl Remembers rearm",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": ">",
+            "value": 0.3334
+          },
+          {
+            "read": "own.counter.fist_below",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "fist_below",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "fist_spent",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:False Moon extend",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "the-moon-in-the-water"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "refl_t",
+              "add": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:False Moon regen",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.refl_up",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "regen": 0.035
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:What Hurts You, Wrap absorb",
+        "on": "ward_absorbed",
+        "filter": {
+          "kind": "art"
+        },
+        "limit": {
+          "cooldown": 0.1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "fist_nacre",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:What Hurts You, Wrap freeze hit",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.counter.fist_spent",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "ward_fixed": 1,
+              "for": 2
+            }
+          },
+          {
+            "counter": {
+              "id": "next_pearl_ice",
+              "set": 2
+            }
+          },
+          {
+            "counter": {
+              "id": "fist_spent",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:What Hurts You, Wrap freeze pulse",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.fist_spent",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "ward_fixed": 1,
+              "for": 2
+            }
+          },
+          {
+            "counter": {
+              "id": "next_pearl_ice",
+              "set": 2
+            }
+          },
+          {
+            "counter": {
+              "id": "fist_spent",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:What Hurts You, Wrap pearl",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "cast-the-pearl"
+        },
+        "if": [
+          {
+            "read": "own.counter.next_pearl_ice",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 2,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "next_pearl_ice",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Wind Lifts the Mist:pulse-reset",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.wind_lifted",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "wind_lifted",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Wind Lifts the Mist:hit-breath",
+        "on": "was_hit",
+        "filter": {
+          "element": "wind",
+          "kind": "art"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "if": [
+          {
+            "read": "own.counter.wind_lifted",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.mist_field",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.road_mist",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "wind_lifted",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "road_mist",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Wind Lifts the Mist:hit-field",
+        "on": "was_hit",
+        "filter": {
+          "element": "wind",
+          "kind": "art"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "if": [
+          {
+            "read": "own.counter.wind_lifted",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_stone",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "wind_lifted",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "mist_field",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Wind Lifts the Mist:hit-stone",
+        "on": "was_hit",
+        "filter": {
+          "element": "wind",
+          "kind": "art"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "if": [
+          {
+            "read": "own.counter.wind_lifted",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_stone",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "wind_lifted",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lantern_stone",
+              "add": -1
+            }
+          },
+          {
+            "counter": {
+              "id": "lantern_wear",
+              "add": -2
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Wind Lifts the Mist:evade-breath",
+        "on": "evaded",
+        "filter": {
+          "element": "wind",
+          "kind": "art"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "if": [
+          {
+            "read": "own.counter.wind_lifted",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.mist_field",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.road_mist",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "wind_lifted",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "road_mist",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Wind Lifts the Mist:evade-field",
+        "on": "evaded",
+        "filter": {
+          "element": "wind",
+          "kind": "art"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "if": [
+          {
+            "read": "own.counter.wind_lifted",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_stone",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "wind_lifted",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "mist_field",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Wind Lifts the Mist:evade-stone",
+        "on": "evaded",
+        "filter": {
+          "element": "wind",
+          "kind": "art"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "if": [
+          {
+            "read": "own.counter.wind_lifted",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern_stone",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "wind_lifted",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "lantern_stone",
+              "add": -1
+            }
+          },
+          {
+            "counter": {
+              "id": "lantern_wear",
+              "add": -2
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Mist Does Not Ask:hold-flag",
+        "on": "fight_start",
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "mist_lantern",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Mist Does Not Ask:double-fade",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.composed",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "mist_field",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Out of the Mist:watch-fire",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "lock_road"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.out_mist_seen",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "out_mist_seen",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Out of the Mist:watch",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.out_mist_seen",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "out_mist_seen",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Out of the Mist:arm-pulse",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.out_mist_seen",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "out_mist_seen",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "out_mist_armed",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Out of the Mist:arm-hit",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.out_mist_seen",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "out_mist_seen",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "out_mist_armed",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Out of the Mist:arm-evade",
+        "on": "evaded",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.out_mist_seen",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "out_mist_seen",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "out_mist_armed",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Out of the Mist:arm-fire",
+        "on": "art_fired",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.out_mist_seen",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "out_mist_seen",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "out_mist_armed",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Out of the Mist:dmg",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.out_mist_armed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.2
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Out of the Mist:spend",
+        "on": "hit_landed",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.out_mist_armed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "out_mist_armed",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Nobody Looked:extend-clear-cast",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "lock_road"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.nobody_ext_given",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "nobody_ext_given",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Nobody Looked:extend",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.nobody_ext_given",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "mist_field",
+              "add": 3
+            }
+          },
+          {
+            "counter": {
+              "id": "nobody_ext_given",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Nobody Looked:extend-reset",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.nobody_ext_given",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "nobody_ext_given",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Nobody Looked:avoid",
+        "on": "pulse",
+        "limit": {
+          "cooldown": 8.0
+        },
+        "if": [
+          {
+            "read": "own.counter.mist_field",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "decoy": {
+              "n": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:A Bite on the Line",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.ice_line",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.state.sitting-in-the-snow",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "burn_qi": {
+              "of": "qi_max",
+              "share": 0.01,
+              "to_self": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Answers Twice grow",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.sitting-in-the-snow",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.02,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Answers Twice broken",
+        "on": "shield_broken",
+        "do": [
+          {
+            "counter": {
+              "id": "answers_twice_ready",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Answers Twice reply",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "counter",
+            "seal"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.answers_twice_ready",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "fire_art": {
+              "which": "last",
+              "share": 1.0
+            }
+          },
+          {
+            "counter": {
+              "id": "answers_twice_ready",
+              "set": 0
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -938,3 +938,24 @@ func test_partial_set_bonus_runs_its_effect_at_its_piece_threshold() -> void:
 	var ids3: Array = d3.get("effects", []).map(func(e): return str(e.get("id", "")))
 	assert_true(ids3.has("set:charge") and ids3.has("eff:Rime Lock") and ids3.has("set:charge:full"),
 			"3 of 3 pieces run both Effects: %s" % str(ids3))
+
+
+func test_foe_counter_compiles_without_own_counter_warning_and_triggers() -> void:
+	# test_engine.py t_foe_counter_read_and_write (Stage 6 b04 van_hac)
+	var k := CombatConstants.load_file()
+	var loader := FighterProfileLoader.new(k)
+	var add_res := {"id": "add-res", "on": "pulse", "do": [{"counter": {"id": "resonance", "side": "foe", "add": 1}}]}
+	var fire_res := {"id": "fire-res", "on": "pulse",
+		"if": [{"read": "foe.counter.resonance", "op": ">=", "value": 2}],
+		"do": [{"counter": {"id": "triggered", "add": 1}}]}
+	var d_a: Dictionary = M._dummy({"effects": [add_res, fire_res], "counters": [{"id": "triggered"}]})
+	var p_a: FighterProfile = loader.from_sim_build(d_a, "foe_counter_a")
+	assert_true(loader.errors.is_empty(), "no errors: %s" % "; ".join(loader.errors))
+	assert_true(loader.warnings.is_empty(), "foe.counter.* does not warn about own counters: %s" % "; ".join(loader.warnings))
+	var f := Fight.new(p_a, loader.from_sim_build(M._dummy(), "foe_counter_b"), k, 1, Fight.Order.FIXED)
+	f.pulse(f.a)
+	assert_near(float(f.b.counters.get("resonance", 0.0)), 1.0, 1e-9, "resonance 1 after 1st pulse")
+	assert_near(float(f.a.counters["triggered"]), 0.0, 1e-9, "not triggered at 1")
+	f.pulse(f.a)
+	assert_near(float(f.b.counters.get("resonance", 0.0)), 2.0, 1e-9, "resonance 2 after 2nd pulse")
+	assert_near(float(f.a.counters["triggered"]), 1.0, 1e-9, "triggered at 2")

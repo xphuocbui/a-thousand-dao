@@ -1,0 +1,21 @@
+{
+  "tag": "b04",
+  "minutes": 55,
+  "words_built": [],
+  "words_avoided": [],
+  "gdd_lines": 0,
+  "tests": 1,
+  "fixture": "t30_b04_exact",
+  "records_moved": 0,
+  "decisions": [
+    "Fix EffectCompiler._read() in src/gameplay/combat/fight/effect_compiler.gd:241 to require r.side == 0 before warning about unwritten own counter reads (foe.counter.* no longer triggers false-positive warning on van_hac).",
+    "Keep all 10 b04 staged effects (35) and arts (40) unmodified; zero pending engine words.",
+    "Author t30_b04_exact.json chance-free (acc 2.0, evade 0.0, crit 0.0) without status_resist records (the-water-has-ended, empty-lungs) or conflicting single-stance alternates so exact parity covers all 10 b04 owners deterministically."
+  ],
+  "open": [
+    "Stage 7: export_named.py kind:'treasure' support needed for vh-tung-phong-cam (van_hac), cv-rain-calling-banner (coc_vu), tht-river-tongs (thoi_tinh), ta-goose-bone-beads (trac_anh), and cc-green-field-bell (cuu_cao).",
+    "Stage 7: cast_ward_duration_pct (+20 on vk-cloud-mother-mirror in van_khoi and va-mist-lock-lantern in vu_an) has no CHARACTER_MODS/cast_wards reader yet.",
+    "Stage 7: CongPhap.usable() multi-element AND-vs-OR check for crane-bond-rite (names: [phong, moc], cuu_cao: cu_van_ly, tong_phi_thu, banh_da_hang lack moc).",
+    "Stage 7/8: out-of-fight herb_growth_pct on seedling-breath-primer (coc_vu, +6); ta-white-whale-coat / R6 exceptions; export_world.py & beasts (trac_anh: lang_nhi, tiem_nhi; cuu_cao: thanh_dien, han_vu, bat_phi) & structured events."
+  ]
+}

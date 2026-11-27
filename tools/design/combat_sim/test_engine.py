@@ -1592,6 +1592,22 @@ def t_lint_element_free_techniques():   # Stage 6 b02: lint_techniques allows na
           len(lt.lint([bad_body], "catalogue-sect-test.json", arts, data["bonus_pool"], tiers, [])) >= 1)
 
 
+def t_foe_counter_read_and_write():   # Stage 6 b04 (van_hac): foe.counter.<id> reads foe's dynamic counter without own decl
+    add_res = {"id": "add-res", "on": "pulse", "do": [{"counter": {"id": "resonance", "side": "foe", "add": 1}}]}
+    fire_res = {"id": "fire-res", "on": "pulse", "if": [{"read": "foe.counter.resonance", "op": ">=", "value": 2}],
+                "do": [{"counter": {"id": "triggered", "add": 1}}]}
+    f, A, B = setup(a=dummy(effects=[add_res, fire_res], counters=[{"id": "triggered"}]))
+    E.validate(A.b)
+    f.pulse(A)
+    check("foe.counter: 1 pulse -> resonance 1, triggered 0",
+          B.counters.get("resonance", 0.0) == 1.0 and A.counters["triggered"] == 0.0,
+          "%s %s" % (B.counters, A.counters))
+    f.pulse(A)
+    check("foe.counter: 2 pulses -> resonance 2, triggered 1",
+          B.counters.get("resonance", 0.0) == 2.0 and A.counters["triggered"] == 1.0,
+          "%s %s" % (B.counters, A.counters))
+
+
 def main():
     for name, fn in sorted(globals().items()):
         if name.startswith("t_"):

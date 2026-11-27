@@ -238,8 +238,8 @@ func _read(key: String, w: String, counters: Dictionary) -> EffectDef.ReadDef:
 				errors.append("%s: read %s: %s is not an element" % [w, key, r.param])
 			if pre == "status." and not _k.status.has(r.param) and r.param != "internal_injury":
 				errors.append("%s: read %s: %s is not a status" % [w, key, r.param])
-			if pre == "counter." and not counters.has(r.param):
-				# the sim reads an undefined counter as 0 (engine.py read()); a write to one is still an error
+			if pre == "counter." and r.side == 0 and not counters.has(r.param):
+				# the sim reads an undefined own counter as 0 (engine.py read()); foe counters live on the foe; a write to own is still an error
 				warnings.append("%s: reads counter %s, which nothing in this fighter builds (reads 0)" % [w, r.param])
 			return r
 	if k.begins_with("lost_last."):   # own.lost_last.<hp|qi>.<seconds> (2026-11-26)
