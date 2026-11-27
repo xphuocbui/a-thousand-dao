@@ -1,0 +1,4303 @@
+{
+  "name": "t32_b06_exact",
+  "slice": 32,
+  "chance_free": true,
+  "seed": 321,
+  "doc": "World-depth Stage 6 batch b06 (2026-11-27), chance-free: staged arts and Effects across all 5 outside groups (market-folk, demonic, hermits-sages, loose-south, loose-north) plus song-scope modifier tags; excludes Second Spring (status_resist roll) for deterministic exact parity.",
+  "a": {
+    "name": "b06-kit-a",
+    "realm": 2,
+    "crit": 0.0,
+    "evade": 0.0,
+    "acc": 2.0,
+    "n_body": 4.0,
+    "n_qi": 4.0,
+    "leech_hp": 0.2,
+    "pill": {
+      "element": "fire",
+      "grade": 2,
+      "fail": 0.0
+    },
+    "arts": [
+      {
+        "name": "pill-smoke",
+        "c": 0.6,
+        "cost": 0.08,
+        "cd": 6.0,
+        "element": "",
+        "dtype": "elem",
+        "tags": [
+          "smoke",
+          "pill",
+          "censer",
+          "over_time"
+        ],
+        "group": "censer-smoke-manual",
+        "convert": {
+          "to": "chaos",
+          "share": 1.0
+        }
+      },
+      {
+        "name": "balance-the-books",
+        "c": 1.5,
+        "cost": 0.08,
+        "cd": 5.0,
+        "element": "metal",
+        "dtype": "phys",
+        "tags": [
+          "metal",
+          "coin"
+        ],
+        "group": "golden-valley-ledger-canon"
+      },
+      {
+        "name": "draw-the-poison",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 5.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "heal",
+          "cleanse",
+          "needle"
+        ],
+        "group": "second-spring-needle-art",
+        "cleanse": 2,
+        "heal": 1.6
+      },
+      {
+        "name": "apricot-second-spring",
+        "c": 0.0,
+        "cost": 0.1,
+        "cd": 7.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "heal",
+          "needle"
+        ],
+        "group": "second-spring-needle-art",
+        "buff": [
+          2,
+          6
+        ],
+        "heal": 2.0
+      },
+      {
+        "name": "walking-ward",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 9.0,
+        "element": "earth",
+        "dtype": "elem",
+        "tags": [
+          "earth",
+          "formation",
+          "ward"
+        ],
+        "group": "loom-of-letters-array"
+      },
+      {
+        "name": "vault-coin-toss",
+        "c": 1.5,
+        "cost": 0.06,
+        "cd": 3.0,
+        "element": "metal",
+        "dtype": "phys",
+        "tags": [
+          "metal",
+          "coin",
+          "cache"
+        ],
+        "group": "buried-vault-coin-canon"
+      },
+      {
+        "name": "ring-the-flaw",
+        "c": 1.75,
+        "cost": 0.08,
+        "cd": 4.5,
+        "element": "metal",
+        "dtype": "phys",
+        "tags": [
+          "metal",
+          "bell",
+          "artifact"
+        ],
+        "group": "bronze-sounding-canon",
+        "statuses": [
+          {
+            "id": "sundered",
+            "stacks": 1,
+            "dur": 3
+          }
+        ]
+      },
+      {
+        "name": "the-lake-shows-the-moon",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 7.0,
+        "element": "water",
+        "dtype": "elem",
+        "tags": [
+          "cold",
+          "ward",
+          "stance",
+          "mirror"
+        ],
+        "group": "still-water-mirror-canon",
+        "guards": [
+          {
+            "read": "own.counter.lake_reflect",
+            "op": "<",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "name": "watchmans-gong",
+        "c": 1.4,
+        "cost": 0.08,
+        "cd": 3.5,
+        "element": "ice",
+        "dtype": "elem",
+        "tags": [
+          "cold",
+          "sword"
+        ],
+        "group": "north-wind-cold-light-sword",
+        "debuff": [
+          1,
+          8
+        ],
+        "empower": [
+          {
+            "if": [
+              {
+                "read": "foe.debuff.ice",
+                "op": ">=",
+                "value": 1
+              }
+            ],
+            "c_mult": 1.7
+          }
+        ]
+      },
+      {
+        "name": "cold-light-on-iron-mail",
+        "c": 1.5,
+        "cost": 0.08,
+        "cd": 5.0,
+        "element": "ice",
+        "dtype": "elem",
+        "tags": [
+          "cold",
+          "sword"
+        ],
+        "group": "north-wind-cold-light-sword"
+      },
+      {
+        "name": "second-brewing",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 8.0,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "heal",
+          "pill"
+        ],
+        "group": "purple-smoke-furnace-canon",
+        "heal": 1.2
+      },
+      {
+        "name": "smoke-over-the-burner",
+        "c": 0.8,
+        "cost": 0.08,
+        "cd": 6.0,
+        "element": "fire",
+        "dtype": "elem",
+        "tags": [
+          "fire",
+          "smoke",
+          "over_time"
+        ],
+        "group": "purple-smoke-furnace-canon",
+        "debuff": [
+          3,
+          6
+        ]
+      },
+      {
+        "name": "the-fifth-month-tune",
+        "c": 0.0,
+        "cost": 0.08,
+        "cd": 7.0,
+        "element": "wind",
+        "dtype": "elem",
+        "tags": [
+          "wind",
+          "song",
+          "soul"
+        ],
+        "group": "falling-plum-flute-canon"
+      },
+      {
+        "name": "plum-falls-between-notes",
+        "c": 1.4,
+        "cost": 0.06,
+        "cd": 2.5,
+        "element": "wind",
+        "dtype": "elem",
+        "tags": [
+          "wind",
+          "sword",
+          "quick",
+          "song"
+        ],
+        "group": "falling-plum-flute-canon",
+        "guards": [
+          {
+            "read": "own.counter.fifth_month_tune",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.tune_notes",
+            "op": ">=",
+            "value": 2
+          }
+        ],
+        "empower": [
+          {
+            "if": [
+              {
+                "read": "own.counter.tune_notes",
+                "op": "==",
+                "value": 2
+              }
+            ],
+            "split": [
+              0.65,
+              0.65
+            ]
+          },
+          {
+            "if": [
+              {
+                "read": "own.counter.tune_notes",
+                "op": "==",
+                "value": 3
+              }
+            ],
+            "split": [
+              0.55,
+              0.55,
+              0.55
+            ]
+          },
+          {
+            "if": [
+              {
+                "read": "own.counter.tune_notes",
+                "op": ">=",
+                "value": 4
+              }
+            ],
+            "split": [
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "long-oar-stroke",
+        "c": 1.5,
+        "cost": 0.06,
+        "cd": 3.5,
+        "element": "water",
+        "dtype": "elem",
+        "tags": [
+          "cold",
+          "water"
+        ],
+        "group": "vermilion-tide-breath",
+        "buff": [
+          1,
+          8
+        ]
+      },
+      {
+        "name": "b06-fist-talisman",
+        "c": 1.4,
+        "cost": 0.06,
+        "cd": 3.5,
+        "element": "fire",
+        "dtype": "elem",
+        "tags": [
+          "fire",
+          "fist",
+          "talisman",
+          "fan",
+          "song"
+        ],
+        "debuff": [
+          2,
+          6
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "id": "smoke-burn-pill",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "pill-smoke"
+        },
+        "do": [
+          {
+            "burn_pill": {
+              "stacks_per_grade": 4,
+              "for": 6.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "ledger-count-give",
+        "on": "hit_landed",
+        "do": [
+          {
+            "counter": {
+              "id": "ledger_credit",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "ledger-count-take",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "ledger_credit",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "ledger-spend",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "balance-the-books"
+        },
+        "if": [
+          {
+            "read": "own.counter.ledger_credit",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.ledger_credit",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "L5": 12,
+              "element": "metal",
+              "kind": "art",
+              "for": 5.0
+            }
+          },
+          {
+            "counter": {
+              "id": "ledger_credit",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "draw-poison-curse",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "draw-the-poison"
+        },
+        "if": [
+          {
+            "read": "own.curses",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "cleanse": {
+              "curses": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "apricot-spring-open",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "apricot-second-spring"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "spring_hot",
+              "set": 5
+            }
+          }
+        ]
+      },
+      {
+        "id": "apricot-spring-base",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.spring_hot",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.01
+            }
+          }
+        ]
+      },
+      {
+        "id": "apricot-spring-deep",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.spring_hot",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.hp_missing_share",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "scale": {
+          "read": "own.hp_missing_share",
+          "per": 0.25,
+          "floor": false
+        },
+        "do": [
+          {
+            "heal": {
+              "share": 0.008
+            }
+          }
+        ]
+      },
+      {
+        "id": "apricot-spring-tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.spring_hot",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "spring_hot",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "walking-ward-grow",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "walking-ward"
+        },
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.14,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "walking-ward-field",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "walking-ward"
+        },
+        "if": [
+          {
+            "read": "own.field_up",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "walking-ward-field"
+            }
+          },
+          {
+            "counter": {
+              "id": "walking_field",
+              "set": 10
+            }
+          }
+        ]
+      },
+      {
+        "id": "walking-ward-refresh-bow",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "walking-ward"
+        },
+        "if": [
+          {
+            "read": "own.counter.walking_refreshed",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.stars_bow",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "stars_bow",
+              "set": 8
+            }
+          },
+          {
+            "counter": {
+              "id": "walking_refreshed",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "walking-ward-refresh-ring",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "walking-ward"
+        },
+        "if": [
+          {
+            "read": "own.counter.walking_refreshed",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.ring",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "ring",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "walking_refreshed",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "walking-ward-tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.walking_field",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "walking_field",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "walking-ward-handoff-bow",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.walking-ward-field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.walking_field",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.stars_bow",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "stars-bow"
+            }
+          }
+        ]
+      },
+      {
+        "id": "walking-ward-handoff-ring",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.walking-ward-field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.walking_field",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.stars_bow",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.ring",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "armillary-ring"
+            }
+          }
+        ]
+      },
+      {
+        "id": "walking-ward-end",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.walking-ward-field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.walking_field",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.stars_bow",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.ring",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "vault-coin-burst",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "vault-coin-toss"
+        },
+        "if": [
+          {
+            "read": "own.counter.vault_cache",
+            "op": ">=",
+            "value": 2
+          }
+        ],
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.9,
+              "dtype": "phys"
+            }
+          },
+          {
+            "counter": {
+              "id": "vault_cache",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "vault_skip",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "vault-coin-cache",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "vault-coin-toss"
+        },
+        "if": [
+          {
+            "read": "own.counter.vault_skip",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "vault_cache",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "vault-coin-unskip",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "vault-coin-toss"
+        },
+        "if": [
+          {
+            "read": "own.counter.vault_skip",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "vault_skip",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "lake-mirror-enter",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "the-lake-shows-the-moon"
+        },
+        "do": [
+          {
+            "state": {
+              "set": "still-water-mirror"
+            }
+          },
+          {
+            "ward_grow": {
+              "share": 0.06,
+              "of": "hp"
+            }
+          },
+          {
+            "counter": {
+              "id": "lake_reflect",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "lake-mirror-grow",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.still-water-mirror",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.composed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.03,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "lake-mirror-return",
+        "on": "ward_absorbed",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.lake_reflect",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "return_damage": {
+              "share": 0.5,
+              "dtype": "cold"
+            }
+          },
+          {
+            "counter": {
+              "id": "lake_reflect",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "lake-mirror-broken",
+        "on": "shield_broken",
+        "if": [
+          {
+            "read": "event.stance_ward",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "lake_reflect",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "cold-light-hang",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "cold-light-on-iron-mail"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "cold_light",
+              "set": 6
+            }
+          }
+        ]
+      },
+      {
+        "id": "cold-light-release-sword",
+        "on": "hit_landed",
+        "filter": {
+          "tags": [
+            "sword"
+          ],
+          "not_art_id": "cold-light-on-iron-mail"
+        },
+        "if": [
+          {
+            "read": "own.counter.cold_light",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "free_hit": {
+              "c": 1.1,
+              "dtype": "cold"
+            }
+          },
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 1,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "cold_light",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "cold-light-expire",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.cold_light",
+            "op": "==",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "free_hit": {
+              "c": 1.1,
+              "dtype": "cold"
+            }
+          },
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 1,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "cold_light",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "cold-light-tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.cold_light",
+            "op": ">=",
+            "value": 2
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "cold_light",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "second-brew-start",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "second-brewing"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "second_brew",
+              "set": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "second-brew-pill",
+        "on": "pill_burned",
+        "do": [
+          {
+            "counter": {
+              "id": "second_brew",
+              "set": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "second-brew-release",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.second_brew",
+            "op": "==",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.04
+            }
+          },
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 6,
+              "side": "own"
+            }
+          },
+          {
+            "counter": {
+              "id": "second_brew",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "second-brew-tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.second_brew",
+            "op": ">=",
+            "value": 2
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "second_brew",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "smoke-dampen-wood",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "smoke-over-the-burner"
+        },
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 18,
+              "element": "wood",
+              "for": 6.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "smoke-resist-chaos",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "smoke-over-the-burner"
+        },
+        "do": [
+          {
+            "mod": {
+              "resist": 18,
+              "dtype": "chaos",
+              "for": 6.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "fifth-month-play",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "the-fifth-month-tune"
+        },
+        "do": [
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 2,
+              "dur": 5,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "fifth_month_tune",
+              "set": 3
+            }
+          },
+          {
+            "counter": {
+              "id": "tune_notes",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "tune_soul_cut",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "fifth-month-note-art",
+        "on": "art_fired",
+        "filter": {
+          "not_art_id": "the-fifth-month-tune"
+        },
+        "if": [
+          {
+            "read": "own.counter.fifth_month_tune",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "tune_notes",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "fifth-month-pulse",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.fifth_month_tune",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "tune_notes",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "fifth_month_tune",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "fifth-month-soul-cut",
+        "on": "hit_landed",
+        "filter": {
+          "tags": [
+            "sword"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.tune_soul_cut",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.7,
+              "dtype": "soul"
+            }
+          },
+          {
+            "counter": {
+              "id": "tune_soul_cut",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "plum-between-notes-end",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "plum-falls-between-notes"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "fifth_month_tune",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "tune_notes",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Apricot Clinic's Spring",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "tick_to_heal": 50,
+              "element": "wood"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Carried Array:speed",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.seal_arr_seen",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "art_speed": 100,
+              "tags": [
+                "formation"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Carried Array:seen",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "formation"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_arr_seen",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seal_arr_seen",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Carried Array:refresh_bow",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "formation"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_arr_refreshed",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.stars_bow",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.stars_bow",
+            "op": "<=",
+            "value": 4
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "stars_bow",
+              "set": 8
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_arr_refreshed",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Carried Array:refresh_walk",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "formation"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.seal_arr_refreshed",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.walking_field",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.walking_field",
+            "op": "<=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "walking_field",
+              "set": 10
+            }
+          },
+          {
+            "counter": {
+              "id": "seal_arr_refreshed",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Change Expected",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "limit": {
+          "cooldown": 2.0
+        },
+        "do": [
+          {
+            "return_damage": {
+              "share": 0.2,
+              "dtype": "phys"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Even Failures Are Pills:fire",
+        "on": "pill_burned",
+        "do": [
+          {
+            "stacks": {
+              "el": "fire",
+              "n": 2,
+              "for": 6.0,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "pills_taken_cnt",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Even Failures Are Pills:heal",
+        "on": "pill_burned",
+        "if": [
+          {
+            "read": "foe.debuff.fire",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "foe.debuff.fire",
+          "per": 1
+        },
+        "do": [
+          {
+            "heal": {
+              "share": 0.01
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Even Failures Are Pills:cost",
+        "on": "pill_burned",
+        "if": [
+          {
+            "read": "own.counter.pills_taken_cnt",
+            "op": ">",
+            "value": 3
+          }
+        ],
+        "do": [
+          {
+            "self_hit": {
+              "c": 0.4,
+              "dtype": "chaos"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Ground Like Paint:arm",
+        "on": "pill_burned",
+        "do": [
+          {
+            "counter": {
+              "id": "paint_echo_t",
+              "set": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Ground Like Paint:grade",
+        "on": "pill_burned",
+        "scale": {
+          "read": "event.grade",
+          "per": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "paint_echo_g",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Ground Like Paint:fail",
+        "on": "pill_burned",
+        "if": [
+          {
+            "read": "event.failed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "per_fight": 1
+        },
+        "scale": {
+          "read": "event.grade",
+          "per": 1
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "fire",
+              "n": 2,
+              "for": 6.0,
+              "side": "foe"
+            }
+          },
+          {
+            "heal": {
+              "share": 0.02
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Ground Like Paint:echo",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.paint_echo_t",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "read": "own.counter.paint_echo_g",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.paint_echo_g",
+          "per": 1
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "fire",
+              "n": 2,
+              "for": 6.0,
+              "side": "foe"
+            }
+          },
+          {
+            "heal": {
+              "share": 0.02
+            }
+          },
+          {
+            "counter": {
+              "id": "paint_echo_g",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Ground Like Paint:tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.paint_echo_t",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "paint_echo_t",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Hear the Flaw:mod",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.flaw_heard",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "pen": 150
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Hear the Flaw:spend",
+        "on": "hit_landed",
+        "if": [
+          {
+            "read": "own.counter.flaw_heard",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "flaw_heard",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Heavy Keel",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.composed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "delay_immune": 1,
+              "unmoved": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Paid in Full",
+        "on": "fight_start",
+        "do": [
+          {
+            "protect": {
+              "el": "fire",
+              "for_first": 4.0
+            }
+          },
+          {
+            "protect": {
+              "el": "water",
+              "for_first": 4.0
+            }
+          },
+          {
+            "protect": {
+              "el": "earth",
+              "for_first": 4.0
+            }
+          },
+          {
+            "protect": {
+              "el": "metal",
+              "for_first": 4.0
+            }
+          },
+          {
+            "protect": {
+              "el": "wood",
+              "for_first": 4.0
+            }
+          },
+          {
+            "protect": {
+              "el": "ice",
+              "for_first": 4.0
+            }
+          },
+          {
+            "protect": {
+              "el": "thunder",
+              "for_first": 4.0
+            }
+          },
+          {
+            "protect": {
+              "el": "wind",
+              "for_first": 4.0
+            }
+          },
+          {
+            "protect": {
+              "el": "light",
+              "for_first": 4.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Ride Out the Storm:compose",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.composed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "gain_qi": {
+              "share": 0.02
+            }
+          },
+          {
+            "stacks": {
+              "el": "water",
+              "side": "own",
+              "kind": "buff",
+              "n": 1,
+              "for": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Ride Out the Storm:ward",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.buff.water",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.buff.water",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Ride Out the Storm:decay",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.pressing",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.buff.water",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "consume": {
+              "el": "water",
+              "side": "own",
+              "kind": "buff",
+              "n": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Array Comes With Me:open",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "opening_haste": 20
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Array Comes With Me:answer",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.field_up",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "cooldown": 1.0
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.4,
+              "dtype": "phys"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Books Balance",
+        "on": "cleansed",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "event.amount",
+          "per": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.25,
+              "dtype": "chaos",
+              "pass_shields": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Unstamped:discount",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "cost_red": 0.333,
+              "tags": [
+                "talisman"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Unstamped:fail",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "talisman"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.unstamped_n",
+            "op": ">=",
+            "value": 9
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dmg_more": -1.0,
+              "tags": [
+                "talisman"
+              ],
+              "kind": "art"
+            }
+          },
+          {
+            "counter": {
+              "id": "unstamped_n",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "unstamped_skip",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Unstamped:count",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "talisman"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.unstamped_skip",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "unstamped_n",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Unstamped:unskip",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "talisman"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.unstamped_skip",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "unstamped_skip",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Where All Waters Return pour",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          },
+          {
+            "read": "own.hp_share",
+            "op": "<=",
+            "value": 0.67
+          }
+        ],
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "heal": {
+              "of": "amount",
+              "share": 1.0,
+              "ignore_taken": true
+            }
+          },
+          {
+            "counter": {
+              "id": "vase_held",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Where All Waters Return spill",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.vase_held",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.hp_share",
+            "op": "<=",
+            "value": 0.5
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 4,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "stacks": {
+              "el": "fire",
+              "n": 4,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "vase_held",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "vase_spilled",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Where All Waters Return tribulation",
+        "on": "down",
+        "if": [
+          {
+            "read": "tag.tribulation",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "refuse_down": {
+              "hp_share": 0.2
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Blue Sea Becomes Mulberry Fields",
+        "on": "was_hit",
+        "filter": {
+          "dtype": "lightning"
+        },
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "heal": {
+              "of": "amount",
+              "share": 1.0,
+              "ignore_taken": true
+            }
+          },
+          {
+            "ward_grow": {
+              "share": 0.08,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The World Before tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.world_before_win",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "world_before_win",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The World Before spill",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.vase_spilled",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "stop_clock": {
+              "side": "foe",
+              "seconds": 2.0
+            }
+          },
+          {
+            "counter": {
+              "id": "world_before_win",
+              "set": 2
+            }
+          },
+          {
+            "counter": {
+              "id": "vase_spilled",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The World Before cast",
+        "on": "art_fired",
+        "if": [
+          {
+            "read": "own.counter.world_before_win",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "fire",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          },
+          {
+            "stacks": {
+              "el": "water",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          },
+          {
+            "stacks": {
+              "el": "earth",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          },
+          {
+            "stacks": {
+              "el": "metal",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          },
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          },
+          {
+            "stacks": {
+              "el": "ice",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          },
+          {
+            "stacks": {
+              "el": "light",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Hears and Answers start",
+        "on": "fight_start",
+        "do": [
+          {
+            "decoy": {
+              "n": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "pool_heard",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Hears and Answers strike",
+        "on": "decoy_struck",
+        "if": [
+          {
+            "read": "own.counter.pool_heard",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.9,
+              "dtype": "cold"
+            }
+          },
+          {
+            "stacks": {
+              "el": "water",
+              "n": 2,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "pool_heard",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Hears and Answers thunder",
+        "on": "was_hit",
+        "filter": {
+          "dtype": "lightning"
+        },
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "gain_qi": {
+              "share": 0.03
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Thaw",
+        "on": "hit_landed",
+        "filter": {
+          "element": "fire"
+        },
+        "if": [
+          {
+            "read": "own.debuff.ice",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "per_pulse": 2
+        },
+        "do": [
+          {
+            "cleanse": {
+              "el": "ice",
+              "n": 1
+            }
+          },
+          {
+            "heal": {
+              "share": 0.005
+            }
+          },
+          {
+            "stacks": {
+              "el": "fire",
+              "n": 1,
+              "for": 5,
+              "side": "own",
+              "kind": "buff"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Will Not Fall survive",
+        "on": "down",
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "refuse_down": {}
+          },
+          {
+            "shield": {
+              "refill": 1.0
+            }
+          },
+          {
+            "counter": {
+              "id": "will_not_fall_heal",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Will Not Fall heal",
+        "on": "hit_landed",
+        "filter": {
+          "dtype": "phys"
+        },
+        "if": [
+          {
+            "read": "own.counter.will_not_fall_heal",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "of": "amount",
+              "share": 0.5
+            }
+          },
+          {
+            "counter": {
+              "id": "will_not_fall_heal",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Never Had a Healer overflow",
+        "on": "heal_overflow",
+        "filter": {
+          "source": "leech"
+        },
+        "do": [
+          {
+            "heal": {
+              "of": "amount",
+              "share": 1.0,
+              "body_shield": true
+            }
+          },
+          {
+            "counter": {
+              "id": "leech_shield_up",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Never Had a Healer decay",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.leech_shield_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.body_shield_share",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "scale": {
+          "read": "own.body_shield_share",
+          "per": 1.0,
+          "floor": false
+        },
+        "do": [
+          {
+            "heal": {
+              "share": -0.1,
+              "body_shield": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Never Had a Healer clear",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.leech_shield_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.body_shield_share",
+            "op": "<=",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "leech_shield_up",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Never Had a Healer crit",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.leech_shield_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.body_shield_share",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "crit_mult": 25,
+              "dtype": "phys"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Hot Hands chilled",
+        "on": "hit_landed",
+        "filter": {
+          "tags": [
+            "fist"
+          ]
+        },
+        "if": [
+          {
+            "any": [
+              {
+                "read": "foe.debuff.ice",
+                "op": ">",
+                "value": 0
+              },
+              {
+                "read": "foe.status.slowed_time",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "fire",
+              "n": 2,
+              "for": 6,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Hot Hands warm",
+        "on": "hit_landed",
+        "filter": {
+          "tags": [
+            "fist"
+          ]
+        },
+        "if": [
+          {
+            "read": "foe.debuff.ice",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "foe.status.slowed_time",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "fire",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "song-scope-test",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "L1": 14,
+              "tags": [
+                "song"
+              ]
+            }
+          },
+          {
+            "mod": {
+              "art_speed": 8,
+              "tags": [
+                "song"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "counters": [
+      {
+        "id": "ledger_credit"
+      },
+      {
+        "id": "spring_hot"
+      },
+      {
+        "id": "stars_bow"
+      },
+      {
+        "id": "ring",
+        "each_for": 14
+      },
+      {
+        "id": "walking_field"
+      },
+      {
+        "id": "walking_refreshed",
+        "cap": 1
+      },
+      {
+        "id": "vault_cache"
+      },
+      {
+        "id": "vault_skip",
+        "cap": 1
+      },
+      {
+        "id": "lake_reflect"
+      },
+      {
+        "id": "cold_light"
+      },
+      {
+        "id": "second_brew"
+      },
+      {
+        "id": "fifth_month_tune"
+      },
+      {
+        "id": "tune_notes"
+      },
+      {
+        "id": "tune_soul_cut"
+      },
+      {
+        "id": "seal_arr_seen",
+        "cap": 1
+      },
+      {
+        "id": "seal_arr_refreshed",
+        "cap": 1
+      },
+      {
+        "id": "pills_taken_cnt"
+      },
+      {
+        "id": "paint_echo_t"
+      },
+      {
+        "id": "paint_echo_g"
+      },
+      {
+        "id": "flaw_heard",
+        "cap": 1
+      },
+      {
+        "id": "unstamped_n"
+      },
+      {
+        "id": "unstamped_skip",
+        "cap": 1
+      },
+      {
+        "id": "vase_held"
+      },
+      {
+        "id": "vase_spilled"
+      },
+      {
+        "id": "world_before_win"
+      },
+      {
+        "id": "pool_heard"
+      },
+      {
+        "id": "will_not_fall_heal",
+        "each_for": 3,
+        "cap": 1
+      },
+      {
+        "id": "leech_shield_up",
+        "cap": 1
+      }
+    ],
+    "states": [
+      {
+        "id": "walking-ward-field",
+        "tags": [
+          "field",
+          "composed"
+        ],
+        "mods": {
+          "dampen_taken": 12
+        }
+      },
+      {
+        "id": "stars-bow",
+        "tags": [
+          "field"
+        ],
+        "mods": {}
+      },
+      {
+        "id": "armillary-ring",
+        "tags": [
+          "field"
+        ],
+        "mods": {}
+      },
+      {
+        "id": "still-water-mirror",
+        "tags": [
+          "composed"
+        ],
+        "mods": {}
+      }
+    ]
+  },
+  "b": {
+    "name": "b06-kit-b",
+    "realm": 2,
+    "crit": 0.0,
+    "evade": 0.0,
+    "acc": 2.0,
+    "n_body": 4.0,
+    "n_qi": 4.0,
+    "leech_hp": 0.15,
+    "reserved": 0.09,
+    "tech_layers": {
+      "withered-branch-method": 9
+    },
+    "companions": [
+      {
+        "c": 0.4,
+        "dtype": "phys",
+        "cd": 3.0
+      }
+    ],
+    "arts": [
+      {
+        "name": "borrowed-sleep",
+        "c": 1.2,
+        "cost": 0.06,
+        "cd": 5,
+        "element": "",
+        "dtype": "elem",
+        "tags": [
+          "darkness",
+          "song",
+          "drain"
+        ],
+        "group": "shade-orchid-breath"
+      },
+      {
+        "name": "move-the-sickness",
+        "c": 0.8,
+        "cost": 0.08,
+        "cd": 5,
+        "element": "wood",
+        "dtype": "elem",
+        "tags": [
+          "wood",
+          "curse",
+          "heal",
+          "poison"
+        ],
+        "group": "withered-branch-method"
+      },
+      {
+        "name": "black-frost-seal",
+        "c": 1.0,
+        "cost": 0.08,
+        "cd": 5,
+        "element": "ice",
+        "dtype": "elem",
+        "tags": [
+          "cold",
+          "seal",
+          "curse"
+        ],
+        "group": "black-ice-method",
+        "debuff": [
+          5,
+          6
+        ],
+        "convert": {
+          "to": "chaos",
+          "share": 0.3
+        },
+        "empower": [
+          {
+            "if": [
+              {
+                "read": "foe.debuff.ice",
+                "op": ">=",
+                "value": 10
+              },
+              {
+                "read": "foe.status.withering",
+                "op": ">=",
+                "value": 1
+              }
+            ],
+            "c_mult": 2.5,
+            "convert": {
+              "to": "chaos",
+              "share": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "name": "soul-ledger-chime",
+        "c": 0.0,
+        "cost": 0.1,
+        "cd": 4,
+        "element": "metal",
+        "dtype": "elem",
+        "tags": [
+          "soul",
+          "song",
+          "bell",
+          "curse"
+        ],
+        "group": "copper-mountain-bell-canon",
+        "soul_pct": 0.036
+      },
+      {
+        "name": "night-moth-ink",
+        "c": 1.2,
+        "cost": 0.08,
+        "cd": 4,
+        "element": "",
+        "dtype": "elem",
+        "tags": [
+          "darkness",
+          "curse",
+          "seal"
+        ],
+        "group": "night-moth-karst-canon",
+        "statuses": [
+          {
+            "id": "withering",
+            "stacks": 1,
+            "dur": 4
+          }
+        ]
+      },
+      {
+        "name": "blood-ink-writ",
+        "c": 1.5,
+        "cost": 0.08,
+        "cd": 4.0,
+        "element": "water",
+        "dtype": "elem",
+        "tags": [
+          "seal",
+          "curse"
+        ],
+        "hp_cost": 0.03,
+        "statuses": [
+          {
+            "id": "bleed",
+            "stacks": 1,
+            "dur": 4
+          }
+        ]
+      },
+      {
+        "name": "b06-storm-cleanse",
+        "c": 1.2,
+        "cost": 0.06,
+        "cd": 4.0,
+        "element": "wood",
+        "dtype": "lightning",
+        "tags": [
+          "wood",
+          "sword"
+        ],
+        "cleanse": 3,
+        "debuff": [
+          2,
+          6
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "id": "borrowed-sleep-drain",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "borrowed-sleep"
+        },
+        "limit": {
+          "per_firing": 1
+        },
+        "do": [
+          {
+            "status": {
+              "id": "stagnation",
+              "stacks": 10,
+              "dur": 4
+            }
+          },
+          {
+            "mod": {
+              "regen": 0.015,
+              "for": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "sickness-moved",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "move-the-sickness"
+        },
+        "do": [
+          {
+            "move_own_debuffs": {
+              "n": "all",
+              "pay_per_stack": 0.005,
+              "order": "oldest",
+              "to": "foe",
+              "as": "own",
+              "keep_time": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "wound-moved",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "move-the-sickness"
+        },
+        "if": [
+          {
+            "read": "own.tech_layer.withered-branch-method",
+            "op": ">=",
+            "value": 9
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.04
+            }
+          },
+          {
+            "free_hit": {
+              "c": 0.7,
+              "dtype": "chaos",
+              "pass_shields": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "black-frost-wither",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "black-frost-seal"
+        },
+        "limit": {
+          "per_firing": 1
+        },
+        "do": [
+          {
+            "status": {
+              "id": "withering",
+              "stacks": 1,
+              "dur": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "soul-ledger-slacken",
+        "on": "soul_hit",
+        "filter": {
+          "art_id": "soul-ledger-chime"
+        },
+        "limit": {
+          "per_firing": 1
+        },
+        "do": [
+          {
+            "status": {
+              "id": "slackened_soul",
+              "stacks": 1,
+              "dur": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Black Under the White",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "counted_curse_per": 5,
+              "element": "ice"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Black Thaw",
+        "on": "batch_ended",
+        "filter": {
+          "element": "ice"
+        },
+        "if": [
+          {
+            "read": "foe.curses",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "event.stacks",
+          "per": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.1,
+              "dtype": "chaos"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Robe Drinks First save",
+        "on": "was_hit",
+        "limit": {
+          "per_fight": 1
+        },
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<",
+            "value": 0.5
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "of": "amount",
+              "share": 0.5
+            }
+          },
+          {
+            "counter": {
+              "id": "robe_deepened",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Robe Drinks First leech",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.robe_deepened",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "leech_hp": 10
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Draw the Ink arm",
+        "on": "hit_landed",
+        "if": [
+          {
+            "read": "own.counter.ink_drawn",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "ink_drawn",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Draw the Ink no_hp",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.ink_drawn",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "hp_cost_red": 1.0,
+              "art_id": "blood-ink-writ"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Draw the Ink spend",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "blood-ink-writ"
+        },
+        "if": [
+          {
+            "read": "own.counter.ink_drawn",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "ink_drawn",
+              "set": 0
+            }
+          },
+          {
+            "mod": {
+              "status_dur": 100,
+              "kind": "curse",
+              "for": 0.1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Sealed in His Name",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "blood-ink-writ"
+        },
+        "do": [
+          {
+            "mod": {
+              "status_dur": 100,
+              "curse_fast": 1,
+              "kind": "curse",
+              "for": 0.1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Held Voice start",
+        "on": "fight_start",
+        "do": [
+          {
+            "counter": {
+              "id": "held_voice",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Held Voice bonus",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.held_voice",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "x_soul": 60,
+              "tags": [
+                "soul"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Held Voice spend",
+        "on": "soul_hit",
+        "limit": {
+          "per_fight": 1
+        },
+        "if": [
+          {
+            "read": "own.counter.held_voice",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "held_voice",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Nine Wicks start",
+        "on": "fight_start",
+        "do": [
+          {
+            "counter": {
+              "id": "wick_charges",
+              "set": 9
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Nine Wicks soul mark",
+        "on": "soul_taken",
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<=",
+            "value": 0
+          },
+          {
+            "read": "event.reflected",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "last_hit_soul",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Nine Wicks save",
+        "on": "down",
+        "if": [
+          {
+            "read": "own.counter.wick_charges",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.last_hit_soul",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "refuse_down": {}
+          },
+          {
+            "counter": {
+              "id": "last_hit_soul",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "wick_charges",
+              "add": -1
+            }
+          },
+          {
+            "gain_qi": {
+              "share": 0.01
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Drink from the Dark",
+        "on": "pulse",
+        "if": [
+          {
+            "any": [
+              {
+                "read": "own.field_up",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "foe.curses",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "regen": 0.035,
+              "for": 1.1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:His Sister's Water drink",
+        "on": "pulse",
+        "limit": {
+          "per_fight": 1
+        },
+        "if": [
+          {
+            "read": "own.qi_share",
+            "op": "<",
+            "value": 0.7
+          }
+        ],
+        "do": [
+          {
+            "gain_qi": {
+              "share": 0.3
+            }
+          },
+          {
+            "counter": {
+              "id": "gourd_ward",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:His Sister's Water ward",
+        "on": "was_hit",
+        "filter": {
+          "tags": [
+            "drain"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.gourd_ward",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "gain_qi": {
+              "share": 0.02
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Lullaby of the Karst",
+        "on": "status_applied",
+        "filter": {
+          "status": "slowed_time"
+        },
+        "if": [
+          {
+            "read": "foe.status.withering",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "status": {
+              "id": "sleep",
+              "stacks": 1,
+              "dur": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Writ in Their Blood free",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "blood-ink-writ"
+        },
+        "limit": {
+          "per_firing": 1
+        },
+        "if": [
+          {
+            "read": "foe.status.bleed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "refund": {
+              "share": 1.0
+            }
+          },
+          {
+            "heal": {
+              "share": 0.03,
+              "ignore_taken": true
+            }
+          },
+          {
+            "counter": {
+              "id": "stolen_writ",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Writ in Their Blood empower",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "blood-ink-writ"
+        },
+        "if": [
+          {
+            "read": "own.counter.stolen_writ",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "stolen_writ",
+              "set": 0
+            }
+          },
+          {
+            "mod": {
+              "dmg_more": 0.2,
+              "tags": [
+                "seal"
+              ],
+              "for": 0.1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:A Breath Bought 75",
+        "on": "pulse",
+        "limit": {
+          "per_fight": 1
+        },
+        "if": [
+          {
+            "read": "foe.hp_share",
+            "op": "<",
+            "value": 0.75
+          }
+        ],
+        "do": [
+          {
+            "timer": {
+              "which": "all",
+              "by": -4
+            }
+          },
+          {
+            "mod": {
+              "next_art_cost": 0,
+              "tags": [
+                "soul"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:A Breath Bought 50",
+        "on": "pulse",
+        "limit": {
+          "per_fight": 1
+        },
+        "if": [
+          {
+            "read": "foe.hp_share",
+            "op": "<",
+            "value": 0.5
+          }
+        ],
+        "do": [
+          {
+            "timer": {
+              "which": "all",
+              "by": -4
+            }
+          },
+          {
+            "mod": {
+              "next_art_cost": 0,
+              "tags": [
+                "soul"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:A Breath Bought 25",
+        "on": "pulse",
+        "limit": {
+          "per_fight": 1
+        },
+        "if": [
+          {
+            "read": "foe.hp_share",
+            "op": "<",
+            "value": 0.25
+          }
+        ],
+        "do": [
+          {
+            "timer": {
+              "which": "all",
+              "by": -4
+            }
+          },
+          {
+            "mod": {
+              "next_art_cost": 0,
+              "tags": [
+                "soul"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:A Breath Bought bell",
+        "on": "pulse",
+        "limit": {
+          "per_fight": 1
+        },
+        "if": [
+          {
+            "read": "foe.hp_share",
+            "op": "<",
+            "value": 0.5
+          }
+        ],
+        "do": [
+          {
+            "self_hit": {
+              "c": 0.25,
+              "dtype": "soul"
+            }
+          },
+          {
+            "free_hit": {
+              "c": 0.45,
+              "dtype": "soul"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:A Breath That Costs No One heal",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "foe.status.withering",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "foe.status.slowed_time",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.02
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:A Breath That Costs No One mark",
+        "on": "hit_landed",
+        "if": [
+          {
+            "read": "foe.status.withering",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "foe.status.slowed_time",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "dimmed_foe",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:A Breath That Costs No One dim",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.dimmed_foe",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 25
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Goat Knows hit wood",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.counter.goat_refused",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.debuff.wood",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "goat_refused",
+              "set": 1
+            }
+          },
+          {
+            "cleanse": {
+              "n": 1,
+              "el": "wood"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Goat Knows hit curse",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.counter.goat_refused",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.curses",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "goat_refused",
+              "set": 1
+            }
+          },
+          {
+            "cleanse": {
+              "curses": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Goat Knows pulse wood",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.goat_refused",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.debuff.wood",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "goat_refused",
+              "set": 1
+            }
+          },
+          {
+            "cleanse": {
+              "n": 1,
+              "el": "wood"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Goat Knows pulse curse",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.goat_refused",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.curses",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "goat_refused",
+              "set": 1
+            }
+          },
+          {
+            "cleanse": {
+              "curses": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:No Fare comp hit",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "companion"
+        },
+        "if": [
+          {
+            "read": "own.counter.has_companion",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "has_companion",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:No Fare comp evade",
+        "on": "was_evaded",
+        "filter": {
+          "kind": "companion"
+        },
+        "if": [
+          {
+            "read": "own.counter.has_companion",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "has_companion",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:No Fare heal",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.has_companion",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.01
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Dark on Dark Water",
+        "on": "fight_start",
+        "do": [
+          {
+            "decoy": {
+              "n": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Walked Out of Chiết Kích hit wood",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.debuff.wood",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.debuff.wood",
+          "per": 1
+        },
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.02,
+              "of": "hp"
+            }
+          },
+          {
+            "cleanse": {
+              "n": 1,
+              "el": "wood"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Walked Out of Chiết Kích hit curse",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.curses",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.curses",
+          "per": 1
+        },
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.02,
+              "of": "hp"
+            }
+          },
+          {
+            "cleanse": {
+              "curses": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Walked Out of Chiết Kích pulse wood",
+        "on": "pulse",
+        "limit": {
+          "per_pulse": 1
+        },
+        "if": [
+          {
+            "read": "own.debuff.wood",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.debuff.wood",
+          "per": 1
+        },
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.02,
+              "of": "hp"
+            }
+          },
+          {
+            "cleanse": {
+              "n": 1,
+              "el": "wood"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Walked Out of Chiết Kích pulse curse",
+        "on": "pulse",
+        "limit": {
+          "per_pulse": 1
+        },
+        "if": [
+          {
+            "read": "own.curses",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.curses",
+          "per": 1
+        },
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.02,
+              "of": "hp"
+            }
+          },
+          {
+            "cleanse": {
+              "curses": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Walked Out of Chiết Kích decay",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.ward_share",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "scale": {
+          "read": "own.ward_share",
+          "per": 1.0,
+          "floor": false
+        },
+        "do": [
+          {
+            "ward_grow": {
+              "share": -0.05,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Walked Out of Chiết Kích escape",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.ward_share",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "escape": 15
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Tempered by Arrows gain",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "thunder",
+              "n": 1,
+              "side": "own",
+              "kind": "buff"
+            }
+          },
+          {
+            "counter": {
+              "id": "arrow_thunder",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Tempered by Arrows decay",
+        "on": "pulse",
+        "limit": {
+          "cooldown": 2
+        },
+        "if": [
+          {
+            "read": "own.counter.arrow_thunder",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "arrow_thunder",
+              "add": -1
+            }
+          },
+          {
+            "consume": {
+              "el": "thunder",
+              "side": "own",
+              "kind": "buff",
+              "n": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Tempered by Arrows spend",
+        "on": "hit_landed",
+        "filter": {
+          "tags": [
+            "sword",
+            "saber"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.arrow_thunder",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.arrow_thunder",
+          "per": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.4,
+              "dtype": "lightning"
+            }
+          },
+          {
+            "counter": {
+              "id": "arrow_thunder",
+              "set": 0
+            }
+          },
+          {
+            "consume": {
+              "el": "thunder",
+              "side": "own",
+              "kind": "buff"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:No One Drowns comp hit",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "companion"
+        },
+        "if": [
+          {
+            "read": "own.counter.has_companion",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "has_companion",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:No One Drowns comp evade",
+        "on": "was_evaded",
+        "filter": {
+          "kind": "companion"
+        },
+        "if": [
+          {
+            "read": "own.counter.has_companion",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "has_companion",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:No One Drowns ward",
+        "on": "pulse",
+        "if": [
+          {
+            "any": [
+              {
+                "read": "own.counter.has_companion",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.composed",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.02,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:No One Drowns save",
+        "on": "wounded",
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "heal": {
+              "share": 0.15
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Leave While It Burns cleansed",
+        "on": "cleansed",
+        "if": [
+          {
+            "read": "own.counter.burn_vanish_cd",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "decoy": {
+              "n": 1
+            }
+          },
+          {
+            "mod": {
+              "evade": 40,
+              "for": 1.0
+            }
+          },
+          {
+            "counter": {
+              "id": "burn_vanish_cd",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Leave While It Burns expired",
+        "on": "batch_ended",
+        "if": [
+          {
+            "read": "own.counter.burn_vanish_cd",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "decoy": {
+              "n": 1
+            }
+          },
+          {
+            "mod": {
+              "evade": 40,
+              "for": 1.0
+            }
+          },
+          {
+            "counter": {
+              "id": "burn_vanish_cd",
+              "add": 1
+            }
+          }
+        ]
+      }
+    ],
+    "counters": [
+      {
+        "id": "robe_deepened",
+        "cap": 1
+      },
+      {
+        "id": "ink_drawn",
+        "cap": 1
+      },
+      {
+        "id": "held_voice",
+        "cap": 1
+      },
+      {
+        "id": "wick_charges"
+      },
+      {
+        "id": "last_hit_soul",
+        "cap": 1
+      },
+      {
+        "id": "gourd_ward",
+        "cap": 1,
+        "each_for": 5
+      },
+      {
+        "id": "stolen_writ",
+        "cap": 1
+      },
+      {
+        "id": "dimmed_foe",
+        "cap": 1,
+        "each_for": 3
+      },
+      {
+        "id": "goat_refused",
+        "cap": 1
+      },
+      {
+        "id": "has_companion",
+        "cap": 1
+      },
+      {
+        "id": "arrow_thunder"
+      },
+      {
+        "id": "burn_vanish_cd",
+        "cap": 1,
+        "each_for": 6.0
+      }
+    ],
+    "states": []
+  }
+}

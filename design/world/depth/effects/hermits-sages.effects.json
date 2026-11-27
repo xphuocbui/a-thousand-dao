@@ -1,0 +1,812 @@
+{
+ "_doc": "Hermits and Sages' Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py, merged into assets/data/combat_effects.json under source world-depth:hermits-sages. Unpriced. Rule text from design/world/depth/people/hermits-sages.items.json.",
+ "source": "world-depth:hermits-sages",
+ "effects": {
+  "Where All Waters Return": {
+   "rule": "Vase of the Abyss: once per fight, the first hit that leaves you at or below two-thirds health is poured into the vase instead (refunded in full); when you fall to half health or below, the vase spills 4 Ice and 4 Fire stacks onto the foe. At a Hóa Thần tribulation, the vase takes the lethal blow for its holder once.",
+   "approx": "Engine was_hit fires after damage, so the poured hit is gated on hp_share <= 0.67 and refunded with heal (of: amount, ignore_taken); 'around you / every foe near you' becomes 4 Ice + 4 Fire stacks on the single foe in 1v1.",
+   "counters": [
+    {
+     "id": "vase_held"
+    },
+    {
+     "id": "vase_spilled"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Where All Waters Return pour",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      },
+      {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.67
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "of": "amount",
+        "share": 1.0,
+        "ignore_taken": true
+       }
+      },
+      {
+       "counter": {
+        "id": "vase_held",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Where All Waters Return spill",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.vase_held",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.5
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "ice",
+        "n": 4,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 4,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "vase_held",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "vase_spilled",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Where All Waters Return tribulation",
+     "on": "down",
+     "if": [
+      {
+       "read": "tag.tribulation",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "refuse_down": {
+        "hp_share": 0.2
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "A Crane Crosses from the East": {
+   "rule": "Lone Crane: in a hand with a Wind root, each attack you evade sends one afterimage sword cut (0.7 c Physical) back at the attacker, at most once a second. In any other hand the blade sleeps.",
+   "approx": "Effects have no own.root.<el> readable, so 'a hand with a Wind root' is gated on having fired a wind-tagged art (own.fired_within.60.tag.wind >= 1); sleeps as intended in Tư Không Hạc Niên's pure Metal hand until awakened by The Crane Wakes.",
+   "records": [
+    {
+     "id": "eff:A Crane Crosses from the East",
+     "on": "evaded",
+     "if": [
+      {
+       "read": "own.fired_within.60.tag.wind",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "cooldown": 1.0
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.7,
+        "dtype": "phys"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Blue Sea Becomes Mulberry Fields": {
+   "rule": "Mirror of Seas and Fields: once per fight, the first Thunder strike that lands on you pours into the mirror instead (refunded in full) and raises a stance ward (8 % of max health). Out of combat, still-water scrying is Event Engine content.",
+   "approx": "was_hit refunds event.amount via heal (ignore_taken) and grows a 8 % HP stance ward (ward_grow only scales by hp/peak, not event.amount); out-of-combat still-water scene is outside combat.",
+   "records": [
+    {
+     "id": "eff:The Blue Sea Becomes Mulberry Fields",
+     "on": "was_hit",
+     "filter": {
+      "dtype": "lightning"
+     },
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "of": "amount",
+        "share": 1.0,
+        "ignore_taken": true
+       }
+      },
+      {
+       "ward_grow": {
+        "share": 0.08,
+        "of": "hp"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Unspent Bolt": {
+   "rule": "North-Wind Breath: your critical strikes leave a Frozen Lightning stack (1 Ice + 1 Thunder stack for 8 s); at 5 stacks the foe takes a frozen bolt (1.2 c Lightning + 1.2 c Cold) and 5 Ice and 5 Thunder stacks clear.",
+   "approx": "Dual Frozen Lightning stack modelled as 1 Ice + 1 Thunder debuff stack plus frozen_bolt counter; unsealing the cave A-1 tribulation bolt is a one-time world event rather than a per-fight trigger.",
+   "counters": [
+    {
+     "id": "frozen_bolt"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Unspent Bolt crit",
+     "on": "crit",
+     "do": [
+      {
+       "stacks": {
+        "el": "ice",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "stacks": {
+        "el": "thunder",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "frozen_bolt",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Unspent Bolt release",
+     "on": "crit",
+     "if": [
+      {
+       "read": "own.counter.frozen_bolt",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "free_hit": {
+        "c": 1.2,
+        "dtype": "lightning"
+       }
+      },
+      {
+       "free_hit": {
+        "c": 1.2,
+        "dtype": "cold"
+       }
+      },
+      {
+       "consume": {
+        "el": "ice",
+        "side": "foe",
+        "n": 5
+       }
+      },
+      {
+       "consume": {
+        "el": "thunder",
+        "side": "foe",
+        "n": 5
+       }
+      },
+      {
+       "counter": {
+        "id": "frozen_bolt",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Purple Smoke on the Burner": {
+   "rule": "Purple Smoke Furnace: out-of-fight craft edge (+1 pill grade, pill toxicity đan độc halved) and the sealed abode A-2 second pill decision.",
+   "not_run": "out-of-fight alchemy crafting and abode A-2 story event only; no combat rule.",
+   "records": []
+  },
+  "Noon on One Side": {
+   "rule": "Blazing Sun Fan: each sweep of the fan (fan-tagged art or Fan Gust) lays 2 Fire stacks (6 s) on the foe and cleanses 1 Ice stack from you; when the foe holds 5 or more Fire stacks, your next sweep turns them into a burst (0.25 c Fire per stack) and once a fight melts frost resistance (Sundered 4 s + 0.4 c shield-passing Fire burst).",
+   "approx": "Frost-ward melting is expressed once per fight as Sundered (4 s) + 0.4 c shield-passing Fire burst because no engine action removes foe ward shields directly; 'foes in front of you' narrowed to 1v1.",
+   "counters": [
+    {
+     "id": "noon_melted"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Noon on One Side melt fan",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "fan"
+      ],
+      "not_art_id": "fan-gust"
+     },
+     "if": [
+      {
+       "read": "own.counter.noon_melted",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "foe.debuff.fire",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "status": {
+        "id": "sundered",
+        "stacks": 1,
+        "dur": 4,
+        "side": "foe"
+       }
+      },
+      {
+       "free_hit": {
+        "c": 0.4,
+        "dtype": "fire",
+        "pass_shields": true
+       }
+      },
+      {
+       "counter": {
+        "id": "noon_melted",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Noon on One Side melt gust",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "fan-gust"
+     },
+     "if": [
+      {
+       "read": "own.counter.noon_melted",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "foe.debuff.fire",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "status": {
+        "id": "sundered",
+        "stacks": 1,
+        "dur": 4,
+        "side": "foe"
+       }
+      },
+      {
+       "free_hit": {
+        "c": 0.4,
+        "dtype": "fire",
+        "pass_shields": true
+       }
+      },
+      {
+       "counter": {
+        "id": "noon_melted",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Noon on One Side burst fan",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "fan"
+      ],
+      "not_art_id": "fan-gust"
+     },
+     "if": [
+      {
+       "read": "foe.debuff.fire",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "consume": {
+        "el": "fire",
+        "side": "foe",
+        "per": 1,
+        "then": [
+         {
+          "free_hit": {
+           "c": 0.25,
+           "dtype": "fire"
+          }
+         }
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Noon on One Side burst gust",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "fan-gust"
+     },
+     "if": [
+      {
+       "read": "foe.debuff.fire",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "consume": {
+        "el": "fire",
+        "side": "foe",
+        "per": 1,
+        "then": [
+         {
+          "free_hit": {
+           "c": 0.25,
+           "dtype": "fire"
+          }
+         }
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Noon on One Side sweep fan",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "fan"
+      ],
+      "not_art_id": "fan-gust"
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 2,
+        "for": 6,
+        "side": "foe"
+       }
+      },
+      {
+       "cleanse": {
+        "n": 1,
+        "el": "ice"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Noon on One Side sweep gust",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "fan-gust"
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 2,
+        "for": 6,
+        "side": "foe"
+       }
+      },
+      {
+       "cleanse": {
+        "n": 1,
+        "el": "ice"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Falling Plum Tune": {
+   "rule": "Plum of the Fifth Month: playing a song or sword art opens a 4 s tune (cooldown 6 s) that slows the foe's arts (2 Slowed Time stacks for 4 s); while the tune holds, sword hits deal an extra 0.45 c Soul strike.",
+   "approx": "10 % slow for 4 s uses Slowed Time (2 stacks = 12 % slow for 4 s); sword hits during the tune fire a 0.45 c Soul follow-up because an art cannot rewrite its dtype mid-fight.",
+   "counters": [
+    {
+     "id": "plum_tune"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Falling Plum Tune play",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "song",
+       "sword"
+      ]
+     },
+     "limit": {
+      "cooldown": 6.0
+     },
+     "do": [
+      {
+       "status": {
+        "id": "slowed_time",
+        "stacks": 2,
+        "dur": 4,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "plum_tune",
+        "set": 4
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Falling Plum Tune cut",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "sword"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.plum_tune",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_pulse": 2
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.45,
+        "dtype": "soul"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Falling Plum Tune tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.plum_tune",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "plum_tune",
+        "add": -1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The World Before": {
+   "rule": "What the Old Man Kept, full set (2 pieces): when the Vase of the Abyss spills, the foe's clock stops for 2 s while yours runs, and each art you fire in those 2 s lays 1 stack (6 s) of every element you own (Fire, Water, Earth, Metal, Wood, Ice, Light) on the foe.",
+   "approx": "Effects cannot read own.purity.<el>, so Mạc Quy Khư's seven stack-bearing elements (Fire, Water, Earth, Metal, Wood, Ice, Light) are listed explicitly.",
+   "counters": [
+    {
+     "id": "vase_spilled"
+    },
+    {
+     "id": "world_before_win"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The World Before tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.world_before_win",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "world_before_win",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The World Before spill",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.vase_spilled",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "stop_clock": {
+        "side": "foe",
+        "seconds": 2.0
+       }
+      },
+      {
+       "counter": {
+        "id": "world_before_win",
+        "set": 2
+       }
+      },
+      {
+       "counter": {
+        "id": "vase_spilled",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The World Before cast",
+     "on": "art_fired",
+     "if": [
+      {
+       "read": "own.counter.world_before_win",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      },
+      {
+       "stacks": {
+        "el": "water",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      },
+      {
+       "stacks": {
+        "el": "earth",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      },
+      {
+       "stacks": {
+        "el": "metal",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      },
+      {
+       "stacks": {
+        "el": "wood",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      },
+      {
+       "stacks": {
+        "el": "ice",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      },
+      {
+       "stacks": {
+        "el": "light",
+        "n": 1,
+        "for": 6,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Crane Wakes": {
+   "rule": "The Lone Crane's Things, full set (3 pieces): while all three are worn, Lone Crane's sleeping rule wakes in any hand; each crit you land sends one afterimage sword cut (0.7 c Physical), at most once a second.",
+   "records": [
+    {
+     "id": "eff:The Crane Wakes",
+     "on": "crit",
+     "limit": {
+      "cooldown": 1.0
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.7,
+        "dtype": "phys"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Hears and Answers": {
+   "rule": "The Still Pool, full set (3 pieces): the first attack aimed at you in a fight is avoided with 1 decoy and answered with a Cold tide palm (0.9 c Cold) that lays 2 Water stacks (8 s). Each Thunder strike you take restores 3 % of your max linh lực.",
+   "approx": "First-art evasion uses 1 decoy granted at fight_start and triggers on decoy_struck; Thunder linh lực restore guards on event.amount > 0.",
+   "counters": [
+    {
+     "id": "pool_heard"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Hears and Answers start",
+     "on": "fight_start",
+     "do": [
+      {
+       "decoy": {
+        "n": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "pool_heard",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Hears and Answers strike",
+     "on": "decoy_struck",
+     "if": [
+      {
+       "read": "own.counter.pool_heard",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.9,
+        "dtype": "cold"
+       }
+      },
+      {
+       "stacks": {
+        "el": "water",
+        "n": 2,
+        "for": 8,
+        "side": "foe"
+       }
+      },
+      {
+       "counter": {
+        "id": "pool_heard",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Hears and Answers thunder",
+     "on": "was_hit",
+     "filter": {
+      "dtype": "lightning"
+     },
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "gain_qi": {
+        "share": 0.03
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

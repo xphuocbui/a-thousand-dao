@@ -996,3 +996,34 @@ func test_bleed_and_bow_scopes_compile_and_apply_to_matching_tags_only() -> void
 	bleed_spec.stacks = 1.0
 	f.apply_status(f.a, f.b, bleed_spec)
 	assert_eq(f.b.statuses["bleed"].until, 6000, "status_duration_pct [bleed] extends 4s bleed to 6s")
+
+
+func test_song_scope_compiles_and_applies_to_matching_tags_only() -> void:
+	# test_engine.py t_lint_song_scope (Stage 6 b06 hermits-sages & demonic)
+	var gd := game_data()
+	var k := CombatConstants.from_game_data(gd)
+	var bfc := BuildFileCompiler.new(gd)
+	var loader := FighterProfileLoader.new(k)
+	var inp := {
+		"name": "b06_song_scope", "realm": 1, "layers": [0, 0, 0, 0, 0],
+		"arts": [
+			{"id": "flute-tune", "c_art": 1.0, "cost_share": 0.03, "cooldown": 3.0, "element": "wind", "kind": "elem", "tags": ["wind", "song"]},
+			{"id": "bell-soul", "c_art": 0.0, "soul_pct": 0.03, "cost_share": 0.03, "cooldown": 4.0, "element": "metal", "kind": "elem", "tags": ["soul", "song", "bell"]},
+			{"id": "plain-cut", "c_art": 1.0, "cost_share": 0.03, "cooldown": 3.0, "element": "wind", "kind": "elem", "tags": ["wind"]},
+		],
+		"modifiers": [
+			{"key": "attack_pct", "value": 14.0, "scope": ["song"]},
+			{"key": "art_speed_pct", "value": 8.0, "scope": ["song"]},
+		],
+	}
+	var rec: Dictionary = bfc.compile(inp)
+	assert_true(bfc.errors.is_empty(), "compiles: %s" % "; ".join(bfc.errors))
+	assert_true(bfc.unmodelled.is_empty(), "no unmodelled lines: %s" % "; ".join(bfc.unmodelled))
+	var p: FighterProfile = loader.from_sim_build(rec, "b06_song_scope")
+	assert_true(p != null and loader.errors.is_empty(), "loads: %s" % "; ".join(loader.errors))
+	var f := Fight.new(p, FighterCompiler.from_data("typical", 1, gd), k, 1, Fight.Order.FIXED)
+	assert_near(f.m(f.a, "L1", p.arts[0].ctx), 14.0, 1e-9, "song scope L1 matches song art")
+	assert_near(f.m(f.a, "art_speed", p.arts[0].ctx), 8.0, 1e-9, "song scope art_speed matches song art")
+	assert_near(f.m(f.a, "art_speed", p.arts[1].ctx), 8.0, 1e-9, "song scope art_speed matches soul+song art")
+	assert_near(f.m(f.a, "L1", p.arts[2].ctx), 0.0, 1e-9, "song scope L1 does not leak to non-song art")
+	assert_near(f.m(f.a, "art_speed", p.arts[2].ctx), 0.0, 1e-9, "song scope art_speed does not leak to non-song art")

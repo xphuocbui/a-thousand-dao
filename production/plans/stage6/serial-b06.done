@@ -1,0 +1,19 @@
+{
+  "tag": "b06",
+  "minutes": 25,
+  "words_built": [],
+  "words_avoided": [],
+  "gdd_lines": 0,
+  "tests": 2,
+  "fixture": "t32_b06_exact",
+  "records_moved": 0,
+  "decisions": [
+    "Add 'song' (family) to TIER in tools/design/arts/lint_techniques.py after verifying GDD modifiers.md and Python/GDScript tag-matching support; restore scope: ['song'] on hermits-sages/hs-between-the-notes-flute and demonic/dm-cracked-bell.",
+    "Keep all other b06 staged arts (29) and Effects (57) unchanged with zero pending engine words and zero Python/GDScript engine parity discrepancies (80/80 standalone art+effect cases compiled and simulated with 0 diffs).",
+    "Author t32_b06_exact.json chance-free (n_body 4.0, n_qi 4.0, acc 2.0, evade 0.0, crit 0.0), excluding Second Spring (status_resist: 50 RNG roll) so deterministic exact parity covers all 5 b06 outside groups (44/44 exact fixtures matching)."
+  ],
+  "open": [
+    "Stage 6 coordinator gate/merge: run stage6_gate.py serial b06 market-folk demonic hermits-sages loose-south loose-north to merge staged records, export combat/world data, and commit.",
+    "Stage 7/8: element_affinity_pct on hs-purple-smoke-furnace (hermits-sages), Darkness element ('am') and curse_effect_pct on demonic, and out-of-fight Effect hooks (Purple Smoke on the Burner, Fed in Blood, The Way In, Stamp of Trust, Flame Leans, Thaw the Ice)."
+  ]
+}

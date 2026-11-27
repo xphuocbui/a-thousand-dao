@@ -1642,6 +1642,31 @@ def t_lint_bleed_and_bow_scopes():   # Stage 6 b05 (da_quang / tuan_tung): bleed
           "%s %s" % (eff_b, eff_w))
 
 
+def t_lint_song_scope():   # Stage 6 b06 (hermits-sages / demonic): song scope in lint_techniques + fight.py
+    import importlib.util
+    import json
+    import fight as F
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "arts", "lint_techniques.py")
+    spec = importlib.util.spec_from_file_location("lint_techniques", p)
+    lt = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(lt)
+    data = json.load(open(os.path.join(lt.ROOT, "assets", "data", "items_cong_phap.json"), encoding="utf-8"))
+    tiers = {x["rank"]: x for x in data["tiers"]}
+    arts = {"song-art": {"id": "song-art", "element": "wind", "tags": ["wind", "song"]}}
+    t_song = {"id": "ts", "name": "TS", "tier": 1, "layers": 9, "tech_kind": "main", "names": ["phong"],
+              "bonuses": [{"stat": "attack_pct", "value": 10}], "origin": "authored",
+              "passives": [{"key": "attack_pct", "value": 14, "scope": ["song"]},
+                           {"key": "art_speed_pct", "value": 8, "scope": ["song"]}],
+              "abilities": [{"ability_id": "song-art", "unlock_layer": 1}]}
+    check("song scope passes lint_techniques",
+          lt.lint([t_song], "catalogue-sect-test.json", arts, data["bonus_pool"], tiers, []) == [])
+    eff = F.passive_effect(t_song, [])
+    check("passive_effect maps song scope to tags",
+          eff["do"][0]["mod"] == {"L1": 14, "tags": ["song"]}
+          and eff["do"][1]["mod"] == {"art_speed": 8, "tags": ["song"]},
+          "%s" % (eff,))
+
+
 def main():
     for name, fn in sorted(globals().items()):
         if name.startswith("t_"):

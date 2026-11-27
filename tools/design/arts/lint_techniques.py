@@ -70,7 +70,7 @@ TIER = {}
 for t in ["physical", "force", "soul", "hit", "art", "cultivator"]:
     TIER[t] = "broad"
 for t in ["fire", "cold", "lightning", "light", "chaos", "kim", "moc", "thuy", "hoa", "tho", "sword", "palm",
-          "seal", "beast", "formation", "bow", "over_time", "curse", "ward", "artifact", "talisman", "companion", "basic",
+          "seal", "beast", "formation", "bow", "song", "over_time", "curse", "ward", "artifact", "talisman", "companion", "basic",
           "quick", "slow", "cheap", "costly", "weapon", "ward_gear", "body_gear", "utility", "creature",
           "secluded", "travelling", "buff", "debuff"]:
     TIER[t] = "family"
