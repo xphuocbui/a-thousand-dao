@@ -1,0 +1,13 @@
+{
+  "owner": "market-folk",
+  "minutes": 10,
+  "must_fix": 2,
+  "should": 5,
+  "fixed": 7,
+  "words": {},
+  "open": [
+    "Serial merge & export (stage6_merge.py, put_effects.py, export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py) for b06.",
+    "Pre-existing cross-owner CongPhap.usable() OR-vs-AND mismatches on phong_kinh_sa & ngu_hoa_sa (cung_tinh star-pacing-primer) and dieu_thiet_tien (phat_y dry-road-sword-primer) for Stage 7/9 ruling.",
+    "Stale record-pass summary (outside checkpoint write set): market-folk-review.md and market-folk.done still list quan_than_ngon as golden-valley-ledger-canon and pre-fix ve_van_co aux."
+  ]
+}

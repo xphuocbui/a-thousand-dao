@@ -1115,7 +1115,7 @@
    "build": {
     "archetype": "tan_tu",
     "main": {
-     "tech": "golden-valley-ledger-canon",
+     "tech": "mountain-heart-canon",
      "layer": 3
     },
     "aux": [],
@@ -1137,7 +1137,7 @@
      ],
      "targets_note": "Luyện Khí: Earth Root, Solid Ground and Earthen Gate near the start: block and health for a clerk who wants to survive."
     },
-    "note": "The Quản copy of the Golden Valley Ledger Canon; huyen_tho stands in."
+    "note": "Keeps the Quản copy of the Golden Valley Ledger Canon, but his Water-Earth root lacks Metal (kim) for golden-valley-ledger-canon under CongPhap.usable(), so mountain-heart-canon stands in for his Earth clerk build."
    }
   },
   {

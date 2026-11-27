@@ -13,19 +13,19 @@
     },
     "Carried Array": {
       "rule": "Loom of Letters Seal (Văn Cơ Ấn): a formation you have laid before in the same fight is laid again in half the time; once a fight, your array Field's duration is refreshed.",
-      "approx": "Grants +100 % formation art speed after the first formation art fires (halving cooldown), and once a fight refreshes active stars_bow / walking_field / ring counters when an array art fires.",
+      "approx": "Grants +100 % formation art speed after the first formation art fires (shared across formation arts, halving cooldown), and once a fight refreshes active stars_bow / walking_field counters when an array art fires.",
       "counters": [
         {"id": "seal_arr_seen", "cap": 1},
+        {"id": "seal_arr_refreshed", "cap": 1},
         {"id": "stars_bow"},
-        {"id": "walking_field"},
-        {"id": "ring", "each_for": 14}
+        {"id": "walking_field"}
       ],
       "states": [],
       "records": [
         {"id": "eff:Carried Array:speed", "on": "always", "if": [{"read": "own.counter.seal_arr_seen", "op": ">=", "value": 1}], "do": [{"mod": {"art_speed": 100, "tags": ["formation"]}}]},
         {"id": "eff:Carried Array:seen", "on": "art_fired", "filter": {"tags": ["formation"]}, "if": [{"read": "own.counter.seal_arr_seen", "op": "==", "value": 0}], "do": [{"counter": {"id": "seal_arr_seen", "set": 1}}]},
-        {"id": "eff:Carried Array:refresh_bow", "on": "art_fired", "filter": {"tags": ["formation"]}, "if": [{"read": "own.counter.stars_bow", "op": ">=", "value": 1}, {"read": "own.counter.stars_bow", "op": "<=", "value": 4}], "limit": {"per_fight": 1}, "do": [{"counter": {"id": "stars_bow", "set": 8}}]},
-        {"id": "eff:Carried Array:refresh_walk", "on": "art_fired", "filter": {"tags": ["formation"]}, "if": [{"read": "own.counter.walking_field", "op": ">=", "value": 1}, {"read": "own.counter.walking_field", "op": "<=", "value": 5}], "limit": {"per_fight": 1}, "do": [{"counter": {"id": "walking_field", "set": 10}}]}
+        {"id": "eff:Carried Array:refresh_bow", "on": "art_fired", "filter": {"tags": ["formation"]}, "if": [{"read": "own.counter.seal_arr_refreshed", "op": "==", "value": 0}, {"read": "own.counter.stars_bow", "op": ">=", "value": 1}, {"read": "own.counter.stars_bow", "op": "<=", "value": 4}], "do": [{"counter": {"id": "stars_bow", "set": 8}}, {"counter": {"id": "seal_arr_refreshed", "set": 1}}]},
+        {"id": "eff:Carried Array:refresh_walk", "on": "art_fired", "filter": {"tags": ["formation"]}, "if": [{"read": "own.counter.seal_arr_refreshed", "op": "==", "value": 0}, {"read": "own.counter.walking_field", "op": ">=", "value": 1}, {"read": "own.counter.walking_field", "op": "<=", "value": 5}], "do": [{"counter": {"id": "walking_field", "set": 10}}, {"counter": {"id": "seal_arr_refreshed", "set": 1}}]}
       ]
     },
     "Change Expected": {
@@ -62,7 +62,7 @@
         {"id": "eff:Ground Like Paint:arm", "on": "pill_burned", "do": [{"counter": {"id": "paint_echo_t", "set": 3}}]},
         {"id": "eff:Ground Like Paint:grade", "on": "pill_burned", "scale": {"read": "event.grade", "per": 1}, "do": [{"counter": {"id": "paint_echo_g", "add": 1}}]},
         {"id": "eff:Ground Like Paint:fail", "on": "pill_burned", "if": [{"read": "event.failed", "op": ">=", "value": 1}], "limit": {"per_fight": 1}, "scale": {"read": "event.grade", "per": 1}, "do": [{"stacks": {"el": "fire", "n": 2, "for": 6.0, "side": "foe"}}, {"heal": {"share": 0.02}}]},
-        {"id": "eff:Ground Like Paint:echo", "on": "pulse", "if": [{"read": "own.counter.paint_echo_t", "op": "==", "value": 1}, {"read": "own.counter.paint_echo_g", "op": ">=", "value": 1}], "scale": {"read": "own.counter.paint_echo_g", "per": 1}, "do": [{"stacks": {"el": "fire", "n": 2, "for": 6.0, "side": "foe"}}, {"heal": {"share": 0.02}}]},
+        {"id": "eff:Ground Like Paint:echo", "on": "pulse", "if": [{"read": "own.counter.paint_echo_t", "op": "==", "value": 1}, {"read": "own.counter.paint_echo_g", "op": ">=", "value": 1}], "scale": {"read": "own.counter.paint_echo_g", "per": 1}, "do": [{"stacks": {"el": "fire", "n": 2, "for": 6.0, "side": "foe"}}, {"heal": {"share": 0.02}}, {"counter": {"id": "paint_echo_g", "set": 0}}]},
         {"id": "eff:Ground Like Paint:tick", "on": "pulse", "if": [{"read": "own.counter.paint_echo_t", "op": ">=", "value": 1}], "do": [{"counter": {"id": "paint_echo_t", "add": -1}}]}
       ]
     },
@@ -111,11 +111,11 @@
     },
     "Paid in Full": {
       "rule": "Golden Valley Ledger Seal (Kim Cốc Trướng Ấn): a debuff you apply cannot be cleansed until half its duration has run.",
-      "approx": "Protects applied Earth and Metal debuff batches for their first 4.0 s (`protect {for_first: 4.0}`, half of standard 8 s batch duration).",
+      "approx": "Protects applied elemental debuff batches for their first 4.0 s (`protect {for_first: 4.0}`, half of standard 8 s batch duration).",
       "counters": [],
       "states": [],
       "records": [
-        {"id": "eff:Paid in Full", "on": "fight_start", "do": [{"protect": {"el": "earth", "for_first": 4.0}}, {"protect": {"el": "metal", "for_first": 4.0}}]}
+        {"id": "eff:Paid in Full", "on": "fight_start", "do": [{"protect": {"el": "fire", "for_first": 4.0}}, {"protect": {"el": "water", "for_first": 4.0}}, {"protect": {"el": "earth", "for_first": 4.0}}, {"protect": {"el": "metal", "for_first": 4.0}}, {"protect": {"el": "wood", "for_first": 4.0}}, {"protect": {"el": "ice", "for_first": 4.0}}, {"protect": {"el": "thunder", "for_first": 4.0}}, {"protect": {"el": "wind", "for_first": 4.0}}, {"protect": {"el": "light", "for_first": 4.0}}]}
       ]
     },
     "Ride Out the Storm": {
@@ -125,16 +125,16 @@
       "records": [
         {"id": "eff:Ride Out the Storm:compose", "on": "pulse", "if": [{"read": "own.composed", "op": ">=", "value": 1}], "do": [{"gain_qi": {"share": 0.02}}, {"stacks": {"el": "water", "side": "own", "kind": "buff", "n": 1, "for": null}}]},
         {"id": "eff:Ride Out the Storm:ward", "on": "always", "if": [{"read": "own.buff.water", "op": ">=", "value": 1}], "scale": {"read": "own.buff.water", "per": 1}, "do": [{"mod": {"dampen_taken": 1}}]},
-        {"id": "eff:Ride Out the Storm:decay", "on": "pulse", "if": [{"read": "own.composed", "op": "<", "value": 1}, {"read": "own.buff.water", "op": ">=", "value": 1}], "do": [{"consume": {"el": "water", "side": "own", "kind": "buff", "n": 1}}]}
+        {"id": "eff:Ride Out the Storm:decay", "on": "pulse", "if": [{"read": "own.pressing", "op": ">=", "value": 1}, {"read": "own.buff.water", "op": ">=", "value": 1}], "do": [{"consume": {"el": "water", "side": "own", "kind": "buff", "n": 1}}]}
       ]
     },
     "Second Spring": {
       "rule": "Second Spring Needles (Hồi Xuân Châm): once a fight, while you are below a quarter of your health, the next poison batch or curse placed on you lands at half strength.",
-      "approx": "Once per fight when health drops below 25 %, cleanses 3 Wood poison stacks and 1 curse and grants +50 % status resistance for 5 s to model halving the incoming poison/curse.",
+      "approx": "When wounded (health drops to <= 25 % once per fight), cleanses 3 Wood poison stacks and 1 curse and grants +50 % status resistance for 5 s to model halving the incoming poison/curse.",
       "counters": [],
       "states": [],
       "records": [
-        {"id": "eff:Second Spring", "on": "pulse", "if": [{"read": "own.hp_share", "op": "<", "value": 0.25}], "limit": {"per_fight": 1}, "do": [{"cleanse": {"n": 3, "el": "wood"}}, {"cleanse": {"curses": 1}}, {"mod": {"status_resist": 50, "for": 5.0}}]}
+        {"id": "eff:Second Spring", "on": "wounded", "limit": {"per_fight": 1}, "do": [{"cleanse": {"n": 3, "el": "wood"}}, {"cleanse": {"curses": 1}}, {"mod": {"status_resist": 50, "for": 5.0}}]}
       ]
     },
     "The Array Comes With Me": {
@@ -153,7 +153,7 @@
       "counters": [],
       "states": [],
       "records": [
-        {"id": "eff:The Books Balance", "on": "cleansed", "if": [{"read": "event.amount", "op": ">=", "value": 1}], "scale": {"read": "event.amount", "per": 1}, "limit": {"per_pulse": 1}, "do": [{"free_hit": {"c": 0.25, "dtype": "chaos", "pass_shields": true}}]}
+        {"id": "eff:The Books Balance", "on": "cleansed", "if": [{"read": "event.amount", "op": ">=", "value": 1}], "scale": {"read": "event.amount", "per": 1}, "do": [{"free_hit": {"c": 0.25, "dtype": "chaos", "pass_shields": true}}]}
       ]
     },
     "The Losing Hand": {
