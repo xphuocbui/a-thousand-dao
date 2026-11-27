@@ -192,6 +192,30 @@
     ]
    },
    {
+    "id": "branch-stop",
+    "on": "pulse",
+    "if": [
+     {
+      "read": "own.counter.branch_on",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "read": "own.counter.branch_feed",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "branch_on",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
     "id": "branch-feed",
     "on": "status_applied",
     "filter": {
@@ -454,6 +478,11 @@
       "read": "own.counter.cup_weaken",
       "op": ">=",
       "value": 1
+     },
+     {
+      "read": "foe.status.charmed",
+      "op": "==",
+      "value": 0
      }
     ],
     "do": [
@@ -489,7 +518,7 @@
    },
    {
     "id": "second-cup-weaken-evade",
-    "on": "was_evaded",
+    "on": "evaded",
     "filter": {
      "kind": "art"
     },

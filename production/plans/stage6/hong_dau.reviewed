@@ -1,0 +1,14 @@
+{
+ "owner": "hong_dau",
+ "minutes": 6,
+ "must_fix": 2,
+ "should": 1,
+ "fixed": 3,
+ "words": {},
+ "open": [
+  "Serial step: run stage6_merge.py hong_dau and put_effects.py.",
+  "Stage 7 export of phuong_minh closes cross_owner 1 (wutong-dawn-breath on te_vong_quy).",
+  "Stage 7 export: ensure export_named.py exports kind 'treasure' items (hd-phi-hong).",
+  "Add the paired-sword crit petal record to Half of a Pair when Tan Hong (slot V-1) is authored."
+ ]
+}

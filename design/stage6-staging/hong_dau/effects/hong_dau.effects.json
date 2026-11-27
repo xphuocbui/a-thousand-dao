@@ -31,7 +31,7 @@
   },
   "The Second Cup Is Poured": {
    "rule": "Fan of the Gracious Door: after 20 seconds in the fight, the foe takes 10 % more damage from your Wood poisons and Charmed lasts 1 pulse longer on them.",
-   "approx": "Wood poison ticks do not read live damage modifiers, so the +10 % poison damage after 20 s runs as a per-pulse Chaos trigger scaled by foe Wood stacks (c 0.002, pass_shields, outside_budget).",
+   "approx": "Wood poison ticks do not read live damage modifiers, so the +10 % poison damage after 20 s runs as a 10 % Soul return_damage rider on each Wood tick_dealt.",
    "records": [
     {
      "id": "eff:The Second Cup Is Poured poison",
@@ -44,27 +44,13 @@
        "read": "time",
        "op": ">",
        "value": 20
-      },
-      {
-       "read": "foe.debuff.wood",
-       "op": ">=",
-       "value": 1
       }
      ],
-     "limit": {
-      "per_pulse": 1
-     },
-     "scale": {
-      "read": "foe.debuff.wood",
-      "per": 1
-     },
      "do": [
       {
-       "free_hit": {
-        "c": 0.002,
-        "dtype": "chaos",
-        "pass_shields": true,
-        "outside_budget": true
+       "return_damage": {
+        "share": 0.1,
+        "dtype": "soul"
        }
       }
      ]
