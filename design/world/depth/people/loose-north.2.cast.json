@@ -128,7 +128,7 @@
   "appearance": "Pine needle behind her ear, never the same needle. Round face flushed from the stove.",
   "backstory": "A wine-maker's daughter who came down to the market in 1150 and set one long table under a pine; every loose cultivator of the pine sea has drunk at it, and the foundation pills in the jar behind her counter come with no promise, as Lâm Dã Hạc (lam_da_hac) knows. She sells the jar pills at cost to anyone the pines' gate has turned away.",
   "ties": [{"to": "lam_da_hac", "kind": "friend", "note": "sold him his foundation pill"}, {"to": "thu_phieu_binh", "kind": "friend", "note": ""}, {"to": "gia_chi_lo", "kind": "creditor", "note": "three years of wine"}, {"to": "hua_van_cung", "kind": "friend", "note": "drank at her table thirty years; now drinks on the hill"}, {"to": "mach_phuc_linh", "kind": "friend", "note": "buys her ginseng"}],
-  "build": {"archetype": "dan_su", "main": {"tech": "warm-hearth-breath", "layer": 4}, "aux": [], "gear": [{"base": "huong_lo", "grade": 1, "element": "hoa"}], "skills": {"dan_dao": 2}, "tree": {"start": "moc", "intent": "Healing and sustain."}, "note": "A wine-warmer's censer."}
+  "build": {"archetype": "dan_su", "main": {"tech": "hearth-simmer-breath", "layer": 4}, "aux": [], "gear": [{"base": "huong_lo", "grade": 1, "element": "hoa"}], "skills": {"dan_dao": 2}, "tree": {"start": "moc", "intent": "Healing and sustain."}, "note": "A wine-warmer's censer."}
  },
  {
   "key": "ha_tieu_bang", "name_hv": "Hà Tiểu Băng", "name_han": "何小冰", "gloss": "Little ice",
@@ -225,7 +225,7 @@
   "appearance": "Eyelashes dusted pale with jade grit; squints at any lamp.",
   "backstory": "A snow-jade miner's daughter, she sat three years in the Pivot's outer gate and failed the Level Beam each spring with Metal forty, five short, under Chử Bình Quân's (chu_binh_quan) steady hand; she left in 1198, because no one there could teach the light that comes off the jade into her at dawn.",
   "ties": [{"to": "chu_binh_quan", "kind": "rival", "note": "held the beam steady"}, {"to": "ha_hau_thach", "kind": "friend", "note": "taught her to hold the weights; begged her to stay"}],
-  "build": {"archetype": "phap_tu", "main": {"tech": "weighing-stone-primer", "layer": 3}, "aux": [], "gear": [{"base": "ngoc_boi", "grade": 1, "element": "kim"}], "skills": {}, "tree": {"start": "quang", "intent": "Light's first nodes, felt for alone."}, "note": "A snow-jade pendant she cut herself."}
+  "build": {"archetype": "phap_tu", "main": {"tech": "touchstone-primer", "layer": 3}, "aux": [], "gear": [{"base": "ngoc_boi", "grade": 1, "element": "kim"}], "skills": {}, "tree": {"start": "quang", "intent": "Light's first nodes, felt for alone."}, "note": "A snow-jade pendant she cut herself."}
  },
  {
   "key": "mac_than_nuong", "name_hv": "Mặc Thán Nương", "name_han": "墨炭娘", "gloss": "The ink-charcoal girl",

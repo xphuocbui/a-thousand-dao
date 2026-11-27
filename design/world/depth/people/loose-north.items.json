@@ -47,7 +47,7 @@
    {"key": "attack_pct", "value": 6, "scope": ["hoa"]},
    {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}
   ],
-  "effects": [{"new": true, "id": "thaw-ice", "name": "Thaw the Ice (Dung Băng)", "rule": "Fed with the holder's Fire qi, it thaws a hand's depth of old ice an hour and keeps a frozen hall's air breathable while it burns."}, {"new": true, "id": "thaw", "name": "Thaw (Giải Băng)", "rule": "Each Fire hit you land removes one Ice stack from you; each stack removed heals you 0.5 % of your maximum health and gives you one Fire buff stack for 5 s.", "authored": "d48"}],
+  "effects": [{"new": true, "id": "thaw-ice", "name": "Thaw the Ice (Dung Băng)", "rule": "Fed with the holder's Fire qi, it thaws a hand's depth of old ice an hour and keeps a frozen hall's air breathable while it burns."}, {"new": true, "id": "thaw", "name": "Thaw (Giải Băng)", "rule": "Each Fire hit you land removes one Ice stack from you, at most 2 a pulse; each stack removed heals you 0.5 % of your maximum health and gives you one Fire buff stack for 5 s.", "authored": "d48"}],
   "lore": "A copper censer from a Tống Khách Thị stall that Phàn Cổ Đăng bought Dư Chúc Nhi in 1195 with the Scorch Fist Primer. The girl cut its vents wider herself so it would burn hotter.",
   "build_use": "A small Fire attack and linh lực recovery for a Luyện Khí fist fighter.",
   "holder": "du_chuc_nhi", "made_by": "a coppersmith of Tống Khách Thị", "made_year": 1190, "set": "ln-thaw-girl-fire", "status": "proposal",

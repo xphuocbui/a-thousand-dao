@@ -1,0 +1,15 @@
+{
+  "owner": "loose-north",
+  "minutes": 25,
+  "must_fix": 2,
+  "should": 3,
+  "fixed": 5,
+  "words": {},
+  "open": [
+    "pre-existing non-stand-in CongPhap mismatches in loose-north.cast.json: quan_tuyet_tung aux hunters-reach-canon requires kim (he has moc/thuy); slot-kind mismatches on phan_co_dang, ho_dien_liet, khau_thien_tu, and du_chuc_nhi",
+    "phan_co_dang technique arts include no escape art and no seal art in default 6-slot sect_fight kit (ln-lock-breaker-seal provides common art seal-slam, verified in Probe 3)",
+    "du_chuc_nhi equips 1 piece (ln-thawing-brazier) at luyen_khi per DECISIONS-2026-11-25 Group 4, so Hot Hands activates at truc_co",
+    "stale record-pass review files (outside checkpoint write set): production/plans/stage6/loose-north-review.md section F and loose-north.done still list warm-hearth-breath and weighing-stone-primer",
+    "Stage 8 merge & export: 17 cross-owner techniques, nham_do_han item mf-way-out-knot (market-folk), and beast tiem_anh close at merge / export_world.py --sect all"
+  ]
+}
