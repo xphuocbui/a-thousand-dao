@@ -8,7 +8,7 @@
   {"key": "damage_more", "value": 2, "scope": ["tho"]},
   {"key": "block_rating", "value": 6, "scope": []}],
  "abilities": [{"ability_id": "mountain-stance", "unlock_layer": 1}, {"ability_id": "sinking-weight", "unlock_layer": 2}, {"ability_id": "bastion-reprisal", "unlock_layer": 4}, {"ability_id": "strata-hammer", "unlock_layer": 6}],
- "effects": [], "origin": "authored", "suite": "mountain-heart-canon", "family": "earth",
+ "effects": [{"name": "Debt Stone", "unlock_layer": 1, "passive_art": true}], "origin": "authored", "suite": "mountain-heart-canon", "family": "earth",
  "lore": "A fortress-sect canon that teaches the body to stand like a mountain and answer every blow with a slow, crushing fall."},
 {"id": "deep-vein-scripture", "name": "Deep Vein Scripture (Thâm Mạch Kinh)", "tier": 3, "tech_kind": "secret", "names": ["tho"], "layers": 15,
  "bonuses": [{"stat": "linh_luc_pct", "value": 15}, {"stat": "lifespan_years", "value": 10}, {"stat": "tam_ma_resist_pct", "value": 10}],

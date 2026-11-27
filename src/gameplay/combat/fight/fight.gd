@@ -292,16 +292,16 @@ func basic_cd(s: FighterState) -> float:
 
 
 ## The Slowed Time factor on [param s]'s cooldowns (Effects AC-EF-72): 1 + slowed_time_pct per stack (up to the
-## status's cap), less Slowed Time resistance.
+## status's cap), scaled by curse_effect, less Slowed Time resistance.
 func slow(s: FighterState) -> float:
 	if s.statuses.is_empty():
 		return 1.0
 	var n: float = minf(s.st("slowed_time"), float(k.slowed_cap))
 	var resist: float = 1.0 - (s.p.timer_resist + m(s, "timer_resist", null)) / 100.0
-	var out: float = 1.0 + k.slowed_time_pct * n * resist
+	var out: float = 1.0 + k.slowed_time_pct * n * (curse_scale(s, "slowed_time") if n > 0.0 else 1.0) * resist
 	var dk: float = s.st("drunk")
 	if dk > 0.0:   # Drunk (Effects Status Catalogue, 2026-11-26): its own slow per stack beside Slowed Time
-		out += float(k.status.drunk.slow) * dk * resist
+		out += float(k.status.drunk.slow) * dk * curse_scale(s, "drunk") * resist
 	return out
 
 
@@ -394,7 +394,8 @@ func pulse(s: FighterState) -> void:
 		s.hp -= amt
 		_side(inj.src_idx).dealt += amt
 	# regeneration; Stagnation dampens both pools by regen_dampen % per stack
-	var stag: float = 1.0 + s.st("stagnation") * k.stagnation_dampen / 100.0
+	var stag_n: float = s.st("stagnation")
+	var stag: float = 1.0 + stag_n * k.stagnation_dampen * (curse_scale(s, "stagnation") if stag_n > 0.0 else 1.0) / 100.0
 	var kk: float = k.regen_k
 	var bonus: float = s.p.regen_bonus + s.bsum("regen") + m(s, "regen", null)
 	var regen: float = s.qi_max() * (k.regen_base + kk * log(1.0 + maxf(0.0, bonus) / kk)) / stag
@@ -898,7 +899,8 @@ func heal(s: FighterState, amount: float, source: String = "", ignore_taken: boo
 	if not ignore_taken:
 		amount *= maxf(1.0 - k.curse_heal_taken_max, 1.0 + m(s, "heal_taken", null) / 100.0)
 	if s.st("withering") > 0.0:
-		amount *= 1.0 + k.withering_heal_taken
+		var w_eff: float = maxf(-k.curse_heal_taken_max, k.withering_heal_taken * curse_scale(s, "withering"))
+		amount *= 1.0 + w_eff
 		var w: FighterState.StatusState = s.statuses["withering"]
 		if w.crossing:
 			s.hp -= amount
@@ -1059,17 +1061,23 @@ func act(s: FighterState) -> void:
 		if not (stopped or held):   # a held basic attack misses; its timer still runs
 			hit(s, o, 1.0 + p.basic_coef_add + m(s, "basic_coef", null), &"phys", null, KIND_BASIC)
 		s.basic_ready += CombatConstants.ms(basic_cd(s) * slow(s))
+	var cp: float = m(s, "companion_power", null) / 100.0
+	var cs: float = maxf(0.01, 1.0 + m(s, "companion_speed", null) / 100.0)
 	for sm in (s.summons.duplicate() if not s.summons.is_empty() else EffectRunner._NONE_A):
 		while t >= int(sm[3]) and int(sm[3]) < int(sm[4]):
-			hit(s, o, float(sm[0]), sm[1], null, KIND_COMPANION)
-			sm[3] = int(sm[3]) + int(sm[2])
+			var sm_c: float = float(sm[0])
+			var c_sm: float = minf(maxf(k.c_comp_cap, sm_c), maxf(0.0, sm_c + cp))
+			hit(s, o, c_sm, sm[1], null, KIND_COMPANION)
+			var base_cd: float = float(sm[5]) if (sm as Array).size() > 5 else float(sm[2]) / 1000.0
+			sm[3] = int(sm[3]) + CombatConstants.ms(maxf(k.cooldown_min, base_cd / cs))
 		if t >= int(sm[4]):
 			s.summons.erase(sm)
 	for j in p.companions.size():
 		var comp: FighterProfile.Companion = p.companions[j]
 		while t >= s.comp_ready[j]:
-			hit(s, o, comp.c, comp.dtype, null, KIND_COMPANION, false, comp.tags)
-			var ccd: float = comp.cd / (1.0 + m(s, "companion_speed", null) / 100.0)
+			var c_comp: float = minf(k.c_comp_cap, maxf(0.0, comp.c + cp))
+			hit(s, o, c_comp, comp.dtype, null, KIND_COMPANION, false, comp.tags)
+			var ccd: float = comp.cd / cs
 			s.comp_ready[j] += CombatConstants.ms(maxf(k.cooldown_min, ccd))
 
 
@@ -1128,7 +1136,9 @@ func step_health(s: FighterState, art: ArtDef, sd: ArtOverride.StepDef, do_pay: 
 func pay(s: FighterState, art: ArtDef) -> bool:
 	var p: FighterProfile = s.p
 	s.hp_paid = 0.0
-	var cost_up: float = (1.0 + s.dsum("cost_up")) * (1.0 + s.st("heavy_breath") * k.heavy_cost_up)
+	var hb_n: float = s.st("heavy_breath")
+	var hb_up: float = minf(k.curse_cost_raise_max, hb_n * k.heavy_cost_up * curse_scale(s, "heavy_breath")) if hb_n > 0.0 else 0.0
+	var cost_up: float = (1.0 + s.dsum("cost_up")) * (1.0 + hb_up)
 	var cost: float = art.cost * k.cost_scale * (1.0 - minf(k.cost_red_cap, p.cost_red + m(s, "cost_red", art.ctx))) \
 			* cost_up * s.qi_base * (1.0 + art.node_cost_pct / 100.0)
 	s.nc_idx = -1
@@ -1276,7 +1286,7 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 	if wake_cut != 0.0:   # the hit that wakes a sleeper deals less
 		d *= 1.0 - wake_cut
 	if art != null and art.element == &"water" and dfn.st("drunk") >= float(k.status.drunk.water_taken_at):
-		d *= 1.0 + float(k.status.drunk.water_taken)   # Drunk at 3+: Water parts hit harder
+		d *= 1.0 + float(k.status.drunk.water_taken) * curse_scale(dfn, "drunk")   # Drunk at 3+: Water parts hit harder
 	var damp: float = (dfn.bsum("phys_dampen") if phys else 0.0) + (m(dfn, "dampen_taken", ctx) if dm else 0.0) / 100.0
 	if damp != 0.0:
 		d /= 1.0 + damp
@@ -1423,11 +1433,25 @@ func soul_hit(att: FighterState, dfn: FighterState, art: ArtDef) -> float:
 	return lh
 
 
+## Curse strength multiplier for [param sid] on [param tgt] from its source fighter (modifiers.md
+## curse_effect_pct): max(0.0, 1.0 + mod(src, "curse_effect") / 100.0). Returns 1.0 without a caster or mods.
+func curse_scale(tgt: FighterState, sid: String) -> float:
+	var st: FighterState.StatusState = tgt.statuses.get(sid)
+	if st == null or st.src_idx < 0 or st.src_idx > 1:
+		return 1.0
+	var src: FighterState = _side(st.src_idx)
+	if not has_mods(src):
+		return 1.0
+	var sctx := {"status": sid, "kind": "curse", "tags": ["curse", sid]} if _fx else EffectRunner._NONE_D
+	return maxf(0.0, 1.0 + m(src, "curse_effect", sctx) / 100.0)
+
+
 ## The defender's soul resistance against [param att]: its own, its Effect mods, Slackened Soul, and the attacker's
 ## foe_soul_res (Lamp-Lit Reading).
 func _soul_res(att: FighterState, dfn: FighterState) -> float:
-	return dfn.p.soul_res + m(dfn, "soul_res", null) + dfn.st("slackened_soul") * k.slackened_soul_res \
-			+ m(att, "foe_soul_res", null)
+	var ss_n: float = dfn.st("slackened_soul")
+	var ss_pts: float = ss_n * k.slackened_soul_res * curse_scale(dfn, "slackened_soul") if ss_n > 0.0 else 0.0
+	return dfn.p.soul_res + m(dfn, "soul_res", null) + ss_pts + m(att, "foe_soul_res", null)
 
 
 ## Grants [param n] stacks of element [param el] from [param src] to [param target] (Effects rule 9a): plus the
@@ -1641,9 +1665,10 @@ func evade_chance(att: FighterState, dfn: FighterState) -> float:
 		return 0.0
 	var ev_m: float = m(dfn, "evade", null) if has_mods(dfn) else 0.0
 	var acc_m: float = m(att, "acc", null) if has_mods(att) else 0.0
+	var dk: float = att.st("drunk")
 	var p_ev: float = dfn.p.evade + w_ev + ev_m / 100.0 - dfn.dsum("evade_down") \
 			- (att.p.acc + acc_m / 100.0 + att.bsum("acc") - att.dsum("acc_down")) \
-			+ float(k.status.drunk.acc_down) * att.st("drunk")   # Drunk: aim lost (2026-11-26)
+			+ float(k.status.drunk.acc_down) * dk * (curse_scale(att, "drunk") if dk > 0.0 else 1.0)   # Drunk: aim lost (2026-11-26)
 	return minf(k.evade_cap, maxf(0.0, p_ev))
 
 
@@ -1678,8 +1703,11 @@ func cast_wards(s: FighterState) -> void:
 				continue
 			s.qi -= cost
 			s.spent += cost
+			var scale_w: float = maxf(0.0, 1.0 + m(s, "cast_ward_dur", null) / 100.0)
+			var dur_ms: int = mini(CombatConstants.ms(w.cooldown) - 1, CombatConstants.ms(w.up * scale_w)) \
+					if w.up < w.cooldown else CombatConstants.ms(w.up * scale_w)
 			xw.up = true
-			xw.until = t + CombatConstants.ms(w.up)
+			xw.until = t + maxi(0, dur_ms)
 			xw.ready = t + CombatConstants.ms(w.cooldown)
 			if w.shield != 0.0:
 				var bar_def := WardShieldDef.new()

@@ -34,7 +34,12 @@ static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float
 		ro += f.m(dfn, "resist", f.dt_ctx)
 	# curses on resistance: Sundered (points per stack) and Exposed (all types) (Status Catalogue)
 	if not dfn.statuses.is_empty():
-		ro += dfn.st("sundered") * k.sundered_res_pts + dfn.st("exposed") * k.exposed_res_all
+		var su_n: float = dfn.st("sundered")
+		var ex_n: float = dfn.st("exposed")
+		if su_n > 0.0:
+			ro += su_n * k.sundered_res_pts * f.curse_scale(dfn, "sundered")
+		if ex_n > 0.0:
+			ro += ex_n * k.exposed_res_all * f.curse_scale(dfn, "exposed")
 	var xs: Array = EffectRunner._NONE_A
 	var xs_pts: PackedFloat64Array   # empty packed arrays hold no buffer, so this allocates nothing
 	if not dfn.xwards.is_empty():
@@ -66,7 +71,9 @@ static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float
 	var dm: bool = f.has_mods(dfn)
 	var bill_up: float = 1.0 + (att.p.ward_bill_pct + (f.m(att, "ward_bill", null) if am else 0.0)) / 100.0
 	if not dfn.statuses.is_empty():
-		bill_up *= 1.0 + dfn.st("leaking_ward") * k.leaking_bill_up
+		var lw_n: float = dfn.st("leaking_ward")
+		if lw_n > 0.0:
+			bill_up *= 1.0 + minf(k.curse_drain_raise_max, lw_n * k.leaking_bill_up * f.curse_scale(dfn, "leaking_ward"))
 	var bill: float = bill_share * dp.drain * k.drain_scale / dp.ward_layer / dfn.g * bill_up
 	for i in xs.size():
 		# an extra drain ward bills for the share of prevention it holds

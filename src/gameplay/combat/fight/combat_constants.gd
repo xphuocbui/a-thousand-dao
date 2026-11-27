@@ -120,12 +120,15 @@ var mod_keys: Array = []
 var actions: Array = []
 var elem_type: Dictionary = {}
 ## Soul attacks (Combat 24, E2): the exponent on rho, the rho floor, the cap per hit, the lockout (s); and the
-## floor on healing taken with curses (Combat Defence & Healing E).
+## curse bounds and companion cap (Combat Defence & Healing E, Combat J, Effects Status Catalogue).
 var soul_beta: float
 var rho_min: float
 var soul_cap: float
 var soul_lockout: float
 var curse_heal_taken_max: float
+var curse_cost_raise_max: float = 0.5
+var curse_drain_raise_max: float = 0.5
+var c_comp_cap: float = 1.0
 ## Tables: per element, the stat each buff or debuff stack adds; the Status Catalogue by id; an element
 ## debuff's tick type. Keys are Strings, as in the file.
 var buff: Dictionary = {}
@@ -276,6 +279,9 @@ static func from_dict(d: Dictionary) -> CombatConstants:
 	k.soul_cap = float(kd.soul_cap)
 	k.soul_lockout = float(kd.soul_lockout)
 	k.curse_heal_taken_max = float(kd.curse_heal_taken_max)
+	k.curse_cost_raise_max = float(kd.get("curse_cost_raise_max", 0.5))
+	k.curse_drain_raise_max = float(kd.get("curse_drain_raise_max", 0.5))
+	k.c_comp_cap = float(kd.get("c_comp_cap", 1.0))
 	k.buff = d.BUFF
 	k.debuff = d.DEBUFF
 	k.status = d.STATUS

@@ -1668,6 +1668,9 @@
       "base": "dao_bao",
       "grade": 2,
       "element": "kim"
+     },
+     {
+      "named": "mf-way-out-knot"
      }
     ],
     "skills": {},

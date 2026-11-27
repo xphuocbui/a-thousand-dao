@@ -131,6 +131,11 @@
      "scope": [
       "kim"
      ]
+    },
+    {
+     "key": "curse_effect_pct",
+     "value": 10,
+     "scope": []
     }
    ],
    "effects": [],

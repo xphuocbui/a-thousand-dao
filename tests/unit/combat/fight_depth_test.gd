@@ -1027,3 +1027,284 @@ func test_song_scope_compiles_and_applies_to_matching_tags_only() -> void:
 	assert_near(f.m(f.a, "art_speed", p.arts[1].ctx), 8.0, 1e-9, "song scope art_speed matches soul+song art")
 	assert_near(f.m(f.a, "L1", p.arts[2].ctx), 0.0, 1e-9, "song scope L1 does not leak to non-song art")
 	assert_near(f.m(f.a, "art_speed", p.arts[2].ctx), 0.0, 1e-9, "song scope art_speed does not leak to non-song art")
+
+
+# ---- Stage 6 Step 1: curse_effect_pct, cast_ward_duration_pct, companion_power_pct, companion_speed_pct (summon), [art] ----
+static func _step1_fx(mods: Array) -> Array:
+	var actions: Array = []
+	for m in mods:
+		actions.append({"mod": m})
+	return [{"id": "t", "on": "always", "do": actions}]
+
+
+func _try_fight(a: Dictionary, b: Dictionary) -> Fight:
+	var k := CombatConstants.load_file()
+	assert_true(k.errors.is_empty(), "; ".join(k.errors))
+	if not k.errors.is_empty():
+		return null
+	var loader := FighterProfileLoader.new(k)
+	var pa: FighterProfile = loader.from_sim_build(a, "a")
+	var pb: FighterProfile = loader.from_sim_build(b, "b")
+	assert_true(loader.errors.is_empty(), "; ".join(loader.errors))
+	if pa == null or pb == null or not loader.errors.is_empty():
+		return null
+	return Fight.new(pa, pb, k, 3, Fight.Order.FIXED)
+
+
+func test_curse_effect_pct_scales_curses_with_bounds() -> void:
+	# Sundered (-150 -> -180 at +20%) and Exposed (-100 -> -120 at +20%)
+	var f := _try_fight(M._dummy({"effects": _step1_fx([{"curse_effect": 20}])}),
+			M._dummy({"ward_pts": 0.0, "block": 0.0, "evade": 0.0, "body_pts": 0.0, "n_body": 100.0}))
+	if f == null:
+		return
+	f.apply_status(f.a, f.b, _spec("sundered"))
+	var got_sun: float = DefencePath.defend(f, f.a, f.b, 100.0, &"phys", null, {"dtype": "phys", "tags": []}, false)
+	assert_near(got_sun, 280.0, 1e-6, "curse_effect 20: sundered -150 -> -180 (280 from 100)")
+	f.apply_status(f.a, f.b, _spec("exposed"))
+	var got_both: float = DefencePath.defend(f, f.a, f.b, 100.0, &"phys", null, {"dtype": "phys", "tags": []}, false)
+	assert_near(got_both, 400.0, 1e-6, "curse_effect 20: sundered+exposed -> -300 (400 from 100)")
+
+	# Stagnation (1 -> 1.2/stack at +20%)
+	var g := _try_fight(M._dummy({"effects": _step1_fx([{"curse_effect": 20}])}), M._dummy())
+	if g == null:
+		return
+	g.b.qi = 0.0
+	g.apply_status(g.a, g.b, _spec("stagnation"))
+	g.pulse(g.b)
+	var base_regen: float = g.b.qi_max() * g.k.regen_base
+	assert_near(g.b.qi, base_regen / 1.012, 1e-6, "curse_effect 20: stagnation 1 -> 1.2 pct per stack")
+
+	# Heavy Breath (+25% -> +30% at 1 stack, capped at curse_cost_raise_max = +50% at 2 stacks)
+	var art_d := {"name": "x", "c": 1.0, "cost": 0.1, "cd": 3.0}
+	var h := _try_fight(M._dummy({"effects": _step1_fx([{"curse_effect": 20}])}), M._dummy({}, [art_d]))
+	if h == null:
+		return
+	var art_o: ArtDef = h.b.p.arts[0]
+	var base_cost: float = art_o.cost * h.k.cost_scale * h.b.qi_base
+	h.apply_status(h.a, h.b, _spec("heavy_breath"))
+	var q0: float = h.b.qi
+	h.pay(h.b, art_o)
+	assert_near(q0 - h.b.qi, base_cost * 1.30, 1e-6, "curse_effect 20: heavy_breath 1 stack +30 pct")
+	h.apply_status(h.a, h.b, _spec("heavy_breath"))
+	h.b.qi = q0
+	h.pay(h.b, art_o)
+	assert_near(q0 - h.b.qi, base_cost * 1.50, 1e-6, "curse_effect 20: heavy_breath 2 stacks stays capped at +50 pct")
+
+	# Withering (-50% stays clamped at -50% at +20%, scales to -30% at -40%)
+	var wp := _try_fight(M._dummy({"effects": _step1_fx([{"curse_effect": 20}])}), M._dummy({"n_body": 100.0}))
+	if wp == null:
+		return
+	wp.apply_status(wp.a, wp.b, _spec("withering"))
+	wp.b.hp = wp.b.hp_max / 2.0
+	var hp_p0: float = wp.b.hp
+	wp.heal(wp.b, 100.0)
+	assert_near(wp.b.hp - hp_p0, 50.0, 1e-6, "curse_effect 20: withering stays clamped at -50 pct")
+
+	var wn := _try_fight(M._dummy({"effects": _step1_fx([{"curse_effect": -40}])}), M._dummy({"n_body": 100.0}))
+	if wn == null:
+		return
+	wn.apply_status(wn.a, wn.b, _spec("withering"))
+	wn.b.hp = wn.b.hp_max / 2.0
+	var hp_n0: float = wn.b.hp
+	wn.heal(wn.b, 100.0)
+	assert_near(wn.b.hp - hp_n0, 70.0, 1e-6, "curse_effect -40: withering scales to -30 pct")
+
+	# Leaking Ward (+50% stays capped at +50% at +20%, scales to +30% at -40%)
+	var lwp := _try_fight(M._dummy({"effects": _step1_fx([{"curse_effect": 20}])}),
+			M._dummy({"ward_pts": 100.0, "block": 0.0, "evade": 0.0, "drain": 1.0}))
+	if lwp == null:
+		return
+	lwp.apply_status(lwp.a, lwp.b, _spec("leaking_ward"))
+	var qlp0: float = lwp.b.qi
+	DefencePath.defend(lwp, lwp.a, lwp.b, 100.0, &"phys", null, {"dtype": "phys", "tags": []}, false)
+	var base_bill: float = 50.0 * lwp.b.p.drain * lwp.k.drain_scale / lwp.b.p.ward_layer / lwp.b.g
+	assert_near(qlp0 - lwp.b.qi, base_bill * 1.5, 1e-6, "curse_effect 20: leaking_ward stays capped at +50 pct")
+
+	var lwn := _try_fight(M._dummy({"effects": _step1_fx([{"curse_effect": -40}])}),
+			M._dummy({"ward_pts": 100.0, "block": 0.0, "evade": 0.0, "drain": 1.0}))
+	if lwn == null:
+		return
+	lwn.apply_status(lwn.a, lwn.b, _spec("leaking_ward"))
+	var qln0: float = lwn.b.qi
+	DefencePath.defend(lwn, lwn.a, lwn.b, 100.0, &"phys", null, {"dtype": "phys", "tags": []}, false)
+	assert_near(qln0 - lwn.b.qi, base_bill * 1.3, 1e-6, "curse_effect -40: leaking_ward scales to +30 pct")
+
+	# Slackened Soul (-15 -> -18) and Slowed Time (6% -> 7.2%)
+	var ss := _try_fight(M._dummy({"effects": _step1_fx([{"curse_effect": 20}]), "divine_sense": 100.0},
+			[{"name": "s", "c": 0.0, "cost": 0.05, "cd": 3.0, "soul_pct": 0.05}]),
+			M._dummy({"divine_sense": 100.0}))
+	if ss == null:
+		return
+	ss.apply_status(ss.a, ss.b, _spec("slackened_soul"))
+	ss.apply_status(ss.a, ss.b, _spec("slowed_time"))
+	assert_near(ss.slow(ss.b), 1.072, 1e-9, "curse_effect 20: slowed_time 0.06 -> 0.072")
+	var sh0: float = ss.b.hp
+	ss.soul_hit(ss.a, ss.b, ss.a.p.arts[0])
+	var exp_lh: float = 0.05 * pow(1.18, ss.k.soul_beta) * ss.b.hp_max
+	assert_near(sh0 - ss.b.hp, exp_lh, 1e-6, "curse_effect 20: slackened_soul -15 -> -18 in soul_hit")
+
+	# Negative multiplier floor at 0.0
+	var nf := _try_fight(M._dummy({"effects": _step1_fx([{"curse_effect": -150}])}),
+			M._dummy({"ward_pts": 0.0, "block": 0.0, "evade": 0.0, "body_pts": 0.0, "n_body": 100.0}, [art_d]))
+	if nf == null:
+		return
+	nf.apply_status(nf.a, nf.b, _spec("sundered"))
+	nf.apply_status(nf.a, nf.b, _spec("stagnation"))
+	nf.apply_status(nf.a, nf.b, _spec("heavy_breath"))
+	var got_zero: float = DefencePath.defend(nf, nf.a, nf.b, 100.0, &"phys", null, {"dtype": "phys", "tags": []}, false)
+	assert_near(got_zero, 100.0, 1e-6, "curse_effect -150: sundered multiplier clamps to 0.0")
+	nf.b.qi = 0.0
+	nf.pulse(nf.b)
+	assert_near(nf.b.qi, nf.b.qi_max() * nf.k.regen_base, 1e-6, "curse_effect -150: stagnation clamps to 0.0")
+	var nq0: float = nf.b.qi_max()
+	nf.b.qi = nq0
+	nf.pay(nf.b, nf.b.p.arts[0])
+	assert_near(nq0 - nf.b.qi, nf.b.p.arts[0].cost * nf.k.cost_scale * nf.b.qi_base, 1e-6, "curse_effect -150: heavy_breath clamps to 0.0")
+
+
+func test_cast_ward_duration_pct_scales_and_stays_below_cooldown() -> void:
+	var ward := [{"id": "shell", "model": "cast", "payload": {"phys": 70.0}, "cost": 0.0, "cooldown": 5.0, "up": 2.0}]
+	var f1 := _try_fight(M._dummy({"wards": ward, "effects": _step1_fx([{"cast_ward_dur": 50}])}), M._dummy())
+	if f1 == null:
+		return
+	f1.cast_wards(f1.a)
+	assert_true(f1.a.xwards[0].up and f1.a.xwards[0].until == 3000 and f1.a.xwards[0].ready == 5000,
+			"cast_ward_duration_pct +50: 2.0s -> 3000ms")
+
+	var f2 := _try_fight(M._dummy({"wards": ward, "effects": _step1_fx([{"cast_ward_dur": 200}])}), M._dummy())
+	if f2 == null:
+		return
+	f2.cast_wards(f2.a)
+	assert_true(f2.a.xwards[0].until == 4999 and f2.a.xwards[0].ready == 5000,
+			"cast_ward_duration_pct +200: clamped strictly below cooldown (4999ms)")
+
+	var f3 := _try_fight(M._dummy({"wards": ward, "effects": _step1_fx([{"cast_ward_dur": -150}])}), M._dummy())
+	if f3 == null:
+		return
+	f3.cast_wards(f3.a)
+	assert_eq(f3.a.xwards[0].until, 0, "cast_ward_duration_pct -150: floored at 0ms")
+
+
+func test_companion_power_and_speed_on_companions_and_summons() -> void:
+	var comp := [{"c": 0.4, "dtype": "phys", "cd": 2.0}]
+	var target := M._dummy({"ward_pts": 0.0, "block": 0.0, "evade": 0.0, "body_pts": 0.0, "n_body": 100.0})
+	var k := CombatConstants.load_file()
+	var unit: float = k.u[0] * 3.273
+
+	var f1 := _try_fight(M._dummy({"companions": comp, "effects": _step1_fx([{"companion_power": 25}, {"companion_speed": 400}])}), target)
+	if f1 == null:
+		return
+	f1.a.basic_ready = 1000000000
+	f1.t = 2000
+	f1.act(f1.a)
+	assert_near(f1.b.hp_max - f1.b.hp, unit * 0.65, 1e-6, "companion_power 25: 0.4 -> 0.65")
+	assert_eq(f1.a.comp_ready[0], 2500, "companion_speed 400 clamps at cooldown_min 500ms")
+
+	var f2 := _try_fight(M._dummy({"companions": comp, "effects": _step1_fx([{"companion_power": 80}])}), target)
+	if f2 == null:
+		return
+	f2.a.basic_ready = 1000000000
+	f2.t = 2000
+	f2.act(f2.a)
+	assert_near(f2.b.hp_max - f2.b.hp, unit * 1.0, 1e-6, "companion_power capped at c_comp_cap = 1.0")
+
+	var f3 := _try_fight(M._dummy({"companions": comp, "effects": _step1_fx([{"companion_power": -60}])}), target)
+	if f3 == null:
+		return
+	f3.a.basic_ready = 1000000000
+	f3.t = 2000
+	f3.act(f3.a)
+	assert_near(f3.b.hp_max - f3.b.hp, 0.0, 1e-9, "companion_power floored at 0.0")
+
+	var s_call := {"id": "call", "on": "fight_start", "do": [{"summon": {"c": 0.4, "dtype": "phys", "cd": 2.0, "for": 5.0}}]}
+	var f4 := _try_fight(M._dummy({"effects": _step1_fx([{"companion_power": 25}, {"companion_speed": 100}]) + [s_call]}), target)
+	if f4 == null:
+		return
+	f4.a.basic_ready = 1000000000
+	EffectRunner.fire(f4, f4.a, "fight_start", {})
+	assert_eq(int(f4.a.summons[0][3]), 1000, "summon initial timer reads companion_speed (2.0s / 2 = 1000ms)")
+	f4.t = 1000
+	f4.act(f4.a)
+	assert_near(f4.b.hp_max - f4.b.hp, unit * 0.65, 1e-6, "summon hit reads companion_power (0.65)")
+	assert_eq(int(f4.a.summons[0][3]), 2000, "summon reschedules at 2000ms")
+
+	var f5 := _try_fight(M._dummy({"effects": _step1_fx([{"companion_speed": 400}]) + [s_call]}), target)
+	if f5 == null:
+		return
+	f5.a.basic_ready = 1000000000
+	EffectRunner.fire(f5, f5.a, "fight_start", {})
+	assert_eq(int(f5.a.summons[0][3]), 500, "summon interval clamps at cooldown_min 500ms")
+
+
+func test_attack_pct_art_scope_matches_art_not_basic_or_companion() -> void:
+	var art_d := {"name": "slash", "c": 1.0, "cost": 0.0, "cd": 3.0, "tags": ["sword"]}
+	var f := _try_fight(
+		M._dummy({"companions": [{"c": 1.0, "dtype": "phys", "cd": 2.0, "tags": ["bird"]}],
+				"effects": _step1_fx([{"L1": 50, "tags": ["art"]}])}, [art_d]),
+		M._dummy({"ward_pts": 0.0, "block": 0.0, "evade": 0.0, "body_pts": 0.0, "n_body": 100.0}))
+	if f == null:
+		return
+	var art_o: ArtDef = f.a.p.arts[0]
+	assert_near(f.m(f.a, "L1", art_o.ctx), 50.0, 1e-9, "tags=['art'] matches art_ctx")
+	assert_false(EffectRunner.matches(f, {"not_tags": ["art"]}, art_o.ctx), "not_tags=['art'] excludes art_ctx")
+	assert_true(EffectRunner.matches(f, {"not_tags": ["art"]}, {"kind": "basic", "tags": ["basic"]}), "not_tags=['art'] allows basic")
+
+	var hp0: float = f.b.hp
+	f.hit(f.a, f.b, 1.0, &"phys", art_o, Fight.KIND_ART)
+	var dmg_art: float = hp0 - f.b.hp
+	f.b.hp = hp0
+	f.hit(f.a, f.b, 1.0, &"phys", null, Fight.KIND_BASIC)
+	var dmg_basic: float = hp0 - f.b.hp
+	f.b.hp = hp0
+	f.hit(f.a, f.b, 1.0, &"phys", null, Fight.KIND_COMPANION, false, ["bird"])
+	var dmg_comp: float = hp0 - f.b.hp
+	f.b.hp = hp0
+	f.hit(f.a, f.b, 1.0, &"phys", null, &"trigger", true)
+	var dmg_trig: float = hp0 - f.b.hp
+
+	var unit: float = f.k.u[0] * f.a.p.m
+	assert_near(dmg_art, unit * 1.5, 1e-6, "attack_pct [art] +50 scales art hit to 1.5x")
+	assert_near(dmg_basic, unit, 1e-6, "attack_pct [art] leaves basic hit at 1.0x")
+	assert_near(dmg_comp, unit, 1e-6, "attack_pct [art] leaves companion hit at 1.0x")
+	assert_near(dmg_trig, unit, 1e-6, "attack_pct [art] leaves trigger hit at 1.0x")
+
+
+func test_step1_passive_mods_and_out_of_fight_compile() -> void:
+	var gd := game_data()
+	var k := CombatConstants.from_game_data(gd)
+	var bfc := BuildFileCompiler.new(gd)
+	var loader := FighterProfileLoader.new(k)
+	var inp := {
+		"name": "step1_mods", "realm": 1, "layers": [0, 0, 0, 0, 0],
+		"modifiers": [
+			{"key": "curse_effect_pct", "value": 20.0},
+			{"key": "cast_ward_duration_pct", "value": 50.0},
+			{"key": "companion_power_pct", "value": 10.0},
+			{"key": "companion_speed_pct", "value": 15.0},
+			{"key": "escape_pct", "value": 12.0},
+			{"key": "attack_pct", "value": 8.0, "scope": ["art"]},
+			{"key": "breakthrough_chance", "value": 5.0},
+			{"key": "dao_tam", "value": 2.0},
+			{"key": "can_cot", "value": 3.0},
+			{"key": "pill_effect_pct", "value": 10.0},
+			{"key": "artifact_attack_pct", "value": 10.0},
+			{"key": "artifact_defense_pct", "value": 10.0},
+			{"key": "element_affinity_pct", "value": 10.0},
+			{"key": "artifact_power_pct", "value": 10.0},
+			{"key": "bonus_slots", "value": 1.0},
+		],
+	}
+	var rec: Dictionary = bfc.compile(inp)
+	assert_true(bfc.errors.is_empty(), "compiles: %s" % "; ".join(bfc.errors))
+	assert_true(bfc.unmodelled.is_empty(), "no unmodelled lines: %s" % "; ".join(bfc.unmodelled))
+	var p: FighterProfile = loader.from_sim_build(rec, "step1_mods")
+	assert_true(p != null and loader.errors.is_empty(), "loads: %s" % "; ".join(loader.errors))
+	if p == null or not loader.errors.is_empty():
+		return
+	var f := Fight.new(p, FighterCompiler.from_data("typical", 1, gd), k, 1, Fight.Order.FIXED)
+	assert_near(f.m(f.a, "curse_effect", null), 20.0, 1e-9, "curse_effect passive mod")
+	assert_near(f.m(f.a, "cast_ward_dur", null), 50.0, 1e-9, "cast_ward_dur passive mod")
+	assert_near(f.m(f.a, "companion_power", null), 10.0, 1e-9, "companion_power passive mod")
+	assert_near(f.m(f.a, "companion_speed", null), 15.0, 1e-9, "companion_speed passive mod")
+	assert_near(f.m(f.a, "escape", null), 12.0, 1e-9, "escape passive mod")
+	assert_near(f.m(f.a, "L1", {"kind": "art", "tags": []}), 8.0, 1e-9, "L1 [art] passive mod")

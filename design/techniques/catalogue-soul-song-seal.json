@@ -1,7 +1,7 @@
 [
  {"id": "hollow-bell-canon", "name": "Hollow Bell Canon (Hư Chung Kinh)", "tier": 0, "tech_kind": "main", "names": ["thuy"], "layers": 6,
   "bonuses": [],
-  "passives": [{"key": "x_soul", "value": 4, "scope": []}, {"key": "art_speed_pct", "value": 4, "scope": ["soul"]},
+  "passives": [{"key": "x_soul", "value": 1, "scope": []}, {"key": "x_soul", "value": 3, "scope": ["song"]}, {"key": "art_speed_pct", "value": 4, "scope": ["soul"]},
                {"key": "status_duration_pct", "value": 5, "scope": ["curse"]}, {"key": "art_cost_pct", "value": -3, "scope": ["costly"]}],
   "abilities": [{"ability_id": "tolling-bell-requiem", "unlock_layer": 1}, {"ability_id": "lamp-oil-lance", "unlock_layer": 3}],
   "effects": [], "origin": "authored", "suite": "hollow-bell-canon", "family": "soul-song-seal",

@@ -1,13 +1,16 @@
 {
  "by": "auth-eff-2",
- "refused": [
+ "refused": [],
+ "closed": [
   {
    "wish": "d32 (S6)",
-   "reason": "The crane king Thanh Điền as a standing companion is a Spirit Beasts record (a beast with power share, tags and owner), not an Effect, technique or art; it goes to the spirit-beast pass. The Effect above already reads it as a `crane` companion."
+   "reason": "The crane king Thanh Điền as a standing companion is a Spirit Beasts record (a beast with power share, tags and owner), not an Effect, technique or art; it goes to the spirit-beast pass. The Effect above already reads it as a `crane` companion.",
+   "closed": "2026-11-27 (user ruling: moved from refused to closed — Spirit Beasts pass owns standing companions)"
   },
   {
    "wish": "d42 (sets-tl/companion-thread), companion health half",
-   "reason": "companion_health_pct has no fight reading: a companion has no health in a fight (Combat rule 19, Formulas J; duel-readings engine facts). The share-damage half is authored (d42 entry)."
+   "reason": "companion_health_pct has no fight reading: a companion has no health in a fight (Combat rule 19, Formulas J; duel-readings engine facts). The share-damage half is authored (d42 entry).",
+   "closed": "2026-11-27 (user ruling: moved from refused to closed — companions have no health in combat)"
   }
  ],
  "section": "wishlist.md group (d), d27-d49 (d26 dropped by ruling 2026-11-25)",

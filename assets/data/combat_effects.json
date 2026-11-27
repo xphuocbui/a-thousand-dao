@@ -604,6 +604,17 @@
       "records": [{"id": "eff:Daybreak", "on": "hit_landed", "filter": {"tags": ["light"]}, "limit": {"per_fight": 1}, "do": [{"status": {"id": "exposed", "dur": 3}}]}],
       "engine_choice": "a Light hit is a hit of an art tagged light (no art in the library carries it yet)"
     },
+    "Debt Stone": {
+      "rule": "Mountain Heart Canon (passive art, layer 1, authored wish d11): every 20 % of maximum health lost in a fight counts (approximated as 6 damaging hits); your next hit deals +25 % of that threshold (approximated as a free c 0.75 Physical hit). Also arms Fished from the Shallows when Debt Stone is ready.",
+      "source": "authored",
+      "approx": "was_hit carries raw damage rather than max HP share; 6 damaging hits approximates 20 % max HP lost, and the return lands as a free c 0.75 Physical hit",
+      "counters": [{"id": "debt_stone"}, {"id": "debt_stone_ready"}],
+      "records": [
+        {"id": "eff:Debt Stone tick", "on": "was_hit", "if": [{"read": "event.amount", "op": ">", "value": 0}], "do": [{"counter": {"id": "debt_stone", "add": 1}}]},
+        {"id": "eff:Debt Stone arm", "on": "was_hit", "if": [{"read": "own.counter.debt_stone", "op": ">=", "value": 6}, {"read": "own.counter.debt_stone_ready", "op": "==", "value": 0}], "do": [{"counter": {"id": "debt_stone_ready", "set": 1}}, {"counter": {"id": "debt_stone", "set": 0}}]},
+        {"id": "eff:Debt Stone spend", "on": "hit_landed", "if": [{"read": "own.counter.debt_stone_ready", "op": ">=", "value": 1}], "do": [{"counter": {"id": "debt_stone_ready", "set": 0}}, {"free_hit": {"c": 0.75, "dtype": "phys"}}]}
+      ]
+    },
     "Debt of Stone": {
       "rule": "When an art of yours is paid in health, you gain 1 Earth buff stack for 15 s for each 2 % of maximum health paid.",
       "records": [{"id": "eff:Debt of Stone", "on": "art_fired", "scale": {"read": "event.hp_paid_share", "per": 0.02}, "do": [{"stacks": {"el": "earth", "n": 1, "for": 15, "side": "own"}}]}]
@@ -977,14 +988,13 @@
       ]
     },
     "Fished from the Shallows": {
-      "rule": "Nails of Đào Sa, full set (2 pieces): each needle hit (Needle Rain or any needle-tagged art) on a foe with 3 or more Earth stacks lays 1 more Earth stack (8 s); when a foe hits you, your next needle volley is a certain crit across every needle in the volley (once every 6 s).",
+      "rule": "Nails of Đào Sa, full set (2 pieces): each needle hit (Needle Rain or any needle-tagged art) on a foe with 3 or more Earth stacks lays 1 more Earth stack (8 s); whenever Debt Stone is ready, your next needle volley is a certain crit across every needle in the volley.",
       "source": "world-depth:lac_ha",
-      "counters": [{"id": "dao_sa_crit"}],
+      "counters": [{"id": "debt_stone_ready"}],
       "records": [
         {"id": "eff:Fished from the Shallows pin rain", "on": "hit_landed", "filter": {"art_id": "needle-rain"}, "if": [{"read": "foe.debuff.earth", "op": ">=", "value": 3}], "do": [{"stacks": {"el": "earth", "n": 1, "for": 8, "side": "foe"}}]},
         {"id": "eff:Fished from the Shallows pin tag", "on": "hit_landed", "filter": {"tags": ["needle"], "not_art_id": "needle-rain"}, "if": [{"read": "foe.debuff.earth", "op": ">=", "value": 3}], "do": [{"stacks": {"el": "earth", "n": 1, "for": 8, "side": "foe"}}]},
-        {"id": "eff:Fished from the Shallows arm", "on": "was_hit", "if": [{"read": "own.counter.dao_sa_crit", "op": "==", "value": 0}], "limit": {"cooldown": 6}, "do": [{"counter": {"id": "dao_sa_crit", "set": 1}}]},
-        {"id": "eff:Fished from the Shallows volley", "on": "art_fired", "filter": {"tags": ["needle"]}, "if": [{"read": "own.counter.dao_sa_crit", "op": ">=", "value": 1}], "do": [{"counter": {"id": "dao_sa_crit", "set": 0}}, {"mod": {"sure_crit": 1, "tags": ["needle"], "kind": "art"}}]}
+        {"id": "eff:Fished from the Shallows volley", "on": "art_fired", "filter": {"tags": ["needle"]}, "if": [{"read": "own.counter.debt_stone_ready", "op": ">=", "value": 1}], "do": [{"mod": {"sure_crit": 1, "tags": ["needle"], "kind": "art"}}]}
       ]
     },
     "Flame Leans": {
@@ -1052,6 +1062,15 @@
       "records": [
         {"id": "eff:Geese Line banner", "on": "always", "if": [{"read": "own.counter.banner_planted", "op": ">=", "value": 1}], "do": [{"mod": {"block": 8}}]},
         {"id": "eff:Geese Line file", "on": "always", "if": [{"read": "own.counter.geese_stance", "op": ">=", "value": 1}], "do": [{"mod": {"block": 8}}]}
+      ]
+    },
+    "Geese in File": {
+      "rule": "Cold Geese Sword (lh-cold-geese-sword): while your Field stands (field_up, standing ruling R1) and allies stand in your line (1v1 approximation: no allies present in duel, so the bonus fires while your Field is up), your sword arts gain an extra blade (a free c 0.16 Physical hit, capped at 2 per pulse).",
+      "source": "world-depth:lac_ha",
+      "approx": "single-fighter duel cannot count allies in the field; reads own.field_up >= 1 (1 blade = 8 % of a flying sword strike, 0.08 x 1.97 = c 0.16)",
+      "counters": [],
+      "records": [
+        {"id": "eff:Geese in File blade", "on": "hit_landed", "filter": {"tags": ["sword"], "kind": "art"}, "if": [{"read": "own.field_up", "op": ">=", "value": 1}], "limit": {"per_pulse": 2}, "do": [{"free_hit": {"c": 0.16, "dtype": "phys"}}]}
       ]
     },
     "Geese in the Cold": {
@@ -4270,6 +4289,16 @@
       "records": [
         {"id": "eff:Writ in Their Blood free", "on": "hit_landed", "filter": {"art_id": "blood-ink-writ"}, "limit": {"per_firing": 1}, "if": [{"read": "foe.status.bleed", "op": ">=", "value": 1}], "do": [{"refund": {"share": 1.0}}, {"heal": {"share": 0.03, "ignore_taken": true}}, {"counter": {"id": "stolen_writ", "set": 1}}]},
         {"id": "eff:Writ in Their Blood empower", "on": "art_fired", "filter": {"art_id": "blood-ink-writ"}, "if": [{"read": "own.counter.stolen_writ", "op": ">=", "value": 1}], "do": [{"counter": {"id": "stolen_writ", "set": 0}}, {"mod": {"dmg_more": 0.2, "tags": ["seal"], "for": 0.1}}]}
+      ]
+    },
+    "Written in the Ledger": {
+      "rule": "Ruin Ledger Scripture (passive art, layer 3, authored wish d12): every damaging hit you take (at most 1 per pulse) marks a Debt counter for 10 s; firing Gathered Ruin Verdict spends those Debt counters to deal +15 % more damage per Debt.",
+      "source": "authored",
+      "approx": "debt is not a distinct_statuses row and was_hit lacks max HP share; ledger_debt tracks timed stacks (each_for 10, max 1/pulse) spent by gathered-ruin-verdict via temp_mod L5 scoped to tags:[verdict] (engine does not forward art_id into non-always temp_mods)",
+      "counters": [{"id": "ledger_debt", "each_for": 10}],
+      "records": [
+        {"id": "eff:Written in the Ledger mark", "on": "was_hit", "if": [{"read": "event.amount", "op": ">", "value": 0}], "limit": {"per_pulse": 1}, "do": [{"counter": {"id": "ledger_debt", "add": 1}}]},
+        {"id": "eff:Written in the Ledger spend", "on": "art_fired", "filter": {"art_id": "gathered-ruin-verdict"}, "if": [{"read": "own.counter.ledger_debt", "op": ">=", "value": 1}], "scale": {"read": "own.counter.ledger_debt", "per": 1}, "do": [{"mod": {"L5": 15, "tags": ["verdict"]}}, {"counter": {"id": "ledger_debt", "add": -1}}]}
       ]
     }
   }

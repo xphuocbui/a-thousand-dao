@@ -1912,14 +1912,17 @@
    "status": "proposal"
   }
  ],
- "not_authored": [
+ "not_authored": [],
+ "closed": [
   {
    "wish": "e4 for chuc_hieu_nghi",
-   "reason": "She holds neither Shao technique, so a movement counter gives her nothing; her need (the Dawn-Call Pipe) is met by e10 Dawn Call."
+   "reason": "She holds neither Shao technique, so a movement counter gives her nothing; her need (the Dawn-Call Pipe) is met by e10 Dawn Call.",
+   "closed": "2026-11-27 (user ruling: closed — met by e10 Dawn Call)"
   },
   {
    "wish": "an element-free seal method (named in the authoring prompt)",
-   "reason": "Not a group (e) entry; the nearest wishes (W4 Seal Script, b8; the element-free Chân Kim method's linh lực, rb-17) sit in groups (b) and (d) for their authors."
+   "reason": "Not a group (e) entry; the nearest wishes (W4 Seal Script, b8; the element-free Chân Kim method's linh lực, rb-17) sit in groups (b) and (d) for their authors.",
+   "closed": "2026-11-27 (user ruling: closed — not a group (e) entry)"
   }
  ]
 }

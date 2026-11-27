@@ -42,6 +42,9 @@
     "stops_cap_chaos": 0.5,
     "stops_cap_soul": 0.3,
     "curse_heal_taken_max": 0.5,
+    "curse_cost_raise_max": 0.5,
+    "curse_drain_raise_max": 0.5,
+    "c_comp_cap": 1.0,
     "min_batch": 2.0,
     "layer_caps": [
       400,
@@ -417,7 +420,10 @@
     "ward_fixed",
     "soul_reflect",
     "stack_dur",
-    "curse_fast"
+    "curse_fast",
+    "cast_ward_dur",
+    "companion_power",
+    "curse_effect"
   ],
   "ACTIONS": [
     "bank",
@@ -588,6 +594,26 @@
       "stack_grant": [
         "stack_grant",
         1
+      ],
+      "curse_effect_pct": [
+        "curse_effect",
+        1
+      ],
+      "cast_ward_duration_pct": [
+        "cast_ward_dur",
+        1
+      ],
+      "companion_power_pct": [
+        "companion_power",
+        1
+      ],
+      "companion_speed_pct": [
+        "companion_speed",
+        1
+      ],
+      "escape_pct": [
+        "escape",
+        1
       ]
     },
     "ctx_mods": [
@@ -613,14 +639,23 @@
     ],
     "out_of_fight": [
       "alchemy_success",
+      "artifact_attack_pct",
+      "artifact_defense_pct",
+      "artifact_power_pct",
       "artifact_slots",
+      "bonus_slots",
+      "breakthrough_chance",
+      "can_cot",
       "co_duyen_pct",
       "cultivation_speed_pct",
       "dan_doc_resist_pct",
+      "dao_tam",
+      "element_affinity_pct",
       "herb_growth_pct",
       "khi_van",
       "lifespan_pct",
       "mission_income_pct",
+      "pill_effect_pct",
       "refining_success",
       "tam_ma_resist_pct",
       "travel_speed_pct"

@@ -348,9 +348,10 @@ func test_every_library_effect_compiles() -> void:
 			other.append("%s: %s" % [name, "; ".join(c.errors)])
 	assert_eq(other, [], "no library Effect fails for any reason but a later slice")
 	assert_eq(ok, lib.size(), "every library Effect compiles (54 item Effects from slice 4b, the Đạo Đồ's 55 since 2026-11-20)")
-	var depth := 0   # world-depth Effects (source "world-depth:<key>", ADR-0009) grow with each sect's Stage 6 pass
+	var depth := 0   # world-depth Effects (source "world-depth:<key>" or "authored", ADR-0009) grow with each Stage 6 pass
 	for name in lib:
-		if str(lib[name].get("source", "")).begins_with("world-depth:"):
+		var src: String = str(lib[name].get("source", ""))
+		if src.begins_with("world-depth:") or src == "authored":
 			depth += 1
 	assert_eq(lib.size() - depth, 109, "54 item Effects and the Đạo Đồ's 55, besides the world-depth ones")
 	assert_eq(later.size(), 0, "none waits for a later slice: %s" % str(later))

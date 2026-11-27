@@ -83,6 +83,15 @@ def plain(name):
     return re.sub(r"\s*\([^)]*\)\s*$", "", str(name)).strip()
 
 
+def _slug(name):
+    s = plain(name).lower().replace("'", "").replace("\u2019", "")
+    return re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+
+
+ARTIFACT_LOCAL_STATS = {"element_affinity_pct", "artifact_attack_pct", "artifact_defense_pct", "artifact_power_pct",
+                        "artifact_slots"}
+
+
 class Game:
     """What the game and the design catalogues hold now."""
 
@@ -91,11 +100,18 @@ class Game:
         self.techs = {t["id"]: t for t in cp["templates"]}
         lib = load(DATA / "combat_library.json")
         self.lib_arts = set(lib["arts"])
+        self.lib_arts_by_slug = {_slug(a.get("name", aid)): aid for aid, a in lib["arts"].items()}
+        self.lib_arts_by_group = collections.defaultdict(list)
+        for aid, a in lib["arts"].items():
+            if a.get("group"):
+                self.lib_arts_by_group[a["group"]].append(aid)
         self.lib_items = set(lib["items"])
         self.lib_tags = {t for a in lib["arts"].values() for t in a.get("tags", [])}
         self.named_recs = {n["id"]: n for n in load(DATA / "items_named.json")["named"]}
         self.named = set(self.named_recs)
         self.effects = load(DATA / "combat_effects.json")["effects"]
+        self.effects_by_slug = {_slug(k): k for k in self.effects}
+        self.statuses = set(load(DATA / "combat_engine.json").get("STATUS", {}))
         self.bases = {b["id"] for b in load(DATA / "items_artifacts.json")["bases"]}
         dmap = load(DATA / "dao_do_map.json")
         self.nodes = {int(n["id"]) for n in dmap["nodes"]}
@@ -119,6 +135,13 @@ class Game:
         self.authored_arts = {e["record"]["id"] for e in load(D / "builds/authored/auth-tech.json")["entries"]
                               if isinstance(e.get("record"), dict) and e["record"].get("id")}
         self.gd_text = "\n".join(p.read_text(encoding="utf-8") for p in (ROOT / "src").rglob("*.gd"))
+
+    def reader_seen(self, key):
+        if key in ARTIFACT_LOCAL_STATS:
+            return True
+        if any(p in self.gd_text for p in ('total("%s"' % key, 'effective("%s"' % key, 'mult("%s"' % key, '_sum("%s"' % key)):
+            return True
+        return bool(re.search(r'_affix\([^,]+,\s*"%s"' % re.escape(key), self.gd_text))
 
     def tech_state(self, tid):
         if tid in self.techs:
@@ -151,7 +174,7 @@ class Game:
         key = line.get("key")
         unmod = []
         if key in F.OUT_OF_FIGHT:
-            seen = ('total("%s"' % key) in self.gd_text
+            seen = self.reader_seen(key)
             return ("runs" if seen else "game"), ("out of fight; stat sheet reader seen" if seen else
                                                   "out of fight; no stat sheet reader seen")
         if key in F.STATIC:
@@ -160,14 +183,14 @@ class Game:
             F.passive_effect({"id": "line"}, unmod, lines=[dict(line, scope=list(line.get("scope", [])))],
                              what="line", prefix="gap")
         else:
-            seen = ('total("%s"' % key) in self.gd_text
+            seen = self.reader_seen(key)
             return ("runs" if seen else "rule text"), ("no fight stat; stat sheet reader seen" if seen else
                                                        "no fight stat and no stat sheet reader seen")
         if unmod:
             return "game", "; ".join(u.split(": ", 1)[-1] for u in unmod)
         # a tag scope fight.py accepts still matches nothing if no art in the library carries the tag
         dead = [t for t in line.get("scope", []) if t not in F.ELEMENT_EN and t not in F.DTYPE_TAG
-                and t not in ("buff", "debuff") and t not in self.lib_tags]
+                and t not in ("buff", "debuff", "art") and t not in self.lib_tags]
         if dead:
             return "game", "scope tag %s: no art in combat_library.json carries it" % ", ".join(dead)
         return "runs", ""
@@ -201,8 +224,21 @@ class Report:
                 for a in t.get("arts", []):
                     if isinstance(a, dict):
                         aid = a.get("id") or ""
-                        self.add("arts_new", own, self.g.art_state(aid) if aid else "rule text", id=aid,
-                                 name=a.get("new", ""), technique=t["id"])
+                        eff = a.get("effect") or ""
+                        nm_plain = plain(a.get("new", ""))
+                        if eff or (aid not in self.g.lib_arts and aid not in self.g.cat_arts
+                                   and (nm_plain in self.g.effects or _slug(nm_plain) in self.g.effects_by_slug)):
+                            ename = nm_plain if nm_plain in self.g.effects else self.g.effects_by_slug.get(
+                                eff or _slug(nm_plain), nm_plain)
+                            self.effect_names[plain(ename)].add(t["id"])
+                            if nm_plain:
+                                self.effect_names[nm_plain].add(t["id"])
+                            st, _ = self.g.effect_state(ename)
+                            self.add("arts_new", own, st, id=aid or eff, name=a.get("new", ""), technique=t["id"])
+                        else:
+                            resolved = aid or (_slug(nm_plain) if _slug(nm_plain) in self.g.lib_arts else "")
+                            self.add("arts_new", own, self.g.art_state(resolved) if resolved else "rule text",
+                                     id=aid, name=a.get("new", ""), technique=t["id"])
                     else:
                         self.add("arts_ref", own, self.g.art_state(a), id=a, technique=t["id"])
                 # once promoted, the depth file keeps the id only (ADR-0009 decision 1): read the game's record
@@ -221,9 +257,11 @@ class Report:
         nm = plain(name)
         self.effect_names[nm].add(where)
         st, note = self.g.effect_state(nm)
-        if new and nm in self.g.effects and self.g.effects[nm].get("source") != "world-depth:%s" % own:
-            st, note = "clash", "marked new, but %s is an existing Effect (source %s)" % (
-                nm, self.g.effects[nm].get("source", "items"))
+        src = self.g.effects[nm].get("source", "items") if nm in self.g.effects else ""
+        ok_src = src == "world-depth:%s" % own or (
+            own == "authored" and (src == "authored" or src.startswith("world-depth:")))
+        if new and nm in self.g.effects and not ok_src:
+            st, note = "clash", "marked new, but %s is an existing Effect (source %s)" % (nm, src)
         self.add("effects", own, st, name=nm, where=where, new=new, note=note)
 
     def items(self):
@@ -260,6 +298,42 @@ class Report:
                     if b.get("effect"):
                         self.effect_row(own, b["effect"].split(":")[0], s["id"], True)
 
+    def _authored_wired(self, e, r):
+        """Resolve an authored Effect wish against combat_engine STATUS, combat_effects, or wired library arts."""
+        nm = plain(r["name"])
+        if nm in self.g.effects:
+            self.effect_row("authored", r["name"], e.get("wish"), True)
+            return
+        if r.get("id") in self.g.statuses or _slug(nm) in self.g.statuses:
+            self.add("effects", "authored", "runs", name=nm, where=e.get("wish"), new=True,
+                     note="status in combat_engine.json")
+            return
+        for w in e.get("wire") or []:
+            cands = []
+            if isinstance(w.get("target"), str):
+                cands.append(plain(w["target"]))
+            if isinstance(w.get("value"), dict) and isinstance(w["value"].get("new"), str):
+                cands.append(plain(w["value"]["new"]))
+            if isinstance(w.get("text"), str) and ":" in w["text"]:
+                cands.append(plain(w["text"].split(":", 1)[0]))
+            for cand in cands:
+                if cand in self.g.effects:
+                    st, note = self.g.effect_state(cand)
+                    self.add("effects", "authored", st, name=nm, where=e.get("wish"), new=True,
+                             note=note or ("wired as %s" % cand))
+                    return
+                cs = _slug(cand)
+                if cs in self.g.lib_arts or cs in self.g.lib_arts_by_slug:
+                    aid = cs if cs in self.g.lib_arts else self.g.lib_arts_by_slug[cs]
+                    self.add("effects", "authored", "runs", name=nm, where=e.get("wish"), new=True,
+                             note="wired to library art %s" % aid)
+                    return
+            if w.get("field") == "concept" and w.get("id") in self.g.lib_arts_by_group:
+                self.add("effects", "authored", "runs", name=nm, where=e.get("wish"), new=True,
+                         note="wired to technique %s" % w["id"])
+                return
+        self.effect_row("authored", r["name"], e.get("wish"), True)
+
     def authored(self):
         """The 94 authored wishes (builds/authored): their modifier lines get fight.py's verdict; their engine words
         are the new_vocab / engine_additions strings."""
@@ -271,8 +345,9 @@ class Report:
                     st, n = self.g.line_verdict(m)
                     self.add("lines", "authored", st, key=m["key"], scope=m.get("scope", []), where=e.get("wish"), note=n)
                 # an authored Effect already named by an item, set or technique is that record's row, not a second one
-                if e.get("kind") == "effect" and isinstance(r, dict) and r.get("name")                         and plain(r["name"]) not in self.effect_names:
-                    self.effect_row("authored", r["name"], e.get("wish"), True)
+                if e.get("kind") == "effect" and isinstance(r, dict) and r.get("name") \
+                        and plain(r["name"]) not in self.effect_names:
+                    self._authored_wired(e, r)
                 words = list(e.get("new_vocab") or [])
                 ea = r.get("engine_additions") if isinstance(r, dict) else None
                 if isinstance(ea, list):

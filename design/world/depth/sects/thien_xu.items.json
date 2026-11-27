@@ -55,7 +55,7 @@
   },
   {
    "id": "tx-envoy-jade-tally", "name": "Envoy's Jade Tally (Sứ Tiết Ngọc Phù)", "family": "metal", "kind": "artifact", "base": "ngoc_boi", "grade": 3,
-   "modifiers": [{"key": "evade_pct", "value": 6, "scope": ["escape"]}, {"key": "than_thuc_pct", "value": 6, "scope": []}, {"key": "soul_res_pct", "value": 10, "scope": []}, {"key": "linh_luc_pct", "value": 8, "scope": []}],
+   "modifiers": [{"key": "escape_pct", "value": 6, "scope": []}, {"key": "than_thuc_pct", "value": 6, "scope": []}, {"key": "soul_res_pct", "value": 10, "scope": []}, {"key": "linh_luc_pct", "value": 8, "scope": []}],
    "effects": [{"new": true, "id": "envoys-are-not-struck", "name": "Envoys Are Not Struck (Sứ Bất Khả Kích)", "rule": "The first hit on you each fight from a foe you have not struck is halved, and you may leave that fight at once if you have struck no one."}, {"new": true, "id": "know-the-way-out", "name": "Know the Way Out (Thức Lộ)", "rule": "Each escape you fail this fight makes your next escape 10 % likelier; a success clears it.", "authored": "d2"}],
    "lore": "A white jade half-tally; the other half is kept in Tàng Ước Các. The Pivot cut its envoys' tallies in jade, not iron, after its envoy Trình Bạch Tiết was killed at Phá Quân Môn in 870 (N-thien_xu-06): an envoy of the Pivot carries nothing that can be mistaken for a weapon.",
    "build_use": "An envoy's guard: soul resistance, a softened first blow, a way out.",
@@ -153,11 +153,11 @@
   },
   {
    "id": "tx-dao-quang-war-flag", "name": "War Flag of the Dao Quang Hall (Dao Quang Chiến Kỳ)", "family": "metal", "kind": "artifact", "base": "ky", "grade": 4,
-   "modifiers": [{"key": "attack_pct", "value": 18, "scope": ["companion"]}, {"key": "stack_effect_pct", "value": 24, "scope": ["tho", "buff"]}, {"key": "than_thuc_pct", "value": 5, "scope": []}, {"key": "khi_huyet_pct", "value": 10, "scope": []}],
+   "modifiers": [{"key": "attack_pct", "value": 18, "scope": ["companion"]}, {"key": "stack_effect_pct", "value": 24, "scope": ["tho", "buff"]}, {"key": "than_thuc_pct", "value": 5, "scope": []}, {"key": "khi_huyet_pct", "value": 10, "scope": []}, {"key": "companion_power_pct", "value": 10, "scope": []}, {"key": "companion_speed_pct", "value": 10, "scope": []}],
    "effects": [],
    "lore": "The war-writ office's own flag, black with seven white studs. It has not flown over a field since 803, and Ngũ Trấn Bắc keeps it furled, waiting.",
    "build_use": "Formation and summon damage for the war array.",
-   "holder": "ngu_tran_bac", "made_by": "thien_xu", "made_year": 1000, "set": "tx-dao-quang-kit", "status": "proposal"
+   "holder": "ngu_tran_bac", "made_by": "thien_xu", "made_year": 1000, "set": "tx-dao-quang-kit", "status": "proposal", "authored": "b13"
   },
   {
    "id": "tx-marshal-spear", "name": "Spear of the Seventh File (Đệ Thất Hàng Thương)", "family": "metal", "kind": "artifact", "base": "phi_kiem", "grade": 3,
@@ -287,6 +287,11 @@
     {
      "key": "khi_huyet_pct",
      "value": 12,
+     "scope": []
+    },
+    {
+     "key": "herb_growth_pct",
+     "value": 8,
      "scope": []
     }
    ],

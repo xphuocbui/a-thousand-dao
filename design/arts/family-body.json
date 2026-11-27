@@ -54,7 +54,7 @@
  "rule": "Every palm art you fire counts toward an echo; on the third your last art fires again at 60 % and the count resets. The palm itself falls plain, then as a Ringing Palm at 3.5 times, then as a Thousand Echo at 6 times that also repeats your last art whole, opened by echoes counted, three scripture arts within 2 s, a Slowed foe, four different arts in one pulse, or a Rolling Barrage Fist just fired.",
  "hooks": ["echo", "art speed", "palm arts count", "crit", "heavy last art", "Slowed Time", "arts per pulse"], "sources": []},
 {"id": "rolling-barrage-fist", "name": "Rolling Barrage Fist (Cổn Liên Quyền)", "element": "", "role": "damage", "tier": "authored", "power": "engine", "group": "hundred-echo-palm-scripture",
- "tags": ["fist", "quick", "barrage"], "kind": "phys", "c_art": 0.9, "cost_share": 0.04, "cooldown": 6, "charges": 4,
+ "tags": ["fist", "quick", "barrage", "palm"], "kind": "phys", "c_art": 0.9, "cost_share": 0.04, "cooldown": 6, "charges": 4,
  "counters": [{"id": "tempo"}],
  "effects": [
   {"id": "barrage-rhythm", "on": "art_fired", "filter": {"tags": ["barrage"]}, "limit": {"per_pulse": 4}, "do": [{"mod": {"crit": 6, "for": 4, "stack": true}}]},
@@ -68,7 +68,7 @@
  "rule": "Holds 4 charges of a quick fist hit; each firing adds 6 % crit for 4 s (stacking), crits shorten your other arts' timers, and every fist art you fire writes a Tempo (no cap). The fist falls plain, then as a Cascade at 4 times (4 Tempo), then as a Hundred-Fist Rain of four hits that each strike at 3 times (8 Tempo, three scripture arts within 2 s, or a foe Slowed 3 deep).",
  "hooks": ["charges", "crit", "per-hit effects", "cooldown cut", "art speed", "fist art count", "Slowed Time"], "sources": []},
 {"id": "twin-shadow-fist", "name": "Twin Shadow Fist (Song Ảnh Quyền)", "element": "", "role": "summon", "tier": "authored", "power": "standalone", "group": "hundred-echo-palm-scripture",
- "tags": ["fist", "summon", "shadow"], "kind": "phys", "c_art": 1.6, "cost_share": 0.04, "cooldown": 8,
+ "tags": ["fist", "summon", "shadow", "palm"], "kind": "phys", "c_art": 1.6, "cost_share": 0.04, "cooldown": 8,
  "counters": [{"id": "tempo"}],
  "effects": [
   {"id": "shadow-call", "on": "art_fired", "filter": {"tags": ["shadow"]}, "do": [{"summon": {"c": 1.1, "dtype": "phys", "cd": 2.5, "for": 12}}]},

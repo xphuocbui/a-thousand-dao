@@ -240,17 +240,21 @@ static func matches(f: Fight, filt: Dictionary, ctx: Variant) -> bool:
 		var k: String = str(key)
 		if k == "tags":
 			var have: Array = c.get("tags", _NONE_A)
+			var kind_s: String = str(c.get("kind", ""))
 			var one := false
 			for tg in filt[key]:
-				if have.has(str(tg)):
+				var tgs: String = str(tg)
+				if have.has(tgs) or (tgs == "art" and kind_s == "art"):
 					one = true
 					break
 			if not one:
 				return false
 		elif k == "not_tags":   # none of these tags (Thousand Talismans)
 			var have_n: Array = c.get("tags", _NONE_A)
+			var kind_n: String = str(c.get("kind", ""))
 			for tg in filt[key]:
-				if have_n.has(str(tg)):
+				var tgs: String = str(tg)
+				if have_n.has(tgs) or (tgs == "art" and kind_n == "art"):
 					return false
 		elif k == "not_art_id":   # any art but this one (2026-11-26; Remnant Score)
 			var nots: Array = filt[key] if filt[key] is Array else [filt[key]]
@@ -599,9 +603,11 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 					s.state_since = f.t
 				s.state = new_state
 			"summon":
-				var cd_ms: int = CombatConstants.ms(maxf(k.cooldown_min, float(arg.get("cd", k.basic_cooldown))))
+				var base_cd: float = float(arg.get("cd", k.basic_cooldown))
+				var cs: float = maxf(0.01, 1.0 + f.m(s, "companion_speed", null) / 100.0)
+				var cd_ms: int = CombatConstants.ms(maxf(k.cooldown_min, base_cd / cs))
 				s.summons.append([float(arg.get("c", k.summon_c)) * n, StringName(str(arg.get("dtype", "phys"))), cd_ms,
-						f.t + cd_ms, f.t + CombatConstants.ms(float(arg.get("for", k.summon_for)))])
+						f.t + cd_ms, f.t + CombatConstants.ms(float(arg.get("for", k.summon_for))), base_cd])
 			"fire_art":
 				if f.depth > int(k.trig_depth):
 					continue

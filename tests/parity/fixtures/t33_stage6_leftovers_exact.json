@@ -1,0 +1,811 @@
+{
+  "name": "t33_stage6_leftovers_exact",
+  "slice": 33,
+  "chance_free": true,
+  "seed": 331,
+  "doc": "World-depth Stage 6 leftovers (2026-11-27), chance-free: curse_effect_pct, cast_ward_duration_pct (scaled and <cooldown clamp), companion_power_pct + companion_speed_pct (companion + summon), attack_pct [art], Debt Stone, Written in the Ledger + gathered-ruin-verdict, Geese in File, one-colour, and geese-startled-by-the-cold.",
+  "a": {
+    "name": "stage6-leftovers-a",
+    "realm": 2,
+    "layers": [
+      20,
+      15,
+      10,
+      5,
+      0
+    ],
+    "crit": 0.0,
+    "evade": 0.0,
+    "acc": 2.0,
+    "n_body": 4.0,
+    "n_qi": 4.0,
+    "ward_pts": 100.0,
+    "block": 0.0,
+    "wards": [
+      {
+        "id": "a-shell",
+        "model": "cast",
+        "payload": {
+          "phys": 60.0
+        },
+        "cost": 0.01,
+        "cooldown": 5.0,
+        "up": 2.0
+      }
+    ],
+    "companions": [
+      {
+        "c": 0.4,
+        "dtype": "phys",
+        "cd": 2.0,
+        "tags": [
+          "bird"
+        ]
+      }
+    ],
+    "arts": [
+      {
+        "name": "one-colour",
+        "c": 0.0,
+        "cost": 0.1,
+        "cd": 6,
+        "element": "earth",
+        "dtype": "elem",
+        "buff": [],
+        "debuff": [],
+        "heal": 0.0,
+        "qi_restore": 0.0,
+        "cleanse": 0,
+        "m_mult": 1.0,
+        "tags": [
+          "earth",
+          "formation"
+        ],
+        "guards": [
+          {
+            "read": "own.counter.one_colour",
+            "op": "<=",
+            "value": 0
+          }
+        ],
+        "statuses": [],
+        "split": [],
+        "soul_pct": 0.0,
+        "soul_part": 0.0,
+        "bypass": 0.0,
+        "pool": "qi",
+        "convert": {},
+        "hp_cost": 0.0,
+        "charges": 1,
+        "group": "long-sky-one-colour",
+        "steps": [],
+        "empower": []
+      },
+      {
+        "name": "geese-startled-by-the-cold",
+        "c": 0.0,
+        "cost": 0.06,
+        "cd": 5,
+        "element": "earth",
+        "dtype": "elem",
+        "buff": [],
+        "debuff": [],
+        "heal": 0.0,
+        "qi_restore": 0.0,
+        "cleanse": 0,
+        "m_mult": 1.0,
+        "tags": [
+          "earth",
+          "formation",
+          "ward"
+        ],
+        "guards": [
+          {
+            "read": "own.counter.geese_cold",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "statuses": [],
+        "split": [],
+        "soul_pct": 0.0,
+        "soul_part": 0.0,
+        "bypass": 0.0,
+        "pool": "qi",
+        "convert": {},
+        "hp_cost": 0.0,
+        "charges": 1,
+        "group": "long-sky-one-colour",
+        "steps": [],
+        "empower": []
+      },
+      {
+        "name": "gathered-ruin-verdict",
+        "c": 0.45,
+        "cost": 0.08,
+        "cd": 6,
+        "element": "",
+        "dtype": "elem",
+        "buff": [],
+        "debuff": [],
+        "heal": 0.0,
+        "qi_restore": 0.0,
+        "cleanse": 0,
+        "m_mult": 1.0,
+        "tags": [
+          "chaos",
+          "verdict",
+          "curse"
+        ],
+        "guards": [],
+        "statuses": [
+          {
+            "id": "exposed",
+            "stacks": 1,
+            "dur": 2
+          }
+        ],
+        "split": [],
+        "soul_pct": 0.0,
+        "soul_part": 0.0,
+        "bypass": 0.0,
+        "pool": "qi",
+        "convert": {},
+        "hp_cost": 0.0,
+        "charges": 1,
+        "group": "ruin-ledger-scripture",
+        "steps": [],
+        "empower": [
+          {
+            "if": [
+              {
+                "read": "own.counter.fray",
+                "op": ">=",
+                "value": 4
+              }
+            ],
+            "pay": [
+              {
+                "counter": {
+                  "id": "fray",
+                  "add": -4
+                }
+              }
+            ],
+            "c_mult": 2.4
+          },
+          {
+            "if": [
+              {
+                "read": "own.counter.fray",
+                "op": "<",
+                "value": 4
+              },
+              {
+                "read": "foe.distinct_statuses",
+                "op": ">=",
+                "value": 4
+              }
+            ],
+            "c_mult": 2.0
+          },
+          {
+            "if": [
+              {
+                "read": "own.counter.fray",
+                "op": "<",
+                "value": 4
+              },
+              {
+                "read": "foe.distinct_statuses",
+                "op": "<",
+                "value": 4
+              },
+              {
+                "read": "own.since.ripening-curse",
+                "op": "<=",
+                "value": 4
+              }
+            ],
+            "c_mult": 2.0
+          }
+        ]
+      },
+      {
+        "name": "earth-sword-cut",
+        "c": 1.2,
+        "cost": 0.04,
+        "cd": 3.0,
+        "element": "earth",
+        "dtype": "elem",
+        "tags": [
+          "earth",
+          "sword"
+        ]
+      },
+      {
+        "name": "snare-curse-seal",
+        "c": 0.8,
+        "cost": 0.03,
+        "cd": 3.5,
+        "element": "metal",
+        "dtype": "phys",
+        "tags": [
+          "metal",
+          "seal"
+        ],
+        "statuses": [
+          {
+            "id": "sundered",
+            "stacks": 1,
+            "dur": 4
+          },
+          {
+            "id": "stagnation",
+            "stacks": 10,
+            "dur": 4
+          },
+          {
+            "id": "heavy_breath",
+            "stacks": 1,
+            "dur": 4
+          }
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "id": "mod:curse-effect",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "curse_effect": 30
+            }
+          }
+        ]
+      },
+      {
+        "id": "mod:cast-ward-dur",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "cast_ward_dur": 50
+            }
+          }
+        ]
+      },
+      {
+        "id": "mod:companion-stats",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "companion_power": 25
+            }
+          },
+          {
+            "mod": {
+              "companion_speed": 100
+            }
+          }
+        ]
+      },
+      {
+        "id": "mod:art-atk",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "L1": 40,
+              "tags": [
+                "art"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "test:summon-warden",
+        "on": "fight_start",
+        "do": [
+          {
+            "summon": {
+              "c": 0.35,
+              "dtype": "force",
+              "cd": 2.5,
+              "for": 15.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "one-colour-raise",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "one-colour"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "one_colour",
+              "set": 12
+            }
+          }
+        ]
+      },
+      {
+        "id": "one-colour-field",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "one-colour"
+        },
+        "if": [
+          {
+            "read": "own.state.any",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "one-colour"
+            }
+          }
+        ]
+      },
+      {
+        "id": "one-colour-step",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.one_colour",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "one_colour",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "one-colour-reenter",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.one_colour",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.state.any",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "one-colour"
+            }
+          }
+        ]
+      },
+      {
+        "id": "one-colour-end",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.one-colour",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.one_colour",
+            "op": "<=",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "one-colour-dim",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.one_colour",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "evade": 15
+            }
+          }
+        ]
+      },
+      {
+        "id": "one-colour-echo",
+        "on": "art_fired",
+        "filter": {
+          "element": "earth",
+          "not_art_id": [
+            "one-colour",
+            "geese-startled-by-the-cold",
+            "the-sunset-clouds-fly-with-the-lone-duck"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.one_colour",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "fire_art": {
+              "which": "last",
+              "filter": {
+                "element": "earth"
+              },
+              "share": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "geese-cold-raise",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "geese-startled-by-the-cold"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "geese_cold",
+              "set": 1
+            }
+          },
+          {
+            "ward_grow": {
+              "share": 0.04,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "geese-cold-hold",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.geese_cold",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.field_up",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 8
+            }
+          },
+          {
+            "mod": {
+              "stack_dur": 25,
+              "element": "earth",
+              "kind": "debuff"
+            }
+          }
+        ]
+      },
+      {
+        "id": "geese-cold-stagger",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.counter.geese_cold",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.field_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "heal": {
+              "of": "amount",
+              "share": 0.15
+            }
+          }
+        ]
+      },
+      {
+        "id": "ruin-gather",
+        "on": "status_applied",
+        "held": {
+          "until": "art_fired",
+          "cap": 5
+        },
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Debt Stone tick",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "debt_stone",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Debt Stone arm",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.counter.debt_stone",
+            "op": ">=",
+            "value": 6
+          },
+          {
+            "read": "own.counter.debt_stone_ready",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "debt_stone_ready",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "debt_stone",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Debt Stone spend",
+        "on": "hit_landed",
+        "if": [
+          {
+            "read": "own.counter.debt_stone_ready",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "debt_stone_ready",
+              "set": 0
+            }
+          },
+          {
+            "free_hit": {
+              "c": 0.75,
+              "dtype": "phys"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Written in the Ledger mark",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "ledger_debt",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Written in the Ledger spend",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "gathered-ruin-verdict"
+        },
+        "if": [
+          {
+            "read": "own.counter.ledger_debt",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.ledger_debt",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "L5": 15,
+              "tags": [
+                "verdict"
+              ]
+            }
+          },
+          {
+            "counter": {
+              "id": "ledger_debt",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Geese in File blade",
+        "on": "hit_landed",
+        "filter": {
+          "tags": [
+            "sword"
+          ],
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.field_up",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "per_pulse": 2
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.16,
+              "dtype": "phys"
+            }
+          }
+        ]
+      }
+    ],
+    "counters": [
+      {
+        "id": "one_colour"
+      },
+      {
+        "id": "geese_cold"
+      },
+      {
+        "id": "fray",
+        "each_for": 12
+      },
+      {
+        "id": "debt_stone"
+      },
+      {
+        "id": "debt_stone_ready"
+      },
+      {
+        "id": "ledger_debt",
+        "each_for": 10
+      }
+    ],
+    "states": [
+      {
+        "id": "one-colour",
+        "tags": [
+          "field"
+        ],
+        "mods": {}
+      }
+    ]
+  },
+  "b": {
+    "name": "stage6-leftovers-b",
+    "realm": 2,
+    "crit": 0.0,
+    "evade": 0.0,
+    "acc": 2.0,
+    "n_body": 4.0,
+    "n_qi": 4.0,
+    "ward_pts": 120.0,
+    "block": 0.0,
+    "wards": [
+      {
+        "id": "b-clamp-shell",
+        "model": "cast",
+        "payload": {
+          "phys": 50.0
+        },
+        "cost": 0.01,
+        "cooldown": 5.0,
+        "up": 2.0
+      }
+    ],
+    "arts": [
+      {
+        "name": "fast-jab",
+        "c": 0.7,
+        "cost": 0.02,
+        "cd": 1.5,
+        "element": "metal",
+        "dtype": "phys",
+        "tags": [
+          "metal",
+          "sword"
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "id": "mod:b-cast-ward-clamp",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "cast_ward_dur": 200
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

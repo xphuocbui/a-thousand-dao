@@ -130,7 +130,7 @@
         "unlock_layer": 6
       }
     ],
-    "effects": [],
+    "effects": [{"name": "Written in the Ledger", "unlock_layer": 3, "passive_art": true}],
     "origin": "authored",
     "suite": "ruin-ledger-scripture",
     "family": "force-chaos",

@@ -1389,10 +1389,11 @@
        "scope": []
       }
      ],
-     "effect": "Fished from the Shallows (Lao Đinh): each needle that hits a foe carrying 3 or more Earth stacks pins one more; and when a foe hits you, your next needle volley at it is a certain crit (once every 6 s)."
+     "effect": "Fished from the Shallows (Lao Đinh): each needle hit on a foe carrying 3 or more Earth stacks lays one more Earth stack (8 s); and when a foe hits you, your next needle volley is a certain crit across every needle in the volley (when Debt Stone is ready; or once every 6 s).",
+     "authored": "d11"
     }
    ],
-   "story": "What the river gave back after 1173: the nails and the coat on the peg. Both are Lữ Tẫn Chu's. The reprisal half is the closest line until targets-tl/debt-stone exists."
+   "story": "What the river gave back after 1173: the nails and the coat on the peg. Both are Lữ Tẫn Chu's."
   },
   {
    "id": "lh-three-hundred-paces",

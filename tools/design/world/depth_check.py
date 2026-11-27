@@ -281,8 +281,12 @@ def main():
                 if a.get("tech") not in techs and not re.fullmatch(r"(hoang|huyen|dia|thien)_[a-z_]+", str(a.get("tech"))):
                     f("build", "%s: aux technique %s unknown" % (where, a.get("tech")))
             g = b.get("gear", [])
-            if tier in ("A", "B") and len(g) != min(1 + ri, 3):
-                f("build", "%s: %d gear pieces, want %d" % (where, len(g), min(1 + ri, 3)))
+            want_gear = min(1 + ri, 3)
+            # User-approved exception: Trúc Cơ (ri == 1) escapers may carry utility ngoc_boi mf-way-out-knot alongside weapon + robe.
+            if ri == 1 and len(g) == 3 and any(x.get("named") == "mf-way-out-knot" for x in g):
+                want_gear = 3
+            if tier in ("A", "B") and len(g) != want_gear:
+                f("build", "%s: %d gear pieces, want %d" % (where, len(g), want_gear))
             for x in g:
                 if "named" in x:
                     if x["named"] not in items:

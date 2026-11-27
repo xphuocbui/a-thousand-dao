@@ -638,13 +638,24 @@ class Fight:
     def basic_cd(self, s):
         return max(K["cooldown_min"], K["basic_cooldown"] / (1 + (s.b.basic_speed_pct + self.mod(s, "basic_speed")) / 100))
 
+    def curse_scale(self, tgt, sid):
+        """Curse strength multiplier from the curse's source fighter (modifiers.md curse_effect_pct), floored at 0."""
+        stt = tgt.statuses.get(sid)
+        src = stt.get("src") if stt else None
+        if src is None:
+            return 1.0
+        d = STATUS.get(sid, {})
+        kind = d.get("kind", "")
+        sctx = {"status": sid, "kind": kind, "tags": (kind, sid)} if kind else {"status": sid}
+        return max(0.0, 1.0 + self.mod(src, "curse_effect", sctx) / 100.0)
+
     def slow(self, s):
         n = min(s.st("slowed_time"), STATUS["slowed_time"]["cap"])
         resist = 1 - (s.b.timer_resist + self.mod(s, "timer_resist")) / 100
-        out = 1 + K["slowed_time_pct"] * n * resist
+        out = 1 + K["slowed_time_pct"] * n * (self.curse_scale(s, "slowed_time") if n else 1.0) * resist
         dk = s.st("drunk")
         if dk:   # Drunk (Effects Status Catalogue, 2026-11-26): its own slow per stack beside Slowed Time
-            out += STATUS["drunk"]["slow"] * dk * resist
+            out += STATUS["drunk"]["slow"] * dk * self.curse_scale(s, "drunk") * resist
         return out
 
     def move_own_debuffs(self, s, per):
@@ -908,7 +919,8 @@ class Fight:
             s.hp -= amt
             st["src"].dealt += amt
         # regeneration; Stagnation dampens both pools by 1 % per stack [Status Catalogue, 2026-11-10]
-        stag = 1 + s.st("stagnation") * STATUS["stagnation"]["regen_dampen"] / 100
+        stag_n = s.st("stagnation")
+        stag = 1 + stag_n * STATUS["stagnation"]["regen_dampen"] * (self.curse_scale(s, "stagnation") if stag_n else 1.0) / 100
         k = K["regen_k"]
         bonus = s.b.regen_bonus + s.bsum("regen") + self.mod(s, "regen")
         regen = s.qi_max() * (K["regen_base"] + k * math.log(1 + max(0.0, bonus) / k)) / stag
@@ -1023,7 +1035,11 @@ class Fight:
                     continue
                 s.qi -= cost
                 s.spent += cost
-                xw["up"], xw["until"], xw["ready"] = True, self.t + ms(w.get("up", 3.0)), self.t + ms(w.get("cooldown", 5.0))
+                cd_w = w.get("cooldown", 5.0)
+                up_w = w.get("up", 3.0)
+                scale_w = max(0.0, 1.0 + self.mod(s, "cast_ward_dur") / 100.0)
+                dur_ms = min(ms(cd_w) - 1, ms(up_w * scale_w)) if up_w < cd_w else ms(up_w * scale_w)
+                xw["up"], xw["until"], xw["ready"] = True, self.t + max(0, dur_ms), self.t + ms(cd_w)
                 if w.get("shield"):
                     xw["bar"] = dict(s=Shield(size=w["shield"], standing=False), left=w["shield"] * s.qi_base,
                                      quiet_since=self.t, pieces_left=1)
@@ -1135,16 +1151,21 @@ class Fight:
                 c = 1.0 + b.basic_coef_add + self.mod(s, "basic_coef")
                 self.hit(s, o, c, "phys", None, kind="basic")
             s.basic_ready += ms(self.basic_cd(s) * self.slow(s))
+        cp = self.mod(s, "companion_power") / 100.0
+        cs = max(0.01, 1.0 + self.mod(s, "companion_speed") / 100.0)
         for sm in list(s.summons):
             while self.t >= sm[3] and sm[3] < sm[4]:
-                self.hit(s, o, sm[0], sm[1], None, kind="companion")
-                sm[3] += sm[2]
+                c_sm = min(max(K["c_comp_cap"], sm[0]), max(0.0, sm[0] + cp))
+                self.hit(s, o, c_sm, sm[1], None, kind="companion")
+                base_cd = sm[5] if len(sm) > 5 else sm[2] / 1000.0
+                sm[3] += ms(max(K["cooldown_min"], base_cd / cs))
             if self.t >= sm[4]:
                 s.summons.remove(sm)
         for j, comp in enumerate(b.companions):
             while self.t >= s.comp_ready[j]:
-                self.hit(s, o, comp["c"], comp.get("dtype", "phys"), None, kind="companion", ctags=comp.get("tags", ()))
-                cd = comp.get("cd", K["basic_cooldown"]) / (1 + self.mod(s, "companion_speed") / 100)
+                c_comp = min(K["c_comp_cap"], max(0.0, comp["c"] + cp))
+                self.hit(s, o, c_comp, comp.get("dtype", "phys"), None, kind="companion", ctags=comp.get("tags", ()))
+                cd = comp.get("cd", K["basic_cooldown"]) / cs
                 s.comp_ready[j] += ms(max(K["cooldown_min"], cd))
 
     def shape(self, s, i, a):
@@ -1198,7 +1219,9 @@ class Fight:
     def pay(self, s, a):
         b = s.b
         s.hp_paid = 0.0
-        cost_up = (1 + s.dsum("cost_up")) * (1 + s.st("heavy_breath") * STATUS["heavy_breath"]["cost_up"])
+        hb_n = s.st("heavy_breath")
+        hb_up = min(K["curse_cost_raise_max"], hb_n * STATUS["heavy_breath"]["cost_up"] * self.curse_scale(s, "heavy_breath")) if hb_n else 0.0
+        cost_up = (1 + s.dsum("cost_up")) * (1 + hb_up)
         cost = a.cost * K["cost_scale"] * (1 - min(K["cost_red_cap"], b.cost_red + self.mod(s, "cost_red", art_ctx(a)))) * cost_up * s.qi_base
         s.nc_idx = next((j for j, x in enumerate(s.next_cost) if match(x[1], art_ctx(a))), None)
         if s.nc_idx is not None:   # a waiting next-art cost (2026-11-26; Nine Shao's seventh movement)
@@ -1281,9 +1304,10 @@ class Fight:
         # evade
         w_ev = sum(xw["w"].get("evade", 0.0) for xw in dfn.xwards
                    if xw["up"] and (xw["w"]["model"] == "reserved" or dfn.qi > 0)) / 100   # evade wards (2026-11-13)
+        dk = att.st("drunk")
         p_ev = min(K["evade_cap"], max(0.0, dfn.b.evade + w_ev + self.mod(dfn, "evade") / 100 - dfn.dsum("evade_down")
                                        - (att.b.acc + self.mod(att, "acc") / 100 + att.bsum("acc") - att.dsum("acc_down"))
-                                       + STATUS["drunk"]["acc_down"] * att.st("drunk")))   # Drunk: aim lost (2026-11-26)
+                                       + STATUS["drunk"]["acc_down"] * dk * (self.curse_scale(att, "drunk") if dk else 1.0)))   # Drunk: aim lost (2026-11-26)
         if self.mod(dfn, "no_evade") > 0:
             p_ev = 0.0
         if dfn.st("off_guard") > 0:
@@ -1329,7 +1353,7 @@ class Fight:
             D *= 1 - wake_cut
         if (art is not None and art.element == "water"
                 and dfn.st("drunk") >= STATUS["drunk"]["water_taken_at"]):   # Drunk at 3+: Water parts hit harder
-            D *= 1 + STATUS["drunk"]["water_taken"]
+            D *= 1 + STATUS["drunk"]["water_taken"] * self.curse_scale(dfn, "drunk")
         damp =(dfn.bsum("phys_dampen") if phys else 0.0) + self.mod(dfn, "dampen_taken", ctx) / 100
         if damp:
             D /= 1 + damp
@@ -1347,7 +1371,9 @@ class Fight:
         else:
             dealt = self.defend(att, dfn, D, dtype, art, ctx, is_tick=False)
         if soul_D:
-            sr = dfn.b.soul_res + self.mod(dfn, "soul_res") + dfn.st("slackened_soul") * STATUS["slackened_soul"]["soul_res"] \
+            ss_n = dfn.st("slackened_soul")
+            ss_pts = ss_n * STATUS["slackened_soul"]["soul_res"] * self.curse_scale(dfn, "slackened_soul") if ss_n else 0.0
+            sr = dfn.b.soul_res + self.mod(dfn, "soul_res") + ss_pts \
                 + self.mod(att, "foe_soul_res")   # Lamp-Lit Reading
             sd = soul_D / (1 + sr / 100) if sr >= 0 else soul_D * (1 + abs(sr) / 100)
             dfn.hp -= sd
@@ -1391,7 +1417,9 @@ class Fight:
     def resistance(self, dfn, dtype, qi_live=True):
         Rw = dfn.b.ward_pts * dfn.b.ward_layer * max(0.0, 1 + self.mod(dfn, "ward_pct") / 100) if (dfn.qi > 0 and qi_live) else 0.0
         Rb = dfn.b.body_pts * dfn.b.bs_mult + dfn.b.resist.get(dtype, 0.0) + self.mod(dfn, "resist", {"dtype": dtype})
-        Rc = dfn.st("sundered") * STATUS["sundered"]["res_pts"] + dfn.st("exposed") * STATUS["exposed"]["res_all"]
+        su_n, ex_n = dfn.st("sundered"), dfn.st("exposed")
+        Rc = (su_n * STATUS["sundered"]["res_pts"] * self.curse_scale(dfn, "sundered") if su_n else 0.0) \
+            + (ex_n * STATUS["exposed"]["res_all"] * self.curse_scale(dfn, "exposed") if ex_n else 0.0)
         return Rw, Rb + Rc
 
     def extra_wards(self, dfn, dtype, is_tick):
@@ -1437,7 +1465,9 @@ class Fight:
         else:
             prevented = -D * abs(R) / 100   # negative: amplified
             bill_share = 0.0
-        bill_up = (1 + (att.b.ward_bill_pct + self.mod(att, "ward_bill")) / 100) * (1 + dfn.st("leaking_ward") * STATUS["leaking_ward"]["bill_up"])
+        lw_n = dfn.st("leaking_ward")
+        lw_up = min(K["curse_drain_raise_max"], lw_n * STATUS["leaking_ward"]["bill_up"] * self.curse_scale(dfn, "leaking_ward")) if lw_n else 0.0
+        bill_up = (1 + (att.b.ward_bill_pct + self.mod(att, "ward_bill")) / 100) * (1 + lw_up)
         bill = bill_share * dfn.b.drain * K["drain_scale"] / dfn.b.ward_layer / dfn.g * bill_up
         for w, r in xs:                     # an extra drain ward bills for the share of prevention it holds
             if w["model"] == "drain" and R > 0 and R_raw > 0 and prevented > 0:
@@ -1546,7 +1576,9 @@ class Fight:
             return 0.0
         ds_att = att.b.divine_sense * (1 - att.ts_spent)
         ds_def = dfn.b.divine_sense * (1 - dfn.ts_spent)
-        sr = dfn.b.soul_res + self.mod(dfn, "soul_res") + dfn.st("slackened_soul") * STATUS["slackened_soul"]["soul_res"] \
+        ss_n = dfn.st("slackened_soul")
+        ss_pts = ss_n * STATUS["slackened_soul"]["soul_res"] * self.curse_scale(dfn, "slackened_soul") if ss_n else 0.0
+        sr = dfn.b.soul_res + self.mod(dfn, "soul_res") + ss_pts \
             + self.mod(att, "foe_soul_res")   # Lamp-Lit Reading
         rho = ds_att / (ds_def * (1 + sr / 100)) if sr >= 0 else ds_att * (1 + abs(sr) / 100) / ds_def
         if rho < K["rho_min"]:
@@ -1580,7 +1612,8 @@ class Fight:
         if not ignore_taken:
             amount *= max(1 - K["curse_heal_taken_max"], 1 + self.mod(s, "heal_taken") / 100)
         if s.st("withering"):
-            amount *= 1 + STATUS["withering"]["heal_taken"]
+            w_eff = max(-K["curse_heal_taken_max"], STATUS["withering"]["heal_taken"] * self.curse_scale(s, "withering"))
+            amount *= 1 + w_eff
             if s.statuses["withering"].get("crossing"):
                 s.hp -= amount   # Crossing the Line: the heal lands as damage, straight to health [CD&H 19]
                 s.statuses["withering"]["src"].dealt += amount
@@ -1931,9 +1964,11 @@ class Fight:
                     s.state_since = self.t
                 s.state = new_state
             elif verb == "summon":
-                cd = ms(max(K["cooldown_min"], arg.get("cd", K["basic_cooldown"])))
+                base_cd = float(arg.get("cd", K["basic_cooldown"]))
+                cs = max(0.01, 1.0 + self.mod(s, "companion_speed") / 100.0)
+                cd = ms(max(K["cooldown_min"], base_cd / cs))
                 s.summons.append([arg.get("c", K["summon_c"]) * n, arg.get("dtype", "phys"), cd, self.t + cd,
-                                  self.t + ms(arg.get("for", K["summon_for"]))])
+                                  self.t + ms(arg.get("for", K["summon_for"])), base_cd])
             elif verb == "fire_art":
                 if self.depth > K["trig_depth"]:
                     continue
@@ -2275,10 +2310,12 @@ def match(filt, ctx):
         if k in MOD_KEYS or k in ("for", "stack"):
             continue
         if k == "tags":
-            if not set(v) & set(ctx.get("tags", ())):
+            have = ctx.get("tags", ())
+            if not (set(v) & set(have) or ("art" in v and ctx.get("kind") == "art")):
                 return False
         elif k == "not_tags":                # none of these tags (Thousand Talismans: arts that are not talismans)
-            if set(v) & set(ctx.get("tags", ())):
+            have = ctx.get("tags", ())
+            if (set(v) & set(have)) or ("art" in v and ctx.get("kind") == "art"):
                 return False
         elif k == "is_crit":                 # the hit is (or is not) a crit (Heaven's Eye)
             if bool(ctx.get("crit", False)) != bool(v):

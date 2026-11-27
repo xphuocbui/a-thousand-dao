@@ -111,9 +111,9 @@
     },
     {
      "key": "attack_pct",
-     "value": 10,
+     "value": 12,
      "scope": [
-      "physical"
+      "palm"
      ]
     },
     {

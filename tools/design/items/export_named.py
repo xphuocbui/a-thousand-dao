@@ -39,13 +39,13 @@ def build():
     for path in sorted(glob.glob(os.path.join(ROOT, "design", "items", "catalogue-*.json"))):
         with open(path, encoding="utf-8") as f:
             for it in json.load(f):
-                if it.get("kind") != "artifact":
+                if it.get("kind") not in ("artifact", "treasure"):
                     continue
                 rec = {
                     "id": it["id"],
                     "name": it["name"],
                     "base": it["base"],
-                    "grade": int(it["grade"]),
+                    "grade": int(it["grade"]) if it.get("grade") is not None else int(it["rarity"]) - 1,
                     "element": FAMILY_ELEMENT.get(it.get("family", ""), ""),
                     "family": it.get("family", ""),
                     "modifiers": [{"key": m["key"], "value": m["value"], "scope": m.get("scope", [])}

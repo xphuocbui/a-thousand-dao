@@ -1667,6 +1667,248 @@ def t_lint_song_scope():   # Stage 6 b06 (hermits-sages / demonic): song scope i
           "%s" % (eff,))
 
 
+# ---- Stage 6 Step 1: curse_effect_pct, cast_ward_duration_pct, companion_power_pct, companion_speed_pct (summon), [art]
+def t_curse_effect_pct():
+    # Sundered (-150 -> -180 at +20%) and Exposed (-100 -> -120 at +20%)
+    f, A, B = setup(a=dummy(effects=_fx({"curse_effect": 20})),
+                    b=dummy(ward_pts=0.0, block=0.0, evade=0.0, body_pts=0.0, n_body=100.0))
+    f.apply_status(A, B, {"id": "sundered"})
+    _, ro_sun = f.resistance(B, "phys", qi_live=False)
+    check("curse_effect 20: sundered -150 -> -180", abs(ro_sun - (-180.0)) < 1e-9, str(ro_sun))
+    got_sun = f.defend(A, B, 100.0, "phys", None, {"dtype": "phys", "tags": ()}, is_tick=False)
+    check("curse_effect 20: sundered hit deals 280 from 100", abs(got_sun - 280.0) < 1e-6, str(got_sun))
+    f.apply_status(A, B, {"id": "exposed"})
+    _, ro_both = f.resistance(B, "phys", qi_live=False)
+    check("curse_effect 20: exposed -100 -> -120 (total -300)", abs(ro_both - (-300.0)) < 1e-9, str(ro_both))
+
+    # Stagnation (1%/stack -> 1.2%/stack at +20%)
+    g, A2, B2 = setup(a=dummy(effects=_fx({"curse_effect": 20})), b=dummy())
+    B2.qi = 0.0
+    g.apply_status(A2, B2, {"id": "stagnation"})
+    g.pulse(B2)
+    base_regen = B2.qi_max() * E.K["regen_base"]
+    check("curse_effect 20: stagnation 1 -> 1.2 pct per stack",
+          abs(B2.qi - base_regen / 1.012) < 1e-6, "%s vs %s" % (B2.qi, base_regen / 1.012))
+
+    # Heavy Breath (+25%/stack -> +30% at 1 stack, capped at curse_cost_raise_max = +50% at 2 stacks)
+    art = E.Art("x", 1.0, 0.1, 3.0)
+    h, A3, B3 = setup(a=dummy(effects=_fx({"curse_effect": 20})), b=dummy(arts=[art]))
+    base_cost = art.cost * E.K["cost_scale"] * B3.qi_base
+    h.apply_status(A3, B3, {"id": "heavy_breath"})
+    q0 = B3.qi
+    h.pay(B3, art)
+    check("curse_effect 20: heavy_breath 1 stack +30%",
+          abs((q0 - B3.qi) - base_cost * 1.30) < 1e-6, "%s vs %s" % (q0 - B3.qi, base_cost * 1.30))
+    h.apply_status(A3, B3, {"id": "heavy_breath"})
+    B3.qi = q0
+    h.pay(B3, art)
+    check("curse_effect 20: heavy_breath 2 stacks stays capped at +50%",
+          abs((q0 - B3.qi) - base_cost * 1.50) < 1e-6, "%s vs %s" % (q0 - B3.qi, base_cost * 1.50))
+
+    # Withering (-50% clamped at curse_heal_taken_max = -50% at +20%; scales toward 0 at -40%)
+    w_pos, WA, WB = setup(a=dummy(effects=_fx({"curse_effect": 20})), b=dummy(n_body=100.0))
+    w_pos.apply_status(WA, WB, {"id": "withering"})
+    WB.hp = WB.hp_max / 2.0
+    hp0 = WB.hp
+    w_pos.heal(WB, 100.0)
+    check("curse_effect 20: withering stays clamped at -50%",
+          abs((WB.hp - hp0) - 50.0) < 1e-6, str(WB.hp - hp0))
+
+    w_neg, WNA, WNB = setup(a=dummy(effects=_fx({"curse_effect": -40})), b=dummy(n_body=100.0))
+    w_neg.apply_status(WNA, WNB, {"id": "withering"})
+    WNB.hp = WNB.hp_max / 2.0
+    hp0_n = WNB.hp
+    w_neg.heal(WNB, 100.0)
+    check("curse_effect -40: withering scales to -30% (70 healed)",
+          abs((WNB.hp - hp0_n) - 70.0) < 1e-6, str(WNB.hp - hp0_n))
+
+    # Leaking Ward (+50% capped at curse_drain_raise_max = +50% at +20%; +30% at -40%)
+    lw_p, LWA, LWB = setup(a=dummy(effects=_fx({"curse_effect": 20})), b=dummy(ward_pts=100.0, block=0.0, evade=0.0, drain=1.0))
+    lw_p.apply_status(LWA, LWB, {"id": "leaking_ward"})
+    qp0 = LWB.qi
+    lw_p.defend(LWA, LWB, 100.0, "phys", None, {"dtype": "phys", "tags": ()}, is_tick=False)
+    base_bill = 50.0 * LWB.b.drain * E.K["drain_scale"] / LWB.b.ward_layer / LWB.g
+    check("curse_effect 20: leaking_ward stays capped at +50%",
+          abs((qp0 - LWB.qi) - base_bill * 1.5) < 1e-6, "%s vs %s" % (qp0 - LWB.qi, base_bill * 1.5))
+
+    lw_n, LWNA, LWNB = setup(a=dummy(effects=_fx({"curse_effect": -40})), b=dummy(ward_pts=100.0, block=0.0, evade=0.0, drain=1.0))
+    lw_n.apply_status(LWNA, LWNB, {"id": "leaking_ward"})
+    qn0 = LWNB.qi
+    lw_n.defend(LWNA, LWNB, 100.0, "phys", None, {"dtype": "phys", "tags": ()}, is_tick=False)
+    check("curse_effect -40: leaking_ward scales to +30%",
+          abs((qn0 - LWNB.qi) - base_bill * 1.3) < 1e-6, "%s vs %s" % (qn0 - LWNB.qi, base_bill * 1.3))
+
+    # Slackened Soul (-15 -> -18 at +20%) and Slowed Time (6% -> 7.2% per stack at +20%)
+    ss2, S2A, S2B = setup(a=dummy(effects=_fx({"curse_effect": 20}), divine_sense=100.0,
+                                  arts=[E.Art("s", 0.0, 0.05, 3.0, soul_pct=0.05)]),
+                          b=dummy(divine_sense=100.0))
+    ss2.apply_status(S2A, S2B, {"id": "slackened_soul"})
+    ss2.apply_status(S2A, S2B, {"id": "slowed_time"})
+    check("curse_effect 20: slowed_time 0.06 -> 0.072",
+          abs(ss2.slow(S2B) - 1.072) < 1e-9, str(ss2.slow(S2B)))
+    s2b_hp0 = S2B.hp
+    ss2.soul_hit(S2A, S2B, S2A.b.arts[0])
+    expected_lh = 0.05 * (1.18 ** E.K["soul_beta"]) * S2B.hp_max
+    check("curse_effect 20: slackened_soul -15 -> -18 in soul_hit",
+          abs((s2b_hp0 - S2B.hp) - expected_lh) < 1e-6, "%s vs %s" % (s2b_hp0 - S2B.hp, expected_lh))
+
+    # Negative floor: multiplier clamps at 0.0 (never flips curse into buff)
+    neg, NA, NB = setup(a=dummy(effects=_fx({"curse_effect": -150})),
+                        b=dummy(ward_pts=0.0, block=0.0, evade=0.0, body_pts=0.0, n_body=100.0, arts=[art]))
+    neg.apply_status(NA, NB, {"id": "sundered"})
+    neg.apply_status(NA, NB, {"id": "stagnation"})
+    neg.apply_status(NA, NB, {"id": "heavy_breath"})
+    _, ro_zero = neg.resistance(NB, "phys", qi_live=False)
+    NB.qi = 0.0
+    neg.pulse(NB)
+    qi_after = NB.qi
+    q_hb0 = NB.qi_max()
+    NB.qi = q_hb0
+    neg.pay(NB, art)
+    check("curse_effect -150 clamps multiplier to 0.0",
+          abs(ro_zero) < 1e-9
+          and abs(qi_after - NB.qi_max() * E.K["regen_base"]) < 1e-6
+          and abs((q_hb0 - NB.qi) - base_cost) < 1e-6,
+          "%s %s %s" % (ro_zero, qi_after, q_hb0 - NB.qi))
+
+
+def t_cast_ward_duration_pct():
+    ward = [{"id": "shell", "model": "cast", "payload": {"phys": 70.0}, "cost": 0.0, "cooldown": 5.0, "up": 2.0}]
+    f1, A1, _ = setup(a=dummy(wards=ward, effects=_fx({"cast_ward_dur": 50})))
+    f1.cast_wards(A1)
+    check("cast_ward_duration_pct +50%: 2.0 s -> 3000 ms",
+          A1.xwards[0]["up"] and A1.xwards[0]["until"] == 3000 and A1.xwards[0]["ready"] == 5000,
+          str(A1.xwards[0]))
+
+    f2, A2, _ = setup(a=dummy(wards=ward, effects=_fx({"cast_ward_dur": 200})))
+    f2.cast_wards(A2)
+    check("cast_ward_duration_pct +200%: clamped strictly below cooldown (4999 ms)",
+          A2.xwards[0]["until"] == 4999 and A2.xwards[0]["ready"] == 5000,
+          str(A2.xwards[0]))
+
+    f3, A3, _ = setup(a=dummy(wards=ward, effects=_fx({"cast_ward_dur": -150})))
+    f3.cast_wards(A3)
+    check("cast_ward_duration_pct -150%: floored at 0 ms",
+          A3.xwards[0]["until"] == 0, str(A3.xwards[0]))
+
+
+def t_companion_power_and_speed():
+    comp = [{"c": 0.4, "dtype": "phys", "cd": 2.0}]
+    target = dummy(ward_pts=0.0, block=0.0, evade=0.0, body_pts=0.0, n_body=100.0)
+    unit = E.U[0] * 3.273
+
+    f1, A1, B1 = setup(a=dummy(companions=comp, effects=_fx({"companion_power": 25}, {"companion_speed": 400})), b=target)
+    A1.basic_ready = 1 << 40
+    f1.t = 2000
+    f1.act(A1)
+    check("companion_power_pct +25 pp: c=0.4 -> 0.65; speed +400 clamps at cooldown_min 500 ms",
+          abs((B1.hp_max - B1.hp) - unit * 0.65) < 1e-6 and A1.comp_ready[0] == 2500,
+          "dmg=%s ready=%s" % (B1.hp_max - B1.hp, A1.comp_ready[0]))
+
+    f2, A2, B2 = setup(a=dummy(companions=comp, effects=_fx({"companion_power": 80})), b=target)
+    A2.basic_ready = 1 << 40
+    f2.t = 2000
+    f2.act(A2)
+    check("companion_power_pct capped at c_comp_cap = 1.0",
+          abs((B2.hp_max - B2.hp) - unit * 1.0) < 1e-6, str(B2.hp_max - B2.hp))
+
+    f3, A3, B3 = setup(a=dummy(companions=comp, effects=_fx({"companion_power": -60})), b=target)
+    A3.basic_ready = 1 << 40
+    f3.t = 2000
+    f3.act(A3)
+    check("companion_power_pct floored at 0.0",
+          abs(B3.hp_max - B3.hp) < 1e-9, str(B3.hp_max - B3.hp))
+
+    # s.summons respects both companion_speed and companion_power
+    f4, A4, B4 = setup(a=dummy(effects=_fx({"companion_power": 25}, {"companion_speed": 100})), b=target)
+    A4.basic_ready = 1 << 40
+    eff = {"id": "s", "on": "always", "do": []}
+    f4.do(A4, eff, [{"summon": {"c": 0.4, "dtype": "phys", "cd": 2.0, "for": 5.0}}], 1.0, {})
+    check("summon initial timer reads companion_speed (2.0s / 2 = 1000ms)",
+          A4.summons[0][3] == 1000, str(A4.summons[0]))
+    f4.t = 1000
+    f4.act(A4)
+    check("summon hit reads companion_power (0.65) and reschedules at 2000ms",
+          abs((B4.hp_max - B4.hp) - unit * 0.65) < 1e-6 and A4.summons[0][3] == 2000,
+          "dmg=%s next=%s" % (B4.hp_max - B4.hp, A4.summons[0][3]))
+    # cooldown_min clamp on summon
+    f5, A5, B5 = setup(a=dummy(effects=_fx({"companion_speed": 400})), b=target)
+    A5.basic_ready = 1 << 40
+    f5.do(A5, eff, [{"summon": {"c": 0.4, "dtype": "phys", "cd": 2.0, "for": 5.0}}], 1.0, {})
+    check("summon interval clamps at cooldown_min 500ms",
+          A5.summons[0][3] == 500, str(A5.summons[0]))
+
+
+def t_attack_pct_art_scope():
+    art = E.Art("slash", 1.0, 0.0, 3.0, tags=("sword",))
+    f, A, B = setup(
+        a=dummy(arts=[art], companions=[{"c": 1.0, "dtype": "phys", "cd": 2.0, "tags": ("bird",)}],
+                effects=_fx({"L1": 50, "tags": ["art"]})),
+        b=dummy(ward_pts=0.0, block=0.0, evade=0.0, body_pts=0.0, n_body=100.0),
+    )
+    check("match tags=['art'] matches art_ctx", f.mod(A, "L1", E.art_ctx(art)) == 50.0)
+    check("match not_tags=['art'] excludes art_ctx", not E.match({"not_tags": ["art"]}, E.art_ctx(art)))
+    check("match not_tags=['art'] allows basic", E.match({"not_tags": ["art"]}, {"kind": "basic", "tags": ("basic",)}))
+
+    hp0 = B.hp
+    f.hit(A, B, 1.0, "phys", art, kind="art")
+    dmg_art = hp0 - B.hp
+    B.hp = hp0
+    f.hit(A, B, 1.0, "phys", None, kind="basic")
+    dmg_basic = hp0 - B.hp
+    B.hp = hp0
+    f.hit(A, B, 1.0, "phys", None, kind="companion", ctags=("bird",))
+    dmg_comp = hp0 - B.hp
+    B.hp = hp0
+    f.hit(A, B, 1.0, "phys", None, kind="trigger", trig=True)
+    dmg_trig = hp0 - B.hp
+
+    unit = E.U[0] * A.b.M
+    check("attack_pct [art] +50 scales art hit to 1.5x, leaves basic/companion/trigger at 1.0x",
+          abs(dmg_art - unit * 1.5) < 1e-6
+          and abs(dmg_basic - unit) < 1e-6
+          and abs(dmg_comp - unit) < 1e-6
+          and abs(dmg_trig - unit) < 1e-6,
+          "art=%s basic=%s comp=%s trig=%s unit=%s" % (dmg_art, dmg_basic, dmg_comp, dmg_trig, unit))
+
+
+def t_step1_passive_mods_compile():
+    import fight as F
+    lines = [
+        {"key": "curse_effect_pct", "value": 20},
+        {"key": "cast_ward_duration_pct", "value": 50},
+        {"key": "companion_power_pct", "value": 10},
+        {"key": "companion_speed_pct", "value": 15},
+        {"key": "escape_pct", "value": 12},
+        {"key": "attack_pct", "value": 8, "scope": ["art"]},
+        {"key": "breakthrough_chance", "value": 5},
+        {"key": "dao_tam", "value": 2},
+        {"key": "can_cot", "value": 3},
+        {"key": "pill_effect_pct", "value": 10},
+        {"key": "artifact_attack_pct", "value": 10},
+        {"key": "artifact_defense_pct", "value": 10},
+        {"key": "element_affinity_pct", "value": 10},
+        {"key": "artifact_power_pct", "value": 10},
+        {"key": "bonus_slots", "value": 1},
+    ]
+    unmod = []
+    d = {"realm": 0}
+    F.apply_static(d, lines, "step1", unmod)
+    eff = F.passive_effect({"id": "step1"}, unmod, lines=lines, what="character")
+    b = dummy(effects=[eff] if eff else [])
+    E.validate(b)
+    f, A, _ = setup(a=b)
+    ok = (unmod == [] and eff is not None
+          and f.mod(A, "curse_effect") == 20.0
+          and f.mod(A, "cast_ward_dur") == 50.0
+          and f.mod(A, "companion_power") == 10.0
+          and f.mod(A, "companion_speed") == 15.0
+          and f.mod(A, "escape") == 12.0
+          and f.mod(A, "L1", {"kind": "art", "tags": ()}) == 8.0)
+    check("step1 passive mods + audited out_of_fight compile cleanly", ok,
+          "unmod=%s eff=%s" % (unmod, eff))
+
+
 def main():
     for name, fn in sorted(globals().items()):
         if name.startswith("t_"):

@@ -56,6 +56,7 @@ PRICE = {
     "linh_luc_on_crit_pct": 6.3, "linh_luc_on_kill_pct": 0.5, "leech_linh_luc_pct": 1.44,
     "art_cost_health_pct": 0.35, "than_thuc_pct": 1.3, "reserve_eff_pct": 0.8,
     "stack_effect_pct": 0.5, "stack_duration_pct": 0.4, "stack_grant": 10.0,
+    "curse_effect_pct": 0.6, "companion_power_pct": 0.4, "companion_speed_pct": 0.4, "escape_pct": 1.0,
 }
 # `more` points (modifiers.md Formulas D, L2 column, at the tier's maximum realm: FE, CF, NS, DT)
 MORE_PRICE = {0: 1.16, 1: 1.51, 2: 2.03, 3: 4.95}

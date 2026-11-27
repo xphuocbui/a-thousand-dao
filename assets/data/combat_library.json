@@ -16696,6 +16696,120 @@
     }
    ]
   },
+  "geese-startled-by-the-cold": {
+   "c_art": 0.0,
+   "cooldown": 5,
+   "cost_share": 0.03,
+   "element": "earth",
+   "group": "long-sky-one-colour",
+   "guards": [
+    {
+     "read": "own.counter.geese_cold",
+     "op": "<",
+     "value": 1
+    }
+   ],
+   "id": "geese-startled-by-the-cold",
+   "kind": "elem",
+   "tags": [
+    "earth",
+    "formation",
+    "ward"
+   ],
+   "name": "Geese Startled by the Cold (Nhạn Trận Kinh Hàn)",
+   "rule": "Raises a ward (4 % of maximum health) and braces the formation for the fight: while your field is up, you take 8 % less damage, your Earth debuffs last 25 % longer (+2 s on 8 s stacks), and once per pulse 15 % of a damaging blow is mended immediately (standing 1v1 approximation of the held-damage line).",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "geese-cold-raise",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "geese-startled-by-the-cold"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "geese_cold",
+        "set": 1
+       }
+      },
+      {
+       "ward_grow": {
+        "share": 0.04,
+        "of": "hp"
+       }
+      }
+     ]
+    },
+    {
+     "id": "geese-cold-hold",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.geese_cold",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.field_up",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dampen_taken": 8
+       }
+      },
+      {
+       "mod": {
+        "stack_dur": 25,
+        "element": "earth",
+        "kind": "debuff"
+       }
+      }
+     ]
+    },
+    {
+     "id": "geese-cold-stagger",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.geese_cold",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.field_up",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "limit": {
+      "per_pulse": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "of": "amount",
+        "share": 0.15
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "geese_cold"
+    }
+   ]
+  },
   "general-last-coin-flick": {
    "c_art": 2.0,
    "cooldown": 2.5,
@@ -25759,7 +25873,7 @@
     "shao"
    ],
    "name": "Eighth Movement: The Phoenix Is Near (Phượng Cận)",
-   "rule": "A held Fire and Soul note: if played in its turn after the seventh movement it stops the foe's clock for 2 s and finishes the piece back at 0; if the foe carries 8 Shao stacks it also stops the foe's clock for 2 s without breaking the piece.",
+   "rule": "A held Fire and Soul note: if played in its turn after the seventh movement it holds its arts for 2 s and finishes the piece back at 0; if the foe carries 8 Shao stacks it also holds its arts for 2 s without breaking the piece.",
    "source": "part_authored",
    "effects": [
     {
@@ -27940,6 +28054,194 @@
    "counters": [
     {
      "id": "one_breath"
+    }
+   ]
+  },
+  "one-colour": {
+   "c_art": 0.0,
+   "cooldown": 6,
+   "cost_share": 0.05,
+   "element": "earth",
+   "group": "long-sky-one-colour",
+   "guards": [
+    {
+     "read": "own.counter.one_colour",
+     "op": "<=",
+     "value": 0
+    }
+   ],
+   "id": "one-colour",
+   "kind": "elem",
+   "tags": [
+    "earth",
+    "formation"
+   ],
+   "name": "One Colour (Nhất Sắc)",
+   "rule": "A field 12 s long (enters One Colour Field if you hold no other stance): you gain +15 % evasion (foes lose 15 % accuracy) while the field holds, and your Earth arts strike again for 30 % of their damage.",
+   "source": "part_authored",
+   "effects": [
+    {
+     "id": "one-colour-raise",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "one-colour"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "one_colour",
+        "set": 12
+       }
+      }
+     ]
+    },
+    {
+     "id": "one-colour-field",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "one-colour"
+     },
+     "if": [
+      {
+       "read": "own.state.any",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "state": {
+        "set": "one-colour"
+       }
+      }
+     ]
+    },
+    {
+     "id": "one-colour-step",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.one_colour",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "one_colour",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "one-colour-reenter",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.one_colour",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.state.any",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "state": {
+        "set": "one-colour"
+       }
+      }
+     ]
+    },
+    {
+     "id": "one-colour-end",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.state.one-colour",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.one_colour",
+       "op": "<=",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "state": {
+        "set": null
+       }
+      }
+     ]
+    },
+    {
+     "id": "one-colour-dim",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.one_colour",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "evade": 15
+       }
+      }
+     ]
+    },
+    {
+     "id": "one-colour-echo",
+     "on": "art_fired",
+     "filter": {
+      "element": "earth",
+      "not_art_id": [
+       "one-colour",
+       "geese-startled-by-the-cold",
+       "the-sunset-clouds-fly-with-the-lone-duck"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.one_colour",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "fire_art": {
+        "which": "last",
+        "filter": {
+         "element": "earth"
+        },
+        "share": 0.3
+       }
+      }
+     ]
+    }
+   ],
+   "counters": [
+    {
+     "id": "one_colour"
+    }
+   ],
+   "states": [
+    {
+     "id": "one-colour",
+     "tags": [
+      "field"
+     ],
+     "mods": {}
     }
    ]
   },
@@ -34326,7 +34628,8 @@
    "tags": [
     "fist",
     "quick",
-    "barrage"
+    "barrage",
+    "palm"
    ],
    "name": "Rolling Barrage Fist (Cổn Liên Quyền)",
    "rule": "Holds 4 charges of a quick fist hit; each firing adds 6 % crit for 4 s (stacking), crits shorten your other arts' timers, and every fist art you fire writes a Tempo (no cap). The fist falls plain, then as a Cascade at 4 times (4 Tempo), then as a Hundred-Fist Rain of four hits that each strike at 3 times (8 Tempo, three scripture arts within 2 s, or a foe Slowed 3 deep).",
@@ -41705,7 +42008,7 @@
    "kind": "phys",
    "tags": [
     "artifact",
-    "music"
+    "song"
    ],
    "name": "String Cut (Cầm Huyền Trảm)",
    "rule": "One plucked string sends a blade of sound: a plain Force hit.",
@@ -49681,7 +49984,8 @@
    "tags": [
     "fist",
     "summon",
-    "shadow"
+    "shadow",
+    "palm"
    ],
    "name": "Twin Shadow Fist (Song Ảnh Quyền)",
    "rule": "A fist hit that calls a shadow double for 12 s, which strikes every 2.5 s. Each crit of your arts quickens the double by 12 % for 4 s (stacking), and each pulse the double lands a hit writes a Tempo for the Barrage Fist.",
@@ -64143,6 +64447,11 @@
      "scope": [
       "kim"
      ]
+    },
+    {
+     "key": "curse_effect_pct",
+     "value": 10,
+     "scope": []
     }
    ],
    "effects": [],
@@ -69358,9 +69667,9 @@
     },
     {
      "key": "attack_pct",
-     "value": 10,
+     "value": 12,
      "scope": [
-      "physical"
+      "palm"
      ]
     },
     {
@@ -74575,6 +74884,16 @@
      "key": "khi_huyet_pct",
      "value": 10,
      "scope": []
+    },
+    {
+     "key": "companion_power_pct",
+     "value": 10,
+     "scope": []
+    },
+    {
+     "key": "companion_speed_pct",
+     "value": 10,
+     "scope": []
     }
    ],
    "effects": [],
@@ -74649,11 +74968,9 @@
    "role": "necklace",
    "modifiers": [
     {
-     "key": "evade_pct",
+     "key": "escape_pct",
      "value": 6,
-     "scope": [
-      "escape"
-     ]
+     "scope": []
     },
     {
      "key": "than_thuc_pct",
@@ -74958,6 +75275,11 @@
     {
      "key": "khi_huyet_pct",
      "value": 12,
+     "scope": []
+    },
+    {
+     "key": "herb_growth_pct",
+     "value": 8,
      "scope": []
     }
    ],
@@ -78471,6 +78793,12 @@
     "unlock_layer": 4
    }
   ],
+  "long-sky-one-colour": [
+   {
+    "name": "Geese Line",
+    "unlock_layer": 1
+   }
+  ],
   "mist-lock-array-canon": [
    {
     "name": "The Wind Lifts the Mist",
@@ -78485,6 +78813,12 @@
    {
     "name": "Hundred-Feather Fan",
     "unlock_layer": 2
+   }
+  ],
+  "mountain-heart-canon": [
+   {
+    "name": "Debt Stone",
+    "unlock_layer": 1
    }
   ],
   "night-glow-blood-sabre-canon": [
@@ -78529,6 +78863,12 @@
    {
     "name": "The Wind Lifts the Mist",
     "unlock_layer": 1
+   }
+  ],
+  "ruin-ledger-scripture": [
+   {
+    "name": "Written in the Ledger",
+    "unlock_layer": 3
    }
   ],
   "shang-mountain-lingzhi-canon": [
