@@ -1,0 +1,31 @@
+{
+ "owner": "lang_dao",
+ "minutes": 7,
+ "written": {
+  "techniques": 3,
+  "arts": 3,
+  "items": 4,
+  "sets": 1,
+  "effects": 3,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 6,
+ "decisions": [
+  "Omit wind art swallow-stance from staged nine-bends-art abilities (kept in lang_dao.techniques.json as depth background) so lint_techniques ELEMENT and CongPhap.usable pass for all three Water+Wood holders; supply +12 evade (3.5 s) directly on ninth-bend and evade_pct 8 on nine-bends-art.",
+  "Rewrite ninth-bend non-spatially (drop 'from behind') and express heavy damage + cannot be evaded as dmg_more 1.0 + acc 500 on the next damaging Water art.",
+  "Size ferry-pole-primer (7.9/8 W, L1/L2 unlocks), washing-waves-canon (23.3/24 W, L1/L2/L4 unlocks), and nine-bends-art (16.0/16 W, L1 unlock) within tier budgets so all 18 living cast members pass CongPhap.usable.",
+  "Approximate a-thousand-washings 'pierces fully' via bypass 0.5 (bypass_cap), pierce 75 (pierce_cap), and +300 pen on the next damaging art, with +15 pen [water] per washings stack (1..9).",
+  "Use an independent anchor_bend counter on Round the Bend, Then the Anchor (and declare shared tolled/toll_paid/toll_pass counters on both Effects) so standalone Effect compilation passes without double-counting nine_bend.",
+  "Model Pay the Toll on was_hit/evaded (kind: art, per_pulse: 1) with burn_qi (of: max, share: 0.02, to_self: 1.0) and dampen_taken 11.11 after 5 tolls; model The Boat That Did Not Burn with standing Flag charge (dampen_taken 100 + resist 200 [dtype: fire]) and down refuse_down (1 HP) on fire tick/burn; stage ld-nine-bend-toll-seal as treasure rarity 5 and mark all 4 items unique: true with R6 exceptions on the 3 weapon/body_gear pieces."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "The Boat That Did Not Burn (ld-last-white-sail): runs 0 in sect_fight.py vs typical foe because typical foe has no Fire arts or Burn stacks and always mods count 0 Fight.do() runs; verified in targeted Fire-Burn probe (22.0 s with burn_mark 67 and down refused at 1 HP vs 13.4 s without)."
+ ],
+ "early_promotions": [],
+ "open": [
+  "Serial merge of design/stage6-staging/lang_dao/ into design/ and assets/data/combat_effects.json (closes loose-south's 2 cross-owner ferry-pole-primer references).",
+  "Stage 7 export_named.py kind: treasure support (ld-nine-bend-toll-seal) and world export (N-lang_dao-01..04)."
+ ]
+}

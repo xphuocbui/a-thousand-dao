@@ -1,0 +1,172 @@
+{
+ "_doc": "Lãng Đào Môn's Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py under source world-depth:lang_dao. Unpriced. Rule text from design/world/depth/sects/lang_dao.items.json.",
+ "source": "world-depth:lang_dao",
+ "effects": {
+  "Pay the Toll": {
+   "rule": "Toll Seal of the Nine Bends: your first Water art each fight stamps the foe Tolled. A Tolled foe loses 2 % of its maximum linh lực to you each time it casts an attacking art (up to 5 tolls, a tenth of its maximum); then the stamp turns to a Pass and you take 10 % less damage from it.",
+   "approx": "Since the engine emits no foe-side art_fired event, tolls trigger on was_hit and evaded with kind: art (limit per_pulse 1 so split hits charge 1 toll per cast); Pass uses dampen_taken 11.11 (1/1.1111 = 0.90).",
+   "counters": [
+    {"id": "tolled", "cap": 1},
+    {"id": "toll_paid"},
+    {"id": "toll_pass", "cap": 1}
+   ],
+   "records": [
+    {
+     "id": "eff:Pay the Toll:stamp",
+     "on": "art_fired",
+     "filter": {"element": "water"},
+     "limit": {"per_fight": 1},
+     "do": [
+      {"counter": {"id": "tolled", "set": 1}}
+     ]
+    },
+    {
+     "id": "eff:Pay the Toll:hit",
+     "on": "was_hit",
+     "filter": {"kind": "art"},
+     "limit": {"per_pulse": 1},
+     "if": [{"read": "own.counter.tolled", "op": ">=", "value": 1}],
+     "do": [
+      {"burn_qi": {"of": "max", "share": 0.02, "to_self": 1.0}},
+      {"counter": {"id": "toll_paid", "add": 1}}
+     ]
+    },
+    {
+     "id": "eff:Pay the Toll:hit_pass",
+     "on": "was_hit",
+     "filter": {"kind": "art"},
+     "if": [
+      {"read": "own.counter.tolled", "op": ">=", "value": 1},
+      {"read": "own.counter.toll_paid", "op": ">=", "value": 5}
+     ],
+     "do": [
+      {"counter": {"id": "tolled", "set": 0}},
+      {"counter": {"id": "toll_pass", "set": 1}}
+     ]
+    },
+    {
+     "id": "eff:Pay the Toll:evade",
+     "on": "evaded",
+     "filter": {"kind": "art"},
+     "limit": {"per_pulse": 1},
+     "if": [{"read": "own.counter.tolled", "op": ">=", "value": 1}],
+     "do": [
+      {"burn_qi": {"of": "max", "share": 0.02, "to_self": 1.0}},
+      {"counter": {"id": "toll_paid", "add": 1}}
+     ]
+    },
+    {
+     "id": "eff:Pay the Toll:evade_pass",
+     "on": "evaded",
+     "filter": {"kind": "art"},
+     "if": [
+      {"read": "own.counter.tolled", "op": ">=", "value": 1},
+      {"read": "own.counter.toll_paid", "op": ">=", "value": 5}
+     ],
+     "do": [
+      {"counter": {"id": "tolled", "set": 0}},
+      {"counter": {"id": "toll_pass", "set": 1}}
+     ]
+    },
+    {
+     "id": "eff:Pay the Toll:pass",
+     "on": "always",
+     "if": [{"read": "own.counter.toll_pass", "op": ">=", "value": 1}],
+     "do": [
+      {"mod": {"dampen_taken": 11.11}}
+     ]
+    }
+   ]
+  },
+  "The Boat That Did Not Burn": {
+   "rule": "The Last White Sail: while you hold the Sail charge (standing while the Flag charge is worn), you take half damage from fire hits and reduced damage from burns, and the first time each fight a burn would kill you, you are left at 1 health instead.",
+   "approx": "Flag charge is treated as standing while worn (base ky has no Flag art). dampen_taken 100 halves Fire hit damage, while resist 200 [dtype: fire] reduces Burn ticks (defend() does not apply dampen_taken to ticks). Down survival checks recent fire tick_taken or live own.debuff.fire >= 1 with refuse_down (1 health).",
+   "counters": [
+    {"id": "sail_burn_tick", "each_for": 2.0, "cap": 1}
+   ],
+   "records": [
+    {
+     "id": "eff:The Boat That Did Not Burn:ward",
+     "on": "always",
+     "do": [
+      {"mod": {"dampen_taken": 100, "resist": 200, "dtype": "fire"}}
+     ]
+    },
+    {
+     "id": "eff:The Boat That Did Not Burn:burn_mark",
+     "on": "tick_taken",
+     "filter": {"element": "fire"},
+     "do": [
+      {"counter": {"id": "sail_burn_tick", "add": 1}}
+     ]
+    },
+    {
+     "id": "eff:The Boat That Did Not Burn:survive",
+     "on": "down",
+     "limit": {"per_fight": 1},
+     "if": [
+      {
+       "any": [
+        {"read": "own.counter.sail_burn_tick", "op": ">=", "value": 1},
+        {"read": "own.debuff.fire", "op": ">=", "value": 1}
+       ]
+      }
+     ],
+     "do": [
+      {"refuse_down": {}}
+     ]
+    }
+   ]
+  },
+  "Round the Bend, Then the Anchor": {
+   "rule": "The Nine Landings, full set (3 pieces): each blow you slip (evade) also takes one toll (2 % of maximum linh lực) from a Tolled foe, as if it had cast; every nine slipped blows, the anchor drops with you as a Cold free hit (c 1.8) that ignores half the foe's ward (bypass 0.5, +150 pen).",
+   "approx": "Uses an independent anchor_bend counter on evaded so it neither double-counts nor breaks without Nine Bends Art; \"ignores half the foe's ward\" uses bypass 0.5 (bypass_cap) plus +150 pen.",
+   "counters": [
+    {"id": "tolled", "cap": 1},
+    {"id": "toll_paid"},
+    {"id": "toll_pass", "cap": 1},
+    {"id": "anchor_bend"}
+   ],
+   "records": [
+    {
+     "id": "eff:Round the Bend, Then the Anchor:toll",
+     "on": "evaded",
+     "if": [{"read": "own.counter.tolled", "op": ">=", "value": 1}],
+     "do": [
+      {"burn_qi": {"of": "max", "share": 0.02, "to_self": 1.0}},
+      {"counter": {"id": "toll_paid", "add": 1}}
+     ]
+    },
+    {
+     "id": "eff:Round the Bend, Then the Anchor:toll_pass",
+     "on": "evaded",
+     "if": [
+      {"read": "own.counter.tolled", "op": ">=", "value": 1},
+      {"read": "own.counter.toll_paid", "op": ">=", "value": 5}
+     ],
+     "do": [
+      {"counter": {"id": "tolled", "set": 0}},
+      {"counter": {"id": "toll_pass", "set": 1}}
+     ]
+    },
+    {
+     "id": "eff:Round the Bend, Then the Anchor:count",
+     "on": "evaded",
+     "do": [
+      {"counter": {"id": "anchor_bend", "add": 1}}
+     ]
+    },
+    {
+     "id": "eff:Round the Bend, Then the Anchor:drop",
+     "on": "evaded",
+     "if": [{"read": "own.counter.anchor_bend", "op": ">=", "value": 9}],
+     "do": [
+      {"counter": {"id": "anchor_bend", "set": 0}},
+      {"mod": {"bypass": 0.5, "pen": 150}},
+      {"free_hit": {"c": 1.8, "dtype": "cold"}}
+     ]
+    }
+   ]
+  }
+ }
+}
