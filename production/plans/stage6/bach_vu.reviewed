@@ -1,0 +1,11 @@
+{
+ "owner": "bach_vu",
+ "minutes": 8,
+ "must_fix": 0,
+ "should": 0,
+ "fixed": 0,
+ "words": {},
+ "open": [
+  "Stage 7 world export: wire bach_vu.beasts.json (tieu_loan, que_tuoc, mac_vu, quy_thuoc) into companions in fights"
+ ]
+}
