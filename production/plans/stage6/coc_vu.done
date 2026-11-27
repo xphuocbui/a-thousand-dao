@@ -1,0 +1,32 @@
+{
+ "owner": "coc_vu",
+ "minutes": 7,
+ "written": {
+  "techniques": 3,
+  "arts": 4,
+  "items": 4,
+  "sets": 1,
+  "effects": 4,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 4,
+ "decisions": [
+  "Added combined good-rain-rooted stance on follows-the-wind-into-the-night alongside good-rain and rooted so duong_hao_vu, luc_dao_hoa, and su_van_hoa do not clobber rooted-form.",
+  "Implemented call-the-grain-rain as a 4-pulse counter channel with HP-upkeep fallback (pool hp, per_stack 0.03) instead of a stance, avoiding stance conflicts with good-rain and rooted.",
+  "Attached Moistens Without a Sound (L4) and Water Wears the Stone (L6, d24) as passive arts via good-rain-canon.effects, and inserted art ids on all 6 new entries in coc_vu.techniques.json.",
+  "Rewrote plant-the-seedling non-spatially as a 3 s self-counter with 1.5%/s growth heal and 4% harvest heal on pulse 3; gated when-the-season-comes on buff.wood >= 4 and hp_share <= 0.95.",
+  "Modeled The Good Rain Knows Its Season from 10 s onward while Banner is worn and Rain That Does Not Stop via upkeep (pool hp, per_stack 0.01) scaled per 10 s of rain, declaring all shared counters on the Effect.",
+  "Converted cv-rain-calling-banner to kind treasure rarity 5 (no grade), marked all 4 items unique and npc-sourced, and added R6 exception on the 3 weapon/body_gear pieces."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "second-spring (existing family-wood.json art on duong_hao_vu and luc_dao_hoa): hp_share <= 0.95 guard stayed unmet while rain/regeneration held them above 95% HP at --gap 0 or before burst defeat at --gap 1.",
+  "when-the-season-comes and call-the-grain-rain on short-lived truc_co holders at --gap 1: defeated at 8.0-8.4 s before cooldown/guard readiness (both fired cleanly at --gap 0, and low-qi HP fallback verified in targeted probe)."
+ ],
+ "early_promotions": [],
+ "open": [
+  "Serial step: merge design/stage6-staging/coc_vu/* into design/ and assets/data/combat_effects.json (world-depth:coc_vu).",
+  "Stage 7 export: export techniques, items, sets, combat library, and 4 translated events (coc_vu.events.json)."
+ ]
+}
