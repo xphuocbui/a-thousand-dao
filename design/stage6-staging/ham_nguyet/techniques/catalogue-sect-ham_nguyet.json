@@ -1,0 +1,88 @@
+[
+ {
+  "id": "pearl-diver-breath",
+  "name": "Pearl Diver's Breath (Tiềm Châu Tức)",
+  "tier": 0,
+  "tech_kind": "main",
+  "names": ["thuy"],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {"key": "linh_luc_regen_inc_pct", "value": 7, "scope": []},
+   {"key": "status_resist_pct", "value": 5, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "gathering-wave", "unlock_layer": 1},
+   {"ability_id": "empty-lungs", "unlock_layer": 2}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "pearl-diver-breath",
+  "family": "water",
+  "owner": "ham_nguyet",
+  "rank": "ngoai_mon",
+  "concept": "The outer gate's method, learned on the pearl beds before it is learned in a hall. The diver breathes out, sinks, and lets the lake's Water qi in through the skin while the lungs are empty, so that a disciple cultivates most at the bottom of the lake. At the sixth layer a diver can stay down the length of one incense stick. In a fight it gives a long, even linh lực and very little else.",
+  "lore": "Older than the manor: the fishers of Tuyết Lộc dived this way before 470, when one of them brought up the fist-sized pearl (A007). The founder Đới Thiềm Quang wrote nothing down; the divers taught it to her."
+ },
+ {
+  "id": "moon-holding-scripture",
+  "name": "Moon-Holding Scripture (Hàm Nguyệt Kinh)",
+  "tier": 2,
+  "tech_kind": "main",
+  "names": ["thuy"],
+  "layers": 12,
+  "bonuses": [
+   {"stat": "linh_luc_pct", "value": 12},
+   {"stat": "defense_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "ward_efficiency_pct", "value": 8, "scope": []},
+   {"key": "healing_pct", "value": 10, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 12, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 5, "scope": []},
+   {"key": "stack_duration_pct", "value": 12, "scope": ["thuy", "buff"]}
+  ],
+  "abilities": [
+   {"ability_id": "deep-lake-stance", "unlock_layer": 1},
+   {"ability_id": "full-pool", "unlock_layer": 2},
+   {"ability_id": "the-moon-in-the-water", "unlock_layer": 4}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "moon-holding-scripture",
+  "family": "water",
+  "owner": "ham_nguyet",
+  "rank": "noi_mon",
+  "concept": "The manor's own method. The cultivator sits on the stilt-halls over the still pool of Trầm Bích Đàm on the nights the moon lies on it, and draws the reflection's cold Water qi down into the dantian, where it is laid on in thin rings like nacre round a grain. Each layer is one ring. In a fight it is slow, patient Water: it heals, wards and wears a foe down, and its strongest art is a double of the holder, laid like a reflection, that takes the blow meant for her.",
+  "lore": "The founder said the moon in the lake is easier to catch than the one in the sky (A006); this is how. In the winter of 748 the lake froze to its bed (C146) and Kiều Băng Liên kept the spirit fish alive in the reflection with it, and came back with frost in her root."
+ },
+ {
+  "id": "nacre-over-grit-canon",
+  "name": "Nacre Over Grit Canon (Bao Sa Thành Châu Quyết)",
+  "tier": 1,
+  "tech_kind": "secret",
+  "names": ["thuy"],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "defense_pct", "value": 8}
+  ],
+  "passives": [
+   {"key": "ward_efficiency_pct", "value": 6, "scope": []},
+   {"key": "stack_effect_pct", "value": 10, "scope": ["thuy", "buff"]},
+   {"key": "status_resist_pct", "value": 8, "scope": []},
+   {"key": "attack_pct", "value": 6, "scope": ["thuy"]}
+  ],
+  "abilities": [
+   {"ability_id": "wrap-the-grain", "unlock_layer": 1},
+   {"ability_id": "cast-the-pearl", "unlock_layer": 3}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "nacre-over-grit-canon",
+  "family": "water",
+  "owner": "ham_nguyet",
+  "rank": "truong_lao",
+  "concept": "The elders' secret, taken from the oyster: what hurts you, wrap. Each foe art that strikes the holder leaves a grain in her ward, and her Water lays nacre on it; at enough layers the grain becomes a pearl, which she can spend to cast the wrapped art back, smoothed and weakened. It is a defensive art for people who expect to be hit for a long time and to win at the end.",
+  "lore": "Made by Kiều Băng Liên after the Long Lake War (942-944), when the manor had sunk its own boats rather than lose them (A013) and had to sit and wait out the raids. Taught to the mistress and the keeper of the pool."
+ }
+]

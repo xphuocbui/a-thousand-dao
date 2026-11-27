@@ -1,0 +1,27 @@
+{
+ "owner": "ham_nguyet",
+ "minutes": 7,
+ "written": {
+  "techniques": 3,
+  "arts": 5,
+  "items": 4,
+  "sets": 1,
+  "effects": 3,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 5,
+ "decisions": [
+  "Tracked wrap-the-grain on self-counter wrap_stance instead of fighter state slot so it coexists cleanly with deep-lake-stance on kieu_nguyet_chau and muc_tiem_uyen.",
+  "Authored cast-the-pearl as a guarded c_art 2.0 Water strike spending 1 pearl instead of adding a new foe-last-art engine word.",
+  "Authored the-moon-in-the-water with decoy_struck -> 0.08 qi_max restore (as decoy_struck has no amount), refl_t expiry (decoy -1 after 4 s), and False Moon +4 s / +0.035 regen.",
+  "Used ward_grow {share: 0.04, of: hp} per fist_nacre stack in The Pearl Remembers, matching The Door Stays Shut in combat_effects.json.",
+  "Sized unpriced technique bonuses/passives to tier budgets (7.6/8, 23.0/24, 15.7/16), set rarity 5 on hn-tuyet-loc-fist-pearl, unique: true on all 4 items, and R6 exceptions on the 3 weapon/armour pieces."
+ ],
+ "pending_words": [],
+ "never_ran": [],
+ "early_promotions": [],
+ "open": [
+  "Serial step: merge design/stage6-staging/ham_nguyet/ via stage6_merge.py, export combat_library/techniques/named/sets, and close N-ham_nguyet-01..04 events in Stage 7."
+ ]
+}

@@ -1,0 +1,166 @@
+{
+ "_doc": "Hàm Nguyệt Trang's Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:ham_nguyet. Unpriced. Rule text from design/world/depth/sects/ham_nguyet.items.json.",
+ "source": "world-depth:ham_nguyet",
+ "effects": {
+  "The Pearl Remembers": {
+   "rule": "Fist Pearl of Tuyết Lộc: each Pearl you make with the Nacre Over Grit Canon stores 1 Nacre stack in the Fist Pearl (each fades after 30 s). When you fall below a third of your health, the Fist Pearl spends them all: your stance ward grows by 4 % of maximum health per stack (the engine's reading of '4 % of maximum linh lực', matching The Door Stays Shut).",
+   "approx": "4 % of maximum linh lực is expressed as 4 % of maximum health via ward_grow {share: 0.04, of: 'hp'}, matching existing combat_effects.json ward_grow conventions.",
+   "counters": [
+    {"id": "pearl_just_made"},
+    {"id": "fist_nacre", "each_for": 30},
+    {"id": "fist_below"},
+    {"id": "fist_spent"}
+   ],
+   "records": [
+    {
+     "id": "eff:The Pearl Remembers store",
+     "on": "was_hit",
+     "filter": {"kind": "art"},
+     "if": [{"read": "own.counter.pearl_just_made", "op": ">=", "value": 1}],
+     "do": [
+      {"counter": {"id": "fist_nacre", "add": 1}},
+      {"counter": {"id": "pearl_just_made", "set": 0}}
+     ]
+    },
+    {
+     "id": "eff:The Pearl Remembers spend hit",
+     "on": "was_hit",
+     "if": [
+      {"read": "own.hp_share", "op": "<=", "value": 0.3334},
+      {"read": "own.counter.fist_below", "op": "==", "value": 0},
+      {"read": "own.counter.fist_nacre", "op": ">=", "value": 1}
+     ],
+     "scale": {"read": "own.counter.fist_nacre", "per": 1},
+     "do": [
+      {"ward_grow": {"share": 0.04, "of": "hp"}},
+      {"counter": {"id": "fist_spent", "set": 1}},
+      {"counter": {"id": "fist_below", "set": 1}}
+     ]
+    },
+    {
+     "id": "eff:The Pearl Remembers clear hit",
+     "on": "was_hit",
+     "if": [
+      {"read": "own.counter.fist_spent", "op": ">=", "value": 1},
+      {"read": "own.counter.fist_nacre", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"counter": {"id": "fist_nacre", "set": 0}}
+     ]
+    },
+    {
+     "id": "eff:The Pearl Remembers spend pulse",
+     "on": "pulse",
+     "if": [
+      {"read": "own.hp_share", "op": "<=", "value": 0.3334},
+      {"read": "own.counter.fist_below", "op": "==", "value": 0},
+      {"read": "own.counter.fist_nacre", "op": ">=", "value": 1}
+     ],
+     "scale": {"read": "own.counter.fist_nacre", "per": 1},
+     "do": [
+      {"ward_grow": {"share": 0.04, "of": "hp"}},
+      {"counter": {"id": "fist_spent", "set": 1}},
+      {"counter": {"id": "fist_below", "set": 1}}
+     ]
+    },
+    {
+     "id": "eff:The Pearl Remembers clear pulse",
+     "on": "pulse",
+     "if": [
+      {"read": "own.counter.fist_spent", "op": ">=", "value": 1},
+      {"read": "own.counter.fist_nacre", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"counter": {"id": "fist_nacre", "set": 0}}
+     ]
+    },
+    {
+     "id": "eff:The Pearl Remembers rearm",
+     "on": "pulse",
+     "if": [
+      {"read": "own.hp_share", "op": ">", "value": 0.3334},
+      {"read": "own.counter.fist_below", "op": ">=", "value": 1}
+     ],
+     "do": [
+      {"counter": {"id": "fist_below", "set": 0}},
+      {"counter": {"id": "fist_spent", "set": 0}}
+     ]
+    }
+   ]
+  },
+  "False Moon": {
+   "rule": "Moon-Fish Lantern: while the lantern is lit, your Moon in the Water reflection lasts twice as long (adds +4 s to its 4 s window), and while it is up you regenerate linh lực as if cultivating (+0.035 regen bonus, doubling base meditation regeneration).",
+   "counters": [
+    {"id": "refl_up"},
+    {"id": "refl_t"}
+   ],
+   "records": [
+    {
+     "id": "eff:False Moon extend",
+     "on": "art_fired",
+     "filter": {"art_id": "the-moon-in-the-water"},
+     "do": [
+      {"counter": {"id": "refl_t", "add": 4}}
+     ]
+    },
+    {
+     "id": "eff:False Moon regen",
+     "on": "always",
+     "if": [{"read": "own.counter.refl_up", "op": ">=", "value": 1}],
+     "do": [
+      {"mod": {"regen": 0.035}}
+     ]
+    }
+   ]
+  },
+  "What Hurts You, Wrap": {
+   "rule": "Moon over Pearl, full set (3 pieces): each foe art your ward absorbs lays 1 Nacre on the Fist Pearl; when the Fist Pearl spends its Nacre, your stance ward freezes unbreakable for 2 s (ward_fixed) and the next Cast the Pearl you fire lays 2 Ice stacks (8 s).",
+   "counters": [
+    {"id": "fist_nacre", "each_for": 30},
+    {"id": "fist_spent"},
+    {"id": "next_pearl_ice"}
+   ],
+   "records": [
+    {
+     "id": "eff:What Hurts You, Wrap absorb",
+     "on": "ward_absorbed",
+     "filter": {"kind": "art"},
+     "limit": {"cooldown": 0.1},
+     "do": [
+      {"counter": {"id": "fist_nacre", "add": 1}}
+     ]
+    },
+    {
+     "id": "eff:What Hurts You, Wrap freeze hit",
+     "on": "was_hit",
+     "if": [{"read": "own.counter.fist_spent", "op": ">=", "value": 1}],
+     "do": [
+      {"mod": {"ward_fixed": 1, "for": 2}},
+      {"counter": {"id": "next_pearl_ice", "set": 2}},
+      {"counter": {"id": "fist_spent", "set": 0}}
+     ]
+    },
+    {
+     "id": "eff:What Hurts You, Wrap freeze pulse",
+     "on": "pulse",
+     "if": [{"read": "own.counter.fist_spent", "op": ">=", "value": 1}],
+     "do": [
+      {"mod": {"ward_fixed": 1, "for": 2}},
+      {"counter": {"id": "next_pearl_ice", "set": 2}},
+      {"counter": {"id": "fist_spent", "set": 0}}
+     ]
+    },
+    {
+     "id": "eff:What Hurts You, Wrap pearl",
+     "on": "art_fired",
+     "filter": {"art_id": "cast-the-pearl"},
+     "if": [{"read": "own.counter.next_pearl_ice", "op": ">=", "value": 1}],
+     "do": [
+      {"stacks": {"el": "ice", "n": 2, "for": 8, "side": "foe"}},
+      {"counter": {"id": "next_pearl_ice", "set": 0}}
+     ]
+    }
+   ]
+  }
+ }
+}
