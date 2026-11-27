@@ -1,0 +1,270 @@
+{
+ "_doc": "Hồng Đậu Trang's Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py under source world-depth:hong_dau. Unpriced. Rule text from design/world/depth/sects/hong_dau.items.json.",
+ "source": "world-depth:hong_dau",
+ "effects": {
+  "Half of a Pair": {
+   "rule": "Phi Hồng, Flying Red: while Tàn Hồng is not held by the same person, this sword's crit chance (+8 % [sword]) counts only against a foe carrying your Wood stacks. Held together with Tàn Hồng, each crit with either sword scatters a petal that gives the foe one Wood stack (Tàn Hồng is lost in slot V-1).",
+   "approx": "Tàn Hồng is not in the game yet, so only the un-paired half runs: -8 crit [sword] while the foe carries 0 Wood stacks.",
+   "records": [
+    {
+     "id": "eff:Half of a Pair",
+     "on": "always",
+     "if": [
+      {
+       "read": "foe.debuff.wood",
+       "op": "<=",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "crit": -8,
+        "tags": [
+         "sword"
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Second Cup Is Poured": {
+   "rule": "Fan of the Gracious Door: after 20 seconds in the fight, the foe takes 10 % more damage from your Wood poisons and Charmed lasts 1 pulse longer on them.",
+   "approx": "Wood poison ticks do not read live damage modifiers, so the +10 % poison damage after 20 s runs as a per-pulse Chaos trigger scaled by foe Wood stacks (c 0.002, pass_shields, outside_budget).",
+   "records": [
+    {
+     "id": "eff:The Second Cup Is Poured poison",
+     "on": "tick_dealt",
+     "filter": {
+      "element": "wood"
+     },
+     "if": [
+      {
+       "read": "time",
+       "op": ">",
+       "value": 20
+      },
+      {
+       "read": "foe.debuff.wood",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_pulse": 1
+     },
+     "scale": {
+      "read": "foe.debuff.wood",
+      "per": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.002,
+        "dtype": "chaos",
+        "pass_shields": true,
+        "outside_budget": true
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Second Cup Is Poured charm",
+     "on": "always",
+     "if": [
+      {
+       "read": "time",
+       "op": ">",
+       "value": 20
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "status_dur": 50,
+        "tags": [
+         "charmed"
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Second Cup": {
+   "rule": "Tea at the Manor, full set (2 pieces): once per foe each fight, when the foe carries eight or more of your Wood Poison stacks, they drink the second cup: they are Charmed (2 s), their Wood Poison batches refresh, and they gain 2 Heavy Breath (4 s).",
+   "approx": "Reads Wood debuff stacks (foe.debuff.wood >= 8) rather than batch count, and refreshes Wood debuff batches to full duration instead of pausing their countdown for 3 s.",
+   "records": [
+    {
+     "id": "eff:The Second Cup",
+     "on": "status_applied",
+     "filter": {
+      "element": "wood"
+     },
+     "if": [
+      {
+       "read": "foe.debuff.wood",
+       "op": ">=",
+       "value": 8
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "status": {
+        "id": "charmed",
+        "stacks": 1,
+        "dur": 2,
+        "side": "foe"
+       }
+      },
+      {
+       "refresh": {
+        "el": "wood",
+        "side": "foe",
+        "kind": "debuff"
+       }
+      },
+      {
+       "status": {
+        "id": "heavy_breath",
+        "stacks": 2,
+        "dur": 4,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Planted, Waited, Harvested": {
+   "rule": "The Back Garden, full set (3 pieces): once Wood Poison has lasted 6 s on the foe, your Wood Poison grants double-stack (+1 stack per grant). Once a fight when a Wood art (other than Gather More) lands on a foe with 6+ Wood stacks after 6 s of poison, you harvest all Wood stacks for immediate Chaos damage (0.15 per stack) and heal 0.5 % max health per stack.",
+   "approx": "Tracks elapsed seconds of Wood Poison on the foe (garden_ripe_t >= 6) rather than per-batch age, doubles single-stack grants via stack_grant +1 [wood, debuff], and fires the one-time harvest on a Wood art hit.",
+   "counters": [
+    {
+     "id": "garden_ripe_t"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Planted, Waited, Harvested tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "foe.debuff.wood",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "garden_ripe_t",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Planted, Waited, Harvested clear",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "foe.debuff.wood",
+       "op": "<=",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "garden_ripe_t",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Planted, Waited, Harvested ripe",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.garden_ripe_t",
+       "op": ">=",
+       "value": 6
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "stack_grant": 1,
+        "element": "wood",
+        "kind": "debuff"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Planted, Waited, Harvested harvest",
+     "on": "hit_landed",
+     "filter": {
+      "element": "wood",
+      "kind": "art",
+      "not_art_id": [
+       "gather-more"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.garden_ripe_t",
+       "op": ">=",
+       "value": 6
+      },
+      {
+       "read": "foe.debuff.wood",
+       "op": ">=",
+       "value": 6
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "consume": {
+        "el": "wood",
+        "side": "foe",
+        "kind": "debuff",
+        "per": 1,
+        "then": [
+         {
+          "free_hit": {
+           "c": 0.15,
+           "dtype": "chaos",
+           "pass_shields": true,
+           "outside_budget": true
+          }
+         },
+         {
+          "heal": {
+           "share": 0.005
+          }
+         }
+        ]
+       }
+      },
+      {
+       "counter": {
+        "id": "garden_ripe_t",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

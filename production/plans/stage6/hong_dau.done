@@ -1,0 +1,32 @@
+{
+ "owner": "hong_dau",
+ "minutes": 7,
+ "written": {
+  "techniques": 2,
+  "arts": 4,
+  "items": 7,
+  "sets": 2,
+  "effects": 4,
+  "stand_ins": 1,
+  "beasts": 0
+ },
+ "deviations": 5,
+ "decisions": [
+  "Picked Phượng Minh's committed wutong-dawn-breath (layer 6) as te_vong_quy's stand-in because it is Phượng Minh's own main method, fits his Fire 56 root and layer 6 cap, and needs no foreign/ edit.",
+  "Expressed all 4 arts and 4 Effects using existing engine words (poison_age counter, cup_weaken counter, tick_dealt trigger, refresh, garden_ripe_t + stack_grant) with no pending.json needed.",
+  "Guarded gather-more on foe.debuff.wood >= 4 with 8 s cooldown so a-branch-in-spring, The Second Cup (8+ stacks), and Planted, Waited, Harvested (6 s ripe) can build before stacks are consumed.",
+  "Kept all 4 hong_dau arts stance-free (counters only) so dual-technique holders using marching-dirge never collide on the single stance slot.",
+  "Marked all 6 weapons/robes with the R6 exception, all 7 items with sources ['npc'] and unique: true, and converted treasure hd-phi-hong from grade 4 to rarity 5."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "Half of a Pair: always-only record (Fight.do counter ignores always), Tan Hong is not in the game yet, and flying-sword-strike sits outside nghe_hong_dau's 6-art slice in sect_fight.py; verified via probe with flying-sword-strike slotted (19.0 s vs 18.8 s without).",
+  "The Second Cup Is Poured: lieu_da_thai ends fights at 15.4 s (gap 0) and 8.4 s (gap 1) before time > 20; verified via tanky Truc Co probe n_body=3.0 (27.5 s 92% vs 28.8 s 91% without, 50 runs)."
+ ],
+ "early_promotions": [],
+ "open": [
+  "Serial step: run stage6_merge.py hong_dau and put_effects.py.",
+  "Stage 7 export of phuong_minh closes cross_owner 1 (wutong-dawn-breath on te_vong_quy).",
+  "Add the paired-sword crit petal record to Half of a Pair when Tan Hong (slot V-1) is authored."
+ ]
+}

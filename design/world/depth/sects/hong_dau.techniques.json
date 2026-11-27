@@ -20,7 +20,7 @@
    "tier": 0, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The bean-pickers' method, learned on the trellises at the back garden. The student draws Wood or Water qi through the fingertips while sorting red beans, which are bright, pretty and deadly, by touch alone, so that the hand learns which seed is ripe and which is poison before the eye does. It is a gentle method with one hard lesson: a picker who sorts carelessly dies of it. In a fight it sows seeds that ripen into small poisons.",
    "arts": [
-    {"new": "Scatter Beans (Tán Đậu)", "concept": "Throws a handful of red beans: the foe hit gains one Wood poison stack, and a foe who already holds three stacks is slowed briefly."}
+    {"id": "scatter-beans", "new": "Scatter Beans (Tán Đậu)", "concept": "Throws a handful of red beans: the foe hit gains one Wood poison stack, and a foe who already holds three stacks is slowed briefly."}
    ],
    "lore": "Written by Nghê Hồng Đậu in 912 for the first girls she took in at the manor, two years after she found the sword and planted the beans (C168, A275).",
    "status": "proposal"
@@ -31,9 +31,9 @@
    "tier": 2, "tech_kind": "main", "names": ["moc"], "layers": 12, "rank": "noi_mon",
    "concept": "The manor's own canon, made from a line of an old poem: red beans grow in the southern land, and these most of all are longing. Its poisons do not strike. They ripen. Each Wood stack on a foe grows heavier the longer it is left, as longing does, and the cultivator's charm arts make a foe less willing to break away. Against a careful foe it is slow; against a foe who stays too long it is final.",
    "arts": [
-    {"new": "A Branch in Spring (Xuân Phát Chi)", "concept": "Plants a red bean in the foe: a Wood poison that deals little at first and grows each second it is not cleansed; it stops growing (and keeps what it has) once the holder goes 4 s without laying another Wood poison."},
-    {"new": "Gather More (Đa Thải Hiệt)", "concept": "Harvests every ripening poison on the foe at once for damage by their age, and heals the holder for part of it."},
-    {"new": "The Second Cup (Đệ Nhị Bôi)", "concept": "A charm: the foe is Charmed for 2 s; while it holds, its escape and its cleanses fail, and its first art after the charm ends deals 20 % less.", "authored": "d34"}
+    {"id": "a-branch-in-spring", "new": "A Branch in Spring (Xuân Phát Chi)", "concept": "Plants a red bean in the foe: a Wood poison that deals little at first and grows each second it is not cleansed; it stops growing (and keeps what it has) once the holder goes 4 s without laying another Wood poison."},
+    {"id": "gather-more", "new": "Gather More (Đa Thải Hiệt)", "concept": "Harvests every ripening poison on the foe at once for damage by their age, and heals the holder for part of it."},
+    {"id": "the-second-cup", "new": "The Second Cup (Đệ Nhị Bôi)", "concept": "A charm: the foe is Charmed for 2 s; while it holds, its escape and its cleanses fail, and its first art after the charm ends deals 20 % less.", "authored": "d34"}
    ],
    "lore": "Nghê Hồng Đậu wrote it between 915 and 960, after she could not open the art of the sword she had found (C168). The manor says she made her own art so as not to need the sword's.",
    "status": "proposal",

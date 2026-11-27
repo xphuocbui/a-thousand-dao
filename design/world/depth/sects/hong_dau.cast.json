@@ -799,7 +799,7 @@
    "build": {
     "archetype": "kiem_tu",
     "main": {
-     "tech": "huyen_hoa",
+     "tech": "wutong-dawn-breath",
      "layer": 6
     },
     "aux": [],
