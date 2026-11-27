@@ -1,0 +1,426 @@
+{
+ "_doc": "Xuyên Lâm Môn's Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py, which merges them into assets/data/combat_effects.json under source world-depth:xuyen_lam. Unpriced. Every Effect declares all counters it reads or writes for standalone GDScript compilation.",
+ "source": "world-depth:xuyen_lam",
+ "effects": {
+  "The Long Road": {
+   "rule": "Staff Canon of the Calmed Wind and Waves (passive art, layer 5, authored wish d23): While you are Pressing, your arts cost 5 % less linh lực, and a further 1 % less for each Walk Slowly stack you hold.",
+   "approx": "Uses live always-on additive cost_red (0.05 base + 0.01 per walk_slowly stack, bounded by engine cost_red_cap 0.95) instead of compounding 1 % off remaining cost; practically identical at normal Walk Slowly stack counts and never reaches zero cost.",
+   "counters": [
+    {
+     "id": "walk_slowly",
+     "each_for": 15.0
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Long Road:base",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.pressing",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "cost_red": 0.05
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Long Road:walk",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.pressing",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.walk_slowly",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.walk_slowly",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "cost_red": 0.01
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Do Not Listen": {
+   "rule": "Heart That Does Not Listen to the Rain (passive art, layer 1): A passive ward: incoming soul damage is reduced by 15 % and charm resistance is raised by 20 %; each soul hit, song hit or pulse under Charm raises the ward by 1 stack (+5 % soul resistance and +5 % charm resistance each), and the raise fades by a tenth each second.",
+   "approx": "Uses decay_share: 0.1 on unheeding_ward (fades 10 % every pulse, including the pulse it was raised). Raises on soul_taken, was_hit (tags: [song]), and pulse while own.status.charmed >= 1 (engine has no status_taken event on the target).",
+   "counters": [
+    {
+     "id": "unheeding_ward",
+     "decay_share": 0.1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Do Not Listen:base",
+     "on": "always",
+     "do": [
+      {
+       "mod": {
+        "soul_res": 15
+       }
+      },
+      {
+       "mod": {
+        "status_resist": 20,
+        "status": "charmed"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Do Not Listen:scale",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.unheeding_ward",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.unheeding_ward",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "soul_res": 5
+       }
+      },
+      {
+       "mod": {
+        "status_resist": 5,
+        "status": "charmed"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Do Not Listen:soul",
+     "on": "soul_taken",
+     "do": [
+      {
+       "counter": {
+        "id": "unheeding_ward",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Do Not Listen:song",
+     "on": "was_hit",
+     "filter": {
+      "tags": [
+       "song"
+      ]
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "unheeding_ward",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Do Not Listen:charm",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.status.charmed",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "unheeding_ward",
+        "add": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Rain on the Leaves": {
+   "rule": "Founder's Bamboo Staff: While you keep Pressing, the foe's art that hits you gives you one Walk Slowly stack, as if you had walked a second longer.",
+   "counters": [
+    {
+     "id": "walk_slowly",
+     "each_for": 15.0
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Rain on the Leaves",
+     "on": "was_hit",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.pressing",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "walk_slowly",
+        "add": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Lamp on the Road": {
+   "rule": "Guide's Lamp: The foe cannot be unseen (+20 accuracy for the fight). Once per fight, your first escape art costs no linh lực and your escape chance is raised by 50.",
+   "approx": "One-on-one fight.py has no stealth/unseen state: 'cannot be unseen' grants +20 acc for the fight, and 'leave at no cost once per fight' waives the first escape-tagged art's cost via next_art_cost: 0.0 and grants +50 escape chance (a holder without an escape art never auto-flees).",
+   "counters": [],
+   "records": [
+    {
+     "id": "eff:Lamp on the Road:sight",
+     "on": "fight_start",
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "acc": 20,
+        "escape": 50,
+        "for": 300.0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Lamp on the Road:escape_free",
+     "on": "fight_start",
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "next_art_cost": 0.0,
+        "tags": [
+         "escape"
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Step Before the Strike": {
+   "rule": "Son of Thủ Lôi Bảo, full set (2 pieces): each time you evade, your next staff strike cannot be blocked and lands an additional Lightning shock worth 30 % of its damage.",
+   "approx": "Engine has no live damage-conversion mod (convert is static on ArtDef). Approximates '30 % of its damage as Lightning' by keeping the full unblocked staff strike (1 ms ignore_block: 1 on staff art_fired, since defend reads ignore_block with ctx=None) and adding a Lightning shock (return_damage share: 0.30, dtype: lightning) on staff hit_landed so Walk Slowly stacks and crits still scale it cleanly.",
+   "counters": [
+    {
+     "id": "step_before",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Step Before the Strike:arm",
+     "on": "evaded",
+     "do": [
+      {
+       "counter": {
+        "id": "step_before",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Step Before the Strike:unblock",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "staff"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.step_before",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "ignore_block": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Step Before the Strike:shock",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "staff"
+      ],
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.step_before",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "return_damage": {
+        "share": 0.3,
+        "dtype": "lightning"
+       }
+      },
+      {
+       "counter": {
+        "id": "step_before",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Step Before the Strike:miss_clear",
+     "on": "was_evaded",
+     "filter": {
+      "tags": [
+       "staff"
+      ],
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.step_before",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "step_before",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Lamp Does Not Go Out": {
+   "rule": "The Lamp and the Road, full set (2 pieces): each hit you evade keeps the lamp lit for 3 more seconds, and while it is lit you regenerate 1 % of your health each second. Below a quarter of your health the lamp lights itself, and the regeneration doubles (2 % of your health each second).",
+   "counters": [
+    {
+     "id": "lamp_lit"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Lamp Does Not Go Out:evade",
+     "on": "evaded",
+     "do": [
+      {
+       "counter": {
+        "id": "lamp_lit",
+        "add": 3
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Lamp Does Not Go Out:regen_lit",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.lamp_lit",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.hp_share",
+       "op": ">",
+       "value": 0.25
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.01
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Lamp Does Not Go Out:regen_low",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.25
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.02
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Lamp Does Not Go Out:tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.lamp_lit",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "lamp_lit",
+        "add": -1
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
