@@ -3,7 +3,7 @@
  "source": "world-depth:tuan_tung",
  "effects": {
   "Warden Geese Line": {
-   "rule": "Pine Warden's Staff and Bow Canon (passive art, layer 2, authored wish d17 1v1 adaptation): while your warden file is braced (after firing a Pine Warden art), your Caravan Bell rally holds, or your companion fights beside you, you gain +8 block rating for each active anchor.",
+   "rule": "Pine Warden's Staff and Bow Canon (passive art, layer 2, authored wish d17 1v1 adaptation): while your warden file is braced (after firing a Pine Warden art), your Caravan Bell rally holds, or your companion fights with you, you gain +8 block rating for each active anchor.",
    "approx": "1v1 adaptation of Geese Line under a distinct key (nhan_tran owns Geese Line): counts warden_brace (Pine Warden art fired), ring_wardens (Caravan Bell rally), and warden_companion (companion hit/evade) instead of multi-fighter ally counts",
    "counters": [
     {"id": "warden_brace"},

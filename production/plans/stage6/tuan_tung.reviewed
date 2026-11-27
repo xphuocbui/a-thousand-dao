@@ -1,0 +1,13 @@
+{
+ "owner": "tuan_tung",
+ "minutes": 7,
+ "must_fix": 0,
+ "should": 1,
+ "fixed": 2,
+ "words": {},
+ "open": [
+  "Serial merge and export (stage6_merge.py, export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py --sect tuan_tung) to close techniques, arts_new, items, sets, effects, thuong_muc beast, and N-tuan_tung-01..02 events.",
+  "b10 ['bow'] scope: restore scope ['bow'] on pine-warden-staff-and-bow-canon (attack_pct, crit_damage_pct) and ttg-wolf-winter-bow (attack_pct) once 'bow' enters lint_techniques.py TIER during s6-serial-b05.",
+  "Out-of-fight can_cot 1.33 passive on pine-warden-staff-and-bow-canon has no StatSheet/fight.py reader yet (depth_gap lines: 1 open)."
+ ]
+}

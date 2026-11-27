@@ -26,7 +26,7 @@
     "name": "Warden Geese Line",
     "unlock_layer": 2,
     "passive_art": true,
-    "rule": "A passive art (d17, 1v1 adaptation of Geese Line). While your warden file is braced (after firing a Pine Warden art), your Caravan Bell rally holds, or your companion fights beside you, you gain +8 block rating for each active anchor."
+    "rule": "A passive art (d17, 1v1 adaptation of Geese Line). While your warden file is braced (after firing a Pine Warden art), your Caravan Bell rally holds, or your companion fights with you, you gain +8 block rating for each active anchor."
    }
   ],
   "origin": "authored",
