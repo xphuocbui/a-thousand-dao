@@ -14,66 +14,100 @@
     {"id": "pl_c4", "cap": 1},
     {"id": "pl_c5", "cap": 1},
     {"id": "pl_bird_flag", "cap": 1},
+    {"id": "bird_pl_pulse", "cap": 1},
     {"id": "bird_empowered", "cap": 1}
    ],
    "records": [
     {
+     "id": "eff:Birds Pay Court to the Phoenix pulse",
+     "on": "pulse",
+     "if": [{"read": "own.counter.bird_pl_pulse", "op": ">=", "value": 1}],
+     "do": [{"counter": {"id": "bird_pl_pulse", "set": 0}}]
+    },
+    {
      "id": "eff:Birds Pay Court to the Phoenix c5",
      "on": "hit_landed",
      "filter": {"kind": "companion", "tags": ["bird"]},
-     "limit": {"per_pulse": 1},
      "if": [
+      {"read": "own.counter.bird_pl_pulse", "op": "==", "value": 0},
+      {"read": "own.counter.plumage", "op": "<", "value": 5},
       {"read": "own.counter.pl_c1", "op": "==", "value": 1},
       {"read": "own.counter.pl_c2", "op": "==", "value": 1},
       {"read": "own.counter.pl_c3", "op": "==", "value": 1},
       {"read": "own.counter.pl_c4", "op": "==", "value": 1},
       {"read": "own.counter.pl_c5", "op": "==", "value": 0}
      ],
-     "do": [{"counter": {"id": "pl_c5", "set": 1}}, {"counter": {"id": "plumage", "add": 1}}]
+     "do": [
+      {"counter": {"id": "pl_c5", "set": 1}},
+      {"counter": {"id": "plumage", "add": 1}},
+      {"counter": {"id": "bird_pl_pulse", "set": 1}}
+     ]
     },
     {
      "id": "eff:Birds Pay Court to the Phoenix c4",
      "on": "hit_landed",
      "filter": {"kind": "companion", "tags": ["bird"]},
-     "limit": {"per_pulse": 1},
      "if": [
+      {"read": "own.counter.bird_pl_pulse", "op": "==", "value": 0},
+      {"read": "own.counter.plumage", "op": "<", "value": 5},
       {"read": "own.counter.pl_c1", "op": "==", "value": 1},
       {"read": "own.counter.pl_c2", "op": "==", "value": 1},
       {"read": "own.counter.pl_c3", "op": "==", "value": 1},
       {"read": "own.counter.pl_c4", "op": "==", "value": 0}
      ],
-     "do": [{"counter": {"id": "pl_c4", "set": 1}}, {"counter": {"id": "plumage", "add": 1}}]
+     "do": [
+      {"counter": {"id": "pl_c4", "set": 1}},
+      {"counter": {"id": "plumage", "add": 1}},
+      {"counter": {"id": "bird_pl_pulse", "set": 1}}
+     ]
     },
     {
      "id": "eff:Birds Pay Court to the Phoenix c3",
      "on": "hit_landed",
      "filter": {"kind": "companion", "tags": ["bird"]},
-     "limit": {"per_pulse": 1},
      "if": [
+      {"read": "own.counter.bird_pl_pulse", "op": "==", "value": 0},
+      {"read": "own.counter.plumage", "op": "<", "value": 5},
       {"read": "own.counter.pl_c1", "op": "==", "value": 1},
       {"read": "own.counter.pl_c2", "op": "==", "value": 1},
       {"read": "own.counter.pl_c3", "op": "==", "value": 0}
      ],
-     "do": [{"counter": {"id": "pl_c3", "set": 1}}, {"counter": {"id": "plumage", "add": 1}}]
+     "do": [
+      {"counter": {"id": "pl_c3", "set": 1}},
+      {"counter": {"id": "plumage", "add": 1}},
+      {"counter": {"id": "bird_pl_pulse", "set": 1}}
+     ]
     },
     {
      "id": "eff:Birds Pay Court to the Phoenix c2",
      "on": "hit_landed",
      "filter": {"kind": "companion", "tags": ["bird"]},
-     "limit": {"per_pulse": 1},
      "if": [
+      {"read": "own.counter.bird_pl_pulse", "op": "==", "value": 0},
+      {"read": "own.counter.plumage", "op": "<", "value": 5},
       {"read": "own.counter.pl_c1", "op": "==", "value": 1},
       {"read": "own.counter.pl_c2", "op": "==", "value": 0}
      ],
-     "do": [{"counter": {"id": "pl_c2", "set": 1}}, {"counter": {"id": "plumage", "add": 1}}]
+     "do": [
+      {"counter": {"id": "pl_c2", "set": 1}},
+      {"counter": {"id": "plumage", "add": 1}},
+      {"counter": {"id": "bird_pl_pulse", "set": 1}}
+     ]
     },
     {
      "id": "eff:Birds Pay Court to the Phoenix c1",
      "on": "hit_landed",
      "filter": {"kind": "companion", "tags": ["bird"]},
-     "limit": {"per_pulse": 1},
-     "if": [{"read": "own.counter.pl_c1", "op": "==", "value": 0}],
-     "do": [{"counter": {"id": "pl_c1", "set": 1}}, {"counter": {"id": "plumage", "add": 1}}]
+     "if": [
+      {"read": "own.counter.bird_pl_pulse", "op": "==", "value": 0},
+      {"read": "own.counter.plumage", "op": "<", "value": 5},
+      {"read": "own.counter.pl_c1", "op": "==", "value": 0}
+     ],
+     "do": [
+      {"counter": {"id": "pl_c1", "set": 1}},
+      {"counter": {"id": "plumage", "add": 1}},
+      {"counter": {"id": "bird_pl_pulse", "set": 1}}
+     ]
     },
     {
      "id": "eff:Birds Pay Court to the Phoenix reward",
@@ -102,9 +136,15 @@
   },
   "Playing Past the Break": {
    "rule": "Shao Remnant Score (technique Effect, authored e4): Once a fight, firing Remnant Score's Next Movement right after its seventh attempts the eighth movement via a counted-chance meter (p = (thần hồn + khí vận) / 400). Success: 5 Slowed Time (5 s) on foe and +10 % linh lực. Failure: −10 % health and −10 % linh lực backlash. Restarts score at first either way.",
-   "approx": "attaching this technique Effect and seeding build meters await pending words technique-effects and carried-meter; −10 % health backlash modelled as self_hit c=2.2 soul (~10 % HP on Kết Đan holders) and −10 % linh lực is guarded by own.qi_share >= 0.1 so pool does not go negative",
-   "pending": "technique-effects: loader does not yet attach technique Effects or build meters; runs when supplied via tree_effects and meters",
-   "counters": [{"id": "remnant_movement"}, {"id": "remnant_ready_8", "cap": 1}, {"id": "break_tried", "cap": 1}, {"id": "break_backlash", "cap": 1}],
+   "approx": "attaching this technique Effect and seeding build meters await pending words technique-effects and carried-meter; failure −10 % health and −10 % linh lực backlash are paid on the next pulse via 1 % upkeep counters (exact own max HP/linh lực at any realm gap, leaving pay_keep_health)",
+   "pending": "technique-effects, carried-meter: loader does not yet attach technique Effects or build meters; runs when supplied via tree_effects and meters",
+   "counters": [
+    {"id": "remnant_movement"},
+    {"id": "remnant_ready_8", "cap": 1},
+    {"id": "break_tried", "cap": 1},
+    {"id": "break_hp_backlash", "cap": 10, "upkeep": {"pool": "hp", "per_stack": 0.01}},
+    {"id": "break_qi_backlash", "cap": 10, "upkeep": {"pool": "qi", "per_stack": 0.01}}
+   ],
    "records": [
     {
      "id": "eff:Playing Past the Break",
@@ -127,8 +167,8 @@
          {"counter": {"id": "remnant_movement", "set": 0}}
         ],
         "failure": [
-         {"self_hit": {"c": 2.2, "dtype": "soul"}},
-         {"counter": {"id": "break_backlash", "set": 1}},
+         {"counter": {"id": "break_hp_backlash", "set": 10}},
+         {"counter": {"id": "break_qi_backlash", "set": 10}},
          {"counter": {"id": "remnant_movement", "set": 0}}
         ]
        }
@@ -136,42 +176,29 @@
      ]
     },
     {
-     "id": "eff:Playing Past the Break reset",
-     "on": "art_fired",
-     "filter": {"art_id": "remnant-next-movement"},
-     "if": [
-      {"read": "own.counter.remnant_ready_8", "op": "==", "value": 1},
-      {"read": "own.counter.remnant_movement", "op": ">=", "value": 7},
-      {"read": "own.counter.break_tried", "op": ">=", "value": 1}
-     ],
-     "do": [
-      {"counter": {"id": "remnant_ready_8", "set": 0}},
-      {"counter": {"id": "remnant_movement", "set": 0}}
-     ]
-    },
-    {
-     "id": "eff:Playing Past the Break backlash qi",
-     "on": "art_fired",
-     "if": [
-      {"read": "own.counter.break_backlash", "op": "==", "value": 1},
-      {"read": "own.qi_share", "op": ">=", "value": 0.1}
-     ],
-     "do": [
-      {"gain_qi": {"share": -0.1}},
-      {"counter": {"id": "break_backlash", "set": 0}}
-     ]
-    },
-    {
      "id": "eff:Playing Past the Break backlash clear",
-     "on": "art_fired",
-     "if": [{"read": "own.counter.break_backlash", "op": ">=", "value": 1}],
-     "do": [{"counter": {"id": "break_backlash", "set": 0}}]
+     "on": "pulse",
+     "if": [
+      {
+       "any": [
+        {"read": "own.counter.break_hp_backlash", "op": ">=", "value": 1},
+        {"read": "own.counter.break_qi_backlash", "op": ">=", "value": 1}
+       ]
+      }
+     ],
+     "do": [
+      {"counter": {"id": "break_hp_backlash", "set": 0}},
+      {"counter": {"id": "break_qi_backlash", "set": 0}}
+     ]
     },
     {
      "id": "eff:Playing Past the Break arm",
      "on": "art_fired",
      "filter": {"art_id": "remnant-next-movement"},
-     "if": [{"read": "own.counter.remnant_movement", "op": ">=", "value": 7}],
+     "if": [
+      {"read": "own.counter.remnant_movement", "op": ">=", "value": 7},
+      {"read": "own.counter.break_tried", "op": "==", "value": 0}
+     ],
      "do": [{"counter": {"id": "remnant_ready_8", "set": 1}}]
     },
     {
@@ -187,11 +214,12 @@
   },
   "Eight of Nine": {
    "rule": "Tiêu Thiều Quản (pm-tieu-thieu-quan): Played as an art, each movement lays one Shao stack on the foe; a foe with eight stacks holds its arts: those that come ready in the next 2 s wait until the 2 s end. The ninth movement is not an art: while it plays, no hearer of lower realm can act against the player. Story use only.",
-   "approx": "lays 1 Shao stack on fight start and stops the foe's clock for 2 s whenever foe Shao reaches 8 (cooldown 6 s); the ninth movement's lower-realm pacification is story-only",
+   "approx": "each song art fired lays 1 Shao stack on the foe, and when foe Shao reaches 8 it stops the foe's clock for 2 s (cooldown 6 s); the ninth movement's lower-realm pacification is story-only",
    "records": [
     {
-     "id": "eff:Eight of Nine open",
-     "on": "fight_start",
+     "id": "eff:Eight of Nine step",
+     "on": "art_fired",
+     "filter": {"tags": ["song"]},
      "do": [{"counter": {"id": "shao", "side": "foe", "add": 1}}]
     },
     {
@@ -246,7 +274,6 @@
      "id": "eff:The Birds Bring the Fire",
      "on": "hit_landed",
      "filter": {"kind": "companion", "tags": ["bird"]},
-     "limit": {"per_pulse": 2},
      "do": [{"stacks": {"el": "fire", "n": 1, "for": 4, "side": "own"}}]
     }
    ]
@@ -282,27 +309,30 @@
      "id": "eff:Two Wings Beat count",
      "on": "art_fired",
      "filter": {"tags": ["fan"]},
-     "limit": {"per_pulse": 1},
      "do": [{"counter": {"id": "wing_beat", "add": 1}}]
     },
     {
      "id": "eff:Two Wings Beat count flint",
      "on": "art_fired",
      "filter": {"art_id": "flint-volley"},
-     "limit": {"per_pulse": 1},
      "do": [{"counter": {"id": "wing_beat", "add": 1}}]
     },
     {
      "id": "eff:Two Wings Beat count gale",
      "on": "art_fired",
      "filter": {"art_id": "ash-feather-gale"},
-     "limit": {"per_pulse": 1},
+     "do": [{"counter": {"id": "wing_beat", "add": 1}}]
+    },
+    {
+     "id": "eff:Two Wings Beat count gust",
+     "on": "art_fired",
+     "filter": {"art_id": "fan-gust"},
      "do": [{"counter": {"id": "wing_beat", "add": 1}}]
     },
     {
      "id": "eff:Two Wings Beat echo",
      "on": "art_fired",
-     "filter": {"tags": ["fan"]},
+     "filter": {"tags": ["fan"], "not_tags": ["ward"]},
      "if": [{"read": "own.counter.wing_beat", "op": ">=", "value": 3}],
      "do": [
       {"counter": {"id": "wing_beat", "set": 0}},
@@ -328,63 +358,120 @@
       {"counter": {"id": "wing_beat", "set": 0}},
       {"fire_art": {"which": "last"}}
      ]
+    },
+    {
+     "id": "eff:Two Wings Beat echo gust",
+     "on": "art_fired",
+     "filter": {"art_id": "fan-gust"},
+     "if": [{"read": "own.counter.wing_beat", "op": ">=", "value": 3}],
+     "do": [
+      {"counter": {"id": "wing_beat", "set": 0}},
+      {"fire_art": {"which": "last"}}
+     ]
     }
    ]
   },
   "The Censer Remembers": {
    "rule": "The Ash Seat, full set (3 pieces): each second a foe burns under your Fire, the censer banks 0.5 % of your health, and the bank leaks 2 % of itself each second you deal no Fire. When you rise from the ash, the bank returns as a ward. With no rebirth left, you may spend the bank once a fight as a heal when you fall below a quarter of your health.",
    "counters": [
+    {"id": "ash"},
     {"id": "ash_bank"},
-    {"id": "ash_refused", "cap": 1}
+    {"id": "ash_refused", "cap": 1},
+    {"id": "ash_healed", "cap": 1},
+    {"id": "censer_fire", "cap": 1}
    ],
    "records": [
+    {
+     "id": "eff:The Censer Remembers fire hit",
+     "on": "hit_landed",
+     "filter": {"dtype": "fire"},
+     "do": [{"counter": {"id": "censer_fire", "set": 1}}]
+    },
+    {
+     "id": "eff:The Censer Remembers fire tick",
+     "on": "tick_dealt",
+     "filter": {"dtype": "fire"},
+     "do": [{"counter": {"id": "censer_fire", "set": 1}}]
+    },
     {
      "id": "eff:The Censer Remembers bank",
      "on": "pulse",
      "if": [{"read": "foe.debuff.fire", "op": ">=", "value": 1}],
-     "do": [{"counter": {"id": "ash_bank", "add": 0.5}}]
+     "do": [{"counter": {"id": "ash_bank", "add": 1}}]
     },
     {
      "id": "eff:The Censer Remembers leak",
      "on": "pulse",
      "if": [
-      {"read": "foe.debuff.fire", "op": "==", "value": 0},
+      {"read": "own.counter.censer_fire", "op": "==", "value": 0},
       {"read": "own.counter.ash_bank", "op": ">", "value": 0}
      ],
-     "scale": {"read": "own.counter.ash_bank", "per": 1},
+     "scale": {"read": "own.counter.ash_bank", "per": 1, "floor": false},
      "do": [{"counter": {"id": "ash_bank", "add": -0.02}}]
+    },
+    {
+     "id": "eff:The Censer Remembers clear fire",
+     "on": "pulse",
+     "if": [{"read": "own.counter.censer_fire", "op": ">=", "value": 1}],
+     "do": [{"counter": {"id": "censer_fire", "set": 0}}]
     },
     {
      "id": "eff:The Censer Remembers rise",
      "on": "refused",
      "if": [{"read": "own.counter.ash_bank", "op": ">", "value": 0}],
-     "scale": {"read": "own.counter.ash_bank", "per": 1},
-     "do": [{"ward_grow": {"share": 0.01, "of": "hp"}}]
-    },
-    {
-     "id": "eff:The Censer Remembers mark refused",
-     "on": "refused",
+     "scale": {"read": "own.counter.ash_bank", "per": 1, "floor": false},
      "do": [
+      {"ward_grow": {"share": 0.005, "of": "hp"}},
       {"counter": {"id": "ash_bank", "set": 0}},
       {"counter": {"id": "ash_refused", "set": 1}}
      ]
     },
     {
-     "id": "eff:The Censer Remembers heal",
-     "on": "wounded",
-     "if": [
-      {"read": "own.counter.ash_refused", "op": "==", "value": 0},
-      {"read": "own.counter.ash_bank", "op": ">", "value": 0}
-     ],
-     "limit": {"per_fight": 1},
-     "scale": {"read": "own.counter.ash_bank", "per": 1},
-     "do": [{"heal": {"share": 0.01}}]
+     "id": "eff:The Censer Remembers mark refused",
+     "on": "refused",
+     "do": [{"counter": {"id": "ash_refused", "set": 1}}]
     },
     {
-     "id": "eff:The Censer Remembers clear wounded",
-     "on": "wounded",
-     "limit": {"per_fight": 1},
-     "do": [{"counter": {"id": "ash_bank", "set": 0}}]
+     "id": "eff:The Censer Remembers heal hit",
+     "on": "was_hit",
+     "if": [
+      {"read": "own.hp_share", "op": "<=", "value": 0.25},
+      {"read": "own.counter.ash_bank", "op": ">", "value": 0},
+      {"read": "own.counter.ash_healed", "op": "==", "value": 0},
+      {
+       "any": [
+        {"read": "own.counter.ash_refused", "op": ">=", "value": 1},
+        {"read": "own.counter.ash", "op": "<", "value": 3}
+       ]
+      }
+     ],
+     "scale": {"read": "own.counter.ash_bank", "per": 1, "floor": false},
+     "do": [
+      {"heal": {"share": 0.005}},
+      {"counter": {"id": "ash_bank", "set": 0}},
+      {"counter": {"id": "ash_healed", "set": 1}}
+     ]
+    },
+    {
+     "id": "eff:The Censer Remembers heal tick",
+     "on": "tick_taken",
+     "if": [
+      {"read": "own.hp_share", "op": "<=", "value": 0.25},
+      {"read": "own.counter.ash_bank", "op": ">", "value": 0},
+      {"read": "own.counter.ash_healed", "op": "==", "value": 0},
+      {
+       "any": [
+        {"read": "own.counter.ash_refused", "op": ">=", "value": 1},
+        {"read": "own.counter.ash", "op": "<", "value": 3}
+       ]
+      }
+     ],
+     "scale": {"read": "own.counter.ash_bank", "per": 1, "floor": false},
+     "do": [
+      {"heal": {"share": 0.005}},
+      {"counter": {"id": "ash_bank", "set": 0}},
+      {"counter": {"id": "ash_healed", "set": 1}}
+     ]
     }
    ]
   },
@@ -395,14 +482,24 @@
      "id": "eff:Burning Feathers crit",
      "on": "crit",
      "filter": {"tags": ["fan"]},
-     "limit": {"per_pulse": 4},
      "do": [{"stacks": {"el": "fire", "n": 1, "for": 6, "side": "foe"}}]
     },
     {
      "id": "eff:Burning Feathers crit flint",
      "on": "crit",
      "filter": {"art_id": "flint-volley"},
-     "limit": {"per_pulse": 4},
+     "do": [{"stacks": {"el": "fire", "n": 1, "for": 6, "side": "foe"}}]
+    },
+    {
+     "id": "eff:Burning Feathers crit gale",
+     "on": "crit",
+     "filter": {"art_id": "ash-feather-gale"},
+     "do": [{"stacks": {"el": "fire", "n": 1, "for": 6, "side": "foe"}}]
+    },
+    {
+     "id": "eff:Burning Feathers crit gust",
+     "on": "crit",
+     "filter": {"art_id": "fan-gust"},
      "do": [{"stacks": {"el": "fire", "n": 1, "for": 6, "side": "foe"}}]
     },
     {
@@ -420,13 +517,12 @@
      "id": "eff:The Birds Fight First stack",
      "on": "hit_landed",
      "filter": {"kind": "companion", "tags": ["bird"]},
-     "limit": {"per_pulse": 3},
      "do": [{"stacks": {"el": "wood", "n": 1, "for": 8, "side": "own"}}]
     },
     {
      "id": "eff:The Birds Fight First spend",
      "on": "art_fired",
-     "filter": {"tags": ["fan"]},
+     "filter": {"tags": ["fan"], "not_tags": ["ward"]},
      "if": [{"read": "own.buff.wood", "op": ">=", "value": 1}],
      "do": [
       {
@@ -434,9 +530,25 @@
         "el": "wood",
         "side": "own",
         "kind": "buff",
-        "n": 50,
         "per": 1,
-        "then": [{"mod": {"dmg_more": 0.06, "for": 1, "stack": true}}]
+        "then": [{"mod": {"dmg_more": 0.06, "kind": "art", "stack": true}}]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Birds Fight First spend flint",
+     "on": "art_fired",
+     "filter": {"art_id": "flint-volley"},
+     "if": [{"read": "own.buff.wood", "op": ">=", "value": 1}],
+     "do": [
+      {
+       "consume": {
+        "el": "wood",
+        "side": "own",
+        "kind": "buff",
+        "per": 1,
+        "then": [{"mod": {"dmg_more": 0.06, "kind": "art", "stack": true}}]
        }
       }
      ]
@@ -452,9 +564,8 @@
         "el": "wood",
         "side": "own",
         "kind": "buff",
-        "n": 50,
         "per": 1,
-        "then": [{"mod": {"dmg_more": 0.06, "for": 1, "stack": true}}]
+        "then": [{"mod": {"dmg_more": 0.06, "kind": "art", "stack": true}}]
        }
       }
      ]
@@ -470,9 +581,8 @@
         "el": "wood",
         "side": "own",
         "kind": "buff",
-        "n": 50,
         "per": 1,
-        "then": [{"mod": {"dmg_more": 0.06, "for": 1, "stack": true}}]
+        "then": [{"mod": {"dmg_more": 0.06, "kind": "art", "stack": true}}]
        }
       }
      ]
@@ -481,7 +591,7 @@
   },
   "Fire Down the Thread": {
    "rule": "The Nest Array, full set (3 pieces): while an array you laid (a Field) is up, each Fire buff stack you gain also lays a ward thread on you worth 2 % of your health, and each new thread costs 1 % of your linh lực. A hit that breaks a thread deals its value back to the striker as Fire damage.",
-   "approx": "each new thread costs 1 % linh lực when own.qi_share >= 0.01; shield break returns a 0.6 Fire free hit",
+   "approx": "scales by event.stacks on Fire buff gain when own.field_up >= 1 and own.qi_share >= 0.05 (to guard against negative linh lực on multi-stack gains); shield break returns a 0.6 Fire free hit",
    "records": [
     {
      "id": "eff:Fire Down the Thread grow",
@@ -489,9 +599,9 @@
      "filter": {"element": "fire"},
      "if": [
       {"read": "own.field_up", "op": ">=", "value": 1},
-      {"read": "own.qi_share", "op": ">=", "value": 0.01}
+      {"read": "own.qi_share", "op": ">=", "value": 0.05}
      ],
-     "limit": {"per_pulse": 2},
+     "scale": {"read": "event.stacks", "per": 1},
      "do": [
       {"ward_grow": {"share": 0.02, "of": "hp"}},
       {"gain_qi": {"share": -0.01}}
@@ -501,14 +611,16 @@
      "id": "eff:Fire Down the Thread break",
      "on": "shield_broken",
      "if": [{"read": "own.ward_peak", "op": ">", "value": 0}],
-     "limit": {"per_pulse": 1},
      "do": [{"free_hit": {"c": 0.6, "dtype": "fire"}}]
     }
    ]
   },
   "Never the Eighth": {
    "rule": "The Seven Movements, full set (3 pieces): each movement of the Remnant Score you play lays one Slowed Time stack. When you play the seventh in a fight, the foe takes 5 Slowed Time stacks, and the score begins again from the first with your soul arts 20 % faster. There is no eighth.",
-   "counters": [{"id": "remnant_movement"}],
+   "counters": [
+    {"id": "remnant_movement"},
+    {"id": "seven_restarted", "cap": 1}
+   ],
    "records": [
     {
      "id": "eff:Never the Eighth step",
@@ -524,8 +636,14 @@
      "do": [
       {"status": {"id": "slowed_time", "stacks": 5, "dur": 4, "side": "foe"}},
       {"counter": {"id": "remnant_movement", "set": 0}},
-      {"mod": {"art_speed": 20, "tags": ["soul"], "for": 8}}
+      {"counter": {"id": "seven_restarted", "set": 1}}
      ]
+    },
+    {
+     "id": "eff:Never the Eighth haste",
+     "on": "always",
+     "if": [{"read": "own.counter.seven_restarted", "op": ">=", "value": 1}],
+     "do": [{"mod": {"art_speed": 20, "tags": ["soul"]}}]
     }
    ]
   },
@@ -669,15 +787,63 @@
   },
   "Petal Feint": {
    "rule": "Yellow Chrysanthemums, full set (2 pieces): after you evade a hit, your next fan art fires 30 % faster and its Burns last 2 s longer.",
-   "approx": "+2 s on 6 s Burn batches modelled as stack_dur +33 % for 3 s after evade",
+   "approx": "+2 s on 6 s Burn batches modelled as stack_dur +33 % on Fire debuffs for that next fan art's firing",
+   "counters": [{"id": "petal_feint", "cap": 1}],
    "records": [
     {
-     "id": "eff:Petal Feint",
+     "id": "eff:Petal Feint arm",
      "on": "evaded",
+     "do": [{"counter": {"id": "petal_feint", "set": 1}}]
+    },
+    {
+     "id": "eff:Petal Feint haste",
+     "on": "always",
+     "if": [{"read": "own.counter.petal_feint", "op": ">=", "value": 1}],
      "do": [
-      {"mod": {"art_speed": 30, "tags": ["fan"], "for": 6}},
-      {"mod": {"art_speed": 30, "art_id": "flint-volley", "for": 6}},
-      {"mod": {"stack_dur": 33, "element": "fire", "for": 3}}
+      {"mod": {"art_speed": 30, "tags": ["fan"]}},
+      {"mod": {"art_speed": 30, "art_id": "flint-volley"}},
+      {"mod": {"art_speed": 30, "art_id": "ash-feather-gale"}},
+      {"mod": {"art_speed": 30, "art_id": "fan-gust"}}
+     ]
+    },
+    {
+     "id": "eff:Petal Feint burn fan",
+     "on": "art_fired",
+     "filter": {"tags": ["fan"], "not_tags": ["ward"]},
+     "if": [{"read": "own.counter.petal_feint", "op": ">=", "value": 1}],
+     "do": [
+      {"mod": {"stack_dur": 33, "element": "fire", "kind": "debuff"}},
+      {"counter": {"id": "petal_feint", "set": 0}}
+     ]
+    },
+    {
+     "id": "eff:Petal Feint burn flint",
+     "on": "art_fired",
+     "filter": {"art_id": "flint-volley"},
+     "if": [{"read": "own.counter.petal_feint", "op": ">=", "value": 1}],
+     "do": [
+      {"mod": {"stack_dur": 33, "element": "fire", "kind": "debuff"}},
+      {"counter": {"id": "petal_feint", "set": 0}}
+     ]
+    },
+    {
+     "id": "eff:Petal Feint burn gale",
+     "on": "art_fired",
+     "filter": {"art_id": "ash-feather-gale"},
+     "if": [{"read": "own.counter.petal_feint", "op": ">=", "value": 1}],
+     "do": [
+      {"mod": {"stack_dur": 33, "element": "fire", "kind": "debuff"}},
+      {"counter": {"id": "petal_feint", "set": 0}}
+     ]
+    },
+    {
+     "id": "eff:Petal Feint burn gust",
+     "on": "art_fired",
+     "filter": {"art_id": "fan-gust"},
+     "if": [{"read": "own.counter.petal_feint", "op": ">=", "value": 1}],
+     "do": [
+      {"mod": {"stack_dur": 33, "element": "fire", "kind": "debuff"}},
+      {"counter": {"id": "petal_feint", "set": 0}}
      ]
     }
    ]

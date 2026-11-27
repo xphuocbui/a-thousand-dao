@@ -12,7 +12,7 @@
     "Playing Past the Break"
    ],
    "decision": "build",
-   "decision_reason": "checkpoint 2026-11-27: matches thien_xu and lac_ha's Stage 6 checkpoint decision ('build'). Five-Virtue Phoenix Canon (Birds Pay Court to the Phoenix at layer 5) and Shao Remnant Score (Playing Past the Break at layer 1) both carry technique Effects that hold real NPC builds (hoa_trieu_duong, vu_ngo_dong, lien_thieu_nghi, lo_van_khanh) and cannot attach until export_combat_library.py, fight.py (`tech_layers`), and GDScript FighterCompiler read `techniques[].effects`. Both Effects stay in effects/phuong_minh.effects.json with their pending notes until the serial build pass."
+   "decision_reason": "checkpoint 2026-11-27 (re-verified): matches thien_xu and lac_ha's Stage 6 checkpoint decision ('build'). Five-Virtue Phoenix Canon (Birds Pay Court to the Phoenix at layer 5) and Shao Remnant Score (Playing Past the Break at layer 1) both carry technique Effects that hold real NPC builds (hoa_trieu_duong, vu_ngo_dong, lien_thieu_nghi, lo_van_khanh, bac_dich_thanh) and cannot attach until export_combat_library.py, fight.py (`tech_layers`), and GDScript FighterCompiler read `techniques[].effects`. Both Effects stay in effects/phuong_minh.effects.json with their pending notes until the serial build pass."
   },
   {
    "name": "carried-meter",

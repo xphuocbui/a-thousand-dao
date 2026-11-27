@@ -611,7 +611,7 @@
      "soul",
      "Exposed"
     ],
-    "notes": "Requires root_has ['quang'] per e10 (omitted for lint_arts FIELDS). Uses element '' with 100 % convert to light because fight.py to_build rejects element 'light' until light-element is added there.",
+    "notes": "Requires root_has ['light'] per e10 (omitted for lint_arts FIELDS). Uses element '' with 100 % convert to light because fight.py to_build rejects element 'light' until light-element is added there.",
     "sources": [
      "sets-tp/light-pipe-art",
      "e10"
@@ -627,7 +627,7 @@
   "made_by": "",
   "made_year": 1190,
   "set": "pm-dawn-call",
-  "notes": "Carries signature attack art dawn-call (e10); art_speed_pct scoped to [soul] until [song] scope joins the Modifier vocabulary (b2).",
+  "notes": "Carries signature attack art dawn-call (e10); art_speed_pct scoped to [soul] until [song] scope joins the Modifier vocabulary (b2; note fight.py/build_file_compiler.gd currently map scope [soul] to dtype soul rather than tag soul).",
   "unique": true
  },
  {

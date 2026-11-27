@@ -43,7 +43,7 @@
          "mod": {
           "dmg_more": 0.25,
           "element": "fire",
-          "for": 1
+          "kind": "art"
          }
         }
        ]
@@ -124,21 +124,25 @@
     "cap": 1
    },
    {
+    "id": "pl_added",
+    "cap": 1
+   },
+   {
     "id": "pl_repeat"
    },
    {
     "id": "pl_repeat_wait"
    },
    {
-    "id": "pl_held",
+    "id": "pl_armed",
+    "cap": 2
+   },
+   {
+    "id": "pl_active",
     "cap": 2
    },
    {
     "id": "pl_spent_flag",
-    "cap": 1
-   },
-   {
-    "id": "pl_clean_flag",
     "cap": 1
    },
    {
@@ -156,7 +160,469 @@
   ],
   "effects": [
    {
-    "id": "pl-fire-repeat-wait",
+    "id": "pl-activate-full",
+    "on": "art_fired",
+    "filter": {
+     "not_tags": [
+      "ward",
+      "stance"
+     ],
+     "not_art_id": [
+      "dawn-clouds-take-the-colour"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.pl_armed",
+      "op": "==",
+      "value": 2
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pl_active",
+       "set": 2
+      }
+     },
+     {
+      "counter": {
+       "id": "pl_armed",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "pl-activate-half",
+    "on": "art_fired",
+    "filter": {
+     "not_tags": [
+      "ward",
+      "stance"
+     ],
+     "not_art_id": [
+      "dawn-clouds-take-the-colour"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.pl_armed",
+      "op": "==",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pl_active",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "pl_armed",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "pl-expire-active",
+    "on": "art_fired",
+    "held": {
+     "until": "art_fired"
+    },
+    "if": [
+     {
+      "read": "own.counter.pl_active",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pl_active",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "pl-step-init",
+    "on": "art_fired",
+    "do": [
+     {
+      "counter": {
+       "id": "pl_added",
+       "set": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "pl-ward",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "ward"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.pl_added",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.plumage",
+      "op": "<",
+      "value": 5
+     },
+     {
+      "read": "own.counter.pl_c5",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pl_c5",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "plumage",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "pl_added",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "pl-fan-tag",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "fan"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.pl_added",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.plumage",
+      "op": "<",
+      "value": 5
+     },
+     {
+      "read": "own.counter.pl_c2",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pl_c2",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "plumage",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "pl_added",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "pl-fan-flint",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "flint-volley"
+    },
+    "if": [
+     {
+      "read": "own.counter.pl_added",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.plumage",
+      "op": "<",
+      "value": 5
+     },
+     {
+      "read": "own.counter.pl_c2",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pl_c2",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "plumage",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "pl_added",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "pl-fan-item",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "ash-feather-gale"
+    },
+    "if": [
+     {
+      "read": "own.counter.pl_added",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.plumage",
+      "op": "<",
+      "value": 5
+     },
+     {
+      "read": "own.counter.pl_c2",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pl_c2",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "plumage",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "pl_added",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "pl-fan-gust",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "fan-gust"
+    },
+    "if": [
+     {
+      "read": "own.counter.pl_added",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.plumage",
+      "op": "<",
+      "value": 5
+     },
+     {
+      "read": "own.counter.pl_c2",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pl_c2",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "plumage",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "pl_added",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "pl-song",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "song"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.pl_added",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.plumage",
+      "op": "<",
+      "value": 5
+     },
+     {
+      "read": "own.counter.pl_c3",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pl_c3",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "plumage",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "pl_added",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "pl-wood",
+    "on": "art_fired",
+    "filter": {
+     "element": "wood"
+    },
+    "if": [
+     {
+      "read": "own.counter.pl_added",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.plumage",
+      "op": "<",
+      "value": 5
+     },
+     {
+      "read": "own.counter.pl_c4",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pl_c4",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "plumage",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "pl_added",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "pl-heal",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "heal"
+     ]
+    },
+    "if": [
+     {
+      "read": "own.counter.pl_added",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.plumage",
+      "op": "<",
+      "value": 5
+     },
+     {
+      "read": "own.counter.pl_c4",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pl_c4",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "plumage",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "pl_added",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "pl-fire-new",
     "on": "art_fired",
     "filter": {
      "element": "fire",
@@ -166,14 +632,64 @@
      ],
      "not_art_id": [
       "flint-volley",
-      "ash-feather-gale"
+      "ash-feather-gale",
+      "fan-gust"
      ]
     },
     "if": [
      {
+      "read": "own.counter.pl_added",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.plumage",
+      "op": "<",
+      "value": 5
+     },
+     {
       "read": "own.counter.pl_c1",
       "op": "==",
-      "value": 1
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "pl_c1",
+       "set": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "plumage",
+       "add": 1
+      }
+     },
+     {
+      "counter": {
+       "id": "pl_added",
+       "set": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "pl-fire-repeat-wait",
+    "on": "art_fired",
+    "filter": {
+     "element": "fire"
+    },
+    "if": [
+     {
+      "read": "own.counter.pl_added",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "read": "own.counter.plumage",
+      "op": "<",
+      "value": 5
      }
     ],
     "do": [
@@ -189,21 +705,18 @@
     "id": "pl-fire-repeat-add",
     "on": "art_fired",
     "filter": {
-     "element": "fire",
-     "not_tags": [
-      "fan",
-      "song"
-     ],
-     "not_art_id": [
-      "flint-volley",
-      "ash-feather-gale"
-     ]
+     "element": "fire"
     },
     "if": [
      {
-      "read": "own.counter.pl_c1",
+      "read": "own.counter.pl_added",
       "op": "==",
-      "value": 1
+      "value": 0
+     },
+     {
+      "read": "own.counter.plumage",
+      "op": "<",
+      "value": 5
      },
      {
       "read": "own.counter.pl_repeat_wait",
@@ -229,273 +742,11 @@
        "id": "plumage",
        "add": 1
       }
-     }
-    ]
-   },
-   {
-    "id": "pl-fire-new",
-    "on": "art_fired",
-    "filter": {
-     "element": "fire",
-     "not_tags": [
-      "fan",
-      "song"
-     ],
-     "not_art_id": [
-      "flint-volley",
-      "ash-feather-gale"
-     ]
-    },
-    "if": [
-     {
-      "read": "own.counter.pl_c1",
-      "op": "==",
-      "value": 0
-     }
-    ],
-    "do": [
-     {
-      "counter": {
-       "id": "pl_c1",
-       "set": 1
-      }
      },
      {
       "counter": {
-       "id": "plumage",
-       "add": 1
-      }
-     }
-    ]
-   },
-   {
-    "id": "pl-fan-tag",
-    "on": "art_fired",
-    "filter": {
-     "tags": [
-      "fan"
-     ]
-    },
-    "if": [
-     {
-      "read": "own.counter.pl_c2",
-      "op": "==",
-      "value": 0
-     }
-    ],
-    "do": [
-     {
-      "counter": {
-       "id": "pl_c2",
+       "id": "pl_added",
        "set": 1
-      }
-     },
-     {
-      "counter": {
-       "id": "plumage",
-       "add": 1
-      }
-     }
-    ]
-   },
-   {
-    "id": "pl-fan-flint",
-    "on": "art_fired",
-    "filter": {
-     "art_id": "flint-volley"
-    },
-    "if": [
-     {
-      "read": "own.counter.pl_c2",
-      "op": "==",
-      "value": 0
-     }
-    ],
-    "do": [
-     {
-      "counter": {
-       "id": "pl_c2",
-       "set": 1
-      }
-     },
-     {
-      "counter": {
-       "id": "plumage",
-       "add": 1
-      }
-     }
-    ]
-   },
-   {
-    "id": "pl-fan-item",
-    "on": "art_fired",
-    "filter": {
-     "art_id": "ash-feather-gale"
-    },
-    "if": [
-     {
-      "read": "own.counter.pl_c2",
-      "op": "==",
-      "value": 0
-     }
-    ],
-    "do": [
-     {
-      "counter": {
-       "id": "pl_c2",
-       "set": 1
-      }
-     },
-     {
-      "counter": {
-       "id": "plumage",
-       "add": 1
-      }
-     }
-    ]
-   },
-   {
-    "id": "pl-fan-gust",
-    "on": "art_fired",
-    "filter": {
-     "art_id": "fan-gust"
-    },
-    "if": [
-     {
-      "read": "own.counter.pl_c2",
-      "op": "==",
-      "value": 0
-     }
-    ],
-    "do": [
-     {
-      "counter": {
-       "id": "pl_c2",
-       "set": 1
-      }
-     },
-     {
-      "counter": {
-       "id": "plumage",
-       "add": 1
-      }
-     }
-    ]
-   },
-   {
-    "id": "pl-song",
-    "on": "art_fired",
-    "filter": {
-     "tags": [
-      "song"
-     ]
-    },
-    "if": [
-     {
-      "read": "own.counter.pl_c3",
-      "op": "==",
-      "value": 0
-     }
-    ],
-    "do": [
-     {
-      "counter": {
-       "id": "pl_c3",
-       "set": 1
-      }
-     },
-     {
-      "counter": {
-       "id": "plumage",
-       "add": 1
-      }
-     }
-    ]
-   },
-   {
-    "id": "pl-wood",
-    "on": "art_fired",
-    "filter": {
-     "element": "wood"
-    },
-    "if": [
-     {
-      "read": "own.counter.pl_c4",
-      "op": "==",
-      "value": 0
-     }
-    ],
-    "do": [
-     {
-      "counter": {
-       "id": "pl_c4",
-       "set": 1
-      }
-     },
-     {
-      "counter": {
-       "id": "plumage",
-       "add": 1
-      }
-     }
-    ]
-   },
-   {
-    "id": "pl-heal",
-    "on": "art_fired",
-    "filter": {
-     "tags": [
-      "heal"
-     ]
-    },
-    "if": [
-     {
-      "read": "own.counter.pl_c4",
-      "op": "==",
-      "value": 0
-     }
-    ],
-    "do": [
-     {
-      "counter": {
-       "id": "pl_c4",
-       "set": 1
-      }
-     },
-     {
-      "counter": {
-       "id": "plumage",
-       "add": 1
-      }
-     }
-    ]
-   },
-   {
-    "id": "pl-ward",
-    "on": "art_fired",
-    "filter": {
-     "tags": [
-      "ward"
-     ]
-    },
-    "if": [
-     {
-      "read": "own.counter.pl_c5",
-      "op": "==",
-      "value": 0
-     }
-    ],
-    "do": [
-     {
-      "counter": {
-       "id": "pl_c5",
-       "set": 1
-      }
-     },
-     {
-      "counter": {
-       "id": "plumage",
-       "add": 1
       }
      }
     ]
@@ -518,14 +769,8 @@
     "do": [
      {
       "counter": {
-       "id": "pl_held",
+       "id": "pl_armed",
        "set": 2
-      }
-     },
-     {
-      "counter": {
-       "id": "pl_clean_flag",
-       "set": 1
       }
      },
      {
@@ -620,7 +865,7 @@
     "do": [
      {
       "counter": {
-       "id": "pl_held",
+       "id": "pl_armed",
        "set": 1
       }
      },
@@ -703,7 +948,7 @@
     "on": "always",
     "if": [
      {
-      "read": "own.counter.pl_held",
+      "read": "own.counter.pl_active",
       "op": "==",
       "value": 2
      }
@@ -711,7 +956,8 @@
     "do": [
      {
       "mod": {
-       "L5": 20
+       "L5": 20,
+       "kind": "art"
       }
      }
     ]
@@ -721,7 +967,7 @@
     "on": "always",
     "if": [
      {
-      "read": "own.counter.pl_held",
+      "read": "own.counter.pl_active",
       "op": "==",
       "value": 1
      }
@@ -729,7 +975,8 @@
     "do": [
      {
       "mod": {
-       "L5": 10
+       "L5": 10,
+       "kind": "art"
       }
      }
     ]
@@ -742,7 +989,7 @@
     },
     "if": [
      {
-      "read": "own.counter.pl_held",
+      "read": "own.counter.pl_active",
       "op": "==",
       "value": 2
      }
@@ -752,12 +999,6 @@
       "heal": {
        "share": 0.3,
        "of": "amount"
-      }
-     },
-     {
-      "counter": {
-       "id": "pl_held",
-       "set": 0
       }
      }
     ]
@@ -770,7 +1011,7 @@
     },
     "if": [
      {
-      "read": "own.counter.pl_held",
+      "read": "own.counter.pl_active",
       "op": "==",
       "value": 1
      }
@@ -780,12 +1021,6 @@
       "heal": {
        "share": 0.15,
        "of": "amount"
-      }
-     },
-     {
-      "counter": {
-       "id": "pl_held",
-       "set": 0
       }
      }
     ]
@@ -830,16 +1065,16 @@
   ],
   "effects": [
    {
-    "id": "high-ridge-execute",
+    "id": "high-ridge-plumage-dmg",
     "on": "always",
     "scale": {
-     "read": "foe.hp_missing_share",
-     "per": 0.1
+     "read": "own.counter.plumage",
+     "per": 1
     },
     "do": [
      {
       "mod": {
-       "dmg_more": 0.06,
+       "dmg_more": 0.08,
        "art_id": "phoenix-sings-high-ridge"
       }
      }
@@ -879,9 +1114,8 @@
     ]
    }
   ],
-  "rule": "A sung burst of Fire around the holder that deals 6 % more damage per 10 % health missing on the foe, lays 2 Burn stacks, and adds 1 Burn stack and 1 % linh lực for each Plumage colour currently held.",
+  "rule": "A sung burst of Fire around the holder laying 2 Burn stacks; deals 8 % more damage, lays 1 extra Burn stack, and restores 1 % linh lực for each Plumage colour currently held.",
   "hooks": [
-   "low health",
    "burn stacks",
    "linh luc",
    "plumage"
@@ -919,6 +1153,12 @@
     "mods": {}
    }
   ],
+  "counters": [
+   {
+    "id": "perch_bark",
+    "cap": 1
+   }
+  ],
   "effects": [
    {
     "id": "perch-open",
@@ -936,6 +1176,12 @@
       "ward_grow": {
        "share": 0.04,
        "of": "hp"
+      }
+     },
+     {
+      "counter": {
+       "id": "perch_bark",
+       "set": 1
       }
      }
     ]
@@ -961,6 +1207,12 @@
        "share": 0.04,
        "of": "hp"
       }
+     },
+     {
+      "counter": {
+       "id": "perch_bark",
+       "set": 1
+      }
      }
     ]
    },
@@ -977,6 +1229,11 @@
       "value": 1
      },
      {
+      "read": "own.counter.perch_bark",
+      "op": ">=",
+      "value": 1
+     },
+     {
       "read": "own.ward_share",
       "op": ">",
       "value": 0
@@ -989,15 +1246,15 @@
       }
      },
      {
-      "state": {
-       "set": "wutong-perch",
-       "toggle": true
+      "counter": {
+       "id": "perch_bark",
+       "set": 0
       }
      }
     ]
    }
   ],
-  "rule": "Sets a still wutong field and raises a bark ward (4 % of max health). Each Composed second inside it grows the ward by another 4 %; your first Fire art consumes the ward and releases it as Fire damage, ending the perch.",
+  "rule": "Sets a still wutong field and raises a bark ward (4 % of max health). Each Composed second inside it grows the bark ward by another 4 %; the first Fire art after bark is gathered consumes the ward and releases it as Fire damage while the wutong field remains standing.",
   "hooks": [
    "ward grow",
    "release ward",
@@ -1140,7 +1397,7 @@
     "do": [
      {
       "mod": {
-       "dampen_taken": 25
+       "dampen_taken": 33
       }
      }
     ]
@@ -1306,7 +1563,7 @@
    "song",
    "soul",
    "wood",
-   "movement"
+   "shao"
   ],
   "c_art": 0.7,
   "cost_share": 0.04,
@@ -1315,9 +1572,48 @@
   "counters": [
    {
     "id": "remnant_movement"
+   },
+   {
+    "id": "remnant_ready_8",
+    "cap": 1
    }
   ],
   "effects": [
+   {
+    "id": "remnant-m1-restart",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "remnant-next-movement"
+    },
+    "if": [
+     {
+      "read": "own.counter.remnant_movement",
+      "op": ">=",
+      "value": 7
+     },
+     {
+      "read": "own.counter.remnant_ready_8",
+      "op": "==",
+      "value": 0
+     }
+    ],
+    "do": [
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 3,
+       "side": "foe"
+      }
+     },
+     {
+      "counter": {
+       "id": "remnant_movement",
+       "set": 1
+      }
+     }
+    ]
+   },
    {
     "id": "remnant-m7",
     "on": "art_fired",
@@ -1544,7 +1840,7 @@
     ]
    }
   ],
-  "rule": "Each firing plays the Remnant Score's next movement, 1 to 7, each with its own small rule: 1 one Slowed Time; 2 you regain 2 % linh lực; 3 three Poison stacks; 4 two Slowed Time; 5 heals you 3 %; 6 four Stagnation; 7 the foe's slowest-ready art is delayed 1 s. Thorn Lullaby and Dawn Clouds are passages of the score and neither advance nor break it; any other song art fired between starts the piece again at 1. After the seventh, the next firing is the attempt at the eighth (Playing Past the Break), or restarts with Never the Eighth.",
+  "rule": "Each firing plays the Remnant Score's next movement, 1 to 7, each with its own small rule: 1 one Slowed Time; 2 you regain 2 % linh lực; 3 three Poison stacks; 4 two Slowed Time; 5 heals you 3 %; 6 four Stagnation; 7 the foe's slowest-ready art is delayed 1 s. Thorn Lullaby and Dawn Clouds are passages of the score and neither advance nor break it; any other song art fired between starts the piece again at 1. After the seventh, the next firing is the attempt at the eighth (Playing Past the Break), or the first again.",
   "hooks": [
    "song",
    "soul",
@@ -1570,12 +1866,19 @@
    "song",
    "soul",
    "fire",
-   "movement"
+   "shao"
   ],
   "c_art": 1.3,
   "cost_share": 0.03,
   "cooldown": 3.0,
   "kind": "elem",
+  "guards": [
+   {
+    "read": "own.counter.shao_movement",
+    "op": "==",
+    "value": 0
+   }
+  ],
   "counters": [
    {
     "id": "shao_movement"
@@ -1700,12 +2003,43 @@
    "song",
    "soul",
    "fire",
-   "movement"
+   "shao"
   ],
   "c_art": 0.8,
   "cost_share": 0.04,
   "cooldown": 3.0,
   "kind": "elem",
+  "guards": [
+   {
+    "any": [
+     {
+      "read": "own.counter.shao_movement",
+      "op": "==",
+      "value": 1
+     },
+     {
+      "read": "own.counter.shao_movement",
+      "op": "==",
+      "value": 2
+     },
+     {
+      "read": "own.counter.shao_movement",
+      "op": "==",
+      "value": 3
+     },
+     {
+      "read": "own.counter.shao_movement",
+      "op": "==",
+      "value": 5
+     },
+     {
+      "read": "own.counter.shao_movement",
+      "op": "==",
+      "value": 6
+     }
+    ]
+   }
+  ],
   "counters": [
    {
     "id": "shao_movement"
@@ -1998,12 +2332,19 @@
    "song",
    "soul",
    "fire",
-   "movement"
+   "shao"
   ],
   "c_art": 1.4,
   "cost_share": 0.04,
   "cooldown": 5.0,
   "kind": "elem",
+  "guards": [
+   {
+    "read": "own.counter.shao_movement",
+    "op": "==",
+    "value": 4
+   }
+  ],
   "counters": [
    {
     "id": "shao_movement"
@@ -2142,13 +2483,29 @@
    "song",
    "soul",
    "fire",
-   "movement"
+   "shao"
   ],
   "c_art": 2.0,
   "cost_share": 0.06,
   "cooldown": 7.0,
   "kind": "elem",
   "soul_part": 0.25,
+  "guards": [
+   {
+    "any": [
+     {
+      "read": "own.counter.shao_movement",
+      "op": "==",
+      "value": 7
+     },
+     {
+      "read": "foe.counter.shao",
+      "op": ">=",
+      "value": 8
+     }
+    ]
+   }
+  ],
   "counters": [
    {
     "id": "shao_movement"
@@ -2232,12 +2589,6 @@
        "side": "foe",
        "seconds": 2.0
       }
-     },
-     {
-      "counter": {
-       "id": "shao_movement",
-       "set": 0
-      }
      }
     ]
    },
@@ -2269,7 +2620,7 @@
     ]
    }
   ],
-  "rule": "A held Fire and Soul note: if played in its turn after the seventh movement, or if the foe carries 8 Shao stacks, stops the foe's clock for 2 s and finishes the piece back at 0.",
+  "rule": "A held Fire and Soul note: if played in its turn after the seventh movement it stops the foe's clock for 2 s and finishes the piece back at 0; if the foe carries 8 Shao stacks it also stops the foe's clock for 2 s without breaking the piece.",
   "hooks": [
    "song",
    "soul",

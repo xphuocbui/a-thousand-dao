@@ -1,18 +1,18 @@
 {
  "owner": "phuong_minh",
- "minutes": 45,
- "must_fix": 4,
- "should": 5,
- "fixed": 7,
+ "minutes": 50,
+ "must_fix": 12,
+ "should": 9,
+ "fixed": 18,
  "words": {
   "technique-effects": "build",
   "carried-meter": "build"
  },
  "open": [
   "Serial pass: wire technique-effects (export_combat_library.py, fight.py tech_layers, FighterCompiler) and carried-meter (FighterCompiler + save persistence for build.meters[\"playing_past_the_break\"])",
-  "GDD b2: add 'song' to Modifier scope vocabulary, then restore scope ['song'] on pm-remnant-score-zither, pm-rites-drum, pm-dawn-call-pipe, and shao-remnant-score passives",
-  "foreign/market-folk censer-smoke-manual: element-free secret rule vs names:['hoa'] blocking o_thiem_tu (thinh_vu); single-owner lint ART_MISSING clears after stage6_merge.py; pill_effect_pct unpriced",
-  "24 phuong_minh cast CongPhap.usable root mismatches (20 outer on wutong-dawn-breath, 4 elders missing moc on five-virtue-phoenix-canon); tang_ke_ti lacks a tran_su Field art for Thread of the Nest",
-  "sect_fight.py does not yet slot item.arts, beasts->companions, technique.effects, or foreign/ arts, and MAX_ARTS=6 drops 7th+ slotted arts on multi-technique NPCs"
+  "GDD b2 & compiler: add 'song' to Modifier scope vocabulary (restore scope ['song'] on pm-remnant-score-zither, pm-rites-drum, pm-dawn-call-pipe, shao-remnant-score) and fix fight.py:422 / build_file_compiler.gd:446 mapping scope ['soul'] to dtype 'soul' so art_speed_pct reaches kind:'elem' soul-tagged arts",
+  "foreign/market-folk censer-smoke-manual: element-free secret rule vs names:['hoa'] blocking o_thiem_tu (thinh_vu); price pill_effect_pct in Formulas A; confirm post-merge lint via stage6_merge.py",
+  "24 phuong_minh cast CongPhap.usable root mismatches (20 outer on wutong-dawn-breath, 4 elders missing moc on five-virtue-phoenix-canon)",
+  "sect_fight.py does not yet slot item.arts, beasts->companions, technique.effects, or foreign/ arts, does not count on:'always' Effects (Thread of the Nest), and MAX_ARTS=6 drops 7th+ slotted arts on multi-technique NPCs"
  ]
 }
