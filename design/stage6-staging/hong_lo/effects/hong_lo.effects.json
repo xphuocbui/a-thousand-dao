@@ -3,13 +3,12 @@
  "source": "world-depth:hong_lo",
  "effects": {
   "It Does Not Cool": {
-   "rule": "Nine-Year Ember: your Burn stacks on a foe wait when your Fire strikes miss or the foe evades (refreshed to at least 6 s); once a fight, when a cleanse puts out more than 5 of your Burn stacks, the ember restores them (8 s).",
+   "rule": "Nine-Year Ember: your Burn stacks on a foe wait when the foe evades any of your strikes (refreshed to at least 6 s); once a fight, when a cleanse puts out more than 5 of your Burn stacks, the ember restores them (8 s).",
    "approx": "Fight pauses already freeze debuff timers via stop_clock; hiding/evasion is modelled on was_evaded refreshing Burn batches to 6 s, and putting out Burn by a Water hit is modelled on cleansed with amount > 5.",
    "records": [
     {
      "id": "eff:It Does Not Cool:hold",
      "on": "was_evaded",
-     "filter": {"element": "fire"},
      "do": [
       {"refresh": {"el": "fire", "side": "foe", "kind": "debuff", "at_least": 6}}
      ]
@@ -32,7 +31,7 @@
    "rule": "Snow-Melt Gourd: when you take Fire damage (once every 2 s), you gain 1 Water buff stack for 10 s; while you hold 3 or more Water buff stacks, your own Burn stacks on you are cleansed 1 every 2 s.",
    "approx": "Incoming debuff duration halving is not a live mod key, so periodic 2 s Fire cleanse while holding 3+ Water buff stacks models Burn ending twice as fast (following The Robe Is Never Dry).",
    "counters": [
-    {"id": "quench_cd"}
+    {"id": "quench_cd", "each_for": 2}
    ],
    "records": [
     {
@@ -44,7 +43,7 @@
      ],
      "do": [
       {"stacks": {"el": "water", "n": 1, "for": 10, "side": "own", "kind": "buff"}},
-      {"counter": {"id": "quench_cd", "set": 2}}
+      {"counter": {"id": "quench_cd", "add": 1}}
      ]
     },
     {
@@ -56,17 +55,7 @@
      ],
      "do": [
       {"stacks": {"el": "water", "n": 1, "for": 10, "side": "own", "kind": "buff"}},
-      {"counter": {"id": "quench_cd", "set": 2}}
-     ]
-    },
-    {
-     "id": "eff:Quench the Jacket:cd",
-     "on": "pulse",
-     "if": [
-      {"read": "own.counter.quench_cd", "op": ">=", "value": 1}
-     ],
-     "do": [
-      {"counter": {"id": "quench_cd", "add": -1}}
+      {"counter": {"id": "quench_cd", "add": 1}}
      ]
     },
     {

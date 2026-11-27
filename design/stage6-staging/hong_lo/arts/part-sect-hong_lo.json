@@ -20,7 +20,7 @@
    {
     "id": "bank-the-coal-hit",
     "on": "hit_landed",
-    "filter": {"element": "fire"},
+    "filter": {"dtype": "fire"},
     "do": [
      {"counter": {"id": "coal", "add": 1}}
     ]
@@ -57,7 +57,8 @@
   "cooldown": 5.0,
   "kind": "elem",
   "counters": [
-   {"id": "steam_spent"}
+   {"id": "steam_spent"},
+   {"id": "steam_leech"}
   ],
   "effects": [
    {
@@ -68,7 +69,7 @@
      {"read": "foe.debuff.fire", "op": ">=", "value": 3}
     ],
     "do": [
-     {"mod": {"leech_hp": 33.3}},
+     {"counter": {"id": "steam_leech", "set": 2}},
      {
       "consume": {
        "el": "fire",
@@ -81,7 +82,20 @@
         {"free_hit": {"c": 0.45, "dtype": "cold"}}
        ]
       }
-     }
+     },
+     {"counter": {"id": "steam_leech", "set": 0}}
+    ]
+   },
+   {
+    "id": "steam-jacket-heal",
+    "on": "hit_landed",
+    "filter": {"kind": "trigger"},
+    "if": [
+     {"read": "own.counter.steam_leech", "op": ">=", "value": 1}
+    ],
+    "do": [
+     {"heal": {"share": 0.3333, "of": "amount"}},
+     {"counter": {"id": "steam_leech", "add": -1}}
     ]
    }
   ],
@@ -106,7 +120,7 @@
    {"read": "own.counter.ky_te", "op": "<", "value": 1}
   ],
   "counters": [
-   {"id": "ky_te"}
+   {"id": "ky_te", "each_for": 8}
   ],
   "effects": [
    {
@@ -114,7 +128,8 @@
     "on": "art_fired",
     "filter": {"art_id": "the-pot-is-finished"},
     "do": [
-     {"counter": {"id": "ky_te", "set": 8}},
+     {"counter": {"id": "ky_te", "set": 0}},
+     {"counter": {"id": "ky_te", "add": 1}},
      {"stacks": {"el": "fire", "n": 1, "for": 6, "side": "own", "kind": "buff"}},
      {"stacks": {"el": "water", "n": 1, "for": 6, "side": "own", "kind": "buff"}}
     ]
@@ -148,18 +163,6 @@
      {"counter": {"id": "ky_te", "set": 0}},
      {"self_hit": {"c": 0.6, "dtype": "fire"}}
     ]
-   },
-   {
-    "id": "ky-te-tick",
-    "on": "pulse",
-    "if": [
-     {"read": "own.counter.ky_te", "op": ">=", "value": 1},
-     {"read": "own.buff.fire", "op": ">=", "value": 1},
-     {"read": "own.buff.water", "op": ">=", "value": 1}
-    ],
-    "do": [
-     {"counter": {"id": "ky_te", "add": -1}}
-    ]
    }
   ],
   "rule": "Enters the Ký Tế posture for 8 s (tracked beside any form stance without overwriting Brazier Form) and kindles 1 Fire buff stack and 1 Water buff stack for 6 s. While active and both a Fire and a Water buff stack hold, heal arts recharge 25 % faster (about 1 s sooner; pill timing awaits the Alchemy pass) and Fire arts cost 20 % less linh lực. If either stack runs out before the 8 s end, the posture breaks and you take a small Fire hit (0.6 c).",
@@ -180,18 +183,9 @@
   "cooldown": 7.0,
   "kind": "elem",
   "counters": [
-   {"id": "whale_line"}
+   {"id": "whale_line", "each_for": 6}
   ],
   "effects": [
-   {
-    "id": "whale-line-set",
-    "on": "hit_landed",
-    "filter": {"art_id": "line-on-the-whale"},
-    "do": [
-     {"counter": {"id": "whale_line", "set": 6}},
-     {"status": {"id": "silence", "stacks": 1, "dur": 5, "tag": "movement", "side": "foe"}}
-    ]
-   },
    {
     "id": "whale-line-slow",
     "on": "hit_landed",
@@ -204,17 +198,18 @@
     ]
    },
    {
-    "id": "whale-line-tick",
-    "on": "pulse",
-    "if": [
-     {"read": "own.counter.whale_line", "op": ">=", "value": 1}
-    ],
+    "id": "whale-line-set",
+    "on": "hit_landed",
+    "filter": {"art_id": "line-on-the-whale"},
     "do": [
-     {"counter": {"id": "whale_line", "add": -1}}
+     {"counter": {"id": "whale_line", "set": 0}},
+     {"counter": {"id": "whale_line", "add": 1}},
+     {"timer": {"side": "foe", "which": "next", "by": 0.3}},
+     {"status": {"id": "silence", "stacks": 1, "dur": 5, "tag": "movement", "side": "foe"}}
     ]
    }
   ],
-  "rule": "A spear hit that ties a Water line to the foe for 6 s: the foe's movement arts are silenced (up to the 5 s curse clamp), and each of your Water hits on it while the line holds adds 1 stack of Slowed Time for 3 s.",
+  "rule": "A spear hit that delays the foe's soonest art by 0.3 s and ties a Water line to the foe for 6 s: the foe's movement arts are silenced (up to the 5 s curse clamp), and each of your Water hits on it while the line holds adds 1 stack of Slowed Time for 3 s.",
   "hooks": ["silence", "slowed time", "water hits", "curse duration"],
   "sources": ["world-depth:hong_lo"]
  },

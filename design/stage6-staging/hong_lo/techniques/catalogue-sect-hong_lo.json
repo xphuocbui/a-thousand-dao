@@ -73,7 +73,7 @@
    {"key": "attack_pct", "value": 8, "scope": ["cold"]},
    {"key": "accuracy_pct", "value": 8, "scope": []},
    {"key": "status_duration_pct", "value": 12, "scope": ["curse"]},
-   {"key": "stack_duration_pct", "value": 12, "scope": ["thuy", "debuff"]}
+   {"key": "art_speed_pct", "value": 6, "scope": ["cold"]}
   ],
   "abilities": [
    {"ability_id": "drag-of-the-deep", "unlock_layer": 1},
