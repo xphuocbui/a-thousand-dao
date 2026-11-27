@@ -1,0 +1,271 @@
+{
+  "name": "t27_b01_exact",
+  "slice": 27,
+  "chance_free": true,
+  "seed": 271,
+  "doc": "World-depth Stage 6 batch b01 (2026-11-27), chance-free: curse_fast (Sentence Stands), heal_overflow (The Empty Mountain's Answer, keeping heal_restored gated on got > 0), and carried-meter (Playing Past the Break with upkeep backlash and meter progression). A holds curse_fast <= 4 s so its first curse (heavy_breath at t=2 s) resists B's cleanses until expiry while its second curse (sundered at t=5 s) is cleansed; A overflows healing at full HP into green_bank and discharges Chaos free hits once B has 5 Wood stacks; A's playing_past_the_break meter starts at 0.6 with p=0.25 (first attempt fails -> 10 % HP upkeep backlash, second succeeds -> Slowed Time + qi).",
+  "a": {
+    "realm": 2,
+    "crit": 0.0,
+    "evade": 0.0,
+    "hregen": 0.03,
+    "name": "b01-kit",
+    "meters": {
+      "playing_past_the_break": {
+        "start": 0.6,
+        "p": 0.25
+      }
+    },
+    "arts": [
+      {
+        "name": "curse-seal",
+        "c": 0.8,
+        "cost": 0.03,
+        "cd": 2.0,
+        "element": "wood",
+        "debuff": [
+          2,
+          10.0
+        ],
+        "statuses": [
+          {
+            "id": "heavy_breath",
+            "stacks": 1,
+            "dur": 3
+          }
+        ]
+      },
+      {
+        "name": "later-seal",
+        "c": 0.6,
+        "cost": 0.03,
+        "cd": 5.0,
+        "element": "wood",
+        "debuff": [
+          2,
+          10.0
+        ],
+        "statuses": [
+          {
+            "id": "sundered",
+            "stacks": 1,
+            "dur": 4
+          }
+        ]
+      },
+      {
+        "name": "score-note",
+        "c": 0.5,
+        "cost": 0.03,
+        "cd": 4.0,
+        "element": "fire",
+        "heal": 1.2
+      }
+    ],
+    "counters": [
+      {
+        "id": "green_bank",
+        "decay_share": 0.1
+      },
+      {
+        "id": "restored_hits"
+      },
+      {
+        "id": "break_hp_backlash",
+        "cap": 10,
+        "upkeep": {
+          "pool": "hp",
+          "per_stack": 0.01
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "sentence-stands",
+        "on": "always",
+        "if": [
+          {
+            "read": "time",
+            "op": "<=",
+            "value": 4
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "status_dur": 50,
+              "tags": [
+                "curse"
+              ]
+            }
+          },
+          {
+            "mod": {
+              "curse_fast": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "empty-mountain-store",
+        "on": "heal_overflow",
+        "if": [
+          {
+            "read": "event.share",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "scale": {
+          "read": "event.share",
+          "per": 0.025,
+          "floor": false
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "green_bank",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "empty-mountain-fall",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.green_bank",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "foe.debuff.wood",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "scale": {
+          "read": "own.counter.green_bank",
+          "per": 1,
+          "floor": false
+        },
+        "limit": {
+          "cooldown": 3.0
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.2,
+              "dtype": "chaos"
+            }
+          },
+          {
+            "counter": {
+              "id": "green_bank",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "track-restored",
+        "on": "heal_restored",
+        "do": [
+          {
+            "counter": {
+              "id": "restored_hits",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "playing-past-the-break",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "score-note"
+        },
+        "do": [
+          {
+            "meter": {
+              "id": "playing_past_the_break",
+              "success": [
+                {
+                  "status": {
+                    "id": "slowed_time",
+                    "stacks": 5,
+                    "dur": 5,
+                    "side": "foe"
+                  }
+                },
+                {
+                  "gain_qi": {
+                    "share": 0.1
+                  }
+                }
+              ],
+              "failure": [
+                {
+                  "counter": {
+                    "id": "break_hp_backlash",
+                    "set": 10
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "backlash-clear",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.break_hp_backlash",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "break_hp_backlash",
+              "set": 0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "realm": 2,
+    "crit": 0.0,
+    "evade": 0.0,
+    "name": "cleansing-foe",
+    "arts": [
+      {
+        "name": "strike",
+        "c": 0.9,
+        "cost": 0.03,
+        "cd": 2.5
+      }
+    ],
+    "effects": [
+      {
+        "id": "cleanse-curses",
+        "on": "pulse",
+        "limit": {
+          "cooldown": 3.0
+        },
+        "do": [
+          {
+            "cleanse": {
+              "curses": 2
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

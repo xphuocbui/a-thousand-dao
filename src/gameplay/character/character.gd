@@ -78,6 +78,8 @@ var attempt_log: Array = []
 var has_insight: bool = false
 ## Per-realm-step capability use: capability id (string) -> true.
 var cap_used: Dictionary = {}
+## Counted-chance combat meters carried between fights (Effects rule 12, Formulas A): meter id -> value in [0, 1).
+var fight_meters: Dictionary = {}
 ## Extra lifespan from pills and treasures (years).
 var lifespan_bonus: float = 0.0
 ## Current khí huyết as a fraction of max (1.0 = healthy).
@@ -192,6 +194,12 @@ func add_skill_xp(skill_id: String, xp: float, xp_per_level: float, max_level: i
 	return gained
 
 
+## Persists post-fight counted-chance meter values (from [member FighterEnd.meters]) back onto the character.
+func save_fight_meters(end_meters: Dictionary) -> void:
+	for mid in end_meters:
+		fight_meters[str(mid)] = clampf(float(end_meters[mid]), 0.0, 1.0)
+
+
 ## Serializable record (also the people-table row format).
 func to_dict() -> Dictionary:
 	return {
@@ -201,7 +209,7 @@ func to_dict() -> Dictionary:
 		"thien_phu": thien_phu.duplicate(), "linh_can": linh_can.to_dict(),
 		"realm_index": realm_index, "stage": stage, "level": level, "level_peak": level_peak, "tu_vi": tu_vi,
 		"bare_attempts": bare_attempts, "failed_pills": failed_pills, "talisman_used": talisman_used,
-		"attempt_log": attempt_log.duplicate(), "has_insight": has_insight, "cap_used": cap_used.duplicate(),
+		"attempt_log": attempt_log.duplicate(), "has_insight": has_insight, "cap_used": cap_used.duplicate(), "fight_meters": fight_meters.duplicate(),
 		"lifespan_bonus": lifespan_bonus, "vitality": vitality, "dan_doc": dan_doc, "tam_ma": tam_ma,
 		"linh_thach": linh_thach, "techniques": techniques.duplicate(true), "main_tech": main_tech,
 		"aux_tech": aux_tech.duplicate(), "second_tech": second_tech, "equipped": equipped.duplicate(), "equip_slots": equip_slots.duplicate(),
@@ -251,6 +259,10 @@ static func from_dict(d: Dictionary) -> Character:
 	c.attempt_log = Array(d.get("attempt_log", [])).map(func(x): return float(x))
 	c.has_insight = bool(d.get("has_insight", false))
 	c.cap_used = d.get("cap_used", {}).duplicate()
+	c.fight_meters = {}
+	var fm_m: Dictionary = d.get("fight_meters", {})
+	for k in fm_m.keys():
+		c.fight_meters[str(k)] = clampf(float(fm_m[k]), 0.0, 1.0)
 	c.lifespan_bonus = float(d.get("lifespan_bonus", 0.0))
 	c.vitality = float(d.get("vitality", 1.0))
 	c.dan_doc = clampf(float(d.get("dan_doc", 0.0)), 0.0, 100.0)

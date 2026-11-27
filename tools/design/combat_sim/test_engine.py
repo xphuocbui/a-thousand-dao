@@ -1445,6 +1445,125 @@ def t_field_budget():      # fight.py hand-set field budget (user decision 2026-
           buf.getvalue())
 
 
+def t_curse_fast():   # Stage 6 b01 (thien_xu): mod curse_fast >= 1 holds curses laid while it holds through cleanses
+    fast = {"id": "ss", "on": "always", "if": [{"read": "foe.debuff.earth", "op": ">=", "value": 1}],
+            "do": [{"mod": {"curse_fast": 1}}]}
+    f, A, B = setup(a=dummy(effects=[fast]))
+    f.add_stacks(A, B, "earth", 1, 10.0, False)
+    f.apply_status(A, B, {"id": "heavy_breath", "dur": 3})   # laid while curse_fast holds
+    B.debuffs.clear()
+    f.apply_status(A, B, {"id": "sundered", "dur": 3})       # laid after curse_fast dropped
+    e = {"id": "c", "on": "always", "do": []}
+    f.do(B, e, [{"cleanse": {"status": "heavy_breath"}}], 1.0, {})
+    check("curse_fast: named status cleanse cannot remove a fast curse", "heavy_breath" in B.statuses)
+    f.do(B, e, [{"cleanse": {"curses": 2}}], 1.0, {})
+    check("curse_fast: curses cleanse removes non-fast curse, keeps fast curse",
+          "heavy_breath" in B.statuses and "sundered" not in B.statuses, str(list(B.statuses)))
+    f.t = 3000
+    f.pulse(B)
+    check("curse_fast: fast curse still expires on time", "heavy_breath" not in B.statuses, str(list(B.statuses)))
+
+
+def t_heal_overflow():   # Stage 6 b01 (thuy_vi): separate heal_overflow event; heal_restored stays gated on got > 0
+    rest = {"id": "r", "on": "heal_restored", "do": [{"counter": {"id": "restored", "add": 1}}]}
+    over = {"id": "o", "on": "heal_overflow", "scale": {"read": "event.share", "per": 0.05, "floor": False},
+            "do": [{"counter": {"id": "ov", "add": 1}}]}
+    f, A, B = setup(a=dummy(effects=[rest, over], counters=[{"id": "restored"}, {"id": "ov"}]))
+    A.hp = A.hp_max
+    f.heal(A, 0.10 * A.hp_max, source="regen")
+    check("heal_overflow at full HP: heal_restored stays 0, heal_overflow adds 2.0",
+          A.counters["restored"] == 0 and abs(A.counters["ov"] - 2.0) < 1e-6, str(A.counters))
+    A.hp = 0.95 * A.hp_max
+    f.heal(A, 0.10 * A.hp_max)
+    check("heal_overflow on partial overshoot: both fire (restored 1, ov 3.0)",
+          A.counters["restored"] == 1 and abs(A.counters["ov"] - 3.0) < 1e-6, str(A.counters))
+    A.hp = 0.50 * A.hp_max
+    f.heal(A, 0.10 * A.hp_max)
+    check("heal_overflow under cap: heal_restored fires, ov unchanged",
+          A.counters["restored"] == 2 and abs(A.counters["ov"] - 3.0) < 1e-6, str(A.counters))
+
+
+def t_technique_effects():   # Stage 6 b01: technique.effects unlock by tech_layers and merge counters
+    import fight as F
+    F._library()
+    efflib = F.effects_library()
+    F._LIB["techs"]["_t_passive_canon"] = {
+        "id": "_t_passive_canon", "layers": 12, "passives": [],
+        "effects": [{"name": "_T Passive Art (Thử)", "unlock_layer": 4, "passive_art": True}],
+    }
+    efflib["_T Passive Art"] = {
+        "counters": [{"id": "_t_p_cnt"}],
+        "records": [{"id": "eff:_T Passive Art", "on": "pulse", "do": [{"counter": {"id": "_t_p_cnt", "add": 1}}]}],
+    }
+    try:
+        low = F.expand_library({"name": "t", "realm": "luyen_khi", "arts": [],
+                                "techniques": ["_t_passive_canon"], "tech_layers": {"_t_passive_canon": 3}})
+        check("technique-effects below unlock_layer: not attached",
+              not any(e["id"] == "eff:_T Passive Art" for e in low["effects"])
+              and not any(c["id"] == "_t_p_cnt" for c in low["counters"]))
+        hi = F.expand_library({"name": "t", "realm": "luyen_khi", "arts": [],
+                               "techniques": ["_t_passive_canon"], "tech_layers": {"_t_passive_canon": 4}})
+        check("technique-effects at unlock_layer: Effect and counter attached",
+              any(e["id"] == "eff:_T Passive Art" for e in hi["effects"])
+              and any(c["id"] == "_t_p_cnt" for c in hi["counters"]))
+        direct = F.expand_library({"name": "t", "realm": "luyen_khi", "arts": [],
+                                   "tech_effects": ["_T Passive Art (Thử)"]})
+        check("tech_effects list attaches library Effect and counter directly",
+              any(e["id"] == "eff:_T Passive Art" for e in direct["effects"])
+              and any(c["id"] == "_t_p_cnt" for c in direct["counters"]))
+    finally:
+        F._LIB["techs"].pop("_t_passive_canon", None)
+        efflib.pop("_T Passive Art", None)
+
+
+def t_carried_meter():   # Stage 6 b01 (phuong_minh): Playing Past the Break seeds default meter and respects explicit
+    import fight as F
+    F._library()
+    efflib = F.effects_library()
+    had = "Playing Past the Break" in efflib
+    old = efflib.get("Playing Past the Break")
+    efflib["Playing Past the Break"] = {
+        "records": [{"id": "eff:Playing Past the Break", "on": "fight_start",
+                     "do": [{"meter": {"id": "playing_past_the_break", "success": [], "failure": []}}]}]
+    }
+    try:
+        d = F.expand_library({"name": "t", "realm": "luyen_khi", "arts": [], "tech_effects": ["Playing Past the Break"]})
+        check("carried-meter: default neutral meter seeded when absent",
+              d.get("meters", {}).get("playing_past_the_break") == {"start": 0.0, "p": 0.25}, str(d.get("meters")))
+        d2 = F.expand_library({"name": "t", "realm": "luyen_khi", "arts": [], "tech_effects": ["Playing Past the Break"],
+                               "meters": {"playing_past_the_break": {"start": 0.6, "p": 0.35}}})
+        check("carried-meter: explicit meter preserved",
+              d2.get("meters", {}).get("playing_past_the_break") == {"start": 0.6, "p": 0.35}, str(d2.get("meters")))
+    finally:
+        if had:
+            efflib["Playing Past the Break"] = old
+        else:
+            efflib.pop("Playing Past the Break", None)
+
+
+def t_partial_set_effect():   # Stage 6 b01 (tung_dao td-cold-ford-charge): 2pc Effect on 3pc set runs at 2 pieces
+    import fight as F
+    F._library()
+    pieces = sorted(F._LIB["items"])[:3]
+    full = {"id": "x", "on": "always", "do": [{"mod": {"block": 5}}]}
+    old = F.SETS
+    F.SETS = {"constants": {"set_bonus_min_pieces": 2}, "sets": [{"id": "charge", "name": "Charge", "pieces": pieces,
+              "bonuses": [{"pieces": 2, "modifiers": [{"key": "attack_pct", "value": 8, "scope": []}],
+                           "effect": "Rime Lock (Sương Tỏa)"},
+                          {"pieces": 3, "effect": "Full Charge", "record": full}]}]}
+    try:
+        ids = lambda items: {e["id"] for e in F.expand_library({"name": "t", "realm": "luyen_khi", "arts": [],
+                                                                  "items": items})["effects"]}
+        one, two, three = ids(pieces[:1]), ids(pieces[:2]), ids(pieces)
+        check("partial set 1pc: nothing", "eff:Rime Lock" not in one and "set:charge" not in one, str(one))
+        check("partial set 2/3pc: 2pc modifiers and 2pc Effect run, 3pc Effect does not",
+              {"set:charge", "eff:Rime Lock"} <= two and "set:charge:full" not in two, str(two))
+        check("partial set 3/3pc: both 2pc and 3pc Effects run",
+              {"set:charge", "eff:Rime Lock", "set:charge:full"} <= three, str(three))
+    finally:
+        F.SETS = old
+
+
 def main():
     for name, fn in sorted(globals().items()):
         if name.startswith("t_"):

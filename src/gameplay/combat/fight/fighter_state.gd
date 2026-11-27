@@ -33,6 +33,8 @@ class StatusState extends RefCounted:
 	var layer: int = 4
 	var crossing: bool = false
 	var no_lockout: bool = false
+	## Laid while its caster held curse_fast >= 1 (Stage 6 b01; Sentence Stands): skips cleanses, expires on time only.
+	var fast: bool = false
 	## Internal Injury (not a catalogue status): damage stored, release period (s), next release (ms).
 	var stored: float = 0.0
 	var every: float = 3.0

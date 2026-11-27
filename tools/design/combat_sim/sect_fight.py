@@ -83,23 +83,40 @@ def techs():
 def fight_file(p, catalogue):
     b = p["build"]
     r = F.REALMS.index(p["realm"])
-    arts, tl = [], []
+    arts, tl, tlayers, meters = [], [], {}, {}
     for s in [b["main"]] + list(b.get("aux", [])):
         t = catalogue.get(s.get("tech"))
         if not t:
             continue
-        tl.append(s["tech"])
+        tid = s["tech"]
+        layer = int(s.get("layer", 1))
+        tl.append(tid)
+        tlayers[tid] = layer
         for ab in t["abilities"]:
-            if ab["unlock_layer"] <= s.get("layer", 1) and ab["ability_id"] not in [a["lib"] for a in arts]:
+            if ab["unlock_layer"] <= layer and ab["ability_id"] not in [a["lib"] for a in arts]:
                 arts.append({"lib": ab["ability_id"]})
+        for ef in t.get("effects", []):
+            if isinstance(ef, dict) and layer < int(ef.get("unlock_layer", 1)):
+                continue
+            ename = (ef if isinstance(ef, str) else ef.get("name", "")).split(" (")[0]
+            if ename == "Playing Past the Break" and "playing_past_the_break" not in meters:
+                tp = p.get("thien_phu") or {}
+                th = float(tp.get("than_hon", 50))
+                kv = float(tp.get("khi_van", 50))
+                meters["playing_past_the_break"] = {"start": 0.0, "p": max(0.0, min(1.0, (th + kv) / 400.0))}
     pur = {}
     for k, v in list(p["root"].get("elements", {}).items()) + list(p["root"].get("variants", {}).items()):
         if k in EL:
             pur[EL[k]] = v
     named = set(F._LIB.get("items", {}))
     items = [g["named"] for g in b.get("gear", []) if g.get("named") in named]
-    return {"name": p["key"], "realm": p["realm"], "layers": F.enemy_file("typical", r)["layers"], "purity": pur,
-            "techniques": tl, "items": items, "arts": arts[:MAX_ARTS]}, items, tl
+    doc = {"name": p["key"], "realm": p["realm"], "layers": F.enemy_file("typical", r)["layers"], "purity": pur,
+           "techniques": tl, "items": items, "arts": arts[:MAX_ARTS]}
+    if tlayers:
+        doc["tech_layers"] = tlayers
+    if meters:
+        doc["meters"] = meters
+    return doc, items, tl
 
 
 def run(d, args, without=None):
@@ -129,16 +146,25 @@ def run(d, args, without=None):
 def effect_names(d, items, tl, owner_effects):
     """The Effects a holder's items, sets and techniques name (library names)."""
     names = []
+    t_layers = d.get("tech_layers") or {}
+    for tid in tl:
+        t = F._LIB.get("techs", {}).get(tid, {})
+        cur = int(t_layers[tid]) if tid in t_layers else int(t.get("layers", 15))
+        for ef in t.get("effects", []):
+            if isinstance(ef, dict) and cur < int(ef.get("unlock_layer", 1)):
+                continue
+            n = (ef if isinstance(ef, str) else ef.get("name", "")).split(" (")[0]
+            names.append(n)
     for iid in items:
         for ef in F._LIB["items"].get(iid, {}).get("effects", []):
             n = (ef if isinstance(ef, str) else ef.get("name", "")).split(" (")[0]
             names.append(n)
     worn = set(items)
     for s in F.item_sets().get("sets", []):
-        if set(s["pieces"]) <= worn:
-            for b in s.get("bonuses", []):
-                if b.get("effect"):
-                    names.append(str(b["effect"]).split(" (")[0])
+        n_pc = len(set(s["pieces"]) & worn)
+        for b in s.get("bonuses", []):
+            if b.get("effect") and n_pc >= int(b.get("pieces", len(set(s["pieces"])))):
+                names.append(str(b["effect"]).split(" (")[0])
     return [n for n in dict.fromkeys(names) if n]
 
 

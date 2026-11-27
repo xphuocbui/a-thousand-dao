@@ -1,0 +1,33 @@
+{
+  "tag": "b01",
+  "minutes": 35,
+  "words_built": [
+    "technique-effects: attach technique effects[{name, unlock_layer}] when layer >= unlock_layer across Python, GDScript, exporters, linters, and sect_fight",
+    "curse-fast: mod curse_fast >= 1 marks laid curses fast so cleanses skip them while duration expiry holds",
+    "heal-overflow: separate heal_overflow event {amount, share, source?} on overshoot > 0 while heal_restored stays gated on got > 0",
+    "carried-meter: seed playing_past_the_break meter {start, p=(than_hon+khi_van)/400} in FighterCompiler/fight.py/sect_fight.py and persist Character.fight_meters",
+    "lint-requires-field: allow and validate requires ({root_has, root_lacks}) in lint_arts.py and inline item arts via lint_items.py",
+    "partial-set-effects: activate set bonus Effects and stat lines at n >= pieces threshold (fixes 2/3-piece Hold the Quay)"
+  ],
+  "words_avoided": [
+    "The Banner Is Raised (thien_xu): not_run darkness-element intentionally unbuilt; staged proxy kept",
+    "A Fair Copy (thien_xu): not_run curse-reflect intentionally unbuilt; staged hit-reflect half kept"
+  ],
+  "gdd_lines": 2,
+  "tests": 10,
+  "fixture": "t27_b01_exact",
+  "records_moved": 14,
+  "decisions": [
+    "Emitted heal_overflow as a distinct event so heal_restored stays gated on got > 0 and existing listeners are unchanged at full HP",
+    "Implemented curse_fast via StatusState.fast mirroring talisman_fast, skipping fast curses in both named and curses-category cleanses",
+    "Exported tech_effects in export_combat_library.py with FighterCompiler fallback so GDScript attaches technique Effects immediately after stage6_gate.py serial",
+    "Persisted carried meters on Character.fight_meters (default start 0) with neutral fallback p=0.25 in bare build files",
+    "Activated set bonus Effects and modifiers at n >= pieces threshold across fight.py, sect_fight.py, build_file_compiler.gd, and stat_sheet.gd",
+    "Left not_run words darkness-element and curse-reflect unbuilt per batch instructions"
+  ],
+  "open": [
+    "darkness-element (thien_xu / The Banner Is Raised): not_run; staged proxy remains until any future ruling",
+    "curse-reflect (thien_xu / A Fair Copy): not_run; staged hit-reflect half remains until any future ruling",
+    "Stage 7 will run export_techniques.py to populate effects[] in assets/data/items_cong_phap.json (combat_library.json tech_effects fallback covers runtime until then)"
+  ]
+}

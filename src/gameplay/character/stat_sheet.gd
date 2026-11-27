@@ -109,6 +109,8 @@ func _add_set_lines(gd: GameData, db: WorldDB, used: Array, labels: Dictionary) 
 			continue
 		var src: String = "Bộ: %s (%d/%d)" % [str(s.get("name", s.id)), n, s.pieces.size()]
 		for b in s.get("bonuses", []):
+			if n < int(b.get("pieces", need)):
+				continue
 			for line in b.get("modifiers", []):
 				var stat: String = str(line.key)
 				if labels.has(stat) and not labels[stat].get("fight_only", false):

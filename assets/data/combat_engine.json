@@ -341,7 +341,8 @@
     "wounded",
     "tick_taken",
     "soul_taken",
-    "decoy_struck"
+    "decoy_struck",
+    "heal_overflow"
   ],
   "MOD_KEYS": [
     "L1",
@@ -415,7 +416,8 @@
     "next_art_cost",
     "ward_fixed",
     "soul_reflect",
-    "stack_dur"
+    "stack_dur",
+    "curse_fast"
   ],
   "ACTIONS": [
     "bank",

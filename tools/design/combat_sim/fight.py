@@ -162,7 +162,7 @@ TOP_KEYS = {"name", "realm", "layers", "crit", "n_body", "n_qi", "art_speed_pct"
             "accuracy_pct", "gain_on_hit_pct", "leech_qi_pct", "leech_health_pct", "ward", "body", "cleanse",
             "keystones", "curses", "purity", "bonus_slots", "arts", "enemy", "enemy_overrides", "unmodelled",
             "_comment", "effects", "counters", "companions", "shields", "basic_speed_pct", "opening_haste_pct", "pill",
-            "tech_layers", "meters",
+            "tech_layers", "tech_effects", "meters",
             "basic_coef_add", "timer_resist_pct", "ward_bill_pct", "refusals", "divine_sense", "soul_res_pct",
             "x_soul", "tam_ma", "resist", "boss", "tags", "states", "techniques", "items", "reserved",
             "stack_eff", "stack_dur", "wards", "pierce_pct", "stage_mult", "tree_effects", "tree_lines_on_sheet",
@@ -314,6 +314,8 @@ def add_library_effect(name, d, effects, counters, unmod, who, worn, counts=None
         apply_static(d, lib["static"], "%s Effect %s" % (who, name), unmod)
     if lib.get("reserve"):
         d["reserved"] = d.get("reserved", 0.0) + lib["reserve"]
+    if name == "Playing Past the Break":   # Effects rule 12 / carried-meter (Stage 6 b01): neutral fallback if unseeded
+        d.setdefault("meters", {}).setdefault("playing_past_the_break", {"start": 0.0, "p": 0.25})
     if lib.get("approx"):
         unmod.append("%s Effect %s: run from the library, approximately (%s)" % (who, name, lib["approx"]))
     return True
@@ -385,14 +387,16 @@ def add_sets(worn, d, effects, unmod, counters=None):
         if n < need:
             continue
         for b in s.get("bonuses", []):
-            if b.get("modifiers"):
+            if b.get("modifiers") and n >= int(b.get("pieces", need)):
                 apply_static(d, b["modifiers"], "set %s" % s["id"], unmod)
                 e = passive_effect(dict(id=s["id"]), unmod, lines=b["modifiers"], what="set", prefix="set")
                 if e:
                     effects.append(e)
-            if (b.get("effect") or b.get("record")) and n == len(set(s["pieces"])):
+            eff_need = int(b.get("pieces", len(set(s["pieces"]))))
+            if (b.get("effect") or b.get("record")) and n >= eff_need:
                 if b.get("record"):
-                    effects.append(dict(b["record"], id="set:%s:full" % s["id"]))
+                    rid = "set:%s:full" % s["id"] if eff_need == len(set(s["pieces"])) else "set:%s:%d" % (s["id"], eff_need)
+                    effects.append(dict(b["record"], id=rid))
                 elif counters is None or not add_library_effect(str(b["effect"]).split(" (")[0], d, effects, counters,
                                                                 unmod, "set %s" % s["id"], worn):
                     unmod.append("set %s full-set Effect %s: no engine record yet (not run)" % (s["id"], b["effect"]))
@@ -489,7 +493,7 @@ def root_gate(req, purity):
 def expand_library(d):
     """Resolve {"lib": id} arts and "techniques" ids into plain build fields. Unknown ids are BadInput."""
     if not any(isinstance(a, dict) and "lib" in a for a in d.get("arts", [])) and not d.get("techniques") \
-            and not d.get("items") and not d.get("tree_effects"):
+            and not d.get("tech_effects") and not d.get("items") and not d.get("tree_effects"):
         return d
     arts_lib, techs = _library()
     d = copy.deepcopy(d)
@@ -525,6 +529,9 @@ def expand_library(d):
             out.append(a)
     d["arts"] = out
     unmod = list(d.get("unmodelled", []))
+    worn = list(d.get("items", []) or [])
+    lib_done = set()
+    tech_layers = d.get("tech_layers") or {}
     for tid in d.pop("techniques", []) or []:
         t = techs.get(tid)
         if not t:
@@ -533,9 +540,32 @@ def expand_library(d):
         e = passive_effect(t, unmod)
         if e:
             effects.append(e)
+        cur_layer = int(tech_layers[tid]) if tid in tech_layers else int(t.get("layers", 15))
+        for ef in t.get("effects", []):
+            if isinstance(ef, dict) and cur_layer < int(ef.get("unlock_layer", 1)):
+                continue
+            name = ef if isinstance(ef, str) else ef.get("name", "")
+            short = name.split(" (")[0]
+            if not short or any(str(x.get("id", "")).startswith("eff:") and short.lower() in str(x.get("id")).lower()
+                                for x in d.get("effects", [])):
+                continue
+            if short in lib_done:
+                continue
+            lib_done.add(short)
+            if not add_library_effect(short, d, effects, counters, unmod, "technique %s" % tid, worn):
+                unmod.append("technique %s Effect %s: not in assets/data/combat_effects.json (not run)" % (tid, name))
+    for ef in d.pop("tech_effects", []) or []:
+        name = ef if isinstance(ef, str) else ef.get("name", "")
+        short = name.split(" (")[0]
+        if not short or any(str(x.get("id", "")).startswith("eff:") and short.lower() in str(x.get("id")).lower()
+                            for x in d.get("effects", [])):
+            continue
+        if short in lib_done:
+            continue
+        lib_done.add(short)
+        if not add_library_effect(short, d, effects, counters, unmod, "technique", worn):
+            unmod.append("technique Effect %s: not in assets/data/combat_effects.json (not run)" % name)
     items = _LIB.get("items", {})
-    worn = list(d.get("items", []) or [])
-    lib_done = set()
     for iid in d.pop("items", []) or []:
         it = items.get(iid)
         if not it:

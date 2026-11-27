@@ -36,7 +36,7 @@ TIERS = {"common", "authored"}
 FIELDS = {"id", "name", "element", "role", "tier", "tags", "c_art", "cost_share", "cooldown", "kind", "buff",
           "debuff", "c_heal", "qi_restore", "cleanse", "statuses", "split", "soul_pct", "soul_part", "bypass", "pool",
           "guards", "effects", "counters", "rule", "sources", "notes", "convert", "hp_cost", "charges", "states",
-          "x", "hooks", "group", "steps", "empower", "power"}
+          "x", "hooks", "group", "steps", "empower", "power", "requires"}
 
 
 def charge(a):
@@ -68,6 +68,15 @@ def lint(arts, src):
         bad = set(a) - FIELDS
         if bad:
             out.append("SCHEMA\t%s\t%s: unknown fields %s" % (src, aid, sorted(bad)))
+        req = a.get("requires")
+        if req is not None:
+            if not isinstance(req, dict) or set(req) - {"root_has", "root_lacks"}:
+                out.append("SCHEMA\t%s\t%s: requires must only hold root_has / root_lacks, got %r" % (src, aid, req))
+            else:
+                for rk, rv in req.items():
+                    els = [rv] if isinstance(rv, str) else (rv if isinstance(rv, list) else None)
+                    if els is None or any(not isinstance(el, str) or el not in (engine.ELEMENTS - {""}) for el in els):
+                        out.append("SCHEMA\t%s\t%s: requires.%s must name English engine elements, got %r" % (src, aid, rk, rv))
         if a.get("role") not in ROLES:
             out.append("SCHEMA\t%s\t%s: role %r not in %s" % (src, aid, a.get("role"), sorted(ROLES)))
         if a.get("tier") not in TIERS:

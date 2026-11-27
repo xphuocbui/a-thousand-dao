@@ -909,6 +909,7 @@ func heal(s: FighterState, amount: float, source: String = "", ignore_taken: boo
 	if cap > 0.0:   # Whetstone Vow's closing: never heal above that share of maximum
 		top = minf(top, cap * s.hp_max)
 	var got: float = minf(amount, top - s.hp)
+	var ov: float = amount - maxf(0.0, got)
 	if got > 0.0:
 		s.hp += got
 		s.healed += got
@@ -916,10 +917,17 @@ func heal(s: FighterState, amount: float, source: String = "", ignore_taken: boo
 			var ev: Dictionary = (s.cur_ev as Dictionary).duplicate() if s.cur_ev is Dictionary else {}
 			ev["amount"] = got
 			ev["share"] = got / s.hp_max
-			ev["overflow"] = maxf(0.0, amount - got)   # Effects rule 5 (2026-11-26): healing lost to full health
+			ev["overflow"] = maxf(0.0, ov)   # Effects rule 5 (2026-11-26): healing lost to full health
 			if source != "":
 				ev["source"] = source
 			_event(s, "heal_restored", ev)
+	if ov > 0.0 and listens(s, "heal_overflow"):
+		var ev_ov: Dictionary = (s.cur_ev as Dictionary).duplicate() if s.cur_ev is Dictionary else {}
+		ev_ov["amount"] = ov
+		ev_ov["share"] = ov / s.hp_max
+		if source != "":
+			ev_ov["source"] = source
+		_event(s, "heal_overflow", ev_ov)
 
 
 ## [param s] acts at the current time: arts ready in slot order, the basic attack, companions. Public for
@@ -1522,6 +1530,8 @@ func apply_status(src: FighterState, target: FighterState, spec: StatusSpec) -> 
 		st = FighterState.StatusState.new()
 		target.statuses[sid] = st
 	st.src_idx = _idx(src)
+	if is_curse and has_mods(src) and m(src, "curse_fast", sctx) >= 1.0:
+		st.fast = true   # Effects rule 6 (Stage 6 b01; Sentence Stands): cannot be cleansed, expires on time only
 	if bool(d.get("stack_timers", false)):   # Drunk: each landing runs its own time; a new stack refreshes no other
 		st.each.append([spec.stacks, -1 if not has_dur else t + CombatConstants.ms(dur)])
 		var n_s: float = 0.0

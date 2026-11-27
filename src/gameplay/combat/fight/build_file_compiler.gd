@@ -27,7 +27,7 @@ const LIBRARY_FILE := "combat_library"
 ## Build-file fields a Character's fighter may have (before and after expansion).
 const KEYS := ["name", "realm", "layers", "n_body", "n_qi", "ward", "arts", "items", "modifiers", "purity", "effects",
 	"counters", "states", "unmodelled", "wards", "reserved", "stack_eff", "stack_dur", "body", "divine_sense",
-	"stage_mult", "tree_effects", "tree_lines_on_sheet", "counts", "stack_alias", "no_ward", "pill", "tech_layers", "meters"]
+	"stage_mult", "tree_effects", "tree_lines_on_sheet", "counts", "stack_alias", "no_ward", "pill", "tech_layers", "tech_effects", "meters"]
 ## Base elements among slotted arts (the art_elements count: Utmost Yang, Utmost Yin).
 const BASE_ELEMENTS := ["fire", "water", "earth", "metal", "wood"]
 const WARD_KEYS := ["model", "payload", "drain_base", "ws_base", "we", "layers", "block"]
@@ -194,6 +194,23 @@ func _expand(src: Dictionary) -> Dictionary:
 		effects.append(te)
 	var worn: Array = Array(d.get("items", []))
 	var lib_done := {}
+	var teffs: Array = Array(d.get("tech_effects", [])).duplicate()
+	d.erase("tech_effects")
+	for ef in teffs:
+		var tname: String = str(ef)
+		var tshort: String = tname.split(" (")[0]
+		if tshort == "":
+			continue
+		var town := false
+		for x in src.get("effects", []):
+			var xid: String = str(x.get("id", ""))
+			if xid.begins_with("eff:") and xid.to_lower().contains(tshort.to_lower()):
+				town = true
+		if town or lib_done.has(tshort):
+			continue
+		lib_done[tshort] = true
+		if not _add_library_effect(tshort, d, effects, counters, unmod, "technique", worn):
+			unmod.append("technique Effect %s: not in assets/data/combat_effects.json (not run)" % tname)
 	for iid_v in worn:
 		var iid: String = str(iid_v)
 		if not _items.has(iid):
@@ -382,6 +399,11 @@ func _add_library_effect(name: String, d: Dictionary, effects: Array, counters: 
 		_apply_static(d, lib.static, "%s Effect %s" % [who, name], unmod)
 	if lib.get("reserve"):
 		d["reserved"] = float(d.get("reserved", 0.0)) + float(lib.reserve)
+	if name == "Playing Past the Break":   # Effects rule 12 / carried-meter (Stage 6 b01): neutral fallback if unseeded
+		if not d.has("meters") or not (d.meters is Dictionary):
+			d["meters"] = {}
+		if not (d.meters as Dictionary).has("playing_past_the_break"):
+			d.meters["playing_past_the_break"] = {"start": 0.0, "p": 0.25}
 	if lib.get("approx"):
 		unmod.append("%s Effect %s: run from the library, approximately (%s)" % [who, name, str(lib.approx)])
 	return true
@@ -407,15 +429,16 @@ func _add_sets(worn: Array, d: Dictionary, effects: Array, unmod: Array, counter
 			continue
 		for b in s.get("bonuses", []):
 			var mods: Array = b.get("modifiers", [])
-			if not mods.is_empty():
+			if not mods.is_empty() and n >= int(b.get("pieces", need)):
 				_apply_static(d, mods, "set %s" % str(s.id), unmod)
 				var se: Variant = _passive_effect(str(s.id), unmod, mods, "set", "set")
 				if se != null:
 					effects.append(se)
-			if (b.get("effect") != null or b.get("record") != null) and n == pieces.size():
+			var eff_need: int = int(b.get("pieces", pieces.size()))
+			if (b.get("effect") != null or b.get("record") != null) and n >= eff_need:
 				if b.get("record") is Dictionary:
 					var rec: Dictionary = (b.record as Dictionary).duplicate(true)
-					rec["id"] = "set:%s:full" % str(s.id)
+					rec["id"] = "set:%s:full" % str(s.id) if eff_need == pieces.size() else "set:%s:%d" % [str(s.id), eff_need]
 					effects.append(rec)
 				elif not _add_library_effect(str(b.effect).split(" (")[0], d, effects, counters, unmod, "set %s" % str(s.id), worn):
 					unmod.append("set %s full-set Effect %s: no engine record yet (not run)" % [str(s.id), str(b.effect)])

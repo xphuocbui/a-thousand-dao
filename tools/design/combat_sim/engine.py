@@ -1590,13 +1590,19 @@ class Fight:
         if cap > 0:                          # Whetstone Vow's closing: never heal above that share of maximum
             top = min(top, cap * s.hp_max)
         got = min(amount, top - s.hp)
+        ov = amount - max(0.0, got)
         if got > 0:
             s.hp += got
             s.healed += got
-            ev = dict(s.cur_ev or {}, amount=got, share=got / s.hp_max, overflow=max(0.0, amount - got))
+            ev = dict(s.cur_ev or {}, amount=got, share=got / s.hp_max, overflow=max(0.0, ov))
             if source:
                 ev["source"] = source
             self.fire_event(s, "heal_restored", ev)
+        if ov > 0:
+            ev_ov = dict(s.cur_ev or {}, amount=ov, share=ov / s.hp_max)
+            if source:
+                ev_ov["source"] = source
+            self.fire_event(s, "heal_overflow", ev_ov)
 
     # ---------------------------------------------------------- stacks and statuses
     def add_stacks(self, src, target, el, n, dur, buff, mark=None):
@@ -1669,6 +1675,8 @@ class Fight:
             st = {"stacks": 0, "until": None, "src": src}
             target.statuses[sid] = st
         st["src"] = src
+        if is_curse and self.mod(src, "curse_fast", sctx) >= 1:
+            st["fast"] = True   # Effects rule 6 (Stage 6 b01; Sentence Stands): cannot be cleansed, expires on time only
         if d.get("stack_timers"):   # Drunk: each landing runs its own time; a new stack refreshes none of the others
             each = st.setdefault("each", [])
             each.append([n, None if dur is None else self.t + ms(dur)])
@@ -1904,8 +1912,9 @@ class Fight:
                 self.apply_status(s, o if arg.get("side", "foe") == "foe" else s, spec)
             elif verb == "cleanse":
                 if arg.get("status") or arg.get("curses"):
-                    gone = [k for k in list(s.statuses) if k == arg.get("status")
-                            or (arg.get("curses") and STATUS.get(k, {}).get("kind") == "curse")]
+                    gone = [k for k in list(s.statuses)
+                            if (k == arg.get("status") or (arg.get("curses") and STATUS.get(k, {}).get("kind") == "curse"))
+                            and not s.statuses[k].get("fast")]
                     if arg.get("curses"):
                         gone = gone[:int(arg["curses"] * n)]
                     for k in gone:

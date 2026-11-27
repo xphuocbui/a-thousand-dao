@@ -189,6 +189,13 @@ def lint(techs, fname, arts, pool, tiers, notes):
             elif el and ELEMENT_ID.get(el) not in names:
                 out.append("ELEMENT\t%s\t%s is %s (%s) but the technique names %r" % (where, aid, el,
                                                                                     ELEMENT_ID.get(el), names))
+        for j, ef in enumerate(t.get("effects", [])):
+            if not isinstance(ef, dict) or not isinstance(ef.get("name"), str) or not ef["name"].strip():
+                out.append("SCHEMA\t%s\teffects[%d] must be an object with a non-empty name" % (where, j))
+                continue
+            eul = ef.get("unlock_layer", 1)
+            if not isinstance(eul, int) or not 1 <= eul <= t["layers"]:
+                out.append("UNLOCK\t%s\teffect %s unlock_layer %r outside 1-%d" % (where, ef["name"], eul, t["layers"]))
     return out
 
 

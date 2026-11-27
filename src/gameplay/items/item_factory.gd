@@ -304,6 +304,7 @@ func manual_from_template(t: Dictionary) -> Dictionary:
 		# (rule 17), keyed on the template id so every copy carries the same art (user decision 2026-11-14)
 		"abilities": t.abilities.duplicate(true) if not Array(t.abilities).is_empty() else common_ability(str(t.id), Array(t.names), str(t.tech_kind)),
 		"passives": Array(t.get("passives", [])).duplicate(true),
+		"effects": Array(t.get("effects", [])).duplicate(true),
 		"seal_clusters": t.seal_clusters.duplicate(), "origin": "authored",
 		"value": _manual_price(cfg, tier, 0.5), "owner_id": "",
 	}

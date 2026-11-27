@@ -309,6 +309,15 @@ looks like a strong build.
   for empowered and stepped arts as well.
 - **Sets:** a full set naming an Effect with no inline `record` runs it from `assets/data/combat_effects.json` by name.
 
+### Built in world-depth Stage 6 batch b01 (2026-11-27; both engines, parity t27)
+
+- **Technique Effects (`technique-effects`):** a technique's `effects` list (`[{"name", "unlock_layer", "passive_art"?, "rule"?}]`) attaches each named library Effect (and merges its counters) whenever the build knows that technique at `layer >= unlock_layer` (`tech_layers` in `fight.py` / `sect_fight.py`, or `tech_effects` from `FighterCompiler` in `BuildFileCompiler`). Carried into `items_cong_phap.json` by `export_techniques.py` and into `combat_library.json` (`tech_effects`) by `export_combat_library.py`.
+- **`curse_fast` (mod flag, `thien_xu` `Sentence Stands`):** while `curse_fast >= 1` holds on the caster, any curse status laid by that caster is marked fast and skipped by target cleanses (`cleanse {status}` and `cleanse {curses}`); it ends only on time. Mirrors `talisman_fast`.
+- **`heal_overflow` (event, `thuy_vi` `The Empty Mountain's Answer`):** raised whenever `ov = amount - max(0, got) > 0` in `heal()` (covering both partial overshoots and full-health / `heal_cap` heals), carrying `{amount: ov, share: ov / hp_max, source?}` plus `cur_ev`. `heal_restored` stays strictly gated on `got > 0`.
+- **Carried meter (`carried-meter`, `phuong_minh` `Playing Past the Break`):** `Character.fight_meters` persists counted-chance meters across fights (`to_dict`/`from_dict`, `save_fight_meters`); when a fighter knows `Playing Past the Break`, `FighterCompiler` and `sect_fight.py` seed `meters["playing_past_the_break"] = {"start": saved, "p": clamp((than_hon + khi_van) / 400, 0, 1)}` (with neutral `{"start": 0.0, "p": 0.25}` fallback in `fight.py` and `BuildFileCompiler` when unseeded).
+- **Partial-set Effects (`tung_dao` `td-cold-ford-charge`):** set bonuses with `"pieces": N` attach their modifiers and Effect whenever `n >= N` distinct pieces are worn (`add_sets` / `_add_sets` / `sect_fight.py`), defaulting to the full set size when `"pieces"` is omitted.
+- **Root-gate lint (`lint-requires-field`):** `tools/design/arts/lint_arts.py` (and `lint_items.py` via it) accepts and validates `requires: {"root_has" | "root_lacks": [<English engine element>]}`.
+
 ### Traps found in Stage 6 (read before writing records)
 
 - **On `on: "always"`, scope goes INSIDE the mod** (`{"mod": {"sure_crit": 1, "tags": ["sword"]}}`). A record-level

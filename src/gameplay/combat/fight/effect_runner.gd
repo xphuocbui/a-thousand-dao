@@ -458,6 +458,9 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 				if by_status or curses != 0.0:
 					var gone: Array = []
 					for sid in s.statuses.keys():
+						var st_c: FighterState.StatusState = s.statuses[sid]
+						if st_c.fast:
+							continue
 						if (by_status and sid == str(arg.status)) or (curses != 0.0
 								and str(k.status.get(sid, {}).get("kind", "")) == "curse"):
 							gone.append(sid)

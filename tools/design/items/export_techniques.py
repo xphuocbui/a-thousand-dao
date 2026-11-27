@@ -29,7 +29,7 @@ def design_techniques():
     for path in sorted(glob.glob(os.path.join(ROOT, "design", "techniques", "catalogue-*.json"))):
         with open(path, encoding="utf-8") as f:
             for t in json.load(f):
-                out.append({
+                rec = {
                     "id": t["id"], "name": t["name"], "tier": int(t["tier"]), "tech_kind": t["tech_kind"],
                     "names": list(t.get("names", [])), "layers": int(t["layers"]),
                     "bonuses": [{"stat": b["stat"], "value": b["value"]} for b in t.get("bonuses", [])],
@@ -37,7 +37,14 @@ def design_techniques():
                     "abilities": [{"ability_id": a["ability_id"], "unlock_layer": int(a["unlock_layer"])}
                                   for a in t.get("abilities", [])],
                     "seal_clusters": [], "origin": "authored",
-                })
+                }
+                if t.get("effects"):
+                    rec["effects"] = [
+                        {k: (int(e[k]) if k == "unlock_layer" else e[k])
+                         for k in ("name", "unlock_layer", "passive_art") if k in e}
+                        for e in t["effects"] if isinstance(e, dict) and e.get("name")
+                    ]
+                out.append(rec)
     return out
 
 

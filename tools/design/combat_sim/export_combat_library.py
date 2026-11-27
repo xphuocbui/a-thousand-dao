@@ -142,21 +142,31 @@ def build_all():
         if defaults.get(late) == {}:        # in the parity and compile files, so compiled builds keep their shape
             defaults.pop(late)
     consts["build_defaults"] = defaults
+    tech_effects = {}
+    for tid in sorted(_techs):
+        ef_list = _techs[tid].get("effects") or []
+        if ef_list:
+            tech_effects[tid] = [
+                {"name": e["name"], "unlock_layer": int(e.get("unlock_layer", 1))}
+                for e in ef_list if isinstance(e, dict) and e.get("name")
+            ]
     return {
         "schema_version": 1,
         "_doc": "The combat library (ADR-0001 step 3). Written by tools/design/combat_sim/export_combat_library.py "
                 "from fight.py's library, ward parser, reference enemies and constants; do not edit by hand. Read by "
                 "FighterCompiler. arts: library forms by id (build-file art fields, effects, counters, states; source "
                 "family | part_common | part_authored | common_arts | item). items: named items' combat records "
-                "(role = the base's first role; wards parsed and unscaled, fields null when not run). bases: per artifact "
-                "base, its roles, common art id and common ward (Item Database rule 21: what a rolled piece gives). "
-                "typical: the "
+                "(role = the base's first role; wards parsed and unscaled, fields null when not run). tech_effects: "
+                "technique id -> [{name, unlock_layer}] for techniques carrying passive-art / technique Effects. "
+                "bases: per artifact base, its roles, common art id and common ward (Item Database rule 21: what a "
+                "rolled piece gives). typical: the "
                 "typical fighter's build file per realm 0-4. constants: fight.py constants (Combat Formulas B, "
                 "Combat Defence & Healing A0-D) the compiler reads; lib_art_keys: the art fields a library art "
                 "brings; build_defaults: an engine Build's fields before to_build() sets them; file_defaults: fight.py's literal "
                 "defaults for a build file's missing fields.",
         "arts": {k: arts[k] for k in sorted(arts)},
         "items": out_items,
+        "tech_effects": tech_effects,
         "typical": [F.enemy_file("typical", r) for r in range(5)],
         "bases": bases_record(bases),
         "constants": consts,

@@ -802,3 +802,139 @@ func test_live_stack_dur_doubles_ice_while_the_ward_holds() -> void:
 	assert_eq(f.b.debuffs[-1].until - f.t, 2 * plain, "Ice laid while the ward holds lasts twice as long")
 	f.add_stacks(f.a, f.b, "fire", 1, 4.0, false)
 	assert_eq(f.b.debuffs[-1].until - f.t, plain, "another element keeps its time")
+
+
+# ---- Stage 6 b01 (2026-11-27): curse_fast, heal_overflow, technique-effects, carried-meter, partial-set Effects ----
+func test_curse_fast_holds_curses_through_cleanse_until_expiry() -> void:
+	# test_engine.py t_curse_fast
+	var fast := {"id": "ss", "on": "always", "if": [{"read": "foe.debuff.earth", "op": ">=", "value": 1}],
+		"do": [{"mod": {"curse_fast": 1}}]}
+	var cl_one := {"id": "c1", "on": "fight_start", "do": [{"cleanse": {"status": "heavy_breath"}}]}
+	var cl_all := {"id": "c2", "on": "kill", "do": [{"cleanse": {"curses": 2}}]}
+	var f: Fight = M._fight(M._dummy({"effects": [fast]}), M._dummy({"effects": [cl_one, cl_all]}))
+	f.add_stacks(f.a, f.b, "earth", 1.0, 10.0, false)
+	var hb := _spec("heavy_breath")
+	hb.extra["dur"] = 3
+	f.apply_status(f.a, f.b, hb)
+	f.b.debuffs.clear()
+	f.b.touch_debuffs()
+	var su := _spec("sundered")
+	su.extra["dur"] = 3
+	f.apply_status(f.a, f.b, su)
+	EffectRunner.fire(f, f.b, "fight_start", {})
+	assert_bool(f.b.statuses.has("heavy_breath")).override_failure_message("named cleanse skips fast curse").is_true()
+	EffectRunner.fire(f, f.b, "kill", {})
+	assert_bool(f.b.statuses.has("heavy_breath")).override_failure_message("curses cleanse keeps fast curse").is_true()
+	assert_bool(f.b.statuses.has("sundered")).override_failure_message("curses cleanse removes non-fast curse").is_false()
+	f.t = 3000
+	f.pulse(f.b)
+	assert_bool(f.b.statuses.has("heavy_breath")).override_failure_message("fast curse expires on time").is_false()
+
+
+func test_heal_overflow_fires_on_full_hp_and_partial_overshoot_without_waking_heal_restored() -> void:
+	# test_engine.py t_heal_overflow
+	var rest := {"id": "r", "on": "heal_restored", "do": [{"counter": {"id": "restored", "add": 1}}]}
+	var over := {"id": "o", "on": "heal_overflow", "scale": {"read": "event.share", "per": 0.05, "floor": false},
+		"do": [{"counter": {"id": "ov", "add": 1}}]}
+	var f: Fight = M._fight(M._dummy({"effects": [rest, over], "counters": [{"id": "restored"}, {"id": "ov"}]}), M._dummy())
+	f.a.hp = f.a.hp_max
+	f.heal(f.a, 0.10 * f.a.hp_max, "regen")
+	assert_near(float(f.a.counters["restored"]), 0.0, 1e-9, "full HP does not fire heal_restored")
+	assert_near(float(f.a.counters["ov"]), 2.0, 1e-6, "full HP fires heal_overflow with share")
+	f.a.hp = 0.95 * f.a.hp_max
+	f.heal(f.a, 0.10 * f.a.hp_max)
+	assert_near(float(f.a.counters["restored"]), 1.0, 1e-9, "partial overshoot fires heal_restored")
+	assert_near(float(f.a.counters["ov"]), 3.0, 1e-6, "partial overshoot fires heal_overflow for excess")
+	f.a.hp = 0.50 * f.a.hp_max
+	f.heal(f.a, 0.10 * f.a.hp_max)
+	assert_near(float(f.a.counters["restored"]), 2.0, 1e-9, "under-cap heal fires heal_restored")
+	assert_near(float(f.a.counters["ov"]), 3.0, 1e-6, "under-cap heal does not fire heal_overflow")
+
+
+func test_technique_effects_attach_by_unlock_layer_and_merge_counters() -> void:
+	# test_engine.py t_technique_effects
+	var gd := game_data()
+	var old_eff: Dictionary = gd.file("combat_effects")
+	var patched: Dictionary = old_eff.duplicate(true)
+	patched.effects["_T Passive Art"] = {
+		"counters": [{"id": "_t_p_cnt"}],
+		"records": [{"id": "eff:_T Passive Art", "on": "pulse", "do": [{"counter": {"id": "_t_p_cnt", "add": 1}}]}],
+	}
+	gd.registry.set_file("combat_effects", patched)
+	var db := WorldDB.new()
+	var c := TestFixtures.character({"tho": 60}, 50, 1)
+	var manual := {"tech_id": "_t_passive_canon", "name": "Test Canon", "tier": 2, "tech_kind": "main",
+		"names": ["tho"], "layers": 12, "bonuses": [], "passives": [], "abilities": [],
+		"effects": [{"name": "_T Passive Art (Thử)", "unlock_layer": 4, "passive_art": true}],
+		"seal_clusters": [], "origin": "authored"}
+	CongPhap.learn(c, manual)
+	c.main_tech = "_t_passive_canon"
+	c.techniques["_t_passive_canon"].layer = 3
+	var d3: Dictionary = FighterCompiler.character_build_file(c, gd, db, StatSheet.build(c, gd, db, null))
+	assert_false(d3.has("tech_effects"), "below unlock_layer: no tech_effects")
+	c.techniques["_t_passive_canon"].layer = 4
+	var d4: Dictionary = FighterCompiler.character_build_file(c, gd, db, StatSheet.build(c, gd, db, null))
+	assert_eq(d4.get("tech_layers", {}).get("_t_passive_canon", 0), 4, "tech_layers carries layer 4")
+	var p: FighterProfile = FighterCompiler.compile(c, gd, db, StatSheet.build(c, gd, db, null))
+	gd.registry.set_file("combat_effects", old_eff)
+	assert_true(p != null, "compiles")
+	assert_true(p.effects.any(func(e): return e.id == "eff:_T Passive Art"), "technique Effect attached at layer 4")
+	assert_true(p.counter_def.has("_t_p_cnt"), "technique Effect counter merged")
+
+
+func test_carried_meter_seeds_playing_past_the_break_and_persists_on_character() -> void:
+	# test_engine.py t_carried_meter
+	var gd := game_data()
+	var old_eff: Dictionary = gd.file("combat_effects")
+	var patched: Dictionary = old_eff.duplicate(true)
+	patched.effects["Playing Past the Break"] = {
+		"records": [{"id": "eff:Playing Past the Break", "on": "fight_start",
+			"do": [{"meter": {"id": "playing_past_the_break", "success": [{"gain_qi": {"share": 0.1}}], "failure": []}}]}],
+	}
+	gd.registry.set_file("combat_effects", patched)
+	var db := WorldDB.new()
+	var c := TestFixtures.character({"hoa": 60}, 50, 1)
+	c.thien_phu["than_hon"] = 80
+	c.thien_phu["khi_van"] = 40
+	c.fight_meters["playing_past_the_break"] = 0.7
+	var roundtrip := Character.from_dict(c.to_dict())
+	assert_near(float(roundtrip.fight_meters.get("playing_past_the_break", -1.0)), 0.7, 1e-9, "fight_meters round-trips")
+	var manual := {"tech_id": "shao-remnant-score", "name": "Shao", "tier": 2, "tech_kind": "secret",
+		"names": ["hoa"], "layers": 12, "bonuses": [], "passives": [], "abilities": [],
+		"effects": [{"name": "Playing Past the Break", "unlock_layer": 1}],
+		"seal_clusters": [], "origin": "authored"}
+	CongPhap.learn(roundtrip, manual)
+	roundtrip.aux_tech[0] = "shao-remnant-score"
+	var d: Dictionary = FighterCompiler.character_build_file(roundtrip, gd, db, StatSheet.build(roundtrip, gd, db, null))
+	var m: Dictionary = d.get("meters", {}).get("playing_past_the_break", {})
+	assert_near(float(m.get("start", -1.0)), 0.7, 1e-9, "saved start value seeded")
+	assert_near(float(m.get("p", -1.0)), 0.3, 1e-9, "p = (than_hon + khi_van) / 400")
+	var p: FighterProfile = FighterCompiler.compile(roundtrip, gd, db, StatSheet.build(roundtrip, gd, db, null))
+	gd.registry.set_file("combat_effects", old_eff)
+	var f := Fight.new(p, FighterCompiler.from_data("typical", 1, gd), CombatConstants.from_game_data(gd), 1, Fight.Order.FIXED)
+	EffectRunner.fire(f, f.a, "fight_start", {})
+	roundtrip.save_fight_meters(FighterEnd.of(f.a).meters)
+	assert_near(float(roundtrip.fight_meters.get("playing_past_the_break", -1.0)), 0.0, 1e-9, "0.7 + 0.3 succeeds and persists 0.0")
+
+
+func test_partial_set_bonus_runs_its_effect_at_its_piece_threshold() -> void:
+	# test_engine.py t_partial_set_effect (tung_dao td-cold-ford-charge 2pc Hold the Quay on a 3pc set)
+	var gd := game_data()
+	var old: Dictionary = gd.file("items_sets")
+	var names: Array = (gd.file("combat_library").items as Dictionary).keys()
+	names.sort()
+	var pieces: Array = names.slice(0, 3)
+	gd.registry.set_file("items_sets", {"constants": {"set_bonus_min_pieces": 2}, "sets": [{"id": "charge", "name": "Charge",
+			"pieces": pieces, "bonuses": [{"pieces": 2, "modifiers": [{"key": "attack_pct", "value": 8, "scope": []}],
+				"effect": "Rime Lock (Sương Tỏa)"},
+			{"pieces": 3, "effect": "Full Charge", "record": {"id": "x", "on": "always", "do": [{"mod": {"block": 5}}]}}]}]})
+	var bfc := BuildFileCompiler.new(gd)
+	gd.registry.set_file("items_sets", old)
+	var d2: Dictionary = bfc.compile({"name": "t", "realm": "luyen_khi", "layers": [0, 0, 0, 0, 0], "arts": [], "items": pieces.slice(0, 2)})
+	var ids2: Array = d2.get("effects", []).map(func(e): return str(e.get("id", "")))
+	assert_true(ids2.has("set:charge") and ids2.has("eff:Rime Lock") and not ids2.has("set:charge:full"),
+			"2 of 3 pieces run 2pc modifiers and 2pc Effect only: %s" % str(ids2))
+	var d3: Dictionary = bfc.compile({"name": "t", "realm": "luyen_khi", "layers": [0, 0, 0, 0, 0], "arts": [], "items": pieces})
+	var ids3: Array = d3.get("effects", []).map(func(e): return str(e.get("id", "")))
+	assert_true(ids3.has("set:charge") and ids3.has("eff:Rime Lock") and ids3.has("set:charge:full"),
+			"3 of 3 pieces run both Effects: %s" % str(ids3))

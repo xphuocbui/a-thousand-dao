@@ -32,6 +32,8 @@ static func learn(c: Character, manual: Dictionary) -> bool:
 	var def: Dictionary = {}
 	for k in ["tech_id", "name", "tier", "tech_kind", "names", "layers", "bonuses", "passives", "abilities", "seal_clusters", "origin"]:
 		def[k] = manual.get(k)
+	if manual.has("effects") and manual.get("effects") is Array and not (manual.get("effects") as Array).is_empty():
+		def["effects"] = (manual.get("effects") as Array).duplicate(true)
 	c.techniques[key] = {"def": def, "layer": 1, "mastery": 0.0, "seal_seasons": 0}
 	return true
 

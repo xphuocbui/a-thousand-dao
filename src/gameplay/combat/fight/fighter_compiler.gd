@@ -130,20 +130,46 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 	var items: Array = []
 	var arts: Array = []
 	var wards: Array = []
+	var tech_layers := {}
+	var tech_effects: Array = []
+	var meters := {}
+	var lib_tech_effects: Dictionary = lib.get("tech_effects", {})
 	var slots: int = int(lib.constants.slots_by_realm[r])
 	var control: Dictionary = CombatPower.controlled(c, gd, db, sheet)
 	for key in [c.main_tech, c.second_tech] + Array(c.aux_tech):
 		var e: Dictionary = c.techniques.get(str(key), {}) if str(key) != "" else {}
 		if e.is_empty() or not CongPhap.usable(c, e.def):   # rule 8: a technique the root cannot use gives nothing
 			continue
+		var tid: String = str(e.def.get("tech_id", str(key)))
+		var layer: int = int(e.layer)
+		tech_layers[tid] = layer
 		var passives: Variant = e.def.get("passives")   # null on generated techniques and older copies
 		if passives is Array:
 			for pl in passives:
 				lines.append((pl as Dictionary).duplicate(true))
 		for ab in e.def.get("abilities", []):
 			var aid: String = str(ab.get("ability_id", ""))
-			if int(e.layer) >= int(ab.get("unlock_layer", 1)) and lib.arts.has(aid) and arts.size() < slots 					and not arts.any(func(x): return x.lib == aid):
+			if layer >= int(ab.get("unlock_layer", 1)) and lib.arts.has(aid) and arts.size() < slots \
+					and not arts.any(func(x): return x.lib == aid):
 				arts.append({"lib": aid})
+		var te_list: Variant = e.def.get("effects")
+		if not (te_list is Array) or (te_list as Array).is_empty():
+			te_list = lib_tech_effects.get(tid, [])
+		for ef in te_list:
+			if ef is Dictionary and layer < int(ef.get("unlock_layer", 1)):
+				continue
+			var ename: String = str(ef.get("name", "")) if ef is Dictionary else str(ef)
+			if ename == "":
+				continue
+			if not tech_effects.has(ename):
+				tech_effects.append(ename)
+			if ename.split(" (")[0] == "Playing Past the Break" and not meters.has("playing_past_the_break"):
+				var th: float = sheet.effective("than_hon", c)
+				var kv: float = sheet.effective("khi_van", c)
+				meters["playing_past_the_break"] = {
+					"start": clampf(float(c.fight_meters.get("playing_past_the_break", 0.0)), 0.0, 1.0),
+					"p": clampf((th + kv) / 400.0, 0.0, 1.0),
+				}
 	for item_id in control.used:
 		var rec: Dictionary = db.get_record("items", item_id)
 		var named: String = str(rec.get("named", ""))
@@ -176,6 +202,12 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 			wards.append(w)
 	d["items"] = items
 	d["modifiers"] = lines
+	if not tech_layers.is_empty():
+		d["tech_layers"] = tech_layers
+	if not tech_effects.is_empty():
+		d["tech_effects"] = tech_effects
+	if not meters.is_empty():
+		d["meters"] = meters
 	# L2 (art "more", Combat Formulas B): the typical +40 stands in for sources few Characters have yet (Way art
 	# nodes); the Character's own unscoped damage_more replaces that much of it, so L2 = max(typical, own) and nothing
 	# counts twice (2026-11-14, the L1 principle)

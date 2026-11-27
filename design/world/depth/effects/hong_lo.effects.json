@@ -1,0 +1,254 @@
+{
+ "_doc": "Hồng Lô Cốc's Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py under source world-depth:hong_lo. Unpriced. Rule text from design/world/depth/sects/hong_lo.items.json.",
+ "source": "world-depth:hong_lo",
+ "effects": {
+  "It Does Not Cool": {
+   "rule": "Nine-Year Ember: your Burn stacks on a foe wait when the foe evades any of your strikes (refreshed to at least 6 s); once a fight, when a cleanse puts out more than 5 of your Burn stacks, the ember restores them (8 s).",
+   "approx": "Fight pauses already freeze debuff timers via stop_clock; hiding/evasion is modelled on was_evaded refreshing Burn batches to 6 s, and putting out Burn by a Water hit is modelled on cleansed with amount > 5.",
+   "records": [
+    {
+     "id": "eff:It Does Not Cool:hold",
+     "on": "was_evaded",
+     "do": [
+      {
+       "refresh": {
+        "el": "fire",
+        "side": "foe",
+        "kind": "debuff",
+        "at_least": 6
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:It Does Not Cool:keep",
+     "on": "cleansed",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 5
+      }
+     ],
+     "scale": {
+      "read": "event.amount",
+      "per": 1
+     },
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 1,
+        "for": 8,
+        "side": "foe"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Quench the Jacket": {
+   "rule": "Snow-Melt Gourd: when you take Fire damage (once every 2 s), you gain 1 Water buff stack for 10 s; while you hold 3 or more Water buff stacks, your own Burn stacks on you are cleansed 1 every 2 s.",
+   "approx": "Incoming debuff duration halving is not a live mod key, so periodic 2 s Fire cleanse while holding 3+ Water buff stacks models Burn ending twice as fast (following The Robe Is Never Dry).",
+   "counters": [
+    {
+     "id": "quench_cd",
+     "each_for": 2
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Quench the Jacket:hit",
+     "on": "was_hit",
+     "filter": {
+      "dtype": "fire"
+     },
+     "if": [
+      {
+       "read": "own.counter.quench_cd",
+       "op": "<",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "water",
+        "n": 1,
+        "for": 10,
+        "side": "own",
+        "kind": "buff"
+       }
+      },
+      {
+       "counter": {
+        "id": "quench_cd",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Quench the Jacket:tick",
+     "on": "tick_taken",
+     "filter": {
+      "dtype": "fire"
+     },
+     "if": [
+      {
+       "read": "own.counter.quench_cd",
+       "op": "<",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "stacks": {
+        "el": "water",
+        "n": 1,
+        "for": 10,
+        "side": "own",
+        "kind": "buff"
+       }
+      },
+      {
+       "counter": {
+        "id": "quench_cd",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Quench the Jacket:quench",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.buff.water",
+       "op": ">=",
+       "value": 3
+      },
+      {
+       "read": "own.debuff.fire",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "cooldown": 2.0
+     },
+     "do": [
+      {
+       "cleanse": {
+        "n": 1,
+        "el": "fire"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Ký Tế": {
+   "rule": "Water Over Fire, full set (3 pieces): your Burn stacks on the foe are refreshed to at least 4 s whenever you are healed, and each heal art you cast turns 1 Burn stack on the foe into a steam burst of Fire damage equal to 3 s of that Burn (0.06 c Fire free hit).",
+   "approx": "3 s of 1 Burn stack (0.019 c/s) is expressed as a 0.06 c Fire free hit.",
+   "records": [
+    {
+     "id": "eff:Ký Tế:hold",
+     "on": "heal_restored",
+     "do": [
+      {
+       "refresh": {
+        "el": "fire",
+        "side": "foe",
+        "kind": "debuff",
+        "at_least": 4
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Ký Tế:burst",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "heal"
+      ]
+     },
+     "if": [
+      {
+       "read": "foe.debuff.fire",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "consume": {
+        "el": "fire",
+        "side": "foe",
+        "n": 1,
+        "per": 1,
+        "then": [
+         {
+          "free_hit": {
+           "c": 0.06,
+           "dtype": "fire"
+          }
+         }
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "A Second Early": {
+   "rule": "Snow Hearth, full set (2 pieces): each time a steam art spends Burn stacks (your Burn stacks spent by Steam from the Jacket), you heal 2 % of your health for each stack spent. Pill timing awaits the Alchemy pass.",
+   "approx": "Pills acting a second sooner is unmodelled until pills have fight timers (Alchemy pass); 'your own Burn stacks' reads your Burn stacks consumed by a steam art (steam-from-the-jacket).",
+   "counters": [
+    {
+     "id": "steam_spent"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:A Second Early",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "steam"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.steam_spent",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "scale": {
+      "read": "own.counter.steam_spent",
+      "per": 1,
+      "floor": false
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.02
+       }
+      },
+      {
+       "counter": {
+        "id": "steam_spent",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

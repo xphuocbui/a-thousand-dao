@@ -161,7 +161,10 @@ different.
        on the side a soul art lands on, the attacker's side keeping *soul hit*, and also when a reflect stops it; new
        2026-11-26, world-depth Băng Tâm Các); **a decoy took a hit** (`decoy_struck {kind, art_id}`, raised on the
        decoy's owner when one of its decoys absorbs a hit at the avoid step; the striker is the foe; new 2026-11-26,
-       world-depth Băng Tâm Các);
+       world-depth Băng Tâm Các); **healing overflowed** (`heal_overflow {amount, share, source?}`, raised whenever
+       healing exceeds the target's missing health — both partial overshoots and full-health or `heal_cap` heals —
+       carrying the lost health `amount` and `share` of maximum health, while `heal_restored` stays strictly gated on
+       health actually increasing; new 2026-11-27, world-depth Stage 6 `b01`, `thuy_vi`);
      - live: **lost in the last N s**, your health and linh lực lost over the last N seconds and the foe's buffs and
        wards gained over them (`own.lost_last.<pool>.<seconds>`, a per-side record of each pulse's losses and gains);
      - on a self-counter: **the hour a Piece was laid**, the pulse each batch was laid (`laid_at`), read as its 5 s
@@ -235,6 +238,7 @@ different.
    | **Grow a ward** (new 2026-11-26, world-depth Băng Tâm Các; `ward_grow {share, of, past_peak}`): raise your **stance ward**, a ward shield of your own (Combat Defence & Healing rule 6) that stops damage like any ward shield and costs nothing to keep up. If you hold none, it creates one. It grows by `share` of your maximum health (`of: "hp"`) or of its own peak (`of: "peak"`, a refill: it stops at the peak unless `past_peak`). It has no ceiling of its own: a release condition, an upkeep or the foe's damage closes it (rule 19). A foe breaking it raises *a shield breaks*. **Hold a ward** (`ward_fixed`, a mod for N s): while you hold it, the stance ward stops hits but loses nothing. **Release a ward** (`release_ward {dtype, more_per_stack, consume}`): end the stance ward and deal what it still holds to the foe as damage of that type, `more_per_stack` more for each stack the same action consumes (every stack of the named element, no cap); the hit meets the foe's defence | this GDD; Combat Defence & Healing rules 5–9 |
    | **Reflect a soul art** (new 2026-11-26, world-depth Băng Tâm Các; the mod `soul_reflect`, a count): while you hold a charge, the next soul art that would land on you does nothing to you, and its caster takes Cold damage equal to the health it would have taken from you; the hit meets the caster's defence. Each reflected art spends one charge. A soul art the soul lockout or `rho_min` already stops is not reflected and spends nothing. The mirror of Returning Wave's first-hit reflect (`reflect_first`), for soul arts only | this GDD; Combat (soul rules) |
    | **Burn a pill** (new 2026-11-26; `burn_pill`): spend a prepared pill from the pill slot. Its element and grade become the payload, and in a fight a pill can fail (`failed`), drawn on the fight's seeded stream (world-depth `pill-smoke`) | this GDD; Alchemy (the pill) |
+   | **Hold curses fast** (new 2026-11-27, world-depth Stage 6 `b01`, `thien_xu`; the mod `curse_fast`, 1 or more): while it holds, any curse status you lay cannot be removed by the target's cleanses (`cleanse {status}` or `cleanse {curses}`); it ends only on time. Mirrors `talisman_fast` for curse statuses | this GDD (rule 9) |
 
    The list is closed (user decision 2026-11-08). A new action is an engine addition, added here before any
    Effect uses it. An Effect never changes the foe's stats directly: it applies a status, or gives its owner a
