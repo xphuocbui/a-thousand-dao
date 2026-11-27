@@ -72,6 +72,7 @@
     "name": "Shade Orchid Breathing (U Lan Tức Pháp)",
     "tier": 0,
     "tech_kind": "main",
+    "suite": "shade-orchid-breath",
     "names": [
       "am"
     ],
@@ -215,6 +216,7 @@
     "name": "Black Wind Blood Sabre (Hắc Phong Huyết Đao)",
     "tier": 1,
     "tech_kind": "main",
+    "suite": "black-wind-blood-sabre",
     "names": [
       "kim",
       "hoa"
@@ -270,6 +272,7 @@
     "name": "Withered Branch Method (Khô Chi Pháp)",
     "tier": 1,
     "tech_kind": "secret",
+    "suite": "withered-branch-method",
     "names": [
       "moc"
     ],
@@ -411,6 +414,7 @@
     "name": "Copper Mountain Bell Canon (Đồng Sơn Tàn Chung Kinh)",
     "tier": 2,
     "tech_kind": "main",
+    "suite": "copper-mountain-bell-canon",
     "names": [
       "kim",
       "thuy"
@@ -469,6 +473,7 @@
     "name": "Night Moth Karst Canon (U Lan Dạ Nga Kinh)",
     "tier": 1,
     "tech_kind": "main",
+    "suite": "night-moth-karst-canon",
     "names": [
       "am",
       "thuy"

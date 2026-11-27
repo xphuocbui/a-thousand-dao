@@ -1,0 +1,15 @@
+{
+  "owner": "demonic",
+  "minutes": 9,
+  "must_fix": 4,
+  "should": 5,
+  "fixed": 8,
+  "words": {},
+  "open": [
+    "lint-song-scope (s6-serial-b06): add 'song': 'family' to tools/design/arts/lint_techniques.py TIER and restore scope ['song'] on dm-cracked-bell in catalogue-sect-demonic.json.",
+    "khoai_hong_ngac (demonic.2.cast.json) lacks Fire ('hoa') for black-wind-blood-sabre (names ['kim', 'hoa']) under CongPhap.usable() — open Stage 7/9 ruling (matching cung_tinh / cuu_cao / tung_dao).",
+    "ham_tan_chung (demonic.cast.json) has pre-existing main-kind hollow-bell-canon in build.aux (CongPhap.set_slot rejects main in aux; build.note names borrowed-wick-sutra) — open Stage 7/9 cleanup.",
+    "Fed in Blood on dm-sons-lamp remains not_run (out-of-fight seasonal upkeep).",
+    "Darkness element ('am') modifiers (5 lines) and black-ice-method curse_effect_pct: 8 (1 line) remain open until Darkness element & curse_effect_pct are built; Serial merge and export close techniques, arts_new, items, sets, effects, and 5 structured events."
+  ]
+}

@@ -74,6 +74,11 @@
               "read": "own.hp_share",
               "op": "<",
               "value": 0.5
+            },
+            {
+              "read": "event.amount",
+              "op": ">",
+              "value": 0
             }
           ],
           "do": [
@@ -114,7 +119,7 @@
     "Draw the Ink": {
       "rule": "The Ink-Drawing Needle (dm-ink-needle): A foe struck by the needle bleeds one drop of ink: your next Blood-Ink Writ against that foe lasts twice as long and costs no health.",
       "source": "world-depth:demonic",
-      "approx": "Armed by any hit_landed (single-foe duel), then consumed on blood-ink-writ art_fired for +100 % status_dur (0.5 s window on seal tag) and refunding its cost via refund {share: 1.0} (Blood-Ink Writ uses linh lực cost_share, with no separate hp_cost).",
+      "approx": "Armed by any hit_landed (single-foe duel), waives blood-ink-writ's hp_cost via hp_cost_red 1.0 (art_id blood-ink-writ), and spends ink_drawn on blood-ink-writ art_fired for +100 % status_dur (0.1 s window on kind curse; curses clamp to curse_duration_max = 5 s).",
       "counters": [
         {
           "id": "ink_drawn",
@@ -142,6 +147,25 @@
           ]
         },
         {
+          "id": "eff:Draw the Ink no_hp",
+          "on": "always",
+          "if": [
+            {
+              "read": "own.counter.ink_drawn",
+              "op": ">=",
+              "value": 1
+            }
+          ],
+          "do": [
+            {
+              "mod": {
+                "hp_cost_red": 1.0,
+                "art_id": "blood-ink-writ"
+              }
+            }
+          ]
+        },
+        {
           "id": "eff:Draw the Ink spend",
           "on": "art_fired",
           "filter": {
@@ -164,15 +188,8 @@
             {
               "mod": {
                 "status_dur": 100,
-                "tags": [
-                  "seal"
-                ],
-                "for": 0.5
-              }
-            },
-            {
-              "refund": {
-                "share": 1.0
+                "kind": "curse",
+                "for": 0.1
               }
             }
           ]
@@ -182,16 +199,21 @@
     "Sealed in His Name": {
       "rule": "The Blood-Ink Seal of Mặc (dm-blood-seal): A writ stamped with the seal cannot be broken by anyone of a lower realm than the stamper; it lifts only when the stamper dies or stamps it again.",
       "source": "world-depth:demonic",
-      "approx": "No cleanse-immunity vs lower-realm flag exists on foe statuses, so Blood-Ink Writ status duration is doubled (+100 status_dur via always mod scoped to art_id blood-ink-writ).",
+      "approx": "No cleanse-immunity vs lower-realm flag exists on foe statuses, so blood-ink-writ art_fired grants curse_fast 1 (unbreakable by cleanses across all realms) and +100 status_dur (0.1 s window on kind curse, clamped at curse_duration_max = 5 s).",
       "records": [
         {
           "id": "eff:Sealed in His Name",
-          "on": "always",
+          "on": "art_fired",
+          "filter": {
+            "art_id": "blood-ink-writ"
+          },
           "do": [
             {
               "mod": {
                 "status_dur": 100,
-                "art_id": "blood-ink-writ"
+                "curse_fast": 1,
+                "kind": "curse",
+                "for": 0.1
               }
             }
           ]
@@ -270,15 +292,14 @@
       "rule": "Lamp of Borrowed Wicks (dm-borrowed-wick-lamp): The lamp burns every soul thread you carry, one to a wick, and each lit wick reserves 1 % of your linh lực. While it holds at least one, you cannot be reduced below 1 health by a soul art; each time this saves you, one wick goes out.",
       "source": "world-depth:demonic",
       "reserve": 0.09,
-      "approx": "Starts at 9 lit wicks (reserve 0.09). Tracks soul_taken vs non-soul was_hit so refuse_down (engine limit 1 save per fight, leaving >=1 HP) triggers only when downed by a soul art, consuming 1 wick and restoring 1 % linh lực.",
+      "approx": "Starts at 9 lit wicks (reserve 0.09). Arms last_hit_soul only when an unreflected soul_taken drops own.hp_share <= 0 so refuse_down (engine limit 1 save per fight, leaving 1 HP) triggers only on a lethal soul art, consuming 1 wick and restoring 1 % linh lực.",
       "counters": [
         {
           "id": "wick_charges"
         },
         {
           "id": "last_hit_soul",
-          "cap": 1,
-          "each_for": 1
+          "cap": 1
         }
       ],
       "records": [
@@ -297,32 +318,15 @@
         {
           "id": "eff:Nine Wicks soul mark",
           "on": "soul_taken",
-          "do": [
-            {
-              "counter": {
-                "id": "last_hit_soul",
-                "add": 1
-              }
-            }
-          ]
-        },
-        {
-          "id": "eff:Nine Wicks clear mark",
-          "on": "was_hit",
           "if": [
             {
-              "read": "own.counter.last_hit_soul",
-              "op": ">=",
-              "value": 1
-            },
-            {
-              "read": "event.amount",
-              "op": ">",
+              "read": "own.hp_share",
+              "op": "<=",
               "value": 0
             },
             {
-              "read": "own.hp_share",
-              "op": ">",
+              "read": "event.reflected",
+              "op": "==",
               "value": 0
             }
           ],
@@ -330,7 +334,7 @@
             {
               "counter": {
                 "id": "last_hit_soul",
-                "set": 0
+                "set": 1
               }
             }
           ]
@@ -352,8 +356,12 @@
           ],
           "do": [
             {
-              "refuse_down": {
-                "hp_share": 0.002
+              "refuse_down": {}
+            },
+            {
+              "counter": {
+                "id": "last_hit_soul",
+                "set": 0
               }
             },
             {
@@ -475,7 +483,7 @@
     "His Sister's Water": {
       "rule": "The Bitter Well Gourd (dm-bitter-well-gourd): Once per fight, drink: restore 30 % linh lực, and for 5 seconds no one can drain linh lực from you.",
       "source": "world-depth:demonic",
-      "approx": "Triggers once per fight on pulse below 70 % linh lực to restore 30 % linh lực and raise a 5 s gourd_ward counter; because defend/drain has no foe drain-immunity key, qi_drained events during those 5 s trigger an immediate +0.02 linh lực counter-restore.",
+      "approx": "Triggers once per fight on pulse below 70 % linh lực to restore 30 % linh lực and raise a 5 s gourd_ward counter; because defend/drain has no foe drain-immunity key and burn_qi emits qi_drained on the drainer rather than the victim, incoming drain-tagged hits (was_hit filter tags drain) during those 5 s trigger an immediate +0.02 linh lực counter-restore.",
       "counters": [
         {
           "id": "gourd_ward",
@@ -513,7 +521,12 @@
         },
         {
           "id": "eff:His Sister's Water ward",
-          "on": "qi_drained",
+          "on": "was_hit",
+          "filter": {
+            "tags": [
+              "drain"
+            ]
+          },
           "if": [
             {
               "read": "own.counter.gourd_ward",
@@ -559,7 +572,7 @@
               "status": {
                 "id": "sleep",
                 "stacks": 1,
-                "dur": 4
+                "dur": 3
               }
             }
           ]
@@ -569,7 +582,7 @@
     "Writ in Their Blood": {
       "rule": "The Blood-Ink Study, full set (3 pieces): Your Blood-Ink Writs may be written in a foe's blood mid-fight: each writ that lands on a foe who is bleeding is free, and the next writ you cast carries its stolen qi (+20 % damage).",
       "source": "world-depth:demonic",
-      "approx": "blood-ink-writ hitting a Bleeding foe refunds its exact 0.03 linh lực cost_share via gain_qi {share: 0.03} and arms stolen_writ, spent on the next blood-ink-writ art_fired for +20 % damage (dmg_more 0.20, 0.5 s seal tag window).",
+      "approx": "blood-ink-writ hitting a Bleeding foe refunds its paid linh lực cost via refund {share: 1.0} and restores its 0.03 hp_cost via heal {share: 0.03, ignore_taken: true}, then arms stolen_writ, spent on the next blood-ink-writ art_fired for +20 % damage (dmg_more 0.20, 0.1 s seal tag window).",
       "counters": [
         {
           "id": "stolen_writ",
@@ -595,8 +608,14 @@
           ],
           "do": [
             {
-              "gain_qi": {
-                "share": 0.03
+              "refund": {
+                "share": 1.0
+              }
+            },
+            {
+              "heal": {
+                "share": 0.03,
+                "ignore_taken": true
               }
             },
             {
@@ -633,7 +652,7 @@
                 "tags": [
                   "seal"
                 ],
-                "for": 0.5
+                "for": 0.1
               }
             }
           ]
