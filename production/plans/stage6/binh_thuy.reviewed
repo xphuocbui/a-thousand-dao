@@ -1,0 +1,11 @@
+{
+ "owner": "binh_thuy",
+ "minutes": 5,
+ "must_fix": 0,
+ "should": 1,
+ "fixed": 2,
+ "words": {},
+ "open": [
+  "Serial merge and export (stage6_merge.py, export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py) to close techniques, arts_new, items, sets, effects, and the 7 structured events."
+ ]
+}

@@ -177,7 +177,7 @@
     }
    ],
    "effects": [],
-   "lore": "A ring of bone carved from the first ferry token the founders sold on Tình Sa beach. Hang Thiên Nhai gave it to Bùi Phiêu Bình the day he first took the oar.",
+   "lore": "A ring of bone carved from the first ferry token the founders sold on Tình Sa beach. Hạng Thiên Nhai gave it to Bùi Phiêu Bình the day he first took the oar.",
    "build_use": "The tide's buffs, a little evasion.",
    "holder": "bui_phieu_binh",
    "made_by": "hang_thien_nhai",
@@ -322,7 +322,7 @@
     },
     {
      "pieces": 3,
-     "effect": "Somewhere Else by Morning (Hiểu Tại Tha Phương): each time you evade, gain one Water buff stack; at 5 stacks your next evade carries you behind the attacker and turns all five into a tide that heals you 1 % of your health per stack each second for 5 s."
+     "effect": "Somewhere Else by Morning (Hiểu Tại Tha Phương): each time you evade, gain one Water buff stack; while you hold 5 or more Water buff stacks, your next evade spends 5 of them to raise a tide that heals you 1 % of your health per stack each second for 5 s."
     }
    ],
    "story": "The fan, the token and the coat of the first ferry, gathered by the man who has crossed every day since 1110. Bùi Phiêu Bình holds all three."
