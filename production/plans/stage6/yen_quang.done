@@ -1,0 +1,31 @@
+{
+ "owner": "yen_quang",
+ "minutes": 10,
+ "written": {
+  "techniques": 3,
+  "arts": 4,
+  "items": 6,
+  "sets": 2,
+  "effects": 4,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 9,
+ "decisions": [
+  "Dusk Haze: used self-counter haze_sec (6 pulses) instead of s.state so Verdant Cycle Scripture's rooted-form is never overwritten on shared holders.",
+  "Bank the Furnace: guarded on own.buff.wood >= 4 and haze_sec >= 1, resolving each Wood buff stack at 1.2 % max HP (150 % of 8 s HoT) and discounting next Dusk Haze via next_art_cost 0.5.",
+  "The Haze Gathers: suspended health regen via hregen_inc -1000 while gather_sec >= 1, banking 0.5 % + 0.1 % per Wood buff stack/pulse and releasing at 160 % (cd 10.0, cost 0.04).",
+  "Banked Till Dusk: kept < 20 s stack_dur 50 [wood, buff] exact and approximated post-20 s buff-expiry poison cleanse on pulse (cd 2.0 while own.buff.wood >= 1) since batch_ended fires on debuffs only.",
+  "Haze Held All Night & Unlit: modelled heal storage via heal_taken -50 + heal_restored/heal_overflow banking (decay_share 0.05), waived Unlit's 10 % HP cost via dusk_no_lit_cost, and ordered Unlit's cost check before setting furnace_lit = 1."
+ ],
+ "pending_words": [],
+ "never_ran": [
+  "Lit at Dusk: on 'always' never increments Fight.do runs, and tao_mo_tu ends gap 0 in 19.6 s / gap 1 in 13.2 s (< 20 s); direct Python probe confirmed stack_more 0.2 increases healing after t = 20 s.",
+  "Banked Till Dusk (gap 1): tao_mo_tu falls in 13.2 s (< 20 s) against +1-realm foe; ran 3 times in gap 0.",
+  "Unlit (gap 0): diem_tu_to stays above 40 % HP at gap 0; ran 32 times at gap 1 (+4.5 s survival)."
+ ],
+ "early_promotions": [],
+ "open": [
+  "export_named.py handling of kind: treasure items (yq-evening-glow-furnace, yq-cold-furnace) is tracked for the serial/export step."
+ ]
+}

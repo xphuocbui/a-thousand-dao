@@ -1,0 +1,504 @@
+{
+ "_doc": "Yên Quang Các's Effect engine records (world-depth Stage 6; ADR-0009). Staged for tools/design/combat_sim/put_effects.py under source world-depth:yen_quang. Unpriced. Rule text from design/world/depth/sects/yen_quang.items.json.",
+ "source": "world-depth:yen_quang",
+ "effects": {
+  "Lit at Dusk": {
+   "rule": "Furnace of the Evening Glow (Mộ Quang Lô): after the fight's 20th second the furnace burns hotter: healing-over-time stacks (Wood buff stacks) the holder grants are 20 % stronger for the rest of the fight.",
+   "counters": [],
+   "records": [
+    {
+     "id": "eff:Lit at Dusk",
+     "on": "always",
+     "if": [
+      {
+       "read": "time",
+       "op": ">=",
+       "value": 20
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "stack_more": 0.2,
+        "element": "wood",
+        "kind": "buff"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Unlit": {
+   "rule": "The Cold Furnace (Lãnh Lô): until it is lit the furnace gives only its modifiers. It lights itself the first time the holder's health falls to 40 % or below: for 10 s his healing over time is doubled, and he loses 10 % of his maximum health (waived while Haze Held All Night is active via dusk_no_lit_cost).",
+   "counters": [
+    {
+     "id": "furnace_lit"
+    },
+    {
+     "id": "furnace_burn"
+    },
+    {
+     "id": "furnace_hp_cost",
+     "upkeep": {
+      "pool": "hp",
+      "per_stack": 0.1
+     }
+    },
+    {
+     "id": "dusk_no_lit_cost"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Unlit:hit_cost",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.4
+      },
+      {
+       "read": "own.counter.furnace_lit",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.dusk_no_lit_cost",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "furnace_hp_cost",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Unlit:hit",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.4
+      },
+      {
+       "read": "own.counter.furnace_lit",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "furnace_lit",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "furnace_burn",
+        "set": 10
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Unlit:pulse_cost",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.4
+      },
+      {
+       "read": "own.counter.furnace_lit",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.dusk_no_lit_cost",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "furnace_hp_cost",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Unlit:pulse_trigger",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.4
+      },
+      {
+       "read": "own.counter.furnace_lit",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "furnace_lit",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "furnace_burn",
+        "set": 10
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Unlit:clear_cost",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.furnace_hp_cost",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "furnace_hp_cost",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Unlit:double_stacks",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.furnace_burn",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "stack_more": 1.0,
+        "element": "wood",
+        "kind": "buff"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Unlit:double_regen",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.furnace_burn",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "hregen_inc": 100
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Unlit:tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.furnace_burn",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "furnace_burn",
+        "add": -1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Banked Till Dusk": {
+   "rule": "Evening Glow (2 pieces): before the fight's 20th second your healing-over-time stacks (Wood buffs) last 50 % longer; after it, each one that ends also removes one poison stack (Wood debuff) from you.",
+   "approx": "Both engines emit batch_ended only on debuff expiries, not buff expiries; after 20 s while holding Wood buff stacks, cleanses 1 Wood poison stack every 2 s instead of listening for buff batch_ended.",
+   "counters": [],
+   "records": [
+    {
+     "id": "eff:Banked Till Dusk:dur",
+     "on": "always",
+     "if": [
+      {
+       "read": "time",
+       "op": "<",
+       "value": 20
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "stack_dur": 50,
+        "element": "wood",
+        "kind": "buff"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Banked Till Dusk:cleanse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "time",
+       "op": ">=",
+       "value": 20
+      },
+      {
+       "read": "own.buff.wood",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "cooldown": 2.0
+     },
+     "do": [
+      {
+       "cleanse": {
+        "n": 1,
+        "el": "wood"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Haze Held All Night": {
+   "rule": "The Dusk Field (3 pieces): healing you would receive from your own arts while the Cold Furnace is unlit is stored in it instead, and the store fades by a twentieth each second; when the furnace lights, the store is restored to you at once, and lighting it costs you no health.",
+   "approx": "While furnace_lit == 0, heal_taken -50 holds back half of incoming heals and heal_restored / heal_overflow store event.share (fading 5 % per second via decay_share 0.05); when furnace_lit >= 1, the full store is restored with ignore_taken and Unlit's 10 % HP cost is waived via dusk_no_lit_cost.",
+   "counters": [
+    {
+     "id": "furnace_lit"
+    },
+    {
+     "id": "dusk_no_lit_cost"
+    },
+    {
+     "id": "dusk_heal_store",
+     "decay_share": 0.05
+    },
+    {
+     "id": "dusk_released"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Haze Held All Night:waive",
+     "on": "fight_start",
+     "do": [
+      {
+       "counter": {
+        "id": "dusk_no_lit_cost",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Haze Held All Night:dampen",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.furnace_lit",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "heal_taken": -50
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Haze Held All Night:store_restored",
+     "on": "heal_restored",
+     "if": [
+      {
+       "read": "own.counter.furnace_lit",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "event.share",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "scale": {
+      "read": "event.share",
+      "per": 0.01,
+      "floor": false
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "dusk_heal_store",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Haze Held All Night:store_overflow",
+     "on": "heal_overflow",
+     "if": [
+      {
+       "read": "own.counter.furnace_lit",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "event.share",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "scale": {
+      "read": "event.share",
+      "per": 0.01,
+      "floor": false
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "dusk_heal_store",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Haze Held All Night:release_hit",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.furnace_lit",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.dusk_released",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.dusk_heal_store",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "scale": {
+      "read": "own.counter.dusk_heal_store",
+      "per": 1,
+      "floor": false
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.01,
+        "ignore_taken": true
+       }
+      },
+      {
+       "counter": {
+        "id": "dusk_heal_store",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "dusk_released",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Haze Held All Night:release_pulse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.furnace_lit",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.counter.dusk_released",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.dusk_heal_store",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "scale": {
+      "read": "own.counter.dusk_heal_store",
+      "per": 1,
+      "floor": false
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.01,
+        "ignore_taken": true
+       }
+      },
+      {
+       "counter": {
+        "id": "dusk_heal_store",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "dusk_released",
+        "set": 1
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
