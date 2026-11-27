@@ -20,8 +20,8 @@
    "tier": 0, "tech_kind": "main", "names": ["hoa", "tho"], "layers": 6, "rank": "ngoai_mon",
    "concept": "The outer gate's method, breathed sitting on the warm rock of the vent's lower flank, a little closer each layer. Earth qi from the rock is drawn in to hold the body together while Fire qi from the vent is let in to burn. The first layers are sat on cooled lava, the last within arm's reach of moving fire. Most of the hall's outer disciples stop at the fourth layer and are not ashamed of it.",
    "arts": [
-    {"new": "Hot Rock (Nhiệt Thạch)", "concept": "A stance: while the holder stays Composed, she gains defense and her next blow lays one Fire stack."},
-    {"new": "Shake Off the Ash (Phất Tro)", "concept": "Clears one Fire or burn stack from the holder and heals a little."}
+    {"id": "hot-rock", "new": "Hot Rock (Nhiệt Thạch)", "concept": "A stance: while the holder stays Composed, she gains defense and her next blow lays one Fire stack."},
+    {"id": "shake-off-the-ash", "new": "Shake Off the Ash (Phất Tro)", "concept": "Clears one Fire or burn stack from the holder and heals a little."}
    ],
    "lore": "Hùng Phần Vũ wrote it in 1026, after Kê Thủ Liệt died at the first sitting (A310), so that no disciple would come to the vent without a way to stop.",
    "status": "proposal"
@@ -32,8 +32,8 @@
    "tier": 1, "tech_kind": "main", "names": ["hoa", "tho"], "layers": 9, "rank": "noi_mon",
    "concept": "A body method in nine sittings. At each, the disciple sits in the vent until the outer qi of the skin, which the canon calls the feathers, burns away, and then rebuilds it from the rock's Earth, harder. Each layer is a burn survived. In a fight the holder takes Fire into the body instead of fearing it: Fire hits on her feed a store of heat that her blows release, and her flesh mends fastest when it is burning.",
    "arts": [
-    {"new": "Feathers Burn (Vũ Phần)", "concept": "For several seconds the holder takes a tenth less damage from Fire and turns a share of Fire damage taken into heat stacks; each heat stack adds Fire damage to her next blow."},
-    {"new": "Stand in the Ash (Lập Tro)", "concept": "When her health drops below a third, she heals a share of it over three seconds, more for each heat stack she carries; once per fight."},
+    {"id": "feathers-burn", "new": "Feathers Burn (Vũ Phần)", "concept": "For several seconds the holder takes a tenth less damage from Fire and turns a share of Fire damage taken into heat stacks; each heat stack adds Fire damage to her next blow."},
+    {"id": "stand-in-the-ash", "new": "Stand in the Ash (Lập Tro)", "concept": "When her health drops below a third, she heals a share of it over three seconds, more for each heat stack she carries; once per fight."},
     {"new": "Into the Vent (Nhập Huyệt)", "concept": "Sets yourself alight: lays 10 of your own Burn stacks on you for 6 s (your Burn, your damage, your Fire resistance). Each tick of a Burn you carry, from any source, adds a heat stack (the canon's heat: Feathers Burn's stacks, which add Fire damage to your next blow), up to 3 a pulse. While you carry any Burn, your healing is 30 % increased.", "id": "into-the-vent", "tags": ["fire", "body", "burn"], "unlock_layer": 3, "record": "builds/authored/auth-tech.json (e3)", "authored": "e3"}
    ],
    "lore": "The body chapters of Xích Thành Môn's fire teaching, carried out of its burning gate in 590 with the Ashen Phoenix Canon (N-phuong_minh-02) and kept in the palace's Hall of Spoils. In 1020 the founder Ngô Thê Đồng gave them to Hùng Phần Vũ with the Xích Hà Kỳ (C177). The hall says Hùng read them off the red-stone walls himself. It is a hidden fact (N-phan_vu-02).",
@@ -46,10 +46,21 @@
    "tier": 2, "tech_kind": "secret", "names": ["hoa"], "layers": 12, "rank": "truong_lao",
    "concept": "The tenth sitting. The cultivator goes into the vent's mouth itself and lets the body burn down to the bone and the core, then rebuilds all of it at once, the way the phoenix is said to burn and rise. A cultivator who comes out has crossed a realm's stage with the body of a younger one. One who does not is ash. In a fight it is a last art: at the edge of death the holder burns and rises once.",
    "arts": [
-    {"new": "Nirvana of the Red Wall (Xích Thành Niết Bàn)", "concept": "Once per fight, when a blow would kill her, the holder burns instead: she is untargetable for two seconds, then rises with half her health, all debuffs gone, and a burst of Fire around her."},
-    {"new": "Wall of Red Rock (Xích Nham Bích)", "concept": "Raises a ring of molten rock (a Field) around the holder for a few seconds; while it is up, the foe gains Fire stacks and is slowed."}
+    {"id": "nirvana-of-the-red-wall", "new": "Nirvana of the Red Wall (Xích Thành Niết Bàn)", "concept": "Once per fight, when a blow would kill her, the holder burns instead: she is untargetable for two seconds, then rises with half her health, all debuffs gone, and a burst of Fire around her."},
+    {"id": "wall-of-red-rock", "new": "Wall of Red Rock (Xích Nham Bích)", "concept": "Raises a ring of molten rock (a Field) around the holder for a few seconds; while it is up, the foe gains Fire stacks and is slowed."}
    ],
    "lore": "Xích Thành's highest body rite. Its last pages are burned, and the hall believes the missing part says how to come out. Kê Thủ Liệt's death in 1025 was at an earlier sitting. Tuân Hà Y died attempting this one in 1162 (N-phan_vu-04). Hùng Phần Vũ has never sat it.",
+   "status": "proposal"
+  },
+  {
+   "id": "charcoal-pit-breath",
+   "name": "Charcoal-Pit Breath (Thán Khanh Tức)",
+   "tier": 0, "tech_kind": "main", "names": ["moc", "thuy"], "layers": 6, "rank": "tap_dich",
+   "concept": "The charcoal burners' breath of Phần Vũ Đường's outer pits, worked out by Wood- and Water-rooted servants who never enter the lava vents. They bank green timber under damp earth and breathe slow beside the smouldering mound: steady flesh, a patient temper, and skin that shrugs off kiln smoke. It opens no gate.",
+   "arts": [
+    {"id": "bank-the-kiln", "new": "Bank the Kiln (Phong Diêu)", "concept": "A steady charcoal burner's axe chop that grants 1 Wood buff stack."}
+   ],
+   "lore": "Hác Đan Thạch had the charcoal hands keep it written on a board by the pit shed so the Fire Court's timber haulers would not cough themselves lame in winter.",
    "status": "proposal"
   }
  ]

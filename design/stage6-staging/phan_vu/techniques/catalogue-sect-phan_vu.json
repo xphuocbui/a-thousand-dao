@@ -1,0 +1,116 @@
+[
+ {
+  "id": "vent-sitting-breath",
+  "name": "Vent-Sitting Breath (Tọa Huyệt Tức)",
+  "tier": 0,
+  "tech_kind": "main",
+  "names": ["hoa", "tho"],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {"key": "body_shield_pct", "value": 6, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 10, "scope": []},
+   {"key": "resist_pct", "value": 60, "scope": ["fire"]}
+  ],
+  "abilities": [
+   {"ability_id": "hot-rock", "unlock_layer": 1},
+   {"ability_id": "shake-off-the-ash", "unlock_layer": 2}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "vent-sitting-breath",
+  "family": "fire",
+  "owner": "phan_vu",
+  "rank": "ngoai_mon",
+  "concept": "The outer gate's method, breathed sitting on the warm rock of the vent's lower flank, a little closer each layer. Earth qi from the rock is drawn in to hold the body together while Fire qi from the vent is let in to burn. The first layers are sat on cooled lava, the last within arm's reach of moving fire. Most of the hall's outer disciples stop at the fourth layer and are not ashamed of it.",
+  "lore": "Hùng Phần Vũ wrote it in 1026, after Kê Thủ Liệt died at the first sitting (A310), so that no disciple would come to the vent without a way to stop."
+ },
+ {
+  "id": "burning-feather-body-canon",
+  "name": "Burning Feather Body Canon (Phần Vũ Thể Kinh)",
+  "tier": 1,
+  "tech_kind": "main",
+  "names": ["hoa", "tho"],
+  "layers": 9,
+  "bonuses": [
+   {"stat": "khi_huyet_pct", "value": 12}
+  ],
+  "passives": [
+   {"key": "body_shield_pct", "value": 8, "scope": []},
+   {"key": "resist_pct", "value": 100, "scope": ["fire"]},
+   {"key": "health_regen_inc_pct", "value": 12, "scope": []},
+   {"key": "attack_pct", "value": 6, "scope": ["fire"]},
+   {"key": "healing_pct", "value": 3, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "feathers-burn", "unlock_layer": 1},
+   {"ability_id": "stand-in-the-ash", "unlock_layer": 2},
+   {"ability_id": "into-the-vent", "unlock_layer": 3}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "burning-feather-body-canon",
+  "family": "fire",
+  "owner": "phan_vu",
+  "rank": "noi_mon",
+  "concept": "A body method in nine sittings. At each, the disciple sits in the vent until the outer qi of the skin, which the canon calls the feathers, burns away, and then rebuilds it from the rock's Earth, harder. Each layer is a burn survived. In a fight the holder takes Fire into the body instead of fearing it: Fire hits on her feed a store of heat that her blows release, and her flesh mends fastest when it is burning.",
+  "lore": "The body chapters of Xích Thành Môn's fire teaching, carried out of its burning gate in 590 with the Ashen Phoenix Canon (N-phuong_minh-02) and kept in the palace's Hall of Spoils. In 1020 the founder Ngô Thê Đồng gave them to Hùng Phần Vũ with the Xích Hà Kỳ (C177). The hall says Hùng read them off the red-stone walls himself. It is a hidden fact (N-phan_vu-02)."
+ },
+ {
+  "id": "red-wall-rebirth",
+  "name": "Red Wall Rebirth (Xích Thành Niết Bàn)",
+  "tier": 2,
+  "tech_kind": "secret",
+  "names": ["hoa"],
+  "layers": 12,
+  "bonuses": [
+   {"stat": "khi_huyet_pct", "value": 12},
+   {"stat": "defense_pct", "value": 10}
+  ],
+  "passives": [
+   {"key": "resist_pct", "value": 120, "scope": ["fire"]},
+   {"key": "healing_pct", "value": 12, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 16, "scope": []},
+   {"key": "attack_pct", "value": 8, "scope": ["fire"]},
+   {"key": "stack_duration_pct", "value": 12, "scope": ["hoa", "debuff"]},
+   {"key": "status_resist_pct", "value": 5, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "wall-of-red-rock", "unlock_layer": 1},
+   {"ability_id": "nirvana-of-the-red-wall", "unlock_layer": 2}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "red-wall-rebirth",
+  "family": "fire",
+  "owner": "phan_vu",
+  "rank": "truong_lao",
+  "concept": "The tenth sitting. The cultivator goes into the vent's mouth itself and lets the body burn down to the bone and the core, then rebuilds all of it at once, the way the phoenix is said to burn and rise. A cultivator who comes out has crossed a realm's stage with the body of a younger one. One who does not is ash. In a fight it is a last art: at the edge of death the holder burns and rises once.",
+  "lore": "Xích Thành's highest body rite. Its last pages are burned, and the hall believes the missing part says how to come out. Kê Thủ Liệt's death in 1025 was at an earlier sitting. Tuân Hà Y died attempting this one in 1162 (N-phan_vu-04). Hùng Phần Vũ has never sat it."
+ },
+ {
+  "id": "charcoal-pit-breath",
+  "name": "Charcoal-Pit Breath (Thán Khanh Tức)",
+  "tier": 0,
+  "tech_kind": "main",
+  "names": ["moc", "thuy"],
+  "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {"key": "health_regen_inc_pct", "value": 10, "scope": []},
+   {"key": "khi_huyet_pct", "value": 4, "scope": []},
+   {"key": "resist_pct", "value": 60, "scope": ["fire"]}
+  ],
+  "abilities": [
+   {"ability_id": "bank-the-kiln", "unlock_layer": 1}
+  ],
+  "effects": [],
+  "origin": "authored",
+  "suite": "charcoal-pit-breath",
+  "family": "wood",
+  "owner": "phan_vu",
+  "rank": "tap_dich",
+  "concept": "The charcoal burners' breath of Phần Vũ Đường's outer pits, worked out by Wood- and Water-rooted servants who never enter the lava vents. They bank green timber under damp earth and breathe slow beside the smouldering mound: steady flesh, a patient temper, and skin that shrugs off kiln smoke. It opens no gate.",
+  "lore": "Hác Đan Thạch had the charcoal hands keep it written on a board by the pit shed so the Fire Court's timber haulers would not cough themselves lame in winter."
+ }
+]

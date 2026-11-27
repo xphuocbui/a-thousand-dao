@@ -1,0 +1,424 @@
+{
+ "_doc": "Phần Vũ Đường's Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py under source world-depth:phan_vu. Unpriced. Rule text from design/world/depth/sects/phan_vu.items.json; each rule pins vague words and declares every counter it reads or writes for standalone GDScript compilation.",
+ "source": "world-depth:phan_vu",
+ "effects": {
+  "Red Cloud Rising": {
+   "rule": "Red Cloud Banner (pvd-xich-ha-ky): in a duel (rewritten from 'allies within its cloud' per the one-side-against-one-side ruling, 2026-11-26), every 3 s you gain 1 Fire buff stack of fury (15 s, raising attack) and 1 self-Burn stack (6 s, burning you for a little health each second and feeding Burning Feather heat). Once a fight, if you would go Down and are not already wearing the full Standing in the Fire set (which overrides with a 33 % rise), you rise at 20 % of your maximum health.",
+   "counters": [
+    {
+     "id": "has_standing_fire",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Red Cloud Rising fury",
+     "on": "pulse",
+     "limit": {
+      "cooldown": 3
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 1,
+        "for": 15,
+        "side": "own",
+        "kind": "buff"
+       }
+      },
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 1,
+        "for": 6,
+        "side": "own",
+        "kind": "debuff"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Red Cloud Rising rise",
+     "on": "down",
+     "if": [
+      {
+       "read": "own.counter.has_standing_fire",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "refuse_down": {
+        "hp_share": 0.2
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Burn and Get Back Up": {
+   "rule": "Standing in the Fire, full set (3 pieces: pvd-xich-ha-ky, pvd-moving-fire-hide, pvd-cradle-feather): each time your body shield breaks (drops from positive to 0 on a hit taken), you regain 15 % of your maximum health and arm your next fist strike (fist art or basic blow) to deal an extra Fire free hit of 2.0. Once a fight (wearing the Xích Hà Kỳ as part of the set, superseding its 20 % rise), a blow that would put you Down leaves you standing at 33 % of your maximum health.",
+   "approx": "body shield break is tracked via body_shield_up transitioning from positive to 0 on was_hit (neither engine fires shield_broken on body_bar); 'equal to the shield's value' is a fixed Fire free hit of c 2.0 because no readable returns pre-break body shield HP",
+   "counters": [
+    {
+     "id": "has_standing_fire",
+     "cap": 1
+    },
+    {
+     "id": "body_shield_up",
+     "cap": 1
+    },
+    {
+     "id": "shield_fist_armed",
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Burn and Get Back Up flag",
+     "on": "fight_start",
+     "do": [
+      {
+       "counter": {
+        "id": "has_standing_fire",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Burn and Get Back Up start",
+     "on": "fight_start",
+     "if": [
+      {
+       "read": "own.body_shield_share",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "body_shield_up",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Burn and Get Back Up track art",
+     "on": "art_fired",
+     "if": [
+      {
+       "read": "own.body_shield_share",
+       "op": ">",
+       "value": 0
+      },
+      {
+       "read": "own.counter.body_shield_up",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "body_shield_up",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Burn and Get Back Up track pulse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.body_shield_share",
+       "op": ">",
+       "value": 0
+      },
+      {
+       "read": "own.counter.body_shield_up",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "body_shield_up",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Burn and Get Back Up break",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.body_shield_up",
+       "op": ">=",
+       "value": 1
+      },
+      {
+       "read": "own.body_shield_share",
+       "op": "<=",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "body_shield_up",
+        "set": 0
+       }
+      },
+      {
+       "heal": {
+        "share": 0.15
+       }
+      },
+      {
+       "counter": {
+        "id": "shield_fist_armed",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Burn and Get Back Up fist",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "fist",
+       "basic"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.shield_fist_armed",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "free_hit": {
+        "c": 2.0,
+        "dtype": "fire"
+       }
+      },
+      {
+       "counter": {
+        "id": "shield_fist_armed",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Burn and Get Back Up rise",
+     "on": "down",
+     "limit": {
+      "per_fight": 1
+     },
+     "do": [
+      {
+       "refuse_down": {
+        "hp_share": 0.33
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Let You Burn Out": {
+   "rule": "Master of the Sittings, full set (3 pieces: pvd-cinder-knuckle-ring, pvd-sitting-stone-mail, pvd-weiqi-board-shield): each hit you block or take on your body shield adds 1 heat stack (feather_heat) to your store (counted once per hit). At 10 or more heat, your next fist art hit releases all heat as a Fire free hit (0.20 per heat stack, no cap), resets heat to 0, and for 3 s each hit the foe lands on you inflicts a 2-stack Fire Burn batch (6 s, up to 2 a pulse).",
+   "counters": [
+    {
+     "id": "feather_heat"
+    },
+    {
+     "id": "burn_out_hit",
+     "cap": 1
+    },
+    {
+     "id": "burn_out_thorns",
+     "cap": 3
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Let You Burn Out block",
+     "on": "blocked",
+     "do": [
+      {
+       "counter": {
+        "id": "burn_out_hit",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "feather_heat",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Let You Burn Out shield",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.body_shield_share",
+       "op": ">",
+       "value": 0
+      },
+      {
+       "read": "own.counter.burn_out_hit",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "feather_heat",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Let You Burn Out clear flag",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.burn_out_hit",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "burn_out_hit",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Let You Burn Out release",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "fist"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.feather_heat",
+       "op": ">=",
+       "value": 10
+      }
+     ],
+     "scale": {
+      "read": "own.counter.feather_heat",
+      "per": 1
+     },
+     "do": [
+      {
+       "free_hit": {
+        "c": 0.2,
+        "dtype": "fire"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Let You Burn Out spend",
+     "on": "hit_landed",
+     "filter": {
+      "tags": [
+       "fist"
+      ]
+     },
+     "if": [
+      {
+       "read": "own.counter.feather_heat",
+       "op": ">=",
+       "value": 10
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "feather_heat",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "burn_out_thorns",
+        "set": 3
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Let You Burn Out thorns",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "own.counter.burn_out_thorns",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "limit": {
+      "per_pulse": 2
+     },
+     "do": [
+      {
+       "stacks": {
+        "el": "fire",
+        "n": 2,
+        "for": 6,
+        "side": "foe"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Let You Burn Out tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.burn_out_thorns",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "burn_out_thorns",
+        "add": -1
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
