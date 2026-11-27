@@ -1,0 +1,13 @@
+{
+ "owner": "cuu_cao",
+ "minutes": 7,
+ "must_fix": 0,
+ "should": 2,
+ "fixed": 0,
+ "words": {},
+ "open": [
+  "CongPhap.usable rule 8: crane-bond-rite has names [phong, moc] per cuu_cao.md §5, while cu_van_ly, tong_phi_thu, and banh_da_hang lack moc in their roots; FighterCompiler.gd:141 will skip crane-bond-rite at Stage 7 unless names becomes [phong] or CongPhap.usable / cast roots are adjusted (same depth pattern in 25/50 sects).",
+  "cc-green-field-bell is kind: treasure (rarity 5, unique: true); tools/design/items/export_named.py:42 skips kind != artifact, so Stage 7 export needs treasure support before CastBuilds.make can spawn it.",
+  "Serial merge of design/stage6-staging/cuu_cao/ into design/ and assets/data/combat_effects.json, plus exporters and Stage 7 world export for cuu_cao beasts (thanh_dien, han_vu, bat_phi) and events (N-cuu_cao-01..03)."
+ ]
+}
