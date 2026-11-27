@@ -1,0 +1,11 @@
+{
+ "owner": "lanh_giang",
+ "minutes": 5,
+ "must_fix": 0,
+ "should": 1,
+ "fixed": 1,
+ "words": {},
+ "open": [
+  "Serial merge and export (stage6_merge.py, export_techniques.py, export_named.py, export_combat_library.py, compile_parity_export.py, export_world.py) to merge design/stage6-staging/lanh_giang/* into design/ and assets/data/combat_effects.json (world-depth:lanh_giang) and close techniques (2), arts_new (4), items (5), sets (2), effects (3), and events (3 structured: N-lanh_giang-01..03)."
+ ]
+}

@@ -176,6 +176,7 @@
   },
   "Answers Twice": {
    "rule": "Heap of Snow, full set (3 pieces): while you hold the sitting stance, your stance ward grows by 2 % of your maximum health each second; when a foe breaks a ward shield or your stance ward, your next counter or seal art fires twice.",
+   "approx": "Uses ward_grow {of: 'hp', share: 0.02} (2 % max HP/s, creating a stance ward when none is active) instead of '2 % of its value' because Bồ Tọa Tuyết has no stance-ward art, and filters tags ['counter', 'seal'] because no library art carries 'counter' while Bồ's counter art backwash-seal carries 'seal' (note: a 0 c seal art consumes the proc without echoing a hit).",
    "counters": [
     {
      "id": "answers_twice_ready",
