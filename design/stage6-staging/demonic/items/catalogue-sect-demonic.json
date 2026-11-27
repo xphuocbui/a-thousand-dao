@@ -1,0 +1,565 @@
+[
+  {
+    "id": "dm-blood-red-robe",
+    "name": "The Blood-Red Robe (Huyết Y)",
+    "family": "force-chaos",
+    "kind": "artifact",
+    "base": "dao_bao",
+    "grade": 3,
+    "unique": true,
+    "modifiers": [
+      {
+        "key": "leech_health_pct",
+        "value": 20,
+        "scope": []
+      },
+      {
+        "key": "khi_huyet_pct",
+        "value": 14,
+        "scope": []
+      },
+      {
+        "key": "attack_pct",
+        "value": 12,
+        "scope": [
+          "am"
+        ]
+      },
+      {
+        "key": "evade_pct",
+        "value": 8,
+        "scope": []
+      }
+    ],
+    "effects": [
+      "The Robe Drinks First"
+    ],
+    "arts": [],
+    "wards": [],
+    "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+    "sources": [
+      "npc"
+    ],
+    "lore": "Mặc Huyết Sinh had it woven for his last disciple in 1000, of silk dyed in the blood of the cultivators he had written into his canon. It was pale pink then. It has gone darker every decade since, and since 1090 it has been the only colour she wears. The name she goes by is the robe's name.",
+    "build_use": "Sustain for a drainer who fights close: leech, health, and one saved hit.",
+    "holder": "trieu_huyet_y",
+    "made_by": "mac_huyet_sinh",
+    "made_year": 1000,
+    "set": "dm-set-blood-ink-study"
+  },
+  {
+    "id": "dm-ink-needle",
+    "name": "The Ink-Drawing Needle (Thủ Mặc Châm)",
+    "family": "force-chaos",
+    "kind": "artifact",
+    "base": "cham",
+    "grade": 3,
+    "unique": true,
+    "modifiers": [
+      {
+        "key": "attack_pct",
+        "value": 14,
+        "scope": [
+          "am"
+        ]
+      },
+      {
+        "key": "stack_effect_pct",
+        "value": 15,
+        "scope": [
+          "debuff"
+        ]
+      },
+      {
+        "key": "status_duration_pct",
+        "value": 15,
+        "scope": [
+          "curse"
+        ]
+      },
+      {
+        "key": "linh_luc_pct",
+        "value": 6,
+        "scope": []
+      }
+    ],
+    "effects": [
+      "Draw the Ink"
+    ],
+    "arts": [],
+    "wards": [],
+    "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+    "sources": [
+      "npc"
+    ],
+    "lore": "The silver needle with which Mặc Huyết Sinh drew the blood his brush wrote in. Triệu Huyết Y carried it out of the abode in 1090 in her hair, which is the only reason she has it. The brush itself (Huyết Mặc Bút) stayed behind.",
+    "build_use": "The Blood-Ink caster's weapon: Darkness damage and longer curses.",
+    "holder": "trieu_huyet_y",
+    "made_by": "mac_huyet_sinh",
+    "made_year": 720,
+    "set": "dm-set-blood-ink-study"
+  },
+  {
+    "id": "dm-blood-seal",
+    "name": "The Blood-Ink Seal of Mặc (Mặc Thị Huyết Ấn)",
+    "family": "force-chaos",
+    "kind": "treasure",
+    "base": "an",
+    "rarity": 5,
+    "unique": true,
+    "modifiers": [
+      {
+        "key": "attack_pct",
+        "value": 18,
+        "scope": [
+          "am"
+        ]
+      },
+      {
+        "key": "stack_effect_pct",
+        "value": 20,
+        "scope": [
+          "debuff"
+        ]
+      },
+      {
+        "key": "x_soul",
+        "value": 8,
+        "scope": []
+      },
+      {
+        "key": "status_duration_pct",
+        "value": 15,
+        "scope": []
+      },
+      {
+        "key": "khi_huyet_pct",
+        "value": 12,
+        "scope": []
+      }
+    ],
+    "effects": [
+      "Sealed in His Name"
+    ],
+    "arts": [],
+    "wards": [],
+    "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+    "sources": [
+      "npc"
+    ],
+    "lore": "The seal Mặc Huyết Sinh stamped on every page of his canon and on the door-talisman that let his disciples into the abode without knowing where it was. Đồ Vô Cữu took it from the dead man's belt in 1090 as proof of the kill. He keeps it at the Pivot's seat by Đỗ Tinh Hà's leave, and has never stamped anything with it. If the abode's door still answers to anything, it answers to this.",
+    "build_use": "Not worn: a key and a proof. In a Blood-Ink build it is the strongest seal a caster can carry.",
+    "holder": "do_vo_cuu",
+    "made_by": "mac_huyet_sinh",
+    "made_year": 760,
+    "set": "dm-set-blood-ink-study"
+  },
+  {
+    "id": "dm-cracked-bell",
+    "name": "The Cracked Bell of Đồng Sơn (Đồng Sơn Tàn Chung)",
+    "family": "soul-song-seal",
+    "kind": "artifact",
+    "base": "chuong",
+    "grade": 3,
+    "unique": true,
+    "modifiers": [
+      {
+        "key": "x_soul",
+        "value": 10,
+        "scope": []
+      },
+      {
+        "key": "than_thuc_pct",
+        "value": 6,
+        "scope": []
+      },
+      {
+        "key": "art_speed_pct",
+        "value": 10,
+        "scope": [
+          "soul"
+        ]
+      },
+      {
+        "key": "soul_res_pct",
+        "value": 20,
+        "scope": []
+      }
+    ],
+    "effects": [
+      "The Held Voice"
+    ],
+    "arts": [],
+    "wards": [],
+    "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+    "sources": [
+      "npc"
+    ],
+    "lore": "A hand bell cast in Đồng Sơn Trấn in 1040 by Hám's father, cracked in the casting and never sold. Hám has kept one breath in it since 1097: his mother's. He has never rung it.",
+    "build_use": "A soul caster's focus; the effect is a story he will not use.",
+    "holder": "ham_tan_chung",
+    "made_by": "a bell-caster of Đồng Sơn Trấn (Hám's father)",
+    "made_year": 1040,
+    "set": "dm-soul-pedlar"
+  },
+  {
+    "id": "dm-borrowed-wick-lamp",
+    "name": "Lamp of Borrowed Wicks (Tá Tâm Đăng)",
+    "family": "soul-song-seal",
+    "kind": "treasure",
+    "base": "dang",
+    "rarity": 4,
+    "unique": true,
+    "modifiers": [
+      {
+        "key": "than_thuc_pct",
+        "value": 8,
+        "scope": []
+      },
+      {
+        "key": "linh_luc_regen_inc_pct",
+        "value": 10,
+        "scope": []
+      },
+      {
+        "key": "x_soul",
+        "value": 8,
+        "scope": []
+      },
+      {
+        "key": "healing_pct",
+        "value": 8,
+        "scope": []
+      }
+    ],
+    "effects": [
+      "Nine Wicks"
+    ],
+    "arts": [],
+    "wards": [],
+    "sources": [
+      "npc"
+    ],
+    "lore": "A pedlar's lamp of black bronze with nine wick-holes, made for Hám Tàn Chung by Thạch Liên Hoàn's forge at the Tower's request in 1138, the year the Tower tried and failed to buy him. It is the stock he carries on the road: the threads he has not yet sold.",
+    "build_use": "Soul sustain and a guard against soul arts; the threads are also trade goods.",
+    "holder": "ham_tan_chung",
+    "made_by": "the Tower's storm forge (Thạch Liên Hoàn)",
+    "made_year": 1138,
+    "set": "dm-soul-pedlar"
+  },
+  {
+    "id": "dm-cave-orchid-pendant",
+    "name": "Cave Orchid Pendant (U Lan Bội)",
+    "family": "general",
+    "kind": "artifact",
+    "base": "ngoc_boi",
+    "grade": 3,
+    "unique": true,
+    "modifiers": [
+      {
+        "key": "attack_pct",
+        "value": 12,
+        "scope": [
+          "am"
+        ]
+      },
+      {
+        "key": "linh_luc_regen_inc_pct",
+        "value": 12,
+        "scope": []
+      },
+      {
+        "key": "evade_pct",
+        "value": 8,
+        "scope": []
+      },
+      {
+        "key": "status_resist_pct",
+        "value": 15,
+        "scope": []
+      }
+    ],
+    "effects": [
+      "Drink from the Dark"
+    ],
+    "arts": [],
+    "wards": [],
+    "sources": [
+      "npc"
+    ],
+    "lore": "A pale stone from the floor of the sunken market of Hãm Thạch Trấn (V105), where an orchid had grown on it in the dark. Sào Ẩn Lan bored it and hung it at her throat in 1101. It is the only reason she can go some nights without drinking from the villages, and it is not enough.",
+    "build_use": "Darkness damage and regeneration for a caster who wants to take less.",
+    "holder": "sao_an_lan",
+    "made_by": "sao_an_lan",
+    "made_year": 1101,
+    "set": "dm-u-lan-keeper"
+  },
+  {
+    "id": "dm-black-wind-sabre",
+    "name": "Black Wind Sabre (Hắc Phong Đao)",
+    "family": "blade",
+    "kind": "artifact",
+    "base": "phi_kiem",
+    "grade": 3,
+    "unique": true,
+    "modifiers": [
+      {
+        "key": "attack_pct",
+        "value": 16,
+        "scope": [
+          "kim"
+        ]
+      },
+      {
+        "key": "leech_health_pct",
+        "value": 20,
+        "scope": []
+      },
+      {
+        "key": "crit_chance_pct",
+        "value": 8,
+        "scope": []
+      },
+      {
+        "key": "khi_huyet_pct",
+        "value": 10,
+        "scope": []
+      }
+    ],
+    "effects": [
+      "Within a Breath"
+    ],
+    "arts": [],
+    "wards": [],
+    "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+    "sources": [
+      "npc"
+    ],
+    "lore": "The stockade captain's sabre at Hắc Phong Trại, carried north along the ore range by a man of twenty-four in 940 (V126). Khoái Thiết Ưng has reforged its edge four times and kept the hilt.",
+    "build_use": "The blood duelist's blade: Metal damage and leech on a crit.",
+    "holder": "khoai_thiet_ung",
+    "made_by": "a smith of the Hắc Phong rogues",
+    "made_year": 890
+  },
+  {
+    "id": "dm-bitter-well-gourd",
+    "name": "The Bitter Well Gourd (Khổ Tỉnh Hồ Lô)",
+    "family": "water",
+    "kind": "artifact",
+    "base": "ho_lo",
+    "grade": 3,
+    "unique": true,
+    "modifiers": [
+      {
+        "key": "linh_luc_pct",
+        "value": 12,
+        "scope": []
+      },
+      {
+        "key": "leech_linh_luc_pct",
+        "value": 6,
+        "scope": []
+      },
+      {
+        "key": "attack_pct",
+        "value": 10,
+        "scope": [
+          "thuy"
+        ]
+      },
+      {
+        "key": "status_resist_pct",
+        "value": 15,
+        "scope": []
+      }
+    ],
+    "effects": [
+      "His Sister's Water"
+    ],
+    "arts": [],
+    "wards": [],
+    "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+    "sources": [
+      "npc"
+    ],
+    "lore": "Filled at the bitter well of Tình Sa Thôn in 885, the day after Tra Cam Tỉnh went into it (N-demonic-01). The water has not run out and has not lost its taste. Tra Hàm Tuyền drinks it when he has drained a well, so as not to forget what it cost.",
+    "build_use": "A drainer's guard against being drained.",
+    "holder": "tra_ham_tuyen",
+    "made_by": "tra_ham_tuyen",
+    "made_year": 885
+  },
+  {
+    "id": "dm-sons-lamp",
+    "name": "A Mother's Lamp (Từ Mẫu Đăng)",
+    "family": "soul-song-seal",
+    "kind": "treasure",
+    "base": "dang",
+    "rarity": 4,
+    "unique": true,
+    "modifiers": [
+      {
+        "key": "than_thuc_pct",
+        "value": 4,
+        "scope": []
+      },
+      {
+        "key": "soul_res_pct",
+        "value": 15,
+        "scope": []
+      },
+      {
+        "key": "khi_huyet_pct",
+        "value": -6,
+        "scope": []
+      }
+    ],
+    "effects": [
+      "Fed in Blood"
+    ],
+    "arts": [],
+    "wards": [],
+    "sources": [
+      "npc"
+    ],
+    "lore": "A plain clay lamp from a Hòe Âm shrine into which Hám Tàn Chung drew the last breath of Mật Thu Ninh's son in 1182, for the price of the boy's debts. She has fed it every night since.",
+    "build_use": "Not a fighting piece. It is the hook.",
+    "holder": "mat_thu_ninh",
+    "made_by": "ham_tan_chung",
+    "made_year": 1182
+  },
+  {
+    "id": "dm-pedlar-robe",
+    "name": "Pedlar's Robe (Hành Thương Bào)",
+    "family": "soul-song-seal",
+    "kind": "artifact",
+    "base": "dao_bao",
+    "grade": 3,
+    "unique": true,
+    "modifiers": [
+      {
+        "key": "soul_res_pct",
+        "value": 20,
+        "scope": []
+      },
+      {
+        "key": "khi_huyet_pct",
+        "value": 10,
+        "scope": []
+      },
+      {
+        "key": "than_thuc_pct",
+        "value": 4,
+        "scope": []
+      },
+      {
+        "key": "linh_luc_pct",
+        "value": 8,
+        "scope": []
+      }
+    ],
+    "effects": [],
+    "arts": [],
+    "wards": [],
+    "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+    "sources": [
+      "npc"
+    ],
+    "lore": "A brown road robe with a ledger's pocket sewn inside the breast, where he keeps the book of every breath he has bought.",
+    "build_use": "Soul defence for a man who keeps other people's souls.",
+    "holder": "ham_tan_chung",
+    "made_by": "ham_tan_chung",
+    "made_year": 1100,
+    "set": "dm-soul-pedlar"
+  },
+  {
+    "id": "dm-karst-lamp",
+    "name": "Lamp of the Karst Children (Thạch Động Đăng)",
+    "family": "general",
+    "kind": "artifact",
+    "base": "dang",
+    "grade": 3,
+    "unique": true,
+    "modifiers": [
+      {
+        "key": "health_regen_inc_pct",
+        "value": 20,
+        "scope": []
+      },
+      {
+        "key": "linh_luc_regen_inc_pct",
+        "value": 10,
+        "scope": []
+      },
+      {
+        "key": "status_duration_pct",
+        "value": 12,
+        "scope": [
+          "curse"
+        ]
+      },
+      {
+        "key": "than_thuc_pct",
+        "value": 4,
+        "scope": []
+      }
+    ],
+    "effects": [
+      "Lullaby of the Karst"
+    ],
+    "arts": [],
+    "wards": [],
+    "sources": [
+      "npc"
+    ],
+    "lore": "A mushroom-picker's clay lamp from Hầu Đầu Thôn that she keeps burning at the mouth of U Lan Cốc, so that a child whose Darkness has woken can find the way in at night.",
+    "build_use": "Regeneration in the dark, and curses that dim and slow.",
+    "holder": "sao_an_lan",
+    "made_by": "sao_an_lan",
+    "made_year": 1101,
+    "set": "dm-u-lan-keeper"
+  },
+  {
+    "id": "dm-ink-grinder-robe",
+    "name": "Ink-Grinder's Robe (Ma Mặc Bào)",
+    "family": "general",
+    "kind": "artifact",
+    "base": "dao_bao",
+    "grade": 3,
+    "unique": true,
+    "modifiers": [
+      {
+        "key": "khi_huyet_pct",
+        "value": 10,
+        "scope": []
+      },
+      {
+        "key": "evade_pct",
+        "value": 6,
+        "scope": []
+      },
+      {
+        "key": "soul_res_pct",
+        "value": 15,
+        "scope": []
+      },
+      {
+        "key": "health_regen_inc_pct",
+        "value": 20,
+        "scope": []
+      }
+    ],
+    "effects": [],
+    "arts": [],
+    "wards": [],
+    "exception": "world-depth signature item: its base's common art or ward until an authored one is ruled (review R6)",
+    "sources": [
+      "npc"
+    ],
+    "lore": "Her outer-gate robe from Nam Phố Đường's Jade Milk spring, still grey with thirty years of ground ink.",
+    "build_use": "Stays alive in the dark: health, evasion and regeneration.",
+    "holder": "sao_an_lan",
+    "made_by": "nam_pho",
+    "made_year": 1070,
+    "set": "dm-u-lan-keeper"
+  }
+]

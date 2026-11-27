@@ -1,0 +1,102 @@
+[
+  {
+    "id": "dm-set-blood-ink-study",
+    "name": "The Blood-Ink Study (Huyết Mặc Văn Phòng)",
+    "pieces": [
+      "dm-blood-red-robe",
+      "dm-ink-needle",
+      "dm-blood-seal"
+    ],
+    "bonuses": [
+      {
+        "pieces": 2,
+        "modifiers": [
+          {
+            "key": "attack_pct",
+            "value": 8,
+            "scope": [
+              "am"
+            ]
+          },
+          {
+            "key": "leech_health_pct",
+            "value": 10,
+            "scope": []
+          }
+        ]
+      },
+      {
+        "pieces": 3,
+        "effect": "Writ in Their Blood (Huyết Thư)",
+        "rule": "Your Blood-Ink Writs may be written in a foe's blood mid-fight: each writ that lands on a foe who is bleeding is free, and the next writ you cast carries its stolen qi (+20 % damage)."
+      }
+    ],
+    "story": "Mặc Huyết Sinh's robe, needle and seal. The brush that wrote with them, Huyết Mặc Bút, is not part of the set: it is the hand, not the study. Triệu Huyết Y wears two pieces. The third is in the hound's keeping at the Pivot's seat, taken from the dead man's belt by the hunter who let her past him in the smoke. She would need the seal to open the door and the brush to finish the canon. The set is whole only if she robs the Pivot's hound."
+  },
+  {
+    "id": "dm-soul-pedlar",
+    "name": "The Pedlar's Pack (Hồn Thương Tam Bảo)",
+    "pieces": [
+      "dm-cracked-bell",
+      "dm-borrowed-wick-lamp",
+      "dm-pedlar-robe"
+    ],
+    "bonuses": [
+      {
+        "pieces": 2,
+        "modifiers": [
+          {
+            "key": "x_soul",
+            "value": 4,
+            "scope": []
+          },
+          {
+            "key": "than_thuc_pct",
+            "value": 4,
+            "scope": []
+          }
+        ]
+      },
+      {
+        "pieces": 3,
+        "effect": "A Breath Bought (Mãi Tức)",
+        "rule": "each time a foe's health first falls below 75 %, 50 % and 25 %, the lamp draws a breath. You may spend a breath to cast a soul art again at once and at no cost. Once a fight, the cracked bell rings by itself and deals soul damage to you and the foe alike: the one breath not in the ledger."
+      }
+    ],
+    "story": "His father's cracked bell, the Tower's nine-wick lamp and the robe with the ledger in it. He holds all three. Hám says the set is honest because every breath in it is written down, all but one."
+  },
+  {
+    "id": "dm-u-lan-keeper",
+    "name": "Keeper of U Lan (U Lan Tam Bảo)",
+    "pieces": [
+      "dm-cave-orchid-pendant",
+      "dm-karst-lamp",
+      "dm-ink-grinder-robe"
+    ],
+    "bonuses": [
+      {
+        "pieces": 2,
+        "modifiers": [
+          {
+            "key": "status_duration_pct",
+            "value": 6,
+            "scope": [
+              "curse"
+            ]
+          },
+          {
+            "key": "health_regen_inc_pct",
+            "value": 12,
+            "scope": []
+          }
+        ]
+      },
+      {
+        "pieces": 3,
+        "effect": "A Breath That Costs No One (Bất Tổn Tức)",
+        "rule": "while a foe carries Withering and Slowed Time from you, you regenerate 2 % of your health each second, and it is drawn from the orchid stone, not from the foe. If the foe is struck while both curses hold, they are dimmed and deal 20 % less damage for 3 s."
+      }
+    ],
+    "story": "The orchid stone, the lamp at the gorge mouth and the robe from the hall that sent her away. All three are hers. She made the set to need no one's breath, and it holds for a fight. It does not hold for a night."
+  }
+]

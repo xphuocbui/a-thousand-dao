@@ -390,7 +390,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "dia_kim",
+     "tech": "copper-mountain-bell-canon",
      "layer": 9
     },
     "aux": [
@@ -543,7 +543,7 @@
    "build": {
     "archetype": "phap_tu",
     "main": {
-     "tech": "huyen_am",
+     "tech": "night-moth-karst-canon",
      "layer": 9
     },
     "aux": [
@@ -692,17 +692,13 @@
    "build": {
     "archetype": "kiem_tu",
     "main": {
-     "tech": "dia_kim",
+     "tech": "black-wind-blood-sabre",
      "layer": 9
     },
     "aux": [
      {
       "tech": "debt-ledger-blade",
       "layer": 6
-     },
-     {
-      "tech": "black-wind-blood-sabre",
-      "layer": 9
      }
     ],
     "gear": [

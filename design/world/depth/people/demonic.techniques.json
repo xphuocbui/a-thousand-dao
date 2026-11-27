@@ -25,7 +25,7 @@
    "layers": 6,
    "rank": "the children of U Lan Cốc, taught by Sào Ẩn Lan",
    "concept": "A primer for a Darkness root with no master: breathe in the dark of the karst, slowly, as an orchid in a cave lives on what drips down to it. Layers 1-3 live on the gorge's own Darkness. From layer 4 the breather must take a sleeper's dream-qi through the walls of a house, a little each season, or the root stalls and the breather begins to sleepwalk towards the villages.",
-   "arts": ["thorn-lullaby", {"new": "Borrowed Sleep (Tá Miên)", "concept": "A short art that drinks a target's rest: the foe's linh lực regeneration falls and the user's rises for a few seconds."}],
+   "arts": ["thorn-lullaby", {"id": "borrowed-sleep", "new": "Borrowed Sleep (Tá Miên)", "concept": "A short art that drinks a target's rest: the foe's linh lực regeneration falls and the user's rises for a few seconds."}],
    "lore": "Sào Ẩn Lan wrote it on the wall of the gorge in 1101, three years after she left Nam Phố Đường, so that the karst children whose Darkness woke would not have to find out alone what she had found out. She did not write down layer 4. The children learn it from each other.",
    "status": "proposal"
   },
@@ -103,6 +103,44 @@
    "status": "proposal",
    "arts": [{"new": "Black Frost Seal (Hắc Sương Ấn)", "concept": "A seal strike, 30 % of it Chaos, that lays 5 Ice stacks for 6 s and Withering (the foe's healing taken halved) for 4 s. Into a foe already at 10 Ice stacks and Withered, it hits two and a half times as hard and all of it is Chaos.", "id": "black-frost-seal", "tags": ["cold", "seal", "curse"], "unlock_layer": 1, "record": "builds/authored/auth-tech.json (e9)", "authored": "e9"}],
    "authored": "e9"
+  },
+  {
+   "id": "copper-mountain-bell-canon",
+   "name": "Copper Mountain Bell Canon (Đồng Sơn Tàn Chung Kinh)",
+   "tier": 2,
+   "tech_kind": "main",
+   "names": ["kim", "thuy"],
+   "layers": 12,
+   "rank": "Hám Tàn Chung's own Earth-tier bell canon",
+   "concept": "The full-form bell canon Hám Tàn Chung built around the Đồng Sơn casting craft and his Borrowed Wick ledger: bronze resonance that numbs the target's soul and feeds soul-thread strikes.",
+   "arts": [
+    {
+     "id": "soul-ledger-chime",
+     "new": "Soul-Ledger Chime (Hoàng Tuyền Chung Thanh)",
+     "concept": "A bell strike carrying held breaths against the foe's soul and laying Slackened Soul for 4 s."
+    }
+   ],
+   "lore": "Expanded out of the Đồng Sơn Trấn foundry chants after Hám Tàn Chung formed his Kết Đan core.",
+   "status": "proposal"
+  },
+  {
+   "id": "night-moth-karst-canon",
+   "name": "Night Moth Karst Canon (U Lan Dạ Nga Kinh)",
+   "tier": 1,
+   "tech_kind": "main",
+   "names": ["am", "thuy"],
+   "layers": 9,
+   "rank": "Sào Ẩn Lan's unfinished personal canon of U Lan Cốc",
+   "concept": "Sào Ẩn Lan's personal karst-dark method pairing long-held curses with slow dark regeneration in cave stillness.",
+   "arts": [
+    {
+     "id": "night-moth-ink",
+     "new": "Night Moth Ink (Dạ Nga Mặc)",
+     "concept": "A karst-dark seal that lays Withering (halving healing taken) for 4 s."
+    }
+   ],
+   "lore": "Drafted in fragments inside U Lan Cốc; pairs with Nam Phố Đường's Undertow Litany.",
+   "status": "proposal"
   }
  ]
 }

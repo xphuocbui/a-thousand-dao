@@ -1,0 +1,31 @@
+{
+  "owner": "demonic",
+  "batch": "b06",
+  "status": "done",
+  "written": {
+    "techniques": 9,
+    "arts": 6,
+    "items": 12,
+    "sets": 3,
+    "effects": 15,
+    "stand_ins_replaced": 16,
+    "beasts": 0
+  },
+  "deviations": 8,
+  "words_built": [],
+  "words_avoided": [],
+  "decisions": [
+    "drink-within-a-breath (e7): replaced unparsed state.for with timed counter within_a_breath (cap 1, each_for 1, refreshed with add 1), scaled heal_restored leech events via event.share, and added hit_landed gain_qi for the art's own 15% damage heal.",
+    "move-the-sickness (e8): normalized move_own_debuffs.pay_per_stack to float 0.005 and free_hit to c 0.7 chaos pass_shields true.",
+    "black-frost-seal (e9): moved Withering application to hit_landed (per_firing 1) so debuff+status charge stays <= 0.60.",
+    "Removed Darkness pseudo-element on borrowed-sleep and night-moth-ink (used element '' with darkness tag) and aligned art_speed_pct scope to 'soul'.",
+    "Replaced erroneous counter 'consume' calls with counter {set: 0} in Draw the Ink, The Held Voice, Nine Wicks, and Writ in Their Blood; guarded Nine Wicks clear mark with event.amount > 0 and own.hp_share > 0.",
+    "Set treasure rarities to >= 4 (4/5), added R6 exceptions on common-art/ward bases, added copper-mountain-bell-canon and night-moth-karst-canon carriers, and replaced all 16 stand-ins."
+  ],
+  "open": [
+    "Fed in Blood on dm-sons-lamp is an out-of-fight seasonal upkeep rule (not_run).",
+    "Sealed in His Name uses +100% Blood-Ink Writ duration until cleanse immunity by realm is built.",
+    "His Sister's Water uses a 5 s qi_drained counter-restore proxy until drain_immune is built.",
+    "Nine Wicks uses static reserve 0.09 and engine 1-per-fight refuse_down."
+  ]
+}
