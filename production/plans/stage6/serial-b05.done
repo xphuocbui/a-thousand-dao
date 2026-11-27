@@ -1,0 +1,21 @@
+{
+  "tag": "b05",
+  "minutes": 50,
+  "words_built": [],
+  "words_avoided": [],
+  "gdd_lines": 0,
+  "tests": 2,
+  "fixture": "t31_b05_exact",
+  "records_moved": 0,
+  "decisions": [
+    "Add 'bow' (family) and 'bleed' (narrow) to TIER in tools/design/arts/lint_techniques.py after verifying GDD modifiers.md and Python/GDScript tag-matching support; restore scope: ['bleed'] on da_quang/night-glow-blood-sabre-canon and scope: ['bow'] on tuan_tung/pine-warden-staff-and-bow-canon and ttg-wolf-winter-bow.",
+    "Delete empty pending.json files in design/stage6-staging/hoa_tinh, lang_dao, and suong_tung; keep all other b05 staged arts (40) and Effects (39) unchanged with zero pending engine words and zero Python/GDScript engine bugs.",
+    "Author t31_b05_exact.json chance-free (n_body 4.0, n_qi 4.0, acc 2.0, evade 0.0, crit 0.0), excluding ask (+5 crit/stack) and The Drawn Thread (chance: 0.4) so deterministic exact parity covers all 10 b05 owners (43/43 exact fixtures matching)."
+  ],
+  "open": [
+    "Stage 6 coordinator gate/merge: run stage6_gate.py serial b05 and export_combat_library.py / compile_parity_export.py to land b05 staged records.",
+    "Stage 7: export_named.py kind:'treasure' support needed for dq-night-glow-cup (da_quang) and ld-nine-bend-toll-seal (lang_dao).",
+    "Stage 7/8: out-of-fight stat readers for can_cot 1.33 on pine-warden-staff-and-bow-canon (tuan_tung) and khi_van on ht-dipper-talisman-seal (hoa_tinh); add 'foreseen' to assets/data/combat_engine.json REQUEST_TAGS for laid-ward-foreseen (suong_tung / minh_loan).",
+    "Stage 7/8: export_techniques.py, export_named.py, export_world.py across all 10 b05 owners (closing structured events N-*-* and tuan_tung thuong_muc beast)."
+  ]
+}

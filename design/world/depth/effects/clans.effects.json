@@ -1,0 +1,1038 @@
+{
+ "_doc": "Clans' Effect engine records (world-depth Stage 6; ADR-0009). Input to tools/design/combat_sim/put_effects.py under source world-depth:clans.",
+ "source": "world-depth:clans",
+ "effects": {
+  "Under the Locust": {
+   "rule": "Old Locust Seal (cl-old-locust-seal): during the first 10 s of a fight, your Water and Wood wards are 20% stronger.",
+   "source": "world-depth:clans",
+   "approx": "ward_pct in engine has no element scope, so +20% ward potency applies to all wards for the first 10 s; water/wood ward casts also grow by 1.5% HP.",
+   "records": [
+    {
+     "id": "eff:Under the Locust:ward_pct",
+     "on": "always",
+     "if": [
+      {
+       "read": "time",
+       "op": "<=",
+       "value": 10
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "ward_pct": 20
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Under the Locust:water_grow",
+     "on": "art_fired",
+     "filter": {
+      "element": "water",
+      "tags": [
+       "ward"
+      ]
+     },
+     "if": [
+      {
+       "read": "time",
+       "op": "<=",
+       "value": 10
+      }
+     ],
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.015,
+        "of": "hp"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Under the Locust:wood_grow",
+     "on": "art_fired",
+     "filter": {
+      "element": "wood",
+      "tags": [
+       "ward"
+      ]
+     },
+     "if": [
+      {
+       "read": "time",
+       "op": "<=",
+       "value": 10
+      }
+     ],
+     "do": [
+      {
+       "ward_grow": {
+        "share": 0.015,
+        "of": "hp"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Toll": {
+   "rule": "Keystone Toll Seal (cl-keystone-toll-seal): each attack you block drains 1% of the attacker's linh lực into your own.",
+   "source": "world-depth:clans",
+   "approx": "engine burn_qi scales on foe max linh lực (1% of qi_max transferred to self) rather than 1% of current linh lực.",
+   "records": [
+    {
+     "id": "eff:The Toll",
+     "on": "blocked",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      },
+      {
+       "read": "foe.qi_share",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "burn_qi": {
+        "share": 0.01,
+        "of": "qi_max",
+        "to_self": 1.0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Swallow Returns": {
+   "rule": "Swallow Hall Fan (cl-swallow-hall-fan): once a fight, your first art is cast again 3 s later at 40% power.",
+   "source": "world-depth:clans",
+   "approx": "arms on the first art_fired of the fight; fires after 3 pulses (fire ordered before tick so it waits 3 full pulses) using fire_art {which:'last', share: 0.4} (echoes the latest damaging non-soul art active at t+3 pulses rather than storing the first art id).",
+   "counters": [
+    {
+     "id": "swallow_used",
+     "start": 0,
+     "cap": 1
+    },
+    {
+     "id": "swallow_wait",
+     "start": 0,
+     "cap": 3
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Swallow Returns:arm",
+     "on": "art_fired",
+     "if": [
+      {
+       "read": "own.counter.swallow_used",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "swallow_used",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "swallow_wait",
+        "set": 3
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Swallow Returns:fire",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.swallow_wait",
+       "op": "==",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "swallow_wait",
+        "set": 0
+       }
+      },
+      {
+       "fire_art": {
+        "which": "last",
+        "share": 0.4
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Swallow Returns:tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.swallow_wait",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "swallow_wait",
+        "add": -1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Harvest Bell": {
+   "rule": "First-Sheaf Bell (cl-first-sheaf-bell): once a fight, when you drop below half health, you heal 2% max HP a second for 4 s.",
+   "source": "world-depth:clans",
+   "approx": "allies omitted in 1v1 combat; pulses 2% HP per second for 4 s on self.",
+   "counters": [
+    {
+     "id": "bell_used",
+     "start": 0,
+     "cap": 1
+    },
+    {
+     "id": "bell_heal",
+     "start": 0,
+     "cap": 4
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Harvest Bell:hit",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      },
+      {
+       "read": "own.hp_share",
+       "op": "<",
+       "value": 0.5
+      },
+      {
+       "read": "own.counter.bell_used",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "bell_used",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "bell_heal",
+        "set": 4
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Harvest Bell:pulse_arm",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": "<",
+       "value": 0.5
+      },
+      {
+       "read": "own.counter.bell_used",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "bell_used",
+        "set": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "bell_heal",
+        "set": 4
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Harvest Bell:tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.bell_heal",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "heal": {
+        "share": 0.02
+       }
+      },
+      {
+       "counter": {
+        "id": "bell_heal",
+        "add": -1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Reading the Weather": {
+   "rule": "Misty-Wave Mirror (cl-misty-wave-mirror): once every 12 s you foresee a foe's blow and slip aside from it.",
+   "source": "world-depth:clans",
+   "approx": "grants 1 Decoy every 12 s to avoid the foe's next incoming hit instead of literal 1 s art foresight.",
+   "records": [
+    {
+     "id": "eff:Reading the Weather",
+     "on": "pulse",
+     "limit": {
+      "cooldown": 12
+     },
+     "do": [
+      {
+       "decoy": {
+        "n": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Drawn Thread": {
+   "rule": "Golden Reeling Needle (cl-golden-reeling-needle): each hit of a Fire art draws a Thread (8 s each on its own); each Thread cuts the foe's evade chance by 2%.",
+   "source": "world-depth:clans",
+   "counters": [
+    {
+     "id": "thread",
+     "start": 0,
+     "each_for": 8
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Drawn Thread:gain",
+     "on": "hit_landed",
+     "filter": {
+      "element": "fire",
+      "kind": "art"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "thread",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Drawn Thread:acc",
+     "on": "always",
+     "scale": {
+      "read": "own.counter.thread",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "acc": 2
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Swallow Returns to Its Nest": {
+   "rule": "The Old Hall, full set (3 pieces): every third Wood art you cast triggers a follow-up soul strike (c = 1.4).",
+   "source": "world-depth:clans",
+   "approx": "free_hit at c = 1.4 soul damage on the 3rd wood art cast (ta_cuu_duong wears 2/3 pieces by design, verified via 3pc probe).",
+   "counters": [
+    {
+     "id": "nest_wood",
+     "start": 0,
+     "cap": 3
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Swallow Returns to Its Nest:count",
+     "on": "art_fired",
+     "filter": {
+      "element": "wood"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "nest_wood",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:The Swallow Returns to Its Nest:strike",
+     "on": "art_fired",
+     "filter": {
+      "element": "wood"
+     },
+     "if": [
+      {
+       "read": "own.counter.nest_wood",
+       "op": ">=",
+       "value": 3
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "nest_wood",
+        "set": 0
+       }
+      },
+      {
+       "free_hit": {
+        "c": 1.4,
+        "dtype": "soul"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Outlast the Drought": {
+   "rule": "The Granary, full set (3 pieces): every 10 s after t = 10 s builds a Seed stack; falling below 20% health consumes all Seed stacks to heal 8% max HP each.",
+   "source": "world-depth:clans",
+   "counters": [
+    {
+     "id": "granary_seed",
+     "start": 0
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Outlast the Drought:seed",
+     "on": "pulse",
+     "limit": {
+      "cooldown": 10
+     },
+     "if": [
+      {
+       "read": "time",
+       "op": ">=",
+       "value": 10
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "granary_seed",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Outlast the Drought:hit_heal",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      },
+      {
+       "read": "own.hp_share",
+       "op": "<",
+       "value": 0.2
+      },
+      {
+       "read": "own.counter.granary_seed",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.granary_seed",
+      "per": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.08
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Outlast the Drought:hit_spend",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      },
+      {
+       "read": "own.hp_share",
+       "op": "<",
+       "value": 0.2
+      },
+      {
+       "read": "own.counter.granary_seed",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "granary_seed",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Outlast the Drought:pulse_heal",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": "<",
+       "value": 0.2
+      },
+      {
+       "read": "own.counter.granary_seed",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.granary_seed",
+      "per": 1
+     },
+     "do": [
+      {
+       "heal": {
+        "share": 0.08
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Outlast the Drought:pulse_spend",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": "<",
+       "value": 0.2
+      },
+      {
+       "read": "own.counter.granary_seed",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "granary_seed",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Leave With the Tide": {
+   "rule": "The Hỗ Fleet, full set (3 pieces): once a fight, dropping below half health cuts incoming damage by 99% for 2 s, restores 10% max linh lực, and makes your next art certain.",
+   "source": "world-depth:clans",
+   "approx": "dampen_taken 9900 (99% incoming damage reduction) for 2 s models ward-piercing avoidance without extra ward mechanics, and acc 1000 makes the next art certain.",
+   "counters": [
+    {
+     "id": "tide_used",
+     "start": 0,
+     "cap": 1
+    },
+    {
+     "id": "tide_sure",
+     "start": 0,
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Leave With the Tide:hit",
+     "on": "was_hit",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      },
+      {
+       "read": "own.hp_share",
+       "op": "<",
+       "value": 0.5
+      },
+      {
+       "read": "own.counter.tide_used",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "tide_used",
+        "set": 1
+       }
+      },
+      {
+       "mod": {
+        "dampen_taken": 9900,
+        "for": 2
+       }
+      },
+      {
+       "gain_qi": {
+        "share": 0.1
+       }
+      },
+      {
+       "counter": {
+        "id": "tide_sure",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Leave With the Tide:pulse",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": "<",
+       "value": 0.5
+      },
+      {
+       "read": "own.counter.tide_used",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "tide_used",
+        "set": 1
+       }
+      },
+      {
+       "mod": {
+        "dampen_taken": 9900,
+        "for": 2
+       }
+      },
+      {
+       "gain_qi": {
+        "share": 0.1
+       }
+      },
+      {
+       "counter": {
+        "id": "tide_sure",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Leave With the Tide:acc",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.tide_sure",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "acc": 1000
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Leave With the Tide:spend",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.tide_sure",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "tide_sure",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Pulled Tight": {
+   "rule": "Reeling Thread, full set (2 pieces): when a foe carries 6 or more of your Burn stacks, your next needle art consumes all Fire debuff stacks to deal immediate fire damage (c = 0.114 per stack).",
+   "source": "world-depth:clans",
+   "approx": "detonates all foe Fire debuff stacks via consume at c = 0.114 per stack (~6 s remaining burn tick equivalent) when a needle art or needle-rain fires with >= 6 Fire stacks on foe.",
+   "records": [
+    {
+     "id": "eff:Pulled Tight:rain",
+     "on": "art_fired",
+     "filter": {
+      "art_id": "needle-rain"
+     },
+     "if": [
+      {
+       "read": "foe.debuff.fire",
+       "op": ">=",
+       "value": 6
+      }
+     ],
+     "do": [
+      {
+       "consume": {
+        "el": "fire",
+        "side": "foe",
+        "kind": "debuff",
+        "per": 1,
+        "then": [
+         {
+          "free_hit": {
+           "c": 0.114,
+           "dtype": "fire"
+          }
+         }
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Pulled Tight:tag",
+     "on": "art_fired",
+     "filter": {
+      "tags": [
+       "needle"
+      ],
+      "not_art_id": "needle-rain"
+     },
+     "if": [
+      {
+       "read": "foe.debuff.fire",
+       "op": ">=",
+       "value": 6
+      }
+     ],
+     "do": [
+      {
+       "consume": {
+        "el": "fire",
+        "side": "foe",
+        "kind": "debuff",
+        "per": 1,
+        "then": [
+         {
+          "free_hit": {
+           "c": 0.114,
+           "dtype": "fire"
+          }
+         }
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "He Waited": {
+   "rule": "Locust Shade, full set (3 pieces): for each 10 s you are Composed, your wards gain +5% strength and your first damaging art after is a sure hit; the ward gain falls away by a fifth each pulse while you are not Composed.",
+   "source": "world-depth:clans",
+   "approx": "spatial 'Still / move' mapped to Composed (accumulates Composed pulses in wait_still; decays wait_ward by 1/5 per pulse via scale per:5, floor:false when un-Composed).",
+   "counters": [
+    {
+     "id": "wait_still",
+     "start": 0,
+     "cap": 10
+    },
+    {
+     "id": "wait_ward",
+     "start": 0
+    },
+    {
+     "id": "wait_sure",
+     "start": 0,
+     "cap": 1
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:He Waited:tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.composed",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "wait_still",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:He Waited:stack",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.wait_still",
+       "op": ">=",
+       "value": 10
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "wait_ward",
+        "add": 1
+       }
+      },
+      {
+       "counter": {
+        "id": "wait_still",
+        "set": 0
+       }
+      },
+      {
+       "counter": {
+        "id": "wait_sure",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:He Waited:decay",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.composed",
+       "op": "==",
+       "value": 0
+      },
+      {
+       "read": "own.counter.wait_ward",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "scale": {
+      "read": "own.counter.wait_ward",
+      "per": 5,
+      "floor": false
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "wait_ward",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:He Waited:ward",
+     "on": "always",
+     "scale": {
+      "read": "own.counter.wait_ward",
+      "per": 1,
+      "floor": false
+     },
+     "do": [
+      {
+       "mod": {
+        "ward_pct": 5
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:He Waited:acc",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.wait_sure",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "acc": 1000
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:He Waited:spend",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "art"
+     },
+     "if": [
+      {
+       "read": "own.counter.wait_sure",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "wait_sure",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Pillar in the Flood": {
+   "rule": "Twin Bridges, full set (3 pieces): while above half health you gain delay and push immunity; every fifth attack you block burns 3% of the attacker's max linh lực into your own.",
+   "source": "world-depth:clans",
+   "approx": "cannot be moved mapped to delay_immune + unmoved while >50% HP; every 5th block burns 3% of foe max linh lực into self (of:'qi_max').",
+   "counters": [
+    {
+     "id": "flood_blk",
+     "start": 0,
+     "cap": 5
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Pillar in the Flood:immune",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.hp_share",
+       "op": ">",
+       "value": 0.5
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "delay_immune": 1,
+        "unmoved": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Pillar in the Flood:count",
+     "on": "blocked",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "flood_blk",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Pillar in the Flood:burn",
+     "on": "blocked",
+     "if": [
+      {
+       "read": "event.amount",
+       "op": ">",
+       "value": 0
+      },
+      {
+       "read": "own.counter.flood_blk",
+       "op": ">=",
+       "value": 5
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "flood_blk",
+        "set": 0
+       }
+      },
+      {
+       "burn_qi": {
+        "share": 0.03,
+        "of": "qi_max",
+        "to_self": 1.0
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

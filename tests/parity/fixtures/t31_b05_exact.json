@@ -1,0 +1,7451 @@
+{
+  "name": "t31_b05_exact",
+  "slice": 31,
+  "chance_free": true,
+  "seed": 311,
+  "doc": "World-depth Stage 6 batch b05 (2026-11-27), chance-free: staged arts and Effects across all 10 owners (clans, da_quang, ho_lam, ngao_tuyet, tuan_tung, hoa_tinh, lang_dao, suong_tung, tam_kiem, tran_sa); excludes ask (+crit/stack) and The Drawn Thread (chance) for deterministic exact parity.",
+  "a": {
+    "name": "b05-kit-a",
+    "realm": 2,
+    "crit": 0.0,
+    "evade": 0.0,
+    "acc": 2.0,
+    "n_body": 4.0,
+    "n_qi": 4.0,
+    "arts": [
+      {
+        "name": "cut-the-horse",
+        "c": 1.8,
+        "cost": 0.04,
+        "cd": 4.0,
+        "element": "fire",
+        "dtype": "elem",
+        "group": "red-sand-sabre-primer",
+        "tags": [
+          "fire",
+          "sabre"
+        ],
+        "statuses": [
+          {
+            "id": "slowed_time",
+            "stacks": 2,
+            "dur": 2
+          }
+        ],
+        "empower": [
+          {
+            "if": [
+              {
+                "read": "foe.pressing",
+                "op": ">=",
+                "value": 1
+              }
+            ],
+            "c_mult": 2.0
+          }
+        ]
+      },
+      {
+        "name": "crescent-of-red-sand",
+        "c": 2.1,
+        "cost": 0.04,
+        "cd": 4.0,
+        "element": "fire",
+        "dtype": "elem",
+        "group": "night-glow-blood-sabre-canon",
+        "tags": [
+          "fire",
+          "sabre",
+          "bleed"
+        ],
+        "convert": {
+          "to": "phys",
+          "share": 0.5
+        },
+        "statuses": [
+          {
+            "id": "bleed",
+            "stacks": 2,
+            "dur": 4
+          }
+        ]
+      },
+      {
+        "name": "pay-in-blood",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 9.0,
+        "element": "fire",
+        "dtype": "elem",
+        "group": "night-glow-blood-sabre-canon",
+        "tags": [
+          "fire",
+          "blood"
+        ],
+        "hp_cost": 0.04
+      },
+      {
+        "name": "log-on-the-current",
+        "c": 3.0,
+        "cost": 0.05,
+        "cd": 5.0,
+        "element": "wood",
+        "dtype": "elem",
+        "group": "raft-and-root-primer",
+        "tags": [
+          "wood",
+          "heavy"
+        ],
+        "empower": [
+          {
+            "if": [
+              {
+                "read": "own.buff.water",
+                "op": ">=",
+                "value": 1
+              }
+            ],
+            "split": [
+              1.0,
+              0.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "the-forest-listens",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 8.0,
+        "element": "wood",
+        "dtype": "elem",
+        "group": "night-beside-the-tree",
+        "tags": [
+          "wood",
+          "seal"
+        ]
+      },
+      {
+        "name": "bark-closes",
+        "c": 0.0,
+        "cost": 0.04,
+        "cd": 8.0,
+        "element": "wood",
+        "dtype": "elem",
+        "group": "night-beside-the-tree",
+        "tags": [
+          "wood",
+          "stance",
+          "ward"
+        ]
+      },
+      {
+        "name": "the-flood-takes-it",
+        "c": 1.5,
+        "cost": 0.04,
+        "cd": 2.5,
+        "element": "water",
+        "dtype": "elem",
+        "group": "spring-flood-raft-art",
+        "tags": [
+          "water",
+          "cold"
+        ],
+        "statuses": [
+          {
+            "id": "slowed_time",
+            "stacks": 2,
+            "dur": 3
+          }
+        ]
+      },
+      {
+        "name": "wet-ink",
+        "c": 1.5,
+        "cost": 0.03,
+        "cd": 4.0,
+        "element": "wood",
+        "dtype": "elem",
+        "group": "ink-grinding-breath",
+        "tags": [
+          "talisman",
+          "seal"
+        ]
+      },
+      {
+        "name": "seven-star-talisman",
+        "c": 1.4,
+        "cost": 0.03,
+        "cd": 2.5,
+        "element": "wood",
+        "dtype": "elem",
+        "group": "painted-dipper-canon",
+        "tags": [
+          "talisman"
+        ],
+        "debuff": [
+          1,
+          10
+        ]
+      },
+      {
+        "name": "handle-points",
+        "c": 0.0,
+        "cost": 0.04,
+        "cd": 5.0,
+        "element": "wood",
+        "dtype": "elem",
+        "group": "painted-dipper-canon",
+        "tags": [
+          "talisman"
+        ]
+      },
+      {
+        "name": "the-rain-does-not-take-it",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 10.0,
+        "element": "water",
+        "dtype": "elem",
+        "group": "rainfast-ink-art",
+        "tags": [
+          "talisman",
+          "cold"
+        ]
+      },
+      {
+        "name": "pole-vault",
+        "c": 1.45,
+        "cost": 0.03,
+        "cd": 3.5,
+        "element": "water",
+        "dtype": "elem",
+        "group": "ferry-pole-primer",
+        "tags": [
+          "cold",
+          "movement"
+        ]
+      },
+      {
+        "name": "a-thousand-washings",
+        "c": 1.8,
+        "cost": 0.05,
+        "cd": 5.0,
+        "element": "water",
+        "dtype": "elem",
+        "group": "washing-waves-canon",
+        "tags": [
+          "cold",
+          "wave"
+        ],
+        "split": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      },
+      {
+        "name": "ninth-bend",
+        "c": 1.5,
+        "cost": 0.04,
+        "cd": 4.0,
+        "element": "water",
+        "dtype": "elem",
+        "group": "nine-bends-art",
+        "tags": [
+          "cold",
+          "step"
+        ]
+      },
+      {
+        "name": "where-it-will-be",
+        "c": 1.5,
+        "cost": 0.03,
+        "cd": 3.0,
+        "element": "",
+        "dtype": "phys",
+        "group": "tracker-sword-primer",
+        "tags": [
+          "physical",
+          "sword"
+        ],
+        "empower": [
+          {
+            "if": [
+              {
+                "any": [
+                  {
+                    "read": "foe.pressing",
+                    "op": ">=",
+                    "value": 1
+                  },
+                  {
+                    "read": "own.foe_pressed",
+                    "op": ">=",
+                    "value": 1
+                  }
+                ]
+              }
+            ],
+            "c_mult": 1.6
+          }
+        ]
+      },
+      {
+        "name": "the-blade-answers",
+        "c": 2.0,
+        "cost": 0.05,
+        "cd": 7.2,
+        "element": "",
+        "dtype": "phys",
+        "group": "asking-blade-canon",
+        "tags": [
+          "physical",
+          "sword",
+          "heavy"
+        ],
+        "guards": [
+          {
+            "read": "own.counter.ask_mark",
+            "op": ">=",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "name": "the-silent-place",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 5.0,
+        "element": "",
+        "dtype": "phys",
+        "group": "seal-listening-art",
+        "tags": [
+          "physical",
+          "seal"
+        ]
+      }
+    ],
+    "counters": [
+      {
+        "id": "red_sand_mark",
+        "cap": 1
+      },
+      {
+        "id": "cup_pct"
+      },
+      {
+        "id": "night_glow_cup",
+        "cap": 5
+      },
+      {
+        "id": "cup_paid_pct"
+      },
+      {
+        "id": "raid_drink",
+        "cap": 3
+      },
+      {
+        "id": "raid_drink_hit",
+        "cap": 1
+      },
+      {
+        "id": "horse_hp_art",
+        "cap": 1
+      },
+      {
+        "id": "red_band_cuts",
+        "cap": 3
+      },
+      {
+        "id": "red_band_after",
+        "cap": 1
+      },
+      {
+        "id": "forest_listens_sec",
+        "cap": 6
+      },
+      {
+        "id": "forest_listens_sure",
+        "cap": 1
+      },
+      {
+        "id": "forest_listens_pulse",
+        "cap": 1
+      },
+      {
+        "id": "bark_sec",
+        "cap": 4
+      },
+      {
+        "id": "seed"
+      },
+      {
+        "id": "water_streak"
+      },
+      {
+        "id": "water_hit_ok",
+        "cap": 1
+      },
+      {
+        "id": "one_stroke_done",
+        "cap": 1
+      },
+      {
+        "id": "heartwood_spent",
+        "cap": 1
+      },
+      {
+        "id": "forest_closes_sec",
+        "cap": 6
+      },
+      {
+        "id": "wet_ink_strikes",
+        "cap": 3
+      },
+      {
+        "id": "ink_marked",
+        "cap": 1,
+        "each_for": 6
+      },
+      {
+        "id": "dipper_star"
+      },
+      {
+        "id": "dipper_star_ttl",
+        "cap": 12
+      },
+      {
+        "id": "dipper_locked",
+        "cap": 1
+      },
+      {
+        "id": "rainfast_ink_on",
+        "cap": 1
+      },
+      {
+        "id": "rain_hold",
+        "cap": 8
+      },
+      {
+        "id": "seven_stars_fast",
+        "cap": 8
+      },
+      {
+        "id": "handle_double",
+        "cap": 1
+      },
+      {
+        "id": "autumn_delay",
+        "cap": 1
+      },
+      {
+        "id": "dipper_close"
+      },
+      {
+        "id": "pole_vault_ready",
+        "cap": 1
+      },
+      {
+        "id": "washings"
+      },
+      {
+        "id": "washings_pierce",
+        "cap": 1
+      },
+      {
+        "id": "nine_bend"
+      },
+      {
+        "id": "ninth_bend_ready",
+        "cap": 1
+      },
+      {
+        "id": "tolled",
+        "cap": 1
+      },
+      {
+        "id": "toll_paid"
+      },
+      {
+        "id": "toll_pass",
+        "cap": 1
+      },
+      {
+        "id": "toll_tick",
+        "each_for": 0.001,
+        "cap": 1
+      },
+      {
+        "id": "sail_burn_tick",
+        "each_for": 0.001,
+        "cap": 1
+      },
+      {
+        "id": "anchor_bend"
+      },
+      {
+        "id": "ask_mark"
+      },
+      {
+        "id": "silent_place"
+      },
+      {
+        "id": "second_duel_hit"
+      }
+    ],
+    "states": [
+      {
+        "id": "bark-closes",
+        "tags": [
+          "composed"
+        ],
+        "mods": {}
+      },
+      {
+        "id": "rooted",
+        "mods": {
+          "hregen": 0.3,
+          "healing": 25,
+          "dampen_taken": 10,
+          "art_speed": -20
+        },
+        "suppress": [
+          "thorn-rain"
+        ]
+      },
+      {
+        "id": "rooted-bark",
+        "tags": [
+          "composed"
+        ],
+        "mods": {
+          "hregen": 0.3,
+          "healing": 25,
+          "dampen_taken": 10,
+          "art_speed": -20
+        },
+        "suppress": [
+          "thorn-rain"
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "id": "crescent-bleed-spend",
+        "on": "hit_landed",
+        "filter": {
+          "not_art_id": [
+            "crescent-of-red-sand",
+            "trigger"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.red_sand_mark",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "red_sand_mark",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "crescent-bleed-arm",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "crescent-of-red-sand"
+        },
+        "if": [
+          {
+            "read": "foe.status.bleed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "red_sand_mark",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "crescent-bleed-bonus",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.red_sand_mark",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.25,
+              "kind": "art"
+            }
+          },
+          {
+            "mod": {
+              "dmg_more": 0.25,
+              "kind": "basic"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pay-in-blood-shift",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "pay-in-blood"
+        },
+        "do": [
+          {
+            "mod": {
+              "art_cost_hp": 900,
+              "for": 5.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "pay-in-blood-fire",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "pay-in-blood"
+        },
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.25,
+              "element": "fire",
+              "for": 5.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Wine in the Night-Glow Cup:pay",
+        "on": "art_fired",
+        "if": [
+          {
+            "read": "event.hp_paid_share",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "scale": {
+          "read": "event.hp_paid_share",
+          "per": 0.01,
+          "floor": false
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "cup_pct",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "cup_paid_pct",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Wine in the Night-Glow Cup:bleed",
+        "on": "tick_dealt",
+        "filter": {
+          "status": "bleed"
+        },
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "cup_pct",
+              "add": 2.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Wine in the Night-Glow Cup:broken",
+        "on": "broken",
+        "do": [
+          {
+            "counter": {
+              "id": "night_glow_cup",
+              "set": 5
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Wine in the Night-Glow Cup:notch_art",
+        "on": "art_fired",
+        "if": [
+          {
+            "read": "own.counter.cup_pct",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "scale": {
+          "read": "own.counter.cup_pct",
+          "per": 5
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "night_glow_cup",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "cup_pct",
+              "add": -5
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Wine in the Night-Glow Cup:notch_tick",
+        "on": "tick_dealt",
+        "filter": {
+          "status": "bleed"
+        },
+        "if": [
+          {
+            "read": "own.counter.cup_pct",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "scale": {
+          "read": "own.counter.cup_pct",
+          "per": 5
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "night_glow_cup",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "cup_pct",
+              "add": -5
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Wine in the Night-Glow Cup:drink_heal_art",
+        "on": "art_fired",
+        "if": [
+          {
+            "read": "own.counter.night_glow_cup",
+            "op": ">=",
+            "value": 5
+          },
+          {
+            "read": "own.counter.cup_paid_pct",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "scale": {
+          "read": "own.counter.cup_paid_pct",
+          "per": 1,
+          "floor": false
+        },
+        "do": [
+          {
+            "heal": {
+              "share": 0.002
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Wine in the Night-Glow Cup:drink_reset_art",
+        "on": "art_fired",
+        "if": [
+          {
+            "read": "own.counter.night_glow_cup",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "next_art_cost": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "night_glow_cup",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "cup_paid_pct",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Wine in the Night-Glow Cup:drink_heal_tick",
+        "on": "tick_dealt",
+        "filter": {
+          "status": "bleed"
+        },
+        "if": [
+          {
+            "read": "own.counter.night_glow_cup",
+            "op": ">=",
+            "value": 5
+          },
+          {
+            "read": "own.counter.cup_paid_pct",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "scale": {
+          "read": "own.counter.cup_paid_pct",
+          "per": 1,
+          "floor": false
+        },
+        "do": [
+          {
+            "heal": {
+              "share": 0.002
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Wine in the Night-Glow Cup:drink_reset_tick",
+        "on": "tick_dealt",
+        "filter": {
+          "status": "bleed"
+        },
+        "if": [
+          {
+            "read": "own.counter.night_glow_cup",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "next_art_cost": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "night_glow_cup",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "cup_paid_pct",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Wine in the Night-Glow Cup:drink_heal_broken",
+        "on": "broken",
+        "if": [
+          {
+            "read": "own.counter.night_glow_cup",
+            "op": ">=",
+            "value": 5
+          },
+          {
+            "read": "own.counter.cup_paid_pct",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "scale": {
+          "read": "own.counter.cup_paid_pct",
+          "per": 1,
+          "floor": false
+        },
+        "do": [
+          {
+            "heal": {
+              "share": 0.002
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Wine in the Night-Glow Cup:drink_reset_broken",
+        "on": "broken",
+        "if": [
+          {
+            "read": "own.counter.night_glow_cup",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "next_art_cost": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "night_glow_cup",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "cup_paid_pct",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "cup_pct",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Drink After the Raid:fill",
+        "on": "broken",
+        "do": [
+          {
+            "counter": {
+              "id": "raid_drink",
+              "set": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Drink After the Raid:cost",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.raid_drink",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "art_cost_hp": 900
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Drink After the Raid:clear_hit",
+        "on": "art_fired",
+        "do": [
+          {
+            "counter": {
+              "id": "raid_drink_hit",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Drink After the Raid:arm_hit",
+        "on": "art_fired",
+        "if": [
+          {
+            "read": "own.counter.raid_drink",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "raid_drink_hit",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "raid_drink",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Drink After the Raid:heal",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.raid_drink_hit",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "of": "amount",
+              "share": 0.05
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Cut the Horse First:clear",
+        "on": "art_fired",
+        "do": [
+          {
+            "counter": {
+              "id": "horse_hp_art",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Cut the Horse First:mark",
+        "on": "art_fired",
+        "if": [
+          {
+            "read": "event.hp_paid_share",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "horse_hp_art",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Cut the Horse First:dmg",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.horse_hp_art",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.hp_missing_share",
+          "per": 0.01
+        },
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.01,
+              "kind": "art"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Cut the Horse First:crit",
+        "on": "crit",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.horse_hp_art",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.04,
+              "ignore_taken": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Cut the Horse First:closes",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "heal_taken": -50
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:First and Often:free_hp",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.red_band_cuts",
+            "op": "<",
+            "value": 3
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "hp_cost_red": 1,
+              "element": "fire",
+              "kind": "art"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:First and Often:mark_after",
+        "on": "hit_landed",
+        "filter": {
+          "element": "fire",
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.red_band_cuts",
+            "op": ">=",
+            "value": 3
+          }
+        ],
+        "limit": {
+          "per_firing": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "red_band_after",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:First and Often:first3",
+        "on": "hit_landed",
+        "filter": {
+          "element": "fire",
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.red_band_cuts",
+            "op": "<",
+            "value": 3
+          }
+        ],
+        "limit": {
+          "per_firing": 1
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "fire",
+              "n": 2,
+              "for": 6,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "red_band_cuts",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:First and Often:crit_burn",
+        "on": "crit",
+        "filter": {
+          "element": "fire",
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.red_band_after",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "fire",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "log-current-delay",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "log-on-the-current"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 0.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "forest-listens-open",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "the-forest-listens"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "forest_listens_sec",
+              "set": 6
+            }
+          },
+          {
+            "counter": {
+              "id": "forest_listens_sure",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "forest-listens-sure",
+        "on": "art_fired",
+        "filter": {
+          "not_art_id": "the-forest-listens",
+          "not_tags": [
+            "stance"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.forest_listens_sec",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.forest_listens_sure",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.since_act",
+            "op": "<=",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "acc": 500
+            }
+          },
+          {
+            "counter": {
+              "id": "forest_listens_sure",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "forest-listens-press-hit",
+        "on": "was_hit",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.forest_listens_sec",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.forest_listens_pulse",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "forest_listens_pulse",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "forest-listens-press-evade",
+        "on": "evaded",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.forest_listens_sec",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.forest_listens_pulse",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "forest_listens_pulse",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "forest-listens-press-foe-evade",
+        "on": "was_evaded",
+        "if": [
+          {
+            "read": "own.counter.forest_listens_sec",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.forest_listens_pulse",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "forest_listens_pulse",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "forest-listens-press-pulse",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.forest_listens_sec",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.forest_listens_pulse",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.foe_pressed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "forest_listens_pulse",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "forest-listens-pulse-reset",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.forest_listens_pulse",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "forest_listens_pulse",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "forest-listens-tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.forest_listens_sec",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "forest_listens_sec",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "forest-listens-expire",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.forest_listens_sec",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.forest_listens_sure",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "forest_listens_sure",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "bark-closes-open",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "bark-closes"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "bark_sec",
+              "set": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "bark-closes-enter-rooted",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "bark-closes"
+        },
+        "if": [
+          {
+            "read": "own.state.rooted",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "rooted-bark"
+            }
+          }
+        ]
+      },
+      {
+        "id": "bark-closes-enter",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "bark-closes"
+        },
+        "if": [
+          {
+            "read": "own.state.any",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "bark-closes"
+            }
+          }
+        ]
+      },
+      {
+        "id": "bark-closes-keep-rooted",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "rooted-form"
+        },
+        "if": [
+          {
+            "read": "own.counter.bark_sec",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.state.rooted",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "rooted-bark"
+            }
+          }
+        ]
+      },
+      {
+        "id": "bark-closes-keep-plain",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "rooted-form"
+        },
+        "if": [
+          {
+            "read": "own.counter.bark_sec",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.state.any",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "bark-closes"
+            }
+          }
+        ]
+      },
+      {
+        "id": "bark-closes-mods",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.bark_sec",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 25,
+              "no_evade": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "rooted-bark-creep",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.rooted-bark",
+            "op": "==",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 2,
+              "for": 5,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "seed",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "rooted-bark-sap",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.rooted-bark",
+            "op": "==",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.buff.wood",
+          "per": 10
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 2,
+              "for": 5,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "bark-closes-pulse",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.bark_sec",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.02
+            }
+          },
+          {
+            "counter": {
+              "id": "bark_sec",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "bark-closes-exit-rooted",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.rooted-bark",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.bark_sec",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "rooted"
+            }
+          }
+        ]
+      },
+      {
+        "id": "bark-closes-exit",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.state.bark-closes",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.bark_sec",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "flood-delay",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "the-flood-takes-it"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "flood-streak-mark-clear",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "water_hit_ok",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "flood-streak-mark-water",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art",
+          "element": "water"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "water_hit_ok",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "flood-streak-reset",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.water_hit_ok",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "water_streak",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "flood-streak-up",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art",
+          "element": "water"
+        },
+        "limit": {
+          "per_firing": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "water_streak",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "flood-streak-break",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "the-flood-takes-it"
+        },
+        "limit": {
+          "per_firing": 1
+        },
+        "if": [
+          {
+            "read": "own.counter.water_streak",
+            "op": ">=",
+            "value": 3
+          }
+        ],
+        "do": [
+          {
+            "status": {
+              "id": "exposed",
+              "stacks": 1,
+              "dur": 3,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "water_streak",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:One Stroke",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.one_stroke_done",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.composed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:One Stroke spend",
+        "on": "hit_landed",
+        "if": [
+          {
+            "read": "own.counter.one_stroke_done",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.composed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "one_stroke_done",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Tree Did Not Answer",
+        "on": "down",
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "refuse_down": {
+              "hp_share": 0.1
+            }
+          },
+          {
+            "counter": {
+              "id": "heartwood_spent",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Tree Did Not Answer spent",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.heartwood_spent",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "healing": -12,
+              "hregen_inc": -36
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Forest Closes brace",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "mountain-cleave"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "forest_closes_sec",
+              "set": 6
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Forest Closes hold",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.forest_closes_sec",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "no_evade": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Forest Closes regen",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.forest_closes_sec",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.02
+            }
+          },
+          {
+            "counter": {
+              "id": "forest_closes_sec",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Forest Closes thorns",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.counter.forest_closes_sec",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "per_pulse": 2
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 8,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "wet-ink-prime",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "wet-ink"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "wet_ink_strikes",
+              "set": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "wet-ink-mark",
+        "on": "hit_landed",
+        "if": [
+          {
+            "read": "own.counter.wet_ink_strikes",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "wet_ink_strikes",
+              "add": -1
+            }
+          },
+          {
+            "counter": {
+              "id": "ink_marked",
+              "add": 1
+            }
+          },
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 1,
+              "dur": 2,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "wet-ink-home",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.ink_marked",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "acc": 20,
+              "tags": [
+                "talisman"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "dipper-paint",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "seven-star-talisman"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "dipper_star",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "dipper_star_ttl",
+              "set": 12
+            }
+          }
+        ]
+      },
+      {
+        "id": "dipper-paint-lock",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "seven-star-talisman"
+        },
+        "if": [
+          {
+            "any": [
+              {
+                "read": "own.counter.rain_hold",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.counter.rainfast_ink_on",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.counter.seven_stars_fast",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "dipper_locked",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "dipper-detonate",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "seven-star-talisman"
+        },
+        "if": [
+          {
+            "read": "own.counter.dipper_star",
+            "op": ">=",
+            "value": 7
+          }
+        ],
+        "do": [
+          {
+            "free_hit": {
+              "c": 2.8,
+              "dtype": "chaos"
+            }
+          },
+          {
+            "counter": {
+              "id": "dipper_star",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "dipper_star_ttl",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "dipper_locked",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "dipper-tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.dipper_star_ttl",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "dipper_star_ttl",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "dipper-expire",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.dipper_star_ttl",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.dipper_star",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "dipper_star",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "dipper_locked",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "dipper-wiped",
+        "on": "cleansed",
+        "if": [
+          {
+            "read": "own.counter.dipper_star",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.dipper_locked",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.rainfast_ink_on",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.rain_hold",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.seven_stars_fast",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "dipper_star",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "dipper_star_ttl",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "handle-points-bind",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "handle-points"
+        },
+        "do": [
+          {
+            "status": {
+              "id": "bound",
+              "stacks": 1,
+              "dur": 2,
+              "side": "foe"
+            }
+          },
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 1,
+              "dur": 2,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "handle_double",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "handle-points-echo",
+        "on": "hit_landed",
+        "filter": {
+          "tags": [
+            "talisman"
+          ],
+          "not_art_id": "handle-points"
+        },
+        "limit": {
+          "per_firing": 1
+        },
+        "if": [
+          {
+            "read": "own.counter.handle_double",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "handle_double",
+              "set": 0
+            }
+          },
+          {
+            "fire_art": {
+              "which": "last",
+              "share": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "rain-hold-open",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "the-rain-does-not-take-it"
+        },
+        "do": [
+          {
+            "mod": {
+              "talisman_fast": 1,
+              "curse_fast": 1,
+              "for": 8.0
+            }
+          },
+          {
+            "counter": {
+              "id": "rain_hold",
+              "set": 8
+            }
+          }
+        ]
+      },
+      {
+        "id": "rain-hold-tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.rain_hold",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "rain_hold",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "rain-hold-punish",
+        "on": "cleansed",
+        "if": [
+          {
+            "read": "own.counter.rain_hold",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "event.amount",
+          "per": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.25,
+              "dtype": "cold"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Rainfast Ink init",
+        "on": "fight_start",
+        "do": [
+          {
+            "counter": {
+              "id": "rainfast_ink_on",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Rainfast Ink",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "talisman_fast": 1,
+              "curse_fast": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Autumn Light on the Screen arm",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art",
+          "tags": [
+            "talisman"
+          ]
+        },
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "autumn_delay",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Autumn Light on the Screen fire",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.autumn_delay",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "autumn_delay",
+              "set": 0
+            }
+          },
+          {
+            "fire_art": {
+              "which": "longest",
+              "share": 0.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Seven Stars in One Stroke count",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "talisman"
+          ]
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "dipper_close",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Seven Stars in One Stroke close",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "talisman"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.dipper_close",
+            "op": ">=",
+            "value": 7
+          },
+          {
+            "read": "foe.debuff.wood",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "consume": {
+              "el": "wood",
+              "side": "foe",
+              "kind": "debuff",
+              "then": [
+                {
+                  "free_hit": {
+                    "c": 0.85,
+                    "dtype": "chaos"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "mod": {
+              "talisman_fast": 1,
+              "curse_fast": 1,
+              "for": 8.0
+            }
+          },
+          {
+            "counter": {
+              "id": "seven_stars_fast",
+              "set": 8
+            }
+          },
+          {
+            "counter": {
+              "id": "dipper_close",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Seven Stars in One Stroke lock",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "talisman"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.dipper_close",
+            "op": ">=",
+            "value": 7
+          },
+          {
+            "read": "foe.debuff.wood",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "talisman_fast": 1,
+              "curse_fast": 1,
+              "for": 8.0
+            }
+          },
+          {
+            "counter": {
+              "id": "seven_stars_fast",
+              "set": 8
+            }
+          },
+          {
+            "counter": {
+              "id": "dipper_close",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Seven Stars in One Stroke tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.seven_stars_fast",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "seven_stars_fast",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "pole-vault-arm",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "pole-vault"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "pole_vault_ready",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "pole-vault-delay",
+        "on": "hit_landed",
+        "if": [
+          {
+            "read": "own.counter.pole_vault_ready",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 0.3
+            }
+          },
+          {
+            "counter": {
+              "id": "pole_vault_ready",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "washings-count",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art",
+          "element": "water"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "washings",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "washings-tenth",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art",
+          "element": "water"
+        },
+        "if": [
+          {
+            "read": "own.counter.washings",
+            "op": ">=",
+            "value": 10
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "washings",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "washings_pierce",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "washings-strip",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.washings",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.washings",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "pen": 15,
+              "element": "water"
+            }
+          }
+        ]
+      },
+      {
+        "id": "washings-pierce-fire",
+        "on": "art_fired",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.since_act",
+            "op": "<=",
+            "value": 0
+          },
+          {
+            "read": "own.counter.washings_pierce",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "bypass": 0.5,
+              "pierce": 75,
+              "pen": 300
+            }
+          },
+          {
+            "counter": {
+              "id": "washings_pierce",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "ninth-bend-evade",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "ninth-bend"
+        },
+        "do": [
+          {
+            "mod": {
+              "evade": 12,
+              "for": 3.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "ninth-bend-count",
+        "on": "evaded",
+        "do": [
+          {
+            "counter": {
+              "id": "nine_bend",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "ninth-bend-arm",
+        "on": "evaded",
+        "if": [
+          {
+            "read": "own.counter.nine_bend",
+            "op": ">=",
+            "value": 9
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "nine_bend",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "ninth_bend_ready",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "ninth-bend-unleash",
+        "on": "art_fired",
+        "filter": {
+          "element": "water"
+        },
+        "if": [
+          {
+            "read": "own.since_act",
+            "op": "<=",
+            "value": 0
+          },
+          {
+            "read": "own.counter.ninth_bend_ready",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 1.0,
+              "acc": 500
+            }
+          },
+          {
+            "counter": {
+              "id": "ninth_bend_ready",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Pay the Toll:stamp",
+        "on": "art_fired",
+        "filter": {
+          "element": "water"
+        },
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "tolled",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Pay the Toll:hit",
+        "on": "was_hit",
+        "filter": {
+          "kind": "art"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "if": [
+          {
+            "read": "own.counter.tolled",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.toll_tick",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "burn_qi": {
+              "of": "max",
+              "share": 0.02,
+              "to_self": 1.0
+            }
+          },
+          {
+            "counter": {
+              "id": "toll_paid",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "toll_tick",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Pay the Toll:hit_pass",
+        "on": "was_hit",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.tolled",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.toll_paid",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "tolled",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "toll_pass",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Pay the Toll:evade",
+        "on": "evaded",
+        "filter": {
+          "kind": "art"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "if": [
+          {
+            "read": "own.counter.tolled",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.toll_tick",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "burn_qi": {
+              "of": "max",
+              "share": 0.02,
+              "to_self": 1.0
+            }
+          },
+          {
+            "counter": {
+              "id": "toll_paid",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "toll_tick",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Pay the Toll:evade_pass",
+        "on": "evaded",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.tolled",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.toll_paid",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "tolled",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "toll_pass",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Pay the Toll:pass",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.toll_pass",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 11.11
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Boat That Did Not Burn:ward",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 100,
+              "resist": 200,
+              "dtype": "fire"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Boat That Did Not Burn:burn_mark",
+        "on": "tick_taken",
+        "filter": {
+          "element": "fire"
+        },
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "sail_burn_tick",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Boat That Did Not Burn:survive",
+        "on": "down",
+        "limit": {
+          "per_fight": 1
+        },
+        "if": [
+          {
+            "read": "own.counter.sail_burn_tick",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "refuse_down": {}
+          }
+        ]
+      },
+      {
+        "id": "eff:Round the Bend, Then the Anchor:toll",
+        "on": "evaded",
+        "if": [
+          {
+            "read": "own.counter.tolled",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "burn_qi": {
+              "of": "max",
+              "share": 0.02,
+              "to_self": 1.0
+            }
+          },
+          {
+            "counter": {
+              "id": "toll_paid",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Round the Bend, Then the Anchor:toll_pass",
+        "on": "evaded",
+        "if": [
+          {
+            "read": "own.counter.tolled",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.toll_paid",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "tolled",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "toll_pass",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Round the Bend, Then the Anchor:count",
+        "on": "evaded",
+        "do": [
+          {
+            "counter": {
+              "id": "anchor_bend",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Round the Bend, Then the Anchor:drop",
+        "on": "evaded",
+        "if": [
+          {
+            "read": "own.counter.anchor_bend",
+            "op": ">=",
+            "value": 9
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "anchor_bend",
+              "set": 0
+            }
+          },
+          {
+            "mod": {
+              "bypass": 0.5,
+              "pen": 150,
+              "kind": "trigger"
+            }
+          },
+          {
+            "free_hit": {
+              "c": 1.8,
+              "dtype": "cold"
+            }
+          }
+        ]
+      },
+      {
+        "id": "where-it-will-be-sure",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "where-it-will-be"
+        },
+        "if": [
+          {
+            "any": [
+              {
+                "read": "foe.pressing",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.foe_pressed",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "acc": 100
+            }
+          }
+        ]
+      },
+      {
+        "id": "blade-answers-dmg",
+        "on": "always",
+        "scale": {
+          "read": "own.counter.ask_mark",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.15,
+              "art_id": "the-blade-answers"
+            }
+          }
+        ]
+      },
+      {
+        "id": "blade-answers-pierce",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "the-blade-answers"
+        },
+        "scale": {
+          "read": "own.counter.ask_mark",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "pierce": 8
+            }
+          }
+        ]
+      },
+      {
+        "id": "blade-answers-spend",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "the-blade-answers"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "ask_mark",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "blade-answers-spend-evade",
+        "on": "was_evaded",
+        "filter": {
+          "art_id": "the-blade-answers"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "ask_mark",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "silent-place-arm",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "the-silent-place"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "silent_place",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "silent-place-ignore",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.silent_place",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "bypass": 0.35,
+              "pen": 80
+            }
+          }
+        ]
+      },
+      {
+        "id": "silent-place-spend",
+        "on": "hit_landed",
+        "if": [
+          {
+            "read": "own.counter.silent_place",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "silent_place",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Second Duel hit",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          },
+          {
+            "read": "own.counter.second_duel_hit",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "second_duel_hit",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Second Duel dmg",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.second_duel_hit",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.1,
+              "tags": [
+                "sword"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Answer crit",
+        "on": "always",
+        "scale": {
+          "read": "own.counter.ask_mark",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "crit_mult": 10,
+              "art_id": "the-blade-answers"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Answer bypass",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.ask_mark",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "bypass": 0.5,
+              "art_id": "the-blade-answers"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "name": "b05-kit-b",
+    "realm": 2,
+    "crit": 0.0,
+    "evade": 0.0,
+    "acc": 2.0,
+    "n_body": 4.0,
+    "n_qi": 4.0,
+    "arts": [
+      {
+        "name": "falling-locust-flowers",
+        "c": 1.5,
+        "cost": 0.03,
+        "cd": 5.0,
+        "element": "wood",
+        "dtype": "elem",
+        "group": "locust-shade-breathing",
+        "tags": [
+          "wood",
+          "quick"
+        ],
+        "split": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      },
+      {
+        "name": "shade-of-the-road",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 6.0,
+        "element": "water",
+        "dtype": "elem",
+        "group": "locust-shade-breathing",
+        "tags": [
+          "water",
+          "ward"
+        ]
+      },
+      {
+        "name": "pillar-in-the-current",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 6.0,
+        "element": "earth",
+        "dtype": "elem",
+        "group": "twin-span-pillar-method",
+        "tags": [
+          "earth",
+          "stance"
+        ],
+        "buff": [
+          1,
+          8.0
+        ],
+        "guards": [
+          {
+            "read": "own.state.pillar-in-current",
+            "op": "<",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "name": "swallows-return",
+        "c": 1.7,
+        "cost": 0.03,
+        "cd": 3.0,
+        "element": "wood",
+        "dtype": "elem",
+        "group": "returning-swallow-breath",
+        "tags": [
+          "wood",
+          "quick"
+        ],
+        "debuff": [
+          1,
+          6.0
+        ]
+      },
+      {
+        "name": "opened-granary",
+        "c": 0.0,
+        "cost": 0.06,
+        "cd": 8.0,
+        "element": "wood",
+        "dtype": "elem",
+        "heal": 2.2,
+        "group": "seed-store-method",
+        "tags": [
+          "wood",
+          "heal",
+          "buff"
+        ],
+        "qi_restore": 0.15,
+        "buff": [
+          2,
+          8.0
+        ],
+        "guards": [
+          {
+            "read": "own.counter.granary_open",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "any": [
+              {
+                "read": "own.hp_share",
+                "op": "<=",
+                "value": 0.75
+              },
+              {
+                "read": "time",
+                "op": ">=",
+                "value": 10
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "unbroken-thread",
+        "c": 1.2,
+        "cost": 0.03,
+        "cd": 4.0,
+        "element": "fire",
+        "dtype": "elem",
+        "group": "reeling-thread-breath",
+        "tags": [
+          "fire",
+          "song"
+        ],
+        "debuff": [
+          2,
+          8.0
+        ],
+        "statuses": [
+          {
+            "id": "bound",
+            "stacks": 1,
+            "dur": 2
+          }
+        ]
+      },
+      {
+        "name": "first-petal",
+        "c": 1.3,
+        "cost": 0.02,
+        "cd": 1.5,
+        "element": "metal",
+        "dtype": "phys",
+        "group": "cold-plum-sword-primer",
+        "tags": [
+          "metal",
+          "sword",
+          "quick"
+        ]
+      },
+      {
+        "name": "five-petals",
+        "c": 1.8,
+        "cost": 0.04,
+        "cd": 4.0,
+        "element": "metal",
+        "dtype": "phys",
+        "group": "plum-through-snow-sword-canon",
+        "tags": [
+          "metal",
+          "sword",
+          "quick"
+        ],
+        "split": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      },
+      {
+        "name": "bloom-in-the-snow",
+        "c": 1.5,
+        "cost": 0.03,
+        "cd": 4.0,
+        "element": "metal",
+        "dtype": "phys",
+        "group": "plum-through-snow-sword-canon",
+        "tags": [
+          "metal",
+          "sword"
+        ]
+      },
+      {
+        "name": "bare-winter",
+        "c": 1.6,
+        "cost": 0.03,
+        "cd": 4.0,
+        "element": "metal",
+        "dtype": "phys",
+        "group": "lone-branch-sword",
+        "tags": [
+          "metal",
+          "sword"
+        ]
+      },
+      {
+        "name": "last-blossom",
+        "c": 1.8,
+        "cost": 0.04,
+        "cd": 5.0,
+        "element": "metal",
+        "dtype": "phys",
+        "group": "lone-branch-sword",
+        "tags": [
+          "metal",
+          "sword",
+          "heavy"
+        ]
+      },
+      {
+        "name": "wolf-ring",
+        "c": 1.5,
+        "cost": 0.03,
+        "cd": 3.5,
+        "element": "",
+        "dtype": "phys",
+        "group": "pine-warden-staff-and-bow-canon",
+        "tags": [
+          "physical",
+          "staff",
+          "ward"
+        ]
+      },
+      {
+        "name": "second-night",
+        "c": 0.0,
+        "cost": 0.04,
+        "cd": 6.0,
+        "element": "",
+        "dtype": "phys",
+        "heal": 0.6,
+        "group": "three-nights-on-the-road",
+        "tags": [
+          "physical",
+          "heal"
+        ]
+      },
+      {
+        "name": "the-leader-first",
+        "c": 2.0,
+        "cost": 0.05,
+        "cd": 6.0,
+        "element": "",
+        "dtype": "phys",
+        "group": "wolf-winter-arrow",
+        "tags": [
+          "physical",
+          "bow",
+          "heavy"
+        ]
+      },
+      {
+        "name": "frost-sheet",
+        "c": 1.4,
+        "cost": 0.03,
+        "cd": 3.5,
+        "element": "water",
+        "dtype": "elem",
+        "group": "pine-paper-talisman-primer",
+        "tags": [
+          "cold",
+          "talisman",
+          "seal"
+        ],
+        "empower": [
+          {
+            "if": [
+              {
+                "read": "own.counter.frost_sheet",
+                "op": ">=",
+                "value": 1
+              }
+            ],
+            "c_mult": 1.75
+          }
+        ]
+      },
+      {
+        "name": "laid-ward",
+        "c": 0.0,
+        "cost": 0.04,
+        "cd": 7.0,
+        "element": "wood",
+        "dtype": "elem",
+        "group": "frost-pine-ward-canon",
+        "tags": [
+          "wood",
+          "talisman",
+          "ward",
+          "seal"
+        ]
+      },
+      {
+        "name": "frost-on-the-pine",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 5.0,
+        "element": "water",
+        "dtype": "elem",
+        "group": "frost-pine-ward-canon",
+        "tags": [
+          "cold",
+          "talisman",
+          "ward",
+          "seal"
+        ]
+      },
+      {
+        "name": "cold-night-lamp",
+        "c": 0.0,
+        "cost": 0.04,
+        "cd": 5.0,
+        "element": "water",
+        "dtype": "elem",
+        "group": "lantern-ward-art",
+        "tags": [
+          "cold",
+          "talisman",
+          "ward"
+        ]
+      },
+      {
+        "name": "hold-the-line",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 5.0,
+        "element": "earth",
+        "dtype": "elem",
+        "group": "sand-wall-primer",
+        "tags": [
+          "earth",
+          "ward"
+        ],
+        "buff": [
+          1,
+          8.0
+        ]
+      },
+      {
+        "name": "hold-the-sand",
+        "c": 0.0,
+        "cost": 0.04,
+        "cd": 5.0,
+        "element": "earth",
+        "dtype": "elem",
+        "group": "sand-holding-sabre-canon",
+        "tags": [
+          "earth",
+          "field",
+          "formation",
+          "stance"
+        ],
+        "guards": [
+          {
+            "read": "own.counter.sand_ring_up",
+            "op": "<",
+            "value": 1
+          },
+          {
+            "read": "own.field_up",
+            "op": "<",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "name": "answering-cut",
+        "c": 1.6,
+        "cost": 0.04,
+        "cd": 4.0,
+        "element": "metal",
+        "dtype": "phys",
+        "group": "sand-holding-sabre-canon",
+        "tags": [
+          "metal",
+          "sword",
+          "sabre",
+          "counter"
+        ],
+        "empower": [
+          {
+            "if": [
+              {
+                "read": "own.counter.answering_guard",
+                "op": ">=",
+                "value": 1
+              }
+            ],
+            "pay": [
+              {
+                "counter": {
+                  "id": "answering_guard",
+                  "set": 0
+                }
+              }
+            ],
+            "c_mult": 1.5,
+            "add_statuses": [
+              {
+                "id": "off_guard",
+                "stacks": 1,
+                "dur": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "spring-quench",
+        "c": 1.8,
+        "cost": 0.05,
+        "cd": 5.0,
+        "element": "metal",
+        "dtype": "phys",
+        "group": "sword-washing-temper",
+        "tags": [
+          "metal",
+          "sword",
+          "heavy",
+          "quench"
+        ],
+        "bypass": 0.25
+      }
+    ],
+    "counters": [
+      {
+        "id": "road_shade",
+        "start": 0,
+        "cap": 5
+      },
+      {
+        "id": "pillar_hits",
+        "start": 0,
+        "cap": 3
+      },
+      {
+        "id": "granary_open",
+        "start": 0,
+        "cap": 1
+      },
+      {
+        "id": "swallow_used",
+        "start": 0,
+        "cap": 1
+      },
+      {
+        "id": "swallow_wait",
+        "start": 0,
+        "cap": 3
+      },
+      {
+        "id": "bell_used",
+        "start": 0,
+        "cap": 1
+      },
+      {
+        "id": "bell_heal",
+        "start": 0,
+        "cap": 4
+      },
+      {
+        "id": "nest_wood",
+        "start": 0,
+        "cap": 3
+      },
+      {
+        "id": "granary_seed",
+        "start": 0
+      },
+      {
+        "id": "tide_used",
+        "start": 0,
+        "cap": 1
+      },
+      {
+        "id": "tide_sure",
+        "start": 0,
+        "cap": 1
+      },
+      {
+        "id": "wait_still",
+        "start": 0,
+        "cap": 10
+      },
+      {
+        "id": "wait_ward",
+        "start": 0
+      },
+      {
+        "id": "wait_sure",
+        "start": 0,
+        "cap": 1
+      },
+      {
+        "id": "flood_blk",
+        "start": 0,
+        "cap": 5
+      },
+      {
+        "id": "plum_petal",
+        "each_for": 12
+      },
+      {
+        "id": "first_petal_ready",
+        "cap": 1
+      },
+      {
+        "id": "has_companion",
+        "cap": 1
+      },
+      {
+        "id": "last_blossom_saved",
+        "cap": 1
+      },
+      {
+        "id": "glow_clock"
+      },
+      {
+        "id": "marked_leader"
+      },
+      {
+        "id": "warden_brace"
+      },
+      {
+        "id": "ring_wardens",
+        "each_for": 3
+      },
+      {
+        "id": "warden_companion"
+      },
+      {
+        "id": "dawn_wait"
+      },
+      {
+        "id": "frost_sheet",
+        "cap": 1,
+        "each_for": 10
+      },
+      {
+        "id": "ward",
+        "upkeep": {
+          "pool": "qi",
+          "per_stack": 0.002
+        }
+      },
+      {
+        "id": "lantern",
+        "decay_per_pulse": 1
+      },
+      {
+        "id": "ward_save"
+      },
+      {
+        "id": "ward_twice"
+      },
+      {
+        "id": "ward_spared"
+      },
+      {
+        "id": "pine_frost_ward",
+        "cap": 1,
+        "each_for": 8
+      },
+      {
+        "id": "lantern_double"
+      },
+      {
+        "id": "sand_ring_up",
+        "cap": 1
+      },
+      {
+        "id": "answering_guard",
+        "cap": 1
+      },
+      {
+        "id": "spring_quench_stacks"
+      },
+      {
+        "id": "spring_quench_pierce",
+        "cap": 1
+      },
+      {
+        "id": "smoke_road",
+        "cap": 1
+      },
+      {
+        "id": "rider_counter_cut",
+        "cap": 1
+      }
+    ],
+    "states": [
+      {
+        "id": "pillar-in-current",
+        "tags": [
+          "composed"
+        ],
+        "mods": {
+          "block": 40
+        }
+      },
+      {
+        "id": "hold-the-sand",
+        "tags": [
+          "field"
+        ],
+        "mods": {}
+      },
+      {
+        "id": "iron-hide",
+        "mods": {
+          "resist": 120,
+          "block": 35,
+          "art_speed": 0
+        },
+        "suppress": [
+          "shatter-edge-cleave"
+        ],
+        "start": false
+      },
+      {
+        "id": "hold-the-sand-iron",
+        "tags": [
+          "field"
+        ],
+        "mods": {
+          "resist": 120,
+          "block": 35,
+          "art_speed": 0
+        },
+        "suppress": [
+          "shatter-edge-cleave"
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "id": "art:falling-locust-flowers:heal",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "falling-locust-flowers"
+        },
+        "if": [
+          {
+            "read": "own.debuff.fire",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.008
+            }
+          }
+        ]
+      },
+      {
+        "id": "art:falling-locust-flowers:stack",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "falling-locust-flowers"
+        },
+        "limit": {
+          "per_firing": 1
+        },
+        "if": [
+          {
+            "read": "own.debuff.fire",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 8,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "art:shade-of-the-road:cast",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "shade-of-the-road"
+        },
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.05,
+              "of": "hp"
+            }
+          },
+          {
+            "counter": {
+              "id": "road_shade",
+              "set": 5
+            }
+          }
+        ]
+      },
+      {
+        "id": "art:shade-of-the-road:pulse",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.road_shade",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.composed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.02,
+              "of": "hp"
+            }
+          },
+          {
+            "counter": {
+              "id": "road_shade",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "art:pillar-in-the-current:enter",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "pillar-in-the-current"
+        },
+        "do": [
+          {
+            "state": {
+              "set": "pillar-in-current"
+            }
+          },
+          {
+            "counter": {
+              "id": "pillar_hits",
+              "set": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "art:pillar-in-the-current:push",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.state.pillar-in-current",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "read": "own.counter.pillar_hits",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 0.5
+            }
+          },
+          {
+            "counter": {
+              "id": "pillar_hits",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "art:pillar-in-the-current:exit",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.state.pillar-in-current",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "read": "own.counter.pillar_hits",
+            "op": "<=",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "art:swallows-return:echo",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "swallows-return"
+        },
+        "limit": {
+          "per_firing": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.85,
+              "dtype": "chaos"
+            }
+          }
+        ]
+      },
+      {
+        "id": "art:opened-granary:surge",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "opened-granary"
+        },
+        "do": [
+          {
+            "mod": {
+              "art_speed": 30,
+              "basic_speed": 30,
+              "for": 6
+            }
+          },
+          {
+            "counter": {
+              "id": "granary_open",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "art:unbroken-thread:offguard",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "unbroken-thread"
+        },
+        "do": [
+          {
+            "status": {
+              "id": "off_guard",
+              "stacks": 1,
+              "dur": 1,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Under the Locust:ward_pct",
+        "on": "always",
+        "if": [
+          {
+            "read": "time",
+            "op": "<=",
+            "value": 10
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "ward_pct": 20
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Under the Locust:water_grow",
+        "on": "art_fired",
+        "filter": {
+          "element": "water",
+          "tags": [
+            "ward"
+          ]
+        },
+        "if": [
+          {
+            "read": "time",
+            "op": "<=",
+            "value": 10
+          }
+        ],
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.015,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Under the Locust:wood_grow",
+        "on": "art_fired",
+        "filter": {
+          "element": "wood",
+          "tags": [
+            "ward"
+          ]
+        },
+        "if": [
+          {
+            "read": "time",
+            "op": "<=",
+            "value": 10
+          }
+        ],
+        "do": [
+          {
+            "ward_grow": {
+              "share": 0.015,
+              "of": "hp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Toll",
+        "on": "blocked",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          },
+          {
+            "read": "foe.qi_share",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "burn_qi": {
+              "share": 0.01,
+              "of": "qi_max",
+              "to_self": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Swallow Returns:arm",
+        "on": "art_fired",
+        "if": [
+          {
+            "read": "own.counter.swallow_used",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "swallow_used",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "swallow_wait",
+              "set": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Swallow Returns:fire",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.swallow_wait",
+            "op": "==",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "swallow_wait",
+              "set": 0
+            }
+          },
+          {
+            "fire_art": {
+              "which": "last",
+              "share": 0.4
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Swallow Returns:tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.swallow_wait",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "swallow_wait",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Harvest Bell:hit",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          },
+          {
+            "read": "own.hp_share",
+            "op": "<",
+            "value": 0.5
+          },
+          {
+            "read": "own.counter.bell_used",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "bell_used",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "bell_heal",
+              "set": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Harvest Bell:pulse_arm",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<",
+            "value": 0.5
+          },
+          {
+            "read": "own.counter.bell_used",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "bell_used",
+              "set": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "bell_heal",
+              "set": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Harvest Bell:tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.bell_heal",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.02
+            }
+          },
+          {
+            "counter": {
+              "id": "bell_heal",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Reading the Weather",
+        "on": "pulse",
+        "limit": {
+          "cooldown": 12
+        },
+        "do": [
+          {
+            "decoy": {
+              "n": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Swallow Returns to Its Nest:count",
+        "on": "art_fired",
+        "filter": {
+          "element": "wood"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "nest_wood",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Swallow Returns to Its Nest:strike",
+        "on": "art_fired",
+        "filter": {
+          "element": "wood"
+        },
+        "if": [
+          {
+            "read": "own.counter.nest_wood",
+            "op": ">=",
+            "value": 3
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "nest_wood",
+              "set": 0
+            }
+          },
+          {
+            "free_hit": {
+              "c": 1.4,
+              "dtype": "soul"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Outlast the Drought:seed",
+        "on": "pulse",
+        "limit": {
+          "cooldown": 10
+        },
+        "if": [
+          {
+            "read": "time",
+            "op": ">=",
+            "value": 10
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "granary_seed",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Outlast the Drought:hit_heal",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          },
+          {
+            "read": "own.hp_share",
+            "op": "<",
+            "value": 0.2
+          },
+          {
+            "read": "own.counter.granary_seed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.granary_seed",
+          "per": 1
+        },
+        "do": [
+          {
+            "heal": {
+              "share": 0.08
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Outlast the Drought:hit_spend",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          },
+          {
+            "read": "own.hp_share",
+            "op": "<",
+            "value": 0.2
+          },
+          {
+            "read": "own.counter.granary_seed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "granary_seed",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Outlast the Drought:pulse_heal",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<",
+            "value": 0.2
+          },
+          {
+            "read": "own.counter.granary_seed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.granary_seed",
+          "per": 1
+        },
+        "do": [
+          {
+            "heal": {
+              "share": 0.08
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Outlast the Drought:pulse_spend",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<",
+            "value": 0.2
+          },
+          {
+            "read": "own.counter.granary_seed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "granary_seed",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Leave With the Tide:hit",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          },
+          {
+            "read": "own.hp_share",
+            "op": "<",
+            "value": 0.5
+          },
+          {
+            "read": "own.counter.tide_used",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "tide_used",
+              "set": 1
+            }
+          },
+          {
+            "mod": {
+              "dampen_taken": 9900,
+              "for": 2
+            }
+          },
+          {
+            "gain_qi": {
+              "share": 0.1
+            }
+          },
+          {
+            "counter": {
+              "id": "tide_sure",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Leave With the Tide:pulse",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<",
+            "value": 0.5
+          },
+          {
+            "read": "own.counter.tide_used",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "tide_used",
+              "set": 1
+            }
+          },
+          {
+            "mod": {
+              "dampen_taken": 9900,
+              "for": 2
+            }
+          },
+          {
+            "gain_qi": {
+              "share": 0.1
+            }
+          },
+          {
+            "counter": {
+              "id": "tide_sure",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Leave With the Tide:acc",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.tide_sure",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "acc": 1000
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Leave With the Tide:spend",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.tide_sure",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "tide_sure",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Pulled Tight:rain",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "needle-rain"
+        },
+        "if": [
+          {
+            "read": "foe.debuff.fire",
+            "op": ">=",
+            "value": 6
+          }
+        ],
+        "do": [
+          {
+            "consume": {
+              "el": "fire",
+              "side": "foe",
+              "kind": "debuff",
+              "per": 1,
+              "then": [
+                {
+                  "free_hit": {
+                    "c": 0.114,
+                    "dtype": "fire"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Pulled Tight:tag",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "needle"
+          ],
+          "not_art_id": "needle-rain"
+        },
+        "if": [
+          {
+            "read": "foe.debuff.fire",
+            "op": ">=",
+            "value": 6
+          }
+        ],
+        "do": [
+          {
+            "consume": {
+              "el": "fire",
+              "side": "foe",
+              "kind": "debuff",
+              "per": 1,
+              "then": [
+                {
+                  "free_hit": {
+                    "c": 0.114,
+                    "dtype": "fire"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:He Waited:tick",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.composed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "wait_still",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:He Waited:stack",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.wait_still",
+            "op": ">=",
+            "value": 10
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "wait_ward",
+              "add": 1
+            }
+          },
+          {
+            "counter": {
+              "id": "wait_still",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "wait_sure",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:He Waited:decay",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.composed",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.wait_ward",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "scale": {
+          "read": "own.counter.wait_ward",
+          "per": 5,
+          "floor": false
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "wait_ward",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:He Waited:ward",
+        "on": "always",
+        "scale": {
+          "read": "own.counter.wait_ward",
+          "per": 1,
+          "floor": false
+        },
+        "do": [
+          {
+            "mod": {
+              "ward_pct": 5
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:He Waited:acc",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.wait_sure",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "acc": 1000
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:He Waited:spend",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art"
+        },
+        "if": [
+          {
+            "read": "own.counter.wait_sure",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "wait_sure",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Pillar in the Flood:immune",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": ">",
+            "value": 0.5
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "delay_immune": 1,
+              "unmoved": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Pillar in the Flood:count",
+        "on": "blocked",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "flood_blk",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Pillar in the Flood:burn",
+        "on": "blocked",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          },
+          {
+            "read": "own.counter.flood_blk",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "flood_blk",
+              "set": 0
+            }
+          },
+          {
+            "burn_qi": {
+              "share": 0.03,
+              "of": "qi_max",
+              "to_self": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "first-petal-arm",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "sword"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.plum_petal",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "first_petal_ready",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "first-petal-disarm",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "sword"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.plum_petal",
+            "op": "<",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "first_petal_ready",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "first-petal-gain",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "first-petal"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "plum_petal",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "first-petal-crit",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.first_petal_ready",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.plum_petal",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "sure_crit": 1,
+              "tags": [
+                "sword"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "first-petal-spend",
+        "on": "crit",
+        "filter": {
+          "tags": [
+            "sword"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.first_petal_ready",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.plum_petal",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "plum_petal",
+              "add": -5
+            }
+          },
+          {
+            "counter": {
+              "id": "first_petal_ready",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "five-petals-bleed",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "five-petals"
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "plum_petal",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "bloom-snow-crit",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<",
+            "value": 0.5
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "crit": 15,
+              "tags": [
+                "sword"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "bloom-snow-heal",
+        "on": "crit",
+        "filter": {
+          "tags": [
+            "sword"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<",
+            "value": 0.5
+          }
+        ],
+        "limit": {
+          "per_pulse": 2
+        },
+        "do": [
+          {
+            "heal": {
+              "share": 0.025
+            }
+          }
+        ]
+      },
+      {
+        "id": "bare-winter-comp-hit",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "companion"
+        },
+        "if": [
+          {
+            "read": "own.since.flying-sword",
+            "op": ">=",
+            "value": 15
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "has_companion",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "bare-winter-comp-evade",
+        "on": "was_evaded",
+        "filter": {
+          "kind": "companion"
+        },
+        "if": [
+          {
+            "read": "own.since.flying-sword",
+            "op": ">=",
+            "value": 15
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "has_companion",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "bare-winter-bonus",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.has_companion",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "cost_red": 0.15,
+              "dmg_more": 0.15,
+              "tags": [
+                "sword"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "last-blossom-save",
+        "on": "down",
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "refuse_down": {}
+          },
+          {
+            "stop_clock": {
+              "side": "foe",
+              "seconds": 1.0
+            }
+          },
+          {
+            "mod": {
+              "dmg_more": 1.0,
+              "tags": [
+                "sword"
+              ],
+              "for": 1.0
+            }
+          },
+          {
+            "counter": {
+              "id": "last_blossom_saved",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:One Flower on Iron",
+        "on": "crit",
+        "filter": {
+          "tags": [
+            "sword"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.plum_petal",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.plum_petal",
+            "op": "<",
+            "value": 5
+          }
+        ],
+        "scale": {
+          "read": "own.counter.plum_petal",
+          "per": 1
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 1,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "plum_petal",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:One Flower on Iron five",
+        "on": "crit",
+        "filter": {
+          "tags": [
+            "sword"
+          ]
+        },
+        "if": [
+          {
+            "read": "own.counter.plum_petal",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "scale": {
+          "read": "own.counter.plum_petal",
+          "per": 1
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "wood",
+              "n": 2,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "plum_petal",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Tiger's Weight",
+        "on": "fight_start",
+        "if": [
+          {
+            "read": "foe.boss",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "stop_clock": {
+              "side": "foe",
+              "seconds": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Bare Branch Blooms comp hit",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "companion"
+        },
+        "if": [
+          {
+            "read": "own.since.flying-sword",
+            "op": ">=",
+            "value": 15
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "has_companion",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Bare Branch Blooms comp evade",
+        "on": "was_evaded",
+        "filter": {
+          "kind": "companion"
+        },
+        "if": [
+          {
+            "read": "own.since.flying-sword",
+            "op": ">=",
+            "value": 15
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "has_companion",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Bare Branch Blooms crit",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.has_companion",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.hp_share",
+            "op": "<",
+            "value": 0.5
+          },
+          {
+            "read": "own.counter.plum_petal",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.plum_petal",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "crit_mult": 6,
+              "tags": [
+                "sword"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Bare Branch Blooms save",
+        "on": "refused",
+        "if": [
+          {
+            "read": "own.counter.last_blossom_saved",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "plum_petal",
+              "add": 5
+            }
+          }
+        ]
+      },
+      {
+        "id": "wolf-ring-delay",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "wolf-ring"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 0.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "second-night-clock-pulse",
+        "on": "pulse",
+        "do": [
+          {
+            "counter": {
+              "id": "glow_clock",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "second-night-clock-hit",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "glow_clock",
+              "add": 1.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "second-night-regen",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.glow_clock",
+            "op": ">=",
+            "value": 30
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.015
+            }
+          }
+        ]
+      },
+      {
+        "id": "second-night-staff",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.glow_clock",
+            "op": ">=",
+            "value": 30
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.15,
+              "tags": [
+                "staff"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "second-night-bow",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.glow_clock",
+            "op": ">=",
+            "value": 30
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.15,
+              "tags": [
+                "bow"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "leader-mark",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "the-leader-first"
+        },
+        "if": [
+          {
+            "read": "own.counter.marked_leader",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "marked_leader",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "leader-bypass",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.marked_leader",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "bypass": 0.25,
+              "tags": [
+                "bow"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "leader-broken",
+        "on": "broken",
+        "if": [
+          {
+            "read": "own.counter.marked_leader",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 2,
+              "dur": 4,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Warden Geese Line brace",
+        "on": "art_fired",
+        "filter": {
+          "group": "pine-warden-staff-and-bow-canon"
+        },
+        "if": [
+          {
+            "read": "own.counter.warden_brace",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "warden_brace",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Warden Geese Line companion hit",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "companion"
+        },
+        "if": [
+          {
+            "read": "own.counter.warden_companion",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "warden_companion",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Warden Geese Line companion evade",
+        "on": "was_evaded",
+        "filter": {
+          "kind": "companion"
+        },
+        "if": [
+          {
+            "read": "own.counter.warden_companion",
+            "op": "==",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "warden_companion",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Warden Geese Line block brace",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.warden_brace",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "block": 8
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Warden Geese Line block bell",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.ring_wardens",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "block": 8
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Warden Geese Line block companion",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.warden_companion",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "block": 8
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Pack Turns",
+        "on": "broken",
+        "if": [
+          {
+            "read": "own.counter.marked_leader",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "stop_clock": {
+              "side": "foe",
+              "seconds": 3.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Ring for the Wardens ring",
+        "on": "pulse",
+        "limit": {
+          "cooldown": 10
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "ring_wardens",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Ring for the Wardens dampen",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.ring_wardens",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 20
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Ring for the Wardens companions",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.ring_wardens",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.2,
+              "kind": "companion"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Dawn Shot tick",
+        "on": "pulse",
+        "do": [
+          {
+            "counter": {
+              "id": "dawn_wait",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Dawn Shot dmg",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.marked_leader",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.dawn_wait",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.015,
+              "art_id": "the-leader-first"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Dawn Shot bypass",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.marked_leader",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "bypass": 0.25,
+              "tags": [
+                "bow"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Dawn Shot reset",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "the-leader-first"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "dawn_wait",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "frost-sheet-stick",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "frost-sheet"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 0.5
+            }
+          },
+          {
+            "counter": {
+              "id": "frost_sheet",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "laid-ward-foreseen",
+        "on": "fight_start",
+        "if": [
+          {
+            "read": "tag.foreseen",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "ward",
+              "add": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "laid-ward-lay",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "laid-ward"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "ward",
+              "add": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "laid-ward-strike",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern",
+            "op": "<",
+            "value": 1
+          },
+          {
+            "read": "time",
+            "op": ">",
+            "value": 1
+          },
+          {
+            "any": [
+              {
+                "read": "own.foe_pressed",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "foe.since_act",
+                "op": "<=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "status": {
+              "id": "off_guard",
+              "stacks": 1,
+              "dur": 1,
+              "side": "foe"
+            }
+          },
+          {
+            "free_hit": {
+              "c": 0.5,
+              "dtype": "chaos",
+              "outside_budget": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "laid-ward-strike-lit",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "time",
+            "op": ">",
+            "value": 1
+          },
+          {
+            "any": [
+              {
+                "read": "own.foe_pressed",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "foe.since_act",
+                "op": "<=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "status": {
+              "id": "off_guard",
+              "stacks": 1,
+              "dur": 1,
+              "side": "foe"
+            }
+          },
+          {
+            "free_hit": {
+              "c": 0.7,
+              "dtype": "chaos",
+              "outside_budget": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "laid-ward-save-first",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.ward_save",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.lantern",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "time",
+            "op": ">",
+            "value": 1
+          },
+          {
+            "any": [
+              {
+                "read": "own.foe_pressed",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "foe.since_act",
+                "op": "<=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "ward_save",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "ward_spared",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "laid-ward-spend-twice",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.ward_spared",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.ward_twice",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "time",
+            "op": ">",
+            "value": 1
+          },
+          {
+            "any": [
+              {
+                "read": "own.foe_pressed",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "foe.since_act",
+                "op": "<=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "ward_twice",
+              "add": -1
+            }
+          },
+          {
+            "counter": {
+              "id": "ward_spared",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "laid-ward-spend",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.counter.ward_spared",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "time",
+            "op": ">",
+            "value": 1
+          },
+          {
+            "any": [
+              {
+                "read": "own.foe_pressed",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "foe.since_act",
+                "op": "<=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "ward",
+              "add": -1
+            }
+          }
+        ]
+      },
+      {
+        "id": "laid-ward-clear-spared",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.ward_spared",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "ward_spared",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "laid-ward-clamp-twice",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.ward",
+            "op": "==",
+            "value": 0
+          },
+          {
+            "read": "own.counter.ward_twice",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "ward_twice",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "pine-frost-lay",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "frost-on-the-pine"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "pine_frost_ward",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "pine-frost-guard",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.pine_frost_ward",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 60
+            }
+          }
+        ]
+      },
+      {
+        "id": "pine-frost-trigger",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.counter.pine_frost_ward",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "pine_frost_ward",
+              "set": 0
+            }
+          },
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 1,
+              "dur": 2,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cold-lamp-light",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "cold-night-lamp"
+        },
+        "if": [
+          {
+            "read": "own.counter.lantern_double",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "lantern",
+              "set": 9
+            }
+          },
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 1,
+              "dur": 3,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cold-lamp-light-long",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "cold-night-lamp"
+        },
+        "if": [
+          {
+            "read": "own.counter.lantern_double",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "lantern",
+              "set": 17
+            }
+          },
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 1,
+              "dur": 3,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cold-lamp-heal",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.lantern",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "heal": {
+              "share": 0.025
+            }
+          }
+        ]
+      },
+      {
+        "id": "cold-lamp-slow",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.lantern",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "cooldown": 3
+        },
+        "do": [
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 1,
+              "dur": 3,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cold-lamp-cold-res",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.lantern",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "resist": 100,
+              "dtype": "cold"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cold-lamp-ward-mark",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.lantern",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.25,
+              "tags": [
+                "ward"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Light That Stays init",
+        "on": "fight_start",
+        "do": [
+          {
+            "counter": {
+              "id": "lantern_double",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Light That Stays arm",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "cold-night-lamp"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "ward_save",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Sheets in the Wind",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "ward"
+          ]
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.35,
+              "dtype": "phys",
+              "outside_budget": true
+            }
+          },
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 1,
+              "dur": 2,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Ward Written Inside",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "laid-ward"
+        },
+        "if": [
+          {
+            "read": "own.counter.lantern",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "ward_twice",
+              "add": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "hold-the-line-shield",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "hold-the-line"
+        },
+        "do": [
+          {
+            "shield": {
+              "body": 0.08
+            }
+          }
+        ]
+      },
+      {
+        "id": "hold-the-line-composed",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.composed",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 12
+            }
+          }
+        ]
+      },
+      {
+        "id": "hold-the-sand-lay",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "hold-the-sand"
+        },
+        "if": [
+          {
+            "read": "own.state.iron-hide",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "hold-the-sand"
+            }
+          },
+          {
+            "counter": {
+              "id": "sand_ring_up",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "hold-the-sand-lay-iron",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "hold-the-sand"
+        },
+        "if": [
+          {
+            "read": "own.state.iron-hide",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "hold-the-sand-iron"
+            }
+          },
+          {
+            "counter": {
+              "id": "sand_ring_up",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "hold-the-sand-leave-iron",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "iron-hide-stance"
+        },
+        "if": [
+          {
+            "read": "own.state.hold-the-sand-iron",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "iron-hide"
+            }
+          }
+        ]
+      },
+      {
+        "id": "hold-the-sand-sync-iron-hit",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "iron-hide-stance"
+        },
+        "if": [
+          {
+            "read": "own.counter.sand_ring_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.state.iron-hide",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "hold-the-sand-iron"
+            }
+          }
+        ]
+      },
+      {
+        "id": "hold-the-sand-sync-iron-miss",
+        "on": "was_evaded",
+        "filter": {
+          "art_id": "iron-hide-stance"
+        },
+        "if": [
+          {
+            "read": "own.counter.sand_ring_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.state.iron-hide",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "hold-the-sand-iron"
+            }
+          }
+        ]
+      },
+      {
+        "id": "hold-the-sand-sync-plain-hit",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "iron-hide-stance"
+        },
+        "if": [
+          {
+            "read": "own.counter.sand_ring_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.state.any",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "hold-the-sand"
+            }
+          }
+        ]
+      },
+      {
+        "id": "hold-the-sand-sync-plain-miss",
+        "on": "was_evaded",
+        "filter": {
+          "art_id": "iron-hide-stance"
+        },
+        "if": [
+          {
+            "read": "own.counter.sand_ring_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.state.any",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "hold-the-sand"
+            }
+          }
+        ]
+      },
+      {
+        "id": "hold-the-sand-merge",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.sand_ring_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.state.iron-hide",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "hold-the-sand-iron"
+            }
+          }
+        ]
+      },
+      {
+        "id": "hold-the-sand-restore",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.counter.sand_ring_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "own.state.any",
+            "op": "<",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "state": {
+              "set": "hold-the-sand"
+            }
+          }
+        ]
+      },
+      {
+        "id": "hold-the-sand-iron-temper",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.state.hold-the-sand-iron",
+            "op": "==",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "per_pulse": 2
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "metal",
+              "n": 1,
+              "for": 8,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "hold-the-sand-pulse",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.field_up",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "earth",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          },
+          {
+            "status": {
+              "id": "slowed_time",
+              "stacks": 1,
+              "dur": 2,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "hold-the-sand-check",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.field_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "any": [
+              {
+                "read": "foe.pressing",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.foe_pressed",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 0.4
+            }
+          }
+        ]
+      },
+      {
+        "id": "answering-cut-arm",
+        "on": "blocked",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "answering_guard",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "spring-quench-skin",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "limit": {
+          "per_pulse": 2
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "earth",
+              "n": 1,
+              "for": 8,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "spring-quench-temper",
+        "on": "hit_landed",
+        "filter": {
+          "not_art_id": "spring-quench"
+        },
+        "limit": {
+          "per_pulse": 3
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "metal",
+              "n": 1,
+              "for": 10,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "spring-quench-consume",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "spring-quench"
+        },
+        "do": [
+          {
+            "consume": {
+              "el": "metal",
+              "side": "own",
+              "kind": "buff",
+              "then": [
+                {
+                  "counter": {
+                    "id": "spring_quench_stacks",
+                    "add": 1
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "counter": {
+              "id": "spring_quench_pierce",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "spring-quench-dmg",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.spring_quench_stacks",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "scale": {
+          "read": "own.counter.spring_quench_stacks",
+          "per": 1
+        },
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.15,
+              "art_id": "spring-quench"
+            }
+          }
+        ]
+      },
+      {
+        "id": "spring-quench-pen",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.spring_quench_pierce",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "pen": 150,
+              "art_id": "spring-quench"
+            }
+          }
+        ]
+      },
+      {
+        "id": "spring-quench-pierce",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.spring_quench_pierce",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "pierce": 35
+            }
+          }
+        ]
+      },
+      {
+        "id": "spring-quench-clear-hit",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "spring-quench"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "spring_quench_stacks",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "spring_quench_pierce",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "spring-quench-clear-miss",
+        "on": "was_evaded",
+        "filter": {
+          "art_id": "spring-quench"
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "spring_quench_stacks",
+              "set": 0
+            }
+          },
+          {
+            "counter": {
+              "id": "spring_quench_pierce",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Smoke on the Road:arm",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.field_up",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "smoke_road",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Smoke on the Road:acc",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.smoke_road",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "acc": 100
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Smoke on the Road:clear",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "answering-cut"
+        },
+        "if": [
+          {
+            "read": "own.counter.smoke_road",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "smoke_road",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Rider Comes In:block",
+        "on": "blocked",
+        "if": [
+          {
+            "read": "event.amount",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "do": [
+          {
+            "stacks": {
+              "el": "earth",
+              "n": 1,
+              "for": 8,
+              "side": "foe"
+            }
+          },
+          {
+            "counter": {
+              "id": "rider_counter_cut",
+              "set": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Rider Comes In:dmg",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.rider_counter_cut",
+            "op": ">=",
+            "value": 1
+          },
+          {
+            "any": [
+              {
+                "read": "foe.debuff.earth",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "foe.status.slowed_time",
+                "op": ">=",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.25,
+              "art_id": "answering-cut"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Rider Comes In:spend_hit",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "answering-cut"
+        },
+        "if": [
+          {
+            "read": "own.counter.rider_counter_cut",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "rider_counter_cut",
+              "set": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:The Rider Comes In:spend_evade",
+        "on": "was_evaded",
+        "filter": {
+          "art_id": "answering-cut"
+        },
+        "if": [
+          {
+            "read": "own.counter.rider_counter_cut",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "rider_counter_cut",
+              "set": 0
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

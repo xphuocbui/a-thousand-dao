@@ -1,27 +1,4 @@
 [
- {
-  "id": "red-sand-sabre-primer",
-  "name": "Red Sand Sabre Primer (Xích Sa Đao Quyết)",
-  "tier": 0,
-  "tech_kind": "main",
-  "names": ["hoa"],
-  "layers": 6,
-  "bonuses": [],
-  "passives": [
-   {"key": "attack_pct", "value": 5, "scope": ["fire"]},
-   {"key": "art_speed_pct", "value": 6, "scope": ["fire"]},
-   {"key": "art_cost_pct", "value": 6, "scope": ["fire"]}
-  ],
-  "abilities": [
-   {"ability_id": "cut-the-horse", "unlock_layer": 1}
-  ],
-  "effects": [],
-  "origin": "authored",
-  "suite": "red-sand-sabre-primer",
-  "family": "fire",
-  "owner": "da_quang",
-  "rank": "ngoai_mon",
-  "concept": "The raiders' first method, taught on horseback. The rider breathes the desert's heat into a Fire dantian and lets it out through a curved sabre in one long draw-cut from the saddle. It is fast to learn and wasteful of qi, which suits men who expect to die young. Its sixth layer teaches the cut that takes a horse's legs first.",
-  "lore": "Hạng Dạ Bôi wrote it down in 975 from what the caravan guards of Trường Vân already knew, because his raiders could not read and needed someone to read it to them."
- }
+ {"id": "red-sand-sabre-primer", "name": "Red Sand Sabre Primer (Xích Sa Đao Quyết)", "tier": 0, "tech_kind": "main", "names": ["hoa"], "layers": 6, "bonuses": [], "passives": [{"key": "attack_pct", "value": 5, "scope": ["fire"]}, {"key": "art_speed_pct", "value": 6, "scope": ["fire"]}, {"key": "art_cost_pct", "value": 6, "scope": ["fire"]}], "abilities": [{"ability_id": "cut-the-horse", "unlock_layer": 1}], "effects": [], "origin": "authored", "suite": "red-sand-sabre-primer", "family": "fire", "owner": "da_quang", "rank": "ngoai_mon", "concept": "The raiders' first method, taught on horseback. The rider breathes the desert's heat into a Fire dantian and lets it out through a curved sabre in one long draw-cut from the saddle. It is fast to learn and wasteful of qi, which suits men who expect to die young. Its sixth layer teaches the cut that takes a horse's legs first.", "lore": "Hạng Dạ Bôi wrote it down in 975 from what the caravan guards of Trường Vân already knew, because his raiders could not read and needed someone to read it to them."},
+ {"id": "night-glow-blood-sabre-canon", "name": "Night-Glow Blood Sabre Canon (Dạ Quang Huyết Đao Kinh)", "tier": 2, "tech_kind": "main", "names": ["hoa", "kim"], "layers": 12, "bonuses": [{"stat": "attack_pct", "value": 10}, {"stat": "khi_huyet_pct", "value": 12}], "passives": [{"key": "status_duration_pct", "value": 15, "scope": ["bleed"]}, {"key": "attack_pct", "value": 10, "scope": ["bleed"]}, {"key": "leech_health_pct", "value": 15, "scope": []}, {"key": "art_cost_health_pct", "value": 10, "scope": []}, {"key": "crit_damage_pct", "value": 15, "scope": ["physical"]}], "abilities": [{"ability_id": "crescent-of-red-sand", "unlock_layer": 1}, {"ability_id": "pay-in-blood", "unlock_layer": 2}], "effects": [{"name": "Wine in the Night-Glow Cup (Dạ Quang Bôi Tửu)", "unlock_layer": 4, "passive_art": true, "rule": "A passive art (authored d19, a1). Each 5 % of your health you pay for arts or deal as Bleed fills the cup by one, to five; a Broken foe fills it at once. At five you drink: your next art is free and heals you for a fifth of the health you paid since the last drink."}], "origin": "authored", "suite": "night-glow-blood-sabre-canon", "family": "fire", "owner": "da_quang", "rank": "noi_mon", "concept": "The blood sabre. The cultivator tempers a Metal edge with Fire and quenches it in their own blood, so that each art can be paid in health instead of linh lực, and each wound the sabre opens pays some of it back. It is a ma đạo method: the blade is fed, and a sabre long unfed makes its holder restless. At the higher layers the holder can drink the heat of a kill. Raiders say a kill tastes like grape wine from a night-glowing cup, and they mean it.", "lore": "Hạng Dạ Bôi learned its core from a blood-sabre manual taken off a ma đạo caravan in 981 and spent a century making it his own. Băng Tâm forbade it in 1121 and has not checked since (A126)."}
 ]

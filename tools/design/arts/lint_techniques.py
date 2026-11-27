@@ -70,11 +70,11 @@ TIER = {}
 for t in ["physical", "force", "soul", "hit", "art", "cultivator"]:
     TIER[t] = "broad"
 for t in ["fire", "cold", "lightning", "light", "chaos", "kim", "moc", "thuy", "hoa", "tho", "sword", "palm",
-          "seal", "beast", "formation", "over_time", "curse", "ward", "artifact", "talisman", "companion", "basic",
+          "seal", "beast", "formation", "bow", "over_time", "curse", "ward", "artifact", "talisman", "companion", "basic",
           "quick", "slow", "cheap", "costly", "weapon", "ward_gear", "body_gear", "utility", "creature",
           "secluded", "travelling", "buff", "debuff"]:
     TIER[t] = "family"
-for t in ["poison", "pierce", "lock", "cleanse", "escape", "body_shield", "phong", "loi", "am", "hon_don", "quang",
+for t in ["poison", "bleed", "pierce", "lock", "cleanse", "escape", "body_shield", "phong", "loi", "am", "hon_don", "quang",
           "bang"]:
     TIER[t] = "narrow"
 

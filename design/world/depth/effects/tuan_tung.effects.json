@@ -1,0 +1,322 @@
+{
+ "_doc": "Tuần Tùng Đường's Effect engine records (world-depth Stage 6; ADR-0009). Merged into assets/data/combat_effects.json under source world-depth:tuan_tung. Unpriced. Rule text from design/world/depth/sects/tuan_tung.items.json and tuan_tung.techniques.json.",
+ "source": "world-depth:tuan_tung",
+ "effects": {
+  "Warden Geese Line": {
+   "rule": "Pine Warden's Staff and Bow Canon (passive art, layer 2, authored wish d17 1v1 adaptation): while your warden file is braced (after firing a Pine Warden art), your Caravan Bell rally holds, or your companion fights with you, you gain +8 block rating for each active anchor.",
+   "approx": "1v1 adaptation of Geese Line under a distinct key (nhan_tran owns Geese Line): counts warden_brace (Pine Warden art fired), ring_wardens (Caravan Bell rally), and warden_companion (companion hit/evade) instead of multi-fighter ally counts",
+   "counters": [
+    {
+     "id": "warden_brace"
+    },
+    {
+     "id": "ring_wardens",
+     "each_for": 3
+    },
+    {
+     "id": "warden_companion"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Warden Geese Line brace",
+     "on": "art_fired",
+     "filter": {
+      "group": "pine-warden-staff-and-bow-canon"
+     },
+     "if": [
+      {
+       "read": "own.counter.warden_brace",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "warden_brace",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Warden Geese Line companion hit",
+     "on": "hit_landed",
+     "filter": {
+      "kind": "companion"
+     },
+     "if": [
+      {
+       "read": "own.counter.warden_companion",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "warden_companion",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Warden Geese Line companion evade",
+     "on": "was_evaded",
+     "filter": {
+      "kind": "companion"
+     },
+     "if": [
+      {
+       "read": "own.counter.warden_companion",
+       "op": "==",
+       "value": 0
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "warden_companion",
+        "set": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Warden Geese Line block brace",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.warden_brace",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "block": 8
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Warden Geese Line block bell",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.ring_wardens",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "block": 8
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Warden Geese Line block companion",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.warden_companion",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "block": 8
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "The Pack Turns": {
+   "rule": "Wolf-Winter Bow: when the foe you marked with The Leader First is Broken, the foe's clock stops for 3 s (its arts, basic attack and companions wait).",
+   "approx": "the engine has no foe 'creature' tag readable, so the Broken panic stop_clock (3 s) runs on any marked foe falling to 25 % health",
+   "counters": [
+    {
+     "id": "marked_leader"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:The Pack Turns",
+     "on": "broken",
+     "if": [
+      {
+       "read": "own.counter.marked_leader",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "stop_clock": {
+        "side": "foe",
+        "seconds": 3.0
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Ring for the Wardens": {
+   "rule": "The Caravan Bell of the Wolf Nights: every 10 s, ringing the bell rallies the wardens for 3 s — you take 20 % less damage, and your companions' hits deal 20 % more damage.",
+   "approx": "ttg-caravan-bell uses the chuong common ward under R6 rather than an active bell-ring art, so the bell rings on a 10 s pulse cooldown for 3 s via ring_wardens (each_for 3)",
+   "counters": [
+    {
+     "id": "ring_wardens",
+     "each_for": 3
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Ring for the Wardens ring",
+     "on": "pulse",
+     "limit": {
+      "cooldown": 10
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "ring_wardens",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Ring for the Wardens dampen",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.ring_wardens",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dampen_taken": 20
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Ring for the Wardens companions",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.ring_wardens",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.2,
+        "kind": "companion"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "Dawn Shot": {
+   "rule": "Three Nights on the Road, full set (2 pieces): against a foe marked by The Leader First, your bow arts bypass 25 % more of its ward, and The Leader First deals 1.5 % more damage per second since your last shot or fight start (15 % per 10 s), resetting when The Leader First lands.",
+   "counters": [
+    {
+     "id": "dawn_wait"
+    },
+    {
+     "id": "marked_leader"
+    }
+   ],
+   "records": [
+    {
+     "id": "eff:Dawn Shot tick",
+     "on": "pulse",
+     "do": [
+      {
+       "counter": {
+        "id": "dawn_wait",
+        "add": 1
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Dawn Shot dmg",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.marked_leader",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "scale": {
+      "read": "own.counter.dawn_wait",
+      "per": 1
+     },
+     "do": [
+      {
+       "mod": {
+        "dmg_more": 0.015,
+        "art_id": "the-leader-first"
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Dawn Shot bypass",
+     "on": "always",
+     "if": [
+      {
+       "read": "own.counter.marked_leader",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "mod": {
+        "bypass": 0.25,
+        "tags": [
+         "bow"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Dawn Shot reset",
+     "on": "hit_landed",
+     "filter": {
+      "art_id": "the-leader-first"
+     },
+     "do": [
+      {
+       "counter": {
+        "id": "dawn_wait",
+        "set": 0
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1608,6 +1608,40 @@ def t_foe_counter_read_and_write():   # Stage 6 b04 (van_hac): foe.counter.<id> 
           "%s %s" % (B.counters, A.counters))
 
 
+def t_lint_bleed_and_bow_scopes():   # Stage 6 b05 (da_quang / tuan_tung): bleed & bow scopes in lint_techniques + fight.py
+    import importlib.util
+    import json
+    import fight as F
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "arts", "lint_techniques.py")
+    spec = importlib.util.spec_from_file_location("lint_techniques", p)
+    lt = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(lt)
+    data = json.load(open(os.path.join(lt.ROOT, "assets", "data", "items_cong_phap.json"), encoding="utf-8"))
+    tiers = {x["rank"]: x for x in data["tiers"]}
+    arts = {"free-art": {"id": "free-art", "element": ""}, "fire-art": {"id": "fire-art", "element": "fire"}}
+    base = {"id": "t", "name": "T", "tier": 1, "layers": 9, "bonuses": [{"stat": "attack_pct", "value": 10}], "origin": "authored"}
+    t_bleed = dict(base, id="tb", tech_kind="main", names=["hoa"],
+                   passives=[{"key": "status_duration_pct", "value": 15, "scope": ["bleed"]},
+                             {"key": "attack_pct", "value": 10, "scope": ["bleed"]}],
+                   abilities=[{"ability_id": "fire-art", "unlock_layer": 1}])
+    t_bow = dict(base, id="tw", tech_kind="main", names=[],
+                 passives=[{"key": "attack_pct", "value": 6, "scope": ["bow"]},
+                           {"key": "crit_damage_pct", "value": 20, "scope": ["bow"]}],
+                 abilities=[{"ability_id": "free-art", "unlock_layer": 1}])
+    check("bleed scope passes lint_techniques",
+          lt.lint([t_bleed], "catalogue-sect-test.json", arts, data["bonus_pool"], tiers, []) == [])
+    check("bow scope passes lint_techniques",
+          lt.lint([t_bow], "catalogue-sect-test.json", arts, data["bonus_pool"], tiers, []) == [])
+    eff_b = F.passive_effect(t_bleed, [])
+    eff_w = F.passive_effect(t_bow, [])
+    check("passive_effect maps bleed/bow scopes to tags",
+          eff_b["do"][0]["mod"] == {"status_dur": 15, "tags": ["bleed"]}
+          and eff_b["do"][1]["mod"] == {"L1": 10, "tags": ["bleed"]}
+          and eff_w["do"][0]["mod"] == {"L1": 6, "tags": ["bow"]}
+          and eff_w["do"][1]["mod"] == {"crit_mult": 20, "tags": ["bow"]},
+          "%s %s" % (eff_b, eff_w))
+
+
 def main():
     for name, fn in sorted(globals().items()):
         if name.startswith("t_"):

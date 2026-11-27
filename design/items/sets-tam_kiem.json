@@ -1,0 +1,3 @@
+[
+ {"id": "tk-map-wall", "name": "The Map Wall (Đồ Bích)", "pieces": ["tk-asking-blade", "tk-map-coat"], "bonuses": [{"pieces": 2, "modifiers": [{"key": "crit_chance_pct", "value": 3, "scope": ["sword"]}, {"key": "accuracy_pct", "value": 4, "scope": []}], "effect": "The Answer (Đáp)", "rule": "Each Ask mark on the foe raises your next The Blade Answers cut's crit damage by 10 %; a The Blade Answers cut that spends 5 or more Ask marks ignores half of the foe's ward shields (bypass 0.5, the engine's bypass_cap)."}], "story": "The hunter's sword with its 412 notches and the coat that carries the map wall's caves: what the Tiêu son took with him when the hermitage turned him away."}
+]

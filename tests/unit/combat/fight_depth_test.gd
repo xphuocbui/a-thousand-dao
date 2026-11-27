@@ -959,3 +959,40 @@ func test_foe_counter_compiles_without_own_counter_warning_and_triggers() -> voi
 	f.pulse(f.a)
 	assert_near(float(f.b.counters.get("resonance", 0.0)), 2.0, 1e-9, "resonance 2 after 2nd pulse")
 	assert_near(float(f.a.counters["triggered"]), 1.0, 1e-9, "triggered at 2")
+
+
+func test_bleed_and_bow_scopes_compile_and_apply_to_matching_tags_only() -> void:
+	# test_engine.py t_lint_bleed_and_bow_scopes (Stage 6 b05 da_quang & tuan_tung)
+	var gd := game_data()
+	var k := CombatConstants.from_game_data(gd)
+	var bfc := BuildFileCompiler.new(gd)
+	var loader := FighterProfileLoader.new(k)
+	var inp := {
+		"name": "b05_scopes", "realm": 1, "layers": [0, 0, 0, 0, 0],
+		"arts": [
+			{"id": "bow-shot", "c_art": 1.0, "cost_share": 0.03, "cooldown": 3.0, "element": "", "kind": "phys", "tags": ["physical", "bow"]},
+			{"id": "sabre-bleed", "c_art": 1.0, "cost_share": 0.03, "cooldown": 3.0, "element": "fire", "kind": "elem", "tags": ["fire", "sabre", "bleed"]},
+			{"id": "plain-cut", "c_art": 1.0, "cost_share": 0.03, "cooldown": 3.0, "element": "", "kind": "phys", "tags": ["physical"]},
+		],
+		"modifiers": [
+			{"key": "attack_pct", "value": 25.0, "scope": ["bow"]},
+			{"key": "crit_damage_pct", "value": 20.0, "scope": ["bow"]},
+			{"key": "status_duration_pct", "value": 50.0, "scope": ["bleed"]},
+			{"key": "attack_pct", "value": 10.0, "scope": ["bleed"]},
+		],
+	}
+	var rec: Dictionary = bfc.compile(inp)
+	assert_true(bfc.errors.is_empty(), "compiles: %s" % "; ".join(bfc.errors))
+	assert_true(bfc.unmodelled.is_empty(), "no unmodelled lines: %s" % "; ".join(bfc.unmodelled))
+	var p: FighterProfile = loader.from_sim_build(rec, "b05_scopes")
+	assert_true(p != null and loader.errors.is_empty(), "loads: %s" % "; ".join(loader.errors))
+	var f := Fight.new(p, FighterCompiler.from_data("typical", 1, gd), k, 1, Fight.Order.FIXED)
+	assert_near(f.m(f.a, "L1", p.arts[0].ctx), 25.0, 1e-9, "bow scope matches bow art")
+	assert_near(f.m(f.a, "crit_mult", p.arts[0].ctx), 20.0, 1e-9, "bow scope crit_mult matches bow art")
+	assert_near(f.m(f.a, "L1", p.arts[1].ctx), 10.0, 1e-9, "bleed scope matches bleed art")
+	assert_near(f.m(f.a, "L1", p.arts[2].ctx), 0.0, 1e-9, "neither scope leaks to plain art")
+	var bleed_spec := StatusSpec.new()
+	bleed_spec.id = "bleed"
+	bleed_spec.stacks = 1.0
+	f.apply_status(f.a, f.b, bleed_spec)
+	assert_eq(f.b.statuses["bleed"].until, 6000, "status_duration_pct [bleed] extends 4s bleed to 6s")
