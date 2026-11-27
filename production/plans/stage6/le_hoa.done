@@ -1,0 +1,27 @@
+{
+ "owner": "le_hoa",
+ "minutes": 7,
+ "written": {
+  "techniques": 3,
+  "arts": 5,
+  "items": 5,
+  "sets": 2,
+  "effects": 3,
+  "stand_ins": 0,
+  "beasts": 0
+ },
+ "deviations": 10,
+ "decisions": [
+  "Use self-counters gate_raised, petal_field, and sit_door instead of s.state so deep-winter-form is never overwritten on shared holders.",
+  "Check foe.since_act <= 1.0 (with foe.fired >= 1) alongside own.foe_pressed and foe.pressing on eighth-month-snow (cd 6.0) so exact-integer enemy cooldowns trigger reliably at pulse.",
+  "Split sit-against-the-door always mods (ward_pct 15 vs status_dur 30 [curse]) into separate records and regenerate stance ward via ward_grow.",
+  "Track Until It Stops Wanting frost-seal extension via shared seal_hold and uncapped vigil_toll (each_for 10, dampen_taken 5.26 per toll), accepting seal_hold, heavy_breath, or slowed_time.",
+  "Map Toll of the Frozen Bolt frozen-lightning wait to stop_clock 0.5 s and None Shall Pass ward pierce to bypass 0.5 + pen 100 (tags [sword]) spent on crit."
+ ],
+ "pending_words": [],
+ "never_ran": [],
+ "early_promotions": [],
+ "open": [
+  "export_named.py support for kind: treasure (lh-bolt-ice-bell, rarity 5) at the serial/export step."
+ ]
+}
