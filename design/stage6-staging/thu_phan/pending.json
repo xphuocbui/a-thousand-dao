@@ -1,0 +1,19 @@
+{
+ "words": [
+  {
+   "name": "lint-element-free-techniques",
+   "kind": "tool",
+   "spec": "Allow main and secret techniques in lint_techniques.py to declare names: [] when every ability across their layers has element == \"\" (element-free soul/seal/ward methods). Currently lint_techniques.py rejects names: [] unless slot == \"body\"; this forced temporary names: [\"thuy\"] proxies on Thu Phan's three element-free lineages, which causes CongPhap.usable() (src/gameplay/cultivation/cong_phap.gd:42-46) to return false for 5 living members lacking Water root (tham_tho_bich, tiet_an_suong, hua_tang_thu, thuong_dich_am, nhan_thu_mac). Once lint_techniques.py supports element-free main/secret techniques, restore names: [] on grave-sweeping-chant, autumn-grave-canon, and jade-of-resentment-ward.",
+   "gdd_text": "Element-free soul/seal/ward methods open to any root (Thu Phan Pavilion: Grave-Sweeping Chant, Autumn Grave Canon, Jade of Resentment Ward).",
+   "used_by": [
+    "grave-sweeping-chant",
+    "autumn-grave-canon",
+    "jade-of-resentment-ward"
+   ],
+   "decision": "build",
+   "decision_reason": "Temporary names: [\"thuy\"] passes lint_techniques.py for Stage 6 staging but blocks 5 of 18 living Thu Phan members (Wood/Metal starts without Water) from passing CongPhap.usable() in Godot. s6-serial-b02 should teach lint_techniques.py to accept names: [] on element-free main/secret techniques and clear the temporary [\"thuy\"] proxy on all three Thu Phan techniques."
+  }
+ ],
+ "arts": [],
+ "effects": {}
+}

@@ -1,0 +1,15 @@
+{
+ "owner": "thu_phan",
+ "minutes": 45,
+ "must_fix": 2,
+ "should": 2,
+ "fixed": 4,
+ "words": {
+  "lint-element-free-techniques": "build"
+ },
+ "open": [
+  "lint-element-free-techniques (build in s6-serial-b02): teach tools/design/arts/lint_techniques.py to accept names: [] on main/secret techniques whose abilities all have element == '', then clear the temporary ['thuy'] lint proxy on grave-sweeping-chant, autumn-grave-canon, and jade-of-resentment-ward (proxy currently causes CongPhap.usable() to reject 5/18 living thu_phan members lacking Water root)",
+  "CongPhap.avg_purity([]) fallback (Stage 7/9): src/gameplay/cultivation/cong_phap.gd returns 0.0 for empty names [], placing element-free techniques at the crude speed/factor tier once names: [] is restored",
+  "art_speed_pct scope ['song'] (b2): tp-autumn-grave-bell, tp-nine-graves-zither, and tp-grave-drum compile song-speed with scope ['soul'] until Modifier TIER/scope_dtype supports ['song']"
+ ]
+}

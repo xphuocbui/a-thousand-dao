@@ -8,6 +8,7 @@
   "power": "standalone",
   "group": "grave-sweeping-chant",
   "tags": [
+   "soul",
    "song"
   ],
   "soul_pct": 0.03,
@@ -54,6 +55,7 @@
   "power": "engine",
   "group": "autumn-grave-canon",
   "tags": [
+   "soul",
    "song"
   ],
   "soul_pct": 0.035,
@@ -259,6 +261,7 @@
   "power": "engine",
   "group": "autumn-grave-canon",
   "tags": [
+   "soul",
    "song"
   ],
   "soul_pct": 0.032,
@@ -375,7 +378,7 @@
   "kind": "elem",
   "effects": [
    {
-    "id": "hold-it-down-base",
+    "id": "hold-it-down-deep",
     "on": "hit_landed",
     "filter": {
      "art_id": "hold-it-down"
@@ -383,24 +386,24 @@
     "if": [
      {
       "read": "foe.curses",
-      "op": "<=",
-      "value": 1
+      "op": ">=",
+      "value": 4
      }
     ],
     "do": [
      {
       "status": {
-       "id": "slowed_time",
+       "id": "sundered",
        "stacks": 1,
-       "dur": 2,
+       "dur": 4,
        "side": "foe"
       }
      },
      {
       "status": {
-       "id": "sundered",
+       "id": "slowed_time",
        "stacks": 1,
-       "dur": 2,
+       "dur": 4,
        "side": "foe"
       }
      }
@@ -427,7 +430,7 @@
     "do": [
      {
       "status": {
-       "id": "slowed_time",
+       "id": "sundered",
        "stacks": 1,
        "dur": 3,
        "side": "foe"
@@ -435,7 +438,7 @@
      },
      {
       "status": {
-       "id": "sundered",
+       "id": "slowed_time",
        "stacks": 1,
        "dur": 3,
        "side": "foe"
@@ -444,7 +447,7 @@
     ]
    },
    {
-    "id": "hold-it-down-deep",
+    "id": "hold-it-down-base",
     "on": "hit_landed",
     "filter": {
      "art_id": "hold-it-down"
@@ -452,24 +455,24 @@
     "if": [
      {
       "read": "foe.curses",
-      "op": ">=",
-      "value": 4
+      "op": "<=",
+      "value": 1
      }
     ],
     "do": [
      {
       "status": {
-       "id": "slowed_time",
+       "id": "sundered",
        "stacks": 1,
-       "dur": 4,
+       "dur": 2,
        "side": "foe"
       }
      },
      {
       "status": {
-       "id": "sundered",
+       "id": "slowed_time",
        "stacks": 1,
-       "dur": 4,
+       "dur": 2,
        "side": "foe"
       }
      }
@@ -486,7 +489,7 @@
   "sources": [
    "world-depth:thu_phan"
   ],
-  "notes": "Approximation: engine curses act on whole foe readiness (slowed_time) and defence (sundered) rather than weakening a single foe art; stepped duration branches (3/5/7 s) scale with foe.curses."
+  "notes": "Approximation: engine curses act on whole foe readiness (slowed_time) and defence (sundered) rather than weakening a single foe art; stepped duration branches (2/3/4 s) scale with foe.curses, checked deep->mid->base so lower tiers do not trigger higher tiers on the same hit."
  },
  {
   "id": "a-thousand-years",

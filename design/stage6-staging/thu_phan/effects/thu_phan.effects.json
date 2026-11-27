@@ -58,7 +58,9 @@
      "id": "eff:Toll for the Dead boost",
      "on": "art_fired",
      "filter": {
-      "dtype": "soul"
+      "tags": [
+       "soul"
+      ]
      },
      "if": [
       {
@@ -314,7 +316,7 @@
     },
     {
      "id": "eff:Blood Turns to Jade spend check",
-     "on": "art_fired",
+     "on": "hit_landed",
      "filter": {
       "tags": [
        "seal"
@@ -350,7 +352,7 @@
     },
     {
      "id": "eff:Blood Turns to Jade spend bonus",
-     "on": "art_fired",
+     "on": "hit_landed",
      "filter": {
       "tags": [
        "seal"
@@ -382,7 +384,7 @@
     },
     {
      "id": "eff:Blood Turns to Jade spend clear",
-     "on": "art_fired",
+     "on": "hit_landed",
      "filter": {
       "tags": [
        "seal"
