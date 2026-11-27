@@ -109,6 +109,44 @@
      ]
     },
     {
+     "id": "eff:Unlit:clear_cost",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.furnace_hp_cost",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "furnace_hp_cost",
+        "set": 0
+       }
+      }
+     ]
+    },
+    {
+     "id": "eff:Unlit:tick",
+     "on": "pulse",
+     "if": [
+      {
+       "read": "own.counter.furnace_burn",
+       "op": ">=",
+       "value": 1
+      }
+     ],
+     "do": [
+      {
+       "counter": {
+        "id": "furnace_burn",
+        "add": -1
+       }
+      }
+     ]
+    },
+    {
      "id": "eff:Unlit:pulse_cost",
      "on": "pulse",
      "if": [
@@ -168,25 +206,6 @@
      ]
     },
     {
-     "id": "eff:Unlit:clear_cost",
-     "on": "pulse",
-     "if": [
-      {
-       "read": "own.counter.furnace_hp_cost",
-       "op": ">=",
-       "value": 1
-      }
-     ],
-     "do": [
-      {
-       "counter": {
-        "id": "furnace_hp_cost",
-        "set": 0
-       }
-      }
-     ]
-    },
-    {
      "id": "eff:Unlit:double_stacks",
      "on": "always",
      "if": [
@@ -220,25 +239,6 @@
       {
        "mod": {
         "hregen_inc": 100
-       }
-      }
-     ]
-    },
-    {
-     "id": "eff:Unlit:tick",
-     "on": "pulse",
-     "if": [
-      {
-       "read": "own.counter.furnace_burn",
-       "op": ">=",
-       "value": 1
-      }
-     ],
-     "do": [
-      {
-       "counter": {
-        "id": "furnace_burn",
-        "add": -1
        }
       }
      ]
@@ -301,7 +301,7 @@
   },
   "Haze Held All Night": {
    "rule": "The Dusk Field (3 pieces): healing you would receive from your own arts while the Cold Furnace is unlit is stored in it instead, and the store fades by a twentieth each second; when the furnace lights, the store is restored to you at once, and lighting it costs you no health.",
-   "approx": "While furnace_lit == 0, heal_taken -50 holds back half of incoming heals and heal_restored / heal_overflow store event.share (fading 5 % per second via decay_share 0.05); when furnace_lit >= 1, the full store is restored with ignore_taken and Unlit's 10 % HP cost is waived via dusk_no_lit_cost.",
+   "approx": "While furnace_lit == 0, heal_taken -50 holds back half of all incoming heals and heal_restored / heal_overflow store event.share (fading 5 % per second via decay_share 0.05) — unfiltered because art.heal and pulse-released heals do not carry kind: art; when furnace_lit >= 1, the full store is restored with ignore_taken and Unlit's 10 % HP cost is waived via dusk_no_lit_cost.",
    "counters": [
     {
      "id": "furnace_lit"
